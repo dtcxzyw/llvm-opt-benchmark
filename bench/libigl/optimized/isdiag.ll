@@ -55,14 +55,14 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 24:                                               ; preds = %.lr.ph.us
   %25 = getelementptr inbounds double, ptr %6, i64 %.sroa.8.017.us
-  %26 = load double, ptr %25, align 8, !tbaa !24
+  %26 = load double, ptr %25, align 8, !tbaa !25
   %27 = fcmp une double %26, 0.000000e+00
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %24, %.lr.ph.us
   %29 = add nsw i64 %.sroa.8.017.us, 1
   %exitcond28.not = icmp eq i64 %29, %18
-  br i1 %exitcond28.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond28.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !27
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit: ; preds = %.lr.ph20, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph20 ]
@@ -86,19 +86,19 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr inbounds double, ptr %6, i64 %.sroa.8.017
-  %43 = load double, ptr %42, align 8, !tbaa !24
+  %43 = load double, ptr %42, align 8, !tbaa !25
   %44 = fcmp une double %43, 0.000000e+00
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %.lr.ph, %41
   %46 = add nsw i64 %.sroa.8.017, 1
   %47 = icmp slt i64 %46, %36
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %45, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %.thread, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit, !llvm.loop !22
+  br i1 %exitcond.not, label %.thread, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit, !llvm.loop !28
 
 .thread:                                          ; preds = %._crit_edge, %41, %._crit_edge.us, %24, %1
   %48 = phi i1 [ true, %1 ], [ false, %24 ], [ true, %._crit_edge.us ], [ false, %41 ], [ true, %._crit_edge ]
@@ -131,8 +131,10 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 !19 = !{!5, !12, i64 32}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"int", !9, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !9, i64 0}
-!26 = distinct !{!26, !23}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !9, i64 0}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !23}

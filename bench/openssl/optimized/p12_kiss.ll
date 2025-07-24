@@ -147,52 +147,46 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
   br i1 %.not7390, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %parse_pk12.exit
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not, label %.thread.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %32, label %.thread.us.us, label %.thread.us
+.thread.us:                                       ; preds = %.lr.ph, %.backedge.us
+  %61 = phi ptr [ %65, %.backedge.us ], [ %60, %.lr.ph ]
+  br i1 %32, label %63, label %62
 
-.thread.us.us:                                    ; preds = %.lr.ph.split.us, %.backedge.us.us
-  %61 = phi ptr [ %63, %.backedge.us.us ], [ %60, %.lr.ph.split.us ]
-  %62 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %4, ptr noundef nonnull %61, i32 noundef 0) #3
-  %.not75.us.us = icmp eq i32 %62, 0
-  br i1 %.not75.us.us, label %.loopexit, label %.backedge.us.us
+62:                                               ; preds = %.thread.us
+  tail call void @X509_free(ptr noundef nonnull %61) #3
+  br label %.backedge.us
 
-.backedge.us.us:                                  ; preds = %.thread.us.us
-  %63 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
-  %.not73.us.us = icmp eq ptr %63, null
-  br i1 %.not73.us.us, label %._crit_edge, label %.thread.us.us, !llvm.loop !23
+63:                                               ; preds = %.thread.us
+  %64 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %4, ptr noundef nonnull %61, i32 noundef 0) #3
+  %.not75.us = icmp eq i32 %64, 0
+  br i1 %.not75.us, label %.loopexit, label %.backedge.us
 
-.thread.us:                                       ; preds = %.lr.ph.split.us, %.thread.us
-  %64 = phi ptr [ %65, %.thread.us ], [ %60, %.lr.ph.split.us ]
-  tail call void @X509_free(ptr noundef nonnull %64) #3
+.backedge.us:                                     ; preds = %63, %62
   %65 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us = icmp eq ptr %65, null
   br i1 %.not73.us, label %._crit_edge, label %.thread.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph.split.split, label %.lr.ph.split.split.us
+  br i1 %8, label %.lr.ph.split.split, label %.thread.us91
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %32, label %.thread.us91.us, label %.thread.us91
+.thread.us91:                                     ; preds = %.lr.ph.split, %.backedge.us93
+  %66 = phi ptr [ %70, %.backedge.us93 ], [ %60, %.lr.ph.split ]
+  br i1 %32, label %68, label %67
 
-.thread.us91.us:                                  ; preds = %.lr.ph.split.split.us, %.backedge.us93.us
-  %66 = phi ptr [ %68, %.backedge.us93.us ], [ %60, %.lr.ph.split.split.us ]
-  %67 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %4, ptr noundef nonnull %66, i32 noundef 0) #3
-  %.not75.us92.us = icmp eq i32 %67, 0
-  br i1 %.not75.us92.us, label %.loopexit, label %.backedge.us93.us
+67:                                               ; preds = %.thread.us91
+  tail call void @X509_free(ptr noundef nonnull %66) #3
+  br label %.backedge.us93
 
-.backedge.us93.us:                                ; preds = %.thread.us91.us
-  %68 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
-  %.not73.us94.us = icmp eq ptr %68, null
-  br i1 %.not73.us94.us, label %._crit_edge, label %.thread.us91.us, !llvm.loop !23
+68:                                               ; preds = %.thread.us91
+  %69 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %4, ptr noundef nonnull %66, i32 noundef 0) #3
+  %.not75.us92 = icmp eq i32 %69, 0
+  br i1 %.not75.us92, label %.loopexit, label %.backedge.us93
 
-.thread.us91:                                     ; preds = %.lr.ph.split.split.us, %.thread.us91
-  %69 = phi ptr [ %70, %.thread.us91 ], [ %60, %.lr.ph.split.split.us ]
-  tail call void @X509_free(ptr noundef nonnull %69) #3
+.backedge.us93:                                   ; preds = %68, %67
   %70 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us94 = icmp eq ptr %70, null
-  br i1 %.not73.us94, label %._crit_edge, label %.thread.us91, !llvm.loop !23
+  br i1 %.not73.us94, label %._crit_edge, label %.thread.us91, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %32, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -200,8 +194,8 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.backedge.us99
   %71 = phi ptr [ %83, %.backedge.us99 ], [ %60, %.lr.ph.split.split ]
   %72 = load ptr, ptr %2, align 8, !tbaa !3
-  %.not106 = icmp eq ptr %72, null
-  br i1 %.not106, label %.thread.us97, label %73
+  %.not104 = icmp eq ptr %72, null
+  br i1 %.not104, label %.thread.us97, label %73
 
 73:                                               ; preds = %.lr.ph.split.split.split.us
   %74 = load ptr, ptr %3, align 8, !tbaa !8
@@ -228,7 +222,7 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
 .backedge.us99:                                   ; preds = %.thread.us97, %81
   %83 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us100 = icmp eq ptr %83, null
-  br i1 %.not73.us100, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !23
+  br i1 %.not73.us100, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !26
 
 parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exit.thread82
   %84 = tail call i64 @ERR_peek_last_error() #3
@@ -249,8 +243,8 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
   %88 = phi ptr [ %99, %.backedge ], [ %60, %.lr.ph.split.split ]
   %89 = load ptr, ptr %2, align 8, !tbaa !3
-  %.not105 = icmp eq ptr %89, null
-  br i1 %.not105, label %.thread, label %90
+  %.not103 = icmp eq ptr %89, null
+  br i1 %.not103, label %.thread, label %90
 
 90:                                               ; preds = %.lr.ph.split.split.split
   %91 = load ptr, ptr %3, align 8, !tbaa !8
@@ -276,37 +270,37 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
 .backedge:                                        ; preds = %.thread, %98
   %99 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73 = icmp eq ptr %99, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !23
+  br i1 %.not73, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.thread.us91, %.backedge.us93.us, %.backedge, %.backedge.us99, %.thread.us, %.backedge.us.us, %parse_pk12.exit
+._crit_edge:                                      ; preds = %.backedge.us93, %.backedge, %.backedge.us99, %.backedge.us, %parse_pk12.exit
   tail call void @OPENSSL_sk_free(ptr noundef %.1) #3
   br label %105
 
 .loopexit.sink.split:                             ; preds = %87, %33, %24, %22
-  %.sink138 = phi i32 [ 67, %22 ], [ 71, %24 ], [ 81, %33 ], [ 90, %87 ]
+  %.sink132 = phi i32 [ 67, %22 ], [ 71, %24 ], [ 81, %33 ], [ 90, %87 ]
   %.sink = phi i32 [ 113, %22 ], [ 113, %24 ], [ 524303, %33 ], [ 114, %87 ]
   %.053.ph = phi ptr [ null, %22 ], [ null, %24 ], [ null, %33 ], [ %.1, %87 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink138, ptr noundef nonnull @__func__.PKCS12_parse) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink132, ptr noundef nonnull @__func__.PKCS12_parse) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread.us91.us, %.thread.us.us, %.loopexit.sink.split, %parse_pk12.exit.thread, %87
-  %.053 = phi ptr [ %.1, %87 ], [ %.1, %parse_pk12.exit.thread ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %.thread.us.us ], [ %.1, %.thread.us91.us ]
-  %.052 = phi ptr [ null, %87 ], [ null, %parse_pk12.exit.thread ], [ null, %.loopexit.sink.split ], [ %61, %.thread.us.us ], [ %66, %.thread.us91.us ]
+.loopexit:                                        ; preds = %68, %63, %.loopexit.sink.split, %parse_pk12.exit.thread, %87
+  %.053 = phi ptr [ %.1, %87 ], [ %.1, %parse_pk12.exit.thread ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %63 ], [ %.1, %68 ]
+  %.052 = phi ptr [ null, %87 ], [ null, %parse_pk12.exit.thread ], [ null, %.loopexit.sink.split ], [ %61, %63 ], [ %66, %68 ]
   br i1 %.not, label %101, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.thread.us97, %.loopexit
-  %.052124 = phi ptr [ %.052, %.loopexit ], [ %71, %.thread.us97 ]
-  %.053122 = phi ptr [ %.053, %.loopexit ], [ %.1, %.thread.us97 ]
+  %.052120 = phi ptr [ %.052, %.loopexit ], [ %71, %.thread.us97 ]
+  %.053118 = phi ptr [ %.053, %.loopexit ], [ %.1, %.thread.us97 ]
   %100 = load ptr, ptr %2, align 8, !tbaa !3
   tail call void @EVP_PKEY_free(ptr noundef %100) #3
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %101
 
 101:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.052125 = phi ptr [ %.052124, %.loopexit.thread ], [ %.052, %.loopexit ]
-  %.053123 = phi ptr [ %.053122, %.loopexit.thread ], [ %.053, %.loopexit ]
+  %.052121 = phi ptr [ %.052120, %.loopexit.thread ], [ %.052, %.loopexit ]
+  %.053119 = phi ptr [ %.053118, %.loopexit.thread ], [ %.053, %.loopexit ]
   br i1 %8, label %102, label %104
 
 102:                                              ; preds = %101
@@ -316,8 +310,8 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br label %104
 
 104:                                              ; preds = %102, %101
-  tail call void @X509_free(ptr noundef %.052125) #3
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.053123) #3
+  tail call void @X509_free(ptr noundef %.052121) #3
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.053119) #3
   br label %105
 
 105:                                              ; preds = %104, %._crit_edge, %12
@@ -479,8 +473,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %0, ptr nound
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !24
-  %51 = load i32, ptr %.054.i, align 8, !tbaa !26
+  %50 = load ptr, ptr %49, align 8, !tbaa !28
+  %51 = load i32, ptr %.054.i, align 8, !tbaa !30
   %52 = call i32 @X509_keyid_set1(ptr noundef nonnull %45, ptr noundef %50, i32 noundef %51) #3
   %.not66.i = icmp eq i32 %52, 0
   br i1 %.not66.i, label %53, label %54
@@ -500,9 +494,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %0, ptr nound
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %7, align 8, !tbaa !27
+  %59 = load ptr, ptr %7, align 8, !tbaa !31
   %60 = call i32 @X509_alias_set1(ptr noundef nonnull %45, ptr noundef %59, i32 noundef %56) #3
-  %61 = load ptr, ptr %7, align 8, !tbaa !27
+  %61 = load ptr, ptr %7, align 8, !tbaa !31
   call void @CRYPTO_free(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef 245) #3
   %.not68.i = icmp eq i32 %60, 0
   br i1 %.not68.i, label %.critedge.i, label %62
@@ -535,7 +529,7 @@ parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, 
   %68 = add nuw nsw i32 %.020, 1
   %69 = call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   %70 = icmp slt i32 %68, %69
-  br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !28
+  br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !32
 
 parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %28, %35, %38, %44, %6, %.critedge.i, %53, %65
   %.011 = phi i32 [ 0, %65 ], [ 0, %53 ], [ 0, %.critedge.i ], [ 1, %6 ], [ 0, %parse_bag.exit ], [ 1, %parse_bag.exit.thread ], [ 0, %28 ], [ 0, %35 ], [ 0, %38 ], [ 0, %44 ]
@@ -602,9 +596,13 @@ attributes #3 = { nounwind }
 !20 = !{!12, !13, i64 48}
 !21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!25, !13, i64 8}
-!25 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !13, i64 8, !14, i64 16}
-!26 = !{!25, !15, i64 0}
-!27 = !{!13, !13, i64 0}
-!28 = distinct !{!28, !22}
+!23 = distinct !{!23, !22, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !22, !24}
+!26 = distinct !{!26, !22, !24}
+!27 = distinct !{!27, !22}
+!28 = !{!29, !13, i64 8}
+!29 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !13, i64 8, !14, i64 16}
+!30 = !{!29, !15, i64 0}
+!31 = !{!13, !13, i64 0}
+!32 = distinct !{!32, !22}

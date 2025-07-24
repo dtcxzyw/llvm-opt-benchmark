@@ -140,7 +140,7 @@ define noundef i32 @_ZN6icu_7711StringPiece4findES0_i(ptr noundef nonnull readon
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader._crit_edge.loopexit, label %15, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader._crit_edge.loopexit, label %15, !llvm.loop !15
 
 .preheader._crit_edge.loopexit:                   ; preds = %25
   %26 = trunc nsw i64 %indvars.iv45 to i32
@@ -190,7 +190,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_7711StringPiece7compareES0_(ptr nou
 18:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %18, %3
   %.012.lcssa = phi i32 [ 0, %3 ], [ %5, %18 ]
@@ -268,7 +268,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = !{!"int", !7, i64 0}
 !10 = !{!4, !9, i64 8}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}

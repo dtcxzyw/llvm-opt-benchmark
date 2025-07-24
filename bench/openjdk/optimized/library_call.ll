@@ -54521,7 +54521,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
 77:                                               ; preds = %71, %.loopexit
   %78 = add nsw i32 %.sroa.5.1, 1
   %79 = icmp slt i32 %78, %41
-  br i1 %79, label %.lr.ph.i.i, label %.critedge, !llvm.loop !19
+  br i1 %79, label %.lr.ph.i.i, label %.critedge, !llvm.loop !20
 
 80:                                               ; preds = %23
   tail call void @_ZN12MergeMemNode15iteration_setupEPKS_(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef null) #13
@@ -54554,12 +54554,12 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.thread5.i.i, label %.loopexit50, !llvm.loop !18
+  br i1 %100, label %.thread5.i.i, label %.loopexit50, !llvm.loop !21
 
 .thread5.i.i:                                     ; preds = %.lr.ph.i.i32, %.thread.i.i
   %101 = phi i32 [ %94, %.thread.i.i ], [ %86, %.lr.ph.i.i32 ]
   %exitcond.not.not.i.not.i = icmp eq i32 %101, %85
-  br i1 %exitcond.not.not.i.not.i, label %.critedge, label %.thread.i.i, !llvm.loop !18
+  br i1 %exitcond.not.not.i.not.i, label %.critedge, label %.thread.i.i, !llvm.loop !21
 
 .loopexit50:                                      ; preds = %.thread.i.i, %.lr.ph.i.i32
   %.sroa.10.2.ph = phi ptr [ %90, %.lr.ph.i.i32 ], [ %97, %.thread.i.i ]
@@ -54585,7 +54585,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
 113:                                              ; preds = %107, %.loopexit50
   %114 = add nsw i32 %.sroa.4.1.ph, 1
   %115 = icmp slt i32 %114, %83
-  br i1 %115, label %.lr.ph.i.i32, label %.critedge, !llvm.loop !20
+  br i1 %115, label %.lr.ph.i.i32, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %113, %.thread5.i.i, %77, %.thread5.us.i.i, %80, %38
   %116 = tail call noundef ptr @_ZNK14LibraryCallKit51create_safepoint_with_state_before_array_allocationEPK17AllocateArrayNode(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %1)
@@ -54739,7 +54739,7 @@ _ZN4NodenwEm.exit:                                ; preds = %27, %29
 _ZN4Node8init_reqEjPS_.exit:                      ; preds = %40, %46, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit, %36
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -55182,7 +55182,7 @@ _ZN13SafePointNode11set_controlEP4Node.exit:      ; preds = %_ZN4Node7del_outEPS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = zext i32 %111 to i64
   %113 = icmp samesign ult i64 %indvars.iv.next, %112
-  br i1 %113, label %90, label %._crit_edge, !llvm.loop !22
+  br i1 %113, label %90, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %110, %_ZN13SafePointNode11set_controlEP4Node.exit
   %114 = load ptr, ptr %75, align 8
@@ -55838,7 +55838,7 @@ _ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread.i: ;
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 127
   %79 = icmp eq i32 %78, 72
-  br i1 %79, label %.lr.ph.i, label %_ZN14LibraryCallKit49replace_unrelated_uncommon_traps_with_alloc_stateEP8JVMState.exit, !llvm.loop !23
+  br i1 %79, label %.lr.ph.i, label %_ZN14LibraryCallKit49replace_unrelated_uncommon_traps_with_alloc_stateEP8JVMState.exit, !llvm.loop !25
 
 _ZN14LibraryCallKit49replace_unrelated_uncommon_traps_with_alloc_stateEP8JVMState.exit: ; preds = %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread.i, %13
   %80 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -55948,7 +55948,7 @@ _ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread: ; p
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 72
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread, %2
   ret void
@@ -57171,7 +57171,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -57187,7 +57187,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -57656,7 +57656,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -57672,7 +57672,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -57772,8 +57772,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
+!18 = distinct !{!18, !9, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
@@ -57782,3 +57782,5 @@ attributes #15 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}

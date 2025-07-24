@@ -1654,7 +1654,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %113, %116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = add i32 %.04763, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.preheader, label %.preheader58.split, !llvm.loop !30
+  br i1 %exitcond, label %.preheader, label %.preheader58.split, !llvm.loop !32
 
 .lr.ph67:                                         ; preds = %.preheader, %.lr.ph67
   %.14866 = phi i32 [ %133, %.lr.ph67 ], [ %.us-phi, %.preheader ]
@@ -1665,17 +1665,17 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %113, %116
   store i64 %131, ptr %129, align 8, !tbaa !15
   %132 = icmp eq i64 %131, 0
   %133 = add i32 %.14866, 1
-  br i1 %132, label %.lr.ph67, label %.loopexit, !llvm.loop !31
+  br i1 %132, label %.lr.ph67, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph67, %.preheader, %84
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 64
-  br i1 %exitcond83.not, label %134, label %84, !llvm.loop !32
+  br i1 %exitcond83.not, label %134, label %84, !llvm.loop !34
 
 134:                                              ; preds = %.loopexit
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader59, !llvm.loop !33
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader59, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %134, %.preheader60.._crit_edge_crit_edge
   %135 = phi ptr [ %.pre89, %.preheader60.._crit_edge_crit_edge ], [ %80, %134 ]
@@ -1740,7 +1740,7 @@ define void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull a
   store i64 %23, ptr %24, align 8, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
-  br i1 %exitcond.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %21, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %21, !llvm.loop !36
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %21, %11
   invoke void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1882,7 +1882,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %_ZN15NumberlikeArra
 
 .loopexit92:                                      ; preds = %.loopexit
   %.not = icmp eq i32 %indvars, 0
-  br i1 %.not, label %._crit_edge110, label %82, !llvm.loop !35
+  br i1 %.not, label %._crit_edge110, label %82, !llvm.loop !37
 
 82:                                               ; preds = %.lr.ph109, %.loopexit92
   %indvars.iv128 = phi i64 [ %81, %.lr.ph109 ], [ %indvars.iv.next129, %.loopexit92 ]
@@ -1957,7 +1957,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %102, %105
   %116 = add i32 %.07796, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next117 = add i32 %indvars.iv116, 1
-  br i1 %exitcond, label %.preheader, label %94, !llvm.loop !36
+  br i1 %exitcond, label %.preheader, label %94, !llvm.loop !38
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv118 = phi i64 [ %93, %.lr.ph100.preheader ], [ %indvars.iv.next119, %.lr.ph100 ]
@@ -1970,7 +1970,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %102, %105
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %122 = icmp samesign ult i64 %indvars.iv.next119, %.pre-phi136
   %123 = select i1 %122, i1 %119, i1 false
-  br i1 %123, label %.lr.ph100, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %123, label %.lr.ph100, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph100
   %124 = trunc nuw i64 %indvars.iv.next119 to i32
@@ -2000,10 +2000,10 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %102, %105
   %134 = getelementptr inbounds nuw i64, ptr %85, i64 %131
   store i64 %133, ptr %134, align 8, !tbaa !15
   %.wide = icmp ugt i64 %131, %83
-  br i1 %.wide, label %.lr.ph105, label %.loopexit, !llvm.loop !38
+  br i1 %.wide, label %.lr.ph105, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph105, %._crit_edge.loopexit, %125, %._crit_edge
-  br i1 %88, label %.loopexit92, label %87, !llvm.loop !39
+  br i1 %88, label %.loopexit92, label %87, !llvm.loop !41
 
 ._crit_edge110:                                   ; preds = %.loopexit92, %_ZN15NumberlikeArrayImE8allocateEj.exit
   %135 = phi ptr [ %.pre132, %_ZN15NumberlikeArrayImE8allocateEj.exit ], [ %75, %.loopexit92 ]
@@ -2218,7 +2218,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %44, %57
   store i64 %73, ptr %74, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.i, label %68, !llvm.loop !40
+  br i1 %exitcond.not, label %.lr.ph.i, label %68, !llvm.loop !42
 
 .lr.ph.i:                                         ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2421,7 +2421,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %44, %58
   store i64 %82, ptr %83, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %77, !llvm.loop !41
+  br i1 %exitcond.not, label %.preheader, label %77, !llvm.loop !43
 
 84:                                               ; preds = %.lr.ph39, %84
   %indvars.iv44 = phi i64 [ %76, %.lr.ph39 ], [ %indvars.iv.next45, %84 ]
@@ -2431,7 +2431,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %44, %58
   store i64 %86, ptr %87, align 8, !tbaa !15
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge, label %84, !llvm.loop !42
+  br i1 %exitcond48.not, label %._crit_edge, label %84, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2618,7 +2618,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %44, %58
   store i64 %82, ptr %83, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %77, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader, label %77, !llvm.loop !45
 
 84:                                               ; preds = %.lr.ph39, %84
   %indvars.iv44 = phi i64 [ %76, %.lr.ph39 ], [ %indvars.iv.next45, %84 ]
@@ -2628,7 +2628,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %44, %58
   store i64 %86, ptr %87, align 8, !tbaa !15
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge.thread, label %84, !llvm.loop !44
+  br i1 %exitcond48.not, label %._crit_edge.thread, label %84, !llvm.loop !46
 
 ._crit_edge.thread:                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2870,7 +2870,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %84, %.preheader.spl
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %90 = add i32 %.136.us, 1
   %exitcond47 = icmp eq i64 %indvars.iv.next43, %wide.trip.count46
-  br i1 %exitcond47, label %.split.us, label %.preheader.split.us, !llvm.loop !45
+  br i1 %exitcond47, label %.split.us, label %.preheader.split.us, !llvm.loop !47
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %_Z15getShiftedBlockRK11BigUnsignedjj.exit
   %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
@@ -2904,7 +2904,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %95, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = add i32 %.136, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count46
-  br i1 %exitcond, label %.split.us, label %.preheader.split, !llvm.loop !45
+  br i1 %exitcond, label %.split.us, label %.preheader.split, !llvm.loop !48
 
 .split.us:                                        ; preds = %_Z15getShiftedBlockRK11BigUnsignedjj.exit, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us
   %107 = load i32, ptr %58, align 4, !tbaa !14
@@ -3127,7 +3127,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %85, %.lr.ph.split.u
   %92 = add i32 %.037.us, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %.not33.us = icmp ugt i32 %92, %75
-  br i1 %.not33.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !46
+  br i1 %.not33.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_Z15getShiftedBlockRK11BigUnsignedjj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ], [ 0, %.lr.ph ]
@@ -3163,7 +3163,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %100, %103
   %111 = add i32 %.037, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not33 = icmp ugt i32 %111, %75
-  br i1 %.not33, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.split, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_Z15getShiftedBlockRK11BigUnsignedjj.exit, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us, %_ZN15NumberlikeArrayImE8allocateEj.exit.._crit_edge_crit_edge
   %112 = phi ptr [ %.pre, %_ZN15NumberlikeArrayImE8allocateEj.exit.._crit_edge_crit_edge ], [ %83, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %83, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
@@ -3206,7 +3206,7 @@ define void @_ZN11BigUnsignedppEv(ptr noundef nonnull align 8 captures(none) der
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = icmp samesign ult i64 %indvars.iv.next, %6
   %13 = select i1 %12, i1 %11, i1 false
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !47
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %7
   br i1 %11, label %._crit_edge.thread, label %32
@@ -3288,7 +3288,7 @@ define void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 captures(none) der
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = icmp samesign ult i64 %indvars.iv.next.i, %7
   %14 = select i1 %13, i1 %12, i1 false
-  br i1 %14, label %8, label %._crit_edge.i, !llvm.loop !47
+  br i1 %14, label %8, label %._crit_edge.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %8
   br i1 %12, label %._crit_edge.thread.i, label %_ZN11BigUnsignedppEv.exit
@@ -3374,7 +3374,7 @@ define void @_ZN11BigUnsignedmmEv(ptr noundef nonnull align 8 captures(none) der
   %14 = add i64 %12, -1
   store i64 %14, ptr %11, align 8, !tbaa !15
   %15 = add i32 %.045, 1
-  br i1 %13, label %9, label %16, !llvm.loop !48
+  br i1 %13, label %9, label %16, !llvm.loop !52
 
 16:                                               ; preds = %9
   %17 = add i32 %3, -1
@@ -3419,7 +3419,7 @@ define void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 captures(none) der
   %15 = add i64 %13, -1
   store i64 %15, ptr %12, align 8, !tbaa !15
   %16 = add i32 %.045.i, 1
-  br i1 %14, label %10, label %17, !llvm.loop !48
+  br i1 %14, label %10, label %17, !llvm.loop !52
 
 17:                                               ; preds = %10
   %18 = add i32 %4, -1
@@ -3494,8 +3494,8 @@ attributes #11 = { builtin nounwind }
 !27 = distinct !{!27, !20}
 !28 = distinct !{!28, !20}
 !29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
+!30 = distinct !{!30, !20, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !32 = distinct !{!32, !20}
 !33 = distinct !{!33, !20}
 !34 = distinct !{!34, !20}
@@ -3511,5 +3511,9 @@ attributes #11 = { builtin nounwind }
 !44 = distinct !{!44, !20}
 !45 = distinct !{!45, !20}
 !46 = distinct !{!46, !20}
-!47 = distinct !{!47, !20}
+!47 = distinct !{!47, !20, !31}
 !48 = distinct !{!48, !20}
+!49 = distinct !{!49, !20, !31}
+!50 = distinct !{!50, !20}
+!51 = distinct !{!51, !20}
+!52 = distinct !{!52, !20}

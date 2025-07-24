@@ -872,8 +872,8 @@ define void @h5tools_str_dump_space_blocks(ptr noundef captures(none) %0, i64 no
 
 26:                                               ; preds = %24
   %27 = call i32 @H5Sget_simple_extent_ndims(i64 noundef %1) #21
-  %.fr67 = freeze i32 %27
-  %28 = zext i32 %.fr67 to i64
+  %.fr66 = freeze i32 %27
+  %28 = zext i32 %.fr66 to i64
   %29 = shl i64 %16, 4
   %30 = mul i64 %29, %28
   %31 = call noalias ptr @malloc(i64 noundef %30) #22
@@ -881,50 +881,50 @@ define void @h5tools_str_dump_space_blocks(ptr noundef captures(none) %0, i64 no
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %factor.op.mul49 = shl nuw nsw i64 %28, 1
   %invariant.gep50 = getelementptr i64, ptr %31, i64 %28
-  %.not68 = icmp eq i32 %.fr67, 0
-  br i1 %.not68, label %.preheader, label %.lr.ph.us.us
+  %.not67 = icmp eq i32 %.fr66, 0
+  br i1 %.not67, label %.preheader, label %.lr.ph.us
 
-.lr.ph.us.us:                                     ; preds = %26, %._crit_edge.us.us
-  %.03752.us.us = phi i64 [ %48, %._crit_edge.us.us ], [ 0, %26 ]
+.lr.ph.us:                                        ; preds = %26, %._crit_edge.us
+  %.03752.us = phi i64 [ %39, %._crit_edge.us ], [ 0, %26 ]
   %34 = load ptr, ptr %33, align 8, !tbaa !38
-  %.not41.us.us = icmp eq i64 %.03752.us.us, 0
-  %35 = select i1 %.not41.us.us, ptr @.str.17, ptr @.str.16
-  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %35, i64 noundef %.03752.us.us)
-  %factor.op.mul.reass.us.us = mul i64 %factor.op.mul49, %.03752.us.us
-  %37 = getelementptr i64, ptr %31, i64 %factor.op.mul.reass.us.us
-  br label %42
+  %.not41.us = icmp eq i64 %.03752.us, 0
+  %35 = select i1 %.not41.us, ptr @.str.17, ptr @.str.16
+  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %35, i64 noundef %.03752.us)
+  %factor.op.mul.reass.us = mul i64 %factor.op.mul49, %.03752.us
+  %37 = getelementptr i64, ptr %31, i64 %factor.op.mul.reass.us
+  br label %44
 
-38:                                               ; preds = %..preheader_crit_edge.us.us, %38
-  %indvars.iv74 = phi i64 [ 0, %..preheader_crit_edge.us.us ], [ %indvars.iv.next75, %38 ]
-  %.not42.us.us = icmp eq i64 %indvars.iv74, 0
-  %39 = select i1 %.not42.us.us, ptr @.str.18, ptr @.str.1
-  %gep.us.us = getelementptr i64, ptr %gep51.us.us, i64 %indvars.iv74
-  %40 = load i64, ptr %gep.us.us, align 8, !tbaa !22
-  %41 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %39, i64 noundef %40)
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %28
-  br i1 %exitcond78.not, label %._crit_edge.us.us, label %38, !llvm.loop !39
+._crit_edge.us:                                   ; preds = %40
+  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.8)
+  %39 = add nuw i64 %.03752.us, 1
+  %exitcond77.not = icmp eq i64 %39, %16
+  br i1 %exitcond77.not, label %.split54.us, label %.lr.ph.us, !llvm.loop !39
 
-42:                                               ; preds = %42, %.lr.ph.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph.us.us ]
-  %.not43.us.us = icmp eq i64 %indvars.iv, 0
-  %43 = select i1 %.not43.us.us, ptr @.str.7, ptr @.str.1
-  %44 = getelementptr i64, ptr %37, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !22
-  %46 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %43, i64 noundef %45)
+40:                                               ; preds = %.lr.ph48.us, %40
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph48.us ], [ %indvars.iv.next73, %40 ]
+  %.not42.us = icmp eq i64 %indvars.iv72, 0
+  %41 = select i1 %.not42.us, ptr @.str.18, ptr @.str.1
+  %gep.us = getelementptr i64, ptr %gep51.us, i64 %indvars.iv72
+  %42 = load i64, ptr %gep.us, align 8, !tbaa !22
+  %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %41, i64 noundef %42)
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %28
+  br i1 %exitcond76.not, label %._crit_edge.us, label %40, !llvm.loop !41
+
+44:                                               ; preds = %.lr.ph.us, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %44 ]
+  %.not43.us = icmp eq i64 %indvars.iv, 0
+  %45 = select i1 %.not43.us, ptr @.str.7, ptr @.str.1
+  %46 = getelementptr i64, ptr %37, i64 %indvars.iv
+  %47 = load i64, ptr %46, align 8, !tbaa !22
+  %48 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %45, i64 noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %..preheader_crit_edge.us.us, label %42, !llvm.loop !40
+  br i1 %exitcond.not, label %.lr.ph48.us, label %44, !llvm.loop !42
 
-..preheader_crit_edge.us.us:                      ; preds = %42
-  %gep51.us.us = getelementptr i64, ptr %invariant.gep50, i64 %factor.op.mul.reass.us.us
-  br label %38
-
-._crit_edge.us.us:                                ; preds = %38
-  %47 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.8)
-  %48 = add nuw i64 %.03752.us.us, 1
-  %exitcond79.not = icmp eq i64 %48, %16
-  br i1 %exitcond79.not, label %.split54.us, label %.lr.ph.us.us, !llvm.loop !41
+.lr.ph48.us:                                      ; preds = %44
+  %gep51.us = getelementptr i64, ptr %invariant.gep50, i64 %factor.op.mul.reass.us
+  br label %40
 
 .preheader:                                       ; preds = %26, %.preheader
   %.03752 = phi i64 [ %53, %.preheader ], [ 0, %26 ]
@@ -934,10 +934,10 @@ define void @h5tools_str_dump_space_blocks(ptr noundef captures(none) %0, i64 no
   %51 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %50, i64 noundef %.03752)
   %52 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.8)
   %53 = add nuw i64 %.03752, 1
-  %exitcond88.not = icmp eq i64 %53, %16
-  br i1 %exitcond88.not, label %.split54.us, label %.preheader, !llvm.loop !41
+  %exitcond82.not = icmp eq i64 %53, %16
+  br i1 %exitcond82.not, label %.split54.us, label %.preheader, !llvm.loop !43
 
-.split54.us:                                      ; preds = %._crit_edge.us.us, %.preheader
+.split54.us:                                      ; preds = %._crit_edge.us, %.preheader
   call void @free(ptr noundef %31) #21
   br label %54
 
@@ -1019,7 +1019,7 @@ define void @h5tools_str_dump_space_points(ptr noundef captures(none) %0, i64 no
 
 .lr.ph.us:                                        ; preds = %26, %._crit_edge.us
   %.02733.us = phi i64 [ %45, %._crit_edge.us ], [ 0, %26 ]
-  %34 = load ptr, ptr %33, align 8, !tbaa !42
+  %34 = load ptr, ptr %33, align 8, !tbaa !44
   %.not30.us = icmp eq i64 %.02733.us, 0
   %35 = select i1 %.not30.us, ptr @.str.17, ptr @.str.16
   %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %35, i64 noundef %.02733.us)
@@ -1036,24 +1036,24 @@ define void @h5tools_str_dump_space_points(ptr noundef captures(none) %0, i64 no
   %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %40, i64 noundef %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !45
 
 ._crit_edge.us:                                   ; preds = %39
   %44 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.8)
   %45 = add nuw i64 %.02733.us, 1
   %exitcond40.not = icmp eq i64 %45, %16
-  br i1 %exitcond40.not, label %.split35.us, label %.lr.ph.us, !llvm.loop !44
+  br i1 %exitcond40.not, label %.split35.us, label %.lr.ph.us, !llvm.loop !46
 
 .split:                                           ; preds = %26, %.split
   %.02733 = phi i64 [ %50, %.split ], [ 0, %26 ]
-  %46 = load ptr, ptr %33, align 8, !tbaa !42
+  %46 = load ptr, ptr %33, align 8, !tbaa !44
   %.not30 = icmp eq i64 %.02733, 0
   %47 = select i1 %.not30, ptr @.str.17, ptr @.str.16
   %48 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %47, i64 noundef %.02733)
   %49 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.8)
   %50 = add nuw i64 %.02733, 1
   %exitcond41.not = icmp eq i64 %50, %16
-  br i1 %exitcond41.not, label %.split35.us, label %.split, !llvm.loop !44
+  br i1 %exitcond41.not, label %.split35.us, label %.split, !llvm.loop !47
 
 .split35.us:                                      ; preds = %._crit_edge.us, %.split
   call void @free(ptr noundef %31) #21
@@ -1092,7 +1092,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %23 = tail call i64 @H5Tget_size(i64 noundef %3) #21
   %24 = tail call i32 @H5Tget_sign(i64 noundef %3) #21
-  %25 = load i8, ptr %1, align 8, !tbaa !45, !range !46, !noundef !47
+  %25 = load i8, ptr %1, align 8, !tbaa !48, !range !49, !noundef !50
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %45
 
@@ -1108,7 +1108,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !48
+  %31 = load ptr, ptr %30, align 8, !tbaa !51
   %.not695 = icmp eq ptr %31, null
   %spec.select = select i1 %.not695, ptr @.str.21, ptr %31
   %32 = load i8, ptr %4, align 1, !tbaa !12
@@ -1126,7 +1126,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %38
 
 38:                                               ; preds = %36, %35
-  %39 = load ptr, ptr %28, align 8, !tbaa !48
+  %39 = load ptr, ptr %28, align 8, !tbaa !51
   %.not694 = icmp eq ptr %39, null
   %spec.select697 = select i1 %.not694, ptr @.str.23, ptr %39
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.0525842
@@ -1135,7 +1135,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %43 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull %spec.select697, i32 noundef %42)
   %44 = add nuw i64 %.0525842, 1
   %exitcond866.not = icmp eq i64 %44, %23
-  br i1 %exitcond866.not, label %.loopexit, label %35, !llvm.loop !49
+  br i1 %exitcond866.not, label %.loopexit, label %35, !llvm.loop !52
 
 45:                                               ; preds = %20
   %46 = tail call i32 @H5Tget_class(i64 noundef %3) #21
@@ -1179,7 +1179,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 53:                                               ; preds = %49
   %.0.copyload151 = load half, ptr %4, align 1
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %55 = load ptr, ptr %54, align 8, !tbaa !50
+  %55 = load ptr, ptr %54, align 8, !tbaa !53
   %.not692 = icmp eq ptr %55, null
   %spec.select698 = select i1 %.not692, ptr @.str.24, ptr %55
   %56 = fpext half %.0.copyload151 to double
@@ -1189,7 +1189,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 58:                                               ; preds = %49
   %.0.copyload149 = load float, ptr %4, align 1
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %60 = load ptr, ptr %59, align 8, !tbaa !50
+  %60 = load ptr, ptr %59, align 8, !tbaa !53
   %.not691 = icmp eq ptr %60, null
   %spec.select699 = select i1 %.not691, ptr @.str.24, ptr %60
   %61 = fpext float %.0.copyload149 to double
@@ -1199,7 +1199,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 63:                                               ; preds = %49
   %.0.copyload147 = load double, ptr %4, align 1
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %65 = load ptr, ptr %64, align 8, !tbaa !51
+  %65 = load ptr, ptr %64, align 8, !tbaa !54
   %.not690 = icmp eq ptr %65, null
   %spec.select700 = select i1 %.not690, ptr @.str.24, ptr %65
   %66 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select700, double noundef %.0.copyload147)
@@ -1208,7 +1208,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 67:                                               ; preds = %49
   %.0.copyload144 = load x86_fp80, ptr %4, align 1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %69 = load ptr, ptr %68, align 8, !tbaa !52
+  %69 = load ptr, ptr %68, align 8, !tbaa !55
   %.not689 = icmp eq ptr %69, null
   %spec.select701 = select i1 %.not689, ptr @.str.25, ptr %69
   %70 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select701, x86_fp80 noundef %.0.copyload144)
@@ -1224,7 +1224,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %74
 
 74:                                               ; preds = %72, %71
-  %75 = load ptr, ptr %52, align 8, !tbaa !48
+  %75 = load ptr, ptr %52, align 8, !tbaa !51
   %.not688 = icmp eq ptr %75, null
   %spec.select702 = select i1 %.not688, ptr @.str.23, ptr %75
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 %.0526840
@@ -1233,7 +1233,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %79 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull %spec.select702, i32 noundef %78)
   %80 = add nuw i64 %.0526840, 1
   %exitcond865.not = icmp eq i64 %80, %23
-  br i1 %exitcond865.not, label %.loopexit, label %71, !llvm.loop !53
+  br i1 %exitcond865.not, label %.loopexit, label %71, !llvm.loop !56
 
 81:                                               ; preds = %48
   %82 = tail call i32 @H5Tis_variable_str(i64 noundef %3) #21
@@ -1241,7 +1241,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %.not677, label %88, label %83
 
 83:                                               ; preds = %81
-  %84 = load ptr, ptr %4, align 8, !tbaa !54
+  %84 = load ptr, ptr %4, align 8, !tbaa !57
   %.not678 = icmp eq ptr %84, null
   br i1 %.not678, label %.thread, label %.thread868
 
@@ -1287,7 +1287,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %102, label %103, label %.critedge
 
 103:                                              ; preds = %97
-  %104 = load i32, ptr %94, align 8, !tbaa !55
+  %104 = load i32, ptr %94, align 8, !tbaa !58
   %.not680 = icmp eq i32 %104, 0
   br i1 %.not680, label %.critedge2.thread, label %.preheader786
 
@@ -1310,7 +1310,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %114 = add i32 %113, %.0527832
   %115 = zext i32 %114 to i64
   %116 = icmp ugt i64 %.0523872, %115
-  br i1 %116, label %.lr.ph827, label %.critedge2, !llvm.loop !56
+  br i1 %116, label %.lr.ph827, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %112, %.lr.ph827, %.preheader786
   %.1532.lcssa = phi i32 [ 1, %.preheader786 ], [ %.1532826, %.lr.ph827 ], [ %113, %112 ]
@@ -1345,7 +1345,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %.1529 = phi i8 [ %.0528831, %.critedge2.thread ], [ %.1529.ph, %.sink.split ]
   %125 = load i8, ptr %99, align 1, !tbaa !12
   tail call fastcc void @h5tools_print_char(ptr noundef %0, ptr noundef %1, i8 noundef signext %125)
-  %126 = load i32, ptr %94, align 8, !tbaa !55
+  %126 = load i32, ptr %94, align 8, !tbaa !58
   %.not686 = icmp ne i32 %126, 0
   %127 = icmp ugt i32 %.0531776, %126
   %or.cond704 = and i1 %.not686, %127
@@ -1364,7 +1364,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %134 = add i32 %.1, 1
   %135 = zext i32 %134 to i64
   %136 = icmp ugt i64 %.0523872, %135
-  br i1 %136, label %97, label %.critedge, !llvm.loop !57
+  br i1 %136, label %97, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %97, %133
   %.0528.lcssa.ph = phi i8 [ %.0528831, %97 ], [ %.2, %133 ]
@@ -1395,7 +1395,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %146 = load i32, ptr %145, align 8, !tbaa !58
+  %146 = load i32, ptr %145, align 8, !tbaa !61
   %.not672 = icmp eq i32 %146, 0
   br i1 %.not672, label %149, label %147
 
@@ -1423,7 +1423,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %157 = zext i8 %.0.copyload103 to i32
   %158 = lshr i32 %157, %154
   %159 = zext nneg i32 %158 to i64
-  %160 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %160 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %161 = and i64 %160, %159
   %162 = trunc nuw i64 %161 to i8
   br label %163
@@ -1431,7 +1431,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 163:                                              ; preds = %153, %156, %152
   %.0533 = phi i8 [ %162, %156 ], [ %.0.copyload103, %152 ], [ 0, %153 ]
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %165 = load ptr, ptr %164, align 8, !tbaa !61
+  %165 = load ptr, ptr %164, align 8, !tbaa !64
   %.not676 = icmp eq ptr %165, null
   %spec.select705 = select i1 %.not676, ptr @.str.32, ptr %165
   %166 = zext i8 %.0533 to i32
@@ -1450,7 +1450,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %173 = sext i8 %.0.copyload103 to i32
   %174 = ashr i32 %173, %170
   %175 = zext i32 %174 to i64
-  %176 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %176 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %177 = and i64 %176, %175
   %178 = trunc i64 %177 to i8
   br label %179
@@ -1458,7 +1458,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 179:                                              ; preds = %169, %172, %168
   %.0535 = phi i8 [ %178, %172 ], [ %.0.copyload103, %168 ], [ 0, %169 ]
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !62
+  %181 = load ptr, ptr %180, align 8, !tbaa !65
   %.not674 = icmp eq ptr %181, null
   %spec.select706 = select i1 %.not674, ptr @.str.33, ptr %181
   %182 = sext i8 %.0535 to i32
@@ -1482,7 +1482,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 
 191:                                              ; preds = %188
   %192 = lshr i32 %.0.copyload97, %189
-  %193 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %193 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %194 = trunc i64 %193 to i32
   %195 = and i32 %192, %194
   br label %196
@@ -1490,7 +1490,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 196:                                              ; preds = %188, %191, %187
   %.0537 = phi i32 [ %195, %191 ], [ %.0.copyload97, %187 ], [ 0, %188 ]
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %198 = load ptr, ptr %197, align 8, !tbaa !63
+  %198 = load ptr, ptr %197, align 8, !tbaa !66
   %.not671 = icmp eq ptr %198, null
   %spec.select707 = select i1 %.not671, ptr @.str.34, ptr %198
   %199 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select707, i32 noundef %.0537)
@@ -1506,7 +1506,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 
 204:                                              ; preds = %201
   %205 = ashr i32 %.0.copyload97, %202
-  %206 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %206 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %207 = trunc i64 %206 to i32
   %208 = and i32 %205, %207
   br label %209
@@ -1514,7 +1514,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 209:                                              ; preds = %201, %204, %200
   %.0539 = phi i32 [ %208, %204 ], [ %.0.copyload97, %200 ], [ 0, %201 ]
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %211 = load ptr, ptr %210, align 8, !tbaa !64
+  %211 = load ptr, ptr %210, align 8, !tbaa !67
   %.not669 = icmp eq ptr %211, null
   %spec.select708 = select i1 %.not669, ptr @.str.35, ptr %211
   %212 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select708, i32 noundef %.0539)
@@ -1539,7 +1539,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %221 = zext i16 %.0.copyload91 to i32
   %222 = lshr i32 %221, %218
   %223 = zext nneg i32 %222 to i64
-  %224 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %224 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %225 = and i64 %224, %223
   %226 = trunc nuw i64 %225 to i16
   br label %227
@@ -1547,7 +1547,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 227:                                              ; preds = %217, %220, %216
   %.0540 = phi i16 [ %226, %220 ], [ %.0.copyload91, %216 ], [ 0, %217 ]
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %229 = load ptr, ptr %228, align 8, !tbaa !65
+  %229 = load ptr, ptr %228, align 8, !tbaa !68
   %.not667 = icmp eq ptr %229, null
   %spec.select709 = select i1 %.not667, ptr @.str.36, ptr %229
   %230 = zext i16 %.0540 to i32
@@ -1566,7 +1566,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %237 = sext i16 %.0.copyload91 to i32
   %238 = ashr i32 %237, %234
   %239 = zext i32 %238 to i64
-  %240 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %240 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %241 = and i64 %240, %239
   %242 = trunc i64 %241 to i16
   br label %243
@@ -1574,7 +1574,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 243:                                              ; preds = %233, %236, %232
   %.0542 = phi i16 [ %242, %236 ], [ %.0.copyload91, %232 ], [ 0, %233 ]
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %245 = load ptr, ptr %244, align 8, !tbaa !66
+  %245 = load ptr, ptr %244, align 8, !tbaa !69
   %.not665 = icmp eq ptr %245, null
   %spec.select710 = select i1 %.not665, ptr @.str.37, ptr %245
   %246 = sext i16 %.0542 to i32
@@ -1599,14 +1599,14 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 255:                                              ; preds = %252
   %256 = zext nneg i32 %253 to i64
   %257 = lshr i64 %.0.copyload85, %256
-  %258 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %258 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %259 = and i64 %258, %257
   br label %260
 
 260:                                              ; preds = %252, %255, %251
   %.0544 = phi i64 [ %259, %255 ], [ %.0.copyload85, %251 ], [ 0, %252 ]
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %262 = load ptr, ptr %261, align 8, !tbaa !67
+  %262 = load ptr, ptr %261, align 8, !tbaa !70
   %.not663 = icmp eq ptr %262, null
   %spec.select711 = select i1 %.not663, ptr @.str.2, ptr %262
   %263 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select711, i64 noundef %.0544)
@@ -1623,14 +1623,14 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 268:                                              ; preds = %265
   %269 = zext nneg i32 %266 to i64
   %270 = ashr i64 %.0.copyload85, %269
-  %271 = load i64, ptr @packed_data_mask, align 8, !tbaa !59
+  %271 = load i64, ptr @packed_data_mask, align 8, !tbaa !62
   %272 = and i64 %271, %270
   br label %273
 
 273:                                              ; preds = %265, %268, %264
   %.0545 = phi i64 [ %272, %268 ], [ %.0.copyload85, %264 ], [ 0, %265 ]
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %275 = load ptr, ptr %274, align 8, !tbaa !68
+  %275 = load ptr, ptr %274, align 8, !tbaa !71
   %.not661 = icmp eq ptr %275, null
   %spec.select712 = select i1 %.not661, ptr @.str.38, ptr %275
   %276 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select712, i64 noundef %.0545)
@@ -1638,20 +1638,20 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 
 277:                                              ; preds = %48
   %278 = getelementptr inbounds nuw i8, ptr %5, i64 1096
-  %279 = load ptr, ptr %278, align 8, !tbaa !69
+  %279 = load ptr, ptr %278, align 8, !tbaa !72
   %.not634 = icmp eq ptr %279, null
   br i1 %.not634, label %353, label %280
 
 280:                                              ; preds = %277
-  store ptr null, ptr %278, align 8, !tbaa !69
+  store ptr null, ptr %278, align 8, !tbaa !72
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %282 = load ptr, ptr %281, align 8, !tbaa !70
+  %282 = load ptr, ptr %281, align 8, !tbaa !73
   %.not644 = icmp eq ptr %282, null
   %spec.select713 = select i1 %.not644, ptr @.str.39, ptr %282
   %283 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select713)
   %284 = getelementptr inbounds nuw i8, ptr %5, i64 568
   %285 = load i32, ptr %284, align 8, !tbaa !30
-  %286 = load ptr, ptr %279, align 8, !tbaa !71
+  %286 = load ptr, ptr %279, align 8, !tbaa !74
   %.not645817 = icmp eq ptr %286, null
   br i1 %.not645817, label %._crit_edge821, label %.lr.ph820
 
@@ -1672,13 +1672,13 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %.not649, label %298, label %296
 
 296:                                              ; preds = %294
-  %297 = load ptr, ptr %287, align 8, !tbaa !73
+  %297 = load ptr, ptr %287, align 8, !tbaa !76
   %.not651 = icmp eq ptr %297, null
   %spec.select714 = select i1 %.not651, ptr @.str.40, ptr %297
   br label %300
 
 298:                                              ; preds = %294
-  %299 = load ptr, ptr %288, align 8, !tbaa !74
+  %299 = load ptr, ptr %288, align 8, !tbaa !77
   %.not650 = icmp eq ptr %299, null
   %spec.select715 = select i1 %.not650, ptr @.str.17, ptr %299
   br label %300
@@ -1686,7 +1686,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 300:                                              ; preds = %298, %296
   %spec.select715.sink = phi ptr [ %spec.select715, %298 ], [ %spec.select714, %296 ]
   %301 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select715.sink)
-  %302 = load i32, ptr %289, align 8, !tbaa !75
+  %302 = load i32, ptr %289, align 8, !tbaa !78
   %.not652 = icmp eq i32 %302, 0
   br i1 %.not652, label %h5tools_str_indent.exit, label %303
 
@@ -1715,17 +1715,17 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %exitcond.not.i, label %h5tools_str_indent.exit, label %307, !llvm.loop !32
 
 h5tools_str_indent.exit:                          ; preds = %307, %305, %300
-  %311 = load ptr, ptr %295, align 8, !tbaa !71
+  %311 = load ptr, ptr %295, align 8, !tbaa !74
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 24
-  %313 = load ptr, ptr %312, align 8, !tbaa !76
-  %314 = load ptr, ptr %313, align 8, !tbaa !54
+  %313 = load ptr, ptr %312, align 8, !tbaa !79
+  %314 = load ptr, ptr %313, align 8, !tbaa !57
   %.not653811 = icmp eq ptr %314, null
   br i1 %.not653811, label %._crit_edge814, label %.lr.ph813
 
 .lr.ph813:                                        ; preds = %h5tools_str_indent.exit, %323
   %indvars.iv861 = phi i64 [ %indvars.iv.next862, %323 ], [ 0, %h5tools_str_indent.exit ]
   %315 = phi ptr [ %328, %323 ], [ %314, %h5tools_str_indent.exit ]
-  %316 = load ptr, ptr %292, align 8, !tbaa !79
+  %316 = load ptr, ptr %292, align 8, !tbaa !82
   %.not657 = icmp eq ptr %316, null
   %spec.select716 = select i1 %.not657, ptr @.str.17, ptr %316
   %317 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull %spec.select716, ptr noundef nonnull %315)
@@ -1736,7 +1736,7 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
   %319 = load i32, ptr %284, align 8, !tbaa !30
   %320 = add i32 %319, 1
   store i32 %320, ptr %284, align 8, !tbaa !30
-  %321 = load ptr, ptr %281, align 8, !tbaa !70
+  %321 = load ptr, ptr %281, align 8, !tbaa !73
   %.not659 = icmp eq ptr %321, null
   %spec.select717 = select i1 %.not659, ptr @.str.39, ptr %321
   %322 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select717)
@@ -1744,19 +1744,19 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 
 323:                                              ; preds = %.lr.ph813, %318
   %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
-  %324 = load ptr, ptr %295, align 8, !tbaa !71
+  %324 = load ptr, ptr %295, align 8, !tbaa !74
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 24
-  %326 = load ptr, ptr %325, align 8, !tbaa !76
+  %326 = load ptr, ptr %325, align 8, !tbaa !79
   %327 = getelementptr inbounds nuw ptr, ptr %326, i64 %indvars.iv.next862
-  %328 = load ptr, ptr %327, align 8, !tbaa !54
+  %328 = load ptr, ptr %327, align 8, !tbaa !57
   %.not653 = icmp eq ptr %328, null
-  br i1 %.not653, label %._crit_edge814, label %.lr.ph813, !llvm.loop !80
+  br i1 %.not653, label %._crit_edge814, label %.lr.ph813, !llvm.loop !83
 
 ._crit_edge814:                                   ; preds = %323, %h5tools_str_indent.exit
   %.lcssa = phi ptr [ %311, %h5tools_str_indent.exit ], [ %324, %323 ]
   %329 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %330 = load i64, ptr %329, align 8, !tbaa !81
-  %331 = load i64, ptr %.lcssa, align 8, !tbaa !82
+  %330 = load i64, ptr %329, align 8, !tbaa !84
+  %331 = load i64, ptr %.lcssa, align 8, !tbaa !85
   %332 = getelementptr inbounds nuw i8, ptr %4, i64 %331
   %333 = tail call ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %330, ptr noundef %332, ptr noundef %5)
   %334 = load i32, ptr %284, align 8, !tbaa !30
@@ -1765,31 +1765,31 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 
 .preheader788:                                    ; preds = %._crit_edge814, %.preheader788
   %.0546816 = phi i32 [ %337, %.preheader788 ], [ %334, %._crit_edge814 ]
-  %335 = load ptr, ptr %293, align 8, !tbaa !83
+  %335 = load ptr, ptr %293, align 8, !tbaa !86
   %.not656 = icmp eq ptr %335, null
   %spec.select718 = select i1 %.not656, ptr @.str.41, ptr %335
   %336 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select718)
   %337 = add i32 %.0546816, -1
   %.not655 = icmp eq i32 %337, 0
-  br i1 %.not655, label %.loopexit789, label %.preheader788, !llvm.loop !84
+  br i1 %.not655, label %.loopexit789, label %.preheader788, !llvm.loop !87
 
 .loopexit789:                                     ; preds = %.preheader788, %._crit_edge814
   store i32 %285, ptr %284, align 8, !tbaa !30
   %338 = add i64 %.0548818, 1
   %339 = getelementptr inbounds nuw ptr, ptr %279, i64 %338
-  %340 = load ptr, ptr %339, align 8, !tbaa !71
+  %340 = load ptr, ptr %339, align 8, !tbaa !74
   %.not645 = icmp eq ptr %340, null
-  br i1 %.not645, label %._crit_edge821, label %294, !llvm.loop !85
+  br i1 %.not645, label %._crit_edge821, label %294, !llvm.loop !88
 
 ._crit_edge821:                                   ; preds = %.loopexit789, %280
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %342 = load i32, ptr %341, align 8, !tbaa !75
+  %342 = load i32, ptr %341, align 8, !tbaa !78
   %.not646 = icmp eq i32 %342, 0
   br i1 %.not646, label %347, label %343
 
 343:                                              ; preds = %._crit_edge821
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %345 = load ptr, ptr %344, align 8, !tbaa !74
+  %345 = load ptr, ptr %344, align 8, !tbaa !77
   %.not647 = icmp eq ptr %345, null
   %spec.select719 = select i1 %.not647, ptr @.str.17, ptr %345
   %346 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select719)
@@ -1798,13 +1798,13 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 
 347:                                              ; preds = %343, %._crit_edge821
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %349 = load ptr, ptr %348, align 8, !tbaa !83
+  %349 = load ptr, ptr %348, align 8, !tbaa !86
   %.not648 = icmp eq ptr %349, null
   %spec.select720 = select i1 %.not648, ptr @.str.41, ptr %349
   %350 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select720)
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %352 = load ptr, ptr %351, align 8, !tbaa !86
-  store ptr %352, ptr %278, align 8, !tbaa !69
+  %352 = load ptr, ptr %351, align 8, !tbaa !89
+  store ptr %352, ptr %278, align 8, !tbaa !72
   br label %.loopexit
 
 353:                                              ; preds = %277
@@ -1814,7 +1814,7 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 
 356:                                              ; preds = %353
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %358 = load ptr, ptr %357, align 8, !tbaa !70
+  %358 = load ptr, ptr %357, align 8, !tbaa !73
   %.not635 = icmp eq ptr %358, null
   %spec.select721 = select i1 %.not635, ptr @.str.39, ptr %358
   %359 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select721)
@@ -1840,13 +1840,13 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
   br i1 %.not639, label %372, label %370
 
 370:                                              ; preds = %369
-  %371 = load ptr, ptr %363, align 8, !tbaa !73
+  %371 = load ptr, ptr %363, align 8, !tbaa !76
   %.not641 = icmp eq ptr %371, null
   %spec.select722 = select i1 %.not641, ptr @.str.40, ptr %371
   br label %374
 
 372:                                              ; preds = %369
-  %373 = load ptr, ptr %364, align 8, !tbaa !74
+  %373 = load ptr, ptr %364, align 8, !tbaa !77
   %.not640 = icmp eq ptr %373, null
   %spec.select723 = select i1 %.not640, ptr @.str.17, ptr %373
   br label %374
@@ -1854,7 +1854,7 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 374:                                              ; preds = %372, %370
   %spec.select723.sink = phi ptr [ %spec.select723, %372 ], [ %spec.select722, %370 ]
   %375 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select723.sink)
-  %376 = load i32, ptr %365, align 8, !tbaa !75
+  %376 = load i32, ptr %365, align 8, !tbaa !78
   %.not642 = icmp eq i32 %376, 0
   br i1 %.not642, label %h5tools_str_indent.exit747, label %377
 
@@ -1884,7 +1884,7 @@ h5tools_str_indent.exit:                          ; preds = %307, %305, %300
 
 h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
   %385 = tail call ptr @H5Tget_member_name(i64 noundef %3, i32 noundef %.0543822) #21
-  %386 = load ptr, ptr %368, align 8, !tbaa !79
+  %386 = load ptr, ptr %368, align 8, !tbaa !82
   %.not643 = icmp eq ptr %386, null
   %spec.select724 = select i1 %.not643, ptr @.str.17, ptr %386
   %387 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull %spec.select724, ptr noundef %385)
@@ -1896,7 +1896,7 @@ h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
   %393 = tail call i32 @H5Tclose(i64 noundef %390) #21
   %394 = add nuw i32 %.0543822, 1
   %exitcond864.not = icmp eq i32 %394, %354
-  br i1 %exitcond864.not, label %._crit_edge825.loopexit, label %369, !llvm.loop !87
+  br i1 %exitcond864.not, label %._crit_edge825.loopexit, label %369, !llvm.loop !90
 
 ._crit_edge825.loopexit:                          ; preds = %h5tools_str_indent.exit747
   %.pre867 = load i32, ptr %360, align 8, !tbaa !30
@@ -1907,13 +1907,13 @@ h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
   %396 = phi i32 [ %395, %._crit_edge825.loopexit ], [ %361, %356 ]
   store i32 %396, ptr %360, align 8, !tbaa !30
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %398 = load i32, ptr %397, align 8, !tbaa !75
+  %398 = load i32, ptr %397, align 8, !tbaa !78
   %.not636 = icmp eq i32 %398, 0
   br i1 %.not636, label %403, label %399
 
 399:                                              ; preds = %._crit_edge825
   %400 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %401 = load ptr, ptr %400, align 8, !tbaa !74
+  %401 = load ptr, ptr %400, align 8, !tbaa !77
   %.not637 = icmp eq ptr %401, null
   %spec.select725 = select i1 %.not637, ptr @.str.17, ptr %401
   %402 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select725)
@@ -1922,7 +1922,7 @@ h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
 
 403:                                              ; preds = %399, %._crit_edge825
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %405 = load ptr, ptr %404, align 8, !tbaa !83
+  %405 = load ptr, ptr %404, align 8, !tbaa !86
   %.not638 = icmp eq ptr %405, null
   %spec.select726 = select i1 %.not638, ptr @.str.41, ptr %405
   %406 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select726)
@@ -1961,7 +1961,7 @@ h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
   %422 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %418, i32 noundef %421)
   %423 = add nuw i64 %.0541809, 1
   %exitcond860.not = icmp eq i64 %423, %23
-  br i1 %exitcond860.not, label %.loopexit791, label %.lr.ph810, !llvm.loop !88
+  br i1 %exitcond860.not, label %.loopexit791, label %.lr.ph810, !llvm.loop !91
 
 .loopexit791:                                     ; preds = %.lr.ph810, %413, %414, %410
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #21
@@ -1981,7 +1981,7 @@ h5tools_str_indent.exit747:                       ; preds = %381, %379, %374
   %427 = getelementptr inbounds nuw i8, ptr %4, i64 %426
   %428 = load i8, ptr %427, align 1, !tbaa !12
   %.not7.i = icmp eq i8 %428, 0
-  br i1 %.not7.i, label %.preheader.i, label %h5tools_str_is_zero.exit, !llvm.loop !89
+  br i1 %.not7.i, label %.preheader.i, label %h5tools_str_is_zero.exit, !llvm.loop !92
 
 .loopexit792:                                     ; preds = %.preheader.i, %424
   %429 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.26)
@@ -2009,7 +2009,7 @@ h5tools_str_is_zero.exit:                         ; preds = %425
 435:                                              ; preds = %432
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
-  store ptr null, ptr %10, align 8, !tbaa !54
+  store ptr null, ptr %10, align 8, !tbaa !57
   %436 = call i64 @H5Ropen_object(ptr noundef nonnull %4, i64 noundef 0, i64 noundef 0) #21
   %437 = icmp sgt i64 %436, -1
   br i1 %437, label %438, label %442
@@ -2040,16 +2040,16 @@ h5tools_str_is_zero.exit:                         ; preds = %425
   br label %458
 
 454:                                              ; preds = %445
-  %455 = load ptr, ptr @stderr, align 8, !tbaa !90
+  %455 = load ptr, ptr @stderr, align 8, !tbaa !93
   %456 = call i64 @fwrite(ptr nonnull @.str.44, i64 33, i64 1, ptr %455) #25
-  %457 = load ptr, ptr @stderr, align 8, !tbaa !90
+  %457 = load ptr, ptr @stderr, align 8, !tbaa !93
   %fputc = call i32 @fputc(i32 10, ptr %457)
   br label %458
 
 458:                                              ; preds = %442, %454, %450, %438
   %459 = load i32, ptr %8, align 4, !tbaa !36
   %460 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %461 = load i32, ptr %460, align 8, !tbaa !92
+  %461 = load i32, ptr %460, align 8, !tbaa !95
   %462 = icmp ult i32 %459, 3
   br i1 %462, label %switch.lookup, label %464
 
@@ -2064,31 +2064,31 @@ switch.lookup:                                    ; preds = %458
   %465 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.45, i32 noundef %461, ptr noundef nonnull %.str.49.sink)
   call void @h5tools_str_sprint_reference(ptr noundef %0, ptr noundef nonnull %4)
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 396
-  %467 = load i32, ptr %466, align 4, !tbaa !95
+  %467 = load i32, ptr %466, align 4, !tbaa !98
   %.not630 = icmp eq i32 %467, 0
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %469 = load ptr, ptr %468, align 8, !tbaa !96
+  %469 = load ptr, ptr %468, align 8, !tbaa !99
   br i1 %.not630, label %473, label %470
 
 470:                                              ; preds = %464
-  %471 = load ptr, ptr %10, align 8, !tbaa !54
+  %471 = load ptr, ptr %10, align 8, !tbaa !57
   %472 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %469, ptr noundef %471)
   br label %477
 
 473:                                              ; preds = %464
-  %474 = load i64, ptr %9, align 8, !tbaa !97
-  %475 = load ptr, ptr %10, align 8, !tbaa !54
+  %474 = load i64, ptr %9, align 8, !tbaa !100
+  %475 = load ptr, ptr %10, align 8, !tbaa !57
   %476 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %469, i64 noundef %474, ptr noundef %475)
   br label %477
 
 477:                                              ; preds = %473, %470
-  %478 = load ptr, ptr %10, align 8, !tbaa !54
+  %478 = load ptr, ptr %10, align 8, !tbaa !57
   %.not631 = icmp eq ptr %478, null
   br i1 %.not631, label %481, label %479
 
 479:                                              ; preds = %477
   %480 = call i32 @H5free_memory(ptr noundef nonnull %478) #21
-  store ptr null, ptr %10, align 8, !tbaa !54
+  store ptr null, ptr %10, align 8, !tbaa !57
   br label %481
 
 481:                                              ; preds = %479, %477
@@ -2117,9 +2117,9 @@ switch.lookup:                                    ; preds = %458
   br label %500
 
 496:                                              ; preds = %487
-  %497 = load ptr, ptr @stderr, align 8, !tbaa !90
+  %497 = load ptr, ptr @stderr, align 8, !tbaa !93
   %498 = call i64 @fwrite(ptr nonnull @.str.50, i64 27, i64 1, ptr %497) #25
-  %499 = load ptr, ptr @stderr, align 8, !tbaa !90
+  %499 = load ptr, ptr @stderr, align 8, !tbaa !93
   %fputc632 = call i32 @fputc(i32 10, ptr %499)
   br label %500
 
@@ -2189,10 +2189,10 @@ switch.lookup891:                                 ; preds = %503
 525:                                              ; preds = %522
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
-  store ptr null, ptr %12, align 8, !tbaa !54
+  store ptr null, ptr %12, align 8, !tbaa !57
   %526 = call i32 @H5Oget_info3(i64 noundef %523, ptr noundef nonnull %11, i32 noundef 1) #21
   %527 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %528 = load i32, ptr %527, align 8, !tbaa !92
+  %528 = load i32, ptr %527, align 8, !tbaa !95
   switch i32 %528, label %537 [
     i32 0, label %529
     i32 1, label %531
@@ -2225,31 +2225,31 @@ switch.lookup891:                                 ; preds = %503
   %541 = call i32 @H5Otoken_to_str(i64 noundef %523, ptr noundef nonnull %540, ptr noundef nonnull %12) #21
   %542 = call i32 @H5Oclose(i64 noundef %523) #21
   %543 = getelementptr inbounds nuw i8, ptr %1, i64 396
-  %544 = load i32, ptr %543, align 4, !tbaa !95
+  %544 = load i32, ptr %543, align 4, !tbaa !98
   %.not628 = icmp eq i32 %544, 0
   %545 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %546 = load ptr, ptr %545, align 8, !tbaa !96
+  %546 = load ptr, ptr %545, align 8, !tbaa !99
   br i1 %.not628, label %550, label %547
 
 547:                                              ; preds = %539
-  %548 = load ptr, ptr %12, align 8, !tbaa !54
+  %548 = load ptr, ptr %12, align 8, !tbaa !57
   %549 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %546, ptr noundef %548)
   br label %554
 
 550:                                              ; preds = %539
-  %551 = load i64, ptr %11, align 8, !tbaa !97
-  %552 = load ptr, ptr %12, align 8, !tbaa !54
+  %551 = load i64, ptr %11, align 8, !tbaa !100
+  %552 = load ptr, ptr %12, align 8, !tbaa !57
   %553 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %546, i64 noundef %551, ptr noundef %552)
   br label %554
 
 554:                                              ; preds = %550, %547
-  %555 = load ptr, ptr %12, align 8, !tbaa !54
+  %555 = load ptr, ptr %12, align 8, !tbaa !57
   %.not629 = icmp eq ptr %555, null
   br i1 %.not629, label %558, label %556
 
 556:                                              ; preds = %554
   %557 = call i32 @H5free_memory(ptr noundef nonnull %555) #21
-  store ptr null, ptr %12, align 8, !tbaa !54
+  store ptr null, ptr %12, align 8, !tbaa !57
   br label %558
 
 558:                                              ; preds = %556, %554
@@ -2283,12 +2283,12 @@ switch.lookup891:                                 ; preds = %503
   %569 = mul i64 %568, %.0524800
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond858.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond858.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !98
+  br i1 %exitcond858.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !101
 
 ._crit_edge803:                                   ; preds = %.lr.ph802, %561
   %.0524.lcssa = phi i64 [ 1, %561 ], [ %569, %.lr.ph802 ]
   %570 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %571 = load ptr, ptr %570, align 8, !tbaa !99
+  %571 = load ptr, ptr %570, align 8, !tbaa !102
   %.not621 = icmp eq ptr %571, null
   %spec.select727 = select i1 %.not621, ptr @.str.55, ptr %571
   %572 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select727)
@@ -2315,11 +2315,11 @@ switch.lookup891:                                 ; preds = %503
   br i1 %.not782, label %h5tools_str_indent.exit757, label %584
 
 584:                                              ; preds = %583
-  %585 = load ptr, ptr %576, align 8, !tbaa !100
+  %585 = load ptr, ptr %576, align 8, !tbaa !103
   %.not623 = icmp eq ptr %585, null
   %spec.select728 = select i1 %.not623, ptr @.str.56, ptr %585
   %586 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select728)
-  %587 = load i32, ptr %577, align 8, !tbaa !75
+  %587 = load i32, ptr %577, align 8, !tbaa !78
   %.not783 = icmp eq i32 %587, 0
   br i1 %.not783, label %601, label %588
 
@@ -2355,7 +2355,7 @@ switch.lookup891:                                 ; preds = %503
   br i1 %exitcond.not.i755, label %h5tools_str_indent.exit757, label %597, !llvm.loop !32
 
 601:                                              ; preds = %588, %584
-  %602 = load ptr, ptr %576, align 8, !tbaa !100
+  %602 = load ptr, ptr %576, align 8, !tbaa !103
   %.not624 = icmp eq ptr %602, null
   br i1 %.not624, label %h5tools_str_indent.exit757, label %603
 
@@ -2400,7 +2400,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %617 = call ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %562, ptr noundef %616, ptr noundef %5)
   %618 = add nuw i64 %.0536804, 1
   %exitcond859.not = icmp eq i64 %618, %.0524.lcssa
-  br i1 %exitcond859.not, label %._crit_edge808.loopexit, label %583, !llvm.loop !101
+  br i1 %exitcond859.not, label %._crit_edge808.loopexit, label %583, !llvm.loop !104
 
 ._crit_edge808.loopexit:                          ; preds = %h5tools_str_indent.exit757
   %.pre = load i32, ptr %573, align 8, !tbaa !30
@@ -2411,7 +2411,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %620 = phi i32 [ %619, %._crit_edge808.loopexit ], [ %574, %._crit_edge803 ]
   store i32 %620, ptr %573, align 8, !tbaa !30
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %622 = load ptr, ptr %621, align 8, !tbaa !102
+  %622 = load ptr, ptr %621, align 8, !tbaa !105
   %.not622 = icmp eq ptr %622, null
   %spec.select729 = select i1 %.not622, ptr @.str.58, ptr %622
   %623 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select729)
@@ -2424,11 +2424,11 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %626 = tail call i64 @H5Tget_super(i64 noundef %3) #21
   %627 = tail call i64 @H5Tget_size(i64 noundef %626) #21
   %628 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %629 = load ptr, ptr %628, align 8, !tbaa !103
+  %629 = load ptr, ptr %628, align 8, !tbaa !106
   %.not617 = icmp eq ptr %629, null
   %spec.select730 = select i1 %.not617, ptr @.str.7, ptr %629
   %630 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select730)
-  %631 = load i64, ptr %4, align 8, !tbaa !104
+  %631 = load i64, ptr %4, align 8, !tbaa !107
   %.not845 = icmp eq i64 %631, 0
   br i1 %.not845, label %._crit_edge, label %.lr.ph798
 
@@ -2445,7 +2445,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   br i1 %.not619, label %640, label %637
 
 637:                                              ; preds = %635
-  %638 = load ptr, ptr %632, align 8, !tbaa !106
+  %638 = load ptr, ptr %632, align 8, !tbaa !109
   %.not620 = icmp eq ptr %638, null
   %spec.select731 = select i1 %.not620, ptr @.str.56, ptr %638
   %639 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select731)
@@ -2455,7 +2455,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %641 = load i32, ptr %633, align 8, !tbaa !30
   %642 = add i32 %641, 1
   store i32 %642, ptr %633, align 8, !tbaa !30
-  %643 = load ptr, ptr %634, align 8, !tbaa !107
+  %643 = load ptr, ptr %634, align 8, !tbaa !110
   %644 = mul i64 %636, %627
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 %644
   %646 = tail call ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %626, ptr noundef %645, ptr noundef %5)
@@ -2465,11 +2465,11 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %649 = add i32 %.0534797, 1
   %650 = zext i32 %649 to i64
   %651 = icmp ugt i64 %631, %650
-  br i1 %651, label %635, label %._crit_edge, !llvm.loop !108
+  br i1 %651, label %635, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %640, %625
   %652 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %653 = load ptr, ptr %652, align 8, !tbaa !109
+  %653 = load ptr, ptr %652, align 8, !tbaa !112
   %.not618 = icmp eq ptr %653, null
   %spec.select732 = select i1 %.not618, ptr @.str.8, ptr %653
   %654 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select732)
@@ -2487,7 +2487,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.423.0.copyload = load float, ptr %.sroa.423.0..sroa_idx, align 1
   %661 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %662 = load ptr, ptr %661, align 8, !tbaa !110
+  %662 = load ptr, ptr %661, align 8, !tbaa !113
   %.not616 = icmp eq ptr %662, null
   %spec.select733 = select i1 %.not616, ptr @.str.59, ptr %662
   %663 = fpext float %.sroa.022.0.copyload to double
@@ -2506,7 +2506,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.419.0.copyload = load double, ptr %.sroa.419.0..sroa_idx, align 1
   %671 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %672 = load ptr, ptr %671, align 8, !tbaa !111
+  %672 = load ptr, ptr %671, align 8, !tbaa !114
   %.not615 = icmp eq ptr %672, null
   %spec.select734 = select i1 %.not615, ptr @.str.59, ptr %672
   %673 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select734, double noundef %.sroa.018.0.copyload, double noundef %.sroa.419.0.copyload)
@@ -2523,7 +2523,7 @@ h5tools_str_indent.exit757:                       ; preds = %597, %609, %607, %5
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.415.0.copyload = load x86_fp80, ptr %.sroa.415.0..sroa_idx, align 1
   %679 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %680 = load ptr, ptr %679, align 8, !tbaa !112
+  %680 = load ptr, ptr %679, align 8, !tbaa !115
   %.not614 = icmp eq ptr %680, null
   %spec.select735 = select i1 %.not614, ptr @.str.60, ptr %680
   %681 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %spec.select735, x86_fp80 noundef %.sroa.0.0.copyload, x86_fp80 noundef %.sroa.415.0.copyload)
@@ -2593,7 +2593,7 @@ h5tools_str_close.exit770:                        ; preds = %h5tools_str_close.e
   %709 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %705, i32 noundef %708)
   %710 = add nuw i64 %.0796, 1
   %exitcond.not = icmp eq i64 %710, %23
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !113
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !116
 
 711:                                              ; preds = %48
   %712 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.62)
@@ -2601,7 +2601,7 @@ h5tools_str_close.exit770:                        ; preds = %h5tools_str_close.e
 
 .loopexit:                                        ; preds = %.lr.ph, %74, %38, %700, %27, %138, %.preheader784, %701, %353, %403, %143, %95, %.thread877, %141, %29, %.loopexit791, %._crit_edge808, %._crit_edge, %711, %58, %67, %63, %53, %209, %196, %273, %260, %227, %243, %147, %179, %163, %347, %513, %519, %559, %558, %517, %.loopexit792, %670, %h5tools_str_close.exit770, %678, %660
   %713 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %714 = load ptr, ptr %713, align 8, !tbaa !114
+  %714 = load ptr, ptr %713, align 8, !tbaa !117
   %.not696 = icmp eq ptr %714, null
   %spec.select736 = select i1 %.not696, ptr @.str, ptr %714
   %715 = call ptr @h5tools_str_fmt(ptr noundef %0, i64 noundef %22, ptr noundef nonnull %spec.select736)
@@ -2631,7 +2631,7 @@ declare i32 @H5Tget_strpad(i64 noundef) local_unnamed_addr #14
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %5 = load i32, ptr %4, align 4, !tbaa !115
+  %5 = load i32, ptr %4, align 4, !tbaa !118
   %6 = icmp eq i32 %5, 1
   %7 = sext i8 %2 to i32
   br i1 %6, label %8, label %14
@@ -2662,7 +2662,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %17 = load i32, ptr %16, align 4, !tbaa !116
+  %17 = load i32, ptr %16, align 4, !tbaa !119
   %.not42 = icmp eq i32 %17, 0
   br i1 %.not42, label %18, label %20
 
@@ -2676,7 +2676,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %24 = load i32, ptr %23, align 4, !tbaa !116
+  %24 = load i32, ptr %23, align 4, !tbaa !119
   %.not41 = icmp eq i32 %24, 0
   br i1 %.not41, label %25, label %27
 
@@ -2690,7 +2690,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 29:                                               ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %31 = load i32, ptr %30, align 4, !tbaa !116
+  %31 = load i32, ptr %30, align 4, !tbaa !119
   %.not40 = icmp eq i32 %31, 0
   br i1 %.not40, label %32, label %34
 
@@ -2704,7 +2704,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 36:                                               ; preds = %14
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %38 = load i32, ptr %37, align 4, !tbaa !116
+  %38 = load i32, ptr %37, align 4, !tbaa !119
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %39, label %41
 
@@ -2718,7 +2718,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 43:                                               ; preds = %14
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %45 = load i32, ptr %44, align 4, !tbaa !116
+  %45 = load i32, ptr %44, align 4, !tbaa !119
   %.not38 = icmp eq i32 %45, 0
   br i1 %.not38, label %46, label %49
 
@@ -2733,7 +2733,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 51:                                               ; preds = %14
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %53 = load i32, ptr %52, align 4, !tbaa !116
+  %53 = load i32, ptr %52, align 4, !tbaa !119
   %.not37 = icmp eq i32 %53, 0
   br i1 %.not37, label %54, label %57
 
@@ -2748,7 +2748,7 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 59:                                               ; preds = %14
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %61 = load i32, ptr %60, align 4, !tbaa !116
+  %61 = load i32, ptr %60, align 4, !tbaa !119
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %62, label %64
 
@@ -2762,10 +2762,10 @@ define internal fastcc void @h5tools_print_char(ptr noundef captures(none) %0, p
 
 66:                                               ; preds = %14
   %67 = tail call ptr @__ctype_b_loc() #26
-  %68 = load ptr, ptr %67, align 8, !tbaa !117
+  %68 = load ptr, ptr %67, align 8, !tbaa !120
   %69 = sext i8 %2 to i64
   %70 = getelementptr inbounds i16, ptr %68, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !119
+  %71 = load i16, ptr %70, align 2, !tbaa !122
   %72 = and i16 %71, 16384
   %.not43 = icmp eq i16 %72, 0
   br i1 %.not43, label %75, label %73
@@ -2855,10 +2855,10 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call ptr @__ctype_b_loc() #26
-  %18 = load ptr, ptr %17, align 8, !tbaa !117
+  %18 = load ptr, ptr %17, align 8, !tbaa !120
   %19 = sext i8 %5 to i64
   %20 = getelementptr inbounds i16, ptr %18, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !119
+  %21 = load i16, ptr %20, align 2, !tbaa !122
   %22 = and i16 %21, 16384
   %.not = icmp eq i16 %22, 0
   br i1 %.not, label %23, label %37
@@ -2892,7 +2892,7 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
   %.235 = phi i64 [ %.03348, %16 ], [ %35, %.thread44 ]
   %38 = add i64 %.239, 1
   %39 = icmp ult i64 %38, %.235
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !121
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %37, %26, %1
   %.2 = phi ptr [ %0, %1 ], [ null, %26 ], [ %0, %37 ]
@@ -3115,7 +3115,7 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   tail call void @free(ptr noundef nonnull %.04759) #21
   %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %1) #24
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !122
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !125
 
 .loopexit:                                        ; preds = %17, %3, %7, %.thread
   %.0 = phi ptr [ null, %.thread ], [ %6, %7 ], [ %6, %3 ], [ %16, %17 ]
@@ -3215,87 +3215,90 @@ attributes #26 = { nounwind willreturn memory(none) }
 !36 = !{!15, !15, i64 0}
 !37 = !{!6, !6, i64 0}
 !38 = !{!19, !5, i64 424}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
+!39 = distinct !{!39, !24, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !41 = distinct !{!41, !24}
-!42 = !{!19, !5, i64 432}
+!42 = distinct !{!42, !24}
 !43 = distinct !{!43, !24}
-!44 = distinct !{!44, !24}
-!45 = !{!19, !20, i64 0}
-!46 = !{i8 0, i8 2}
-!47 = !{}
-!48 = !{!19, !5, i64 8}
-!49 = distinct !{!49, !24}
-!50 = !{!19, !5, i64 96}
-!51 = !{!19, !5, i64 104}
-!52 = !{!19, !5, i64 112}
-!53 = distinct !{!53, !24}
-!54 = !{!5, !5, i64 0}
-!55 = !{!19, !15, i64 152}
+!44 = !{!19, !5, i64 432}
+!45 = distinct !{!45, !24}
+!46 = distinct !{!46, !24, !40}
+!47 = distinct !{!47, !24}
+!48 = !{!19, !20, i64 0}
+!49 = !{i8 0, i8 2}
+!50 = !{}
+!51 = !{!19, !5, i64 8}
+!52 = distinct !{!52, !24}
+!53 = !{!19, !5, i64 96}
+!54 = !{!19, !5, i64 104}
+!55 = !{!19, !5, i64 112}
 !56 = distinct !{!56, !24}
-!57 = distinct !{!57, !24}
-!58 = !{!19, !15, i64 144}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"long long", !7, i64 0}
-!61 = !{!19, !5, i64 24}
-!62 = !{!19, !5, i64 16}
-!63 = !{!19, !5, i64 56}
-!64 = !{!19, !5, i64 48}
-!65 = !{!19, !5, i64 40}
-!66 = !{!19, !5, i64 32}
-!67 = !{!19, !5, i64 72}
-!68 = !{!19, !5, i64 64}
-!69 = !{!14, !16, i64 1096}
-!70 = !{!19, !5, i64 208}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS11H5LD_memb_t", !6, i64 0}
-!73 = !{!19, !5, i64 200}
-!74 = !{!19, !5, i64 224}
-!75 = !{!19, !15, i64 184}
-!76 = !{!77, !78, i64 24}
-!77 = !{!"H5LD_memb_t", !9, i64 0, !9, i64 8, !9, i64 16, !78, i64 24}
-!78 = !{!"p2 omnipotent char", !6, i64 0}
-!79 = !{!19, !5, i64 192}
-!80 = distinct !{!80, !24}
-!81 = !{!77, !9, i64 16}
-!82 = !{!77, !9, i64 0}
-!83 = !{!19, !5, i64 216}
-!84 = distinct !{!84, !24}
-!85 = distinct !{!85, !24}
-!86 = !{!19, !16, i64 232}
+!57 = !{!5, !5, i64 0}
+!58 = !{!19, !15, i64 152}
+!59 = distinct !{!59, !24}
+!60 = distinct !{!60, !24}
+!61 = !{!19, !15, i64 144}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"long long", !7, i64 0}
+!64 = !{!19, !5, i64 24}
+!65 = !{!19, !5, i64 16}
+!66 = !{!19, !5, i64 56}
+!67 = !{!19, !5, i64 48}
+!68 = !{!19, !5, i64 40}
+!69 = !{!19, !5, i64 32}
+!70 = !{!19, !5, i64 72}
+!71 = !{!19, !5, i64 64}
+!72 = !{!14, !16, i64 1096}
+!73 = !{!19, !5, i64 208}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS11H5LD_memb_t", !6, i64 0}
+!76 = !{!19, !5, i64 200}
+!77 = !{!19, !5, i64 224}
+!78 = !{!19, !15, i64 184}
+!79 = !{!80, !81, i64 24}
+!80 = !{!"H5LD_memb_t", !9, i64 0, !9, i64 8, !9, i64 16, !81, i64 24}
+!81 = !{!"p2 omnipotent char", !6, i64 0}
+!82 = !{!19, !5, i64 192}
+!83 = distinct !{!83, !24}
+!84 = !{!80, !9, i64 16}
+!85 = !{!80, !9, i64 0}
+!86 = !{!19, !5, i64 216}
 !87 = distinct !{!87, !24}
 !88 = distinct !{!88, !24}
-!89 = distinct !{!89, !24}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!92 = !{!93, !15, i64 24}
-!93 = !{!"H5O_info2_t", !9, i64 0, !94, i64 8, !15, i64 24, !15, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
-!94 = !{!"H5O_token_t", !7, i64 0}
-!95 = !{!19, !15, i64 396}
-!96 = !{!19, !5, i64 400}
-!97 = !{!93, !9, i64 0}
-!98 = distinct !{!98, !24}
-!99 = !{!19, !5, i64 160}
-!100 = !{!19, !5, i64 168}
+!89 = !{!19, !16, i64 232}
+!90 = distinct !{!90, !24}
+!91 = distinct !{!91, !24}
+!92 = distinct !{!92, !24}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!95 = !{!96, !15, i64 24}
+!96 = !{!"H5O_info2_t", !9, i64 0, !97, i64 8, !15, i64 24, !15, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
+!97 = !{!"H5O_token_t", !7, i64 0}
+!98 = !{!19, !15, i64 396}
+!99 = !{!19, !5, i64 400}
+!100 = !{!96, !9, i64 0}
 !101 = distinct !{!101, !24}
-!102 = !{!19, !5, i64 176}
-!103 = !{!19, !5, i64 248}
-!104 = !{!105, !9, i64 0}
-!105 = !{!"", !9, i64 0, !6, i64 8}
-!106 = !{!19, !5, i64 240}
-!107 = !{!105, !6, i64 8}
-!108 = distinct !{!108, !24}
-!109 = !{!19, !5, i64 256}
-!110 = !{!19, !5, i64 120}
-!111 = !{!19, !5, i64 128}
-!112 = !{!19, !5, i64 136}
-!113 = distinct !{!113, !24}
-!114 = !{!19, !5, i64 272}
-!115 = !{!19, !15, i64 148}
-!116 = !{!19, !15, i64 452}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"p1 short", !6, i64 0}
-!119 = !{!120, !120, i64 0}
-!120 = !{!"short", !7, i64 0}
-!121 = distinct !{!121, !24}
-!122 = distinct !{!122, !24}
+!102 = !{!19, !5, i64 160}
+!103 = !{!19, !5, i64 168}
+!104 = distinct !{!104, !24}
+!105 = !{!19, !5, i64 176}
+!106 = !{!19, !5, i64 248}
+!107 = !{!108, !9, i64 0}
+!108 = !{!"", !9, i64 0, !6, i64 8}
+!109 = !{!19, !5, i64 240}
+!110 = !{!108, !6, i64 8}
+!111 = distinct !{!111, !24}
+!112 = !{!19, !5, i64 256}
+!113 = !{!19, !5, i64 120}
+!114 = !{!19, !5, i64 128}
+!115 = !{!19, !5, i64 136}
+!116 = distinct !{!116, !24}
+!117 = !{!19, !5, i64 272}
+!118 = !{!19, !15, i64 148}
+!119 = !{!19, !15, i64 452}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 short", !6, i64 0}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"short", !7, i64 0}
+!124 = distinct !{!124, !24}
+!125 = distinct !{!125, !24}

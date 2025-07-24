@@ -487,7 +487,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %55 = add i64 %54, 1
   %56 = load atomic i64, ptr %22 acquire, align 16
   %57 = icmp sgt i64 %55, %56
-  br i1 %57, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %57, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !120
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
   %58 = phi i64 [ %86, %84 ], [ %24, %.lr.ph ]
@@ -750,3 +750,5 @@ attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !117 = !{!"p1 _ZTSN3tbb6detail2r19pm_clientE", !13, i64 0}
 !118 = distinct !{!118, !42}
 !119 = !{!22, !29, i64 80}
+!120 = distinct !{!120, !121}
+!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -1662,7 +1662,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, p
   %179 = lshr i32 %171, 8
   %180 = add nuw nsw i32 %172, 1
   %181 = icmp eq i32 %180, 4
-  br i1 %181, label %.split25.us, label %.split, !llvm.loop !30
+  br i1 %181, label %.split25.us, label %.split, !llvm.loop !32
 
 .split25.us:                                      ; preds = %.split.us, %166, %.split, %175
   %.us-phi = phi i32 [ %157, %175 ], [ 1, %.split ], [ %157, %166 ], [ 0, %.split.us ]
@@ -1732,14 +1732,14 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, p
 
 217:                                              ; preds = %212, %.split25.us
   %218 = icmp eq i32 %.us-phi, 0
-  br i1 %218, label %.thread21, label %.lr.ph, !llvm.loop !31
+  br i1 %218, label %.thread21, label %.lr.ph, !llvm.loop !33
 
 .thread21:                                        ; preds = %217, %111
   %219 = sub i32 %19, %.fr27
   %220 = zext nneg i32 %.fr27 to i64
   %221 = getelementptr i8, ptr %20, i64 %220
   %222 = icmp eq i32 %219, 0
-  br i1 %222, label %.thread22, label %18, !llvm.loop !32
+  br i1 %222, label %.thread22, label %18, !llvm.loop !34
 
 .thread22:                                        ; preds = %.thread21, %.lr.ph
   %223 = phi i32 [ %120, %.lr.ph ], [ 0, %.thread21 ]
@@ -1787,7 +1787,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   %34 = shl nuw i32 %31, %33
   %35 = or i32 %34, %28
   %36 = icmp eq i32 %27, %24
-  br i1 %36, label %37, label %25, !llvm.loop !33
+  br i1 %36, label %37, label %25, !llvm.loop !35
 
 37:                                               ; preds = %25
   %38 = zext nneg i32 %24 to i64
@@ -1946,7 +1946,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   %135 = or i32 %134, %127
   %136 = add nuw nsw i32 %128, 1
   %137 = icmp eq i32 %128, %125
-  br i1 %137, label %138, label %126, !llvm.loop !34
+  br i1 %137, label %138, label %126, !llvm.loop !36
 
 138:                                              ; preds = %126
   %139 = getelementptr i8, ptr %121, i64 1
@@ -2012,14 +2012,14 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %135, ptr elementtype(i32) %175) #12, !srcloc !16
   %176 = tail call fastcc i32 @gmbus_wait(ptr noundef %0, i32 noundef 2048, i32 noundef 1), !range !17
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %119, label %.loopexit, !llvm.loop !35
+  br i1 %177, label %119, label %.loopexit, !llvm.loop !37
 
 .thread:                                          ; preds = %119
   %178 = zext nneg i32 %19 to i64
   %179 = getelementptr i8, ptr %15, i64 %178
   %180 = sub i32 %14, %19
   %181 = icmp eq i32 %180, 0
-  br i1 %181, label %.loopexit, label %13, !llvm.loop !36
+  br i1 %181, label %.loopexit, label %13, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.thread, %171
   %182 = phi i32 [ %176, %171 ], [ 0, %.thread ]
@@ -2031,7 +2031,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !37
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !39
   %7 = inttoptr i64 %6 to ptr
   store i64 0, ptr %4, align 8
   store ptr %7, ptr %5, align 8
@@ -2117,8 +2117,8 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %18, ptr elementtype(i32) %55) #12, !srcloc !16
   %56 = or i32 %1, 1024
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !38
-  %57 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !39
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !40
+  %57 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !41
   %58 = call i64 @local_clock() #12
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 7404
   br label %.outer
@@ -2132,7 +2132,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
 
 61:                                               ; preds = %.outer, %109
   %62 = call i64 @local_clock() #12
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !40
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !42
   %63 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !13
   %64 = icmp ult i8 %63, 2
   call void @llvm.assume(i1 %64)
@@ -2141,12 +2141,12 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
 
 66:                                               ; preds = %61
   %67 = call i64 @llvm.read_register.i64(metadata !0)
-  %68 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %67) #12, !srcloc !41
+  %68 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %67) #12, !srcloc !43
   call void @llvm.write_register.i64(metadata !0, i64 %68)
   br label %69
 
 69:                                               ; preds = %66, %61
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !42
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   %70 = load i32, ptr %19, align 8
   %71 = add i32 %70, 20744
   %72 = icmp ult i32 %71, 262144
@@ -2214,10 +2214,10 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %106
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !43
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !45
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
-  %110 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !45
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
+  %110 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !47
   %111 = icmp eq i32 %.ph37, %110
   br i1 %111, label %61, label %112, !prof !14
 
@@ -2237,7 +2237,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 no
   %121 = phi i64 [ 10, %116 ], [ %164, %161 ]
   %122 = call i64 @ktime_get_raw() #12
   %123 = icmp sle i64 %122, %118
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !48
   %124 = load i32, ptr %19, align 8
   %125 = add i32 %124, 20744
   %126 = icmp ult i32 %125, 262144
@@ -2383,7 +2383,7 @@ define internal fastcc i32 @gmbus_wait_idle(ptr noundef %0) unnamed_addr #1 alig
   %2 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !37
+  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !39
   %5 = inttoptr i64 %4 to ptr
   store i64 0, ptr %2, align 8
   store ptr %5, ptr %3, align 8
@@ -3056,20 +3056,22 @@ attributes #15 = { nounwind memory(read) }
 !27 = !{i64 2161868154, i64 2161867965, i64 2161868015, i64 2161868061, i64 2161868089}
 !28 = !{i64 2161868460, i64 2161868271, i64 2161868321, i64 2161868367, i64 2161868395}
 !29 = !{i64 2154661232}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
+!30 = distinct !{!30, !19, !20, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !32 = distinct !{!32, !19, !20}
 !33 = distinct !{!33, !19, !20}
 !34 = distinct !{!34, !19, !20}
 !35 = distinct !{!35, !19, !20}
 !36 = distinct !{!36, !19, !20}
-!37 = !{i64 2148239671}
-!38 = !{i64 2161810638}
-!39 = !{i64 2161813297}
-!40 = !{i64 2161814197}
-!41 = !{i64 2161814379}
-!42 = !{i64 2161815995}
-!43 = !{i64 2208227}
-!44 = !{i64 2161816144}
-!45 = !{i64 2161820511}
-!46 = !{i64 2161825956}
+!37 = distinct !{!37, !19, !20}
+!38 = distinct !{!38, !19, !20}
+!39 = !{i64 2148239671}
+!40 = !{i64 2161810638}
+!41 = !{i64 2161813297}
+!42 = !{i64 2161814197}
+!43 = !{i64 2161814379}
+!44 = !{i64 2161815995}
+!45 = !{i64 2208227}
+!46 = !{i64 2161816144}
+!47 = !{i64 2161820511}
+!48 = !{i64 2161825956}

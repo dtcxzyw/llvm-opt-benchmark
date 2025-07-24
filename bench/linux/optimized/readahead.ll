@@ -1372,7 +1372,7 @@ define dso_local void @readahead_expand(ptr noundef captures(none) %0, i64 nound
   %131 = load i32, ptr %60, align 8
   %132 = zext i32 %131 to i64
   %133 = icmp samesign ugt i64 %59, %132
-  br i1 %133, label %.split, label %.loopexit, !llvm.loop !29
+  br i1 %133, label %.split, label %.loopexit, !llvm.loop !31
 
 134:                                              ; preds = %.split15.us, %34
   %135 = phi ptr [ %29, %34 ], [ %.us-phi, %.split15.us ]
@@ -1472,4 +1472,6 @@ attributes #8 = { nounwind memory(read) }
 !26 = !{i64 1175323}
 !27 = !{i64 2148661049, i64 2148661088, i64 2148661109, i64 2148661146, i64 2148661169, i64 2148661039}
 !28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12}
+!29 = distinct !{!29, !11, !12, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !11, !12}

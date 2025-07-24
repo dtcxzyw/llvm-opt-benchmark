@@ -2021,7 +2021,7 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
   tail call fastcc void @add_json(i64 noundef %20, i1 noundef zeroext %23, ptr noundef %6, i32 noundef %25, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count26
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %18, %5
   tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 93) #10
@@ -2077,7 +2077,7 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
   call fastcc void @add_json(i64 noundef %15, i1 noundef zeroext %18, ptr noundef %13, i32 noundef %20, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count26.i
-  br i1 %exitcond.not.i, label %json_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %json_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 json_build_array_worker.exit:                     ; preds = %.lr.ph.split.i, %9
   call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 93) #10
@@ -2326,7 +2326,7 @@ escape_json_text.exit:                            ; preds = %75, %79
 escape_json_text.exit23:                          ; preds = %117, %113, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit23, %33
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
@@ -2633,7 +2633,7 @@ escape_json_text.exit26:                          ; preds = %118, %114, %86
   %119 = load i32, ptr %7, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit26, %37
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
@@ -2778,7 +2778,7 @@ escape_json_char.exit:                            ; preds = %22, %23, %24, %25, 
   %46 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   %47 = load i8, ptr %46, align 1
   %.not18 = icmp eq i8 %47, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %escape_json_char.exit, %18
   %48 = load i32, ptr %3, align 8
@@ -2845,7 +2845,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %escape_json_char.exit
-  br label %.critedge, !llvm.loop !13
+  br label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.critedge.loopexit, %21
   %.048 = phi i32 [ 0, %21 ], [ %48, %.critedge.loopexit ]
@@ -2886,7 +2886,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   %.3 = phi i32 [ %32, %36 ], [ %.14968, %33 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %40 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %40, label %.lr.ph, label %.thread.split.loop.exit, !llvm.loop !14
+  br i1 %40, label %.lr.ph, label %.thread.split.loop.exit, !llvm.loop !16
 
 .thread.split.loop.exit:                          ; preds = %39
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -2995,7 +2995,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
 escape_json_char.exit:                            ; preds = %53, %54, %55, %56, %57, %58, %59, %62, %67, %68
   %77 = add nuw nsw i32 %.074, 1
   %exitcond = icmp eq i32 %77, 16
-  br i1 %exitcond, label %.critedge.loopexit, label %.thread.thread, !llvm.loop !13
+  br i1 %exitcond, label %.critedge.loopexit, label %.thread.thread, !llvm.loop !15
 
 78:                                               ; preds = %.thread.thread
   %79 = load i32, ptr %6, align 8
@@ -3197,7 +3197,7 @@ define internal noundef i32 @json_unique_object_field_start(ptr noundef captures
   call void @pfree(ptr noundef nonnull %24) #10
   %26 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %9, %3
   ret i32 0
@@ -3321,7 +3321,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   %29 = add i32 %.031.us, 1
   %30 = load i32, ptr %13, align 4
   %.not.us = icmp sgt i32 %29, %30
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.031 = phi i32 [ %34, %33 ], [ 1, %.lr.ph ]
@@ -3337,7 +3337,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   %34 = add i32 %.031, 1
   %35 = load i32, ptr %13, align 4
   %.not = icmp sgt i32 %34, %35
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %33, %19, %10
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 93) #10
@@ -3461,11 +3461,14 @@ attributes #12 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !10}
+!19 = distinct !{!19, !7}

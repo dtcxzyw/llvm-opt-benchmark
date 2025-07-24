@@ -154,7 +154,7 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 .split:                                           ; preds = %5, %30
   %.012 = phi i64 [ %31, %30 ], [ 0, %5 ]
   %19 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 2
-  %20 = load i8, ptr %19, align 1, !tbaa !50, !range !18, !noundef !19
+  %20 = load i8, ptr %19, align 1, !tbaa !51, !range !18, !noundef !19
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %30
 
@@ -178,7 +178,7 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 30:                                               ; preds = %.split, %28
   %31 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %31, 3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !52
 
 .loopexit:                                        ; preds = %30, %16, %1
   ret void
@@ -263,7 +263,7 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 .split.i:                                         ; preds = %29, %53
   %.012.i = phi i64 [ %54, %53 ], [ 0, %29 ]
   %42 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 2
-  %43 = load i8, ptr %42, align 1, !tbaa !50, !range !18, !noundef !19
+  %43 = load i8, ptr %42, align 1, !tbaa !51, !range !18, !noundef !19
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %53
 
@@ -287,7 +287,7 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 53:                                               ; preds = %51, %.split.i
   %54 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %54, 3
-  br i1 %exitcond.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit, label %.split.i, !llvm.loop !52
 
 _ZN3gmx19SimulationSignaller10setSignalsEv.exit:  ; preds = %53, %39, %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
   ret void
@@ -351,5 +351,7 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 !46 = !{!27, !37, i64 112}
 !47 = !{!27, !29, i64 32}
 !48 = !{!21, !8, i64 1}
-!49 = distinct !{!49, !25}
-!50 = !{!21, !12, i64 2}
+!49 = distinct !{!49, !25, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = !{!21, !12, i64 2}
+!52 = distinct !{!52, !25}

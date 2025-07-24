@@ -2382,7 +2382,7 @@ makeMaps_d.exit.i:                                ; preds = %812
 ._crit_edge.us.i.i:                               ; preds = %1238
   %1239 = add nuw nsw i32 %.05774.us.i.i, 1
   %exitcond88.not.i.i = icmp eq i32 %.05774.us.i.i, %spec.select.i
-  br i1 %exitcond88.not.i.i, label %.preheader68.i.i, label %.preheader69.us.i.i
+  br i1 %exitcond88.not.i.i, label %.preheader68.i.i, label %.preheader69.us.i.i, !llvm.loop !72
 
 .preheader68.i.i:                                 ; preds = %._crit_edge.us.i.i
   %1240 = getelementptr inbounds nuw [6 x [258 x i32]], ptr %34, i64 0, i64 %indvars.iv1782.i
@@ -4204,3 +4204,5 @@ attributes #7 = { nounwind }
 !69 = !{!4, !5, i64 0}
 !70 = !{!13, !9, i64 56}
 !71 = !{!13, !9, i64 3192}
+!72 = distinct !{!72, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}

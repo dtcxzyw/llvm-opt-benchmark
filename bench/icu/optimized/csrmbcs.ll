@@ -205,7 +205,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us70: ; preds = %32, %30
   %37 = mul nuw nsw i32 %.142.us72, 5
   %.not50.us74 = icmp slt i32 %37, %.1.us73
   %or.cond51.us75 = select i1 %36, i1 true, i1 %.not50.us74
-  br i1 %or.cond51.us75, label %.split.split.us, label %.loopexit, !llvm.loop !21
+  br i1 %or.cond51.us75, label %.split.split.us, label %.loopexit, !llvm.loop !24
 
 .split.split:                                     ; preds = %.split, %_ZN6icu_77L12binarySearchEPKtit.exit.thread
   %.043 = phi i32 [ %.144, %_ZN6icu_77L12binarySearchEPKtit.exit.thread ], [ 0, %.split ]
@@ -247,7 +247,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us70: ; preds = %32, %30
   %.026.i = sdiv i32 %.026.in.i.fr, 2
   %52 = sext i32 %.026.i to i64
   %53 = getelementptr inbounds i16, ptr %2, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !23
+  %54 = load i16, ptr %53, align 2, !tbaa !25
   %55 = icmp eq i16 %54, %51
   br i1 %55, label %_ZN6icu_77L12binarySearchEPKtit.exit, label %56
 
@@ -259,7 +259,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us70: ; preds = %32, %30
   %.1.i = select i1 %57, i32 %.01625.i, i32 %59
   %60 = add nsw i32 %.118.i, %.1.i
   %.not.i = icmp sgt i32 %.118.i, %.1.i
-  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKtit.exit.thread, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKtit.exit.thread, label %.lr.ph.i, !llvm.loop !27
 
 _ZN6icu_77L12binarySearchEPKtit.exit:             ; preds = %.lr.ph.i
   %61 = icmp sgt i32 %.026.in.i.fr, -2
@@ -275,7 +275,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   %64 = mul nuw nsw i32 %.142, 5
   %.not50 = icmp slt i32 %64, %.1
   %or.cond51 = select i1 %63, i1 true, i1 %.not50
-  br i1 %or.cond51, label %.split.split, label %.loopexit, !llvm.loop !21
+  br i1 %or.cond51, label %.split.split, label %.loopexit, !llvm.loop !28
 
 .split60.us.loopexit88:                           ; preds = %.split.split
   %65 = sitofp i32 %.043 to double
@@ -315,9 +315,9 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
 78:                                               ; preds = %75
   %79 = sitofp i32 %.us-phi63 to double
   %80 = fmul double %79, 2.500000e-01
-  %81 = call double @log(double noundef %80) #13, !tbaa !26
+  %81 = call double @log(double noundef %80) #13, !tbaa !29
   %82 = fdiv double 9.000000e+01, %81
-  %83 = call double @log(double noundef %.us-phi) #13, !tbaa !26
+  %83 = call double @log(double noundef %.us-phi) #13, !tbaa !29
   %84 = call double @llvm.fmuladd.f64(double %83, double %82, double 1.000000e+01)
   %85 = fptosi double %84 to i32
   br label %86
@@ -908,9 +908,12 @@ attributes #14 = { noreturn nounwind }
 !18 = !{!6, !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"vtable pointer", !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"short", !6, i64 0}
-!25 = distinct !{!25, !22}
-!26 = !{!5, !5, i64 0}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !22, !23}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"short", !6, i64 0}
+!27 = distinct !{!27, !22}
+!28 = distinct !{!28, !22}
+!29 = !{!5, !5, i64 0}

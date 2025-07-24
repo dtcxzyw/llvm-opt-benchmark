@@ -1789,241 +1789,1911 @@ define hidden void @cfl_predict_hbd_c(ptr noundef readonly captures(none) %0, pt
 .preheader.lr.ph:                                 ; preds = %7
   %9 = icmp sgt i32 %5, 0
   %10 = sext i32 %2 to i64
-  br i1 %9, label %.preheader.lr.ph.split.us, label %._crit_edge33
+  br i1 %9, label %.preheader.us.preheader, label %._crit_edge33
 
-.preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %wide.trip.count61 = zext nneg i32 %5 to i64
-  switch i32 %4, label %.preheader.us [
-    i32 12, label %.preheader.us.us
-    i32 10, label %.preheader.us.us41
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+  %wide.trip.count = zext nneg i32 %5 to i64
+  %wide.trip.count47 = zext nneg i32 %5 to i64
+  %wide.trip.count52 = zext nneg i32 %5 to i64
+  br label %.preheader.us
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
+  %.01632.us = phi i32 [ %32, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.01729.us = phi ptr [ %31, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.01826.us = phi ptr [ %30, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
+  switch i32 %4, label %.lr.ph.split.us38 [
+    i32 12, label %.lr.ph.split.us.us
+    i32 10, label %.lr.ph.split.us20.us
   ]
 
-.preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us.us.us
-  %.01632.us.us = phi i32 [ %33, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us.us = phi ptr [ %32, %._crit_edge.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us.us = phi ptr [ %31, %._crit_edge.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
-  br label %11
+.lr.ph.split.us38:                                ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us35
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %get_scaled_luma_q0.exit.us35 ], [ 0, %.preheader.us ]
+  %11 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv49
+  %12 = load i16, ptr %11, align 2
+  %13 = sext i16 %12 to i32
+  %14 = mul nsw i32 %3, %13
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %19, label %16
 
-11:                                               ; preds = %get_scaled_luma_q0.exit.us.us.us, %.preheader.us.us
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %get_scaled_luma_q0.exit.us.us.us ], [ 0, %.preheader.us.us ]
-  %12 = getelementptr inbounds nuw i16, ptr %.01729.us.us, i64 %indvars.iv52
-  %13 = load i16, ptr %12, align 2
-  %14 = sext i16 %13 to i32
-  %15 = mul nsw i32 %3, %14
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %20, label %17
+16:                                               ; preds = %.lr.ph.split.us38
+  %17 = add nuw nsw i32 %14, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.us35
 
-17:                                               ; preds = %11
-  %18 = add nuw nsw i32 %15, 32
-  %19 = lshr i32 %18, 6
-  br label %get_scaled_luma_q0.exit.us.us.us
+19:                                               ; preds = %.lr.ph.split.us38
+  %20 = sub i32 32, %14
+  %21 = lshr i32 %20, 6
+  %22 = sub nsw i32 0, %21
+  br label %get_scaled_luma_q0.exit.us35
 
-20:                                               ; preds = %11
-  %21 = sub i32 32, %15
-  %22 = lshr i32 %21, 6
-  %23 = sub nsw i32 0, %22
-  br label %get_scaled_luma_q0.exit.us.us.us
+get_scaled_luma_q0.exit.us35:                     ; preds = %19, %16
+  %23 = phi i32 [ %22, %19 ], [ %18, %16 ]
+  %24 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv49
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i32
+  %27 = add nsw i32 %23, %26
+  %28 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %27, i32 0)
+  %29 = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %.0.i.us36 = trunc nuw nsw i32 %29 to i16
+  store i16 %.0.i.us36, ptr %24, align 2
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
+  br i1 %exitcond53.not, label %._crit_edge.us, label %.lr.ph.split.us38, !llvm.loop !13
 
-get_scaled_luma_q0.exit.us.us.us:                 ; preds = %20, %17
-  %24 = phi i32 [ %23, %20 ], [ %19, %17 ]
-  %25 = getelementptr inbounds nuw i16, ptr %.01826.us.us, i64 %indvars.iv52
-  %26 = load i16, ptr %25, align 2
-  %27 = zext i16 %26 to i32
-  %28 = add nsw i32 %24, %27
-  %29 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %28, i32 0)
-  %30 = tail call i32 @llvm.umin.i32(i32 %29, i32 4095)
-  %.0.i.us.us.us = trunc nuw nsw i32 %30 to i16
-  store i16 %.0.i.us.us.us, ptr %25, align 2
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count61
-  br i1 %exitcond56.not, label %._crit_edge.split.us.us.us, label %11, !llvm.loop !13
+._crit_edge.us:                                   ; preds = %get_scaled_luma_q0.exit.us22.us, %get_scaled_luma_q0.exit.us.us, %get_scaled_luma_q0.exit.us35
+  %30 = getelementptr inbounds i16, ptr %.01826.us, i64 %10
+  %31 = getelementptr inbounds nuw i8, ptr %.01729.us, i64 64
+  %32 = add nuw nsw i32 %.01632.us, 1
+  %exitcond54.not = icmp eq i32 %32, %6
+  br i1 %exitcond54.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !14
 
-._crit_edge.split.us.us.us:                       ; preds = %get_scaled_luma_q0.exit.us.us.us
-  %31 = getelementptr inbounds i16, ptr %.01826.us.us, i64 %10
-  %32 = getelementptr inbounds nuw i8, ptr %.01729.us.us, i64 64
-  %33 = add nuw nsw i32 %.01632.us.us, 1
-  %exitcond57.not = icmp eq i32 %33, %6
-  br i1 %exitcond57.not, label %._crit_edge33, label %.preheader.us.us, !llvm.loop !14
+.lr.ph.split.us.us:                               ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us.us
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %get_scaled_luma_q0.exit.us.us ], [ 0, %.preheader.us ]
+  %33 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv44
+  %34 = load i16, ptr %33, align 2
+  %35 = sext i16 %34 to i32
+  %36 = mul nsw i32 %3, %35
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %41, label %38
 
-.preheader.us.us41:                               ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us.us.us
-  %.01632.us.us42 = phi i32 [ %56, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us.us43 = phi ptr [ %55, %._crit_edge.split.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us.us44 = phi ptr [ %54, %._crit_edge.split.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
-  br label %34
+38:                                               ; preds = %.lr.ph.split.us.us
+  %39 = add nuw nsw i32 %36, 32
+  %40 = lshr i32 %39, 6
+  br label %get_scaled_luma_q0.exit.us.us
 
-34:                                               ; preds = %get_scaled_luma_q0.exit.us22.us.us, %.preheader.us.us41
-  %indvars.iv = phi i64 [ %indvars.iv.next, %get_scaled_luma_q0.exit.us22.us.us ], [ 0, %.preheader.us.us41 ]
-  %35 = getelementptr inbounds nuw i16, ptr %.01729.us.us43, i64 %indvars.iv
-  %36 = load i16, ptr %35, align 2
-  %37 = sext i16 %36 to i32
-  %38 = mul nsw i32 %3, %37
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %43, label %40
+41:                                               ; preds = %.lr.ph.split.us.us
+  %42 = sub i32 32, %36
+  %43 = lshr i32 %42, 6
+  %44 = sub nsw i32 0, %43
+  br label %get_scaled_luma_q0.exit.us.us
 
-40:                                               ; preds = %34
-  %41 = add nuw nsw i32 %38, 32
-  %42 = lshr i32 %41, 6
-  br label %get_scaled_luma_q0.exit.us22.us.us
+get_scaled_luma_q0.exit.us.us:                    ; preds = %41, %38
+  %45 = phi i32 [ %44, %41 ], [ %40, %38 ]
+  %46 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv44
+  %47 = load i16, ptr %46, align 2
+  %48 = zext i16 %47 to i32
+  %49 = add nsw i32 %45, %48
+  %50 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %49, i32 0)
+  %51 = tail call i32 @llvm.umin.i32(i32 %50, i32 4095)
+  %.0.i.us.us = trunc nuw nsw i32 %51 to i16
+  store i16 %.0.i.us.us, ptr %46, align 2
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !16
 
-43:                                               ; preds = %34
-  %44 = sub i32 32, %38
-  %45 = lshr i32 %44, 6
-  %46 = sub nsw i32 0, %45
-  br label %get_scaled_luma_q0.exit.us22.us.us
+.lr.ph.split.us20.us:                             ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us22.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %get_scaled_luma_q0.exit.us22.us ], [ 0, %.preheader.us ]
+  %52 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv
+  %53 = load i16, ptr %52, align 2
+  %54 = sext i16 %53 to i32
+  %55 = mul nsw i32 %3, %54
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %60, label %57
 
-get_scaled_luma_q0.exit.us22.us.us:               ; preds = %43, %40
-  %47 = phi i32 [ %46, %43 ], [ %42, %40 ]
-  %48 = getelementptr inbounds nuw i16, ptr %.01826.us.us44, i64 %indvars.iv
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = add nsw i32 %47, %50
-  %52 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %51, i32 0)
-  %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 1023)
-  %.0.i.us25.us.us = trunc nuw nsw i32 %53 to i16
-  store i16 %.0.i.us25.us.us, ptr %48, align 2
+57:                                               ; preds = %.lr.ph.split.us20.us
+  %58 = add nuw nsw i32 %55, 32
+  %59 = lshr i32 %58, 6
+  br label %get_scaled_luma_q0.exit.us22.us
+
+60:                                               ; preds = %.lr.ph.split.us20.us
+  %61 = sub i32 32, %55
+  %62 = lshr i32 %61, 6
+  %63 = sub nsw i32 0, %62
+  br label %get_scaled_luma_q0.exit.us22.us
+
+get_scaled_luma_q0.exit.us22.us:                  ; preds = %60, %57
+  %64 = phi i32 [ %63, %60 ], [ %59, %57 ]
+  %65 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i32
+  %68 = add nsw i32 %64, %67
+  %69 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %68, i32 0)
+  %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 1023)
+  %.0.i.us25.us = trunc nuw nsw i32 %70 to i16
+  store i16 %.0.i.us25.us, ptr %65, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
-  br i1 %exitcond.not, label %._crit_edge.split.split.us.us.us, label %34, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us20.us, !llvm.loop !17
 
-._crit_edge.split.split.us.us.us:                 ; preds = %get_scaled_luma_q0.exit.us22.us.us
-  %54 = getelementptr inbounds i16, ptr %.01826.us.us44, i64 %10
-  %55 = getelementptr inbounds nuw i8, ptr %.01729.us.us43, i64 64
-  %56 = add nuw nsw i32 %.01632.us.us42, 1
-  %exitcond51.not = icmp eq i32 %56, %6
-  br i1 %exitcond51.not, label %._crit_edge33, label %.preheader.us.us41, !llvm.loop !14
-
-.preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us37
-  %.01632.us = phi i32 [ %79, %._crit_edge.split.split.us37 ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us = phi ptr [ %78, %._crit_edge.split.split.us37 ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us = phi ptr [ %77, %._crit_edge.split.split.us37 ], [ %1, %.preheader.lr.ph.split.us ]
-  br label %57
-
-57:                                               ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us35
-  %indvars.iv58 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next59, %get_scaled_luma_q0.exit.us35 ]
-  %58 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv58
-  %59 = load i16, ptr %58, align 2
-  %60 = sext i16 %59 to i32
-  %61 = mul nsw i32 %3, %60
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %66, label %63
-
-63:                                               ; preds = %57
-  %64 = add nuw nsw i32 %61, 32
-  %65 = lshr i32 %64, 6
-  br label %get_scaled_luma_q0.exit.us35
-
-66:                                               ; preds = %57
-  %67 = sub i32 32, %61
-  %68 = lshr i32 %67, 6
-  %69 = sub nsw i32 0, %68
-  br label %get_scaled_luma_q0.exit.us35
-
-get_scaled_luma_q0.exit.us35:                     ; preds = %66, %63
-  %70 = phi i32 [ %69, %66 ], [ %65, %63 ]
-  %71 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv58
-  %72 = load i16, ptr %71, align 2
-  %73 = zext i16 %72 to i32
-  %74 = add nsw i32 %70, %73
-  %75 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %74, i32 0)
-  %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 255)
-  %.0.i.us36 = trunc nuw nsw i32 %76 to i16
-  store i16 %.0.i.us36, ptr %71, align 2
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.split.split.us37, label %57, !llvm.loop !13
-
-._crit_edge.split.split.us37:                     ; preds = %get_scaled_luma_q0.exit.us35
-  %77 = getelementptr inbounds i16, ptr %.01826.us, i64 %10
-  %78 = getelementptr inbounds nuw i8, ptr %.01729.us, i64 64
-  %79 = add nuw nsw i32 %.01632.us, 1
-  %exitcond63.not = icmp eq i32 %79, %6
-  br i1 %exitcond63.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !14
-
-._crit_edge33:                                    ; preds = %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %._crit_edge.split.split.us37, %.preheader.lr.ph, %7
+._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_4x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 4
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_4x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 8)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 8
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_4x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 16)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 16
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_8x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 4)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 4
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_8x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 8
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_8x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 16)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 16
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_8x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 32)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 32
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_16x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 4)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 4
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_16x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 8)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 8
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_16x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 16
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_16x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 32)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 32
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_32x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 8)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 8
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_32x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 16)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 16
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_hbd_32x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
-  tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 32)
+  %6 = sext i32 %2 to i64
+  br label %.preheader.us.i
+
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %5
+  %.01632.us.i = phi i32 [ %28, %._crit_edge.us.i ], [ 0, %5 ]
+  %.01729.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %5 ]
+  %.01826.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %1, %5 ]
+  switch i32 %4, label %.lr.ph.split.us38.i [
+    i32 12, label %.lr.ph.split.us.us.i
+    i32 10, label %.lr.ph.split.us20.us.i
+  ]
+
+.lr.ph.split.us38.i:                              ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us35.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %get_scaled_luma_q0.exit.us35.i ], [ 0, %.preheader.us.i ]
+  %7 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv49.i
+  %8 = load i16, ptr %7, align 2
+  %9 = sext i16 %8 to i32
+  %10 = mul nsw i32 %3, %9
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
+
+12:                                               ; preds = %.lr.ph.split.us38.i
+  %13 = add nuw nsw i32 %10, 32
+  %14 = lshr i32 %13, 6
+  br label %get_scaled_luma_q0.exit.us35.i
+
+15:                                               ; preds = %.lr.ph.split.us38.i
+  %16 = sub i32 32, %10
+  %17 = lshr i32 %16, 6
+  %18 = sub nsw i32 0, %17
+  br label %get_scaled_luma_q0.exit.us35.i
+
+get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
+  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
+  %20 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv49.i
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %23, i32 0)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
+  %.0.i.us36.i = trunc nuw nsw i32 %25 to i16
+  store i16 %.0.i.us36.i, ptr %20, align 2
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+
+._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
+  %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
+  %28 = add nuw nsw i32 %.01632.us.i, 1
+  %exitcond54.not.i = icmp eq i32 %28, 32
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
+  %29 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv44.i
+  %30 = load i16, ptr %29, align 2
+  %31 = sext i16 %30 to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %.lr.ph.split.us.us.i
+  %35 = add nuw nsw i32 %32, 32
+  %36 = lshr i32 %35, 6
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+37:                                               ; preds = %.lr.ph.split.us.us.i
+  %38 = sub i32 32, %32
+  %39 = lshr i32 %38, 6
+  %40 = sub nsw i32 0, %39
+  br label %get_scaled_luma_q0.exit.us.us.i
+
+get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
+  %41 = phi i32 [ %40, %37 ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv44.i
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %.0.i.us.us.i = trunc nuw nsw i32 %47 to i16
+  store i16 %.0.i.us.us.i, ptr %42, align 2
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+
+.lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
+  %48 = getelementptr inbounds nuw i16, ptr %.01729.us.i, i64 %indvars.iv.i
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = mul nsw i32 %3, %50
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %.lr.ph.split.us20.us.i
+  %54 = add nuw nsw i32 %51, 32
+  %55 = lshr i32 %54, 6
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+56:                                               ; preds = %.lr.ph.split.us20.us.i
+  %57 = sub i32 32, %51
+  %58 = lshr i32 %57, 6
+  %59 = sub nsw i32 0, %58
+  br label %get_scaled_luma_q0.exit.us22.us.i
+
+get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
+  %60 = phi i32 [ %59, %56 ], [ %55, %53 ]
+  %61 = getelementptr inbounds nuw i16, ptr %.01826.us.i, i64 %indvars.iv.i
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = add nsw i32 %60, %63
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %64, i32 0)
+  %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 1023)
+  %.0.i.us25.us.i = trunc nuw nsw i32 %66 to i16
+  store i16 %.0.i.us25.us.i, ptr %61, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+
+cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
 }
 
@@ -2085,13 +3755,13 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   store i16 %30, ptr %32, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %31, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %31, !llvm.loop !18
 
 ._crit_edge.us.i.i:                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %.04049.us.i.i, i64 64
   %34 = add nuw nsw i32 %.04448.us.i.i, 1
   %exitcond63.not.i.i = icmp eq i32 %34, %22
-  br i1 %exitcond63.not.i.i, label %._crit_edge52.i.i, label %.lr.ph.us.i.i, !llvm.loop !16
+  br i1 %exitcond63.not.i.i, label %._crit_edge52.i.i, label %.lr.ph.us.i.i, !llvm.loop !19
 
 ._crit_edge52.i.i:                                ; preds = %._crit_edge.us.i.i, %25
   store i32 %15, ptr %18, align 4
@@ -2122,13 +3792,13 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   store i16 %43, ptr %44, align 2
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, %wide.trip.count67.i.i
-  br i1 %exitcond68.not.i.i, label %._crit_edge.us57.i.i, label %41, !llvm.loop !17
+  br i1 %exitcond68.not.i.i, label %._crit_edge.us57.i.i, label %41, !llvm.loop !20
 
 ._crit_edge.us57.i.i:                             ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %.04254.us.i.i, i64 64
   %46 = add nuw nsw i32 %.04155.us.i.i, 1
   %exitcond69.not.i.i = icmp eq i32 %46, %23
-  br i1 %exitcond69.not.i.i, label %.split59.us.i.i, label %.lr.ph.us56.i.i, !llvm.loop !18
+  br i1 %exitcond69.not.i.i, label %.split59.us.i.i, label %.lr.ph.us56.i.i, !llvm.loop !21
 
 .split59.us.i.i:                                  ; preds = %._crit_edge.us57.i.i
   store i32 %17, ptr %21, align 4
@@ -2256,12 +3926,12 @@ define hidden void @cfl_subsample_lbd_420_4x4_c(ptr noundef readonly captures(no
   %24 = shl nuw nsw i16 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
-  br i1 %9, label %8, label %26, !llvm.loop !19
+  br i1 %9, label %8, label %26, !llvm.loop !22
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -2303,14 +3973,14 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr noundef readonly captures(no
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2352,14 +4022,14 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2401,14 +4071,14 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2449,14 +4119,14 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr noundef readonly captures(no
   %23 = shl nuw nsw i16 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2
-  br i1 %8, label %7, label %25, !llvm.loop !19
+  br i1 %8, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2498,12 +4168,12 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr noundef readonly captures(no
   store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %25 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %25, label %8, label %26, !llvm.loop !19
+  br i1 %25, label %8, label %26, !llvm.loop !22
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -2545,14 +4215,14 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2594,14 +4264,14 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2643,14 +4313,14 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2692,14 +4362,14 @@ define hidden void @cfl_subsample_lbd_420_32x16_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2740,14 +4410,14 @@ define hidden void @cfl_subsample_lbd_420_4x16_c(ptr noundef readonly captures(n
   %23 = shl nuw nsw i16 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2
-  br i1 %8, label %7, label %25, !llvm.loop !19
+  br i1 %8, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2789,12 +4459,12 @@ define hidden void @cfl_subsample_lbd_420_16x4_c(ptr noundef readonly captures(n
   store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %25 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %25, label %8, label %26, !llvm.loop !19
+  br i1 %25, label %8, label %26, !llvm.loop !22
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -2836,14 +4506,14 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2885,14 +4555,14 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !22
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -2937,7 +4607,7 @@ define hidden void @cfl_subsample_lbd_422_4x4_c(ptr noundef readonly captures(no
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -2968,14 +4638,14 @@ define hidden void @cfl_subsample_lbd_422_8x8_c(ptr noundef readonly captures(no
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3006,14 +4676,14 @@ define hidden void @cfl_subsample_lbd_422_16x16_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3044,14 +4714,14 @@ define hidden void @cfl_subsample_lbd_422_32x32_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3088,7 +4758,7 @@ define hidden void @cfl_subsample_lbd_422_4x8_c(ptr noundef readonly captures(no
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -3119,14 +4789,14 @@ define hidden void @cfl_subsample_lbd_422_8x4_c(ptr noundef readonly captures(no
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3157,14 +4827,14 @@ define hidden void @cfl_subsample_lbd_422_8x16_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3195,14 +4865,14 @@ define hidden void @cfl_subsample_lbd_422_16x8_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3233,14 +4903,14 @@ define hidden void @cfl_subsample_lbd_422_16x32_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3271,14 +4941,14 @@ define hidden void @cfl_subsample_lbd_422_32x16_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3315,7 +4985,7 @@ define hidden void @cfl_subsample_lbd_422_4x16_c(ptr noundef readonly captures(n
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -3346,14 +5016,14 @@ define hidden void @cfl_subsample_lbd_422_16x4_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3384,14 +5054,14 @@ define hidden void @cfl_subsample_lbd_422_8x32_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3422,14 +5092,14 @@ define hidden void @cfl_subsample_lbd_422_32x8_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !22
+  br i1 %15, label %5, label %16, !llvm.loop !25
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -3464,14 +5134,14 @@ define hidden void @cfl_subsample_lbd_444_4x4_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3498,14 +5168,14 @@ define hidden void @cfl_subsample_lbd_444_8x8_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3532,14 +5202,14 @@ define hidden void @cfl_subsample_lbd_444_16x16_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3566,14 +5236,14 @@ define hidden void @cfl_subsample_lbd_444_32x32_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3600,14 +5270,14 @@ define hidden void @cfl_subsample_lbd_444_4x8_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3634,14 +5304,14 @@ define hidden void @cfl_subsample_lbd_444_8x4_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3668,14 +5338,14 @@ define hidden void @cfl_subsample_lbd_444_8x16_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3702,14 +5372,14 @@ define hidden void @cfl_subsample_lbd_444_16x8_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3736,14 +5406,14 @@ define hidden void @cfl_subsample_lbd_444_16x32_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3770,14 +5440,14 @@ define hidden void @cfl_subsample_lbd_444_32x16_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3804,14 +5474,14 @@ define hidden void @cfl_subsample_lbd_444_4x16_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3838,14 +5508,14 @@ define hidden void @cfl_subsample_lbd_444_16x4_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3872,14 +5542,14 @@ define hidden void @cfl_subsample_lbd_444_8x32_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3906,14 +5576,14 @@ define hidden void @cfl_subsample_lbd_444_32x8_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -3958,12 +5628,12 @@ define hidden void @cfl_subsample_hbd_420_4x4_c(ptr noundef readonly captures(no
   %20 = shl i16 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %20, ptr %21, align 2
-  br i1 %9, label %8, label %22, !llvm.loop !25
+  br i1 %9, label %8, label %22, !llvm.loop !28
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -4001,14 +5671,14 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr noundef readonly captures(no
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4046,14 +5716,14 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4091,14 +5761,14 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4135,14 +5805,14 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr noundef readonly captures(no
   %19 = shl i16 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %19, ptr %20, align 2
-  br i1 %8, label %7, label %21, !llvm.loop !25
+  br i1 %8, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4180,12 +5850,12 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr noundef readonly captures(no
   store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %21 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %21, label %8, label %22, !llvm.loop !25
+  br i1 %21, label %8, label %22, !llvm.loop !28
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -4223,14 +5893,14 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4268,14 +5938,14 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4313,14 +5983,14 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4358,14 +6028,14 @@ define hidden void @cfl_subsample_hbd_420_32x16_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4402,14 +6072,14 @@ define hidden void @cfl_subsample_hbd_420_4x16_c(ptr noundef readonly captures(n
   %19 = shl i16 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %19, ptr %20, align 2
-  br i1 %8, label %7, label %21, !llvm.loop !25
+  br i1 %8, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4447,12 +6117,12 @@ define hidden void @cfl_subsample_hbd_420_16x4_c(ptr noundef readonly captures(n
   store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %21 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %21, label %8, label %22, !llvm.loop !25
+  br i1 %21, label %8, label %22, !llvm.loop !28
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -4490,14 +6160,14 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4535,14 +6205,14 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !25
+  br i1 %20, label %7, label %21, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -4583,7 +6253,7 @@ define hidden void @cfl_subsample_hbd_422_4x4_c(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -4612,14 +6282,14 @@ define hidden void @cfl_subsample_hbd_422_8x8_c(ptr noundef readonly captures(no
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4648,14 +6318,14 @@ define hidden void @cfl_subsample_hbd_422_16x16_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4684,14 +6354,14 @@ define hidden void @cfl_subsample_hbd_422_32x32_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4724,7 +6394,7 @@ define hidden void @cfl_subsample_hbd_422_4x8_c(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -4753,14 +6423,14 @@ define hidden void @cfl_subsample_hbd_422_8x4_c(ptr noundef readonly captures(no
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4789,14 +6459,14 @@ define hidden void @cfl_subsample_hbd_422_8x16_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4825,14 +6495,14 @@ define hidden void @cfl_subsample_hbd_422_16x8_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4861,14 +6531,14 @@ define hidden void @cfl_subsample_hbd_422_16x32_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4897,14 +6567,14 @@ define hidden void @cfl_subsample_hbd_422_32x16_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -4937,7 +6607,7 @@ define hidden void @cfl_subsample_hbd_422_4x16_c(ptr noundef readonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -4966,14 +6636,14 @@ define hidden void @cfl_subsample_hbd_422_16x4_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -5002,14 +6672,14 @@ define hidden void @cfl_subsample_hbd_422_8x32_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -5038,14 +6708,14 @@ define hidden void @cfl_subsample_hbd_422_32x8_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !28
+  br i1 %13, label %5, label %14, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -5079,14 +6749,14 @@ define hidden void @cfl_subsample_hbd_444_4x4_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5112,14 +6782,14 @@ define hidden void @cfl_subsample_hbd_444_8x8_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5145,14 +6815,14 @@ define hidden void @cfl_subsample_hbd_444_16x16_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5178,14 +6848,14 @@ define hidden void @cfl_subsample_hbd_444_32x32_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5211,14 +6881,14 @@ define hidden void @cfl_subsample_hbd_444_4x8_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5244,14 +6914,14 @@ define hidden void @cfl_subsample_hbd_444_8x4_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5277,14 +6947,14 @@ define hidden void @cfl_subsample_hbd_444_8x16_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5310,14 +6980,14 @@ define hidden void @cfl_subsample_hbd_444_16x8_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5343,14 +7013,14 @@ define hidden void @cfl_subsample_hbd_444_16x32_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5376,14 +7046,14 @@ define hidden void @cfl_subsample_hbd_444_32x16_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5409,14 +7079,14 @@ define hidden void @cfl_subsample_hbd_444_4x16_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5442,14 +7112,14 @@ define hidden void @cfl_subsample_hbd_444_16x4_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5475,14 +7145,14 @@ define hidden void @cfl_subsample_hbd_444_8x32_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5508,14 +7178,14 @@ define hidden void @cfl_subsample_hbd_444_32x8_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -5961,14 +7631,14 @@ attributes #9 = { nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!14 = distinct !{!14, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !5, !15}
+!17 = distinct !{!17, !5, !15}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!19 = distinct !{!19, !5, !15}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!21 = distinct !{!21, !5, !15}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
@@ -5978,3 +7648,6 @@ attributes #9 = { nounwind }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}

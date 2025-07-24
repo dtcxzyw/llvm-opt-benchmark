@@ -2725,7 +2725,7 @@ Exp_TruthLit.exit.i:                              ; preds = %92, %87, %.lr.ph53.
   store i64 %166, ptr %167, align 8, !tbaa !44
   %indvars.iv.next63.i161.i = add nuw nsw i64 %indvars.iv62.i160.i, 1
   %exitcond66.not.i162.i = icmp eq i64 %indvars.iv.next63.i161.i, %wide.trip.count65.i154.i
-  br i1 %exitcond66.not.i162.i, label %Exp_TruthLit.exit175.i, label %164, !llvm.loop !51
+  br i1 %exitcond66.not.i162.i, label %Exp_TruthLit.exit175.i, label %164, !llvm.loop !54
 
 .lr.ph51.split.i155.i:                            ; preds = %.lr.ph51.i152.i
   %168 = sdiv i32 %147, 2
@@ -2759,7 +2759,7 @@ Exp_TruthLit.exit.i:                              ; preds = %92, %87, %.lr.ph53.
   store i64 %180, ptr %181, align 8, !tbaa !44
   %indvars.iv.next73.i173.i = add nuw nsw i64 %indvars.iv72.i172.i, 1
   %exitcond76.not.i174.i = icmp eq i64 %indvars.iv.next73.i173.i, %wide.trip.count75.i166.i
-  br i1 %exitcond76.not.i174.i, label %Exp_TruthLit.exit175.i, label %178, !llvm.loop !50
+  br i1 %exitcond76.not.i174.i, label %Exp_TruthLit.exit175.i, label %178, !llvm.loop !56
 
 .lr.ph53.split.i167.i:                            ; preds = %.lr.ph53.i164.i
   %182 = sdiv i32 %147, 2
@@ -2812,7 +2812,7 @@ Exp_TruthLit.exit175.i:                           ; preds = %191, %164, %186, %1
 199:                                              ; preds = %198, %.lr.ph208.i
   %indvars.iv.next257.i = add nuw nsw i64 %indvars.iv256.i, 1
   %exitcond260.not.i = icmp eq i64 %indvars.iv.next257.i, %wide.trip.count259.i
-  br i1 %exitcond260.not.i, label %._crit_edge209.thread.i.loopexit, label %.lr.ph208.i, !llvm.loop !54
+  br i1 %exitcond260.not.i, label %._crit_edge209.thread.i.loopexit, label %.lr.ph208.i, !llvm.loop !57
 
 ._crit_edge209.i:                                 ; preds = %Exp_TruthLit.exit175.i
   %.not106.i = icmp eq ptr %21, null
@@ -2852,7 +2852,7 @@ Exp_TruthLit.exit175.i:                           ; preds = %191, %164, %186, %1
   %206 = sdiv i32 %.val115.i, 2
   %207 = sext i32 %206 to i64
   %208 = icmp slt i64 %indvars.iv.next262.i, %207
-  br i1 %208, label %.lr.ph213.i, label %._crit_edge214.thread.i, !llvm.loop !55
+  br i1 %208, label %.lr.ph213.i, label %._crit_edge214.thread.i, !llvm.loop !58
 
 ._crit_edge214.i:                                 ; preds = %200
   %.not107.i = icmp eq ptr %49, null
@@ -2937,7 +2937,7 @@ define i32 @Mio_ParseCheckName(ptr noundef %0, ptr noundef captures(none) %1) lo
   %19 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.01822) #17
   %20 = add nuw nsw i32 %.01723, 1
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %18
   %.not19 = icmp eq ptr %.1, null
@@ -3015,7 +3015,7 @@ sub_0:                                            ; preds = %2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %0, align 8, !tbaa !57
+  %18 = load ptr, ptr %0, align 8, !tbaa !60
   %19 = load ptr, ptr %3, align 8, !tbaa !32
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %18, ptr noundef %19)
   br label %.loopexit
@@ -3030,7 +3030,7 @@ sub_0:                                            ; preds = %2
 24:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %21
   %25 = phi ptr [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %.pre, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  br label %.preheader, !llvm.loop !63
+  br label %.preheader, !llvm.loop !66
 
 27:                                               ; preds = %.preheader
   %28 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #17
@@ -3049,7 +3049,7 @@ sub_0:                                            ; preds = %2
   %33 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.01320) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not18 = icmp eq ptr %33, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %27, %2, %.tail, %17
   %.0 = phi i32 [ 0, %17 ], [ 1, %.tail ], [ 1, %2 ], [ 1, %27 ], [ 0, %.lr.ph ], [ 1, %32 ]
@@ -3152,14 +3152,17 @@ attributes #18 = { nounwind willreturn memory(read) }
 !51 = distinct !{!51, !18}
 !52 = distinct !{!52, !18}
 !53 = distinct !{!53, !18}
-!54 = distinct !{!54, !18}
-!55 = distinct !{!55, !18}
-!56 = distinct !{!56, !18}
-!57 = !{!58, !33, i64 0}
-!58 = !{!"Mio_GateStruct_t_", !33, i64 0, !59, i64 8, !33, i64 16, !60, i64 24, !33, i64 32, !61, i64 40, !62, i64 48, !62, i64 56, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !59, i64 80, !33, i64 88, !30, i64 96, !6, i64 104, !5, i64 112}
-!59 = !{!"double", !6, i64 0}
-!60 = !{!"p1 _ZTS16Mio_PinStruct_t_", !8, i64 0}
-!61 = !{!"p1 _ZTS20Mio_LibraryStruct_t_", !8, i64 0}
-!62 = !{!"p1 _ZTS17Mio_GateStruct_t_", !8, i64 0}
-!63 = distinct !{!63, !18}
-!64 = distinct !{!64, !18}
+!54 = distinct !{!54, !18, !55}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !18, !55}
+!57 = distinct !{!57, !18}
+!58 = distinct !{!58, !18}
+!59 = distinct !{!59, !18}
+!60 = !{!61, !33, i64 0}
+!61 = !{!"Mio_GateStruct_t_", !33, i64 0, !62, i64 8, !33, i64 16, !63, i64 24, !33, i64 32, !64, i64 40, !65, i64 48, !65, i64 56, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !62, i64 80, !33, i64 88, !30, i64 96, !6, i64 104, !5, i64 112}
+!62 = !{!"double", !6, i64 0}
+!63 = !{!"p1 _ZTS16Mio_PinStruct_t_", !8, i64 0}
+!64 = !{!"p1 _ZTS20Mio_LibraryStruct_t_", !8, i64 0}
+!65 = !{!"p1 _ZTS17Mio_GateStruct_t_", !8, i64 0}
+!66 = distinct !{!66, !18}
+!67 = distinct !{!67, !18}

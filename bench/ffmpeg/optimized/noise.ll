@@ -400,7 +400,7 @@ define internal range(i32 -2147483648, 1) i32 @noise(ptr noundef %0, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next, %135
-  br i1 %136, label %.lr.ph.split, label %._crit_edge, !llvm.loop !44
+  br i1 %136, label %.lr.ph.split, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %133, %114, %.thread, %104
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -505,5 +505,7 @@ attributes #4 = { nounwind }
 !41 = !{!31, !13, i64 36}
 !42 = !{!31, !16, i64 24}
 !43 = !{!8, !8, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !45}

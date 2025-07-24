@@ -200,7 +200,7 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
   %27 = icmp eq ptr %.sroa.012.1.us, %.sroa.01.0.i7
   %28 = icmp eq ptr %.sroa.7.1.us, null
   %.0.i.i.us = select i1 %.not.i.i.us, i1 %28, i1 %27
-  br i1 %.0.i.i.us, label %.split25.us, label %.thread.us
+  br i1 %.0.i.i.us, label %.split25.us, label %.thread.us, !llvm.loop !87
 
 .loopexit.split.us:                               ; preds = %.thread.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -209,7 +209,7 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
 
 .split25.us:                                      ; preds = %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us, %.split.preheader, %.split.us.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %30 = load ptr, ptr %29, align 8, !tbaa !87
+  %30 = load ptr, ptr %29, align 8, !tbaa !89
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStreamEEclEPS1_.exit.i
 
@@ -221,7 +221,7 @@ _ZNKSt14default_deleteIN3net17QuicHeadersStreamEEclEPS1_.exit.i: ; preds = %.spl
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %.split25.us, %_ZNKSt14default_deleteIN3net17QuicHeadersStreamEEclEPS1_.exit.i
-  store ptr null, ptr %29, align 8, !tbaa !87
+  store ptr null, ptr %29, align 8, !tbaa !89
   tail call void @_ZN3net11QuicSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2044) %0) #18
   ret void
 
@@ -310,15 +310,15 @@ declare void @llvm.trap() #8
 define void @_ZN3net15QuicSpdySession10InitializeEv(ptr noundef nonnull align 8 dereferenceable(2057) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3net11QuicSession10InitializeEv(ptr noundef nonnull align 8 dereferenceable(2044) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3204
-  %5 = load i32, ptr %4, align 4, !tbaa !89
+  %5 = load i32, ptr %4, align 4, !tbaa !91
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  store i32 3, ptr %8, align 8, !tbaa !220
+  store i32 3, ptr %8, align 8, !tbaa !222
   br label %11
 
 9:                                                ; preds = %1
@@ -332,8 +332,8 @@ define void @_ZN3net15QuicSpdySession10InitializeEv(ptr noundef nonnull align 8 
           to label %14 unwind label %19
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %12, align 8, !tbaa !87
-  store ptr %13, ptr %12, align 8, !tbaa !87
+  %15 = load ptr, ptr %12, align 8, !tbaa !89
+  store ptr %13, ptr %12, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStreamEEclEPS1_.exit.i.i
 
@@ -342,7 +342,7 @@ _ZNKSt14default_deleteIN3net17QuicHeadersStreamEEclEPS1_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(816) %15) #18
-  %.pre = load ptr, ptr %12, align 8, !tbaa !87
+  %.pre = load ptr, ptr %12, align 8, !tbaa !89
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EE5resetEPS1_.exit
 
 19:                                               ; preds = %11
@@ -377,7 +377,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEEixERSA_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"class.base::ManualConstructor"], align 16
-  %4 = load i32, ptr %0, align 8, !tbaa !221
+  %4 = load i32, ptr %0, align 8, !tbaa !223
   %5 = icmp sgt i32 %4, -1
   %indvars.iv.i.sroa.gep25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -396,9 +396,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base8Sma
 11:                                               ; preds = %9
   %12 = add nsw i64 %indvars.iv, -1
   %13 = getelementptr inbounds nuw [2 x %"class.base::ManualConstructor"], ptr %6, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 8, !tbaa !222
+  %14 = load i32, ptr %13, align 8, !tbaa !224
   %15 = icmp eq i32 %14, %7
-  br i1 %15, label %16, label %9, !llvm.loop !223
+  br i1 %15, label %16, label %9, !llvm.loop !225
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -411,41 +411,41 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base8Sma
 _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE16ConvertToRealMapEv.exit.critedge: ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  store i32 -1, ptr %0, align 8, !tbaa !221
+  store i32 -1, ptr %0, align 8, !tbaa !223
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %21, ptr %6, align 8, !tbaa !225
+  store ptr %21, ptr %6, align 8, !tbaa !227
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %22, align 8, !tbaa !227
+  store i64 1, ptr %22, align 8, !tbaa !229
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %20, align 8, !tbaa !228
+  store float 1.000000e+00, ptr %20, align 8, !tbaa !230
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = call { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS5_EEES0_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %26 = call { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS5_EEES0_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(16) %indvars.iv.i.sroa.gep25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #18
-  %27 = load i32, ptr %1, align 4, !tbaa !222
+  %27 = load i32, ptr %1, align 4, !tbaa !224
   %28 = zext i32 %27 to i64
-  %29 = load i64, ptr %22, align 8, !tbaa !227
+  %29 = load i64, ptr %22, align 8, !tbaa !229
   %30 = urem i64 %28, %29
-  %31 = load ptr, ptr %6, align 8, !tbaa !225
+  %31 = load ptr, ptr %6, align 8, !tbaa !227
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
-  %33 = load ptr, ptr %32, align 8, !tbaa !229
+  %33 = load ptr, ptr %32, align 8, !tbaa !231
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %34
 
 34:                                               ; preds = %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE16ConvertToRealMapEv.exit.critedge
   %35 = load ptr, ptr %33, align 8, !tbaa !86
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 4, !tbaa !222
+  %37 = load i32, ptr %36, align 4, !tbaa !224
   %38 = icmp eq i32 %27, %37
   br i1 %38, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit, label %.lr.ph.i.i.i.i
 
 39:                                               ; preds = %42
   %40 = icmp eq i32 %27, %44
-  br i1 %40, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !230
+  br i1 %40, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !232
 
 .lr.ph.i.i.i.i:                                   ; preds = %34, %39
   %.020.i.i.i.i = phi ptr [ %41, %39 ], [ %35, %34 ]
@@ -455,20 +455,20 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
 
 42:                                               ; preds = %.lr.ph.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !222
+  %44 = load i32, ptr %43, align 4, !tbaa !224
   %45 = zext i32 %44 to i64
   %46 = urem i64 %45, %29
   %.not19.i.i.i.i = icmp eq i64 %46, %30
-  br i1 %.not19.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !230
+  br i1 %.not19.i.i.i.i, label %39, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !232
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %42
-  br label %.loopexit.i.i, !llvm.loop !230
+  br label %.loopexit.i.i, !llvm.loop !232
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE16ConvertToRealMapEv.exit.critedge
   %47 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr null, ptr %47, align 8, !tbaa !86
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 %27, ptr %48, align 8, !tbaa !231
+  store i32 %27, ptr %48, align 8, !tbaa !233
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr null, ptr %49, align 8, !tbaa !84
   %50 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %30, i64 noundef %28, ptr noundef nonnull %47, i64 noundef 1)
@@ -491,34 +491,34 @@ _ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4p
 
 52:                                               ; preds = %18
   %53 = getelementptr inbounds nuw [2 x %"class.base::ManualConstructor"], ptr %6, i64 0, i64 %8
-  store i32 %7, ptr %53, align 8, !tbaa !231
+  store i32 %7, ptr %53, align 8, !tbaa !233
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr null, ptr %54, align 8, !tbaa !84
   %55 = add nuw nsw i32 %4, 1
-  store i32 %55, ptr %0, align 8, !tbaa !221
+  store i32 %55, ptr %0, align 8, !tbaa !223
   br label %82
 
 56:                                               ; preds = %2
   %57 = zext i32 %7 to i64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !227
+  %59 = load i64, ptr %58, align 8, !tbaa !229
   %60 = urem i64 %57, %59
-  %61 = load ptr, ptr %6, align 8, !tbaa !225
+  %61 = load ptr, ptr %6, align 8, !tbaa !227
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
-  %63 = load ptr, ptr %62, align 8, !tbaa !229
+  %63 = load ptr, ptr %62, align 8, !tbaa !231
   %.not.i.i.i.i14 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %64
 
 64:                                               ; preds = %56
   %65 = load ptr, ptr %63, align 8, !tbaa !86
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !222
+  %67 = load i32, ptr %66, align 4, !tbaa !224
   %68 = icmp eq i32 %7, %67
   br i1 %68, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24, label %.lr.ph.i.i.i.i15
 
 69:                                               ; preds = %72
   %70 = icmp eq i32 %7, %74
-  br i1 %70, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24, label %.lr.ph.i.i.i.i15, !llvm.loop !230
+  br i1 %70, label %_ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit24, label %.lr.ph.i.i.i.i15, !llvm.loop !232
 
 .lr.ph.i.i.i.i15:                                 ; preds = %64, %69
   %.020.i.i.i.i16 = phi ptr [ %71, %69 ], [ %65, %64 ]
@@ -528,20 +528,20 @@ _ZNSt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4p
 
 72:                                               ; preds = %.lr.ph.i.i.i.i15
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i32, ptr %73, align 4, !tbaa !222
+  %74 = load i32, ptr %73, align 4, !tbaa !224
   %75 = zext i32 %74 to i64
   %76 = urem i64 %75, %59
   %.not19.i.i.i.i18 = icmp eq i64 %76, %60
-  br i1 %.not19.i.i.i.i18, label %69, label %..loopexit_crit_edge21.i.i.i.i19, !llvm.loop !230
+  br i1 %.not19.i.i.i.i18, label %69, label %..loopexit_crit_edge21.i.i.i.i19, !llvm.loop !232
 
 ..loopexit_crit_edge21.i.i.i.i19:                 ; preds = %72
-  br label %.loopexit.i.i20, !llvm.loop !230
+  br label %.loopexit.i.i20, !llvm.loop !232
 
 .loopexit.i.i20:                                  ; preds = %.lr.ph.i.i.i.i15, %..loopexit_crit_edge21.i.i.i.i19, %56
   %77 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr null, ptr %77, align 8, !tbaa !86
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 %7, ptr %78, align 8, !tbaa !231
+  store i32 %7, ptr %78, align 8, !tbaa !233
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr null, ptr %79, align 8, !tbaa !84
   %80 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %60, i64 noundef %57, ptr noundef nonnull %77, i64 noundef 1)
@@ -644,7 +644,7 @@ define void @_ZN3net15QuicSpdySession18OnStreamHeaderListEjbmRKNS_14QuicHeaderLi
 define noundef i64 @_ZN3net15QuicSpdySession12WriteHeadersEjNS_15SpdyHeaderBlockEbhPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2057) %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.net::SpdyHeaderBlock", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %9 = load ptr, ptr %8, align 8, !tbaa !87
+  %9 = load ptr, ptr %8, align 8, !tbaa !89
   call void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %2)
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -678,10 +678,10 @@ define void @_ZN3net15QuicSpdySession22RegisterStreamPriorityEjh(ptr noundef non
   %4 = alloca %"class.net::StreamPrecedence", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store i8 1, ptr %4, align 4, !tbaa !232
+  store i8 1, ptr %4, align 4, !tbaa !234
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = tail call noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %2)
-  store i8 %7, ptr %6, align 4, !tbaa !234
+  store i8 %7, ptr %6, align 4, !tbaa !236
   call void @_ZN3net22PriorityWriteSchedulerIjE14RegisterStreamEjRKNS_16StreamPrecedenceIjEE(ptr noundef nonnull align 8 dereferenceable(843) %5, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret void
@@ -699,10 +699,10 @@ define void @_ZN3net15QuicSpdySession20UpdateStreamPriorityEjh(ptr noundef nonnu
   %4 = alloca %"class.net::StreamPrecedence", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store i8 1, ptr %4, align 4, !tbaa !232
+  store i8 1, ptr %4, align 4, !tbaa !234
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = tail call noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %2)
-  store i8 %7, ptr %6, align 4, !tbaa !234
+  store i8 %7, ptr %6, align 4, !tbaa !236
   call void @_ZN3net22PriorityWriteSchedulerIjE22UpdateStreamPrecedenceEjRKNS_16StreamPrecedenceIjEE(ptr noundef nonnull align 8 dereferenceable(843) %5, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret void
@@ -718,18 +718,18 @@ define void @_ZN3net15QuicSpdySession16OnPromiseHeadersEjN4base16BasicStringPiec
   %6 = alloca %"class.logging::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %5, align 8, !tbaa !235
+  store ptr %7, ptr %5, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store i64 52, ptr %4, align 8, !tbaa !236
+  store i64 52, ptr %4, align 8, !tbaa !238
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %8, ptr %5, align 8, !tbaa !237
-  %9 = load i64, ptr %4, align 8, !tbaa !236
-  store i64 %9, ptr %7, align 8, !tbaa !234
+  store ptr %8, ptr %5, align 8, !tbaa !239
+  %9 = load i64, ptr %4, align 8, !tbaa !238
+  store i64 %9, ptr %7, align 8, !tbaa !236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %8, ptr noundef nonnull align 1 dereferenceable(52) @.str.1, i64 52, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %9, ptr %10, align 8, !tbaa !238
+  store i64 %9, ptr %10, align 8, !tbaa !240
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  store i8 0, ptr %11, align 1, !tbaa !234
+  store i8 0, ptr %11, align 1, !tbaa !236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   %12 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
           to label %13 unwind label %30
@@ -744,8 +744,8 @@ define void @_ZN3net15QuicSpdySession16OnPromiseHeadersEjN4base16BasicStringPiec
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %5, align 8, !tbaa !237
-  %18 = load i64, ptr %10, align 8, !tbaa !238
+  %17 = load ptr, ptr %5, align 8, !tbaa !239
+  %18 = load i64, ptr %10, align 8, !tbaa !240
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17, i64 noundef %18)
           to label %.critedge unwind label %34
 
@@ -756,7 +756,7 @@ define void @_ZN3net15QuicSpdySession16OnPromiseHeadersEjN4base16BasicStringPiec
 
 .critedge15:                                      ; preds = %13, %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 256
   %24 = load ptr, ptr %23, align 8
@@ -764,12 +764,12 @@ define void @_ZN3net15QuicSpdySession16OnPromiseHeadersEjN4base16BasicStringPiec
           to label %25 unwind label %30
 
 25:                                               ; preds = %.critedge15
-  %26 = load ptr, ptr %5, align 8, !tbaa !237
+  %26 = load ptr, ptr %5, align 8, !tbaa !239
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %25
-  %28 = load i64, ptr %10, align 8, !tbaa !238
+  %28 = load i64, ptr %10, align 8, !tbaa !240
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -805,12 +805,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 37:                                               ; preds = %36, %30
   %.pn12 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %36 ]
-  %38 = load ptr, ptr %5, align 8, !tbaa !237
+  %38 = load ptr, ptr %5, align 8, !tbaa !239
   %39 = icmp eq ptr %38, %7
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %37
-  %40 = load i64, ptr %10, align 8, !tbaa !238
+  %40 = load i64, ptr %10, align 8, !tbaa !240
   %41 = icmp ult i64 %40, 16
   call void @llvm.assume(i1 %41)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
@@ -836,18 +836,18 @@ define void @_ZN3net15QuicSpdySession24OnPromiseHeadersCompleteEjjm(ptr noundef 
   %6 = alloca %"class.logging::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %5, align 8, !tbaa !235
+  store ptr %7, ptr %5, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store i64 60, ptr %4, align 8, !tbaa !236
+  store i64 60, ptr %4, align 8, !tbaa !238
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %8, ptr %5, align 8, !tbaa !237
-  %9 = load i64, ptr %4, align 8, !tbaa !236
-  store i64 %9, ptr %7, align 8, !tbaa !234
+  store ptr %8, ptr %5, align 8, !tbaa !239
+  %9 = load i64, ptr %4, align 8, !tbaa !238
+  store i64 %9, ptr %7, align 8, !tbaa !236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %8, ptr noundef nonnull align 1 dereferenceable(60) @.str.2, i64 60, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %9, ptr %10, align 8, !tbaa !238
+  store i64 %9, ptr %10, align 8, !tbaa !240
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  store i8 0, ptr %11, align 1, !tbaa !234
+  store i8 0, ptr %11, align 1, !tbaa !236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   %12 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
           to label %13 unwind label %30
@@ -862,8 +862,8 @@ define void @_ZN3net15QuicSpdySession24OnPromiseHeadersCompleteEjjm(ptr noundef 
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %5, align 8, !tbaa !237
-  %18 = load i64, ptr %10, align 8, !tbaa !238
+  %17 = load ptr, ptr %5, align 8, !tbaa !239
+  %18 = load i64, ptr %10, align 8, !tbaa !240
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17, i64 noundef %18)
           to label %.critedge unwind label %34
 
@@ -874,7 +874,7 @@ define void @_ZN3net15QuicSpdySession24OnPromiseHeadersCompleteEjjm(ptr noundef 
 
 .critedge15:                                      ; preds = %13, %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 256
   %24 = load ptr, ptr %23, align 8
@@ -882,12 +882,12 @@ define void @_ZN3net15QuicSpdySession24OnPromiseHeadersCompleteEjjm(ptr noundef 
           to label %25 unwind label %30
 
 25:                                               ; preds = %.critedge15
-  %26 = load ptr, ptr %5, align 8, !tbaa !237
+  %26 = load ptr, ptr %5, align 8, !tbaa !239
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %25
-  %28 = load i64, ptr %10, align 8, !tbaa !238
+  %28 = load i64, ptr %10, align 8, !tbaa !240
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -923,12 +923,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 37:                                               ; preds = %36, %30
   %.pn12 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %36 ]
-  %38 = load ptr, ptr %5, align 8, !tbaa !237
+  %38 = load ptr, ptr %5, align 8, !tbaa !239
   %39 = icmp eq ptr %38, %7
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %37
-  %40 = load i64, ptr %10, align 8, !tbaa !238
+  %40 = load i64, ptr %10, align 8, !tbaa !240
   %41 = icmp ult i64 %40, 16
   call void @llvm.assume(i1 %41)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
@@ -950,18 +950,18 @@ define void @_ZN3net15QuicSpdySession19OnPromiseHeaderListEjjmRKNS_14QuicHeaderL
   %7 = alloca %"class.logging::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %8, ptr %6, align 8, !tbaa !235
+  store ptr %8, ptr %6, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store i64 55, ptr %5, align 8, !tbaa !236
+  store i64 55, ptr %5, align 8, !tbaa !238
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %9, ptr %6, align 8, !tbaa !237
-  %10 = load i64, ptr %5, align 8, !tbaa !236
-  store i64 %10, ptr %8, align 8, !tbaa !234
+  store ptr %9, ptr %6, align 8, !tbaa !239
+  %10 = load i64, ptr %5, align 8, !tbaa !238
+  store i64 %10, ptr %8, align 8, !tbaa !236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %9, ptr noundef nonnull align 1 dereferenceable(55) @.str.3, i64 55, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !238
+  store i64 %10, ptr %11, align 8, !tbaa !240
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %10
-  store i8 0, ptr %12, align 1, !tbaa !234
+  store i8 0, ptr %12, align 1, !tbaa !236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %13 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
           to label %14 unwind label %31
@@ -976,8 +976,8 @@ define void @_ZN3net15QuicSpdySession19OnPromiseHeaderListEjjmRKNS_14QuicHeaderL
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = load ptr, ptr %6, align 8, !tbaa !237
-  %19 = load i64, ptr %11, align 8, !tbaa !238
+  %18 = load ptr, ptr %6, align 8, !tbaa !239
+  %19 = load i64, ptr %11, align 8, !tbaa !240
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %18, i64 noundef %19)
           to label %.critedge unwind label %35
 
@@ -988,7 +988,7 @@ define void @_ZN3net15QuicSpdySession19OnPromiseHeaderListEjjmRKNS_14QuicHeaderL
 
 .critedge15:                                      ; preds = %14, %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %22 = load ptr, ptr %21, align 8, !tbaa !90
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 256
   %25 = load ptr, ptr %24, align 8
@@ -996,12 +996,12 @@ define void @_ZN3net15QuicSpdySession19OnPromiseHeaderListEjjmRKNS_14QuicHeaderL
           to label %26 unwind label %31
 
 26:                                               ; preds = %.critedge15
-  %27 = load ptr, ptr %6, align 8, !tbaa !237
+  %27 = load ptr, ptr %6, align 8, !tbaa !239
   %28 = icmp eq ptr %27, %8
   br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %26
-  %29 = load i64, ptr %11, align 8, !tbaa !238
+  %29 = load i64, ptr %11, align 8, !tbaa !240
   %30 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %30)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1037,12 +1037,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 38:                                               ; preds = %37, %31
   %.pn12 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %37 ]
-  %39 = load ptr, ptr %6, align 8, !tbaa !237
+  %39 = load ptr, ptr %6, align 8, !tbaa !239
   %40 = icmp eq ptr %39, %8
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %38
-  %41 = load i64, ptr %11, align 8, !tbaa !238
+  %41 = load i64, ptr %11, align 8, !tbaa !240
   %42 = icmp ult i64 %41, 16
   call void @llvm.assume(i1 %42)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
@@ -1061,30 +1061,30 @@ define void @_ZN3net15QuicSpdySession18OnConfigNegotiatedEv(ptr noundef nonnull 
   tail call void @_ZN3net11QuicSession18OnConfigNegotiatedEv(ptr noundef nonnull align 8 dereferenceable(2044) %0)
   %2 = tail call noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3204
-  %6 = load i32, ptr %5, align 4, !tbaa !89
+  %6 = load i32, ptr %5, align 4, !tbaa !91
   %7 = tail call noundef zeroext i1 @_ZNK3net10QuicConfig29HasClientSentConnectionOptionEjNS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(600) %2, i32 noundef 1413761092, i32 noundef %6)
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   tail call void @_ZN3net17QuicHeadersStream24DisableHpackDynamicTableEv(ptr noundef nonnull align 8 dereferenceable(816) %10)
   br label %11
 
 11:                                               ; preds = %8, %1
-  %12 = load ptr, ptr %3, align 8, !tbaa !88
+  %12 = load ptr, ptr %3, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 300
-  %14 = load i32, ptr %13, align 4, !tbaa !239
+  %14 = load i32, ptr %13, align 4, !tbaa !241
   %15 = icmp sgt i32 %14, 35
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %11
   %17 = tail call noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %0)
-  %18 = load ptr, ptr %3, align 8, !tbaa !88
+  %18 = load ptr, ptr %3, align 8, !tbaa !90
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 3204
-  %20 = load i32, ptr %19, align 4, !tbaa !89
+  %20 = load i32, ptr %19, align 4, !tbaa !91
   %21 = tail call noundef zeroext i1 @_ZNK3net10QuicConfig16ForceHolBlockingENS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(600) %17, i32 noundef %20)
   br i1 %21, label %22, label %27
 
@@ -1092,9 +1092,9 @@ define void @_ZN3net15QuicSpdySession18OnConfigNegotiatedEv(ptr noundef nonnull 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   store i8 1, ptr %23, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %25 = load ptr, ptr %24, align 8, !tbaa !87
+  %25 = load ptr, ptr %24, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 344
-  store i8 1, ptr %26, align 8, !tbaa !240
+  store i8 1, ptr %26, align 8, !tbaa !242
   br label %27
 
 27:                                               ; preds = %22, %16, %11
@@ -1120,7 +1120,7 @@ define void @_ZN3net15QuicSpdySession17OnStreamFrameDataEjPKcmb(ptr noundef nonn
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %11 = load i64, ptr %10, align 8, !tbaa !241
+  %11 = load i64, ptr %10, align 8, !tbaa !243
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
   call void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %1, i1 noundef zeroext %4, i64 noundef %11, ptr %2, i64 %3)
   %12 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1240,7 +1240,7 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE14RegisterStreamEjRK
   %7 = alloca %"class.logging::LogMessage", align 8
   %8 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %.not48 = xor i1 %8, true
-  %9 = load i8, ptr %2, align 4, !range !242
+  %9 = load i8, ptr %2, align 4, !range !244
   %10 = trunc nuw i8 %9 to i1
   %or.cond50 = select i1 %.not48, i1 true, i1 %10
   br i1 %or.cond50, label %.critedge, label %11
@@ -1301,17 +1301,17 @@ _ZNSolsEj.exit:                                   ; preds = %_ZStlsISt11char_tra
   br label %49
 
 27:                                               ; preds = %.critedge
-  %28 = load i8, ptr %2, align 4, !tbaa !232, !range !242, !noundef !243
+  %28 = load i8, ptr %2, align 4, !tbaa !234, !range !244, !noundef !245
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr %14, align 4, !tbaa !234
+  %31 = load i8, ptr %14, align 4, !tbaa !236
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !234
+  %34 = load i32, ptr %33, align 4, !tbaa !236
   %35 = call noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %34)
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
@@ -1381,24 +1381,24 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWri
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr null, ptr %3, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %1, align 4, !tbaa !222
-  store i32 %5, ptr %4, align 4, !tbaa !244
+  %5 = load i32, ptr %1, align 4, !tbaa !224
+  store i32 %5, ptr %4, align 4, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !247
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !249
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !249
+  %9 = load i64, ptr %8, align 8, !tbaa !251
   %.not.not = icmp eq i64 %9, 0
   br i1 %.not.not, label %17, label %.thread
 
 .thread:                                          ; preds = %2
   %10 = zext i32 %5 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !250
+  %12 = load i64, ptr %11, align 8, !tbaa !252
   %13 = urem i64 %10, %12
-  %14 = load ptr, ptr %0, align 8, !tbaa !251
+  %14 = load ptr, ptr %0, align 8, !tbaa !253
   %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
-  %16 = load ptr, ptr %15, align 8, !tbaa !229
+  %16 = load ptr, ptr %15, align 8, !tbaa !231
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge27, label %29
 
@@ -1414,27 +1414,27 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWri
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 8
-  %22 = load i32, ptr %21, align 4, !tbaa !222
+  %22 = load i32, ptr %21, align 4, !tbaa !224
   %23 = icmp eq i32 %5, %22
-  br i1 %23, label %_ZNKSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %19, !llvm.loop !252
+  br i1 %23, label %_ZNKSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %19, !llvm.loop !254
 
 24:                                               ; preds = %19
   %25 = zext i32 %5 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !250
+  %27 = load i64, ptr %26, align 8, !tbaa !252
   %28 = urem i64 %25, %27
   br label %.critedge27
 
 29:                                               ; preds = %.thread
   %30 = load ptr, ptr %16, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !222
+  %32 = load i32, ptr %31, align 4, !tbaa !224
   %33 = icmp eq i32 %5, %32
   br i1 %33, label %_ZNKSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
 
 34:                                               ; preds = %37
   %35 = icmp eq i32 %5, %39
-  br i1 %35, label %_ZNKSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !253
+  br i1 %35, label %_ZNKSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !255
 
 .lr.ph.i.i:                                       ; preds = %29, %34
   %.020.i.i = phi ptr [ %36, %34 ], [ %30, %29 ]
@@ -1444,14 +1444,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWri
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !222
+  %39 = load i32, ptr %38, align 4, !tbaa !224
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %12
   %.not19.i.i = icmp eq i64 %41, %13
-  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !253
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !255
 
 ..loopexit_crit_edge21.i.i:                       ; preds = %37
-  br label %.critedge27, !llvm.loop !253
+  br label %.critedge27, !llvm.loop !255
 
 .critedge27:                                      ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread
   %42 = phi i64 [ %28, %24 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
@@ -1482,11 +1482,11 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !254
+  %8 = load i64, ptr %7, align 8, !tbaa !256
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !250
+  %10 = load i64, ptr %9, align 8, !tbaa !252
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !249
+  %12 = load i64, ptr %11, align 8, !tbaa !251
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
   %15 = trunc i8 %14 to i1
@@ -1502,7 +1502,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedu
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #18
-  store i64 %8, ptr %7, align 8, !tbaa !254
+  store i64 %8, ptr %7, align 8, !tbaa !256
   invoke void @__cxa_rethrow() #22
           to label %28 unwind label %22
 
@@ -1526,52 +1526,52 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedu
   unreachable
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %16
-  %29 = load i64, ptr %9, align 8, !tbaa !250
+  %29 = load i64, ptr %9, align 8, !tbaa !252
   %30 = urem i64 %2, %29
   br label %31
 
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
-  %32 = load ptr, ptr %0, align 8, !tbaa !251
+  %32 = load ptr, ptr %0, align 8, !tbaa !253
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
-  %34 = load ptr, ptr %33, align 8, !tbaa !229
+  %34 = load ptr, ptr %33, align 8, !tbaa !231
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %34, align 8, !tbaa !86
   store ptr %36, ptr %3, align 8, !tbaa !86
-  %37 = load ptr, ptr %33, align 8, !tbaa !229
+  %37 = load ptr, ptr %33, align 8, !tbaa !231
   store ptr %3, ptr %37, align 8, !tbaa !86
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !255
+  %40 = load ptr, ptr %39, align 8, !tbaa !257
   store ptr %40, ptr %3, align 8, !tbaa !86
-  store ptr %3, ptr %39, align 8, !tbaa !255
+  store ptr %3, ptr %39, align 8, !tbaa !257
   %41 = load ptr, ptr %3, align 8, !tbaa !86
   %.not11.i = icmp eq ptr %41, null
   br i1 %.not11.i, label %49, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = load i64, ptr %9, align 8, !tbaa !250
-  %45 = load i32, ptr %43, align 4, !tbaa !222
+  %44 = load i64, ptr %9, align 8, !tbaa !252
+  %45 = load i32, ptr %43, align 4, !tbaa !224
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
-  store ptr %3, ptr %48, align 8, !tbaa !229
+  store ptr %3, ptr %48, align 8, !tbaa !231
   br label %49
 
 49:                                               ; preds = %42, %38
-  store ptr %39, ptr %33, align 8, !tbaa !229
+  store ptr %39, ptr %33, align 8, !tbaa !231
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit: ; preds = %35, %49
-  %50 = load i64, ptr %11, align 8, !tbaa !249
+  %50 = load i64, ptr %11, align 8, !tbaa !251
   %51 = add i64 %50, 1
-  store i64 %51, ptr %11, align 8, !tbaa !249
+  store i64 %51, ptr %11, align 8, !tbaa !251
   ret ptr %3
 }
 
@@ -1590,16 +1590,16 @@ declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, 1
-  br i1 %3, label %4, label %6, !prof !256
+  br i1 %3, label %4, label %6, !prof !258
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !257
+  store ptr null, ptr %5, align 8, !tbaa !259
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %1, 1152921504606846975
-  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !256
+  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !258
 
 8:                                                ; preds = %6
   %9 = icmp ugt i64 %1, 2305843009213693951
@@ -1622,8 +1622,8 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWri
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !255
-  store ptr null, ptr %12, align 8, !tbaa !255
+  %13 = load ptr, ptr %12, align 8, !tbaa !257
+  store ptr null, ptr %12, align 8, !tbaa !257
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -1632,42 +1632,42 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !86
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !222
+  %16 = load i32, ptr %15, align 4, !tbaa !224
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !229
+  %20 = load ptr, ptr %19, align 8, !tbaa !231
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %12, align 8, !tbaa !255
+  %22 = load ptr, ptr %12, align 8, !tbaa !257
   store ptr %22, ptr %.031, align 8, !tbaa !86
-  store ptr %.031, ptr %12, align 8, !tbaa !255
-  store ptr %12, ptr %19, align 8, !tbaa !229
+  store ptr %.031, ptr %12, align 8, !tbaa !257
+  store ptr %12, ptr %19, align 8, !tbaa !231
   %23 = load ptr, ptr %.031, align 8, !tbaa !86
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
-  store ptr %.031, ptr %25, align 8, !tbaa !229
+  store ptr %.031, ptr %25, align 8, !tbaa !231
   br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8, !tbaa !86
   store ptr %27, ptr %.031, align 8, !tbaa !86
-  %28 = load ptr, ptr %19, align 8, !tbaa !229
+  %28 = load ptr, ptr %19, align 8, !tbaa !231
   store ptr %.031, ptr %28, align 8, !tbaa !86
   br label %29
 
 29:                                               ; preds = %21, %24, %26
   %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !258
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
-  %30 = load ptr, ptr %0, align 8, !tbaa !251
+  %30 = load ptr, ptr %0, align 8, !tbaa !253
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
@@ -1678,8 +1678,8 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %34, align 8, !tbaa !250
-  store ptr %.0.i, ptr %0, align 8, !tbaa !251
+  store i64 %1, ptr %34, align 8, !tbaa !252
+  store ptr %.0.i, ptr %0, align 8, !tbaa !253
   ret void
 }
 
@@ -1696,7 +1696,7 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE16UnregisterStreamEj
   %9 = alloca %"class.logging::LogMessage", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %12 = load i64, ptr %11, align 8, !tbaa !249
+  %12 = load i64, ptr %11, align 8, !tbaa !251
   %.not.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.not.i.i, label %13, label %20
 
@@ -1712,31 +1712,31 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE16UnregisterStreamEj
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !222
+  %18 = load i32, ptr %17, align 4, !tbaa !224
   %19 = icmp eq i32 %1, %18
-  br i1 %19, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %15, !llvm.loop !259
+  br i1 %19, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %15, !llvm.loop !261
 
 20:                                               ; preds = %2
   %21 = zext i32 %1 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %23 = load i64, ptr %22, align 8, !tbaa !250
+  %23 = load i64, ptr %22, align 8, !tbaa !252
   %24 = urem i64 %21, %23
-  %25 = load ptr, ptr %10, align 8, !tbaa !251
+  %25 = load ptr, ptr %10, align 8, !tbaa !253
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
-  %27 = load ptr, ptr %26, align 8, !tbaa !229
+  %27 = load ptr, ptr %26, align 8, !tbaa !231
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %27, align 8, !tbaa !86
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 4, !tbaa !222
+  %31 = load i32, ptr %30, align 4, !tbaa !224
   %32 = icmp eq i32 %1, %31
   br i1 %32, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i
 
 33:                                               ; preds = %36
   %34 = icmp eq i32 %1, %38
-  br i1 %34, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !253
+  br i1 %34, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !255
 
 .lr.ph.i.i.i.i:                                   ; preds = %28, %33
   %.020.i.i.i.i = phi ptr [ %35, %33 ], [ %29, %28 ]
@@ -1746,14 +1746,14 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE16UnregisterStreamEj
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !222
+  %38 = load i32, ptr %37, align 4, !tbaa !224
   %39 = zext i32 %38 to i64
   %40 = urem i64 %39, %23
   %.not19.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !253
+  br i1 %.not19.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !255
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
-  br label %.loopexit, !llvm.loop !253
+  br label %.loopexit, !llvm.loop !255
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i
   %41 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -1791,105 +1791,105 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 20
-  %52 = load i8, ptr %51, align 4, !tbaa !260, !range !242, !noundef !243
+  %52 = load i8, ptr %51, align 4, !tbaa !262, !range !244, !noundef !245
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %95
 
 54:                                               ; preds = %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load i8, ptr %55, align 4, !tbaa !261
+  %57 = load i8, ptr %55, align 4, !tbaa !263
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %56, i64 0, i64 %58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !262, !noalias !266
+  %61 = load ptr, ptr %60, align 8, !tbaa !264, !noalias !268
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !269, !noalias !266
+  %63 = load ptr, ptr %62, align 8, !tbaa !271, !noalias !268
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !270, !noalias !266
+  %65 = load ptr, ptr %64, align 8, !tbaa !272, !noalias !268
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %67 = load ptr, ptr %66, align 8, !tbaa !271, !noalias !266
+  %67 = load ptr, ptr %66, align 8, !tbaa !273, !noalias !268
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %69 = load ptr, ptr %68, align 8, !tbaa !262, !noalias !272
+  %69 = load ptr, ptr %68, align 8, !tbaa !264, !noalias !274
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %71 = load ptr, ptr %70, align 8, !tbaa !269, !noalias !272
+  %71 = load ptr, ptr %70, align 8, !tbaa !271, !noalias !274
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %73 = load ptr, ptr %72, align 8, !tbaa !270, !noalias !272
+  %73 = load ptr, ptr %72, align 8, !tbaa !272, !noalias !274
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  %75 = load ptr, ptr %74, align 8, !tbaa !271, !noalias !272
+  %75 = load ptr, ptr %74, align 8, !tbaa !273, !noalias !274
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
-  store ptr %55, ptr %7, align 8, !tbaa !275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !277
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !277
-  store ptr %61, ptr %4, align 8, !tbaa !262, !noalias !280
+  store ptr %55, ptr %7, align 8, !tbaa !277
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !279
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !279
+  store ptr %61, ptr %4, align 8, !tbaa !264, !noalias !282
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %63, ptr %76, align 8, !tbaa !269, !noalias !280
+  store ptr %63, ptr %76, align 8, !tbaa !271, !noalias !282
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %65, ptr %77, align 8, !tbaa !270, !noalias !280
+  store ptr %65, ptr %77, align 8, !tbaa !272, !noalias !282
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %67, ptr %78, align 8, !tbaa !271, !noalias !280
-  store ptr %69, ptr %5, align 8, !tbaa !262, !noalias !280
+  store ptr %67, ptr %78, align 8, !tbaa !273, !noalias !282
+  store ptr %69, ptr %5, align 8, !tbaa !264, !noalias !282
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %71, ptr %79, align 8, !tbaa !269, !noalias !280
+  store ptr %71, ptr %79, align 8, !tbaa !271, !noalias !282
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %73, ptr %80, align 8, !tbaa !270, !noalias !280
+  store ptr %73, ptr %80, align 8, !tbaa !272, !noalias !282
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %75, ptr %81, align 8, !tbaa !271, !noalias !280
+  store ptr %75, ptr %81, align 8, !tbaa !273, !noalias !282
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %6, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !277
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !277
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !279
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !279
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  %82 = load ptr, ptr %68, align 8, !tbaa !262, !noalias !283
-  %83 = load ptr, ptr %6, align 8, !tbaa !262
+  %82 = load ptr, ptr %68, align 8, !tbaa !264, !noalias !285
+  %83 = load ptr, ptr %6, align 8, !tbaa !264
   %.not = icmp eq ptr %83, %82
   br i1 %.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %84
 
 84:                                               ; preds = %54
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !271
+  %86 = load ptr, ptr %85, align 8, !tbaa !273
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  store ptr %83, ptr %3, align 8, !tbaa !262, !alias.scope !286, !noalias !289
+  call void @llvm.experimental.noalias.scope.decl(metadata !288)
+  store ptr %83, ptr %3, align 8, !tbaa !264, !alias.scope !288, !noalias !291
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %88 = load ptr, ptr %86, align 8, !tbaa !292, !noalias !293
-  store ptr %88, ptr %87, align 8, !tbaa !269, !alias.scope !286, !noalias !289
+  %88 = load ptr, ptr %86, align 8, !tbaa !294, !noalias !295
+  store ptr %88, ptr %87, align 8, !tbaa !271, !alias.scope !288, !noalias !291
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 512
-  store ptr %90, ptr %89, align 8, !tbaa !270, !alias.scope !286, !noalias !289
+  store ptr %90, ptr %89, align 8, !tbaa !272, !alias.scope !288, !noalias !291
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %86, ptr %91, align 8, !tbaa !271, !alias.scope !286, !noalias !289
+  store ptr %86, ptr %91, align 8, !tbaa !273, !alias.scope !288, !noalias !291
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !294
+  %93 = load i64, ptr %92, align 8, !tbaa !296
   %94 = add i64 %93, -1
-  store i64 %94, ptr %92, align 8, !tbaa !294
+  store i64 %94, ptr %92, align 8, !tbaa !296
   br label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
 
 _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit: ; preds = %54, %84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
-  %.pre = load i32, ptr %50, align 4, !tbaa !222
+  %.pre = load i32, ptr %50, align 4, !tbaa !224
   br label %95
 
 95:                                               ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %96 = phi i32 [ %.pre, %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit ], [ %1, %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %98 = load i64, ptr %97, align 8, !tbaa !250
+  %98 = load i64, ptr %97, align 8, !tbaa !252
   %99 = zext i32 %96 to i64
   %100 = urem i64 %99, %98
-  %101 = load ptr, ptr %10, align 8, !tbaa !251
+  %101 = load ptr, ptr %10, align 8, !tbaa !253
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
-  %103 = load ptr, ptr %102, align 8, !tbaa !229
+  %103 = load ptr, ptr %102, align 8, !tbaa !231
   br label %104
 
 104:                                              ; preds = %104, %95
   %.0.i.i.i.i = phi ptr [ %103, %95 ], [ %105, %104 ]
   %105 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !86
   %.not.i.i.i.i13 = icmp eq ptr %105, %.sroa.06.1.i.i
-  br i1 %.not.i.i.i.i13, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i, label %104, !llvm.loop !295
+  br i1 %.not.i.i.i.i13, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i, label %104, !llvm.loop !297
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i: ; preds = %104
   %106 = icmp eq ptr %.0.i.i.i.i, %103
@@ -1902,7 +1902,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %111 = load i32, ptr %110, align 4, !tbaa !222
+  %111 = load i32, ptr %110, align 4, !tbaa !224
   %112 = zext i32 %111 to i64
   %113 = urem i64 %112, %98
   %.not9.i.i.i.i.i = icmp eq i64 %113, %100
@@ -1910,7 +1910,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw ptr, ptr %101, i64 %113
-  store ptr %103, ptr %115, align 8, !tbaa !229
+  store ptr %103, ptr %115, align 8, !tbaa !231
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %114, %108
@@ -1919,11 +1919,11 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %._crit_edge.i.i.i.i.i
-  store ptr %107, ptr %116, align 8, !tbaa !255
+  store ptr %107, ptr %116, align 8, !tbaa !257
   br label %119
 
 119:                                              ; preds = %118, %._crit_edge.i.i.i.i.i
-  store ptr null, ptr %102, align 8, !tbaa !229
+  store ptr null, ptr %102, align 8, !tbaa !231
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
 120:                                              ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i
@@ -1931,7 +1931,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %123 = load i32, ptr %122, align 4, !tbaa !222
+  %123 = load i32, ptr %122, align 4, !tbaa !224
   %124 = zext i32 %123 to i64
   %125 = urem i64 %124, %98
   %.not17.i.i.i.i = icmp eq i64 %125, %100
@@ -1939,16 +1939,16 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw ptr, ptr %101, i64 %125
-  store ptr %.0.i.i.i.i, ptr %127, align 8, !tbaa !229
+  store ptr %.0.i.i.i.i, ptr %127, align 8, !tbaa !231
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
 _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit: ; preds = %109, %119, %120, %121, %126
   %128 = load ptr, ptr %.sroa.06.1.i.i, align 8, !tbaa !86
   store ptr %128, ptr %.0.i.i.i.i, align 8, !tbaa !86
   call void @_ZdlPv(ptr noundef nonnull %.sroa.06.1.i.i) #21
-  %129 = load i64, ptr %11, align 8, !tbaa !249
+  %129 = load i64, ptr %11, align 8, !tbaa !251
   %130 = add i64 %129, -1
-  store i64 %130, ptr %11, align 8, !tbaa !249
+  store i64 %130, ptr %11, align 8, !tbaa !251
   br label %.critedge11
 
 .critedge11:                                      ; preds = %.critedge, %.loopexit, %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
@@ -1958,9 +1958,9 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !271
+  %6 = load ptr, ptr %5, align 8, !tbaa !273
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !271
+  %8 = load ptr, ptr %7, align 8, !tbaa !273
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -1969,17 +1969,17 @@ define linkonce_odr void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWri
   %.neg.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i
   %15 = shl nsw i64 %14, 6
-  %16 = load ptr, ptr %2, align 8, !tbaa !262
+  %16 = load ptr, ptr %2, align 8, !tbaa !264
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !269
+  %18 = load ptr, ptr %17, align 8, !tbaa !271
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = add nsw i64 %15, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !270
-  %26 = load ptr, ptr %1, align 8, !tbaa !262
+  %25 = load ptr, ptr %24, align 8, !tbaa !272
+  %26 = load ptr, ptr %1, align 8, !tbaa !264
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -1991,7 +1991,7 @@ define linkonce_odr void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWri
 
 .lr.ph:                                           ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %3, align 8, !tbaa !275
+  %35 = load ptr, ptr %3, align 8, !tbaa !277
   br label %36
 
 36:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4
@@ -1999,140 +1999,140 @@ define linkonce_odr void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWri
   %38 = phi ptr [ %8, %.lr.ph ], [ %106, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4 ]
   %39 = phi ptr [ %26, %.lr.ph ], [ %107, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4 ]
   %.053 = phi i64 [ %32, %.lr.ph ], [ %108, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4 ]
-  %40 = load ptr, ptr %39, align 8, !tbaa !275
+  %40 = load ptr, ptr %39, align 8, !tbaa !277
   %41 = icmp eq ptr %40, %35
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %36
-  store ptr %39, ptr %0, align 8, !tbaa !262
+  store ptr %39, ptr %0, align 8, !tbaa !264
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %34, align 8, !tbaa !269
-  store ptr %44, ptr %43, align 8, !tbaa !269
+  %44 = load ptr, ptr %34, align 8, !tbaa !271
+  store ptr %44, ptr %43, align 8, !tbaa !271
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %37, ptr %45, align 8, !tbaa !270
+  store ptr %37, ptr %45, align 8, !tbaa !272
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %38, ptr %46, align 8, !tbaa !271
+  store ptr %38, ptr %46, align 8, !tbaa !273
   br label %182
 
 47:                                               ; preds = %36
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %48, ptr %1, align 8, !tbaa !262
+  store ptr %48, ptr %1, align 8, !tbaa !264
   %49 = icmp eq ptr %48, %37
   br i1 %49, label %50, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %51, ptr %7, align 8, !tbaa !271
-  %52 = load ptr, ptr %51, align 8, !tbaa !292
-  store ptr %52, ptr %34, align 8, !tbaa !269
+  store ptr %51, ptr %7, align 8, !tbaa !273
+  %52 = load ptr, ptr %51, align 8, !tbaa !294
+  store ptr %52, ptr %34, align 8, !tbaa !271
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
-  store ptr %53, ptr %24, align 8, !tbaa !270
-  store ptr %52, ptr %1, align 8, !tbaa !262
+  store ptr %53, ptr %24, align 8, !tbaa !272
+  store ptr %52, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit: ; preds = %47, %50
   %54 = phi ptr [ %37, %47 ], [ %53, %50 ]
   %55 = phi ptr [ %38, %47 ], [ %51, %50 ]
   %56 = phi ptr [ %48, %47 ], [ %52, %50 ]
-  %57 = load ptr, ptr %56, align 8, !tbaa !275
+  %57 = load ptr, ptr %56, align 8, !tbaa !277
   %58 = icmp eq ptr %57, %35
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
-  store ptr %56, ptr %0, align 8, !tbaa !262
+  store ptr %56, ptr %0, align 8, !tbaa !264
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = load ptr, ptr %34, align 8, !tbaa !269
-  store ptr %61, ptr %60, align 8, !tbaa !269
+  %61 = load ptr, ptr %34, align 8, !tbaa !271
+  store ptr %61, ptr %60, align 8, !tbaa !271
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %54, ptr %62, align 8, !tbaa !270
+  store ptr %54, ptr %62, align 8, !tbaa !272
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %55, ptr %63, align 8, !tbaa !271
+  store ptr %55, ptr %63, align 8, !tbaa !273
   br label %182
 
 64:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %65, ptr %1, align 8, !tbaa !262
+  store ptr %65, ptr %1, align 8, !tbaa !264
   %66 = icmp eq ptr %65, %54
   br i1 %66, label %67, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit2
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %68, ptr %7, align 8, !tbaa !271
-  %69 = load ptr, ptr %68, align 8, !tbaa !292
-  store ptr %69, ptr %34, align 8, !tbaa !269
+  store ptr %68, ptr %7, align 8, !tbaa !273
+  %69 = load ptr, ptr %68, align 8, !tbaa !294
+  store ptr %69, ptr %34, align 8, !tbaa !271
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 512
-  store ptr %70, ptr %24, align 8, !tbaa !270
-  store ptr %69, ptr %1, align 8, !tbaa !262
+  store ptr %70, ptr %24, align 8, !tbaa !272
+  store ptr %69, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit2
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit2: ; preds = %64, %67
   %71 = phi ptr [ %54, %64 ], [ %70, %67 ]
   %72 = phi ptr [ %55, %64 ], [ %68, %67 ]
   %73 = phi ptr [ %65, %64 ], [ %69, %67 ]
-  %74 = load ptr, ptr %73, align 8, !tbaa !275
+  %74 = load ptr, ptr %73, align 8, !tbaa !277
   %75 = icmp eq ptr %74, %35
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit2
-  store ptr %73, ptr %0, align 8, !tbaa !262
+  store ptr %73, ptr %0, align 8, !tbaa !264
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load ptr, ptr %34, align 8, !tbaa !269
-  store ptr %78, ptr %77, align 8, !tbaa !269
+  %78 = load ptr, ptr %34, align 8, !tbaa !271
+  store ptr %78, ptr %77, align 8, !tbaa !271
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %71, ptr %79, align 8, !tbaa !270
+  store ptr %71, ptr %79, align 8, !tbaa !272
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %72, ptr %80, align 8, !tbaa !271
+  store ptr %72, ptr %80, align 8, !tbaa !273
   br label %182
 
 81:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit2
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %82, ptr %1, align 8, !tbaa !262
+  store ptr %82, ptr %1, align 8, !tbaa !264
   %83 = icmp eq ptr %82, %71
   br i1 %83, label %84, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit3
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %85, ptr %7, align 8, !tbaa !271
-  %86 = load ptr, ptr %85, align 8, !tbaa !292
-  store ptr %86, ptr %34, align 8, !tbaa !269
+  store ptr %85, ptr %7, align 8, !tbaa !273
+  %86 = load ptr, ptr %85, align 8, !tbaa !294
+  store ptr %86, ptr %34, align 8, !tbaa !271
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 512
-  store ptr %87, ptr %24, align 8, !tbaa !270
-  store ptr %86, ptr %1, align 8, !tbaa !262
+  store ptr %87, ptr %24, align 8, !tbaa !272
+  store ptr %86, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit3
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit3: ; preds = %81, %84
   %88 = phi ptr [ %71, %81 ], [ %87, %84 ]
   %89 = phi ptr [ %72, %81 ], [ %85, %84 ]
   %90 = phi ptr [ %82, %81 ], [ %86, %84 ]
-  %91 = load ptr, ptr %90, align 8, !tbaa !275
+  %91 = load ptr, ptr %90, align 8, !tbaa !277
   %92 = icmp eq ptr %91, %35
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit3
-  store ptr %90, ptr %0, align 8, !tbaa !262
+  store ptr %90, ptr %0, align 8, !tbaa !264
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %34, align 8, !tbaa !269
-  store ptr %95, ptr %94, align 8, !tbaa !269
+  %95 = load ptr, ptr %34, align 8, !tbaa !271
+  store ptr %95, ptr %94, align 8, !tbaa !271
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %88, ptr %96, align 8, !tbaa !270
+  store ptr %88, ptr %96, align 8, !tbaa !272
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %89, ptr %97, align 8, !tbaa !271
+  store ptr %89, ptr %97, align 8, !tbaa !273
   br label %182
 
 98:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit3
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %99, ptr %1, align 8, !tbaa !262
+  store ptr %99, ptr %1, align 8, !tbaa !264
   %100 = icmp eq ptr %99, %88
   br i1 %100, label %101, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %102, ptr %7, align 8, !tbaa !271
-  %103 = load ptr, ptr %102, align 8, !tbaa !292
-  store ptr %103, ptr %34, align 8, !tbaa !269
+  store ptr %102, ptr %7, align 8, !tbaa !273
+  %103 = load ptr, ptr %102, align 8, !tbaa !294
+  store ptr %103, ptr %34, align 8, !tbaa !271
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 512
-  store ptr %104, ptr %24, align 8, !tbaa !270
-  store ptr %103, ptr %1, align 8, !tbaa !262
+  store ptr %104, ptr %24, align 8, !tbaa !272
+  store ptr %103, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4: ; preds = %98, %101
@@ -2141,12 +2141,12 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %107 = phi ptr [ %99, %98 ], [ %103, %101 ]
   %108 = add nsw i64 %.053, -1
   %109 = icmp sgt i64 %.053, 1
-  br i1 %109, label %36, label %._crit_edge.loopexit, !llvm.loop !296
+  br i1 %109, label %36, label %._crit_edge.loopexit, !llvm.loop !298
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit4
-  %.pre = load ptr, ptr %5, align 8, !tbaa !271
-  %.pre67 = load ptr, ptr %2, align 8, !tbaa !262
-  %.pre68 = load ptr, ptr %17, align 8, !tbaa !269
+  %.pre = load ptr, ptr %5, align 8, !tbaa !273
+  %.pre67 = load ptr, ptr %2, align 8, !tbaa !264
+  %.pre68 = load ptr, ptr %17, align 8, !tbaa !271
   %.pre71 = ptrtoint ptr %.pre to i64
   %.pre72 = ptrtoint ptr %106 to i64
   %.pre74 = sub i64 %.pre71, %.pre72
@@ -2182,45 +2182,45 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   ]
 
 ._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7_crit_edge: ; preds = %._crit_edge
-  %.pre70 = load ptr, ptr %3, align 8, !tbaa !275
+  %.pre70 = load ptr, ptr %3, align 8, !tbaa !277
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7
 
 ._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6_crit_edge: ; preds = %._crit_edge
-  %.pre69 = load ptr, ptr %3, align 8, !tbaa !275
+  %.pre69 = load ptr, ptr %3, align 8, !tbaa !277
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6
 
 119:                                              ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %121 = load ptr, ptr %110, align 8, !tbaa !275
-  %122 = load ptr, ptr %3, align 8, !tbaa !275
+  %121 = load ptr, ptr %110, align 8, !tbaa !277
+  %122 = load ptr, ptr %3, align 8, !tbaa !277
   %123 = icmp eq ptr %121, %122
   br i1 %123, label %124, label %129
 
 124:                                              ; preds = %119
-  store ptr %110, ptr %0, align 8, !tbaa !262
+  store ptr %110, ptr %0, align 8, !tbaa !264
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %126 = load ptr, ptr %120, align 8, !tbaa !269
-  store ptr %126, ptr %125, align 8, !tbaa !269
+  %126 = load ptr, ptr %120, align 8, !tbaa !271
+  store ptr %126, ptr %125, align 8, !tbaa !271
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %111, ptr %127, align 8, !tbaa !270
+  store ptr %111, ptr %127, align 8, !tbaa !272
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %112, ptr %128, align 8, !tbaa !271
+  store ptr %112, ptr %128, align 8, !tbaa !273
   br label %182
 
 129:                                              ; preds = %119
   %130 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %130, ptr %1, align 8, !tbaa !262
+  store ptr %130, ptr %1, align 8, !tbaa !264
   %131 = icmp eq ptr %130, %111
   br i1 %131, label %132, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %133, ptr %7, align 8, !tbaa !271
-  %134 = load ptr, ptr %133, align 8, !tbaa !292
-  store ptr %134, ptr %120, align 8, !tbaa !269
+  store ptr %133, ptr %7, align 8, !tbaa !273
+  %134 = load ptr, ptr %133, align 8, !tbaa !294
+  store ptr %134, ptr %120, align 8, !tbaa !271
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 512
-  store ptr %135, ptr %24, align 8, !tbaa !270
-  store ptr %134, ptr %1, align 8, !tbaa !262
+  store ptr %135, ptr %24, align 8, !tbaa !272
+  store ptr %134, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6: ; preds = %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6_crit_edge, %132, %129
@@ -2229,35 +2229,35 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %138 = phi ptr [ %122, %132 ], [ %122, %129 ], [ %.pre69, %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6_crit_edge ]
   %139 = phi ptr [ %134, %132 ], [ %130, %129 ], [ %110, %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6_crit_edge ]
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %141 = load ptr, ptr %139, align 8, !tbaa !275
+  %141 = load ptr, ptr %139, align 8, !tbaa !277
   %142 = icmp eq ptr %141, %138
   br i1 %142, label %143, label %148
 
 143:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6
-  store ptr %139, ptr %0, align 8, !tbaa !262
+  store ptr %139, ptr %0, align 8, !tbaa !264
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %145 = load ptr, ptr %140, align 8, !tbaa !269
-  store ptr %145, ptr %144, align 8, !tbaa !269
+  %145 = load ptr, ptr %140, align 8, !tbaa !271
+  store ptr %145, ptr %144, align 8, !tbaa !271
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %137, ptr %146, align 8, !tbaa !270
+  store ptr %137, ptr %146, align 8, !tbaa !272
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %136, ptr %147, align 8, !tbaa !271
+  store ptr %136, ptr %147, align 8, !tbaa !273
   br label %182
 
 148:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit6
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr %149, ptr %1, align 8, !tbaa !262
+  store ptr %149, ptr %1, align 8, !tbaa !264
   %150 = icmp eq ptr %149, %137
   br i1 %150, label %151, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %152, ptr %7, align 8, !tbaa !271
-  %153 = load ptr, ptr %152, align 8, !tbaa !292
-  store ptr %153, ptr %140, align 8, !tbaa !269
+  store ptr %152, ptr %7, align 8, !tbaa !273
+  %153 = load ptr, ptr %152, align 8, !tbaa !294
+  store ptr %153, ptr %140, align 8, !tbaa !271
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 512
-  store ptr %154, ptr %24, align 8, !tbaa !270
-  store ptr %153, ptr %1, align 8, !tbaa !262
+  store ptr %154, ptr %24, align 8, !tbaa !272
+  store ptr %153, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7: ; preds = %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7_crit_edge, %151, %148
@@ -2266,50 +2266,50 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %157 = phi ptr [ %138, %151 ], [ %138, %148 ], [ %.pre70, %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7_crit_edge ]
   %158 = phi ptr [ %153, %151 ], [ %149, %148 ], [ %110, %._crit_edge._ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7_crit_edge ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load ptr, ptr %158, align 8, !tbaa !275
+  %160 = load ptr, ptr %158, align 8, !tbaa !277
   %161 = icmp eq ptr %160, %157
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7
-  store ptr %158, ptr %0, align 8, !tbaa !262
+  store ptr %158, ptr %0, align 8, !tbaa !264
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %164 = load ptr, ptr %159, align 8, !tbaa !269
-  store ptr %164, ptr %163, align 8, !tbaa !269
+  %164 = load ptr, ptr %159, align 8, !tbaa !271
+  store ptr %164, ptr %163, align 8, !tbaa !271
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %156, ptr %165, align 8, !tbaa !270
+  store ptr %156, ptr %165, align 8, !tbaa !272
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %155, ptr %166, align 8, !tbaa !271
+  store ptr %155, ptr %166, align 8, !tbaa !273
   br label %182
 
 167:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit7
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store ptr %168, ptr %1, align 8, !tbaa !262
+  store ptr %168, ptr %1, align 8, !tbaa !264
   %169 = icmp eq ptr %168, %156
   br i1 %169, label %170, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit8
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %171, ptr %7, align 8, !tbaa !271
-  %172 = load ptr, ptr %171, align 8, !tbaa !292
-  store ptr %172, ptr %159, align 8, !tbaa !269
+  store ptr %171, ptr %7, align 8, !tbaa !273
+  %172 = load ptr, ptr %171, align 8, !tbaa !294
+  store ptr %172, ptr %159, align 8, !tbaa !271
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 512
-  store ptr %173, ptr %24, align 8, !tbaa !270
-  store ptr %172, ptr %1, align 8, !tbaa !262
+  store ptr %173, ptr %24, align 8, !tbaa !272
+  store ptr %172, ptr %1, align 8, !tbaa !264
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit8
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit8: ; preds = %170, %167, %._crit_edge
-  %174 = load ptr, ptr %2, align 8, !tbaa !262
-  store ptr %174, ptr %0, align 8, !tbaa !262
+  %174 = load ptr, ptr %2, align 8, !tbaa !264
+  store ptr %174, ptr %0, align 8, !tbaa !264
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %176 = load ptr, ptr %17, align 8, !tbaa !269
-  store ptr %176, ptr %175, align 8, !tbaa !269
+  %176 = load ptr, ptr %17, align 8, !tbaa !271
+  store ptr %176, ptr %175, align 8, !tbaa !271
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %179 = load ptr, ptr %178, align 8, !tbaa !270
-  store ptr %179, ptr %177, align 8, !tbaa !270
+  %179 = load ptr, ptr %178, align 8, !tbaa !272
+  store ptr %179, ptr %177, align 8, !tbaa !272
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %181 = load ptr, ptr %5, align 8, !tbaa !271
-  store ptr %181, ptr %180, align 8, !tbaa !271
+  %181 = load ptr, ptr %5, align 8, !tbaa !273
+  store ptr %181, ptr %180, align 8, !tbaa !273
   br label %182
 
 182:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit8, %162, %143, %124, %93, %76, %59, %42
@@ -2326,20 +2326,20 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
   %9 = alloca %"struct.std::_Deque_iterator", align 8
   %10 = alloca %"struct.std::_Deque_iterator", align 8
   %11 = alloca %"struct.std::_Deque_iterator", align 8
-  %12 = load ptr, ptr %2, align 8, !tbaa !262
+  %12 = load ptr, ptr %2, align 8, !tbaa !264
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !269
+  %14 = load ptr, ptr %13, align 8, !tbaa !271
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !270
+  %16 = load ptr, ptr %15, align 8, !tbaa !272
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !271
+  %18 = load ptr, ptr %17, align 8, !tbaa !273
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = icmp eq ptr %19, %16
   br i1 %20, label %21, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !292
+  %23 = load ptr, ptr %22, align 8, !tbaa !294
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 512
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
@@ -2349,12 +2349,12 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %.sroa.13.0 = phi ptr [ %24, %21 ], [ %16, %3 ]
   %.sroa.18.0 = phi ptr [ %22, %21 ], [ %18, %3 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !262, !noalias !297
+  %26 = load ptr, ptr %25, align 8, !tbaa !264, !noalias !299
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !270, !noalias !297
+  %29 = load ptr, ptr %28, align 8, !tbaa !272, !noalias !299
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !271, !noalias !297
+  %31 = load ptr, ptr %30, align 8, !tbaa !273, !noalias !299
   %32 = ptrtoint ptr %18 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -2375,7 +2375,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %48 = add i64 %47, %38
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %51 = load ptr, ptr %50, align 8, !tbaa !271
+  %51 = load ptr, ptr %50, align 8, !tbaa !273
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %52, %33
   %54 = ashr exact i64 %53, 3
@@ -2383,9 +2383,9 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %.neg.i.i = sext i1 %55 to i64
   %56 = add nsw i64 %54, %.neg.i.i
   %57 = shl nsw i64 %56, 6
-  %58 = load ptr, ptr %49, align 8, !tbaa !262
+  %58 = load ptr, ptr %49, align 8, !tbaa !264
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !269
+  %60 = load ptr, ptr %59, align 8, !tbaa !271
   %61 = ptrtoint ptr %58 to i64
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %61, %62
@@ -2401,39 +2401,39 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   br i1 %.not53, label %81, label %70
 
 70:                                               ; preds = %69
-  %71 = load ptr, ptr %27, align 8, !tbaa !269, !noalias !300
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !303
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !306
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !306
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !306
-  store ptr %26, ptr %8, align 8, !tbaa !262, !noalias !309
+  %71 = load ptr, ptr %27, align 8, !tbaa !271, !noalias !302
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !305
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !308
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !308
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !308
+  store ptr %26, ptr %8, align 8, !tbaa !264, !noalias !311
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %71, ptr %72, align 8, !tbaa !269, !noalias !309
+  store ptr %71, ptr %72, align 8, !tbaa !271, !noalias !311
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %29, ptr %73, align 8, !tbaa !270, !noalias !309
+  store ptr %29, ptr %73, align 8, !tbaa !272, !noalias !311
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %31, ptr %74, align 8, !tbaa !271, !noalias !309
-  store ptr %12, ptr %9, align 8, !tbaa !262, !noalias !309
+  store ptr %31, ptr %74, align 8, !tbaa !273, !noalias !311
+  store ptr %12, ptr %9, align 8, !tbaa !264, !noalias !311
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %14, ptr %75, align 8, !tbaa !269, !noalias !309
+  store ptr %14, ptr %75, align 8, !tbaa !271, !noalias !311
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %16, ptr %76, align 8, !tbaa !270, !noalias !309
+  store ptr %16, ptr %76, align 8, !tbaa !272, !noalias !311
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %18, ptr %77, align 8, !tbaa !271, !noalias !309
-  store ptr %.sroa.044.0, ptr %10, align 8, !tbaa !262, !noalias !309
+  store ptr %18, ptr %77, align 8, !tbaa !273, !noalias !311
+  store ptr %.sroa.044.0, ptr %10, align 8, !tbaa !264, !noalias !311
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sroa.9.0, ptr %78, align 8, !tbaa !269, !noalias !309
+  store ptr %.sroa.9.0, ptr %78, align 8, !tbaa !271, !noalias !311
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.sroa.13.0, ptr %79, align 8, !tbaa !270, !noalias !309
+  store ptr %.sroa.13.0, ptr %79, align 8, !tbaa !272, !noalias !311
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sroa.18.0, ptr %80, align 8, !tbaa !271, !noalias !309
-  call void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10), !noalias !306
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !306
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !306
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !306
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !303
-  %.pre55 = load ptr, ptr %25, align 8, !tbaa !312
-  %.pre56 = load ptr, ptr %28, align 8, !tbaa !314
+  store ptr %.sroa.18.0, ptr %80, align 8, !tbaa !273, !noalias !311
+  call void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10), !noalias !308
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !308
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !308
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !308
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !305
+  %.pre55 = load ptr, ptr %25, align 8, !tbaa !314
+  %.pre56 = load ptr, ptr %28, align 8, !tbaa !316
   br label %81
 
 81:                                               ; preds = %70, %69
@@ -2448,21 +2448,21 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
 87:                                               ; preds = %81
-  %88 = load ptr, ptr %27, align 8, !tbaa !315
+  %88 = load ptr, ptr %27, align 8, !tbaa !317
   call void @_ZdlPv(ptr noundef %88) #21
-  %89 = load ptr, ptr %30, align 8, !tbaa !316
+  %89 = load ptr, ptr %30, align 8, !tbaa !318
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %90, ptr %30, align 8, !tbaa !271
-  %91 = load ptr, ptr %90, align 8, !tbaa !292
-  store ptr %91, ptr %27, align 8, !tbaa !269
+  store ptr %90, ptr %30, align 8, !tbaa !273
+  %91 = load ptr, ptr %90, align 8, !tbaa !294
+  store ptr %91, ptr %27, align 8, !tbaa !271
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 512
-  store ptr %92, ptr %28, align 8, !tbaa !270
+  store ptr %92, ptr %28, align 8, !tbaa !272
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit: ; preds = %85, %87
   %93 = phi ptr [ %82, %85 ], [ %92, %87 ]
   %storemerge.i = phi ptr [ %86, %85 ], [ %91, %87 ]
-  store ptr %storemerge.i, ptr %25, align 8, !tbaa !312
+  store ptr %storemerge.i, ptr %25, align 8, !tbaa !314
   br label %118
 
 94:                                               ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
@@ -2471,39 +2471,39 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.e
   br i1 %.not, label %107, label %96
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr %95, align 8, !tbaa !270, !noalias !317
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !320
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !323
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !323
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !323
-  store ptr %.sroa.044.0, ptr %4, align 8, !tbaa !262, !noalias !326
+  %97 = load ptr, ptr %95, align 8, !tbaa !272, !noalias !319
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !322
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !325
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !325
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !325
+  store ptr %.sroa.044.0, ptr %4, align 8, !tbaa !264, !noalias !328
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sroa.9.0, ptr %98, align 8, !tbaa !269, !noalias !326
+  store ptr %.sroa.9.0, ptr %98, align 8, !tbaa !271, !noalias !328
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.13.0, ptr %99, align 8, !tbaa !270, !noalias !326
+  store ptr %.sroa.13.0, ptr %99, align 8, !tbaa !272, !noalias !328
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sroa.18.0, ptr %100, align 8, !tbaa !271, !noalias !326
-  store ptr %58, ptr %5, align 8, !tbaa !262, !noalias !326
+  store ptr %.sroa.18.0, ptr %100, align 8, !tbaa !273, !noalias !328
+  store ptr %58, ptr %5, align 8, !tbaa !264, !noalias !328
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %60, ptr %101, align 8, !tbaa !269, !noalias !326
+  store ptr %60, ptr %101, align 8, !tbaa !271, !noalias !328
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %97, ptr %102, align 8, !tbaa !270, !noalias !326
+  store ptr %97, ptr %102, align 8, !tbaa !272, !noalias !328
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %51, ptr %103, align 8, !tbaa !271, !noalias !326
-  store ptr %12, ptr %6, align 8, !tbaa !262, !noalias !326
+  store ptr %51, ptr %103, align 8, !tbaa !273, !noalias !328
+  store ptr %12, ptr %6, align 8, !tbaa !264, !noalias !328
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %14, ptr %104, align 8, !tbaa !269, !noalias !326
+  store ptr %14, ptr %104, align 8, !tbaa !271, !noalias !328
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %16, ptr %105, align 8, !tbaa !270, !noalias !326
+  store ptr %16, ptr %105, align 8, !tbaa !272, !noalias !328
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %18, ptr %106, align 8, !tbaa !271, !noalias !326
-  call void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !323
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !323
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !323
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !323
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !320
-  %.pre = load ptr, ptr %49, align 8, !tbaa !329
-  %.pre54 = load ptr, ptr %59, align 8, !tbaa !330
+  store ptr %18, ptr %106, align 8, !tbaa !273, !noalias !328
+  call void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !325
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !325
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !325
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !325
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !322
+  %.pre = load ptr, ptr %49, align 8, !tbaa !331
+  %.pre54 = load ptr, ptr %59, align 8, !tbaa !332
   br label %107
 
 107:                                              ; preds = %96, %94
@@ -2518,35 +2518,35 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.e
 
 112:                                              ; preds = %107
   call void @_ZdlPv(ptr noundef %108) #21
-  %113 = load ptr, ptr %50, align 8, !tbaa !331
+  %113 = load ptr, ptr %50, align 8, !tbaa !333
   %114 = getelementptr inbounds i8, ptr %113, i64 -8
-  store ptr %114, ptr %50, align 8, !tbaa !271
-  %115 = load ptr, ptr %114, align 8, !tbaa !292
-  store ptr %115, ptr %59, align 8, !tbaa !269
+  store ptr %114, ptr %50, align 8, !tbaa !273
+  %115 = load ptr, ptr %114, align 8, !tbaa !294
+  store ptr %115, ptr %59, align 8, !tbaa !271
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 512
-  store ptr %116, ptr %95, align 8, !tbaa !270
+  store ptr %116, ptr %95, align 8, !tbaa !272
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 504
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit: ; preds = %110, %112
   %storemerge.i3 = phi ptr [ %111, %110 ], [ %117, %112 ]
-  store ptr %storemerge.i3, ptr %49, align 8, !tbaa !329
-  %.pre57 = load ptr, ptr %25, align 8, !tbaa !262, !noalias !332
-  %.pre58 = load ptr, ptr %28, align 8, !tbaa !270, !noalias !332
+  store ptr %storemerge.i3, ptr %49, align 8, !tbaa !331
+  %.pre57 = load ptr, ptr %25, align 8, !tbaa !264, !noalias !334
+  %.pre58 = load ptr, ptr %28, align 8, !tbaa !272, !noalias !334
   br label %118
 
 118:                                              ; preds = %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
   %119 = phi ptr [ %.pre58, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit ], [ %93, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit ]
   %120 = phi ptr [ %.pre57, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit ], [ %storemerge.i, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit ]
-  %121 = load ptr, ptr %27, align 8, !tbaa !269, !noalias !332
-  %122 = load ptr, ptr %30, align 8, !tbaa !271, !noalias !332
-  call void @llvm.experimental.noalias.scope.decl(metadata !335)
+  %121 = load ptr, ptr %27, align 8, !tbaa !271, !noalias !334
+  %122 = load ptr, ptr %30, align 8, !tbaa !273, !noalias !334
+  call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %123, align 8, !tbaa !269, !alias.scope !335
+  store ptr %121, ptr %123, align 8, !tbaa !271, !alias.scope !337
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %119, ptr %124, align 8, !tbaa !270, !alias.scope !335
+  store ptr %119, ptr %124, align 8, !tbaa !272, !alias.scope !337
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %122, ptr %125, align 8, !tbaa !271, !alias.scope !335
+  store ptr %122, ptr %125, align 8, !tbaa !273, !alias.scope !337
   %126 = ptrtoint ptr %120 to i64
   %127 = ptrtoint ptr %121 to i64
   %128 = sub i64 %126, %127
@@ -2574,11 +2574,11 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.ex
 140:                                              ; preds = %138, %136
   %141 = phi i64 [ %137, %136 ], [ %139, %138 ]
   %142 = getelementptr inbounds ptr, ptr %122, i64 %141
-  store ptr %142, ptr %125, align 8, !tbaa !271, !alias.scope !335
-  %143 = load ptr, ptr %142, align 8, !tbaa !292, !noalias !335
-  store ptr %143, ptr %123, align 8, !tbaa !269, !alias.scope !335
+  store ptr %142, ptr %125, align 8, !tbaa !273, !alias.scope !337
+  %143 = load ptr, ptr %142, align 8, !tbaa !294, !noalias !337
+  store ptr %143, ptr %123, align 8, !tbaa !271, !alias.scope !337
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 512
-  store ptr %144, ptr %124, align 8, !tbaa !270, !alias.scope !335
+  store ptr %144, ptr %124, align 8, !tbaa !272, !alias.scope !337
   %145 = shl nsw i64 %141, 6
   %146 = sub nsw i64 %130, %145
   %147 = getelementptr inbounds ptr, ptr %143, i64 %146
@@ -2586,30 +2586,30 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.ex
 
 _ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El.exit: ; preds = %134, %140
   %storemerge.i.i = phi ptr [ %147, %140 ], [ %135, %134 ]
-  store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !262, !alias.scope !335
+  store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !264, !alias.scope !337
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !271
+  %6 = load ptr, ptr %5, align 8, !tbaa !273
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !271
+  %8 = load ptr, ptr %7, align 8, !tbaa !273
   %.not = icmp eq ptr %6, %8
   br i1 %.not, label %157, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !269
-  %12 = load ptr, ptr %2, align 8, !tbaa !262
-  %13 = load ptr, ptr %3, align 8, !tbaa !262
+  %11 = load ptr, ptr %10, align 8, !tbaa !271
+  %12 = load ptr, ptr %2, align 8, !tbaa !264
+  %13 = load ptr, ptr %3, align 8, !tbaa !264
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !269
+  %15 = load ptr, ptr %14, align 8, !tbaa !271
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !270
+  %17 = load ptr, ptr %16, align 8, !tbaa !272
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !271
+  %19 = load ptr, ptr %18, align 8, !tbaa !273
   %20 = ptrtoint ptr %12 to i64
   %21 = ptrtoint ptr %11 to i64
   %22 = sub i64 %20, %21
@@ -2629,7 +2629,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWri
 
 .thread.i:                                        ; preds = %.lr.ph.i
   %26 = getelementptr inbounds i8, ptr %.sroa.1291.0, i64 -8
-  %27 = load ptr, ptr %26, align 8, !tbaa !292, !noalias !338
+  %27 = load ptr, ptr %26, align 8, !tbaa !294, !noalias !340
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
   %29 = tail call i64 @llvm.umin.i64(i64 %.01617.i, i64 64)
   %.pre104 = ptrtoint ptr %.sroa.088.0 to i64
@@ -2657,7 +2657,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWri
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds ptr, ptr %.0935.i, i64 %39
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !338
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !340
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated36.i
   %42 = icmp sgt i64 %41, -1
   br i1 %42, label %43, label %49
@@ -2681,7 +2681,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWri
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
   %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !292, !noalias !338
+  %54 = load ptr, ptr %53, align 8, !tbaa !294, !noalias !340
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
@@ -2695,20 +2695,20 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i = phi ptr [ %46, %45 ], [ %58, %51 ]
   %59 = sub nsw i64 %.01617.i, %.sroa.speculated36.i
   %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !341
+  br i1 %60, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !343
 
 _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i, %9
   %.sroa.990.2 = phi ptr [ %17, %9 ], [ %.sroa.990.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i ]
   %.sroa.1291.2 = phi ptr [ %19, %9 ], [ %.sroa.1291.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i ]
   %61 = phi ptr [ %15, %9 ], [ %.sroa.489.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i ]
   %62 = phi ptr [ %13, %9 ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i ]
-  store ptr %62, ptr %3, align 8, !tbaa !292
-  store ptr %61, ptr %14, align 8, !tbaa !292
-  store ptr %.sroa.990.2, ptr %16, align 8, !tbaa !292
-  store ptr %.sroa.1291.2, ptr %18, align 8, !tbaa !342
-  %63 = load ptr, ptr %7, align 8, !tbaa !271
+  store ptr %62, ptr %3, align 8, !tbaa !294
+  store ptr %61, ptr %14, align 8, !tbaa !294
+  store ptr %.sroa.990.2, ptr %16, align 8, !tbaa !294
+  store ptr %.sroa.1291.2, ptr %18, align 8, !tbaa !344
+  %63 = load ptr, ptr %7, align 8, !tbaa !273
   %.098 = getelementptr inbounds i8, ptr %63, i64 -8
-  %64 = load ptr, ptr %5, align 8, !tbaa !271
+  %64 = load ptr, ptr %5, align 8, !tbaa !273
   %.not499 = icmp eq ptr %.098, %64
   br i1 %.not499, label %._crit_edge, label %.lr.ph
 
@@ -2717,9 +2717,9 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %66 = phi ptr [ %.sroa.990.2, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ]
   %67 = phi ptr [ %61, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %.sroa.483.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ]
   %68 = phi ptr [ %62, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %storemerge.i.i.i48, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ]
-  %69 = load ptr, ptr %1, align 8, !tbaa !262
+  %69 = load ptr, ptr %1, align 8, !tbaa !264
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !270
+  %71 = load ptr, ptr %70, align 8, !tbaa !272
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %69 to i64
   %74 = sub i64 %72, %73
@@ -2739,7 +2739,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
 
 .thread.i26:                                      ; preds = %.lr.ph.i8
   %78 = getelementptr inbounds i8, ptr %.sroa.1279.0, i64 -8
-  %79 = load ptr, ptr %78, align 8, !tbaa !292, !noalias !343
+  %79 = load ptr, ptr %78, align 8, !tbaa !294, !noalias !345
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
   %81 = tail call i64 @llvm.umin.i64(i64 %.01617.i11, i64 64)
   %.pre108 = ptrtoint ptr %.sroa.076.0 to i64
@@ -2767,7 +2767,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
   %92 = getelementptr inbounds ptr, ptr %.0935.i15, i64 %91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !343
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !345
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated36.i14
   %94 = icmp sgt i64 %93, -1
   br i1 %94, label %95, label %101
@@ -2791,7 +2791,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
   %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
-  %106 = load ptr, ptr %105, align 8, !tbaa !292, !noalias !343
+  %106 = load ptr, ptr %105, align 8, !tbaa !294, !noalias !345
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
@@ -2805,7 +2805,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i25 = phi ptr [ %98, %97 ], [ %110, %103 ]
   %111 = sub nsw i64 %.01617.i11, %.sroa.speculated36.i14
   %112 = icmp sgt i64 %111, 0
-  br i1 %112, label %.lr.ph.i8, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit27, !llvm.loop !341
+  br i1 %112, label %.lr.ph.i8, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit27, !llvm.loop !343
 
 .lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50
   %113 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ], [ %.sroa.1291.2, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
@@ -2813,7 +2813,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %115 = phi ptr [ %.sroa.483.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ], [ %61, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %116 = phi ptr [ %storemerge.i.i.i48, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ], [ %62, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %.0100 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50 ], [ %.098, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
-  %117 = load ptr, ptr %.0100, align 8, !tbaa !292
+  %117 = load ptr, ptr %.0100, align 8, !tbaa !294
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 512
   br label %119
 
@@ -2829,7 +2829,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
 
 .thread.i49:                                      ; preds = %119
   %121 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -8
-  %122 = load ptr, ptr %121, align 8, !tbaa !292, !noalias !346
+  %122 = load ptr, ptr %121, align 8, !tbaa !294, !noalias !348
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 512
   %124 = tail call i64 @llvm.umin.i64(i64 %.01617.i34, i64 64)
   %.pre112 = ptrtoint ptr %.sroa.082.0 to i64
@@ -2857,7 +2857,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
   %135 = getelementptr inbounds ptr, ptr %.0935.i38, i64 %134
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !346
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !348
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated36.i37
   %137 = icmp sgt i64 %136, -1
   br i1 %137, label %138, label %144
@@ -2881,7 +2881,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
   %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
-  %149 = load ptr, ptr %148, align 8, !tbaa !292, !noalias !346
+  %149 = load ptr, ptr %148, align 8, !tbaa !294, !noalias !348
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 6
   %152 = sub nsw i64 %136, %151
@@ -2895,28 +2895,28 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i48 = phi ptr [ %141, %140 ], [ %153, %146 ]
   %154 = sub nsw i64 %.01617.i34, %.sroa.speculated36.i37
   %155 = icmp sgt i64 %154, 0
-  br i1 %155, label %119, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50, !llvm.loop !341
+  br i1 %155, label %119, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50, !llvm.loop !343
 
 _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit50: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i47
-  store ptr %storemerge.i.i.i48, ptr %3, align 8, !tbaa !292
-  store ptr %.sroa.483.1, ptr %14, align 8, !tbaa !292
-  store ptr %.sroa.8.1, ptr %16, align 8, !tbaa !292
-  store ptr %.sroa.11.1, ptr %18, align 8, !tbaa !342
+  store ptr %storemerge.i.i.i48, ptr %3, align 8, !tbaa !294
+  store ptr %.sroa.483.1, ptr %14, align 8, !tbaa !294
+  store ptr %.sroa.8.1, ptr %16, align 8, !tbaa !294
+  store ptr %.sroa.11.1, ptr %18, align 8, !tbaa !344
   %.0 = getelementptr inbounds i8, ptr %.0100, i64 -8
-  %156 = load ptr, ptr %5, align 8, !tbaa !271
+  %156 = load ptr, ptr %5, align 8, !tbaa !273
   %.not4 = icmp eq ptr %.0, %156
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !349
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !351
 
 157:                                              ; preds = %4
-  %158 = load ptr, ptr %1, align 8, !tbaa !262
-  %159 = load ptr, ptr %2, align 8, !tbaa !262
-  %160 = load ptr, ptr %3, align 8, !tbaa !262
+  %158 = load ptr, ptr %1, align 8, !tbaa !264
+  %159 = load ptr, ptr %2, align 8, !tbaa !264
+  %160 = load ptr, ptr %3, align 8, !tbaa !264
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !269
+  %162 = load ptr, ptr %161, align 8, !tbaa !271
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !270
+  %164 = load ptr, ptr %163, align 8, !tbaa !272
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %166 = load ptr, ptr %165, align 8, !tbaa !271
+  %166 = load ptr, ptr %165, align 8, !tbaa !273
   %167 = ptrtoint ptr %159 to i64
   %168 = ptrtoint ptr %158 to i64
   %169 = sub i64 %167, %168
@@ -2936,7 +2936,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
 
 .thread.i72:                                      ; preds = %.lr.ph.i54
   %173 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -8
-  %174 = load ptr, ptr %173, align 8, !tbaa !292, !noalias !350
+  %174 = load ptr, ptr %173, align 8, !tbaa !294, !noalias !352
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
   %176 = tail call i64 @llvm.umin.i64(i64 %.01617.i57, i64 64)
   %.pre = ptrtoint ptr %.sroa.0.0 to i64
@@ -2964,7 +2964,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
   %187 = getelementptr inbounds ptr, ptr %.0935.i61, i64 %186
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !350
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !352
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated36.i60
   %189 = icmp sgt i64 %188, -1
   br i1 %189, label %190, label %196
@@ -2988,7 +2988,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
   %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
-  %201 = load ptr, ptr %200, align 8, !tbaa !292, !noalias !350
+  %201 = load ptr, ptr %200, align 8, !tbaa !294, !noalias !352
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
@@ -3002,20 +3002,20 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i71 = phi ptr [ %193, %192 ], [ %205, %198 ]
   %206 = sub nsw i64 %.01617.i57, %.sroa.speculated36.i60
   %207 = icmp sgt i64 %206, 0
-  br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit27, !llvm.loop !341
+  br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit27, !llvm.loop !343
 
 _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit27: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i24, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i70, %157, %._crit_edge
   %.sink117 = phi ptr [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i70 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i24 ]
   %.sink = phi ptr [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i70 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i24 ]
   %.sroa.9.2.sink = phi ptr [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i70 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i24 ]
   %.sroa.12.2.sink = phi ptr [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i70 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i24 ]
-  store ptr %.sink117, ptr %0, align 8, !tbaa !262
+  store ptr %.sink117, ptr %0, align 8, !tbaa !264
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %208, align 8, !tbaa !269
+  store ptr %.sink, ptr %208, align 8, !tbaa !271
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.9.2.sink, ptr %209, align 8, !tbaa !270
+  store ptr %.sroa.9.2.sink, ptr %209, align 8, !tbaa !272
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.12.2.sink, ptr %210, align 8, !tbaa !271
+  store ptr %.sroa.12.2.sink, ptr %210, align 8, !tbaa !273
   ret void
 }
 
@@ -3025,24 +3025,24 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !271
+  %6 = load ptr, ptr %5, align 8, !tbaa !273
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !271
+  %8 = load ptr, ptr %7, align 8, !tbaa !273
   %.not = icmp eq ptr %6, %8
-  %9 = load ptr, ptr %1, align 8, !tbaa !262
+  %9 = load ptr, ptr %1, align 8, !tbaa !264
   %10 = ptrtoint ptr %9 to i64
   br i1 %.not, label %135, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !270
-  %14 = load ptr, ptr %3, align 8, !tbaa !262
+  %13 = load ptr, ptr %12, align 8, !tbaa !272
+  %14 = load ptr, ptr %3, align 8, !tbaa !264
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !269
+  %16 = load ptr, ptr %15, align 8, !tbaa !271
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !270
+  %18 = load ptr, ptr %17, align 8, !tbaa !272
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !271
+  %20 = load ptr, ptr %19, align 8, !tbaa !273
   %21 = ptrtoint ptr %13 to i64
   %22 = sub i64 %21, %10
   %23 = ashr exact i64 %22, 3
@@ -3067,7 +3067,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedul
   br i1 %.not.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx12.i, i1 false), !noalias !353
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx12.i, i1 false), !noalias !355
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i: ; preds = %30, %.lr.ph.i
@@ -3097,7 +3097,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
   %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !292, !noalias !353
+  %47 = load ptr, ptr %46, align 8, !tbaa !294, !noalias !355
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
@@ -3111,20 +3111,20 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i = phi ptr [ %39, %38 ], [ %51, %44 ]
   %52 = sub nsw i64 %storemerge13.i, %.sroa.speculated.i
   %53 = icmp sgt i64 %52, 0
-  br i1 %53, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !356
+  br i1 %53, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !358
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i, %11
   %.sroa.872.2 = phi ptr [ %18, %11 ], [ %.sroa.872.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i ]
   %.sroa.1274.2 = phi ptr [ %20, %11 ], [ %.sroa.1274.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i ]
   %54 = phi ptr [ %16, %11 ], [ %.sroa.471.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i ]
   %55 = phi ptr [ %14, %11 ], [ %storemerge.i.i, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i ]
-  store ptr %55, ptr %3, align 8, !tbaa !292
-  store ptr %54, ptr %15, align 8, !tbaa !292
-  store ptr %.sroa.872.2, ptr %17, align 8, !tbaa !292
-  store ptr %.sroa.1274.2, ptr %19, align 8, !tbaa !342
-  %56 = load ptr, ptr %5, align 8, !tbaa !271
+  store ptr %55, ptr %3, align 8, !tbaa !294
+  store ptr %54, ptr %15, align 8, !tbaa !294
+  store ptr %.sroa.872.2, ptr %17, align 8, !tbaa !294
+  store ptr %.sroa.1274.2, ptr %19, align 8, !tbaa !344
+  %56 = load ptr, ptr %5, align 8, !tbaa !273
   %.080 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %57 = load ptr, ptr %7, align 8, !tbaa !271
+  %57 = load ptr, ptr %7, align 8, !tbaa !273
   %.not481 = icmp eq ptr %.080, %57
   br i1 %.not481, label %._crit_edge, label %.lr.ph
 
@@ -3134,8 +3134,8 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   %60 = phi ptr [ %54, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %.sroa.465.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ]
   %61 = phi ptr [ %55, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %storemerge.i.i37, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !269
-  %64 = load ptr, ptr %2, align 8, !tbaa !262
+  %63 = load ptr, ptr %62, align 8, !tbaa !271
+  %64 = load ptr, ptr %2, align 8, !tbaa !264
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %63 to i64
   %67 = sub i64 %65, %66
@@ -3161,7 +3161,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   br i1 %.not.i.i.i.i14, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i17, label %75
 
 75:                                               ; preds = %.lr.ph.i9
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx12.i13, i1 false), !noalias !357
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx12.i13, i1 false), !noalias !359
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i17
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i17: ; preds = %75, %.lr.ph.i9
@@ -3191,7 +3191,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
   %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !292, !noalias !357
+  %92 = load ptr, ptr %91, align 8, !tbaa !294, !noalias !359
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 6
   %95 = sub nsw i64 %79, %94
@@ -3205,7 +3205,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i20 = phi ptr [ %84, %83 ], [ %96, %89 ]
   %97 = sub nsw i64 %storemerge13.i11, %.sroa.speculated.i12
   %98 = icmp sgt i64 %97, 0
-  br i1 %98, label %.lr.ph.i9, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit21, !llvm.loop !356
+  br i1 %98, label %.lr.ph.i9, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit21, !llvm.loop !358
 
 .lr.ph:                                           ; preds = %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38
   %99 = phi ptr [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ], [ %.sroa.1274.2, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
@@ -3213,7 +3213,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %101 = phi ptr [ %.sroa.465.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ], [ %54, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %102 = phi ptr [ %storemerge.i.i37, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ], [ %55, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %.082 = phi ptr [ %.0, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38 ], [ %.080, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
-  %103 = load ptr, ptr %.082, align 8, !tbaa !292
+  %103 = load ptr, ptr %.082, align 8, !tbaa !294
   br label %104
 
 104:                                              ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i36, %.lr.ph
@@ -3234,7 +3234,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   br i1 %.not.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i34, label %110
 
 110:                                              ; preds = %104
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx12.i30, i1 false), !noalias !360
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx12.i30, i1 false), !noalias !362
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i34
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i34: ; preds = %110, %104
@@ -3264,7 +3264,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
   %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
-  %127 = load ptr, ptr %126, align 8, !tbaa !292, !noalias !360
+  %127 = load ptr, ptr %126, align 8, !tbaa !294, !noalias !362
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
@@ -3278,27 +3278,27 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i37 = phi ptr [ %119, %118 ], [ %131, %124 ]
   %132 = sub nsw i64 %storemerge13.i28, %.sroa.speculated.i29
   %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %104, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38, !llvm.loop !356
+  br i1 %133, label %104, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38, !llvm.loop !358
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit38: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i36
-  store ptr %storemerge.i.i37, ptr %3, align 8, !tbaa !292
-  store ptr %.sroa.465.1, ptr %15, align 8, !tbaa !292
-  store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !292
-  store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !342
+  store ptr %storemerge.i.i37, ptr %3, align 8, !tbaa !294
+  store ptr %.sroa.465.1, ptr %15, align 8, !tbaa !294
+  store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !294
+  store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !344
   %.0 = getelementptr inbounds nuw i8, ptr %.082, i64 8
-  %134 = load ptr, ptr %7, align 8, !tbaa !271
+  %134 = load ptr, ptr %7, align 8, !tbaa !273
   %.not4 = icmp eq ptr %.0, %134
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !363
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !365
 
 135:                                              ; preds = %4
-  %136 = load ptr, ptr %2, align 8, !tbaa !262
-  %137 = load ptr, ptr %3, align 8, !tbaa !262
+  %136 = load ptr, ptr %2, align 8, !tbaa !264
+  %137 = load ptr, ptr %3, align 8, !tbaa !264
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !269
+  %139 = load ptr, ptr %138, align 8, !tbaa !271
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !270
+  %141 = load ptr, ptr %140, align 8, !tbaa !272
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %143 = load ptr, ptr %142, align 8, !tbaa !271
+  %143 = load ptr, ptr %142, align 8, !tbaa !273
   %144 = ptrtoint ptr %136 to i64
   %145 = sub i64 %144, %10
   %146 = ashr exact i64 %145, 3
@@ -3323,7 +3323,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   br i1 %.not.i.i.i.i48, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i51, label %153
 
 153:                                              ; preds = %.lr.ph.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx12.i47, i1 false), !noalias !364
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx12.i47, i1 false), !noalias !366
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i51
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i51: ; preds = %153, %.lr.ph.i43
@@ -3353,7 +3353,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
   %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
-  %170 = load ptr, ptr %169, align 8, !tbaa !292, !noalias !364
+  %170 = load ptr, ptr %169, align 8, !tbaa !294, !noalias !366
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
@@ -3367,20 +3367,20 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i54 = phi ptr [ %162, %161 ], [ %174, %167 ]
   %175 = sub nsw i64 %storemerge13.i45, %.sroa.speculated.i46
   %176 = icmp sgt i64 %175, 0
-  br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit21, !llvm.loop !356
+  br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit21, !llvm.loop !358
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit21: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i53, %135, %._crit_edge
   %.sink84 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i19 ]
   %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i19 ]
   %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i19 ]
   %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i19 ]
-  store ptr %.sink84, ptr %0, align 8, !tbaa !262
+  store ptr %.sink84, ptr %0, align 8, !tbaa !264
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %177, align 8, !tbaa !269
+  store ptr %.sink, ptr %177, align 8, !tbaa !271
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.8.2.sink, ptr %178, align 8, !tbaa !270
+  store ptr %.sroa.8.2.sink, ptr %178, align 8, !tbaa !272
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.12.2.sink, ptr %179, align 8, !tbaa !271
+  store ptr %.sroa.12.2.sink, ptr %179, align 8, !tbaa !273
   ret void
 }
 
@@ -3396,7 +3396,7 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE22UpdateStreamPreced
   %11 = alloca ptr, align 8
   %12 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %.not = xor i1 %12, true
-  %13 = load i8, ptr %2, align 4, !range !242
+  %13 = load i8, ptr %2, align 4, !range !244
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %.not, i1 true, i1 %14
   br i1 %or.cond, label %.critedge, label %15
@@ -3411,7 +3411,7 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE22UpdateStreamPreced
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %10) #18
-  %.pre = load i8, ptr %2, align 4, !tbaa !232, !range !242
+  %.pre = load i8, ptr %2, align 4, !tbaa !234, !range !244
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -3419,7 +3419,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
   %19 = trunc nuw i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %22 = load i64, ptr %21, align 8, !tbaa !249
+  %22 = load i64, ptr %21, align 8, !tbaa !251
   %.not.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.not.i.i, label %23, label %30
 
@@ -3435,32 +3435,32 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
-  %28 = load i32, ptr %27, align 4, !tbaa !222
+  %28 = load i32, ptr %27, align 4, !tbaa !224
   %29 = icmp eq i32 %1, %28
-  br i1 %29, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %25, !llvm.loop !259
+  br i1 %29, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %25, !llvm.loop !261
 
 30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %32 = zext i32 %1 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %34 = load i64, ptr %33, align 8, !tbaa !250
+  %34 = load i64, ptr %33, align 8, !tbaa !252
   %35 = urem i64 %32, %34
-  %36 = load ptr, ptr %31, align 8, !tbaa !251
+  %36 = load ptr, ptr %31, align 8, !tbaa !253
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
-  %38 = load ptr, ptr %37, align 8, !tbaa !229
+  %38 = load ptr, ptr %37, align 8, !tbaa !231
   %.not.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, label %39
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %38, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i32, ptr %41, align 4, !tbaa !222
+  %42 = load i32, ptr %41, align 4, !tbaa !224
   %43 = icmp eq i32 %1, %42
   br i1 %43, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i
 
 44:                                               ; preds = %47
   %45 = icmp eq i32 %1, %49
-  br i1 %45, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !253
+  br i1 %45, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !255
 
 .lr.ph.i.i.i.i:                                   ; preds = %39, %44
   %.020.i.i.i.i = phi ptr [ %46, %44 ], [ %40, %39 ]
@@ -3470,14 +3470,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
 
 47:                                               ; preds = %.lr.ph.i.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !222
+  %49 = load i32, ptr %48, align 4, !tbaa !224
   %50 = zext i32 %49 to i64
   %51 = urem i64 %50, %34
   %.not19.i.i.i.i = icmp eq i64 %51, %35
-  br i1 %.not19.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !253
+  br i1 %.not19.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !255
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %47
-  br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, !llvm.loop !253
+  br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, !llvm.loop !255
 
 52:                                               ; preds = %15
   %53 = landingpad { ptr, i32 }
@@ -3492,24 +3492,24 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   br i1 %19, label %55, label %57
 
 55:                                               ; preds = %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
-  %56 = load i8, ptr %20, align 4, !tbaa !234
+  %56 = load i8, ptr %20, align 4, !tbaa !236
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 57:                                               ; preds = %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = load i32, ptr %58, align 4, !tbaa !234
+  %59 = load i32, ptr %58, align 4, !tbaa !236
   %60 = call noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %59)
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %55, %57
   %61 = phi i8 [ %56, %55 ], [ %60, %57 ]
-  %62 = load i8, ptr %54, align 4, !tbaa !261
+  %62 = load i8, ptr %54, align 4, !tbaa !263
   %63 = icmp eq i8 %62, %61
   br i1 %63, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, label %64
 
 64:                                               ; preds = %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 20
-  %66 = load i8, ptr %65, align 4, !tbaa !260, !range !242, !noundef !243
+  %66 = load i8, ptr %65, align 4, !tbaa !262, !range !244, !noundef !245
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %120
 
@@ -3519,70 +3519,70 @@ _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %55, %57
   %71 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %69, i64 0, i64 %70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !262, !noalias !367
+  %73 = load ptr, ptr %72, align 8, !tbaa !264, !noalias !369
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !269, !noalias !367
+  %75 = load ptr, ptr %74, align 8, !tbaa !271, !noalias !369
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !270, !noalias !367
+  %77 = load ptr, ptr %76, align 8, !tbaa !272, !noalias !369
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %79 = load ptr, ptr %78, align 8, !tbaa !271, !noalias !367
+  %79 = load ptr, ptr %78, align 8, !tbaa !273, !noalias !369
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !262, !noalias !370
+  %81 = load ptr, ptr %80, align 8, !tbaa !264, !noalias !372
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %83 = load ptr, ptr %82, align 8, !tbaa !269, !noalias !370
+  %83 = load ptr, ptr %82, align 8, !tbaa !271, !noalias !372
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 64
-  %85 = load ptr, ptr %84, align 8, !tbaa !270, !noalias !370
+  %85 = load ptr, ptr %84, align 8, !tbaa !272, !noalias !372
   %86 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  %87 = load ptr, ptr %86, align 8, !tbaa !271, !noalias !370
+  %87 = load ptr, ptr %86, align 8, !tbaa !273, !noalias !372
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  store ptr %54, ptr %8, align 8, !tbaa !275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !373
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !373
-  store ptr %73, ptr %5, align 8, !tbaa !262, !noalias !376
+  store ptr %54, ptr %8, align 8, !tbaa !277
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !375
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !375
+  store ptr %73, ptr %5, align 8, !tbaa !264, !noalias !378
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %75, ptr %88, align 8, !tbaa !269, !noalias !376
+  store ptr %75, ptr %88, align 8, !tbaa !271, !noalias !378
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %77, ptr %89, align 8, !tbaa !270, !noalias !376
+  store ptr %77, ptr %89, align 8, !tbaa !272, !noalias !378
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %79, ptr %90, align 8, !tbaa !271, !noalias !376
-  store ptr %81, ptr %6, align 8, !tbaa !262, !noalias !376
+  store ptr %79, ptr %90, align 8, !tbaa !273, !noalias !378
+  store ptr %81, ptr %6, align 8, !tbaa !264, !noalias !378
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %83, ptr %91, align 8, !tbaa !269, !noalias !376
+  store ptr %83, ptr %91, align 8, !tbaa !271, !noalias !378
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %85, ptr %92, align 8, !tbaa !270, !noalias !376
+  store ptr %85, ptr %92, align 8, !tbaa !272, !noalias !378
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %87, ptr %93, align 8, !tbaa !271, !noalias !376
+  store ptr %87, ptr %93, align 8, !tbaa !273, !noalias !378
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nonnull align 8 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !373
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !373
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !375
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !375
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  %94 = load ptr, ptr %80, align 8, !tbaa !262, !noalias !379
-  %95 = load ptr, ptr %7, align 8, !tbaa !262
+  %94 = load ptr, ptr %80, align 8, !tbaa !264, !noalias !381
+  %95 = load ptr, ptr %7, align 8, !tbaa !264
   %.not27 = icmp eq ptr %95, %94
   br i1 %.not27, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %96
 
 96:                                               ; preds = %68
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !271
+  %98 = load ptr, ptr %97, align 8, !tbaa !273
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  store ptr %95, ptr %4, align 8, !tbaa !262, !alias.scope !382, !noalias !385
+  call void @llvm.experimental.noalias.scope.decl(metadata !384)
+  store ptr %95, ptr %4, align 8, !tbaa !264, !alias.scope !384, !noalias !387
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %100 = load ptr, ptr %98, align 8, !tbaa !292, !noalias !388
-  store ptr %100, ptr %99, align 8, !tbaa !269, !alias.scope !382, !noalias !385
+  %100 = load ptr, ptr %98, align 8, !tbaa !294, !noalias !390
+  store ptr %100, ptr %99, align 8, !tbaa !271, !alias.scope !384, !noalias !387
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 512
-  store ptr %102, ptr %101, align 8, !tbaa !270, !alias.scope !382, !noalias !385
+  store ptr %102, ptr %101, align 8, !tbaa !272, !alias.scope !384, !noalias !387
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %98, ptr %103, align 8, !tbaa !271, !alias.scope !382, !noalias !385
+  store ptr %98, ptr %103, align 8, !tbaa !273, !alias.scope !384, !noalias !387
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %9, ptr noundef nonnull align 8 dereferenceable(80) %71, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !294
+  %105 = load i64, ptr %104, align 8, !tbaa !296
   %106 = add i64 %105, -1
-  store i64 %106, ptr %104, align 8, !tbaa !294
+  store i64 %106, ptr %104, align 8, !tbaa !296
   br label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
 
 _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit: ; preds = %68, %96
@@ -3590,19 +3590,19 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
   %107 = zext i8 %61 to i64
   %108 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %69, i64 0, i64 %107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
-  store ptr %54, ptr %11, align 8, !tbaa !275
+  store ptr %54, ptr %11, align 8, !tbaa !277
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %110 = load ptr, ptr %109, align 8, !tbaa !329
+  %110 = load ptr, ptr %109, align 8, !tbaa !331
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  %112 = load ptr, ptr %111, align 8, !tbaa !389
+  %112 = load ptr, ptr %111, align 8, !tbaa !391
   %113 = getelementptr inbounds i8, ptr %112, i64 -8
   %.not.i.i20 = icmp eq ptr %110, %113
   br i1 %.not.i.i20, label %116, label %114
 
 114:                                              ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
-  store ptr %54, ptr %110, align 8, !tbaa !275
+  store ptr %54, ptr %110, align 8, !tbaa !277
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %115, ptr %109, align 8, !tbaa !329
+  store ptr %115, ptr %109, align 8, !tbaa !331
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit
 
 116:                                              ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
@@ -3612,13 +3612,13 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit: ; preds = %114, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !294
+  %118 = load i64, ptr %117, align 8, !tbaa !296
   %119 = add i64 %118, 1
-  store i64 %119, ptr %117, align 8, !tbaa !294
+  store i64 %119, ptr %117, align 8, !tbaa !296
   br label %120
 
 120:                                              ; preds = %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit, %64
-  store i8 %61, ptr %54, align 4, !tbaa !261
+  store i8 %61, ptr %54, align 4, !tbaa !263
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread
 
 _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %25, %..loopexit_crit_edge21.i.i.i.i, %30, %120, %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
@@ -3630,9 +3630,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !271
+  %6 = load ptr, ptr %5, align 8, !tbaa !273
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !271
+  %8 = load ptr, ptr %7, align 8, !tbaa !273
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -3641,17 +3641,17 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
   %.neg.i.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i.i
   %15 = shl nsw i64 %14, 6
-  %16 = load ptr, ptr %3, align 8, !tbaa !262
+  %16 = load ptr, ptr %3, align 8, !tbaa !264
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !269
+  %18 = load ptr, ptr %17, align 8, !tbaa !271
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = add nsw i64 %15, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !270
-  %26 = load ptr, ptr %4, align 8, !tbaa !262
+  %25 = load ptr, ptr %24, align 8, !tbaa !272
+  %26 = load ptr, ptr %4, align 8, !tbaa !264
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -3666,8 +3666,8 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !390
-  %37 = load ptr, ptr %0, align 8, !tbaa !391
+  %36 = load i64, ptr %35, align 8, !tbaa !392
+  %37 = load ptr, ptr %0, align 8, !tbaa !393
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
   %40 = ashr exact i64 %39, 3
@@ -3677,23 +3677,23 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !331
+  %.pre = load ptr, ptr %5, align 8, !tbaa !333
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !292
-  %47 = load ptr, ptr %3, align 8, !tbaa !329
-  %48 = load ptr, ptr %1, align 8, !tbaa !275
-  store ptr %48, ptr %47, align 8, !tbaa !275
-  store ptr %46, ptr %5, align 8, !tbaa !271
-  store ptr %45, ptr %17, align 8, !tbaa !269
+  store ptr %45, ptr %46, align 8, !tbaa !294
+  %47 = load ptr, ptr %3, align 8, !tbaa !331
+  %48 = load ptr, ptr %1, align 8, !tbaa !277
+  store ptr %48, ptr %47, align 8, !tbaa !277
+  store ptr %46, ptr %5, align 8, !tbaa !273
+  store ptr %45, ptr %17, align 8, !tbaa !271
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 512
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %49, ptr %50, align 8, !tbaa !270
-  store ptr %45, ptr %3, align 8, !tbaa !329
+  store ptr %49, ptr %50, align 8, !tbaa !272
+  store ptr %45, ptr %3, align 8, !tbaa !331
   ret void
 }
 
@@ -3703,9 +3703,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !331
+  %5 = load ptr, ptr %4, align 8, !tbaa !333
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !316
+  %7 = load ptr, ptr %6, align 8, !tbaa !318
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3713,13 +3713,13 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !390
+  %15 = load i64, ptr %14, align 8, !tbaa !392
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %0, align 8, !tbaa !391
+  %19 = load ptr, ptr %0, align 8, !tbaa !393
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
   %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
@@ -3757,7 +3757,7 @@ define linkonce_odr void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamI
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE15_M_allocate_mapEm.exit, !prof !256
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE15_M_allocate_mapEm.exit, !prof !258
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -3790,30 +3790,30 @@ _ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE15_M_al
   br label %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit26
 
 _ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit26: ; preds = %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE15_M_allocate_mapEm.exit, %53
-  %56 = load ptr, ptr %0, align 8, !tbaa !391
+  %56 = load ptr, ptr %0, align 8, !tbaa !393
   tail call void @_ZdlPv(ptr noundef %56) #21
-  store ptr %46, ptr %0, align 8, !tbaa !391
-  store i64 %41, ptr %14, align 8, !tbaa !390
+  store ptr %46, ptr %0, align 8, !tbaa !393
+  store i64 %41, ptr %14, align 8, !tbaa !392
   br label %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit26
   %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
-  store ptr %.0, ptr %6, align 8, !tbaa !271
-  %57 = load ptr, ptr %.0, align 8, !tbaa !292
+  store ptr %.0, ptr %6, align 8, !tbaa !273
+  %57 = load ptr, ptr %.0, align 8, !tbaa !294
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !269
+  store ptr %57, ptr %58, align 8, !tbaa !271
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %59, ptr %60, align 8, !tbaa !270
+  store ptr %59, ptr %60, align 8, !tbaa !272
   %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  store ptr %62, ptr %4, align 8, !tbaa !271
-  %63 = load ptr, ptr %62, align 8, !tbaa !292
+  store ptr %62, ptr %4, align 8, !tbaa !273
+  %63 = load ptr, ptr %62, align 8, !tbaa !294
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %63, ptr %64, align 8, !tbaa !269
+  store ptr %63, ptr %64, align 8, !tbaa !271
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 512
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %65, ptr %66, align 8, !tbaa !270
+  store ptr %65, ptr %66, align 8, !tbaa !272
   ret void
 }
 
@@ -3824,19 +3824,19 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !392
+  %6 = load i64, ptr %5, align 8, !tbaa !394
   %.not.not = icmp eq i64 %6, 0
   br i1 %.not.not, label %15, label %.thread
 
 .thread:                                          ; preds = %2
-  %7 = load i32, ptr %4, align 4, !tbaa !222
+  %7 = load i32, ptr %4, align 4, !tbaa !224
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !227
+  %10 = load i64, ptr %9, align 8, !tbaa !229
   %11 = urem i64 %8, %10
-  %12 = load ptr, ptr %0, align 8, !tbaa !225
+  %12 = load ptr, ptr %0, align 8, !tbaa !227
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
-  %14 = load ptr, ptr %13, align 8, !tbaa !229
+  %14 = load ptr, ptr %13, align 8, !tbaa !231
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge27, label %29
 
@@ -3852,29 +3852,29 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQu
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 8
-  %20 = load i32, ptr %4, align 4, !tbaa !222
-  %21 = load i32, ptr %19, align 4, !tbaa !222
+  %20 = load i32, ptr %4, align 4, !tbaa !224
+  %21 = load i32, ptr %19, align 4, !tbaa !224
   %22 = icmp eq i32 %20, %21
-  br i1 %22, label %_ZNKSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %17, !llvm.loop !393
+  br i1 %22, label %_ZNKSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %17, !llvm.loop !395
 
 23:                                               ; preds = %17
-  %24 = load i32, ptr %4, align 4, !tbaa !222
+  %24 = load i32, ptr %4, align 4, !tbaa !224
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !227
+  %27 = load i64, ptr %26, align 8, !tbaa !229
   %28 = urem i64 %25, %27
   br label %.critedge27
 
 29:                                               ; preds = %.thread
   %30 = load ptr, ptr %14, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !222
+  %32 = load i32, ptr %31, align 4, !tbaa !224
   %33 = icmp eq i32 %7, %32
   br i1 %33, label %_ZNKSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
 
 34:                                               ; preds = %37
   %35 = icmp eq i32 %7, %39
-  br i1 %35, label %_ZNKSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !230
+  br i1 %35, label %_ZNKSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !232
 
 .lr.ph.i.i:                                       ; preds = %29, %34
   %.020.i.i = phi ptr [ %36, %34 ], [ %30, %29 ]
@@ -3884,14 +3884,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQu
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !222
+  %39 = load i32, ptr %38, align 4, !tbaa !224
   %40 = zext i32 %39 to i64
   %41 = urem i64 %40, %10
   %.not19.i.i = icmp eq i64 %41, %11
-  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !230
+  br i1 %.not19.i.i, label %34, label %..loopexit_crit_edge21.i.i, !llvm.loop !232
 
 ..loopexit_crit_edge21.i.i:                       ; preds = %37
-  br label %.critedge27, !llvm.loop !230
+  br label %.critedge27, !llvm.loop !232
 
 .critedge27:                                      ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread
   %42 = phi i64 [ %28, %23 ], [ %11, %.thread ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
@@ -3922,11 +3922,11 @@ _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_S
 define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !254
+  %8 = load i64, ptr %7, align 8, !tbaa !256
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !227
+  %10 = load i64, ptr %9, align 8, !tbaa !229
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !392
+  %12 = load i64, ptr %11, align 8, !tbaa !394
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
   %15 = trunc i8 %14 to i1
@@ -3942,7 +3942,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStream
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #18
-  store i64 %8, ptr %7, align 8, !tbaa !254
+  store i64 %8, ptr %7, align 8, !tbaa !256
   invoke void @__cxa_rethrow() #22
           to label %28 unwind label %22
 
@@ -3966,68 +3966,68 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStream
   unreachable
 
 _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %16
-  %29 = load i64, ptr %9, align 8, !tbaa !227
+  %29 = load i64, ptr %9, align 8, !tbaa !229
   %30 = urem i64 %2, %29
   br label %31
 
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
-  %32 = load ptr, ptr %0, align 8, !tbaa !225
+  %32 = load ptr, ptr %0, align 8, !tbaa !227
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
-  %34 = load ptr, ptr %33, align 8, !tbaa !229
+  %34 = load ptr, ptr %33, align 8, !tbaa !231
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %34, align 8, !tbaa !86
   store ptr %36, ptr %3, align 8, !tbaa !86
-  %37 = load ptr, ptr %33, align 8, !tbaa !229
+  %37 = load ptr, ptr %33, align 8, !tbaa !231
   store ptr %3, ptr %37, align 8, !tbaa !86
   br label %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !394
+  %40 = load ptr, ptr %39, align 8, !tbaa !396
   store ptr %40, ptr %3, align 8, !tbaa !86
-  store ptr %3, ptr %39, align 8, !tbaa !394
+  store ptr %3, ptr %39, align 8, !tbaa !396
   %41 = load ptr, ptr %3, align 8, !tbaa !86
   %.not11.i = icmp eq ptr %41, null
   br i1 %.not11.i, label %49, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = load i64, ptr %9, align 8, !tbaa !227
-  %45 = load i32, ptr %43, align 4, !tbaa !222
+  %44 = load i64, ptr %9, align 8, !tbaa !229
+  %45 = load i32, ptr %43, align 4, !tbaa !224
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
-  store ptr %3, ptr %48, align 8, !tbaa !229
+  store ptr %3, ptr %48, align 8, !tbaa !231
   br label %49
 
 49:                                               ; preds = %42, %38
-  store ptr %39, ptr %33, align 8, !tbaa !229
+  store ptr %39, ptr %33, align 8, !tbaa !231
   br label %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit
 
 _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit: ; preds = %35, %49
-  %50 = load i64, ptr %11, align 8, !tbaa !392
+  %50 = load i64, ptr %11, align 8, !tbaa !394
   %51 = add i64 %50, 1
-  store i64 %51, ptr %11, align 8, !tbaa !392
+  store i64 %51, ptr %11, align 8, !tbaa !394
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, 1
-  br i1 %3, label %4, label %6, !prof !256
+  br i1 %3, label %4, label %6, !prof !258
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !395
+  store ptr null, ptr %5, align 8, !tbaa !397
   br label %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %1, 1152921504606846975
-  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjPN3net18ReliableQuicStreamEELb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !256
+  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjPN3net18ReliableQuicStreamEELb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !258
 
 8:                                                ; preds = %6
   %9 = icmp ugt i64 %1, 2305843009213693951
@@ -4050,8 +4050,8 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjPN3net18ReliableQu
 _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjPN3net18ReliableQuicStreamEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjPN3net18ReliableQuicStreamEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !394
-  store ptr null, ptr %12, align 8, !tbaa !394
+  %13 = load ptr, ptr %12, align 8, !tbaa !396
+  store ptr null, ptr %12, align 8, !tbaa !396
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -4060,42 +4060,42 @@ _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_S
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !86
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !222
+  %16 = load i32, ptr %15, align 4, !tbaa !224
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !229
+  %20 = load ptr, ptr %19, align 8, !tbaa !231
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %12, align 8, !tbaa !394
+  %22 = load ptr, ptr %12, align 8, !tbaa !396
   store ptr %22, ptr %.031, align 8, !tbaa !86
-  store ptr %.031, ptr %12, align 8, !tbaa !394
-  store ptr %12, ptr %19, align 8, !tbaa !229
+  store ptr %.031, ptr %12, align 8, !tbaa !396
+  store ptr %12, ptr %19, align 8, !tbaa !231
   %23 = load ptr, ptr %.031, align 8, !tbaa !86
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
-  store ptr %.031, ptr %25, align 8, !tbaa !229
+  store ptr %.031, ptr %25, align 8, !tbaa !231
   br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8, !tbaa !86
   store ptr %27, ptr %.031, align 8, !tbaa !86
-  %28 = load ptr, ptr %19, align 8, !tbaa !229
+  %28 = load ptr, ptr %19, align 8, !tbaa !231
   store ptr %.031, ptr %28, align 8, !tbaa !86
   br label %29
 
 29:                                               ; preds = %21, %24, %26
   %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !396
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !398
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
-  %30 = load ptr, ptr %0, align 8, !tbaa !225
+  %30 = load ptr, ptr %0, align 8, !tbaa !227
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
@@ -4106,8 +4106,8 @@ _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_S
 
 _ZNSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %34, align 8, !tbaa !227
-  store ptr %.0.i, ptr %0, align 8, !tbaa !225
+  store i64 %1, ptr %34, align 8, !tbaa !229
+  store ptr %.0.i, ptr %0, align 8, !tbaa !227
   ret void
 }
 
@@ -4241,313 +4241,315 @@ attributes #22 = { noreturn }
 !84 = !{!85, !82, i64 8}
 !85 = !{!"_ZTSSt4pairIKjPN3net18ReliableQuicStreamEE", !36, i64 0, !82, i64 8}
 !86 = !{!62, !63, i64 0}
-!87 = !{!8, !8, i64 0}
-!88 = !{!13, !25, i64 56}
-!89 = !{!90, !73, i64 3204}
-!90 = !{!"_ZTSN3net14QuicConnectionE", !91, i64 0, !92, i64 8, !93, i64 16, !96, i64 24, !97, i64 32, !120, i64 440, !121, i64 448, !122, i64 456, !123, i64 464, !43, i64 472, !118, i64 473, !124, i64 480, !125, i64 488, !24, i64 496, !48, i64 504, !48, i64 536, !126, i64 568, !24, i64 576, !43, i64 584, !24, i64 592, !54, i64 600, !118, i64 608, !127, i64 616, !132, i64 680, !43, i64 696, !24, i64 704, !24, i64 712, !133, i64 720, !24, i64 800, !43, i64 808, !140, i64 816, !43, i64 840, !146, i64 848, !153, i64 856, !43, i64 860, !154, i64 864, !178, i64 1112, !43, i64 1240, !24, i64 1248, !43, i64 1256, !24, i64 1264, !36, i64 1272, !186, i64 1276, !65, i64 1280, !43, i64 1284, !43, i64 1285, !43, i64 1286, !32, i64 1288, !187, i64 1304, !188, i64 2336, !188, i64 2344, !188, i64 2352, !188, i64 2360, !188, i64 2368, !188, i64 2376, !188, i64 2384, !189, i64 2392, !190, i64 2400, !191, i64 2408, !32, i64 2880, !32, i64 2896, !210, i64 2912, !74, i64 3160, !74, i64 3168, !74, i64 3176, !24, i64 3184, !212, i64 3192, !219, i64 3200, !73, i64 3204, !43, i64 3208, !48, i64 3216, !48, i64 3248, !43, i64 3280, !107, i64 3288, !24, i64 3312, !24, i64 3320, !24, i64 3328, !24, i64 3336, !24, i64 3344, !24, i64 3352, !24, i64 3360, !43, i64 3368, !43, i64 3369, !43, i64 3370, !43, i64 3371}
-!91 = !{!"_ZTSN3net26QuicFramerVisitorInterfaceE"}
-!92 = !{!"_ZTSN3net26QuicBlockedWriterInterfaceE"}
-!93 = !{!"_ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !94, i64 0}
-!94 = !{!"_ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !95, i64 0}
-!95 = !{!"_ZTSN3net36QuicConnectionCloseDelegateInterfaceE"}
-!96 = !{!"_ZTSN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE"}
-!97 = !{!"_ZTSN3net10QuicFramerE", !98, i64 8, !100, i64 40, !101, i64 48, !71, i64 56, !102, i64 64, !104, i64 120, !24, i64 176, !104, i64 184, !24, i64 240, !10, i64 248, !24, i64 256, !36, i64 264, !106, i64 268, !107, i64 272, !111, i64 296, !111, i64 304, !118, i64 312, !118, i64 313, !43, i64 314, !10, i64 320, !73, i64 344, !43, i64 348, !74, i64 352, !32, i64 360, !119, i64 376}
-!98 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !99, i64 0, !24, i64 8, !10, i64 16}
-!99 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !54, i64 0}
-!100 = !{!"p1 _ZTSN3net26QuicFramerVisitorInterfaceE", !9, i64 0}
-!101 = !{!"p1 _ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE", !9, i64 0}
-!102 = !{!"_ZTSSt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEE", !103, i64 0}
-!103 = !{!"_ZTSSt10_HashtableIhhSaIhENSt8__detail9_IdentityESt8equal_toIhESt4hashIhENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
-!104 = !{!"_ZTSSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE", !105, i64 0}
-!105 = !{!"_ZTSSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
-!106 = !{!"_ZTSN3net11QuicVersionE", !10, i64 0}
-!107 = !{!"_ZTSSt6vectorIN3net11QuicVersionESaIS1_EE", !108, i64 0}
-!108 = !{!"_ZTSSt12_Vector_baseIN3net11QuicVersionESaIS1_EE", !109, i64 0}
-!109 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE12_Vector_implE", !110, i64 0}
-!110 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!111 = !{!"_ZTSSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_dataIN3net13QuicDecrypterESt14default_deleteIS1_ELb1ELb1EE", !113, i64 0}
-!113 = !{!"_ZTSSt15__uniq_ptr_implIN3net13QuicDecrypterESt14default_deleteIS1_EE", !114, i64 0}
-!114 = !{!"_ZTSSt5tupleIJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !115, i64 0}
-!115 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !116, i64 0}
-!116 = !{!"_ZTSSt10_Head_baseILm0EPN3net13QuicDecrypterELb0EE", !117, i64 0}
-!117 = !{!"p1 _ZTSN3net13QuicDecrypterE", !9, i64 0}
-!118 = !{!"_ZTSN3net15EncryptionLevelE", !10, i64 0}
-!119 = !{!"_ZTSSt5arrayIcLm32EE", !10, i64 0}
-!120 = !{!"p1 _ZTSN3net29QuicConnectionHelperInterfaceE", !9, i64 0}
-!121 = !{!"p1 _ZTSN3net16QuicAlarmFactoryE", !9, i64 0}
-!122 = !{!"p1 _ZTSN3net16PerPacketOptionsE", !9, i64 0}
-!123 = !{!"p1 _ZTSN3net16QuicPacketWriterE", !9, i64 0}
-!124 = !{!"p1 _ZTSN3net9QuicClockE", !9, i64 0}
-!125 = !{!"p1 _ZTSN3net10QuicRandomE", !9, i64 0}
-!126 = !{!"_ZTSN3net21PeerAddressChangeTypeE", !10, i64 0}
-!127 = !{!"_ZTSN3net16QuicPacketHeaderE", !128, i64 0, !24, i64 48, !10, i64 56, !43, i64 57, !10, i64 58, !43, i64 59}
-!128 = !{!"_ZTSN3net22QuicPacketPublicHeaderE", !24, i64 0, !129, i64 8, !43, i64 12, !43, i64 13, !43, i64 14, !130, i64 15, !107, i64 16, !131, i64 40}
-!129 = !{!"_ZTSN3net22QuicConnectionIdLengthE", !10, i64 0}
-!130 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !10, i64 0}
-!131 = !{!"p1 _ZTSSt5arrayIcLm32EE", !9, i64 0}
-!132 = !{!"_ZTSN3net20QuicStopWaitingFrameE", !10, i64 0, !10, i64 1, !24, i64 8}
-!133 = !{!"_ZTSSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE", !134, i64 0}
-!134 = !{!"_ZTSSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE", !135, i64 0}
-!135 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE11_Deque_implE", !136, i64 0}
-!136 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_Deque_impl_dataE", !137, i64 0, !24, i64 8, !138, i64 16, !138, i64 48}
-!137 = !{!"p3 _ZTSN3net19QuicEncryptedPacketE", !9, i64 0}
-!138 = !{!"_ZTSSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_E", !139, i64 0, !139, i64 8, !139, i64 16, !137, i64 24}
-!139 = !{!"p2 _ZTSN3net19QuicEncryptedPacketE", !9, i64 0}
-!140 = !{!"_ZTSNSt7__cxx114listIN3net16SerializedPacketESaIS2_EEE", !141, i64 0}
-!141 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EEE", !142, i64 0}
-!142 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EE10_List_implE", !143, i64 0}
-!143 = !{!"_ZTSNSt8__detail17_List_node_headerE", !144, i64 0, !24, i64 16}
-!144 = !{!"_ZTSNSt8__detail15_List_node_baseE", !145, i64 0, !145, i64 8}
-!145 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !9, i64 0}
-!146 = !{!"_ZTSSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EE", !147, i64 0}
-!147 = !{!"_ZTSSt15__uniq_ptr_dataISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_ELb1ELb1EE", !148, i64 0}
-!148 = !{!"_ZTSSt15__uniq_ptr_implISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EE", !149, i64 0}
-!149 = !{!"_ZTSSt5tupleIJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !150, i64 0}
-!150 = !{!"_ZTSSt11_Tuple_implILm0EJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !151, i64 0}
-!151 = !{!"_ZTSSt10_Head_baseILm0EPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EELb0EE", !152, i64 0}
-!152 = !{!"p1 _ZTSSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE", !9, i64 0}
-!153 = !{!"_ZTSN3net23ConnectionCloseBehaviorE", !10, i64 0}
-!154 = !{!"_ZTSN3net25QuicReceivedPacketManagerE", !155, i64 0, !156, i64 8, !24, i64 112, !164, i64 120, !43, i64 224, !74, i64 232, !177, i64 240}
-!155 = !{!"_ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE"}
-!156 = !{!"_ZTSN3net25QuicReceivedPacketManager14EntropyTrackerE", !157, i64 0, !10, i64 80, !24, i64 88, !24, i64 96}
-!157 = !{!"_ZTSSt5dequeISt4pairIhbESaIS1_EE", !158, i64 0}
-!158 = !{!"_ZTSSt11_Deque_baseISt4pairIhbESaIS1_EE", !159, i64 0}
-!159 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE11_Deque_implE", !160, i64 0}
-!160 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE16_Deque_impl_dataE", !161, i64 0, !24, i64 8, !162, i64 16, !162, i64 48}
-!161 = !{!"p2 _ZTSSt4pairIhbE", !9, i64 0}
-!162 = !{!"_ZTSSt15_Deque_iteratorISt4pairIhbERS1_PS1_E", !163, i64 0, !163, i64 8, !163, i64 16, !161, i64 24}
-!163 = !{!"p1 _ZTSSt4pairIhbE", !9, i64 0}
-!164 = !{!"_ZTSN3net12QuicAckFrameE", !24, i64 0, !32, i64 8, !165, i64 24, !170, i64 48, !10, i64 96, !10, i64 97, !43, i64 98, !43, i64 99}
-!165 = !{!"_ZTSSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE", !166, i64 0}
-!166 = !{!"_ZTSSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE", !167, i64 0}
-!167 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE12_Vector_implE", !168, i64 0}
-!168 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE17_Vector_impl_dataE", !169, i64 0, !169, i64 8, !169, i64 16}
-!169 = !{!"p1 _ZTSSt4pairImN3net8QuicTimeEE", !9, i64 0}
-!170 = !{!"_ZTSN3net17PacketNumberQueueE", !171, i64 0}
-!171 = !{!"_ZTSN3net11IntervalSetImEE", !172, i64 0}
-!172 = !{!"_ZTSSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !173, i64 0}
-!173 = !{!"_ZTSSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !174, i64 0}
-!174 = !{!"_ZTSNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE13_Rb_tree_implIS7_Lb1EEE", !175, i64 0, !20, i64 8}
-!175 = !{!"_ZTSSt20_Rb_tree_key_compareIN3net11IntervalSetImE18IntervalComparatorEE", !176, i64 0}
-!176 = !{!"_ZTSN3net11IntervalSetImE18IntervalComparatorE"}
-!177 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !9, i64 0}
-!178 = !{!"_ZTSN3net22QuicSentEntropyManagerE", !179, i64 8, !24, i64 88, !185, i64 96, !185, i64 112}
-!179 = !{!"_ZTSSt5dequeIhSaIhEE", !180, i64 0}
-!180 = !{!"_ZTSSt11_Deque_baseIhSaIhEE", !181, i64 0}
-!181 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE11_Deque_implE", !182, i64 0}
-!182 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE16_Deque_impl_dataE", !183, i64 0, !24, i64 8, !184, i64 16, !184, i64 48}
-!183 = !{!"p2 omnipotent char", !9, i64 0}
-!184 = !{!"_ZTSSt15_Deque_iteratorIhRhPhE", !54, i64 0, !54, i64 8, !54, i64 16, !183, i64 24}
-!185 = !{!"_ZTSN3net22QuicSentEntropyManager17CumulativeEntropyE", !24, i64 0, !10, i64 8}
-!186 = !{!"_ZTSN3net14QuicConnection7AckModeE", !10, i64 0}
-!187 = !{!"_ZTSN3net17QuicOneBlockArenaILj1024EEE", !10, i64 0, !36, i64 1024}
-!188 = !{!"_ZTSN3net18QuicArenaScopedPtrINS_9QuicAlarmEEE", !9, i64 0}
-!189 = !{!"p1 _ZTSN3net30QuicConnectionVisitorInterfaceE", !9, i64 0}
-!190 = !{!"p1 _ZTSN3net26QuicConnectionDebugVisitorE", !9, i64 0}
-!191 = !{!"_ZTSN3net19QuicPacketGeneratorE", !192, i64 0, !193, i64 8, !199, i64 320, !43, i64 344, !43, i64 345, !43, i64 346, !164, i64 352, !132, i64 456}
-!192 = !{!"p1 _ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !9, i64 0}
-!193 = !{!"_ZTSN3net17QuicPacketCreatorE", !194, i64 0, !195, i64 8, !196, i64 16, !197, i64 24, !198, i64 48, !43, i64 56, !43, i64 57, !130, i64 58, !43, i64 59, !119, i64 60, !24, i64 96, !24, i64 104, !129, i64 112, !199, i64 120, !24, i64 144, !24, i64 152, !204, i64 160, !104, i64 256}
-!194 = !{!"p1 _ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !9, i64 0}
-!195 = !{!"p1 _ZTSN3net17QuicPacketCreator13DebugDelegateE", !9, i64 0}
-!196 = !{!"p1 _ZTSN3net10QuicFramerE", !9, i64 0}
-!197 = !{!"_ZTSN3net17QuicPacketCreator20QuicRandomBoolSourceE", !125, i64 0, !24, i64 8, !24, i64 16}
-!198 = !{!"p1 _ZTSN3net19QuicBufferAllocatorE", !9, i64 0}
-!199 = !{!"_ZTSSt6vectorIN3net9QuicFrameESaIS1_EE", !200, i64 0}
-!200 = !{!"_ZTSSt12_Vector_baseIN3net9QuicFrameESaIS1_EE", !201, i64 0}
-!201 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE12_Vector_implE", !202, i64 0}
-!202 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE17_Vector_impl_dataE", !203, i64 0, !203, i64 8, !203, i64 16}
-!203 = !{!"p1 _ZTSN3net9QuicFrameE", !9, i64 0}
-!204 = !{!"_ZTSN3net16SerializedPacketE", !54, i64 0, !55, i64 8, !199, i64 16, !205, i64 40, !55, i64 42, !10, i64 44, !24, i64 48, !130, i64 56, !118, i64 57, !10, i64 58, !43, i64 59, !43, i64 60, !206, i64 61, !10, i64 62, !24, i64 64, !207, i64 72}
-!205 = !{!"_ZTSN3net11IsHandshakeE", !10, i64 0}
-!206 = !{!"_ZTSN3net16TransmissionTypeE", !10, i64 0}
-!207 = !{!"_ZTSNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EEE", !208, i64 0}
-!208 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EEE", !209, i64 0}
-!209 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EE10_List_implE", !143, i64 0}
-!210 = !{!"_ZTSN3net19QuicConnectionStatsE", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72, !24, i64 80, !24, i64 88, !24, i64 96, !24, i64 104, !24, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !24, i64 144, !24, i64 152, !24, i64 160, !24, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !211, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !36, i64 232, !74, i64 240}
-!211 = !{!"_ZTSN3net13QuicBandwidthE", !24, i64 0}
-!212 = !{!"_ZTSSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !213, i64 0}
-!213 = !{!"_ZTSSt15__uniq_ptr_dataIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_ELb1ELb1EE", !214, i64 0}
-!214 = !{!"_ZTSSt15__uniq_ptr_implIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !215, i64 0}
-!215 = !{!"_ZTSSt5tupleIJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !216, i64 0}
-!216 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !217, i64 0}
-!217 = !{!"_ZTSSt10_Head_baseILm0EPN3net30QuicSentPacketManagerInterfaceELb0EE", !218, i64 0}
-!218 = !{!"p1 _ZTSN3net30QuicSentPacketManagerInterfaceE", !9, i64 0}
-!219 = !{!"_ZTSN3net27QuicVersionNegotiationStateE", !10, i64 0}
-!220 = !{!13, !36, i64 1904}
-!221 = !{!56, !36, i64 0}
-!222 = !{!36, !36, i64 0}
-!223 = distinct !{!223, !224}
-!224 = !{!"llvm.loop.mustprogress"}
-!225 = !{!226, !61, i64 0}
-!226 = !{!"_ZTSSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
-!227 = !{!226, !24, i64 8}
-!228 = !{!64, !65, i64 0}
-!229 = !{!63, !63, i64 0}
-!230 = distinct !{!230, !224}
-!231 = !{!85, !36, i64 0}
-!232 = !{!233, !43, i64 0}
-!233 = !{!"_ZTSN3net16StreamPrecedenceIjEE", !43, i64 0, !10, i64 4}
-!234 = !{!10, !10, i64 0}
-!235 = !{!99, !54, i64 0}
-!236 = !{!24, !24, i64 0}
-!237 = !{!98, !54, i64 0}
-!238 = !{!98, !24, i64 8}
-!239 = !{!97, !106, i64 268}
-!240 = !{!72, !43, i64 72}
-!241 = !{!72, !24, i64 40}
-!242 = !{i8 0, i8 2}
-!243 = !{}
-!244 = !{!245, !36, i64 0}
-!245 = !{!"_ZTSSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEE", !36, i64 0, !246, i64 4}
-!246 = !{!"_ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !10, i64 0, !36, i64 4, !43, i64 8}
-!247 = !{i64 0, i64 1, !234, i64 4, i64 4, !222, i64 8, i64 1, !248}
-!248 = !{!43, !43, i64 0}
-!249 = !{!70, !24, i64 24}
-!250 = !{!70, !24, i64 8}
-!251 = !{!70, !61, i64 0}
-!252 = distinct !{!252, !224}
-!253 = distinct !{!253, !224}
-!254 = !{!64, !24, i64 8}
-!255 = !{!70, !63, i64 16}
-!256 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!257 = !{!70, !63, i64 48}
-!258 = distinct !{!258, !224}
-!259 = distinct !{!259, !224}
-!260 = !{!246, !43, i64 8}
-!261 = !{!246, !10, i64 0}
-!262 = !{!263, !264, i64 0}
-!263 = !{!"_ZTSSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_E", !264, i64 0, !264, i64 8, !264, i64 16, !265, i64 24}
-!264 = !{!"p2 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
-!265 = !{!"p3 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
-!268 = distinct !{!268, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!269 = !{!263, !264, i64 8}
-!270 = !{!263, !264, i64 16}
-!271 = !{!263, !265, i64 24}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
-!274 = distinct !{!274, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
-!275 = !{!276, !276, i64 0}
-!276 = !{!"p1 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: argument 0"}
-!279 = distinct !{!279, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
-!280 = !{!281, !278}
-!281 = distinct !{!281, !282, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: argument 0"}
-!282 = distinct !{!282, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
-!285 = distinct !{!285, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv: argument 0"}
-!288 = distinct !{!288, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv"}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E: argument 0"}
-!291 = distinct !{!291, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E"}
-!292 = !{!264, !264, i64 0}
-!293 = !{!287, !290}
-!294 = !{!67, !24, i64 8}
-!295 = distinct !{!295, !224}
-!296 = distinct !{!296, !224}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
-!299 = distinct !{!299, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
-!302 = distinct !{!302, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: argument 0"}
-!305 = distinct !{!305, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
-!306 = !{!307, !304}
-!307 = distinct !{!307, !308, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: argument 0"}
-!308 = distinct !{!308, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
-!309 = !{!310, !307, !304}
-!310 = distinct !{!310, !311, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: argument 0"}
-!311 = distinct !{!311, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
-!312 = !{!313, !264, i64 16}
-!313 = !{!"_ZTSNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_Deque_impl_dataE", !265, i64 0, !24, i64 8, !263, i64 16, !263, i64 48}
-!314 = !{!313, !264, i64 32}
-!315 = !{!313, !264, i64 24}
-!316 = !{!313, !265, i64 40}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
-!319 = distinct !{!319, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
-!320 = !{!321}
-!321 = distinct !{!321, !322, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: argument 0"}
-!322 = distinct !{!322, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
-!323 = !{!324, !321}
-!324 = distinct !{!324, !325, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: argument 0"}
-!325 = distinct !{!325, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
-!326 = !{!327, !324, !321}
-!327 = distinct !{!327, !328, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: argument 0"}
-!328 = distinct !{!328, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
-!329 = !{!313, !264, i64 48}
-!330 = !{!313, !264, i64 56}
-!331 = !{!313, !265, i64 72}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
-!334 = distinct !{!334, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El: argument 0"}
-!337 = distinct !{!337, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!340 = distinct !{!340, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!341 = distinct !{!341, !224}
-!342 = !{!265, !265, i64 0}
-!343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!345 = distinct !{!345, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!348 = distinct !{!348, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!349 = distinct !{!349, !224}
-!350 = !{!351}
-!351 = distinct !{!351, !352, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!352 = distinct !{!352, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!355 = distinct !{!355, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!356 = distinct !{!356, !224}
-!357 = !{!358}
-!358 = distinct !{!358, !359, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!359 = distinct !{!359, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!360 = !{!361}
-!361 = distinct !{!361, !362, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!362 = distinct !{!362, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!363 = distinct !{!363, !224}
-!364 = !{!365}
-!365 = distinct !{!365, !366, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
-!366 = distinct !{!366, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!367 = !{!368}
-!368 = distinct !{!368, !369, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
-!369 = distinct !{!369, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!370 = !{!371}
-!371 = distinct !{!371, !372, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
-!372 = distinct !{!372, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
-!373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: argument 0"}
-!375 = distinct !{!375, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
-!376 = !{!377, !374}
-!377 = distinct !{!377, !378, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: argument 0"}
-!378 = distinct !{!378, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
-!379 = !{!380}
-!380 = distinct !{!380, !381, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
-!381 = distinct !{!381, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv: argument 0"}
-!384 = distinct !{!384, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv"}
-!385 = !{!386}
-!386 = distinct !{!386, !387, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E: argument 0"}
-!387 = distinct !{!387, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E"}
-!388 = !{!383, !386}
-!389 = !{!313, !264, i64 64}
-!390 = !{!313, !24, i64 8}
-!391 = !{!313, !265, i64 0}
-!392 = !{!226, !24, i64 24}
-!393 = distinct !{!393, !224}
-!394 = !{!226, !63, i64 16}
-!395 = !{!226, !63, i64 48}
-!396 = distinct !{!396, !224}
+!87 = distinct !{!87, !88}
+!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!89 = !{!8, !8, i64 0}
+!90 = !{!13, !25, i64 56}
+!91 = !{!92, !73, i64 3204}
+!92 = !{!"_ZTSN3net14QuicConnectionE", !93, i64 0, !94, i64 8, !95, i64 16, !98, i64 24, !99, i64 32, !122, i64 440, !123, i64 448, !124, i64 456, !125, i64 464, !43, i64 472, !120, i64 473, !126, i64 480, !127, i64 488, !24, i64 496, !48, i64 504, !48, i64 536, !128, i64 568, !24, i64 576, !43, i64 584, !24, i64 592, !54, i64 600, !120, i64 608, !129, i64 616, !134, i64 680, !43, i64 696, !24, i64 704, !24, i64 712, !135, i64 720, !24, i64 800, !43, i64 808, !142, i64 816, !43, i64 840, !148, i64 848, !155, i64 856, !43, i64 860, !156, i64 864, !180, i64 1112, !43, i64 1240, !24, i64 1248, !43, i64 1256, !24, i64 1264, !36, i64 1272, !188, i64 1276, !65, i64 1280, !43, i64 1284, !43, i64 1285, !43, i64 1286, !32, i64 1288, !189, i64 1304, !190, i64 2336, !190, i64 2344, !190, i64 2352, !190, i64 2360, !190, i64 2368, !190, i64 2376, !190, i64 2384, !191, i64 2392, !192, i64 2400, !193, i64 2408, !32, i64 2880, !32, i64 2896, !212, i64 2912, !74, i64 3160, !74, i64 3168, !74, i64 3176, !24, i64 3184, !214, i64 3192, !221, i64 3200, !73, i64 3204, !43, i64 3208, !48, i64 3216, !48, i64 3248, !43, i64 3280, !109, i64 3288, !24, i64 3312, !24, i64 3320, !24, i64 3328, !24, i64 3336, !24, i64 3344, !24, i64 3352, !24, i64 3360, !43, i64 3368, !43, i64 3369, !43, i64 3370, !43, i64 3371}
+!93 = !{!"_ZTSN3net26QuicFramerVisitorInterfaceE"}
+!94 = !{!"_ZTSN3net26QuicBlockedWriterInterfaceE"}
+!95 = !{!"_ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !96, i64 0}
+!96 = !{!"_ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !97, i64 0}
+!97 = !{!"_ZTSN3net36QuicConnectionCloseDelegateInterfaceE"}
+!98 = !{!"_ZTSN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE"}
+!99 = !{!"_ZTSN3net10QuicFramerE", !100, i64 8, !102, i64 40, !103, i64 48, !71, i64 56, !104, i64 64, !106, i64 120, !24, i64 176, !106, i64 184, !24, i64 240, !10, i64 248, !24, i64 256, !36, i64 264, !108, i64 268, !109, i64 272, !113, i64 296, !113, i64 304, !120, i64 312, !120, i64 313, !43, i64 314, !10, i64 320, !73, i64 344, !43, i64 348, !74, i64 352, !32, i64 360, !121, i64 376}
+!100 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !101, i64 0, !24, i64 8, !10, i64 16}
+!101 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !54, i64 0}
+!102 = !{!"p1 _ZTSN3net26QuicFramerVisitorInterfaceE", !9, i64 0}
+!103 = !{!"p1 _ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE", !9, i64 0}
+!104 = !{!"_ZTSSt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEE", !105, i64 0}
+!105 = !{!"_ZTSSt10_HashtableIhhSaIhENSt8__detail9_IdentityESt8equal_toIhESt4hashIhENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
+!106 = !{!"_ZTSSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE", !107, i64 0}
+!107 = !{!"_ZTSSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
+!108 = !{!"_ZTSN3net11QuicVersionE", !10, i64 0}
+!109 = !{!"_ZTSSt6vectorIN3net11QuicVersionESaIS1_EE", !110, i64 0}
+!110 = !{!"_ZTSSt12_Vector_baseIN3net11QuicVersionESaIS1_EE", !111, i64 0}
+!111 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE12_Vector_implE", !112, i64 0}
+!112 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!113 = !{!"_ZTSSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE", !114, i64 0}
+!114 = !{!"_ZTSSt15__uniq_ptr_dataIN3net13QuicDecrypterESt14default_deleteIS1_ELb1ELb1EE", !115, i64 0}
+!115 = !{!"_ZTSSt15__uniq_ptr_implIN3net13QuicDecrypterESt14default_deleteIS1_EE", !116, i64 0}
+!116 = !{!"_ZTSSt5tupleIJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !117, i64 0}
+!117 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !118, i64 0}
+!118 = !{!"_ZTSSt10_Head_baseILm0EPN3net13QuicDecrypterELb0EE", !119, i64 0}
+!119 = !{!"p1 _ZTSN3net13QuicDecrypterE", !9, i64 0}
+!120 = !{!"_ZTSN3net15EncryptionLevelE", !10, i64 0}
+!121 = !{!"_ZTSSt5arrayIcLm32EE", !10, i64 0}
+!122 = !{!"p1 _ZTSN3net29QuicConnectionHelperInterfaceE", !9, i64 0}
+!123 = !{!"p1 _ZTSN3net16QuicAlarmFactoryE", !9, i64 0}
+!124 = !{!"p1 _ZTSN3net16PerPacketOptionsE", !9, i64 0}
+!125 = !{!"p1 _ZTSN3net16QuicPacketWriterE", !9, i64 0}
+!126 = !{!"p1 _ZTSN3net9QuicClockE", !9, i64 0}
+!127 = !{!"p1 _ZTSN3net10QuicRandomE", !9, i64 0}
+!128 = !{!"_ZTSN3net21PeerAddressChangeTypeE", !10, i64 0}
+!129 = !{!"_ZTSN3net16QuicPacketHeaderE", !130, i64 0, !24, i64 48, !10, i64 56, !43, i64 57, !10, i64 58, !43, i64 59}
+!130 = !{!"_ZTSN3net22QuicPacketPublicHeaderE", !24, i64 0, !131, i64 8, !43, i64 12, !43, i64 13, !43, i64 14, !132, i64 15, !109, i64 16, !133, i64 40}
+!131 = !{!"_ZTSN3net22QuicConnectionIdLengthE", !10, i64 0}
+!132 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !10, i64 0}
+!133 = !{!"p1 _ZTSSt5arrayIcLm32EE", !9, i64 0}
+!134 = !{!"_ZTSN3net20QuicStopWaitingFrameE", !10, i64 0, !10, i64 1, !24, i64 8}
+!135 = !{!"_ZTSSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE", !136, i64 0}
+!136 = !{!"_ZTSSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE", !137, i64 0}
+!137 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE11_Deque_implE", !138, i64 0}
+!138 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_Deque_impl_dataE", !139, i64 0, !24, i64 8, !140, i64 16, !140, i64 48}
+!139 = !{!"p3 _ZTSN3net19QuicEncryptedPacketE", !9, i64 0}
+!140 = !{!"_ZTSSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_E", !141, i64 0, !141, i64 8, !141, i64 16, !139, i64 24}
+!141 = !{!"p2 _ZTSN3net19QuicEncryptedPacketE", !9, i64 0}
+!142 = !{!"_ZTSNSt7__cxx114listIN3net16SerializedPacketESaIS2_EEE", !143, i64 0}
+!143 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EEE", !144, i64 0}
+!144 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EE10_List_implE", !145, i64 0}
+!145 = !{!"_ZTSNSt8__detail17_List_node_headerE", !146, i64 0, !24, i64 16}
+!146 = !{!"_ZTSNSt8__detail15_List_node_baseE", !147, i64 0, !147, i64 8}
+!147 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !9, i64 0}
+!148 = !{!"_ZTSSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EE", !149, i64 0}
+!149 = !{!"_ZTSSt15__uniq_ptr_dataISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_ELb1ELb1EE", !150, i64 0}
+!150 = !{!"_ZTSSt15__uniq_ptr_implISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EE", !151, i64 0}
+!151 = !{!"_ZTSSt5tupleIJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !152, i64 0}
+!152 = !{!"_ZTSSt11_Tuple_implILm0EJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !153, i64 0}
+!153 = !{!"_ZTSSt10_Head_baseILm0EPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EELb0EE", !154, i64 0}
+!154 = !{!"p1 _ZTSSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE", !9, i64 0}
+!155 = !{!"_ZTSN3net23ConnectionCloseBehaviorE", !10, i64 0}
+!156 = !{!"_ZTSN3net25QuicReceivedPacketManagerE", !157, i64 0, !158, i64 8, !24, i64 112, !166, i64 120, !43, i64 224, !74, i64 232, !179, i64 240}
+!157 = !{!"_ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE"}
+!158 = !{!"_ZTSN3net25QuicReceivedPacketManager14EntropyTrackerE", !159, i64 0, !10, i64 80, !24, i64 88, !24, i64 96}
+!159 = !{!"_ZTSSt5dequeISt4pairIhbESaIS1_EE", !160, i64 0}
+!160 = !{!"_ZTSSt11_Deque_baseISt4pairIhbESaIS1_EE", !161, i64 0}
+!161 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE11_Deque_implE", !162, i64 0}
+!162 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE16_Deque_impl_dataE", !163, i64 0, !24, i64 8, !164, i64 16, !164, i64 48}
+!163 = !{!"p2 _ZTSSt4pairIhbE", !9, i64 0}
+!164 = !{!"_ZTSSt15_Deque_iteratorISt4pairIhbERS1_PS1_E", !165, i64 0, !165, i64 8, !165, i64 16, !163, i64 24}
+!165 = !{!"p1 _ZTSSt4pairIhbE", !9, i64 0}
+!166 = !{!"_ZTSN3net12QuicAckFrameE", !24, i64 0, !32, i64 8, !167, i64 24, !172, i64 48, !10, i64 96, !10, i64 97, !43, i64 98, !43, i64 99}
+!167 = !{!"_ZTSSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE", !168, i64 0}
+!168 = !{!"_ZTSSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE", !169, i64 0}
+!169 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE12_Vector_implE", !170, i64 0}
+!170 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE17_Vector_impl_dataE", !171, i64 0, !171, i64 8, !171, i64 16}
+!171 = !{!"p1 _ZTSSt4pairImN3net8QuicTimeEE", !9, i64 0}
+!172 = !{!"_ZTSN3net17PacketNumberQueueE", !173, i64 0}
+!173 = !{!"_ZTSN3net11IntervalSetImEE", !174, i64 0}
+!174 = !{!"_ZTSSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !175, i64 0}
+!175 = !{!"_ZTSSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !176, i64 0}
+!176 = !{!"_ZTSNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE13_Rb_tree_implIS7_Lb1EEE", !177, i64 0, !20, i64 8}
+!177 = !{!"_ZTSSt20_Rb_tree_key_compareIN3net11IntervalSetImE18IntervalComparatorEE", !178, i64 0}
+!178 = !{!"_ZTSN3net11IntervalSetImE18IntervalComparatorE"}
+!179 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !9, i64 0}
+!180 = !{!"_ZTSN3net22QuicSentEntropyManagerE", !181, i64 8, !24, i64 88, !187, i64 96, !187, i64 112}
+!181 = !{!"_ZTSSt5dequeIhSaIhEE", !182, i64 0}
+!182 = !{!"_ZTSSt11_Deque_baseIhSaIhEE", !183, i64 0}
+!183 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE11_Deque_implE", !184, i64 0}
+!184 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE16_Deque_impl_dataE", !185, i64 0, !24, i64 8, !186, i64 16, !186, i64 48}
+!185 = !{!"p2 omnipotent char", !9, i64 0}
+!186 = !{!"_ZTSSt15_Deque_iteratorIhRhPhE", !54, i64 0, !54, i64 8, !54, i64 16, !185, i64 24}
+!187 = !{!"_ZTSN3net22QuicSentEntropyManager17CumulativeEntropyE", !24, i64 0, !10, i64 8}
+!188 = !{!"_ZTSN3net14QuicConnection7AckModeE", !10, i64 0}
+!189 = !{!"_ZTSN3net17QuicOneBlockArenaILj1024EEE", !10, i64 0, !36, i64 1024}
+!190 = !{!"_ZTSN3net18QuicArenaScopedPtrINS_9QuicAlarmEEE", !9, i64 0}
+!191 = !{!"p1 _ZTSN3net30QuicConnectionVisitorInterfaceE", !9, i64 0}
+!192 = !{!"p1 _ZTSN3net26QuicConnectionDebugVisitorE", !9, i64 0}
+!193 = !{!"_ZTSN3net19QuicPacketGeneratorE", !194, i64 0, !195, i64 8, !201, i64 320, !43, i64 344, !43, i64 345, !43, i64 346, !166, i64 352, !134, i64 456}
+!194 = !{!"p1 _ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !9, i64 0}
+!195 = !{!"_ZTSN3net17QuicPacketCreatorE", !196, i64 0, !197, i64 8, !198, i64 16, !199, i64 24, !200, i64 48, !43, i64 56, !43, i64 57, !132, i64 58, !43, i64 59, !121, i64 60, !24, i64 96, !24, i64 104, !131, i64 112, !201, i64 120, !24, i64 144, !24, i64 152, !206, i64 160, !106, i64 256}
+!196 = !{!"p1 _ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !9, i64 0}
+!197 = !{!"p1 _ZTSN3net17QuicPacketCreator13DebugDelegateE", !9, i64 0}
+!198 = !{!"p1 _ZTSN3net10QuicFramerE", !9, i64 0}
+!199 = !{!"_ZTSN3net17QuicPacketCreator20QuicRandomBoolSourceE", !127, i64 0, !24, i64 8, !24, i64 16}
+!200 = !{!"p1 _ZTSN3net19QuicBufferAllocatorE", !9, i64 0}
+!201 = !{!"_ZTSSt6vectorIN3net9QuicFrameESaIS1_EE", !202, i64 0}
+!202 = !{!"_ZTSSt12_Vector_baseIN3net9QuicFrameESaIS1_EE", !203, i64 0}
+!203 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE12_Vector_implE", !204, i64 0}
+!204 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE17_Vector_impl_dataE", !205, i64 0, !205, i64 8, !205, i64 16}
+!205 = !{!"p1 _ZTSN3net9QuicFrameE", !9, i64 0}
+!206 = !{!"_ZTSN3net16SerializedPacketE", !54, i64 0, !55, i64 8, !201, i64 16, !207, i64 40, !55, i64 42, !10, i64 44, !24, i64 48, !132, i64 56, !120, i64 57, !10, i64 58, !43, i64 59, !43, i64 60, !208, i64 61, !10, i64 62, !24, i64 64, !209, i64 72}
+!207 = !{!"_ZTSN3net11IsHandshakeE", !10, i64 0}
+!208 = !{!"_ZTSN3net16TransmissionTypeE", !10, i64 0}
+!209 = !{!"_ZTSNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EEE", !210, i64 0}
+!210 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EEE", !211, i64 0}
+!211 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EE10_List_implE", !145, i64 0}
+!212 = !{!"_ZTSN3net19QuicConnectionStatsE", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72, !24, i64 80, !24, i64 88, !24, i64 96, !24, i64 104, !24, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !24, i64 144, !24, i64 152, !24, i64 160, !24, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !213, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !36, i64 232, !74, i64 240}
+!213 = !{!"_ZTSN3net13QuicBandwidthE", !24, i64 0}
+!214 = !{!"_ZTSSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !215, i64 0}
+!215 = !{!"_ZTSSt15__uniq_ptr_dataIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_ELb1ELb1EE", !216, i64 0}
+!216 = !{!"_ZTSSt15__uniq_ptr_implIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !217, i64 0}
+!217 = !{!"_ZTSSt5tupleIJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !218, i64 0}
+!218 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !219, i64 0}
+!219 = !{!"_ZTSSt10_Head_baseILm0EPN3net30QuicSentPacketManagerInterfaceELb0EE", !220, i64 0}
+!220 = !{!"p1 _ZTSN3net30QuicSentPacketManagerInterfaceE", !9, i64 0}
+!221 = !{!"_ZTSN3net27QuicVersionNegotiationStateE", !10, i64 0}
+!222 = !{!13, !36, i64 1904}
+!223 = !{!56, !36, i64 0}
+!224 = !{!36, !36, i64 0}
+!225 = distinct !{!225, !226}
+!226 = !{!"llvm.loop.mustprogress"}
+!227 = !{!228, !61, i64 0}
+!228 = !{!"_ZTSSt10_HashtableIjSt4pairIKjPN3net18ReliableQuicStreamEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE", !61, i64 0, !24, i64 8, !62, i64 16, !24, i64 24, !64, i64 32, !63, i64 48}
+!229 = !{!228, !24, i64 8}
+!230 = !{!64, !65, i64 0}
+!231 = !{!63, !63, i64 0}
+!232 = distinct !{!232, !226}
+!233 = !{!85, !36, i64 0}
+!234 = !{!235, !43, i64 0}
+!235 = !{!"_ZTSN3net16StreamPrecedenceIjEE", !43, i64 0, !10, i64 4}
+!236 = !{!10, !10, i64 0}
+!237 = !{!101, !54, i64 0}
+!238 = !{!24, !24, i64 0}
+!239 = !{!100, !54, i64 0}
+!240 = !{!100, !24, i64 8}
+!241 = !{!99, !108, i64 268}
+!242 = !{!72, !43, i64 72}
+!243 = !{!72, !24, i64 40}
+!244 = !{i8 0, i8 2}
+!245 = !{}
+!246 = !{!247, !36, i64 0}
+!247 = !{!"_ZTSSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEE", !36, i64 0, !248, i64 4}
+!248 = !{!"_ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !10, i64 0, !36, i64 4, !43, i64 8}
+!249 = !{i64 0, i64 1, !236, i64 4, i64 4, !224, i64 8, i64 1, !250}
+!250 = !{!43, !43, i64 0}
+!251 = !{!70, !24, i64 24}
+!252 = !{!70, !24, i64 8}
+!253 = !{!70, !61, i64 0}
+!254 = distinct !{!254, !226}
+!255 = distinct !{!255, !226}
+!256 = !{!64, !24, i64 8}
+!257 = !{!70, !63, i64 16}
+!258 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!259 = !{!70, !63, i64 48}
+!260 = distinct !{!260, !226}
+!261 = distinct !{!261, !226}
+!262 = !{!248, !43, i64 8}
+!263 = !{!248, !10, i64 0}
+!264 = !{!265, !266, i64 0}
+!265 = !{!"_ZTSSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_E", !266, i64 0, !266, i64 8, !266, i64 16, !267, i64 24}
+!266 = !{!"p2 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
+!267 = !{!"p3 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
+!270 = distinct !{!270, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!271 = !{!265, !266, i64 8}
+!272 = !{!265, !266, i64 16}
+!273 = !{!265, !267, i64 24}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
+!276 = distinct !{!276, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!277 = !{!278, !278, i64 0}
+!278 = !{!"p1 _ZTSN3net22PriorityWriteSchedulerIjE10StreamInfoE", !9, i64 0}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: argument 0"}
+!281 = distinct !{!281, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!282 = !{!283, !280}
+!283 = distinct !{!283, !284, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: argument 0"}
+!284 = distinct !{!284, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
+!285 = !{!286}
+!286 = distinct !{!286, !287, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
+!287 = distinct !{!287, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!288 = !{!289}
+!289 = distinct !{!289, !290, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv: argument 0"}
+!290 = distinct !{!290, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv"}
+!291 = !{!292}
+!292 = distinct !{!292, !293, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E: argument 0"}
+!293 = distinct !{!293, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E"}
+!294 = !{!266, !266, i64 0}
+!295 = !{!289, !292}
+!296 = !{!67, !24, i64 8}
+!297 = distinct !{!297, !226}
+!298 = distinct !{!298, !226}
+!299 = !{!300}
+!300 = distinct !{!300, !301, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
+!301 = distinct !{!301, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
+!304 = distinct !{!304, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!305 = !{!306}
+!306 = distinct !{!306, !307, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: argument 0"}
+!307 = distinct !{!307, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
+!308 = !{!309, !306}
+!309 = distinct !{!309, !310, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: argument 0"}
+!310 = distinct !{!310, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
+!311 = !{!312, !309, !306}
+!312 = distinct !{!312, !313, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: argument 0"}
+!313 = distinct !{!313, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
+!314 = !{!315, !266, i64 16}
+!315 = !{!"_ZTSNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_Deque_impl_dataE", !267, i64 0, !24, i64 8, !265, i64 16, !265, i64 48}
+!316 = !{!315, !266, i64 32}
+!317 = !{!315, !266, i64 24}
+!318 = !{!315, !267, i64 40}
+!319 = !{!320}
+!320 = distinct !{!320, !321, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
+!321 = distinct !{!321, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!322 = !{!323}
+!323 = distinct !{!323, !324, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: argument 0"}
+!324 = distinct !{!324, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
+!325 = !{!326, !323}
+!326 = distinct !{!326, !327, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: argument 0"}
+!327 = distinct !{!327, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
+!328 = !{!329, !326, !323}
+!329 = distinct !{!329, !330, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: argument 0"}
+!330 = distinct !{!330, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
+!331 = !{!315, !266, i64 48}
+!332 = !{!315, !266, i64 56}
+!333 = !{!315, !267, i64 72}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
+!336 = distinct !{!336, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El: argument 0"}
+!339 = distinct !{!339, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El"}
+!340 = !{!341}
+!341 = distinct !{!341, !342, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!342 = distinct !{!342, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!343 = distinct !{!343, !226}
+!344 = !{!267, !267, i64 0}
+!345 = !{!346}
+!346 = distinct !{!346, !347, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!347 = distinct !{!347, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!350 = distinct !{!350, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!351 = distinct !{!351, !226}
+!352 = !{!353}
+!353 = distinct !{!353, !354, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!354 = distinct !{!354, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!355 = !{!356}
+!356 = distinct !{!356, !357, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!357 = distinct !{!357, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!358 = distinct !{!358, !226}
+!359 = !{!360}
+!360 = distinct !{!360, !361, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!361 = distinct !{!361, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!362 = !{!363}
+!363 = distinct !{!363, !364, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!364 = distinct !{!364, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!365 = distinct !{!365, !226}
+!366 = !{!367}
+!367 = distinct !{!367, !368, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: argument 0"}
+!368 = distinct !{!368, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!369 = !{!370}
+!370 = distinct !{!370, !371, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: argument 0"}
+!371 = distinct !{!371, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!372 = !{!373}
+!373 = distinct !{!373, !374, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
+!374 = distinct !{!374, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!375 = !{!376}
+!376 = distinct !{!376, !377, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: argument 0"}
+!377 = distinct !{!377, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!378 = !{!379, !376}
+!379 = distinct !{!379, !380, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: argument 0"}
+!380 = distinct !{!380, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
+!381 = !{!382}
+!382 = distinct !{!382, !383, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: argument 0"}
+!383 = distinct !{!383, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!384 = !{!385}
+!385 = distinct !{!385, !386, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv: argument 0"}
+!386 = distinct !{!386, !"_ZNKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERKS4_PS5_E13_M_const_castEv"}
+!387 = !{!388}
+!388 = distinct !{!388, !389, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E: argument 0"}
+!389 = distinct !{!389, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5eraseESt15_Deque_iteratorIS4_RKS4_PS8_E"}
+!390 = !{!385, !388}
+!391 = !{!315, !266, i64 64}
+!392 = !{!315, !24, i64 8}
+!393 = !{!315, !267, i64 0}
+!394 = !{!228, !24, i64 24}
+!395 = distinct !{!395, !226}
+!396 = !{!228, !63, i64 16}
+!397 = !{!228, !63, i64 48}
+!398 = distinct !{!398, !226}

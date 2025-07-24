@@ -455,7 +455,7 @@ juggle.exit.i.i:                                  ; preds = %._crit_edge.us.i.i.
   %190 = getelementptr inbounds nuw i32, ptr %.076.i.i, i64 %184
   %191 = add nuw i32 %.04275.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %191, %156
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %187, !llvm.loop !72
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %187, !llvm.loop !73
 
 .lr.ph46.i50.i.i:                                 ; preds = %.preheader.i.i, %juggle.exit66.i.i
   %.04179.i.i = phi ptr [ %216, %juggle.exit66.i.i ], [ %185, %.preheader.i.i ]
@@ -512,7 +512,7 @@ juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.
   %215 = zext i32 %214 to i64
   %216 = getelementptr inbounds nuw i32, ptr %.04179.i.i, i64 %215
   %217 = icmp ugt i32 %.04578.i.i, 3
-  br i1 %217, label %.lr.ph46.i50.i.i, label %._crit_edge.i.i, !llvm.loop !73
+  br i1 %217, label %.lr.ph46.i50.i.i, label %._crit_edge.i.i, !llvm.loop !74
 
 ._crit_edge.i.i:                                  ; preds = %juggle.exit66.i.i, %.preheader.i.i
   %.not.i31.i = icmp ugt i32 %.044.i.i, %.043.i.i
@@ -535,7 +535,7 @@ juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.
   br i1 %227, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit
-  %228 = load ptr, ptr %1, align 8, !tbaa !74
+  %228 = load ptr, ptr %1, align 8, !tbaa !75
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %230 = load ptr, ptr %229, align 8, !tbaa !42
   %231 = load i32, ptr %141, align 8, !tbaa !36
@@ -550,10 +550,10 @@ juggle.exit66.i.i:                                ; preds = %._crit_edge.us.i61.
   %235 = ashr i32 %234, %231
   %236 = trunc i32 %235 to i16
   %237 = getelementptr inbounds nuw i8, ptr %.092126, i64 2
-  store i16 %236, ptr %.092126, align 2, !tbaa !75
+  store i16 %236, ptr %.092126, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %232, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %232, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %232, %.loopexit
   store i32 1, ptr %2, align 4, !tbaa !51
@@ -637,12 +637,12 @@ define internal void @decode_init_static() #3 {
 7:                                                ; preds = %8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %.preheader41, label %.preheader44, !llvm.loop !78
+  br i1 %exitcond61.not, label %.preheader41, label %.preheader44, !llvm.loop !79
 
 8:                                                ; preds = %9
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 3
-  br i1 %exitcond57.not, label %7, label %.preheader43, !llvm.loop !79
+  br i1 %exitcond57.not, label %7, label %.preheader43, !llvm.loop !80
 
 9:                                                ; preds = %.preheader43, %9
   %indvars.iv = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next, %9 ]
@@ -653,7 +653,7 @@ define internal void @decode_init_static() #3 {
   store i32 %13, ptr %12, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !80
+  br i1 %exitcond.not, label %8, label %9, !llvm.loop !81
 
 .preheader41:                                     ; preds = %7, %20
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %20 ], [ 0, %7 ]
@@ -672,12 +672,12 @@ define internal void @decode_init_static() #3 {
 20:                                               ; preds = %21
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 5
-  br i1 %exitcond73.not, label %.preheader, label %.preheader41, !llvm.loop !81
+  br i1 %exitcond73.not, label %.preheader, label %.preheader41, !llvm.loop !82
 
 21:                                               ; preds = %22
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 5
-  br i1 %exitcond69.not, label %20, label %.preheader40, !llvm.loop !82
+  br i1 %exitcond69.not, label %20, label %.preheader40, !llvm.loop !83
 
 22:                                               ; preds = %.preheader40, %22
   %indvars.iv62 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next63, %22 ]
@@ -688,7 +688,7 @@ define internal void @decode_init_static() #3 {
   store i32 %26, ptr %25, align 4, !tbaa !51
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 5
-  br i1 %exitcond65.not, label %21, label %22, !llvm.loop !83
+  br i1 %exitcond65.not, label %21, label %22, !llvm.loop !84
 
 .preheader:                                       ; preds = %20, %30
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %30 ], [ 0, %20 ]
@@ -702,7 +702,7 @@ define internal void @decode_init_static() #3 {
 30:                                               ; preds = %31
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 11
-  br i1 %exitcond81.not, label %29, label %.preheader, !llvm.loop !84
+  br i1 %exitcond81.not, label %29, label %.preheader, !llvm.loop !85
 
 31:                                               ; preds = %.preheader, %31
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %31 ]
@@ -713,7 +713,7 @@ define internal void @decode_init_static() #3 {
   store i32 %35, ptr %34, align 4, !tbaa !51
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 11
-  br i1 %exitcond77.not, label %30, label %31, !llvm.loop !85
+  br i1 %exitcond77.not, label %30, label %31, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -751,7 +751,7 @@ define internal noundef i32 @zero(ptr noundef readonly captures(none) %0, i32 %1
   %17 = add nuw i32 %.08, 1
   %18 = load i32, ptr %4, align 4, !tbaa !37
   %19 = icmp ult i32 %17, %18
-  br i1 %19, label %11, label %._crit_edge, !llvm.loop !86
+  br i1 %19, label %11, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %11, %3
   ret i32 0
@@ -812,7 +812,7 @@ define internal noundef i32 @linear(ptr noundef captures(none) %0, i32 noundef %
   %39 = add nuw i32 %.014, 1
   %40 = load i32, ptr %5, align 4, !tbaa !37
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %18, label %._crit_edge, !llvm.loop !87
+  br i1 %41, label %18, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %18, %3
   ret i32 0
@@ -935,7 +935,7 @@ define internal noundef i32 @k13(ptr noundef captures(none) %0, i32 %1, i32 noun
   %83 = add nuw i32 %.1, 1
   %84 = load i32, ptr %4, align 4, !tbaa !37
   %85 = icmp ult i32 %83, %84
-  br i1 %85, label %13, label %._crit_edge, !llvm.loop !88
+  br i1 %85, label %13, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %80, %27, %3
   ret i32 0
@@ -1015,7 +1015,7 @@ define internal noundef i32 @k12(ptr noundef captures(none) %0, i32 %1, i32 noun
   %50 = add nuw i32 %.020, 1
   %51 = load i32, ptr %4, align 4, !tbaa !37
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %14, label %._crit_edge, !llvm.loop !89
+  br i1 %52, label %14, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %47, %3
   ret i32 0
@@ -1116,7 +1116,7 @@ define internal range(i32 -1094995529, 1) i32 @t15(ptr noundef captures(none) %0
   %72 = add nuw i32 %.03641, 3
   %73 = load i32, ptr %4, align 4, !tbaa !37
   %74 = icmp ult i32 %72, %73
-  br i1 %74, label %13, label %.loopexit, !llvm.loop !90
+  br i1 %74, label %13, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %48, %28, %62, %3, %26
   %.0 = phi i32 [ -1094995529, %26 ], [ 0, %3 ], [ 0, %62 ], [ 0, %28 ], [ 0, %48 ]
@@ -1238,7 +1238,7 @@ define internal noundef i32 @k24(ptr noundef captures(none) %0, i32 %1, i32 noun
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %4, align 4, !tbaa !37
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %13, label %._crit_edge, !llvm.loop !91
+  br i1 %84, label %13, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %79, %27, %3
   ret i32 0
@@ -1316,7 +1316,7 @@ define internal noundef i32 @k23(ptr noundef captures(none) %0, i32 %1, i32 noun
   %49 = add nuw i32 %.019, 1
   %50 = load i32, ptr %4, align 4, !tbaa !37
   %51 = icmp ult i32 %49, %50
-  br i1 %51, label %14, label %._crit_edge, !llvm.loop !92
+  br i1 %51, label %14, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %46, %3
   ret i32 0
@@ -1417,7 +1417,7 @@ define internal range(i32 -1094995529, 1) i32 @t27(ptr noundef captures(none) %0
   %72 = add nuw i32 %.03641, 3
   %73 = load i32, ptr %4, align 4, !tbaa !37
   %74 = icmp ult i32 %72, %73
-  br i1 %74, label %13, label %.loopexit, !llvm.loop !93
+  br i1 %74, label %13, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %48, %28, %62, %3, %26
   %.0 = phi i32 [ -1094995529, %26 ], [ 0, %3 ], [ 0, %62 ], [ 0, %28 ], [ 0, %48 ]
@@ -1577,7 +1577,7 @@ define internal noundef i32 @k35(ptr noundef captures(none) %0, i32 %1, i32 noun
   %112 = add nuw i32 %.1, 1
   %113 = load i32, ptr %4, align 4, !tbaa !37
   %114 = icmp ult i32 %112, %113
-  br i1 %114, label %13, label %._crit_edge, !llvm.loop !94
+  br i1 %114, label %13, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %109, %27, %3
   ret i32 0
@@ -1689,7 +1689,7 @@ define internal noundef i32 @k34(ptr noundef captures(none) %0, i32 %1, i32 noun
   %75 = add nuw i32 %.031, 1
   %76 = load i32, ptr %4, align 4, !tbaa !37
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %14, label %._crit_edge, !llvm.loop !95
+  br i1 %77, label %14, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %72, %3
   ret i32 0
@@ -1810,7 +1810,7 @@ define internal noundef i32 @k45(ptr noundef captures(none) %0, i32 %1, i32 noun
   %82 = add nuw i32 %.1, 1
   %83 = load i32, ptr %5, align 4, !tbaa !37
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %13, label %._crit_edge, !llvm.loop !96
+  br i1 %84, label %13, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %79, %27, %3
   ret i32 0
@@ -1888,7 +1888,7 @@ define internal noundef i32 @k44(ptr noundef captures(none) %0, i32 %1, i32 noun
   %49 = add nuw i32 %.019, 1
   %50 = load i32, ptr %4, align 4, !tbaa !37
   %51 = icmp ult i32 %49, %50
-  br i1 %51, label %14, label %._crit_edge, !llvm.loop !97
+  br i1 %51, label %14, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %46, %3
   ret i32 0
@@ -1971,7 +1971,7 @@ define internal range(i32 -1094995529, 1) i32 @t37(ptr noundef captures(none) %0
   %58 = add nuw i32 %.02629, 2
   %59 = load i32, ptr %4, align 4, !tbaa !37
   %60 = icmp ult i32 %58, %59
-  br i1 %60, label %13, label %.loopexit, !llvm.loop !98
+  br i1 %60, label %13, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %28, %46, %3, %26
   %.0 = phi i32 [ -1094995529, %26 ], [ 0, %3 ], [ 0, %46 ], [ 0, %28 ]
@@ -2075,13 +2075,13 @@ attributes #8 = { nounwind }
 !68 = distinct !{!68, !66}
 !69 = !{!7, !7, i64 0}
 !70 = distinct !{!70, !66}
-!71 = distinct !{!71, !66}
-!72 = distinct !{!72, !66}
+!71 = distinct !{!71, !66, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !73 = distinct !{!73, !66}
-!74 = !{!14, !14, i64 0}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"short", !8, i64 0}
-!77 = distinct !{!77, !66}
+!74 = distinct !{!74, !66}
+!75 = !{!14, !14, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"short", !8, i64 0}
 !78 = distinct !{!78, !66}
 !79 = distinct !{!79, !66}
 !80 = distinct !{!80, !66}
@@ -2103,3 +2103,4 @@ attributes #8 = { nounwind }
 !96 = distinct !{!96, !66}
 !97 = distinct !{!97, !66}
 !98 = distinct !{!98, !66}
+!99 = distinct !{!99, !66}

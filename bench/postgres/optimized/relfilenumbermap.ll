@@ -275,7 +275,7 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 24:                                               ; preds = %.lr.ph.split, %18
   %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %24, %11, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
@@ -309,4 +309,6 @@ attributes #8 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

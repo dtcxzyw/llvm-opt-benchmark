@@ -3015,7 +3015,7 @@ graph_show_line_prefix.exit.i.i:                  ; preds = %42, %39, %37
 .lr.ph.split.i:                                   ; preds = %graph_show_line_prefix.exit.i.i, %.lr.ph
   %53 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 10) #14
   %.not19.i = icmp eq ptr %53, null
-  br i1 %.not19.i, label %._crit_edge.sink.split.i, label %.lr.ph, !llvm.loop !144
+  br i1 %.not19.i, label %._crit_edge.sink.split.i, label %.lr.ph, !llvm.loop !146
 
 ._crit_edge.sink.split.i:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split.i.preheader, %.lr.ph.split.us.i.preheader
   %.01727.lcssa.sink37.i = phi ptr [ %6, %.lr.ph.split.us.i.preheader ], [ %6, %.lr.ph.split.i.preheader ], [ %14, %.lr.ph.split.us.i ], [ %31, %.lr.ph.split.i ]
@@ -3348,4 +3348,6 @@ attributes #16 = { noreturn nounwind }
 !141 = !{!34, !21, i64 1912}
 !142 = distinct !{!142, !71}
 !143 = distinct !{!143, !71}
-!144 = distinct !{!144, !71}
+!144 = distinct !{!144, !71, !145}
+!145 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!146 = distinct !{!146, !71}

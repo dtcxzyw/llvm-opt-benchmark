@@ -1228,7 +1228,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 30:                                               ; preds = %31
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %27
-  br i1 %exitcond198.not, label %._crit_edge159.us, label %31, !llvm.loop !85
+  br i1 %exitcond198.not, label %._crit_edge159.us, label %31, !llvm.loop !86
 
 31:                                               ; preds = %.lr.ph158.us, %30
   %indvars.iv194 = phi i64 [ 0, %.lr.ph158.us ], [ %indvars.iv.next195, %30 ]
@@ -1243,7 +1243,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %35 = add i64 %.486162.us, %34
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %.thread119, label %.lr.ph158.us, !llvm.loop !86
+  br i1 %exitcond203.not, label %.thread119, label %.lr.ph158.us, !llvm.loop !87
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
@@ -1254,7 +1254,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %40 = add i64 %.093136, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !88
 
 .thread114:                                       ; preds = %._crit_edge142.us, %.preheader123
   %.082134 = phi i64 [ 0, %.preheader123 ], [ %26, %._crit_edge142.us ]
@@ -1311,7 +1311,7 @@ define range(i32 0, 3) i32 @exr_decoding_destroy(ptr noundef readonly captures(a
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !88
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   tail call void %10(ptr noundef %6) #5
   br label %11
 
@@ -1475,8 +1475,9 @@ attributes #5 = { nounwind }
 !81 = !{!35, !12, i64 72}
 !82 = !{!35, !5, i64 54}
 !83 = distinct !{!83, !57}
-!84 = distinct !{!84, !57}
-!85 = distinct !{!85, !57}
+!84 = distinct !{!84, !57, !85}
+!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !86 = distinct !{!86, !57}
-!87 = distinct !{!87, !57}
-!88 = !{!4, !10, i64 96}
+!87 = distinct !{!87, !57, !85}
+!88 = distinct !{!88, !57}
+!89 = !{!4, !10, i64 96}

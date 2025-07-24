@@ -176,14 +176,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
 
 62:                                               ; preds = %56, %43, %53
   %63 = add i64 %spec.store.select, 1
-  br label %.split, !llvm.loop !18
+  br label %.split, !llvm.loop !21
 
 _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread: ; preds = %43, %56, %27
   %.us-phi = phi i64 [ %spec.store.select.us66, %27 ], [ %16, %43 ], [ %spec.store.select, %56 ]
   %64 = lshr i64 %.us-phi, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = icmp ult i64 %14, 4
-  br i1 %65, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %13, !llvm.loop !20
+  br i1 %65, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %13, !llvm.loop !22
 
 _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit: ; preds = %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, %.split.us, %48, %33, %2
   %66 = phi i1 [ true, %2 ], [ false, %33 ], [ false, %48 ], [ false, %.split.us ], [ true, %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread ]
@@ -273,6 +273,8 @@ attributes #12 = { nounwind }
 !15 = !{!"_ZTSNSt3__122__cxx_atomic_base_implIhEE", !7, i64 0}
 !16 = !{!17, !5, i64 0}
 !17 = !{!"_ZTSNSt3__124__barrier_algorithm_baseE", !5, i64 0, !10, i64 8}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

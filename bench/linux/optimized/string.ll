@@ -1106,7 +1106,7 @@ define dso_local ptr @strstr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %69 = add i64 %54, -1
   %70 = getelementptr i8, ptr %55, i64 1
   %71 = icmp ult i64 %69, %11
-  br i1 %71, label %.loopexit, label %.split, !llvm.loop !40
+  br i1 %71, label %.loopexit, label %.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %68, %63, %44, %.loopexit7.us, %48, %17, %8
   %72 = phi ptr [ %0, %8 ], [ null, %17 ], [ %25, %48 ], [ null, %44 ], [ %25, %.loopexit7.us ], [ %55, %63 ], [ null, %68 ]
@@ -1173,7 +1173,7 @@ define dso_local ptr @strnstr(ptr noundef readonly captures(ret: address, proven
   %39 = add i64 %18, -1
   %40 = getelementptr i8, ptr %19, i64 1
   %41 = icmp ult i64 %39, %12
-  br i1 %41, label %.loopexit, label %.preheader6.us, !llvm.loop !41
+  br i1 %41, label %.loopexit, label %.preheader6.us, !llvm.loop !43
 
 42:                                               ; preds = %.preheader.us
   %43 = getelementptr i8, ptr %33, i64 1
@@ -1214,7 +1214,7 @@ define dso_local ptr @strnstr(ptr noundef readonly captures(ret: address, proven
   %63 = add i64 %48, -1
   %64 = getelementptr i8, ptr %49, i64 1
   %65 = icmp ult i64 %63, %12
-  br i1 %65, label %.loopexit, label %.split, !llvm.loop !41
+  br i1 %65, label %.loopexit, label %.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %62, %57, %38, %.loopexit7.us, %42, %14, %9
   %66 = phi ptr [ %0, %9 ], [ null, %14 ], [ %19, %42 ], [ null, %38 ], [ %19, %.loopexit7.us ], [ %49, %57 ], [ null, %62 ]
@@ -1237,7 +1237,7 @@ define dso_local ptr @memchr(ptr noundef readonly captures(ret: address, provena
   %11 = getelementptr i8, ptr %7, i64 1
   %12 = load i8, ptr %7, align 1
   %13 = icmp eq i8 %12, %4
-  br i1 %13, label %14, label %5, !llvm.loop !42
+  br i1 %13, label %14, label %5, !llvm.loop !45
 
 14:                                               ; preds = %9, %5
   %15 = phi ptr [ %7, %9 ], [ null, %5 ]
@@ -1269,7 +1269,7 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   %14 = getelementptr i8, ptr %10, i64 1
   %15 = add nsw i32 %9, -1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !46
 
 17:                                               ; preds = %3
   %18 = and i32 %1, 255
@@ -1296,7 +1296,7 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   %33 = getelementptr i8, ptr %29, i64 1
   %34 = add nsw i32 %28, -1
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.thread, label %27, !llvm.loop !43
+  br i1 %35, label %.thread, label %27, !llvm.loop !46
 
 .thread:                                          ; preds = %32
   %36 = zext nneg i32 %26 to i64
@@ -1338,13 +1338,13 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   %60 = getelementptr i8, ptr %56, i64 1
   %61 = add nsw i32 %55, -1
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.loopexit, label %.preheader14, !llvm.loop !43
+  br i1 %62, label %.loopexit, label %.preheader14, !llvm.loop !46
 
 63:                                               ; preds = %.preheader17
   %64 = getelementptr i8, ptr %52, i64 8
   %65 = add i32 %51, -1
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.loopexit18, label %.preheader17, !llvm.loop !44
+  br i1 %66, label %.loopexit18, label %.preheader17, !llvm.loop !47
 
 .loopexit18:                                      ; preds = %63, %45
   %67 = phi ptr [ %46, %45 ], [ %64, %63 ]
@@ -1364,7 +1364,7 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   %76 = getelementptr i8, ptr %72, i64 1
   %77 = add nsw i32 %71, -1
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.loopexit, label %.preheader11, !llvm.loop !43
+  br i1 %78, label %.loopexit, label %.preheader11, !llvm.loop !46
 
 .loopexit:                                        ; preds = %59, %.preheader14, %75, %.preheader11, %13, %.preheader, %.loopexit18, %39, %6
   %79 = phi ptr [ %29, %39 ], [ null, %6 ], [ null, %.loopexit18 ], [ null, %13 ], [ %10, %.preheader ], [ null, %75 ], [ %72, %.preheader11 ], [ null, %59 ], [ %56, %.preheader14 ]
@@ -1424,8 +1424,11 @@ attributes #6 = { nounwind }
 !37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
 !39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
+!40 = distinct !{!40, !6, !7, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
+!43 = distinct !{!43, !6, !7, !41}
 !44 = distinct !{!44, !6, !7}
+!45 = distinct !{!45, !6, !7}
+!46 = distinct !{!46, !6, !7}
+!47 = distinct !{!47, !6, !7}

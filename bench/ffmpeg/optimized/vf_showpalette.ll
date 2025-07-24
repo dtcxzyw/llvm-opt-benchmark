@@ -119,12 +119,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge5.split.us.us.us.i:                    ; preds = %._crit_edge.us.us.us.i
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next19.i, 16
-  br i1 %exitcond21.not.i, label %.split.us.us.i, label %.preheader1.us.us.i, !llvm.loop !45
+  br i1 %exitcond21.not.i, label %.split.us.us.i, label %.preheader1.us.us.i, !llvm.loop !46
 
 .split.us.us.i:                                   ; preds = %._crit_edge5.split.us.us.us.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond25.not.i, label %disp_palette.exit, label %.preheader2.us.i, !llvm.loop !46
+  br i1 %exitcond25.not.i, label %disp_palette.exit, label %.preheader2.us.i, !llvm.loop !47
 
 disp_palette.exit:                                ; preds = %.split.us.us.i, %17
   call void @av_frame_free(ptr noundef nonnull %3) #3
@@ -146,7 +146,7 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @config_output(ptr noundef captures(none) initializes((40, 48)) %0) #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !47
+  %2 = load ptr, ptr %0, align 8, !tbaa !48
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -216,7 +216,8 @@ attributes #3 = { nounwind }
 !41 = !{!15, !15, i64 0}
 !42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43}
-!47 = !{!12, !13, i64 0}
+!44 = distinct !{!44, !43, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !43, !45}
+!47 = distinct !{!47, !43, !45}
+!48 = !{!12, !13, i64 0}

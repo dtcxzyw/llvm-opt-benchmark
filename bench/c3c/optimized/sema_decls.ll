@@ -7879,7 +7879,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
 ._crit_edge:                                      ; preds = %37, %.preheader
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count43
-  br i1 %exitcond35.not, label %.thread, label %.preheader3.split, !llvm.loop !38
+  br i1 %exitcond35.not, label %.thread, label %.preheader3.split, !llvm.loop !40
 
 .thread:                                          ; preds = %.preheader3.split, %._crit_edge, %17, %._crit_edge.us, %.preheader3.split.us, %2, %3, %.split12.us, %.split.us
   %.030 = phi i1 [ false, %.split.us ], [ false, %.split12.us ], [ true, %3 ], [ true, %2 ], [ true, %17 ], [ false, %._crit_edge.us ], [ false, %.preheader3.split.us ], [ %27, %._crit_edge ], [ %27, %.preheader3.split ]
@@ -8012,7 +8012,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 .backedge:                                        ; preds = %63, %67
   %.pn.pn.be.in = phi ptr [ %66, %63 ], [ %72, %67 ]
   %.pn.pn.be = load ptr, ptr %.pn.pn.be.in, align 8
-  br label %61, !llvm.loop !39
+  br label %61, !llvm.loop !41
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %.1, i64 56
@@ -8323,7 +8323,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 235:                                              ; preds = %.lr.ph, %227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %235, %220, %219
   %236 = load i64, ptr %8, align 8
@@ -8491,7 +8491,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   store i64 %70, ptr %68, align 8
   %71 = zext i32 %.190 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %.preheader, label %.loopexit117, !llvm.loop !41
+  br i1 %72, label %.preheader, label %.loopexit117, !llvm.loop !43
 
 .loopexit117:                                     ; preds = %58, %vec_erase_ptr_at.exit, %2, %7
   %.093144 = phi i32 [ 0, %7 ], [ 0, %2 ], [ %.093145, %vec_erase_ptr_at.exit ], [ %spec.select, %58 ]
@@ -8550,7 +8550,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   store i32 %81, ptr %96, align 8
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %93, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %93, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %93
   %.pre184 = load i32, ptr %92, align 8
@@ -8872,7 +8872,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   %144 = tail call i32 @type_size(ptr noundef %143) #10
   %145 = add i32 %144, %123
   %146 = icmp ult i32 %.01517.i, %.1123
-  br i1 %146, label %.preheader, label %.loopexit, !llvm.loop !43
+  br i1 %146, label %.preheader, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %137, %vec_erase_ptr_at.exit, %2, %10
   %.0126197 = phi i32 [ 0, %10 ], [ 0, %2 ], [ %.0126198, %vec_erase_ptr_at.exit ], [ %145, %137 ]
@@ -9912,7 +9912,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
 .backedge:                                        ; preds = %72, %80, %79, %21, %7
   %22 = phi ptr [ %8, %72 ], [ %8, %80 ], [ %8, %79 ], [ %.pre, %21 ], [ %8, %7 ]
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %.loopexit83, label %7, !llvm.loop !44
+  br i1 %.not, label %.loopexit83, label %7, !llvm.loop !46
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -9931,7 +9931,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
 28:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
@@ -9956,7 +9956,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
 35:                                               ; preds = %.lr.ph105
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !46
+  br i1 %exitcond145.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !48
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %35
   %indvars.iv141 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next142, %35 ]
@@ -10182,7 +10182,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
@@ -10210,7 +10210,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
 18:                                               ; preds = %.lr.ph42
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph42, !llvm.loop !48
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph42, !llvm.loop !50
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %18
   %indvars.iv50 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next51, %18 ]
@@ -10377,7 +10377,7 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
 80:                                               ; preds = %49, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %80, %.thread5, %26, %.thread11, %62, %38, %.thread14, %14
   %.067 = phi i1 [ false, %14 ], [ false, %.thread14 ], [ false, %38 ], [ false, %62 ], [ true, %.thread11 ], [ true, %26 ], [ true, %.thread5 ], [ true, %80 ]
@@ -10461,7 +10461,7 @@ define internal fastcc ptr @sema_find_interface_for_method(ptr noundef %0, ptr n
   %.1 = phi ptr [ %.03144, %22 ], [ %.03144, %.lr.ph ], [ %20, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %41
   %.not37 = icmp eq ptr %.1, null
@@ -11321,7 +11321,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noun
 30:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
@@ -12021,8 +12021,8 @@ attributes #12 = { nounwind willreturn memory(read) }
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
+!38 = distinct !{!38, !8, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !40 = distinct !{!40, !8}
 !41 = distinct !{!41, !8}
 !42 = distinct !{!42, !8}
@@ -12035,3 +12035,5 @@ attributes #12 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !8}
 !50 = distinct !{!50, !8}
 !51 = distinct !{!51, !8}
+!52 = distinct !{!52, !8}
+!53 = distinct !{!53, !8}

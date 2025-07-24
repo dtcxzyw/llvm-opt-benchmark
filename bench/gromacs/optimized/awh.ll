@@ -5915,7 +5915,7 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
   %76 = sub i64 %74, %75
   %77 = sdiv exact i64 %76, 608
   %78 = icmp ult i64 %71, %77
-  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !462
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !464
 
 79:                                               ; preds = %40, %42
   %.pn.pn25 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn26, %42 ]
@@ -5989,7 +5989,7 @@ define void @_ZNK3gmx3Awh13updateHistoryEPNS_10AwhHistoryE(ptr noundef nonnull r
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 112
   %44 = icmp ult i64 %37, %43
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !463
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !465
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %8
   ret void
@@ -6027,17 +6027,17 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %3
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.0.lcssa = phi i32 [ 0, %10 ], [ %26, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %15 = load i32, ptr %14, align 8, !tbaa !464
+  %15 = load i32, ptr %14, align 8, !tbaa !466
   %16 = add nsw i32 %15, 1
   tail call void @_Z19add_blocks_enxframeP10t_enxframei(ptr noundef %2, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !468
-  %19 = load i32, ptr %14, align 8, !tbaa !464
+  %18 = load ptr, ptr %17, align 8, !tbaa !470
+  %19 = load i32, ptr %14, align 8, !tbaa !466
   %20 = sext i32 %19 to i64
   %21 = getelementptr %struct.t_enxblock, ptr %18, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -24
   tail call void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr noundef %22, i32 noundef %.0.lcssa)
-  store i32 7, ptr %22, align 8, !tbaa !469
+  store i32 7, ptr %22, align 8, !tbaa !471
   %23 = load ptr, ptr %0, align 8, !tbaa !364
   %24 = load ptr, ptr %12, align 8, !tbaa !364
   %.not3338 = icmp eq ptr %23, %24
@@ -6072,7 +6072,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %3
 30:                                               ; preds = %.lr.ph47, %30
   %.02145 = phi i32 [ 0, %.lr.ph47 ], [ %35, %30 ]
   %.sroa.022.044 = phi ptr [ %.pre, %.lr.ph47 ], [ %36, %30 ]
-  %31 = load ptr, ptr %28, align 8, !tbaa !472
+  %31 = load ptr, ptr %28, align 8, !tbaa !474
   %32 = sext i32 %.02145 to i64
   %33 = getelementptr inbounds %struct.t_enxsubblock, ptr %31, i64 %32
   %34 = tail call noundef i32 @_ZNK3gmx4Bias22writeToEnergySubblocksEP13t_enxsubblock(ptr noundef nonnull align 8 dereferenceable(580) %.sroa.022.044, ptr noundef %33)
@@ -6149,7 +6149,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr noundef non
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.037.062.i.i.i.i.i, i64 2432
   %27 = add nsw i64 %.063.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.063.i.i.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !473
+  br i1 %28, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !475
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
   %.pre.i.i.i.i.i = ptrtoint ptr %26 to i64
@@ -6297,7 +6297,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noun
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.043.053.i.i.i.i.i, i64 2432
   %40 = add nsw i64 %.054.i.i.i.i.i, -1
   %41 = icmp sgt i64 %.054.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !474
+  br i1 %41, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !476
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %39 to i64
@@ -6382,12 +6382,12 @@ define void @_ZN3gmx16prepareAwhModuleEP8_IO_FILERK10t_inputrecP7t_statePK9t_com
   %13 = alloca %"class.gmx::ExceptionInfo", align 8
   %14 = alloca %"class.std::shared_ptr.272", align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 608
-  %16 = load i8, ptr %15, align 8, !tbaa !475, !range !108, !noundef !109
+  %16 = load i8, ptr %15, align 8, !tbaa !477, !range !108, !noundef !109
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %10
-  store ptr null, ptr %0, align 8, !tbaa !476
+  store ptr null, ptr %0, align 8, !tbaa !478
   br label %116
 
 19:                                               ; preds = %10
@@ -6454,17 +6454,17 @@ define void @_ZN3gmx16prepareAwhModuleEP8_IO_FILERK10t_inputrecP7t_statePK9t_com
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 616
-  %33 = load ptr, ptr %32, align 8, !tbaa !479
+  %33 = load ptr, ptr %32, align 8, !tbaa !481
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 424
-  %35 = load ptr, ptr %34, align 8, !tbaa !480
+  %35 = load ptr, ptr %34, align 8, !tbaa !482
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
-  %38 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #25, !noalias !481
-  %39 = load i32, ptr %36, align 4, !tbaa !27, !noalias !481
-  %40 = load i32, ptr %37, align 4, !tbaa !27, !noalias !481
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
+  %38 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #25, !noalias !483
+  %39 = load i32, ptr %36, align 4, !tbaa !27, !noalias !483
+  %40 = load i32, ptr %37, align 4, !tbaa !27, !noalias !483
   invoke void @_ZN3gmx3AwhC1EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_tRKNS_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6pull_tii(ptr noundef nonnull align 8 dereferenceable(80) %38, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(880) %2, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(49) %33, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %9, i32 noundef %39, i32 noundef %40)
-          to label %_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %41, !noalias !481
+          to label %_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %41, !noalias !483
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN3gmx3AwhESt14default_deleteIS1_EED2Ev.exit, %30, %28, %41
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %.pn21.pn32, %30 ], [ %29, %28 ], [ %.pn, %_ZNSt10unique_ptrIN3gmx3AwhESt14default_deleteIS1_EED2Ev.exit ]
@@ -6473,11 +6473,11 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIN
 41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 80) #26, !noalias !481
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 80) #26, !noalias !483
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %31
-  store ptr %38, ptr %0, align 8, !tbaa !484, !alias.scope !481
+  store ptr %38, ptr %0, align 8, !tbaa !486, !alias.scope !483
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %44 = load i32, ptr %43, align 4, !tbaa !230
   %45 = icmp eq i32 %44, 0
@@ -6527,7 +6527,7 @@ _ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_mult
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !380
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr %66, ptr %65, align 8, !tbaa !485
+  store ptr %66, ptr %65, align 8, !tbaa !487
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 768
   %70 = load ptr, ptr %69, align 8, !tbaa !380
   store ptr %68, ptr %69, align 8, !tbaa !380
@@ -6641,7 +6641,7 @@ _ZNSt10unique_ptrIN3gmx3AwhESt14default_deleteIS1_EED2Ev.exit: ; preds = %114, %
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %115, %114 ]
   call void @_ZN3gmx3AwhD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %38) #27
   call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 80) #26
-  store ptr null, ptr %0, align 8, !tbaa !484
+  store ptr null, ptr %0, align 8, !tbaa !486
   br label %common.resume
 
 116:                                              ; preds = %54, %_ZNSt12__shared_ptrIN3gmx10AwhHistoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %59, %18
@@ -7212,27 +7212,29 @@ attributes #28 = { noreturn nounwind }
 !459 = !{!"_ZTSSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE", !460, i64 0}
 !460 = !{!"_ZTSNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE12_Vector_implE", !430, i64 0}
 !461 = !{!231, !217, i64 32}
-!462 = distinct !{!462, !21}
-!463 = distinct !{!463, !21}
-!464 = !{!465, !28, i64 56}
-!465 = !{!"_ZTS10t_enxframe", !24, i64 0, !26, i64 8, !26, i64 16, !24, i64 24, !28, i64 32, !28, i64 36, !28, i64 40, !28, i64 44, !466, i64 48, !28, i64 56, !467, i64 64, !28, i64 72}
-!466 = !{!"p1 _ZTS8t_energy", !7, i64 0}
-!467 = !{!"p1 _ZTS10t_enxblock", !7, i64 0}
-!468 = !{!465, !467, i64 64}
-!469 = !{!470, !28, i64 0}
-!470 = !{!"_ZTS10t_enxblock", !28, i64 0, !28, i64 4, !471, i64 8, !28, i64 16}
-!471 = !{!"p1 _ZTS13t_enxsubblock", !7, i64 0}
-!472 = !{!470, !471, i64 8}
-!473 = distinct !{!473, !21}
-!474 = distinct !{!474, !21}
-!475 = !{!261, !32, i64 608}
-!476 = !{!477, !478, i64 0}
-!477 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx3AwhELb0EE", !478, i64 0}
-!478 = !{!"p1 _ZTSN3gmx3AwhE", !7, i64 0}
-!479 = !{!326, !326, i64 0}
-!480 = !{!295, !295, i64 0}
-!481 = !{!482}
-!482 = distinct !{!482, !483, !"_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!483 = distinct !{!483, !"_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!484 = !{!478, !478, i64 0}
-!485 = !{!428, !428, i64 0}
+!462 = distinct !{!462, !21, !463}
+!463 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!464 = distinct !{!464, !21}
+!465 = distinct !{!465, !21}
+!466 = !{!467, !28, i64 56}
+!467 = !{!"_ZTS10t_enxframe", !24, i64 0, !26, i64 8, !26, i64 16, !24, i64 24, !28, i64 32, !28, i64 36, !28, i64 40, !28, i64 44, !468, i64 48, !28, i64 56, !469, i64 64, !28, i64 72}
+!468 = !{!"p1 _ZTS8t_energy", !7, i64 0}
+!469 = !{!"p1 _ZTS10t_enxblock", !7, i64 0}
+!470 = !{!467, !469, i64 64}
+!471 = !{!472, !28, i64 0}
+!472 = !{!"_ZTS10t_enxblock", !28, i64 0, !28, i64 4, !473, i64 8, !28, i64 16}
+!473 = !{!"p1 _ZTS13t_enxsubblock", !7, i64 0}
+!474 = !{!472, !473, i64 8}
+!475 = distinct !{!475, !21}
+!476 = distinct !{!476, !21}
+!477 = !{!261, !32, i64 608}
+!478 = !{!479, !480, i64 0}
+!479 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx3AwhELb0EE", !480, i64 0}
+!480 = !{!"p1 _ZTSN3gmx3AwhE", !7, i64 0}
+!481 = !{!326, !326, i64 0}
+!482 = !{!295, !295, i64 0}
+!483 = !{!484}
+!484 = distinct !{!484, !485, !"_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!485 = distinct !{!485, !"_ZSt11make_uniqueIN3gmx3AwhEJRP8_IO_FILERK10t_inputrecRPK9t_commrecRPK14gmx_multisim_tRNS0_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP6pull_tRiST_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!486 = !{!480, !480, i64 0}
+!487 = !{!428, !428, i64 0}

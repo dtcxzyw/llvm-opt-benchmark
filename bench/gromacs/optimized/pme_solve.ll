@@ -2384,7 +2384,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit.us
   store float %353, ptr %354, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %355 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %355, label %337, label %.preheader440, !llvm.loop !175
+  br i1 %355, label %337, label %.preheader440, !llvm.loop !176
 
 356:                                              ; preds = %.lr.ph444, %356
   %indvars.iv506 = phi i64 [ %112, %.lr.ph444 ], [ %indvars.iv.next507, %356 ]
@@ -2410,7 +2410,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit.us
   store float %373, ptr %374, align 4, !tbaa !15
   %indvars.iv.next507 = add nsw i64 %indvars.iv506, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next507, %113
-  br i1 %exitcond.not, label %._crit_edge, label %356, !llvm.loop !176
+  br i1 %exitcond.not, label %._crit_edge, label %356, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %356, %.preheader440
   br i1 %.not10.i406, label %_ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit413, label %.lr.ph.i407
@@ -2486,12 +2486,12 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit413
   %indvars.iv.next512 = add nsw i64 %indvars.iv511, 1
   %420 = getelementptr inbounds nuw i8, ptr %.2446, i64 8
   %421 = icmp slt i64 %indvars.iv.next512, %113
-  br i1 %421, label %.lr.ph447, label %.loopexit439, !llvm.loop !177
+  br i1 %421, label %.lr.ph447, label %.loopexit439, !llvm.loop !178
 
 .loopexit439:                                     ; preds = %.lr.ph447, %_ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit413
   %422 = add nsw i32 %.0371480, 1
   %exitcond513.not = icmp eq i32 %422, %81
-  br i1 %exitcond513.not, label %._crit_edge483, label %.lr.ph482.split, !llvm.loop !174
+  br i1 %exitcond513.not, label %._crit_edge483, label %.lr.ph482.split, !llvm.loop !179
 
 ._crit_edge483.loopexit:                          ; preds = %.loopexit.us
   %423 = fmul float %.1378.lcssa.us, 2.500000e-01
@@ -2576,7 +2576,7 @@ define noundef i32 @_ZN8PmeSolve10solveLJYZXERK9gmx_pme_tN3gmx8ArrayRefI14PmeAnd
   %11 = alloca [3 x i32], align 4
   %12 = alloca [3 x i32], align 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %14 = load float, ptr %13, align 8, !tbaa !178
+  %14 = load float, ptr %13, align 8, !tbaa !180
   %15 = fmul float %14, %14
   %16 = fpext float %15 to double
   %17 = fdiv double 0x4023BD3CC9BE45DE, %16
@@ -2861,7 +2861,7 @@ define noundef i32 @_ZN8PmeSolve10solveLJYZXERK9gmx_pme_tN3gmx8ArrayRefI14PmeAnd
   store <8 x float> %247, ptr %167, align 32, !tbaa !164
   %248 = add i64 %.019.i.us, 1
   %.not.i.us = icmp eq i64 %248, %137
-  br i1 %.not.i.us, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us, label %143, !llvm.loop !179
+  br i1 %.not.i.us, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us, label %143, !llvm.loop !181
 
 _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; preds = %143, %._crit_edge611.us
   %249 = icmp sgt i32 %129, 0
@@ -2879,7 +2879,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   br i1 %4, label %.preheader579.us..preheader578.us_crit_edge, label %.loopexit.us
 
 .lr.ph618.us.preheader:                           ; preds = %._crit_edge614.us
-  %252 = load ptr, ptr %94, align 8, !tbaa !180
+  %252 = load ptr, ptr %94, align 8, !tbaa !182
   %253 = load i32, ptr %93, align 4, !tbaa !39
   %254 = mul nsw i32 %253, %105
   %255 = load i32, ptr %12, align 4, !tbaa !39
@@ -2917,7 +2917,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %indvars.iv.next728 = add nsw i64 %indvars.iv727, 1
   %278 = getelementptr inbounds nuw i8, ptr %.0517615.us, i64 8
   %279 = icmp slt i64 %indvars.iv.next728, %263
-  br i1 %279, label %.lr.ph618.us, label %.lr.ph645.us.preheader, !llvm.loop !199
+  br i1 %279, label %.lr.ph618.us, label %.lr.ph645.us.preheader, !llvm.loop !201
 
 .lr.ph645.us.preheader:                           ; preds = %.lr.ph618.us, %.lr.ph635.us
   %280 = sext i32 %128 to i64
@@ -2964,7 +2964,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %310 = fadd float %.1537636.us, %309
   %indvars.iv.next751 = add nsw i64 %indvars.iv750, 1
   %311 = icmp slt i64 %indvars.iv.next751, %281
-  br i1 %311, label %.lr.ph645.us, label %.loopexit.us, !llvm.loop !200
+  br i1 %311, label %.lr.ph645.us, label %.loopexit.us, !llvm.loop !202
 
 .lr.ph635.us:                                     ; preds = %._crit_edge632.us, %.lr.ph635.us
   %indvars.iv747 = phi i64 [ %indvars.iv.next748, %.lr.ph635.us ], [ %.pre-phi, %._crit_edge632.us ]
@@ -2980,7 +2980,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %319, ptr %314, align 4, !tbaa !15
   %indvars.iv.next748 = add nsw i64 %indvars.iv747, 1
   %320 = icmp slt i64 %indvars.iv.next748, %442
-  br i1 %320, label %.lr.ph635.us, label %.lr.ph645.us.preheader, !llvm.loop !201
+  br i1 %320, label %.lr.ph635.us, label %.lr.ph645.us.preheader, !llvm.loop !203
 
 .preheader577.us:                                 ; preds = %._crit_edge626.us, %.preheader577.us.backedge
   %indvars.iv743 = phi i64 [ %indvars.iv743.be, %.preheader577.us.backedge ], [ 0, %._crit_edge626.us ]
@@ -2988,7 +2988,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 
 .lr.ph631.us.preheader:                           ; preds = %.preheader577.us
   %321 = getelementptr inbounds nuw %struct.PmeAndFftGrids, ptr %2, i64 %indvars.iv743, i32 2
-  %322 = load ptr, ptr %321, align 8, !tbaa !180
+  %322 = load ptr, ptr %321, align 8, !tbaa !182
   %323 = getelementptr inbounds %struct.t_complex, ptr %322, i64 %439
   %324 = getelementptr inbounds %struct.t_complex, ptr %323, i64 %441
   br label %.lr.ph631.us
@@ -3000,7 +3000,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 
 .preheader577.us.backedge:                        ; preds = %._crit_edge632.us, %._crit_edge632.us.thread
   %indvars.iv743.be = phi i64 [ %indvars.iv.next744, %._crit_edge632.us ], [ %indvars.iv.next744758, %._crit_edge632.us.thread ]
-  br label %.preheader577.us, !llvm.loop !202
+  br label %.preheader577.us, !llvm.loop !204
 
 ._crit_edge632.us.thread:                         ; preds = %.preheader577.us
   %indvars.iv.next744758 = add nuw nsw i64 %indvars.iv743, 1
@@ -3022,7 +3022,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %indvars.iv.next741 = add nsw i64 %indvars.iv740, 1
   %332 = getelementptr inbounds nuw i8, ptr %.0511628.us, i64 8
   %333 = icmp slt i64 %indvars.iv.next741, %442
-  br i1 %333, label %.lr.ph631.us, label %._crit_edge632.us, !llvm.loop !203
+  br i1 %333, label %.lr.ph631.us, label %._crit_edge632.us, !llvm.loop !205
 
 334:                                              ; preds = %.preheader578.us, %._crit_edge626.us
   %indvars.iv736 = phi i64 [ 0, %.preheader578.us ], [ %indvars.iv.next737, %._crit_edge626.us ]
@@ -3034,11 +3034,11 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 .lr.ph625.us.preheader:                           ; preds = %334
   %338 = sub nuw nsw i64 6, %indvars.iv736
   %339 = getelementptr inbounds nuw %struct.PmeAndFftGrids, ptr %2, i64 %338, i32 2
-  %340 = load ptr, ptr %339, align 8, !tbaa !180
+  %340 = load ptr, ptr %339, align 8, !tbaa !182
   %341 = getelementptr inbounds %struct.t_complex, ptr %340, i64 %439
   %342 = getelementptr inbounds %struct.t_complex, ptr %341, i64 %441
   %343 = getelementptr inbounds nuw %struct.PmeAndFftGrids, ptr %2, i64 %indvars.iv736, i32 2
-  %344 = load ptr, ptr %343, align 8, !tbaa !180
+  %344 = load ptr, ptr %343, align 8, !tbaa !182
   %345 = getelementptr inbounds %struct.t_complex, ptr %344, i64 %439
   %346 = getelementptr inbounds %struct.t_complex, ptr %345, i64 %441
   br label %.lr.ph625.us
@@ -3046,7 +3046,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 ._crit_edge626.us:                                ; preds = %.lr.ph625.us, %334
   %indvars.iv.next737 = add nuw nsw i64 %indvars.iv736, 1
   %exitcond739.not = icmp eq i64 %indvars.iv.next737, 4
-  br i1 %exitcond739.not, label %.preheader577.us, label %334, !llvm.loop !204
+  br i1 %exitcond739.not, label %.preheader577.us, label %334, !llvm.loop !206
 
 .lr.ph625.us:                                     ; preds = %.lr.ph625.us.preheader, %.lr.ph625.us
   %indvars.iv733 = phi i64 [ %.pre-phi, %.lr.ph625.us.preheader ], [ %indvars.iv.next734, %.lr.ph625.us ]
@@ -3068,7 +3068,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %358 = getelementptr inbounds nuw i8, ptr %.0514621.us, i64 8
   %359 = getelementptr inbounds nuw i8, ptr %.0513622.us, i64 8
   %360 = icmp slt i64 %indvars.iv.next734, %442
-  br i1 %360, label %.lr.ph625.us, label %._crit_edge626.us, !llvm.loop !205
+  br i1 %360, label %.lr.ph625.us, label %._crit_edge626.us, !llvm.loop !207
 
 .lr.ph613.us:                                     ; preds = %.lr.ph613.us.preheader, %.lr.ph613.us
   %indvars.iv724 = phi i64 [ %250, %.lr.ph613.us.preheader ], [ %indvars.iv.next725, %.lr.ph613.us ]
@@ -3099,7 +3099,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %383, ptr %370, align 4, !tbaa !15
   %indvars.iv.next725 = add nsw i64 %indvars.iv724, 1
   %384 = icmp slt i64 %indvars.iv.next725, %251
-  br i1 %384, label %.lr.ph613.us, label %._crit_edge614.us, !llvm.loop !206
+  br i1 %384, label %.lr.ph613.us, label %._crit_edge614.us, !llvm.loop !208
 
 .lr.ph610.us:                                     ; preds = %.lr.ph610.us.preheader, %.lr.ph610.us
   %indvars.iv719 = phi i64 [ %136, %.lr.ph610.us.preheader ], [ %indvars.iv.next720, %.lr.ph610.us ]
@@ -3109,7 +3109,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float 0.000000e+00, ptr %386, align 4, !tbaa !15
   %indvars.iv.next720 = add nsw i64 %indvars.iv719, 1
   %exitcond723.not = icmp eq i64 %indvars.iv.next720, %wide.trip.count722
-  br i1 %exitcond723.not, label %._crit_edge611.us, label %.lr.ph610.us, !llvm.loop !207
+  br i1 %exitcond723.not, label %._crit_edge611.us, label %.lr.ph610.us, !llvm.loop !209
 
 387:                                              ; preds = %.lr.ph605.us, %387
   %indvars.iv714 = phi i64 [ %103, %.lr.ph605.us ], [ %indvars.iv.next715, %387 ]
@@ -3145,7 +3145,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %409, ptr %410, align 4, !tbaa !15
   %indvars.iv.next715 = add nsw i64 %indvars.iv714, 1
   %exitcond718.not = icmp eq i64 %indvars.iv.next715, %wide.trip.count717
-  br i1 %exitcond718.not, label %._crit_edge606.us, label %387, !llvm.loop !208
+  br i1 %exitcond718.not, label %._crit_edge606.us, label %387, !llvm.loop !210
 
 411:                                              ; preds = %.lr.ph603.us, %411
   %indvars.iv709 = phi i64 [ %456, %.lr.ph603.us ], [ %indvars.iv.next710, %411 ]
@@ -3180,7 +3180,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %432, ptr %433, align 4, !tbaa !15
   %indvars.iv.next710 = add nsw i64 %indvars.iv709, 1
   %exitcond713.not = icmp eq i64 %indvars.iv.next710, %103
-  br i1 %exitcond713.not, label %.preheader581.us, label %411, !llvm.loop !209
+  br i1 %exitcond713.not, label %.preheader581.us, label %411, !llvm.loop !211
 
 .loopexit.us:                                     ; preds = %._crit_edge632.us.thread, %.lr.ph645.us, %._crit_edge614.us.thread
   %.1537.lcssa.us = phi float [ %.0536653.us, %._crit_edge614.us.thread ], [ %310, %.lr.ph645.us ], [ %.0536653.us, %._crit_edge632.us.thread ]
@@ -3192,7 +3192,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %.1519.lcssa.us = phi float [ %.0518659.us, %._crit_edge614.us.thread ], [ %290, %.lr.ph645.us ], [ %.0518659.us, %._crit_edge632.us.thread ]
   %434 = add nsw i32 %.0510660.us, 1
   %exitcond753.not = icmp eq i32 %434, %77
-  br i1 %exitcond753.not, label %._crit_edge663.loopexit, label %.preheader582.us, !llvm.loop !210
+  br i1 %exitcond753.not, label %._crit_edge663.loopexit, label %.preheader582.us, !llvm.loop !212
 
 .preheader578.us:                                 ; preds = %.preheader579.us..preheader578.us_crit_edge, %.lr.ph620.us.preheader
   %.pre-phi = phi i64 [ %.pre, %.preheader579.us..preheader578.us_crit_edge ], [ %443, %.lr.ph620.us.preheader ]
@@ -3324,7 +3324,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %515, ptr %516, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %103
-  br i1 %exitcond.not, label %.preheader584, label %497, !llvm.loop !211
+  br i1 %exitcond.not, label %.preheader584, label %497, !llvm.loop !213
 
 517:                                              ; preds = %.lr.ph588, %517
   %indvars.iv689 = phi i64 [ %103, %.lr.ph588 ], [ %indvars.iv.next690, %517 ]
@@ -3354,7 +3354,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %536, ptr %537, align 4, !tbaa !15
   %indvars.iv.next690 = add nsw i64 %indvars.iv689, 1
   %exitcond693.not = icmp eq i64 %indvars.iv.next690, %wide.trip.count692
-  br i1 %exitcond693.not, label %._crit_edge, label %517, !llvm.loop !212
+  br i1 %exitcond693.not, label %._crit_edge, label %517, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %517, %.preheader584
   %.11.lcssa = phi i32 [ %41, %.preheader584 ], [ %485, %517 ]
@@ -3377,7 +3377,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float 0.000000e+00, ptr %544, align 4, !tbaa !15
   %indvars.iv.next695 = add nsw i64 %indvars.iv694, 1
   %exitcond698.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count697
-  br i1 %exitcond698.not, label %._crit_edge592, label %.lr.ph591, !llvm.loop !213
+  br i1 %exitcond698.not, label %._crit_edge592, label %.lr.ph591, !llvm.loop !215
 
 ._crit_edge592:                                   ; preds = %.lr.ph591, %._crit_edge
   %545 = lshr exact i64 %540, 3
@@ -3508,7 +3508,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store <8 x float> %655, ptr %575, align 32, !tbaa !164
   %656 = add i64 %.019.i553, 1
   %.not.i558 = icmp eq i64 %656, %545
-  br i1 %.not.i558, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559, label %551, !llvm.loop !179
+  br i1 %.not.i558, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559, label %551, !llvm.loop !181
 
 _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; preds = %551, %._crit_edge592
   %657 = icmp sgt i32 %484, 0
@@ -3540,7 +3540,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
   store float %678, ptr %665, align 4, !tbaa !15
   %indvars.iv.next700 = add nsw i64 %indvars.iv699, 1
   %679 = icmp slt i64 %indvars.iv.next700, %659
-  br i1 %679, label %.lr.ph594, label %._crit_edge595, !llvm.loop !214
+  br i1 %679, label %.lr.ph594, label %._crit_edge595, !llvm.loop !216
 
 ._crit_edge595:                                   ; preds = %.lr.ph594, %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559
   %680 = load i32, ptr %93, align 4, !tbaa !39
@@ -3558,7 +3558,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
 
 .lr.ph599.preheader:                              ; preds = %687
   %688 = getelementptr inbounds nuw %struct.PmeAndFftGrids, ptr %2, i64 %indvars.iv705, i32 2
-  %689 = load ptr, ptr %688, align 8, !tbaa !180
+  %689 = load ptr, ptr %688, align 8, !tbaa !182
   %690 = getelementptr inbounds %struct.t_complex, ptr %689, i64 %684
   %691 = getelementptr inbounds %struct.t_complex, ptr %690, i64 %686
   br label %.lr.ph599
@@ -3578,18 +3578,18 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
   %indvars.iv.next703 = add nsw i64 %indvars.iv702, 1
   %699 = getelementptr inbounds nuw i8, ptr %.0597, i64 8
   %700 = icmp slt i64 %indvars.iv.next703, %659
-  br i1 %700, label %.lr.ph599, label %._crit_edge600, !llvm.loop !215
+  br i1 %700, label %.lr.ph599, label %._crit_edge600, !llvm.loop !217
 
 ._crit_edge600:                                   ; preds = %.lr.ph599, %687
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
   %701 = icmp samesign ult i64 %indvars.iv705, 6
   %702 = select i1 %4, i1 %701, i1 false
-  br i1 %702, label %687, label %.loopexit583, !llvm.loop !216
+  br i1 %702, label %687, label %.loopexit583, !llvm.loop !218
 
 .loopexit583:                                     ; preds = %._crit_edge600
   %703 = add nsw i32 %.0510660, 1
   %exitcond708.not = icmp eq i32 %703, %77
-  br i1 %exitcond708.not, label %._crit_edge663, label %.preheader585, !llvm.loop !210
+  br i1 %exitcond708.not, label %._crit_edge663, label %.preheader585, !llvm.loop !219
 
 ._crit_edge663.loopexit:                          ; preds = %.loopexit.us
   %704 = fmul float %.1522.lcssa.us, 2.500000e-01
@@ -3886,33 +3886,33 @@ attributes #28 = { builtin allocsize(0) }
 !171 = distinct !{!171, !30}
 !172 = distinct !{!172, !30}
 !173 = distinct !{!173, !30}
-!174 = distinct !{!174, !30}
-!175 = distinct !{!175, !30}
+!174 = distinct !{!174, !30, !175}
+!175 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !176 = distinct !{!176, !30}
 !177 = distinct !{!177, !30}
-!178 = !{!83, !16, i64 104}
+!178 = distinct !{!178, !30}
 !179 = distinct !{!179, !30}
-!180 = !{!181, !192, i64 208}
-!181 = !{!"_ZTS14PmeAndFftGrids", !182, i64 0, !6, i64 200, !192, i64 208, !193, i64 216}
-!182 = !{!"_ZTS10pmegrids_t", !183, i64 0, !40, i64 72, !8, i64 76, !186, i64 88, !191, i64 112, !8, i64 184}
-!183 = !{!"_ZTS9pmegrid_t", !8, i64 0, !8, i64 12, !8, i64 24, !40, i64 36, !8, i64 40, !184, i64 56}
-!184 = !{!"_ZTSN3gmx8ArrayRefIfEE", !185, i64 0, !185, i64 8}
-!185 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !6, i64 0}
-!186 = !{!"_ZTSSt6vectorI9pmegrid_tSaIS0_EE", !187, i64 0}
-!187 = !{!"_ZTSSt12_Vector_baseI9pmegrid_tSaIS0_EE", !188, i64 0}
-!188 = !{!"_ZTSNSt12_Vector_baseI9pmegrid_tSaIS0_EE12_Vector_implE", !189, i64 0}
-!189 = !{!"_ZTSNSt12_Vector_baseI9pmegrid_tSaIS0_EE17_Vector_impl_dataE", !190, i64 0, !190, i64 8, !190, i64 16}
-!190 = !{!"p1 _ZTS9pmegrid_t", !7, i64 0}
-!191 = !{!"_ZTSSt5arrayISt6vectorIiSaIiEELm3EE", !8, i64 0}
-!192 = !{!"p1 _ZTS9t_complex", !7, i64 0}
-!193 = !{!"_ZTSSt10unique_ptrI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEEE", !194, i64 0}
-!194 = !{!"_ZTSSt15__uniq_ptr_dataI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEELb1ELb1EE", !195, i64 0}
-!195 = !{!"_ZTSSt15__uniq_ptr_implI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEEE", !196, i64 0}
-!196 = !{!"_ZTSSt5tupleIJP18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyS1_EEEEEE", !197, i64 0}
-!197 = !{!"_ZTSSt11_Tuple_implILm0EJP18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyS1_EEEEEE", !198, i64 0}
-!198 = !{!"_ZTSSt10_Head_baseILm0EP18gmx_parallel_3dfftLb0EE", !163, i64 0}
-!199 = distinct !{!199, !30}
-!200 = distinct !{!200, !30}
+!180 = !{!83, !16, i64 104}
+!181 = distinct !{!181, !30}
+!182 = !{!183, !194, i64 208}
+!183 = !{!"_ZTS14PmeAndFftGrids", !184, i64 0, !6, i64 200, !194, i64 208, !195, i64 216}
+!184 = !{!"_ZTS10pmegrids_t", !185, i64 0, !40, i64 72, !8, i64 76, !188, i64 88, !193, i64 112, !8, i64 184}
+!185 = !{!"_ZTS9pmegrid_t", !8, i64 0, !8, i64 12, !8, i64 24, !40, i64 36, !8, i64 40, !186, i64 56}
+!186 = !{!"_ZTSN3gmx8ArrayRefIfEE", !187, i64 0, !187, i64 8}
+!187 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !6, i64 0}
+!188 = !{!"_ZTSSt6vectorI9pmegrid_tSaIS0_EE", !189, i64 0}
+!189 = !{!"_ZTSSt12_Vector_baseI9pmegrid_tSaIS0_EE", !190, i64 0}
+!190 = !{!"_ZTSNSt12_Vector_baseI9pmegrid_tSaIS0_EE12_Vector_implE", !191, i64 0}
+!191 = !{!"_ZTSNSt12_Vector_baseI9pmegrid_tSaIS0_EE17_Vector_impl_dataE", !192, i64 0, !192, i64 8, !192, i64 16}
+!192 = !{!"p1 _ZTS9pmegrid_t", !7, i64 0}
+!193 = !{!"_ZTSSt5arrayISt6vectorIiSaIiEELm3EE", !8, i64 0}
+!194 = !{!"p1 _ZTS9t_complex", !7, i64 0}
+!195 = !{!"_ZTSSt10unique_ptrI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEEE", !196, i64 0}
+!196 = !{!"_ZTSSt15__uniq_ptr_dataI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEELb1ELb1EE", !197, i64 0}
+!197 = !{!"_ZTSSt15__uniq_ptr_implI18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyPS0_EEEEE", !198, i64 0}
+!198 = !{!"_ZTSSt5tupleIJP18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyS1_EEEEEE", !199, i64 0}
+!199 = !{!"_ZTSSt11_Tuple_implILm0EJP18gmx_parallel_3dfftN3gmx15functor_wrapperIS0_XadL_Z22parallel_3dfft_destroyS1_EEEEEE", !200, i64 0}
+!200 = !{!"_ZTSSt10_Head_baseILm0EP18gmx_parallel_3dfftLb0EE", !163, i64 0}
 !201 = distinct !{!201, !30}
 !202 = distinct !{!202, !30}
 !203 = distinct !{!203, !30}
@@ -3924,8 +3924,11 @@ attributes #28 = { builtin allocsize(0) }
 !209 = distinct !{!209, !30}
 !210 = distinct !{!210, !30}
 !211 = distinct !{!211, !30}
-!212 = distinct !{!212, !30}
+!212 = distinct !{!212, !30, !175}
 !213 = distinct !{!213, !30}
 !214 = distinct !{!214, !30}
 !215 = distinct !{!215, !30}
 !216 = distinct !{!216, !30}
+!217 = distinct !{!217, !30}
+!218 = distinct !{!218, !30}
+!219 = distinct !{!219, !30}

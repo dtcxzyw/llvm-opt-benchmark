@@ -1627,7 +1627,7 @@ tailrecurse.us:                                   ; preds = %7
   %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %9, ptr nonnull @_ZTIN6icu_777UObjectE, ptr nonnull @_ZTIN6icu_777MeasureE, i64 0) #20
   %.not.us = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us
+  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us, !llvm.loop !33
 
 .split21.us:                                      ; preds = %.lr.ph.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.tr19.us, i64 8
@@ -1719,7 +1719,7 @@ tailrecurse.us:                                   ; preds = %7
   %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %9, ptr nonnull @_ZTIN6icu_777UObjectE, ptr nonnull @_ZTIN6icu_777MeasureE, i64 0) #20
   %.not.us = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us
+  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us, !llvm.loop !35
 
 .split20.us:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.tr18.us, i64 8
@@ -1824,7 +1824,7 @@ tailrecurse.us:                                   ; preds = %7
   %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %9, ptr nonnull @_ZTIN6icu_777UObjectE, ptr nonnull @_ZTIN6icu_777MeasureE, i64 0) #20
   %.not.us = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us
+  br i1 %.not.us, label %.split.us, label %.lr.ph.split.us, !llvm.loop !36
 
 .split15.us:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.tr13.us, i64 8
@@ -2778,7 +2778,7 @@ tailrecurse.us.i:                                 ; preds = %7
   %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %9, ptr nonnull @_ZTIN6icu_777UObjectE, ptr nonnull @_ZTIN6icu_777MeasureE, i64 0) #20
   %.not.us.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.not.us.i, label %.split.us.i, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.split.us.i, label %.lr.ph.split.us.i, !llvm.loop !36
 
 .split15.us.i:                                    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i
   %13 = getelementptr inbounds nuw i8, ptr %.tr13.us.i, i64 8
@@ -2831,7 +2831,7 @@ tailrecurse.us.i:                                 ; preds = %7
   %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %9, ptr nonnull @_ZTIN6icu_777UObjectE, ptr nonnull @_ZTIN6icu_777MeasureE, i64 0) #20
   %.not.us.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.not.us.i, label %.split.us.i, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.split.us.i, label %.lr.ph.split.us.i, !llvm.loop !33
 
 .split21.us.i:                                    ; preds = %.lr.ph.split.us.i
   %13 = getelementptr inbounds nuw i8, ptr %.tr19.us.i, i64 8
@@ -3179,3 +3179,7 @@ attributes #22 = { noreturn nounwind }
 !30 = !{!31, !9, i64 56}
 !31 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !32 = distinct !{!32, !28}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}

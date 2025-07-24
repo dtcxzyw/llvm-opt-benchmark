@@ -9259,7 +9259,7 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   %53 = icmp ult ptr %52, %25
-  br i1 %53, label %41, label %.preheader, !llvm.loop !294
+  br i1 %53, label %41, label %.preheader, !llvm.loop !295
 
 .split.us:                                        ; preds = %35
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -9463,7 +9463,7 @@ define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 9, 11) %0, ptr
 
 .loopexit:                                        ; preds = %.lr.ph, %48
   %31 = icmp ult i64 %44, %7
-  br i1 %31, label %.lr.ph99, label %.thread, !llvm.loop !295
+  br i1 %31, label %.lr.ph99, label %.thread, !llvm.loop !296
 
 .lr.ph99:                                         ; preds = %.preheader, %.loopexit
   %.06498 = phi i64 [ %44, %.loopexit ], [ 0, %.preheader ]
@@ -10016,6 +10016,7 @@ attributes #28 = { nounwind willreturn memory(read) }
 !290 = !{!72, !5, i64 3272}
 !291 = distinct !{!291, !66}
 !292 = distinct !{!292, !66}
-!293 = distinct !{!293, !66}
-!294 = distinct !{!294, !66}
+!293 = distinct !{!293, !66, !294}
+!294 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !295 = distinct !{!295, !66}
+!296 = distinct !{!296, !66}

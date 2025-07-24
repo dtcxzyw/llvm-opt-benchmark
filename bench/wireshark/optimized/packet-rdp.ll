@@ -3301,7 +3301,7 @@ find_known_channel_by_name.exit.i:                ; preds = %175, %172, %169, %1
   %181 = call i32 @llvm.umin.i32(i32 %180, i32 31)
   %182 = zext nneg i32 %181 to i64
   %183 = icmp samesign ult i64 %indvars.iv.next.i, %182
-  br i1 %183, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !13
+  br i1 %183, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !15
 
 ._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
   %.035.lcssa53.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
@@ -3364,7 +3364,7 @@ dissect_rdp_clientNetworkData.exit:               ; preds = %.lr.ph.split.us.i, 
   %204 = add nuw i32 %.01415.i, 1
   %205 = load i32, ptr %5, align 4
   %206 = icmp ult i32 %204, %205
-  br i1 %206, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !14
+  br i1 %206, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !16
 
 dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %192
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #14
@@ -3408,7 +3408,7 @@ dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %192
   %233 = add i32 %232, %.0107
   %234 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %233)
   %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %120, label %._crit_edge, !llvm.loop !15
+  br i1 %235, label %120, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %231, %copy_address_wmem.exit
   %236 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3742,7 +3742,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %90
   %167 = load i32, ptr %9, align 4
   %168 = zext i32 %167 to i64
   %169 = icmp samesign ult i64 %indvars.iv.next, %168
-  br i1 %169, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %169, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %165
   %170 = and i32 %167, 1
@@ -3786,7 +3786,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %90
   %195 = add i32 %194, %.0108119
   %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %195)
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %111, label %._crit_edge121, !llvm.loop !17
+  br i1 %197, label %111, label %._crit_edge121, !llvm.loop !19
 
 ._crit_edge121:                                   ; preds = %._crit_edge.thread, %rdp_get_conversation_data.exit
   %198 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3865,7 +3865,7 @@ define internal i32 @rdp_udp_conversation_hash(ptr noundef readonly captures(non
   %23 = xor i32 %22, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !20
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ %11, %1 ], [ %23, %.lr.ph.i ]
@@ -3881,7 +3881,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %29 = add i32 %.013, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %30, label %25, !llvm.loop !19
+  br i1 %exitcond.not, label %30, label %25, !llvm.loop !21
 
 30:                                               ; preds = %25
   ret i32 %29
@@ -5071,7 +5071,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
 508:                                              ; preds = %509
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %find_channel_type.exit.thread.i, label %509, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %find_channel_type.exit.thread.i, label %509, !llvm.loop !22
 
 509:                                              ; preds = %508, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %508 ]
@@ -5180,7 +5180,7 @@ find_channel_type.exit.thread.i:                  ; preds = %508, %515, %find_ch
 555:                                              ; preds = %556
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %dissect_rdp_channelPDU.exit, label %556, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %dissect_rdp_channelPDU.exit, label %556, !llvm.loop !22
 
 556:                                              ; preds = %555, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %555 ]
@@ -6175,7 +6175,7 @@ define internal fastcc i32 @dissect_rdp_capabilitySets(ptr noundef %0, i32 nound
   %53 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.01720, ptr noundef %2, ptr noundef %51, ptr noundef nonnull %., i32 noundef 0)
   %54 = add nuw i32 %.01819, 1
   %exitcond.not = icmp eq i32 %54, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.017.lcssa = phi i32 [ %1, %5 ], [ %53, %.lr.ph ]
@@ -6249,8 +6249,8 @@ attributes #18 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
@@ -6258,3 +6258,5 @@ attributes #18 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

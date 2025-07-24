@@ -1519,7 +1519,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   call void @appendPQExpBufferChar(ptr noundef %.0141, i8 noundef signext %91) #11
   %92 = add i32 %89, -1
   %.not126 = icmp eq i32 %89, 0
-  br i1 %.not126, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not126, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %80, %44, %55, %71, %61, %64, %50, %29
   %.2111 = phi i8 [ %.1110, %29 ], [ 0, %50 ], [ 0, %55 ], [ 0, %61 ], [ 0, %64 ], [ %.0109138, %71 ], [ 0, %44 ], [ %.0109138, %80 ], [ %.0109138, %.lr.ph.split.us ], [ %.0109138, %.lr.ph.split ]
@@ -1528,7 +1528,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %.1 = phi ptr [ %.0141, %29 ], [ %.0141, %50 ], [ %.0141, %55 ], [ %62, %61 ], [ %.0141, %64 ], [ %.0141, %71 ], [ %.0141, %44 ], [ %.0141, %80 ], [ %.0141, %.lr.ph.split.us ], [ %.0141, %.lr.ph.split ]
   %93 = load i8, ptr %.2104, align 1
   %.not120 = icmp eq i8 %93, 0
-  br i1 %.not120, label %._crit_edge, label %.lr.ph143, !llvm.loop !23
+  br i1 %.not120, label %._crit_edge, label %.lr.ph143, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %13
   %.0.lcssa = phi ptr [ %9, %13 ], [ %.1, %.loopexit ]
@@ -1636,5 +1636,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!22 = distinct !{!22, !5, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}

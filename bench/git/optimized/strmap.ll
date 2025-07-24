@@ -107,7 +107,7 @@ define internal fastcc void @strmap_free_entries_(ptr noundef %0, i32 noundef %1
 .lr.ph.split:                                     ; preds = %.lr.ph, %19
   %.014 = phi ptr [ %20, %19 ], [ %9, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %.014, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
   call void @free(ptr noundef %16) #10
   %17 = load ptr, ptr %10, align 8, !tbaa !13
   %.not12 = icmp eq ptr %17, null
@@ -120,7 +120,7 @@ define internal fastcc void @strmap_free_entries_(ptr noundef %0, i32 noundef %1
 19:                                               ; preds = %.lr.ph.split, %18
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #10
   %.not11 = icmp eq ptr %20, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not11, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %19, %13, %8, %5, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
@@ -144,8 +144,8 @@ define dso_local ptr @strmap_put(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %5 = tail call i32 @strhash(ptr noundef %1) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %5, ptr %6, align 8, !tbaa !21
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store i32 %5, ptr %6, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %7, align 8, !tbaa !4
   %8 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #10
@@ -155,8 +155,8 @@ define dso_local ptr @strmap_put(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
-  store ptr %2, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  store ptr %2, ptr %10, align 8, !tbaa !21
   br label %14
 
 12:                                               ; preds = %3
@@ -250,8 +250,8 @@ st_add.exit32:                                    ; preds = %st_add.exit31
   %.0 = phi ptr [ %27, %st_add.exit32 ], [ %17, %st_add.exit30 ], [ %34, %33 ], [ %32, %31 ]
   %36 = tail call i32 @strhash(ptr noundef %1) #10
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !21
-  store ptr null, ptr %.0, align 8, !tbaa !22
+  store i32 %36, ptr %37, align 8, !tbaa !23
+  store ptr null, ptr %.0, align 8, !tbaa !24
   %38 = load i8, ptr %4, align 8
   %39 = and i8 %38, 1
   %.not29 = icmp eq i8 %39, 0
@@ -264,7 +264,7 @@ st_add.exit32:                                    ; preds = %st_add.exit31
 
 42:                                               ; preds = %40, %35
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %2, ptr %43, align 8, !tbaa !20
+  store ptr %2, ptr %43, align 8, !tbaa !21
   ret ptr %.0
 }
 
@@ -276,8 +276,8 @@ define dso_local ptr @strmap_get_entry(ptr noundef %0, ptr noundef %1) local_unn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %4 = tail call i32 @strhash(ptr noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %4, ptr %5, align 8, !tbaa !21
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store i32 %4, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %3, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !4
   %7 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #10
@@ -291,8 +291,8 @@ define dso_local ptr @strmap_get(ptr noundef %0, ptr noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %4 = tail call i32 @strhash(ptr noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %4, ptr %5, align 8, !tbaa !21
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store i32 %4, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %3, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !4
   %7 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #10
@@ -302,7 +302,7 @@ define dso_local ptr @strmap_get(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -316,8 +316,8 @@ define dso_local range(i32 0, 2) i32 @strmap_contains(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %4 = tail call i32 @strhash(ptr noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %4, ptr %5, align 8, !tbaa !21
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store i32 %4, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %3, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !4
   %7 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #10
@@ -333,8 +333,8 @@ define dso_local void @strmap_remove(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %5 = tail call i32 @strhash(ptr noundef %1) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %5, ptr %6, align 8, !tbaa !21
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store i32 %5, ptr %6, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %7, align 8, !tbaa !4
   %8 = call ptr @hashmap_remove(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #10
@@ -347,7 +347,7 @@ define dso_local void @strmap_remove(ptr noundef %0, ptr noundef %1, i32 noundef
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   call void @free(ptr noundef %12) #10
   br label %13
 
@@ -380,8 +380,8 @@ define dso_local void @strintmap_incr(ptr noundef %0, ptr noundef %1, i64 nounde
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   %6 = tail call i32 @strhash(ptr noundef %1) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %6, ptr %7, align 8, !tbaa !21
-  store ptr null, ptr %5, align 8, !tbaa !22
+  store i32 %6, ptr %7, align 8, !tbaa !23
+  store ptr null, ptr %5, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %8, align 8, !tbaa !4
   %9 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #10
@@ -391,22 +391,22 @@ define dso_local void @strintmap_incr(ptr noundef %0, ptr noundef %1, i64 nounde
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !23
+  %12 = load i64, ptr %11, align 8, !tbaa !25
   %13 = add nsw i64 %12, %2
-  store i64 %13, ptr %11, align 8, !tbaa !23
+  store i64 %13, ptr %11, align 8, !tbaa !25
   br label %strintmap_set.exit
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !25
+  %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = sext i32 %16 to i64
   %18 = add nsw i64 %2, %17
   %19 = inttoptr i64 %18 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %20 = call i32 @strhash(ptr noundef %1) #10
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %20, ptr %21, align 8, !tbaa !21
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store i32 %20, ptr %21, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %22, align 8, !tbaa !4
   %23 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #10
@@ -416,7 +416,7 @@ define dso_local void @strintmap_incr(ptr noundef %0, ptr noundef %1, i64 nounde
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr %19, ptr %25, align 8, !tbaa !20
+  store ptr %19, ptr %25, align 8, !tbaa !21
   br label %strintmap_set.exit
 
 26:                                               ; preds = %14
@@ -434,8 +434,8 @@ define dso_local range(i32 0, 2) i32 @strset_add(ptr noundef %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %4 = tail call i32 @strhash(ptr noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %4, ptr %5, align 8, !tbaa !21
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store i32 %4, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %3, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !4
   %7 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #10
@@ -504,12 +504,14 @@ attributes #11 = { noreturn nounwind }
 !15 = !{!"hashmap", !16, i64 0, !8, i64 8, !8, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40}
 !16 = !{!"p2 _ZTS13hashmap_entry", !8, i64 0}
 !17 = !{!"p1 _ZTS8mem_pool", !8, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!5, !8, i64 24}
-!21 = !{!6, !11, i64 8}
-!22 = !{!6, !7, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !9, i64 0}
-!25 = !{!26, !11, i64 64}
-!26 = !{!"strintmap", !14, i64 0, !11, i64 64}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!5, !8, i64 24}
+!22 = distinct !{!22, !19}
+!23 = !{!6, !11, i64 8}
+!24 = !{!6, !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !9, i64 0}
+!27 = !{!28, !11, i64 64}
+!28 = !{!"strintmap", !14, i64 0, !11, i64 64}

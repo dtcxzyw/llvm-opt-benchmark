@@ -398,7 +398,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
 42:                                               ; preds = %37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Io_ReadEqnStrFind.exit.thread, label %37, !llvm.loop !41
+  br i1 %exitcond.not.i, label %Io_ReadEqnStrFind.exit.thread, label %37, !llvm.loop !42
 
 Io_ReadEqnStrFind.exit.thread:                    ; preds = %42, %.lr.ph.split
   %43 = load i32, ptr %3, align 8, !tbaa !27
@@ -467,7 +467,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 Io_ReadEqnStrFind.exit:                           ; preds = %37, %Vec_PtrPush.exit
   %70 = tail call ptr @strtok(ptr noundef null, ptr noundef %1) #9
   %.not = icmp eq ptr %70, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %Io_ReadEqnStrFind.exit, %Vec_PtrPush.exit.us, %4
   ret void
@@ -561,5 +561,7 @@ attributes #12 = { nounwind allocsize(1) }
 !37 = distinct !{!37, !35}
 !38 = !{!4, !9, i64 256}
 !39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
+!40 = distinct !{!40, !35, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !35}
+!43 = distinct !{!43, !35}

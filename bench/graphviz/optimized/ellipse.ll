@@ -286,30 +286,30 @@ moveTo.exit.i:                                    ; preds = %135
 .lr.ph14.split.i.i.i:                             ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph14.split.i.i.preheader.i
   %.pre.i.i115.i = phi i64 [ %192, %.lr.ph14.split.i.i.preheader.i ], [ %198, %._crit_edge.loopexit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !27
   br label %.lr.ph.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %198 = add i64 %.pre.i.i115.i, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not.i.i.i = icmp eq i64 %198, 0
-  br i1 %.not.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.i.i.i, !llvm.loop !28
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph14.split.i.i.i
   %.0.in11.i.i.i = phi i64 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %193, %.lr.ph14.split.i.i.i ]
   %.0.i.i.i = add i64 %.0.in11.i.i.i, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %199 = getelementptr inbounds nuw %struct.pointf_s, ptr %195, i64 %.0.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %.not9.i.i.i = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not9.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 genEllipticPath.exit:                             ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph14.split.us.i.i.i, %._crit_edge.i
   %200 = load ptr, ptr %9, align 8, !tbaa !13
-  store ptr %200, ptr %20, align 8, !tbaa !30
+  store ptr %200, ptr %20, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   ret ptr %20
 }
@@ -630,9 +630,10 @@ attributes #17 = { cold noreturn nounwind }
 !22 = !{!14, !16, i64 8}
 !23 = !{!24, !16, i64 8}
 !24 = !{!"Ppoly_t", !15, i64 0, !16, i64 8}
-!25 = distinct !{!25, !11}
-!26 = !{i64 0, i64 8, !18, i64 8, i64 8, !18}
-!27 = distinct !{!27, !11, !28}
-!28 = !{!"llvm.loop.unswitch.partial.disable"}
-!29 = distinct !{!29, !11}
-!30 = !{!24, !15, i64 0}
+!25 = distinct !{!25, !11, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{i64 0, i64 8, !18, i64 8, i64 8, !18}
+!28 = distinct !{!28, !11, !29}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !11}
+!31 = !{!24, !15, i64 0}

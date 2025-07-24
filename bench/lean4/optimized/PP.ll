@@ -44368,7 +44368,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -44935,7 +44935,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -46405,7 +46405,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -47210,7 +47210,7 @@ lean_nat_eq.exit:                                 ; preds = %4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %6, %14
   %brmerge.not.not = icmp eq i64 %15, 0
-  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !19
+  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !23
 
 lean_nat_le.exit:                                 ; preds = %10
   %16 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %13, ptr noundef %3) #4
@@ -55400,9 +55400,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @l_ReaderT_pure___at_Lean_Meta_etaStruct_x3f_sameParams___spec__1___rarg___boxed, ptr %55, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i16 6, ptr %56, align 8, !tbaa !20
+  store i16 6, ptr %56, align 8, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 18
-  store i16 1, ptr %57, align 2, !tbaa !20
+  store i16 1, ptr %57, align 2, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %46, ptr %58, align 8, !tbaa !10
   %59 = tail call ptr @l_Lean_MVarId_withContext___at___private_Lean_Meta_SynthInstance_0__Lean_Meta_synthPendingImp___spec__2___rarg(ptr noundef %22, ptr noundef nonnull %51, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #4
@@ -55480,9 +55480,9 @@ lean_alloc_closure.exit54:                        ; preds = %lean_inc.exit
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr @l_Lean_Meta_Grind_goalToMessageData___lambda__1, ptr %85, align 8, !tbaa !10
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store i16 9, ptr %86, align 8, !tbaa !20
+  store i16 9, ptr %86, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 18
-  store i16 4, ptr %87, align 2, !tbaa !20
+  store i16 4, ptr %87, align 2, !tbaa !24
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %0, ptr %88, align 8, !tbaa !10
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -56263,9 +56263,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_PP_0__Lean_Meta_Grind_Goal_ppENodeDecl___lambda__1___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !20
+  store i16 7, ptr %6, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !20
+  store i16 0, ptr %7, align 2, !tbaa !24
   ret ptr %1
 }
 
@@ -56415,9 +56415,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Expr_isTrue___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !20
+  store i16 1, ptr %6, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !20
+  store i16 0, ptr %7, align 2, !tbaa !24
   ret ptr %1
 }
 
@@ -56441,9 +56441,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Expr_isFalse___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !20
+  store i16 1, ptr %6, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !20
+  store i16 0, ptr %7, align 2, !tbaa !24
   ret ptr %1
 }
 
@@ -56778,9 +56778,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_PP_0__Lean_Meta_Grind_ppOffset___lambda__3___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 8, ptr %6, align 8, !tbaa !20
+  store i16 8, ptr %6, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !20
+  store i16 0, ptr %7, align 2, !tbaa !24
   ret ptr %1
 }
 
@@ -56908,9 +56908,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_PP_0__Lean_Meta_Grind_ppThresholds___lambda__1___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !20
+  store i16 9, ptr %6, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !20
+  store i16 0, ptr %7, align 2, !tbaa !24
   ret ptr %1
 }
 
@@ -57077,6 +57077,10 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !7, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!"branch_weights", i32 4001, i32 4000000}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"short", !7, i64 0}

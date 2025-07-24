@@ -8987,7 +8987,7 @@ lean_int_dec_eq.exit38.us:                        ; preds = %.critedge.i.i37.us,
   br label %lean_dec.exit.us
 
 lean_dec.exit.us:                                 ; preds = %34, %33, %32, %lean_int_dec_eq.exit38.us
-  br i1 %.0.i.i36.us, label %.split.us, label %lean_dec.exit22
+  br i1 %.0.i.i36.us, label %.split.us, label %lean_dec.exit22, !llvm.loop !17
 
 .split:                                           ; preds = %2
   %36 = icmp ult i64 %5, 4294967296
@@ -9073,7 +9073,7 @@ lean_int_dec_eq.exit38.us54:                      ; preds = %.critedge.i.i37.us5
   br label %lean_dec.exit.us58
 
 lean_dec.exit.us58:                               ; preds = %66, %65, %64, %lean_int_dec_eq.exit38.us54
-  br i1 %.0.i.i36.us55, label %.split.split.us, label %lean_dec.exit22
+  br i1 %.0.i.i36.us55, label %.split.split.us, label %lean_dec.exit22, !llvm.loop !19
 
 .split.split:                                     ; preds = %.split, %lean_dec.exit
   %.020 = phi ptr [ %119, %lean_dec.exit ], [ %1, %.split ]
@@ -9402,7 +9402,7 @@ lean_int_dec_eq.exit.us:                          ; preds = %.critedge.i.i.us, %
   br label %lean_dec.exit.us
 
 lean_dec.exit.us:                                 ; preds = %34, %33, %32, %lean_int_dec_eq.exit.us
-  br i1 %.0.i.i.us, label %.split.us, label %.split20.us
+  br i1 %.0.i.i.us, label %.split.us, label %.split20.us, !llvm.loop !20
 
 .split:                                           ; preds = %2
   %36 = icmp ult i64 %5, 4294967296
@@ -9488,7 +9488,7 @@ lean_int_dec_eq.exit.us32:                        ; preds = %.critedge.i.i.us31,
   br label %lean_dec.exit.us36
 
 lean_dec.exit.us36:                               ; preds = %66, %65, %64, %lean_int_dec_eq.exit.us32
-  br i1 %.0.i.i.us33, label %.split.split.us, label %.split20.us
+  br i1 %.0.i.i.us33, label %.split.split.us, label %.split20.us, !llvm.loop !21
 
 .split.split:                                     ; preds = %.split, %lean_dec.exit
   %.014 = phi ptr [ %81, %lean_dec.exit ], [ %1, %.split ]
@@ -23987,7 +23987,7 @@ lean_obj_tag.exit.us:                             ; preds = %10, %7
   %18 = getelementptr inbounds nuw i8, ptr %.013.us, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %1, ptr noundef %17) #5
-  br i1 %20, label %.split28.us, label %lean_inc.exit.us
+  br i1 %20, label %.split28.us, label %lean_inc.exit.us, !llvm.loop !22
 
 lean_inc.exit:                                    ; preds = %2, %lean_inc.exit.backedge
   %.013 = phi ptr [ %37, %lean_inc.exit.backedge ], [ %0, %2 ]
@@ -28244,7 +28244,7 @@ l_Int_Linear_Poly_tail.exit.thread:               ; preds = %l_Int_Linear_Poly_t
   %24 = phi i32 [ %.pr, %l_Int_Linear_Poly_tail.exit.threadthread-pre-split ], [ %10, %9 ]
   %.0.i5 = phi ptr [ %.0.i5.ph, %l_Int_Linear_Poly_tail.exit.threadthread-pre-split ], [ %0, %9 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !17
+  br i1 %25, label %26, label %28, !prof !23
 
 26:                                               ; preds = %l_Int_Linear_Poly_tail.exit.thread
   %27 = add nsw i32 %24, -1
@@ -39178,4 +39178,10 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!"branch_weights", i32 4000000, i32 4001}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !9, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 2146599755, i32 883893}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!"branch_weights", !"expected", i32 2146599755, i32 883893}

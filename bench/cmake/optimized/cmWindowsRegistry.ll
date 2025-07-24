@@ -1287,12 +1287,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.split
 16:                                               ; preds = %.lr.ph.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %.sroa.028.0 = load ptr, ptr %.sroa.028.047, align 8, !tbaa !30
   %.not38 = icmp eq ptr %.sroa.028.0, null
-  br i1 %.not38, label %.thread, label %.lr.ph.split, !llvm.loop !71
+  br i1 %.not38, label %.thread, label %.lr.ph.split, !llvm.loop !73
 
 .thread:                                          ; preds = %16, %12, %..thread_crit_edge, %7
   %17 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.sroa.01.0.copyload.i.i.fr, %7 ], [ %.sroa.01.0.copyload.i.i.fr, %12 ], [ %.sroa.01.0.copyload.i.i.fr, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !72
+  %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %19, i64 noundef %17, i64 noundef 3339675911)
           to label %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit unwind label %21
 
@@ -1325,7 +1325,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
   %.sroa.22.0.copyload.i.i.i.i.i = load ptr, ptr %18, align 8
   %35 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.fr.i.i, 0
   %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !73
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !75
   br i1 %35, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %33, %43
@@ -1347,10 +1347,10 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %45 = load i64, ptr %44, align 8, !tbaa !73
+  %45 = load i64, ptr %44, align 8, !tbaa !75
   %46 = urem i64 %45, %25
   %.not19.us.i.i = icmp eq i64 %46, %26
-  br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge, !llvm.loop !75
+  br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge, !llvm.loop !77
 
 .split.i.i:                                       ; preds = %33, %55
   %47 = phi i64 [ %57, %55 ], [ %.pre26.i.i, %33 ]
@@ -1378,17 +1378,17 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %49
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %57 = load i64, ptr %56, align 8, !tbaa !73
+  %57 = load i64, ptr %56, align 8, !tbaa !75
   %58 = urem i64 %57, %25
   %.not19.i.i = icmp eq i64 %58, %26
-  br i1 %.not19.i.i, label %.split.i.i, label %.critedge, !llvm.loop !75
+  br i1 %.not19.i.i, label %.split.i.i, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %55, %53, %41, %43, %29, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %60 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   store ptr null, ptr %60, align 8, !tbaa !30
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !79
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %63 = load i32, ptr %59, align 8, !tbaa !22
   store i32 %63, ptr %62, align 8, !tbaa !18
@@ -1413,7 +1413,7 @@ _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWi
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !77
+  %8 = load i64, ptr %7, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1433,7 +1433,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #22
-  store i64 %8, ptr %7, align 8, !tbaa !77
+  store i64 %8, ptr %7, align 8, !tbaa !80
   invoke void @__cxa_rethrow() #24
           to label %28 unwind label %22
 
@@ -1464,7 +1464,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWin
 31:                                               ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %2, ptr %32, align 8, !tbaa !73
+  store i64 %2, ptr %32, align 8, !tbaa !75
   %33 = load ptr, ptr %0, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !42
@@ -1490,7 +1490,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWin
 43:                                               ; preds = %39
   %44 = load i64, ptr %9, align 8, !tbaa !34
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %46 = load i64, ptr %45, align 8, !tbaa !73
+  %46 = load i64, ptr %45, align 8, !tbaa !75
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !42
@@ -1560,7 +1560,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWin
   %.02530 = phi i64 [ %.1, %28 ], [ 0, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !73
+  %16 = load i64, ptr %15, align 8, !tbaa !75
   %17 = urem i64 %16, %1
   %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !42
@@ -1591,7 +1591,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWin
 28:                                               ; preds = %20, %23, %25
   %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8, !tbaa !33
@@ -1644,7 +1644,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11
 10:                                               ; preds = %.lr.ph.split.us
   %.sroa.06.0.us = load ptr, ptr %.sroa.06.017.us, align 8, !tbaa !30
   %.not10.us = icmp eq ptr %.sroa.06.0.us, null
-  br i1 %.not10.us, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, label %.lr.ph.split.us, !llvm.loop !79
+  br i1 %.not10.us, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, label %.lr.ph.split.us, !llvm.loop !82
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
   %.sroa.06.017 = phi ptr [ %.sroa.06.0, %14 ], [ %.sroa.06.015, %.lr.ph ]
@@ -1663,11 +1663,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.split
 14:                                               ; preds = %.lr.ph.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %.sroa.06.0 = load ptr, ptr %.sroa.06.017, align 8, !tbaa !30
   %.not10 = icmp eq ptr %.sroa.06.0, null
-  br i1 %.not10, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, label %.lr.ph.split, !llvm.loop !79
+  br i1 %.not10, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, label %.lr.ph.split, !llvm.loop !83
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !72
+  %17 = load ptr, ptr %16, align 8, !tbaa !74
   %18 = load i64, ptr %1, align 8, !tbaa !70
   %19 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %17, i64 noundef %18, i64 noundef 3339675911)
           to label %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit unwind label %20
@@ -1696,7 +1696,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
   %.sroa.22.0.copyload.i.i.i.i.i = load ptr, ptr %16, align 8
   %31 = icmp eq i64 %.sroa.01.0.copyload.i.i.i.fr.i.i, 0
   %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !73
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !75
   br i1 %31, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %29, %39
@@ -1718,10 +1718,10 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %41 = load i64, ptr %40, align 8, !tbaa !73
+  %41 = load i64, ptr %40, align 8, !tbaa !75
   %42 = urem i64 %41, %24
   %.not19.us.i.i = icmp eq i64 %42, %25
-  br i1 %.not19.us.i.i, label %.split.us.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, !llvm.loop !80
+  br i1 %.not19.us.i.i, label %.split.us.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, !llvm.loop !84
 
 .split.i.i:                                       ; preds = %29, %51
   %43 = phi i64 [ %53, %51 ], [ %.pre26.i.i, %29 ]
@@ -1749,10 +1749,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %45
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %53 = load i64, ptr %52, align 8, !tbaa !73
+  %53 = load i64, ptr %52, align 8, !tbaa !75
   %54 = urem i64 %53, %24
   %.not19.i.i = icmp eq i64 %54, %25
-  br i1 %.not19.i.i, label %.split.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, !llvm.loop !80
+  br i1 %.not19.i.i, label %.split.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, !llvm.loop !85
 
 _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %14, %.lr.ph.split.us, %10, %51, %49, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %39, %37, %34, %5, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit
   %.sroa.06.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_N17cmWindowsRegistry4ViewEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ null, %5 ], [ %.0.us.i.i, %34 ], [ null, %37 ], [ null, %39 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ null, %51 ], [ null, %49 ], [ %.sroa.06.017.us, %.lr.ph.split.us ], [ null, %10 ], [ %.sroa.06.017, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ null, %14 ]
@@ -1785,7 +1785,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewE
   br i1 %19, label %20, label %21, !prof !64
 
 20:                                               ; preds = %18
-  store ptr null, ptr %9, align 8, !tbaa !81
+  store ptr null, ptr %9, align 8, !tbaa !86
   br label %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i
 
 21:                                               ; preds = %18
@@ -1842,7 +1842,7 @@ _ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcS
 .lr.ph:                                           ; preds = %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEEC2EmRKSF_RKSD_RKS9_.exit, %30
   %.011 = phi ptr [ %31, %30 ], [ %1, %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEEC2EmRKSF_RKSD_RKS9_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
-  store ptr %0, ptr %8, align 8, !tbaa !82
+  store ptr %0, ptr %8, align 8, !tbaa !87
   %29 = invoke { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS8_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb0EEEEEEEES2_INSA_14_Node_iteratorIS8_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %.011, ptr noundef nonnull align 8 dereferenceable(24) %.011, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %30 unwind label %32
 
@@ -1850,7 +1850,7 @@ _ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   %31 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %.not = icmp eq ptr %31, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 32:                                               ; preds = %.lr.ph
   %33 = landingpad { ptr, i32 }
@@ -1896,7 +1896,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = icmp eq i32 %17, %21
-  br i1 %22, label %_ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSA_10_Hash_nodeIS8_Lb0EEEmRKT_m.exit, label %18, !llvm.loop !85
+  br i1 %22, label %_ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSA_10_Hash_nodeIS8_Lb0EEEmRKT_m.exit, label %18, !llvm.loop !90
 
 23:                                               ; preds = %18
   %24 = sext i32 %17 to i64
@@ -1914,7 +1914,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
 
 33:                                               ; preds = %36
   %34 = icmp eq i32 %7, %38
-  br i1 %34, label %_ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSA_10_Hash_nodeIS8_Lb0EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !86
+  br i1 %34, label %_ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSA_10_Hash_nodeIS8_Lb0EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !91
 
 .lr.ph.i.i:                                       ; preds = %28, %33
   %.020.i.i = phi ptr [ %35, %33 ], [ %29, %28 ]
@@ -1928,10 +1928,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !86
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !91
 
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
-  br label %.critedge, !llvm.loop !86
+  br label %.critedge, !llvm.loop !91
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
   %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
@@ -1943,7 +1943,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %43, ptr %46, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !79
   %48 = invoke ptr @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %45, i64 noundef 1)
           to label %_ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNSA_10_Hash_nodeIS8_Lb0EEEmRKT_m.exit unwind label %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20
 
@@ -1965,7 +1965,7 @@ _ZNKSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIc
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !77
+  %8 = load i64, ptr %7, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1985,7 +1985,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewES
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #22
-  store i64 %8, ptr %7, align 8, !tbaa !77
+  store i64 %8, ptr %7, align 8, !tbaa !80
   invoke void @__cxa_rethrow() #24
           to label %28 unwind label %22
 
@@ -2065,7 +2065,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN17cmWindowsRegistry4ViewE
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !81
+  store ptr null, ptr %5, align 8, !tbaa !86
   br label %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
@@ -2135,7 +2135,7 @@ _ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcS
 29:                                               ; preds = %21, %24, %26
   %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIN17cmWindowsRegistry4ViewESt4pairIKS1_St17basic_string_viewIcSt11char_traitsIcEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8, !tbaa !41
@@ -2213,7 +2213,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx111
   %21 = getelementptr inbounds nuw i8, ptr %.01215, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %.not = icmp eq ptr %21, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 23:                                               ; preds = %.noexc.i.i
   %24 = landingpad { ptr, i32 }
@@ -2279,7 +2279,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
   %.not.i = icmp eq ptr %11, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_.exit, label %.lr.ph.i, !llvm.loop !89
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_.exit, label %.lr.ph.i, !llvm.loop !94
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_.exit: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i, %2
   ret void
@@ -2289,21 +2289,21 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsI
 define internal void @_GLOBAL__sub_I_cmWindowsRegistry.cxx() #18 section ".text.startup" {
   %1 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #22
-  store i8 0, ptr %1, align 1, !tbaa !90
+  store i8 0, ptr %1, align 1, !tbaa !95
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 1, ptr %2, align 1, !tbaa !90
+  store i8 1, ptr %2, align 1, !tbaa !95
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 3, ptr %3, align 1, !tbaa !90
+  store i8 3, ptr %3, align 1, !tbaa !95
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 4, ptr %4, align 1, !tbaa !90
-  store i64 0, ptr @_ZN17cmWindowsRegistry11SimpleTypesE, align 8, !tbaa !92
+  store i8 4, ptr %4, align 1, !tbaa !95
+  store i64 0, ptr @_ZN17cmWindowsRegistry11SimpleTypesE, align 8, !tbaa !97
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i8, ptr %.09.i.i.ptr.i, align 1, !tbaa !90
+  %6 = load i8, ptr %.09.i.i.ptr.i, align 1, !tbaa !95
   %7 = zext i8 %6 to i64
   %8 = icmp ugt i8 %6, 7
   br i1 %8, label %9, label %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i
@@ -2324,7 +2324,7 @@ __cxx_global_var_init.exit:                       ; preds = %_ZNSt6bitsetILm8EE3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #22
   %12 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN17cmWindowsRegistry11SimpleTypesE)
   %spec.select.i.i = or i64 %11, 4
-  store i64 %spec.select.i.i, ptr @_ZN17cmWindowsRegistry8AllTypesE, align 8, !tbaa !92, !alias.scope !94
+  store i64 %spec.select.i.i, ptr @_ZN17cmWindowsRegistry8AllTypesE, align 8, !tbaa !97, !alias.scope !99
   %13 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN17cmWindowsRegistry8AllTypesE)
   ret void
 }
@@ -2440,29 +2440,34 @@ attributes #27 = { noreturn nounwind }
 !68 = distinct !{!68, !32}
 !69 = !{!24, !11, i64 24}
 !70 = !{!20, !11, i64 0}
-!71 = distinct !{!71, !32}
-!72 = !{!20, !6, i64 8}
-!73 = !{!74, !11, i64 0}
-!74 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !11, i64 0}
-!75 = distinct !{!75, !32}
-!76 = !{i64 0, i64 8, !10, i64 8, i64 8, !17}
-!77 = !{!28, !11, i64 8}
+!71 = distinct !{!71, !32, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !32}
+!74 = !{!20, !6, i64 8}
+!75 = !{!76, !11, i64 0}
+!76 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !11, i64 0}
+!77 = distinct !{!77, !32, !72}
 !78 = distinct !{!78, !32}
-!79 = distinct !{!79, !32}
-!80 = distinct !{!80, !32}
-!81 = !{!38, !27, i64 48}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN17cmWindowsRegistry4ViewESt17basic_string_viewIcSt11char_traitsIcEEELb0EEEEEE", !7, i64 0}
-!84 = distinct !{!84, !32}
+!79 = !{i64 0, i64 8, !10, i64 8, i64 8, !17}
+!80 = !{!28, !11, i64 8}
+!81 = distinct !{!81, !32}
+!82 = distinct !{!82, !32, !72}
+!83 = distinct !{!83, !32}
+!84 = distinct !{!84, !32, !72}
 !85 = distinct !{!85, !32}
-!86 = distinct !{!86, !32}
-!87 = distinct !{!87, !32}
-!88 = distinct !{!88, !32}
+!86 = !{!38, !27, i64 48}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN17cmWindowsRegistry4ViewESt17basic_string_viewIcSt11char_traitsIcEEELb0EEEEEE", !7, i64 0}
 !89 = distinct !{!89, !32}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"_ZTSN17cmWindowsRegistry9ValueTypeE", !8, i64 0}
-!92 = !{!93, !11, i64 0}
-!93 = !{!"_ZTSSt12_Base_bitsetILm1EE", !11, i64 0}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN2cmplIN17cmWindowsRegistry9ValueTypeELm8EEENS_8enum_setIT_XT0_ELi0EEERKS5_S4_: argument 0"}
-!96 = distinct !{!96, !"_ZN2cmplIN17cmWindowsRegistry9ValueTypeELm8EEENS_8enum_setIT_XT0_ELi0EEERKS5_S4_"}
+!90 = distinct !{!90, !32}
+!91 = distinct !{!91, !32}
+!92 = distinct !{!92, !32}
+!93 = distinct !{!93, !32}
+!94 = distinct !{!94, !32}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"_ZTSN17cmWindowsRegistry9ValueTypeE", !8, i64 0}
+!97 = !{!98, !11, i64 0}
+!98 = !{!"_ZTSSt12_Base_bitsetILm1EE", !11, i64 0}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZN2cmplIN17cmWindowsRegistry9ValueTypeELm8EEENS_8enum_setIT_XT0_ELi0EEERKS5_S4_: argument 0"}
+!101 = distinct !{!101, !"_ZN2cmplIN17cmWindowsRegistry9ValueTypeELm8EEENS_8enum_setIT_XT0_ELi0EEERKS5_S4_"}

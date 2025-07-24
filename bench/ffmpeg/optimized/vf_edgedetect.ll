@@ -292,7 +292,7 @@ color_mix.exit:                                   ; preds = %._crit_edge.us.i, %
   %101 = load i32, ptr %25, align 4, !tbaa !26
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %33, label %._crit_edge, !llvm.loop !59
+  br i1 %103, label %33, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %color_mix.exit, %24
   br i1 %.not83, label %104, label %105
@@ -318,9 +318,9 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !60
+  %6 = load i32, ptr %5, align 4, !tbaa !61
   %7 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %6) #7
-  %8 = load i32, ptr %5, align 4, !tbaa !60
+  %8 = load i32, ptr %5, align 4, !tbaa !61
   %9 = icmp eq i32 %8, 8
   %10 = select i1 %9, i32 1, i32 3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 108
@@ -337,7 +337,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %18 = load i32, ptr %11, align 4, !tbaa !26
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %21, label %._crit_edge, !llvm.loop !61
+  br i1 %20, label %21, label %._crit_edge, !llvm.loop !62
 
 21:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
@@ -346,9 +346,9 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %.not, label %.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr %13, align 2, !tbaa !62
+  %24 = load i8, ptr %13, align 2, !tbaa !63
   %25 = zext i8 %24 to i32
-  %26 = load i8, ptr %14, align 1, !tbaa !65
+  %26 = load i8, ptr %14, align 1, !tbaa !66
   %27 = zext i8 %26 to i32
   br label %.thread
 
@@ -514,11 +514,12 @@ attributes #8 = { noreturn nounwind }
 !55 = !{!47, !11, i64 0}
 !56 = !{!8, !8, i64 0}
 !57 = distinct !{!57, !28}
-!58 = distinct !{!58, !28}
-!59 = distinct !{!59, !28}
-!60 = !{!33, !15, i64 36}
-!61 = distinct !{!61, !28}
-!62 = !{!63, !8, i64 10}
-!63 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !64, i64 16, !8, i64 24, !11, i64 104}
-!64 = !{!"long", !8, i64 0}
-!65 = !{!63, !8, i64 9}
+!58 = distinct !{!58, !28, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !28}
+!61 = !{!33, !15, i64 36}
+!62 = distinct !{!62, !28}
+!63 = !{!64, !8, i64 10}
+!64 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !65, i64 16, !8, i64 24, !11, i64 104}
+!65 = !{!"long", !8, i64 0}
+!66 = !{!64, !8, i64 9}

@@ -70,7 +70,7 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %32 = mul nsw i32 %31, %27
   %33 = add nsw i32 %23, %32
   %exitcond.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %17
   %34 = ashr i32 %33, 15
@@ -98,7 +98,7 @@ define void @ff_acelp_interpolatef(ptr noundef writeonly captures(none) %0, ptr 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %10 = zext nneg i32 %6 to i64
   %11 = shl nuw nsw i64 %10, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %11, i1 false), !tbaa !11
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %11, i1 false), !tbaa !12
   br label %._crit_edge31
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -119,28 +119,28 @@ define void @ff_acelp_interpolatef(ptr noundef writeonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %.029.us = phi float [ 0.000000e+00, %.preheader.us ], [ %24, %14 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv34
-  %15 = load float, ptr %gep, align 4, !tbaa !11
+  %15 = load float, ptr %gep, align 4, !tbaa !12
   %gep45 = getelementptr float, ptr %invariant.gep44, i64 %indvars.iv
-  %16 = load float, ptr %gep45, align 4, !tbaa !11
+  %16 = load float, ptr %gep45, align 4, !tbaa !12
   %17 = tail call nsz float @llvm.fmuladd.f32(float %15, float %16, float %.029.us)
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %18 = sub nsw i64 %indvars.iv39, %indvars.iv.next35
   %19 = getelementptr inbounds float, ptr %1, i64 %18
-  %20 = load float, ptr %19, align 4, !tbaa !11
+  %20 = load float, ptr %19, align 4, !tbaa !12
   %21 = sub nsw i64 %indvars.iv.next, %13
   %22 = getelementptr inbounds float, ptr %2, i64 %21
-  %23 = load float, ptr %22, align 4, !tbaa !11
+  %23 = load float, ptr %22, align 4, !tbaa !12
   %24 = tail call nsz float @llvm.fmuladd.f32(float %20, float %23, float %17)
   %exitcond.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %14
   %25 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv39
-  store float %24, ptr %25, align 4, !tbaa !11
+  store float %24, ptr %25, align 4, !tbaa !12
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond43.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !15
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.preheader.preheader, %7
   ret void
@@ -156,8 +156,8 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.promoted = load i32, ptr %1, align 4, !tbaa !15
-  %.promoted20 = load i32, ptr %6, align 4, !tbaa !15
+  %.promoted = load i32, ptr %1, align 4, !tbaa !16
+  %.promoted20 = load i32, ptr %6, align 4, !tbaa !16
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
@@ -196,11 +196,11 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
   store i16 %.0.i, ptr %36, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %7
-  store i32 %31, ptr %1, align 4, !tbaa !15
-  store i32 %9, ptr %6, align 4, !tbaa !15
+  store i32 %31, ptr %1, align 4, !tbaa !16
+  store i32 %9, ptr %6, align 4, !tbaa !16
   br label %37
 
 37:                                               ; preds = %._crit_edge, %4
@@ -217,8 +217,8 @@ define void @ff_acelp_apply_order_2_transfer_function(ptr noundef writeonly capt
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %wide.trip.count = zext nneg i32 %6 to i64
-  %.pre = load float, ptr %5, align 4, !tbaa !11
-  %.pre22 = load float, ptr %10, align 4, !tbaa !11
+  %.pre = load float, ptr %5, align 4, !tbaa !12
+  %.pre22 = load float, ptr %10, align 4, !tbaa !12
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
@@ -226,26 +226,26 @@ define void @ff_acelp_apply_order_2_transfer_function(ptr noundef writeonly capt
   %14 = phi float [ %.pre, %.lr.ph ], [ %23, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4, !tbaa !11
-  %17 = load float, ptr %3, align 4, !tbaa !11
+  %16 = load float, ptr %15, align 4, !tbaa !12
+  %17 = load float, ptr %3, align 4, !tbaa !12
   %18 = fneg nsz float %14
   %19 = fmul nsz float %17, %18
   %20 = tail call nsz float @llvm.fmuladd.f32(float %4, float %16, float %19)
-  %21 = load float, ptr %9, align 4, !tbaa !11
+  %21 = load float, ptr %9, align 4, !tbaa !12
   %22 = fneg nsz float %21
   %23 = tail call nsz float @llvm.fmuladd.f32(float %22, float %13, float %20)
-  %24 = load float, ptr %2, align 4, !tbaa !11
+  %24 = load float, ptr %2, align 4, !tbaa !12
   %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %14, float %23)
-  %26 = load float, ptr %11, align 4, !tbaa !11
+  %26 = load float, ptr %11, align 4, !tbaa !12
   %27 = tail call nsz float @llvm.fmuladd.f32(float %26, float %13, float %25)
   %28 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %27, ptr %28, align 4, !tbaa !11
-  %29 = load float, ptr %5, align 4, !tbaa !11
-  store float %29, ptr %10, align 4, !tbaa !11
-  store float %23, ptr %5, align 4, !tbaa !11
+  store float %27, ptr %28, align 4, !tbaa !12
+  %29 = load float, ptr %5, align 4, !tbaa !12
+  store float %29, ptr %10, align 4, !tbaa !12
+  store float %23, ptr %5, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %12, %7
   ret void
@@ -256,7 +256,7 @@ define void @ff_tilt_compensation(ptr noundef captures(none) %0, float noundef %
   %5 = add nsw i32 %3, -1
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds float, ptr %2, i64 %6
-  %8 = load float, ptr %7, align 4, !tbaa !11
+  %8 = load float, ptr %7, align 4, !tbaa !12
   %9 = icmp sgt i32 %3, 1
   %10 = fneg nsz float %1
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -269,28 +269,28 @@ define void @ff_tilt_compensation(ptr noundef captures(none) %0, float noundef %
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr float, ptr %2, i64 %indvars.iv
   %14 = getelementptr i8, ptr %13, i64 -4
-  %15 = load float, ptr %14, align 4, !tbaa !11
-  %16 = load float, ptr %13, align 4, !tbaa !11
+  %15 = load float, ptr %14, align 4, !tbaa !12
+  %16 = load float, ptr %13, align 4, !tbaa !12
   %17 = tail call nsz float @llvm.fmuladd.f32(float %10, float %15, float %16)
-  store float %17, ptr %13, align 4, !tbaa !11
+  store float %17, ptr %13, align 4, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %18, label %12, label %._crit_edge, !llvm.loop !19
+  br i1 %18, label %12, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %12, %4
-  %19 = load float, ptr %0, align 4, !tbaa !11
-  %20 = load float, ptr %2, align 4, !tbaa !11
+  %19 = load float, ptr %0, align 4, !tbaa !12
+  %20 = load float, ptr %2, align 4, !tbaa !12
   %21 = tail call nsz float @llvm.fmuladd.f32(float %10, float %19, float %20)
-  store float %21, ptr %2, align 4, !tbaa !11
-  store float %8, ptr %0, align 4, !tbaa !11
+  store float %21, ptr %2, align 4, !tbaa !12
+  store float %8, ptr %0, align 4, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ff_acelp_filter_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #4 {
-  store ptr @ff_acelp_interpolatef, ptr %0, align 8, !tbaa !20
+  store ptr @ff_acelp_interpolatef, ptr %0, align 8, !tbaa !21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @ff_acelp_apply_order_2_transfer_function, ptr %2, align 8, !tbaa !23
+  store ptr @ff_acelp_apply_order_2_transfer_function, ptr %2, align 8, !tbaa !24
   ret void
 }
 
@@ -322,19 +322,20 @@ attributes #7 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"float", !6, i64 0}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"float", !6, i64 0}
 !14 = distinct !{!14, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !6, i64 0}
-!17 = distinct !{!17, !9}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !6, i64 0}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"ACELPFContext", !22, i64 0, !22, i64 8}
-!22 = !{!"any pointer", !6, i64 0}
-!23 = !{!21, !22, i64 8}
+!20 = distinct !{!20, !9}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"ACELPFContext", !23, i64 0, !23, i64 8}
+!23 = !{!"any pointer", !6, i64 0}
+!24 = !{!22, !23, i64 8}

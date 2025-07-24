@@ -2288,7 +2288,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit95: ; preds = %.lr.ph169.split, 
   %303 = add nuw nsw i64 %.0167, 1
   %304 = load i64, ptr %8, align 8, !tbaa !17
   %305 = icmp slt i64 %303, %304
-  br i1 %305, label %.lr.ph169.split, label %._crit_edge170, !llvm.loop !92
+  br i1 %305, label %.lr.ph169.split, label %._crit_edge170, !llvm.loop !94
 
 306:                                              ; preds = %._crit_edge170
   %307 = load ptr, ptr %204, align 8, !tbaa !27
@@ -2301,7 +2301,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit95: ; preds = %.lr.ph169.split, 
   %311 = phi i64 [ %267, %._crit_edge170 ], [ %.pre183, %306 ]
   %312 = add nuw nsw i64 %.072173, 1
   %313 = icmp slt i64 %312, %311
-  br i1 %313, label %211, label %._crit_edge176, !llvm.loop !93
+  br i1 %313, label %211, label %._crit_edge176, !llvm.loop !95
 
 314:                                              ; preds = %._crit_edge176
   %315 = load ptr, ptr %0, align 8, !tbaa !11
@@ -2553,5 +2553,7 @@ attributes #24 = { builtin nounwind }
 !89 = !{!"_ZTSNSt6locale5facetE", !20, i64 8}
 !90 = !{!"p1 _ZTS15__locale_struct", !7, i64 0}
 !91 = !{!"p1 short", !7, i64 0}
-!92 = distinct !{!92, !24}
-!93 = distinct !{!93, !24}
+!92 = distinct !{!92, !24, !93}
+!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!94 = distinct !{!94, !24}
+!95 = distinct !{!95, !24}

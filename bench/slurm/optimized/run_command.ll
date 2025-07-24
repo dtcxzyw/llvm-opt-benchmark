@@ -875,304 +875,230 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %17 = icmp slt i32 %1, 1
-  br i1 %17, label %.lr.ph.lr.ph.split.us, label %.lr.ph
+  br i1 %17, label %.lr.ph.us, label %.lr.ph
 
-.lr.ph.lr.ph.split.us:                            ; preds = %.lr.ph.lr.ph
-  br i1 %.not, label %.lr.ph.us.us, label %.lr.ph.us
-
-.lr.ph.us.us:                                     ; preds = %.lr.ph.lr.ph.split.us, %.outer.us.us
-  %.044.ph66.us.us = phi i32 [ %49, %.outer.us.us ], [ 0, %.lr.ph.lr.ph.split.us ]
-  %.045.ph65.us.us = phi i32 [ %.1.us.us, %.outer.us.us ], [ 1024, %.lr.ph.lr.ph.split.us ]
-  %18 = zext nneg i32 %.044.ph66.us.us to i64
-  %19 = sub nsw i32 %.045.ph65.us.us, %.044.ph66.us.us
+.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.outer.us
+  %.044.ph66.us = phi i32 [ %52, %.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.045.ph65.us = phi i32 [ %.1.us, %.outer.us ], [ 1024, %.lr.ph.lr.ph ]
+  %18 = zext nneg i32 %.044.ph66.us to i64
+  %19 = sub nsw i32 %.045.ph65.us, %.044.ph66.us
   %20 = sext i32 %19 to i64
   br label %25
 
-21:                                               ; preds = %.split.us.us.split.us.us
-  %22 = shl nsw i32 %.045.ph65.us.us, 1
+21:                                               ; preds = %.split.us.us
+  %22 = shl nsw i32 %.045.ph65.us, 1
   %23 = sext i32 %22 to i64
   %24 = call ptr @slurm_xrecalloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef %23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 553, ptr noundef nonnull @__func__.run_command_poll_child) #12
   store ptr %24, ptr %12, align 8
-  br label %.outer.us.us
-
-.outer.us.us:                                     ; preds = %.split.us.us.split.us.us, %21
-  %.1.us.us = phi i32 [ %22, %21 ], [ %.045.ph65.us.us, %.split.us.us.split.us.us ]
-  %.b5458.us.us = load i1, ptr @command_shutdown, align 4
-  br i1 %.b5458.us.us, label %.outer._crit_edge, label %.lr.ph.us.us, !llvm.loop !13
-
-25:                                               ; preds = %.backedge.us.us.us.us, %.lr.ph.us.us
-  store i32 %3, ptr %10, align 4
-  store i16 8209, ptr %15, align 4
-  store i16 0, ptr %16, align 2
-  %26 = call i32 @poll(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 500) #12
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.backedge.us.us.us.us, label %28
-
-28:                                               ; preds = %25
-  %29 = icmp slt i32 %26, 0
-  br i1 %29, label %46, label %30
-
-30:                                               ; preds = %28
-  %31 = load i16, ptr %16, align 2
-  %32 = and i16 %31, 1
-  %33 = icmp eq i16 %32, 0
-  br i1 %33, label %.loopexit, label %34
-
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %18
-  %37 = call i64 @read(i32 noundef %3, ptr noundef %36, i64 noundef %20) #12
-  %38 = trunc i64 %37 to i32
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit, label %40
-
-40:                                               ; preds = %34
-  %41 = icmp slt i32 %38, 0
-  br i1 %41, label %42, label %.split.us.us.split.us.us
-
-42:                                               ; preds = %40
-  %43 = tail call ptr @__errno_location() #14
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 11
-  br i1 %45, label %.backedge.us.us.us.us, label %.split61.us
-
-46:                                               ; preds = %28
-  %47 = tail call ptr @__errno_location() #14
-  %48 = load i32, ptr %47, align 4
-  switch i32 %48, label %.split63.us [
-    i32 11, label %.backedge.us.us.us.us
-    i32 4, label %.backedge.us.us.us.us
-  ]
-
-.backedge.us.us.us.us:                            ; preds = %46, %46, %42, %25
-  %.b54.us.us.us.us = load i1, ptr @command_shutdown, align 4
-  br i1 %.b54.us.us.us.us, label %.outer._crit_edge, label %25, !llvm.loop !13
-
-.split.us.us.split.us.us:                         ; preds = %40
-  %49 = add nuw nsw i32 %.044.ph66.us.us, %38
-  %50 = add nuw nsw i32 %49, 1024
-  %.not56.us.us = icmp slt i32 %50, %.045.ph65.us.us
-  br i1 %.not56.us.us, label %.outer.us.us, label %21
-
-.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph.split.us, %.outer.us
-  %.044.ph66.us = phi i32 [ %84, %.outer.us ], [ 0, %.lr.ph.lr.ph.split.us ]
-  %.045.ph65.us = phi i32 [ %.1.us, %.outer.us ], [ 1024, %.lr.ph.lr.ph.split.us ]
-  %51 = zext nneg i32 %.044.ph66.us to i64
-  %52 = sub nsw i32 %.045.ph65.us, %.044.ph66.us
-  %53 = sext i32 %52 to i64
-  br label %58
-
-54:                                               ; preds = %.split.us.us.split
-  %55 = shl nsw i32 %.045.ph65.us, 1
-  %56 = sext i32 %55 to i64
-  %57 = call ptr @slurm_xrecalloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef %56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 553, ptr noundef nonnull @__func__.run_command_poll_child) #12
-  store ptr %57, ptr %12, align 8
   br label %.outer.us
 
-.outer.us:                                        ; preds = %.split.us.us.split, %54
-  %.1.us = phi i32 [ %55, %54 ], [ %.045.ph65.us, %.split.us.us.split ]
+.outer.us:                                        ; preds = %.split.us.us, %21
+  %.1.us = phi i32 [ %22, %21 ], [ %.045.ph65.us, %.split.us.us ]
   %.b5458.us = load i1, ptr @command_shutdown, align 4
   br i1 %.b5458.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !13
 
-58:                                               ; preds = %.backedge.us.us, %.lr.ph.us
-  %59 = call zeroext i1 @track_script_killed(i64 noundef %6, i32 noundef 0, i1 noundef zeroext false) #12
-  br i1 %59, label %.loopexit, label %60
+25:                                               ; preds = %.backedge.us.us, %.lr.ph.us
+  br i1 %.not, label %28, label %26
 
-60:                                               ; preds = %58
+26:                                               ; preds = %25
+  %27 = call zeroext i1 @track_script_killed(i64 noundef %6, i32 noundef 0, i1 noundef zeroext false) #12
+  br i1 %27, label %.loopexit, label %28
+
+28:                                               ; preds = %26, %25
   store i32 %3, ptr %10, align 4
   store i16 8209, ptr %15, align 4
   store i16 0, ptr %16, align 2
-  %61 = call i32 @poll(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 500) #12
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.backedge.us.us, label %63
+  %29 = call i32 @poll(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 500) #12
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.backedge.us.us, label %31
 
-63:                                               ; preds = %60
-  %64 = icmp slt i32 %61, 0
-  br i1 %64, label %81, label %65
+31:                                               ; preds = %28
+  %32 = icmp slt i32 %29, 0
+  br i1 %32, label %49, label %33
 
-65:                                               ; preds = %63
-  %66 = load i16, ptr %16, align 2
-  %67 = and i16 %66, 1
-  %68 = icmp eq i16 %67, 0
-  br i1 %68, label %.loopexit, label %69
+33:                                               ; preds = %31
+  %34 = load i16, ptr %16, align 2
+  %35 = and i16 %34, 1
+  %36 = icmp eq i16 %35, 0
+  br i1 %36, label %.loopexit, label %37
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %51
-  %72 = call i64 @read(i32 noundef %3, ptr noundef %71, i64 noundef %53) #12
-  %73 = trunc i64 %72 to i32
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.loopexit, label %75
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %12, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %18
+  %40 = call i64 @read(i32 noundef %3, ptr noundef %39, i64 noundef %20) #12
+  %41 = trunc i64 %40 to i32
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.loopexit, label %43
 
-75:                                               ; preds = %69
-  %76 = icmp slt i32 %73, 0
-  br i1 %76, label %77, label %.split.us.us.split
+43:                                               ; preds = %37
+  %44 = icmp slt i32 %41, 0
+  br i1 %44, label %45, label %.split.us.us
 
-77:                                               ; preds = %75
-  %78 = tail call ptr @__errno_location() #14
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %79, 11
-  br i1 %80, label %.backedge.us.us, label %.split61.us
+45:                                               ; preds = %43
+  %46 = tail call ptr @__errno_location() #14
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 11
+  br i1 %48, label %.backedge.us.us, label %.split61.us
 
-81:                                               ; preds = %63
-  %82 = tail call ptr @__errno_location() #14
-  %83 = load i32, ptr %82, align 4
-  switch i32 %83, label %.split63.us [
+49:                                               ; preds = %31
+  %50 = tail call ptr @__errno_location() #14
+  %51 = load i32, ptr %50, align 4
+  switch i32 %51, label %.split63.us [
     i32 11, label %.backedge.us.us
     i32 4, label %.backedge.us.us
   ]
 
-.backedge.us.us:                                  ; preds = %81, %81, %77, %60
+.backedge.us.us:                                  ; preds = %49, %49, %45, %28
   %.b54.us.us = load i1, ptr @command_shutdown, align 4
-  br i1 %.b54.us.us, label %.outer._crit_edge, label %58, !llvm.loop !13
+  br i1 %.b54.us.us, label %.outer._crit_edge, label %25, !llvm.loop !15
 
-.split.us.us.split:                               ; preds = %75
-  %84 = add nuw nsw i32 %.044.ph66.us, %73
-  %85 = add nuw nsw i32 %84, 1024
-  %.not56.us = icmp slt i32 %85, %.045.ph65.us
-  br i1 %.not56.us, label %.outer.us, label %54
+.split.us.us:                                     ; preds = %43
+  %52 = add nuw nsw i32 %.044.ph66.us, %41
+  %53 = add nuw nsw i32 %52, 1024
+  %.not56.us = icmp slt i32 %53, %.045.ph65.us
+  br i1 %.not56.us, label %.outer.us, label %21
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.044.ph66 = phi i32 [ %128, %.outer ], [ 0, %.lr.ph.lr.ph ]
+  %.044.ph66 = phi i32 [ %96, %.outer ], [ 0, %.lr.ph.lr.ph ]
   %.045.ph65 = phi i32 [ %.1, %.outer ], [ 1024, %.lr.ph.lr.ph ]
-  %86 = zext nneg i32 %.044.ph66 to i64
-  %87 = sub nsw i32 %.045.ph65, %.044.ph66
-  %88 = sext i32 %87 to i64
-  br label %91
+  %54 = zext nneg i32 %.044.ph66 to i64
+  %55 = sub nsw i32 %.045.ph65, %.044.ph66
+  %56 = sext i32 %55 to i64
+  br label %59
 
-.outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us.us, %.outer.us.us, %.backedge.us.us.us.us, %9
-  %89 = select i1 %2, ptr @.str.16, ptr @.str.17
-  %90 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef nonnull %89, ptr noundef %5) #12
+.outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us.us, %9
+  %57 = select i1 %2, ptr @.str.16, ptr @.str.17
+  %58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef nonnull %57, ptr noundef %5) #12
   br label %.loopexit
 
-91:                                               ; preds = %.lr.ph, %.backedge
-  br i1 %.not, label %94, label %92
+59:                                               ; preds = %.lr.ph, %.backedge
+  br i1 %.not, label %62, label %60
 
-92:                                               ; preds = %91
-  %93 = call zeroext i1 @track_script_killed(i64 noundef %6, i32 noundef 0, i1 noundef zeroext false) #12
-  br i1 %93, label %.loopexit, label %94
+60:                                               ; preds = %59
+  %61 = call zeroext i1 @track_script_killed(i64 noundef %6, i32 noundef 0, i1 noundef zeroext false) #12
+  br i1 %61, label %.loopexit, label %62
 
-94:                                               ; preds = %92, %91
+62:                                               ; preds = %60, %59
   store i32 %3, ptr %10, align 4
   store i16 8209, ptr %15, align 4
   store i16 0, ptr %16, align 2
-  %95 = call i32 @timeval_tot_wait(ptr noundef nonnull %11) #12
-  %96 = sub nsw i32 %1, %95
-  %97 = icmp slt i32 %96, 1
-  br i1 %97, label %98, label %101
+  %63 = call i32 @timeval_tot_wait(ptr noundef nonnull %11) #12
+  %64 = sub nsw i32 %1, %63
+  %65 = icmp slt i32 %64, 1
+  br i1 %65, label %66, label %69
 
-98:                                               ; preds = %94
-  %99 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5, i32 noundef %1) #12
+66:                                               ; preds = %62
+  %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5, i32 noundef %1) #12
   %.not55 = icmp eq ptr %8, null
-  br i1 %.not55, label %.loopexit, label %100
+  br i1 %.not55, label %.loopexit, label %68
 
-100:                                              ; preds = %98
+68:                                               ; preds = %66
   store i8 1, ptr %8, align 1
   br label %.loopexit
 
-101:                                              ; preds = %94
-  %102 = call i32 @llvm.umin.i32(i32 %96, i32 500)
-  %103 = call i32 @poll(ptr noundef nonnull %10, i64 noundef 1, i32 noundef %102) #12
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %.backedge, label %105
+69:                                               ; preds = %62
+  %70 = call i32 @llvm.umin.i32(i32 %64, i32 500)
+  %71 = call i32 @poll(ptr noundef nonnull %10, i64 noundef 1, i32 noundef %70) #12
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %.backedge, label %73
 
-105:                                              ; preds = %101
-  %106 = icmp slt i32 %103, 0
-  br i1 %106, label %107, label %111
+73:                                               ; preds = %69
+  %74 = icmp slt i32 %71, 0
+  br i1 %74, label %75, label %79
 
-107:                                              ; preds = %105
-  %108 = tail call ptr @__errno_location() #14
-  %109 = load i32, ptr %108, align 4
-  switch i32 %109, label %.split63.us [
+75:                                               ; preds = %73
+  %76 = tail call ptr @__errno_location() #14
+  %77 = load i32, ptr %76, align 4
+  switch i32 %77, label %.split63.us [
     i32 11, label %.backedge
     i32 4, label %.backedge
   ]
 
-.backedge:                                        ; preds = %107, %107, %101, %123
+.backedge:                                        ; preds = %75, %75, %69, %91
   %.b54 = load i1, ptr @command_shutdown, align 4
-  br i1 %.b54, label %.outer._crit_edge, label %91, !llvm.loop !13
+  br i1 %.b54, label %.outer._crit_edge, label %59, !llvm.loop !16
 
-.split63.us:                                      ; preds = %107, %81, %46
-  %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5) #12
+.split63.us:                                      ; preds = %75, %49
+  %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5) #12
   br label %.loopexit
 
-111:                                              ; preds = %105
-  %112 = load i16, ptr %16, align 2
-  %113 = and i16 %112, 1
-  %114 = icmp eq i16 %113, 0
-  br i1 %114, label %.loopexit, label %115
+79:                                               ; preds = %73
+  %80 = load i16, ptr %16, align 2
+  %81 = and i16 %80, 1
+  %82 = icmp eq i16 %81, 0
+  br i1 %82, label %.loopexit, label %83
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %12, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %86
-  %118 = call i64 @read(i32 noundef %3, ptr noundef %117, i64 noundef %88) #12
-  %119 = trunc i64 %118 to i32
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %.loopexit, label %121
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %54
+  %86 = call i64 @read(i32 noundef %3, ptr noundef %85, i64 noundef %56) #12
+  %87 = trunc i64 %86 to i32
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.loopexit, label %89
 
-121:                                              ; preds = %115
-  %122 = icmp slt i32 %119, 0
-  br i1 %122, label %123, label %.split
+89:                                               ; preds = %83
+  %90 = icmp slt i32 %87, 0
+  br i1 %90, label %91, label %.split
 
-123:                                              ; preds = %121
-  %124 = tail call ptr @__errno_location() #14
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp eq i32 %125, 11
-  br i1 %126, label %.backedge, label %.split61.us
+91:                                               ; preds = %89
+  %92 = tail call ptr @__errno_location() #14
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp eq i32 %93, 11
+  br i1 %94, label %.backedge, label %.split61.us
 
-.split61.us:                                      ; preds = %123, %77, %42
-  %127 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %4) #12
+.split61.us:                                      ; preds = %91, %45
+  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %4) #12
   br label %.loopexit
 
-.split:                                           ; preds = %121
-  %128 = add nuw nsw i32 %.044.ph66, %119
-  %129 = add nuw nsw i32 %128, 1024
-  %.not56 = icmp slt i32 %129, %.045.ph65
-  br i1 %.not56, label %.outer, label %130
+.split:                                           ; preds = %89
+  %96 = add nuw nsw i32 %.044.ph66, %87
+  %97 = add nuw nsw i32 %96, 1024
+  %.not56 = icmp slt i32 %97, %.045.ph65
+  br i1 %.not56, label %.outer, label %98
 
-130:                                              ; preds = %.split
-  %131 = shl nsw i32 %.045.ph65, 1
-  %132 = sext i32 %131 to i64
-  %133 = call ptr @slurm_xrecalloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef %132, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 553, ptr noundef nonnull @__func__.run_command_poll_child) #12
-  store ptr %133, ptr %12, align 8
+98:                                               ; preds = %.split
+  %99 = shl nsw i32 %.045.ph65, 1
+  %100 = sext i32 %99 to i64
+  %101 = call ptr @slurm_xrecalloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef %100, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 553, ptr noundef nonnull @__func__.run_command_poll_child) #12
+  store ptr %101, ptr %12, align 8
   br label %.outer
 
-.outer:                                           ; preds = %130, %.split
-  %.1 = phi i32 [ %131, %130 ], [ %.045.ph65, %.split ]
+.outer:                                           ; preds = %98, %.split
+  %.1 = phi i32 [ %99, %98 ], [ %.045.ph65, %.split ]
   %.b5458 = load i1, ptr @command_shutdown, align 4
-  br i1 %.b5458, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.b5458, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %92, %111, %115, %69, %65, %58, %30, %34, %98, %100, %.split61.us, %.split63.us, %.outer._crit_edge
-  %.046 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split63.us ], [ false, %.split61.us ], [ true, %100 ], [ true, %98 ], [ false, %34 ], [ false, %30 ], [ %59, %58 ], [ %59, %65 ], [ %59, %69 ], [ false, %115 ], [ false, %111 ], [ true, %92 ]
+.loopexit:                                        ; preds = %60, %79, %83, %26, %33, %37, %66, %68, %.split61.us, %.split63.us, %.outer._crit_edge
+  %.046 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split63.us ], [ false, %.split61.us ], [ true, %68 ], [ true, %66 ], [ false, %37 ], [ false, %33 ], [ true, %26 ], [ false, %83 ], [ false, %79 ], [ true, %60 ]
   %.b = load i1, ptr @command_shutdown, align 4
   %or.cond = and i1 %2, %.b
-  br i1 %or.cond, label %134, label %135
+  br i1 %or.cond, label %102, label %103
 
-134:                                              ; preds = %.loopexit
+102:                                              ; preds = %.loopexit
   store i32 0, ptr %7, align 4
-  br label %144
+  br label %112
 
-135:                                              ; preds = %.loopexit
-  br i1 %.046, label %136, label %141
+103:                                              ; preds = %.loopexit
+  br i1 %.046, label %104, label %109
 
-136:                                              ; preds = %135
-  %137 = call i32 @killpg(i32 noundef %0, i32 noundef 15) #12
-  %138 = call i32 @usleep(i32 noundef 10000) #12
-  %139 = call i32 @killpg(i32 noundef %0, i32 noundef 9) #12
-  %140 = call i32 @waitpid(i32 noundef %0, ptr noundef %7, i32 noundef 0) #12
-  br label %144
+104:                                              ; preds = %103
+  %105 = call i32 @killpg(i32 noundef %0, i32 noundef 15) #12
+  %106 = call i32 @usleep(i32 noundef 10000) #12
+  %107 = call i32 @killpg(i32 noundef %0, i32 noundef 9) #12
+  %108 = call i32 @waitpid(i32 noundef %0, ptr noundef %7, i32 noundef 0) #12
+  br label %112
 
-141:                                              ; preds = %135
-  %142 = call i32 @timeval_tot_wait(ptr noundef nonnull %11) #12
-  %143 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %142, i64 noundef %6, ptr noundef %8)
-  br label %144
+109:                                              ; preds = %103
+  %110 = call i32 @timeval_tot_wait(ptr noundef nonnull %11) #12
+  %111 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %110, i64 noundef %6, ptr noundef %8)
+  br label %112
 
-144:                                              ; preds = %136, %141, %134
-  %145 = load ptr, ptr %12, align 8
+112:                                              ; preds = %104, %109, %102
+  %113 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  ret ptr %145
+  ret ptr %113
 }
 
 declare i32 @get_log_level() local_unnamed_addr #2
@@ -1235,7 +1161,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   %20 = tail call ptr @__errno_location() #14
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %14, label %23, !llvm.loop !14
+  br i1 %22, label %14, label %23, !llvm.loop !17
 
 23:                                               ; preds = %19
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.run_command_waitpid_timeout, i32 noundef %1) #12
@@ -1253,7 +1179,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %26, %44, %39, %34
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !17
 
 31:                                               ; preds = %25
   br i1 %.not, label %38, label %32
@@ -1288,7 +1214,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   %48 = shl nsw i32 %.046.ph.ph, 1
   %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 %47)
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 1000)
-  br label %.outer.outer, !llvm.loop !14
+  br label %.outer.outer, !llvm.loop !17
 
 50:                                               ; preds = %14
   br i1 %.0.ph, label %55, label %51
@@ -1380,7 +1306,7 @@ define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly
   %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 27:                                               ; preds = %._crit_edge
   %28 = tail call i32 @get_log_level() #12
@@ -1444,6 +1370,9 @@ attributes #15 = { noreturn nounwind }
 !10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
+!13 = distinct !{!13, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12, !14}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

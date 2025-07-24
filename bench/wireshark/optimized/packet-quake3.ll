@@ -339,7 +339,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   %107 = add i32 %.091104.i, 7
   %108 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %107)
   %109 = icmp sgt i32 %108, 6
-  br i1 %109, label %.lr.ph.split.i, label %dissect_quake3_ConnectionlessPacket.exit, !llvm.loop !6
+  br i1 %109, label %.lr.ph.split.i, label %dissect_quake3_ConnectionlessPacket.exit, !llvm.loop !9
 
 110:                                              ; preds = %73
   %111 = call i32 @strncmp(ptr noundef %30, ptr noundef nonnull dereferenceable(11) @.str.69, i64 noundef 10) #5
@@ -496,7 +496,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.41, i32 noundef %3, ptr noundef %4)
   %5 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %5, 4
-  br i1 %exitcond.not, label %.preheader13, label %.preheader14, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader13, label %.preheader14, !llvm.loop !10
 
 .preheader13:                                     ; preds = %.preheader14, %.preheader13
   %.116 = phi i32 [ %9, %.preheader13 ], [ 0, %.preheader14 ]
@@ -506,7 +506,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.41, i32 noundef %7, ptr noundef %8)
   %9 = add nuw nsw i32 %.116, 1
   %exitcond19.not = icmp eq i32 %9, 4
-  br i1 %exitcond19.not, label %.loopexit, label %.preheader13, !llvm.loop !9
+  br i1 %exitcond19.not, label %.loopexit, label %.preheader13, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader13, %1
   %10 = load i32, ptr @gbl_quake3_server_port, align 4
@@ -523,7 +523,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef %14, ptr noundef %15)
   %16 = add nuw nsw i32 %.217, 1
   %exitcond20.not = icmp eq i32 %16, 4
-  br i1 %exitcond20.not, label %.preheader, label %12, !llvm.loop !10
+  br i1 %exitcond20.not, label %.preheader, label %12, !llvm.loop !12
 
 .preheader:                                       ; preds = %12, %.preheader
   %.318 = phi i32 [ %20, %.preheader ], [ 0, %12 ]
@@ -533,7 +533,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef %18, ptr noundef %19)
   %20 = add nuw nsw i32 %.318, 1
   %exitcond21.not = icmp eq i32 %20, 4
-  br i1 %exitcond21.not, label %21, label %.preheader, !llvm.loop !11
+  br i1 %exitcond21.not, label %21, label %.preheader, !llvm.loop !13
 
 21:                                               ; preds = %.preheader
   ret void
@@ -653,9 +653,11 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

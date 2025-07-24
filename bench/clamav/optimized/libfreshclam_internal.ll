@@ -1272,7 +1272,7 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %212 = add i32 %.0150407.us, 1
   %.0152.us = add i32 %.0152408.us, 1
   %.not207.us = icmp ugt i32 %.0152.us, %.1273
-  br i1 %.not207.us, label %.thread280, label %.preheader.us
+  br i1 %.not207.us, label %.thread280, label %.preheader.us, !llvm.loop !30
 
 .preheaderthread-pre-split:                       ; preds = %downloadPatch.exit._crit_edge.thread422
   %.pr = load i32, ptr @g_maxAttempts, align 4, !tbaa !3
@@ -1538,7 +1538,7 @@ downloadPatch.exit._crit_edge.thread422:          ; preds = %downloadPatch.exit,
   %320 = add i32 %.0150407, 1
   %.0152 = add i32 %.0152408, 1
   %.not207 = icmp ugt i32 %.0152, %.1273
-  br i1 %.not207, label %.thread280, label %.preheaderthread-pre-split, !llvm.loop !30
+  br i1 %.not207, label %.thread280, label %.preheaderthread-pre-split, !llvm.loop !32
 
 .split:                                           ; preds = %downloadPatch.exit, %317
   %321 = icmp eq i32 %.037606976.ph.i, 6
@@ -1631,7 +1631,7 @@ select.unfold:                                    ; preds = %349
   %.3173 = phi i32 [ %186, %191 ], [ 0, %select.unfold ], [ 0, %337 ]
   %.2166 = phi ptr [ %192, %191 ], [ %354, %select.unfold ], [ %338, %337 ]
   %.2163 = phi ptr [ null, %191 ], [ %195, %select.unfold ], [ %195, %337 ]
-  %358 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !32
+  %358 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !34
   %.not215 = icmp eq ptr %358, null
   br i1 %.not215, label %381, label %359
 
@@ -1661,7 +1661,7 @@ select.unfold:                                    ; preds = %349
 374:                                              ; preds = %365
   call void @free(ptr noundef nonnull %181) #24
   %375 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.48) #24
-  %376 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !32
+  %376 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !34
   %377 = call i32 %376(ptr noundef nonnull %364, ptr noundef %4) #24
   %.not217 = icmp eq i32 %377, 0
   br i1 %.not217, label %381, label %378
@@ -2130,7 +2130,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef nonnull %0, pt
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %84 = phi ptr [ %101, %.backedge ], [ %81, %.preheader ]
-  %85 = load i64, ptr %84, align 8, !tbaa !33
+  %85 = load i64, ptr %84, align 8, !tbaa !35
   %.not80 = icmp eq i64 %85, 0
   br i1 %.not80, label %.backedge, label %sub_0
 
@@ -2353,7 +2353,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %36 = load i64, ptr %35, align 8, !tbaa !35
+  %36 = load i64, ptr %35, align 8, !tbaa !37
   %37 = call i32 @stat(ptr noundef nonnull %24, ptr noundef nonnull %7) #24
   %.not123 = icmp eq i32 %37, -1
   %38 = load i64, ptr %35, align 8
@@ -2417,7 +2417,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 
 69:                                               ; preds = %.thread142, %58
   %.3103 = phi ptr [ %53, %58 ], [ %24, %.thread142 ]
-  %70 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !32
+  %70 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !34
   %.not126 = icmp eq ptr %70, null
   br i1 %.not126, label %93, label %71
 
@@ -2447,7 +2447,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 86:                                               ; preds = %77
   tail call void @free(ptr noundef nonnull %16) #24
   %87 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.66) #24
-  %88 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !32
+  %88 = load ptr, ptr @g_cb_download_complete, align 8, !tbaa !34
   %89 = tail call i32 %88(ptr noundef nonnull %76, ptr noundef %1) #24
   %.not128 = icmp eq i32 %89, 0
   br i1 %.not128, label %93, label %90
@@ -2571,7 +2571,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %10 = alloca [4096 x i8], align 16
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store ptr null, ptr %5, align 8, !tbaa !32
+  store ptr null, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
@@ -2596,7 +2596,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 18:                                               ; preds = %14
   %19 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.235) #24
-  %.pre = load ptr, ptr %5, align 8, !tbaa !32
+  %.pre = load ptr, ptr %5, align 8, !tbaa !34
   br label %.thread96
 
 20:                                               ; preds = %14
@@ -2617,12 +2617,12 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br i1 %.not65, label %43, label %28
 
 28:                                               ; preds = %24, %22
-  store i64 0, ptr %7, align 8, !tbaa !38
-  %29 = load ptr, ptr %5, align 8, !tbaa !32
+  store i64 0, ptr %7, align 8, !tbaa !40
+  %29 = load ptr, ptr %5, align 8, !tbaa !34
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %29, ptr %30, align 8, !tbaa !40
+  store ptr %29, ptr %30, align 8, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 0, ptr %31, align 8, !tbaa !41
+  store i8 0, ptr %31, align 8, !tbaa !43
   %32 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %29, i32 noundef 20219, ptr noundef nonnull @xferinfo) #24
   %.not66 = icmp eq i32 %32, 0
   br i1 %.not66, label %35, label %33
@@ -2650,7 +2650,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br label %43
 
 43:                                               ; preds = %39, %41, %24, %20
-  %44 = load ptr, ptr %5, align 8, !tbaa !32
+  %44 = load ptr, ptr %5, align 8, !tbaa !34
   %45 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %44, i32 noundef 10002, ptr noundef nonnull %0) #24
   %.not69 = icmp eq i32 %45, 0
   br i1 %.not69, label %48, label %46
@@ -2709,7 +2709,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 65:                                               ; preds = %.sink.split104, %62, %54
   %.1 = phi ptr [ null, %54 ], [ %60, %62 ], [ %.1.ph, %.sink.split104 ]
   %66 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 193, i32 noundef 420) #24
-  store i32 %66, ptr %9, align 8, !tbaa !42
+  store i32 %66, ptr %9, align 8, !tbaa !44
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %68, label %78
 
@@ -2736,7 +2736,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 78:                                               ; preds = %65
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %79, align 8, !tbaa !44
+  store i64 0, ptr %79, align 8, !tbaa !46
   %80 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %44, i32 noundef 20011, ptr noundef nonnull @WriteFileCallback) #24
   %.not78 = icmp eq i32 %80, 0
   br i1 %.not78, label %83, label %81
@@ -2816,7 +2816,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   ]
 
 115:                                              ; preds = %112, %112
-  %116 = load i64, ptr %79, align 8, !tbaa !44
+  %116 = load i64, ptr %79, align 8, !tbaa !46
   %117 = icmp eq i64 %116, 0
   %. = select i1 %117, i32 6, i32 0
   br label %152
@@ -2904,7 +2904,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 156:                                              ; preds = %.thread96.thread, %155, %.thread96
   %.049100103 = phi i32 [ 16, %.thread96.thread ], [ %.049100, %155 ], [ %.049100, %.thread96 ]
-  %157 = load i32, ptr %9, align 8, !tbaa !42
+  %157 = load i32, ptr %9, align 8, !tbaa !44
   %.not93 = icmp eq i32 %157, -1
   br i1 %.not93, label %160, label %158
 
@@ -2998,12 +2998,12 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br i1 %.not73, label %47, label %32
 
 32:                                               ; preds = %28, %26
-  store i64 0, ptr %10, align 8, !tbaa !38
-  %33 = load ptr, ptr %8, align 8, !tbaa !32
+  store i64 0, ptr %10, align 8, !tbaa !40
+  %33 = load ptr, ptr %8, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !40
+  store ptr %33, ptr %34, align 8, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 0, ptr %35, align 8, !tbaa !41
+  store i8 0, ptr %35, align 8, !tbaa !43
   %36 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %33, i32 noundef 20219, ptr noundef nonnull @xferinfo) #24
   %.not74 = icmp eq i32 %36, 0
   br i1 %.not74, label %39, label %37
@@ -3031,7 +3031,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br label %47
 
 47:                                               ; preds = %43, %45, %28, %24
-  %48 = load ptr, ptr %8, align 8, !tbaa !32
+  %48 = load ptr, ptr %8, align 8, !tbaa !34
   %49 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 10002, ptr noundef %18) #24
   %.not77 = icmp eq i32 %49, 0
   br i1 %.not77, label %52, label %50
@@ -3099,9 +3099,9 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 
 73:                                               ; preds = %71, %69
   %74 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
-  store ptr %74, ptr %7, align 8, !tbaa !45
+  store ptr %74, ptr %7, align 8, !tbaa !47
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %75, align 8, !tbaa !47
+  store i64 0, ptr %75, align 8, !tbaa !49
   %76 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 20011, ptr noundef nonnull @WriteMemoryCallback) #24
   %.not87 = icmp eq i32 %76, 0
   br i1 %.not87, label %79, label %77
@@ -3223,7 +3223,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br label %163
 
 135:                                              ; preds = %98, %98, %107, %101
-  %136 = load i64, ptr %75, align 8, !tbaa !47
+  %136 = load i64, ptr %75, align 8, !tbaa !49
   %137 = icmp ult i64 %136, 512
   br i1 %137, label %138, label %141
 
@@ -3235,7 +3235,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 
 141:                                              ; preds = %135
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %6, i8 0, i64 513, i1 false)
-  %142 = load ptr, ptr %7, align 8, !tbaa !45
+  %142 = load ptr, ptr %7, align 8, !tbaa !47
   %.not93 = icmp eq ptr %142, null
   br i1 %.not93, label %.split112, label %.split.preheader
 
@@ -3250,7 +3250,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 
 143:                                              ; preds = %.split
   %144 = tail call ptr @__ctype_b_loc() #25
-  %145 = load ptr, ptr %144, align 8, !tbaa !48
+  %145 = load ptr, ptr %144, align 8, !tbaa !50
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv
   %147 = load i8, ptr %146, align 1, !tbaa !16
   %148 = sext i8 %147 to i64
@@ -3292,7 +3292,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 163:                                              ; preds = %129, %133, %118, %122, %98, %89, %95, %161, %158, %.split112, %138, %124, %50, %22
   %.054 = phi i32 [ %21, %22 ], [ 11, %50 ], [ 11, %138 ], [ 11, %.split112 ], [ 0, %161 ], [ 11, %158 ], [ 11, %124 ], [ 5, %95 ], [ 5, %89 ], [ 1, %98 ], [ 11, %122 ], [ 11, %118 ], [ 11, %133 ], [ 11, %129 ]
   %.053 = phi ptr [ null, %22 ], [ null, %50 ], [ %.1, %138 ], [ %.1, %.split112 ], [ %.1, %161 ], [ %.1, %158 ], [ %.1, %124 ], [ %.1, %95 ], [ %.1, %89 ], [ %.1, %98 ], [ %.1, %122 ], [ %.1, %118 ], [ %.1, %133 ], [ %.1, %129 ]
-  %164 = load ptr, ptr %7, align 8, !tbaa !45
+  %164 = load ptr, ptr %7, align 8, !tbaa !47
   %.not105 = icmp eq ptr %164, null
   br i1 %.not105, label %166, label %165
 
@@ -3309,7 +3309,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br label %168
 
 168:                                              ; preds = %167, %166
-  %169 = load ptr, ptr %8, align 8, !tbaa !32
+  %169 = load ptr, ptr %8, align 8, !tbaa !34
   %.not107 = icmp eq ptr %169, null
   br i1 %.not107, label %171, label %170
 
@@ -3342,7 +3342,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef range(i32 0, 2) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
-  store ptr null, ptr %1, align 8, !tbaa !32
+  store ptr null, ptr %1, align 8, !tbaa !34
   %4 = tail call ptr @curl_easy_init() #24
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -3603,7 +3603,7 @@ define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef rang
   br label %131
 
 130:                                              ; preds = %126
-  store ptr %4, ptr %1, align 8, !tbaa !32
+  store ptr %4, ptr %1, align 8, !tbaa !34
   br label %.thread
 
 131:                                              ; preds = %69, %72, %81, %84, %128
@@ -3623,7 +3623,7 @@ declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr 
 define internal noundef i32 @xferinfo(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store i64 0, ptr %6, align 8, !tbaa !22
   %9 = sitofp i64 %1 to double
@@ -3632,7 +3632,7 @@ define internal noundef i32 @xferinfo(ptr noundef captures(none) %0, i64 noundef
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !41
+  %13 = load i8, ptr %12, align 8, !tbaa !43
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %164
 
@@ -3644,7 +3644,7 @@ define internal noundef i32 @xferinfo(ptr noundef captures(none) %0, i64 noundef
   %19 = fptoui double %18 to i32
   %20 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %8, i32 noundef 6291506, ptr noundef nonnull %6) #24
   %21 = load i64, ptr %6, align 8, !tbaa !22
-  store i64 %21, ptr %0, align 8, !tbaa !38
+  store i64 %21, ptr %0, align 8, !tbaa !40
   %22 = load ptr, ptr @stdout, align 8, !tbaa !28
   %23 = call i64 @fwrite(ptr nonnull @.str.166, i64 5, i64 1, ptr %22)
   %24 = fcmp ugt double %16, 0.000000e+00
@@ -3883,7 +3883,7 @@ printBytes.exit41:                                ; preds = %140, %147, %152
 
 158:                                              ; preds = %printBytes.exit41
   %fputc35 = call i32 @fputc(i32 10, ptr %156)
-  store i8 1, ptr %12, align 8, !tbaa !41
+  store i8 1, ptr %12, align 8, !tbaa !43
   br label %159
 
 159:                                              ; preds = %158, %157
@@ -3909,9 +3909,9 @@ define internal noundef i64 @WriteMemoryCallback(ptr noundef readonly captures(a
   br i1 %or.cond, label %23, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %3, align 8, !tbaa !45
+  %9 = load ptr, ptr %3, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !47
+  %11 = load i64, ptr %10, align 8, !tbaa !49
   %12 = add i64 %5, 1
   %13 = add i64 %12, %11
   %14 = tail call ptr @realloc(ptr noundef %9, i64 noundef %13) #29
@@ -3923,12 +3923,12 @@ define internal noundef i64 @WriteMemoryCallback(ptr noundef readonly captures(a
   br label %23
 
 18:                                               ; preds = %8
-  store ptr %14, ptr %3, align 8, !tbaa !45
-  %19 = load i64, ptr %10, align 8, !tbaa !47
+  store ptr %14, ptr %3, align 8, !tbaa !47
+  %19 = load i64, ptr %10, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %0, i64 %5, i1 false)
   %21 = add i64 %19, %5
-  store i64 %21, ptr %10, align 8, !tbaa !47
+  store i64 %21, ptr %10, align 8, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !16
   br label %23
@@ -4022,12 +4022,12 @@ define internal noundef i64 @WriteFileCallback(ptr noundef readonly captures(add
 
 7:                                                ; preds = %4
   %8 = mul i64 %2, %1
-  %9 = load i32, ptr %3, align 8, !tbaa !42
+  %9 = load i32, ptr %3, align 8, !tbaa !44
   %10 = tail call i64 @write(i32 noundef %9, ptr noundef nonnull %0, i64 noundef %8) #24
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !44
+  %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = add i64 %12, %10
-  store i64 %13, ptr %11, align 8, !tbaa !44
+  store i64 %13, ptr %11, align 8, !tbaa !46
   br label %14
 
 14:                                               ; preds = %4, %7
@@ -4108,22 +4108,24 @@ attributes #29 = { nounwind allocsize(1) }
 !28 = !{!29, !29, i64 0}
 !29 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.partial.disable"}
-!32 = !{!9, !9, i64 0}
-!33 = !{!34, !14, i64 0}
-!34 = !{!"dirent", !14, i64 0, !14, i64 8, !27, i64 16, !5, i64 18, !5, i64 19}
-!35 = !{!36, !14, i64 88}
-!36 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !37, i64 72, !37, i64 88, !37, i64 104, !5, i64 120}
-!37 = !{!"timespec", !14, i64 0, !14, i64 8}
-!38 = !{!39, !14, i64 0}
-!39 = !{!"xfer_progress", !14, i64 0, !5, i64 8, !9, i64 16}
-!40 = !{!39, !9, i64 16}
-!41 = !{!39, !5, i64 8}
-!42 = !{!43, !4, i64 0}
-!43 = !{!"FileStruct", !4, i64 0, !14, i64 8}
-!44 = !{!43, !14, i64 8}
-!45 = !{!46, !8, i64 0}
-!46 = !{!"MemoryStruct", !8, i64 0, !14, i64 8}
-!47 = !{!46, !14, i64 8}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 short", !9, i64 0}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = !{!9, !9, i64 0}
+!35 = !{!36, !14, i64 0}
+!36 = !{!"dirent", !14, i64 0, !14, i64 8, !27, i64 16, !5, i64 18, !5, i64 19}
+!37 = !{!38, !14, i64 88}
+!38 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !39, i64 72, !39, i64 88, !39, i64 104, !5, i64 120}
+!39 = !{!"timespec", !14, i64 0, !14, i64 8}
+!40 = !{!41, !14, i64 0}
+!41 = !{!"xfer_progress", !14, i64 0, !5, i64 8, !9, i64 16}
+!42 = !{!41, !9, i64 16}
+!43 = !{!41, !5, i64 8}
+!44 = !{!45, !4, i64 0}
+!45 = !{!"FileStruct", !4, i64 0, !14, i64 8}
+!46 = !{!45, !14, i64 8}
+!47 = !{!48, !8, i64 0}
+!48 = !{!"MemoryStruct", !8, i64 0, !14, i64 8}
+!49 = !{!48, !14, i64 8}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 short", !9, i64 0}

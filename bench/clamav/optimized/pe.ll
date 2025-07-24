@@ -10979,7 +10979,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr noundef readonly captures(none) 
   %76 = load i16, ptr %22, align 8, !tbaa !24
   %77 = zext i16 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next91, %77
-  br i1 %78, label %.lr.ph.split.us, label %.loopexit
+  br i1 %78, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !137
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.lr.ph ]
@@ -11020,7 +11020,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr noundef readonly captures(none) 
   %99 = zext i32 %98 to i64
   %100 = load ptr, ptr %53, align 8, !tbaa !133
   %101 = getelementptr inbounds nuw %struct.cli_section_hash, ptr %100, i64 %indvars.iv, i32 1
-  store i64 %99, ptr %101, align 8, !tbaa !137
+  store i64 %99, ptr %101, align 8, !tbaa !139
   br label %109
 
 102:                                              ; preds = %.lr.ph.split
@@ -11908,7 +11908,7 @@ cli_rawaddr.exit311:                              ; preds = %101, %103, %91, %89
 164:                                              ; preds = %.lr.ph113, %164
   %.0234111 = phi i64 [ 0, %.lr.ph113 ], [ %173, %164 ]
   %.1237110 = phi i64 [ %.0236, %.lr.ph113 ], [ %174, %164 ]
-  %165 = load ptr, ptr %163, align 8, !tbaa !139
+  %165 = load ptr, ptr %163, align 8, !tbaa !141
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 %.0234111
   %167 = load i8, ptr %166, align 1, !tbaa !33
   %168 = sext i8 %167 to i64
@@ -11937,7 +11937,7 @@ cli_rawaddr.exit311:                              ; preds = %101, %103, %91, %89
   %.1235117 = phi i64 [ 0, %.lr.ph119 ], [ %186, %177 ]
   %.2238.in116 = phi i64 [ %.1237.lcssa, %.lr.ph119 ], [ %.2238, %177 ]
   %.2238 = add i64 %.2238.in116, 1
-  %178 = load ptr, ptr %176, align 8, !tbaa !139
+  %178 = load ptr, ptr %176, align 8, !tbaa !141
   %179 = getelementptr inbounds nuw i8, ptr %.0233, i64 %.1235117
   %180 = load i8, ptr %179, align 1, !tbaa !33
   %181 = sext i8 %180 to i64
@@ -12225,7 +12225,7 @@ cli_rawaddr.exit331:                              ; preds = %219
 299:                                              ; preds = %.lr.ph, %299
   %.122496 = phi i64 [ %.0223, %.lr.ph ], [ %309, %299 ]
   %.022695 = phi i64 [ 0, %.lr.ph ], [ %308, %299 ]
-  %300 = load ptr, ptr %298, align 8, !tbaa !139
+  %300 = load ptr, ptr %298, align 8, !tbaa !141
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 %.022695
   %302 = load i8, ptr %301, align 1, !tbaa !33
   %303 = sext i8 %302 to i64
@@ -12254,7 +12254,7 @@ cli_rawaddr.exit331:                              ; preds = %219
   %.2225.in98 = phi i64 [ %.1224.lcssa, %.lr.ph100 ], [ %.2225, %312 ]
   %.122797 = phi i64 [ 0, %.lr.ph100 ], [ %321, %312 ]
   %.2225 = add i64 %.2225.in98, 1
-  %313 = load ptr, ptr %311, align 8, !tbaa !139
+  %313 = load ptr, ptr %311, align 8, !tbaa !141
   %314 = getelementptr inbounds nuw i8, ptr %.0232, i64 %.122797
   %315 = load i8, ptr %314, align 1, !tbaa !33
   %316 = sext i8 %315 to i64
@@ -15151,6 +15151,8 @@ attributes #26 = { nounwind willreturn memory(none) }
 !134 = !{!"cli_stats_sections", !28, i64 0, !135, i64 8}
 !135 = !{!"p1 _ZTS16cli_section_hash", !14, i64 0}
 !136 = !{!134, !28, i64 0}
-!137 = !{!138, !28, i64 16}
-!138 = !{!"cli_section_hash", !6, i64 0, !28, i64 16}
-!139 = !{!17, !17, i64 0}
+!137 = distinct !{!137, !138}
+!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!139 = !{!140, !28, i64 16}
+!140 = !{!"cli_section_hash", !6, i64 0, !28, i64 16}
+!141 = !{!17, !17, i64 0}

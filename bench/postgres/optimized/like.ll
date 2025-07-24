@@ -593,7 +593,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %55, label %.split, label %56
 
 56:                                               ; preds = %.lr.ph278.split
-  %57 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %57 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %60, label %.split
 
@@ -606,7 +606,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %61 = getelementptr inbounds nuw i8, ptr %.3128275, i64 1
   %62 = add nsw i32 %.3132274, -1
   %63 = icmp sgt i32 %.3132274, 1
-  br i1 %63, label %.lr.ph278.split, label %.thread, !llvm.loop !6
+  br i1 %63, label %.lr.ph278.split, label %.thread, !llvm.loop !10
 
 .backedge:                                        ; preds = %24, %140, %15
   %.0158.be.in = phi i32 [ %.0158250, %15 ], [ %25, %24 ], [ %.0158250, %140 ]
@@ -618,13 +618,13 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %64 = icmp sgt i32 %.0129252, 1
   %65 = icmp sgt i32 %.0158.be.in, 1
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %15, label %._crit_edge, !llvm.loop !9
+  br i1 %66, label %15, label %._crit_edge, !llvm.loop !11
 
 67:                                               ; preds = %15
   br i1 %.not, label %140, label %68
 
 68:                                               ; preds = %67
-  %69 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %69 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %140, label %71
 
@@ -669,7 +669,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %83 = getelementptr inbounds nuw i8, ptr %.1148, i64 1
   %84 = add nsw i64 %.1146, -1
   %.not172 = icmp eq i64 %84, 0
-  br i1 %.not172, label %.thread206, label %.lr.ph289, !llvm.loop !10
+  br i1 %.not172, label %.thread206, label %.lr.ph289, !llvm.loop !12
 
 85:                                               ; preds = %.lr.ph289, %.lr.ph289
   %86 = trunc nuw i8 %.0139286 to i1
@@ -719,7 +719,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %.1135 = phi ptr [ %.0134294, %.lr.ph297 ], [ %101, %100 ]
   %103 = getelementptr inbounds nuw i8, ptr %.0133295, i64 1
   %exitcond.not = icmp eq ptr %103, %scevgep342
-  br i1 %exitcond.not, label %._crit_edge298, label %.lr.ph297, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge298, label %.lr.ph297, !llvm.loop !13
 
 ._crit_edge298:                                   ; preds = %102, %92
   %.0134.lcssa = phi ptr [ %95, %92 ], [ %.1135, %102 ]
@@ -765,7 +765,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %.0141 = phi i64 [ %117, %116 ], [ %139, %137 ]
   %121 = load volatile i32, ptr @InterruptPending, align 4
   %.not173 = icmp eq i32 %121, 0
-  br i1 %.not173, label %123, label %122, !prof !12
+  br i1 %.not173, label %123, label %122, !prof !14
 
 122:                                              ; preds = %120
   tail call void @ProcessInterrupts() #7
@@ -835,7 +835,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %146 = getelementptr inbounds nuw i8, ptr %.4153258, i64 1
   %147 = add nsw i32 %.4162257, -1
   %148 = icmp sgt i32 %.4162257, 1
-  br i1 %148, label %.lr.ph259, label %.thread, !llvm.loop !13
+  br i1 %148, label %.lr.ph259, label %.thread, !llvm.loop !15
 
 .thread:                                          ; preds = %140, %24, %30, %35, %60, %.split, %50, %.split.us, %145, %.lr.ph259, %.preheader209, %.preheader, %.loopexit, %132, %131, %135, %136, %._crit_edge, %113, %7
   %.0 = phi i32 [ 1, %7 ], [ %., %113 ], [ 0, %._crit_edge ], [ 0, %135 ], [ 0, %136 ], [ 1, %131 ], [ 1, %132 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader209 ], [ 1, %145 ], [ -1, %.lr.ph259 ], [ -1, %50 ], [ %49, %.split.us ], [ -1, %60 ], [ %59, %.split ], [ -1, %30 ], [ 1, %35 ], [ 0, %24 ], [ 0, %140 ]
@@ -972,7 +972,7 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
 9:                                                ; preds = %3
   %10 = tail call ptr @pg_newlocale_from_collation(i32 noundef %2) #7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %12 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %12 = load i8, ptr %11, align 1, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %18, label %14
 
@@ -1334,7 +1334,7 @@ select.unfold.i:                                  ; preds = %47, %55, %52
   %.292.lcssa.i = phi ptr [ %.191.i, %72 ], [ %79, %.lr.ph134.i ]
   %.1.lcssa.i = phi ptr [ %.083139.i, %72 ], [ %77, %.lr.ph134.i ]
   %67 = icmp sgt i32 %74, 0
-  br i1 %67, label %.lr.ph140.i, label %.loopexit116.i, !llvm.loop !14
+  br i1 %67, label %.lr.ph140.i, label %.loopexit116.i, !llvm.loop !16
 
 .lr.ph140.i:                                      ; preds = %.preheader.i, %.loopexit.i
   %.083139.i = phi ptr [ %.1.lcssa.i, %.loopexit.i ], [ %20, %.preheader.i ]
@@ -1366,7 +1366,7 @@ select.unfold.i:                                  ; preds = %47, %55, %52
   %79 = getelementptr inbounds nuw i8, ptr %.292131.i, i64 1
   store i8 %78, ptr %.292131.i, align 1
   %80 = icmp samesign ugt i32 %.084132.i, 1
-  br i1 %80, label %.lr.ph134.i, label %.loopexit.i, !llvm.loop !15
+  br i1 %80, label %.lr.ph134.i, label %.loopexit.i, !llvm.loop !17
 
 81:                                               ; preds = %select.unfold.i
   %82 = tail call i32 @pg_mblen(ptr noundef nonnull %45) #7
@@ -1466,7 +1466,7 @@ select.unfold.i:                                  ; preds = %47, %55, %52
   %128 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %129 = load i8, ptr %.08.i.i, align 1
   %.not14.i.i = icmp eq i8 %127, %129
-  br i1 %.not14.i.i, label %.preheader.i.i, label %wchareq.exit.threadthread-pre-split.i, !llvm.loop !16
+  br i1 %.not14.i.i, label %.preheader.i.i, label %wchareq.exit.threadthread-pre-split.i, !llvm.loop !18
 
 wchareq.exit.i:                                   ; preds = %.preheader.i.i
   br i1 %.085126.i, label %wchareq.exit.threadthread-pre-split.i, label %130
@@ -1510,7 +1510,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
   %144 = getelementptr inbounds nuw i8, ptr %.7120.i, i64 1
   store i8 %143, ptr %.7120.i, align 1
   %145 = icmp samesign ugt i32 %.0122.i, 1
-  br i1 %145, label %.lr.ph.i, label %.loopexit117.i, !llvm.loop !17
+  br i1 %145, label %.lr.ph.i, label %.loopexit117.i, !llvm.loop !19
 
 .loopexit117.sink.split.i:                        ; preds = %136, %134, %130
   %or.cond.not114.ph.i = phi i1 [ true, %130 ], [ false, %134 ], [ false, %136 ]
@@ -1527,7 +1527,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
   %.3.i = phi ptr [ %.2128.i, %138 ], [ %148, %.loopexit117.sink.split.i ], [ %142, %.lr.ph.i ]
   %.289.i = sub i32 %.188125.i, %.pn.i
   %149 = icmp sgt i32 %.289.i, 0
-  br i1 %149, label %.lr.ph129.i, label %.loopexit116.i, !llvm.loop !18
+  br i1 %149, label %.lr.ph129.i, label %.loopexit116.i, !llvm.loop !20
 
 .loopexit116.i:                                   ; preds = %.loopexit117.i, %.loopexit.i, %.preheader118.i, %.preheader.i
   %.393.i = phi ptr [ %64, %.preheader.i ], [ %64, %.preheader118.i ], [ %.292.lcssa.i, %.loopexit.i ], [ %.5.i, %.loopexit117.i ]
@@ -1662,7 +1662,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   store i8 %63, ptr %.170, align 1
   %66 = add nsw i32 %.067101, -1
   %67 = icmp sgt i32 %.067101, 1
-  br i1 %67, label %.lr.ph102, label %.loopexit, !llvm.loop !19
+  br i1 %67, label %.lr.ph102, label %.loopexit, !llvm.loop !21
 
 68:                                               ; preds = %.thread, %50
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1767,7 +1767,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   %.2 = add nsw i32 %.16897, -1
   %.274 = getelementptr inbounds nuw i8, ptr %.17395, i64 1
   %117 = icmp sgt i32 %.16897, 1
-  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %116, %62, %.preheader93, %.preheader
   %.271 = phi ptr [ %56, %.preheader ], [ %56, %.preheader93 ], [ %65, %62 ], [ %.4, %116 ]
@@ -1907,13 +1907,13 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %37 = add nsw i32 %.3151, -1
   %38 = load i8, ptr %36, align 1
   %39 = icmp slt i8 %38, -64
-  br i1 %39, label %.preheader234, label %.critedge, !llvm.loop !21
+  br i1 %39, label %.preheader234, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %35, %.preheader234, %.lr.ph306
   %.2150 = phi i32 [ %.1149302, %.lr.ph306 ], [ %37, %35 ], [ 0, %.preheader234 ]
   %.2143 = phi ptr [ %.1142303, %.lr.ph306 ], [ %36, %35 ], [ %scevgep374, %.preheader234 ]
   %40 = icmp sgt i32 %.2184305.in, 2
-  br i1 %40, label %.lr.ph306, label %.thread, !llvm.loop !22
+  br i1 %40, label %.lr.ph306, label %.thread, !llvm.loop !24
 
 41:                                               ; preds = %.lr.ph306
   %42 = icmp eq i32 %.2184305, 1
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %.not, label %.preheader481, label %54
 
 54:                                               ; preds = %53
-  %55 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %55 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %.preheader481, label %.split
 
@@ -1971,10 +1971,10 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %62 = add nsw i32 %.5153, -1
   %63 = load i8, ptr %61, align 1
   %64 = icmp slt i8 %63, -64
-  br i1 %64, label %58, label %.critedge4, !llvm.loop !23
+  br i1 %64, label %58, label %.critedge4, !llvm.loop !25
 
 .critedge4:                                       ; preds = %60
-  br label %.lr.ph314, !llvm.loop !24
+  br label %.lr.ph314, !llvm.loop !26
 
 .preheader239:                                    ; preds = %15, %67
   %.6154 = phi i32 [ %68, %67 ], [ %.0148288, %15 ]
@@ -1987,7 +1987,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %68 = add nsw i32 %.6154, -1
   %69 = load i8, ptr %65, align 1
   %70 = icmp slt i8 %69, -64
-  br i1 %70, label %.preheader239, label %.backedge, !llvm.loop !25
+  br i1 %70, label %.preheader239, label %.backedge, !llvm.loop !27
 
 .backedge:                                        ; preds = %67, %.preheader239, %150
   %.0182.be.in = phi i32 [ %.1183, %150 ], [ %.0182286, %.preheader239 ], [ %.0182286, %67 ]
@@ -1999,13 +1999,13 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %71 = icmp sgt i32 %.0148.be, 0
   %72 = icmp sgt i32 %.0182.be.in, 1
   %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %15, label %._crit_edge, !llvm.loop !26
+  br i1 %73, label %15, label %._crit_edge, !llvm.loop !28
 
 74:                                               ; preds = %15
   br i1 %.not, label %148, label %75
 
 75:                                               ; preds = %74
-  %76 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %76 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %148, label %78
 
@@ -2050,7 +2050,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %90 = getelementptr inbounds nuw i8, ptr %.1172, i64 1
   %91 = add nsw i64 %.1170, -1
   %.not200 = icmp eq i64 %91, 0
-  br i1 %.not200, label %.thread233, label %.lr.ph324, !llvm.loop !27
+  br i1 %.not200, label %.thread233, label %.lr.ph324, !llvm.loop !29
 
 92:                                               ; preds = %.lr.ph324, %.lr.ph324
   %93 = trunc nuw i8 %.0161321 to i1
@@ -2100,7 +2100,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.1157 = phi ptr [ %.0156329, %.lr.ph332 ], [ %108, %107 ]
   %110 = getelementptr inbounds nuw i8, ptr %.0155330, i64 1
   %exitcond.not = icmp eq ptr %110, %scevgep382
-  br i1 %exitcond.not, label %._crit_edge333, label %.lr.ph332, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge333, label %.lr.ph332, !llvm.loop !30
 
 ._crit_edge333:                                   ; preds = %109, %99
   %.0156.lcssa = phi ptr [ %102, %99 ], [ %.1157, %109 ]
@@ -2150,7 +2150,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.0163 = phi i64 [ %124, %123 ], [ %143, %.critedge8.loopexit ]
   %127 = load volatile i32, ptr @InterruptPending, align 4
   %.not201 = icmp eq i32 %127, 0
-  br i1 %.not201, label %129, label %128, !prof !12
+  br i1 %.not201, label %129, label %128, !prof !14
 
 128:                                              ; preds = %.critedge8
   tail call void @ProcessInterrupts() #7
@@ -2204,7 +2204,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %145 = getelementptr inbounds nuw i8, ptr %.2168, i64 1
   %146 = load i8, ptr %145, align 1
   %147 = icmp slt i8 %146, -64
-  br i1 %147, label %.preheader, label %.critedge8.loopexit, !llvm.loop !29
+  br i1 %147, label %.preheader, label %.critedge8.loopexit, !llvm.loop !31
 
 148:                                              ; preds = %75, %74
   %149 = load i8, ptr %.0141290, align 1
@@ -2239,7 +2239,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %157 = getelementptr inbounds nuw i8, ptr %.4177294, i64 1
   %158 = add nsw i32 %.4186293, -1
   %159 = icmp sgt i32 %.4186293, 1
-  br i1 %159, label %.lr.ph295, label %.thread, !llvm.loop !30
+  br i1 %159, label %.lr.ph295, label %.thread, !llvm.loop !32
 
 .thread:                                          ; preds = %148, %24, %30, %.critedge, %.split, %58, %156, %.lr.ph295, %.preheader238, %.preheader235, %.loopexit, %138, %137, %141, %142, %._crit_edge, %120, %7
   %.0 = phi i32 [ 1, %7 ], [ %., %120 ], [ 0, %._crit_edge ], [ 0, %141 ], [ 0, %142 ], [ 1, %137 ], [ 1, %138 ], [ -1, %.loopexit ], [ 1, %.preheader235 ], [ 1, %.preheader238 ], [ 1, %156 ], [ -1, %.lr.ph295 ], [ -1, %58 ], [ %57, %.split ], [ -1, %30 ], [ 1, %.critedge ], [ 0, %24 ], [ 0, %148 ]
@@ -2333,7 +2333,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.2143 = phi i32 [ %36, %32 ], [ %.1142278, %.lr.ph282 ]
   %.2139 = phi ptr [ %35, %32 ], [ %.1138279, %.lr.ph282 ]
   %38 = icmp samesign ugt i32 %.2168281.in, 2
-  br i1 %38, label %.lr.ph282, label %.thread, !llvm.loop !31
+  br i1 %38, label %.lr.ph282, label %.thread, !llvm.loop !33
 
 39:                                               ; preds = %.lr.ph282
   %40 = icmp eq i32 %.2168281, 1
@@ -2368,7 +2368,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %51
-  %53 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %53 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %56, label %.split
 
@@ -2383,7 +2383,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %59 = getelementptr inbounds i8, ptr %.3140288, i64 %58
   %60 = sub i32 %.3144286, %57
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph291, label %.thread, !llvm.loop !32
+  br i1 %61, label %.lr.ph291, label %.thread, !llvm.loop !34
 
 62:                                               ; preds = %15
   %63 = tail call i32 @pg_mblen(ptr noundef %.0137266) #7
@@ -2402,13 +2402,13 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %67 = icmp sgt i32 %.0141.be, 0
   %68 = icmp sgt i32 %.0166.be.in, 1
   %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %15, label %._crit_edge, !llvm.loop !33
+  br i1 %69, label %15, label %._crit_edge, !llvm.loop !35
 
 70:                                               ; preds = %15
   br i1 %.not, label %145, label %71
 
 71:                                               ; preds = %70
-  %72 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %72 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %145, label %74
 
@@ -2453,7 +2453,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %86 = getelementptr inbounds nuw i8, ptr %.1165, i64 1
   %87 = add nsw i64 %.1163, -1
   %.not184 = icmp eq i64 %87, 0
-  br i1 %.not184, label %.thread218, label %.lr.ph301, !llvm.loop !34
+  br i1 %.not184, label %.thread218, label %.lr.ph301, !llvm.loop !36
 
 88:                                               ; preds = %.lr.ph301, %.lr.ph301
   %89 = trunc nuw i8 %.0156298 to i1
@@ -2503,7 +2503,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.1152 = phi ptr [ %.0151306, %.lr.ph309 ], [ %104, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.0150307, i64 1
   %exitcond.not = icmp eq ptr %106, %scevgep352
-  br i1 %exitcond.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !37
 
 ._crit_edge310:                                   ; preds = %105, %95
   %.0151.lcssa = phi ptr [ %98, %95 ], [ %.1152, %105 ]
@@ -2549,7 +2549,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.0158 = phi i64 [ %120, %119 ], [ %144, %140 ]
   %124 = load volatile i32, ptr @InterruptPending, align 4
   %.not185 = icmp eq i32 %124, 0
-  br i1 %.not185, label %126, label %125, !prof !12
+  br i1 %.not185, label %126, label %125, !prof !14
 
 125:                                              ; preds = %123
   tail call void @ProcessInterrupts() #7
@@ -2628,7 +2628,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %154 = getelementptr inbounds nuw i8, ptr %.4149270, i64 1
   %155 = add nsw i32 %.4170269, -1
   %156 = icmp sgt i32 %.4170269, 1
-  br i1 %156, label %.lr.ph271, label %.thread, !llvm.loop !36
+  br i1 %156, label %.lr.ph271, label %.thread, !llvm.loop !38
 
 .thread:                                          ; preds = %145, %24, %30, %37, %56, %.split, %153, %.lr.ph271, %.preheader221, %.preheader, %.loopexit, %135, %134, %138, %139, %._crit_edge, %116, %7
   %.0 = phi i32 [ 1, %7 ], [ %., %116 ], [ 0, %._crit_edge ], [ 0, %138 ], [ 0, %139 ], [ 1, %134 ], [ 1, %135 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader221 ], [ 1, %153 ], [ -1, %.lr.ph271 ], [ -1, %56 ], [ %55, %.split ], [ -1, %30 ], [ 1, %37 ], [ 0, %24 ], [ 0, %145 ]
@@ -2706,7 +2706,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   %28 = add nsw i32 %.0165277, -1
   %29 = getelementptr inbounds nuw i8, ptr %.0156278, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %31 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
@@ -2715,7 +2715,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   br label %SB_lower_char.exit
 
 35:                                               ; preds = %27
-  %36 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %36 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %40
 
@@ -2736,7 +2736,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
 SB_lower_char.exit:                               ; preds = %33, %38, %40
   %.0.i = phi i8 [ %34, %33 ], [ %39, %38 ], [ %47, %40 ]
   %48 = load i8, ptr %.0132281, align 1
-  %49 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %49 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %53
 
@@ -2745,7 +2745,7 @@ SB_lower_char.exit:                               ; preds = %33, %38, %40
   br label %SB_lower_char.exit195
 
 53:                                               ; preds = %SB_lower_char.exit
-  %54 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %54 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %58
 
@@ -2795,7 +2795,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   %.2138 = phi i32 [ %71, %69 ], [ %.1137294, %.lr.ph298 ]
   %.2134 = phi ptr [ %70, %69 ], [ %.1133295, %.lr.ph298 ]
   %73 = icmp samesign ugt i32 %.2167297.in, 2
-  br i1 %73, label %.lr.ph298, label %.thread, !llvm.loop !37
+  br i1 %73, label %.lr.ph298, label %.thread, !llvm.loop !39
 
 74:                                               ; preds = %.lr.ph298
   %75 = icmp eq i32 %.2167297, 1
@@ -2812,7 +2812,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %.0156.pn293, i64 2
   %82 = load i8, ptr %81, align 1
-  %83 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %83 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %87
 
@@ -2821,7 +2821,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br label %SB_lower_char.exit197
 
 87:                                               ; preds = %80
-  %88 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %88 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %92
 
@@ -2840,7 +2840,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br label %SB_lower_char.exit197
 
 100:                                              ; preds = %.lr.ph298
-  %101 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %101 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %105
 
@@ -2849,7 +2849,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br label %SB_lower_char.exit197
 
 105:                                              ; preds = %100
-  %106 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %106 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %110
 
@@ -2876,7 +2876,7 @@ SB_lower_char.exit197:                            ; preds = %110, %108, %103, %9
   %.3135303 = phi ptr [ %143, %142 ], [ %.1133295, %SB_lower_char.exit197 ]
   %.3139302 = phi i32 [ %144, %142 ], [ %.1137294, %SB_lower_char.exit197 ]
   %119 = load i8, ptr %.3135303, align 1
-  %120 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %120 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %124
 
@@ -2885,7 +2885,7 @@ SB_lower_char.exit197:                            ; preds = %110, %108, %103, %9
   br label %SB_lower_char.exit201
 
 124:                                              ; preds = %.lr.ph305
-  %125 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %125 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %129
 
@@ -2909,7 +2909,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   br i1 %137, label %.split, label %138
 
 138:                                              ; preds = %SB_lower_char.exit201
-  %139 = load i8, ptr %17, align 1, !range !7, !noundef !8
+  %139 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %142, label %.split
 
@@ -2922,7 +2922,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   %143 = getelementptr inbounds nuw i8, ptr %.3135303, i64 1
   %144 = add nsw i32 %.3139302, -1
   %145 = icmp sgt i32 %.3139302, 1
-  br i1 %145, label %.lr.ph305, label %.thread, !llvm.loop !38
+  br i1 %145, label %.lr.ph305, label %.thread, !llvm.loop !40
 
 .backedge:                                        ; preds = %SB_lower_char.exit195, %SB_lower_char.exit205, %18
   %.0165.be.in = phi i32 [ %.0165277, %18 ], [ %28, %SB_lower_char.exit195 ], [ %.0165277, %SB_lower_char.exit205 ]
@@ -2934,13 +2934,13 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   %146 = icmp sgt i32 %.0136279, 1
   %147 = icmp sgt i32 %.0165.be.in, 1
   %148 = select i1 %146, i1 %147, i1 false
-  br i1 %148, label %18, label %._crit_edge, !llvm.loop !39
+  br i1 %148, label %18, label %._crit_edge, !llvm.loop !41
 
 149:                                              ; preds = %18
   br i1 %.not, label %.split171, label %185
 
 .split171:                                        ; preds = %149
-  %150 = load i8, ptr inttoptr (i64 3 to ptr), align 1, !range !7, !noundef !8
+  %150 = load i8, ptr inttoptr (i64 3 to ptr), align 1, !range !8, !noundef !9
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %152, label %154
 
@@ -2949,7 +2949,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   br label %SB_lower_char.exit203
 
 154:                                              ; preds = %.split171
-  %155 = load i8, ptr inttoptr (i64 4 to ptr), align 4, !range !7, !noundef !8
+  %155 = load i8, ptr inttoptr (i64 4 to ptr), align 4, !range !8, !noundef !9
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %157, label %159
 
@@ -2970,7 +2970,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
 SB_lower_char.exit203:                            ; preds = %152, %157, %159
   %.0.i202 = phi i8 [ %153, %152 ], [ %158, %157 ], [ %166, %159 ]
   %167 = load i8, ptr %.0132281, align 1
-  %168 = load i8, ptr inttoptr (i64 3 to ptr), align 1, !range !7, !noundef !8
+  %168 = load i8, ptr inttoptr (i64 3 to ptr), align 1, !range !8, !noundef !9
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %172
 
@@ -2979,7 +2979,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br label %SB_lower_char.exit205
 
 172:                                              ; preds = %SB_lower_char.exit203
-  %173 = load i8, ptr inttoptr (i64 4 to ptr), align 4, !range !7, !noundef !8
+  %173 = load i8, ptr inttoptr (i64 4 to ptr), align 4, !range !8, !noundef !9
   %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %175, label %177
 
@@ -2998,12 +2998,12 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br label %SB_lower_char.exit205
 
 185:                                              ; preds = %149
-  %186 = load i8, ptr %17, align 1, !range !7, !noundef !8
+  %186 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %.split172, label %223
 
 .split172:                                        ; preds = %185
-  %188 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %188 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %192
 
@@ -3012,7 +3012,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br label %SB_lower_char.exit207
 
 192:                                              ; preds = %.split172
-  %193 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %193 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %194 = trunc nuw i8 %193 to i1
   br i1 %194, label %195, label %197
 
@@ -3033,7 +3033,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
 SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %.0.i206 = phi i8 [ %191, %190 ], [ %196, %195 ], [ %204, %197 ]
   %205 = load i8, ptr %.0132281, align 1
-  %206 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %206 = load i8, ptr %14, align 1, !range !8, !noundef !9
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %210
 
@@ -3042,7 +3042,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br label %SB_lower_char.exit205
 
 210:                                              ; preds = %SB_lower_char.exit207
-  %211 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %211 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %213, label %215
 
@@ -3101,7 +3101,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %235 = getelementptr inbounds nuw i8, ptr %.1155, i64 1
   %236 = add nsw i64 %.1153, -1
   %.not183 = icmp eq i64 %236, 0
-  br i1 %.not183, label %.thread233, label %.lr.ph315, !llvm.loop !40
+  br i1 %.not183, label %.thread233, label %.lr.ph315, !llvm.loop !42
 
 237:                                              ; preds = %.lr.ph315, %.lr.ph315
   %238 = trunc nuw i8 %.0146312 to i1
@@ -3151,7 +3151,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %.1142 = phi ptr [ %.0141320, %.lr.ph323 ], [ %253, %252 ]
   %255 = getelementptr inbounds nuw i8, ptr %.0140321, i64 1
   %exitcond.not = icmp eq ptr %255, %scevgep366
-  br i1 %exitcond.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !43
 
 ._crit_edge324:                                   ; preds = %254, %244
   %.0141.lcssa = phi ptr [ %247, %244 ], [ %.1142, %254 ]
@@ -3197,7 +3197,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %.0148 = phi i64 [ %269, %268 ], [ %291, %289 ]
   %273 = load volatile i32, ptr @InterruptPending, align 4
   %.not184 = icmp eq i32 %273, 0
-  br i1 %.not184, label %275, label %274, !prof !12
+  br i1 %.not184, label %275, label %274, !prof !14
 
 274:                                              ; preds = %272
   tail call void @ProcessInterrupts() #7
@@ -3268,7 +3268,7 @@ SB_lower_char.exit205:                            ; preds = %215, %213, %208, %1
   %296 = getelementptr inbounds nuw i8, ptr %.4160286, i64 1
   %297 = add nsw i32 %.4169285, -1
   %298 = icmp sgt i32 %.4169285, 1
-  br i1 %298, label %.lr.ph287, label %.thread, !llvm.loop !42
+  br i1 %298, label %.lr.ph287, label %.thread, !llvm.loop !44
 
 .thread:                                          ; preds = %SB_lower_char.exit205, %SB_lower_char.exit195, %67, %72, %142, %.split, %295, %.lr.ph287, %.preheader236, %.preheader, %SB_lower_char.exit197, %284, %283, %287, %288, %._crit_edge, %265, %7
   %.0 = phi i32 [ 1, %7 ], [ %., %265 ], [ 0, %._crit_edge ], [ 0, %287 ], [ 0, %288 ], [ 1, %283 ], [ 1, %284 ], [ -1, %SB_lower_char.exit197 ], [ 1, %.preheader ], [ 1, %.preheader236 ], [ 1, %295 ], [ -1, %.lr.ph287 ], [ -1, %142 ], [ %141, %.split ], [ -1, %67 ], [ 1, %72 ], [ 0, %SB_lower_char.exit195 ], [ 0, %SB_lower_char.exit205 ]
@@ -3304,15 +3304,15 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -3341,3 +3341,5 @@ attributes #9 = { cold nounwind }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}

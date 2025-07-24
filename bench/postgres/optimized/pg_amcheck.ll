@@ -2047,7 +2047,7 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %app
   %57 = add i32 %.026.i, 1
   %58 = sext i32 %57 to i64
   %59 = icmp ugt i64 %56, %58
-  br i1 %59, label %.lr.ph.split.i, label %._crit_edge.i57, !llvm.loop !13
+  br i1 %59, label %.lr.ph.split.i, label %._crit_edge.i57, !llvm.loop !15
 
 ._crit_edge.i57:                                  ; preds = %54
   %60 = trunc nuw i8 %.1.i to i1
@@ -2177,7 +2177,7 @@ append_db_pattern_cte.exit59:                     ; preds = %._crit_edge.i57, %.
 .lr.ph.backedge:                                  ; preds = %108, %.thread
   %.063.be = phi i32 [ %109, %108 ], [ %110, %.thread ]
   %.04562.be = phi i1 [ %.2, %108 ], [ false, %.thread ]
-  br label %.lr.ph, !llvm.loop !14
+  br label %.lr.ph, !llvm.loop !16
 
 .thread:                                          ; preds = %91
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.165, ptr noundef %96) #11
@@ -2462,7 +2462,7 @@ define internal noundef zeroext i1 @verify_heap_slot_handler(ptr noundef %0, ptr
   %48 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.91, ptr noundef %.0) #11
   %49 = add nuw nsw i32 %.05661, 1
   %exitcond.not = icmp eq i32 %49, %7
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !17
 
 50:                                               ; preds = %3
   %51 = tail call i32 @PQresultStatus(ptr noundef %0) #11
@@ -2748,7 +2748,7 @@ define internal fastcc ptr @indent_lines(ptr noundef readonly captures(none) %0)
   %12 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %11, %1
   %14 = load ptr, ptr %2, align 8
@@ -2962,7 +2962,7 @@ define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef nonnull %0, 
   %36 = sext i32 %35 to i64
   %37 = load i64, ptr %4, align 8
   %38 = icmp ugt i64 %37, %36
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 .critedge:                                        ; preds = %3
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.214) #11
@@ -3004,8 +3004,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

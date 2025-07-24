@@ -32763,7 +32763,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -33464,7 +33464,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -35068,7 +35068,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -36587,7 +36587,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -36961,7 +36961,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -38112,7 +38112,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -38486,7 +38486,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -39364,7 +39364,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -39738,7 +39738,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -40889,7 +40889,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -41263,7 +41263,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -43940,7 +43940,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_LocalContext_findDecl_x3f___s
 16:                                               ; preds = %lean_obj_tag.exit.us
   %17 = add nuw i64 %.04292.us, 1
   %exitcond105.not = icmp eq i64 %17, %5
-  br i1 %exitcond105.not, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %exitcond105.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !32
 
 18:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %13, align 4, !tbaa !4
@@ -59483,7 +59483,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_LocalContext_
 12:                                               ; preds = %lean_dec.exit24.us
   %13 = add i64 %.01841.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !33
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -60670,7 +60670,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_LocalContext_
 12:                                               ; preds = %lean_dec.exit24.us
   %13 = add i64 %.01841.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !34
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -64089,7 +64089,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_LocalContext_sort
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %.critedge.i, !prof !20
+  br i1 %or.cond, label %13, label %.critedge.i, !prof !35
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -64286,7 +64286,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at_Lean_LocalContext_sortFVarsByContextOrder___spec__2(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !21
+  br i1 %.not88, label %80, label %69, !prof !36
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -64652,7 +64652,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_LocalContext_sortFVarsByContext
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond.i = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !20
+  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !35
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -77595,5 +77595,20 @@ attributes #10 = { "function-inline-cost-multiplier"="2" }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!7, !7, i64 0}
 !19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
-!21 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}
+!34 = distinct !{!34, !21}
+!35 = !{!"branch_weights", i32 4000000, i32 4001}
+!36 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}

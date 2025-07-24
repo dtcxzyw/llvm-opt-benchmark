@@ -802,7 +802,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   store i32 %163, ptr %165, align 4, !tbaa !38
   %166 = add nuw nsw i64 %.0141226.us229, 1
   %exitcond239.not = icmp eq i64 %166, %81
-  br i1 %exitcond239.not, label %.thread194.thread, label %.lr.ph227.split.us228, !llvm.loop !48
+  br i1 %exitcond239.not, label %.thread194.thread, label %.lr.ph227.split.us228, !llvm.loop !50
 
 .thread194.thread:                                ; preds = %.lr.ph227.split.us228, %.lr.ph227.split.us, %.lr.ph227.split, %.preheader
   tail call void @free(ptr noundef %.pre244) #11
@@ -822,7 +822,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   store i32 %172, ptr %174, align 4, !tbaa !38
   %175 = add nuw nsw i64 %.0141226, 1
   %exitcond241.not = icmp eq i64 %175, %81
-  br i1 %exitcond241.not, label %.thread194.thread, label %.lr.ph227.split, !llvm.loop !48
+  br i1 %exitcond241.not, label %.thread194.thread, label %.lr.ph227.split, !llvm.loop !51
 
 176:                                              ; preds = %130, %._crit_edge
   %177 = load ptr, ptr %.1.ph, align 8, !tbaa !29
@@ -860,7 +860,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_free(ptr noundef cap
   %7 = select i1 %3, i1 true, i1 %6
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %8, %7
-  br i1 %or.cond, label %9, label %31, !prof !49
+  br i1 %or.cond, label %9, label %31, !prof !52
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1004,7 +1004,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum_numeric(ptr noundef readonly capture
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !50
+  %56 = load ptr, ptr %55, align 8, !tbaa !53
   %57 = tail call ptr @H5T_path_find(ptr noundef %56, ptr noundef nonnull %1) #11
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %63
@@ -1142,6 +1142,9 @@ attributes #15 = { nounwind allocsize(0) }
 !45 = !{!4, !5, i64 4}
 !46 = distinct !{!46, !42}
 !47 = distinct !{!47, !42}
-!48 = distinct !{!48, !42}
-!49 = !{!"branch_weights", i32 2000, i32 2002}
-!50 = !{!27, !28, i64 32}
+!48 = distinct !{!48, !42, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !42, !49}
+!51 = distinct !{!51, !42}
+!52 = !{!"branch_weights", i32 2000, i32 2002}
+!53 = !{!27, !28, i64 32}

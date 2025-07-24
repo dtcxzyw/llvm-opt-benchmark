@@ -209,7 +209,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
   tail call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %.01521.us.us) #13
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.01521.us.us, i64 noundef 48) #13
   %.not.us.us = icmp eq ptr %11, null
-  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !8
+  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !9
 
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.preheader ]
@@ -236,13 +236,13 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
 26:                                               ; preds = %24, %.lr.ph
   %.2 = phi i32 [ %25, %24 ], [ %.120, %.lr.ph ]
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.split:                                ; preds = %26, %.preheader.split
   %.1.lcssa = phi i32 [ %.01722, %.preheader.split ], [ %.2, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2053
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !6
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !11
 
 .split.us:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us
   %.us-phi24 = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.1.lcssa, %._crit_edge.split ]
@@ -310,12 +310,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   tail call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %.01418) #13
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.01418, i64 noundef 48) #13
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2053
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !13
 
 10:                                               ; preds = %._crit_edge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16424) %0, i8 0, i64 16424, i1 false)
@@ -473,7 +473,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 
 10:                                               ; preds = %9
   %11 = tail call noundef zeroext i1 @_ZNK13JfrStackTrace6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(44) %.014, ptr noundef nonnull align 8 dereferenceable(44) %1) #13
-  br i1 %11, label %12, label %9, !llvm.loop !11
+  br i1 %11, label %12, label %9, !llvm.loop !14
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.014, i64 16
@@ -606,7 +606,7 @@ define hidden noundef ptr @_ZN23JfrStackTraceRepository24lookup_for_leak_profile
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %9 = load i64, ptr %8, align 8
   %.not6 = icmp eq i64 %9, %1
-  br i1 %.not6, label %.critedge, label %6, !llvm.loop !12
+  br i1 %.not6, label %.critedge, label %6, !llvm.loop !15
 
 .critedge:                                        ; preds = %6, %7
   ret ptr %.0
@@ -642,12 +642,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3, %0
   tail call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %.01418.i) #13
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.01418.i, i64 noundef 48) #13
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2053
-  br i1 %exitcond.not.i, label %10, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %10, label %.preheader.i, !llvm.loop !13
 
 10:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16432) %1, i8 0, i64 16432, i1 false)
@@ -694,12 +694,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %3, %0
   tail call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %.01418.i.i) #13
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.01418.i.i, i64 noundef 48) #13
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 2053
-  br i1 %exitcond.not.i.i, label %10, label %.preheader.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %10, label %.preheader.i.i, !llvm.loop !13
 
 10:                                               ; preds = %._crit_edge.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16432) %1, i8 0, i64 16432, i1 false)
@@ -741,12 +741,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %15, %_ZN2
   tail call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %.01418.i) #13
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.01418.i, i64 noundef 48) #13
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2053
-  br i1 %exitcond.not.i, label %22, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %22, label %.preheader.i, !llvm.loop !13
 
 22:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16432) %13, i8 0, i64 16424, i1 false)
@@ -1326,10 +1326,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

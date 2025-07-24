@@ -2191,7 +2191,7 @@ define internal void @run_rgb0(ptr noundef readonly captures(none) %0, ptr nound
   %40 = getelementptr inbounds i8, ptr %.02731, i64 %31
   %41 = add nuw nsw i32 %.02632, 1
   %exitcond38.not = icmp eq i32 %41, %3
-  br i1 %exitcond38.not, label %._crit_edge35, label %.lr.ph34.split, !llvm.loop !151
+  br i1 %exitcond38.not, label %._crit_edge35, label %.lr.ph34.split, !llvm.loop !153
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2260,7 +2260,7 @@ usePal.exit.i:                                    ; preds = %12, %12, %12, %12, 
 slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exit.i
   %.0.i = phi ptr [ %8, %5 ], [ %20, %usePal.exit.i ], [ %20, %12 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false), !tbaa.struct !113
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2270,12 +2270,12 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 30:                                               ; preds = %ff_fmt_vshift.exit.i, %slice_ctx.exit
   %indvars.iv.i = phi i64 [ 0, %slice_ctx.exit ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
   %31 = getelementptr inbounds nuw [4 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !152
+  %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !154
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %29) #12, !noalias !152
+  %34 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %29) #12, !noalias !154
   %35 = trunc i64 %indvars.iv.i to i32
   %36 = add i32 %35, -1
   %or.cond.i.i = icmp ult i32 %36, 2
@@ -2283,7 +2283,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 10
-  %39 = load i8, ptr %38, align 2, !tbaa !105, !noalias !152
+  %39 = load i8, ptr %38, align 2, !tbaa !105, !noalias !154
   %40 = zext i8 %39 to i32
   br label %ff_fmt_vshift.exit.i
 
@@ -2291,11 +2291,11 @@ ff_fmt_vshift.exit.i:                             ; preds = %37, %33
   %41 = phi i32 [ %40, %37 ], [ 0, %33 ]
   %42 = ashr i32 %2, %41
   %43 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv.i
-  %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !152
+  %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !154
   %45 = mul nsw i32 %42, %44
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %32, i64 %46
-  store ptr %47, ptr %31, align 8, !tbaa !75, !alias.scope !152
+  store ptr %47, ptr %31, align 8, !tbaa !75, !alias.scope !154
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ff_sws_img_shift.exit, label %30, !llvm.loop !114
@@ -2352,7 +2352,7 @@ usePal.exit.i:                                    ; preds = %12, %12, %12, %12, 
 slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exit.i
   %.0.i = phi ptr [ %8, %5 ], [ %20, %usePal.exit.i ], [ %20, %12 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false), !tbaa.struct !113
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2362,12 +2362,12 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 30:                                               ; preds = %ff_fmt_vshift.exit.i, %slice_ctx.exit
   %indvars.iv.i = phi i64 [ 0, %slice_ctx.exit ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
   %31 = getelementptr inbounds nuw [4 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !155
+  %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !157
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %29) #12, !noalias !155
+  %34 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %29) #12, !noalias !157
   %35 = trunc i64 %indvars.iv.i to i32
   %36 = add i32 %35, -1
   %or.cond.i.i = icmp ult i32 %36, 2
@@ -2375,7 +2375,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 10
-  %39 = load i8, ptr %38, align 2, !tbaa !105, !noalias !155
+  %39 = load i8, ptr %38, align 2, !tbaa !105, !noalias !157
   %40 = zext i8 %39 to i32
   br label %ff_fmt_vshift.exit.i
 
@@ -2383,11 +2383,11 @@ ff_fmt_vshift.exit.i:                             ; preds = %37, %33
   %41 = phi i32 [ %40, %37 ], [ 0, %33 ]
   %42 = ashr i32 %2, %41
   %43 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv.i
-  %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !155
+  %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !157
   %45 = mul nsw i32 %42, %44
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %32, i64 %46
-  store ptr %47, ptr %31, align 8, !tbaa !75, !alias.scope !155
+  store ptr %47, ptr %31, align 8, !tbaa !75, !alias.scope !157
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ff_sws_img_shift.exit, label %30, !llvm.loop !114
@@ -2439,7 +2439,7 @@ define internal void @setup_legacy_swscale(ptr readnone captures(none) %0, ptr n
   tail call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 %23, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !158
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !160
 
 .loopexit:                                        ; preds = %17, %13, %9, %3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -2688,11 +2688,13 @@ attributes #13 = { noreturn nounwind }
 !148 = distinct !{!148, !77}
 !149 = distinct !{!149, !77}
 !150 = distinct !{!150, !77}
-!151 = distinct !{!151, !77}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"ff_sws_img_shift: argument 0"}
-!154 = distinct !{!154, !"ff_sws_img_shift"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"ff_sws_img_shift: argument 0"}
-!157 = distinct !{!157, !"ff_sws_img_shift"}
-!158 = distinct !{!158, !77}
+!151 = distinct !{!151, !77, !152}
+!152 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!153 = distinct !{!153, !77}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"ff_sws_img_shift: argument 0"}
+!156 = distinct !{!156, !"ff_sws_img_shift"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"ff_sws_img_shift: argument 0"}
+!159 = distinct !{!159, !"ff_sws_img_shift"}
+!160 = distinct !{!160, !77}

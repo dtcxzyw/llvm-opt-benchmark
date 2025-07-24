@@ -951,7 +951,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
 _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i, %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i.i
   %57 = load atomic i32, ptr %37 acquire, align 4
   %.not.i.i = icmp eq i32 %57, 2
-  br i1 %.not.i.i, label %_ZN3tbb6detail2d110task_arena10initializeEv.exit, label %.lr.ph.i.i, !llvm.loop !71
+  br i1 %.not.i.i, label %_ZN3tbb6detail2d110task_arena10initializeEv.exit, label %.lr.ph.i.i, !llvm.loop !72
 
 _ZN3tbb6detail2d110task_arena10initializeEv.exit: ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i, %36, %44
   %58 = load atomic i64, ptr %33 monotonic, align 8
@@ -967,7 +967,7 @@ _ZN3tbb6detail2d110task_arena10initializeEv.exit: ; preds = %_ZN3tbb6detail2d015
   %.1 = phi ptr [ %12, %59 ], [ %.0, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 240
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !72
+  store ptr %61, ptr %62, align 8, !tbaa !73
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 256
   br label %.preheader.i.i.i.outer
@@ -1060,14 +1060,14 @@ _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 240
-  %96 = load ptr, ptr %63, align 8, !tbaa !72
+  %96 = load ptr, ptr %63, align 8, !tbaa !73
   %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 72
   %100 = getelementptr inbounds nuw i8, ptr %.1, i64 18
-  %101 = load i8, ptr %100, align 2, !tbaa !73, !range !74, !noundef !75
+  %101 = load i8, ptr %100, align 2, !tbaa !74, !range !75, !noundef !76
   %102 = load ptr, ptr %99, align 8, !tbaa !24
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %104 = load atomic i64, ptr %103 monotonic, align 8
@@ -1088,7 +1088,7 @@ _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !72
+  %112 = load ptr, ptr %111, align 8, !tbaa !73
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   br label %.preheader.i.i.outer
 
@@ -1230,7 +1230,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.0.1.us.i = phi i32 [ %163, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %.sroa.0.010.us.i, %157 ]
   %164 = load atomic i64, ptr %154 acquire, align 8
   %.not.us.i = icmp eq i64 %164, 0
-  br i1 %.not.us.i, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %.lr.ph.i, !llvm.loop !76
+  br i1 %.not.us.i, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %.lr.ph.i, !llvm.loop !77
 
 _ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %106, %98, %108, %_ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit, %91, %94, %4
   ret void
@@ -1341,10 +1341,11 @@ attributes #12 = { builtin allocsize(0) }
 !67 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r117tbb_exception_ptrEE", !68, i64 0}
 !68 = !{!"p1 _ZTSN3tbb6detail2r117tbb_exception_ptrE", !12, i64 0}
 !69 = !{!"_ZTSN3tbb6detail2d021string_resource_indexE", !6, i64 0}
-!70 = distinct !{!70, !16}
-!71 = distinct !{!71, !16}
-!72 = !{!9, !11, i64 8}
-!73 = !{!42, !46, i64 18}
-!74 = !{i8 0, i8 2}
-!75 = !{}
-!76 = distinct !{!76, !16}
+!70 = distinct !{!70, !16, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !16}
+!73 = !{!9, !11, i64 8}
+!74 = !{!42, !46, i64 18}
+!75 = !{i8 0, i8 2}
+!76 = !{}
+!77 = distinct !{!77, !16, !71}

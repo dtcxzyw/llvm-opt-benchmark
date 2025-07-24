@@ -865,7 +865,7 @@ getbits.exit78.us:                                ; preds = %40, %.preheader115.
   store i8 %55, ptr %57, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %.split.us, label %.preheader115.split.us
+  br i1 %exitcond.not, label %.split.us, label %.preheader115.split.us, !llvm.loop !27
 
 getbits.exit78.thread:                            ; preds = %37
   %58 = and i64 %indvars.iv, 4294967295
@@ -1520,3 +1520,5 @@ attributes #12 = { nounwind allocsize(0,1) }
 !24 = !{!23, !10, i64 12}
 !25 = !{!23, !10, i64 8}
 !26 = !{!23, !10, i64 4}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}

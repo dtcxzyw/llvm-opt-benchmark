@@ -567,7 +567,7 @@ core_list_find.exit80:                            ; preds = %177, %171
   %184 = tail call zeroext i16 @crc16(i16 noundef signext %183, i16 noundef zeroext %.3186) #9
   %185 = load ptr, ptr %.1187, align 8, !tbaa !31
   %.not61 = icmp eq ptr %185, null
-  br i1 %.not61, label %._crit_edge189.loopexit, label %181, !llvm.loop !40
+  br i1 %.not61, label %._crit_edge189.loopexit, label %181, !llvm.loop !41
 
 ._crit_edge189.loopexit:                          ; preds = %181
   %.pre = load ptr, ptr %163, align 8, !tbaa !28
@@ -733,7 +733,7 @@ core_list_mergesort.exit131:                      ; preds = %.lr.ph206, %core_li
   %240 = tail call zeroext i16 @crc16(i16 noundef signext %239, i16 noundef zeroext %.4204) #9
   %.2 = load ptr, ptr %.2205, align 8, !tbaa !31
   %.not62 = icmp eq ptr %.2, null
-  br i1 %.not62, label %core_list_mergesort.exit131._crit_edge, label %core_list_mergesort.exit131, !llvm.loop !41
+  br i1 %.not62, label %core_list_mergesort.exit131._crit_edge, label %core_list_mergesort.exit131, !llvm.loop !42
 
 core_list_mergesort.exit131._crit_edge:           ; preds = %core_list_mergesort.exit131, %core_list_mergesort.exit131.preheader
   %.4.lcssa = phi i16 [ %.3.lcssa, %core_list_mergesort.exit131.preheader ], [ %240, %core_list_mergesort.exit131 ]
@@ -1051,7 +1051,7 @@ core_list_insert_new.exit42:                      ; preds = %.lr.ph, %30, %32
   %.256 = phi ptr [ %29, %32 ], [ %.05466, %30 ], [ %.05466, %.lr.ph ]
   %36 = add nuw i32 %.067, 1
   %exitcond.not = icmp eq i32 %36, %5
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !43
 
 37:                                               ; preds = %.lr.ph72, %47
   %.037 = phi ptr [ %19, %.lr.ph72 ], [ %51, %47 ]
@@ -1079,7 +1079,7 @@ core_list_insert_new.exit42:                      ; preds = %.lr.ph, %30, %32
   store i16 %.sink, ptr %50, align 2, !tbaa !25
   %51 = load ptr, ptr %.037, align 8, !tbaa !31
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %.lr.ph.us.i.preheader.preheader, label %37, !llvm.loop !43
+  br i1 %.not, label %.lr.ph.us.i.preheader.preheader, label %37, !llvm.loop !44
 
 .lr.ph.us.i.preheader.preheader:                  ; preds = %47, %.preheader
   br label %.lr.ph.us.i.preheader
@@ -1220,27 +1220,27 @@ core_list_mergesort.exit:                         ; preds = %._crit_edge80.i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @core_list_insert_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #5 {
-  %7 = load ptr, ptr %2, align 8, !tbaa !44
+  %7 = load ptr, ptr %2, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.not = icmp ult ptr %8, %4
   br i1 %.not, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !45
+  %10 = load ptr, ptr %3, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not18 = icmp ult ptr %11, %5
   br i1 %.not18, label %12, label %22
 
 12:                                               ; preds = %9
-  store ptr %8, ptr %2, align 8, !tbaa !44
+  store ptr %8, ptr %2, align 8, !tbaa !45
   %13 = load ptr, ptr %0, align 8, !tbaa !31
   store ptr %13, ptr %7, align 8, !tbaa !31
   store ptr %7, ptr %0, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %14, align 8, !tbaa !28
-  %15 = load ptr, ptr %3, align 8, !tbaa !45
+  %15 = load ptr, ptr %3, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store ptr %16, ptr %3, align 8, !tbaa !45
+  store ptr %16, ptr %3, align 8, !tbaa !46
   %17 = load ptr, ptr %14, align 8, !tbaa !28
   %18 = load i16, ptr %1, align 2, !tbaa !23
   store i16 %18, ptr %17, align 2, !tbaa !23
@@ -1313,10 +1313,11 @@ attributes #9 = { nounwind }
 !36 = distinct !{!36, !33}
 !37 = distinct !{!37, !33}
 !38 = distinct !{!38, !33}
-!39 = distinct !{!39, !33}
-!40 = distinct !{!40, !33}
+!39 = distinct !{!39, !33, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !41 = distinct !{!41, !33}
 !42 = distinct !{!42, !33}
 !43 = distinct !{!43, !33}
-!44 = !{!11, !11, i64 0}
-!45 = !{!30, !30, i64 0}
+!44 = distinct !{!44, !33}
+!45 = !{!11, !11, i64 0}
+!46 = !{!30, !30, i64 0}

@@ -377,7 +377,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %.lr.ph.split, %130, %99, %96, %94
   %.1 = phi i32 [ %131, %130 ], [ %.05068, %99 ], [ %.05068, %96 ], [ %.05068, %94 ], [ %.05068, %.lr.ph.split ]
   %.not60 = icmp eq ptr %91, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not60, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %43, %40, %5, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
@@ -435,7 +435,7 @@ define internal fastcc noundef zeroext i1 @tree_traverse_pre_order(ptr noundef n
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc zeroext i1 @tree_traverse_pre_order(ptr noundef %.012, ptr noundef %1)
-  br i1 %10, label %.loopexit, label %6, !llvm.loop !13
+  br i1 %10, label %.loopexit, label %6, !llvm.loop !15
 
 .loopexit:                                        ; preds = %6, %7, %2
   %.0 = phi i1 [ true, %2 ], [ %.not.not.not, %7 ], [ %.not.not.not, %6 ]
@@ -551,5 +551,7 @@ attributes #10 = { nounwind }
 !9 = distinct !{!9, !8}
 !10 = !{i8 0, i8 2}
 !11 = !{}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!12 = distinct !{!12, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

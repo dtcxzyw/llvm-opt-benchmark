@@ -3956,7 +3956,7 @@ get_pixel_region.exit:                            ; preds = %198, %210, %222
 ._crit_edge.us:                                   ; preds = %289
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge95.loopexit, label %.preheader.us
+  br i1 %exitcond114.not, label %._crit_edge95.loopexit, label %.preheader.us, !llvm.loop !106
 
 ._crit_edge95.loopexit:                           ; preds = %._crit_edge.us
   %290 = uitofp i64 %.2.us to double
@@ -4004,7 +4004,7 @@ define internal fastcc void @get_Lab_from_box(ptr noundef nonnull readonly captu
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 16, !tbaa !106
+  %8 = load i32, ptr %7, align 16, !tbaa !108
   switch i32 %8, label %.loopexit [
     i32 5, label %10
     i32 6, label %.preheader
@@ -4192,10 +4192,10 @@ define internal void @reference_mode_changed_callback(ptr noundef %0, ptr nounde
   %.sink18 = phi i64 [ 40, %11 ], [ 240, %5 ]
   %.sink = phi i64 [ 32, %11 ], [ 24, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink18
-  %20 = load ptr, ptr %19, align 8, !tbaa !108
+  %20 = load ptr, ptr %19, align 8, !tbaa !110
   tail call void @gtk_widget_hide(ptr noundef %20) #24
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %22 = load ptr, ptr %21, align 8, !tbaa !108
+  %22 = load ptr, ptr %21, align 8, !tbaa !110
   tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %22, ptr noundef nonnull @.str.52, ptr noundef %1) #24
   ret void
 }
@@ -4359,7 +4359,7 @@ define internal void @process_button_clicked_callback(ptr readnone captures(none
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #24
   %40 = load ptr, ptr %27, align 8, !tbaa !64
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !109
+  %42 = load ptr, ptr %41, align 8, !tbaa !111
   call void @g_hash_table_iter_init(ptr noundef nonnull %18, ptr noundef %42) #24
   %43 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #24
   %.not1536 = icmp eq i32 %43, 0
@@ -4394,7 +4394,7 @@ define internal void @process_button_clicked_callback(ptr readnone captures(none
 67:                                               ; preds = %.lr.ph, %add_patches_to_array.exit
   %.038 = phi i32 [ 0, %.lr.ph ], [ %.3, %add_patches_to_array.exit ]
   %.lcssa3537 = phi i32 [ %32, %.lr.ph ], [ %.lcssa34, %add_patches_to_array.exit ]
-  %68 = load ptr, ptr %20, align 8, !tbaa !110
+  %68 = load ptr, ptr %20, align 8, !tbaa !112
   %.not37.i = icmp eq ptr %68, null
   br i1 %.not37.i, label %add_patches_to_array.exit, label %.lr.ph.i
 
@@ -4402,7 +4402,7 @@ define internal void @process_button_clicked_callback(ptr readnone captures(none
   %69 = phi i32 [ %251, %250 ], [ %.lcssa3537, %67 ]
   %.1 = phi i32 [ %.2, %250 ], [ %.038, %67 ]
   %.038.i = phi ptr [ %253, %250 ], [ %68, %67 ]
-  %70 = load ptr, ptr %.038.i, align 8, !tbaa !111
+  %70 = load ptr, ptr %.038.i, align 8, !tbaa !113
   %71 = load ptr, ptr %44, align 8, !tbaa !7
   %72 = call ptr @g_hash_table_lookup(ptr noundef %71, ptr noundef %70) #24
   %73 = load ptr, ptr %27, align 8, !tbaa !64
@@ -4425,7 +4425,7 @@ define internal void @process_button_clicked_callback(ptr readnone captures(none
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %84 = load i32, ptr %83, align 16, !tbaa !106
+  %84 = load i32, ptr %83, align 16, !tbaa !108
   switch i32 %84, label %get_Lab_from_box.exit30 [
     i32 5, label %86
     i32 6, label %.preheader.i17
@@ -4550,7 +4550,7 @@ dt_XYZ_to_Lab.exit.i27:                           ; preds = %118
 
 get_Lab_from_box.exit30:                          ; preds = %140, %82, %dt_XYZ_to_Lab.exit.i27
   %145 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %146 = load i32, ptr %145, align 16, !tbaa !106
+  %146 = load i32, ptr %145, align 16, !tbaa !108
   switch i32 %146, label %get_Lab_from_box.exit [
     i32 5, label %148
     i32 6, label %.preheader.i
@@ -4744,7 +4744,7 @@ get_Lab_from_box.exit:                            ; preds = %202, %get_Lab_from_
   %251 = phi i32 [ %248, %247 ], [ %69, %79 ]
   %.2 = phi i32 [ %249, %247 ], [ %.1, %79 ]
   %252 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !113
+  %253 = load ptr, ptr %252, align 8, !tbaa !115
   %.not.i = icmp eq ptr %253, null
   br i1 %.not.i, label %add_patches_to_array.exit, label %.lr.ph.i
 
@@ -4897,7 +4897,7 @@ define internal void @export_raw_button_clicked_callback(ptr readnone captures(n
   %29 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 69, i64 1, ptr nonnull %24)
   %30 = load ptr, ptr %19, align 8, !tbaa !64
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !109
+  %32 = load ptr, ptr %31, align 8, !tbaa !111
   call void @g_hash_table_iter_init(ptr noundef nonnull %14, ptr noundef %32) #24
   %33 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #24
   %.not1330.i = icmp eq i32 %33, 0
@@ -4926,14 +4926,14 @@ define internal void @export_raw_button_clicked_callback(ptr readnone captures(n
   br label %53
 
 53:                                               ; preds = %print_patches.exit.i, %.lr.ph.i
-  %54 = load ptr, ptr %16, align 8, !tbaa !110
+  %54 = load ptr, ptr %16, align 8, !tbaa !112
   %.not31.i.i = icmp eq ptr %54, null
   br i1 %.not31.i.i, label %print_patches.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53, %194
   %.02632.i.i = phi ptr [ %196, %194 ], [ %54, %53 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #24
-  %55 = load ptr, ptr %.02632.i.i, align 8, !tbaa !111
+  %55 = load ptr, ptr %.02632.i.i, align 8, !tbaa !113
   %56 = load ptr, ptr %34, align 8, !tbaa !7
   %57 = call ptr @g_hash_table_lookup(ptr noundef %56, ptr noundef %55) #24
   %58 = load ptr, ptr %19, align 8, !tbaa !64
@@ -4956,7 +4956,7 @@ define internal void @export_raw_button_clicked_callback(ptr readnone captures(n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %69 = load i32, ptr %68, align 16, !tbaa !106
+  %69 = load i32, ptr %68, align 16, !tbaa !108
   switch i32 %69, label %get_Lab_from_box.exit29.i [
     i32 5, label %71
     i32 6, label %.preheader.i16.i
@@ -5072,7 +5072,7 @@ dt_XYZ_to_Lab.exit.i26.i:                         ; preds = %103
 
 get_Lab_from_box.exit29.i:                        ; preds = %dt_XYZ_to_Lab.exit.i26.i, %.preheader.i16.i, %67
   %125 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %126 = load i32, ptr %125, align 16, !tbaa !106
+  %126 = load i32, ptr %125, align 16, !tbaa !108
   switch i32 %126, label %get_Lab_from_box.exit.i [
     i32 5, label %128
     i32 6, label %.preheader.i14.i
@@ -5221,7 +5221,7 @@ get_Lab_from_box.exit.i:                          ; preds = %dt_XYZ_to_Lab.exit.
 194:                                              ; preds = %188, %64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #24
   %195 = getelementptr inbounds nuw i8, ptr %.02632.i.i, i64 8
-  %196 = load ptr, ptr %195, align 8, !tbaa !113
+  %196 = load ptr, ptr %195, align 8, !tbaa !115
   %.not.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i, label %print_patches.exit.i, label %.lr.ph.i.i
 
@@ -5678,7 +5678,7 @@ dt_Lab_to_XYZ.exit.us.i:                          ; preds = %.preheader.i.us.i
 ._crit_edge.us.i:                                 ; preds = %dt_Lab_to_XYZ.exit.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
-  br i1 %exitcond37.not.i, label %image_lab_to_xyz.exit, label %.preheader.us.i
+  br i1 %exitcond37.not.i, label %image_lab_to_xyz.exit, label %.preheader.us.i, !llvm.loop !116
 
 image_lab_to_xyz.exit:                            ; preds = %._crit_edge.us.i, %33, %.preheader.lr.ph.i
   %92 = call ptr @cairo_surface_create_from_xyz_data(ptr noundef nonnull %29, i32 noundef %34, i32 noundef %35) #24
@@ -5713,12 +5713,12 @@ image_lab_to_xyz.exit:                            ; preds = %._crit_edge.us.i, %
   br i1 %.not40, label %.critedge, label %108
 
 108:                                              ; preds = %97
-  %109 = load ptr, ptr %106, align 8, !tbaa !114
+  %109 = load ptr, ptr %106, align 8, !tbaa !117
   %.not41 = icmp eq ptr %109, null
   br i1 %.not41, label %113, label %110
 
 110:                                              ; preds = %108
-  %111 = load i64, ptr %109, align 8, !tbaa !117
+  %111 = load i64, ptr %109, align 8, !tbaa !120
   %112 = icmp eq i64 %111, %107
   br i1 %112, label %.critedge44, label %113
 
@@ -5799,10 +5799,10 @@ define internal fastcc void @init_table(ptr noundef readonly captures(none) %0) 
   call void @gtk_list_store_append(ptr noundef %15, ptr noundef nonnull %2) #24
   %16 = load ptr, ptr %3, align 8, !tbaa !56
   %17 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %5) #24
-  %18 = load ptr, ptr %.016, align 8, !tbaa !111
+  %18 = load ptr, ptr %.016, align 8, !tbaa !113
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 0, ptr noundef %18, i32 noundef -1) #24
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !113
+  %20 = load ptr, ptr %19, align 8, !tbaa !115
   %.not14 = icmp eq ptr %20, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -5982,17 +5982,20 @@ attributes #30 = { nounwind allocsize(0) }
 !103 = distinct !{!103, !"get_sample_box"}
 !104 = !{!76, !19, i64 32}
 !105 = !{!76, !19, i64 36}
-!106 = !{!107, !17, i64 16}
-!107 = !{!"box_t", !59, i64 0, !19, i64 8, !19, i64 12, !17, i64 16, !11, i64 32, !11, i64 48}
-!108 = !{!9, !9, i64 0}
-!109 = !{!76, !23, i64 24}
-!110 = !{!10, !10, i64 0}
-!111 = !{!112, !10, i64 0}
-!112 = !{!"_GList", !10, i64 0, !77, i64 8, !77, i64 16}
-!113 = !{!112, !77, i64 8}
-!114 = !{!115, !116, i64 0}
-!115 = !{!"_GTypeInstance", !116, i64 0}
-!116 = !{!"p1 _ZTS11_GTypeClass", !10, i64 0}
+!106 = distinct !{!106, !107}
+!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!108 = !{!109, !17, i64 16}
+!109 = !{!"box_t", !59, i64 0, !19, i64 8, !19, i64 12, !17, i64 16, !11, i64 32, !11, i64 48}
+!110 = !{!9, !9, i64 0}
+!111 = !{!76, !23, i64 24}
+!112 = !{!10, !10, i64 0}
+!113 = !{!114, !10, i64 0}
+!114 = !{!"_GList", !10, i64 0, !77, i64 8, !77, i64 16}
+!115 = !{!114, !77, i64 8}
+!116 = distinct !{!116, !107}
 !117 = !{!118, !119, i64 0}
-!118 = !{!"_GTypeClass", !119, i64 0}
-!119 = !{!"long", !11, i64 0}
+!118 = !{!"_GTypeInstance", !119, i64 0}
+!119 = !{!"p1 _ZTS11_GTypeClass", !10, i64 0}
+!120 = !{!121, !122, i64 0}
+!121 = !{!"_GTypeClass", !122, i64 0}
+!122 = !{!"long", !11, i64 0}

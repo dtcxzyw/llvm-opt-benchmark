@@ -739,199 +739,161 @@ define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %.224.val, ptr %.240.val
   %32 = getelementptr inbounds nuw i8, ptr %.240.val, i64 32
   br i1 %30, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %31, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %45
-  %.0485.us.us = phi i64 [ %43, %45 ], [ %.224.val, %.lr.ph.split.us ]
-  %.0504.us.us = phi ptr [ %48, %45 ], [ %0, %.lr.ph.split.us ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
+  %.0485.us = phi i64 [ %46, %48 ], [ %.224.val, %.lr.ph ]
+  %.0504.us = phi ptr [ %51, %48 ], [ %0, %.lr.ph ]
   %33 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
-  %.not55.us.us = icmp eq i32 %33, 0
-  br i1 %.not55.us.us, label %.loopexit, label %34
+  %.not55.us = icmp eq i32 %33, 0
+  br i1 %.not55.us, label %.loopexit, label %34
 
-34:                                               ; preds = %.lr.ph.split.us.split.us
+34:                                               ; preds = %.lr.ph.split.us
   %35 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
-  %.not56.us.us = icmp eq i32 %35, 0
-  br i1 %.not56.us.us, label %.loopexit, label %36
+  %.not56.us = icmp eq i32 %35, 0
+  br i1 %.not56.us, label %.loopexit, label %36
 
 36:                                               ; preds = %34
-  %37 = load i64, ptr %32, align 8, !tbaa !32
-  %38 = icmp ult i64 %.0485.us.us, %37
-  br i1 %38, label %.split.us, label %39
+  br i1 %31, label %39, label %37
 
-39:                                               ; preds = %36
-  %40 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504.us.us, ptr noundef null) #6
-  %.not59.us.us = icmp eq i32 %40, 0
-  br i1 %.not59.us.us, label %.loopexit, label %41
+37:                                               ; preds = %36
+  %38 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %6, i64 noundef %7) #6
+  %.not58.us = icmp eq i32 %38, 0
+  br i1 %.not58.us, label %.loopexit, label %39
 
-41:                                               ; preds = %39
-  %42 = load i64, ptr %32, align 8, !tbaa !32
-  %43 = sub i64 %.0485.us.us, %42
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.loopexit, label %45
+39:                                               ; preds = %37, %36
+  %40 = load i64, ptr %32, align 8, !tbaa !32
+  %41 = icmp ult i64 %.0485.us, %40
+  br i1 %41, label %.split.us, label %42
 
-45:                                               ; preds = %41
-  %46 = load i8, ptr %9, align 1, !tbaa !22
-  %47 = add i8 %46, 1
-  store i8 %47, ptr %9, align 1, !tbaa !22
-  %48 = getelementptr inbounds nuw i8, ptr %.0504.us.us, i64 %42
-  %49 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
-  %50 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %49, ptr noundef null) #6
-  %.not54.us.us = icmp eq i32 %50, 0
-  br i1 %.not54.us.us, label %.loopexit, label %.lr.ph.split.us.split.us
+42:                                               ; preds = %39
+  %43 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504.us, ptr noundef null) #6
+  %.not59.us = icmp eq i32 %43, 0
+  br i1 %.not59.us, label %.loopexit, label %44
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %65
-  %.0485.us = phi i64 [ %63, %65 ], [ %.224.val, %.lr.ph.split.us ]
-  %.0504.us = phi ptr [ %68, %65 ], [ %0, %.lr.ph.split.us ]
-  %51 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
-  %.not55.us = icmp eq i32 %51, 0
-  br i1 %.not55.us, label %.loopexit, label %52
+44:                                               ; preds = %42
+  %45 = load i64, ptr %32, align 8, !tbaa !32
+  %46 = sub i64 %.0485.us, %45
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %.loopexit, label %48
 
-52:                                               ; preds = %.lr.ph.split.us.split
-  %53 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
-  %.not56.us = icmp eq i32 %53, 0
-  br i1 %.not56.us, label %.loopexit, label %54
-
-54:                                               ; preds = %52
-  %55 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %6, i64 noundef %7) #6
-  %.not58.us = icmp eq i32 %55, 0
-  br i1 %.not58.us, label %.loopexit, label %56
-
-56:                                               ; preds = %54
-  %57 = load i64, ptr %32, align 8, !tbaa !32
-  %58 = icmp ult i64 %.0485.us, %57
-  br i1 %58, label %.split.us, label %59
-
-59:                                               ; preds = %56
-  %60 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504.us, ptr noundef null) #6
-  %.not59.us = icmp eq i32 %60, 0
-  br i1 %.not59.us, label %.loopexit, label %61
-
-61:                                               ; preds = %59
-  %62 = load i64, ptr %32, align 8, !tbaa !32
-  %63 = sub i64 %.0485.us, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.loopexit, label %65
-
-65:                                               ; preds = %61
-  %66 = load i8, ptr %9, align 1, !tbaa !22
-  %67 = add i8 %66, 1
-  store i8 %67, ptr %9, align 1, !tbaa !22
-  %68 = getelementptr inbounds nuw i8, ptr %.0504.us, i64 %62
-  %69 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
-  %70 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %69, ptr noundef null) #6
-  %.not54.us = icmp eq i32 %70, 0
-  br i1 %.not54.us, label %.loopexit, label %.lr.ph.split.us.split
+48:                                               ; preds = %44
+  %49 = load i8, ptr %9, align 1, !tbaa !22
+  %50 = add i8 %49, 1
+  store i8 %50, ptr %9, align 1, !tbaa !22
+  %51 = getelementptr inbounds nuw i8, ptr %.0504.us, i64 %45
+  %52 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
+  %53 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %52, ptr noundef null) #6
+  %.not54.us = icmp eq i32 %53, 0
+  br i1 %.not54.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %31, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %85
-  %.0485.us26 = phi i64 [ %83, %85 ], [ %.224.val, %.lr.ph.split ]
-  %.0504.us27 = phi ptr [ %88, %85 ], [ %0, %.lr.ph.split ]
-  %71 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
-  %.not55.us28 = icmp eq i32 %71, 0
-  br i1 %.not55.us28, label %.loopexit, label %72
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %68
+  %.0485.us26 = phi i64 [ %66, %68 ], [ %.224.val, %.lr.ph.split ]
+  %.0504.us27 = phi ptr [ %71, %68 ], [ %0, %.lr.ph.split ]
+  %54 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
+  %.not55.us28 = icmp eq i32 %54, 0
+  br i1 %.not55.us28, label %.loopexit, label %55
 
-72:                                               ; preds = %.lr.ph.split.split.us
-  %73 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
-  %.not56.us29 = icmp eq i32 %73, 0
-  br i1 %.not56.us29, label %.loopexit, label %74
+55:                                               ; preds = %.lr.ph.split.split.us
+  %56 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
+  %.not56.us29 = icmp eq i32 %56, 0
+  br i1 %.not56.us29, label %.loopexit, label %57
 
-74:                                               ; preds = %72
-  %75 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %5) #6
-  %.not57.us = icmp eq i32 %75, 0
-  br i1 %.not57.us, label %.loopexit, label %76
+57:                                               ; preds = %55
+  %58 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %5) #6
+  %.not57.us = icmp eq i32 %58, 0
+  br i1 %.not57.us, label %.loopexit, label %59
 
-76:                                               ; preds = %74
-  %77 = load i64, ptr %32, align 8, !tbaa !32
-  %78 = icmp ult i64 %.0485.us26, %77
-  br i1 %78, label %.split.us, label %79
+59:                                               ; preds = %57
+  %60 = load i64, ptr %32, align 8, !tbaa !32
+  %61 = icmp ult i64 %.0485.us26, %60
+  br i1 %61, label %.split.us, label %62
 
-79:                                               ; preds = %76
-  %80 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504.us27, ptr noundef null) #6
-  %.not59.us30 = icmp eq i32 %80, 0
-  br i1 %.not59.us30, label %.loopexit, label %81
+62:                                               ; preds = %59
+  %63 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504.us27, ptr noundef null) #6
+  %.not59.us30 = icmp eq i32 %63, 0
+  br i1 %.not59.us30, label %.loopexit, label %64
+
+64:                                               ; preds = %62
+  %65 = load i64, ptr %32, align 8, !tbaa !32
+  %66 = sub i64 %.0485.us26, %65
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %.loopexit, label %68
+
+68:                                               ; preds = %64
+  %69 = load i8, ptr %9, align 1, !tbaa !22
+  %70 = add i8 %69, 1
+  store i8 %70, ptr %9, align 1, !tbaa !22
+  %71 = getelementptr inbounds nuw i8, ptr %.0504.us27, i64 %65
+  %72 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
+  %73 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %72, ptr noundef null) #6
+  %.not54.us31 = icmp eq i32 %73, 0
+  br i1 %.not54.us31, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !37
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %93
+  %.0485 = phi i64 [ %91, %93 ], [ %.224.val, %.lr.ph.split ]
+  %.0504 = phi ptr [ %96, %93 ], [ %0, %.lr.ph.split ]
+  %74 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
+  %.not55 = icmp eq i32 %74, 0
+  br i1 %.not55, label %.loopexit, label %75
+
+75:                                               ; preds = %.lr.ph.split.split
+  %76 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
+  %.not56 = icmp eq i32 %76, 0
+  br i1 %.not56, label %.loopexit, label %77
+
+77:                                               ; preds = %75
+  %78 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %5) #6
+  %.not57 = icmp eq i32 %78, 0
+  br i1 %.not57, label %.loopexit, label %79
+
+79:                                               ; preds = %77
+  %80 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %6, i64 noundef %7) #6
+  %.not58 = icmp eq i32 %80, 0
+  br i1 %.not58, label %.loopexit, label %81
 
 81:                                               ; preds = %79
   %82 = load i64, ptr %32, align 8, !tbaa !32
-  %83 = sub i64 %.0485.us26, %82
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.loopexit, label %85
+  %83 = icmp ult i64 %.0485, %82
+  br i1 %83, label %.split.us, label %87
 
-85:                                               ; preds = %81
-  %86 = load i8, ptr %9, align 1, !tbaa !22
-  %87 = add i8 %86, 1
-  store i8 %87, ptr %9, align 1, !tbaa !22
-  %88 = getelementptr inbounds nuw i8, ptr %.0504.us27, i64 %82
-  %89 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
-  %90 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %89, ptr noundef null) #6
-  %.not54.us31 = icmp eq i32 %90, 0
-  br i1 %.not54.us31, label %.loopexit, label %.lr.ph.split.split.us
+.split.us:                                        ; preds = %81, %59, %39
+  %.us-phi20 = phi ptr [ %.0504.us, %39 ], [ %.0504.us27, %59 ], [ %.0504, %81 ]
+  %.us-phi21 = phi i64 [ %.0485.us, %39 ], [ %.0485.us26, %59 ], [ %.0485, %81 ]
+  %84 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef nonnull %12, ptr noundef null) #6
+  %.not60 = icmp eq i32 %84, 0
+  br i1 %.not60, label %.loopexit, label %85
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %110
-  %.0485 = phi i64 [ %108, %110 ], [ %.224.val, %.lr.ph.split ]
-  %.0504 = phi ptr [ %113, %110 ], [ %0, %.lr.ph.split ]
-  %91 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %.049) #6
-  %.not55 = icmp eq i32 %91, 0
-  br i1 %.not55, label %.loopexit, label %92
-
-92:                                               ; preds = %.lr.ph.split.split
-  %93 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef %2, i64 noundef %3) #6
-  %.not56 = icmp eq i32 %93, 0
-  br i1 %.not56, label %.loopexit, label %94
-
-94:                                               ; preds = %92
-  %95 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %5) #6
-  %.not57 = icmp eq i32 %95, 0
-  br i1 %.not57, label %.loopexit, label %96
-
-96:                                               ; preds = %94
-  %97 = call i32 @EVP_DigestUpdate(ptr noundef %11, ptr noundef nonnull %6, i64 noundef %7) #6
-  %.not58 = icmp eq i32 %97, 0
-  br i1 %.not58, label %.loopexit, label %98
-
-98:                                               ; preds = %96
-  %99 = load i64, ptr %32, align 8, !tbaa !32
-  %100 = icmp ult i64 %.0485, %99
-  br i1 %100, label %.split.us, label %104
-
-.split.us:                                        ; preds = %98, %76, %56, %36
-  %.us-phi20 = phi ptr [ %.0504.us.us, %36 ], [ %.0504.us, %56 ], [ %.0504.us27, %76 ], [ %.0504, %98 ]
-  %.us-phi21 = phi i64 [ %.0485.us.us, %36 ], [ %.0485.us, %56 ], [ %.0485.us26, %76 ], [ %.0485, %98 ]
-  %101 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef nonnull %12, ptr noundef null) #6
-  %.not60 = icmp eq i32 %101, 0
-  br i1 %.not60, label %.loopexit, label %102
-
-102:                                              ; preds = %.split.us
+85:                                               ; preds = %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.us-phi20, ptr nonnull align 1 %12, i64 %.us-phi21, i1 false)
-  %103 = load i64, ptr %32, align 8, !tbaa !32
-  call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef %103) #6
+  %86 = load i64, ptr %32, align 8, !tbaa !32
+  call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef %86) #6
   br label %.loopexit
 
-104:                                              ; preds = %98
-  %105 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504, ptr noundef null) #6
-  %.not59 = icmp eq i32 %105, 0
-  br i1 %.not59, label %.loopexit, label %106
+87:                                               ; preds = %81
+  %88 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef %.0504, ptr noundef null) #6
+  %.not59 = icmp eq i32 %88, 0
+  br i1 %.not59, label %.loopexit, label %89
 
-106:                                              ; preds = %104
-  %107 = load i64, ptr %32, align 8, !tbaa !32
-  %108 = sub i64 %.0485, %107
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %.loopexit, label %110
+89:                                               ; preds = %87
+  %90 = load i64, ptr %32, align 8, !tbaa !32
+  %91 = sub i64 %.0485, %90
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %.loopexit, label %93
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr %9, align 1, !tbaa !22
-  %112 = add i8 %111, 1
-  store i8 %112, ptr %9, align 1, !tbaa !22
-  %113 = getelementptr inbounds nuw i8, ptr %.0504, i64 %107
-  %114 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
-  %115 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %114, ptr noundef null) #6
-  %.not54 = icmp eq i32 %115, 0
+93:                                               ; preds = %89
+  %94 = load i8, ptr %9, align 1, !tbaa !22
+  %95 = add i8 %94, 1
+  store i8 %95, ptr %9, align 1, !tbaa !22
+  %96 = getelementptr inbounds nuw i8, ptr %.0504, i64 %90
+  %97 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %.240.val) #6
+  %98 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef %97, ptr noundef null) #6
+  %.not54 = icmp eq i32 %98, 0
   br i1 %.not54, label %.loopexit, label %.lr.ph.split.split
 
-.loopexit:                                        ; preds = %96, %94, %92, %.lr.ph.split.split, %110, %104, %106, %74, %72, %.lr.ph.split.split.us, %85, %79, %81, %54, %52, %.lr.ph.split.us.split, %65, %59, %61, %34, %.lr.ph.split.us.split.us, %45, %39, %41, %27, %102, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 1, %102 ], [ 0, %27 ], [ 0, %34 ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %45 ], [ 0, %39 ], [ 1, %41 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph.split.us.split ], [ 0, %65 ], [ 0, %59 ], [ 1, %61 ], [ 0, %74 ], [ 0, %72 ], [ 0, %.lr.ph.split.split.us ], [ 0, %85 ], [ 0, %79 ], [ 1, %81 ], [ 0, %96 ], [ 0, %94 ], [ 0, %92 ], [ 0, %.lr.ph.split.split ], [ 0, %110 ], [ 0, %104 ], [ 1, %106 ]
+.loopexit:                                        ; preds = %79, %77, %75, %.lr.ph.split.split, %93, %87, %89, %57, %55, %.lr.ph.split.split.us, %68, %62, %64, %37, %34, %.lr.ph.split.us, %48, %42, %44, %27, %85, %.split.us
+  %.0 = phi i32 [ 0, %.split.us ], [ 1, %85 ], [ 0, %27 ], [ 0, %37 ], [ 0, %34 ], [ 0, %.lr.ph.split.us ], [ 0, %48 ], [ 0, %42 ], [ 1, %44 ], [ 0, %57 ], [ 0, %55 ], [ 0, %.lr.ph.split.split.us ], [ 0, %68 ], [ 0, %62 ], [ 1, %64 ], [ 0, %79 ], [ 0, %77 ], [ 0, %75 ], [ 0, %.lr.ph.split.split ], [ 0, %93 ], [ 0, %87 ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #6
   ret i32 %.0
 }
@@ -1068,7 +1030,7 @@ define internal fastcc i32 @drbg_hash_set_ctx_params_locked(ptr noundef %0, ptr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %6) #6
   %8 = tail call i32 @ERR_set_mark() #6
   %9 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.1) #6
@@ -1077,13 +1039,13 @@ define internal fastcc i32 @drbg_hash_set_ctx_params_locked(ptr noundef %0, ptr 
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !39
   %.not.i = icmp eq i32 %13, 4
   br i1 %.not.i, label %14, label %drbg_fetch_digest_from_prov.exit.thread
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = tail call ptr @ossl_provider_find(ptr noundef %7, ptr noundef %16, i32 noundef 1) #6
   %18 = icmp eq ptr %17, null
   br i1 %18, label %drbg_fetch_digest_from_prov.exit.thread, label %19
@@ -1095,13 +1057,13 @@ define internal fastcc i32 @drbg_hash_set_ctx_params_locked(ptr noundef %0, ptr 
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !36
+  %24 = load i32, ptr %23, align 8, !tbaa !39
   %.not22.i = icmp eq i32 %24, 4
   br i1 %.not22.i, label %25, label %drbg_fetch_digest_from_prov.exit.thread44
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !39
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = tail call ptr @evp_digest_fetch_from_prov(ptr noundef nonnull %17, ptr noundef %27, ptr noundef null) #6
   %.not23.i = icmp eq ptr %28, null
   br i1 %.not23.i, label %drbg_fetch_digest_from_prov.exit.thread44, label %29
@@ -1154,7 +1116,7 @@ drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %11, %2, %drbg_
   %46 = and i32 %45, -64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %spec.select = tail call i32 @llvm.umin.i32(i32 %46, i32 256)
-  store i32 %spec.select, ptr %47, align 8, !tbaa !40
+  store i32 %spec.select, ptr %47, align 8, !tbaa !43
   %48 = icmp samesign ugt i32 %40, 32
   %spec.select48 = select i1 %48, i64 111, i64 55
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1162,10 +1124,10 @@ drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %11, %2, %drbg_
   %50 = lshr exact i32 %spec.select, 3
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %51, ptr %52, align 8, !tbaa !41
+  store i64 %51, ptr %52, align 8, !tbaa !44
   %53 = lshr exact i64 %51, 1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %53, ptr %54, align 8, !tbaa !42
+  store i64 %53, ptr %54, align 8, !tbaa !45
   br label %55
 
 55:                                               ; preds = %42, %35
@@ -1273,11 +1235,14 @@ attributes #6 = { nounwind }
 !32 = !{!13, !11, i64 32}
 !33 = distinct !{!33, !21}
 !34 = distinct !{!34, !21}
-!35 = !{!4, !8, i64 8}
-!36 = !{!37, !9, i64 8}
-!37 = !{!"ossl_param_st", !38, i64 0, !9, i64 8, !5, i64 16, !11, i64 24, !11, i64 32}
-!38 = !{!"p1 omnipotent char", !5, i64 0}
-!39 = !{!37, !5, i64 16}
-!40 = !{!4, !9, i64 120}
-!41 = !{!4, !11, i64 136}
-!42 = !{!4, !11, i64 152}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !36}
+!38 = !{!4, !8, i64 8}
+!39 = !{!40, !9, i64 8}
+!40 = !{!"ossl_param_st", !41, i64 0, !9, i64 8, !5, i64 16, !11, i64 24, !11, i64 32}
+!41 = !{!"p1 omnipotent char", !5, i64 0}
+!42 = !{!40, !5, i64 16}
+!43 = !{!4, !9, i64 120}
+!44 = !{!4, !11, i64 136}
+!45 = !{!4, !11, i64 152}

@@ -955,7 +955,7 @@ define void @Kit_TruthIsopPrintCover(ptr noundef readonly captures(none) %0, i32
 24:                                               ; preds = %.sink.split, %18
   %25 = add nuw nsw i32 %.01726.us, 1
   %exitcond.not = icmp eq i32 %25, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %24
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
@@ -963,7 +963,7 @@ define void @Kit_TruthIsopPrintCover(ptr noundef readonly captures(none) %0, i32
   %.val23.us = load i32, ptr %4, align 4, !tbaa !3
   %27 = sext i32 %.val23.us to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph.us, label %.critedge, !llvm.loop !32
+  br i1 %28, label %.lr.ph.us, label %.critedge, !llvm.loop !33
 
 default.unreachable:                              ; preds = %18
   unreachable
@@ -974,7 +974,7 @@ default.unreachable:                              ; preds = %18
   %30 = add nuw nsw i32 %.028, 1
   %.val23 = load i32, ptr %4, align 4, !tbaa !3
   %31 = icmp slt i32 %30, %.val23
-  br i1 %31, label %.lr.ph30.split, label %.critedge, !llvm.loop !32
+  br i1 %31, label %.lr.ph30.split, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph30.split, %._crit_edge.us, %11, %9
   ret void
@@ -1072,7 +1072,7 @@ define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i
 37:                                               ; preds = %35
   %38 = call i32 @Kit_TruthVarInSupport(ptr noundef nonnull %7, i32 noundef 5, i32 noundef %.0) #10
   %.not90 = icmp eq i32 %38, 0
-  br i1 %.not90, label %.preheader97, label %39, !llvm.loop !33
+  br i1 %.not90, label %.preheader97, label %39, !llvm.loop !35
 
 39:                                               ; preds = %35, %37, %.preheader97
   %40 = load i32, ptr %6, align 4, !tbaa !12
@@ -1214,7 +1214,7 @@ Vec_IntFetch.exit92:                              ; preds = %93
   %123 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
   store i32 %122, ptr %123, align 4, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader96, label %119, !llvm.loop !34
+  br i1 %exitcond.not, label %.preheader96, label %119, !llvm.loop !36
 
 .preheader.loopexit:                              ; preds = %129
   %124 = trunc nuw i64 %indvars.iv.next112 to i32
@@ -1243,7 +1243,7 @@ Vec_IntFetch.exit92:                              ; preds = %93
   store i32 %132, ptr %133, align 4, !tbaa !12
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count118
-  br i1 %exitcond119.not, label %.preheader.loopexit, label %129, !llvm.loop !35
+  br i1 %exitcond119.not, label %.preheader.loopexit, label %129, !llvm.loop !37
 
 134:                                              ; preds = %.lr.ph106, %134
   %indvars.iv122 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next123, %134 ]
@@ -1255,7 +1255,7 @@ Vec_IntFetch.exit92:                              ; preds = %93
   store i32 %136, ptr %137, align 4, !tbaa !12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge, label %134, !llvm.loop !36
+  br i1 %exitcond128.not, label %._crit_edge, label %134, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %134, %.preheader
   %138 = sext i32 %.0 to i64
@@ -1336,10 +1336,12 @@ attributes #12 = { nounwind allocsize(0) }
 !27 = distinct !{!27, !14}
 !28 = distinct !{!28, !14}
 !29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
+!30 = distinct !{!30, !14, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
+!33 = distinct !{!33, !14, !31}
 !34 = distinct !{!34, !14}
 !35 = distinct !{!35, !14}
 !36 = distinct !{!36, !14}
+!37 = distinct !{!37, !14}
+!38 = distinct !{!38, !14}

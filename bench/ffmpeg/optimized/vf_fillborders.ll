@@ -637,7 +637,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
 ..preheader_crit_edge.us97:                       ; preds = %52
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %54 = icmp slt i64 %indvars.iv.next116, %48
-  br i1 %54, label %.preheader85.us92, label %.preheader86, !llvm.loop !71
+  br i1 %54, label %.preheader85.us92, label %.preheader86, !llvm.loop !73
 
 .preheader86:                                     ; preds = %..preheader_crit_edge.us97, %._crit_edge.us, %.preheader85.lr.ph.split, %10
   %55 = icmp sgt i32 %19, 0
@@ -663,7 +663,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
   %67 = load i32, ptr %18, align 4, !tbaa !55
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next132, %68
-  br i1 %69, label %57, label %._crit_edge.loopexit, !llvm.loop !72
+  br i1 %69, label %57, label %._crit_edge.loopexit, !llvm.loop !74
 
 ._crit_edge.loopexit:                             ; preds = %57
   %.pre142 = load i32, ptr %22, align 4, !tbaa !56
@@ -700,14 +700,14 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
   %89 = load i32, ptr %20, align 4, !tbaa !45
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next135, %90
-  br i1 %91, label %76, label %._crit_edge107, !llvm.loop !73
+  br i1 %91, label %76, label %._crit_edge107, !llvm.loop !75
 
 ._crit_edge107:                                   ; preds = %76, %._crit_edge
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %92 = load i32, ptr %3, align 4, !tbaa !39
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next138, %93
-  br i1 %94, label %10, label %._crit_edge111, !llvm.loop !74
+  br i1 %94, label %10, label %._crit_edge111, !llvm.loop !76
 
 ._crit_edge111:                                   ; preds = %._crit_edge107, %2
   ret void
@@ -800,7 +800,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %48 = load i32, ptr %16, align 4, !tbaa !52
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %39, label %.preheader, !llvm.loop !75
+  br i1 %50, label %39, label %.preheader, !llvm.loop !77
 
 51:                                               ; preds = %.lr.ph95, %51
   %indvars.iv107 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next108, %51 ]
@@ -820,7 +820,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %63 = load i32, ptr %25, align 4, !tbaa !54
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next108, %64
-  br i1 %65, label %51, label %._crit_edge, !llvm.loop !76
+  br i1 %65, label %51, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
@@ -829,7 +829,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %68 = sub nsw i32 %66, %67
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next111, %69
-  br i1 %70, label %.preheader89, label %.preheader91.loopexit, !llvm.loop !77
+  br i1 %70, label %.preheader89, label %.preheader91.loopexit, !llvm.loop !79
 
 .preheader90.loopexit:                            ; preds = %74
   %.pre119 = load i32, ptr %20, align 4, !tbaa !56
@@ -863,7 +863,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %87 = load i32, ptr %17, align 4, !tbaa !55
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next114, %88
-  br i1 %89, label %74, label %.preheader90.loopexit, !llvm.loop !78
+  br i1 %89, label %74, label %.preheader90.loopexit, !llvm.loop !80
 
 90:                                               ; preds = %.lr.ph100, %90
   %91 = phi i32 [ %71, %.lr.ph100 ], [ %106, %90 ]
@@ -885,14 +885,14 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %105 = add nuw nsw i32 %.299, 1
   %106 = load i32, ptr %20, align 4, !tbaa !56
   %107 = icmp slt i32 %105, %106
-  br i1 %107, label %90, label %._crit_edge101, !llvm.loop !79
+  br i1 %107, label %90, label %._crit_edge101, !llvm.loop !81
 
 ._crit_edge101:                                   ; preds = %90, %.preheader90
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %108 = load i32, ptr %3, align 4, !tbaa !39
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next117, %109
-  br i1 %110, label %10, label %._crit_edge105, !llvm.loop !80
+  br i1 %110, label %10, label %._crit_edge105, !llvm.loop !82
 
 ._crit_edge105:                                   ; preds = %._crit_edge101, %2
   ret void
@@ -986,7 +986,7 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   store i16 %51, ptr %52, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %48, !llvm.loop !81
+  br i1 %exitcond.not, label %.preheader, label %48, !llvm.loop !83
 
 53:                                               ; preds = %.lr.ph95, %53
   %indvars.iv107 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next108, %53 ]
@@ -997,12 +997,12 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   store i16 %56, ptr %57, align 2, !tbaa !67
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge, label %53, !llvm.loop !82
+  br i1 %exitcond111.not, label %._crit_edge, label %53, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %53, %.preheader
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %58 = icmp slt i64 %indvars.iv.next113, %36
-  br i1 %58, label %.preheader89, label %.preheader91, !llvm.loop !83
+  br i1 %58, label %.preheader89, label %.preheader91, !llvm.loop !85
 
 .preheader90.loopexit:                            ; preds = %62
   %.pre = load i32, ptr %22, align 4, !tbaa !56
@@ -1037,7 +1037,7 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   %76 = load i32, ptr %18, align 4, !tbaa !55
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next116, %77
-  br i1 %78, label %62, label %.preheader90.loopexit, !llvm.loop !84
+  br i1 %78, label %62, label %.preheader90.loopexit, !llvm.loop !86
 
 79:                                               ; preds = %.lr.ph100, %79
   %80 = phi i32 [ %59, %.lr.ph100 ], [ %96, %79 ]
@@ -1060,14 +1060,14 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   %95 = add nuw nsw i32 %.299, 1
   %96 = load i32, ptr %22, align 4, !tbaa !56
   %97 = icmp slt i32 %95, %96
-  br i1 %97, label %79, label %._crit_edge101, !llvm.loop !85
+  br i1 %97, label %79, label %._crit_edge101, !llvm.loop !87
 
 ._crit_edge101:                                   ; preds = %79, %.preheader90
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %98 = load i32, ptr %3, align 4, !tbaa !39
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next119, %99
-  br i1 %100, label %10, label %._crit_edge105, !llvm.loop !86
+  br i1 %100, label %10, label %._crit_edge105, !llvm.loop !88
 
 ._crit_edge105:                                   ; preds = %._crit_edge101, %2
   ret void
@@ -1149,7 +1149,7 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
   %49 = sub nsw i32 %47, %48
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %35, label %.preheader.loopexit, !llvm.loop !87
+  br i1 %51, label %35, label %.preheader.loopexit, !llvm.loop !89
 
 52:                                               ; preds = %.lr.ph60, %52
   %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %52 ]
@@ -1162,7 +1162,7 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
   %57 = load i32, ptr %20, align 4, !tbaa !55
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next71, %58
-  br i1 %59, label %52, label %._crit_edge.loopexit, !llvm.loop !88
+  br i1 %59, label %52, label %._crit_edge.loopexit, !llvm.loop !90
 
 ._crit_edge.loopexit:                             ; preds = %52
   %.pre79 = load i32, ptr %23, align 4, !tbaa !56
@@ -1191,14 +1191,14 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
   %71 = load i32, ptr %22, align 4, !tbaa !45
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next74, %72
-  br i1 %73, label %66, label %._crit_edge64, !llvm.loop !89
+  br i1 %73, label %66, label %._crit_edge64, !llvm.loop !91
 
 ._crit_edge64:                                    ; preds = %66, %._crit_edge
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %74 = load i32, ptr %3, align 4, !tbaa !39
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next77, %75
-  br i1 %76, label %11, label %._crit_edge68, !llvm.loop !90
+  br i1 %76, label %11, label %._crit_edge68, !llvm.loop !92
 
 ._crit_edge68:                                    ; preds = %._crit_edge64, %2
   ret void
@@ -1278,7 +1278,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   store i16 %21, ptr %48, align 2, !tbaa !67
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %40
-  br i1 %exitcond123.not, label %._crit_edge.us, label %47, !llvm.loop !91
+  br i1 %exitcond123.not, label %._crit_edge.us, label %47, !llvm.loop !93
 
 49:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %49 ]
@@ -1286,7 +1286,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   store i16 %21, ptr %50, align 2, !tbaa !67
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.preheader75.us, label %49, !llvm.loop !92
+  br i1 %exitcond118.not, label %.preheader75.us, label %49, !llvm.loop !94
 
 .preheader75.us:                                  ; preds = %49, %.preheader76.us
   %gep = getelementptr i16, ptr %invariant.gep, i64 %46
@@ -1299,7 +1299,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
 ._crit_edge.us:                                   ; preds = %47
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %52 = icmp slt i64 %indvars.iv.next125, %45
-  br i1 %52, label %.preheader76.us, label %.preheader78, !llvm.loop !93
+  br i1 %52, label %.preheader76.us, label %.preheader78, !llvm.loop !95
 
 .preheader76.lr.ph.split:                         ; preds = %.preheader76.lr.ph
   br i1 %36, label %.preheader76.us86.preheader, label %.preheader78
@@ -1322,12 +1322,12 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   store i16 %21, ptr %58, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..preheader75_crit_edge.us91, label %57, !llvm.loop !92
+  br i1 %exitcond.not, label %..preheader75_crit_edge.us91, label %57, !llvm.loop !94
 
 ..preheader75_crit_edge.us91:                     ; preds = %57
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %59 = icmp slt i64 %indvars.iv.next112, %54
-  br i1 %59, label %.preheader76.us86, label %.preheader78, !llvm.loop !93
+  br i1 %59, label %.preheader76.us86, label %.preheader78, !llvm.loop !96
 
 .preheader78:                                     ; preds = %..preheader75_crit_edge.us91, %._crit_edge.us, %.preheader76.lr.ph.split, %14
   %60 = icmp sgt i32 %28, 0
@@ -1356,12 +1356,12 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   store i16 %21, ptr %67, align 2, !tbaa !67
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge.us99, label %66, !llvm.loop !94
+  br i1 %exitcond131.not, label %._crit_edge.us99, label %66, !llvm.loop !97
 
 ._crit_edge.us99:                                 ; preds = %66
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %.preheader77, label %.preheader74.us, !llvm.loop !95
+  br i1 %exitcond136.not, label %.preheader77, label %.preheader74.us, !llvm.loop !98
 
 .preheader77:                                     ; preds = %._crit_edge.us99, %.preheader74.lr.ph, %.preheader78
   %68 = icmp sgt i32 %32, 0
@@ -1391,17 +1391,17 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   store i16 %21, ptr %77, align 2, !tbaa !67
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %._crit_edge.us104, label %76, !llvm.loop !96
+  br i1 %exitcond141.not, label %._crit_edge.us104, label %76, !llvm.loop !99
 
 ._crit_edge.us104:                                ; preds = %76
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
   %78 = icmp slt i64 %indvars.iv.next143, %73
-  br i1 %78, label %.preheader.us, label %._crit_edge102, !llvm.loop !97
+  br i1 %78, label %.preheader.us, label %._crit_edge102, !llvm.loop !100
 
 ._crit_edge102:                                   ; preds = %._crit_edge.us104, %.preheader.lr.ph, %.preheader77
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge, label %14, !llvm.loop !98
+  br i1 %exitcond149.not, label %._crit_edge, label %14, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %._crit_edge102, %2
   ret void
@@ -1495,7 +1495,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %48 = load i32, ptr %16, align 4, !tbaa !52
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %39, label %.preheader, !llvm.loop !99
+  br i1 %50, label %39, label %.preheader, !llvm.loop !102
 
 51:                                               ; preds = %.lr.ph97, %51
   %indvars.iv110 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next111, %51 ]
@@ -1515,7 +1515,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %61 = load i32, ptr %25, align 4, !tbaa !54
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next111, %62
-  br i1 %63, label %51, label %._crit_edge, !llvm.loop !100
+  br i1 %63, label %51, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, 1
@@ -1524,7 +1524,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %66 = sub nsw i32 %64, %65
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next114, %67
-  br i1 %68, label %.preheader91, label %.preheader93.loopexit, !llvm.loop !101
+  br i1 %68, label %.preheader91, label %.preheader93.loopexit, !llvm.loop !104
 
 .preheader92.loopexit:                            ; preds = %72
   %.pre122 = load i32, ptr %20, align 4, !tbaa !56
@@ -1557,7 +1557,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %84 = load i32, ptr %17, align 4, !tbaa !55
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next117, %85
-  br i1 %86, label %72, label %.preheader92.loopexit, !llvm.loop !102
+  br i1 %86, label %72, label %.preheader92.loopexit, !llvm.loop !105
 
 87:                                               ; preds = %.lr.ph102, %87
   %88 = phi i32 [ %69, %.lr.ph102 ], [ %102, %87 ]
@@ -1579,14 +1579,14 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %101 = add nuw nsw i32 %.2101, 1
   %102 = load i32, ptr %20, align 4, !tbaa !56
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %87, label %._crit_edge103, !llvm.loop !103
+  br i1 %103, label %87, label %._crit_edge103, !llvm.loop !106
 
 ._crit_edge103:                                   ; preds = %87, %.preheader92
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %104 = load i32, ptr %3, align 4, !tbaa !39
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next120, %105
-  br i1 %106, label %10, label %._crit_edge107, !llvm.loop !104
+  br i1 %106, label %10, label %._crit_edge107, !llvm.loop !107
 
 ._crit_edge107:                                   ; preds = %._crit_edge103, %2
   ret void
@@ -1681,7 +1681,7 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %49, ptr %50, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %47, !llvm.loop !105
+  br i1 %exitcond.not, label %.preheader, label %47, !llvm.loop !108
 
 51:                                               ; preds = %.lr.ph97, %51
   %indvars.iv111 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next112, %51 ]
@@ -1692,12 +1692,12 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %53, ptr %54, align 2, !tbaa !67
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge, label %51, !llvm.loop !106
+  br i1 %exitcond115.not, label %._crit_edge, label %51, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %55 = icmp slt i64 %indvars.iv.next117, %36
-  br i1 %55, label %.preheader91, label %.preheader93, !llvm.loop !107
+  br i1 %55, label %.preheader91, label %.preheader93, !llvm.loop !110
 
 .preheader92.loopexit:                            ; preds = %59
   %.pre = load i32, ptr %22, align 4, !tbaa !56
@@ -1731,7 +1731,7 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   %72 = load i32, ptr %18, align 4, !tbaa !55
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next120, %73
-  br i1 %74, label %59, label %.preheader92.loopexit, !llvm.loop !108
+  br i1 %74, label %59, label %.preheader92.loopexit, !llvm.loop !111
 
 75:                                               ; preds = %.lr.ph104, %75
   %76 = phi i32 [ %56, %.lr.ph104 ], [ %91, %75 ]
@@ -1754,14 +1754,14 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   %90 = add nuw nsw i32 %.2103, 1
   %91 = load i32, ptr %22, align 4, !tbaa !56
   %92 = icmp slt i32 %90, %91
-  br i1 %92, label %75, label %._crit_edge105, !llvm.loop !109
+  br i1 %92, label %75, label %._crit_edge105, !llvm.loop !112
 
 ._crit_edge105:                                   ; preds = %75, %.preheader92
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %93 = load i32, ptr %3, align 4, !tbaa !39
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next123, %94
-  br i1 %95, label %10, label %._crit_edge109, !llvm.loop !110
+  br i1 %95, label %10, label %._crit_edge109, !llvm.loop !113
 
 ._crit_edge109:                                   ; preds = %._crit_edge105, %2
   ret void
@@ -1860,7 +1860,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %54 = load i32, ptr %16, align 4, !tbaa !52
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %40, label %.preheader, !llvm.loop !111
+  br i1 %56, label %40, label %.preheader, !llvm.loop !114
 
 57:                                               ; preds = %.lr.ph106, %57
   %indvars.iv118 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next119, %57 ]
@@ -1882,7 +1882,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %71 = load i32, ptr %26, align 4, !tbaa !54
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next119, %72
-  br i1 %73, label %57, label %._crit_edge, !llvm.loop !112
+  br i1 %73, label %57, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %57, %.preheader
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
@@ -1891,7 +1891,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %76 = sub nsw i32 %74, %75
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next122, %77
-  br i1 %78, label %.preheader100, label %.preheader102.loopexit, !llvm.loop !113
+  br i1 %78, label %.preheader100, label %.preheader102.loopexit, !llvm.loop !116
 
 .preheader101.loopexit:                           ; preds = %82
   %.pre130 = load i32, ptr %20, align 4, !tbaa !56
@@ -1927,7 +1927,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %97 = load i32, ptr %17, align 4, !tbaa !55
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next125, %98
-  br i1 %99, label %82, label %.preheader101.loopexit, !llvm.loop !114
+  br i1 %99, label %82, label %.preheader101.loopexit, !llvm.loop !117
 
 100:                                              ; preds = %.lr.ph111, %100
   %101 = phi i32 [ %79, %.lr.ph111 ], [ %116, %100 ]
@@ -1949,14 +1949,14 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %115 = add nuw nsw i32 %.2110, 1
   %116 = load i32, ptr %20, align 4, !tbaa !56
   %117 = icmp slt i32 %115, %116
-  br i1 %117, label %100, label %._crit_edge112, !llvm.loop !115
+  br i1 %117, label %100, label %._crit_edge112, !llvm.loop !118
 
 ._crit_edge112:                                   ; preds = %100, %.preheader101
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %118 = load i32, ptr %3, align 4, !tbaa !39
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next128, %119
-  br i1 %120, label %10, label %._crit_edge116, !llvm.loop !116
+  br i1 %120, label %10, label %._crit_edge116, !llvm.loop !119
 
 ._crit_edge116:                                   ; preds = %._crit_edge112, %2
   ret void
@@ -2055,7 +2055,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %54, ptr %55, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !117
+  br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !120
 
 56:                                               ; preds = %.lr.ph107, %56
   %indvars.iv119 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next120, %56 ]
@@ -2065,12 +2065,12 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %58, ptr %59, align 2, !tbaa !67
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %56, !llvm.loop !118
+  br i1 %exitcond123.not, label %._crit_edge, label %56, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %60 = icmp slt i64 %indvars.iv.next125, %35
-  br i1 %60, label %.preheader100, label %.preheader102, !llvm.loop !119
+  br i1 %60, label %.preheader100, label %.preheader102, !llvm.loop !122
 
 .preheader101.loopexit:                           ; preds = %64
   %.pre = load i32, ptr %22, align 4, !tbaa !56
@@ -2107,7 +2107,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   %80 = load i32, ptr %18, align 4, !tbaa !55
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next128, %81
-  br i1 %82, label %64, label %.preheader101.loopexit, !llvm.loop !120
+  br i1 %82, label %64, label %.preheader101.loopexit, !llvm.loop !123
 
 83:                                               ; preds = %.lr.ph112, %83
   %84 = phi i32 [ %61, %.lr.ph112 ], [ %100, %83 ]
@@ -2130,14 +2130,14 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   %99 = add nuw nsw i32 %.2111, 1
   %100 = load i32, ptr %22, align 4, !tbaa !56
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %83, label %._crit_edge113, !llvm.loop !121
+  br i1 %101, label %83, label %._crit_edge113, !llvm.loop !124
 
 ._crit_edge113:                                   ; preds = %83, %.preheader101
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %102 = load i32, ptr %3, align 4, !tbaa !39
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next131, %103
-  br i1 %104, label %10, label %._crit_edge117, !llvm.loop !122
+  br i1 %104, label %10, label %._crit_edge117, !llvm.loop !125
 
 ._crit_edge117:                                   ; preds = %._crit_edge113, %2
   ret void
@@ -2247,13 +2247,13 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %65 = load i32, ptr %21, align 4, !tbaa !45
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %55, label %._crit_edge, !llvm.loop !123
+  br i1 %67, label %55, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %55, %.preheader120
   %68 = phi i32 [ %45, %.preheader120 ], [ %65, %55 ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader122.loopexit, label %.preheader120, !llvm.loop !124
+  br i1 %exitcond.not, label %.preheader122.loopexit, label %.preheader120, !llvm.loop !127
 
 .preheader121:                                    ; preds = %._crit_edge127, %.preheader122
   %69 = phi i32 [ %39, %.preheader122 ], [ %101, %._crit_edge127 ]
@@ -2308,7 +2308,7 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %98 = load i32, ptr %21, align 4, !tbaa !45
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next147, %99
-  br i1 %100, label %84, label %._crit_edge127.loopexit, !llvm.loop !126
+  br i1 %100, label %84, label %._crit_edge127.loopexit, !llvm.loop !129
 
 ._crit_edge127.loopexit:                          ; preds = %84
   %.pre166 = load i32, ptr %28, align 4, !tbaa !45
@@ -2320,7 +2320,7 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
   %103 = sext i32 %101 to i64
   %104 = icmp slt i64 %indvars.iv.next150, %103
-  br i1 %104, label %.preheader119, label %.preheader121, !llvm.loop !127
+  br i1 %104, label %.preheader119, label %.preheader121, !llvm.loop !130
 
 .preheader118:                                    ; preds = %.preheader118.lr.ph, %._crit_edge133
   %indvars.iv160 = phi i64 [ 0, %.preheader118.lr.ph ], [ %indvars.iv.next161, %._crit_edge133 ]
@@ -2364,7 +2364,7 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   store i8 %125, ptr %111, align 1, !tbaa !58
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.preheader, label %110, !llvm.loop !128
+  br i1 %exitcond156.not, label %.preheader, label %110, !llvm.loop !131
 
 126:                                              ; preds = %.lr.ph132, %126
   %indvars.iv157 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next158, %126 ]
@@ -2392,21 +2392,21 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %143 = load i32, ptr %23, align 4, !tbaa !54
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %indvars.iv.next158, %144
-  br i1 %145, label %126, label %._crit_edge133, !llvm.loop !129
+  br i1 %145, label %126, label %._crit_edge133, !llvm.loop !132
 
 ._crit_edge133:                                   ; preds = %126, %.preheader
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %146 = load i32, ptr %28, align 4, !tbaa !45
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next161, %147
-  br i1 %148, label %.preheader118, label %._crit_edge135, !llvm.loop !130
+  br i1 %148, label %.preheader118, label %._crit_edge135, !llvm.loop !133
 
 ._crit_edge135:                                   ; preds = %._crit_edge133, %.preheader121
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %149 = load i32, ptr %3, align 4, !tbaa !39
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next164, %150
-  br i1 %151, label %11, label %._crit_edge139, !llvm.loop !131
+  br i1 %151, label %11, label %._crit_edge139, !llvm.loop !134
 
 ._crit_edge139:                                   ; preds = %._crit_edge135, %2
   ret void
@@ -2505,12 +2505,12 @@ define internal void @fade_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %65, ptr %54, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %53, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge.us, label %53, !llvm.loop !135
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %46
-  br i1 %exitcond153.not, label %.preheader131, label %.preheader129.us, !llvm.loop !133
+  br i1 %exitcond153.not, label %.preheader131, label %.preheader129.us, !llvm.loop !136
 
 .preheader131:                                    ; preds = %._crit_edge.us, %.preheader129.lr.ph, %16
   %66 = icmp sgt i32 %39, 0
@@ -2561,12 +2561,12 @@ define internal void @fade_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %93, ptr %82, align 2, !tbaa !67
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge.us136, label %81, !llvm.loop !134
+  br i1 %exitcond158.not, label %._crit_edge.us136, label %81, !llvm.loop !137
 
 ._crit_edge.us136:                                ; preds = %81
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %94 = icmp slt i64 %indvars.iv.next160, %73
-  br i1 %94, label %.preheader128.us, label %.preheader130, !llvm.loop !135
+  br i1 %94, label %.preheader128.us, label %.preheader130, !llvm.loop !138
 
 .preheader130:                                    ; preds = %._crit_edge.us136, %.preheader128.lr.ph, %.preheader131
   %95 = icmp sgt i32 %37, 0
@@ -2627,7 +2627,7 @@ define internal void @fade_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %122, ptr %108, align 2, !tbaa !67
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %.preheader, label %107, !llvm.loop !136
+  br i1 %exitcond166.not, label %.preheader, label %107, !llvm.loop !139
 
 123:                                              ; preds = %.lr.ph139, %123
   %indvars.iv167 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next168, %123 ]
@@ -2652,17 +2652,17 @@ define internal void @fade_borders16(ptr noundef readonly captures(none) %0, ptr
   store i16 %138, ptr %124, align 2, !tbaa !67
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge, label %123, !llvm.loop !137
+  br i1 %exitcond171.not, label %._crit_edge, label %123, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %123, %.preheader
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge141, label %.preheader127, !llvm.loop !138
+  br i1 %exitcond176.not, label %._crit_edge141, label %.preheader127, !llvm.loop !141
 
 ._crit_edge141:                                   ; preds = %._crit_edge, %.preheader130
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge145, label %16, !llvm.loop !139
+  br i1 %exitcond181.not, label %._crit_edge145, label %16, !llvm.loop !142
 
 ._crit_edge145:                                   ; preds = %._crit_edge141, %2
   ret void
@@ -2773,13 +2773,13 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
   store i8 %66, ptr %67, align 1, !tbaa !58
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !140
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !143
 
 ..loopexit_crit_edge.us:                          ; preds = %52
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, -1
   %68 = icmp sgt i64 %indvars.iv159, 0
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, -1
-  br i1 %68, label %.lr.ph133.us, label %.preheader, !llvm.loop !141
+  br i1 %68, label %.lr.ph133.us, label %.preheader, !llvm.loop !144
 
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %69 ]
@@ -2795,7 +2795,7 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
   tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 %77, i64 %32, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %78 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %78, label %69, label %.preheader130, !llvm.loop !142
+  br i1 %78, label %69, label %.preheader130, !llvm.loop !145
 
 .preheader:                                       ; preds = %.loopexit, %..loopexit_crit_edge.us, %.preheader130
   %79 = icmp sgt i32 %20, 0
@@ -2828,14 +2828,14 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, -1
   %.not = icmp eq i64 %indvars.iv149, 0
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !141
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !146
 
 ._crit_edge142:                                   ; preds = %._crit_edge, %.preheader
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %95 = load i32, ptr %3, align 4, !tbaa !39
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next175, %96
-  br i1 %97, label %10, label %._crit_edge146, !llvm.loop !143
+  br i1 %97, label %10, label %._crit_edge146, !llvm.loop !147
 
 98:                                               ; preds = %.lr.ph141, %._crit_edge
   %indvars.iv171 = phi i64 [ %83, %.lr.ph141 ], [ %indvars.iv.next172, %._crit_edge ]
@@ -2857,7 +2857,7 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
 ._crit_edge:                                      ; preds = %.lr.ph139, %98
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %110 = icmp slt i64 %indvars.iv.next172, %84
-  br i1 %110, label %98, label %._crit_edge142, !llvm.loop !144
+  br i1 %110, label %98, label %._crit_edge142, !llvm.loop !148
 
 .lr.ph139:                                        ; preds = %98, %.lr.ph139
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %.lr.ph139 ], [ 1, %98 ]
@@ -2881,7 +2881,7 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
   store i8 %124, ptr %125, align 1, !tbaa !58
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !145
+  br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !149
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2953,7 +2953,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %.pre208, ptr %42, align 2, !tbaa !67
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge.us, label %41, !llvm.loop !146
+  br i1 %exitcond184.not, label %._crit_edge.us, label %41, !llvm.loop !150
 
 43:                                               ; preds = %.lr.ph.us, %43
   %indvars.iv175 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next176, %43 ]
@@ -2961,7 +2961,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %.pre207, ptr %44, align 2, !tbaa !67
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %.preheader.us, label %43, !llvm.loop !147
+  br i1 %exitcond179.not, label %.preheader.us, label %43, !llvm.loop !151
 
 .preheader.us:                                    ; preds = %43, %.preheader140.us
   %45 = getelementptr i16, ptr %39, i64 %40
@@ -2978,7 +2978,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
 ._crit_edge.us:                                   ; preds = %41
   %indvars.iv.next186 = add nsw i64 %indvars.iv185, 1
   %49 = icmp slt i64 %indvars.iv.next186, %38
-  br i1 %49, label %.preheader140.us, label %.preheader142, !llvm.loop !148
+  br i1 %49, label %.preheader140.us, label %.preheader142, !llvm.loop !152
 
 .preheader140.lr.ph.split:                        ; preds = %.preheader140.lr.ph
   br i1 %31, label %.preheader140.us147.preheader, label %.preheader142
@@ -3003,12 +3003,12 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %.pre, ptr %56, align 2, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..preheader_crit_edge.us152, label %55, !llvm.loop !147
+  br i1 %exitcond.not, label %..preheader_crit_edge.us152, label %55, !llvm.loop !151
 
 ..preheader_crit_edge.us152:                      ; preds = %55
   %indvars.iv.next173 = add nsw i64 %indvars.iv172, 1
   %57 = icmp slt i64 %indvars.iv.next173, %51
-  br i1 %57, label %.preheader140.us147, label %.preheader142, !llvm.loop !148
+  br i1 %57, label %.preheader140.us147, label %.preheader142, !llvm.loop !153
 
 .preheader142:                                    ; preds = %..preheader_crit_edge.us152, %._crit_edge.us, %.preheader140.lr.ph.split, %10
   %58 = icmp sgt i32 %22, 0
@@ -3024,7 +3024,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
 
 .loopexit:                                        ; preds = %.lr.ph, %70
   %63 = icmp samesign ugt i64 %indvars.iv193, 1
-  br i1 %63, label %70, label %.preheader141, !llvm.loop !149
+  br i1 %63, label %70, label %.preheader141, !llvm.loop !154
 
 .preheader141:                                    ; preds = %.loopexit, %.preheader142
   %64 = icmp sgt i32 %24, 0
@@ -3077,14 +3077,14 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %93, ptr %94, align 2, !tbaa !67
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph, !llvm.loop !150
+  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph, !llvm.loop !155
 
 ._crit_edge164:                                   ; preds = %._crit_edge, %.preheader141
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %95 = load i32, ptr %3, align 4, !tbaa !39
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next205, %96
-  br i1 %97, label %10, label %._crit_edge168, !llvm.loop !151
+  br i1 %97, label %10, label %._crit_edge168, !llvm.loop !156
 
 98:                                               ; preds = %.lr.ph163, %._crit_edge
   %indvars.iv201 = phi i64 [ %68, %.lr.ph163 ], [ %indvars.iv.next202, %._crit_edge ]
@@ -3105,7 +3105,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %.lr.ph161, %98
   %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
   %109 = icmp slt i64 %indvars.iv.next202, %69
-  br i1 %109, label %98, label %._crit_edge164, !llvm.loop !152
+  br i1 %109, label %98, label %._crit_edge164, !llvm.loop !157
 
 .lr.ph161:                                        ; preds = %98, %.lr.ph161
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.lr.ph161 ], [ 1, %98 ]
@@ -3129,7 +3129,7 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   store i16 %123, ptr %124, align 2, !tbaa !67
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !153
+  br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !158
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -3231,9 +3231,9 @@ attributes #9 = { noreturn nounwind }
 !68 = !{!"short", !8, i64 0}
 !69 = distinct !{!69, !61}
 !70 = distinct !{!70, !61}
-!71 = distinct !{!71, !61}
-!72 = distinct !{!72, !61}
-!73 = distinct !{!73, !61}
+!71 = distinct !{!71, !61, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !61, !72}
 !74 = distinct !{!74, !61}
 !75 = distinct !{!75, !61}
 !76 = distinct !{!76, !61}
@@ -3255,12 +3255,12 @@ attributes #9 = { noreturn nounwind }
 !92 = distinct !{!92, !61}
 !93 = distinct !{!93, !61}
 !94 = distinct !{!94, !61}
-!95 = distinct !{!95, !61}
-!96 = distinct !{!96, !61}
+!95 = distinct !{!95, !61, !72}
+!96 = distinct !{!96, !61, !72}
 !97 = distinct !{!97, !61}
-!98 = distinct !{!98, !61}
+!98 = distinct !{!98, !61, !72}
 !99 = distinct !{!99, !61}
-!100 = distinct !{!100, !61}
+!100 = distinct !{!100, !61, !72}
 !101 = distinct !{!101, !61}
 !102 = distinct !{!102, !61}
 !103 = distinct !{!103, !61}
@@ -3284,27 +3284,27 @@ attributes #9 = { noreturn nounwind }
 !121 = distinct !{!121, !61}
 !122 = distinct !{!122, !61}
 !123 = distinct !{!123, !61}
-!124 = distinct !{!124, !61, !125}
-!125 = !{!"llvm.loop.unswitch.partial.disable"}
+!124 = distinct !{!124, !61}
+!125 = distinct !{!125, !61}
 !126 = distinct !{!126, !61}
-!127 = distinct !{!127, !61, !125}
-!128 = distinct !{!128, !61}
+!127 = distinct !{!127, !61, !128}
+!128 = !{!"llvm.loop.unswitch.partial.disable"}
 !129 = distinct !{!129, !61}
-!130 = distinct !{!130, !61}
+!130 = distinct !{!130, !61, !128}
 !131 = distinct !{!131, !61}
 !132 = distinct !{!132, !61}
 !133 = distinct !{!133, !61}
 !134 = distinct !{!134, !61}
 !135 = distinct !{!135, !61}
-!136 = distinct !{!136, !61}
+!136 = distinct !{!136, !61, !72}
 !137 = distinct !{!137, !61}
-!138 = distinct !{!138, !61}
+!138 = distinct !{!138, !61, !72}
 !139 = distinct !{!139, !61}
 !140 = distinct !{!140, !61}
 !141 = distinct !{!141, !61}
 !142 = distinct !{!142, !61}
 !143 = distinct !{!143, !61}
-!144 = distinct !{!144, !61}
+!144 = distinct !{!144, !61, !72}
 !145 = distinct !{!145, !61}
 !146 = distinct !{!146, !61}
 !147 = distinct !{!147, !61}
@@ -3312,5 +3312,10 @@ attributes #9 = { noreturn nounwind }
 !149 = distinct !{!149, !61}
 !150 = distinct !{!150, !61}
 !151 = distinct !{!151, !61}
-!152 = distinct !{!152, !61}
-!153 = distinct !{!153, !61}
+!152 = distinct !{!152, !61, !72}
+!153 = distinct !{!153, !61, !72}
+!154 = distinct !{!154, !61}
+!155 = distinct !{!155, !61}
+!156 = distinct !{!156, !61}
+!157 = distinct !{!157, !61}
+!158 = distinct !{!158, !61}

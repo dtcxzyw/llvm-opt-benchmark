@@ -195930,7 +195930,7 @@ lean_inc.exit.us:                                 ; preds = %38, %37, %36
 lean_dec.exit26.us:                               ; preds = %lean_inc.exit.us
   %42 = add i64 %.02048.us, 1
   %.not.us = icmp eq i64 %42, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit26
   %.02048 = phi i64 [ %85, %lean_dec.exit26 ], [ %2, %.lr.ph ]
@@ -206077,7 +206077,7 @@ lean_inc.exit1660:                                ; preds = %225, %224, %222, %l
 lean_inc.exit1659:                                ; preds = %237, %236, %234, %lean_inc.exit1660
   %238 = and i64 %137, %146
   %brmerge.not.not = icmp eq i64 %238, 0
-  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %239, !prof !21
+  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %239, !prof !23
 
 239:                                              ; preds = %lean_inc.exit1659
   %240 = icmp eq ptr %135, %145
@@ -304589,4 +304589,6 @@ attributes #9 = { noreturn nounwind }
 !18 = !{!"short", !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !6, i64 0}
-!21 = !{!"branch_weights", i32 4001, i32 4000000}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = !{!"branch_weights", i32 4001, i32 4000000}

@@ -254,7 +254,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph, %_ZNSt14_Bi
   %25 = xor i1 %.018.in23, true
   %26 = add nuw i64 %.01625, 1
   %exitcond39.not = icmp eq i64 %26, %3
-  br i1 %exitcond39.not, label %._crit_edge29, label %7, !llvm.loop !28
+  br i1 %exitcond39.not, label %._crit_edge29, label %7, !llvm.loop !29
 
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt14_Bit_referenceaSEb.exit ], [ %11, %.lr.ph ]
@@ -276,7 +276,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bi
   store i64 %36, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !11
   %37 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %37, %9
-  br i1 %exitcond.not, label %._crit_edge.loopexit31, label %_ZNSt14_Bit_referenceaSEb.exit, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.loopexit31, label %_ZNSt14_Bit_referenceaSEb.exit, !llvm.loop !30
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -351,5 +351,7 @@ attributes #13 = { nounwind }
 !24 = !{!20, !9, i64 4}
 !25 = !{!14, !15, i64 8}
 !26 = !{!9, !9, i64 0}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !18}
+!27 = distinct !{!27, !18, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}

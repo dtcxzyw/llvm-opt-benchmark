@@ -319,7 +319,7 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   store i32 %49, ptr @nCurConstraints, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count31
-  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %26, %47
   store i32 %10, ptr @nPossibleConstraints, align 4
@@ -399,7 +399,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #5 {
   %25 = load i32, ptr @nDeadlockDetails, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %15, %0
   %28 = load ptr, ptr %1, align 8
@@ -422,7 +422,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #5 {
   %37 = load i32, ptr @nDeadlockDetails, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next24, %38
-  br i1 %39, label %.lr.ph20, label %._crit_edge21, !llvm.loop !9
+  br i1 %39, label %.lr.ph20, label %._crit_edge21, !llvm.loop !11
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %._crit_edge
   call void @pgstat_report_deadlock() #11
@@ -560,10 +560,10 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %43 = getelementptr inbounds nuw %struct.WAIT_ORDER, ptr %16, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %36
-  br i1 %45, label %46, label %38, !llvm.loop !10
+  br i1 %45, label %46, label %38, !llvm.loop !12
 
 46:                                               ; preds = %41
-  br label %TopoSort.exit.i, !llvm.loop !11
+  br label %TopoSort.exit.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %38
   %47 = sext i32 %34 to i64
@@ -596,7 +596,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0166.i.i, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not151.i.i = icmp eq ptr %62, %52
-  br i1 %.not151.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not151.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.critedge.i
   %63 = sext i32 %.val.i to i64
@@ -699,7 +699,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %.1132.i.us.i = phi i32 [ %.0131174.i.us.i, %100 ], [ %.0131174.i.us.i, %93 ], [ %99, %97 ]
   %indvars.iv.next.i.us.i = add nsw i64 %indvars.iv.i.us.i, -1
   %103 = icmp sgt i64 %indvars.iv.i.us.i, 0
-  br i1 %103, label %.lr.ph176.i.us.i, label %._crit_edge177.i.us.i, !llvm.loop !13
+  br i1 %103, label %.lr.ph176.i.us.i, label %._crit_edge177.i.us.i, !llvm.loop !15
 
 ._crit_edge177.i.us.i:                            ; preds = %102
   %104 = icmp slt i32 %.1132.i.us.i, 0
@@ -738,7 +738,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %.1136.i.us.i = phi i32 [ %.0135178.i.us.i, %118 ], [ %.0135178.i.us.i, %111 ], [ %117, %115 ]
   %indvars.iv.next213.i.us.i = add nsw i64 %indvars.iv212.i.us.i, -1
   %121 = icmp sgt i64 %indvars.iv212.i.us.i, 0
-  br i1 %121, label %.lr.ph180.i.us.i, label %._crit_edge181.i.us.i, !llvm.loop !14
+  br i1 %121, label %.lr.ph180.i.us.i, label %._crit_edge181.i.us.i, !llvm.loop !16
 
 ._crit_edge181.i.us.i:                            ; preds = %120
   %122 = icmp slt i32 %.1136.i.us.i, 0
@@ -765,7 +765,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge177.thread.i.us.i:                     ; preds = %123, %._crit_edge181.i.us.i, %._crit_edge177.i.us.i
   %indvars.iv.next216.i.us.i = add nuw nsw i64 %indvars.iv215.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next216.i.us.i, %indvars.iv45.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge186.i.i, label %.lr.ph176.i.preheader.us.i, !llvm.loop !15
+  br i1 %exitcond.not.i.us.i, label %._crit_edge186.i.i, label %.lr.ph176.i.preheader.us.i, !llvm.loop !17
 
 ._crit_edge186.i.i:                               ; preds = %._crit_edge177.thread.i.us.i, %.loopexit160.i.i
   %135 = icmp slt i32 %85, 0
@@ -773,7 +773,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 .loopexit.i.i:                                    ; preds = %.lr.ph201.i.i, %._crit_edge196.i.i
   %136 = icmp slt i32 %172, 0
-  br i1 %136, label %.loopexit.i, label %.preheader158.i.i, !llvm.loop !16
+  br i1 %136, label %.loopexit.i, label %.preheader158.i.i, !llvm.loop !18
 
 .preheader158.i.i:                                ; preds = %._crit_edge186.i.i, %.loopexit.i.i
   %.2127203.i.i = phi i32 [ %172, %.loopexit.i.i ], [ %85, %._crit_edge186.i.i ]
@@ -787,7 +787,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   %142 = add i32 %.1139.i.i, -1
-  br i1 %141, label %137, label %.preheader.i.i, !llvm.loop !17
+  br i1 %141, label %137, label %.preheader.i.i, !llvm.loop !19
 
 .preheader.i.i:                                   ; preds = %137
   %143 = icmp sgt i32 %.1139.i.i, -1
@@ -813,7 +813,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 151:                                              ; preds = %147, %.lr.ph188.i.i
   %indvars.iv.next220.i.i = add nsw i64 %indvars.iv219.i.i, -1
   %152 = icmp sgt i64 %indvars.iv219.i.i, 0
-  br i1 %152, label %.lr.ph188.i.i, label %ExpandConstraints.exit.thread, !llvm.loop !18
+  br i1 %152, label %.lr.ph188.i.i, label %ExpandConstraints.exit.thread, !llvm.loop !20
 
 .lr.ph195.preheader.i.i:                          ; preds = %147
   %153 = and i64 %indvars.iv219.i.i, 4294967295
@@ -856,7 +856,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %.1.i.i = phi i32 [ %170, %166 ], [ %.0120193.i.i, %162 ], [ %.0120193.i.i, %161 ]
   %indvars.iv.next223.i.i = add nuw nsw i64 %indvars.iv222.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv222.i.i, %138
-  br i1 %exitcond.not.i, label %._crit_edge196.i.i, label %.lr.ph195.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge196.i.i, label %.lr.ph195.i.i, !llvm.loop !21
 
 ._crit_edge196.i.i:                               ; preds = %171
   %172 = sub i32 %.2127203.i.i, %.1.i.i
@@ -879,7 +879,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %183 = getelementptr i8, ptr %176, i64 -4
   %.1134.i.i = load i32, ptr %183, align 4
   %184 = icmp sgt i32 %.1134.i.i, 0
-  br i1 %184, label %.lr.ph201.i.i, label %.loopexit.i.i, !llvm.loop !20
+  br i1 %184, label %.lr.ph201.i.i, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %.loopexit.i.i, %._crit_edge186.i.i, %.lr.ph185.i.i
   %185 = add i32 %34, 1
@@ -937,7 +937,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   %205 = load i32, ptr @nCurConstraints, align 4
   %206 = sext i32 %205 to i64
   %207 = icmp slt i64 %indvars.iv.next, %206
-  br i1 %207, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %207, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %204, %11, %ExpandConstraints.exit
   %.010.lcssa = phi i32 [ 0, %ExpandConstraints.exit ], [ 0, %11 ], [ %.2, %204 ]
@@ -992,7 +992,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
 16:                                               ; preds = %.lr.ph
   %17 = add nuw nsw i32 %.03348, 1
   %exitcond.not = icmp eq i32 %17, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %16, %4
   %18 = add i32 %7, 1
@@ -1048,7 +1048,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.050, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not42 = icmp eq ptr %41, %29
-  br i1 %.not42, label %.loopexit, label %.lr.ph52, !llvm.loop !23
+  br i1 %.not42, label %.loopexit, label %.lr.ph52, !llvm.loop !25
 
 .loopexit:                                        ; preds = %38, %.critedge, %28, %26, %13, %15
   %.0 = phi i1 [ true, %15 ], [ false, %13 ], [ true, %26 ], [ false, %28 ], [ true, %38 ], [ false, %.critedge ]
@@ -1117,7 +1117,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 35:                                               ; preds = %37
   %36 = add i32 %.0139198, 1
   %.not167 = icmp sgt i32 %36, %.fr
-  br i1 %.not167, label %..loopexit195_crit_edge, label %37, !llvm.loop !24
+  br i1 %.not167, label %..loopexit195_crit_edge, label %37, !llvm.loop !26
 
 37:                                               ; preds = %.preheader194, %35
   %.0139198 = phi i32 [ 1, %.preheader194 ], [ %36, %35 ]
@@ -1167,7 +1167,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.058.0200, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not158 = icmp eq ptr %60, %21
-  br i1 %.not158, label %.preheader, label %.lr.ph201.split, !llvm.loop !25
+  br i1 %.not158, label %.preheader, label %.lr.ph201.split, !llvm.loop !27
 
 61:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
@@ -1179,7 +1179,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 65:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !28
 
 66:                                               ; preds = %61
   %67 = and i64 %indvars.iv, 4294967295
@@ -1222,7 +1222,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 89:                                               ; preds = %87, %82
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %.thread181, label %75, !llvm.loop !27
+  br i1 %exitcond229.not, label %.thread181, label %75, !llvm.loop !29
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr @deadlockDetails, align 8
@@ -1278,7 +1278,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.0204, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not160 = icmp eq ptr %119, %110
-  br i1 %.not160, label %.loopexit, label %.lr.ph207, !llvm.loop !28
+  br i1 %.not160, label %.loopexit, label %.lr.ph207, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph207, %._crit_edge, %114
   %.2147 = phi ptr [ null, %114 ], [ %0, %._crit_edge ], [ %spec.select, %.lr.ph207 ]
@@ -1318,7 +1318,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.1209, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not162 = icmp eq ptr %135, %110
-  br i1 %.not162, label %.thread181, label %121, !llvm.loop !29
+  br i1 %.not162, label %.thread181, label %121, !llvm.loop !31
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr @deadlockDetails, align 8
@@ -1383,8 +1383,8 @@ attributes #12 = { cold nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1393,7 +1393,7 @@ attributes #12 = { cold nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!17 = distinct !{!17, !5, !8}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -1406,3 +1406,5 @@ attributes #12 = { cold nounwind }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}

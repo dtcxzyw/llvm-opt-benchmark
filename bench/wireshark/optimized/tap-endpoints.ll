@@ -226,7 +226,7 @@ sub_175:                                          ; preds = %sub_0
   %71 = phi ptr [ %.pre116, %57 ], [ %42, %48 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.not70.us.us = icmp eq ptr %71, null
-  br i1 %.not70.us.us, label %.critedge2.us, label %.lr.ph88.us, !llvm.loop !9
+  br i1 %.not70.us.us, label %.critedge2.us, label %.lr.ph88.us, !llvm.loop !10
 
 .split:                                           ; preds = %.split.preheader, %.critedge2
   %72 = phi ptr [ %115, %.critedge2 ], [ %.pre, %.split.preheader ]
@@ -307,13 +307,13 @@ sub_175:                                          ; preds = %sub_0
   %114 = phi ptr [ %.pre114, %101 ], [ %86, %92 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %.not70 = icmp eq ptr %114, null
-  br i1 %.not70, label %.critedge2, label %.lr.ph88, !llvm.loop !9
+  br i1 %.not70, label %.critedge2, label %.lr.ph88, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.lr.ph88, %113
   %115 = phi ptr [ null, %113 ], [ %86, %.lr.ph88 ]
   %116 = phi ptr [ null, %113 ], [ %87, %.lr.ph88 ]
   %.not71 = icmp eq i64 %.0.lcssa.ph, 0
-  br i1 %.not71, label %.split94.us, label %.split, !llvm.loop !7
+  br i1 %.not71, label %.split94.us, label %.split, !llvm.loop !12
 
 .split94.us:                                      ; preds = %.split, %.critedge2, %.split.us, %.critedge2.us
   %117 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.4)
@@ -369,6 +369,9 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

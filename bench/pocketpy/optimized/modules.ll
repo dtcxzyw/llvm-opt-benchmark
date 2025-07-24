@@ -8297,7 +8297,7 @@ _ZNKSt4lessIKSt10type_indexEclERS1_S3_.exit.us:   ; preds = %.lr.ph.split.us
   %.in = getelementptr inbounds nuw i8, ptr %.02531, i64 %.in.v
   %.025 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %._crit_edge, label %._crit_edge.i.i.i, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %._crit_edge.i.i.i, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %._crit_edge.i.i.i, %18
   %.024.lcssa = phi ptr [ %.02531.us, %18 ], [ %.02531, %._crit_edge.i.i.i ]
@@ -8710,7 +8710,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
   %36 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
-  br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !27
+  br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %26, %33
   %39 = phi i16 [ %37, %33 ], [ %31, %26 ]
@@ -8808,7 +8808,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 63:                                               ; preds = %.lr.ph44, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %63, %1
   tail call void @free(ptr noundef %9) #26
@@ -8887,7 +8887,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   %18 = udiv i32 %.02230.i, 10000
   %19 = add i32 %.02329.i, 4
   %20 = icmp ult i32 %.02230.i, 100000
-  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !31
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
@@ -8948,7 +8948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !30
+  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
@@ -9104,8 +9104,10 @@ attributes #31 = { nounwind willreturn memory(read) }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZSt16forward_as_tupleIJKSt10type_indexEESt5tupleIJDpOT_EES5_: argument 0"}
 !25 = distinct !{!25, !"_ZSt16forward_as_tupleIJKSt10type_indexEESt5tupleIJDpOT_EES5_"}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
+!26 = distinct !{!26, !5, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}

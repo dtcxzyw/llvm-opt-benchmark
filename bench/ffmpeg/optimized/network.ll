@@ -147,7 +147,7 @@ ff_network_wait_fd.exit.us:                       ; preds = %.lr.ph.split.us
   %.1.us = phi i64 [ %.022.us, %23 ], [ %22, %21 ]
   %27 = call i32 @ff_check_interrupt(ptr noundef %3) #12
   %.not.us = icmp eq i32 %27, 0
-  br i1 %.not.us, label %.lr.ph.split.us, label %.loopexit
+  br i1 %.not.us, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
@@ -235,7 +235,7 @@ define void @ff_network_close() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ff_is_multicast_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i16, ptr %0, align 2, !tbaa !13
+  %2 = load i16, ptr %0, align 2, !tbaa !15
   switch i16 %2, label %12 [
     i16 2, label %3
     i16 10, label %8
@@ -243,14 +243,14 @@ define range(i32 0, 2) i32 @ff_is_multicast_address(ptr noundef readonly capture
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %5 = load i32, ptr %4, align 4, !tbaa !17
   %6 = and i32 %5, 240
   %7 = icmp eq i32 %6, 224
   br label %12
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 4, !tbaa !18
+  %10 = load i8, ptr %9, align 4, !tbaa !20
   %11 = icmp eq i8 %10, -1
   br label %12
 
@@ -442,7 +442,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @ff_poll_interrup
   %.1 = phi i32 [ -4, %21 ], [ 0, %17 ]
   %26 = add nsw i32 %.011.ph, -1
   %27 = icmp sgt i32 %.011.ph, 0
-  br i1 %27, label %.critedge.outer, label %.thread, !llvm.loop !19
+  br i1 %27, label %.critedge.outer, label %.thread, !llvm.loop !21
 
 .thread.loopexit.split.loop.exit:                 ; preds = %21, %12
   %.us-phi21 = phi i32 [ %14, %12 ], [ %23, %21 ]
@@ -600,7 +600,7 @@ define i32 @ff_listen_connect(i32 noundef %0, ptr noundef %1, i32 noundef %2, i3
 25:                                               ; preds = %21
   %26 = tail call i32 @ff_check_interrupt(ptr noundef nonnull %18) #12
   %.not21 = icmp eq i32 %26, 0
-  br i1 %.not21, label %19, label %.loopexit, !llvm.loop !21
+  br i1 %.not21, label %19, label %.loopexit, !llvm.loop !23
 
 27:                                               ; preds = %21, %21
   %28 = call fastcc i32 @ff_poll_interrupt(ptr noundef %7, i64 noundef 1, i32 noundef %3, ptr noundef nonnull %18)
@@ -633,7 +633,7 @@ thread-pre-split:                                 ; preds = %30
   store i32 %37, ptr %8, align 4, !tbaa !12
   %.not20 = icmp eq i32 %5, 0
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !22
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
   br i1 %.not20, label %42, label %40
 
 40:                                               ; preds = %36
@@ -701,21 +701,21 @@ define i32 @ff_connect_parallel(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.08.i = phi ptr [ %28, %.lr.ph.i ], [ %0, %7 ]
   %22 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !34
+  %25 = load i32, ptr %24, align 8, !tbaa !36
   %26 = call i32 @getnameinfo(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %10, i32 noundef 100, ptr noundef nonnull %11, i32 noundef 20, i32 noundef 3) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.17, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
   %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !35
+  %28 = load ptr, ptr %27, align 8, !tbaa !37
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %print_address_list.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i, label %print_address_list.exit, label %.lr.ph.i, !llvm.loop !38
 
 print_address_list.exit:                          ; preds = %.lr.ph.i, %7
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %10) #12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !37
+  %30 = load ptr, ptr %29, align 8, !tbaa !39
   %.not20.i = icmp eq ptr %30, null
   br i1 %.not20.i, label %interleave_addrinfo.exit.thread, label %.lr.ph.i95
 
@@ -730,36 +730,36 @@ interleave_addrinfo.exit.thread:                  ; preds = %print_address_list.
   %.022.i = phi ptr [ %.1.i, %48 ], [ %0, %print_address_list.exit ]
   %.01721.i = phi ptr [ %.118.i, %48 ], [ %29, %print_address_list.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !38
+  %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %.022.i, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !38
+  %35 = load i32, ptr %34, align 4, !tbaa !40
   %36 = icmp eq i32 %33, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph.i95
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  br label %48, !llvm.loop !39
+  br label %48, !llvm.loop !41
 
 39:                                               ; preds = %.lr.ph.i95
   %40 = getelementptr inbounds nuw i8, ptr %.022.i, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = icmp eq ptr %31, %41
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  br i1 %42, label %48, label %44, !llvm.loop !39
+  br i1 %42, label %48, label %44, !llvm.loop !41
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %43, align 8, !tbaa !35
-  store ptr %45, ptr %.01721.i, align 8, !tbaa !37
-  %46 = load ptr, ptr %40, align 8, !tbaa !35
-  store ptr %46, ptr %43, align 8, !tbaa !35
-  store ptr %31, ptr %40, align 8, !tbaa !35
-  %47 = load ptr, ptr %43, align 8, !tbaa !35
+  %45 = load ptr, ptr %43, align 8, !tbaa !37
+  store ptr %45, ptr %.01721.i, align 8, !tbaa !39
+  %46 = load ptr, ptr %40, align 8, !tbaa !37
+  store ptr %46, ptr %43, align 8, !tbaa !37
+  store ptr %31, ptr %40, align 8, !tbaa !37
+  %47 = load ptr, ptr %43, align 8, !tbaa !37
   br label %48
 
 48:                                               ; preds = %44, %39, %37
   %.118.i = phi ptr [ %38, %37 ], [ %.01721.i, %44 ], [ %43, %39 ]
   %.1.i = phi ptr [ %.022.i, %37 ], [ %47, %44 ], [ %31, %39 ]
-  %49 = load ptr, ptr %.118.i, align 8, !tbaa !37
+  %49 = load ptr, ptr %.118.i, align 8, !tbaa !39
   %.not.i96 = icmp eq ptr %49, null
   br i1 %.not.i96, label %interleave_addrinfo.exit, label %.lr.ph.i95
 
@@ -780,15 +780,15 @@ print_address_list.exit101.thread:                ; preds = %interleave_addrinfo
 .lr.ph.i98:                                       ; preds = %.lr.ph.i98.preheader, %.lr.ph.i98
   %.08.i99 = phi ptr [ %56, %.lr.ph.i98 ], [ %0, %.lr.ph.i98.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %.08.i99, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !30
+  %51 = load ptr, ptr %50, align 8, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %.08.i99, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !34
+  %53 = load i32, ptr %52, align 8, !tbaa !36
   %54 = call i32 @getnameinfo(ptr noundef %51, i32 noundef %53, ptr noundef nonnull %8, i32 noundef 100, ptr noundef nonnull %9, i32 noundef 20, i32 noundef 3) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.17, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   %55 = getelementptr inbounds nuw i8, ptr %.08.i99, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !35
+  %56 = load ptr, ptr %55, align 8, !tbaa !37
   %.not.i100 = icmp eq ptr %56, null
-  br i1 %.not.i100, label %.lr.ph.lr.ph, label %.lr.ph.i98, !llvm.loop !36
+  br i1 %.not.i100, label %.lr.ph.lr.ph, label %.lr.ph.i98, !llvm.loop !38
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.i98
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #12
@@ -825,19 +825,19 @@ print_address_list.exit101.thread:                ; preds = %interleave_addrinfo
 
 71:                                               ; preds = %.lr.ph.split
   %72 = getelementptr inbounds nuw i8, ptr %.0108146, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %73 = load ptr, ptr %72, align 8, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %.0108146, i64 16
-  %75 = load i32, ptr %74, align 8, !tbaa !34
+  %75 = load i32, ptr %74, align 8, !tbaa !36
   %76 = call i32 @getnameinfo(ptr noundef %73, i32 noundef %75, ptr noundef nonnull %16, i32 noundef 100, ptr noundef nonnull %17, i32 noundef 20, i32 noundef 3) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 40, ptr noundef nonnull @.str.7, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
   %77 = getelementptr inbounds nuw i8, ptr %.0108146, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !35
+  %78 = load ptr, ptr %77, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %.0108146, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !38
+  %80 = load i32, ptr %79, align 4, !tbaa !40
   %81 = getelementptr inbounds nuw i8, ptr %.0108146, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !40
+  %82 = load i32, ptr %81, align 8, !tbaa !42
   %83 = getelementptr inbounds nuw i8, ptr %.0108146, i64 12
-  %84 = load i32, ptr %83, align 4, !tbaa !41
+  %84 = load i32, ptr %83, align 4, !tbaa !43
   %85 = or i32 %82, 524288
   %86 = call i32 @socket(i32 noundef %80, i32 noundef %85, i32 noundef %84) #12
   %87 = icmp eq i32 %86, -1
@@ -864,12 +864,12 @@ print_address_list.exit101.thread:                ; preds = %interleave_addrinfo
   br label %ff_socket.exit.i
 
 ff_socket.exit.thread.i:                          ; preds = %92, %88
-  store i32 -1, ptr %67, align 8, !tbaa !42
+  store i32 -1, ptr %67, align 8, !tbaa !44
   br label %99
 
 ff_socket.exit.i:                                 ; preds = %97, %94, %71
   %.0.i.i = phi i32 [ %93, %97 ], [ %93, %94 ], [ %86, %71 ]
-  store i32 %.0.i.i, ptr %67, align 8, !tbaa !42
+  store i32 %.0.i.i, ptr %67, align 8, !tbaa !44
   %98 = icmp slt i32 %.0.i.i, 0
   br i1 %98, label %ff_socket.exit._crit_edge.i, label %103
 
@@ -887,8 +887,8 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
 103:                                              ; preds = %ff_socket.exit.i
   %104 = call i64 @av_gettime_relative() #12
   %105 = add nsw i64 %104, %58
-  store i64 %105, ptr %68, align 8, !tbaa !44
-  store ptr %.0108146, ptr %69, align 8, !tbaa !45
+  store i64 %105, ptr %68, align 8, !tbaa !46
+  store ptr %.0108146, ptr %69, align 8, !tbaa !47
   %106 = call i32 @ff_socket_nonblock(i32 noundef %.0.i.i, i32 noundef 1) #12
   br i1 %.not.i102, label %.preheader253, label %107
 
@@ -896,19 +896,19 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
   br label %112
 
 107:                                              ; preds = %103
-  %108 = load i32, ptr %79, align 4, !tbaa !38
+  %108 = load i32, ptr %79, align 4, !tbaa !40
   %109 = call i32 %5(ptr noundef %6, i32 noundef %.0.i.i, i32 noundef %108) #12
   %.not35.i = icmp eq i32 %109, 0
   br i1 %.not35.i, label %.preheader253, label %110
 
 110:                                              ; preds = %107
   %111 = call i32 @close(i32 noundef %.0.i.i) #12
-  store i32 -1, ptr %67, align 8, !tbaa !42
+  store i32 -1, ptr %67, align 8, !tbaa !44
   br label %start_connect_attempt.exit
 
 112:                                              ; preds = %.preheader253, %119
-  %113 = load ptr, ptr %72, align 8, !tbaa !30
-  %114 = load i32, ptr %74, align 8, !tbaa !34
+  %113 = load ptr, ptr %72, align 8, !tbaa !32
+  %114 = load i32, ptr %74, align 8, !tbaa !36
   %115 = call i32 @connect(i32 noundef %.0.i.i, ptr noundef %113, i32 noundef %114) #12
   %.not36.i = icmp eq i32 %115, 0
   br i1 %.not36.i, label %start_connect_attempt.exit.thread, label %116
@@ -925,18 +925,18 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
 119:                                              ; preds = %116
   %120 = call i32 @ff_check_interrupt(ptr noundef nonnull %59) #12
   %.not37.i = icmp eq i32 %120, 0
-  br i1 %.not37.i, label %112, label %start_connect_attempt.exit.thread112, !llvm.loop !46
+  br i1 %.not37.i, label %112, label %start_connect_attempt.exit.thread112, !llvm.loop !48
 
 start_connect_attempt.exit.thread112:             ; preds = %119
   %121 = call i32 @close(i32 noundef %.0.i.i) #12
-  store i32 -1, ptr %67, align 8, !tbaa !42
+  store i32 -1, ptr %67, align 8, !tbaa !44
   store i32 -1414092869, ptr %14, align 4, !tbaa !12
   br label %127
 
 122:                                              ; preds = %116
   %123 = sub nsw i32 0, %118
   %124 = call i32 @close(i32 noundef %.0.i.i) #12
-  store i32 -1, ptr %67, align 8, !tbaa !42
+  store i32 -1, ptr %67, align 8, !tbaa !44
   br label %start_connect_attempt.exit
 
 start_connect_attempt.exit.thread:                ; preds = %112, %116, %116
@@ -958,7 +958,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 40, ptr noundef nonnull @.str.8, ptr noundef nonnull %18) #12
   %129 = icmp ne ptr %78, null
   %130 = select i1 %64, i1 true, i1 %129
-  br i1 %130, label %.lr.ph.split, label %.loopexit121, !llvm.loop !47
+  br i1 %130, label %.lr.ph.split, label %.loopexit121, !llvm.loop !49
 
 .loopexit123:                                     ; preds = %start_connect_attempt.exit, %start_connect_attempt.exit.thread
   %131 = phi i32 [ %.0.i.i, %start_connect_attempt.exit.thread ], [ %125, %start_connect_attempt.exit ]
@@ -977,11 +977,11 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next, %.lr.ph158 ]
   %133 = getelementptr inbounds nuw [3 x %struct.ConnectionAttempt], ptr %12, i64 0, i64 %indvars.iv
-  %134 = load i32, ptr %133, align 8, !tbaa !42
+  %134 = load i32, ptr %133, align 8, !tbaa !44
   %135 = call i32 @close(i32 noundef %134) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph158, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph158, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph158, %.preheader
   store i32 %131, ptr %4, align 4, !tbaa !12
@@ -1010,7 +1010,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   unreachable
 
 144:                                              ; preds = %.loopexit122
-  %145 = load i64, ptr %60, align 8, !tbaa !44
+  %145 = load i64, ptr %60, align 8, !tbaa !46
   %146 = icmp slt i32 %.283, %spec.store.select
   %147 = icmp ne ptr %.1109, null
   %or.cond3 = select i1 %146, i1 %147, i1 false
@@ -1026,7 +1026,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   %155 = icmp slt i32 %154, 0
   %156 = icmp ne i32 %154, -110
   %or.cond5 = and i1 %155, %156
-  br i1 %or.cond5, label %.lr.ph163.preheader, label %.lr.ph150, !llvm.loop !47
+  br i1 %or.cond5, label %.lr.ph163.preheader, label %.lr.ph150, !llvm.loop !49
 
 .lr.ph150:                                        ; preds = %144, %218
   %.180149 = phi i32 [ %219, %218 ], [ 0, %144 ]
@@ -1042,7 +1042,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 161:                                              ; preds = %.lr.ph150
   store i32 4, ptr %15, align 4, !tbaa !12
   %162 = getelementptr inbounds [3 x %struct.ConnectionAttempt], ptr %12, i64 0, i64 %157
-  %163 = load i32, ptr %162, align 8, !tbaa !42
+  %163 = load i32, ptr %162, align 8, !tbaa !44
   %164 = call i32 @getsockopt(i32 noundef %163, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %14, ptr noundef nonnull %15) #12
   %.not90 = icmp eq i32 %164, 0
   br i1 %.not90, label %170, label %165
@@ -1081,23 +1081,23 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 
 175:                                              ; preds = %.lr.ph160
   %176 = getelementptr inbounds nuw [3 x %struct.ConnectionAttempt], ptr %12, i64 0, i64 %indvars.iv193
-  %177 = load i32, ptr %176, align 8, !tbaa !42
+  %177 = load i32, ptr %176, align 8, !tbaa !44
   %178 = call i32 @close(i32 noundef %177) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph160, %175
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count198
-  br i1 %exitcond199.not, label %.critedge._crit_edge, label %.lr.ph160, !llvm.loop !49
+  br i1 %exitcond199.not, label %.critedge._crit_edge, label %.lr.ph160, !llvm.loop !51
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   store i32 %163, ptr %4, align 4, !tbaa !12
   %179 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %180 = load ptr, ptr %179, align 8, !tbaa !45
+  %180 = load ptr, ptr %179, align 8, !tbaa !47
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %182 = load ptr, ptr %181, align 8, !tbaa !30
+  %182 = load ptr, ptr %181, align 8, !tbaa !32
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %184 = load i32, ptr %183, align 8, !tbaa !34
+  %184 = load i32, ptr %183, align 8, !tbaa !36
   %185 = call i32 @getnameinfo(ptr noundef %182, i32 noundef %184, ptr noundef nonnull %16, i32 noundef 100, ptr noundef nonnull %17, i32 noundef 20, i32 noundef 3) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 40, ptr noundef nonnull @.str.12, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
   br label %233
@@ -1105,7 +1105,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 186:                                              ; preds = %.critedge119, %165, %.lr.ph150
   %187 = getelementptr inbounds [3 x %struct.ConnectionAttempt], ptr %12, i64 0, i64 %157
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load i64, ptr %188, align 8, !tbaa !44
+  %189 = load i64, ptr %188, align 8, !tbaa !46
   %190 = call i64 @av_gettime_relative() #12
   %191 = icmp sge i64 %189, %190
   %192 = load i32, ptr %14, align 4
@@ -1123,17 +1123,17 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 
 195:                                              ; preds = %.thread, %194
   %196 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %197 = load ptr, ptr %196, align 8, !tbaa !45
+  %197 = load ptr, ptr %196, align 8, !tbaa !47
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !30
+  %199 = load ptr, ptr %198, align 8, !tbaa !32
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  %201 = load i32, ptr %200, align 8, !tbaa !34
+  %201 = load i32, ptr %200, align 8, !tbaa !36
   %202 = call i32 @getnameinfo(ptr noundef %199, i32 noundef %201, ptr noundef nonnull %16, i32 noundef 100, ptr noundef nonnull %17, i32 noundef 20, i32 noundef 3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 0, i64 64, i1 false)
   %203 = load i32, ptr %14, align 4, !tbaa !12
   %204 = call i32 @av_strerror(i32 noundef %203, ptr noundef nonnull %19, i64 noundef 64) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 40, ptr noundef nonnull @.str.13, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %19) #12
-  %205 = load i32, ptr %187, align 8, !tbaa !42
+  %205 = load i32, ptr %187, align 8, !tbaa !44
   %206 = call i32 @close(i32 noundef %205) #12
   %207 = add nsw i32 %.180149, 1
   %208 = sext i32 %207 to i64
@@ -1155,7 +1155,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   %.2 = phi i32 [ %216, %195 ], [ %.180149, %194 ]
   %219 = add nsw i32 %.2, 1
   %220 = icmp slt i32 %219, %.4
-  br i1 %220, label %.lr.ph150, label %.loopexit, !llvm.loop !50
+  br i1 %220, label %.lr.ph150, label %.loopexit, !llvm.loop !52
 
 .loopexit121:                                     ; preds = %127
   %221 = icmp sgt i32 %.081.ph153, 0
@@ -1169,11 +1169,11 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
   %indvars.iv200 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next201, %.lr.ph163 ]
   %222 = getelementptr inbounds nuw [3 x %struct.ConnectionAttempt], ptr %12, i64 0, i64 %indvars.iv200
-  %223 = load i32, ptr %222, align 8, !tbaa !42
+  %223 = load i32, ptr %222, align 8, !tbaa !44
   %224 = call i32 @close(i32 noundef %223) #12
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !51
+  br i1 %exitcond204.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !53
 
 ._crit_edge164:                                   ; preds = %.loopexit, %.lr.ph163, %print_address_list.exit101.thread, %.loopexit121
   %225 = load i32, ptr %14, align 4, !tbaa !12
@@ -1191,7 +1191,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
 228:                                              ; preds = %.thread116, %227
   %229 = phi i32 [ -111, %.thread116 ], [ %225, %227 ]
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %231 = load ptr, ptr %230, align 8, !tbaa !22
+  %231 = load ptr, ptr %230, align 8, !tbaa !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   %232 = call i32 @av_strerror(i32 noundef %229, ptr noundef nonnull %20, i64 noundef 64) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef %231, ptr noundef nonnull %20) #12
@@ -1243,13 +1243,13 @@ select.unfold:                                    ; preds = %.tail.thread.i, %32
   %7 = getelementptr inbounds nuw i8, ptr %.02236, i64 %6
   %8 = tail call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.14) #15
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !18
+  %10 = load i8, ptr %9, align 1, !tbaa !20
   %.not30 = icmp eq i8 %10, 0
   br i1 %.not30, label %13, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 0, ptr %9, align 1, !tbaa !18
+  store i8 0, ptr %9, align 1, !tbaa !20
   br label %13
 
 13:                                               ; preds = %11, %5
@@ -1267,7 +1267,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %32
 .tail.thread.i:                                   ; preds = %.tail.i, %13
   %spec.select.idx.i = zext i1 %.not22.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.i
-  %18 = load i8, ptr %spec.select.i, align 1, !tbaa !18
+  %18 = load i8, ptr %spec.select.i, align 1, !tbaa !20
   %19 = icmp eq i8 %18, 46
   %.1.idx.i = zext i1 %19 to i64
   %.1.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.1.idx.i
@@ -1293,7 +1293,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %32
 32:                                               ; preds = %30
   %33 = sext i32 %26 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %33
-  %34 = load i8, ptr %gep, align 1, !tbaa !18
+  %34 = load i8, ptr %gep, align 1, !tbaa !20
   %35 = icmp eq i8 %34, 46
   br i1 %35, label %match_host_pattern.exit.thread, label %select.unfold
 
@@ -1378,42 +1378,44 @@ attributes #15 = { nounwind willreturn memory(read) }
 !10 = !{!5, !9, i64 4}
 !11 = !{!5, !9, i64 6}
 !12 = !{!6, !6, i64 0}
-!13 = !{!14, !9, i64 0}
-!14 = !{!"sockaddr", !9, i64 0, !7, i64 2}
-!15 = !{!16, !6, i64 4}
-!16 = !{!"sockaddr_in", !9, i64 0, !9, i64 2, !17, i64 4, !7, i64 8}
-!17 = !{!"in_addr", !6, i64 0}
-!18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!23, !27, i64 24}
-!23 = !{!"URLContext", !24, i64 0, !26, i64 8, !25, i64 16, !27, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !28, i64 48, !29, i64 64, !27, i64 72, !27, i64 80, !6, i64 88}
-!24 = !{!"p1 _ZTS7AVClass", !25, i64 0}
-!25 = !{!"any pointer", !7, i64 0}
-!26 = !{!"p1 _ZTS11URLProtocol", !25, i64 0}
-!27 = !{!"p1 omnipotent char", !25, i64 0}
-!28 = !{!"AVIOInterruptCB", !25, i64 0, !25, i64 8}
-!29 = !{!"long", !7, i64 0}
-!30 = !{!31, !32, i64 24}
-!31 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !32, i64 24, !27, i64 32, !33, i64 40}
-!32 = !{!"p1 _ZTS8sockaddr", !25, i64 0}
-!33 = !{!"p1 _ZTS8addrinfo", !25, i64 0}
-!34 = !{!31, !6, i64 16}
-!35 = !{!31, !33, i64 40}
-!36 = distinct !{!36, !20}
-!37 = !{!33, !33, i64 0}
-!38 = !{!31, !6, i64 4}
-!39 = distinct !{!39, !20}
-!40 = !{!31, !6, i64 8}
-!41 = !{!31, !6, i64 12}
-!42 = !{!43, !6, i64 0}
-!43 = !{!"ConnectionAttempt", !6, i64 0, !29, i64 8, !33, i64 16}
-!44 = !{!43, !29, i64 8}
-!45 = !{!43, !33, i64 16}
-!46 = distinct !{!46, !20}
-!47 = distinct !{!47, !20}
-!48 = distinct !{!48, !20}
-!49 = distinct !{!49, !20}
-!50 = distinct !{!50, !20}
-!51 = distinct !{!51, !20}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!16, !9, i64 0}
+!16 = !{!"sockaddr", !9, i64 0, !7, i64 2}
+!17 = !{!18, !6, i64 4}
+!18 = !{!"sockaddr_in", !9, i64 0, !9, i64 2, !19, i64 4, !7, i64 8}
+!19 = !{!"in_addr", !6, i64 0}
+!20 = !{!7, !7, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = !{!25, !29, i64 24}
+!25 = !{!"URLContext", !26, i64 0, !28, i64 8, !27, i64 16, !29, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !30, i64 48, !31, i64 64, !29, i64 72, !29, i64 80, !6, i64 88}
+!26 = !{!"p1 _ZTS7AVClass", !27, i64 0}
+!27 = !{!"any pointer", !7, i64 0}
+!28 = !{!"p1 _ZTS11URLProtocol", !27, i64 0}
+!29 = !{!"p1 omnipotent char", !27, i64 0}
+!30 = !{!"AVIOInterruptCB", !27, i64 0, !27, i64 8}
+!31 = !{!"long", !7, i64 0}
+!32 = !{!33, !34, i64 24}
+!33 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !34, i64 24, !29, i64 32, !35, i64 40}
+!34 = !{!"p1 _ZTS8sockaddr", !27, i64 0}
+!35 = !{!"p1 _ZTS8addrinfo", !27, i64 0}
+!36 = !{!33, !6, i64 16}
+!37 = !{!33, !35, i64 40}
+!38 = distinct !{!38, !22}
+!39 = !{!35, !35, i64 0}
+!40 = !{!33, !6, i64 4}
+!41 = distinct !{!41, !22}
+!42 = !{!33, !6, i64 8}
+!43 = !{!33, !6, i64 12}
+!44 = !{!45, !6, i64 0}
+!45 = !{!"ConnectionAttempt", !6, i64 0, !31, i64 8, !35, i64 16}
+!46 = !{!45, !31, i64 8}
+!47 = !{!45, !35, i64 16}
+!48 = distinct !{!48, !22}
+!49 = distinct !{!49, !22}
+!50 = distinct !{!50, !22}
+!51 = distinct !{!51, !22}
+!52 = distinct !{!52, !22}
+!53 = distinct !{!53, !22}

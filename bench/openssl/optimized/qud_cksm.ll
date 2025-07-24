@@ -50,7 +50,7 @@ define i32 @DES_quad_cksum(ptr noundef readonly captures(none) %0, ptr noundef w
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %.03954.us, i64 1
-  %23 = load i8, ptr %.03954.us, align 1, !tbaa !9
+  %23 = load i8, ptr %.03954.us, align 1, !tbaa !10
   %24 = zext i8 %23 to i32
   br label %25
 
@@ -67,7 +67,7 @@ define i32 @DES_quad_cksum(ptr noundef readonly captures(none) %0, ptr noundef w
   %.narrow50.us = mul i32 %26, %30
   %31 = urem i32 %.narrow50.us, 2147483647
   %32 = icmp sgt i64 %.142.us, 0
-  br i1 %32, label %15, label %._crit_edge.us, !llvm.loop !10
+  br i1 %32, label %15, label %._crit_edge.us, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %25
   %.not.us = icmp eq ptr %.059.us, null
@@ -90,7 +90,7 @@ define i32 @DES_quad_cksum(ptr noundef readonly captures(none) %0, ptr noundef w
   %.1 = phi ptr [ %35, %33 ], [ null, %.preheader ]
   %37 = add nuw nsw i32 %.04358, 1
   %exitcond.not = icmp eq i32 %37, %invariant.umin
-  br i1 %exitcond.not, label %.split61.us, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %.split61.us, label %.preheader, !llvm.loop !12
 
 .split61.us:                                      ; preds = %36, %13
   %.us-phi = phi i32 [ %29, %13 ], [ %6, %36 ]
@@ -115,7 +115,9 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

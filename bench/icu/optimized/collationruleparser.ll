@@ -3015,7 +3015,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %.lr.ph.split.us
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %.lr.ph.split.us
   %exitcond54.not = icmp eq i32 %12, %20
-  br i1 %exitcond54.not, label %.thread, label %.lr.ph.split.us
+  br i1 %exitcond54.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %17, %.lr.ph ]
@@ -3141,7 +3141,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %27, %.lr.ph.i
   %46 = select i1 %41, i32 %45, i32 %43
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next.i, %47
-  br i1 %48, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %48, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %37, %6
   %49 = phi ptr [ %11, %6 ], [ %.pre.pre, %37 ], [ %.pre.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ]
@@ -3256,7 +3256,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i41._ZNK6icu_7719CollationRuleParser14s
   %112 = select i1 %107, i32 %111, i32 %109
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next.i44, %113
-  br i1 %114, label %.lr.ph.i38, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit46, !llvm.loop !56
+  br i1 %114, label %.lr.ph.i38, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit46, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit46: ; preds = %103, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i41._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit46.loopexit_crit_edge, %76
   %.pre-phi72 = phi i32 [ %82, %76 ], [ %.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i41._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit46.loopexit_crit_edge ], [ %109, %103 ]
@@ -3476,7 +3476,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %25, %.lr.ph.i
   %44 = select i1 %39, i32 %43, i32 %41
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %46, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %35, %5
   %47 = phi ptr [ %9, %5 ], [ %.pre.pre, %35 ], [ %.pre.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ]
@@ -3745,7 +3745,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread: ; preds = %17, %49, %71, %_ZN
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !57
+  %82 = load ptr, ptr %81, align 8, !tbaa !59
   %83 = load ptr, ptr %82, align 8, !tbaa !38
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 120
   %85 = load ptr, ptr %84, align 8
@@ -3757,7 +3757,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread: ; preds = %17, %49, %71, %_ZN
   br i1 %.not37, label %95, label %88
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr %81, align 8, !tbaa !57
+  %89 = load ptr, ptr %81, align 8, !tbaa !59
   %90 = load ptr, ptr %89, align 8, !tbaa !38
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %92 = load ptr, ptr %91, align 8
@@ -3916,7 +3916,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %28, %.lr.ph.i
   %48 = select i1 %43, i32 %47, i32 %45
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next.i, %49
-  br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %38, %.noexc, %4
   %.0.lcssa.i = phi i32 [ %2, %4 ], [ %26, %.noexc ], [ %39, %38 ]
@@ -3982,7 +3982,7 @@ _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %38, %.noexc,
           to label %77 unwind label %.loopexit129
 
 77:                                               ; preds = %.lr.ph
-  %78 = load ptr, ptr %0, align 8, !tbaa !58
+  %78 = load ptr, ptr %0, align 8, !tbaa !60
   %79 = load ptr, ptr %78, align 8, !tbaa !38
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %81 = load ptr, ptr %80, align 8
@@ -4077,7 +4077,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit95: ; preds 
   %111 = load i32, ptr %58, align 4
   %112 = select i1 %108, i32 %111, i32 %110
   %113 = icmp slt i32 %106, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit95, %68
   %.154.lcssa = phi i32 [ -1, %68 ], [ %76, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit95 ]
@@ -4200,7 +4200,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %._crit_edge
   br i1 %exitcond.not, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit104, label %166
 
 166:                                              ; preds = %164
-  %167 = load ptr, ptr %0, align 8, !tbaa !58
+  %167 = load ptr, ptr %0, align 8, !tbaa !60
   %168 = load ptr, ptr %167, align 8, !tbaa !38
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 136
   %170 = load ptr, ptr %169, align 8
@@ -4301,7 +4301,7 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc114
 209:                                              ; preds = %_ZN6icu_7713UnicodeString5setToEi.exit
   %210 = load i32, ptr %3, align 4, !tbaa !13
   %211 = icmp slt i32 %210, 1
-  br i1 %211, label %164, label %.invoke212, !llvm.loop !60
+  br i1 %211, label %164, label %.invoke212, !llvm.loop !62
 
 .invoke212:                                       ; preds = %209, %176, %194, %186
   invoke void @_ZN6icu_7719CollationRuleParser15setErrorContextEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
@@ -4406,7 +4406,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph, %20
   %40 = select i1 %35, i32 %39, i32 %37
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !56
+  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %30, %2
   %.0.lcssa = phi i32 [ %1, %2 ], [ %31, %30 ], [ %18, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
@@ -4489,7 +4489,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %22
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %95 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
   %55 = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_7712_GLOBAL__N_19positionsE, i64 0, i64 %indvars.iv
-  %56 = load ptr, ptr %55, align 8, !tbaa !61
+  %56 = load ptr, ptr %55, align 8, !tbaa !63
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %56, i32 noundef -1, i32 noundef 0)
           to label %57 unwind label %88
 
@@ -4580,7 +4580,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %77
 95:                                               ; preds = %60, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond, label %97, label %54, !llvm.loop !62
+  br i1 %exitcond, label %97, label %54, !llvm.loop !64
 
 96:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
@@ -4780,7 +4780,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %22, %.lr.ph.i
   %42 = select i1 %37, i32 %41, i32 %39
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %44, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %32, %4
   %.0.lcssa.i = phi i32 [ %1, %4 ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %33, %32 ]
@@ -4865,7 +4865,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i13:     ; preds = %72, %.lr.ph.i10
   %92 = select i1 %87, i32 %91, i32 %89
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next.i16, %93
-  br i1 %94, label %.lr.ph.i10, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit18, !llvm.loop !56
+  br i1 %94, label %.lr.ph.i10, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit18, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit18: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i13, %82, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
   %.0.lcssa.i8 = phi i32 [ %45, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit ], [ %70, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i13 ], [ %83, %82 ]
@@ -4929,7 +4929,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %_ZNK6icu_7713Unicod
 
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %32) #17, !srcloc !63
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %32) #17, !srcloc !65
   %34 = load ptr, ptr %2, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = sext i32 %31 to i64
@@ -4972,7 +4972,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7
 65:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
   %66 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %32) #17, !srcloc !63
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %32) #17, !srcloc !65
   br label %75
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit25:       ; preds = %53, %50, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit
@@ -4982,7 +4982,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit25:       ; preds = %53, %50, %_ZNK6icu_
           to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit26 unwind label %73
 
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit26: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit25
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %67) #17, !srcloc !63
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %67) #17, !srcloc !65
   %68 = load ptr, ptr %2, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = sext i32 %.016 to i64
@@ -4996,7 +4996,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit26: ; preds = %_ZNK6icu
 73:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit25
   %74 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %67) #17, !srcloc !63
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %67) #17, !srcloc !65
   br label %75
 
 75:                                               ; preds = %73, %65
@@ -5113,7 +5113,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit75:       ; preds = %44
   %52 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %53 = add nuw nsw i32 %.059123, 2
-  br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit, !llvm.loop !64
+  br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit, !llvm.loop !66
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit75.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit75, %44
   %54 = icmp slt i16 %28, 0
@@ -5194,7 +5194,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit78.thread: ; preds = %.lr.ph, %86, %_ZNK
   %96 = load i32, ptr %95, align 4
   %97 = select i1 %92, i32 %96, i32 %94
   %98 = icmp eq i32 %.463, %97
-  br i1 %98, label %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %98, label %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge, label %.lr.ph, !llvm.loop !67
 
 99:                                               ; preds = %switch.early.test.i
   %100 = icmp eq i32 %30, %27
@@ -5318,7 +5318,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85: ; preds 
   %161 = load i32, ptr %129, align 4
   %162 = select i1 %158, i32 %161, i32 %160
   %.not = icmp slt i32 %156, %162
-  br i1 %.not, label %.lr.ph154, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread, !llvm.loop !66
+  br i1 %.not, label %.lr.ph154, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread, !llvm.loop !68
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split: ; preds = %150, %141, %104, %61
   %.0.ph = phi i32 [ %.362.lcssa, %61 ], [ %27, %104 ], [ %.059.lcssa, %141 ], [ %.059.lcssa, %150 ]
@@ -5450,7 +5450,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14ski
   %46 = select i1 %41, i32 %45, i32 %43
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next.i, %47
-  br i1 %48, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %48, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %37, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit.loopexit_crit_edge, %3
   %.pre-phi76 = phi i32 [ %16, %3 ], [ %.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit.loopexit_crit_edge ], [ %43, %37 ]
@@ -5652,7 +5652,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i42:     ; preds = %126, %.lr.ph.i39
   %146 = select i1 %141, i32 %145, i32 %143
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next.i45, %147
-  br i1 %148, label %.lr.ph.i39, label %_ZN6icu_7713UnicodeString8truncateEi.exit, !llvm.loop !56
+  br i1 %148, label %.lr.ph.i39, label %_ZN6icu_7713UnicodeString8truncateEi.exit, !llvm.loop !58
 
 149:                                              ; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -5893,7 +5893,7 @@ _ZNK6icu_7713UnicodeString20tempSubStringBetweenEii.exit: ; preds = %57
 71:                                               ; preds = %76, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %76 ]
   %72 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 0, i64 %indvars.iv.i
-  %73 = load ptr, ptr %72, align 8, !tbaa !61
+  %73 = load ptr, ptr %72, align 8, !tbaa !63
   %74 = invoke i32 @uprv_stricmp_77(ptr noundef %70, ptr noundef %73)
           to label %.noexc unwind label %.loopexit
 
@@ -5904,7 +5904,7 @@ _ZNK6icu_7713UnicodeString20tempSubStringBetweenEii.exit: ; preds = %57
 76:                                               ; preds = %.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %77, label %71, !llvm.loop !67
+  br i1 %exitcond.not.i, label %77, label %71, !llvm.loop !69
 
 77:                                               ; preds = %76
   %78 = invoke i32 @u_getPropertyValueEnum_77(i32 noundef 4106, ptr noundef %70)
@@ -5962,7 +5962,7 @@ _ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit.thread54: ; preds = %.n
 
 _ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit.thread: ; preds = %_ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit, %.noexc48, %.noexc47
   %.1.i53 = phi i32 [ %84, %_ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit ], [ %78, %.noexc47 ], [ 103, %.noexc48 ]
-  %92 = load i32, ptr %28, align 8, !tbaa !68
+  %92 = load i32, ptr %28, align 8, !tbaa !70
   %93 = icmp slt i32 %92, -1
   %94 = load i32, ptr %29, align 4
   %.not.i.i = icmp sle i32 %94, %92
@@ -5979,32 +5979,32 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_7
   br i1 %.not.i, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i: ; preds = %.noexc51
-  %.pre.i50 = load i32, ptr %28, align 8, !tbaa !68
+  %.pre.i50 = load i32, ptr %28, align 8, !tbaa !70
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i, %_ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit.thread
   %97 = phi i32 [ %.pre.i50, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %92, %_ZN6icu_7719CollationRuleParser14getReorderCodeEPKc.exit.thread ]
-  %98 = load ptr, ptr %30, align 8, !tbaa !70
+  %98 = load ptr, ptr %30, align 8, !tbaa !72
   %99 = sext i32 %97 to i64
   %100 = getelementptr inbounds i32, ptr %98, i64 %99
   store i32 %.1.i53, ptr %100, align 4, !tbaa !12
-  %101 = load i32, ptr %28, align 8, !tbaa !68
+  %101 = load i32, ptr %28, align 8, !tbaa !70
   %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %28, align 8, !tbaa !68
+  store i32 %102, ptr %28, align 8, !tbaa !70
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = %.noexc51, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i
   %103 = load i32, ptr %2, align 4, !tbaa !13
   %104 = icmp slt i32 %103, 1
-  br i1 %104, label %31, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread, !llvm.loop !71
+  br i1 %104, label %31, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread, !llvm.loop !73
 
 105:                                              ; preds = %31
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !26
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !25
-  %110 = load ptr, ptr %30, align 8, !tbaa !70
-  %111 = load i32, ptr %28, align 8, !tbaa !68
+  %110 = load ptr, ptr %30, align 8, !tbaa !72
+  %111 = load i32, ptr %28, align 8, !tbaa !70
   invoke void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEPKiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %107, ptr noundef nonnull align 8 dereferenceable(140) %109, ptr noundef %110, i32 noundef %111, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread unwind label %53
 
@@ -6304,7 +6304,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us: ; preds = %_ZNK6icu_7713Unic
   %.2.us = phi i32 [ %30, %29 ], [ %.02755.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %27, %26 ], [ %.02755.us, %.lr.ph.split.us ]
   %31 = trunc nsw i64 %indvars.iv.next66 to i32
   %32 = icmp eq i32 %15, %31
-  br i1 %32, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %32, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us, %4
   %.028.lcssa = phi i32 [ %1, %4 ], [ %15, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us ], [ %15, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ]
@@ -6461,7 +6461,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14ski
   %99 = select i1 %94, i32 %98, i32 %96
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next.i, %100
-  br i1 %101, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !56
+  br i1 %101, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
 _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %90, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit.loopexit_crit_edge, %63
   %.pre-phi74 = phi i32 [ %69, %63 ], [ %.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i._ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit.loopexit_crit_edge ], [ %96, %90 ]
@@ -6528,7 +6528,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7719CollationRuleParser14
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = tail call i32 @uprv_stricmp_77(ptr noundef %0, ptr noundef %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7
@@ -6536,7 +6536,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7719CollationRuleParser14
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %11, label %2, !llvm.loop !67
+  br i1 %exitcond.not, label %11, label %2, !llvm.loop !69
 
 8:                                                ; preds = %2
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6688,19 +6688,22 @@ attributes #19 = { noreturn nounwind }
 !53 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !54 = !{!18, !24, i64 64}
 !55 = !{!18, !23, i64 56}
-!56 = distinct !{!56, !37}
-!57 = !{!18, !16, i64 8}
-!58 = !{!18, !16, i64 0}
-!59 = distinct !{!59, !37}
-!60 = distinct !{!60, !37}
-!61 = !{!5, !5, i64 0}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !37}
+!59 = !{!18, !16, i64 8}
+!60 = !{!18, !16, i64 0}
+!61 = distinct !{!61, !37}
 !62 = distinct !{!62, !37}
-!63 = !{i64 2149634255}
+!63 = !{!5, !5, i64 0}
 !64 = distinct !{!64, !37}
-!65 = distinct !{!65, !37}
+!65 = !{i64 2149634255}
 !66 = distinct !{!66, !37}
 !67 = distinct !{!67, !37}
-!68 = !{!69, !9, i64 8}
-!69 = !{!"_ZTSN6icu_779UVector32E", !47, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !51, i64 24}
-!70 = !{!69, !51, i64 24}
-!71 = distinct !{!71, !37}
+!68 = distinct !{!68, !37}
+!69 = distinct !{!69, !37}
+!70 = !{!71, !9, i64 8}
+!71 = !{!"_ZTSN6icu_779UVector32E", !47, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !51, i64 24}
+!72 = !{!71, !51, i64 24}
+!73 = distinct !{!73, !37}
+!74 = distinct !{!74, !57}

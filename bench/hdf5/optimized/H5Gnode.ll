@@ -2271,7 +2271,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
   %76 = load i32, ptr %45, align 8, !tbaa !33
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !130
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !132
 
 79:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
@@ -2526,4 +2526,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !127 = distinct !{!127, !41}
 !128 = !{!122, !30, i64 8}
 !129 = !{!13, !4, i64 48}
-!130 = distinct !{!130, !41}
+!130 = distinct !{!130, !41, !131}
+!131 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!132 = distinct !{!132, !41}

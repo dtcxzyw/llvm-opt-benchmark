@@ -4943,7 +4943,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr noundef 
 
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !85
   invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %41 unwind label %55
 
@@ -5246,7 +5246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
 144:                                              ; preds = %.lr.ph.split
   %145 = add nuw i64 %.064131, 1
   %exitcond.not = icmp eq i64 %145, %20
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !83
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !88
 
 .critedge:                                        ; preds = %144, %26
   %146 = icmp ult i64 %20, 2
@@ -5283,7 +5283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   %163 = add nuw i64 %.0139, 1
   %exitcond154.not = icmp ne i64 %163, %umax153
   %or.cond.not = select i1 %.not66, i1 %exitcond154.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph140, label %.critedge78, !llvm.loop !87
+  br i1 %or.cond.not, label %.lr.ph140, label %.critedge78, !llvm.loop !89
 
 .critedge78:                                      ; preds = %.lr.ph.split, %24, %.lr.ph140, %2, %.critedge, %150
   %.1 = phi i1 [ %153, %150 ], [ true, %.critedge ], [ true, %2 ], [ %.not66, %.lr.ph140 ], [ false, %24 ], [ false, %.lr.ph.split ]
@@ -5326,7 +5326,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 21:                                               ; preds = %.lr.ph.split.i
   %22 = add nuw i64 %.064131.i, 1
   %exitcond.not.i = icmp eq i64 %22, %18
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !88
 
 .critedge.i:                                      ; preds = %21
   %23 = icmp ult i64 %18, 2
@@ -5351,7 +5351,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 31:                                               ; preds = %.lr.ph140.i
   %32 = add nuw i64 %.0139.i, 1
   %exitcond154.not.i = icmp eq i64 %32, %umax153.i
-  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
+  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !89
 
 .lr.ph140.i:                                      ; preds = %31, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %32, %31 ], [ 2, %.lr.ph140.preheader.i ]
@@ -5368,7 +5368,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 37:                                               ; preds = %.lr.ph
   %38 = add nuw i64 %.088170, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %.087171 = phi i64 [ %40, %37 ], [ -1, %.lr.ph.preheader ]
@@ -5389,7 +5389,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 46:                                               ; preds = %.lr.ph173
   %47 = add nuw i64 %.083172, 1
   %exitcond192.not = icmp eq i64 %47, %18
-  br i1 %exitcond192.not, label %.thread142, label %.lr.ph173, !llvm.loop !89
+  br i1 %exitcond192.not, label %.thread142, label %.lr.ph173, !llvm.loop !91
 
 .lr.ph173:                                        ; preds = %.critedge, %46
   %.083172 = phi i64 [ %47, %46 ], [ 2, %.critedge ]
@@ -5437,7 +5437,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 
 60:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !92
   invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %61 unwind label %71
 
@@ -5696,7 +5696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %.1 = add nsw i64 %.059, %.1.v
   %148 = srem i64 %.1, %53
   %.not106 = icmp eq i64 %148, 0
-  br i1 %.not106, label %.preheader, label %147, !llvm.loop !93
+  br i1 %.not106, label %.preheader, label %147, !llvm.loop !95
 
 .preheader:                                       ; preds = %147
   %.not107178 = icmp eq i64 %.1, 0
@@ -5731,13 +5731,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0134.1175, i64 8
   %156 = add nsw i64 %.0176, %44
   %.not108 = icmp eq i64 %156, %149
-  br i1 %.not108, label %.critedge111, label %.lr.ph177, !llvm.loop !94
+  br i1 %.not108, label %.critedge111, label %.lr.ph177, !llvm.loop !96
 
 .critedge111:                                     ; preds = %154, %.lr.ph181
   %.sroa.0134.1.lcssa = phi ptr [ %.sroa.0134.0179, %.lr.ph181 ], [ %155, %154 ]
   %157 = add nsw i64 %.058180, %53
   %.not107 = icmp eq i64 %157, %.1
-  br i1 %.not107, label %.critedge113.loopexit, label %.lr.ph181, !llvm.loop !95
+  br i1 %.not107, label %.critedge113.loopexit, label %.lr.ph181, !llvm.loop !97
 
 .critedge113.loopexit:                            ; preds = %.critedge111
   %158 = icmp eq ptr %.sroa.0134.1.lcssa, %13
@@ -5801,7 +5801,7 @@ define void @_ZN6casadi9to_slice2ERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !98
   invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %24 unwind label %34
 
@@ -6070,7 +6070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 116:                                              ; preds = %.lr.ph.split.i
   %117 = add nuw i64 %.064131.i, 1
   %exitcond.not.i = icmp eq i64 %117, %113
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !88
 
 .critedge.i:                                      ; preds = %116
   %118 = icmp ult i64 %113, 2
@@ -6091,7 +6091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 125:                                              ; preds = %.lr.ph140.i
   %126 = add nuw i64 %.0139.i, 1
   %exitcond154.not.i = icmp eq i64 %126, %umax153.i
-  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
+  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !89
 
 .lr.ph140.i:                                      ; preds = %125, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %126, %125 ], [ 2, %.lr.ph140.preheader.i ]
@@ -6148,7 +6148,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69: ; preds = %.lr.ph.split.
 .critedge:                                        ; preds = %.lr.ph
   %147 = add nuw i64 %.02085, 1
   %exitcond.not = icmp eq i64 %147, %113
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !101
 
 .loopexit.thread:                                 ; preds = %.critedge, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -6179,7 +6179,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69: ; preds = %.lr.ph.split.
   %storemerge = add nsw i64 %156, %storemerge86
   %159 = srem i64 %storemerge, %155
   %.not44 = icmp eq i64 %159, 0
-  br i1 %.not44, label %160, label %158, !llvm.loop !100
+  br i1 %.not44, label %160, label %158, !llvm.loop !102
 
 160:                                              ; preds = %158
   store i64 %storemerge, ptr %154, align 8
@@ -6219,7 +6219,7 @@ define void @_ZNK6casadi5Slice9serializeERNS_17SerializingStreamE(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 0, ptr %7, align 4, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %9 = load i8, ptr %8, align 8, !tbaa !101, !range !113, !noundef !114
+  %9 = load i8, ptr %8, align 8, !tbaa !103, !range !115, !noundef !116
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.noexc15
 
@@ -6260,7 +6260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 27
   store i8 0, ptr %21, align 1, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i8, ptr %8, align 8, !tbaa !101, !range !113, !noundef !114
+  %23 = load i8, ptr %8, align 8, !tbaa !103, !range !115, !noundef !116
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.noexc21
 
@@ -6301,7 +6301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 27
   store i8 0, ptr %35, align 1, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i8, ptr %8, align 8, !tbaa !101, !range !113, !noundef !114
+  %37 = load i8, ptr %8, align 8, !tbaa !103, !range !115, !noundef !116
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %.noexc31
 
@@ -6613,7 +6613,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackIxEEvRKNS
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::vector", align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i8, ptr %17, align 8, !tbaa !115, !range !113, !noundef !114
+  %18 = load i8, ptr %17, align 8, !tbaa !117, !range !115, !noundef !116
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %166
 
@@ -6691,7 +6691,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !126
   invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %41 unwind label %59
 
@@ -7424,47 +7424,49 @@ attributes #24 = { builtin allocsize(0) }
 !80 = distinct !{!80, !81, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
 !81 = distinct !{!81, !"_ZN6casadi6strvecB5cxx11Ev"}
 !82 = !{!68, !68, i64 0}
-!83 = distinct !{!83, !46}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
-!86 = distinct !{!86, !"_ZN6casadi6strvecB5cxx11Ev"}
-!87 = distinct !{!87, !46}
+!83 = distinct !{!83, !46, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
+!87 = distinct !{!87, !"_ZN6casadi6strvecB5cxx11Ev"}
 !88 = distinct !{!88, !46}
 !89 = distinct !{!89, !46}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
-!92 = distinct !{!92, !"_ZN6casadi6strvecB5cxx11Ev"}
-!93 = distinct !{!93, !46}
-!94 = distinct !{!94, !46}
+!90 = distinct !{!90, !46}
+!91 = distinct !{!91, !46}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
+!94 = distinct !{!94, !"_ZN6casadi6strvecB5cxx11Ev"}
 !95 = distinct !{!95, !46}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
-!98 = distinct !{!98, !"_ZN6casadi6strvecB5cxx11Ev"}
-!99 = distinct !{!99, !46}
-!100 = distinct !{!100, !46}
-!101 = !{!102, !112, i64 72}
-!102 = !{!"_ZTSN6casadi17SerializingStreamE", !103, i64 0, !110, i64 56, !111, i64 64, !112, i64 72}
-!103 = !{!"_ZTSSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE", !104, i64 0}
-!104 = !{!"_ZTSSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE", !105, i64 0, !19, i64 8, !106, i64 16, !19, i64 24, !108, i64 32, !107, i64 48}
-!105 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
-!106 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !107, i64 0}
-!107 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
-!108 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !109, i64 0, !19, i64 8}
-!109 = !{!"float", !6, i64 0}
-!110 = !{!"p1 _ZTSSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE", !18, i64 0}
-!111 = !{!"p1 _ZTSSo", !18, i64 0}
-!112 = !{!"bool", !6, i64 0}
-!113 = !{i8 0, i8 2}
-!114 = !{}
-!115 = !{!116, !112, i64 40}
-!116 = !{!"_ZTSN6casadi19DeserializingStreamE", !117, i64 0, !122, i64 24, !123, i64 32, !112, i64 40}
-!117 = !{!"_ZTSSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE", !118, i64 0}
-!118 = !{!"_ZTSSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE", !119, i64 0}
-!119 = !{!"_ZTSNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE12_Vector_implE", !120, i64 0}
-!120 = !{!"_ZTSNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE17_Vector_impl_dataE", !121, i64 0, !121, i64 8, !121, i64 16}
-!121 = !{!"p1 _ZTSN6casadi18UniversalNodeOwnerE", !18, i64 0}
-!122 = !{!"p1 _ZTSSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE", !18, i64 0}
-!123 = !{!"p1 _ZTSSi", !18, i64 0}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
-!126 = distinct !{!126, !"_ZN6casadi6strvecB5cxx11Ev"}
+!96 = distinct !{!96, !46}
+!97 = distinct !{!97, !46}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
+!100 = distinct !{!100, !"_ZN6casadi6strvecB5cxx11Ev"}
+!101 = distinct !{!101, !46}
+!102 = distinct !{!102, !46}
+!103 = !{!104, !114, i64 72}
+!104 = !{!"_ZTSN6casadi17SerializingStreamE", !105, i64 0, !112, i64 56, !113, i64 64, !114, i64 72}
+!105 = !{!"_ZTSSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE", !106, i64 0}
+!106 = !{!"_ZTSSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE", !107, i64 0, !19, i64 8, !108, i64 16, !19, i64 24, !110, i64 32, !109, i64 48}
+!107 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
+!108 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !109, i64 0}
+!109 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
+!110 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !111, i64 0, !19, i64 8}
+!111 = !{!"float", !6, i64 0}
+!112 = !{!"p1 _ZTSSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE", !18, i64 0}
+!113 = !{!"p1 _ZTSSo", !18, i64 0}
+!114 = !{!"bool", !6, i64 0}
+!115 = !{i8 0, i8 2}
+!116 = !{}
+!117 = !{!118, !114, i64 40}
+!118 = !{!"_ZTSN6casadi19DeserializingStreamE", !119, i64 0, !124, i64 24, !125, i64 32, !114, i64 40}
+!119 = !{!"_ZTSSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE", !120, i64 0}
+!120 = !{!"_ZTSSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE", !121, i64 0}
+!121 = !{!"_ZTSNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE12_Vector_implE", !122, i64 0}
+!122 = !{!"_ZTSNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE17_Vector_impl_dataE", !123, i64 0, !123, i64 8, !123, i64 16}
+!123 = !{!"p1 _ZTSN6casadi18UniversalNodeOwnerE", !18, i64 0}
+!124 = !{!"p1 _ZTSSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE", !18, i64 0}
+!125 = !{!"p1 _ZTSSi", !18, i64 0}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN6casadi6strvecB5cxx11Ev: argument 0"}
+!128 = distinct !{!128, !"_ZN6casadi6strvecB5cxx11Ev"}

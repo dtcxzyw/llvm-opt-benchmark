@@ -863,7 +863,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 
 .lr.ph104.split:                                  ; preds = %.lr.ph104
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %120 = load ptr, ptr %119, align 8, !tbaa !74
+  %120 = load ptr, ptr %119, align 8, !tbaa !75
   %121 = icmp eq ptr %120, null
   %122 = load ptr, ptr %87, align 8, !tbaa !22
   br i1 %121, label %.lr.ph104.split.split.us, label %.lr.ph104.split.split.preheader
@@ -895,7 +895,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   store float %124, ptr %134, align 4, !tbaa !40
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge, label %125, !llvm.loop !73
+  br i1 %exitcond116.not, label %._crit_edge, label %125, !llvm.loop !76
 
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
@@ -915,7 +915,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   store float 0x47B9999980000000, ptr %145, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %137, !llvm.loop !75
+  br i1 %exitcond.not, label %.preheader, label %137, !llvm.loop !77
 
 146:                                              ; preds = %171, %.lr.ph104.split.split.preheader
   %indvars.iv109 = phi i64 [ 0, %.lr.ph104.split.split.preheader ], [ %indvars.iv.next110, %171 ]
@@ -960,7 +960,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   store float %.sink130, ptr %155, align 4, !tbaa !40
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %174 = icmp samesign ult i64 %indvars.iv.next110, %123
-  br i1 %174, label %146, label %._crit_edge, !llvm.loop !76
+  br i1 %174, label %146, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %171, %125, %113, %.preheader
   tail call void @Map_TimePropagateRequired(ptr noundef nonnull %0)
@@ -1055,8 +1055,10 @@ attributes #6 = { nounwind }
 !70 = !{!4, !16, i64 132}
 !71 = !{!4, !9, i64 124}
 !72 = !{!4, !9, i64 120}
-!73 = distinct !{!73, !27}
-!74 = !{!4, !14, i64 96}
-!75 = distinct !{!75, !27}
-!76 = distinct !{!76, !27, !77}
-!77 = !{!"llvm.loop.unswitch.partial.disable"}
+!73 = distinct !{!73, !27, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = !{!4, !14, i64 96}
+!76 = distinct !{!76, !27, !74}
+!77 = distinct !{!77, !27}
+!78 = distinct !{!78, !27, !79}
+!79 = !{!"llvm.loop.unswitch.partial.disable"}

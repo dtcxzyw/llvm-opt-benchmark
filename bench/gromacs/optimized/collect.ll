@@ -1500,11 +1500,11 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   store double %201, ptr %202, align 8, !tbaa !271
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader130, label %.preheader131, !llvm.loop !273
+  br i1 %exitcond.not, label %.preheader130, label %.preheader131, !llvm.loop !275
 
 .preheader130:                                    ; preds = %.preheader131, %._crit_edge.us, %22
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %204 = load i32, ptr %203, align 4, !tbaa !274
+  %204 = load i32, ptr %203, align 4, !tbaa !276
   %205 = icmp sgt i32 %204, 0
   %206 = icmp sgt i32 %11, 0
   %or.cond = select i1 %205, i1 %206, i1 false
@@ -1541,18 +1541,18 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   store double %223, ptr %224, align 8, !tbaa !271
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %215
-  br i1 %exitcond160.not, label %._crit_edge.us139, label %217, !llvm.loop !275
+  br i1 %exitcond160.not, label %._crit_edge.us139, label %217, !llvm.loop !277
 
 ._crit_edge.us139:                                ; preds = %217
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge138, label %.preheader.us, !llvm.loop !276
+  br i1 %exitcond165.not, label %._crit_edge138, label %.preheader.us, !llvm.loop !278
 
 ._crit_edge138:                                   ; preds = %._crit_edge.us139, %.preheader130
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %226 = load double, ptr %225, align 8, !tbaa !277
+  %226 = load double, ptr %225, align 8, !tbaa !279
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  store double %226, ptr %227, align 8, !tbaa !277
+  store double %226, ptr %227, align 8, !tbaa !279
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %230 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %228)
@@ -1560,7 +1560,7 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
 
 231:                                              ; preds = %._crit_edge138, %3
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %233 = load i32, ptr %232, align 4, !tbaa !278
+  %233 = load i32, ptr %232, align 4, !tbaa !280
   %234 = and i32 %233, 128
   %.not127 = icmp eq i32 %234, 0
   br i1 %.not127, label %268, label %235
@@ -1571,9 +1571,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %238 = load ptr, ptr %237, align 8, !tbaa !279
+  %238 = load ptr, ptr %237, align 8, !tbaa !281
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 440
-  %240 = load ptr, ptr %239, align 8, !tbaa !280
+  %240 = load ptr, ptr %239, align 8, !tbaa !282
   %241 = ptrtoint ptr %240 to i64
   br label %242
 
@@ -1581,9 +1581,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %.sroa.5120.0 = phi i64 [ %241, %236 ], [ 0, %235 ]
   %.sroa.0119.0 = phi ptr [ %238, %236 ], [ null, %235 ]
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %244 = load i32, ptr %243, align 8, !tbaa !281
+  %244 = load i32, ptr %243, align 8, !tbaa !283
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %246 = load i32, ptr %245, align 4, !tbaa !282
+  %246 = load i32, ptr %245, align 4, !tbaa !284
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %248 = load ptr, ptr %247, align 8, !tbaa !199
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -1593,11 +1593,11 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %253 = sub i64 %251, %252
   %254 = getelementptr inbounds nuw i8, ptr %248, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %256 = load ptr, ptr %255, align 8, !tbaa !279
+  %256 = load ptr, ptr %255, align 8, !tbaa !281
   store ptr %256, ptr %4, align 8, !tbaa !219
   %257 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %259 = load ptr, ptr %258, align 8, !tbaa !280
+  %259 = load ptr, ptr %258, align 8, !tbaa !282
   %260 = ptrtoint ptr %259 to i64
   %261 = ptrtoint ptr %256 to i64
   %262 = sub i64 %260, %261
@@ -1610,7 +1610,7 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0, i64 %266
   store ptr %267, ptr %264, align 8, !tbaa !221
   tail call void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11BasicVectorIfEEEENS2_IS6_EE(ptr noundef %0, i32 noundef %244, i32 noundef %246, ptr %248, ptr %254, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.3") align 8 %5)
-  %.pre = load i32, ptr %232, align 4, !tbaa !278
+  %.pre = load i32, ptr %232, align 4, !tbaa !280
   br label %268
 
 268:                                              ; preds = %242, %231
@@ -1625,9 +1625,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
 
 272:                                              ; preds = %271
   %273 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %274 = load ptr, ptr %273, align 8, !tbaa !279
+  %274 = load ptr, ptr %273, align 8, !tbaa !281
   %275 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %276 = load ptr, ptr %275, align 8, !tbaa !280
+  %276 = load ptr, ptr %275, align 8, !tbaa !282
   %277 = ptrtoint ptr %276 to i64
   br label %278
 
@@ -1635,9 +1635,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %.sroa.5116.0 = phi i64 [ %277, %272 ], [ 0, %271 ]
   %.sroa.0115.0 = phi ptr [ %274, %272 ], [ null, %271 ]
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %280 = load i32, ptr %279, align 8, !tbaa !281
+  %280 = load i32, ptr %279, align 8, !tbaa !283
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %282 = load i32, ptr %281, align 4, !tbaa !282
+  %282 = load i32, ptr %281, align 4, !tbaa !284
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %284 = load ptr, ptr %283, align 8, !tbaa !199
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -1647,11 +1647,11 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %289 = sub i64 %287, %288
   %290 = getelementptr inbounds nuw i8, ptr %284, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %292 = load ptr, ptr %291, align 8, !tbaa !279
+  %292 = load ptr, ptr %291, align 8, !tbaa !281
   store ptr %292, ptr %6, align 8, !tbaa !219
   %293 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %295 = load ptr, ptr %294, align 8, !tbaa !280
+  %295 = load ptr, ptr %294, align 8, !tbaa !282
   %296 = ptrtoint ptr %295 to i64
   %297 = ptrtoint ptr %292 to i64
   %298 = sub i64 %296, %297
@@ -1664,7 +1664,7 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.0115.0, i64 %302
   store ptr %303, ptr %300, align 8, !tbaa !221
   tail call void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11BasicVectorIfEEEENS2_IS6_EE(ptr noundef %0, i32 noundef %280, i32 noundef %282, ptr %284, ptr %290, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr noundef nonnull byval(%"class.gmx::ArrayRef.3") align 8 %7)
-  %.pre166 = load i32, ptr %232, align 4, !tbaa !278
+  %.pre166 = load i32, ptr %232, align 4, !tbaa !280
   br label %304
 
 304:                                              ; preds = %278, %268
@@ -1679,9 +1679,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
 
 308:                                              ; preds = %307
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %310 = load ptr, ptr %309, align 8, !tbaa !279
+  %310 = load ptr, ptr %309, align 8, !tbaa !281
   %311 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %312 = load ptr, ptr %311, align 8, !tbaa !280
+  %312 = load ptr, ptr %311, align 8, !tbaa !282
   %313 = ptrtoint ptr %312 to i64
   br label %314
 
@@ -1689,9 +1689,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %.sroa.0112.0 = phi ptr [ %310, %308 ], [ null, %307 ]
   %.sroa.5.0 = phi i64 [ %313, %308 ], [ 0, %307 ]
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %316 = load i32, ptr %315, align 8, !tbaa !281
+  %316 = load i32, ptr %315, align 8, !tbaa !283
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 780
-  %318 = load i32, ptr %317, align 4, !tbaa !282
+  %318 = load i32, ptr %317, align 4, !tbaa !284
   %319 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %320 = load ptr, ptr %319, align 8, !tbaa !199
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -1701,11 +1701,11 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
   %325 = sub i64 %323, %324
   %326 = getelementptr inbounds nuw i8, ptr %320, i64 %325
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  %328 = load ptr, ptr %327, align 8, !tbaa !279
+  %328 = load ptr, ptr %327, align 8, !tbaa !281
   store ptr %328, ptr %8, align 8, !tbaa !219
   %329 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %331 = load ptr, ptr %330, align 8, !tbaa !280
+  %331 = load ptr, ptr %330, align 8, !tbaa !282
   %332 = ptrtoint ptr %331 to i64
   %333 = ptrtoint ptr %328 to i64
   %334 = sub i64 %332, %333
@@ -1731,13 +1731,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !283
+  %5 = load ptr, ptr %4, align 8, !tbaa !285
   %6 = load ptr, ptr %1, align 8, !tbaa !270
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !284
+  %11 = load ptr, ptr %10, align 8, !tbaa !286
   %12 = load ptr, ptr %0, align 8, !tbaa !270
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1747,7 +1747,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 17:                                               ; preds = %3
   %18 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, !prof !285
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, !prof !287
 
 19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #16
@@ -1773,12 +1773,12 @@ _ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %22
   store ptr %20, ptr %0, align 8, !tbaa !270
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !284
+  store ptr %23, ptr %10, align 8, !tbaa !286
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !283
+  %26 = load ptr, ptr %25, align 8, !tbaa !285
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %14
   %.not24 = icmp ult i64 %28, %9
@@ -1799,9 +1799,9 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %28, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !270
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !283
+  %.pre26 = load ptr, ptr %25, align 8, !tbaa !285
   %.pre27 = load ptr, ptr %0, align 8, !tbaa !270
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !283
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !285
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -1827,7 +1827,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
   %41 = load ptr, ptr %0, align 8, !tbaa !270
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !283
+  store ptr %42, ptr %43, align 8, !tbaa !285
   br label %44
 
 44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, %2
@@ -2147,16 +2147,18 @@ attributes #18 = { builtin allocsize(0) }
 !270 = !{!249, !250, i64 0}
 !271 = !{!105, !105, i64 0}
 !272 = distinct !{!272, !203}
-!273 = distinct !{!273, !203}
-!274 = !{!244, !13, i64 12}
+!273 = distinct !{!273, !203, !274}
+!274 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !275 = distinct !{!275, !203}
-!276 = distinct !{!276, !203}
-!277 = !{!244, !105, i64 392}
-!278 = !{!244, !13, i64 4}
-!279 = !{!186, !69, i64 0}
-!280 = !{!69, !69, i64 0}
-!281 = !{!244, !13, i64 776}
-!282 = !{!244, !13, i64 780}
-!283 = !{!249, !250, i64 8}
-!284 = !{!249, !250, i64 16}
-!285 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!276 = !{!244, !13, i64 12}
+!277 = distinct !{!277, !203}
+!278 = distinct !{!278, !203, !274}
+!279 = !{!244, !105, i64 392}
+!280 = !{!244, !13, i64 4}
+!281 = !{!186, !69, i64 0}
+!282 = !{!69, !69, i64 0}
+!283 = !{!244, !13, i64 776}
+!284 = !{!244, !13, i64 780}
+!285 = !{!249, !250, i64 8}
+!286 = !{!249, !250, i64 16}
+!287 = !{!"branch_weights", !"expected", i32 1, i32 2000}

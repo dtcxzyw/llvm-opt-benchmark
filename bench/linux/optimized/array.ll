@@ -1369,7 +1369,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %263 = add i64 %262, %252
   %264 = load volatile ptr, ptr %251, align 8
   %265 = icmp eq ptr %264, %197
-  br i1 %265, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %265, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %238
   %266 = phi i64 [ %246, %238 ], [ %257, %.preheader ]
@@ -1384,7 +1384,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
   %272 = load volatile i32, ptr %192, align 4
   %.not = icmp eq i32 %272, %239
-  br i1 %.not, label %.critedge11, label %.split, !llvm.loop !25
+  br i1 %.not, label %.critedge11, label %.split, !llvm.loop !28
 
 .critedge12.loopexit55:                           ; preds = %.loopexit
   %.pre = load i64, ptr %9, align 8
@@ -1453,7 +1453,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %319 = add i32 %318, -120
   %320 = getelementptr inbounds nuw i8, ptr %3, i64 1608
   %321 = load i64, ptr %320, align 8
-  %322 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !27
+  %322 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !29
   %323 = inttoptr i64 %322 to ptr
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 1872
   %325 = load ptr, ptr %324, align 16
@@ -1893,6 +1893,8 @@ attributes #9 = { nounwind memory(none) }
 !22 = distinct !{!22, !7, !8}
 !23 = !{i64 2150428878}
 !24 = !{i64 2150416989}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = !{i64 2148218545}
+!25 = distinct !{!25, !7, !8, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = !{i64 2148218545}

@@ -2992,7 +2992,7 @@ setTypeIsMember.exit:                             ; preds = %.lr.ph.split, %31, 
   %52 = load i32, ptr %12, align 8, !tbaa !74
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !83
+  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %setTypeIsMember.exit, %.lr.ph.split.us, %11, %9
   ret void
@@ -3090,7 +3090,7 @@ define dso_local void @spopWithCountCommand(ptr noundef %0) local_unnamed_addr #
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !84
+  %21 = load i32, ptr %20, align 4, !tbaa !86
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !73
@@ -3108,7 +3108,7 @@ define dso_local void @spopWithCountCommand(ptr noundef %0) local_unnamed_addr #
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr %20, align 4, !tbaa !84
+  %32 = load i32, ptr %20, align 4, !tbaa !86
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !73
@@ -3195,7 +3195,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load i32, ptr %88, align 8, !tbaa !76
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.11, ptr noundef %86, i32 noundef %89) #10
-  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !85
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !87
   %.not206 = icmp eq i32 %90, 0
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
@@ -3216,7 +3216,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   %103 = add nuw nsw i64 %102, 2
   %104 = shl nuw nsw i64 %103, 3
   %105 = call noalias ptr @zmalloc(i64 noundef %104) #12
-  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 528), align 8, !tbaa !86
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 528), align 8, !tbaa !88
   store ptr %106, ptr %105, align 8, !tbaa !73
   %107 = load ptr, ptr %10, align 8, !tbaa !72
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -3310,7 +3310,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @decrRefCount(ptr noundef %150) #10
   %151 = add nuw i64 %.0186233, 1
   %exitcond250.not = icmp eq i64 %151, %103
-  br i1 %exitcond250.not, label %.loopexit207, label %.lr.ph235, !llvm.loop !87
+  br i1 %exitcond250.not, label %.loopexit207, label %.lr.ph235, !llvm.loop !89
 
 .loopexit207:                                     ; preds = %.lr.ph235, %143
   %.2 = phi i64 [ %.1, %143 ], [ 2, %.lr.ph235 ]
@@ -3323,7 +3323,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   %156 = add nuw i64 %.0187239, 1
   %exitcond252.not = icmp eq i64 %156, %16
-  br i1 %exitcond252.not, label %126, label %128, !llvm.loop !88
+  br i1 %exitcond252.not, label %126, label %128, !llvm.loop !90
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit208
   %.4232 = phi i64 [ %.5, %.loopexit208 ], [ 2, %.preheader.preheader ]
@@ -3350,13 +3350,13 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @decrRefCount(ptr noundef %165) #10
   %166 = add nuw i64 %.0184228, 1
   %exitcond248.not = icmp eq i64 %166, %103
-  br i1 %exitcond248.not, label %.loopexit208, label %.lr.ph230, !llvm.loop !89
+  br i1 %exitcond248.not, label %.loopexit208, label %.lr.ph230, !llvm.loop !91
 
 .loopexit208:                                     ; preds = %.lr.ph230, %.preheader
   %.5 = phi i64 [ %159, %.preheader ], [ 2, %.lr.ph230 ]
   %167 = add nuw i64 %.0185231, 1
   %exitcond249.not = icmp eq i64 %167, %16
-  br i1 %exitcond249.not, label %.loopexit209, label %.preheader, !llvm.loop !90
+  br i1 %exitcond249.not, label %.loopexit209, label %.preheader, !llvm.loop !92
 
 .critedge:                                        ; preds = %101
   br i1 %116, label %168, label %.lr.ph
@@ -3403,7 +3403,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   %188 = add nuw i64 %.0178216, 1
   %exitcond.not = icmp eq i64 %188, %111
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph217, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph217, !llvm.loop !93
 
 .lr.ph:                                           ; preds = %.critedge, %196
   %.in = phi i64 [ %189, %196 ], [ %111, %.critedge ]
@@ -3438,7 +3438,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   %204 = load i64, ptr %5, align 8, !tbaa !50
   %205 = call i32 @setTypeRemoveAux(ptr noundef nonnull %25, ptr noundef %202, i64 noundef %203, i64 noundef %204, i32 noundef %200)
   %.not200 = icmp eq i64 %189, 0
-  br i1 %.not200, label %.loopexit212, label %.lr.ph, !llvm.loop !92
+  br i1 %.not200, label %.loopexit212, label %.lr.ph, !llvm.loop !94
 
 .loopexit212:                                     ; preds = %196, %._crit_edge
   %.0181 = phi ptr [ %169, %._crit_edge ], [ %.2183, %196 ]
@@ -3492,13 +3492,13 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @decrRefCount(ptr noundef %225) #10
   %226 = add nuw i64 %.0176219, 1
   %exitcond247.not = icmp eq i64 %226, %103
-  br i1 %exitcond247.not, label %.loopexit210, label %.lr.ph221, !llvm.loop !93
+  br i1 %exitcond247.not, label %.loopexit210, label %.lr.ph221, !llvm.loop !95
 
 .loopexit210:                                     ; preds = %.lr.ph221, %218
   %.8 = phi i64 [ %.7, %218 ], [ 2, %.lr.ph221 ]
   %227 = call i32 @setTypeNext(ptr noundef %206, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not203 = icmp eq i32 %227, -1
-  br i1 %.not203, label %._crit_edge226, label %.lr.ph225, !llvm.loop !94
+  br i1 %.not203, label %._crit_edge226, label %.lr.ph225, !llvm.loop !96
 
 ._crit_edge226:                                   ; preds = %.loopexit210, %.loopexit212
   %.6.lcssa = phi i64 [ 2, %.loopexit212 ], [ %.8, %.loopexit210 ]
@@ -3531,7 +3531,7 @@ setTypeSize.exit:                                 ; preds = %40, %48, %53
   call void @decrRefCount(ptr noundef %239) #10
   %240 = add nuw i64 %.0241, 1
   %exitcond253.not = icmp eq i64 %240, %.3
-  br i1 %exitcond253.not, label %.loopexit, label %.lr.ph243, !llvm.loop !95
+  br i1 %exitcond253.not, label %.loopexit, label %.lr.ph243, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph243, %232, %.loopexit209
   call void @zfree(ptr noundef nonnull %105) #10
@@ -3632,7 +3632,7 @@ define dso_local void @sunionDiffGenericCommand(ptr noundef %0, ptr noundef read
   %.1147.ph = phi i32 [ %.0146227, %32 ], [ %spec.select, %34 ], [ %.0146227, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !98
 
 ._crit_edge.loopexit:                             ; preds = %38
   %39 = icmp ne i32 %.1147.ph, 0
@@ -3756,7 +3756,7 @@ setTypeSize.exit190:                              ; preds = %76, %84, %89
   %.1 = phi i64 [ %.0231, %.lr.ph232 ], [ %94, %setTypeSize.exit190 ]
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
-  br i1 %exitcond309.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !97
+  br i1 %exitcond309.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !99
 
 ._crit_edge233:                                   ; preds = %95
   %96 = sdiv i64 %.1144, 2
@@ -3974,7 +3974,7 @@ setTypeNext.exit:                                 ; preds = %161, %.thread.i, %.
   %189 = zext i1 %188 to i32
   %190 = call i32 @setTypeAddAux(ptr noundef %.0160, ptr noundef %184, i64 noundef %.0.i.i263, i64 noundef %187, i32 noundef %189)
   %191 = add nsw i32 %190, %.2151
-  br label %130, !llvm.loop !98
+  br label %130, !llvm.loop !100
 
 192:                                              ; preds = %161, %133, %178
   %.pr = load i32, ptr %116, align 8, !tbaa !45
@@ -3998,7 +3998,7 @@ setTypeReleaseIterator.exit:                      ; preds = %setTypeNext.exit, %
   %.1150 = phi i32 [ %.2151, %setTypeReleaseIterator.exit ], [ %.0149279, %.lr.ph280 ]
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
-  br i1 %exitcond324.not, label %.critedge.loopexit, label %.lr.ph280, !llvm.loop !99
+  br i1 %exitcond324.not, label %.critedge.loopexit, label %.lr.ph280, !llvm.loop !101
 
 197:                                              ; preds = %107
   %brmerge = select i1 %41, i1 true, i1 %.0146.lcssa
@@ -4091,7 +4091,7 @@ setTypeInitIterator.exit192:                      ; preds = %208, %213, %215
 234:                                              ; preds = %231, %225
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond319.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count318
-  br i1 %exitcond319.not, label %._crit_edge249.thread, label %225, !llvm.loop !100
+  br i1 %exitcond319.not, label %._crit_edge249.thread, label %225, !llvm.loop !102
 
 ._crit_edge249.loopexit:                          ; preds = %231, %228
   %235 = trunc nuw nsw i64 %indvars.iv315 to i32
@@ -4116,7 +4116,7 @@ setTypeInitIterator.exit192:                      ; preds = %208, %213, %215
   %.5 = phi i32 [ %243, %._crit_edge249.thread ], [ %.4256, %._crit_edge249 ]
   %245 = call i32 @setTypeNext(ptr noundef nonnull %203, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not174 = icmp eq i32 %245, -1
-  br i1 %.not174, label %._crit_edge257, label %.preheader210, !llvm.loop !101
+  br i1 %.not174, label %._crit_edge257, label %.preheader210, !llvm.loop !103
 
 ._crit_edge257:                                   ; preds = %244, %setTypeInitIterator.exit192
   %.4.lcssa = phi i32 [ 0, %setTypeInitIterator.exit192 ], [ %.5, %244 ]
@@ -4210,7 +4210,7 @@ setTypeInitIterator.exit194:                      ; preds = %262, %267, %269
   %281 = add nsw i32 %280, %.8237.us
   %282 = call i32 @setTypeNext(ptr noundef nonnull %257, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not173.us = icmp eq i32 %282, -1
-  br i1 %.not173.us, label %._crit_edge239, label %.lr.ph238.split.us, !llvm.loop !102
+  br i1 %.not173.us, label %._crit_edge239, label %.lr.ph238.split.us, !llvm.loop !104
 
 .lr.ph238.split:                                  ; preds = %.lr.ph238, %.lr.ph238.split
   %283 = phi i32 [ %291, %.lr.ph238.split ], [ %272, %.lr.ph238 ]
@@ -4224,7 +4224,7 @@ setTypeInitIterator.exit194:                      ; preds = %262, %267, %269
   %290 = sub nsw i32 %.8237, %289
   %291 = call i32 @setTypeNext(ptr noundef nonnull %257, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not173 = icmp eq i32 %291, -1
-  br i1 %.not173, label %._crit_edge239, label %.lr.ph238.split, !llvm.loop !102
+  br i1 %.not173, label %._crit_edge239, label %.lr.ph238.split, !llvm.loop !105
 
 ._crit_edge239:                                   ; preds = %.lr.ph238.split, %.lr.ph238.split.us, %setTypeInitIterator.exit194
   %.8.lcssa = phi i32 [ %.6243, %setTypeInitIterator.exit194 ], [ %281, %.lr.ph238.split.us ], [ %290, %.lr.ph238.split ]
@@ -4247,7 +4247,7 @@ setTypeReleaseIterator.exit195:                   ; preds = %._crit_edge239, %29
   %.7 = phi i32 [ %.8.lcssa, %setTypeReleaseIterator.exit195 ], [ %.6243, %.lr.ph244 ]
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
-  br i1 %exitcond314.not, label %.critedge, label %.lr.ph244, !llvm.loop !103
+  br i1 %exitcond314.not, label %.critedge, label %.lr.ph244, !llvm.loop !106
 
 .critedge.loopexit:                               ; preds = %196, %.preheader
   %.0.i.i263.lcssa272.lcssa = phi i64 [ undef, %.preheader ], [ %.0.i.i263.lcssa271, %196 ]
@@ -4324,7 +4324,7 @@ setTypeInitIterator.exit196:                      ; preds = %306, %311, %313
 322:                                              ; preds = %320, %318
   %323 = call i32 @setTypeNext(ptr noundef nonnull %301, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not178 = icmp eq i32 %323, -1
-  br i1 %.not178, label %._crit_edge286, label %.lr.ph285, !llvm.loop !104
+  br i1 %.not178, label %._crit_edge286, label %.lr.ph285, !llvm.loop !107
 
 ._crit_edge286:                                   ; preds = %322, %setTypeInitIterator.exit196
   %324 = load i32, ptr %305, align 8, !tbaa !45
@@ -4339,7 +4339,7 @@ setTypeInitIterator.exit196:                      ; preds = %306, %311, %313
 
 setTypeReleaseIterator.exit197:                   ; preds = %._crit_edge286, %326
   call void @zfree(ptr noundef nonnull %301) #10
-  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !85
+  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8048), align 8, !tbaa !87
   %.not179 = icmp eq i32 %329, 0
   br i1 %.not179, label %331, label %330
 
@@ -4520,7 +4520,7 @@ define dso_local void @spopCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !105
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !108
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %9) #10
   br label %107
 
@@ -4530,7 +4530,7 @@ define dso_local void @spopCommand(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !84
+  %16 = load i32, ptr %15, align 4, !tbaa !86
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !73
@@ -4601,7 +4601,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %61 = load i32, ptr %60, align 8, !tbaa !76
   tail call void @notifyKeyspaceEvent(i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef %58, i32 noundef %61) #10
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 528), align 8, !tbaa !86
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 528), align 8, !tbaa !88
   %63 = load ptr, ptr %11, align 8, !tbaa !72
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !73
@@ -4709,7 +4709,7 @@ define dso_local void @srandmemberWithCountCommand(ptr noundef %0) local_unnamed
   %16 = load ptr, ptr %8, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !73
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !106
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !109
   %20 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
@@ -4763,7 +4763,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %setTypeSize.exit
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !106
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !109
   call void @addReply(ptr noundef nonnull %0, ptr noundef %48) #10
   br label %.loopexit
 
@@ -4804,37 +4804,37 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   br i1 %.not166, label %._crit_edge165, label %.lr.ph164
 
 ._crit_edge165:                                   ; preds = %81, %63
-  %68 = load i64, ptr %62, align 8, !tbaa !107
+  %68 = load i64, ptr %62, align 8, !tbaa !110
   %69 = and i64 %68, 1024
   %70 = icmp eq i64 %69, 0
   %71 = icmp ne i64 %65, 0
   %or.cond5 = and i1 %71, %70
-  br i1 %or.cond5, label %63, label %83, !llvm.loop !108
+  br i1 %or.cond5, label %63, label %83, !llvm.loop !111
 
 .lr.ph164:                                        ; preds = %63, %81
   %.0125162 = phi i64 [ %82, %81 ], [ 0, %63 ]
   %72 = getelementptr inbounds nuw %struct.listpackEntry, ptr %60, i64 %.0125162
-  %73 = load ptr, ptr %72, align 8, !tbaa !109
+  %73 = load ptr, ptr %72, align 8, !tbaa !112
   %.not147 = icmp eq ptr %73, null
   br i1 %.not147, label %78, label %74
 
 74:                                               ; preds = %.lr.ph164
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !111
+  %76 = load i32, ptr %75, align 8, !tbaa !114
   %77 = zext i32 %76 to i64
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %73, i64 noundef %77) #10
   br label %81
 
 78:                                               ; preds = %.lr.ph164
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !112
+  %80 = load i64, ptr %79, align 8, !tbaa !115
   call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %80) #10
   br label %81
 
 81:                                               ; preds = %74, %78
   %82 = add nuw nsw i64 %.0125162, 1
   %exitcond.not = icmp eq i64 %82, %64
-  br i1 %exitcond.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !116
 
 83:                                               ; preds = %._crit_edge165
   call void @zfree(ptr noundef %60) #10
@@ -4863,10 +4863,10 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   br label %94
 
 94:                                               ; preds = %92, %90
-  %95 = load i64, ptr %56, align 8, !tbaa !107
+  %95 = load i64, ptr %56, align 8, !tbaa !110
   %96 = and i64 %95, 1024
   %.not146 = icmp eq i64 %96, 0
-  br i1 %.not146, label %84, label %.loopexit, !llvm.loop !114
+  br i1 %.not146, label %84, label %.loopexit, !llvm.loop !117
 
 97:                                               ; preds = %49
   %.not140 = icmp ult i64 %14, %.0.i
@@ -4899,7 +4899,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   %108 = add i64 %.0117152, -1
   %109 = call i32 @setTypeNext(ptr noundef %99, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not144 = icmp eq i32 %109, -1
-  br i1 %.not144, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not144, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %107, %98
   %.0117.lcssa = phi i64 [ %.0.i, %98 ], [ %108, %107 ]
@@ -4956,7 +4956,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   store i32 %134, ptr %6, align 4, !tbaa !57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   %.not143 = icmp eq i64 %121, 0
-  br i1 %.not143, label %135, label %120, !llvm.loop !116
+  br i1 %.not143, label %135, label %120, !llvm.loop !119
 
 135:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -4997,7 +4997,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   %.sink = phi ptr [ %153, %151 ], [ %150, %148 ]
   %155 = call i32 @dictAdd(ptr noundef %137, ptr noundef %.sink, ptr noundef null) #10
   %156 = icmp eq i32 %155, 0
-  br i1 %156, label %143, label %157, !prof !40, !llvm.loop !117
+  br i1 %156, label %143, label %157, !prof !40, !llvm.loop !120
 
 157:                                              ; preds = %154
   call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1169) #10
@@ -5033,7 +5033,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   call void @dictFreeUnlinkedEntry(ptr noundef nonnull %137, ptr noundef %167) #10
   %171 = add i64 %.1118154, -1
   %172 = icmp ugt i64 %171, %.0
-  br i1 %172, label %.lr.ph155, label %.loopexit149, !llvm.loop !118
+  br i1 %172, label %.lr.ph155, label %.loopexit149, !llvm.loop !121
 
 173:                                              ; preds = %136
   %174 = call i32 @dictExpand(ptr noundef %137, i64 noundef %14) #10
@@ -5073,7 +5073,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
 191:                                              ; preds = %190, %188
   %.1121 = phi i64 [ %189, %188 ], [ %.0120153, %190 ]
   %192 = icmp ult i64 %.1121, %.0
-  br i1 %192, label %175, label %.loopexit149, !llvm.loop !119
+  br i1 %192, label %175, label %.loopexit149, !llvm.loop !122
 
 .loopexit149:                                     ; preds = %191, %.lr.ph155, %.preheader148
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.0) #10
@@ -5088,7 +5088,7 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %196) #10
   %197 = call ptr @dictNext(ptr noundef %193) #10
   %.not142 = icmp eq ptr %197, null
-  br i1 %.not142, label %._crit_edge159, label %.lr.ph158, !llvm.loop !120
+  br i1 %.not142, label %._crit_edge159, label %.lr.ph158, !llvm.loop !123
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %.loopexit149
   call void @dictReleaseIterator(ptr noundef %193) #10
@@ -5135,7 +5135,7 @@ define dso_local void @srandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !105
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !108
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %12) #10
   br label %35
 
@@ -5145,7 +5145,7 @@ define dso_local void @srandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !73
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !84
+  %19 = load i32, ptr %18, align 4, !tbaa !86
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !73
@@ -5501,7 +5501,7 @@ define dso_local void @sinterGenericCommand(ptr noundef %0, ptr noundef readonly
   store ptr %.sink, ptr %28, align 8, !tbaa !73
   %29 = add nuw i64 %.0109152, 1
   %exitcond.not = icmp eq i64 %29, %2
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %27
   %30 = icmp sgt i32 %.1108.ph, 0
@@ -5546,7 +5546,7 @@ define dso_local void @sinterGenericCommand(ptr noundef %0, ptr noundef readonly
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %49 = load i32, ptr %48, align 4, !tbaa !84
+  %49 = load i32, ptr %48, align 4, !tbaa !86
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !73
@@ -5742,12 +5742,12 @@ setTypeInitIterator.exit:                         ; preds = %81, %86, %88
   %.1.us = phi i32 [ %.2.us, %117 ], [ %.0162.us, %129 ], [ %.0162.us, %._crit_edge156.us ]
   %132 = call i32 @setTypeNext(ptr noundef nonnull %76, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not128.us = icmp eq i32 %132, -1
-  br i1 %.not128.us, label %._crit_edge163.loopexit, label %.preheader.us, !llvm.loop !122
+  br i1 %.not128.us, label %._crit_edge163.loopexit, label %.preheader.us, !llvm.loop !125
 
 133:                                              ; preds = %100, %95
   %134 = add nuw i64 %.1110154.us, 1
   %exitcond207.not = icmp eq i64 %134, %2
-  br i1 %exitcond207.not, label %._crit_edge156.us.thread, label %95, !llvm.loop !123
+  br i1 %exitcond207.not, label %._crit_edge156.us.thread, label %95, !llvm.loop !126
 
 .lr.ph155.us:                                     ; preds = %.preheader.us
   %135 = load ptr, ptr %11, align 8
@@ -5795,12 +5795,12 @@ setTypeInitIterator.exit:                         ; preds = %81, %86, %88
   %.2113.us175 = phi i64 [ %153, %._crit_edge156.us178.thread ], [ %.0111161.us171, %._crit_edge156.us178 ]
   %155 = call i32 @setTypeNext(ptr noundef nonnull %76, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not128.us176 = icmp eq i32 %155, -1
-  br i1 %.not128.us176, label %._crit_edge163, label %.preheader.us170, !llvm.loop !122
+  br i1 %.not128.us176, label %._crit_edge163, label %.preheader.us170, !llvm.loop !127
 
 156:                                              ; preds = %149, %144
   %157 = add nuw i64 %.1110154.us172, 1
   %exitcond206.not = icmp eq i64 %157, %2
-  br i1 %exitcond206.not, label %._crit_edge156.us178.thread, label %144, !llvm.loop !123
+  br i1 %exitcond206.not, label %._crit_edge156.us178.thread, label %144, !llvm.loop !126
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph.split
   %158 = icmp eq i64 %2, 1
@@ -5815,12 +5815,12 @@ setTypeInitIterator.exit:                         ; preds = %81, %86, %88
 160:                                              ; preds = %.preheader.us188
   %161 = call i32 @setTypeNext(ptr noundef nonnull %76, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not128.us192 = icmp eq i32 %161, -1
-  br i1 %.not128.us192, label %._crit_edge163, label %.preheader.us188, !llvm.loop !122
+  br i1 %.not128.us192, label %._crit_edge163, label %.preheader.us188, !llvm.loop !128
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split.split, %.preheader
   %162 = call i32 @setTypeNext(ptr noundef nonnull %76, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not128 = icmp eq i32 %162, -1
-  br i1 %.not128, label %._crit_edge163, label %.preheader, !llvm.loop !122
+  br i1 %.not128, label %._crit_edge163, label %.preheader, !llvm.loop !129
 
 ._crit_edge163.loopexit:                          ; preds = %131
   %163 = icmp eq i32 %.1.us, 0
@@ -6005,7 +6005,7 @@ setTypeInitIterator.exit.i:                       ; preds = %233, %231, %226
   %239 = load i64, ptr %8, align 8, !tbaa !50
   %240 = call i32 @string2ll(ptr noundef nonnull %237, i64 noundef %239, ptr noundef nonnull %9) #10
   %.not12.i = icmp eq i32 %240, 0
-  br i1 %.not12.i, label %241, label %242, !prof !124
+  br i1 %.not12.i, label %241, label %242, !prof !130
 
 241:                                              ; preds = %238
   call void @_serverAssert(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 83) #10
@@ -6019,7 +6019,7 @@ setTypeInitIterator.exit.i:                       ; preds = %233, %231, %226
   %244 = call ptr @intsetAdd(ptr noundef %.017.i, i64 noundef %243, ptr noundef nonnull %10) #10
   %245 = load i8, ptr %10, align 1, !tbaa !54
   %.not13.i = icmp eq i8 %245, 0
-  br i1 %.not13.i, label %246, label %247, !prof !124
+  br i1 %.not13.i, label %246, label %247, !prof !130
 
 246:                                              ; preds = %242
   call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 87) #10
@@ -6030,7 +6030,7 @@ setTypeInitIterator.exit.i:                       ; preds = %233, %231, %226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
   %248 = call i32 @setTypeNext(ptr noundef nonnull %221, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i = icmp eq i32 %248, -1
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !125
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !131
 
 ._crit_edge.i:                                    ; preds = %247, %setTypeInitIterator.exit.i
   %.0.lcssa.i = phi ptr [ %220, %setTypeInitIterator.exit.i ], [ %244, %247 ]
@@ -6211,7 +6211,7 @@ define dso_local void @smembersCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !84
+  %16 = load i32, ptr %15, align 4, !tbaa !86
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !73
@@ -6320,7 +6320,7 @@ setTypeInitIterator.exit:                         ; preds = %47, %52, %54
   %64 = add i64 %.022, -1
   %65 = call i32 @setTypeNext(ptr noundef nonnull %42, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not19 = icmp eq i32 %65, -1
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %63, %setTypeInitIterator.exit
   %.0.lcssa = phi i64 [ %.0.i, %setTypeInitIterator.exit ], [ %64, %63 ]
@@ -6403,7 +6403,7 @@ define dso_local void @sinterCardCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %31, label %.thread
 
 .thread:                                          ; preds = %21
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !105
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !108
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %30) #10
   br label %.loopexit
 
@@ -6412,7 +6412,7 @@ define dso_local void @sinterCardCommand(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load ptr, ptr %32, align 8, !tbaa !73
   %34 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %3, ptr noundef nonnull @.str.21) #10
   %.not23 = icmp eq i32 %34, 0
-  br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !127
+  br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !133
 
 35:                                               ; preds = %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -6517,7 +6517,7 @@ define dso_local void @sscanCommand(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %3, align 8, !tbaa !72
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !73
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 480), align 8, !tbaa !128
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 480), align 8, !tbaa !134
   %14 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13) #10
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
@@ -6658,12 +6658,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !80 = !{!"sharedObjectsStruct", !43, i64 0, !43, i64 8, !43, i64 16, !43, i64 24, !43, i64 32, !43, i64 40, !43, i64 48, !43, i64 56, !8, i64 64, !8, i64 96, !8, i64 128, !8, i64 160, !43, i64 192, !43, i64 200, !43, i64 208, !43, i64 216, !43, i64 224, !43, i64 232, !43, i64 240, !43, i64 248, !43, i64 256, !43, i64 264, !43, i64 272, !43, i64 280, !43, i64 288, !43, i64 296, !43, i64 304, !43, i64 312, !43, i64 320, !43, i64 328, !43, i64 336, !43, i64 344, !43, i64 352, !43, i64 360, !43, i64 368, !43, i64 376, !43, i64 384, !43, i64 392, !43, i64 400, !43, i64 408, !43, i64 416, !43, i64 424, !43, i64 432, !43, i64 440, !43, i64 448, !43, i64 456, !43, i64 464, !43, i64 472, !43, i64 480, !43, i64 488, !43, i64 496, !43, i64 504, !43, i64 512, !43, i64 520, !43, i64 528, !43, i64 536, !43, i64 544, !43, i64 552, !43, i64 560, !43, i64 568, !43, i64 576, !43, i64 584, !43, i64 592, !43, i64 600, !43, i64 608, !43, i64 616, !43, i64 624, !43, i64 632, !43, i64 640, !43, i64 648, !43, i64 656, !43, i64 664, !43, i64 672, !43, i64 680, !43, i64 688, !43, i64 696, !43, i64 704, !43, i64 712, !43, i64 720, !43, i64 728, !43, i64 736, !43, i64 744, !43, i64 752, !43, i64 760, !43, i64 768, !43, i64 776, !43, i64 784, !43, i64 792, !8, i64 800, !8, i64 880, !8, i64 80880, !8, i64 81136, !8, i64 81392, !8, i64 81648, !11, i64 81904, !11, i64 81912}
 !81 = distinct !{!81, !52}
 !82 = !{!80, !43, i64 32}
-!83 = distinct !{!83, !52}
-!84 = !{!63, !7, i64 28}
-!85 = !{!6, !7, i64 8048}
-!86 = !{!80, !43, i64 528}
-!87 = distinct !{!87, !52}
-!88 = distinct !{!88, !52}
+!83 = distinct !{!83, !52, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !52}
+!86 = !{!63, !7, i64 28}
+!87 = !{!6, !7, i64 8048}
+!88 = !{!80, !43, i64 528}
 !89 = distinct !{!89, !52}
 !90 = distinct !{!90, !52}
 !91 = distinct !{!91, !52}
@@ -6679,18 +6679,18 @@ attributes #13 = { nounwind willreturn memory(read) }
 !101 = distinct !{!101, !52}
 !102 = distinct !{!102, !52}
 !103 = distinct !{!103, !52}
-!104 = distinct !{!104, !52}
-!105 = !{!80, !43, i64 216}
-!106 = !{!80, !43, i64 192}
-!107 = !{!63, !10, i64 8}
-!108 = distinct !{!108, !52}
-!109 = !{!110, !11, i64 0}
-!110 = !{!"", !11, i64 0, !7, i64 8, !18, i64 16}
-!111 = !{!110, !7, i64 8}
-!112 = !{!110, !18, i64 16}
-!113 = distinct !{!113, !52}
-!114 = distinct !{!114, !52}
-!115 = distinct !{!115, !52}
+!104 = distinct !{!104, !52, !84}
+!105 = distinct !{!105, !52}
+!106 = distinct !{!106, !52}
+!107 = distinct !{!107, !52}
+!108 = !{!80, !43, i64 216}
+!109 = !{!80, !43, i64 192}
+!110 = !{!63, !10, i64 8}
+!111 = distinct !{!111, !52}
+!112 = !{!113, !11, i64 0}
+!113 = !{!"", !11, i64 0, !7, i64 8, !18, i64 16}
+!114 = !{!113, !7, i64 8}
+!115 = !{!113, !18, i64 16}
 !116 = distinct !{!116, !52}
 !117 = distinct !{!117, !52}
 !118 = distinct !{!118, !52}
@@ -6699,8 +6699,14 @@ attributes #13 = { nounwind willreturn memory(read) }
 !121 = distinct !{!121, !52}
 !122 = distinct !{!122, !52}
 !123 = distinct !{!123, !52}
-!124 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!125 = distinct !{!125, !52}
+!124 = distinct !{!124, !52}
+!125 = distinct !{!125, !52, !84}
 !126 = distinct !{!126, !52}
-!127 = distinct !{!127, !52}
-!128 = !{!80, !43, i64 480}
+!127 = distinct !{!127, !52, !84}
+!128 = distinct !{!128, !52, !84}
+!129 = distinct !{!129, !52}
+!130 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!131 = distinct !{!131, !52}
+!132 = distinct !{!132, !52}
+!133 = distinct !{!133, !52}
+!134 = !{!80, !43, i64 480}

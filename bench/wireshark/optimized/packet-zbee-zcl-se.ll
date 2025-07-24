@@ -7413,7 +7413,7 @@ define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr noundef
   %111 = icmp sgt i32 %110, 3
   %112 = icmp samesign ult i32 %109, %89
   %113 = select i1 %111, i1 %112, i1 false
-  br i1 %113, label %.lr.ph.split.i, label %dissect_zcl_daily_schedule_publish_day_profile.exit, !llvm.loop !17
+  br i1 %113, label %.lr.ph.split.i, label %dissect_zcl_daily_schedule_publish_day_profile.exit, !llvm.loop !19
 
 114:                                              ; preds = %52
   %115 = load i32, ptr @hf_zbee_zcl_daily_schedule_provider_id, align 4
@@ -7534,7 +7534,7 @@ define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noun
   %51 = add i32 %.0110, 3
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %51)
   %53 = icmp sgt i32 %52, 2
-  br i1 %53, label %.lr.ph.i, label %dissect_zcl_device_management_report_event_configuration.exit, !llvm.loop !18
+  br i1 %53, label %.lr.ph.i, label %dissect_zcl_device_management_report_event_configuration.exit, !llvm.loop !20
 
 54:                                               ; preds = %11
   %55 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @zbee_zcl_device_management_srv_tx_cmd_names, ptr noundef nonnull @.str.2294)
@@ -7667,7 +7667,7 @@ define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noun
   %141 = icmp sgt i32 %140, 0
   %142 = icmp samesign ult i32 %139, %133
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %.lr.ph.i50, label %dissect_zcl_device_management_report_event_configuration.exit, !llvm.loop !19
+  br i1 %143, label %.lr.ph.i50, label %dissect_zcl_device_management_report_event_configuration.exit, !llvm.loop !21
 
 144:                                              ; preds = %116
   br label %.loopexit.sink.split.i
@@ -7769,7 +7769,7 @@ define hidden void @proto_register_zbee_zcl_events() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %2, label %6, !llvm.loop !20
+  br i1 %exitcond.not, label %2, label %6, !llvm.loop !22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -7930,7 +7930,7 @@ dissect_zcl_events_publish_event.exit:            ; preds = %56, %59
   %109 = icmp sgt i32 %108, 0
   %110 = icmp samesign ult i64 %indvars.iv.i, 99
   %111 = select i1 %109, i1 %110, i1 false
-  br i1 %111, label %.lr.ph.i, label %dissect_zcl_events_publish_event_log.exit, !llvm.loop !21
+  br i1 %111, label %.lr.ph.i, label %dissect_zcl_events_publish_event_log.exit, !llvm.loop !23
 
 dissect_zcl_events_publish_event_log.exit:        ; preds = %94, %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
@@ -8061,7 +8061,7 @@ define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr noundef re
   %63 = icmp sgt i32 %62, 7
   %64 = icmp samesign ult i32 %61, %55
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %.lr.ph.i, label %dissect_zcl_mdu_pairing_response.exit, !llvm.loop !22
+  br i1 %65, label %.lr.ph.i, label %dissect_zcl_mdu_pairing_response.exit, !llvm.loop !24
 
 dissect_zcl_mdu_pairing_response.exit:            ; preds = %.lr.ph.i, %43, %32, %40, %16, %24, %27
   %66 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -9119,7 +9119,7 @@ define internal fastcc void @dissect_zcl_price_publish_price_matrix(ptr noundef 
   store i32 %46, ptr %2, align 4
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46)
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
+  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %49 = load i32, ptr @hf_zbee_zcl_price_price_matrix_tier_block_id_tou_tier, align 4
@@ -9135,7 +9135,7 @@ define internal fastcc void @dissect_zcl_price_publish_price_matrix(ptr noundef 
   store i32 %57, ptr %2, align 4
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57)
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+  br i1 %59, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret void
@@ -9215,19 +9215,19 @@ define internal fastcc void @dissect_zcl_price_publish_block_thresholds(ptr noun
   store i32 %51, ptr %2, align 4
   %52 = add nuw nsw i32 %.048.us, 1
   %exitcond53.not = icmp eq i32 %52, %46
-  br i1 %exitcond53.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !24
+  br i1 %exitcond53.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %.lr.ph49.split.us
   %53 = phi i32 [ %45, %.lr.ph49.split.us ], [ %51, %.lr.ph.us ]
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %53)
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph49.split.us, label %._crit_edge, !llvm.loop !25
+  br i1 %55, label %.lr.ph49.split.us, label %._crit_edge, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph49.split
   %56 = phi i32 [ %67, %.lr.ph49.split ], [ %73, %.lr.ph ]
   %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %56)
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph49.split, label %._crit_edge, !llvm.loop !25
+  br i1 %58, label %.lr.ph49.split, label %._crit_edge, !llvm.loop !29
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49, %.loopexit
   %59 = load i32, ptr %2, align 4
@@ -9254,7 +9254,7 @@ define internal fastcc void @dissect_zcl_price_publish_block_thresholds(ptr noun
   store i32 %73, ptr %2, align 4
   %74 = add nuw nsw i32 %.048, 1
   %exitcond.not = icmp eq i32 %74, %68
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %3
   ret void
@@ -9370,7 +9370,7 @@ define internal fastcc void @dissect_zcl_price_publish_tier_labels(ptr noundef %
   %49 = icmp sgt i32 %48, -1
   %50 = icmp samesign ult i32 %47, %34
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -9852,7 +9852,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   tail call fastcc void @dissect_zcl_met_notification_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %16)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %.0
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %17 = load i32, ptr %2, align 4
@@ -9866,7 +9866,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   store i32 %24, ptr %2, align 4
   %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24)
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %15, %.lr.ph, %.preheader
   ret void
@@ -10037,7 +10037,7 @@ define internal fastcc void @dissect_zcl_met_get_profile_response(ptr noundef %0
   store i32 %27, ptr %2, align 4
   %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27)
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -10100,7 +10100,7 @@ define internal fastcc void @dissect_zcl_met_schedule_snapshot_response(ptr noun
   store i32 %22, ptr %2, align 4
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22)
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -10219,7 +10219,7 @@ define internal fastcc void @dissect_zcl_met_get_sampled_data_rsp(ptr noundef %0
   store i32 %33, ptr %2, align 4
   %34 = add nsw i32 %.030, -3
   %35 = icmp samesign ugt i32 %.030, 5
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -10326,7 +10326,7 @@ define internal fastcc void @dissect_zcl_met_configure_notification_flags(ptr no
   store i32 %38, ptr %2, align 4
   %39 = add nsw i32 %.034, -1
   %40 = icmp samesign ugt i32 %.034, 1
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -11130,19 +11130,23 @@ attributes #6 = { nounwind }
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!17 = distinct !{!17, !9, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
+!25 = distinct !{!25, !9, !18}
 !26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
+!28 = distinct !{!28, !9, !18}
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
 !31 = distinct !{!31, !9}
 !32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}

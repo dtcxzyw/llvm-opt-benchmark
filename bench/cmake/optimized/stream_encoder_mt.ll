@@ -1034,7 +1034,7 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
 286:                                              ; preds = %284, %280
   %.3.i128 = phi i8 [ %283, %280 ], [ 0, %284 ]
   %287 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %28) #12
-  br i1 %287, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !88
+  br i1 %287, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !90
 
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %286, %258, %260, %262, %.split.i127
   %.us-phi.i = phi i8 [ 0, %.split.i127 ], [ %.2.us.us.us.i, %262 ], [ %.2.us.us.us.i, %260 ], [ %.2.us.us.us.i, %258 ], [ %.232.i, %.lr.ph.i ], [ %.3.i128, %286 ]
@@ -1076,8 +1076,8 @@ threads_stop.exit:                                ; preds = %290
 300:                                              ; preds = %threads_stop.exit, %9
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %303 = load ptr, ptr %302, align 8, !tbaa !89
-  %304 = load ptr, ptr %301, align 8, !tbaa !90
+  %303 = load ptr, ptr %302, align 8, !tbaa !91
+  %304 = load ptr, ptr %301, align 8, !tbaa !92
   %305 = call i32 %303(ptr noundef %304, ptr noundef %1, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef 0) #12
   %.not107 = icmp eq i32 %305, 1
   br i1 %.not107, label %306, label %.thread138
@@ -1088,7 +1088,7 @@ threads_stop.exit:                                ; preds = %290
   %309 = call i64 @lzma_index_size(ptr noundef %308) #13
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %309, ptr %311, align 8, !tbaa !91
+  store i64 %309, ptr %311, align 8, !tbaa !93
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %313 = call i32 @lzma_stream_footer_encode(ptr noundef nonnull %310, ptr noundef nonnull %312) #12
   %.not108 = icmp eq i32 %313, 0
@@ -1148,14 +1148,14 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %10 = load i32, ptr %9, align 4, !tbaa !49
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.critedge, label %.critedge33.lr.ph, !llvm.loop !92
+  br i1 %.not, label %.critedge, label %.critedge33.lr.ph, !llvm.loop !94
 
 .critedge33.lr.ph:                                ; preds = %.critedge35
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  br label %.critedge33, !llvm.loop !92
+  br label %.critedge33, !llvm.loop !94
 
 ..critedge_crit_edge:                             ; preds = %.critedge33
-  br label %.critedge, !llvm.loop !92
+  br label %.critedge, !llvm.loop !94
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.critedge35
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #12
@@ -1168,12 +1168,12 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #12
   %16 = load ptr, ptr %11, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %16, i64 %.02438, i32 6
-  %18 = load i64, ptr %17, align 8, !tbaa !93
+  %18 = load i64, ptr %17, align 8, !tbaa !95
   %19 = load i64, ptr %1, align 8, !tbaa !41
   %20 = add i64 %19, %18
   store i64 %20, ptr %1, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %16, i64 %.02438, i32 7
-  %22 = load i64, ptr %21, align 8, !tbaa !94
+  %22 = load i64, ptr %21, align 8, !tbaa !96
   %23 = load i64, ptr %2, align 8, !tbaa !41
   %24 = add i64 %23, %22
   store i64 %24, ptr %2, align 8, !tbaa !41
@@ -1183,7 +1183,7 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %28 = load i32, ptr %9, align 4, !tbaa !49
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %27, %29
-  br i1 %30, label %.critedge33, label %..critedge_crit_edge, !llvm.loop !95
+  br i1 %30, label %.critedge33, label %..critedge_crit_edge, !llvm.loop !97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1269,7 +1269,7 @@ define internal fastcc void @threads_end(ptr noundef readonly captures(none) %0,
   %18 = load i32, ptr %3, align 4, !tbaa !49
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.critedge, label %.preheader, !llvm.loop !96
+  br i1 %20, label %.critedge, label %.preheader, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %23, %2, %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -1281,13 +1281,13 @@ define internal fastcc void @threads_end(ptr noundef readonly captures(none) %0,
   %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %23 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %24, i64 %indvars.iv30, i32 14
-  %26 = load i64, ptr %25, align 8, !tbaa !97
+  %26 = load i64, ptr %25, align 8, !tbaa !99
   %27 = tail call i32 @pthread_join(i64 noundef %26, ptr noundef null) #12
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %28 = load i32, ptr %3, align 4, !tbaa !49
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next31, %29
-  br i1 %30, label %23, label %._crit_edge, !llvm.loop !98
+  br i1 %30, label %23, label %._crit_edge, !llvm.loop !100
 }
 
 declare i32 @lzma_outq_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1409,7 +1409,7 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !44
   store i64 0, ptr %6, align 8
-  store i32 %34, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !99
+  store i32 %34, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !101
   store i32 0, ptr %.sroa.3.0..sroa_idx.i, align 4
   store i64 %37, ptr %.sroa.325.0..sroa_idx.i, align 8, !tbaa !41
   store i64 %39, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !41
@@ -1456,7 +1456,7 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
 62:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 0, ptr %2, align 8, !tbaa !41
-  %63 = load i32, ptr %12, align 4, !tbaa !100
+  %63 = load i32, ptr %12, align 4, !tbaa !102
   %64 = zext i32 %63 to i64
   store i64 %64, ptr %3, align 8, !tbaa !41
   %65 = load ptr, ptr %8, align 8, !tbaa !81
@@ -1468,9 +1468,9 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
   %.090.i = phi i64 [ 0, %62 ], [ %.lcssa116.i, %97 ]
   %69 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
   %70 = load i64, ptr %2, align 8, !tbaa !41
-  store i64 %70, ptr %13, align 8, !tbaa !93
+  store i64 %70, ptr %13, align 8, !tbaa !95
   %71 = load i64, ptr %3, align 8, !tbaa !41
-  store i64 %71, ptr %14, align 8, !tbaa !94
+  store i64 %71, ptr %14, align 8, !tbaa !96
   %72 = load i64, ptr %15, align 8, !tbaa !80
   %73 = icmp eq i64 %.090.i, %72
   br i1 %73, label %.lr.ph.i, label %.critedgethread-pre-split.i
@@ -1484,7 +1484,7 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
   %77 = call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %4) #12
   %78 = load i64, ptr %15, align 8, !tbaa !80
   %79 = icmp eq i64 %.090.i, %78
-  br i1 %79, label %.lr.ph.i, label %.critedgethread-pre-split.i, !llvm.loop !101
+  br i1 %79, label %.lr.ph.i, label %.critedgethread-pre-split.i, !llvm.loop !103
 
 .critedgethread-pre-split.i:                      ; preds = %76, %68
   %.lcssa116.ph.i = phi i64 [ %72, %68 ], [ %78, %76 ]
@@ -1507,8 +1507,8 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
   %89 = add i64 %86, 16384
   %spec.select.i = select i1 %88, i32 0, i32 %85
   %spec.select110.i = select i1 %88, i64 %89, i64 %.lcssa116.i
-  %90 = load ptr, ptr %16, align 8, !tbaa !102
-  %91 = load ptr, ptr %10, align 8, !tbaa !103
+  %90 = load ptr, ptr %16, align 8, !tbaa !104
+  %91 = load ptr, ptr %10, align 8, !tbaa !105
   %92 = load ptr, ptr %11, align 8, !tbaa !78
   %93 = load ptr, ptr %17, align 8, !tbaa !77
   %94 = load ptr, ptr %8, align 8, !tbaa !81
@@ -1522,7 +1522,7 @@ define internal noundef ptr @worker_start(ptr noundef %0) #0 {
 97:                                               ; preds = %83
   %98 = load i64, ptr %3, align 8, !tbaa !41
   %99 = icmp ult i64 %98, %67
-  br i1 %99, label %68, label %.critedge2.preheader.i, !llvm.loop !104
+  br i1 %99, label %68, label %.critedge2.preheader.i, !llvm.loop !106
 
 .critedge2.preheader.i:                           ; preds = %97
   %100 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
@@ -1570,7 +1570,7 @@ worker_error.exit112.i:                           ; preds = %115, %107
   %123 = call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %4) #12
   %124 = load i32, ptr %0, align 8, !tbaa !50
   %125 = icmp eq i32 %124, 1
-  br i1 %125, label %.lr.ph133.i, label %.critedge2.loopexit.i, !llvm.loop !105
+  br i1 %125, label %.lr.ph133.i, label %.critedge2.loopexit.i, !llvm.loop !107
 
 126:                                              ; preds = %.critedge2.loopexit.i
   store i64 0, ptr %3, align 8, !tbaa !41
@@ -1630,7 +1630,7 @@ worker_error.exit113.i:                           ; preds = %153, %145
   %161 = load ptr, ptr %8, align 8, !tbaa !81
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
   store i64 %160, ptr %162, align 8, !tbaa !41
-  %163 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !106
+  %163 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !108
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 56
   store i64 %163, ptr %164, align 8, !tbaa !41
   br label %.loopexit115.i
@@ -1883,22 +1883,24 @@ attributes #14 = { nounwind willreturn memory(none) }
 !85 = !{!86, !10, i64 0}
 !86 = !{!"timeval", !10, i64 0, !10, i64 8}
 !87 = !{!86, !10, i64 8}
-!88 = distinct !{!88, !55}
-!89 = !{!27, !7, i64 208}
-!90 = !{!27, !7, i64 184}
-!91 = !{!27, !10, i64 272}
-!92 = distinct !{!92, !55}
-!93 = !{!51, !10, i64 48}
-!94 = !{!51, !10, i64 56}
-!95 = distinct !{!95, !55}
-!96 = distinct !{!96, !55}
-!97 = !{!51, !10, i64 528}
+!88 = distinct !{!88, !55, !89}
+!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = distinct !{!90, !55}
+!91 = !{!27, !7, i64 208}
+!92 = !{!27, !7, i64 184}
+!93 = !{!27, !10, i64 272}
+!94 = distinct !{!94, !55}
+!95 = !{!51, !10, i64 48}
+!96 = !{!51, !10, i64 56}
+!97 = distinct !{!97, !55}
 !98 = distinct !{!98, !55}
-!99 = !{!12, !12, i64 0}
-!100 = !{!51, !12, i64 148}
-!101 = distinct !{!101, !55}
-!102 = !{!51, !7, i64 88}
-!103 = !{!51, !7, i64 64}
-!104 = distinct !{!104, !55}
-!105 = distinct !{!105, !55}
-!106 = !{!51, !10, i64 168}
+!99 = !{!51, !10, i64 528}
+!100 = distinct !{!100, !55}
+!101 = !{!12, !12, i64 0}
+!102 = !{!51, !12, i64 148}
+!103 = distinct !{!103, !55}
+!104 = !{!51, !7, i64 88}
+!105 = !{!51, !7, i64 64}
+!106 = distinct !{!106, !55}
+!107 = distinct !{!107, !55}
+!108 = !{!51, !10, i64 168}

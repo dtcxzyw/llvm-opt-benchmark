@@ -645,7 +645,7 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   %.val.us = load i32, ptr %82, align 4, !tbaa !37
   %83 = sext i32 %.val.us to i64
   %84 = icmp slt i64 %indvars.iv.next103, %83
-  br i1 %84, label %Saig_ObjIsPi.exit79.thread.us, label %.critedge2, !llvm.loop !72
+  br i1 %84, label %Saig_ObjIsPi.exit79.thread.us, label %.critedge2, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %85 = phi ptr [ %115, %114 ], [ %11, %.lr.ph ]
@@ -665,7 +665,7 @@ Saig_ObjIsPi.exit:                                ; preds = %.lr.ph.split
   %91 = load ptr, ptr %14, align 8, !tbaa !51
   %.val3.i = load i32, ptr %88, align 8, !tbaa !41
   %92 = getelementptr i8, ptr %91, i64 108
-  %.val4.i = load i32, ptr %92, align 4, !tbaa !73
+  %.val4.i = load i32, ptr %92, align 4, !tbaa !74
   %.not83 = icmp slt i32 %.val3.i, %.val4.i
   br i1 %.not83, label %114, label %Saig_ObjIsPi.exit.thread
 
@@ -710,7 +710,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %.lr.ph.split, %Saig
   %.val60 = load i32, ptr %116, align 4, !tbaa !37
   %117 = sext i32 %.val60 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph.split, label %.critedge.preheader, !llvm.loop !71
+  br i1 %118, label %.lr.ph.split, label %.critedge.preheader, !llvm.loop !75
 
 .lr.ph90.split:                                   ; preds = %.lr.ph90, %.critedge
   %119 = phi ptr [ %148, %.critedge ], [ %49, %.lr.ph90 ]
@@ -730,7 +730,7 @@ Saig_ObjIsPi.exit79:                              ; preds = %.lr.ph90.split
   %125 = load ptr, ptr %52, align 8, !tbaa !51
   %.val3.i77 = load i32, ptr %122, align 8, !tbaa !41
   %126 = getelementptr i8, ptr %125, i64 108
-  %.val4.i78 = load i32, ptr %126, align 4, !tbaa !73
+  %.val4.i78 = load i32, ptr %126, align 4, !tbaa !74
   %.not82 = icmp slt i32 %.val3.i77, %.val4.i78
   br i1 %.not82, label %.critedge, label %Saig_ObjIsPi.exit79.thread
 
@@ -775,7 +775,7 @@ Saig_ObjIsPi.exit79.thread:                       ; preds = %.lr.ph90.split, %Sa
   %.val = load i32, ptr %149, align 4, !tbaa !37
   %150 = sext i32 %.val to i64
   %151 = icmp slt i64 %indvars.iv.next100, %150
-  br i1 %151, label %.lr.ph90.split, label %.critedge2, !llvm.loop !72
+  br i1 %151, label %.lr.ph90.split, label %.critedge2, !llvm.loop !76
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.us, %.critedge.preheader
   %.2.lcssa = phi ptr [ %.055.lcssa, %.critedge.preheader ], [ %.3.us, %.critedge.us ], [ %.3, %.critedge ]
@@ -864,7 +864,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %.val47 = load i32, ptr %45, align 4, !tbaa !37
   %46 = sext i32 %.val47 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %21, label %.critedge.preheader, !llvm.loop !74
+  br i1 %47, label %21, label %.critedge.preheader, !llvm.loop !77
 
 48:                                               ; preds = %.lr.ph64, %.critedge
   %49 = phi ptr [ %16, %.lr.ph64 ], [ %70, %.critedge ]
@@ -909,7 +909,7 @@ define noundef ptr @Llb_ManConstructQuantCubeFwd(ptr noundef readonly captures(n
   %.val = load i32, ptr %71, align 4, !tbaa !37
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next68, %72
-  br i1 %73, label %48, label %.critedge2, !llvm.loop !75
+  br i1 %73, label %48, label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.2.lcssa = phi ptr [ %.045.lcssa, %.critedge.preheader ], [ %.3, %.critedge ]
@@ -975,7 +975,7 @@ Saig_ObjIsPi.exit:                                ; preds = %23
   %30 = load ptr, ptr %13, align 8, !tbaa !51
   %.val3.i = load i32, ptr %27, align 8, !tbaa !41
   %31 = getelementptr i8, ptr %30, i64 108
-  %.val4.i = load i32, ptr %31, align 4, !tbaa !73
+  %.val4.i = load i32, ptr %31, align 4, !tbaa !74
   %.not70 = icmp slt i32 %.val3.i, %.val4.i
   br i1 %.not70, label %49, label %Saig_ObjIsPi.exit.thread
 
@@ -1015,7 +1015,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %23, %Saig_ObjIsPi.e
   %.val52 = load i32, ptr %51, align 4, !tbaa !37
   %52 = sext i32 %.val52 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %23, label %.critedge.preheader, !llvm.loop !76
+  br i1 %53, label %23, label %.critedge.preheader, !llvm.loop !79
 
 54:                                               ; preds = %.lr.ph77, %.critedge
   %55 = phi ptr [ %17, %.lr.ph77 ], [ %80, %.critedge ]
@@ -1035,7 +1035,7 @@ Saig_ObjIsPi.exit67:                              ; preds = %54
   %61 = load ptr, ptr %20, align 8, !tbaa !51
   %.val3.i65 = load i32, ptr %58, align 8, !tbaa !41
   %62 = getelementptr i8, ptr %61, i64 108
-  %.val4.i66 = load i32, ptr %62, align 4, !tbaa !73
+  %.val4.i66 = load i32, ptr %62, align 4, !tbaa !74
   %.not = icmp slt i32 %.val3.i65, %.val4.i66
   br i1 %.not, label %.critedge, label %Saig_ObjIsPi.exit67.thread
 
@@ -1075,7 +1075,7 @@ Saig_ObjIsPi.exit67.thread:                       ; preds = %54, %Saig_ObjIsPi.e
   %.val = load i32, ptr %81, align 4, !tbaa !37
   %82 = sext i32 %.val to i64
   %83 = icmp slt i64 %indvars.iv.next81, %82
-  br i1 %83, label %54, label %.critedge2, !llvm.loop !77
+  br i1 %83, label %54, label %.critedge2, !llvm.loop !80
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.2.lcssa = phi ptr [ %.049.lcssa, %.critedge.preheader ], [ %.3, %.critedge ]
@@ -1096,7 +1096,7 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = getelementptr i8, ptr %7, i64 104
-  %.val3031 = load i32, ptr %8, align 8, !tbaa !78
+  %.val3031 = load i32, ptr %8, align 8, !tbaa !81
   %9 = icmp sgt i32 %.val3031, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -1109,17 +1109,17 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
   %13 = phi ptr [ %7, %.lr.ph ], [ %39, %31 ]
   %.033 = phi ptr [ %5, %.lr.ph ], [ %37, %31 ]
   %.02632 = phi i32 [ 0, %.lr.ph ], [ %38, %31 ]
-  %14 = load ptr, ptr %10, align 8, !tbaa !79
+  %14 = load ptr, ptr %10, align 8, !tbaa !82
   %15 = icmp eq ptr %1, %14
   br i1 %15, label %31, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !80
+  %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !39
   %20 = getelementptr i8, ptr %13, i64 108
-  %.val29 = load i32, ptr %20, align 4, !tbaa !73
+  %.val29 = load i32, ptr %20, align 4, !tbaa !74
   %21 = add nsw i32 %.val29, %.02632
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %.val, i64 %22
@@ -1146,9 +1146,9 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
   %38 = add nuw nsw i32 %.02632, 1
   %39 = load ptr, ptr %6, align 8, !tbaa !51
   %40 = getelementptr i8, ptr %39, i64 104
-  %.val30 = load i32, ptr %40, align 8, !tbaa !78
+  %.val30 = load i32, ptr %40, align 8, !tbaa !81
   %41 = icmp slt i32 %38, %.val30
-  br i1 %41, label %12, label %.critedge, !llvm.loop !81
+  br i1 %41, label %12, label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %31, %2
   %.0.lcssa = phi ptr [ %5, %2 ], [ %37, %31 ]
@@ -1161,9 +1161,9 @@ define noundef ptr @Llb_ManComputeInitState(ptr noundef readonly captures(none) 
 define noundef ptr @Llb_ManComputeImage(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Cudd_Ref(ptr noundef %1) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !82
+  %5 = load ptr, ptr %4, align 8, !tbaa !85
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !83
+  %7 = load i32, ptr %6, align 4, !tbaa !86
   %8 = icmp sgt i32 %7, 2
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -1181,10 +1181,10 @@ define noundef ptr @Llb_ManComputeImage(ptr noundef readonly captures(none) %0, 
   %14 = sub nsw i32 %12, %.083101
   %.082 = select i1 %.not, i32 %.083101, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !87
+  %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = zext nneg i32 %.082 to i64
   %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %19 = load ptr, ptr %18, align 8, !tbaa !91
   %20 = tail call ptr @Llb_ManConstructGroupBdd(ptr noundef nonnull %0, ptr noundef %19)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -1252,12 +1252,12 @@ define noundef ptr @Llb_ManComputeImage(ptr noundef readonly captures(none) %0, 
   %50 = load ptr, ptr %10, align 8, !tbaa !46
   tail call void @Cudd_RecursiveDeref(ptr noundef %50, ptr noundef %.085) #13
   %51 = add nuw nsw i32 %.083101, 1
-  %52 = load ptr, ptr %4, align 8, !tbaa !82
+  %52 = load ptr, ptr %4, align 8, !tbaa !85
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !83
+  %54 = load i32, ptr %53, align 4, !tbaa !86
   %55 = add nsw i32 %54, -1
   %56 = icmp slt i32 %51, %55
-  br i1 %56, label %11, label %._crit_edge, !llvm.loop !89
+  br i1 %56, label %11, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %47, %3
   %.081.lcssa = phi ptr [ %1, %3 ], [ %41, %47 ]
@@ -1303,7 +1303,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   store ptr %15, ptr %18, align 8, !tbaa !41
   %19 = load ptr, ptr %12, align 8, !tbaa !51
   %20 = getelementptr i8, ptr %19, i64 108
-  %.val95102 = load i32, ptr %20, align 4, !tbaa !73
+  %.val95102 = load i32, ptr %20, align 4, !tbaa !74
   %21 = icmp sgt i32 %.val95102, 0
   br i1 %21, label %.lr.ph, label %.critedge.preheader
 
@@ -1314,7 +1314,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
 .critedge.preheader:                              ; preds = %48, %9
   %23 = phi ptr [ %19, %9 ], [ %64, %48 ]
   %24 = getelementptr i8, ptr %23, i64 104
-  %.val96104 = load i32, ptr %24, align 8, !tbaa !78
+  %.val96104 = load i32, ptr %24, align 8, !tbaa !81
   %25 = icmp sgt i32 %.val96104, 0
   br i1 %25, label %.lr.ph106, label %.critedge2
 
@@ -1327,9 +1327,9 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %27 = phi ptr [ %45, %.critedge.us ], [ %23, %.lr.ph106 ]
   %.1105.us = phi i32 [ %44, %.critedge.us ], [ 0, %.lr.ph106 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !80
+  %29 = load ptr, ptr %28, align 8, !tbaa !83
   %30 = getelementptr i8, ptr %27, i64 108
-  %.val94.us = load i32, ptr %30, align 4, !tbaa !73
+  %.val94.us = load i32, ptr %30, align 4, !tbaa !74
   %31 = add nsw i32 %.val94.us, %.1105.us
   %32 = getelementptr i8, ptr %29, i64 8
   %.val85.us = load ptr, ptr %32, align 8, !tbaa !39
@@ -1351,15 +1351,15 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %44 = add nuw nsw i32 %.1105.us, 1
   %45 = load ptr, ptr %12, align 8, !tbaa !51
   %46 = getelementptr i8, ptr %45, i64 104
-  %.val96.us = load i32, ptr %46, align 8, !tbaa !78
+  %.val96.us = load i32, ptr %46, align 8, !tbaa !81
   %47 = icmp slt i32 %44, %.val96.us
-  br i1 %47, label %.critedge.us, label %.critedge2, !llvm.loop !90
+  br i1 %47, label %.critedge.us, label %.critedge2, !llvm.loop !93
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = phi ptr [ %19, %.lr.ph ], [ %64, %48 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !80
+  %51 = load ptr, ptr %50, align 8, !tbaa !83
   %52 = getelementptr i8, ptr %51, i64 8
   %.val86 = load ptr, ptr %52, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv
@@ -1379,18 +1379,18 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr %12, align 8, !tbaa !51
   %65 = getelementptr i8, ptr %64, i64 108
-  %.val95 = load i32, ptr %65, align 4, !tbaa !73
+  %.val95 = load i32, ptr %65, align 4, !tbaa !74
   %66 = sext i32 %.val95 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %48, label %.critedge.preheader, !llvm.loop !91
+  br i1 %67, label %48, label %.critedge.preheader, !llvm.loop !94
 
 .critedge:                                        ; preds = %.lr.ph106, %.critedge
   %68 = phi ptr [ %95, %.critedge ], [ %23, %.lr.ph106 ]
   %.1105 = phi i32 [ %94, %.critedge ], [ 0, %.lr.ph106 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !80
+  %70 = load ptr, ptr %69, align 8, !tbaa !83
   %71 = getelementptr i8, ptr %68, i64 108
-  %.val94 = load i32, ptr %71, align 4, !tbaa !73
+  %.val94 = load i32, ptr %71, align 4, !tbaa !74
   %72 = add nsw i32 %.val94, %.1105
   %73 = getelementptr i8, ptr %70, i64 8
   %.val85 = load ptr, ptr %73, align 8, !tbaa !39
@@ -1400,9 +1400,9 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %77 = load ptr, ptr %26, align 8, !tbaa !57
   %.val97 = load i32, ptr %76, align 8, !tbaa !41
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !92
+  %79 = load ptr, ptr %78, align 8, !tbaa !95
   %80 = getelementptr i8, ptr %68, i64 112
-  %.val6.i = load i32, ptr %80, align 8, !tbaa !93
+  %.val6.i = load i32, ptr %80, align 8, !tbaa !96
   %81 = sub i32 %.val97, %.val94
   %82 = add i32 %81, %.val6.i
   %83 = getelementptr i8, ptr %79, i64 8
@@ -1424,24 +1424,24 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %94 = add nuw nsw i32 %.1105, 1
   %95 = load ptr, ptr %12, align 8, !tbaa !51
   %96 = getelementptr i8, ptr %95, i64 104
-  %.val96 = load i32, ptr %96, align 8, !tbaa !78
+  %.val96 = load i32, ptr %96, align 8, !tbaa !81
   %97 = icmp slt i32 %94, %.val96
-  br i1 %97, label %.critedge, label %.critedge2, !llvm.loop !90
+  br i1 %97, label %.critedge, label %.critedge2, !llvm.loop !97
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.us, %.critedge.preheader
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !94
+  %99 = load ptr, ptr %98, align 8, !tbaa !98
   tail call void @Aig_ManCleanData(ptr noundef %99) #13
   %100 = load ptr, ptr %5, align 8, !tbaa !46
   %101 = tail call ptr @Cudd_ReadOne(ptr noundef %100) #13
-  %102 = load ptr, ptr %98, align 8, !tbaa !94
+  %102 = load ptr, ptr %98, align 8, !tbaa !98
   %103 = getelementptr i8, ptr %102, i64 48
   %.val = load ptr, ptr %103, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   store ptr %101, ptr %104, align 8, !tbaa !41
-  %105 = load ptr, ptr %98, align 8, !tbaa !94
+  %105 = load ptr, ptr %98, align 8, !tbaa !98
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !80
+  %107 = load ptr, ptr %106, align 8, !tbaa !83
   %108 = getelementptr i8, ptr %107, i64 4
   %.val83107 = load i32, ptr %108, align 4, !tbaa !37
   %109 = icmp sgt i32 %.val83107, 0
@@ -1456,7 +1456,7 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %113 = load ptr, ptr %112, align 8, !tbaa !40
   %114 = load ptr, ptr %12, align 8, !tbaa !51
   %115 = getelementptr i8, ptr %114, i64 16
-  %.val98 = load ptr, ptr %115, align 8, !tbaa !80
+  %.val98 = load ptr, ptr %115, align 8, !tbaa !83
   %116 = getelementptr i8, ptr %.val98, i64 8
   %.val98.val = load ptr, ptr %116, align 8, !tbaa !39
   %117 = getelementptr inbounds nuw ptr, ptr %.val98.val, i64 %indvars.iv117
@@ -1466,21 +1466,21 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store ptr %120, ptr %121, align 8, !tbaa !41
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %122 = load ptr, ptr %98, align 8, !tbaa !94
+  %122 = load ptr, ptr %98, align 8, !tbaa !98
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8, !tbaa !80
+  %124 = load ptr, ptr %123, align 8, !tbaa !83
   %125 = getelementptr i8, ptr %124, i64 4
   %.val83 = load i32, ptr %125, align 4, !tbaa !37
   %126 = sext i32 %.val83 to i64
   %127 = icmp slt i64 %indvars.iv.next118, %126
-  br i1 %127, label %.lr.ph109, label %.critedge4, !llvm.loop !95
+  br i1 %127, label %.lr.ph109, label %.critedge4, !llvm.loop !99
 
 .critedge4:                                       ; preds = %.lr.ph109, %.critedge2
   %128 = load ptr, ptr %5, align 8, !tbaa !46
   %129 = tail call ptr @Cudd_ReadOne(ptr noundef %128) #13
   tail call void @Cudd_Ref(ptr noundef %129) #13
   %130 = getelementptr i8, ptr %1, i64 4
-  %.val99110 = load i32, ptr %130, align 4, !tbaa !96
+  %.val99110 = load i32, ptr %130, align 4, !tbaa !100
   %131 = icmp sgt i32 %.val99110, 0
   br i1 %131, label %.lr.ph113, label %.critedge6
 
@@ -1499,9 +1499,9 @@ define ptr @Llb_ManCreateConstraints(ptr noundef readonly captures(none) %0, ptr
   br i1 %or.cond, label %154, label %136
 
 136:                                              ; preds = %133
-  %137 = load ptr, ptr %98, align 8, !tbaa !94
+  %137 = load ptr, ptr %98, align 8, !tbaa !98
   %138 = getelementptr i8, ptr %137, i64 32
-  %.val100 = load ptr, ptr %138, align 8, !tbaa !97
+  %.val100 = load ptr, ptr %138, align 8, !tbaa !101
   %.not.i = icmp eq ptr %.val100, null
   br i1 %.not.i, label %Aig_ManObj.exit, label %139
 
@@ -1528,7 +1528,7 @@ Aig_ManObj.exit:                                  ; preds = %136, %139
   tail call void @Cudd_RecursiveDeref(ptr noundef %152, ptr noundef %.079111) #13
   %153 = load ptr, ptr %5, align 8, !tbaa !46
   tail call void @Cudd_RecursiveDeref(ptr noundef %153, ptr noundef %149) #13
-  %.val99.pre = load i32, ptr %130, align 4, !tbaa !96
+  %.val99.pre = load i32, ptr %130, align 4, !tbaa !100
   br label %154
 
 154:                                              ; preds = %133, %Aig_ManObj.exit
@@ -1537,7 +1537,7 @@ Aig_ManObj.exit:                                  ; preds = %136, %139
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %155 = sext i32 %.val99 to i64
   %156 = icmp slt i64 %indvars.iv.next121, %155
-  br i1 %156, label %133, label %.critedge6, !llvm.loop !98
+  br i1 %156, label %133, label %.critedge6, !llvm.loop !102
 
 .critedge6:                                       ; preds = %154, %.critedge4
   %.079.lcssa = phi ptr [ %129, %.critedge4 ], [ %.180, %154 ]
@@ -1557,7 +1557,7 @@ declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !103
   %4 = tail call i32 @Cudd_ReadSize(ptr noundef %3) #13
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #14
@@ -1565,28 +1565,28 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 752
   store i64 0, ptr %9, align 8, !tbaa !23
-  %10 = load ptr, ptr %2, align 8, !tbaa !99
+  %10 = load ptr, ptr %2, align 8, !tbaa !103
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 752
   store i64 0, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = getelementptr i8, ptr %13, i64 104
-  %.val129 = load i32, ptr %14, align 8, !tbaa !78
+  %.val129 = load i32, ptr %14, align 8, !tbaa !81
   %15 = getelementptr i8, ptr %13, i64 108
-  %.val124 = load i32, ptr %15, align 4, !tbaa !73
+  %.val124 = load i32, ptr %15, align 4, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !100
+  %17 = load ptr, ptr %16, align 8, !tbaa !104
   %18 = getelementptr i8, ptr %17, i64 4
   %.val114 = load i32, ptr %18, align 4, !tbaa !37
   %19 = tail call ptr @Abc_CexAlloc(i32 noundef %.val129, i32 noundef %.val124, i32 noundef %.val114) #13
-  %20 = load ptr, ptr %16, align 8, !tbaa !100
+  %20 = load ptr, ptr %16, align 8, !tbaa !104
   %21 = getelementptr i8, ptr %20, i64 4
   %.val113 = load i32, ptr %21, align 4, !tbaa !37
   %22 = add nsw i32 %.val113, -1
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !101
-  store i32 -1, ptr %19, align 4, !tbaa !103
-  %24 = load ptr, ptr %2, align 8, !tbaa !99
+  store i32 %22, ptr %23, align 4, !tbaa !105
+  store i32 -1, ptr %19, align 4, !tbaa !107
+  %24 = load ptr, ptr %2, align 8, !tbaa !103
   %25 = getelementptr i8, ptr %20, i64 8
   %.val131 = load ptr, ptr %25, align 8, !tbaa !39
   %26 = sext i32 %.val113 to i64
@@ -1594,19 +1594,19 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 736
-  %31 = load ptr, ptr %30, align 8, !tbaa !104
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
   %32 = tail call ptr @Cudd_bddIntersect(ptr noundef %24, ptr noundef %29, ptr noundef %31) #13
   tail call void @Cudd_Ref(ptr noundef %32) #13
-  %33 = load ptr, ptr %2, align 8, !tbaa !99
+  %33 = load ptr, ptr %2, align 8, !tbaa !103
   %34 = tail call i32 @Cudd_bddPickOneCube(ptr noundef %33, ptr noundef %32, ptr noundef %6) #13
-  %35 = load ptr, ptr %2, align 8, !tbaa !99
+  %35 = load ptr, ptr %2, align 8, !tbaa !103
   tail call void @Cudd_RecursiveDeref(ptr noundef %35, ptr noundef %32) #13
   %36 = load ptr, ptr %12, align 8, !tbaa !51
   %37 = getelementptr i8, ptr %36, i64 104
-  %.val128 = load i32, ptr %37, align 8, !tbaa !78
+  %.val128 = load i32, ptr %37, align 8, !tbaa !81
   %38 = getelementptr i8, ptr %36, i64 108
-  %.val123 = load i32, ptr %38, align 4, !tbaa !73
-  %39 = load ptr, ptr %16, align 8, !tbaa !100
+  %.val123 = load i32, ptr %38, align 4, !tbaa !74
+  %39 = load ptr, ptr %16, align 8, !tbaa !104
   %40 = getelementptr i8, ptr %39, i64 4
   %.val112 = load i32, ptr %40, align 4, !tbaa !37
   %41 = add nsw i32 %.val112, -1
@@ -1622,7 +1622,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
 46:                                               ; preds = %.lr.ph, %61
   %.val122147 = phi i32 [ %.val123, %.lr.ph ], [ %.val122, %61 ]
   %.0104135 = phi i32 [ 0, %.lr.ph ], [ %62, %61 ]
-  %.val127 = load i32, ptr %37, align 8, !tbaa !78
+  %.val127 = load i32, ptr %37, align 8, !tbaa !81
   %47 = add nsw i32 %.val127, %.0104135
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %6, i64 %48
@@ -1640,14 +1640,14 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %59 = load i32, ptr %58, align 4, !tbaa !61
   %60 = or i32 %59, %55
   store i32 %60, ptr %58, align 4, !tbaa !61
-  %.val122.pre = load i32, ptr %38, align 4, !tbaa !73
+  %.val122.pre = load i32, ptr %38, align 4, !tbaa !74
   br label %61
 
 61:                                               ; preds = %46, %52
   %.val122 = phi i32 [ %.val122147, %46 ], [ %.val122.pre, %52 ]
   %62 = add nuw nsw i32 %.0104135, 1
   %63 = icmp slt i32 %62, %.val122
-  br i1 %63, label %46, label %.critedge.loopexit, !llvm.loop !105
+  br i1 %63, label %46, label %.critedge.loopexit, !llvm.loop !109
 
 .critedge.loopexit:                               ; preds = %61
   %.val111.pre = load i32, ptr %40, align 4, !tbaa !37
@@ -1661,10 +1661,10 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
 65:                                               ; preds = %.critedge
   %66 = load ptr, ptr %7, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %68 = load ptr, ptr %67, align 8, !tbaa !106
+  %68 = load ptr, ptr %67, align 8, !tbaa !110
   %69 = tail call ptr @Llb_CoreComputeCube(ptr noundef %66, ptr noundef %68, i32 noundef 1, ptr noundef %6) #13
   tail call void @Cudd_Ref(ptr noundef %69) #13
-  %.pre = load ptr, ptr %16, align 8, !tbaa !100
+  %.pre = load ptr, ptr %16, align 8, !tbaa !104
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 4
   %.val110.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !37
   br label %70
@@ -1687,7 +1687,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %.0142 = phi i32 [ %43, %.lr.ph144 ], [ %.1, %127 ]
   %.1107140 = phi ptr [ %.0106, %.lr.ph144 ], [ %.2108, %127 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %77 = load ptr, ptr %16, align 8, !tbaa !100
+  %77 = load ptr, ptr %16, align 8, !tbaa !104
   %78 = getelementptr i8, ptr %77, i64 4
   %.val = load i32, ptr %78, align 4, !tbaa !37
   %79 = zext i32 %.val to i64
@@ -1704,26 +1704,26 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %86 = load ptr, ptr %7, align 8, !tbaa !46
   tail call void @Cudd_RecursiveDeref(ptr noundef %86, ptr noundef %.1107140) #13
   %87 = load ptr, ptr %7, align 8, !tbaa !46
-  %88 = load ptr, ptr %2, align 8, !tbaa !99
-  %89 = load ptr, ptr %72, align 8, !tbaa !107
+  %88 = load ptr, ptr %2, align 8, !tbaa !103
+  %89 = load ptr, ptr %72, align 8, !tbaa !111
   %90 = getelementptr i8, ptr %89, i64 8
   %.val132 = load ptr, ptr %90, align 8, !tbaa !59
   %91 = tail call ptr @Extra_TransferPermute(ptr noundef %87, ptr noundef %88, ptr noundef %85, ptr noundef %.val132) #13
   tail call void @Cudd_Ref(ptr noundef %91) #13
   %92 = load ptr, ptr %7, align 8, !tbaa !46
   tail call void @Cudd_RecursiveDeref(ptr noundef %92, ptr noundef %85) #13
-  %93 = load ptr, ptr %2, align 8, !tbaa !99
+  %93 = load ptr, ptr %2, align 8, !tbaa !103
   %94 = tail call ptr @Cudd_bddIntersect(ptr noundef %93, ptr noundef %91, ptr noundef %84) #13
   tail call void @Cudd_Ref(ptr noundef %94) #13
-  %95 = load ptr, ptr %2, align 8, !tbaa !99
+  %95 = load ptr, ptr %2, align 8, !tbaa !103
   tail call void @Cudd_RecursiveDeref(ptr noundef %95, ptr noundef %91) #13
-  %96 = load ptr, ptr %2, align 8, !tbaa !99
+  %96 = load ptr, ptr %2, align 8, !tbaa !103
   %97 = tail call i32 @Cudd_bddPickOneCube(ptr noundef %96, ptr noundef %94, ptr noundef %6) #13
-  %98 = load ptr, ptr %2, align 8, !tbaa !99
+  %98 = load ptr, ptr %2, align 8, !tbaa !103
   tail call void @Cudd_RecursiveDeref(ptr noundef %98, ptr noundef %94) #13
   %99 = load ptr, ptr %12, align 8, !tbaa !51
   %100 = getelementptr i8, ptr %99, i64 108
-  %.val121 = load i32, ptr %100, align 4, !tbaa !73
+  %.val121 = load i32, ptr %100, align 4, !tbaa !74
   %101 = sub nsw i32 %.0142, %.val121
   %102 = icmp sgt i32 %.val121, 0
   br i1 %102, label %.lr.ph138, label %.critedge4
@@ -1735,7 +1735,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
 104:                                              ; preds = %.lr.ph138, %119
   %.val120151 = phi i32 [ %.val121, %.lr.ph138 ], [ %.val120, %119 ]
   %.1105137 = phi i32 [ 0, %.lr.ph138 ], [ %120, %119 ]
-  %.val126 = load i32, ptr %103, align 8, !tbaa !78
+  %.val126 = load i32, ptr %103, align 8, !tbaa !81
   %105 = add nsw i32 %.val126, %.1105137
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i8, ptr %6, i64 %106
@@ -1753,14 +1753,14 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %117 = load i32, ptr %116, align 4, !tbaa !61
   %118 = or i32 %117, %113
   store i32 %118, ptr %116, align 4, !tbaa !61
-  %.val120.pre = load i32, ptr %100, align 4, !tbaa !73
+  %.val120.pre = load i32, ptr %100, align 4, !tbaa !74
   br label %119
 
 119:                                              ; preds = %104, %110
   %.val120 = phi i32 [ %.val120151, %104 ], [ %.val120.pre, %110 ]
   %120 = add nuw nsw i32 %.1105137, 1
   %121 = icmp slt i32 %120, %.val120
-  br i1 %121, label %104, label %.critedge4, !llvm.loop !108
+  br i1 %121, label %104, label %.critedge4, !llvm.loop !112
 
 .critedge4:                                       ; preds = %119, %81
   %122 = icmp eq i64 %indvars.iv.next, 0
@@ -1768,7 +1768,7 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
 
 123:                                              ; preds = %.critedge4
   %124 = load ptr, ptr %7, align 8, !tbaa !46
-  %125 = load ptr, ptr %74, align 8, !tbaa !106
+  %125 = load ptr, ptr %74, align 8, !tbaa !110
   %126 = tail call ptr @Llb_CoreComputeCube(ptr noundef %124, ptr noundef %125, i32 noundef 1, ptr noundef %6) #13
   tail call void @Cudd_Ref(ptr noundef %126) #13
   br label %127
@@ -1777,13 +1777,13 @@ define noundef ptr @Llb_ManReachDeriveCex(ptr noundef readonly captures(none) %0
   %.2108 = phi ptr [ %.1107140, %76 ], [ %126, %123 ]
   %.1 = phi i32 [ %.0142, %76 ], [ %101, %123 ]
   %128 = icmp sgt i64 %indvars.iv, 1
-  br i1 %128, label %76, label %.critedge6, !llvm.loop !109
+  br i1 %128, label %76, label %.critedge6, !llvm.loop !113
 
 .critedge6:                                       ; preds = %127, %.critedge4, %70
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !94
+  %130 = load ptr, ptr %129, align 8, !tbaa !98
   %131 = tail call i32 @Saig_ManFindFailedPoCex(ptr noundef %130, ptr noundef nonnull %19) #13
-  store i32 %131, ptr %19, align 4, !tbaa !103
+  store i32 %131, ptr %19, align 4, !tbaa !107
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %133, label %132
 
@@ -1823,15 +1823,15 @@ define range(i32 -1, 2) i32 @Llb_ManReachability(ptr noundef %0, ptr noundef rea
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load ptr, ptr %9, align 8, !tbaa !110
+  %10 = load ptr, ptr %9, align 8, !tbaa !114
   %11 = getelementptr i8, ptr %10, i64 8
   %.val346 = load ptr, ptr %11, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = load ptr, ptr %12, align 8, !tbaa !107
+  %13 = load ptr, ptr %12, align 8, !tbaa !111
   %14 = getelementptr i8, ptr %13, i64 8
   %.val345 = load ptr, ptr %14, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %16 = load ptr, ptr %15, align 8, !tbaa !111
+  %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = getelementptr i8, ptr %16, i64 8
   %.val344 = load ptr, ptr %17, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
@@ -1840,10 +1840,10 @@ define range(i32 -1, 2) i32 @Llb_ManReachability(ptr noundef %0, ptr noundef rea
   br i1 %19, label %Abc_Clock.exit, label %20
 
 20:                                               ; preds = %3
-  %21 = load i64, ptr %8, align 8, !tbaa !112
+  %21 = load i64, ptr %8, align 8, !tbaa !116
   %.neg360 = mul i64 %21, -1000000
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !114
+  %23 = load i64, ptr %22, align 8, !tbaa !118
   %.neg359 = sdiv i64 %23, -1000
   %.neg361 = add i64 %.neg359, %.neg360
   br label %Abc_Clock.exit
@@ -1851,9 +1851,9 @@ define range(i32 -1, 2) i32 @Llb_ManReachability(ptr noundef %0, ptr noundef rea
 Abc_Clock.exit:                                   ; preds = %3, %20
   %.0.i.neg = phi i64 [ %.neg361, %20 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
-  %24 = load ptr, ptr %0, align 8, !tbaa !115
+  %24 = load ptr, ptr %0, align 8, !tbaa !119
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 84
-  %26 = load i32, ptr %25, align 4, !tbaa !116
+  %26 = load i32, ptr %25, align 4, !tbaa !120
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %40, label %27
 
@@ -1866,10 +1866,10 @@ Abc_Clock.exit:                                   ; preds = %3, %20
   br i1 %31, label %Abc_Clock.exit350, label %32
 
 32:                                               ; preds = %27
-  %33 = load i64, ptr %7, align 8, !tbaa !112
+  %33 = load i64, ptr %7, align 8, !tbaa !116
   %34 = mul nsw i64 %33, 1000000
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !114
+  %36 = load i64, ptr %35, align 8, !tbaa !118
   %37 = sdiv i64 %36, 1000
   %38 = add nsw i64 %37, %34
   br label %Abc_Clock.exit350
@@ -1878,19 +1878,19 @@ Abc_Clock.exit350:                                ; preds = %27, %32
   %.0.i349 = phi i64 [ %38, %32 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   %39 = add nsw i64 %.0.i349, %29
-  %.pre = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre = load ptr, ptr %0, align 8, !tbaa !119
   br label %40
 
 40:                                               ; preds = %Abc_Clock.exit, %Abc_Clock.exit350
   %41 = phi ptr [ %.pre, %Abc_Clock.exit350 ], [ %24, %Abc_Clock.exit ]
   %42 = phi i64 [ %39, %Abc_Clock.exit350 ], [ 0, %Abc_Clock.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  store i64 %42, ptr %43, align 8, !tbaa !118
+  store i64 %42, ptr %43, align 8, !tbaa !122
   call void @Llb_ManPrepareVarLimits(ptr noundef nonnull %0) #13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %45 = load ptr, ptr %44, align 8, !tbaa !119
+  %45 = load ptr, ptr %44, align 8, !tbaa !123
   %46 = getelementptr i8, ptr %45, i64 4
-  %.val343 = load i32, ptr %46, align 4, !tbaa !96
+  %.val343 = load i32, ptr %46, align 4, !tbaa !100
   %47 = call ptr @Cudd_Init(i32 noundef %.val343, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %47, ptr %48, align 8, !tbaa !46
@@ -1900,34 +1900,34 @@ Abc_Clock.exit350:                                ; preds = %27, %32
   %.val347 = load i32, ptr %51, align 8, !tbaa !61
   %52 = call ptr @Cudd_Init(i32 noundef %.val347, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %52, ptr %53, align 8, !tbaa !99
+  store ptr %52, ptr %53, align 8, !tbaa !103
   %.not316 = icmp eq ptr %2, null
   br i1 %.not316, label %58, label %54
 
 54:                                               ; preds = %40
-  %55 = load ptr, ptr %2, align 8, !tbaa !120
+  %55 = load ptr, ptr %2, align 8, !tbaa !124
   %.not317 = icmp eq ptr %55, null
   br i1 %.not317, label %58, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %55, ptr %57, align 8, !tbaa !79
-  store ptr null, ptr %2, align 8, !tbaa !120
+  store ptr %55, ptr %57, align 8, !tbaa !82
+  store ptr null, ptr %2, align 8, !tbaa !124
   br label %63
 
 58:                                               ; preds = %54, %40
   %59 = load ptr, ptr %49, align 8, !tbaa !51
   %60 = getelementptr i8, ptr %59, i64 104
-  %.val348 = load i32, ptr %60, align 8, !tbaa !78
+  %.val348 = load i32, ptr %60, align 8, !tbaa !81
   %61 = call ptr @Cudd_Init(i32 noundef %.val348, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %61, ptr %62, align 8, !tbaa !79
+  store ptr %61, ptr %62, align 8, !tbaa !82
   br label %63
 
 63:                                               ; preds = %58, %56
-  %64 = load ptr, ptr %0, align 8, !tbaa !115
+  %64 = load ptr, ptr %0, align 8, !tbaa !119
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load i32, ptr %65, align 8, !tbaa !121
+  %66 = load i32, ptr %65, align 8, !tbaa !125
   %.not318 = icmp eq i32 %66, 0
   %67 = load ptr, ptr %48, align 8, !tbaa !46
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1935,61 +1935,61 @@ Abc_Clock.exit350:                                ; preds = %27, %32
 
 69:                                               ; preds = %63
   call void @Cudd_AutodynEnable(ptr noundef %67, i32 noundef 6) #13
-  %70 = load ptr, ptr %68, align 8, !tbaa !79
+  %70 = load ptr, ptr %68, align 8, !tbaa !82
   call void @Cudd_AutodynEnable(ptr noundef %70, i32 noundef 6) #13
-  %71 = load ptr, ptr %53, align 8, !tbaa !99
+  %71 = load ptr, ptr %53, align 8, !tbaa !103
   call void @Cudd_AutodynEnable(ptr noundef %71, i32 noundef 6) #13
   br label %75
 
 72:                                               ; preds = %63
   call void @Cudd_AutodynDisable(ptr noundef %67) #13
-  %73 = load ptr, ptr %68, align 8, !tbaa !79
+  %73 = load ptr, ptr %68, align 8, !tbaa !82
   call void @Cudd_AutodynDisable(ptr noundef %73) #13
-  %74 = load ptr, ptr %53, align 8, !tbaa !99
+  %74 = load ptr, ptr %53, align 8, !tbaa !103
   call void @Cudd_AutodynDisable(ptr noundef %74) #13
   br label %75
 
 75:                                               ; preds = %72, %69
-  %76 = load ptr, ptr %0, align 8, !tbaa !115
+  %76 = load ptr, ptr %0, align 8, !tbaa !119
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
-  %78 = load i64, ptr %77, align 8, !tbaa !118
+  %78 = load i64, ptr %77, align 8, !tbaa !122
   %79 = load ptr, ptr %48, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 752
   store i64 %78, ptr %80, align 8, !tbaa !23
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %82 = load ptr, ptr %81, align 8, !tbaa !82
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 752
   store i64 %78, ptr %83, align 8, !tbaa !23
-  %84 = load ptr, ptr %53, align 8, !tbaa !99
+  %84 = load ptr, ptr %53, align 8, !tbaa !103
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 752
   store i64 %78, ptr %85, align 8, !tbaa !23
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !94
+  %87 = load ptr, ptr %86, align 8, !tbaa !98
   %88 = call ptr @Llb_BddComputeBad(ptr noundef %87, ptr noundef %84, i64 noundef %78) #13
-  %89 = load ptr, ptr %53, align 8, !tbaa !99
+  %89 = load ptr, ptr %53, align 8, !tbaa !103
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 736
-  store ptr %88, ptr %90, align 8, !tbaa !104
+  store ptr %88, ptr %90, align 8, !tbaa !108
   %91 = icmp eq ptr %88, null
   br i1 %91, label %92, label %103
 
 92:                                               ; preds = %75
-  %93 = load ptr, ptr %0, align 8, !tbaa !115
+  %93 = load ptr, ptr %0, align 8, !tbaa !119
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
-  %95 = load i32, ptr %94, align 8, !tbaa !122
+  %95 = load i32, ptr %94, align 8, !tbaa !126
   %.not340 = icmp eq i32 %95, 0
   br i1 %.not340, label %96, label %100
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 84
-  %98 = load i32, ptr %97, align 4, !tbaa !116
+  %98 = load i32, ptr %97, align 4, !tbaa !120
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %98)
-  %.pre526 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre526 = load ptr, ptr %0, align 8, !tbaa !119
   br label %100
 
 100:                                              ; preds = %96, %92
   %101 = phi ptr [ %.pre526, %96 ], [ %93, %92 ]
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 104
-  store i32 -1, ptr %102, align 8, !tbaa !123
+  store i32 -1, ptr %102, align 8, !tbaa !127
   br label %476
 
 103:                                              ; preds = %75
@@ -1998,14 +1998,14 @@ Abc_Clock.exit350:                                ; preds = %27, %32
   call void @Cudd_Ref(ptr noundef %104) #13
   %105 = call ptr @Llb_ManCreateConstraints(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   call void @Cudd_Ref(ptr noundef %105) #13
-  %106 = load ptr, ptr %81, align 8, !tbaa !79
+  %106 = load ptr, ptr %81, align 8, !tbaa !82
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 736
-  %108 = load ptr, ptr %107, align 8, !tbaa !104
+  %108 = load ptr, ptr %107, align 8, !tbaa !108
   %.not319 = icmp eq ptr %108, null
   br i1 %.not319, label %112, label %109
 
 109:                                              ; preds = %103
-  store ptr null, ptr %107, align 8, !tbaa !104
+  store ptr null, ptr %107, align 8, !tbaa !108
   %110 = load ptr, ptr %48, align 8, !tbaa !46
   %111 = call ptr @Extra_TransferPermute(ptr noundef nonnull %106, ptr noundef %110, ptr noundef nonnull %108, ptr noundef %.val344) #13
   br label %116
@@ -2021,9 +2021,9 @@ Abc_Clock.exit350:                                ; preds = %27, %32
   %.sink = phi ptr [ %115, %112 ], [ %111, %109 ]
   %.0296 = phi ptr [ %113, %112 ], [ %108, %109 ]
   call void @Cudd_Ref(ptr noundef %.sink) #13
-  %117 = load ptr, ptr %0, align 8, !tbaa !115
+  %117 = load ptr, ptr %0, align 8, !tbaa !119
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = load i32, ptr %118, align 4, !tbaa !124
+  %119 = load i32, ptr %118, align 4, !tbaa !128
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %.lr.ph, label %.loopexit
 
@@ -2047,9 +2047,9 @@ Abc_Clock.exit350:                                ; preds = %27, %32
   br i1 %128, label %Abc_Clock.exit352, label %129
 
 129:                                              ; preds = %126
-  %130 = load i64, ptr %6, align 8, !tbaa !112
+  %130 = load i64, ptr %6, align 8, !tbaa !116
   %.neg357 = mul i64 %130, -1000000
-  %131 = load i64, ptr %121, align 8, !tbaa !114
+  %131 = load i64, ptr %121, align 8, !tbaa !118
   %.neg = sdiv i64 %131, -1000
   %.neg358 = add i64 %.neg, %.neg357
   br label %Abc_Clock.exit352
@@ -2057,9 +2057,9 @@ Abc_Clock.exit350:                                ; preds = %27, %32
 Abc_Clock.exit352:                                ; preds = %126, %129
   %.0.i351.neg = phi i64 [ %.neg358, %129 ], [ 1, %126 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  %132 = load ptr, ptr %0, align 8, !tbaa !115
+  %132 = load ptr, ptr %0, align 8, !tbaa !119
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 84
-  %134 = load i32, ptr %133, align 4, !tbaa !116
+  %134 = load i32, ptr %133, align 4, !tbaa !120
   %.not320 = icmp eq i32 %134, 0
   br i1 %.not320, label %163, label %135
 
@@ -2070,9 +2070,9 @@ Abc_Clock.exit352:                                ; preds = %126, %129
   br i1 %137, label %Abc_Clock.exit354, label %138
 
 138:                                              ; preds = %135
-  %139 = load i64, ptr %5, align 8, !tbaa !112
+  %139 = load i64, ptr %5, align 8, !tbaa !116
   %140 = mul nsw i64 %139, 1000000
-  %141 = load i64, ptr %122, align 8, !tbaa !114
+  %141 = load i64, ptr %122, align 8, !tbaa !118
   %142 = sdiv i64 %141, 1000
   %143 = add nsw i64 %142, %140
   br label %Abc_Clock.exit354
@@ -2080,82 +2080,82 @@ Abc_Clock.exit352:                                ; preds = %126, %129
 Abc_Clock.exit354:                                ; preds = %135, %138
   %.0.i353 = phi i64 [ %143, %138 ], [ -1, %135 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
-  %144 = load ptr, ptr %0, align 8, !tbaa !115
+  %144 = load ptr, ptr %0, align 8, !tbaa !119
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 96
-  %146 = load i64, ptr %145, align 8, !tbaa !118
+  %146 = load i64, ptr %145, align 8, !tbaa !122
   %147 = icmp sgt i64 %.0.i353, %146
   br i1 %147, label %148, label %163
 
 148:                                              ; preds = %Abc_Clock.exit354
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 72
-  %150 = load i32, ptr %149, align 8, !tbaa !122
+  %150 = load i32, ptr %149, align 8, !tbaa !126
   %.not339 = icmp eq i32 %150, 0
   br i1 %.not339, label %151, label %155
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 84
-  %153 = load i32, ptr %152, align 4, !tbaa !116
+  %153 = load i32, ptr %152, align 4, !tbaa !120
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %153)
-  %.pre513 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre513 = load ptr, ptr %0, align 8, !tbaa !119
   br label %155
 
 155:                                              ; preds = %151, %148
   %156 = phi ptr [ %.pre513, %151 ], [ %144, %148 ]
   %157 = add nsw i32 %.0293432, -1
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 104
-  store i32 %157, ptr %158, align 8, !tbaa !123
+  store i32 %157, ptr %158, align 8, !tbaa !127
   %159 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %159, ptr noundef %.1295431) #13
   %160 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %160, ptr noundef %104) #13
   %161 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %161, ptr noundef %105) #13
-  %162 = load ptr, ptr %81, align 8, !tbaa !79
+  %162 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %162, ptr noundef %.1297430) #13
   br label %476
 
 163:                                              ; preds = %Abc_Clock.exit354, %Abc_Clock.exit352
   %164 = load ptr, ptr %48, align 8, !tbaa !46
-  %165 = load ptr, ptr %53, align 8, !tbaa !99
+  %165 = load ptr, ptr %53, align 8, !tbaa !103
   %166 = call ptr @Extra_TransferPermute(ptr noundef %164, ptr noundef %165, ptr noundef %.1295431, ptr noundef %.val345) #13
   %167 = icmp eq ptr %166, null
   br i1 %167, label %168, label %184
 
 168:                                              ; preds = %163
-  %169 = load ptr, ptr %0, align 8, !tbaa !115
+  %169 = load ptr, ptr %0, align 8, !tbaa !119
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 72
-  %171 = load i32, ptr %170, align 8, !tbaa !122
+  %171 = load i32, ptr %170, align 8, !tbaa !126
   %.not338 = icmp eq i32 %171, 0
   br i1 %.not338, label %172, label %176
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 84
-  %174 = load i32, ptr %173, align 4, !tbaa !116
+  %174 = load i32, ptr %173, align 4, !tbaa !120
   %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %174)
-  %.pre525 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre525 = load ptr, ptr %0, align 8, !tbaa !119
   br label %176
 
 176:                                              ; preds = %172, %168
   %177 = phi ptr [ %.pre525, %172 ], [ %169, %168 ]
   %178 = add nsw i32 %.0293432, -1
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 104
-  store i32 %178, ptr %179, align 8, !tbaa !123
+  store i32 %178, ptr %179, align 8, !tbaa !127
   %180 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %180, ptr noundef %.1295431) #13
   %181 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %181, ptr noundef %104) #13
   %182 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %182, ptr noundef %105) #13
-  %183 = load ptr, ptr %81, align 8, !tbaa !79
+  %183 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %183, ptr noundef %.1297430) #13
   br label %476
 
 184:                                              ; preds = %163
   call void @Cudd_Ref(ptr noundef nonnull %166) #13
-  %185 = load ptr, ptr %123, align 8, !tbaa !100
+  %185 = load ptr, ptr %123, align 8, !tbaa !104
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4, !tbaa !37
-  %188 = load i32, ptr %185, align 8, !tbaa !125
+  %188 = load i32, ptr %185, align 8, !tbaa !129
   %189 = icmp eq i32 %187, %188
   br i1 %189, label %190, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -2185,7 +2185,7 @@ Abc_Clock.exit354:                                ; preds = %135, %138
 Vec_PtrGrow.exit.i:                               ; preds = %197, %195
   %199 = phi ptr [ %196, %195 ], [ %198, %197 ]
   store ptr %199, ptr %193, align 8, !tbaa !39
-  store i32 16, ptr %185, align 8, !tbaa !125
+  store i32 16, ptr %185, align 8, !tbaa !129
   br label %Vec_PtrPush.exit
 
 200:                                              ; preds = %190
@@ -2208,7 +2208,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %197, %195
 210:                                              ; preds = %208, %206
   %211 = phi ptr [ %207, %206 ], [ %209, %208 ]
   store ptr %211, ptr %202, align 8, !tbaa !39
-  store i32 %201, ptr %185, align 8, !tbaa !125
+  store i32 %201, ptr %185, align 8, !tbaa !129
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %210
@@ -2219,16 +2219,16 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %215 = sext i32 %213 to i64
   %216 = getelementptr inbounds ptr, ptr %212, i64 %215
   store ptr %166, ptr %216, align 8, !tbaa !40
-  %217 = load ptr, ptr %0, align 8, !tbaa !115
+  %217 = load ptr, ptr %0, align 8, !tbaa !119
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 80
-  %219 = load i32, ptr %218, align 8, !tbaa !126
+  %219 = load i32, ptr %218, align 8, !tbaa !130
   %.not321 = icmp eq i32 %219, 0
   br i1 %.not321, label %220, label %262
 
 220:                                              ; preds = %Vec_PtrPush.exit
-  %221 = load ptr, ptr %53, align 8, !tbaa !99
+  %221 = load ptr, ptr %53, align 8, !tbaa !103
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 736
-  %223 = load ptr, ptr %222, align 8, !tbaa !104
+  %223 = load ptr, ptr %222, align 8, !tbaa !108
   %224 = ptrtoint ptr %223 to i64
   %225 = xor i64 %224, 1
   %226 = inttoptr i64 %225 to ptr
@@ -2237,44 +2237,44 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not322, label %228, label %262
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %0, align 8, !tbaa !115
+  %229 = load ptr, ptr %0, align 8, !tbaa !119
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 36
-  %231 = load i32, ptr %230, align 4, !tbaa !127
+  %231 = load i32, ptr %230, align 4, !tbaa !131
   %.not323 = icmp eq i32 %231, 0
   br i1 %.not323, label %232, label %236
 
 232:                                              ; preds = %228
   %233 = call ptr @Llb_ManReachDeriveCex(ptr noundef nonnull %0)
-  %234 = load ptr, ptr %86, align 8, !tbaa !94
+  %234 = load ptr, ptr %86, align 8, !tbaa !98
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 408
-  store ptr %233, ptr %235, align 8, !tbaa !128
-  %.pre523 = load ptr, ptr %0, align 8, !tbaa !115
+  store ptr %233, ptr %235, align 8, !tbaa !132
+  %.pre523 = load ptr, ptr %0, align 8, !tbaa !119
   br label %236
 
 236:                                              ; preds = %232, %228
   %237 = phi ptr [ %.pre523, %232 ], [ %229, %228 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 72
-  %239 = load i32, ptr %238, align 8, !tbaa !122
+  %239 = load i32, ptr %238, align 8, !tbaa !126
   %.not324 = icmp eq i32 %239, 0
   br i1 %.not324, label %240, label %254
 
 240:                                              ; preds = %236
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 36
-  %242 = load i32, ptr %241, align 4, !tbaa !127
+  %242 = load i32, ptr %241, align 4, !tbaa !131
   %.not325 = icmp eq i32 %242, 0
-  %243 = load ptr, ptr %86, align 8, !tbaa !94
+  %243 = load ptr, ptr %86, align 8, !tbaa !98
   br i1 %.not325, label %244, label %249
 
 244:                                              ; preds = %240
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 408
-  %246 = load ptr, ptr %245, align 8, !tbaa !128
-  %247 = load i32, ptr %246, align 4, !tbaa !103
-  %248 = load ptr, ptr %243, align 8, !tbaa !129
+  %246 = load ptr, ptr %245, align 8, !tbaa !132
+  %247 = load i32, ptr %246, align 4, !tbaa !107
+  %248 = load ptr, ptr %243, align 8, !tbaa !133
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %247, ptr noundef %248, ptr noundef %248, i32 noundef %.0293432)
   br label %251
 
 249:                                              ; preds = %240
-  %250 = load ptr, ptr %243, align 8, !tbaa !129
+  %250 = load ptr, ptr %243, align 8, !tbaa !133
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef %250, i32 noundef %.0293432)
   br label %251
 
@@ -2282,21 +2282,21 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %252 = call fastcc i64 @Abc_Clock()
   %253 = add i64 %252, %.0.i.neg
   call fastcc void @Abc_PrintTime(i64 noundef %253)
-  %.pre524 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre524 = load ptr, ptr %0, align 8, !tbaa !119
   br label %254
 
 254:                                              ; preds = %251, %236
   %255 = phi ptr [ %.pre524, %251 ], [ %237, %236 ]
   %256 = add nsw i32 %.0293432, -1
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 104
-  store i32 %256, ptr %257, align 8, !tbaa !123
+  store i32 %256, ptr %257, align 8, !tbaa !127
   %258 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %258, ptr noundef %.1295431) #13
   %259 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %259, ptr noundef %104) #13
   %260 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %260, ptr noundef %105) #13
-  %261 = load ptr, ptr %81, align 8, !tbaa !79
+  %261 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %261, ptr noundef %.1297430) #13
   br label %476
 
@@ -2313,7 +2313,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 267:                                              ; preds = %263, %262
   %.3 = phi ptr [ %265, %263 ], [ %.1295431, %262 ]
-  %268 = load ptr, ptr %124, align 8, !tbaa !130
+  %268 = load ptr, ptr %124, align 8, !tbaa !134
   %269 = getelementptr i8, ptr %268, i64 8
   %.val = load ptr, ptr %269, align 8, !tbaa !39
   %270 = load ptr, ptr %.val, align 8, !tbaa !40
@@ -2331,31 +2331,31 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %277, label %278, label %294
 
 278:                                              ; preds = %267
-  %279 = load ptr, ptr %0, align 8, !tbaa !115
+  %279 = load ptr, ptr %0, align 8, !tbaa !119
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 72
-  %281 = load i32, ptr %280, align 8, !tbaa !122
+  %281 = load i32, ptr %280, align 8, !tbaa !126
   %.not337 = icmp eq i32 %281, 0
   br i1 %.not337, label %282, label %286
 
 282:                                              ; preds = %278
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 84
-  %284 = load i32, ptr %283, align 4, !tbaa !116
+  %284 = load i32, ptr %283, align 4, !tbaa !120
   %285 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %284)
-  %.pre522 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre522 = load ptr, ptr %0, align 8, !tbaa !119
   br label %286
 
 286:                                              ; preds = %282, %278
   %287 = phi ptr [ %.pre522, %282 ], [ %279, %278 ]
   %288 = add nsw i32 %.0293432, -1
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 104
-  store i32 %288, ptr %289, align 8, !tbaa !123
+  store i32 %288, ptr %289, align 8, !tbaa !127
   %290 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %290, ptr noundef %273) #13
   %291 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %291, ptr noundef %104) #13
   %292 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %292, ptr noundef %105) #13
-  %293 = load ptr, ptr %81, align 8, !tbaa !79
+  %293 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %293, ptr noundef %.1297430) #13
   br label %476
 
@@ -2376,37 +2376,37 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 300:                                              ; preds = %296, %294
   %.0299 = phi ptr [ %298, %296 ], [ %276, %294 ]
   %301 = load ptr, ptr %48, align 8, !tbaa !46
-  %302 = load ptr, ptr %81, align 8, !tbaa !79
+  %302 = load ptr, ptr %81, align 8, !tbaa !82
   %303 = call ptr @Extra_TransferPermute(ptr noundef %301, ptr noundef %302, ptr noundef %.0299, ptr noundef %.val346) #13
   %304 = icmp eq ptr %303, null
   br i1 %304, label %305, label %321
 
 305:                                              ; preds = %300
-  %306 = load ptr, ptr %0, align 8, !tbaa !115
+  %306 = load ptr, ptr %0, align 8, !tbaa !119
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 72
-  %308 = load i32, ptr %307, align 8, !tbaa !122
+  %308 = load i32, ptr %307, align 8, !tbaa !126
   %.not336 = icmp eq i32 %308, 0
   br i1 %.not336, label %309, label %313
 
 309:                                              ; preds = %305
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 84
-  %311 = load i32, ptr %310, align 4, !tbaa !116
+  %311 = load i32, ptr %310, align 4, !tbaa !120
   %312 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %311)
-  %.pre521 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre521 = load ptr, ptr %0, align 8, !tbaa !119
   br label %313
 
 313:                                              ; preds = %309, %305
   %314 = phi ptr [ %.pre521, %309 ], [ %306, %305 ]
   %315 = add nsw i32 %.0293432, -1
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 104
-  store i32 %315, ptr %316, align 8, !tbaa !123
+  store i32 %315, ptr %316, align 8, !tbaa !127
   %317 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %317, ptr noundef %.0299) #13
   %318 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %318, ptr noundef %104) #13
   %319 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %319, ptr noundef %105) #13
-  %320 = load ptr, ptr %81, align 8, !tbaa !79
+  %320 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %320, ptr noundef %.1297430) #13
   br label %476
 
@@ -2414,20 +2414,20 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   call void @Cudd_Ref(ptr noundef nonnull %303) #13
   %322 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %322, ptr noundef %.0299) #13
-  %323 = load ptr, ptr %81, align 8, !tbaa !79
+  %323 = load ptr, ptr %81, align 8, !tbaa !82
   %324 = call i32 @Cudd_bddLeq(ptr noundef %323, ptr noundef nonnull %303, ptr noundef %.1297430) #13
   %.not327 = icmp eq i32 %324, 0
   br i1 %.not327, label %325, label %.loopexit.sink.split
 
 325:                                              ; preds = %321
   %326 = call i32 @Cudd_DagSize(ptr noundef nonnull %303) #13
-  %327 = load ptr, ptr %0, align 8, !tbaa !115
-  %328 = load i32, ptr %327, align 8, !tbaa !131
+  %327 = load ptr, ptr %0, align 8, !tbaa !119
+  %328 = load i32, ptr %327, align 8, !tbaa !135
   %329 = icmp sgt i32 %326, %328
   br i1 %329, label %.loopexit.sink.split, label %330
 
 330:                                              ; preds = %325
-  %331 = load ptr, ptr %81, align 8, !tbaa !79
+  %331 = load ptr, ptr %81, align 8, !tbaa !82
   %332 = ptrtoint ptr %.1297430 to i64
   %333 = xor i64 %332, 1
   %334 = inttoptr i64 %333 to ptr
@@ -2437,80 +2437,80 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 337:                                              ; preds = %330
   call void @Cudd_Ref(ptr noundef nonnull %335) #13
-  %338 = load ptr, ptr %81, align 8, !tbaa !79
+  %338 = load ptr, ptr %81, align 8, !tbaa !82
   %339 = load ptr, ptr %48, align 8, !tbaa !46
   %340 = call ptr @Extra_TransferPermute(ptr noundef %338, ptr noundef %339, ptr noundef nonnull %335, ptr noundef %.val344) #13
   %341 = icmp eq ptr %340, null
   br i1 %341, label %342, label %358
 
 342:                                              ; preds = %337
-  %343 = load ptr, ptr %0, align 8, !tbaa !115
+  %343 = load ptr, ptr %0, align 8, !tbaa !119
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 72
-  %345 = load i32, ptr %344, align 8, !tbaa !122
+  %345 = load i32, ptr %344, align 8, !tbaa !126
   %.not329 = icmp eq i32 %345, 0
   br i1 %.not329, label %346, label %350
 
 346:                                              ; preds = %342
   %347 = getelementptr inbounds nuw i8, ptr %343, i64 84
-  %348 = load i32, ptr %347, align 4, !tbaa !116
+  %348 = load i32, ptr %347, align 4, !tbaa !120
   %349 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %348)
-  %.pre515 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre515 = load ptr, ptr %0, align 8, !tbaa !119
   br label %350
 
 350:                                              ; preds = %346, %342
   %351 = phi ptr [ %.pre515, %346 ], [ %343, %342 ]
   %352 = add nsw i32 %.0293432, -1
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 104
-  store i32 %352, ptr %353, align 8, !tbaa !123
-  %354 = load ptr, ptr %81, align 8, !tbaa !79
+  store i32 %352, ptr %353, align 8, !tbaa !127
+  %354 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %354, ptr noundef nonnull %335) #13
   %355 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %355, ptr noundef %104) #13
   %356 = load ptr, ptr %48, align 8, !tbaa !46
   call void @Cudd_RecursiveDeref(ptr noundef %356, ptr noundef %105) #13
-  %357 = load ptr, ptr %81, align 8, !tbaa !79
+  %357 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %357, ptr noundef %.1297430) #13
   br label %476
 
 358:                                              ; preds = %337
   call void @Cudd_Ref(ptr noundef nonnull %340) #13
-  %359 = load ptr, ptr %81, align 8, !tbaa !79
+  %359 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %359, ptr noundef nonnull %335) #13
-  %360 = load ptr, ptr %81, align 8, !tbaa !79
+  %360 = load ptr, ptr %81, align 8, !tbaa !82
   %361 = call ptr @Cudd_bddOr(ptr noundef %360, ptr noundef %.1297430, ptr noundef nonnull %303) #13
   %362 = icmp eq ptr %361, null
   br i1 %362, label %.loopexit.sink.split.sink.split, label %363
 
 363:                                              ; preds = %358
   call void @Cudd_Ref(ptr noundef nonnull %361) #13
-  %364 = load ptr, ptr %81, align 8, !tbaa !79
+  %364 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %364, ptr noundef %.1297430) #13
-  %365 = load ptr, ptr %81, align 8, !tbaa !79
+  %365 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %365, ptr noundef nonnull %303) #13
-  %366 = load ptr, ptr %0, align 8, !tbaa !115
+  %366 = load ptr, ptr %0, align 8, !tbaa !119
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 64
-  %368 = load i32, ptr %367, align 8, !tbaa !132
+  %368 = load i32, ptr %367, align 8, !tbaa !136
   %.not328 = icmp eq i32 %368, 0
   br i1 %.not328, label %400, label %369
 
 369:                                              ; preds = %363
-  %370 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %370 = load ptr, ptr @stdout, align 8, !tbaa !137
   %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.10, i32 noundef %.0293432) #13
-  %372 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %372 = load ptr, ptr @stdout, align 8, !tbaa !137
   %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str.11, i32 noundef %326) #13
-  %374 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %374 = load ptr, ptr @stdout, align 8, !tbaa !137
   %375 = load ptr, ptr %48, align 8, !tbaa !46
   %376 = call i32 @Cudd_ReadReorderings(ptr noundef %375) #13
   %377 = load ptr, ptr %48, align 8, !tbaa !46
   %378 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %377) #13
   %379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %374, ptr noundef nonnull @.str.12, i32 noundef %376, i32 noundef %378) #13
-  %380 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %380 = load ptr, ptr @stdout, align 8, !tbaa !137
   %381 = call i32 @Cudd_DagSize(ptr noundef nonnull %361) #13
   %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %380, ptr noundef nonnull @.str.13, i32 noundef %381) #13
-  %383 = load ptr, ptr @stdout, align 8, !tbaa !133
-  %384 = load ptr, ptr %81, align 8, !tbaa !79
+  %383 = load ptr, ptr @stdout, align 8, !tbaa !137
+  %384 = load ptr, ptr %81, align 8, !tbaa !82
   %385 = call i32 @Cudd_ReadReorderings(ptr noundef %384) #13
-  %386 = load ptr, ptr %81, align 8, !tbaa !79
+  %386 = load ptr, ptr %81, align 8, !tbaa !82
   %387 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %386) #13
   %388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.14, i32 noundef %385, i32 noundef %387) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
@@ -2519,9 +2519,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %390, label %Abc_Clock.exit356, label %391
 
 391:                                              ; preds = %369
-  %392 = load i64, ptr %4, align 8, !tbaa !112
+  %392 = load i64, ptr %4, align 8, !tbaa !116
   %393 = mul nsw i64 %392, 1000000
-  %394 = load i64, ptr %125, align 8, !tbaa !114
+  %394 = load i64, ptr %125, align 8, !tbaa !118
   %395 = sdiv i64 %394, 1000
   %396 = add nsw i64 %395, %393
   br label %Abc_Clock.exit356
@@ -2534,22 +2534,22 @@ Abc_Clock.exit356:                                ; preds = %369, %391
   %398 = sitofp i64 %397 to double
   %399 = fdiv double %398, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %399)
-  %.pre514 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre514 = load ptr, ptr %0, align 8, !tbaa !119
   br label %400
 
 400:                                              ; preds = %363, %Abc_Clock.exit356
   %401 = phi ptr [ %366, %363 ], [ %.pre514, %Abc_Clock.exit356 ]
   %402 = add nuw nsw i32 %.0293432, 1
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 4
-  %404 = load i32, ptr %403, align 4, !tbaa !124
+  %404 = load i32, ptr %403, align 4, !tbaa !128
   %405 = icmp slt i32 %402, %404
-  br i1 %405, label %126, label %.loopexit, !llvm.loop !134
+  br i1 %405, label %126, label %.loopexit, !llvm.loop !138
 
 .loopexit.sink.split.sink.split:                  ; preds = %358, %330
   %.lcssa578.sink = phi ptr [ %303, %330 ], [ %.1297430, %358 ]
   %.lcssa580.sink.ph = phi ptr [ %.1297430, %330 ], [ %303, %358 ]
   %.2.ph.ph = phi ptr [ null, %330 ], [ %340, %358 ]
-  %406 = load ptr, ptr %81, align 8, !tbaa !79
+  %406 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %406, ptr noundef %.lcssa578.sink) #13
   br label %.loopexit.sink.split
 
@@ -2558,7 +2558,7 @@ Abc_Clock.exit356:                                ; preds = %369, %391
   %.2298.ph = phi ptr [ null, %.loopexit.sink.split.sink.split ], [ %.1297430, %321 ], [ %.1297430, %325 ]
   %.2.ph = phi ptr [ %.2.ph.ph, %.loopexit.sink.split.sink.split ], [ null, %321 ], [ null, %325 ]
   %.1.ph = phi i32 [ %326, %.loopexit.sink.split.sink.split ], [ %326, %325 ], [ %.0292433, %321 ]
-  %407 = load ptr, ptr %81, align 8, !tbaa !79
+  %407 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %407, ptr noundef %.lcssa580.sink) #13
   br label %.loopexit
 
@@ -2576,9 +2576,9 @@ Abc_Clock.exit356:                                ; preds = %369, %391
 
 411:                                              ; preds = %.loopexit
   %412 = add nsw i32 %.0293382, -1
-  %413 = load ptr, ptr %0, align 8, !tbaa !115
+  %413 = load ptr, ptr %0, align 8, !tbaa !119
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 %412, ptr %414, align 8, !tbaa !123
+  store i32 %412, ptr %414, align 8, !tbaa !127
   br label %476
 
 415:                                              ; preds = %.loopexit
@@ -2591,114 +2591,114 @@ Abc_Clock.exit356:                                ; preds = %369, %391
   br label %418
 
 418:                                              ; preds = %416, %415
-  %419 = load ptr, ptr %0, align 8, !tbaa !115
+  %419 = load ptr, ptr %0, align 8, !tbaa !119
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 64
-  %421 = load i32, ptr %420, align 8, !tbaa !132
+  %421 = load i32, ptr %420, align 8, !tbaa !136
   %.not331 = icmp eq i32 %421, 0
   br i1 %.not331, label %444, label %422
 
 422:                                              ; preds = %418
-  %423 = load ptr, ptr %81, align 8, !tbaa !79
+  %423 = load ptr, ptr %81, align 8, !tbaa !82
   %424 = load ptr, ptr %49, align 8, !tbaa !51
   %425 = getelementptr i8, ptr %424, i64 104
-  %.val342 = load i32, ptr %425, align 8, !tbaa !78
+  %.val342 = load i32, ptr %425, align 8, !tbaa !81
   %426 = call double @Cudd_CountMinterm(ptr noundef %423, ptr noundef nonnull %.2298, i32 noundef %.val342) #13
-  %427 = load ptr, ptr %0, align 8, !tbaa !115
+  %427 = load ptr, ptr %0, align 8, !tbaa !119
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 4
-  %429 = load i32, ptr %428, align 4, !tbaa !124
+  %429 = load i32, ptr %428, align 4, !tbaa !128
   %.not332 = icmp slt i32 %.0293382, %429
   br i1 %.not332, label %430, label %433
 
 430:                                              ; preds = %422
-  %431 = load i32, ptr %427, align 8, !tbaa !131
+  %431 = load i32, ptr %427, align 8, !tbaa !135
   %432 = icmp sgt i32 %.1, %431
   %spec.select = select i1 %432, ptr @.str.15, ptr @.str.16
   br label %433
 
 433:                                              ; preds = %430, %422
   %.str.16.sink = phi ptr [ @.str.15, %422 ], [ %spec.select, %430 ]
-  %434 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %434 = load ptr, ptr @stdout, align 8, !tbaa !137
   %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %434, ptr noundef nonnull %.str.16.sink, i32 noundef %.0293382) #13
-  %436 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %436 = load ptr, ptr @stdout, align 8, !tbaa !137
   %437 = fmul double %426, 1.000000e+02
   %438 = load ptr, ptr %49, align 8, !tbaa !51
   %439 = getelementptr i8, ptr %438, i64 104
-  %.val341 = load i32, ptr %439, align 8, !tbaa !78
+  %.val341 = load i32, ptr %439, align 8, !tbaa !81
   %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val341)
   %440 = fdiv double %437, %ldexp
   %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %436, ptr noundef nonnull @.str.17, double noundef %426, double noundef %440) #13
-  %442 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %442 = load ptr, ptr @stdout, align 8, !tbaa !137
   %443 = call i32 @fflush(ptr noundef %442)
-  %.pre516 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre516 = load ptr, ptr %0, align 8, !tbaa !119
   br label %444
 
 444:                                              ; preds = %433, %418
   %445 = phi ptr [ %.pre516, %433 ], [ %419, %418 ]
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 4
-  %447 = load i32, ptr %446, align 4, !tbaa !124
+  %447 = load i32, ptr %446, align 4, !tbaa !128
   %.not333 = icmp slt i32 %.0293382, %447
   br i1 %.not333, label %448, label %451
 
 448:                                              ; preds = %444
-  %449 = load i32, ptr %445, align 8, !tbaa !131
+  %449 = load i32, ptr %445, align 8, !tbaa !135
   %450 = icmp sgt i32 %.1, %449
   br i1 %450, label %451, label %461
 
 451:                                              ; preds = %448, %444
   %452 = getelementptr inbounds nuw i8, ptr %445, i64 72
-  %453 = load i32, ptr %452, align 8, !tbaa !122
+  %453 = load i32, ptr %452, align 8, !tbaa !126
   %.not335 = icmp eq i32 %453, 0
   br i1 %.not335, label %454, label %456
 
 454:                                              ; preds = %451
   %455 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %.0293382)
-  %.pre519 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre519 = load ptr, ptr %0, align 8, !tbaa !119
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre519, i64 4
-  %.pre520 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !124
+  %.pre520 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !128
   br label %456
 
 456:                                              ; preds = %454, %451
   %457 = phi i32 [ %.pre520, %454 ], [ %447, %451 ]
   %458 = phi ptr [ %.pre519, %454 ], [ %445, %451 ]
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 104
-  store i32 %457, ptr %459, align 8, !tbaa !123
-  %460 = load ptr, ptr %81, align 8, !tbaa !79
+  store i32 %457, ptr %459, align 8, !tbaa !127
+  %460 = load ptr, ptr %81, align 8, !tbaa !82
   call void @Cudd_RecursiveDeref(ptr noundef %460, ptr noundef nonnull %.2298) #13
   br label %476
 
 461:                                              ; preds = %448
-  %462 = load ptr, ptr %81, align 8, !tbaa !79
+  %462 = load ptr, ptr %81, align 8, !tbaa !82
   br i1 %.not316, label %465, label %463
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 736
-  store ptr %.2298, ptr %464, align 8, !tbaa !104
-  store ptr %462, ptr %2, align 8, !tbaa !120
-  store ptr null, ptr %81, align 8, !tbaa !79
+  store ptr %.2298, ptr %464, align 8, !tbaa !108
+  store ptr %462, ptr %2, align 8, !tbaa !124
+  store ptr null, ptr %81, align 8, !tbaa !82
   br label %466
 
 465:                                              ; preds = %461
   call void @Cudd_RecursiveDeref(ptr noundef %462, ptr noundef nonnull %.2298) #13
-  %.pre517 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre517 = load ptr, ptr %0, align 8, !tbaa !119
   br label %466
 
 466:                                              ; preds = %465, %463
   %467 = phi ptr [ %.pre517, %465 ], [ %445, %463 ]
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 72
-  %469 = load i32, ptr %468, align 8, !tbaa !122
+  %469 = load i32, ptr %468, align 8, !tbaa !126
   %.not334 = icmp eq i32 %469, 0
   br i1 %.not334, label %470, label %472
 
 470:                                              ; preds = %466
   %471 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.0293382)
-  %.pre518 = load ptr, ptr %0, align 8, !tbaa !115
+  %.pre518 = load ptr, ptr %0, align 8, !tbaa !119
   br label %472
 
 472:                                              ; preds = %470, %466
   %473 = phi ptr [ %.pre518, %470 ], [ %467, %466 ]
   %474 = add nsw i32 %.0293382, -1
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 104
-  store i32 %474, ptr %475, align 8, !tbaa !123
+  store i32 %474, ptr %475, align 8, !tbaa !127
   br label %476
 
 476:                                              ; preds = %472, %456, %411, %350, %313, %286, %254, %176, %155, %100
@@ -2735,7 +2735,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #13
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !133
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !137
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
@@ -2743,7 +2743,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !133, !noalias !135
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !137, !noalias !139
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #13
   br label %17
 
@@ -2790,10 +2790,10 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #6 {
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr %1, align 8, !tbaa !112
+  %5 = load i64, ptr %1, align 8, !tbaa !116
   %6 = mul nsw i64 %5, 1000000
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !114
+  %8 = load i64, ptr %7, align 8, !tbaa !118
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
   br label %11
@@ -2925,70 +2925,74 @@ attributes #16 = { nounwind willreturn memory(read) }
 !68 = distinct !{!68, !44}
 !69 = !{!47, !19, i64 88}
 !70 = !{!47, !19, i64 96}
-!71 = distinct !{!71, !44}
-!72 = distinct !{!72, !44}
-!73 = !{!12, !10, i64 108}
-!74 = distinct !{!74, !44}
+!71 = distinct !{!71, !44, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !44, !72}
+!74 = !{!12, !10, i64 108}
 !75 = distinct !{!75, !44}
 !76 = distinct !{!76, !44}
 !77 = distinct !{!77, !44}
-!78 = !{!12, !10, i64 104}
-!79 = !{!47, !49, i64 32}
-!80 = !{!12, !14, i64 16}
-!81 = distinct !{!81, !44}
-!82 = !{!47, !50, i64 72}
-!83 = !{!84, !10, i64 12}
-!84 = !{!"Llb_Mtr_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !16, i64 16, !85, i64 24, !16, i64 32, !86, i64 40, !54, i64 48, !13, i64 56, !16, i64 64}
-!85 = !{!"p2 _ZTS10Llb_Grp_t_", !5, i64 0}
-!86 = !{!"p2 omnipotent char", !5, i64 0}
-!87 = !{!84, !85, i64 24}
-!88 = !{!55, !55, i64 0}
-!89 = distinct !{!89, !44}
-!90 = distinct !{!90, !44}
-!91 = distinct !{!91, !44}
-!92 = !{!12, !14, i64 24}
-!93 = !{!12, !10, i64 112}
-!94 = !{!47, !21, i64 8}
-!95 = distinct !{!95, !44}
-!96 = !{!60, !10, i64 4}
-!97 = !{!12, !14, i64 32}
-!98 = distinct !{!98, !44}
-!99 = !{!47, !49, i64 40}
-!100 = !{!47, !14, i64 80}
-!101 = !{!102, !10, i64 4}
-!102 = !{!"Abc_Cex_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 20}
-!103 = !{!102, !10, i64 0}
-!104 = !{!24, !26, i64 736}
-!105 = distinct !{!105, !44}
-!106 = !{!47, !19, i64 128}
-!107 = !{!47, !19, i64 112}
-!108 = distinct !{!108, !44}
+!78 = distinct !{!78, !44}
+!79 = distinct !{!79, !44}
+!80 = distinct !{!80, !44}
+!81 = !{!12, !10, i64 104}
+!82 = !{!47, !49, i64 32}
+!83 = !{!12, !14, i64 16}
+!84 = distinct !{!84, !44}
+!85 = !{!47, !50, i64 72}
+!86 = !{!87, !10, i64 12}
+!87 = !{!"Llb_Mtr_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !16, i64 16, !88, i64 24, !16, i64 32, !89, i64 40, !54, i64 48, !13, i64 56, !16, i64 64}
+!88 = !{!"p2 _ZTS10Llb_Grp_t_", !5, i64 0}
+!89 = !{!"p2 omnipotent char", !5, i64 0}
+!90 = !{!87, !88, i64 24}
+!91 = !{!55, !55, i64 0}
+!92 = distinct !{!92, !44}
+!93 = distinct !{!93, !44, !72}
+!94 = distinct !{!94, !44}
+!95 = !{!12, !14, i64 24}
+!96 = !{!12, !10, i64 112}
+!97 = distinct !{!97, !44}
+!98 = !{!47, !21, i64 8}
+!99 = distinct !{!99, !44}
+!100 = !{!60, !10, i64 4}
+!101 = !{!12, !14, i64 32}
+!102 = distinct !{!102, !44}
+!103 = !{!47, !49, i64 40}
+!104 = !{!47, !14, i64 80}
+!105 = !{!106, !10, i64 4}
+!106 = !{!"Abc_Cex_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 20}
+!107 = !{!106, !10, i64 0}
+!108 = !{!24, !26, i64 736}
 !109 = distinct !{!109, !44}
-!110 = !{!47, !19, i64 104}
-!111 = !{!47, !19, i64 120}
-!112 = !{!113, !22, i64 0}
-!113 = !{!"timespec", !22, i64 0, !22, i64 8}
-!114 = !{!113, !22, i64 8}
-!115 = !{!47, !48, i64 0}
-!116 = !{!117, !10, i64 84}
-!117 = !{!"Gia_ParLlb_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !22, i64 96, !10, i64 104}
-!118 = !{!117, !22, i64 96}
-!119 = !{!47, !19, i64 56}
-!120 = !{!49, !49, i64 0}
-!121 = !{!117, !10, i64 40}
-!122 = !{!117, !10, i64 72}
-!123 = !{!117, !10, i64 104}
-!124 = !{!117, !10, i64 4}
-!125 = !{!38, !10, i64 0}
-!126 = !{!117, !10, i64 80}
-!127 = !{!117, !10, i64 36}
-!128 = !{!12, !20, i64 408}
-!129 = !{!12, !13, i64 0}
-!130 = !{!47, !14, i64 64}
-!131 = !{!117, !10, i64 0}
-!132 = !{!117, !10, i64 64}
-!133 = !{!36, !36, i64 0}
-!134 = distinct !{!134, !44}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"vprintf: argument 0"}
-!137 = distinct !{!137, !"vprintf"}
+!110 = !{!47, !19, i64 128}
+!111 = !{!47, !19, i64 112}
+!112 = distinct !{!112, !44}
+!113 = distinct !{!113, !44}
+!114 = !{!47, !19, i64 104}
+!115 = !{!47, !19, i64 120}
+!116 = !{!117, !22, i64 0}
+!117 = !{!"timespec", !22, i64 0, !22, i64 8}
+!118 = !{!117, !22, i64 8}
+!119 = !{!47, !48, i64 0}
+!120 = !{!121, !10, i64 84}
+!121 = !{!"Gia_ParLlb_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !22, i64 96, !10, i64 104}
+!122 = !{!121, !22, i64 96}
+!123 = !{!47, !19, i64 56}
+!124 = !{!49, !49, i64 0}
+!125 = !{!121, !10, i64 40}
+!126 = !{!121, !10, i64 72}
+!127 = !{!121, !10, i64 104}
+!128 = !{!121, !10, i64 4}
+!129 = !{!38, !10, i64 0}
+!130 = !{!121, !10, i64 80}
+!131 = !{!121, !10, i64 36}
+!132 = !{!12, !20, i64 408}
+!133 = !{!12, !13, i64 0}
+!134 = !{!47, !14, i64 64}
+!135 = !{!121, !10, i64 0}
+!136 = !{!121, !10, i64 64}
+!137 = !{!36, !36, i64 0}
+!138 = distinct !{!138, !44}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"vprintf: argument 0"}
+!141 = distinct !{!141, !"vprintf"}

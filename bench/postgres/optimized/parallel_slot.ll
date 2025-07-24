@@ -81,7 +81,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, pr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !6
+  br i1 %34, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !9
 
 find_matching_idle_slot.exit:                     ; preds = %27, %15
   %.012.i.in = phi i64 [ %indvars.iv25.i, %15 ], [ %indvars.iv.i, %27 ]
@@ -125,7 +125,7 @@ find_matching_idle_slot.exit.thread:              ; preds = %31, %18, %find_matc
 50:                                               ; preds = %47, %42
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i36, label %42, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph.i36, label %42, !llvm.loop !10
 
 find_unconnected_slot.exit:                       ; preds = %47
   %51 = trunc nuw nsw i64 %indvars.iv.i34 to i32
@@ -147,7 +147,7 @@ find_unconnected_slot.exit:                       ; preds = %47
 58:                                               ; preds = %.lr.ph.i36
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !9
+  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !11
 
 find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
   %59 = trunc nuw nsw i64 %indvars.iv.i38 to i32
@@ -209,7 +209,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %58
   %83 = load i32, ptr %0, align 8
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next.i43, %84
-  br i1 %85, label %64, label %._crit_edge.i, !llvm.loop !10
+  br i1 %85, label %64, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %82
   %86 = add nuw i32 %.151.i, 1
@@ -331,7 +331,7 @@ wait_on_slots.exit.thread67:                      ; preds = %select_loop.exit.i
   %134 = load i32, ptr %0, align 8
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next85.i, %135
-  br i1 %136, label %.lr.ph80.i, label %wait_on_slots.exit, !llvm.loop !11
+  br i1 %136, label %.lr.ph80.i, label %wait_on_slots.exit, !llvm.loop !13
 
 wait_on_slots.exit.thread:                        ; preds = %._crit_edge.i, %125, %select_loop.exit.thread.i, %find_any_idle_slot.exit.thread.thread
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
@@ -460,7 +460,7 @@ define dso_local void @ParallelSlotsAdoptConn(ptr noundef captures(none) %0, ptr
 14:                                               ; preds = %11, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_unconnected_slot.exit.thread, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %find_unconnected_slot.exit.thread, label %6, !llvm.loop !10
 
 find_unconnected_slot.exit:                       ; preds = %11
   %15 = and i64 %indvars.iv.i, 4294967295
@@ -504,7 +504,7 @@ define dso_local void @ParallelSlotsTerminate(ptr noundef readonly captures(none
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %5, label %._crit_edge, !llvm.loop !12
+  br i1 %14, label %5, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %11, %1
   ret void
@@ -562,7 +562,7 @@ processQueryResult.exit.i:                        ; preds = %21, %15
   %22 = load ptr, ptr %7, align 8
   %23 = tail call ptr @PQgetResult(ptr noundef %22) #9
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %consumeQueryResult.exit, label %15, !llvm.loop !13
+  br i1 %.not.i, label %consumeQueryResult.exit, label %15, !llvm.loop !15
 
 consumeQueryResult.exit:                          ; preds = %processQueryResult.exit.i
   tail call void @ResetCancelConn() #9
@@ -581,7 +581,7 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %28 to i64
   %.not = icmp slt i64 %indvars.iv.next, %29
-  br i1 %.not, label %5, label %._crit_edge, !llvm.loop !14
+  br i1 %.not, label %5, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %consumeQueryResult.exit, %27, %1
   %.lcssa = phi i1 [ true, %1 ], [ true, %27 ], [ false, %consumeQueryResult.exit ]
@@ -686,12 +686,14 @@ attributes #12 = { cold noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

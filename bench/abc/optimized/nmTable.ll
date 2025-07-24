@@ -291,7 +291,7 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %84
   %136 = getelementptr inbounds nuw i8, ptr %.033.us.us.i, i64 24
   %137 = load ptr, ptr %136, align 8, !tbaa !32
   %.not27.us.us.i = icmp eq ptr %137, %.02237.us.i
-  br i1 %.not27.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !34
+  br i1 %.not27.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !35
 
 Nm_ManTableLookupName.exit:                       ; preds = %.lr.ph40.split.us.i, %.lr.ph.us.i
   %.023.i = phi ptr [ %.033.us.us.i, %.lr.ph.us.i ], [ %.02237.us.i, %.lr.ph40.split.us.i ]
@@ -421,7 +421,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   %36 = getelementptr inbounds nuw i8, ptr %.033.us.us, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %.not27.us.us = icmp eq ptr %37, %.02237.us
-  br i1 %.not27.us.us, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !34
+  br i1 %.not27.us.us, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !35
 
 .lr.ph40.split.split:                             ; preds = %.lr.ph40, %.loopexit
   %.02237 = phi ptr [ %.022, %.loopexit ], [ %.02235, %.lr.ph40 ]
@@ -431,7 +431,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   br i1 %.not26, label %40, label %43
 
 40:                                               ; preds = %.lr.ph40.split.split
-  %41 = load i32, ptr %.02237, align 8, !tbaa !35
+  %41 = load i32, ptr %.02237, align 8, !tbaa !36
   %42 = icmp eq i32 %41, %2
   br i1 %42, label %.loopexit29, label %43
 
@@ -451,7 +451,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   br i1 %.not28, label %49, label %52
 
 49:                                               ; preds = %.lr.ph
-  %50 = load i32, ptr %.033, align 8, !tbaa !35
+  %50 = load i32, ptr %.033, align 8, !tbaa !36
   %51 = icmp eq i32 %50, %2
   br i1 %51, label %.loopexit29, label %52
 
@@ -459,13 +459,13 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   %53 = getelementptr inbounds nuw i8, ptr %.033, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !32
   %.not27 = icmp eq ptr %54, %.02237
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %52, %43
   %55 = getelementptr inbounds nuw i8, ptr %.02237, i64 16
   %.022 = load ptr, ptr %55, align 8, !tbaa !19
   %.not = icmp eq ptr %.022, null
-  br i1 %.not, label %.loopexit29, label %.lr.ph40.split.split, !llvm.loop !33
+  br i1 %.not, label %.loopexit29, label %.lr.ph40.split.split, !llvm.loop !38
 
 .loopexit29:                                      ; preds = %40, %.loopexit, %49, %.lr.ph40.split.us, %.loopexit.us, %.lr.ph.us, %Nm_HashString.exit
   %.023 = phi ptr [ null, %Nm_HashString.exit ], [ %.033.us.us, %.lr.ph.us ], [ %.02237.us, %.lr.ph40.split.us ], [ null, %.loopexit.us ], [ %.033, %49 ], [ %.02237, %40 ], [ null, %.loopexit ]
@@ -509,7 +509,7 @@ define noundef i32 @Nm_ManTableDelete(ptr noundef captures(none) %0, i32 noundef
   %28 = load i32, ptr %27, align 4, !tbaa !23
   %.not = icmp eq i32 %28, %1
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br i1 %.not, label %30, label %25, !llvm.loop !36
+  br i1 %.not, label %30, label %25, !llvm.loop !39
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %29, align 8, !tbaa !21
@@ -554,7 +554,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %30
   %.not42 = icmp eq ptr %53, %26
   %or.cond = or i1 %.not41, %.not42
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  br i1 %or.cond, label %.critedge, label %52, !llvm.loop !37
+  br i1 %or.cond, label %.critedge, label %52, !llvm.loop !40
 
 .critedge:                                        ; preds = %52
   br i1 %.not41, label %57, label %55
@@ -575,7 +575,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %30
   %61 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !32
   %.not44 = icmp eq ptr %62, %26
-  br i1 %.not44, label %63, label %.preheader, !llvm.loop !38
+  br i1 %.not44, label %63, label %.preheader, !llvm.loop !41
 
 63:                                               ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %.036, i64 24
@@ -631,7 +631,7 @@ define ptr @Nm_ManTableLookupId(ptr noundef readonly captures(none) %0, i32 noun
   %26 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %.0 = load ptr, ptr %26, align 8, !tbaa !19
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %25 ], [ %.011, %.lr.ph ]
@@ -664,7 +664,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
   %9 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %.019 = load ptr, ptr %9, align 8, !tbaa !19
   %.not22 = icmp eq ptr %.019, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph29
   %.017.lcssa = phi i32 [ 0, %.lr.ph29 ], [ %8, %.lr.ph ]
@@ -673,7 +673,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
   %11 = load i32, ptr %3, align 8, !tbaa !11
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph29, label %._crit_edge30, !llvm.loop !41
+  br i1 %13, label %.lr.ph29, label %._crit_edge30, !llvm.loop !44
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %1
   %putchar = tail call i32 @putchar(i32 10)
@@ -701,7 +701,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
   %22 = getelementptr inbounds nuw i8, ptr %.12034, i64 16
   %.120 = load ptr, ptr %22, align 8, !tbaa !19
   %.not = icmp eq ptr %.120, null
-  br i1 %.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !42
+  br i1 %.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !45
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %18
   %.118.lcssa = phi i32 [ 0, %18 ], [ %21, %.lr.ph36 ]
@@ -710,7 +710,7 @@ define void @Nm_ManProfile(ptr noundef readonly captures(none) %0) local_unnamed
   %24 = load i32, ptr %3, align 8, !tbaa !11
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next46, %25
-  br i1 %26, label %18, label %._crit_edge42, !llvm.loop !43
+  br i1 %26, label %18, label %._crit_edge42, !llvm.loop !46
 
 ._crit_edge42:                                    ; preds = %._crit_edge37, %._crit_edge30
   %putchar21 = tail call i32 @putchar(i32 10)
@@ -782,10 +782,10 @@ attributes #13 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !17}
 !31 = distinct !{!31, !17}
 !32 = !{!22, !20, i64 24}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = !{!22, !9, i64 0}
-!36 = distinct !{!36, !17}
+!33 = distinct !{!33, !17, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !17, !34}
+!36 = !{!22, !9, i64 0}
 !37 = distinct !{!37, !17}
 !38 = distinct !{!38, !17}
 !39 = distinct !{!39, !17}
@@ -793,3 +793,6 @@ attributes #13 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !17}
 !42 = distinct !{!42, !17}
 !43 = distinct !{!43, !17}
+!44 = distinct !{!44, !17}
+!45 = distinct !{!45, !17}
+!46 = distinct !{!46, !17}

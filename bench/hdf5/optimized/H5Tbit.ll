@@ -157,7 +157,7 @@ define void @H5T__bit_copy(ptr noundef captures(none) %0, i64 noundef %1, ptr no
   %82 = add i64 %.2123150, 1
   %83 = add i64 %.2119151, 1
   %84 = icmp ugt i64 %81, 8
-  br i1 %84, label %.lr.ph154.split, label %.lr.ph166.preheader, !llvm.loop !13
+  br i1 %84, label %.lr.ph154.split, label %.lr.ph166.preheader, !llvm.loop !15
 
 .lr.ph166.preheader:                              ; preds = %.lr.ph154.split, %.lr.ph154.split.us, %.preheader
   %.2116163.ph = phi i64 [ %.0114.lcssa, %.preheader ], [ %60, %.lr.ph154.split.us ], [ %81, %.lr.ph154.split ]
@@ -206,7 +206,7 @@ define void @H5T__bit_copy(ptr noundef captures(none) %0, i64 noundef %1, ptr no
   %.4125 = add i64 %.3124161, %111
   %112 = sub i64 %.2116163, %.2116.
   %.not = icmp eq i64 %112, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph166, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph166, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph166, %.preheader, %5
   ret void
@@ -230,7 +230,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %.not107 = select i1 %not., i1 %9, i1 false
   %.not = icmp eq i64 %1, 0
   %or.cond = or i1 %.not, %.not107
-  br i1 %or.cond, label %H5T__bit_set.exit, label %10, !prof !15
+  br i1 %or.cond, label %H5T__bit_set.exit, label %10, !prof !17
 
 10:                                               ; preds = %4
   %11 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
@@ -308,8 +308,8 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
-  %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
-  %52 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
+  %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !18
+  %52 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !18
   %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.1) #7
   br label %H5T__bit_set.exit
 
@@ -321,8 +321,8 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %54
-  %60 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
-  %61 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
+  %60 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !18
+  %61 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !18
   %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #7
   br label %153
 
@@ -487,8 +487,8 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %155, label %156, label %H5T__bit_set.exit
 
 156:                                              ; preds = %153
-  %157 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
-  %158 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !16
+  %157 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !18
+  %158 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !18
   %159 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.3) #7
   br label %H5T__bit_set.exit
 
@@ -575,7 +575,7 @@ define void @H5T__bit_set(ptr noundef captures(none) %0, i64 noundef %1, i64 nou
   %.145 = phi i64 [ %.0, %.lr.ph ], [ %49, %48 ]
   %49 = add i64 %.145, -8
   %50 = icmp ugt i64 %49, 7
-  br i1 %50, label %48, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %50, label %48, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %48
   %51 = trunc i64 %46 to i32
@@ -618,7 +618,7 @@ declare i32 @H5WB_unwrap(ptr noundef) local_unnamed_addr #3
 define i64 @H5T__bit_get_d(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 0, ptr %4, align 8, !tbaa !16
+  store i64 0, ptr %4, align 8, !tbaa !18
   %5 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -629,7 +629,7 @@ define i64 @H5T__bit_get_d(ptr noundef readonly captures(none) %0, i64 noundef %
 
 11:                                               ; preds = %3
   call void @H5T__bit_copy(ptr noundef nonnull %4, i64 noundef 0, ptr noundef %0, i64 noundef %1, i64 noundef %2)
-  %12 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !19
+  %12 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !21
   %cond = icmp eq i32 %12, 1
   br i1 %cond, label %.preheader, label %.loopexit
 
@@ -644,10 +644,10 @@ define i64 @H5T__bit_get_d(ptr noundef readonly captures(none) %0, i64 noundef %
   store i8 %18, ptr %13, align 1, !tbaa !10
   store i8 %14, ptr %17, align 1, !tbaa !10
   %exitcond.not = icmp eq i64 %15, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %11
-  %19 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = load i64, ptr %4, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %.loopexit, %3
@@ -659,7 +659,7 @@ define i64 @H5T__bit_get_d(ptr noundef readonly captures(none) %0, i64 noundef %
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @H5T__bit_set_d(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  store i64 %3, ptr %5, align 8, !tbaa !16
+  store i64 %3, ptr %5, align 8, !tbaa !18
   %6 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -669,7 +669,7 @@ define void @H5T__bit_set_d(ptr noundef captures(none) %0, i64 noundef %1, i64 n
   br i1 %11, label %12, label %20, !prof !9
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !19
+  %13 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !21
   %cond = icmp eq i32 %13, 1
   br i1 %cond, label %.preheader, label %.loopexit
 
@@ -684,7 +684,7 @@ define void @H5T__bit_set_d(ptr noundef captures(none) %0, i64 noundef %1, i64 n
   store i8 %19, ptr %14, align 1, !tbaa !10
   store i8 %15, ptr %18, align 1, !tbaa !10
   %exitcond.not = icmp eq i64 %16, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %12
   call void @H5T__bit_copy(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, i64 noundef 0, i64 noundef %2)
@@ -745,7 +745,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
   %29 = icmp samesign ult i64 %.091136, 7
   %30 = icmp ne i64 %28, 0
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %19, label %._crit_edge138, !llvm.loop !23
+  br i1 %31, label %19, label %._crit_edge138, !llvm.loop !25
 
 ._crit_edge138:                                   ; preds = %26, %.preheader113
   %.199.lcssa = phi i64 [ 0, %.preheader113 ], [ %28, %26 ]
@@ -804,13 +804,13 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 55:                                               ; preds = %.preheader111
   %56 = add nuw nsw i64 %.092140, 1
   %exitcond.not = icmp eq i64 %56, 8
-  br i1 %exitcond.not, label %.loopexit112, label %.preheader111, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit112, label %.preheader111, !llvm.loop !26
 
 .loopexit112:                                     ; preds = %55, %43
   %57 = add i64 %.2100141, -8
   %58 = add nuw nsw i64 %.196142, 1
   %59 = icmp ugt i64 %57, 7
-  br i1 %59, label %43, label %.preheader, !llvm.loop !25
+  br i1 %59, label %43, label %.preheader, !llvm.loop !27
 
 60:                                               ; preds = %.lr.ph148, %69
   %.193147 = phi i64 [ 0, %.lr.ph148 ], [ %70, %69 ]
@@ -829,7 +829,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 69:                                               ; preds = %60
   %70 = add nuw i64 %.193147, 1
   %exitcond166.not = icmp eq i64 %70, %.2100.lcssa
-  br i1 %exitcond166.not, label %.loopexit, label %60, !llvm.loop !26
+  br i1 %exitcond166.not, label %.loopexit, label %60, !llvm.loop !28
 
 71:                                               ; preds = %12
   %72 = add i64 %2, %1
@@ -867,7 +867,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 93:                                               ; preds = %83
   %.not106 = icmp eq i64 %84, 0
-  br i1 %.not106, label %94, label %83, !llvm.loop !27
+  br i1 %.not106, label %94, label %83, !llvm.loop !29
 
 94:                                               ; preds = %93
   %95 = add nsw i64 %74, -1
@@ -909,13 +909,13 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 111:                                              ; preds = %.preheader115
   %112 = add nsw i64 %.294131, -1
   %.not167 = icmp eq i64 %.294131, 0
-  br i1 %.not167, label %.loopexit116, label %.preheader115, !llvm.loop !28
+  br i1 %.not167, label %.loopexit116, label %.preheader115, !llvm.loop !30
 
 .loopexit116:                                     ; preds = %111, %99
   %113 = add i64 %.5132, -8
   %114 = add nsw i64 %.3133, -1
   %115 = icmp ugt i64 %113, 7
-  br i1 %115, label %99, label %._crit_edge, !llvm.loop !29
+  br i1 %115, label %99, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit116, %96
   %.5.lcssa = phi i64 [ %.3101, %96 ], [ %113, %.loopexit116 ]
@@ -941,7 +941,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
   %126 = lshr i32 %120, %125
   %127 = trunc i32 %126 to i1
   %128 = xor i1 %4, %127
-  br i1 %128, label %121, label %129, !llvm.loop !30
+  br i1 %128, label %121, label %129, !llvm.loop !32
 
 129:                                              ; preds = %123
   %130 = shl nsw i64 %.3.lcssa, 3
@@ -1027,7 +1027,7 @@ define zeroext i1 @H5T__bit_inc(ptr noundef captures(none) %0, i64 noundef %1, i
   %52 = icmp ne i32 %48, 0
   %53 = icmp ugt i64 %51, 7
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   %.166.lcssa = phi i64 [ %.065, %40 ], [ %51, %.lr.ph ]
@@ -1112,7 +1112,7 @@ define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i
   %.062 = add nuw nsw i64 %.06273, 1
   %32 = icmp ugt i64 %31, 7
   %33 = select i1 %.not69, i1 %32, i1 false
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.061.lcssa = phi i64 [ %25, %20 ], [ %31, %.lr.ph ]
@@ -1210,7 +1210,7 @@ define void @H5T__bit_neg(ptr noundef captures(none) %0, i64 noundef %1, i64 nou
   %28 = add i64 %.035, -8
   %.032 = add nuw nsw i64 %.03236, 1
   %29 = icmp ugt i64 %28, 7
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %.0.lcssa = phi i64 [ %23, %21 ], [ %28, %.lr.ph ]
@@ -1268,16 +1268,16 @@ attributes #7 = { nounwind }
 !10 = !{!5, !5, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = !{!"branch_weights", i32 2002, i32 2000}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = distinct !{!18, !12}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !5, i64 0}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
+!13 = distinct !{!13, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = !{!"branch_weights", i32 2002, i32 2000}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !5, i64 0}
+!20 = distinct !{!20, !12}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !5, i64 0}
 !23 = distinct !{!23, !12}
 !24 = distinct !{!24, !12}
 !25 = distinct !{!25, !12}
@@ -1289,3 +1289,5 @@ attributes #7 = { nounwind }
 !31 = distinct !{!31, !12}
 !32 = distinct !{!32, !12}
 !33 = distinct !{!33, !12}
+!34 = distinct !{!34, !12}
+!35 = distinct !{!35, !12}

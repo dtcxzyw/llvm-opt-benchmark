@@ -34647,8 +34647,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %346
   %353 = add i64 %352, %.sroa.6.0.i.i
   %354 = icmp ugt i64 %353, %.sroa.3.0.i200
   %355 = add i64 %.sroa.6.0.i.i, %337
-  %or.cond.i.not.i = icmp ult i64 %355, %.sroa.3.0.i200
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i", label %356
+  %or.cond83.i.not.i = icmp ult i64 %355, %.sroa.3.0.i200
+  br i1 %or.cond83.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i", label %356
 
 356:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i", %351
   %357 = sub nuw i64 %.sroa.3.0.i200, %353

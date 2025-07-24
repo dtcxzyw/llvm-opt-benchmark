@@ -1794,7 +1794,7 @@ thread-pre-split:                                 ; preds = %144, %158
 887:                                              ; preds = %875, %.lr.ph1730.split
   %indvars.iv.next1777 = add nuw nsw i64 %indvars.iv1776, 1
   %.not1359.not = icmp slt i64 %indvars.iv1776, %838
-  br i1 %.not1359.not, label %.lr.ph1730.split, label %.loopexit, !llvm.loop !19
+  br i1 %.not1359.not, label %.lr.ph1730.split, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %887, %865, %.loopexit1428, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
@@ -1883,4 +1883,6 @@ attributes #6 = { nounwind }
 !16 = distinct !{!16, !10}
 !17 = distinct !{!17, !10}
 !18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!19 = distinct !{!19, !10, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !10}

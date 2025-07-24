@@ -4978,12 +4978,12 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   store float %75, ptr %76, align 4, !tbaa !153
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
-  br i1 %exitcond19.not, label %.split9.us, label %.split, !llvm.loop !488
+  br i1 %exitcond19.not, label %.split9.us, label %.split, !llvm.loop !490
 
 .split9.us:                                       ; preds = %.split.us, %.split
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count
-  br i1 %exitcond23.not, label %._crit_edge, label %43, !llvm.loop !489
+  br i1 %exitcond23.not, label %._crit_edge, label %43, !llvm.loop !491
 
 ._crit_edge:                                      ; preds = %.split9.us, %12
   store ptr %31, ptr %13, align 8, !tbaa !322
@@ -4993,23 +4993,23 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   store ptr %79, ptr %77, align 8, !tbaa !324
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %33, ptr %80, align 8, !tbaa !325
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %82 = load ptr, ptr %81, align 8, !tbaa !160, !noalias !490
+  %82 = load ptr, ptr %81, align 8, !tbaa !160, !noalias !492
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %28 to i64
   %85 = sub i64 %83, %84
   %86 = getelementptr inbounds i8, ptr %28, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %88 = load ptr, ptr %87, align 8, !tbaa !445, !noalias !490
+  %88 = load ptr, ptr %87, align 8, !tbaa !445, !noalias !492
   %89 = ptrtoint ptr %88 to i64
   %90 = sub i64 %89, %84
   %91 = getelementptr inbounds i8, ptr %28, i64 %90
-  store ptr %28, ptr %14, align 8, !tbaa !322, !alias.scope !490
+  store ptr %28, ptr %14, align 8, !tbaa !322, !alias.scope !492
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %86, ptr %92, align 8, !tbaa !324, !alias.scope !490
+  store ptr %86, ptr %92, align 8, !tbaa !324, !alias.scope !492
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %91, ptr %93, align 8, !tbaa !325, !alias.scope !490
+  store ptr %91, ptr %93, align 8, !tbaa !325, !alias.scope !492
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %94 = inttoptr i64 %.0.val3 to ptr
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -5025,24 +5025,24 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   %102 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %103 = load ptr, ptr %32, align 8, !tbaa !325
   store ptr %103, ptr %102, align 8, !tbaa !325
-  call void @llvm.experimental.noalias.scope.decl(metadata !493)
-  %104 = load ptr, ptr %27, align 8, !tbaa !426, !noalias !493
+  call void @llvm.experimental.noalias.scope.decl(metadata !495)
+  %104 = load ptr, ptr %27, align 8, !tbaa !426, !noalias !495
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %106 = load ptr, ptr %105, align 8, !tbaa !160, !noalias !493
+  %106 = load ptr, ptr %105, align 8, !tbaa !160, !noalias !495
   %107 = ptrtoint ptr %106 to i64
   %108 = ptrtoint ptr %104 to i64
   %109 = sub i64 %107, %108
   %110 = getelementptr inbounds i8, ptr %104, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %112 = load ptr, ptr %111, align 8, !tbaa !445, !noalias !493
+  %112 = load ptr, ptr %111, align 8, !tbaa !445, !noalias !495
   %113 = ptrtoint ptr %112 to i64
   %114 = sub i64 %113, %108
   %115 = getelementptr inbounds i8, ptr %104, i64 %114
-  store ptr %104, ptr %18, align 8, !tbaa !322, !alias.scope !493
+  store ptr %104, ptr %18, align 8, !tbaa !322, !alias.scope !495
   %116 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %110, ptr %116, align 8, !tbaa !324, !alias.scope !493
+  store ptr %110, ptr %116, align 8, !tbaa !324, !alias.scope !495
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %115, ptr %117, align 8, !tbaa !325, !alias.scope !493
+  store ptr %115, ptr %117, align 8, !tbaa !325, !alias.scope !495
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %118 = load float, ptr %95, align 4, !tbaa !153
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -5093,7 +5093,7 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   store float %147, ptr %135, align 4, !tbaa !153
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 3
-  br i1 %exitcond27.not, label %148, label %128, !llvm.loop !496
+  br i1 %exitcond27.not, label %148, label %128, !llvm.loop !498
 
 148:                                              ; preds = %128
   %149 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %125, i64 %indvars.iv28
@@ -5104,7 +5104,7 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   store float 0.000000e+00, ptr %151, align 4, !tbaa !153
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %._crit_edge13, label %.preheader, !llvm.loop !497
+  br i1 %exitcond32.not, label %._crit_edge13, label %.preheader, !llvm.loop !499
 
 ._crit_edge13:                                    ; preds = %148, %._crit_edge.._crit_edge13_crit_edge
   %152 = phi ptr [ %.pre, %._crit_edge.._crit_edge13_crit_edge ], [ %125, %148 ]
@@ -5118,22 +5118,22 @@ define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK
   %158 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %159 = load ptr, ptr %153, align 8, !tbaa !325
   store ptr %159, ptr %158, align 8, !tbaa !325
-  call void @llvm.experimental.noalias.scope.decl(metadata !498)
-  %160 = load ptr, ptr %27, align 8, !tbaa !426, !noalias !498
-  %161 = load ptr, ptr %105, align 8, !tbaa !160, !noalias !498
+  call void @llvm.experimental.noalias.scope.decl(metadata !500)
+  %160 = load ptr, ptr %27, align 8, !tbaa !426, !noalias !500
+  %161 = load ptr, ptr %105, align 8, !tbaa !160, !noalias !500
   %162 = ptrtoint ptr %161 to i64
   %163 = ptrtoint ptr %160 to i64
   %164 = sub i64 %162, %163
   %165 = getelementptr inbounds i8, ptr %160, i64 %164
-  %166 = load ptr, ptr %111, align 8, !tbaa !445, !noalias !498
+  %166 = load ptr, ptr %111, align 8, !tbaa !445, !noalias !500
   %167 = ptrtoint ptr %166 to i64
   %168 = sub i64 %167, %163
   %169 = getelementptr inbounds i8, ptr %160, i64 %168
-  store ptr %160, ptr %22, align 8, !tbaa !322, !alias.scope !498
+  store ptr %160, ptr %22, align 8, !tbaa !322, !alias.scope !500
   %170 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %165, ptr %170, align 8, !tbaa !324, !alias.scope !498
+  store ptr %165, ptr %170, align 8, !tbaa !324, !alias.scope !500
   %171 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %169, ptr %171, align 8, !tbaa !325, !alias.scope !498
+  store ptr %169, ptr %171, align 8, !tbaa !325, !alias.scope !500
   store ptr %152, ptr %23, align 8, !tbaa !446
   %172 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5169,7 +5169,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !501
+  %7 = load ptr, ptr %6, align 8, !tbaa !503
   %8 = load ptr, ptr %0, align 8, !tbaa !426
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -5203,11 +5203,11 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocat
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_M_allocateEm.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %20, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !163, !alias.scope !502
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !163, !alias.scope !504
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %26, %25
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !506
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !508
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !426
@@ -5227,7 +5227,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocat
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store ptr %30, ptr %15, align 8, !tbaa !445
   %31 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %20, i64 %1
-  store ptr %31, ptr %6, align 8, !tbaa !501
+  store ptr %31, ptr %6, align 8, !tbaa !503
   br label %32
 
 32:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE13_M_deallocateEPS2_m.exit, %5
@@ -5250,7 +5250,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !501
+  %12 = load ptr, ptr %11, align 8, !tbaa !503
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 12
@@ -5299,11 +5299,11 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPol
 .lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %27, %31 ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !163, !alias.scope !507
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !163, !alias.scope !509
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %33, %5
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !506
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !508
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %31
   %.not.i31 = icmp eq ptr %6, null
@@ -5318,7 +5318,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocat
   %36 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %32, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !445
   %37 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %27, i64 %25
-  store ptr %37, ptr %11, align 8, !tbaa !501
+  store ptr %37, ptr %11, align 8, !tbaa !503
   br label %38
 
 38:                                               ; preds = %19, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE13_M_deallocateEPS2_m.exit32, %2
@@ -5333,7 +5333,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !501
+  %7 = load ptr, ptr %6, align 8, !tbaa !503
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !445
   %10 = ptrtoint ptr %7 to i64
@@ -5367,7 +5367,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 12
   %.not.i.i = icmp eq ptr %21, %9
-  br i1 %.not.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !511
+  br i1 %.not.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !513
 
 _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !445
@@ -5416,7 +5416,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %25, 
   %33 = add i64 %.079.i, -1
   %34 = getelementptr inbounds nuw i8, ptr %.010.i, i64 12
   %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit, label %.lr.ph.i, !llvm.loop !512
+  br i1 %.not.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit, label %.lr.ph.i, !llvm.loop !514
 
 _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %31
   %35 = phi ptr [ %9, %31 ], [ %34, %.lr.ph.i ]
@@ -5436,7 +5436,7 @@ _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23A
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i71, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %.015.i.i70, i64 12
   %.not.i.i72 = icmp eq ptr %37, %9
-  br i1 %.not.i.i72, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74, label %.lr.ph.i.i69, !llvm.loop !511
+  br i1 %.not.i.i72, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74, label %.lr.ph.i.i69, !llvm.loop !513
 
 _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74: ; preds = %.lr.ph.i.i69
   %39 = load ptr, ptr %8, align 8, !tbaa !445
@@ -5505,7 +5505,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocat
   %64 = add i64 %.079.i84, -1
   %65 = getelementptr inbounds nuw i8, ptr %.010.i83, i64 12
   %.not.i85 = icmp eq i64 %64, 0
-  br i1 %.not.i85, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87, label %.lr.ph.i82, !llvm.loop !512
+  br i1 %.not.i85, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87, label %.lr.ph.i82, !llvm.loop !514
 
 _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87: ; preds = %.lr.ph.i82
   %.not13.i.i88 = icmp eq ptr %43, %1
@@ -5518,7 +5518,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i91, i64 12
   %67 = getelementptr inbounds nuw i8, ptr %.015.i.i90, i64 12
   %.not.i.i92 = icmp eq ptr %66, %1
-  br i1 %.not.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i89, !llvm.loop !511
+  br i1 %.not.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i89, !llvm.loop !513
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i93 = phi ptr [ %62, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87 ], [ %67, %.lr.ph.i.i89 ]
@@ -5533,7 +5533,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9Allocato
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i97, i64 12
   %70 = getelementptr inbounds nuw i8, ptr %.015.i.i96, i64 12
   %.not.i.i98 = icmp eq ptr %69, %9
-  br i1 %.not.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95, !llvm.loop !511
+  br i1 %.not.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95, !llvm.loop !513
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100: ; preds = %.lr.ph.i.i95, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit
   %.0.lcssa.i.i99 = phi ptr [ %68, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit ], [ %70, %.lr.ph.i.i95 ]
@@ -5548,7 +5548,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocat
   store ptr %62, ptr %0, align 8, !tbaa !426
   store ptr %.0.lcssa.i.i99, ptr %8, align 8, !tbaa !445
   %72 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %62, i64 %53
-  store ptr %72, ptr %6, align 8, !tbaa !501
+  store ptr %72, ptr %6, align 8, !tbaa !503
   br label %73
 
 73:                                               ; preds = %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE13_M_deallocateEPS2_m.exit, %4
@@ -6357,28 +6357,30 @@ attributes #32 = { cold nounwind }
 !485 = distinct !{!485, !484, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
 !486 = distinct !{!486, !98}
 !487 = !{!217, !212, i64 0}
-!488 = distinct !{!488, !98}
-!489 = distinct !{!489, !98}
-!490 = !{!491}
-!491 = distinct !{!491, !492, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
-!492 = distinct !{!492, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
-!493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
-!495 = distinct !{!495, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
-!496 = distinct !{!496, !98}
-!497 = distinct !{!497, !98}
-!498 = !{!499}
-!499 = distinct !{!499, !500, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
-!500 = distinct !{!500, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
-!501 = !{!39, !34, i64 16}
-!502 = !{!503, !505}
-!503 = distinct !{!503, !504, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
-!504 = distinct !{!504, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_"}
-!505 = distinct !{!505, !504, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
-!506 = distinct !{!506, !98}
-!507 = !{!508, !510}
-!508 = distinct !{!508, !509, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
-!509 = distinct !{!509, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_"}
-!510 = distinct !{!510, !509, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
-!511 = distinct !{!511, !98}
-!512 = distinct !{!512, !98}
+!488 = distinct !{!488, !98, !489}
+!489 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!490 = distinct !{!490, !98}
+!491 = distinct !{!491, !98}
+!492 = !{!493}
+!493 = distinct !{!493, !494, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
+!494 = distinct !{!494, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
+!495 = !{!496}
+!496 = distinct !{!496, !497, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
+!497 = distinct !{!497, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
+!498 = distinct !{!498, !98}
+!499 = distinct !{!499, !98}
+!500 = !{!501}
+!501 = distinct !{!501, !502, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
+!502 = distinct !{!502, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_23AlignedAllocationPolicyEEEE19arrayRefWithPaddingEv"}
+!503 = !{!39, !34, i64 16}
+!504 = !{!505, !507}
+!505 = distinct !{!505, !506, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
+!506 = distinct !{!506, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_"}
+!507 = distinct !{!507, !506, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
+!508 = distinct !{!508, !98}
+!509 = !{!510, !512}
+!510 = distinct !{!510, !511, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
+!511 = distinct !{!511, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_"}
+!512 = distinct !{!512, !511, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
+!513 = distinct !{!513, !98}
+!514 = distinct !{!514, !98}

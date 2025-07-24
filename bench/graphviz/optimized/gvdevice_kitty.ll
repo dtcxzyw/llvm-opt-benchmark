@@ -112,11 +112,11 @@ define internal fastcc void @kitty_write(ptr noundef %0, i64 noundef %1, i32 nou
   %21 = sub i64 %7, %.021
   %22 = select i1 %13, i64 4096, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.021
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !36
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !37
   %25 = tail call i64 @fwrite(ptr noundef %23, i64 noundef %22, i64 noundef 1, ptr noundef %24)
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
   %27 = icmp ult i64 %12, %7
-  br i1 %27, label %11, label %._crit_edge, !llvm.loop !37
+  br i1 %27, label %11, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %20, %5
   %putchar = tail call i32 @putchar(i32 10)
@@ -185,7 +185,7 @@ define internal void @zkitty_format(ptr noundef readonly captures(none) %0) #0 {
 argb2rgba.exit:                                   ; preds = %._crit_edge.us.i, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   %21 = tail call i64 @compressBound(i64 noundef range(i64 0, 4294967296) %11) #9
-  store i64 %21, ptr %2, align 8, !tbaa !38
+  store i64 %21, ptr %2, align 8, !tbaa !39
   %22 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %21) #10
   %23 = icmp ne i64 %21, 0
   %24 = icmp eq ptr %22, null
@@ -193,14 +193,14 @@ argb2rgba.exit:                                   ; preds = %._crit_edge.us.i, %
   br i1 %or.cond3.i.i.i, label %25, label %zlib_compress.exit
 
 25:                                               ; preds = %argb2rgba.exit
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !36
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !37
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.11, i64 noundef %21) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 zlib_compress.exit:                               ; preds = %argb2rgba.exit
   %28 = call i32 @compress(ptr noundef %22, ptr noundef nonnull %2, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %11) #9
-  %29 = load i64, ptr %2, align 8, !tbaa !38
+  %29 = load i64, ptr %2, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %30 = load i32, ptr %5, align 8, !tbaa !30
   %31 = load i32, ptr %7, align 4, !tbaa !31
@@ -283,7 +283,8 @@ attributes #13 = { cold noreturn nounwind }
 !32 = !{!7, !7, i64 0}
 !33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = !{!14, !14, i64 0}
-!37 = distinct !{!37, !34}
-!38 = !{!15, !15, i64 0}
+!35 = distinct !{!35, !34, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!14, !14, i64 0}
+!38 = distinct !{!38, !34}
+!39 = !{!15, !15, i64 0}

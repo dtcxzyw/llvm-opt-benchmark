@@ -1469,7 +1469,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %629 = icmp ugt i64 %602, %628
   %630 = icmp ult i32 %627, %526
   %631 = select i1 %629, i1 %630, i1 false
-  br i1 %631, label %632, label %.loopexit53, !llvm.loop !24
+  br i1 %631, label %632, label %.loopexit53, !llvm.loop !26
 
 632:                                              ; preds = %626, %.split
   %633 = phi i64 [ 0, %.split ], [ %628, %626 ]
@@ -1511,7 +1511,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %658 = zext i32 %679 to i64
   %659 = load i64, ptr %493, align 8
   %660 = icmp ugt i64 %659, %658
-  br i1 %660, label %.lr.ph, label %.critedge149, !llvm.loop !25
+  br i1 %660, label %.lr.ph, label %.critedge149, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %651, %657
   %661 = phi i64 [ %658, %657 ], [ %654, %651 ]
@@ -1595,10 +1595,10 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store i64 %717, ptr %484, align 8
   %718 = load i64, ptr %485, align 8
   %719 = icmp slt i64 %717, %718
-  br i1 %719, label %657, label %..loopexit.loopexit_crit_edge129, !llvm.loop !25
+  br i1 %719, label %657, label %..loopexit.loopexit_crit_edge129, !llvm.loop !27
 
 ..loopexit.loopexit_crit_edge129:                 ; preds = %713
-  br label %.critedge148, !llvm.loop !25
+  br label %.critedge148, !llvm.loop !27
 
 .critedge149:                                     ; preds = %651, %657, %.loopexit
   call void @up_read(ptr noundef nonnull %510) #9
@@ -1804,5 +1804,7 @@ attributes #12 = { nounwind allocsize(2) }
 !21 = !{!"auto-init"}
 !22 = distinct !{!22, !11, !12}
 !23 = !{i64 2148562758, i64 2148562797, i64 2148562818, i64 2148562855, i64 2148562878, i64 2148562748}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
+!24 = distinct !{!24, !11, !12, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !11, !12}
+!27 = distinct !{!27, !11, !12}

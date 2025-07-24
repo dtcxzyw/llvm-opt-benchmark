@@ -1436,12 +1436,12 @@ safe_realloc_.exit:                               ; preds = %17
   store i8 %437, ptr %435, align 1, !tbaa !7
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
   %exitcond267.not.i = icmp eq i64 %indvars.iv.next264.i, %6
-  br i1 %exitcond267.not.i, label %._crit_edge.us105.i, label %426, !llvm.loop !36
+  br i1 %exitcond267.not.i, label %._crit_edge.us105.i, label %426, !llvm.loop !37
 
 ._crit_edge.us105.i:                              ; preds = %426
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
   %exitcond272.not.i = icmp eq i64 %indvars.iv.next269.i, %7
-  br i1 %exitcond272.not.i, label %format_input_.exit, label %.preheader5.us.i, !llvm.loop !37
+  br i1 %exitcond272.not.i, label %format_input_.exit, label %.preheader5.us.i, !llvm.loop !38
 
 .preheader3.i:                                    ; preds = %419
   %.not141.i = icmp eq i32 %3, 0
@@ -1466,12 +1466,12 @@ safe_realloc_.exit:                               ; preds = %17
   store i16 %444, ptr %.6339107.us.i, align 2, !tbaa !20
   %indvars.iv.next274.i = add nuw nsw i64 %indvars.iv273.i, 1
   %exitcond277.not.i = icmp eq i64 %indvars.iv.next274.i, %6
-  br i1 %exitcond277.not.i, label %._crit_edge.us112.i, label %439, !llvm.loop !38
+  br i1 %exitcond277.not.i, label %._crit_edge.us112.i, label %439, !llvm.loop !39
 
 ._crit_edge.us112.i:                              ; preds = %439
   %indvars.iv.next279.i = add nuw nsw i64 %indvars.iv278.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next279.i, %7
-  br i1 %exitcond282.not.i, label %format_input_.exit, label %.preheader2.us.i, !llvm.loop !39
+  br i1 %exitcond282.not.i, label %format_input_.exit, label %.preheader2.us.i, !llvm.loop !40
 
 .preheader1.i:                                    ; preds = %419
   %.not143.i = icmp eq i32 %3, 0
@@ -1496,12 +1496,12 @@ safe_realloc_.exit:                               ; preds = %17
   store i8 %451, ptr %.8348114.us.i, align 1, !tbaa !7
   %indvars.iv.next284.i = add nuw nsw i64 %indvars.iv283.i, 1
   %exitcond287.not.i = icmp eq i64 %indvars.iv.next284.i, %6
-  br i1 %exitcond287.not.i, label %._crit_edge.us119.i, label %446, !llvm.loop !40
+  br i1 %exitcond287.not.i, label %._crit_edge.us119.i, label %446, !llvm.loop !41
 
 ._crit_edge.us119.i:                              ; preds = %446
   %indvars.iv.next289.i = add nuw nsw i64 %indvars.iv288.i, 1
   %exitcond292.not.i = icmp eq i64 %indvars.iv.next289.i, %7
-  br i1 %exitcond292.not.i, label %format_input_.exit, label %.preheader.us.i, !llvm.loop !41
+  br i1 %exitcond292.not.i, label %format_input_.exit, label %.preheader.us.i, !llvm.loop !42
 
 format_input_.exit:                               ; preds = %394, %375, %362, %355, %351, %328, %.lr.ph64.i, %284, %259, %242, %233, %228, %187, %156, %135, %124, %.lr.ph94.i, %._crit_edge.us.i, %._crit_edge.us105.i, %._crit_edge.us112.i, %._crit_edge.us119.i, %.preheader43.i, %.preheader41.i, %.preheader39.i, %.preheader37.i, %.preheader35.i, %.preheader33.i, %.preheader31.i, %.preheader29.i, %.preheader27.i, %.preheader25.i, %.preheader23.i, %.preheader21.i, %.preheader19.i, %.preheader17.i, %.preheader15.i, %.preheader13.i, %.preheader11.i, %419, %.preheader9.i, %.preheader6.i, %.preheader3.i, %.preheader1.i
   %453 = load ptr, ptr %25, align 8, !tbaa !7
@@ -1551,7 +1551,7 @@ format_input_.exit:                               ; preds = %394, %375, %362, %3
   %477 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 64
   %478 = add i32 %.037.i, -64
   %479 = icmp ugt i32 %478, 63
-  br i1 %479, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !42
+  br i1 %479, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i29, %473
   %.032.lcssa.i = phi ptr [ %474, %473 ], [ %477, %.lr.ph.i29 ]
@@ -1633,11 +1633,12 @@ attributes #11 = { nounwind allocsize(0) }
 !32 = distinct !{!32, !15}
 !33 = distinct !{!33, !15}
 !34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
+!35 = distinct !{!35, !15, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !37 = distinct !{!37, !15}
-!38 = distinct !{!38, !15}
+!38 = distinct !{!38, !15, !36}
 !39 = distinct !{!39, !15}
-!40 = distinct !{!40, !15}
+!40 = distinct !{!40, !15, !36}
 !41 = distinct !{!41, !15}
-!42 = distinct !{!42, !15}
+!42 = distinct !{!42, !15, !36}
+!43 = distinct !{!43, !15}

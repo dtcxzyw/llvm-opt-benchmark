@@ -701,7 +701,7 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   store double %106, ptr %104, align 8, !tbaa !72
   %107 = add nsw i64 %.0150179.us.i, %87
   %108 = icmp slt i64 %107, %92
-  br i1 %108, label %.lr.ph.split.us.i, label %._crit_edge.i
+  br i1 %108, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !73
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %136
   %.0150179.i = phi i64 [ %140, %136 ], [ %93, %.lr.ph.i ]
@@ -1098,7 +1098,7 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2680
-  %15 = load i32, ptr %14, align 8, !tbaa !73
+  %15 = load i32, ptr %14, align 8, !tbaa !75
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
 
@@ -1108,9 +1108,9 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2672
-  %20 = load ptr, ptr %19, align 8, !tbaa !74
+  %20 = load ptr, ptr %19, align 8, !tbaa !76
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %22 = load i32, ptr %21, align 8, !tbaa !75
+  %22 = load i32, ptr %21, align 8, !tbaa !77
   %.not = icmp slt i32 %1, %22
   br i1 %.not, label %24, label %23
 
@@ -1124,15 +1124,15 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
 
 .lr.ph:                                           ; preds = %.lr.ph, %24
   %.032.sink.in = phi ptr [ %28, %.lr.ph ], [ %25, %24 ]
-  %.032.sink = load ptr, ptr %.032.sink.in, align 8, !tbaa !80, !nonnull !81, !noundef !81
-  %26 = load i32, ptr %.032.sink, align 8, !tbaa !82
+  %.032.sink = load ptr, ptr %.032.sink.in, align 8, !tbaa !82, !nonnull !83, !noundef !83
+  %26 = load i32, ptr %.032.sink, align 8, !tbaa !84
   %27 = icmp eq i32 %1, %26
   %28 = getelementptr inbounds nuw i8, ptr %.032.sink, i64 120
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %.032.sink, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !85
+  %30 = load ptr, ptr %29, align 8, !tbaa !87
   %31 = tail call i32 @CVBBDPrecInit(ptr noundef %30, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, double noundef %7, ptr noundef nonnull @cvGlocWrapper, ptr noundef nonnull @cvCfnWrapper)
   %.not38 = icmp eq i32 %31, 0
   br i1 %.not38, label %32, label %40
@@ -1147,13 +1147,13 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
   br label %40
 
 36:                                               ; preds = %32
-  store ptr %8, ptr %33, align 8, !tbaa !86
+  store ptr %8, ptr %33, align 8, !tbaa !88
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %9, ptr %37, align 8, !tbaa !88
+  store ptr %9, ptr %37, align 8, !tbaa !90
   %38 = getelementptr inbounds nuw i8, ptr %.032.sink, i64 88
-  store ptr %33, ptr %38, align 8, !tbaa !89
+  store ptr %33, ptr %38, align 8, !tbaa !91
   %39 = getelementptr inbounds nuw i8, ptr %.032.sink, i64 96
-  store ptr @CVBBDPrecFreeB, ptr %39, align 8, !tbaa !90
+  store ptr @CVBBDPrecFreeB, ptr %39, align 8, !tbaa !92
   br label %40
 
 40:                                               ; preds = %._crit_edge, %36, %35, %23, %17, %12
@@ -1164,15 +1164,15 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvGlocWrapper(i64 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2672
-  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !89
+  %11 = load ptr, ptr %10, align 8, !tbaa !91
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %13 = load ptr, ptr %12, align 8, !tbaa !92
+  %13 = load ptr, ptr %12, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 504
-  %15 = load ptr, ptr %14, align 8, !tbaa !93
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
   %16 = tail call i32 %13(ptr noundef %4, double noundef %1, ptr noundef %15, ptr noundef null) #10
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %18, label %17
@@ -1182,10 +1182,10 @@ define internal i32 @cvGlocWrapper(i64 noundef %0, double noundef %1, ptr nounde
   br label %24
 
 18:                                               ; preds = %5
-  %19 = load ptr, ptr %11, align 8, !tbaa !86
-  %20 = load ptr, ptr %14, align 8, !tbaa !93
+  %19 = load ptr, ptr %11, align 8, !tbaa !88
+  %20 = load ptr, ptr %14, align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !94
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = tail call i32 %19(i64 noundef %0, double noundef %1, ptr noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef %22) #10
   br label %24
 
@@ -1197,21 +1197,21 @@ define internal i32 @cvGlocWrapper(i64 noundef %0, double noundef %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvCfnWrapper(i64 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2672
-  %6 = load ptr, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !91
+  %8 = load ptr, ptr %7, align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %10 = load ptr, ptr %9, align 8, !tbaa !89
+  %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = icmp eq ptr %12, null
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %16 = load ptr, ptr %15, align 8, !tbaa !92
+  %16 = load ptr, ptr %15, align 8, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 504
-  %18 = load ptr, ptr %17, align 8, !tbaa !93
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = tail call i32 %16(ptr noundef nonnull %3, double noundef %1, ptr noundef %18, ptr noundef null) #10
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %21, label %20
@@ -1221,10 +1221,10 @@ define internal i32 @cvCfnWrapper(i64 noundef %0, double noundef %1, ptr noundef
   br label %27
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %11, align 8, !tbaa !88
-  %23 = load ptr, ptr %17, align 8, !tbaa !93
+  %22 = load ptr, ptr %11, align 8, !tbaa !90
+  %23 = load ptr, ptr %17, align 8, !tbaa !95
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !94
+  %25 = load ptr, ptr %24, align 8, !tbaa !96
   %26 = tail call i32 %22(i64 noundef %0, double noundef %1, ptr noundef %23, ptr noundef %2, ptr noundef %25) #10
   br label %27
 
@@ -1236,9 +1236,9 @@ define internal i32 @cvCfnWrapper(i64 noundef %0, double noundef %1, ptr noundef
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @CVBBDPrecFreeB(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
   tail call void @free(ptr noundef %3) #10
-  store ptr null, ptr %2, align 8, !tbaa !89
+  store ptr null, ptr %2, align 8, !tbaa !91
   ret i32 0
 }
 
@@ -1253,7 +1253,7 @@ define range(i32 -101, 1) i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2680
-  %10 = load i32, ptr %9, align 8, !tbaa !73
+  %10 = load i32, ptr %9, align 8, !tbaa !75
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
@@ -1263,9 +1263,9 @@ define range(i32 -101, 1) i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, 
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2672
-  %15 = load ptr, ptr %14, align 8, !tbaa !74
+  %15 = load ptr, ptr %14, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load i32, ptr %16, align 8, !tbaa !75
+  %17 = load i32, ptr %16, align 8, !tbaa !77
   %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
@@ -1279,15 +1279,15 @@ define range(i32 -101, 1) i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.019.sink.in = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.019.sink = load ptr, ptr %.019.sink.in, align 8, !tbaa !80, !nonnull !81, !noundef !81
-  %21 = load i32, ptr %.019.sink, align 8, !tbaa !82
+  %.019.sink = load ptr, ptr %.019.sink.in, align 8, !tbaa !82, !nonnull !83, !noundef !83
+  %21 = load i32, ptr %.019.sink, align 8, !tbaa !84
   %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds nuw i8, ptr %.019.sink, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.019.sink, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !85
+  %25 = load ptr, ptr %24, align 8, !tbaa !87
   %26 = tail call i32 @CVBBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4)
   br label %27
 
@@ -1416,25 +1416,27 @@ attributes #11 = { nounwind allocsize(0) }
 !70 = !{!4, !11, i64 504}
 !71 = !{!4, !9, i64 992}
 !72 = !{!9, !9, i64 0}
-!73 = !{!4, !10, i64 2680}
-!74 = !{!4, !19, i64 2672}
-!75 = !{!76, !10, i64 56}
-!76 = !{!"CVadjMemRec", !9, i64 0, !9, i64 8, !10, i64 16, !10, i64 20, !9, i64 24, !10, i64 32, !9, i64 40, !77, i64 48, !10, i64 56, !77, i64 64, !10, i64 72, !78, i64 80, !10, i64 88, !78, i64 96, !15, i64 104, !15, i64 112, !79, i64 120, !15, i64 128, !10, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !10, i64 176, !10, i64 180, !10, i64 184, !10, i64 188, !7, i64 192, !7, i64 296, !7, i64 400, !11, i64 504, !14, i64 512}
-!77 = !{!"p1 _ZTS12CVodeBMemRec", !6, i64 0}
-!78 = !{!"p1 _ZTS13CVckpntMemRec", !6, i64 0}
-!79 = !{!"p2 _ZTS13CVdtpntMemRec", !6, i64 0}
-!80 = !{!77, !77, i64 0}
-!81 = !{}
-!82 = !{!83, !10, i64 0}
-!83 = !{!"CVodeBMemRec", !10, i64 0, !9, i64 8, !84, i64 16, !10, i64 24, !10, i64 28, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !9, i64 104, !11, i64 112, !77, i64 120}
-!84 = !{!"p1 _ZTS11CVodeMemRec", !6, i64 0}
-!85 = !{!83, !84, i64 16}
-!86 = !{!87, !6, i64 0}
-!87 = !{!"CVBBDPrecDataRecB", !6, i64 0, !6, i64 8}
-!88 = !{!87, !6, i64 8}
-!89 = !{!83, !6, i64 88}
-!90 = !{!83, !6, i64 96}
-!91 = !{!76, !77, i64 64}
-!92 = !{!76, !6, i64 168}
-!93 = !{!76, !11, i64 504}
-!94 = !{!83, !6, i64 64}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = !{!4, !10, i64 2680}
+!76 = !{!4, !19, i64 2672}
+!77 = !{!78, !10, i64 56}
+!78 = !{!"CVadjMemRec", !9, i64 0, !9, i64 8, !10, i64 16, !10, i64 20, !9, i64 24, !10, i64 32, !9, i64 40, !79, i64 48, !10, i64 56, !79, i64 64, !10, i64 72, !80, i64 80, !10, i64 88, !80, i64 96, !15, i64 104, !15, i64 112, !81, i64 120, !15, i64 128, !10, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !10, i64 176, !10, i64 180, !10, i64 184, !10, i64 188, !7, i64 192, !7, i64 296, !7, i64 400, !11, i64 504, !14, i64 512}
+!79 = !{!"p1 _ZTS12CVodeBMemRec", !6, i64 0}
+!80 = !{!"p1 _ZTS13CVckpntMemRec", !6, i64 0}
+!81 = !{!"p2 _ZTS13CVdtpntMemRec", !6, i64 0}
+!82 = !{!79, !79, i64 0}
+!83 = !{}
+!84 = !{!85, !10, i64 0}
+!85 = !{!"CVodeBMemRec", !10, i64 0, !9, i64 8, !86, i64 16, !10, i64 24, !10, i64 28, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !9, i64 104, !11, i64 112, !79, i64 120}
+!86 = !{!"p1 _ZTS11CVodeMemRec", !6, i64 0}
+!87 = !{!85, !86, i64 16}
+!88 = !{!89, !6, i64 0}
+!89 = !{!"CVBBDPrecDataRecB", !6, i64 0, !6, i64 8}
+!90 = !{!89, !6, i64 8}
+!91 = !{!85, !6, i64 88}
+!92 = !{!85, !6, i64 96}
+!93 = !{!78, !79, i64 64}
+!94 = !{!78, !6, i64 168}
+!95 = !{!78, !11, i64 504}
+!96 = !{!85, !6, i64 64}

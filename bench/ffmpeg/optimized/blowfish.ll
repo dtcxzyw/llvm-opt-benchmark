@@ -351,7 +351,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %.157.us, i64 8
   %39 = add nsw i32 %26, -1
   %.not44.us = icmp eq i32 %26, 0
-  br i1 %.not44.us, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !18
+  br i1 %.not44.us, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %40 = phi i32 [ %60, %.lr.ph.split ], [ %9, %.lr.ph ]
@@ -386,7 +386,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %.03753, i64 8
   %60 = add nsw i32 %40, -1
   %.not46 = icmp eq i32 %40, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !20
 
 .preheader:                                       ; preds = %.lr.ph58, %69
   %61 = phi i32 [ %82, %69 ], [ %25, %.lr.ph58 ]
@@ -405,7 +405,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %67, ptr %68, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %69, label %62, !llvm.loop !19
+  br i1 %exitcond.not, label %69, label %62, !llvm.loop !21
 
 69:                                               ; preds = %62
   %70 = load i32, ptr %.157, align 1, !tbaa !4
@@ -428,7 +428,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %81 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %82 = add nsw i32 %61, -1
   %.not44 = icmp eq i32 %61, 0
-  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %69, %.lr.ph58.split.us, %.preheader49, %.preheader48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
@@ -467,6 +467,9 @@ attributes #7 = { nounwind }
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!17 = distinct !{!17, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !8, !18}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

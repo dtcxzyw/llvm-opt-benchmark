@@ -123,7 +123,7 @@ GetScale.exit:                                    ; preds = %36
 60:                                               ; preds = %.sink.split34, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %60, %32, %3
   ret void
@@ -142,7 +142,7 @@ define hidden void @WebPMultRow_C(ptr noalias noundef captures(none) %0, ptr noa
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %19
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %19 ], [ 0, %.lr.ph ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv19
-  %7 = load i8, ptr %6, align 1, !tbaa !9
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   switch i8 %7, label %GetScale.exit.us [
     i8 -1, label %19
     i8 0, label %8
@@ -150,31 +150,31 @@ define hidden void @WebPMultRow_C(ptr noalias noundef captures(none) %0, ptr noa
 
 8:                                                ; preds = %.lr.ph.split.us
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv19
-  store i8 0, ptr %9, align 1, !tbaa !9
+  store i8 0, ptr %9, align 1, !tbaa !11
   br label %19
 
 GetScale.exit.us:                                 ; preds = %.lr.ph.split.us
   %10 = zext i8 %7 to i32
   %11 = mul nuw nsw i32 %10, 65793
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv19
-  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = mul nuw i32 %11, %14
   %16 = add nuw i32 %15, 8388608
   %17 = lshr i32 %16, 24
   %18 = trunc nuw i32 %17 to i8
-  store i8 %18, ptr %12, align 1, !tbaa !9
+  store i8 %18, ptr %12, align 1, !tbaa !11
   br label %19
 
 19:                                               ; preds = %GetScale.exit.us, %8, %.lr.ph.split.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !9
+  %21 = load i8, ptr %20, align 1, !tbaa !11
   switch i8 %21, label %GetScale.exit [
     i8 -1, label %33
     i8 0, label %22
@@ -182,26 +182,26 @@ GetScale.exit.us:                                 ; preds = %.lr.ph.split.us
 
 22:                                               ; preds = %.lr.ph.split
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 0, ptr %23, align 1, !tbaa !9
+  store i8 0, ptr %23, align 1, !tbaa !11
   br label %33
 
 GetScale.exit:                                    ; preds = %.lr.ph.split
   %24 = zext i8 %21 to i32
   %25 = udiv i32 -16777216, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %27 = load i8, ptr %26, align 1, !tbaa !9
+  %27 = load i8, ptr %26, align 1, !tbaa !11
   %28 = zext i8 %27 to i32
   %29 = mul i32 %25, %28
   %30 = add i32 %29, 8388608
   %31 = lshr i32 %30, 24
   %32 = trunc nuw i32 %31 to i8
-  store i8 %32, ptr %26, align 1, !tbaa !9
+  store i8 %32, ptr %26, align 1, !tbaa !11
   br label %33
 
 33:                                               ; preds = %.lr.ph.split, %22, %GetScale.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %33, %19, %4
   ret void
@@ -219,12 +219,12 @@ define hidden void @WebPMultARGBRows(ptr noundef %0, i32 noundef %1, i32 noundef
 8:                                                ; preds = %.lr.ph, %8
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %8 ]
   %.078 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
-  %9 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !11
+  %9 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !14
   tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #5
   %10 = getelementptr inbounds i8, ptr %.078, i64 %7
   %11 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %8, %5
   ret void
@@ -244,13 +244,13 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
   %.014 = phi i32 [ 0, %.lr.ph ], [ %15, %11 ]
   %.01013 = phi ptr [ %0, %.lr.ph ], [ %13, %11 ]
   %.01112 = phi ptr [ %2, %.lr.ph ], [ %14, %11 ]
-  %12 = load ptr, ptr @WebPMultRow, align 8, !tbaa !11
+  %12 = load ptr, ptr @WebPMultRow, align 8, !tbaa !14
   tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #5
   %13 = getelementptr inbounds i8, ptr %.01013, i64 %9
   %14 = getelementptr inbounds i8, ptr %.01112, i64 %10
   %15 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %15, %5
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %11, %7
   ret void
@@ -263,24 +263,24 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
   br i1 %.not, label %2, label %14
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !11
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
+  %3 = load volatile ptr, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !14
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !14
   %.not1 = icmp eq ptr %3, %4
   br i1 %.not1, label %WebPInitAlphaProcessing_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @WebPMultARGBRow_C, ptr @WebPMultARGBRow, align 8, !tbaa !11
-  store ptr @WebPMultRow_C, ptr @WebPMultRow, align 8, !tbaa !11
-  store ptr @ApplyAlphaMultiply_16b_C, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !11
-  store ptr @PackRGB_C, ptr @WebPPackRGB, align 8, !tbaa !11
-  store ptr @ApplyAlphaMultiply_C, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !11
-  store ptr @DispatchAlpha_C, ptr @WebPDispatchAlpha, align 8, !tbaa !11
-  store ptr @DispatchAlphaToGreen_C, ptr @WebPDispatchAlphaToGreen, align 8, !tbaa !11
-  store ptr @ExtractAlpha_C, ptr @WebPExtractAlpha, align 8, !tbaa !11
-  store ptr @ExtractGreen_C, ptr @WebPExtractGreen, align 8, !tbaa !11
-  store ptr @HasAlpha8b_C, ptr @WebPHasAlpha8b, align 8, !tbaa !11
-  store ptr @HasAlpha32b_C, ptr @WebPHasAlpha32b, align 8, !tbaa !11
-  store ptr @AlphaReplace_C, ptr @WebPAlphaReplace, align 8, !tbaa !11
+  store ptr @WebPMultARGBRow_C, ptr @WebPMultARGBRow, align 8, !tbaa !14
+  store ptr @WebPMultRow_C, ptr @WebPMultRow, align 8, !tbaa !14
+  store ptr @ApplyAlphaMultiply_16b_C, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !14
+  store ptr @PackRGB_C, ptr @WebPPackRGB, align 8, !tbaa !14
+  store ptr @ApplyAlphaMultiply_C, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !14
+  store ptr @DispatchAlpha_C, ptr @WebPDispatchAlpha, align 8, !tbaa !14
+  store ptr @DispatchAlphaToGreen_C, ptr @WebPDispatchAlphaToGreen, align 8, !tbaa !14
+  store ptr @ExtractAlpha_C, ptr @WebPExtractAlpha, align 8, !tbaa !14
+  store ptr @ExtractGreen_C, ptr @WebPExtractGreen, align 8, !tbaa !14
+  store ptr @HasAlpha8b_C, ptr @WebPHasAlpha8b, align 8, !tbaa !14
+  store ptr @HasAlpha32b_C, ptr @WebPHasAlpha32b, align 8, !tbaa !14
+  store ptr @AlphaReplace_C, ptr @WebPAlphaReplace, align 8, !tbaa !14
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %WebPInitAlphaProcessing_body.exit, label %6
 
@@ -291,7 +291,7 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
 
 8:                                                ; preds = %6
   tail call void @WebPInitAlphaProcessingSSE2() #5
-  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
+  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !14
   %10 = tail call i32 %9(i32 noundef 3) #5
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %WebPInitAlphaProcessing_body.exit, label %11
@@ -301,8 +301,8 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
   br label %WebPInitAlphaProcessing_body.exit
 
 WebPInitAlphaProcessing_body.exit:                ; preds = %11, %8, %6, %5, %2
-  %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
-  store volatile ptr %12, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !11
+  %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !14
+  store volatile ptr %12, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !14
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
   br label %14
 
@@ -339,9 +339,9 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %8 ]
   %9 = shl nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.032.us.i, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !9
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = and i8 %13, 15
   %15 = zext nneg i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 4369
@@ -368,19 +368,19 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
   %sum.shift.us.i = lshr i32 %28, 20
   %37 = trunc nuw nsw i32 %sum.shift.us.i to i8
   %38 = or disjoint i8 %36, %37
-  store i8 %38, ptr %10, align 1, !tbaa !9
+  store i8 %38, ptr %10, align 1, !tbaa !11
   %39 = and i8 %35, -16
   %40 = or disjoint i8 %39, %14
-  store i8 %40, ptr %12, align 1, !tbaa !9
+  store i8 %40, ptr %12, align 1, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %8, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %8, !llvm.loop !18
 
 ._crit_edge.us.i:                                 ; preds = %8
   %41 = add nsw i32 %.in.i, -1
   %42 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
   %43 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %43, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !16
+  br i1 %43, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !19
 
 ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %4, %.preheader.lr.ph.i
   ret void
@@ -400,13 +400,13 @@ define internal void @PackRGB_C(ptr noalias noundef readonly captures(none) %0, 
   %indvars.iv15 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next16, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1, !tbaa !9
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !9
+  %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %11, 16
   %19 = shl nuw nsw i32 %14, 8
@@ -418,7 +418,7 @@ define internal void @PackRGB_C(ptr noalias noundef readonly captures(none) %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, %8
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next16, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -453,7 +453,7 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
   %15 = shl nsw i64 %indvars.iv, 2
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !9
+  %17 = load i8, ptr %16, align 1, !tbaa !11
   %.not31.us = icmp eq i8 %17, -1
   br i1 %.not31.us, label %39, label %18
 
@@ -461,37 +461,37 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
   %19 = zext i8 %17 to i32
   %20 = mul nuw nsw i32 %19, 32897
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 %15
-  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %20, %23
   %25 = lshr i32 %24, 23
   %26 = trunc nuw i32 %25 to i8
-  store i8 %26, ptr %21, align 1, !tbaa !9
+  store i8 %26, ptr %21, align 1, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !9
+  %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = zext i8 %28 to i32
   %30 = mul nuw nsw i32 %20, %29
   %31 = lshr i32 %30, 23
   %32 = trunc nuw i32 %31 to i8
-  store i8 %32, ptr %27, align 1, !tbaa !9
+  store i8 %32, ptr %27, align 1, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %34 = load i8, ptr %33, align 1, !tbaa !9
+  %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = zext i8 %34 to i32
   %36 = mul nuw nsw i32 %20, %35
   %37 = lshr i32 %36, 23
   %38 = trunc nuw i32 %37 to i8
-  store i8 %38, ptr %33, align 1, !tbaa !9
+  store i8 %38, ptr %33, align 1, !tbaa !11
   br label %39
 
 39:                                               ; preds = %18, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %39
   %40 = getelementptr inbounds i8, ptr %.033.us, i64 %10
   %41 = icmp sgt i32 %.in, 1
-  br i1 %41, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !19
+  br i1 %41, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !22
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %5
   ret void
@@ -523,22 +523,22 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias noundef readonl
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
   %.121.us = phi i32 [ %.01924.us, %.preheader.us ], [ %17, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.026.us, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = shl nsw i64 %indvars.iv, 2
   %16 = getelementptr inbounds nuw i8, ptr %.02023.us, i64 %15
-  store i8 %13, ptr %16, align 1, !tbaa !9
+  store i8 %13, ptr %16, align 1, !tbaa !11
   %17 = and i32 %.121.us, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %11
   %18 = getelementptr inbounds i8, ptr %.026.us, i64 %9
   %19 = getelementptr inbounds i8, ptr %.02023.us, i64 %10
   %20 = add nuw nsw i32 %.01725.us, 1
   %exitcond31.not = icmp eq i32 %20, %3
-  br i1 %exitcond31.not, label %._crit_edge27.loopexit, label %.preheader.us, !llvm.loop !21
+  br i1 %exitcond31.not, label %._crit_edge27.loopexit, label %.preheader.us, !llvm.loop !24
 
 ._crit_edge27.loopexit:                           ; preds = %._crit_edge.us
   %21 = icmp ne i32 %17, 255
@@ -574,21 +574,21 @@ define internal void @DispatchAlphaToGreen_C(ptr noalias noundef readonly captur
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = getelementptr inbounds nuw i32, ptr %.01517.us, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.01418.us, i64 %9
   %18 = getelementptr inbounds i32, ptr %.01517.us, i64 %10
   %19 = add nuw nsw i32 %.019.us, 1
   %exitcond23.not = icmp eq i32 %19, %3
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !26
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
@@ -621,20 +621,20 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias noundef readonly
   %.121.us = phi i8 [ %.01924.us, %.preheader.us ], [ %16, %11 ]
   %12 = shl nsw i64 %indvars.iv, 2
   %13 = getelementptr inbounds nuw i8, ptr %.026.us, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %.02023.us, i64 %indvars.iv
-  store i8 %14, ptr %15, align 1, !tbaa !9
+  store i8 %14, ptr %15, align 1, !tbaa !11
   %16 = and i8 %14, %.121.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !27
 
 ._crit_edge.us:                                   ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.026.us, i64 %9
   %18 = getelementptr inbounds i8, ptr %.02023.us, i64 %10
   %19 = add nuw nsw i32 %.01725.us, 1
   %exitcond30.not = icmp eq i32 %19, %3
-  br i1 %exitcond30.not, label %._crit_edge27.loopexit, label %.preheader.us, !llvm.loop !25
+  br i1 %exitcond30.not, label %._crit_edge27.loopexit, label %.preheader.us, !llvm.loop !28
 
 ._crit_edge27.loopexit:                           ; preds = %._crit_edge.us
   %20 = icmp eq i8 %16, -1
@@ -662,10 +662,10 @@ define internal void @ExtractGreen_C(ptr noalias noundef readonly captures(none)
   %7 = lshr i32 %6, 8
   %8 = trunc i32 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %8, ptr %9, align 1, !tbaa !9
+  store i8 %8, ptr %9, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -684,9 +684,9 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(
 5:                                                ; preds = %3
   %6 = add nsw i32 %.0, -1
   %7 = getelementptr inbounds nuw i8, ptr %.02, i64 1
-  %8 = load i8, ptr %.02, align 1, !tbaa !9
+  %8 = load i8, ptr %.02, align 1, !tbaa !11
   %.not = icmp eq i8 %8, -1
-  br i1 %.not, label %3, label %9, !llvm.loop !27
+  br i1 %.not, label %3, label %9, !llvm.loop !30
 
 9:                                                ; preds = %3, %5
   %.03 = phi i32 [ 1, %5 ], [ 0, %3 ]
@@ -702,13 +702,13 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %5 = add nsw i32 %.in, -1
   %6 = icmp sgt i32 %.in, 1
-  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %2, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
   %.in = phi i32 [ %5, %4 ], [ %1, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %8 = load i8, ptr %7, align 1, !tbaa !9
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %.not = icmp eq i8 %8, -1
   br i1 %.not, label %4, label %._crit_edge
 
@@ -740,7 +740,7 @@ define internal void @AlphaReplace_C(ptr noundef captures(none) %0, i32 noundef 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %9, %3
   ret void
@@ -766,26 +766,29 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !8, !9}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!19 = distinct !{!19, !8, !9}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!22 = distinct !{!22, !8, !9}
 !23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!24 = distinct !{!24, !8, !9}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!26 = distinct !{!26, !8, !9}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
+!28 = distinct !{!28, !8, !9}
 !29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}

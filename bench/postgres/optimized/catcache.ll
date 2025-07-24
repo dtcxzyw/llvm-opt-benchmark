@@ -3336,7 +3336,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
 50:                                               ; preds = %48, %36, %.lr.ph.split
   %.sroa.0.0 = load ptr, ptr %.sroa.0.032, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %50, %27, %5
   ret void
@@ -3579,7 +3579,7 @@ IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, 
 
 47:                                               ; preds = %36
   call void @systable_endscan(ptr noundef %34) #14
-  br label %25, !llvm.loop !35
+  br label %25, !llvm.loop !37
 
 .loopexit:                                        ; preds = %IndexScanOK.exit, %39
   %.031.ph = phi ptr [ %37, %39 ], [ null, %IndexScanOK.exit ]
@@ -3863,5 +3863,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!34 = distinct !{!34, !7, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

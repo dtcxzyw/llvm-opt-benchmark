@@ -1092,7 +1092,7 @@ ints_append.exit.us:                              ; preds = %220, %214, %205
   store i32 %.1367, ptr %499, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader550.lr.ph, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %.preheader550.lr.ph, label %.lr.ph, !llvm.loop !49
 
 .preheader550:                                    ; preds = %.preheader550.lr.ph.thread, %.preheader550.lr.ph
   %500 = phi ptr [ %68, %.preheader550.lr.ph.thread ], [ %62, %.preheader550.lr.ph ]
@@ -1390,5 +1390,6 @@ attributes #19 = { cold noreturn nounwind }
 !44 = distinct !{!44, !11}
 !45 = distinct !{!45, !11}
 !46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
+!47 = distinct !{!47, !11, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !11}

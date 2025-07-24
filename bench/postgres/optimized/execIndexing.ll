@@ -124,7 +124,7 @@ list_length.exit:                                 ; preds = %11
   %54 = load i32, ptr %13, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
+  br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 list_length.exit.thread:                          ; preds = %11, %list_length.exit, %2, %._crit_edge
   ret void
@@ -181,7 +181,7 @@ define dso_local void @ExecCloseIndices(ptr noundef readonly captures(none) %0) 
 16:                                               ; preds = %.lr.ph, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -382,7 +382,7 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %106 = getelementptr inbounds nuw [32 x i16], ptr %100, i64 0, i64 %indvars.iv.next56.i
   %107 = load i16, ptr %106, align 2
   %108 = icmp slt i16 %107, 1
-  br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !9
+  br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %105, %.outer.i
   %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next56.i, %105 ]
@@ -407,13 +407,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i.lcssa, 1
   %115 = sext i32 %.pre.i to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %115
-  br i1 %.not.i, label %.outer.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %.not.i, label %.outer.i, label %._crit_edge.i, !llvm.loop !11
 
 .thread.i:                                        ; preds = %.outer.i, %105
   %indvars.iv.i111 = phi i64 [ %indvars.iv.next56.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv.i111, 1
   %.not57.i = icmp slt i64 %indvars.iv.next56.i, %101
-  br i1 %.not57.i, label %105, label %._crit_edge.thread.i, !llvm.loop !9
+  br i1 %.not57.i, label %105, label %._crit_edge.thread.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %114
   br i1 %.03952.i.lcssa, label %._crit_edge.thread.i, label %.critedge.i
@@ -533,7 +533,7 @@ index_unchanged_by_update.exit:                   ; preds = %137, %136, %.crited
   %.1 = phi ptr [ %.079115, %ExecQual.exit ], [ %.079115, %32 ], [ %.079115, %36 ], [ %.079115, %43 ], [ %.079115, %154 ], [ %158, %163 ], [ %158, %155 ], [ %.079115, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge117, label %32, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge117, label %32, !llvm.loop !12
 
 ._crit_edge117:                                   ; preds = %164, %25
   %.079.lcssa = phi ptr [ null, %25 ], [ %.1, %164 ]
@@ -674,7 +674,7 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
 82:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit147, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit147, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %82 ]
@@ -711,7 +711,7 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
   %100 = trunc nuw nsw i64 %indvars.iv.next169 to i16
   call void @ScanKeyEntryInitialize(ptr noundef nonnull %87, i32 noundef %91, i16 noundef signext %100, i16 noundef zeroext %93, i32 noundef 0, i32 noundef %95, i32 noundef %97, i64 noundef %99) #6
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph157, !llvm.loop !12
+  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph157, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph157, %.loopexit147
   %101 = call ptr @table_slot_create(ptr noundef %0, ptr noundef null) #6
@@ -767,7 +767,7 @@ ItemPointerIsValid.exit:                          ; preds = %.lr.ph193
   br i1 %122, label %123, label %ItemPointerIsValid.exit.thread
 
 123:                                              ; preds = %121
-  br i1 %.0120192, label %124, label %index_recheck_constraint.exit, !llvm.loop !13
+  br i1 %.0120192, label %124, label %index_recheck_constraint.exit, !llvm.loop !15
 
 124:                                              ; preds = %123
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -799,14 +799,14 @@ ItemPointerIsValid.exit.thread:                   ; preds = %.lr.ph193, %121, %I
 137:                                              ; preds = %142
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %index_recheck_constraint.exit.thread, label %138, !llvm.loop !14
+  br i1 %exitcond.not.i, label %index_recheck_constraint.exit.thread, label %138, !llvm.loop !16
 
 138:                                              ; preds = %137, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %137 ]
   %139 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   %140 = load i8, ptr %139, align 1, !range !4, !noundef !5
   %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %index_recheck_constraint.exit, label %142, !llvm.loop !13
+  br i1 %141, label %index_recheck_constraint.exit, label %142, !llvm.loop !15
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i32, ptr %.0114, i64 %indvars.iv.i
@@ -820,7 +820,7 @@ ItemPointerIsValid.exit.thread:                   ; preds = %.lr.ph193, %121, %I
   %151 = load i64, ptr %150, align 8
   %152 = call i64 @OidFunctionCall2Coll(i32 noundef %144, i32 noundef %147, i64 noundef %149, i64 noundef %151) #6
   %.not.i138 = icmp eq i64 %152, 0
-  br i1 %.not.i138, label %index_recheck_constraint.exit, label %137, !llvm.loop !13
+  br i1 %.not.i138, label %index_recheck_constraint.exit, label %137, !llvm.loop !15
 
 index_recheck_constraint.exit.thread:             ; preds = %132, %ItemPointerIsValid.exit.thread, %137
   %153 = load i32, ptr %112, align 4
@@ -1102,7 +1102,7 @@ select.unfold:                                    ; preds = %.thread71, %29, %39
   %.156.ph = phi i1 [ true, %ExecQual.exit ], [ %.05585, %47 ], [ %.05585, %42 ], [ %.05585, %39 ], [ %.05585, %29 ], [ true, %.thread71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %select.unfold, %24
   %.055.lcssa = phi i1 [ false, %24 ], [ %.156.ph, %select.unfold ]
@@ -1243,9 +1243,9 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
@@ -1253,3 +1253,5 @@ attributes #7 = { cold nounwind }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

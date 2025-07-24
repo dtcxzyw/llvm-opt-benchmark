@@ -2593,7 +2593,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %22 = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %22, %2
-  br i1 %23, label %.loopexit, label %.split.preheader
+  br i1 %23, label %.loopexit, label %.split.preheader, !llvm.loop !60
 
 .split.preheader:                                 ; preds = %16
   %24 = load i8, ptr %17, align 1, !range !15, !noundef !16
@@ -2651,7 +2651,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
 57:                                               ; preds = %49, %45, %36, %.preheader.split.us
   %58 = load ptr, ptr %29, align 8
   %59 = icmp eq ptr %58, %2
-  br i1 %59, label %.loopexit4, label %.preheader.split.us, !llvm.loop !60
+  br i1 %59, label %.loopexit4, label %.preheader.split.us, !llvm.loop !62
 
 .preheader.split:                                 ; preds = %.preheader, %88
   %60 = phi ptr [ %89, %88 ], [ %27, %.preheader ]
@@ -2697,10 +2697,10 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
 88:                                               ; preds = %83, %76, %67, %.preheader.split
   %89 = load ptr, ptr %60, align 8
   %90 = icmp eq ptr %89, %2
-  br i1 %90, label %.loopexit4, label %.preheader.split, !llvm.loop !60
+  br i1 %90, label %.loopexit4, label %.preheader.split, !llvm.loop !63
 
 .loopexit4:                                       ; preds = %88, %57, %.split
-  br i1 %26, label %.split, label %.loopexit, !llvm.loop !61
+  br i1 %26, label %.split, label %.loopexit, !llvm.loop !64
 
 91:                                               ; preds = %7
   %92 = getelementptr i8, ptr %5, i64 -64
@@ -2861,5 +2861,8 @@ attributes #14 = { nounwind memory(read) }
 !57 = distinct !{!57, !6, !7}
 !58 = distinct !{!58, !6, !7}
 !59 = distinct !{!59, !6, !7}
-!60 = distinct !{!60, !6, !7}
-!61 = distinct !{!61, !47}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !6, !7, !61}
+!63 = distinct !{!63, !6, !7}
+!64 = distinct !{!64, !47}

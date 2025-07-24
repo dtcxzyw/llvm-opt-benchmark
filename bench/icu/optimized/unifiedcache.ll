@@ -550,7 +550,7 @@ _ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread: ; preds = %.lr.ph.split, 
 _ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit.thread: ; preds = %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread, %67, %71
   %73 = add nuw nsw i32 %.01131, 1
   %exitcond.not = icmp eq i32 %73, %5
-  br i1 %exitcond.not, label %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit, label %.lr.ph.split, !llvm.loop !45
+  br i1 %exitcond.not, label %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit, label %.lr.ph.split, !llvm.loop !47
 
 _ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit: ; preds = %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit.thread, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit.thread.us, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.us, %2
   %.0.lcssa = phi i8 [ 0, %2 ], [ %.032.us, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.us ], [ %.2.ph.us, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit.thread.us ], [ %.032, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit ], [ 1, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit.thread ]
@@ -599,7 +599,7 @@ define void @_ZNK6icu_7712UnifiedCache17_runEvictionSliceEv(ptr noundef nonnull 
   %9 = mul nsw i32 %8, %6
   %10 = sdiv i32 %9, 100
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !46
+  %12 = load i32, ptr %11, align 4, !tbaa !48
   %.sroa.speculated8.i = tail call i32 @llvm.smax.i32(i32 %10, i32 %12)
   %13 = add i32 %6, %.sroa.speculated8.i
   %14 = sub i32 %4, %13
@@ -706,7 +706,7 @@ _ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit: ; preds = %_
   %.129 = phi i32 [ %63, %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread ], [ %.036, %39 ]
   %64 = add nuw nsw i32 %.01435, 1
   %exitcond.not = icmp eq i32 %64, 10
-  br i1 %exitcond.not, label %.thread30, label %20, !llvm.loop !47
+  br i1 %exitcond.not, label %.thread30, label %20, !llvm.loop !49
 
 .thread30:                                        ; preds = %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit, %.thread, %1
   ret void
@@ -920,7 +920,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7712UnifiedCache27_comput
   %9 = mul nsw i32 %8, %6
   %10 = sdiv i32 %9, 100
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !46
+  %12 = load i32, ptr %11, align 4, !tbaa !48
   %.sroa.speculated8 = tail call i32 @llvm.smax.i32(i32 %10, i32 %12)
   %13 = add i32 %6, %.sroa.speculated8
   %14 = sub i32 %4, %13
@@ -1084,7 +1084,7 @@ _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !42
   store i32 %49, ptr %3, align 4, !tbaa !6
-  %50 = load ptr, ptr %2, align 8, !tbaa !48
+  %50 = load ptr, ptr %2, align 8, !tbaa !50
   %.not.i.i19 = icmp eq ptr %50, null
   br i1 %.not.i.i19, label %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, label %51
 
@@ -1103,7 +1103,7 @@ _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 
 _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = %55, %51, %46
   %59 = load ptr, ptr %18, align 8, !tbaa !41
-  store ptr %59, ptr %2, align 8, !tbaa !48
+  store ptr %59, ptr %2, align 8, !tbaa !50
   %.not.i8.i = icmp eq ptr %59, null
   br i1 %.not.i8.i, label %_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit, label %60
 
@@ -1128,7 +1128,7 @@ _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = 
 70:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !tbaa !6
-  %71 = load ptr, ptr %2, align 8, !tbaa !48
+  %71 = load ptr, ptr %2, align 8, !tbaa !50
   %72 = load i32, ptr %3, align 4, !tbaa !6
   %73 = load ptr, ptr %1, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -1190,7 +1190,7 @@ _ZNK6icu_7712UnifiedCache7_putNewERKNS_12CacheKeyBaseEPKNS_12SharedObjectE10UErr
   br label %140
 
 102:                                              ; preds = %41, %_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, %45
-  %103 = load ptr, ptr %2, align 8, !tbaa !48
+  %103 = load ptr, ptr %2, align 8, !tbaa !50
   %104 = load i32, ptr %3, align 4, !tbaa !6
   %105 = load ptr, ptr %14, align 8, !tbaa !41
   %106 = load ptr, ptr %18, align 8, !tbaa !41
@@ -1335,7 +1335,7 @@ define void @_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObje
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !42
   store i32 %8, ptr %3, align 4, !tbaa !6
-  %9 = load ptr, ptr %2, align 8, !tbaa !48
+  %9 = load ptr, ptr %2, align 8, !tbaa !50
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit, label %10
 
@@ -1355,7 +1355,7 @@ define void @_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObje
 _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit: ; preds = %4, %10, %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !41
-  store ptr %19, ptr %2, align 8, !tbaa !48
+  store ptr %19, ptr %2, align 8, !tbaa !50
   %.not.i8 = icmp eq ptr %19, null
   br i1 %.not.i8, label %_ZNK6icu_7712UnifiedCache10addHardRefEPKNS_12SharedObjectE.exit, label %20
 
@@ -1447,7 +1447,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7712UnifiedCache5_pollERKNS_1
   %5 = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %6 = load ptr, ptr @_ZL11gCacheMutex, align 8, !tbaa !9
-  store ptr %6, ptr %5, align 8, !tbaa !49
+  store ptr %6, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   %.not.i.i.i = icmp eq i32 %8, 0
@@ -1458,7 +1458,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7712UnifiedCache5_pollERKNS_1
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %4
-  store i8 1, ptr %7, align 8, !tbaa !52
+  store i8 1, ptr %7, align 8, !tbaa !54
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = invoke ptr @uhash_find_77(ptr noundef %11, ptr noundef nonnull %1)
@@ -1529,7 +1529,7 @@ _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 47:                                               ; preds = %45
   %48 = load ptr, ptr %10, align 8, !tbaa !21
   %49 = invoke ptr @uhash_find_77(ptr noundef %48, ptr noundef nonnull %1)
-          to label %15 unwind label %.loopexit, !llvm.loop !53
+          to label %15 unwind label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %45, %47
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1543,12 +1543,12 @@ _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 
 50:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %51 = load i8, ptr %7, align 8, !tbaa !52, !range !54, !noundef !55
+  %51 = load i8, ptr %7, align 8, !tbaa !54, !range !56, !noundef !57
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %5, align 8, !tbaa !49
+  %54 = load ptr, ptr %5, align 8, !tbaa !51
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %55
 
@@ -1567,7 +1567,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %50, %53, %55
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !42
   store i32 %61, ptr %3, align 4, !tbaa !6
-  %62 = load ptr, ptr %2, align 8, !tbaa !48
+  %62 = load ptr, ptr %2, align 8, !tbaa !50
   %.not.i.i16 = icmp eq ptr %62, null
   br i1 %.not.i.i16, label %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, label %63
 
@@ -1585,7 +1585,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %50, %53, %55
 
 _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = %67, %63, %.critedge
   %70 = load ptr, ptr %58, align 8, !tbaa !41
-  store ptr %70, ptr %2, align 8, !tbaa !48
+  store ptr %70, ptr %2, align 8, !tbaa !50
   %.not.i8.i = icmp eq ptr %70, null
   br i1 %.not.i8.i, label %_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit, label %71
 
@@ -1662,12 +1662,12 @@ _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = 
 
 _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit: ; preds = %106, %.noexc17, %87, %.critedge15, %75, %71, %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
   %.0 = phi i8 [ 1, %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i ], [ 1, %71 ], [ 1, %75 ], [ 0, %.critedge15 ], [ 0, %87 ], [ 0, %.noexc17 ], [ 0, %106 ]
-  %109 = load i8, ptr %7, align 8, !tbaa !52, !range !54, !noundef !55
+  %109 = load i8, ptr %7, align 8, !tbaa !54, !range !56, !noundef !57
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %_ZNSt11unique_lockISt5mutexED2Ev.exit19
 
 111:                                              ; preds = %_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit
-  %112 = load ptr, ptr %5, align 8, !tbaa !49
+  %112 = load ptr, ptr %5, align 8, !tbaa !51
   %.not.i.i18 = icmp eq ptr %112, null
   br i1 %.not.i.i18, label %_ZNSt11unique_lockISt5mutexED2Ev.exit19, label %113
 
@@ -1689,7 +1689,7 @@ define void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedOb
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %2, align 8, !tbaa !48
+  %8 = load ptr, ptr %2, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = icmp ne ptr %8, %10
@@ -1707,7 +1707,7 @@ define void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedOb
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr %19, ptr %2, align 8, !tbaa !48
+  store ptr %19, ptr %2, align 8, !tbaa !50
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit
 
@@ -1718,13 +1718,13 @@ define void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedOb
   br i1 %.not.i19, label %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit, label %24
 
 24:                                               ; preds = %21
-  store ptr %23, ptr %2, align 8, !tbaa !48
+  store ptr %23, ptr %2, align 8, !tbaa !50
   tail call void @_ZNK6icu_7712SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
   br label %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit
 
 _ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit: ; preds = %24, %21, %15
   tail call void @_ZNK6icu_7712UnifiedCache18_putIfAbsentAndGetERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %25 = load ptr, ptr %2, align 8, !tbaa !48
+  %25 = load ptr, ptr %2, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = icmp ne ptr %25, %27
@@ -1735,7 +1735,7 @@ _ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit: ; preds = %24, %21, %15
 _ZN6icu_7712SharedObject8clearPtrIS0_EEvRPKT_.exit.sink.split: ; preds = %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit, %7
   %.sink = phi ptr [ %8, %7 ], [ %25, %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit ]
   tail call void @_ZNK6icu_7712SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink)
-  store ptr null, ptr %2, align 8, !tbaa !48
+  store ptr null, ptr %2, align 8, !tbaa !50
   br label %_ZN6icu_7712SharedObject8clearPtrIS0_EEvRPKT_.exit
 
 _ZN6icu_7712SharedObject8clearPtrIS0_EEvRPKT_.exit: ; preds = %_ZN6icu_7712SharedObject8clearPtrIS0_EEvRPKT_.exit.sink.split, %12, %7, %_ZN6icu_7712SharedObject7copyPtrIS0_EEvPKT_RS4_.exit
@@ -1931,14 +1931,16 @@ attributes #18 = { noreturn }
 !42 = !{!43, !7, i64 8}
 !43 = !{!"_ZTSN6icu_7712CacheKeyBaseE", !24, i64 0, !7, i64 8, !8, i64 12}
 !44 = !{!43, !8, i64 12}
-!45 = distinct !{!45, !40}
-!46 = !{!20, !20, i64 0}
+!45 = distinct !{!45, !40, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !47 = distinct !{!47, !40}
-!48 = !{!27, !27, i64 0}
-!49 = !{!50, !10, i64 0}
-!50 = !{!"_ZTSSt11unique_lockISt5mutexE", !10, i64 0, !51, i64 8}
-!51 = !{!"bool", !8, i64 0}
-!52 = !{!50, !51, i64 8}
-!53 = distinct !{!53, !40}
-!54 = !{i8 0, i8 2}
-!55 = !{}
+!48 = !{!20, !20, i64 0}
+!49 = distinct !{!49, !40}
+!50 = !{!27, !27, i64 0}
+!51 = !{!52, !10, i64 0}
+!52 = !{!"_ZTSSt11unique_lockISt5mutexE", !10, i64 0, !53, i64 8}
+!53 = !{!"bool", !8, i64 0}
+!54 = !{!52, !53, i64 8}
+!55 = distinct !{!55, !40}
+!56 = !{i8 0, i8 2}
+!57 = !{}

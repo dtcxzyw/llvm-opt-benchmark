@@ -1443,7 +1443,7 @@ parse_double.exit538:                             ; preds = %.preheader680
 352:                                              ; preds = %351, %349
   %.023.us.i = getelementptr inbounds i8, ptr %.02343.us.i, i64 -1
   %.not.us.i = icmp ult ptr %.023.us.i, %306
-  br i1 %.not.us.i, label %.loopexit.backedge, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.loopexit.backedge, label %.lr.ph.split.us.i, !llvm.loop !34
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %359
   %.02343.i = phi ptr [ %.023.i, %359 ], [ %.02340.i, %.lr.ph.i ]
@@ -1530,7 +1530,7 @@ parse_double.exit538:                             ; preds = %.preheader680
 376:                                              ; preds = %375, %373
   %.023.us.i558 = getelementptr inbounds i8, ptr %.02343.us.i554, i64 -1
   %.not.us.i559 = icmp ult ptr %.023.us.i558, %307
-  br i1 %.not.us.i559, label %.loopexit669.backedge, label %.lr.ph.split.us.i553
+  br i1 %.not.us.i559, label %.loopexit669.backedge, label %.lr.ph.split.us.i553, !llvm.loop !34
 
 .lr.ph.split.i544:                                ; preds = %.lr.ph.i541, %383
   %.02343.i545 = phi ptr [ %.023.i547, %383 ], [ %.02340.i542, %.lr.ph.i541 ]
@@ -1619,10 +1619,10 @@ parse_double.exit538:                             ; preds = %.preheader680
 
 400:                                              ; preds = %._crit_edge819
   %401 = fsub reassoc nsz arcp contract afn float %.2362.lcssa, %.2353.lcssa
-  store float %401, ptr %24, align 8, !tbaa !34
+  store float %401, ptr %24, align 8, !tbaa !36
   %402 = fsub reassoc nsz arcp contract afn float %.2382.lcssa, %.2374.lcssa
-  store float %402, ptr %25, align 4, !tbaa !35
-  %.0405835 = load ptr, ptr %9, align 8, !tbaa !36
+  store float %402, ptr %25, align 4, !tbaa !37
+  %.0405835 = load ptr, ptr %9, align 8, !tbaa !38
   %.not473836 = icmp eq ptr %.0405835, null
   br i1 %.not473836, label %._crit_edge840, label %.lr.ph839.preheader
 
@@ -1649,7 +1649,7 @@ parse_double.exit538:                             ; preds = %.preheader680
 
 .lr.ph839:                                        ; preds = %.lr.ph839.preheader, %420
   %.0405837 = phi ptr [ %.0405, %420 ], [ %.0405835, %.lr.ph839.preheader ]
-  %410 = load ptr, ptr %.0405837, align 8, !tbaa !37
+  %410 = load ptr, ptr %.0405837, align 8, !tbaa !39
   br label %411
 
 411:                                              ; preds = %.lr.ph839, %411
@@ -1670,12 +1670,12 @@ parse_double.exit538:                             ; preds = %.preheader680
 
 420:                                              ; preds = %411
   %421 = getelementptr inbounds nuw i8, ptr %.0405837, i64 8
-  %.0405 = load ptr, ptr %421, align 8, !tbaa !36
+  %.0405 = load ptr, ptr %421, align 8, !tbaa !38
   %.not473 = icmp eq ptr %.0405, null
   br i1 %.not473, label %._crit_edge840, label %.lr.ph839
 
 .lr.ph843:                                        ; preds = %.lr.ph843.preheader, %.lr.ph843
-  %422 = load ptr, ptr %7, align 8, !tbaa !39
+  %422 = load ptr, ptr %7, align 8, !tbaa !41
   %423 = load float, ptr %422, align 16, !tbaa !30
   %424 = fsub reassoc nsz arcp contract afn float %423, %.2353.lcssa
   %425 = fmul reassoc nsz arcp contract afn float %424, %406
@@ -1711,7 +1711,7 @@ parse_double.exit538:                             ; preds = %.preheader680
   br label %.lr.ph847
 
 .lr.ph847:                                        ; preds = %.lr.ph847.preheader, %.lr.ph847
-  %442 = load ptr, ptr %7, align 8, !tbaa !39
+  %442 = load ptr, ptr %7, align 8, !tbaa !41
   %443 = load float, ptr %442, align 16, !tbaa !30
   %444 = fsub reassoc nsz arcp contract afn float %443, %.2353.lcssa
   %445 = fmul reassoc nsz arcp contract afn float %444, %438
@@ -1775,7 +1775,7 @@ parse_double.exit563:                             ; preds = %.preheader694
   %471 = getelementptr inbounds i8, ptr %470, i64 -1
   store i8 0, ptr %471, align 1, !tbaa !23
   %472 = fptrunc reassoc nsz arcp contract afn double %469 to float
-  store float %472, ptr %23, align 8, !tbaa !40
+  store float %472, ptr %23, align 8, !tbaa !42
   br label %.outer.backedge.sink.split
 
 473:                                              ; preds = %458
@@ -1811,7 +1811,7 @@ parse_double.exit566:                             ; preds = %.preheader695
   %486 = getelementptr inbounds i8, ptr %485, i64 -1
   store i8 0, ptr %486, align 1, !tbaa !23
   %487 = fptrunc reassoc nsz arcp contract afn double %484 to float
-  store float %487, ptr %22, align 4, !tbaa !41
+  store float %487, ptr %22, align 4, !tbaa !43
   br label %.outer.backedge.sink.split
 
 488:                                              ; preds = %473
@@ -2264,7 +2264,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br label %.thread81
 
 15:                                               ; preds = %10
-  store ptr null, ptr %3, align 8, !tbaa !42
+  store ptr null, ptr %3, align 8, !tbaa !44
   %16 = call i32 @cmsIT8EnumDataFormat(ptr noundef nonnull %7, ptr noundef nonnull %3) #13
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %19, label %.preheader
@@ -2300,7 +2300,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   %.05989 = phi i32 [ -1, %.lr.ph.preheader ], [ %.160, %63 ]
   %.06188 = phi i32 [ -1, %.lr.ph.preheader ], [ %.162, %63 ]
   %.06387 = phi i32 [ -1, %.lr.ph.preheader ], [ %.164, %63 ]
-  %28 = load ptr, ptr %3, align 8, !tbaa !42
+  %28 = load ptr, ptr %3, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = call i32 @g_strcmp0(ptr noundef %30, ptr noundef nonnull @.str.18) #13
@@ -2309,7 +2309,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not71, label %63, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr %3, align 8, !tbaa !42
+  %34 = load ptr, ptr %3, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = call i32 @g_strcmp0(ptr noundef %36, ptr noundef nonnull @.str.19) #13
@@ -2317,7 +2317,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not72, label %63, label %38
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %3, align 8, !tbaa !42
+  %39 = load ptr, ptr %3, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %42 = call i32 @g_strcmp0(ptr noundef %41, ptr noundef nonnull @.str.20) #13
@@ -2325,7 +2325,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not73, label %63, label %43
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %3, align 8, !tbaa !42
+  %44 = load ptr, ptr %3, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %47 = call i32 @g_strcmp0(ptr noundef %46, ptr noundef nonnull @.str.21) #13
@@ -2333,7 +2333,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not74, label %63, label %48
 
 48:                                               ; preds = %43
-  %49 = load ptr, ptr %3, align 8, !tbaa !42
+  %49 = load ptr, ptr %3, align 8, !tbaa !44
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !26
   %52 = call i32 @g_strcmp0(ptr noundef %51, ptr noundef nonnull @.str.22) #13
@@ -2341,7 +2341,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not75, label %63, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %3, align 8, !tbaa !42
+  %54 = load ptr, ptr %3, align 8, !tbaa !44
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !26
   %57 = call i32 @g_strcmp0(ptr noundef %56, ptr noundef nonnull @.str.23) #13
@@ -2349,7 +2349,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not76, label %63, label %58
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr %3, align 8, !tbaa !42
+  %59 = load ptr, ptr %3, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = call i32 @g_strcmp0(ptr noundef %61, ptr noundef nonnull @.str.24) #13
@@ -2403,26 +2403,26 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br i1 %.not70101, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %76, %87
-  %80 = load ptr, ptr %6, align 8, !tbaa !39
-  %81 = load ptr, ptr %5, align 8, !tbaa !39
+  %80 = load ptr, ptr %6, align 8, !tbaa !41
+  %81 = load ptr, ptr %5, align 8, !tbaa !41
   %82 = call ptr @cmsIT8GetData(ptr noundef nonnull %7, ptr noundef %81, ptr noundef nonnull @.str.18) #13
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread, label %87
 
 .thread:                                          ; preds = %.lr.ph103
   %84 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %85 = load ptr, ptr %5, align 8, !tbaa !39
+  %85 = load ptr, ptr %5, align 8, !tbaa !41
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.27, ptr noundef %85) #15
   br label %.thread81
 
 87:                                               ; preds = %.lr.ph103
-  %88 = load ptr, ptr %5, align 8, !tbaa !39
+  %88 = load ptr, ptr %5, align 8, !tbaa !41
   %89 = call reassoc nsz arcp contract afn double @cmsIT8GetDataDbl(ptr noundef nonnull %7, ptr noundef %88, ptr noundef nonnull %.sroa.0.0) #13
   %90 = fptrunc reassoc nsz arcp contract afn double %89 to float
-  %91 = load ptr, ptr %5, align 8, !tbaa !39
+  %91 = load ptr, ptr %5, align 8, !tbaa !41
   %92 = call reassoc nsz arcp contract afn double @cmsIT8GetDataDbl(ptr noundef nonnull %7, ptr noundef %91, ptr noundef nonnull %.sroa.4.0) #13
   %93 = fptrunc reassoc nsz arcp contract afn double %92 to float
-  %94 = load ptr, ptr %5, align 8, !tbaa !39
+  %94 = load ptr, ptr %5, align 8, !tbaa !41
   %95 = call reassoc nsz arcp contract afn double @cmsIT8GetDataDbl(ptr noundef nonnull %7, ptr noundef %94, ptr noundef nonnull %.sroa.7.0) #13
   %96 = fptrunc reassoc nsz arcp contract afn double %95 to float
   call void @checker_set_color(ptr noundef %80, i32 noundef %.065, float noundef %90, float noundef %93, float noundef %96)
@@ -2530,13 +2530,15 @@ attributes #18 = { cold }
 !31 = !{!19, !14, i64 4}
 !32 = !{!19, !14, i64 8}
 !33 = !{!19, !14, i64 12}
-!34 = !{!8, !14, i64 32}
-!35 = !{!8, !14, i64 36}
-!36 = !{!9, !9, i64 0}
-!37 = !{!38, !10, i64 0}
-!38 = !{!"_GList", !10, i64 0, !9, i64 8, !9, i64 16}
-!39 = !{!10, !10, i64 0}
-!40 = !{!8, !14, i64 40}
-!41 = !{!8, !14, i64 44}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p2 omnipotent char", !10, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = !{!8, !14, i64 32}
+!37 = !{!8, !14, i64 36}
+!38 = !{!9, !9, i64 0}
+!39 = !{!40, !10, i64 0}
+!40 = !{!"_GList", !10, i64 0, !9, i64 8, !9, i64 16}
+!41 = !{!10, !10, i64 0}
+!42 = !{!8, !14, i64 40}
+!43 = !{!8, !14, i64 44}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p2 omnipotent char", !10, i64 0}

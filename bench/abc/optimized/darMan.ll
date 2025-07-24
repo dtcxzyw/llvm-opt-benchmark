@@ -325,10 +325,10 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
 133:                                              ; preds = %105, %130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 222
-  br i1 %exitcond.not, label %.split63.us, label %.split, !llvm.loop !52
+  br i1 %exitcond.not, label %.split63.us, label %.split, !llvm.loop !55
 
 .split63.us:                                      ; preds = %133, %101
-  %134 = load ptr, ptr @stdout, align 8, !tbaa !54
+  %134 = load ptr, ptr @stdout, align 8, !tbaa !56
   %135 = call i32 @fflush(ptr noundef %134)
   br label %136
 
@@ -364,7 +364,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !54
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !56
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -372,7 +372,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !54, !noalias !56
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !58
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -483,10 +483,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !49 = !{!4, !13, i64 2800}
 !50 = !{!21, !12, i64 36}
 !51 = !{!4, !12, i64 68}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"vprintf: argument 0"}
-!58 = distinct !{!58, !"vprintf"}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !53}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"vprintf: argument 0"}
+!60 = distinct !{!60, !"vprintf"}

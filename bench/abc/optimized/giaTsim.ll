@@ -1199,7 +1199,7 @@ define void @Gia_ManTerAnalyze2(ptr noundef captures(none) %0, i32 noundef %1) l
   %spec.select = add nuw nsw i32 %.04966, %40
   %41 = add nuw nsw i32 %.15465, 1
   %exitcond86.not = icmp eq i32 %41, %1
-  br i1 %exitcond86.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !73
+  br i1 %exitcond86.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !74
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %.049.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %spec.select, %.critedge ]
@@ -1238,14 +1238,14 @@ define void @Gia_ManTerAnalyze2(ptr noundef captures(none) %0, i32 noundef %1) l
   store i32 %56, ptr %54, align 4, !tbaa !59
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge.us73, label %47, !llvm.loop !74
+  br i1 %exitcond91.not, label %._crit_edge.us73, label %47, !llvm.loop !75
 
 ._crit_edge.us73:                                 ; preds = %47
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %.val.us = load i32, ptr %5, align 4, !tbaa !40
   %57 = sext i32 %.val.us to i64
   %58 = icmp slt i64 %indvars.iv.next93, %57
-  br i1 %58, label %.lr.ph68.us, label %.critedge2.preheader, !llvm.loop !75
+  br i1 %58, label %.lr.ph68.us, label %.critedge2.preheader, !llvm.loop !76
 
 .critedge2.preheader:                             ; preds = %._crit_edge.us73, %.lr.ph72, %.critedge._crit_edge
   br i1 %30, label %.critedge2, label %.critedge2._crit_edge
@@ -1266,7 +1266,7 @@ define void @Gia_ManTerAnalyze2(ptr noundef captures(none) %0, i32 noundef %1) l
   %spec.select56 = add nuw nsw i32 %.075, %68
   %69 = add nuw nsw i32 %.374, 1
   %exitcond95.not = icmp eq i32 %69, %1
-  br i1 %exitcond95.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !76
+  br i1 %exitcond95.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !77
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge2.preheader ], [ %spec.select56, %.critedge2 ]
@@ -1499,7 +1499,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val22 = load i32, ptr %65, align 4, !tbaa !40
   %89 = sext i32 %.val22 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %72, label %.critedge, !llvm.loop !77
+  br i1 %90, label %72, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %72, %Vec_PtrPush.exit, %31, %22
   %91 = phi i32 [ %59, %Vec_PtrPush.exit ], [ %23, %31 ], [ %23, %22 ], [ %59, %72 ]
@@ -1511,7 +1511,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %95, align 8, !tbaa !38
   %96 = sext i32 %.val to i64
   %97 = icmp slt i64 %indvars.iv.next34, %96
-  br i1 %97, label %22, label %._crit_edge, !llvm.loop !78
+  br i1 %97, label %22, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.critedge, %1
   ret ptr %2
@@ -1544,7 +1544,7 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManFindEqualFlop(ptr noundef 
 14:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !79
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !80
 
 .critedge.loopexit.split.loop.exit17:             ; preds = %11
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1661,7 +1661,7 @@ define noalias noundef ptr @Gia_ManTerCreateMap(ptr noundef captures(none) %0, i
 62:                                               ; preds = %59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Gia_ManFindEqualFlop.exit, label %59, !llvm.loop !79
+  br i1 %exitcond.not.i, label %Gia_ManFindEqualFlop.exit, label %59, !llvm.loop !80
 
 .critedge.loopexit.split.loop.exit17.i:           ; preds = %59
   %63 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1759,7 +1759,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val43 = load i32, ptr %105, align 8, !tbaa !38
   %106 = sext i32 %.val43 to i64
   %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %29, label %._crit_edge, !llvm.loop !80
+  br i1 %107, label %29, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %103, %2
   %108 = phi ptr [ %16, %2 ], [ %.val5270, %103 ]
@@ -1796,10 +1796,10 @@ define noalias noundef ptr @Gia_ManTerSimulate(ptr noundef %0, i32 noundef %1) l
   br i1 %7, label %Abc_Clock.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr %5, align 8, !tbaa !81
+  %9 = load i64, ptr %5, align 8, !tbaa !82
   %.neg72 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !83
+  %11 = load i64, ptr %10, align 8, !tbaa !84
   %.neg = sdiv i64 %11, -1000
   %.neg73 = add i64 %.neg, %.neg72
   br label %Abc_Clock.exit
@@ -1856,7 +1856,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %.val10.val.i = load i32, ptr %17, align 4, !tbaa !34
   %37 = sub nsw i32 %.val10.val.i, %.val9.i
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %24, label %.preheader.i, !llvm.loop !84
+  br i1 %38, label %24, label %.preheader.i, !llvm.loop !85
 
 39:                                               ; preds = %39, %.lr.ph17.i
   %.116.i = phi i32 [ %.0.lcssa.i, %.lr.ph17.i ], [ %51, %39 ]
@@ -1875,7 +1875,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %51 = add nuw nsw i32 %.116.i, 1
   %.val.val.i = load i32, ptr %17, align 4, !tbaa !34
   %52 = icmp slt i32 %51, %.val.val.i
-  br i1 %52, label %39, label %Gia_ManTerSimInfoInit.exit, !llvm.loop !85
+  br i1 %52, label %39, label %Gia_ManTerSimInfoInit.exit, !llvm.loop !86
 
 Gia_ManTerSimInfoInit.exit:                       ; preds = %39, %.preheader.i
   %53 = call ptr @Gia_ManTerStateCreate(ptr noundef nonnull %13)
@@ -1931,12 +1931,12 @@ Gia_ManTerStateInsert.exit:                       ; preds = %.lr.ph.i.i, %Gia_Ma
   %85 = and i32 %84, -4
   %86 = or disjoint i32 %85, 1
   store i32 %86, ptr %75, align 4, !tbaa !59
-  %87 = load i32, ptr %76, align 8, !tbaa !86
+  %87 = load i32, ptr %76, align 8, !tbaa !87
   %88 = icmp sgt i32 %87, 1
   br i1 %88, label %.lr.ph.i41, label %Gia_ManTerSimulateRound.exit
 
 .lr.ph.i41:                                       ; preds = %83
-  %.val.i = load ptr, ptr %77, align 8, !tbaa !87
+  %.val.i = load ptr, ptr %77, align 8, !tbaa !88
   br label %89
 
 89:                                               ; preds = %188, %.lr.ph.i41
@@ -1951,7 +1951,7 @@ Gia_ManTerStateInsert.exit:                       ; preds = %.lr.ph.i.i, %Gia_Ma
 
 92:                                               ; preds = %89
   %93 = getelementptr i8, ptr %90, i64 8
-  %.val24.i = load i32, ptr %93, align 4, !tbaa !88
+  %.val24.i = load i32, ptr %93, align 4, !tbaa !89
   %94 = trunc i64 %.val21.i to i32
   %95 = and i32 %94, 536870911
   %96 = lshr i32 %95, 4
@@ -2011,7 +2011,7 @@ Gia_ManTerStateInsert.exit:                       ; preds = %.lr.ph.i.i, %Gia_Ma
   %140 = add nsw i32 %.01535.i, 1
   %.val27.i = load ptr, ptr %79, align 8, !tbaa !35
   %141 = getelementptr i8, ptr %90, i64 8
-  %.val28.i = load i32, ptr %141, align 4, !tbaa !88
+  %.val28.i = load i32, ptr %141, align 4, !tbaa !89
   %142 = ashr i32 %.01535.i, 4
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i32, ptr %.val27.i, i64 %143
@@ -2071,10 +2071,10 @@ Gia_ManTerStateInsert.exit:                       ; preds = %.lr.ph.i.i, %Gia_Ma
   %.116.i42 = phi i32 [ %.01535.i, %92 ], [ %140, %139 ], [ %.01535.i, %160 ]
   %.1.i = phi i32 [ %.036.i, %92 ], [ %.036.i, %139 ], [ %161, %160 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %189 = load i32, ptr %76, align 8, !tbaa !86
+  %189 = load i32, ptr %76, align 8, !tbaa !87
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next.i, %190
-  br i1 %191, label %89, label %Gia_ManTerSimulateRound.exit, !llvm.loop !90
+  br i1 %191, label %89, label %Gia_ManTerSimulateRound.exit, !llvm.loop !91
 
 Gia_ManTerSimulateRound.exit:                     ; preds = %188, %83
   %.val16.i = load ptr, ptr %16, align 8, !tbaa !33
@@ -2120,7 +2120,7 @@ Gia_ManTerSimulateRound.exit:                     ; preds = %188, %83
   %.val16.val.i = load i32, ptr %192, align 4, !tbaa !34
   %212 = sub nsw i32 %.val16.val.i, %.val15.i
   %213 = icmp slt i32 %211, %212
-  br i1 %213, label %199, label %.preheader.i43, !llvm.loop !91
+  br i1 %213, label %199, label %.preheader.i43, !llvm.loop !92
 
 214:                                              ; preds = %214, %.lr.ph26.i
   %.val13.val25.i = phi i32 [ %.val13.val23.i, %.lr.ph26.i ], [ %.val13.val.i, %214 ]
@@ -2150,7 +2150,7 @@ Gia_ManTerSimulateRound.exit:                     ; preds = %188, %83
   %235 = add nuw nsw i32 %.124.i, 1
   %.val13.val.i = load i32, ptr %192, align 4, !tbaa !34
   %236 = icmp slt i32 %235, %.val13.val.i
-  br i1 %236, label %214, label %Gia_ManTerSimInfoTransfer.exit, !llvm.loop !92
+  br i1 %236, label %214, label %Gia_ManTerSimInfoTransfer.exit, !llvm.loop !93
 
 Gia_ManTerSimInfoTransfer.exit:                   ; preds = %214, %.preheader.i43
   %237 = call ptr @Gia_ManTerStateCreate(ptr noundef nonnull %13)
@@ -2197,7 +2197,7 @@ Gia_ManTerStateLookup.exit:                       ; preds = %.lr.ph.i47
   %252 = getelementptr i8, ptr %251, i64 4
   %.val = load i32, ptr %252, align 4, !tbaa !40
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 %.val, ptr %253, align 4, !tbaa !93
+  store i32 %.val, ptr %253, align 4, !tbaa !94
   %254 = icmp sgt i32 %.val, 0
   br i1 %254, label %.lr.ph.i55, label %Vec_PtrFind.exit
 
@@ -2217,7 +2217,7 @@ Gia_ManTerStateLookup.exit:                       ; preds = %.lr.ph.i47
 261:                                              ; preds = %257
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrFind.exit, label %257, !llvm.loop !94
+  br i1 %exitcond.not.i, label %Vec_PtrFind.exit, label %257, !llvm.loop !95
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %257
   %262 = trunc nuw nsw i64 %indvars.iv.i56 to i32
@@ -2226,7 +2226,7 @@ Gia_ManTerStateLookup.exit:                       ; preds = %.lr.ph.i47
 Vec_PtrFind.exit:                                 ; preds = %261, %Gia_ManTerStateLookup.exit, %._crit_edge.loopexit.split.loop.exit12.i
   %.07.i = phi i32 [ -1, %Gia_ManTerStateLookup.exit ], [ %262, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %261 ]
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %.07.i, ptr %263, align 8, !tbaa !95
+  store i32 %.07.i, ptr %263, align 8, !tbaa !96
   %.not37 = icmp eq i32 %1, 0
   br i1 %.not37, label %298, label %283
 
@@ -2281,10 +2281,10 @@ Gia_ManTerStateInsert.exit67:                     ; preds = %.lr.ph.i.i62, %.loo
   br i1 %287, label %Abc_Clock.exit69, label %288
 
 288:                                              ; preds = %283
-  %289 = load i64, ptr %3, align 8, !tbaa !81
+  %289 = load i64, ptr %3, align 8, !tbaa !82
   %290 = mul nsw i64 %289, 1000000
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %292 = load i64, ptr %291, align 8, !tbaa !83
+  %292 = load i64, ptr %291, align 8, !tbaa !84
   %293 = sdiv i64 %292, 1000
   %294 = add nsw i64 %293, %290
   br label %Abc_Clock.exit69
@@ -2319,7 +2319,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #14 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #23
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !96
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !97
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
@@ -2327,7 +2327,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #14 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !96, !noalias !98
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !97, !noalias !99
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #23
   br label %17
 
@@ -2494,32 +2494,33 @@ attributes #26 = { nounwind willreturn memory(read) }
 !69 = distinct !{!69, !48}
 !70 = distinct !{!70, !48}
 !71 = distinct !{!71, !48}
-!72 = distinct !{!72, !48}
-!73 = distinct !{!73, !48}
+!72 = distinct !{!72, !48, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !74 = distinct !{!74, !48}
 !75 = distinct !{!75, !48}
-!76 = distinct !{!76, !48}
+!76 = distinct !{!76, !48, !73}
 !77 = distinct !{!77, !48}
 !78 = distinct !{!78, !48}
 !79 = distinct !{!79, !48}
 !80 = distinct !{!80, !48}
-!81 = !{!82, !27, i64 0}
-!82 = !{!"timespec", !27, i64 0, !27, i64 8}
-!83 = !{!82, !27, i64 8}
-!84 = distinct !{!84, !48}
+!81 = distinct !{!81, !48}
+!82 = !{!83, !27, i64 0}
+!83 = !{!"timespec", !27, i64 0, !27, i64 8}
+!84 = !{!83, !27, i64 8}
 !85 = distinct !{!85, !48}
-!86 = !{!17, !9, i64 24}
-!87 = !{!17, !18, i64 32}
-!88 = !{!89, !9, i64 8}
-!89 = !{!"Gia_Obj_t_", !9, i64 0, !9, i64 3, !9, i64 3, !9, i64 3, !9, i64 4, !9, i64 7, !9, i64 7, !9, i64 7, !9, i64 8}
-!90 = distinct !{!90, !48}
+!86 = distinct !{!86, !48}
+!87 = !{!17, !9, i64 24}
+!88 = !{!17, !18, i64 32}
+!89 = !{!90, !9, i64 8}
+!90 = !{!"Gia_Obj_t_", !9, i64 0, !9, i64 3, !9, i64 3, !9, i64 3, !9, i64 4, !9, i64 7, !9, i64 7, !9, i64 7, !9, i64 8}
 !91 = distinct !{!91, !48}
 !92 = distinct !{!92, !48}
-!93 = !{!17, !9, i64 228}
-!94 = distinct !{!94, !48}
-!95 = !{!17, !9, i64 224}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"vprintf: argument 0"}
-!100 = distinct !{!100, !"vprintf"}
+!93 = distinct !{!93, !48}
+!94 = !{!17, !9, i64 228}
+!95 = distinct !{!95, !48}
+!96 = !{!17, !9, i64 224}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"vprintf: argument 0"}
+!101 = distinct !{!101, !"vprintf"}

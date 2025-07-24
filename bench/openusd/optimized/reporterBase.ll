@@ -1259,7 +1259,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrRese
   %29 = shl nuw i64 1, %28
   %30 = and i64 %29, -2
   %31 = icmp ult i64 %30, %1
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !33
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i.i
   %32 = load atomic i64, ptr %6 acquire, align 8
@@ -1279,7 +1279,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrRese
   store ptr %.0.i.i.i, ptr %35, align 8
   %38 = add nuw nsw i64 %.01825.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, 3
-  br i1 %exitcond.not.i.i, label %39, label %.noexc, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %39, label %.noexc, !llvm.loop !35
 
 39:                                               ; preds = %.noexc
   %scevgep.i.i = getelementptr i8, ptr %34, i64 24
@@ -1337,7 +1337,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %56, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %55, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.0.i, %56 ]
   %58 = load atomic i64, ptr %6 acquire, align 8
   %59 = icmp eq i64 %7, %58
-  br i1 %59, label %45, label %_ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit.loopexit, !llvm.loop !35
+  br i1 %59, label %45, label %_ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit.loopexit, !llvm.loop !36
 
 _ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit.loopexit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
   %.0.i.i.le = inttoptr i64 %58 to ptr
@@ -1452,7 +1452,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrRese
   %22 = shl nuw i64 1, %21
   %23 = and i64 %22, -2
   %24 = icmp ult i64 %23, %7
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i, %1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1474,7 +1474,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrRese
   store ptr %.0.i.i, ptr %30, align 8
   %33 = add nuw nsw i64 %.01825.i, 1
   %exitcond.not.i = icmp eq i64 %33, 3
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %29, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %29, !llvm.loop !35
 
 .preheader.preheader.i:                           ; preds = %29
   %scevgep.i = getelementptr i8, ptr %28, i64 24
@@ -1582,7 +1582,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %.sroa.5.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 1, ptr %35, align 8, !alias.scope !36
+  store i8 1, ptr %35, align 8, !alias.scope !37
   %36 = shl i64 %34, 4
   %37 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef %36)
           to label %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE_E12on_exceptionIZNSB_14create_segmentESF_mmEUlvE0_EEvT_.exit unwind label %38
@@ -1651,7 +1651,7 @@ _ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserve
   %57 = add nuw i64 %.01594, 1
   %58 = load i64, ptr %9, align 8
   %59 = icmp ult i64 %57, %58
-  br i1 %59, label %.lr.ph, label %.preheader, !llvm.loop !39
+  br i1 %59, label %.lr.ph, label %.preheader, !llvm.loop !40
 
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %60 = phi i1 [ false, %.lr.ph96 ], [ true, %.preheader ]
@@ -1661,7 +1661,7 @@ _ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserve
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
   %64 = and i1 %63, %60
-  br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit, !llvm.loop !40
+  br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit, !llvm.loop !41
 
 65:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE_E12on_exceptionIZNSB_14create_segmentESF_mmEUlvE0_EEvT_.exit
   %66 = load ptr, ptr %0, align 8
@@ -1822,7 +1822,7 @@ define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vec
   store atomic i64 %29, ptr %27 release, align 8
   %30 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %30, %24
-  br i1 %exitcond.not.i, label %_ZZN3tbb6detail2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EEE14create_segmentEPSt6atomicIPS6_EmmENKUlvE0_clEv.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %_ZZN3tbb6detail2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EEE14create_segmentEPSt6atomicIPS6_EmmENKUlvE0_clEv.exit, label %.lr.ph.i, !llvm.loop !42
 
 _ZZN3tbb6detail2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EEE14create_segmentEPSt6atomicIPS6_EmmENKUlvE0_clEv.exit: ; preds = %.lr.ph.i, %19, %5, %1
   ret void
@@ -1904,13 +1904,14 @@ attributes #22 = { builtin allocsize(0) }
 !29 = !{!30}
 !30 = distinct !{!30, !28, !"_ZSt19__relocate_object_aISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
+!32 = distinct !{!32, !5, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE0_EENS1_10raii_guardIT_EESI_: argument 0"}
-!38 = distinct !{!38, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE0_EENS1_10raii_guardIT_EESI_"}
-!39 = distinct !{!39, !5}
+!36 = distinct !{!36, !5}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE0_EENS1_10raii_guardIT_EESI_: argument 0"}
+!39 = distinct !{!39, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE0_EENS1_10raii_guardIT_EESI_"}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}

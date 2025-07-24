@@ -21221,7 +21221,7 @@ define internal fastcc zeroext range(i8 0, 3) i8 @VULKAN_INTERNAL_BindResourceMe
 73:                                               ; preds = %61, %.critedge
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %74 = icmp sgt i64 %indvars.iv, 0
-  br i1 %74, label %.critedge, label %._crit_edge, !llvm.loop !116
+  br i1 %74, label %.critedge, label %._crit_edge, !llvm.loop !118
 
 .split.us:                                        ; preds = %61, %41
   %75 = phi i64 [ %44, %41 ], [ %64, %61 ]
@@ -21771,7 +21771,7 @@ define internal fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noun
 29:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit152, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %.loopexit152, label %.lr.ph.i, !llvm.loop !119
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %29 ]
@@ -21792,7 +21792,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit:  ; preds = %.lr.ph.i, %17, %21,
   %.196 = phi i32 [ %34, %.loopexit152 ], [ %.095153, %21 ], [ %.095153, %17 ], [ %.095153, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph158, label %17, !llvm.loop !118
+  br i1 %exitcond.not, label %.lr.ph158, label %17, !llvm.loop !120
 
 .lr.ph162:                                        ; preds = %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1668
@@ -21831,7 +21831,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit:  ; preds = %.lr.ph.i, %17, %21,
 51:                                               ; preds = %.lr.ph.i119
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i118
-  br i1 %exitcond.not.i123, label %.loopexit150, label %.lr.ph.i119, !llvm.loop !117
+  br i1 %exitcond.not.i123, label %.loopexit150, label %.lr.ph.i119, !llvm.loop !119
 
 .lr.ph.i119:                                      ; preds = %51, %.lr.ph.preheader.i117
   %indvars.iv.i120 = phi i64 [ 0, %.lr.ph.preheader.i117 ], [ %indvars.iv.next.i122, %51 ]
@@ -21852,7 +21852,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125: ; preds = %.lr.ph.i119, %38,
   %.398 = phi i32 [ %56, %.loopexit150 ], [ %.297156, %42 ], [ %.297156, %38 ], [ %.297156, %.lr.ph.i119 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.lr.ph162, label %38, !llvm.loop !119
+  br i1 %exitcond177.not, label %.lr.ph162, label %38, !llvm.loop !121
 
 .lr.ph166:                                        ; preds = %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1668
@@ -21887,7 +21887,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125: ; preds = %.lr.ph.i119, %38,
 69:                                               ; preds = %.lr.ph.i128
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i127
-  br i1 %exitcond.not.i132, label %.loopexit148, label %.lr.ph.i128, !llvm.loop !117
+  br i1 %exitcond.not.i132, label %.loopexit148, label %.lr.ph.i128, !llvm.loop !119
 
 .lr.ph.i128:                                      ; preds = %69, %.lr.ph.preheader.i126
   %indvars.iv.i129 = phi i64 [ 0, %.lr.ph.preheader.i126 ], [ %indvars.iv.next.i131, %69 ]
@@ -21908,7 +21908,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134: ; preds = %.lr.ph.i128, %59,
   %.5 = phi i32 [ %74, %.loopexit148 ], [ %.4160, %63 ], [ %.4160, %59 ], [ %.4160, %.lr.ph.i128 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %.lr.ph166, label %59, !llvm.loop !120
+  br i1 %exitcond182.not, label %.lr.ph166, label %59, !llvm.loop !122
 
 75:                                               ; preds = %.lr.ph166, %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143
   %indvars.iv183 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next184, %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143 ]
@@ -21940,7 +21940,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134: ; preds = %.lr.ph.i128, %59,
 88:                                               ; preds = %.lr.ph.i137
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i136
-  br i1 %exitcond.not.i141, label %.loopexit, label %.lr.ph.i137, !llvm.loop !117
+  br i1 %exitcond.not.i141, label %.loopexit, label %.lr.ph.i137, !llvm.loop !119
 
 .lr.ph.i137:                                      ; preds = %88, %.lr.ph.preheader.i135
   %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.preheader.i135 ], [ %indvars.iv.next.i140, %88 ]
@@ -21961,7 +21961,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143: ; preds = %.lr.ph.i137, %75,
   %.7 = phi i32 [ %93, %.loopexit ], [ %.6164, %79 ], [ %.6164, %75 ], [ %.6164, %.lr.ph.i137 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge, label %75, !llvm.loop !121
+  br i1 %exitcond187.not, label %._crit_edge, label %75, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143, %6
   %.6.lcssa = phi i32 [ 0, %6 ], [ %.7, %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143 ]
@@ -22473,7 +22473,7 @@ define internal fastcc void @VULKAN_INTERNAL_MarkAllocationsForDefrag(ptr nounde
   %77 = add i32 %76, -1
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next.i, %78
-  br i1 %79, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !122
+  br i1 %79, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !124
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %52, %..loopexit_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %..loopexit_crit_edge.i ], [ %58, %52 ], [ %77, %.lr.ph.i ]
@@ -22484,19 +22484,19 @@ define internal fastcc void @VULKAN_INTERNAL_MarkAllocationsForDefrag(ptr nounde
   %82 = load i32, ptr %44, align 8
   %83 = zext i32 %82 to i64
   %84 = icmp samesign ult i64 %indvars.iv.next24.i, %83
-  br i1 %84, label %47, label %VULKAN_INTERNAL_MakeMemoryUnavailable.exit, !llvm.loop !123
+  br i1 %84, label %47, label %VULKAN_INTERNAL_MakeMemoryUnavailable.exit, !llvm.loop !125
 
 VULKAN_INTERNAL_MakeMemoryUnavailable.exit:       ; preds = %.loopexit.i, %32, %12, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %9, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %12, label %._crit_edge, !llvm.loop !124
+  br i1 %87, label %12, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %VULKAN_INTERNAL_MakeMemoryUnavailable.exit, %6
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next33, 32
-  br i1 %exitcond.not, label %88, label %6, !llvm.loop !125
+  br i1 %exitcond.not, label %88, label %6, !llvm.loop !127
 
 88:                                               ; preds = %._crit_edge
   ret void
@@ -22902,7 +22902,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
 96:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !126
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !128
 
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %96 ]
@@ -23121,7 +23121,7 @@ VULKAN_INTERNAL_ReleaseBuffer.exit:               ; preds = %11, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %11, label %._crit_edge, !llvm.loop !127
+  br i1 %40, label %11, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %VULKAN_INTERNAL_ReleaseBuffer.exit, %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23185,7 +23185,7 @@ define internal fastcc noundef ptr @VULKAN_INTERNAL_PrepareTextureSubresourceFor
   %28 = load i32, ptr %24, align 4
   %29 = zext i32 %28 to i64
   %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %29
-  br i1 %.not.i, label %30, label %.critedge.i, !llvm.loop !128
+  br i1 %.not.i, label %30, label %.critedge.i, !llvm.loop !130
 
 30:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
@@ -23347,7 +23347,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
 45:                                               ; preds = %17, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 92
@@ -23529,7 +23529,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %.178.i = phi i32 [ %150, %123 ], [ %.07788.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %149, %123 ], [ %121, %.lr.ph.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !130
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !132
 
 ._crit_edge.loopexit.i:                           ; preds = %151
   %152 = icmp eq i32 %.178.i, 0
@@ -24020,7 +24020,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_AcquireUniformBufferFromPool(ptr nou
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %.0
-  br i1 %35, label %VULKAN_INTERNAL_TrackUniformBuffer.exit, label %27, !llvm.loop !131
+  br i1 %35, label %VULKAN_INTERNAL_TrackUniformBuffer.exit, label %27, !llvm.loop !133
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2204
@@ -24251,7 +24251,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %86 = load i32, ptr %57, align 8
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next, %87
-  br i1 %88, label %65, label %.preheader299.loopexit, !llvm.loop !132
+  br i1 %88, label %65, label %.preheader299.loopexit, !llvm.loop !134
 
 .preheader298:                                    ; preds = %92, %.preheader299
   %.2285.lcssa = phi i32 [ %.1284.lcssa, %.preheader299 ], [ %115, %92 ]
@@ -24308,7 +24308,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %116 = load i32, ptr %62, align 8
   %117 = zext i32 %116 to i64
   %118 = icmp samesign ult i64 %indvars.iv.next396, %117
-  br i1 %118, label %92, label %.preheader298, !llvm.loop !133
+  br i1 %118, label %92, label %.preheader298, !llvm.loop !135
 
 ._crit_edge.loopexit:                             ; preds = %120
   %119 = trunc nuw i64 %indvars.iv.next399 to i32
@@ -24364,7 +24364,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %145 = load i32, ptr %89, align 4
   %146 = zext i32 %145 to i64
   %147 = icmp samesign ult i64 %indvars.iv.next399, %146
-  br i1 %147, label %120, label %._crit_edge.loopexit, !llvm.loop !134
+  br i1 %147, label %120, label %._crit_edge.loopexit, !llvm.loop !136
 
 148:                                              ; preds = %._crit_edge, %.thread
   %.0283 = phi i32 [ %.2285.lcssa, %._crit_edge ], [ 0, %.thread ]
@@ -24440,7 +24440,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %184 = load i32, ptr %157, align 4
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv.next404, %185
-  br i1 %186, label %160, label %._crit_edge324, !llvm.loop !135
+  br i1 %186, label %160, label %._crit_edge324, !llvm.loop !137
 
 187:                                              ; preds = %._crit_edge324, %148
   %.2277 = phi i32 [ %.3278.lcssa, %._crit_edge324 ], [ %.0275, %148 ]
@@ -24476,7 +24476,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store i32 %200, ptr %201, align 4
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %202 = icmp samesign ult i64 %indvars.iv.next407, %191
-  br i1 %202, label %196, label %._crit_edge331.loopexit, !llvm.loop !136
+  br i1 %202, label %196, label %._crit_edge331.loopexit, !llvm.loop !138
 
 203:                                              ; preds = %._crit_edge331
   %204 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -24550,7 +24550,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %240 = load i32, ptr %208, align 8
   %241 = zext i32 %240 to i64
   %242 = icmp samesign ult i64 %indvars.iv.next412, %241
-  br i1 %242, label %215, label %.preheader297, !llvm.loop !137
+  br i1 %242, label %215, label %.preheader297, !llvm.loop !139
 
 .preheader:                                       ; preds = %246, %.preheader297
   %.8.lcssa = phi i32 [ %.7.lcssa, %.preheader297 ], [ %268, %246 ]
@@ -24606,7 +24606,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %270 = load i32, ptr %212, align 8
   %271 = zext i32 %270 to i64
   %272 = icmp samesign ult i64 %indvars.iv.next415, %271
-  br i1 %272, label %246, label %.preheader, !llvm.loop !138
+  br i1 %272, label %246, label %.preheader, !llvm.loop !140
 
 ._crit_edge349:                                   ; preds = %273, %.preheader
   %.5280.lcssa = phi i32 [ %.2277, %.preheader ], [ %299, %273 ]
@@ -24661,7 +24661,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %300 = load i32, ptr %243, align 4
   %301 = zext i32 %300 to i64
   %302 = icmp samesign ult i64 %indvars.iv.next418, %301
-  br i1 %302, label %273, label %._crit_edge349, !llvm.loop !139
+  br i1 %302, label %273, label %._crit_edge349, !llvm.loop !141
 
 303:                                              ; preds = %._crit_edge349, %._crit_edge331
   %.4279 = phi i32 [ %.5280.lcssa, %._crit_edge349 ], [ %.2277, %._crit_edge331 ]
@@ -24735,7 +24735,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %339 = load i32, ptr %312, align 4
   %340 = zext i32 %339 to i64
   %341 = icmp samesign ult i64 %indvars.iv.next421, %340
-  br i1 %341, label %315, label %._crit_edge357, !llvm.loop !140
+  br i1 %341, label %315, label %._crit_edge357, !llvm.loop !142
 
 342:                                              ; preds = %._crit_edge357, %303
   %.10 = phi i32 [ %.11.lcssa, %._crit_edge357 ], [ %.6, %303 ]
@@ -24798,7 +24798,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %376 = add i32 %.1291359, 1
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %377 = icmp samesign ult i64 %indvars.iv.next424, %346
-  br i1 %377, label %369, label %._crit_edge363, !llvm.loop !141
+  br i1 %377, label %369, label %._crit_edge363, !llvm.loop !143
 
 378:                                              ; preds = %31, %._crit_edge363
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
@@ -24867,7 +24867,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   %34 = add i32 %33, 1
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !142
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !144
 
 37:                                               ; preds = %._crit_edge, %3
   %38 = phi i32 [ %.pre32, %._crit_edge ], [ %9, %3 ]
@@ -24915,7 +24915,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader79.i, label %.lr.ph.i, !llvm.loop !143
+  br i1 %exitcond.not.i, label %.preheader79.i, label %.lr.ph.i, !llvm.loop !145
 
 .preheader78.i:                                   ; preds = %.lr.ph87.i, %.preheader79.i
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -24937,7 +24937,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %64, align 4
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %exitcond109.not.i = icmp eq i64 %indvars.iv.next106.i, %wide.trip.count108.i
-  br i1 %exitcond109.not.i, label %.preheader78.i, label %.lr.ph87.i, !llvm.loop !144
+  br i1 %exitcond109.not.i, label %.preheader78.i, label %.lr.ph87.i, !llvm.loop !146
 
 .preheader77.i:                                   ; preds = %.lr.ph90.i, %.preheader78.i
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -24957,7 +24957,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %68, align 4
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next111.i, %wide.trip.count113.i
-  br i1 %exitcond114.not.i, label %.preheader77.i, label %.lr.ph90.i, !llvm.loop !145
+  br i1 %exitcond114.not.i, label %.preheader77.i, label %.lr.ph90.i, !llvm.loop !147
 
 .preheader76.i:                                   ; preds = %.lr.ph93.i, %.preheader77.i
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -24979,7 +24979,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %75, align 4
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count118.i
-  br i1 %exitcond119.not.i, label %.preheader76.i, label %.lr.ph93.i, !llvm.loop !146
+  br i1 %exitcond119.not.i, label %.preheader76.i, label %.lr.ph93.i, !llvm.loop !148
 
 .preheader.i:                                     ; preds = %.lr.ph96.i, %.preheader76.i
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -24999,7 +24999,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %79, align 4
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
   %exitcond124.not.i = icmp eq i64 %indvars.iv.next121.i, %wide.trip.count123.i
-  br i1 %exitcond124.not.i, label %.preheader.i, label %.lr.ph96.i, !llvm.loop !147
+  br i1 %exitcond124.not.i, label %.preheader.i, label %.lr.ph96.i, !llvm.loop !149
 
 ._crit_edge.i:                                    ; preds = %.lr.ph99.i, %.preheader.i
   store i32 33, ptr %7, align 8
@@ -25032,7 +25032,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   store i32 128, ptr %94, align 4
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %exitcond129.not.i = icmp eq i64 %indvars.iv.next126.i, %wide.trip.count128.i
-  br i1 %exitcond129.not.i, label %._crit_edge.i, label %.lr.ph99.i, !llvm.loop !148
+  br i1 %exitcond129.not.i, label %._crit_edge.i, label %.lr.ph99.i, !llvm.loop !150
 
 95:                                               ; preds = %._crit_edge.i
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1628
@@ -25231,7 +25231,7 @@ VkErrorMessages.exit75.i:                         ; preds = %134, %133, %132, %1
   store ptr %157, ptr %160, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %161, label %159, !llvm.loop !149
+  br i1 %exitcond.not.i.i, label %161, label %159, !llvm.loop !151
 
 161:                                              ; preds = %159
   %162 = zext i32 %158 to i64
@@ -25464,7 +25464,7 @@ define internal fastcc void @VULKAN_INTERNAL_CycleActiveBuffer(ptr noundef %0, p
   %7 = load i32, ptr %3, align 4
   %8 = zext i32 %7 to i64
   %.not = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %.not, label %9, label %.critedge, !llvm.loop !150
+  br i1 %.not, label %9, label %.critedge, !llvm.loop !152
 
 9:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -25738,7 +25738,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %65 = load i32, ptr %36, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next, %66
-  br i1 %67, label %44, label %.preheader211.loopexit, !llvm.loop !151
+  br i1 %67, label %44, label %.preheader211.loopexit, !llvm.loop !153
 
 .preheader210:                                    ; preds = %71, %.preheader211
   %.2204.lcssa = phi i32 [ %.1203.lcssa, %.preheader211 ], [ %94, %71 ]
@@ -25795,7 +25795,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %95 = load i32, ptr %41, align 4
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next278, %96
-  br i1 %97, label %71, label %.preheader210, !llvm.loop !152
+  br i1 %97, label %71, label %.preheader210, !llvm.loop !154
 
 ._crit_edge.loopexit:                             ; preds = %99
   %98 = trunc nuw i64 %indvars.iv.next281 to i32
@@ -25853,7 +25853,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %124 = load i32, ptr %68, align 8
   %125 = zext i32 %124 to i64
   %126 = icmp samesign ult i64 %indvars.iv.next281, %125
-  br i1 %126, label %99, label %._crit_edge.loopexit, !llvm.loop !153
+  br i1 %126, label %99, label %._crit_edge.loopexit, !llvm.loop !155
 
 127:                                              ; preds = %.thread, %._crit_edge
   %128 = phi i8 [ %.pre, %._crit_edge ], [ %13, %.thread ]
@@ -25932,7 +25932,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %165 = load i32, ptr %137, align 4
   %166 = zext i32 %165 to i64
   %167 = icmp samesign ult i64 %indvars.iv.next286, %166
-  br i1 %167, label %143, label %.preheader, !llvm.loop !154
+  br i1 %167, label %143, label %.preheader, !llvm.loop !156
 
 ._crit_edge240:                                   ; preds = %168, %.preheader
   %.3199.lcssa = phi i32 [ %.0196, %.preheader ], [ %192, %168 ]
@@ -25985,7 +25985,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %193 = load i32, ptr %140, align 8
   %194 = zext i32 %193 to i64
   %195 = icmp samesign ult i64 %indvars.iv.next289, %194
-  br i1 %195, label %168, label %._crit_edge240, !llvm.loop !155
+  br i1 %195, label %168, label %._crit_edge240, !llvm.loop !157
 
 196:                                              ; preds = %._crit_edge240, %127
   %.2198 = phi i32 [ %.3199.lcssa, %._crit_edge240 ], [ %.0196, %127 ]
@@ -26059,7 +26059,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %232 = load i32, ptr %205, align 4
   %233 = zext i32 %232 to i64
   %234 = icmp samesign ult i64 %indvars.iv.next292, %233
-  br i1 %234, label %208, label %._crit_edge248, !llvm.loop !156
+  br i1 %234, label %208, label %._crit_edge248, !llvm.loop !158
 
 235:                                              ; preds = %._crit_edge248, %196
   %.7 = phi i32 [ %.8.lcssa, %._crit_edge248 ], [ %.4, %196 ]
@@ -26117,7 +26117,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store i32 %262, ptr %263, align 4
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %264 = icmp samesign ult i64 %indvars.iv.next295, %239
-  br i1 %264, label %258, label %._crit_edge254.loopexit, !llvm.loop !157
+  br i1 %264, label %258, label %._crit_edge254.loopexit, !llvm.loop !159
 
 265:                                              ; preds = %19, %._crit_edge254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
@@ -27365,7 +27365,7 @@ VkErrorMessages.exit:                             ; preds = %227, %228, %229, %2
   %293 = load i32, ptr %251, align 8
   %294 = zext i32 %293 to i64
   %295 = icmp samesign ult i64 %indvars.iv.next, %294
-  br i1 %295, label %.lr.ph, label %._crit_edge, !llvm.loop !158
+  br i1 %295, label %.lr.ph, label %._crit_edge, !llvm.loop !160
 
 .lr.ph:                                           ; preds = %.preheader, %292
   %indvars.iv = phi i64 [ %indvars.iv.next, %292 ], [ 0, %.preheader ]
@@ -27592,7 +27592,7 @@ SwapchainCompositionToSDLFormat.exit:             ; preds = %.lr.ph, %311, %313,
   store ptr null, ptr %444, align 8
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next322, 3
-  br i1 %exitcond.not, label %445, label %423, !llvm.loop !159
+  br i1 %exitcond.not, label %445, label %423, !llvm.loop !161
 
 445:                                              ; preds = %443
   %446 = load i32, ptr %251, align 8
@@ -27610,7 +27610,7 @@ SwapchainCompositionToSDLFormat.exit:             ; preds = %.lr.ph, %311, %313,
   %453 = load i32, ptr %251, align 8
   %454 = zext i32 %453 to i64
   %455 = icmp samesign ult i64 %indvars.iv.next325, %454
-  br i1 %455, label %.lr.ph312, label %._crit_edge313, !llvm.loop !160
+  br i1 %455, label %.lr.ph312, label %._crit_edge313, !llvm.loop !162
 
 .lr.ph312:                                        ; preds = %445, %452
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %452 ], [ 0, %445 ]
@@ -27762,7 +27762,7 @@ define internal fastcc void @VULKAN_INTERNAL_DestroySwapchain(ptr noundef readon
   %43 = load i32, ptr %4, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %9, label %._crit_edge, !llvm.loop !161
+  br i1 %45, label %9, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %9, %.preheader60
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -27829,7 +27829,7 @@ define internal fastcc void @VULKAN_INTERNAL_DestroySwapchain(ptr noundef readon
 74:                                               ; preds = %68, %71
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, 3
-  br i1 %exitcond.not, label %.preheader, label %68, !llvm.loop !162
+  br i1 %exitcond.not, label %.preheader, label %68, !llvm.loop !164
 
 75:                                               ; preds = %.lr.ph64, %85
   %76 = phi i32 [ %66, %.lr.ph64 ], [ %86, %85 ]
@@ -27855,7 +27855,7 @@ define internal fastcc void @VULKAN_INTERNAL_DestroySwapchain(ptr noundef readon
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next73, %87
-  br i1 %88, label %75, label %._crit_edge65, !llvm.loop !163
+  br i1 %88, label %75, label %._crit_edge65, !llvm.loop !165
 
 ._crit_edge65:                                    ; preds = %85, %.preheader
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -27943,7 +27943,7 @@ VULKAN_ReleaseFence.exit:                         ; preds = %12, %VULKAN_INTERNA
 34:                                               ; preds = %9, %VULKAN_ReleaseFence.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %35, label %9, !llvm.loop !164
+  br i1 %exitcond.not, label %35, label %9, !llvm.loop !166
 
 35:                                               ; preds = %34
   tail call fastcc void @VULKAN_INTERNAL_DestroySwapchain(ptr noundef %0, ptr noundef nonnull %1)
@@ -28310,7 +28310,7 @@ define internal fastcc void @VULKAN_INTERNAL_DestroyCommandPool(ptr %.1616.val, 
   %31 = load i32, ptr %4, align 4
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %7, label %._crit_edge, !llvm.loop !165
+  br i1 %33, label %7, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %7, %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28866,7 +28866,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %70 = load i32, ptr %38, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %50, label %._crit_edge, !llvm.loop !166
+  br i1 %72, label %50, label %._crit_edge, !llvm.loop !168
 
 ._crit_edge103:                                   ; preds = %77, %._crit_edge
   store i32 0, ptr %46, align 8
@@ -28890,7 +28890,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %83 = load i32, ptr %46, align 8
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next128, %84
-  br i1 %85, label %77, label %._crit_edge103, !llvm.loop !167
+  br i1 %85, label %77, label %._crit_edge103, !llvm.loop !169
 
 ._crit_edge107:                                   ; preds = %90, %._crit_edge103
   store i32 0, ptr %73, align 8
@@ -28914,7 +28914,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %96 = load i32, ptr %73, align 8
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next131, %97
-  br i1 %98, label %90, label %._crit_edge107, !llvm.loop !168
+  br i1 %98, label %90, label %._crit_edge107, !llvm.loop !170
 
 ._crit_edge111:                                   ; preds = %103, %._crit_edge107
   store i32 0, ptr %86, align 8
@@ -28938,7 +28938,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %109 = load i32, ptr %86, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next134, %110
-  br i1 %111, label %103, label %._crit_edge111, !llvm.loop !169
+  br i1 %111, label %103, label %._crit_edge111, !llvm.loop !171
 
 ._crit_edge115:                                   ; preds = %116, %._crit_edge111
   store i32 0, ptr %99, align 8
@@ -28962,7 +28962,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %122 = load i32, ptr %99, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next137, %123
-  br i1 %124, label %116, label %._crit_edge115, !llvm.loop !170
+  br i1 %124, label %116, label %._crit_edge115, !llvm.loop !172
 
 ._crit_edge119:                                   ; preds = %129, %._crit_edge115
   store i32 0, ptr %112, align 8
@@ -28986,7 +28986,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %135 = load i32, ptr %112, align 8
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next140, %136
-  br i1 %137, label %129, label %._crit_edge119, !llvm.loop !171
+  br i1 %137, label %129, label %._crit_edge119, !llvm.loop !173
 
 ._crit_edge123:                                   ; preds = %144, %._crit_edge119
   store i32 0, ptr %125, align 8
@@ -29012,7 +29012,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %150 = load i32, ptr %125, align 8
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next143, %151
-  br i1 %152, label %144, label %._crit_edge123, !llvm.loop !172
+  br i1 %152, label %144, label %._crit_edge123, !llvm.loop !174
 
 153:                                              ; preds = %._crit_edge123
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 2552
@@ -29114,7 +29114,7 @@ VULKAN_INTERNAL_ReturnUniformBufferToPool.exit:   ; preds = %._crit_edge.i, %56
   %213 = load i32, ptr %209, align 8
   %214 = zext i32 %213 to i64
   %215 = icmp samesign ult i64 %indvars.iv.next.i, %214
-  br i1 %215, label %.lr.ph.i, label %VULKAN_INTERNAL_ReturnDescriptorSetCacheToPool.exit, !llvm.loop !173
+  br i1 %215, label %.lr.ph.i, label %VULKAN_INTERNAL_ReturnDescriptorSetCacheToPool.exit, !llvm.loop !175
 
 VULKAN_INTERNAL_ReturnDescriptorSetCacheToPool.exit: ; preds = %.lr.ph.i, %202
   store ptr null, ptr %188, align 8
@@ -29157,7 +29157,7 @@ VULKAN_INTERNAL_ReturnDescriptorSetCacheToPool.exit: ; preds = %.lr.ph.i, %202
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %235 = zext i32 %234 to i64
   %236 = icmp samesign ult i64 %indvars.iv.next146, %235
-  br i1 %236, label %220, label %.loopexit, !llvm.loop !174
+  br i1 %236, label %220, label %.loopexit, !llvm.loop !176
 
 .loopexit:                                        ; preds = %233, %.preheader, %VULKAN_INTERNAL_ReturnDescriptorSetCacheToPool.exit
   ret void
@@ -29224,7 +29224,7 @@ define internal fastcc void @VULKAN_INTERNAL_PerformPendingDestroys(ptr noundef 
 36:                                               ; preds = %16, %23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %37 = icmp sgt i64 %indvars.iv, 0
-  br i1 %37, label %16, label %._crit_edge, !llvm.loop !175
+  br i1 %37, label %16, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge111:                                   ; preds = %71, %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2408
@@ -29279,7 +29279,7 @@ define internal fastcc void @VULKAN_INTERNAL_PerformPendingDestroys(ptr noundef 
 71:                                               ; preds = %45, %52
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
   %72 = icmp sgt i64 %indvars.iv138, 0
-  br i1 %72, label %45, label %._crit_edge111, !llvm.loop !176
+  br i1 %72, label %45, label %._crit_edge111, !llvm.loop !178
 
 ._crit_edge116:                                   ; preds = %110, %._crit_edge111
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2424
@@ -29339,7 +29339,7 @@ define internal fastcc void @VULKAN_INTERNAL_PerformPendingDestroys(ptr noundef 
 110:                                              ; preds = %81, %88
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, -1
   %111 = icmp sgt i64 %indvars.iv141, 0
-  br i1 %111, label %81, label %._crit_edge116, !llvm.loop !177
+  br i1 %111, label %81, label %._crit_edge116, !llvm.loop !179
 
 ._crit_edge121:                                   ; preds = %149, %._crit_edge116
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 2440
@@ -29409,7 +29409,7 @@ VULKAN_INTERNAL_DestroyComputePipeline.exit:      ; preds = %135, %137
 149:                                              ; preds = %119, %VULKAN_INTERNAL_DestroyComputePipeline.exit
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
   %150 = icmp sgt i64 %indvars.iv144, 0
-  br i1 %150, label %119, label %._crit_edge121, !llvm.loop !178
+  br i1 %150, label %119, label %._crit_edge121, !llvm.loop !180
 
 ._crit_edge126:                                   ; preds = %181, %._crit_edge121
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2392
@@ -29463,7 +29463,7 @@ VULKAN_INTERNAL_DestroyComputePipeline.exit:      ; preds = %135, %137
 181:                                              ; preds = %158, %165
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, -1
   %182 = icmp sgt i64 %indvars.iv147, 0
-  br i1 %182, label %158, label %._crit_edge126, !llvm.loop !179
+  br i1 %182, label %158, label %._crit_edge126, !llvm.loop !181
 
 ._crit_edge131:                                   ; preds = %211, %._crit_edge126
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 2456
@@ -29514,7 +29514,7 @@ VULKAN_INTERNAL_DestroyComputePipeline.exit:      ; preds = %135, %137
 211:                                              ; preds = %190, %197
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, -1
   %212 = icmp sgt i64 %indvars.iv150, 0
-  br i1 %212, label %190, label %._crit_edge131, !llvm.loop !180
+  br i1 %212, label %190, label %._crit_edge131, !llvm.loop !182
 
 ._crit_edge136:                                   ; preds = %235, %._crit_edge131
   %213 = load ptr, ptr %2, align 8
@@ -29556,7 +29556,7 @@ VULKAN_INTERNAL_DestroyComputePipeline.exit:      ; preds = %135, %137
 235:                                              ; preds = %214, %221
   %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
   %236 = icmp sgt i64 %indvars.iv153, 0
-  br i1 %236, label %214, label %._crit_edge136, !llvm.loop !181
+  br i1 %236, label %214, label %._crit_edge136, !llvm.loop !183
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -29707,8 +29707,8 @@ attributes #16 = { nounwind allocsize(1) }
 !113 = distinct !{!113, !6}
 !114 = distinct !{!114, !6}
 !115 = distinct !{!115, !6}
-!116 = distinct !{!116, !6}
-!117 = distinct !{!117, !6}
+!116 = distinct !{!116, !6, !117}
+!117 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !118 = distinct !{!118, !6}
 !119 = distinct !{!119, !6}
 !120 = distinct !{!120, !6}
@@ -29773,3 +29773,5 @@ attributes #16 = { nounwind allocsize(1) }
 !179 = distinct !{!179, !6}
 !180 = distinct !{!180, !6}
 !181 = distinct !{!181, !6}
+!182 = distinct !{!182, !6}
+!183 = distinct !{!183, !6}

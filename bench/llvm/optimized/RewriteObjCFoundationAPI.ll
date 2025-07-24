@@ -3087,7 +3087,7 @@ _ZZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111Li
   %.131 = phi i1 [ true, %_ZZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoEEN4Suff3hasEN4llvm9StringRefERS8_.exit76 ], [ false, %_ZZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoEEN4Suff3hasEN4llvm9StringRefERS8_.exit70 ], [ %.030186, %16 ], [ %.030186, %20 ], [ %.030186, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ], [ %.030186, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i42 ], [ %.030186, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i48 ], [ %.030186, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i54 ]
   %21 = add i64 %.sroa.13.0185, %.sink174
   %cond = icmp eq i64 %21, 0
-  br i1 %cond, label %.critedge33.loopexit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, !llvm.loop !475
+  br i1 %cond, label %.critedge33.loopexit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, !llvm.loop !477
 
 .critedge33.loopexit:                             ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i54, %.preheader.split
   %.sroa.048.0.lcssa = phi i8 [ %.sroa.048.0181, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i54 ], [ %.sroa.048.1, %.preheader.split ]
@@ -3133,7 +3133,7 @@ _ZZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111Li
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %.sroa.4.0..sroa_idx5, align 8, !tbaa !387
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %32, align 1, !tbaa !476
+  store i8 0, ptr %32, align 1, !tbaa !478
   store i8 0, ptr %3, align 8, !tbaa !403
   %.not.i = icmp ult i64 %.us-phi154, 2
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread122, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -3159,7 +3159,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit79:      ; preds = %_ZNK4llvm9StringRef
   br i1 %35, label %_ZNK4llvm9StringRef11starts_withES0_.exit79.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit79.thread123
 
 _ZNK4llvm9StringRef11starts_withES0_.exit79.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit79
-  store i8 1, ptr %32, align 1, !tbaa !476
+  store i8 1, ptr %32, align 1, !tbaa !478
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit79.thread123
 
 _ZNK4llvm9StringRef11starts_withES0_.exit79.thread123: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread122, %_ZNK4llvm9StringRef11starts_withES0_.exit79, %_ZNK4llvm9StringRef11starts_withES0_.exit79.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
@@ -3189,7 +3189,7 @@ define internal fastcc noundef zeroext i1 @_ZL14isEnumConstantPKN5clang4ExprE(pt
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !477
+  %7 = load ptr, ptr %6, align 8, !tbaa !479
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %select.unfold, label %8
 
@@ -3230,10 +3230,10 @@ define linkonce_odr hidden void @_ZZN5clang13DiagnosticIDs15getCustomDiagIDENS0_
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  %15 = load ptr, ptr %1, align 8, !tbaa !481
+  %15 = load ptr, ptr %1, align 8, !tbaa !483
   %16 = load i8, ptr %15, align 1, !tbaa !438
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !483
+  %18 = load ptr, ptr %17, align 8, !tbaa !485
   %19 = load ptr, ptr %18, align 8, !tbaa !378
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !380
@@ -3300,7 +3300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %42 = or disjoint i16 %41, 217
   store i16 %42, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %43, align 4, !tbaa !484
+  store i32 0, ptr %43, align 4, !tbaa !486
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %45, ptr %44, align 8, !tbaa !462
@@ -3374,7 +3374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %71 = or disjoint i16 %70, 205
   store i16 %71, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %72, align 4, !tbaa !484
+  store i32 0, ptr %72, align 4, !tbaa !486
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %74, ptr %73, align 8, !tbaa !462
@@ -3448,7 +3448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %100 = or disjoint i16 %99, 210
   store i16 %100, ptr %0, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %101, align 4, !tbaa !484
+  store i32 0, ptr %101, align 4, !tbaa !486
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %103, ptr %102, align 8, !tbaa !462
@@ -3522,7 +3522,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %129 = or disjoint i16 %128, 219
   store i16 %129, ptr %0, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %130, align 4, !tbaa !484
+  store i32 0, ptr %130, align 4, !tbaa !486
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %132, ptr %131, align 8, !tbaa !462
@@ -3596,7 +3596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %158 = or disjoint i16 %157, 236
   store i16 %158, ptr %0, align 8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %159, align 4, !tbaa !484
+  store i32 0, ptr %159, align 4, !tbaa !486
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %161, ptr %160, align 8, !tbaa !462
@@ -3670,7 +3670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %187 = or disjoint i16 %186, 237
   store i16 %187, ptr %0, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %188, align 4, !tbaa !484
+  store i32 0, ptr %188, align 4, !tbaa !486
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %190, ptr %189, align 8, !tbaa !462
@@ -4507,15 +4507,17 @@ attributes #19 = { noreturn nounwind }
 !472 = distinct !{!472, !"_ZNK5clang16APNumericStorage11getIntValueEv"}
 !473 = !{!474, !16, i64 8}
 !474 = !{!"_ZTSN5clang16APNumericStorageE", !7, i64 0, !16, i64 8}
-!475 = distinct !{!475, !389}
-!476 = !{!404, !265, i64 1}
-!477 = !{!478, !479, i64 16}
-!478 = !{!"_ZTSN5clang11DeclRefExprE", !394, i64 0, !479, i64 16, !480, i64 24}
-!479 = !{!"p1 _ZTSN5clang9ValueDeclE", !6, i64 0}
-!480 = !{!"_ZTSN5clang18DeclarationNameLocE", !7, i64 0}
-!481 = !{!482, !6, i64 0}
-!482 = !{!"_ZTSZN5clang13DiagnosticIDs15getCustomDiagIDENS0_5LevelEN4llvm9StringRefEEUlvE_", !6, i64 0, !441, i64 8}
-!483 = !{!482, !441, i64 8}
-!484 = !{!485, !486, i64 4}
-!485 = !{!"_ZTSN5clang13DiagnosticIDs14CustomDiagDescE", !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 1, !486, i64 4, !162, i64 8}
-!486 = !{!"_ZTSN5clang4diag5GroupE", !7, i64 0}
+!475 = distinct !{!475, !389, !476}
+!476 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!477 = distinct !{!477, !389}
+!478 = !{!404, !265, i64 1}
+!479 = !{!480, !481, i64 16}
+!480 = !{!"_ZTSN5clang11DeclRefExprE", !394, i64 0, !481, i64 16, !482, i64 24}
+!481 = !{!"p1 _ZTSN5clang9ValueDeclE", !6, i64 0}
+!482 = !{!"_ZTSN5clang18DeclarationNameLocE", !7, i64 0}
+!483 = !{!484, !6, i64 0}
+!484 = !{!"_ZTSZN5clang13DiagnosticIDs15getCustomDiagIDENS0_5LevelEN4llvm9StringRefEEUlvE_", !6, i64 0, !441, i64 8}
+!485 = !{!484, !441, i64 8}
+!486 = !{!487, !488, i64 4}
+!487 = !{!"_ZTSN5clang13DiagnosticIDs14CustomDiagDescE", !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 1, !488, i64 4, !162, i64 8}
+!488 = !{!"_ZTSN5clang4diag5GroupE", !7, i64 0}

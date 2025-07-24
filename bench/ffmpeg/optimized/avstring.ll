@@ -1163,7 +1163,7 @@ select.unfold65.preheader.us:                     ; preds = %.lr.ph72.split.us
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04371.us, i32 noundef %4) #18
   %.not58.us = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  br i1 %.not58.us, label %.critedge, label %.lr.ph72.split.us
+  br i1 %.not58.us, label %.critedge, label %.lr.ph72.split.us, !llvm.loop !29
 
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %.critedge2
   %.04371 = phi ptr [ %27, %.critedge2 ], [ %0, %.lr.ph72 ]
@@ -1209,7 +1209,7 @@ select.unfold65.preheader:                        ; preds = %.lr.ph72.split, %se
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.04269, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !4
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader, !llvm.loop !31
 
 select.unfold65:                                  ; preds = %14
   %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04269, i32 noundef %4) #18
@@ -1293,4 +1293,6 @@ attributes #20 = { noreturn nounwind }
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
 !28 = !{!24, !24, i64 0}
-!29 = distinct !{!29, !8}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !8}

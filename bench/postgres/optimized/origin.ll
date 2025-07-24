@@ -309,7 +309,7 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
 32:                                               ; preds = %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %replorigin_state_clear.exit, label %33, !llvm.loop !7
+  br i1 %exitcond.not.i, label %replorigin_state_clear.exit, label %33, !llvm.loop !9
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
@@ -465,7 +465,7 @@ ReplicationOriginShmemSize.exit:                  ; preds = %0
   store ptr %9, ptr @replication_states_ctl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr @replication_states, align 8
-  %11 = load i8, ptr %1, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr %1, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %.loopexit, label %13
 
@@ -536,7 +536,7 @@ ReplicationOriginShmemSize.exit22:                ; preds = %13, %16
   %45 = load i32, ptr @max_replication_slots, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph26, label %.loopexit, !llvm.loop !10
+  br i1 %47, label %.lr.ph26, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph26, %.loopexit23, %ReplicationOriginShmemSize.exit, %0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
@@ -694,7 +694,7 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = sext i32 %71 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %43, label %._crit_edge, !llvm.loop !11
+  br i1 %75, label %43, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %34
   %.lcssa = phi i32 [ %36, %34 ], [ %73, %70 ]
@@ -994,7 +994,7 @@ define dso_local void @replorigin_redo(ptr noundef readonly captures(none) %0) l
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %16 = load i8, ptr %15, align 2, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 2, !range !10, !noundef !11
   %17 = trunc nuw i8 %16 to i1
   tail call void @replorigin_advance(i16 noundef zeroext %11, i64 noundef %12, i64 noundef %14, i1 noundef zeroext %17, i1 noundef zeroext false)
   br label %.loopexit
@@ -1015,7 +1015,7 @@ define dso_local void @replorigin_redo(ptr noundef readonly captures(none) %0) l
 25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !14
 
 26:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -1099,7 +1099,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   %.2.ph = phi ptr [ %.04271, %21 ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %34
   %35 = icmp eq ptr %.2.ph, null
@@ -1209,7 +1209,7 @@ define dso_local i64 @replorigin_get_progress(i16 noundef zeroext %0, i1 noundef
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !16
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -1324,7 +1324,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   %.2.ph = phi i32 [ %.02743, %23 ], [ %22, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %36, %10
   %.027.lcssa = phi i32 [ -1, %10 ], [ %.2.ph, %36 ]
@@ -1869,7 +1869,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %23, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.i, label %23, !llvm.loop !16
 
 23:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
@@ -2008,7 +2008,7 @@ replorigin_by_oid.exit:                           ; preds = %25, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = sext i32 %50 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %19, label %._crit_edge, !llvm.loop !16
+  br i1 %53, label %19, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %49, %1
   %54 = load ptr, ptr @MainLWLockArray, align 8
@@ -2058,13 +2058,15 @@ attributes #12 = { nounwind willreturn memory(none) }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

@@ -1446,16 +1446,16 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
 
 .lr.ph334.i:                                      ; preds = %.preheader.i
   %401 = getelementptr inbounds nuw i8, ptr %353, i64 560
-  %402 = load ptr, ptr %401, align 8, !tbaa !197, !noalias !236, !nonnull !178, !noundef !178
+  %402 = load ptr, ptr %401, align 8, !tbaa !197, !noalias !237, !nonnull !178, !noundef !178
   %403 = getelementptr inbounds nuw i8, ptr %353, i64 584
-  %404 = load i32, ptr %403, align 8, !tbaa !223, !noalias !236
+  %404 = load i32, ptr %403, align 8, !tbaa !223, !noalias !237
   %405 = getelementptr inbounds nuw i8, ptr %353, i64 600
-  %406 = load i32, ptr %405, align 8, !tbaa !230, !noalias !236
+  %406 = load i32, ptr %405, align 8, !tbaa !230, !noalias !237
   %407 = mul nsw i32 %406, %404
   %408 = getelementptr inbounds nuw i8, ptr %353, i64 604
-  %409 = load i32, ptr %408, align 4, !tbaa !231, !noalias !236
+  %409 = load i32, ptr %408, align 4, !tbaa !231, !noalias !237
   %410 = getelementptr inbounds nuw i8, ptr %353, i64 48
-  %411 = load i32, ptr %410, align 8, !tbaa !232, !noalias !236
+  %411 = load i32, ptr %410, align 8, !tbaa !232, !noalias !237
   %412 = ashr i32 %411, 1
   %413 = icmp sgt i32 %407, -1
   call void @llvm.assume(i1 %413)
@@ -1519,12 +1519,12 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
   %indvars.iv.next381.i = add nuw nsw i64 %indvars.iv380.i, 1
   %444 = getelementptr inbounds nuw i8, ptr %.0117330.us.i, i64 16
   %exitcond384.not.i = icmp eq i64 %indvars.iv.next381.i, %wide.trip.count383.i
-  br i1 %exitcond384.not.i, label %._crit_edge.us337.i, label %435, !llvm.loop !239
+  br i1 %exitcond384.not.i, label %._crit_edge.us337.i, label %435, !llvm.loop !240
 
 ._crit_edge.us337.i:                              ; preds = %435
   %indvars.iv.next386.i = add nuw nsw i64 %indvars.iv385.i, 1
   %exitcond389.not.i = icmp eq i64 %indvars.iv.next386.i, %wide.trip.count388.i
-  br i1 %exitcond389.not.i, label %.loopexit.i, label %.lr.ph332.us.i, !llvm.loop !240
+  br i1 %exitcond389.not.i, label %.loopexit.i, label %.lr.ph332.us.i, !llvm.loop !241
 
 .thread301.i:                                     ; preds = %.noexc256
   %445 = load ptr, ptr %15, align 8, !tbaa !110
@@ -1540,16 +1540,16 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
 
 .lr.ph.i:                                         ; preds = %.preheader308.i
   %451 = getelementptr inbounds nuw i8, ptr %445, i64 560
-  %452 = load ptr, ptr %451, align 8, !tbaa !197, !noalias !241, !nonnull !178, !noundef !178
+  %452 = load ptr, ptr %451, align 8, !tbaa !197, !noalias !242, !nonnull !178, !noundef !178
   %453 = getelementptr inbounds nuw i8, ptr %445, i64 584
-  %454 = load i32, ptr %453, align 8, !tbaa !223, !noalias !241
+  %454 = load i32, ptr %453, align 8, !tbaa !223, !noalias !242
   %455 = getelementptr inbounds nuw i8, ptr %445, i64 600
-  %456 = load i32, ptr %455, align 8, !tbaa !230, !noalias !241
+  %456 = load i32, ptr %455, align 8, !tbaa !230, !noalias !242
   %457 = mul nsw i32 %456, %454
   %458 = getelementptr inbounds nuw i8, ptr %445, i64 604
-  %459 = load i32, ptr %458, align 4, !tbaa !231, !noalias !241
+  %459 = load i32, ptr %458, align 4, !tbaa !231, !noalias !242
   %460 = getelementptr inbounds nuw i8, ptr %445, i64 48
-  %461 = load i32, ptr %460, align 8, !tbaa !232, !noalias !241
+  %461 = load i32, ptr %460, align 8, !tbaa !232, !noalias !242
   %462 = ashr i32 %461, 2
   %463 = icmp sgt i32 %457, -1
   call void @llvm.assume(i1 %463)
@@ -1600,7 +1600,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
   %indvars.iv.next348.i = add nuw nsw i64 %indvars.iv347.i, 1
   %487 = getelementptr inbounds nuw i8, ptr %.0107311.us.i, i64 16
   %exitcond350.not.i = icmp eq i64 %indvars.iv.next348.i, %wide.trip.count.i
-  br i1 %exitcond350.not.i, label %._crit_edge.us.i, label %.preheader307.us.i, !llvm.loop !244
+  br i1 %exitcond350.not.i, label %._crit_edge.us.i, label %.preheader307.us.i, !llvm.loop !245
 
 488:                                              ; preds = %.preheader307.us.i, %488
   %indvars.iv.i = phi i64 [ 0, %.preheader307.us.i ], [ %indvars.iv.next.i, %488 ]
@@ -1616,7 +1616,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
   store float %494, ptr %495, align 4, !tbaa !201
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %485, label %488, !llvm.loop !245
+  br i1 %exitcond.not.i, label %485, label %488, !llvm.loop !246
 
 .preheader307.us.i:                               ; preds = %485, %.preheader307.lr.ph.us.i
   %indvars.iv347.i = phi i64 [ 0, %.preheader307.lr.ph.us.i ], [ %indvars.iv.next348.i, %485 ]
@@ -1629,23 +1629,23 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
 ._crit_edge.us.i:                                 ; preds = %485
   %indvars.iv.next352.i = add nuw nsw i64 %indvars.iv351.i, 1
   %exitcond355.not.i = icmp eq i64 %indvars.iv.next352.i, %wide.trip.count354.i
-  br i1 %exitcond355.not.i, label %.loopexit.i, label %.preheader307.lr.ph.us.i, !llvm.loop !246
+  br i1 %exitcond355.not.i, label %.loopexit.i, label %.preheader307.lr.ph.us.i, !llvm.loop !247
 
 .preheader305.i:                                  ; preds = %.thread301.i
   br i1 %450, label %.lr.ph318.i, label %.loopexit.i
 
 .lr.ph318.i:                                      ; preds = %.preheader305.i
   %499 = getelementptr inbounds nuw i8, ptr %445, i64 560
-  %500 = load ptr, ptr %499, align 8, !tbaa !197, !noalias !247, !nonnull !178, !noundef !178
+  %500 = load ptr, ptr %499, align 8, !tbaa !197, !noalias !248, !nonnull !178, !noundef !178
   %501 = getelementptr inbounds nuw i8, ptr %445, i64 584
-  %502 = load i32, ptr %501, align 8, !tbaa !223, !noalias !247
+  %502 = load i32, ptr %501, align 8, !tbaa !223, !noalias !248
   %503 = getelementptr inbounds nuw i8, ptr %445, i64 600
-  %504 = load i32, ptr %503, align 8, !tbaa !230, !noalias !247
+  %504 = load i32, ptr %503, align 8, !tbaa !230, !noalias !248
   %505 = mul nsw i32 %504, %502
   %506 = getelementptr inbounds nuw i8, ptr %445, i64 604
-  %507 = load i32, ptr %506, align 4, !tbaa !231, !noalias !247
+  %507 = load i32, ptr %506, align 4, !tbaa !231, !noalias !248
   %508 = getelementptr inbounds nuw i8, ptr %445, i64 48
-  %509 = load i32, ptr %508, align 8, !tbaa !232, !noalias !247
+  %509 = load i32, ptr %508, align 8, !tbaa !232, !noalias !248
   %510 = ashr i32 %509, 1
   %511 = icmp sgt i32 %505, -1
   call void @llvm.assume(i1 %511)
@@ -1696,7 +1696,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
   %indvars.iv.next361.i = add nuw nsw i64 %indvars.iv360.i, 1
   %535 = getelementptr inbounds nuw i8, ptr %.0111315.us.i, i64 16
   %exitcond364.not.i = icmp eq i64 %indvars.iv.next361.i, %wide.trip.count363.i
-  br i1 %exitcond364.not.i, label %._crit_edge.us321.i, label %.preheader304.us.i, !llvm.loop !250
+  br i1 %exitcond364.not.i, label %._crit_edge.us321.i, label %.preheader304.us.i, !llvm.loop !251
 
 536:                                              ; preds = %.preheader304.us.i, %536
   %indvars.iv356.i = phi i64 [ 0, %.preheader304.us.i ], [ %indvars.iv.next357.i, %536 ]
@@ -1714,7 +1714,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
   store float %544, ptr %545, align 4, !tbaa !201
   %indvars.iv.next357.i = add nuw nsw i64 %indvars.iv356.i, 1
   %exitcond359.not.i = icmp eq i64 %indvars.iv.next357.i, 3
-  br i1 %exitcond359.not.i, label %533, label %536, !llvm.loop !251
+  br i1 %exitcond359.not.i, label %533, label %536, !llvm.loop !252
 
 .preheader304.us.i:                               ; preds = %533, %.preheader304.lr.ph.us.i
   %indvars.iv360.i = phi i64 [ 0, %.preheader304.lr.ph.us.i ], [ %indvars.iv.next361.i, %533 ]
@@ -1727,7 +1727,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %320, %326, %329
 ._crit_edge.us321.i:                              ; preds = %533
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
   %exitcond369.not.i = icmp eq i64 %indvars.iv.next366.i, %wide.trip.count368.i
-  br i1 %exitcond369.not.i, label %.loopexit.i, label %.preheader304.lr.ph.us.i, !llvm.loop !252
+  br i1 %exitcond369.not.i, label %.loopexit.i, label %.preheader304.lr.ph.us.i, !llvm.loop !253
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %._crit_edge.us321.i, %._crit_edge.us329.i, %._crit_edge.us337.i, %.lr.ph318.i, %.preheader305.i, %.lr.ph.i, %.preheader308.i, %.lr.ph334.i, %.preheader.i, %.lr.ph326.i, %.preheader302.i
   %549 = phi ptr [ %445, %.preheader308.i ], [ %445, %.preheader305.i ], [ %353, %.preheader302.i ], [ %353, %.preheader.i ], [ %353, %.lr.ph326.i ], [ %353, %.lr.ph334.i ], [ %445, %.lr.ph.i ], [ %445, %.lr.ph318.i ], [ %353, %._crit_edge.us337.i ], [ %353, %._crit_edge.us329.i ], [ %445, %._crit_edge.us321.i ], [ %445, %._crit_edge.us.i ]
@@ -2018,13 +2018,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i: ; preds = %
 
 635:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i
   %636 = getelementptr inbounds nuw i8, ptr %615, i64 304
-  %637 = load i8, ptr %636, align 8, !tbaa !253
+  %637 = load i8, ptr %636, align 8, !tbaa !254
   %638 = icmp eq i8 %637, 0
   br i1 %638, label %639, label %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit
 
 639:                                              ; preds = %635
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store i32 1, ptr %640, align 8, !tbaa !261
+  store i32 1, ptr %640, align 8, !tbaa !262
   br label %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit
 
 641:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i153.i, %.noexc11.i154.i, %.noexc.i155.i, %577
@@ -2189,7 +2189,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263: ; preds = %683, 
 
 690:                                              ; preds = %689
   %691 = getelementptr inbounds nuw i8, ptr %270, i64 588
-  %692 = load i32, ptr %691, align 4, !tbaa !262
+  %692 = load i32, ptr %691, align 4, !tbaa !263
   switch i32 %692, label %_ZN8rawspeed8RawImageD2Ev.exit265 [
     i32 2, label %693
     i32 4, label %693
@@ -2295,7 +2295,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
 722:                                              ; preds = %728
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %exitcond414.not = icmp eq i64 %indvars.iv.next412, 6
-  br i1 %exitcond414.not, label %.loopexit, label %.preheader, !llvm.loop !263
+  br i1 %exitcond414.not, label %.loopexit, label %.preheader, !llvm.loop !264
 
 723:                                              ; preds = %.preheader, %728
   %indvars.iv407 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next408, %728 ]
@@ -2310,7 +2310,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
   store i8 %727, ptr %729, align 1, !tbaa !18
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond410.not = icmp eq i64 %indvars.iv.next408, 6
-  br i1 %exitcond410.not, label %722, label %723, !llvm.loop !264
+  br i1 %exitcond410.not, label %722, label %723, !llvm.loop !265
 
 730:                                              ; preds = %723
   %731 = landingpad { ptr, i32 }
@@ -2361,7 +2361,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
   %745 = mul nsw i64 %744, %742
   %746 = load ptr, ptr %13, align 8, !tbaa !110
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 588
-  %748 = load i32, ptr %747, align 4, !tbaa !262
+  %748 = load i32, ptr %747, align 4, !tbaa !263
   %749 = zext i32 %748 to i64
   %750 = mul i64 %745, %749
   %751 = getelementptr inbounds nuw i8, ptr %746, i64 48
@@ -2375,21 +2375,21 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
 757:                                              ; preds = %740
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #23
   call void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::Array2DRef.90") align 8 %16, ptr noundef nonnull align 8 dereferenceable(616) %746) #23
-  %758 = load ptr, ptr %16, align 8, !tbaa !265, !nonnull !178, !noundef !178
+  %758 = load ptr, ptr %16, align 8, !tbaa !266, !nonnull !178, !noundef !178
   %759 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %760 = load i32, ptr %759, align 8, !tbaa !267
+  %760 = load i32, ptr %759, align 8, !tbaa !268
   %761 = icmp sgt i32 %760, -1
   call void @llvm.assume(i1 %761)
   %762 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %763 = load i32, ptr %762, align 4, !tbaa !268
+  %763 = load i32, ptr %762, align 4, !tbaa !269
   %764 = icmp sgt i32 %763, -1
   call void @llvm.assume(i1 %764)
   %765 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %766 = load i32, ptr %765, align 8, !tbaa !270
+  %766 = load i32, ptr %765, align 8, !tbaa !271
   %767 = icmp sgt i32 %766, -1
   call void @llvm.assume(i1 %767)
   %768 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %769 = load i32, ptr %768, align 8, !tbaa !271
+  %769 = load i32, ptr %768, align 8, !tbaa !272
   %770 = icmp ne i32 %769, 0
   call void @llvm.assume(i1 %770)
   %771 = icmp sgt i32 %769, -1
@@ -2412,21 +2412,21 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
 778:                                              ; preds = %740
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #23
   call void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::Array2DRef.90") align 8 %17, ptr noundef nonnull align 8 dereferenceable(616) %746) #23
-  %779 = load ptr, ptr %17, align 8, !tbaa !265, !nonnull !178, !noundef !178
+  %779 = load ptr, ptr %17, align 8, !tbaa !266, !nonnull !178, !noundef !178
   %780 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %781 = load i32, ptr %780, align 8, !tbaa !267
+  %781 = load i32, ptr %780, align 8, !tbaa !268
   %782 = icmp sgt i32 %781, -1
   call void @llvm.assume(i1 %782)
   %783 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %784 = load i32, ptr %783, align 4, !tbaa !268
+  %784 = load i32, ptr %783, align 4, !tbaa !269
   %785 = icmp sgt i32 %784, -1
   call void @llvm.assume(i1 %785)
   %786 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %787 = load i32, ptr %786, align 8, !tbaa !270
+  %787 = load i32, ptr %786, align 8, !tbaa !271
   %788 = icmp sgt i32 %787, -1
   call void @llvm.assume(i1 %788)
   %789 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %790 = load i32, ptr %789, align 8, !tbaa !271
+  %790 = load i32, ptr %789, align 8, !tbaa !272
   %791 = icmp ne i32 %790, 0
   call void @llvm.assume(i1 %791)
   %792 = icmp sgt i32 %790, -1
@@ -2444,7 +2444,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %705, %705, %706
   call void @llvm.assume(i1 %798)
   %799 = load ptr, ptr %13, align 8, !tbaa !110
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 588
-  %801 = load i32, ptr %800, align 4, !tbaa !262
+  %801 = load i32, ptr %800, align 4, !tbaa !263
   %802 = zext i32 %801 to i64
   %803 = getelementptr inbounds nuw i8, ptr %799, i64 48
   %804 = load i32, ptr %803, align 8, !tbaa !232
@@ -2568,13 +2568,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %_Z
 
 848:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274
   %849 = getelementptr inbounds nuw i8, ptr %822, i64 304
-  %850 = load i8, ptr %849, align 8, !tbaa !253
+  %850 = load i8, ptr %849, align 8, !tbaa !254
   %851 = icmp eq i8 %850, 0
   br i1 %851, label %852, label %_ZN8rawspeed8RawImageD2Ev.exit265
 
 852:                                              ; preds = %848
   %853 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store i32 1, ptr %853, align 8, !tbaa !261
+  store i32 1, ptr %853, align 8, !tbaa !262
   br label %_ZN8rawspeed8RawImageD2Ev.exit265
 
 854:                                              ; preds = %808
@@ -2718,7 +2718,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   %896 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i284 = icmp eq ptr %896, %887
-  br i1 %.not.i.i.i.i284, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !272
+  br i1 %.not.i.i.i.i284, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !273
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %14, align 8, !tbaa !111
@@ -3232,7 +3232,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   tail call void @llvm.assume(i1 %28)
   %29 = shl nuw i32 %11, 1
   %30 = and i32 %15, -2
-  store ptr %6, ptr %0, align 8, !tbaa !273
+  store ptr %6, ptr %0, align 8, !tbaa !274
   %31 = icmp sgt i32 %29, -1
   tail call void @llvm.assume(i1 %31)
   %32 = icmp samesign uge i32 %30, %29
@@ -3253,7 +3253,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   tail call void @llvm.assume(i1 %40)
   %41 = shl i32 %11, 2
   %42 = and i32 %15, -4
-  store ptr %6, ptr %0, align 8, !tbaa !273
+  store ptr %6, ptr %0, align 8, !tbaa !274
   %43 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %43)
   %44 = icmp samesign uge i32 %42, %41
@@ -3274,11 +3274,11 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink28, ptr %50, align 8, !tbaa !82
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink30, ptr %51, align 8, !tbaa !271
+  store i32 %.sink30, ptr %51, align 8, !tbaa !272
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink24, ptr %52, align 4, !tbaa !268
+  store i32 %.sink24, ptr %52, align 4, !tbaa !269
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %13, ptr %53, align 8, !tbaa !270
+  store i32 %13, ptr %53, align 8, !tbaa !271
   ret void
 }
 
@@ -3317,7 +3317,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !272
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !273
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !111
@@ -3736,42 +3736,43 @@ attributes #29 = { nounwind willreturn memory(read) }
 !232 = !{!118, !25, i64 48}
 !233 = !{!60, !25, i64 1372}
 !234 = distinct !{!234, !193}
-!235 = distinct !{!235, !193}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!238 = distinct !{!238, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!239 = distinct !{!239, !193}
+!235 = distinct !{!235, !193, !236}
+!236 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!237 = !{!238}
+!238 = distinct !{!238, !239, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!239 = distinct !{!239, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
 !240 = distinct !{!240, !193}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN8rawspeed12RawImageData31getF32DataAsUncroppedArray2DRefEv: argument 0"}
-!243 = distinct !{!243, !"_ZN8rawspeed12RawImageData31getF32DataAsUncroppedArray2DRefEv"}
-!244 = distinct !{!244, !193}
+!241 = distinct !{!241, !193, !236}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"_ZN8rawspeed12RawImageData31getF32DataAsUncroppedArray2DRefEv: argument 0"}
+!244 = distinct !{!244, !"_ZN8rawspeed12RawImageData31getF32DataAsUncroppedArray2DRefEv"}
 !245 = distinct !{!245, !193}
 !246 = distinct !{!246, !193}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!249 = distinct !{!249, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!250 = distinct !{!250, !193}
+!247 = distinct !{!247, !193, !236}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!250 = distinct !{!250, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
 !251 = distinct !{!251, !193}
 !252 = distinct !{!252, !193}
-!253 = !{!254, !255, i64 304}
-!254 = !{!"_ZTSN8rawspeed6CameraE", !16, i64 0, !16, i64 32, !16, i64 64, !16, i64 96, !16, i64 128, !16, i64 160, !16, i64 192, !121, i64 224, !121, i64 248, !125, i64 272, !255, i64 304, !124, i64 308, !124, i64 316, !141, i64 328, !256, i64 352, !25, i64 376, !96, i64 384, !156, i64 432, !93, i64 456}
-!255 = !{!"_ZTSN8rawspeed6Camera13SupportStatusE", !9, i64 0}
-!256 = !{!"_ZTSSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EE", !257, i64 0}
-!257 = !{!"_ZTSSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE", !258, i64 0}
-!258 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE12_Vector_implE", !259, i64 0}
-!259 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE17_Vector_impl_dataE", !260, i64 0, !260, i64 8, !260, i64 16}
-!260 = !{!"p1 _ZTSN8rawspeed16CameraSensorInfoE", !8, i64 0}
-!261 = !{!60, !25, i64 1112}
-!262 = !{!118, !25, i64 588}
-!263 = distinct !{!263, !193}
+!253 = distinct !{!253, !193, !236}
+!254 = !{!255, !256, i64 304}
+!255 = !{!"_ZTSN8rawspeed6CameraE", !16, i64 0, !16, i64 32, !16, i64 64, !16, i64 96, !16, i64 128, !16, i64 160, !16, i64 192, !121, i64 224, !121, i64 248, !125, i64 272, !256, i64 304, !124, i64 308, !124, i64 316, !141, i64 328, !257, i64 352, !25, i64 376, !96, i64 384, !156, i64 432, !93, i64 456}
+!256 = !{!"_ZTSN8rawspeed6Camera13SupportStatusE", !9, i64 0}
+!257 = !{!"_ZTSSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EE", !258, i64 0}
+!258 = !{!"_ZTSSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE", !259, i64 0}
+!259 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE12_Vector_implE", !260, i64 0}
+!260 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE17_Vector_impl_dataE", !261, i64 0, !261, i64 8, !261, i64 16}
+!261 = !{!"p1 _ZTSN8rawspeed16CameraSensorInfoE", !8, i64 0}
+!262 = !{!60, !25, i64 1112}
+!263 = !{!118, !25, i64 588}
 !264 = distinct !{!264, !193}
-!265 = !{!266, !8, i64 0}
-!266 = !{!"_ZTSN8rawspeed10Array1DRefISt4byteEE", !8, i64 0, !25, i64 8}
-!267 = !{!266, !25, i64 8}
-!268 = !{!269, !25, i64 20}
-!269 = !{!"_ZTSN8rawspeed10Array2DRefISt4byteEE", !266, i64 0, !25, i64 16, !25, i64 20, !25, i64 24}
-!270 = !{!269, !25, i64 24}
-!271 = !{!269, !25, i64 16}
-!272 = distinct !{!272, !193}
-!273 = !{!8, !8, i64 0}
+!265 = distinct !{!265, !193}
+!266 = !{!267, !8, i64 0}
+!267 = !{!"_ZTSN8rawspeed10Array1DRefISt4byteEE", !8, i64 0, !25, i64 8}
+!268 = !{!267, !25, i64 8}
+!269 = !{!270, !25, i64 20}
+!270 = !{!"_ZTSN8rawspeed10Array2DRefISt4byteEE", !267, i64 0, !25, i64 16, !25, i64 20, !25, i64 24}
+!271 = !{!270, !25, i64 24}
+!272 = !{!270, !25, i64 16}
+!273 = distinct !{!273, !193}
+!274 = !{!8, !8, i64 0}

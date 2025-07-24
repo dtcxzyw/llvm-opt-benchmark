@@ -343,7 +343,7 @@ parse_hid_vid_pid_from_sysfs.exit.thread70:       ; preds = %77
 96:                                               ; preds = %93, %90, %.lr.ph.i.i.i
   %97 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef nonnull %4) #22
   %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %parse_hid_vid_pid_from_sysfs.exit.thread73, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i, label %parse_hid_vid_pid_from_sysfs.exit.thread73, label %.lr.ph.i.i.i, !llvm.loop !7
 
 parse_hid_vid_pid_from_sysfs.exit.thread73:       ; preds = %96, %84
   %98 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.38) #22
@@ -422,7 +422,7 @@ parse_hid_vid_pid_from_sysfs.exit.thread73:       ; preds = %96, %84
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr %123(ptr noundef nonnull %.04179) #22
   %.not54 = icmp eq ptr %124, null
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
+  br i1 %.not54, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %120, %58, %19
   %.042.lcssa = phi ptr [ null, %19 ], [ %.1.us, %58 ], [ %.1, %120 ]
@@ -876,7 +876,7 @@ get_hid_report_descriptor_from_sysfs.exit:        ; preds = %194, %198
   %.095142 = phi ptr [ %.196, %259 ], [ %32, %212 ]
   %214 = call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #24
   %.not123 = icmp eq ptr %214, null
-  br i1 %.not123, label %259, label %215, !llvm.loop !7
+  br i1 %.not123, label %259, label %215, !llvm.loop !9
 
 215:                                              ; preds = %.lr.ph
   %216 = getelementptr inbounds nuw i8, ptr %.095142, i64 56
@@ -1020,13 +1020,13 @@ get_hid_report_descriptor_from_sysfs.exit:        ; preds = %194, %198
   call void @free(ptr noundef %286) #22
   call void @free(ptr noundef nonnull %.010.i) #22
   %.not.i139 = icmp eq ptr %279, null
-  br i1 %.not.i139, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i139, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !10
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %.lr.ph148
   %.194 = phi ptr [ %.297144, %.lr.ph148 ], [ %.093145, %.lr.ph.i ]
   %.3 = phi ptr [ %.1146, %.lr.ph148 ], [ %.2, %.lr.ph.i ]
   %.not121 = icmp eq ptr %273, null
-  br i1 %.not121, label %.loopexit, label %.lr.ph148, !llvm.loop !9
+  br i1 %.not121, label %.loopexit, label %.lr.ph148, !llvm.loop !11
 
 .loopexit:                                        ; preds = %PLATFORM_hid_free_enumeration.exit, %31, %29, %23, %1
   %.0 = phi ptr [ null, %29 ], [ null, %31 ], [ null, %23 ], [ null, %1 ], [ %.3, %PLATFORM_hid_free_enumeration.exit ]
@@ -1065,7 +1065,7 @@ define hidden void @PLATFORM_hid_free_enumeration(ptr noundef captures(address_i
   tail call void @free(ptr noundef %10) #22
   tail call void @free(ptr noundef nonnull %.010) #22
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1101,7 +1101,7 @@ define hidden noundef ptr @PLATFORM_hid_open(i16 noundef zeroext %0, i16 noundef
   %14 = getelementptr inbounds nuw i8, ptr %.02029.us, i64 56
   %15 = load ptr, ptr %14, align 8
   %.not.us = icmp eq ptr %15, null
-  br i1 %.not.us, label %.thread, label %.preheader.split.us, !llvm.loop !10
+  br i1 %.not.us, label %.thread, label %.preheader.split.us, !llvm.loop !12
 
 .preheader.split:                                 ; preds = %.preheader, %28
   %.02029 = phi ptr [ %30, %28 ], [ %4, %.preheader ]
@@ -1127,7 +1127,7 @@ define hidden noundef ptr @PLATFORM_hid_open(i16 noundef zeroext %0, i16 noundef
   %29 = getelementptr inbounds nuw i8, ptr %.02029, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.thread, label %.preheader.split, !llvm.loop !10
+  br i1 %.not, label %.thread, label %.preheader.split, !llvm.loop !13
 
 .split.us:                                        ; preds = %23, %9
   %.us-phi = phi ptr [ %.02029.us, %9 ], [ %.02029, %23 ]
@@ -1164,7 +1164,7 @@ define hidden noundef ptr @PLATFORM_hid_open(i16 noundef zeroext %0, i16 noundef
   tail call void @free(ptr noundef %43) #22
   tail call void @free(ptr noundef nonnull %.010.i) #22
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !10
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %3
   %.021 = phi ptr [ null, %3 ], [ %.0, %.lr.ph.i ]
@@ -1223,7 +1223,7 @@ PLATFORM_new_hid_device.exit:                     ; preds = %PLATFORM_hid_init.e
   %26 = tail call i32 @usleep(i32 noundef 1000) #22
   %27 = add nuw nsw i32 %.01619, 1
   %exitcond.not = icmp eq i32 %27, 51
-  br i1 %exitcond.not, label %81, label %18, !llvm.loop !11
+  br i1 %exitcond.not, label %81, label %18, !llvm.loop !14
 
 .thread:                                          ; preds = %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #22
@@ -1400,7 +1400,7 @@ define hidden void @PLATFORM_hid_close(ptr noundef captures(address_is_null) %0)
   tail call void @free(ptr noundef %17) #22
   tail call void @free(ptr noundef nonnull %.010.i) #22
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !10
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %2
   tail call void @free(ptr noundef nonnull %0) #22
@@ -1626,7 +1626,7 @@ define hidden i32 @PLATFORM_hid_send_feature_report(ptr noundef readonly capture
 8:                                                ; preds = %14
   %9 = add nuw nsw i32 %.0913, 1
   %exitcond.not = icmp eq i32 %9, 50
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !15
 
 10:                                               ; preds = %3, %8
   %.0913 = phi i32 [ 0, %3 ], [ %9, %8 ]
@@ -2035,7 +2035,7 @@ define hidden nonnull ptr @PLATFORM_hid_error(ptr noundef readonly captures(addr
 define hidden zeroext i1 @SDL_HIDAPI_ShouldIgnoreDevice(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
-  %8 = load i8, ptr @SDL_hidapi_only_controllers, align 1, !range !13, !noundef !14
+  %8 = load i8, ptr @SDL_hidapi_only_controllers, align 1, !range !16, !noundef !17
   %9 = trunc nuw i8 %8 to i1
   %10 = icmp ne i16 %3, 0
   %or.cond = and i1 %10, %9
@@ -2540,7 +2540,7 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   %105 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %.pr.i.i = load i8, ptr %105, align 1
   %.not.i33.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not.i33.i, label %StrIsInteger.exit.i, label %.preheader.i.i, !llvm.loop !15
+  br i1 %.not.i33.i, label %StrIsInteger.exit.i, label %.preheader.i.i, !llvm.loop !18
 
 StrIsInteger.exit.i:                              ; preds = %104
   %106 = load i32, ptr @SDL_HIDAPI_discovery.1, align 4
@@ -2604,7 +2604,7 @@ define hidden ptr @SDL_hid_enumerate_REAL(i16 noundef zeroext %0, i16 noundef ze
 
 10:                                               ; preds = %5, %9
   %11 = tail call ptr @PLATFORM_hid_enumerate(i16 noundef zeroext %0, i16 noundef zeroext %1)
-  %12 = load i8, ptr @use_libusb_whitelist, align 1, !range !13, !noundef !14
+  %12 = load i8, ptr @use_libusb_whitelist, align 1, !range !16, !noundef !17
   %13 = trunc nuw i8 %12 to i1
   %.not2443 = icmp eq ptr %11, null
   br i1 %13, label %.preheader, label %.preheader37
@@ -2639,7 +2639,7 @@ AddDeviceToEnumeration.exit:                      ; preds = %17, %16, %.lr.ph47
   %19 = getelementptr inbounds nuw i8, ptr %.246, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not24 = icmp eq ptr %20, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph47, !llvm.loop !16
+  br i1 %.not24, label %.loopexit, label %.lr.ph47, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader37, %AddDeviceToEnumeration.exit26
   %.342 = phi ptr [ %27, %AddDeviceToEnumeration.exit26 ], [ %11, %.preheader37 ]
@@ -2665,7 +2665,7 @@ AddDeviceToEnumeration.exit26:                    ; preds = %24, %23, %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %.342, i64 56
   %27 = load ptr, ptr %26, align 8
   %.not23 = icmp eq ptr %27, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %AddDeviceToEnumeration.exit26, %AddDeviceToEnumeration.exit
   %.134 = phi ptr [ %.4, %AddDeviceToEnumeration.exit ], [ %.6, %AddDeviceToEnumeration.exit26 ]
@@ -2689,7 +2689,7 @@ AddDeviceToEnumeration.exit26:                    ; preds = %24, %23, %.lr.ph
   tail call void @free(ptr noundef %36) #22
   tail call void @free(ptr noundef nonnull %.010.i) #22
   %.not.i27 = icmp eq ptr %29, null
-  br i1 %.not.i27, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i27, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !10
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %9, %.preheader37, %.preheader, %.loopexit, %5
   %.022 = phi ptr [ null, %5 ], [ %.134, %.loopexit ], [ null, %.preheader ], [ null, %.preheader37 ], [ null, %9 ], [ %.134, %.lr.ph.i ]
@@ -2718,7 +2718,7 @@ define hidden void @SDL_hid_free_enumeration_REAL(ptr noundef %0) local_unnamed_
   tail call void @SDL_free_REAL(ptr noundef %10) #22
   tail call void @SDL_free_REAL(ptr noundef nonnull %.09) #22
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -3340,7 +3340,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
   %.1 = phi i32 [ %.02842, %18 ], [ 1, %24 ], [ %.02842, %29 ], [ %.02842, %26 ], [ %.02842, %.lr.ph ]
   %32 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef nonnull %8) #22
   %.not36 = icmp eq ptr %32, null
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %31
   %33 = icmp ne i32 %.132, 0
@@ -3623,7 +3623,7 @@ get_hid_item_size.exit.i:                         ; preds = %90, %85
   %100 = add i32 %99, %75
   store i32 %100, ptr %2, align 4
   %101 = icmp ult i32 %100, %1
-  br i1 %101, label %.lr.ph.i, label %.thread, !llvm.loop !20
+  br i1 %101, label %.lr.ph.i, label %.thread, !llvm.loop !23
 
 hid_iterate_over_collection.exit:                 ; preds = %.thread33.i
   %.not51 = icmp eq i32 %.04478, 0
@@ -3643,7 +3643,7 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread33.i
   %107 = add i32 %105, %106
   store i32 %107, ptr %2, align 4
   %108 = icmp ult i32 %107, %1
-  br i1 %108, label %12, label %._crit_edge, !llvm.loop !21
+  br i1 %108, label %12, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %104
   %109 = icmp ne i32 %.246, 0
@@ -3752,20 +3752,23 @@ attributes #25 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!12 = distinct !{!12, !4, !6}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
+!16 = !{i8 0, i8 2}
+!17 = !{}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}

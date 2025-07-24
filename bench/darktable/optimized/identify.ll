@@ -6992,8 +6992,8 @@ declare noundef i32 @_ZN6LibRaw11ljpeg_startEP5jheadi(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #4 align 2 {
-  %.sroa.0847 = alloca i32, align 4
-  %.sroa.4848 = alloca i32, align 4
+  %.sroa.0848 = alloca i32, align 4
+  %.sroa.4849 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %2 = alloca [2 x i32], align 4
@@ -7007,7 +7007,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %11 = load i32, ptr %10, align 4, !tbaa !115
   %.not = icmp eq i32 %11, 0
-  %indvars.iv.sroa.gep840 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep841 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %720, label %12
 
 12:                                               ; preds = %1
@@ -7052,8 +7052,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not390, label %39, label %153
 
 39:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0847)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4848)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0848)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4849)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
@@ -7076,26 +7076,26 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %52 = and i32 %51, 1
   %sext = add nsw i32 %52, -1
   %53 = select i1 %.not391, i32 %sext, i32 %26
-  %.sroa.0847.0..sroa.0847.0. = load i32, ptr %.sroa.0847, align 4, !tbaa !92
-  %54 = icmp sgt i32 %.sroa.0847.0..sroa.0847.0., -1
-  %55 = icmp slt i32 %.sroa.0847.0..sroa.0847.0., %32
+  %.sroa.0848.0..sroa.0848.0. = load i32, ptr %.sroa.0848, align 4, !tbaa !92
+  %54 = icmp sgt i32 %.sroa.0848.0..sroa.0848.0., -1
+  %55 = icmp slt i32 %.sroa.0848.0..sroa.0848.0., %32
   %or.cond513 = and i1 %54, %55
-  %.sroa.4848.0..sroa.4848.4. = load i32, ptr %.sroa.4848, align 4
-  %56 = icmp eq i32 %.sroa.0847.0..sroa.0847.0., %.sroa.4848.0..sroa.4848.4.
+  %.sroa.4849.0..sroa.4849.4. = load i32, ptr %.sroa.4849, align 4
+  %56 = icmp eq i32 %.sroa.0848.0..sroa.0848.0., %.sroa.4849.0..sroa.4849.4.
   %or.cond516 = select i1 %or.cond513, i1 %56, i1 false
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4
-  %57 = icmp eq i32 %.sroa.0847.0..sroa.0847.0., %.sroa.0.0..sroa.0.0.
+  %57 = icmp eq i32 %.sroa.0848.0..sroa.0848.0., %.sroa.0.0..sroa.0.0.
   %or.cond518 = select i1 %or.cond516, i1 %57, i1 false
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4
-  %58 = icmp eq i32 %.sroa.0847.0..sroa.0847.0., %.sroa.4.0..sroa.4.4.
+  %58 = icmp eq i32 %.sroa.0848.0..sroa.0848.0., %.sroa.4.0..sroa.4.4.
   %or.cond521 = select i1 %or.cond518, i1 %58, i1 false
   br i1 %or.cond521, label %87, label %152
 
 59:                                               ; preds = %39, %85
   %60 = phi i1 [ true, %39 ], [ false, %85 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %39 ], [ %indvars.iv.sroa.gep840, %85 ]
-  %indvars.iv.sroa.phi841 = phi ptr [ %.sroa.0, %39 ], [ %.sroa.4, %85 ]
-  %indvars.iv.sroa.phi844 = phi ptr [ %.sroa.0847, %39 ], [ %.sroa.4848, %85 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %39 ], [ %indvars.iv.sroa.gep841, %85 ]
+  %indvars.iv.sroa.phi842 = phi ptr [ %.sroa.0, %39 ], [ %.sroa.4, %85 ]
+  %indvars.iv.sroa.phi845 = phi ptr [ %.sroa.0848, %39 ], [ %.sroa.4849, %85 ]
   %indvars.iv = phi i64 [ 0, %39 ], [ 1, %85 ]
   %61 = getelementptr inbounds nuw [2 x %struct.libraw_dng_color_t], ptr %43, i64 0, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !227
@@ -7113,7 +7113,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 69:                                               ; preds = %59, %64
   %70 = phi i32 [ %sext409, %64 ], [ %26, %59 ]
-  store i32 %70, ptr %indvars.iv.sroa.phi844, align 4, !tbaa !92
+  store i32 %70, ptr %indvars.iv.sroa.phi845, align 4, !tbaa !92
   %71 = and i32 %62, 4
   %.not410 = icmp eq i32 %71, 0
   br i1 %.not410, label %72, label %77
@@ -7128,7 +7128,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 77:                                               ; preds = %69, %72
   %78 = phi i32 [ %sext412, %72 ], [ %26, %69 ]
-  store i32 %78, ptr %indvars.iv.sroa.phi841, align 4, !tbaa !92
+  store i32 %78, ptr %indvars.iv.sroa.phi842, align 4, !tbaa !92
   %79 = and i32 %62, 8
   %.not413 = icmp eq i32 %79, 0
   br i1 %.not413, label %80, label %85
@@ -7147,7 +7147,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %60, label %59, label %45, !llvm.loop !228
 
 87:                                               ; preds = %45
-  %88 = zext nneg i32 %.sroa.0847.0..sroa.0847.0. to i64
+  %88 = zext nneg i32 %.sroa.0848.0..sroa.0848.0. to i64
   %89 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %40, i64 0, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 144
   %91 = load i16, ptr %90, align 8, !tbaa !104
@@ -7238,7 +7238,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %114, label %.preheader569, label %151
 
 .preheader569:                                    ; preds = %.thread.thread, %.thread
-  %.1344818 = phi i32 [ %113, %.thread.thread ], [ %.4347, %.thread ]
+  %.1344817 = phi i32 [ %113, %.thread.thread ], [ %.4347, %.thread ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %116 = load i32, ptr %115, align 4, !tbaa !136
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %116, i32 4)
@@ -7247,7 +7247,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader568.lr.ph:                              ; preds = %.preheader569
   %invariant.gep585 = getelementptr inbounds nuw i8, ptr %89, i64 212
-  %118 = zext nneg i32 %.1344818 to i64
+  %118 = zext nneg i32 %.1344817 to i64
   %.idx405 = mul nuw nsw i64 %118, 168
   %gep586 = getelementptr inbounds nuw i8, ptr %invariant.gep585, i64 %.idx405
   %wide.trip.count = zext nneg i32 %invariant.smin to i64
@@ -7276,7 +7276,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 ._crit_edge:                                      ; preds = %119
   %125 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %118
   %126 = load i32, ptr %125, align 4, !tbaa !92
-  %.not831 = icmp eq i32 %126, %.sroa.0847.0..sroa.0847.0.
+  %.not831 = icmp eq i32 %126, %.sroa.0848.0..sroa.0848.0.
   br i1 %.not831, label %.preheader565.us.preheader, label %.loopexit567
 
 .preheader565.us.preheader:                       ; preds = %._crit_edge
@@ -7307,7 +7307,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %exitcond728.not, label %.loopexit567, label %.preheader565.us, !llvm.loop !236
 
 .loopexit567:                                     ; preds = %._crit_edge593.us, %._crit_edge, %.preheader569
-  %132 = icmp eq i32 %53, %.sroa.0847.0..sroa.0847.0.
+  %132 = icmp eq i32 %53, %.sroa.0848.0..sroa.0848.0.
   br i1 %132, label %.preheader563, label %.loopexit564
 
 .preheader563:                                    ; preds = %.loopexit567
@@ -7333,12 +7333,12 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   store double %140, ptr %138, align 8, !tbaa !193
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, 1
   %exitcond733.not = icmp eq i64 %indvars.iv.next730, %wide.trip.count737
-  br i1 %exitcond733.not, label %._crit_edge600.us, label %137, !llvm.loop !237
+  br i1 %exitcond733.not, label %._crit_edge600.us, label %137, !llvm.loop !238
 
 ._crit_edge600.us:                                ; preds = %137
   %indvars.iv.next735 = add nuw nsw i64 %indvars.iv734, 1
   %exitcond738.not = icmp eq i64 %indvars.iv.next735, %wide.trip.count737
-  br i1 %exitcond738.not, label %.loopexit564, label %.preheader562.us, !llvm.loop !238
+  br i1 %exitcond738.not, label %.loopexit564, label %.preheader562.us, !llvm.loop !239
 
 .loopexit564:                                     ; preds = %._crit_edge600.us, %.loopexit567
   br i1 %117, label %.preheader561.us.preheader, label %._crit_edge614
@@ -7367,18 +7367,18 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %149 = fadd reassoc nsz arcp contract afn double %143, %148
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 1
   %exitcond743.not = icmp eq i64 %indvars.iv.next740, %wide.trip.count751
-  br i1 %exitcond743.not, label %._crit_edge608.us.us, label %142, !llvm.loop !239
+  br i1 %exitcond743.not, label %._crit_edge608.us.us, label %142, !llvm.loop !240
 
 ._crit_edge608.us.us:                             ; preds = %142
   store double %149, ptr %141, align 8, !tbaa !193
   %indvars.iv.next745 = add nuw nsw i64 %indvars.iv744, 1
   %exitcond747.not = icmp eq i64 %indvars.iv.next745, 3
-  br i1 %exitcond747.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !240
+  br i1 %exitcond747.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !241
 
 .split.us.us:                                     ; preds = %._crit_edge608.us.us
   %indvars.iv.next749 = add nuw nsw i64 %indvars.iv748, 1
   %exitcond752.not = icmp eq i64 %indvars.iv.next749, %wide.trip.count751
-  br i1 %exitcond752.not, label %._crit_edge614, label %.preheader561.us, !llvm.loop !241
+  br i1 %exitcond752.not, label %._crit_edge614, label %.preheader561.us, !llvm.loop !242
 
 ._crit_edge614:                                   ; preds = %.split.us.us, %.preheader563, %.loopexit564
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 153208
@@ -7395,8 +7395,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0847)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4848)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0848)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4849)
   br label %153
 
 153:                                              ; preds = %152, %35
@@ -7743,7 +7743,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br label %353
 
 353:                                              ; preds = %346, %349
-  br i1 %311, label %310, label %299, !llvm.loop !242
+  br i1 %311, label %310, label %299, !llvm.loop !243
 
 354:                                              ; preds = %299
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 187052
@@ -7769,9 +7769,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.idx453 = mul nuw nsw i64 %366, 33408
   %367 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx453
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 33396
-  %369 = load float, ptr %368, align 4, !tbaa !243
+  %369 = load float, ptr %368, align 4, !tbaa !244
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 187084
-  store float %369, ptr %370, align 4, !tbaa !244
+  store float %369, ptr %370, align 4, !tbaa !245
   br label %371
 
 371:                                              ; preds = %365, %359
@@ -7800,13 +7800,13 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 384:                                              ; preds = %377, %371
   %385 = getelementptr inbounds nuw i8, ptr %300, i64 48
-  %386 = load i32, ptr %385, align 8, !tbaa !245
+  %386 = load i32, ptr %385, align 8, !tbaa !246
   %387 = icmp slt i32 %386, 3
   br i1 %387, label %388, label %.loopexit560
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %390 = load i32, ptr %389, align 8, !tbaa !246
+  %390 = load i32, ptr %389, align 8, !tbaa !247
   %391 = add i32 %390, -1
   %or.cond531 = icmp ult i32 %391, 31
   br i1 %or.cond531, label %.preheader559, label %.loopexit560
@@ -7817,14 +7817,14 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 393:                                              ; preds = %.preheader559, %393
   %indvars.iv756 = phi i64 [ 0, %.preheader559 ], [ %indvars.iv.next757, %393 ]
-  %394 = load i32, ptr %389, align 8, !tbaa !246
+  %394 = load i32, ptr %389, align 8, !tbaa !247
   %notmask = shl nsw i32 -1, %394
   %395 = xor i32 %notmask, -1
   %396 = getelementptr inbounds nuw [4 x i32], ptr %392, i64 0, i64 %indvars.iv756
   store i32 %395, ptr %396, align 4, !tbaa !92
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond759.not = icmp eq i64 %indvars.iv.next757, 4
-  br i1 %exitcond759.not, label %.loopexit560.loopexit, label %393, !llvm.loop !247
+  br i1 %exitcond759.not, label %.loopexit560.loopexit, label %393, !llvm.loop !248
 
 .loopexit560.loopexit:                            ; preds = %393
   %.pre = load i32, ptr %301, align 4, !tbaa !226
@@ -7886,7 +7886,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 426:                                              ; preds = %.lr.ph, %423
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count763
-  br i1 %exitcond764.not, label %.loopexit558.loopexit, label %.lr.ph, !llvm.loop !248
+  br i1 %exitcond764.not, label %.loopexit558.loopexit, label %.lr.ph, !llvm.loop !249
 
 .loopexit558.loopexit:                            ; preds = %426
   %.pre808 = load i32, ptr %304, align 4
@@ -7908,13 +7908,13 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.idx466 = mul nuw nsw i64 %434, 33408
   %435 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx466
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 33316
-  %437 = load float, ptr %436, align 4, !tbaa !249
+  %437 = load float, ptr %436, align 4, !tbaa !250
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 187004
-  store float %437, ptr %438, align 4, !tbaa !250
+  store float %437, ptr %438, align 4, !tbaa !251
   %439 = getelementptr inbounds nuw i8, ptr %435, i64 16896
-  %440 = load i32, ptr %439, align 8, !tbaa !251
+  %440 = load i32, ptr %439, align 8, !tbaa !252
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 170584
-  store i32 %440, ptr %441, align 8, !tbaa !252
+  store i32 %440, ptr %441, align 8, !tbaa !253
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 154168
   %443 = getelementptr inbounds nuw i8, ptr %435, i64 480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %442, ptr noundef nonnull align 8 dereferenceable(16416) %443, i64 16416, i1 false)
@@ -7947,9 +7947,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.idx471 = mul nuw nsw i64 %459, 33408
   %460 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx471
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 33360
-  %462 = load i32, ptr %461, align 8, !tbaa !253
+  %462 = load i32, ptr %461, align 8, !tbaa !254
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 187048
-  store i32 %462, ptr %463, align 8, !tbaa !254
+  store i32 %462, ptr %463, align 8, !tbaa !255
   br label %464
 
 464:                                              ; preds = %448, %458, %446
@@ -7967,9 +7967,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.idx475 = mul nuw nsw i64 %471, 33408
   %472 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx475
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 120
-  %474 = load i64, ptr %473, align 8, !tbaa !255
+  %474 = load i64, ptr %473, align 8, !tbaa !256
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 381592
-  store i64 %474, ptr %475, align 8, !tbaa !256
+  store i64 %474, ptr %475, align 8, !tbaa !257
   br label %476
 
 476:                                              ; preds = %470, %464
@@ -7986,9 +7986,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %483 = zext nneg i32 %480 to i64
   %484 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %295, i64 0, i64 %483
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 128
-  %486 = load i64, ptr %485, align 8, !tbaa !257
+  %486 = load i64, ptr %485, align 8, !tbaa !258
   %487 = getelementptr inbounds nuw i8, ptr %484, i64 136
-  %488 = load i32, ptr %487, align 8, !tbaa !258
+  %488 = load i32, ptr %487, align 8, !tbaa !259
   %489 = icmp sgt i64 %486, -1
   %490 = icmp sgt i32 %488, 0
   %or.cond13 = select i1 %489, i1 %490, i1 false
@@ -8035,10 +8035,10 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %516 = getelementptr inbounds nuw [4 x i32], ptr %513, i64 0, i64 %indvars.iv765
   store i32 65535, ptr %516, align 4, !tbaa !92
   %517 = getelementptr inbounds nuw [4 x i64], ptr %514, i64 0, i64 %indvars.iv765
-  store i64 65535, ptr %517, align 8, !tbaa !259
+  store i64 65535, ptr %517, align 8, !tbaa !260
   %indvars.iv.next766 = add nuw nsw i64 %indvars.iv765, 1
   %exitcond768.not = icmp eq i64 %indvars.iv.next766, 4
-  br i1 %exitcond768.not, label %.loopexit, label %515, !llvm.loop !260
+  br i1 %exitcond768.not, label %.loopexit, label %515, !llvm.loop !261
 
 518:                                              ; preds = %.thread544
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 187008
@@ -8050,7 +8050,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 .loopexit:                                        ; preds = %515, %518
   %522 = phi i32 [ %520, %518 ], [ 65535, %515 ]
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 170584
-  %524 = load i32, ptr %523, align 8, !tbaa !252
+  %524 = load i32, ptr %523, align 8, !tbaa !253
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 152992
   store i32 %524, ptr %525, align 8, !tbaa !119
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 381652
@@ -8189,12 +8189,12 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %604 = add i32 %.1335651.us, 2
   %605 = add nuw i32 %.0332652.us, 1
   %exitcond784.not = icmp eq i32 %605, %559
-  br i1 %exitcond784.not, label %._crit_edge654.us, label %588, !llvm.loop !261
+  br i1 %exitcond784.not, label %._crit_edge654.us, label %588, !llvm.loop !262
 
 ._crit_edge654.us:                                ; preds = %588
   %606 = add nuw i32 %.0333657.us, 1
   %exitcond785.not = icmp eq i32 %606, %556
-  br i1 %exitcond785.not, label %.preheader553.preheader, label %.preheader554.us, !llvm.loop !262
+  br i1 %exitcond785.not, label %.preheader553.preheader, label %.preheader554.us, !llvm.loop !263
 
 607:                                              ; preds = %617
   store i32 0, ptr %558, align 4, !tbaa !92
@@ -8224,7 +8224,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 617:                                              ; preds = %.preheader553, %610
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
   %exitcond789.not = icmp eq i64 %indvars.iv.next787, 4
-  br i1 %exitcond789.not, label %607, label %.preheader553, !llvm.loop !263
+  br i1 %exitcond789.not, label %607, label %.preheader553, !llvm.loop !264
 
 618:                                              ; preds = %.loopexit
   %619 = add i32 %527, -3
@@ -8252,54 +8252,54 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.not677 = icmp eq i32 %623, 0
   %.not678 = icmp eq i32 %625, 0
   %or.cond830 = or i1 %.not677, %.not678
-  br i1 %or.cond830, label %.preheader555.preheader, label %.preheader557.us.us.preheader
+  br i1 %or.cond830, label %.preheader555.preheader, label %.preheader557.us.preheader
 
-.preheader555.preheader:                          ; preds = %._crit_edge642.split.us.us.us, %631
+.preheader555.preheader:                          ; preds = %._crit_edge642.us, %631
   br label %.preheader555
 
-.preheader557.us.us.preheader:                    ; preds = %631
+.preheader557.us.preheader:                       ; preds = %631
   %wide.trip.count776 = zext nneg i32 %527 to i64
-  br label %.preheader557.us.us
+  br label %.preheader557.us
 
-.preheader557.us.us:                              ; preds = %.preheader557.us.us.preheader, %._crit_edge642.split.us.us.us
-  %.0327645.us.us = phi i32 [ %643, %._crit_edge642.split.us.us.us ], [ 0, %.preheader557.us.us.preheader ]
-  %.0328644.us.us = phi i64 [ %indvars.iv.next772, %._crit_edge642.split.us.us.us ], [ 6, %.preheader557.us.us.preheader ]
-  br label %.preheader556.us.us.us
+.preheader557.us:                                 ; preds = %.preheader557.us.preheader, %._crit_edge642.us
+  %.0327645.us = phi i32 [ %632, %._crit_edge642.us ], [ 0, %.preheader557.us.preheader ]
+  %.0328644.us = phi i64 [ %indvars.iv.next772, %._crit_edge642.us ], [ 6, %.preheader557.us.preheader ]
+  br label %.preheader556.us.us
 
-.preheader556.us.us.us:                           ; preds = %._crit_edge638.us.us.us, %.preheader557.us.us
-  %.0326641.us.us.us = phi i32 [ 0, %.preheader557.us.us ], [ %642, %._crit_edge638.us.us.us ]
-  %.1329640.us.us.us = phi i64 [ %.0328644.us.us, %.preheader557.us.us ], [ %indvars.iv.next772, %._crit_edge638.us.us.us ]
-  %sext816 = shl i64 %.1329640.us.us.us, 32
-  %632 = ashr exact i64 %sext816, 32
-  br label %633
+._crit_edge642.us:                                ; preds = %._crit_edge638.us.us
+  %632 = add nuw i32 %.0327645.us, 1
+  %exitcond779.not = icmp eq i32 %632, %623
+  br i1 %exitcond779.not, label %.preheader555.preheader, label %.preheader557.us, !llvm.loop !265
 
-633:                                              ; preds = %633, %.preheader556.us.us.us
-  %indvars.iv771 = phi i64 [ %indvars.iv.next772, %633 ], [ %632, %.preheader556.us.us.us ]
-  %indvars.iv769 = phi i64 [ %indvars.iv.next770, %633 ], [ 0, %.preheader556.us.us.us ]
-  %634 = getelementptr inbounds [4104 x i32], ptr %621, i64 0, i64 %indvars.iv771
-  %635 = load i32, ptr %634, align 4, !tbaa !92
-  %636 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv769
-  %637 = load i32, ptr %636, align 4, !tbaa !92
-  %638 = add i32 %637, %635
-  store i32 %638, ptr %636, align 4, !tbaa !92
-  %639 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv769
-  %640 = load i32, ptr %639, align 4, !tbaa !92
-  %641 = add nsw i32 %640, 1
-  store i32 %641, ptr %639, align 4, !tbaa !92
+.preheader556.us.us:                              ; preds = %.preheader557.us, %._crit_edge638.us.us
+  %.0326641.us.us = phi i32 [ %643, %._crit_edge638.us.us ], [ 0, %.preheader557.us ]
+  %.1329640.us.us = phi i64 [ %indvars.iv.next772, %._crit_edge638.us.us ], [ %.0328644.us, %.preheader557.us ]
+  %sext832 = shl i64 %.1329640.us.us, 32
+  %633 = ashr exact i64 %sext832, 32
+  br label %634
+
+634:                                              ; preds = %634, %.preheader556.us.us
+  %indvars.iv771 = phi i64 [ %indvars.iv.next772, %634 ], [ %633, %.preheader556.us.us ]
+  %indvars.iv769 = phi i64 [ %indvars.iv.next770, %634 ], [ 0, %.preheader556.us.us ]
+  %635 = getelementptr inbounds [4104 x i32], ptr %621, i64 0, i64 %indvars.iv771
+  %636 = load i32, ptr %635, align 4, !tbaa !92
+  %637 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv769
+  %638 = load i32, ptr %637, align 4, !tbaa !92
+  %639 = add i32 %638, %636
+  store i32 %639, ptr %637, align 4, !tbaa !92
+  %640 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv769
+  %641 = load i32, ptr %640, align 4, !tbaa !92
+  %642 = add nsw i32 %641, 1
+  store i32 %642, ptr %640, align 4, !tbaa !92
   %indvars.iv.next772 = add nsw i64 %indvars.iv771, 1
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond777.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count776
-  br i1 %exitcond777.not, label %._crit_edge638.us.us.us, label %633, !llvm.loop !264
+  br i1 %exitcond777.not, label %._crit_edge638.us.us, label %634, !llvm.loop !266
 
-._crit_edge638.us.us.us:                          ; preds = %633
-  %642 = add nuw i32 %.0326641.us.us.us, 1
-  %exitcond778.not = icmp eq i32 %642, %625
-  br i1 %exitcond778.not, label %._crit_edge642.split.us.us.us, label %.preheader556.us.us.us, !llvm.loop !265
-
-._crit_edge642.split.us.us.us:                    ; preds = %._crit_edge638.us.us.us
-  %643 = add nuw i32 %.0327645.us.us, 1
-  %exitcond779.not = icmp eq i32 %643, %623
-  br i1 %exitcond779.not, label %.preheader555.preheader, label %.preheader557.us.us, !llvm.loop !266
+._crit_edge638.us.us:                             ; preds = %634
+  %643 = add nuw i32 %.0326641.us.us, 1
+  %exitcond778.not = icmp eq i32 %643, %625
+  br i1 %exitcond778.not, label %._crit_edge642.us, label %.preheader556.us.us, !llvm.loop !267
 
 644:                                              ; preds = %654
   store i32 0, ptr %624, align 4, !tbaa !92
@@ -8328,7 +8328,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 654:                                              ; preds = %.preheader555, %647
   %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
   %exitcond783.not = icmp eq i64 %indvars.iv.next781, 4
-  br i1 %exitcond783.not, label %644, label %.preheader555, !llvm.loop !267
+  br i1 %exitcond783.not, label %644, label %.preheader555, !llvm.loop !268
 
 .thread549:                                       ; preds = %._crit_edge809, %607, %644, %620, %618, %545
   %655 = phi i32 [ %524, %._crit_edge809 ], [ %524, %607 ], [ %524, %644 ], [ %524, %620 ], [ %524, %618 ], [ %550, %545 ]
@@ -8363,9 +8363,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.idx488 = mul nuw nsw i64 %674, 33408
   %675 = getelementptr inbounds nuw i8, ptr %661, i64 %.idx488
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 33400
-  %677 = load float, ptr %676, align 8, !tbaa !268
+  %677 = load float, ptr %676, align 8, !tbaa !269
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 187088
-  store float %677, ptr %678, align 8, !tbaa !269
+  store float %677, ptr %678, align 8, !tbaa !270
   %679 = fpext reassoc nsz arcp contract afn float %677 to double
   %680 = fcmp reassoc nsz arcp contract afn ule double %679, 1.000000e-01
   %681 = fcmp reassoc nsz arcp contract afn ugt float %677, 1.000000e+00
@@ -8409,7 +8409,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %695 = add i32 %694, %.0323661
   %indvars.iv.next791 = add nuw nsw i64 %indvars.iv790, 1
   %exitcond794.not = icmp eq i64 %indvars.iv.next791, %wide.trip.count793
-  br i1 %exitcond794.not, label %._crit_edge664, label %.lr.ph663, !llvm.loop !270
+  br i1 %exitcond794.not, label %._crit_edge664, label %.lr.ph663, !llvm.loop !271
 
 .critedge:                                        ; preds = %697
   %696 = udiv i32 %701, %invariant.umin667
@@ -8424,7 +8424,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %701 = add i32 %700, %.1322668
   %indvars.iv.next796 = add nuw nsw i64 %indvars.iv795, 1
   %exitcond801.not = icmp eq i64 %indvars.iv.next796, %wide.trip.count800
-  br i1 %exitcond801.not, label %.critedge, label %697, !llvm.loop !271
+  br i1 %exitcond801.not, label %.critedge, label %697, !llvm.loop !272
 
 702:                                              ; preds = %.critedge, %._crit_edge664
   %.0321 = phi i32 [ %696, %.critedge ], [ 0, %._crit_edge664 ]
@@ -8445,26 +8445,26 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 ._crit_edge676:                                   ; preds = %714, %702
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 153016
-  %713 = load i64, ptr %712, align 8, !tbaa !259
+  %713 = load i64, ptr %712, align 8, !tbaa !260
   %.not490 = icmp eq i64 %713, 0
   br i1 %.not490, label %720, label %716
 
 714:                                              ; preds = %.lr.ph675, %714
   %indvars.iv802 = phi i64 [ 0, %.lr.ph675 ], [ %indvars.iv.next803, %714 ]
   %715 = getelementptr inbounds nuw [4 x i64], ptr %711, i64 0, i64 %indvars.iv802
-  store i64 %710, ptr %715, align 8, !tbaa !259
+  store i64 %710, ptr %715, align 8, !tbaa !260
   %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
   %exitcond806.not = icmp eq i64 %indvars.iv.next803, %wide.trip.count805
-  br i1 %exitcond806.not, label %._crit_edge676, label %714, !llvm.loop !272
+  br i1 %exitcond806.not, label %._crit_edge676, label %714, !llvm.loop !273
 
 716:                                              ; preds = %._crit_edge676
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 153032
-  %718 = load i64, ptr %717, align 8, !tbaa !259
+  %718 = load i64, ptr %717, align 8, !tbaa !260
   %.not491 = icmp eq i64 %718, 0
   br i1 %.not491, label %719, label %720
 
 719:                                              ; preds = %716
-  store i64 %713, ptr %717, align 8, !tbaa !259
+  store i64 %713, ptr %717, align 8, !tbaa !260
   br label %720
 
 720:                                              ; preds = %.thread549, %._crit_edge676, %716, %719, %673, %660, %1
@@ -8817,40 +8817,41 @@ attributes #19 = { nounwind willreturn memory(read) }
 !233 = distinct !{!233, !7}
 !234 = distinct !{!234, !7}
 !235 = distinct !{!235, !7}
-!236 = distinct !{!236, !7}
-!237 = distinct !{!237, !7}
+!236 = distinct !{!236, !7, !237}
+!237 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !238 = distinct !{!238, !7}
-!239 = distinct !{!239, !7}
+!239 = distinct !{!239, !7, !237}
 !240 = distinct !{!240, !7}
-!241 = distinct !{!241, !7}
-!242 = distinct !{!242, !7}
-!243 = !{!205, !25, i64 33396}
-!244 = !{!17, !25, i64 187084}
-!245 = !{!205, !10, i64 48}
-!246 = !{!205, !10, i64 8}
-!247 = distinct !{!247, !7}
+!241 = distinct !{!241, !7, !237}
+!242 = distinct !{!242, !7, !237}
+!243 = distinct !{!243, !7}
+!244 = !{!205, !25, i64 33396}
+!245 = !{!17, !25, i64 187084}
+!246 = !{!205, !10, i64 48}
+!247 = !{!205, !10, i64 8}
 !248 = distinct !{!248, !7}
-!249 = !{!205, !25, i64 33316}
-!250 = !{!17, !25, i64 187004}
-!251 = !{!205, !10, i64 16896}
-!252 = !{!17, !10, i64 170584}
-!253 = !{!205, !10, i64 33360}
-!254 = !{!17, !10, i64 187048}
-!255 = !{!205, !29, i64 120}
-!256 = !{!17, !29, i64 381592}
-!257 = !{!205, !29, i64 128}
-!258 = !{!205, !10, i64 136}
-!259 = !{!54, !54, i64 0}
-!260 = distinct !{!260, !7}
+!249 = distinct !{!249, !7}
+!250 = !{!205, !25, i64 33316}
+!251 = !{!17, !25, i64 187004}
+!252 = !{!205, !10, i64 16896}
+!253 = !{!17, !10, i64 170584}
+!254 = !{!205, !10, i64 33360}
+!255 = !{!17, !10, i64 187048}
+!256 = !{!205, !29, i64 120}
+!257 = !{!17, !29, i64 381592}
+!258 = !{!205, !29, i64 128}
+!259 = !{!205, !10, i64 136}
+!260 = !{!54, !54, i64 0}
 !261 = distinct !{!261, !7}
 !262 = distinct !{!262, !7}
-!263 = distinct !{!263, !7}
+!263 = distinct !{!263, !7, !237}
 !264 = distinct !{!264, !7}
-!265 = distinct !{!265, !7}
+!265 = distinct !{!265, !7, !237}
 !266 = distinct !{!266, !7}
-!267 = distinct !{!267, !7}
-!268 = !{!205, !25, i64 33400}
-!269 = !{!17, !25, i64 187088}
-!270 = distinct !{!270, !7}
+!267 = distinct !{!267, !7, !237}
+!268 = distinct !{!268, !7}
+!269 = !{!205, !25, i64 33400}
+!270 = !{!17, !25, i64 187088}
 !271 = distinct !{!271, !7}
 !272 = distinct !{!272, !7}
+!273 = distinct !{!273, !7}

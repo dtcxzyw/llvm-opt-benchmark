@@ -1541,7 +1541,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   %.2 = load i8, ptr %38, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %23, %28, %37, %17, %.split.us, %3
   %.037 = phi i1 [ false, %3 ], [ %.not44.us.not.not, %.split.us ], [ %.not44.us.not.not, %17 ], [ true, %37 ], [ false, %28 ], [ false, %23 ]
@@ -1646,7 +1646,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
 46:                                               ; preds = %41, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %30
-  br i1 %.not.i.i, label %35, label %zb_direct_decrypt.exit, !llvm.loop !18
+  br i1 %.not.i.i, label %35, label %zb_direct_decrypt.exit, !llvm.loop !20
 
 47:                                               ; preds = %41, %39
   %48 = load ptr, ptr %0, align 8
@@ -1726,7 +1726,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %98 = getelementptr inbounds nuw i8, ptr %.222.i.us, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !19
+  br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !21
 
 .preheader41.i.preheader:                         ; preds = %.lr.ph.i, %141
   %.222.i = phi ptr [ %143, %141 ], [ %.05648.i, %.lr.ph.i ]
@@ -1779,7 +1779,7 @@ create_auth_string.exit.i.i.i:                    ; preds = %111
 
 try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
   %120 = zext nneg i32 %95 to i64
-  %121 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %120, i64 noundef 512) #13, !alias.scope !20
+  %121 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %120, i64 noundef 512) #13, !alias.scope !22
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12) #13
@@ -1833,7 +1833,7 @@ create_auth_string.exit.i25.i.i:                  ; preds = %132
 
 try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i25.i.i
   %139 = zext nneg i32 %95 to i64
-  %140 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %10, i64 noundef range(i64 0, 65536) %139, i64 noundef 512) #13, !alias.scope !24
+  %140 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %10, i64 noundef range(i64 0, 65536) %139, i64 noundef 512) #13, !alias.scope !26
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9) #13
@@ -1846,7 +1846,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %142 = getelementptr inbounds nuw i8, ptr %.222.i, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %._crit_edge.i, label %.preheader41.i.preheader, !llvm.loop !19
+  br i1 %144, label %._crit_edge.i, label %.preheader41.i.preheader, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %77, %141, %decrypt_data.exit.thread.i.thread.i.us, %.critedge.i
   %145 = load ptr, ptr @zbee_table_nwk_keyring, align 8
@@ -1951,7 +1951,7 @@ create_auth_string.exit.i.i:                      ; preds = %182
 
 .thread57.i:                                      ; preds = %create_auth_string.exit.i.i
   %190 = zext nneg i32 %163 to i64
-  %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !28
+  %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !31
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6) #13
@@ -1968,7 +1968,7 @@ create_auth_string.exit.i.i:                      ; preds = %182
 195:                                              ; preds = %192, %166
   %.5.i = phi ptr [ %194, %192 ], [ %.426.i, %166 ]
   %196 = icmp eq ptr %.5.i, null
-  br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !32
+  br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %.thread57.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
   %.892.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread57.i ]
@@ -2235,19 +2235,22 @@ attributes #15 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !7}
 !15 = !{i8 0, i8 2}
 !16 = !{}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !7}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = distinct !{!32, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !18}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !7}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !7}

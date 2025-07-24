@@ -3204,7 +3204,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noun
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !219
+  %5 = load i32, ptr %4, align 4, !tbaa !220
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %.preheader, label %23
 
@@ -3247,7 +3247,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %9, %17
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %5, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !220
+  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !221
 
 23:                                               ; preds = %3
   %24 = icmp sgt i32 %1, %5
@@ -3343,10 +3343,10 @@ _ZN20btAlignedObjectArrayIfEC2ERKS0_.exit:        ; preds = %51, %_ZN20btAligned
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !221
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !222
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit, %_ZN20btAlignedObjectArrayIfED2Ev.exit, %23
-  store i32 %1, ptr %4, align 4, !tbaa !219
+  store i32 %1, ptr %4, align 4, !tbaa !220
   ret void
 }
 
@@ -3559,7 +3559,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i: ; preds = %15
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit.i:      ; preds = %40, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit, label %15, !llvm.loop !222
+  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit, label %15, !llvm.loop !223
 
 _ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit: ; preds = %_ZN20btAlignedObjectArrayIiEC2ERKS0_.exit.i
   %.pre = load i32, ptr %11, align 4, !tbaa !45
@@ -3636,7 +3636,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIfEERS
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !223
+  %4 = load i32, ptr %3, align 8, !tbaa !224
   %5 = icmp slt i32 %4, %1
   br i1 %5, label %6, label %69
 
@@ -3653,7 +3653,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE7reserveEi(p
 _ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit: ; preds = %6, %7
   %.0.i = phi ptr [ %10, %7 ], [ null, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !219
+  %12 = load i32, ptr %11, align 4, !tbaa !220
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
 
@@ -3746,10 +3746,10 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i.i: ; preds = %15
 _ZN20btAlignedObjectArrayIfEC2ERKS0_.exit.i:      ; preds = %40, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_.exit, label %15, !llvm.loop !224
+  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_.exit, label %15, !llvm.loop !225
 
 _ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_.exit: ; preds = %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit.i
-  %.pre = load i32, ptr %11, align 4, !tbaa !219
+  %.pre = load i32, ptr %11, align 4, !tbaa !220
   %45 = icmp sgt i32 %.pre, 0
   br i1 %45, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
 
@@ -3791,7 +3791,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit.i:          ; preds = %55, %47
   store i32 0, ptr %60, align 8, !tbaa !209
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %61 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %61, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit, label %47, !llvm.loop !225
+  br i1 %61, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit, label %47, !llvm.loop !226
 
 _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3809,9 +3809,9 @@ _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjec
 
 _ZN20btAlignedObjectArrayIS_IfEE10deallocateEv.exit: ; preds = %67, %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %68, align 8, !tbaa !226
+  store i8 1, ptr %68, align 8, !tbaa !227
   store ptr %.0.i, ptr %62, align 8, !tbaa !216
-  store i32 %1, ptr %3, align 8, !tbaa !223
+  store i32 %1, ptr %3, align 8, !tbaa !224
   br label %69
 
 69:                                               ; preds = %_ZN20btAlignedObjectArrayIS_IfEE10deallocateEv.exit, %2
@@ -4083,12 +4083,13 @@ attributes #24 = { noreturn nounwind }
 !215 = distinct !{!215, !65}
 !216 = !{!193, !195, i64 16}
 !217 = distinct !{!217, !65}
-!218 = distinct !{!218, !65}
-!219 = !{!193, !15, i64 4}
-!220 = distinct !{!220, !65}
+!218 = distinct !{!218, !65, !219}
+!219 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!220 = !{!193, !15, i64 4}
 !221 = distinct !{!221, !65}
 !222 = distinct !{!222, !65}
-!223 = !{!193, !15, i64 8}
-!224 = distinct !{!224, !65}
+!223 = distinct !{!223, !65}
+!224 = !{!193, !15, i64 8}
 !225 = distinct !{!225, !65}
-!226 = !{!193, !17, i64 24}
+!226 = distinct !{!226, !65}
+!227 = !{!193, !17, i64 24}

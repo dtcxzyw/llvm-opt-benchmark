@@ -678,7 +678,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   br i1 %or.cond258, label %129, label %.critedge4.loopexit331
 
 129:                                              ; preds = %.lr.ph195.split.split.us
-  br i1 %exitcond274.not, label %.critedge4.thread, label %.lr.ph195.split.split.us, !llvm.loop !24
+  br i1 %exitcond274.not, label %.critedge4.thread, label %.lr.ph195.split.split.us, !llvm.loop !26
 
 .lr.ph195.split.split:                            ; preds = %.lr.ph195.split.split.preheader, %.preheader170
   %indvars.iv265 = phi i64 [ 0, %.lr.ph195.split.split.preheader ], [ %indvars.iv.next266, %.preheader170 ]
@@ -690,7 +690,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 .preheader170:                                    ; preds = %.lr.ph195.split.split
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %.critedge4.thread, label %.lr.ph195.split.split, !llvm.loop !24
+  br i1 %exitcond269.not, label %.critedge4.thread, label %.lr.ph195.split.split, !llvm.loop !27
 
 .critedge4.loopexit:                              ; preds = %119
   %132 = trunc nuw nsw i64 %indvars.iv280 to i32
@@ -781,7 +781,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
 158:                                              ; preds = %154
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
-  br i1 %exitcond289.not, label %.critedge10.loopexit, label %.lr.ph227, !llvm.loop !25
+  br i1 %exitcond289.not, label %.critedge10.loopexit, label %.lr.ph227, !llvm.loop !28
 
 .critedge10.loopexit.split.loop.exit352:          ; preds = %154
   %159 = trunc nuw nsw i64 %indvars.iv285 to i32
@@ -811,7 +811,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %165 = sext i32 %.val142 to i64
   %166 = icmp slt i64 %indvars.iv.next291, %165
-  br i1 %166, label %145, label %.critedge8, !llvm.loop !26
+  br i1 %166, label %145, label %.critedge8, !llvm.loop !29
 
 .critedge8:                                       ; preds = %100, %164, %145, %.critedge2.thread, %.critedge4.thread, %.critedge4, %.critedge2, %94
   %.val138309 = phi i32 [ %.val138308, %94 ], [ %.val138308, %.critedge2 ], [ %.val138308, %.critedge4 ], [ %.val142236, %.critedge4.thread ], [ %.val138308, %.critedge2.thread ], [ %.val142, %164 ], [ %.val142303, %145 ], [ %.val138308, %100 ]
@@ -821,7 +821,7 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %.val149 = load i32, ptr %70, align 4, !tbaa !3
   %167 = sext i32 %.val149 to i64
   %168 = icmp slt i64 %indvars.iv.next294, %167
-  br i1 %168, label %91, label %.critedge.loopexit, !llvm.loop !27
+  br i1 %168, label %91, label %.critedge.loopexit, !llvm.loop !30
 
 .critedge.loopexit:                               ; preds = %.critedge8, %91
   %.val138307 = phi i32 [ %.val138308, %91 ], [ %.val138309, %.critedge8 ]
@@ -902,7 +902,7 @@ Vec_IntFetch.exit164:                             ; preds = %.critedge, %173, %1
   %.val = load i32, ptr %70, align 4, !tbaa !3
   %202 = sext i32 %.val to i64
   %203 = icmp slt i64 %indvars.iv.next297, %202
-  br i1 %203, label %190, label %.critedge12, !llvm.loop !28
+  br i1 %203, label %190, label %.critedge12, !llvm.loop !31
 
 .critedge12:                                      ; preds = %201, %190, %63, %50, %Vec_IntFetch.exit164, %Vec_IntFetch.exit27.i, %Vec_IntFetch.exit27.thread.i
   ret void
@@ -933,7 +933,7 @@ define void @Kit_SopMakeCubeFree(ptr noundef readonly captures(none) %0) local_u
   %9 = and i32 %7, %.0710.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit, label %5, !llvm.loop !32
 
 Kit_SopCommonCube.exit:                           ; preds = %5, %8
   %.07.lcssa.i = phi i32 [ %9, %8 ], [ %.0710.i, %5 ]
@@ -960,7 +960,7 @@ Kit_SopCommonCube.exit:                           ; preds = %5, %8
   %.val = load i32, ptr %2, align 4, !tbaa !3
   %18 = sext i32 %.val to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %13, label %.critedge, !llvm.loop !30
+  br i1 %19, label %13, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %16, %13, %Kit_SopCommonCube.exit, %1
   ret void
@@ -991,7 +991,7 @@ define range(i32 0, 2) i32 @Kit_SopIsCubeFree(ptr noundef readonly captures(none
   %9 = and i32 %7, %.0710.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit.loopexit, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit.loopexit, label %5, !llvm.loop !32
 
 Kit_SopCommonCube.exit.loopexit:                  ; preds = %8, %5
   %.07.lcssa.i.ph = phi i32 [ %9, %8 ], [ %.0710.i, %5 ]
@@ -1051,7 +1051,7 @@ Vec_IntFetch.exit:                                ; preds = %3, %9
   %23 = and i32 %21, %.0710.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit, label %19, !llvm.loop !29
+  br i1 %exitcond.not.i, label %Kit_SopCommonCube.exit, label %19, !llvm.loop !32
 
 Kit_SopCommonCube.exit:                           ; preds = %19, %22, %Vec_IntFetch.exit
   %.07.lcssa.i = phi i32 [ -1, %Vec_IntFetch.exit ], [ %.0710.i, %19 ], [ %23, %22 ]
@@ -1095,7 +1095,7 @@ define i32 @Kit_SopAnyLiteral(ptr noundef readonly captures(none) %0, i32 nounde
   %spec.select.us = add nuw nsw i32 %12, %.020.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.us, label %7, !llvm.loop !31
+  br i1 %exitcond.not, label %.critedge.us, label %7, !llvm.loop !34
 
 .critedge.us:                                     ; preds = %7, %10
   %.0.lcssa.us = phi i32 [ %spec.select.us, %10 ], [ %.020.us, %7 ]
@@ -1105,7 +1105,7 @@ define i32 @Kit_SopAnyLiteral(ptr noundef readonly captures(none) %0, i32 nounde
 14:                                               ; preds = %.critedge.us
   %15 = add nuw nsw i32 %.01423.us, 1
   %exitcond29.not = icmp eq i32 %15, %1
-  br i1 %exitcond29.not, label %._crit_edge, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond29.not, label %._crit_edge, label %.preheader.us, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.critedge.us, %14, %.preheader.lr.ph, %2
   %.015 = phi i32 [ -1, %2 ], [ -1, %.preheader.lr.ph ], [ -1, %14 ], [ %.01423.us, %.critedge.us ]
@@ -1149,7 +1149,7 @@ define i32 @Kit_SopWorstLiteral(ptr noundef readonly captures(none) %0, i32 noun
   %spec.select.us = add nuw nsw i32 %12, %.02334.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.us, label %7, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge.us, label %7, !llvm.loop !36
 
 .critedge.us:                                     ; preds = %7, %10
   %.023.lcssa.us = phi i32 [ %spec.select.us, %10 ], [ %.02334.us, %7 ]
@@ -1160,7 +1160,7 @@ define i32 @Kit_SopWorstLiteral(ptr noundef readonly captures(none) %0, i32 noun
   %.125.us = select i1 %or.cond.us, i32 %.023.lcssa.us, i32 %.02439.us
   %15 = add nuw nsw i32 %.02937.us, 1
   %exitcond45.not = icmp eq i32 %15, %1
-  br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.preheader.us, !llvm.loop !34
+  br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.critedge.us
   %16 = icmp slt i32 %.125.us, 1000000
@@ -1215,7 +1215,7 @@ define i32 @Kit_SopBestLiteral(ptr noundef readonly captures(none) %0, i32 nound
   %spec.select = add nuw nsw i32 %16, %.02539
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !38
 
 .critedge:                                        ; preds = %11, %14, %.preheader
   %.025.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %14 ], [ %.02539, %11 ]
@@ -1231,7 +1231,7 @@ define i32 @Kit_SopBestLiteral(ptr noundef readonly captures(none) %0, i32 nound
   %.127 = phi i32 [ %.02644, %7 ], [ %spec.select36, %.critedge ]
   %20 = add nuw nsw i32 %.03142, 1
   %exitcond49.not = icmp eq i32 %20, %1
-  br i1 %exitcond49.not, label %._crit_edge.loopexit, label %7, !llvm.loop !36
+  br i1 %exitcond49.not, label %._crit_edge.loopexit, label %7, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %19
   %21 = icmp sgt i32 %.127, -1
@@ -1284,7 +1284,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 nou
   %spec.select.us.i = add nuw nsw i32 %12, %.02334.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.us.i, label %7, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge.us.i, label %7, !llvm.loop !36
 
 .critedge.us.i:                                   ; preds = %10, %7
   %.023.lcssa.us.i = phi i32 [ %spec.select.us.i, %10 ], [ %.02334.us.i, %7 ]
@@ -1295,7 +1295,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 nou
   %.125.us.i = select i1 %or.cond.us.i, i32 %.023.lcssa.us.i, i32 %.02439.us.i
   %15 = add nuw nsw i32 %.02937.us.i, 1
   %exitcond45.not.i = icmp eq i32 %15, %1
-  br i1 %exitcond45.not.i, label %._crit_edge.loopexit.i, label %.preheader.us.i, !llvm.loop !34
+  br i1 %exitcond45.not.i, label %._crit_edge.loopexit.i, label %.preheader.us.i, !llvm.loop !37
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge.us.i
   %16 = icmp sgt i32 %.125.us.i, 999999
@@ -1361,7 +1361,7 @@ Kit_SopDivideByLiteralQuo.exit:                   ; preds = %20, %30
   %38 = and i32 %36, %.0710.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Kit_SopCommonCube.exit.i, label %34, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %Kit_SopCommonCube.exit.i, label %34, !llvm.loop !32
 
 Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
   %.07.lcssa.i.i = phi i32 [ %38, %37 ], [ %.0710.i.i, %34 ]
@@ -1378,7 +1378,7 @@ Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
   %43 = getelementptr inbounds nuw i32, ptr %.val32.us.i, i64 %indvars.iv.next.i13
   %44 = load i32, ptr %43, align 4, !tbaa !15
   %.not.i12 = icmp eq i32 %44, 0
-  br i1 %.not.i12, label %Kit_SopMakeCubeFree.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not.i12, label %Kit_SopMakeCubeFree.exit, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph.i10, %42
   %45 = phi i32 [ %44, %42 ], [ %41, %.lr.ph.i10 ]
@@ -1390,10 +1390,10 @@ Kit_SopCommonCube.exit.i:                         ; preds = %37, %34
   %.val.i14 = load i32, ptr %3, align 4, !tbaa !3
   %48 = sext i32 %.val.i14 to i64
   %49 = icmp slt i64 %indvars.iv.next.i13, %48
-  br i1 %49, label %42, label %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge, !llvm.loop !30
+  br i1 %49, label %42, label %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge, !llvm.loop !33
 
 .Kit_SopMakeCubeFree.exit.loopexit_crit_edge:     ; preds = %.lr.ph
-  br label %Kit_SopMakeCubeFree.exit, !llvm.loop !30
+  br label %Kit_SopMakeCubeFree.exit, !llvm.loop !33
 
 Kit_SopMakeCubeFree.exit:                         ; preds = %42, %.lr.ph.i10, %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge, %Kit_SopDivideByLiteralQuo.exit, %Kit_SopCommonCube.exit.i
   %.val.i19 = phi i32 [ %.0.lcssa.i, %Kit_SopDivideByLiteralQuo.exit ], [ %.0.lcssa.i, %Kit_SopCommonCube.exit.i ], [ %.val.i14, %.Kit_SopMakeCubeFree.exit.loopexit_crit_edge ], [ %.0.lcssa.i, %.lr.ph.i10 ], [ %.val.i14, %42 ]
@@ -1437,7 +1437,7 @@ define range(i32 0, 2) i32 @Kit_SopDivisor(ptr noundef captures(none) %0, ptr no
   %spec.select.us.i = add nuw nsw i32 %14, %.020.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.us.i, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.critedge.us.i, label %9, !llvm.loop !34
 
 .critedge.us.i:                                   ; preds = %12, %9
   %.0.lcssa.us.i = phi i32 [ %spec.select.us.i, %12 ], [ %.020.us.i, %9 ]
@@ -1447,7 +1447,7 @@ define range(i32 0, 2) i32 @Kit_SopDivisor(ptr noundef captures(none) %0, ptr no
 16:                                               ; preds = %.critedge.us.i
   %17 = add nuw nsw i32 %.01423.us.i, 1
   %exitcond29.not.i = icmp eq i32 %17, %2
-  br i1 %exitcond29.not.i, label %Kit_SopAnyLiteral.exit.thread, label %.preheader.us.i, !llvm.loop !32
+  br i1 %exitcond29.not.i, label %Kit_SopAnyLiteral.exit.thread, label %.preheader.us.i, !llvm.loop !35
 
 Kit_SopAnyLiteral.exit:                           ; preds = %.critedge.us.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1563,7 +1563,7 @@ define void @Kit_SopBestLiteralCover(ptr noundef writeonly captures(none) %0, pt
   %spec.select.i = add nuw nsw i32 %18, %.02539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %13, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.critedge.i, label %13, !llvm.loop !38
 
 .critedge.i:                                      ; preds = %16, %13, %.preheader.i
   %.025.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.02539.i, %13 ], [ %spec.select.i, %16 ]
@@ -1579,7 +1579,7 @@ define void @Kit_SopBestLiteralCover(ptr noundef writeonly captures(none) %0, pt
   %.127.i = phi i32 [ %.02644.i, %9 ], [ %spec.select36.i, %.critedge.i ]
   %22 = add nuw nsw i32 %.03142.i, 1
   %exitcond49.not.i = icmp eq i32 %22, %3
-  br i1 %exitcond49.not.i, label %._crit_edge.loopexit.i, label %9, !llvm.loop !36
+  br i1 %exitcond49.not.i, label %._crit_edge.loopexit.i, label %9, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %21
   %23 = icmp sgt i32 %.127.i, -1
@@ -1643,9 +1643,9 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !21 = distinct !{!21, !17}
 !22 = distinct !{!22, !17}
 !23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
+!24 = distinct !{!24, !17, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !17, !25}
 !27 = distinct !{!27, !17}
 !28 = distinct !{!28, !17}
 !29 = distinct !{!29, !17}
@@ -1654,5 +1654,8 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !32 = distinct !{!32, !17}
 !33 = distinct !{!33, !17}
 !34 = distinct !{!34, !17}
-!35 = distinct !{!35, !17}
+!35 = distinct !{!35, !17, !25}
 !36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17, !25}
+!38 = distinct !{!38, !17}
+!39 = distinct !{!39, !17}

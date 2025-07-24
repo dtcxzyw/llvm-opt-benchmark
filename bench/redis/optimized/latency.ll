@@ -276,7 +276,7 @@ define dso_local i32 @latencyResetEvent(ptr noundef readonly captures(address_is
   %.1 = phi i32 [ %19, %16 ], [ %.011, %.lr.ph.split ]
   %21 = tail call ptr @dictNext(ptr noundef %3) #14
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph.split.us, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %10, %.lr.ph.split.us ], [ %.1, %20 ]
@@ -311,7 +311,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
 
 8:                                                ; preds = %2, %5
   %9 = phi i32 [ %7, %5 ], [ 0, %2 ]
-  store i32 %9, ptr %1, align 8, !tbaa !46
+  store i32 %9, ptr %1, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -339,15 +339,15 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
 
 25:                                               ; preds = %17
   %26 = add i32 %21, 1
-  store i32 %26, ptr %14, align 4, !tbaa !48
+  store i32 %26, ptr %14, align 4, !tbaa !50
   %27 = icmp eq i32 %21, 0
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !43
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %25
-  store i32 %29, ptr %12, align 4, !tbaa !49
-  store i32 %29, ptr %11, align 8, !tbaa !50
+  store i32 %29, ptr %12, align 4, !tbaa !51
+  store i32 %29, ptr %11, align 8, !tbaa !52
   br label %38
 
 31:                                               ; preds = %25
@@ -355,7 +355,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %31
-  store i32 %29, ptr %11, align 8, !tbaa !50
+  store i32 %29, ptr %11, align 8, !tbaa !52
   br label %34
 
 34:                                               ; preds = %33, %31
@@ -364,7 +364,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  store i32 %29, ptr %12, align 4, !tbaa !49
+  store i32 %29, ptr %12, align 4, !tbaa !51
   br label %38
 
 38:                                               ; preds = %34, %37, %30
@@ -379,7 +379,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   br i1 %or.cond, label %46, label %47
 
 46:                                               ; preds = %38
-  store i64 %44, ptr %15, align 8, !tbaa !51
+  store i64 %44, ptr %15, align 8, !tbaa !53
   br label %47
 
 47:                                               ; preds = %38, %46, %17
@@ -390,7 +390,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %.1 = phi i64 [ %.06581, %17 ], [ %42, %46 ], [ %42, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 160
-  br i1 %exitcond.not, label %52, label %17, !llvm.loop !52
+  br i1 %exitcond.not, label %52, label %17, !llvm.loop !54
 
 52:                                               ; preds = %47
   %.not77 = icmp eq i32 %51, 0
@@ -400,9 +400,9 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %54 = zext i32 %51 to i64
   %55 = udiv i64 %.1, %54
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %10, align 4, !tbaa !53
+  store i32 %56, ptr %10, align 4, !tbaa !55
   %57 = tail call i64 @time(ptr noundef null) #14
-  %58 = load i64, ptr %15, align 8, !tbaa !51
+  %58 = load i64, ptr %15, align 8, !tbaa !53
   %59 = sub nsw i64 %57, %58
   %60 = icmp eq i64 %57, %58
   %spec.store.select = select i1 %60, i64 1, i64 %59
@@ -421,7 +421,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %61
-  %66 = load i32, ptr %10, align 4, !tbaa !53
+  %66 = load i32, ptr %10, align 4, !tbaa !55
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !43
@@ -435,10 +435,10 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %.3 = phi i64 [ %72, %65 ], [ %.283, %61 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 160
-  br i1 %exitcond88.not, label %74, label %61, !llvm.loop !54
+  br i1 %exitcond88.not, label %74, label %61, !llvm.loop !56
 
 74:                                               ; preds = %73
-  %75 = load i32, ptr %14, align 4, !tbaa !48
+  %75 = load i32, ptr %14, align 4, !tbaa !50
   %.not78 = icmp eq i32 %75, 0
   br i1 %.not78, label %80, label %76
 
@@ -446,7 +446,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %77 = zext i32 %75 to i64
   %78 = udiv i64 %.3, %77
   %79 = trunc i64 %78 to i32
-  store i32 %79, ptr %13, align 8, !tbaa !55
+  store i32 %79, ptr %13, align 8, !tbaa !57
   br label %80
 
 80:                                               ; preds = %74, %76, %8
@@ -459,9 +459,9 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %2 = tail call ptr @sdsempty() #14
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !56
+  %5 = load i64, ptr %4, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !56
+  %7 = load i64, ptr %6, align 8, !tbaa !58
   %8 = sub i64 0, %7
   %9 = icmp eq i64 %5, %8
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8
@@ -510,7 +510,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %24 = tail call ptr @dictGetVal(ptr noundef nonnull %22) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #14
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %110, label %26, !llvm.loop !57
+  br i1 %25, label %110, label %26, !llvm.loop !59
 
 26:                                               ; preds = %21
   %27 = add nsw i32 %.0101236, 1
@@ -524,12 +524,12 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
 31:                                               ; preds = %29, %26
   %.2 = phi ptr [ %30, %29 ], [ %.0100237, %26 ]
   call void @analyzeLatencyForEvent(ptr noundef %23, ptr noundef nonnull %1)
-  %32 = load i32, ptr %17, align 4, !tbaa !48
-  %33 = load i32, ptr %18, align 4, !tbaa !53
+  %32 = load i32, ptr %17, align 4, !tbaa !50
+  %33 = load i32, ptr %18, align 4, !tbaa !55
   %34 = zext i32 %33 to i64
-  %35 = load i32, ptr %19, align 8, !tbaa !55
+  %35 = load i32, ptr %19, align 8, !tbaa !57
   %36 = zext i32 %35 to i64
-  %37 = load i64, ptr %20, align 8, !tbaa !51
+  %37 = load i64, ptr %20, align 8, !tbaa !53
   %38 = sitofp i64 %37 to double
   %39 = uitofp i32 %32 to double
   %40 = fdiv double %38, %39
@@ -542,7 +542,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.not199, label %46, label %59
 
 46:                                               ; preds = %31
-  %47 = load double, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2680), align 8, !tbaa !58
+  %47 = load double, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2680), align 8, !tbaa !60
   %48 = fcmp olt double %47, 1.000000e+01
   br i1 %48, label %49, label %51
 
@@ -579,7 +579,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.not200, label %61, label %73
 
 61:                                               ; preds = %59
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2744), align 8, !tbaa !59
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2744), align 8, !tbaa !61
   %63 = icmp slt i64 %62, 0
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8
   %65 = icmp eq i64 %64, 0
@@ -588,7 +588,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
 
 66:                                               ; preds = %61
   %67 = udiv i64 %62, 1000
-  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !60
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !62
   %69 = icmp sgt i64 %67, %68
   %spec.select = select i1 %69, i32 1, i32 %.0177220
   %70 = zext i1 %69 to i32
@@ -810,7 +810,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0107.lcssa, label %147, label %143
 
 143:                                              ; preds = %142
-  %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !60
+  %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !62
   %145 = mul i64 %144, 1000
   %146 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.5, ptr noundef nonnull @.str.28, i64 noundef %145) #14
   br label %147
@@ -820,7 +820,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0177.lcssa, label %152, label %148
 
 148:                                              ; preds = %147
-  %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !60
+  %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !62
   %150 = mul i64 %149, 1000
   %151 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.6, ptr noundef nonnull @.str.29, i64 noundef %150) #14
   br label %152
@@ -956,7 +956,7 @@ define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unna
   tail call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #14
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %5 = load i64, ptr %4, align 8, !tbaa !61
+  %5 = load i64, ptr %4, align 8, !tbaa !63
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %5) #14
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #14
   %6 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #14
@@ -973,12 +973,12 @@ define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unna
 10:                                               ; preds = %.lr.ph, %17
   %.020 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
   %.01719 = phi i64 [ 0, %.lr.ph ], [ %11, %17 ]
-  %11 = load i64, ptr %8, align 8, !tbaa !64
+  %11 = load i64, ptr %8, align 8, !tbaa !66
   %12 = icmp sgt i64 %11, %.01719
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr %9, align 8, !tbaa !67
+  %14 = load i64, ptr %9, align 8, !tbaa !69
   %15 = sdiv i64 %14, 1000
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %15) #14
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %11) #14
@@ -988,7 +988,7 @@ define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unna
 17:                                               ; preds = %13, %10
   %.1 = phi i32 [ %16, %13 ], [ %.020, %10 ]
   %18 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %3) #14
-  br i1 %18, label %10, label %._crit_edge.loopexit, !llvm.loop !68
+  br i1 %18, label %10, label %._crit_edge.loopexit, !llvm.loop !70
 
 ._crit_edge.loopexit:                             ; preds = %17
   %19 = sext i32 %.1 to i64
@@ -1026,15 +1026,15 @@ define dso_local void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %1,
   %6 = phi ptr [ %45, %44 ], [ %5, %3 ]
   %7 = tail call ptr @dictGetVal(ptr noundef nonnull %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %38, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %12 = load ptr, ptr %11, align 8, !tbaa !75
+  %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = getelementptr inbounds i8, ptr %12, i64 -1
-  %14 = load i8, ptr %13, align 1, !tbaa !76
+  %14 = load i8, ptr %13, align 1, !tbaa !78
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 7
   switch i32 %16, label %sdslen.exit [
@@ -1052,53 +1052,53 @@ define dso_local void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %12, i64 -3
-  %22 = load i8, ptr %21, align 1, !tbaa !76
+  %22 = load i8, ptr %21, align 1, !tbaa !78
   %23 = zext i8 %22 to i64
   br label %sdslen.exit
 
 24:                                               ; preds = %10
   %25 = getelementptr inbounds i8, ptr %12, i64 -5
-  %26 = load i16, ptr %25, align 1, !tbaa !77
+  %26 = load i16, ptr %25, align 1, !tbaa !79
   %27 = zext i16 %26 to i64
   br label %sdslen.exit
 
 28:                                               ; preds = %10
   %29 = getelementptr inbounds i8, ptr %12, i64 -9
-  %30 = load i32, ptr %29, align 1, !tbaa !79
+  %30 = load i32, ptr %29, align 1, !tbaa !81
   %31 = zext i32 %30 to i64
   br label %sdslen.exit
 
 32:                                               ; preds = %10
   %33 = getelementptr inbounds i8, ptr %12, i64 -17
-  %34 = load i64, ptr %33, align 1, !tbaa !56
+  %34 = load i64, ptr %33, align 1, !tbaa !58
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %10, %17, %20, %24, %28, %32
   %.0.i = phi i64 [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %10 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %.0.i) #14
-  %35 = load ptr, ptr %8, align 8, !tbaa !69
+  %35 = load ptr, ptr %8, align 8, !tbaa !71
   tail call void @fillCommandCDF(ptr noundef %0, ptr noundef %35)
-  %36 = load i32, ptr %2, align 4, !tbaa !79
+  %36 = load i32, ptr %2, align 4, !tbaa !81
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %2, align 4, !tbaa !79
+  store i32 %37, ptr %2, align 4, !tbaa !81
   br label %38
 
 38:                                               ; preds = %sdslen.exit, %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  %40 = load ptr, ptr %39, align 8, !tbaa !80
+  %40 = load ptr, ptr %39, align 8, !tbaa !82
   %.not16 = icmp eq ptr %40, null
   br i1 %.not16, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %43 = load ptr, ptr %42, align 8, !tbaa !81
+  %43 = load ptr, ptr %42, align 8, !tbaa !83
   tail call void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %43, ptr noundef %2)
   br label %44
 
 44:                                               ; preds = %41, %38
   %45 = tail call ptr @dictNext(ptr noundef %4) #14
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %44, %3
   tail call void @dictReleaseIterator(ptr noundef %4) #14
@@ -1112,7 +1112,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
   %2 = alloca %struct.hdr_iter, align 8
   %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !83
+  %5 = load i32, ptr %4, align 8, !tbaa !85
   %6 = icmp sgt i32 %5, 2
   br i1 %6, label %.lr.ph42, label %._crit_edge43
 
@@ -1134,26 +1134,26 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
 11:                                               ; preds = %.lr.ph42, %101
   %indvars.iv = phi i64 [ 2, %.lr.ph42 ], [ %indvars.iv.next, %101 ]
   %.040 = phi i32 [ 0, %.lr.ph42 ], [ %.1, %101 ]
-  %12 = load ptr, ptr %7, align 8, !tbaa !93
+  %12 = load ptr, ptr %7, align 8, !tbaa !95
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  %14 = load ptr, ptr %13, align 8, !tbaa !96
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !95
+  %16 = load ptr, ptr %15, align 8, !tbaa !97
   %17 = call ptr @lookupCommandBySds(ptr noundef %16) #14
   %18 = icmp eq ptr %17, null
   br i1 %18, label %101, label %19
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 224
-  %21 = load ptr, ptr %20, align 8, !tbaa !69
+  %21 = load ptr, ptr %20, align 8, !tbaa !71
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %49, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %24 = load ptr, ptr %23, align 8, !tbaa !75
+  %24 = load ptr, ptr %23, align 8, !tbaa !77
   %25 = getelementptr inbounds i8, ptr %24, i64 -1
-  %26 = load i8, ptr %25, align 1, !tbaa !76
+  %26 = load i8, ptr %25, align 1, !tbaa !78
   %27 = zext i8 %26 to i32
   %28 = and i32 %27, 7
   switch i32 %28, label %sdslen.exit [
@@ -1171,31 +1171,31 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %24, i64 -3
-  %34 = load i8, ptr %33, align 1, !tbaa !76
+  %34 = load i8, ptr %33, align 1, !tbaa !78
   %35 = zext i8 %34 to i64
   br label %sdslen.exit
 
 36:                                               ; preds = %22
   %37 = getelementptr inbounds i8, ptr %24, i64 -5
-  %38 = load i16, ptr %37, align 1, !tbaa !77
+  %38 = load i16, ptr %37, align 1, !tbaa !79
   %39 = zext i16 %38 to i64
   br label %sdslen.exit
 
 40:                                               ; preds = %22
   %41 = getelementptr inbounds i8, ptr %24, i64 -9
-  %42 = load i32, ptr %41, align 1, !tbaa !79
+  %42 = load i32, ptr %41, align 1, !tbaa !81
   %43 = zext i32 %42 to i64
   br label %sdslen.exit
 
 44:                                               ; preds = %22
   %45 = getelementptr inbounds i8, ptr %24, i64 -17
-  %46 = load i64, ptr %45, align 1, !tbaa !56
+  %46 = load i64, ptr %45, align 1, !tbaa !58
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %29, %32, %36, %40, %44
   %.0.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %22 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %.0.i) #14
-  %47 = load ptr, ptr %20, align 8, !tbaa !69
+  %47 = load ptr, ptr %20, align 8, !tbaa !71
   call void @fillCommandCDF(ptr noundef nonnull %0, ptr noundef %47)
   %48 = add nsw i32 %.040, 1
   br label %49
@@ -1203,7 +1203,7 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
 49:                                               ; preds = %sdslen.exit, %19
   %.2 = phi i32 [ %48, %sdslen.exit ], [ %.040, %19 ]
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 288
-  %51 = load ptr, ptr %50, align 8, !tbaa !81
+  %51 = load ptr, ptr %50, align 8, !tbaa !83
   %.not32 = icmp eq ptr %51, null
   br i1 %.not32, label %101, label %52
 
@@ -1218,15 +1218,15 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
   %.438 = phi i32 [ %.5, %99 ], [ %.2, %52 ]
   %56 = call ptr @dictGetVal(ptr noundef nonnull %55) #14
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
-  %58 = load ptr, ptr %57, align 8, !tbaa !69
+  %58 = load ptr, ptr %57, align 8, !tbaa !71
   %.not34 = icmp eq ptr %58, null
   br i1 %.not34, label %99, label %59
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 216
-  %61 = load ptr, ptr %60, align 8, !tbaa !75
+  %61 = load ptr, ptr %60, align 8, !tbaa !77
   %62 = getelementptr inbounds i8, ptr %61, i64 -1
-  %63 = load i8, ptr %62, align 1, !tbaa !76
+  %63 = load i8, ptr %62, align 1, !tbaa !78
   %64 = zext i8 %63 to i32
   %65 = and i32 %64, 7
   switch i32 %65, label %sdslen.exit36 [
@@ -1244,35 +1244,35 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
 
 69:                                               ; preds = %59
   %70 = getelementptr inbounds i8, ptr %61, i64 -3
-  %71 = load i8, ptr %70, align 1, !tbaa !76
+  %71 = load i8, ptr %70, align 1, !tbaa !78
   %72 = zext i8 %71 to i64
   br label %sdslen.exit36
 
 73:                                               ; preds = %59
   %74 = getelementptr inbounds i8, ptr %61, i64 -5
-  %75 = load i16, ptr %74, align 1, !tbaa !77
+  %75 = load i16, ptr %74, align 1, !tbaa !79
   %76 = zext i16 %75 to i64
   br label %sdslen.exit36
 
 77:                                               ; preds = %59
   %78 = getelementptr inbounds i8, ptr %61, i64 -9
-  %79 = load i32, ptr %78, align 1, !tbaa !79
+  %79 = load i32, ptr %78, align 1, !tbaa !81
   %80 = zext i32 %79 to i64
   br label %sdslen.exit36
 
 81:                                               ; preds = %59
   %82 = getelementptr inbounds i8, ptr %61, i64 -17
-  %83 = load i64, ptr %82, align 1, !tbaa !56
+  %83 = load i64, ptr %82, align 1, !tbaa !58
   br label %sdslen.exit36
 
 sdslen.exit36:                                    ; preds = %59, %66, %69, %73, %77, %81
   %.0.i35 = phi i64 [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %83, %81 ], [ 0, %59 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %61, i64 noundef %.0.i35) #14
-  %84 = load ptr, ptr %57, align 8, !tbaa !69
+  %84 = load ptr, ptr %57, align 8, !tbaa !71
   call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #14
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #14
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 88
-  %86 = load i64, ptr %85, align 8, !tbaa !61
+  %86 = load i64, ptr %85, align 8, !tbaa !63
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %86) #14
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #14
   %87 = call ptr @addReplyDeferredLen(ptr noundef %0) #14
@@ -1284,12 +1284,12 @@ sdslen.exit36:                                    ; preds = %59, %66, %69, %73, 
 .lr.ph.i:                                         ; preds = %sdslen.exit36, %95
   %.020.i = phi i32 [ %.1.i, %95 ], [ 0, %sdslen.exit36 ]
   %.01719.i = phi i64 [ %89, %95 ], [ 0, %sdslen.exit36 ]
-  %89 = load i64, ptr %8, align 8, !tbaa !64
+  %89 = load i64, ptr %8, align 8, !tbaa !66
   %90 = icmp sgt i64 %89, %.01719.i
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %.lr.ph.i
-  %92 = load i64, ptr %9, align 8, !tbaa !67
+  %92 = load i64, ptr %9, align 8, !tbaa !69
   %93 = sdiv i64 %92, 1000
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %93) #14
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %89) #14
@@ -1299,7 +1299,7 @@ sdslen.exit36:                                    ; preds = %59, %66, %69, %73, 
 95:                                               ; preds = %91, %.lr.ph.i
   %.1.i = phi i32 [ %94, %91 ], [ %.020.i, %.lr.ph.i ]
   %96 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %2) #14
-  br i1 %96, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !68
+  br i1 %96, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i:                           ; preds = %95
   %97 = sext i32 %.1.i to i64
@@ -1316,7 +1316,7 @@ fillCommandCDF.exit:                              ; preds = %sdslen.exit36, %._c
   %.5 = phi i32 [ %98, %fillCommandCDF.exit ], [ %.438, %.lr.ph ]
   %100 = call ptr @dictNext(ptr noundef %53) #14
   %.not33 = icmp eq ptr %100, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %99, %52
   %.4.lcssa = phi i32 [ %.2, %52 ], [ %.5, %99 ]
@@ -1326,10 +1326,10 @@ fillCommandCDF.exit:                              ; preds = %sdslen.exit36, %._c
 101:                                              ; preds = %49, %._crit_edge, %11
   %.1 = phi i32 [ %.040, %11 ], [ %.4.lcssa, %._crit_edge ], [ %.2, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = load i32, ptr %4, align 8, !tbaa !83
+  %102 = load i32, ptr %4, align 8, !tbaa !85
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %11, label %._crit_edge43.loopexit, !llvm.loop !98
+  br i1 %104, label %11, label %._crit_edge43.loopexit, !llvm.loop !100
 }
 
 declare ptr @lookupCommandBySds(ptr noundef) local_unnamed_addr #3
@@ -1368,7 +1368,7 @@ define dso_local void @latencyCommandReplyWithSamples(ptr noundef %0, ptr nounde
   %.1 = phi i32 [ %19, %13 ], [ %.019, %5 ]
   %21 = add nuw nsw i32 %.01718, 1
   %exitcond.not = icmp eq i32 %21, 160
-  br i1 %exitcond.not, label %22, label %5, !llvm.loop !99
+  br i1 %exitcond.not, label %22, label %5, !llvm.loop !101
 
 22:                                               ; preds = %20
   %23 = sext i32 %.1 to i64
@@ -1384,9 +1384,9 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !56
+  %4 = load i64, ptr %3, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !56
+  %6 = load i64, ptr %5, align 8, !tbaa !58
   %7 = add i64 %6, %4
   tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef %7) #14
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
@@ -1420,7 +1420,7 @@ define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %0) local
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %27) #14
   %28 = tail call ptr @dictNext(ptr noundef %9) #14
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @dictReleaseIterator(ptr noundef %9) #14
@@ -1452,7 +1452,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   br i1 %14, label %46, label %15
 
 15:                                               ; preds = %7
-  %16 = load i32, ptr %4, align 8, !tbaa !101
+  %16 = load i32, ptr %4, align 8, !tbaa !103
   %17 = icmp eq i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !43
@@ -1515,7 +1515,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
   %47 = add nuw nsw i32 %.056, 1
   %exitcond.not = icmp eq i32 %47, 160
-  br i1 %exitcond.not, label %48, label %7, !llvm.loop !104
+  br i1 %exitcond.not, label %48, label %7, !llvm.loop !106
 
 48:                                               ; preds = %46
   %49 = zext i32 %.145 to i64
@@ -1532,7 +1532,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   %56 = call ptr @sdscatlen(ptr noundef %.04357, ptr noundef nonnull @.str.50, i64 noundef 1) #14
   %57 = add nuw nsw i32 %.158, 1
   %exitcond59.not = icmp eq i32 %57, 80
-  br i1 %exitcond59.not, label %58, label %55, !llvm.loop !105
+  br i1 %exitcond59.not, label %58, label %55, !llvm.loop !107
 
 58:                                               ; preds = %55
   %59 = call ptr @sdscatlen(ptr noundef %56, ptr noundef nonnull @.str.23, i64 noundef 1) #14
@@ -1557,27 +1557,27 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = alloca [15 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !95
+  %9 = load ptr, ptr %8, align 8, !tbaa !97
   %10 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.51) #13
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %45
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load i32, ptr %12, align 8, !tbaa !83
+  %13 = load i32, ptr %12, align 8, !tbaa !85
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %45
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !94
+  %18 = load ptr, ptr %17, align 8, !tbaa !96
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !95
+  %20 = load ptr, ptr %19, align 8, !tbaa !97
   %21 = tail call ptr @dictFetchValue(ptr noundef %16, ptr noundef %20) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
@@ -1619,7 +1619,7 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   %.1.i = phi i32 [ %41, %35 ], [ %.019.i, %27 ]
   %43 = add nuw nsw i32 %.01718.i, 1
   %exitcond.not.i = icmp eq i32 %43, 160
-  br i1 %exitcond.not.i, label %latencyCommandReplyWithSamples.exit, label %27, !llvm.loop !99
+  br i1 %exitcond.not.i, label %latencyCommandReplyWithSamples.exit, label %27, !llvm.loop !101
 
 latencyCommandReplyWithSamples.exit:              ; preds = %42
   %44 = sext i32 %.1.i to i64
@@ -1633,16 +1633,16 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %49 = load i32, ptr %48, align 8, !tbaa !83
+  %49 = load i32, ptr %48, align 8, !tbaa !85
   %50 = icmp eq i32 %49, 3
   br i1 %50, label %51, label %85
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !94
+  %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !95
+  %56 = load ptr, ptr %55, align 8, !tbaa !97
   %57 = tail call ptr @dictFind(ptr noundef %52, ptr noundef %56) #14
   %58 = icmp eq ptr %57, null
   br i1 %58, label %174, label %59
@@ -1652,7 +1652,7 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
   %61 = tail call ptr @dictGetKey(ptr noundef nonnull %57) #14
   %62 = tail call ptr @latencyCommandGenSparkeline(ptr noundef %61, ptr noundef %60)
   %63 = getelementptr inbounds i8, ptr %62, i64 -1
-  %64 = load i8, ptr %63, align 1, !tbaa !76
+  %64 = load i8, ptr %63, align 1, !tbaa !78
   %65 = zext i8 %64 to i32
   %66 = and i32 %65, 7
   switch i32 %66, label %.thread [
@@ -1670,25 +1670,25 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds i8, ptr %62, i64 -3
-  %72 = load i8, ptr %71, align 1, !tbaa !76
+  %72 = load i8, ptr %71, align 1, !tbaa !78
   %73 = zext i8 %72 to i64
   br label %.thread
 
 74:                                               ; preds = %59
   %75 = getelementptr inbounds i8, ptr %62, i64 -5
-  %76 = load i16, ptr %75, align 1, !tbaa !77
+  %76 = load i16, ptr %75, align 1, !tbaa !79
   %77 = zext i16 %76 to i64
   br label %.thread
 
 78:                                               ; preds = %59
   %79 = getelementptr inbounds i8, ptr %62, i64 -9
-  %80 = load i32, ptr %79, align 1, !tbaa !79
+  %80 = load i32, ptr %79, align 1, !tbaa !81
   %81 = zext i32 %80 to i64
   br label %.thread
 
 82:                                               ; preds = %59
   %83 = getelementptr inbounds i8, ptr %62, i64 -17
-  %84 = load i64, ptr %83, align 1, !tbaa !56
+  %84 = load i64, ptr %83, align 1, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %82, %78, %74, %70, %67, %59
@@ -1704,7 +1704,7 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %89 = load i32, ptr %88, align 8, !tbaa !83
+  %89 = load i32, ptr %88, align 8, !tbaa !85
   %90 = icmp eq i32 %89, 2
   br i1 %90, label %91, label %92
 
@@ -1719,14 +1719,14 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %96 = load i32, ptr %95, align 8, !tbaa !83
+  %96 = load i32, ptr %95, align 8, !tbaa !85
   %97 = icmp eq i32 %96, 2
   br i1 %97, label %98, label %122
 
 98:                                               ; preds = %94
   %99 = tail call ptr @createLatencyReport()
   %100 = getelementptr inbounds i8, ptr %99, i64 -1
-  %101 = load i8, ptr %100, align 1, !tbaa !76
+  %101 = load i8, ptr %100, align 1, !tbaa !78
   %102 = zext i8 %101 to i32
   %103 = and i32 %102, 7
   switch i32 %103, label %sdslen.exit68 [
@@ -1744,25 +1744,25 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 107:                                              ; preds = %98
   %108 = getelementptr inbounds i8, ptr %99, i64 -3
-  %109 = load i8, ptr %108, align 1, !tbaa !76
+  %109 = load i8, ptr %108, align 1, !tbaa !78
   %110 = zext i8 %109 to i64
   br label %sdslen.exit68
 
 111:                                              ; preds = %98
   %112 = getelementptr inbounds i8, ptr %99, i64 -5
-  %113 = load i16, ptr %112, align 1, !tbaa !77
+  %113 = load i16, ptr %112, align 1, !tbaa !79
   %114 = zext i16 %113 to i64
   br label %sdslen.exit68
 
 115:                                              ; preds = %98
   %116 = getelementptr inbounds i8, ptr %99, i64 -9
-  %117 = load i32, ptr %116, align 1, !tbaa !79
+  %117 = load i32, ptr %116, align 1, !tbaa !81
   %118 = zext i32 %117 to i64
   br label %sdslen.exit68
 
 119:                                              ; preds = %98
   %120 = getelementptr inbounds i8, ptr %99, i64 -17
-  %121 = load i64, ptr %120, align 1, !tbaa !56
+  %121 = load i64, ptr %120, align 1, !tbaa !58
   br label %sdslen.exit68
 
 sdslen.exit68:                                    ; preds = %98, %104, %107, %111, %115, %119
@@ -1778,7 +1778,7 @@ sdslen.exit68:                                    ; preds = %98, %104, %107, %11
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %126 = load i32, ptr %125, align 8, !tbaa !83
+  %126 = load i32, ptr %125, align 8, !tbaa !85
   %127 = icmp sgt i32 %126, 1
   br i1 %127, label %128, label %152
 
@@ -1817,18 +1817,18 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 .lr.ph:                                           ; preds = %128, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %128 ]
   %.072 = phi i32 [ %147, %.lr.ph ], [ 0, %128 ]
-  %141 = load ptr, ptr %4, align 8, !tbaa !93
+  %141 = load ptr, ptr %4, align 8, !tbaa !95
   %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
-  %143 = load ptr, ptr %142, align 8, !tbaa !94
+  %143 = load ptr, ptr %142, align 8, !tbaa !96
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !95
+  %145 = load ptr, ptr %144, align 8, !tbaa !97
   %146 = tail call i32 @latencyResetEvent(ptr noundef %145)
   %147 = add nsw i32 %146, %.072
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %148 = load i32, ptr %125, align 8, !tbaa !83
+  %148 = load i32, ptr %125, align 8, !tbaa !85
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %151 = sext i32 %147 to i64
@@ -1842,7 +1842,7 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %156 = load i32, ptr %155, align 8, !tbaa !83
+  %156 = load i32, ptr %155, align 8, !tbaa !85
   %157 = icmp sgt i32 %156, 1
   br i1 %157, label %158, label %166
 
@@ -1852,11 +1852,11 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 
 160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
-  store i32 0, ptr %2, align 4, !tbaa !79
+  store i32 0, ptr %2, align 4, !tbaa !81
   %161 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #14
-  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 72), align 8, !tbaa !107
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 72), align 8, !tbaa !109
   call void @latencyAllCommandsFillCDF(ptr noundef nonnull %0, ptr noundef %162, ptr noundef nonnull %2)
-  %163 = load i32, ptr %2, align 4, !tbaa !79
+  %163 = load i32, ptr %2, align 4, !tbaa !81
   %164 = sext i32 %163 to i64
   tail call void @setDeferredMapLen(ptr noundef nonnull %0, ptr noundef %161, i64 noundef %164) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
@@ -1873,7 +1873,7 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %170 = load i32, ptr %169, align 8, !tbaa !83
+  %170 = load i32, ptr %169, align 8, !tbaa !85
   %171 = icmp eq i32 %170, 2
   br i1 %171, label %172, label %173
 
@@ -1889,11 +1889,11 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
   br label %180
 
 174:                                              ; preds = %51
-  %175 = load ptr, ptr %4, align 8, !tbaa !93
+  %175 = load ptr, ptr %4, align 8, !tbaa !95
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !94
+  %177 = load ptr, ptr %176, align 8, !tbaa !96
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load ptr, ptr %178, align 8, !tbaa !95
+  %179 = load ptr, ptr %178, align 8, !tbaa !97
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef %179) #14
   br label %180
 
@@ -1924,20 +1924,20 @@ define dso_local void @durationAddSample(i32 noundef %0, i64 noundef %1) local_u
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [4 x %struct.durationStats], ptr getelementptr inbounds nuw (i8, ptr @server, i64 6192), i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !108
+  %7 = load i64, ptr %6, align 8, !tbaa !110
   %8 = add i64 %7, 1
-  store i64 %8, ptr %6, align 8, !tbaa !108
+  store i64 %8, ptr %6, align 8, !tbaa !110
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !110
+  %10 = load i64, ptr %9, align 8, !tbaa !112
   %11 = add i64 %10, %1
-  store i64 %11, ptr %9, align 8, !tbaa !110
+  store i64 %11, ptr %9, align 8, !tbaa !112
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !111
+  %13 = load i64, ptr %12, align 8, !tbaa !113
   %14 = icmp ugt i64 %1, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  store i64 %1, ptr %12, align 8, !tbaa !111
+  store i64 %1, ptr %12, align 8, !tbaa !113
   br label %16
 
 16:                                               ; preds = %4, %15, %2
@@ -2016,71 +2016,73 @@ attributes #15 = { nounwind allocsize(0) }
 !41 = !{!42, !7, i64 0}
 !42 = !{!"latencySample", !7, i64 0, !7, i64 4}
 !43 = !{!42, !7, i64 4}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !7, i64 0}
-!47 = !{!"latencyStats", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !7, i64 20, !10, i64 24}
-!48 = !{!47, !7, i64 20}
-!49 = !{!47, !7, i64 12}
-!50 = !{!47, !7, i64 8}
-!51 = !{!47, !10, i64 24}
-!52 = distinct !{!52, !45}
-!53 = !{!47, !7, i64 4}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !45}
+!48 = !{!49, !7, i64 0}
+!49 = !{!"latencyStats", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !7, i64 20, !10, i64 24}
+!50 = !{!49, !7, i64 20}
+!51 = !{!49, !7, i64 12}
+!52 = !{!49, !7, i64 8}
+!53 = !{!49, !10, i64 24}
 !54 = distinct !{!54, !45}
-!55 = !{!47, !7, i64 16}
-!56 = !{!10, !10, i64 0}
-!57 = distinct !{!57, !45}
-!58 = !{!6, !23, i64 2680}
-!59 = !{!6, !18, i64 2744}
-!60 = !{!6, !18, i64 8064}
-!61 = !{!62, !10, i64 88}
-!62 = !{!"hdr_histogram", !10, i64 0, !10, i64 8, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !10, i64 32, !7, i64 40, !7, i64 44, !10, i64 48, !10, i64 56, !7, i64 64, !23, i64 72, !7, i64 80, !10, i64 88, !63, i64 96}
-!63 = !{!"p1 long", !12, i64 0}
-!64 = !{!65, !10, i64 32}
-!65 = !{!"hdr_iter", !66, i64 0, !7, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !8, i64 88, !12, i64 120}
-!66 = !{!"p1 _ZTS13hdr_histogram", !12, i64 0}
-!67 = !{!65, !10, i64 48}
-!68 = distinct !{!68, !45}
-!69 = !{!70, !66, i64 224}
-!70 = !{!"redisCommand", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !7, i64 32, !11, i64 40, !11, i64 48, !7, i64 56, !12, i64 64, !7, i64 72, !13, i64 80, !7, i64 88, !12, i64 96, !7, i64 104, !10, i64 112, !10, i64 120, !12, i64 128, !7, i64 136, !12, i64 144, !7, i64 152, !71, i64 160, !72, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !18, i64 200, !7, i64 208, !11, i64 216, !66, i64 224, !73, i64 232, !15, i64 288, !71, i64 296, !74, i64 304}
-!71 = !{!"p1 _ZTS12redisCommand", !12, i64 0}
-!72 = !{!"p1 _ZTS15redisCommandArg", !12, i64 0}
-!73 = !{!"", !11, i64 0, !10, i64 8, !7, i64 16, !8, i64 24, !7, i64 40, !8, i64 44}
-!74 = !{!"p1 _ZTS18RedisModuleCommand", !12, i64 0}
-!75 = !{!70, !11, i64 216}
-!76 = !{!8, !8, i64 0}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"short", !8, i64 0}
-!79 = !{!7, !7, i64 0}
-!80 = !{!70, !71, i64 160}
-!81 = !{!70, !15, i64 288}
-!82 = distinct !{!82, !45}
-!83 = !{!84, !7, i64 88}
-!84 = !{!"client", !10, i64 0, !10, i64 8, !32, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !14, i64 32, !85, i64 40, !85, i64 48, !85, i64 56, !11, i64 64, !10, i64 72, !10, i64 80, !7, i64 88, !86, i64 96, !7, i64 104, !7, i64 108, !86, i64 112, !10, i64 120, !71, i64 128, !71, i64 136, !71, i64 144, !71, i64 152, !12, i64 160, !7, i64 168, !7, i64 172, !10, i64 176, !19, i64 184, !18, i64 192, !19, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !7, i64 232, !87, i64 240, !10, i64 248, !10, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !10, i64 280, !10, i64 288, !11, i64 296, !18, i64 304, !18, i64 312, !18, i64 320, !18, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !8, i64 368, !7, i64 412, !11, i64 416, !7, i64 424, !7, i64 428, !10, i64 432, !88, i64 440, !90, i64 480, !18, i64 552, !19, i64 560, !15, i64 568, !15, i64 576, !15, i64 584, !11, i64 592, !11, i64 600, !91, i64 608, !91, i64 616, !91, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !12, i64 656, !12, i64 664, !10, i64 672, !17, i64 680, !10, i64 688, !7, i64 696, !91, i64 704, !12, i64 712, !91, i64 720, !10, i64 728, !92, i64 736, !10, i64 760, !18, i64 768, !7, i64 776, !10, i64 784, !11, i64 792}
-!85 = !{!"p1 _ZTS11redisObject", !12, i64 0}
-!86 = !{!"p2 _ZTS11redisObject", !12, i64 0}
-!87 = !{!"p1 _ZTS9dictEntry", !12, i64 0}
-!88 = !{!"multiState", !89, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !10, i64 24, !7, i64 32}
-!89 = !{!"p1 _ZTS8multiCmd", !12, i64 0}
-!90 = !{!"blockingState", !7, i64 0, !18, i64 8, !7, i64 16, !15, i64 24, !7, i64 32, !7, i64 36, !18, i64 40, !12, i64 48, !12, i64 56, !10, i64 64}
-!91 = !{!"p1 _ZTS8listNode", !12, i64 0}
-!92 = !{!"listNode", !91, i64 0, !91, i64 8, !12, i64 16}
-!93 = !{!84, !86, i64 96}
-!94 = !{!85, !85, i64 0}
-!95 = !{!96, !12, i64 8}
-!96 = !{!"redisObject", !7, i64 0, !7, i64 0, !7, i64 1, !7, i64 4, !12, i64 8}
-!97 = distinct !{!97, !45}
-!98 = distinct !{!98, !45}
+!55 = !{!49, !7, i64 4}
+!56 = distinct !{!56, !45}
+!57 = !{!49, !7, i64 16}
+!58 = !{!10, !10, i64 0}
+!59 = distinct !{!59, !45}
+!60 = !{!6, !23, i64 2680}
+!61 = !{!6, !18, i64 2744}
+!62 = !{!6, !18, i64 8064}
+!63 = !{!64, !10, i64 88}
+!64 = !{!"hdr_histogram", !10, i64 0, !10, i64 8, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !10, i64 32, !7, i64 40, !7, i64 44, !10, i64 48, !10, i64 56, !7, i64 64, !23, i64 72, !7, i64 80, !10, i64 88, !65, i64 96}
+!65 = !{!"p1 long", !12, i64 0}
+!66 = !{!67, !10, i64 32}
+!67 = !{!"hdr_iter", !68, i64 0, !7, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !8, i64 88, !12, i64 120}
+!68 = !{!"p1 _ZTS13hdr_histogram", !12, i64 0}
+!69 = !{!67, !10, i64 48}
+!70 = distinct !{!70, !45}
+!71 = !{!72, !68, i64 224}
+!72 = !{!"redisCommand", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !7, i64 32, !11, i64 40, !11, i64 48, !7, i64 56, !12, i64 64, !7, i64 72, !13, i64 80, !7, i64 88, !12, i64 96, !7, i64 104, !10, i64 112, !10, i64 120, !12, i64 128, !7, i64 136, !12, i64 144, !7, i64 152, !73, i64 160, !74, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !18, i64 200, !7, i64 208, !11, i64 216, !68, i64 224, !75, i64 232, !15, i64 288, !73, i64 296, !76, i64 304}
+!73 = !{!"p1 _ZTS12redisCommand", !12, i64 0}
+!74 = !{!"p1 _ZTS15redisCommandArg", !12, i64 0}
+!75 = !{!"", !11, i64 0, !10, i64 8, !7, i64 16, !8, i64 24, !7, i64 40, !8, i64 44}
+!76 = !{!"p1 _ZTS18RedisModuleCommand", !12, i64 0}
+!77 = !{!72, !11, i64 216}
+!78 = !{!8, !8, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"short", !8, i64 0}
+!81 = !{!7, !7, i64 0}
+!82 = !{!72, !73, i64 160}
+!83 = !{!72, !15, i64 288}
+!84 = distinct !{!84, !45}
+!85 = !{!86, !7, i64 88}
+!86 = !{!"client", !10, i64 0, !10, i64 8, !32, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !14, i64 32, !87, i64 40, !87, i64 48, !87, i64 56, !11, i64 64, !10, i64 72, !10, i64 80, !7, i64 88, !88, i64 96, !7, i64 104, !7, i64 108, !88, i64 112, !10, i64 120, !73, i64 128, !73, i64 136, !73, i64 144, !73, i64 152, !12, i64 160, !7, i64 168, !7, i64 172, !10, i64 176, !19, i64 184, !18, i64 192, !19, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !7, i64 232, !89, i64 240, !10, i64 248, !10, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !10, i64 280, !10, i64 288, !11, i64 296, !18, i64 304, !18, i64 312, !18, i64 320, !18, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !8, i64 368, !7, i64 412, !11, i64 416, !7, i64 424, !7, i64 428, !10, i64 432, !90, i64 440, !92, i64 480, !18, i64 552, !19, i64 560, !15, i64 568, !15, i64 576, !15, i64 584, !11, i64 592, !11, i64 600, !93, i64 608, !93, i64 616, !93, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !12, i64 656, !12, i64 664, !10, i64 672, !17, i64 680, !10, i64 688, !7, i64 696, !93, i64 704, !12, i64 712, !93, i64 720, !10, i64 728, !94, i64 736, !10, i64 760, !18, i64 768, !7, i64 776, !10, i64 784, !11, i64 792}
+!87 = !{!"p1 _ZTS11redisObject", !12, i64 0}
+!88 = !{!"p2 _ZTS11redisObject", !12, i64 0}
+!89 = !{!"p1 _ZTS9dictEntry", !12, i64 0}
+!90 = !{!"multiState", !91, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !10, i64 24, !7, i64 32}
+!91 = !{!"p1 _ZTS8multiCmd", !12, i64 0}
+!92 = !{!"blockingState", !7, i64 0, !18, i64 8, !7, i64 16, !15, i64 24, !7, i64 32, !7, i64 36, !18, i64 40, !12, i64 48, !12, i64 56, !10, i64 64}
+!93 = !{!"p1 _ZTS8listNode", !12, i64 0}
+!94 = !{!"listNode", !93, i64 0, !93, i64 8, !12, i64 16}
+!95 = !{!86, !88, i64 96}
+!96 = !{!87, !87, i64 0}
+!97 = !{!98, !12, i64 8}
+!98 = !{!"redisObject", !7, i64 0, !7, i64 0, !7, i64 1, !7, i64 4, !12, i64 8}
 !99 = distinct !{!99, !45}
 !100 = distinct !{!100, !45}
-!101 = !{!102, !7, i64 0}
-!102 = !{!"sequence", !7, i64 0, !7, i64 4, !103, i64 8, !23, i64 16, !23, i64 24}
-!103 = !{!"p1 _ZTS6sample", !12, i64 0}
-!104 = distinct !{!104, !45}
-!105 = distinct !{!105, !45}
+!101 = distinct !{!101, !45}
+!102 = distinct !{!102, !45}
+!103 = !{!104, !7, i64 0}
+!104 = !{!"sequence", !7, i64 0, !7, i64 4, !105, i64 8, !23, i64 16, !23, i64 24}
+!105 = !{!"p1 _ZTS6sample", !12, i64 0}
 !106 = distinct !{!106, !45}
-!107 = !{!6, !15, i64 72}
-!108 = !{!109, !18, i64 0}
-!109 = !{!"durationStats", !18, i64 0, !18, i64 8, !18, i64 16}
-!110 = !{!109, !18, i64 8}
-!111 = !{!109, !18, i64 16}
+!107 = distinct !{!107, !45}
+!108 = distinct !{!108, !45}
+!109 = !{!6, !15, i64 72}
+!110 = !{!111, !18, i64 0}
+!111 = !{!"durationStats", !18, i64 0, !18, i64 8, !18, i64 16}
+!112 = !{!111, !18, i64 8}
+!113 = !{!111, !18, i64 16}

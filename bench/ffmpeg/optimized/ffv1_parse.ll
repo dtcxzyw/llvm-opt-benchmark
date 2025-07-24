@@ -734,7 +734,7 @@ get_rac.exit163:                                  ; preds = %294, %306, %311
   %324 = load i32, ptr %314, align 4, !tbaa !66
   %325 = sext i32 %324 to i64
   %326 = icmp slt i64 %indvars.iv.next211, %325
-  br i1 %326, label %.preheader, label %get_rac.exit163.thread.loopexit, !llvm.loop !70
+  br i1 %326, label %.preheader, label %get_rac.exit163.thread.loopexit, !llvm.loop !71
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.preheader.split ], [ 0, %.preheader ]
@@ -752,7 +752,7 @@ get_rac.exit163:                                  ; preds = %294, %306, %311
   store i8 %335, ptr %337, align 1, !tbaa !48
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next203, 32
-  br i1 %exitcond205.not, label %.split.us, label %.preheader.split, !llvm.loop !69
+  br i1 %exitcond205.not, label %.split.us, label %.preheader.split, !llvm.loop !72
 
 get_rac.exit163.thread.loopexit:                  ; preds = %.split.us
   %.pre = load i32, ptr %207, align 8, !tbaa !65
@@ -763,18 +763,18 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %339 = sext i32 %338 to i64
   %340 = icmp slt i64 %indvars.iv.next214, %339
-  br i1 %340, label %265, label %._crit_edge, !llvm.loop !71
+  br i1 %340, label %265, label %._crit_edge, !llvm.loop !73
 
 341:                                              ; preds = %._crit_edge
   %342 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0) #7
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 25168
-  store i32 %342, ptr %343, align 8, !tbaa !72
+  store i32 %342, ptr %343, align 8, !tbaa !74
   %344 = icmp sgt i32 %342, 1
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %341
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  store i32 2056011897, ptr %346, align 8, !tbaa !73
+  store i32 2056011897, ptr %346, align 8, !tbaa !75
   br label %347
 
 347:                                              ; preds = %345, %341
@@ -785,7 +785,7 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
 350:                                              ; preds = %347
   %351 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0) #7
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 25172
-  store i32 %351, ptr %352, align 4, !tbaa !74
+  store i32 %351, ptr %352, align 4, !tbaa !76
   %.pr = load i32, ptr %24, align 8, !tbaa !43
   %353 = icmp sgt i32 %.pr, 262147
   br i1 %353, label %354, label %.thread
@@ -793,7 +793,7 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
 354:                                              ; preds = %350
   %355 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0) #7
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  store i32 %355, ptr %356, align 4, !tbaa !75
+  store i32 %355, ptr %356, align 4, !tbaa !77
   br label %.thread
 
 .thread:                                          ; preds = %347, %350, %354
@@ -804,7 +804,7 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
 358:                                              ; preds = %.thread
   %359 = call ptr @av_crc_get_table(i32 noundef 3) #7
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  %361 = load i32, ptr %360, align 8, !tbaa !73
+  %361 = load i32, ptr %360, align 8, !tbaa !75
   %362 = load ptr, ptr %7, align 8, !tbaa !13
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 72
   %364 = load ptr, ptr %363, align 8, !tbaa !25
@@ -832,7 +832,7 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
   %.0132 = phi i32 [ 0, %.thread ], [ %373, %.thread171 ], [ 0, %._crit_edge ]
   %375 = load ptr, ptr %7, align 8, !tbaa !13
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 524
-  %377 = load i32, ptr %376, align 4, !tbaa !76
+  %377 = load i32, ptr %376, align 4, !tbaa !78
   %378 = and i32 %377, 1
   %.not153 = icmp eq i32 %378, 0
   br i1 %.not153, label %398, label %379
@@ -853,9 +853,9 @@ get_rac.exit163.thread:                           ; preds = %get_rac.exit163.thr
   %392 = load i32, ptr %184, align 4, !tbaa !62
   %393 = load i32, ptr %207, align 8, !tbaa !65
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 25168
-  %395 = load i32, ptr %394, align 8, !tbaa !72
+  %395 = load i32, ptr %394, align 8, !tbaa !74
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 25172
-  %397 = load i32, ptr %396, align 4, !tbaa !74
+  %397 = load i32, ptr %396, align 4, !tbaa !76
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %375, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %380, i32 noundef %382, i32 noundef %383, i32 noundef %384, i32 noundef %386, i32 noundef %387, i32 noundef %388, i32 noundef %389, i32 noundef %390, i32 noundef %391, i32 noundef %392, i32 noundef %393, i32 noundef %395, i32 noundef %397, i32 noundef %.0132) #7
   br label %398
 
@@ -939,7 +939,7 @@ define range(i32 -1094995529, 1) i32 @ff_ffv1_parse_header(ptr noundef %0, ptr n
   store i8 %28, ptr %29, align 1, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond, label %.critedge, label %20, !llvm.loop !77
+  br i1 %exitcond, label %.critedge, label %20, !llvm.loop !79
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1175,7 +1175,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !13
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 712
-  %174 = load i32, ptr %173, align 8, !tbaa !78
+  %174 = load i32, ptr %173, align 8, !tbaa !80
   %.not = icmp eq i32 %174, 0
   %spec.select = select i1 %.not, i32 %.0.i321, i32 0
   br label %175
@@ -1289,7 +1289,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 228:                                              ; preds = %227
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 8, ptr %229, align 4, !tbaa !79
+  store i32 8, ptr %229, align 4, !tbaa !81
   br label %.thread356
 
 230:                                              ; preds = %227
@@ -1303,47 +1303,47 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 231:                                              ; preds = %230
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %232, align 8, !tbaa !80
+  store i32 1, ptr %232, align 8, !tbaa !82
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 173, ptr %233, align 4, !tbaa !79
+  store i32 173, ptr %233, align 4, !tbaa !81
   br label %.thread356
 
 234:                                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %235, align 8, !tbaa !80
+  store i32 1, ptr %235, align 8, !tbaa !82
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 168, ptr %236, align 4, !tbaa !79
+  store i32 168, ptr %236, align 4, !tbaa !81
   br label %.thread356
 
 237:                                              ; preds = %230
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %238, align 8, !tbaa !80
+  store i32 1, ptr %238, align 8, !tbaa !82
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 166, ptr %239, align 4, !tbaa !79
+  store i32 166, ptr %239, align 4, !tbaa !81
   br label %.thread356
 
 240:                                              ; preds = %230
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %241, align 8, !tbaa !80
+  store i32 1, ptr %241, align 8, !tbaa !82
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 181, ptr %242, align 4, !tbaa !79
+  store i32 181, ptr %242, align 4, !tbaa !81
   br label %.thread356
 
 243:                                              ; preds = %230
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %244, align 8, !tbaa !80
+  store i32 1, ptr %244, align 8, !tbaa !82
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  %246 = load i32, ptr %245, align 4, !tbaa !75
+  %246 = load i32, ptr %245, align 4, !tbaa !77
   %.not305 = icmp eq i32 %246, 0
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 4284
   br i1 %.not305, label %249, label %248
 
 248:                                              ; preds = %243
-  store i32 248, ptr %247, align 4, !tbaa !79
+  store i32 248, ptr %247, align 4, !tbaa !81
   br label %.thread356
 
 249:                                              ; preds = %243
-  store i32 30, ptr %247, align 4, !tbaa !79
+  store i32 30, ptr %247, align 4, !tbaa !81
   br label %.thread356
 
 250:                                              ; preds = %230
@@ -1352,7 +1352,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 252:                                              ; preds = %250
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 30, ptr %253, align 4, !tbaa !79
+  store i32 30, ptr %253, align 4, !tbaa !81
   br label %.thread356
 
 254:                                              ; preds = %216
@@ -1363,13 +1363,13 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 256:                                              ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  %258 = load i32, ptr %257, align 4, !tbaa !75
+  %258 = load i32, ptr %257, align 4, !tbaa !77
   %.not308 = icmp eq i32 %258, 0
   br i1 %.not308, label %259, label %.thread323
 
 259:                                              ; preds = %256
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 56, ptr %260, align 4, !tbaa !79
+  store i32 56, ptr %260, align 4, !tbaa !81
   br label %.thread356
 
 261:                                              ; preds = %255
@@ -1378,13 +1378,13 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 263:                                              ; preds = %261
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  %265 = load i32, ptr %264, align 4, !tbaa !75
+  %265 = load i32, ptr %264, align 4, !tbaa !77
   %.not309 = icmp eq i32 %265, 0
   br i1 %.not309, label %.thread323, label %266
 
 266:                                              ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 255, ptr %267, align 4, !tbaa !79
+  store i32 255, ptr %267, align 4, !tbaa !81
   br label %.thread356
 
 .thread326:                                       ; preds = %226
@@ -1411,32 +1411,32 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 275:                                              ; preds = %268
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 5, ptr %276, align 4, !tbaa !79
+  store i32 5, ptr %276, align 4, !tbaa !81
   br label %.thread356
 
 277:                                              ; preds = %268
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 31, ptr %278, align 4, !tbaa !79
+  store i32 31, ptr %278, align 4, !tbaa !81
   br label %.thread356
 
 279:                                              ; preds = %268
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 4, ptr %280, align 4, !tbaa !79
+  store i32 4, ptr %280, align 4, !tbaa !81
   br label %.thread356
 
 281:                                              ; preds = %268
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 0, ptr %282, align 4, !tbaa !79
+  store i32 0, ptr %282, align 4, !tbaa !81
   br label %.thread356
 
 283:                                              ; preds = %268
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 7, ptr %284, align 4, !tbaa !79
+  store i32 7, ptr %284, align 4, !tbaa !81
   br label %.thread356
 
 285:                                              ; preds = %268
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 6, ptr %286, align 4, !tbaa !79
+  store i32 6, ptr %286, align 4, !tbaa !81
   br label %.thread356
 
 .thread329:                                       ; preds = %.thread328
@@ -1454,17 +1454,17 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 293:                                              ; preds = %.thread329
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 79, ptr %294, align 4, !tbaa !79
+  store i32 79, ptr %294, align 4, !tbaa !81
   br label %.thread356
 
 295:                                              ; preds = %.thread329
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 78, ptr %296, align 4, !tbaa !79
+  store i32 78, ptr %296, align 4, !tbaa !81
   br label %.thread356
 
 297:                                              ; preds = %.thread329
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 33, ptr %298, align 4, !tbaa !79
+  store i32 33, ptr %298, align 4, !tbaa !81
   br label %.thread356
 
 299:                                              ; preds = %.thread326
@@ -1486,7 +1486,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 300:                                              ; preds = %299
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %301, align 8, !tbaa !80
+  store i32 1, ptr %301, align 8, !tbaa !82
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %303 = load i32, ptr %302, align 8, !tbaa !57
   %304 = shl nsw i32 %303, 4
@@ -1501,22 +1501,22 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 308:                                              ; preds = %300
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 66, ptr %309, align 4, !tbaa !79
+  store i32 66, ptr %309, align 4, !tbaa !81
   br label %.thread356
 
 310:                                              ; preds = %300
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 70, ptr %311, align 4, !tbaa !79
+  store i32 70, ptr %311, align 4, !tbaa !81
   br label %.thread356
 
 312:                                              ; preds = %300
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 60, ptr %313, align 4, !tbaa !79
+  store i32 60, ptr %313, align 4, !tbaa !81
   br label %.thread356
 
 .thread334:                                       ; preds = %.thread333
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %314, align 8, !tbaa !80
+  store i32 1, ptr %314, align 8, !tbaa !82
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %316 = load i32, ptr %315, align 8, !tbaa !57
   %317 = shl nsw i32 %316, 4
@@ -1531,22 +1531,22 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 321:                                              ; preds = %.thread334
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 85, ptr %322, align 4, !tbaa !79
+  store i32 85, ptr %322, align 4, !tbaa !81
   br label %.thread356
 
 323:                                              ; preds = %.thread334
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 83, ptr %324, align 4, !tbaa !79
+  store i32 83, ptr %324, align 4, !tbaa !81
   br label %.thread356
 
 325:                                              ; preds = %.thread334
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 81, ptr %326, align 4, !tbaa !79
+  store i32 81, ptr %326, align 4, !tbaa !81
   br label %.thread356
 
 327:                                              ; preds = %299
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %328, align 8, !tbaa !80
+  store i32 1, ptr %328, align 8, !tbaa !82
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %330 = load i32, ptr %329, align 8, !tbaa !57
   %331 = shl nsw i32 %330, 4
@@ -1562,27 +1562,27 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 335:                                              ; preds = %327
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 68, ptr %336, align 4, !tbaa !79
+  store i32 68, ptr %336, align 4, !tbaa !81
   br label %.thread356
 
 337:                                              ; preds = %327
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 151, ptr %338, align 4, !tbaa !79
+  store i32 151, ptr %338, align 4, !tbaa !81
   br label %.thread356
 
 339:                                              ; preds = %327
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 64, ptr %340, align 4, !tbaa !79
+  store i32 64, ptr %340, align 4, !tbaa !81
   br label %.thread356
 
 341:                                              ; preds = %327
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 62, ptr %342, align 4, !tbaa !79
+  store i32 62, ptr %342, align 4, !tbaa !81
   br label %.thread356
 
 .thread339:                                       ; preds = %.thread333
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %343, align 8, !tbaa !80
+  store i32 1, ptr %343, align 8, !tbaa !82
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %345 = load i32, ptr %344, align 8, !tbaa !57
   %346 = shl nsw i32 %345, 4
@@ -1597,22 +1597,22 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 350:                                              ; preds = %.thread339
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 91, ptr %351, align 4, !tbaa !79
+  store i32 91, ptr %351, align 4, !tbaa !81
   br label %.thread356
 
 352:                                              ; preds = %.thread339
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 89, ptr %353, align 4, !tbaa !79
+  store i32 89, ptr %353, align 4, !tbaa !81
   br label %.thread356
 
 354:                                              ; preds = %.thread339
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 87, ptr %355, align 4, !tbaa !79
+  store i32 87, ptr %355, align 4, !tbaa !81
   br label %.thread356
 
 356:                                              ; preds = %299
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %357, align 8, !tbaa !80
+  store i32 1, ptr %357, align 8, !tbaa !82
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %359 = load i32, ptr %358, align 8, !tbaa !57
   %360 = shl nsw i32 %359, 4
@@ -1628,27 +1628,27 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 364:                                              ; preds = %356
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 131, ptr %365, align 4, !tbaa !79
+  store i32 131, ptr %365, align 4, !tbaa !81
   br label %.thread356
 
 366:                                              ; preds = %356
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 153, ptr %367, align 4, !tbaa !79
+  store i32 153, ptr %367, align 4, !tbaa !81
   br label %.thread356
 
 368:                                              ; preds = %356
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 127, ptr %369, align 4, !tbaa !79
+  store i32 127, ptr %369, align 4, !tbaa !81
   br label %.thread356
 
 370:                                              ; preds = %356
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 123, ptr %371, align 4, !tbaa !79
+  store i32 123, ptr %371, align 4, !tbaa !81
   br label %.thread356
 
 .thread344:                                       ; preds = %.thread333
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %372, align 8, !tbaa !80
+  store i32 1, ptr %372, align 8, !tbaa !82
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %374 = load i32, ptr %373, align 8, !tbaa !57
   %375 = shl nsw i32 %374, 4
@@ -1662,17 +1662,17 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 379:                                              ; preds = %.thread344
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 187, ptr %380, align 4, !tbaa !79
+  store i32 187, ptr %380, align 4, !tbaa !81
   br label %.thread356
 
 381:                                              ; preds = %.thread344
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 185, ptr %382, align 4, !tbaa !79
+  store i32 185, ptr %382, align 4, !tbaa !81
   br label %.thread356
 
 383:                                              ; preds = %299
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %384, align 8, !tbaa !80
+  store i32 1, ptr %384, align 8, !tbaa !82
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %386 = load i32, ptr %385, align 8, !tbaa !57
   %387 = shl nsw i32 %386, 4
@@ -1687,22 +1687,22 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 391:                                              ; preds = %383
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 133, ptr %392, align 4, !tbaa !79
+  store i32 133, ptr %392, align 4, !tbaa !81
   br label %.thread356
 
 393:                                              ; preds = %383
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 129, ptr %394, align 4, !tbaa !79
+  store i32 129, ptr %394, align 4, !tbaa !81
   br label %.thread356
 
 395:                                              ; preds = %383
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 125, ptr %396, align 4, !tbaa !79
+  store i32 125, ptr %396, align 4, !tbaa !81
   br label %.thread356
 
 397:                                              ; preds = %299
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %398, align 8, !tbaa !80
+  store i32 1, ptr %398, align 8, !tbaa !82
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %400 = load i32, ptr %399, align 8, !tbaa !57
   %401 = shl nsw i32 %400, 4
@@ -1717,22 +1717,22 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 405:                                              ; preds = %397
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 49, ptr %406, align 4, !tbaa !79
+  store i32 49, ptr %406, align 4, !tbaa !81
   br label %.thread356
 
 407:                                              ; preds = %397
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 47, ptr %408, align 4, !tbaa !79
+  store i32 47, ptr %408, align 4, !tbaa !81
   br label %.thread356
 
 409:                                              ; preds = %397
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 45, ptr %410, align 4, !tbaa !79
+  store i32 45, ptr %410, align 4, !tbaa !81
   br label %.thread356
 
 .thread353:                                       ; preds = %.thread333
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 25192
-  store i32 1, ptr %411, align 8, !tbaa !80
+  store i32 1, ptr %411, align 8, !tbaa !82
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %413 = load i32, ptr %412, align 8, !tbaa !57
   %414 = shl nsw i32 %413, 4
@@ -1747,17 +1747,17 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 418:                                              ; preds = %.thread353
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 97, ptr %419, align 4, !tbaa !79
+  store i32 97, ptr %419, align 4, !tbaa !81
   br label %.thread356
 
 420:                                              ; preds = %.thread353
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 95, ptr %421, align 4, !tbaa !79
+  store i32 95, ptr %421, align 4, !tbaa !81
   br label %.thread356
 
 422:                                              ; preds = %.thread353
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 93, ptr %423, align 4, !tbaa !79
+  store i32 93, ptr %423, align 4, !tbaa !81
   br label %.thread356
 
 424:                                              ; preds = %214
@@ -1794,11 +1794,11 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   br i1 %.not286, label %443, label %444
 
 443:                                              ; preds = %439
-  store i32 121, ptr %442, align 4, !tbaa !79
+  store i32 121, ptr %442, align 4, !tbaa !81
   br label %.thread356
 
 444:                                              ; preds = %439
-  store i32 28, ptr %442, align 4, !tbaa !79
+  store i32 28, ptr %442, align 4, !tbaa !81
   br label %.thread356
 
 445:                                              ; preds = %433
@@ -1819,7 +1819,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 449:                                              ; preds = %446
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 73, ptr %450, align 4, !tbaa !79
+  store i32 73, ptr %450, align 4, !tbaa !81
   br label %.thread356
 
 451:                                              ; preds = %445
@@ -1830,11 +1830,11 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   br i1 %.not289, label %455, label %456
 
 455:                                              ; preds = %451
-  store i32 75, ptr %454, align 4, !tbaa !79
+  store i32 75, ptr %454, align 4, !tbaa !81
   br label %.thread356
 
 456:                                              ; preds = %451
-  store i32 163, ptr %454, align 4, !tbaa !79
+  store i32 163, ptr %454, align 4, !tbaa !81
   br label %.thread356
 
 457:                                              ; preds = %445
@@ -1845,11 +1845,11 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   br i1 %.not291, label %461, label %462
 
 461:                                              ; preds = %457
-  store i32 135, ptr %460, align 4, !tbaa !79
+  store i32 135, ptr %460, align 4, !tbaa !81
   br label %.thread356
 
 462:                                              ; preds = %457
-  store i32 161, ptr %460, align 4, !tbaa !79
+  store i32 161, ptr %460, align 4, !tbaa !81
   br label %.thread356
 
 463:                                              ; preds = %445
@@ -1860,11 +1860,11 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   br i1 %.not293, label %467, label %468
 
 467:                                              ; preds = %463
-  store i32 137, ptr %466, align 4, !tbaa !79
+  store i32 137, ptr %466, align 4, !tbaa !81
   br label %.thread356
 
 468:                                              ; preds = %463
-  store i32 226, ptr %466, align 4, !tbaa !79
+  store i32 226, ptr %466, align 4, !tbaa !81
   br label %.thread356
 
 469:                                              ; preds = %445
@@ -1872,7 +1872,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   %471 = load i32, ptr %470, align 8, !tbaa !59
   %.not295 = icmp eq i32 %471, 0
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  %473 = load i32, ptr %472, align 4, !tbaa !75
+  %473 = load i32, ptr %472, align 4, !tbaa !77
   %.not296 = icmp eq i32 %473, 0
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 4284
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 25164
@@ -1880,14 +1880,14 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 476:                                              ; preds = %469
   %spec.select395 = select i1 %.not296, i32 77, i32 244
-  store i32 %spec.select395, ptr %474, align 4, !tbaa !79
-  store i32 1, ptr %475, align 4, !tbaa !81
+  store i32 %spec.select395, ptr %474, align 4, !tbaa !81
+  store i32 1, ptr %475, align 4, !tbaa !83
   br label %.thread356
 
 477:                                              ; preds = %469
   %spec.select396 = select i1 %.not296, i32 113, i32 246
-  store i32 %spec.select396, ptr %474, align 4, !tbaa !79
-  store i32 1, ptr %475, align 4, !tbaa !81
+  store i32 %spec.select396, ptr %474, align 4, !tbaa !81
+  store i32 1, ptr %475, align 4, !tbaa !83
   br label %.thread356
 
 478:                                              ; preds = %445
@@ -1895,7 +1895,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
   %480 = load i32, ptr %479, align 8, !tbaa !59
   %.not298 = icmp eq i32 %480, 0
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 25148
-  %482 = load i32, ptr %481, align 4, !tbaa !75
+  %482 = load i32, ptr %481, align 4, !tbaa !77
   %.not299 = icmp eq i32 %482, 0
   br i1 %.not298, label %483, label %488
 
@@ -1904,12 +1904,12 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 484:                                              ; preds = %483
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 175, ptr %485, align 4, !tbaa !79
+  store i32 175, ptr %485, align 4, !tbaa !81
   br label %486
 
 486:                                              ; preds = %484, %483
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 25164
-  store i32 1, ptr %487, align 4, !tbaa !81
+  store i32 1, ptr %487, align 4, !tbaa !83
   br label %.thread356
 
 488:                                              ; preds = %478
@@ -1917,12 +1917,12 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 
 489:                                              ; preds = %488
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  store i32 177, ptr %490, align 4, !tbaa !79
+  store i32 177, ptr %490, align 4, !tbaa !81
   br label %491
 
 491:                                              ; preds = %489, %488
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 25164
-  store i32 1, ptr %492, align 4, !tbaa !81
+  store i32 1, ptr %492, align 4, !tbaa !83
   br label %.thread356
 
 493:                                              ; preds = %214
@@ -1934,7 +1934,7 @@ get_rac.exit322:                                  ; preds = %117, %134, %139, %1
 .thread356:                                       ; preds = %445, %.thread333, %299, %446, %444, %455, %461, %467, %476, %486, %491, %477, %468, %462, %456, %449, %443, %231, %237, %252, %249, %248, %240, %234, %228, %285, %283, %281, %279, %277, %275, %268, %312, %310, %308, %300, %341, %339, %337, %335, %327, %370, %368, %366, %364, %356, %395, %393, %391, %383, %422, %420, %418, %.thread353, %397, %405, %407, %409, %.thread344, %379, %381, %.thread339, %350, %352, %354, %.thread334, %321, %323, %325, %.thread329, %293, %295, %297, %259, %266
   %496 = phi ptr [ %435, %445 ], [ %222, %.thread333 ], [ %222, %299 ], [ %435, %446 ], [ %435, %444 ], [ %435, %455 ], [ %435, %461 ], [ %435, %467 ], [ %435, %476 ], [ %435, %486 ], [ %435, %491 ], [ %435, %477 ], [ %435, %468 ], [ %435, %462 ], [ %435, %456 ], [ %435, %449 ], [ %435, %443 ], [ %222, %231 ], [ %222, %237 ], [ %222, %252 ], [ %222, %249 ], [ %222, %248 ], [ %222, %240 ], [ %222, %234 ], [ %222, %228 ], [ %222, %285 ], [ %222, %283 ], [ %222, %281 ], [ %222, %279 ], [ %222, %277 ], [ %222, %275 ], [ %222, %268 ], [ %222, %312 ], [ %222, %310 ], [ %222, %308 ], [ %222, %300 ], [ %222, %341 ], [ %222, %339 ], [ %222, %337 ], [ %222, %335 ], [ %222, %327 ], [ %222, %370 ], [ %222, %368 ], [ %222, %366 ], [ %222, %364 ], [ %222, %356 ], [ %222, %395 ], [ %222, %393 ], [ %222, %391 ], [ %222, %383 ], [ %222, %422 ], [ %222, %420 ], [ %222, %418 ], [ %222, %.thread353 ], [ %222, %397 ], [ %222, %405 ], [ %222, %407 ], [ %222, %409 ], [ %222, %.thread344 ], [ %222, %379 ], [ %222, %381 ], [ %222, %.thread339 ], [ %222, %350 ], [ %222, %352 ], [ %222, %354 ], [ %222, %.thread334 ], [ %222, %321 ], [ %222, %323 ], [ %222, %325 ], [ %222, %.thread329 ], [ %222, %293 ], [ %222, %295 ], [ %222, %297 ], [ %222, %259 ], [ %222, %266 ]
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 4284
-  %498 = load i32, ptr %497, align 4, !tbaa !79
+  %498 = load i32, ptr %497, align 4, !tbaa !81
   %499 = icmp eq i32 %498, -1
   br i1 %499, label %500, label %.thread323
 
@@ -2034,16 +2034,18 @@ attributes #8 = { nounwind willreturn memory(read) }
 !66 = !{!18, !18, i64 0}
 !67 = distinct !{!67, !5}
 !68 = !{!24, !24, i64 0}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
+!69 = distinct !{!69, !5, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !71 = distinct !{!71, !5}
-!72 = !{!14, !18, i64 25168}
-!73 = !{!14, !18, i64 4280}
-!74 = !{!14, !18, i64 25172}
-!75 = !{!14, !18, i64 25148}
-!76 = !{!26, !18, i64 524}
-!77 = distinct !{!77, !5}
-!78 = !{!26, !18, i64 712}
-!79 = !{!14, !18, i64 4284}
-!80 = !{!14, !18, i64 25192}
-!81 = !{!14, !18, i64 25164}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
+!74 = !{!14, !18, i64 25168}
+!75 = !{!14, !18, i64 4280}
+!76 = !{!14, !18, i64 25172}
+!77 = !{!14, !18, i64 25148}
+!78 = !{!26, !18, i64 524}
+!79 = distinct !{!79, !5}
+!80 = !{!26, !18, i64 712}
+!81 = !{!14, !18, i64 4284}
+!82 = !{!14, !18, i64 25192}
+!83 = !{!14, !18, i64 25164}

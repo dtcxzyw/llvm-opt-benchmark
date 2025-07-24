@@ -1049,12 +1049,12 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
   %23 = getelementptr inbounds i8, ptr %.sroa.0.029.us.i, i64 -132
   tail call void @SetLatch(ptr noundef nonnull %23) #10
   %.not22.us.i = icmp eq ptr %.sroa.8.031.us.i, %16
-  br i1 %.not22.us.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.us.i, !llvm.loop !16
+  br i1 %.not22.us.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
 SyncRepWakeQueue.exit:                            ; preds = %.lr.ph.split.us.i, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %SyncRepWakeQueue.exit, %11
   %24 = load ptr, ptr @WalSndCtl, align 8
@@ -1269,4 +1269,6 @@ attributes #12 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !7}
 !17 = !{i64 2150853638}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = distinct !{!19, !7, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7}

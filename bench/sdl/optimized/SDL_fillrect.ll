@@ -386,7 +386,7 @@ default.unreachable58:                            ; preds = %.lr.ph.split
   %44 = getelementptr inbounds i8, ptr %.03440.us43, i64 %10
   %45 = add nsw i32 %40, -1
   %.not.us46 = icmp eq i32 %40, 0
-  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !6
+  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !8
 
 .lr.ph.split.split.split.split.us47:              ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split.us47
   %46 = phi i32 [ %50, %.lr.ph.split.split.split.split.us47 ], [ %6, %.lr.ph.split ]
@@ -398,7 +398,7 @@ default.unreachable58:                            ; preds = %.lr.ph.split
   %49 = getelementptr inbounds i8, ptr %.03440.us48, i64 %10
   %50 = add nsw i32 %46, -1
   %.not.us51 = icmp eq i32 %46, 0
-  br i1 %.not.us51, label %._crit_edge, label %.lr.ph.split.split.split.split.us47, !llvm.loop !6
+  br i1 %.not.us51, label %._crit_edge, label %.lr.ph.split.split.split.split.us47, !llvm.loop !9
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split
   %51 = phi i32 [ %54, %.lr.ph.split.split.split.split ], [ %6, %.lr.ph.split ]
@@ -408,7 +408,7 @@ default.unreachable58:                            ; preds = %.lr.ph.split
   %53 = getelementptr inbounds i8, ptr %.03440, i64 %10
   %54 = add nsw i32 %51, -1
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us47, %.lr.ph.split.split.split.split.us, %34, %.lr.ph.split, %5
   ret void
@@ -461,7 +461,7 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
   %26 = getelementptr inbounds i8, ptr %.01925.us, i64 %10
   %27 = add nsw i32 %11, -1
   %.not.us = icmp eq i32 %11, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = and i32 %3, 1
@@ -478,7 +478,7 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
   %33 = getelementptr inbounds i8, ptr %.01925, i64 %10
   %34 = add nsw i32 %30, -1
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %25, %.lr.ph.split, %5
   ret void
@@ -516,12 +516,12 @@ define internal void @SDL_FillSurfaceRect3(ptr noundef writeonly captures(none) 
   %17 = getelementptr inbounds nuw i8, ptr %.020, i64 3
   store i8 %10, ptr %16, align 1
   %.not17 = icmp eq i32 %14, 0
-  br i1 %.not17, label %._crit_edge, label %13, !llvm.loop !8
+  br i1 %.not17, label %._crit_edge, label %13, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.01522, i64 %11
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !14
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
   ret void
@@ -544,7 +544,7 @@ define internal void @SDL_FillSurfaceRect4(ptr noundef %0, i32 noundef %1, i32 n
   %10 = tail call ptr @SDL_memset4_REAL(ptr noundef %.057, i32 noundef %2, i64 noundef %6) #5
   %11 = getelementptr inbounds i8, ptr %.057, i64 %7
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %8, %5
   ret void
@@ -569,8 +569,13 @@ attributes #5 = { nounwind }
 !3 = !{ptr @SDL_FillSurfaceRect1, ptr @SDL_FillSurfaceRect2, ptr @SDL_FillSurfaceRect3, ptr @SDL_FillSurfaceRect4}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5, !7}
+!9 = distinct !{!9, !5, !7}
 !10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5, !7}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

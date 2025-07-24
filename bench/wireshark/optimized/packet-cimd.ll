@@ -557,7 +557,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 96:                                               ; preds = %92, %85
   %97 = icmp slt i32 %83, %6
-  br i1 %97, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !9
+  br i1 %97, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %96, %81, %.lr.ph.split.i, %72, %68, %.lr.ph.split.us.i, %54
   br i1 %24, label %dissect_cimd_operation.exit, label %98
@@ -812,7 +812,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext %.sink)
   %51 = add i32 %.1, 1
   %52 = icmp slt i32 %51, %20
-  br i1 %52, label %31, label %._crit_edge, !llvm.loop !10
+  br i1 %52, label %31, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %50, %5
   %53 = call ptr @wmem_packet_scope()
@@ -948,5 +948,7 @@ attributes #4 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

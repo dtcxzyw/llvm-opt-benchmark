@@ -2217,7 +2217,7 @@ define internal void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr noal
 ._crit_edge.us:                                   ; preds = %23
   %36 = add nuw i64 %.02023.us, 1
   %exitcond27.not = icmp eq i64 %.02023.us, %16
-  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us
+  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !45
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -2328,3 +2328,5 @@ attributes #21 = { builtin nounwind }
 !42 = !{!41, !17, i64 16}
 !43 = !{!41, !17, i64 8}
 !44 = distinct !{!44, !9}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}

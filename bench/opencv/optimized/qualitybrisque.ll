@@ -2747,12 +2747,12 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit140:        ; preds = %_ZNSt6vectorIfSaIfE
   %.2.us.i = phi i64 [ %308, %307 ], [ %.188.us.i, %303 ], [ %.188.us.i, %301 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %296, !llvm.loop !83
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %296, !llvm.loop !84
 
 ._crit_edge.us.i:                                 ; preds = %311
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count117.i
-  br i1 %exitcond118.not.i, label %._crit_edge99.loopexit.i, label %.preheader.us.i, !llvm.loop !84
+  br i1 %exitcond118.not.i, label %._crit_edge99.loopexit.i, label %.preheader.us.i, !llvm.loop !85
 
 ._crit_edge99.loopexit.i:                         ; preds = %._crit_edge.us.i
   %312 = sitofp i64 %.259.us.i to double
@@ -2817,7 +2817,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit140:        ; preds = %_ZNSt6vectorIfSaIfE
 347:                                              ; preds = %334
   %348 = fadd double %.060111.i, 1.000000e-03
   %349 = fcmp olt double %348, 1.000000e+01
-  br i1 %349, label %334, label %split, !llvm.loop !85
+  br i1 %349, label %334, label %split, !llvm.loop !86
 
 split:                                            ; preds = %347, %._crit_edge
   %.pre-phi349 = phi double [ %.pre348, %._crit_edge ], [ %335, %347 ]
@@ -3121,7 +3121,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit180:        ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %37) #25
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next332, 5
-  br i1 %exitcond334.not, label %214, label %236, !llvm.loop !86
+  br i1 %exitcond334.not, label %214, label %236, !llvm.loop !87
 
 461:                                              ; preds = %._crit_edge225
   %462 = landingpad { ptr, i32 }
@@ -3508,39 +3508,39 @@ define linkonce_odr hidden void @_ZN2cv7quality13quality_utils5scaleIfEEvRNS_3Ma
 34:                                               ; preds = %.lr.ph41, %._crit_edge
   %.02239 = phi i32 [ 0, %.lr.ph41 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25, !noalias !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25, !noalias !88
   %35 = add nuw nsw i32 %.02239, 1
-  store i32 %.02239, ptr %9, align 4, !tbaa !90, !noalias !87
-  store i32 %35, ptr %17, align 4, !tbaa !92, !noalias !87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25, !noalias !87
-  store i64 9223372034707292160, ptr %10, align 8, !noalias !87
+  store i32 %.02239, ptr %9, align 4, !tbaa !91, !noalias !88
+  store i32 %35, ptr %17, align 4, !tbaa !93, !noalias !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25, !noalias !88
+  store i64 9223372034707292160, ptr %10, align 8, !noalias !88
   call void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25, !noalias !87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25, !noalias !87
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25, !noalias !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25, !noalias !88
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25, !noalias !93
-  store i32 0, ptr %7, align 4, !tbaa !90, !noalias !93
-  store i32 1, ptr %18, align 4, !tbaa !92, !noalias !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25, !noalias !93
-  store i64 9223372034707292160, ptr %8, align 8, !noalias !93
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25, !noalias !94
+  store i32 0, ptr %7, align 4, !tbaa !91, !noalias !94
+  store i32 1, ptr %18, align 4, !tbaa !93, !noalias !94
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25, !noalias !94
+  store i64 9223372034707292160, ptr %8, align 8, !noalias !94
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
           to label %36 unwind label %62
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25, !noalias !93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25, !noalias !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25, !noalias !94
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25, !noalias !94
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25, !noalias !96
-  store i32 1, ptr %5, align 4, !tbaa !90, !noalias !96
-  store i32 2, ptr %19, align 4, !tbaa !92, !noalias !96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25, !noalias !96
-  store i64 9223372034707292160, ptr %6, align 8, !noalias !96
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25, !noalias !97
+  store i32 1, ptr %5, align 4, !tbaa !91, !noalias !97
+  store i32 2, ptr %19, align 4, !tbaa !93, !noalias !97
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25, !noalias !97
+  store i64 9223372034707292160, ptr %6, align 8, !noalias !97
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
           to label %_ZNK2cv3Mat3rowEi.exit25 unwind label %64
 
 _ZNK2cv3Mat3rowEi.exit25:                         ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25, !noalias !96
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25, !noalias !97
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25, !noalias !97
   %37 = load i32, ptr %20, align 4, !tbaa !74
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
@@ -3582,7 +3582,7 @@ _ZNK2cv3Mat3rowEi.exit25:                         ; preds = %36
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #25
   %60 = load i32, ptr %14, align 8, !tbaa !75
   %61 = icmp slt i32 %35, %60
-  br i1 %61, label %34, label %._crit_edge42, !llvm.loop !99
+  br i1 %61, label %34, label %._crit_edge42, !llvm.loop !100
 
 62:                                               ; preds = %34
   %63 = landingpad { ptr, i32 }
@@ -3795,7 +3795,7 @@ _ZN2cv3Mat2atIfEERT_i.exit37:                     ; preds = %173, %169, %164
   store float %185, ptr %.0.i36, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !101
 
 186:                                              ; preds = %64, %62
   %.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
@@ -3901,12 +3901,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_17AGGDfitERKN2cv3MatERdS4_S4_(ptr n
   %.2.us = phi i64 [ %30, %29 ], [ %.188.us, %25 ], [ %.188.us, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %33
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge99.loopexit, label %.preheader.us, !llvm.loop !84
+  br i1 %exitcond118.not, label %._crit_edge99.loopexit, label %.preheader.us, !llvm.loop !85
 
 ._crit_edge99.loopexit:                           ; preds = %._crit_edge.us
   %34 = sitofp i64 %.259.us to double
@@ -3969,7 +3969,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17AGGDfitERKN2cv3MatERdS4_S4_(ptr n
 71:                                               ; preds = %58
   %72 = fadd double %.060111, 1.000000e-03
   %73 = fcmp olt double %72, 1.000000e+01
-  br i1 %73, label %58, label %74, !llvm.loop !85
+  br i1 %73, label %58, label %74, !llvm.loop !86
 
 74:                                               ; preds = %71, %58
   %.066.lcssa = phi double [ %.060111, %71 ], [ %.066109, %58 ]
@@ -4195,22 +4195,23 @@ attributes #28 = { builtin nounwind }
 !79 = !{!50, !51, i64 0}
 !80 = !{!25, !25, i64 0}
 !81 = distinct !{!81, !78}
-!82 = distinct !{!82, !78}
-!83 = distinct !{!83, !78}
+!82 = distinct !{!82, !78, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !84 = distinct !{!84, !78}
-!85 = distinct !{!85, !78}
+!85 = distinct !{!85, !78, !83}
 !86 = distinct !{!86, !78}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK2cv3Mat3rowEi: argument 0"}
-!89 = distinct !{!89, !"_ZNK2cv3Mat3rowEi"}
-!90 = !{!91, !16, i64 0}
-!91 = !{!"_ZTSN2cv5RangeE", !16, i64 0, !16, i64 4}
-!92 = !{!91, !16, i64 4}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZNK2cv3Mat3rowEi: argument 0"}
-!95 = distinct !{!95, !"_ZNK2cv3Mat3rowEi"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZNK2cv3Mat3rowEi: argument 0"}
-!98 = distinct !{!98, !"_ZNK2cv3Mat3rowEi"}
-!99 = distinct !{!99, !78}
+!87 = distinct !{!87, !78}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK2cv3Mat3rowEi: argument 0"}
+!90 = distinct !{!90, !"_ZNK2cv3Mat3rowEi"}
+!91 = !{!92, !16, i64 0}
+!92 = !{!"_ZTSN2cv5RangeE", !16, i64 0, !16, i64 4}
+!93 = !{!92, !16, i64 4}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK2cv3Mat3rowEi: argument 0"}
+!96 = distinct !{!96, !"_ZNK2cv3Mat3rowEi"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK2cv3Mat3rowEi: argument 0"}
+!99 = distinct !{!99, !"_ZNK2cv3Mat3rowEi"}
 !100 = distinct !{!100, !78}
+!101 = distinct !{!101, !78}

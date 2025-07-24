@@ -140,14 +140,14 @@ Abc_Clock.exit..critedge_crit_edge:               ; preds = %Abc_Clock.exit
   %27 = getelementptr inbounds nuw ptr, ptr %.val55, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !52
   %29 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
-  %30 = load float, ptr %29, align 4, !tbaa !59
+  %30 = load float, ptr %29, align 4, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 92
   store float %30, ptr %31, align 4, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store float 1.000000e+00, ptr %32, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !57
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %Abc_Clock.exit..critedge_crit_edge
   %33 = phi ptr [ %.pre, %Abc_Clock.exit..critedge_crit_edge ], [ %20, %.lr.ph.split.us ], [ %20, %.lr.ph.split ]
@@ -246,7 +246,7 @@ Abc_Clock.exit..critedge_crit_edge:               ; preds = %Abc_Clock.exit
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !14
   %90 = icmp slt i32 %87, %89
-  br i1 %90, label %.lr.ph62, label %.preheader, !llvm.loop !60
+  br i1 %90, label %.lr.ph62, label %.preheader, !llvm.loop !62
 
 .lr.ph64:                                         ; preds = %.preheader, %99
   %91 = phi ptr [ %100, %99 ], [ %73, %.preheader ]
@@ -271,7 +271,7 @@ Abc_Clock.exit..critedge_crit_edge:               ; preds = %Abc_Clock.exit
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = icmp slt i32 %101, %103
-  br i1 %104, label %.lr.ph64, label %._crit_edge, !llvm.loop !61
+  br i1 %104, label %.lr.ph64, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %99, %.preheader
   %.lcssa = phi ptr [ %73, %.preheader ], [ %100, %99 ]
@@ -324,16 +324,16 @@ Abc_Clock.exit59:                                 ; preds = %120, %123
   %.0.i58 = phi i64 [ %129, %123 ], [ -1, %120 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %130 = sub nsw i64 %.0.i58, %.0.i
-  store i64 %130, ptr @s_MappingTime, align 8, !tbaa !62
+  store i64 %130, ptr @s_MappingTime, align 8, !tbaa !64
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %132 = load float, ptr %131, align 4, !tbaa !63
+  %132 = load float, ptr %131, align 4, !tbaa !65
   %133 = load ptr, ptr %34, align 8, !tbaa !25
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 276
-  store float %132, ptr %134, align 4, !tbaa !64
+  store float %132, ptr %134, align 4, !tbaa !66
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %136 = load float, ptr %135, align 4, !tbaa !65
+  %136 = load float, ptr %135, align 4, !tbaa !67
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 280
-  store float %136, ptr %137, align 8, !tbaa !66
+  store float %136, ptr %137, align 8, !tbaa !68
   ret i32 1
 }
 
@@ -356,7 +356,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !67
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !69
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -369,7 +369,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !68
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !70
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -377,7 +377,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !68, !noalias !70
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !70, !noalias !72
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -484,19 +484,21 @@ attributes #12 = { nounwind willreturn memory(read) }
 !54 = !{!"If_Cut_t_", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 29, !5, i64 29, !5, i64 29, !5, i64 29, !5, i64 30, !5, i64 31, !5, i64 32, !6, i64 36}
 !55 = !{!56, !8, i64 48}
 !56 = !{!"If_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !28, i64 24, !28, i64 32, !28, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !6, i64 64, !34, i64 72, !54, i64 80}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!8, !8, i64 0}
-!60 = distinct !{!60, !58}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = !{!8, !8, i64 0}
 !61 = distinct !{!61, !58}
-!62 = !{!45, !45, i64 0}
-!63 = !{!26, !8, i64 92}
-!64 = !{!4, !8, i64 276}
-!65 = !{!26, !8, i64 100}
-!66 = !{!4, !8, i64 280}
-!67 = !{!5, !5, i64 0}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"vprintf: argument 0"}
-!72 = distinct !{!72, !"vprintf"}
+!62 = distinct !{!62, !58}
+!63 = distinct !{!63, !58}
+!64 = !{!45, !45, i64 0}
+!65 = !{!26, !8, i64 92}
+!66 = !{!4, !8, i64 276}
+!67 = !{!26, !8, i64 100}
+!68 = !{!4, !8, i64 280}
+!69 = !{!5, !5, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"vprintf: argument 0"}
+!74 = distinct !{!74, !"vprintf"}

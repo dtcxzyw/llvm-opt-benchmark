@@ -1079,4 +1079,5 @@ attributes #19 = { cold }
 !123 = distinct !{!123, !107}
 !124 = !{i8 0, i8 2}
 !125 = distinct !{!125, !107}
-!126 = distinct !{!126, !107}
+!126 = distinct !{!126, !107, !127}
+!127 = !{!"llvm.loop.unswitch.nontrivial.disable"}

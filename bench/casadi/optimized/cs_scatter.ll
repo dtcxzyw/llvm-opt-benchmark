@@ -44,82 +44,80 @@ define i32 @cs_scatter(ptr noundef readonly captures(address_is_null) %0, i32 no
 .lr.ph:                                           ; preds = %19
   %.not50 = icmp eq ptr %4, null
   %34 = sext i32 %30 to i64
-  br i1 %.not50, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %.not50, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %46
-  %35 = phi i32 [ %47, %46 ], [ %32, %.lr.ph ]
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %46 ], [ %34, %.lr.ph ]
-  %.04253.us.us = phi i32 [ %.1.us.us, %46 ], [ %7, %.lr.ph ]
-  %36 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv62
-  %37 = load i32, ptr %36, align 4, !tbaa !14
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %3, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !14
-  %41 = icmp slt i32 %40, %5
-  br i1 %41, label %42, label %46
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %45
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %45 ], [ %34, %.lr.ph ]
+  %.04253.us = phi i32 [ %.1.us, %45 ], [ %7, %.lr.ph ]
+  %35 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv61
+  %36 = load i32, ptr %35, align 4, !tbaa !14
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %3, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !14
+  %40 = icmp slt i32 %39, %5
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %.lr.ph.split.us.split.us
-  store i32 %5, ptr %39, align 4, !tbaa !14
-  %43 = add nsw i32 %.04253.us.us, 1
-  %44 = sext i32 %.04253.us.us to i64
-  %45 = getelementptr inbounds i32, ptr %27, i64 %44
-  store i32 %37, ptr %45, align 4, !tbaa !14
-  %.pre65 = load i32, ptr %31, align 4, !tbaa !14
-  br label %46
+41:                                               ; preds = %.lr.ph.split.us
+  store i32 %5, ptr %38, align 4, !tbaa !14
+  %42 = add nsw i32 %.04253.us, 1
+  %43 = sext i32 %.04253.us to i64
+  %44 = getelementptr inbounds i32, ptr %27, i64 %43
+  store i32 %36, ptr %44, align 4, !tbaa !14
+  br label %45
 
-46:                                               ; preds = %.lr.ph.split.us.split.us, %42
-  %47 = phi i32 [ %.pre65, %42 ], [ %35, %.lr.ph.split.us.split.us ]
-  %.1.us.us = phi i32 [ %43, %42 ], [ %.04253.us.us, %.lr.ph.split.us.split.us ]
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next63, %48
-  br i1 %49, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !15
+45:                                               ; preds = %41, %.lr.ph.split.us
+  %.1.us = phi i32 [ %42, %41 ], [ %.04253.us, %.lr.ph.split.us ]
+  %indvars.iv.next62 = add nsw i64 %indvars.iv61, 1
+  %46 = load i32, ptr %31, align 4, !tbaa !14
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next62, %47
+  br i1 %48, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !15
 
-.lr.ph.split.split:                               ; preds = %.lr.ph, %71
-  %50 = phi i32 [ %72, %71 ], [ %32, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ %34, %.lr.ph ]
-  %.04253 = phi i32 [ %.1, %71 ], [ %7, %.lr.ph ]
-  %51 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4, !tbaa !14
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %3, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !14
-  %56 = icmp slt i32 %55, %5
-  br i1 %56, label %57, label %65
+.lr.ph.split.split:                               ; preds = %.lr.ph, %70
+  %49 = phi i32 [ %71, %70 ], [ %32, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ %34, %.lr.ph ]
+  %.04253 = phi i32 [ %.1, %70 ], [ %7, %.lr.ph ]
+  %50 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %51 = load i32, ptr %50, align 4, !tbaa !14
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %3, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !14
+  %55 = icmp slt i32 %54, %5
+  br i1 %55, label %56, label %64
 
-57:                                               ; preds = %.lr.ph.split.split
-  store i32 %5, ptr %54, align 4, !tbaa !14
-  %58 = add nsw i32 %.04253, 1
-  %59 = sext i32 %.04253 to i64
-  %60 = getelementptr inbounds i32, ptr %27, i64 %59
-  store i32 %52, ptr %60, align 4, !tbaa !14
-  %61 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %62 = load double, ptr %61, align 8, !tbaa !17
-  %63 = fmul double %2, %62
-  %64 = getelementptr inbounds double, ptr %4, i64 %53
-  store double %63, ptr %64, align 8, !tbaa !17
+56:                                               ; preds = %.lr.ph.split.split
+  store i32 %5, ptr %53, align 4, !tbaa !14
+  %57 = add nsw i32 %.04253, 1
+  %58 = sext i32 %.04253 to i64
+  %59 = getelementptr inbounds i32, ptr %27, i64 %58
+  store i32 %51, ptr %59, align 4, !tbaa !14
+  %60 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %61 = load double, ptr %60, align 8, !tbaa !18
+  %62 = fmul double %2, %61
+  %63 = getelementptr inbounds double, ptr %4, i64 %52
+  store double %62, ptr %63, align 8, !tbaa !18
   %.pre = load i32, ptr %31, align 4, !tbaa !14
-  br label %71
+  br label %70
 
-65:                                               ; preds = %.lr.ph.split.split
-  %66 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %67 = load double, ptr %66, align 8, !tbaa !17
-  %68 = getelementptr inbounds double, ptr %4, i64 %53
-  %69 = load double, ptr %68, align 8, !tbaa !17
-  %70 = tail call double @llvm.fmuladd.f64(double %2, double %67, double %69)
-  store double %70, ptr %68, align 8, !tbaa !17
-  br label %71
+64:                                               ; preds = %.lr.ph.split.split
+  %65 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %66 = load double, ptr %65, align 8, !tbaa !18
+  %67 = getelementptr inbounds double, ptr %4, i64 %52
+  %68 = load double, ptr %67, align 8, !tbaa !18
+  %69 = tail call double @llvm.fmuladd.f64(double %2, double %66, double %68)
+  store double %69, ptr %67, align 8, !tbaa !18
+  br label %70
 
-71:                                               ; preds = %57, %65
-  %72 = phi i32 [ %.pre, %57 ], [ %50, %65 ]
-  %.1 = phi i32 [ %58, %57 ], [ %.04253, %65 ]
+70:                                               ; preds = %56, %64
+  %71 = phi i32 [ %.pre, %56 ], [ %49, %64 ]
+  %.1 = phi i32 [ %57, %56 ], [ %.04253, %64 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !15
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %71, %46, %19, %8, %9, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us.us, %46 ], [ %.1, %71 ]
+.loopexit:                                        ; preds = %70, %45, %19, %8, %9, %15
+  %.0 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us, %45 ], [ %.1, %70 ]
   ret i32 %.0
 }
 
@@ -146,7 +144,9 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !12 = !{!4, !8, i64 24}
 !13 = !{!4, !10, i64 32}
 !14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"double", !6, i64 0}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !16}

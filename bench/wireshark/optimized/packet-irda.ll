@@ -2553,7 +2553,7 @@ define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noun
   %250 = add i32 %.086139, 1
   %251 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %249)
   %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %252, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %248, %.lr.ph.split.us, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %10, %.lr.ph.split.us ], [ %249, %248 ]
@@ -2932,7 +2932,7 @@ define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, 
   br i1 %.not4453, label %.critedge46.thread58, label %.lr.ph56
 
 32:                                               ; preds = %.lr.ph
-  br i1 %.not4453, label %.critedge46.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %.not4453, label %.critedge46.thread, label %.lr.ph, !llvm.loop !18
 
 .lr.ph56:                                         ; preds = %.critedge.preheader, %.critedge
   %.03855 = phi ptr [ %.038, %.critedge ], [ %.03852, %.critedge.preheader ]
@@ -2953,7 +2953,7 @@ define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, 
   %.3 = phi ptr [ %.254, %.lr.ph56 ], [ %spec.select, %36 ]
   %.038 = load ptr, ptr %.03855, align 8
   %.not44 = icmp eq ptr %.038, null
-  br i1 %.not44, label %.critedge46, label %.lr.ph56, !llvm.loop !17
+  br i1 %.not44, label %.critedge46, label %.lr.ph56, !llvm.loop !19
 
 .critedge46:                                      ; preds = %.critedge
   %.not45 = icmp eq ptr %.3, null
@@ -2962,7 +2962,7 @@ define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, 
 .critedge46.thread58:                             ; preds = %.critedge.preheader, %.critedge46
   %.2.lcssa61 = phi ptr [ %.3, %.critedge46 ], [ %.151, %.critedge.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %.2.lcssa61, i64 12
-  %41 = load i8, ptr %40, align 4, !range !18, !noundef !19
+  %41 = load i8, ptr %40, align 4, !range !20, !noundef !21
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i32 %3, 1
   %or.cond = and i1 %43, %42
@@ -3073,8 +3073,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!15 = distinct !{!15, !7, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !7}
-!18 = !{i8 0, i8 2}
-!19 = !{}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = !{i8 0, i8 2}
+!21 = !{}

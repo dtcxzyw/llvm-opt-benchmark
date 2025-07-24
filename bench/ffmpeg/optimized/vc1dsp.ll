@@ -1925,7 +1925,7 @@ define internal void @vc1_h_s_overlap_c(ptr noundef captures(none) %0, ptr nound
   %82 = xor i32 %.03647, 7
   %83 = add nuw nsw i32 %.04044, 1
   %exitcond.not = icmp eq i32 %83, 8
-  br i1 %exitcond.not, label %.split50.us, label %.split, !llvm.loop !52
+  br i1 %exitcond.not, label %.split50.us, label %.split, !llvm.loop !54
 
 .split50.us:                                      ; preds = %.split, %.split.us
   ret void
@@ -1984,7 +1984,7 @@ define internal void @vc1_v_s_overlap_c(ptr noundef captures(none) %0, ptr nound
   %40 = xor i32 %.03140, 7
   %41 = add nuw nsw i32 %.03437, 1
   %exitcond.not = icmp eq i32 %41, 8
-  br i1 %exitcond.not, label %42, label %3, !llvm.loop !53
+  br i1 %exitcond.not, label %42, label %3, !llvm.loop !55
 
 42:                                               ; preds = %3
   ret void
@@ -2038,24 +2038,24 @@ define internal void @put_pixels16x16_c(ptr noundef writeonly captures(none) %0,
   %.01316 = phi ptr [ %0, %4 ], [ %17, %5 ]
   %.01415 = phi ptr [ %1, %4 ], [ %16, %5 ]
   %6 = load i32, ptr %.01415, align 1, !tbaa !40
-  store i32 %6, ptr %.01316, align 4, !tbaa !54
+  store i32 %6, ptr %.01316, align 4, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %.01415, i64 4
   %8 = load i32, ptr %7, align 1, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %.01316, i64 4
-  store i32 %8, ptr %9, align 4, !tbaa !54
+  store i32 %8, ptr %9, align 4, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %.01415, i64 8
   %11 = load i32, ptr %10, align 1, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
-  store i32 %11, ptr %12, align 4, !tbaa !54
+  store i32 %11, ptr %12, align 4, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %.01415, i64 12
   %14 = load i32, ptr %13, align 1, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %.01316, i64 12
-  store i32 %14, ptr %15, align 4, !tbaa !54
+  store i32 %14, ptr %15, align 4, !tbaa !56
   %16 = getelementptr inbounds i8, ptr %.01415, i64 %2
   %17 = getelementptr inbounds i8, ptr %.01316, i64 %2
   %18 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %18, 16
-  br i1 %exitcond.not, label %19, label %5, !llvm.loop !56
+  br i1 %exitcond.not, label %19, label %5, !llvm.loop !58
 
 19:                                               ; preds = %5
   ret void
@@ -2069,16 +2069,16 @@ define internal void @avg_pixels16x16_c(ptr noundef captures(none) %0, ptr nound
   %.021 = phi i32 [ 0, %4 ], [ %42, %5 ]
   %.01720 = phi ptr [ %0, %4 ], [ %41, %5 ]
   %.01819 = phi ptr [ %1, %4 ], [ %40, %5 ]
-  %6 = load i32, ptr %.01720, align 4, !tbaa !54
+  %6 = load i32, ptr %.01720, align 4, !tbaa !56
   %7 = load i32, ptr %.01819, align 1, !tbaa !40
   %8 = or i32 %7, %6
   %9 = xor i32 %7, %6
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 2139062143
   %12 = sub i32 %8, %11
-  store i32 %12, ptr %.01720, align 4, !tbaa !54
+  store i32 %12, ptr %.01720, align 4, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !54
+  %14 = load i32, ptr %13, align 4, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %.01819, i64 4
   %16 = load i32, ptr %15, align 1, !tbaa !40
   %17 = or i32 %16, %14
@@ -2086,9 +2086,9 @@ define internal void @avg_pixels16x16_c(ptr noundef captures(none) %0, ptr nound
   %19 = lshr i32 %18, 1
   %20 = and i32 %19, 2139062143
   %21 = sub i32 %17, %20
-  store i32 %21, ptr %13, align 4, !tbaa !54
+  store i32 %21, ptr %13, align 4, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %.01720, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !54
+  %23 = load i32, ptr %22, align 4, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %.01819, i64 8
   %25 = load i32, ptr %24, align 1, !tbaa !40
   %26 = or i32 %25, %23
@@ -2096,9 +2096,9 @@ define internal void @avg_pixels16x16_c(ptr noundef captures(none) %0, ptr nound
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 2139062143
   %30 = sub i32 %26, %29
-  store i32 %30, ptr %22, align 4, !tbaa !54
+  store i32 %30, ptr %22, align 4, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %.01720, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !54
+  %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %.01819, i64 12
   %34 = load i32, ptr %33, align 1, !tbaa !40
   %35 = or i32 %34, %32
@@ -2106,12 +2106,12 @@ define internal void @avg_pixels16x16_c(ptr noundef captures(none) %0, ptr nound
   %37 = lshr i32 %36, 1
   %38 = and i32 %37, 2139062143
   %39 = sub i32 %35, %38
-  store i32 %39, ptr %31, align 4, !tbaa !54
+  store i32 %39, ptr %31, align 4, !tbaa !56
   %40 = getelementptr inbounds i8, ptr %.01819, i64 %2
   %41 = getelementptr inbounds i8, ptr %.01720, i64 %2
   %42 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %42, 16
-  br i1 %exitcond.not, label %43, label %5, !llvm.loop !57
+  br i1 %exitcond.not, label %43, label %5, !llvm.loop !59
 
 43:                                               ; preds = %5
   ret void
@@ -2126,16 +2126,16 @@ define internal void @put_pixels8x8_c(ptr noundef writeonly captures(none) %0, p
   %.0912 = phi ptr [ %0, %4 ], [ %11, %5 ]
   %.01011 = phi ptr [ %1, %4 ], [ %10, %5 ]
   %6 = load i32, ptr %.01011, align 1, !tbaa !40
-  store i32 %6, ptr %.0912, align 4, !tbaa !54
+  store i32 %6, ptr %.0912, align 4, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %.01011, i64 4
   %8 = load i32, ptr %7, align 1, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
-  store i32 %8, ptr %9, align 4, !tbaa !54
+  store i32 %8, ptr %9, align 4, !tbaa !56
   %10 = getelementptr inbounds i8, ptr %.01011, i64 %2
   %11 = getelementptr inbounds i8, ptr %.0912, i64 %2
   %12 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %12, 8
-  br i1 %exitcond.not, label %13, label %5, !llvm.loop !58
+  br i1 %exitcond.not, label %13, label %5, !llvm.loop !60
 
 13:                                               ; preds = %5
   ret void
@@ -2149,16 +2149,16 @@ define internal void @avg_pixels8x8_c(ptr noundef captures(none) %0, ptr noundef
   %.015 = phi i32 [ 0, %4 ], [ %24, %5 ]
   %.01114 = phi ptr [ %0, %4 ], [ %23, %5 ]
   %.01213 = phi ptr [ %1, %4 ], [ %22, %5 ]
-  %6 = load i32, ptr %.01114, align 4, !tbaa !54
+  %6 = load i32, ptr %.01114, align 4, !tbaa !56
   %7 = load i32, ptr %.01213, align 1, !tbaa !40
   %8 = or i32 %7, %6
   %9 = xor i32 %7, %6
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 2139062143
   %12 = sub i32 %8, %11
-  store i32 %12, ptr %.01114, align 4, !tbaa !54
+  store i32 %12, ptr %.01114, align 4, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %.01114, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !54
+  %14 = load i32, ptr %13, align 4, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %.01213, i64 4
   %16 = load i32, ptr %15, align 1, !tbaa !40
   %17 = or i32 %16, %14
@@ -2166,12 +2166,12 @@ define internal void @avg_pixels8x8_c(ptr noundef captures(none) %0, ptr noundef
   %19 = lshr i32 %18, 1
   %20 = and i32 %19, 2139062143
   %21 = sub i32 %17, %20
-  store i32 %21, ptr %13, align 4, !tbaa !54
+  store i32 %21, ptr %13, align 4, !tbaa !56
   %22 = getelementptr inbounds i8, ptr %.01213, i64 %2
   %23 = getelementptr inbounds i8, ptr %.01114, i64 %2
   %24 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %24, 8
-  br i1 %exitcond.not, label %25, label %5, !llvm.loop !59
+  br i1 %exitcond.not, label %25, label %5, !llvm.loop !61
 
 25:                                               ; preds = %5
   ret void
@@ -2227,14 +2227,14 @@ define internal void @put_vc1_mspel_mc01_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i82.i, ptr %34, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %35, label %11, !llvm.loop !62
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.175.i6, i64 %2
   %37 = getelementptr inbounds i8, ptr %.166.i8, i64 %2
   %38 = add nuw nsw i32 %.269.i7, 1
   %exitcond11.not = icmp eq i32 %38, 8
-  br i1 %exitcond11.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !61
+  br i1 %exitcond11.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
 
 put_vc1_mspel_mc.exit:                            ; preds = %35
   ret void
@@ -2290,14 +2290,14 @@ define internal void @put_vc1_mspel_mc01_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i82.i, ptr %34, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %35, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %35, label %11, !llvm.loop !64
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.175.i6, i64 %2
   %37 = getelementptr inbounds i8, ptr %.166.i8, i64 %2
   %38 = add nuw nsw i32 %.269.i7, 1
   %exitcond11.not = icmp eq i32 %38, 16
-  br i1 %exitcond11.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond11.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %35
   ret void
@@ -2360,14 +2360,14 @@ define internal void @avg_vc1_mspel_mc01_c(ptr noundef captures(none) %0, ptr no
   store i8 %41, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %42, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %42, label %11, !llvm.loop !66
 
 42:                                               ; preds = %11
   %43 = getelementptr inbounds i8, ptr %.181.i6, i64 %2
   %44 = getelementptr inbounds i8, ptr %.172.i8, i64 %2
   %45 = add nuw nsw i32 %.275.i7, 1
   %exitcond11.not = icmp eq i32 %45, 8
-  br i1 %exitcond11.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond11.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
 
 avg_vc1_mspel_mc.exit:                            ; preds = %42
   ret void
@@ -2430,14 +2430,14 @@ define internal void @avg_vc1_mspel_mc01_16_c(ptr noundef captures(none) %0, ptr
   store i8 %41, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %42, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %42, label %11, !llvm.loop !68
 
 42:                                               ; preds = %11
   %43 = getelementptr inbounds i8, ptr %.181.i6, i64 %2
   %44 = getelementptr inbounds i8, ptr %.172.i8, i64 %2
   %45 = add nuw nsw i32 %.275.i7, 1
   %exitcond11.not = icmp eq i32 %45, 16
-  br i1 %exitcond11.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond11.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %42
   ret void
@@ -2491,14 +2491,14 @@ define internal void @put_vc1_mspel_mc02_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i82.i, ptr %32, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %33, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %33, label %11, !llvm.loop !62
 
 33:                                               ; preds = %11
   %34 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %35 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %36 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %36, 8
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !61
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
 
 put_vc1_mspel_mc.exit:                            ; preds = %33
   ret void
@@ -2552,14 +2552,14 @@ define internal void @put_vc1_mspel_mc02_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i82.i, ptr %32, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %33, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %33, label %11, !llvm.loop !64
 
 33:                                               ; preds = %11
   %34 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %35 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %36 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %36, 16
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %33
   ret void
@@ -2620,14 +2620,14 @@ define internal void @avg_vc1_mspel_mc02_c(ptr noundef captures(none) %0, ptr no
   store i8 %39, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %40, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %40, label %11, !llvm.loop !66
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %42 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %43 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %43, 8
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
 
 avg_vc1_mspel_mc.exit:                            ; preds = %40
   ret void
@@ -2688,14 +2688,14 @@ define internal void @avg_vc1_mspel_mc02_16_c(ptr noundef captures(none) %0, ptr
   store i8 %39, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %40, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %40, label %11, !llvm.loop !68
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %42 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %43 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %43, 16
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %40
   ret void
@@ -2752,14 +2752,14 @@ define internal void @put_vc1_mspel_mc03_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i82.i, ptr %35, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %36, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %36, label %11, !llvm.loop !62
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %38 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %39 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %39, 8
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !61
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
 
 put_vc1_mspel_mc.exit:                            ; preds = %36
   ret void
@@ -2816,14 +2816,14 @@ define internal void @put_vc1_mspel_mc03_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i82.i, ptr %35, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %36, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %36, label %11, !llvm.loop !64
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %38 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %39 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %39, 16
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %36
   ret void
@@ -2887,14 +2887,14 @@ define internal void @avg_vc1_mspel_mc03_c(ptr noundef captures(none) %0, ptr no
   store i8 %42, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %43, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %43, label %11, !llvm.loop !66
 
 43:                                               ; preds = %11
   %44 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %45 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %46 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %46, 8
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
 
 avg_vc1_mspel_mc.exit:                            ; preds = %43
   ret void
@@ -2958,14 +2958,14 @@ define internal void @avg_vc1_mspel_mc03_16_c(ptr noundef captures(none) %0, ptr
   store i8 %42, ptr %12, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %43, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %43, label %11, !llvm.loop !68
 
 43:                                               ; preds = %11
   %44 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %45 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %46 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %46, 16
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %43
   ret void
@@ -3014,14 +3014,14 @@ define internal void @put_vc1_mspel_mc10_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i.i, ptr %27, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !68
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !70
 
 28:                                               ; preds = %5
   %29 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %30 = getelementptr inbounds i8, ptr %.276.i5, i64 %2
   %31 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %31, 8
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
 
 put_vc1_mspel_mc.exit:                            ; preds = %28
   ret void
@@ -3070,14 +3070,14 @@ define internal void @put_vc1_mspel_mc10_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i.i, ptr %27, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !72
 
 28:                                               ; preds = %5
   %29 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %30 = getelementptr inbounds i8, ptr %.276.i5, i64 %2
   %31 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %31, 16
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %28
   ret void
@@ -3133,14 +3133,14 @@ define internal void @avg_vc1_mspel_mc10_c(ptr noundef captures(none) %0, ptr no
   store i8 %34, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %35, label %5, !llvm.loop !74
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %37 = getelementptr inbounds i8, ptr %.282.i5, i64 %2
   %38 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %38, 8
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
 
 avg_vc1_mspel_mc.exit:                            ; preds = %35
   ret void
@@ -3196,14 +3196,14 @@ define internal void @avg_vc1_mspel_mc10_16_c(ptr noundef captures(none) %0, ptr
   store i8 %34, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %35, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %35, label %5, !llvm.loop !76
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %37 = getelementptr inbounds i8, ptr %.282.i5, i64 %2
   %38 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %38, 16
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %35
   ret void
@@ -3258,14 +3258,14 @@ define internal void @put_vc1_mspel_mc11_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond21.not = icmp eq i32 %39, 8
-  br i1 %exitcond21.not, label %40, label %.preheader9, !llvm.loop !77
+  br i1 %exitcond21.not, label %40, label %.preheader9, !llvm.loop !79
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3310,14 +3310,14 @@ define internal void @put_vc1_mspel_mc11_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %64, label %42, !llvm.loop !78
+  br i1 %exitcond25.not, label %64, label %42, !llvm.loop !80
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %67 = add nuw nsw i32 %.168.i15, 1
   %exitcond26.not = icmp eq i32 %67, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %64
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3373,14 +3373,14 @@ define internal void @put_vc1_mspel_mc11_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %39 = add nuw nsw i32 %.067.i9, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !81
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !83
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3425,14 +3425,14 @@ define internal void @put_vc1_mspel_mc11_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %64, label %42, !llvm.loop !82
+  br i1 %exitcond22.not, label %64, label %42, !llvm.loop !84
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i13, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %67 = add nuw nsw i32 %.168.i12, 1
   %exitcond23.not = icmp eq i32 %67, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3488,14 +3488,14 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 22
   %39 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %39, 8
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !85
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !87
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3547,14 +3547,14 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
   store i8 %70, ptr %43, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !86
+  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !88
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 22
   %74 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %74, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %71
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3610,14 +3610,14 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %39 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !89
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !91
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3669,14 +3669,14 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
   store i8 %70, ptr %43, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !90
+  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !92
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %74 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %74, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %71
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3729,14 +3729,14 @@ define internal void @put_vc1_mspel_mc12_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !76
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i12, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 22
   %36 = add nuw nsw i32 %.067.i13, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader10, !llvm.loop !77
+  br i1 %exitcond21.not, label %37, label %.preheader10, !llvm.loop !79
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3781,14 +3781,14 @@ define internal void @put_vc1_mspel_mc12_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !78
+  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !80
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i17, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i18, i64 22
   %64 = add nuw nsw i32 %.168.i16, 1
   %exitcond26.not = icmp eq i32 %64, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %61
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3841,14 +3841,14 @@ define internal void @put_vc1_mspel_mc12_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !80
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 38
   %36 = add nuw nsw i32 %.067.i11, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !81
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !83
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3893,14 +3893,14 @@ define internal void @put_vc1_mspel_mc12_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %61, label %39, !llvm.loop !82
+  br i1 %exitcond23.not, label %61, label %39, !llvm.loop !84
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i15, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 38
   %64 = add nuw nsw i32 %.168.i14, 1
   %exitcond24.not = icmp eq i32 %64, 16
-  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3953,14 +3953,14 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !84
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 22
   %36 = add nuw nsw i32 %.073.i11, 1
   %exitcond19.not = icmp eq i32 %36, 8
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !85
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !87
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4012,14 +4012,14 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
   store i8 %67, ptr %40, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 8
-  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !86
+  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !88
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i15, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 22
   %71 = add nuw nsw i32 %.174.i14, 1
   %exitcond24.not = icmp eq i32 %71, 8
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %68
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4072,14 +4072,14 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !88
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 38
   %36 = add nuw nsw i32 %.073.i11, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !89
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !91
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4131,14 +4131,14 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
   store i8 %67, ptr %40, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !90
+  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !92
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i15, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 38
   %71 = add nuw nsw i32 %.174.i14, 1
   %exitcond24.not = icmp eq i32 %71, 16
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %68
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4194,14 +4194,14 @@ define internal void @put_vc1_mspel_mc13_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i10, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 22
   %40 = add nuw nsw i32 %.067.i11, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader8, !llvm.loop !77
+  br i1 %exitcond20.not, label %41, label %.preheader8, !llvm.loop !79
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4246,14 +4246,14 @@ define internal void @put_vc1_mspel_mc13_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !78
+  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !80
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i15, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 22
   %68 = add nuw nsw i32 %.168.i14, 1
   %exitcond25.not = icmp eq i32 %68, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %65
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4309,14 +4309,14 @@ define internal void @put_vc1_mspel_mc13_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %40 = add nuw nsw i32 %.067.i9, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !81
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !83
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4361,14 +4361,14 @@ define internal void @put_vc1_mspel_mc13_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %65, label %43, !llvm.loop !82
+  br i1 %exitcond22.not, label %65, label %43, !llvm.loop !84
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i13, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %68 = add nuw nsw i32 %.168.i12, 1
   %exitcond23.not = icmp eq i32 %68, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4424,14 +4424,14 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 22
   %40 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %40, 8
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !85
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !87
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4483,14 +4483,14 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
   store i8 %71, ptr %44, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !86
+  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !88
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 22
   %75 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %75, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %72
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4546,14 +4546,14 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %40 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !89
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !91
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4605,14 +4605,14 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
   store i8 %71, ptr %44, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !90
+  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !92
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %75 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %75, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %72
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4659,14 +4659,14 @@ define internal void @put_vc1_mspel_mc20_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i.i, ptr %26, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %27, label %5, !llvm.loop !68
+  br i1 %exitcond.not, label %27, label %5, !llvm.loop !70
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %29 = getelementptr inbounds i8, ptr %.276.i8, i64 %2
   %30 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %30, 8
-  br i1 %exitcond12.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond12.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
 
 put_vc1_mspel_mc.exit:                            ; preds = %27
   ret void
@@ -4712,14 +4712,14 @@ define internal void @put_vc1_mspel_mc20_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i.i, ptr %26, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %27, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %27, label %5, !llvm.loop !72
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %29 = getelementptr inbounds i8, ptr %.276.i8, i64 %2
   %30 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %30, 16
-  br i1 %exitcond12.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond12.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %27
   ret void
@@ -4772,14 +4772,14 @@ define internal void @avg_vc1_mspel_mc20_c(ptr noundef captures(none) %0, ptr no
   store i8 %33, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %34, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %34, label %5, !llvm.loop !74
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %36 = getelementptr inbounds i8, ptr %.282.i8, i64 %2
   %37 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %37, 8
-  br i1 %exitcond12.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond12.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
 
 avg_vc1_mspel_mc.exit:                            ; preds = %34
   ret void
@@ -4832,14 +4832,14 @@ define internal void @avg_vc1_mspel_mc20_16_c(ptr noundef captures(none) %0, ptr
   store i8 %33, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %34, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %34, label %5, !llvm.loop !76
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %36 = getelementptr inbounds i8, ptr %.282.i8, i64 %2
   %37 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %37, 16
-  br i1 %exitcond12.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond12.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %34
   ret void
@@ -4894,14 +4894,14 @@ define internal void @put_vc1_mspel_mc21_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %39 = add nuw nsw i32 %.067.i14, 1
   %exitcond22.not = icmp eq i32 %39, 8
-  br i1 %exitcond22.not, label %40, label %.preheader11, !llvm.loop !77
+  br i1 %exitcond22.not, label %40, label %.preheader11, !llvm.loop !79
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4943,14 +4943,14 @@ define internal void @put_vc1_mspel_mc21_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %64, label %42, !llvm.loop !78
+  br i1 %exitcond26.not, label %64, label %42, !llvm.loop !80
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %67 = add nuw nsw i32 %.168.i17, 1
   %exitcond27.not = icmp eq i32 %67, 8
-  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %64
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5006,14 +5006,14 @@ define internal void @put_vc1_mspel_mc21_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %39, 16
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !81
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !83
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5055,14 +5055,14 @@ define internal void @put_vc1_mspel_mc21_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %64, label %42, !llvm.loop !82
+  br i1 %exitcond24.not, label %64, label %42, !llvm.loop !84
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %67 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %67, 16
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5118,14 +5118,14 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %39, 8
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !85
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !87
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5174,14 +5174,14 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
   store i8 %70, ptr %43, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !86
+  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !88
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %74 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %74, 8
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %71
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5237,14 +5237,14 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %39 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %39, 16
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !89
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !91
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5293,14 +5293,14 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
   store i8 %70, ptr %43, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !90
+  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !92
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %74 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %74, 16
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %71
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5352,14 +5352,14 @@ define internal void @put_vc1_mspel_mc22_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !76
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i15, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 22
   %36 = add nuw nsw i32 %.067.i16, 1
   %exitcond23.not = icmp eq i32 %36, 8
-  br i1 %exitcond23.not, label %37, label %.preheader13, !llvm.loop !77
+  br i1 %exitcond23.not, label %37, label %.preheader13, !llvm.loop !79
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5401,14 +5401,14 @@ define internal void @put_vc1_mspel_mc22_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 8
-  br i1 %exitcond27.not, label %61, label %39, !llvm.loop !78
+  br i1 %exitcond27.not, label %61, label %39, !llvm.loop !80
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i20, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i21, i64 22
   %64 = add nuw nsw i32 %.168.i19, 1
   %exitcond28.not = icmp eq i32 %64, 8
-  br i1 %exitcond28.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond28.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %61
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5460,14 +5460,14 @@ define internal void @put_vc1_mspel_mc22_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !80
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 38
   %36 = add nuw nsw i32 %.067.i14, 1
   %exitcond21.not = icmp eq i32 %36, 16
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !81
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !83
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5509,14 +5509,14 @@ define internal void @put_vc1_mspel_mc22_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
-  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !82
+  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !84
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 38
   %64 = add nuw nsw i32 %.168.i17, 1
   %exitcond26.not = icmp eq i32 %64, 16
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5568,14 +5568,14 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !84
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %36 = add nuw nsw i32 %.073.i14, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !85
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !87
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5624,14 +5624,14 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
   store i8 %67, ptr %40, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !86
+  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !88
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i18, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %71 = add nuw nsw i32 %.174.i17, 1
   %exitcond26.not = icmp eq i32 %71, 8
-  br i1 %exitcond26.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond26.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %68
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5683,14 +5683,14 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !88
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 38
   %36 = add nuw nsw i32 %.073.i14, 1
   %exitcond21.not = icmp eq i32 %36, 16
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !89
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !91
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5739,14 +5739,14 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
   store i8 %67, ptr %40, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
-  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !90
+  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !92
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i18, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 38
   %71 = add nuw nsw i32 %.174.i17, 1
   %exitcond26.not = icmp eq i32 %71, 16
-  br i1 %exitcond26.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond26.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %68
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5802,14 +5802,14 @@ define internal void @put_vc1_mspel_mc23_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %40 = add nuw nsw i32 %.067.i14, 1
   %exitcond22.not = icmp eq i32 %40, 8
-  br i1 %exitcond22.not, label %41, label %.preheader11, !llvm.loop !77
+  br i1 %exitcond22.not, label %41, label %.preheader11, !llvm.loop !79
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5851,14 +5851,14 @@ define internal void @put_vc1_mspel_mc23_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %65, label %43, !llvm.loop !78
+  br i1 %exitcond26.not, label %65, label %43, !llvm.loop !80
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %68 = add nuw nsw i32 %.168.i17, 1
   %exitcond27.not = icmp eq i32 %68, 8
-  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %65
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5914,14 +5914,14 @@ define internal void @put_vc1_mspel_mc23_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %40 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %40, 16
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !81
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !83
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5963,14 +5963,14 @@ define internal void @put_vc1_mspel_mc23_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !82
+  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !84
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %68 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %68, 16
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6026,14 +6026,14 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %40 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !85
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !87
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6082,14 +6082,14 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
   store i8 %71, ptr %44, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !86
+  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !88
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %75 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %75, 8
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %72
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6145,14 +6145,14 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %40 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %40, 16
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !89
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !91
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6201,14 +6201,14 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
   store i8 %71, ptr %44, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !90
+  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !92
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %75 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %75, 16
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %72
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6258,14 +6258,14 @@ define internal void @put_vc1_mspel_mc30_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i.i, ptr %29, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %30, label %5, !llvm.loop !68
+  br i1 %exitcond.not, label %30, label %5, !llvm.loop !70
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %32 = getelementptr inbounds i8, ptr %.276.i6, i64 %2
   %33 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %33, 8
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
 
 put_vc1_mspel_mc.exit:                            ; preds = %30
   ret void
@@ -6314,14 +6314,14 @@ define internal void @put_vc1_mspel_mc30_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i.i, ptr %29, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %30, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %30, label %5, !llvm.loop !72
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %32 = getelementptr inbounds i8, ptr %.276.i6, i64 %2
   %33 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %33, 16
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %30
   ret void
@@ -6377,14 +6377,14 @@ define internal void @avg_vc1_mspel_mc30_c(ptr noundef captures(none) %0, ptr no
   store i8 %36, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %37, label %5, !llvm.loop !74
 
 37:                                               ; preds = %5
   %38 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %39 = getelementptr inbounds i8, ptr %.282.i6, i64 %2
   %40 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %40, 8
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
 
 avg_vc1_mspel_mc.exit:                            ; preds = %37
   ret void
@@ -6440,14 +6440,14 @@ define internal void @avg_vc1_mspel_mc30_16_c(ptr noundef captures(none) %0, ptr
   store i8 %36, ptr %6, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %37, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %37, label %5, !llvm.loop !76
 
 37:                                               ; preds = %5
   %38 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %39 = getelementptr inbounds i8, ptr %.282.i6, i64 %2
   %40 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %40, 16
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %37
   ret void
@@ -6502,14 +6502,14 @@ define internal void @put_vc1_mspel_mc31_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %39, 8
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !77
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !79
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6554,14 +6554,14 @@ define internal void @put_vc1_mspel_mc31_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %65, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %66, label %42, !llvm.loop !78
+  br i1 %exitcond24.not, label %66, label %42, !llvm.loop !80
 
 66:                                               ; preds = %42
   %67 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %68 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %69 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %69, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %66
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6617,14 +6617,14 @@ define internal void @put_vc1_mspel_mc31_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %39 = add nuw nsw i32 %.067.i10, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !81
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !83
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6669,14 +6669,14 @@ define internal void @put_vc1_mspel_mc31_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %65, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %66, label %42, !llvm.loop !82
+  br i1 %exitcond22.not, label %66, label %42, !llvm.loop !84
 
 66:                                               ; preds = %42
   %67 = getelementptr inbounds i8, ptr %.065.i14, i64 %2
   %68 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %69 = add nuw nsw i32 %.168.i13, 1
   %exitcond23.not = icmp eq i32 %69, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %66
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6732,14 +6732,14 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 22
   %39 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %39, 8
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !85
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !87
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6791,14 +6791,14 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
   store i8 %72, ptr %43, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !86
+  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !88
 
 73:                                               ; preds = %42
   %74 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %75 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 22
   %76 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %76, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %73
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6854,14 +6854,14 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %39 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !89
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !91
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6913,14 +6913,14 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
   store i8 %72, ptr %43, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !90
+  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !92
 
 73:                                               ; preds = %42
   %74 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %75 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %76 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %76, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %73
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6973,14 +6973,14 @@ define internal void @put_vc1_mspel_mc32_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !76
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %36 = add nuw nsw i32 %.067.i14, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !77
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !79
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7025,14 +7025,14 @@ define internal void @put_vc1_mspel_mc32_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %62, align 1, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %63, label %39, !llvm.loop !78
+  br i1 %exitcond25.not, label %63, label %39, !llvm.loop !80
 
 63:                                               ; preds = %39
   %64 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %65 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %66 = add nuw nsw i32 %.168.i17, 1
   %exitcond26.not = icmp eq i32 %66, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %63
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7085,14 +7085,14 @@ define internal void @put_vc1_mspel_mc32_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !80
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %36 = add nuw nsw i32 %.067.i12, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !81
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !83
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7137,14 +7137,14 @@ define internal void @put_vc1_mspel_mc32_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %62, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %63, label %39, !llvm.loop !82
+  br i1 %exitcond23.not, label %63, label %39, !llvm.loop !84
 
 63:                                               ; preds = %39
   %64 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %65 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %66 = add nuw nsw i32 %.168.i15, 1
   %exitcond24.not = icmp eq i32 %66, 16
-  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %63
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7197,14 +7197,14 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !84
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %36 = add nuw nsw i32 %.073.i12, 1
   %exitcond19.not = icmp eq i32 %36, 8
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !85
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !87
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7256,14 +7256,14 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
   store i8 %69, ptr %40, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 8
-  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !86
+  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !88
 
 70:                                               ; preds = %39
   %71 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %72 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %73 = add nuw nsw i32 %.174.i15, 1
   %exitcond24.not = icmp eq i32 %73, 8
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %70
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7316,14 +7316,14 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !88
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %36 = add nuw nsw i32 %.073.i12, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !89
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !91
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7375,14 +7375,14 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
   store i8 %69, ptr %40, align 1, !tbaa !40
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !90
+  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !92
 
 70:                                               ; preds = %39
   %71 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %72 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %73 = add nuw nsw i32 %.174.i15, 1
   %exitcond24.not = icmp eq i32 %73, 16
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %70
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7438,14 +7438,14 @@ define internal void @put_vc1_mspel_mc33_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !76
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %40 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !77
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !79
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7490,14 +7490,14 @@ define internal void @put_vc1_mspel_mc33_c(ptr noundef writeonly captures(none) 
   store i8 %.0.i85.i, ptr %66, align 1, !tbaa !40
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %67, label %43, !llvm.loop !78
+  br i1 %exitcond24.not, label %67, label %43, !llvm.loop !80
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %69 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %70 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %70, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
 
 put_vc1_mspel_mc.exit:                            ; preds = %67
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7553,14 +7553,14 @@ define internal void @put_vc1_mspel_mc33_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %40 = add nuw nsw i32 %.067.i10, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !81
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !83
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7605,14 +7605,14 @@ define internal void @put_vc1_mspel_mc33_16_c(ptr noundef writeonly captures(non
   store i8 %.0.i85.i, ptr %66, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %67, label %43, !llvm.loop !82
+  br i1 %exitcond22.not, label %67, label %43, !llvm.loop !84
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds i8, ptr %.065.i14, i64 %2
   %69 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %70 = add nuw nsw i32 %.168.i13, 1
   %exitcond23.not = icmp eq i32 %70, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !83
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %67
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7668,14 +7668,14 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !84
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 22
   %40 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %40, 8
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !85
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !87
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7727,14 +7727,14 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
   store i8 %73, ptr %44, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !86
+  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !88
 
 74:                                               ; preds = %43
   %75 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %76 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 22
   %77 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %77, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
 
 avg_vc1_mspel_mc.exit:                            ; preds = %74
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7790,14 +7790,14 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !88
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %40 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !89
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !91
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7849,14 +7849,14 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
   store i8 %73, ptr %44, align 1, !tbaa !40
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !90
+  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !92
 
 74:                                               ; preds = %43
   %75 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %76 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %77 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %77, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %74
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -8057,7 +8057,7 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %182 = getelementptr inbounds i8, ptr %.0102105, i64 %2
   %183 = add nuw nsw i32 %.0106, 1
   %exitcond.not = icmp eq i32 %183, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -8301,7 +8301,7 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %222 = getelementptr inbounds i8, ptr %.0110113.lver.orig, i64 %2
   %223 = add nuw nsw i32 %.0114.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %223, %3
-  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !93
+  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !95
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -8531,7 +8531,7 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %431 = getelementptr inbounds nuw i8, ptr %.0110113, i64 %2
   %432 = add nuw nsw i32 %.0114, 1
   %exitcond.not = icmp eq i32 %432, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph.lver.orig, %.lr.ph, %6
   ret void
@@ -8643,7 +8643,7 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %98 = getelementptr inbounds i8, ptr %.05861, i64 %2
   %99 = add nuw nsw i32 %.062, 1
   %exitcond.not = icmp eq i32 %99, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -8779,7 +8779,7 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %118 = getelementptr inbounds i8, ptr %.06265.lver.orig, i64 %2
   %119 = add nuw nsw i32 %.066.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %119, %3
-  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !95
+  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !97
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -8901,7 +8901,7 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %223 = getelementptr inbounds nuw i8, ptr %.06265, i64 %2
   %224 = add nuw nsw i32 %.066, 1
   %exitcond.not = icmp eq i32 %224, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph.lver.orig, %.lr.ph, %6
   ret void
@@ -8935,7 +8935,7 @@ define internal void @sprite_h_c(ptr noundef writeonly captures(none) %0, ptr no
   store i8 %20, ptr %.016, align 1, !tbaa !40
   %22 = add nsw i32 %.01115, %3
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -8966,7 +8966,7 @@ define internal void @sprite_v_single_c(ptr noundef writeonly captures(none) %0,
   %18 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
   store i8 %17, ptr %.0.i8, align 1, !tbaa !40
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %5
   ret void
@@ -8997,7 +8997,7 @@ define internal void @sprite_v_double_noscale_c(ptr noundef writeonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
   store i8 %17, ptr %.0.i8, align 1, !tbaa !40
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %5
   ret void
@@ -9036,7 +9036,7 @@ define internal void @sprite_v_double_onescale_c(ptr noundef writeonly captures(
   %27 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 1
   store i8 %26, ptr %.0.i11, align 1, !tbaa !40
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %7
   ret void
@@ -9083,7 +9083,7 @@ define internal void @sprite_v_double_twoscale_c(ptr noundef writeonly captures(
   %36 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 1
   store i8 %35, ptr %.0.i14, align 1, !tbaa !40
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %9
   ret void
@@ -9114,7 +9114,7 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
   store i8 %8, ptr %.03046, align 1, !tbaa !40
   %10 = add nuw nsw i32 %.02847, 1
   %exitcond.not = icmp eq i32 %10, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
 
 11:                                               ; preds = %.preheader40, %31
   %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %31 ]
@@ -9164,7 +9164,7 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
   %32 = add nsw i32 %.1, 1
   %33 = getelementptr inbounds nuw i8, ptr %.234, i64 1
   %34 = icmp slt i32 %32, %1
-  br i1 %34, label %11, label %.loopexit.loopexit48, !llvm.loop !99
+  br i1 %34, label %11, label %.loopexit.loopexit48, !llvm.loop !101
 
 .loopexit.loopexit48:                             ; preds = %31
   %35 = trunc nuw i64 %indvars.iv.next to i32
@@ -9611,7 +9611,7 @@ vc1_filter_line.exit66:                           ; preds = %42, %71, %19, %vc1_
   %327 = getelementptr inbounds i8, ptr %.070, i64 %11
   %328 = add nuw nsw i32 %.02169, 4
   %329 = icmp samesign ult i32 %328, %3
-  br i1 %329, label %19, label %330, !llvm.loop !100
+  br i1 %329, label %19, label %330, !llvm.loop !102
 
 330:                                              ; preds = %vc1_filter_line.exit66
   ret void
@@ -9689,12 +9689,12 @@ attributes #7 = { nounwind }
 !49 = distinct !{!49, !37}
 !50 = distinct !{!50, !37}
 !51 = distinct !{!51, !37}
-!52 = distinct !{!52, !37}
-!53 = distinct !{!53, !37}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"int", !7, i64 0}
-!56 = distinct !{!56, !37}
-!57 = distinct !{!57, !37}
+!52 = distinct !{!52, !37, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !37}
+!55 = distinct !{!55, !37}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"int", !7, i64 0}
 !58 = distinct !{!58, !37}
 !59 = distinct !{!59, !37}
 !60 = distinct !{!60, !37}
@@ -9738,3 +9738,5 @@ attributes #7 = { nounwind }
 !98 = distinct !{!98, !37}
 !99 = distinct !{!99, !37}
 !100 = distinct !{!100, !37}
+!101 = distinct !{!101, !37}
+!102 = distinct !{!102, !37}

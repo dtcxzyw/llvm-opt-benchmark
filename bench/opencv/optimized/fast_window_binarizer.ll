@@ -797,25 +797,25 @@ define hidden void @_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii(ptr 
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %26 = icmp samesign ult i64 %indvars.iv.next51, %10
   %indvars.iv.next46 = add i32 %indvars.iv45, %14
-  br i1 %26, label %20, label %._crit_edge.us.us, !llvm.loop !53
+  br i1 %26, label %20, label %._crit_edge.us.us, !llvm.loop !54
 
 27:                                               ; preds = %27, %20
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %27 ], [ %21, %20 ]
   %.130.us.us = phi i32 [ %30, %27 ], [ %.02732.us.us, %20 ]
   %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv47
-  %29 = load i32, ptr %28, align 4, !tbaa !54
+  %29 = load i32, ptr %28, align 4, !tbaa !55
   %30 = add nsw i32 %29, %.130.us.us
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
   %31 = icmp slt i64 %indvars.iv.next48, %24
-  br i1 %31, label %27, label %25, !llvm.loop !55
+  br i1 %31, label %27, label %25, !llvm.loop !56
 
 ._crit_edge.us.us:                                ; preds = %25
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv53
-  store i32 %30, ptr %gep, align 4, !tbaa !54
+  store i32 %30, ptr %gep, align 4, !tbaa !55
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, 6
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.us.us, !llvm.loop !56
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.us.us, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph, %5
   ret void
@@ -850,25 +850,25 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   %15 = getelementptr inbounds nuw i32, ptr %9, i64 %14
   %16 = mul nuw nsw i64 %indvars.iv66, %13
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
-  store i32 0, ptr %15, align 4, !tbaa !54
+  store i32 0, ptr %15, align 4, !tbaa !55
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %18
   %indvars.iv61 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next62, %18 ]
   %.04245.us = phi i32 [ 0, %.lr.ph.us ], [ %21, %18 ]
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv61
-  %20 = load i32, ptr %19, align 4, !tbaa !54
+  %20 = load i32, ptr %19, align 4, !tbaa !55
   %21 = add nsw i32 %20, %.04245.us
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next62
-  store i32 %21, ptr %22, align 4, !tbaa !54
+  store i32 %21, ptr %22, align 4, !tbaa !55
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %13
-  br i1 %exitcond65.not, label %._crit_edge.us, label %18, !llvm.loop !57
+  br i1 %exitcond65.not, label %._crit_edge.us, label %18, !llvm.loop !58
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.lr.ph.us56.preheader, label %.lr.ph.us, !llvm.loop !58
+  br i1 %exitcond70.not, label %.lr.ph.us56.preheader, label %.lr.ph.us, !llvm.loop !59
 
 .preheader.thread85:                              ; preds = %.lr.ph49.split
   %.not5286 = icmp slt i32 %3, 0
@@ -881,7 +881,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
 .lr.ph54.split.preheader:                         ; preds = %.preheader.thread
   %23 = zext i32 %6 to i64
   %24 = shl nuw nsw i64 %23, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %24, i1 false), !tbaa !54
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %24, i1 false), !tbaa !55
   br label %._crit_edge55
 
 .lr.ph.us56.preheader:                            ; preds = %._crit_edge.us, %.preheader.thread85
@@ -894,7 +894,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
 .lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
   %indvars.iv79 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next80, %._crit_edge.us57 ]
   %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
-  store i32 0, ptr %27, align 4, !tbaa !54
+  store i32 0, ptr %27, align 4, !tbaa !55
   %invariant.gep = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv79
   %invariant.gep88 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
   br label %28
@@ -904,28 +904,28 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   %.03950.us = phi i32 [ 0, %.lr.ph.us56 ], [ %31, %28 ]
   %29 = mul nuw nsw i64 %indvars.iv74, %26
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %29
-  %30 = load i32, ptr %gep, align 4, !tbaa !54
+  %30 = load i32, ptr %gep, align 4, !tbaa !55
   %31 = add nsw i32 %30, %.03950.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %32 = mul nuw nsw i64 %indvars.iv.next75, %26
   %gep89 = getelementptr inbounds nuw i32, ptr %invariant.gep88, i64 %32
-  store i32 %31, ptr %gep89, align 4, !tbaa !54
+  store i32 %31, ptr %gep89, align 4, !tbaa !55
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge.us57, label %28, !llvm.loop !59
+  br i1 %exitcond78.not, label %._crit_edge.us57, label %28, !llvm.loop !60
 
 ._crit_edge.us57:                                 ; preds = %28
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %26
-  br i1 %exitcond83.not, label %._crit_edge55, label %.lr.ph.us56, !llvm.loop !60
+  br i1 %exitcond83.not, label %._crit_edge55, label %.lr.ph.us56, !llvm.loop !61
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49.split.preheader, %.lr.ph49.split
   %indvars.iv = phi i64 [ 0, %.lr.ph49.split.preheader ], [ %indvars.iv.next, %.lr.ph49.split ]
   %33 = mul nsw i64 %indvars.iv, %11
   %34 = getelementptr inbounds i32, ptr %9, i64 %33
-  store i32 0, ptr %34, align 4, !tbaa !54
+  store i32 0, ptr %34, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.thread85, label %.lr.ph49.split, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader.thread85, label %.lr.ph49.split, !llvm.loop !62
 
 ._crit_edge55:                                    ; preds = %._crit_edge.us57, %.preheader.thread85, %.preheader.thread, %.lr.ph54.split.preheader
   ret void
@@ -938,8 +938,8 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %6 = sext i32 %5 to i64
   %7 = getelementptr i32, ptr %2, i64 %6
   %8 = getelementptr i8, ptr %7, i64 4
-  store i32 0, ptr %8, align 4, !tbaa !54
-  store i32 0, ptr %2, align 4, !tbaa !54
+  store i32 0, ptr %8, align 4, !tbaa !55
+  store i32 0, ptr %2, align 4, !tbaa !55
   %9 = load i32, ptr %4, align 4, !tbaa !16
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %.preheader
@@ -955,29 +955,29 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
-  store i32 0, ptr %15, align 4, !tbaa !54
+  store i32 0, ptr %15, align 4, !tbaa !55
   %16 = load i32, ptr %4, align 4, !tbaa !16
   %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %18 = add i32 %16, %17
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !54
+  %21 = load i32, ptr %20, align 4, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !tbaa !61
+  %23 = load i8, ptr %22, align 1, !tbaa !63
   %24 = zext i8 %23 to i32
   %25 = add i32 %21, %24
   %26 = getelementptr i8, ptr %20, i64 4
-  store i32 %25, ptr %26, align 4, !tbaa !54
+  store i32 %25, ptr %26, align 4, !tbaa !55
   %27 = load i32, ptr %4, align 4, !tbaa !16
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !62
+  br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph39, %.lr.ph41
   %30 = phi i32 [ %45, %.lr.ph41 ], [ %61, %.lr.ph39 ]
   %31 = load i32, ptr %12, align 8, !tbaa !22
   %32 = icmp slt i32 %37, %31
-  br i1 %32, label %.lr.ph41, label %._crit_edge, !llvm.loop !63
+  br i1 %32, label %.lr.ph41, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   ret void
@@ -993,17 +993,17 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %39 = mul nsw i32 %38, %37
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %2, i64 %40
-  store i32 0, ptr %41, align 4, !tbaa !54
-  %42 = load i8, ptr %36, align 1, !tbaa !61
+  store i32 0, ptr %41, align 4, !tbaa !55
+  %42 = load i8, ptr %36, align 1, !tbaa !63
   %43 = zext i8 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 %43, ptr %44, align 4, !tbaa !54
+  store i32 %43, ptr %44, align 4, !tbaa !55
   %45 = load i32, ptr %4, align 4, !tbaa !16
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %.lr.ph39.preheader, label %.loopexit
 
 .lr.ph39.preheader:                               ; preds = %.lr.ph41
-  %47 = load i8, ptr %36, align 1, !tbaa !61
+  %47 = load i8, ptr %36, align 1, !tbaa !63
   %48 = zext i8 %47 to i32
   br label %.lr.ph39
 
@@ -1012,7 +1012,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %49 = phi i32 [ %45, %.lr.ph39.preheader ], [ %61, %.lr.ph39 ]
   %.03237 = phi i32 [ %48, %.lr.ph39.preheader ], [ %53, %.lr.ph39 ]
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv43
-  %51 = load i8, ptr %50, align 1, !tbaa !61
+  %51 = load i8, ptr %50, align 1, !tbaa !63
   %52 = zext i8 %51 to i32
   %53 = add nuw nsw i32 %.03237, %52
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -1020,14 +1020,14 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %55 = sub i32 %54, %49
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i32, ptr %41, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !54
+  %58 = load i32, ptr %57, align 4, !tbaa !55
   %59 = add i32 %53, %58
   %60 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.next44
-  store i32 %59, ptr %60, align 4, !tbaa !54
+  store i32 %59, ptr %60, align 4, !tbaa !55
   %61 = load i32, ptr %4, align 4, !tbaa !16
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next44, %62
-  br i1 %63, label %.lr.ph39, label %.loopexit, !llvm.loop !64
+  br i1 %63, label %.lr.ph39, label %.loopexit, !llvm.loop !66
 }
 
 declare void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind writable sret(%"class.zxing::Ref") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
@@ -1123,8 +1123,8 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %51 = sext i32 %7 to i64
   %52 = getelementptr i32, ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 4
-  store i32 0, ptr %53, align 4, !tbaa !54
-  store i32 0, ptr %50, align 4, !tbaa !54
+  store i32 0, ptr %53, align 4, !tbaa !55
+  store i32 0, ptr %50, align 4, !tbaa !55
   %54 = load i32, ptr %6, align 4, !tbaa !16
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.i, label %.preheader.i
@@ -1139,29 +1139,29 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %59 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.next.i
-  store i32 0, ptr %59, align 4, !tbaa !54
+  store i32 0, ptr %59, align 4, !tbaa !55
   %60 = load i32, ptr %6, align 4, !tbaa !16
   %61 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %62 = add i32 %60, %61
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %50, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !54
+  %65 = load i32, ptr %64, align 4, !tbaa !55
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %67 = load i8, ptr %66, align 1, !tbaa !61
+  %67 = load i8, ptr %66, align 1, !tbaa !63
   %68 = zext i8 %67 to i32
   %69 = add i32 %65, %68
   %70 = getelementptr i8, ptr %64, i64 4
-  store i32 %69, ptr %70, align 4, !tbaa !54
+  store i32 %69, ptr %70, align 4, !tbaa !55
   %71 = load i32, ptr %6, align 4, !tbaa !16
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i, %72
-  br i1 %73, label %.lr.ph.i, label %.preheader.i, !llvm.loop !62
+  br i1 %73, label %.lr.ph.i, label %.preheader.i, !llvm.loop !64
 
 .loopexit.i:                                      ; preds = %.lr.ph39.i, %.lr.ph41.i
   %74 = phi i32 [ %89, %.lr.ph41.i ], [ %105, %.lr.ph39.i ]
   %75 = load i32, ptr %8, align 8, !tbaa !22
   %76 = icmp slt i32 %81, %75
-  br i1 %76, label %.lr.ph41.i, label %_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit, !llvm.loop !63
+  br i1 %76, label %.lr.ph41.i, label %_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit, !llvm.loop !65
 
 .lr.ph41.i:                                       ; preds = %.preheader.i, %.loopexit.i
   %77 = phi i32 [ %74, %.loopexit.i ], [ %56, %.preheader.i ]
@@ -1174,17 +1174,17 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %83 = mul nsw i32 %81, %82
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %50, i64 %84
-  store i32 0, ptr %85, align 4, !tbaa !54
-  %86 = load i8, ptr %80, align 1, !tbaa !61
+  store i32 0, ptr %85, align 4, !tbaa !55
+  %86 = load i8, ptr %80, align 1, !tbaa !63
   %87 = zext i8 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 %87, ptr %88, align 4, !tbaa !54
+  store i32 %87, ptr %88, align 4, !tbaa !55
   %89 = load i32, ptr %6, align 4, !tbaa !16
   %90 = icmp sgt i32 %89, 1
   br i1 %90, label %.lr.ph39.preheader.i, label %.loopexit.i
 
 .lr.ph39.preheader.i:                             ; preds = %.lr.ph41.i
-  %91 = load i8, ptr %80, align 1, !tbaa !61
+  %91 = load i8, ptr %80, align 1, !tbaa !63
   %92 = zext i8 %91 to i32
   br label %.lr.ph39.i
 
@@ -1193,7 +1193,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %93 = phi i32 [ %89, %.lr.ph39.preheader.i ], [ %105, %.lr.ph39.i ]
   %.03237.i = phi i32 [ %92, %.lr.ph39.preheader.i ], [ %97, %.lr.ph39.i ]
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv43.i
-  %95 = load i8, ptr %94, align 1, !tbaa !61
+  %95 = load i8, ptr %94, align 1, !tbaa !63
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %.03237.i, %96
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
@@ -1201,14 +1201,14 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %99 = sub i32 %98, %93
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %85, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !54
+  %102 = load i32, ptr %101, align 4, !tbaa !55
   %103 = add i32 %97, %102
   %104 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.next44.i
-  store i32 %103, ptr %104, align 4, !tbaa !54
+  store i32 %103, ptr %104, align 4, !tbaa !55
   %105 = load i32, ptr %6, align 4, !tbaa !16
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next44.i, %106
-  br i1 %107, label %.lr.ph39.i, label %.loopexit.i, !llvm.loop !64
+  br i1 %107, label %.lr.ph39.i, label %.loopexit.i, !llvm.loop !66
 
 _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i, %.preheader.i
   %108 = phi i32 [ %57, %.preheader.i ], [ %75, %.loopexit.i ]
@@ -1276,14 +1276,14 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %154 = tail call noundef i32 @llvm.smin.i32(i32 %147, i32 %153)
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds i32, ptr %138, i64 %155
-  %157 = load i32, ptr %156, align 4, !tbaa !54
+  %157 = load i32, ptr %156, align 4, !tbaa !55
   %158 = zext nneg i32 %151 to i64
   %159 = getelementptr inbounds nuw i32, ptr %135, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !54
+  %160 = load i32, ptr %159, align 4, !tbaa !55
   %161 = getelementptr inbounds i32, ptr %135, i64 %155
-  %162 = load i32, ptr %161, align 4, !tbaa !54
+  %162 = load i32, ptr %161, align 4, !tbaa !55
   %163 = getelementptr inbounds nuw i32, ptr %138, i64 %158
-  %164 = load i32, ptr %163, align 4, !tbaa !54
+  %164 = load i32, ptr %163, align 4, !tbaa !55
   %.neg70.us = add i32 %160, %157
   %165 = add i32 %162, %164
   %166 = sub i32 %.neg70.us, %165
@@ -1302,7 +1302,7 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %176 = add nuw nsw i32 %.06281.us86, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   %exitcond.not = icmp eq i32 %176, %110
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph82.split.us96, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph82.split.us96, !llvm.loop !67
 
 .lr.ph76.split.split.us93:                        ; preds = %.lr.ph76.split.us92, %.critedge2.us89
   %177 = phi i32 [ %184, %.critedge2.us89 ], [ %143, %.lr.ph76.split.us92 ]
@@ -1326,24 +1326,24 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %187 = icmp slt i32 %186, %184
   %188 = icmp slt i32 %186, %141
   %or.cond66.us90 = and i1 %188, %187
-  br i1 %or.cond66.us90, label %.lr.ph76.split.split.us93, label %.critedge.us87, !llvm.loop !66
+  br i1 %or.cond66.us90, label %.lr.ph76.split.split.us93, label %.critedge.us87, !llvm.loop !68
 
 .lr.ph.us:                                        ; preds = %.lr.ph76.split.split.us93, %.lr.ph.us
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph.us ], [ %indvars.iv, %.lr.ph76.split.split.us93 ]
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 %indvars.iv102
-  %190 = load i8, ptr %189, align 1, !tbaa !61
+  %190 = load i8, ptr %189, align 1, !tbaa !63
   %191 = zext i8 %190 to i32
   %192 = icmp sgt i32 %169, %191
   %spec.select = zext i1 %192 to i8
   %193 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv102
-  store i8 %spec.select, ptr %193, align 1, !tbaa !61
+  store i8 %spec.select, ptr %193, align 1, !tbaa !63
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %194 = load i32, ptr %6, align 4, !tbaa !16
   %195 = trunc nuw i64 %indvars.iv.next103 to i32
   %196 = icmp sgt i32 %194, %195
   %197 = icmp sgt i32 %199, %195
   %or.cond68.us = and i1 %197, %196
-  br i1 %or.cond68.us, label %.lr.ph.us, label %.critedge2.us89.loopexit, !llvm.loop !68
+  br i1 %or.cond68.us, label %.lr.ph.us, label %.critedge2.us89.loopexit, !llvm.loop !70
 
 .lr.ph76.us:                                      ; preds = %.lr.ph82.split.us96
   %198 = mul nuw i32 %.06281.us86, 6
@@ -1365,7 +1365,7 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %208 = phi i32 [ %123, %.lr.ph82.us ], [ %174, %.critedge.us87 ]
   %209 = add nuw nsw i32 %.06084.us, 1
   %exitcond105.not = icmp eq i32 %209, %111
-  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph82.us, !llvm.loop !69
+  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph82.us, !llvm.loop !71
 
 .loopexit:                                        ; preds = %._crit_edge.us, %_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
   ret void
@@ -1533,25 +1533,25 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %7, %12
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %68 = icmp samesign ult i64 %indvars.iv.next51.i, %52
   %indvars.iv.next46.i = add i32 %indvars.iv45.i, %56
-  br i1 %68, label %62, label %._crit_edge.us.us.i, !llvm.loop !53
+  br i1 %68, label %62, label %._crit_edge.us.us.i, !llvm.loop !54
 
 69:                                               ; preds = %69, %62
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %69 ], [ %63, %62 ]
   %.130.us.us.i = phi i32 [ %72, %69 ], [ %.02732.us.us.i, %62 ]
   %70 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv47.i
-  %71 = load i32, ptr %70, align 4, !tbaa !54
+  %71 = load i32, ptr %70, align 4, !tbaa !55
   %72 = add nsw i32 %71, %.130.us.us.i
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, 1
   %73 = icmp slt i64 %indvars.iv.next48.i, %66
-  br i1 %73, label %69, label %67, !llvm.loop !55
+  br i1 %73, label %69, label %67, !llvm.loop !56
 
 ._crit_edge.us.us.i:                              ; preds = %67
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv53.i
-  store i32 %72, ptr %gep.i, align 4, !tbaa !54
+  store i32 %72, ptr %gep.i, align 4, !tbaa !55
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %indvars.iv.next.i = add nuw i32 %indvars.iv.i, 6
   %exitcond.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.us.us.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.us.us.i, !llvm.loop !57
 
 _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loopexit_crit_edge.us.i
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1567,25 +1567,25 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
   %80 = getelementptr inbounds nuw i32, ptr %77, i64 %79
   %81 = mul nuw nsw i64 %indvars.iv66.i, %wide.trip.count.i
   %82 = getelementptr inbounds nuw i32, ptr %50, i64 %81
-  store i32 0, ptr %80, align 4, !tbaa !54
+  store i32 0, ptr %80, align 4, !tbaa !55
   br label %83
 
 83:                                               ; preds = %83, %.lr.ph.us.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next62.i, %83 ]
   %.04245.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %86, %83 ]
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv61.i
-  %85 = load i32, ptr %84, align 4, !tbaa !54
+  %85 = load i32, ptr %84, align 4, !tbaa !55
   %86 = add nsw i32 %85, %.04245.us.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %87 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.next62.i
-  store i32 %86, ptr %87, align 4, !tbaa !54
+  store i32 %86, ptr %87, align 4, !tbaa !55
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i
-  br i1 %exitcond65.not.i, label %._crit_edge.us.i, label %83, !llvm.loop !57
+  br i1 %exitcond65.not.i, label %._crit_edge.us.i, label %83, !llvm.loop !58
 
 ._crit_edge.us.i:                                 ; preds = %83
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count60.i
-  br i1 %exitcond70.not.i, label %.lr.ph.us56.preheader.i, label %.lr.ph.us.i, !llvm.loop !58
+  br i1 %exitcond70.not.i, label %.lr.ph.us56.preheader.i, label %.lr.ph.us.i, !llvm.loop !59
 
 .lr.ph.us56.preheader.i:                          ; preds = %._crit_edge.us.i
   %88 = load ptr, ptr %76, align 8
@@ -1594,7 +1594,7 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
 .lr.ph.us56.i:                                    ; preds = %._crit_edge.us57.i, %.lr.ph.us56.preheader.i
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph.us56.preheader.i ], [ %indvars.iv.next80.i, %._crit_edge.us57.i ]
   %89 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv79.i
-  store i32 0, ptr %89, align 4, !tbaa !54
+  store i32 0, ptr %89, align 4, !tbaa !55
   %invariant.gep.i92 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv79.i
   br label %90
 
@@ -1603,19 +1603,19 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
   %.03950.us.i = phi i32 [ 0, %.lr.ph.us56.i ], [ %93, %90 ]
   %91 = mul nuw nsw i64 %indvars.iv74.i, %78
   %gep.i93 = getelementptr inbounds nuw i32, ptr %invariant.gep.i92, i64 %91
-  %92 = load i32, ptr %gep.i93, align 4, !tbaa !54
+  %92 = load i32, ptr %gep.i93, align 4, !tbaa !55
   %93 = add nsw i32 %92, %.03950.us.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %94 = mul nuw nsw i64 %indvars.iv.next75.i, %78
   %gep89.i = getelementptr inbounds nuw i32, ptr %89, i64 %94
-  store i32 %93, ptr %gep89.i, align 4, !tbaa !54
+  store i32 %93, ptr %gep89.i, align 4, !tbaa !55
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count60.i
-  br i1 %exitcond78.not.i, label %._crit_edge.us57.i, label %90, !llvm.loop !59
+  br i1 %exitcond78.not.i, label %._crit_edge.us57.i, label %90, !llvm.loop !60
 
 ._crit_edge.us57.i:                               ; preds = %90
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next80.i, %78
-  br i1 %exitcond83.not.i, label %_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit, label %.lr.ph.us56.i, !llvm.loop !60
+  br i1 %exitcond83.not.i, label %_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit, label %.lr.ph.us56.i, !llvm.loop !61
 
 _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.us57.i
   %95 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #12
@@ -1624,17 +1624,17 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %97 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv
-  %98 = load i8, ptr %97, align 1, !tbaa !61
+  %98 = load i8, ptr %97, align 1, !tbaa !63
   %99 = zext i8 %98 to i32
   %100 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
-  store i32 %99, ptr %100, align 4, !tbaa !54
+  store i32 %99, ptr %100, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr %16, align 4, !tbaa !16
   %102 = load i32, ptr %20, align 8, !tbaa !22
   %103 = mul nsw i32 %102, %101
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %96, label %.lr.ph.i, !llvm.loop !70
+  br i1 %105, label %96, label %.lr.ph.i, !llvm.loop !72
 
 106:                                              ; preds = %_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit
   %107 = load i32, ptr %16, align 4, !tbaa !16
@@ -1705,7 +1705,7 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
 ._crit_edge.us:                                   ; preds = %._crit_edge125.us.us, %.lr.ph127.us
   %143 = add nuw nsw i32 %.078131.us, 1
   %exitcond150.not = icmp eq i32 %143, %umax149
-  br i1 %exitcond150.not, label %._crit_edge134, label %.lr.ph127.us, !llvm.loop !71
+  br i1 %exitcond150.not, label %._crit_edge134, label %.lr.ph127.us, !llvm.loop !73
 
 .lr.ph124.us.us:                                  ; preds = %.lr.ph127.us, %._crit_edge125.us.us
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %._crit_edge125.us.us ], [ 0, %.lr.ph127.us ]
@@ -1719,19 +1719,19 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
   %150 = add nsw i32 %148, %136
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i32, ptr %149, i64 %151
-  %153 = load i32, ptr %152, align 4, !tbaa !54
+  %153 = load i32, ptr %152, align 4, !tbaa !55
   %154 = add nuw nsw i32 %146, %137
   %155 = zext nneg i32 %154 to i64
   %156 = getelementptr inbounds nuw i32, ptr %149, i64 %155
-  %157 = load i32, ptr %156, align 4, !tbaa !54
+  %157 = load i32, ptr %156, align 4, !tbaa !55
   %158 = add nsw i32 %148, %137
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i32, ptr %149, i64 %159
-  %161 = load i32, ptr %160, align 4, !tbaa !54
+  %161 = load i32, ptr %160, align 4, !tbaa !55
   %162 = add nsw i32 %146, %136
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i32, ptr %149, i64 %163
-  %165 = load i32, ptr %164, align 4, !tbaa !54
+  %165 = load i32, ptr %164, align 4, !tbaa !55
   %.neg118.us.us = add i32 %157, %153
   %166 = add i32 %161, %165
   %167 = sub i32 %.neg118.us.us, %166
@@ -1747,7 +1747,7 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
   %174 = add nuw nsw i32 %.079126.us.us, 1
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 6
   %exitcond.not = icmp eq i32 %174, %umax
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph124.us.us, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph124.us.us, !llvm.loop !74
 
 .lr.ph121.us.us.us:                               ; preds = %.lr.ph124.us.us, %._crit_edge.us.us.us
   %.072122.us.us.us = phi i32 [ %188, %._crit_edge.us.us.us ], [ %140, %.lr.ph124.us.us ]
@@ -1762,20 +1762,20 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
 181:                                              ; preds = %181, %.lr.ph121.us.us.us
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %181 ], [ %indvars.iv144, %.lr.ph121.us.us.us ]
   %182 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv146
-  %183 = load i32, ptr %182, align 4, !tbaa !54
+  %183 = load i32, ptr %182, align 4, !tbaa !55
   %184 = icmp slt i32 %183, %170
   %spec.select = zext i1 %184 to i8
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 %indvars.iv146
-  store i8 %spec.select, ptr %185, align 1, !tbaa !61
+  store i8 %spec.select, ptr %185, align 1, !tbaa !63
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %186 = trunc nuw i64 %indvars.iv.next147 to i32
   %187 = icmp sgt i32 %172, %186
-  br i1 %187, label %181, label %._crit_edge.us.us.us, !llvm.loop !73
+  br i1 %187, label %181, label %._crit_edge.us.us.us, !llvm.loop !75
 
 ._crit_edge.us.us.us:                             ; preds = %181
   %188 = add nuw nsw i32 %.072122.us.us.us, 1
   %189 = icmp slt i32 %188, %141
-  br i1 %189, label %.lr.ph121.us.us.us, label %._crit_edge125.us.us, !llvm.loop !74
+  br i1 %189, label %.lr.ph121.us.us.us, label %._crit_edge125.us.us, !llvm.loop !76
 
 ._crit_edge134:                                   ; preds = %._crit_edge.us
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2102,27 +2102,29 @@ attributes #13 = { builtin nounwind }
 !48 = !{!"p1 _ZTSN5zxing5ArrayIhEE", !6, i64 0}
 !49 = !{!50, !45, i64 0}
 !50 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52}
-!54 = !{!11, !11, i64 0}
-!55 = distinct !{!55, !52}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !52}
+!55 = !{!11, !11, i64 0}
 !56 = distinct !{!56, !52}
-!57 = distinct !{!57, !52}
+!57 = distinct !{!57, !52, !53}
 !58 = distinct !{!58, !52}
-!59 = distinct !{!59, !52}
+!59 = distinct !{!59, !52, !53}
 !60 = distinct !{!60, !52}
-!61 = !{!7, !7, i64 0}
+!61 = distinct !{!61, !52, !53}
 !62 = distinct !{!62, !52}
-!63 = distinct !{!63, !52}
+!63 = !{!7, !7, i64 0}
 !64 = distinct !{!64, !52}
 !65 = distinct !{!65, !52}
-!66 = distinct !{!66, !52, !67}
-!67 = !{!"llvm.loop.unswitch.partial.disable"}
-!68 = distinct !{!68, !52}
-!69 = distinct !{!69, !52}
+!66 = distinct !{!66, !52}
+!67 = distinct !{!67, !52}
+!68 = distinct !{!68, !52, !69}
+!69 = !{!"llvm.loop.unswitch.partial.disable"}
 !70 = distinct !{!70, !52}
-!71 = distinct !{!71, !52}
+!71 = distinct !{!71, !52, !53}
 !72 = distinct !{!72, !52}
-!73 = distinct !{!73, !52}
-!74 = distinct !{!74, !52}
+!73 = distinct !{!73, !52, !53}
+!74 = distinct !{!74, !52, !53}
+!75 = distinct !{!75, !52}
+!76 = distinct !{!76, !52, !53}

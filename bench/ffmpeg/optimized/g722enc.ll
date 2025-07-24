@@ -668,7 +668,7 @@ encode_low.exit.i:                                ; preds = %118, %.critedge.i.i
   br label %282
 
 282:                                              ; preds = %.preheader.i, %.critedge2.i.split
-  br i1 %275, label %.critedge2.i.split, label %.split.us, !llvm.loop !73
+  br i1 %275, label %.critedge2.i.split, label %.split.us, !llvm.loop !75
 
 .split.us:                                        ; preds = %282, %274
   %283 = add nsw i32 %.0214296.i, 128
@@ -721,7 +721,7 @@ encode_low.exit.i:                                ; preds = %118, %.critedge.i.i
   %316 = getelementptr inbounds %struct.TrellisPath, ptr %312, i64 %315
   %indvars.iv.next348.i = add nsw i64 %indvars.iv347.i, -1
   %317 = icmp sgt i64 %indvars.iv.next348.i, %287
-  br i1 %317, label %.lr.ph294.i, label %._crit_edge295.i, !llvm.loop !74
+  br i1 %317, label %.lr.ph294.i, label %._crit_edge295.i, !llvm.loop !76
 
 ._crit_edge295.i:                                 ; preds = %.lr.ph294.i, %286
   %318 = getelementptr inbounds nuw i8, ptr %.sroa.076.0..sroa.076.0..sroa.076.0..sroa.076.0.79, i64 8
@@ -736,7 +736,7 @@ encode_low.exit.i:                                ; preds = %118, %.critedge.i.i
   %.sroa.099.5.i = phi i32 [ 0, %._crit_edge295.i ], [ %.sroa.099.1.lcssa357.i, %.split.us ]
   %indvars.iv.next346.i = add nuw nsw i64 %indvars.iv345.i, 1
   %exitcond352.not.i = icmp eq i64 %indvars.iv.next346.i, %wide.trip.count351.i
-  br i1 %exitcond352.not.i, label %._crit_edge301.i, label %.critedge, !llvm.loop !75
+  br i1 %exitcond352.not.i, label %._crit_edge301.i, label %.critedge, !llvm.loop !77
 
 ._crit_edge301.i:                                 ; preds = %320
   %.sroa.076.0..sroa.076.0..sroa.076.0..sroa.076.0.78 = load ptr, ptr %.sroa.076, align 16, !tbaa !42
@@ -791,7 +791,7 @@ encode_low.exit.i:                                ; preds = %118, %.critedge.i.i
   %356 = getelementptr inbounds %struct.TrellisPath, ptr %352, i64 %355
   %indvars.iv.next354.i = add nsw i64 %indvars.iv353.i, -1
   %357 = icmp sgt i64 %indvars.iv.next354.i, %340
-  br i1 %357, label %.lr.ph310.i, label %._crit_edge311.loopexit.i, !llvm.loop !76
+  br i1 %357, label %.lr.ph310.i, label %._crit_edge311.loopexit.i, !llvm.loop !78
 
 ._crit_edge311.loopexit.i:                        ; preds = %.lr.ph310.i
   %.pre.i = load ptr, ptr %325, align 8, !tbaa !40
@@ -946,7 +946,7 @@ encode_low.exit.i54:                              ; preds = %429, %.critedge.i.i
   store i8 %445, ptr %.0612.i, align 1, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i45, 2
   %446 = icmp samesign ult i64 %indvars.iv.next.i, %sext
-  br i1 %446, label %374, label %g722_encode_no_trellis.exit, !llvm.loop !77
+  br i1 %446, label %374, label %g722_encode_no_trellis.exit, !llvm.loop !79
 
 g722_encode_no_trellis.exit:                      ; preds = %encode_low.exit.i54, %362, %g722_encode_trellis.exit
   %447 = load i32, ptr %11, align 8, !tbaa !45
@@ -1082,7 +1082,7 @@ encode_low.exit:                                  ; preds = %519, %.critedge.i59
 
 536:                                              ; preds = %encode_low.exit, %g722_encode_no_trellis.exit
   %537 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %538 = load i64, ptr %537, align 8, !tbaa !78
+  %538 = load i64, ptr %537, align 8, !tbaa !80
   %.not38 = icmp eq i64 %538, -9223372036854775808
   br i1 %.not38, label %550, label %539
 
@@ -1091,7 +1091,7 @@ encode_low.exit:                                  ; preds = %519, %.critedge.i59
   %541 = load i32, ptr %540, align 4, !tbaa !34
   %542 = sext i32 %541 to i64
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %544 = load i32, ptr %543, align 8, !tbaa !79
+  %544 = load i32, ptr %543, align 8, !tbaa !81
   %.sroa.2.0.insert.ext.i = zext i32 %544 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -1100,7 +1100,7 @@ encode_low.exit:                                  ; preds = %519, %.critedge.i59
   %547 = call i64 @av_rescale_q(i64 noundef range(i64 -2147483648, 2147483648) %542, i64 %.sroa.0.0.insert.insert.i, i64 %546) #9
   %548 = sub nsw i64 %538, %547
   %549 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %548, ptr %549, align 8, !tbaa !80
+  store i64 %548, ptr %549, align 8, !tbaa !82
   br label %550
 
 550:                                              ; preds = %539, %536
@@ -1259,11 +1259,13 @@ attributes #9 = { nounwind willreturn memory(none) }
 !70 = distinct !{!70, !37}
 !71 = distinct !{!71, !37}
 !72 = distinct !{!72, !37}
-!73 = distinct !{!73, !37}
-!74 = distinct !{!74, !37}
+!73 = distinct !{!73, !37, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !75 = distinct !{!75, !37}
 !76 = distinct !{!76, !37}
 !77 = distinct !{!77, !37}
-!78 = !{!46, !13, i64 136}
-!79 = !{!5, !10, i64 344}
-!80 = !{!51, !13, i64 8}
+!78 = distinct !{!78, !37}
+!79 = distinct !{!79, !37}
+!80 = !{!46, !13, i64 136}
+!81 = !{!5, !10, i64 344}
+!82 = !{!51, !13, i64 8}

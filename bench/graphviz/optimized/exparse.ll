@@ -6768,7 +6768,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %52 = getelementptr inbounds nuw i8, ptr %.2118, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %.not134 = icmp eq i8 %53, 0
-  br i1 %.not134, label %._crit_edge.preheader, label %.lr.ph.split, !llvm.loop !132
+  br i1 %.not134, label %._crit_edge.preheader, label %.lr.ph.split, !llvm.loop !134
 
 ._crit_edge.preheader:                            ; preds = %51, %46, %34, %32, %17
   %.3119.ph = phi ptr [ %19, %17 ], [ %35, %34 ], [ %29, %32 ], [ %52, %51 ], [ %43, %46 ]
@@ -7064,7 +7064,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %148, i8 noundef signext %141)
   %149 = getelementptr inbounds nuw i8, ptr %.10, i64 1
-  br label %140, !llvm.loop !133
+  br label %140, !llvm.loop !135
 
 150:                                              ; preds = %142, %140
   %.not144 = icmp eq ptr %.2, null
@@ -7289,13 +7289,13 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   %261 = phi ptr [ %260, %258 ], [ %255, %agxbclear.exit.i ]
   %262 = tail call ptr @vmstrdup(ptr noundef %254, ptr noundef %261) #24
   %263 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %262, ptr %263, align 8, !tbaa !134
+  store ptr %262, ptr %263, align 8, !tbaa !136
   %264 = icmp eq ptr %262, null
   br i1 %264, label %265, label %267
 
 265:                                              ; preds = %agxbuse.exit
   %266 = tail call ptr @exnospace() #24
-  store ptr %266, ptr %263, align 8, !tbaa !134
+  store ptr %266, ptr %263, align 8, !tbaa !136
   br label %267
 
 267:                                              ; preds = %265, %agxbuse.exit
@@ -7386,7 +7386,7 @@ define internal fastcc noundef ptr @makeVar(ptr noundef %0, ptr noundef %1, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  %33 = load ptr, ptr %32, align 8, !tbaa !135
+  %33 = load ptr, ptr %32, align 8, !tbaa !137
   %.not34 = icmp eq ptr %33, null
   br i1 %.not34, label %34, label %36
 
@@ -7433,7 +7433,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #17 {
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %.02639, 1
   %.not = icmp eq i64 %8, 148
-  br i1 %.not, label %.thread._crit_edge, label %2, !llvm.loop !136
+  br i1 %.not, label %.thread._crit_edge, label %2, !llvm.loop !138
 
 9:                                                ; preds = %2
   %.not3140 = icmp eq i64 %.02639, 148
@@ -7471,7 +7471,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #17 {
 
 24:                                               ; preds = %13, %16
   %25 = add i64 %.022, 1
-  br label %13, !llvm.loop !137
+  br label %13, !llvm.loop !139
 
 26:                                               ; preds = %16
   %.not34 = icmp eq i8 %15, 0
@@ -7489,7 +7489,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #17 {
   %.124 = phi i64 [ %29, %28 ], [ %.02342, %26 ]
   %31 = add nuw nsw i64 %.02541, 1
   %.not31 = icmp eq i64 %31, 148
-  br i1 %.not31, label %.thread._crit_edge, label %.preheader, !llvm.loop !138
+  br i1 %.not31, label %.thread._crit_edge, label %.preheader, !llvm.loop !140
 
 .thread._crit_edge:                               ; preds = %7, %30, %.thread, %9
   %spec.select = phi ptr [ null, %9 ], [ %12, %.thread ], [ null, %30 ], [ null, %7 ]
@@ -7825,10 +7825,12 @@ attributes #32 = { cold noreturn nounwind }
 !129 = distinct !{!129, !34}
 !130 = !{!45, !6, i64 64}
 !131 = distinct !{!131, !34}
-!132 = distinct !{!132, !34}
-!133 = distinct !{!133, !34}
-!134 = !{!38, !5, i64 8}
-!135 = !{!45, !6, i64 88}
-!136 = distinct !{!136, !34}
-!137 = distinct !{!137, !34}
+!132 = distinct !{!132, !34, !133}
+!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!134 = distinct !{!134, !34}
+!135 = distinct !{!135, !34}
+!136 = !{!38, !5, i64 8}
+!137 = !{!45, !6, i64 88}
 !138 = distinct !{!138, !34}
+!139 = distinct !{!139, !34}
+!140 = distinct !{!140, !34}

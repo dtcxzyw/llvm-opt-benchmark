@@ -1092,7 +1092,7 @@ ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edg
   %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !62
   %.not.i16 = icmp eq ptr %29, null
-  br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !63
+  br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !65
 
 CountChunks.exit:                                 ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %ChunkGetIndexFromId.exit, %IsWPI.exit
   %storemerge = phi i32 [ %8, %IsWPI.exit ], [ 0, %ChunkGetIndexFromId.exit ], [ %22, %.lr.ph.split.us.i ], [ %spec.select.i, %.lr.ph.split.i ]
@@ -1265,4 +1265,6 @@ attributes #5 = { nounwind }
 !60 = distinct !{!60, !35}
 !61 = !{!5, !5, i64 0}
 !62 = !{!12, !5, i64 24}
-!63 = distinct !{!63, !35}
+!63 = distinct !{!63, !35, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !35}

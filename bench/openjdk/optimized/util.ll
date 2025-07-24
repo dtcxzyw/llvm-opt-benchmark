@@ -2356,7 +2356,7 @@ isReferenceTag.exit.i:                            ; preds = %224, %220, %jdwpTag
 writeStaticFieldValue.exit:                       ; preds = %331, %319, %307, %295, %283, %271, %259, %247, %239, %231, %206
   %337 = add nuw nsw i32 %.02650, 1
   %exitcond.not = icmp eq i32 %337, %16
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph.split, %writeStaticFieldValue.exit, %.lr.ph.split.us, %writeStaticFieldValue.exit.us, %18
   %338 = load ptr, ptr @gdata, align 8
@@ -2494,7 +2494,7 @@ define hidden zeroext range(i8 0, 2) i8 @sharedInvoke(ptr noundef %0, ptr nounde
   store i64 %27, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %25
   %28 = tail call zeroext i16 @inStream_error(ptr noundef %0) #14
@@ -2923,7 +2923,7 @@ define hidden i32 @filterDebugThreads(ptr noundef captures(none) %0, i32 noundef
   %.1 = phi i32 [ %.01213, %.lr.ph ], [ %13, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %14, %2
   %.012.lcssa = phi i32 [ 0, %2 ], [ %.1, %14 ]
@@ -4760,7 +4760,7 @@ classSignature.exit48:                            ; preds = %53, %61
   %86 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
   %87 = load i8, ptr %86, align 1
   %.not18.i = icmp eq i8 %87, 0
-  br i1 %.not18.i, label %is_a_nested_class.exit, label %79, !llvm.loop !10
+  br i1 %.not18.i, label %is_a_nested_class.exit, label %79, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %79
   %88 = icmp eq i8 %80, 59
@@ -4801,7 +4801,7 @@ is_a_nested_class.exit.thread.thread:             ; preds = %is_a_nested_class.e
   %102 = getelementptr inbounds nuw i8, ptr %.025.i55, i64 1
   %103 = load i8, ptr %102, align 1
   %.not18.i57 = icmp eq i8 %103, 0
-  br i1 %.not18.i57, label %is_a_nested_class.exit63, label %95, !llvm.loop !10
+  br i1 %.not18.i57, label %is_a_nested_class.exit63, label %95, !llvm.loop !12
 
 .critedge.i62:                                    ; preds = %95
   %104 = icmp eq i8 %96, 59
@@ -4833,7 +4833,7 @@ is_a_nested_class.exit63.thread:                  ; preds = %71, %69, %.critedge
   %115 = load i32, ptr %8, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %53, label %classSignature.exit48._crit_edge, !llvm.loop !11
+  br i1 %117, label %53, label %classSignature.exit48._crit_edge, !llvm.loop !13
 
 classSignature.exit48._crit_edge:                 ; preds = %is_a_nested_class.exit63.thread, %classSignature.exit48, %.preheader
   %.028.lcssa = phi i32 [ 0, %.preheader ], [ %.02885, %classSignature.exit48 ], [ %.1, %is_a_nested_class.exit63.thread ]
@@ -6314,7 +6314,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly capt
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %23
   %exitcond.not = icmp eq i64 %.pre64, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -6816,10 +6816,12 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

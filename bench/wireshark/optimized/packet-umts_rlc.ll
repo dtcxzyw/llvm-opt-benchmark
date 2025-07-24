@@ -2385,7 +2385,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %12 = add i32 %.0144175, 1
   %.0142 = and i8 %11, 1
   %.not = icmp eq i8 %.0142, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   %.0144.lcssa = phi i32 [ %7, %6 ], [ %10, %.lr.ph.split.us ], [ %12, %.lr.ph.split ]
@@ -2458,7 +2458,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   store ptr %38, ptr %39, align 8
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond218 = icmp eq i64 %indvars.iv.next216, 16
-  br i1 %exitcond218, label %.split189.us, label %.split.us, !llvm.loop !12
+  br i1 %exitcond218, label %.split189.us, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %._crit_edge, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %._crit_edge ]
@@ -2547,7 +2547,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   store ptr %80, ptr %81, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond, label %.split189.us, label %.split, !llvm.loop !12
+  br i1 %exitcond, label %.split189.us, label %.split, !llvm.loop !15
 
 .split189.us:                                     ; preds = %78, %36
   %82 = getelementptr i8, ptr %4, i64 248
@@ -2754,7 +2754,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr @g_list_find_custom(ptr noundef %104, ptr noundef nonnull %7, ptr noundef nonnull @rlc_cmp_seq)
   %.not68.us = icmp eq ptr %105, null
-  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %118
   %.075 = phi i1 [ %.1, %118 ], [ true, %.lr.ph ]
@@ -2790,7 +2790,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   %120 = load ptr, ptr %119, align 8
   %121 = call ptr @g_list_find_custom(ptr noundef %120, ptr noundef nonnull %7, ptr noundef nonnull @rlc_cmp_seq)
   %.not68 = icmp eq ptr %121, null
-  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %118, %102
   %.054.lcssa = phi i1 [ %.155.us, %102 ], [ %.155, %118 ]
@@ -3443,7 +3443,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %203 = icmp eq i32 %.0.i273, %182
   %204 = icmp sgt i32 %.0.i273, 0
   %205 = or i1 %203, %204
-  br i1 %205, label %.critedge, label %.lr.ph, !llvm.loop !14
+  br i1 %205, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %194, %169
   call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %175, i16 noundef zeroext %178)
@@ -3555,7 +3555,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %263 = getelementptr inbounds nuw i8, ptr %.0211, i64 48
   %264 = load ptr, ptr %263, align 8
   %.not242 = icmp eq ptr %264, null
-  br i1 %.not242, label %265, label %.preheader, !llvm.loop !15
+  br i1 %.not242, label %265, label %.preheader, !llvm.loop !19
 
 265:                                              ; preds = %.preheader
   %266 = getelementptr inbounds nuw i8, ptr %.0211, i64 48
@@ -3736,7 +3736,7 @@ thread-pre-split:                                 ; preds = %286, %288
   %371 = icmp ne i32 %.0.i275, %339
   %372 = icmp slt i32 %.0.i275, 0
   %373 = and i1 %371, %372
-  br i1 %373, label %.lr.ph311, label %._crit_edge, !llvm.loop !16
+  br i1 %373, label %.lr.ph311, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %363, %335
   call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %300, i16 noundef zeroext %304)
@@ -3902,7 +3902,7 @@ rlc_channel_assign.exit:                          ; preds = %7, %37, %51
   %84 = zext i16 %83 to i32
   %85 = sub nsw i32 %81, %84
   %86 = icmp sgt i32 %85, 1
-  br i1 %86, label %87, label %75, !llvm.loop !17
+  br i1 %86, label %87, label %75, !llvm.loop !21
 
 87:                                               ; preds = %78
   %88 = call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %2, ptr noundef nonnull @ei_rlc_incomplete_sequence, ptr noundef %1, i32 noundef 0, i32 noundef 0)
@@ -3959,7 +3959,7 @@ proto_item_set_generated.exit.i:                  ; preds = %94, %91, %87
   %121 = getelementptr inbounds nuw i8, ptr %.024.i, i64 48
   %.0.i = load ptr, ptr %121, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %tree_add_fragment_list_incomplete.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %tree_add_fragment_list_incomplete.exit, label %.lr.ph.i, !llvm.loop !22
 
 122:                                              ; preds = %75
   %123 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -4053,7 +4053,7 @@ proto_item_set_generated.exit.i42:                ; preds = %138, %135, %131
   %176 = getelementptr inbounds nuw i8, ptr %.044.i, i64 48
   %.0.i44 = load ptr, ptr %176, align 8
   %.not.i45 = icmp eq ptr %.0.i44, null
-  br i1 %.not.i45, label %._crit_edge.i, label %149, !llvm.loop !19
+  br i1 %.not.i45, label %._crit_edge.i, label %149, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %171, %proto_item_set_generated.exit.i42
   %177 = load i32, ptr @hf_rlc_reassembled_data, align 4
@@ -4185,7 +4185,7 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   %60 = load i16, ptr %59, align 4
   %61 = zext i16 %60 to i32
   %62 = icmp samesign ult i32 %51, %61
-  br i1 %62, label %.preheader.i, label %.critedge.i, !llvm.loop !20
+  br i1 %62, label %.preheader.i, label %.critedge.i, !llvm.loop !24
 
 63:                                               ; preds = %.preheader.i
   %64 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 48
@@ -4204,7 +4204,7 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 28
   %69 = load i16, ptr %68, align 4
   %70 = icmp ult i16 %69, %49
-  br i1 %70, label %.critedge.i, label %.critedge2.i, !llvm.loop !21
+  br i1 %70, label %.critedge.i, label %.critedge2.i, !llvm.loop !25
 
 .critedge2.i:                                     ; preds = %67, %.critedge.i
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
@@ -4240,7 +4240,7 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %84 = load i16, ptr %83, align 4
   %85 = icmp ult i16 %84, %49
-  br i1 %85, label %.preheader72.i, label %.critedge4.i, !llvm.loop !22
+  br i1 %85, label %.preheader72.i, label %.critedge4.i, !llvm.loop !26
 
 .critedge4.i:                                     ; preds = %82, %.preheader72.i
   %86 = getelementptr inbounds nuw i8, ptr %.2.i, i64 48
@@ -4278,7 +4278,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %91
   %103 = icmp ne i32 %.0.i, %14
   %104 = icmp slt i32 %.0.i, 1
   %105 = and i1 %103, %104
-  br i1 %105, label %26, label %._crit_edge, !llvm.loop !23
+  br i1 %105, label %26, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %rlc_sdu_add_fragment.exit, %5
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4382,7 +4382,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %91
   %164 = getelementptr inbounds nuw i8, ptr %.0284.i, i64 48
   %.028.i = load ptr, ptr %164, align 8
   %.not33.i = icmp eq ptr %.028.i, null
-  br i1 %.not33.i, label %reassemble_data.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not33.i, label %reassemble_data.exit, label %.lr.ph.i, !llvm.loop !28
 
 reassemble_data.exit:                             ; preds = %.lr.ph.i, %158, %124, %127, %130
   ret void
@@ -4986,7 +4986,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %114 = add i8 %.0112142, 1
   %115 = zext i8 %114 to i16
   %116 = icmp ugt i16 %9, %115
-  br i1 %116, label %68, label %._crit_edge, !llvm.loop !25
+  br i1 %116, label %68, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.thread
   %117 = icmp eq i8 %.1108, 0
@@ -5194,7 +5194,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %88 = add i64 %87, -1
   store i64 %88, ptr %5, align 8
   %.not221 = icmp eq i64 %88, 0
-  br i1 %.not221, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not221, label %.loopexit, label %.preheader, !llvm.loop !30
 
 89:                                               ; preds = %52
   %90 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_rlc_sufi_len)
@@ -5287,7 +5287,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %148 = add i64 %147, 1
   store i64 %148, ptr %9, align 8
   %149 = icmp ult i64 %148, 8
-  br i1 %149, label %117, label %150, !llvm.loop !27
+  br i1 %149, label %117, label %150, !llvm.loop !31
 
 150:                                              ; preds = %146
   %151 = load i32, ptr @hf_rlc_bitmap_string, align 4
@@ -5298,7 +5298,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %156 = zext i32 %155 to i64
   %157 = load i64, ptr %5, align 8
   %158 = icmp ugt i64 %157, %156
-  br i1 %158, label %.lr.ph244, label %._crit_edge245, !llvm.loop !28
+  br i1 %158, label %.lr.ph244, label %._crit_edge245, !llvm.loop !32
 
 ._crit_edge245:                                   ; preds = %150, %91
   %.3200.lcssa = phi i32 [ %99, %91 ], [ %154, %150 ]
@@ -5351,7 +5351,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %185 = zext i32 %184 to i64
   %186 = load i64, ptr %5, align 8
   %187 = icmp ugt i64 %186, %185
-  br i1 %187, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %187, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %179
   %.not216 = icmp eq i64 %186, 0
@@ -5464,7 +5464,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %250 = zext i32 %249 to i64
   %251 = load i64, ptr %5, align 8
   %252 = icmp ugt i64 %251, %250
-  br i1 %252, label %.lr.ph235, label %._crit_edge236, !llvm.loop !30
+  br i1 %252, label %.lr.ph235, label %._crit_edge236, !llvm.loop !34
 
 ._crit_edge236:                                   ; preds = %248, %._crit_edge.thread
   %253 = load ptr, ptr %15, align 8
@@ -5511,7 +5511,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %280 = add i64 %279, -1
   store i64 %280, ptr %5, align 8
   %.not215 = icmp eq i64 %280, 0
-  br i1 %.not215, label %.loopexit224, label %.preheader223, !llvm.loop !31
+  br i1 %.not215, label %.loopexit224, label %.preheader223, !llvm.loop !35
 
 281:                                              ; preds = %266
   %282 = load i32, ptr @hf_rlc_sufi_sn_mrw, align 4
@@ -5546,7 +5546,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   %295 = sdiv i32 %294, 8
   %296 = sub nsw i32 %295, %24
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %296)
-  br i1 %.1188, label %.critedge, label %17, !llvm.loop !32
+  br i1 %.1188, label %.critedge, label %17, !llvm.loop !36
 
 .critedge:                                        ; preds = %17, %.loopexit, %292
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #16
@@ -5898,7 +5898,7 @@ define internal void @rlc_sdu_frags_delete(ptr noundef readonly captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 48
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %8, %1
   ret void
@@ -6007,12 +6007,12 @@ attributes #20 = { nounwind returns_twice }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!11 = distinct !{!11, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!14 = distinct !{!14, !9, !12}
 !15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!16 = distinct !{!16, !9, !12}
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
@@ -6030,3 +6030,7 @@ attributes #20 = { nounwind returns_twice }
 !31 = distinct !{!31, !9}
 !32 = distinct !{!32, !9}
 !33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}

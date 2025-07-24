@@ -989,7 +989,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   %274 = add i64 %.0.i.i.us, 6
   %275 = and i64 %270, 1
   %.not.i.i.us = icmp eq i64 %275, 0
-  br i1 %.not.i.i.us, label %.loopexit.us, label %.preheader.i.i.us, !llvm.loop !14
+  br i1 %.not.i.i.us, label %.loopexit.us, label %.preheader.i.i.us, !llvm.loop !15
 
 .loopexit.us:                                     ; preds = %.preheader.i.i.us, %257
   %.09.i.i.us = phi i64 [ %263, %257 ], [ %273, %.preheader.i.i.us ]
@@ -1007,12 +1007,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   store i64 %281, ptr %285, align 8
   %286 = add nuw i64 %.061151.us, 1
   %exitcond170.not = icmp eq i64 %286, %14
-  br i1 %exitcond170.not, label %._crit_edge153.us, label %257, !llvm.loop !15
+  br i1 %exitcond170.not, label %._crit_edge153.us, label %257, !llvm.loop !16
 
 ._crit_edge153.us:                                ; preds = %.loopexit.us
   %287 = add nuw i64 %.062154.us, 1
   %exitcond171.not = icmp eq i64 %287, %15
-  br i1 %exitcond171.not, label %.lr.ph157, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond171.not, label %.lr.ph157, label %.preheader.us, !llvm.loop !17
 
 .loopexit118:                                     ; preds = %.preheader125, %.preheader117
   br i1 %.not, label %._crit_edge158, label %.lr.ph157
@@ -1098,12 +1098,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   store float %331, ptr %gep.us.i, align 4
   %333 = add nuw i64 %.033.us.i, 1
   %exitcond.not.i = icmp eq i64 %333, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %324, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %324, !llvm.loop !18
 
 ._crit_edge.us.i:                                 ; preds = %324
   %334 = add nuw i64 %.02734.us.i, 1
   %exitcond40.not.i = icmp eq i64 %334, %14
-  br i1 %exitcond40.not.i, label %_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit, label %.lr.ph.us.i, !llvm.loop !18
+  br i1 %exitcond40.not.i, label %_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit, label %.lr.ph.us.i, !llvm.loop !19
 
 335:                                              ; preds = %.lr.ph157, %340
   %.0155 = phi i64 [ 0, %.lr.ph157 ], [ %341, %340 ]
@@ -1116,7 +1116,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
 340:                                              ; preds = %335
   %341 = add nuw i64 %.0155, 1
   %exitcond172.not = icmp eq i64 %341, %14
-  br i1 %exitcond172.not, label %._crit_edge158, label %335, !llvm.loop !19
+  br i1 %exitcond172.not, label %._crit_edge158, label %335, !llvm.loop !20
 
 342:                                              ; preds = %335
   %343 = landingpad { ptr, i32 }
@@ -1193,7 +1193,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
   %10 = shl nuw i64 %8, %.02133
   %11 = add i64 %10, %.02232
   %12 = icmp ugt i64 %7, 1
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = add i64 %.02133, -1
@@ -1324,7 +1324,7 @@ _ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %._crit_edge.i24, %5
 _ZN5o3dgc8IPredictEPll.exit:                      ; preds = %._crit_edge.i26, %73
   %79 = add nsw i64 %.037, -1
   %80 = icmp sgt i64 %.037, 0
-  br i1 %80, label %16, label %._crit_edge40, !llvm.loop !21
+  br i1 %80, label %16, label %._crit_edge40, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1395,12 +1395,12 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_
   store float %43, ptr %gep.us, align 4
   %45 = add nuw i64 %.033.us, 1
   %exitcond.not = icmp eq i64 %45, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %36
   %46 = add nuw i64 %.02734.us, 1
   %exitcond40.not = icmp eq i64 %46, %3
-  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !18
+  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %23
   ret i32 0
@@ -1455,12 +1455,13 @@ attributes #14 = { builtin allocsize(0) }
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
+!13 = distinct !{!13, !4, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !4}
 !16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
+!17 = distinct !{!17, !4, !14}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
+!19 = distinct !{!19, !4, !14}
 !20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}

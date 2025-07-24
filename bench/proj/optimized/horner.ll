@@ -1139,7 +1139,7 @@ _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double
   %100 = add nsw i32 %92, -1
   %101 = icmp eq i32 %92, 0
   %.not63.i = select i1 %101, i1 true, i1 %99
-  br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !74
+  br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !76
 
 .split.us.i:                                      ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
   %.us-phi.i = phi i1 [ %79, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
@@ -1173,7 +1173,7 @@ _ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: 
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !75
+  store ptr null, ptr %5, align 8, !tbaa !77
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %7 = add i64 %6, 2
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 1) #9
@@ -1219,12 +1219,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
   br i1 %.not, label %34, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %5, align 8, !tbaa !75
+  %27 = load ptr, ptr %5, align 8, !tbaa !77
   %28 = icmp eq ptr %27, null
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr %27, align 1, !tbaa !76
+  %30 = load i8, ptr %27, align 1, !tbaa !78
   %.not34 = icmp eq i8 %30, 44
   br i1 %.not34, label %32, label %31
 
@@ -1234,7 +1234,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %33, ptr %5, align 8, !tbaa !75
+  store ptr %33, ptr %5, align 8, !tbaa !77
   br label %34
 
 34:                                               ; preds = %32, %.lr.ph
@@ -1244,7 +1244,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
   store double %35, ptr %36, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %34, %20, %31, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %19 ], [ 0, %31 ], [ 1, %20 ], [ 1, %34 ]
@@ -1370,7 +1370,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !71 = distinct !{!71, !69}
 !72 = distinct !{!72, !69}
 !73 = distinct !{!73, !69}
-!74 = distinct !{!74, !69}
-!75 = !{!9, !9, i64 0}
-!76 = !{!7, !7, i64 0}
-!77 = distinct !{!77, !69}
+!74 = distinct !{!74, !69, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !69}
+!77 = !{!9, !9, i64 0}
+!78 = !{!7, !7, i64 0}
+!79 = distinct !{!79, !69}

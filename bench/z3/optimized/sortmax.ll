@@ -7060,7 +7060,7 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit:      ; preds = %46, %52
   %63 = add i32 %62, -1
   store i32 %63, ptr %61, align 4, !tbaa !40
   %exitcond.not = icmp eq i32 %9, %59
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !221
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !223
 
 .loopexit:                                        ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.us, %.preheader, %_ZN8psort_nwIN3opt7sortmaxEE10add_clauseERK10ptr_vectorI4exprE.exit
   ret void
@@ -7221,13 +7221,13 @@ declare void @_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl(ptr noundef nonnull ali
 define internal void @_GLOBAL__sub_I_sortmax.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
-  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !222
+  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !224
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL12true_literalE)
-  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !222
+  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !224
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL13false_literalE)
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !224
+  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !226
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL21null_eq_justificationE)
-  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !226
+  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !228
   %5 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL20null_b_justificationE)
   ret void
 }
@@ -7489,10 +7489,12 @@ attributes #25 = { "function-inline-cost-multiplier"="2" }
 !218 = !{!214, !16, i64 8}
 !219 = distinct !{!219, !47}
 !220 = distinct !{!220, !47}
-!221 = distinct !{!221, !47}
-!222 = !{!223, !18, i64 0}
-!223 = !{!"_ZTSN3sat7literalE", !18, i64 0}
-!224 = !{!225, !12, i64 0}
-!225 = !{!"_ZTSN3smt16eq_justificationE", !12, i64 0}
+!221 = distinct !{!221, !47, !222}
+!222 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!223 = distinct !{!223, !47}
+!224 = !{!225, !18, i64 0}
+!225 = !{!"_ZTSN3sat7literalE", !18, i64 0}
 !226 = !{!227, !12, i64 0}
-!227 = !{!"_ZTSN3smt15b_justificationE", !12, i64 0}
+!227 = !{!"_ZTSN3smt16eq_justificationE", !12, i64 0}
+!228 = !{!229, !12, i64 0}
+!229 = !{!"_ZTSN3smt15b_justificationE", !12, i64 0}

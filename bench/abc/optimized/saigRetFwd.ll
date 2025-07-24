@@ -761,9 +761,9 @@ define ptr @Saig_ManRetimeForward(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %23, label %Abc_Clock.exit, label %24
 
 24:                                               ; preds = %.lr.ph.split
-  %25 = load i64, ptr %7, align 8, !tbaa !51
+  %25 = load i64, ptr %7, align 8, !tbaa !52
   %.neg31 = mul i64 %25, -1000000
-  %26 = load i64, ptr %11, align 8, !tbaa !53
+  %26 = load i64, ptr %11, align 8, !tbaa !54
   %.neg30 = sdiv i64 %26, -1000
   %.neg32 = add i64 %.neg30, %.neg31
   br label %Abc_Clock.exit
@@ -790,9 +790,9 @@ Abc_Clock.exit:                                   ; preds = %.lr.ph.split, %24
   br i1 %37, label %Abc_Clock.exit23, label %38
 
 38:                                               ; preds = %Abc_Clock.exit
-  %39 = load i64, ptr %6, align 8, !tbaa !51
+  %39 = load i64, ptr %6, align 8, !tbaa !52
   %40 = mul nsw i64 %39, 1000000
-  %41 = load i64, ptr %12, align 8, !tbaa !53
+  %41 = load i64, ptr %12, align 8, !tbaa !54
   %42 = sdiv i64 %41, 1000
   %43 = add nsw i64 %42, %40
   br label %Abc_Clock.exit23
@@ -815,7 +815,7 @@ Abc_Clock.exit23:                                 ; preds = %Abc_Clock.exit, %38
   %49 = icmp slt i32 %28, %1
   %50 = icmp sgt i32 %34, 0
   %51 = and i1 %49, %50
-  br i1 %51, label %.lr.ph.split, label %._crit_edge, !llvm.loop !50
+  br i1 %51, label %.lr.ph.split, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %48, %16, %3
   %.017.lcssa = phi ptr [ %0, %3 ], [ %14, %16 ], [ %27, %48 ]
@@ -825,10 +825,10 @@ Abc_Clock.exit23:                                 ; preds = %Abc_Clock.exit, %38
   br i1 %53, label %Abc_Clock.exit25, label %54
 
 54:                                               ; preds = %._crit_edge
-  %55 = load i64, ptr %5, align 8, !tbaa !51
+  %55 = load i64, ptr %5, align 8, !tbaa !52
   %.neg28 = mul i64 %55, -1000000
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !53
+  %57 = load i64, ptr %56, align 8, !tbaa !54
   %.neg = sdiv i64 %57, -1000
   %.neg29 = add i64 %.neg, %.neg28
   br label %Abc_Clock.exit25
@@ -848,10 +848,10 @@ Abc_Clock.exit25:                                 ; preds = %._crit_edge, %54
   br i1 %61, label %Abc_Clock.exit27, label %62
 
 62:                                               ; preds = %59
-  %63 = load i64, ptr %4, align 8, !tbaa !51
+  %63 = load i64, ptr %4, align 8, !tbaa !52
   %64 = mul nsw i64 %63, 1000000
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !53
+  %66 = load i64, ptr %65, align 8, !tbaa !54
   %67 = sdiv i64 %66, 1000
   %68 = add nsw i64 %67, %64
   br label %Abc_Clock.exit27
@@ -891,7 +891,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #8 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !54
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !56
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -899,7 +899,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #8 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !54, !noalias !56
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !58
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
@@ -1010,12 +1010,14 @@ attributes #16 = { nounwind willreturn memory(read) }
 !47 = distinct !{!47, !28}
 !48 = !{!22, !12, i64 0}
 !49 = distinct !{!49, !28}
-!50 = distinct !{!50, !28}
-!51 = !{!52, !20, i64 0}
-!52 = !{!"timespec", !20, i64 0, !20, i64 8}
-!53 = !{!52, !20, i64 8}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"vprintf: argument 0"}
-!58 = distinct !{!58, !"vprintf"}
+!50 = distinct !{!50, !28, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!53, !20, i64 0}
+!53 = !{!"timespec", !20, i64 0, !20, i64 8}
+!54 = !{!53, !20, i64 8}
+!55 = distinct !{!55, !28}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"vprintf: argument 0"}
+!60 = distinct !{!60, !"vprintf"}

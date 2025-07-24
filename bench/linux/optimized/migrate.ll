@@ -1436,7 +1436,7 @@ define internal fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32
   %62 = add i32 %41, 1
   %63 = sext i32 %62 to i64
   %64 = icmp ugt i64 %8, %63
-  br i1 %64, label %.split, label %.loopexit, !llvm.loop !22
+  br i1 %64, label %.split, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %61, %36, %15
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -1522,4 +1522,6 @@ attributes #8 = { nounwind memory(none) }
 !19 = distinct !{!19, !9, !10}
 !20 = !{!"branch_weights", i32 2000, i32 1}
 !21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
+!22 = distinct !{!22, !9, !10, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !9, !10}

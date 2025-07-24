@@ -1678,7 +1678,7 @@ for.inc:                                          ; preds = %if.then, %lor.rhs
   %inc9 = add nuw nsw i32 %seqIndex.024, 1
   %last.val = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %15, %last.val
-  br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !251
+  br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !253
 
 for.end17:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc9.us, %for.inc.us ], [ %inc9, %for.inc ]
@@ -1747,7 +1747,7 @@ vaarg.end45:                                      ; preds = %vaarg.in_mem41, %va
   %vaarg.addr46 = phi ptr [ %23, %vaarg.in_reg39 ], [ %overflow_arg_area4340, %vaarg.in_mem41 ]
   %25 = load i32, ptr %vaarg.addr46, align 4
   %cmp47.not = icmp eq i32 %25, -1
-  br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !252
+  br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !254
 
 do.end:                                           ; preds = %vaarg.end45
   %tobool49.not = icmp eq ptr %pName, null
@@ -1819,7 +1819,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !253
+  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !255
 
 invoke.cont8:                                     ; preds = %while.body.i.i.i
   %cmp.i.not.i = icmp eq ptr %0, %4
@@ -2009,7 +2009,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !253
+  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !255
 
 invoke.cont8:                                     ; preds = %while.body.i.i.i
   %cmp.i.not.i = icmp eq ptr %0, %4
@@ -2128,7 +2128,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %cmp.i.i = icmp ne ptr %first.sroa.0.1.i, %this
   %cmp.i15.i = icmp ne ptr %firstX.sroa.0.1.i, %rightList
   %or.cond.i = and i1 %cmp.i15.i, %cmp.i.i
-  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !254
+  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !256
 
 while.end.i:                                      ; preds = %if.end.i, %if.then.i17
   %firstX.sroa.0.0.lcssa.i = phi ptr [ %x.val.i, %if.then.i17 ], [ %firstX.sroa.0.1.i, %if.end.i ]
@@ -2431,7 +2431,9 @@ attributes #7 = { nounwind }
 !248 = !{!249}
 !249 = distinct !{!249, !250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !250 = distinct !{!250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!251 = distinct !{!251, !90}
-!252 = distinct !{!252, !90}
+!251 = distinct !{!251, !90, !252}
+!252 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !253 = distinct !{!253, !90}
 !254 = distinct !{!254, !90}
+!255 = distinct !{!255, !90}
+!256 = distinct !{!256, !90}

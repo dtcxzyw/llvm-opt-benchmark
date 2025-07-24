@@ -53,7 +53,7 @@ define void @Java_sun_nio_fs_UnixFileSystem_bufferedCopy0(ptr noundef %0, ptr no
   br i1 %28, label %.split.us.backedge, label %.thread
 
 .split.us.backedge:                               ; preds = %.critedge34.us, %25
-  br label %.split.us, !llvm.loop !6
+  br label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %7, %.split.backedge
   %29 = tail call i64 @read(i32 noundef %3, ptr noundef %9, i64 noundef %10) #4
@@ -169,3 +169,5 @@ attributes #5 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -1353,7 +1353,7 @@ define dso_local ptr @part_data_dup_res(ptr noundef captures(address_is_null) %0
 28:                                               ; preds = %27, %.lr.ph.i
   %29 = load ptr, ptr %.05.i, align 8
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %part_data_rebuild_rows.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %part_data_rebuild_rows.exit, label %.lr.ph.i, !llvm.loop !35
 
 part_data_rebuild_rows.exit:                      ; preds = %28, %20
   %30 = getelementptr inbounds nuw i8, ptr %.02634, i64 8
@@ -1381,7 +1381,7 @@ part_data_rebuild_rows.exit:                      ; preds = %28, %20
   store ptr %42, ptr %.036, align 8
   %.pre = load ptr, ptr %.02634, align 8
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !36
 
 .loopexit:                                        ; preds = %38, %41, %.split.us, %11, %2
   %.025 = phi ptr [ null, %2 ], [ %5, %11 ], [ %5, %.split.us ], [ %5, %41 ], [ %5, %38 ]
@@ -1409,7 +1409,7 @@ define dso_local void @part_data_rebuild_rows(ptr noundef captures(address_is_nu
 6:                                                ; preds = %.lr.ph, %5
   %7 = load ptr, ptr %.05, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -1476,5 +1476,7 @@ attributes #8 = { nounwind }
 !30 = !{}
 !31 = distinct !{!31, !9, !10}
 !32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
+!33 = distinct !{!33, !9, !10, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}

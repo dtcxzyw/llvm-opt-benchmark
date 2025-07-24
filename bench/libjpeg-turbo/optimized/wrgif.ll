@@ -686,7 +686,7 @@ define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noun
   %120 = tail call i32 @putc(i32 noundef %.sink90, ptr noundef %119)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %118, %76, %21
   %121 = load ptr, ptr %22, align 8, !tbaa !70
@@ -847,7 +847,7 @@ flush_packet.exit:                                ; preds = %29, %37
   %47 = add nsw i32 %46, -8
   store i32 %47, ptr %4, align 8, !tbaa !67
   %48 = icmp sgt i32 %46, 15
-  br i1 %48, label %20, label %._crit_edge, !llvm.loop !86
+  br i1 %48, label %20, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %42, %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -987,5 +987,7 @@ attributes #7 = { nounwind }
 !82 = distinct !{!82, !80}
 !83 = distinct !{!83, !80}
 !84 = !{!5, !12, i64 140}
-!85 = distinct !{!85, !80}
-!86 = distinct !{!86, !80}
+!85 = distinct !{!85, !80, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = distinct !{!87, !80}
+!88 = distinct !{!88, !80}

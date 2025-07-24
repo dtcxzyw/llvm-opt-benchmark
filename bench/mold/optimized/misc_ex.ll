@@ -435,7 +435,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i: ; preds = %_ZN3tbb6detail
 _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i, %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i
   %102 = load atomic i32, ptr @_ZN3tbb6detail2r1L25hardware_concurrency_infoE acquire, align 4
   %.not.i = icmp eq i32 %102, 2
-  br i1 %.not.i, label %_ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit: ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, %0, %_ZN3tbb6detail2r1L36initialize_hardware_concurrency_infoEv.exit
   %103 = load i32, ptr @_ZN3tbb6detail2r1L11theNumProcsE, align 4, !tbaa !11
@@ -521,5 +521,6 @@ attributes #18 = { nounwind willreturn memory(none) }
 !15 = !{!"long", !5, i64 0}
 !16 = distinct !{!16, !13}
 !17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
+!18 = distinct !{!18, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !13}

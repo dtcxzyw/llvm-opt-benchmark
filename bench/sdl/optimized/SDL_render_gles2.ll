@@ -3160,7 +3160,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %110 = getelementptr inbounds nuw i8, ptr %.0120136, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !14
 
 111:                                              ; preds = %23
   %112 = mul nsw i64 %28, 24
@@ -3240,7 +3240,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %144 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 24
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !13
+  br i1 %exitcond160.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !15
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %157
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %157 ], [ 0, %.lr.ph140 ]
@@ -3306,7 +3306,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %174 = getelementptr inbounds nuw i8, ptr %.0119138, i64 24
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count159
-  br i1 %exitcond155.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !13
+  br i1 %exitcond155.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !16
 
 .critedge:                                        ; preds = %85, %47, %157, %127, %.preheader134, %.preheader, %111, %31
   %.1 = phi i1 [ false, %31 ], [ false, %111 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %127 ], [ true, %157 ], [ true, %47 ], [ true, %85 ]
@@ -4119,7 +4119,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
   %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %362 = load ptr, ptr %361, align 8
   %.not170 = icmp eq ptr %362, null
-  br i1 %.not170, label %._crit_edge, label %65, !llvm.loop !14
+  br i1 %.not170, label %._crit_edge, label %65, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %SetCopyState.exit.thread, %50
   %.val = load ptr, ptr %7, align 8
@@ -4464,7 +4464,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
 27:                                               ; preds = %25, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %28, label %22, !llvm.loop !15
+  br i1 %exitcond.not, label %28, label %22, !llvm.loop !18
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 560
@@ -4485,7 +4485,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
   %36 = load ptr, ptr %35, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.02739) #10
   %.not31 = icmp eq ptr %36, null
-  br i1 %.not31, label %._crit_edge, label %32, !llvm.loop !16
+  br i1 %.not31, label %._crit_edge, label %32, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %32, %28
   %37 = load ptr, ptr %3, align 8
@@ -4551,7 +4551,7 @@ GL_CheckAllErrors.exit:                           ; preds = %58, %41, %.preheade
   tail call void @SDL_free_REAL(ptr noundef %62) #10
   store ptr %44, ptr %38, align 8
   %.not33 = icmp eq ptr %44, null
-  br i1 %.not33, label %._crit_edge42.loopexit, label %41, !llvm.loop !17
+  br i1 %.not33, label %._crit_edge42.loopexit, label %41, !llvm.loop !20
 
 ._crit_edge42.loopexit:                           ; preds = %GL_CheckAllErrors.exit
   %.pre = load ptr, ptr %3, align 8
@@ -4651,7 +4651,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   %28 = load i32, ptr %4, align 4
   %.not46.us = icmp eq i32 %28, 0
   %29 = select i1 %17, i1 %.not46.us, i1 false
-  br i1 %29, label %16, label %._crit_edge, !llvm.loop !18
+  br i1 %29, label %16, label %._crit_edge, !llvm.loop !21
 
 30:                                               ; preds = %3
   %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.98) #10
@@ -4673,7 +4673,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   %39 = load i32, ptr %4, align 4
   %.not46 = icmp eq i32 %39, 0
   %40 = select i1 %32, i1 %.not46, i1 false
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %21
   %.042.lcssa = phi i32 [ %24, %21 ], [ %35, %.lr.ph.split ]
@@ -5354,7 +5354,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   %77 = getelementptr inbounds nuw i8, ptr %.092117.i, i64 120
   %.092.i = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %.092.i, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !23
 
 78:                                               ; preds = %72
   %.not111.i = icmp eq ptr %.092115.i, %.092117.i
@@ -5452,7 +5452,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   store i32 %120, ptr %121, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %122, label %115, !llvm.loop !20
+  br i1 %exitcond.not.i, label %122, label %115, !llvm.loop !24
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -5746,12 +5746,16 @@ attributes #11 = { nounwind allocsize(0,1) }
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!12 = distinct !{!12, !4, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
+!15 = distinct !{!15, !4, !13}
 !16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4, !13}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}

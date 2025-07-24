@@ -363,7 +363,7 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
   %164 = load i32, ptr %53, align 8, !tbaa !34
   %165 = sext i32 %164 to i64
   %166 = icmp slt i64 %indvars.iv.next248, %165
-  br i1 %166, label %77, label %._crit_edge.loopexit, !llvm.loop !71
+  br i1 %166, label %77, label %._crit_edge.loopexit, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre251 = load i32, ptr %10, align 4, !tbaa !27
@@ -382,7 +382,7 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
   %171 = zext i8 %170 to i32
   %172 = add nuw nsw i32 %.0137227, %171
   %173 = icmp slt i32 %172, %167
-  br i1 %173, label %.preheader190, label %._crit_edge229.loopexit, !llvm.loop !72
+  br i1 %173, label %.preheader190, label %._crit_edge229.loopexit, !llvm.loop !73
 
 ._crit_edge229.loopexit:                          ; preds = %._crit_edge
   %174 = icmp ne i32 %.1.lcssa, 0
@@ -392,7 +392,7 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
 ._crit_edge229:                                   ; preds = %.preheader190.lr.ph, %._crit_edge229.loopexit, %ff_init_nextband_map.exit
   %.0136.lcssa = phi i8 [ 0, %ff_init_nextband_map.exit ], [ %175, %._crit_edge229.loopexit ], [ 0, %.preheader190.lr.ph ]
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %.0136.lcssa, ptr %176, align 8, !tbaa !73
+  store i8 %.0136.lcssa, ptr %176, align 8, !tbaa !74
   br label %177
 
 177:                                              ; preds = %3, %._crit_edge229
@@ -471,8 +471,8 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %indvars.iv198 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next199, %._crit_edge180 ]
   %.0165183 = phi float [ 0.000000e+00, %.lr.ph185 ], [ %134, %._crit_edge180 ]
   %.0166182 = phi float [ 0.000000e+00, %.lr.ph185 ], [ %160, %._crit_edge180 ]
-  %54 = load ptr, ptr %23, align 16, !tbaa !74
-  %55 = load i32, ptr %24, align 16, !tbaa !75
+  %54 = load ptr, ptr %23, align 16, !tbaa !75
+  %55 = load i32, ptr %24, align 16, !tbaa !76
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds %struct.FFPsyChannel, ptr %54, i64 %56
   %58 = add nsw i64 %indvars.iv198, %20
@@ -482,11 +482,11 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 5)
   %spec.select = add nsw i32 %62, -4
   %63 = getelementptr inbounds [128 x %struct.FFPsyBand], ptr %57, i64 0, i64 %60, i32 2
-  %64 = load float, ptr %63, align 4, !tbaa !76
+  %64 = load float, ptr %63, align 4, !tbaa !77
   %.idx = shl nsw i64 %60, 4
   %65 = getelementptr i8, ptr %57, i64 2060
   %66 = getelementptr i8, ptr %65, i64 %.idx
-  %67 = load float, ptr %66, align 4, !tbaa !76
+  %67 = load float, ptr %66, align 4, !tbaa !77
   %68 = fcmp nsz ogt float %64, %67
   %69 = select nsz i1 %68, float %67, float %64
   %70 = getelementptr inbounds i8, ptr %53, i64 %37
@@ -512,7 +512,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %81 = load i8, ptr %70, align 1, !tbaa !35
   %82 = zext i8 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %83, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %84 = zext i8 %81 to i32
@@ -520,17 +520,17 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %51
   %.lcssa.in = phi i32 [ 0, %51 ], [ %84, %._crit_edge.loopexit ]
-  %85 = load ptr, ptr %41, align 8, !tbaa !79
+  %85 = load ptr, ptr %41, align 8, !tbaa !80
   %86 = getelementptr inbounds float, ptr %11, i64 %.pre203
   tail call void %85(ptr noundef nonnull %13, ptr noundef nonnull %86, i32 noundef %.lcssa.in) #6
-  %87 = load ptr, ptr %41, align 8, !tbaa !79
+  %87 = load ptr, ptr %41, align 8, !tbaa !80
   %88 = getelementptr inbounds float, ptr %12, i64 %.pre203
   %89 = load ptr, ptr %36, align 16, !tbaa !67
   %90 = getelementptr inbounds i8, ptr %89, i64 %37
   %91 = load i8, ptr %90, align 1, !tbaa !35
   %92 = zext i8 %91 to i32
   tail call void %87(ptr noundef nonnull %14, ptr noundef nonnull %88, i32 noundef %92) #6
-  %93 = load ptr, ptr %41, align 8, !tbaa !79
+  %93 = load ptr, ptr %41, align 8, !tbaa !80
   %94 = load ptr, ptr %36, align 16, !tbaa !67
   %95 = getelementptr inbounds i8, ptr %94, i64 %37
   %96 = load i8, ptr %95, align 1, !tbaa !35
@@ -556,7 +556,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %.1..us.i = select nsz i1 %104, float %.117.us.i, float %103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_max_val.exit, label %.preheader.us.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %find_max_val.exit, label %.preheader.us.i, !llvm.loop !81
 
 find_max_val.exit:                                ; preds = %.preheader.us.i, %._crit_edge
   %.us-phi.i = phi float [ 0.000000e+00, %._crit_edge ], [ %.1..us.i, %.preheader.us.i ]
@@ -581,7 +581,7 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
   %117 = load i32, ptr %29, align 4, !tbaa !38
   %118 = load i32, ptr %43, align 4, !tbaa !38
   %119 = load float, ptr %44, align 8, !tbaa !42
-  %120 = load float, ptr %63, align 4, !tbaa !76
+  %120 = load float, ptr %63, align 4, !tbaa !77
   %121 = fdiv nsz float %119, %120
   %122 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %86, ptr noundef null, ptr noundef nonnull %13, i32 noundef range(i32 0, 256) %101, i32 noundef %117, i32 noundef %118, float noundef %121, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
   %123 = fadd nsz float %.0165183, %122
@@ -592,7 +592,7 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
   %128 = load i32, ptr %47, align 4, !tbaa !38
   %129 = load i32, ptr %49, align 4, !tbaa !38
   %130 = load float, ptr %44, align 8, !tbaa !42
-  %131 = load float, ptr %66, align 4, !tbaa !76
+  %131 = load float, ptr %66, align 4, !tbaa !77
   %132 = fdiv nsz float %130, %131
   %133 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %88, ptr noundef null, ptr noundef nonnull %14, i32 noundef range(i32 0, 256) %127, i32 noundef %128, i32 noundef %129, float noundef %132, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
   %134 = fadd nsz float %123, %133
@@ -630,7 +630,7 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
   %156 = tail call nsz float @llvm.fmuladd.f32(float %155, float %155, float %151)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !82
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %find_min_book.exit
   %.0163.lcssa = phi float [ 0.000000e+00, %find_min_book.exit ], [ %156, %.lr.ph179 ]
@@ -642,25 +642,25 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
   %161 = load i8, ptr %21, align 1, !tbaa !35
   %162 = zext i8 %161 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next199, %162
-  br i1 %163, label %51, label %._crit_edge186, !llvm.loop !82
+  br i1 %163, label %51, label %._crit_edge186, !llvm.loop !83
 
 ._crit_edge186:                                   ; preds = %._crit_edge180, %.preheader
   %.0166.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %160, %._crit_edge180 ]
   %.0165.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %134, %._crit_edge180 ]
   %164 = fcmp nsz ole float %.0166.lcssa, %.0165.lcssa
   %165 = zext i1 %164 to i32
-  store i32 %165, ptr %0, align 4, !tbaa !83
+  store i32 %165, ptr %0, align 4, !tbaa !84
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %9, ptr %166, align 4, !tbaa !85
+  store i32 %9, ptr %166, align 4, !tbaa !86
   %167 = fsub nsz float %.0166.lcssa, %.0165.lcssa
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %167, ptr %168, align 4, !tbaa !86
+  store float %167, ptr %168, align 4, !tbaa !87
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.0165.lcssa, ptr %169, align 4, !tbaa !87
+  store float %.0165.lcssa, ptr %169, align 4, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.0166.lcssa, ptr %170, align 4, !tbaa !88
+  store float %.0166.lcssa, ptr %170, align 4, !tbaa !89
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %8, ptr %171, align 4, !tbaa !89
+  store float %8, ptr %171, align 4, !tbaa !90
   br label %172
 
 172:                                              ; preds = %10, %._crit_edge186
@@ -761,23 +761,24 @@ attributes #6 = { nounwind }
 !67 = !{!28, !14, i64 32}
 !68 = !{!16, !16, i64 0}
 !69 = distinct !{!69, !37}
-!70 = distinct !{!70, !37}
-!71 = distinct !{!71, !37}
-!72 = distinct !{!72, !37, !41}
-!73 = !{!33, !8, i64 8}
-!74 = !{!43, !55, i64 38336}
-!75 = !{!43, !10, i64 38416}
-!76 = !{!77, !16, i64 8}
-!77 = !{!"FFPsyBand", !10, i64 0, !16, i64 4, !16, i64 8, !16, i64 12}
-!78 = distinct !{!78, !37}
-!79 = !{!43, !7, i64 567256}
-!80 = distinct !{!80, !37}
+!70 = distinct !{!70, !37, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !37}
+!73 = distinct !{!73, !37, !41}
+!74 = !{!33, !8, i64 8}
+!75 = !{!43, !55, i64 38336}
+!76 = !{!43, !10, i64 38416}
+!77 = !{!78, !16, i64 8}
+!78 = !{!"FFPsyBand", !10, i64 0, !16, i64 4, !16, i64 8, !16, i64 12}
+!79 = distinct !{!79, !37}
+!80 = !{!43, !7, i64 567256}
 !81 = distinct !{!81, !37}
 !82 = distinct !{!82, !37}
-!83 = !{!84, !10, i64 0}
-!84 = !{!"AACISError", !10, i64 0, !10, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20}
-!85 = !{!84, !10, i64 4}
-!86 = !{!84, !16, i64 8}
-!87 = !{!84, !16, i64 12}
-!88 = !{!84, !16, i64 16}
-!89 = !{!84, !16, i64 20}
+!83 = distinct !{!83, !37}
+!84 = !{!85, !10, i64 0}
+!85 = !{!"AACISError", !10, i64 0, !10, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20}
+!86 = !{!85, !10, i64 4}
+!87 = !{!85, !16, i64 8}
+!88 = !{!85, !16, i64 12}
+!89 = !{!85, !16, i64 16}
+!90 = !{!85, !16, i64 20}

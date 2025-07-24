@@ -631,7 +631,7 @@ get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.spl
   store i16 %14, ptr %120, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.preheader48, label %118, !llvm.loop !77
+  br i1 %exitcond.not, label %.preheader48, label %118, !llvm.loop !78
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %.preheader47.lr.ph, %.preheader48
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #10
@@ -760,14 +760,14 @@ define internal noundef i32 @do_chromahold_slice(ptr noundef readonly captures(n
   %92 = load i32, ptr %19, align 8, !tbaa !44
   %93 = ashr i32 %91, %92
   %94 = icmp slt i32 %90, %93
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %89, %.preheader
   %95 = phi i32 [ %28, %.preheader ], [ %92, %89 ]
   %96 = phi i32 [ %29, %.preheader ], [ %91, %89 ]
   %97 = add nsw i32 %.06063, 1
   %exitcond.not = icmp eq i32 %97, %16
-  br i1 %exitcond.not, label %._crit_edge64, label %.preheader, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge64, label %.preheader, !llvm.loop !80
 
 ._crit_edge64:                                    ; preds = %._crit_edge, %4
   ret i32 0
@@ -904,14 +904,14 @@ define internal noundef i32 @do_chromahold16_slice(ptr noundef readonly captures
   %102 = load i32, ptr %24, align 8, !tbaa !44
   %103 = ashr i32 %101, %102
   %104 = icmp slt i32 %100, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !80
+  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %99, %.preheader
   %105 = phi i32 [ %37, %.preheader ], [ %102, %99 ]
   %106 = phi i32 [ %38, %.preheader ], [ %101, %99 ]
   %107 = add nsw i32 %.07073, 1
   %exitcond.not = icmp eq i32 %107, %16
-  br i1 %exitcond.not, label %._crit_edge74, label %.preheader, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge74, label %.preheader, !llvm.loop !82
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %4
   ret i32 0
@@ -1025,9 +1025,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !73 = distinct !{!73, !64}
 !74 = distinct !{!74, !64}
 !75 = distinct !{!75, !64}
-!76 = distinct !{!76, !64}
-!77 = distinct !{!77, !64}
+!76 = distinct !{!76, !64, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !78 = distinct !{!78, !64}
 !79 = distinct !{!79, !64}
 !80 = distinct !{!80, !64}
 !81 = distinct !{!81, !64}
+!82 = distinct !{!82, !64}

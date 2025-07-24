@@ -642,7 +642,7 @@ Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.sp
   %78 = or disjoint i32 %77, %14
   store i32 %78, ptr %15, align 8
   store ptr null, ptr %16, align 8, !tbaa !30
-  store ptr %68, ptr %17, align 8, !tbaa !41
+  store ptr %68, ptr %17, align 8, !tbaa !42
   %.not.i.us.i = icmp eq ptr %68, null
   br i1 %.not.i.us.i, label %Ivy_ObjCreateGhost.exit.us.i, label %Ivy_ObjFaninId1.exit.i.us.i
 
@@ -653,7 +653,7 @@ Ivy_ObjFaninId1.exit.i.us.i:                      ; preds = %75
 
 80:                                               ; preds = %Ivy_ObjFaninId1.exit.i.us.i
   store ptr %68, ptr %16, align 8, !tbaa !30
-  store ptr null, ptr %17, align 8, !tbaa !41
+  store ptr null, ptr %17, align 8, !tbaa !42
   br label %Ivy_ObjCreateGhost.exit.us.i
 
 Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId1.exit.i.us.i, %75
@@ -664,7 +664,7 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
 82:                                               ; preds = %Ivy_ObjCreateGhost.exit.i
   %indvars.iv.next.i17 = add nsw i64 %indvars.iv.i16, -1
   %.not.not.i = icmp sgt i64 %indvars.iv.i16, %66
-  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !40
+  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !43
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %82
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %82 ], [ %65, %.lr.ph.i15 ]
@@ -692,7 +692,7 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
   %94 = or disjoint i32 %93, %14
   store i32 %94, ptr %15, align 8
   store ptr %.fr.i, ptr %16, align 8, !tbaa !30
-  store ptr %84, ptr %17, align 8, !tbaa !41
+  store ptr %84, ptr %17, align 8, !tbaa !42
   %.not.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i, label %Ivy_ObjCreateGhost.exit.i, label %Ivy_ObjFaninId1.exit.i.i
 
@@ -704,7 +704,7 @@ Ivy_ObjFaninId1.exit.i.i:                         ; preds = %91
 
 96:                                               ; preds = %Ivy_ObjFaninId1.exit.i.i
   store ptr %84, ptr %16, align 8, !tbaa !30
-  store ptr %.fr.i, ptr %17, align 8, !tbaa !41
+  store ptr %.fr.i, ptr %17, align 8, !tbaa !42
   br label %Ivy_ObjCreateGhost.exit.i
 
 Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId1.exit.i.i, %91
@@ -756,7 +756,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
 116:                                              ; preds = %117
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !44
 
 117:                                              ; preds = %116, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %116 ]
@@ -867,12 +867,12 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   %.0.i = add nsw i32 %.021.i, -1
   %173 = icmp sgt i32 %.021.i, 1
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, -1
-  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !43
+  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !45
 
 Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %.lr.ph.i18, %170
   %174 = phi i32 [ %146, %170 ], [ %146, %.lr.ph.i18 ], [ %113, %117 ]
   %175 = icmp sgt i32 %174, 1
-  br i1 %175, label %19, label %._crit_edge, !llvm.loop !44
+  br i1 %175, label %19, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %143, %Ivy_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %176 = getelementptr i8, ptr %1, i64 8
@@ -909,7 +909,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 15:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !45
+  br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !47
 
 .lr.ph52:                                         ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -929,7 +929,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 24:                                               ; preds = %25
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !46
+  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !48
 
 25:                                               ; preds = %.lr.ph52, %24
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %24 ]
@@ -959,7 +959,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %32
   %38 = getelementptr i8, ptr %1, i64 12
-  %.val45 = load i32, ptr %38, align 4, !tbaa !47
+  %.val45 = load i32, ptr %38, align 4, !tbaa !49
   %39 = icmp sgt i32 %.val45, 1
   br i1 %39, label %43, label %40
 
@@ -1047,7 +1047,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %79 = tail call ptr @Ivy_ObjReal(ptr noundef %.val42) #9
   %80 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %79, ptr noundef %2)
   %81 = getelementptr i8, ptr %1, i64 24
-  %.val46 = load ptr, ptr %81, align 8, !tbaa !41
+  %.val46 = load ptr, ptr %81, align 8, !tbaa !42
   %82 = tail call ptr @Ivy_ObjReal(ptr noundef %.val46) #9
   %83 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %82, ptr noundef %2)
   %84 = icmp eq i32 %80, -1
@@ -1142,11 +1142,13 @@ attributes #11 = { nounwind allocsize(1) }
 !37 = distinct !{!37, !24}
 !38 = !{!9, !9, i64 0}
 !39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = !{!10, !9, i64 24}
-!42 = distinct !{!42, !24}
+!40 = distinct !{!40, !24, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{!10, !9, i64 24}
 !43 = distinct !{!43, !24}
 !44 = distinct !{!44, !24}
 !45 = distinct !{!45, !24}
 !46 = distinct !{!46, !24}
-!47 = !{!10, !11, i64 12}
+!47 = distinct !{!47, !24}
+!48 = distinct !{!48, !24}
+!49 = !{!10, !11, i64 12}

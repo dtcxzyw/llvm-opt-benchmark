@@ -833,7 +833,7 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
 103:                                              ; preds = %92
   %104 = add i32 %75, 1
   %105 = icmp eq i32 %87, 0
-  br i1 %105, label %.thread, label %.split, !llvm.loop !13
+  br i1 %105, label %.thread, label %.split, !llvm.loop !15
 
 .thread:                                          ; preds = %25, %.preheader, %103, %79, %82, %86, %97, %71, %50, %47, %65, %54, %11, %5
   ret void
@@ -870,7 +870,7 @@ define dso_local void @xhci_debugfs_exit(ptr noundef captures(address) initializ
 
 15:                                               ; preds = %11, %.preheader
   %16 = icmp eq ptr %9, %4
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %15, %1
   ret void
@@ -1521,7 +1521,7 @@ xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %1
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %324 = add nuw nsw i64 %17, 1
   %325 = icmp eq i64 %324, 256
-  br i1 %325, label %326, label %16, !llvm.loop !15
+  br i1 %325, label %326, label %16, !llvm.loop !17
 
 326:                                              ; preds = %323
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4) #14
@@ -1530,7 +1530,7 @@ xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %1
   %328 = add nuw i32 %12, 1
   %329 = load i32, ptr %8, align 8
   %330 = icmp ult i32 %328, %329
-  br i1 %330, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %330, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %326, %2
   ret i32 0
@@ -1700,7 +1700,7 @@ define internal i32 @xhci_ring_open(ptr noundef readonly captures(none) %0, ptr 
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 67108864
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %16, label %8, !prof !17
+  br i1 %7, label %16, label %8, !prof !19
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -1720,7 +1720,7 @@ define internal i32 @xhci_ring_open(ptr noundef readonly captures(none) %0, ptr 
 19:                                               ; preds = %22
   %20 = add nuw nsw i64 %23, 1
   %21 = icmp eq i64 %20, 4
-  br i1 %21, label %28, label %22, !llvm.loop !18
+  br i1 %21, label %28, label %22, !llvm.loop !20
 
 22:                                               ; preds = %19, %16
   %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
@@ -1900,7 +1900,7 @@ define internal noundef range(i32 -1, 1) i32 @xhci_stream_context_array_show(ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %36, %39
-  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %35, %9, %2
   %41 = phi i32 [ -1, %2 ], [ 0, %9 ], [ 0, %35 ]
@@ -2206,7 +2206,7 @@ default.unreachable1:                             ; preds = %68
   %100 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %98, ptr noundef nonnull dereferenceable(1) @.str.142, i32 noundef %99) #14
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.120, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %101 = icmp eq i32 %30, 31
-  br i1 %101, label %102, label %23, !llvm.loop !20
+  br i1 %101, label %102, label %23, !llvm.loop !22
 
 102:                                              ; preds = %84
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4) #14
@@ -2233,7 +2233,7 @@ define internal i32 @xhci_context_open(ptr noundef readonly captures(none) %0, p
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 67108864
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %16, label %8, !prof !17
+  br i1 %7, label %16, label %8, !prof !19
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -2253,7 +2253,7 @@ define internal i32 @xhci_context_open(ptr noundef readonly captures(none) %0, p
 19:                                               ; preds = %22
   %20 = add nuw nsw i64 %23, 1
   %21 = icmp eq i64 %20, 3
-  br i1 %21, label %28, label %22, !llvm.loop !21
+  br i1 %21, label %28, label %22, !llvm.loop !23
 
 22:                                               ; preds = %19, %16
   %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
@@ -2337,7 +2337,7 @@ define internal noundef i64 @xhci_port_write(ptr noundef readonly captures(none)
   %41 = and i32 %40, -66017
   %42 = or disjoint i32 %41, 65856
   %43 = load ptr, ptr %9, align 8
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr elementtype(i32) %43) #14, !srcloc !22
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr elementtype(i32) %43) #14, !srcloc !24
   br label %44
 
 44:                                               ; preds = %39, %32
@@ -2677,13 +2677,15 @@ attributes #14 = { nounwind }
 !10 = !{!"auto-init"}
 !11 = distinct !{!11, !6, !7}
 !12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!13 = distinct !{!13, !6, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !6, !7}
 !16 = distinct !{!16, !6, !7}
-!17 = !{!"branch_weights", i32 2000, i32 1}
+!17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
+!19 = !{!"branch_weights", i32 2000, i32 1}
 !20 = distinct !{!20, !6, !7}
 !21 = distinct !{!21, !6, !7}
-!22 = !{i64 2154499206}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = !{i64 2154499206}

@@ -164,7 +164,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %86, ptr %gep388, align 1
   %indvars.iv.next341 = add nsw i64 %indvars.iv340, 1
   %87 = icmp slt i64 %indvars.iv.next341, %80
-  br i1 %87, label %.lr.ph292, label %.loopexit281, !llvm.loop !11
+  br i1 %87, label %.lr.ph292, label %.loopexit281, !llvm.loop !12
 
 .loopexit281:                                     ; preds = %.lr.ph292, %.lr.ph295, %.preheader284.lr.ph, %.preheader282, %25, %15
   %88 = icmp sgt i32 %2, 0
@@ -210,7 +210,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %116, ptr %111, align 1
   %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
   %117 = icmp slt i64 %indvars.iv.next362, %109
-  br i1 %117, label %.lr.ph311, label %.loopexit278, !llvm.loop !12
+  br i1 %117, label %.lr.ph311, label %.loopexit278, !llvm.loop !13
 
 118:                                              ; preds = %89
   %119 = and i32 %18, %98
@@ -237,7 +237,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %132, ptr %127, align 1
   %indvars.iv.next347 = add nsw i64 %indvars.iv346, 1
   %133 = icmp slt i64 %indvars.iv.next347, %125
-  br i1 %133, label %.lr.ph298, label %._crit_edge299, !llvm.loop !13
+  br i1 %133, label %.lr.ph298, label %._crit_edge299, !llvm.loop !14
 
 ._crit_edge299:                                   ; preds = %.lr.ph298, %118
   %134 = add nuw i32 %96, 7
@@ -275,12 +275,12 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %19, ptr %gep, align 1
   %indvars.iv.next350 = add nsw i64 %indvars.iv349, 1
   %149 = icmp slt i64 %indvars.iv.next350, %145
-  br i1 %149, label %147, label %._crit_edge303.us, !llvm.loop !14
+  br i1 %149, label %147, label %._crit_edge303.us, !llvm.loop !15
 
 ._crit_edge303.us:                                ; preds = %147
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count356
-  br i1 %exitcond357.not, label %.preheader, label %.preheader280.us, !llvm.loop !15
+  br i1 %exitcond357.not, label %.preheader, label %.preheader280.us, !llvm.loop !16
 
 .preheader:                                       ; preds = %._crit_edge303.us, %._crit_edge299
   br i1 %122, label %.lr.ph308.preheader, label %.loopexit278
@@ -306,7 +306,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %159, ptr %gep391, align 1
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
   %160 = icmp slt i64 %indvars.iv.next359, %153
-  br i1 %160, label %.lr.ph308, label %.loopexit278, !llvm.loop !16
+  br i1 %160, label %.lr.ph308, label %.loopexit278, !llvm.loop !17
 
 .loopexit278:                                     ; preds = %.lr.ph308, %.lr.ph311, %.preheader280.lr.ph, %.preheader, %99, %.loopexit281
   %.val275 = load i32, ptr %12, align 4
@@ -366,7 +366,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %193, ptr %gep393, align 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond369.not = icmp eq i64 %indvar.next, %wide.trip.count368
-  br i1 %exitcond369.not, label %._crit_edge321, label %176, !llvm.loop !17
+  br i1 %exitcond369.not, label %._crit_edge321, label %176, !llvm.loop !18
 
 ._crit_edge321:                                   ; preds = %._crit_edge315, %.loopexit278
   %194 = add nsw i32 %.val271, -1
@@ -409,7 +409,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %19, ptr %218, align 1
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond374.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count373
-  br i1 %exitcond374.not, label %._crit_edge325.loopexit, label %.lr.ph324, !llvm.loop !18
+  br i1 %exitcond374.not, label %._crit_edge325.loopexit, label %.lr.ph324, !llvm.loop !19
 
 ._crit_edge325.loopexit:                          ; preds = %.lr.ph324
   %.pre380 = load i8, ptr %208, align 1
@@ -434,7 +434,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   store i8 %232, ptr %213, align 1
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
-  br i1 %exitcond379.not, label %.loopexit, label %203, !llvm.loop !19
+  br i1 %exitcond379.not, label %.loopexit, label %203, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge325, %._crit_edge321, %7, %13
   %.0261 = phi i32 [ 1, %13 ], [ 1, %7 ], [ 0, %._crit_edge321 ], [ 0, %._crit_edge325 ]
@@ -463,13 +463,14 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!16 = distinct !{!16, !7, !11}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

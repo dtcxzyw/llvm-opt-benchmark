@@ -182,7 +182,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   %35 = load i32, ptr %7, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next65, %36
-  br i1 %37, label %.lr.ph38.split.us, label %._crit_edge39, !llvm.loop !9
+  br i1 %37, label %.lr.ph38.split.us, label %._crit_edge39, !llvm.loop !10
 
 .lr.ph.us:                                        ; preds = %.lr.ph38.split.us
   %38 = load ptr, ptr %1, align 8
@@ -268,7 +268,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 76:                                               ; preds = %75, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count23.i
-  br i1 %exitcond.not.i, label %transfer_single_new_db.exit, label %.lr.ph.split.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %transfer_single_new_db.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 transfer_single_new_db.exit:                      ; preds = %76, %65, %61
   call void @pg_free(ptr noundef %63) #7
@@ -278,7 +278,7 @@ transfer_single_new_db.exit:                      ; preds = %76, %65, %61
   %78 = load i32, ptr %7, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next58, %79
-  br i1 %80, label %.lr.ph38.split, label %._crit_edge39, !llvm.loop !9
+  br i1 %80, label %.lr.ph38.split, label %._crit_edge39, !llvm.loop !12
 
 ._crit_edge39:                                    ; preds = %transfer_single_new_db.exit, %transfer_single_new_db.exit.us, %5
   ret void
@@ -477,5 +477,8 @@ attributes #10 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !9}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

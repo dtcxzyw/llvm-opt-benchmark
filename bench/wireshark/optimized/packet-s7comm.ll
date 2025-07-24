@@ -6937,7 +6937,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   %169 = add i32 %.1231.us233, 1
   tail call void @proto_item_set_len(ptr noundef %162, i32 noundef 1)
   %exitcond245.not = icmp eq i32 %163, %35
-  br i1 %exitcond245.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !24
+  br i1 %exitcond245.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !26
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i32 [ %174, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -6949,7 +6949,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %173, ptr noundef nonnull @.str.2353, i32 noundef %174)
   tail call void @proto_item_set_len(ptr noundef %173, i32 noundef 0)
   %exitcond.not = icmp eq i32 %174, %35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %156, %29
   %.1.lcssa = phi i32 [ %37, %29 ], [ %.5.us, %156 ], [ %169, %.lr.ph.split.split.us ], [ %37, %.lr.ph.split.split ]
@@ -7077,7 +7077,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr nounde
   br i1 %94, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %93, %91
-  br label %.backedge, !llvm.loop !25
+  br label %.backedge, !llvm.loop !28
 
 .loopexit:                                        ; preds = %91, %93, %3
   %.0132 = phi i32 [ %26, %3 ], [ %.2, %93 ], [ %.2, %91 ]
@@ -8222,7 +8222,7 @@ default.unreachable329:                           ; preds = %461, %358, %14
   %.2.i = phi i32 [ %415, %414 ], [ %395, %.lr.ph.i ]
   %.1.i = phi i32 [ %416, %414 ], [ %401, %.lr.ph.i ]
   %423 = icmp sgt i32 %.1.i, 16
-  br i1 %423, label %.lr.ph.i, label %s7comm_decode_ud_tis_istack.exit, !llvm.loop !26
+  br i1 %423, label %.lr.ph.i, label %s7comm_decode_ud_tis_istack.exit, !llvm.loop !29
 
 424:                                              ; preds = %8
   %425 = icmp eq i8 %.tr99, 1
@@ -8493,7 +8493,7 @@ make_registerflag_string.exit.i:                  ; preds = %588, %585
   %592 = call ptr @proto_tree_add_bitmask(ptr noundef %546, ptr noundef %0, i32 noundef %554, i32 noundef %590, i32 noundef %591, ptr noundef nonnull @s7comm_diagdata_registerflag_fields, i32 noundef 0)
   %.1.i68 = add i32 %.2.i67, 2
   %exitcond.not.i = icmp eq i32 %589, %.071.i
-  br i1 %exitcond.not.i, label %s7comm_decode_ud_tis_blockstat.exit, label %.lr.ph.i66, !llvm.loop !27
+  br i1 %exitcond.not.i, label %s7comm_decode_ud_tis_blockstat.exit, label %.lr.ph.i66, !llvm.loop !30
 
 593:                                              ; preds = %519
   %594 = load i32, ptr @hf_s7comm_diagdata_req_startaddr_awl, align 4
@@ -8537,7 +8537,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %612 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.13034.i, ptr noundef %13, i16 noundef zeroext %.035.i, ptr noundef nonnull @.str.2369)
   %613 = add nuw i16 %.035.i, 1
   %exitcond41.not.i = icmp eq i16 %613, %607
-  br i1 %exitcond41.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph36.i, !llvm.loop !28
+  br i1 %exitcond41.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph36.i, !llvm.loop !31
 
 614:                                              ; preds = %605
   %615 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102)
@@ -8554,7 +8554,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %620 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.232.i, ptr noundef %13, i16 noundef zeroext %.133.i, ptr noundef nonnull @.str.2370)
   %621 = add nuw i16 %.133.i, 1
   %exitcond.not.i71 = icmp eq i16 %621, %615
-  br i1 %exitcond.not.i71, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.i70, !llvm.loop !29
+  br i1 %exitcond.not.i71, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.i70, !llvm.loop !32
 
 622:                                              ; preds = %8, %8, %8, %8, %8, %8
   %623 = icmp eq i8 %.tr99, 1
@@ -8660,7 +8660,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %677 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %676, ptr noundef %0, i32 noundef %675, i32 noundef 2, i32 noundef 0)
   %678 = add i32 %.3.i74215, 4
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph, !llvm.loop !33
 
 679:                                              ; preds = %664
   %680 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102)
@@ -8715,7 +8715,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %707 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.15361.i, ptr noundef %13, i16 noundef zeroext %.05162.i, ptr noundef nonnull @.str.2397)
   %708 = add nuw i16 %.05162.i, 1
   %exitcond77.not.i = icmp eq i16 %708, %702
-  br i1 %exitcond77.not.i, label %.lr.ph68.i, label %.lr.ph64.i, !llvm.loop !31
+  br i1 %exitcond77.not.i, label %.lr.ph68.i, label %.lr.ph64.i, !llvm.loop !34
 
 .lr.ph68.i:                                       ; preds = %.lr.ph64.i, %.lr.ph68.i
   %.167.i = phi i16 [ %710, %.lr.ph68.i ], [ 0, %.lr.ph64.i ]
@@ -8723,7 +8723,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %709 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.25466.i, ptr noundef %13, i16 noundef zeroext %.167.i, ptr noundef nonnull @.str.2398)
   %710 = add nuw i16 %.167.i, 1
   %exitcond78.not.i = icmp eq i16 %710, %702
-  br i1 %exitcond78.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i, !llvm.loop !32
+  br i1 %exitcond78.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i, !llvm.loop !35
 
 711:                                              ; preds = %700
   %712 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102)
@@ -8750,7 +8750,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %718, ptr noundef nonnull @.str.2170, i32 noundef %725, ptr noundef %726)
   %727 = add i32 %.358.i, 1
   %exitcond.not.i79 = icmp eq i32 %725, %714
-  br i1 %exitcond.not.i79, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !33
+  br i1 %exitcond.not.i79, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i77
   %728 = and i32 %714, 1
@@ -8784,7 +8784,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %740 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.15361.i92, ptr noundef %13, i16 noundef zeroext %.05162.i91, ptr noundef nonnull @.str.2399)
   %741 = add nuw i16 %.05162.i91, 1
   %exitcond77.not.i93 = icmp eq i16 %741, %735
-  br i1 %exitcond77.not.i93, label %.lr.ph68.i94, label %.lr.ph64.i90, !llvm.loop !34
+  br i1 %exitcond77.not.i93, label %.lr.ph68.i94, label %.lr.ph64.i90, !llvm.loop !37
 
 .lr.ph68.i94:                                     ; preds = %.lr.ph64.i90, %.lr.ph68.i94
   %.167.i95 = phi i16 [ %743, %.lr.ph68.i94 ], [ 0, %.lr.ph64.i90 ]
@@ -8792,7 +8792,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %742 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.25466.i96, ptr noundef %13, i16 noundef zeroext %.167.i95, ptr noundef nonnull @.str.2400)
   %743 = add nuw i16 %.167.i95, 1
   %exitcond78.not.i97 = icmp eq i16 %743, %735
-  br i1 %exitcond78.not.i97, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i94, !llvm.loop !35
+  br i1 %exitcond78.not.i97, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i94, !llvm.loop !38
 
 744:                                              ; preds = %733
   %745 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102)
@@ -8819,7 +8819,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %751, ptr noundef nonnull @.str.2170, i32 noundef %758, ptr noundef %759)
   %760 = add i32 %.358.i84, 1
   %exitcond.not.i85 = icmp eq i32 %758, %747
-  br i1 %exitcond.not.i85, label %._crit_edge.i86, label %.lr.ph.i82, !llvm.loop !36
+  br i1 %exitcond.not.i85, label %._crit_edge.i86, label %.lr.ph.i82, !llvm.loop !39
 
 ._crit_edge.i86:                                  ; preds = %.lr.ph.i82
   %761 = and i32 %747, 1
@@ -9200,7 +9200,7 @@ define internal fastcc i32 @s7comm_decode_message_service_ar_send_args(ptr nound
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2433, i32 noundef %35, i32 noundef %36)
   %37 = add nuw nsw i32 %.05660.us, 8
   %exitcond77.not = icmp eq i32 %35, %9
-  br i1 %exitcond77.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !37
+  br i1 %exitcond77.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !40
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph, %.lr.ph.split.us62
   %indvars.iv = phi i32 [ %42, %.lr.ph.split.us62 ], [ 0, %.lr.ph ]
@@ -9215,7 +9215,7 @@ define internal fastcc i32 @s7comm_decode_message_service_ar_send_args(ptr nound
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef %.05660.us64, i32 noundef 1, i32 noundef 0)
   %45 = add nuw nsw i32 %.05660.us64, 1
   %exitcond.not = icmp eq i32 %42, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us62, %.lr.ph
   %.056.lcssa = phi i32 [ %11, %.lr.ph ], [ %45, %.lr.ph.split.us62 ]
@@ -9289,9 +9289,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!24 = distinct !{!24, !7, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !7, !25}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
@@ -9303,3 +9303,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7, !25}
+!41 = distinct !{!41, !7, !25}

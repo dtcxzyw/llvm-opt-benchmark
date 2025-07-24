@@ -4610,7 +4610,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noun
 
 54:                                               ; preds = %49
   %55 = tail call i32 @sleep(i32 noundef 1) #19
-  br label %.critedge.split.us
+  br label %.critedge.split.us, !llvm.loop !25
 
 .preheader.us:                                    ; preds = %.critedge.split.us
   %56 = load i32, ptr %6, align 8
@@ -5259,7 +5259,7 @@ define dso_local ptr @slurm_send_addr_recv_msgs(ptr noundef %0, ptr noundef %1, 
   %50 = load i16, ptr @slurm_send_addr_recv_msgs.conn_timeout, align 2
   %51 = zext i16 %50 to i64
   %52 = icmp slt i64 %49, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %23, %47, %18
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -5675,7 +5675,7 @@ define dso_local i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 nou
   call void @destroy_data_info(ptr noundef nonnull %27) #19
   %33 = call ptr @list_pop(ptr noundef nonnull %22) #19
   %.not36.us = icmp eq ptr %33, null
-  br i1 %.not36.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %.not36.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %47
   %34 = phi ptr [ %48, %47 ], [ %25, %.lr.ph ]
@@ -5709,7 +5709,7 @@ define dso_local i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 nou
   call void @destroy_data_info(ptr noundef nonnull %34) #19
   %48 = call ptr @list_pop(ptr noundef nonnull %22) #19
   %.not36 = icmp eq ptr %48, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %47
   %.not37 = icmp eq ptr %.1, null
@@ -5960,5 +5960,8 @@ attributes #22 = { noreturn nounwind }
 !22 = distinct !{!22, !9, !10}
 !23 = distinct !{!23, !10}
 !24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10, !26}
+!29 = distinct !{!29, !9, !10}

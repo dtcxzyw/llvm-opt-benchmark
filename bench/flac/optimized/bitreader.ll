@@ -2055,7 +2055,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   %53 = or disjoint i32 %52, %51
   %54 = add nsw i32 %.131, -1
   %.not23 = icmp eq i32 %54, 0
-  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !50
 
 .loopexit.sink.split:                             ; preds = %50, %42, %36, %33, %14, %28
   %.117.lcssa.sink = phi i32 [ -1, %28 ], [ %.pre, %14 ], [ -1, %33 ], [ %39, %36 ], [ -1, %42 ], [ %53, %50 ]
@@ -2175,7 +2175,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   %52 = or disjoint i64 %49, %51
   %53 = add nsw i32 %.131.us, -1
   %.not23.us = icmp eq i32 %53, 0
-  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %.131 = phi i32 [ %68, %63 ], [ %.0.ph, %.lr.ph ]
@@ -2204,7 +2204,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   %67 = or disjoint i64 %64, %66
   %68 = add nsw i32 %.131, -1
   %.not23 = icmp eq i32 %68, 0
-  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !49
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !52
 
 .loopexit.sink.split:                             ; preds = %63, %55, %48, %45, %43, %41
   %.117.lcssa.sink = phi i64 [ -1, %41 ], [ %.016, %43 ], [ -1, %45 ], [ %52, %48 ], [ -1, %55 ], [ %67, %63 ]
@@ -2311,5 +2311,8 @@ attributes #22 = { nounwind allocsize(0) }
 !45 = distinct !{!45, !26}
 !46 = distinct !{!46, !26}
 !47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26}
-!49 = distinct !{!49, !26}
+!48 = distinct !{!48, !26, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !26}
+!51 = distinct !{!51, !26, !49}
+!52 = distinct !{!52, !26}

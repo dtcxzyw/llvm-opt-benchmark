@@ -1191,7 +1191,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %288 = getelementptr inbounds nuw i8, ptr %.0538, i64 8
   %289 = load ptr, ptr %288, align 8, !tbaa !45
   %.not426 = icmp eq ptr %289, null
-  br i1 %.not426, label %._crit_edge540, label %.lr.ph539, !llvm.loop !57
+  br i1 %.not426, label %._crit_edge540, label %.lr.ph539, !llvm.loop !58
 
 ._crit_edge540:                                   ; preds = %.lr.ph539, %.preheader465
   call void @CRYPTO_free(ptr noundef nonnull %.0332, ptr noundef nonnull @.str, i32 noundef 787) #8
@@ -1213,7 +1213,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %293 = getelementptr inbounds nuw i8, ptr %.2324542, i64 8
   %294 = load ptr, ptr %293, align 8, !tbaa !12
   %.not428 = icmp eq ptr %294, null
-  br i1 %.not428, label %._crit_edge544, label %.lr.ph543, !llvm.loop !58
+  br i1 %.not428, label %._crit_edge544, label %.lr.ph543, !llvm.loop !59
 
 ._crit_edge544:                                   ; preds = %.lr.ph543, %.preheader
   call void @CRYPTO_free(ptr noundef nonnull %.0325, ptr noundef nonnull @.str, i32 noundef 793) #8
@@ -1259,13 +1259,13 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %5, label %ec_pre_comp_new.exit.thread, label %6
 
 6:                                                ; preds = %3
-  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %0, ptr %4, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 8, ptr %7, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 4, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !60
+  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !61
   %10 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1330,7 +1330,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 38:                                               ; preds = %.lr.ph
   %39 = add nuw i64 %.0129215, 1
   %exitcond.not = icmp eq i64 %39, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %36, %38
   %.0129215 = phi i64 [ %39, %38 ], [ 0, %36 ]
@@ -1398,7 +1398,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %.2 = getelementptr inbounds nuw i8, ptr %.2220, i64 8
   %.0112.highbits = lshr i64 %59, %30
   %60 = icmp eq i64 %.0112.highbits, 0
-  br i1 %60, label %.lr.ph221, label %._crit_edge222, !llvm.loop !62
+  br i1 %60, label %.lr.ph221, label %._crit_edge222, !llvm.loop !63
 
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %58
   %.2220 = phi ptr [ %.2, %58 ], [ %.2216, %.lr.ph221.preheader ]
@@ -1422,7 +1422,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 67:                                               ; preds = %.preheader209
   %68 = add nuw nsw i64 %.0111223, 1
   %exitcond238.not = icmp eq i64 %68, 8
-  br i1 %exitcond238.not, label %.loopexit, label %.preheader209, !llvm.loop !63
+  br i1 %exitcond238.not, label %.loopexit, label %.preheader209, !llvm.loop !64
 
 .preheader209:                                    ; preds = %65, %67
   %.0111223 = phi i64 [ %68, %67 ], [ 2, %65 ]
@@ -1433,7 +1433,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 .loopexit:                                        ; preds = %67, %._crit_edge222
   %70 = add nuw nsw i64 %.1130224, 1
   %exitcond239.not = icmp eq i64 %70, %umax
-  br i1 %exitcond239.not, label %._crit_edge227, label %53, !llvm.loop !64
+  br i1 %exitcond239.not, label %._crit_edge227, label %53, !llvm.loop !65
 
 ._crit_edge227:                                   ; preds = %.loopexit, %.preheader212
   %71 = load ptr, ptr %0, align 8, !tbaa !32
@@ -1448,7 +1448,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %.not147, label %.thread166, label %77
 
 77:                                               ; preds = %75
-  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %0, ptr %4, align 8, !tbaa !60
   store i64 8, ptr %7, align 8, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %29, ptr %78, align 8, !tbaa !41
@@ -1458,7 +1458,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %31, ptr %80, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 6, ptr %81, align 8, !tbaa !65
+  store i32 6, ptr %81, align 8, !tbaa !66
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %4, ptr %82, align 8, !tbaa !40
   br label %.thread166
@@ -1550,7 +1550,7 @@ EC_ec_pre_comp_free.exit:                         ; preds = %.thread166, %CRYPTO
   %100 = getelementptr inbounds nuw i8, ptr %.0229, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !12
   %.not155 = icmp eq ptr %101, null
-  br i1 %.not155, label %._crit_edge231, label %.lr.ph230, !llvm.loop !66
+  br i1 %.not155, label %._crit_edge231, label %.lr.ph230, !llvm.loop !67
 
 ._crit_edge231:                                   ; preds = %.lr.ph230, %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %.0119185204, ptr noundef nonnull @.str, i32 noundef 971) #8
@@ -1577,7 +1577,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i32, ptr %2, align 8, !tbaa !65
+  %3 = load i32, ptr %2, align 8, !tbaa !66
   %4 = icmp eq i32 %3, 6
   br i1 %4, label %5, label %10
 
@@ -1672,14 +1672,15 @@ attributes #8 = { nounwind }
 !53 = distinct !{!53, !15}
 !54 = !{!34, !6, i64 216}
 !55 = distinct !{!55, !15}
-!56 = distinct !{!56, !15}
-!57 = distinct !{!57, !15}
+!56 = distinct !{!56, !15, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !58 = distinct !{!58, !15}
-!59 = !{!4, !5, i64 0}
-!60 = !{!11, !7, i64 0}
-!61 = distinct !{!61, !15}
+!59 = distinct !{!59, !15}
+!60 = !{!4, !5, i64 0}
+!61 = !{!11, !7, i64 0}
 !62 = distinct !{!62, !15}
 !63 = distinct !{!63, !15}
 !64 = distinct !{!64, !15}
-!65 = !{!17, !20, i64 152}
-!66 = distinct !{!66, !15}
+!65 = distinct !{!65, !15}
+!66 = !{!17, !20, i64 152}
+!67 = distinct !{!67, !15}

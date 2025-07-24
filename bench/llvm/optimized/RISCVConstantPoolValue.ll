@@ -93,140 +93,110 @@ define dso_local noundef i32 @_ZN4llvm22RISCVConstantPoolValue25getExistingMachi
   %.sroa.01.0.copyload.i = load ptr, ptr %16, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %.sroa.22.0.copyload.i.fr = freeze i64 %.sroa.22.0.copyload.i
-  %17 = load ptr, ptr %13, align 8
+  %17 = icmp eq i64 %.sroa.22.0.copyload.i, 0
+  %18 = load ptr, ptr %13, align 8
   %.fr = freeze i32 %15
   switch i32 %.fr, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25 [
     i32 1, label %.lr.ph.split.us.preheader
-    i32 0, label %.lr.ph.split.us38
+    i32 0, label %.lr.ph.split.us38.preheader
   ]
 
+.lr.ph.split.us38.preheader:                      ; preds = %.lr.ph
+  %19 = and i64 %11, 4294967295
+  br label %.lr.ph.split.us38
+
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %18 = and i64 %11, 4294967295
+  %20 = and i64 %11, 4294967295
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread.us
-  %indvars.iv60 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next61, %.thread.us ]
-  %19 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv60
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %21 = load i8, ptr %20, align 1, !tbaa !30, !range !34, !noundef !35
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %.thread.us
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next53, %.thread.us ]
+  %21 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv52
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 9
+  %23 = load i8, ptr %22, align 1, !tbaa !30, !range !34, !noundef !35
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %.thread.us
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.0.0.copyload.i.us = load i8, ptr %24, align 8, !tbaa !36
+25:                                               ; preds = %.lr.ph.split.us
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.0.0.copyload.i.us = load i8, ptr %26, align 8, !tbaa !36
   %.not29.us = icmp ult i8 %.sroa.0.0.copyload.i.us, %2
-  br i1 %.not29.us, label %.thread.us, label %25
+  br i1 %.not29.us, label %.thread.us, label %27
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %19, align 8, !tbaa !36
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !18
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %.thread.us
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %21, align 8, !tbaa !36
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %30 = load i32, ptr %29, align 8, !tbaa !18
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %.thread.us
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  %33 = icmp eq ptr %17, %32
-  br i1 %33, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, label %.thread.us
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %35 = icmp eq ptr %18, %34
+  br i1 %35, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, label %.thread.us
 
-.thread.us:                                       ; preds = %30, %25, %23, %.lr.ph.split.us
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %.not.us = icmp eq i64 %indvars.iv.next61, %18
+.thread.us:                                       ; preds = %32, %27, %25, %.lr.ph.split.us
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %.not.us = icmp eq i64 %indvars.iv.next53, %20
   br i1 %.not.us, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us, !llvm.loop !37
 
-.lr.ph.split.us38:                                ; preds = %.lr.ph
-  %34 = icmp eq i64 %.sroa.22.0.copyload.i.fr, 0
-  %35 = and i64 %11, 4294967295
-  br i1 %34, label %.lr.ph.split.us38.split.us, label %.lr.ph.split.us38.split
-
-.lr.ph.split.us38.split.us:                       ; preds = %.lr.ph.split.us38, %.thread.us42.us
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.thread.us42.us ], [ 0, %.lr.ph.split.us38 ]
-  %36 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv57
+.lr.ph.split.us38:                                ; preds = %.lr.ph.split.us38.preheader, %.thread.us42
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us38.preheader ], [ %indvars.iv.next, %.thread.us42 ]
+  %36 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 9
   %38 = load i8, ptr %37, align 1, !tbaa !30, !range !34, !noundef !35
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %.thread.us42.us
+  br i1 %39, label %40, label %.thread.us42
 
-40:                                               ; preds = %.lr.ph.split.us38.split.us
+40:                                               ; preds = %.lr.ph.split.us38
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sroa.0.0.copyload.i.us40.us = load i8, ptr %41, align 8, !tbaa !36
-  %.not29.us41.us = icmp ult i8 %.sroa.0.0.copyload.i.us40.us, %2
-  br i1 %.not29.us41.us, label %.thread.us42.us, label %42
+  %.sroa.0.0.copyload.i.us40 = load i8, ptr %41, align 8, !tbaa !36
+  %.not29.us41 = icmp ult i8 %.sroa.0.0.copyload.i.us40, %2
+  br i1 %.not29.us41, label %.thread.us42, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %36, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8, !tbaa !18
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.thread.us42.us
+  br i1 %46, label %47, label %.thread.us42
 
 47:                                               ; preds = %42
-  %.sroa.2.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.sroa.2.0.copyload.i.us.us = load i64, ptr %.sroa.2.0..sroa_idx.i.us.us, align 8, !tbaa !20
-  %.not.i.i.us.us = icmp eq i64 %.sroa.2.0.copyload.i.us.us, 0
-  br i1 %.not.i.i.us.us, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit, label %.thread.us42.us
-
-.thread.us42.us:                                  ; preds = %47, %42, %40, %.lr.ph.split.us38.split.us
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %.not.us43.us = icmp eq i64 %indvars.iv.next58, %35
-  br i1 %.not.us43.us, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us38.split.us, !llvm.loop !37
-
-.lr.ph.split.us38.split:                          ; preds = %.lr.ph.split.us38, %.thread.us42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us42 ], [ 0, %.lr.ph.split.us38 ]
-  %48 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  %50 = load i8, ptr %49, align 1, !tbaa !30, !range !34, !noundef !35
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %.thread.us42
-
-52:                                               ; preds = %.lr.ph.split.us38.split
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %.sroa.0.0.copyload.i.us40 = load i8, ptr %53, align 8, !tbaa !36
-  %.not29.us41 = icmp ult i8 %.sroa.0.0.copyload.i.us40, %2
-  br i1 %.not29.us41, label %.thread.us42, label %54
-
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %48, align 8, !tbaa !36
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load i32, ptr %56, align 8, !tbaa !18
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread.us42
-
-59:                                               ; preds = %54
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.sroa.0.0.copyload.i22.us = load ptr, ptr %48, align 8, !tbaa !19
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.2.0.copyload.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.us, align 8, !tbaa !20
-  %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.fr, %.sroa.2.0.copyload.i.us
-  br i1 %.not.i.i.us, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us, label %.thread.us42
+  %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i.us
+  br i1 %.not.i.i.us, label %49, label %.thread.us42
 
-_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us: ; preds = %59
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %.sroa.0.0.copyload.i22.us = load ptr, ptr %60, align 8, !tbaa !19
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i22.us, i64 %.sroa.22.0.copyload.i.fr)
-  %61 = icmp eq i32 %bcmp.i.i.us, 0
-  br i1 %61, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit, label %.thread.us42
+49:                                               ; preds = %47
+  br i1 %17, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us
 
-.thread.us42:                                     ; preds = %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us, %59, %54, %52, %.lr.ph.split.us38.split
+_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us: ; preds = %49
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i22.us, i64 %.sroa.22.0.copyload.i)
+  %50 = icmp eq i32 %bcmp.i.i.us, 0
+  br i1 %50, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit57, label %.thread.us42
+
+.thread.us42:                                     ; preds = %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us, %47, %42, %40, %.lr.ph.split.us38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.us43 = icmp eq i64 %indvars.iv.next, %35
-  br i1 %.not.us43, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us38.split, !llvm.loop !37
+  %.not.us43 = icmp eq i64 %indvars.iv.next, %19
+  br i1 %.not.us43, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us38, !llvm.loop !40
 
-_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit: ; preds = %30
-  %62 = trunc nuw i64 %indvars.iv60 to i32
+_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit: ; preds = %32
+  %51 = trunc nuw i64 %indvars.iv52 to i32
   br label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25
 
-_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit: ; preds = %47
-  %63 = trunc nuw i64 %indvars.iv57 to i32
+_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit: ; preds = %49
+  %52 = trunc nuw i64 %indvars.iv to i32
   br label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25
 
-_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit: ; preds = %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us
-  %64 = trunc nuw i64 %indvars.iv to i32
+_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit57: ; preds = %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us
+  %53 = trunc nuw i64 %indvars.iv to i32
   br label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25
 
-_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25: ; preds = %.thread.us42, %.thread.us42.us, %.thread.us, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, %.lr.ph, %3
-  %spec.select = phi i32 [ -1, %3 ], [ -1, %.lr.ph ], [ %62, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %63, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit ], [ %64, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit ], [ -1, %.thread.us ], [ -1, %.thread.us42.us ], [ -1, %.thread.us42 ]
+_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25: ; preds = %.thread.us42, %.thread.us, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit57, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, %.lr.ph, %3
+  %spec.select = phi i32 [ -1, %3 ], [ -1, %.lr.ph ], [ %51, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %52, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit ], [ %53, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit55.split.loop.exit57 ], [ -1, %.thread.us ], [ -1, %.thread.us42 ]
   ret i32 %spec.select
 }
 
@@ -298,52 +268,52 @@ define dso_local void @_ZN4llvm22RISCVConstantPoolValue20addSelectionDAGCSEIdERN
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !39
+  %12 = load i32, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !41
+  %14 = load i32, ptr %13, align 4, !tbaa !43
   %.not.i.i.not.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %15, !prof !42
+  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %15, !prof !44
 
 15:                                               ; preds = %6
   %16 = zext i32 %12 to i64
   %17 = add nuw nsw i64 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #9
-  %.pre.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !39
+  %.pre.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !41
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %15, %6
   %19 = phi i32 [ %12, %6 ], [ %.pre.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %1, align 8, !tbaa !43
+  %20 = load ptr, ptr %1, align 8, !tbaa !45
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
   store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !39
+  %23 = load i32, ptr %11, align 8, !tbaa !41
   %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !39
-  %25 = load i32, ptr %13, align 4, !tbaa !41
+  store i32 %24, ptr %11, align 8, !tbaa !41
+  %25 = load i32, ptr %13, align 4, !tbaa !43
   %.not.i.i.not.i.i2.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %26, !prof !42
+  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %26, !prof !44
 
 26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
   %27 = zext i32 %24 to i64
   %28 = add nuw nsw i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #9
-  %.pre.i.i3.i.i.i = load i32, ptr %11, align 8, !tbaa !39
+  %.pre.i.i3.i.i.i = load i32, ptr %11, align 8, !tbaa !41
   br label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit
 
 _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, %26
   %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i ], [ %.pre.i.i3.i.i.i, %26 ]
   %31 = lshr i64 %9, 32
   %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %1, align 8, !tbaa !43
+  %33 = load ptr, ptr %1, align 8, !tbaa !45
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !39
+  %36 = load i32, ptr %11, align 8, !tbaa !41
   %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !39
+  store i32 %37, ptr %11, align 8, !tbaa !41
   br label %40
 
 38:                                               ; preds = %2
@@ -374,9 +344,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -393,9 +363,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
 
 23:                                               ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %10, i64 %11, i1 false)
-  %24 = load ptr, ptr %14, align 8, !tbaa !48
+  %24 = load ptr, ptr %14, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %11
-  store ptr %25, ptr %14, align 8, !tbaa !48
+  store ptr %25, ptr %14, align 8, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 26:                                               ; preds = %2
@@ -404,9 +374,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !44
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !48
+  %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -423,9 +393,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
 
 39:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 false)
-  %40 = load ptr, ptr %30, align 8, !tbaa !48
+  %40 = load ptr, ptr %30, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.2.0.copyload
-  store ptr %41, ptr %30, align 8, !tbaa !48
+  store ptr %41, ptr %30, align 8, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %38, %36, %23, %22, %20
@@ -514,15 +484,17 @@ attributes #11 = { builtin nounwind }
 !34 = !{i8 0, i8 2}
 !35 = !{}
 !36 = !{!7, !7, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !24, i64 8}
-!40 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !24, i64 8, !24, i64 12}
-!41 = !{!40, !24, i64 12}
-!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!43 = !{!40, !6, i64 0}
-!44 = !{!45, !15, i64 24}
-!45 = !{!"_ZTSN4llvm11raw_ostreamE", !46, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !33, i64 40, !47, i64 44}
-!46 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
-!47 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
-!48 = !{!45, !15, i64 32}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !38, !39}
+!41 = !{!42, !24, i64 8}
+!42 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !24, i64 8, !24, i64 12}
+!43 = !{!42, !24, i64 12}
+!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!45 = !{!42, !6, i64 0}
+!46 = !{!47, !15, i64 24}
+!47 = !{!"_ZTSN4llvm11raw_ostreamE", !48, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !33, i64 40, !49, i64 44}
+!48 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
+!49 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
+!50 = !{!47, !15, i64 32}

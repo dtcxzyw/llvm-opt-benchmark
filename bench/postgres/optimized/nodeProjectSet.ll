@@ -376,7 +376,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
+  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %73, %48
   %.039.lcssa = phi i1 [ %.1.us, %48 ], [ %.1, %73 ]
@@ -413,5 +413,7 @@ attributes #2 = { nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}

@@ -2866,15 +2866,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
   store i32 %72, ptr %73, align 4, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split59.us, label %.split, !llvm.loop !273
+  br i1 %exitcond.not, label %.split59.us, label %.split, !llvm.loop !275
 
 .split59.us:                                      ; preds = %.split, %.split.us
   %74 = getelementptr inbounds nuw i8, ptr %46, i64 116
-  %75 = load i32, ptr %74, align 4, !tbaa !274
+  %75 = load i32, ptr %74, align 4, !tbaa !276
   %76 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %77 = load i32, ptr %76, align 8, !tbaa !275
+  %77 = load i32, ptr %76, align 8, !tbaa !277
   %78 = getelementptr inbounds nuw i8, ptr %46, i64 108
-  %79 = load i32, ptr %78, align 4, !tbaa !276
+  %79 = load i32, ptr %78, align 4, !tbaa !278
   %80 = ashr i32 %79, 1
   call void @av_image_copy(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %75, i32 noundef %77, i32 noundef %80) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
@@ -2884,17 +2884,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
 
 81:                                               ; preds = %.split59.us, %41, %34
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 716
-  %83 = load i32, ptr %82, align 4, !tbaa !277
+  %83 = load i32, ptr %82, align 4, !tbaa !279
   %.not.i = icmp eq i32 %83, 0
   %.in.idx.i = select i1 %.not.i, i64 0, i64 40
   %.in.i = getelementptr inbounds nuw i8, ptr %2, i64 %.in.idx.i
-  %84 = load ptr, ptr %.in.i, align 8, !tbaa !278
+  %84 = load ptr, ptr %.in.i, align 8, !tbaa !280
   %85 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %84) #11
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %output_frame.exit.thread, label %87
 
 87:                                               ; preds = %81
-  %88 = load i32, ptr %82, align 4, !tbaa !277
+  %88 = load i32, ptr %82, align 4, !tbaa !279
   %.not31.i = icmp eq i32 %88, 0
   br i1 %.not31.i, label %93, label %89
 
@@ -2924,7 +2924,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
   %104 = call ptr @ff_h264_sei_stereo_mode(ptr noundef nonnull %103) #11
   %105 = call i32 @av_dict_set(ptr noundef nonnull %102, ptr noundef nonnull @.str.45, ptr noundef %104, i32 noundef 0) #11
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 712
-  %107 = load i32, ptr %106, align 8, !tbaa !279
+  %107 = load i32, ptr %106, align 8, !tbaa !281
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %113
 
@@ -2938,16 +2938,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
 113:                                              ; preds = %109, %101
   %114 = load ptr, ptr %8, align 8, !tbaa !79
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 788
-  %116 = load i32, ptr %115, align 4, !tbaa !280
+  %116 = load i32, ptr %115, align 4, !tbaa !282
   %117 = and i32 %116, 4
   %.not33.i = icmp eq i32 %117, 0
   br i1 %.not33.i, label %h264_export_enc_params.exit.thread.i, label %118
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 732
-  %120 = load i32, ptr %119, align 4, !tbaa !281
+  %120 = load i32, ptr %119, align 4, !tbaa !283
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 728
-  %122 = load i32, ptr %121, align 8, !tbaa !282
+  %122 = load i32, ptr %121, align 8, !tbaa !284
   %123 = mul nsw i32 %122, %120
   %124 = call ptr @av_video_enc_params_create_side_data(ptr noundef nonnull %1, i32 noundef 1, i32 noundef %123) #11
   %.not.i.i = icmp eq ptr %124, null
@@ -2955,11 +2955,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 720
-  %127 = load ptr, ptr %126, align 8, !tbaa !283
+  %127 = load ptr, ptr %126, align 8, !tbaa !285
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
-  %129 = load i32, ptr %128, align 8, !tbaa !284
+  %129 = load i32, ptr %128, align 8, !tbaa !286
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 28
-  store i32 %129, ptr %130, align 4, !tbaa !286
+  store i32 %129, ptr %130, align 4, !tbaa !288
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %132 = load i32, ptr %131, align 8, !tbaa !89
   %133 = getelementptr inbounds nuw i8, ptr %124, i64 40
@@ -2972,12 +2972,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
   store i32 %136, ptr %137, align 8, !tbaa !89
   %138 = getelementptr inbounds nuw i8, ptr %124, i64 52
   store i32 %136, ptr %138, align 4, !tbaa !89
-  %139 = load i32, ptr %119, align 4, !tbaa !281
+  %139 = load i32, ptr %119, align 4, !tbaa !283
   %.not45.i.i = icmp eq i32 %139, 0
   br i1 %.not45.i.i, label %h264_export_enc_params.exit.thread.i, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %125
-  %140 = load i32, ptr %121, align 8, !tbaa !282
+  %140 = load i32, ptr %121, align 8, !tbaa !284
   %.not46.i.i = icmp eq i32 %140, 0
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 736
   %142 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -2986,7 +2986,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
   br i1 %.not46.i.i, label %h264_export_enc_params.exit.thread.i, label %.preheader.lr.ph.split.us.i.i
 
 .preheader.lr.ph.split.us.i.i:                    ; preds = %.preheader.lr.ph.i.i
-  %145 = load i32, ptr %124, align 8, !tbaa !288
+  %145 = load i32, ptr %124, align 8, !tbaa !290
   %146 = zext i32 %145 to i64
   %wide.trip.count52.i.i = zext i32 %139 to i64
   %wide.trip.count.i.i = zext i32 %140 to i64
@@ -3007,39 +3007,39 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
   br i1 %153, label %av_video_enc_params_block.exit.us.i.i, label %.split.us.i.i
 
 av_video_enc_params_block.exit.us.i.i:            ; preds = %151
-  %154 = load i32, ptr %141, align 8, !tbaa !289
+  %154 = load i32, ptr %141, align 8, !tbaa !291
   %155 = mul i32 %154, %147
   %156 = trunc nuw i64 %indvars.iv.i.i to i32
   %157 = add i32 %155, %156
-  %158 = load i64, ptr %142, align 8, !tbaa !290
+  %158 = load i64, ptr %142, align 8, !tbaa !292
   %159 = getelementptr inbounds nuw i8, ptr %124, i64 %158
-  %160 = load i64, ptr %143, align 8, !tbaa !291
+  %160 = load i64, ptr %143, align 8, !tbaa !293
   %161 = mul i64 %160, %152
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
   %163 = shl i32 %156, 4
-  store i32 %163, ptr %162, align 4, !tbaa !292
+  store i32 %163, ptr %162, align 4, !tbaa !294
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  store i32 %149, ptr %164, align 4, !tbaa !294
+  store i32 %149, ptr %164, align 4, !tbaa !296
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store i32 16, ptr %165, align 4, !tbaa !295
+  store i32 16, ptr %165, align 4, !tbaa !297
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 12
-  store i32 16, ptr %166, align 4, !tbaa !296
-  %167 = load ptr, ptr %144, align 8, !tbaa !297
+  store i32 16, ptr %166, align 4, !tbaa !298
+  %167 = load ptr, ptr %144, align 8, !tbaa !299
   %168 = zext i32 %157 to i64
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !145
   %171 = sext i8 %170 to i32
   %172 = sub nsw i32 %171, %129
   %173 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  store i32 %172, ptr %173, align 4, !tbaa !298
+  store i32 %172, ptr %173, align 4, !tbaa !300
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %151, !llvm.loop !299
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %151, !llvm.loop !301
 
 ._crit_edge.us.i.i:                               ; preds = %av_video_enc_params_block.exit.us.i.i
   %indvars.iv.next50.i.i = add nuw nsw i64 %indvars.iv49.i.i, 1
   %exitcond53.not.i.i = icmp eq i64 %indvars.iv.next50.i.i, %wide.trip.count52.i.i
-  br i1 %exitcond53.not.i.i, label %h264_export_enc_params.exit.thread.i, label %.preheader.us.i.i, !llvm.loop !300
+  br i1 %exitcond53.not.i.i, label %h264_export_enc_params.exit.thread.i, label %.preheader.us.i.i, !llvm.loop !302
 
 .split.us.i.i:                                    ; preds = %151
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 145) #11
@@ -3049,7 +3049,7 @@ av_video_enc_params_block.exit.us.i.i:            ; preds = %151
 h264_export_enc_params.exit.thread.i:             ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.i.i, %125, %113
   %174 = load ptr, ptr %8, align 8, !tbaa !79
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 788
-  %176 = load i32, ptr %175, align 4, !tbaa !280
+  %176 = load i32, ptr %175, align 4, !tbaa !282
   %177 = and i32 %176, 8
   %.not34.i = icmp eq i32 %177, 0
   br i1 %.not34.i, label %178, label %output_frame.exit
@@ -3067,16 +3067,16 @@ output_frame.exit:                                ; preds = %178, %h264_export_e
   %179 = phi ptr [ %.pre, %178 ], [ %174, %h264_export_enc_params.exit.thread.i ]
   store i32 1, ptr %3, align 4, !tbaa !89
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %181 = load ptr, ptr %180, align 8, !tbaa !301
+  %181 = load ptr, ptr %180, align 8, !tbaa !303
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %183 = load ptr, ptr %182, align 8, !tbaa !297
+  %183 = load ptr, ptr %182, align 8, !tbaa !299
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 728
-  %186 = load i32, ptr %185, align 8, !tbaa !282
+  %186 = load i32, ptr %185, align 8, !tbaa !284
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 732
-  %188 = load i32, ptr %187, align 4, !tbaa !281
+  %188 = load i32, ptr %187, align 4, !tbaa !283
   %189 = getelementptr inbounds nuw i8, ptr %2, i64 736
-  %190 = load i32, ptr %189, align 8, !tbaa !289
+  %190 = load i32, ptr %189, align 8, !tbaa !291
   call void @ff_print_debug_info2(ptr noundef %179, ptr noundef %1, ptr noundef %181, ptr noundef %183, ptr noundef nonnull %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef 1) #11
   br label %output_frame.exit.thread
 
@@ -3438,32 +3438,34 @@ attributes #12 = { noreturn nounwind }
 !270 = !{!232, !7, i64 120}
 !271 = !{!28, !10, i64 754096}
 !272 = !{!36, !10, i64 752}
-!273 = distinct !{!273, !94}
-!274 = !{!199, !10, i64 116}
-!275 = !{!199, !10, i64 104}
-!276 = !{!199, !10, i64 108}
-!277 = !{!36, !10, i64 716}
-!278 = !{!37, !37, i64 0}
-!279 = !{!36, !10, i64 712}
-!280 = !{!5, !10, i64 788}
-!281 = !{!36, !10, i64 732}
-!282 = !{!36, !10, i64 728}
-!283 = !{!36, !40, i64 720}
-!284 = !{!285, !10, i64 40}
-!285 = !{!"PPS", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !8, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !53, i64 76, !8, i64 78, !8, i64 174, !8, i64 558, !10, i64 736, !8, i64 740, !13, i64 4840, !8, i64 4848, !8, i64 38640, !8, i64 173808, !8, i64 173856, !47, i64 173904}
-!286 = !{!287, !10, i64 28}
-!287 = !{!"AVVideoEncParams", !10, i64 0, !13, i64 8, !13, i64 16, !10, i64 24, !10, i64 28, !8, i64 32}
-!288 = !{!287, !10, i64 0}
-!289 = !{!36, !10, i64 736}
-!290 = !{!287, !13, i64 8}
-!291 = !{!287, !13, i64 16}
-!292 = !{!293, !10, i64 0}
-!293 = !{!"AVVideoBlockParams", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16}
-!294 = !{!293, !10, i64 4}
-!295 = !{!293, !10, i64 8}
-!296 = !{!293, !10, i64 12}
-!297 = !{!36, !14, i64 56}
-!298 = !{!293, !10, i64 16}
-!299 = distinct !{!299, !94}
-!300 = distinct !{!300, !94}
-!301 = !{!36, !24, i64 104}
+!273 = distinct !{!273, !94, !274}
+!274 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!275 = distinct !{!275, !94}
+!276 = !{!199, !10, i64 116}
+!277 = !{!199, !10, i64 104}
+!278 = !{!199, !10, i64 108}
+!279 = !{!36, !10, i64 716}
+!280 = !{!37, !37, i64 0}
+!281 = !{!36, !10, i64 712}
+!282 = !{!5, !10, i64 788}
+!283 = !{!36, !10, i64 732}
+!284 = !{!36, !10, i64 728}
+!285 = !{!36, !40, i64 720}
+!286 = !{!287, !10, i64 40}
+!287 = !{!"PPS", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !8, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !53, i64 76, !8, i64 78, !8, i64 174, !8, i64 558, !10, i64 736, !8, i64 740, !13, i64 4840, !8, i64 4848, !8, i64 38640, !8, i64 173808, !8, i64 173856, !47, i64 173904}
+!288 = !{!289, !10, i64 28}
+!289 = !{!"AVVideoEncParams", !10, i64 0, !13, i64 8, !13, i64 16, !10, i64 24, !10, i64 28, !8, i64 32}
+!290 = !{!289, !10, i64 0}
+!291 = !{!36, !10, i64 736}
+!292 = !{!289, !13, i64 8}
+!293 = !{!289, !13, i64 16}
+!294 = !{!295, !10, i64 0}
+!295 = !{!"AVVideoBlockParams", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16}
+!296 = !{!295, !10, i64 4}
+!297 = !{!295, !10, i64 8}
+!298 = !{!295, !10, i64 12}
+!299 = !{!36, !14, i64 56}
+!300 = !{!295, !10, i64 16}
+!301 = distinct !{!301, !94}
+!302 = distinct !{!302, !94, !274}
+!303 = !{!36, !24, i64 104}

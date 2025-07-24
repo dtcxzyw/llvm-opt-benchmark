@@ -478,7 +478,7 @@ bytestream2_get_byte.exit.thread:                 ; preds = %192, %bytestream2_g
   %226 = getelementptr inbounds i8, ptr %.3177241.us, i64 %89
   %227 = add nuw nsw i32 %.3170242.us, 1
   %exitcond273.not = icmp eq i32 %.3170242.us, %52
-  br i1 %exitcond273.not, label %.thread216, label %.preheader233.split.us, !llvm.loop !52
+  br i1 %exitcond273.not, label %.thread216, label %.preheader233.split.us, !llvm.loop !53
 
 .preheader229:                                    ; preds = %203
   %228 = shl nuw nsw i32 %60, 3
@@ -512,13 +512,13 @@ bytestream2_get_byte.exit.thread:                 ; preds = %192, %bytestream2_g
   store i8 %244, ptr %245, align 1, !tbaa !20
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %246, label %.preheader228, !llvm.loop !53
+  br i1 %exitcond282.not, label %246, label %.preheader228, !llvm.loop !54
 
 246:                                              ; preds = %.preheader228
   %247 = getelementptr inbounds i8, ptr %.2176245, i64 %89
   %248 = add nuw nsw i32 %.2169246, 1
   %exitcond283.not = icmp eq i32 %.2169246, %52
-  br i1 %exitcond283.not, label %.thread216, label %231, !llvm.loop !54
+  br i1 %exitcond283.not, label %.thread216, label %231, !llvm.loop !55
 
 .preheader233.split:                              ; preds = %.preheader233.split.preheader, %.preheader232.preheader
   %.3170242 = phi i32 [ %252, %.preheader232.preheader ], [ 0, %.preheader233.split.preheader ]
@@ -532,7 +532,7 @@ bytestream2_get_byte.exit.thread:                 ; preds = %192, %bytestream2_g
   %251 = getelementptr i8, ptr %.3177241, i64 %89
   %252 = add nuw nsw i32 %.3170242, 1
   %exitcond277.not = icmp eq i32 %.3170242, %52
-  br i1 %exitcond277.not, label %.thread216, label %.preheader233.split, !llvm.loop !52
+  br i1 %exitcond277.not, label %.thread216, label %.preheader233.split, !llvm.loop !56
 
 .thread216:                                       ; preds = %.split.us.us, %.preheader232.preheader, %246, %156, %bytestream2_get_byte.exit
   %253 = load ptr, ptr %5, align 8, !tbaa !37
@@ -720,7 +720,7 @@ bytestream2_get_byte.exit29:                      ; preds = %38, %37, %bytestrea
   %50 = icmp samesign uge i64 %indvars.iv.next, %14
   %.not27 = icmp eq i8 %49, 0
   %or.cond = select i1 %50, i1 true, i1 %.not27
-  br i1 %or.cond, label %.critedge2.loopexit.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %or.cond, label %.critedge2.loopexit.loopexit, label %.lr.ph, !llvm.loop !57
 
 51:                                               ; preds = %13
   %52 = zext nneg i32 %2 to i64
@@ -784,7 +784,7 @@ define internal fastcc void @pcx_palette(ptr noundef nonnull captures(none) %0, 
   store i32 %28, ptr %.01114, align 4, !tbaa !43
   %30 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %30, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %13, %3
   %.011.lcssa = phi ptr [ %1, %3 ], [ %29, %13 ]
@@ -888,9 +888,11 @@ attributes #8 = { nounwind }
 !48 = !{!22, !12, i64 528}
 !49 = distinct !{!49, !45}
 !50 = distinct !{!50, !45}
-!51 = distinct !{!51, !45}
-!52 = distinct !{!52, !45}
-!53 = distinct !{!53, !45}
+!51 = distinct !{!51, !45, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !45, !52}
 !54 = distinct !{!54, !45}
 !55 = distinct !{!55, !45}
 !56 = distinct !{!56, !45}
+!57 = distinct !{!57, !45}
+!58 = distinct !{!58, !45}

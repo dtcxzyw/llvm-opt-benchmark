@@ -13171,7 +13171,7 @@ _ZNK21pattern_inference_cfg17pattern_weight_ltclEP4exprS2_.exit: ; preds = %90
   %100 = icmp ne ptr %.1.i, %20
   %101 = icmp ne ptr %.120.i55, %21
   %102 = select i1 %100, i1 %101, i1 false
-  br i1 %102, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !397
+  br i1 %102, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !398
 
 ._crit_edge.i.loopexit:                           ; preds = %.thread52
   %103 = ptrtoint ptr %20 to i64
@@ -13201,7 +13201,7 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
   %113 = sub i64 %8, %108
   %114 = ashr exact i64 %113, 3
   %.not = icmp slt i64 %114, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !396
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !399
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %5
   %.019.lcssa = phi ptr [ %2, %5 ], [ %16, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %112, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -13234,7 +13234,7 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
   %123 = icmp ne ptr %.1.i37, %115
   %124 = icmp ne ptr %.120.i35, %1
   %125 = select i1 %123, i1 %124, i1 false
-  br i1 %125, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !397
+  br i1 %125, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !398
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i29, %._crit_edge
   %.019.lcssa.i23 = phi ptr [ %115, %._crit_edge ], [ %.120.i35, %.lr.ph.i29 ]
@@ -13306,7 +13306,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_i
   %.1 = phi i32 [ %18, %17 ], [ %.015, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0714, i64 24
   %.not = icmp eq ptr %20, %13
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !398
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !400
 
 ._crit_edge:                                      ; preds = %19
   %21 = shl i32 %.1, 2
@@ -14233,6 +14233,8 @@ attributes #27 = { builtin allocsize(0) }
 !393 = distinct !{!393, !19}
 !394 = distinct !{!394, !19}
 !395 = distinct !{!395, !19}
-!396 = distinct !{!396, !19}
-!397 = distinct !{!397, !19}
+!396 = distinct !{!396, !19, !397}
+!397 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !398 = distinct !{!398, !19}
+!399 = distinct !{!399, !19}
+!400 = distinct !{!400, !19}

@@ -205,7 +205,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %.148.us = phi i32 [ 0, %22 ], [ %18, %.lr.ph.split.us ]
   %.1.us = phi i32 [ 0, %22 ], [ %19, %.lr.ph.split.us ]
   %.not56.us = icmp eq i32 %15, 0
-  br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %.064 = phi i32 [ %.1, %49 ], [ 0, %.lr.ph ]
@@ -404,7 +404,7 @@ st_mult.exit.i:                                   ; preds = %20
 57:                                               ; preds = %.thread.i, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %spanhash_rehash.exit, label %38, !llvm.loop !27
+  br i1 %exitcond.not.i, label %spanhash_rehash.exit, label %38, !llvm.loop !29
 
 spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   tail call void @free(ptr noundef nonnull %0) #8
@@ -532,4 +532,6 @@ attributes #9 = { noreturn nounwind }
 !24 = !{!10, !10, i64 0}
 !25 = !{!6, !6, i64 0}
 !26 = distinct !{!26, !13}
-!27 = distinct !{!27, !13}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !13}

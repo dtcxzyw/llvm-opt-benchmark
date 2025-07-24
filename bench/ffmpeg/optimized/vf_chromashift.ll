@@ -1318,14 +1318,14 @@ define internal noundef i32 @wrap_slice8(ptr noundef readonly captures(none) %0,
   store i8 %81, ptr %82, align 1, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %62, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %62, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %62
   %83 = getelementptr inbounds i8, ptr %.07990.us, i64 %40
   %84 = getelementptr inbounds i8, ptr %.07891.us, i64 %41
   %85 = add nsw i32 %.07792.us, 1
   %exitcond98.not = icmp eq i32 %85, %29
-  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !87
+  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !88
 
 ._crit_edge95:                                    ; preds = %._crit_edge.us, %.lr.ph94, %4
   ret i32 0
@@ -1439,14 +1439,14 @@ define internal noundef i32 @smear_slice16(ptr noundef readonly captures(none) %
   store i16 %81, ptr %82, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %66
   %83 = getelementptr inbounds i16, ptr %.05972.us, i64 %46
   %84 = getelementptr inbounds i16, ptr %.06071.us, i64 %47
   %85 = add nsw i32 %.06170.us, 1
   %exitcond78.not = icmp eq i32 %85, %31
-  br i1 %exitcond78.not, label %._crit_edge75, label %.lr.ph.us, !llvm.loop !89
+  br i1 %exitcond78.not, label %._crit_edge75, label %.lr.ph.us, !llvm.loop !90
 
 ._crit_edge75:                                    ; preds = %._crit_edge.us, %.lr.ph74, %4
   ret i32 0
@@ -1556,14 +1556,14 @@ define internal noundef i32 @smear_slice8(ptr noundef readonly captures(none) %0
   store i8 %77, ptr %78, align 1, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %62, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge.us, label %62, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %62
   %79 = getelementptr inbounds i8, ptr %.05972.us, i64 %42
   %80 = getelementptr inbounds i8, ptr %.06071.us, i64 %43
   %81 = add nsw i32 %.06170.us, 1
   %exitcond78.not = icmp eq i32 %81, %29
-  br i1 %exitcond78.not, label %._crit_edge75, label %.lr.ph.us, !llvm.loop !91
+  br i1 %exitcond78.not, label %._crit_edge75, label %.lr.ph.us, !llvm.loop !92
 
 ._crit_edge75:                                    ; preds = %._crit_edge.us, %.lr.ph74, %4
   ret i32 0
@@ -1672,10 +1672,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !82 = !{!37, !13, i64 16}
 !83 = !{!37, !13, i64 20}
 !84 = distinct !{!84, !67}
-!85 = distinct !{!85, !67}
-!86 = distinct !{!86, !67}
+!85 = distinct !{!85, !67, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !87 = distinct !{!87, !67}
-!88 = distinct !{!88, !67}
+!88 = distinct !{!88, !67, !86}
 !89 = distinct !{!89, !67}
-!90 = distinct !{!90, !67}
+!90 = distinct !{!90, !67, !86}
 !91 = distinct !{!91, !67}
+!92 = distinct !{!92, !67, !86}

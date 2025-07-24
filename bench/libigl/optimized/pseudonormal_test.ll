@@ -2793,15 +2793,15 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   br i1 %69, label %.preheader182.thread, label %.preheader183.split
 
 .preheader182.thread:                             ; preds = %.preheader183
-  %75 = load i64, ptr %72, align 8, !tbaa !19
-  %.idx.i.i.i.i.i.i.i.i.i.i.i81.us = shl nsw i64 %75, 4
-  %76 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !268
+  %75 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !268
+  %76 = load i64, ptr %72, align 8, !tbaa !19
+  %.idx.i.i.i.i.i.i.i.i.i.i.i81.us = shl nsw i64 %76, 4
   %77 = load i32, ptr %66, align 4, !tbaa !11
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %76, i64 %78
+  %79 = getelementptr inbounds double, ptr %75, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !20
   store double %80, ptr %10, align 8, !tbaa !20
-  %81 = getelementptr inbounds double, ptr %79, i64 %75
+  %81 = getelementptr inbounds double, ptr %79, i64 %76
   %82 = load double, ptr %81, align 8, !tbaa !20
   store double %82, ptr %73, align 8, !tbaa !20
   %83 = getelementptr inbounds i8, ptr %79, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i81.us
@@ -2835,13 +2835,13 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   ]
 
 101:                                              ; preds = %.preheader
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %exitcond210.not = icmp eq i64 %indvars.iv.next208, 3
-  br i1 %exitcond210.not, label %.loopexit, label %.preheader, !llvm.loop !271
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next207, 3
+  br i1 %exitcond209.not, label %.loopexit, label %.preheader, !llvm.loop !271
 
 .preheader:                                       ; preds = %87, %101
-  %indvars.iv207 = phi i64 [ %indvars.iv.next208, %101 ], [ 0, %87 ]
-  %102 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv207
+  %indvars.iv206 = phi i64 [ %indvars.iv.next207, %101 ], [ 0, %87 ]
+  %102 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv206
   %103 = load double, ptr %102, align 8, !tbaa !20
   %104 = fcmp ogt double %103, 0x3D719799812DEA11
   br i1 %104, label %105, label %101
@@ -2849,7 +2849,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 105:                                              ; preds = %.preheader
   %106 = load ptr, ptr %1, align 8, !tbaa !66
   %107 = load i64, ptr %23, align 8, !tbaa !68
-  %108 = mul nsw i64 %107, %indvars.iv207
+  %108 = mul nsw i64 %107, %indvars.iv206
   %109 = getelementptr i32, ptr %106, i64 %21
   %110 = getelementptr i32, ptr %109, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !11
@@ -2872,20 +2872,20 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   br label %.loopexit
 
 124:                                              ; preds = %.preheader180
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next205, 3
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next204, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader180, !llvm.loop !275
 
 .preheader180:                                    ; preds = %87, %124
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %124 ], [ 0, %87 ]
-  %125 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv204
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %124 ], [ 0, %87 ]
+  %125 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv203
   %126 = load double, ptr %125, align 8, !tbaa !20
   %127 = fcmp ugt double %126, 0x3D719799812DEA11
   br i1 %127, label %124, label %128
 
 128:                                              ; preds = %.preheader180
   %129 = load i64, ptr %23, align 8, !tbaa !68
-  %130 = mul nsw i64 %129, %indvars.iv204
+  %130 = mul nsw i64 %129, %indvars.iv203
   %131 = load ptr, ptr %5, align 8, !tbaa !32
   %132 = getelementptr i32, ptr %131, i64 %130
   %133 = getelementptr i32, ptr %132, i64 %21
@@ -2965,9 +2965,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %.0.i.i.i = phi double [ %172, %164 ], [ %180, %.lr.ph.i.i.i.i.i ]
   %.scalar.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
   %182 = fcmp olt double %.scalar.i, 0x3D719799812DEA11
-  br i1 %182, label %.preheader182.thread217, label %191
+  br i1 %182, label %.preheader182.thread216, label %191
 
-.preheader182.thread217:                          ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEKNS_5BlockIKNS5_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEE4normEv.exit
+.preheader182.thread216:                          ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEKNS_5BlockIKNS5_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEE4normEv.exit
   %183 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !268
   %184 = getelementptr inbounds double, ptr %183, i64 %168
   %185 = load i64, ptr %72, align 8, !tbaa !19
@@ -2988,11 +2988,11 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br i1 %192, label %.lr.ph, label %164, !llvm.loop !283
 
 193:                                              ; preds = %.lr.ph, %243
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %243 ]
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next200, %243 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %194 = icmp eq i64 %indvars.iv.next201, 3
-  %195 = and i64 %indvars.iv.next201, 4294967295
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %194 = icmp eq i64 %indvars.iv.next200, 3
+  %195 = and i64 %indvars.iv.next200, 4294967295
   %196 = select i1 %194, i64 0, i64 %195
   %197 = load ptr, ptr %1, align 8, !tbaa !66
   %198 = load i64, ptr %23, align 8, !tbaa !68
@@ -3014,8 +3014,8 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %160, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
-  %.cmp = icmp eq i64 %indvars.iv200, 0
-  %212 = add nuw nsw i64 %indvars.iv200, 4294967295
+  %.cmp = icmp eq i64 %indvars.iv199, 0
+  %212 = add nuw nsw i64 %indvars.iv199, 4294967295
   %213 = and i64 %212, 4294967295
   %214 = select i1 %.cmp, i64 2, i64 %213
   %215 = mul nsw i64 %198, %214
@@ -3037,11 +3037,11 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %225 = load double, ptr %19, align 8, !tbaa !20
   %226 = call double @sqrt(double noundef %225) #6, !tbaa !11
   %227 = fcmp olt double %226, 0x3D719799812DEA11
-  br i1 %227, label %._crit_edge.thread219, label %243
+  br i1 %227, label %._crit_edge.thread218, label %243
 
-._crit_edge.thread219:                            ; preds = %193
+._crit_edge.thread218:                            ; preds = %193
   %228 = load i64, ptr %23, align 8, !tbaa !68
-  %229 = mul nsw i64 %228, %indvars.iv200
+  %229 = mul nsw i64 %228, %indvars.iv199
   %230 = load ptr, ptr %5, align 8, !tbaa !32
   %231 = getelementptr i32, ptr %230, i64 %229
   %232 = getelementptr i32, ptr %231, i64 %21
@@ -3070,7 +3070,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
-  %244 = icmp samesign ugt i64 %indvars.iv200, 1
+  %244 = icmp samesign ugt i64 %indvars.iv199, 1
   br i1 %244, label %._crit_edge, label %193, !llvm.loop !290
 
 ._crit_edge:                                      ; preds = %243
@@ -3089,7 +3089,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   store double %253, ptr %74, align 8, !tbaa !20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %124, %101, %._crit_edge.thread219, %.preheader182.thread217, %.preheader182.thread, %._crit_edge, %147, %105, %128
+.loopexit:                                        ; preds = %124, %101, %._crit_edge.thread218, %.preheader182.thread216, %.preheader182.thread, %._crit_edge, %147, %105, %128
   %254 = load ptr, ptr %8, align 8, !tbaa !294
   %255 = load <2 x double>, ptr %6, align 1, !tbaa !54
   %256 = load <2 x double>, ptr %254, align 1, !tbaa !54

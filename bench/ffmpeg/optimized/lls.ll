@@ -58,7 +58,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %27 = tail call nsz double @llvm.fmuladd.f64(double %26, double %25, double %.0117137.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv176
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %21
   %28 = icmp eq i64 %indvars.iv176, %indvars.iv178
@@ -93,12 +93,12 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 41:                                               ; preds = %37, %33
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count189
-  br i1 %exitcond187.not, label %.split.us, label %.preheader134.split, !llvm.loop !12
+  br i1 %exitcond187.not, label %.split.us, label %.preheader134.split, !llvm.loop !16
 
 .split.us:                                        ; preds = %20, %41
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count189
-  br i1 %exitcond190.not, label %.lr.ph144, label %.preheader134, !llvm.loop !15
+  br i1 %exitcond190.not, label %.lr.ph144, label %.preheader134, !llvm.loop !17
 
 .preheader132:                                    ; preds = %._crit_edge, %3
   %42 = zext i16 %2 to i32
@@ -134,7 +134,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %58 = tail call nsz double @llvm.fmuladd.f64(double %57, double %56, double %.0116142)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, %indvars.iv195
-  br i1 %exitcond194.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond194.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.0116.lcssa = phi double [ %52, %50 ], [ %58, %.lr.ph ]
@@ -144,12 +144,12 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %62 = getelementptr inbounds nuw [32 x double], ptr %29, i64 0, i64 %indvars.iv195
   store double %61, ptr %62, align 8, !tbaa !10
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.preheader132, label %50, !llvm.loop !17
+  br i1 %exitcond199.not, label %.preheader132, label %50, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge159
   %.not.not = icmp sgt i64 %indvars.iv.next218, %49
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, -1
-  br i1 %.not.not, label %.lr.ph153, label %._crit_edge170, !llvm.loop !18
+  br i1 %.not.not, label %.lr.ph153, label %._crit_edge170, !llvm.loop !20
 
 .lr.ph153:                                        ; preds = %.loopexit, %.preheader.lr.ph
   %indvars.iv217 = phi i64 [ %48, %.preheader.lr.ph ], [ %indvars.iv.next218, %.loopexit ]
@@ -177,7 +177,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %sext = shl i64 %indvars.iv.next205, 32
   %72 = ashr exact i64 %sext, 32
   %.not.not129 = icmp slt i64 %72, %indvars.iv.next218
-  br i1 %.not.not129, label %.lr.ph149, label %._crit_edge150, !llvm.loop !19
+  br i1 %.not.not129, label %.lr.ph149, label %._crit_edge150, !llvm.loop !21
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %63
   %.0115.lcssa = phi double [ %65, %63 ], [ %71, %.lr.ph149 ]
@@ -188,7 +188,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   store double %75, ptr %76, align 8, !tbaa !10
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, -1
   %77 = icmp sgt i64 %indvars.iv202, 0
-  br i1 %77, label %63, label %.lr.ph165.preheader, !llvm.loop !20
+  br i1 %77, label %63, label %.lr.ph165.preheader, !llvm.loop !22
 
 .lr.ph165.preheader:                              ; preds = %._crit_edge150
   %78 = getelementptr inbounds nuw [32 x double], ptr %45, i64 0, i64 %indvars.iv.next218
@@ -221,14 +221,14 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %92 = tail call nsz double @llvm.fmuladd.f64(double %89, double %91, double %.0156)
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next209, %indvars.iv212
-  br i1 %exitcond211.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !21
+  br i1 %exitcond211.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !23
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %.lr.ph165
   %.0.lcssa = phi double [ %86, %.lr.ph165 ], [ %92, %.lr.ph158 ]
   %93 = tail call nsz double @llvm.fmuladd.f64(double %80, double %.0.lcssa, double %storemerge162)
   store double %93, ptr %78, align 8, !tbaa !10
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %indvars.iv217
-  br i1 %exitcond216.not, label %.loopexit, label %.lr.ph165, !llvm.loop !22
+  br i1 %exitcond216.not, label %.loopexit, label %.lr.ph165, !llvm.loop !24
 
 ._crit_edge170:                                   ; preds = %.loopexit, %.preheader132
   ret void
@@ -246,9 +246,9 @@ define void @avpriv_init_lls(ptr noundef writeonly captures(none) initializes((0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18816
   store i32 %1, ptr %3, align 16, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18824
-  store ptr @update_lls, ptr %4, align 8, !tbaa !23
+  store ptr @update_lls, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18832
-  store ptr @evaluate_lls, ptr %5, align 16, !tbaa !24
+  store ptr @evaluate_lls, ptr %5, align 16, !tbaa !26
   ret void
 }
 
@@ -283,12 +283,12 @@ define internal void @update_lls(ptr noundef captures(none) %0, ptr noundef read
   store double %13, ptr %11, align 8, !tbaa !10
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count22
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !27
 
 14:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge, label %.preheader, !llvm.loop !26
+  br i1 %exitcond23.not, label %._crit_edge, label %.preheader, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %14, %2
   ret void
@@ -329,9 +329,9 @@ attributes #6 = { nounwind }
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"double", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !13}
 !16 = distinct !{!16, !13}
 !17 = distinct !{!17, !13}
@@ -340,7 +340,9 @@ attributes #6 = { nounwind }
 !20 = distinct !{!20, !13}
 !21 = distinct !{!21, !13}
 !22 = distinct !{!22, !13}
-!23 = !{!5, !9, i64 18824}
-!24 = !{!5, !9, i64 18832}
-!25 = distinct !{!25, !13}
-!26 = distinct !{!26, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = !{!5, !9, i64 18824}
+!26 = !{!5, !9, i64 18832}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !13}

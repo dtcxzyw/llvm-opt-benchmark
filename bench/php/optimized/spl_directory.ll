@@ -9628,7 +9628,7 @@ spl_filesystem_dir_read.exit.us.us:               ; preds = %79, %77
   %80 = add nuw nsw i32 %.049.us, 1
   %81 = load i32, ptr %51, align 8, !tbaa !18
   %82 = icmp slt i32 %80, %81
-  br i1 %82, label %spl_filesystem_is_dot.exit.preheader.us, label %._crit_edge
+  br i1 %82, label %spl_filesystem_is_dot.exit.preheader.us, label %._crit_edge, !llvm.loop !127
 
 spl_filesystem_is_dot.exit.preheader:             ; preds = %spl_filesystem_is_dot.exit.preheader.lr.ph, %.critedge.split
   %.049 = phi i32 [ %105, %.critedge.split ], [ 0, %spl_filesystem_is_dot.exit.preheader.lr.ph ]
@@ -9728,17 +9728,17 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   %114 = load ptr, ptr %2, align 8, !tbaa !98
   store ptr %114, ptr %15, align 8, !tbaa !98
   %115 = getelementptr inbounds i8, ptr %0, i64 -4216
-  %116 = load ptr, ptr %115, align 8, !tbaa !127
+  %116 = load ptr, ptr %115, align 8, !tbaa !129
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %116, ptr %117, align 8, !tbaa !127
+  store ptr %116, ptr %117, align 8, !tbaa !129
   tail call void @zend_objects_clone_members(ptr noundef nonnull %20, ptr noundef nonnull %0) #18
-  %118 = load ptr, ptr %117, align 8, !tbaa !127
+  %118 = load ptr, ptr %117, align 8, !tbaa !129
   %.not44 = icmp eq ptr %118, null
   br i1 %.not44, label %123, label %119
 
 119:                                              ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !128
+  %121 = load ptr, ptr %120, align 8, !tbaa !130
   %.not45 = icmp eq ptr %121, null
   br i1 %.not45, label %123, label %122
 
@@ -9797,12 +9797,12 @@ define internal void @spl_filesystem_object_destroy_object(ptr noundef %0) #0 {
 define internal void @spl_filesystem_object_free_storage(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -4224
   %3 = getelementptr inbounds i8, ptr %0, i64 -4216
-  %4 = load ptr, ptr %3, align 8, !tbaa !127
+  %4 = load ptr, ptr %3, align 8, !tbaa !129
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %4, align 8, !tbaa !130
+  %6 = load ptr, ptr %4, align 8, !tbaa !132
   %.not24 = icmp eq ptr %6, null
   br i1 %.not24, label %8, label %7
 
@@ -10054,7 +10054,7 @@ define internal noundef ptr @spl_filesystem_dir_get_iterator(ptr readnone captur
   %7 = getelementptr inbounds i8, ptr %6, i64 -4224
   %8 = tail call noalias dereferenceable_or_null(112) ptr @_ecalloc(i64 noundef 1, i64 noundef 112) #22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store ptr %7, ptr %9, align 8, !tbaa !131
+  store ptr %7, ptr %9, align 8, !tbaa !133
   tail call void @zend_iterator_init(ptr noundef %8) #18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %1, align 8, !tbaa !18
@@ -10065,9 +10065,9 @@ define internal noundef ptr @spl_filesystem_dir_get_iterator(ptr readnone captur
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 776, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @spl_filesystem_dir_it_funcs, ptr %15, align 8, !tbaa !135
+  store ptr @spl_filesystem_dir_it_funcs, ptr %15, align 8, !tbaa !137
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !136
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !138
   br label %17
 
 17:                                               ; preds = %5, %4
@@ -10089,7 +10089,7 @@ define internal noundef ptr @spl_filesystem_tree_get_iterator(ptr readnone captu
   %7 = getelementptr inbounds i8, ptr %6, i64 -4224
   %8 = tail call noalias dereferenceable_or_null(112) ptr @_ecalloc(i64 noundef 1, i64 noundef 112) #22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store ptr %7, ptr %9, align 8, !tbaa !131
+  store ptr %7, ptr %9, align 8, !tbaa !133
   tail call void @zend_iterator_init(ptr noundef %8) #18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %1, align 8, !tbaa !18
@@ -10100,7 +10100,7 @@ define internal noundef ptr @spl_filesystem_tree_get_iterator(ptr readnone captu
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 776, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @spl_filesystem_tree_it_funcs, ptr %15, align 8, !tbaa !135
+  store ptr @spl_filesystem_tree_it_funcs, ptr %15, align 8, !tbaa !137
   br label %16
 
 16:                                               ; preds = %5, %4
@@ -10110,7 +10110,7 @@ define internal noundef ptr @spl_filesystem_tree_get_iterator(ptr readnone captu
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @spl_filesystem_object_get_method_check(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !137
+  %4 = load ptr, ptr %0, align 8, !tbaa !139
   %5 = getelementptr inbounds i8, ptr %4, i64 -4152
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = icmp eq ptr %6, null
@@ -10653,7 +10653,7 @@ define internal void @spl_filesystem_dir_it_dtor(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @spl_filesystem_dir_it_valid(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %4 = load i8, ptr %3, align 8, !tbaa !18
   %.not = icmp eq i8 %4, 0
@@ -10670,7 +10670,7 @@ define internal nonnull ptr @spl_filesystem_dir_it_current_data(ptr noundef read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @spl_filesystem_dir_it_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #15 {
   %3 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %3, align 8, !tbaa !131
+  %.val = load ptr, ptr %3, align 8, !tbaa !133
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = sext i32 %5 to i64
@@ -10683,7 +10683,7 @@ define internal void @spl_filesystem_dir_it_current_key(ptr noundef readonly cap
 ; Function Attrs: nounwind uwtable
 define internal void @spl_filesystem_dir_it_move_forward(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = add nsw i32 %4, 1
@@ -10788,7 +10788,7 @@ zend_string_release.exit:                         ; preds = %30, %34, %41, %42
 ; Function Attrs: nounwind uwtable
 define internal void @spl_filesystem_dir_it_rewind(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   store i32 0, ptr %4, align 8, !tbaa !18
@@ -10873,7 +10873,7 @@ define internal void @spl_filesystem_tree_it_dtor(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !65
   %5 = trunc i64 %4 to i8
@@ -10944,7 +10944,7 @@ define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @spl_filesystem_tree_it_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %3, align 8, !tbaa !131
+  %.val = load ptr, ptr %3, align 8, !tbaa !133
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !65
   %6 = and i64 %5, 3840
@@ -11005,7 +11005,7 @@ zend_string_alloc.exit:                           ; preds = %2
 ; Function Attrs: nounwind uwtable
 define internal void @spl_filesystem_tree_it_move_forward(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !65
   %.fr14 = freeze i64 %4
@@ -11199,7 +11199,7 @@ zend_string_release.exit:                         ; preds = %55, %59, %66, %67
 ; Function Attrs: nounwind uwtable
 define internal void @spl_filesystem_tree_it_rewind(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
-  %.val = load ptr, ptr %2, align 8, !tbaa !131
+  %.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !65
   %.fr12 = freeze i64 %4
@@ -11523,14 +11523,16 @@ attributes #22 = { nounwind allocsize(0,1) }
 !124 = !{!"", !6, i64 0, !11, i64 8}
 !125 = !{!124, !11, i64 8}
 !126 = !{!118, !6, i64 112}
-!127 = !{!5, !9, i64 8}
-!128 = !{!129, !6, i64 8}
-!129 = !{!"_spl_other_handler", !6, i64 0, !6, i64 8}
-!130 = !{!129, !6, i64 0}
-!131 = !{!132, !6, i64 104}
-!132 = !{!"", !133, i64 0, !26, i64 88, !6, i64 104}
-!133 = !{!"_zend_object_iterator", !14, i64 0, !26, i64 56, !134, i64 72, !12, i64 80}
-!134 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !6, i64 0}
-!135 = !{!132, !134, i64 72}
-!136 = !{i64 0, i64 8, !18, i64 8, i64 4, !18, i64 12, i64 4, !18}
-!137 = !{!52, !52, i64 0}
+!127 = distinct !{!127, !128}
+!128 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!129 = !{!5, !9, i64 8}
+!130 = !{!131, !6, i64 8}
+!131 = !{!"_spl_other_handler", !6, i64 0, !6, i64 8}
+!132 = !{!131, !6, i64 0}
+!133 = !{!134, !6, i64 104}
+!134 = !{!"", !135, i64 0, !26, i64 88, !6, i64 104}
+!135 = !{!"_zend_object_iterator", !14, i64 0, !26, i64 56, !136, i64 72, !12, i64 80}
+!136 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !6, i64 0}
+!137 = !{!134, !136, i64 72}
+!138 = !{i64 0, i64 8, !18, i64 8, i64 4, !18, i64 12, i64 4, !18}
+!139 = !{!52, !52, i64 0}

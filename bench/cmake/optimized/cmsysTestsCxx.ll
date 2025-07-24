@@ -169,7 +169,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.us: ; preds = %49
 _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread.loopexit.us: ; preds = %54
   %59 = tail call i64 @clock() #11
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !19
+  %61 = load ptr, ptr %60, align 8, !tbaa !20
   %62 = tail call noundef i32 %61(i32 noundef %0, ptr noundef nonnull %1)
   %63 = tail call i64 @clock() #11
   %64 = sub nsw i64 %63, %59
@@ -188,7 +188,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   %73 = load ptr, ptr %72, align 16, !tbaa !8
   %74 = tail call i64 @clock() #11
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !19
+  %76 = load ptr, ptr %75, align 8, !tbaa !20
   %77 = tail call noundef i32 %76(i32 noundef %0, ptr noundef nonnull %1)
   %78 = tail call i64 @clock() #11
   %79 = sub nsw i64 %78, %74
@@ -200,7 +200,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   %84 = trunc nuw nsw i64 %indvars.iv.next153 to i32
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %81, i32 noundef %84, ptr noundef %73, double noundef %83)
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 11
-  br i1 %exitcond155.not, label %.split137.us, label %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread, !llvm.loop !18
+  br i1 %exitcond155.not, label %.split137.us, label %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread, !llvm.loop !21
 
 .split137.us:                                     ; preds = %58, %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread
   %puts94 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -224,7 +224,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
 
 96:                                               ; preds = %.thread115
   %97 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull readonly dereferenceable(1) %91) #11
-  %98 = load i8, ptr %94, align 1, !tbaa !20
+  %98 = load i8, ptr %94, align 1, !tbaa !22
   %.not14.i = icmp eq i8 %98, 0
   br i1 %.not14.i, label %.lr.ph, label %tolower.exit.lr.ph.i
 
@@ -235,16 +235,16 @@ tolower.exit.lr.ph.i:                             ; preds = %96
 tolower.exit.i:                                   ; preds = %tolower.exit.i, %tolower.exit.lr.ph.i
   %100 = phi i8 [ %98, %tolower.exit.lr.ph.i ], [ %107, %tolower.exit.i ]
   %.01115.i = phi ptr [ %94, %tolower.exit.lr.ph.i ], [ %106, %tolower.exit.i ]
-  %101 = load ptr, ptr %99, align 8, !tbaa !21
+  %101 = load ptr, ptr %99, align 8, !tbaa !23
   %102 = sext i8 %100 to i64
   %103 = getelementptr inbounds i32, ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !4
   %105 = trunc i32 %104 to i8
-  store i8 %105, ptr %.01115.i, align 1, !tbaa !20
+  store i8 %105, ptr %.01115.i, align 1, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %.01115.i, i64 1
-  %107 = load i8, ptr %106, align 1, !tbaa !20
+  %107 = load i8, ptr %106, align 1, !tbaa !22
   %.not.i = icmp eq i8 %107, 0
-  br i1 %.not.i, label %.lr.ph, label %tolower.exit.i, !llvm.loop !23
+  br i1 %.not.i, label %.lr.ph, label %tolower.exit.i, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %tolower.exit.i, %.thread115, %96
   %108 = icmp eq i32 %.079108112118, 0
@@ -264,7 +264,7 @@ tolower.exit.i:                                   ; preds = %tolower.exit.i, %to
 
 116:                                              ; preds = %109
   %117 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull readonly dereferenceable(1) %111) #11
-  %118 = load i8, ptr %114, align 1, !tbaa !20
+  %118 = load i8, ptr %114, align 1, !tbaa !22
   %.not14.i98 = icmp eq i8 %118, 0
   br i1 %.not14.i98, label %_ZN12_GLOBAL__N_19lowercaseEPKc.exit103, label %tolower.exit.lr.ph.i99
 
@@ -275,16 +275,16 @@ tolower.exit.lr.ph.i99:                           ; preds = %116
 tolower.exit.i100:                                ; preds = %tolower.exit.i100, %tolower.exit.lr.ph.i99
   %120 = phi i8 [ %118, %tolower.exit.lr.ph.i99 ], [ %127, %tolower.exit.i100 ]
   %.01115.i101 = phi ptr [ %114, %tolower.exit.lr.ph.i99 ], [ %126, %tolower.exit.i100 ]
-  %121 = load ptr, ptr %119, align 8, !tbaa !21
+  %121 = load ptr, ptr %119, align 8, !tbaa !23
   %122 = sext i8 %120 to i64
   %123 = getelementptr inbounds i32, ptr %121, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !4
   %125 = trunc i32 %124 to i8
-  store i8 %125, ptr %.01115.i101, align 1, !tbaa !20
+  store i8 %125, ptr %.01115.i101, align 1, !tbaa !22
   %126 = getelementptr inbounds nuw i8, ptr %.01115.i101, i64 1
-  %127 = load i8, ptr %126, align 1, !tbaa !20
+  %127 = load i8, ptr %126, align 1, !tbaa !22
   %.not.i102 = icmp eq i8 %127, 0
-  br i1 %.not.i102, label %_ZN12_GLOBAL__N_19lowercaseEPKc.exit103, label %tolower.exit.i100, !llvm.loop !23
+  br i1 %.not.i102, label %_ZN12_GLOBAL__N_19lowercaseEPKc.exit103, label %tolower.exit.i100, !llvm.loop !25
 
 _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, %109, %116
   %128 = trunc nuw nsw i64 %indvars.iv145 to i32
@@ -322,7 +322,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
   %142 = icmp samesign ult i64 %indvars.iv145, 10
   %143 = icmp eq i32 %.282, -1
   %144 = and i1 %143, %142
-  br i1 %144, label %109, label %._crit_edge, !llvm.loop !24
+  br i1 %144, label %109, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %141
   call void @free(ptr noundef %94) #11
@@ -343,7 +343,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa191 to i64
   %151 = getelementptr inbounds nuw [12 x %"struct.(anonymous namespace)::functionMapEntry"], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 0, i64 %150, i32 1
-  %152 = load ptr, ptr %151, align 8, !tbaa !19
+  %152 = load ptr, ptr %151, align 8, !tbaa !20
   %153 = call noundef i32 %152(i32 noundef %.172.lcssa193, ptr noundef %.174.lcssa192)
   br label %164
 
@@ -359,7 +359,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
   %159 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %158, ptr noundef %157)
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 11
-  br i1 %exitcond151.not, label %160, label %155, !llvm.loop !25
+  br i1 %exitcond151.not, label %160, label %155, !llvm.loop !27
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %.275, i64 8
@@ -473,11 +473,13 @@ attributes #14 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !16 = !{!10, !10, i64 0}
 !17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = !{!9, !11, i64 8}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 int", !11, i64 0}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
+!18 = distinct !{!18, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = !{!9, !11, i64 8}
+!21 = distinct !{!21, !13}
+!22 = !{!6, !6, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 int", !11, i64 0}
 !25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !13}

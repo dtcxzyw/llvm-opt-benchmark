@@ -928,7 +928,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
 16:                                               ; preds = %.split
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !20
 
 .split23.us:                                      ; preds = %16, %8
   br i1 %.not16, label %.critedge, label %17
@@ -995,4 +995,6 @@ attributes #11 = { nounwind }
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !5, i64 0}
-!18 = distinct !{!18, !15}
+!18 = distinct !{!18, !15, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !15}

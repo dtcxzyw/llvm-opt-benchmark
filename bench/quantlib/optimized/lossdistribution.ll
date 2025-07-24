@@ -1090,8 +1090,8 @@ for.cond.cleanup11:                               ; preds = %for.body12, %if.end
   %add.ptr.i32 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i19, i64 %add25
   store double %mul24, ptr %add.ptr.i32, align 8, !tbaa !8
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %exitcond98.not = icmp eq i64 %add25, %sub.ptr.div.i
-  br i1 %exitcond98.not, label %if.then.i.i.i, label %if.then.i, !llvm.loop !27
+  %exitcond89.not = icmp eq i64 %add25, %sub.ptr.div.i
+  br i1 %exitcond89.not, label %if.then.i.i.i, label %if.then.i, !llvm.loop !27
 
 lpad3:                                            ; preds = %cond.true.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }

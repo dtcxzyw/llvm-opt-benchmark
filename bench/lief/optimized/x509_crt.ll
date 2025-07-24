@@ -2685,7 +2685,7 @@ x509_crt_verify_chain.exit:                       ; preds = %331, %122
   %500 = or i32 %499, %498
   store i32 %500, ptr %5, align 4, !tbaa !31
   %.not.i48 = icmp eq i32 %indvars.i, 0
-  br i1 %.not.i48, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !137
+  br i1 %.not.i48, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !139
 
 501:                                              ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
@@ -2746,22 +2746,22 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   %4 = load ptr, ptr %3, align 8, !tbaa !66
   tail call void @free(ptr noundef %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %.025, i64 208
-  %6 = load ptr, ptr %5, align 8, !tbaa !138
+  %6 = load ptr, ptr %5, align 8, !tbaa !140
   tail call void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %.025, i64 272
-  %8 = load ptr, ptr %7, align 8, !tbaa !139
+  %8 = load ptr, ptr %7, align 8, !tbaa !141
   tail call void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %.025, i64 680
-  %10 = load ptr, ptr %9, align 8, !tbaa !140
+  %10 = load ptr, ptr %9, align 8, !tbaa !142
   tail call void @mbedtls_asn1_sequence_free(ptr noundef %10) #17
   %11 = getelementptr inbounds nuw i8, ptr %.025, i64 472
-  %12 = load ptr, ptr %11, align 8, !tbaa !141
+  %12 = load ptr, ptr %11, align 8, !tbaa !143
   tail call void @mbedtls_asn1_sequence_free(ptr noundef %12) #17
   %13 = getelementptr inbounds nuw i8, ptr %.025, i64 632
-  %14 = load ptr, ptr %13, align 8, !tbaa !142
+  %14 = load ptr, ptr %13, align 8, !tbaa !144
   tail call void @mbedtls_asn1_sequence_free(ptr noundef %14) #17
   %15 = getelementptr inbounds nuw i8, ptr %.025, i64 552
-  %16 = load ptr, ptr %15, align 8, !tbaa !143
+  %16 = load ptr, ptr %15, align 8, !tbaa !145
   tail call void @mbedtls_asn1_sequence_free(ptr noundef %16) #17
   %17 = getelementptr inbounds nuw i8, ptr %.025, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !27
@@ -2792,7 +2792,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
 
 28:                                               ; preds = %27, %24
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %28, %1
   ret void
@@ -2937,9 +2937,9 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 440
-  %17 = load ptr, ptr %16, align 8, !tbaa !145
+  %17 = load ptr, ptr %16, align 8, !tbaa !147
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %19 = load i64, ptr %18, align 8, !tbaa !146
+  %19 = load i64, ptr %18, align 8, !tbaa !148
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
   %21 = load ptr, ptr %0, align 8, !tbaa !24
   %22 = icmp ult ptr %21, %20
@@ -3039,13 +3039,13 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
   %71 = load i32, ptr %8, align 4
   %72 = icmp ne i32 %71, 0
   %or.cond3 = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond3, label %.thread, label %x509_get_ext_key_usage.exit.thread.sink.split, !llvm.loop !147
+  br i1 %or.cond3, label %.thread, label %x509_get_ext_key_usage.exit.thread.sink.split, !llvm.loop !149
 
 73:                                               ; preds = %65
   store ptr %62, ptr %0, align 8, !tbaa !24
   %74 = load i32, ptr %8, align 4, !tbaa !31
   %.not139 = icmp eq i32 %74, 0
-  br i1 %.not139, label %x509_get_ext_key_usage.exit.thread, label %.thread, !llvm.loop !147
+  br i1 %.not139, label %x509_get_ext_key_usage.exit.thread, label %.thread, !llvm.loop !149
 
 75:                                               ; preds = %63
   %76 = load i32, ptr %25, align 8, !tbaa !67
@@ -3335,11 +3335,11 @@ define internal fastcc i32 @x509_get_authority_key_id(ptr noundef nonnull %0, pt
 14:                                               ; preds = %12
   %15 = load i64, ptr %4, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !148
+  store i64 %15, ptr %16, align 8, !tbaa !150
   %17 = load ptr, ptr %0, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !149
-  store i32 4, ptr %2, align 8, !tbaa !150
+  store ptr %17, ptr %18, align 8, !tbaa !151
+  store i32 4, ptr %2, align 8, !tbaa !152
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %15
   store ptr %19, ptr %0, align 8, !tbaa !24
   br label %22
@@ -3384,11 +3384,11 @@ define internal fastcc i32 @x509_get_authority_key_id(ptr noundef nonnull %0, pt
   %40 = load i64, ptr %4, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i64 %40, ptr %42, align 8, !tbaa !151
+  store i64 %40, ptr %42, align 8, !tbaa !153
   %43 = load ptr, ptr %0, align 8, !tbaa !24
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %43, ptr %44, align 8, !tbaa !152
-  store i32 2, ptr %41, align 8, !tbaa !153
+  store ptr %43, ptr %44, align 8, !tbaa !154
+  store i32 2, ptr %41, align 8, !tbaa !155
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %40
   store ptr %45, ptr %0, align 8, !tbaa !24
   br label %46
@@ -3524,7 +3524,7 @@ define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_certific
 54:                                               ; preds = %50, %40
   %55 = phi ptr [ %53, %50 ], [ %44, %40 ]
   %.not67 = icmp eq ptr %55, %22
-  br i1 %.not67, label %.preheader, label %.thread69, !llvm.loop !154
+  br i1 %.not67, label %.preheader, label %.thread69, !llvm.loop !156
 
 56:                                               ; preds = %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %.047, i64 24
@@ -3623,7 +3623,7 @@ x509_memcasecmp.exit:                             ; preds = %18, %15, %3
 36:                                               ; preds = %.lr.ph.i10
   %37 = add nuw i64 %.01926.i, 1
   %exitcond.not.i11 = icmp eq i64 %37, %23
-  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !155
+  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !157
 
 38:                                               ; preds = %.lr.ph.i10
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.01926.i
@@ -3985,22 +3985,24 @@ attributes #19 = { nounwind willreturn memory(none) }
 !134 = !{!126, !11, i64 400}
 !135 = !{!126, !10, i64 384}
 !136 = !{!126, !9, i64 376}
-!137 = distinct !{!137, !22}
-!138 = !{!4, !13, i64 208}
-!139 = !{!4, !13, i64 272}
-!140 = !{!4, !18, i64 680}
-!141 = !{!4, !18, i64 472}
-!142 = !{!4, !18, i64 632}
-!143 = !{!4, !18, i64 552}
-!144 = distinct !{!144, !22}
-!145 = !{!4, !10, i64 440}
-!146 = !{!4, !9, i64 432}
-!147 = distinct !{!147, !22}
-!148 = !{!19, !9, i64 8}
-!149 = !{!19, !10, i64 16}
-!150 = !{!19, !5, i64 0}
-!151 = !{!19, !9, i64 64}
-!152 = !{!19, !10, i64 72}
-!153 = !{!19, !5, i64 56}
-!154 = distinct !{!154, !22}
-!155 = distinct !{!155, !22}
+!137 = distinct !{!137, !22, !138}
+!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!139 = distinct !{!139, !22}
+!140 = !{!4, !13, i64 208}
+!141 = !{!4, !13, i64 272}
+!142 = !{!4, !18, i64 680}
+!143 = !{!4, !18, i64 472}
+!144 = !{!4, !18, i64 632}
+!145 = !{!4, !18, i64 552}
+!146 = distinct !{!146, !22}
+!147 = !{!4, !10, i64 440}
+!148 = !{!4, !9, i64 432}
+!149 = distinct !{!149, !22}
+!150 = !{!19, !9, i64 8}
+!151 = !{!19, !10, i64 16}
+!152 = !{!19, !5, i64 0}
+!153 = !{!19, !9, i64 64}
+!154 = !{!19, !10, i64 72}
+!155 = !{!19, !5, i64 56}
+!156 = distinct !{!156, !22}
+!157 = distinct !{!157, !22}

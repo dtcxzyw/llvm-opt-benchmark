@@ -676,7 +676,7 @@ define void @Aig_RManPrintSigs(ptr noundef readonly captures(none) %0, i32 nound
   %putchar.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %._crit_edge, label %.split.us.us, !llvm.loop !51
+  br i1 %exitcond32.not, label %._crit_edge, label %.split.us.us, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.split22.us.us, %2
   ret void
@@ -733,7 +733,7 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %34 = add nuw nsw i32 %33, %.08.i
   %35 = add nuw nsw i32 %34, %32
   %36 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %36, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !52
+  br i1 %36, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !53
 
 Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %12
   %.0.lcssa.i = phi i32 [ 0, %12 ], [ %35, %select.unfold.i ]
@@ -809,7 +809,7 @@ select.unfold.i39:                                ; preds = %Aig_RManSortNums.ex
   %72 = add nuw nsw i32 %71, %.08.i41
   %73 = add nuw nsw i32 %72, %70
   %74 = icmp samesign ugt i64 %indvars.iv.i40, 1
-  br i1 %74, label %select.unfold.i39, label %Kit_TruthCountOnes.exit43, !llvm.loop !52
+  br i1 %74, label %select.unfold.i39, label %Kit_TruthCountOnes.exit43, !llvm.loop !53
 
 Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, %Aig_RManSortNums.exit
   %.0.lcssa.i37 = phi i32 [ 0, %Aig_RManSortNums.exit ], [ %73, %select.unfold.i39 ]
@@ -856,7 +856,7 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
 Aig_RManSortNums.exit60:                          ; preds = %._crit_edge.i57, %Kit_TruthCountOnes.exit43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %Aig_RManSortNums.exit60, %4
   ret void
@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @Aig_RManVarsAreUnique(ptr noundef readonly captures(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx10
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %7, i64 4)
   %8 = icmp eq i32 %bcmp, 0
-  br i1 %8, label %9, label %4, !llvm.loop !54
+  br i1 %8, label %9, label %4, !llvm.loop !55
 
 9:                                                ; preds = %4, %5
   %.08 = phi i32 [ 0, %5 ], [ 1, %4 ]
@@ -915,7 +915,7 @@ define void @Aig_RManPrintUniqueVars(ptr noundef readonly captures(none) %0, i32
   %putchar26 = tail call i32 @putchar(i32 %.)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -957,7 +957,7 @@ define void @Aig_RManPrintUniqueVars(ptr noundef readonly captures(none) %0, i32
   %putchar24 = tail call i32 @putchar(i32 %.sink40)
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !56
+  br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !57
 
 ._crit_edge32:                                    ; preds = %20, %._crit_edge
   %putchar21 = tail call i32 @putchar(i32 10)
@@ -1003,19 +1003,19 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
 14:                                               ; preds = %.lr.ph95.us
   %15 = add nsw i32 %.17593.us, 1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv103
-  %17 = load i8, ptr %16, align 1, !tbaa !57
+  %17 = load i8, ptr %16, align 1, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next104
-  %19 = load i8, ptr %18, align 1, !tbaa !57
-  store i8 %19, ptr %16, align 1, !tbaa !57
-  store i8 %17, ptr %18, align 1, !tbaa !57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %10, i64 52, i1 false), !tbaa.struct !58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %10, ptr noundef nonnull align 4 dereferenceable(52) %11, i64 52, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %11, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !58
+  %19 = load i8, ptr %18, align 1, !tbaa !58
+  store i8 %19, ptr %16, align 1, !tbaa !58
+  store i8 %17, ptr %18, align 1, !tbaa !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %10, i64 52, i1 false), !tbaa.struct !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %10, ptr noundef nonnull align 4 dereferenceable(52) %11, i64 52, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %11, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !59
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %20, i64 52, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %20, i64 52, i1 false), !tbaa.struct !59
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %20, ptr noundef nonnull align 4 dereferenceable(52) %21, i64 52, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %21, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %20, ptr noundef nonnull align 4 dereferenceable(52) %21, i64 52, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %21, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !59
   %22 = trunc nuw nsw i64 %indvars.iv103 to i32
   tail call void @Kit_TruthSwapAdjacentVars(ptr noundef %.17394.us, ptr noundef %.18091.us, i32 noundef %2, i32 noundef %22) #16
   br label %23
@@ -1031,7 +1031,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
 .lr.ph95.us.backedge:                             ; preds = %23, %._crit_edge.us
   %indvars.iv103.be = phi i64 [ %indvars.iv.next104, %23 ], [ 0, %._crit_edge.us ]
   %.07792.us.be = phi i32 [ %.178.us, %23 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph95.us, !llvm.loop !59
+  br label %.lr.ph95.us, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %23
   %.not.us = icmp eq i32 %.178.us, 0
@@ -1051,9 +1051,9 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = shl nuw i32 1, %29
   %31 = or i32 %.089, %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %24, i64 52, i1 false), !tbaa.struct !58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %24, ptr noundef nonnull align 4 dereferenceable(52) %25, i64 52, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %25, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %24, i64 52, i1 false), !tbaa.struct !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %24, ptr noundef nonnull align 4 dereferenceable(52) %25, i64 52, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %25, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false), !tbaa.struct !59
   tail call void @Kit_TruthChangePhase(ptr noundef %1, i32 noundef %2, i32 noundef %29) #16
   br label %32
 
@@ -1061,7 +1061,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.1 = phi i32 [ %.089, %.lr.ph ], [ %31, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !61
 
 .split.us.loopexit:                               ; preds = %._crit_edge.us
   %33 = and i32 %.276.us, 1
@@ -1096,7 +1096,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %43 = getelementptr inbounds nuw i32, ptr %.us-phi101, i64 %indvars.iv.next.i
   store i32 %42, ptr %43, align 4, !tbaa !24
   %44 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %44, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !61
+  br i1 %44, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !62
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %35, %.split.us
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %7)
@@ -1125,7 +1125,7 @@ define void @Aig_RManSaveOne(ptr noundef readonly captures(none) %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = getelementptr i8, ptr %13, i64 48
-  %.val = load ptr, ptr %14, align 8, !tbaa !62
+  %.val = load ptr, ptr %14, align 8, !tbaa !63
   tail call void @Bdc_FuncSetCopy(ptr noundef %11, ptr noundef %.val) #16
   %15 = icmp sgt i32 %2, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -1139,7 +1139,7 @@ define void @Aig_RManSaveOne(ptr noundef readonly captures(none) %0, ptr noundef
   %20 = tail call ptr @Aig_IthVar(ptr noundef %19, i32 noundef %.027) #16
   tail call void @Bdc_FuncSetCopy(ptr noundef %18, ptr noundef %20) #16
   %exitcond.not = icmp eq i32 %17, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %21 = load ptr, ptr %4, align 8, !tbaa !23
@@ -1175,7 +1175,7 @@ define void @Aig_RManSaveOne(ptr noundef readonly captures(none) %0, ptr noundef
   tail call void @Bdc_FuncSetCopy(ptr noundef %25, ptr noundef %45) #16
   %.1 = add i32 %.129, 1
   %exitcond33.not = icmp eq i32 %.1, %22
-  br i1 %exitcond33.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !76
+  br i1 %exitcond33.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !77
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge
   %46 = load ptr, ptr %4, align 8, !tbaa !23
@@ -1321,7 +1321,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %65 = xor i32 %64, -1
   store i32 %65, ptr %63, align 4, !tbaa !24
   %66 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %66, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !77
+  br i1 %66, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !78
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %43
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 568
@@ -1337,10 +1337,10 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %70 = trunc i64 %indvars.iv to i8
   %71 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 0, i64 %indvars.iv
-  store i8 %70, ptr %71, align 1, !tbaa !57
+  store i8 %70, ptr %71, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %69, %Kit_TruthNot.exit
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 1592
@@ -1366,7 +1366,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx10.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %80, ptr noundef nonnull readonly dereferenceable(4) %81, i64 4)
   %82 = icmp eq i32 %bcmp.i, 0
-  br i1 %82, label %Aig_RManVarsAreUnique.exit, label %78, !llvm.loop !54
+  br i1 %82, label %Aig_RManVarsAreUnique.exit, label %78, !llvm.loop !55
 
 Aig_RManVarsAreUnique.exit:                       ; preds = %78, %79
   %.08.i = phi i32 [ 1, %78 ], [ 0, %79 ]
@@ -1404,12 +1404,12 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %78, %79
 97:                                               ; preds = %.lr.ph60, %97
   %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %97 ]
   %98 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 0, i64 %indvars.iv70
-  %99 = load i8, ptr %98, align 1, !tbaa !57
+  %99 = load i8, ptr %98, align 1, !tbaa !58
   %100 = getelementptr inbounds nuw [12 x i8], ptr %96, i64 0, i64 %indvars.iv70
-  store i8 %99, ptr %100, align 1, !tbaa !57
+  store i8 %99, ptr %100, align 1, !tbaa !58
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %30
-  br i1 %exitcond74.not, label %.lr.ph64.preheader, label %97, !llvm.loop !79
+  br i1 %exitcond74.not, label %.lr.ph64.preheader, label %97, !llvm.loop !80
 
 .lr.ph64.preheader:                               ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 1592
@@ -1434,7 +1434,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %78, %79
 109:                                              ; preds = %.lr.ph64, %106
   %110 = add nuw nsw i32 %.262, 1
   %exitcond75.not = icmp eq i32 %110, %20
-  br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !80
+  br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !81
 
 ._crit_edge65:                                    ; preds = %109, %._crit_edge61.thread
   br i1 %exitcond.not.i.not, label %111, label %Kit_TruthIsEqual.exit
@@ -1572,34 +1572,35 @@ attributes #18 = { nounwind willreturn memory(read) }
 !47 = !{!48, !5, i64 0}
 !48 = !{!"Aig_VSig_t_", !5, i64 0, !6, i64 4}
 !49 = distinct !{!49, !15}
-!50 = distinct !{!50, !15}
-!51 = distinct !{!51, !15}
-!52 = distinct !{!52, !15}
+!50 = distinct !{!50, !15, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !15, !51}
 !53 = distinct !{!53, !15}
 !54 = distinct !{!54, !15}
 !55 = distinct !{!55, !15}
 !56 = distinct !{!56, !15}
-!57 = !{!6, !6, i64 0}
-!58 = !{i64 0, i64 4, !24, i64 4, i64 48, !57}
-!59 = distinct !{!59, !15}
-!60 = distinct !{!60, !15}
+!57 = distinct !{!57, !15}
+!58 = !{!6, !6, i64 0}
+!59 = !{i64 0, i64 4, !24, i64 4, i64 48, !58}
+!60 = distinct !{!60, !15, !51}
 !61 = distinct !{!61, !15}
-!62 = !{!63, !66, i64 48}
-!63 = !{!"Aig_Man_t_", !64, i64 0, !64, i64 8, !65, i64 16, !65, i64 24, !65, i64 32, !65, i64 40, !66, i64 48, !67, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !68, i64 160, !5, i64 168, !69, i64 176, !5, i64 184, !70, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !69, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !68, i64 248, !68, i64 256, !5, i64 264, !71, i64 272, !72, i64 280, !5, i64 288, !9, i64 296, !9, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !68, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !69, i64 368, !69, i64 376, !65, i64 384, !72, i64 392, !72, i64 400, !73, i64 408, !65, i64 416, !8, i64 424, !65, i64 432, !5, i64 440, !72, i64 448, !70, i64 456, !72, i64 464, !72, i64 472, !5, i64 480, !74, i64 488, !74, i64 496, !74, i64 504, !65, i64 512, !65, i64 520}
-!64 = !{!"p1 omnipotent char", !9, i64 0}
-!65 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!66 = !{!"p1 _ZTS10Aig_Obj_t_", !9, i64 0}
-!67 = !{!"Aig_Obj_t_", !6, i64 0, !66, i64 8, !66, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
-!68 = !{!"p2 _ZTS10Aig_Obj_t_", !9, i64 0}
-!69 = !{!"p1 int", !9, i64 0}
-!70 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
-!71 = !{!"p1 _ZTS14Aig_MmFixed_t_", !9, i64 0}
-!72 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!73 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!74 = !{!"long", !6, i64 0}
-!75 = distinct !{!75, !15}
+!62 = distinct !{!62, !15}
+!63 = !{!64, !67, i64 48}
+!64 = !{!"Aig_Man_t_", !65, i64 0, !65, i64 8, !66, i64 16, !66, i64 24, !66, i64 32, !66, i64 40, !67, i64 48, !68, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !69, i64 160, !5, i64 168, !70, i64 176, !5, i64 184, !71, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !70, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !69, i64 248, !69, i64 256, !5, i64 264, !72, i64 272, !73, i64 280, !5, i64 288, !9, i64 296, !9, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !69, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !70, i64 368, !70, i64 376, !66, i64 384, !73, i64 392, !73, i64 400, !74, i64 408, !66, i64 416, !8, i64 424, !66, i64 432, !5, i64 440, !73, i64 448, !71, i64 456, !73, i64 464, !73, i64 472, !5, i64 480, !75, i64 488, !75, i64 496, !75, i64 504, !66, i64 512, !66, i64 520}
+!65 = !{!"p1 omnipotent char", !9, i64 0}
+!66 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!67 = !{!"p1 _ZTS10Aig_Obj_t_", !9, i64 0}
+!68 = !{!"Aig_Obj_t_", !6, i64 0, !67, i64 8, !67, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
+!69 = !{!"p2 _ZTS10Aig_Obj_t_", !9, i64 0}
+!70 = !{!"p1 int", !9, i64 0}
+!71 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
+!72 = !{!"p1 _ZTS14Aig_MmFixed_t_", !9, i64 0}
+!73 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!74 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!75 = !{!"long", !6, i64 0}
 !76 = distinct !{!76, !15}
 !77 = distinct !{!77, !15}
 !78 = distinct !{!78, !15}
 !79 = distinct !{!79, !15}
 !80 = distinct !{!80, !15}
+!81 = distinct !{!81, !15}

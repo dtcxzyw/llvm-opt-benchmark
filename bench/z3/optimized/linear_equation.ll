@@ -2373,7 +2373,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   store i32 %44, ptr %68, align 4, !tbaa !13
   %.not = icmp eq i64 %.013, 0
   %69 = add nsw i64 %.013, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !79
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !81
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, %3
   ret void
@@ -2557,7 +2557,7 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit:               ; preds = %46
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %72 = icmp eq ptr %70, %57
-  br i1 %72, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !80
+  br i1 %72, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !82
 
 _ZSt20uninitialized_move_nIP3mpzjS1_ESt4pairIT_T1_ES3_T0_S4_.exit: ; preds = %46
   %73 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -2614,7 +2614,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !81
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !83
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #19
@@ -2959,6 +2959,8 @@ attributes #20 = { builtin allocsize(0) }
 !76 = distinct !{!76, !15}
 !77 = distinct !{!77, !15}
 !78 = distinct !{!78, !15}
-!79 = distinct !{!79, !15}
-!80 = distinct !{!80, !15}
-!81 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!79 = distinct !{!79, !15, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !15}
+!82 = distinct !{!82, !15}
+!83 = !{!"branch_weights", !"expected", i32 1, i32 2000}

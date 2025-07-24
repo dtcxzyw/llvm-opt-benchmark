@@ -2097,7 +2097,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
 
 tailrecurse.us.backedge:                          ; preds = %.backedge.us, %tailrecurse.backedge.us
   %.024.us.be = phi ptr [ %.024.be.us, %.backedge.us ], [ %.tr.be.us, %tailrecurse.backedge.us ]
-  br label %tailrecurse.us
+  br label %tailrecurse.us, !llvm.loop !13
 
 tailrecurse.backedge.us:                          ; preds = %15, %9
   %.pn37.in.in = getelementptr inbounds nuw i8, ptr %.024.us, i64 28
@@ -2494,7 +2494,7 @@ define dso_local void @expr_rewrite_insert_deref(ptr noundef captures(none) %0) 
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr %14, align 8, !nonnull !13, !noundef !13
+  %23 = load ptr, ptr %14, align 8, !nonnull !15, !noundef !15
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 40
   br i1 %25, label %thread-pre-split, label %28
@@ -2646,4 +2646,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{}

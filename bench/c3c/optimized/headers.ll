@@ -1440,7 +1440,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 73:                                               ; preds = %66, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %73, %61, %47, %49
   %74 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
@@ -1820,7 +1820,7 @@ define internal fastcc void @header_gen_members(ptr noundef %0, i32 noundef %1, 
   %17 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %18 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %18, %1
-  br i1 %exitcond.not.i, label %indent_line.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %indent_line.exit, label %.lr.ph.i, !llvm.loop !33
 
 indent_line.exit:                                 ; preds = %.lr.ph.i, %16
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -1861,7 +1861,7 @@ indent_line.exit:                                 ; preds = %.lr.ph.i, %16
   %39 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %40 = add nuw nsw i32 %.03.i36, 1
   %exitcond.not.i37 = icmp eq i32 %40, %1
-  br i1 %exitcond.not.i37, label %indent_line.exit38, label %.lr.ph.i35, !llvm.loop !31
+  br i1 %exitcond.not.i37, label %indent_line.exit38, label %.lr.ph.i35, !llvm.loop !33
 
 .split21.i:                                       ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1896,7 +1896,7 @@ header_gen_struct_union.exit:                     ; preds = %48, %52
   %54 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %55 = add nuw nsw i32 %.03.i32, 1
   %exitcond.not.i33 = icmp eq i32 %55, %1
-  br i1 %exitcond.not.i33, label %indent_line.exit34, label %.lr.ph.i31, !llvm.loop !31
+  br i1 %exitcond.not.i33, label %indent_line.exit34, label %.lr.ph.i31, !llvm.loop !33
 
 indent_line.exit34:                               ; preds = %.lr.ph.i31
   %56 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
@@ -1910,7 +1910,7 @@ indent_line.exit34:                               ; preds = %.lr.ph.i31
   %59 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %60 = add nuw nsw i32 %.03.i28, 1
   %exitcond.not.i29 = icmp eq i32 %60, %1
-  br i1 %exitcond.not.i29, label %indent_line.exit30, label %.lr.ph.i27, !llvm.loop !31
+  br i1 %exitcond.not.i29, label %indent_line.exit30, label %.lr.ph.i27, !llvm.loop !33
 
 indent_line.exit30.critedge:                      ; preds = %header_gen_struct_union.exit
   %61 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
@@ -1930,7 +1930,7 @@ indent_line.exit30:                               ; preds = %.lr.ph.i27, %indent
 66:                                               ; preds = %25, %35, %indent_line.exit30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %66, %3, %4
   ret void
@@ -1996,6 +1996,8 @@ attributes #6 = { nounwind }
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
+!30 = distinct !{!30, !8, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !8}

@@ -125,7 +125,7 @@ _ZN6LibRaw5COLOREii.exit.thread.us:               ; preds = %49, %_ZN6LibRaw5COL
   br i1 %exitcond63.not, label %.preheader, label %_ZN6LibRaw5COLOREii.exit.thread.us, !llvm.loop !86
 
 .preheader.loopexit54:                            ; preds = %_ZN6LibRaw5COLOREii.exit.thread
-  %.pre.pre = load ptr, ptr %4, align 8, !tbaa !87
+  %.pre.pre = load ptr, ptr %4, align 8, !tbaa !88
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN6LibRaw5COLOREii.exit.thread.us, %.preheader.loopexit54
@@ -146,7 +146,7 @@ _ZN6LibRaw5COLOREii.exit.thread.us:               ; preds = %49, %_ZN6LibRaw5COL
 
 .split:                                           ; preds = %49, %_ZN6LibRaw5COLOREii.exit.thread
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN6LibRaw5COLOREii.exit.thread ], [ 0, %49 ]
-  %66 = load ptr, ptr %4, align 8, !tbaa !87
+  %66 = load ptr, ptr %4, align 8, !tbaa !88
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 544
   %68 = load i32, ptr %67, align 8, !tbaa !84
   %.not.i = icmp eq i32 %68, 0
@@ -163,13 +163,13 @@ _ZN6LibRaw5COLOREii.exit.thread.us:               ; preds = %49, %_ZN6LibRaw5COL
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 381494
-  %76 = load i16, ptr %75, align 2, !tbaa !88
+  %76 = load i16, ptr %75, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %76, 0
   br i1 %.not8.i, label %97, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 381648
-  %79 = load i32, ptr %78, align 8, !tbaa !89
+  %79 = load i32, ptr %78, align 8, !tbaa !90
   %.not.i.i = icmp eq i32 %79, 0
   %80 = trunc nuw nsw i64 %indvars.iv56 to i32
   br i1 %.not.i.i, label %81, label %_ZN6LibRaw3FCFEii.exit.i
@@ -221,7 +221,7 @@ _ZN6LibRaw5COLOREii.exit.thread:                  ; preds = %_ZN6LibRaw5COLOREii
   store i32 %105, ptr %106, align 4, !tbaa !85
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 48
-  br i1 %exitcond59.not, label %.preheader.loopexit54, label %.split, !llvm.loop !90
+  br i1 %exitcond59.not, label %.preheader.loopexit54, label %.split, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %135, %.preheader
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3) #12
@@ -230,7 +230,7 @@ _ZN6LibRaw5COLOREii.exit.thread:                  ; preds = %_ZN6LibRaw5COLOREii
   %108 = load i16, ptr %107, align 4, !tbaa !11
   %109 = zext i16 %108 to i64
   %110 = icmp samesign ult i64 %indvars.iv.next70, %109
-  br i1 %110, label %49, label %._crit_edge51.loopexit, !llvm.loop !92
+  br i1 %110, label %49, label %._crit_edge51.loopexit, !llvm.loop !93
 
 111:                                              ; preds = %.lr.ph, %135
   %indvars.iv64 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next65, %135 ]
@@ -277,7 +277,7 @@ _ZN6LibRaw5COLOREii.exit.thread:                  ; preds = %_ZN6LibRaw5COLOREii
 135:                                              ; preds = %132, %111
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge, label %111, !llvm.loop !93
+  br i1 %exitcond68.not, label %._crit_edge, label %111, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -295,7 +295,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT9hide_hotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %5 = load i16, ptr %4, align 2, !tbaa !75
   %6 = zext i16 %5 to i32
@@ -327,13 +327,13 @@ define void @_ZN3DHT9hide_hotsEv(ptr noundef nonnull readonly align 8 captures(n
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 381494
-  %20 = load i16, ptr %19, align 2, !tbaa !88
+  %20 = load i16, ptr %19, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %20, 0
   br i1 %.not8.i, label %34, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 381648
-  %22 = load i32, ptr %21, align 8, !tbaa !89
+  %22 = load i32, ptr %21, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %22, 0
   %23 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = lshr i32 %.0281, %23
@@ -363,7 +363,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %18
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %16
   %39 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %13, i32 noundef %.0281, i32 noundef 0)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !87
+  %.pre = load ptr, ptr %2, align 8, !tbaa !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 544
   %.pre289 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !84
   %40 = and i32 %39, 1
@@ -384,13 +384,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %16
   %.0.i296301 = phi i32 [ %37, %.thread ], [ %39, %41 ]
   %48 = phi i32 [ %38, %.thread ], [ %40, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 381494
-  %50 = load i16, ptr %49, align 2, !tbaa !88
+  %50 = load i16, ptr %49, align 2, !tbaa !89
   %.not8.i259 = icmp eq i16 %50, 0
   br i1 %.not8.i259, label %69, label %_ZN6LibRaw3FCFEii.exit.i261
 
 _ZN6LibRaw3FCFEii.exit.i261:                      ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 381648
-  %52 = load i32, ptr %51, align 8, !tbaa !89
+  %52 = load i32, ptr %51, align 8, !tbaa !90
   %.not.i.i260 = icmp eq i32 %52, 0
   %53 = add nsw i32 %.0281, -1
   %54 = xor i32 %48, -1
@@ -628,7 +628,7 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
 219:                                              ; preds = %231
   %220 = add nsw i32 %.0251270, 2
   %221 = icmp slt i32 %.0251270, 1
-  br i1 %221, label %.preheader267, label %212, !llvm.loop !94
+  br i1 %221, label %.preheader267, label %212, !llvm.loop !95
 
 222:                                              ; preds = %.preheader267, %231
   %indvars.iv = phi i64 [ -2, %.preheader267 ], [ %indvars.iv.next, %231 ]
@@ -650,14 +650,14 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %.2250 = phi nsz float [ %.1249269, %222 ], [ %230, %225 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %232 = icmp slt i64 %indvars.iv, 1
-  br i1 %232, label %222, label %219, !llvm.loop !95
+  br i1 %232, label %222, label %219, !llvm.loop !96
 
 .sink.split:                                      ; preds = %212
   %233 = load ptr, ptr %11, align 8, !tbaa !78
   %234 = getelementptr inbounds i8, ptr %233, i64 %100
-  %235 = load i8, ptr %234, align 1, !tbaa !96
+  %235 = load i8, ptr %234, align 1, !tbaa !97
   %236 = or i8 %235, 64
-  store i8 %236, ptr %234, align 1, !tbaa !96
+  store i8 %236, ptr %234, align 1, !tbaa !97
   %237 = load ptr, ptr %9, align 8, !tbaa !77
   %238 = load i32, ptr %10, align 4, !tbaa !76
   %239 = mul nsw i32 %238, %80
@@ -728,16 +728,16 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %300 = phi ptr [ %96, %212 ], [ %96, %202 ], [ %96, %195 ], [ %96, %188 ], [ %96, %181 ], [ %96, %174 ], [ %96, %167 ], [ %96, %160 ], [ %96, %158 ], [ %237, %.sink.split ]
   %301 = add nuw nsw i32 %.0247272, 2
   %302 = icmp samesign ult i32 %301, %6
-  br i1 %302, label %94, label %._crit_edge, !llvm.loop !97
+  br i1 %302, label %94, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge280:                                   ; preds = %513, %._crit_edge
   %303 = add nuw nsw i32 %.0281, 1
-  %304 = load ptr, ptr %2, align 8, !tbaa !87
+  %304 = load ptr, ptr %2, align 8, !tbaa !88
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 28
   %306 = load i16, ptr %305, align 4, !tbaa !11
   %307 = zext i16 %306 to i32
   %308 = icmp samesign ult i32 %303, %307
-  br i1 %308, label %12, label %._crit_edge284, !llvm.loop !98
+  br i1 %308, label %12, label %._crit_edge284, !llvm.loop !99
 
 309:                                              ; preds = %.lr.ph279, %513
   %310 = phi i32 [ %.pre293, %.lr.ph279 ], [ %514, %513 ]
@@ -910,7 +910,7 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
 434:                                              ; preds = %446
   %435 = add nsw i32 %.0245276, 2
   %436 = icmp slt i32 %.0245276, 1
-  br i1 %436, label %.preheader, label %427, !llvm.loop !99
+  br i1 %436, label %.preheader, label %427, !llvm.loop !100
 
 437:                                              ; preds = %.preheader, %446
   %indvars.iv286 = phi i64 [ -2, %.preheader ], [ %indvars.iv.next287, %446 ]
@@ -932,14 +932,14 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %.2 = phi nsz float [ %.1273, %437 ], [ %445, %440 ]
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 2
   %447 = icmp slt i64 %indvars.iv286, 1
-  br i1 %447, label %437, label %434, !llvm.loop !100
+  br i1 %447, label %437, label %434, !llvm.loop !101
 
 .sink.split304:                                   ; preds = %427
   %448 = load ptr, ptr %11, align 8, !tbaa !78
   %449 = getelementptr inbounds i8, ptr %448, i64 %315
-  %450 = load i8, ptr %449, align 1, !tbaa !96
+  %450 = load i8, ptr %449, align 1, !tbaa !97
   %451 = or i8 %450, 64
-  store i8 %451, ptr %449, align 1, !tbaa !96
+  store i8 %451, ptr %449, align 1, !tbaa !97
   %452 = load ptr, ptr %9, align 8, !tbaa !77
   %453 = load i32, ptr %10, align 4, !tbaa !76
   %454 = mul nsw i32 %453, %87
@@ -1010,13 +1010,13 @@ _ZN6LibRaw5COLOREii.exit266:                      ; preds = %12, %_ZN6LibRaw5COL
   %515 = phi ptr [ %311, %427 ], [ %311, %417 ], [ %311, %410 ], [ %311, %403 ], [ %311, %396 ], [ %311, %389 ], [ %311, %382 ], [ %311, %375 ], [ %311, %373 ], [ %452, %.sink.split304 ]
   %516 = add nuw nsw i32 %.0252277, 2
   %517 = icmp samesign ult i32 %516, %6
-  br i1 %517, label %309, label %._crit_edge280, !llvm.loop !101
+  br i1 %517, label %309, label %._crit_edge280, !llvm.loop !102
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %5 = load i16, ptr %4, align 2, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1065,7 +1065,7 @@ define void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull readonly align 8 captur
   %30 = add nsw i32 %27, %29
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %26, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !96
+  %33 = load i8, ptr %32, align 1, !tbaa !97
   %34 = and i8 %33, 64
   %.not.us = icmp eq i8 %34, 0
   br i1 %.not.us, label %88, label %35
@@ -1082,13 +1082,13 @@ define void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull readonly align 8 captur
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 381494
-  %42 = load i16, ptr %41, align 2, !tbaa !88
+  %42 = load i16, ptr %41, align 2, !tbaa !89
   %.not8.i.us = icmp eq i16 %42, 0
   br i1 %.not8.i.us, label %63, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 381648
-  %45 = load i32, ptr %44, align 8, !tbaa !89
+  %45 = load i32, ptr %44, align 8, !tbaa !90
   %.not.i.i.us = icmp eq i32 %45, 0
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not.i.i.us, label %47, label %_ZN6LibRaw3FCFEii.exit.i.us
@@ -1130,7 +1130,7 @@ _ZN6LibRaw3FCFEii.exit.i.us:                      ; preds = %43, %47
 70:                                               ; preds = %38
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %24, i32 noundef %13, i32 noundef %71)
-  %.pre31 = load ptr, ptr %2, align 8, !tbaa !87
+  %.pre31 = load ptr, ptr %2, align 8, !tbaa !88
   %.pre32 = load i32, ptr %9, align 4, !tbaa !76
   br label %_ZN6LibRaw5COLOREii.exit.us
 
@@ -1164,7 +1164,7 @@ _ZN6LibRaw5COLOREii.exit.us:                      ; preds = %70, %63, %_ZN6LibRa
   %93 = phi i32 [ %74, %_ZN6LibRaw5COLOREii.exit.us ], [ %25, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !103
 
 ._crit_edge.us:                                   ; preds = %88
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -1172,7 +1172,7 @@ _ZN6LibRaw5COLOREii.exit.us:                      ; preds = %70, %63, %_ZN6LibRa
   %95 = load i16, ptr %94, align 4, !tbaa !11
   %96 = zext i16 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next29, %96
-  br i1 %97, label %.preheader.us, label %._crit_edge24, !llvm.loop !103
+  br i1 %97, label %.preheader.us, label %._crit_edge24, !llvm.loop !104
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
   ret void
@@ -1181,7 +1181,7 @@ _ZN6LibRaw5COLOREii.exit.us:                      ; preds = %70, %63, %_ZN6LibRa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT14make_diag_dirsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !11
   %.not = icmp eq i16 %5, 0
@@ -1195,12 +1195,12 @@ define void @_ZN3DHT14make_diag_dirsEv(ptr noundef nonnull readonly align 8 capt
   %.067 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN3DHT15make_diag_dlineEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.067)
   %7 = add nuw nsw i32 %.067, 1
-  %8 = load ptr, ptr %2, align 8, !tbaa !87
+  %8 = load ptr, ptr %2, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i16, ptr %9, align 4, !tbaa !11
   %11 = zext i16 %10 to i32
   %12 = icmp samesign ult i32 %7, %11
-  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !104
+  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph9, %1, %.preheader
   ret void
@@ -1209,18 +1209,18 @@ define void @_ZN3DHT14make_diag_dirsEv(ptr noundef nonnull readonly align 8 capt
   %.08 = phi i32 [ %13, %.lr.ph9 ], [ 0, %.preheader ]
   tail call void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.08)
   %13 = add nuw nsw i32 %.08, 1
-  %14 = load ptr, ptr %2, align 8, !tbaa !87
+  %14 = load ptr, ptr %2, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i16, ptr %15, align 4, !tbaa !11
   %17 = zext i16 %16 to i32
   %18 = icmp samesign ult i32 %13, %17
-  br i1 %18, label %.lr.ph9, label %._crit_edge, !llvm.loop !105
+  br i1 %18, label %.lr.ph9, label %._crit_edge, !llvm.loop !106
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT15make_diag_dlineEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -1235,13 +1235,13 @@ define void @_ZN3DHT15make_diag_dlineEi(ptr noundef nonnull readonly align 8 cap
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 381494
-  %14 = load i16, ptr %13, align 2, !tbaa !88
+  %14 = load i16, ptr %13, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %14, 0
   br i1 %.not8.i, label %28, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 381648
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %16, 0
   %17 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = ashr i32 %1, %17
@@ -1271,7 +1271,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %33 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %4, i32 noundef %1, i32 noundef 0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !87
+  %.pre = load ptr, ptr %3, align 8, !tbaa !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 544
   %.pre30 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !84
   %34 = and i32 %33, 1
@@ -1292,13 +1292,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %.0.i3540 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
-  %44 = load i16, ptr %43, align 2, !tbaa !88
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %.not8.i21 = icmp eq i16 %44, 0
   br i1 %.not8.i21, label %63, label %_ZN6LibRaw3FCFEii.exit.i23
 
 _ZN6LibRaw3FCFEii.exit.i23:                       ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 381648
-  %46 = load i32, ptr %45, align 8, !tbaa !89
+  %46 = load i32, ptr %45, align 8, !tbaa !90
   %.not.i.i22 = icmp eq i32 %46, 0
   %47 = add i32 %1, 7
   %48 = xor i32 %42, -1
@@ -1460,18 +1460,18 @@ _ZN6LibRaw5COLOREii.exit28:                       ; preds = %2, %_ZN6LibRaw5COLO
   %175 = select i1 %.sink41, i8 %172, i8 %174
   %176 = load ptr, ptr %77, align 8, !tbaa !78
   %177 = getelementptr inbounds i8, ptr %176, i64 %.pre-phi
-  %178 = load i8, ptr %177, align 1, !tbaa !96
+  %178 = load i8, ptr %177, align 1, !tbaa !97
   %179 = or i8 %178, %175
-  store i8 %179, ptr %177, align 1, !tbaa !96
+  store i8 %179, ptr %177, align 1, !tbaa !97
   %180 = add nuw nsw i32 %.01929, 1
   %exitcond.not = icmp eq i32 %180, %7
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -1498,7 +1498,7 @@ define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 c
   %18 = add nsw i32 %17, %14
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %15, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !96
+  %21 = load i8, ptr %20, align 1, !tbaa !97
   %22 = and i8 %21, 8
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %23, label %118
@@ -1508,52 +1508,52 @@ define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 c
   %25 = add nsw i32 %24, %14
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %15, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !96
+  %28 = load i8, ptr %27, align 1, !tbaa !97
   %29 = and i8 %28, 16
   %30 = mul nsw i32 %16, %12
   %31 = add nsw i32 %30, %14
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %15, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !96
+  %34 = load i8, ptr %33, align 1, !tbaa !97
   %35 = and i8 %34, 16
   %narrow = add nuw nsw i8 %35, %29
   %36 = add nuw nsw i32 %.064, 3
   %37 = add nsw i32 %17, %36
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %15, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !96
+  %40 = load i8, ptr %39, align 1, !tbaa !97
   %41 = and i8 %40, 16
   %narrow58 = add nuw nsw i8 %narrow, %41
   %42 = add nuw nsw i32 %.064, 5
   %43 = add nsw i32 %17, %42
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %15, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !96
+  %46 = load i8, ptr %45, align 1, !tbaa !97
   %47 = and i8 %46, 16
   %narrow59 = add nuw nsw i8 %narrow58, %47
   %48 = add nsw i32 %24, %36
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %15, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !96
+  %51 = load i8, ptr %50, align 1, !tbaa !97
   %52 = and i8 %51, 16
   %narrow62 = add nuw nsw i8 %narrow59, %52
   %53 = add nsw i32 %24, %42
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %15, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !96
+  %56 = load i8, ptr %55, align 1, !tbaa !97
   %57 = and i8 %56, 16
   %narrow72 = add nuw nsw i8 %narrow62, %57
   %58 = add nsw i32 %30, %36
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %15, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !96
+  %61 = load i8, ptr %60, align 1, !tbaa !97
   %62 = and i8 %61, 16
   %narrow73 = add nuw i8 %narrow72, %62
   %63 = zext i8 %narrow73 to i32
   %64 = add nsw i32 %30, %42
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %15, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !96
+  %67 = load i8, ptr %66, align 1, !tbaa !97
   %68 = and i8 %67, 16
   %69 = zext nneg i8 %68 to i32
   %70 = add nuw nsw i32 %63, %69
@@ -1585,16 +1585,16 @@ define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 c
 
 91:                                               ; preds = %23
   %92 = and i8 %21, -25
-  store i8 %92, ptr %20, align 1, !tbaa !96
+  store i8 %92, ptr %20, align 1, !tbaa !97
   %93 = load ptr, ptr %9, align 8, !tbaa !78
   %94 = load i32, ptr %10, align 4, !tbaa !76
   %95 = mul nsw i32 %94, %8
   %96 = add nsw i32 %95, %14
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %93, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !96
+  %99 = load i8, ptr %98, align 1, !tbaa !97
   %100 = or i8 %99, 32
-  store i8 %100, ptr %98, align 1, !tbaa !96
+  store i8 %100, ptr %98, align 1, !tbaa !97
   %.pre = load ptr, ptr %9, align 8, !tbaa !78
   %.pre66 = load i32, ptr %10, align 4, !tbaa !76
   %.pre67 = mul nsw i32 %.pre66, %8
@@ -1606,7 +1606,7 @@ define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 c
   %.pre-phi71 = phi i64 [ %.pre70, %91 ], [ %19, %23 ]
   %102 = phi ptr [ %.pre, %91 ], [ %15, %23 ]
   %103 = getelementptr inbounds i8, ptr %102, i64 %.pre-phi71
-  %104 = load i8, ptr %103, align 1, !tbaa !96
+  %104 = load i8, ptr %103, align 1, !tbaa !97
   %105 = and i8 %104, 32
   %106 = icmp ne i8 %105, 0
   %107 = icmp samesign ugt i32 %70, 127
@@ -1615,28 +1615,28 @@ define void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 c
 
 108:                                              ; preds = %101
   %109 = and i8 %104, -33
-  store i8 %109, ptr %103, align 1, !tbaa !96
+  store i8 %109, ptr %103, align 1, !tbaa !97
   %110 = load ptr, ptr %9, align 8, !tbaa !78
   %111 = load i32, ptr %10, align 4, !tbaa !76
   %112 = mul nsw i32 %111, %8
   %113 = add nsw i32 %112, %14
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %110, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !96
+  %116 = load i8, ptr %115, align 1, !tbaa !97
   %117 = or i8 %116, 16
-  store i8 %117, ptr %115, align 1, !tbaa !96
+  store i8 %117, ptr %115, align 1, !tbaa !97
   br label %118
 
 118:                                              ; preds = %101, %108, %13
   %119 = add nuw nsw i32 %.064, 1
   %exitcond.not = icmp eq i32 %119, %7
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !108
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT12make_hv_dirsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !11
   %.not = icmp eq i16 %5, 0
@@ -1650,12 +1650,12 @@ define void @_ZN3DHT12make_hv_dirsEv(ptr noundef nonnull align 8 dereferenceable
   %.01619 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN3DHT13make_hv_dlineEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.01619)
   %7 = add nuw nsw i32 %.01619, 1
-  %8 = load ptr, ptr %2, align 8, !tbaa !87
+  %8 = load ptr, ptr %2, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i16, ptr %9, align 4, !tbaa !11
   %11 = zext i16 %10 to i32
   %12 = icmp samesign ult i32 %7, %11
-  br i1 %12, label %.lr.ph, label %.preheader18, !llvm.loop !108
+  br i1 %12, label %.lr.ph, label %.preheader18, !llvm.loop !109
 
 .preheader17:                                     ; preds = %.lr.ph21
   %13 = icmp eq i16 %18, 0
@@ -1666,12 +1666,12 @@ define void @_ZN3DHT12make_hv_dirsEv(ptr noundef nonnull align 8 dereferenceable
   %14 = and i32 %.01520, 1
   tail call void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.01520, i32 noundef %14)
   %15 = add nuw nsw i32 %.01520, 1
-  %16 = load ptr, ptr %2, align 8, !tbaa !87
+  %16 = load ptr, ptr %2, align 8, !tbaa !88
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i16, ptr %17, align 4, !tbaa !11
   %19 = zext i16 %18 to i32
   %20 = icmp samesign ult i32 %15, %19
-  br i1 %20, label %.lr.ph21, label %.preheader17, !llvm.loop !109
+  br i1 %20, label %.lr.ph21, label %.preheader17, !llvm.loop !110
 
 .preheader:                                       ; preds = %.lr.ph23
   %21 = icmp eq i16 %27, 0
@@ -1683,12 +1683,12 @@ define void @_ZN3DHT12make_hv_dirsEv(ptr noundef nonnull align 8 dereferenceable
   %23 = xor i32 %22, 1
   tail call void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.01422, i32 noundef %23)
   %24 = add nuw nsw i32 %.01422, 1
-  %25 = load ptr, ptr %2, align 8, !tbaa !87
+  %25 = load ptr, ptr %2, align 8, !tbaa !88
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %27 = load i16, ptr %26, align 4, !tbaa !11
   %28 = zext i16 %27 to i32
   %29 = icmp samesign ult i32 %24, %28
-  br i1 %29, label %.lr.ph23, label %.preheader, !llvm.loop !110
+  br i1 %29, label %.lr.ph23, label %.preheader, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph25, %1, %.preheader18, %.preheader17, %.preheader
   ret void
@@ -1697,18 +1697,18 @@ define void @_ZN3DHT12make_hv_dirsEv(ptr noundef nonnull align 8 dereferenceable
   %.024 = phi i32 [ %30, %.lr.ph25 ], [ 0, %.preheader ]
   tail call void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.024)
   %30 = add nuw nsw i32 %.024, 1
-  %31 = load ptr, ptr %2, align 8, !tbaa !87
+  %31 = load ptr, ptr %2, align 8, !tbaa !88
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %33 = load i16, ptr %32, align 4, !tbaa !11
   %34 = zext i16 %33 to i32
   %35 = icmp samesign ult i32 %30, %34
-  br i1 %35, label %.lr.ph25, label %._crit_edge, !llvm.loop !111
+  br i1 %35, label %.lr.ph25, label %._crit_edge, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT13make_hv_dlineEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -1723,13 +1723,13 @@ define void @_ZN3DHT13make_hv_dlineEi(ptr noundef nonnull align 8 dereferenceabl
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 381494
-  %14 = load i16, ptr %13, align 2, !tbaa !88
+  %14 = load i16, ptr %13, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %14, 0
   br i1 %.not8.i, label %28, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 381648
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %16, 0
   %17 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = ashr i32 %1, %17
@@ -1759,7 +1759,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %33 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %4, i32 noundef %1, i32 noundef 0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !87
+  %.pre = load ptr, ptr %3, align 8, !tbaa !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 544
   %.pre30 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !84
   %34 = and i32 %33, 1
@@ -1780,13 +1780,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %.0.i3338 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
-  %44 = load i16, ptr %43, align 2, !tbaa !88
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %.not8.i21 = icmp eq i16 %44, 0
   br i1 %.not8.i21, label %63, label %_ZN6LibRaw3FCFEii.exit.i23
 
 _ZN6LibRaw3FCFEii.exit.i23:                       ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 381648
-  %46 = load i32, ptr %45, align 8, !tbaa !89
+  %46 = load i32, ptr %45, align 8, !tbaa !90
   %.not.i.i22 = icmp eq i32 %46, 0
   %47 = add i32 %1, 7
   %48 = xor i32 %42, -1
@@ -1856,19 +1856,19 @@ _ZN6LibRaw5COLOREii.exit28:                       ; preds = %2, %_ZN6LibRaw5COLO
   %86 = add nsw i32 %85, %75
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %83, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !96
+  %89 = load i8, ptr %88, align 1, !tbaa !97
   %90 = trunc i32 %.0.in to i8
   %91 = or i8 %89, %90
-  store i8 %91, ptr %88, align 1, !tbaa !96
+  store i8 %91, ptr %88, align 1, !tbaa !97
   %92 = add nuw nsw i32 %.01929, 1
   %exitcond.not = icmp eq i32 %92, %7
-  br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %4, align 8, !tbaa !88
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 30
   %7 = load i16, ptr %6, align 2, !tbaa !75
   %8 = zext i16 %7 to i32
@@ -1895,7 +1895,7 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   %20 = add nsw i32 %19, %16
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %17, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !96
+  %23 = load i8, ptr %22, align 1, !tbaa !97
   %24 = and i8 %23, 1
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %25, label %.thread.thread
@@ -1905,27 +1905,27 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   %27 = add nsw i32 %26, %16
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %17, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !96
+  %30 = load i8, ptr %29, align 1, !tbaa !97
   %31 = and i8 %30, 4
   %32 = mul nsw i32 %18, %14
   %33 = add nsw i32 %32, %16
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %17, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !96
+  %36 = load i8, ptr %35, align 1, !tbaa !97
   %37 = and i8 %36, 4
   %narrow = add nuw nsw i8 %37, %31
   %38 = add nsw i32 %.075, 3
   %39 = add nsw i32 %38, %19
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %17, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !96
+  %42 = load i8, ptr %41, align 1, !tbaa !97
   %43 = and i8 %42, 4
   %narrow59 = add nuw nsw i8 %narrow, %43
   %44 = add nsw i32 %.075, 5
   %45 = add nsw i32 %44, %19
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %17, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !96
+  %48 = load i8, ptr %47, align 1, !tbaa !97
   %49 = and i8 %48, 4
   %narrow60 = add nuw nsw i8 %narrow59, %49
   %50 = and i8 %30, 2
@@ -1957,16 +1957,16 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
 
 61:                                               ; preds = %58
   %62 = and i8 %23, -6
-  store i8 %62, ptr %22, align 1, !tbaa !96
+  store i8 %62, ptr %22, align 1, !tbaa !97
   %63 = load ptr, ptr %11, align 8, !tbaa !78
   %64 = load i32, ptr %12, align 4, !tbaa !76
   %65 = mul nsw i32 %64, %10
   %66 = add nsw i32 %65, %16
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %63, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !96
+  %69 = load i8, ptr %68, align 1, !tbaa !97
   %70 = or i8 %69, 2
-  store i8 %70, ptr %68, align 1, !tbaa !96
+  store i8 %70, ptr %68, align 1, !tbaa !97
   %.pre = load ptr, ptr %11, align 8, !tbaa !78
   %.pre76 = load i32, ptr %12, align 4, !tbaa !76
   %.pre77 = mul nsw i32 %.pre76, %10
@@ -1979,7 +1979,7 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   %71 = phi ptr [ %17, %56 ], [ %.pre, %61 ], [ %17, %58 ]
   %72 = phi i1 [ %spec.select, %56 ], [ false, %61 ], [ %59, %58 ]
   %73 = getelementptr inbounds i8, ptr %71, i64 %.pre-phi81
-  %74 = load i8, ptr %73, align 1, !tbaa !96
+  %74 = load i8, ptr %73, align 1, !tbaa !97
   %75 = and i8 %74, 2
   %76 = icmp eq i8 %75, 0
   %77 = icmp samesign ult i8 %narrow60, 9
@@ -1989,28 +1989,28 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
 
 78:                                               ; preds = %.thread
   %79 = and i8 %74, -3
-  store i8 %79, ptr %73, align 1, !tbaa !96
+  store i8 %79, ptr %73, align 1, !tbaa !97
   %80 = load ptr, ptr %11, align 8, !tbaa !78
   %81 = load i32, ptr %12, align 4, !tbaa !76
   %82 = mul nsw i32 %81, %10
   %83 = add nsw i32 %82, %16
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %80, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !96
+  %86 = load i8, ptr %85, align 1, !tbaa !97
   %87 = or i8 %86, 4
-  store i8 %87, ptr %85, align 1, !tbaa !96
+  store i8 %87, ptr %85, align 1, !tbaa !97
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %55, %.thread, %78, %15
   %88 = add nsw i32 %.075, 2
   %89 = icmp slt i32 %88, %8
-  br i1 %89, label %15, label %._crit_edge, !llvm.loop !113
+  br i1 %89, label %15, label %._crit_edge, !llvm.loop !114
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -2037,7 +2037,7 @@ define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 cap
   %18 = add nsw i32 %17, %14
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %15, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !96
+  %21 = load i8, ptr %20, align 1, !tbaa !97
   %22 = and i8 %21, 1
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %23, label %82
@@ -2047,27 +2047,27 @@ define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 cap
   %25 = add nsw i32 %24, %14
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %15, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !96
+  %28 = load i8, ptr %27, align 1, !tbaa !97
   %29 = and i8 %28, 4
   %30 = mul nsw i32 %16, %12
   %31 = add nsw i32 %30, %14
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %15, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !96
+  %34 = load i8, ptr %33, align 1, !tbaa !97
   %35 = and i8 %34, 4
   %narrow = add nuw nsw i8 %35, %29
   %36 = add nuw nsw i32 %.047, 3
   %37 = add nsw i32 %36, %17
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %15, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !96
+  %40 = load i8, ptr %39, align 1, !tbaa !97
   %41 = and i8 %40, 4
   %narrow42 = add nuw nsw i8 %narrow, %41
   %42 = add nuw nsw i32 %.047, 5
   %43 = add nsw i32 %42, %17
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %15, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !96
+  %46 = load i8, ptr %45, align 1, !tbaa !97
   %47 = and i8 %46, 4
   %narrow43 = add nuw nsw i8 %narrow42, %47
   %48 = and i8 %28, 2
@@ -2085,16 +2085,16 @@ define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 cap
 
 55:                                               ; preds = %23
   %56 = and i8 %21, -6
-  store i8 %56, ptr %20, align 1, !tbaa !96
+  store i8 %56, ptr %20, align 1, !tbaa !97
   %57 = load ptr, ptr %9, align 8, !tbaa !78
   %58 = load i32, ptr %10, align 4, !tbaa !76
   %59 = mul nsw i32 %58, %8
   %60 = add nsw i32 %59, %14
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %57, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !96
+  %63 = load i8, ptr %62, align 1, !tbaa !97
   %64 = or i8 %63, 2
-  store i8 %64, ptr %62, align 1, !tbaa !96
+  store i8 %64, ptr %62, align 1, !tbaa !97
   %.pre = load ptr, ptr %9, align 8, !tbaa !78
   %.pre49 = load i32, ptr %10, align 4, !tbaa !76
   %.pre50 = mul nsw i32 %.pre49, %8
@@ -2106,7 +2106,7 @@ define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 cap
   %.pre-phi54 = phi i64 [ %.pre53, %55 ], [ %19, %23 ]
   %66 = phi ptr [ %.pre, %55 ], [ %15, %23 ]
   %67 = getelementptr inbounds i8, ptr %66, i64 %.pre-phi54
-  %68 = load i8, ptr %67, align 1, !tbaa !96
+  %68 = load i8, ptr %67, align 1, !tbaa !97
   %69 = and i8 %68, 2
   %70 = icmp ne i8 %69, 0
   %71 = icmp samesign ugt i8 %narrow43, 12
@@ -2115,22 +2115,22 @@ define void @_ZN3DHT15refine_ihv_dirsEi(ptr noundef nonnull readonly align 8 cap
 
 72:                                               ; preds = %65
   %73 = and i8 %68, -3
-  store i8 %73, ptr %67, align 1, !tbaa !96
+  store i8 %73, ptr %67, align 1, !tbaa !97
   %74 = load ptr, ptr %9, align 8, !tbaa !78
   %75 = load i32, ptr %10, align 4, !tbaa !76
   %76 = mul nsw i32 %75, %8
   %77 = add nsw i32 %76, %14
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %74, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !96
+  %80 = load i8, ptr %79, align 1, !tbaa !97
   %81 = or i8 %80, 4
-  store i8 %81, ptr %79, align 1, !tbaa !96
+  store i8 %81, ptr %79, align 1, !tbaa !97
   br label %82
 
 82:                                               ; preds = %65, %72, %13
   %83 = add nuw nsw i32 %.047, 1
   %exitcond.not = icmp eq i32 %83, %7
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !114
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2412,7 +2412,7 @@ define linkonce_odr noundef i32 @_ZN3DHT10get_hv_rbgEiii(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %4, align 8, !tbaa !88
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 30
   %7 = load i16, ptr %6, align 2, !tbaa !75
   %8 = zext i16 %7 to i32
@@ -2439,7 +2439,7 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %20 = add nsw i32 %19, %16
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %17, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !96
+  %23 = load i8, ptr %22, align 1, !tbaa !97
   %24 = and i8 %23, 8
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %25, label %.thread.thread
@@ -2449,52 +2449,52 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %27 = add nsw i32 %26, %16
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %17, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !96
+  %30 = load i8, ptr %29, align 1, !tbaa !97
   %31 = and i8 %30, 16
   %32 = mul nsw i32 %18, %14
   %33 = add nsw i32 %32, %16
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %17, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !96
+  %36 = load i8, ptr %35, align 1, !tbaa !97
   %37 = and i8 %36, 16
   %narrow = add nuw nsw i8 %37, %31
   %38 = add nsw i32 %.092, 3
   %39 = add nsw i32 %19, %38
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %17, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !96
+  %42 = load i8, ptr %41, align 1, !tbaa !97
   %43 = and i8 %42, 16
   %narrow75 = add nuw nsw i8 %narrow, %43
   %44 = add nsw i32 %.092, 5
   %45 = add nsw i32 %19, %44
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %17, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !96
+  %48 = load i8, ptr %47, align 1, !tbaa !97
   %49 = and i8 %48, 16
   %narrow76 = add nuw nsw i8 %narrow75, %49
   %50 = add nsw i32 %26, %38
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %17, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !96
+  %53 = load i8, ptr %52, align 1, !tbaa !97
   %54 = and i8 %53, 16
   %narrow90 = add nuw nsw i8 %narrow76, %54
   %55 = add nsw i32 %26, %44
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %17, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !96
+  %58 = load i8, ptr %57, align 1, !tbaa !97
   %59 = and i8 %58, 16
   %narrow99 = add nuw nsw i8 %narrow90, %59
   %60 = add nsw i32 %32, %38
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %17, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !96
+  %63 = load i8, ptr %62, align 1, !tbaa !97
   %64 = and i8 %63, 16
   %narrow103 = add nuw i8 %narrow99, %64
   %65 = zext i8 %narrow103 to i32
   %66 = add nsw i32 %32, %44
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %17, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !96
+  %69 = load i8, ptr %68, align 1, !tbaa !97
   %70 = and i8 %69, 16
   %71 = zext nneg i8 %70 to i32
   %72 = add nuw nsw i32 %65, %71
@@ -2540,16 +2540,16 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
 
 97:                                               ; preds = %94
   %98 = and i8 %23, -25
-  store i8 %98, ptr %22, align 1, !tbaa !96
+  store i8 %98, ptr %22, align 1, !tbaa !97
   %99 = load ptr, ptr %11, align 8, !tbaa !78
   %100 = load i32, ptr %12, align 4, !tbaa !76
   %101 = mul nsw i32 %100, %10
   %102 = add nsw i32 %101, %16
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %99, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !96
+  %105 = load i8, ptr %104, align 1, !tbaa !97
   %106 = or i8 %105, 32
-  store i8 %106, ptr %104, align 1, !tbaa !96
+  store i8 %106, ptr %104, align 1, !tbaa !97
   %.pre = load ptr, ptr %11, align 8, !tbaa !78
   %.pre93 = load i32, ptr %12, align 4, !tbaa !76
   %.pre94 = mul nsw i32 %.pre93, %10
@@ -2562,7 +2562,7 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %107 = phi ptr [ %17, %92 ], [ %.pre, %97 ], [ %17, %94 ]
   %108 = phi i1 [ %spec.select, %92 ], [ false, %97 ], [ %95, %94 ]
   %109 = getelementptr inbounds i8, ptr %107, i64 %.pre-phi98
-  %110 = load i8, ptr %109, align 1, !tbaa !96
+  %110 = load i8, ptr %109, align 1, !tbaa !97
   %111 = and i8 %110, 32
   %112 = icmp eq i8 %111, 0
   %113 = icmp samesign ult i32 %72, 80
@@ -2572,28 +2572,28 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
 
 114:                                              ; preds = %.thread
   %115 = and i8 %110, -33
-  store i8 %115, ptr %109, align 1, !tbaa !96
+  store i8 %115, ptr %109, align 1, !tbaa !97
   %116 = load ptr, ptr %11, align 8, !tbaa !78
   %117 = load i32, ptr %12, align 4, !tbaa !76
   %118 = mul nsw i32 %117, %10
   %119 = add nsw i32 %118, %16
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i8, ptr %116, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !96
+  %122 = load i8, ptr %121, align 1, !tbaa !97
   %123 = or i8 %122, 16
-  store i8 %123, ptr %121, align 1, !tbaa !96
+  store i8 %123, ptr %121, align 1, !tbaa !97
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %91, %.thread, %114, %15
   %124 = add nsw i32 %.092, 2
   %125 = icmp slt i32 %124, %8
-  br i1 %125, label %15, label %._crit_edge, !llvm.loop !115
+  br i1 %125, label %15, label %._crit_edge, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT11make_greensEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !11
   %.not = icmp eq i16 %5, 0
@@ -2606,18 +2606,18 @@ define void @_ZN3DHT11make_greensEv(ptr noundef nonnull readonly align 8 capture
   %.03 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN3DHT10make_glineEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.03)
   %6 = add nuw nsw i32 %.03, 1
-  %7 = load ptr, ptr %2, align 8, !tbaa !87
+  %7 = load ptr, ptr %2, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %9 = load i16, ptr %8, align 4, !tbaa !11
   %10 = zext i16 %9 to i32
   %11 = icmp samesign ult i32 %6, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT10make_glineEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -2632,13 +2632,13 @@ define void @_ZN3DHT10make_glineEi(ptr noundef nonnull readonly align 8 captures
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 381494
-  %14 = load i16, ptr %13, align 2, !tbaa !88
+  %14 = load i16, ptr %13, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %14, 0
   br i1 %.not8.i, label %28, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 381648
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %16, 0
   %17 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = ashr i32 %1, %17
@@ -2668,7 +2668,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %33 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %4, i32 noundef %1, i32 noundef 0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !87
+  %.pre = load ptr, ptr %3, align 8, !tbaa !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 544
   %.pre155 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !84
   %34 = and i32 %33, 1
@@ -2689,13 +2689,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %.0.i158164 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
-  %44 = load i16, ptr %43, align 2, !tbaa !88
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %.not8.i133 = icmp eq i16 %44, 0
   br i1 %.not8.i133, label %63, label %_ZN6LibRaw3FCFEii.exit.i135
 
 _ZN6LibRaw3FCFEii.exit.i135:                      ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 381648
-  %46 = load i32, ptr %45, align 8, !tbaa !89
+  %46 = load i32, ptr %45, align 8, !tbaa !90
   %.not.i.i134 = icmp eq i32 %46, 0
   %47 = add i32 %1, 7
   %48 = xor i32 %42, -1
@@ -2778,7 +2778,7 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   %102 = add nuw nsw i64 %indvars.iv, 4
   %103 = add nsw i64 %102, %95
   %104 = getelementptr inbounds i8, ptr %74, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !96
+  %105 = load i8, ptr %104, align 1, !tbaa !97
   %106 = and i8 %105, 4
   %.not = icmp eq i8 %106, 0
   br i1 %.not, label %121, label %107
@@ -2943,13 +2943,13 @@ _ZN6LibRaw5COLOREii.exit140:                      ; preds = %2, %_ZN6LibRaw5COLO
   store float %.1, ptr %228, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %229 = icmp samesign ult i64 %indvars.iv.next, %100
-  br i1 %229, label %101, label %._crit_edge, !llvm.loop !117
+  br i1 %229, label %101, label %._crit_edge, !llvm.loop !118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT15illustrate_dirsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !11
   %6 = zext i16 %5 to i32
@@ -3001,7 +3001,7 @@ define void @_ZN3DHT15illustrate_dirsEv(ptr noundef nonnull readonly align 8 cap
   %32 = getelementptr inbounds [3 x float], ptr %10, i64 %29
   store float 5.000000e-01, ptr %32, align 4, !tbaa !81
   %33 = getelementptr inbounds i8, ptr %14, i64 %29
-  %34 = load i8, ptr %33, align 1, !tbaa !96
+  %34 = load i8, ptr %33, align 1, !tbaa !97
   %35 = and i8 %34, 64
   %.not.i = icmp eq i8 %35, 0
   br i1 %.not.i, label %37, label %36
@@ -3017,18 +3017,18 @@ define void @_ZN3DHT15illustrate_dirsEv(ptr noundef nonnull readonly align 8 cap
 38:                                               ; preds = %37, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN3DHT16illustrate_dlineEi.exit.loopexit, label %27, !llvm.loop !118
+  br i1 %exitcond.not.i, label %_ZN3DHT16illustrate_dlineEi.exit.loopexit, label %27, !llvm.loop !119
 
 _ZN3DHT16illustrate_dlineEi.exit.loopexit:        ; preds = %38
   %39 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %39, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT16illustrate_dlineEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %.not22 = icmp eq i16 %6, 0
@@ -3072,7 +3072,7 @@ define void @_ZN3DHT16illustrate_dlineEi(ptr noundef nonnull readonly align 8 ca
   %30 = getelementptr inbounds [3 x float], ptr %9, i64 %27
   store float 5.000000e-01, ptr %30, align 4, !tbaa !81
   %31 = getelementptr inbounds i8, ptr %14, i64 %27
-  %32 = load i8, ptr %31, align 1, !tbaa !96
+  %32 = load i8, ptr %31, align 1, !tbaa !97
   %33 = and i8 %32, 64
   %.not = icmp eq i8 %33, 0
   br i1 %.not, label %35, label %34
@@ -3088,13 +3088,13 @@ define void @_ZN3DHT16illustrate_dlineEi(ptr noundef nonnull readonly align 8 ca
 36:                                               ; preds = %35, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !118
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !119
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT11make_rbdiagEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -3109,13 +3109,13 @@ define void @_ZN3DHT11make_rbdiagEi(ptr noundef nonnull readonly align 8 capture
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 381494
-  %14 = load i16, ptr %13, align 2, !tbaa !88
+  %14 = load i16, ptr %13, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %14, 0
   br i1 %.not8.i, label %28, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 381648
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %16, 0
   %17 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = ashr i32 %1, %17
@@ -3145,7 +3145,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %12
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %33 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %4, i32 noundef %1, i32 noundef 0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !87
+  %.pre = load ptr, ptr %3, align 8, !tbaa !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 544
   %.pre143 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !84
   %34 = and i32 %33, 1
@@ -3166,13 +3166,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %10
   %.0.i146152 = phi i32 [ %31, %.thread ], [ %33, %35 ]
   %42 = phi i32 [ %32, %.thread ], [ %34, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 381494
-  %44 = load i16, ptr %43, align 2, !tbaa !88
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %.not8.i127 = icmp eq i16 %44, 0
   br i1 %.not8.i127, label %63, label %_ZN6LibRaw3FCFEii.exit.i129
 
 _ZN6LibRaw3FCFEii.exit.i129:                      ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 381648
-  %46 = load i32, ptr %45, align 8, !tbaa !89
+  %46 = load i32, ptr %45, align 8, !tbaa !90
   %.not.i.i128 = icmp eq i32 %46, 0
   %47 = add i32 %1, 7
   %48 = xor i32 %42, -1
@@ -3243,7 +3243,7 @@ _ZN6LibRaw5COLOREii.exit134:                      ; preds = %2, %_ZN6LibRaw5COLO
   %.reass = add i32 %invariant.op, %92
   %93 = sext i32 %.reass to i64
   %94 = getelementptr inbounds i8, ptr %75, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !96
+  %95 = load i8, ptr %94, align 1, !tbaa !97
   %96 = and i8 %95, 16
   %.not = icmp eq i8 %96, 0
   %. = select i1 %.not, i32 1, i32 -1
@@ -3345,13 +3345,13 @@ _ZN6LibRaw5COLOREii.exit134:                      ; preds = %2, %_ZN6LibRaw5COLO
   store float %.1, ptr %174, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %175 = icmp samesign ult i64 %indvars.iv.next, %90
-  br i1 %175, label %91, label %._crit_edge, !llvm.loop !120
+  br i1 %175, label %91, label %._crit_edge, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT9make_rbhvEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %6 = load i16, ptr %5, align 2, !tbaa !75
   %7 = zext i16 %6 to i32
@@ -3370,13 +3370,13 @@ define void @_ZN3DHT9make_rbhvEi(ptr noundef nonnull readonly align 8 captures(n
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 381494
-  %16 = load i16, ptr %15, align 2, !tbaa !88
+  %16 = load i16, ptr %15, align 2, !tbaa !89
   %.not8.i = icmp eq i16 %16, 0
   br i1 %.not8.i, label %31, label %_ZN6LibRaw3FCFEii.exit.i
 
 _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 381648
-  %18 = load i32, ptr %17, align 8, !tbaa !89
+  %18 = load i32, ptr %17, align 8, !tbaa !90
   %.not.i.i = icmp ne i32 %18, 0
   %19 = zext i1 %.not.i.i to i32
   %.sink13.i.i.v = ashr i32 %1, %19
@@ -3439,7 +3439,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %2, %12, %_ZN6LibRaw
   %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %187 ]
   %.reass = add i64 %indvars.iv, %invariant.op
   %60 = getelementptr inbounds i8, ptr %40, i64 %.reass
-  %61 = load i8, ptr %60, align 1, !tbaa !96
+  %61 = load i8, ptr %60, align 1, !tbaa !97
   %62 = and i8 %61, 4
   %.not = icmp ne i8 %62, 0
   %. = sext i1 %.not to i32
@@ -3611,13 +3611,13 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %2, %12, %_ZN6LibRaw
   store float %.1, ptr %189, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %190 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %190, label %59, label %._crit_edge, !llvm.loop !121
+  br i1 %190, label %59, label %._crit_edge, !llvm.loop !122
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3DHT7make_rbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !11
   %.not = icmp eq i16 %5, 0
@@ -3631,12 +3631,12 @@ define void @_ZN3DHT7make_rbEv(ptr noundef nonnull readonly align 8 captures(non
   %.067 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN3DHT11make_rbdiagEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.067)
   %7 = add nuw nsw i32 %.067, 1
-  %8 = load ptr, ptr %2, align 8, !tbaa !87
+  %8 = load ptr, ptr %2, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i16, ptr %9, align 4, !tbaa !11
   %11 = zext i16 %10 to i32
   %12 = icmp samesign ult i32 %7, %11
-  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !122
+  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %.lr.ph9, %1, %.preheader
   ret void
@@ -3645,18 +3645,18 @@ define void @_ZN3DHT7make_rbEv(ptr noundef nonnull readonly align 8 captures(non
   %.08 = phi i32 [ %13, %.lr.ph9 ], [ 0, %.preheader ]
   tail call void @_ZN3DHT9make_rbhvEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.08)
   %13 = add nuw nsw i32 %.08, 1
-  %14 = load ptr, ptr %2, align 8, !tbaa !87
+  %14 = load ptr, ptr %2, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i16, ptr %15, align 4, !tbaa !11
   %17 = zext i16 %16 to i32
   %18 = icmp samesign ult i32 %13, %17
-  br i1 %18, label %.lr.ph9, label %._crit_edge, !llvm.loop !123
+  br i1 %18, label %.lr.ph9, label %._crit_edge, !llvm.loop !124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3DHT13copy_to_imageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %5 = load i16, ptr %4, align 2, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3713,14 +3713,14 @@ define void @_ZN3DHT13copy_to_imageEv(ptr noundef nonnull readonly align 8 captu
   store i16 %33, ptr %35, align 2, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !125
 
 ._crit_edge.us:                                   ; preds = %19
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %36 = load i16, ptr %6, align 4, !tbaa !11
   %37 = zext i16 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next32, %37
-  br i1 %38, label %.preheader.us, label %._crit_edge27, !llvm.loop !125
+  br i1 %38, label %.preheader.us, label %._crit_edge27, !llvm.loop !126
 
 ._crit_edge27:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
   ret void
@@ -3768,7 +3768,7 @@ define void @_ZN6LibRaw15dht_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %10 = load ptr, ptr %9, align 8, !tbaa !88
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i16, ptr %11, align 4, !tbaa !11
   %.not.i = icmp eq i16 %12, 0
@@ -3781,12 +3781,12 @@ define void @_ZN6LibRaw15dht_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 .noexc:                                           ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.03.i, 1
-  %14 = load ptr, ptr %9, align 8, !tbaa !87
+  %14 = load ptr, ptr %9, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i16, ptr %15, align 4, !tbaa !11
   %17 = zext i16 %16 to i32
   %18 = icmp samesign ult i32 %13, %17
-  br i1 %18, label %.lr.ph.i, label %_ZN3DHT11make_greensEv.exit, !llvm.loop !116
+  br i1 %18, label %.lr.ph.i, label %_ZN3DHT11make_greensEv.exit, !llvm.loop !117
 
 _ZN3DHT11make_greensEv.exit:                      ; preds = %.noexc
   %19 = icmp eq i16 %16, 0
@@ -3803,23 +3803,23 @@ _ZN3DHT11make_greensEv.exit:                      ; preds = %.noexc
 
 .noexc7:                                          ; preds = %.lr.ph.i6
   %21 = add nuw nsw i32 %.067.i, 1
-  %22 = load ptr, ptr %9, align 8, !tbaa !87
+  %22 = load ptr, ptr %9, align 8, !tbaa !88
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i16, ptr %23, align 4, !tbaa !11
   %25 = zext i16 %24 to i32
   %26 = icmp samesign ult i32 %21, %25
-  br i1 %26, label %.lr.ph.i6, label %.preheader.i, !llvm.loop !104
+  br i1 %26, label %.lr.ph.i6, label %.preheader.i, !llvm.loop !105
 
 .lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
   %.08.i = phi i32 [ %27, %.lr.ph9.i ], [ 0, %.preheader.i ]
   call void @_ZN3DHT17refine_idiag_dirsEi(ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i32 noundef %.08.i)
   %27 = add nuw nsw i32 %.08.i, 1
-  %28 = load ptr, ptr %9, align 8, !tbaa !87
+  %28 = load ptr, ptr %9, align 8, !tbaa !88
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %30 = load i16, ptr %29, align 4, !tbaa !11
   %31 = zext i16 %30 to i32
   %32 = icmp samesign ult i32 %27, %31
-  br i1 %32, label %.lr.ph9.i, label %_ZN3DHT14make_diag_dirsEv.exit, !llvm.loop !105
+  br i1 %32, label %.lr.ph9.i, label %_ZN3DHT14make_diag_dirsEv.exit, !llvm.loop !106
 
 _ZN3DHT14make_diag_dirsEv.exit:                   ; preds = %.lr.ph9.i
   %33 = icmp eq i16 %30, 0
@@ -3836,12 +3836,12 @@ _ZN3DHT14make_diag_dirsEv.exit:                   ; preds = %.lr.ph9.i
 
 .noexc14:                                         ; preds = %.lr.ph.i9
   %35 = add nuw nsw i32 %.067.i10, 1
-  %36 = load ptr, ptr %9, align 8, !tbaa !87
+  %36 = load ptr, ptr %9, align 8, !tbaa !88
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %38 = load i16, ptr %37, align 4, !tbaa !11
   %39 = zext i16 %38 to i32
   %40 = icmp samesign ult i32 %35, %39
-  br i1 %40, label %.lr.ph.i9, label %.preheader.i11, !llvm.loop !122
+  br i1 %40, label %.lr.ph.i9, label %.preheader.i11, !llvm.loop !123
 
 .lr.ph9.i12:                                      ; preds = %.preheader.i11, %.noexc15
   %.08.i13 = phi i32 [ %41, %.noexc15 ], [ 0, %.preheader.i11 ]
@@ -3850,19 +3850,19 @@ _ZN3DHT14make_diag_dirsEv.exit:                   ; preds = %.lr.ph9.i
 
 .noexc15:                                         ; preds = %.lr.ph9.i12
   %41 = add nuw nsw i32 %.08.i13, 1
-  %42 = load ptr, ptr %9, align 8, !tbaa !87
+  %42 = load ptr, ptr %9, align 8, !tbaa !88
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i16, ptr %43, align 4, !tbaa !11
   %45 = zext i16 %44 to i32
   %46 = icmp samesign ult i32 %41, %45
-  br i1 %46, label %.lr.ph9.i12, label %_ZN3DHT7make_rbEv.exit, !llvm.loop !123
+  br i1 %46, label %.lr.ph9.i12, label %_ZN3DHT7make_rbEv.exit, !llvm.loop !124
 
 _ZN3DHT7make_rbEv.exit:                           ; preds = %.noexc15, %8, %_ZN3DHT11make_greensEv.exit, %.preheader.i, %.preheader.i11, %_ZN3DHT14make_diag_dirsEv.exit
   invoke void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 47:                                               ; preds = %_ZN3DHT7make_rbEv.exit
-  %48 = load ptr, ptr %9, align 8, !tbaa !87
+  %48 = load ptr, ptr %9, align 8, !tbaa !88
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 30
   %50 = load i16, ptr %49, align 2, !tbaa !75
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 28
@@ -3918,14 +3918,14 @@ _ZN3DHT7make_rbEv.exit:                           ; preds = %.noexc15, %8, %_ZN3
   store i16 %78, ptr %80, align 2, !tbaa !79
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %59
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %64, !llvm.loop !124
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %64, !llvm.loop !125
 
 ._crit_edge.us.i:                                 ; preds = %64
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %81 = load i16, ptr %51, align 4, !tbaa !11
   %82 = zext i16 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next32.i, %82
-  br i1 %83, label %.preheader.us.i, label %_ZN3DHT13copy_to_imageEv.exit, !llvm.loop !125
+  br i1 %83, label %.preheader.us.i, label %_ZN3DHT13copy_to_imageEv.exit, !llvm.loop !126
 
 _ZN3DHT13copy_to_imageEv.exit:                    ; preds = %._crit_edge.us.i, %47, %.preheader.lr.ph.i
   call void @_ZN3DHTD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
@@ -4078,25 +4078,25 @@ attributes #12 = { nounwind }
 !83 = !{!"llvm.loop.mustprogress"}
 !84 = !{!12, !17, i64 544}
 !85 = !{!17, !17, i64 0}
-!86 = distinct !{!86, !83}
-!87 = !{!74, !7, i64 40}
-!88 = !{!12, !16, i64 381494}
-!89 = !{!12, !17, i64 381648}
-!90 = distinct !{!90, !83, !91}
-!91 = !{!"llvm.loop.unswitch.partial.disable"}
-!92 = distinct !{!92, !83}
+!86 = distinct !{!86, !83, !87}
+!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = !{!74, !7, i64 40}
+!89 = !{!12, !16, i64 381494}
+!90 = !{!12, !17, i64 381648}
+!91 = distinct !{!91, !83, !92}
+!92 = !{!"llvm.loop.unswitch.partial.disable"}
 !93 = distinct !{!93, !83}
 !94 = distinct !{!94, !83}
 !95 = distinct !{!95, !83}
-!96 = !{!9, !9, i64 0}
-!97 = distinct !{!97, !83}
+!96 = distinct !{!96, !83}
+!97 = !{!9, !9, i64 0}
 !98 = distinct !{!98, !83}
 !99 = distinct !{!99, !83}
 !100 = distinct !{!100, !83}
 !101 = distinct !{!101, !83}
 !102 = distinct !{!102, !83}
 !103 = distinct !{!103, !83}
-!104 = distinct !{!104, !83}
+!104 = distinct !{!104, !83, !87}
 !105 = distinct !{!105, !83}
 !106 = distinct !{!106, !83}
 !107 = distinct !{!107, !83}
@@ -4118,3 +4118,4 @@ attributes #12 = { nounwind }
 !123 = distinct !{!123, !83}
 !124 = distinct !{!124, !83}
 !125 = distinct !{!125, !83}
+!126 = distinct !{!126, !83, !87}

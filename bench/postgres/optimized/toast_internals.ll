@@ -363,7 +363,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %115 = sub nsw i32 %.481, %108
   %116 = getelementptr inbounds nuw i8, ptr %.16880, i64 %113
   %117 = icmp sgt i32 %115, 0
-  br i1 %117, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !10
+  br i1 %117, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !12
 
 ._crit_edge85:                                    ; preds = %107, %._crit_edge.us, %.loopexit
   %118 = icmp sgt i32 %.fr86, 0
@@ -380,7 +380,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   call void @index_close(ptr noundef %120, i32 noundef 0) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !13
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_edge85
   call void @pfree(ptr noundef %.pre) #7
@@ -476,7 +476,7 @@ list_length.exit:                                 ; preds = %4, %6
 37:                                               ; preds = %29
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !14
 
 .loopexit:                                        ; preds = %37, %._crit_edge39
   tail call void @list_free(ptr noundef %5) #7
@@ -534,7 +534,7 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
   call void @index_close(ptr noundef %19, i32 noundef 3) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !13
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %2
   %.not = icmp ne ptr %15, null
@@ -571,7 +571,7 @@ define dso_local void @toast_close_indexes(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @index_close(ptr noundef %6, i32 noundef %2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   tail call void @pfree(ptr noundef %0) #7
@@ -639,7 +639,7 @@ get_toast_snapshot.exit:                          ; preds = %14
   call void @heap_abort_speculative(ptr noundef %15, ptr noundef nonnull %29) #7
   %30 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #7
   %.not.us = icmp eq ptr %30, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %31 = phi ptr [ %33, %.lr.ph.split ], [ %27, %.lr.ph ]
@@ -647,7 +647,7 @@ get_toast_snapshot.exit:                          ; preds = %14
   call void @simple_heap_delete(ptr noundef %15, ptr noundef nonnull %32) #7
   %33 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #7
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %get_toast_snapshot.exit
   call void @systable_endscan_ordered(ptr noundef %26) #7
@@ -666,7 +666,7 @@ get_toast_snapshot.exit:                          ; preds = %14
   call void @index_close(ptr noundef %37, i32 noundef 0) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !13
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_edge
   call void @pfree(ptr noundef nonnull %18) #7
@@ -737,7 +737,7 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
   tail call void @index_close(ptr noundef %16, i32 noundef 0) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !13
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %2
   tail call void @pfree(ptr noundef nonnull %7) #7
@@ -791,7 +791,10 @@ attributes #8 = { cold nounwind }
 !7 = !{i8 0, i8 2}
 !8 = !{}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !11}
+!16 = distinct !{!16, !5}

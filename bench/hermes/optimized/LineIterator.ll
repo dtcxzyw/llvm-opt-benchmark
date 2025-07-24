@@ -202,7 +202,7 @@ while.body:                                       ; preds = %land.lhs.true.i9, %
   %add.ptr6.i15 = getelementptr inbounds nuw i8, ptr %Pos.1, i64 %.sink.i14
   %inc8 = add i32 %15, 1
   store i32 %inc8, ptr %LineNumber7, align 4
-  br label %while.cond, !llvm.loop !7
+  br label %while.cond, !llvm.loop !8
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end27
   %18 = phi i32 [ %inc29, %if.end27 ], [ %LineNumber28.promoted, %for.cond.preheader ]
@@ -261,7 +261,7 @@ if.end27:                                         ; preds = %do.body, %land.lhs.
   %add.ptr6.i35 = getelementptr inbounds nuw i8, ptr %Pos.3.ph70, i64 %.sink.i34
   %inc29 = add i32 %18, 1
   store i32 %inc29, ptr %LineNumber28, align 4
-  br label %for.cond, !llvm.loop !6
+  br label %for.cond, !llvm.loop !9
 
 if.end31:                                         ; preds = %if.end24, %if.end24.us, %while.cond
   %24 = phi i8 [ %16, %while.cond ], [ %11, %if.end24.us ], [ %19, %if.end24 ]
@@ -299,7 +299,7 @@ while.body45:                                     ; preds = %while.cond37, %land
   %inc46 = add i64 %Length.0, 1
   %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %Pos.0117, i64 %inc46
   %.pre = load i8, ptr %arrayidx.phi.trans.insert, align 1
-  br label %while.cond37, !llvm.loop !8
+  br label %while.cond37, !llvm.loop !10
 
 while.end47:                                      ; preds = %while.cond37, %while.cond37, %land.lhs.true.i37
   store ptr %Pos.0117, ptr %CurrentLine, align 8
@@ -324,6 +324,8 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

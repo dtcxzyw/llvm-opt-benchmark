@@ -1677,209 +1677,160 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %or.cond5.fr = freeze i1 %or.cond5
   br i1 %or.cond5.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %13, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
-  %.01935.us.us = phi i32 [ %27, %26 ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %29
+  %.01935.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %21 = trunc i32 %.01935.us.us to i8
+  %21 = trunc i32 %.01935.us to i8
   %22 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  br i1 %22, label %23, label %26
+  br i1 %22, label %23, label %29
 
-23:                                               ; preds = %.lr.ph.split.us.split.us
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp eq i32 %3, %24
-  %or.cond30.us.us = select i1 %20, i1 true, i1 %25
-  br i1 %or.cond30.us.us, label %.split.us, label %26
+23:                                               ; preds = %.lr.ph.split.us
+  %24 = load i32, ptr %7, align 4
+  %25 = icmp eq i32 %4, %24
+  %or.cond.us = select i1 %13, i1 true, i1 %25
+  br i1 %or.cond.us, label %26, label %29
 
-26:                                               ; preds = %23, %.lr.ph.split.us.split.us
+26:                                               ; preds = %23
+  %27 = load i32, ptr %8, align 4
+  %28 = icmp eq i32 %3, %27
+  %or.cond30.us = select i1 %20, i1 true, i1 %28
+  br i1 %or.cond30.us, label %.split.us, label %29
+
+29:                                               ; preds = %26, %23, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %27 = add i32 %.01935.us.us, 1
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
-  %30 = load i32, ptr %29, align 4
-  %.not.us.us.not = icmp sgt i32 %27, %30
-  br i1 %.not.us.us.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !13
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %20, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
-
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %35
-  %.01935.us.us61 = phi i32 [ %36, %35 ], [ 0, %.lr.ph.split.us.split ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %31 = trunc i32 %.01935.us.us61 to i8
-  %32 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %31, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %33 = load i32, ptr %7, align 4
-  %34 = icmp eq i32 %4, %33
-  %or.cond = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond, label %.split.us, label %35
-
-35:                                               ; preds = %.lr.ph.split.us.split.split.us
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %36 = add i32 %.01935.us.us61, 1
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 84
-  %39 = load i32, ptr %38, align 4
-  %.not.us.us63.not = icmp sgt i32 %36, %39
-  br i1 %.not.us.us63.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !13
-
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %46
-  %.01935.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph.split.us.split ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %40 = trunc i32 %.01935.us to i8
-  %41 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %40, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %42 = load i32, ptr %7, align 4
-  %43 = icmp eq i32 %4, %42
-  %or.cond71 = select i1 %41, i1 %43, i1 false
-  %44 = load i32, ptr %8, align 4
-  %45 = icmp eq i32 %3, %44
-  %or.cond73 = select i1 %or.cond71, i1 %45, i1 false
-  br i1 %or.cond73, label %.split.us, label %46
-
-46:                                               ; preds = %.lr.ph.split.us.split.split
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %47 = add i32 %.01935.us, 1
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
-  %50 = load i32, ptr %49, align 4
-  %.not.us.not = icmp sgt i32 %47, %50
-  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !13
+  %30 = add i32 %.01935.us, 1
+  %31 = load ptr, ptr %9, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 84
+  %33 = load i32, ptr %32, align 4
+  %.not.us.not = icmp sgt i32 %30, %33
+  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %63
-  %.01935.us39 = phi i32 [ %64, %63 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %46
+  %.01935.us39 = phi i32 [ %47, %46 ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %51 = trunc i32 %.01935.us39 to i8
-  %52 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  br i1 %52, label %53, label %63
+  %34 = trunc i32 %.01935.us39 to i8
+  %35 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %34, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  br i1 %35, label %36, label %46
 
-53:                                               ; preds = %.lr.ph.split.split.us
-  %54 = load i32, ptr %18, align 4
-  %55 = icmp eq i32 %2, %54
-  %56 = load i32, ptr %19, align 4
-  %57 = icmp eq i32 %56, %.sroa.3.0.extract.trunc
-  %or.cond26.us = select i1 %55, i1 %57, i1 false
-  %58 = load i32, ptr %6, align 4
-  %59 = icmp eq i32 %58, %.sroa.014.0.extract.trunc
-  %or.cond28.us = select i1 %or.cond26.us, i1 %59, i1 false
-  br i1 %or.cond28.us, label %60, label %63
+36:                                               ; preds = %.lr.ph.split.split.us
+  %37 = load i32, ptr %18, align 4
+  %38 = icmp eq i32 %2, %37
+  %39 = load i32, ptr %19, align 4
+  %40 = icmp eq i32 %39, %.sroa.3.0.extract.trunc
+  %or.cond26.us = select i1 %38, i1 %40, i1 false
+  %41 = load i32, ptr %6, align 4
+  %42 = icmp eq i32 %41, %.sroa.014.0.extract.trunc
+  %or.cond28.us = select i1 %or.cond26.us, i1 %42, i1 false
+  br i1 %or.cond28.us, label %43, label %46
 
-60:                                               ; preds = %53
-  %61 = load i32, ptr %8, align 4
-  %62 = icmp eq i32 %3, %61
-  %or.cond30.us41 = select i1 %20, i1 true, i1 %62
-  br i1 %or.cond30.us41, label %.split.us, label %63
+43:                                               ; preds = %36
+  %44 = load i32, ptr %8, align 4
+  %45 = icmp eq i32 %3, %44
+  %or.cond30.us41 = select i1 %20, i1 true, i1 %45
+  br i1 %or.cond30.us41, label %.split.us, label %46
 
-63:                                               ; preds = %60, %53, %.lr.ph.split.split.us
+46:                                               ; preds = %43, %36, %.lr.ph.split.split.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %64 = add i32 %.01935.us39, 1
-  %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 84
-  %67 = load i32, ptr %66, align 4
-  %.not.us42.not = icmp sgt i32 %64, %67
-  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !13
+  %47 = add i32 %.01935.us39, 1
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
+  %50 = load i32, ptr %49, align 4
+  %.not.us42.not = icmp sgt i32 %47, %50
+  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !15
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %20, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %79
-  %.01935.us48 = phi i32 [ %80, %79 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %62
+  %.01935.us48 = phi i32 [ %63, %62 ], [ 0, %.lr.ph.split.split ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %68 = trunc i32 %.01935.us48 to i8
-  %69 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %68, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %70 = load i32, ptr %7, align 4
-  %71 = icmp eq i32 %4, %70
-  %or.cond75 = select i1 %69, i1 %71, i1 false
-  br i1 %or.cond75, label %72, label %79
+  %51 = trunc i32 %.01935.us48 to i8
+  %52 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %53 = load i32, ptr %7, align 4
+  %54 = icmp eq i32 %4, %53
+  %or.cond = select i1 %52, i1 %54, i1 false
+  br i1 %or.cond, label %55, label %62
 
-72:                                               ; preds = %.lr.ph.split.split.split.us
-  %73 = load i32, ptr %18, align 4
-  %74 = icmp eq i32 %2, %73
-  %75 = load i32, ptr %19, align 4
-  %76 = icmp eq i32 %75, %.sroa.3.0.extract.trunc
-  %or.cond26.us49 = select i1 %74, i1 %76, i1 false
-  %77 = load i32, ptr %6, align 4
-  %78 = icmp eq i32 %77, %.sroa.014.0.extract.trunc
-  %or.cond28.us50 = select i1 %or.cond26.us49, i1 %78, i1 false
-  br i1 %or.cond28.us50, label %.split.us, label %79
+55:                                               ; preds = %.lr.ph.split.split.split.us
+  %56 = load i32, ptr %18, align 4
+  %57 = icmp eq i32 %2, %56
+  %58 = load i32, ptr %19, align 4
+  %59 = icmp eq i32 %58, %.sroa.3.0.extract.trunc
+  %or.cond26.us49 = select i1 %57, i1 %59, i1 false
+  %60 = load i32, ptr %6, align 4
+  %61 = icmp eq i32 %60, %.sroa.014.0.extract.trunc
+  %or.cond28.us50 = select i1 %or.cond26.us49, i1 %61, i1 false
+  br i1 %or.cond28.us50, label %.split.us, label %62
 
-79:                                               ; preds = %72, %.lr.ph.split.split.split.us
+62:                                               ; preds = %55, %.lr.ph.split.split.split.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %80 = add i32 %.01935.us48, 1
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 84
-  %83 = load i32, ptr %82, align 4
-  %.not.us52.not = icmp sgt i32 %80, %83
-  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !13
+  %63 = add i32 %.01935.us48, 1
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 84
+  %66 = load i32, ptr %65, align 4
+  %.not.us52.not = icmp sgt i32 %63, %66
+  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !16
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %97
-  %.01935 = phi i32 [ %98, %97 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %80
+  %.01935 = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.split ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  %84 = trunc i32 %.01935 to i8
-  %85 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %84, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %86 = load i32, ptr %7, align 4
-  %87 = icmp eq i32 %4, %86
-  %or.cond77 = select i1 %85, i1 %87, i1 false
-  br i1 %or.cond77, label %88, label %97
+  %67 = trunc i32 %.01935 to i8
+  %68 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %67, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %69 = load i32, ptr %7, align 4
+  %70 = icmp eq i32 %4, %69
+  %or.cond60 = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond60, label %71, label %80
 
-88:                                               ; preds = %.lr.ph.split.split.split
-  %89 = load i32, ptr %18, align 4
-  %90 = icmp eq i32 %2, %89
-  %91 = load i32, ptr %19, align 4
-  %92 = icmp eq i32 %91, %.sroa.3.0.extract.trunc
-  %or.cond26 = select i1 %90, i1 %92, i1 false
-  %93 = load i32, ptr %6, align 4
-  %94 = icmp eq i32 %93, %.sroa.014.0.extract.trunc
-  %or.cond28 = select i1 %or.cond26, i1 %94, i1 false
-  %95 = load i32, ptr %8, align 4
-  %96 = icmp eq i32 %3, %95
-  %or.cond79 = select i1 %or.cond28, i1 %96, i1 false
-  br i1 %or.cond79, label %.split.us, label %97
+71:                                               ; preds = %.lr.ph.split.split.split
+  %72 = load i32, ptr %18, align 4
+  %73 = icmp eq i32 %2, %72
+  %74 = load i32, ptr %19, align 4
+  %75 = icmp eq i32 %74, %.sroa.3.0.extract.trunc
+  %or.cond26 = select i1 %73, i1 %75, i1 false
+  %76 = load i32, ptr %6, align 4
+  %77 = icmp eq i32 %76, %.sroa.014.0.extract.trunc
+  %or.cond28 = select i1 %or.cond26, i1 %77, i1 false
+  %78 = load i32, ptr %8, align 4
+  %79 = icmp eq i32 %3, %78
+  %or.cond62 = select i1 %or.cond28, i1 %79, i1 false
+  br i1 %or.cond62, label %.split.us, label %80
 
-.split.us:                                        ; preds = %88, %72, %60, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %23
+.split.us:                                        ; preds = %71, %55, %43, %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
   br label %.loopexit
 
-97:                                               ; preds = %88, %.lr.ph.split.split.split
+80:                                               ; preds = %71, %.lr.ph.split.split.split
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  %98 = add i32 %.01935, 1
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 84
-  %101 = load i32, ptr %100, align 4
-  %.not.not = icmp sgt i32 %98, %101
-  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !13
+  %81 = add i32 %.01935, 1
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
+  %84 = load i32, ptr %83, align 4
+  %.not.not = icmp sgt i32 %81, %84
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !17
 
-.loopexit:                                        ; preds = %97, %79, %63, %46, %35, %26, %5, %.split.us
-  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %26 ], [ false, %35 ], [ false, %46 ], [ false, %63 ], [ false, %79 ], [ false, %97 ]
+.loopexit:                                        ; preds = %80, %62, %46, %29, %5, %.split.us
+  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %29 ], [ false, %46 ], [ false, %62 ], [ false, %80 ]
   ret i1 %.not33
 }
 
@@ -2085,7 +2036,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 84
   %65 = load i32, ptr %64, align 4
   %.not = icmp sgt i32 %63, %65
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %61, %2
   ret void
@@ -2096,21 +2047,21 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %257, label %.preheader111
+  br i1 %5, label %177, label %.preheader111
 
 .preheader111:                                    ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
-7:                                                ; preds = %.preheader111, %23
-  %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %23 ]
-  %.087114 = phi i64 [ 0, %.preheader111 ], [ %.188, %23 ]
-  %.091113 = phi i64 [ 0, %.preheader111 ], [ %.192, %23 ]
-  %.093112 = phi i64 [ 0, %.preheader111 ], [ %.194, %23 ]
+7:                                                ; preds = %.preheader111, %21
+  %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %21 ]
+  %.087114 = phi i64 [ 0, %.preheader111 ], [ %.188, %21 ]
+  %.091113 = phi i64 [ 0, %.preheader111 ], [ %.192, %21 ]
+  %.093112 = phi i64 [ 0, %.preheader111 ], [ %.194, %21 ]
   %8 = trunc i64 %indvars.iv to i32
   %9 = add i32 %8, -128
   %or.cond108 = icmp ult i32 %9, -106
-  br i1 %or.cond108, label %10, label %23
+  br i1 %or.cond108, label %10, label %21
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv
@@ -2123,402 +2074,265 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %.091113
   %20 = freeze i64 %13
-  %21 = freeze i64 %16
-  %22 = freeze i64 %19
-  br label %23
+  br label %21
 
-23:                                               ; preds = %7, %10
-  %.194 = phi i64 [ %21, %10 ], [ %.093112, %7 ]
-  %.192 = phi i64 [ %22, %10 ], [ %.091113, %7 ]
+21:                                               ; preds = %7, %10
+  %.194 = phi i64 [ %16, %10 ], [ %.093112, %7 ]
+  %.192 = phi i64 [ %19, %10 ], [ %.091113, %7 ]
   %.188 = phi i64 [ %20, %10 ], [ %.087114, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %24, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %22, label %7, !llvm.loop !19
 
-24:                                               ; preds = %23
-  %25 = add i64 %.192, %.194
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = lshr i64 %27, 32
-  %29 = trunc nuw i64 %28 to i32
-  %30 = trunc i64 %27 to i32
-  %31 = lshr i64 %4, 32
-  %32 = trunc nuw i64 %31 to i32
-  %33 = trunc i64 %4 to i32
-  %34 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.121, i32 noundef %29, i32 noundef %30, i32 noundef %32, i32 noundef %33) #16
-  %35 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131) #16
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 14
+22:                                               ; preds = %21
+  %23 = add i64 %.192, %.194
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = lshr i64 %25, 32
+  %27 = trunc nuw i64 %26 to i32
+  %28 = trunc i64 %25 to i32
+  %29 = lshr i64 %4, 32
+  %30 = trunc nuw i64 %29 to i32
+  %31 = trunc i64 %4 to i32
+  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.121, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31) #16
+  %33 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131) #16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.not.i = icmp eq i64 %.188, 0
-  %37 = uitofp i64 %.188 to double
+  %35 = uitofp i64 %.188 to double
   %.not27.i = icmp eq i64 %.194, 0
-  %38 = uitofp i64 %.194 to double
+  %36 = uitofp i64 %.194 to double
   %.not28.i = icmp eq i64 %.192, 0
-  %39 = uitofp i64 %.192 to double
-  %.not29.i = icmp eq i64 %25, 0
-  %40 = uitofp i64 %25 to double
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 6168
+  %37 = uitofp i64 %.192 to double
+  %.not29.i = icmp eq i64 %23, 0
+  %38 = uitofp i64 %23 to double
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 6168
   br i1 %.not.i, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %24
-  br i1 %.not27.i, label %.split.us.split.us, label %.split.us.split
+.split.us:                                        ; preds = %22, %.loopexit.split.us.us
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.loopexit.split.us.us ], [ 0, %22 ]
+  %40 = trunc i64 %indvars.iv134 to i32
+  %41 = add i32 %40, -128
+  %or.cond110.us = icmp ult i32 %41, -106
+  br i1 %or.cond110.us, label %42, label %.loopexit.split.us.us
 
-.split.us.split.us:                               ; preds = %.split.us, %.loopexit.split.us.us.split.us.us
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.loopexit.split.us.us.split.us.us ], [ 0, %.split.us ]
-  %42 = trunc i64 %indvars.iv148 to i32
-  %43 = add i32 %42, -128
-  %or.cond110.us.us = icmp ult i32 %43, -106
-  br i1 %or.cond110.us.us, label %44, label %.loopexit.split.us.us.split.us.us
+42:                                               ; preds = %.split.us
+  %43 = trunc i64 %indvars.iv134 to i8
+  %44 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %43) #16
+  %45 = load i8, ptr %34, align 2, !range !8, !noundef !9
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %.preheader.us, label %47
 
-44:                                               ; preds = %.split.us.split.us
-  %45 = trunc i64 %indvars.iv148 to i8
-  %46 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %45) #16
-  %47 = load i8, ptr %36, align 2, !range !8, !noundef !9
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %.preheader.us.us, label %49
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv134
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp samesign ugt i64 %indvars.iv134, 127
+  %51 = icmp eq i64 %49, 0
+  %or.cond.us = select i1 %50, i1 %51, i1 false
+  br i1 %or.cond.us, label %.loopexit.split.us.us, label %52
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv148
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp samesign ugt i64 %indvars.iv148, 127
-  %53 = icmp eq i64 %51, 0
-  %or.cond.us.us = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond.us.us, label %.loopexit.split.us.us.split.us.us, label %54
-
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %58 = load i64, ptr %57, align 8
-  %59 = add i64 %58, %56
-  %60 = load ptr, ptr %46, align 8
-  %61 = uitofp i64 %56 to double
-  %62 = fmul double %61, 1.000000e+02
-  %63 = fdiv double %62, %39
-  %.020.i.us.us = select i1 %.not28.i, double 0.000000e+00, double %63
-  %64 = uitofp i64 %59 to double
-  %65 = fmul double %64, 1.000000e+02
-  %66 = fdiv double %65, %40
-  %.0.i.us.us = select i1 %.not29.i, double 0.000000e+00, double %66
-  %67 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %60, i64 noundef %51, double noundef 0.000000e+00, i64 noundef %58, double noundef 0.000000e+00, i64 noundef %56, double noundef %.020.i.us.us, i64 noundef %59, double noundef %.0.i.us.us) #16
-  br label %.loopexit.split.us.us.split.us.us
+  %57 = add i64 %56, %54
+  %58 = load ptr, ptr %44, align 8
+  %59 = uitofp i64 %56 to double
+  %60 = fmul double %59, 1.000000e+02
+  %61 = fdiv double %60, %36
+  %.021.i.us = select i1 %.not27.i, double 0.000000e+00, double %61
+  %62 = uitofp i64 %54 to double
+  %63 = fmul double %62, 1.000000e+02
+  %64 = fdiv double %63, %37
+  %.020.i.us = select i1 %.not28.i, double 0.000000e+00, double %64
+  %65 = uitofp i64 %57 to double
+  %66 = fmul double %65, 1.000000e+02
+  %67 = fdiv double %66, %38
+  %.0.i.us = select i1 %.not29.i, double 0.000000e+00, double %67
+  %68 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %58, i64 noundef %49, double noundef 0.000000e+00, i64 noundef %56, double noundef %.021.i.us, i64 noundef %54, double noundef %.020.i.us, i64 noundef %57, double noundef %.0.i.us) #16
+  br label %.loopexit.split.us.us
 
-.loopexit.split.us.us.split.us.us:                ; preds = %119, %92, %54, %49, %.split.us.split.us
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next149, 256
-  br i1 %exitcond151.not, label %.split119.us, label %.split.us.split.us, !llvm.loop !16
+.loopexit.split.us.us:                            ; preds = %100, %52, %47, %.split.us
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next135, 256
+  br i1 %exitcond137.not, label %.split119.us, label %.split.us, !llvm.loop !20
 
-.preheader.us.us:                                 ; preds = %44
-  %68 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  br i1 %.not28.i, label %.preheader.split.us.us.split.us.us.split.us, label %.preheader.split.us.us.split.us.us.split
+.preheader.us:                                    ; preds = %42
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  br label %70
 
-.preheader.split.us.us.split.us.us.split.us:      ; preds = %.preheader.us.us, %92
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %92 ], [ 0, %.preheader.us.us ]
-  %69 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %41, i64 0, i64 %indvars.iv148, i64 %indvars.iv144
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+70:                                               ; preds = %100, %.preheader.us
+  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %100 ], [ 0, %.preheader.us ]
+  %71 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %39, i64 0, i64 %indvars.iv134, i64 %indvars.iv130
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = add i64 %74, %72
-  %76 = icmp eq i64 %70, 0
-  br i1 %76, label %92, label %77
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %76 = load i64, ptr %75, align 8
+  %77 = add i64 %76, %74
+  %78 = icmp eq i64 %72, 0
+  br i1 %78, label %100, label %79
 
-77:                                               ; preds = %.preheader.split.us.us.split.us.us.split.us
-  %78 = load ptr, ptr %68, align 8
-  %indvars.iv144.tr = trunc i64 %indvars.iv144 to i32
-  %79 = shl i32 %indvars.iv144.tr, 4
-  %80 = trunc nuw i32 %79 to i8
-  %81 = tail call ptr %78(i8 noundef zeroext %80) #16
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %85
+79:                                               ; preds = %70
+  %80 = load ptr, ptr %69, align 8
+  %indvars.iv130.tr = trunc i64 %indvars.iv130 to i32
+  %81 = shl i32 %indvars.iv130.tr, 4
+  %82 = trunc nuw i32 %81 to i8
+  %83 = tail call ptr %80(i8 noundef zeroext %82) #16
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %87
 
-83:                                               ; preds = %77
-  %84 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %79) #16
-  br label %85
+85:                                               ; preds = %79
+  %86 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %81) #16
+  br label %87
 
-85:                                               ; preds = %83, %77
-  %.0.us.us.us.us.us = phi ptr [ %84, %83 ], [ %81, %77 ]
-  %86 = load ptr, ptr %46, align 8
-  %87 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %86, ptr noundef %.0.us.us.us.us.us) #16
-  %88 = uitofp i64 %75 to double
-  %89 = fmul double %88, 1.000000e+02
-  %90 = fdiv double %89, %40
-  %.0.i106.us.us.us.us.us = select i1 %.not29.i, double 0.000000e+00, double %90
-  %91 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %87, i64 noundef %70, double noundef 0.000000e+00, i64 noundef %72, double noundef 0.000000e+00, i64 noundef %74, double noundef 0.000000e+00, i64 noundef %75, double noundef %.0.i106.us.us.us.us.us) #16
-  br label %92
+87:                                               ; preds = %85, %79
+  %.0.us.us = phi ptr [ %86, %85 ], [ %83, %79 ]
+  %88 = load ptr, ptr %44, align 8
+  %89 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %88, ptr noundef %.0.us.us) #16
+  %90 = uitofp i64 %74 to double
+  %91 = fmul double %90, 1.000000e+02
+  %92 = fdiv double %91, %36
+  %.021.i102.us.us = select i1 %.not27.i, double 0.000000e+00, double %92
+  %93 = uitofp i64 %76 to double
+  %94 = fmul double %93, 1.000000e+02
+  %95 = fdiv double %94, %37
+  %.020.i104.us.us = select i1 %.not28.i, double 0.000000e+00, double %95
+  %96 = uitofp i64 %77 to double
+  %97 = fmul double %96, 1.000000e+02
+  %98 = fdiv double %97, %38
+  %.0.i106.us.us = select i1 %.not29.i, double 0.000000e+00, double %98
+  %99 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %89, i64 noundef %72, double noundef 0.000000e+00, i64 noundef %74, double noundef %.021.i102.us.us, i64 noundef %76, double noundef %.020.i104.us.us, i64 noundef %77, double noundef %.0.i106.us.us) #16
+  br label %100
 
-92:                                               ; preds = %85, %.preheader.split.us.us.split.us.us.split.us
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next145, 16
-  br i1 %exitcond147.not, label %.loopexit.split.us.us.split.us.us, label %.preheader.split.us.us.split.us.us.split.us, !llvm.loop !17
+100:                                              ; preds = %87, %70
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 16
+  br i1 %exitcond133.not, label %.loopexit.split.us.us, label %70, !llvm.loop !21
 
-.preheader.split.us.us.split.us.us.split:         ; preds = %.preheader.us.us, %119
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %119 ], [ 0, %.preheader.us.us ]
-  %93 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %41, i64 0, i64 %indvars.iv148, i64 %indvars.iv140
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %98 = load i64, ptr %97, align 8
-  %99 = add i64 %98, %96
-  %100 = icmp eq i64 %94, 0
-  br i1 %100, label %119, label %101
+.split:                                           ; preds = %22, %.loopexit.split
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.loopexit.split ], [ 0, %22 ]
+  %101 = trunc i64 %indvars.iv126 to i32
+  %102 = add i32 %101, -128
+  %or.cond110 = icmp ult i32 %102, -106
+  br i1 %or.cond110, label %103, label %.loopexit.split
 
-101:                                              ; preds = %.preheader.split.us.us.split.us.us.split
-  %102 = load ptr, ptr %68, align 8
-  %indvars.iv140.tr = trunc i64 %indvars.iv140 to i32
-  %103 = shl i32 %indvars.iv140.tr, 4
-  %104 = trunc nuw i32 %103 to i8
-  %105 = tail call ptr %102(i8 noundef zeroext %104) #16
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %109
+103:                                              ; preds = %.split
+  %104 = trunc i64 %indvars.iv126 to i8
+  %105 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %104) #16
+  %106 = load i8, ptr %34, align 2, !range !8, !noundef !9
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %.preheader, label %109
 
-107:                                              ; preds = %101
-  %108 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %103) #16
-  br label %109
+.preheader:                                       ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  br label %134
 
-109:                                              ; preds = %107, %101
-  %.0.us.us.us.us = phi ptr [ %108, %107 ], [ %105, %101 ]
-  %110 = load ptr, ptr %46, align 8
-  %111 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %110, ptr noundef %.0.us.us.us.us) #16
-  %112 = uitofp i64 %98 to double
-  %113 = fmul double %112, 1.000000e+02
-  %114 = fdiv double %113, %39
-  %115 = uitofp i64 %99 to double
-  %116 = fmul double %115, 1.000000e+02
-  %117 = fdiv double %116, %40
-  %.0.i106.us.us.us.us = select i1 %.not29.i, double 0.000000e+00, double %117
-  %118 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %111, i64 noundef %94, double noundef 0.000000e+00, i64 noundef %96, double noundef 0.000000e+00, i64 noundef %98, double noundef %114, i64 noundef %99, double noundef %.0.i106.us.us.us.us) #16
-  br label %119
+109:                                              ; preds = %103
+  %110 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv126
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp samesign ugt i64 %indvars.iv126, 127
+  %113 = icmp eq i64 %111, 0
+  %or.cond = select i1 %112, i1 %113, i1 false
+  br i1 %or.cond, label %.loopexit.split, label %114
 
-119:                                              ; preds = %109, %.preheader.split.us.us.split.us.us.split
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next141, 16
-  br i1 %exitcond143.not, label %.loopexit.split.us.us.split.us.us, label %.preheader.split.us.us.split.us.us.split, !llvm.loop !17
-
-.split.us.split:                                  ; preds = %.split.us, %.loopexit.split.us.us.split
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.loopexit.split.us.us.split ], [ 0, %.split.us ]
-  %120 = trunc i64 %indvars.iv136 to i32
-  %121 = add i32 %120, -128
-  %or.cond110.us = icmp ult i32 %121, -106
-  br i1 %or.cond110.us, label %122, label %.loopexit.split.us.us.split
-
-122:                                              ; preds = %.split.us.split
-  %123 = trunc i64 %indvars.iv136 to i8
-  %124 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %123) #16
-  %125 = load i8, ptr %36, align 2, !range !8, !noundef !9
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %.preheader.us, label %127
-
-127:                                              ; preds = %122
-  %128 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv136
-  %129 = load i64, ptr %128, align 8
-  %130 = icmp samesign ugt i64 %indvars.iv136, 127
-  %131 = icmp eq i64 %129, 0
-  %or.cond.us = select i1 %130, i1 %131, i1 false
-  br i1 %or.cond.us, label %.loopexit.split.us.us.split, label %132
-
-132:                                              ; preds = %127
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %136 = load i64, ptr %135, align 8
-  %137 = add i64 %136, %134
-  %138 = load ptr, ptr %124, align 8
-  %139 = uitofp i64 %136 to double
-  %140 = fmul double %139, 1.000000e+02
-  %141 = fdiv double %140, %38
-  %142 = uitofp i64 %134 to double
-  %143 = fmul double %142, 1.000000e+02
-  %144 = fdiv double %143, %39
-  %.020.i.us = select i1 %.not28.i, double 0.000000e+00, double %144
-  %145 = uitofp i64 %137 to double
-  %146 = fmul double %145, 1.000000e+02
-  %147 = fdiv double %146, %40
-  %.0.i.us = select i1 %.not29.i, double 0.000000e+00, double %147
-  %148 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %138, i64 noundef %129, double noundef 0.000000e+00, i64 noundef %136, double noundef %141, i64 noundef %134, double noundef %.020.i.us, i64 noundef %137, double noundef %.0.i.us) #16
-  br label %.loopexit.split.us.us.split
-
-.loopexit.split.us.us.split:                      ; preds = %180, %132, %127, %.split.us.split
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next137, 256
-  br i1 %exitcond139.not, label %.split119.us, label %.split.us.split, !llvm.loop !16
-
-.preheader.us:                                    ; preds = %122
-  %149 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  br label %150
-
-150:                                              ; preds = %180, %.preheader.us
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %180 ], [ 0, %.preheader.us ]
-  %151 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %41, i64 0, i64 %indvars.iv136, i64 %indvars.iv132
-  %152 = load i64, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %156 = load i64, ptr %155, align 8
-  %157 = add i64 %156, %154
-  %158 = icmp eq i64 %152, 0
-  br i1 %158, label %180, label %159
-
-159:                                              ; preds = %150
-  %160 = load ptr, ptr %149, align 8
-  %indvars.iv132.tr = trunc i64 %indvars.iv132 to i32
-  %161 = shl i32 %indvars.iv132.tr, 4
-  %162 = trunc nuw i32 %161 to i8
-  %163 = tail call ptr %160(i8 noundef zeroext %162) #16
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %167
-
-165:                                              ; preds = %159
-  %166 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %161) #16
-  br label %167
-
-167:                                              ; preds = %165, %159
-  %.0.us.us = phi ptr [ %166, %165 ], [ %163, %159 ]
-  %168 = load ptr, ptr %124, align 8
-  %169 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %168, ptr noundef %.0.us.us) #16
-  %170 = uitofp i64 %154 to double
-  %171 = fmul double %170, 1.000000e+02
-  %172 = fdiv double %171, %38
-  %173 = uitofp i64 %156 to double
-  %174 = fmul double %173, 1.000000e+02
-  %175 = fdiv double %174, %39
-  %.020.i104.us.us = select i1 %.not28.i, double 0.000000e+00, double %175
-  %176 = uitofp i64 %157 to double
-  %177 = fmul double %176, 1.000000e+02
-  %178 = fdiv double %177, %40
-  %.0.i106.us.us = select i1 %.not29.i, double 0.000000e+00, double %178
-  %179 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %169, i64 noundef %152, double noundef 0.000000e+00, i64 noundef %154, double noundef %172, i64 noundef %156, double noundef %.020.i104.us.us, i64 noundef %157, double noundef %.0.i106.us.us) #16
-  br label %180
-
-180:                                              ; preds = %167, %150
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next133, 16
-  br i1 %exitcond135.not, label %.loopexit.split.us.us.split, label %150, !llvm.loop !17
-
-.split:                                           ; preds = %24, %.loopexit.split
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.loopexit.split ], [ 0, %24 ]
-  %181 = trunc i64 %indvars.iv128 to i32
-  %182 = add i32 %181, -128
-  %or.cond110 = icmp ult i32 %182, -106
-  br i1 %or.cond110, label %183, label %.loopexit.split
-
-183:                                              ; preds = %.split
-  %184 = trunc i64 %indvars.iv128 to i8
-  %185 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %184) #16
-  %186 = load i8, ptr %36, align 2, !range !8, !noundef !9
-  %187 = trunc nuw i8 %186 to i1
-  br i1 %187, label %.preheader, label %189
-
-.preheader:                                       ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  br label %214
-
-189:                                              ; preds = %183
-  %190 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv128
-  %191 = load i64, ptr %190, align 8
-  %192 = icmp samesign ugt i64 %indvars.iv128, 127
-  %193 = icmp eq i64 %191, 0
-  %or.cond = select i1 %192, i1 %193, i1 false
-  br i1 %or.cond, label %.loopexit.split, label %194
-
-194:                                              ; preds = %189
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %196 = load i64, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %198 = load i64, ptr %197, align 8
-  %199 = add i64 %198, %196
-  %200 = load ptr, ptr %185, align 8
-  %201 = uitofp i64 %191 to double
-  %202 = fmul double %201, 1.000000e+02
-  %203 = fdiv double %202, %37
-  %204 = uitofp i64 %198 to double
-  %205 = fmul double %204, 1.000000e+02
-  %206 = fdiv double %205, %38
-  %.021.i = select i1 %.not27.i, double 0.000000e+00, double %206
-  %207 = uitofp i64 %196 to double
-  %208 = fmul double %207, 1.000000e+02
-  %209 = fdiv double %208, %39
-  %.020.i = select i1 %.not28.i, double 0.000000e+00, double %209
-  %210 = uitofp i64 %199 to double
-  %211 = fmul double %210, 1.000000e+02
-  %212 = fdiv double %211, %40
-  %.0.i = select i1 %.not29.i, double 0.000000e+00, double %212
-  %213 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %200, i64 noundef %191, double noundef %203, i64 noundef %198, double noundef %.021.i, i64 noundef %196, double noundef %.020.i, i64 noundef %199, double noundef %.0.i) #16
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %118 = load i64, ptr %117, align 8
+  %119 = add i64 %118, %116
+  %120 = load ptr, ptr %105, align 8
+  %121 = uitofp i64 %111 to double
+  %122 = fmul double %121, 1.000000e+02
+  %123 = fdiv double %122, %35
+  %124 = uitofp i64 %118 to double
+  %125 = fmul double %124, 1.000000e+02
+  %126 = fdiv double %125, %36
+  %.021.i = select i1 %.not27.i, double 0.000000e+00, double %126
+  %127 = uitofp i64 %116 to double
+  %128 = fmul double %127, 1.000000e+02
+  %129 = fdiv double %128, %37
+  %.020.i = select i1 %.not28.i, double 0.000000e+00, double %129
+  %130 = uitofp i64 %119 to double
+  %131 = fmul double %130, 1.000000e+02
+  %132 = fdiv double %131, %38
+  %.0.i = select i1 %.not29.i, double 0.000000e+00, double %132
+  %133 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %120, i64 noundef %111, double noundef %123, i64 noundef %118, double noundef %.021.i, i64 noundef %116, double noundef %.020.i, i64 noundef %119, double noundef %.0.i) #16
   br label %.loopexit.split
 
-214:                                              ; preds = %.preheader, %247
-  %indvars.iv124 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next125, %247 ]
-  %215 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %41, i64 0, i64 %indvars.iv128, i64 %indvars.iv124
-  %216 = load i64, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %218 = load i64, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %220 = load i64, ptr %219, align 8
-  %221 = add i64 %220, %218
-  %222 = icmp eq i64 %216, 0
-  br i1 %222, label %247, label %223
+134:                                              ; preds = %.preheader, %167
+  %indvars.iv122 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next123, %167 ]
+  %135 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %39, i64 0, i64 %indvars.iv126, i64 %indvars.iv122
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %138 = load i64, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, %138
+  %142 = icmp eq i64 %136, 0
+  br i1 %142, label %167, label %143
 
-223:                                              ; preds = %214
-  %224 = load ptr, ptr %188, align 8
-  %indvars.iv124.tr = trunc i64 %indvars.iv124 to i32
-  %225 = shl i32 %indvars.iv124.tr, 4
-  %226 = trunc nuw i32 %225 to i8
-  %227 = tail call ptr %224(i8 noundef zeroext %226) #16
-  %228 = icmp eq ptr %227, null
-  br i1 %228, label %229, label %231
+143:                                              ; preds = %134
+  %144 = load ptr, ptr %108, align 8
+  %indvars.iv122.tr = trunc i64 %indvars.iv122 to i32
+  %145 = shl i32 %indvars.iv122.tr, 4
+  %146 = trunc nuw i32 %145 to i8
+  %147 = tail call ptr %144(i8 noundef zeroext %146) #16
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %151
 
-229:                                              ; preds = %223
-  %230 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %225) #16
-  br label %231
+149:                                              ; preds = %143
+  %150 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.135, i32 noundef %145) #16
+  br label %151
 
-231:                                              ; preds = %229, %223
-  %.0 = phi ptr [ %230, %229 ], [ %227, %223 ]
-  %232 = load ptr, ptr %185, align 8
-  %233 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %232, ptr noundef %.0) #16
-  %234 = uitofp i64 %216 to double
-  %235 = fmul double %234, 1.000000e+02
-  %236 = fdiv double %235, %37
-  %237 = uitofp i64 %218 to double
-  %238 = fmul double %237, 1.000000e+02
-  %239 = fdiv double %238, %38
-  %.021.i102 = select i1 %.not27.i, double 0.000000e+00, double %239
-  %240 = uitofp i64 %220 to double
-  %241 = fmul double %240, 1.000000e+02
-  %242 = fdiv double %241, %39
-  %.020.i104 = select i1 %.not28.i, double 0.000000e+00, double %242
-  %243 = uitofp i64 %221 to double
-  %244 = fmul double %243, 1.000000e+02
-  %245 = fdiv double %244, %40
-  %.0.i106 = select i1 %.not29.i, double 0.000000e+00, double %245
-  %246 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %233, i64 noundef %216, double noundef %236, i64 noundef %218, double noundef %.021.i102, i64 noundef %220, double noundef %.020.i104, i64 noundef %221, double noundef %.0.i106) #16
-  br label %247
+151:                                              ; preds = %149, %143
+  %.0 = phi ptr [ %150, %149 ], [ %147, %143 ]
+  %152 = load ptr, ptr %105, align 8
+  %153 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.94, ptr noundef %152, ptr noundef %.0) #16
+  %154 = uitofp i64 %136 to double
+  %155 = fmul double %154, 1.000000e+02
+  %156 = fdiv double %155, %35
+  %157 = uitofp i64 %138 to double
+  %158 = fmul double %157, 1.000000e+02
+  %159 = fdiv double %158, %36
+  %.021.i102 = select i1 %.not27.i, double 0.000000e+00, double %159
+  %160 = uitofp i64 %140 to double
+  %161 = fmul double %160, 1.000000e+02
+  %162 = fdiv double %161, %37
+  %.020.i104 = select i1 %.not28.i, double 0.000000e+00, double %162
+  %163 = uitofp i64 %141 to double
+  %164 = fmul double %163, 1.000000e+02
+  %165 = fdiv double %164, %38
+  %.0.i106 = select i1 %.not29.i, double 0.000000e+00, double %165
+  %166 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.142, ptr noundef %153, i64 noundef %136, double noundef %156, i64 noundef %138, double noundef %.021.i102, i64 noundef %140, double noundef %.020.i104, i64 noundef %141, double noundef %.0.i106) #16
+  br label %167
 
-247:                                              ; preds = %214, %231
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next125, 16
-  br i1 %exitcond127.not, label %.loopexit.split, label %214, !llvm.loop !17
+167:                                              ; preds = %134, %151
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond125.not = icmp eq i64 %indvars.iv.next123, 16
+  br i1 %exitcond125.not, label %.loopexit.split, label %134, !llvm.loop !22
 
-.loopexit.split:                                  ; preds = %247, %.split, %194, %189
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 256
-  br i1 %exitcond131.not, label %.split119.us, label %.split, !llvm.loop !16
+.loopexit.split:                                  ; preds = %167, %.split, %114, %109
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 256
+  br i1 %exitcond129.not, label %.split119.us, label %.split, !llvm.loop !23
 
-.split119.us:                                     ; preds = %.loopexit.split, %.loopexit.split.us.us.split, %.loopexit.split.us.us.split.us.us
-  %248 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133) #16
-  %249 = fmul double %38, 1.000000e+02
-  %250 = fdiv double %249, %40
-  %.090 = select i1 %.not29.i, double 0.000000e+00, double %250
-  %251 = fmul double %39, 1.000000e+02
-  %252 = fdiv double %251, %40
-  %.089 = select i1 %.not29.i, double 0.000000e+00, double %252
-  %253 = load i64, ptr %1, align 8
-  %254 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.090) #16
-  %255 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.089) #16
-  %256 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %253, ptr noundef nonnull @.str.137, i64 noundef %.194, ptr noundef %254, i64 noundef %.192, ptr noundef %255, i64 noundef %25, ptr noundef nonnull @.str.141) #16
-  br label %257
+.split119.us:                                     ; preds = %.loopexit.split, %.loopexit.split.us.us
+  %168 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133) #16
+  %169 = fmul double %36, 1.000000e+02
+  %170 = fdiv double %169, %38
+  %.090 = select i1 %.not29.i, double 0.000000e+00, double %170
+  %171 = fmul double %37, 1.000000e+02
+  %172 = fdiv double %171, %38
+  %.089 = select i1 %.not29.i, double 0.000000e+00, double %172
+  %173 = load i64, ptr %1, align 8
+  %174 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.090) #16
+  %175 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.089) #16
+  %176 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %173, ptr noundef nonnull @.str.137, i64 noundef %.194, ptr noundef %174, i64 noundef %.192, ptr noundef %175, i64 noundef %23, ptr noundef nonnull @.str.141) #16
+  br label %177
 
-257:                                              ; preds = %2, %.split119.us
+177:                                              ; preds = %2, %.split119.us
   ret void
 }
 
@@ -2596,7 +2410,7 @@ IsXLogFileName.exit.preheader:                    ; preds = %14
 IsXLogFileName.exit.backedge:                     ; preds = %21, %.lr.ph
   %24 = tail call ptr @readdir(ptr noundef nonnull %15) #16
   %.not33 = icmp eq ptr %24, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #16
@@ -2775,9 +2589,15 @@ attributes #20 = { cold noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !5, !14}
+!16 = distinct !{!16, !5, !14}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5, !14}
+!21 = distinct !{!21, !5, !14}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}

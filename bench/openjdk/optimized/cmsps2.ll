@@ -923,7 +923,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 364:                                              ; preds = %363, %355
   %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
   %exitcond.not.i.i.i17 = icmp eq i64 %indvars.iv.next.i.i.i16, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i17, label %BuildColorantList.exit.loopexit.i.i, label %355, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i17, label %BuildColorantList.exit.loopexit.i.i, label %355, !llvm.loop !16
 
 BuildColorantList.exit.loopexit.i.i:              ; preds = %364
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -933,7 +933,7 @@ BuildColorantList.exit.loopexit.i.i:              ; preds = %364
 366:                                              ; preds = %BuildColorantList.exit.loopexit.i.i, %.lr.ph.split.i.i
   %367 = add nuw i32 %.02832.i.i, 1
   %exitcond.not.i.i18 = icmp eq i32 %367, %344
-  br i1 %exitcond.not.i.i18, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i18, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %366, %351, %339
   %368 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.93) #9
@@ -1100,7 +1100,7 @@ EmitPQRStage.exit.i.i:                            ; preds = %434, %432, %419
   %458 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24) #9
   %459 = add nuw nsw i32 %.04754.i.i, 1
   %exitcond.not.i25.i = icmp eq i32 %459, %382
-  br i1 %exitcond.not.i25.i, label %._crit_edge.i21.i, label %.lr.ph.i24.i, !llvm.loop !16
+  br i1 %exitcond.not.i25.i, label %._crit_edge.i21.i, label %.lr.ph.i24.i, !llvm.loop !18
 
 ._crit_edge.i21.i:                                ; preds = %.lr.ph.i24.i, %455
   %460 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
@@ -1355,7 +1355,7 @@ define internal fastcc void @Emit1Gamma(ptr noundef %0, ptr noundef %1) unnamed_
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %23, label %._crit_edge, !llvm.loop !17
+  br i1 %37, label %23, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %29, %17
   %38 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.23) #9
@@ -1476,7 +1476,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %39 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.65) #9
@@ -1546,7 +1546,7 @@ define internal range(i32 0, 2) i32 @OutputValueSampler(ptr noundef readonly cap
   store i16 %28, ptr %29, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit53, label %26, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit53, label %26, !llvm.loop !21
 
 .loopexit53:                                      ; preds = %26, %.preheader, %9, %16, %12, %3
   %30 = load i16, ptr %0, align 2
@@ -1663,7 +1663,7 @@ WriteByte.exit:                                   ; preds = %82, %96
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
   %104 = icmp samesign ult i64 %indvars.iv.next61, %103
-  br i1 %104, label %82, label %.loopexit, !llvm.loop !20
+  br i1 %104, label %82, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %WriteByte.exit, %75, %20
   %.0 = phi i32 [ 0, %20 ], [ 1, %75 ], [ 1, %WriteByte.exit ]
@@ -1739,10 +1739,12 @@ attributes #9 = { nounwind }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

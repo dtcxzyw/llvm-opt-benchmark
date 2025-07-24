@@ -1360,27 +1360,27 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
   %.sroa.0.08.i39.i = phi ptr [ %gep.i, %.lr.ph.i38.i ], [ %116, %_ZNK3ue29CharReach4noneEv.exit.i47.i ]
   %.sroa.03.07.i40.i = phi ptr [ %.val, %.lr.ph.i38.i ], [ %115, %_ZNK3ue29CharReach4noneEv.exit.i47.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.07.i40.i, i64 32, i1 false)
-  %98 = load i64, ptr %.sroa.0.08.i39.i, align 8, !noalias !21
-  %99 = load i64, ptr %4, align 8, !alias.scope !21
+  %98 = load i64, ptr %.sroa.0.08.i39.i, align 8, !noalias !22
+  %99 = load i64, ptr %4, align 8, !alias.scope !22
   %100 = and i64 %99, %98
-  store i64 %100, ptr %4, align 8, !alias.scope !21
+  store i64 %100, ptr %4, align 8, !alias.scope !22
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i39.i, i64 8
-  %102 = load i64, ptr %101, align 8, !noalias !21
-  %103 = load i64, ptr %13, align 8, !alias.scope !21
+  %102 = load i64, ptr %101, align 8, !noalias !22
+  %103 = load i64, ptr %13, align 8, !alias.scope !22
   %104 = and i64 %103, %102
-  store i64 %104, ptr %13, align 8, !alias.scope !21
+  store i64 %104, ptr %13, align 8, !alias.scope !22
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i39.i, i64 16
-  %106 = load i64, ptr %105, align 8, !noalias !21
-  %107 = load i64, ptr %14, align 8, !alias.scope !21
+  %106 = load i64, ptr %105, align 8, !noalias !22
+  %107 = load i64, ptr %14, align 8, !alias.scope !22
   %108 = and i64 %107, %106
-  store i64 %108, ptr %14, align 8, !alias.scope !21
+  store i64 %108, ptr %14, align 8, !alias.scope !22
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i39.i, i64 24
-  %110 = load i64, ptr %109, align 8, !noalias !21
-  %111 = load i64, ptr %15, align 8, !alias.scope !21
+  %110 = load i64, ptr %109, align 8, !noalias !22
+  %111 = load i64, ptr %15, align 8, !alias.scope !22
   %112 = and i64 %111, %110
-  store i64 %112, ptr %15, align 8, !alias.scope !21
+  store i64 %112, ptr %15, align 8, !alias.scope !22
   br label %113
 
 113:                                              ; preds = %113, %97
@@ -1408,7 +1408,7 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
   %118 = add i32 %.03220.i, 1
   %119 = zext i32 %118 to i64
   %120 = icmp ugt i64 %36, %119
-  br i1 %120, label %.lr.ph.split.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, !llvm.loop !20
+  br i1 %120, label %.lr.ph.split.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, !llvm.loop !25
 
 _ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit: ; preds = %117, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i, %74, %67, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i, %.lr.ph.split.us.i, %27
   %.3.i = phi i32 [ %38, %27 ], [ %38, %67 ], [ %.03220.us.i, %.lr.ph.split.us.i ], [ %.03220.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %117 ], [ %.03220.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ], [ %.03220.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ], [ %38, %74 ]
@@ -1434,7 +1434,7 @@ _ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit: ; preds = %1
   %131 = sub i64 %129, %130
   %132 = sdiv exact i64 %131, 24
   %133 = icmp ult i64 %128, %132
-  br i1 %133, label %27, label %._crit_edge, !llvm.loop !24
+  br i1 %133, label %27, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1619,8 +1619,10 @@ attributes #19 = { builtin nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
 !19 = distinct !{!19, !"_ZNK3ue29CharReachanERKS0_"}
-!20 = distinct !{!20, !6}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
-!23 = distinct !{!23, !"_ZNK3ue29CharReachanERKS0_"}
-!24 = distinct !{!24, !6}
+!20 = distinct !{!20, !6, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
+!24 = distinct !{!24, !"_ZNK3ue29CharReachanERKS0_"}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}

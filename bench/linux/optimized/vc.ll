@@ -205,7 +205,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %90 = add nuw nsw i32 %84, 1
   %91 = getelementptr i8, ptr %85, i64 4
   %92 = icmp eq i32 %90, %74
-  br i1 %92, label %.loopexit15.thread30, label %.preheader14.split, !llvm.loop !9
+  br i1 %92, label %.loopexit15.thread30, label %.preheader14.split, !llvm.loop !11
 
 .loopexit15:                                      ; preds = %72
   br i1 %3, label %.loopexit15.thread, label %.loopexit15.thread30
@@ -323,7 +323,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %162 = add nuw nsw i32 %157, 1
   %163 = getelementptr i8, ptr %158, i64 4
   %164 = icmp eq i32 %162, %155
-  br i1 %164, label %.loopexit, label %.preheader.split.us, !llvm.loop !9
+  br i1 %164, label %.loopexit, label %.preheader.split.us, !llvm.loop !12
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %165 = phi i32 [ %171, %.preheader.split ], [ 0, %.preheader ]
@@ -335,7 +335,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %171 = add nuw nsw i32 %165, 1
   %172 = getelementptr i8, ptr %166, i64 4
   %173 = icmp eq i32 %171, %155
-  br i1 %173, label %.loopexit, label %.preheader.split, !llvm.loop !9
+  br i1 %173, label %.loopexit, label %.preheader.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %153
   %174 = zext nneg i32 %150 to i64
@@ -471,7 +471,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 254:                                              ; preds = %257
   %255 = add nuw nsw i32 %258, 1
   %256 = icmp eq i32 %258, %247
-  br i1 %256, label %.thread, label %257, !llvm.loop !10
+  br i1 %256, label %.thread, label %257, !llvm.loop !13
 
 257:                                              ; preds = %254, %249
   %258 = phi i32 [ 1, %249 ], [ %255, %254 ]
@@ -562,7 +562,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
   %305 = add nuw nsw i32 %125, 1
   %306 = icmp eq i32 %125, %28
-  br i1 %306, label %307, label %122, !llvm.loop !11
+  br i1 %306, label %307, label %122, !llvm.loop !14
 
 307:                                              ; preds = %302
   %308 = icmp eq ptr %303, null
@@ -602,7 +602,7 @@ define dso_local void @pci_restore_vc_state(ptr noundef %0) local_unnamed_addr #
 15:                                               ; preds = %12, %2
   %16 = add nuw nsw i64 %3, 1
   %17 = icmp eq i64 %16, 3
-  br i1 %17, label %18, label %2, !llvm.loop !12
+  br i1 %17, label %18, label %2, !llvm.loop !15
 
 18:                                               ; preds = %15
   ret void
@@ -638,7 +638,7 @@ define dso_local void @pci_allocate_vc_save_buffers(ptr noundef %0) local_unname
 18:                                               ; preds = %15, %10, %3
   %19 = add nuw nsw i64 %4, 1
   %20 = icmp eq i64 %19, 3
-  br i1 %20, label %21, label %3, !llvm.loop !13
+  br i1 %20, label %21, label %3, !llvm.loop !16
 
 21:                                               ; preds = %18
   ret void
@@ -680,8 +680,11 @@ attributes #5 = { cold nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!9 = distinct !{!9, !6, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
+!12 = distinct !{!12, !6, !7, !10}
 !13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}

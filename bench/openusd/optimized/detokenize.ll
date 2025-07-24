@@ -218,7 +218,7 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   store i16 %storemerge.i.i.us.us.i, ptr %122, align 2
   %indvars.iv.next.i.i.us.us.i = add nuw nsw i64 %indvars.iv.i.i.us.us.i, 1
   %exitcond.not.i.i.us.us.i = icmp eq i64 %indvars.iv.next.i.i.us.us.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.us.us.i, label %._crit_edge.loopexit.i.i.us.us.i, label %119, !llvm.loop !7
+  br i1 %exitcond.not.i.i.us.us.i, label %._crit_edge.loopexit.i.i.us.us.i, label %119, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i.us.us.i:                 ; preds = %136
   %.pre.i.i.us.us.i = load i16, ptr %108, align 2
@@ -239,7 +239,7 @@ aom_read_symbol_.exit.us.us.i:                    ; preds = %._crit_edge.loopexi
   %indvars.iv.next95.i = add nsw i64 %indvars.iv94.i, -1
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, -1
   %.not.not.us.us.i = icmp sgt i64 %indvars.iv.next95.i, %99
-  br i1 %.not.not.us.us.i, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !8
+  br i1 %.not.not.us.us.i, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !9
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.i, %._crit_edge.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.split.i ], [ 1, %.lr.ph76.i ]
@@ -292,12 +292,12 @@ aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i
   %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, -1
   %indvars.iv.next16 = add nsw i64 %indvars.iv15, -1
   %.not.not.i = icmp sgt i64 %indvars.iv.next89.i, %150
-  br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !8
+  br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !10
 
 ._crit_edge.split.i:                              ; preds = %aom_read_symbol_.exit.i, %.lr.ph76.split.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count97.i
-  br i1 %exitcond.not.i, label %._crit_edge77.i, label %.lr.ph76.split.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge77.i, label %.lr.ph76.split.i, !llvm.loop !11
 
 ._crit_edge77.i:                                  ; preds = %._crit_edge.split.i, %._crit_edge.split.us.us.i, %av1_read_uniform.exit.i
   %170 = icmp slt i32 %61, %46
@@ -325,7 +325,7 @@ aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %gep83.i, i8 %178, i64 %174, i1 false)
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count102.i
-  br i1 %exitcond103.not.i, label %.loopexit.i, label %176, !llvm.loop !9
+  br i1 %exitcond103.not.i, label %.loopexit.i, label %176, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %176, %._crit_edge77.i
   %179 = icmp slt i32 %59, %49
@@ -347,7 +347,7 @@ aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %187, ptr nonnull align 1 %182, i64 %183, i1 false)
   %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
-  br i1 %exitcond108.not.i, label %decode_color_map_tokens.exit, label %185, !llvm.loop !10
+  br i1 %exitcond108.not.i, label %decode_color_map_tokens.exit, label %185, !llvm.loop !13
 
 decode_color_map_tokens.exit:                     ; preds = %185, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -401,8 +401,11 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!9 = distinct !{!9, !5, !7}
 !10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

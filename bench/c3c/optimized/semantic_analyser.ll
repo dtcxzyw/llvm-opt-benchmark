@@ -291,7 +291,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load i32, ptr %13, align 8
   %.not15.us = icmp eq i32 %2, %28
-  br i1 %.not15.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !7
+  br i1 %.not15.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
   %29 = phi ptr [ %43, %.split ], [ %.pre28, %.lr.ph.lr.ph ]
@@ -312,7 +312,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
 36:                                               ; preds = %.critedge
   %37 = load i32, ptr %35, align 8
   %.not = icmp eq i32 %2, %37
-  br i1 %.not, label %.outer._crit_edge, label %.critedge, !llvm.loop !7
+  br i1 %.not, label %.outer._crit_edge, label %.critedge, !llvm.loop !11
 
 .split:                                           ; preds = %.critedge
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 20
@@ -330,7 +330,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %50 = load i32, ptr %35, align 8
   %.not15 = icmp eq i32 %2, %50
-  br i1 %.not15, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not15, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !11
 
 .outer._crit_edge:                                ; preds = %.split, %36, %.split.us.us, %14, %4
   %.0..0..0..0. = load i32, ptr %5, align 4
@@ -398,7 +398,7 @@ define dso_local void @context_pop_defers(ptr noundef captures(none) %0, ptr nou
   %.1 = phi ptr [ %.021, %.lr.ph ], [ %30, %18 ]
   %.014 = load i32, ptr %14, align 4
   %.not17 = icmp eq i32 %.014, %4
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %31, %9, %5, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -463,7 +463,7 @@ define dso_local void @context_pop_defers_and_replace_ast(ptr noundef captures(n
   %.1.i = phi ptr [ %.021.i, %.lr.ph.i ], [ %30, %18 ]
   %.014.i = load i32, ptr %14, align 4
   %.not17.i = icmp eq i32 %.014.i, %5
-  br i1 %.not17.i, label %context_pop_defers.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not17.i, label %context_pop_defers.exit, label %.lr.ph.i, !llvm.loop !12
 
 context_pop_defers.exit.thread:                   ; preds = %2, %9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -588,7 +588,7 @@ define dso_local void @sema_analyze_stage(ptr noundef %0, i32 noundef %1) local_
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %10
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %4, label %32, !llvm.loop !10
+  br i1 %.not, label %4, label %32, !llvm.loop !13
 
 32:                                               ; preds = %30, %4
   ret void
@@ -776,7 +776,7 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
 66:                                               ; preds = %65, %57, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %register_generic_decls.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %register_generic_decls.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 register_generic_decls.exit.i:                    ; preds = %66, %43, %.lr.ph.i
   %67 = getelementptr inbounds nuw i8, ptr %40, i64 184
@@ -847,17 +847,17 @@ register_generic_decls.exit.i:                    ; preds = %66, %43, %.lr.ph.i
 92:                                               ; preds = %91, %83, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %.lr.ph.i19.i
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i22.i, label %register_generic_decls.exit23.i, label %.lr.ph.i19.i, !llvm.loop !11
+  br i1 %exitcond.not.i22.i, label %register_generic_decls.exit23.i, label %.lr.ph.i19.i, !llvm.loop !14
 
 register_generic_decls.exit23.i:                  ; preds = %92, %69, %register_generic_decls.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %analyze_generic_module.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %analyze_generic_module.exit, label %.lr.ph.i, !llvm.loop !15
 
 analyze_generic_module.exit:                      ; preds = %register_generic_decls.exit23.i, %.lr.ph, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader74.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader74.preheader, label %.lr.ph, !llvm.loop !16
 
 .preheader74.preheader:                           ; preds = %analyze_generic_module.exit, %18, %28
   br label %.preheader74
@@ -865,7 +865,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 93:                                               ; preds = %._crit_edge.i
   %94 = add nuw nsw i32 %.04476, 1
   %exitcond84.not = icmp eq i32 %94, 13
-  br i1 %exitcond84.not, label %.preheader, label %.preheader74, !llvm.loop !14
+  br i1 %exitcond84.not, label %.preheader, label %.preheader74, !llvm.loop !17
 
 .preheader74:                                     ; preds = %.preheader74.preheader, %93
   %.04476 = phi i32 [ %94, %93 ], [ 1, %.preheader74.preheader ]
@@ -895,7 +895,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
-  br i1 %exitcond.not.i62, label %.loopexit.i, label %.lr.ph.i59, !llvm.loop !15
+  br i1 %exitcond.not.i62, label %.loopexit.i, label %.lr.ph.i59, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %.lr.ph.i59, %98, %96, %.preheader74
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
@@ -920,7 +920,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph27.i, !llvm.loop !16
+  br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph27.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph27.i, %105, %.loopexit.i
   %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
@@ -970,7 +970,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   %.1 = phi i1 [ true, %125 ], [ %.04377, %121 ], [ %.04377, %.lr.ph79 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !17
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge
   br i1 %.1, label %.preheader, label %.critedge80
@@ -1859,10 +1859,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8, !9}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
@@ -1870,3 +1870,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}

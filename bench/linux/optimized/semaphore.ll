@@ -327,7 +327,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   call void @_raw_spin_lock_irq(ptr noundef %0) #7
   %58 = load i8, ptr %34, align 8, !range !19, !noundef !20
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %.split.split.us, label %.loopexit, !llvm.loop !21
+  br i1 %59, label %.split.split.us, label %.loopexit, !llvm.loop !24
 
 .split.split:                                     ; preds = %.split, %73
   %60 = phi i64 [ %74, %73 ], [ %2, %.split ]
@@ -359,7 +359,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   call void @_raw_spin_lock_irq(ptr noundef %0) #7
   %75 = load i8, ptr %34, align 8, !range !19, !noundef !20
   %76 = icmp eq i8 %75, 0
-  br i1 %76, label %.split.split, label %.loopexit, !llvm.loop !21
+  br i1 %76, label %.split.split, label %.loopexit, !llvm.loop !25
 
 .split6.us:                                       ; preds = %51, %.split.split.us, %.critedge.us7, %68, %.critedge, %.critedge.us
   %77 = phi i32 [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %68 ], [ -62, %.critedge.us7 ], [ -4, %.split.split.us ], [ -4, %51 ]
@@ -377,7 +377,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
           to label %102 [label %82], !srcloc !9
 
 82:                                               ; preds = %.loopexit
-  %83 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %83 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !26
   %84 = zext i32 %83 to i64
   %85 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %84) #7, !srcloc !11
   %86 = icmp ult i8 %85, 2
@@ -387,7 +387,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
 
 88:                                               ; preds = %82
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !12
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !27
   %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_contention_end, i64 72), align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %95, label %91
@@ -399,7 +399,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br label %95
 
 95:                                               ; preds = %91, %88
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
   %96 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !15
   %97 = icmp ult i8 %96, 2
   call void @llvm.assume(i1 %97)
@@ -408,7 +408,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
 
 99:                                               ; preds = %95
   %100 = call i64 @llvm.read_register.i64(metadata !0)
-  %101 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %100) #7, !srcloc !26
+  %101 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %100) #7, !srcloc !29
   call void @llvm.write_register.i64(metadata !0, i64 %101)
   br label %102
 
@@ -477,9 +477,12 @@ attributes #8 = { nounwind memory(none) }
 !18 = !{i64 2148188308}
 !19 = !{i8 0, i8 2}
 !20 = !{}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.unroll.disable"}
-!23 = !{i64 2154972590}
-!24 = !{i64 2154975459}
-!25 = !{i64 2154981813}
-!26 = !{i64 2154981972}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22}
+!26 = !{i64 2154972590}
+!27 = !{i64 2154975459}
+!28 = !{i64 2154981813}
+!29 = !{i64 2154981972}

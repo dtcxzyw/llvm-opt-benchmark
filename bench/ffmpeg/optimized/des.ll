@@ -771,7 +771,7 @@ des_encdec.exit93:                                ; preds = %244
   %spec.select = getelementptr inbounds nuw i8, ptr %.0188, i64 %spec.select.idx
   %257 = add nsw i32 %137, -1
   %258 = icmp sgt i32 %137, 0
-  br i1 %258, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %258, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %des_encdec.exit93, %des_encdec.exit162.us, %11
   %.037.lcssa = phi i64 [ %12, %11 ], [ %132, %des_encdec.exit162.us ], [ %254, %des_encdec.exit93 ]
@@ -830,4 +830,6 @@ attributes #4 = { nounwind }
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
 !18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
+!19 = distinct !{!19, !11, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !11}

@@ -393,7 +393,7 @@ fifo_check_space.exit:                            ; preds = %av_fifo_can_write.e
   %84 = sub i64 %.04573.us, %.045..us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   %.not.us = icmp eq i64 %84, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %85 = phi i64 [ %97, %95 ], [ %70, %.lr.ph ]
@@ -525,7 +525,7 @@ av_fifo_can_read.exit.i:                          ; preds = %16, %11
   %spec.store.select.us.i = select i1 %.not68.us.i, i64 %34, i64 0
   %36 = sub i64 %.05481.us.i, %.054..us.i
   %.not66.us.i = icmp eq i64 %36, 0
-  br i1 %.not66.us.i, label %fifo_peek_common.exit.loopexit, label %.lr.ph.split.us.i
+  br i1 %.not66.us.i, label %fifo_peek_common.exit.loopexit, label %.lr.ph.split.us.i, !llvm.loop !22
 
 fifo_peek_common.exit.loopexit:                   ; preds = %.lr.ph.split.us.i
   %.pre = load i64, ptr %6, align 8, !tbaa !17
@@ -668,7 +668,7 @@ av_fifo_can_read.exit:                            ; preds = %16, %21
   %44 = sub i64 %.05481.us, %.054..us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   %.not66.us = icmp eq i64 %44, 0
-  br i1 %.not66.us, label %.loopexit, label %.lr.ph.split.us
+  br i1 %.not66.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %45 = phi i64 [ %57, %55 ], [ %28, %.lr.ph ]
@@ -905,7 +905,7 @@ av_fifo_can_read.exit.i:                          ; preds = %17, %12
   %spec.store.select.us.i = select i1 %.not68.us.i, i64 %38, i64 0
   %40 = sub i64 %.05481.us.i, %.054..us.i
   %.not66.us.i = icmp eq i64 %40, 0
-  br i1 %.not66.us.i, label %fifo_peek_common.exit, label %.lr.ph.split.us.i
+  br i1 %.not66.us.i, label %fifo_peek_common.exit, label %.lr.ph.split.us.i, !llvm.loop !22
 
 fifo_peek_common.exit:                            ; preds = %.lr.ph.split.us.i, %22, %av_fifo_can_read.exit.i
   %.0.i = phi i32 [ -22, %av_fifo_can_read.exit.i ], [ 0, %22 ], [ 0, %.lr.ph.split.us.i ]
@@ -934,7 +934,7 @@ define void @av_fifo_reset2(ptr noundef writeonly captures(none) initializes((24
 
 ; Function Attrs: nounwind uwtable
 define void @av_fifo_freep2(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -993,5 +993,8 @@ attributes #11 = { noreturn nounwind }
 !17 = !{!5, !10, i64 32}
 !18 = !{!5, !10, i64 24}
 !19 = !{!10, !10, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS6AVFifo", !7, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS6AVFifo", !7, i64 0}

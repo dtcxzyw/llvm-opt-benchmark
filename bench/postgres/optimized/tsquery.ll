@@ -2621,7 +2621,7 @@ define internal fastcc void @cleanOpStack(ptr noundef nonnull captures(none) %0,
   store ptr %30, ptr %10, align 8
   %31 = load i32, ptr %2, align 4
   %.not.us = icmp eq i32 %31, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %42
   %32 = phi i32 [ %53, %42 ], [ %9, %.lr.ph ]
@@ -2807,3 +2807,5 @@ attributes #15 = { nounwind willreturn memory(none) }
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -3372,7 +3372,7 @@ thread-pre-split:                                 ; preds = %18, %3
   br i1 %.not49.us73, label %.critedge.us74, label %.split.split.us.backedge
 
 .split.split.us.backedge:                         ; preds = %41, %.critedge.us74
-  br label %.split.split.us, !llvm.loop !207
+  br label %.split.split.us, !llvm.loop !209
 
 .critedge.us74:                                   ; preds = %41
   %43 = ptrtoint ptr %.1.us71 to i64
@@ -3381,8 +3381,8 @@ thread-pre-split:                                 ; preds = %18, %3
   %46 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn.us70, i64 noundef %45, i64 noundef 4272357534) #25
   %.val.i.us = load ptr, ptr %29, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
-  store ptr %0, ptr %7, align 8, !tbaa !208
-  store i64 %2, ptr %30, align 8, !tbaa !210
+  store ptr %0, ptr %7, align 8, !tbaa !210
+  store i64 %2, ptr %30, align 8, !tbaa !212
   store i64 0, ptr %31, align 8
   %47 = call i32 @rb_st_update(ptr noundef %.val.i.us, i64 noundef %46, ptr noundef nonnull @features_index_add_single_callback, i64 noundef %32) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
@@ -3400,7 +3400,7 @@ thread-pre-split:                                 ; preds = %18, %3
   br i1 %.not49, label %.critedge, label %.split.split.backedge
 
 .split.split.backedge:                            ; preds = %48, %.critedge
-  br label %.split.split, !llvm.loop !207
+  br label %.split.split, !llvm.loop !213
 
 .critedge:                                        ; preds = %48
   %50 = ptrtoint ptr %.1 to i64
@@ -3409,8 +3409,8 @@ thread-pre-split:                                 ; preds = %18, %3
   %53 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn, i64 noundef %52, i64 noundef 4272357534) #25
   %.val.i = load ptr, ptr %29, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
-  store ptr %0, ptr %7, align 8, !tbaa !208
-  store i64 %2, ptr %30, align 8, !tbaa !210
+  store ptr %0, ptr %7, align 8, !tbaa !210
+  store i64 %2, ptr %30, align 8, !tbaa !212
   store i64 0, ptr %31, align 8
   %54 = call i32 @rb_st_update(ptr noundef %.val.i, i64 noundef %53, ptr noundef nonnull @features_index_add_single_callback, i64 noundef %32) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
@@ -3418,9 +3418,9 @@ thread-pre-split:                                 ; preds = %18, %3
   %56 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn, i64 noundef %55, i64 noundef 4272357534) #25
   %.val.i51 = load ptr, ptr %29, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
-  store ptr %0, ptr %6, align 8, !tbaa !208
-  store i64 %2, ptr %34, align 8, !tbaa !210
-  store i8 %.0, ptr %35, align 8, !tbaa !211
+  store ptr %0, ptr %6, align 8, !tbaa !210
+  store i64 %2, ptr %34, align 8, !tbaa !212
+  store i8 %.0, ptr %35, align 8, !tbaa !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %36, i8 0, i64 7, i1 false)
   %57 = call i32 @rb_st_update(ptr noundef %.val.i51, i64 noundef %56, ptr noundef nonnull @features_index_add_single_callback, i64 noundef %37) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
@@ -3437,9 +3437,9 @@ features_index_add_single.exit57:                 ; preds = %.split68.us
   %58 = call i64 @rb_st_hash(ptr noundef nonnull readonly %9, i64 noundef %13, i64 noundef 4272357534) #25
   %.val.i55 = load ptr, ptr %29, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
-  store ptr %0, ptr %5, align 8, !tbaa !208
+  store ptr %0, ptr %5, align 8, !tbaa !210
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %59, align 8, !tbaa !210
+  store i64 %2, ptr %59, align 8, !tbaa !212
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %61 = ptrtoint ptr %5 to i64
   store i64 0, ptr %60, align 8
@@ -3453,11 +3453,11 @@ features_index_add_single.exit61:                 ; preds = %features_index_add_
   %65 = call i64 @rb_st_hash(ptr noundef nonnull readonly %9, i64 noundef %64, i64 noundef 4272357534) #25
   %.val.i59 = load ptr, ptr %29, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
-  store ptr %0, ptr %4, align 8, !tbaa !208
+  store ptr %0, ptr %4, align 8, !tbaa !210
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %66, align 8, !tbaa !210
+  store i64 %2, ptr %66, align 8, !tbaa !212
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %.0, ptr %67, align 8, !tbaa !211
+  store i8 %.0, ptr %67, align 8, !tbaa !214
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %68, i8 0, i64 7, i1 false)
   %69 = ptrtoint ptr %4 to i64
@@ -3494,11 +3494,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @features_index_add_single_callback(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = load ptr, ptr %5, align 8, !tbaa !208
+  %6 = load ptr, ptr %5, align 8, !tbaa !210
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !210
+  %8 = load i64, ptr %7, align 8, !tbaa !212
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load i8, ptr %9, align 8, !tbaa !211, !range !156, !noundef !157
+  %10 = load i8, ptr %9, align 8, !tbaa !214, !range !156, !noundef !157
   %11 = trunc nuw i8 %10 to i1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %150, label %12
@@ -3535,7 +3535,7 @@ RARRAY_AREF.exit:                                 ; preds = %21, %23
   %28 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #29
   store i64 2, ptr %28, align 8, !tbaa !168
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 2, ptr %29, align 8, !tbaa !212
+  store i64 2, ptr %29, align 8, !tbaa !215
   %.cast = ptrtoint ptr %28 to i64
   br i1 %11, label %30, label %is_rbext_path.exit
 
@@ -3547,7 +3547,7 @@ RARRAY_AREF.exit:                                 ; preds = %21, %23
   br i1 %34, label %is_rbext_path.exit, label %35
 
 35:                                               ; preds = %30
-  %36 = load i64, ptr %31, align 8, !tbaa !44, !noalias !213
+  %36 = load i64, ptr %31, align 8, !tbaa !44, !noalias !216
   %37 = and i64 %36, 8192
   %.not.i.i.i = icmp eq i64 %37, 0
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -3619,14 +3619,14 @@ RARRAY_AREF.exit47.us78:                          ; preds = %rb_darray_size.exit
   %70 = and i64 %68, 7
   %71 = icmp ne i64 %70, 0
   %72 = or i1 %69, %71
-  br i1 %72, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %73, !prof !216
+  br i1 %72, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %73, !prof !219
 
 73:                                               ; preds = %RARRAY_AREF.exit47.us78
   %74 = inttoptr i64 %68 to ptr
   %75 = load i64, ptr %74, align 8, !tbaa !44
   %76 = and i64 %75, 31
   %77 = icmp eq i64 %76, 5
-  br i1 %77, label %Check_Type.exit.us80, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !217
+  br i1 %77, label %Check_Type.exit.us80, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !220
 
 Check_Type.exit.us80:                             ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -3655,7 +3655,7 @@ is_rbext_path.exit53.us83:                        ; preds = %84, %81
 rb_darray_size.exit.us85:                         ; preds = %is_rbext_path.exit53.us83
   %89 = add nuw i64 %.0427577.us, 1
   %exitcond103.not = icmp eq i64 %89, %57
-  br i1 %exitcond103.not, label %.critedge, label %RARRAY_AREF.exit47.us78
+  br i1 %exitcond103.not, label %.critedge, label %RARRAY_AREF.exit47.us78, !llvm.loop !221
 
 RARRAY_AREF.exit47:                               ; preds = %.lr.ph, %rb_darray_size.exit
   %.0427577 = phi i64 [ %114, %rb_darray_size.exit ], [ 0, %.lr.ph ]
@@ -3667,14 +3667,14 @@ RARRAY_AREF.exit47:                               ; preds = %.lr.ph, %rb_darray_
   %95 = and i64 %93, 7
   %96 = icmp ne i64 %95, 0
   %97 = or i1 %94, %96
-  br i1 %97, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %98, !prof !216
+  br i1 %97, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %98, !prof !219
 
 98:                                               ; preds = %RARRAY_AREF.exit47
   %99 = inttoptr i64 %93 to ptr
   %100 = load i64, ptr %99, align 8, !tbaa !44
   %101 = and i64 %100, 31
   %102 = icmp eq i64 %101, 5
-  br i1 %102, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !217
+  br i1 %102, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !220
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %98, %RARRAY_AREF.exit47, %73, %RARRAY_AREF.exit47.us78
   %.us-phi87 = phi i64 [ %68, %RARRAY_AREF.exit47.us78 ], [ %68, %73 ], [ %93, %RARRAY_AREF.exit47 ], [ %93, %98 ]
@@ -3722,7 +3722,7 @@ rb_darray_size.exit.i:                            ; preds = %is_rbext_path.exit5
   %115 = phi i64 [ %.pre, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %57, %is_rbext_path.exit53.us83 ], [ %57, %Check_Type.exit.us80 ], [ %57, %Check_Type.exit ], [ %57, %is_rbext_path.exit53 ]
   %.365 = phi i64 [ -1, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %.0427577.us, %is_rbext_path.exit53.us83 ], [ %.0427577.us, %Check_Type.exit.us80 ], [ %.0427577, %Check_Type.exit ], [ %.0427577, %is_rbext_path.exit53 ]
   %116 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %117 = load i64, ptr %116, align 8, !tbaa !212
+  %117 = load i64, ptr %116, align 8, !tbaa !215
   %.fr.i = freeze i64 %117
   %118 = icmp ult i64 %115, %.fr.i
   br i1 %118, label %rb_darray_ensure_space.exit, label %119
@@ -3734,7 +3734,7 @@ rb_darray_size.exit.i:                            ; preds = %is_rbext_path.exit5
 
 122:                                              ; preds = %119
   %123 = icmp ugt i64 %121, 2305843009213693951
-  br i1 %123, label %124, label %rbimpl_size_mul_or_raise.exit.i.i.i, !prof !218
+  br i1 %123, label %124, label %rbimpl_size_mul_or_raise.exit.i.i.i, !prof !222
 
 124:                                              ; preds = %122
   tail call void @ruby_malloc_size_overflow(i64 noundef %121, i64 noundef 8) #21
@@ -3747,7 +3747,7 @@ rbimpl_size_mul_or_raise.exit.i.i.i:              ; preds = %.critedge, %119, %5
   %126 = shl nuw i64 %125, 3
   %127 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %126, i64 16)
   %128 = extractvalue { i64, i1 } %127, 1
-  br i1 %128, label %129, label %rb_darray_realloc_mul_add.exit.i.i, !prof !219
+  br i1 %128, label %129, label %rb_darray_realloc_mul_add.exit.i.i, !prof !223
 
 129:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i.i.i
   tail call void @ruby_malloc_add_size_overflow(i64 noundef %126, i64 noundef 16) #21
@@ -3769,7 +3769,7 @@ rb_darray_realloc_mul_add.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge: 
 rb_darray_resize_capa_impl.exit.i:                ; preds = %rb_darray_realloc_mul_add.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge, %132
   %.pre105 = phi i64 [ %.pre105.pre, %rb_darray_realloc_mul_add.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge ], [ 0, %132 ]
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store i64 %125, ptr %133, align 8, !tbaa !212
+  store i64 %125, ptr %133, align 8, !tbaa !215
   %134 = ptrtoint ptr %131 to i64
   br label %rb_darray_ensure_space.exit
 
@@ -3794,7 +3794,7 @@ rb_darray_size.exit56:                            ; preds = %rb_darray_ensure_sp
   %143 = xor i64 %.364, -1
   %144 = add i64 %142, %143
   %145 = icmp ugt i64 %144, 2305843009213693951
-  br i1 %145, label %146, label %rbimpl_size_mul_or_raise.exit, !prof !219
+  br i1 %145, label %146, label %rbimpl_size_mul_or_raise.exit, !prof !223
 
 146:                                              ; preds = %rb_darray_size.exit56
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %144) #21
@@ -3871,9 +3871,9 @@ define internal fastcc void @load_iseq_eval(ptr noundef %0, i64 noundef %1) unna
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1000) %5, i8 0, i64 1000, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 752
-  store i32 1, ptr %21, align 8, !tbaa !220
+  store i32 1, ptr %21, align 8, !tbaa !224
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 976
-  store i32 1, ptr %22, align 8, !tbaa !246
+  store i32 1, ptr %22, align 8, !tbaa !250
   %23 = call i64 @pm_load_parse_file(ptr noundef nonnull %5, i64 noundef %1, ptr noundef null) #7
   %24 = icmp eq i64 %23, 4
   br i1 %24, label %25, label %39
@@ -3915,7 +3915,7 @@ realpath_internal_cached.exit:                    ; preds = %25, %30
   call void @rb_vm_pop_frame(ptr noundef nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   store ptr %4, ptr %7, align 8, !tbaa !49
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #7, !srcloc !247
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #7, !srcloc !251
   %40 = load ptr, ptr %7, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %41 = load volatile i64, ptr %40, align 8, !tbaa !42
@@ -3952,7 +3952,7 @@ realpath_internal_cached.exit34:                  ; preds = %42, %50
   call void @rb_vm_pop_frame(ptr noundef nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   store ptr %4, ptr %8, align 8, !tbaa !49
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #7, !srcloc !248
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #7, !srcloc !252
   %57 = load ptr, ptr %8, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   %58 = load volatile i64, ptr %57, align 8, !tbaa !42
@@ -3966,7 +3966,7 @@ realpath_internal_cached.exit34:                  ; preds = %42, %50
   %61 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !85
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load i32, ptr %63, align 8, !tbaa !249
+  %64 = load i32, ptr %63, align 8, !tbaa !253
   %65 = and i32 %64, 8192
   %.not.i35 = icmp eq i32 %65, 0
   br i1 %.not.i35, label %rb_exec_event_hook_script_compiled.exit, label %66, !prof !89
@@ -3974,26 +3974,26 @@ realpath_internal_cached.exit34:                  ; preds = %42, %50
 66:                                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !252
+  %69 = load ptr, ptr %68, align 8, !tbaa !256
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !253
+  %71 = load i64, ptr %70, align 8, !tbaa !257
   %72 = ptrtoint ptr %.0 to i64
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #7
-  store i32 8192, ptr %3, align 8, !tbaa !256
+  store i32 8192, ptr %3, align 8, !tbaa !260
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %73, align 8, !tbaa !258
+  store ptr %0, ptr %73, align 8, !tbaa !262
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %69, ptr %74, align 8, !tbaa !259
+  store ptr %69, ptr %74, align 8, !tbaa !263
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %71, ptr %75, align 8, !tbaa !260
+  store i64 %71, ptr %75, align 8, !tbaa !264
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  store i64 %72, ptr %77, align 8, !tbaa !261
+  store i64 %72, ptr %77, align 8, !tbaa !265
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i64 36, ptr %78, align 8, !tbaa !262
+  store i64 36, ptr %78, align 8, !tbaa !266
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 0, ptr %79, align 8, !tbaa !263
+  store i32 0, ptr %79, align 8, !tbaa !267
   call void @rb_exec_event_hooks(ptr noundef nonnull %3, ptr noundef nonnull %67, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #7
   br label %rb_exec_event_hook_script_compiled.exit
@@ -4079,7 +4079,7 @@ declare i64 @rb_vm_call_cfunc(i64 noundef, ptr noundef, i64 noundef, i64 noundef
 define internal i64 @load_ext(i64 noundef %0) #0 {
   tail call void @rb_scope_visibility_set(i32 noundef 1) #7
   %2 = inttoptr i64 %0 to ptr
-  %3 = load i64, ptr %2, align 8, !tbaa !44, !noalias !264
+  %3 = load i64, ptr %2, align 8, !tbaa !44, !noalias !268
   %4 = and i64 %3, 8192
   %.not.i.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -4206,7 +4206,7 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr i8, ptr %.05581, i64 -1
   %.not65 = icmp eq ptr %0, %21
-  br i1 %.not65, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !267
+  br i1 %.not65, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !271
 
 .critedgethread-pre-split:                        ; preds = %20, %16
   %.055.lcssa = phi ptr [ %17, %16 ], [ %0, %20 ]
@@ -4333,7 +4333,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %64
 77:                                               ; preds = %RARRAY_AREF.exit, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %78 = add nuw nsw i64 %.053, 1
-  br label %56, !llvm.loop !268
+  br label %56, !llvm.loop !272
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rb_array_len.exit.thread, %76, %41, %46, %36, %.critedge, %23, %28, %6
   %.0 = phi i64 [ %69, %76 ], [ 0, %6 ], [ 0, %28 ], [ 0, %23 ], [ 0, %.critedge ], [ 0, %36 ], [ 0, %46 ], [ 0, %41 ], [ 0, %rb_array_len.exit.thread ], [ 0, %rb_array_len.exit ]
@@ -4642,65 +4642,69 @@ attributes #30 = { nounwind allocsize(1) }
 !204 = distinct !{!204, !93}
 !205 = distinct !{!205, !93}
 !206 = !{!"branch_weights", !"expected", i32 951347, i32 2146532301}
-!207 = distinct !{!207, !93}
-!208 = !{!209, !8, i64 0}
-!209 = !{!"features_index_add_single_args", !8, i64 0, !14, i64 8, !23, i64 16}
-!210 = !{!209, !14, i64 8}
-!211 = !{!209, !23, i64 16}
-!212 = !{!169, !14, i64 8}
-!213 = !{!214}
-!214 = distinct !{!214, !215, !"rbimpl_rstring_getmem: argument 0"}
-!215 = distinct !{!215, !"rbimpl_rstring_getmem"}
-!216 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!217 = !{!"branch_weights", !"expected", i32 2146532301, i32 951347}
-!218 = !{!"branch_weights", !"expected", i32 4722102, i32 2142761546}
-!219 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!220 = !{!221, !19, i64 752}
-!221 = !{!"", !222, i64 0, !235, i64 712, !231, i64 816, !237, i64 840, !23, i64 992}
-!222 = !{!"pm_parser", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !223, i64 32, !99, i64 304, !99, i64 312, !225, i64 320, !225, i64 344, !99, i64 368, !99, i64 376, !226, i64 384, !226, i64 408, !228, i64 432, !226, i64 448, !226, i64 472, !229, i64 496, !230, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !99, i64 536, !9, i64 544, !231, i64 552, !232, i64 576, !233, i64 600, !130, i64 632, !231, i64 640, !19, i64 664, !9, i64 672, !234, i64 680, !19, i64 688, !10, i64 692, !10, i64 693, !23, i64 694, !23, i64 695, !23, i64 696, !23, i64 697, !23, i64 698, !23, i64 699, !23, i64 700, !23, i64 701, !23, i64 702, !23, i64 703, !23, i64 704}
-!223 = !{!"", !224, i64 0, !10, i64 8, !14, i64 264}
-!224 = !{!"p1 _ZTS11pm_lex_mode", !9, i64 0}
-!225 = !{!"", !19, i64 0, !99, i64 8, !99, i64 16}
-!226 = !{!"", !14, i64 0, !227, i64 8, !227, i64 16}
-!227 = !{!"p1 _ZTS12pm_list_node", !9, i64 0}
-!228 = !{!"", !99, i64 0, !99, i64 8}
-!229 = !{!"p1 _ZTS8pm_scope", !9, i64 0}
-!230 = !{!"p1 _ZTS15pm_context_node", !9, i64 0}
-!231 = !{!"", !99, i64 0, !14, i64 8, !19, i64 16}
-!232 = !{!"", !9, i64 0, !9, i64 8, !19, i64 16, !19, i64 20}
-!233 = !{!"", !99, i64 0, !14, i64 8, !14, i64 16, !50, i64 24}
-!234 = !{!"p1 _ZTS12pm_node_list", !9, i64 0}
-!235 = !{!"pm_options", !9, i64 0, !9, i64 8, !231, i64 16, !19, i64 40, !231, i64 48, !14, i64 72, !236, i64 80, !19, i64 88, !10, i64 92, !10, i64 93, !23, i64 94, !23, i64 95, !23, i64 96, !23, i64 97}
-!236 = !{!"p1 _ZTS16pm_options_scope", !9, i64 0}
-!237 = !{!"pm_scope_node", !238, i64 0, !239, i64 24, !240, i64 32, !240, i64 40, !240, i64 48, !241, i64 56, !243, i64 80, !244, i64 88, !50, i64 96, !244, i64 104, !19, i64 112, !50, i64 120, !27, i64 128, !19, i64 136, !245, i64 144}
-!238 = !{!"pm_node", !130, i64 0, !130, i64 2, !19, i64 4, !228, i64 8}
-!239 = !{!"p1 _ZTS13pm_scope_node", !9, i64 0}
-!240 = !{!"p1 _ZTS7pm_node", !9, i64 0}
-!241 = !{!"", !14, i64 0, !14, i64 8, !242, i64 16}
-!242 = !{!"p1 int", !9, i64 0}
-!243 = !{!"p1 _ZTS9pm_parser", !9, i64 0}
-!244 = !{!"p1 _ZTS18OnigEncodingTypeST", !9, i64 0}
-!245 = !{!"p1 _ZTS16iseq_link_anchor", !9, i64 0}
-!246 = !{!221, !19, i64 976}
-!247 = !{i64 2156817053}
-!248 = !{i64 2156817406}
-!249 = !{!250, !19, i64 8}
-!250 = !{!"rb_hook_list_struct", !251, i64 0, !19, i64 8, !19, i64 12, !23, i64 16, !23, i64 17}
-!251 = !{!"p1 _ZTS20rb_event_hook_struct", !9, i64 0}
-!252 = !{!58, !59, i64 16}
-!253 = !{!254, !14, i64 24}
-!254 = !{!"rb_control_frame_struct", !50, i64 0, !50, i64 8, !255, i64 16, !14, i64 24, !50, i64 32, !9, i64 40, !9, i64 48}
-!255 = !{!"p1 _ZTS14rb_iseq_struct", !9, i64 0}
-!256 = !{!257, !19, i64 0}
-!257 = !{!"rb_trace_arg_struct", !19, i64 0, !56, i64 8, !59, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !19, i64 64, !19, i64 68, !14, i64 72}
-!258 = !{!257, !56, i64 8}
-!259 = !{!257, !59, i64 16}
-!260 = !{!257, !14, i64 24}
-!261 = !{!257, !14, i64 56}
-!262 = !{!257, !14, i64 72}
-!263 = !{!257, !19, i64 64}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"rbimpl_rstring_getmem: argument 0"}
-!266 = distinct !{!266, !"rbimpl_rstring_getmem"}
-!267 = distinct !{!267, !93}
-!268 = distinct !{!268, !93}
+!207 = distinct !{!207, !93, !208}
+!208 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!209 = distinct !{!209, !208}
+!210 = !{!211, !8, i64 0}
+!211 = !{!"features_index_add_single_args", !8, i64 0, !14, i64 8, !23, i64 16}
+!212 = !{!211, !14, i64 8}
+!213 = distinct !{!213, !93}
+!214 = !{!211, !23, i64 16}
+!215 = !{!169, !14, i64 8}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"rbimpl_rstring_getmem: argument 0"}
+!218 = distinct !{!218, !"rbimpl_rstring_getmem"}
+!219 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!220 = !{!"branch_weights", !"expected", i32 2146532301, i32 951347}
+!221 = distinct !{!221, !208}
+!222 = !{!"branch_weights", !"expected", i32 4722102, i32 2142761546}
+!223 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!224 = !{!225, !19, i64 752}
+!225 = !{!"", !226, i64 0, !239, i64 712, !235, i64 816, !241, i64 840, !23, i64 992}
+!226 = !{!"pm_parser", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !227, i64 32, !99, i64 304, !99, i64 312, !229, i64 320, !229, i64 344, !99, i64 368, !99, i64 376, !230, i64 384, !230, i64 408, !232, i64 432, !230, i64 448, !230, i64 472, !233, i64 496, !234, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !99, i64 536, !9, i64 544, !235, i64 552, !236, i64 576, !237, i64 600, !130, i64 632, !235, i64 640, !19, i64 664, !9, i64 672, !238, i64 680, !19, i64 688, !10, i64 692, !10, i64 693, !23, i64 694, !23, i64 695, !23, i64 696, !23, i64 697, !23, i64 698, !23, i64 699, !23, i64 700, !23, i64 701, !23, i64 702, !23, i64 703, !23, i64 704}
+!227 = !{!"", !228, i64 0, !10, i64 8, !14, i64 264}
+!228 = !{!"p1 _ZTS11pm_lex_mode", !9, i64 0}
+!229 = !{!"", !19, i64 0, !99, i64 8, !99, i64 16}
+!230 = !{!"", !14, i64 0, !231, i64 8, !231, i64 16}
+!231 = !{!"p1 _ZTS12pm_list_node", !9, i64 0}
+!232 = !{!"", !99, i64 0, !99, i64 8}
+!233 = !{!"p1 _ZTS8pm_scope", !9, i64 0}
+!234 = !{!"p1 _ZTS15pm_context_node", !9, i64 0}
+!235 = !{!"", !99, i64 0, !14, i64 8, !19, i64 16}
+!236 = !{!"", !9, i64 0, !9, i64 8, !19, i64 16, !19, i64 20}
+!237 = !{!"", !99, i64 0, !14, i64 8, !14, i64 16, !50, i64 24}
+!238 = !{!"p1 _ZTS12pm_node_list", !9, i64 0}
+!239 = !{!"pm_options", !9, i64 0, !9, i64 8, !235, i64 16, !19, i64 40, !235, i64 48, !14, i64 72, !240, i64 80, !19, i64 88, !10, i64 92, !10, i64 93, !23, i64 94, !23, i64 95, !23, i64 96, !23, i64 97}
+!240 = !{!"p1 _ZTS16pm_options_scope", !9, i64 0}
+!241 = !{!"pm_scope_node", !242, i64 0, !243, i64 24, !244, i64 32, !244, i64 40, !244, i64 48, !245, i64 56, !247, i64 80, !248, i64 88, !50, i64 96, !248, i64 104, !19, i64 112, !50, i64 120, !27, i64 128, !19, i64 136, !249, i64 144}
+!242 = !{!"pm_node", !130, i64 0, !130, i64 2, !19, i64 4, !232, i64 8}
+!243 = !{!"p1 _ZTS13pm_scope_node", !9, i64 0}
+!244 = !{!"p1 _ZTS7pm_node", !9, i64 0}
+!245 = !{!"", !14, i64 0, !14, i64 8, !246, i64 16}
+!246 = !{!"p1 int", !9, i64 0}
+!247 = !{!"p1 _ZTS9pm_parser", !9, i64 0}
+!248 = !{!"p1 _ZTS18OnigEncodingTypeST", !9, i64 0}
+!249 = !{!"p1 _ZTS16iseq_link_anchor", !9, i64 0}
+!250 = !{!225, !19, i64 976}
+!251 = !{i64 2156817053}
+!252 = !{i64 2156817406}
+!253 = !{!254, !19, i64 8}
+!254 = !{!"rb_hook_list_struct", !255, i64 0, !19, i64 8, !19, i64 12, !23, i64 16, !23, i64 17}
+!255 = !{!"p1 _ZTS20rb_event_hook_struct", !9, i64 0}
+!256 = !{!58, !59, i64 16}
+!257 = !{!258, !14, i64 24}
+!258 = !{!"rb_control_frame_struct", !50, i64 0, !50, i64 8, !259, i64 16, !14, i64 24, !50, i64 32, !9, i64 40, !9, i64 48}
+!259 = !{!"p1 _ZTS14rb_iseq_struct", !9, i64 0}
+!260 = !{!261, !19, i64 0}
+!261 = !{!"rb_trace_arg_struct", !19, i64 0, !56, i64 8, !59, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !19, i64 64, !19, i64 68, !14, i64 72}
+!262 = !{!261, !56, i64 8}
+!263 = !{!261, !59, i64 16}
+!264 = !{!261, !14, i64 24}
+!265 = !{!261, !14, i64 56}
+!266 = !{!261, !14, i64 72}
+!267 = !{!261, !19, i64 64}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"rbimpl_rstring_getmem: argument 0"}
+!270 = distinct !{!270, !"rbimpl_rstring_getmem"}
+!271 = distinct !{!271, !93}
+!272 = distinct !{!272, !93}

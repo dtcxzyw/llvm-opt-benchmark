@@ -3463,7 +3463,7 @@ LAME_getnext.exit.us:                             ; preds = %.lr.ph, %LAME_getne
   %59 = xor i8 %.0.i.us, %58
   store i8 %59, ptr %.013.us, align 1, !tbaa !46
   %.not.us = icmp eq i32 %26, 0
-  br i1 %.not.us, label %._crit_edge, label %LAME_getnext.exit.us
+  br i1 %.not.us, label %._crit_edge, label %LAME_getnext.exit.us, !llvm.loop !65
 
 LAME_getnext.exit:                                ; preds = %.lr.ph, %LAME_getnext.exit
   %.013 = phi ptr [ %92, %LAME_getnext.exit ], [ %0, %.lr.ph ]
@@ -3721,3 +3721,5 @@ attributes #15 = { nounwind willreturn memory(read) }
 !62 = !{!63, !14, i64 8}
 !63 = !{!"MT", !64, i64 0, !14, i64 8, !7, i64 12}
 !64 = !{!"p1 int", !6, i64 0}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}

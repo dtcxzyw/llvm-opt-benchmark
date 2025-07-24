@@ -375,70 +375,63 @@ define dso_local void @heap_fill_tuple(ptr noundef readonly captures(none) %0, p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not21 = icmp eq ptr %1, null
   %.not22 = icmp eq ptr %2, null
-  %wide.trip.count44 = zext nneg i32 %11 to i64
+  %wide.trip.count38 = zext nneg i32 %11 to i64
   br i1 %.not22, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not21, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %17 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv41
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %22 ], [ 0, %.lr.ph ]
+  %17 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv35
   %18 = load ptr, ptr %9, align 8
-  %.not20.us.us = icmp eq ptr %18, null
-  %..us.us = select i1 %.not20.us.us, ptr null, ptr %9
-  call fastcc void @fill_val(ptr noundef nonnull %17, ptr noundef %..us.us, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext true)
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %19 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv36
-  %20 = load ptr, ptr %9, align 8
-  %.not20.us = icmp eq ptr %20, null
+  %.not20.us = icmp eq ptr %18, null
   %..us = select i1 %.not20.us, ptr null, ptr %9
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv36
-  %22 = load i64, ptr %21, align 8
-  call fastcc void @fill_val(ptr noundef nonnull %19, ptr noundef %..us, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %22, i1 noundef zeroext true)
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count44
-  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
+  br i1 %.not21, label %22, label %19
+
+19:                                               ; preds = %.lr.ph.split.us
+  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv35
+  %21 = load i64, ptr %20, align 8
+  br label %22
+
+22:                                               ; preds = %19, %.lr.ph.split.us
+  %23 = phi i64 [ %21, %19 ], [ 0, %.lr.ph.split.us ]
+  call fastcc void @fill_val(ptr noundef nonnull %17, ptr noundef %..us, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %23, i1 noundef zeroext true)
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %23 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv31
-  %24 = load ptr, ptr %9, align 8
-  %.not20.us25 = icmp eq ptr %24, null
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %24 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv30
+  %25 = load ptr, ptr %9, align 8
+  %.not20.us25 = icmp eq ptr %25, null
   %..us26 = select i1 %.not20.us25, ptr null, ptr %9
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv31
-  %26 = load i8, ptr %25, align 1, !range !4, !noundef !5
-  %27 = icmp ne i8 %26, 0
-  call fastcc void @fill_val(ptr noundef nonnull %23, ptr noundef %..us26, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext %27)
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count44
-  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv30
+  %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
+  %28 = icmp ne i8 %27, 0
+  call fastcc void @fill_val(ptr noundef nonnull %24, ptr noundef %..us26, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext %28)
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count38
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %28 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv
-  %29 = load ptr, ptr %9, align 8
-  %.not20 = icmp eq ptr %29, null
+  %29 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %16, i64 0, i64 %indvars.iv
+  %30 = load ptr, ptr %9, align 8
+  %.not20 = icmp eq ptr %30, null
   %. = select i1 %.not20, ptr null, ptr %9
-  %30 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !range !4, !noundef !5
-  %34 = icmp ne i8 %33, 0
-  call fastcc void @fill_val(ptr noundef nonnull %28, ptr noundef %., ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %31, i1 noundef zeroext %34)
+  %31 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %34 = load i8, ptr %33, align 1, !range !4, !noundef !5
+  %35 = icmp ne i8 %34, 0
+  call fastcc void @fill_val(ptr noundef nonnull %29, ptr noundef %., ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %32, i1 noundef zeroext %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %7
+._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %22, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   ret void
@@ -796,7 +789,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit188, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit188, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
@@ -886,7 +879,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 62:                                               ; preds = %.lr.ph192
   %63 = add i32 %.0130191, 1
   %.not148.not = icmp sgt i32 %63, %7
-  br i1 %.not148.not, label %.thread165, label %.lr.ph192, !llvm.loop !10
+  br i1 %.not148.not, label %.thread165, label %.lr.ph192, !llvm.loop !13
 
 .lr.ph192:                                        ; preds = %.preheader186, %62
   %.0130191 = phi i32 [ %63, %62 ], [ 0, %.preheader186 ]
@@ -923,7 +916,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 74:                                               ; preds = %.lr.ph196
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge, label %.lr.ph196, !llvm.loop !11
+  br i1 %exitcond209.not, label %._crit_edge, label %.lr.ph196, !llvm.loop !14
 
 .critedge.loopexit:                               ; preds = %.lr.ph196
   %75 = trunc nuw nsw i64 %indvars.iv205 to i32
@@ -969,7 +962,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %100 = trunc nuw i64 %indvars.iv.next211 to i32
   %101 = icmp sgt i32 %68, %100
-  br i1 %101, label %.lr.ph202, label %._crit_edge, !llvm.loop !12
+  br i1 %101, label %.lr.ph202, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %74, %90, %.lr.ph202, %.critedge
   %102 = sext i32 %7 to i64
@@ -1441,13 +1434,13 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %35 = getelementptr inbounds nuw %struct.AttrMissing, ptr %27, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 8, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph229, !llvm.loop !13
+  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph229, !llvm.loop !16
 
 .lr.ph229:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv228 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %31, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv228, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread172, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread172, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv.lcssa = phi i64 [ %31, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1573,7 +1566,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %.1146 = phi i64 [ %104, %102 ], [ %.0145189, %42 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge193, label %42, !llvm.loop !14
+  br i1 %exitcond205.not, label %._crit_edge193, label %42, !llvm.loop !17
 
 ._crit_edge193:                                   ; preds = %105, %._crit_edge
   %.1150.lcssa = phi i1 [ %.0149.lcssa, %._crit_edge ], [ %.2151, %105 ]
@@ -1802,7 +1795,7 @@ fill_val.exit.us:                                 ; preds = %216, %214
   store i16 %220, ptr %.0143, align 2
   %221 = add nuw nsw i32 %.1196.us, 1
   %exitcond211.not = icmp eq i32 %221, %15
-  br i1 %exitcond211.not, label %._crit_edge199, label %212, !llvm.loop !15
+  br i1 %exitcond211.not, label %._crit_edge199, label %212, !llvm.loop !18
 
 .lr.ph198.split:                                  ; preds = %.lr.ph198.split.preheader, %239
   %indvars.iv206 = phi i64 [ %211, %.lr.ph198.split.preheader ], [ %indvars.iv.next207, %239 ]
@@ -1848,7 +1841,7 @@ fill_val.exit:                                    ; preds = %232, %234
 239:                                              ; preds = %fill_val.exit, %225
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge199, label %.lr.ph198.split, !llvm.loop !15
+  br i1 %exitcond210.not, label %._crit_edge199, label %.lr.ph198.split, !llvm.loop !19
 
 ._crit_edge199:                                   ; preds = %239, %fill_val.exit.us, %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
@@ -1935,7 +1928,7 @@ define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -2047,7 +2040,7 @@ define dso_local noundef ptr @heap_modify_tuple(ptr noundef readonly captures(no
 22:                                               ; preds = %.lr.ph, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %22, %5
   %23 = tail call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %10)
@@ -2343,7 +2336,7 @@ fetch_att.exit:                                   ; preds = %98, %101, %104, %10
   %.1 = phi i1 [ true, %36 ], [ %spec.select, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !22
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv108 = phi i64 [ %23, %.lr.ph106.preheader ], [ %indvars.iv.next109, %.lr.ph106 ]
@@ -2354,7 +2347,7 @@ fetch_att.exit:                                   ; preds = %98, %101, %104, %10
   %162 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv108
   store i64 %161, ptr %162, align 8
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !19
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
   ret void
@@ -2406,7 +2399,7 @@ define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly cap
   store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %20, %6
   %29 = tail call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef %10, ptr noundef %11)
@@ -2460,7 +2453,7 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -2686,9 +2679,9 @@ attributes #14 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !9}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -2696,7 +2689,11 @@ attributes #14 = { cold nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!18 = distinct !{!18, !7, !9}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

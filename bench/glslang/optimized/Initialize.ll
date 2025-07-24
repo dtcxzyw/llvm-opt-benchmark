@@ -18237,7 +18237,7 @@ define void @_ZN7glslang9TBuiltIns31add2ndGenerationSamplingImagingEi8EProfileRK
   %invariant.op246262 = or i1 %28, %9
   %30 = and i1 %invariant.op246262, %8
   %or.cond197261 = or i1 %invariant.op250, %30
-  %invariant.op272.invariant.op271.v = select i1 %28, i32 520617984, i32 521142272
+  %invariant.op271.invariant.op270.v = select i1 %28, i32 520617984, i32 521142272
   br label %.preheader223
 
 .preheader223:                                    ; preds = %.preheader224, %.loopexit222.thread
@@ -18323,8 +18323,8 @@ switch.early.test:                                ; preds = %.thread213
 
 58:                                               ; preds = %switch.early.test, %switch.early.test, %.thread213
   %59 = icmp eq i32 %.0194238, 6
-  %or.cond259.not = and i1 %59, %or.cond41263
-  br i1 %or.cond259.not, label %.loopexit, label %60
+  %or.cond257.not = and i1 %59, %or.cond41263
+  br i1 %or.cond257.not, label %.loopexit, label %60
 
 60:                                               ; preds = %58
   %61 = icmp eq i32 %.0194238, 3
@@ -18346,7 +18346,7 @@ switch.early.test:                                ; preds = %.thread213
 .preheader.split.preheader:                       ; preds = %.preheader
   %66 = shl nuw nsw i32 %.0194238, 8
   %invariant.op229.reass = add nuw nsw i32 %66, %invariant.op240.reass
-  %invariant.op272.invariant.op271 = or i32 %invariant.op229.reass, %invariant.op272.invariant.op271.v
+  %invariant.op271.invariant.op270 = or i32 %invariant.op229.reass, %invariant.op271.invariant.op270.v
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209.us
@@ -18356,8 +18356,8 @@ switch.early.test:                                ; preds = %.thread213
   %or.cond206.us = and i1 %or.cond63, %68
   %69 = icmp ne i64 %.0195225.us, 0
   %or.cond67.reass.us = and i1 %69, %invariant.op
-  %or.cond257 = or i1 %or.cond206.us, %or.cond67.reass.us
-  br i1 %or.cond257, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209.us, label %70
+  %or.cond255 = or i1 %or.cond206.us, %or.cond67.reass.us
+  br i1 %or.cond255, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209.us, label %70
 
 70:                                               ; preds = %.preheader.split.us
   %.0195.off.us = add nsw i64 %.0195225.us, -1
@@ -18388,8 +18388,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i208.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.us, %70, %.preheader.split.us
   %81 = add nuw nsw i64 %.0195225.us, 1
-  %exitcond267.not = icmp eq i64 %81, 4
-  br i1 %exitcond267.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !23
+  %exitcond266.not = icmp eq i64 %81, 4
+  br i1 %exitcond266.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !23
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209
   %.0195225 = phi i64 [ %110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209 ], [ 0, %.preheader.split.preheader ]
@@ -18398,8 +18398,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %or.cond206 = and i1 %or.cond63, %83
   %84 = icmp ne i64 %.0195225, 0
   %or.cond67.reass = and i1 %84, %invariant.op
-  %or.cond258 = or i1 %or.cond206, %or.cond67.reass
-  br i1 %or.cond258, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209, label %85
+  %or.cond256 = or i1 %or.cond206, %or.cond67.reass
+  br i1 %or.cond256, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209, label %85
 
 85:                                               ; preds = %.preheader.split
   %.0195.off = add nsw i64 %.0195225, -1
@@ -18413,7 +18413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %89 = and i32 %88, -2147483648
   %90 = and i32 %87, 255
   %91 = or disjoint i32 %90, %89
-  %.reass = or disjoint i32 %91, %invariant.op272.invariant.op271
+  %.reass = or disjoint i32 %91, %invariant.op271.invariant.op270
   store i32 %.reass, ptr %5, align 4
   call void @_ZNK7glslang8TSampler9getStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.sroa.074.0.copyload = load i32, ptr %5, align 4
@@ -18472,24 +18472,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %85, %.preheader.split
   %110 = add nuw nsw i64 %.0195225, 1
   %exitcond.not = icmp eq i64 %110, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit209.us, %.thread210, %switch.early.test, %49, %62, %60, %58, %54
   %111 = add nuw nsw i32 %.0194238, 1
-  %exitcond268.not = icmp eq i32 %111, 9
-  br i1 %exitcond268.not, label %.split.us, label %.preheader220.split, !llvm.loop !24
+  %exitcond267.not = icmp eq i32 %111, 9
+  br i1 %exitcond267.not, label %.split.us, label %.preheader220.split, !llvm.loop !26
 
 .split.us:                                        ; preds = %.preheader220.split, %.loopexit, %.preheader220
-  br i1 %44, label %.preheader220, label %.loopexit222, !llvm.loop !25
+  br i1 %44, label %.preheader220, label %.loopexit222, !llvm.loop !27
 
 .loopexit222:                                     ; preds = %.split.us, %35
-  br i1 %37, label %35, label %.loopexit222.thread, !llvm.loop !26
+  br i1 %37, label %35, label %.loopexit222.thread, !llvm.loop !28
 
 .loopexit222.thread:                              ; preds = %39, %.loopexit222
-  br i1 %32, label %.preheader223, label %112, !llvm.loop !27
+  br i1 %32, label %.preheader223, label %112, !llvm.loop !29
 
 112:                                              ; preds = %.loopexit222.thread
-  br i1 %29, label %.preheader224, label %113, !llvm.loop !28
+  br i1 %29, label %.preheader224, label %113, !llvm.loop !30
 
 113:                                              ; preds = %112
   %114 = icmp sgt i32 %1, 449
@@ -20421,7 +20421,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %476 = load ptr, ptr %321, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 %465
   store i8 0, ptr %477, align 1
-  br i1 %.not38, label %331, label %.thread263, !llvm.loop !29
+  br i1 %.not38, label %331, label %.thread263, !llvm.loop !31
 
 .thread263:                                       ; preds = %331, %475
   %478 = load ptr, ptr %329, align 8
@@ -20710,7 +20710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %591 = load ptr, ptr %326, align 8
   %592 = getelementptr inbounds i8, ptr %591, i64 %581
   store i8 0, ptr %592, align 1
-  br i1 %328, label %.preheader, label %.loopexit, !llvm.loop !30
+  br i1 %328, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit205, %switch.early.test, %switch.early.test, %307
   br i1 %or.cond5262, label %593, label %600
@@ -20765,7 +20765,7 @@ define void @_ZN7glslang9TBuiltIns17addImageFunctionsENS_8TSamplerERKNSt7__cxx11
   %15 = zext i1 %or.cond65.not to i32
   %.056 = add nsw i32 %13, %15
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !31
+  %17 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !33
   store ptr %17, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %16, ptr %18, align 8
@@ -22758,7 +22758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   store i8 0, ptr %754, align 1
   %755 = add nuw nsw i64 %.0581078, 1
   %exitcond1084.not = icmp eq i64 %755, 7
-  br i1 %exitcond1084.not, label %756, label %496, !llvm.loop !40
+  br i1 %exitcond1084.not, label %756, label %496, !llvm.loop !42
 
 756:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit220
   %757 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.057) #16
@@ -23181,7 +23181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %919 = load ptr, ptr %212, align 8
   %920 = getelementptr inbounds i8, ptr %919, i64 %909
   store i8 0, ptr %920, align 1
-  br i1 %495, label %.preheader, label %921, !llvm.loop !41
+  br i1 %495, label %.preheader, label %921, !llvm.loop !43
 
 921:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit274
   %922 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.057) #16
@@ -24403,10 +24403,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   store i8 0, ptr %1367, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %1368, label %1141, !llvm.loop !42
+  br i1 %exitcond.not, label %1368, label %1141, !llvm.loop !44
 
 1368:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit382
-  br i1 %1138, label %.preheader1074, label %.loopexit, !llvm.loop !43
+  br i1 %1138, label %.preheader1074, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %1368, %1136
   %1369 = icmp sgt i32 %3, 449
@@ -25958,7 +25958,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 
 1971:                                             ; preds = %1969
   %1972 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %1973 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !44
+  %1973 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !46
   store ptr %1973, ptr %7, align 8
   %1974 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1972, ptr %1974, align 8
@@ -32524,34 +32524,34 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, %1756
-  br i1 %.not175, label %119, label %.loopexit, !llvm.loop !53
+  br i1 %.not175, label %119, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %switch.early.test, %switch.early.test, %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
-  br i1 %117, label %116, label %.loopexit1494, !llvm.loop !54
+  br i1 %117, label %116, label %.loopexit1494, !llvm.loop !56
 
 .loopexit1494:                                    ; preds = %116, %.loopexit
-  br i1 %.not171, label %102, label %.loopexit1495, !llvm.loop !55
+  br i1 %.not171, label %102, label %.loopexit1495, !llvm.loop !57
 
 .loopexit1495:                                    ; preds = %103, %.loopexit1494
-  br i1 %96, label %.preheader, label %.loopexit1496, !llvm.loop !56
+  br i1 %96, label %.preheader, label %.loopexit1496, !llvm.loop !58
 
 .loopexit1496:                                    ; preds = %.preheader, %.loopexit1495, %91
-  br i1 %92, label %91, label %.loopexit1497, !llvm.loop !57
+  br i1 %92, label %91, label %.loopexit1497, !llvm.loop !59
 
 .loopexit1497:                                    ; preds = %.loopexit1496, %88, %81
-  br i1 %83, label %81, label %.loopexit1498, !llvm.loop !58
+  br i1 %83, label %81, label %.loopexit1498, !llvm.loop !60
 
 .loopexit1498:                                    ; preds = %87, %85, %.loopexit1497, %76
-  br i1 %.not163, label %76, label %.loopexit1499, !llvm.loop !59
+  br i1 %.not163, label %76, label %.loopexit1499, !llvm.loop !61
 
 .loopexit1499:                                    ; preds = %80, %79, %79, %.loopexit1498
-  br i1 %.not177, label %71, label %.loopexit1500, !llvm.loop !60
+  br i1 %.not177, label %71, label %.loopexit1500, !llvm.loop !62
 
 .loopexit1500:                                    ; preds = %72, %74, %.critedge183, %.critedge183, %.loopexit1499
-  br i1 %.not, label %67, label %.loopexit1501, !llvm.loop !61
+  br i1 %.not, label %67, label %.loopexit1501, !llvm.loop !63
 
 .loopexit1501:                                    ; preds = %68, %68, %69, %.loopexit1500
-  br i1 %60, label %58, label %.loopexit1501.thread, !llvm.loop !62
+  br i1 %60, label %58, label %.loopexit1501.thread, !llvm.loop !64
 
 .loopexit1501.thread:                             ; preds = %62, %61, %61, %.loopexit1501
   ret void
@@ -32561,8 +32561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile(ptr noundef nonnull align 8 captures(address) dereferenceable(876) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.fr1308 = freeze i32 %1
-  %8 = lshr i32 %.fr1308, 8
+  %8 = lshr i32 %1, 8
   %trunc = trunc i32 %8 to i8
   switch i8 %trunc, label %.loopexit1289 [
     i8 2, label %9
@@ -32571,7 +32570,7 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   ]
 
 9:                                                ; preds = %5, %5, %5
-  %10 = and i32 %.fr1308, 262144
+  %10 = and i32 %1, 262144
   %.not1276 = icmp eq i32 %10, 0
   br i1 %.not1276, label %11, label %.loopexit1289
 
@@ -32580,28 +32579,28 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
-  %.pre1349 = and i32 %.fr1308, 255
-  %.pre1350 = and i32 %.fr1308, 65280
+  %.pre1345 = and i32 %1, 255
+  %.pre1346 = and i32 %1, 65280
   br label %17
 
 13:                                               ; preds = %11
-  %14 = and i32 %.fr1308, 65280
+  %14 = and i32 %1, 65280
   %15 = icmp ne i32 %14, 1280
-  %16 = and i32 %.fr1308, 255
+  %16 = and i32 %1, 255
   %.not = icmp eq i32 %16, 1
   %or.cond105 = or i1 %15, %.not
   br i1 %or.cond105, label %17, label %.loopexit1289
 
 17:                                               ; preds = %._crit_edge, %13
-  %.pre-phi1351 = phi i32 [ %.pre1350, %._crit_edge ], [ %14, %13 ]
-  %.pre-phi = phi i32 [ %.pre1349, %._crit_edge ], [ %16, %13 ]
+  %.pre-phi1347 = phi i32 [ %.pre1346, %._crit_edge ], [ %14, %13 ]
+  %.pre-phi = phi i32 [ %.pre1345, %._crit_edge ], [ %16, %13 ]
   %.not97 = icmp eq i32 %.pre-phi, 3
-  %18 = and i32 %.fr1308, 131072
+  %18 = and i32 %1, 131072
   %.not98 = icmp eq i32 %18, 0
-  %19 = icmp eq i32 %.pre-phi1351, 1024
+  %19 = icmp eq i32 %.pre-phi1347, 1024
   %20 = icmp ne i32 %4, 8
   %21 = icmp sgt i32 %3, 449
-  %or.cond.not1354 = and i1 %21, %20
+  %or.cond.not1350 = and i1 %21, %20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -32614,7 +32613,7 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   %31 = and i32 %8, 255
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [9 x i32], ptr %30, i64 0, i64 %32
-  %34 = lshr i32 %.fr1308, 16
+  %34 = lshr i32 %1, 16
   %.lobit102 = and i32 %34, 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32634,7 +32633,8 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   %.not99 = icmp ne i32 %.0861297, 0
   %or.cond1272 = and i1 %19, %.not99
   %42 = icmp eq i32 %.0861297, 2
-  br i1 %or.cond1272, label %.split.us, label %.preheader1292.split
+  %or.cond1272.fr = freeze i1 %or.cond1272
+  br i1 %or.cond1272.fr, label %.split.us, label %.preheader1292.split
 
 .preheader1292.split:                             ; preds = %.preheader1292, %.loopexit1291
   %43 = phi i1 [ false, %.loopexit1291 ], [ true, %.preheader1292 ]
@@ -32646,7 +32646,7 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   br i1 %.not100, label %45, label %44
 
 44:                                               ; preds = %.preheader1290
-  br i1 %or.cond.not1354, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i441, label %.loopexit1291
+  br i1 %or.cond.not1350, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i441, label %.loopexit1291
 
 45:                                               ; preds = %.preheader1290
   %46 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
@@ -32854,7 +32854,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 112:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i129.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i129
   %113 = getelementptr inbounds i8, ptr %108, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %113, ptr noundef nonnull align 1 dereferenceable(13) @.str.509, i64 13, i1 false)
-  %.pre1314 = load ptr, ptr %23, align 8
+  %.pre1310 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit133
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i451: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i129.thread
@@ -32910,7 +32910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit133
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit133: ; preds = %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit465
-  %132 = phi ptr [ %.pre1314, %112 ], [ %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit465 ]
+  %132 = phi ptr [ %.pre1310, %112 ], [ %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit465 ]
   store i64 %107, ptr %24, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 %107
   store i8 0, ptr %133, align 1
@@ -32951,7 +32951,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 144:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i135.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i135
   %145 = getelementptr inbounds i8, ptr %140, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %145, ptr noundef nonnull align 1 dereferenceable(6) @.str.492, i64 6, i1 false)
-  %.pre1316 = load ptr, ptr %23, align 8
+  %.pre1312 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit139
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i466: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i135.thread
@@ -33007,7 +33007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit139
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit139: ; preds = %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit480
-  %164 = phi ptr [ %.pre1316, %144 ], [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit480 ]
+  %164 = phi ptr [ %.pre1312, %144 ], [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit480 ]
   store i64 %139, ptr %24, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 %139
   store i8 0, ptr %165, align 1
@@ -33042,7 +33042,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 175:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i141.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i141
   %176 = getelementptr inbounds i8, ptr %171, i64 %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %176, ptr noundef nonnull align 1 dereferenceable(7) @.str.510, i64 7, i1 false)
-  %.pre1315 = load ptr, ptr %23, align 8
+  %.pre1311 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit145
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i481: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i141.thread
@@ -33098,7 +33098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit145
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit145: ; preds = %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit495
-  %195 = phi ptr [ %.pre1315, %175 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit495 ]
+  %195 = phi ptr [ %.pre1311, %175 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit495 ]
   store i64 %170, ptr %24, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 %170
   store i8 0, ptr %196, align 1
@@ -33136,7 +33136,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 207:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i147.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i147
   %208 = getelementptr inbounds i8, ptr %203, i64 %199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %208, ptr noundef nonnull align 1 dereferenceable(3) @.str.494, i64 3, i1 false)
-  %.pre1317 = load ptr, ptr %23, align 8
+  %.pre1313 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit151
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i496: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i147.thread
@@ -33192,7 +33192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit151
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit151: ; preds = %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit510
-  %227 = phi ptr [ %.pre1317, %207 ], [ %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit510 ]
+  %227 = phi ptr [ %.pre1313, %207 ], [ %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit510 ]
   store i64 %202, ptr %24, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 %202
   store i8 0, ptr %228, align 1
@@ -33227,7 +33227,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 238:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i153.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i153
   %239 = getelementptr inbounds i8, ptr %234, i64 %230
   store i8 40, ptr %239, align 1
-  %.pre1318 = load ptr, ptr %23, align 8
+  %.pre1314 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit157
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i511: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i153.thread
@@ -33283,7 +33283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit157
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit157: ; preds = %238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit525
-  %258 = phi ptr [ %.pre1318, %238 ], [ %247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit525 ]
+  %258 = phi ptr [ %.pre1314, %238 ], [ %247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit525 ]
   store i64 %233, ptr %24, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 %233
   store i8 0, ptr %259, align 1
@@ -33439,7 +33439,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 312:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i159.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i159
   %313 = getelementptr inbounds i8, ptr %308, i64 %303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %313, ptr noundef nonnull align 1 dereferenceable(7) @.str.504, i64 7, i1 false)
-  %.pre1319 = load ptr, ptr %23, align 8
+  %.pre1315 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit163
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i541: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i159, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i159.thread
@@ -33495,7 +33495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit163
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit163: ; preds = %312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit555
-  %332 = phi ptr [ %.pre1319, %312 ], [ %321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit555 ]
+  %332 = phi ptr [ %.pre1315, %312 ], [ %321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit555 ]
   store i64 %307, ptr %24, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 %307
   store i8 0, ptr %333, align 1
@@ -33530,7 +33530,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 343:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i165.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i165
   %344 = getelementptr inbounds i8, ptr %339, i64 %303
   store i32 1667593772, ptr %344, align 1
-  %.pre1320 = load ptr, ptr %23, align 8
+  %.pre1316 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit169
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i556: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i165, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i165.thread
@@ -33586,7 +33586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit169
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit169: ; preds = %343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit570
-  %363 = phi ptr [ %.pre1320, %343 ], [ %352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit570 ]
+  %363 = phi ptr [ %.pre1316, %343 ], [ %352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit570 ]
   store i64 %338, ptr %24, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 %338
   store i8 0, ptr %364, align 1
@@ -33747,7 +33747,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 420:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i177.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i177
   %421 = getelementptr inbounds i8, ptr %416, i64 %412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %421, ptr noundef nonnull align 1 dereferenceable(6) @.str.499, i64 6, i1 false)
-  %.pre1321 = load ptr, ptr %23, align 8
+  %.pre1317 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit181
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i586: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i177.thread
@@ -33803,7 +33803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit181
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit181: ; preds = %420, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit600
-  %440 = phi ptr [ %.pre1321, %420 ], [ %429, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit600 ]
+  %440 = phi ptr [ %.pre1317, %420 ], [ %429, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit600 ]
   store i64 %415, ptr %24, align 8
   %441 = getelementptr inbounds i8, ptr %440, i64 %415
   store i8 0, ptr %441, align 1
@@ -33841,7 +33841,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 452:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i183.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i183
   %453 = getelementptr inbounds i8, ptr %448, i64 %444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %453, ptr noundef nonnull align 1 dereferenceable(6) @.str.511, i64 6, i1 false)
-  %.pre1322 = load ptr, ptr %23, align 8
+  %.pre1318 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit187
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i601: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i183.thread
@@ -33897,7 +33897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit187
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit187: ; preds = %452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit615
-  %472 = phi ptr [ %.pre1322, %452 ], [ %461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit615 ]
+  %472 = phi ptr [ %.pre1318, %452 ], [ %461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit615 ]
   store i64 %447, ptr %24, align 8
   %473 = getelementptr inbounds i8, ptr %472, i64 %447
   store i8 0, ptr %473, align 1
@@ -33932,7 +33932,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 483:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i189.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i189
   %484 = getelementptr inbounds i8, ptr %479, i64 %475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %484, ptr noundef nonnull align 1 dereferenceable(3) @.str.512, i64 3, i1 false)
-  %.pre1323 = load ptr, ptr %23, align 8
+  %.pre1319 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit193
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i616: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i189, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i189.thread
@@ -33988,7 +33988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit193
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit193: ; preds = %483, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit630
-  %503 = phi ptr [ %.pre1323, %483 ], [ %492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit630 ]
+  %503 = phi ptr [ %.pre1319, %483 ], [ %492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit630 ]
   store i64 %478, ptr %24, align 8
   %504 = getelementptr inbounds i8, ptr %503, i64 %478
   store i8 0, ptr %504, align 1
@@ -34026,7 +34026,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 515:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i195.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i195
   %516 = getelementptr inbounds i8, ptr %511, i64 %507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %516, ptr noundef nonnull align 1 dereferenceable(5) @.str.507, i64 5, i1 false)
-  %.pre1324 = load ptr, ptr %23, align 8
+  %.pre1320 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit199
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i631: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i195, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i195.thread
@@ -34082,7 +34082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit199
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit199: ; preds = %515, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit645
-  %535 = phi ptr [ %.pre1324, %515 ], [ %524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit645 ]
+  %535 = phi ptr [ %.pre1320, %515 ], [ %524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit645 ]
   store i64 %510, ptr %24, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 %510
   store i8 0, ptr %536, align 1
@@ -34233,7 +34233,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 586:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i207.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i207
   %587 = getelementptr inbounds i8, ptr %582, i64 %578
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %587, ptr noundef nonnull align 1 dereferenceable(5) @.str.483, i64 5, i1 false)
-  %.pre1325 = load ptr, ptr %23, align 8
+  %.pre1321 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit211
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i661: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i207.thread
@@ -34289,7 +34289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit211
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit211: ; preds = %586, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit675
-  %606 = phi ptr [ %.pre1325, %586 ], [ %595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit675 ]
+  %606 = phi ptr [ %.pre1321, %586 ], [ %595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit675 ]
   store i64 %581, ptr %24, align 8
   %607 = getelementptr inbounds i8, ptr %606, i64 %581
   store i8 0, ptr %607, align 1
@@ -34328,7 +34328,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 619:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i213.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i213
   %620 = getelementptr inbounds i8, ptr %615, i64 %610
   store i32 1953392940, ptr %620, align 1
-  %.pre1326 = load ptr, ptr %23, align 8
+  %.pre1322 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit217
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i676: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i213, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i213.thread
@@ -34384,7 +34384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit217
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit217: ; preds = %619, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit690
-  %639 = phi ptr [ %.pre1326, %619 ], [ %628, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit690 ]
+  %639 = phi ptr [ %.pre1322, %619 ], [ %628, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit690 ]
   store i64 %614, ptr %24, align 8
   %640 = getelementptr inbounds i8, ptr %639, i64 %614
   store i8 0, ptr %640, align 1
@@ -34419,7 +34419,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 650:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i219.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i219
   %651 = getelementptr inbounds i8, ptr %646, i64 %642
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %651, ptr noundef nonnull align 1 dereferenceable(3) @.str.433, i64 3, i1 false)
-  %.pre1327 = load ptr, ptr %23, align 8
+  %.pre1323 = load ptr, ptr %23, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit223
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i691: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i219, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i219.thread
@@ -34475,7 +34475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit223
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit223: ; preds = %650, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit705
-  %670 = phi ptr [ %.pre1327, %650 ], [ %659, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit705 ]
+  %670 = phi ptr [ %.pre1323, %650 ], [ %659, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit705 ]
   store i64 %645, ptr %24, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 %645
   store i8 0, ptr %671, align 1
@@ -34611,23 +34611,23 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendERKS6_.exit229
-  br i1 %.not100, label %.preheader1290, label %.loopexit1291, !llvm.loop !63
+  br i1 %.not100, label %.preheader1290, label %.loopexit1291, !llvm.loop !65
 
 .loopexit1291:                                    ; preds = %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
-  br i1 %43, label %.preheader1292.split, label %.split.us, !llvm.loop !64
+  br i1 %43, label %.preheader1292.split, label %.split.us, !llvm.loop !66
 
 .split.us:                                        ; preds = %.preheader1292.split, %.loopexit1291, %.preheader1292
   %719 = add nuw nsw i32 %.0861297, 1
   %exitcond.not = icmp eq i32 %719, 3
-  br i1 %exitcond.not, label %.loopexit1294, label %.preheader1292, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit1294, label %.preheader1292, !llvm.loop !67
 
 .loopexit1294:                                    ; preds = %.split.us
-  br i1 %.not96, label %41, label %.loopexit1294.thread, !llvm.loop !66
+  br i1 %.not96, label %41, label %.loopexit1294.thread, !llvm.loop !68
 
 .loopexit1294.thread:                             ; preds = %41, %.loopexit1294
-  %720 = icmp ne i32 %.pre-phi1351, 1280
+  %720 = icmp ne i32 %.pre-phi1347, 1280
   %or.cond106 = and i1 %720, %.not98
-  %brmerge.not = and i1 %or.cond.not1354, %or.cond106
+  %brmerge.not = and i1 %or.cond.not1350, %or.cond106
   br i1 %brmerge.not, label %.preheader1288, label %.loopexit1289
 
 .preheader1288:                                   ; preds = %.loopexit1294.thread
@@ -34667,7 +34667,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %.not92 = icmp ne i32 %.0821303, 0
   %or.cond1274 = and i1 %19, %.not92
   %735 = icmp eq i32 %.0821303, 2
-  br i1 %or.cond1274, label %.split1302.us, label %.preheader1282.split
+  %or.cond1274.fr = freeze i1 %or.cond1274
+  br i1 %or.cond1274.fr, label %.split1302.us, label %.preheader1282.split
 
 .preheader1282.split:                             ; preds = %.preheader1282, %.loopexit
   %736 = phi i1 [ false, %.loopexit ], [ true, %.preheader1282 ]
@@ -34765,7 +34766,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 763:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i243.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i243
   %764 = getelementptr inbounds i8, ptr %759, i64 %755
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %764, ptr noundef nonnull align 1 dereferenceable(5) @.str.483, i64 5, i1 false)
-  %.pre1328 = load ptr, ptr %722, align 8
+  %.pre1324 = load ptr, ptr %722, align 8
   br label %792
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i751: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i243, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i243.thread
@@ -34849,7 +34850,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br label %825
 
 792:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit765, %763
-  %793 = phi ptr [ %772, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit765 ], [ %.pre1328, %763 ]
+  %793 = phi ptr [ %772, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit765 ], [ %.pre1324, %763 ]
   store i64 %758, ptr %723, align 8
   %794 = getelementptr inbounds i8, ptr %793, i64 %758
   store i8 0, ptr %794, align 1
@@ -34881,7 +34882,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 803:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i255.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i255
   %804 = getelementptr inbounds i8, ptr %799, i64 %795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %804, ptr noundef nonnull align 1 dereferenceable(13) @.str.509, i64 13, i1 false)
-  %.pre1329 = load ptr, ptr %722, align 8
+  %.pre1325 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit259
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i781: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i255, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i255.thread
@@ -34937,7 +34938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit259
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit259: ; preds = %803, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit795
-  %823 = phi ptr [ %.pre1329, %803 ], [ %812, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit795 ]
+  %823 = phi ptr [ %.pre1325, %803 ], [ %812, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit795 ]
   store i64 %798, ptr %723, align 8
   %824 = getelementptr inbounds i8, ptr %823, i64 %798
   store i8 0, ptr %824, align 1
@@ -34975,7 +34976,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 835:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i261.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i261
   %836 = getelementptr inbounds i8, ptr %831, i64 %827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %836, ptr noundef nonnull align 1 dereferenceable(3) @.str.489, i64 3, i1 false)
-  %.pre1330 = load ptr, ptr %722, align 8
+  %.pre1326 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit265
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i796: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i261, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i261.thread
@@ -35031,7 +35032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit265
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit265: ; preds = %835, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit810
-  %855 = phi ptr [ %.pre1330, %835 ], [ %844, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit810 ]
+  %855 = phi ptr [ %.pre1326, %835 ], [ %844, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit810 ]
   store i64 %830, ptr %723, align 8
   %856 = getelementptr inbounds i8, ptr %855, i64 %830
   store i8 0, ptr %856, align 1
@@ -35072,7 +35073,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 867:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i267.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i267
   %868 = getelementptr inbounds i8, ptr %863, i64 %859
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %868, ptr noundef nonnull align 1 dereferenceable(6) @.str.492, i64 6, i1 false)
-  %.pre1332 = load ptr, ptr %722, align 8
+  %.pre1328 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit271
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i811: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i267, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i267.thread
@@ -35128,7 +35129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit271
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit271: ; preds = %867, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit825
-  %887 = phi ptr [ %.pre1332, %867 ], [ %876, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit825 ]
+  %887 = phi ptr [ %.pre1328, %867 ], [ %876, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit825 ]
   store i64 %862, ptr %723, align 8
   %888 = getelementptr inbounds i8, ptr %887, i64 %862
   store i8 0, ptr %888, align 1
@@ -35163,7 +35164,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 898:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i273.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i273
   %899 = getelementptr inbounds i8, ptr %894, i64 %890
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %899, ptr noundef nonnull align 1 dereferenceable(7) @.str.510, i64 7, i1 false)
-  %.pre1331 = load ptr, ptr %722, align 8
+  %.pre1327 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit277
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i826: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i273.thread
@@ -35219,7 +35220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit277
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit277: ; preds = %898, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit840
-  %918 = phi ptr [ %.pre1331, %898 ], [ %907, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit840 ]
+  %918 = phi ptr [ %.pre1327, %898 ], [ %907, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit840 ]
   store i64 %893, ptr %723, align 8
   %919 = getelementptr inbounds i8, ptr %918, i64 %893
   store i8 0, ptr %919, align 1
@@ -35257,7 +35258,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 930:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i279.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i279
   %931 = getelementptr inbounds i8, ptr %926, i64 %922
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %931, ptr noundef nonnull align 1 dereferenceable(3) @.str.513, i64 3, i1 false)
-  %.pre1334 = load ptr, ptr %722, align 8
+  %.pre1330 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit283
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i841: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i279, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i279.thread
@@ -35313,7 +35314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit283
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit283: ; preds = %930, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit855
-  %950 = phi ptr [ %.pre1334, %930 ], [ %939, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit855 ]
+  %950 = phi ptr [ %.pre1330, %930 ], [ %939, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit855 ]
   store i64 %925, ptr %723, align 8
   %951 = getelementptr inbounds i8, ptr %950, i64 %925
   store i8 0, ptr %951, align 1
@@ -35351,7 +35352,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 962:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i285.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i285
   %963 = getelementptr inbounds i8, ptr %958, i64 %954
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %963, ptr noundef nonnull align 1 dereferenceable(3) @.str.494, i64 3, i1 false)
-  %.pre1333 = load ptr, ptr %722, align 8
+  %.pre1329 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit289
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i856: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i285, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i285.thread
@@ -35407,7 +35408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit289
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit289: ; preds = %962, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit870
-  %982 = phi ptr [ %.pre1333, %962 ], [ %971, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit870 ]
+  %982 = phi ptr [ %.pre1329, %962 ], [ %971, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit870 ]
   store i64 %957, ptr %723, align 8
   %983 = getelementptr inbounds i8, ptr %982, i64 %957
   store i8 0, ptr %983, align 1
@@ -35442,7 +35443,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 993:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i291.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i291
   %994 = getelementptr inbounds i8, ptr %989, i64 %985
   store i8 40, ptr %994, align 1
-  %.pre1335 = load ptr, ptr %722, align 8
+  %.pre1331 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit295
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i871: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i291, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i291.thread
@@ -35498,7 +35499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit295
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit295: ; preds = %993, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit885
-  %1013 = phi ptr [ %.pre1335, %993 ], [ %1002, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit885 ]
+  %1013 = phi ptr [ %.pre1331, %993 ], [ %1002, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit885 ]
   store i64 %988, ptr %723, align 8
   %1014 = getelementptr inbounds i8, ptr %1013, i64 %988
   store i8 0, ptr %1014, align 1
@@ -35654,7 +35655,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1067:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i303.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i303
   %1068 = getelementptr inbounds i8, ptr %1063, i64 %1058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1068, ptr noundef nonnull align 1 dereferenceable(7) @.str.504, i64 7, i1 false)
-  %.pre1336 = load ptr, ptr %722, align 8
+  %.pre1332 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit307
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i901: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i303, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i303.thread
@@ -35710,7 +35711,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit307
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit307: ; preds = %1067, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit915
-  %1087 = phi ptr [ %.pre1336, %1067 ], [ %1076, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit915 ]
+  %1087 = phi ptr [ %.pre1332, %1067 ], [ %1076, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit915 ]
   store i64 %1062, ptr %723, align 8
   %1088 = getelementptr inbounds i8, ptr %1087, i64 %1062
   store i8 0, ptr %1088, align 1
@@ -35745,7 +35746,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1098:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i309.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i309
   %1099 = getelementptr inbounds i8, ptr %1094, i64 %1058
   store i32 1667593772, ptr %1099, align 1
-  %.pre1337 = load ptr, ptr %722, align 8
+  %.pre1333 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit313
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i916: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i309, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i309.thread
@@ -35801,7 +35802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit313
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit313: ; preds = %1098, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit930
-  %1118 = phi ptr [ %.pre1337, %1098 ], [ %1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit930 ]
+  %1118 = phi ptr [ %.pre1333, %1098 ], [ %1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit930 ]
   store i64 %1093, ptr %723, align 8
   %1119 = getelementptr inbounds i8, ptr %1118, i64 %1093
   store i8 0, ptr %1119, align 1
@@ -35965,7 +35966,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1176:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i321.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i321
   %1177 = getelementptr inbounds i8, ptr %1172, i64 %1167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1177, ptr noundef nonnull align 1 dereferenceable(10) @.str.501, i64 10, i1 false)
-  %.pre1338 = load ptr, ptr %722, align 8
+  %.pre1334 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit325
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i946: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i321, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i321.thread
@@ -36021,7 +36022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit325
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit325: ; preds = %1176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit960
-  %1196 = phi ptr [ %.pre1338, %1176 ], [ %1185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit960 ]
+  %1196 = phi ptr [ %.pre1334, %1176 ], [ %1185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit960 ]
   store i64 %1171, ptr %723, align 8
   %1197 = getelementptr inbounds i8, ptr %1196, i64 %1171
   store i8 0, ptr %1197, align 1
@@ -36055,7 +36056,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1206:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i327.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i327
   %1207 = getelementptr inbounds i8, ptr %1202, i64 %1167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1207, ptr noundef nonnull align 1 dereferenceable(6) @.str.499, i64 6, i1 false)
-  %.pre1339 = load ptr, ptr %722, align 8
+  %.pre1335 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit331
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i961: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i327, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i327.thread
@@ -36111,7 +36112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit331
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit331: ; preds = %1206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit975
-  %1226 = phi ptr [ %.pre1339, %1206 ], [ %1215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit975 ]
+  %1226 = phi ptr [ %.pre1335, %1206 ], [ %1215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit975 ]
   store i64 %1201, ptr %723, align 8
   %1227 = getelementptr inbounds i8, ptr %1226, i64 %1201
   store i8 0, ptr %1227, align 1
@@ -36149,7 +36150,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1238:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i333.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i333
   %1239 = getelementptr inbounds i8, ptr %1234, i64 %1230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1239, ptr noundef nonnull align 1 dereferenceable(6) @.str.511, i64 6, i1 false)
-  %.pre1340 = load ptr, ptr %722, align 8
+  %.pre1336 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit337
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i976: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i333, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i333.thread
@@ -36205,7 +36206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit337
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit337: ; preds = %1238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit990
-  %1258 = phi ptr [ %.pre1340, %1238 ], [ %1247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit990 ]
+  %1258 = phi ptr [ %.pre1336, %1238 ], [ %1247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit990 ]
   store i64 %1233, ptr %723, align 8
   %1259 = getelementptr inbounds i8, ptr %1258, i64 %1233
   store i8 0, ptr %1259, align 1
@@ -36240,7 +36241,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1269:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i339.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i339
   %1270 = getelementptr inbounds i8, ptr %1265, i64 %1261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1270, ptr noundef nonnull align 1 dereferenceable(3) @.str.512, i64 3, i1 false)
-  %.pre1341 = load ptr, ptr %722, align 8
+  %.pre1337 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit343
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i991: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i339, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i339.thread
@@ -36296,7 +36297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit343
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit343: ; preds = %1269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1005
-  %1289 = phi ptr [ %.pre1341, %1269 ], [ %1278, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1005 ]
+  %1289 = phi ptr [ %.pre1337, %1269 ], [ %1278, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1005 ]
   store i64 %1264, ptr %723, align 8
   %1290 = getelementptr inbounds i8, ptr %1289, i64 %1264
   store i8 0, ptr %1290, align 1
@@ -36334,7 +36335,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1301:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i345.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i345
   %1302 = getelementptr inbounds i8, ptr %1297, i64 %1293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1302, ptr noundef nonnull align 1 dereferenceable(5) @.str.507, i64 5, i1 false)
-  %.pre1342 = load ptr, ptr %722, align 8
+  %.pre1338 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit349
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1006: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i345, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i345.thread
@@ -36390,7 +36391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit349
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit349: ; preds = %1301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1020
-  %1321 = phi ptr [ %.pre1342, %1301 ], [ %1310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1020 ]
+  %1321 = phi ptr [ %.pre1338, %1301 ], [ %1310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1020 ]
   store i64 %1296, ptr %723, align 8
   %1322 = getelementptr inbounds i8, ptr %1321, i64 %1296
   store i8 0, ptr %1322, align 1
@@ -36541,7 +36542,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1372:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i357.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i357
   %1373 = getelementptr inbounds i8, ptr %1368, i64 %1364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1373, ptr noundef nonnull align 1 dereferenceable(5) @.str.483, i64 5, i1 false)
-  %.pre1343 = load ptr, ptr %722, align 8
+  %.pre1339 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit361
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1036: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i357, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i357.thread
@@ -36597,7 +36598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit361
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit361: ; preds = %1372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1050
-  %1392 = phi ptr [ %.pre1343, %1372 ], [ %1381, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1050 ]
+  %1392 = phi ptr [ %.pre1339, %1372 ], [ %1381, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1050 ]
   store i64 %1367, ptr %723, align 8
   %1393 = getelementptr inbounds i8, ptr %1392, i64 %1367
   store i8 0, ptr %1393, align 1
@@ -36636,7 +36637,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1405:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i363.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i363
   %1406 = getelementptr inbounds i8, ptr %1401, i64 %1396
   store i32 1953392940, ptr %1406, align 1
-  %.pre1344 = load ptr, ptr %722, align 8
+  %.pre1340 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit367
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1051: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i363, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i363.thread
@@ -36692,7 +36693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit367
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit367: ; preds = %1405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1065
-  %1425 = phi ptr [ %.pre1344, %1405 ], [ %1414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1065 ]
+  %1425 = phi ptr [ %.pre1340, %1405 ], [ %1414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1065 ]
   store i64 %1400, ptr %723, align 8
   %1426 = getelementptr inbounds i8, ptr %1425, i64 %1400
   store i8 0, ptr %1426, align 1
@@ -36733,7 +36734,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1438:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i369.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i369
   %1439 = getelementptr inbounds i8, ptr %1434, i64 %1428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1439, ptr noundef nonnull align 1 dereferenceable(10) @.str.501, i64 10, i1 false)
-  %.pre1346 = load ptr, ptr %722, align 8
+  %.pre1342 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit373
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1066: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i369, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i369.thread
@@ -36789,7 +36790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit373
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit373: ; preds = %1438, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1080
-  %1458 = phi ptr [ %.pre1346, %1438 ], [ %1447, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1080 ]
+  %1458 = phi ptr [ %.pre1342, %1438 ], [ %1447, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1080 ]
   store i64 %1433, ptr %723, align 8
   %1459 = getelementptr inbounds i8, ptr %1458, i64 %1433
   store i8 0, ptr %1459, align 1
@@ -36823,7 +36824,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1468:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i375.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i375
   %1469 = getelementptr inbounds i8, ptr %1464, i64 %1428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1469, ptr noundef nonnull align 1 dereferenceable(6) @.str.499, i64 6, i1 false)
-  %.pre1347 = load ptr, ptr %722, align 8
+  %.pre1343 = load ptr, ptr %722, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit379
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1081: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i375.thread
@@ -36879,7 +36880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit379
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit379: ; preds = %1468, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1095
-  %1488 = phi ptr [ %.pre1347, %1468 ], [ %1477, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1095 ]
+  %1488 = phi ptr [ %.pre1343, %1468 ], [ %1477, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1095 ]
   store i64 %1463, ptr %723, align 8
   %1489 = getelementptr inbounds i8, ptr %1488, i64 %1463
   store i8 0, ptr %1489, align 1
@@ -36914,7 +36915,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1499:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i381.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i381
   %1500 = getelementptr inbounds i8, ptr %1495, i64 %1491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1500, ptr noundef nonnull align 1 dereferenceable(3) @.str.433, i64 3, i1 false)
-  %.pre1348 = load ptr, ptr %722, align 8
+  %.pre1344 = load ptr, ptr %722, align 8
   br label %1519
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1096: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i381.thread
@@ -36970,7 +36971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %1519
 
 1519:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1110, %1499
-  %1520 = phi ptr [ %1508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1110 ], [ %.pre1348, %1499 ]
+  %1520 = phi ptr [ %1508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1110 ], [ %.pre1344, %1499 ]
   store i64 %1494, ptr %723, align 8
   %1521 = getelementptr inbounds i8, ptr %1520, i64 %1494
   store i8 0, ptr %1521, align 1
@@ -37125,7 +37126,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 1572:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i393.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i393
   %1573 = getelementptr inbounds i8, ptr %1568, i64 %1428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1573, ptr noundef nonnull align 1 dereferenceable(3) @.str.433, i64 3, i1 false)
-  %.pre1345 = load ptr, ptr %722, align 8
+  %.pre1341 = load ptr, ptr %722, align 8
   br label %1592
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i1126: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i393, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i393.thread
@@ -37181,7 +37182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %1592
 
 1592:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1140, %1572
-  %1593 = phi ptr [ %1581, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1140 ], [ %.pre1345, %1572 ]
+  %1593 = phi ptr [ %1581, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit1140 ], [ %.pre1341, %1572 ]
   store i64 %1567, ptr %723, align 8
   %1594 = getelementptr inbounds i8, ptr %1593, i64 %1567
   store i8 0, ptr %1594, align 1
@@ -37320,24 +37321,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit405
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit405: ; preds = %1638, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i404
-  br i1 %.not93, label %.preheader, label %.loopexit, !llvm.loop !67
+  br i1 %.not93, label %.preheader, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit405, %.preheader1282.split
-  br i1 %736, label %.preheader1282.split, label %.split1302.us, !llvm.loop !68
+  br i1 %736, label %.preheader1282.split, label %.split1302.us, !llvm.loop !70
 
 .split1302.us:                                    ; preds = %.loopexit, %.preheader1282
   %1643 = add nuw nsw i32 %.0821303, 1
-  %exitcond1313.not = icmp eq i32 %1643, 3
-  br i1 %exitcond1313.not, label %.loopexit1284, label %.preheader1282, !llvm.loop !69
+  %exitcond1309.not = icmp eq i32 %1643, 3
+  br i1 %exitcond1309.not, label %.loopexit1284, label %.preheader1282, !llvm.loop !71
 
 .loopexit1284:                                    ; preds = %.split1302.us
-  br i1 %.not90, label %.preheader1285, label %.loopexit1286, !llvm.loop !70
+  br i1 %.not90, label %.preheader1285, label %.loopexit1286, !llvm.loop !72
 
 .loopexit1286:                                    ; preds = %.preheader1285, %.loopexit1284, %731
-  br i1 %733, label %731, label %1644, !llvm.loop !71
+  br i1 %733, label %731, label %1644, !llvm.loop !73
 
 1644:                                             ; preds = %.loopexit1286
-  br i1 %730, label %.preheader1287, label %.loopexit1289, !llvm.loop !72
+  br i1 %730, label %.preheader1287, label %.loopexit1289, !llvm.loop !74
 
 .loopexit1289:                                    ; preds = %1644, %.loopexit1294.thread, %13, %9, %5
   ret void
@@ -52933,7 +52934,7 @@ define void @_ZN7glslang9TBuiltIns16identifyBuiltInsEi8EProfileRKNS_10SpvVersion
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
   %51 = icmp ugt i64 %50, %44
-  br i1 %51, label %.lr.ph.i, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit, !llvm.loop !73
+  br i1 %51, label %.lr.ph.i, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit: ; preds = %.lr.ph.i
   %52 = icmp eq ptr %45, %46
@@ -52955,7 +52956,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit: ; preds = %.lr.
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
   %65 = icmp ugt i64 %64, %58
-  br i1 %65, label %.lr.ph.i2184, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2186, !llvm.loop !73
+  br i1 %65, label %.lr.ph.i2184, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2186, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2186: ; preds = %.lr.ph.i2184
   %66 = icmp eq ptr %59, %60
@@ -52977,7 +52978,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2186: ; preds = %
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 3
   %79 = icmp ugt i64 %78, %72
-  br i1 %79, label %.lr.ph.i2188, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2190, !llvm.loop !73
+  br i1 %79, label %.lr.ph.i2188, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2190, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2190: ; preds = %.lr.ph.i2188, %.thread, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2186
   %80 = icmp sgt i32 %1, 429
@@ -53047,7 +53048,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2190: ; preds = %
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
   %97 = icmp ugt i64 %96, %90
-  br i1 %97, label %.lr.ph.i2192, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2194, !llvm.loop !73
+  br i1 %97, label %.lr.ph.i2192, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2194, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2194: ; preds = %.lr.ph.i2192
   %98 = icmp eq ptr %91, %92
@@ -53069,7 +53070,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2194: ; preds = %
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 3
   %111 = icmp ugt i64 %110, %104
-  br i1 %111, label %.lr.ph.i2196, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2198, !llvm.loop !73
+  br i1 %111, label %.lr.ph.i2196, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2198, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2198: ; preds = %.lr.ph.i2196
   %112 = icmp eq ptr %105, %106
@@ -53091,7 +53092,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2198: ; preds = %
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
   %125 = icmp ugt i64 %124, %118
-  br i1 %125, label %.lr.ph.i2200, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2202, !llvm.loop !73
+  br i1 %125, label %.lr.ph.i2200, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2202, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2202: ; preds = %.lr.ph.i2200
   %126 = icmp eq ptr %119, %120
@@ -53113,7 +53114,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2202: ; preds = %
   %137 = sub i64 %135, %136
   %138 = ashr exact i64 %137, 3
   %139 = icmp ugt i64 %138, %132
-  br i1 %139, label %.lr.ph.i2204, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2206, !llvm.loop !73
+  br i1 %139, label %.lr.ph.i2204, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2206, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2206: ; preds = %.lr.ph.i2204
   %140 = icmp eq ptr %133, %134
@@ -53135,7 +53136,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2206: ; preds = %
   %151 = sub i64 %149, %150
   %152 = ashr exact i64 %151, 3
   %153 = icmp ugt i64 %152, %146
-  br i1 %153, label %.lr.ph.i2208, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2210, !llvm.loop !73
+  br i1 %153, label %.lr.ph.i2208, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2210, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2210: ; preds = %.lr.ph.i2208
   %154 = icmp eq ptr %147, %148
@@ -53157,7 +53158,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2210: ; preds = %
   %165 = sub i64 %163, %164
   %166 = ashr exact i64 %165, 3
   %167 = icmp ugt i64 %166, %160
-  br i1 %167, label %.lr.ph.i2212, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2214, !llvm.loop !73
+  br i1 %167, label %.lr.ph.i2212, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2214, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2214: ; preds = %.lr.ph.i2212
   %168 = icmp eq ptr %161, %162
@@ -53179,7 +53180,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2214: ; preds = %
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 3
   %181 = icmp ugt i64 %180, %174
-  br i1 %181, label %.lr.ph.i2216, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2218, !llvm.loop !73
+  br i1 %181, label %.lr.ph.i2216, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2218, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2218: ; preds = %.lr.ph.i2216
   %182 = icmp eq ptr %175, %176
@@ -53201,7 +53202,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2218: ; preds = %
   %193 = sub i64 %191, %192
   %194 = ashr exact i64 %193, 3
   %195 = icmp ugt i64 %194, %188
-  br i1 %195, label %.lr.ph.i2220, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2222, !llvm.loop !73
+  br i1 %195, label %.lr.ph.i2220, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2222, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2222: ; preds = %.lr.ph.i2220
   %196 = icmp eq ptr %189, %190
@@ -53223,7 +53224,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2222: ; preds = %
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 3
   %209 = icmp ugt i64 %208, %202
-  br i1 %209, label %.lr.ph.i2224, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2226, !llvm.loop !73
+  br i1 %209, label %.lr.ph.i2224, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2226, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2226: ; preds = %.lr.ph.i2224
   %210 = icmp eq ptr %203, %204
@@ -53245,7 +53246,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2226: ; preds = %
   %221 = sub i64 %219, %220
   %222 = ashr exact i64 %221, 3
   %223 = icmp ugt i64 %222, %216
-  br i1 %223, label %.lr.ph.i2228, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2230, !llvm.loop !73
+  br i1 %223, label %.lr.ph.i2228, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2230, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2230: ; preds = %.lr.ph.i2228
   %224 = icmp eq ptr %217, %218
@@ -53267,7 +53268,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2230: ; preds = %
   %235 = sub i64 %233, %234
   %236 = ashr exact i64 %235, 3
   %237 = icmp ugt i64 %236, %230
-  br i1 %237, label %.lr.ph.i2232, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2234, !llvm.loop !73
+  br i1 %237, label %.lr.ph.i2232, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2234, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2234: ; preds = %.lr.ph.i2232
   %238 = icmp eq ptr %231, %232
@@ -53289,7 +53290,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2234: ; preds = %
   %249 = sub i64 %247, %248
   %250 = ashr exact i64 %249, 3
   %251 = icmp ugt i64 %250, %244
-  br i1 %251, label %.lr.ph.i2236, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2238, !llvm.loop !73
+  br i1 %251, label %.lr.ph.i2236, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2238, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2238: ; preds = %.lr.ph.i2236
   %252 = icmp eq ptr %245, %246
@@ -53311,7 +53312,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2238: ; preds = %
   %263 = sub i64 %261, %262
   %264 = ashr exact i64 %263, 3
   %265 = icmp ugt i64 %264, %258
-  br i1 %265, label %.lr.ph.i2240, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2242, !llvm.loop !73
+  br i1 %265, label %.lr.ph.i2240, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2242, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2242: ; preds = %.lr.ph.i2240, %.critedge2137, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2194, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2198, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2202, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2206, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2210, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2214, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2218, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2222, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2226, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2230, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2234, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2238
   %266 = load i32, ptr %3, align 4
@@ -53387,7 +53388,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2242: ; preds = %
   %291 = sub i64 %289, %290
   %292 = ashr exact i64 %291, 3
   %293 = icmp ugt i64 %292, %286
-  br i1 %293, label %.lr.ph.i2244, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2246, !llvm.loop !73
+  br i1 %293, label %.lr.ph.i2244, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2246, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2246: ; preds = %.lr.ph.i2244
   %294 = icmp eq ptr %287, %288
@@ -53409,7 +53410,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2246: ; preds = %
   %305 = sub i64 %303, %304
   %306 = ashr exact i64 %305, 3
   %307 = icmp ugt i64 %306, %300
-  br i1 %307, label %.lr.ph.i2248, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2250, !llvm.loop !73
+  br i1 %307, label %.lr.ph.i2248, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2250, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2250: ; preds = %.lr.ph.i2248
   %308 = icmp eq ptr %301, %302
@@ -53431,7 +53432,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2250: ; preds = %
   %319 = sub i64 %317, %318
   %320 = ashr exact i64 %319, 3
   %321 = icmp ugt i64 %320, %314
-  br i1 %321, label %.lr.ph.i2252, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2254, !llvm.loop !73
+  br i1 %321, label %.lr.ph.i2252, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2254, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2254: ; preds = %.lr.ph.i2252
   %322 = icmp eq ptr %315, %316
@@ -53453,7 +53454,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2254: ; preds = %
   %333 = sub i64 %331, %332
   %334 = ashr exact i64 %333, 3
   %335 = icmp ugt i64 %334, %328
-  br i1 %335, label %.lr.ph.i2256, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2258, !llvm.loop !73
+  br i1 %335, label %.lr.ph.i2256, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2258, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2258: ; preds = %.lr.ph.i2256
   %336 = icmp eq ptr %329, %330
@@ -53475,7 +53476,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2258: ; preds = %
   %347 = sub i64 %345, %346
   %348 = ashr exact i64 %347, 3
   %349 = icmp ugt i64 %348, %342
-  br i1 %349, label %.lr.ph.i2260, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2262, !llvm.loop !73
+  br i1 %349, label %.lr.ph.i2260, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2262, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2262: ; preds = %.lr.ph.i2260
   %350 = icmp eq ptr %343, %344
@@ -53497,7 +53498,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2262: ; preds = %
   %361 = sub i64 %359, %360
   %362 = ashr exact i64 %361, 3
   %363 = icmp ugt i64 %362, %356
-  br i1 %363, label %.lr.ph.i2264, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2266, !llvm.loop !73
+  br i1 %363, label %.lr.ph.i2264, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2266, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2266: ; preds = %.lr.ph.i2264
   %364 = icmp eq ptr %357, %358
@@ -53519,7 +53520,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2266: ; preds = %
   %375 = sub i64 %373, %374
   %376 = ashr exact i64 %375, 3
   %377 = icmp ugt i64 %376, %370
-  br i1 %377, label %.lr.ph.i2268, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2270, !llvm.loop !73
+  br i1 %377, label %.lr.ph.i2268, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2270, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2270: ; preds = %.lr.ph.i2268
   %378 = icmp eq ptr %371, %372
@@ -53541,7 +53542,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2270: ; preds = %
   %389 = sub i64 %387, %388
   %390 = ashr exact i64 %389, 3
   %391 = icmp ugt i64 %390, %384
-  br i1 %391, label %.lr.ph.i2272, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2274, !llvm.loop !73
+  br i1 %391, label %.lr.ph.i2272, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2274, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2274: ; preds = %.lr.ph.i2272, %278, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2246, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2250, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2254, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2258, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2262, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2266, %269, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2270
   %392 = icmp sgt i32 %1, 299
@@ -53577,7 +53578,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2274.thread: ; pr
   %407 = sub i64 %405, %406
   %408 = ashr exact i64 %407, 3
   %409 = icmp ugt i64 %408, %402
-  br i1 %409, label %.lr.ph.i2276, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2278, !llvm.loop !73
+  br i1 %409, label %.lr.ph.i2276, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2278, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2278: ; preds = %.lr.ph.i2276
   %410 = icmp eq ptr %403, %404
@@ -53599,7 +53600,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2278: ; preds = %
   %421 = sub i64 %419, %420
   %422 = ashr exact i64 %421, 3
   %423 = icmp ugt i64 %422, %416
-  br i1 %423, label %.lr.ph.i2280, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2310, !llvm.loop !73
+  br i1 %423, label %.lr.ph.i2280, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2310, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2282: ; preds = %393
   %424 = load i32, ptr %3, align 4
@@ -53628,7 +53629,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2282: ; preds = %
   %439 = sub i64 %437, %438
   %440 = ashr exact i64 %439, 3
   %441 = icmp ugt i64 %440, %434
-  br i1 %441, label %.lr.ph.i2284, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2286, !llvm.loop !73
+  br i1 %441, label %.lr.ph.i2284, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2286, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2286: ; preds = %.lr.ph.i2284
   %442 = icmp eq ptr %435, %436
@@ -53650,7 +53651,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2286: ; preds = %
   %453 = sub i64 %451, %452
   %454 = ashr exact i64 %453, 3
   %455 = icmp ugt i64 %454, %448
-  br i1 %455, label %.lr.ph.i2288, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2290, !llvm.loop !73
+  br i1 %455, label %.lr.ph.i2288, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2290, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2290: ; preds = %.lr.ph.i2288
   %456 = icmp eq ptr %449, %450
@@ -53672,7 +53673,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2290: ; preds = %
   %467 = sub i64 %465, %466
   %468 = ashr exact i64 %467, 3
   %469 = icmp ugt i64 %468, %462
-  br i1 %469, label %.lr.ph.i2292, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2294, !llvm.loop !73
+  br i1 %469, label %.lr.ph.i2292, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2294, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2294: ; preds = %.lr.ph.i2292
   %470 = icmp eq ptr %463, %464
@@ -53694,7 +53695,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2294: ; preds = %
   %481 = sub i64 %479, %480
   %482 = ashr exact i64 %481, 3
   %483 = icmp ugt i64 %482, %476
-  br i1 %483, label %.lr.ph.i2296, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2298, !llvm.loop !73
+  br i1 %483, label %.lr.ph.i2296, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2298, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2298: ; preds = %.lr.ph.i2296
   %484 = icmp eq ptr %477, %478
@@ -53716,7 +53717,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2298: ; preds = %
   %495 = sub i64 %493, %494
   %496 = ashr exact i64 %495, 3
   %497 = icmp ugt i64 %496, %490
-  br i1 %497, label %.lr.ph.i2300, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2302, !llvm.loop !73
+  br i1 %497, label %.lr.ph.i2300, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2302, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2302: ; preds = %.lr.ph.i2300
   %498 = icmp eq ptr %491, %492
@@ -53738,7 +53739,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2302: ; preds = %
   %509 = sub i64 %507, %508
   %510 = ashr exact i64 %509, 3
   %511 = icmp ugt i64 %510, %504
-  br i1 %511, label %.lr.ph.i2304, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2306, !llvm.loop !73
+  br i1 %511, label %.lr.ph.i2304, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2306, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2306: ; preds = %.lr.ph.i2304
   %512 = icmp eq ptr %505, %506
@@ -53760,7 +53761,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2306: ; preds = %
   %523 = sub i64 %521, %522
   %524 = ashr exact i64 %523, 3
   %525 = icmp ugt i64 %524, %518
-  br i1 %525, label %.lr.ph.i2308, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2310.thread, !llvm.loop !73
+  br i1 %525, label %.lr.ph.i2308, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2310.thread, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2310: ; preds = %.lr.ph.i2280, %394, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2278, %6
   %526 = icmp eq i32 %2, 8
@@ -54105,7 +54106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %620 = sub i64 %618, %619
   %621 = ashr exact i64 %620, 3
   %622 = icmp ugt i64 %621, %615
-  br i1 %622, label %.lr.ph.i2312, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2314.thread, !llvm.loop !73
+  br i1 %622, label %.lr.ph.i2312, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2314.thread, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2314: ; preds = %604
   %623 = icmp sgt i32 %1, 459
@@ -54135,7 +54136,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2314: ; preds = %
   %638 = sub i64 %636, %637
   %639 = ashr exact i64 %638, 3
   %640 = icmp ugt i64 %639, %633
-  br i1 %640, label %.lr.ph.i2316, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2318, !llvm.loop !73
+  br i1 %640, label %.lr.ph.i2316, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2318, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2318: ; preds = %.lr.ph.i2316
   %641 = icmp eq ptr %634, %635
@@ -54157,7 +54158,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2318: ; preds = %
   %652 = sub i64 %650, %651
   %653 = ashr exact i64 %652, 3
   %654 = icmp ugt i64 %653, %647
-  br i1 %654, label %.lr.ph.i2320, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2322, !llvm.loop !73
+  br i1 %654, label %.lr.ph.i2320, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2322, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2322: ; preds = %.lr.ph.i2320
   %655 = icmp eq ptr %648, %649
@@ -54179,7 +54180,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2322: ; preds = %
   %666 = sub i64 %664, %665
   %667 = ashr exact i64 %666, 3
   %668 = icmp ugt i64 %667, %661
-  br i1 %668, label %.lr.ph.i2324, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2326, !llvm.loop !73
+  br i1 %668, label %.lr.ph.i2324, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2326, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2326: ; preds = %.lr.ph.i2324
   %669 = icmp eq ptr %662, %663
@@ -54201,7 +54202,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2326: ; preds = %
   %680 = sub i64 %678, %679
   %681 = ashr exact i64 %680, 3
   %682 = icmp ugt i64 %681, %675
-  br i1 %682, label %.lr.ph.i2328, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2330, !llvm.loop !73
+  br i1 %682, label %.lr.ph.i2328, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2330, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2330: ; preds = %.lr.ph.i2328
   %683 = icmp eq ptr %676, %677
@@ -54223,7 +54224,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2330: ; preds = %
   %694 = sub i64 %692, %693
   %695 = ashr exact i64 %694, 3
   %696 = icmp ugt i64 %695, %689
-  br i1 %696, label %.lr.ph.i2332, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2334, !llvm.loop !73
+  br i1 %696, label %.lr.ph.i2332, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2334, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2334: ; preds = %.lr.ph.i2332
   %697 = icmp eq ptr %690, %691
@@ -54245,7 +54246,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2334: ; preds = %
   %708 = sub i64 %706, %707
   %709 = ashr exact i64 %708, 3
   %710 = icmp ugt i64 %709, %703
-  br i1 %710, label %.lr.ph.i2336, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2338, !llvm.loop !73
+  br i1 %710, label %.lr.ph.i2336, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2338, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2338: ; preds = %.lr.ph.i2336
   %711 = icmp eq ptr %704, %705
@@ -54267,7 +54268,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2338: ; preds = %
   %722 = sub i64 %720, %721
   %723 = ashr exact i64 %722, 3
   %724 = icmp ugt i64 %723, %717
-  br i1 %724, label %.lr.ph.i2340, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2342, !llvm.loop !73
+  br i1 %724, label %.lr.ph.i2340, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2342, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2342: ; preds = %.lr.ph.i2340
   %725 = icmp eq ptr %718, %719
@@ -54289,7 +54290,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2342: ; preds = %
   %736 = sub i64 %734, %735
   %737 = ashr exact i64 %736, 3
   %738 = icmp ugt i64 %737, %731
-  br i1 %738, label %.lr.ph.i2344, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2346, !llvm.loop !73
+  br i1 %738, label %.lr.ph.i2344, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2346, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2346: ; preds = %.lr.ph.i2344
   %739 = icmp eq ptr %732, %733
@@ -54311,7 +54312,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2346: ; preds = %
   %750 = sub i64 %748, %749
   %751 = ashr exact i64 %750, 3
   %752 = icmp ugt i64 %751, %745
-  br i1 %752, label %.lr.ph.i2348, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2350, !llvm.loop !73
+  br i1 %752, label %.lr.ph.i2348, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2350, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2350: ; preds = %.lr.ph.i2348
   %753 = icmp eq ptr %746, %747
@@ -54333,7 +54334,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2350: ; preds = %
   %764 = sub i64 %762, %763
   %765 = ashr exact i64 %764, 3
   %766 = icmp ugt i64 %765, %759
-  br i1 %766, label %.lr.ph.i2352, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2354, !llvm.loop !73
+  br i1 %766, label %.lr.ph.i2352, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2354, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2354: ; preds = %.lr.ph.i2352
   %767 = icmp eq ptr %760, %761
@@ -54355,7 +54356,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2354: ; preds = %
   %778 = sub i64 %776, %777
   %779 = ashr exact i64 %778, 3
   %780 = icmp ugt i64 %779, %773
-  br i1 %780, label %.lr.ph.i2356, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2358, !llvm.loop !73
+  br i1 %780, label %.lr.ph.i2356, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2358, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2358: ; preds = %.lr.ph.i2356
   %781 = icmp eq ptr %774, %775
@@ -54377,7 +54378,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2358: ; preds = %
   %792 = sub i64 %790, %791
   %793 = ashr exact i64 %792, 3
   %794 = icmp ugt i64 %793, %787
-  br i1 %794, label %.lr.ph.i2360, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2362, !llvm.loop !73
+  br i1 %794, label %.lr.ph.i2360, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2362, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2362: ; preds = %.lr.ph.i2360
   %795 = icmp eq ptr %788, %789
@@ -54399,7 +54400,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2362: ; preds = %
   %806 = sub i64 %804, %805
   %807 = ashr exact i64 %806, 3
   %808 = icmp ugt i64 %807, %801
-  br i1 %808, label %.lr.ph.i2364, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2366, !llvm.loop !73
+  br i1 %808, label %.lr.ph.i2364, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2366, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2366: ; preds = %.lr.ph.i2364
   %809 = icmp eq ptr %802, %803
@@ -54421,7 +54422,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2366: ; preds = %
   %820 = sub i64 %818, %819
   %821 = ashr exact i64 %820, 3
   %822 = icmp ugt i64 %821, %815
-  br i1 %822, label %.lr.ph.i2368, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2370, !llvm.loop !73
+  br i1 %822, label %.lr.ph.i2368, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2370, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2370: ; preds = %.lr.ph.i2368
   %823 = icmp eq ptr %816, %817
@@ -54443,7 +54444,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2370: ; preds = %
   %834 = sub i64 %832, %833
   %835 = ashr exact i64 %834, 3
   %836 = icmp ugt i64 %835, %829
-  br i1 %836, label %.lr.ph.i2372, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2374, !llvm.loop !73
+  br i1 %836, label %.lr.ph.i2372, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2374, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2374: ; preds = %.lr.ph.i2372
   %837 = icmp eq ptr %830, %831
@@ -54465,7 +54466,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2374: ; preds = %
   %848 = sub i64 %846, %847
   %849 = ashr exact i64 %848, 3
   %850 = icmp ugt i64 %849, %843
-  br i1 %850, label %.lr.ph.i2376, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2378, !llvm.loop !73
+  br i1 %850, label %.lr.ph.i2376, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2378, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2378: ; preds = %.lr.ph.i2376
   %851 = icmp eq ptr %844, %845
@@ -54487,7 +54488,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2378: ; preds = %
   %862 = sub i64 %860, %861
   %863 = ashr exact i64 %862, 3
   %864 = icmp ugt i64 %863, %857
-  br i1 %864, label %.lr.ph.i2380, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2382, !llvm.loop !73
+  br i1 %864, label %.lr.ph.i2380, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2382, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2382: ; preds = %.lr.ph.i2380
   %865 = icmp eq ptr %858, %859
@@ -54509,7 +54510,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2382: ; preds = %
   %876 = sub i64 %874, %875
   %877 = ashr exact i64 %876, 3
   %878 = icmp ugt i64 %877, %871
-  br i1 %878, label %.lr.ph.i2384, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2386, !llvm.loop !73
+  br i1 %878, label %.lr.ph.i2384, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2386, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2386: ; preds = %.lr.ph.i2384
   %879 = icmp eq ptr %872, %873
@@ -54531,7 +54532,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2386: ; preds = %
   %890 = sub i64 %888, %889
   %891 = ashr exact i64 %890, 3
   %892 = icmp ugt i64 %891, %885
-  br i1 %892, label %.lr.ph.i2388, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2390, !llvm.loop !73
+  br i1 %892, label %.lr.ph.i2388, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2390, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2390: ; preds = %.lr.ph.i2388
   %893 = icmp eq ptr %886, %887
@@ -54553,7 +54554,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2390: ; preds = %
   %904 = sub i64 %902, %903
   %905 = ashr exact i64 %904, 3
   %906 = icmp ugt i64 %905, %899
-  br i1 %906, label %.lr.ph.i2392, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2394, !llvm.loop !73
+  br i1 %906, label %.lr.ph.i2392, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2394, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2394: ; preds = %.lr.ph.i2392
   %907 = icmp eq ptr %900, %901
@@ -54575,7 +54576,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2394: ; preds = %
   %918 = sub i64 %916, %917
   %919 = ashr exact i64 %918, 3
   %920 = icmp ugt i64 %919, %913
-  br i1 %920, label %.lr.ph.i2396, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2398, !llvm.loop !73
+  br i1 %920, label %.lr.ph.i2396, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2398, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2398: ; preds = %.lr.ph.i2396
   %921 = icmp eq ptr %914, %915
@@ -54597,7 +54598,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2398: ; preds = %
   %932 = sub i64 %930, %931
   %933 = ashr exact i64 %932, 3
   %934 = icmp ugt i64 %933, %927
-  br i1 %934, label %.lr.ph.i2400, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2402, !llvm.loop !73
+  br i1 %934, label %.lr.ph.i2400, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2402, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2402: ; preds = %.lr.ph.i2400
   %935 = icmp eq ptr %928, %929
@@ -54619,7 +54620,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2402: ; preds = %
   %946 = sub i64 %944, %945
   %947 = ashr exact i64 %946, 3
   %948 = icmp ugt i64 %947, %941
-  br i1 %948, label %.lr.ph.i2404, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2406, !llvm.loop !73
+  br i1 %948, label %.lr.ph.i2404, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2406, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2406: ; preds = %.lr.ph.i2404
   %949 = icmp eq ptr %942, %943
@@ -54641,7 +54642,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2406: ; preds = %
   %960 = sub i64 %958, %959
   %961 = ashr exact i64 %960, 3
   %962 = icmp ugt i64 %961, %955
-  br i1 %962, label %.lr.ph.i2408, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2410, !llvm.loop !73
+  br i1 %962, label %.lr.ph.i2408, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2410, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2410: ; preds = %.lr.ph.i2408, %624, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2318, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2322, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2326, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2330, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2334, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2338, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2342, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2346, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2350, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2354, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2358, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2362, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2366, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2370, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2374, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2378, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2382, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2386, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2390, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2394, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2398, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2402, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2406
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.800, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL36E_GL_EXT_ray_flags_primitive_cullingE)
@@ -54794,7 +54795,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2314.thread: ; pr
   %1006 = sub i64 %1004, %1005
   %1007 = ashr exact i64 %1006, 3
   %1008 = icmp ugt i64 %1007, %1001
-  br i1 %1008, label %.lr.ph.i2412, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2414, !llvm.loop !73
+  br i1 %1008, label %.lr.ph.i2412, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2414, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2414: ; preds = %.lr.ph.i2412
   %1009 = icmp eq ptr %1002, %1003
@@ -54816,7 +54817,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2414: ; preds = %
   %1020 = sub i64 %1018, %1019
   %1021 = ashr exact i64 %1020, 3
   %1022 = icmp ugt i64 %1021, %1015
-  br i1 %1022, label %.lr.ph.i2416, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2418, !llvm.loop !73
+  br i1 %1022, label %.lr.ph.i2416, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2418, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2418: ; preds = %.lr.ph.i2416
   %1023 = icmp eq ptr %1016, %1017
@@ -54838,7 +54839,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2418: ; preds = %
   %1034 = sub i64 %1032, %1033
   %1035 = ashr exact i64 %1034, 3
   %1036 = icmp ugt i64 %1035, %1029
-  br i1 %1036, label %.lr.ph.i2420, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2422, !llvm.loop !73
+  br i1 %1036, label %.lr.ph.i2420, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2422, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2422: ; preds = %.lr.ph.i2420
   %1037 = icmp eq ptr %1030, %1031
@@ -54860,7 +54861,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2422: ; preds = %
   %1048 = sub i64 %1046, %1047
   %1049 = ashr exact i64 %1048, 3
   %1050 = icmp ugt i64 %1049, %1043
-  br i1 %1050, label %.lr.ph.i2424, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2426, !llvm.loop !73
+  br i1 %1050, label %.lr.ph.i2424, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2426, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2426: ; preds = %.lr.ph.i2424
   %1051 = icmp eq ptr %1044, %1045
@@ -54882,7 +54883,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2426: ; preds = %
   %1062 = sub i64 %1060, %1061
   %1063 = ashr exact i64 %1062, 3
   %1064 = icmp ugt i64 %1063, %1057
-  br i1 %1064, label %.lr.ph.i2428, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2430, !llvm.loop !73
+  br i1 %1064, label %.lr.ph.i2428, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2430, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2430: ; preds = %.lr.ph.i2428
   %1065 = icmp eq ptr %1058, %1059
@@ -54904,7 +54905,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2430: ; preds = %
   %1076 = sub i64 %1074, %1075
   %1077 = ashr exact i64 %1076, 3
   %1078 = icmp ugt i64 %1077, %1071
-  br i1 %1078, label %.lr.ph.i2432, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2434, !llvm.loop !73
+  br i1 %1078, label %.lr.ph.i2432, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2434, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2434: ; preds = %.lr.ph.i2432
   %1079 = icmp eq ptr %1072, %1073
@@ -54926,7 +54927,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2434: ; preds = %
   %1090 = sub i64 %1088, %1089
   %1091 = ashr exact i64 %1090, 3
   %1092 = icmp ugt i64 %1091, %1085
-  br i1 %1092, label %.lr.ph.i2436, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2438, !llvm.loop !73
+  br i1 %1092, label %.lr.ph.i2436, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2438, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2438: ; preds = %.lr.ph.i2436
   %1093 = icmp eq ptr %1086, %1087
@@ -54948,7 +54949,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2438: ; preds = %
   %1104 = sub i64 %1102, %1103
   %1105 = ashr exact i64 %1104, 3
   %1106 = icmp ugt i64 %1105, %1099
-  br i1 %1106, label %.lr.ph.i2440, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2442, !llvm.loop !73
+  br i1 %1106, label %.lr.ph.i2440, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2442, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2442: ; preds = %.lr.ph.i2440
   %1107 = icmp eq ptr %1100, %1101
@@ -54970,7 +54971,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2442: ; preds = %
   %1118 = sub i64 %1116, %1117
   %1119 = ashr exact i64 %1118, 3
   %1120 = icmp ugt i64 %1119, %1113
-  br i1 %1120, label %.lr.ph.i2444, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2446, !llvm.loop !73
+  br i1 %1120, label %.lr.ph.i2444, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2446, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2446: ; preds = %.lr.ph.i2444
   %1121 = icmp eq ptr %1114, %1115
@@ -54992,7 +54993,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2446: ; preds = %
   %1132 = sub i64 %1130, %1131
   %1133 = ashr exact i64 %1132, 3
   %1134 = icmp ugt i64 %1133, %1127
-  br i1 %1134, label %.lr.ph.i2448, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2450, !llvm.loop !73
+  br i1 %1134, label %.lr.ph.i2448, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2450, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2450: ; preds = %.lr.ph.i2448
   %1135 = icmp eq ptr %1128, %1129
@@ -55014,7 +55015,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2450: ; preds = %
   %1146 = sub i64 %1144, %1145
   %1147 = ashr exact i64 %1146, 3
   %1148 = icmp ugt i64 %1147, %1141
-  br i1 %1148, label %.lr.ph.i2452, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2454, !llvm.loop !73
+  br i1 %1148, label %.lr.ph.i2452, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2454, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2454: ; preds = %.lr.ph.i2452
   %1149 = icmp eq ptr %1142, %1143
@@ -55036,7 +55037,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2454: ; preds = %
   %1160 = sub i64 %1158, %1159
   %1161 = ashr exact i64 %1160, 3
   %1162 = icmp ugt i64 %1161, %1155
-  br i1 %1162, label %.lr.ph.i2456, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2458, !llvm.loop !73
+  br i1 %1162, label %.lr.ph.i2456, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2458, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2458: ; preds = %.lr.ph.i2456
   %1163 = icmp eq ptr %1156, %1157
@@ -55058,7 +55059,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2458: ; preds = %
   %1174 = sub i64 %1172, %1173
   %1175 = ashr exact i64 %1174, 3
   %1176 = icmp ugt i64 %1175, %1169
-  br i1 %1176, label %.lr.ph.i2460, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2462, !llvm.loop !73
+  br i1 %1176, label %.lr.ph.i2460, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2462, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2462: ; preds = %.lr.ph.i2460
   %1177 = icmp eq ptr %1170, %1171
@@ -55080,7 +55081,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2462: ; preds = %
   %1188 = sub i64 %1186, %1187
   %1189 = ashr exact i64 %1188, 3
   %1190 = icmp ugt i64 %1189, %1183
-  br i1 %1190, label %.lr.ph.i2464, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2466, !llvm.loop !73
+  br i1 %1190, label %.lr.ph.i2464, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2466, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2466: ; preds = %.lr.ph.i2464
   %1191 = icmp eq ptr %1184, %1185
@@ -55102,7 +55103,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2466: ; preds = %
   %1202 = sub i64 %1200, %1201
   %1203 = ashr exact i64 %1202, 3
   %1204 = icmp ugt i64 %1203, %1197
-  br i1 %1204, label %.lr.ph.i2468, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2470, !llvm.loop !73
+  br i1 %1204, label %.lr.ph.i2468, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2470, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2470: ; preds = %.lr.ph.i2468, %992, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2414, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2418, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2422, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2426, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2430, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2434, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2438, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2442, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2446, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2450, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2454, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2458, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2462, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2466, %989
   %1205 = icmp slt i32 %1, 420
@@ -55131,7 +55132,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2470: ; preds = %
   %1220 = sub i64 %1218, %1219
   %1221 = ashr exact i64 %1220, 3
   %1222 = icmp ugt i64 %1221, %1215
-  br i1 %1222, label %.lr.ph.i2472, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2474, !llvm.loop !73
+  br i1 %1222, label %.lr.ph.i2472, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2474, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2474: ; preds = %.lr.ph.i2472
   %1223 = icmp eq ptr %1216, %1217
@@ -55153,7 +55154,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2474: ; preds = %
   %1234 = sub i64 %1232, %1233
   %1235 = ashr exact i64 %1234, 3
   %1236 = icmp ugt i64 %1235, %1229
-  br i1 %1236, label %.lr.ph.i2476, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2478, !llvm.loop !73
+  br i1 %1236, label %.lr.ph.i2476, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2478, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2478: ; preds = %.lr.ph.i2476
   %1237 = icmp eq ptr %1230, %1231
@@ -55175,7 +55176,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2478: ; preds = %
   %1248 = sub i64 %1246, %1247
   %1249 = ashr exact i64 %1248, 3
   %1250 = icmp ugt i64 %1249, %1243
-  br i1 %1250, label %.lr.ph.i2480, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2482, !llvm.loop !73
+  br i1 %1250, label %.lr.ph.i2480, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2482, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2482: ; preds = %.lr.ph.i2480
   %1251 = icmp eq ptr %1244, %1245
@@ -55197,7 +55198,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2482: ; preds = %
   %1262 = sub i64 %1260, %1261
   %1263 = ashr exact i64 %1262, 3
   %1264 = icmp ugt i64 %1263, %1257
-  br i1 %1264, label %.lr.ph.i2484, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2522.thread, !llvm.loop !73
+  br i1 %1264, label %.lr.ph.i2484, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2522.thread, !llvm.loop !75
 
 .critedge2147:                                    ; preds = %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2470
   %1265 = icmp eq i32 %1, 450
@@ -55226,7 +55227,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2482: ; preds = %
   %1280 = sub i64 %1278, %1279
   %1281 = ashr exact i64 %1280, 3
   %1282 = icmp ugt i64 %1281, %1275
-  br i1 %1282, label %.lr.ph.i2488, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2490, !llvm.loop !73
+  br i1 %1282, label %.lr.ph.i2488, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2490, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2490: ; preds = %.lr.ph.i2488
   %1283 = icmp eq ptr %1276, %1277
@@ -55248,7 +55249,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2490: ; preds = %
   %1294 = sub i64 %1292, %1293
   %1295 = ashr exact i64 %1294, 3
   %1296 = icmp ugt i64 %1295, %1289
-  br i1 %1296, label %.lr.ph.i2492, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2494, !llvm.loop !73
+  br i1 %1296, label %.lr.ph.i2492, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2494, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2494: ; preds = %.lr.ph.i2492
   %1297 = icmp eq ptr %1290, %1291
@@ -55270,7 +55271,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2494: ; preds = %
   %1308 = sub i64 %1306, %1307
   %1309 = ashr exact i64 %1308, 3
   %1310 = icmp ugt i64 %1309, %1303
-  br i1 %1310, label %.lr.ph.i2496, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2498, !llvm.loop !73
+  br i1 %1310, label %.lr.ph.i2496, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2498, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2498: ; preds = %.lr.ph.i2496
   %1311 = icmp eq ptr %1304, %1305
@@ -55292,7 +55293,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2498: ; preds = %
   %1322 = sub i64 %1320, %1321
   %1323 = ashr exact i64 %1322, 3
   %1324 = icmp ugt i64 %1323, %1317
-  br i1 %1324, label %.lr.ph.i2500, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2502, !llvm.loop !73
+  br i1 %1324, label %.lr.ph.i2500, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2502, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2502: ; preds = %.lr.ph.i2500
   %1325 = icmp eq ptr %1318, %1319
@@ -55314,7 +55315,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2502: ; preds = %
   %1336 = sub i64 %1334, %1335
   %1337 = ashr exact i64 %1336, 3
   %1338 = icmp ugt i64 %1337, %1331
-  br i1 %1338, label %.lr.ph.i2504, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2506, !llvm.loop !73
+  br i1 %1338, label %.lr.ph.i2504, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2506, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2506: ; preds = %.lr.ph.i2504
   %1339 = icmp eq ptr %1332, %1333
@@ -55336,7 +55337,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2506: ; preds = %
   %1350 = sub i64 %1348, %1349
   %1351 = ashr exact i64 %1350, 3
   %1352 = icmp ugt i64 %1351, %1345
-  br i1 %1352, label %.lr.ph.i2508, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2510, !llvm.loop !73
+  br i1 %1352, label %.lr.ph.i2508, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2510, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2510: ; preds = %.lr.ph.i2508
   %1353 = icmp eq ptr %1346, %1347
@@ -55358,7 +55359,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2510: ; preds = %
   %1364 = sub i64 %1362, %1363
   %1365 = ashr exact i64 %1364, 3
   %1366 = icmp ugt i64 %1365, %1359
-  br i1 %1366, label %.lr.ph.i2512, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2514, !llvm.loop !73
+  br i1 %1366, label %.lr.ph.i2512, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2514, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2514: ; preds = %.lr.ph.i2512
   %1367 = icmp eq ptr %1360, %1361
@@ -55380,7 +55381,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2514: ; preds = %
   %1378 = sub i64 %1376, %1377
   %1379 = ashr exact i64 %1378, 3
   %1380 = icmp ugt i64 %1379, %1373
-  br i1 %1380, label %.lr.ph.i2516, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2518, !llvm.loop !73
+  br i1 %1380, label %.lr.ph.i2516, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2518, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2518: ; preds = %.lr.ph.i2516
   %1381 = icmp eq ptr %1374, %1375
@@ -55402,7 +55403,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2518: ; preds = %
   %1392 = sub i64 %1390, %1391
   %1393 = ashr exact i64 %1392, 3
   %1394 = icmp ugt i64 %1393, %1387
-  br i1 %1394, label %.lr.ph.i2520, label %.critedge2149, !llvm.loop !73
+  br i1 %1394, label %.lr.ph.i2520, label %.critedge2149, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2522: ; preds = %.critedge2147
   %1395 = icmp samesign ult i32 %1, 450
@@ -55437,7 +55438,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2522.thread: ; pr
   %1409 = sub i64 %1407, %1408
   %1410 = ashr exact i64 %1409, 3
   %1411 = icmp ugt i64 %1410, %1404
-  br i1 %1411, label %.lr.ph.i2524, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2526, !llvm.loop !73
+  br i1 %1411, label %.lr.ph.i2524, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2526, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2526: ; preds = %.lr.ph.i2524
   %1412 = icmp eq ptr %1405, %1406
@@ -55459,7 +55460,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2526: ; preds = %
   %1423 = sub i64 %1421, %1422
   %1424 = ashr exact i64 %1423, 3
   %1425 = icmp ugt i64 %1424, %1418
-  br i1 %1425, label %.lr.ph.i2528, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2530, !llvm.loop !73
+  br i1 %1425, label %.lr.ph.i2528, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2530, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2530: ; preds = %.lr.ph.i2528
   %1426 = icmp eq ptr %1419, %1420
@@ -55481,7 +55482,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2530: ; preds = %
   %1437 = sub i64 %1435, %1436
   %1438 = ashr exact i64 %1437, 3
   %1439 = icmp ugt i64 %1438, %1432
-  br i1 %1439, label %.lr.ph.i2532, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2534, !llvm.loop !73
+  br i1 %1439, label %.lr.ph.i2532, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2534, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2534: ; preds = %.lr.ph.i2532
   %1440 = icmp eq ptr %1433, %1434
@@ -55503,7 +55504,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2534: ; preds = %
   %1451 = sub i64 %1449, %1450
   %1452 = ashr exact i64 %1451, 3
   %1453 = icmp ugt i64 %1452, %1446
-  br i1 %1453, label %.lr.ph.i2536, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2538, !llvm.loop !73
+  br i1 %1453, label %.lr.ph.i2536, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2538, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2538: ; preds = %.lr.ph.i2536
   %1454 = icmp eq ptr %1447, %1448
@@ -55525,7 +55526,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2538: ; preds = %
   %1465 = sub i64 %1463, %1464
   %1466 = ashr exact i64 %1465, 3
   %1467 = icmp ugt i64 %1466, %1460
-  br i1 %1467, label %.lr.ph.i2540, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542, !llvm.loop !73
+  br i1 %1467, label %.lr.ph.i2540, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542: ; preds = %.lr.ph.i2540
   %1468 = icmp eq ptr %1461, %1462
@@ -55547,7 +55548,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542: ; preds = %
   %1479 = sub i64 %1477, %1478
   %1480 = ashr exact i64 %1479, 3
   %1481 = icmp ugt i64 %1480, %1474
-  br i1 %1481, label %.lr.ph.i2544, label %.critedge2149, !llvm.loop !73
+  br i1 %1481, label %.lr.ph.i2544, label %.critedge2149, !llvm.loop !75
 
 .critedge2149.thread:                             ; preds = %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2518, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2514, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2510, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2506, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2502, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2498, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2494, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2490, %1266, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2538, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2534, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2530, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2526, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2522.thread
   %1482 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -55577,7 +55578,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2542: ; preds = %
   %1496 = sub i64 %1494, %1495
   %1497 = ashr exact i64 %1496, 3
   %1498 = icmp ugt i64 %1497, %1491
-  br i1 %1498, label %.lr.ph.i2548, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550, !llvm.loop !73
+  br i1 %1498, label %.lr.ph.i2548, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550: ; preds = %.lr.ph.i2548
   %1499 = icmp eq ptr %1492, %1493
@@ -55599,7 +55600,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550: ; preds = %
   %1510 = sub i64 %1508, %1509
   %1511 = ashr exact i64 %1510, 3
   %1512 = icmp ugt i64 %1511, %1505
-  br i1 %1512, label %.lr.ph.i2552, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554, !llvm.loop !73
+  br i1 %1512, label %.lr.ph.i2552, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554: ; preds = %.lr.ph.i2552
   %1513 = icmp eq ptr %1506, %1507
@@ -55621,7 +55622,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554: ; preds = %
   %1524 = sub i64 %1522, %1523
   %1525 = ashr exact i64 %1524, 3
   %1526 = icmp ugt i64 %1525, %1519
-  br i1 %1526, label %.lr.ph.i2556, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558, !llvm.loop !73
+  br i1 %1526, label %.lr.ph.i2556, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558: ; preds = %.lr.ph.i2556
   %1527 = icmp eq ptr %1520, %1521
@@ -55643,7 +55644,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558: ; preds = %
   %1538 = sub i64 %1536, %1537
   %1539 = ashr exact i64 %1538, 3
   %1540 = icmp ugt i64 %1539, %1533
-  br i1 %1540, label %.lr.ph.i2560, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562, !llvm.loop !73
+  br i1 %1540, label %.lr.ph.i2560, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562: ; preds = %.lr.ph.i2560
   %1541 = icmp eq ptr %1534, %1535
@@ -55665,7 +55666,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562: ; preds = %
   %1552 = sub i64 %1550, %1551
   %1553 = ashr exact i64 %1552, 3
   %1554 = icmp ugt i64 %1553, %1547
-  br i1 %1554, label %.lr.ph.i2564, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566, !llvm.loop !73
+  br i1 %1554, label %.lr.ph.i2564, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566: ; preds = %.lr.ph.i2564
   %1555 = icmp eq ptr %1548, %1549
@@ -55687,7 +55688,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566: ; preds = %
   %1566 = sub i64 %1564, %1565
   %1567 = ashr exact i64 %1566, 3
   %1568 = icmp ugt i64 %1567, %1561
-  br i1 %1568, label %.lr.ph.i2568, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570, !llvm.loop !73
+  br i1 %1568, label %.lr.ph.i2568, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570: ; preds = %.lr.ph.i2568
   %1569 = icmp eq ptr %1562, %1563
@@ -55709,7 +55710,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570: ; preds = %
   %1580 = sub i64 %1578, %1579
   %1581 = ashr exact i64 %1580, 3
   %1582 = icmp ugt i64 %1581, %1575
-  br i1 %1582, label %.lr.ph.i2572, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574, !llvm.loop !73
+  br i1 %1582, label %.lr.ph.i2572, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574: ; preds = %.lr.ph.i2572
   %1583 = icmp eq ptr %1576, %1577
@@ -55731,7 +55732,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574: ; preds = %
   %1594 = sub i64 %1592, %1593
   %1595 = ashr exact i64 %1594, 3
   %1596 = icmp ugt i64 %1595, %1589
-  br i1 %1596, label %.lr.ph.i2576, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578, !llvm.loop !73
+  br i1 %1596, label %.lr.ph.i2576, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578: ; preds = %.lr.ph.i2576
   %1597 = icmp eq ptr %1590, %1591
@@ -55753,7 +55754,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578: ; preds = %
   %1608 = sub i64 %1606, %1607
   %1609 = ashr exact i64 %1608, 3
   %1610 = icmp ugt i64 %1609, %1603
-  br i1 %1610, label %.lr.ph.i2580, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582, !llvm.loop !73
+  br i1 %1610, label %.lr.ph.i2580, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582: ; preds = %.lr.ph.i2580
   %1611 = icmp eq ptr %1604, %1605
@@ -55775,7 +55776,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582: ; preds = %
   %1622 = sub i64 %1620, %1621
   %1623 = ashr exact i64 %1622, 3
   %1624 = icmp ugt i64 %1623, %1617
-  br i1 %1624, label %.lr.ph.i2584, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586, !llvm.loop !73
+  br i1 %1624, label %.lr.ph.i2584, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586: ; preds = %.lr.ph.i2584
   %1625 = icmp eq ptr %1618, %1619
@@ -55797,7 +55798,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586: ; preds = %
   %1636 = sub i64 %1634, %1635
   %1637 = ashr exact i64 %1636, 3
   %1638 = icmp ugt i64 %1637, %1631
-  br i1 %1638, label %.lr.ph.i2588, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590, !llvm.loop !73
+  br i1 %1638, label %.lr.ph.i2588, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590: ; preds = %.lr.ph.i2588
   %1639 = icmp eq ptr %1632, %1633
@@ -55819,7 +55820,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590: ; preds = %
   %1650 = sub i64 %1648, %1649
   %1651 = ashr exact i64 %1650, 3
   %1652 = icmp ugt i64 %1651, %1645
-  br i1 %1652, label %.lr.ph.i2592, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594, !llvm.loop !73
+  br i1 %1652, label %.lr.ph.i2592, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594: ; preds = %.lr.ph.i2592
   %1653 = icmp eq ptr %1646, %1647
@@ -55841,7 +55842,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594: ; preds = %
   %1664 = sub i64 %1662, %1663
   %1665 = ashr exact i64 %1664, 3
   %1666 = icmp ugt i64 %1665, %1659
-  br i1 %1666, label %.lr.ph.i2596, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598, !llvm.loop !73
+  br i1 %1666, label %.lr.ph.i2596, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598: ; preds = %.lr.ph.i2596
   %1667 = icmp eq ptr %1660, %1661
@@ -55863,7 +55864,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598: ; preds = %
   %1678 = sub i64 %1676, %1677
   %1679 = ashr exact i64 %1678, 3
   %1680 = icmp ugt i64 %1679, %1673
-  br i1 %1680, label %.lr.ph.i2600, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602, !llvm.loop !73
+  br i1 %1680, label %.lr.ph.i2600, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602: ; preds = %.lr.ph.i2600
   %1681 = icmp eq ptr %1674, %1675
@@ -55885,7 +55886,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602: ; preds = %
   %1692 = sub i64 %1690, %1691
   %1693 = ashr exact i64 %1692, 3
   %1694 = icmp ugt i64 %1693, %1687
-  br i1 %1694, label %.lr.ph.i2604, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606, !llvm.loop !73
+  br i1 %1694, label %.lr.ph.i2604, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606: ; preds = %.lr.ph.i2604
   %1695 = icmp eq ptr %1688, %1689
@@ -55907,7 +55908,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606: ; preds = %
   %1706 = sub i64 %1704, %1705
   %1707 = ashr exact i64 %1706, 3
   %1708 = icmp ugt i64 %1707, %1701
-  br i1 %1708, label %.lr.ph.i2608, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610, !llvm.loop !73
+  br i1 %1708, label %.lr.ph.i2608, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610: ; preds = %.lr.ph.i2608
   %1709 = icmp eq ptr %1702, %1703
@@ -55929,7 +55930,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610: ; preds = %
   %1720 = sub i64 %1718, %1719
   %1721 = ashr exact i64 %1720, 3
   %1722 = icmp ugt i64 %1721, %1715
-  br i1 %1722, label %.lr.ph.i2612, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614, !llvm.loop !73
+  br i1 %1722, label %.lr.ph.i2612, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614: ; preds = %.lr.ph.i2612
   %1723 = icmp eq ptr %1716, %1717
@@ -55951,7 +55952,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614: ; preds = %
   %1734 = sub i64 %1732, %1733
   %1735 = ashr exact i64 %1734, 3
   %1736 = icmp ugt i64 %1735, %1729
-  br i1 %1736, label %.lr.ph.i2616, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618, !llvm.loop !73
+  br i1 %1736, label %.lr.ph.i2616, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618: ; preds = %.lr.ph.i2616
   %1737 = icmp eq ptr %1730, %1731
@@ -55973,7 +55974,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618: ; preds = %
   %1748 = sub i64 %1746, %1747
   %1749 = ashr exact i64 %1748, 3
   %1750 = icmp ugt i64 %1749, %1743
-  br i1 %1750, label %.lr.ph.i2620, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622, !llvm.loop !73
+  br i1 %1750, label %.lr.ph.i2620, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622: ; preds = %.lr.ph.i2620
   %1751 = icmp eq ptr %1744, %1745
@@ -55995,7 +55996,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622: ; preds = %
   %1762 = sub i64 %1760, %1761
   %1763 = ashr exact i64 %1762, 3
   %1764 = icmp ugt i64 %1763, %1757
-  br i1 %1764, label %.lr.ph.i2624, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626, !llvm.loop !73
+  br i1 %1764, label %.lr.ph.i2624, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626: ; preds = %.lr.ph.i2624
   %1765 = icmp eq ptr %1758, %1759
@@ -56017,7 +56018,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626: ; preds = %
   %1776 = sub i64 %1774, %1775
   %1777 = ashr exact i64 %1776, 3
   %1778 = icmp ugt i64 %1777, %1771
-  br i1 %1778, label %.lr.ph.i2628, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2630, !llvm.loop !73
+  br i1 %1778, label %.lr.ph.i2628, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2630, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2630: ; preds = %.lr.ph.i2628, %.critedge2149.thread, %.critedge2149, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626
   %1779 = phi ptr [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2626 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2622 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2618 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2614 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2610 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2606 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2602 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2598 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2594 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2590 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2586 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2582 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2578 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2574 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2570 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2566 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2562 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2558 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2554 ], [ %1485, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2550 ], [ %1482, %.critedge2149.thread ], [ %1485, %.critedge2149 ], [ %1485, %.lr.ph.i2628 ]
@@ -56050,7 +56051,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2630: ; preds = %
   %1792 = sub i64 %1790, %1791
   %1793 = ashr exact i64 %1792, 3
   %1794 = icmp ugt i64 %1793, %1787
-  br i1 %1794, label %.lr.ph.i2632, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2634, !llvm.loop !73
+  br i1 %1794, label %.lr.ph.i2632, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2634, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2634: ; preds = %.lr.ph.i2632, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2630
   call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.883, i32 noundef 73, ptr noundef nonnull align 8 dereferenceable(40) %5)
@@ -56081,7 +56082,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2634: ; preds = %
   %1807 = sub i64 %1805, %1806
   %1808 = ashr exact i64 %1807, 3
   %1809 = icmp ugt i64 %1808, %1802
-  br i1 %1809, label %.lr.ph.i2636, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2638, !llvm.loop !73
+  br i1 %1809, label %.lr.ph.i2636, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2638, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2638: ; preds = %.lr.ph.i2636
   %1810 = icmp eq ptr %1803, %1804
@@ -56103,7 +56104,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2638: ; preds = %
   %1821 = sub i64 %1819, %1820
   %1822 = ashr exact i64 %1821, 3
   %1823 = icmp ugt i64 %1822, %1816
-  br i1 %1823, label %.lr.ph.i2640, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2642, !llvm.loop !73
+  br i1 %1823, label %.lr.ph.i2640, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2642, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2642: ; preds = %.lr.ph.i2640
   %1824 = icmp eq ptr %1817, %1818
@@ -56125,7 +56126,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2642: ; preds = %
   %1835 = sub i64 %1833, %1834
   %1836 = ashr exact i64 %1835, 3
   %1837 = icmp ugt i64 %1836, %1830
-  br i1 %1837, label %.lr.ph.i2644, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2646, !llvm.loop !73
+  br i1 %1837, label %.lr.ph.i2644, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2646, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2646: ; preds = %.lr.ph.i2644
   %1838 = icmp eq ptr %1831, %1832
@@ -56147,7 +56148,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2646: ; preds = %
   %1849 = sub i64 %1847, %1848
   %1850 = ashr exact i64 %1849, 3
   %1851 = icmp ugt i64 %1850, %1844
-  br i1 %1851, label %.lr.ph.i2648, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2650, !llvm.loop !73
+  br i1 %1851, label %.lr.ph.i2648, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2650, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2650: ; preds = %.lr.ph.i2648
   %1852 = icmp eq ptr %1845, %1846
@@ -56169,7 +56170,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2650: ; preds = %
   %1863 = sub i64 %1861, %1862
   %1864 = ashr exact i64 %1863, 3
   %1865 = icmp ugt i64 %1864, %1858
-  br i1 %1865, label %.lr.ph.i2652, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2654, !llvm.loop !73
+  br i1 %1865, label %.lr.ph.i2652, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2654, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2654: ; preds = %.lr.ph.i2652
   %1866 = icmp eq ptr %1859, %1860
@@ -56191,7 +56192,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2654: ; preds = %
   %1877 = sub i64 %1875, %1876
   %1878 = ashr exact i64 %1877, 3
   %1879 = icmp ugt i64 %1878, %1872
-  br i1 %1879, label %.lr.ph.i2656, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2658, !llvm.loop !73
+  br i1 %1879, label %.lr.ph.i2656, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2658, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2658: ; preds = %.lr.ph.i2656
   %1880 = icmp eq ptr %1873, %1874
@@ -56213,7 +56214,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2658: ; preds = %
   %1891 = sub i64 %1889, %1890
   %1892 = ashr exact i64 %1891, 3
   %1893 = icmp ugt i64 %1892, %1886
-  br i1 %1893, label %.lr.ph.i2660, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2662, !llvm.loop !73
+  br i1 %1893, label %.lr.ph.i2660, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2662, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2662: ; preds = %.lr.ph.i2660
   %1894 = icmp eq ptr %1887, %1888
@@ -56235,7 +56236,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2662: ; preds = %
   %1905 = sub i64 %1903, %1904
   %1906 = ashr exact i64 %1905, 3
   %1907 = icmp ugt i64 %1906, %1900
-  br i1 %1907, label %.lr.ph.i2664, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666, !llvm.loop !73
+  br i1 %1907, label %.lr.ph.i2664, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666: ; preds = %.lr.ph.i2664
   %1908 = icmp eq ptr %1901, %1902
@@ -56257,7 +56258,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666: ; preds = %
   %1919 = sub i64 %1917, %1918
   %1920 = ashr exact i64 %1919, 3
   %1921 = icmp ugt i64 %1920, %1914
-  br i1 %1921, label %.lr.ph.i2668, label %.critedge2152, !llvm.loop !73
+  br i1 %1921, label %.lr.ph.i2668, label %.critedge2152, !llvm.loop !75
 
 .critedge2152:                                    ; preds = %.lr.ph.i2668, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2634, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2638, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2642, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2646, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2650, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2654, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2658, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2662, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666
   %1922 = icmp sgt i32 %1, 429
@@ -56329,7 +56330,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2666: ; preds = %
   %1944 = sub i64 %1942, %1943
   %1945 = ashr exact i64 %1944, 3
   %1946 = icmp ugt i64 %1945, %1939
-  br i1 %1946, label %.lr.ph.i2672, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674, !llvm.loop !73
+  br i1 %1946, label %.lr.ph.i2672, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674: ; preds = %.lr.ph.i2672
   %1947 = icmp eq ptr %1940, %1941
@@ -56351,7 +56352,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674: ; preds = %
   %1958 = sub i64 %1956, %1957
   %1959 = ashr exact i64 %1958, 3
   %1960 = icmp ugt i64 %1959, %1953
-  br i1 %1960, label %.lr.ph.i2676, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678, !llvm.loop !73
+  br i1 %1960, label %.lr.ph.i2676, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678: ; preds = %.lr.ph.i2676
   %1961 = icmp eq ptr %1954, %1955
@@ -56373,7 +56374,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678: ; preds = %
   %1972 = sub i64 %1970, %1971
   %1973 = ashr exact i64 %1972, 3
   %1974 = icmp ugt i64 %1973, %1967
-  br i1 %1974, label %.lr.ph.i2680, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682, !llvm.loop !73
+  br i1 %1974, label %.lr.ph.i2680, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682: ; preds = %.lr.ph.i2680
   %1975 = icmp eq ptr %1968, %1969
@@ -56395,7 +56396,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682: ; preds = %
   %1986 = sub i64 %1984, %1985
   %1987 = ashr exact i64 %1986, 3
   %1988 = icmp ugt i64 %1987, %1981
-  br i1 %1988, label %.lr.ph.i2684, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2686, !llvm.loop !73
+  br i1 %1988, label %.lr.ph.i2684, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2686, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2686: ; preds = %.lr.ph.i2684, %1930, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682
   %1989 = phi ptr [ %1969, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2682 ], [ %1955, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2678 ], [ %1941, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2674 ], [ %1933, %1930 ], [ %1983, %.lr.ph.i2684 ]
@@ -56428,7 +56429,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2686: ; preds = %
   %2005 = sub i64 %2003, %2004
   %2006 = ashr exact i64 %2005, 3
   %2007 = icmp ugt i64 %2006, %2000
-  br i1 %2007, label %.lr.ph.i2688, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690, !llvm.loop !73
+  br i1 %2007, label %.lr.ph.i2688, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690: ; preds = %.lr.ph.i2688
   %2008 = icmp eq ptr %2001, %2002
@@ -56450,7 +56451,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690: ; preds = %
   %2019 = sub i64 %2017, %2018
   %2020 = ashr exact i64 %2019, 3
   %2021 = icmp ugt i64 %2020, %2014
-  br i1 %2021, label %.lr.ph.i2692, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694, !llvm.loop !73
+  br i1 %2021, label %.lr.ph.i2692, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694: ; preds = %.lr.ph.i2692
   %2022 = icmp eq ptr %2015, %2016
@@ -56472,7 +56473,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694: ; preds = %
   %2033 = sub i64 %2031, %2032
   %2034 = ashr exact i64 %2033, 3
   %2035 = icmp ugt i64 %2034, %2028
-  br i1 %2035, label %.lr.ph.i2696, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698, !llvm.loop !73
+  br i1 %2035, label %.lr.ph.i2696, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698: ; preds = %.lr.ph.i2696
   %2036 = icmp eq ptr %2029, %2030
@@ -56494,7 +56495,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698: ; preds = %
   %2047 = sub i64 %2045, %2046
   %2048 = ashr exact i64 %2047, 3
   %2049 = icmp ugt i64 %2048, %2042
-  br i1 %2049, label %.lr.ph.i2700, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702, !llvm.loop !73
+  br i1 %2049, label %.lr.ph.i2700, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702: ; preds = %.lr.ph.i2700
   %2050 = icmp eq ptr %2043, %2044
@@ -56516,7 +56517,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702: ; preds = %
   %2061 = sub i64 %2059, %2060
   %2062 = ashr exact i64 %2061, 3
   %2063 = icmp ugt i64 %2062, %2056
-  br i1 %2063, label %.lr.ph.i2704, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706, !llvm.loop !73
+  br i1 %2063, label %.lr.ph.i2704, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706: ; preds = %.lr.ph.i2704
   %2064 = icmp eq ptr %2057, %2058
@@ -56538,7 +56539,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706: ; preds = %
   %2075 = sub i64 %2073, %2074
   %2076 = ashr exact i64 %2075, 3
   %2077 = icmp ugt i64 %2076, %2070
-  br i1 %2077, label %.lr.ph.i2708, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710, !llvm.loop !73
+  br i1 %2077, label %.lr.ph.i2708, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710: ; preds = %.lr.ph.i2708
   %2078 = icmp eq ptr %2071, %2072
@@ -56560,7 +56561,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710: ; preds = %
   %2089 = sub i64 %2087, %2088
   %2090 = ashr exact i64 %2089, 3
   %2091 = icmp ugt i64 %2090, %2084
-  br i1 %2091, label %.lr.ph.i2712, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714, !llvm.loop !73
+  br i1 %2091, label %.lr.ph.i2712, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714: ; preds = %.lr.ph.i2712
   %2092 = icmp eq ptr %2085, %2086
@@ -56582,7 +56583,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714: ; preds = %
   %2103 = sub i64 %2101, %2102
   %2104 = ashr exact i64 %2103, 3
   %2105 = icmp ugt i64 %2104, %2098
-  br i1 %2105, label %.lr.ph.i2716, label %.critedge2158, !llvm.loop !73
+  br i1 %2105, label %.lr.ph.i2716, label %.critedge2158, !llvm.loop !75
 
 .critedge2156:                                    ; preds = %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2686
   %2106 = icmp slt i32 %1, 330
@@ -56610,7 +56611,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714: ; preds = %
   %2118 = sub i64 %2116, %2117
   %2119 = ashr exact i64 %2118, 3
   %2120 = icmp ugt i64 %2119, %2113
-  br i1 %2120, label %.lr.ph.i2720, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722, !llvm.loop !73
+  br i1 %2120, label %.lr.ph.i2720, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722: ; preds = %.lr.ph.i2720
   %2121 = icmp eq ptr %2114, %2115
@@ -56632,7 +56633,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722: ; preds = %
   %2132 = sub i64 %2130, %2131
   %2133 = ashr exact i64 %2132, 3
   %2134 = icmp ugt i64 %2133, %2127
-  br i1 %2134, label %.lr.ph.i2724, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726, !llvm.loop !73
+  br i1 %2134, label %.lr.ph.i2724, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726: ; preds = %.lr.ph.i2724
   %2135 = icmp eq ptr %2128, %2129
@@ -56654,7 +56655,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726: ; preds = %
   %2146 = sub i64 %2144, %2145
   %2147 = ashr exact i64 %2146, 3
   %2148 = icmp ugt i64 %2147, %2141
-  br i1 %2148, label %.lr.ph.i2728, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730, !llvm.loop !73
+  br i1 %2148, label %.lr.ph.i2728, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730: ; preds = %.lr.ph.i2728
   %2149 = icmp eq ptr %2142, %2143
@@ -56676,7 +56677,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730: ; preds = %
   %2160 = sub i64 %2158, %2159
   %2161 = ashr exact i64 %2160, 3
   %2162 = icmp ugt i64 %2161, %2155
-  br i1 %2162, label %.lr.ph.i2732, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734, !llvm.loop !73
+  br i1 %2162, label %.lr.ph.i2732, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734: ; preds = %.lr.ph.i2732, %2107, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730, %.critedge2156
   %2163 = phi ptr [ %2143, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2730 ], [ %1989, %.critedge2156 ], [ %2129, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2726 ], [ %2115, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2722 ], [ %1989, %2107 ], [ %2157, %.lr.ph.i2732 ]
@@ -56705,7 +56706,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734: ; preds = %
   %2177 = sub i64 %2175, %2176
   %2178 = ashr exact i64 %2177, 3
   %2179 = icmp ugt i64 %2178, %2172
-  br i1 %2179, label %.lr.ph.i2736, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738, !llvm.loop !73
+  br i1 %2179, label %.lr.ph.i2736, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738: ; preds = %.lr.ph.i2736
   %2180 = icmp eq ptr %2173, %2174
@@ -56727,7 +56728,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738: ; preds = %
   %2191 = sub i64 %2189, %2190
   %2192 = ashr exact i64 %2191, 3
   %2193 = icmp ugt i64 %2192, %2186
-  br i1 %2193, label %.lr.ph.i2740, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742, !llvm.loop !73
+  br i1 %2193, label %.lr.ph.i2740, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742: ; preds = %.lr.ph.i2740
   %2194 = icmp eq ptr %2187, %2188
@@ -56749,7 +56750,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742: ; preds = %
   %2205 = sub i64 %2203, %2204
   %2206 = ashr exact i64 %2205, 3
   %2207 = icmp ugt i64 %2206, %2200
-  br i1 %2207, label %.lr.ph.i2744, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746, !llvm.loop !73
+  br i1 %2207, label %.lr.ph.i2744, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746: ; preds = %.lr.ph.i2744
   %2208 = icmp eq ptr %2201, %2202
@@ -56771,7 +56772,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746: ; preds = %
   %2219 = sub i64 %2217, %2218
   %2220 = ashr exact i64 %2219, 3
   %2221 = icmp ugt i64 %2220, %2214
-  br i1 %2221, label %.lr.ph.i2748, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750, !llvm.loop !73
+  br i1 %2221, label %.lr.ph.i2748, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750: ; preds = %.lr.ph.i2748
   %2222 = icmp eq ptr %2215, %2216
@@ -56793,7 +56794,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750: ; preds = %
   %2233 = sub i64 %2231, %2232
   %2234 = ashr exact i64 %2233, 3
   %2235 = icmp ugt i64 %2234, %2228
-  br i1 %2235, label %.lr.ph.i2752, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754, !llvm.loop !73
+  br i1 %2235, label %.lr.ph.i2752, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754: ; preds = %.lr.ph.i2752
   %2236 = icmp eq ptr %2229, %2230
@@ -56815,7 +56816,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754: ; preds = %
   %2247 = sub i64 %2245, %2246
   %2248 = ashr exact i64 %2247, 3
   %2249 = icmp ugt i64 %2248, %2242
-  br i1 %2249, label %.lr.ph.i2756, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758, !llvm.loop !73
+  br i1 %2249, label %.lr.ph.i2756, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758: ; preds = %.lr.ph.i2756
   %2250 = icmp eq ptr %2243, %2244
@@ -56837,7 +56838,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758: ; preds = %
   %2261 = sub i64 %2259, %2260
   %2262 = ashr exact i64 %2261, 3
   %2263 = icmp ugt i64 %2262, %2256
-  br i1 %2263, label %.lr.ph.i2760, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762, !llvm.loop !73
+  br i1 %2263, label %.lr.ph.i2760, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762: ; preds = %.lr.ph.i2760
   %2264 = icmp eq ptr %2257, %2258
@@ -56859,7 +56860,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762: ; preds = %
   %2275 = sub i64 %2273, %2274
   %2276 = ashr exact i64 %2275, 3
   %2277 = icmp ugt i64 %2276, %2270
-  br i1 %2277, label %.lr.ph.i2764, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766, !llvm.loop !73
+  br i1 %2277, label %.lr.ph.i2764, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766: ; preds = %.lr.ph.i2764
   %2278 = icmp eq ptr %2271, %2272
@@ -56881,7 +56882,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766: ; preds = %
   %2289 = sub i64 %2287, %2288
   %2290 = ashr exact i64 %2289, 3
   %2291 = icmp ugt i64 %2290, %2284
-  br i1 %2291, label %.lr.ph.i2768, label %.critedge2158, !llvm.loop !73
+  br i1 %2291, label %.lr.ph.i2768, label %.critedge2158, !llvm.loop !75
 
 .critedge2158:                                    ; preds = %.lr.ph.i2768, %.lr.ph.i2716, %2166, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762, %1992, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734
   %2292 = phi ptr [ %2086, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2714 ], [ %2272, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766 ], [ %2163, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2734 ], [ %2072, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2710 ], [ %2058, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2706 ], [ %2044, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2702 ], [ %2030, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2698 ], [ %2016, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2694 ], [ %2002, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2690 ], [ %1994, %1992 ], [ %2258, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2762 ], [ %2244, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2758 ], [ %2230, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2754 ], [ %2216, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2750 ], [ %2202, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2746 ], [ %2188, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2742 ], [ %2174, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2738 ], [ %2163, %2166 ], [ %2100, %.lr.ph.i2716 ], [ %2286, %.lr.ph.i2768 ]
@@ -56908,7 +56909,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2766: ; preds = %
   %2305 = sub i64 %2303, %2304
   %2306 = ashr exact i64 %2305, 3
   %2307 = icmp ugt i64 %2306, %2300
-  br i1 %2307, label %.lr.ph.i2772, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774, !llvm.loop !73
+  br i1 %2307, label %.lr.ph.i2772, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774: ; preds = %.lr.ph.i2772
   %2308 = icmp eq ptr %2301, %2302
@@ -56930,7 +56931,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774: ; preds = %
   %2319 = sub i64 %2317, %2318
   %2320 = ashr exact i64 %2319, 3
   %2321 = icmp ugt i64 %2320, %2314
-  br i1 %2321, label %.lr.ph.i2776, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778, !llvm.loop !73
+  br i1 %2321, label %.lr.ph.i2776, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778: ; preds = %.lr.ph.i2776
   %2322 = icmp eq ptr %2315, %2316
@@ -56952,7 +56953,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778: ; preds = %
   %2333 = sub i64 %2331, %2332
   %2334 = ashr exact i64 %2333, 3
   %2335 = icmp ugt i64 %2334, %2328
-  br i1 %2335, label %.lr.ph.i2780, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782, !llvm.loop !73
+  br i1 %2335, label %.lr.ph.i2780, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782: ; preds = %.lr.ph.i2780
   %2336 = icmp eq ptr %2329, %2330
@@ -56974,7 +56975,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782: ; preds = %
   %2347 = sub i64 %2345, %2346
   %2348 = ashr exact i64 %2347, 3
   %2349 = icmp ugt i64 %2348, %2342
-  br i1 %2349, label %.lr.ph.i2784, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786, !llvm.loop !73
+  br i1 %2349, label %.lr.ph.i2784, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786: ; preds = %.lr.ph.i2784
   %2350 = icmp eq ptr %2343, %2344
@@ -56996,7 +56997,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786: ; preds = %
   %2361 = sub i64 %2359, %2360
   %2362 = ashr exact i64 %2361, 3
   %2363 = icmp ugt i64 %2362, %2356
-  br i1 %2363, label %.lr.ph.i2788, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790, !llvm.loop !73
+  br i1 %2363, label %.lr.ph.i2788, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790: ; preds = %.lr.ph.i2788
   %2364 = icmp eq ptr %2357, %2358
@@ -57018,7 +57019,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790: ; preds = %
   %2375 = sub i64 %2373, %2374
   %2376 = ashr exact i64 %2375, 3
   %2377 = icmp ugt i64 %2376, %2370
-  br i1 %2377, label %.lr.ph.i2792, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2794, !llvm.loop !73
+  br i1 %2377, label %.lr.ph.i2792, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2794, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2794: ; preds = %.lr.ph.i2792, %2294, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790, %.critedge2158
   %2378 = phi ptr [ %2358, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2790 ], [ %2292, %.critedge2158 ], [ %2344, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2786 ], [ %2330, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2782 ], [ %2316, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2778 ], [ %2302, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2774 ], [ %2292, %2294 ], [ %2372, %.lr.ph.i2792 ]
@@ -57043,7 +57044,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2794: ; preds = %
   %2390 = sub i64 %2388, %2389
   %2391 = ashr exact i64 %2390, 3
   %2392 = icmp ugt i64 %2391, %2385
-  br i1 %2392, label %.lr.ph.i2796, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2798, !llvm.loop !73
+  br i1 %2392, label %.lr.ph.i2796, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2798, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2798: ; preds = %.lr.ph.i2796
   %2393 = icmp eq ptr %2386, %2387
@@ -57065,7 +57066,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2798: ; preds = %
   %2404 = sub i64 %2402, %2403
   %2405 = ashr exact i64 %2404, 3
   %2406 = icmp ugt i64 %2405, %2399
-  br i1 %2406, label %.lr.ph.i2800, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2802, !llvm.loop !73
+  br i1 %2406, label %.lr.ph.i2800, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2802, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2802: ; preds = %.lr.ph.i2800
   %2407 = icmp eq ptr %2400, %2401
@@ -57087,7 +57088,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2802: ; preds = %
   %2418 = sub i64 %2416, %2417
   %2419 = ashr exact i64 %2418, 3
   %2420 = icmp ugt i64 %2419, %2413
-  br i1 %2420, label %.lr.ph.i2804, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2806, !llvm.loop !73
+  br i1 %2420, label %.lr.ph.i2804, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2806, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2806: ; preds = %.lr.ph.i2804
   %2421 = icmp eq ptr %2414, %2415
@@ -57109,7 +57110,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2806: ; preds = %
   %2432 = sub i64 %2430, %2431
   %2433 = ashr exact i64 %2432, 3
   %2434 = icmp ugt i64 %2433, %2427
-  br i1 %2434, label %.lr.ph.i2808, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2810, !llvm.loop !73
+  br i1 %2434, label %.lr.ph.i2808, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2810, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2810: ; preds = %.lr.ph.i2808, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2798, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2802, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2806, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2794
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.744, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL21E_GL_EXT_device_groupE)
@@ -57227,7 +57228,7 @@ _ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2813: ; preds = %
   %2483 = sub i64 %2481, %2482
   %2484 = ashr exact i64 %2483, 3
   %2485 = icmp ugt i64 %2484, %2478
-  br i1 %2485, label %.lr.ph.i2815, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817, !llvm.loop !73
+  br i1 %2485, label %.lr.ph.i2815, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817: ; preds = %.lr.ph.i2815
   %2486 = icmp eq ptr %2479, %2480
@@ -57249,7 +57250,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817: ; preds = %
   %2497 = sub i64 %2495, %2496
   %2498 = ashr exact i64 %2497, 3
   %2499 = icmp ugt i64 %2498, %2492
-  br i1 %2499, label %.lr.ph.i2819, label %.loopexit5464, !llvm.loop !73
+  br i1 %2499, label %.lr.ph.i2819, label %.loopexit5464, !llvm.loop !75
 
 .loopexit5464:                                    ; preds = %.lr.ph.i2819, %2470, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.746, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL30E_GL_KHR_shader_subgroup_basicE)
@@ -57287,7 +57288,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2817: ; preds = %
   %2512 = sub i64 %2510, %2511
   %2513 = ashr exact i64 %2512, 3
   %2514 = icmp ugt i64 %2513, %2507
-  br i1 %2514, label %.lr.ph.i2823, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2825, !llvm.loop !73
+  br i1 %2514, label %.lr.ph.i2823, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2825, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2825: ; preds = %.lr.ph.i2823
   %2515 = icmp eq ptr %2508, %2509
@@ -57309,7 +57310,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2825: ; preds = %
   %2526 = sub i64 %2524, %2525
   %2527 = ashr exact i64 %2526, 3
   %2528 = icmp ugt i64 %2527, %2521
-  br i1 %2528, label %.lr.ph.i2827, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2829, !llvm.loop !73
+  br i1 %2528, label %.lr.ph.i2827, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2829, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2829: ; preds = %.lr.ph.i2827
   %2529 = icmp eq ptr %2522, %2523
@@ -57331,7 +57332,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2829: ; preds = %
   %2540 = sub i64 %2538, %2539
   %2541 = ashr exact i64 %2540, 3
   %2542 = icmp ugt i64 %2541, %2535
-  br i1 %2542, label %.lr.ph.i2831, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2833, !llvm.loop !73
+  br i1 %2542, label %.lr.ph.i2831, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2833, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2833: ; preds = %.lr.ph.i2831
   %2543 = icmp eq ptr %2536, %2537
@@ -57353,7 +57354,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2833: ; preds = %
   %2554 = sub i64 %2552, %2553
   %2555 = ashr exact i64 %2554, 3
   %2556 = icmp ugt i64 %2555, %2549
-  br i1 %2556, label %.lr.ph.i2835, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2837, !llvm.loop !73
+  br i1 %2556, label %.lr.ph.i2835, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2837, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2837: ; preds = %.lr.ph.i2835
   %2557 = icmp eq ptr %2550, %2551
@@ -57375,7 +57376,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2837: ; preds = %
   %2568 = sub i64 %2566, %2567
   %2569 = ashr exact i64 %2568, 3
   %2570 = icmp ugt i64 %2569, %2563
-  br i1 %2570, label %.lr.ph.i2839, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2841, !llvm.loop !73
+  br i1 %2570, label %.lr.ph.i2839, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2841, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2841: ; preds = %.lr.ph.i2839
   %2571 = icmp eq ptr %2564, %2565
@@ -57397,7 +57398,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2841: ; preds = %
   %2582 = sub i64 %2580, %2581
   %2583 = ashr exact i64 %2582, 3
   %2584 = icmp ugt i64 %2583, %2577
-  br i1 %2584, label %.lr.ph.i2843, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2845, !llvm.loop !73
+  br i1 %2584, label %.lr.ph.i2843, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2845, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2845: ; preds = %.lr.ph.i2843
   %2585 = icmp eq ptr %2578, %2579
@@ -57419,7 +57420,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2845: ; preds = %
   %2596 = sub i64 %2594, %2595
   %2597 = ashr exact i64 %2596, 3
   %2598 = icmp ugt i64 %2597, %2591
-  br i1 %2598, label %.lr.ph.i2847, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2849, !llvm.loop !73
+  br i1 %2598, label %.lr.ph.i2847, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2849, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2849: ; preds = %.lr.ph.i2847
   %2599 = icmp eq ptr %2592, %2593
@@ -57441,7 +57442,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2849: ; preds = %
   %2610 = sub i64 %2608, %2609
   %2611 = ashr exact i64 %2610, 3
   %2612 = icmp ugt i64 %2611, %2605
-  br i1 %2612, label %.lr.ph.i2851, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2853, !llvm.loop !73
+  br i1 %2612, label %.lr.ph.i2851, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2853, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2853: ; preds = %.lr.ph.i2851
   %2613 = icmp eq ptr %2606, %2607
@@ -57463,7 +57464,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2853: ; preds = %
   %2624 = sub i64 %2622, %2623
   %2625 = ashr exact i64 %2624, 3
   %2626 = icmp ugt i64 %2625, %2619
-  br i1 %2626, label %.lr.ph.i2855, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2857, !llvm.loop !73
+  br i1 %2626, label %.lr.ph.i2855, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2857, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2857: ; preds = %.lr.ph.i2855
   %2627 = icmp eq ptr %2620, %2621
@@ -57485,7 +57486,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2857: ; preds = %
   %2638 = sub i64 %2636, %2637
   %2639 = ashr exact i64 %2638, 3
   %2640 = icmp ugt i64 %2639, %2633
-  br i1 %2640, label %.lr.ph.i2859, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2861, !llvm.loop !73
+  br i1 %2640, label %.lr.ph.i2859, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2861, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2861: ; preds = %.lr.ph.i2859
   %2641 = icmp eq ptr %2634, %2635
@@ -57507,7 +57508,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2861: ; preds = %
   %2652 = sub i64 %2650, %2651
   %2653 = ashr exact i64 %2652, 3
   %2654 = icmp ugt i64 %2653, %2647
-  br i1 %2654, label %.lr.ph.i2863, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2865, !llvm.loop !73
+  br i1 %2654, label %.lr.ph.i2863, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2865, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2865: ; preds = %.lr.ph.i2863
   %2655 = icmp eq ptr %2648, %2649
@@ -57529,7 +57530,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2865: ; preds = %
   %2666 = sub i64 %2664, %2665
   %2667 = ashr exact i64 %2666, 3
   %2668 = icmp ugt i64 %2667, %2661
-  br i1 %2668, label %.lr.ph.i2867, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2869, !llvm.loop !73
+  br i1 %2668, label %.lr.ph.i2867, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2869, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2869: ; preds = %.lr.ph.i2867
   %2669 = icmp eq ptr %2662, %2663
@@ -57551,7 +57552,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2869: ; preds = %
   %2680 = sub i64 %2678, %2679
   %2681 = ashr exact i64 %2680, 3
   %2682 = icmp ugt i64 %2681, %2675
-  br i1 %2682, label %.lr.ph.i2871, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2873, !llvm.loop !73
+  br i1 %2682, label %.lr.ph.i2871, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2873, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2873: ; preds = %.lr.ph.i2871
   %2683 = icmp eq ptr %2676, %2677
@@ -57573,7 +57574,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2873: ; preds = %
   %2694 = sub i64 %2692, %2693
   %2695 = ashr exact i64 %2694, 3
   %2696 = icmp ugt i64 %2695, %2689
-  br i1 %2696, label %.lr.ph.i2875, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2877, !llvm.loop !73
+  br i1 %2696, label %.lr.ph.i2875, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2877, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2877: ; preds = %.lr.ph.i2875
   %2697 = icmp eq ptr %2690, %2691
@@ -57595,7 +57596,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2877: ; preds = %
   %2708 = sub i64 %2706, %2707
   %2709 = ashr exact i64 %2708, 3
   %2710 = icmp ugt i64 %2709, %2703
-  br i1 %2710, label %.lr.ph.i2879, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2881, !llvm.loop !73
+  br i1 %2710, label %.lr.ph.i2879, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2881, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2881: ; preds = %.lr.ph.i2879
   %2711 = icmp eq ptr %2704, %2705
@@ -57617,7 +57618,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2881: ; preds = %
   %2722 = sub i64 %2720, %2721
   %2723 = ashr exact i64 %2722, 3
   %2724 = icmp ugt i64 %2723, %2717
-  br i1 %2724, label %.lr.ph.i2883, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2885, !llvm.loop !73
+  br i1 %2724, label %.lr.ph.i2883, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2885, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2885: ; preds = %.lr.ph.i2883
   %2725 = icmp eq ptr %2718, %2719
@@ -57639,7 +57640,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2885: ; preds = %
   %2736 = sub i64 %2734, %2735
   %2737 = ashr exact i64 %2736, 3
   %2738 = icmp ugt i64 %2737, %2731
-  br i1 %2738, label %.lr.ph.i2887, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2889, !llvm.loop !73
+  br i1 %2738, label %.lr.ph.i2887, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2889, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2889: ; preds = %.lr.ph.i2887
   %2739 = icmp eq ptr %2732, %2733
@@ -57661,7 +57662,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2889: ; preds = %
   %2750 = sub i64 %2748, %2749
   %2751 = ashr exact i64 %2750, 3
   %2752 = icmp ugt i64 %2751, %2745
-  br i1 %2752, label %.lr.ph.i2891, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2893, !llvm.loop !73
+  br i1 %2752, label %.lr.ph.i2891, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2893, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2893: ; preds = %.lr.ph.i2891
   %2753 = icmp eq ptr %2746, %2747
@@ -57683,7 +57684,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2893: ; preds = %
   %2764 = sub i64 %2762, %2763
   %2765 = ashr exact i64 %2764, 3
   %2766 = icmp ugt i64 %2765, %2759
-  br i1 %2766, label %.lr.ph.i2895, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2897, !llvm.loop !73
+  br i1 %2766, label %.lr.ph.i2895, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2897, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2897: ; preds = %.lr.ph.i2895
   %2767 = icmp eq ptr %2760, %2761
@@ -57705,7 +57706,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2897: ; preds = %
   %2778 = sub i64 %2776, %2777
   %2779 = ashr exact i64 %2778, 3
   %2780 = icmp ugt i64 %2779, %2773
-  br i1 %2780, label %.lr.ph.i2899, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2901, !llvm.loop !73
+  br i1 %2780, label %.lr.ph.i2899, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2901, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2901: ; preds = %.lr.ph.i2899
   %2781 = icmp eq ptr %2774, %2775
@@ -57727,7 +57728,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2901: ; preds = %
   %2792 = sub i64 %2790, %2791
   %2793 = ashr exact i64 %2792, 3
   %2794 = icmp ugt i64 %2793, %2787
-  br i1 %2794, label %.lr.ph.i2903, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2905, !llvm.loop !73
+  br i1 %2794, label %.lr.ph.i2903, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2905, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2905: ; preds = %.lr.ph.i2903
   %2795 = icmp eq ptr %2788, %2789
@@ -57749,7 +57750,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2905: ; preds = %
   %2806 = sub i64 %2804, %2805
   %2807 = ashr exact i64 %2806, 3
   %2808 = icmp ugt i64 %2807, %2801
-  br i1 %2808, label %.lr.ph.i2907, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2909, !llvm.loop !73
+  br i1 %2808, label %.lr.ph.i2907, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2909, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2909: ; preds = %.lr.ph.i2907
   %2809 = icmp eq ptr %2802, %2803
@@ -57771,7 +57772,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2909: ; preds = %
   %2820 = sub i64 %2818, %2819
   %2821 = ashr exact i64 %2820, 3
   %2822 = icmp ugt i64 %2821, %2815
-  br i1 %2822, label %.lr.ph.i2911, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2913, !llvm.loop !73
+  br i1 %2822, label %.lr.ph.i2911, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2913, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2913: ; preds = %.lr.ph.i2911
   %2823 = icmp eq ptr %2816, %2817
@@ -57793,7 +57794,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2913: ; preds = %
   %2834 = sub i64 %2832, %2833
   %2835 = ashr exact i64 %2834, 3
   %2836 = icmp ugt i64 %2835, %2829
-  br i1 %2836, label %.lr.ph.i2915, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2917, !llvm.loop !73
+  br i1 %2836, label %.lr.ph.i2915, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2917, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2917: ; preds = %.lr.ph.i2915
   %2837 = icmp eq ptr %2830, %2831
@@ -57815,7 +57816,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2917: ; preds = %
   %2848 = sub i64 %2846, %2847
   %2849 = ashr exact i64 %2848, 3
   %2850 = icmp ugt i64 %2849, %2843
-  br i1 %2850, label %.lr.ph.i2919, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2921, !llvm.loop !73
+  br i1 %2850, label %.lr.ph.i2919, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2921, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2921: ; preds = %.lr.ph.i2919
   %2851 = icmp eq ptr %2844, %2845
@@ -57837,7 +57838,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2921: ; preds = %
   %2862 = sub i64 %2860, %2861
   %2863 = ashr exact i64 %2862, 3
   %2864 = icmp ugt i64 %2863, %2857
-  br i1 %2864, label %.lr.ph.i2923, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2925, !llvm.loop !73
+  br i1 %2864, label %.lr.ph.i2923, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2925, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2925: ; preds = %.lr.ph.i2923
   %2865 = icmp eq ptr %2858, %2859
@@ -57859,7 +57860,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2925: ; preds = %
   %2876 = sub i64 %2874, %2875
   %2877 = ashr exact i64 %2876, 3
   %2878 = icmp ugt i64 %2877, %2871
-  br i1 %2878, label %.lr.ph.i2927, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2929, !llvm.loop !73
+  br i1 %2878, label %.lr.ph.i2927, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2929, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2929: ; preds = %.lr.ph.i2927
   %2879 = icmp eq ptr %2872, %2873
@@ -57881,7 +57882,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2929: ; preds = %
   %2890 = sub i64 %2888, %2889
   %2891 = ashr exact i64 %2890, 3
   %2892 = icmp ugt i64 %2891, %2885
-  br i1 %2892, label %.lr.ph.i2931, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2933, !llvm.loop !73
+  br i1 %2892, label %.lr.ph.i2931, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2933, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2933: ; preds = %.lr.ph.i2931
   %2893 = icmp eq ptr %2886, %2887
@@ -57903,7 +57904,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2933: ; preds = %
   %2904 = sub i64 %2902, %2903
   %2905 = ashr exact i64 %2904, 3
   %2906 = icmp ugt i64 %2905, %2899
-  br i1 %2906, label %.lr.ph.i2935, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2937, !llvm.loop !73
+  br i1 %2906, label %.lr.ph.i2935, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2937, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2937: ; preds = %.lr.ph.i2935
   %2907 = icmp eq ptr %2900, %2901
@@ -57925,7 +57926,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2937: ; preds = %
   %2918 = sub i64 %2916, %2917
   %2919 = ashr exact i64 %2918, 3
   %2920 = icmp ugt i64 %2919, %2913
-  br i1 %2920, label %.lr.ph.i2939, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2941, !llvm.loop !73
+  br i1 %2920, label %.lr.ph.i2939, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2941, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2941: ; preds = %.lr.ph.i2939
   %2921 = icmp eq ptr %2914, %2915
@@ -57947,7 +57948,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2941: ; preds = %
   %2932 = sub i64 %2930, %2931
   %2933 = ashr exact i64 %2932, 3
   %2934 = icmp ugt i64 %2933, %2927
-  br i1 %2934, label %.lr.ph.i2943, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2945, !llvm.loop !73
+  br i1 %2934, label %.lr.ph.i2943, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2945, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2945: ; preds = %.lr.ph.i2943
   %2935 = icmp eq ptr %2928, %2929
@@ -57969,7 +57970,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2945: ; preds = %
   %2946 = sub i64 %2944, %2945
   %2947 = ashr exact i64 %2946, 3
   %2948 = icmp ugt i64 %2947, %2941
-  br i1 %2948, label %.lr.ph.i2947, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2949, !llvm.loop !73
+  br i1 %2948, label %.lr.ph.i2947, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2949, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2949: ; preds = %.lr.ph.i2947
   %2949 = icmp eq ptr %2942, %2943
@@ -57991,7 +57992,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2949: ; preds = %
   %2960 = sub i64 %2958, %2959
   %2961 = ashr exact i64 %2960, 3
   %2962 = icmp ugt i64 %2961, %2955
-  br i1 %2962, label %.lr.ph.i2951, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2953, !llvm.loop !73
+  br i1 %2962, label %.lr.ph.i2951, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2953, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2953: ; preds = %.lr.ph.i2951
   %2963 = icmp eq ptr %2956, %2957
@@ -58013,7 +58014,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2953: ; preds = %
   %2974 = sub i64 %2972, %2973
   %2975 = ashr exact i64 %2974, 3
   %2976 = icmp ugt i64 %2975, %2969
-  br i1 %2976, label %.lr.ph.i2955, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2957, !llvm.loop !73
+  br i1 %2976, label %.lr.ph.i2955, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2957, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2957: ; preds = %.lr.ph.i2955
   %2977 = icmp eq ptr %2970, %2971
@@ -58035,7 +58036,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2957: ; preds = %
   %2988 = sub i64 %2986, %2987
   %2989 = ashr exact i64 %2988, 3
   %2990 = icmp ugt i64 %2989, %2983
-  br i1 %2990, label %.lr.ph.i2959, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2961, !llvm.loop !73
+  br i1 %2990, label %.lr.ph.i2959, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2961, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2961: ; preds = %.lr.ph.i2959
   %2991 = icmp eq ptr %2984, %2985
@@ -58057,7 +58058,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2961: ; preds = %
   %3002 = sub i64 %3000, %3001
   %3003 = ashr exact i64 %3002, 3
   %3004 = icmp ugt i64 %3003, %2997
-  br i1 %3004, label %.lr.ph.i2963, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2965, !llvm.loop !73
+  br i1 %3004, label %.lr.ph.i2963, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2965, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2965: ; preds = %.lr.ph.i2963
   %3005 = icmp eq ptr %2998, %2999
@@ -58079,7 +58080,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2965: ; preds = %
   %3016 = sub i64 %3014, %3015
   %3017 = ashr exact i64 %3016, 3
   %3018 = icmp ugt i64 %3017, %3011
-  br i1 %3018, label %.lr.ph.i2967, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2969, !llvm.loop !73
+  br i1 %3018, label %.lr.ph.i2967, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2969, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2969: ; preds = %.lr.ph.i2967
   %3019 = icmp eq ptr %3012, %3013
@@ -58101,7 +58102,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2969: ; preds = %
   %3030 = sub i64 %3028, %3029
   %3031 = ashr exact i64 %3030, 3
   %3032 = icmp ugt i64 %3031, %3025
-  br i1 %3032, label %.lr.ph.i2971, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2973, !llvm.loop !73
+  br i1 %3032, label %.lr.ph.i2971, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2973, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2973: ; preds = %.lr.ph.i2971
   %3033 = icmp eq ptr %3026, %3027
@@ -58123,7 +58124,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2973: ; preds = %
   %3044 = sub i64 %3042, %3043
   %3045 = ashr exact i64 %3044, 3
   %3046 = icmp ugt i64 %3045, %3039
-  br i1 %3046, label %.lr.ph.i2975, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2977, !llvm.loop !73
+  br i1 %3046, label %.lr.ph.i2975, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2977, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2977: ; preds = %.lr.ph.i2975
   %3047 = icmp eq ptr %3040, %3041
@@ -58145,7 +58146,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2977: ; preds = %
   %3058 = sub i64 %3056, %3057
   %3059 = ashr exact i64 %3058, 3
   %3060 = icmp ugt i64 %3059, %3053
-  br i1 %3060, label %.lr.ph.i2979, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2981, !llvm.loop !73
+  br i1 %3060, label %.lr.ph.i2979, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2981, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2981: ; preds = %.lr.ph.i2979
   %3061 = icmp eq ptr %3054, %3055
@@ -58167,7 +58168,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2981: ; preds = %
   %3072 = sub i64 %3070, %3071
   %3073 = ashr exact i64 %3072, 3
   %3074 = icmp ugt i64 %3073, %3067
-  br i1 %3074, label %.lr.ph.i2983, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2985, !llvm.loop !73
+  br i1 %3074, label %.lr.ph.i2983, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2985, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2985: ; preds = %.lr.ph.i2983
   %3075 = icmp eq ptr %3068, %3069
@@ -58189,7 +58190,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2985: ; preds = %
   %3086 = sub i64 %3084, %3085
   %3087 = ashr exact i64 %3086, 3
   %3088 = icmp ugt i64 %3087, %3081
-  br i1 %3088, label %.lr.ph.i2987, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2989, !llvm.loop !73
+  br i1 %3088, label %.lr.ph.i2987, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2989, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2989: ; preds = %.lr.ph.i2987
   %3089 = icmp eq ptr %3082, %3083
@@ -58211,7 +58212,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2989: ; preds = %
   %3100 = sub i64 %3098, %3099
   %3101 = ashr exact i64 %3100, 3
   %3102 = icmp ugt i64 %3101, %3095
-  br i1 %3102, label %.lr.ph.i2991, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2993, !llvm.loop !73
+  br i1 %3102, label %.lr.ph.i2991, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2993, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2993: ; preds = %.lr.ph.i2991
   %3103 = icmp eq ptr %3096, %3097
@@ -58233,7 +58234,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2993: ; preds = %
   %3114 = sub i64 %3112, %3113
   %3115 = ashr exact i64 %3114, 3
   %3116 = icmp ugt i64 %3115, %3109
-  br i1 %3116, label %.lr.ph.i2995, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2997, !llvm.loop !73
+  br i1 %3116, label %.lr.ph.i2995, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2997, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2997: ; preds = %.lr.ph.i2995
   %3117 = icmp eq ptr %3110, %3111
@@ -58255,7 +58256,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2997: ; preds = %
   %3128 = sub i64 %3126, %3127
   %3129 = ashr exact i64 %3128, 3
   %3130 = icmp ugt i64 %3129, %3123
-  br i1 %3130, label %.lr.ph.i2999, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3001, !llvm.loop !73
+  br i1 %3130, label %.lr.ph.i2999, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3001, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3001: ; preds = %.lr.ph.i2999
   %3131 = icmp eq ptr %3124, %3125
@@ -58277,7 +58278,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3001: ; preds = %
   %3142 = sub i64 %3140, %3141
   %3143 = ashr exact i64 %3142, 3
   %3144 = icmp ugt i64 %3143, %3137
-  br i1 %3144, label %.lr.ph.i3003, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3005, !llvm.loop !73
+  br i1 %3144, label %.lr.ph.i3003, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3005, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3005: ; preds = %.lr.ph.i3003
   %3145 = icmp eq ptr %3138, %3139
@@ -58299,7 +58300,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3005: ; preds = %
   %3156 = sub i64 %3154, %3155
   %3157 = ashr exact i64 %3156, 3
   %3158 = icmp ugt i64 %3157, %3151
-  br i1 %3158, label %.lr.ph.i3007, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3009, !llvm.loop !73
+  br i1 %3158, label %.lr.ph.i3007, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3009, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3009: ; preds = %.lr.ph.i3007
   %3159 = icmp eq ptr %3152, %3153
@@ -58321,7 +58322,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3009: ; preds = %
   %3170 = sub i64 %3168, %3169
   %3171 = ashr exact i64 %3170, 3
   %3172 = icmp ugt i64 %3171, %3165
-  br i1 %3172, label %.lr.ph.i3011, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3013, !llvm.loop !73
+  br i1 %3172, label %.lr.ph.i3011, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3013, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3013: ; preds = %.lr.ph.i3011
   %3173 = icmp eq ptr %3166, %3167
@@ -58343,7 +58344,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3013: ; preds = %
   %3184 = sub i64 %3182, %3183
   %3185 = ashr exact i64 %3184, 3
   %3186 = icmp ugt i64 %3185, %3179
-  br i1 %3186, label %.lr.ph.i3015, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3017, !llvm.loop !73
+  br i1 %3186, label %.lr.ph.i3015, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3017, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3017: ; preds = %.lr.ph.i3015
   %3187 = icmp eq ptr %3180, %3181
@@ -58365,7 +58366,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3017: ; preds = %
   %3198 = sub i64 %3196, %3197
   %3199 = ashr exact i64 %3198, 3
   %3200 = icmp ugt i64 %3199, %3193
-  br i1 %3200, label %.lr.ph.i3019, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3021, !llvm.loop !73
+  br i1 %3200, label %.lr.ph.i3019, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3021, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3021: ; preds = %.lr.ph.i3019
   %3201 = icmp eq ptr %3194, %3195
@@ -58387,7 +58388,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3021: ; preds = %
   %3212 = sub i64 %3210, %3211
   %3213 = ashr exact i64 %3212, 3
   %3214 = icmp ugt i64 %3213, %3207
-  br i1 %3214, label %.lr.ph.i3023, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3025, !llvm.loop !73
+  br i1 %3214, label %.lr.ph.i3023, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3025, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3025: ; preds = %.lr.ph.i3023
   %3215 = icmp eq ptr %3208, %3209
@@ -58409,7 +58410,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3025: ; preds = %
   %3226 = sub i64 %3224, %3225
   %3227 = ashr exact i64 %3226, 3
   %3228 = icmp ugt i64 %3227, %3221
-  br i1 %3228, label %.lr.ph.i3027, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3029, !llvm.loop !73
+  br i1 %3228, label %.lr.ph.i3027, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3029, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3029: ; preds = %.lr.ph.i3027
   %3229 = icmp eq ptr %3222, %3223
@@ -58431,7 +58432,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3029: ; preds = %
   %3240 = sub i64 %3238, %3239
   %3241 = ashr exact i64 %3240, 3
   %3242 = icmp ugt i64 %3241, %3235
-  br i1 %3242, label %.lr.ph.i3031, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3033, !llvm.loop !73
+  br i1 %3242, label %.lr.ph.i3031, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3033, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3033: ; preds = %.lr.ph.i3031
   %3243 = icmp eq ptr %3236, %3237
@@ -58453,7 +58454,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3033: ; preds = %
   %3254 = sub i64 %3252, %3253
   %3255 = ashr exact i64 %3254, 3
   %3256 = icmp ugt i64 %3255, %3249
-  br i1 %3256, label %.lr.ph.i3035, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3037, !llvm.loop !73
+  br i1 %3256, label %.lr.ph.i3035, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3037, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3037: ; preds = %.lr.ph.i3035
   %3257 = icmp eq ptr %3250, %3251
@@ -58475,7 +58476,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3037: ; preds = %
   %3268 = sub i64 %3266, %3267
   %3269 = ashr exact i64 %3268, 3
   %3270 = icmp ugt i64 %3269, %3263
-  br i1 %3270, label %.lr.ph.i3039, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3041, !llvm.loop !73
+  br i1 %3270, label %.lr.ph.i3039, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3041, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3041: ; preds = %.lr.ph.i3039
   %3271 = icmp eq ptr %3264, %3265
@@ -58497,7 +58498,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3041: ; preds = %
   %3282 = sub i64 %3280, %3281
   %3283 = ashr exact i64 %3282, 3
   %3284 = icmp ugt i64 %3283, %3277
-  br i1 %3284, label %.lr.ph.i3043, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3045, !llvm.loop !73
+  br i1 %3284, label %.lr.ph.i3043, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3045, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3045: ; preds = %.lr.ph.i3043
   %3285 = icmp eq ptr %3278, %3279
@@ -58519,7 +58520,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3045: ; preds = %
   %3296 = sub i64 %3294, %3295
   %3297 = ashr exact i64 %3296, 3
   %3298 = icmp ugt i64 %3297, %3291
-  br i1 %3298, label %.lr.ph.i3047, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3049, !llvm.loop !73
+  br i1 %3298, label %.lr.ph.i3047, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3049, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3049: ; preds = %.lr.ph.i3047
   %3299 = icmp eq ptr %3292, %3293
@@ -58541,7 +58542,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3049: ; preds = %
   %3310 = sub i64 %3308, %3309
   %3311 = ashr exact i64 %3310, 3
   %3312 = icmp ugt i64 %3311, %3305
-  br i1 %3312, label %.lr.ph.i3051, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3053, !llvm.loop !73
+  br i1 %3312, label %.lr.ph.i3051, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3053, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3053: ; preds = %.lr.ph.i3051
   %3313 = icmp eq ptr %3306, %3307
@@ -58563,7 +58564,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3053: ; preds = %
   %3324 = sub i64 %3322, %3323
   %3325 = ashr exact i64 %3324, 3
   %3326 = icmp ugt i64 %3325, %3319
-  br i1 %3326, label %.lr.ph.i3055, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3057, !llvm.loop !73
+  br i1 %3326, label %.lr.ph.i3055, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3057, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3057: ; preds = %.lr.ph.i3055
   %3327 = icmp eq ptr %3320, %3321
@@ -58585,7 +58586,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3057: ; preds = %
   %3338 = sub i64 %3336, %3337
   %3339 = ashr exact i64 %3338, 3
   %3340 = icmp ugt i64 %3339, %3333
-  br i1 %3340, label %.lr.ph.i3059, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3061, !llvm.loop !73
+  br i1 %3340, label %.lr.ph.i3059, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3061, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3061: ; preds = %.lr.ph.i3059
   %3341 = icmp eq ptr %3334, %3335
@@ -58607,7 +58608,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3061: ; preds = %
   %3352 = sub i64 %3350, %3351
   %3353 = ashr exact i64 %3352, 3
   %3354 = icmp ugt i64 %3353, %3347
-  br i1 %3354, label %.lr.ph.i3063, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3065, !llvm.loop !73
+  br i1 %3354, label %.lr.ph.i3063, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3065, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3065: ; preds = %.lr.ph.i3063
   %3355 = icmp eq ptr %3348, %3349
@@ -58629,7 +58630,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3065: ; preds = %
   %3366 = sub i64 %3364, %3365
   %3367 = ashr exact i64 %3366, 3
   %3368 = icmp ugt i64 %3367, %3361
-  br i1 %3368, label %.lr.ph.i3067, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3069, !llvm.loop !73
+  br i1 %3368, label %.lr.ph.i3067, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3069, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3069: ; preds = %.lr.ph.i3067
   %3369 = icmp eq ptr %3362, %3363
@@ -58651,7 +58652,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3069: ; preds = %
   %3380 = sub i64 %3378, %3379
   %3381 = ashr exact i64 %3380, 3
   %3382 = icmp ugt i64 %3381, %3375
-  br i1 %3382, label %.lr.ph.i3071, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3073, !llvm.loop !73
+  br i1 %3382, label %.lr.ph.i3071, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3073, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3073: ; preds = %.lr.ph.i3071
   %3383 = icmp eq ptr %3376, %3377
@@ -58673,7 +58674,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3073: ; preds = %
   %3394 = sub i64 %3392, %3393
   %3395 = ashr exact i64 %3394, 3
   %3396 = icmp ugt i64 %3395, %3389
-  br i1 %3396, label %.lr.ph.i3075, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3077, !llvm.loop !73
+  br i1 %3396, label %.lr.ph.i3075, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3077, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3077: ; preds = %.lr.ph.i3075
   %3397 = icmp eq ptr %3390, %3391
@@ -58695,7 +58696,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3077: ; preds = %
   %3408 = sub i64 %3406, %3407
   %3409 = ashr exact i64 %3408, 3
   %3410 = icmp ugt i64 %3409, %3403
-  br i1 %3410, label %.lr.ph.i3079, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3081, !llvm.loop !73
+  br i1 %3410, label %.lr.ph.i3079, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3081, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3081: ; preds = %.lr.ph.i3079
   %3411 = icmp eq ptr %3404, %3405
@@ -58717,7 +58718,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3081: ; preds = %
   %3422 = sub i64 %3420, %3421
   %3423 = ashr exact i64 %3422, 3
   %3424 = icmp ugt i64 %3423, %3417
-  br i1 %3424, label %.lr.ph.i3083, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3085, !llvm.loop !73
+  br i1 %3424, label %.lr.ph.i3083, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3085, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3085: ; preds = %.lr.ph.i3083
   %3425 = icmp eq ptr %3418, %3419
@@ -58739,7 +58740,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3085: ; preds = %
   %3436 = sub i64 %3434, %3435
   %3437 = ashr exact i64 %3436, 3
   %3438 = icmp ugt i64 %3437, %3431
-  br i1 %3438, label %.lr.ph.i3087, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3089, !llvm.loop !73
+  br i1 %3438, label %.lr.ph.i3087, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3089, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3089: ; preds = %.lr.ph.i3087
   %3439 = icmp eq ptr %3432, %3433
@@ -58761,7 +58762,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3089: ; preds = %
   %3450 = sub i64 %3448, %3449
   %3451 = ashr exact i64 %3450, 3
   %3452 = icmp ugt i64 %3451, %3445
-  br i1 %3452, label %.lr.ph.i3091, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3093, !llvm.loop !73
+  br i1 %3452, label %.lr.ph.i3091, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3093, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3093: ; preds = %.lr.ph.i3091, %.loopexit5464, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2825, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2829, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2833, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2837, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2841, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2845, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2849, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2853, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2857, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2861, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2865, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2869, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2873, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2877, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2881, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2885, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2889, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2893, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2897, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2901, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2905, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2909, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2913, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2917, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2921, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2925, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2929, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2933, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2937, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2941, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2945, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2949, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2953, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2957, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2961, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2965, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2969, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2973, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2977, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2981, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2985, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2989, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2993, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2997, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3001, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3005, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3009, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3013, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3017, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3021, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3025, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3029, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3033, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3037, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3041, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3045, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3049, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3053, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3057, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3061, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3065, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3069, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3073, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3077, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3081, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3085, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3089
   %3453 = load ptr, ptr %1931, align 8
@@ -58785,7 +58786,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3093: ; preds = %
   %3465 = sub i64 %3463, %3464
   %3466 = ashr exact i64 %3465, 3
   %3467 = icmp ugt i64 %3466, %3460
-  br i1 %3467, label %.lr.ph.i3095, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3097, !llvm.loop !73
+  br i1 %3467, label %.lr.ph.i3095, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3097, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3097: ; preds = %.lr.ph.i3095
   %3468 = icmp eq ptr %3461, %3462
@@ -58807,7 +58808,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3097: ; preds = %
   %3479 = sub i64 %3477, %3478
   %3480 = ashr exact i64 %3479, 3
   %3481 = icmp ugt i64 %3480, %3474
-  br i1 %3481, label %.lr.ph.i3099, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3101, !llvm.loop !73
+  br i1 %3481, label %.lr.ph.i3099, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3101, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3101: ; preds = %.lr.ph.i3099
   %3482 = icmp eq ptr %3475, %3476
@@ -58829,7 +58830,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3101: ; preds = %
   %3493 = sub i64 %3491, %3492
   %3494 = ashr exact i64 %3493, 3
   %3495 = icmp ugt i64 %3494, %3488
-  br i1 %3495, label %.lr.ph.i3103, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3105, !llvm.loop !73
+  br i1 %3495, label %.lr.ph.i3103, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3105, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3105: ; preds = %.lr.ph.i3103
   %3496 = icmp eq ptr %3489, %3490
@@ -58851,7 +58852,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3105: ; preds = %
   %3507 = sub i64 %3505, %3506
   %3508 = ashr exact i64 %3507, 3
   %3509 = icmp ugt i64 %3508, %3502
-  br i1 %3509, label %.lr.ph.i3107, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3109, !llvm.loop !73
+  br i1 %3509, label %.lr.ph.i3107, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3109, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3109: ; preds = %.lr.ph.i3107
   %3510 = icmp eq ptr %3503, %3504
@@ -58873,7 +58874,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3109: ; preds = %
   %3521 = sub i64 %3519, %3520
   %3522 = ashr exact i64 %3521, 3
   %3523 = icmp ugt i64 %3522, %3516
-  br i1 %3523, label %.lr.ph.i3111, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3113, !llvm.loop !73
+  br i1 %3523, label %.lr.ph.i3111, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3113, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3113: ; preds = %.lr.ph.i3111
   %3524 = icmp eq ptr %3517, %3518
@@ -58895,7 +58896,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3113: ; preds = %
   %3535 = sub i64 %3533, %3534
   %3536 = ashr exact i64 %3535, 3
   %3537 = icmp ugt i64 %3536, %3530
-  br i1 %3537, label %.lr.ph.i3115, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3117, !llvm.loop !73
+  br i1 %3537, label %.lr.ph.i3115, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3117, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3117: ; preds = %.lr.ph.i3115
   %3538 = icmp eq ptr %3531, %3532
@@ -58917,7 +58918,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3117: ; preds = %
   %3549 = sub i64 %3547, %3548
   %3550 = ashr exact i64 %3549, 3
   %3551 = icmp ugt i64 %3550, %3544
-  br i1 %3551, label %.lr.ph.i3119, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3121, !llvm.loop !73
+  br i1 %3551, label %.lr.ph.i3119, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3121, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3121: ; preds = %.lr.ph.i3119
   %3552 = icmp eq ptr %3545, %3546
@@ -58939,7 +58940,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3121: ; preds = %
   %3563 = sub i64 %3561, %3562
   %3564 = ashr exact i64 %3563, 3
   %3565 = icmp ugt i64 %3564, %3558
-  br i1 %3565, label %.lr.ph.i3123, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3125, !llvm.loop !73
+  br i1 %3565, label %.lr.ph.i3123, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3125, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3125: ; preds = %.lr.ph.i3123
   %3566 = icmp eq ptr %3559, %3560
@@ -58961,7 +58962,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3125: ; preds = %
   %3577 = sub i64 %3575, %3576
   %3578 = ashr exact i64 %3577, 3
   %3579 = icmp ugt i64 %3578, %3572
-  br i1 %3579, label %.lr.ph.i3127, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3129, !llvm.loop !73
+  br i1 %3579, label %.lr.ph.i3127, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3129, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3129: ; preds = %.lr.ph.i3127
   %3580 = icmp eq ptr %3573, %3574
@@ -58983,7 +58984,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3129: ; preds = %
   %3591 = sub i64 %3589, %3590
   %3592 = ashr exact i64 %3591, 3
   %3593 = icmp ugt i64 %3592, %3586
-  br i1 %3593, label %.lr.ph.i3131, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3133, !llvm.loop !73
+  br i1 %3593, label %.lr.ph.i3131, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3133, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3133: ; preds = %.lr.ph.i3131, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3093, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3097, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3101, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3105, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3109, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3113, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3117, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3121, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3125, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3129
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.753, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL26E_GL_NV_shader_sm_builtinsE)
@@ -59031,7 +59032,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2821: ; preds = %
   %3607 = sub i64 %3605, %3606
   %3608 = ashr exact i64 %3607, 3
   %3609 = icmp ugt i64 %3608, %3602
-  br i1 %3609, label %.lr.ph.i3135, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3137, !llvm.loop !73
+  br i1 %3609, label %.lr.ph.i3135, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3137, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3137: ; preds = %.lr.ph.i3135
   %3610 = icmp eq ptr %3603, %3604
@@ -59053,7 +59054,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3137: ; preds = %
   %3621 = sub i64 %3619, %3620
   %3622 = ashr exact i64 %3621, 3
   %3623 = icmp ugt i64 %3622, %3616
-  br i1 %3623, label %.lr.ph.i3139, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3141, !llvm.loop !73
+  br i1 %3623, label %.lr.ph.i3139, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3141, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3141: ; preds = %.lr.ph.i3139, %3594, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3137, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2821
   %3624 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -59102,7 +59103,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3141: ; preds = %
   %3641 = sub i64 %3639, %3640
   %3642 = ashr exact i64 %3641, 3
   %3643 = icmp ugt i64 %3642, %3636
-  br i1 %3643, label %.lr.ph.i3143, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3145, !llvm.loop !73
+  br i1 %3643, label %.lr.ph.i3143, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3145, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3145: ; preds = %.lr.ph.i3143, %3628
   %.pre54945507 = phi ptr [ %3630, %3628 ], [ %3638, %.lr.ph.i3143 ]
@@ -59145,7 +59146,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3145: ; preds = %
   %3657 = sub i64 %3655, %3656
   %3658 = ashr exact i64 %3657, 3
   %3659 = icmp ugt i64 %3658, %3652
-  br i1 %3659, label %.lr.ph.i3147, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3149, !llvm.loop !73
+  br i1 %3659, label %.lr.ph.i3147, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3149, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3149: ; preds = %.lr.ph.i3147
   %3660 = icmp eq ptr %3653, %3654
@@ -59167,7 +59168,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3149: ; preds = %
   %3671 = sub i64 %3669, %3670
   %3672 = ashr exact i64 %3671, 3
   %3673 = icmp ugt i64 %3672, %3666
-  br i1 %3673, label %.lr.ph.i3151, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3153, !llvm.loop !73
+  br i1 %3673, label %.lr.ph.i3151, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3153, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3153: ; preds = %.lr.ph.i3151, %3645
   %3674 = phi ptr [ %.pre5494, %3645 ], [ %3668, %.lr.ph.i3151 ]
@@ -59191,7 +59192,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3153: ; preds = %
   %3686 = sub i64 %3684, %3685
   %3687 = ashr exact i64 %3686, 3
   %3688 = icmp ugt i64 %3687, %3681
-  br i1 %3688, label %.lr.ph.i3155, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3157, !llvm.loop !73
+  br i1 %3688, label %.lr.ph.i3155, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3157, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3157: ; preds = %.lr.ph.i3155
   %3689 = icmp eq ptr %3682, %3683
@@ -59213,7 +59214,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3157: ; preds = %
   %3700 = sub i64 %3698, %3699
   %3701 = ashr exact i64 %3700, 3
   %3702 = icmp ugt i64 %3701, %3695
-  br i1 %3702, label %.lr.ph.i3159, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3161, !llvm.loop !73
+  br i1 %3702, label %.lr.ph.i3159, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3161, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3161: ; preds = %.lr.ph.i3159
   %3703 = icmp eq ptr %3696, %3697
@@ -59235,7 +59236,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3161: ; preds = %
   %3714 = sub i64 %3712, %3713
   %3715 = ashr exact i64 %3714, 3
   %3716 = icmp ugt i64 %3715, %3709
-  br i1 %3716, label %.lr.ph.i3163, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3165.loopexit, !llvm.loop !73
+  br i1 %3716, label %.lr.ph.i3163, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3165.loopexit, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3165.loopexit: ; preds = %.lr.ph.i3163
   %3717 = icmp eq ptr %3710, %3711
@@ -59264,7 +59265,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3165: ; preds = %
   %3729 = sub i64 %3727, %3728
   %3730 = ashr exact i64 %3729, 3
   %3731 = icmp ugt i64 %3730, %3724
-  br i1 %3731, label %.lr.ph.i3167, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3169, !llvm.loop !73
+  br i1 %3731, label %.lr.ph.i3167, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3169, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3169: ; preds = %.lr.ph.i3167
   %3732 = icmp eq ptr %3725, %3726
@@ -59286,7 +59287,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3169: ; preds = %
   %3743 = sub i64 %3741, %3742
   %3744 = ashr exact i64 %3743, 3
   %3745 = icmp ugt i64 %3744, %3738
-  br i1 %3745, label %.lr.ph.i3171, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3173, !llvm.loop !73
+  br i1 %3745, label %.lr.ph.i3171, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3173, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3173: ; preds = %.lr.ph.i3171
   %3746 = icmp eq ptr %3739, %3740
@@ -59308,7 +59309,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3173: ; preds = %
   %3757 = sub i64 %3755, %3756
   %3758 = ashr exact i64 %3757, 3
   %3759 = icmp ugt i64 %3758, %3752
-  br i1 %3759, label %.lr.ph.i3175, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3177, !llvm.loop !73
+  br i1 %3759, label %.lr.ph.i3175, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3177, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3177: ; preds = %.lr.ph.i3175
   %3760 = icmp eq ptr %3753, %3754
@@ -59330,7 +59331,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3177: ; preds = %
   %3771 = sub i64 %3769, %3770
   %3772 = ashr exact i64 %3771, 3
   %3773 = icmp ugt i64 %3772, %3766
-  br i1 %3773, label %.lr.ph.i3179, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3181, !llvm.loop !73
+  br i1 %3773, label %.lr.ph.i3179, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3181, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3181: ; preds = %.lr.ph.i3179
   %3774 = icmp eq ptr %3767, %3768
@@ -59352,7 +59353,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3181: ; preds = %
   %3785 = sub i64 %3783, %3784
   %3786 = ashr exact i64 %3785, 3
   %3787 = icmp ugt i64 %3786, %3780
-  br i1 %3787, label %.lr.ph.i3183, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3185, !llvm.loop !73
+  br i1 %3787, label %.lr.ph.i3183, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3185, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3185: ; preds = %.lr.ph.i3183
   %3788 = icmp eq ptr %3781, %3782
@@ -59374,7 +59375,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3185: ; preds = %
   %3799 = sub i64 %3797, %3798
   %3800 = ashr exact i64 %3799, 3
   %3801 = icmp ugt i64 %3800, %3794
-  br i1 %3801, label %.lr.ph.i3187, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3189, !llvm.loop !73
+  br i1 %3801, label %.lr.ph.i3187, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3189, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3189: ; preds = %.lr.ph.i3187
   %3802 = icmp eq ptr %3795, %3796
@@ -59396,7 +59397,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3189: ; preds = %
   %3813 = sub i64 %3811, %3812
   %3814 = ashr exact i64 %3813, 3
   %3815 = icmp ugt i64 %3814, %3808
-  br i1 %3815, label %.lr.ph.i3191, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3193, !llvm.loop !73
+  br i1 %3815, label %.lr.ph.i3191, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3193, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3193: ; preds = %.lr.ph.i3191
   %3816 = icmp eq ptr %3809, %3810
@@ -59418,7 +59419,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3193: ; preds = %
   %3827 = sub i64 %3825, %3826
   %3828 = ashr exact i64 %3827, 3
   %3829 = icmp ugt i64 %3828, %3822
-  br i1 %3829, label %.lr.ph.i3195, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !73
+  br i1 %3829, label %.lr.ph.i3195, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !75
 
 3830:                                             ; preds = %6
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.1041, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(40) %5)
@@ -59492,7 +59493,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3193: ; preds = %
   %3853 = sub i64 %3851, %3852
   %3854 = ashr exact i64 %3853, 3
   %3855 = icmp ugt i64 %3854, %3848
-  br i1 %3855, label %.lr.ph.i3199, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3201, !llvm.loop !73
+  br i1 %3855, label %.lr.ph.i3199, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3201, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3201: ; preds = %.lr.ph.i3199
   %3856 = icmp eq ptr %3849, %3850
@@ -59514,7 +59515,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3201: ; preds = %
   %3867 = sub i64 %3865, %3866
   %3868 = ashr exact i64 %3867, 3
   %3869 = icmp ugt i64 %3868, %3862
-  br i1 %3869, label %.lr.ph.i3203, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3205, !llvm.loop !73
+  br i1 %3869, label %.lr.ph.i3203, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3205, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3205: ; preds = %.lr.ph.i3203
   %3870 = icmp eq ptr %3863, %3864
@@ -59536,7 +59537,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3205: ; preds = %
   %3881 = sub i64 %3879, %3880
   %3882 = ashr exact i64 %3881, 3
   %3883 = icmp ugt i64 %3882, %3876
-  br i1 %3883, label %.lr.ph.i3207, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3209, !llvm.loop !73
+  br i1 %3883, label %.lr.ph.i3207, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3209, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3209: ; preds = %.lr.ph.i3207
   %3884 = icmp eq ptr %3877, %3878
@@ -59558,7 +59559,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3209: ; preds = %
   %3895 = sub i64 %3893, %3894
   %3896 = ashr exact i64 %3895, 3
   %3897 = icmp ugt i64 %3896, %3890
-  br i1 %3897, label %.lr.ph.i3211, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3213, !llvm.loop !73
+  br i1 %3897, label %.lr.ph.i3211, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3213, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3213: ; preds = %.lr.ph.i3211
   %3898 = icmp eq ptr %3891, %3892
@@ -59580,7 +59581,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3213: ; preds = %
   %3909 = sub i64 %3907, %3908
   %3910 = ashr exact i64 %3909, 3
   %3911 = icmp ugt i64 %3910, %3904
-  br i1 %3911, label %.lr.ph.i3215, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3217, !llvm.loop !73
+  br i1 %3911, label %.lr.ph.i3215, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3217, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3217: ; preds = %.lr.ph.i3215
   %3912 = icmp eq ptr %3905, %3906
@@ -59602,7 +59603,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3217: ; preds = %
   %3923 = sub i64 %3921, %3922
   %3924 = ashr exact i64 %3923, 3
   %3925 = icmp ugt i64 %3924, %3918
-  br i1 %3925, label %.lr.ph.i3219, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3221, !llvm.loop !73
+  br i1 %3925, label %.lr.ph.i3219, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3221, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3229.thread: ; preds = %3839, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3201, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3205, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3209, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3213, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3217
   %3926 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -59631,7 +59632,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3221: ; preds = %
   %3940 = sub i64 %3938, %3939
   %3941 = ashr exact i64 %3940, 3
   %3942 = icmp ugt i64 %3941, %3935
-  br i1 %3942, label %.lr.ph.i3223, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3225, !llvm.loop !73
+  br i1 %3942, label %.lr.ph.i3223, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3225, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3225: ; preds = %.lr.ph.i3223
   %3943 = icmp eq ptr %3936, %3937
@@ -59653,7 +59654,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3225: ; preds = %
   %3954 = sub i64 %3952, %3953
   %3955 = ashr exact i64 %3954, 3
   %3956 = icmp ugt i64 %3955, %3949
-  br i1 %3956, label %.lr.ph.i3227, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3229, !llvm.loop !73
+  br i1 %3956, label %.lr.ph.i3227, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3229, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3229: ; preds = %.lr.ph.i3227, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3221, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3225
   br i1 %3831, label %3957, label %3964
@@ -59757,7 +59758,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3229: ; preds = %
   %3981 = sub i64 %3979, %3980
   %3982 = ashr exact i64 %3981, 3
   %3983 = icmp ugt i64 %3982, %3976
-  br i1 %3983, label %.lr.ph.i3231, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233, !llvm.loop !73
+  br i1 %3983, label %.lr.ph.i3231, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233: ; preds = %.lr.ph.i3231, %._ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233_crit_edge, %3968
   %3984 = phi ptr [ %.pre5486, %._ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233_crit_edge ], [ %3970, %3968 ], [ %3978, %.lr.ph.i3231 ]
@@ -59782,7 +59783,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3233: ; preds = %
   %3996 = sub i64 %3994, %3995
   %3997 = ashr exact i64 %3996, 3
   %3998 = icmp ugt i64 %3997, %3991
-  br i1 %3998, label %.lr.ph.i3235, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3237, !llvm.loop !73
+  br i1 %3998, label %.lr.ph.i3235, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3237, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3237: ; preds = %.lr.ph.i3235
   %3999 = icmp eq ptr %3992, %3993
@@ -59804,7 +59805,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3237: ; preds = %
   %4010 = sub i64 %4008, %4009
   %4011 = ashr exact i64 %4010, 3
   %4012 = icmp ugt i64 %4011, %4005
-  br i1 %4012, label %.lr.ph.i3239, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3241, !llvm.loop !73
+  br i1 %4012, label %.lr.ph.i3239, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3241, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3241: ; preds = %.lr.ph.i3239
   %4013 = icmp eq ptr %4006, %4007
@@ -59826,7 +59827,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3241: ; preds = %
   %4024 = sub i64 %4022, %4023
   %4025 = ashr exact i64 %4024, 3
   %4026 = icmp ugt i64 %4025, %4019
-  br i1 %4026, label %.lr.ph.i3243, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3245, !llvm.loop !73
+  br i1 %4026, label %.lr.ph.i3243, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3245, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3245: ; preds = %.lr.ph.i3243
   %4027 = icmp eq ptr %4020, %4021
@@ -59848,7 +59849,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3245: ; preds = %
   %4038 = sub i64 %4036, %4037
   %4039 = ashr exact i64 %4038, 3
   %4040 = icmp ugt i64 %4039, %4033
-  br i1 %4040, label %.lr.ph.i3247, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3249, !llvm.loop !73
+  br i1 %4040, label %.lr.ph.i3247, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3249, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3249: ; preds = %.lr.ph.i3247
   %4041 = icmp eq ptr %4034, %4035
@@ -59870,7 +59871,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3249: ; preds = %
   %4052 = sub i64 %4050, %4051
   %4053 = ashr exact i64 %4052, 3
   %4054 = icmp ugt i64 %4053, %4047
-  br i1 %4054, label %.lr.ph.i3251, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3253, !llvm.loop !73
+  br i1 %4054, label %.lr.ph.i3251, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3253, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3253: ; preds = %.lr.ph.i3251
   %4055 = icmp eq ptr %4048, %4049
@@ -59892,7 +59893,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3253: ; preds = %
   %4066 = sub i64 %4064, %4065
   %4067 = ashr exact i64 %4066, 3
   %4068 = icmp ugt i64 %4067, %4061
-  br i1 %4068, label %.lr.ph.i3255, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3257.loopexit, !llvm.loop !73
+  br i1 %4068, label %.lr.ph.i3255, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3257.loopexit, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3257.loopexit: ; preds = %.lr.ph.i3255
   %4069 = icmp eq ptr %4062, %4063
@@ -59926,7 +59927,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3257: ; preds = %
   %4083 = sub i64 %4081, %4082
   %4084 = ashr exact i64 %4083, 3
   %4085 = icmp ugt i64 %4084, %4078
-  br i1 %4085, label %.lr.ph.i3259, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3261, !llvm.loop !73
+  br i1 %4085, label %.lr.ph.i3259, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3261, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3261: ; preds = %.lr.ph.i3259
   %4086 = icmp eq ptr %4079, %4080
@@ -59948,7 +59949,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3261: ; preds = %
   %4097 = sub i64 %4095, %4096
   %4098 = ashr exact i64 %4097, 3
   %4099 = icmp ugt i64 %4098, %4092
-  br i1 %4099, label %.lr.ph.i3263, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3265, !llvm.loop !73
+  br i1 %4099, label %.lr.ph.i3263, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3265, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3265: ; preds = %.lr.ph.i3263
   %4100 = icmp eq ptr %4093, %4094
@@ -59970,7 +59971,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3265: ; preds = %
   %4111 = sub i64 %4109, %4110
   %4112 = ashr exact i64 %4111, 3
   %4113 = icmp ugt i64 %4112, %4106
-  br i1 %4113, label %.lr.ph.i3267, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3269, !llvm.loop !73
+  br i1 %4113, label %.lr.ph.i3267, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3269, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3269: ; preds = %.lr.ph.i3267
   %4114 = icmp eq ptr %4107, %4108
@@ -59992,7 +59993,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3269: ; preds = %
   %4125 = sub i64 %4123, %4124
   %4126 = ashr exact i64 %4125, 3
   %4127 = icmp ugt i64 %4126, %4120
-  br i1 %4127, label %.lr.ph.i3271, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3273, !llvm.loop !73
+  br i1 %4127, label %.lr.ph.i3271, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3273, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3273: ; preds = %.lr.ph.i3271
   %4128 = icmp eq ptr %4121, %4122
@@ -60014,7 +60015,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3273: ; preds = %
   %4139 = sub i64 %4137, %4138
   %4140 = ashr exact i64 %4139, 3
   %4141 = icmp ugt i64 %4140, %4134
-  br i1 %4141, label %.lr.ph.i3275, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3277, !llvm.loop !73
+  br i1 %4141, label %.lr.ph.i3275, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3277, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3277: ; preds = %.lr.ph.i3275
   %4142 = icmp eq ptr %4135, %4136
@@ -60036,7 +60037,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3277: ; preds = %
   %4153 = sub i64 %4151, %4152
   %4154 = ashr exact i64 %4153, 3
   %4155 = icmp ugt i64 %4154, %4148
-  br i1 %4155, label %.lr.ph.i3279, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3281, !llvm.loop !73
+  br i1 %4155, label %.lr.ph.i3279, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3281, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3281: ; preds = %.lr.ph.i3279
   %4156 = icmp eq ptr %4149, %4150
@@ -60058,7 +60059,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3281: ; preds = %
   %4167 = sub i64 %4165, %4166
   %4168 = ashr exact i64 %4167, 3
   %4169 = icmp ugt i64 %4168, %4162
-  br i1 %4169, label %.lr.ph.i3283, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3285, !llvm.loop !73
+  br i1 %4169, label %.lr.ph.i3283, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3285, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3285: ; preds = %.lr.ph.i3283
   %4170 = icmp eq ptr %4163, %4164
@@ -60080,7 +60081,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3285: ; preds = %
   %4181 = sub i64 %4179, %4180
   %4182 = ashr exact i64 %4181, 3
   %4183 = icmp ugt i64 %4182, %4176
-  br i1 %4183, label %.lr.ph.i3287, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3289, !llvm.loop !73
+  br i1 %4183, label %.lr.ph.i3287, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3289, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3289: ; preds = %.lr.ph.i3287
   %4184 = icmp eq ptr %4177, %4178
@@ -60102,7 +60103,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3289: ; preds = %
   %4195 = sub i64 %4193, %4194
   %4196 = ashr exact i64 %4195, 3
   %4197 = icmp ugt i64 %4196, %4190
-  br i1 %4197, label %.lr.ph.i3291, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3293, !llvm.loop !73
+  br i1 %4197, label %.lr.ph.i3291, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3293, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3293: ; preds = %.lr.ph.i3291, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3257, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3261, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3265, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3269, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3273, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3277, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3281, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3285, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3289
   %brmerge2167 = or i1 %or.cond95, %or.cond103
@@ -60142,7 +60143,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3293: ; preds = %
   %4214 = sub i64 %4212, %4213
   %4215 = ashr exact i64 %4214, 3
   %4216 = icmp ugt i64 %4215, %4209
-  br i1 %4216, label %.lr.ph.i3295, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3297, !llvm.loop !73
+  br i1 %4216, label %.lr.ph.i3295, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3297, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3297: ; preds = %.lr.ph.i3295
   %4217 = icmp eq ptr %4210, %4211
@@ -60164,7 +60165,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3297: ; preds = %
   %4228 = sub i64 %4226, %4227
   %4229 = ashr exact i64 %4228, 3
   %4230 = icmp ugt i64 %4229, %4223
-  br i1 %4230, label %.lr.ph.i3299, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !73
+  br i1 %4230, label %.lr.ph.i3299, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !75
 
 4231:                                             ; preds = %6, %6, %6, %6, %6, %6
   %4232 = icmp ne i32 %2, 8
@@ -60235,7 +60236,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3297: ; preds = %
   %4248 = sub i64 %4246, %4247
   %4249 = ashr exact i64 %4248, 3
   %4250 = icmp ugt i64 %4249, %4243
-  br i1 %4250, label %.lr.ph.i3303, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3305, !llvm.loop !73
+  br i1 %4250, label %.lr.ph.i3303, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3305, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3305: ; preds = %.lr.ph.i3303
   %4251 = icmp eq ptr %4244, %4245
@@ -60257,7 +60258,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3305: ; preds = %
   %4262 = sub i64 %4260, %4261
   %4263 = ashr exact i64 %4262, 3
   %4264 = icmp ugt i64 %4263, %4257
-  br i1 %4264, label %.lr.ph.i3307, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3309, !llvm.loop !73
+  br i1 %4264, label %.lr.ph.i3307, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3309, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3309: ; preds = %.lr.ph.i3307
   %4265 = icmp eq ptr %4258, %4259
@@ -60279,7 +60280,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3309: ; preds = %
   %4276 = sub i64 %4274, %4275
   %4277 = ashr exact i64 %4276, 3
   %4278 = icmp ugt i64 %4277, %4271
-  br i1 %4278, label %.lr.ph.i3311, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3313, !llvm.loop !73
+  br i1 %4278, label %.lr.ph.i3311, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3313, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3313: ; preds = %.lr.ph.i3311
   %4279 = icmp eq ptr %4272, %4273
@@ -60301,7 +60302,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3313: ; preds = %
   %4290 = sub i64 %4288, %4289
   %4291 = ashr exact i64 %4290, 3
   %4292 = icmp ugt i64 %4291, %4285
-  br i1 %4292, label %.lr.ph.i3315, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3317, !llvm.loop !73
+  br i1 %4292, label %.lr.ph.i3315, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3317, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3317: ; preds = %.lr.ph.i3315
   %4293 = icmp eq ptr %4286, %4287
@@ -60323,7 +60324,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3317: ; preds = %
   %4304 = sub i64 %4302, %4303
   %4305 = ashr exact i64 %4304, 3
   %4306 = icmp ugt i64 %4305, %4299
-  br i1 %4306, label %.lr.ph.i3319, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3321, !llvm.loop !73
+  br i1 %4306, label %.lr.ph.i3319, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3321, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3321: ; preds = %.lr.ph.i3319
   %4307 = icmp eq ptr %4300, %4301
@@ -60345,7 +60346,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3321: ; preds = %
   %4318 = sub i64 %4316, %4317
   %4319 = ashr exact i64 %4318, 3
   %4320 = icmp ugt i64 %4319, %4313
-  br i1 %4320, label %.lr.ph.i3323, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3325, !llvm.loop !73
+  br i1 %4320, label %.lr.ph.i3323, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3325, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3325: ; preds = %.lr.ph.i3323
   %4321 = icmp eq ptr %4314, %4315
@@ -60367,7 +60368,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3325: ; preds = %
   %4332 = sub i64 %4330, %4331
   %4333 = ashr exact i64 %4332, 3
   %4334 = icmp ugt i64 %4333, %4327
-  br i1 %4334, label %.lr.ph.i3327, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3329, !llvm.loop !73
+  br i1 %4334, label %.lr.ph.i3327, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3329, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3329: ; preds = %.lr.ph.i3327
   %4335 = icmp eq ptr %4328, %4329
@@ -60389,7 +60390,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3329: ; preds = %
   %4346 = sub i64 %4344, %4345
   %4347 = ashr exact i64 %4346, 3
   %4348 = icmp ugt i64 %4347, %4341
-  br i1 %4348, label %.lr.ph.i3331, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3333, !llvm.loop !73
+  br i1 %4348, label %.lr.ph.i3331, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3333, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3333: ; preds = %.lr.ph.i3331
   %4349 = icmp eq ptr %4342, %4343
@@ -60411,7 +60412,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3333: ; preds = %
   %4360 = sub i64 %4358, %4359
   %4361 = ashr exact i64 %4360, 3
   %4362 = icmp ugt i64 %4361, %4355
-  br i1 %4362, label %.lr.ph.i3335, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3337, !llvm.loop !73
+  br i1 %4362, label %.lr.ph.i3335, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3337, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3337: ; preds = %.lr.ph.i3335
   %4363 = icmp eq ptr %4356, %4357
@@ -60433,7 +60434,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3337: ; preds = %
   %4374 = sub i64 %4372, %4373
   %4375 = ashr exact i64 %4374, 3
   %4376 = icmp ugt i64 %4375, %4369
-  br i1 %4376, label %.lr.ph.i3339, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3341, !llvm.loop !73
+  br i1 %4376, label %.lr.ph.i3339, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3341, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3341: ; preds = %.lr.ph.i3339
   %4377 = icmp eq ptr %4370, %4371
@@ -60455,7 +60456,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3341: ; preds = %
   %4388 = sub i64 %4386, %4387
   %4389 = ashr exact i64 %4388, 3
   %4390 = icmp ugt i64 %4389, %4383
-  br i1 %4390, label %.lr.ph.i3343, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3345, !llvm.loop !73
+  br i1 %4390, label %.lr.ph.i3343, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3345, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3345: ; preds = %.lr.ph.i3343
   %4391 = icmp eq ptr %4384, %4385
@@ -60477,7 +60478,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3345: ; preds = %
   %4402 = sub i64 %4400, %4401
   %4403 = ashr exact i64 %4402, 3
   %4404 = icmp ugt i64 %4403, %4397
-  br i1 %4404, label %.lr.ph.i3347, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3349, !llvm.loop !73
+  br i1 %4404, label %.lr.ph.i3347, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3349, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3349: ; preds = %.lr.ph.i3347
   %4405 = icmp eq ptr %4398, %4399
@@ -60499,7 +60500,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3349: ; preds = %
   %4416 = sub i64 %4414, %4415
   %4417 = ashr exact i64 %4416, 3
   %4418 = icmp ugt i64 %4417, %4411
-  br i1 %4418, label %.lr.ph.i3351, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3353, !llvm.loop !73
+  br i1 %4418, label %.lr.ph.i3351, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3353, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3353: ; preds = %.lr.ph.i3351
   %4419 = icmp eq ptr %4412, %4413
@@ -60521,7 +60522,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3353: ; preds = %
   %4430 = sub i64 %4428, %4429
   %4431 = ashr exact i64 %4430, 3
   %4432 = icmp ugt i64 %4431, %4425
-  br i1 %4432, label %.lr.ph.i3355, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3357, !llvm.loop !73
+  br i1 %4432, label %.lr.ph.i3355, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3357, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3357: ; preds = %.lr.ph.i3355
   %4433 = icmp eq ptr %4426, %4427
@@ -60543,7 +60544,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3357: ; preds = %
   %4444 = sub i64 %4442, %4443
   %4445 = ashr exact i64 %4444, 3
   %4446 = icmp ugt i64 %4445, %4439
-  br i1 %4446, label %.lr.ph.i3359, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3361, !llvm.loop !73
+  br i1 %4446, label %.lr.ph.i3359, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3361, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3361: ; preds = %.lr.ph.i3359
   %4447 = icmp eq ptr %4440, %4441
@@ -60565,7 +60566,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3361: ; preds = %
   %4458 = sub i64 %4456, %4457
   %4459 = ashr exact i64 %4458, 3
   %4460 = icmp ugt i64 %4459, %4453
-  br i1 %4460, label %.lr.ph.i3363, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3365, !llvm.loop !73
+  br i1 %4460, label %.lr.ph.i3363, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3365, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3365: ; preds = %.lr.ph.i3363
   %4461 = icmp eq ptr %4454, %4455
@@ -60587,7 +60588,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3365: ; preds = %
   %4472 = sub i64 %4470, %4471
   %4473 = ashr exact i64 %4472, 3
   %4474 = icmp ugt i64 %4473, %4467
-  br i1 %4474, label %.lr.ph.i3367, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3369, !llvm.loop !73
+  br i1 %4474, label %.lr.ph.i3367, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3369, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3369: ; preds = %.lr.ph.i3367
   %4475 = icmp eq ptr %4468, %4469
@@ -60609,7 +60610,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3369: ; preds = %
   %4486 = sub i64 %4484, %4485
   %4487 = ashr exact i64 %4486, 3
   %4488 = icmp ugt i64 %4487, %4481
-  br i1 %4488, label %.lr.ph.i3371, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3373, !llvm.loop !73
+  br i1 %4488, label %.lr.ph.i3371, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3373, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3373: ; preds = %.lr.ph.i3371
   %4489 = icmp eq ptr %4482, %4483
@@ -60631,7 +60632,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3373: ; preds = %
   %4500 = sub i64 %4498, %4499
   %4501 = ashr exact i64 %4500, 3
   %4502 = icmp ugt i64 %4501, %4495
-  br i1 %4502, label %.lr.ph.i3375, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3377, !llvm.loop !73
+  br i1 %4502, label %.lr.ph.i3375, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3377, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3377: ; preds = %.lr.ph.i3375
   %4503 = icmp eq ptr %4496, %4497
@@ -60653,7 +60654,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3377: ; preds = %
   %4514 = sub i64 %4512, %4513
   %4515 = ashr exact i64 %4514, 3
   %4516 = icmp ugt i64 %4515, %4509
-  br i1 %4516, label %.lr.ph.i3379, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3381, !llvm.loop !73
+  br i1 %4516, label %.lr.ph.i3379, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3381, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3381: ; preds = %.lr.ph.i3379
   %4517 = icmp eq ptr %4510, %4511
@@ -60675,7 +60676,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3381: ; preds = %
   %4528 = sub i64 %4526, %4527
   %4529 = ashr exact i64 %4528, 3
   %4530 = icmp ugt i64 %4529, %4523
-  br i1 %4530, label %.lr.ph.i3383, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3385, !llvm.loop !73
+  br i1 %4530, label %.lr.ph.i3383, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3385, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3385: ; preds = %.lr.ph.i3383
   %4531 = icmp eq ptr %4524, %4525
@@ -60697,7 +60698,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3385: ; preds = %
   %4542 = sub i64 %4540, %4541
   %4543 = ashr exact i64 %4542, 3
   %4544 = icmp ugt i64 %4543, %4537
-  br i1 %4544, label %.lr.ph.i3387, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3389, !llvm.loop !73
+  br i1 %4544, label %.lr.ph.i3387, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3389, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3389: ; preds = %.lr.ph.i3387
   %4545 = icmp eq ptr %4538, %4539
@@ -60719,7 +60720,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3389: ; preds = %
   %4556 = sub i64 %4554, %4555
   %4557 = ashr exact i64 %4556, 3
   %4558 = icmp ugt i64 %4557, %4551
-  br i1 %4558, label %.lr.ph.i3391, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3393, !llvm.loop !73
+  br i1 %4558, label %.lr.ph.i3391, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3393, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3393: ; preds = %.lr.ph.i3391
   %4559 = icmp eq ptr %4552, %4553
@@ -60741,7 +60742,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3393: ; preds = %
   %4570 = sub i64 %4568, %4569
   %4571 = ashr exact i64 %4570, 3
   %4572 = icmp ugt i64 %4571, %4565
-  br i1 %4572, label %.lr.ph.i3395, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3397, !llvm.loop !73
+  br i1 %4572, label %.lr.ph.i3395, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3397, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3397: ; preds = %.lr.ph.i3395
   %4573 = icmp eq ptr %4566, %4567
@@ -60763,7 +60764,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3397: ; preds = %
   %4584 = sub i64 %4582, %4583
   %4585 = ashr exact i64 %4584, 3
   %4586 = icmp ugt i64 %4585, %4579
-  br i1 %4586, label %.lr.ph.i3399, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3401, !llvm.loop !73
+  br i1 %4586, label %.lr.ph.i3399, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3401, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3401: ; preds = %.lr.ph.i3399
   %4587 = icmp eq ptr %4580, %4581
@@ -60785,7 +60786,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3401: ; preds = %
   %4598 = sub i64 %4596, %4597
   %4599 = ashr exact i64 %4598, 3
   %4600 = icmp ugt i64 %4599, %4593
-  br i1 %4600, label %.lr.ph.i3403, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3405, !llvm.loop !73
+  br i1 %4600, label %.lr.ph.i3403, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3405, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3405: ; preds = %.lr.ph.i3403
   %4601 = icmp eq ptr %4594, %4595
@@ -60807,7 +60808,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3405: ; preds = %
   %4612 = sub i64 %4610, %4611
   %4613 = ashr exact i64 %4612, 3
   %4614 = icmp ugt i64 %4613, %4607
-  br i1 %4614, label %.lr.ph.i3407, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3409, !llvm.loop !73
+  br i1 %4614, label %.lr.ph.i3407, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3409, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3409: ; preds = %.lr.ph.i3407
   %4615 = icmp eq ptr %4608, %4609
@@ -60829,7 +60830,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3409: ; preds = %
   %4626 = sub i64 %4624, %4625
   %4627 = ashr exact i64 %4626, 3
   %4628 = icmp ugt i64 %4627, %4621
-  br i1 %4628, label %.lr.ph.i3411, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3413, !llvm.loop !73
+  br i1 %4628, label %.lr.ph.i3411, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3413, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3413: ; preds = %.lr.ph.i3411
   %4629 = icmp eq ptr %4622, %4623
@@ -60851,7 +60852,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3413: ; preds = %
   %4640 = sub i64 %4638, %4639
   %4641 = ashr exact i64 %4640, 3
   %4642 = icmp ugt i64 %4641, %4635
-  br i1 %4642, label %.lr.ph.i3415, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3417, !llvm.loop !73
+  br i1 %4642, label %.lr.ph.i3415, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3417, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3417: ; preds = %.lr.ph.i3415
   %4643 = icmp eq ptr %4636, %4637
@@ -60873,7 +60874,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3417: ; preds = %
   %4654 = sub i64 %4652, %4653
   %4655 = ashr exact i64 %4654, 3
   %4656 = icmp ugt i64 %4655, %4649
-  br i1 %4656, label %.lr.ph.i3419, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3421, !llvm.loop !73
+  br i1 %4656, label %.lr.ph.i3419, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3421, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3421: ; preds = %.lr.ph.i3419
   %4657 = icmp eq ptr %4650, %4651
@@ -60895,7 +60896,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3421: ; preds = %
   %4668 = sub i64 %4666, %4667
   %4669 = ashr exact i64 %4668, 3
   %4670 = icmp ugt i64 %4669, %4663
-  br i1 %4670, label %.lr.ph.i3423, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3425, !llvm.loop !73
+  br i1 %4670, label %.lr.ph.i3423, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3425, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3425: ; preds = %.lr.ph.i3423
   %4671 = icmp eq ptr %4664, %4665
@@ -60917,7 +60918,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3425: ; preds = %
   %4682 = sub i64 %4680, %4681
   %4683 = ashr exact i64 %4682, 3
   %4684 = icmp ugt i64 %4683, %4677
-  br i1 %4684, label %.lr.ph.i3427, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3429, !llvm.loop !73
+  br i1 %4684, label %.lr.ph.i3427, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3429, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3429: ; preds = %.lr.ph.i3427
   %4685 = icmp eq ptr %4678, %4679
@@ -60939,7 +60940,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3429: ; preds = %
   %4696 = sub i64 %4694, %4695
   %4697 = ashr exact i64 %4696, 3
   %4698 = icmp ugt i64 %4697, %4691
-  br i1 %4698, label %.lr.ph.i3431, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3433, !llvm.loop !73
+  br i1 %4698, label %.lr.ph.i3431, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3433, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3433: ; preds = %.lr.ph.i3431
   %4699 = icmp eq ptr %4692, %4693
@@ -60961,7 +60962,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3433: ; preds = %
   %4710 = sub i64 %4708, %4709
   %4711 = ashr exact i64 %4710, 3
   %4712 = icmp ugt i64 %4711, %4705
-  br i1 %4712, label %.lr.ph.i3435, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3437, !llvm.loop !73
+  br i1 %4712, label %.lr.ph.i3435, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3437, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3437: ; preds = %.lr.ph.i3435
   %4713 = icmp eq ptr %4706, %4707
@@ -60983,7 +60984,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3437: ; preds = %
   %4724 = sub i64 %4722, %4723
   %4725 = ashr exact i64 %4724, 3
   %4726 = icmp ugt i64 %4725, %4719
-  br i1 %4726, label %.lr.ph.i3439, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3441, !llvm.loop !73
+  br i1 %4726, label %.lr.ph.i3439, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3441, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3441: ; preds = %.lr.ph.i3439
   %4727 = icmp eq ptr %4720, %4721
@@ -61005,7 +61006,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3441: ; preds = %
   %4738 = sub i64 %4736, %4737
   %4739 = ashr exact i64 %4738, 3
   %4740 = icmp ugt i64 %4739, %4733
-  br i1 %4740, label %.lr.ph.i3443, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3445, !llvm.loop !73
+  br i1 %4740, label %.lr.ph.i3443, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3445, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3445: ; preds = %.lr.ph.i3443
   %4741 = icmp eq ptr %4734, %4735
@@ -61027,7 +61028,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3445: ; preds = %
   %4752 = sub i64 %4750, %4751
   %4753 = ashr exact i64 %4752, 3
   %4754 = icmp ugt i64 %4753, %4747
-  br i1 %4754, label %.lr.ph.i3447, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3449, !llvm.loop !73
+  br i1 %4754, label %.lr.ph.i3447, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3449, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3449: ; preds = %.lr.ph.i3447
   %4755 = icmp eq ptr %4748, %4749
@@ -61049,7 +61050,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3449: ; preds = %
   %4766 = sub i64 %4764, %4765
   %4767 = ashr exact i64 %4766, 3
   %4768 = icmp ugt i64 %4767, %4761
-  br i1 %4768, label %.lr.ph.i3451, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3453, !llvm.loop !73
+  br i1 %4768, label %.lr.ph.i3451, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3453, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3453: ; preds = %.lr.ph.i3451
   %4769 = icmp eq ptr %4762, %4763
@@ -61071,7 +61072,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3453: ; preds = %
   %4780 = sub i64 %4778, %4779
   %4781 = ashr exact i64 %4780, 3
   %4782 = icmp ugt i64 %4781, %4775
-  br i1 %4782, label %.lr.ph.i3455, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3457, !llvm.loop !73
+  br i1 %4782, label %.lr.ph.i3455, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3457, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3457: ; preds = %.lr.ph.i3455
   %4783 = icmp eq ptr %4776, %4777
@@ -61093,7 +61094,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3457: ; preds = %
   %4794 = sub i64 %4792, %4793
   %4795 = ashr exact i64 %4794, 3
   %4796 = icmp ugt i64 %4795, %4789
-  br i1 %4796, label %.lr.ph.i3459, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3461, !llvm.loop !73
+  br i1 %4796, label %.lr.ph.i3459, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3461, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3461: ; preds = %.lr.ph.i3459
   %4797 = icmp eq ptr %4790, %4791
@@ -61115,7 +61116,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3461: ; preds = %
   %4808 = sub i64 %4806, %4807
   %4809 = ashr exact i64 %4808, 3
   %4810 = icmp ugt i64 %4809, %4803
-  br i1 %4810, label %.lr.ph.i3463, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3465, !llvm.loop !73
+  br i1 %4810, label %.lr.ph.i3463, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3465, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3465: ; preds = %.lr.ph.i3463
   %4811 = icmp eq ptr %4804, %4805
@@ -61137,7 +61138,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3465: ; preds = %
   %4822 = sub i64 %4820, %4821
   %4823 = ashr exact i64 %4822, 3
   %4824 = icmp ugt i64 %4823, %4817
-  br i1 %4824, label %.lr.ph.i3467, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3469, !llvm.loop !73
+  br i1 %4824, label %.lr.ph.i3467, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3469, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3469: ; preds = %.lr.ph.i3467, %4234, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3305, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3309, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3313, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3317, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3321, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3325, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3329, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3333, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3337, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3341, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3345, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3349, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3353, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3357, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3361, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3365, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3369, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3373, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3377, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3381, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3385, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3389, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3393, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3397, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3401, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3405, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3409, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3413, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3417, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3421, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3425, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3429, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3433, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3437, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3441, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3445, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3449, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3453, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3457, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3461, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3465
   call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.1077, i32 noundef 96, ptr noundef nonnull align 8 dereferenceable(40) %5)
@@ -61362,7 +61363,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3469: ; preds = %
   %4860 = sub i64 %4858, %4859
   %4861 = ashr exact i64 %4860, 3
   %4862 = icmp ugt i64 %4861, %4855
-  br i1 %4862, label %.lr.ph.i3474, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3476, !llvm.loop !73
+  br i1 %4862, label %.lr.ph.i3474, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3476, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3476: ; preds = %.lr.ph.i3474
   %4863 = icmp eq ptr %4856, %4857
@@ -61384,7 +61385,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3476: ; preds = %
   %4874 = sub i64 %4872, %4873
   %4875 = ashr exact i64 %4874, 3
   %4876 = icmp ugt i64 %4875, %4869
-  br i1 %4876, label %.lr.ph.i3478, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480, !llvm.loop !73
+  br i1 %4876, label %.lr.ph.i3478, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480: ; preds = %.lr.ph.i3478
   %4877 = icmp eq ptr %4870, %4871
@@ -61406,7 +61407,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480: ; preds = %
   %4888 = sub i64 %4886, %4887
   %4889 = ashr exact i64 %4888, 3
   %4890 = icmp ugt i64 %4889, %4883
-  br i1 %4890, label %.lr.ph.i3482, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484, !llvm.loop !73
+  br i1 %4890, label %.lr.ph.i3482, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484, !llvm.loop !75
 
 4891:                                             ; preds = %4845
   br i1 %.not.i3473, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484.thread, label %.lr.ph.i3486
@@ -61427,7 +61428,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480: ; preds = %
   %4902 = sub i64 %4900, %4901
   %4903 = ashr exact i64 %4902, 3
   %4904 = icmp ugt i64 %4903, %4897
-  br i1 %4904, label %.lr.ph.i3486, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3488, !llvm.loop !73
+  br i1 %4904, label %.lr.ph.i3486, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3488, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3488: ; preds = %.lr.ph.i3486
   %4905 = icmp eq ptr %4898, %4899
@@ -61449,7 +61450,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3488: ; preds = %
   %4916 = sub i64 %4914, %4915
   %4917 = ashr exact i64 %4916, 3
   %4918 = icmp ugt i64 %4917, %4911
-  br i1 %4918, label %.lr.ph.i3490, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3492, !llvm.loop !73
+  br i1 %4918, label %.lr.ph.i3490, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3492, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3492: ; preds = %.lr.ph.i3490
   %4919 = icmp eq ptr %4912, %4913
@@ -61471,7 +61472,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3492: ; preds = %
   %4930 = sub i64 %4928, %4929
   %4931 = ashr exact i64 %4930, 3
   %4932 = icmp ugt i64 %4931, %4925
-  br i1 %4932, label %.lr.ph.i3494, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484, !llvm.loop !73
+  br i1 %4932, label %.lr.ph.i3494, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484.thread: ; preds = %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3492, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3480, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3476, %4849, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3488, %4891
   %4933 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -61500,7 +61501,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484: ; preds = %
   %4947 = sub i64 %4945, %4946
   %4948 = ashr exact i64 %4947, 3
   %4949 = icmp ugt i64 %4948, %4942
-  br i1 %4949, label %.lr.ph.i3498, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3500, !llvm.loop !73
+  br i1 %4949, label %.lr.ph.i3498, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3500, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3500: ; preds = %.lr.ph.i3498, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484.thread, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484
   %4950 = phi ptr [ %4933, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484.thread ], [ %4936, %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3484 ], [ %4936, %.lr.ph.i3498 ]
@@ -61554,7 +61555,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3500: ; preds = %
   %4964 = sub i64 %4962, %4963
   %4965 = ashr exact i64 %4964, 3
   %4966 = icmp ugt i64 %4965, %4959
-  br i1 %4966, label %.lr.ph.i3502, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3504, !llvm.loop !73
+  br i1 %4966, label %.lr.ph.i3502, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3504, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3504: ; preds = %.lr.ph.i3502, %4951
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.744, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL21E_GL_EXT_device_groupE)
@@ -61647,7 +61648,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3500.thread: ; pr
   %4992 = sub i64 %4990, %4991
   %4993 = ashr exact i64 %4992, 3
   %4994 = icmp ugt i64 %4993, %4987
-  br i1 %4994, label %.lr.ph.i3506, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3508, !llvm.loop !73
+  br i1 %4994, label %.lr.ph.i3506, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3508, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3508: ; preds = %.lr.ph.i3506, %4978
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.753, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL26E_GL_NV_shader_sm_builtinsE)
@@ -61709,7 +61710,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3508: ; preds = %
   %5013 = sub i64 %5011, %5012
   %5014 = ashr exact i64 %5013, 3
   %5015 = icmp ugt i64 %5014, %5008
-  br i1 %5015, label %.lr.ph.i3510, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3512, !llvm.loop !73
+  br i1 %5015, label %.lr.ph.i3510, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3512, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3512: ; preds = %.lr.ph.i3510
   %5016 = icmp eq ptr %5009, %5010
@@ -61731,7 +61732,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3512: ; preds = %
   %5027 = sub i64 %5025, %5026
   %5028 = ashr exact i64 %5027, 3
   %5029 = icmp ugt i64 %5028, %5022
-  br i1 %5029, label %.lr.ph.i3514, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !73
+  br i1 %5029, label %.lr.ph.i3514, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3197, !llvm.loop !75
 
 5030:                                             ; preds = %6
   %5031 = icmp ne i32 %2, 8
@@ -61803,7 +61804,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3512: ; preds = %
   %5054 = sub i64 %5052, %5053
   %5055 = ashr exact i64 %5054, 3
   %5056 = icmp ugt i64 %5055, %5049
-  br i1 %5056, label %.lr.ph.i3518, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3520, !llvm.loop !73
+  br i1 %5056, label %.lr.ph.i3518, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3520, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3520: ; preds = %.lr.ph.i3518
   %5057 = icmp eq ptr %5050, %5051
@@ -61825,7 +61826,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3520: ; preds = %
   %5068 = sub i64 %5066, %5067
   %5069 = ashr exact i64 %5068, 3
   %5070 = icmp ugt i64 %5069, %5063
-  br i1 %5070, label %.lr.ph.i3522, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3524, !llvm.loop !73
+  br i1 %5070, label %.lr.ph.i3522, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3524, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3524: ; preds = %.lr.ph.i3522
   %5071 = icmp eq ptr %5064, %5065
@@ -61847,7 +61848,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3524: ; preds = %
   %5082 = sub i64 %5080, %5081
   %5083 = ashr exact i64 %5082, 3
   %5084 = icmp ugt i64 %5083, %5077
-  br i1 %5084, label %.lr.ph.i3526, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.loopexit, !llvm.loop !73
+  br i1 %5084, label %.lr.ph.i3526, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.loopexit, !llvm.loop !75
 
 5085:                                             ; preds = %5039
   br i1 %.not.i3517, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.thread, label %.lr.ph.i3530
@@ -61868,7 +61869,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3524: ; preds = %
   %5096 = sub i64 %5094, %5095
   %5097 = ashr exact i64 %5096, 3
   %5098 = icmp ugt i64 %5097, %5091
-  br i1 %5098, label %.lr.ph.i3530, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3532, !llvm.loop !73
+  br i1 %5098, label %.lr.ph.i3530, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3532, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3532: ; preds = %.lr.ph.i3530
   %5099 = icmp eq ptr %5092, %5093
@@ -61890,7 +61891,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3532: ; preds = %
   %5110 = sub i64 %5108, %5109
   %5111 = ashr exact i64 %5110, 3
   %5112 = icmp ugt i64 %5111, %5105
-  br i1 %5112, label %.lr.ph.i3534, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3536, !llvm.loop !73
+  br i1 %5112, label %.lr.ph.i3534, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3536, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3536: ; preds = %.lr.ph.i3534
   %5113 = icmp eq ptr %5106, %5107
@@ -61912,7 +61913,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3536: ; preds = %
   %5124 = sub i64 %5122, %5123
   %5125 = ashr exact i64 %5124, 3
   %5126 = icmp ugt i64 %5125, %5119
-  br i1 %5126, label %.lr.ph.i3538, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.thread, !llvm.loop !73
+  br i1 %5126, label %.lr.ph.i3538, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.thread, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.loopexit: ; preds = %.lr.ph.i3526
   %5127 = icmp eq ptr %5078, %5079
@@ -61942,7 +61943,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528: ; preds = %
   %5140 = sub i64 %5138, %5139
   %5141 = ashr exact i64 %5140, 3
   %5142 = icmp ugt i64 %5141, %5135
-  br i1 %5142, label %.lr.ph.i3542, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3544, !llvm.loop !73
+  br i1 %5142, label %.lr.ph.i3542, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3544, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3544: ; preds = %.lr.ph.i3542, %5129
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.1041, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL20E_GL_EXT_mesh_shaderE)
@@ -62035,7 +62036,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3528.thread: ; pr
   %5168 = sub i64 %5166, %5167
   %5169 = ashr exact i64 %5168, 3
   %5170 = icmp ugt i64 %5169, %5163
-  br i1 %5170, label %.lr.ph.i3546, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3548, !llvm.loop !73
+  br i1 %5170, label %.lr.ph.i3546, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3548, !llvm.loop !75
 
 _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit3548: ; preds = %.lr.ph.i3546, %5154
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.753, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL26E_GL_NV_shader_sm_builtinsE)
@@ -73009,7 +73010,7 @@ define linkonce_odr void @_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciP
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
   %20 = icmp ugt i64 %19, %13
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -73163,7 +73164,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7c
   %sext = shl i64 %82, 27
   %83 = ashr i64 %sext, 32
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !74
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %63
   ret void
@@ -73315,7 +73316,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7c
   %sext = shl i64 %81, 27
   %82 = ashr i64 %sext, 32
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !75
+  br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread, %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %72
   ret void
@@ -73385,7 +73386,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS9_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !76
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS9_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS9_.exit.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i.i
   %36 = icmp eq ptr %.19.i.i.i.i, %27
@@ -73427,7 +73428,7 @@ _ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_trait
   %49 = icmp eq ptr %.0.i, null
   %50 = icmp sgt i64 %indvars.iv, 1
   %51 = and i1 %50, %49
-  br i1 %51, label %18, label %52, !llvm.loop !77
+  br i1 %51, label %18, label %52, !llvm.loop !79
 
 52:                                               ; preds = %_ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit
   %53 = trunc nsw i64 %indvars.iv to i32
@@ -73986,7 +73987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
 define linkonce_odr void @_ZStplIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_RKSA_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #1 comdat {
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i:
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !78
+  %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74336,7 +74337,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i, label %12, !llvm.loop !87
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i, label %12, !llvm.loop !89
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i
   %21 = icmp eq ptr %.19.i.i.i, %7
@@ -74408,7 +74409,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i17 = getelementptr inbounds nuw i8, ptr %.012.i.i.i8, i64 %.1.in.v.i.i.i16
   %.1.i.i.i18 = load ptr, ptr %.1.in.i.i.i17, align 8
   %.not.i.i.i19 = icmp eq ptr %.1.i.i.i18, null
-  br i1 %.not.i.i.i19, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i20, label %35, !llvm.loop !87
+  br i1 %.not.i.i.i19, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i20, label %35, !llvm.loop !89
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i20: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i13
   %44 = icmp eq ptr %.19.i.i.i15, %7
@@ -74561,7 +74562,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit, label %12, !llvm.loop !87
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit, label %12, !llvm.loop !89
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i
   %21 = icmp eq ptr %.19.i.i.i, %7
@@ -74608,7 +74609,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_EC2IS7_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS7_SG_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !88
+  %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !90
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %6, align 8
@@ -74658,7 +74659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %26 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !97
+  %26 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !99
   store ptr %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %25, ptr %27, align 8
@@ -74720,7 +74721,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !106
+  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !108
   store ptr %12, ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %11, ptr %13, align 8
@@ -75085,7 +75086,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.in = getelementptr inbounds nuw i8, ptr %.02933, i64 %.in.v
   %.029 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.029, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !115
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit
   br i1 %17, label %._crit_edge.thread, label %23
@@ -75194,7 +75195,7 @@ _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14po
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 80
   %25 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 80
   %.not.i.i = icmp eq ptr %24, %1
-  br i1 %.not.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !116
+  br i1 %.not.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !118
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit: ; preds = %.lr.ph.i.i, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ENS6_IS9_EEE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i = phi ptr [ %22, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ENS6_IS9_EEE12_M_check_lenEmPKc.exit ], [ %25, %.lr.ph.i.i ]
@@ -75209,7 +75210,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i21, i64 80
   %28 = getelementptr inbounds nuw i8, ptr %.010.i.i20, i64 80
   %.not.i.i22 = icmp eq ptr %27, %6
-  br i1 %.not.i.i22, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit24, label %.lr.ph.i.i19, !llvm.loop !116
+  br i1 %.not.i.i22, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit24, label %.lr.ph.i.i19, !llvm.loop !118
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit24: ; preds = %.lr.ph.i.i19, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit
   %.0.lcssa.i.i23 = phi ptr [ %26, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit ], [ %28, %.lr.ph.i.i19 ]
@@ -75224,7 +75225,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_EC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !117
+  %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !119
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
@@ -75274,7 +75275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   store i8 0, ptr %22, align 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !126
+  %25 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !128
   store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %26, align 8
@@ -76394,7 +76395,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 128
   %81 = add nsw i64 %.0141, -1
   %82 = icmp sgt i64 %.0141, 1
-  br i1 %82, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !135
+  br i1 %82, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !137
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27.thread104
   %.pre = ptrtoint ptr %80 to i64
@@ -76658,7 +76659,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.030.0107, i64 128
   %80 = add nsw i64 %.0108, -1
   %81 = icmp sgt i64 %.0108, 1
-  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !136
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !138
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit21.thread71
   %.pre = ptrtoint ptr %79 to i64
@@ -76938,7 +76939,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 128
   %77 = add nsw i64 %.0140, -1
   %78 = icmp sgt i64 %.0140, 1
-  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !137
+  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !139
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33.thread103
   %.pre = ptrtoint ptr %76 to i64
@@ -77214,7 +77215,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.030.0107, i64 128
   %80 = add nsw i64 %.0108, -1
   %81 = icmp sgt i64 %.0108, 1
-  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !138
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !140
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit21.thread71
   %.pre = ptrtoint ptr %79 to i64
@@ -77478,7 +77479,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.030.0107, i64 128
   %80 = add nsw i64 %.0108, -1
   %81 = icmp sgt i64 %.0108, 1
-  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !139
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !141
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit21.thread71
   %.pre = ptrtoint ptr %79 to i64
@@ -77770,7 +77771,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.036.0124, i64 128
   %96 = add nsw i64 %.0125, -1
   %97 = icmp sgt i64 %.0125, 1
-  br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !140
+  br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !142
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit24.thread77
   %.pre = ptrtoint ptr %95 to i64
@@ -78067,7 +78068,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.030.0107, i64 128
   %80 = add nsw i64 %.0108, -1
   %81 = icmp sgt i64 %.0108, 1
-  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !141
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !143
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit21.thread71
   %.pre = ptrtoint ptr %79 to i64
@@ -78387,7 +78388,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.048.0132, i64 128
   %68 = add nsw i64 %.0133, -1
   %69 = icmp sgt i64 %.0133, 1
-  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !142
+  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !144
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread93
   %.pre = ptrtoint ptr %67 to i64
@@ -78741,7 +78742,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.036.0120, i64 128
   %108 = add nsw i64 %.0121, -1
   %109 = icmp sgt i64 %.0121, 1
-  br i1 %109, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !143
+  br i1 %109, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !145
 
 ._crit_edge.loopexit:                             ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit24.thread77
   %.pre = ptrtoint ptr %107 to i64
@@ -79005,7 +79006,7 @@ _ZNKSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE12_M_check_lenEmP
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %37, %14
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !144
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !146
 
 _ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i = phi ptr [ %35, %_ZNKSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i.i ], [ %38, %.lr.ph.i.i.i.i ]
@@ -79066,7 +79067,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit, label %10, !llvm.loop !76
+  br i1 %.not.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit, label %10, !llvm.loop !78
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE11lower_boundERSD_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i
   %.not14 = icmp eq ptr %.19.i.i.i, %5
@@ -79134,7 +79135,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang17TSymbolTableLevel6insertERN
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %17 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !145
+  %17 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !147
   store ptr %17, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %18, align 8
@@ -79290,7 +79291,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i, label %85, !llvm.loop !87
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i, label %85, !llvm.loop !89
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEclERKS7_SA_.exit.i.i.i
   %94 = icmp eq ptr %.19.i.i.i, %81
@@ -79324,7 +79325,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocator
 
 .critedge:                                        ; preds = %78, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS9_.exit.i.i, %77, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE4findERSD_.exit
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %105 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !154
+  %105 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !156
   store ptr %105, ptr %7, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %104, ptr %106, align 8
@@ -79387,7 +79388,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 130:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit.thread
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %132 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !163
+  %132 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !165
   store ptr %132, ptr %8, align 8
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %131, ptr %133, align 8
@@ -79501,7 +79502,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang17TSymbolTableLevel22insertAn
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 5
   %.not16 = icmp ugt i64 %37, %31
-  br i1 %.not16, label %38, label %._crit_edge, !llvm.loop !172
+  br i1 %.not16, label %38, label %._crit_edge, !llvm.loop !174
 
 38:                                               ; preds = %.lr.ph, %29
   %39 = phi i64 [ %17, %.lr.ph ], [ %31, %29 ]
@@ -79541,7 +79542,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang17TSymbolTableLevel22insertAn
   %66 = getelementptr inbounds nuw i8, ptr %41, i64 52
   store i32 %60, ptr %66, align 4
   %67 = call noundef nonnull align 8 dereferenceable(40) ptr %24(ptr noundef nonnull align 8 dereferenceable(33) %41) #16
-  %68 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !173
+  %68 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !175
   store ptr %68, ptr %4, align 8
   store ptr %25, ptr %26, align 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -79615,7 +79616,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %4 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef 80) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %7 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !182
+  %7 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16, !noalias !184
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %6, ptr %8, align 8
@@ -79868,38 +79869,38 @@ attributes #19 = { "function-inline-cost-multiplier"="2" }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!23 = distinct !{!23, !5, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = !{!32, !34, !36, !38}
-!32 = distinct !{!32, !33, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!33 = distinct !{!33, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!34 = distinct !{!34, !35, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!35 = distinct !{!35, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!36 = distinct !{!36, !37, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!37 = distinct !{!37, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!38 = distinct !{!38, !39, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!39 = distinct !{!39, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = !{!34, !36, !38, !40}
+!34 = distinct !{!34, !35, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!35 = distinct !{!35, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!36 = distinct !{!36, !37, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!37 = distinct !{!37, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!38 = distinct !{!38, !39, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!39 = distinct !{!39, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!40 = distinct !{!40, !41, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!41 = distinct !{!41, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = !{!45, !47, !49, !51}
-!45 = distinct !{!45, !46, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!46 = distinct !{!46, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!47 = distinct !{!47, !48, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!48 = distinct !{!48, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!49 = distinct !{!49, !50, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!50 = distinct !{!50, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!51 = distinct !{!51, !52, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!52 = distinct !{!52, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = !{!47, !49, !51, !53}
+!47 = distinct !{!47, !48, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!48 = distinct !{!48, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!49 = distinct !{!49, !50, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!50 = distinct !{!50, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!51 = distinct !{!51, !52, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!52 = distinct !{!52, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!53 = distinct !{!53, !54, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!54 = distinct !{!54, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
@@ -79923,65 +79924,65 @@ attributes #19 = { "function-inline-cost-multiplier"="2" }
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
-!78 = !{!79, !81, !83, !85}
-!79 = distinct !{!79, !80, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!80 = distinct !{!80, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!81 = distinct !{!81, !82, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!82 = distinct !{!82, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!83 = distinct !{!83, !84, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!84 = distinct !{!84, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!85 = distinct !{!85, !86, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!86 = distinct !{!86, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!87 = distinct !{!87, !5}
-!88 = !{!89, !91, !93, !95}
-!89 = distinct !{!89, !90, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!90 = distinct !{!90, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!91 = distinct !{!91, !92, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!92 = distinct !{!92, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!93 = distinct !{!93, !94, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!94 = distinct !{!94, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!95 = distinct !{!95, !96, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!96 = distinct !{!96, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!97 = !{!98, !100, !102, !104}
-!98 = distinct !{!98, !99, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!99 = distinct !{!99, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!100 = distinct !{!100, !101, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!101 = distinct !{!101, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!102 = distinct !{!102, !103, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!103 = distinct !{!103, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!104 = distinct !{!104, !105, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!105 = distinct !{!105, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!106 = !{!107, !109, !111, !113}
-!107 = distinct !{!107, !108, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!108 = distinct !{!108, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!109 = distinct !{!109, !110, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!110 = distinct !{!110, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!111 = distinct !{!111, !112, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!112 = distinct !{!112, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!113 = distinct !{!113, !114, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!114 = distinct !{!114, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!115 = distinct !{!115, !5}
-!116 = distinct !{!116, !5}
-!117 = !{!118, !120, !122, !124}
-!118 = distinct !{!118, !119, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!119 = distinct !{!119, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!120 = distinct !{!120, !121, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!121 = distinct !{!121, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!122 = distinct !{!122, !123, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!123 = distinct !{!123, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!124 = distinct !{!124, !125, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!125 = distinct !{!125, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!126 = !{!127, !129, !131, !133}
-!127 = distinct !{!127, !128, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!128 = distinct !{!128, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!129 = distinct !{!129, !130, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!130 = distinct !{!130, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!131 = distinct !{!131, !132, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!132 = distinct !{!132, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!133 = distinct !{!133, !134, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!134 = distinct !{!134, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!135 = distinct !{!135, !5}
-!136 = distinct !{!136, !5}
+!78 = distinct !{!78, !5}
+!79 = distinct !{!79, !5}
+!80 = !{!81, !83, !85, !87}
+!81 = distinct !{!81, !82, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!82 = distinct !{!82, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!83 = distinct !{!83, !84, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!84 = distinct !{!84, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!85 = distinct !{!85, !86, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!86 = distinct !{!86, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!87 = distinct !{!87, !88, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!88 = distinct !{!88, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!89 = distinct !{!89, !5}
+!90 = !{!91, !93, !95, !97}
+!91 = distinct !{!91, !92, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!92 = distinct !{!92, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!93 = distinct !{!93, !94, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!94 = distinct !{!94, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!95 = distinct !{!95, !96, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!96 = distinct !{!96, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!97 = distinct !{!97, !98, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!98 = distinct !{!98, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!99 = !{!100, !102, !104, !106}
+!100 = distinct !{!100, !101, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!101 = distinct !{!101, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!102 = distinct !{!102, !103, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!103 = distinct !{!103, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!104 = distinct !{!104, !105, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!105 = distinct !{!105, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!106 = distinct !{!106, !107, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!107 = distinct !{!107, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!108 = !{!109, !111, !113, !115}
+!109 = distinct !{!109, !110, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!110 = distinct !{!110, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!111 = distinct !{!111, !112, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!112 = distinct !{!112, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!113 = distinct !{!113, !114, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!114 = distinct !{!114, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!115 = distinct !{!115, !116, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!116 = distinct !{!116, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!117 = distinct !{!117, !5}
+!118 = distinct !{!118, !5}
+!119 = !{!120, !122, !124, !126}
+!120 = distinct !{!120, !121, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!121 = distinct !{!121, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!122 = distinct !{!122, !123, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!123 = distinct !{!123, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!124 = distinct !{!124, !125, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!125 = distinct !{!125, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!126 = distinct !{!126, !127, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!127 = distinct !{!127, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!128 = !{!129, !131, !133, !135}
+!129 = distinct !{!129, !130, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!130 = distinct !{!130, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!131 = distinct !{!131, !132, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!132 = distinct !{!132, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!133 = distinct !{!133, !134, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!134 = distinct !{!134, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!135 = distinct !{!135, !136, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!136 = distinct !{!136, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
 !137 = distinct !{!137, !5}
 !138 = distinct !{!138, !5}
 !139 = distinct !{!139, !5}
@@ -79990,49 +79991,51 @@ attributes #19 = { "function-inline-cost-multiplier"="2" }
 !142 = distinct !{!142, !5}
 !143 = distinct !{!143, !5}
 !144 = distinct !{!144, !5}
-!145 = !{!146, !148, !150, !152}
-!146 = distinct !{!146, !147, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!147 = distinct !{!147, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!148 = distinct !{!148, !149, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!149 = distinct !{!149, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!150 = distinct !{!150, !151, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!151 = distinct !{!151, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!152 = distinct !{!152, !153, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!153 = distinct !{!153, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!154 = !{!155, !157, !159, !161}
-!155 = distinct !{!155, !156, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!156 = distinct !{!156, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!157 = distinct !{!157, !158, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!158 = distinct !{!158, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!159 = distinct !{!159, !160, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!160 = distinct !{!160, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!161 = distinct !{!161, !162, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!162 = distinct !{!162, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!163 = !{!164, !166, !168, !170}
-!164 = distinct !{!164, !165, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!165 = distinct !{!165, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!166 = distinct !{!166, !167, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!167 = distinct !{!167, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!168 = distinct !{!168, !169, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!169 = distinct !{!169, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!170 = distinct !{!170, !171, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!171 = distinct !{!171, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!172 = distinct !{!172, !5}
-!173 = !{!174, !176, !178, !180}
-!174 = distinct !{!174, !175, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!175 = distinct !{!175, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!176 = distinct !{!176, !177, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!177 = distinct !{!177, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!178 = distinct !{!178, !179, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!179 = distinct !{!179, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!180 = distinct !{!180, !181, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!181 = distinct !{!181, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
-!182 = !{!183, !185, !187, !189}
-!183 = distinct !{!183, !184, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
-!184 = distinct !{!184, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
-!185 = distinct !{!185, !186, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
-!186 = distinct !{!186, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
-!187 = distinct !{!187, !188, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
-!188 = distinct !{!188, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
-!189 = distinct !{!189, !190, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
-!190 = distinct !{!190, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!145 = distinct !{!145, !5}
+!146 = distinct !{!146, !5}
+!147 = !{!148, !150, !152, !154}
+!148 = distinct !{!148, !149, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!149 = distinct !{!149, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!150 = distinct !{!150, !151, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!151 = distinct !{!151, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!152 = distinct !{!152, !153, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!153 = distinct !{!153, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!154 = distinct !{!154, !155, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!155 = distinct !{!155, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!156 = !{!157, !159, !161, !163}
+!157 = distinct !{!157, !158, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!158 = distinct !{!158, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!159 = distinct !{!159, !160, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!160 = distinct !{!160, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!161 = distinct !{!161, !162, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!162 = distinct !{!162, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!163 = distinct !{!163, !164, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!164 = distinct !{!164, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!165 = !{!166, !168, !170, !172}
+!166 = distinct !{!166, !167, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!167 = distinct !{!167, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!168 = distinct !{!168, !169, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!169 = distinct !{!169, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!170 = distinct !{!170, !171, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!171 = distinct !{!171, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!172 = distinct !{!172, !173, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!173 = distinct !{!173, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!174 = distinct !{!174, !5}
+!175 = !{!176, !178, !180, !182}
+!176 = distinct !{!176, !177, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!177 = distinct !{!177, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!178 = distinct !{!178, !179, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!179 = distinct !{!179, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!180 = distinct !{!180, !181, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!181 = distinct !{!181, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!182 = distinct !{!182, !183, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!183 = distinct !{!183, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}
+!184 = !{!185, !187, !189, !191}
+!185 = distinct !{!185, !186, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv: argument 0"}
+!186 = distinct !{!186, !"_ZNK7glslang14pool_allocatorIcE37select_on_container_copy_constructionEv"}
+!187 = distinct !{!187, !188, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: argument 0"}
+!188 = distinct !{!188, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE9_S_selectIKS2_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!189 = distinct !{!189, !190, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_: argument 0"}
+!190 = distinct !{!190, !"_ZNSt16allocator_traitsIN7glslang14pool_allocatorIcEEE37select_on_container_copy_constructionERKS2_"}
+!191 = distinct !{!191, !192, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_: argument 0"}
+!192 = distinct !{!192, !"_ZN9__gnu_cxx14__alloc_traitsIN7glslang14pool_allocatorIcEEcE17_S_select_on_copyERKS3_"}

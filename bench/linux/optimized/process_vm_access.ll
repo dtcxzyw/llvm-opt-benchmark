@@ -354,7 +354,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %143 = load i64, ptr %21, align 8
   %144 = icmp eq i64 %143, 0
   %145 = select i1 %142, i1 true, i1 %144
-  br i1 %145, label %.split.us, label %.split22.us
+  br i1 %145, label %.split.us, label %.split22.us, !llvm.loop !11
 
 .split:                                           ; preds = %124, %152
   %146 = phi i64 [ %160, %152 ], [ %.pre27, %124 ]
@@ -392,17 +392,17 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %169 = load i64, ptr %21, align 8
   %170 = icmp eq i64 %169, 0
   %171 = select i1 %168, i1 true, i1 %170
-  br i1 %171, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %171, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split22.us, %95, %.thread16, %90
   %172 = phi i64 [ 0, %90 ], [ -14, %.thread16 ], [ 0, %95 ], [ %.us-phi, %.split22.us ]
   %173 = add nuw i64 %84, 1
   %174 = icmp eq i64 %173, %4
-  br i1 %174, label %.loopexit._crit_edge, label %83, !llvm.loop !12
+  br i1 %174, label %.loopexit._crit_edge, label %83, !llvm.loop !14
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre28 = load i64, ptr %21, align 8
-  br label %split, !llvm.loop !12
+  br label %split, !llvm.loop !14
 
 split:                                            ; preds = %83, %.loopexit._crit_edge
   %175 = phi i64 [ %.pre28, %.loopexit._crit_edge ], [ %86, %83 ]
@@ -416,20 +416,20 @@ split:                                            ; preds = %83, %.loopexit._cri
 180:                                              ; preds = %split, %78
   %181 = phi i64 [ %82, %78 ], [ %179, %split ]
   %182 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %183 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %182, i32 -1, ptr nonnull elementtype(i32) %182) #6, !srcloc !13
+  %183 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %182, i32 -1, ptr nonnull elementtype(i32) %182) #6, !srcloc !15
   %184 = icmp eq i32 %183, 1
   br i1 %184, label %188, label %185
 
 185:                                              ; preds = %180
   %186 = icmp sgt i32 %183, 0
-  br i1 %186, label %.thread17, label %187, !prof !14
+  br i1 %186, label %.thread17, label %187, !prof !16
 
 187:                                              ; preds = %185
   call void @refcount_warn_saturate(ptr noundef nonnull %182, i32 noundef 3) #6
   br label %.thread17
 
 188:                                              ; preds = %180
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !17
   call void @__put_task_struct(ptr noundef nonnull %68) #6
   br label %.thread17
 
@@ -553,8 +553,10 @@ attributes #8 = { nounwind allocsize(0) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = !{i64 548373, i64 548417, i64 2148035392, i64 2148035413, i64 2148035439, i64 2148035472, i64 2148035506, i64 2148035530}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{i64 2148714742, i64 2148714781, i64 2148714802, i64 2148714839, i64 2148714862, i64 2148714871}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{i64 2149721054}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i64 2148714742, i64 2148714781, i64 2148714802, i64 2148714839, i64 2148714862, i64 2148714871}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2149721054}

@@ -761,7 +761,7 @@ for_request.exit.i:                               ; preds = %.lr.ph.i, %for_requ
   %121 = icmp ne i8 %120, 0
   %122 = icmp ugt i32 %119, 1
   %123 = select i1 %121, i1 %122, i1 false
-  br i1 %123, label %for_request.exit.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %123, label %for_request.exit.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %for_request.exit.i, %for_request.exit.us.i, %71
   %.1105.lcssa.i = phi i32 [ %.0104.i, %71 ], [ %.3.us.i, %for_request.exit.us.i ], [ %.0104.i, %for_request.exit.i ]
@@ -842,7 +842,7 @@ for_response.exit.i:                              ; preds = %164, %.lr.ph116.i
   %168 = icmp ne i8 %167, 0
   %169 = icmp ugt i32 %166, 1
   %170 = select i1 %168, i1 %169, i1 false
-  br i1 %170, label %.lr.ph116.i, label %._crit_edge117.i, !llvm.loop !12
+  br i1 %170, label %.lr.ph116.i, label %._crit_edge117.i, !llvm.loop !14
 
 ._crit_edge117.i:                                 ; preds = %for_response.exit.i, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.1105.lcssa.i, %.preheader.i ], [ %.4.i, %for_response.exit.i ]
@@ -1012,7 +1012,7 @@ rev_request.exit.us.i:                            ; preds = %260, %.lr.ph.split.
   %264 = icmp ne i8 %263, 0
   %265 = icmp ugt i32 %262, 1
   %266 = select i1 %264, i1 %265, i1 false
-  br i1 %266, label %.lr.ph.split.us.i40, label %._crit_edge.i22, !llvm.loop !13
+  br i1 %266, label %.lr.ph.split.us.i40, label %._crit_edge.i22, !llvm.loop !15
 
 rev_request.exit.i:                               ; preds = %.lr.ph.i38, %rev_request.exit.i
   %.176109.i39 = phi i8 [ %269, %rev_request.exit.i ], [ %.075.i21, %.lr.ph.i38 ]
@@ -1024,7 +1024,7 @@ rev_request.exit.i:                               ; preds = %.lr.ph.i38, %rev_re
   %270 = icmp ne i8 %269, 0
   %271 = icmp ugt i32 %268, 1
   %272 = select i1 %270, i1 %271, i1 false
-  br i1 %272, label %rev_request.exit.i, label %._crit_edge.i22, !llvm.loop !13
+  br i1 %272, label %rev_request.exit.i, label %._crit_edge.i22, !llvm.loop !16
 
 ._crit_edge.i22:                                  ; preds = %rev_request.exit.i, %rev_request.exit.us.i, %219
   %.1105.lcssa.i23 = phi i32 [ %.0104.i19, %219 ], [ %.3.us.i43, %rev_request.exit.us.i ], [ %.0104.i19, %rev_request.exit.i ]
@@ -1105,7 +1105,7 @@ rev_response.exit.i:                              ; preds = %313, %.lr.ph116.i34
   %317 = icmp ne i8 %316, 0
   %318 = icmp ugt i32 %315, 1
   %319 = select i1 %317, i1 %318, i1 false
-  br i1 %319, label %.lr.ph116.i34, label %._crit_edge117.i28, !llvm.loop !14
+  br i1 %319, label %.lr.ph116.i34, label %._crit_edge117.i28, !llvm.loop !17
 
 ._crit_edge117.i28:                               ; preds = %rev_response.exit.i, %.preheader.i27
   %.2.lcssa.i29 = phi i32 [ %.1105.lcssa.i23, %.preheader.i27 ], [ %.4.i37, %rev_response.exit.i ]
@@ -1582,7 +1582,7 @@ define internal void @for_pr_gps_sat_health(ptr noundef %0, ptr noundef %1, ptr 
   %29 = add i32 %.156, 5
   %30 = add nuw nsw i32 %.04855, 1
   %exitcond.not = icmp eq i32 %.04855, %18
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !18
 
 .loopexit:                                        ; preds = %23, %10
   %.0 = phi i32 [ %13, %10 ], [ %29, %23 ]
@@ -2351,8 +2351,11 @@ attributes #6 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!15 = distinct !{!15, !7, !12}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

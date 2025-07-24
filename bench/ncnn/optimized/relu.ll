@@ -179,7 +179,7 @@ define internal void @_ZNK4ncnn4ReLU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next35 to i32
   %exitcond37.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond37.not, label %._crit_edge31, label %.noexc.us
+  br i1 %exitcond37.not, label %._crit_edge31, label %.noexc.us, !llvm.loop !49
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.noexc.lr.ph, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -211,7 +211,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !49 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !51 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZNK4ncnn4ReLU15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef readonly captures(none) %5) #6 personality ptr @__gxx_personality_v0 {
@@ -243,11 +243,11 @@ define internal void @_ZNK4ncnn4ReLU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
   br i1 %.not31, label %._crit_edge33, label %.noexc.lr.ph
 
 .noexc.lr.ph:                                     ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !40, !noalias !51
+  %19 = load ptr, ptr %3, align 8, !tbaa !40, !noalias !53
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !44, !noalias !51
+  %21 = load i64, ptr %20, align 8, !tbaa !44, !noalias !53
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !45, !noalias !51
+  %23 = load i64, ptr %22, align 8, !tbaa !45, !noalias !53
   %factor.op.mul = mul i64 %21, %23
   %24 = load i32, ptr %4, align 4, !tbaa !33
   %25 = icmp sgt i32 %24, 0
@@ -282,13 +282,13 @@ define internal void @_ZNK4ncnn4ReLU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
 37:                                               ; preds = %34, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next37 to i32
   %exitcond39.not = icmp eq i32 %28, %lftr.wideiv
-  br i1 %exitcond39.not, label %._crit_edge33, label %.noexc.us
+  br i1 %exitcond39.not, label %._crit_edge33, label %.noexc.us, !llvm.loop !57
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.noexc.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -371,9 +371,12 @@ attributes #10 = { builtin nounwind }
 !46 = !{!26, !26, i64 0}
 !47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50}
-!50 = !{i64 2, i64 -1, i64 -1, i1 true}
+!49 = distinct !{!49, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!53 = distinct !{!53, !"_ZN4ncnn3Mat7channelEi"}
-!54 = distinct !{!54, !48}
+!52 = !{i64 2, i64 -1, i64 -1, i1 true}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!55 = distinct !{!55, !"_ZN4ncnn3Mat7channelEi"}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !50}

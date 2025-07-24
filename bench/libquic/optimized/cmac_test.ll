@@ -401,4 +401,5 @@ attributes #11 = { noreturn nounwind }
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !9, i64 0}
-!17 = distinct !{!17, !14}
+!17 = distinct !{!17, !14, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}

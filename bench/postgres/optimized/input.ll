@@ -401,7 +401,7 @@ thread-pre-split:                                 ; preds = %16, %select.unfold
 
 32:                                               ; preds = %29, %27
   %33 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 1
-  br label %27, !llvm.loop !7
+  br label %27, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
   %.0611.i = phi ptr [ %41, %40 ], [ %25, %.lr.ph.i ]
@@ -422,12 +422,12 @@ thread-pre-split:                                 ; preds = %16, %select.unfold
 
 38:                                               ; preds = %37, %35
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %35, !llvm.loop !7
+  br label %35, !llvm.loop !8
 
 40:                                               ; preds = %35
   %41 = call ptr @previous_history() #9
   %.not8.i = icmp eq ptr %41, null
-  br i1 %.not8.i, label %decode_history.exit, label %.lr.ph.split.i, !llvm.loop !6
+  br i1 %.not8.i, label %decode_history.exit, label %.lr.ph.split.i, !llvm.loop !9
 
 decode_history.exit:                              ; preds = %40, %30, %20, %18
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #9
@@ -508,11 +508,11 @@ define internal void @finishInput() #0 {
 15:                                               ; preds = %12
   %16 = tail call ptr @next_history() #9
   %.not8.us.i.i = icmp eq ptr %16, null
-  br i1 %.not8.us.i.i, label %encode_history.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !8
+  br i1 %.not8.us.i.i, label %encode_history.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !10
 
 17:                                               ; preds = %14, %12
   %18 = getelementptr inbounds nuw i8, ptr %.0.us.i.i, i64 1
-  br label %12, !llvm.loop !9
+  br label %12, !llvm.loop !11
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %25
   %.0611.i.i = phi ptr [ %26, %25 ], [ %10, %.lr.ph.i.i ]
@@ -533,12 +533,12 @@ define internal void @finishInput() #0 {
 
 23:                                               ; preds = %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %20, !llvm.loop !9
+  br label %20, !llvm.loop !11
 
 25:                                               ; preds = %20
   %26 = tail call ptr @previous_history() #9
   %.not8.i.i = icmp eq ptr %26, null
-  br i1 %.not8.i.i, label %encode_history.exit.i, label %.lr.ph.split.i.i, !llvm.loop !8
+  br i1 %.not8.i.i, label %encode_history.exit.i, label %.lr.ph.split.i.i, !llvm.loop !12
 
 encode_history.exit.i:                            ; preds = %25, %15, %6
   %27 = icmp sgt i32 %4, -1
@@ -626,7 +626,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %17) #9
   %19 = tail call ptr @next_history() #9
   %.not19.us = icmp eq ptr %19, null
-  br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.01221 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
@@ -634,7 +634,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %20) #9
   %22 = tail call ptr @previous_history() #9
   %.not19 = icmp eq ptr %22, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   br i1 %4, label %23, label %24
@@ -707,8 +707,12 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!10 = distinct !{!10, !5, !7}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5, !7}
+!14 = distinct !{!14, !5}

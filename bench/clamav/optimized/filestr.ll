@@ -506,7 +506,7 @@ unreachable:                                      ; preds = %.thread278
   %.pr314 = phi i32 [ 47, %184 ], [ %182, %180 ], [ %.pr314.pre, %.preheader331.split._crit_edge ]
   %.192 = phi ptr [ %.093, %184 ], [ %.091, %180 ], [ %.091, %.preheader331.split._crit_edge ]
   %186 = getelementptr inbounds nuw i8, ptr %.093, i64 4
-  br label %.preheader331.split, !llvm.loop !20
+  br label %.preheader331.split, !llvm.loop !22
 
 .critedge:                                        ; preds = %.preheader331.split.us, %.preheader331.split.us, %.preheader331.split.us, %.preheader331.split, %.preheader331.split, %.preheader331.split
   %.us-phi = phi i32 [ %179, %.preheader331.split ], [ %179, %.preheader331.split ], [ %179, %.preheader331.split ], [ %176, %.preheader331.split.us ], [ %176, %.preheader331.split.us ], [ %176, %.preheader331.split.us ]
@@ -532,7 +532,7 @@ unreachable:                                      ; preds = %.thread278
   store i32 0, ptr %.088346, align 4, !tbaa !3
   %.088 = getelementptr inbounds i8, ptr %.088346, i64 -4
   %.not124 = icmp ult ptr %.088, %.094351
-  br i1 %.not124, label %._crit_edge348, label %.lr.ph347, !llvm.loop !21
+  br i1 %.not124, label %._crit_edge348, label %.lr.ph347, !llvm.loop !23
 
 ._crit_edge348:                                   ; preds = %190, %.lr.ph347, %.critedge
   br i1 %5, label %191, label %thread-pre-split
@@ -586,7 +586,7 @@ thread-pre-split:                                 ; preds = %194, %200, %._crit_
     i32 13, label %.preheader.backedge
     i32 10, label %.preheader.backedge
     i32 0, label %_ZN5ArrayIwED2Ev.exit
-  ], !llvm.loop !22
+  ], !llvm.loop !24
 
 .preheader.backedge:                              ; preds = %.preheader, %.preheader
   br label %.preheader
@@ -811,6 +811,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
+!20 = distinct !{!20, !18, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}

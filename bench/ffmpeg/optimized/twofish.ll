@@ -1051,11 +1051,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #7 {
-  %7 = add nsw i32 %3, -1
   %.not34 = icmp eq i32 %3, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
+  %7 = add nsw i32 %3, -1
   %.not28 = icmp eq i32 %5, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1074,238 +1074,231 @@ define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br i1 %.not28, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not.i, label %.lr.ph.split.us.split.us, label %.preheader.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %31
+  %22 = phi i32 [ %34, %31 ], [ %7, %.lr.ph ]
+  %.02437.us = phi ptr [ %33, %31 ], [ %1, %.lr.ph ]
+  %.02535.us = phi ptr [ %32, %31 ], [ %2, %.lr.ph ]
+  br i1 %.not.i, label %30, label %.preheader.us
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %22 = phi i32 [ %25, %.lr.ph.split.us.split.us ], [ %7, %.lr.ph.split.us ]
-  %.02437.us.us = phi ptr [ %24, %.lr.ph.split.us.split.us ], [ %1, %.lr.ph.split.us ]
-  %.02535.us.us = phi ptr [ %23, %.lr.ph.split.us.split.us ], [ %2, %.lr.ph.split.us ]
-  tail call fastcc void @twofish_encrypt(ptr noundef %0, ptr noundef %.02437.us.us, ptr noundef %.02535.us.us)
-  %23 = getelementptr inbounds nuw i8, ptr %.02535.us.us, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %.02437.us.us, i64 16
-  %25 = add nsw i32 %22, -1
-  %.not.us.us = icmp eq i32 %22, 0
-  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !16
-
-.preheader.us:                                    ; preds = %.lr.ph.split.us, %27
-  %26 = phi i32 [ %30, %27 ], [ %7, %.lr.ph.split.us ]
-  %.02437.us = phi ptr [ %29, %27 ], [ %1, %.lr.ph.split.us ]
-  %.02535.us = phi ptr [ %28, %27 ], [ %2, %.lr.ph.split.us ]
-  br label %31
-
-27:                                               ; preds = %31
+23:                                               ; preds = %.preheader.us
   tail call fastcc void @twofish_encrypt(ptr noundef %0, ptr noundef nonnull %.02437.us, ptr noundef nonnull %.02437.us)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %.02437.us, i64 16, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %.02535.us, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %.02437.us, i64 16
-  %30 = add nsw i32 %26, -1
-  %.not.us = icmp eq i32 %26, 0
-  br i1 %.not.us, label %._crit_edge, label %.preheader.us, !llvm.loop !16
+  br label %31
 
-31:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.02535.us, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %35 = load i8, ptr %34, align 1, !tbaa !9
-  %36 = xor i8 %35, %33
-  %37 = getelementptr inbounds nuw i8, ptr %.02437.us, i64 %indvars.iv
-  store i8 %36, ptr %37, align 1, !tbaa !9
+.preheader.us:                                    ; preds = %.lr.ph.split.us, %.preheader.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.lr.ph.split.us ]
+  %24 = getelementptr inbounds nuw i8, ptr %.02535.us, i64 %indvars.iv
+  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %27 = load i8, ptr %26, align 1, !tbaa !9
+  %28 = xor i8 %27, %25
+  %29 = getelementptr inbounds nuw i8, ptr %.02437.us, i64 %indvars.iv
+  store i8 %28, ptr %29, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %27, label %31, !llvm.loop !17
+  br i1 %exitcond.not, label %23, label %.preheader.us, !llvm.loop !16
+
+30:                                               ; preds = %.lr.ph.split.us
+  tail call fastcc void @twofish_encrypt(ptr noundef %0, ptr noundef %.02437.us, ptr noundef %.02535.us)
+  br label %31
+
+31:                                               ; preds = %30, %23
+  %32 = getelementptr inbounds nuw i8, ptr %.02535.us, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.02437.us, i64 16
+  %34 = add nsw i32 %22, -1
+  %.not.us = icmp eq i32 %22, 0
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %twofish_decrypt.exit
-  %38 = phi i32 [ %196, %twofish_decrypt.exit ], [ %7, %.lr.ph ]
-  %.02437 = phi ptr [ %195, %twofish_decrypt.exit ], [ %1, %.lr.ph ]
-  %.02535 = phi ptr [ %194, %twofish_decrypt.exit ], [ %2, %.lr.ph ]
-  %39 = load i32, ptr %.02535, align 1, !tbaa !9
-  %40 = load i32, ptr %8, align 4, !tbaa !10
-  %41 = xor i32 %40, %39
-  %42 = getelementptr inbounds nuw i8, ptr %.02535, i64 4
-  %43 = load i32, ptr %42, align 1, !tbaa !9
-  %44 = load i32, ptr %9, align 4, !tbaa !10
-  %45 = xor i32 %44, %43
-  %46 = getelementptr inbounds nuw i8, ptr %.02535, i64 8
-  %47 = load i32, ptr %46, align 1, !tbaa !9
-  %48 = load i32, ptr %10, align 4, !tbaa !10
-  %49 = xor i32 %48, %47
-  %50 = getelementptr inbounds nuw i8, ptr %.02535, i64 12
-  %51 = load i32, ptr %50, align 1, !tbaa !9
-  %52 = load i32, ptr %11, align 4, !tbaa !10
-  %53 = xor i32 %52, %51
-  br label %54
+  %35 = phi i32 [ %193, %twofish_decrypt.exit ], [ %7, %.lr.ph ]
+  %.02437 = phi ptr [ %192, %twofish_decrypt.exit ], [ %1, %.lr.ph ]
+  %.02535 = phi ptr [ %191, %twofish_decrypt.exit ], [ %2, %.lr.ph ]
+  %36 = load i32, ptr %.02535, align 1, !tbaa !9
+  %37 = load i32, ptr %8, align 4, !tbaa !10
+  %38 = xor i32 %37, %36
+  %39 = getelementptr inbounds nuw i8, ptr %.02535, i64 4
+  %40 = load i32, ptr %39, align 1, !tbaa !9
+  %41 = load i32, ptr %9, align 4, !tbaa !10
+  %42 = xor i32 %41, %40
+  %43 = getelementptr inbounds nuw i8, ptr %.02535, i64 8
+  %44 = load i32, ptr %43, align 1, !tbaa !9
+  %45 = load i32, ptr %10, align 4, !tbaa !10
+  %46 = xor i32 %45, %44
+  %47 = getelementptr inbounds nuw i8, ptr %.02535, i64 12
+  %48 = load i32, ptr %47, align 1, !tbaa !9
+  %49 = load i32, ptr %11, align 4, !tbaa !10
+  %50 = xor i32 %49, %48
+  br label %51
 
-54:                                               ; preds = %54, %.lr.ph.split
-  %indvars.iv.i = phi i64 [ 15, %.lr.ph.split ], [ %indvars.iv.next.i, %54 ]
-  %.sroa.33.078.i = phi i32 [ %45, %.lr.ph.split ], [ %171, %54 ]
-  %.sroa.23.077.i = phi i32 [ %41, %.lr.ph.split ], [ %163, %54 ]
-  %.sroa.0.076.i = phi i32 [ %49, %.lr.ph.split ], [ %105, %54 ]
-  %.sroa.12.075.i = phi i32 [ %53, %.lr.ph.split ], [ %113, %54 ]
-  %55 = and i32 %.sroa.23.077.i, 255
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !10
-  %59 = lshr i32 %.sroa.23.077.i, 8
-  %60 = and i32 %59, 255
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !10
-  %64 = xor i32 %63, %58
-  %65 = lshr i32 %.sroa.23.077.i, 16
-  %66 = and i32 %65, 255
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !10
-  %70 = xor i32 %64, %69
-  %71 = lshr i32 %.sroa.23.077.i, 24
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !10
-  %75 = xor i32 %70, %74
-  %76 = tail call i32 @llvm.fshl.i32(i32 %.sroa.33.078.i, i32 %.sroa.33.078.i, i32 8)
-  %77 = and i32 %76, 255
-  %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !10
-  %81 = lshr i32 %76, 8
-  %82 = and i32 %81, 255
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4, !tbaa !10
-  %86 = xor i32 %85, %80
-  %87 = lshr i32 %76, 16
-  %88 = and i32 %87, 255
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !10
-  %92 = xor i32 %86, %91
-  %93 = lshr i32 %76, 24
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !10
-  %97 = xor i32 %92, %96
-  %98 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.076.i, i32 %.sroa.0.076.i, i32 1)
-  %99 = add i32 %97, %75
-  %100 = shl nuw nsw i64 %indvars.iv.i, 1
-  %101 = add nuw nsw i64 %100, 8
-  %102 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %101
-  %103 = load i32, ptr %102, align 4, !tbaa !10
-  %104 = add i32 %99, %103
-  %105 = xor i32 %104, %98
-  %106 = shl i32 %97, 1
-  %107 = add i32 %106, %75
-  %108 = add nuw nsw i64 %100, 9
-  %109 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4, !tbaa !10
-  %111 = add i32 %107, %110
-  %112 = xor i32 %111, %.sroa.12.075.i
-  %113 = tail call i32 @llvm.fshl.i32(i32 %112, i32 %112, i32 31)
-  %114 = and i32 %105, 255
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %115
-  %117 = load i32, ptr %116, align 4, !tbaa !10
-  %118 = lshr i32 %105, 8
-  %119 = and i32 %118, 255
-  %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %120
-  %122 = load i32, ptr %121, align 4, !tbaa !10
-  %123 = xor i32 %122, %117
-  %124 = lshr i32 %105, 16
-  %125 = and i32 %124, 255
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %126
-  %128 = load i32, ptr %127, align 4, !tbaa !10
-  %129 = xor i32 %123, %128
-  %130 = lshr i32 %105, 24
-  %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !10
-  %134 = xor i32 %129, %133
-  %135 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 8)
-  %136 = and i32 %135, 255
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %137
-  %139 = load i32, ptr %138, align 4, !tbaa !10
-  %140 = lshr i32 %135, 8
-  %141 = and i32 %140, 255
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %142
-  %144 = load i32, ptr %143, align 4, !tbaa !10
-  %145 = xor i32 %144, %139
-  %146 = lshr i32 %135, 16
-  %147 = and i32 %146, 255
-  %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %148
-  %150 = load i32, ptr %149, align 4, !tbaa !10
-  %151 = xor i32 %145, %150
-  %152 = lshr i32 %135, 24
-  %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !10
-  %156 = xor i32 %151, %155
-  %157 = tail call i32 @llvm.fshl.i32(i32 %.sroa.23.077.i, i32 %.sroa.23.077.i, i32 1)
-  %158 = add i32 %156, %134
-  %159 = add nuw nsw i64 %100, 6
-  %160 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4, !tbaa !10
-  %162 = add i32 %158, %161
-  %163 = xor i32 %162, %157
-  %164 = shl i32 %156, 1
-  %165 = add i32 %164, %134
-  %166 = add nuw nsw i64 %100, 7
-  %167 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !10
-  %169 = add i32 %165, %168
-  %170 = xor i32 %169, %.sroa.33.078.i
-  %171 = tail call i32 @llvm.fshl.i32(i32 %170, i32 %170, i32 31)
+51:                                               ; preds = %51, %.lr.ph.split
+  %indvars.iv.i = phi i64 [ 15, %.lr.ph.split ], [ %indvars.iv.next.i, %51 ]
+  %.sroa.33.078.i = phi i32 [ %42, %.lr.ph.split ], [ %168, %51 ]
+  %.sroa.23.077.i = phi i32 [ %38, %.lr.ph.split ], [ %160, %51 ]
+  %.sroa.0.076.i = phi i32 [ %46, %.lr.ph.split ], [ %102, %51 ]
+  %.sroa.12.075.i = phi i32 [ %50, %.lr.ph.split ], [ %110, %51 ]
+  %52 = and i32 %.sroa.23.077.i, 255
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %56 = lshr i32 %.sroa.23.077.i, 8
+  %57 = and i32 %56, 255
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %61 = xor i32 %60, %55
+  %62 = lshr i32 %.sroa.23.077.i, 16
+  %63 = and i32 %62, 255
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %67 = xor i32 %61, %66
+  %68 = lshr i32 %.sroa.23.077.i, 24
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %69
+  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %72 = xor i32 %67, %71
+  %73 = tail call i32 @llvm.fshl.i32(i32 %.sroa.33.078.i, i32 %.sroa.33.078.i, i32 8)
+  %74 = and i32 %73, 255
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %78 = lshr i32 %73, 8
+  %79 = and i32 %78, 255
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %83 = xor i32 %82, %77
+  %84 = lshr i32 %73, 16
+  %85 = and i32 %84, 255
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %89 = xor i32 %83, %88
+  %90 = lshr i32 %73, 24
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !10
+  %94 = xor i32 %89, %93
+  %95 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.076.i, i32 %.sroa.0.076.i, i32 1)
+  %96 = add i32 %94, %72
+  %97 = shl nuw nsw i64 %indvars.iv.i, 1
+  %98 = add nuw nsw i64 %97, 8
+  %99 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %98
+  %100 = load i32, ptr %99, align 4, !tbaa !10
+  %101 = add i32 %96, %100
+  %102 = xor i32 %101, %95
+  %103 = shl i32 %94, 1
+  %104 = add i32 %103, %72
+  %105 = add nuw nsw i64 %97, 9
+  %106 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !10
+  %108 = add i32 %104, %107
+  %109 = xor i32 %108, %.sroa.12.075.i
+  %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 31)
+  %111 = and i32 %102, 255
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !10
+  %115 = lshr i32 %102, 8
+  %116 = and i32 %115, 255
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !10
+  %120 = xor i32 %119, %114
+  %121 = lshr i32 %102, 16
+  %122 = and i32 %121, 255
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !10
+  %126 = xor i32 %120, %125
+  %127 = lshr i32 %102, 24
+  %128 = zext nneg i32 %127 to i64
+  %129 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !10
+  %131 = xor i32 %126, %130
+  %132 = tail call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 8)
+  %133 = and i32 %132, 255
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %134
+  %136 = load i32, ptr %135, align 4, !tbaa !10
+  %137 = lshr i32 %132, 8
+  %138 = and i32 %137, 255
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %139
+  %141 = load i32, ptr %140, align 4, !tbaa !10
+  %142 = xor i32 %141, %136
+  %143 = lshr i32 %132, 16
+  %144 = and i32 %143, 255
+  %145 = zext nneg i32 %144 to i64
+  %146 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !10
+  %148 = xor i32 %142, %147
+  %149 = lshr i32 %132, 24
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %150
+  %152 = load i32, ptr %151, align 4, !tbaa !10
+  %153 = xor i32 %148, %152
+  %154 = tail call i32 @llvm.fshl.i32(i32 %.sroa.23.077.i, i32 %.sroa.23.077.i, i32 1)
+  %155 = add i32 %153, %131
+  %156 = add nuw nsw i64 %97, 6
+  %157 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %156
+  %158 = load i32, ptr %157, align 4, !tbaa !10
+  %159 = add i32 %155, %158
+  %160 = xor i32 %159, %154
+  %161 = shl i32 %153, 1
+  %162 = add i32 %161, %131
+  %163 = add nuw nsw i64 %97, 7
+  %164 = getelementptr inbounds nuw [40 x i32], ptr %0, i64 0, i64 %163
+  %165 = load i32, ptr %164, align 4, !tbaa !10
+  %166 = add i32 %162, %165
+  %167 = xor i32 %166, %.sroa.33.078.i
+  %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 31)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %172 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %172, label %54, label %173, !llvm.loop !18
+  %169 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %169, label %51, label %170, !llvm.loop !19
 
-173:                                              ; preds = %54
-  %174 = load i32, ptr %0, align 4, !tbaa !10
-  %175 = xor i32 %174, %105
-  %176 = load i32, ptr %16, align 4, !tbaa !10
-  %177 = xor i32 %176, %113
-  %178 = load i32, ptr %17, align 4, !tbaa !10
-  %179 = xor i32 %178, %163
-  %180 = load i32, ptr %18, align 4, !tbaa !10
-  %181 = xor i32 %180, %171
-  br i1 %.not.i, label %twofish_decrypt.exit, label %182
+170:                                              ; preds = %51
+  %171 = load i32, ptr %0, align 4, !tbaa !10
+  %172 = xor i32 %171, %102
+  %173 = load i32, ptr %16, align 4, !tbaa !10
+  %174 = xor i32 %173, %110
+  %175 = load i32, ptr %17, align 4, !tbaa !10
+  %176 = xor i32 %175, %160
+  %177 = load i32, ptr %18, align 4, !tbaa !10
+  %178 = xor i32 %177, %168
+  br i1 %.not.i, label %twofish_decrypt.exit, label %179
 
-182:                                              ; preds = %173
-  %183 = load i32, ptr %4, align 1, !tbaa !9
-  %184 = xor i32 %183, %175
-  %185 = load i32, ptr %19, align 1, !tbaa !9
-  %186 = xor i32 %185, %177
-  %187 = load i32, ptr %20, align 1, !tbaa !9
-  %188 = xor i32 %187, %179
-  %189 = load i32, ptr %21, align 1, !tbaa !9
-  %190 = xor i32 %189, %181
+179:                                              ; preds = %170
+  %180 = load i32, ptr %4, align 1, !tbaa !9
+  %181 = xor i32 %180, %172
+  %182 = load i32, ptr %19, align 1, !tbaa !9
+  %183 = xor i32 %182, %174
+  %184 = load i32, ptr %20, align 1, !tbaa !9
+  %185 = xor i32 %184, %176
+  %186 = load i32, ptr %21, align 1, !tbaa !9
+  %187 = xor i32 %186, %178
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %.02535, i64 16, i1 false)
   br label %twofish_decrypt.exit
 
-twofish_decrypt.exit:                             ; preds = %173, %182
-  %.sroa.12.1.i = phi i32 [ %186, %182 ], [ %177, %173 ]
-  %.sroa.0.1.i = phi i32 [ %184, %182 ], [ %175, %173 ]
-  %.sroa.23.1.i = phi i32 [ %188, %182 ], [ %179, %173 ]
-  %.sroa.33.1.i = phi i32 [ %190, %182 ], [ %181, %173 ]
+twofish_decrypt.exit:                             ; preds = %170, %179
+  %.sroa.12.1.i = phi i32 [ %183, %179 ], [ %174, %170 ]
+  %.sroa.0.1.i = phi i32 [ %181, %179 ], [ %172, %170 ]
+  %.sroa.23.1.i = phi i32 [ %185, %179 ], [ %176, %170 ]
+  %.sroa.33.1.i = phi i32 [ %187, %179 ], [ %178, %170 ]
   store i32 %.sroa.0.1.i, ptr %.02437, align 1, !tbaa !9
-  %191 = getelementptr inbounds nuw i8, ptr %.02437, i64 4
-  store i32 %.sroa.12.1.i, ptr %191, align 1, !tbaa !9
-  %192 = getelementptr inbounds nuw i8, ptr %.02437, i64 8
-  store i32 %.sroa.23.1.i, ptr %192, align 1, !tbaa !9
-  %193 = getelementptr inbounds nuw i8, ptr %.02437, i64 12
-  store i32 %.sroa.33.1.i, ptr %193, align 1, !tbaa !9
-  %194 = getelementptr inbounds nuw i8, ptr %.02535, i64 16
-  %195 = getelementptr inbounds nuw i8, ptr %.02437, i64 16
-  %196 = add nsw i32 %38, -1
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  %188 = getelementptr inbounds nuw i8, ptr %.02437, i64 4
+  store i32 %.sroa.12.1.i, ptr %188, align 1, !tbaa !9
+  %189 = getelementptr inbounds nuw i8, ptr %.02437, i64 8
+  store i32 %.sroa.23.1.i, ptr %189, align 1, !tbaa !9
+  %190 = getelementptr inbounds nuw i8, ptr %.02437, i64 12
+  store i32 %.sroa.33.1.i, ptr %190, align 1, !tbaa !9
+  %191 = getelementptr inbounds nuw i8, ptr %.02535, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %.02437, i64 16
+  %193 = add nsw i32 %35, -1
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %twofish_decrypt.exit, %27, %.lr.ph.split.us.split.us, %6
+._crit_edge:                                      ; preds = %twofish_decrypt.exit, %31, %6
   ret void
 }
 
@@ -1460,7 +1453,7 @@ define internal fastcc void @twofish_encrypt(ptr noundef readonly captures(none)
   %143 = xor i32 %142, %136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %144 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %144, label %26, label %145, !llvm.loop !19
+  br i1 %144, label %26, label %145, !llvm.loop !21
 
 145:                                              ; preds = %26
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1697,6 +1690,8 @@ attributes #9 = { nounwind }
 !14 = distinct !{!14, !12}
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
+!17 = distinct !{!17, !12, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}

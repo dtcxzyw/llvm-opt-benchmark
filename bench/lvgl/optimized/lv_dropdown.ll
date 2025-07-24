@@ -1430,7 +1430,7 @@ define void @lv_dropdown_get_selected_str(ptr noundef readonly captures(address_
   %44 = add i32 %.146, 1
   %45 = zext i32 %44 to i64
   %46 = icmp ugt i64 %8, %45
-  br i1 %46, label %.lr.ph48.split, label %.critedge2.loopexit56, !llvm.loop !38
+  br i1 %46, label %.lr.ph48.split, label %.critedge2.loopexit56, !llvm.loop !40
 
 .critedge2.loopexit56:                            ; preds = %42, %.lr.ph48.split
   %.0.lcssa.ph57.in = phi i64 [ %indvars.iv, %.lr.ph48.split ], [ %indvars.iv.next, %42 ]
@@ -1485,7 +1485,7 @@ lv_dropdown_get_options.exit:                     ; preds = %2
   %.phi.trans.insert = zext i32 %12 to i64
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %.02334, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert37, align 1, !tbaa !24
-  br label %9, !llvm.loop !39
+  br label %9, !llvm.loop !41
 
 .critedge:                                        ; preds = %9, %9
   %13 = zext i32 %.025 to i64
@@ -1510,7 +1510,7 @@ lv_dropdown_get_options.exit:                     ; preds = %2
   %22 = add i32 %.02433, 1
   %23 = load i8, ptr %spec.select, align 1, !tbaa !24
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %16, %19, %lv_dropdown_get_options.exit
   %.0 = phi i32 [ -1, %lv_dropdown_get_options.exit ], [ -1, %19 ], [ %.02433, %16 ]
@@ -1649,7 +1649,7 @@ get_label.exit:                                   ; preds = %2, %10
 
 42:                                               ; preds = %25
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %44 = load i32, ptr %43, align 4, !tbaa !41
+  %44 = load i32, ptr %43, align 4, !tbaa !43
   %45 = add nsw i32 %44, %38
   %46 = tail call ptr @lv_display_get_default() #7
   %47 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %46) #7
@@ -1661,7 +1661,7 @@ get_label.exit:                                   ; preds = %2, %10
   %51 = load i32, ptr %50, align 4, !tbaa !31
   %52 = tail call ptr @lv_display_get_default() #7
   %53 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %52) #7
-  %54 = load i32, ptr %43, align 4, !tbaa !41
+  %54 = load i32, ptr %43, align 4, !tbaa !43
   %55 = sub nsw i32 %53, %54
   %56 = icmp sgt i32 %51, %55
   br i1 %56, label %57, label %60
@@ -1674,7 +1674,7 @@ get_label.exit:                                   ; preds = %2, %10
 60:                                               ; preds = %49
   %61 = tail call ptr @lv_display_get_default() #7
   %62 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %61) #7
-  %63 = load i32, ptr %43, align 4, !tbaa !41
+  %63 = load i32, ptr %43, align 4, !tbaa !43
   %64 = xor i32 %63, -1
   %65 = add i32 %62, %64
   br label %.thread
@@ -1689,7 +1689,7 @@ get_label.exit:                                   ; preds = %2, %10
   %71 = tail call ptr @lv_display_get_default() #7
   %72 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %71) #7
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %74 = load i32, ptr %73, align 4, !tbaa !41
+  %74 = load i32, ptr %73, align 4, !tbaa !43
   %75 = sub nsw i32 %72, %74
   %76 = icmp slt i32 %68, %75
   br i1 %76, label %77, label %82
@@ -1697,7 +1697,7 @@ get_label.exit:                                   ; preds = %2, %10
 77:                                               ; preds = %70
   %78 = tail call ptr @lv_display_get_default() #7
   %79 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %78) #7
-  %80 = load i32, ptr %73, align 4, !tbaa !41
+  %80 = load i32, ptr %73, align 4, !tbaa !43
   %81 = sub nsw i32 %79, %80
   br label %.thread
 
@@ -1997,7 +1997,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #7
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %2) #7
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %12, ptr %21, align 8, !tbaa !42
+  store ptr %12, ptr %21, align 8, !tbaa !44
   call void @lv_obj_init_draw_label_dsc(ptr noundef %11, i32 noundef 131072, ptr noundef nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -2072,7 +2072,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %50 = add i32 %.146.i, 1
   %51 = zext i32 %50 to i64
   %52 = icmp ugt i64 %28, %51
-  br i1 %52, label %.lr.ph48.split.i, label %.critedge2.loopexit56.i, !llvm.loop !38
+  br i1 %52, label %.lr.ph48.split.i, label %.critedge2.loopexit56.i, !llvm.loop !40
 
 .critedge2.loopexit56.i:                          ; preds = %48, %.lr.ph48.split.i
   %.0.lcssa.ph57.in.i = phi i64 [ %indvars.iv.i, %.lr.ph48.split.i ], [ %indvars.iv.next.i, %48 ]
@@ -2110,15 +2110,15 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %69 = load ptr, ptr %63, align 8, !tbaa !18
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !50
+  %71 = load ptr, ptr %70, align 8, !tbaa !52
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %73 = load i32, ptr %72, align 8, !tbaa !51
+  %73 = load i32, ptr %72, align 8, !tbaa !53
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %75 = load i32, ptr %74, align 4, !tbaa !52
+  %75 = load i32, ptr %74, align 4, !tbaa !54
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %77 = load i32, ptr %76, align 4, !tbaa !53
+  %77 = load i32, ptr %76, align 4, !tbaa !55
   call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %69, ptr noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef 536870911, i32 noundef %77) #7
-  %78 = load i32, ptr %4, align 4, !tbaa !54
+  %78 = load i32, ptr %4, align 4, !tbaa !56
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -2148,17 +2148,17 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %94 = load i32, ptr %93, align 4, !tbaa !31
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %94, ptr %95, align 4, !tbaa !55
+  store i32 %94, ptr %95, align 4, !tbaa !57
   %96 = add i32 %.054, -1
   %97 = add i32 %96, %94
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %97, ptr %98, align 4, !tbaa !56
-  %99 = load i32, ptr %92, align 8, !tbaa !57
-  store i32 %99, ptr %6, align 4, !tbaa !58
+  store i32 %97, ptr %98, align 4, !tbaa !58
+  %99 = load i32, ptr %92, align 8, !tbaa !59
+  store i32 %99, ptr %6, align 4, !tbaa !60
   %100 = add i32 %.055, -1
   %101 = add i32 %100, %99
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %101, ptr %102, align 4, !tbaa !59
+  store i32 %101, ptr %102, align 4, !tbaa !61
   br i1 %spec.select, label %103, label %104
 
 103:                                              ; preds = %91
@@ -2176,7 +2176,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
 107:                                              ; preds = %106
   %108 = load ptr, ptr %63, align 8, !tbaa !18
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %108, ptr %109, align 8, !tbaa !60
+  store ptr %108, ptr %109, align 8, !tbaa !62
   call void @lv_draw_label(ptr noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %6) #7
   br label %120
 
@@ -2184,7 +2184,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #7
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %7) #7
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %12, ptr %111, align 8, !tbaa !61
+  store ptr %12, ptr %111, align 8, !tbaa !63
   call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %11, i32 noundef 131072, ptr noundef nonnull %7) #7
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %113 = sdiv i32 %.055, 2
@@ -2194,10 +2194,10 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %116 = ptrtoint ptr %115 to i64
   %.sroa.0.0.extract.trunc.i64 = trunc i64 %116 to i32
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i32 %.sroa.0.0.extract.trunc.i64, ptr %117, align 4, !tbaa !65
+  store i32 %.sroa.0.0.extract.trunc.i64, ptr %117, align 4, !tbaa !67
   %118 = load ptr, ptr %63, align 8, !tbaa !18
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %118, ptr %119, align 8, !tbaa !66
+  store ptr %118, ptr %119, align 8, !tbaa !68
   call void @lv_draw_image(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #7
   br label %120
@@ -2210,37 +2210,37 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #7
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #7
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %12, ptr %122, align 8, !tbaa !42
+  store ptr %12, ptr %122, align 8, !tbaa !44
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %124 = load ptr, ptr %123, align 8, !tbaa !50
+  %124 = load ptr, ptr %123, align 8, !tbaa !52
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %126 = load i32, ptr %125, align 8, !tbaa !51
+  %126 = load i32, ptr %125, align 8, !tbaa !53
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 92
-  %128 = load i32, ptr %127, align 4, !tbaa !52
+  %128 = load i32, ptr %127, align 4, !tbaa !54
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 124
-  %130 = load i32, ptr %129, align 4, !tbaa !53
+  %130 = load i32, ptr %129, align 4, !tbaa !55
   call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef nonnull %.0, ptr noundef %124, i32 noundef %126, i32 noundef %128, i32 noundef 536870911, i32 noundef %130) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %132 = load i32, ptr %131, align 8, !tbaa !57
-  store i32 %132, ptr %10, align 4, !tbaa !58
-  %133 = load i32, ptr %9, align 4, !tbaa !54
+  %132 = load i32, ptr %131, align 8, !tbaa !59
+  store i32 %132, ptr %10, align 4, !tbaa !60
+  %133 = load i32, ptr %9, align 4, !tbaa !56
   %134 = add i32 %132, -1
   %135 = add i32 %134, %133
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %135, ptr %136, align 4, !tbaa !59
+  store i32 %135, ptr %136, align 4, !tbaa !61
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %138 = load i32, ptr %137, align 4, !tbaa !31
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %138, ptr %139, align 4, !tbaa !55
+  store i32 %138, ptr %139, align 4, !tbaa !57
   %140 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !29
   %142 = add i32 %138, -1
   %143 = add i32 %142, %141
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %143, ptr %144, align 4, !tbaa !56
+  store i32 %143, ptr %144, align 4, !tbaa !58
   %145 = load ptr, ptr %63, align 8, !tbaa !18
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %148
@@ -2263,7 +2263,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
 
 152:                                              ; preds = %149, %151, %147
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %.0, ptr %153, align 8, !tbaa !60
+  store ptr %.0, ptr %153, align 8, !tbaa !62
   %154 = load ptr, ptr %22, align 8, !tbaa !19
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %160
@@ -2331,12 +2331,12 @@ define internal fastcc void @draw_box(ptr noundef readonly captures(none) %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  %12 = load i16, ptr %11, align 4, !tbaa !67
+  %12 = load i16, ptr %11, align 4, !tbaa !69
   %.not = icmp eq i16 %3, %12
   br i1 %.not, label %get_label.exit, label %13
 
 13:                                               ; preds = %8
-  store i16 %3, ptr %11, align 4, !tbaa !67
+  store i16 %3, ptr %11, align 4, !tbaa !69
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 62
   %15 = load i16, ptr %14, align 2
   %16 = or i16 %15, 8
@@ -2349,7 +2349,7 @@ get_label.exit:                                   ; preds = %13, %8
   %19 = ptrtoint ptr %18 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %19 to i32
   %20 = tail call i32 @lv_font_get_line_height(ptr noundef %17) #7
-  %.val = load ptr, ptr %9, align 8, !tbaa !3, !nonnull !68, !noundef !68
+  %.val = load ptr, ptr %9, align 8, !tbaa !3, !nonnull !70, !noundef !70
   %21 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 44
@@ -2360,26 +2360,26 @@ get_label.exit:                                   ; preds = %13, %8
   %.neg = sdiv i32 %.sroa.0.0.extract.trunc.i, -2
   %27 = add i32 %26, %.neg
   %28 = add i32 %27, %23
-  store i32 %28, ptr %24, align 4, !tbaa !55
+  store i32 %28, ptr %24, align 4, !tbaa !57
   %29 = add i32 %25, -1
   %30 = add i32 %29, %28
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %30, ptr %31, align 4, !tbaa !56
+  store i32 %30, ptr %31, align 4, !tbaa !58
   %32 = load ptr, ptr %9, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !57
-  store i32 %34, ptr %5, align 4, !tbaa !58
+  %34 = load i32, ptr %33, align 8, !tbaa !59
+  store i32 %34, ptr %5, align 4, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !69
+  %36 = load i32, ptr %35, align 8, !tbaa !71
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %36, ptr %37, align 4, !tbaa !59
+  store i32 %36, ptr %37, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #7
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #7
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %1, ptr %38, align 8, !tbaa !70
+  store ptr %1, ptr %38, align 8, !tbaa !72
   call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %10, i32 noundef 262144, ptr noundef nonnull %6) #7
   call void @lv_draw_rect(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
-  store i16 %12, ptr %11, align 4, !tbaa !67
+  store i16 %12, ptr %11, align 4, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 62
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, -9
@@ -2405,12 +2405,12 @@ define internal fastcc void @draw_box_label(ptr noundef readonly captures(none) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  %14 = load i16, ptr %13, align 4, !tbaa !67
+  %14 = load i16, ptr %13, align 4, !tbaa !69
   %.not = icmp eq i16 %3, %14
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %10
-  store i16 %3, ptr %13, align 4, !tbaa !67
+  store i16 %3, ptr %13, align 4, !tbaa !69
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 62
   %17 = load i16, ptr %16, align 2
   %18 = or i16 %17, 8
@@ -2421,13 +2421,13 @@ define internal fastcc void @draw_box_label(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %5) #7
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %1, ptr %20, align 8, !tbaa !42
+  store ptr %1, ptr %20, align 8, !tbaa !44
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %12, i32 noundef 262144, ptr noundef nonnull %5) #7
   %21 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %12, i32 noundef 262144, i8 noundef zeroext 92) #7
   %22 = ptrtoint ptr %21 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %23, align 4, !tbaa !52
+  store i32 %.sroa.0.0.extract.trunc.i, ptr %23, align 4, !tbaa !54
   %.val = load ptr, ptr %11, align 8, !tbaa !3
   %24 = icmp eq ptr %.val, null
   br i1 %24, label %get_label.exit.thread, label %get_label.exit
@@ -2439,30 +2439,30 @@ get_label.exit:                                   ; preds = %19
 
 27:                                               ; preds = %get_label.exit
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = call i32 @lv_font_get_line_height(ptr noundef %29) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %34 = load i32, ptr %23, align 4, !tbaa !52
+  %34 = load i32, ptr %23, align 4, !tbaa !54
   %35 = add i32 %34, %30
   %36 = mul i32 %35, %2
   %.neg = sdiv i32 %34, -2
   %37 = add i32 %.neg, %32
   %38 = add i32 %37, %36
-  store i32 %38, ptr %33, align 4, !tbaa !55
+  store i32 %38, ptr %33, align 4, !tbaa !57
   %39 = add i32 %35, -1
   %40 = add i32 %39, %38
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %40, ptr %41, align 4, !tbaa !56
+  store i32 %40, ptr %41, align 4, !tbaa !58
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %43 = load i32, ptr %42, align 8, !tbaa !57
-  store i32 %43, ptr %6, align 4, !tbaa !58
+  %43 = load i32, ptr %42, align 8, !tbaa !59
+  store i32 %43, ptr %6, align 4, !tbaa !60
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %45 = load i32, ptr %44, align 8, !tbaa !69
+  %45 = load i32, ptr %44, align 8, !tbaa !71
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %45, ptr %46, align 4, !tbaa !59
+  store i32 %45, ptr %46, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %7, ptr noundef nonnull %47, ptr noundef nonnull %6) #7
@@ -2475,14 +2475,14 @@ get_label.exit:                                   ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !33
   %51 = call ptr @lv_label_get_text(ptr noundef nonnull %25) #7
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %51, ptr %52, align 8, !tbaa !60
+  store ptr %51, ptr %52, align 8, !tbaa !62
   call void @lv_draw_label(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %50) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %53
 
 53:                                               ; preds = %49, %27
-  store i16 %14, ptr %13, align 4, !tbaa !67
+  store i16 %14, ptr %13, align 4, !tbaa !69
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 62
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, -9
@@ -2568,38 +2568,40 @@ attributes #7 = { nounwind }
 !35 = distinct !{!35, !26}
 !36 = !{!7, !7, i64 0}
 !37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26}
+!38 = distinct !{!38, !26, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !40 = distinct !{!40, !26}
-!41 = !{!5, !14, i64 52}
-!42 = !{!43, !45, i64 24}
-!43 = !{!"", !44, i64 0, !16, i64 48, !14, i64 56, !47, i64 64, !14, i64 72, !14, i64 76, !48, i64 80, !48, i64 83, !48, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !49, i64 136}
-!44 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !45, i64 24, !46, i64 32, !7, i64 40}
-!45 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!46 = !{!"long", !8, i64 0}
-!47 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
-!48 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!49 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
-!50 = !{!43, !47, i64 64}
-!51 = !{!43, !14, i64 96}
-!52 = !{!43, !14, i64 92}
-!53 = !{!43, !14, i64 124}
-!54 = !{!30, !14, i64 0}
-!55 = !{!13, !14, i64 4}
-!56 = !{!13, !14, i64 12}
-!57 = !{!5, !14, i64 40}
-!58 = !{!13, !14, i64 0}
-!59 = !{!13, !14, i64 8}
-!60 = !{!43, !16, i64 48}
-!61 = !{!62, !45, i64 24}
-!62 = !{!"_lv_draw_image_dsc_t", !44, i64 0, !7, i64 48, !63, i64 56, !14, i64 68, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !30, i64 88, !48, i64 96, !8, i64 99, !8, i64 100, !14, i64 101, !15, i64 101, !15, i64 101, !64, i64 104, !13, i64 112, !14, i64 128, !7, i64 136}
-!63 = !{!"", !14, i64 0, !14, i64 1, !14, i64 2, !14, i64 4, !14, i64 6, !14, i64 8, !14, i64 10}
-!64 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
-!65 = !{!62, !14, i64 68}
-!66 = !{!62, !7, i64 48}
-!67 = !{!5, !15, i64 60}
-!68 = !{}
-!69 = !{!5, !14, i64 48}
-!70 = !{!71, !45, i64 24}
-!71 = !{!"", !44, i64 0, !14, i64 48, !8, i64 52, !48, i64 53, !72, i64 56, !7, i64 72, !7, i64 80, !48, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !48, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !48, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !48, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
-!72 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!41 = distinct !{!41, !26}
+!42 = distinct !{!42, !26}
+!43 = !{!5, !14, i64 52}
+!44 = !{!45, !47, i64 24}
+!45 = !{!"", !46, i64 0, !16, i64 48, !14, i64 56, !49, i64 64, !14, i64 72, !14, i64 76, !50, i64 80, !50, i64 83, !50, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !51, i64 136}
+!46 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !47, i64 24, !48, i64 32, !7, i64 40}
+!47 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!48 = !{!"long", !8, i64 0}
+!49 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
+!50 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!51 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
+!52 = !{!45, !49, i64 64}
+!53 = !{!45, !14, i64 96}
+!54 = !{!45, !14, i64 92}
+!55 = !{!45, !14, i64 124}
+!56 = !{!30, !14, i64 0}
+!57 = !{!13, !14, i64 4}
+!58 = !{!13, !14, i64 12}
+!59 = !{!5, !14, i64 40}
+!60 = !{!13, !14, i64 0}
+!61 = !{!13, !14, i64 8}
+!62 = !{!45, !16, i64 48}
+!63 = !{!64, !47, i64 24}
+!64 = !{!"_lv_draw_image_dsc_t", !46, i64 0, !7, i64 48, !65, i64 56, !14, i64 68, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !30, i64 88, !50, i64 96, !8, i64 99, !8, i64 100, !14, i64 101, !15, i64 101, !15, i64 101, !66, i64 104, !13, i64 112, !14, i64 128, !7, i64 136}
+!65 = !{!"", !14, i64 0, !14, i64 1, !14, i64 2, !14, i64 4, !14, i64 6, !14, i64 8, !14, i64 10}
+!66 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
+!67 = !{!64, !14, i64 68}
+!68 = !{!64, !7, i64 48}
+!69 = !{!5, !15, i64 60}
+!70 = !{}
+!71 = !{!5, !14, i64 48}
+!72 = !{!73, !47, i64 24}
+!73 = !{!"", !46, i64 0, !14, i64 48, !8, i64 52, !50, i64 53, !74, i64 56, !7, i64 72, !7, i64 80, !50, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !50, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !50, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !50, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
+!74 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}

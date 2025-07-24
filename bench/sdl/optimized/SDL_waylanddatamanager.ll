@@ -451,7 +451,7 @@ define hidden void @Wayland_data_offer_notify_from_mimes(ptr noundef %0, i1 noun
   %.pn = load ptr, ptr %22, align 8
   %.034 = getelementptr inbounds i8, ptr %.pn, i64 -24
   %.not46 = icmp eq ptr %.pn, %5
-  br i1 %.not46, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
+  br i1 %.not46, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %23 = load ptr, ptr %.03461.us, align 8
@@ -573,7 +573,7 @@ Wayland_data_offer_check_source.exit:             ; preds = %26, %31, %44
   %88 = getelementptr inbounds nuw i8, ptr %.pn4869, i64 8
   %.pn48 = load ptr, ptr %88, align 8
   %.not49 = icmp eq ptr %.pn48, %5
-  br i1 %.not49, label %._crit_edge72, label %.lr.ph71, !llvm.loop !6
+  br i1 %.not49, label %._crit_edge72, label %.lr.ph71, !llvm.loop !8
 
 ._crit_edge72:                                    ; preds = %.lr.ph71, %80
   store ptr null, ptr %82, align 8
@@ -655,7 +655,7 @@ define hidden noundef ptr @Wayland_data_offer_receive(ptr noundef readonly captu
   %36 = load i32, ptr %4, align 4
   %37 = call fastcc i64 @read_pipe(i32 noundef %36, ptr noundef %5, ptr noundef nonnull %2)
   %38 = icmp sgt i64 %37, 0
-  br i1 %38, label %35, label %39, !llvm.loop !7
+  br i1 %38, label %35, label %39, !llvm.loop !9
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %4, align 4
@@ -807,7 +807,7 @@ define hidden noundef ptr @Wayland_primary_selection_offer_receive(ptr noundef r
   %36 = load i32, ptr %4, align 4
   %37 = call fastcc i64 @read_pipe(i32 noundef %36, ptr noundef %5, ptr noundef nonnull %2)
   %38 = icmp sgt i64 %37, 0
-  br i1 %38, label %35, label %39, !llvm.loop !8
+  br i1 %38, label %35, label %39, !llvm.loop !10
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %4, align 4
@@ -845,7 +845,7 @@ define hidden noundef zeroext i1 @Wayland_data_offer_add_mime(ptr noundef %0, pt
   %6 = load ptr, ptr %.0.i.i, align 8
   %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef %6, ptr noundef %1) #12
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %mime_data_list_add.exit, label %4, !llvm.loop !9
+  br i1 %8, label %mime_data_list_add.exit, label %4, !llvm.loop !11
 
 9:                                                ; preds = %4
   %10 = tail call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #14
@@ -890,7 +890,7 @@ define hidden noundef zeroext i1 @Wayland_primary_selection_offer_add_mime(ptr n
   %6 = load ptr, ptr %.0.i.i, align 8
   %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef %6, ptr noundef %1) #12
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %mime_data_list_add.exit, label %4, !llvm.loop !9
+  br i1 %8, label %mime_data_list_add.exit, label %4, !llvm.loop !11
 
 9:                                                ; preds = %4
   %10 = tail call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #14
@@ -939,7 +939,7 @@ define hidden noundef zeroext i1 @Wayland_data_offer_has_mime(ptr noundef readon
   %7 = load ptr, ptr %.0.i, align 8
   %8 = tail call i32 @SDL_strcmp_REAL(ptr noundef %7, ptr noundef %1) #12
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %mime_data_list_find.exit, label %5, !llvm.loop !9
+  br i1 %9, label %mime_data_list_find.exit, label %5, !llvm.loop !11
 
 mime_data_list_find.exit:                         ; preds = %5, %6, %2
   %.0 = phi i1 [ false, %2 ], [ %.not.i.not.not.not, %6 ], [ %.not.i.not.not.not, %5 ]
@@ -967,7 +967,7 @@ define hidden noundef zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr n
   %7 = load ptr, ptr %.0.i, align 8
   %8 = tail call i32 @SDL_strcmp_REAL(ptr noundef %7, ptr noundef %1) #12
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %mime_data_list_find.exit, label %5, !llvm.loop !9
+  br i1 %9, label %mime_data_list_find.exit, label %5, !llvm.loop !11
 
 mime_data_list_find.exit:                         ; preds = %5, %6, %2
   %.0 = phi i1 [ false, %2 ], [ %.not.i.not.not.not, %6 ], [ %.not.i.not.not.not, %5 ]
@@ -1038,7 +1038,7 @@ define hidden void @Wayland_data_offer_destroy(ptr noundef %0) local_unnamed_add
 28:                                               ; preds = %27, %25
   tail call void @SDL_free_REAL(ptr noundef nonnull %.01123.i) #12
   %.not.i = icmp eq ptr %.pn24.i, %19
-  br i1 %.not.i, label %mime_data_list_free.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %mime_data_list_free.exit, label %.lr.ph.i, !llvm.loop !12
 
 mime_data_list_free.exit:                         ; preds = %28, %13
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #12
@@ -1091,7 +1091,7 @@ define hidden void @Wayland_primary_selection_offer_destroy(ptr noundef %0) loca
 17:                                               ; preds = %16, %14
   tail call void @SDL_free_REAL(ptr noundef nonnull %.01123.i) #12
   %.not.i = icmp eq ptr %.pn24.i, %8
-  br i1 %.not.i, label %mime_data_list_free.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %mime_data_list_free.exit, label %.lr.ph.i, !llvm.loop !12
 
 mime_data_list_free.exit:                         ; preds = %17, %2
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #12
@@ -1287,7 +1287,7 @@ define hidden zeroext i1 @Wayland_data_device_set_selection(ptr noundef %0, ptr 
   %16 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %13(ptr noundef %12, i32 noundef 0, ptr noundef null, i32 noundef %15, i32 noundef 0, ptr noundef %11) #12
   %17 = add nuw i64 %.02230, 1
   %exitcond.not = icmp eq i64 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %18 = load ptr, ptr %1, align 8
@@ -1409,7 +1409,7 @@ define hidden zeroext i1 @Wayland_primary_selection_device_set_selection(ptr nou
   %16 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %13(ptr noundef %12, i32 noundef 0, ptr noundef null, i32 noundef %15, i32 noundef 0, ptr noundef %11) #12
   %17 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 18:                                               ; preds = %.preheader
   %19 = tail call zeroext i1 @Wayland_primary_selection_device_clear_selection(ptr noundef nonnull %0)
@@ -1593,7 +1593,7 @@ define internal void @offer_source_done_handler(ptr noundef %0, ptr noundef read
   %12 = load i32, ptr %10, align 8
   %13 = call fastcc i64 @read_pipe(i32 noundef %12, ptr noundef %4, ptr noundef nonnull %5)
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %11, label %15, !llvm.loop !13
+  br i1 %14, label %11, label %15, !llvm.loop !15
 
 15:                                               ; preds = %11
   %16 = load i32, ptr %10, align 8
@@ -1667,8 +1667,8 @@ attributes #14 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
@@ -1676,3 +1676,5 @@ attributes #14 = { nounwind allocsize(0,1) }
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

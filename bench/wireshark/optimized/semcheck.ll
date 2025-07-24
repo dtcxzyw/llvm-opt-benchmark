@@ -3387,7 +3387,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %65 = and i32 %36, -2
   %66 = icmp eq i32 %65, 26
-  br i1 %66, label %.critedge9.us, label %.critedge.thread
+  br i1 %66, label %.critedge9.us, label %.critedge.thread207
 
 .critedge9.us:                                    ; preds = %.lr.ph.split.us, %.critedge9.us
   %67 = phi i32 [ %72, %.critedge9.us ], [ %64, %.lr.ph.split.us ]
@@ -3399,13 +3399,13 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %.not163.us = icmp ne i32 %72, -1
   %73 = and i32 %70, -2
   %74 = icmp eq i32 %73, 26
-  %or.cond204 = select i1 %.not163.us, i1 %74, i1 false
-  br i1 %or.cond204, label %.critedge9.us, label %.critedge.thread, !llvm.loop !19
+  %or.cond = select i1 %.not163.us, i1 %74, i1 false
+  br i1 %or.cond, label %.critedge9.us, label %.critedge, !llvm.loop !19
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %75 = add i32 %36, -28
   %76 = icmp ult i32 %75, -2
-  br i1 %76, label %.critedge9.us182, label %.critedge.thread213
+  br i1 %76, label %.critedge9.us182, label %.critedge.thread
 
 .critedge9.us182:                                 ; preds = %.lr.ph.split.split.us, %.critedge9.us182
   %77 = phi i32 [ %82, %.critedge9.us182 ], [ %64, %.lr.ph.split.split.us ]
@@ -3417,27 +3417,27 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %.not163.us183 = icmp ne i32 %82, -1
   %83 = add i32 %80, -28
   %84 = icmp ult i32 %83, -2
-  %or.cond = select i1 %.not163.us183, i1 %84, i1 false
-  br i1 %or.cond, label %.critedge9.us182, label %.critedge, !llvm.loop !19
+  %or.cond218 = select i1 %.not163.us183, i1 %84, i1 false
+  br i1 %or.cond218, label %.critedge9.us182, label %.critedge, !llvm.loop !21
 
-.critedge:                                        ; preds = %.critedge9.us182, %.preheader
-  %.0157.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us182 ]
-  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %78, %.critedge9.us182 ]
-  br i1 %62, label %.critedge.thread213, label %.critedge.thread
+.critedge:                                        ; preds = %.critedge9.us, %.critedge9.us182, %.preheader
+  %.0157.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us182 ], [ %70, %.critedge9.us ]
+  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %78, %.critedge9.us182 ], [ %68, %.critedge9.us ]
+  br i1 %62, label %.critedge.thread, label %.critedge.thread207
 
-.critedge.thread213:                              ; preds = %.lr.ph.split.split.us, %.critedge
-  %.0.lcssa217 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
-  %.0157.lcssa216 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
-  %85 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0157.lcssa216, ptr noundef %6, ptr noundef %.0.lcssa217)
+.critedge.thread:                                 ; preds = %.lr.ph.split.split.us, %.critedge
+  %.0.lcssa206 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
+  %.0157.lcssa205 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
+  %85 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0157.lcssa205, ptr noundef %6, ptr noundef %.0.lcssa206)
   br i1 %85, label %87, label %op_is_equality.exit.thread
 
-.critedge.thread:                                 ; preds = %.critedge9.us, %.lr.ph.split.us, %.critedge
-  %.0.lcssa212 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ], [ %68, %.critedge9.us ]
-  %.0157.lcssa211 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ], [ %70, %.critedge9.us ]
-  %86 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0157.lcssa211, ptr noundef %6, i1 noundef zeroext %3, ptr noundef %.0.lcssa212)
+.critedge.thread207:                              ; preds = %.lr.ph.split.us, %.critedge
+  %.0.lcssa211 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ]
+  %.0157.lcssa210 = phi i32 [ %.0157.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ]
+  %86 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0157.lcssa210, ptr noundef %6, i1 noundef zeroext %3, ptr noundef %.0.lcssa211)
   br i1 %86, label %87, label %op_is_equality.exit.thread
 
-87:                                               ; preds = %.critedge.thread213, %.critedge.thread
+87:                                               ; preds = %.critedge.thread, %.critedge.thread207
   tail call void @sttype_field_set_value_string(ptr noundef %5, i1 noundef zeroext true)
   switch i32 %1, label %op_is_equality.exit [
     i32 4, label %op_is_equality.exit.thread
@@ -3637,7 +3637,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1146, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %164) #7
   unreachable
 
-op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %87, %87, %87, %87, %87, %87, %.critedge.thread213, %61, %.critedge.thread, %93, %138, %155, %123, %92, %56, %57
+op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %87, %87, %87, %87, %87, %87, %.critedge.thread, %61, %.critedge.thread207, %93, %138, %155, %123, %92, %56, %57
   ret void
 }
 
@@ -4263,4 +4263,6 @@ attributes #9 = { nounwind returns_twice }
 !16 = distinct !{!16, !7}
 !17 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
 !18 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
-!19 = distinct !{!19, !7}
+!19 = distinct !{!19, !7, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !20}

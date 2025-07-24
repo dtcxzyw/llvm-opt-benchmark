@@ -4886,7 +4886,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
 35:                                               ; preds = %.split, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 219
-  br i1 %exitcond.not, label %.split22.us, label %.split, !llvm.loop !117
+  br i1 %exitcond.not, label %.split22.us, label %.split, !llvm.loop !119
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6648,10 +6648,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Sel
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %4 = load ptr, ptr %3, align 8, !tbaa !120
   tail call void @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !119
+  %6 = load ptr, ptr %5, align 8, !tbaa !121
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -6669,7 +6669,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Sel
 _ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 64) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -6688,10 +6688,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Di
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %4 = load ptr, ptr %3, align 8, !tbaa !120
   tail call void @_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !119
+  %6 = load ptr, ptr %5, align 8, !tbaa !121
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -6705,7 +6705,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Di
 _ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %11
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 104) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -6751,7 +6751,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.i.i.i.i.i.i.thread.i.i: ; preds = %5
 
 18:                                               ; preds = %5
   %19 = icmp ugt i64 %15, 9223372036854775804
-  br i1 %19, label %20, label %21, !prof !122
+  br i1 %19, label %20, label %21, !prof !124
 
 20:                                               ; preds = %18
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -6771,7 +6771,7 @@ _ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaI
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %25, ptr %26, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 0, ptr %27, align 8, !tbaa !123
+  store i32 0, ptr %27, align 8, !tbaa !125
   %28 = tail call { ptr, ptr } @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %29 = extractvalue { ptr, ptr } %28, 0
   %30 = extractvalue { ptr, ptr } %28, 1
@@ -7011,7 +7011,7 @@ _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit27: ; preds = %84, %67
 
 _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit27.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i20, %_ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit27
   %87 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %88 = load ptr, ptr %87, align 8, !tbaa !118
+  %88 = load ptr, ptr %87, align 8, !tbaa !120
   %89 = icmp eq ptr %88, null
   %spec.select = select i1 %89, ptr null, ptr %1
   %spec.select82 = select i1 %89, ptr %68, ptr %1
@@ -7099,7 +7099,7 @@ _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit45: ; preds = %124, %107
 
 _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit45.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i38, %_ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit45
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !118
+  %128 = load ptr, ptr %127, align 8, !tbaa !120
   %129 = icmp eq ptr %128, null
   %spec.select83 = select i1 %129, ptr null, ptr %108
   %spec.select84 = select i1 %129, ptr %1, ptr %108
@@ -7183,7 +7183,7 @@ _ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit.thread: ; preds = %.lr.ph.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.02944, i64 %.sink
   %.029 = load ptr, ptr %30, align 8, !tbaa !68
   %.not = icmp eq ptr %.029, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !128
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessISt6vectorIjSaIjEEEclERKS2_S5_.exit.thread
   br i1 %.0.i.i.i.i.i.i.i31, label %._crit_edge.thread, label %36
@@ -7334,7 +7334,7 @@ _ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEE
 
 _ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE10_Auto_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS8_EESL_IJEEEEERSF_DpOT_.exit: ; preds = %5, %.sink.split.i.i.i.i.i.i.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store i32 0, ptr %21, align 8, !tbaa !129
+  store i32 0, ptr %21, align 8, !tbaa !131
   %22 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEES2_IKS7_jESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %7)
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
@@ -7614,7 +7614,7 @@ _ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingEN
 
 _ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEEEclERKS7_SA_.exit33.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS5_11OperandTypeEESA_EEbT_T0_.exit.i.i.i.i.i.i.i27, %.lr.ph.i.i.i.i.i.i.i24, %_ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEEEclERKS7_SA_.exit33
   %100 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !118
+  %101 = load ptr, ptr %100, align 8, !tbaa !120
   %102 = icmp eq ptr %101, null
   %spec.select = select i1 %102, ptr null, ptr %1
   %spec.select99 = select i1 %102, ptr %76, ptr %1
@@ -7727,7 +7727,7 @@ _ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingEN
 
 _ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEEEclERKS7_SA_.exit57.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS5_11OperandTypeEESA_EEbT_T0_.exit.i.i.i.i.i.i.i51, %.lr.ph.i.i.i.i.i.i.i48, %_ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEEEclERKS7_SA_.exit57
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load ptr, ptr %151, align 8, !tbaa !118
+  %152 = load ptr, ptr %151, align 8, !tbaa !120
   %153 = icmp eq ptr %152, null
   %spec.select100 = select i1 %153, ptr null, ptr %127
   %spec.select101 = select i1 %153, ptr %1, ptr %127
@@ -7822,7 +7822,7 @@ _ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingEN
   %34 = getelementptr inbounds nuw i8, ptr %.03249, i64 %.sink
   %.032 = load ptr, ptr %34, align 8, !tbaa !68
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !136
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIN4llvm11SmallVectorISt4pairINS0_15X86Disassembler15OperandEncodingENS3_11OperandTypeEELj6EEEEclERKS7_SA_.exit.thread
   br i1 %.0.i.i.i.i.i.i.i34, label %._crit_edge.thread, label %40
@@ -8059,23 +8059,25 @@ attributes #21 = { nounwind willreturn memory(read) }
 !114 = !{!"_ZTS20InstructionSpecifier", !7, i64 0, !115, i64 12, !40, i64 16}
 !115 = !{!"_ZTSN4llvm15X86Disassembler18InstructionContextE", !7, i64 0}
 !116 = distinct !{!116, !36}
-!117 = distinct !{!117, !36}
-!118 = !{!11, !13, i64 24}
-!119 = !{!11, !13, i64 16}
-!120 = distinct !{!120, !36}
-!121 = distinct !{!121, !36}
-!122 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!123 = !{!124, !56, i64 24}
-!124 = !{!"_ZTSSt4pairIKSt6vectorIjSaIjEEjE", !125, i64 0, !56, i64 24}
-!125 = !{!"_ZTSSt6vectorIjSaIjEE", !126, i64 0}
-!126 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !127, i64 0}
-!127 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !58, i64 0}
-!128 = distinct !{!128, !36}
-!129 = !{!130, !56, i64 64}
-!130 = !{!"_ZTSSt4pairIKN4llvm11SmallVectorIS_INS0_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEEjE", !131, i64 0, !56, i64 64}
-!131 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEE", !132, i64 0, !135, i64 16}
-!132 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEEEE", !133, i64 0}
-!133 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELb1EEE", !134, i64 0}
-!134 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEEvEE", !90, i64 0}
-!135 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEE", !7, i64 0}
-!136 = distinct !{!136, !36}
+!117 = distinct !{!117, !36, !118}
+!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = distinct !{!119, !36}
+!120 = !{!11, !13, i64 24}
+!121 = !{!11, !13, i64 16}
+!122 = distinct !{!122, !36}
+!123 = distinct !{!123, !36}
+!124 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!125 = !{!126, !56, i64 24}
+!126 = !{!"_ZTSSt4pairIKSt6vectorIjSaIjEEjE", !127, i64 0, !56, i64 24}
+!127 = !{!"_ZTSSt6vectorIjSaIjEE", !128, i64 0}
+!128 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !129, i64 0}
+!129 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !58, i64 0}
+!130 = distinct !{!130, !36}
+!131 = !{!132, !56, i64 64}
+!132 = !{!"_ZTSSt4pairIKN4llvm11SmallVectorIS_INS0_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEEjE", !133, i64 0, !56, i64 64}
+!133 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEE", !134, i64 0, !137, i64 16}
+!134 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEEEE", !135, i64 0}
+!135 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELb1EEE", !136, i64 0}
+!136 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEEvEE", !90, i64 0}
+!137 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairINS_15X86Disassembler15OperandEncodingENS2_11OperandTypeEELj6EEE", !7, i64 0}
+!138 = distinct !{!138, !36}

@@ -856,7 +856,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
   store volatile i8 0, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !16
+  br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !18
 
 .split7.us:                                       ; preds = %.split, %.split.us
   ret void
@@ -948,4 +948,6 @@ attributes #11 = { cold nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!16 = distinct !{!16, !5, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !5}

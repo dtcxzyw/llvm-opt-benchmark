@@ -1563,7 +1563,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__blkdev_direct_I
   store i16 %193, ptr %194, align 2
   %195 = call i32 @bio_iov_iter_get_pages(ptr noundef %188, ptr noundef %1) #9
   %196 = icmp eq i32 %195, 0
-  br i1 %196, label %.split, label %.loopexit13, !prof !18, !llvm.loop !19
+  br i1 %196, label %.split, label %.loopexit13, !prof !18, !llvm.loop !22
 
 197:                                              ; preds = %.thread12, %.loopexit13
   %198 = phi i32 [ 0, %.thread12 ], [ %143, %.loopexit13 ]
@@ -1575,17 +1575,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__blkdev_direct_I
   %201 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !15
   %202 = inttoptr i64 %201 to ptr
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %204 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %203, i32 2, ptr nonnull elementtype(i32) %203) #9, !srcloc !21
+  %204 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %203, i32 2, ptr nonnull elementtype(i32) %203) #9, !srcloc !23
   %205 = load volatile ptr, ptr %66, align 64
   %206 = icmp eq ptr %205, null
   br i1 %206, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %200, %.preheader
   call void @blk_io_schedule() #9
-  %207 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %203, i32 2, ptr nonnull elementtype(i32) %203) #9, !srcloc !21
+  %207 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %203, i32 2, ptr nonnull elementtype(i32) %203) #9, !srcloc !23
   %208 = load volatile ptr, ptr %66, align 64
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %209, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %200
   store volatile i32 0, ptr %203, align 8
@@ -2082,7 +2082,9 @@ attributes #11 = { nounwind memory(none) }
 !16 = !{i64 2148994625, i64 2148994664, i64 2148994685, i64 2148994722, i64 2148994745, i64 2148994615}
 !17 = !{!"branch_weights", i32 127, i32 1}
 !18 = !{!"branch_weights", i32 255873, i32 127}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.unroll.disable"}
-!21 = !{i64 2156865423}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !20}
+!23 = !{i64 2156865423}
+!24 = distinct !{!24, !20}

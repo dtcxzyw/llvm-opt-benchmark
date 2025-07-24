@@ -437,14 +437,14 @@ define internal void @put_signed_rect_clamped_8bit_c(ptr noundef writeonly captu
   store i8 %.0.i37.us, ptr %44, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %45 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %45, label %13, label %._crit_edge.us, !llvm.loop !21
+  br i1 %45, label %13, label %._crit_edge.us, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %13
   %46 = getelementptr inbounds i8, ptr %.02839.us, i64 %9
   %47 = getelementptr inbounds i16, ptr %.041.us, i64 %11
   %48 = add nuw nsw i32 %.02640.us, 1
   %exitcond.not = icmp eq i32 %48, %5
-  br i1 %exitcond.not, label %._crit_edge42, label %.preheader.us, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge42, label %.preheader.us, !llvm.loop !23
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
@@ -476,7 +476,7 @@ define internal void @put_signed_rect_clamped_10bit_c(ptr noundef writeonly capt
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 4, !tbaa !24
   %17 = add i32 %16, 512
   %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 1023)
@@ -485,7 +485,7 @@ define internal void @put_signed_rect_clamped_10bit_c(ptr noundef writeonly capt
   store i16 %20, ptr %21, align 2, !tbaa !17
   %22 = or disjoint i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !23
+  %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = add i32 %24, 512
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 1023)
@@ -494,7 +494,7 @@ define internal void @put_signed_rect_clamped_10bit_c(ptr noundef writeonly capt
   store i16 %28, ptr %29, align 2, !tbaa !17
   %30 = or disjoint i64 %indvars.iv, 2
   %31 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !23
+  %32 = load i32, ptr %31, align 4, !tbaa !24
   %33 = add i32 %32, 512
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 1023)
@@ -503,7 +503,7 @@ define internal void @put_signed_rect_clamped_10bit_c(ptr noundef writeonly capt
   store i16 %36, ptr %37, align 2, !tbaa !17
   %38 = or disjoint i64 %indvars.iv, 3
   %39 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !23
+  %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = add i32 %40, 512
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 1023)
@@ -512,14 +512,14 @@ define internal void @put_signed_rect_clamped_10bit_c(ptr noundef writeonly capt
   store i16 %44, ptr %45, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %46 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %46, label %14, label %._crit_edge.us, !llvm.loop !25
+  br i1 %46, label %14, label %._crit_edge.us, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %14
   %47 = getelementptr inbounds i16, ptr %.02741.us, i64 %10
   %48 = getelementptr inbounds i32, ptr %.042.us, i64 %12
   %49 = add nuw nsw i32 %.02840.us, 1
   %exitcond.not = icmp eq i32 %49, %5
-  br i1 %exitcond.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !27
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
@@ -551,7 +551,7 @@ define internal void @put_signed_rect_clamped_12bit_c(ptr noundef writeonly capt
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %16 = load i32, ptr %15, align 4, !tbaa !24
   %17 = add i32 %16, 2048
   %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 4095)
@@ -560,7 +560,7 @@ define internal void @put_signed_rect_clamped_12bit_c(ptr noundef writeonly capt
   store i16 %20, ptr %21, align 2, !tbaa !17
   %22 = or disjoint i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !23
+  %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = add i32 %24, 2048
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 4095)
@@ -569,7 +569,7 @@ define internal void @put_signed_rect_clamped_12bit_c(ptr noundef writeonly capt
   store i16 %28, ptr %29, align 2, !tbaa !17
   %30 = or disjoint i64 %indvars.iv, 2
   %31 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !23
+  %32 = load i32, ptr %31, align 4, !tbaa !24
   %33 = add i32 %32, 2048
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 4095)
@@ -578,7 +578,7 @@ define internal void @put_signed_rect_clamped_12bit_c(ptr noundef writeonly capt
   store i16 %36, ptr %37, align 2, !tbaa !17
   %38 = or disjoint i64 %indvars.iv, 3
   %39 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !23
+  %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = add i32 %40, 2048
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 4095)
@@ -587,14 +587,14 @@ define internal void @put_signed_rect_clamped_12bit_c(ptr noundef writeonly capt
   store i16 %44, ptr %45, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %46 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %46, label %14, label %._crit_edge.us, !llvm.loop !27
+  br i1 %46, label %14, label %._crit_edge.us, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %14
   %47 = getelementptr inbounds i16, ptr %.02741.us, i64 %10
   %48 = getelementptr inbounds i32, ptr %.042.us, i64 %12
   %49 = add nuw nsw i32 %.02840.us, 1
   %exitcond.not = icmp eq i32 %49, %5
-  br i1 %exitcond.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !29
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
@@ -643,7 +643,7 @@ define internal void @add_obmc8_c(ptr noundef captures(none) %0, ptr noundef rea
   store i16 %28, ptr %26, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %29 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %29, label %7, label %30, !llvm.loop !29
+  br i1 %29, label %7, label %30, !llvm.loop !30
 
 30:                                               ; preds = %7
   %31 = add nsw i32 %.in, -1
@@ -651,7 +651,7 @@ define internal void @add_obmc8_c(ptr noundef captures(none) %0, ptr noundef rea
   %33 = getelementptr inbounds i8, ptr %.02225, i64 %6
   %34 = getelementptr inbounds nuw i8, ptr %.02027, i64 32
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %30, %5
   ret void
@@ -700,7 +700,7 @@ define internal void @add_obmc16_c(ptr noundef captures(none) %0, ptr noundef re
   store i16 %28, ptr %26, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %29 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %29, label %7, label %30, !llvm.loop !31
+  br i1 %29, label %7, label %30, !llvm.loop !32
 
 30:                                               ; preds = %7
   %31 = add nsw i32 %.in, -1
@@ -708,7 +708,7 @@ define internal void @add_obmc16_c(ptr noundef captures(none) %0, ptr noundef re
   %33 = getelementptr inbounds i8, ptr %.02225, i64 %6
   %34 = getelementptr inbounds nuw i8, ptr %.02027, i64 32
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %30, %5
   ret void
@@ -757,7 +757,7 @@ define internal void @add_obmc32_c(ptr noundef captures(none) %0, ptr noundef re
   store i16 %28, ptr %26, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %29 = icmp samesign ult i64 %indvars.iv, 30
-  br i1 %29, label %7, label %30, !llvm.loop !33
+  br i1 %29, label %7, label %30, !llvm.loop !34
 
 30:                                               ; preds = %7
   %31 = add nsw i32 %.in, -1
@@ -765,7 +765,7 @@ define internal void @add_obmc32_c(ptr noundef captures(none) %0, ptr noundef re
   %33 = getelementptr inbounds i8, ptr %.02225, i64 %6
   %34 = getelementptr inbounds nuw i8, ptr %.02027, i64 32
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %30, %5
   ret void
@@ -816,13 +816,13 @@ define internal void @weight_dirac_pixels8_c(ptr noundef captures(none) %0, i32 
   %.0.i22 = select i1 %.not.i20, i8 %25, i8 %24
   store i8 %.0.i22, ptr %18, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %26, label %9, !llvm.loop !35
+  br i1 %exitcond.not, label %26, label %9, !llvm.loop !36
 
 26:                                               ; preds = %9
   %27 = add nsw i32 %.in, -1
   %28 = getelementptr inbounds i8, ptr %.01925, i64 %8
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %26, %5
   ret void
@@ -873,13 +873,13 @@ define internal void @weight_dirac_pixels16_c(ptr noundef captures(none) %0, i32
   %.0.i22 = select i1 %.not.i20, i8 %25, i8 %24
   store i8 %.0.i22, ptr %18, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %26, label %9, !llvm.loop !37
+  br i1 %exitcond.not, label %26, label %9, !llvm.loop !38
 
 26:                                               ; preds = %9
   %27 = add nsw i32 %.in, -1
   %28 = getelementptr inbounds i8, ptr %.01925, i64 %8
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %26, %5
   ret void
@@ -930,13 +930,13 @@ define internal void @weight_dirac_pixels32_c(ptr noundef captures(none) %0, i32
   %.0.i22 = select i1 %.not.i20, i8 %25, i8 %24
   store i8 %.0.i22, ptr %18, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %26, label %9, !llvm.loop !39
+  br i1 %exitcond.not, label %26, label %9, !llvm.loop !40
 
 26:                                               ; preds = %9
   %27 = add nsw i32 %.in, -1
   %28 = getelementptr inbounds i8, ptr %.01925, i64 %8
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %26, %5
   ret void
@@ -998,14 +998,14 @@ define internal void @biweight_dirac_pixels8_c(ptr noundef captures(none) %0, pt
   %.0.i31 = select i1 %.not.i29, i8 %37, i8 %36
   store i8 %.0.i31, ptr %29, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %38, label %11, !llvm.loop !41
+  br i1 %exitcond.not, label %38, label %11, !llvm.loop !42
 
 38:                                               ; preds = %11
   %39 = add nsw i32 %.in, -1
   %40 = getelementptr inbounds i8, ptr %.02735, i64 %10
   %41 = getelementptr inbounds i8, ptr %.02834, i64 %10
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %38, %7
   ret void
@@ -1067,14 +1067,14 @@ define internal void @biweight_dirac_pixels16_c(ptr noundef captures(none) %0, p
   %.0.i31 = select i1 %.not.i29, i8 %37, i8 %36
   store i8 %.0.i31, ptr %29, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %38, label %11, !llvm.loop !43
+  br i1 %exitcond.not, label %38, label %11, !llvm.loop !44
 
 38:                                               ; preds = %11
   %39 = add nsw i32 %.in, -1
   %40 = getelementptr inbounds i8, ptr %.02735, i64 %10
   %41 = getelementptr inbounds i8, ptr %.02834, i64 %10
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %38, %7
   ret void
@@ -1136,14 +1136,14 @@ define internal void @biweight_dirac_pixels32_c(ptr noundef captures(none) %0, p
   %.0.i31 = select i1 %.not.i29, i8 %37, i8 %36
   store i8 %.0.i31, ptr %29, align 1, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %38, label %11, !llvm.loop !45
+  br i1 %exitcond.not, label %38, label %11, !llvm.loop !46
 
 38:                                               ; preds = %11
   %39 = add nsw i32 %.in, -1
   %40 = getelementptr inbounds i8, ptr %.02735, i64 %10
   %41 = getelementptr inbounds i8, ptr %.02834, i64 %10
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %38, %7
   ret void
@@ -1201,14 +1201,14 @@ define internal void @dequant_subband_int16_t_c(ptr noundef readonly captures(no
   store i16 %.023.us, ptr %.032.us, align 2, !tbaa !17
   %31 = add nuw nsw i32 %.02530.us, 1
   %exitcond.not = icmp eq i32 %31, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %29
   %32 = getelementptr inbounds i8, ptr %.02634.us, i64 %11
   %33 = getelementptr inbounds i8, ptr %.02733.us, i64 %2
   %34 = add nuw nsw i32 %.02435.us, 1
   %exitcond38.not = icmp eq i32 %34, %5
-  br i1 %exitcond38.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !48
+  br i1 %exitcond38.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !49
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
@@ -1236,7 +1236,7 @@ define internal void @dequant_subband_int32_t_c(ptr noundef readonly captures(no
   %.02231.us = phi ptr [ %.02634.us, %.preheader.us ], [ %13, %26 ]
   %.02530.us = phi i32 [ 0, %.preheader.us ], [ %28, %26 ]
   %13 = getelementptr inbounds nuw i8, ptr %.02231.us, i64 4
-  %14 = load i32, ptr %.02231.us, align 4, !tbaa !23
+  %14 = load i32, ptr %.02231.us, align 4, !tbaa !24
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %21, label %16
 
@@ -1260,17 +1260,17 @@ define internal void @dequant_subband_int32_t_c(ptr noundef readonly captures(no
 26:                                               ; preds = %21, %17, %16
   %.023.us = phi i32 [ %25, %21 ], [ %20, %17 ], [ 0, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %.032.us, i64 4
-  store i32 %.023.us, ptr %.032.us, align 4, !tbaa !23
+  store i32 %.023.us, ptr %.032.us, align 4, !tbaa !24
   %28 = add nuw nsw i32 %.02530.us, 1
   %exitcond.not = icmp eq i32 %28, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.02634.us, i64 %11
   %30 = getelementptr inbounds i8, ptr %.02733.us, i64 %2
   %31 = add nuw nsw i32 %.02435.us, 1
   %exitcond38.not = icmp eq i32 %31, %5
-  br i1 %exitcond38.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !50
+  br i1 %exitcond38.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !51
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
@@ -1285,18 +1285,18 @@ declare void @ff_put_dirac_pixels8_l4_c(ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_put_dirac_pixels8_bilinear_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not38 = icmp eq i32 %3, 0
   br i1 %.not38, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1348,7 +1348,7 @@ define internal void @ff_put_dirac_pixels8_bilinear_c(ptr noundef writeonly capt
   store i8 %48, ptr %49, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %50, label %18, !llvm.loop !53
+  br i1 %exitcond.not, label %50, label %18, !llvm.loop !54
 
 50:                                               ; preds = %18
   %51 = add nsw i32 %.in, -1
@@ -1358,7 +1358,7 @@ define internal void @ff_put_dirac_pixels8_bilinear_c(ptr noundef writeonly capt
   %55 = getelementptr inbounds i8, ptr %.03241, i64 %17
   %56 = getelementptr inbounds i8, ptr %.03142, i64 %17
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %50, %4
   ret void
@@ -1373,18 +1373,18 @@ declare void @ff_put_dirac_pixels16_l4_c(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_put_dirac_pixels16_bilinear_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not38 = icmp eq i32 %3, 0
   br i1 %.not38, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1436,7 +1436,7 @@ define internal void @ff_put_dirac_pixels16_bilinear_c(ptr noundef writeonly cap
   store i8 %48, ptr %49, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %50, label %18, !llvm.loop !55
+  br i1 %exitcond.not, label %50, label %18, !llvm.loop !56
 
 50:                                               ; preds = %18
   %51 = add nsw i32 %.in, -1
@@ -1446,7 +1446,7 @@ define internal void @ff_put_dirac_pixels16_bilinear_c(ptr noundef writeonly cap
   %55 = getelementptr inbounds i8, ptr %.03241, i64 %17
   %56 = getelementptr inbounds i8, ptr %.03142, i64 %17
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %50, %4
   ret void
@@ -1461,18 +1461,18 @@ declare void @ff_put_dirac_pixels32_l4_c(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_put_dirac_pixels32_bilinear_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not38 = icmp eq i32 %3, 0
   br i1 %.not38, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1524,7 +1524,7 @@ define internal void @ff_put_dirac_pixels32_bilinear_c(ptr noundef writeonly cap
   store i8 %48, ptr %49, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %50, label %18, !llvm.loop !57
+  br i1 %exitcond.not, label %50, label %18, !llvm.loop !58
 
 50:                                               ; preds = %18
   %51 = add nsw i32 %.in, -1
@@ -1534,7 +1534,7 @@ define internal void @ff_put_dirac_pixels32_bilinear_c(ptr noundef writeonly cap
   %55 = getelementptr inbounds i8, ptr %.03241, i64 %17
   %56 = getelementptr inbounds i8, ptr %.03142, i64 %17
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %50, %4
   ret void
@@ -1549,18 +1549,18 @@ declare void @ff_avg_dirac_pixels8_l4_c(ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_avg_dirac_pixels8_bilinear_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not40 = icmp eq i32 %3, 0
   br i1 %.not40, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1617,7 +1617,7 @@ define internal void @ff_avg_dirac_pixels8_bilinear_c(ptr noundef captures(none)
   store i8 %54, ptr %19, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %55, label %18, !llvm.loop !59
+  br i1 %exitcond.not, label %55, label %18, !llvm.loop !60
 
 55:                                               ; preds = %18
   %56 = add nsw i32 %.in, -1
@@ -1627,7 +1627,7 @@ define internal void @ff_avg_dirac_pixels8_bilinear_c(ptr noundef captures(none)
   %60 = getelementptr inbounds i8, ptr %.03443, i64 %17
   %61 = getelementptr inbounds i8, ptr %.03344, i64 %17
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %55, %4
   ret void
@@ -1642,18 +1642,18 @@ declare void @ff_avg_dirac_pixels16_l4_c(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_avg_dirac_pixels16_bilinear_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not40 = icmp eq i32 %3, 0
   br i1 %.not40, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1710,7 +1710,7 @@ define internal void @ff_avg_dirac_pixels16_bilinear_c(ptr noundef captures(none
   store i8 %54, ptr %19, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %55, label %18, !llvm.loop !61
+  br i1 %exitcond.not, label %55, label %18, !llvm.loop !62
 
 55:                                               ; preds = %18
   %56 = add nsw i32 %.in, -1
@@ -1720,7 +1720,7 @@ define internal void @ff_avg_dirac_pixels16_bilinear_c(ptr noundef captures(none
   %60 = getelementptr inbounds i8, ptr %.03443, i64 %17
   %61 = getelementptr inbounds i8, ptr %.03344, i64 %17
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %55, %4
   ret void
@@ -1735,18 +1735,18 @@ declare void @ff_avg_dirac_pixels32_l4_c(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_avg_dirac_pixels32_bilinear_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not40 = icmp eq i32 %3, 0
   br i1 %.not40, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = load ptr, ptr %1, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %13 = load ptr, ptr %1, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1803,7 +1803,7 @@ define internal void @ff_avg_dirac_pixels32_bilinear_c(ptr noundef captures(none
   store i8 %54, ptr %19, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %55, label %18, !llvm.loop !63
+  br i1 %exitcond.not, label %55, label %18, !llvm.loop !64
 
 55:                                               ; preds = %18
   %56 = add nsw i32 %.in, -1
@@ -1813,7 +1813,7 @@ define internal void @ff_avg_dirac_pixels32_bilinear_c(ptr noundef captures(none
   %60 = getelementptr inbounds i8, ptr %.03443, i64 %17
   %61 = getelementptr inbounds i8, ptr %.03344, i64 %17
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %55, %4
   ret void
@@ -1853,16 +1853,16 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !17 = !{!18, !18, i64 0}
 !18 = !{!"short", !7, i64 0}
 !19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
+!20 = distinct !{!20, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !13}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"int", !7, i64 0}
-!25 = distinct !{!25, !13}
+!23 = distinct !{!23, !13, !21}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !7, i64 0}
 !26 = distinct !{!26, !13}
-!27 = distinct !{!27, !13}
+!27 = distinct !{!27, !13, !21}
 !28 = distinct !{!28, !13}
-!29 = distinct !{!29, !13}
+!29 = distinct !{!29, !13, !21}
 !30 = distinct !{!30, !13}
 !31 = distinct !{!31, !13}
 !32 = distinct !{!32, !13}
@@ -1882,11 +1882,11 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !46 = distinct !{!46, !13}
 !47 = distinct !{!47, !13}
 !48 = distinct !{!48, !13}
-!49 = distinct !{!49, !13}
+!49 = distinct !{!49, !13, !21}
 !50 = distinct !{!50, !13}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 omnipotent char", !6, i64 0}
-!53 = distinct !{!53, !13}
+!51 = distinct !{!51, !13, !21}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 omnipotent char", !6, i64 0}
 !54 = distinct !{!54, !13}
 !55 = distinct !{!55, !13}
 !56 = distinct !{!56, !13}
@@ -1898,3 +1898,4 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !62 = distinct !{!62, !13}
 !63 = distinct !{!63, !13}
 !64 = distinct !{!64, !13}
+!65 = distinct !{!65, !13}

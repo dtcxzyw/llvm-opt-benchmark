@@ -402,7 +402,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 %1, i8 %2) unnamed_addr #3 align 2 {
-  %.fr138 = freeze i8 %2
+  %.fr128 = freeze i8 %2
   %4 = load ptr, ptr %0, align 8, !tbaa !42
   %.val = load ptr, ptr %4, align 8, !tbaa !18
   %5 = getelementptr i8, ptr %4, i64 8
@@ -413,7 +413,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %.not50 = icmp eq i32 %.val41, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
-  %.pre160 = load i64, ptr %.pre, align 8, !tbaa !25
+  %.pre139 = load i64, ptr %.pre, align 8, !tbaa !25
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %13
@@ -423,7 +423,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %9 = zext nneg i8 %.sroa.08.0.copyload to i64
   %notmask.i = shl nsw i64 -1, %9
   %10 = xor i64 %notmask.i, -1
-  %11 = and i64 %.pre160, %10
+  %11 = and i64 %.pre139, %10
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %._crit_edge, label %13
 
@@ -434,21 +434,21 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %3
   %.028.lcssa = phi ptr [ %.val, %3 ], [ %.02851, %.lr.ph ], [ %7, %13 ]
-  %15 = trunc i8 %.fr138 to i1
-  br i1 %15, label %.split.us.split.preheader, label %.split
+  %15 = trunc i8 %.fr128 to i1
+  br i1 %15, label %.split.us.preheader, label %.split
 
-.split.us.split.preheader:                        ; preds = %._crit_edge
-  %16 = add i64 %.pre160, -1
-  br label %.split.us.split
+.split.us.preheader:                              ; preds = %._crit_edge
+  %16 = add i64 %.pre139, -1
+  br label %.split.us
 
-.split.us.split:                                  ; preds = %.split.us.split.preheader, %.critedge.us
-  %.031.us = phi i64 [ %23, %.critedge.us ], [ %.pre160, %.split.us.split.preheader ]
-  %.129.us = phi ptr [ %.230.us.lcssa, %.critedge.us ], [ %.028.lcssa, %.split.us.split.preheader ]
-  %.027.us = phi ptr [ %.129.us, %.critedge.us ], [ %7, %.split.us.split.preheader ]
+.split.us:                                        ; preds = %.split.us.preheader, %.critedge.us
+  %.031.us = phi i64 [ %23, %.critedge.us ], [ %.pre139, %.split.us.preheader ]
+  %.129.us = phi ptr [ %.230.us.lcssa, %.critedge.us ], [ %.028.lcssa, %.split.us.preheader ]
+  %.027.us = phi ptr [ %.129.us, %.critedge.us ], [ %7, %.split.us.preheader ]
   %.not3556.us.not = icmp eq ptr %.129.us, %.027.us
   br i1 %.not3556.us.not, label %.critedge39.us, label %.lr.ph60.us
 
-.critedge39.us:                                   ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", %.split.us.split
+.critedge39.us:                                   ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", %.split.us
   %.old.us = icmp eq ptr %.129.us, %.val
   br i1 %.old.us, label %.loopexit, label %17
 
@@ -482,9 +482,9 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 
 .critedge.us:                                     ; preds = %24, %.preheader.us
   %.230.us.lcssa = phi ptr [ %.230.us, %24 ], [ %.val, %.preheader.us ]
-  br label %.split.us.split, !llvm.loop !47
+  br label %.split.us, !llvm.loop !47
 
-.lr.ph60.us:                                      ; preds = %.split.us.split
+.lr.ph60.us:                                      ; preds = %.split.us
   %32 = sub i64 %1, %.031.us
   %33 = load i64, ptr %.129.us, align 8, !tbaa !32
   %.not1.i.us72.us = icmp ugt i64 %33, %32
@@ -493,13 +493,13 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 34:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us"
   %35 = load i64, ptr %36, align 8, !tbaa !32
   %.not1.i.us.us = icmp ugt i64 %35, %32
-  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i, !llvm.loop !48
+  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i, !llvm.loop !49
 
 "_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us": ; preds = %.lr.ph60.us, %34
   %.03357.us73.us = phi ptr [ %36, %34 ], [ %.129.us, %.lr.ph60.us ]
   %36 = getelementptr inbounds nuw i8, ptr %.03357.us73.us, i64 24
   %.not35.us.us.not = icmp eq ptr %36, %.027.us
-  br i1 %.not35.us.us.not, label %.critedge39.us, label %34, !llvm.loop !48
+  br i1 %.not35.us.us.not, label %.critedge39.us, label %34, !llvm.loop !49
 
 .split:                                           ; preds = %._crit_edge
   %.not355694.not = icmp eq ptr %.028.lcssa, %7
@@ -510,7 +510,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   br i1 %.old.us101125, label %.loopexit, label %.preheader.us112.lr.ph
 
 .preheader.us112.lr.ph:                           ; preds = %.critedge39.lr.ph.split.us
-  %37 = add i64 %.pre160, -1
+  %37 = add i64 %.pre139, -1
   %38 = getelementptr inbounds i8, ptr %7, i64 -8
   %.sroa.01.0.copyload.us102 = load i8, ptr %38, align 8, !tbaa !10
   %39 = zext nneg i8 %.sroa.01.0.copyload.us102 to i64
@@ -538,11 +538,11 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   br i1 %52, label %44, label %.thread.i, !llvm.loop !46
 
 .thread.i:                                        ; preds = %45, %44, %.lr.ph60.us, %34, %.split
-  %.us-phi = phi i64 [ %.pre160, %.split ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ], [ %43, %45 ]
+  %.us-phi = phi i64 [ %.pre139, %.split ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ], [ %43, %45 ]
   %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %36, %34 ], [ %.129.us, %.lr.ph60.us ], [ %.230.us106, %45 ], [ %.val, %44 ]
   %.us-phi64 = phi i64 [ -1, %.split ], [ %32, %34 ], [ %32, %.lr.ph60.us ], [ -1, %44 ], [ -1, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %54 = load ptr, ptr %53, align 8, !tbaa !50
   %.val42.le = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.us-phi62, i64 8
   br label %56
@@ -555,10 +555,10 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %58 = load i64, ptr %57, align 8, !tbaa !13
   %.not.i = icmp ugt i64 %58, %.us-phi64
   %59 = getelementptr i8, ptr %.014.i, i64 24
-  br i1 %.not.i, label %56, label %60, !llvm.loop !50
+  br i1 %.not.i, label %56, label %60, !llvm.loop !51
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %.val42.le, align 8, !tbaa !51
+  %61 = load ptr, ptr %.val42.le, align 8, !tbaa !52
   %.val.i.i = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %.0.i, null
   %.val.i.i.i = load ptr, ptr %59, align 8, !tbaa !14
@@ -610,7 +610,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
 
 "_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i": ; preds = %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i, %68, %64, %62
   %80 = getelementptr inbounds nuw i8, ptr %.val42.le, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !53
+  %81 = load ptr, ptr %80, align 8, !tbaa !54
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !21
   %84 = zext i32 %83 to i64
@@ -654,7 +654,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %106 = load i32, ptr %82, align 8, !tbaa !21
   %107 = add i32 %106, 1
   store i32 %107, ptr %82, align 8, !tbaa !21
-  %108 = load ptr, ptr %80, align 8, !tbaa !53
+  %108 = load ptr, ptr %80, align 8, !tbaa !54
   %109 = load ptr, ptr %108, align 8, !tbaa !18
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load i32, ptr %110, align 8, !tbaa !21
@@ -666,12 +666,12 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %116 = load i64, ptr %115, align 8, !tbaa !13
   %117 = add i64 %116, %.us-phi
   %118 = getelementptr inbounds nuw i8, ptr %.val42.le, i64 16
-  %119 = load ptr, ptr %118, align 8, !tbaa !54
+  %119 = load ptr, ptr %118, align 8, !tbaa !55
   store i64 %117, ptr %119, align 8, !tbaa !25
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge39.us, %17, %.critedge39.lr.ph.split.us, %101
-  %.not3547 = phi i1 [ true, %101 ], [ false, %.critedge39.lr.ph.split.us ], [ false, %17 ], [ false, %.critedge39.us ]
+.loopexit:                                        ; preds = %17, %.critedge39.us, %.critedge39.lr.ph.split.us, %101
+  %.not3547 = phi i1 [ true, %101 ], [ false, %.critedge39.lr.ph.split.us ], [ false, %.critedge39.us ], [ false, %17 ]
   ret i1 %.not3547
 }
 
@@ -795,11 +795,12 @@ attributes #9 = { nounwind }
 !44 = !{!43, !30, i64 8}
 !45 = distinct !{!45, !12}
 !46 = distinct !{!46, !12}
-!47 = distinct !{!47, !12}
-!48 = distinct !{!48, !12}
-!49 = !{!43, !8, i64 16}
-!50 = distinct !{!50, !12}
-!51 = !{!52, !8, i64 0}
-!52 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_2", !8, i64 0, !28, i64 8, !30, i64 16}
-!53 = !{!52, !28, i64 8}
-!54 = !{!52, !30, i64 16}
+!47 = distinct !{!47, !12, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !12, !48}
+!50 = !{!43, !8, i64 16}
+!51 = distinct !{!51, !12}
+!52 = !{!53, !8, i64 0}
+!53 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_2", !8, i64 0, !28, i64 8, !30, i64 16}
+!54 = !{!53, !28, i64 8}
+!55 = !{!53, !30, i64 16}

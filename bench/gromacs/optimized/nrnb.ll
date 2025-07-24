@@ -458,7 +458,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %.1 = phi double [ %.0105, %.critedge.split ], [ %120, %.loopexit ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 116
-  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !19
+  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !21
 
 125:                                              ; preds = %.split.us
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.117) #10
@@ -693,4 +693,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !16 = !{!9, !12, i64 8}
 !17 = distinct !{!17, !14}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!19 = distinct !{!19, !14, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !14}

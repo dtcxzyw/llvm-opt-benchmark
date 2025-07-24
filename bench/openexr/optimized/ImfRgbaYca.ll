@@ -1246,106 +1246,96 @@ define void @_ZN7Imf_3_47RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %0, i32
   %14 = sub nuw nsw i32 10, %2
   %15 = shl nsw i32 -1, %14
   %16 = trunc nsw i32 %15 to i16
-  %wide.trip.count53 = zext nneg i32 %0 to i64
+  %wide.trip.count47 = zext nneg i32 %0 to i64
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %7, label %_ZNK9Imath_3_24half5roundEj.exit.us.us, label %_ZNK9Imath_3_24half5roundEj.exit.us
-
-_ZNK9Imath_3_24half5roundEj.exit.us.us:           ; preds = %.lr.ph.split.us, %31
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %31 ], [ 0, %.lr.ph.split.us ]
-  %17 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv50
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %44
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %44 ], [ 0, %.lr.ph ]
+  %17 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv44
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !15
-  %20 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv50
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  store i16 %19, ptr %21, align 2, !tbaa !15
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 6
-  %24 = load i16, ptr %22, align 2, !tbaa !15
-  store i16 %24, ptr %23, align 2, !tbaa !15
-  %25 = and i64 %indvars.iv50, 1
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %_ZNK9Imath_3_24half5roundEj.exit26.thread.us.us, label %31
+  br i1 %7, label %_ZNK9Imath_3_24half5roundEj.exit.us, label %20
 
-_ZNK9Imath_3_24half5roundEj.exit26.thread.us.us:  ; preds = %_ZNK9Imath_3_24half5roundEj.exit.us.us
-  %27 = load i16, ptr %17, align 2, !tbaa !15
-  store i16 %27, ptr %20, align 2, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %29 = load i16, ptr %28, align 2, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i16 %29, ptr %30, align 2, !tbaa !15
-  br label %31
+20:                                               ; preds = %.lr.ph.split.us
+  %21 = and i16 %19, -32768
+  %22 = and i16 %19, 32767
+  %23 = zext nneg i16 %22 to i32
+  %24 = lshr i32 %23, %8
+  %25 = and i32 %24, 1
+  %26 = add nuw nsw i32 %25, %24
+  %27 = shl nuw nsw i32 %26, %8
+  %28 = trunc i32 %27 to i16
+  %29 = and i32 %27, 64512
+  %30 = icmp samesign ugt i32 %29, 31743
+  %31 = and i16 %19, %11
+  %.0.i.us = select i1 %30, i16 %31, i16 %28
+  %32 = or i16 %.0.i.us, %21
+  br label %_ZNK9Imath_3_24half5roundEj.exit.us
 
-31:                                               ; preds = %_ZNK9Imath_3_24half5roundEj.exit26.thread.us.us, %_ZNK9Imath_3_24half5roundEj.exit.us.us
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit.us.us, !llvm.loop !27
-
-_ZNK9Imath_3_24half5roundEj.exit.us:              ; preds = %.lr.ph.split.us, %58
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %58 ], [ 0, %.lr.ph.split.us ]
-  %32 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv45
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  %34 = load i16, ptr %33, align 2, !tbaa !15
-  %35 = and i16 %34, -32768
-  %36 = and i16 %34, 32767
-  %37 = zext nneg i16 %36 to i32
-  %38 = lshr i32 %37, %8
-  %39 = and i32 %38, 1
-  %40 = add nuw nsw i32 %39, %38
-  %41 = shl nuw nsw i32 %40, %8
-  %42 = trunc i32 %41 to i16
-  %43 = and i32 %41, 64512
-  %44 = icmp samesign ugt i32 %43, 31743
-  %45 = and i16 %34, %11
-  %.0.i.us = select i1 %44, i16 %45, i16 %42
-  %46 = or i16 %.0.i.us, %35
-  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv45
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %46, ptr %48, align 2, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %32, i64 6
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 6
-  %51 = load i16, ptr %49, align 2, !tbaa !15
-  store i16 %51, ptr %50, align 2, !tbaa !15
-  %52 = and i64 %indvars.iv45, 1
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %_ZNK9Imath_3_24half5roundEj.exit26.thread.us, label %58
+_ZNK9Imath_3_24half5roundEj.exit.us:              ; preds = %20, %.lr.ph.split.us
+  %.sroa.0.0.i.us = phi i16 [ %32, %20 ], [ %19, %.lr.ph.split.us ]
+  %33 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv44
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
+  store i16 %.sroa.0.0.i.us, ptr %34, align 2, !tbaa !15
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 6
+  %37 = load i16, ptr %35, align 2, !tbaa !15
+  store i16 %37, ptr %36, align 2, !tbaa !15
+  %38 = and i64 %indvars.iv44, 1
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %_ZNK9Imath_3_24half5roundEj.exit26.thread.us, label %44
 
 _ZNK9Imath_3_24half5roundEj.exit26.thread.us:     ; preds = %_ZNK9Imath_3_24half5roundEj.exit.us
-  %54 = load i16, ptr %32, align 2, !tbaa !15
-  store i16 %54, ptr %47, align 2, !tbaa !15
-  %55 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %56 = load i16, ptr %55, align 2, !tbaa !15
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i16 %56, ptr %57, align 2, !tbaa !15
-  br label %58
+  %40 = load i16, ptr %17, align 2, !tbaa !15
+  store i16 %40, ptr %33, align 2, !tbaa !15
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %42 = load i16, ptr %41, align 2, !tbaa !15
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i16 %42, ptr %43, align 2, !tbaa !15
+  br label %44
 
-58:                                               ; preds = %_ZNK9Imath_3_24half5roundEj.exit26.thread.us, %_ZNK9Imath_3_24half5roundEj.exit.us
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count53
-  br i1 %exitcond49.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit.us, !llvm.loop !27
+44:                                               ; preds = %_ZNK9Imath_3_24half5roundEj.exit26.thread.us, %_ZNK9Imath_3_24half5roundEj.exit.us
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %7, label %_ZNK9Imath_3_24half5roundEj.exit.us33, label %_ZNK9Imath_3_24half5roundEj.exit
 
-_ZNK9Imath_3_24half5roundEj.exit.us33:            ; preds = %.lr.ph.split, %97
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %97 ], [ 0, %.lr.ph.split ]
-  %59 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv40
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
-  %61 = load i16, ptr %60, align 2, !tbaa !15
-  %62 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv40
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
-  store i16 %61, ptr %63, align 2, !tbaa !15
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 6
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 6
-  %66 = load i16, ptr %64, align 2, !tbaa !15
-  store i16 %66, ptr %65, align 2, !tbaa !15
-  %67 = and i64 %indvars.iv40, 1
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %_ZNK9Imath_3_24half5roundEj.exit29.us35, label %97
+_ZNK9Imath_3_24half5roundEj.exit.us33:            ; preds = %.lr.ph.split, %83
+  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %83 ], [ 0, %.lr.ph.split ]
+  %45 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv39
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  %47 = load i16, ptr %46, align 2, !tbaa !15
+  %48 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv39
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  store i16 %47, ptr %49, align 2, !tbaa !15
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 6
+  %52 = load i16, ptr %50, align 2, !tbaa !15
+  store i16 %52, ptr %51, align 2, !tbaa !15
+  %53 = and i64 %indvars.iv39, 1
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %_ZNK9Imath_3_24half5roundEj.exit29.us35, label %83
 
 _ZNK9Imath_3_24half5roundEj.exit29.us35:          ; preds = %_ZNK9Imath_3_24half5roundEj.exit.us33
-  %69 = load i16, ptr %59, align 2, !tbaa !15
+  %55 = load i16, ptr %45, align 2, !tbaa !15
+  %56 = and i16 %55, -32768
+  %57 = and i16 %55, 32767
+  %58 = zext nneg i16 %57 to i32
+  %59 = lshr i32 %58, %13
+  %60 = and i32 %59, 1
+  %61 = add nuw nsw i32 %60, %59
+  %62 = shl nuw nsw i32 %61, %13
+  %63 = trunc i32 %62 to i16
+  %64 = and i32 %62, 64512
+  %65 = icmp samesign ugt i32 %64, 31743
+  %66 = and i16 %55, %16
+  %.0.i24.us = select i1 %65, i16 %66, i16 %63
+  %67 = or i16 %.0.i24.us, %56
+  store i16 %67, ptr %48, align 2, !tbaa !15
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %69 = load i16, ptr %68, align 2, !tbaa !15
   %70 = and i16 %69, -32768
   %71 = and i16 %69, 32767
   %72 = zext nneg i16 %71 to i32
@@ -1357,67 +1347,67 @@ _ZNK9Imath_3_24half5roundEj.exit29.us35:          ; preds = %_ZNK9Imath_3_24half
   %78 = and i32 %76, 64512
   %79 = icmp samesign ugt i32 %78, 31743
   %80 = and i16 %69, %16
-  %.0.i24.us = select i1 %79, i16 %80, i16 %77
-  %81 = or i16 %.0.i24.us, %70
-  store i16 %81, ptr %62, align 2, !tbaa !15
-  %82 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %83 = load i16, ptr %82, align 2, !tbaa !15
-  %84 = and i16 %83, -32768
-  %85 = and i16 %83, 32767
-  %86 = zext nneg i16 %85 to i32
-  %87 = lshr i32 %86, %13
-  %88 = and i32 %87, 1
-  %89 = add nuw nsw i32 %88, %87
-  %90 = shl nuw nsw i32 %89, %13
-  %91 = trunc i32 %90 to i16
-  %92 = and i32 %90, 64512
-  %93 = icmp samesign ugt i32 %92, 31743
-  %94 = and i16 %83, %16
-  %.0.i27.us = select i1 %93, i16 %94, i16 %91
-  %95 = or i16 %.0.i27.us, %84
-  %96 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i16 %95, ptr %96, align 2, !tbaa !15
-  br label %97
+  %.0.i27.us = select i1 %79, i16 %80, i16 %77
+  %81 = or i16 %.0.i27.us, %70
+  %82 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i16 %81, ptr %82, align 2, !tbaa !15
+  br label %83
 
-97:                                               ; preds = %_ZNK9Imath_3_24half5roundEj.exit29.us35, %_ZNK9Imath_3_24half5roundEj.exit.us33
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count53
-  br i1 %exitcond44.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit.us33, !llvm.loop !27
+83:                                               ; preds = %_ZNK9Imath_3_24half5roundEj.exit29.us35, %_ZNK9Imath_3_24half5roundEj.exit.us33
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count47
+  br i1 %exitcond43.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit.us33, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %148, %97, %58, %31, %5
+._crit_edge:                                      ; preds = %134, %83, %44, %5
   ret void
 
-_ZNK9Imath_3_24half5roundEj.exit:                 ; preds = %.lr.ph.split, %148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %.lr.ph.split ]
-  %98 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  %100 = load i16, ptr %99, align 2, !tbaa !15
-  %101 = and i16 %100, -32768
-  %102 = and i16 %100, 32767
-  %103 = zext nneg i16 %102 to i32
-  %104 = lshr i32 %103, %8
-  %105 = and i32 %104, 1
-  %106 = add nuw nsw i32 %105, %104
-  %107 = shl nuw nsw i32 %106, %8
-  %108 = trunc i32 %107 to i16
-  %109 = and i32 %107, 64512
-  %110 = icmp samesign ugt i32 %109, 31743
-  %111 = and i16 %100, %11
-  %.0.i = select i1 %110, i16 %111, i16 %108
-  %112 = or i16 %.0.i, %101
-  %113 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
-  store i16 %112, ptr %114, align 2, !tbaa !15
-  %115 = getelementptr inbounds nuw i8, ptr %98, i64 6
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 6
-  %117 = load i16, ptr %115, align 2, !tbaa !15
-  store i16 %117, ptr %116, align 2, !tbaa !15
-  %118 = and i64 %indvars.iv, 1
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %_ZNK9Imath_3_24half5roundEj.exit29, label %148
+_ZNK9Imath_3_24half5roundEj.exit:                 ; preds = %.lr.ph.split, %134
+  %indvars.iv = phi i64 [ %indvars.iv.next, %134 ], [ 0, %.lr.ph.split ]
+  %84 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %3, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
+  %86 = load i16, ptr %85, align 2, !tbaa !15
+  %87 = and i16 %86, -32768
+  %88 = and i16 %86, 32767
+  %89 = zext nneg i16 %88 to i32
+  %90 = lshr i32 %89, %8
+  %91 = and i32 %90, 1
+  %92 = add nuw nsw i32 %91, %90
+  %93 = shl nuw nsw i32 %92, %8
+  %94 = trunc i32 %93 to i16
+  %95 = and i32 %93, 64512
+  %96 = icmp samesign ugt i32 %95, 31743
+  %97 = and i16 %86, %11
+  %.0.i = select i1 %96, i16 %97, i16 %94
+  %98 = or i16 %.0.i, %87
+  %99 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %4, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
+  store i16 %98, ptr %100, align 2, !tbaa !15
+  %101 = getelementptr inbounds nuw i8, ptr %84, i64 6
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 6
+  %103 = load i16, ptr %101, align 2, !tbaa !15
+  store i16 %103, ptr %102, align 2, !tbaa !15
+  %104 = and i64 %indvars.iv, 1
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %_ZNK9Imath_3_24half5roundEj.exit29, label %134
 
 _ZNK9Imath_3_24half5roundEj.exit29:               ; preds = %_ZNK9Imath_3_24half5roundEj.exit
-  %120 = load i16, ptr %98, align 2, !tbaa !15
+  %106 = load i16, ptr %84, align 2, !tbaa !15
+  %107 = and i16 %106, -32768
+  %108 = and i16 %106, 32767
+  %109 = zext nneg i16 %108 to i32
+  %110 = lshr i32 %109, %13
+  %111 = and i32 %110, 1
+  %112 = add nuw nsw i32 %111, %110
+  %113 = shl nuw nsw i32 %112, %13
+  %114 = trunc i32 %113 to i16
+  %115 = and i32 %113, 64512
+  %116 = icmp samesign ugt i32 %115, 31743
+  %117 = and i16 %106, %16
+  %.0.i24 = select i1 %116, i16 %117, i16 %114
+  %118 = or i16 %.0.i24, %107
+  store i16 %118, ptr %99, align 2, !tbaa !15
+  %119 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %120 = load i16, ptr %119, align 2, !tbaa !15
   %121 = and i16 %120, -32768
   %122 = and i16 %120, 32767
   %123 = zext nneg i16 %122 to i32
@@ -1429,32 +1419,16 @@ _ZNK9Imath_3_24half5roundEj.exit29:               ; preds = %_ZNK9Imath_3_24half
   %129 = and i32 %127, 64512
   %130 = icmp samesign ugt i32 %129, 31743
   %131 = and i16 %120, %16
-  %.0.i24 = select i1 %130, i16 %131, i16 %128
-  %132 = or i16 %.0.i24, %121
-  store i16 %132, ptr %113, align 2, !tbaa !15
-  %133 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %134 = load i16, ptr %133, align 2, !tbaa !15
-  %135 = and i16 %134, -32768
-  %136 = and i16 %134, 32767
-  %137 = zext nneg i16 %136 to i32
-  %138 = lshr i32 %137, %13
-  %139 = and i32 %138, 1
-  %140 = add nuw nsw i32 %139, %138
-  %141 = shl nuw nsw i32 %140, %13
-  %142 = trunc i32 %141 to i16
-  %143 = and i32 %141, 64512
-  %144 = icmp samesign ugt i32 %143, 31743
-  %145 = and i16 %134, %16
-  %.0.i27 = select i1 %144, i16 %145, i16 %142
-  %146 = or i16 %.0.i27, %135
-  %147 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  store i16 %146, ptr %147, align 2, !tbaa !15
-  br label %148
+  %.0.i27 = select i1 %130, i16 %131, i16 %128
+  %132 = or i16 %.0.i27, %121
+  %133 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  store i16 %132, ptr %133, align 2, !tbaa !15
+  br label %134
 
-148:                                              ; preds = %_ZNK9Imath_3_24half5roundEj.exit, %_ZNK9Imath_3_24half5roundEj.exit29
+134:                                              ; preds = %_ZNK9Imath_3_24half5roundEj.exit, %_ZNK9Imath_3_24half5roundEj.exit29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit, !llvm.loop !27
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count47
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK9Imath_3_24half5roundEj.exit, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1836,7 +1810,7 @@ _ZN9Imath_3_24halfaSEf.exit87:                    ; preds = %243, %246, %256, %2
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1846,7 +1820,7 @@ define void @_ZN7Imf_3_47RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 n
 
 .lr.ph:                                           ; preds = %3
   %5 = load ptr, ptr %1, align 8, !tbaa !23
-  %6 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !29
+  %6 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2221,7 +2195,7 @@ _ZN9Imath_3_24halfaSEf.exit73:                    ; preds = %267, %270, %280, %2
   store i16 %315, ptr %314, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2230,7 +2204,7 @@ define void @_ZN7Imf_3_47RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !29
+  %6 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !32
   %7 = load float, ptr %0, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load float, ptr %8, align 4
@@ -2532,7 +2506,7 @@ _ZN9Imath_3_24halfaSEf.exit42:                    ; preds = %159, %162, %172, %1
   store i16 %205, ptr %204, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2542,7 +2516,7 @@ define void @_ZN7Imf_3_47RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4R
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !29
+  %7 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !32
   %8 = load ptr, ptr %5, align 8, !tbaa !23
   %9 = load i16, ptr %8, align 2, !tbaa !20
   %10 = zext i16 %9 to i64
@@ -3338,14 +3312,14 @@ _ZN9Imath_3_24halfmLEf.exit64.i:                  ; preds = %599, %596, %582, %5
 .critedge:                                        ; preds = %218, %171
   %601 = load i64, ptr %178, align 2
   store i64 %601, ptr %179, align 2
-  %.pre.pre = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !29
+  %.pre.pre = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !32
   br label %_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_.exit
 
 _ZN7Imf_3_47RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_.exit: ; preds = %_ZN9Imath_3_24halfmLEf.exit64.i, %_ZN9Imath_3_24halfaSEf.exit53.i, %.critedge
   %.pre65 = phi ptr [ %.pre, %_ZN9Imath_3_24halfmLEf.exit64.i ], [ %.pre, %_ZN9Imath_3_24halfaSEf.exit53.i ], [ %.pre.pre, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %89, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %89, !llvm.loop !36
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -3404,10 +3378,13 @@ attributes #10 = { nounwind }
 !24 = !{!"p1 _ZTSN7Imf_3_44RgbaE", !25, i64 0}
 !25 = !{!"any pointer", !5, i64 0}
 !26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS14imath_half_uif", !25, i64 0}
+!27 = distinct !{!27, !19, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !19, !28}
+!30 = distinct !{!30, !19}
 !31 = distinct !{!31, !19}
-!32 = distinct !{!32, !19}
-!33 = distinct !{!33, !19}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS14imath_half_uif", !25, i64 0}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}

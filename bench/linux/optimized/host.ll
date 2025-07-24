@@ -1013,7 +1013,7 @@ define internal fastcc void @nlm_gc_hosts(ptr noundef %0) unnamed_addr #0 align 
   store i8 %11, ptr %9, align 2
   %12 = load ptr, ptr %8, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit8.split.us.us, label %.preheader7.us, !llvm.loop !29
+  br i1 %13, label %.loopexit8.split.us.us, label %.preheader7.us, !llvm.loop !30
 
 .split:                                           ; preds = %1, %.loopexit8.split
   %14 = phi ptr [ %28, %.loopexit8.split ], [ @nlm_server_hosts, %1 ]
@@ -1038,12 +1038,12 @@ define internal fastcc void @nlm_gc_hosts(ptr noundef %0) unnamed_addr #0 align 
 25:                                               ; preds = %21, %.preheader7
   %26 = load ptr, ptr %17, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit8.split, label %.preheader7, !llvm.loop !29
+  br i1 %27, label %.loopexit8.split, label %.preheader7, !llvm.loop !31
 
 .loopexit8.split:                                 ; preds = %25, %.split
   %28 = getelementptr i8, ptr %14, i64 8
   %29 = icmp ult ptr %28, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %29, label %.split, label %.split10.us, !llvm.loop !28
+  br i1 %29, label %.split, label %.split10.us, !llvm.loop !32
 
 .split10.us:                                      ; preds = %.loopexit8.split, %.loopexit8.split.us.us
   tail call void @nlmsvc_mark_resources(ptr noundef %0) #9
@@ -1161,12 +1161,12 @@ nlm_destroy_host_locked.exit:                     ; preds = %79, %83, %87
 
 93:                                               ; preds = %nlm_destroy_host_locked.exit, %51, %45, %40, %36
   %94 = icmp eq ptr %35, null
-  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %93, %30
   %95 = getelementptr i8, ptr %31, i64 8
   %96 = icmp ult ptr %95, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %96, label %30, label %97, !llvm.loop !31
+  br i1 %96, label %30, label %97, !llvm.loop !34
 
 97:                                               ; preds = %.loopexit
   br i1 %2, label %108, label %98
@@ -1206,14 +1206,14 @@ define dso_local void @nlmsvc_release_host(ptr noundef %0) local_unnamed_addr #0
   br i1 %7, label %8, label %9, !prof !6
 
 8:                                                ; preds = %3
-  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #9, !srcloc !32
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2307, i64 12) #9, !srcloc !33
-  tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_end\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #9, !srcloc !34
+  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #9, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2307, i64 12) #9, !srcloc !36
+  tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_end\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #9, !srcloc !37
   br label %9
 
 9:                                                ; preds = %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -1, ptr nonnull elementtype(i32) %10) #9, !srcloc !35
+  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -1, ptr nonnull elementtype(i32) %10) #9, !srcloc !38
   %12 = icmp slt i32 %11, 2
   br i1 %12, label %13, label %14, !prof !6
 
@@ -1474,12 +1474,12 @@ next_host_state.exit.preheader:                   ; preds = %28, %32
 34:                                               ; preds = %15, %.preheader.i
   %35 = load ptr, ptr %11, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit.i, label %.preheader.i, !llvm.loop !36
+  br i1 %36, label %.loopexit.i, label %.preheader.i, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %34, %7
   %37 = getelementptr i8, ptr %8, i64 8
   %38 = icmp ult ptr %37, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %38, label %7, label %next_host_state.exit9.thread, !llvm.loop !37
+  br i1 %38, label %7, label %next_host_state.exit9.thread, !llvm.loop !40
 
 next_host_state.exit9.thread:                     ; preds = %.loopexit.i, %.loopexit.i8
   tail call void @mutex_unlock(ptr noundef nonnull @nlm_host_mutex) #9
@@ -1535,12 +1535,12 @@ next_host_state.exit6.preheader:                  ; preds = %60, %64
 66:                                               ; preds = %47, %.preheader.i4
   %67 = load ptr, ptr %43, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.loopexit.i5, label %.preheader.i4, !llvm.loop !36
+  br i1 %68, label %.loopexit.i5, label %.preheader.i4, !llvm.loop !39
 
 .loopexit.i5:                                     ; preds = %66, %39
   %69 = getelementptr i8, ptr %40, i64 8
   %70 = icmp ult ptr %69, getelementptr inbounds nuw (i8, ptr @nlm_client_hosts, i64 256)
-  br i1 %70, label %39, label %next_host_state.exit6.thread, !llvm.loop !37
+  br i1 %70, label %39, label %next_host_state.exit6.thread, !llvm.loop !40
 
 next_host_state.exit:                             ; preds = %next_host_state.exit.backedge, %next_host_state.exit.preheader
   %.lcssa52.sink = phi ptr [ %11, %next_host_state.exit.preheader ], [ %89, %next_host_state.exit.backedge ]
@@ -1557,14 +1557,14 @@ next_host_state.exit:                             ; preds = %next_host_state.exi
   br i1 %77, label %78, label %79, !prof !6
 
 78:                                               ; preds = %next_host_state.exit
-  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #9, !srcloc !32
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2307, i64 12) #9, !srcloc !33
-  tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_end\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #9, !srcloc !34
+  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #9, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2307, i64 12) #9, !srcloc !36
+  tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_end\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #9, !srcloc !37
   br label %79
 
 79:                                               ; preds = %78, %next_host_state.exit
   %80 = getelementptr inbounds nuw i8, ptr %.lcssa52.sink, i64 388
-  %81 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #9, !srcloc !35
+  %81 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #9, !srcloc !38
   %82 = icmp slt i32 %81, 2
   br i1 %82, label %83, label %84, !prof !6
 
@@ -1615,7 +1615,7 @@ next_host_state.exit:                             ; preds = %next_host_state.exi
   br i1 %109, label %next_host_state.exit.backedge, label %110, !prof !7
 
 next_host_state.exit.backedge:                    ; preds = %106, %110
-  br label %next_host_state.exit, !llvm.loop !38
+  br label %next_host_state.exit, !llvm.loop !41
 
 110:                                              ; preds = %106, %98
   %111 = phi i32 [ 2, %98 ], [ 1, %106 ]
@@ -1625,12 +1625,12 @@ next_host_state.exit.backedge:                    ; preds = %106, %110
 112:                                              ; preds = %93, %.preheader.i7
   %113 = load ptr, ptr %89, align 8
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %.loopexit.i8, label %.preheader.i7, !llvm.loop !36
+  br i1 %114, label %.loopexit.i8, label %.preheader.i7, !llvm.loop !39
 
 .loopexit.i8:                                     ; preds = %112, %85
   %115 = getelementptr i8, ptr %86, i64 8
   %116 = icmp ult ptr %115, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %116, label %85, label %next_host_state.exit9.thread, !llvm.loop !37
+  br i1 %116, label %85, label %next_host_state.exit9.thread, !llvm.loop !40
 
 next_host_state.exit6:                            ; preds = %next_host_state.exit6.backedge, %next_host_state.exit6.preheader
   %.lcssa44.sink = phi ptr [ %43, %next_host_state.exit6.preheader ], [ %124, %next_host_state.exit6.backedge ]
@@ -1683,7 +1683,7 @@ next_host_state.exit6:                            ; preds = %next_host_state.exi
   br i1 %144, label %next_host_state.exit6.backedge, label %145, !prof !7
 
 next_host_state.exit6.backedge:                   ; preds = %141, %145
-  br label %next_host_state.exit6, !llvm.loop !39
+  br label %next_host_state.exit6, !llvm.loop !42
 
 145:                                              ; preds = %141, %133
   %146 = phi i32 [ 2, %133 ], [ 1, %141 ]
@@ -1693,12 +1693,12 @@ next_host_state.exit6.backedge:                   ; preds = %141, %145
 147:                                              ; preds = %128, %.preheader.i10
   %148 = load ptr, ptr %124, align 8
   %149 = icmp eq ptr %148, null
-  br i1 %149, label %.loopexit.i11, label %.preheader.i10, !llvm.loop !36
+  br i1 %149, label %.loopexit.i11, label %.preheader.i10, !llvm.loop !39
 
 .loopexit.i11:                                    ; preds = %147, %120
   %150 = getelementptr i8, ptr %121, i64 8
   %151 = icmp ult ptr %150, getelementptr inbounds nuw (i8, ptr @nlm_client_hosts, i64 256)
-  br i1 %151, label %120, label %next_host_state.exit6.thread, !llvm.loop !37
+  br i1 %151, label %120, label %next_host_state.exit6.thread, !llvm.loop !40
 
 next_host_state.exit6.thread:                     ; preds = %.loopexit.i5, %.loopexit.i11
   tail call void @mutex_unlock(ptr noundef nonnull @nlm_host_mutex) #9
@@ -1736,7 +1736,7 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
 .loopexit.split.us.us:                            ; preds = %16, %.split.us
   %6 = getelementptr i8, ptr %3, i64 8
   %7 = icmp ult ptr %6, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %7, label %.split.us, label %.split6.us, !llvm.loop !40
+  br i1 %7, label %.split.us, label %.split6.us, !llvm.loop !43
 
 .preheader.us:                                    ; preds = %.split.us, %16
   %8 = phi ptr [ %17, %16 ], [ %4, %.split.us ]
@@ -1758,7 +1758,7 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
   tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %8) #9
   %17 = load ptr, ptr %8, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !41
+  br i1 %18, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !44
 
 .split:                                           ; preds = %1, %.loopexit.split
   %19 = phi ptr [ %38, %.loopexit.split ], [ @nlm_server_hosts, %1 ]
@@ -1795,12 +1795,12 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
 35:                                               ; preds = %34, %.preheader
   %36 = load ptr, ptr %22, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit.split, label %.preheader, !llvm.loop !41
+  br i1 %37, label %.loopexit.split, label %.preheader, !llvm.loop !45
 
 .loopexit.split:                                  ; preds = %35, %.split
   %38 = getelementptr i8, ptr %19, i64 8
   %39 = icmp ult ptr %38, getelementptr inbounds nuw (i8, ptr @nlm_server_hosts, i64 256)
-  br i1 %39, label %.split, label %.split6.us, !llvm.loop !40
+  br i1 %39, label %.split, label %.split6.us, !llvm.loop !46
 
 .split6.us:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us
   tail call fastcc void @nlm_gc_hosts(ptr noundef %0)
@@ -1941,17 +1941,22 @@ attributes #12 = { cold nounwind }
 !25 = !{i64 2148914095, i64 2148914134, i64 2148914155, i64 2148914192, i64 2148914215, i64 2148914224, i64 2148914323}
 !26 = !{!"auto-init"}
 !27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
+!28 = distinct !{!28, !9, !10, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !9, !10, !29}
 !31 = distinct !{!31, !9, !10}
-!32 = !{i64 2158428523, i64 2158428332, i64 2158428384, i64 2158428430, i64 2158428458}
-!33 = !{i64 2158428597, i64 2158428626, i64 2158428672, i64 2158428730, i64 2158428784, i64 2158428838, i64 2158428893, i64 2158428924, i64 2158429232, i64 2158429238, i64 2158429285, i64 2158429308, i64 2158429334}
-!34 = !{i64 2158429782, i64 2158429593, i64 2158429643, i64 2158429689, i64 2158429717}
-!35 = !{i64 2148896363, i64 2148896402, i64 2148896423, i64 2148896460, i64 2148896483, i64 2148896492}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = !{i64 2158428523, i64 2158428332, i64 2158428384, i64 2158428430, i64 2158428458}
+!36 = !{i64 2158428597, i64 2158428626, i64 2158428672, i64 2158428730, i64 2158428784, i64 2158428838, i64 2158428893, i64 2158428924, i64 2158429232, i64 2158429238, i64 2158429285, i64 2158429308, i64 2158429334}
+!37 = !{i64 2158429782, i64 2158429593, i64 2158429643, i64 2158429689, i64 2158429717}
+!38 = !{i64 2148896363, i64 2148896402, i64 2148896423, i64 2148896460, i64 2148896483, i64 2148896492}
 !39 = distinct !{!39, !9, !10}
 !40 = distinct !{!40, !9, !10}
 !41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10, !29}
+!44 = distinct !{!44, !9, !10, !29}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !9, !10}

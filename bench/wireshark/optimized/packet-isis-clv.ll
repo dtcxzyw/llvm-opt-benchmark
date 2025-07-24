@@ -136,13 +136,13 @@ define hidden void @isis_dissect_area_address_clv(ptr noundef %0, ptr noundef %1
 37:                                               ; preds = %.lr.ph, %36
   %38 = add nuw nsw i32 %.04053, 1
   %exitcond.not = icmp eq i32 %38, %20
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %37, %26
   %39 = add i32 %.pre, %20
   %40 = sub nsw i32 %21, %20
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph56.split, label %.loopexit47, !llvm.loop !6
+  br i1 %41, label %.lr.ph56.split, label %.loopexit47, !llvm.loop !10
 
 .loopexit47:                                      ; preds = %.loopexit, %14, %7, %.split58.us, %.split.us
   ret void
@@ -189,7 +189,7 @@ define hidden void @isis_dissect_instance_identifier_clv(ptr noundef %0, ptr nou
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %2, i32 noundef %.019, i32 noundef 2, i32 noundef 0)
   %18 = add nsw i32 %.022, -2
   %19 = icmp samesign ugt i32 %.022, 2
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %11
   ret void
@@ -323,7 +323,7 @@ define hidden void @isis_dissect_mt_clv(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = add nsw i32 %.02024, -2
   %19 = add i32 %.025, 2
   %20 = icmp samesign ugt i32 %.02024, 2
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 21:                                               ; preds = %.lr.ph
   %22 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef %6, ptr noundef %0, i32 noundef %.025, i32 noundef 1)
@@ -361,7 +361,7 @@ define hidden void @isis_dissect_ip_int_clv(ptr noundef %0, ptr noundef %1, ptr 
   %11 = add i32 %.0.us, 4
   %12 = add nsw i32 %.017.us, -4
   %.old1.us.not = icmp eq i32 %.017.us, 4
-  br i1 %.old1.us.not, label %.loopexit, label %.preheader.split.us
+  br i1 %.old1.us.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !13
 
 .preheader.split:                                 ; preds = %.preheader, %15
   %.017 = phi i32 [ %18, %15 ], [ %5, %.preheader ]
@@ -408,7 +408,7 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
   %12 = add i32 %.023.us, 16
   %13 = add nsw i32 %.01722.us, -16
   %.not38 = icmp eq i32 %.01722.us, 16
-  br i1 %.not38, label %.loopexit, label %.preheader.split.us, !llvm.loop !11
+  br i1 %.not38, label %.loopexit, label %.preheader.split.us, !llvm.loop !14
 
 .preheader.split:                                 ; preds = %.preheader, %16
   %.023 = phi i32 [ %18, %16 ], [ %4, %.preheader ]
@@ -428,7 +428,7 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
   %18 = add i32 %.023, 16
   %19 = add nsw i32 %.01722, -16
   %.not37 = icmp eq i32 %.01722, 16
-  br i1 %.not37, label %.loopexit, label %.preheader.split, !llvm.loop !11
+  br i1 %.not37, label %.loopexit, label %.preheader.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %11, %7, %.split.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #3
@@ -504,7 +504,7 @@ define hidden void @isis_dissect_nlpid_clv(ptr noundef %0, ptr noundef %1, i32 n
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.26)
   %26 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %3, ptr noundef %0, i32 noundef %.027, i32 noundef 1, i32 noundef %18)
   %27 = add i32 %.027, 1
-  br label %14, !llvm.loop !12
+  br label %14, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %22
   %28 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %3, ptr noundef %0, i32 noundef %.027, i32 noundef 1, i32 noundef %18)
@@ -573,7 +573,7 @@ define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not87 = icmp eq ptr %39, null
-  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader, %34
   %40 = phi ptr [ %37, %34 ], [ %4, %.preheader ]
@@ -609,7 +609,7 @@ define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr nounde
   %59 = add i32 %25, %29
   %60 = sub i32 %26, %29
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %19, !llvm.loop !18
 
 .loopexit:                                        ; preds = %23, %19, %58, %11, %32
   ret void
@@ -628,12 +628,16 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

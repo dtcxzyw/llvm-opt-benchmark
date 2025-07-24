@@ -301,7 +301,7 @@ zend_string_alloc.exit:
   %60 = add i64 %.046.i.ph153.us, 1
   %61 = add i64 %64, -1
   %.not.i111131.us = icmp eq i64 %64, 0
-  br i1 %.not.i111131.us, label %.outer78._crit_edge, label %.lr.ph113.lr.ph.us
+  br i1 %.not.i111131.us, label %.outer78._crit_edge, label %.lr.ph113.lr.ph.us, !llvm.loop !14
 
 .lr.ph113.us.us:                                  ; preds = %.split.us.us.us, %.lr.ph113.lr.ph.us
   %62 = phi i64 [ %31, %.lr.ph113.lr.ph.us ], [ %75, %.split.us.us.us ]
@@ -320,20 +320,20 @@ zend_string_alloc.exit:
 68:                                               ; preds = %63
   %69 = zext i8 %66 to i64
   %70 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !14
+  %71 = load i16, ptr %70, align 2, !tbaa !16
   %72 = icmp eq i16 %71, -1
   br i1 %72, label %.backedge.us.us.us, label %.split122.us.split.us.us
 
 .backedge.us.us.us:                               ; preds = %68
   %73 = add i64 %64, -1
   %.not.i.us.us.us = icmp eq i64 %64, 0
-  br i1 %.not.i.us.us.us, label %.outer78._crit_edge, label %63
+  br i1 %.not.i.us.us.us, label %.outer78._crit_edge, label %63, !llvm.loop !18
 
 .split.us.us.us:                                  ; preds = %63
   %74 = add i64 %.045.i.ph81133.us.us, 1
   %75 = add i64 %64, -1
   %.not.i111.us.us = icmp eq i64 %64, 0
-  br i1 %.not.i111.us.us, label %.outer78._crit_edge, label %.lr.ph113.us.us
+  br i1 %.not.i111.us.us, label %.outer78._crit_edge, label %.lr.ph113.us.us, !llvm.loop !19
 
 .split122.us.split.us.us:                         ; preds = %68
   %76 = trunc i16 %71 to i8
@@ -379,7 +379,7 @@ default.unreachable:                              ; preds = %.loopexit77
 88:                                               ; preds = %81
   %89 = zext i8 %84 to i64
   %90 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !14
+  %91 = load i16, ptr %90, align 2, !tbaa !16
   %92 = icmp slt i16 %91, 0
   br i1 %92, label %.backedge, label %.loopexit77
 
@@ -798,7 +798,7 @@ zend_string_alloc.exit:
   %73 = add i64 %.046.i.ph192.us, 1
   %74 = add i64 %77, -1
   %.not.i150170.us = icmp eq i64 %77, 0
-  br i1 %.not.i150170.us, label %.outer117._crit_edge, label %.lr.ph152.lr.ph.us
+  br i1 %.not.i150170.us, label %.outer117._crit_edge, label %.lr.ph152.lr.ph.us, !llvm.loop !20
 
 .lr.ph152.us.us:                                  ; preds = %.split.us.us.us, %.lr.ph152.lr.ph.us
   %75 = phi i64 [ %44, %.lr.ph152.lr.ph.us ], [ %88, %.split.us.us.us ]
@@ -817,20 +817,20 @@ zend_string_alloc.exit:
 81:                                               ; preds = %76
   %82 = zext i8 %79 to i64
   %83 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !14
+  %84 = load i16, ptr %83, align 2, !tbaa !16
   %85 = icmp eq i16 %84, -1
   br i1 %85, label %.backedge.us.us.us, label %.split161.us.split.us.us
 
 .backedge.us.us.us:                               ; preds = %81
   %86 = add i64 %77, -1
   %.not.i.us.us.us = icmp eq i64 %77, 0
-  br i1 %.not.i.us.us.us, label %.outer117._crit_edge, label %76
+  br i1 %.not.i.us.us.us, label %.outer117._crit_edge, label %76, !llvm.loop !21
 
 .split.us.us.us:                                  ; preds = %76
   %87 = add i64 %.045.i.ph120172.us.us, 1
   %88 = add i64 %77, -1
   %.not.i150.us.us = icmp eq i64 %77, 0
-  br i1 %.not.i150.us.us, label %.outer117._crit_edge, label %.lr.ph152.us.us
+  br i1 %.not.i150.us.us, label %.outer117._crit_edge, label %.lr.ph152.us.us, !llvm.loop !22
 
 .split161.us.split.us.us:                         ; preds = %81
   %89 = trunc i16 %84 to i8
@@ -876,7 +876,7 @@ default.unreachable:                              ; preds = %.loopexit116
 101:                                              ; preds = %94
   %102 = zext i8 %97 to i64
   %103 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !14
+  %104 = load i16, ptr %103, align 2, !tbaa !16
   %105 = icmp slt i16 %104, 0
   br i1 %105, label %.backedge, label %.loopexit116
 
@@ -1481,7 +1481,7 @@ zend_string_alloc.exit:
   %70 = add i64 %.046.i.ph171.us, 1
   %71 = add i64 %74, -1
   %.not.i129149.us = icmp eq i64 %74, 0
-  br i1 %.not.i129149.us, label %.outer96._crit_edge, label %.lr.ph131.lr.ph.us
+  br i1 %.not.i129149.us, label %.outer96._crit_edge, label %.lr.ph131.lr.ph.us, !llvm.loop !23
 
 .lr.ph131.us.us:                                  ; preds = %.split.us.us.us, %.lr.ph131.lr.ph.us
   %72 = phi i64 [ %41, %.lr.ph131.lr.ph.us ], [ %85, %.split.us.us.us ]
@@ -1500,20 +1500,20 @@ zend_string_alloc.exit:
 78:                                               ; preds = %73
   %79 = zext i8 %76 to i64
   %80 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %79
-  %81 = load i16, ptr %80, align 2, !tbaa !14
+  %81 = load i16, ptr %80, align 2, !tbaa !16
   %82 = icmp eq i16 %81, -1
   br i1 %82, label %.backedge.us.us.us, label %.split140.us.split.us.us
 
 .backedge.us.us.us:                               ; preds = %78
   %83 = add i64 %74, -1
   %.not.i.us.us.us = icmp eq i64 %74, 0
-  br i1 %.not.i.us.us.us, label %.outer96._crit_edge, label %73
+  br i1 %.not.i.us.us.us, label %.outer96._crit_edge, label %73, !llvm.loop !24
 
 .split.us.us.us:                                  ; preds = %73
   %84 = add i64 %.045.i.ph99151.us.us, 1
   %85 = add i64 %74, -1
   %.not.i129.us.us = icmp eq i64 %74, 0
-  br i1 %.not.i129.us.us, label %.outer96._crit_edge, label %.lr.ph131.us.us
+  br i1 %.not.i129.us.us, label %.outer96._crit_edge, label %.lr.ph131.us.us, !llvm.loop !25
 
 .split140.us.split.us.us:                         ; preds = %78
   %86 = trunc i16 %81 to i8
@@ -1559,7 +1559,7 @@ default.unreachable:                              ; preds = %.loopexit95
 98:                                               ; preds = %91
   %99 = zext i8 %94 to i64
   %100 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %99
-  %101 = load i16, ptr %100, align 2, !tbaa !14
+  %101 = load i16, ptr %100, align 2, !tbaa !16
   %102 = icmp slt i16 %101, 0
   br i1 %102, label %.backedge, label %.loopexit95
 
@@ -1700,7 +1700,7 @@ zend_string_alloc.exit:
   %21 = icmp sgt <16 x i8> %20, zeroinitializer
   %22 = bitcast <16 x i1> %21 to i16
   %.not = icmp eq i16 %22, 0
-  br i1 %.not, label %23, label %.lr.ph91.lr.ph.lr.ph, !prof !16
+  br i1 %.not, label %23, label %.lr.ph91.lr.ph.lr.ph, !prof !26
 
 23:                                               ; preds = %.lr.ph
   %24 = icmp eq <16 x i8> %17, splat (i8 47)
@@ -1795,7 +1795,7 @@ zend_string_alloc.exit:
   %68 = add i64 %.046.i.ph131.us, 1
   %69 = add i64 %72, -1
   %.not.i89109.us = icmp eq i64 %72, 0
-  br i1 %.not.i89109.us, label %.outer56._crit_edge, label %.lr.ph91.lr.ph.us
+  br i1 %.not.i89109.us, label %.outer56._crit_edge, label %.lr.ph91.lr.ph.us, !llvm.loop !27
 
 .lr.ph91.us.us:                                   ; preds = %.split.us.us.us, %.lr.ph91.lr.ph.us
   %70 = phi i64 [ %39, %.lr.ph91.lr.ph.us ], [ %83, %.split.us.us.us ]
@@ -1814,20 +1814,20 @@ zend_string_alloc.exit:
 76:                                               ; preds = %71
   %77 = zext i8 %74 to i64
   %78 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !14
+  %79 = load i16, ptr %78, align 2, !tbaa !16
   %80 = icmp eq i16 %79, -1
   br i1 %80, label %.backedge.us.us.us, label %.split100.us.split.us.us
 
 .backedge.us.us.us:                               ; preds = %76
   %81 = add i64 %72, -1
   %.not.i.us.us.us = icmp eq i64 %72, 0
-  br i1 %.not.i.us.us.us, label %.outer56._crit_edge, label %71
+  br i1 %.not.i.us.us.us, label %.outer56._crit_edge, label %71, !llvm.loop !28
 
 .split.us.us.us:                                  ; preds = %71
   %82 = add i64 %.045.i.ph59111.us.us, 1
   %83 = add i64 %72, -1
   %.not.i89.us.us = icmp eq i64 %72, 0
-  br i1 %.not.i89.us.us, label %.outer56._crit_edge, label %.lr.ph91.us.us
+  br i1 %.not.i89.us.us, label %.outer56._crit_edge, label %.lr.ph91.us.us, !llvm.loop !29
 
 .split100.us.split.us.us:                         ; preds = %76
   %84 = trunc i16 %79 to i8
@@ -1873,7 +1873,7 @@ default.unreachable:                              ; preds = %.loopexit55
 96:                                               ; preds = %89
   %97 = zext i8 %92 to i64
   %98 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !14
+  %99 = load i16, ptr %98, align 2, !tbaa !16
   %100 = icmp slt i16 %99, 0
   br i1 %100, label %.backedge, label %.loopexit55
 
@@ -2195,7 +2195,7 @@ zend_string_alloc.exit:
   %40 = add i64 %.046.i.ph77.us, 1
   %41 = add i64 %44, -1
   %.not.i3755.us = icmp eq i64 %44, 0
-  br i1 %.not.i3755.us, label %.outer14._crit_edge, label %.lr.ph.lr.ph.us
+  br i1 %.not.i3755.us, label %.outer14._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !30
 
 .lr.ph.us.us:                                     ; preds = %.split.us.us.us, %.lr.ph.lr.ph.us
   %42 = phi i64 [ %11, %.lr.ph.lr.ph.us ], [ %55, %.split.us.us.us ]
@@ -2214,20 +2214,20 @@ zend_string_alloc.exit:
 48:                                               ; preds = %43
   %49 = zext i8 %46 to i64
   %50 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !14
+  %51 = load i16, ptr %50, align 2, !tbaa !16
   %52 = icmp eq i16 %51, -1
   br i1 %52, label %.backedge.us.us.us, label %.split46.us.split.us.us
 
 .backedge.us.us.us:                               ; preds = %48
   %53 = add i64 %44, -1
   %.not.i.us.us.us = icmp eq i64 %44, 0
-  br i1 %.not.i.us.us.us, label %.outer14._crit_edge, label %43
+  br i1 %.not.i.us.us.us, label %.outer14._crit_edge, label %43, !llvm.loop !31
 
 .split.us.us.us:                                  ; preds = %43
   %54 = add i64 %.045.i.ph1757.us.us, 1
   %55 = add i64 %44, -1
   %.not.i37.us.us = icmp eq i64 %44, 0
-  br i1 %.not.i37.us.us, label %.outer14._crit_edge, label %.lr.ph.us.us
+  br i1 %.not.i37.us.us, label %.outer14._crit_edge, label %.lr.ph.us.us, !llvm.loop !32
 
 .split46.us.split.us.us:                          ; preds = %48
   %56 = trunc i16 %51 to i8
@@ -2273,7 +2273,7 @@ default.unreachable:                              ; preds = %.loopexit13
 68:                                               ; preds = %61
   %69 = zext i8 %64 to i64
   %70 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !14
+  %71 = load i16, ptr %70, align 2, !tbaa !16
   %72 = icmp slt i16 %71, 0
   br i1 %72, label %.backedge, label %.loopexit13
 
@@ -2385,7 +2385,7 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread, !prof !17
+  br i1 %cond, label %6, label %.thread, !prof !33
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #11
@@ -2397,7 +2397,7 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly capt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8, !tbaa !9
   %10 = icmp eq i8 %9, 6
-  br i1 %10, label %.critedge, label %zend_parse_arg_str_ex.exit, !prof !16
+  br i1 %10, label %.critedge, label %zend_parse_arg_str_ex.exit, !prof !26
 
 zend_parse_arg_str_ex.exit:                       ; preds = %6
   %11 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #11
@@ -2446,12 +2446,12 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly capt
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
-  store i8 0, ptr %4, align 1, !tbaa !18
+  store i8 0, ptr %4, align 1, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, -2
-  br i1 %or.cond, label %8, label %9, !prof !20
+  br i1 %or.cond, label %8, label %9, !prof !36
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #11
@@ -2463,11 +2463,11 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly capt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !9
   %13 = icmp eq i8 %12, 6
-  br i1 %13, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !16
+  br i1 %13, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !26
 
 zend_parse_arg_str_ex.exit:                       ; preds = %9
   %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #11
-  br i1 %14, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !21
+  br i1 %14, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !37
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
@@ -2481,7 +2481,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %18 = load i64, ptr %17, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %19 = icmp eq i32 %6, 1
-  br i1 %19, label %.critedge, label %20, !prof !22
+  br i1 %19, label %.critedge, label %20, !prof !38
 
 20:                                               ; preds = %zend_parse_arg_str_ex.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2489,24 +2489,24 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   switch i8 %22, label %zend_parse_arg_bool_ex.exit [
     i8 3, label %.thread107
     i8 2, label %.thread107.fold.split
-  ], !prof !23
+  ], !prof !39
 
 .thread107.fold.split:                            ; preds = %20
   br label %.thread107
 
 .thread107:                                       ; preds = %20, %.thread107.fold.split
   %storemerge.i = phi i8 [ 1, %20 ], [ 0, %.thread107.fold.split ]
-  store i8 %storemerge.i, ptr %4, align 1, !tbaa !18
+  store i8 %storemerge.i, ptr %4, align 1, !tbaa !34
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 2) #11
   %cond.fr75 = freeze i1 %24
-  br i1 %cond.fr75, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %.thread85, !prof !24
+  br i1 %cond.fr75, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %.thread85, !prof !40
 
 zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool_ex.exit
-  %.pre109 = load i8, ptr %4, align 1, !tbaa !18, !range !25
+  %.pre109 = load i8, ptr %4, align 1, !tbaa !34, !range !41
   br label %.critedge
 
 .thread85:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_string.exit, %8
@@ -2714,15 +2714,31 @@ attributes #12 = { nounwind allocsize(0) }
 !11 = !{!"_zend_string", !5, i64 0, !12, i64 8, !12, i64 16, !7, i64 24}
 !12 = !{!"long", !7, i64 0}
 !13 = !{!11, !12, i64 16}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !7, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!17 = !{!"branch_weights", i32 4000000, i32 4001}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"_Bool", !7, i64 0}
-!20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!23 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
-!24 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!25 = !{i8 0, i8 2}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !7, i64 0}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = !{!"branch_weights", i32 4000000, i32 4001}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"_Bool", !7, i64 0}
+!36 = !{!"branch_weights", i32 4001, i32 4000000}
+!37 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!38 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!39 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!40 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!41 = !{i8 0, i8 2}

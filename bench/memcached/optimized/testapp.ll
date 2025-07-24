@@ -2997,7 +2997,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %26
   call fastcc void @validate_response_header(ptr noundef %1, i8 noundef zeroext 16, i16 noundef zeroext 0)
   %33 = load i16, ptr %3, align 2, !tbaa !6
   %.not = icmp eq i16 %33, 0
-  br i1 %.not, label %34, label %safe_send.exit, !llvm.loop !50
+  br i1 %.not, label %34, label %safe_send.exit, !llvm.loop !51
 
 34:                                               ; preds = %safe_recv_packet.exit
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #21
@@ -3081,7 +3081,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %27
   %34 = add i8 %.05, 1
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #21
   %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %35, label %8, !llvm.loop !51
+  br i1 %.not, label %35, label %8, !llvm.loop !52
 
 35:                                               ; preds = %safe_recv_packet.exit
   ret i32 1
@@ -3095,7 +3095,7 @@ define internal range(i32 1, 3) i32 @test_binary_pipeline_hickup() #0 {
   %4 = tail call noalias dereferenceable_or_null(66560) ptr @malloc(i64 noundef 66560) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   store i1 true, ptr @allow_closed_read, align 1
-  store volatile i8 1, ptr @hickup_thread_running, align 1, !tbaa !52
+  store volatile i8 1, ptr @hickup_thread_running, align 1, !tbaa !53
   %5 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @binary_hickup_recv_verification_thread, ptr noundef null) #21
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
@@ -3127,7 +3127,7 @@ define internal range(i32 1, 3) i32 @test_binary_pipeline_hickup() #0 {
   %24 = phi i1 [ true, %10 ], [ false, %test_binary_pipeline_hickup_chunk.exit ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %1, i8 0, i64 2048, i1 false)
-  %25 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !52, !range !54, !noundef !55
+  %25 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
 
@@ -3376,7 +3376,7 @@ raw_command.exit38.i:                             ; preds = %67
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 %.02951.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull align 8 %2, i64 %.030.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 66560, ptr nonnull %2) #21
-  %87 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !52, !range !54, !noundef !55
+  %87 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
   %88 = trunc nuw i8 %87 to i1
   %89 = icmp samesign ult i64 %83, 66536
   %90 = and i1 %89, %88
@@ -3386,7 +3386,7 @@ test_binary_pipeline_hickup_chunk.exit:           ; preds = %85, %23, %.thread.i
   %.02950.i = phi i64 [ %.02951.i, %.thread.i ], [ 0, %23 ], [ %83, %85 ]
   call fastcc void @safe_send(ptr noundef %4, i64 noundef %.02950.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1)
-  br i1 %24, label %23, label %91, !llvm.loop !56
+  br i1 %24, label %23, label %91, !llvm.loop !57
 
 91:                                               ; preds = %test_binary_pipeline_hickup_chunk.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -3620,15 +3620,15 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %2 ]
   %4 = getelementptr inbounds nuw [57 x %struct.testcase], ptr @testcases, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 16, !tbaa !57
+  %5 = load ptr, ptr %4, align 16, !tbaa !58
   %.not = icmp eq ptr %5, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %6, label %3, !llvm.loop !59
+  br i1 %.not, label %6, label %3, !llvm.loop !60
 
 6:                                                ; preds = %3
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %7)
-  %9 = load ptr, ptr @testcases, align 16, !tbaa !57
+  %9 = load ptr, ptr @testcases, align 16, !tbaa !58
   %.not1819 = icmp eq ptr %9, null
   br i1 %.not1819, label %._crit_edge, label %.lr.ph
 
@@ -3640,11 +3640,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %12 = tail call i32 @fflush(ptr noundef %11)
   %13 = tail call i32 @alarm(i32 noundef 600) #21
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = tail call i32 %15() #21
   %17 = load ptr, ptr @stdout, align 8, !tbaa !44
   %18 = add nuw nsw i64 %indvars.iv23, 1
-  %19 = load ptr, ptr %10, align 16, !tbaa !57
+  %19 = load ptr, ptr %10, align 16, !tbaa !58
   %20 = trunc nuw i64 %18 to i32
   switch i32 %16, label %22 [
     i32 0, label %23
@@ -3664,9 +3664,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %25 = load ptr, ptr @stdout, align 8, !tbaa !44
   %26 = tail call i32 @fflush(ptr noundef %25)
   %27 = getelementptr inbounds nuw [57 x %struct.testcase], ptr @testcases, i64 0, i64 %18
-  %28 = load ptr, ptr %27, align 16, !tbaa !57
+  %28 = load ptr, ptr %27, align 16, !tbaa !58
   %.not18 = icmp eq ptr %28, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %23, %6
   %.0.lcssa = phi i32 [ 0, %6 ], [ %.1, %23 ]
@@ -3892,7 +3892,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
   %79 = icmp eq i32 %78, -1
   %80 = icmp ugt i32 %.04351, 1000
   %81 = select i1 %79, i1 %80, i1 false
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %73
   %82 = call i32 @access(ptr noundef nonnull %14, i32 noundef 0) #21
@@ -3954,7 +3954,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
 107:                                              ; preds = %104, %99
   %108 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 80, ptr noundef nonnull %88)
   %.not49 = icmp eq ptr %108, null
-  br i1 %.not49, label %._crit_edge55, label %99, !llvm.loop !63
+  br i1 %.not49, label %._crit_edge55, label %99, !llvm.loop !64
 
 ._crit_edge55:                                    ; preds = %107, %96
   %109 = call i32 @fclose(ptr noundef nonnull %88)
@@ -3978,7 +3978,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
   %116 = call i32 @usleep(i32 noundef 10) #21
   %117 = call i32 @access(ptr noundef nonnull %5, i32 noundef 0) #21
   %118 = icmp eq i32 %117, -1
-  br i1 %118, label %.lr.ph56, label %._crit_edge57, !llvm.loop !64
+  br i1 %118, label %.lr.ph56, label %._crit_edge57, !llvm.loop !65
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %.preheader50
   %119 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.192)
@@ -4010,7 +4010,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
   %132 = call i32 @usleep(i32 noundef 10) #21
   %133 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %133, 20
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !65
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !66
 
 134:                                              ; preds = %.critedge
   call void @__assert_fail(ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.62, i32 noundef 628, ptr noundef nonnull @__PRETTY_FUNCTION__.start_server) #22
@@ -4109,7 +4109,7 @@ define internal fastcc noalias noundef ptr @connect_server(i16 noundef zeroext %
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  store ptr null, ptr %3, align 8, !tbaa !66
+  store ptr null, ptr %3, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4136,7 +4136,7 @@ define internal fastcc noalias noundef ptr @connect_server(i16 noundef zeroext %
   br label %lookuphost.exit
 
 lookuphost.exit:                                  ; preds = %13, %19, %23
-  %24 = load ptr, ptr %3, align 8, !tbaa !66
+  %24 = load ptr, ptr %3, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
@@ -4145,20 +4145,20 @@ lookuphost.exit:                                  ; preds = %13, %19, %23
 
 25:                                               ; preds = %lookuphost.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !68
+  %27 = load i32, ptr %26, align 4, !tbaa !69
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !71
+  %29 = load i32, ptr %28, align 8, !tbaa !72
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !72
+  %31 = load i32, ptr %30, align 4, !tbaa !73
   %32 = call i32 @socket(i32 noundef %27, i32 noundef %29, i32 noundef %31) #21
   %.not29 = icmp eq i32 %32, -1
   br i1 %.not29, label %62, label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !73
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !74
+  %37 = load i32, ptr %36, align 8, !tbaa !75
   %38 = call i32 @connect(i32 noundef %32, ptr noundef %35, i32 noundef %37) #21
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %47
@@ -4367,7 +4367,7 @@ define internal fastcc void @read_ascii_response(ptr noundef nonnull %0, i64 nou
 27:                                               ; preds = %22, %9
   %.113 = phi i1 [ true, %9 ], [ %19, %22 ]
   %.1 = phi i64 [ %.0, %9 ], [ %23, %22 ]
-  br i1 %.113, label %3, label %28, !llvm.loop !75
+  br i1 %.113, label %3, label %28, !llvm.loop !76
 
 28:                                               ; preds = %27
   ret void
@@ -4448,7 +4448,7 @@ define internal fastcc void @safe_send(ptr noundef %0, i64 noundef %1, i1 nounde
 41:                                               ; preds = %32, %38
   %.1 = phi i64 [ %.0, %32 ], [ %40, %38 ]
   %42 = icmp ult i64 %.1, %1
-  br i1 %42, label %.split, label %.split20.us, !llvm.loop !49
+  br i1 %42, label %.split, label %.split20.us, !llvm.loop !77
 
 .split20.us:                                      ; preds = %16, %41
   ret void
@@ -4877,7 +4877,7 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
 24:                                               ; preds = %22, %11
   %.217 = phi i64 [ %.015, %11 ], [ %23, %22 ]
   %25 = icmp ult i64 %.217, %1
-  br i1 %25, label %.preheader, label %.thread, !llvm.loop !76
+  br i1 %25, label %.preheader, label %.thread, !llvm.loop !78
 
 .thread:                                          ; preds = %18, %24, %2
   %.014 = phi i1 [ true, %2 ], [ false, %18 ], [ true, %24 ]
@@ -5109,7 +5109,7 @@ safe_recv_packet.exit.us:                         ; preds = %42, %safe_send.exit
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext 1, i16 noundef zeroext 0)
   %49 = add nuw nsw i32 %.026.us, 1
   %exitcond31.not = icmp eq i32 %49, 10
-  br i1 %exitcond31.not, label %.split.us, label %.split.us.i.preheader.us, !llvm.loop !77
+  br i1 %exitcond31.not, label %.split.us, label %.split.us.i.preheader.us, !llvm.loop !79
 
 .split.us.i.preheader:                            ; preds = %storage_command.exit, %safe_send.exit
   %.026 = phi i32 [ %67, %safe_send.exit ], [ 0, %storage_command.exit ]
@@ -5152,7 +5152,7 @@ safe_recv_packet.exit.us:                         ; preds = %42, %safe_send.exit
 safe_send.exit:                                   ; preds = %62
   %67 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %67, 10
-  br i1 %exitcond.not, label %.split.us, label %.split.us.i.preheader, !llvm.loop !77
+  br i1 %exitcond.not, label %.split.us, label %.split.us.i.preheader, !llvm.loop !80
 
 .split.us:                                        ; preds = %safe_send.exit, %safe_recv_packet.exit.us
   %68 = icmp eq i8 %1, 17
@@ -5342,7 +5342,7 @@ safe_recv_packet.exit13.us:                       ; preds = %safe_send.exit.us, 
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext 2, i16 noundef zeroext %.)
   %49 = add nuw nsw i32 %.014.us, 1
   %exitcond18.not = icmp eq i32 %49, 10
-  br i1 %exitcond18.not, label %.split.us, label %.split.us.i.preheader.us, !llvm.loop !78
+  br i1 %exitcond18.not, label %.split.us, label %.split.us.i.preheader.us, !llvm.loop !81
 
 .split.us.i.preheader:                            ; preds = %storage_command.exit, %77
   %.014 = phi i32 [ %78, %77 ], [ 0, %storage_command.exit ]
@@ -5411,7 +5411,7 @@ safe_recv_packet.exit13:                          ; preds = %68, %70
 77:                                               ; preds = %safe_send.exit, %safe_recv_packet.exit13
   %78 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %78, 10
-  br i1 %exitcond.not, label %.split.us, label %.split.us.i.preheader, !llvm.loop !78
+  br i1 %exitcond.not, label %.split.us, label %.split.us.i.preheader, !llvm.loop !82
 
 .split.us:                                        ; preds = %77, %safe_recv_packet.exit13.us
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #21
@@ -5691,7 +5691,7 @@ safe_recv_packet.exit39.us:                       ; preds = %118, %safe_send.exi
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext 3, i16 noundef zeroext 0)
   %125 = add nuw nsw i32 %.044.us, 1
   %exitcond50.not = icmp eq i32 %125, 10
-  br i1 %exitcond50.not, label %.split.us, label %.split.us.i30.preheader.us, !llvm.loop !79
+  br i1 %exitcond50.not, label %.split.us, label %.split.us.i30.preheader.us, !llvm.loop !83
 
 .split.us.i30.preheader:                          ; preds = %storage_command.exit29, %safe_send.exit35
   %.044 = phi i32 [ %143, %safe_send.exit35 ], [ 0, %storage_command.exit29 ]
@@ -5734,7 +5734,7 @@ safe_recv_packet.exit39.us:                       ; preds = %118, %safe_send.exi
 safe_send.exit35:                                 ; preds = %138
   %143 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %143, 10
-  br i1 %exitcond.not, label %.split.us, label %.split.us.i30.preheader, !llvm.loop !79
+  br i1 %exitcond.not, label %.split.us, label %.split.us.i30.preheader, !llvm.loop !84
 
 .split.us:                                        ; preds = %safe_send.exit35, %safe_recv_packet.exit39.us
   %144 = icmp eq i8 %1, 19
@@ -6333,7 +6333,7 @@ ext_command.exit45:                               ; preds = %109, %114
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #21
   %117 = add nuw nsw i32 %.061, 1
   %exitcond.not = icmp eq i32 %117, 10
-  br i1 %exitcond.not, label %.split.us.i46, label %104, !llvm.loop !80
+  br i1 %exitcond.not, label %.split.us.i46, label %104, !llvm.loop !85
 
 .split.us.i46:                                    ; preds = %ext_command.exit45, %130
   %.0.us.i47 = phi i64 [ %.1.us.i48, %130 ], [ 0, %ext_command.exit45 ]
@@ -6398,7 +6398,7 @@ safe_recv_packet.exit55:                          ; preds = %139, %141
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext %1, i16 noundef zeroext 0)
   %148 = add nuw nsw i32 %.162, 1
   %exitcond66.not = icmp eq i32 %148, 10
-  br i1 %exitcond66.not, label %149, label %139, !llvm.loop !81
+  br i1 %exitcond66.not, label %149, label %139, !llvm.loop !86
 
 149:                                              ; preds = %safe_recv_packet.exit55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -6721,7 +6721,7 @@ safe_recv_packet.exit.us:                         ; preds = %45, %safe_send.exit
 55:                                               ; preds = %safe_recv_packet.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond17.not, label %.split12.us, label %.split.us.i.preheader.us, !llvm.loop !82
+  br i1 %exitcond17.not, label %.split12.us, label %.split.us.i.preheader.us, !llvm.loop !87
 
 .split.us.i.preheader:                            ; preds = %arithmetic_command.exit, %safe_send.exit
   %.010 = phi i32 [ %73, %safe_send.exit ], [ 0, %arithmetic_command.exit ]
@@ -6764,7 +6764,7 @@ safe_recv_packet.exit.us:                         ; preds = %45, %safe_send.exit
 safe_send.exit:                                   ; preds = %68
   %73 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %73, 10
-  br i1 %exitcond.not, label %.split12.us, label %.split.us.i.preheader, !llvm.loop !82
+  br i1 %exitcond.not, label %.split12.us, label %.split.us.i.preheader, !llvm.loop !88
 
 .split.us:                                        ; preds = %safe_recv_packet.exit.us
   call void @__assert_fail(ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.62, i32 noundef 1720, ptr noundef nonnull @__PRETTY_FUNCTION__.test_binary_incr_impl) #22
@@ -6898,7 +6898,7 @@ safe_recv_packet.exit.us:                         ; preds = %45, %safe_send.exit
 56:                                               ; preds = %safe_recv_packet.exit.us
   %57 = add nsw i32 %.023.us, -1
   %.not28 = icmp eq i32 %.023.us, 0
-  br i1 %.not28, label %.split.us.i12.preheader, label %.split.us.i.preheader.us, !llvm.loop !83
+  br i1 %.not28, label %.split.us.i12.preheader, label %.split.us.i.preheader.us, !llvm.loop !89
 
 .split.us.i12.preheader:                          ; preds = %safe_send.exit, %56
   br label %.split.us.i12
@@ -6944,7 +6944,7 @@ safe_recv_packet.exit.us:                         ; preds = %45, %safe_send.exit
 safe_send.exit:                                   ; preds = %70
   %75 = add nsw i32 %.023, -1
   %.not = icmp eq i32 %.023, 0
-  br i1 %.not, label %.split.us.i12.preheader, label %.split.us.i.preheader, !llvm.loop !83
+  br i1 %.not, label %.split.us.i12.preheader, label %.split.us.i.preheader, !llvm.loop !90
 
 .split.us:                                        ; preds = %safe_recv_packet.exit.us
   call void @__assert_fail(ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.62, i32 noundef 1757, ptr noundef nonnull @__PRETTY_FUNCTION__.test_binary_decr_impl) #22
@@ -7572,7 +7572,7 @@ safe_send.exit86:                                 ; preds = %234
 
 safe_recv_packet.exit90:                          ; preds = %safe_send.exit86, %240
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext 0, i16 noundef zeroext 1)
-  br i1 %153, label %152, label %247, !llvm.loop !84
+  br i1 %153, label %152, label %247, !llvm.loop !91
 
 247:                                              ; preds = %safe_recv_packet.exit90
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #21
@@ -8095,14 +8095,14 @@ safe_recv_packet.exit10:                          ; preds = %.split
   store i32 %21, ptr %8, align 8, !tbaa !6
   %22 = zext i32 %21 to i64
   %23 = tail call fastcc zeroext i1 @safe_recv(ptr noundef %11, i64 noundef %22)
-  br i1 %23, label %.split, label %._crit_edge, !llvm.loop !85
+  br i1 %23, label %.split, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.split, %safe_recv_packet.exit10, %.split6, %safe_recv_packet.exit
   tail call void @free(ptr noundef nonnull %2) #21
   br label %24
 
 24:                                               ; preds = %._crit_edge, %1
-  store volatile i8 0, ptr @hickup_thread_running, align 1, !tbaa !52
+  store volatile i8 0, ptr @hickup_thread_running, align 1, !tbaa !53
   store i1 false, ptr @allow_closed_read, align 1
   ret ptr null
 }
@@ -8208,40 +8208,47 @@ attributes #28 = { cold }
 !46 = distinct !{!46, !5}
 !47 = !{!38, !14, i64 8}
 !48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
+!49 = distinct !{!49, !5, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !51 = distinct !{!51, !5}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"_Bool", !7, i64 0}
-!54 = !{i8 0, i8 2}
-!55 = !{}
-!56 = distinct !{!56, !5}
-!57 = !{!58, !13, i64 0}
-!58 = !{!"testcase", !13, i64 0, !14, i64 8}
-!59 = distinct !{!59, !5}
-!60 = !{!58, !14, i64 8}
-!61 = distinct !{!61, !5}
+!52 = distinct !{!52, !5}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"_Bool", !7, i64 0}
+!55 = !{i8 0, i8 2}
+!56 = !{}
+!57 = distinct !{!57, !5}
+!58 = !{!59, !13, i64 0}
+!59 = !{!"testcase", !13, i64 0, !14, i64 8}
+!60 = distinct !{!60, !5}
+!61 = !{!59, !14, i64 8}
 !62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS8addrinfo", !14, i64 0}
-!68 = !{!69, !10, i64 4}
-!69 = !{!"addrinfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !70, i64 24, !13, i64 32, !67, i64 40}
-!70 = !{!"p1 _ZTS8sockaddr", !14, i64 0}
-!71 = !{!69, !10, i64 8}
-!72 = !{!69, !10, i64 12}
-!73 = !{!69, !70, i64 24}
-!74 = !{!69, !10, i64 16}
-!75 = distinct !{!75, !5}
+!66 = distinct !{!66, !5}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS8addrinfo", !14, i64 0}
+!69 = !{!70, !10, i64 4}
+!70 = !{!"addrinfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !71, i64 24, !13, i64 32, !68, i64 40}
+!71 = !{!"p1 _ZTS8sockaddr", !14, i64 0}
+!72 = !{!70, !10, i64 8}
+!73 = !{!70, !10, i64 12}
+!74 = !{!70, !71, i64 24}
+!75 = !{!70, !10, i64 16}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
 !78 = distinct !{!78, !5}
-!79 = distinct !{!79, !5}
+!79 = distinct !{!79, !5, !50}
 !80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
+!81 = distinct !{!81, !5, !50}
 !82 = distinct !{!82, !5}
-!83 = distinct !{!83, !5}
+!83 = distinct !{!83, !5, !50}
 !84 = distinct !{!84, !5}
 !85 = distinct !{!85, !5}
+!86 = distinct !{!86, !5}
+!87 = distinct !{!87, !5, !50}
+!88 = distinct !{!88, !5}
+!89 = distinct !{!89, !5, !50}
+!90 = distinct !{!90, !5}
+!91 = distinct !{!91, !5}
+!92 = distinct !{!92, !5}

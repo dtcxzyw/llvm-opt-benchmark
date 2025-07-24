@@ -584,7 +584,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !34
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !74
+  %38 = load ptr, ptr %37, align 8, !tbaa !75
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !11
   %41 = sub i64 0, %40
@@ -610,13 +610,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %53, label %.lr.ph, label %.preheader43
 
 .lr.ph:                                           ; preds = %49
-  %54 = load ptr, ptr %0, align 8, !tbaa !75
+  %54 = load ptr, ptr %0, align 8, !tbaa !76
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !34
   %58 = mul nsw i64 %57, %.03451
   %59 = getelementptr i32, ptr %55, i64 %58
-  %60 = load ptr, ptr %48, align 8, !tbaa !76
+  %60 = load ptr, ptr %48, align 8, !tbaa !77
   %61 = load ptr, ptr %60, align 8, !tbaa !39
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !34
@@ -636,20 +636,20 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   store i32 %70, ptr %68, align 4, !tbaa !67
   %71 = add nuw nsw i64 %.03345, 1
   %exitcond.not = icmp eq i64 %71, %.03550
-  br i1 %exitcond.not, label %.preheader43, label %67, !llvm.loop !77
+  br i1 %exitcond.not, label %.preheader43, label %67, !llvm.loop !78
 
 .preheader:                                       ; preds = %.lr.ph47, %.preheader43
   %72 = icmp slt i64 %52, %34
   br i1 %72, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %.preheader
-  %73 = load ptr, ptr %0, align 8, !tbaa !75
+  %73 = load ptr, ptr %0, align 8, !tbaa !76
   %74 = load ptr, ptr %73, align 8, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !34
   %77 = mul nsw i64 %76, %.03451
   %78 = getelementptr i32, ptr %74, i64 %77
-  %79 = load ptr, ptr %48, align 8, !tbaa !76
+  %79 = load ptr, ptr %48, align 8, !tbaa !77
   %80 = load ptr, ptr %79, align 8, !tbaa !39
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !34
@@ -659,25 +659,25 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 .lr.ph47:                                         ; preds = %.preheader43, %.lr.ph47
   %.03246 = phi i64 [ %100, %.lr.ph47 ], [ %.03550, %.preheader43 ]
-  %85 = load ptr, ptr %0, align 8, !tbaa !75
+  %85 = load ptr, ptr %0, align 8, !tbaa !76
   %86 = load ptr, ptr %85, align 8, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !34
   %89 = mul nsw i64 %88, %.03451
   %90 = getelementptr i32, ptr %86, i64 %89
   %91 = getelementptr i32, ptr %90, i64 %.03246
-  %92 = load ptr, ptr %48, align 8, !tbaa !76
+  %92 = load ptr, ptr %48, align 8, !tbaa !77
   %93 = load ptr, ptr %92, align 8, !tbaa !39
   %94 = getelementptr inbounds i32, ptr %93, i64 %.03246
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !34
   %97 = mul nsw i64 %96, %.03451
   %98 = getelementptr inbounds i32, ptr %94, i64 %97
-  %99 = load <2 x i64>, ptr %98, align 1, !tbaa !78
-  store <2 x i64> %99, ptr %91, align 16, !tbaa !78
+  %99 = load <2 x i64>, ptr %98, align 1, !tbaa !79
+  store <2 x i64> %99, ptr %91, align 16, !tbaa !79
   %100 = add nsw i64 %.03246, 4
   %101 = icmp slt i64 %100, %52
-  br i1 %101, label %.lr.ph47, label %.preheader, !llvm.loop !79
+  br i1 %101, label %.lr.ph47, label %.preheader, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %105, %.preheader
   %102 = add nsw i64 %.03550, %42
@@ -685,7 +685,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %34, i64 %103)
   %104 = add nuw nsw i64 %.03451, 1
   %exitcond56.not = icmp eq i64 %104, %36
-  br i1 %exitcond56.not, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS4_IKS6_Lin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEELi0ELi0EE3runERSE_.exit, label %49, !llvm.loop !80
+  br i1 %exitcond56.not, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS4_IKS6_Lin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEELi0ELi0EE3runERSE_.exit, label %49, !llvm.loop !81
 
 105:                                              ; preds = %.lr.ph49, %105
   %.048 = phi i64 [ %52, %.lr.ph49 ], [ %109, %105 ]
@@ -695,7 +695,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   store i32 %108, ptr %106, align 4, !tbaa !67
   %109 = add nsw i64 %.048, 1
   %110 = icmp slt i64 %109, %34
-  br i1 %110, label %105, label %._crit_edge, !llvm.loop !81
+  br i1 %110, label %105, label %._crit_edge, !llvm.loop !82
 
 _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS4_IKS6_Lin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEELi0ELi0EE3runERSE_.exit: ; preds = %._crit_edge.us.i, %._crit_edge, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit, %.preheader.lr.ph.i, %7
   ret void
@@ -800,12 +800,13 @@ attributes #13 = { nounwind allocsize(0) }
 !70 = !{!71, !51, i64 24}
 !71 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEENS2_INS3_IKS5_Lin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEE", !45, i64 0, !47, i64 8, !49, i64 16, !51, i64 24}
 !72 = distinct !{!72, !65}
-!73 = distinct !{!73, !65}
-!74 = !{!37, !22, i64 24}
-!75 = !{!71, !45, i64 0}
-!76 = !{!71, !47, i64 8}
-!77 = distinct !{!77, !65}
-!78 = !{!8, !8, i64 0}
-!79 = distinct !{!79, !65}
+!73 = distinct !{!73, !65, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = !{!37, !22, i64 24}
+!76 = !{!71, !45, i64 0}
+!77 = !{!71, !47, i64 8}
+!78 = distinct !{!78, !65}
+!79 = !{!8, !8, i64 0}
 !80 = distinct !{!80, !65}
 !81 = distinct !{!81, !65}
+!82 = distinct !{!82, !65}

@@ -1417,7 +1417,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %57 = add i32 %56, %28
   %58 = zext i32 %57 to i64
   %59 = icmp ult i64 %2, %58
-  br i1 %59, label %.thread, label %.lr.ph.split.us
+  br i1 %59, label %.thread, label %.lr.ph.split.us, !llvm.loop !54
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
   %60 = phi i32 [ %89, %85 ], [ %25, %.lr.ph ]
@@ -1515,7 +1515,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %115 = add i32 %114, %101
   %116 = zext i32 %115 to i64
   %117 = icmp ult i64 %2, %116
-  br i1 %117, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %117, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %110, %97
   %118 = phi i32 [ %92, %97 ], [ %101, %110 ]
@@ -1789,4 +1789,6 @@ attributes #8 = { nounwind allocsize(0) }
 !51 = !{i64 2149015495, i64 2149015534, i64 2149015555, i64 2149015592, i64 2149015615, i64 2149015485}
 !52 = !{i64 2158225427}
 !53 = distinct !{!53, !10, !11}
-!54 = distinct !{!54, !10, !11}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !10, !11}

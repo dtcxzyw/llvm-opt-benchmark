@@ -1000,7 +1000,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %80 = fadd double %.1120144, %79
   %81 = add nuw nsw i32 %.0121143, 1
   %exitcond.not = icmp eq i32 %81, 16
-  br i1 %exitcond.not, label %.split.us, label %.preheader142.split, !llvm.loop !46
+  br i1 %exitcond.not, label %.split.us, label %.preheader142.split, !llvm.loop !48
 
 .split.us:                                        ; preds = %.preheader142.split, %.preheader142.split.us
   %.us-phi = phi double [ %58, %.preheader142.split.us ], [ %80, %.preheader142.split ]
@@ -1013,7 +1013,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   store float %84, ptr %85, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond180.not, label %.lr.ph, label %.preheader142, !llvm.loop !47
+  br i1 %exitcond180.not, label %.lr.ph, label %.preheader142, !llvm.loop !49
 
 .preheader140:                                    ; preds = %100, %24
   %.not132155 = icmp slt i32 %1, 0
@@ -1049,12 +1049,12 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   store float %98, ptr %99, align 4, !tbaa !16
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %88
-  br i1 %exitcond191.not, label %._crit_edge.us, label %90, !llvm.loop !48
+  br i1 %exitcond191.not, label %._crit_edge.us, label %90, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %90
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.preheader137.lr.ph, label %.preheader139.us, !llvm.loop !49
+  br i1 %exitcond196.not, label %.preheader137.lr.ph, label %.preheader139.us, !llvm.loop !51
 
 100:                                              ; preds = %.lr.ph, %100
   %indvars.iv181 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next182, %100 ]
@@ -1072,7 +1072,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   store float %110, ptr %106, align 4, !tbaa !16
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count185
-  br i1 %exitcond186.not, label %.preheader140, label %100, !llvm.loop !50
+  br i1 %exitcond186.not, label %.preheader140, label %100, !llvm.loop !52
 
 .preheader137.lr.ph:                              ; preds = %._crit_edge.us, %.preheader139.lr.ph
   %111 = icmp slt i32 %4, %spec.store.select135
@@ -1099,7 +1099,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   store float %123, ptr %gep218, align 4, !tbaa !16
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %115
-  br i1 %exitcond206.not, label %._crit_edge.us164, label %116, !llvm.loop !51
+  br i1 %exitcond206.not, label %._crit_edge.us164, label %116, !llvm.loop !53
 
 124:                                              ; preds = %.lr.ph158.us, %124
   %indvars.iv197 = phi i64 [ %114, %.lr.ph158.us ], [ %indvars.iv.next198, %124 ]
@@ -1109,7 +1109,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   store float %126, ptr %gep, align 4, !tbaa !16
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %115
-  br i1 %exitcond201.not, label %.preheader.us, label %124, !llvm.loop !52
+  br i1 %exitcond201.not, label %.preheader.us, label %124, !llvm.loop !54
 
 .preheader.us:                                    ; preds = %124
   %127 = trunc nuw nsw i64 %indvars.iv207 to i32
@@ -1126,7 +1126,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
 ._crit_edge.us164:                                ; preds = %116
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge163, label %.lr.ph158.us, !llvm.loop !53
+  br i1 %exitcond211.not, label %._crit_edge163, label %.lr.ph158.us, !llvm.loop !55
 
 ._crit_edge163:                                   ; preds = %._crit_edge.us164, %.preheader140, %.preheader137.lr.ph
   store ptr %.0, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 8), align 8, !tbaa !25
@@ -1230,11 +1230,13 @@ attributes #16 = { nounwind allocsize(0) }
 !43 = distinct !{!43, !24}
 !44 = distinct !{!44, !24}
 !45 = distinct !{!45, !24}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
+!46 = distinct !{!46, !24, !47}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !48 = distinct !{!48, !24}
 !49 = distinct !{!49, !24}
 !50 = distinct !{!50, !24}
-!51 = distinct !{!51, !24}
+!51 = distinct !{!51, !24, !47}
 !52 = distinct !{!52, !24}
 !53 = distinct !{!53, !24}
+!54 = distinct !{!54, !24}
+!55 = distinct !{!55, !24, !47}

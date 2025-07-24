@@ -141,7 +141,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store float %..i44, ptr %62, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %22
   %.not42 = icmp eq ptr %.039, %1
@@ -236,5 +236,7 @@ attributes #4 = { nounwind }
 !43 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
 !44 = !{!36, !13, i64 12}
 !45 = !{!37, !37, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !47}

@@ -1016,7 +1016,7 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %32, align 4
   tail call void @ConditionVariableSleep(ptr noundef nonnull %42, i32 noundef 134217735) #8
-  br label %.split.us
+  br label %.split.us, !llvm.loop !14
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %48
   store i8 1, ptr %38, align 4
@@ -1116,14 +1116,14 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
 
 107:                                              ; preds = %104
   store i32 4, ptr %105, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   store i8 0, ptr %100, align 4
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %108) #8
   br label %_bt_parallel_done.exit
 
 .critedge.i:                                      ; preds = %104
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   store i8 0, ptr %100, align 4
   br label %_bt_parallel_done.exit
 
@@ -1172,14 +1172,14 @@ define dso_local void @_bt_parallel_done(ptr noundef readonly captures(none) %0)
 
 22:                                               ; preds = %19
   store i32 4, ptr %20, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   store i8 0, ptr %15, align 4
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %23) #8
   br label %24
 
 .critedge:                                        ; preds = %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   store i8 0, ptr %15, align 4
   br label %24
 
@@ -1209,7 +1209,7 @@ define dso_local void @_bt_parallel_release(ptr noundef readonly captures(none) 
   store i32 %2, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 3, ptr %15, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
   store i8 0, ptr %9, align 4
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @ConditionVariableSignal(ptr noundef nonnull %16) #8
@@ -1275,10 +1275,10 @@ define dso_local void @_bt_parallel_primscan_schedule(ptr noundef readonly captu
   %33 = load i32, ptr %23, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %28, label %.loopexit, !llvm.loop !16
+  br i1 %35, label %28, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %28, %22, %14, %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !19
   store i8 0, ptr %10, align 4
   ret void
 }
@@ -1342,7 +1342,7 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initialize
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %254
-  br label %.loopexit, !llvm.loop !18
+  br label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %29
   %.0 = phi i32 [ 1, %29 ], [ %37, %.loopexit.loopexit ]
@@ -1690,7 +1690,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %.1.i.i = phi ptr [ %186, %185 ], [ %.02530.i.i, %191 ], [ %.02530.i.i, %181 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %btreevacuumposting.exit.i, label %176, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %btreevacuumposting.exit.i, label %176, !llvm.loop !21
 
 btreevacuumposting.exit.i:                        ; preds = %199
   %200 = icmp eq ptr %.1.i.i, null
@@ -1739,7 +1739,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %211, %203, %btreeva
   %.2.i = phi i32 [ %218, %btreevacuumposting.exit.thread.i ], [ %.1131232.i, %159 ], [ %165, %164 ]
   %220 = add i16 %.0137229.i, 1
   %.not167.i = icmp ugt i16 %220, %.0.i178.i
-  br i1 %.not167.i, label %.loopexit220.loopexit.i, label %145, !llvm.loop !20
+  br i1 %.not167.i, label %.loopexit220.loopexit.i, label %145, !llvm.loop !22
 
 .loopexit220.loopexit.i:                          ; preds = %219
   %221 = sitofp i32 %.2134.i to double
@@ -1781,7 +1781,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %211, %203, %btreeva
   call void @pfree(ptr noundef %234) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph237.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph237.i, !llvm.loop !23
 
 235:                                              ; preds = %.loopexit220.i
   %236 = load i16, ptr %16, align 8
@@ -1858,7 +1858,7 @@ btvacuumpage.exit:                                ; preds = %250, %.loopexit221.
 254:                                              ; preds = %btvacuumpage.exit, %253
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %44
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 255:                                              ; preds = %42
   store i32 %37, ptr %1, align 8
@@ -1970,11 +1970,13 @@ attributes #10 = { noreturn nounwind }
 !11 = !{i64 2151308855}
 !12 = distinct !{!12, !7}
 !13 = !{i64 2151309528}
-!14 = !{i64 2151310358}
-!15 = !{i64 2151309925}
-!16 = distinct !{!16, !7}
-!17 = !{i64 2151310809}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{i64 2151310358}
+!17 = !{i64 2151309925}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = !{i64 2151310809}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

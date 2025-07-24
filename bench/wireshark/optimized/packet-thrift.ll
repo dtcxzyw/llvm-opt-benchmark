@@ -1983,7 +1983,7 @@ switch.lookup:                                    ; preds = %82
   %102 = add nuw nsw i32 %.0120, 1
   %103 = load i32, ptr %13, align 4
   %.not114 = icmp slt i32 %102, %103
-  br i1 %.not114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %.not114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %101
   %.0120 = phi i32 [ %102, %101 ], [ 0, %.lr.ph ]
@@ -2228,7 +2228,7 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
 108:                                              ; preds = %.lr.ph
   %109 = add nuw nsw i32 %.0132151, 1
   %exitcond.not = icmp eq i32 %109, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %97, %108
   %.1125152 = phi i32 [ %111, %108 ], [ %53, %97 ]
@@ -2825,7 +2825,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %67 = getelementptr inbounds nuw i8, ptr %.083108, i64 10
   %68 = load i8, ptr %67, align 2, !range !6, !noundef !7
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %119, label %70, !llvm.loop !12
+  br i1 %69, label %119, label %70, !llvm.loop !14
 
 70:                                               ; preds = %66
   %71 = load i32, ptr %12, align 4
@@ -2844,7 +2844,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %79 = getelementptr inbounds nuw i8, ptr %.083108, i64 10
   %80 = load i8, ptr %79, align 2, !range !6, !noundef !7
   %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %119, label %82, !llvm.loop !12
+  br i1 %81, label %119, label %82, !llvm.loop !14
 
 82:                                               ; preds = %78
   %83 = load i32, ptr %12, align 4
@@ -4599,7 +4599,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
 232:                                              ; preds = %236
   %233 = add nuw nsw i32 %.083.i107, 1
   %exitcond.not = icmp eq i32 %233, %211
-  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph108, !llvm.loop !13
+  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph108, !llvm.loop !15
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %232
   %.083.i107 = phi i32 [ %233, %232 ], [ 0, %.lr.ph108.preheader ]
@@ -5353,7 +5353,7 @@ select.unfold.us:                                 ; preds = %49, %47, %18, %15
   %.142.us = phi i32 [ %.04176.us, %18 ], [ %48, %47 ], [ %17, %15 ], [ %.04176.us, %49 ]
   %50 = add i32 %.05771.us, 1
   %exitcond99.not = icmp eq i32 %50, %6
-  br i1 %exitcond99.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %exitcond99.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %.04176 = phi i32 [ %.142, %select.unfold ], [ 0, %.lr.ph ]
@@ -5455,7 +5455,7 @@ select.unfold:                                    ; preds = %52, %55, %83, %88
   %.142 = phi i32 [ %.04176, %55 ], [ %84, %83 ], [ %90, %88 ], [ %.04176, %52 ]
   %91 = add i32 %.05771, 1
   %exitcond.not = icmp eq i32 %91, %6
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !17
 
 .thread:                                          ; preds = %select.unfold, %60, %68, %81, %76, %85, %52, %select.unfold.us, %46, %39, %34, %29, %12, %49, %4
   %.2 = phi i32 [ 0, %4 ], [ -1, %49 ], [ -1, %12 ], [ -1, %29 ], [ -1, %34 ], [ -1, %39 ], [ -1, %46 ], [ %.142.us, %select.unfold.us ], [ -1, %52 ], [ -1, %85 ], [ -1, %76 ], [ -1, %81 ], [ -1, %68 ], [ -1, %60 ], [ %.142, %select.unfold ]
@@ -5624,7 +5624,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 98:                                               ; preds = %.lr.ph
   %99 = add nuw nsw i32 %.09098, 1
   %exitcond.not = icmp eq i32 %99, %.091
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %97, %98
   %.09098 = phi i32 [ %99, %98 ], [ 0, %97 ]
@@ -5822,7 +5822,7 @@ default.unreachable74:                            ; preds = %6
   %62 = add nuw nsw i32 %.06871.us, 1
   %63 = load i32, ptr %9, align 4
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
 
 65:                                               ; preds = %.lr.ph.split.us
   %66 = load i32, ptr %8, align 4
@@ -5838,7 +5838,7 @@ default.unreachable74:                            ; preds = %6
   %72 = add nuw nsw i32 %.06871, 1
   %73 = load i32, ptr %9, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %.06871 = phi i32 [ %72, %71 ], [ 0, %.lr.ph ]
@@ -6092,7 +6092,7 @@ is_thrift_strict_version.exit:                    ; preds = %21
 38:                                               ; preds = %34
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35)
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %13, label %.loopexit, !llvm.loop !17
+  br i1 %40, label %13, label %.loopexit, !llvm.loop !21
 
 41:                                               ; preds = %34, %13
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 332
@@ -6717,11 +6717,15 @@ attributes #10 = { nounwind }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!16 = distinct !{!16, !9, !11}
 !17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9, !11}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

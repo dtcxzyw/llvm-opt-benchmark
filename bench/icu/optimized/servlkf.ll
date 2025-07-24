@@ -688,7 +688,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us: ; preds =
   %27 = load ptr, ptr %8, align 8, !tbaa !24
   %28 = call noundef ptr @uhash_nextElement_77(ptr noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.not14.us = icmp eq ptr %28, null
-  br i1 %.not14.us, label %.thread, label %.lr.ph.split.us
+  br i1 %.not14.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !30
 
 .split.us:                                        ; preds = %22
   %29 = landingpad { ptr, i32 }
@@ -845,3 +845,5 @@ attributes #16 = { noreturn nounwind }
 !27 = !{!"_ZTS10UHashtable", !28, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !29, i64 64, !29, i64 68, !7, i64 72, !7, i64 73}
 !28 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
 !29 = !{!"float", !7, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}

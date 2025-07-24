@@ -875,7 +875,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
 
 _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i: ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.i, i64 16
-  %83 = load double, ptr %82, align 8, !tbaa !179
+  %83 = load double, ptr %82, align 8, !tbaa !180
   %84 = fcmp uno double %83, 0.000000e+00
   br i1 %84, label %.thread55.i, label %76
 
@@ -887,7 +887,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   %87 = sext i32 %86 to i64
   %88 = urem i64 %87, %64
   %89 = getelementptr inbounds nuw ptr, ptr %65, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !181
+  %90 = load ptr, ptr %89, align 8, !tbaa !182
   %.not.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i.i, label %.thread.i, label %91
 
@@ -900,7 +900,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 
 96:                                               ; preds = %99
   %97 = icmp eq i32 %86, %101
-  br i1 %97, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !182
+  br i1 %97, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !183
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %91, %96
   %.020.i.i.i.i.i = phi ptr [ %98, %96 ], [ %92, %91 ]
@@ -914,15 +914,15 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   %102 = sext i32 %101 to i64
   %103 = urem i64 %102, %64
   %.not19.i.i.i.i.i = icmp eq i64 %103, %88
-  br i1 %.not19.i.i.i.i.i, label %96, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !182
+  br i1 %.not19.i.i.i.i.i, label %96, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !183
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %99
-  br label %.thread.i, !llvm.loop !182
+  br label %.thread.i, !llvm.loop !183
 
 _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i: ; preds = %96, %91
   %.sroa.06.1.i.i.i = phi ptr [ %92, %91 ], [ %98, %96 ]
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %105 = load double, ptr %104, align 8, !tbaa !179
+  %105 = load double, ptr %104, align 8, !tbaa !180
   %106 = fcmp uno double %105, 0.000000e+00
   br i1 %106, label %.thread55.i, label %107
 
@@ -937,7 +937,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   %.442.i = phi double [ %111, %107 ], [ %.02364.i, %.lr.ph.split.i ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
   %112 = add nuw i64 %.02763.i, 1
   %exitcond.not.i = icmp eq i64 %112, %62
-  br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.i, !llvm.loop !178
+  br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.i, !llvm.loop !184
 
 .thread55.i:                                      ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i
   %113 = getelementptr inbounds nuw i8, ptr %36, i64 336
@@ -974,7 +974,7 @@ _ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiES
   %132 = load i32, ptr %7, align 8, !tbaa !4
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !183
+  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !185
 
 135:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1000,7 +1000,7 @@ _ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %135
   %.1 = phi i32 [ %26, %._crit_edge ], [ 0, %_ZNKSt8functionIFbPKdiEEclES1_i.exit ]
   %141 = add nsw i32 %.01830, 1
   %142 = icmp slt i32 %141, %15
-  br i1 %142, label %.preheader, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, !llvm.loop !184
+  br i1 %142, label %.preheader, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, !llvm.loop !186
 
 _ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge:  ; preds = %140, %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %4
   ret void
@@ -1056,7 +1056,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   %31 = sext i32 %25 to i64
   %32 = urem i64 %31, %11
   %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !181
+  %34 = load ptr, ptr %33, align 8, !tbaa !182
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %.thread63, label %35
 
@@ -1069,7 +1069,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 
 40:                                               ; preds = %43
   %41 = icmp eq i32 %25, %45
-  br i1 %41, label %.loopexit76, label %.lr.ph.i.i.i.i.i, !llvm.loop !182
+  br i1 %41, label %.loopexit76, label %.lr.ph.i.i.i.i.i, !llvm.loop !183
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %35, %40
   %.020.i.i.i.i.i = phi ptr [ %42, %40 ], [ %36, %35 ]
@@ -1083,10 +1083,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %11
   %.not19.i.i.i.i.i = icmp eq i64 %47, %32
-  br i1 %.not19.i.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !182
+  br i1 %.not19.i.i.i.i.i, label %40, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !183
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %43
-  br label %.thread63, !llvm.loop !182
+  br label %.thread63, !llvm.loop !183
 
 .loopexit76:                                      ; preds = %40, %26
   br i1 %.not.not.i.i.i, label %.preheader147, label %.loopexit76..thread_crit_edge
@@ -1111,7 +1111,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 .thread:                                          ; preds = %.loopexit76..thread_crit_edge, %35
   %.pre-phi125 = phi i64 [ %.pre124, %.loopexit76..thread_crit_edge ], [ %32, %35 ]
   %52 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi125
-  %53 = load ptr, ptr %52, align 8, !tbaa !181
+  %53 = load ptr, ptr %52, align 8, !tbaa !182
   %.not.i.i.i.i.i15 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i15, label %.loopexit.i.i, label %54
 
@@ -1124,7 +1124,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 
 59:                                               ; preds = %62
   %60 = icmp eq i32 %25, %64
-  br i1 %60, label %.loopexit, label %.lr.ph.i.i.i.i.i16, !llvm.loop !182
+  br i1 %60, label %.loopexit, label %.lr.ph.i.i.i.i.i16, !llvm.loop !183
 
 .lr.ph.i.i.i.i.i16:                               ; preds = %54, %59
   %.020.i.i.i.i.i17 = phi ptr [ %61, %59 ], [ %55, %54 ]
@@ -1138,10 +1138,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   %65 = sext i32 %64 to i64
   %66 = urem i64 %65, %11
   %.not19.i.i.i.i.i19 = icmp eq i64 %66, %.pre-phi125
-  br i1 %.not19.i.i.i.i.i19, label %59, label %..loopexit_crit_edge21.i.i.i.i.i20, !llvm.loop !182
+  br i1 %.not19.i.i.i.i.i19, label %59, label %..loopexit_crit_edge21.i.i.i.i.i20, !llvm.loop !183
 
 ..loopexit_crit_edge21.i.i.i.i.i20:               ; preds = %62
-  br label %.loopexit.i.i, !llvm.loop !182
+  br label %.loopexit.i.i, !llvm.loop !183
 
 .loopexit.i.i:                                    ; preds = %.thread, %.lr.ph.i.i.i.i.i16, %.preheader147, %..loopexit_crit_edge21.i.i.i.i.i20
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #12
@@ -1249,7 +1249,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %119 = getelementptr inbounds nuw i32, ptr %118, i64 %23
   %.0.i = load i32, ptr %119, align 4, !tbaa !154
   %120 = icmp sgt i32 %.0.i, -1
-  br i1 %120, label %22, label %.loopexit79, !llvm.loop !185
+  br i1 %120, label %22, label %.loopexit79, !llvm.loop !187
 
 .preheader86:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
   %.2103 = phi i32 [ %.0.i54, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
@@ -1274,7 +1274,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %129 = sext i32 %123 to i64
   %130 = urem i64 %129, %11
   %131 = getelementptr inbounds nuw ptr, ptr %12, i64 %130
-  %132 = load ptr, ptr %131, align 8, !tbaa !181
+  %132 = load ptr, ptr %131, align 8, !tbaa !182
   %.not.i.i.i.i.i28 = icmp eq ptr %132, null
   br i1 %.not.i.i.i.i.i28, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, label %133
 
@@ -1287,7 +1287,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 
 138:                                              ; preds = %141
   %139 = icmp eq i32 %123, %143
-  br i1 %139, label %.loopexit83, label %.lr.ph.i.i.i.i.i29, !llvm.loop !182
+  br i1 %139, label %.loopexit83, label %.lr.ph.i.i.i.i.i29, !llvm.loop !183
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %133, %138
   %.020.i.i.i.i.i30 = phi ptr [ %140, %138 ], [ %134, %133 ]
@@ -1301,10 +1301,10 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %144 = sext i32 %143 to i64
   %145 = urem i64 %144, %11
   %.not19.i.i.i.i.i32 = icmp eq i64 %145, %130
-  br i1 %.not19.i.i.i.i.i32, label %138, label %..loopexit_crit_edge21.i.i.i.i.i33, !llvm.loop !182
+  br i1 %.not19.i.i.i.i.i32, label %138, label %..loopexit_crit_edge21.i.i.i.i.i33, !llvm.loop !183
 
 ..loopexit_crit_edge21.i.i.i.i.i33:               ; preds = %141
-  br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, !llvm.loop !182
+  br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, !llvm.loop !183
 
 .loopexit83:                                      ; preds = %138, %124
   br i1 %.not.not.i.i.i, label %.preheader154, label %.loopexit83..thread70_crit_edge
@@ -1329,7 +1329,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 .thread70:                                        ; preds = %.loopexit83..thread70_crit_edge, %133
   %.pre-phi129 = phi i64 [ %.pre128, %.loopexit83..thread70_crit_edge ], [ %130, %133 ]
   %150 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi129
-  %151 = load ptr, ptr %150, align 8, !tbaa !181
+  %151 = load ptr, ptr %150, align 8, !tbaa !182
   %.not.i.i.i.i.i42 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i.i42, label %.loopexit.i.i48, label %152
 
@@ -1342,7 +1342,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 
 157:                                              ; preds = %160
   %158 = icmp eq i32 %123, %162
-  br i1 %158, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53, label %.lr.ph.i.i.i.i.i43, !llvm.loop !182
+  br i1 %158, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53, label %.lr.ph.i.i.i.i.i43, !llvm.loop !183
 
 .lr.ph.i.i.i.i.i43:                               ; preds = %152, %157
   %.020.i.i.i.i.i44 = phi ptr [ %159, %157 ], [ %153, %152 ]
@@ -1356,10 +1356,10 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %163 = sext i32 %162 to i64
   %164 = urem i64 %163, %11
   %.not19.i.i.i.i.i46 = icmp eq i64 %164, %.pre-phi129
-  br i1 %.not19.i.i.i.i.i46, label %157, label %..loopexit_crit_edge21.i.i.i.i.i47, !llvm.loop !182
+  br i1 %.not19.i.i.i.i.i46, label %157, label %..loopexit_crit_edge21.i.i.i.i.i47, !llvm.loop !183
 
 ..loopexit_crit_edge21.i.i.i.i.i47:               ; preds = %160
-  br label %.loopexit.i.i48, !llvm.loop !182
+  br label %.loopexit.i.i48, !llvm.loop !183
 
 .loopexit.i.i48:                                  ; preds = %.thread70, %.lr.ph.i.i.i.i.i43, %.preheader154, %..loopexit_crit_edge21.i.i.i.i.i47
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #12
@@ -1414,7 +1414,7 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %179, %181
   %187 = getelementptr inbounds nuw i32, ptr %186, i64 %121
   %.0.i54 = load i32, ptr %187, align 4, !tbaa !154
   %188 = icmp sgt i32 %.0.i54, -1
-  br i1 %188, label %.preheader86, label %.loopexit79, !llvm.loop !186
+  br i1 %188, label %.preheader86, label %.loopexit79, !llvm.loop !188
 
 .loopexit79:                                      ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit, %_ZNK8LightGBM4Tree8DecisionEdi.exit
   %.1 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i54, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
@@ -1429,63 +1429,12 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8LightGBM4GBDT7PredictEPKdPdPKNS_27PredictionEarlyStopInstanceE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !187
+  %5 = load ptr, ptr %0, align 8, !tbaa !189
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %9 = load i8, ptr %8, align 8, !tbaa !189, !range !148, !noundef !149
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %.preheader, label %.loopexit
-
-.preheader:                                       ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %12 = load i32, ptr %11, align 8, !tbaa !4
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %15 = load i32, ptr %14, align 4, !tbaa !120
-  %16 = sitofp i32 %15 to double
-  %wide.trip.count = zext nneg i32 %12 to i64
-  br label %17
-
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !155
-  %20 = fdiv double %19, %16
-  store double %20, ptr %18, align 8, !tbaa !155
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !190
-
-.loopexit:                                        ; preds = %17, %.preheader, %4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !191
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %27, label %23
-
-23:                                               ; preds = %.loopexit
-  %24 = load ptr, ptr %22, align 8, !tbaa !187
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef %2)
-  br label %27
-
-27:                                               ; preds = %23, %.loopexit
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZNK8LightGBM4GBDT12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEPdPKNS_27PredictionEarlyStopInstanceE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !187
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %9 = load i8, ptr %8, align 8, !tbaa !189, !range !148, !noundef !149
+  %9 = load i8, ptr %8, align 8, !tbaa !191, !range !148, !noundef !149
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.preheader, label %.loopexit
 
@@ -1514,12 +1463,63 @@ define void @_ZNK8LightGBM4GBDT12PredictByMapERKSt13unordered_mapIidSt4hashIiESt
 
 .loopexit:                                        ; preds = %17, %.preheader, %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !191
+  %22 = load ptr, ptr %21, align 8, !tbaa !193
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %.loopexit
-  %24 = load ptr, ptr %22, align 8, !tbaa !187
+  %24 = load ptr, ptr %22, align 8, !tbaa !189
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef %2)
+  br label %27
+
+27:                                               ; preds = %23, %.loopexit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK8LightGBM4GBDT12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEPdPKNS_27PredictionEarlyStopInstanceE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+  %5 = load ptr, ptr %0, align 8, !tbaa !189
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %9 = load i8, ptr %8, align 8, !tbaa !191, !range !148, !noundef !149
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %.preheader, label %.loopexit
+
+.preheader:                                       ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %12 = load i32, ptr %11, align 8, !tbaa !4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %.preheader
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %15 = load i32, ptr %14, align 4, !tbaa !120
+  %16 = sitofp i32 %15 to double
+  %wide.trip.count = zext nneg i32 %12 to i64
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %19 = load double, ptr %18, align 8, !tbaa !155
+  %20 = fdiv double %19, %16
+  store double %20, ptr %18, align 8, !tbaa !155
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !194
+
+.loopexit:                                        ; preds = %17, %.preheader, %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !193
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %27, label %23
+
+23:                                               ; preds = %.loopexit
+  %24 = load ptr, ptr %22, align 8, !tbaa !189
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef %2)
@@ -1573,7 +1573,7 @@ _ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit:    ; preds = %.lr.ph, %22
   store double %.0.i, ptr %25, align 8, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !195
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1620,7 +1620,7 @@ _ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equ
   store double %.0.i, ptr %25, align 8, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !194
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !196
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
@@ -1842,20 +1842,22 @@ attributes #13 = { nounwind }
 !175 = !{!"float", !9, i64 0}
 !176 = !{!172, !173, i64 0}
 !177 = distinct !{!177, !158}
-!178 = distinct !{!178, !158}
-!179 = !{!180, !51, i64 8}
-!180 = !{!"_ZTSSt4pairIKidE", !8, i64 0, !51, i64 8}
-!181 = !{!173, !173, i64 0}
-!182 = distinct !{!182, !158}
+!178 = distinct !{!178, !158, !179}
+!179 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!180 = !{!181, !51, i64 8}
+!181 = !{!"_ZTSSt4pairIKidE", !8, i64 0, !51, i64 8}
+!182 = !{!173, !173, i64 0}
 !183 = distinct !{!183, !158}
 !184 = distinct !{!184, !158}
 !185 = distinct !{!185, !158}
 !186 = distinct !{!186, !158}
-!187 = !{!188, !188, i64 0}
-!188 = !{!"vtable pointer", !10, i64 0}
-!189 = !{!5, !52, i64 552}
-!190 = distinct !{!190, !158}
-!191 = !{!5, !27, i64 40}
+!187 = distinct !{!187, !158}
+!188 = distinct !{!188, !158}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"vtable pointer", !10, i64 0}
+!191 = !{!5, !52, i64 552}
 !192 = distinct !{!192, !158}
-!193 = distinct !{!193, !158}
+!193 = !{!5, !27, i64 40}
 !194 = distinct !{!194, !158}
+!195 = distinct !{!195, !158}
+!196 = distinct !{!196, !158}

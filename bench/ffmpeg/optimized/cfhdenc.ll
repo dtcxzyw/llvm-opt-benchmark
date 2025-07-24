@@ -548,7 +548,7 @@ define internal range(i32 -2147483648, 1) i32 @cfhd_encode_frame(ptr noundef %0,
 process_alpha.exit:                               ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %.process_alpha.exit_crit_edge, %41
   %.0514 = phi i64 [ %65, %41 ], [ %.pre1168, %.process_alpha.exit_crit_edge ], [ %71, %.preheader.lr.ph.i ], [ %71, %._crit_edge.us.i ]
   %.0506 = phi ptr [ %56, %41 ], [ %68, %.process_alpha.exit_crit_edge ], [ %68, %.preheader.lr.ph.i ], [ %68, %._crit_edge.us.i ]
-  %89 = load ptr, ptr %7, align 8, !tbaa !69
+  %89 = load ptr, ptr %7, align 8, !tbaa !70
   %90 = sext i32 %47 to i64
   %91 = ashr i32 %.pre, %42
   tail call void %89(ptr noundef %.0506, ptr noundef %59, ptr noundef %61, i64 noundef %.0514, i64 noundef %90, i64 noundef %90, i32 noundef %91, i32 noundef %.pre1110) #6
@@ -559,7 +559,7 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   %96 = load i32, ptr %46, align 8, !tbaa !47
   %97 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %98 = load ptr, ptr %97, align 8, !tbaa !40
-  %99 = load ptr, ptr %22, align 8, !tbaa !70
+  %99 = load ptr, ptr %22, align 8, !tbaa !71
   %100 = sext i32 %96 to i64
   %101 = shl nsw i32 %49, 1
   tail call void %99(ptr noundef %92, ptr noundef %95, ptr noundef %98, i64 noundef %90, i64 noundef %100, i64 noundef %100, i32 noundef %45, i32 noundef %101) #6
@@ -567,7 +567,7 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   %103 = load ptr, ptr %60, align 8, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %105 = load ptr, ptr %104, align 8, !tbaa !40
-  %106 = load ptr, ptr %22, align 8, !tbaa !70
+  %106 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %106(ptr noundef %102, ptr noundef %103, ptr noundef %105, i64 noundef %90, i64 noundef %100, i64 noundef %100, i32 noundef %45, i32 noundef %101) #6
   %107 = getelementptr inbounds nuw i8, ptr %43, i64 344
   %108 = load i32, ptr %107, align 8, !tbaa !47
@@ -616,18 +616,18 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   store i16 %127, ptr %125, align 2, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %124, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge.us, label %124, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %124
   %128 = getelementptr inbounds i16, ptr %.0515973.us, i64 %123
   %129 = add nuw nsw i32 %.0513974.us, 1
   %exitcond1067.not = icmp eq i32 %129, %smax1066
-  br i1 %exitcond1067.not, label %._crit_edge975, label %.preheader968.us, !llvm.loop !72
+  br i1 %exitcond1067.not, label %._crit_edge975, label %.preheader968.us, !llvm.loop !73
 
 ._crit_edge975:                                   ; preds = %._crit_edge.us, %.preheader968.lr.ph, %.._crit_edge975_crit_edge
   %.pre-phi1175 = phi i32 [ %.pre1174, %.._crit_edge975_crit_edge ], [ %120, %.preheader968.lr.ph ], [ %120, %._crit_edge.us ]
   %.pre-phi1173 = phi i64 [ %.pre1172, %.._crit_edge975_crit_edge ], [ %123, %.preheader968.lr.ph ], [ %123, %._crit_edge.us ]
-  %130 = load ptr, ptr %7, align 8, !tbaa !69
+  %130 = load ptr, ptr %7, align 8, !tbaa !70
   %131 = sext i32 %108 to i64
   tail call void %130(ptr noundef %113, ptr noundef %115, ptr noundef %117, i64 noundef %.pre-phi1173, i64 noundef %131, i64 noundef %131, i32 noundef %.pre-phi1175, i32 noundef %118) #6
   %132 = load ptr, ptr %116, align 8, !tbaa !40
@@ -635,13 +635,13 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   %134 = load ptr, ptr %133, align 8, !tbaa !40
   %135 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %136 = load ptr, ptr %135, align 8, !tbaa !40
-  %137 = load ptr, ptr %22, align 8, !tbaa !70
+  %137 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %137(ptr noundef %132, ptr noundef %134, ptr noundef %136, i64 noundef %131, i64 noundef %131, i64 noundef %131, i32 noundef %110, i32 noundef %118) #6
   %138 = load ptr, ptr %114, align 8, !tbaa !40
   %139 = load ptr, ptr %116, align 8, !tbaa !40
   %140 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %141 = load ptr, ptr %140, align 8, !tbaa !40
-  %142 = load ptr, ptr %22, align 8, !tbaa !70
+  %142 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %142(ptr noundef %138, ptr noundef %139, ptr noundef %141, i64 noundef %131, i64 noundef %131, i64 noundef %131, i32 noundef %110, i32 noundef %118) #6
   %143 = getelementptr inbounds nuw i8, ptr %43, i64 216
   %144 = load i32, ptr %143, align 8, !tbaa !47
@@ -686,16 +686,16 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   store i16 %162, ptr %160, align 2, !tbaa !60
   %indvars.iv.next1069 = add nuw nsw i64 %indvars.iv1068, 1
   %exitcond1073.not = icmp eq i64 %indvars.iv.next1069, %wide.trip.count1072
-  br i1 %exitcond1073.not, label %._crit_edge.us979, label %159, !llvm.loop !73
+  br i1 %exitcond1073.not, label %._crit_edge.us979, label %159, !llvm.loop !74
 
 ._crit_edge.us979:                                ; preds = %159
   %163 = getelementptr inbounds i16, ptr %.0511977.us, i64 %157
   %164 = add nuw nsw i32 %.0510978.us, 1
   %exitcond1075.not = icmp eq i32 %164, %smax1074
-  br i1 %exitcond1075.not, label %.loopexit, label %.preheader967.us, !llvm.loop !74
+  br i1 %exitcond1075.not, label %.loopexit, label %.preheader967.us, !llvm.loop !75
 
 .loopexit:                                        ; preds = %._crit_edge.us979, %._crit_edge975, %.preheader967.lr.ph
-  %165 = load ptr, ptr %7, align 8, !tbaa !69
+  %165 = load ptr, ptr %7, align 8, !tbaa !70
   %166 = shl nsw i32 %144, 1
   %167 = sext i32 %166 to i64
   %168 = sext i32 %144 to i64
@@ -706,25 +706,25 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   %172 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %173 = load ptr, ptr %172, align 8, !tbaa !40
   %174 = load ptr, ptr %151, align 8, !tbaa !40
-  %175 = load ptr, ptr %22, align 8, !tbaa !70
+  %175 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %175(ptr noundef %174, ptr noundef %171, ptr noundef %173, i64 noundef %168, i64 noundef %168, i64 noundef %168, i32 noundef %146, i32 noundef %.pre1176) #6
   %176 = load ptr, ptr %93, align 8, !tbaa !40
   %177 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %178 = load ptr, ptr %177, align 8, !tbaa !40
   %179 = load ptr, ptr %57, align 8, !tbaa !40
-  %180 = load ptr, ptr %22, align 8, !tbaa !70
+  %180 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %180(ptr noundef %179, ptr noundef %176, ptr noundef %178, i64 noundef %168, i64 noundef %168, i64 noundef %168, i32 noundef %146, i32 noundef %.pre1176) #6
   %indvars.iv.next1077 = add nuw nsw i64 %indvars.iv1076, 1
   %181 = load i32, ptr %13, align 4, !tbaa !30
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next1077, %182
-  br i1 %183, label %38, label %._crit_edge, !llvm.loop !75
+  br i1 %183, label %38, label %._crit_edge, !llvm.loop !76
 
 184:                                              ; preds = %._crit_edge
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %186 = load ptr, ptr %185, align 8, !tbaa !76
+  %186 = load ptr, ptr %185, align 8, !tbaa !77
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %188 = load i32, ptr %187, align 8, !tbaa !78
+  %188 = load i32, ptr %187, align 8, !tbaa !79
   %189 = icmp sgt i32 %188, -1
   br i1 %189, label %191, label %190
 
@@ -734,29 +734,29 @@ process_alpha.exit:                               ; preds = %._crit_edge.us.i, %
   unreachable
 
 191:                                              ; preds = %184
-  store ptr %186, ptr %8, align 8, !tbaa !79
+  store ptr %186, ptr %8, align 8, !tbaa !80
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %186, ptr %192, align 8, !tbaa !80
+  store ptr %186, ptr %192, align 8, !tbaa !81
   %193 = zext nneg i32 %188 to i64
   %194 = getelementptr inbounds nuw i8, ptr %186, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %194, ptr %195, align 8, !tbaa !81
+  store ptr %194, ptr %195, align 8, !tbaa !82
   %196 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 0, ptr %196, align 8, !tbaa !82
+  store i32 0, ptr %196, align 8, !tbaa !83
   %197 = icmp samesign ugt i32 %188, 1
   br i1 %197, label %bytestream2_put_be16.exit, label %bytestream2_put_be16.exit529.thread
 
 bytestream2_put_be16.exit:                        ; preds = %191
-  store i16 256, ptr %186, align 1, !tbaa !83
-  %198 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %186, align 1, !tbaa !84
+  %198 = load ptr, ptr %8, align 8, !tbaa !80
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 2
-  store ptr %199, ptr %8, align 8, !tbaa !79
-  %.pr = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %199, ptr %8, align 8, !tbaa !80
+  %.pr = load i32, ptr %196, align 8, !tbaa !83
   %.not.i526 = icmp eq i32 %.pr, 0
   br i1 %.not.i526, label %200, label %bytestream2_put_be16.exit529.thread
 
 200:                                              ; preds = %bytestream2_put_be16.exit
-  %201 = load ptr, ptr %195, align 8, !tbaa !81
+  %201 = load ptr, ptr %195, align 8, !tbaa !82
   %202 = ptrtoint ptr %201 to i64
   %203 = ptrtoint ptr %199 to i64
   %204 = sub i64 %202, %203
@@ -764,16 +764,16 @@ bytestream2_put_be16.exit:                        ; preds = %191
   br i1 %205, label %bytestream2_put_be16.exit527, label %bytestream2_put_be16.exit529.thread
 
 bytestream2_put_be16.exit527:                     ; preds = %200
-  store i16 2304, ptr %199, align 1, !tbaa !83
-  %206 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 2304, ptr %199, align 1, !tbaa !84
+  %206 = load ptr, ptr %8, align 8, !tbaa !80
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 2
-  store ptr %207, ptr %8, align 8, !tbaa !79
-  %.pr766 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %207, ptr %8, align 8, !tbaa !80
+  %.pr766 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i528 = icmp eq i32 %.pr766, 0
   br i1 %.not.i528, label %208, label %bytestream2_put_be16.exit529.thread
 
 208:                                              ; preds = %bytestream2_put_be16.exit527
-  %209 = load ptr, ptr %195, align 8, !tbaa !81
+  %209 = load ptr, ptr %195, align 8, !tbaa !82
   %210 = ptrtoint ptr %209 to i64
   %211 = ptrtoint ptr %207 to i64
   %212 = sub i64 %210, %211
@@ -781,17 +781,17 @@ bytestream2_put_be16.exit527:                     ; preds = %200
   br i1 %213, label %bytestream2_put_be16.exit529, label %bytestream2_put_be16.exit529.thread
 
 bytestream2_put_be16.exit529:                     ; preds = %208
-  store i16 512, ptr %207, align 1, !tbaa !83
-  %214 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 512, ptr %207, align 1, !tbaa !84
+  %214 = load ptr, ptr %8, align 8, !tbaa !80
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 2
-  store ptr %215, ptr %8, align 8, !tbaa !79
-  %.pr768 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %215, ptr %8, align 8, !tbaa !80
+  %.pr768 = load i32, ptr %196, align 8, !tbaa !83
   %216 = load i32, ptr %13, align 4, !tbaa !30
   %.not.i530 = icmp eq i32 %.pr768, 0
   br i1 %.not.i530, label %217, label %bytestream2_put_be16.exit529.thread
 
 217:                                              ; preds = %bytestream2_put_be16.exit529
-  %218 = load ptr, ptr %195, align 8, !tbaa !81
+  %218 = load ptr, ptr %195, align 8, !tbaa !82
   %219 = ptrtoint ptr %218 to i64
   %220 = ptrtoint ptr %215 to i64
   %221 = sub i64 %219, %220
@@ -801,15 +801,15 @@ bytestream2_put_be16.exit529:                     ; preds = %208
 223:                                              ; preds = %217
   %224 = trunc i32 %216 to i16
   %225 = tail call i16 @llvm.bswap.i16(i16 %224)
-  store i16 %225, ptr %215, align 1, !tbaa !83
-  %226 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %225, ptr %215, align 1, !tbaa !84
+  %226 = load ptr, ptr %8, align 8, !tbaa !80
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  store ptr %227, ptr %8, align 8, !tbaa !79
+  store ptr %227, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit531
 
 bytestream2_put_be16.exit529.thread:              ; preds = %208, %bytestream2_put_be16.exit527, %191, %bytestream2_put_be16.exit, %200, %217, %bytestream2_put_be16.exit529
   %228 = phi ptr [ %215, %217 ], [ %215, %bytestream2_put_be16.exit529 ], [ %207, %bytestream2_put_be16.exit527 ], [ %207, %208 ], [ %199, %bytestream2_put_be16.exit ], [ %199, %200 ], [ %186, %191 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit531
 
 bytestream2_put_be16.exit531:                     ; preds = %223, %bytestream2_put_be16.exit529.thread
@@ -820,12 +820,12 @@ bytestream2_put_be16.exit531:                     ; preds = %223, %bytestream2_p
 
 ._crit_edge983:                                   ; preds = %bytestream2_put_be32.exit, %bytestream2_put_be16.exit531
   %232 = phi ptr [ %229, %bytestream2_put_be16.exit531 ], [ %314, %bytestream2_put_be32.exit ]
-  %233 = load i32, ptr %196, align 8, !tbaa !82
+  %233 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i532 = icmp eq i32 %233, 0
   br i1 %.not.i532, label %234, label %bytestream2_put_be16.exit537.thread
 
 234:                                              ; preds = %._crit_edge983
-  %235 = load ptr, ptr %195, align 8, !tbaa !81
+  %235 = load ptr, ptr %195, align 8, !tbaa !82
   %236 = ptrtoint ptr %235 to i64
   %237 = ptrtoint ptr %232 to i64
   %238 = sub i64 %236, %237
@@ -833,16 +833,16 @@ bytestream2_put_be16.exit531:                     ; preds = %223, %bytestream2_p
   br i1 %239, label %bytestream2_put_be16.exit533, label %bytestream2_put_be16.exit537.thread
 
 bytestream2_put_be16.exit533:                     ; preds = %234
-  store i16 2560, ptr %232, align 1, !tbaa !83
-  %240 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 2560, ptr %232, align 1, !tbaa !84
+  %240 = load ptr, ptr %8, align 8, !tbaa !80
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 2
-  store ptr %241, ptr %8, align 8, !tbaa !79
-  %.pr770 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %241, ptr %8, align 8, !tbaa !80
+  %.pr770 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i534 = icmp eq i32 %.pr770, 0
   br i1 %.not.i534, label %242, label %bytestream2_put_be16.exit537.thread
 
 242:                                              ; preds = %bytestream2_put_be16.exit533
-  %243 = load ptr, ptr %195, align 8, !tbaa !81
+  %243 = load ptr, ptr %195, align 8, !tbaa !82
   %244 = ptrtoint ptr %243 to i64
   %245 = ptrtoint ptr %241 to i64
   %246 = sub i64 %244, %245
@@ -850,16 +850,16 @@ bytestream2_put_be16.exit533:                     ; preds = %234
   br i1 %247, label %bytestream2_put_be16.exit535, label %bytestream2_put_be16.exit537.thread
 
 bytestream2_put_be16.exit535:                     ; preds = %242
-  store i16 0, ptr %241, align 1, !tbaa !83
-  %248 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %241, align 1, !tbaa !84
+  %248 = load ptr, ptr %8, align 8, !tbaa !80
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 2
-  store ptr %249, ptr %8, align 8, !tbaa !79
-  %.pr772 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %249, ptr %8, align 8, !tbaa !80
+  %.pr772 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i536 = icmp eq i32 %.pr772, 0
   br i1 %.not.i536, label %250, label %bytestream2_put_be16.exit537.thread
 
 250:                                              ; preds = %bytestream2_put_be16.exit535
-  %251 = load ptr, ptr %195, align 8, !tbaa !81
+  %251 = load ptr, ptr %195, align 8, !tbaa !82
   %252 = ptrtoint ptr %251 to i64
   %253 = ptrtoint ptr %249 to i64
   %254 = sub i64 %252, %253
@@ -868,20 +868,20 @@ bytestream2_put_be16.exit535:                     ; preds = %242
 
 bytestream2_put_be16.exit537.thread:              ; preds = %242, %bytestream2_put_be16.exit533, %._crit_edge983, %234, %bytestream2_put_be16.exit535, %250
   %256 = phi ptr [ %249, %bytestream2_put_be16.exit535 ], [ %249, %250 ], [ %241, %bytestream2_put_be16.exit533 ], [ %241, %242 ], [ %232, %._crit_edge983 ], [ %232, %234 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit543.thread
 
 bytestream2_put_be16.exit537:                     ; preds = %250
-  store i16 2816, ptr %249, align 1, !tbaa !83
-  %257 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 2816, ptr %249, align 1, !tbaa !84
+  %257 = load ptr, ptr %8, align 8, !tbaa !80
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 2
-  store ptr %258, ptr %8, align 8, !tbaa !79
-  %.pr774 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %258, ptr %8, align 8, !tbaa !80
+  %.pr774 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i538 = icmp eq i32 %.pr774, 0
   br i1 %.not.i538, label %259, label %bytestream2_put_be16.exit543.thread
 
 259:                                              ; preds = %bytestream2_put_be16.exit537
-  %260 = load ptr, ptr %195, align 8, !tbaa !81
+  %260 = load ptr, ptr %195, align 8, !tbaa !82
   %261 = ptrtoint ptr %260 to i64
   %262 = ptrtoint ptr %258 to i64
   %263 = sub i64 %261, %262
@@ -889,16 +889,16 @@ bytestream2_put_be16.exit537:                     ; preds = %250
   br i1 %264, label %bytestream2_put_be16.exit539, label %bytestream2_put_be16.exit543.thread
 
 bytestream2_put_be16.exit539:                     ; preds = %259
-  store i16 256, ptr %258, align 1, !tbaa !83
-  %265 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %258, align 1, !tbaa !84
+  %265 = load ptr, ptr %8, align 8, !tbaa !80
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 2
-  store ptr %266, ptr %8, align 8, !tbaa !79
-  %.pr776 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %266, ptr %8, align 8, !tbaa !80
+  %.pr776 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i540 = icmp eq i32 %.pr776, 0
   br i1 %.not.i540, label %267, label %bytestream2_put_be16.exit543.thread
 
 267:                                              ; preds = %bytestream2_put_be16.exit539
-  %268 = load ptr, ptr %195, align 8, !tbaa !81
+  %268 = load ptr, ptr %195, align 8, !tbaa !82
   %269 = ptrtoint ptr %268 to i64
   %270 = ptrtoint ptr %266 to i64
   %271 = sub i64 %269, %270
@@ -906,17 +906,17 @@ bytestream2_put_be16.exit539:                     ; preds = %259
   br i1 %272, label %bytestream2_put_be16.exit541, label %bytestream2_put_be16.exit543.thread
 
 bytestream2_put_be16.exit541:                     ; preds = %267
-  store i16 3072, ptr %266, align 1, !tbaa !83
-  %273 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3072, ptr %266, align 1, !tbaa !84
+  %273 = load ptr, ptr %8, align 8, !tbaa !80
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 2
-  store ptr %274, ptr %8, align 8, !tbaa !79
-  %.pr778 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %274, ptr %8, align 8, !tbaa !80
+  %.pr778 = load i32, ptr %196, align 8, !tbaa !83
   %275 = load i32, ptr %13, align 4, !tbaa !30
   %.not.i542 = icmp eq i32 %.pr778, 0
   br i1 %.not.i542, label %276, label %bytestream2_put_be16.exit543.thread
 
 276:                                              ; preds = %bytestream2_put_be16.exit541
-  %277 = load ptr, ptr %195, align 8, !tbaa !81
+  %277 = load ptr, ptr %195, align 8, !tbaa !82
   %278 = ptrtoint ptr %277 to i64
   %279 = ptrtoint ptr %274 to i64
   %280 = sub i64 %278, %279
@@ -926,16 +926,16 @@ bytestream2_put_be16.exit541:                     ; preds = %267
 bytestream2_put_be16.exit543:                     ; preds = %276
   %282 = trunc i32 %275 to i16
   %283 = tail call i16 @llvm.bswap.i16(i16 %282)
-  store i16 %283, ptr %274, align 1, !tbaa !83
-  %284 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %283, ptr %274, align 1, !tbaa !84
+  %284 = load ptr, ptr %8, align 8, !tbaa !80
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 2
-  store ptr %285, ptr %8, align 8, !tbaa !79
-  %.pr780 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %285, ptr %8, align 8, !tbaa !80
+  %.pr780 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i544 = icmp eq i32 %.pr780, 0
   br i1 %.not.i544, label %286, label %bytestream2_put_be16.exit543.thread
 
 286:                                              ; preds = %bytestream2_put_be16.exit543
-  %287 = load ptr, ptr %195, align 8, !tbaa !81
+  %287 = load ptr, ptr %195, align 8, !tbaa !82
   %288 = ptrtoint ptr %287 to i64
   %289 = ptrtoint ptr %285 to i64
   %290 = sub i64 %288, %289
@@ -943,15 +943,15 @@ bytestream2_put_be16.exit543:                     ; preds = %276
   br i1 %291, label %292, label %bytestream2_put_be16.exit543.thread
 
 292:                                              ; preds = %286
-  store i16 21504, ptr %285, align 1, !tbaa !83
-  %293 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 21504, ptr %285, align 1, !tbaa !84
+  %293 = load ptr, ptr %8, align 8, !tbaa !80
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 2
-  store ptr %294, ptr %8, align 8, !tbaa !79
+  store ptr %294, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit545
 
 bytestream2_put_be16.exit543.thread:              ; preds = %276, %bytestream2_put_be16.exit541, %bytestream2_put_be16.exit537.thread, %259, %bytestream2_put_be16.exit537, %bytestream2_put_be16.exit539, %267, %286, %bytestream2_put_be16.exit543
   %295 = phi ptr [ %285, %286 ], [ %285, %bytestream2_put_be16.exit543 ], [ %274, %bytestream2_put_be16.exit541 ], [ %274, %276 ], [ %266, %bytestream2_put_be16.exit539 ], [ %266, %267 ], [ %258, %bytestream2_put_be16.exit537 ], [ %258, %259 ], [ %256, %bytestream2_put_be16.exit537.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit545
 
 bytestream2_put_be16.exit545:                     ; preds = %292, %bytestream2_put_be16.exit543.thread
@@ -965,12 +965,12 @@ bytestream2_put_be16.exit545:                     ; preds = %292, %bytestream2_p
   %300 = phi i32 [ %313, %bytestream2_put_be32.exit ], [ %230, %bytestream2_put_be16.exit531 ]
   %301 = phi ptr [ %314, %bytestream2_put_be32.exit ], [ %229, %bytestream2_put_be16.exit531 ]
   %.0508981 = phi i32 [ %315, %bytestream2_put_be32.exit ], [ 0, %bytestream2_put_be16.exit531 ]
-  %302 = load i32, ptr %196, align 8, !tbaa !82
+  %302 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i738 = icmp eq i32 %302, 0
   br i1 %.not.i738, label %303, label %312
 
 303:                                              ; preds = %.lr.ph982
-  %304 = load ptr, ptr %195, align 8, !tbaa !81
+  %304 = load ptr, ptr %195, align 8, !tbaa !82
   %305 = ptrtoint ptr %304 to i64
   %306 = ptrtoint ptr %301 to i64
   %307 = sub i64 %305, %306
@@ -978,15 +978,15 @@ bytestream2_put_be16.exit545:                     ; preds = %292, %bytestream2_p
   br i1 %308, label %309, label %312
 
 309:                                              ; preds = %303
-  store i32 0, ptr %301, align 1, !tbaa !83
-  %310 = load ptr, ptr %8, align 8, !tbaa !79
+  store i32 0, ptr %301, align 1, !tbaa !84
+  %310 = load ptr, ptr %8, align 8, !tbaa !80
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 4
-  store ptr %311, ptr %8, align 8, !tbaa !79
+  store ptr %311, ptr %8, align 8, !tbaa !80
   %.pre1111 = load i32, ptr %13, align 4, !tbaa !30
   br label %bytestream2_put_be32.exit
 
 312:                                              ; preds = %303, %.lr.ph982
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be32.exit
 
 bytestream2_put_be32.exit:                        ; preds = %309, %312
@@ -994,7 +994,7 @@ bytestream2_put_be32.exit:                        ; preds = %309, %312
   %314 = phi ptr [ %311, %309 ], [ %301, %312 ]
   %315 = add nuw nsw i32 %.0508981, 1
   %316 = icmp slt i32 %315, %313
-  br i1 %316, label %.lr.ph982, label %._crit_edge983, !llvm.loop !84
+  br i1 %316, label %.lr.ph982, label %._crit_edge983, !llvm.loop !85
 
 317:                                              ; preds = %bytestream2_put_be16.exit545
   %318 = load i32, ptr %13, align 4, !tbaa !30
@@ -1004,12 +1004,12 @@ bytestream2_put_be32.exit:                        ; preds = %309, %312
 
 321:                                              ; preds = %bytestream2_put_be16.exit545, %317
   %322 = phi i16 [ %320, %317 ], [ 256, %bytestream2_put_be16.exit545 ]
-  %323 = load i32, ptr %196, align 8, !tbaa !82
+  %323 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i546 = icmp eq i32 %323, 0
   br i1 %.not.i546, label %324, label %bytestream2_put_be16.exit551.thread
 
 324:                                              ; preds = %321
-  %325 = load ptr, ptr %195, align 8, !tbaa !81
+  %325 = load ptr, ptr %195, align 8, !tbaa !82
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %296 to i64
   %328 = sub i64 %326, %327
@@ -1017,16 +1017,16 @@ bytestream2_put_be32.exit:                        ; preds = %309, %312
   br i1 %329, label %bytestream2_put_be16.exit547, label %bytestream2_put_be16.exit551.thread
 
 bytestream2_put_be16.exit547:                     ; preds = %324
-  store i16 %322, ptr %296, align 1, !tbaa !83
-  %330 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %322, ptr %296, align 1, !tbaa !84
+  %330 = load ptr, ptr %8, align 8, !tbaa !80
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 2
-  store ptr %331, ptr %8, align 8, !tbaa !79
-  %.pr782 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %331, ptr %8, align 8, !tbaa !80
+  %.pr782 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i548 = icmp eq i32 %.pr782, 0
   br i1 %.not.i548, label %332, label %bytestream2_put_be16.exit551.thread
 
 332:                                              ; preds = %bytestream2_put_be16.exit547
-  %333 = load ptr, ptr %195, align 8, !tbaa !81
+  %333 = load ptr, ptr %195, align 8, !tbaa !82
   %334 = ptrtoint ptr %333 to i64
   %335 = ptrtoint ptr %331 to i64
   %336 = sub i64 %334, %335
@@ -1034,16 +1034,16 @@ bytestream2_put_be16.exit547:                     ; preds = %324
   br i1 %337, label %bytestream2_put_be16.exit549, label %bytestream2_put_be16.exit551.thread
 
 bytestream2_put_be16.exit549:                     ; preds = %332
-  store i16 3328, ptr %331, align 1, !tbaa !83
-  %338 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3328, ptr %331, align 1, !tbaa !84
+  %338 = load ptr, ptr %8, align 8, !tbaa !80
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 2
-  store ptr %339, ptr %8, align 8, !tbaa !79
-  %.pr784 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %339, ptr %8, align 8, !tbaa !80
+  %.pr784 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i550 = icmp eq i32 %.pr784, 0
   br i1 %.not.i550, label %340, label %bytestream2_put_be16.exit551.thread
 
 340:                                              ; preds = %bytestream2_put_be16.exit549
-  %341 = load ptr, ptr %195, align 8, !tbaa !81
+  %341 = load ptr, ptr %195, align 8, !tbaa !82
   %342 = ptrtoint ptr %341 to i64
   %343 = ptrtoint ptr %339 to i64
   %344 = sub i64 %342, %343
@@ -1052,20 +1052,20 @@ bytestream2_put_be16.exit549:                     ; preds = %332
 
 bytestream2_put_be16.exit551.thread:              ; preds = %332, %bytestream2_put_be16.exit547, %321, %324, %bytestream2_put_be16.exit549, %340
   %346 = phi ptr [ %339, %bytestream2_put_be16.exit549 ], [ %339, %340 ], [ %331, %bytestream2_put_be16.exit547 ], [ %331, %332 ], [ %296, %321 ], [ %296, %324 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit559.thread
 
 bytestream2_put_be16.exit551:                     ; preds = %340
-  store i16 768, ptr %339, align 1, !tbaa !83
-  %347 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 768, ptr %339, align 1, !tbaa !84
+  %347 = load ptr, ptr %8, align 8, !tbaa !80
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 2
-  store ptr %348, ptr %8, align 8, !tbaa !79
-  %.pr786 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %348, ptr %8, align 8, !tbaa !80
+  %.pr786 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i552 = icmp eq i32 %.pr786, 0
   br i1 %.not.i552, label %349, label %bytestream2_put_be16.exit559.thread
 
 349:                                              ; preds = %bytestream2_put_be16.exit551
-  %350 = load ptr, ptr %195, align 8, !tbaa !81
+  %350 = load ptr, ptr %195, align 8, !tbaa !82
   %351 = ptrtoint ptr %350 to i64
   %352 = ptrtoint ptr %348 to i64
   %353 = sub i64 %351, %352
@@ -1073,16 +1073,16 @@ bytestream2_put_be16.exit551:                     ; preds = %340
   br i1 %354, label %bytestream2_put_be16.exit553, label %bytestream2_put_be16.exit559.thread
 
 bytestream2_put_be16.exit553:                     ; preds = %349
-  store i16 3584, ptr %348, align 1, !tbaa !83
-  %355 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3584, ptr %348, align 1, !tbaa !84
+  %355 = load ptr, ptr %8, align 8, !tbaa !80
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  store ptr %356, ptr %8, align 8, !tbaa !79
-  %.pr788 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %356, ptr %8, align 8, !tbaa !80
+  %.pr788 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i554 = icmp eq i32 %.pr788, 0
   br i1 %.not.i554, label %357, label %bytestream2_put_be16.exit559.thread
 
 357:                                              ; preds = %bytestream2_put_be16.exit553
-  %358 = load ptr, ptr %195, align 8, !tbaa !81
+  %358 = load ptr, ptr %195, align 8, !tbaa !82
   %359 = ptrtoint ptr %358 to i64
   %360 = ptrtoint ptr %356 to i64
   %361 = sub i64 %359, %360
@@ -1090,16 +1090,16 @@ bytestream2_put_be16.exit553:                     ; preds = %349
   br i1 %362, label %bytestream2_put_be16.exit555, label %bytestream2_put_be16.exit559.thread
 
 bytestream2_put_be16.exit555:                     ; preds = %357
-  store i16 2560, ptr %356, align 1, !tbaa !83
-  %363 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 2560, ptr %356, align 1, !tbaa !84
+  %363 = load ptr, ptr %8, align 8, !tbaa !80
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 2
-  store ptr %364, ptr %8, align 8, !tbaa !79
-  %.pr790 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %364, ptr %8, align 8, !tbaa !80
+  %.pr790 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i556 = icmp eq i32 %.pr790, 0
   br i1 %.not.i556, label %365, label %bytestream2_put_be16.exit559.thread
 
 365:                                              ; preds = %bytestream2_put_be16.exit555
-  %366 = load ptr, ptr %195, align 8, !tbaa !81
+  %366 = load ptr, ptr %195, align 8, !tbaa !82
   %367 = ptrtoint ptr %366 to i64
   %368 = ptrtoint ptr %364 to i64
   %369 = sub i64 %367, %368
@@ -1107,16 +1107,16 @@ bytestream2_put_be16.exit555:                     ; preds = %357
   br i1 %370, label %bytestream2_put_be16.exit557, label %bytestream2_put_be16.exit559.thread
 
 bytestream2_put_be16.exit557:                     ; preds = %365
-  store i16 3840, ptr %364, align 1, !tbaa !83
-  %371 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3840, ptr %364, align 1, !tbaa !84
+  %371 = load ptr, ptr %8, align 8, !tbaa !80
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 2
-  store ptr %372, ptr %8, align 8, !tbaa !79
-  %.pr792 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %372, ptr %8, align 8, !tbaa !80
+  %.pr792 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i558 = icmp eq i32 %.pr792, 0
   br i1 %.not.i558, label %373, label %bytestream2_put_be16.exit559.thread
 
 373:                                              ; preds = %bytestream2_put_be16.exit557
-  %374 = load ptr, ptr %195, align 8, !tbaa !81
+  %374 = load ptr, ptr %195, align 8, !tbaa !82
   %375 = ptrtoint ptr %374 to i64
   %376 = ptrtoint ptr %372 to i64
   %377 = sub i64 %375, %376
@@ -1125,20 +1125,20 @@ bytestream2_put_be16.exit557:                     ; preds = %365
 
 bytestream2_put_be16.exit559.thread:              ; preds = %365, %bytestream2_put_be16.exit555, %bytestream2_put_be16.exit551.thread, %349, %bytestream2_put_be16.exit551, %bytestream2_put_be16.exit553, %357, %bytestream2_put_be16.exit557, %373
   %379 = phi ptr [ %372, %bytestream2_put_be16.exit557 ], [ %372, %373 ], [ %364, %bytestream2_put_be16.exit555 ], [ %364, %365 ], [ %356, %bytestream2_put_be16.exit553 ], [ %356, %357 ], [ %348, %bytestream2_put_be16.exit551 ], [ %348, %349 ], [ %346, %bytestream2_put_be16.exit551.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit567.thread
 
 bytestream2_put_be16.exit559:                     ; preds = %373
-  store i16 512, ptr %372, align 1, !tbaa !83
-  %380 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 512, ptr %372, align 1, !tbaa !84
+  %380 = load ptr, ptr %8, align 8, !tbaa !80
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 2
-  store ptr %381, ptr %8, align 8, !tbaa !79
-  %.pr794 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %381, ptr %8, align 8, !tbaa !80
+  %.pr794 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i560 = icmp eq i32 %.pr794, 0
   br i1 %.not.i560, label %382, label %bytestream2_put_be16.exit567.thread
 
 382:                                              ; preds = %bytestream2_put_be16.exit559
-  %383 = load ptr, ptr %195, align 8, !tbaa !81
+  %383 = load ptr, ptr %195, align 8, !tbaa !82
   %384 = ptrtoint ptr %383 to i64
   %385 = ptrtoint ptr %381 to i64
   %386 = sub i64 %384, %385
@@ -1146,16 +1146,16 @@ bytestream2_put_be16.exit559:                     ; preds = %373
   br i1 %387, label %bytestream2_put_be16.exit561, label %bytestream2_put_be16.exit567.thread
 
 bytestream2_put_be16.exit561:                     ; preds = %382
-  store i16 4096, ptr %381, align 1, !tbaa !83
-  %388 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 4096, ptr %381, align 1, !tbaa !84
+  %388 = load ptr, ptr %8, align 8, !tbaa !80
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 2
-  store ptr %389, ptr %8, align 8, !tbaa !79
-  %.pr796 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %389, ptr %8, align 8, !tbaa !80
+  %.pr796 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i562 = icmp eq i32 %.pr796, 0
   br i1 %.not.i562, label %390, label %bytestream2_put_be16.exit567.thread
 
 390:                                              ; preds = %bytestream2_put_be16.exit561
-  %391 = load ptr, ptr %195, align 8, !tbaa !81
+  %391 = load ptr, ptr %195, align 8, !tbaa !82
   %392 = ptrtoint ptr %391 to i64
   %393 = ptrtoint ptr %389 to i64
   %394 = sub i64 %392, %393
@@ -1163,16 +1163,16 @@ bytestream2_put_be16.exit561:                     ; preds = %382
   br i1 %395, label %bytestream2_put_be16.exit563, label %bytestream2_put_be16.exit567.thread
 
 bytestream2_put_be16.exit563:                     ; preds = %390
-  store i16 768, ptr %389, align 1, !tbaa !83
-  %396 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 768, ptr %389, align 1, !tbaa !84
+  %396 = load ptr, ptr %8, align 8, !tbaa !80
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 2
-  store ptr %397, ptr %8, align 8, !tbaa !79
-  %.pr798 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %397, ptr %8, align 8, !tbaa !80
+  %.pr798 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i564 = icmp eq i32 %.pr798, 0
   br i1 %.not.i564, label %398, label %bytestream2_put_be16.exit567.thread
 
 398:                                              ; preds = %bytestream2_put_be16.exit563
-  %399 = load ptr, ptr %195, align 8, !tbaa !81
+  %399 = load ptr, ptr %195, align 8, !tbaa !82
   %400 = ptrtoint ptr %399 to i64
   %401 = ptrtoint ptr %397 to i64
   %402 = sub i64 %400, %401
@@ -1180,17 +1180,17 @@ bytestream2_put_be16.exit563:                     ; preds = %390
   br i1 %403, label %bytestream2_put_be16.exit565, label %bytestream2_put_be16.exit567.thread
 
 bytestream2_put_be16.exit565:                     ; preds = %398
-  store i16 5120, ptr %397, align 1, !tbaa !83
-  %404 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 5120, ptr %397, align 1, !tbaa !84
+  %404 = load ptr, ptr %8, align 8, !tbaa !80
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 2
-  store ptr %405, ptr %8, align 8, !tbaa !79
-  %.pr800 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %405, ptr %8, align 8, !tbaa !80
+  %.pr800 = load i32, ptr %196, align 8, !tbaa !83
   %406 = load i32, ptr %24, align 8, !tbaa !29
   %.not.i566 = icmp eq i32 %.pr800, 0
   br i1 %.not.i566, label %407, label %bytestream2_put_be16.exit567.thread
 
 407:                                              ; preds = %bytestream2_put_be16.exit565
-  %408 = load ptr, ptr %195, align 8, !tbaa !81
+  %408 = load ptr, ptr %195, align 8, !tbaa !82
   %409 = ptrtoint ptr %408 to i64
   %410 = ptrtoint ptr %405 to i64
   %411 = sub i64 %409, %410
@@ -1199,22 +1199,22 @@ bytestream2_put_be16.exit565:                     ; preds = %398
 
 bytestream2_put_be16.exit567.thread:              ; preds = %398, %bytestream2_put_be16.exit563, %bytestream2_put_be16.exit559.thread, %382, %bytestream2_put_be16.exit559, %bytestream2_put_be16.exit561, %390, %bytestream2_put_be16.exit565, %407
   %413 = phi ptr [ %405, %bytestream2_put_be16.exit565 ], [ %405, %407 ], [ %397, %bytestream2_put_be16.exit563 ], [ %397, %398 ], [ %389, %bytestream2_put_be16.exit561 ], [ %389, %390 ], [ %381, %bytestream2_put_be16.exit559 ], [ %381, %382 ], [ %379, %bytestream2_put_be16.exit559.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit575.thread
 
 bytestream2_put_be16.exit567:                     ; preds = %407
   %414 = trunc i32 %406 to i16
   %415 = tail call i16 @llvm.bswap.i16(i16 %414)
-  store i16 %415, ptr %405, align 1, !tbaa !83
-  %416 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %415, ptr %405, align 1, !tbaa !84
+  %416 = load ptr, ptr %8, align 8, !tbaa !80
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 2
-  store ptr %417, ptr %8, align 8, !tbaa !79
-  %.pr802 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %417, ptr %8, align 8, !tbaa !80
+  %.pr802 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i568 = icmp eq i32 %.pr802, 0
   br i1 %.not.i568, label %418, label %bytestream2_put_be16.exit575.thread
 
 418:                                              ; preds = %bytestream2_put_be16.exit567
-  %419 = load ptr, ptr %195, align 8, !tbaa !81
+  %419 = load ptr, ptr %195, align 8, !tbaa !82
   %420 = ptrtoint ptr %419 to i64
   %421 = ptrtoint ptr %417 to i64
   %422 = sub i64 %420, %421
@@ -1222,17 +1222,17 @@ bytestream2_put_be16.exit567:                     ; preds = %407
   br i1 %423, label %bytestream2_put_be16.exit569, label %bytestream2_put_be16.exit575.thread
 
 bytestream2_put_be16.exit569:                     ; preds = %418
-  store i16 5376, ptr %417, align 1, !tbaa !83
-  %424 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 5376, ptr %417, align 1, !tbaa !84
+  %424 = load ptr, ptr %8, align 8, !tbaa !80
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 2
-  store ptr %425, ptr %8, align 8, !tbaa !79
-  %.pr804 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %425, ptr %8, align 8, !tbaa !80
+  %.pr804 = load i32, ptr %196, align 8, !tbaa !83
   %426 = load i32, ptr %28, align 4, !tbaa !28
   %.not.i570 = icmp eq i32 %.pr804, 0
   br i1 %.not.i570, label %427, label %bytestream2_put_be16.exit575.thread
 
 427:                                              ; preds = %bytestream2_put_be16.exit569
-  %428 = load ptr, ptr %195, align 8, !tbaa !81
+  %428 = load ptr, ptr %195, align 8, !tbaa !82
   %429 = ptrtoint ptr %428 to i64
   %430 = ptrtoint ptr %425 to i64
   %431 = sub i64 %429, %430
@@ -1244,16 +1244,16 @@ bytestream2_put_be16.exit571:                     ; preds = %427
   %434 = add i16 %433, 7
   %435 = and i16 %434, -8
   %436 = tail call i16 @llvm.bswap.i16(i16 %435)
-  store i16 %436, ptr %425, align 1, !tbaa !83
-  %437 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %436, ptr %425, align 1, !tbaa !84
+  %437 = load ptr, ptr %8, align 8, !tbaa !80
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 2
-  store ptr %438, ptr %8, align 8, !tbaa !79
-  %.pr806 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %438, ptr %8, align 8, !tbaa !80
+  %.pr806 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i572 = icmp eq i32 %.pr806, 0
   br i1 %.not.i572, label %439, label %bytestream2_put_be16.exit575.thread
 
 439:                                              ; preds = %bytestream2_put_be16.exit571
-  %440 = load ptr, ptr %195, align 8, !tbaa !81
+  %440 = load ptr, ptr %195, align 8, !tbaa !82
   %441 = ptrtoint ptr %440 to i64
   %442 = ptrtoint ptr %438 to i64
   %443 = sub i64 %441, %442
@@ -1261,17 +1261,17 @@ bytestream2_put_be16.exit571:                     ; preds = %427
   br i1 %444, label %bytestream2_put_be16.exit573, label %bytestream2_put_be16.exit575.thread
 
 bytestream2_put_be16.exit573:                     ; preds = %439
-  store i16 -21505, ptr %438, align 1, !tbaa !83
-  %445 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 -21505, ptr %438, align 1, !tbaa !84
+  %445 = load ptr, ptr %8, align 8, !tbaa !80
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 2
-  store ptr %446, ptr %8, align 8, !tbaa !79
-  %.pr808 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %446, ptr %8, align 8, !tbaa !80
+  %.pr808 = load i32, ptr %196, align 8, !tbaa !83
   %447 = load i32, ptr %28, align 4, !tbaa !28
   %.not.i574 = icmp eq i32 %.pr808, 0
   br i1 %.not.i574, label %448, label %bytestream2_put_be16.exit575.thread
 
 448:                                              ; preds = %bytestream2_put_be16.exit573
-  %449 = load ptr, ptr %195, align 8, !tbaa !81
+  %449 = load ptr, ptr %195, align 8, !tbaa !82
   %450 = ptrtoint ptr %449 to i64
   %451 = ptrtoint ptr %446 to i64
   %452 = sub i64 %450, %451
@@ -1280,22 +1280,22 @@ bytestream2_put_be16.exit573:                     ; preds = %439
 
 bytestream2_put_be16.exit575.thread:              ; preds = %439, %bytestream2_put_be16.exit571, %bytestream2_put_be16.exit567.thread, %418, %bytestream2_put_be16.exit567, %bytestream2_put_be16.exit569, %427, %bytestream2_put_be16.exit573, %448
   %454 = phi ptr [ %446, %bytestream2_put_be16.exit573 ], [ %446, %448 ], [ %438, %bytestream2_put_be16.exit571 ], [ %438, %439 ], [ %425, %bytestream2_put_be16.exit569 ], [ %425, %427 ], [ %417, %bytestream2_put_be16.exit567 ], [ %417, %418 ], [ %413, %bytestream2_put_be16.exit567.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit583.thread
 
 bytestream2_put_be16.exit575:                     ; preds = %448
   %455 = trunc i32 %447 to i16
   %456 = tail call i16 @llvm.bswap.i16(i16 %455)
-  store i16 %456, ptr %446, align 1, !tbaa !83
-  %457 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %456, ptr %446, align 1, !tbaa !84
+  %457 = load ptr, ptr %8, align 8, !tbaa !80
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 2
-  store ptr %458, ptr %8, align 8, !tbaa !79
-  %.pr810 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %458, ptr %8, align 8, !tbaa !80
+  %.pr810 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i576 = icmp eq i32 %.pr810, 0
   br i1 %.not.i576, label %459, label %bytestream2_put_be16.exit583.thread
 
 459:                                              ; preds = %bytestream2_put_be16.exit575
-  %460 = load ptr, ptr %195, align 8, !tbaa !81
+  %460 = load ptr, ptr %195, align 8, !tbaa !82
   %461 = ptrtoint ptr %460 to i64
   %462 = ptrtoint ptr %458 to i64
   %463 = sub i64 %461, %462
@@ -1303,19 +1303,19 @@ bytestream2_put_be16.exit575:                     ; preds = %448
   br i1 %464, label %bytestream2_put_be16.exit577, label %bytestream2_put_be16.exit583.thread
 
 bytestream2_put_be16.exit577:                     ; preds = %459
-  store i16 -17409, ptr %458, align 1, !tbaa !83
-  %465 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 -17409, ptr %458, align 1, !tbaa !84
+  %465 = load ptr, ptr %8, align 8, !tbaa !80
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 2
-  store ptr %466, ptr %8, align 8, !tbaa !79
-  %.pr812 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %466, ptr %8, align 8, !tbaa !80
+  %.pr812 = load i32, ptr %196, align 8, !tbaa !83
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %468 = load i64, ptr %467, align 8, !tbaa !85
+  %468 = load i64, ptr %467, align 8, !tbaa !86
   %469 = trunc i64 %468 to i16
   %.not.i578 = icmp eq i32 %.pr812, 0
   br i1 %.not.i578, label %470, label %bytestream2_put_be16.exit583.thread
 
 470:                                              ; preds = %bytestream2_put_be16.exit577
-  %471 = load ptr, ptr %195, align 8, !tbaa !81
+  %471 = load ptr, ptr %195, align 8, !tbaa !82
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %466 to i64
   %474 = sub i64 %472, %473
@@ -1324,16 +1324,16 @@ bytestream2_put_be16.exit577:                     ; preds = %459
 
 bytestream2_put_be16.exit579:                     ; preds = %470
   %476 = tail call i16 @llvm.bswap.i16(i16 %469)
-  store i16 %476, ptr %466, align 1, !tbaa !83
-  %477 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %476, ptr %466, align 1, !tbaa !84
+  %477 = load ptr, ptr %8, align 8, !tbaa !80
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 2
-  store ptr %478, ptr %8, align 8, !tbaa !79
-  %.pr814 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %478, ptr %8, align 8, !tbaa !80
+  %.pr814 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i580 = icmp eq i32 %.pr814, 0
   br i1 %.not.i580, label %479, label %bytestream2_put_be16.exit583.thread
 
 479:                                              ; preds = %bytestream2_put_be16.exit579
-  %480 = load ptr, ptr %195, align 8, !tbaa !81
+  %480 = load ptr, ptr %195, align 8, !tbaa !82
   %481 = ptrtoint ptr %480 to i64
   %482 = ptrtoint ptr %478 to i64
   %483 = sub i64 %481, %482
@@ -1341,18 +1341,18 @@ bytestream2_put_be16.exit579:                     ; preds = %470
   br i1 %484, label %bytestream2_put_be16.exit581, label %bytestream2_put_be16.exit583.thread
 
 bytestream2_put_be16.exit581:                     ; preds = %479
-  store i16 17920, ptr %478, align 1, !tbaa !83
-  %485 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 17920, ptr %478, align 1, !tbaa !84
+  %485 = load ptr, ptr %8, align 8, !tbaa !80
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 2
-  store ptr %486, ptr %8, align 8, !tbaa !79
-  %.pr816 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %486, ptr %8, align 8, !tbaa !80
+  %.pr816 = load i32, ptr %196, align 8, !tbaa !83
   %487 = load i32, ptr %297, align 8, !tbaa !27
   %488 = icmp eq i32 %487, 64
   %.not.i582 = icmp eq i32 %.pr816, 0
   br i1 %.not.i582, label %489, label %bytestream2_put_be16.exit583.thread
 
 489:                                              ; preds = %bytestream2_put_be16.exit581
-  %490 = load ptr, ptr %195, align 8, !tbaa !81
+  %490 = load ptr, ptr %195, align 8, !tbaa !82
   %491 = ptrtoint ptr %490 to i64
   %492 = ptrtoint ptr %486 to i64
   %493 = sub i64 %491, %492
@@ -1361,21 +1361,21 @@ bytestream2_put_be16.exit581:                     ; preds = %479
 
 bytestream2_put_be16.exit583.thread:              ; preds = %479, %bytestream2_put_be16.exit579, %bytestream2_put_be16.exit575.thread, %459, %bytestream2_put_be16.exit575, %bytestream2_put_be16.exit577, %470, %bytestream2_put_be16.exit581, %489
   %495 = phi ptr [ %486, %bytestream2_put_be16.exit581 ], [ %486, %489 ], [ %478, %bytestream2_put_be16.exit579 ], [ %478, %479 ], [ %466, %bytestream2_put_be16.exit577 ], [ %466, %470 ], [ %458, %bytestream2_put_be16.exit575 ], [ %458, %459 ], [ %454, %bytestream2_put_be16.exit575.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit589.thread
 
 bytestream2_put_be16.exit583:                     ; preds = %489
   %496 = select i1 %488, i16 2560, i16 3072
-  store i16 %496, ptr %486, align 1, !tbaa !83
-  %497 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %496, ptr %486, align 1, !tbaa !84
+  %497 = load ptr, ptr %8, align 8, !tbaa !80
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 2
-  store ptr %498, ptr %8, align 8, !tbaa !79
-  %.pr818 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %498, ptr %8, align 8, !tbaa !80
+  %.pr818 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i584 = icmp eq i32 %.pr818, 0
   br i1 %.not.i584, label %499, label %bytestream2_put_be16.exit589.thread
 
 499:                                              ; preds = %bytestream2_put_be16.exit583
-  %500 = load ptr, ptr %195, align 8, !tbaa !81
+  %500 = load ptr, ptr %195, align 8, !tbaa !82
   %501 = ptrtoint ptr %500 to i64
   %502 = ptrtoint ptr %498 to i64
   %503 = sub i64 %501, %502
@@ -1383,18 +1383,18 @@ bytestream2_put_be16.exit583:                     ; preds = %489
   br i1 %504, label %bytestream2_put_be16.exit585, label %bytestream2_put_be16.exit589.thread
 
 bytestream2_put_be16.exit585:                     ; preds = %499
-  store i16 21248, ptr %498, align 1, !tbaa !83
-  %505 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 21248, ptr %498, align 1, !tbaa !84
+  %505 = load ptr, ptr %8, align 8, !tbaa !80
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 2
-  store ptr %506, ptr %8, align 8, !tbaa !79
-  %.pr820 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %506, ptr %8, align 8, !tbaa !80
+  %.pr820 = load i32, ptr %196, align 8, !tbaa !83
   %507 = load i32, ptr %297, align 8, !tbaa !27
   %508 = icmp eq i32 %507, 64
   %.not.i586 = icmp eq i32 %.pr820, 0
   br i1 %.not.i586, label %509, label %bytestream2_put_be16.exit589.thread
 
 509:                                              ; preds = %bytestream2_put_be16.exit585
-  %510 = load ptr, ptr %195, align 8, !tbaa !81
+  %510 = load ptr, ptr %195, align 8, !tbaa !82
   %511 = ptrtoint ptr %510 to i64
   %512 = ptrtoint ptr %506 to i64
   %513 = sub i64 %511, %512
@@ -1403,16 +1403,16 @@ bytestream2_put_be16.exit585:                     ; preds = %499
 
 bytestream2_put_be16.exit587:                     ; preds = %509
   %515 = select i1 %508, i16 32, i16 40
-  store i16 %515, ptr %506, align 1, !tbaa !83
-  %516 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %515, ptr %506, align 1, !tbaa !84
+  %516 = load ptr, ptr %8, align 8, !tbaa !80
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 2
-  store ptr %517, ptr %8, align 8, !tbaa !79
-  %.pr822 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %517, ptr %8, align 8, !tbaa !80
+  %.pr822 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i588 = icmp eq i32 %.pr822, 0
   br i1 %.not.i588, label %518, label %bytestream2_put_be16.exit589.thread
 
 518:                                              ; preds = %bytestream2_put_be16.exit587
-  %519 = load ptr, ptr %195, align 8, !tbaa !81
+  %519 = load ptr, ptr %195, align 8, !tbaa !82
   %520 = ptrtoint ptr %519 to i64
   %521 = ptrtoint ptr %517 to i64
   %522 = sub i64 %520, %521
@@ -1420,16 +1420,16 @@ bytestream2_put_be16.exit587:                     ; preds = %509
   br i1 %523, label %bytestream2_put_be16.exit589, label %bytestream2_put_be16.exit589.thread
 
 bytestream2_put_be16.exit589:                     ; preds = %518
-  store i16 17408, ptr %517, align 1, !tbaa !83
-  %524 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 17408, ptr %517, align 1, !tbaa !84
+  %524 = load ptr, ptr %8, align 8, !tbaa !80
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 2
-  store ptr %525, ptr %8, align 8, !tbaa !79
-  %.pr824 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %525, ptr %8, align 8, !tbaa !80
+  %.pr824 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i590 = icmp eq i32 %.pr824, 0
   br i1 %.not.i590, label %526, label %bytestream2_put_be16.exit589.thread
 
 526:                                              ; preds = %bytestream2_put_be16.exit589
-  %527 = load ptr, ptr %195, align 8, !tbaa !81
+  %527 = load ptr, ptr %195, align 8, !tbaa !82
   %528 = ptrtoint ptr %527 to i64
   %529 = ptrtoint ptr %525 to i64
   %530 = sub i64 %528, %529
@@ -1437,15 +1437,15 @@ bytestream2_put_be16.exit589:                     ; preds = %518
   br i1 %531, label %532, label %bytestream2_put_be16.exit589.thread
 
 532:                                              ; preds = %526
-  store i16 256, ptr %525, align 1, !tbaa !83
-  %533 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %525, align 1, !tbaa !84
+  %533 = load ptr, ptr %8, align 8, !tbaa !80
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 2
-  store ptr %534, ptr %8, align 8, !tbaa !79
+  store ptr %534, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit591
 
 bytestream2_put_be16.exit589.thread:              ; preds = %518, %bytestream2_put_be16.exit587, %bytestream2_put_be16.exit583.thread, %499, %bytestream2_put_be16.exit583, %bytestream2_put_be16.exit585, %509, %526, %bytestream2_put_be16.exit589
   %535 = phi ptr [ %525, %526 ], [ %525, %bytestream2_put_be16.exit589 ], [ %517, %bytestream2_put_be16.exit587 ], [ %517, %518 ], [ %506, %bytestream2_put_be16.exit585 ], [ %506, %509 ], [ %498, %bytestream2_put_be16.exit583 ], [ %498, %499 ], [ %495, %bytestream2_put_be16.exit583.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit591
 
 bytestream2_put_be16.exit591:                     ; preds = %532, %bytestream2_put_be16.exit589.thread
@@ -1467,12 +1467,12 @@ bytestream2_put_be16.exit591:                     ; preds = %532, %bytestream2_p
 
 ._crit_edge1055:                                  ; preds = %868, %bytestream2_put_be16.exit591
   %547 = phi ptr [ %536, %bytestream2_put_be16.exit591 ], [ %1102, %868 ]
-  %548 = load i32, ptr %196, align 8, !tbaa !82
+  %548 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i734 = icmp eq i32 %548, 0
   br i1 %.not.i734, label %549, label %bytestream2_put_be16.exit735.thread
 
 549:                                              ; preds = %._crit_edge1055
-  %550 = load ptr, ptr %195, align 8, !tbaa !81
+  %550 = load ptr, ptr %195, align 8, !tbaa !82
   %551 = ptrtoint ptr %550 to i64
   %552 = ptrtoint ptr %547 to i64
   %553 = sub i64 %551, %552
@@ -1480,16 +1480,16 @@ bytestream2_put_be16.exit591:                     ; preds = %532, %bytestream2_p
   br i1 %554, label %bytestream2_put_be16.exit735, label %bytestream2_put_be16.exit735.thread
 
 bytestream2_put_be16.exit735:                     ; preds = %549
-  store i16 4608, ptr %547, align 1, !tbaa !83
-  %555 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 4608, ptr %547, align 1, !tbaa !84
+  %555 = load ptr, ptr %8, align 8, !tbaa !80
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 2
-  store ptr %556, ptr %8, align 8, !tbaa !79
-  %.pr826 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %556, ptr %8, align 8, !tbaa !80
+  %.pr826 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i736 = icmp eq i32 %.pr826, 0
   br i1 %.not.i736, label %557, label %bytestream2_put_be16.exit735.thread
 
 557:                                              ; preds = %bytestream2_put_be16.exit735
-  %558 = load ptr, ptr %195, align 8, !tbaa !81
+  %558 = load ptr, ptr %195, align 8, !tbaa !82
   %559 = ptrtoint ptr %558 to i64
   %560 = ptrtoint ptr %556 to i64
   %561 = sub i64 %559, %560
@@ -1497,31 +1497,31 @@ bytestream2_put_be16.exit735:                     ; preds = %549
   br i1 %562, label %563, label %bytestream2_put_be16.exit735.thread
 
 563:                                              ; preds = %557
-  store i16 0, ptr %556, align 1, !tbaa !83
-  %564 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %556, align 1, !tbaa !84
+  %564 = load ptr, ptr %8, align 8, !tbaa !80
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 2
-  store ptr %565, ptr %8, align 8, !tbaa !79
+  store ptr %565, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit737
 
 bytestream2_put_be16.exit735.thread:              ; preds = %549, %._crit_edge1055, %557, %bytestream2_put_be16.exit735
   %566 = phi ptr [ %556, %557 ], [ %556, %bytestream2_put_be16.exit735 ], [ %547, %._crit_edge1055 ], [ %547, %549 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit737
 
 bytestream2_put_be16.exit737:                     ; preds = %563, %bytestream2_put_be16.exit735.thread
   %567 = phi ptr [ %565, %563 ], [ %566, %bytestream2_put_be16.exit735.thread ]
-  %568 = load ptr, ptr %192, align 8, !tbaa !80
+  %568 = load ptr, ptr %192, align 8, !tbaa !81
   %569 = ptrtoint ptr %567 to i64
   %570 = ptrtoint ptr %568 to i64
   %571 = sub i64 %569, %570
   %572 = trunc i64 %571 to i32
   tail call void @av_shrink_packet(ptr noundef %1, i32 noundef %572) #6
   %573 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %574 = load i32, ptr %573, align 8, !tbaa !90
+  %574 = load i32, ptr %573, align 8, !tbaa !91
   %575 = or i32 %574, 1
-  store i32 %575, ptr %573, align 8, !tbaa !90
-  %576 = load ptr, ptr %195, align 8, !tbaa !81
-  %577 = load ptr, ptr %192, align 8, !tbaa !80
+  store i32 %575, ptr %573, align 8, !tbaa !91
+  %576 = load ptr, ptr %195, align 8, !tbaa !82
+  %577 = load ptr, ptr %192, align 8, !tbaa !81
   %578 = ptrtoint ptr %576 to i64
   %579 = ptrtoint ptr %577 to i64
   %580 = sub i64 %578, %579
@@ -1532,7 +1532,7 @@ bytestream2_put_be16.exit737:                     ; preds = %563, %bytestream2_p
   %.0.i = tail call i32 @llvm.smin.i32(i32 %582, i32 8)
   %583 = sext i32 %.0.i to i64
   %584 = getelementptr inbounds i8, ptr %577, i64 %583
-  store ptr %584, ptr %8, align 8, !tbaa !79
+  store ptr %584, ptr %8, align 8, !tbaa !80
   %585 = load i32, ptr %13, align 4, !tbaa !30
   %586 = icmp sgt i32 %585, 0
   br i1 %586, label %.lr.ph1057, label %._crit_edge1058
@@ -1555,7 +1555,7 @@ bytestream2_put_be16.exit737:                     ; preds = %563, %bytestream2_p
   %598 = getelementptr inbounds nuw i8, ptr %590, i64 64
   %599 = load ptr, ptr %598, align 8, !tbaa !40
   %.not = icmp eq i64 %indvars.iv1104, 0
-  %.pr834.pre1112 = load i32, ptr %196, align 8, !tbaa !82
+  %.pr834.pre1112 = load i32, ptr %196, align 8, !tbaa !83
   br i1 %.not, label %bytestream2_put_be16.exit599, label %600
 
 600:                                              ; preds = %588
@@ -1563,7 +1563,7 @@ bytestream2_put_be16.exit737:                     ; preds = %563, %bytestream2_p
   br i1 %.not.i592, label %601, label %bytestream2_put_be16.exit597.thread
 
 601:                                              ; preds = %600
-  %602 = load ptr, ptr %195, align 8, !tbaa !81
+  %602 = load ptr, ptr %195, align 8, !tbaa !82
   %603 = ptrtoint ptr %602 to i64
   %604 = ptrtoint ptr %589 to i64
   %605 = sub i64 %603, %604
@@ -1571,16 +1571,16 @@ bytestream2_put_be16.exit737:                     ; preds = %563, %bytestream2_p
   br i1 %606, label %bytestream2_put_be16.exit593, label %bytestream2_put_be16.exit597.thread
 
 bytestream2_put_be16.exit593:                     ; preds = %601
-  store i16 256, ptr %589, align 1, !tbaa !83
-  %607 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %589, align 1, !tbaa !84
+  %607 = load ptr, ptr %8, align 8, !tbaa !80
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 2
-  store ptr %608, ptr %8, align 8, !tbaa !79
-  %.pr828 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %608, ptr %8, align 8, !tbaa !80
+  %.pr828 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i594 = icmp eq i32 %.pr828, 0
   br i1 %.not.i594, label %609, label %bytestream2_put_be16.exit597.thread
 
 609:                                              ; preds = %bytestream2_put_be16.exit593
-  %610 = load ptr, ptr %195, align 8, !tbaa !81
+  %610 = load ptr, ptr %195, align 8, !tbaa !82
   %611 = ptrtoint ptr %610 to i64
   %612 = ptrtoint ptr %608 to i64
   %613 = sub i64 %611, %612
@@ -1588,16 +1588,16 @@ bytestream2_put_be16.exit593:                     ; preds = %601
   br i1 %614, label %bytestream2_put_be16.exit595, label %bytestream2_put_be16.exit597.thread
 
 bytestream2_put_be16.exit595:                     ; preds = %609
-  store i16 768, ptr %608, align 1, !tbaa !83
-  %615 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 768, ptr %608, align 1, !tbaa !84
+  %615 = load ptr, ptr %8, align 8, !tbaa !80
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 2
-  store ptr %616, ptr %8, align 8, !tbaa !79
-  %.pr830 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %616, ptr %8, align 8, !tbaa !80
+  %.pr830 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i596 = icmp eq i32 %.pr830, 0
   br i1 %.not.i596, label %617, label %bytestream2_put_be16.exit597.thread
 
 617:                                              ; preds = %bytestream2_put_be16.exit595
-  %618 = load ptr, ptr %195, align 8, !tbaa !81
+  %618 = load ptr, ptr %195, align 8, !tbaa !82
   %619 = ptrtoint ptr %618 to i64
   %620 = ptrtoint ptr %616 to i64
   %621 = sub i64 %619, %620
@@ -1606,20 +1606,20 @@ bytestream2_put_be16.exit595:                     ; preds = %609
 
 bytestream2_put_be16.exit597.thread:              ; preds = %609, %bytestream2_put_be16.exit593, %600, %601, %bytestream2_put_be16.exit595, %617
   %623 = phi ptr [ %616, %bytestream2_put_be16.exit595 ], [ %616, %617 ], [ %608, %bytestream2_put_be16.exit593 ], [ %608, %609 ], [ %589, %600 ], [ %589, %601 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit603.thread
 
 bytestream2_put_be16.exit597:                     ; preds = %617
-  store i16 15872, ptr %616, align 1, !tbaa !83
-  %624 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 15872, ptr %616, align 1, !tbaa !84
+  %624 = load ptr, ptr %8, align 8, !tbaa !80
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 2
-  store ptr %625, ptr %8, align 8, !tbaa !79
-  %.pr832 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %625, ptr %8, align 8, !tbaa !80
+  %.pr832 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i598 = icmp eq i32 %.pr832, 0
   br i1 %.not.i598, label %626, label %bytestream2_put_be16.exit603.thread
 
 626:                                              ; preds = %bytestream2_put_be16.exit597
-  %627 = load ptr, ptr %195, align 8, !tbaa !81
+  %627 = load ptr, ptr %195, align 8, !tbaa !82
   %628 = ptrtoint ptr %627 to i64
   %629 = ptrtoint ptr %625 to i64
   %630 = sub i64 %628, %629
@@ -1629,11 +1629,11 @@ bytestream2_put_be16.exit597:                     ; preds = %617
 632:                                              ; preds = %626
   %633 = trunc i64 %indvars.iv1104 to i16
   %634 = tail call i16 @llvm.bswap.i16(i16 %633)
-  store i16 %634, ptr %625, align 1, !tbaa !83
-  %635 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %634, ptr %625, align 1, !tbaa !84
+  %635 = load ptr, ptr %8, align 8, !tbaa !80
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 2
-  store ptr %636, ptr %8, align 8, !tbaa !79
-  %.pr834.pre = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %636, ptr %8, align 8, !tbaa !80
+  %.pr834.pre = load i32, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit599
 
 bytestream2_put_be16.exit599:                     ; preds = %632, %588
@@ -1643,7 +1643,7 @@ bytestream2_put_be16.exit599:                     ; preds = %632, %588
   br i1 %.not.i600, label %638, label %bytestream2_put_be16.exit603.thread
 
 638:                                              ; preds = %bytestream2_put_be16.exit599
-  %639 = load ptr, ptr %195, align 8, !tbaa !81
+  %639 = load ptr, ptr %195, align 8, !tbaa !82
   %640 = ptrtoint ptr %639 to i64
   %641 = ptrtoint ptr %637 to i64
   %642 = sub i64 %640, %641
@@ -1651,16 +1651,16 @@ bytestream2_put_be16.exit599:                     ; preds = %632, %588
   br i1 %643, label %bytestream2_put_be16.exit601, label %bytestream2_put_be16.exit603.thread
 
 bytestream2_put_be16.exit601:                     ; preds = %638
-  store i16 1024, ptr %637, align 1, !tbaa !83
-  %644 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %637, align 1, !tbaa !84
+  %644 = load ptr, ptr %8, align 8, !tbaa !80
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 2
-  store ptr %645, ptr %8, align 8, !tbaa !79
-  %.pr836 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %645, ptr %8, align 8, !tbaa !80
+  %.pr836 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i602 = icmp eq i32 %.pr836, 0
   br i1 %.not.i602, label %646, label %bytestream2_put_be16.exit603.thread
 
 646:                                              ; preds = %bytestream2_put_be16.exit601
-  %647 = load ptr, ptr %195, align 8, !tbaa !81
+  %647 = load ptr, ptr %195, align 8, !tbaa !82
   %648 = ptrtoint ptr %647 to i64
   %649 = ptrtoint ptr %645 to i64
   %650 = sub i64 %648, %649
@@ -1669,8 +1669,8 @@ bytestream2_put_be16.exit601:                     ; preds = %638
 
 bytestream2_put_be16.exit603.thread:              ; preds = %638, %bytestream2_put_be16.exit599, %bytestream2_put_be16.exit597, %626, %bytestream2_put_be16.exit597.thread, %bytestream2_put_be16.exit601, %646
   %652 = phi ptr [ %645, %bytestream2_put_be16.exit601 ], [ %645, %646 ], [ %637, %bytestream2_put_be16.exit599 ], [ %637, %638 ], [ %625, %bytestream2_put_be16.exit597 ], [ %625, %626 ], [ %623, %bytestream2_put_be16.exit597.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
-  %653 = load ptr, ptr %192, align 8, !tbaa !80
+  store i32 1, ptr %196, align 8, !tbaa !83
+  %653 = load ptr, ptr %192, align 8, !tbaa !81
   %654 = ptrtoint ptr %652 to i64
   %655 = ptrtoint ptr %653 to i64
   %656 = sub i64 %654, %655
@@ -1678,12 +1678,12 @@ bytestream2_put_be16.exit603.thread:              ; preds = %638, %bytestream2_p
   br label %bytestream2_put_be16.exit611.thread
 
 bytestream2_put_be16.exit603:                     ; preds = %646
-  store i16 18970, ptr %645, align 1, !tbaa !83
-  %658 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 18970, ptr %645, align 1, !tbaa !84
+  %658 = load ptr, ptr %8, align 8, !tbaa !80
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 2
-  store ptr %659, ptr %8, align 8, !tbaa !79
-  %.pr838 = load i32, ptr %196, align 8, !tbaa !82
-  %660 = load ptr, ptr %192, align 8, !tbaa !80
+  store ptr %659, ptr %8, align 8, !tbaa !80
+  %.pr838 = load i32, ptr %196, align 8, !tbaa !83
+  %660 = load ptr, ptr %192, align 8, !tbaa !81
   %661 = ptrtoint ptr %659 to i64
   %662 = ptrtoint ptr %660 to i64
   %663 = sub i64 %661, %662
@@ -1692,23 +1692,23 @@ bytestream2_put_be16.exit603:                     ; preds = %646
   br i1 %.not.i604, label %665, label %bytestream2_put_be16.exit611.thread
 
 665:                                              ; preds = %bytestream2_put_be16.exit603
-  %666 = load ptr, ptr %195, align 8, !tbaa !81
+  %666 = load ptr, ptr %195, align 8, !tbaa !82
   %667 = ptrtoint ptr %666 to i64
   %668 = sub i64 %667, %661
   %669 = icmp sgt i64 %668, 1
   br i1 %669, label %bytestream2_put_be16.exit605, label %bytestream2_put_be16.exit611.thread
 
 bytestream2_put_be16.exit605:                     ; preds = %665
-  store i16 6400, ptr %659, align 1, !tbaa !83
-  %670 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 6400, ptr %659, align 1, !tbaa !84
+  %670 = load ptr, ptr %8, align 8, !tbaa !80
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 2
-  store ptr %671, ptr %8, align 8, !tbaa !79
-  %.pr840 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %671, ptr %8, align 8, !tbaa !80
+  %.pr840 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i606 = icmp eq i32 %.pr840, 0
   br i1 %.not.i606, label %672, label %bytestream2_put_be16.exit611.thread
 
 672:                                              ; preds = %bytestream2_put_be16.exit605
-  %673 = load ptr, ptr %195, align 8, !tbaa !81
+  %673 = load ptr, ptr %195, align 8, !tbaa !82
   %674 = ptrtoint ptr %673 to i64
   %675 = ptrtoint ptr %671 to i64
   %676 = sub i64 %674, %675
@@ -1716,16 +1716,16 @@ bytestream2_put_be16.exit605:                     ; preds = %665
   br i1 %677, label %bytestream2_put_be16.exit607, label %bytestream2_put_be16.exit611.thread
 
 bytestream2_put_be16.exit607:                     ; preds = %672
-  store i16 0, ptr %671, align 1, !tbaa !83
-  %678 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %671, align 1, !tbaa !84
+  %678 = load ptr, ptr %8, align 8, !tbaa !80
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 2
-  store ptr %679, ptr %8, align 8, !tbaa !79
-  %.pr842 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %679, ptr %8, align 8, !tbaa !80
+  %.pr842 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i608 = icmp eq i32 %.pr842, 0
   br i1 %.not.i608, label %680, label %bytestream2_put_be16.exit611.thread
 
 680:                                              ; preds = %bytestream2_put_be16.exit607
-  %681 = load ptr, ptr %195, align 8, !tbaa !81
+  %681 = load ptr, ptr %195, align 8, !tbaa !82
   %682 = ptrtoint ptr %681 to i64
   %683 = ptrtoint ptr %679 to i64
   %684 = sub i64 %682, %683
@@ -1733,16 +1733,16 @@ bytestream2_put_be16.exit607:                     ; preds = %672
   br i1 %685, label %bytestream2_put_be16.exit609, label %bytestream2_put_be16.exit611.thread
 
 bytestream2_put_be16.exit609:                     ; preds = %680
-  store i16 6656, ptr %679, align 1, !tbaa !83
-  %686 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 6656, ptr %679, align 1, !tbaa !84
+  %686 = load ptr, ptr %8, align 8, !tbaa !80
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 2
-  store ptr %687, ptr %8, align 8, !tbaa !79
-  %.pr844 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %687, ptr %8, align 8, !tbaa !80
+  %.pr844 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i610 = icmp eq i32 %.pr844, 0
   br i1 %.not.i610, label %688, label %bytestream2_put_be16.exit611.thread
 
 688:                                              ; preds = %bytestream2_put_be16.exit609
-  %689 = load ptr, ptr %195, align 8, !tbaa !81
+  %689 = load ptr, ptr %195, align 8, !tbaa !82
   %690 = ptrtoint ptr %689 to i64
   %691 = ptrtoint ptr %687 to i64
   %692 = sub i64 %690, %691
@@ -1752,20 +1752,20 @@ bytestream2_put_be16.exit609:                     ; preds = %680
 bytestream2_put_be16.exit611.thread:              ; preds = %680, %bytestream2_put_be16.exit607, %bytestream2_put_be16.exit603.thread, %665, %bytestream2_put_be16.exit603, %bytestream2_put_be16.exit605, %672, %bytestream2_put_be16.exit609, %688
   %694 = phi ptr [ %687, %688 ], [ %687, %bytestream2_put_be16.exit609 ], [ %679, %680 ], [ %679, %bytestream2_put_be16.exit607 ], [ %671, %672 ], [ %671, %bytestream2_put_be16.exit605 ], [ %652, %bytestream2_put_be16.exit603.thread ], [ %659, %665 ], [ %659, %bytestream2_put_be16.exit603 ]
   %695 = phi i32 [ %664, %688 ], [ %664, %bytestream2_put_be16.exit609 ], [ %664, %680 ], [ %664, %bytestream2_put_be16.exit607 ], [ %664, %672 ], [ %664, %bytestream2_put_be16.exit605 ], [ %657, %bytestream2_put_be16.exit603.thread ], [ %664, %665 ], [ %664, %bytestream2_put_be16.exit603 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit619.thread
 
 bytestream2_put_be16.exit611:                     ; preds = %688
-  store i16 768, ptr %687, align 1, !tbaa !83
-  %696 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 768, ptr %687, align 1, !tbaa !84
+  %696 = load ptr, ptr %8, align 8, !tbaa !80
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 2
-  store ptr %697, ptr %8, align 8, !tbaa !79
-  %.pr846 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %697, ptr %8, align 8, !tbaa !80
+  %.pr846 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i612 = icmp eq i32 %.pr846, 0
   br i1 %.not.i612, label %698, label %bytestream2_put_be16.exit619.thread
 
 698:                                              ; preds = %bytestream2_put_be16.exit611
-  %699 = load ptr, ptr %195, align 8, !tbaa !81
+  %699 = load ptr, ptr %195, align 8, !tbaa !82
   %700 = ptrtoint ptr %699 to i64
   %701 = ptrtoint ptr %697 to i64
   %702 = sub i64 %700, %701
@@ -1773,16 +1773,16 @@ bytestream2_put_be16.exit611:                     ; preds = %688
   br i1 %703, label %bytestream2_put_be16.exit613, label %bytestream2_put_be16.exit619.thread
 
 bytestream2_put_be16.exit613:                     ; preds = %698
-  store i16 6912, ptr %697, align 1, !tbaa !83
-  %704 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 6912, ptr %697, align 1, !tbaa !84
+  %704 = load ptr, ptr %8, align 8, !tbaa !80
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 2
-  store ptr %705, ptr %8, align 8, !tbaa !79
-  %.pr848 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %705, ptr %8, align 8, !tbaa !80
+  %.pr848 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i614 = icmp eq i32 %.pr848, 0
   br i1 %.not.i614, label %706, label %bytestream2_put_be16.exit619.thread
 
 706:                                              ; preds = %bytestream2_put_be16.exit613
-  %707 = load ptr, ptr %195, align 8, !tbaa !81
+  %707 = load ptr, ptr %195, align 8, !tbaa !82
   %708 = ptrtoint ptr %707 to i64
   %709 = ptrtoint ptr %705 to i64
   %710 = sub i64 %708, %709
@@ -1792,16 +1792,16 @@ bytestream2_put_be16.exit613:                     ; preds = %698
 bytestream2_put_be16.exit615:                     ; preds = %706
   %712 = trunc i32 %593 to i16
   %713 = tail call i16 @llvm.bswap.i16(i16 %712)
-  store i16 %713, ptr %705, align 1, !tbaa !83
-  %714 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %713, ptr %705, align 1, !tbaa !84
+  %714 = load ptr, ptr %8, align 8, !tbaa !80
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 2
-  store ptr %715, ptr %8, align 8, !tbaa !79
-  %.pr850 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %715, ptr %8, align 8, !tbaa !80
+  %.pr850 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i616 = icmp eq i32 %.pr850, 0
   br i1 %.not.i616, label %716, label %bytestream2_put_be16.exit619.thread
 
 716:                                              ; preds = %bytestream2_put_be16.exit615
-  %717 = load ptr, ptr %195, align 8, !tbaa !81
+  %717 = load ptr, ptr %195, align 8, !tbaa !82
   %718 = ptrtoint ptr %717 to i64
   %719 = ptrtoint ptr %715 to i64
   %720 = sub i64 %718, %719
@@ -1809,16 +1809,16 @@ bytestream2_put_be16.exit615:                     ; preds = %706
   br i1 %721, label %bytestream2_put_be16.exit617, label %bytestream2_put_be16.exit619.thread
 
 bytestream2_put_be16.exit617:                     ; preds = %716
-  store i16 7168, ptr %715, align 1, !tbaa !83
-  %722 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 7168, ptr %715, align 1, !tbaa !84
+  %722 = load ptr, ptr %8, align 8, !tbaa !80
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 2
-  store ptr %723, ptr %8, align 8, !tbaa !79
-  %.pr852 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %723, ptr %8, align 8, !tbaa !80
+  %.pr852 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i618 = icmp eq i32 %.pr852, 0
   br i1 %.not.i618, label %724, label %bytestream2_put_be16.exit619.thread
 
 724:                                              ; preds = %bytestream2_put_be16.exit617
-  %725 = load ptr, ptr %195, align 8, !tbaa !81
+  %725 = load ptr, ptr %195, align 8, !tbaa !82
   %726 = ptrtoint ptr %725 to i64
   %727 = ptrtoint ptr %723 to i64
   %728 = sub i64 %726, %727
@@ -1828,22 +1828,22 @@ bytestream2_put_be16.exit617:                     ; preds = %716
 bytestream2_put_be16.exit619.thread:              ; preds = %716, %bytestream2_put_be16.exit615, %bytestream2_put_be16.exit611.thread, %698, %bytestream2_put_be16.exit611, %bytestream2_put_be16.exit613, %706, %bytestream2_put_be16.exit617, %724
   %730 = phi ptr [ %723, %724 ], [ %723, %bytestream2_put_be16.exit617 ], [ %715, %716 ], [ %715, %bytestream2_put_be16.exit615 ], [ %705, %706 ], [ %705, %bytestream2_put_be16.exit613 ], [ %694, %bytestream2_put_be16.exit611.thread ], [ %697, %698 ], [ %697, %bytestream2_put_be16.exit611 ]
   %731 = phi i32 [ %664, %724 ], [ %664, %bytestream2_put_be16.exit617 ], [ %664, %716 ], [ %664, %bytestream2_put_be16.exit615 ], [ %664, %706 ], [ %664, %bytestream2_put_be16.exit613 ], [ %695, %bytestream2_put_be16.exit611.thread ], [ %664, %698 ], [ %664, %bytestream2_put_be16.exit611 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit627.thread
 
 bytestream2_put_be16.exit619:                     ; preds = %724
   %732 = trunc i32 %597 to i16
   %733 = tail call i16 @llvm.bswap.i16(i16 %732)
-  store i16 %733, ptr %723, align 1, !tbaa !83
-  %734 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %733, ptr %723, align 1, !tbaa !84
+  %734 = load ptr, ptr %8, align 8, !tbaa !80
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 2
-  store ptr %735, ptr %8, align 8, !tbaa !79
-  %.pr854 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %735, ptr %8, align 8, !tbaa !80
+  %.pr854 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i620 = icmp eq i32 %.pr854, 0
   br i1 %.not.i620, label %736, label %bytestream2_put_be16.exit627.thread
 
 736:                                              ; preds = %bytestream2_put_be16.exit619
-  %737 = load ptr, ptr %195, align 8, !tbaa !81
+  %737 = load ptr, ptr %195, align 8, !tbaa !82
   %738 = ptrtoint ptr %737 to i64
   %739 = ptrtoint ptr %735 to i64
   %740 = sub i64 %738, %739
@@ -1851,16 +1851,16 @@ bytestream2_put_be16.exit619:                     ; preds = %724
   br i1 %741, label %bytestream2_put_be16.exit621, label %bytestream2_put_be16.exit627.thread
 
 bytestream2_put_be16.exit621:                     ; preds = %736
-  store i16 8448, ptr %735, align 1, !tbaa !83
-  %742 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 8448, ptr %735, align 1, !tbaa !84
+  %742 = load ptr, ptr %8, align 8, !tbaa !80
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 2
-  store ptr %743, ptr %8, align 8, !tbaa !79
-  %.pr856 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %743, ptr %8, align 8, !tbaa !80
+  %.pr856 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i622 = icmp eq i32 %.pr856, 0
   br i1 %.not.i622, label %744, label %bytestream2_put_be16.exit627.thread
 
 744:                                              ; preds = %bytestream2_put_be16.exit621
-  %745 = load ptr, ptr %195, align 8, !tbaa !81
+  %745 = load ptr, ptr %195, align 8, !tbaa !82
   %746 = ptrtoint ptr %745 to i64
   %747 = ptrtoint ptr %743 to i64
   %748 = sub i64 %746, %747
@@ -1868,16 +1868,16 @@ bytestream2_put_be16.exit621:                     ; preds = %736
   br i1 %749, label %bytestream2_put_be16.exit623, label %bytestream2_put_be16.exit627.thread
 
 bytestream2_put_be16.exit623:                     ; preds = %744
-  store i16 0, ptr %743, align 1, !tbaa !83
-  %750 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %743, align 1, !tbaa !84
+  %750 = load ptr, ptr %8, align 8, !tbaa !80
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 2
-  store ptr %751, ptr %8, align 8, !tbaa !79
-  %.pr858 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %751, ptr %8, align 8, !tbaa !80
+  %.pr858 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i624 = icmp eq i32 %.pr858, 0
   br i1 %.not.i624, label %752, label %bytestream2_put_be16.exit627.thread
 
 752:                                              ; preds = %bytestream2_put_be16.exit623
-  %753 = load ptr, ptr %195, align 8, !tbaa !81
+  %753 = load ptr, ptr %195, align 8, !tbaa !82
   %754 = ptrtoint ptr %753 to i64
   %755 = ptrtoint ptr %751 to i64
   %756 = sub i64 %754, %755
@@ -1885,16 +1885,16 @@ bytestream2_put_be16.exit623:                     ; preds = %744
   br i1 %757, label %bytestream2_put_be16.exit625, label %bytestream2_put_be16.exit627.thread
 
 bytestream2_put_be16.exit625:                     ; preds = %752
-  store i16 8704, ptr %751, align 1, !tbaa !83
-  %758 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 8704, ptr %751, align 1, !tbaa !84
+  %758 = load ptr, ptr %8, align 8, !tbaa !80
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 2
-  store ptr %759, ptr %8, align 8, !tbaa !79
-  %.pr860 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %759, ptr %8, align 8, !tbaa !80
+  %.pr860 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i626 = icmp eq i32 %.pr860, 0
   br i1 %.not.i626, label %760, label %bytestream2_put_be16.exit627.thread
 
 760:                                              ; preds = %bytestream2_put_be16.exit625
-  %761 = load ptr, ptr %195, align 8, !tbaa !81
+  %761 = load ptr, ptr %195, align 8, !tbaa !82
   %762 = ptrtoint ptr %761 to i64
   %763 = ptrtoint ptr %759 to i64
   %764 = sub i64 %762, %763
@@ -1904,20 +1904,20 @@ bytestream2_put_be16.exit625:                     ; preds = %752
 bytestream2_put_be16.exit627.thread:              ; preds = %752, %bytestream2_put_be16.exit623, %bytestream2_put_be16.exit619.thread, %736, %bytestream2_put_be16.exit619, %bytestream2_put_be16.exit621, %744, %bytestream2_put_be16.exit625, %760
   %766 = phi ptr [ %759, %760 ], [ %759, %bytestream2_put_be16.exit625 ], [ %751, %752 ], [ %751, %bytestream2_put_be16.exit623 ], [ %743, %744 ], [ %743, %bytestream2_put_be16.exit621 ], [ %730, %bytestream2_put_be16.exit619.thread ], [ %735, %736 ], [ %735, %bytestream2_put_be16.exit619 ]
   %767 = phi i32 [ %664, %760 ], [ %664, %bytestream2_put_be16.exit625 ], [ %664, %752 ], [ %664, %bytestream2_put_be16.exit623 ], [ %664, %744 ], [ %664, %bytestream2_put_be16.exit621 ], [ %731, %bytestream2_put_be16.exit619.thread ], [ %664, %736 ], [ %664, %bytestream2_put_be16.exit619 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit633.thread
 
 bytestream2_put_be16.exit627:                     ; preds = %760
-  store i16 256, ptr %759, align 1, !tbaa !83
-  %768 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %759, align 1, !tbaa !84
+  %768 = load ptr, ptr %8, align 8, !tbaa !80
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 2
-  store ptr %769, ptr %8, align 8, !tbaa !79
-  %.pr862 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %769, ptr %8, align 8, !tbaa !80
+  %.pr862 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i628 = icmp eq i32 %.pr862, 0
   br i1 %.not.i628, label %770, label %bytestream2_put_be16.exit633.thread
 
 770:                                              ; preds = %bytestream2_put_be16.exit627
-  %771 = load ptr, ptr %195, align 8, !tbaa !81
+  %771 = load ptr, ptr %195, align 8, !tbaa !82
   %772 = ptrtoint ptr %771 to i64
   %773 = ptrtoint ptr %769 to i64
   %774 = sub i64 %772, %773
@@ -1925,16 +1925,16 @@ bytestream2_put_be16.exit627:                     ; preds = %760
   br i1 %775, label %bytestream2_put_be16.exit629, label %bytestream2_put_be16.exit633.thread
 
 bytestream2_put_be16.exit629:                     ; preds = %770
-  store i16 8960, ptr %769, align 1, !tbaa !83
-  %776 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 8960, ptr %769, align 1, !tbaa !84
+  %776 = load ptr, ptr %8, align 8, !tbaa !80
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 2
-  store ptr %777, ptr %8, align 8, !tbaa !79
-  %.pr864 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %777, ptr %8, align 8, !tbaa !80
+  %.pr864 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i630 = icmp eq i32 %.pr864, 0
   br i1 %.not.i630, label %778, label %bytestream2_put_be16.exit633.thread
 
 778:                                              ; preds = %bytestream2_put_be16.exit629
-  %779 = load ptr, ptr %195, align 8, !tbaa !81
+  %779 = load ptr, ptr %195, align 8, !tbaa !82
   %780 = ptrtoint ptr %779 to i64
   %781 = ptrtoint ptr %777 to i64
   %782 = sub i64 %780, %781
@@ -1942,16 +1942,16 @@ bytestream2_put_be16.exit629:                     ; preds = %770
   br i1 %783, label %bytestream2_put_be16.exit631, label %bytestream2_put_be16.exit633.thread
 
 bytestream2_put_be16.exit631:                     ; preds = %778
-  store i16 4096, ptr %777, align 1, !tbaa !83
-  %784 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 4096, ptr %777, align 1, !tbaa !84
+  %784 = load ptr, ptr %8, align 8, !tbaa !80
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 2
-  store ptr %785, ptr %8, align 8, !tbaa !79
-  %.pr866 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %785, ptr %8, align 8, !tbaa !80
+  %.pr866 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i632 = icmp eq i32 %.pr866, 0
   br i1 %.not.i632, label %786, label %bytestream2_put_be16.exit633.thread
 
 786:                                              ; preds = %bytestream2_put_be16.exit631
-  %787 = load ptr, ptr %195, align 8, !tbaa !81
+  %787 = load ptr, ptr %195, align 8, !tbaa !82
   %788 = ptrtoint ptr %787 to i64
   %789 = ptrtoint ptr %785 to i64
   %790 = sub i64 %788, %789
@@ -1959,16 +1959,16 @@ bytestream2_put_be16.exit631:                     ; preds = %778
   br i1 %791, label %bytestream2_put_be16.exit633, label %bytestream2_put_be16.exit633.thread
 
 bytestream2_put_be16.exit633:                     ; preds = %786
-  store i16 1024, ptr %785, align 1, !tbaa !83
-  %792 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %785, align 1, !tbaa !84
+  %792 = load ptr, ptr %8, align 8, !tbaa !80
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 2
-  store ptr %793, ptr %8, align 8, !tbaa !79
-  %.pr868 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %793, ptr %8, align 8, !tbaa !80
+  %.pr868 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i634 = icmp eq i32 %.pr868, 0
   br i1 %.not.i634, label %794, label %bytestream2_put_be16.exit633.thread
 
 794:                                              ; preds = %bytestream2_put_be16.exit633
-  %795 = load ptr, ptr %195, align 8, !tbaa !81
+  %795 = load ptr, ptr %195, align 8, !tbaa !82
   %796 = ptrtoint ptr %795 to i64
   %797 = ptrtoint ptr %793 to i64
   %798 = sub i64 %796, %797
@@ -1976,16 +1976,16 @@ bytestream2_put_be16.exit633:                     ; preds = %786
   br i1 %799, label %800, label %bytestream2_put_be16.exit633.thread
 
 800:                                              ; preds = %794
-  store i16 3855, ptr %793, align 1, !tbaa !83
-  %801 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3855, ptr %793, align 1, !tbaa !84
+  %801 = load ptr, ptr %8, align 8, !tbaa !80
   %802 = getelementptr inbounds nuw i8, ptr %801, i64 2
-  store ptr %802, ptr %8, align 8, !tbaa !79
+  store ptr %802, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit635
 
 bytestream2_put_be16.exit633.thread:              ; preds = %786, %bytestream2_put_be16.exit631, %bytestream2_put_be16.exit627.thread, %770, %bytestream2_put_be16.exit627, %bytestream2_put_be16.exit629, %778, %794, %bytestream2_put_be16.exit633
   %803 = phi ptr [ %793, %794 ], [ %793, %bytestream2_put_be16.exit633 ], [ %785, %786 ], [ %785, %bytestream2_put_be16.exit631 ], [ %777, %778 ], [ %777, %bytestream2_put_be16.exit629 ], [ %766, %bytestream2_put_be16.exit627.thread ], [ %769, %770 ], [ %769, %bytestream2_put_be16.exit627 ]
   %804 = phi i32 [ %664, %794 ], [ %664, %bytestream2_put_be16.exit633 ], [ %664, %786 ], [ %664, %bytestream2_put_be16.exit631 ], [ %664, %778 ], [ %664, %bytestream2_put_be16.exit629 ], [ %767, %bytestream2_put_be16.exit627.thread ], [ %664, %770 ], [ %664, %bytestream2_put_be16.exit627 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit635
 
 bytestream2_put_be16.exit635:                     ; preds = %800, %bytestream2_put_be16.exit633.thread
@@ -2014,12 +2014,12 @@ bytestream2_put_be16.exit635:                     ; preds = %800, %bytestream2_p
   %indvars.iv1079 = phi i64 [ 0, %.preheader965.us ], [ %indvars.iv.next1080, %bytestream2_put_be16.exit637.us ]
   %813 = getelementptr inbounds nuw i16, ptr %.0505987.us, i64 %indvars.iv1079
   %814 = load i16, ptr %813, align 2, !tbaa !60
-  %815 = load i32, ptr %196, align 8, !tbaa !82
+  %815 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i636.us = icmp eq i32 %815, 0
   br i1 %.not.i636.us, label %816, label %822
 
 816:                                              ; preds = %811
-  %817 = load ptr, ptr %195, align 8, !tbaa !81
+  %817 = load ptr, ptr %195, align 8, !tbaa !82
   %818 = ptrtoint ptr %817 to i64
   %819 = ptrtoint ptr %812 to i64
   %820 = sub i64 %818, %819
@@ -2027,37 +2027,37 @@ bytestream2_put_be16.exit635:                     ; preds = %800, %bytestream2_p
   br i1 %821, label %823, label %822
 
 822:                                              ; preds = %816, %811
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit637.us
 
 823:                                              ; preds = %816
   %824 = tail call i16 @llvm.bswap.i16(i16 %814)
-  store i16 %824, ptr %812, align 1, !tbaa !83
-  %825 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %824, ptr %812, align 1, !tbaa !84
+  %825 = load ptr, ptr %8, align 8, !tbaa !80
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 2
-  store ptr %826, ptr %8, align 8, !tbaa !79
+  store ptr %826, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit637.us
 
 bytestream2_put_be16.exit637.us:                  ; preds = %823, %822
   %827 = phi ptr [ %826, %823 ], [ %812, %822 ]
   %indvars.iv.next1080 = add nuw nsw i64 %indvars.iv1079, 1
   %exitcond1083.not = icmp eq i64 %indvars.iv.next1080, %wide.trip.count1082
-  br i1 %exitcond1083.not, label %._crit_edge986.us, label %811, !llvm.loop !91
+  br i1 %exitcond1083.not, label %._crit_edge986.us, label %811, !llvm.loop !92
 
 ._crit_edge986.us:                                ; preds = %bytestream2_put_be16.exit637.us
   %828 = getelementptr inbounds i16, ptr %.0505987.us, i64 %809
   %829 = add nuw nsw i32 %.0504988.us, 1
   %exitcond1084.not = icmp eq i32 %829, %597
-  br i1 %exitcond1084.not, label %._crit_edge989, label %.preheader965.us, !llvm.loop !92
+  br i1 %exitcond1084.not, label %._crit_edge989, label %.preheader965.us, !llvm.loop !93
 
 ._crit_edge989:                                   ; preds = %._crit_edge986.us, %.preheader965.lr.ph, %bytestream2_put_be16.exit635
   %830 = phi ptr [ %805, %bytestream2_put_be16.exit635 ], [ %805, %.preheader965.lr.ph ], [ %827, %._crit_edge986.us ]
-  %831 = load i32, ptr %196, align 8, !tbaa !82
+  %831 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i638 = icmp eq i32 %831, 0
   br i1 %.not.i638, label %832, label %bytestream2_put_be16.exit639.thread
 
 832:                                              ; preds = %._crit_edge989
-  %833 = load ptr, ptr %195, align 8, !tbaa !81
+  %833 = load ptr, ptr %195, align 8, !tbaa !82
   %834 = ptrtoint ptr %833 to i64
   %835 = ptrtoint ptr %830 to i64
   %836 = sub i64 %834, %835
@@ -2065,16 +2065,16 @@ bytestream2_put_be16.exit637.us:                  ; preds = %823, %822
   br i1 %837, label %bytestream2_put_be16.exit639, label %bytestream2_put_be16.exit639.thread
 
 bytestream2_put_be16.exit639:                     ; preds = %832
-  store i16 1024, ptr %830, align 1, !tbaa !83
-  %838 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %830, align 1, !tbaa !84
+  %838 = load ptr, ptr %8, align 8, !tbaa !80
   %839 = getelementptr inbounds nuw i8, ptr %838, i64 2
-  store ptr %839, ptr %8, align 8, !tbaa !79
-  %.pr870 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %839, ptr %8, align 8, !tbaa !80
+  %.pr870 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i640 = icmp eq i32 %.pr870, 0
   br i1 %.not.i640, label %840, label %bytestream2_put_be16.exit639.thread
 
 840:                                              ; preds = %bytestream2_put_be16.exit639
-  %841 = load ptr, ptr %195, align 8, !tbaa !81
+  %841 = load ptr, ptr %195, align 8, !tbaa !82
   %842 = ptrtoint ptr %841 to i64
   %843 = ptrtoint ptr %839 to i64
   %844 = sub i64 %842, %843
@@ -2082,14 +2082,14 @@ bytestream2_put_be16.exit639:                     ; preds = %832
   br i1 %845, label %846, label %bytestream2_put_be16.exit639.thread
 
 846:                                              ; preds = %840
-  store i16 19227, ptr %839, align 1, !tbaa !83
-  %847 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 19227, ptr %839, align 1, !tbaa !84
+  %847 = load ptr, ptr %8, align 8, !tbaa !80
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 2
-  store ptr %848, ptr %8, align 8, !tbaa !79
+  store ptr %848, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit641
 
 bytestream2_put_be16.exit639.thread:              ; preds = %832, %._crit_edge989, %840, %bytestream2_put_be16.exit639
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit641
 
 bytestream2_put_be16.exit641:                     ; preds = %846, %bytestream2_put_be16.exit639.thread
@@ -2108,14 +2108,14 @@ bytestream2_put_be16.exit641:                     ; preds = %846, %bytestream2_p
 855:                                              ; preds = %856
   %indvars.iv.next1090 = add nuw nsw i64 %indvars.iv1089, 1
   %exitcond1092.not = icmp eq i64 %indvars.iv.next1090, 3
-  br i1 %exitcond1092.not, label %.preheader966, label %.preheader964, !llvm.loop !93
+  br i1 %exitcond1092.not, label %.preheader966, label %.preheader964, !llvm.loop !94
 
 856:                                              ; preds = %.preheader964, %856
   %indvars.iv1085 = phi i64 [ 0, %.preheader964 ], [ %indvars.iv.next1086, %856 ]
   %857 = load i32, ptr %297, align 8, !tbaa !27
   %858 = icmp ne i32 %857, 64
   %859 = zext i1 %858 to i64
-  %860 = load i32, ptr %540, align 8, !tbaa !94
+  %860 = load i32, ptr %540, align 8, !tbaa !95
   %861 = sext i32 %860 to i64
   %862 = add nuw nsw i64 %indvars.iv1085, %853
   %863 = getelementptr inbounds [2 x [3 x [13 x [9 x i16]]]], ptr @quantization_per_subband, i64 0, i64 %859, i64 %851, i64 %861, i64 %862
@@ -2126,21 +2126,21 @@ bytestream2_put_be16.exit641:                     ; preds = %846, %bytestream2_p
   store i32 %865, ptr %867, align 4, !tbaa !55
   %indvars.iv.next1086 = add nuw nsw i64 %indvars.iv1085, 1
   %exitcond1088.not = icmp eq i64 %indvars.iv.next1086, 3
-  br i1 %exitcond1088.not, label %855, label %856, !llvm.loop !95
+  br i1 %exitcond1088.not, label %855, label %856, !llvm.loop !96
 
 868:                                              ; preds = %bytestream2_put_be16.exit733
-  %869 = load ptr, ptr %192, align 8, !tbaa !80
+  %869 = load ptr, ptr %192, align 8, !tbaa !81
   %870 = ptrtoint ptr %1102 to i64
   %871 = ptrtoint ptr %869 to i64
   %872 = sub i64 %870, %871
   %873 = trunc i64 %872 to i32
   %874 = sub i32 %873, %806
-  store i32 %874, ptr %590, align 8, !tbaa !96
+  store i32 %874, ptr %590, align 8, !tbaa !97
   %indvars.iv.next1105 = add nuw nsw i64 %indvars.iv1104, 1
   %875 = load i32, ptr %13, align 4, !tbaa !30
   %876 = sext i32 %875 to i64
   %877 = icmp slt i64 %indvars.iv.next1105, %876
-  br i1 %877, label %588, label %._crit_edge1055, !llvm.loop !97
+  br i1 %877, label %588, label %._crit_edge1055, !llvm.loop !98
 
 .preheader966:                                    ; preds = %855, %bytestream2_put_be16.exit733
   %indvars.iv1100 = phi i64 [ %indvars.iv.next1101, %bytestream2_put_be16.exit733 ], [ 0, %855 ]
@@ -2153,13 +2153,13 @@ bytestream2_put_be16.exit641:                     ; preds = %846, %bytestream2_p
   %884 = and i32 %883, -8
   %885 = getelementptr inbounds nuw i8, ptr %878, i64 20
   %886 = load i32, ptr %885, align 4, !tbaa !46
-  %887 = load i32, ptr %196, align 8, !tbaa !82
+  %887 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i642 = icmp eq i32 %887, 0
   br i1 %.not.i642, label %888, label %bytestream2_put_be16.exit645.thread
 
 888:                                              ; preds = %.preheader966
-  %889 = load ptr, ptr %195, align 8, !tbaa !81
-  %890 = load ptr, ptr %8, align 8, !tbaa !79
+  %889 = load ptr, ptr %195, align 8, !tbaa !82
+  %890 = load ptr, ptr %8, align 8, !tbaa !80
   %891 = ptrtoint ptr %889 to i64
   %892 = ptrtoint ptr %890 to i64
   %893 = sub i64 %891, %892
@@ -2167,16 +2167,16 @@ bytestream2_put_be16.exit641:                     ; preds = %846, %bytestream2_p
   br i1 %894, label %bytestream2_put_be16.exit643, label %bytestream2_put_be16.exit645.thread
 
 bytestream2_put_be16.exit643:                     ; preds = %888
-  store i16 1024, ptr %890, align 1, !tbaa !83
-  %895 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %890, align 1, !tbaa !84
+  %895 = load ptr, ptr %8, align 8, !tbaa !80
   %896 = getelementptr inbounds nuw i8, ptr %895, i64 2
-  store ptr %896, ptr %8, align 8, !tbaa !79
-  %.pr872 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %896, ptr %8, align 8, !tbaa !80
+  %.pr872 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i644 = icmp eq i32 %.pr872, 0
   br i1 %.not.i644, label %897, label %bytestream2_put_be16.exit645.thread
 
 897:                                              ; preds = %bytestream2_put_be16.exit643
-  %898 = load ptr, ptr %195, align 8, !tbaa !81
+  %898 = load ptr, ptr %195, align 8, !tbaa !82
   %899 = ptrtoint ptr %898 to i64
   %900 = ptrtoint ptr %896 to i64
   %901 = sub i64 %899, %900
@@ -2184,20 +2184,20 @@ bytestream2_put_be16.exit643:                     ; preds = %888
   br i1 %902, label %bytestream2_put_be16.exit645, label %bytestream2_put_be16.exit645.thread
 
 bytestream2_put_be16.exit645.thread:              ; preds = %888, %.preheader966, %bytestream2_put_be16.exit643, %897
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit653.thread
 
 bytestream2_put_be16.exit645:                     ; preds = %897
-  store i16 3341, ptr %896, align 1, !tbaa !83
-  %903 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3341, ptr %896, align 1, !tbaa !84
+  %903 = load ptr, ptr %8, align 8, !tbaa !80
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 2
-  store ptr %904, ptr %8, align 8, !tbaa !79
-  %.pr874 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %904, ptr %8, align 8, !tbaa !80
+  %.pr874 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i646 = icmp eq i32 %.pr874, 0
   br i1 %.not.i646, label %905, label %bytestream2_put_be16.exit653.thread
 
 905:                                              ; preds = %bytestream2_put_be16.exit645
-  %906 = load ptr, ptr %195, align 8, !tbaa !81
+  %906 = load ptr, ptr %195, align 8, !tbaa !82
   %907 = ptrtoint ptr %906 to i64
   %908 = ptrtoint ptr %904 to i64
   %909 = sub i64 %907, %908
@@ -2205,17 +2205,17 @@ bytestream2_put_be16.exit645:                     ; preds = %897
   br i1 %910, label %bytestream2_put_be16.exit647, label %bytestream2_put_be16.exit653.thread
 
 bytestream2_put_be16.exit647:                     ; preds = %905
-  store i16 9472, ptr %904, align 1, !tbaa !83
-  %911 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 9472, ptr %904, align 1, !tbaa !84
+  %911 = load ptr, ptr %8, align 8, !tbaa !80
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 2
-  store ptr %912, ptr %8, align 8, !tbaa !79
-  %.pr876 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %912, ptr %8, align 8, !tbaa !80
+  %.pr876 = load i32, ptr %196, align 8, !tbaa !83
   %913 = icmp eq i64 %indvars.iv1100, 2
   %.not.i648 = icmp eq i32 %.pr876, 0
   br i1 %.not.i648, label %914, label %bytestream2_put_be16.exit653.thread
 
 914:                                              ; preds = %bytestream2_put_be16.exit647
-  %915 = load ptr, ptr %195, align 8, !tbaa !81
+  %915 = load ptr, ptr %195, align 8, !tbaa !82
   %916 = ptrtoint ptr %915 to i64
   %917 = ptrtoint ptr %912 to i64
   %918 = sub i64 %916, %917
@@ -2224,16 +2224,16 @@ bytestream2_put_be16.exit647:                     ; preds = %905
 
 bytestream2_put_be16.exit649:                     ; preds = %914
   %920 = select i1 %913, i16 1280, i16 768
-  store i16 %920, ptr %912, align 1, !tbaa !83
-  %921 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %920, ptr %912, align 1, !tbaa !84
+  %921 = load ptr, ptr %8, align 8, !tbaa !80
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 2
-  store ptr %922, ptr %8, align 8, !tbaa !79
-  %.pr878 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %922, ptr %8, align 8, !tbaa !80
+  %.pr878 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i650 = icmp eq i32 %.pr878, 0
   br i1 %.not.i650, label %923, label %bytestream2_put_be16.exit653.thread
 
 923:                                              ; preds = %bytestream2_put_be16.exit649
-  %924 = load ptr, ptr %195, align 8, !tbaa !81
+  %924 = load ptr, ptr %195, align 8, !tbaa !82
   %925 = ptrtoint ptr %924 to i64
   %926 = ptrtoint ptr %922 to i64
   %927 = sub i64 %925, %926
@@ -2241,16 +2241,16 @@ bytestream2_put_be16.exit649:                     ; preds = %914
   br i1 %928, label %bytestream2_put_be16.exit651, label %bytestream2_put_be16.exit653.thread
 
 bytestream2_put_be16.exit651:                     ; preds = %923
-  store i16 9728, ptr %922, align 1, !tbaa !83
-  %929 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 9728, ptr %922, align 1, !tbaa !84
+  %929 = load ptr, ptr %8, align 8, !tbaa !80
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 2
-  store ptr %930, ptr %8, align 8, !tbaa !79
-  %.pr880 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %930, ptr %8, align 8, !tbaa !80
+  %.pr880 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i652 = icmp eq i32 %.pr880, 0
   br i1 %.not.i652, label %931, label %bytestream2_put_be16.exit653.thread
 
 931:                                              ; preds = %bytestream2_put_be16.exit651
-  %932 = load ptr, ptr %195, align 8, !tbaa !81
+  %932 = load ptr, ptr %195, align 8, !tbaa !82
   %933 = ptrtoint ptr %932 to i64
   %934 = ptrtoint ptr %930 to i64
   %935 = sub i64 %933, %934
@@ -2258,23 +2258,23 @@ bytestream2_put_be16.exit651:                     ; preds = %923
   br i1 %936, label %bytestream2_put_be16.exit653, label %bytestream2_put_be16.exit653.thread
 
 bytestream2_put_be16.exit653.thread:              ; preds = %923, %bytestream2_put_be16.exit649, %bytestream2_put_be16.exit645.thread, %905, %bytestream2_put_be16.exit645, %bytestream2_put_be16.exit647, %914, %bytestream2_put_be16.exit651, %931
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit661.thread
 
 bytestream2_put_be16.exit653:                     ; preds = %931
   %937 = trunc i64 %indvars.iv1100 to i16
   %938 = shl i16 %937, 8
   %939 = sub i16 768, %938
-  store i16 %939, ptr %930, align 1, !tbaa !83
-  %940 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %939, ptr %930, align 1, !tbaa !84
+  %940 = load ptr, ptr %8, align 8, !tbaa !80
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 2
-  store ptr %941, ptr %8, align 8, !tbaa !79
-  %.pr882 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %941, ptr %8, align 8, !tbaa !80
+  %.pr882 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i654 = icmp eq i32 %.pr882, 0
   br i1 %.not.i654, label %942, label %bytestream2_put_be16.exit661.thread
 
 942:                                              ; preds = %bytestream2_put_be16.exit653
-  %943 = load ptr, ptr %195, align 8, !tbaa !81
+  %943 = load ptr, ptr %195, align 8, !tbaa !82
   %944 = ptrtoint ptr %943 to i64
   %945 = ptrtoint ptr %941 to i64
   %946 = sub i64 %944, %945
@@ -2282,16 +2282,16 @@ bytestream2_put_be16.exit653:                     ; preds = %931
   br i1 %947, label %bytestream2_put_be16.exit655, label %bytestream2_put_be16.exit661.thread
 
 bytestream2_put_be16.exit655:                     ; preds = %942
-  store i16 9984, ptr %941, align 1, !tbaa !83
-  %948 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 9984, ptr %941, align 1, !tbaa !84
+  %948 = load ptr, ptr %8, align 8, !tbaa !80
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 2
-  store ptr %949, ptr %8, align 8, !tbaa !79
-  %.pr884 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %949, ptr %8, align 8, !tbaa !80
+  %.pr884 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i656 = icmp eq i32 %.pr884, 0
   br i1 %.not.i656, label %950, label %bytestream2_put_be16.exit661.thread
 
 950:                                              ; preds = %bytestream2_put_be16.exit655
-  %951 = load ptr, ptr %195, align 8, !tbaa !81
+  %951 = load ptr, ptr %195, align 8, !tbaa !82
   %952 = ptrtoint ptr %951 to i64
   %953 = ptrtoint ptr %949 to i64
   %954 = sub i64 %952, %953
@@ -2299,16 +2299,16 @@ bytestream2_put_be16.exit655:                     ; preds = %942
   br i1 %955, label %bytestream2_put_be16.exit657, label %bytestream2_put_be16.exit661.thread
 
 bytestream2_put_be16.exit657:                     ; preds = %950
-  store i16 %939, ptr %949, align 1, !tbaa !83
-  %956 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %939, ptr %949, align 1, !tbaa !84
+  %956 = load ptr, ptr %8, align 8, !tbaa !80
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 2
-  store ptr %957, ptr %8, align 8, !tbaa !79
-  %.pr886 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %957, ptr %8, align 8, !tbaa !80
+  %.pr886 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i658 = icmp eq i32 %.pr886, 0
   br i1 %.not.i658, label %958, label %bytestream2_put_be16.exit661.thread
 
 958:                                              ; preds = %bytestream2_put_be16.exit657
-  %959 = load ptr, ptr %195, align 8, !tbaa !81
+  %959 = load ptr, ptr %195, align 8, !tbaa !82
   %960 = ptrtoint ptr %959 to i64
   %961 = ptrtoint ptr %957 to i64
   %962 = sub i64 %960, %961
@@ -2316,16 +2316,16 @@ bytestream2_put_be16.exit657:                     ; preds = %950
   br i1 %963, label %bytestream2_put_be16.exit659, label %bytestream2_put_be16.exit661.thread
 
 bytestream2_put_be16.exit659:                     ; preds = %958
-  store i16 10240, ptr %957, align 1, !tbaa !83
-  %964 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 10240, ptr %957, align 1, !tbaa !84
+  %964 = load ptr, ptr %8, align 8, !tbaa !80
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 2
-  store ptr %965, ptr %8, align 8, !tbaa !79
-  %.pr888 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %965, ptr %8, align 8, !tbaa !80
+  %.pr888 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i660 = icmp eq i32 %.pr888, 0
   br i1 %.not.i660, label %966, label %bytestream2_put_be16.exit661.thread
 
 966:                                              ; preds = %bytestream2_put_be16.exit659
-  %967 = load ptr, ptr %195, align 8, !tbaa !81
+  %967 = load ptr, ptr %195, align 8, !tbaa !82
   %968 = ptrtoint ptr %967 to i64
   %969 = ptrtoint ptr %965 to i64
   %970 = sub i64 %968, %969
@@ -2333,20 +2333,20 @@ bytestream2_put_be16.exit659:                     ; preds = %958
   br i1 %971, label %bytestream2_put_be16.exit661, label %bytestream2_put_be16.exit661.thread
 
 bytestream2_put_be16.exit661.thread:              ; preds = %958, %bytestream2_put_be16.exit657, %bytestream2_put_be16.exit653.thread, %942, %bytestream2_put_be16.exit653, %bytestream2_put_be16.exit655, %950, %bytestream2_put_be16.exit659, %966
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit665.thread
 
 bytestream2_put_be16.exit661:                     ; preds = %966
-  store i16 1024, ptr %965, align 1, !tbaa !83
-  %972 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %965, align 1, !tbaa !84
+  %972 = load ptr, ptr %8, align 8, !tbaa !80
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 2
-  store ptr %973, ptr %8, align 8, !tbaa !79
-  %.pr890 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %973, ptr %8, align 8, !tbaa !80
+  %.pr890 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i662 = icmp eq i32 %.pr890, 0
   br i1 %.not.i662, label %974, label %bytestream2_put_be16.exit665.thread
 
 974:                                              ; preds = %bytestream2_put_be16.exit661
-  %975 = load ptr, ptr %195, align 8, !tbaa !81
+  %975 = load ptr, ptr %195, align 8, !tbaa !82
   %976 = ptrtoint ptr %975 to i64
   %977 = ptrtoint ptr %973 to i64
   %978 = sub i64 %976, %977
@@ -2354,16 +2354,16 @@ bytestream2_put_be16.exit661:                     ; preds = %966
   br i1 %979, label %bytestream2_put_be16.exit663, label %bytestream2_put_be16.exit665.thread
 
 bytestream2_put_be16.exit663:                     ; preds = %974
-  store i16 10496, ptr %973, align 1, !tbaa !83
-  %980 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 10496, ptr %973, align 1, !tbaa !84
+  %980 = load ptr, ptr %8, align 8, !tbaa !80
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 2
-  store ptr %981, ptr %8, align 8, !tbaa !79
-  %.pr892 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %981, ptr %8, align 8, !tbaa !80
+  %.pr892 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i664 = icmp eq i32 %.pr892, 0
   br i1 %.not.i664, label %982, label %bytestream2_put_be16.exit665.thread
 
 982:                                              ; preds = %bytestream2_put_be16.exit663
-  %983 = load ptr, ptr %195, align 8, !tbaa !81
+  %983 = load ptr, ptr %195, align 8, !tbaa !82
   %984 = ptrtoint ptr %983 to i64
   %985 = ptrtoint ptr %981 to i64
   %986 = sub i64 %984, %985
@@ -2378,16 +2378,16 @@ bytestream2_put_be16.exit665.thread:              ; preds = %bytestream2_put_be1
 bytestream2_put_be16.exit665:                     ; preds = %982
   %988 = trunc i32 %882 to i16
   %989 = tail call i16 @llvm.bswap.i16(i16 %988)
-  store i16 %989, ptr %981, align 1, !tbaa !83
-  %990 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %989, ptr %981, align 1, !tbaa !84
+  %990 = load ptr, ptr %8, align 8, !tbaa !80
   %991 = getelementptr inbounds nuw i8, ptr %990, i64 2
-  store ptr %991, ptr %8, align 8, !tbaa !79
-  %.pr894 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %991, ptr %8, align 8, !tbaa !80
+  %.pr894 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i666 = icmp eq i32 %.pr894, 0
   br i1 %.not.i666, label %992, label %bytestream2_put_be16.exit669.thread
 
 992:                                              ; preds = %bytestream2_put_be16.exit665
-  %993 = load ptr, ptr %195, align 8, !tbaa !81
+  %993 = load ptr, ptr %195, align 8, !tbaa !82
   %994 = ptrtoint ptr %993 to i64
   %995 = ptrtoint ptr %991 to i64
   %996 = sub i64 %994, %995
@@ -2395,16 +2395,16 @@ bytestream2_put_be16.exit665:                     ; preds = %982
   br i1 %997, label %bytestream2_put_be16.exit667, label %bytestream2_put_be16.exit669.thread
 
 bytestream2_put_be16.exit667:                     ; preds = %992
-  store i16 10752, ptr %991, align 1, !tbaa !83
-  %998 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 10752, ptr %991, align 1, !tbaa !84
+  %998 = load ptr, ptr %8, align 8, !tbaa !80
   %999 = getelementptr inbounds nuw i8, ptr %998, i64 2
-  store ptr %999, ptr %8, align 8, !tbaa !79
-  %.pr896 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %999, ptr %8, align 8, !tbaa !80
+  %.pr896 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i668 = icmp eq i32 %.pr896, 0
   br i1 %.not.i668, label %1000, label %bytestream2_put_be16.exit669.thread
 
 1000:                                             ; preds = %bytestream2_put_be16.exit667
-  %1001 = load ptr, ptr %195, align 8, !tbaa !81
+  %1001 = load ptr, ptr %195, align 8, !tbaa !82
   %1002 = ptrtoint ptr %1001 to i64
   %1003 = ptrtoint ptr %999 to i64
   %1004 = sub i64 %1002, %1003
@@ -2413,7 +2413,7 @@ bytestream2_put_be16.exit667:                     ; preds = %992
 
 bytestream2_put_be16.exit669.thread:              ; preds = %bytestream2_put_be16.exit665.thread, %992, %bytestream2_put_be16.exit665, %bytestream2_put_be16.exit667, %1000
   %.pre1161.pre-phi = phi i16 [ %989, %bytestream2_put_be16.exit667 ], [ %989, %1000 ], [ %989, %bytestream2_put_be16.exit665 ], [ %989, %992 ], [ %.pre1167, %bytestream2_put_be16.exit665.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   %.pre1162 = trunc i32 %886 to i16
   %.pre1163 = tail call i16 @llvm.bswap.i16(i16 %.pre1162)
   br label %bytestream2_put_be16.exit677.thread
@@ -2421,16 +2421,16 @@ bytestream2_put_be16.exit669.thread:              ; preds = %bytestream2_put_be1
 bytestream2_put_be16.exit669:                     ; preds = %1000
   %1006 = trunc i32 %886 to i16
   %1007 = tail call i16 @llvm.bswap.i16(i16 %1006)
-  store i16 %1007, ptr %999, align 1, !tbaa !83
-  %1008 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %1007, ptr %999, align 1, !tbaa !84
+  %1008 = load ptr, ptr %8, align 8, !tbaa !80
   %1009 = getelementptr inbounds nuw i8, ptr %1008, i64 2
-  store ptr %1009, ptr %8, align 8, !tbaa !79
-  %.pr898 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1009, ptr %8, align 8, !tbaa !80
+  %.pr898 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i670 = icmp eq i32 %.pr898, 0
   br i1 %.not.i670, label %1010, label %bytestream2_put_be16.exit677.thread
 
 1010:                                             ; preds = %bytestream2_put_be16.exit669
-  %1011 = load ptr, ptr %195, align 8, !tbaa !81
+  %1011 = load ptr, ptr %195, align 8, !tbaa !82
   %1012 = ptrtoint ptr %1011 to i64
   %1013 = ptrtoint ptr %1009 to i64
   %1014 = sub i64 %1012, %1013
@@ -2438,16 +2438,16 @@ bytestream2_put_be16.exit669:                     ; preds = %1000
   br i1 %1015, label %bytestream2_put_be16.exit671, label %bytestream2_put_be16.exit677.thread
 
 bytestream2_put_be16.exit671:                     ; preds = %1010
-  store i16 11008, ptr %1009, align 1, !tbaa !83
-  %1016 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 11008, ptr %1009, align 1, !tbaa !84
+  %1016 = load ptr, ptr %8, align 8, !tbaa !80
   %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 2
-  store ptr %1017, ptr %8, align 8, !tbaa !79
-  %.pr900 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1017, ptr %8, align 8, !tbaa !80
+  %.pr900 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i672 = icmp eq i32 %.pr900, 0
   br i1 %.not.i672, label %1018, label %bytestream2_put_be16.exit677.thread
 
 1018:                                             ; preds = %bytestream2_put_be16.exit671
-  %1019 = load ptr, ptr %195, align 8, !tbaa !81
+  %1019 = load ptr, ptr %195, align 8, !tbaa !82
   %1020 = ptrtoint ptr %1019 to i64
   %1021 = ptrtoint ptr %1017 to i64
   %1022 = sub i64 %1020, %1021
@@ -2455,16 +2455,16 @@ bytestream2_put_be16.exit671:                     ; preds = %1010
   br i1 %1023, label %bytestream2_put_be16.exit673, label %bytestream2_put_be16.exit677.thread
 
 bytestream2_put_be16.exit673:                     ; preds = %1018
-  store i16 0, ptr %1017, align 1, !tbaa !83
-  %1024 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %1017, align 1, !tbaa !84
+  %1024 = load ptr, ptr %8, align 8, !tbaa !80
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 2
-  store ptr %1025, ptr %8, align 8, !tbaa !79
-  %.pr902 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1025, ptr %8, align 8, !tbaa !80
+  %.pr902 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i674 = icmp eq i32 %.pr902, 0
   br i1 %.not.i674, label %1026, label %bytestream2_put_be16.exit677.thread
 
 1026:                                             ; preds = %bytestream2_put_be16.exit673
-  %1027 = load ptr, ptr %195, align 8, !tbaa !81
+  %1027 = load ptr, ptr %195, align 8, !tbaa !82
   %1028 = ptrtoint ptr %1027 to i64
   %1029 = ptrtoint ptr %1025 to i64
   %1030 = sub i64 %1028, %1029
@@ -2472,16 +2472,16 @@ bytestream2_put_be16.exit673:                     ; preds = %1018
   br i1 %1031, label %bytestream2_put_be16.exit675, label %bytestream2_put_be16.exit677.thread
 
 bytestream2_put_be16.exit675:                     ; preds = %1026
-  store i16 11264, ptr %1025, align 1, !tbaa !83
-  %1032 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 11264, ptr %1025, align 1, !tbaa !84
+  %1032 = load ptr, ptr %8, align 8, !tbaa !80
   %1033 = getelementptr inbounds nuw i8, ptr %1032, i64 2
-  store ptr %1033, ptr %8, align 8, !tbaa !79
-  %.pr904 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1033, ptr %8, align 8, !tbaa !80
+  %.pr904 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i676 = icmp eq i32 %.pr904, 0
   br i1 %.not.i676, label %1034, label %bytestream2_put_be16.exit677.thread
 
 1034:                                             ; preds = %bytestream2_put_be16.exit675
-  %1035 = load ptr, ptr %195, align 8, !tbaa !81
+  %1035 = load ptr, ptr %195, align 8, !tbaa !82
   %1036 = ptrtoint ptr %1035 to i64
   %1037 = ptrtoint ptr %1033 to i64
   %1038 = sub i64 %1036, %1037
@@ -2491,20 +2491,20 @@ bytestream2_put_be16.exit675:                     ; preds = %1026
 bytestream2_put_be16.exit677.thread:              ; preds = %1026, %bytestream2_put_be16.exit673, %bytestream2_put_be16.exit669.thread, %1010, %bytestream2_put_be16.exit669, %bytestream2_put_be16.exit671, %1018, %bytestream2_put_be16.exit675, %1034
   %.pre1147.pre-phi = phi i16 [ %1007, %bytestream2_put_be16.exit675 ], [ %1007, %1034 ], [ %1007, %bytestream2_put_be16.exit673 ], [ %1007, %1026 ], [ %1007, %bytestream2_put_be16.exit671 ], [ %1007, %1018 ], [ %1007, %bytestream2_put_be16.exit669 ], [ %1007, %1010 ], [ %.pre1163, %bytestream2_put_be16.exit669.thread ]
   %.pre1145.pre-phi = phi i16 [ %989, %bytestream2_put_be16.exit675 ], [ %989, %1034 ], [ %989, %bytestream2_put_be16.exit673 ], [ %989, %1026 ], [ %989, %bytestream2_put_be16.exit671 ], [ %989, %1018 ], [ %989, %bytestream2_put_be16.exit669 ], [ %989, %1010 ], [ %.pre1161.pre-phi, %bytestream2_put_be16.exit669.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit683.thread
 
 bytestream2_put_be16.exit677:                     ; preds = %1034
-  store i16 0, ptr %1033, align 1, !tbaa !83
-  %1040 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %1033, align 1, !tbaa !84
+  %1040 = load ptr, ptr %8, align 8, !tbaa !80
   %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 2
-  store ptr %1041, ptr %8, align 8, !tbaa !79
-  %.pr906 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1041, ptr %8, align 8, !tbaa !80
+  %.pr906 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i678 = icmp eq i32 %.pr906, 0
   br i1 %.not.i678, label %1042, label %bytestream2_put_be16.exit683.thread
 
 1042:                                             ; preds = %bytestream2_put_be16.exit677
-  %1043 = load ptr, ptr %195, align 8, !tbaa !81
+  %1043 = load ptr, ptr %195, align 8, !tbaa !82
   %1044 = ptrtoint ptr %1043 to i64
   %1045 = ptrtoint ptr %1041 to i64
   %1046 = sub i64 %1044, %1045
@@ -2512,16 +2512,16 @@ bytestream2_put_be16.exit677:                     ; preds = %1034
   br i1 %1047, label %bytestream2_put_be16.exit679, label %bytestream2_put_be16.exit683.thread
 
 bytestream2_put_be16.exit679:                     ; preds = %1042
-  store i16 11520, ptr %1041, align 1, !tbaa !83
-  %1048 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 11520, ptr %1041, align 1, !tbaa !84
+  %1048 = load ptr, ptr %8, align 8, !tbaa !80
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 2
-  store ptr %1049, ptr %8, align 8, !tbaa !79
-  %.pr908 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1049, ptr %8, align 8, !tbaa !80
+  %.pr908 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i680 = icmp eq i32 %.pr908, 0
   br i1 %.not.i680, label %1050, label %bytestream2_put_be16.exit683.thread
 
 1050:                                             ; preds = %bytestream2_put_be16.exit679
-  %1051 = load ptr, ptr %195, align 8, !tbaa !81
+  %1051 = load ptr, ptr %195, align 8, !tbaa !82
   %1052 = ptrtoint ptr %1051 to i64
   %1053 = ptrtoint ptr %1049 to i64
   %1054 = sub i64 %1052, %1053
@@ -2529,16 +2529,16 @@ bytestream2_put_be16.exit679:                     ; preds = %1042
   br i1 %1055, label %bytestream2_put_be16.exit681, label %bytestream2_put_be16.exit683.thread
 
 bytestream2_put_be16.exit681:                     ; preds = %1050
-  store i16 256, ptr %1049, align 1, !tbaa !83
-  %1056 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %1049, align 1, !tbaa !84
+  %1056 = load ptr, ptr %8, align 8, !tbaa !80
   %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 2
-  store ptr %1057, ptr %8, align 8, !tbaa !79
-  %.pr910 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1057, ptr %8, align 8, !tbaa !80
+  %.pr910 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i682 = icmp eq i32 %.pr910, 0
   br i1 %.not.i682, label %1058, label %bytestream2_put_be16.exit683.thread
 
 1058:                                             ; preds = %bytestream2_put_be16.exit681
-  %1059 = load ptr, ptr %195, align 8, !tbaa !81
+  %1059 = load ptr, ptr %195, align 8, !tbaa !82
   %1060 = ptrtoint ptr %1059 to i64
   %1061 = ptrtoint ptr %1057 to i64
   %1062 = sub i64 %1060, %1061
@@ -2546,16 +2546,16 @@ bytestream2_put_be16.exit681:                     ; preds = %1050
   br i1 %1063, label %bytestream2_put_be16.exit683, label %bytestream2_put_be16.exit683.thread
 
 bytestream2_put_be16.exit683:                     ; preds = %1058
-  store i16 11776, ptr %1057, align 1, !tbaa !83
-  %1064 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 11776, ptr %1057, align 1, !tbaa !84
+  %1064 = load ptr, ptr %8, align 8, !tbaa !80
   %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 2
-  store ptr %1065, ptr %8, align 8, !tbaa !79
-  %.pr912 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1065, ptr %8, align 8, !tbaa !80
+  %.pr912 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i684 = icmp eq i32 %.pr912, 0
   br i1 %.not.i684, label %1066, label %bytestream2_put_be16.exit683.thread
 
 1066:                                             ; preds = %bytestream2_put_be16.exit683
-  %1067 = load ptr, ptr %195, align 8, !tbaa !81
+  %1067 = load ptr, ptr %195, align 8, !tbaa !82
   %1068 = ptrtoint ptr %1067 to i64
   %1069 = ptrtoint ptr %1065 to i64
   %1070 = sub i64 %1068, %1069
@@ -2563,16 +2563,16 @@ bytestream2_put_be16.exit683:                     ; preds = %1058
   br i1 %1071, label %1072, label %bytestream2_put_be16.exit683.thread
 
 1072:                                             ; preds = %1066
-  store i16 256, ptr %1065, align 1, !tbaa !83
-  %1073 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %1065, align 1, !tbaa !84
+  %1073 = load ptr, ptr %8, align 8, !tbaa !80
   %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 2
-  store ptr %1074, ptr %8, align 8, !tbaa !79
+  store ptr %1074, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit685
 
 bytestream2_put_be16.exit683.thread:              ; preds = %1058, %bytestream2_put_be16.exit681, %bytestream2_put_be16.exit677.thread, %1042, %bytestream2_put_be16.exit677, %bytestream2_put_be16.exit679, %1050, %1066, %bytestream2_put_be16.exit683
   %.pre1130.pre-phi = phi i16 [ %1007, %1066 ], [ %1007, %bytestream2_put_be16.exit683 ], [ %1007, %bytestream2_put_be16.exit681 ], [ %1007, %1058 ], [ %1007, %bytestream2_put_be16.exit679 ], [ %1007, %1050 ], [ %1007, %bytestream2_put_be16.exit677 ], [ %1007, %1042 ], [ %.pre1147.pre-phi, %bytestream2_put_be16.exit677.thread ]
   %.pre1126.pre-phi = phi i16 [ %989, %1066 ], [ %989, %bytestream2_put_be16.exit683 ], [ %989, %bytestream2_put_be16.exit681 ], [ %989, %1058 ], [ %989, %bytestream2_put_be16.exit679 ], [ %989, %1050 ], [ %989, %bytestream2_put_be16.exit677 ], [ %989, %1042 ], [ %.pre1145.pre-phi, %bytestream2_put_be16.exit677.thread ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit685
 
 bytestream2_put_be16.exit685:                     ; preds = %1072, %bytestream2_put_be16.exit683.thread
@@ -2591,12 +2591,12 @@ bytestream2_put_be16.exit685:                     ; preds = %1072, %bytestream2_
   br label %1103
 
 1082:                                             ; preds = %bytestream2_put_be16.exit729
-  %1083 = load i32, ptr %196, align 8, !tbaa !82
+  %1083 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i730 = icmp eq i32 %1083, 0
   br i1 %.not.i730, label %1084, label %bytestream2_put_be16.exit731.thread
 
 1084:                                             ; preds = %1082
-  %1085 = load ptr, ptr %195, align 8, !tbaa !81
+  %1085 = load ptr, ptr %195, align 8, !tbaa !82
   %1086 = ptrtoint ptr %1085 to i64
   %1087 = ptrtoint ptr %1545 to i64
   %1088 = sub i64 %1086, %1087
@@ -2604,16 +2604,16 @@ bytestream2_put_be16.exit685:                     ; preds = %1072, %bytestream2_
   br i1 %1089, label %bytestream2_put_be16.exit731, label %bytestream2_put_be16.exit731.thread
 
 bytestream2_put_be16.exit731:                     ; preds = %1084
-  store i16 1024, ptr %1545, align 1, !tbaa !83
-  %1090 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %1545, align 1, !tbaa !84
+  %1090 = load ptr, ptr %8, align 8, !tbaa !80
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 2
-  store ptr %1091, ptr %8, align 8, !tbaa !79
-  %.pr914 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1091, ptr %8, align 8, !tbaa !80
+  %.pr914 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i732 = icmp eq i32 %.pr914, 0
   br i1 %.not.i732, label %1092, label %bytestream2_put_be16.exit731.thread
 
 1092:                                             ; preds = %bytestream2_put_be16.exit731
-  %1093 = load ptr, ptr %195, align 8, !tbaa !81
+  %1093 = load ptr, ptr %195, align 8, !tbaa !82
   %1094 = ptrtoint ptr %1093 to i64
   %1095 = ptrtoint ptr %1091 to i64
   %1096 = sub i64 %1094, %1095
@@ -2621,22 +2621,22 @@ bytestream2_put_be16.exit731:                     ; preds = %1084
   br i1 %1097, label %1098, label %bytestream2_put_be16.exit731.thread
 
 1098:                                             ; preds = %1092
-  store i16 3084, ptr %1091, align 1, !tbaa !83
-  %1099 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3084, ptr %1091, align 1, !tbaa !84
+  %1099 = load ptr, ptr %8, align 8, !tbaa !80
   %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 2
-  store ptr %1100, ptr %8, align 8, !tbaa !79
+  store ptr %1100, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit733
 
 bytestream2_put_be16.exit731.thread:              ; preds = %1084, %1082, %1092, %bytestream2_put_be16.exit731
   %1101 = phi ptr [ %1091, %1092 ], [ %1091, %bytestream2_put_be16.exit731 ], [ %1545, %1082 ], [ %1545, %1084 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit733
 
 bytestream2_put_be16.exit733:                     ; preds = %1098, %bytestream2_put_be16.exit731.thread
   %1102 = phi ptr [ %1100, %1098 ], [ %1101, %bytestream2_put_be16.exit731.thread ]
   %indvars.iv.next1101 = add nuw nsw i64 %indvars.iv1100, 1
   %exitcond1103.not = icmp eq i64 %indvars.iv.next1101, 3
-  br i1 %exitcond1103.not, label %868, label %.preheader966, !llvm.loop !98
+  br i1 %exitcond1103.not, label %868, label %.preheader966, !llvm.loop !99
 
 1103:                                             ; preds = %bytestream2_put_be16.exit685, %bytestream2_put_be16.exit729
   %.04971007 = phi i32 [ 0, %bytestream2_put_be16.exit685 ], [ %1291, %bytestream2_put_be16.exit729 ]
@@ -2644,13 +2644,13 @@ bytestream2_put_be16.exit733:                     ; preds = %1098, %bytestream2_
   %1105 = zext nneg i32 %1104 to i64
   %1106 = getelementptr inbounds nuw [10 x ptr], ptr %598, i64 0, i64 %1105
   %1107 = load ptr, ptr %1106, align 8, !tbaa !40
-  %1108 = load i32, ptr %196, align 8, !tbaa !82
+  %1108 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i686 = icmp eq i32 %1108, 0
   br i1 %.not.i686, label %1109, label %bytestream2_put_be16.exit691.thread
 
 1109:                                             ; preds = %1103
-  %1110 = load ptr, ptr %195, align 8, !tbaa !81
-  %1111 = load ptr, ptr %8, align 8, !tbaa !79
+  %1110 = load ptr, ptr %195, align 8, !tbaa !82
+  %1111 = load ptr, ptr %8, align 8, !tbaa !80
   %1112 = ptrtoint ptr %1110 to i64
   %1113 = ptrtoint ptr %1111 to i64
   %1114 = sub i64 %1112, %1113
@@ -2658,16 +2658,16 @@ bytestream2_put_be16.exit733:                     ; preds = %1098, %bytestream2_
   br i1 %1115, label %bytestream2_put_be16.exit687, label %bytestream2_put_be16.exit691.thread
 
 bytestream2_put_be16.exit687:                     ; preds = %1109
-  store i16 1024, ptr %1111, align 1, !tbaa !83
-  %1116 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 1024, ptr %1111, align 1, !tbaa !84
+  %1116 = load ptr, ptr %8, align 8, !tbaa !80
   %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 2
-  store ptr %1117, ptr %8, align 8, !tbaa !79
-  %.pr916 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1117, ptr %8, align 8, !tbaa !80
+  %.pr916 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i688 = icmp eq i32 %.pr916, 0
   br i1 %.not.i688, label %1118, label %bytestream2_put_be16.exit691.thread
 
 1118:                                             ; preds = %bytestream2_put_be16.exit687
-  %1119 = load ptr, ptr %195, align 8, !tbaa !81
+  %1119 = load ptr, ptr %195, align 8, !tbaa !82
   %1120 = ptrtoint ptr %1119 to i64
   %1121 = ptrtoint ptr %1117 to i64
   %1122 = sub i64 %1120, %1121
@@ -2675,16 +2675,16 @@ bytestream2_put_be16.exit687:                     ; preds = %1109
   br i1 %1123, label %bytestream2_put_be16.exit689, label %bytestream2_put_be16.exit691.thread
 
 bytestream2_put_be16.exit689:                     ; preds = %1118
-  store i16 3598, ptr %1117, align 1, !tbaa !83
-  %1124 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 3598, ptr %1117, align 1, !tbaa !84
+  %1124 = load ptr, ptr %8, align 8, !tbaa !80
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 2
-  store ptr %1125, ptr %8, align 8, !tbaa !79
-  %.pr918 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1125, ptr %8, align 8, !tbaa !80
+  %.pr918 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i690 = icmp eq i32 %.pr918, 0
   br i1 %.not.i690, label %1126, label %bytestream2_put_be16.exit691.thread
 
 1126:                                             ; preds = %bytestream2_put_be16.exit689
-  %1127 = load ptr, ptr %195, align 8, !tbaa !81
+  %1127 = load ptr, ptr %195, align 8, !tbaa !82
   %1128 = ptrtoint ptr %1127 to i64
   %1129 = ptrtoint ptr %1125 to i64
   %1130 = sub i64 %1128, %1129
@@ -2696,17 +2696,17 @@ bytestream2_put_be16.exit691.thread:              ; preds = %1118, %bytestream2_
   br label %bytestream2_put_be16.exit693.thread
 
 bytestream2_put_be16.exit691:                     ; preds = %1126
-  store i16 12288, ptr %1125, align 1, !tbaa !83
-  %1133 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 12288, ptr %1125, align 1, !tbaa !84
+  %1133 = load ptr, ptr %8, align 8, !tbaa !80
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 2
-  store ptr %1134, ptr %8, align 8, !tbaa !79
-  %.pr920 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1134, ptr %8, align 8, !tbaa !80
+  %.pr920 = load i32, ptr %196, align 8, !tbaa !83
   %1135 = add nuw nsw i32 %.04971007, 1
   %.not.i692 = icmp eq i32 %.pr920, 0
   br i1 %.not.i692, label %1136, label %bytestream2_put_be16.exit693.thread
 
 1136:                                             ; preds = %bytestream2_put_be16.exit691
-  %1137 = load ptr, ptr %195, align 8, !tbaa !81
+  %1137 = load ptr, ptr %195, align 8, !tbaa !82
   %1138 = ptrtoint ptr %1137 to i64
   %1139 = ptrtoint ptr %1134 to i64
   %1140 = sub i64 %1138, %1139
@@ -2715,22 +2715,22 @@ bytestream2_put_be16.exit691:                     ; preds = %1126
 
 bytestream2_put_be16.exit693.thread:              ; preds = %bytestream2_put_be16.exit691, %1136, %bytestream2_put_be16.exit691.thread
   %1142 = phi i32 [ %1132, %bytestream2_put_be16.exit691.thread ], [ %1135, %1136 ], [ %1135, %bytestream2_put_be16.exit691 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit701.thread
 
 bytestream2_put_be16.exit693:                     ; preds = %1136
   %1143 = trunc nuw nsw i32 %1135 to i16
   %1144 = shl nuw nsw i16 %1143, 8
-  store i16 %1144, ptr %1134, align 1, !tbaa !83
-  %1145 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %1144, ptr %1134, align 1, !tbaa !84
+  %1145 = load ptr, ptr %8, align 8, !tbaa !80
   %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 2
-  store ptr %1146, ptr %8, align 8, !tbaa !79
-  %.pr922 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1146, ptr %8, align 8, !tbaa !80
+  %.pr922 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i694 = icmp eq i32 %.pr922, 0
   br i1 %.not.i694, label %1147, label %bytestream2_put_be16.exit701.thread
 
 1147:                                             ; preds = %bytestream2_put_be16.exit693
-  %1148 = load ptr, ptr %195, align 8, !tbaa !81
+  %1148 = load ptr, ptr %195, align 8, !tbaa !82
   %1149 = ptrtoint ptr %1148 to i64
   %1150 = ptrtoint ptr %1146 to i64
   %1151 = sub i64 %1149, %1150
@@ -2738,16 +2738,16 @@ bytestream2_put_be16.exit693:                     ; preds = %1136
   br i1 %1152, label %bytestream2_put_be16.exit695, label %bytestream2_put_be16.exit701.thread
 
 bytestream2_put_be16.exit695:                     ; preds = %1147
-  store i16 18432, ptr %1146, align 1, !tbaa !83
-  %1153 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 18432, ptr %1146, align 1, !tbaa !84
+  %1153 = load ptr, ptr %8, align 8, !tbaa !80
   %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 2
-  store ptr %1154, ptr %8, align 8, !tbaa !79
-  %.pr924 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1154, ptr %8, align 8, !tbaa !80
+  %.pr924 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i696 = icmp eq i32 %.pr924, 0
   br i1 %.not.i696, label %1155, label %bytestream2_put_be16.exit701.thread
 
 1155:                                             ; preds = %bytestream2_put_be16.exit695
-  %1156 = load ptr, ptr %195, align 8, !tbaa !81
+  %1156 = load ptr, ptr %195, align 8, !tbaa !82
   %1157 = ptrtoint ptr %1156 to i64
   %1158 = ptrtoint ptr %1154 to i64
   %1159 = sub i64 %1157, %1158
@@ -2755,16 +2755,16 @@ bytestream2_put_be16.exit695:                     ; preds = %1147
   br i1 %1160, label %bytestream2_put_be16.exit697, label %bytestream2_put_be16.exit701.thread
 
 bytestream2_put_be16.exit697:                     ; preds = %1155
-  store i16 256, ptr %1154, align 1, !tbaa !83
-  %1161 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %1154, align 1, !tbaa !84
+  %1161 = load ptr, ptr %8, align 8, !tbaa !80
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 2
-  store ptr %1162, ptr %8, align 8, !tbaa !79
-  %.pr926 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1162, ptr %8, align 8, !tbaa !80
+  %.pr926 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i698 = icmp eq i32 %.pr926, 0
   br i1 %.not.i698, label %1163, label %bytestream2_put_be16.exit701.thread
 
 1163:                                             ; preds = %bytestream2_put_be16.exit697
-  %1164 = load ptr, ptr %195, align 8, !tbaa !81
+  %1164 = load ptr, ptr %195, align 8, !tbaa !82
   %1165 = ptrtoint ptr %1164 to i64
   %1166 = ptrtoint ptr %1162 to i64
   %1167 = sub i64 %1165, %1166
@@ -2772,16 +2772,16 @@ bytestream2_put_be16.exit697:                     ; preds = %1155
   br i1 %1168, label %bytestream2_put_be16.exit699, label %bytestream2_put_be16.exit701.thread
 
 bytestream2_put_be16.exit699:                     ; preds = %1163
-  store i16 12544, ptr %1162, align 1, !tbaa !83
-  %1169 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 12544, ptr %1162, align 1, !tbaa !84
+  %1169 = load ptr, ptr %8, align 8, !tbaa !80
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 2
-  store ptr %1170, ptr %8, align 8, !tbaa !79
-  %.pr928 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1170, ptr %8, align 8, !tbaa !80
+  %.pr928 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i700 = icmp eq i32 %.pr928, 0
   br i1 %.not.i700, label %1171, label %bytestream2_put_be16.exit701.thread
 
 1171:                                             ; preds = %bytestream2_put_be16.exit699
-  %1172 = load ptr, ptr %195, align 8, !tbaa !81
+  %1172 = load ptr, ptr %195, align 8, !tbaa !82
   %1173 = ptrtoint ptr %1172 to i64
   %1174 = ptrtoint ptr %1170 to i64
   %1175 = sub i64 %1173, %1174
@@ -2790,20 +2790,20 @@ bytestream2_put_be16.exit699:                     ; preds = %1163
 
 bytestream2_put_be16.exit701.thread:              ; preds = %1163, %bytestream2_put_be16.exit697, %bytestream2_put_be16.exit693.thread, %1147, %bytestream2_put_be16.exit693, %bytestream2_put_be16.exit695, %1155, %bytestream2_put_be16.exit699, %1171
   %1177 = phi i32 [ %1135, %1171 ], [ %1135, %bytestream2_put_be16.exit699 ], [ %1135, %1163 ], [ %1135, %bytestream2_put_be16.exit697 ], [ %1135, %1155 ], [ %1135, %bytestream2_put_be16.exit695 ], [ %1142, %bytestream2_put_be16.exit693.thread ], [ %1135, %1147 ], [ %1135, %bytestream2_put_be16.exit693 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit709.thread
 
 bytestream2_put_be16.exit701:                     ; preds = %1171
-  store i16 %.pre-phi1127, ptr %1170, align 1, !tbaa !83
-  %1178 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %.pre-phi1127, ptr %1170, align 1, !tbaa !84
+  %1178 = load ptr, ptr %8, align 8, !tbaa !80
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 2
-  store ptr %1179, ptr %8, align 8, !tbaa !79
-  %.pr930 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1179, ptr %8, align 8, !tbaa !80
+  %.pr930 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i702 = icmp eq i32 %.pr930, 0
   br i1 %.not.i702, label %1180, label %bytestream2_put_be16.exit709.thread
 
 1180:                                             ; preds = %bytestream2_put_be16.exit701
-  %1181 = load ptr, ptr %195, align 8, !tbaa !81
+  %1181 = load ptr, ptr %195, align 8, !tbaa !82
   %1182 = ptrtoint ptr %1181 to i64
   %1183 = ptrtoint ptr %1179 to i64
   %1184 = sub i64 %1182, %1183
@@ -2811,16 +2811,16 @@ bytestream2_put_be16.exit701:                     ; preds = %1171
   br i1 %1185, label %bytestream2_put_be16.exit703, label %bytestream2_put_be16.exit709.thread
 
 bytestream2_put_be16.exit703:                     ; preds = %1180
-  store i16 12800, ptr %1179, align 1, !tbaa !83
-  %1186 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 12800, ptr %1179, align 1, !tbaa !84
+  %1186 = load ptr, ptr %8, align 8, !tbaa !80
   %1187 = getelementptr inbounds nuw i8, ptr %1186, i64 2
-  store ptr %1187, ptr %8, align 8, !tbaa !79
-  %.pr932 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1187, ptr %8, align 8, !tbaa !80
+  %.pr932 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i704 = icmp eq i32 %.pr932, 0
   br i1 %.not.i704, label %1188, label %bytestream2_put_be16.exit709.thread
 
 1188:                                             ; preds = %bytestream2_put_be16.exit703
-  %1189 = load ptr, ptr %195, align 8, !tbaa !81
+  %1189 = load ptr, ptr %195, align 8, !tbaa !82
   %1190 = ptrtoint ptr %1189 to i64
   %1191 = ptrtoint ptr %1187 to i64
   %1192 = sub i64 %1190, %1191
@@ -2828,16 +2828,16 @@ bytestream2_put_be16.exit703:                     ; preds = %1180
   br i1 %1193, label %bytestream2_put_be16.exit705, label %bytestream2_put_be16.exit709.thread
 
 bytestream2_put_be16.exit705:                     ; preds = %1188
-  store i16 %.pre-phi1131, ptr %1187, align 1, !tbaa !83
-  %1194 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %.pre-phi1131, ptr %1187, align 1, !tbaa !84
+  %1194 = load ptr, ptr %8, align 8, !tbaa !80
   %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 2
-  store ptr %1195, ptr %8, align 8, !tbaa !79
-  %.pr934 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1195, ptr %8, align 8, !tbaa !80
+  %.pr934 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i706 = icmp eq i32 %.pr934, 0
   br i1 %.not.i706, label %1196, label %bytestream2_put_be16.exit709.thread
 
 1196:                                             ; preds = %bytestream2_put_be16.exit705
-  %1197 = load ptr, ptr %195, align 8, !tbaa !81
+  %1197 = load ptr, ptr %195, align 8, !tbaa !82
   %1198 = ptrtoint ptr %1197 to i64
   %1199 = ptrtoint ptr %1195 to i64
   %1200 = sub i64 %1198, %1199
@@ -2845,16 +2845,16 @@ bytestream2_put_be16.exit705:                     ; preds = %1188
   br i1 %1201, label %bytestream2_put_be16.exit707, label %bytestream2_put_be16.exit709.thread
 
 bytestream2_put_be16.exit707:                     ; preds = %1196
-  store i16 13056, ptr %1195, align 1, !tbaa !83
-  %1202 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 13056, ptr %1195, align 1, !tbaa !84
+  %1202 = load ptr, ptr %8, align 8, !tbaa !80
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 2
-  store ptr %1203, ptr %8, align 8, !tbaa !79
-  %.pr936 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1203, ptr %8, align 8, !tbaa !80
+  %.pr936 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i708 = icmp eq i32 %.pr936, 0
   br i1 %.not.i708, label %1204, label %bytestream2_put_be16.exit709.thread
 
 1204:                                             ; preds = %bytestream2_put_be16.exit707
-  %1205 = load ptr, ptr %195, align 8, !tbaa !81
+  %1205 = load ptr, ptr %195, align 8, !tbaa !82
   %1206 = ptrtoint ptr %1205 to i64
   %1207 = ptrtoint ptr %1203 to i64
   %1208 = sub i64 %1206, %1207
@@ -2863,22 +2863,22 @@ bytestream2_put_be16.exit707:                     ; preds = %1196
 
 bytestream2_put_be16.exit709.thread:              ; preds = %1196, %bytestream2_put_be16.exit705, %bytestream2_put_be16.exit701.thread, %1180, %bytestream2_put_be16.exit701, %bytestream2_put_be16.exit703, %1188, %bytestream2_put_be16.exit707, %1204
   %1210 = phi i32 [ %1135, %1204 ], [ %1135, %bytestream2_put_be16.exit707 ], [ %1135, %1196 ], [ %1135, %bytestream2_put_be16.exit705 ], [ %1135, %1188 ], [ %1135, %bytestream2_put_be16.exit703 ], [ %1177, %bytestream2_put_be16.exit701.thread ], [ %1135, %1180 ], [ %1135, %bytestream2_put_be16.exit701 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit715.thread
 
 bytestream2_put_be16.exit709:                     ; preds = %1204
   %1211 = trunc nuw nsw i32 %1104 to i16
   %1212 = shl nuw nsw i16 %1211, 8
-  store i16 %1212, ptr %1203, align 1, !tbaa !83
-  %1213 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %1212, ptr %1203, align 1, !tbaa !84
+  %1213 = load ptr, ptr %8, align 8, !tbaa !80
   %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 2
-  store ptr %1214, ptr %8, align 8, !tbaa !79
-  %.pr938 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1214, ptr %8, align 8, !tbaa !80
+  %.pr938 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i710 = icmp eq i32 %.pr938, 0
   br i1 %.not.i710, label %1215, label %bytestream2_put_be16.exit715.thread
 
 1215:                                             ; preds = %bytestream2_put_be16.exit709
-  %1216 = load ptr, ptr %195, align 8, !tbaa !81
+  %1216 = load ptr, ptr %195, align 8, !tbaa !82
   %1217 = ptrtoint ptr %1216 to i64
   %1218 = ptrtoint ptr %1214 to i64
   %1219 = sub i64 %1217, %1218
@@ -2886,16 +2886,16 @@ bytestream2_put_be16.exit709:                     ; preds = %1204
   br i1 %1220, label %bytestream2_put_be16.exit711, label %bytestream2_put_be16.exit715.thread
 
 bytestream2_put_be16.exit711:                     ; preds = %1215
-  store i16 13312, ptr %1214, align 1, !tbaa !83
-  %1221 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 13312, ptr %1214, align 1, !tbaa !84
+  %1221 = load ptr, ptr %8, align 8, !tbaa !80
   %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 2
-  store ptr %1222, ptr %8, align 8, !tbaa !79
-  %.pr940 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1222, ptr %8, align 8, !tbaa !80
+  %.pr940 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i712 = icmp eq i32 %.pr940, 0
   br i1 %.not.i712, label %1223, label %bytestream2_put_be16.exit715.thread
 
 1223:                                             ; preds = %bytestream2_put_be16.exit711
-  %1224 = load ptr, ptr %195, align 8, !tbaa !81
+  %1224 = load ptr, ptr %195, align 8, !tbaa !82
   %1225 = ptrtoint ptr %1224 to i64
   %1226 = ptrtoint ptr %1222 to i64
   %1227 = sub i64 %1225, %1226
@@ -2903,16 +2903,16 @@ bytestream2_put_be16.exit711:                     ; preds = %1215
   br i1 %1228, label %bytestream2_put_be16.exit713, label %bytestream2_put_be16.exit715.thread
 
 bytestream2_put_be16.exit713:                     ; preds = %1223
-  store i16 768, ptr %1222, align 1, !tbaa !83
-  %1229 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 768, ptr %1222, align 1, !tbaa !84
+  %1229 = load ptr, ptr %8, align 8, !tbaa !80
   %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 2
-  store ptr %1230, ptr %8, align 8, !tbaa !79
-  %.pr942 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1230, ptr %8, align 8, !tbaa !80
+  %.pr942 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i714 = icmp eq i32 %.pr942, 0
   br i1 %.not.i714, label %1231, label %bytestream2_put_be16.exit715.thread
 
 1231:                                             ; preds = %bytestream2_put_be16.exit713
-  %1232 = load ptr, ptr %195, align 8, !tbaa !81
+  %1232 = load ptr, ptr %195, align 8, !tbaa !82
   %1233 = ptrtoint ptr %1232 to i64
   %1234 = ptrtoint ptr %1230 to i64
   %1235 = sub i64 %1233, %1234
@@ -2925,18 +2925,18 @@ bytestream2_put_be16.exit715.thread:              ; preds = %1223, %bytestream2_
   br label %bytestream2_put_be16.exit717.thread
 
 bytestream2_put_be16.exit715:                     ; preds = %1231
-  store i16 13568, ptr %1230, align 1, !tbaa !83
-  %1239 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 13568, ptr %1230, align 1, !tbaa !84
+  %1239 = load ptr, ptr %8, align 8, !tbaa !80
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 2
-  store ptr %1240, ptr %8, align 8, !tbaa !79
-  %.pr944 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1240, ptr %8, align 8, !tbaa !80
+  %.pr944 = load i32, ptr %196, align 8, !tbaa !83
   %1241 = getelementptr inbounds nuw [10 x i32], ptr %852, i64 0, i64 %1105
   %1242 = load i32, ptr %1241, align 4, !tbaa !55
   %.not.i716 = icmp eq i32 %.pr944, 0
   br i1 %.not.i716, label %1243, label %bytestream2_put_be16.exit717.thread
 
 1243:                                             ; preds = %bytestream2_put_be16.exit715
-  %1244 = load ptr, ptr %195, align 8, !tbaa !81
+  %1244 = load ptr, ptr %195, align 8, !tbaa !82
   %1245 = ptrtoint ptr %1244 to i64
   %1246 = ptrtoint ptr %1240 to i64
   %1247 = sub i64 %1245, %1246
@@ -2946,22 +2946,22 @@ bytestream2_put_be16.exit715:                     ; preds = %1231
 bytestream2_put_be16.exit717.thread:              ; preds = %bytestream2_put_be16.exit715, %1243, %bytestream2_put_be16.exit715.thread
   %1249 = phi ptr [ %1238, %bytestream2_put_be16.exit715.thread ], [ %1241, %1243 ], [ %1241, %bytestream2_put_be16.exit715 ]
   %1250 = phi i32 [ %1237, %bytestream2_put_be16.exit715.thread ], [ %1135, %1243 ], [ %1135, %bytestream2_put_be16.exit715 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit723.thread
 
 bytestream2_put_be16.exit717:                     ; preds = %1243
   %1251 = trunc i32 %1242 to i16
   %1252 = tail call i16 @llvm.bswap.i16(i16 %1251)
-  store i16 %1252, ptr %1240, align 1, !tbaa !83
-  %1253 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 %1252, ptr %1240, align 1, !tbaa !84
+  %1253 = load ptr, ptr %8, align 8, !tbaa !80
   %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 2
-  store ptr %1254, ptr %8, align 8, !tbaa !79
-  %.pr946 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1254, ptr %8, align 8, !tbaa !80
+  %.pr946 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i718 = icmp eq i32 %.pr946, 0
   br i1 %.not.i718, label %1255, label %bytestream2_put_be16.exit723.thread
 
 1255:                                             ; preds = %bytestream2_put_be16.exit717
-  %1256 = load ptr, ptr %195, align 8, !tbaa !81
+  %1256 = load ptr, ptr %195, align 8, !tbaa !82
   %1257 = ptrtoint ptr %1256 to i64
   %1258 = ptrtoint ptr %1254 to i64
   %1259 = sub i64 %1257, %1258
@@ -2969,16 +2969,16 @@ bytestream2_put_be16.exit717:                     ; preds = %1243
   br i1 %1260, label %bytestream2_put_be16.exit719, label %bytestream2_put_be16.exit723.thread
 
 bytestream2_put_be16.exit719:                     ; preds = %1255
-  store i16 13824, ptr %1254, align 1, !tbaa !83
-  %1261 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 13824, ptr %1254, align 1, !tbaa !84
+  %1261 = load ptr, ptr %8, align 8, !tbaa !80
   %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 2
-  store ptr %1262, ptr %8, align 8, !tbaa !79
-  %.pr948 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1262, ptr %8, align 8, !tbaa !80
+  %.pr948 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i720 = icmp eq i32 %.pr948, 0
   br i1 %.not.i720, label %1263, label %bytestream2_put_be16.exit723.thread
 
 1263:                                             ; preds = %bytestream2_put_be16.exit719
-  %1264 = load ptr, ptr %195, align 8, !tbaa !81
+  %1264 = load ptr, ptr %195, align 8, !tbaa !82
   %1265 = ptrtoint ptr %1264 to i64
   %1266 = ptrtoint ptr %1262 to i64
   %1267 = sub i64 %1265, %1266
@@ -2986,16 +2986,16 @@ bytestream2_put_be16.exit719:                     ; preds = %1255
   br i1 %1268, label %bytestream2_put_be16.exit721, label %bytestream2_put_be16.exit723.thread
 
 bytestream2_put_be16.exit721:                     ; preds = %1263
-  store i16 256, ptr %1262, align 1, !tbaa !83
-  %1269 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 256, ptr %1262, align 1, !tbaa !84
+  %1269 = load ptr, ptr %8, align 8, !tbaa !80
   %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 2
-  store ptr %1270, ptr %8, align 8, !tbaa !79
-  %.pr950 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1270, ptr %8, align 8, !tbaa !80
+  %.pr950 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i722 = icmp eq i32 %.pr950, 0
   br i1 %.not.i722, label %1271, label %bytestream2_put_be16.exit723.thread
 
 1271:                                             ; preds = %bytestream2_put_be16.exit721
-  %1272 = load ptr, ptr %195, align 8, !tbaa !81
+  %1272 = load ptr, ptr %195, align 8, !tbaa !82
   %1273 = ptrtoint ptr %1272 to i64
   %1274 = ptrtoint ptr %1270 to i64
   %1275 = sub i64 %1273, %1274
@@ -3003,16 +3003,16 @@ bytestream2_put_be16.exit721:                     ; preds = %1263
   br i1 %1276, label %bytestream2_put_be16.exit723, label %bytestream2_put_be16.exit723.thread
 
 bytestream2_put_be16.exit723:                     ; preds = %1271
-  store i16 14080, ptr %1270, align 1, !tbaa !83
-  %1277 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 14080, ptr %1270, align 1, !tbaa !84
+  %1277 = load ptr, ptr %8, align 8, !tbaa !80
   %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 2
-  store ptr %1278, ptr %8, align 8, !tbaa !79
-  %.pr952 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1278, ptr %8, align 8, !tbaa !80
+  %.pr952 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i724 = icmp eq i32 %.pr952, 0
   br i1 %.not.i724, label %1279, label %bytestream2_put_be16.exit723.thread
 
 1279:                                             ; preds = %bytestream2_put_be16.exit723
-  %1280 = load ptr, ptr %195, align 8, !tbaa !81
+  %1280 = load ptr, ptr %195, align 8, !tbaa !82
   %1281 = ptrtoint ptr %1280 to i64
   %1282 = ptrtoint ptr %1278 to i64
   %1283 = sub i64 %1281, %1282
@@ -3020,16 +3020,16 @@ bytestream2_put_be16.exit723:                     ; preds = %1271
   br i1 %1284, label %1285, label %bytestream2_put_be16.exit723.thread
 
 1285:                                             ; preds = %1279
-  store i16 0, ptr %1278, align 1, !tbaa !83
-  %1286 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %1278, align 1, !tbaa !84
+  %1286 = load ptr, ptr %8, align 8, !tbaa !80
   %1287 = getelementptr inbounds nuw i8, ptr %1286, i64 2
-  store ptr %1287, ptr %8, align 8, !tbaa !79
+  store ptr %1287, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit725
 
 bytestream2_put_be16.exit723.thread:              ; preds = %1271, %bytestream2_put_be16.exit721, %bytestream2_put_be16.exit717.thread, %1255, %bytestream2_put_be16.exit717, %bytestream2_put_be16.exit719, %1263, %1279, %bytestream2_put_be16.exit723
   %1288 = phi ptr [ %1241, %1279 ], [ %1241, %bytestream2_put_be16.exit723 ], [ %1241, %1271 ], [ %1241, %bytestream2_put_be16.exit721 ], [ %1241, %1263 ], [ %1241, %bytestream2_put_be16.exit719 ], [ %1249, %bytestream2_put_be16.exit717.thread ], [ %1241, %1255 ], [ %1241, %bytestream2_put_be16.exit717 ]
   %1289 = phi i32 [ %1135, %1279 ], [ %1135, %bytestream2_put_be16.exit723 ], [ %1135, %1271 ], [ %1135, %bytestream2_put_be16.exit721 ], [ %1135, %1263 ], [ %1135, %bytestream2_put_be16.exit719 ], [ %1250, %bytestream2_put_be16.exit717.thread ], [ %1135, %1255 ], [ %1135, %bytestream2_put_be16.exit717 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit725
 
 bytestream2_put_be16.exit725:                     ; preds = %1285, %bytestream2_put_be16.exit723.thread
@@ -3068,39 +3068,39 @@ bytestream2_put_be16.exit725:                     ; preds = %1285, %bytestream2_
   store i16 %1307, ptr %1296, align 2, !tbaa !60
   %indvars.iv.next.i749 = add nuw nsw i64 %indvars.iv.i748, 1
   %exitcond.not.i750 = icmp eq i64 %indvars.iv.next.i749, %wide.trip.count.i746
-  br i1 %exitcond.not.i750, label %._crit_edge.us.i751, label %1295, !llvm.loop !99
+  br i1 %exitcond.not.i750, label %._crit_edge.us.i751, label %1295, !llvm.loop !100
 
 ._crit_edge.us.i751:                              ; preds = %1295
   %1308 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %1077
   %1309 = add nuw nsw i32 %.01519.us.i, 1
   %exitcond23.not.i = icmp eq i32 %1309, %886
-  br i1 %exitcond23.not.i, label %quantize_band.exit, label %.preheader.us.i747, !llvm.loop !100
+  br i1 %exitcond23.not.i, label %quantize_band.exit, label %.preheader.us.i747, !llvm.loop !101
 
 quantize_band.exit:                               ; preds = %._crit_edge.us.i751, %bytestream2_put_be16.exit725, %.preheader.lr.ph.i744
   %brmerge = phi i1 [ true, %bytestream2_put_be16.exit725 ], [ true, %.preheader.lr.ph.i744 ], [ false, %._crit_edge.us.i751 ]
-  %1310 = load ptr, ptr %185, align 8, !tbaa !76
-  %1311 = load ptr, ptr %8, align 8, !tbaa !79
-  %1312 = load ptr, ptr %192, align 8, !tbaa !80
+  %1310 = load ptr, ptr %185, align 8, !tbaa !77
+  %1311 = load ptr, ptr %8, align 8, !tbaa !80
+  %1312 = load ptr, ptr %192, align 8, !tbaa !81
   %1313 = ptrtoint ptr %1311 to i64
   %1314 = ptrtoint ptr %1312 to i64
   %1315 = sub i64 %1313, %1314
   %sext = shl i64 %1315, 32
   %1316 = ashr exact i64 %sext, 32
   %1317 = getelementptr inbounds i8, ptr %1310, i64 %1316
-  %1318 = load ptr, ptr %195, align 8, !tbaa !81
+  %1318 = load ptr, ptr %195, align 8, !tbaa !82
   %1319 = ptrtoint ptr %1318 to i64
   %1320 = sub i64 %1319, %1313
   %1321 = trunc i64 %1320 to i32
   %1322 = icmp slt i32 %1321, 0
   %spec.select.i = select i1 %1322, ptr null, ptr %1317
   %spec.select11.i = tail call i32 @llvm.smax.i32(i32 %1321, i32 0)
-  store ptr %spec.select.i, ptr %541, align 8, !tbaa !101
+  store ptr %spec.select.i, ptr %541, align 8, !tbaa !102
   %1323 = zext nneg i32 %spec.select11.i to i64
   %1324 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %1323
-  store ptr %1324, ptr %542, align 8, !tbaa !102
-  store ptr %spec.select.i, ptr %543, align 8, !tbaa !103
-  store i32 32, ptr %544, align 4, !tbaa !104
-  store i32 0, ptr %9, align 8, !tbaa !105
+  store ptr %1324, ptr %542, align 8, !tbaa !103
+  store ptr %spec.select.i, ptr %543, align 8, !tbaa !104
+  store i32 32, ptr %544, align 4, !tbaa !105
+  store i32 0, ptr %9, align 8, !tbaa !106
   br i1 %brmerge, label %put_runcode.exit760, label %.preheader.us
 
 .preheader.us:                                    ; preds = %quantize_band.exit, %._crit_edge996.us
@@ -3154,8 +3154,8 @@ quantize_band.exit:                               ; preds = %._crit_edge.us.i751
   br i1 %1349, label %1367, label %1350
 
 1350:                                             ; preds = %.preheader
-  %1351 = load ptr, ptr %542, align 8, !tbaa !102
-  %1352 = load ptr, ptr %543, align 8, !tbaa !103
+  %1351 = load ptr, ptr %542, align 8, !tbaa !103
+  %1352 = load ptr, ptr %543, align 8, !tbaa !104
   %1353 = ptrtoint ptr %1351 to i64
   %1354 = ptrtoint ptr %1352 to i64
   %1355 = sub i64 %1353, %1354
@@ -3172,10 +3172,10 @@ quantize_band.exit:                               ; preds = %._crit_edge.us.i751
   %1361 = lshr i32 %1348, %1360
   %1362 = or i32 %1361, %1359
   %1363 = tail call i32 @llvm.bswap.i32(i32 %1362)
-  store i32 %1363, ptr %1352, align 1, !tbaa !83
-  %1364 = load ptr, ptr %543, align 8, !tbaa !103
+  store i32 %1363, ptr %1352, align 1, !tbaa !84
+  %1364 = load ptr, ptr %543, align 8, !tbaa !104
   %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 4
-  store ptr %1365, ptr %543, align 8, !tbaa !103
+  store ptr %1365, ptr %543, align 8, !tbaa !104
   br label %1366
 
 1366:                                             ; preds = %1358, %1357
@@ -3191,13 +3191,13 @@ put_bits.exit.i.us:                               ; preds = %1367, %1366
   %.026.i.i.i.us = phi i32 [ %1369, %1367 ], [ %1348, %1366 ]
   %.pn = phi i32 [ %1341, %1367 ], [ %reass.sub.i.us, %1366 ]
   %.0.i.i.i.us = sub i32 %.pn, %1346
-  store i32 %.026.i.i.i.us, ptr %9, align 8, !tbaa !105
-  store i32 %.0.i.i.i.us, ptr %544, align 4, !tbaa !104
+  store i32 %.026.i.i.i.us, ptr %9, align 8, !tbaa !106
+  store i32 %.0.i.i.i.us, ptr %544, align 4, !tbaa !105
   %1370 = getelementptr inbounds nuw i8, ptr %1345, i64 8
   %1371 = load i32, ptr %1370, align 4, !tbaa !53
   %1372 = sub i32 %.010.i.us, %1371
   %1373 = icmp sgt i32 %1372, 0
-  br i1 %1373, label %.preheader, label %put_runcode.exit.us, !llvm.loop !106
+  br i1 %1373, label %.preheader, label %put_runcode.exit.us, !llvm.loop !107
 
 put_runcode.exit.us:                              ; preds = %put_bits.exit.i.us, %1339
   %1374 = phi i32 [ %.pre11.i.us, %1339 ], [ %.0.i.i.i.us, %put_bits.exit.i.us ]
@@ -3212,8 +3212,8 @@ put_runcode.exit.us:                              ; preds = %put_bits.exit.i.us,
   br i1 %1381, label %1400, label %1382
 
 1382:                                             ; preds = %put_runcode.exit.us
-  %1383 = load ptr, ptr %542, align 8, !tbaa !102
-  %1384 = load ptr, ptr %543, align 8, !tbaa !103
+  %1383 = load ptr, ptr %542, align 8, !tbaa !103
+  %1384 = load ptr, ptr %543, align 8, !tbaa !104
   %1385 = ptrtoint ptr %1383 to i64
   %1386 = ptrtoint ptr %1384 to i64
   %1387 = sub i64 %1385, %1386
@@ -3230,10 +3230,10 @@ put_runcode.exit.us:                              ; preds = %put_bits.exit.i.us,
   %1393 = lshr i32 %1380, %1392
   %1394 = or i32 %1393, %1391
   %1395 = tail call i32 @llvm.bswap.i32(i32 %1394)
-  store i32 %1395, ptr %1384, align 1, !tbaa !83
-  %1396 = load ptr, ptr %543, align 8, !tbaa !103
+  store i32 %1395, ptr %1384, align 1, !tbaa !84
+  %1396 = load ptr, ptr %543, align 8, !tbaa !104
   %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 4
-  store ptr %1397, ptr %543, align 8, !tbaa !103
+  store ptr %1397, ptr %543, align 8, !tbaa !104
   br label %1398
 
 1398:                                             ; preds = %1390, %1389
@@ -3250,8 +3250,8 @@ put_runcode.exit.us:                              ; preds = %put_bits.exit.i.us,
 put_bits.exit.us:                                 ; preds = %1400, %1398
   %.026.i.i.us = phi i32 [ %1402, %1400 ], [ %1380, %1398 ]
   %.0.i.i.us = phi i32 [ %1403, %1400 ], [ %1399, %1398 ]
-  store i32 %.026.i.i.us, ptr %9, align 8, !tbaa !105
-  store i32 %.0.i.i.us, ptr %544, align 4, !tbaa !104
+  store i32 %.026.i.i.us, ptr %9, align 8, !tbaa !106
+  store i32 %.0.i.i.us, ptr %544, align 4, !tbaa !105
   br label %1405
 
 .thread956.us:                                    ; preds = %1326, %1325
@@ -3264,13 +3264,13 @@ put_bits.exit.us:                                 ; preds = %1400, %1398
   %.2.us = phi i32 [ %1404, %.thread956.us ], [ %.3.us, %put_bits.exit.us ]
   %indvars.iv.next1094 = add nuw nsw i64 %indvars.iv1093, 1
   %exitcond1098.not = icmp eq i64 %indvars.iv.next1094, %wide.trip.count1097
-  br i1 %exitcond1098.not, label %._crit_edge996.us, label %1325, !llvm.loop !107
+  br i1 %exitcond1098.not, label %._crit_edge996.us, label %1325, !llvm.loop !108
 
 ._crit_edge996.us:                                ; preds = %1405
   %1406 = getelementptr inbounds i16, ptr %.0496998.us, i64 %1077
   %1407 = add nuw nsw i32 %.04931000.us, 1
   %exitcond1099.not = icmp eq i32 %1407, %886
-  br i1 %exitcond1099.not, label %._crit_edge1001, label %.preheader.us, !llvm.loop !108
+  br i1 %exitcond1099.not, label %._crit_edge1001, label %.preheader.us, !llvm.loop !109
 
 ._crit_edge1001:                                  ; preds = %._crit_edge996.us
   %1408 = icmp sgt i32 %.2.us, 0
@@ -3295,8 +3295,8 @@ put_bits.exit.us:                                 ; preds = %1400, %1398
   br label %put_bits.exit.i757
 
 1421:                                             ; preds = %.preheader1190
-  %1422 = load ptr, ptr %542, align 8, !tbaa !102
-  %1423 = load ptr, ptr %543, align 8, !tbaa !103
+  %1422 = load ptr, ptr %542, align 8, !tbaa !103
+  %1423 = load ptr, ptr %543, align 8, !tbaa !104
   %1424 = ptrtoint ptr %1422 to i64
   %1425 = ptrtoint ptr %1423 to i64
   %1426 = sub i64 %1424, %1425
@@ -3309,10 +3309,10 @@ put_bits.exit.us:                                 ; preds = %1400, %1398
   %1431 = lshr i32 %1416, %1430
   %1432 = or i32 %1431, %1429
   %1433 = tail call i32 @llvm.bswap.i32(i32 %1432)
-  store i32 %1433, ptr %1423, align 1, !tbaa !83
-  %1434 = load ptr, ptr %543, align 8, !tbaa !103
+  store i32 %1433, ptr %1423, align 1, !tbaa !84
+  %1434 = load ptr, ptr %543, align 8, !tbaa !104
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 4
-  store ptr %1435, ptr %543, align 8, !tbaa !103
+  store ptr %1435, ptr %543, align 8, !tbaa !104
   br label %1437
 
 1436:                                             ; preds = %1421
@@ -3327,13 +3327,13 @@ put_bits.exit.i757:                               ; preds = %1437, %1418
   %.026.i.i.i758 = phi i32 [ %1420, %1418 ], [ %1416, %1437 ]
   %.pn1059 = phi i32 [ %1409, %1418 ], [ %reass.sub.i756, %1437 ]
   %.0.i.i.i759 = sub i32 %.pn1059, %1414
-  store i32 %.026.i.i.i758, ptr %9, align 8, !tbaa !105
-  store i32 %.0.i.i.i759, ptr %544, align 4, !tbaa !104
+  store i32 %.026.i.i.i758, ptr %9, align 8, !tbaa !106
+  store i32 %.0.i.i.i759, ptr %544, align 4, !tbaa !105
   %1438 = getelementptr inbounds nuw i8, ptr %1413, i64 8
   %1439 = load i32, ptr %1438, align 4, !tbaa !53
   %1440 = sub i32 %.010.i755, %1439
   %1441 = icmp sgt i32 %1440, 0
-  br i1 %1441, label %.preheader1190, label %put_runcode.exit760, !llvm.loop !106
+  br i1 %1441, label %.preheader1190, label %put_runcode.exit760, !llvm.loop !107
 
 put_runcode.exit760:                              ; preds = %put_bits.exit.i757, %quantize_band.exit, %._crit_edge1001
   %1442 = phi i32 [ %.pre11.i.us1119, %._crit_edge1001 ], [ 32, %quantize_band.exit ], [ %.0.i.i.i759, %put_bits.exit.i757 ]
@@ -3350,8 +3350,8 @@ put_runcode.exit760:                              ; preds = %put_bits.exit.i757,
   br label %put_bits.exit764
 
 1451:                                             ; preds = %put_runcode.exit760
-  %1452 = load ptr, ptr %542, align 8, !tbaa !102
-  %1453 = load ptr, ptr %543, align 8, !tbaa !103
+  %1452 = load ptr, ptr %542, align 8, !tbaa !103
+  %1453 = load ptr, ptr %543, align 8, !tbaa !104
   %1454 = ptrtoint ptr %1452 to i64
   %1455 = ptrtoint ptr %1453 to i64
   %1456 = sub i64 %1454, %1455
@@ -3364,10 +3364,10 @@ put_runcode.exit760:                              ; preds = %put_bits.exit.i757,
   %1461 = lshr i32 %1445, %1460
   %1462 = or i32 %1461, %1459
   %1463 = tail call i32 @llvm.bswap.i32(i32 %1462)
-  store i32 %1463, ptr %1453, align 1, !tbaa !83
-  %1464 = load ptr, ptr %543, align 8, !tbaa !103
+  store i32 %1463, ptr %1453, align 1, !tbaa !84
+  %1464 = load ptr, ptr %543, align 8, !tbaa !104
   %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 4
-  store ptr %1465, ptr %543, align 8, !tbaa !103
+  store ptr %1465, ptr %543, align 8, !tbaa !104
   br label %1467
 
 1466:                                             ; preds = %1451
@@ -3382,20 +3382,20 @@ put_runcode.exit760:                              ; preds = %put_bits.exit.i757,
 put_bits.exit764:                                 ; preds = %1447, %1467
   %.026.i.i762 = phi i32 [ %1449, %1447 ], [ %1445, %1467 ]
   %.0.i.i763 = phi i32 [ %1450, %1447 ], [ %1468, %1467 ]
-  store i32 %.026.i.i762, ptr %9, align 8, !tbaa !105
-  store i32 %.0.i.i763, ptr %544, align 4, !tbaa !104
+  store i32 %.026.i.i762, ptr %9, align 8, !tbaa !106
+  store i32 %.0.i.i763, ptr %544, align 4, !tbaa !105
   %1469 = icmp slt i32 %.0.i.i763, 32
   br i1 %1469, label %.lr.ph.i, label %flush_put_bits.exit
 
 .lr.ph.i:                                         ; preds = %put_bits.exit764
   %1470 = shl i32 %.026.i.i762, %.0.i.i763
-  store i32 %1470, ptr %9, align 8, !tbaa !105
+  store i32 %1470, ptr %9, align 8, !tbaa !106
   br label %1471
 
 1471:                                             ; preds = %1477, %.lr.ph.i
   %1472 = phi i32 [ %1482, %1477 ], [ %1470, %.lr.ph.i ]
-  %1473 = load ptr, ptr %543, align 8, !tbaa !103
-  %1474 = load ptr, ptr %542, align 8, !tbaa !102
+  %1473 = load ptr, ptr %543, align 8, !tbaa !104
+  %1474 = load ptr, ptr %542, align 8, !tbaa !103
   %1475 = icmp ult ptr %1473, %1474
   br i1 %1475, label %1477, label %1476
 
@@ -3408,33 +3408,33 @@ put_bits.exit764:                                 ; preds = %1447, %1467
   %1478 = lshr i32 %1472, 24
   %1479 = trunc nuw i32 %1478 to i8
   %1480 = getelementptr inbounds nuw i8, ptr %1473, i64 1
-  store ptr %1480, ptr %543, align 8, !tbaa !103
-  store i8 %1479, ptr %1473, align 1, !tbaa !83
-  %1481 = load i32, ptr %9, align 8, !tbaa !105
+  store ptr %1480, ptr %543, align 8, !tbaa !104
+  store i8 %1479, ptr %1473, align 1, !tbaa !84
+  %1481 = load i32, ptr %9, align 8, !tbaa !106
   %1482 = shl i32 %1481, 8
-  store i32 %1482, ptr %9, align 8, !tbaa !105
-  %1483 = load i32, ptr %544, align 4, !tbaa !104
+  store i32 %1482, ptr %9, align 8, !tbaa !106
+  %1483 = load i32, ptr %544, align 4, !tbaa !105
   %1484 = add nsw i32 %1483, 8
-  store i32 %1484, ptr %544, align 4, !tbaa !104
+  store i32 %1484, ptr %544, align 4, !tbaa !105
   %1485 = icmp slt i32 %1483, 24
-  br i1 %1485, label %1471, label %flush_put_bits.exit, !llvm.loop !109
+  br i1 %1485, label %1471, label %flush_put_bits.exit, !llvm.loop !110
 
 flush_put_bits.exit:                              ; preds = %1477, %put_bits.exit764
-  store i32 32, ptr %544, align 4, !tbaa !104
-  store i32 0, ptr %9, align 8, !tbaa !105
-  %1486 = load i32, ptr %196, align 8, !tbaa !82
+  store i32 32, ptr %544, align 4, !tbaa !105
+  store i32 0, ptr %9, align 8, !tbaa !106
+  %1486 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i741 = icmp eq i32 %1486, 0
-  %.pre1122 = load ptr, ptr %8, align 8, !tbaa !79
+  %.pre1122 = load ptr, ptr %8, align 8, !tbaa !80
   br i1 %.not.i741, label %1487, label %bytestream2_skip_p.exit
 
 1487:                                             ; preds = %flush_put_bits.exit
-  %.val743 = load ptr, ptr %543, align 8, !tbaa !103
+  %.val743 = load ptr, ptr %543, align 8, !tbaa !104
   %1488 = ptrtoint ptr %.val743 to i64
-  %.val = load ptr, ptr %541, align 8, !tbaa !101
+  %.val = load ptr, ptr %541, align 8, !tbaa !102
   %1489 = ptrtoint ptr %.val to i64
   %1490 = sub i64 %1488, %1489
   %1491 = trunc i64 %1490 to i32
-  %1492 = load ptr, ptr %195, align 8, !tbaa !81
+  %1492 = load ptr, ptr %195, align 8, !tbaa !82
   %1493 = ptrtoint ptr %1492 to i64
   %1494 = ptrtoint ptr %.pre1122 to i64
   %1495 = sub i64 %1493, %1494
@@ -3446,20 +3446,20 @@ flush_put_bits.exit:                              ; preds = %1477, %put_bits.exi
   br i1 %.not12.i, label %1501, label %1500
 
 1500:                                             ; preds = %1487
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %1501
 
 1501:                                             ; preds = %1500, %1487
   %1502 = phi i32 [ 1, %1500 ], [ 0, %1487 ]
   %1503 = zext i32 %1499 to i64
   %1504 = getelementptr inbounds nuw i8, ptr %.pre1122, i64 %1503
-  store ptr %1504, ptr %8, align 8, !tbaa !79
+  store ptr %1504, ptr %8, align 8, !tbaa !80
   br label %bytestream2_skip_p.exit
 
 bytestream2_skip_p.exit:                          ; preds = %flush_put_bits.exit, %1501
   %1505 = phi i32 [ %1486, %flush_put_bits.exit ], [ %1502, %1501 ]
   %1506 = phi ptr [ %.pre1122, %flush_put_bits.exit ], [ %1504, %1501 ]
-  %1507 = load ptr, ptr %192, align 8, !tbaa !80
+  %1507 = load ptr, ptr %192, align 8, !tbaa !81
   %1508 = ptrtoint ptr %1506 to i64
   %1509 = ptrtoint ptr %1507 to i64
   %.neg = sub i64 %1509, %1508
@@ -3472,12 +3472,12 @@ bytestream2_skip_p.exit:                          ; preds = %flush_put_bits.exit
   %1511 = phi ptr [ %1524, %bytestream2_put_byte.exit ], [ %1506, %bytestream2_skip_p.exit ]
   %.04941004 = phi i32 [ %1512, %bytestream2_put_byte.exit ], [ %1510, %bytestream2_skip_p.exit ]
   %1512 = add nsw i32 %.04941004, -1
-  %1513 = load i32, ptr %196, align 8, !tbaa !82
+  %1513 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i742 = icmp eq i32 %1513, 0
   br i1 %.not.i742, label %1514, label %1523
 
 1514:                                             ; preds = %.lr.ph1005
-  %1515 = load ptr, ptr %195, align 8, !tbaa !81
+  %1515 = load ptr, ptr %195, align 8, !tbaa !82
   %1516 = ptrtoint ptr %1515 to i64
   %1517 = ptrtoint ptr %1511 to i64
   %1518 = sub i64 %1516, %1517
@@ -3485,23 +3485,23 @@ bytestream2_skip_p.exit:                          ; preds = %flush_put_bits.exit
   br i1 %1519, label %1520, label %1523
 
 1520:                                             ; preds = %1514
-  store i8 0, ptr %1511, align 1, !tbaa !83
-  %1521 = load ptr, ptr %8, align 8, !tbaa !79
+  store i8 0, ptr %1511, align 1, !tbaa !84
+  %1521 = load ptr, ptr %8, align 8, !tbaa !80
   %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 1
-  store ptr %1522, ptr %8, align 8, !tbaa !79
+  store ptr %1522, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_byte.exit
 
 1523:                                             ; preds = %1514, %.lr.ph1005
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_byte.exit
 
 bytestream2_put_byte.exit:                        ; preds = %1520, %1523
   %1524 = phi ptr [ %1522, %1520 ], [ %1511, %1523 ]
   %.not522 = icmp eq i32 %1512, 0
-  br i1 %.not522, label %._crit_edge1006.loopexit, label %.lr.ph1005, !llvm.loop !110
+  br i1 %.not522, label %._crit_edge1006.loopexit, label %.lr.ph1005, !llvm.loop !111
 
 ._crit_edge1006.loopexit:                         ; preds = %bytestream2_put_byte.exit
-  %.pre1123 = load i32, ptr %196, align 8, !tbaa !82
+  %.pre1123 = load i32, ptr %196, align 8, !tbaa !83
   br label %._crit_edge1006
 
 ._crit_edge1006:                                  ; preds = %._crit_edge1006.loopexit, %bytestream2_skip_p.exit
@@ -3511,7 +3511,7 @@ bytestream2_put_byte.exit:                        ; preds = %1520, %1523
   br i1 %.not.i726, label %1527, label %bytestream2_put_be16.exit727.thread
 
 1527:                                             ; preds = %._crit_edge1006
-  %1528 = load ptr, ptr %195, align 8, !tbaa !81
+  %1528 = load ptr, ptr %195, align 8, !tbaa !82
   %1529 = ptrtoint ptr %1528 to i64
   %1530 = ptrtoint ptr %1525 to i64
   %1531 = sub i64 %1529, %1530
@@ -3519,16 +3519,16 @@ bytestream2_put_byte.exit:                        ; preds = %1520, %1523
   br i1 %1532, label %bytestream2_put_be16.exit727, label %bytestream2_put_be16.exit727.thread
 
 bytestream2_put_be16.exit727:                     ; preds = %1527
-  store i16 14336, ptr %1525, align 1, !tbaa !83
-  %1533 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 14336, ptr %1525, align 1, !tbaa !84
+  %1533 = load ptr, ptr %8, align 8, !tbaa !80
   %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 2
-  store ptr %1534, ptr %8, align 8, !tbaa !79
-  %.pr957 = load i32, ptr %196, align 8, !tbaa !82
+  store ptr %1534, ptr %8, align 8, !tbaa !80
+  %.pr957 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i728 = icmp eq i32 %.pr957, 0
   br i1 %.not.i728, label %1535, label %bytestream2_put_be16.exit727.thread
 
 1535:                                             ; preds = %bytestream2_put_be16.exit727
-  %1536 = load ptr, ptr %195, align 8, !tbaa !81
+  %1536 = load ptr, ptr %195, align 8, !tbaa !82
   %1537 = ptrtoint ptr %1536 to i64
   %1538 = ptrtoint ptr %1534 to i64
   %1539 = sub i64 %1537, %1538
@@ -3536,21 +3536,21 @@ bytestream2_put_be16.exit727:                     ; preds = %1527
   br i1 %1540, label %1541, label %bytestream2_put_be16.exit727.thread
 
 1541:                                             ; preds = %1535
-  store i16 0, ptr %1534, align 1, !tbaa !83
-  %1542 = load ptr, ptr %8, align 8, !tbaa !79
+  store i16 0, ptr %1534, align 1, !tbaa !84
+  %1542 = load ptr, ptr %8, align 8, !tbaa !80
   %1543 = getelementptr inbounds nuw i8, ptr %1542, i64 2
-  store ptr %1543, ptr %8, align 8, !tbaa !79
+  store ptr %1543, ptr %8, align 8, !tbaa !80
   br label %bytestream2_put_be16.exit729
 
 bytestream2_put_be16.exit727.thread:              ; preds = %1527, %._crit_edge1006, %1535, %bytestream2_put_be16.exit727
   %1544 = phi ptr [ %1534, %1535 ], [ %1534, %bytestream2_put_be16.exit727 ], [ %1525, %._crit_edge1006 ], [ %1525, %1527 ]
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be16.exit729
 
 bytestream2_put_be16.exit729:                     ; preds = %1541, %bytestream2_put_be16.exit727.thread
   %1545 = phi ptr [ %1543, %1541 ], [ %1544, %bytestream2_put_be16.exit727.thread ]
   %1546 = icmp samesign ult i32 %1291, 3
-  br i1 %1546, label %1103, label %1082, !llvm.loop !111
+  br i1 %1546, label %1103, label %1082, !llvm.loop !112
 
 ._crit_edge1058:                                  ; preds = %bytestream2_put_be32.exit740, %bytestream2_put_be16.exit737
   store i32 1, ptr %3, align 4, !tbaa !55
@@ -3561,13 +3561,13 @@ bytestream2_put_be16.exit729:                     ; preds = %1541, %bytestream2_
   %1549 = phi ptr [ %584, %.lr.ph1057 ], [ %1565, %bytestream2_put_be32.exit740 ]
   %indvars.iv1107 = phi i64 [ 0, %.lr.ph1057 ], [ %indvars.iv.next1108, %bytestream2_put_be32.exit740 ]
   %1550 = getelementptr inbounds nuw [4 x %struct.PlaneEnc], ptr %587, i64 0, i64 %indvars.iv1107
-  %1551 = load i32, ptr %1550, align 8, !tbaa !96
-  %1552 = load i32, ptr %196, align 8, !tbaa !82
+  %1551 = load i32, ptr %1550, align 8, !tbaa !97
+  %1552 = load i32, ptr %196, align 8, !tbaa !83
   %.not.i739 = icmp eq i32 %1552, 0
   br i1 %.not.i739, label %1553, label %1563
 
 1553:                                             ; preds = %1547
-  %1554 = load ptr, ptr %195, align 8, !tbaa !81
+  %1554 = load ptr, ptr %195, align 8, !tbaa !82
   %1555 = ptrtoint ptr %1554 to i64
   %1556 = ptrtoint ptr %1549 to i64
   %1557 = sub i64 %1555, %1556
@@ -3576,15 +3576,15 @@ bytestream2_put_be16.exit729:                     ; preds = %1541, %bytestream2_
 
 1559:                                             ; preds = %1553
   %1560 = tail call i32 @llvm.bswap.i32(i32 %1551)
-  store i32 %1560, ptr %1549, align 1, !tbaa !83
-  %1561 = load ptr, ptr %8, align 8, !tbaa !79
+  store i32 %1560, ptr %1549, align 1, !tbaa !84
+  %1561 = load ptr, ptr %8, align 8, !tbaa !80
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 4
-  store ptr %1562, ptr %8, align 8, !tbaa !79
+  store ptr %1562, ptr %8, align 8, !tbaa !80
   %.pre1124 = load i32, ptr %13, align 4, !tbaa !30
   br label %bytestream2_put_be32.exit740
 
 1563:                                             ; preds = %1553, %1547
-  store i32 1, ptr %196, align 8, !tbaa !82
+  store i32 1, ptr %196, align 8, !tbaa !83
   br label %bytestream2_put_be32.exit740
 
 bytestream2_put_be32.exit740:                     ; preds = %1559, %1563
@@ -3593,7 +3593,7 @@ bytestream2_put_be32.exit740:                     ; preds = %1559, %1563
   %indvars.iv.next1108 = add nuw nsw i64 %indvars.iv1107, 1
   %1566 = sext i32 %1564 to i64
   %1567 = icmp slt i64 %indvars.iv.next1108, %1566
-  br i1 %1567, label %1547, label %._crit_edge1058, !llvm.loop !112
+  br i1 %1567, label %1547, label %._crit_edge1058, !llvm.loop !113
 
 1568:                                             ; preds = %._crit_edge, %._crit_edge1058
   %.0498 = phi i32 [ 0, %._crit_edge1058 ], [ %36, %._crit_edge ]
@@ -3633,7 +3633,7 @@ define internal noundef i32 @cfhd_encode_close(ptr noundef readonly captures(non
   %13 = load i32, ptr %4, align 4, !tbaa !30
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvar.next, %14
-  br i1 %15, label %.preheader, label %._crit_edge, !llvm.loop !113
+  br i1 %15, label %.preheader, label %._crit_edge, !llvm.loop !114
 }
 
 declare ptr @av_default_item_name(ptr noundef) #2
@@ -3757,49 +3757,50 @@ attributes #7 = { noreturn nounwind }
 !65 = !{!31, !17, i64 12464}
 !66 = !{!14, !14, i64 0}
 !67 = distinct !{!67, !42}
-!68 = distinct !{!68, !42}
-!69 = !{!34, !7, i64 0}
-!70 = !{!34, !7, i64 8}
-!71 = distinct !{!71, !42}
+!68 = distinct !{!68, !42, !69}
+!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!70 = !{!34, !7, i64 0}
+!71 = !{!34, !7, i64 8}
 !72 = distinct !{!72, !42}
-!73 = distinct !{!73, !42}
+!73 = distinct !{!73, !42, !69}
 !74 = distinct !{!74, !42}
-!75 = distinct !{!75, !42}
-!76 = !{!77, !14, i64 24}
-!77 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!78 = !{!77, !10, i64 32}
-!79 = !{!33, !14, i64 0}
-!80 = !{!33, !14, i64 16}
-!81 = !{!33, !14, i64 8}
-!82 = !{!33, !10, i64 24}
-!83 = !{!8, !8, i64 0}
-!84 = distinct !{!84, !42}
-!85 = !{!86, !13, i64 136}
-!86 = !{!"AVFrame", !8, i64 0, !8, i64 64, !87, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !88, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !89, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!87 = !{!"p2 omnipotent char", !26, i64 0}
-!88 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!89 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!90 = !{!77, !10, i64 40}
-!91 = distinct !{!91, !42}
+!75 = distinct !{!75, !42, !69}
+!76 = distinct !{!76, !42}
+!77 = !{!78, !14, i64 24}
+!78 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!79 = !{!78, !10, i64 32}
+!80 = !{!33, !14, i64 0}
+!81 = !{!33, !14, i64 16}
+!82 = !{!33, !14, i64 8}
+!83 = !{!33, !10, i64 24}
+!84 = !{!8, !8, i64 0}
+!85 = distinct !{!85, !42}
+!86 = !{!87, !13, i64 136}
+!87 = !{!"AVFrame", !8, i64 0, !8, i64 64, !88, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !89, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !90, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!88 = !{!"p2 omnipotent char", !26, i64 0}
+!89 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!90 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!91 = !{!78, !10, i64 40}
 !92 = distinct !{!92, !42}
-!93 = distinct !{!93, !42}
-!94 = !{!31, !10, i64 72}
-!95 = distinct !{!95, !42}
-!96 = !{!38, !10, i64 0}
-!97 = distinct !{!97, !42}
+!93 = distinct !{!93, !42, !69}
+!94 = distinct !{!94, !42}
+!95 = !{!31, !10, i64 72}
+!96 = distinct !{!96, !42}
+!97 = !{!38, !10, i64 0}
 !98 = distinct !{!98, !42}
 !99 = distinct !{!99, !42}
 !100 = distinct !{!100, !42}
-!101 = !{!32, !14, i64 8}
-!102 = !{!32, !14, i64 24}
-!103 = !{!32, !14, i64 16}
-!104 = !{!32, !10, i64 4}
-!105 = !{!32, !10, i64 0}
-!106 = distinct !{!106, !42}
+!101 = distinct !{!101, !42, !69}
+!102 = !{!32, !14, i64 8}
+!103 = !{!32, !14, i64 24}
+!104 = !{!32, !14, i64 16}
+!105 = !{!32, !10, i64 4}
+!106 = !{!32, !10, i64 0}
 !107 = distinct !{!107, !42}
 !108 = distinct !{!108, !42}
-!109 = distinct !{!109, !42}
+!109 = distinct !{!109, !42, !69}
 !110 = distinct !{!110, !42}
 !111 = distinct !{!111, !42}
 !112 = distinct !{!112, !42}
 !113 = distinct !{!113, !42}
+!114 = distinct !{!114, !42}

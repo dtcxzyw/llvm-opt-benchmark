@@ -2982,7 +2982,7 @@ switch.early.test643:                             ; preds = %126
 .lr.ph.split.backedge:                            ; preds = %800, %.thread1005
   %indvars.iv971.be = phi i64 [ %indvars.iv.next972, %800 ], [ %indvars.iv.next9721006, %.thread1005 ]
   %.8581898.be = phi i64 [ %803, %800 ], [ %806, %.thread1005 ]
-  br label %.lr.ph.split, !llvm.loop !19
+  br label %.lr.ph.split, !llvm.loop !21
 
 .thread1005:                                      ; preds = %796
   %804 = mul nuw nsw i64 %.8581898, 10
@@ -3366,7 +3366,7 @@ switch.early.test643:                             ; preds = %126
   switch i32 %.14562, label %.sink.split [
     i32 42, label %1021
     i32 -1, label %1014
-  ], !llvm.loop !20
+  ], !llvm.loop !22
 
 1014:                                             ; preds = %1013
   %1015 = load ptr, ptr %11, align 8
@@ -3533,7 +3533,7 @@ switch.early.test:                                ; preds = %1045, %.loopexit816
   %1086 = add nuw nsw i32 %.0525, 1
   %1087 = shl nsw i32 %.17565, 4
   %1088 = add nsw i32 %.0526, %1087
-  br label %.preheader815, !llvm.loop !21
+  br label %.preheader815, !llvm.loop !23
 
 1089:                                             ; preds = %1080
   %1090 = load ptr, ptr %11, align 8
@@ -3566,7 +3566,7 @@ switch.early.test:                                ; preds = %1045, %.loopexit816
   %1107 = shl nsw i32 %.18566894, 3
   %1108 = or disjoint i32 %1105, %1107
   %exitcond.not = icmp eq i32 %1106, 3
-  br i1 %exitcond.not, label %.loopexit816, label %1098, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit816, label %1098, !llvm.loop !24
 
 1109:                                             ; preds = %1098
   %1110 = load ptr, ptr %0, align 8
@@ -3596,7 +3596,7 @@ switch.early.test:                                ; preds = %1045, %.loopexit816
   %1124 = load ptr, ptr %1123, align 8
   %1125 = tail call noundef i32 %1124(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   %exitcond970.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond970.not, label %.critedge87, label %switch.early.test, !llvm.loop !23
+  br i1 %exitcond970.not, label %.critedge87, label %switch.early.test, !llvm.loop !25
 
 .critedge87:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.loopexit816
   %.15563.lcssa = phi i32 [ %.15563896, %switch.early.test ], [ %.15563896, %switch.early.test ], [ %.15563896, %switch.early.test ], [ %1125, %.loopexit816 ]
@@ -3796,7 +3796,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit.i22: ; preds = %57, %55
   ]
 
 .backedge.backedge:                               ; preds = %80, %80, %109, %42, %82, %103, %79
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge, !llvm.loop !26
 
 82:                                               ; preds = %80, %79, %79, %79, %79, %79, %79, %79, %79, %79
   %83 = load i8, ptr %7, align 8
@@ -3913,7 +3913,7 @@ _ZN7glslang10TPpContext8popInputEv.exit:          ; preds = %16, %26
   store ptr %31, ptr %4, align 8
   %32 = load ptr, ptr %3, align 8
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %_ZNSt6vectorIN7glslang10TSourceLocESaIS1_EE5clearEv.exit, label %.lr.ph, !llvm.loop !25
+  br i1 %33, label %_ZNSt6vectorIN7glslang10TSourceLocESaIS1_EE5clearEv.exit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %34 = icmp eq ptr %.pre.pre, %.pre53.pre
@@ -3997,7 +3997,7 @@ _ZN7glslang10TPpContext8popInputEv.exit:          ; preds = %16, %26
   %82 = trunc i64 %81 to i32
   %83 = add nsw i32 %82, -1
   %84 = icmp slt i32 %.11329, %83
-  br i1 %84, label %56, label %._crit_edge48, !llvm.loop !26
+  br i1 %84, label %56, label %._crit_edge48, !llvm.loop !28
 
 ._crit_edge48:                                    ; preds = %.thread, %.preheader
   %.lcssa31 = phi ptr [ %46, %.preheader ], [ %77, %.thread ]
@@ -4337,13 +4337,13 @@ _ZN7glslang10TPpContext20peekContinuedPastingEi.exit: ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef %.2) #13
-  br i1 %107, label %.preheader, label %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread, !llvm.loop !27
+  br i1 %107, label %.preheader, label %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread, !llvm.loop !29
 
 _ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread: ; preds = %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit
   %.pre = load ptr, ptr %6, align 8
   %.pre49 = load ptr, ptr %7, align 8
   %108 = icmp eq ptr %.pre, %.pre49
-  br i1 %108, label %_ZN7glslang10TPpContext11peekPastingEv.exit.thread, label %_ZN7glslang10TPpContext11peekPastingEv.exit, !llvm.loop !28
+  br i1 %108, label %_ZN7glslang10TPpContext11peekPastingEv.exit.thread, label %_ZN7glslang10TPpContext11peekPastingEv.exit, !llvm.loop !30
 
 _ZN7glslang10TPpContext11peekPastingEv.exit.thread: ; preds = %_ZN7glslang10TPpContext11peekPastingEv.exit, %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread, %98, %.preheader32, %_ZN7glslang10TPpContext20endOfReplacementListEv.exit.thread, %81, %71, %50, %19
   %.0 = phi i32 [ %25, %19 ], [ %.1, %50 ], [ %.1, %71 ], [ %.1, %81 ], [ %.02840, %_ZN7glslang10TPpContext20endOfReplacementListEv.exit.thread ], [ %1, %.preheader32 ], [ %.2, %98 ], [ %.02840, %_ZN7glslang10TPpContext11peekPastingEv.exit ], [ %.2, %_ZN7glslang10TPpContext20peekContinuedPastingEi.exit.thread ]
@@ -4539,7 +4539,7 @@ define linkonce_odr noundef i32 @_ZN7glslang10TPpContext12tStringInput5getchEv(p
 19:                                               ; preds = %16
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit74, label %16, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit74, label %16, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i:         ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4630,7 +4630,7 @@ _ZN7glslang13TInputScanner3getEv.exit:            ; preds = %_ZN7glslang13TInput
 67:                                               ; preds = %64
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %64, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %64, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -4674,7 +4674,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %67, %56, %_ZN7glsla
 89:                                               ; preds = %86
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i18
-  br i1 %exitcond.not.i23, label %_ZN7glslang13TInputScanner3getEv.exit74, label %86, !llvm.loop !29
+  br i1 %exitcond.not.i23, label %_ZN7glslang13TInputScanner3getEv.exit74, label %86, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit24:         ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -4767,7 +4767,7 @@ _ZNK7glslang13TInputScanner12getSourceLocEv.exit: ; preds = %107, %109
 148:                                              ; preds = %145
   %indvars.iv.next.i.i32 = add nsw i64 %indvars.iv.i.i29, 1
   %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, %wide.trip.count.i.i28
-  br i1 %exitcond.not.i.i33, label %_ZN7glslang13TInputScanner3getEv.exit35, label %145, !llvm.loop !29
+  br i1 %exitcond.not.i.i33, label %_ZN7glslang13TInputScanner3getEv.exit35, label %145, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i34:       ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %132, i64 16
@@ -4849,7 +4849,7 @@ _ZN7glslang13TInputScanner3getEv.exit35:          ; preds = %148, %137, %178
 196:                                              ; preds = %193
   %indvars.iv.next.i.i42 = add nsw i64 %indvars.iv.i.i39, 1
   %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, %wide.trip.count.i.i38
-  br i1 %exitcond.not.i.i43, label %_ZN7glslang13TInputScanner3getEv.exit74, label %193, !llvm.loop !29
+  br i1 %exitcond.not.i.i43, label %_ZN7glslang13TInputScanner3getEv.exit74, label %193, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i44:       ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -4926,7 +4926,7 @@ _ZN7glslang13TInputScanner3getEv.exit45:          ; preds = %_ZN7glslang13TInput
 242:                                              ; preds = %239
   %indvars.iv.next.i.i52 = add nsw i64 %indvars.iv.i.i49, 1
   %exitcond.not.i.i53 = icmp eq i64 %indvars.iv.next.i.i52, %wide.trip.count.i.i48
-  br i1 %exitcond.not.i.i53, label %_ZN7glslang13TInputScanner3getEv.exit74, label %239, !llvm.loop !29
+  br i1 %exitcond.not.i.i53, label %_ZN7glslang13TInputScanner3getEv.exit74, label %239, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i54:       ; preds = %239
   %243 = getelementptr inbounds nuw i8, ptr %226, i64 16
@@ -4973,7 +4973,7 @@ _ZN7glslang13TInputScanner3getEv.exit55:          ; preds = %_ZN7glslang13TInput
   %.1.in = phi i8 [ %202, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %248, %258 ], [ %248, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
   tail call void @_ZN7glslang13TInputScanner7advanceEv(ptr noundef nonnull align 8 dereferenceable(90) %.sink)
   %272 = icmp eq i8 %.1.in, 92
-  br i1 %272, label %50, label %.loopexit, !llvm.loop !30
+  br i1 %272, label %50, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZN7glslang13TInputScanner3getEv.exit55, %_ZN7glslang13TInputScanner3getEv.exit
   %.014.in = phi i8 [ %25, %_ZN7glslang13TInputScanner3getEv.exit ], [ %.1.in, %_ZN7glslang13TInputScanner3getEv.exit55 ]
@@ -5016,7 +5016,7 @@ _ZN7glslang13TInputScanner3getEv.exit55:          ; preds = %_ZN7glslang13TInput
 290:                                              ; preds = %287
   %indvars.iv.next.i62 = add nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i58
-  br i1 %exitcond.not.i63, label %_ZN7glslang13TInputScanner3getEv.exit74, label %287, !llvm.loop !29
+  br i1 %exitcond.not.i63, label %_ZN7glslang13TInputScanner3getEv.exit74, label %287, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit64:         ; preds = %287
   %291 = getelementptr inbounds nuw i8, ptr %274, i64 16
@@ -5039,7 +5039,7 @@ _ZN7glslang13TInputScanner4peekEv.exit64:         ; preds = %287
 300:                                              ; preds = %.preheader184
   %indvars.iv.next.i.i71 = add nsw i64 %indvars.iv.i.i68, 1
   %exitcond.not.i.i72 = icmp eq i64 %indvars.iv.next.i.i71, %wide.trip.count.i58
-  br i1 %exitcond.not.i.i72, label %_ZN7glslang13TInputScanner3getEv.exit74, label %.preheader184, !llvm.loop !29
+  br i1 %exitcond.not.i.i72, label %_ZN7glslang13TInputScanner3getEv.exit74, label %.preheader184, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i73:       ; preds = %.preheader184
   %301 = getelementptr inbounds ptr, ptr %292, i64 %indvars.iv.i.i68
@@ -5134,7 +5134,7 @@ define linkonce_odr void @_ZN7glslang10TPpContext12tStringInput7ungetchEv(ptr no
 21:                                               ; preds = %18
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner3getEv.exit31, label %18, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner3getEv.exit31, label %18, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -5188,7 +5188,7 @@ _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %18
 45:                                               ; preds = %42
   %indvars.iv.next.i10 = add nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, %wide.trip.count.i6
-  br i1 %exitcond.not.i11, label %_ZN7glslang13TInputScanner4peekEv.exit12.thread, label %42, !llvm.loop !29
+  br i1 %exitcond.not.i11, label %_ZN7glslang13TInputScanner4peekEv.exit12.thread, label %42, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit12:         ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5233,7 +5233,7 @@ _ZN7glslang13TInputScanner4peekEv.exit12.thread:  ; preds = %45, %34, %_ZN7glsla
 67:                                               ; preds = %64
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit, label %64, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %_ZN7glslang13TInputScanner3getEv.exit, label %64, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i:         ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -5320,7 +5320,7 @@ _ZN7glslang13TInputScanner3getEv.exit:            ; preds = %67, %97, %56, %_ZN7
 115:                                              ; preds = %112
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i15
-  br i1 %exitcond.not.i20, label %_ZN7glslang13TInputScanner4peekEv.exit21.thread, label %112, !llvm.loop !29
+  br i1 %exitcond.not.i20, label %_ZN7glslang13TInputScanner4peekEv.exit21.thread, label %112, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit21:         ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -5340,7 +5340,7 @@ _ZN7glslang13TInputScanner4peekEv.exit21:         ; preds = %112
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %128 = load i32, ptr %127, align 8
   %.not.i = icmp slt i32 %126, %128
-  br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 _ZN7glslang13TInputScanner4peekEv.exit21.thread:  ; preds = %_ZN7glslang13TInputScanner4peekEv.exit21, %115, %104
   %129 = phi i32 [ %.pre83, %104 ], [ %103, %115 ], [ %103, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
@@ -5375,7 +5375,7 @@ _ZN7glslang13TInputScanner4peekEv.exit21.thread:  ; preds = %_ZN7glslang13TInput
 144:                                              ; preds = %141
   %indvars.iv.next.i.i28 = add nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, %wide.trip.count.i.i24
-  br i1 %exitcond.not.i.i29, label %_ZN7glslang13TInputScanner3getEv.exit31, label %141, !llvm.loop !29
+  br i1 %exitcond.not.i.i29, label %_ZN7glslang13TInputScanner3getEv.exit31, label %141, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit.i30:       ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -5516,7 +5516,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit
   %.sroa.07.0 = load ptr, ptr %.sroa.07.016, align 8
   %.not = icmp eq ptr %.sroa.07.0, null
-  br i1 %.not, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit, label %11, !llvm.loop !32
+  br i1 %.not, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit, label %11, !llvm.loop !34
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5536,7 +5536,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
   %27 = mul i32 %26, 16777619
   %28 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %20
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !35
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %29 = zext i32 %27 to i64
@@ -5596,7 +5596,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
   %53 = load i64, ptr %52, align 8
   %54 = urem i64 %53, %31
   %.not17.i.i = icmp eq i64 %54, %32
-  br i1 %.not17.i.i, label %39, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit, !llvm.loop !34
+  br i1 %.not17.i.i, label %39, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit, !llvm.loop !36
 
 _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit: ; preds = %51, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %5, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSA_.exit
   %.sroa.07.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSA_.exit ], [ null, %5 ], [ %.sroa.07.016, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERSA_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread ], [ %.sroa.07.016, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %41, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i ], [ %41, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ null, %51 ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i ]
@@ -5702,7 +5702,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner7advanceEv(ptr noundef nonnu
   %65 = phi i32 [ %.pre6, %49 ], [ %39, %46 ]
   %66 = phi i32 [ %.pre5, %49 ], [ %47, %46 ]
   %67 = icmp slt i32 %66, %65
-  br i1 %67, label %38, label %.critedge, !llvm.loop !35
+  br i1 %67, label %38, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %38, %64, %33
   store i64 0, ptr %2, align 8
@@ -5779,7 +5779,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
 41:                                               ; preds = %37
   %42 = add i64 %.013, -1
   %.not8 = icmp eq i64 %42, 0
-  br i1 %.not8, label %._crit_edge, label %37, !llvm.loop !36
+  br i1 %.not8, label %._crit_edge, label %37, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %41, %37, %31
   %.0.lcssa = phi i64 [ 0, %31 ], [ %.013, %37 ], [ 0, %41 ]
@@ -5804,7 +5804,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
   %50 = getelementptr inbounds nuw i64, ptr %10, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %45, label %.critedge.thread, !llvm.loop !37
+  br i1 %52, label %45, label %.critedge.thread, !llvm.loop !39
 
 .critedge:                                        ; preds = %45
   %sext = shl i64 %indvars.iv.next, 32
@@ -5854,7 +5854,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
 71:                                               ; preds = %68
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %68, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %68, !llvm.loop !31
 
 _ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6000,8 +6000,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!19 = distinct !{!19, !5, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -6019,3 +6019,5 @@ attributes #17 = { nounwind willreturn memory(read) }
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}

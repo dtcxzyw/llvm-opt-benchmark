@@ -424,7 +424,7 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %203, ptr %204, align 4, !tbaa !39
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i
-  br i1 %exitcond.not.i26, label %._crit_edge.i, label %188, !llvm.loop !47
+  br i1 %exitcond.not.i26, label %._crit_edge.i, label %188, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %188
   %205 = icmp ugt i8 %183, -128
@@ -509,12 +509,12 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %247, ptr %252, align 4, !tbaa !40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %253, label %250, !llvm.loop !48
+  br i1 %exitcond.not.i.i, label %253, label %250, !llvm.loop !49
 
 253:                                              ; preds = %250
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 4
-  br i1 %exitcond15.not.i.i, label %set_4x4_block.exit.i, label %.preheader.i.i, !llvm.loop !49
+  br i1 %exitcond15.not.i.i, label %set_4x4_block.exit.i, label %.preheader.i.i, !llvm.loop !50
 
 254:                                              ; preds = %233
   %255 = ptrtoint ptr %230 to i64
@@ -554,12 +554,12 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %274, ptr %279, align 4, !tbaa !40
   %indvars.iv.next.i272.i = add nuw nsw i64 %indvars.iv.i271.i, 1
   %exitcond.not.i273.i = icmp eq i64 %indvars.iv.next.i272.i, 4
-  br i1 %exitcond.not.i273.i, label %280, label %277, !llvm.loop !48
+  br i1 %exitcond.not.i273.i, label %280, label %277, !llvm.loop !49
 
 280:                                              ; preds = %277
   %indvars.iv.next13.i274.i = add nuw nsw i64 %indvars.iv12.i270.i, 1
   %exitcond15.not.i275.i = icmp eq i64 %indvars.iv.next13.i274.i, 4
-  br i1 %exitcond15.not.i275.i, label %set_4x4_block.exit.i.loopexit39, label %.preheader.i269.i, !llvm.loop !49
+  br i1 %exitcond15.not.i275.i, label %set_4x4_block.exit.i.loopexit39, label %.preheader.i269.i, !llvm.loop !50
 
 281:                                              ; preds = %228
   %282 = ptrtoint ptr %230 to i64
@@ -604,12 +604,12 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %301, ptr %306, align 4, !tbaa !40
   %indvars.iv.next.i280.i = add nuw nsw i64 %indvars.iv.i279.i, 1
   %exitcond.not.i281.i = icmp eq i64 %indvars.iv.next.i280.i, 4
-  br i1 %exitcond.not.i281.i, label %307, label %304, !llvm.loop !48
+  br i1 %exitcond.not.i281.i, label %307, label %304, !llvm.loop !49
 
 307:                                              ; preds = %304
   %indvars.iv.next13.i282.i = add nuw nsw i64 %indvars.iv12.i278.i, 1
   %exitcond15.not.i283.i = icmp eq i64 %indvars.iv.next13.i282.i, 4
-  br i1 %exitcond15.not.i283.i, label %set_4x4_block.exit.i, label %.preheader.i277.i, !llvm.loop !49
+  br i1 %exitcond15.not.i283.i, label %set_4x4_block.exit.i, label %.preheader.i277.i, !llvm.loop !50
 
 308:                                              ; preds = %289
   %309 = ptrtoint ptr %287 to i64
@@ -763,7 +763,7 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %406, ptr %407, align 4, !tbaa !39
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %exitcond320.not.i = icmp eq i64 %indvars.iv.next318.i, 8
-  br i1 %exitcond320.not.i, label %408, label %399, !llvm.loop !50
+  br i1 %exitcond320.not.i, label %408, label %399, !llvm.loop !51
 
 408:                                              ; preds = %399
   %409 = getelementptr inbounds nuw i8, ptr %400, i64 3
@@ -896,7 +896,7 @@ set_4x4_block.exit.i:                             ; preds = %253, %307, %set_4x4
   %489 = sub i64 %163, %488
   %490 = trunc i64 %489 to i32
   %491 = icmp sgt i32 %490, 0
-  br i1 %491, label %228, label %decode_mvc2.exit, !llvm.loop !51
+  br i1 %491, label %228, label %decode_mvc2.exit, !llvm.loop !52
 
 decode_mvc2.exit:                                 ; preds = %254, %281, %308, %387, %485, %487, %161, %179, %180, %._crit_edge.thread.i
   %.0.i = phi i32 [ -1163346256, %179 ], [ -1094995529, %161 ], [ -1094995529, %180 ], [ 0, %._crit_edge.thread.i ], [ -1094995529, %254 ], [ 0, %487 ], [ 0, %485 ], [ -1094995529, %387 ], [ -1094995529, %308 ], [ -1094995529, %281 ]
@@ -1006,9 +1006,10 @@ attributes #8 = { noreturn nounwind }
 !43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
 !45 = distinct !{!45, !44}
-!46 = distinct !{!46, !44}
-!47 = distinct !{!47, !44}
+!46 = distinct !{!46, !44, !47}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !48 = distinct !{!48, !44}
 !49 = distinct !{!49, !44}
 !50 = distinct !{!50, !44}
 !51 = distinct !{!51, !44}
+!52 = distinct !{!52, !44}

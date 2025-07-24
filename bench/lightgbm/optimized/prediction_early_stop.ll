@@ -465,81 +465,65 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = icmp eq i64 %15, 0
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
   %.pre = load double, ptr %0, align 8, !tbaa !18
   br label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %48 = icmp eq i64 %15, 0
-  br i1 %48, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
-
-.lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %.pre31 = load double, ptr %0, align 8, !tbaa !18
-  br label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %55
-  %.sroa.0.011.us12.us = phi ptr [ %56, %55 ], [ %1, %.lr.ph.split.split.us ]
-  %49 = load double, ptr %.sroa.0.011.us12.us, align 8, !tbaa !18
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %56
+  %.sroa.0.011.us12 = phi ptr [ %57, %56 ], [ %1, %.lr.ph.split ]
+  %49 = load double, ptr %.sroa.0.011.us12, align 8, !tbaa !18
   %50 = load double, ptr %0, align 8, !tbaa !18
   %51 = fcmp ogt double %49, %50
-  br i1 %51, label %._crit_edge.i.i.us13.us, label %55
+  br i1 %51, label %._crit_edge.i.i.us13, label %56
 
-._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  store double %50, ptr %.sroa.0.011.us12.us, align 8, !tbaa !18
-  %52 = load double, ptr %47, align 8, !tbaa !18
+._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us
+  store double %50, ptr %.sroa.0.011.us12, align 8, !tbaa !18
+  br i1 %47, label %.thread.i.us14, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us20
+
+.thread.i.us14:                                   ; preds = %._crit_edge.i.i.us13
+  %52 = load double, ptr %48, align 8, !tbaa !18
   store double %52, ptr %0, align 8, !tbaa !18
-  %53 = fcmp ule double %52, %49
-  %.0.lcssa.i.i.i.ph.us23.us = zext i1 %53 to i64
-  %54 = getelementptr inbounds nuw double, ptr %0, i64 %.0.lcssa.i.i.i.ph.us23.us
-  store double %49, ptr %54, align 8, !tbaa !18
-  br label %55
+  %53 = fcmp ogt double %52, %49
+  br i1 %53, label %54, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us20
 
-55:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %57 = icmp ult ptr %56, %2
-  br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !41
+54:                                               ; preds = %.thread.i.us14
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us20
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %61
-  %58 = phi double [ %62, %61 ], [ %.pre31, %.lr.ph.split.split.us.split.preheader ]
-  %.sroa.0.011.us12 = phi ptr [ %63, %61 ], [ %1, %.lr.ph.split.split.us.split.preheader ]
-  %59 = load double, ptr %.sroa.0.011.us12, align 8, !tbaa !18
-  %60 = fcmp ogt double %59, %58
-  br i1 %60, label %._crit_edge.i.i.us13, label %61
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us20: ; preds = %.thread.i.us14, %54, %._crit_edge.i.i.us13
+  %.0.lcssa.i.i.i.us21 = phi i64 [ 0, %._crit_edge.i.i.us13 ], [ 0, %54 ], [ 1, %.thread.i.us14 ]
+  %55 = getelementptr inbounds nuw double, ptr %0, i64 %.0.lcssa.i.i.i.us21
+  store double %49, ptr %55, align 8, !tbaa !18
+  br label %56
 
-._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
-  store double %58, ptr %.sroa.0.011.us12, align 8, !tbaa !18
-  store double %59, ptr %0, align 8, !tbaa !18
-  br label %61
+56:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us20, %.lr.ph.split.split.us
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
+  %58 = icmp ult ptr %57, %2
+  br i1 %58, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !43
 
-61:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %62 = phi double [ %59, %._crit_edge.i.i.us13 ], [ %58, %.lr.ph.split.split.us.split ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %64 = icmp ult ptr %63, %2
-  br i1 %64, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !41
-
-._crit_edge:                                      ; preds = %68, %61, %55, %43, %3
+._crit_edge:                                      ; preds = %62, %56, %43, %3
   ret void
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %68
-  %65 = phi double [ %69, %68 ], [ %.pre, %.lr.ph.split.split.preheader ]
-  %.sroa.0.011 = phi ptr [ %70, %68 ], [ %1, %.lr.ph.split.split.preheader ]
-  %66 = load double, ptr %.sroa.0.011, align 8, !tbaa !18
-  %67 = fcmp ogt double %66, %65
-  br i1 %67, label %._crit_edge.i.i, label %68
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %62
+  %59 = phi double [ %63, %62 ], [ %.pre, %.lr.ph.split.split.preheader ]
+  %.sroa.0.011 = phi ptr [ %64, %62 ], [ %1, %.lr.ph.split.split.preheader ]
+  %60 = load double, ptr %.sroa.0.011, align 8, !tbaa !18
+  %61 = fcmp ogt double %60, %59
+  br i1 %61, label %._crit_edge.i.i, label %62
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
-  store double %65, ptr %.sroa.0.011, align 8, !tbaa !18
-  store double %66, ptr %0, align 8, !tbaa !18
-  br label %68
+  store double %59, ptr %.sroa.0.011, align 8, !tbaa !18
+  store double %60, ptr %0, align 8, !tbaa !18
+  br label %62
 
-68:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %69 = phi double [ %65, %.lr.ph.split.split ], [ %66, %._crit_edge.i.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %71 = icmp ult ptr %70, %2
-  br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !41
+62:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %63 = phi double [ %59, %.lr.ph.split.split ], [ %60, %._crit_edge.i.i ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
+  %65 = icmp ult ptr %64, %2
+  br i1 %65, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -618,7 +602,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   store double %21, ptr %42, align 8, !tbaa !18
   %.not.us = icmp eq i64 %.09.us, 0
   %43 = add nsw i64 %.09.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !42
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !45
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_SD_T1_T2_.exit
   %.09 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_SD_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -681,7 +665,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   store double %45, ptr %70, align 8, !tbaa !18
   %.not = icmp eq i64 %.09, 0
   %71 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_SD_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_SD_T1_T2_.exit, %3
   ret void
@@ -719,7 +703,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM
   %5 = load double, ptr %.val, align 8, !tbaa !18
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fmul double %6, 2.000000e+00
-  %8 = load double, ptr %0, align 8, !tbaa !43
+  %8 = load double, ptr %0, align 8, !tbaa !47
   %9 = fcmp ogt double %7, %8
   ret i1 %9
 }
@@ -761,11 +745,11 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !45
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %8, align 8, !tbaa !4, !alias.scope !45
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8, !tbaa !10, !alias.scope !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %8, align 8, !tbaa !4, !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8, !tbaa !10, !alias.scope !49
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 2147483647, ptr %9, align 8, !tbaa !11, !alias.scope !45
+  store i32 2147483647, ptr %9, align 8, !tbaa !11, !alias.scope !49
   br label %37
 
 10:                                               ; preds = %3
@@ -774,19 +758,19 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !15, !noalias !48
+  %15 = load i64, ptr %14, align 8, !tbaa !15, !noalias !52
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !alias.scope !48
-  store i64 %15, ptr %0, align 8, !tbaa !18, !alias.scope !48
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %17, align 8, !tbaa !4, !alias.scope !48
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %16, align 8, !tbaa !10, !alias.scope !48
+  store i64 0, ptr %18, align 8, !alias.scope !52
+  store i64 %15, ptr %0, align 8, !tbaa !18, !alias.scope !52
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %17, align 8, !tbaa !4, !alias.scope !52
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %16, align 8, !tbaa !10, !alias.scope !52
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i32, ptr %2, align 8, !tbaa !19, !noalias !48
-  store i32 %20, ptr %19, align 8, !tbaa !11, !alias.scope !48
+  %20 = load i32, ptr %2, align 8, !tbaa !19, !noalias !52
+  store i32 %20, ptr %19, align 8, !tbaa !11, !alias.scope !52
   br label %37
 
 21:                                               ; preds = %10
@@ -795,19 +779,19 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !15, !noalias !51
+  %26 = load i64, ptr %25, align 8, !tbaa !15, !noalias !55
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %29, align 8, !alias.scope !51
-  store i64 %26, ptr %0, align 8, !tbaa !18, !alias.scope !51
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %28, align 8, !tbaa !4, !alias.scope !51
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %27, align 8, !tbaa !10, !alias.scope !51
+  store i64 0, ptr %29, align 8, !alias.scope !55
+  store i64 %26, ptr %0, align 8, !tbaa !18, !alias.scope !55
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %28, align 8, !tbaa !4, !alias.scope !55
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %27, align 8, !tbaa !10, !alias.scope !55
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i32, ptr %2, align 8, !tbaa !19, !noalias !51
-  store i32 %31, ptr %30, align 8, !tbaa !11, !alias.scope !51
+  %31 = load i32, ptr %2, align 8, !tbaa !19, !noalias !55
+  store i32 %31, ptr %30, align 8, !tbaa !11, !alias.scope !55
   br label %37
 
 32:                                               ; preds = %21
@@ -815,11 +799,11 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.8, ptr noundef %33)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !54
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %35, align 8, !tbaa !4, !alias.scope !54
-  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %34, align 8, !tbaa !10, !alias.scope !54
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !58
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %35, align 8, !tbaa !4, !alias.scope !58
+  store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %34, align 8, !tbaa !10, !alias.scope !58
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 2147483647, ptr %36, align 8, !tbaa !11, !alias.scope !54
+  store i32 2147483647, ptr %36, align 8, !tbaa !11, !alias.scope !58
   br label %37
 
 37:                                               ; preds = %32, %24, %13, %6
@@ -912,19 +896,23 @@ attributes #25 = { cold nounwind }
 !38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
 !40 = distinct !{!40, !39}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = !{!44, !17, i64 0}
-!44 = !{!"_ZTSZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigEE3$_0", !17, i64 0}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE: argument 0"}
-!47 = distinct !{!47, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN8LightGBM16CreateMulticlassERKNS_25PredictionEarlyStopConfigE: argument 0"}
-!50 = distinct !{!50, !"_ZN8LightGBM16CreateMulticlassERKNS_25PredictionEarlyStopConfigE"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigE: argument 0"}
-!53 = distinct !{!53, !"_ZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigE"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE: argument 0"}
-!56 = distinct !{!56, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE"}
+!41 = distinct !{!41, !39, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !39, !42}
+!44 = distinct !{!44, !39}
+!45 = distinct !{!45, !39, !42}
+!46 = distinct !{!46, !39}
+!47 = !{!48, !17, i64 0}
+!48 = !{!"_ZTSZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigEE3$_0", !17, i64 0}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE: argument 0"}
+!51 = distinct !{!51, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN8LightGBM16CreateMulticlassERKNS_25PredictionEarlyStopConfigE: argument 0"}
+!54 = distinct !{!54, !"_ZN8LightGBM16CreateMulticlassERKNS_25PredictionEarlyStopConfigE"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigE: argument 0"}
+!57 = distinct !{!57, !"_ZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigE"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE: argument 0"}
+!60 = distinct !{!60, !"_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE"}

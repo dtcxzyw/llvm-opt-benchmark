@@ -368,7 +368,7 @@ HasDeviceID.exit:                                 ; preds = %.lr.ph.i73, %.lr.ph
   %76 = load i32, ptr %3, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next194, %77
-  br i1 %78, label %33, label %._crit_edge169, !llvm.loop !7
+  br i1 %78, label %33, label %._crit_edge169, !llvm.loop !8
 
 79:                                               ; preds = %.lr.ph, %HasDeviceID64.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %HasDeviceID64.exit ]
@@ -412,7 +412,7 @@ AddDeviceID64.exit:                               ; preds = %84, %92
 96:                                               ; preds = %.lr.ph.i83
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
-  br i1 %exitcond.not.i86, label %.loopexit152, label %.lr.ph.i83, !llvm.loop !8
+  br i1 %exitcond.not.i86, label %.loopexit152, label %.lr.ph.i83, !llvm.loop !9
 
 .lr.ph.i83:                                       ; preds = %96, %.lr.ph.preheader.i81
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %96 ]
@@ -437,7 +437,7 @@ HasDeviceID64.exit:                               ; preds = %.lr.ph.i83, %.loope
   %105 = load i32, ptr %71, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %79, label %._crit_edge, !llvm.loop !9
+  br i1 %107, label %79, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge179:                                   ; preds = %HasDeviceID.exit95, %HasDeviceID.exit95.us, %._crit_edge169
   %.0127.lcssa232 = phi ptr [ %.1.lcssa, %._crit_edge169 ], [ %.1.lcssa, %HasDeviceID.exit95.us ], [ %.0127.lcssa231241, %HasDeviceID.exit95 ]
@@ -498,7 +498,7 @@ HasDeviceID.exit104.preheader:                    ; preds = %.lr.ph182.thread, %
 HasDeviceID.exit104.us:                           ; preds = %.lr.ph.i100.us, %.loopexit150.us
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, -1
   %121 = icmp eq i64 %indvars.iv205, 0
-  br i1 %121, label %._crit_edge183, label %.lr.ph.preheader.i98.us, !llvm.loop !10
+  br i1 %121, label %._crit_edge183, label %.lr.ph.preheader.i98.us, !llvm.loop !11
 
 .loopexit150.us:                                  ; preds = %120
   call void @SDL_RemoveMouse(i32 noundef %116, i1 noundef zeroext %9) #8
@@ -511,7 +511,7 @@ HasDeviceID.exit95:                               ; preds = %HasDeviceID.exit95.
   call void @SDL_RemoveKeyboard(i32 noundef %123, i1 noundef zeroext %9) #8
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, -1
   %124 = icmp eq i64 %indvars.iv196, 0
-  br i1 %124, label %._crit_edge179, label %HasDeviceID.exit95, !llvm.loop !6
+  br i1 %124, label %._crit_edge179, label %HasDeviceID.exit95, !llvm.loop !12
 
 ._crit_edge183:                                   ; preds = %HasDeviceID.exit104, %HasDeviceID.exit104.us, %._crit_edge179
   %.0138.lcssa224260 = phi ptr [ %.0138.lcssa224, %._crit_edge179 ], [ %.0138.lcssa224, %HasDeviceID.exit104.us ], [ %.0138.lcssa224259268, %HasDeviceID.exit104 ]
@@ -565,12 +565,12 @@ HasDeviceID64.exit113.preheader:                  ; preds = %.lr.ph186.thread, %
 137:                                              ; preds = %.lr.ph.i109.us
   %indvars.iv.next.i111.us = add nuw nsw i64 %indvars.iv.i110.us, 1
   %exitcond.not.i112.us = icmp eq i64 %indvars.iv.next.i111.us, %wide.trip.count.i108
-  br i1 %exitcond.not.i112.us, label %.loopexit.us, label %.lr.ph.i109.us, !llvm.loop !8
+  br i1 %exitcond.not.i112.us, label %.loopexit.us, label %.lr.ph.i109.us, !llvm.loop !9
 
 HasDeviceID64.exit113.us:                         ; preds = %.lr.ph.i109.us, %.loopexit.us
   %indvars.iv.next212 = add nsw i64 %indvars.iv211, -1
   %138 = icmp eq i64 %indvars.iv211, 0
-  br i1 %138, label %._crit_edge187, label %.lr.ph.preheader.i107.us, !llvm.loop !11
+  br i1 %138, label %._crit_edge187, label %.lr.ph.preheader.i107.us, !llvm.loop !13
 
 .loopexit.us:                                     ; preds = %137
   call void @SDL_DelTouch(i64 noundef %133) #8
@@ -583,7 +583,7 @@ HasDeviceID.exit104:                              ; preds = %HasDeviceID.exit104
   call void @SDL_RemoveMouse(i32 noundef %140, i1 noundef zeroext %9) #8
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, -1
   %141 = icmp eq i64 %indvars.iv202, 0
-  br i1 %141, label %._crit_edge183, label %HasDeviceID.exit104, !llvm.loop !10
+  br i1 %141, label %._crit_edge183, label %HasDeviceID.exit104, !llvm.loop !14
 
 ._crit_edge187:                                   ; preds = %HasDeviceID64.exit113, %HasDeviceID64.exit113.us, %._crit_edge183.thread, %._crit_edge183
   %.0127.lcssa232253283 = phi ptr [ null, %._crit_edge183.thread ], [ %.0127.lcssa232253, %._crit_edge183 ], [ %.0127.lcssa232253, %HasDeviceID64.exit113.us ], [ %.0127.lcssa232253282290, %HasDeviceID64.exit113 ]
@@ -610,7 +610,7 @@ HasDeviceID64.exit113:                            ; preds = %HasDeviceID64.exit1
   call void @SDL_DelTouch(i64 noundef %144) #8
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, -1
   %145 = icmp eq i64 %indvars.iv208, 0
-  br i1 %145, label %._crit_edge187, label %HasDeviceID64.exit113, !llvm.loop !11
+  br i1 %145, label %._crit_edge187, label %HasDeviceID64.exit113, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -714,7 +714,7 @@ define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %44 = load i32, ptr %.0.i, align 8
   %45 = icmp eq i32 %44, %41
-  br i1 %45, label %49, label %.lr.ph, !llvm.loop !12
+  br i1 %45, label %49, label %.lr.ph, !llvm.loop !16
 
 46:                                               ; preds = %.lr.ph.i.preheader
   %47 = getelementptr inbounds nuw i8, ptr %.015.i, i64 56
@@ -739,14 +739,14 @@ define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly 
   %54 = getelementptr inbounds nuw i8, ptr %.018.i276, i64 56
   %.0.i = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %xinput2_remove_device_info.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %xinput2_remove_device_info.exit, label %.lr.ph.i, !llvm.loop !16
 
 xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %34
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %55 = load i32, ptr %16, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next298, %56
-  br i1 %57, label %21, label %._crit_edge, !llvm.loop !13
+  br i1 %57, label %21, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %xinput2_remove_device_info.exit, %13
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 1684
@@ -821,7 +821,7 @@ xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %
   %indvars23.i = add nuw nsw i32 %indvars.iv.i, 1
   %94 = icmp sgt i32 %spec.store.select.i, %indvars23.i
   %95 = and i1 %85, %94
-  br i1 %95, label %.lr.ph.i195, label %parse_valuators.exit, !llvm.loop !14
+  br i1 %95, label %.lr.ph.i195, label %parse_valuators.exit, !llvm.loop !18
 
 parse_valuators.exit:                             ; preds = %93, %74
   %96 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -834,7 +834,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   %indvars.iv294.sroa.phi347 = phi ptr [ %.sroa.0350, %parse_valuators.exit ], [ %.sroa.7, %110 ]
   %indvars.iv294 = phi i64 [ 0, %parse_valuators.exit ], [ 1, %110 ]
   %100 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 0, i64 %indvars.iv294
-  %101 = load i8, ptr %100, align 1, !range !3, !noundef !15
+  %101 = load i8, ptr %100, align 1, !range !3, !noundef !19
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %105
 
@@ -852,11 +852,11 @@ parse_valuators.exit:                             ; preds = %93, %74
 110:                                              ; preds = %103, %105
   %.sink = phi double [ %104, %103 ], [ %109, %105 ]
   store double %.sink, ptr %indvars.iv294.sroa.phi, align 8
-  br i1 %99, label %98, label %111, !llvm.loop !16
+  br i1 %99, label %98, label %111, !llvm.loop !20
 
 111:                                              ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %65, i64 185
-  %113 = load i8, ptr %112, align 1, !range !3, !noundef !15
+  %113 = load i8, ptr %112, align 1, !range !3, !noundef !19
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %123
 
@@ -1009,7 +1009,7 @@ parse_valuators.exit:                             ; preds = %93, %74
 203:                                              ; preds = %204
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %xinput2_get_sdlwindow.exit, label %204, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %xinput2_get_sdlwindow.exit, label %204, !llvm.loop !21
 
 204:                                              ; preds = %203, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %203 ]
@@ -1032,7 +1032,7 @@ xinput2_get_sdlwindow.exit:                       ; preds = %203, %200, %xinput2
 
 213:                                              ; preds = %xinput2_get_sdlwindow.exit
   %214 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %215 = load i8, ptr %214, align 4, !range !3, !noundef !15
+  %215 = load i8, ptr %214, align 4, !range !3, !noundef !19
   %216 = trunc nuw i8 %215 to i1
   tail call void @SDL_SendPenTouch(i64 noundef 0, i32 noundef %212, ptr noundef %210, i1 noundef zeroext %216, i1 noundef zeroext %194) #8
   br label %.critedge
@@ -1055,7 +1055,7 @@ xinput2_get_sdlwindow.exit:                       ; preds = %203, %200, %xinput2
 223:                                              ; preds = %224
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i198, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %xinput2_get_sdlwindowdata.exit, label %224, !llvm.loop !17
+  br i1 %exitcond.not.i, label %xinput2_get_sdlwindowdata.exit, label %224, !llvm.loop !21
 
 224:                                              ; preds = %223, %.lr.ph.i197
   %indvars.iv.i198 = phi i64 [ 0, %.lr.ph.i197 ], [ %indvars.iv.next.i, %223 ]
@@ -1132,7 +1132,7 @@ xinput2_get_sdlwindowdata.exit:                   ; preds = %223, %224, %220
 266:                                              ; preds = %267
   %indvars.iv.next.i.i204 = add nuw nsw i64 %indvars.iv.i.i202, 1
   %exitcond.not.i.i205 = icmp eq i64 %indvars.iv.next.i.i204, %wide.trip.count.i.i201
-  br i1 %exitcond.not.i.i205, label %xinput2_get_sdlwindow.exit207, label %267, !llvm.loop !17
+  br i1 %exitcond.not.i.i205, label %xinput2_get_sdlwindow.exit207, label %267, !llvm.loop !21
 
 267:                                              ; preds = %266, %.lr.ph.i.i200
   %indvars.iv.i.i202 = phi i64 [ 0, %.lr.ph.i.i200 ], [ %indvars.iv.next.i.i204, %266 ]
@@ -1190,7 +1190,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 297:                                              ; preds = %289, %292
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %288, label %289, !llvm.loop !18
+  br i1 %exitcond.not, label %288, label %289, !llvm.loop !22
 
 298:                                              ; preds = %245
   %299 = and i32 %249, 65536
@@ -1207,7 +1207,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 305:                                              ; preds = %300
   %306 = tail call ptr @SDL_GetMouse() #8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 185
-  %308 = load i8, ptr %307, align 1, !range !3, !noundef !15
+  %308 = load i8, ptr %307, align 1, !range !3, !noundef !19
   %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %.critedge, label %310
 
@@ -1228,7 +1228,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 318:                                              ; preds = %319
   %indvars.iv.next.i.i212 = add nuw nsw i64 %indvars.iv.i.i210, 1
   %exitcond.not.i.i213 = icmp eq i64 %indvars.iv.next.i.i212, %wide.trip.count.i.i209
-  br i1 %exitcond.not.i.i213, label %.critedge, label %319, !llvm.loop !17
+  br i1 %exitcond.not.i.i213, label %.critedge, label %319, !llvm.loop !21
 
 319:                                              ; preds = %318, %.lr.ph.i.i208
   %indvars.iv.i.i210 = phi i64 [ 0, %.lr.ph.i.i208 ], [ %indvars.iv.next.i.i212, %318 ]
@@ -1280,7 +1280,7 @@ xinput2_get_sdlwindow.exit215:                    ; preds = %319
 349:                                              ; preds = %350
   %indvars.iv.next.i.i220 = add nuw nsw i64 %indvars.iv.i.i218, 1
   %exitcond.not.i.i221 = icmp eq i64 %indvars.iv.next.i.i220, %wide.trip.count.i.i217
-  br i1 %exitcond.not.i.i221, label %xinput2_get_sdlwindow.exit223.thread, label %350, !llvm.loop !17
+  br i1 %exitcond.not.i.i221, label %xinput2_get_sdlwindow.exit223.thread, label %350, !llvm.loop !21
 
 350:                                              ; preds = %349, %.lr.ph.i.i216
   %indvars.iv.i.i218 = phi i64 [ 0, %.lr.ph.i.i216 ], [ %indvars.iv.next.i.i220, %349 ]
@@ -1367,7 +1367,7 @@ xinput2_normalize_touch_coordinates.exit:         ; preds = %364, %375, %380
 402:                                              ; preds = %403
   %indvars.iv.next.i.i229 = add nuw nsw i64 %indvars.iv.i.i227, 1
   %exitcond.not.i.i230 = icmp eq i64 %indvars.iv.next.i.i229, %wide.trip.count.i.i226
-  br i1 %exitcond.not.i.i230, label %xinput2_get_sdlwindow.exit232.thread, label %403, !llvm.loop !17
+  br i1 %exitcond.not.i.i230, label %xinput2_get_sdlwindow.exit232.thread, label %403, !llvm.loop !21
 
 403:                                              ; preds = %402, %.lr.ph.i.i225
   %indvars.iv.i.i227 = phi i64 [ 0, %.lr.ph.i.i225 ], [ %indvars.iv.next.i.i229, %402 ]
@@ -1454,7 +1454,7 @@ xinput2_normalize_touch_coordinates.exit236:      ; preds = %417, %428, %433
 455:                                              ; preds = %456
   %indvars.iv.next.i.i241 = add nuw nsw i64 %indvars.iv.i.i239, 1
   %exitcond.not.i.i242 = icmp eq i64 %indvars.iv.next.i.i241, %wide.trip.count.i.i238
-  br i1 %exitcond.not.i.i242, label %xinput2_get_sdlwindow.exit244.thread, label %456, !llvm.loop !17
+  br i1 %exitcond.not.i.i242, label %xinput2_get_sdlwindow.exit244.thread, label %456, !llvm.loop !21
 
 456:                                              ; preds = %455, %.lr.ph.i.i237
   %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i241, %455 ]
@@ -1553,7 +1553,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
 .lr.ph:                                           ; preds = %.lr.ph77
   %7 = load i32, ptr %.044, align 8
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph77, !llvm.loop !19
+  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph77, !llvm.loop !23
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04462.lcssa = phi ptr [ %.04459, %.lr.ph.preheader ], [ %.044, %.lr.ph ]
@@ -1576,7 +1576,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   %14 = getelementptr inbounds nuw i8, ptr %.0446276, i64 56
   %.044 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %2
   %15 = tail call noalias dereferenceable_or_null(64) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 64) #10
@@ -1646,7 +1646,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   %51 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %51, ptr %3, align 4
   %52 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %52, label %30, label %._crit_edge67, !llvm.loop !20
+  br i1 %52, label %30, label %._crit_edge67, !llvm.loop !24
 
 ._crit_edge67:                                    ; preds = %50, %35, %21
   %53 = load ptr, ptr @X11_XIFreeDeviceInfo, align 8
@@ -1782,13 +1782,13 @@ define hidden zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef readonly
 
 21:                                               ; preds = %20, %2
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 117
-  %23 = load i8, ptr %22, align 1, !range !3, !noundef !15
+  %23 = load i8, ptr %22, align 1, !range !3, !noundef !19
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  %27 = load i8, ptr %26, align 4, !range !3, !noundef !15
+  %27 = load i8, ptr %26, align 4, !range !3, !noundef !19
   %28 = trunc nuw i8 %27 to i1
   br label %29
 
@@ -1920,18 +1920,22 @@ attributes #10 = { nounwind allocsize(0,1) }
 !3 = !{i8 0, i8 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!11 = distinct !{!11, !5, !7}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!13 = distinct !{!13, !5, !7}
 !14 = distinct !{!14, !5}
-!15 = !{}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!19 = !{}
 !20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}

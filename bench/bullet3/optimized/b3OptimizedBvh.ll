@@ -946,15 +946,15 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   %182 = mul nsw i32 %64, %.285
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i8, ptr %63, i64 %183
-  %185 = load double, ptr %184, align 8, !tbaa !72
+  %185 = load double, ptr %184, align 8, !tbaa !73
   %186 = fmul double %185, %93
   %187 = fptrunc double %186 to float
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %189 = load double, ptr %188, align 8, !tbaa !72
+  %189 = load double, ptr %188, align 8, !tbaa !73
   %190 = fmul double %189, %95
   %191 = fptrunc double %190 to float
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %193 = load double, ptr %192, align 8, !tbaa !72
+  %193 = load double, ptr %192, align 8, !tbaa !73
   %194 = fmul double %193, %97
   %195 = fptrunc double %194 to float
   %.sroa.0.0.vec.insert.i104 = insertelement <2 x float> poison, float %187, i64 0
@@ -966,7 +966,7 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   store <2 x float> %.sroa.3.12.vec.insert.i106, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !44
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
   %.not160 = icmp eq i64 %indvars.iv151, 0
-  br i1 %.not160, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %169, !llvm.loop !71
+  br i1 %.not160, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %169, !llvm.loop !75
 
 197:                                              ; preds = %35
   %198 = getelementptr %struct.b3QuantizedBvhNode, ptr %36, i64 %indvars.iv157
@@ -1003,13 +1003,13 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   store i16 %spec.store.select87, ptr %218, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %210, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %210, !llvm.loop !76
 
 .loopexit:                                        ; preds = %210, %_Z8b3SetMinIfEvRT_RKS0_.exit.i
   %.3 = phi i32 [ %.us-phi, %_Z8b3SetMinIfEvRT_RKS0_.exit.i ], [ %.083145, %210 ]
   %.2 = phi i32 [ %.1, %_Z8b3SetMinIfEvRT_RKS0_.exit.i ], [ %.080147, %210 ]
   %.not.not = icmp sgt i64 %indvars.iv.next158, %34
-  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !75
+  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.loopexit
   %221 = icmp sgt i32 %.2, -1
@@ -1161,7 +1161,7 @@ define dso_local void @_ZN14b3OptimizedBvh12refitPartialEP23b3StridingMeshInterf
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %59, label %._crit_edge, !llvm.loop !76
+  br i1 %104, label %59, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %101, %4
   ret void
@@ -1351,7 +1351,7 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %99, ptr %100, align 4, !tbaa !55
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !77
+  %102 = load ptr, ptr %101, align 8, !tbaa !79
   call void @_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %102, ptr noundef nonnull align 16 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   ret void
@@ -1552,13 +1552,13 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float %.sroa.24.2, ptr %.sroa.24.0..sroa_idx, align 4, !tbaa !44
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 -1, ptr %53, align 16, !tbaa !78
+  store i32 -1, ptr %53, align 16, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %2, ptr %54, align 4, !tbaa !80
+  store i32 %2, ptr %54, align 4, !tbaa !82
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %3, ptr %55, align 8, !tbaa !81
+  store i32 %3, ptr %55, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !82
+  %57 = load ptr, ptr %56, align 8, !tbaa !84
   call void @_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %57, ptr noundef nonnull align 16 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
   ret void
@@ -1750,16 +1750,18 @@ attributes #16 = { builtin nounwind }
 !68 = !{!"_ZTS14PHY_ScalarType", !10, i64 0}
 !69 = !{!70, !70, i64 0}
 !70 = !{!"float", !10, i64 0}
-!71 = distinct !{!71, !34}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"double", !10, i64 0}
-!74 = distinct !{!74, !34}
+!71 = distinct !{!71, !34, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"double", !10, i64 0}
 !75 = distinct !{!75, !34}
 !76 = distinct !{!76, !34}
-!77 = !{!27, !25, i64 8}
-!78 = !{!79, !11, i64 32}
-!79 = !{!"_ZTS18b3OptimizedBvhNode", !9, i64 0, !9, i64 16, !11, i64 32, !11, i64 36, !11, i64 40, !10, i64 44}
-!80 = !{!79, !11, i64 36}
-!81 = !{!79, !11, i64 40}
-!82 = !{!83, !39, i64 8}
-!83 = !{!"_ZTSZN14b3OptimizedBvh5buildEP23b3StridingMeshInterfacebRK9b3Vector3S4_E20NodeTriangleCallback", !28, i64 0, !39, i64 8}
+!77 = distinct !{!77, !34}
+!78 = distinct !{!78, !34}
+!79 = !{!27, !25, i64 8}
+!80 = !{!81, !11, i64 32}
+!81 = !{!"_ZTS18b3OptimizedBvhNode", !9, i64 0, !9, i64 16, !11, i64 32, !11, i64 36, !11, i64 40, !10, i64 44}
+!82 = !{!81, !11, i64 36}
+!83 = !{!81, !11, i64 40}
+!84 = !{!85, !39, i64 8}
+!85 = !{!"_ZTSZN14b3OptimizedBvh5buildEP23b3StridingMeshInterfacebRK9b3Vector3S4_E20NodeTriangleCallback", !28, i64 0, !39, i64 8}

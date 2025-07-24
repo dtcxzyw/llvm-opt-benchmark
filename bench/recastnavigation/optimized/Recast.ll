@@ -1334,13 +1334,13 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %227 = getelementptr inbounds nuw i8, ptr %.0163204, i64 8
   %228 = load ptr, ptr %227, align 8
   %.not190 = icmp eq ptr %228, null
-  br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !18
+  br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !19
 
 .loopexit202:                                     ; preds = %226, %181
   %.1 = phi i32 [ %.0161207, %181 ], [ %.3, %226 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !20
 
 ._crit_edge224:                                   ; preds = %._crit_edge220.us
   %229 = icmp sgt i32 %.2167.lcssa.us, 62
@@ -1481,6 +1481,7 @@ attributes #21 = { builtin nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!17 = distinct !{!17, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

@@ -1289,10 +1289,10 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv28, 32
-  %.pre31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8, !tbaa !67
-  %.pre33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8, !tbaa !68
-  %.pre35 = load double, ptr @myHarris_minVal, align 8, !tbaa !69
-  %.pre37 = load double, ptr @myHarris_maxVal, align 8, !tbaa !69
+  %.pre31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8, !tbaa !68
+  %.pre33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8, !tbaa !69
+  %.pre35 = load double, ptr @myHarris_minVal, align 8, !tbaa !70
+  %.pre37 = load double, ptr @myHarris_maxVal, align 8, !tbaa !70
   %.pre41 = load i32, ptr @max_qualityLevel, align 4, !tbaa !54
   br label %46
 
@@ -1363,7 +1363,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %44 = sext i32 %41 to i64
   %45 = icmp slt i64 %indvars.iv.next29, %44
-  br i1 %45, label %.preheader, label %._crit_edge25, !llvm.loop !71
+  br i1 %45, label %.preheader, label %._crit_edge25, !llvm.loop !72
 
 46:                                               ; preds = %.lr.ph, %90
   %.pre3946 = phi i32 [ %.pre39, %.lr.ph ], [ %.pre3947, %90 ]
@@ -1396,7 +1396,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
   store i32 50397184, ptr %5, align 8, !tbaa !49
   store ptr @myHarris_copy, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
-  %68 = load i64, ptr @rng, align 8, !tbaa !73
+  %68 = load i64, ptr @rng, align 8, !tbaa !74
   %69 = and i64 %68, 4294967295
   %70 = mul nuw i64 %69, 4164903690
   %71 = lshr i64 %68, 32
@@ -1414,23 +1414,23 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
   %83 = mul nuw i64 %82, 4164903690
   %84 = lshr i64 %79, 32
   %85 = add nuw i64 %83, %84
-  store i64 %85, ptr @rng, align 8, !tbaa !73
+  store i64 %85, ptr @rng, align 8, !tbaa !74
   %86 = trunc i64 %85 to i32
   %87 = and i32 %86, 255
   %88 = uitofp nneg i32 %81 to double
   %89 = uitofp nneg i32 %87 to double
-  store double %75, ptr %6, align 8, !tbaa !69
-  store double %88, ptr %17, align 8, !tbaa !69
-  store double %89, ptr %18, align 8, !tbaa !69
-  store double 0.000000e+00, ptr %19, align 8, !tbaa !69
+  store double %75, ptr %6, align 8, !tbaa !70
+  store double %88, ptr %17, align 8, !tbaa !70
+  store double %89, ptr %18, align 8, !tbaa !70
+  store double 0.000000e+00, ptr %19, align 8, !tbaa !70
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
   call void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %.sroa.022.0.insert.insert, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef -1, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8, !tbaa !67
-  %.pre32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8, !tbaa !68
-  %.pre34 = load double, ptr @myHarris_minVal, align 8, !tbaa !69
-  %.pre36 = load double, ptr @myHarris_maxVal, align 8, !tbaa !69
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8, !tbaa !68
+  %.pre32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8, !tbaa !69
+  %.pre34 = load double, ptr @myHarris_minVal, align 8, !tbaa !70
+  %.pre36 = load double, ptr @myHarris_maxVal, align 8, !tbaa !70
   %.pre38 = load i32, ptr @myHarris_qualityLevel, align 4, !tbaa !54
   %.pre40 = load i32, ptr @max_qualityLevel, align 4, !tbaa !54
   %.pre42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4, !tbaa !61
@@ -1448,7 +1448,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = sext i32 %91 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %46, label %._crit_edge.loopexit, !llvm.loop !75
+  br i1 %99, label %46, label %._crit_edge.loopexit, !llvm.loop !76
 
 100:                                              ; preds = %._crit_edge.i.i, %36, %38
   %101 = load i64, ptr %3, align 8, !tbaa !10
@@ -1568,10 +1568,10 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv28, 32
-  %.pre31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8, !tbaa !67
-  %.pre33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8, !tbaa !68
-  %.pre35 = load double, ptr @myShiTomasi_minVal, align 8, !tbaa !69
-  %.pre37 = load double, ptr @myShiTomasi_maxVal, align 8, !tbaa !69
+  %.pre31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8, !tbaa !68
+  %.pre33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8, !tbaa !69
+  %.pre35 = load double, ptr @myShiTomasi_minVal, align 8, !tbaa !70
+  %.pre37 = load double, ptr @myShiTomasi_maxVal, align 8, !tbaa !70
   %.pre41 = load i32, ptr @max_qualityLevel, align 4, !tbaa !54
   br label %46
 
@@ -1642,7 +1642,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %44 = sext i32 %41 to i64
   %45 = icmp slt i64 %indvars.iv.next29, %44
-  br i1 %45, label %.preheader, label %._crit_edge25, !llvm.loop !76
+  br i1 %45, label %.preheader, label %._crit_edge25, !llvm.loop !77
 
 46:                                               ; preds = %.lr.ph, %90
   %.pre3946 = phi i32 [ %.pre39, %.lr.ph ], [ %.pre3947, %90 ]
@@ -1675,7 +1675,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
   store i32 50397184, ptr %5, align 8, !tbaa !49
   store ptr @myShiTomasi_copy, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
-  %68 = load i64, ptr @rng, align 8, !tbaa !73
+  %68 = load i64, ptr @rng, align 8, !tbaa !74
   %69 = and i64 %68, 4294967295
   %70 = mul nuw i64 %69, 4164903690
   %71 = lshr i64 %68, 32
@@ -1693,23 +1693,23 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
   %83 = mul nuw i64 %82, 4164903690
   %84 = lshr i64 %79, 32
   %85 = add nuw i64 %83, %84
-  store i64 %85, ptr @rng, align 8, !tbaa !73
+  store i64 %85, ptr @rng, align 8, !tbaa !74
   %86 = trunc i64 %85 to i32
   %87 = and i32 %86, 255
   %88 = uitofp nneg i32 %81 to double
   %89 = uitofp nneg i32 %87 to double
-  store double %75, ptr %6, align 8, !tbaa !69
-  store double %88, ptr %17, align 8, !tbaa !69
-  store double %89, ptr %18, align 8, !tbaa !69
-  store double 0.000000e+00, ptr %19, align 8, !tbaa !69
+  store double %75, ptr %6, align 8, !tbaa !70
+  store double %88, ptr %17, align 8, !tbaa !70
+  store double %89, ptr %18, align 8, !tbaa !70
+  store double 0.000000e+00, ptr %19, align 8, !tbaa !70
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
   call void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %.sroa.022.0.insert.insert, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef -1, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8, !tbaa !67
-  %.pre32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8, !tbaa !68
-  %.pre34 = load double, ptr @myShiTomasi_minVal, align 8, !tbaa !69
-  %.pre36 = load double, ptr @myShiTomasi_maxVal, align 8, !tbaa !69
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8, !tbaa !68
+  %.pre32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8, !tbaa !69
+  %.pre34 = load double, ptr @myShiTomasi_minVal, align 8, !tbaa !70
+  %.pre36 = load double, ptr @myShiTomasi_maxVal, align 8, !tbaa !70
   %.pre38 = load i32, ptr @myShiTomasi_qualityLevel, align 4, !tbaa !54
   %.pre40 = load i32, ptr @max_qualityLevel, align 4, !tbaa !54
   %.pre42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src_gray, i64 12), align 4, !tbaa !61
@@ -1727,7 +1727,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = sext i32 %91 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %46, label %._crit_edge.loopexit, !llvm.loop !77
+  br i1 %99, label %46, label %._crit_edge.loopexit, !llvm.loop !78
 
 100:                                              ; preds = %._crit_edge.i.i, %36, %38
   %101 = load i64, ptr %3, align 8, !tbaa !10
@@ -1859,7 +1859,7 @@ define internal void @_GLOBAL__sub_I_cornerDetector_Demo.cpp() #11 section ".tex
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3MatD1Ev, ptr nonnull @myShiTomasi_dst, ptr nonnull @__dso_handle) #14
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) @myShiTomasi_copy) #14
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3MatD1Ev, ptr nonnull @myShiTomasi_copy, ptr nonnull @__dso_handle) #14
-  store i64 12345, ptr @rng, align 8, !tbaa !73
+  store i64 12345, ptr @rng, align 8, !tbaa !74
   ret void
 }
 
@@ -1955,15 +1955,16 @@ attributes #16 = { noreturn }
 !63 = !{!"float", !8, i64 0}
 !64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = distinct !{!66, !65}
-!67 = !{!56, !6, i64 16}
-!68 = !{!56, !60, i64 72}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"double", !8, i64 0}
-!71 = distinct !{!71, !65, !72}
-!72 = !{!"llvm.loop.unswitch.partial.disable"}
-!73 = !{!74, !11, i64 0}
-!74 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
-!75 = distinct !{!75, !65}
-!76 = distinct !{!76, !65, !72}
-!77 = distinct !{!77, !65}
+!66 = distinct !{!66, !65, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = !{!56, !6, i64 16}
+!69 = !{!56, !60, i64 72}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"double", !8, i64 0}
+!72 = distinct !{!72, !65, !73}
+!73 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = !{!75, !11, i64 0}
+!75 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
+!76 = distinct !{!76, !65}
+!77 = distinct !{!77, !65, !73}
+!78 = distinct !{!78, !65}

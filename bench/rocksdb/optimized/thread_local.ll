@@ -2097,7 +2097,7 @@ _ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   %77 = getelementptr inbounds nuw i8, ptr %.01133, i64 24
   %.011 = load ptr, ptr %77, align 8, !tbaa !41
   %.not = icmp eq ptr %.011, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !95
 
 .loopexit:                                        ; preds = %47, %.noexc, %42
   %.pn.i.i16 = phi ptr [ %43, %42 ], [ %58, %.noexc ], [ %49, %47 ]
@@ -2256,7 +2256,7 @@ common.resume:                                    ; preds = %26, %28, %11, %13
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %2, %5, %10
   %15 = load ptr, ptr @_ZZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst, align 8, !tbaa !5
   %16 = tail call noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr noundef nonnull align 8 dereferenceable(228) %15)
-  store i32 %16, ptr %0, align 4, !tbaa !94
+  store i32 %16, ptr %0, align 4, !tbaa !96
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %32, label %17
 
@@ -2296,7 +2296,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %2, %5, %10
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit5:     ; preds = %17, %20, %25
   %30 = load ptr, ptr @_ZZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst, align 8, !tbaa !5
-  %31 = load i32, ptr %0, align 4, !tbaa !94
+  %31 = load i32, ptr %0, align 4, !tbaa !96
   tail call void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta10SetHandlerEjPFvPvE(ptr noundef nonnull align 8 dereferenceable(228) %30, i32 noundef %31, ptr noundef nonnull %1)
   br label %32
 
@@ -2346,7 +2346,7 @@ define void @_ZN7rocksdb14ThreadLocalPtrD2Ev(ptr noundef nonnull readonly align 
 
 15:                                               ; preds = %9, %4, %1
   %16 = load ptr, ptr @_ZZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst, align 8, !tbaa !5
-  %17 = load i32, ptr %0, align 4, !tbaa !94
+  %17 = load i32, ptr %0, align 4, !tbaa !96
   invoke void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta9ReclaimIdEj(ptr noundef nonnull align 8 dereferenceable(228) %16, i32 noundef %17)
           to label %18 unwind label %19
 
@@ -2418,7 +2418,7 @@ define noundef ptr @_ZNK7rocksdb14ThreadLocalPtr3GetEv(ptr noundef nonnull reado
   resume { ptr, i32 } %.pn.i
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %1, %4, %9
-  %15 = load i32, ptr %0, align 4, !tbaa !94
+  %15 = load i32, ptr %0, align 4, !tbaa !96
   %16 = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14GetThreadLocalEv()
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2483,7 +2483,7 @@ define void @_ZN7rocksdb14ThreadLocalPtr5ResetEPv(ptr noundef nonnull readonly a
   resume { ptr, i32 } %.pn.i
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %2, %5, %10
-  %16 = load i32, ptr %0, align 4, !tbaa !94
+  %16 = load i32, ptr %0, align 4, !tbaa !96
   tail call void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5ResetEjPv(ptr nonnull align 8 poison, i32 noundef %16, ptr noundef %1)
   ret void
 }
@@ -2529,7 +2529,7 @@ define noundef ptr @_ZN7rocksdb14ThreadLocalPtr4SwapEPv(ptr noundef nonnull read
   resume { ptr, i32 } %.pn.i
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %2, %5, %10
-  %16 = load i32, ptr %0, align 4, !tbaa !94
+  %16 = load i32, ptr %0, align 4, !tbaa !96
   %17 = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4SwapEjPv(ptr nonnull align 8 poison, i32 noundef %16, ptr noundef %1)
   ret ptr %17
 }
@@ -2575,7 +2575,7 @@ define noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr14CompareAndSwapEPvRS1_(pt
   resume { ptr, i32 } %.pn.i
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %3, %6, %11
-  %17 = load i32, ptr %0, align 4, !tbaa !94
+  %17 = load i32, ptr %0, align 4, !tbaa !96
   %18 = tail call noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14CompareAndSwapEjPvRS2_(ptr nonnull align 8 poison, i32 noundef %17, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret i1 %18
 }
@@ -2622,7 +2622,7 @@ define void @_ZN7rocksdb14ThreadLocalPtr6ScrapeEPNS_10autovectorIPvLm8EEES2_(ptr
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %3, %6, %11
   %17 = load ptr, ptr @_ZZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst, align 8, !tbaa !5
-  %18 = load i32, ptr %0, align 4, !tbaa !94
+  %18 = load i32, ptr %0, align 4, !tbaa !96
   tail call void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta6ScrapeEjPNS_10autovectorIPvLm8EEES3_(ptr noundef nonnull align 8 dereferenceable(228) %17, i32 noundef %18, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -2674,7 +2674,7 @@ common.resume:                                    ; preds = %48, %45, %30, %33, 
 
 _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %3, %7, %12
   %18 = load ptr, ptr @_ZZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst, align 8, !tbaa !5
-  %19 = load i32, ptr %0, align 4, !tbaa !94
+  %19 = load i32, ptr %0, align 4, !tbaa !96
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2785,7 +2785,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
 define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !96
+  %8 = load i64, ptr %7, align 8, !tbaa !98
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2805,7 +2805,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #19
-  store i64 %8, ptr %7, align 8, !tbaa !96
+  store i64 %8, ptr %7, align 8, !tbaa !98
   invoke void @__cxa_rethrow() #23
           to label %28 unwind label %22
 
@@ -2887,7 +2887,7 @@ define linkonce_odr void @_ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detai
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !97
+  store ptr null, ptr %5, align 8, !tbaa !99
   br label %_ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
@@ -2957,7 +2957,7 @@ _ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toI
 29:                                               ; preds = %21, %24, %26
   %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8, !tbaa !48
@@ -3114,9 +3114,11 @@ attributes #23 = { noreturn }
 !90 = !{!"_ZTSSt8functionIFvPvS0_EE", !88, i64 0, !7, i64 24}
 !91 = distinct !{!91, !46}
 !92 = !{!52, !20, i64 0}
-!93 = distinct !{!93, !46}
-!94 = !{!95, !20, i64 0}
-!95 = !{!"_ZTSN7rocksdb14ThreadLocalPtrE", !20, i64 0}
-!96 = !{!34, !22, i64 8}
-!97 = !{!29, !33, i64 48}
-!98 = distinct !{!98, !46}
+!93 = distinct !{!93, !46, !94}
+!94 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!95 = distinct !{!95, !46}
+!96 = !{!97, !20, i64 0}
+!97 = !{!"_ZTSN7rocksdb14ThreadLocalPtrE", !20, i64 0}
+!98 = !{!34, !22, i64 8}
+!99 = !{!29, !33, i64 48}
+!100 = distinct !{!100, !46}

@@ -10985,7 +10985,7 @@ set_config_option.exit:                           ; preds = %47
   tail call void @pfree(ptr noundef %53) #29
   tail call void @pfree(ptr noundef %54) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split.split, !llvm.loop !62
+  br label %.split.split.split, !llvm.loop !64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -11056,7 +11056,7 @@ define dso_local ptr @GUCArrayAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %34, ptr %7, align 4
   %35 = load i32, ptr %17, align 4
   %.not23 = icmp sgt i32 %34, %35
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %32, %16, %30
   %36 = call ptr @array_set(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %5, i64 noundef %15, i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #29
@@ -11230,7 +11230,7 @@ define dso_local ptr @GUCArrayDelete(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %39, ptr %3, align 4
   %40 = load i32, ptr %13, align 4
   %.not21 = icmp sgt i32 %39, %40
-  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %37, %12, %11
   %.0 = phi ptr [ null, %11 ], [ null, %12 ], [ %.1, %37 ]
@@ -11310,7 +11310,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %30, ptr %2, align 4
   %31 = load i32, ptr %9, align 4
   %.not13 = icmp sgt i32 %30, %31
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %28, %8, %6, %1
   %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %8 ], [ %.1, %28 ]
@@ -11815,7 +11815,9 @@ attributes #34 = { noreturn nounwind }
 !59 = distinct !{!59, !7}
 !60 = distinct !{!60, !7}
 !61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
+!62 = distinct !{!62, !7, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !64 = distinct !{!64, !7}
 !65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}

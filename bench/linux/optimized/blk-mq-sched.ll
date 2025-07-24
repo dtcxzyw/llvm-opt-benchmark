@@ -941,7 +941,7 @@ blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
 137:                                              ; preds = %136, %.preheader.split
   %138 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %5, i64 noundef -1, i32 noundef 8) #5
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %.loopexit, label %.preheader.split, !llvm.loop !23
+  br i1 %139, label %.loopexit, label %.preheader.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %137, %129, %blk_mq_sched_free_rqs.exit12
   br i1 %18, label %143, label %140
@@ -1073,7 +1073,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
   %25 = load i64, ptr %24, align 8
   %26 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #5
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %10, !llvm.loop !24
+  br i1 %27, label %28, label %10, !llvm.loop !26
 
 28:                                               ; preds = %23
   %.fr8 = freeze i64 %25
@@ -1122,7 +1122,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
 46:                                               ; preds = %45, %.preheader.split.us
   %47 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit, label %.preheader.split.us, !llvm.loop !23
+  br i1 %48, label %.loopexit, label %.preheader.split.us, !llvm.loop !27
 
 .preheader.split:                                 ; preds = %.preheader, %54
   %49 = phi ptr [ %55, %54 ], [ %39, %.preheader ]
@@ -1138,7 +1138,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
 54:                                               ; preds = %53, %.preheader.split
   %55 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit, label %.preheader.split, !llvm.loop !23
+  br i1 %56, label %.loopexit, label %.preheader.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %54, %46, %38
   br i1 %.fr, label %60, label %57
@@ -1259,5 +1259,8 @@ attributes #6 = { nounwind memory(none) }
 !20 = distinct !{!20, !12, !13}
 !21 = distinct !{!21, !12, !13}
 !22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
+!23 = distinct !{!23, !12, !13, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13, !24}

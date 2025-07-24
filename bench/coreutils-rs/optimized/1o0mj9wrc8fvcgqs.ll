@@ -1325,7 +1325,7 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %41 = icmp eq ptr %16, %11
-  br i1 %41, label %.loopexit, label %.lr.ph.split.us
+  br i1 %41, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !352
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %.sroa.0.06199 = phi ptr [ %42, %74 ], [ %0, %.lr.ph ]
@@ -1459,13 +1459,13 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
 80:                                               ; preds = %.split105.us, %61
   %.sroa.0.1144 = phi ptr [ %34, %.split105.us ], [ %69, %61 ]
   %.sroa.5.1143 = phi ptr [ %72, %.split105.us ], [ %62, %61 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  call void @llvm.experimental.noalias.scope.decl(metadata !358)
-  call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  call void @llvm.experimental.noalias.scope.decl(metadata !364)
-  %81 = load i32, ptr %9, align 4, !alias.scope !367, !noundef !5
-  %82 = call noundef i32 @close(i32 noundef %81), !noalias !367
+  call void @llvm.experimental.noalias.scope.decl(metadata !354)
+  call void @llvm.experimental.noalias.scope.decl(metadata !357)
+  call void @llvm.experimental.noalias.scope.decl(metadata !360)
+  call void @llvm.experimental.noalias.scope.decl(metadata !363)
+  call void @llvm.experimental.noalias.scope.decl(metadata !366)
+  %81 = load i32, ptr %9, align 4, !alias.scope !369, !noundef !5
+  %82 = call noundef i32 @close(i32 noundef %81), !noalias !369
   br label %79
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E.exit": ; preds = %.split, %83, %49
@@ -1474,7 +1474,7 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
 
 83:                                               ; preds = %.split, %49
   %.us-phi103142 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %lpad.thr_comm.split-lp.us, %49 ]
-  %84 = load i32, ptr %9, align 4, !alias.scope !368, !noundef !5
+  %84 = load i32, ptr %9, align 4, !alias.scope !370, !noundef !5
   %85 = invoke noundef i32 @close(i32 noundef %84)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E.exit" unwind label %86
 
@@ -2053,30 +2053,32 @@ attributes #16 = { noreturn }
 !349 = distinct !{!349, !350, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768: argument 0"}
 !350 = distinct !{!350, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768"}
 !351 = !{!349, !346, !343, !340, !337}
-!352 = !{!353}
-!353 = distinct !{!353, !354, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E: argument 0"}
-!354 = distinct !{!354, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E"}
-!355 = !{!356}
-!356 = distinct !{!356, !357, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768: argument 0"}
-!357 = distinct !{!357, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768"}
-!358 = !{!359}
-!359 = distinct !{!359, !360, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768: argument 0"}
-!360 = distinct !{!360, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768"}
-!361 = !{!362}
-!362 = distinct !{!362, !363, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768: argument 0"}
-!363 = distinct !{!363, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768"}
-!364 = !{!365}
-!365 = distinct !{!365, !366, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768: argument 0"}
-!366 = distinct !{!366, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768"}
-!367 = !{!365, !362, !359, !356, !353}
-!368 = !{!369, !371, !373, !375, !377}
-!369 = distinct !{!369, !370, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768: argument 0"}
-!370 = distinct !{!370, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768"}
-!371 = distinct !{!371, !372, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768: argument 0"}
-!372 = distinct !{!372, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768"}
-!373 = distinct !{!373, !374, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768: argument 0"}
-!374 = distinct !{!374, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768"}
-!375 = distinct !{!375, !376, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768: argument 0"}
-!376 = distinct !{!376, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768"}
-!377 = distinct !{!377, !378, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E: argument 0"}
-!378 = distinct !{!378, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E"}
+!352 = distinct !{!352, !353}
+!353 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!354 = !{!355}
+!355 = distinct !{!355, !356, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E: argument 0"}
+!356 = distinct !{!356, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E"}
+!357 = !{!358}
+!358 = distinct !{!358, !359, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768: argument 0"}
+!359 = distinct !{!359, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768"}
+!360 = !{!361}
+!361 = distinct !{!361, !362, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768: argument 0"}
+!362 = distinct !{!362, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768"}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768: argument 0"}
+!365 = distinct !{!365, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768"}
+!366 = !{!367}
+!367 = distinct !{!367, !368, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768: argument 0"}
+!368 = distinct !{!368, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768"}
+!369 = !{!367, !364, !361, !358, !355}
+!370 = !{!371, !373, !375, !377, !379}
+!371 = distinct !{!371, !372, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768: argument 0"}
+!372 = distinct !{!372, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f655fe6c7bbcbc4E.llvm.11699893950821713768"}
+!373 = distinct !{!373, !374, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768: argument 0"}
+!374 = distinct !{!374, !"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17hd3a50795ec53ddc4E.llvm.11699893950821713768"}
+!375 = distinct !{!375, !376, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768: argument 0"}
+!376 = distinct !{!376, !"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$GT$17h2a2150de4588c2c6E.llvm.11699893950821713768"}
+!377 = distinct !{!377, !378, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768: argument 0"}
+!378 = distinct !{!378, !"_ZN4core3ptr50drop_in_place$LT$std..sys..pal..unix..fs..File$GT$17hecd96115a5da1e27E.llvm.11699893950821713768"}
+!379 = distinct !{!379, !380, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E: argument 0"}
+!380 = distinct !{!380, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4dcade4817e1bf20E"}

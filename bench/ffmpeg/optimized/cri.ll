@@ -734,7 +734,7 @@ bytestream2_init.exit251:                         ; preds = %226
 299:                                              ; preds = %294
   %300 = load ptr, ptr %219, align 8, !tbaa !27
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 116
-  %302 = load i32, ptr %301, align 4, !tbaa !66
+  %302 = load i32, ptr %301, align 4, !tbaa !67
   %.not234 = icmp eq i32 %302, 30
   br i1 %.not234, label %303, label %316
 
@@ -775,7 +775,7 @@ bytestream2_init.exit251:                         ; preds = %226
 317:                                              ; preds = %316, %.critedge250
   %.0192 = phi i32 [ %297, %.critedge250 ], [ -1094995529, %316 ]
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %319 = load i32, ptr %318, align 8, !tbaa !71
+  %319 = load i32, ptr %318, align 8, !tbaa !72
   %320 = and i32 %319, 8
   %.not237 = icmp eq i32 %320, 0
   %..0192 = select i1 %.not237, i32 0, i32 %.0192
@@ -792,13 +792,13 @@ bytestream2_init.exit251:                         ; preds = %226
   %323 = add i64 %322, %282
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353 = icmp eq i64 %indvars.iv.next351, 4
-  br i1 %exitcond353, label %.critedge248, label %279, !llvm.loop !72
+  br i1 %exitcond353, label %.critedge248, label %279, !llvm.loop !73
 
 324:                                              ; preds = %.lr.ph320, %324
   %.0194319 = phi i32 [ 0, %.lr.ph320 ], [ %352, %324 ]
   %325 = load ptr, ptr %219, align 8, !tbaa !27
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 104
-  %327 = load i32, ptr %326, align 8, !tbaa !73
+  %327 = load i32, ptr %326, align 8, !tbaa !74
   %328 = sdiv i32 %327, 2
   %329 = load ptr, ptr %1, align 8, !tbaa !46
   %330 = shl nuw nsw i32 %.0194319, 1
@@ -830,7 +830,7 @@ bytestream2_init.exit251:                         ; preds = %226
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 116
   %355 = load i32, ptr %354, align 4, !tbaa !60
   %356 = icmp slt i32 %352, %355
-  br i1 %356, label %324, label %.critedge.loopexit, !llvm.loop !74
+  br i1 %356, label %324, label %.critedge.loopexit, !llvm.loop !75
 
 .critedge248:                                     ; preds = %.critedge, %._crit_edge327.us, %.lr.ph331.split.us, %.lr.ph331, %.preheader292, %bytestream2_init.exit251
   %357 = icmp ne i32 %.0198.lcssa, 0
@@ -840,17 +840,17 @@ bytestream2_init.exit251:                         ; preds = %226
 
 359:                                              ; preds = %.critedge248
   %360 = call i32 @ff_frame_new_side_data(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 6, i64 noundef 36, ptr noundef nonnull %5) #9
-  %361 = load ptr, ptr %5, align 8, !tbaa !75
+  %361 = load ptr, ptr %5, align 8, !tbaa !76
   %.not238 = icmp eq ptr %361, null
   br i1 %.not238, label %368, label %362
 
 362:                                              ; preds = %359
   %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  %364 = load ptr, ptr %363, align 8, !tbaa !77
+  %364 = load ptr, ptr %363, align 8, !tbaa !78
   call void @av_display_rotation_set(ptr noundef %364, double noundef 0.000000e+00) #9
-  %365 = load ptr, ptr %5, align 8, !tbaa !75
+  %365 = load ptr, ptr %5, align 8, !tbaa !76
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %367 = load ptr, ptr %366, align 8, !tbaa !77
+  %367 = load ptr, ptr %366, align 8, !tbaa !78
   call void @av_display_matrix_flip(ptr noundef %367, i32 noundef %.0198.lcssa, i32 noundef %.0203.lcssa) #9
   br label %368
 
@@ -1327,17 +1327,18 @@ attributes #11 = { nounwind willreturn memory(read) }
 !62 = !{!63, !63, i64 0}
 !63 = !{!"short", !8, i64 0}
 !64 = distinct !{!64, !53}
-!65 = distinct !{!65, !53}
-!66 = !{!67, !10, i64 116}
-!67 = !{!"AVFrame", !8, i64 0, !8, i64 64, !68, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !69, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !70, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!68 = !{!"p2 omnipotent char", !26, i64 0}
-!69 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!70 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!71 = !{!5, !10, i64 528}
-!72 = distinct !{!72, !53}
-!73 = !{!67, !10, i64 104}
-!74 = distinct !{!74, !53}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"p1 _ZTS15AVFrameSideData", !7, i64 0}
-!77 = !{!78, !14, i64 8}
-!78 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !70, i64 24, !21, i64 32}
+!65 = distinct !{!65, !53, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = !{!68, !10, i64 116}
+!68 = !{!"AVFrame", !8, i64 0, !8, i64 64, !69, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !70, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !71, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!69 = !{!"p2 omnipotent char", !26, i64 0}
+!70 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!71 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!72 = !{!5, !10, i64 528}
+!73 = distinct !{!73, !53}
+!74 = !{!68, !10, i64 104}
+!75 = distinct !{!75, !53}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS15AVFrameSideData", !7, i64 0}
+!78 = !{!79, !14, i64 8}
+!79 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !71, i64 24, !21, i64 32}

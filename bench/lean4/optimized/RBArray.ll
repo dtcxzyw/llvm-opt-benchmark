@@ -915,7 +915,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_RBArray_all__
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !8
@@ -1416,7 +1416,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_RBArray_any__
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !18
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !8
@@ -1952,7 +1952,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #4
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -2658,7 +2658,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #4
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -2892,7 +2892,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #4
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -5865,3 +5865,9 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}

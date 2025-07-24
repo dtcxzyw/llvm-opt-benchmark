@@ -241,7 +241,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %
   %41 = getelementptr inbounds nuw i8, ptr %.166, i64 %10
   %42 = sub nuw i64 %.05665, %10
   %.not63 = icmp ult i64 %42, %10
-  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   %.056.lcssa = phi i64 [ %39, %40 ], [ %42, %.lr.ph ]
@@ -274,7 +274,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %
   %.158 = phi i64 [ %43, %._crit_edge ], [ %50, %55 ], [ %50, %44 ]
   %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %51, %55 ], [ %51, %44 ]
   %57 = icmp ult i64 %.158, %2
-  br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !12
+  br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %56, %34, %.preheader, %3
   %.0 = phi i32 [ 1, %3 ], [ 0, %.preheader ], [ 0, %34 ], [ 0, %56 ]
@@ -400,7 +400,7 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %.157, i64 %21
   %30 = sub nuw i64 %.04856, %21
   %.not54 = icmp ult i64 %30, %21
-  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.048.lcssa = phi i64 [ %28, %27 ], [ %30, %.lr.ph ]
@@ -434,7 +434,7 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
   %.146 = phi i64 [ %31, %._crit_edge ], [ %41, %33 ]
   %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %42, %33 ]
   %46 = icmp ult i64 %.146, %2
-  br i1 %46, label %22, label %._crit_edge63, !llvm.loop !15
+  br i1 %46, label %22, label %._crit_edge63, !llvm.loop !17
 
 ._crit_edge63:                                    ; preds = %45, %19
   ret i32 0
@@ -489,7 +489,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 nounde
   %25 = getelementptr inbounds nuw i8, ptr %.15169, i64 %18
   %26 = sub nuw i64 %.170, %18
   %.not61 = icmp ult i64 %26, %18
-  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.151.lcssa = phi ptr [ %.050, %24 ], [ %25, %.lr.ph ]
@@ -528,7 +528,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 nounde
   %41 = getelementptr inbounds nuw i8, ptr %.04973, i64 %18
   %42 = sub nuw i64 %.05272, %18
   %43 = icmp ugt i64 %42, %18
-  br i1 %43, label %.lr.ph75, label %._crit_edge76, !llvm.loop !17
+  br i1 %43, label %.lr.ph75, label %._crit_edge76, !llvm.loop !19
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %35
   %.052.lcssa = phi i64 [ %6, %35 ], [ %42, %.lr.ph75 ]
@@ -641,7 +641,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
   %.158.us = phi i64 [ %20, %18 ], [ %28, %33 ], [ %28, %22 ]
   %.2.us = phi ptr [ %21, %18 ], [ %29, %33 ], [ %29, %22 ]
   %35 = icmp ult i64 %.158.us, %2
-  br i1 %35, label %.lr.ph70.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %35, label %.lr.ph70.split.us, label %.loopexit, !llvm.loop !20
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %56
   %.05469 = phi ptr [ %.2, %56 ], [ %1, %.lr.ph70 ]
@@ -666,7 +666,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
   %41 = getelementptr inbounds nuw i8, ptr %.166, i64 %10
   %42 = sub nuw i64 %.05665, %10
   %.not63 = icmp ult i64 %42, %10
-  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   %.056.lcssa = phi i64 [ %39, %40 ], [ %42, %.lr.ph ]
@@ -699,7 +699,7 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
   %.158 = phi i64 [ %43, %._crit_edge ], [ %50, %55 ], [ %50, %44 ]
   %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %51, %55 ], [ %51, %44 ]
   %57 = icmp ult i64 %.158, %2
-  br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !18
+  br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %56, %34, %.preheader, %3
   %.0 = phi i32 [ 1, %3 ], [ 0, %.preheader ], [ 0, %34 ], [ 0, %56 ]
@@ -825,7 +825,7 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %.157, i64 %21
   %30 = sub nuw i64 %.04856, %21
   %.not54 = icmp ult i64 %30, %21
-  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.048.lcssa = phi i64 [ %28, %27 ], [ %30, %.lr.ph ]
@@ -859,7 +859,7 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
   %.146 = phi i64 [ %31, %._crit_edge ], [ %41, %33 ]
   %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %42, %33 ]
   %46 = icmp ult i64 %.146, %2
-  br i1 %46, label %22, label %._crit_edge63, !llvm.loop !21
+  br i1 %46, label %22, label %._crit_edge63, !llvm.loop !24
 
 ._crit_edge63:                                    ; preds = %45, %19
   ret i32 0
@@ -884,13 +884,16 @@ attributes #3 = { nounwind }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!12 = distinct !{!12, !9, !10, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !9, !10}
 !18 = distinct !{!18, !9, !10}
 !19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!20 = distinct !{!20, !9, !10, !13}
 !21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}

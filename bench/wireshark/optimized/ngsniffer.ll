@@ -335,269 +335,231 @@ define internal fastcc range(i32 -1, 1) i32 @process_header_records(ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br i1 %or.cond23, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %12, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %34
-  %.val74.us.us = load i8, ptr %6, align 1
-  %.val75.us.us = load i8, ptr %11, align 1
-  %19 = zext i8 %.val75.us.us to i16
-  %20 = shl nuw i16 %19, 8
-  %21 = zext i8 %.val74.us.us to i16
-  %22 = or disjoint i16 %20, %21
-  switch i16 %22, label %.split.us [
-    i16 17, label %23
-    i16 16, label %23
-    i16 15, label %23
-    i16 14, label %23
-    i16 13, label %23
-    i16 7, label %23
-    i16 6, label %23
-  ]
-
-23:                                               ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us
-  %24 = load ptr, ptr %0, align 8
-  %25 = call zeroext i1 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %25, label %26, label %process_rec_header2_v145.exit
-
-26:                                               ; preds = %23
-  %.val.us.us = load i8, ptr %7, align 1
-  %.val73.us.us = load i8, ptr %13, align 1
-  %27 = zext i8 %.val73.us.us to i64
-  %28 = shl nuw nsw i64 %27, 8
-  %29 = zext i8 %.val.us.us to i64
-  %30 = or disjoint i64 %28, %29
-  %31 = load ptr, ptr %0, align 8
-  %32 = call i64 @file_seek(ptr noundef %31, i64 noundef %30, i32 noundef 1, ptr noundef %1)
-  %33 = icmp eq i64 %32, -1
-  br i1 %33, label %process_rec_header2_v145.exit, label %34
-
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %0, align 8
-  %36 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %35, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %36, label %.lr.ph.split.us.split.us, label %._crit_edge
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %52
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %36
   %.val74.us = load i8, ptr %6, align 1
   %.val75.us = load i8, ptr %11, align 1
-  %37 = zext i8 %.val75.us to i16
-  %38 = shl nuw i16 %37, 8
-  %39 = zext i8 %.val74.us to i16
-  %40 = or disjoint i16 %38, %39
-  switch i16 %40, label %.split.us [
-    i16 17, label %41
-    i16 16, label %41
-    i16 15, label %41
-    i16 14, label %41
-    i16 13, label %41
-    i16 7, label %41
-    i16 6, label %41
-    i16 8, label %41
+  %19 = zext i8 %.val75.us to i16
+  %20 = shl nuw i16 %19, 8
+  %21 = zext i8 %.val74.us to i16
+  %22 = or disjoint i16 %20, %21
+  switch i16 %22, label %23 [
+    i16 17, label %25
+    i16 16, label %25
+    i16 15, label %25
+    i16 14, label %25
+    i16 13, label %25
+    i16 7, label %25
+    i16 6, label %25
   ]
 
-41:                                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
-  %42 = load ptr, ptr %0, align 8
-  %43 = call zeroext i1 @wtap_read_bytes(ptr noundef %42, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %43, label %44, label %process_rec_header2_v145.exit
+23:                                               ; preds = %.lr.ph.split.us
+  %24 = icmp ne i16 %22, 8
+  %or.cond20.us = or i1 %12, %24
+  br i1 %or.cond20.us, label %.split.us, label %25
 
-44:                                               ; preds = %41
+25:                                               ; preds = %23, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+  %26 = load ptr, ptr %0, align 8
+  %27 = call zeroext i1 @wtap_read_bytes(ptr noundef %26, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %27, label %28, label %process_rec_header2_v145.exit
+
+28:                                               ; preds = %25
   %.val.us = load i8, ptr %7, align 1
   %.val73.us = load i8, ptr %13, align 1
-  %45 = zext i8 %.val73.us to i64
-  %46 = shl nuw nsw i64 %45, 8
-  %47 = zext i8 %.val.us to i64
-  %48 = or disjoint i64 %46, %47
-  %49 = load ptr, ptr %0, align 8
-  %50 = call i64 @file_seek(ptr noundef %49, i64 noundef %48, i32 noundef 1, ptr noundef %1)
-  %51 = icmp eq i64 %50, -1
-  br i1 %51, label %process_rec_header2_v145.exit, label %52
+  %29 = zext i8 %.val73.us to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %.val.us to i64
+  %32 = or disjoint i64 %30, %31
+  %33 = load ptr, ptr %0, align 8
+  %34 = call i64 @file_seek(ptr noundef %33, i64 noundef %32, i32 noundef 1, ptr noundef %1)
+  %35 = icmp eq i64 %34, -1
+  br i1 %35, label %process_rec_header2_v145.exit, label %36
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %0, align 8
-  %54 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %53, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %54, label %.lr.ph.split.us.split, label %._crit_edge
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %0, align 8
+  %38 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %37, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %52, %34, %124, %5
-  %55 = load i32, ptr %1, align 4
-  %.not = icmp ne i32 %55, 0
+._crit_edge:                                      ; preds = %36, %108, %5
+  %39 = load i32, ptr %1, align 4
+  %.not = icmp ne i32 %39, 0
   %. = sext i1 %.not to i32
   br label %process_rec_header2_v145.exit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %124
+.lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.val74 = load i8, ptr %6, align 1
   %.val75 = load i8, ptr %11, align 1
-  %56 = zext i8 %.val75 to i16
-  %57 = shl nuw i16 %56, 8
-  %58 = zext i8 %.val74 to i16
-  %59 = or disjoint i16 %57, %58
-  switch i16 %59, label %60 [
-    i16 17, label %65
-    i16 16, label %65
-    i16 15, label %65
-    i16 14, label %65
-    i16 13, label %65
-    i16 7, label %65
-    i16 6, label %65
+  %40 = zext i8 %.val75 to i16
+  %41 = shl nuw i16 %40, 8
+  %42 = zext i8 %.val74 to i16
+  %43 = or disjoint i16 %41, %42
+  switch i16 %43, label %44 [
+    i16 17, label %49
+    i16 16, label %49
+    i16 15, label %49
+    i16 14, label %49
+    i16 13, label %49
+    i16 7, label %49
+    i16 6, label %49
   ]
 
-60:                                               ; preds = %.lr.ph.split
-  %61 = icmp ne i16 %59, 8
-  %or.cond20 = or i1 %12, %61
-  br i1 %or.cond20, label %.split.us, label %65
+44:                                               ; preds = %.lr.ph.split
+  %45 = icmp ne i16 %43, 8
+  %or.cond20 = or i1 %12, %45
+  br i1 %or.cond20, label %.split.us, label %49
 
-.split.us:                                        ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %60
-  %62 = load ptr, ptr %0, align 8
-  %63 = call i64 @file_seek(ptr noundef %62, i64 noundef -2, i32 noundef 1, ptr noundef %1)
-  %64 = icmp eq i64 %63, -1
-  %.72 = sext i1 %64 to i32
+.split.us:                                        ; preds = %23, %44
+  %46 = load ptr, ptr %0, align 8
+  %47 = call i64 @file_seek(ptr noundef %46, i64 noundef -2, i32 noundef 1, ptr noundef %1)
+  %48 = icmp eq i64 %47, -1
+  %.72 = sext i1 %48 to i32
   br label %process_rec_header2_v145.exit
 
-65:                                               ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %60
-  %66 = load ptr, ptr %0, align 8
-  %67 = call zeroext i1 @wtap_read_bytes(ptr noundef %66, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %67, label %68, label %process_rec_header2_v145.exit
+49:                                               ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %44
+  %50 = load ptr, ptr %0, align 8
+  %51 = call zeroext i1 @wtap_read_bytes(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %51, label %52, label %process_rec_header2_v145.exit
 
-68:                                               ; preds = %65
+52:                                               ; preds = %49
   %.val = load i8, ptr %7, align 1
   %.val73 = load i8, ptr %13, align 1
-  %69 = zext i8 %.val73 to i16
-  %70 = shl nuw i16 %69, 8
-  %71 = zext i8 %.val to i16
-  %72 = or disjoint i16 %70, %71
-  %73 = icmp eq i16 %59, 7
-  br i1 %73, label %74, label %119
+  %53 = zext i8 %.val73 to i16
+  %54 = shl nuw i16 %53, 8
+  %55 = zext i8 %.val to i16
+  %56 = or disjoint i16 %54, %55
+  %57 = icmp eq i16 %43, 7
+  br i1 %57, label %58, label %103
 
-74:                                               ; preds = %68
-  %75 = call i16 @llvm.umin.i16(i16 %72, i16 256)
-  %76 = zext nneg i16 %75 to i32
-  %77 = load ptr, ptr %0, align 8
-  %78 = call zeroext i1 @wtap_read_bytes(ptr noundef %77, ptr noundef nonnull %8, i32 noundef %76, ptr noundef %1, ptr noundef %2)
-  br i1 %78, label %79, label %process_rec_header2_v145.exit
+58:                                               ; preds = %52
+  %59 = call i16 @llvm.umin.i16(i16 %56, i16 256)
+  %60 = zext nneg i16 %59 to i32
+  %61 = load ptr, ptr %0, align 8
+  %62 = call zeroext i1 @wtap_read_bytes(ptr noundef %61, ptr noundef nonnull %8, i32 noundef %60, ptr noundef %1, ptr noundef %2)
+  br i1 %62, label %63, label %process_rec_header2_v145.exit
 
-79:                                               ; preds = %74
+63:                                               ; preds = %58
   switch i16 %3, label %process_rec_header2_v145.exit.thread [
-    i16 2, label %80
-    i16 1, label %89
-    i16 4, label %89
-    i16 5, label %89
+    i16 2, label %64
+    i16 1, label %73
+    i16 4, label %73
+    i16 5, label %73
   ]
 
-80:                                               ; preds = %79
-  %81 = icmp ult i16 %72, 10
-  br i1 %81, label %82, label %84
+64:                                               ; preds = %63
+  %65 = icmp ult i16 %56, 10
+  br i1 %65, label %66, label %68
 
-82:                                               ; preds = %80
+66:                                               ; preds = %64
   store i32 -4, ptr %1, align 4
-  %83 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.5)
-  store ptr %83, ptr %2, align 8
+  %67 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.5)
+  store ptr %67, ptr %2, align 8
   br label %process_rec_header2_v145.exit
 
-84:                                               ; preds = %80
+68:                                               ; preds = %64
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %8, ptr noundef nonnull dereferenceable(10) @process_rec_header2_v2.x_25_str, i64 10)
-  %85 = icmp eq i32 %bcmp, 0
-  br i1 %85, label %process_rec_header2_v145.exit.thread.sink.split, label %86
+  %69 = icmp eq i32 %bcmp, 0
+  br i1 %69, label %process_rec_header2_v145.exit.thread.sink.split, label %70
 
-86:                                               ; preds = %84
+70:                                               ; preds = %68
   store i32 -4, ptr %1, align 4
-  %87 = zext i16 %72 to i32
-  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %87, ptr noundef nonnull %8)
+  %71 = zext i16 %56 to i32
+  %72 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %71, ptr noundef nonnull %8)
+  store ptr %72, ptr %2, align 8
+  br label %process_rec_header2_v145.exit
+
+73:                                               ; preds = %63, %63, %63
+  %74 = icmp ult i16 %56, 5
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %73
+  store i32 -4, ptr %1, align 4
+  %76 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7)
+  store ptr %76, ptr %2, align 8
+  br label %process_rec_header2_v145.exit
+
+77:                                               ; preds = %73
+  %78 = load i8, ptr %15, align 4
+  switch i8 %78, label %93 [
+    i8 0, label %process_rec_header2_v145.exit.thread.sink.split
+    i8 1, label %79
+    i8 2, label %80
+    i8 3, label %81
+    i8 4, label %92
+  ]
+
+79:                                               ; preds = %77
+  br label %process_rec_header2_v145.exit.thread.sink.split
+
+80:                                               ; preds = %77
+  br label %process_rec_header2_v145.exit.thread.sink.split
+
+81:                                               ; preds = %77
+  store i32 -1, ptr %16, align 8
+  switch i16 %3, label %process_rec_header2_v145.exit.thread [
+    i16 4, label %82
+    i16 5, label %85
+  ]
+
+82:                                               ; preds = %81
+  %83 = load i8, ptr %18, align 1
+  %84 = icmp eq i8 %83, -6
+  br i1 %84, label %process_rec_header2_v145.exit.thread.sink.split, label %process_rec_header2_v145.exit.thread
+
+85:                                               ; preds = %81
+  %86 = icmp ult i16 %56, 7
+  br i1 %86, label %87, label %89
+
+87:                                               ; preds = %85
+  store i32 -4, ptr %1, align 4
+  %88 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
   store ptr %88, ptr %2, align 8
   br label %process_rec_header2_v145.exit
 
-89:                                               ; preds = %79, %79, %79
-  %90 = icmp ult i16 %72, 5
-  br i1 %90, label %91, label %93
+89:                                               ; preds = %85
+  %90 = load i8, ptr %17, align 2
+  %91 = icmp eq i8 %90, 1
+  br i1 %91, label %process_rec_header2_v145.exit.thread.sink.split, label %process_rec_header2_v145.exit.thread
 
-91:                                               ; preds = %89
-  store i32 -4, ptr %1, align 4
-  %92 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7)
-  store ptr %92, ptr %2, align 8
-  br label %process_rec_header2_v145.exit
-
-93:                                               ; preds = %89
-  %94 = load i8, ptr %15, align 4
-  switch i8 %94, label %109 [
-    i8 0, label %process_rec_header2_v145.exit.thread.sink.split
-    i8 1, label %95
-    i8 2, label %96
-    i8 3, label %97
-    i8 4, label %108
-  ]
-
-95:                                               ; preds = %93
+92:                                               ; preds = %77
   br label %process_rec_header2_v145.exit.thread.sink.split
 
-96:                                               ; preds = %93
-  br label %process_rec_header2_v145.exit.thread.sink.split
-
-97:                                               ; preds = %93
-  store i32 -1, ptr %16, align 8
-  switch i16 %3, label %process_rec_header2_v145.exit.thread [
-    i16 4, label %98
-    i16 5, label %101
-  ]
-
-98:                                               ; preds = %97
-  %99 = load i8, ptr %18, align 1
-  %100 = icmp eq i8 %99, -6
-  br i1 %100, label %process_rec_header2_v145.exit.thread.sink.split, label %process_rec_header2_v145.exit.thread
-
-101:                                              ; preds = %97
-  %102 = icmp ult i16 %72, 7
-  br i1 %102, label %103, label %105
-
-103:                                              ; preds = %101
+93:                                               ; preds = %77
   store i32 -4, ptr %1, align 4
-  %104 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
-  store ptr %104, ptr %2, align 8
+  %94 = zext i8 %78 to i32
+  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %94)
+  store ptr %95, ptr %2, align 8
   br label %process_rec_header2_v145.exit
 
-105:                                              ; preds = %101
-  %106 = load i8, ptr %17, align 2
-  %107 = icmp eq i8 %106, 1
-  br i1 %107, label %process_rec_header2_v145.exit.thread.sink.split, label %process_rec_header2_v145.exit.thread
-
-108:                                              ; preds = %93
-  br label %process_rec_header2_v145.exit.thread.sink.split
-
-109:                                              ; preds = %93
-  store i32 -4, ptr %1, align 4
-  %110 = zext i8 %94 to i32
-  %111 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %110)
-  store ptr %111, ptr %2, align 8
-  br label %process_rec_header2_v145.exit
-
-process_rec_header2_v145.exit.thread.sink.split:  ; preds = %105, %98, %93, %84, %108, %96, %95
-  %.sink = phi i32 [ -1, %95 ], [ 27, %96 ], [ 19, %108 ], [ 12, %84 ], [ 36, %93 ], [ 17, %98 ], [ 17, %105 ]
+process_rec_header2_v145.exit.thread.sink.split:  ; preds = %89, %82, %77, %68, %92, %80, %79
+  %.sink = phi i32 [ -1, %79 ], [ 27, %80 ], [ 19, %92 ], [ 12, %68 ], [ 36, %77 ], [ 17, %82 ], [ 17, %89 ]
   store i32 %.sink, ptr %16, align 8
   br label %process_rec_header2_v145.exit.thread
 
-process_rec_header2_v145.exit.thread:             ; preds = %process_rec_header2_v145.exit.thread.sink.split, %105, %98, %97, %79
-  %112 = icmp ugt i16 %72, 256
-  br i1 %112, label %113, label %124
+process_rec_header2_v145.exit.thread:             ; preds = %process_rec_header2_v145.exit.thread.sink.split, %89, %82, %81, %63
+  %96 = icmp ugt i16 %56, 256
+  br i1 %96, label %97, label %108
 
-113:                                              ; preds = %process_rec_header2_v145.exit.thread
-  %114 = zext i16 %72 to i64
-  %115 = load ptr, ptr %0, align 8
-  %116 = add nsw i64 %114, -256
-  %117 = call i64 @file_seek(ptr noundef %115, i64 noundef %116, i32 noundef 1, ptr noundef %1)
-  %118 = icmp eq i64 %117, -1
-  br i1 %118, label %process_rec_header2_v145.exit, label %124
+97:                                               ; preds = %process_rec_header2_v145.exit.thread
+  %98 = zext i16 %56 to i64
+  %99 = load ptr, ptr %0, align 8
+  %100 = add nsw i64 %98, -256
+  %101 = call i64 @file_seek(ptr noundef %99, i64 noundef %100, i32 noundef 1, ptr noundef %1)
+  %102 = icmp eq i64 %101, -1
+  br i1 %102, label %process_rec_header2_v145.exit, label %108
 
-119:                                              ; preds = %68
-  %120 = load ptr, ptr %0, align 8
-  %121 = zext i16 %72 to i64
-  %122 = call i64 @file_seek(ptr noundef %120, i64 noundef %121, i32 noundef 1, ptr noundef %1)
-  %123 = icmp eq i64 %122, -1
-  br i1 %123, label %process_rec_header2_v145.exit, label %124
+103:                                              ; preds = %52
+  %104 = load ptr, ptr %0, align 8
+  %105 = zext i16 %56 to i64
+  %106 = call i64 @file_seek(ptr noundef %104, i64 noundef %105, i32 noundef 1, ptr noundef %1)
+  %107 = icmp eq i64 %106, -1
+  br i1 %107, label %process_rec_header2_v145.exit, label %108
 
-124:                                              ; preds = %119, %process_rec_header2_v145.exit.thread, %113
-  %125 = load ptr, ptr %0, align 8
-  %126 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %125, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %126, label %.lr.ph.split, label %._crit_edge
+108:                                              ; preds = %103, %process_rec_header2_v145.exit.thread, %97
+  %109 = load ptr, ptr %0, align 8
+  %110 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %109, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %110, label %.lr.ph.split, label %._crit_edge
 
-process_rec_header2_v145.exit:                    ; preds = %41, %44, %23, %26, %65, %74, %113, %119, %86, %82, %109, %103, %91, %.split.us, %._crit_edge
-  %.0 = phi i32 [ %., %._crit_edge ], [ %.72, %.split.us ], [ -1, %91 ], [ -1, %103 ], [ -1, %109 ], [ -1, %82 ], [ -1, %86 ], [ -1, %119 ], [ -1, %113 ], [ -1, %74 ], [ -1, %65 ], [ -1, %26 ], [ -1, %23 ], [ -1, %44 ], [ -1, %41 ]
+process_rec_header2_v145.exit:                    ; preds = %28, %25, %49, %58, %97, %103, %70, %66, %93, %87, %75, %.split.us, %._crit_edge
+  %.0 = phi i32 [ %., %._crit_edge ], [ %.72, %.split.us ], [ -1, %75 ], [ -1, %87 ], [ -1, %93 ], [ -1, %66 ], [ -1, %70 ], [ -1, %103 ], [ -1, %97 ], [ -1, %58 ], [ -1, %49 ], [ -1, %25 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
@@ -742,7 +704,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 8, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %ng_file_seek_rand.exit
 
@@ -791,7 +753,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp sgt i64 %42, %1
-  br i1 %43, label %.loopexit.loopexit.i, label %34, !llvm.loop !8
+  br i1 %43, label %.loopexit.loopexit.i, label %34, !llvm.loop !10
 
 44:                                               ; preds = %34
   store i32 -18, ptr %3, align 4
@@ -832,7 +794,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %63 = getelementptr inbounds nuw i8, ptr %.483.i, i64 16
   %.4.i = load ptr, ptr %63, align 8
   %cond75.i = icmp eq ptr %.4.i, null
-  br i1 %cond75.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %cond75.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %62, %53
   store i32 -18, ptr %3, align 4
@@ -1841,7 +1803,7 @@ ng_read_bytes.exit130:                            ; preds = %325
 369:                                              ; preds = %.thread23.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %334
-  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %.thread23.i.i
   %370 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1953,7 +1915,7 @@ define internal fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %17, label %10
 
@@ -1974,7 +1936,7 @@ define internal fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef readonly captur
 19:                                               ; preds = %ng_read_bytes.exit
   %20 = sub i32 %.02122, %..021
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %27, label %ng_read_bytes.exit, !llvm.loop !12
+  br i1 %.not, label %27, label %ng_read_bytes.exit, !llvm.loop !14
 
 ng_read_bytes.exit:                               ; preds = %17, %19
   %.02122 = phi i32 [ %1, %17 ], [ %20, %19 ]
@@ -2014,7 +1976,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %.0102.in = select i1 %3, ptr %9, ptr %0
   %.0102 = load ptr, ptr %.0102.in, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %23, label %13
 
@@ -2144,7 +2106,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %80 = add i64 %79, %74
   store i64 %80, ptr %53, align 8
   %.not110.us = icmp eq i32 %75, 0
-  br i1 %.not110.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not110.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %81 = phi i32 [ %109, %100 ], [ %.pre126, %.lr.ph ]
@@ -2204,7 +2166,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %111 = add i64 %110, %105
   store i64 %111, ptr %53, align 8
   %.not110 = icmp eq i32 %106, 0
-  br i1 %.not110, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not110, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %94, %100, %63, %69, %46, %44, %13, %.loopexit115, %15
   %.0 = phi i1 [ false, %.loopexit115 ], [ true, %15 ], [ false, %13 ], [ false, %44 ], [ true, %46 ], [ false, %63 ], [ true, %69 ], [ false, %94 ], [ true, %100 ]
@@ -2517,7 +2479,7 @@ define internal fastcc noundef zeroext i1 @read_blob(ptr noundef %0, ptr noundef
   %.1129.i = phi ptr [ %125, %145 ], [ %57, %63 ], [ %77, %83 ], [ %103, %118 ], [ %42, %45 ]
   %.2.i = phi ptr [ %123, %145 ], [ %64, %63 ], [ %84, %83 ], [ %99, %118 ], [ %46, %45 ]
   %147 = icmp ult ptr %.2.i, %28
-  br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !14
+  br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !17
 
 SnifferDecompress.exit:                           ; preds = %146, %.preheader.i
   %.0128.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %.1129.i, %146 ]
@@ -2669,7 +2631,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %154
 
 25:                                               ; preds = %21
-  %26 = load i8, ptr %12, align 8, !range !6, !noundef !7
+  %26 = load i8, ptr %12, align 8, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %75
 
@@ -2820,7 +2782,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %142
 
 123:                                              ; preds = %89, %89
-  %124 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %124 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %125 = xor i8 %124, -1
   %126 = shl i8 %125, 7
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2828,7 +2790,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %142
 
 128:                                              ; preds = %89
-  %129 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %129 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %130 = shl nuw i8 %129, 7
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %130, ptr %131, align 2
@@ -2941,12 +2903,15 @@ attributes #14 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11, !7}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}

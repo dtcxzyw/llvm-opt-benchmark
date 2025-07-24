@@ -848,10 +848,10 @@ define internal noundef i32 @inner_advanced_thread(ptr noundef readonly captures
 161:                                              ; preds = %.preheader252, %161
   %162 = load atomic volatile i64, ptr %160 monotonic, align 8
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %161, label %164, !llvm.loop !56
+  br i1 %163, label %161, label %164, !llvm.loop !57
 
 164:                                              ; preds = %161
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !57
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !58
   %165 = load i64, ptr %134, align 8, !tbaa !14
   %166 = sub nsw i64 %165, %.2271
   %. = tail call i64 @llvm.smin.i64(i64 %166, i64 %140)
@@ -872,17 +872,17 @@ define internal noundef i32 @inner_advanced_thread(ptr noundef readonly captures
   %175 = add nuw nsw i64 %.1225270, 1
   %176 = load i64, ptr %134, align 8, !tbaa !14
   %177 = icmp slt i64 %174, %176
-  br i1 %177, label %.preheader252, label %._crit_edge274, !llvm.loop !55
+  br i1 %177, label %.preheader252, label %._crit_edge274, !llvm.loop !59
 
 ._crit_edge274:                                   ; preds = %173, %154, %132
   %178 = load i64, ptr %111, align 8, !tbaa !16
   %.not244 = icmp slt i64 %133, %178
   %spec.store.select2 = select i1 %.not244, i64 %133, i64 0
   %.not245 = icmp eq i64 %spec.store.select2, %5
-  br i1 %.not245, label %179, label %132, !llvm.loop !58
+  br i1 %.not245, label %179, label %132, !llvm.loop !60
 
 179:                                              ; preds = %._crit_edge274
-  br i1 %.not246, label %116, label %.preheader251, !llvm.loop !59
+  br i1 %.not246, label %116, label %.preheader251, !llvm.loop !61
 
 .preheader250:                                    ; preds = %.preheader250.lr.ph, %185
   %.3230279 = phi i64 [ 0, %.preheader250.lr.ph ], [ %186, %185 ]
@@ -897,17 +897,17 @@ define internal noundef i32 @inner_advanced_thread(ptr noundef readonly captures
 182:                                              ; preds = %.preheader, %182
   %183 = load atomic volatile i64, ptr %181 monotonic, align 8
   %.not = icmp eq i64 %183, 0
-  br i1 %.not, label %184, label %182, !llvm.loop !60
+  br i1 %.not, label %184, label %182, !llvm.loop !62
 
 184:                                              ; preds = %182
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !61
-  br i1 %180, label %.preheader, label %185, !llvm.loop !62
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !63
+  br i1 %180, label %.preheader, label %185, !llvm.loop !64
 
 185:                                              ; preds = %184
   %186 = add nuw nsw i64 %.3230279, 1
   %187 = load i64, ptr %113, align 8, !tbaa !16
   %188 = icmp slt i64 %186, %187
-  br i1 %188, label %.preheader250, label %._crit_edge280, !llvm.loop !63
+  br i1 %188, label %.preheader250, label %._crit_edge280, !llvm.loop !65
 
 ._crit_edge280:                                   ; preds = %185, %.preheader251
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
@@ -967,7 +967,7 @@ define internal fastcc void @inner_basic_thread(ptr noundef nonnull readonly cap
 
 .loopexit:                                        ; preds = %65, %._crit_edge5
   %40 = icmp slt i64 %63, %20
-  br i1 %40, label %41, label %._crit_edge14, !llvm.loop !64
+  br i1 %40, label %41, label %._crit_edge14, !llvm.loop !66
 
 41:                                               ; preds = %.lr.ph13, %.loopexit
   %.012811 = phi i64 [ 0, %.lr.ph13 ], [ %63, %.loopexit ]
@@ -1002,12 +1002,12 @@ define internal fastcc void @inner_basic_thread(ptr noundef nonnull readonly cap
   %58 = tail call i32 @dtrsm_kernel_LT(i64 noundef %spec.store.select2, i64 noundef %spec.store.select1, i64 noundef %7, double noundef -1.000000e+00, ptr noundef %57, ptr noundef %53, ptr noundef %gep, i64 noundef %9, i64 noundef %.01241) #6
   %59 = add nuw nsw i64 %.01241, 192
   %60 = icmp slt i64 %59, %7
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph4
   %61 = add nuw nsw i64 %.01292, 2
   %62 = icmp slt i64 %61, %43
-  br i1 %62, label %.lr.ph4, label %._crit_edge5, !llvm.loop !66
+  br i1 %62, label %.lr.ph4, label %._crit_edge5, !llvm.loop !68
 
 ._crit_edge5:                                     ; preds = %._crit_edge, %41
   %63 = add nuw nsw i64 %.012811, 8256
@@ -1028,7 +1028,7 @@ define internal fastcc void @inner_basic_thread(ptr noundef nonnull readonly cap
   %69 = tail call i32 @dgemm_kernel(i64 noundef %spec.store.select4, i64 noundef %spec.store.select, i64 noundef %7, double noundef -1.000000e+00, ptr noundef %1, ptr noundef %.0125, ptr noundef %gep10, i64 noundef %9) #6
   %70 = add nuw nsw i64 %.16, 192
   %71 = icmp slt i64 %70, %5
-  br i1 %71, label %65, label %.loopexit, !llvm.loop !67
+  br i1 %71, label %65, label %.loopexit, !llvm.loop !69
 
 ._crit_edge14:                                    ; preds = %.loopexit, %34
   ret void
@@ -1122,16 +1122,18 @@ attributes #6 = { nounwind }
 !52 = !{i64 2149551234}
 !53 = !{i64 2149551355}
 !54 = !{i64 2149552358}
-!55 = distinct !{!55, !33}
-!56 = distinct !{!56, !33}
-!57 = !{i64 2149551935}
-!58 = distinct !{!58, !33}
+!55 = distinct !{!55, !33, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !33}
+!58 = !{i64 2149551935}
 !59 = distinct !{!59, !33}
 !60 = distinct !{!60, !33}
-!61 = !{i64 2149552582}
+!61 = distinct !{!61, !33}
 !62 = distinct !{!62, !33}
-!63 = distinct !{!63, !33}
+!63 = !{i64 2149552582}
 !64 = distinct !{!64, !33}
 !65 = distinct !{!65, !33}
 !66 = distinct !{!66, !33}
 !67 = distinct !{!67, !33}
+!68 = distinct !{!68, !33}
+!69 = distinct !{!69, !33}

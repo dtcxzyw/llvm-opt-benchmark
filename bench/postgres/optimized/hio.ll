@@ -724,7 +724,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
   %293 = load i32, ptr %10, align 4
   %294 = zext i32 %293 to i64
   %295 = icmp samesign ult i64 %indvars.iv.next93.i, %294
-  br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !11
 
 296:                                              ; preds = %._crit_edge.i
   %297 = add i32 %247, %.7685.i
@@ -804,7 +804,7 @@ BufferGetPage.exit209:                            ; preds = %306, %312
 
 326:                                              ; preds = %325
   %327 = call zeroext i1 @ConditionalLockBuffer(i32 noundef %2) #8
-  br i1 %327, label %329, label %328, !prof !10
+  br i1 %327, label %329, label %328, !prof !12
 
 328:                                              ; preds = %326
   call void @LockBuffer(i32 noundef %248, i32 noundef 0) #8
@@ -932,139 +932,161 @@ define internal fastcc noundef zeroext i1 @GetVisibilityMapPins(ptr noundef %0, 
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %12
-  br i1 %13, label %BufferGetPage.exit.us.us.us, label %BufferGetPage.exit.us.us72
+  br i1 %13, label %BufferGetPage.exit.us.us.preheader, label %BufferGetPage.exit.us.us72
 
-BufferGetPage.exit.us.us.us:                      ; preds = %.split.us
+BufferGetPage.exit.us.us.preheader:               ; preds = %.split.us
   %25 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %18
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 10
-  %.val63.us.us.us = load i16, ptr %28, align 2
-  %29 = and i16 %.val63.us.us.us, 4
-  %.not69.us.us.us = icmp eq i16 %29, 0
-  br i1 %.not69.us.us.us, label %.thread, label %30
+  %.val63.us.us87 = load i16, ptr %28, align 2
+  %29 = and i16 %.val63.us.us87, 4
+  %.not69.us.us88 = icmp eq i16 %29, 0
+  br i1 %.not69.us.us88, label %.thread, label %.lr.ph
 
-30:                                               ; preds = %BufferGetPage.exit.us.us.us
-  %31 = load i32, ptr %.052, align 4
-  %32 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %31) #8
-  br i1 %32, label %.thread, label %.thread.sink.split
+.lr.ph:                                           ; preds = %BufferGetPage.exit.us.us.preheader, %BufferGetPage.exit.us.us
+  %.050.us.us89 = phi i1 [ true, %BufferGetPage.exit.us.us ], [ false, %BufferGetPage.exit.us.us.preheader ]
+  %30 = load i32, ptr %.052, align 4
+  %31 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %30) #8
+  br i1 %31, label %.thread, label %32
+
+32:                                               ; preds = %.lr.ph
+  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
+  br i1 %or.cond59, label %.thread.sink.split, label %BufferGetPage.exit.us.us
+
+BufferGetPage.exit.us.us:                         ; preds = %32
+  tail call void @LockBuffer(i32 noundef 0, i32 noundef 0) #8
+  tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.049, ptr noundef nonnull %.052) #8
+  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #8
+  tail call void @LockBuffer(i32 noundef 0, i32 noundef 2) #8
+  %33 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %18
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr i8, ptr %35, i64 10
+  %.val63.us.us = load i16, ptr %36, align 2
+  %37 = and i16 %.val63.us.us, 4
+  %.not69.us.us = icmp eq i16 %37, 0
+  br i1 %.not69.us.us, label %.thread, label %.lr.ph, !llvm.loop !13
 
 BufferGetPage.exit.us.us72:                       ; preds = %.split.us
-  %33 = load ptr, ptr @BufferBlocks, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %16
-  %35 = getelementptr i8, ptr %34, i64 10
-  %.val63.us.us74 = load i16, ptr %35, align 2
-  %36 = and i16 %.val63.us.us74, 4
-  %.not69.us.us75 = icmp eq i16 %36, 0
-  br i1 %.not69.us.us75, label %.thread, label %37
+  %38 = load ptr, ptr @BufferBlocks, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %16
+  %40 = getelementptr i8, ptr %39, i64 10
+  %.val63.us.us74 = load i16, ptr %40, align 2
+  %41 = and i16 %.val63.us.us74, 4
+  %.not69.us.us75 = icmp eq i16 %41, 0
+  br i1 %.not69.us.us75, label %.thread, label %42
 
-37:                                               ; preds = %BufferGetPage.exit.us.us72
-  %38 = load i32, ptr %.052, align 4
-  %39 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %38) #8
-  br i1 %39, label %.thread, label %.thread.sink.split
+42:                                               ; preds = %BufferGetPage.exit.us.us72
+  %43 = load i32, ptr %.052, align 4
+  %44 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %43) #8
+  br i1 %44, label %.thread, label %45
 
-.split:                                           ; preds = %12, %77
-  %.050 = phi i1 [ true, %77 ], [ false, %12 ]
-  br i1 %13, label %40, label %44
-
-40:                                               ; preds = %.split
-  %41 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %18
-  %43 = load ptr, ptr %42, align 8
-  br label %BufferGetPage.exit
-
-44:                                               ; preds = %.split
-  %45 = load ptr, ptr @BufferBlocks, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %16
-  br label %BufferGetPage.exit
-
-BufferGetPage.exit:                               ; preds = %40, %44
-  %.0.i.i = phi ptr [ %43, %40 ], [ %46, %44 ]
-  %47 = getelementptr i8, ptr %.0.i.i, i64 10
-  %.val63 = load i16, ptr %47, align 2
-  %48 = and i16 %.val63, 4
-  %.not69 = icmp eq i16 %48, 0
-  br i1 %.not69, label %53, label %49
-
-49:                                               ; preds = %BufferGetPage.exit
-  %50 = load i32, ptr %.052, align 4
-  %51 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %50) #8
-  %52 = xor i1 %51, true
-  br label %53
-
-53:                                               ; preds = %49, %BufferGetPage.exit
-  %54 = phi i1 [ false, %BufferGetPage.exit ], [ %52, %49 ]
-  br i1 %19, label %55, label %59
-
-55:                                               ; preds = %53
-  %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %24
-  %58 = load ptr, ptr %57, align 8
-  br label %BufferGetPage.exit65
-
-59:                                               ; preds = %53
-  %60 = load ptr, ptr @BufferBlocks, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %22
-  br label %BufferGetPage.exit65
-
-BufferGetPage.exit65:                             ; preds = %55, %59
-  %.0.i.i64 = phi ptr [ %58, %55 ], [ %61, %59 ]
-  %62 = getelementptr i8, ptr %.0.i.i64, i64 10
-  %.val = load i16, ptr %62, align 2
-  %63 = and i16 %.val, 4
-  %.not70 = icmp eq i16 %63, 0
-  br i1 %.not70, label %68, label %64
-
-64:                                               ; preds = %BufferGetPage.exit65
-  %65 = load i32, ptr %.053, align 4
-  %66 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.051, i32 noundef %65) #8
-  %67 = xor i1 %66, true
-  br label %68
-
-68:                                               ; preds = %64, %BufferGetPage.exit65
-  %69 = phi i1 [ false, %BufferGetPage.exit65 ], [ %67, %64 ]
-  %or.cond = select i1 %54, i1 true, i1 %69
-  br i1 %or.cond, label %70, label %.thread
-
-70:                                               ; preds = %68
+45:                                               ; preds = %42
   tail call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
-  br i1 %or.cond59, label %72, label %71
+  br label %.thread.sink.split
 
-71:                                               ; preds = %70
-  tail call void @LockBuffer(i32 noundef %.048, i32 noundef 0) #8
-  br label %72
+.split:                                           ; preds = %12, %83
+  %.050 = phi i1 [ true, %83 ], [ false, %12 ]
+  br i1 %13, label %46, label %50
 
-72:                                               ; preds = %71, %70
-  br i1 %54, label %73, label %74
+46:                                               ; preds = %.split
+  %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %18
+  %49 = load ptr, ptr %48, align 8
+  br label %BufferGetPage.exit
 
-73:                                               ; preds = %72
-  tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.049, ptr noundef %.052) #8
+50:                                               ; preds = %.split
+  %51 = load ptr, ptr @BufferBlocks, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %16
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %46, %50
+  %.0.i.i = phi ptr [ %49, %46 ], [ %52, %50 ]
+  %53 = getelementptr i8, ptr %.0.i.i, i64 10
+  %.val63 = load i16, ptr %53, align 2
+  %54 = and i16 %.val63, 4
+  %.not69 = icmp eq i16 %54, 0
+  br i1 %.not69, label %59, label %55
+
+55:                                               ; preds = %BufferGetPage.exit
+  %56 = load i32, ptr %.052, align 4
+  %57 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %56) #8
+  %58 = xor i1 %57, true
+  br label %59
+
+59:                                               ; preds = %55, %BufferGetPage.exit
+  %60 = phi i1 [ false, %BufferGetPage.exit ], [ %58, %55 ]
+  br i1 %19, label %61, label %65
+
+61:                                               ; preds = %59
+  %62 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %24
+  %64 = load ptr, ptr %63, align 8
+  br label %BufferGetPage.exit65
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr @BufferBlocks, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %22
+  br label %BufferGetPage.exit65
+
+BufferGetPage.exit65:                             ; preds = %61, %65
+  %.0.i.i64 = phi ptr [ %64, %61 ], [ %67, %65 ]
+  %68 = getelementptr i8, ptr %.0.i.i64, i64 10
+  %.val = load i16, ptr %68, align 2
+  %69 = and i16 %.val, 4
+  %.not70 = icmp eq i16 %69, 0
+  br i1 %.not70, label %74, label %70
+
+70:                                               ; preds = %BufferGetPage.exit65
+  %71 = load i32, ptr %.053, align 4
+  %72 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.051, i32 noundef %71) #8
+  %73 = xor i1 %72, true
   br label %74
 
-74:                                               ; preds = %73, %72
-  br i1 %69, label %75, label %76
+74:                                               ; preds = %70, %BufferGetPage.exit65
+  %75 = phi i1 [ false, %BufferGetPage.exit65 ], [ %73, %70 ]
+  %or.cond = select i1 %60, i1 true, i1 %75
+  br i1 %or.cond, label %76, label %.thread
 
-75:                                               ; preds = %74
-  tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.051, ptr noundef %.053) #8
-  br label %76
-
-76:                                               ; preds = %75, %74
-  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #8
-  br i1 %or.cond59, label %.thread, label %77
+76:                                               ; preds = %74
+  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
+  br i1 %or.cond59, label %78, label %77
 
 77:                                               ; preds = %76
+  tail call void @LockBuffer(i32 noundef %.048, i32 noundef 0) #8
+  br label %78
+
+78:                                               ; preds = %77, %76
+  br i1 %60, label %79, label %80
+
+79:                                               ; preds = %78
+  tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.049, ptr noundef %.052) #8
+  br label %80
+
+80:                                               ; preds = %79, %78
+  br i1 %75, label %81, label %82
+
+81:                                               ; preds = %80
+  tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.051, ptr noundef %.053) #8
+  br label %82
+
+82:                                               ; preds = %81, %80
+  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #8
+  br i1 %or.cond59, label %.thread, label %83
+
+83:                                               ; preds = %82
   tail call void @LockBuffer(i32 noundef %.048, i32 noundef 2) #8
-  %or.cond3 = select i1 %54, i1 %69, i1 false
+  %or.cond3 = select i1 %60, i1 %75, i1 false
   br i1 %or.cond3, label %.thread, label %.split
 
-.thread.sink.split:                               ; preds = %37, %30
-  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
+.thread.sink.split:                               ; preds = %32, %45
   tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.049, ptr noundef nonnull %.052) #8
   tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #8
   br label %.thread
 
-.thread:                                          ; preds = %68, %77, %76, %.thread.sink.split, %BufferGetPage.exit.us.us.us, %BufferGetPage.exit.us.us72, %30, %37
-  %.us-phi = phi i1 [ false, %30 ], [ false, %37 ], [ false, %BufferGetPage.exit.us.us72 ], [ false, %BufferGetPage.exit.us.us.us ], [ true, %.thread.sink.split ], [ true, %77 ], [ %.050, %68 ], [ true, %76 ]
+.thread:                                          ; preds = %74, %83, %82, %.lr.ph, %BufferGetPage.exit.us.us, %BufferGetPage.exit.us.us.preheader, %.thread.sink.split, %BufferGetPage.exit.us.us72, %42
+  %.us-phi = phi i1 [ false, %42 ], [ false, %BufferGetPage.exit.us.us72 ], [ true, %.thread.sink.split ], [ false, %BufferGetPage.exit.us.us.preheader ], [ true, %BufferGetPage.exit.us.us ], [ %.050.us.us89, %.lr.ph ], [ true, %83 ], [ %.050, %74 ], [ true, %82 ]
   ret i1 %.us-phi
 }
 
@@ -1140,5 +1162,8 @@ attributes #9 = { cold nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{i8 0, i8 2}
 !8 = !{}
-!9 = distinct !{!9, !6}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = distinct !{!9, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !10}

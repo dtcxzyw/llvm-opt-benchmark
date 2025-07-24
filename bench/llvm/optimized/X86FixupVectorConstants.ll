@@ -6027,7 +6027,7 @@ _ZN4llvm5APIntD2Ev.exit102:                       ; preds = %_ZN4llvm7APFloatD2E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
   call void @_ZNK4llvm22ConstantDataSequential19getElementAsAPFloatEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFloat") align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %.063125) #17
-  %187 = load ptr, ptr %14, align 8, !tbaa !369, !noalias !440
+  %187 = load ptr, ptr %14, align 8, !tbaa !369, !noalias !441
   %188 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   %.not.i104 = icmp eq ptr %187, %188
   br i1 %.not.i104, label %190, label %189
@@ -6074,7 +6074,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %199, %200
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
   %201 = add nuw i32 %.063125, 1
   %.not75 = icmp eq i32 %201, %172
-  br i1 %.not75, label %_ZN4llvm5APIntD2Ev.exit102, label %.lr.ph126.split, !llvm.loop !439
+  br i1 %.not75, label %_ZN4llvm5APIntD2Ev.exit102, label %.lr.ph126.split, !llvm.loop !444
 
 .critedge89:                                      ; preds = %158, %.critedge85
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6114,7 +6114,7 @@ declare void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !443
+  %3 = load ptr, ptr %2, align 8, !tbaa !445
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit, label %4
 
@@ -6155,7 +6155,7 @@ _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
-  store ptr null, ptr %2, align 8, !tbaa !443
+  store ptr null, ptr %2, align 8, !tbaa !445
   ret void
 }
 
@@ -6239,59 +6239,59 @@ define internal fastcc noundef ptr @_ZL13rebuildExtCstPKN4llvm8ConstantEbjjj(ptr
   %11 = alloca %"class.llvm::APInt", align 8
   %12 = udiv i32 %2, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17, !noalias !444
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %0), !noalias !444
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17, !noalias !446
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %0), !noalias !446
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %14 = load i8, ptr %13, align 8, !tbaa !393, !range !344, !noalias !444, !noundef !345
+  %14 = load i8, ptr %13, align 8, !tbaa !393, !range !344, !noalias !446, !noundef !345
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17, !noalias !444
-  call void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %2) #17, !noalias !444
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17, !noalias !446
+  call void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %2) #17, !noalias !446
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !395, !noalias !444
-  store i32 %19, ptr %17, align 8, !tbaa !395, !alias.scope !444
-  %20 = load i64, ptr %7, align 8, !noalias !444
-  store i64 %20, ptr %8, align 8, !alias.scope !444
+  %19 = load i32, ptr %18, align 8, !tbaa !395, !noalias !446
+  store i32 %19, ptr %17, align 8, !tbaa !395, !alias.scope !446
+  %20 = load i64, ptr %7, align 8, !noalias !446
+  store i64 %20, ptr %8, align 8, !alias.scope !446
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 1, ptr %21, align 8, !tbaa !393, !alias.scope !444
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17, !noalias !444
-  %.pre.i = load i8, ptr %13, align 8, !tbaa !393, !range !344, !noalias !444
+  store i8 1, ptr %21, align 8, !tbaa !393, !alias.scope !446
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17, !noalias !446
+  %.pre.i = load i8, ptr %13, align 8, !tbaa !393, !range !344, !noalias !446
   %22 = trunc nuw i8 %.pre.i to i1
   br i1 %22, label %23, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44
 
 23:                                               ; preds = %16
-  store i8 0, ptr %13, align 8, !tbaa !393, !noalias !444
+  store i8 0, ptr %13, align 8, !tbaa !393, !noalias !446
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !395, !noalias !444
+  %25 = load i32, ptr %24, align 8, !tbaa !395, !noalias !446
   %26 = icmp ugt i32 %25, 64
   br i1 %26, label %27, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8, !tbaa !369, !noalias !444
+  %28 = load ptr, ptr %6, align 8, !tbaa !369, !noalias !446
   %29 = icmp eq ptr %28, null
   br i1 %29, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit
 
 _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread: ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !444
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !446
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %30, align 8, !tbaa !393, !alias.scope !444
+  store i8 0, ptr %30, align 8, !tbaa !393, !alias.scope !446
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %146
 
 _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44: ; preds = %27, %23, %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !444
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !446
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %35
 
 _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit: ; preds = %27
-  call void @_ZdaPv(ptr noundef nonnull %28) #20, !noalias !444
+  call void @_ZdaPv(ptr noundef nonnull %28) #20, !noalias !446
   %.pre.pre = load i8, ptr %21, align 8, !tbaa !393, !range !344
   %33 = trunc nuw i8 %.pre.pre to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !444
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !446
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %33, label %35, label %146
 
@@ -6300,12 +6300,12 @@ _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit: ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
   %37 = mul i32 %4, %3
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %37, ptr %38, align 8, !tbaa !395, !alias.scope !447
+  store i32 %37, ptr %38, align 8, !tbaa !395, !alias.scope !449
   %39 = icmp ult i32 %37, 65
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %35
-  store i64 0, ptr %9, align 8, !tbaa !369, !alias.scope !447
+  store i64 0, ptr %9, align 8, !tbaa !369, !alias.scope !449
   br label %_ZN4llvm5APInt7getZeroEj.exit
 
 41:                                               ; preds = %35
@@ -6417,7 +6417,7 @@ _ZN4llvm5APIntD2Ev.exit37.us:                     ; preds = %93, %90, %_ZN4llvm5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
   %94 = add i32 %.03240.us, 1
   %.not.us = icmp eq i32 %94, %3
-  br i1 %.not.us, label %.critedge36, label %_ZN4llvm5APInt7getZeroEj.exit.split.us, !llvm.loop !450
+  br i1 %.not.us, label %.critedge36, label %_ZN4llvm5APInt7getZeroEj.exit.split.us, !llvm.loop !452
 
 .critedge:                                        ; preds = %_ZN4llvm5APInt7getZeroEj.exit, %_ZN4llvm5APIntD2Ev.exit37
   %.03240 = phi i32 [ %120, %_ZN4llvm5APIntD2Ev.exit37 ], [ 0, %_ZN4llvm5APInt7getZeroEj.exit ]
@@ -6483,7 +6483,7 @@ _ZN4llvm5APIntD2Ev.exit37:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
   %120 = add i32 %.03240, 1
   %.not = icmp eq i32 %120, %3
-  br i1 %.not, label %.critedge36, label %.critedge, !llvm.loop !450
+  br i1 %.not, label %.critedge36, label %.critedge, !llvm.loop !453
 
 .split.us:                                        ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.us
   %121 = phi i32 [ %45, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.us ], [ %96, %_ZNK4llvm5APInt13getActiveBitsEv.exit ]
@@ -6506,7 +6506,7 @@ _ZN4llvm5APIntD2Ev.exit38:                        ; preds = %.split.us, %123, %1
 .critedge36:                                      ; preds = %_ZN4llvm5APIntD2Ev.exit37, %_ZN4llvm5APIntD2Ev.exit37.us
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !379
-  %129 = load ptr, ptr %128, align 8, !tbaa !451
+  %129 = load ptr, ptr %128, align 8, !tbaa !454
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 255
@@ -6598,10 +6598,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !452
+  %3 = load ptr, ptr %2, align 8, !tbaa !455
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !454
-  %6 = load ptr, ptr %5, align 8, !tbaa !455
+  %5 = load ptr, ptr %4, align 8, !tbaa !457
+  %6 = load ptr, ptr %5, align 8, !tbaa !458
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #17
   ret void
 }
@@ -7082,22 +7082,25 @@ attributes #22 = { nounwind willreturn memory(none) }
 !436 = !{!437}
 !437 = distinct !{!437, !438, !"_ZN4llvm5APInt7getZeroEj: argument 0"}
 !438 = distinct !{!438, !"_ZN4llvm5APInt7getZeroEj"}
-!439 = distinct !{!439, !377}
-!440 = !{!441}
-!441 = distinct !{!441, !442, !"_ZNK4llvm7APFloat14bitcastToAPIntEv: argument 0"}
-!442 = distinct !{!442, !"_ZNK4llvm7APFloat14bitcastToAPIntEv"}
-!443 = !{!338, !338, i64 0}
-!444 = !{!445}
-!445 = distinct !{!445, !446, !"_ZL19extractConstantBitsPKN4llvm8ConstantEj: argument 0"}
-!446 = distinct !{!446, !"_ZL19extractConstantBitsPKN4llvm8ConstantEj"}
-!447 = !{!448}
-!448 = distinct !{!448, !449, !"_ZN4llvm5APInt7getZeroEj: argument 0"}
-!449 = distinct !{!449, !"_ZN4llvm5APInt7getZeroEj"}
-!450 = distinct !{!450, !377}
-!451 = !{!385, !386, i64 0}
-!452 = !{!453, !4, i64 0}
-!453 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!454 = !{!453, !8, i64 8}
-!455 = !{!456, !457, i64 0}
-!456 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !457, i64 0}
-!457 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!439 = distinct !{!439, !377, !440}
+!440 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!441 = !{!442}
+!442 = distinct !{!442, !443, !"_ZNK4llvm7APFloat14bitcastToAPIntEv: argument 0"}
+!443 = distinct !{!443, !"_ZNK4llvm7APFloat14bitcastToAPIntEv"}
+!444 = distinct !{!444, !377}
+!445 = !{!338, !338, i64 0}
+!446 = !{!447}
+!447 = distinct !{!447, !448, !"_ZL19extractConstantBitsPKN4llvm8ConstantEj: argument 0"}
+!448 = distinct !{!448, !"_ZL19extractConstantBitsPKN4llvm8ConstantEj"}
+!449 = !{!450}
+!450 = distinct !{!450, !451, !"_ZN4llvm5APInt7getZeroEj: argument 0"}
+!451 = distinct !{!451, !"_ZN4llvm5APInt7getZeroEj"}
+!452 = distinct !{!452, !377, !440}
+!453 = distinct !{!453, !377}
+!454 = !{!385, !386, i64 0}
+!455 = !{!456, !4, i64 0}
+!456 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!457 = !{!456, !8, i64 8}
+!458 = !{!459, !460, i64 0}
+!459 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !460, i64 0}
+!460 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

@@ -1118,7 +1118,7 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQu
   %79 = fadd float %.sroa.14119.0141, %76
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count177
-  br i1 %exitcond.not, label %.lr.ph152, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !64
+  br i1 %exitcond.not, label %.lr.ph152, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %3
   %80 = sitofp i32 %4 to float
@@ -1208,7 +1208,7 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit45.us:     ; preds = %.lr.ph152, %_ZNK14b
   %150 = fadd float %.sroa.14.0149.us, %147
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, !llvm.loop !65
+  br i1 %exitcond188.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, !llvm.loop !67
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph152, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ %105, %.lr.ph152 ]
@@ -1244,7 +1244,7 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph152, %_ZNK14b
   %171 = fadd float %.sroa.14.0149, %168
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count187
-  br i1 %exitcond183.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45, !llvm.loop !65
+  br i1 %exitcond183.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45, !llvm.loop !68
 
 ._crit_edge153:                                   ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit45, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, %._crit_edge
   %172 = phi float [ %80, %._crit_edge ], [ %81, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %81, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
@@ -1349,7 +1349,7 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit.us:       ; preds = %.lr.ph, %_ZNK14btQu
   %72 = fadd float %.0.95100121.us, %69
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %._crit_edge, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us, !llvm.loop !66
+  br i1 %exitcond153.not, label %._crit_edge, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us, !llvm.loop !69
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQuantizedBvh10getAabbMinEi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ %33, %.lr.ph ]
@@ -1379,7 +1379,7 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQu
   %87 = fadd float %.0.95100121, %84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count152
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us, %4
   %.lcssa = phi float [ 0.000000e+00, %4 ], [ %70, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %85, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
@@ -1542,7 +1542,7 @@ _ZN14btQuantizedBvh13swapLeafNodesEii.exit:       ; preds = %168, %174
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge139, label %108, !llvm.loop !67
+  br i1 %exitcond158.not, label %._crit_edge139, label %108, !llvm.loop !71
 
 ._crit_edge139:                                   ; preds = %181, %._crit_edge
   %.037.lcssa = phi i32 [ %1, %._crit_edge ], [ %.138, %181 ]
@@ -1671,7 +1671,7 @@ define linkonce_odr dso_local void @_ZN14btQuantizedBvh21mergeInternalNodeAabbEi
 84:                                               ; preds = %77, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %69, label %70, !llvm.loop !68
+  br i1 %exitcond.not, label %69, label %70, !llvm.loop !72
 
 85:                                               ; preds = %4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2237,7 +2237,7 @@ define dso_local void @_ZNK14btQuantizedBvh26reportAabbOverlappingNodexEP21btNod
   %.131.i = phi ptr [ %108, %107 ], [ %113, %110 ]
   %.1.i = phi i32 [ %109, %107 ], [ %114, %110 ]
   %116 = icmp slt i32 %.1.i, %76
-  br i1 %116, label %80, label %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit, !llvm.loop !69
+  br i1 %116, label %80, label %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit, !llvm.loop !73
 
 117:                                              ; preds = %10
   call void @_ZNK14btQuantizedBvh39walkStacklessQuantizedTreeCacheFriendlyEP21btNodeOverlapCallbackPtS2_(ptr noundef nonnull align 8 dereferenceable(244) %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -2337,9 +2337,9 @@ _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i: ; preds = %160
 
 .thread.i25:                                      ; preds = %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i
   %171 = getelementptr inbounds nuw i8, ptr %.029.i, i64 36
-  %172 = load i32, ptr %171, align 4, !tbaa !70
+  %172 = load i32, ptr %171, align 4, !tbaa !74
   %173 = getelementptr inbounds nuw i8, ptr %.029.i, i64 40
-  %174 = load i32, ptr %173, align 4, !tbaa !71
+  %174 = load i32, ptr %173, align 4, !tbaa !75
   %175 = load ptr, ptr %1, align 8, !tbaa !4
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
@@ -2372,7 +2372,7 @@ _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i: ; preds = %160
   %.125.i = phi i32 [ %184, %182 ], [ %188, %185 ]
   %.1.i24 = phi ptr [ %183, %182 ], [ %187, %185 ]
   %191 = icmp slt i32 %.125.i, %190
-  br i1 %191, label %131, label %_ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_.exit, !llvm.loop !72
+  br i1 %191, label %131, label %_ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_.exit, !llvm.loop !76
 
 _ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_.exit: ; preds = %189, %121, %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit
   ret void
@@ -2460,7 +2460,7 @@ define dso_local void @_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNod
   %.131 = phi ptr [ %50, %49 ], [ %55, %52 ]
   %.1 = phi i32 [ %51, %49 ], [ %56, %52 ]
   %58 = icmp slt i32 %.1, %5
-  br i1 %58, label %16, label %._crit_edge, !llvm.loop !69
+  br i1 %58, label %16, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %57, %6
   ret void
@@ -2598,7 +2598,7 @@ define dso_local void @_ZNK14btQuantizedBvh39walkStacklessQuantizedTreeCacheFrie
   %.131.i = phi ptr [ %85, %84 ], [ %90, %87 ]
   %.1.i = phi i32 [ %86, %84 ], [ %91, %87 ]
   %93 = icmp slt i32 %.1.i, %46
-  br i1 %93, label %51, label %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit.loopexit, !llvm.loop !69
+  br i1 %93, label %51, label %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit.loopexit, !llvm.loop !73
 
 _ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit.loopexit: ; preds = %92
   %.pre = load i32, ptr %5, align 4, !tbaa !36
@@ -2609,7 +2609,7 @@ _ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %14, label %._crit_edge, !llvm.loop !73
+  br i1 %96, label %14, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %_ZNK14btQuantizedBvh26walkStacklessQuantizedTreeEP21btNodeOverlapCallbackPtS2_ii.exit, %4
   ret void
@@ -2769,9 +2769,9 @@ _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit: ; preds = %42
 
 .thread:                                          ; preds = %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit
   %53 = getelementptr inbounds nuw i8, ptr %.029, i64 36
-  %54 = load i32, ptr %53, align 4, !tbaa !70
+  %54 = load i32, ptr %53, align 4, !tbaa !74
   %55 = getelementptr inbounds nuw i8, ptr %.029, i64 40
-  %56 = load i32, ptr %55, align 4, !tbaa !71
+  %56 = load i32, ptr %55, align 4, !tbaa !75
   %57 = load ptr, ptr %1, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
@@ -2802,7 +2802,7 @@ _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit: ; preds = %42
   %.1 = phi ptr [ %65, %64 ], [ %70, %67 ]
   %73 = load i32, ptr %5, align 4, !tbaa !48
   %74 = icmp slt i32 %.125, %73
-  br i1 %74, label %14, label %._crit_edge, !llvm.loop !72
+  br i1 %74, label %14, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %72, %4
   ret void
@@ -2990,9 +2990,9 @@ _Z10btRayAabb2RK9btVector3S1_PKjPS0_Rfff.exit.thread: ; preds = %79, %100, %.lr.
 
 .thread:                                          ; preds = %_Z10btRayAabb2RK9btVector3S1_PKjPS0_Rfff.exit
   %123 = getelementptr inbounds nuw i8, ptr %.099, i64 36
-  %124 = load i32, ptr %123, align 4, !tbaa !70
+  %124 = load i32, ptr %123, align 4, !tbaa !74
   %125 = getelementptr inbounds nuw i8, ptr %.099, i64 40
-  %126 = load i32, ptr %125, align 4, !tbaa !71
+  %126 = load i32, ptr %125, align 4, !tbaa !75
   %127 = load ptr, ptr %1, align 8, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
@@ -3023,7 +3023,7 @@ _Z10btRayAabb2RK9btVector3S1_PKjPS0_Rfff.exit.thread: ; preds = %79, %100, %.lr.
   %.1 = phi ptr [ %135, %134 ], [ %140, %137 ]
   %143 = load i32, ptr %64, align 4, !tbaa !48
   %144 = icmp slt i32 %.141, %143
-  br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !74
+  br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %142, %_ZN9btVector313safeNormalizeEv.exit
   ret void
@@ -3329,7 +3329,7 @@ _ZN9btVector313safeNormalizeEv.exit:              ; preds = %8, %30
   %.148 = phi ptr [ %231, %230 ], [ %236, %233 ]
   %.1 = phi i32 [ %232, %230 ], [ %237, %233 ]
   %239 = icmp slt i32 %.1, %7
-  br i1 %239, label %130, label %._crit_edge, !llvm.loop !75
+  br i1 %239, label %130, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %238, %_ZN9btVector313safeNormalizeEv.exit
   ret void
@@ -3509,7 +3509,7 @@ define dso_local noundef zeroext i1 @_ZNK14btQuantizedBvh9serializeEPvjb(ptr nou
   store i8 %57, ptr %58, align 1, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit, label %46, !llvm.loop !76
+  br i1 %exitcond.not.i, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit, label %46, !llvm.loop !80
 
 _Z19btSwapVector3EndianRK9btVector3RS_.exit:      ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3535,7 +3535,7 @@ _Z19btSwapVector3EndianRK9btVector3RS_.exit:      ; preds = %46
   store i8 %71, ptr %72, align 1, !tbaa !42
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i194, 1
   %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, 4
-  br i1 %exitcond.not.i196, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit197, label %60, !llvm.loop !76
+  br i1 %exitcond.not.i196, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit197, label %60, !llvm.loop !80
 
 _Z19btSwapVector3EndianRK9btVector3RS_.exit197:   ; preds = %60
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3562,7 +3562,7 @@ _Z19btSwapVector3EndianRK9btVector3RS_.exit197:   ; preds = %60
   store i8 %86, ptr %87, align 1, !tbaa !42
   %indvars.iv.next.i199 = add nuw nsw i64 %indvars.iv.i198, 1
   %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, 4
-  br i1 %exitcond.not.i200, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit201, label %75, !llvm.loop !76
+  br i1 %exitcond.not.i200, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit201, label %75, !llvm.loop !80
 
 _Z19btSwapVector3EndianRK9btVector3RS_.exit201:   ; preds = %75
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3675,7 +3675,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   store i32 %140, ptr %141, align 4, !tbaa !56
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit209, label %119, !llvm.loop !77
+  br i1 %exitcond273.not, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit209, label %119, !llvm.loop !81
 
 142:                                              ; preds = %.lr.ph248, %142
   %indvars.iv264 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next265, %142 ]
@@ -3709,7 +3709,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   store i32 %162, ptr %163, align 4, !tbaa !56
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
-  br i1 %exitcond268.not, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit209, label %142, !llvm.loop !78
+  br i1 %exitcond268.not, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit209, label %142, !llvm.loop !82
 
 _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit209: ; preds = %142, %119, %.preheader236, %.preheader238
   %164 = sext i32 %107 to i64
@@ -3786,7 +3786,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit:
   store i8 %190, ptr %191, align 1, !tbaa !42
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, 4
-  br i1 %exitcond.not.i214, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit215, label %179, !llvm.loop !76
+  br i1 %exitcond.not.i214, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit215, label %179, !llvm.loop !80
 
 _Z19btSwapVector3EndianRK9btVector3RS_.exit215:   ; preds = %179
   %192 = load ptr, ptr %173, align 8, !tbaa !26
@@ -3815,7 +3815,7 @@ _Z19btSwapVector3EndianRK9btVector3RS_.exit215:   ; preds = %179
   store i8 %207, ptr %208, align 1, !tbaa !42
   %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i216, 1
   %exitcond.not.i218 = icmp eq i64 %indvars.iv.next.i217, 4
-  br i1 %exitcond.not.i218, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit219, label %196, !llvm.loop !76
+  br i1 %exitcond.not.i218, label %_Z19btSwapVector3EndianRK9btVector3RS_.exit219, label %196, !llvm.loop !80
 
 _Z19btSwapVector3EndianRK9btVector3RS_.exit219:   ; preds = %196
   %209 = load ptr, ptr %173, align 8, !tbaa !26
@@ -3828,18 +3828,18 @@ _Z19btSwapVector3EndianRK9btVector3RS_.exit219:   ; preds = %196
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 32
   store i32 %213, ptr %216, align 4, !tbaa !62
   %217 = getelementptr inbounds nuw i8, ptr %210, i64 36
-  %218 = load i32, ptr %217, align 4, !tbaa !70
+  %218 = load i32, ptr %217, align 4, !tbaa !74
   %219 = tail call noundef i32 @llvm.bswap.i32(i32 %218)
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 36
-  store i32 %219, ptr %220, align 4, !tbaa !70
+  store i32 %219, ptr %220, align 4, !tbaa !74
   %221 = getelementptr inbounds nuw i8, ptr %210, i64 40
-  %222 = load i32, ptr %221, align 4, !tbaa !71
+  %222 = load i32, ptr %221, align 4, !tbaa !75
   %223 = tail call noundef i32 @llvm.bswap.i32(i32 %222)
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 40
-  store i32 %223, ptr %224, align 4, !tbaa !71
+  store i32 %223, ptr %224, align 4, !tbaa !75
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
-  br i1 %exitcond263.not, label %.loopexit241, label %174, !llvm.loop !79
+  br i1 %exitcond263.not, label %.loopexit241, label %174, !llvm.loop !83
 
 225:                                              ; preds = %.lr.ph, %225
   %226 = phi ptr [ %105, %.lr.ph ], [ %238, %225 ]
@@ -3862,16 +3862,16 @@ _Z19btSwapVector3EndianRK9btVector3RS_.exit219:   ; preds = %196
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
   store i32 %237, ptr %240, align 4, !tbaa !62
   %241 = getelementptr inbounds nuw i8, ptr %235, i64 36
-  %242 = load i32, ptr %241, align 4, !tbaa !70
+  %242 = load i32, ptr %241, align 4, !tbaa !74
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 36
-  store i32 %242, ptr %243, align 4, !tbaa !70
+  store i32 %242, ptr %243, align 4, !tbaa !74
   %244 = getelementptr inbounds nuw i8, ptr %235, i64 40
-  %245 = load i32, ptr %244, align 4, !tbaa !71
+  %245 = load i32, ptr %244, align 4, !tbaa !75
   %246 = getelementptr inbounds nuw i8, ptr %239, i64 40
-  store i32 %245, ptr %246, align 4, !tbaa !71
+  store i32 %245, ptr %246, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit241, label %225, !llvm.loop !80
+  br i1 %exitcond.not, label %.loopexit241, label %225, !llvm.loop !84
 
 .loopexit241:                                     ; preds = %225, %_Z19btSwapVector3EndianRK9btVector3RS_.exit219, %.preheader242, %.preheader240
   %247 = phi ptr [ %105, %.preheader242 ], [ %105, %.preheader240 ], [ %214, %_Z19btSwapVector3EndianRK9btVector3RS_.exit219 ], [ %238, %225 ]
@@ -3973,7 +3973,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   store i32 %289, ptr %290, align 4, !tbaa !58
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count280
-  br i1 %exitcond281.not, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit233, label %264, !llvm.loop !81
+  br i1 %exitcond281.not, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit233, label %264, !llvm.loop !85
 
 291:                                              ; preds = %.lr.ph252, %291
   %indvars.iv274 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next275, %291 ]
@@ -4019,14 +4019,14 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   %319 = load i32, ptr %7, align 8, !tbaa !38
   %320 = sext i32 %319 to i64
   %321 = icmp slt i64 %indvars.iv.next275, %320
-  br i1 %321, label %291, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit233, !llvm.loop !82
+  br i1 %321, label %291, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit233, !llvm.loop !86
 
 _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit233: ; preds = %291, %264, %.preheader, %.preheader234
   store i8 0, ptr %29, align 8, !tbaa !34
   store ptr null, ptr %30, align 8, !tbaa !35
   store i32 0, ptr %31, align 4, !tbaa !36
   store i32 0, ptr %32, align 8, !tbaa !37
-  store ptr null, ptr %1, align 8, !tbaa !83
+  store ptr null, ptr %1, align 8, !tbaa !87
   ret i1 true
 }
 
@@ -4079,7 +4079,7 @@ define dso_local noundef ptr @_ZN14btQuantizedBvh18deSerializeInPlaceEPvjb(ptr n
   store i8 %27, ptr %28, align 1, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_Z21btUnSwapVector3EndianR9btVector3.exit, label %16, !llvm.loop !84
+  br i1 %exitcond.not.i, label %_Z21btUnSwapVector3EndianR9btVector3.exit, label %16, !llvm.loop !88
 
 _Z21btUnSwapVector3EndianR9btVector3.exit:        ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !60
@@ -4108,7 +4108,7 @@ _Z21btUnSwapVector3EndianR9btVector3.exit:        ; preds = %16
   store i8 %41, ptr %42, align 1, !tbaa !42
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
   %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, 4
-  br i1 %exitcond.not.i139, label %_Z21btUnSwapVector3EndianR9btVector3.exit140, label %30, !llvm.loop !84
+  br i1 %exitcond.not.i139, label %_Z21btUnSwapVector3EndianR9btVector3.exit140, label %30, !llvm.loop !88
 
 _Z21btUnSwapVector3EndianR9btVector3.exit140:     ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !60
@@ -4137,7 +4137,7 @@ _Z21btUnSwapVector3EndianR9btVector3.exit140:     ; preds = %30
   store i8 %55, ptr %56, align 1, !tbaa !42
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i141, 1
   %exitcond.not.i143 = icmp eq i64 %indvars.iv.next.i142, 4
-  br i1 %exitcond.not.i143, label %_Z21btUnSwapVector3EndianR9btVector3.exit144, label %44, !llvm.loop !84
+  br i1 %exitcond.not.i143, label %_Z21btUnSwapVector3EndianR9btVector3.exit144, label %44, !llvm.loop !88
 
 _Z21btUnSwapVector3EndianR9btVector3.exit144:     ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !60
@@ -4259,7 +4259,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit:
   store i32 %111, ptr %109, align 4, !tbaa !56
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %.thread, label %.lr.ph174, !llvm.loop !85
+  br i1 %exitcond183.not, label %.thread, label %.lr.ph174, !llvm.loop !89
 
 .thread:                                          ; preds = %.lr.ph174, %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit
   %112 = sext i32 %64 to i64
@@ -4311,7 +4311,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit:
   store i8 %129, ptr %130, align 1, !tbaa !42
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i152, 1
   %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, 4
-  br i1 %exitcond.not.i154, label %_Z21btUnSwapVector3EndianR9btVector3.exit155, label %118, !llvm.loop !84
+  br i1 %exitcond.not.i154, label %_Z21btUnSwapVector3EndianR9btVector3.exit155, label %118, !llvm.loop !88
 
 _Z21btUnSwapVector3EndianR9btVector3.exit155:     ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %117, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !60
@@ -4341,7 +4341,7 @@ _Z21btUnSwapVector3EndianR9btVector3.exit155:     ; preds = %118
   store i8 %144, ptr %145, align 1, !tbaa !42
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, 4
-  br i1 %exitcond.not.i158, label %_Z21btUnSwapVector3EndianR9btVector3.exit159, label %133, !llvm.loop !84
+  br i1 %exitcond.not.i158, label %_Z21btUnSwapVector3EndianR9btVector3.exit159, label %133, !llvm.loop !88
 
 _Z21btUnSwapVector3EndianR9btVector3.exit159:     ; preds = %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %132, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !60
@@ -4353,16 +4353,16 @@ _Z21btUnSwapVector3EndianR9btVector3.exit159:     ; preds = %133
   %150 = tail call noundef i32 @llvm.bswap.i32(i32 %149)
   store i32 %150, ptr %148, align 4, !tbaa !62
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 36
-  %152 = load i32, ptr %151, align 4, !tbaa !70
+  %152 = load i32, ptr %151, align 4, !tbaa !74
   %153 = tail call noundef i32 @llvm.bswap.i32(i32 %152)
-  store i32 %153, ptr %151, align 4, !tbaa !70
+  store i32 %153, ptr %151, align 4, !tbaa !74
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 40
-  %155 = load i32, ptr %154, align 4, !tbaa !71
+  %155 = load i32, ptr %154, align 4, !tbaa !75
   %156 = tail call noundef i32 @llvm.bswap.i32(i32 %155)
-  store i32 %156, ptr %154, align 4, !tbaa !71
+  store i32 %156, ptr %154, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %157, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %157, label %.lr.ph, !llvm.loop !90
 
 157:                                              ; preds = %_Z21btUnSwapVector3EndianR9btVector3.exit159
   %.pre191.pre = load i32, ptr %66, align 8, !tbaa !38
@@ -4434,7 +4434,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
   store i32 %182, ptr %180, align 4, !tbaa !58
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %.loopexit, label %.lr.ph176, !llvm.loop !87
+  br i1 %exitcond188.not, label %.loopexit, label %.lr.ph176, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph176, %.preheader, %63, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit, %3
   %.0134 = phi ptr [ null, %3 ], [ null, %63 ], [ %0, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit ], [ %0, %.preheader ], [ %0, %.lr.ph176 ]
@@ -4512,7 +4512,7 @@ define dso_local void @_ZN14btQuantizedBvh16deSerializeFloatER23btQuantizedBvhFl
   store float %7, ptr %8, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit, label %5, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit, label %5, !llvm.loop !92
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit: ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4526,7 +4526,7 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit: ; preds = %5
   store float %12, ptr %13, align 4, !tbaa !39
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 4
-  br i1 %exitcond.not.i82, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83, label %10, !llvm.loop !88
+  br i1 %exitcond.not.i82, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83, label %10, !llvm.loop !92
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83: ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4541,21 +4541,21 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83: ; preds = %10
   store float %18, ptr %19, align 4, !tbaa !39
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 4
-  br i1 %exitcond.not.i86, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit87, label %16, !llvm.loop !88
+  br i1 %exitcond.not.i86, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit87, label %16, !llvm.loop !92
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit87: ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %21 = load i32, ptr %20, align 8, !tbaa !89
+  %21 = load i32, ptr %20, align 8, !tbaa !93
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %21, ptr %22, align 4, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %24 = load i32, ptr %23, align 4, !tbaa !95
+  %24 = load i32, ptr %23, align 4, !tbaa !99
   %25 = icmp ne i32 %24, 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = zext i1 %25 to i8
   store i8 %27, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %29 = load i32, ptr %28, align 8, !tbaa !96
+  %29 = load i32, ptr %28, align 8, !tbaa !100
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %31 = load i32, ptr %30, align 4, !tbaa !27
   %32 = icmp sgt i32 %29, %31
@@ -4597,7 +4597,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE8allocateEi.exit.i.i: ; preds = %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %46, ptr noundef nonnull align 4 dereferenceable(64) %48, i64 64, i1 false), !tbaa.struct !59
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i, label %45, !llvm.loop !97
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i, label %45, !llvm.loop !101
 
 _ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i: ; preds = %45, %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE8allocateEi.exit.i.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4632,7 +4632,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE10deallocateEv.exit.i.i: ; preds 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %59, i8 0, i64 64, i1 false)
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i
-  br i1 %exitcond.not.i90, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit, label %57, !llvm.loop !98
+  br i1 %exitcond.not.i90, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit, label %57, !llvm.loop !102
 
 _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %57, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit87
   store i32 %29, ptr %30, align 4, !tbaa !27
@@ -4641,7 +4641,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %5
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %62 = load ptr, ptr %61, align 8, !tbaa !99
+  %62 = load ptr, ptr %61, align 8, !tbaa !103
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %wide.trip.count = zext nneg i32 %29 to i64
@@ -4663,7 +4663,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %5
   store float %71, ptr %72, align 4, !tbaa !39
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
-  br i1 %exitcond.not.i93, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94, label %69, !llvm.loop !88
+  br i1 %exitcond.not.i93, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94, label %69, !llvm.loop !92
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94: ; preds = %69, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94
   %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i96, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94 ], [ 0, %69 ]
@@ -4673,29 +4673,29 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94: ; preds = %69, %_
   store float %74, ptr %75, align 4, !tbaa !39
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
-  br i1 %exitcond.not.i97, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit98, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94, !llvm.loop !88
+  br i1 %exitcond.not.i97, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit98, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94, !llvm.loop !92
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit98: ; preds = %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94
   %76 = getelementptr inbounds nuw i8, ptr %.071132, i64 32
-  %77 = load i32, ptr %76, align 4, !tbaa !100
+  %77 = load i32, ptr %76, align 4, !tbaa !104
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store i32 %77, ptr %78, align 4, !tbaa !62
   %79 = getelementptr inbounds nuw i8, ptr %.071132, i64 36
-  %80 = load i32, ptr %79, align 4, !tbaa !102
+  %80 = load i32, ptr %79, align 4, !tbaa !106
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 36
-  store i32 %80, ptr %81, align 4, !tbaa !70
+  store i32 %80, ptr %81, align 4, !tbaa !74
   %82 = getelementptr inbounds nuw i8, ptr %.071132, i64 40
-  %83 = load i32, ptr %82, align 4, !tbaa !103
+  %83 = load i32, ptr %82, align 4, !tbaa !107
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store i32 %83, ptr %84, align 4, !tbaa !71
+  store i32 %83, ptr %84, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = getelementptr inbounds nuw i8, ptr %.071132, i64 48
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit130, label %65, !llvm.loop !104
+  br i1 %exitcond.not, label %.loopexit130, label %65, !llvm.loop !108
 
 .loopexit130:                                     ; preds = %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit98, %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %87 = load i32, ptr %86, align 4, !tbaa !105
+  %87 = load i32, ptr %86, align 4, !tbaa !109
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %89 = load i32, ptr %88, align 4, !tbaa !31
   %90 = icmp sgt i32 %87, %89
@@ -4781,7 +4781,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
 
 .lr.ph135:                                        ; preds = %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %120 = load ptr, ptr %119, align 8, !tbaa !106
+  %120 = load ptr, ptr %119, align 8, !tbaa !110
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %122 = load ptr, ptr %121, align 8, !tbaa !30
   %wide.trip.count144 = zext nneg i32 %87 to i64
@@ -4791,7 +4791,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %indvars.iv141 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next142, %123 ]
   %.073133 = phi ptr [ %120, %.lr.ph135 ], [ %144, %123 ]
   %124 = getelementptr inbounds nuw i8, ptr %.073133, i64 12
-  %125 = load i32, ptr %124, align 4, !tbaa !107
+  %125 = load i32, ptr %124, align 4, !tbaa !111
   %126 = getelementptr inbounds nuw %struct.btQuantizedBvhNode, ptr %122, i64 %indvars.iv141
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 %125, ptr %127, align 4, !tbaa !56
@@ -4820,15 +4820,15 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %144 = getelementptr inbounds nuw i8, ptr %.073133, i64 16
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %.loopexit129, label %123, !llvm.loop !109
+  br i1 %exitcond145.not, label %.loopexit129, label %123, !llvm.loop !113
 
 .loopexit129:                                     ; preds = %123, %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %146 = load i32, ptr %145, align 8, !tbaa !110
+  %146 = load i32, ptr %145, align 8, !tbaa !114
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %146, ptr %147, align 8, !tbaa !33
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %149 = load i32, ptr %148, align 4, !tbaa !111
+  %149 = load i32, ptr %148, align 4, !tbaa !115
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %151 = load i32, ptr %150, align 4, !tbaa !36
   %152 = icmp sgt i32 %149, %151
@@ -4899,7 +4899,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %153
 
 .lr.ph138:                                        ; preds = %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %177 = load ptr, ptr %176, align 8, !tbaa !112
+  %177 = load ptr, ptr %176, align 8, !tbaa !116
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %179 = load ptr, ptr %178, align 8, !tbaa !35
   %wide.trip.count149 = zext nneg i32 %149 to i64
@@ -4932,17 +4932,17 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %153
   %197 = load i16, ptr %196, align 4, !tbaa !52
   %198 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i16 %197, ptr %198, align 4, !tbaa !52
-  %199 = load i32, ptr %.070136, align 4, !tbaa !113
+  %199 = load i32, ptr %.070136, align 4, !tbaa !117
   %200 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 %199, ptr %200, align 4, !tbaa !54
   %201 = getelementptr inbounds nuw i8, ptr %.070136, i64 4
-  %202 = load i32, ptr %201, align 4, !tbaa !115
+  %202 = load i32, ptr %201, align 4, !tbaa !119
   %203 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store i32 %202, ptr %203, align 4, !tbaa !58
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %204 = getelementptr inbounds nuw i8, ptr %.070136, i64 20
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.loopexit, label %180, !llvm.loop !116
+  br i1 %exitcond150.not, label %.loopexit, label %180, !llvm.loop !120
 
 .loopexit:                                        ; preds = %180, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
   ret void
@@ -4957,13 +4957,13 @@ define dso_local void @_ZN14btQuantizedBvh17deSerializeDoubleER24btQuantizedBvhD
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
-  %7 = load double, ptr %6, align 8, !tbaa !117
+  %7 = load double, ptr %6, align 8, !tbaa !121
   %8 = fptrunc double %7 to float
   %9 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
   store float %8, ptr %9, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit, label %5, !llvm.loop !119
+  br i1 %exitcond.not.i, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit, label %5, !llvm.loop !123
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4972,13 +4972,13 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %5
 11:                                               ; preds = %11, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit
   %indvars.iv.i80 = phi i64 [ 0, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit ], [ %indvars.iv.next.i81, %11 ]
   %12 = getelementptr inbounds nuw [4 x double], ptr %1, i64 0, i64 %indvars.iv.i80
-  %13 = load double, ptr %12, align 8, !tbaa !117
+  %13 = load double, ptr %12, align 8, !tbaa !121
   %14 = fptrunc double %13 to float
   %15 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i80
   store float %14, ptr %15, align 4, !tbaa !39
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 4
-  br i1 %exitcond.not.i82, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83, label %11, !llvm.loop !119
+  br i1 %exitcond.not.i82, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83, label %11, !llvm.loop !123
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83: ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4988,27 +4988,27 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83: ; preds = %11
 18:                                               ; preds = %18, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83
   %indvars.iv.i84 = phi i64 [ 0, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83 ], [ %indvars.iv.next.i85, %18 ]
   %19 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv.i84
-  %20 = load double, ptr %19, align 8, !tbaa !117
+  %20 = load double, ptr %19, align 8, !tbaa !121
   %21 = fptrunc double %20 to float
   %22 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i84
   store float %21, ptr %22, align 4, !tbaa !39
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 4
-  br i1 %exitcond.not.i86, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit87, label %18, !llvm.loop !119
+  br i1 %exitcond.not.i86, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit87, label %18, !llvm.loop !123
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit87: ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %24 = load i32, ptr %23, align 8, !tbaa !120
+  %24 = load i32, ptr %23, align 8, !tbaa !124
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %24, ptr %25, align 4, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %27 = load i32, ptr %26, align 4, !tbaa !124
+  %27 = load i32, ptr %26, align 4, !tbaa !128
   %28 = icmp ne i32 %27, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = zext i1 %28 to i8
   store i8 %30, ptr %29, align 8, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %32 = load i32, ptr %31, align 8, !tbaa !125
+  %32 = load i32, ptr %31, align 8, !tbaa !129
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %34 = load i32, ptr %33, align 4, !tbaa !27
   %35 = icmp sgt i32 %32, %34
@@ -5050,7 +5050,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE8allocateEi.exit.i.i: ; preds = %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %49, ptr noundef nonnull align 4 dereferenceable(64) %51, i64 64, i1 false), !tbaa.struct !59
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i, label %48, !llvm.loop !97
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i, label %48, !llvm.loop !101
 
 _ZNK20btAlignedObjectArrayI18btOptimizedBvhNodeE4copyEiiPS0_.exit.i.i: ; preds = %48, %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE8allocateEi.exit.i.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5085,7 +5085,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE10deallocateEv.exit.i.i: ; preds 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %62, i8 0, i64 64, i1 false)
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i
-  br i1 %exitcond.not.i90, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit, label %60, !llvm.loop !98
+  br i1 %exitcond.not.i90, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit, label %60, !llvm.loop !102
 
 _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %60, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit87
   store i32 %32, ptr %33, align 4, !tbaa !27
@@ -5094,7 +5094,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %6
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %65 = load ptr, ptr %64, align 8, !tbaa !126
+  %65 = load ptr, ptr %64, align 8, !tbaa !130
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %wide.trip.count = zext nneg i32 %32 to i64
@@ -5111,46 +5111,46 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %6
 72:                                               ; preds = %72, %68
   %indvars.iv.i91 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i92, %72 ]
   %73 = getelementptr inbounds nuw [4 x double], ptr %71, i64 0, i64 %indvars.iv.i91
-  %74 = load double, ptr %73, align 8, !tbaa !117
+  %74 = load double, ptr %73, align 8, !tbaa !121
   %75 = fptrunc double %74 to float
   %76 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %indvars.iv.i91
   store float %75, ptr %76, align 4, !tbaa !39
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
-  br i1 %exitcond.not.i93, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94, label %72, !llvm.loop !119
+  br i1 %exitcond.not.i93, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94, label %72, !llvm.loop !123
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94: ; preds = %72, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94
   %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i96, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94 ], [ 0, %72 ]
   %77 = getelementptr inbounds nuw [4 x double], ptr %.071132, i64 0, i64 %indvars.iv.i95
-  %78 = load double, ptr %77, align 8, !tbaa !117
+  %78 = load double, ptr %77, align 8, !tbaa !121
   %79 = fptrunc double %78 to float
   %80 = getelementptr inbounds nuw [4 x float], ptr %69, i64 0, i64 %indvars.iv.i95
   store float %79, ptr %80, align 4, !tbaa !39
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
-  br i1 %exitcond.not.i97, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit98, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94, !llvm.loop !119
+  br i1 %exitcond.not.i97, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit98, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94, !llvm.loop !123
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit98: ; preds = %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94
   %81 = getelementptr inbounds nuw i8, ptr %.071132, i64 64
-  %82 = load i32, ptr %81, align 8, !tbaa !127
+  %82 = load i32, ptr %81, align 8, !tbaa !131
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i32 %82, ptr %83, align 4, !tbaa !62
   %84 = getelementptr inbounds nuw i8, ptr %.071132, i64 68
-  %85 = load i32, ptr %84, align 4, !tbaa !129
+  %85 = load i32, ptr %84, align 4, !tbaa !133
   %86 = getelementptr inbounds nuw i8, ptr %69, i64 36
-  store i32 %85, ptr %86, align 4, !tbaa !70
+  store i32 %85, ptr %86, align 4, !tbaa !74
   %87 = getelementptr inbounds nuw i8, ptr %.071132, i64 72
-  %88 = load i32, ptr %87, align 8, !tbaa !130
+  %88 = load i32, ptr %87, align 8, !tbaa !134
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store i32 %88, ptr %89, align 4, !tbaa !71
+  store i32 %88, ptr %89, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = getelementptr inbounds nuw i8, ptr %.071132, i64 80
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit130, label %68, !llvm.loop !131
+  br i1 %exitcond.not, label %.loopexit130, label %68, !llvm.loop !135
 
 .loopexit130:                                     ; preds = %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit98, %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %92 = load i32, ptr %91, align 4, !tbaa !132
+  %92 = load i32, ptr %91, align 4, !tbaa !136
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %94 = load i32, ptr %93, align 4, !tbaa !31
   %95 = icmp sgt i32 %92, %94
@@ -5236,7 +5236,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
 
 .lr.ph135:                                        ; preds = %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %125 = load ptr, ptr %124, align 8, !tbaa !133
+  %125 = load ptr, ptr %124, align 8, !tbaa !137
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %127 = load ptr, ptr %126, align 8, !tbaa !30
   %wide.trip.count143 = zext nneg i32 %92 to i64
@@ -5246,7 +5246,7 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %indvars.iv140 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next141, %128 ]
   %.073133 = phi ptr [ %125, %.lr.ph135 ], [ %149, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %.073133, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !107
+  %130 = load i32, ptr %129, align 4, !tbaa !111
   %131 = getelementptr inbounds nuw %struct.btQuantizedBvhNode, ptr %127, i64 %indvars.iv140
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 12
   store i32 %130, ptr %132, align 4, !tbaa !56
@@ -5275,15 +5275,15 @@ _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %1
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %149 = getelementptr inbounds nuw i8, ptr %.073133, i64 16
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit129, label %128, !llvm.loop !134
+  br i1 %exitcond144.not, label %.loopexit129, label %128, !llvm.loop !138
 
 .loopexit129:                                     ; preds = %128, %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %151 = load i32, ptr %150, align 8, !tbaa !135
+  %151 = load i32, ptr %150, align 8, !tbaa !139
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %151, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %154 = load i32, ptr %153, align 4, !tbaa !136
+  %154 = load i32, ptr %153, align 4, !tbaa !140
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %156 = load i32, ptr %155, align 4, !tbaa !36
   %157 = icmp sgt i32 %154, %156
@@ -5354,7 +5354,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %158
 
 .lr.ph138:                                        ; preds = %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %182 = load ptr, ptr %181, align 8, !tbaa !137
+  %182 = load ptr, ptr %181, align 8, !tbaa !141
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %184 = load ptr, ptr %183, align 8, !tbaa !35
   %wide.trip.count148 = zext nneg i32 %154 to i64
@@ -5387,17 +5387,17 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %158
   %202 = load i16, ptr %201, align 4, !tbaa !52
   %203 = getelementptr inbounds nuw i8, ptr %188, i64 4
   store i16 %202, ptr %203, align 4, !tbaa !52
-  %204 = load i32, ptr %.070136, align 4, !tbaa !113
+  %204 = load i32, ptr %.070136, align 4, !tbaa !117
   %205 = getelementptr inbounds nuw i8, ptr %188, i64 12
   store i32 %204, ptr %205, align 4, !tbaa !54
   %206 = getelementptr inbounds nuw i8, ptr %.070136, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !115
+  %207 = load i32, ptr %206, align 4, !tbaa !119
   %208 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store i32 %207, ptr %208, align 4, !tbaa !58
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %209 = getelementptr inbounds nuw i8, ptr %.070136, i64 20
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %185, !llvm.loop !138
+  br i1 %exitcond149.not, label %.loopexit, label %185, !llvm.loop !142
 
 .loopexit:                                        ; preds = %185, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
   ret void
@@ -5417,7 +5417,7 @@ define dso_local noundef ptr @_ZNK14btQuantizedBvh9serializeEPvP12btSerializer(p
   store float %8, ptr %9, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %6, !llvm.loop !139
+  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %6, !llvm.loop !143
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5431,7 +5431,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %6
   store float %13, ptr %14, align 4, !tbaa !39
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, 4
-  br i1 %exitcond.not.i102, label %_ZNK9btVector39serializeER18btVector3FloatData.exit103, label %11, !llvm.loop !139
+  br i1 %exitcond.not.i102, label %_ZNK9btVector39serializeER18btVector3FloatData.exit103, label %11, !llvm.loop !143
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit103: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5446,28 +5446,28 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit103: ; preds = %11
   store float %19, ptr %20, align 4, !tbaa !39
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 4
-  br i1 %exitcond.not.i106, label %_ZNK9btVector39serializeER18btVector3FloatData.exit107, label %17, !llvm.loop !139
+  br i1 %exitcond.not.i106, label %_ZNK9btVector39serializeER18btVector3FloatData.exit107, label %17, !llvm.loop !143
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %22, ptr %23, align 8, !tbaa !89
+  store i32 %22, ptr %23, align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i8, ptr %24, align 8, !tbaa !24, !range !46, !noundef !49
   %26 = zext nneg i8 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 %26, ptr %27, align 4, !tbaa !95
+  store i32 %26, ptr %27, align 4, !tbaa !99
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %29 = load i32, ptr %28, align 4, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %29, ptr %30, align 8, !tbaa !96
+  store i32 %29, ptr %30, align 8, !tbaa !100
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.thread, label %32
 
 .thread:                                          ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit107
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr null, ptr %31, align 8, !tbaa !99
+  store ptr null, ptr %31, align 8, !tbaa !103
   br label %76
 
 32:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit107
@@ -5478,7 +5478,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %34)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %38, ptr %39, align 8, !tbaa !99
+  store ptr %38, ptr %39, align 8, !tbaa !103
   %.not95 = icmp eq ptr %38, null
   br i1 %.not95, label %76, label %40
 
@@ -5493,7 +5493,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
 
 .lr.ph:                                           ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !140
+  %48 = load ptr, ptr %47, align 8, !tbaa !144
   %wide.trip.count = zext nneg i32 %41 to i64
   br label %53
 
@@ -5522,7 +5522,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
   store float %60, ptr %61, align 4, !tbaa !39
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 4
-  br i1 %exitcond.not.i110, label %_ZNK9btVector39serializeER18btVector3FloatData.exit111, label %58, !llvm.loop !139
+  br i1 %exitcond.not.i110, label %_ZNK9btVector39serializeER18btVector3FloatData.exit111, label %58, !llvm.loop !143
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit111: ; preds = %58, %_ZNK9btVector39serializeER18btVector3FloatData.exit111
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %_ZNK9btVector39serializeER18btVector3FloatData.exit111 ], [ 0, %58 ]
@@ -5532,39 +5532,39 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit111: ; preds = %58, %_ZNK9btV
   store float %63, ptr %64, align 4, !tbaa !39
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 4
-  br i1 %exitcond.not.i114, label %_ZNK9btVector39serializeER18btVector3FloatData.exit115, label %_ZNK9btVector39serializeER18btVector3FloatData.exit111, !llvm.loop !139
+  br i1 %exitcond.not.i114, label %_ZNK9btVector39serializeER18btVector3FloatData.exit115, label %_ZNK9btVector39serializeER18btVector3FloatData.exit111, !llvm.loop !143
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit111
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %66 = load i32, ptr %65, align 4, !tbaa !62
   %67 = getelementptr inbounds nuw i8, ptr %.091122, i64 32
-  store i32 %66, ptr %67, align 4, !tbaa !100
+  store i32 %66, ptr %67, align 4, !tbaa !104
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 36
-  %69 = load i32, ptr %68, align 4, !tbaa !70
+  %69 = load i32, ptr %68, align 4, !tbaa !74
   %70 = getelementptr inbounds nuw i8, ptr %.091122, i64 36
-  store i32 %69, ptr %70, align 4, !tbaa !102
+  store i32 %69, ptr %70, align 4, !tbaa !106
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %72 = load i32, ptr %71, align 4, !tbaa !71
+  %72 = load i32, ptr %71, align 4, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %.091122, i64 40
-  store i32 %72, ptr %73, align 4, !tbaa !103
+  store i32 %72, ptr %73, align 4, !tbaa !107
   %74 = getelementptr inbounds nuw i8, ptr %.091122, i64 44
   store i32 0, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = getelementptr inbounds nuw i8, ptr %.091122, i64 48
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !146
 
 76:                                               ; preds = %.thread, %._crit_edge, %32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %78 = load i32, ptr %77, align 4, !tbaa !31
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %78, ptr %79, align 4, !tbaa !105
+  store i32 %78, ptr %79, align 4, !tbaa !109
   %.not96 = icmp eq i32 %78, 0
   br i1 %.not96, label %.thread117, label %81
 
 .thread117:                                       ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr null, ptr %80, align 8, !tbaa !106
+  store ptr null, ptr %80, align 8, !tbaa !110
   br label %123
 
 81:                                               ; preds = %76
@@ -5575,7 +5575,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %83)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %87, ptr %88, align 8, !tbaa !106
+  store ptr %87, ptr %88, align 8, !tbaa !110
   %.not97 = icmp eq ptr %87, null
   br i1 %.not97, label %123, label %89
 
@@ -5591,7 +5591,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
 
 .lr.ph126:                                        ; preds = %89
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !140
+  %97 = load ptr, ptr %96, align 8, !tbaa !144
   %wide.trip.count137 = zext nneg i32 %90 to i64
   br label %101
 
@@ -5609,7 +5609,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !56
   %105 = getelementptr inbounds nuw i8, ptr %.093124, i64 12
-  store i32 %104, ptr %105, align 4, !tbaa !107
+  store i32 %104, ptr %105, align 4, !tbaa !111
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 6
   %107 = load i16, ptr %106, align 2, !tbaa !52
   %108 = getelementptr inbounds nuw i8, ptr %.093124, i64 6
@@ -5635,23 +5635,23 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %122 = getelementptr inbounds nuw i8, ptr %.093124, i64 16
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
-  br i1 %exitcond138.not, label %._crit_edge127, label %101, !llvm.loop !143
+  br i1 %exitcond138.not, label %._crit_edge127, label %101, !llvm.loop !147
 
 123:                                              ; preds = %.thread117, %._crit_edge127, %81
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %125 = load i32, ptr %124, align 8, !tbaa !33
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %125, ptr %126, align 8, !tbaa !110
+  store i32 %125, ptr %126, align 8, !tbaa !114
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %128 = load i32, ptr %127, align 4, !tbaa !36
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %128, ptr %129, align 4, !tbaa !111
+  store i32 %128, ptr %129, align 4, !tbaa !115
   %.not98 = icmp eq i32 %128, 0
   br i1 %.not98, label %.thread119, label %131
 
 .thread119:                                       ; preds = %123
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr null, ptr %130, align 8, !tbaa !112
+  store ptr null, ptr %130, align 8, !tbaa !116
   br label %176
 
 131:                                              ; preds = %123
@@ -5662,7 +5662,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %133)
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %137, ptr %138, align 8, !tbaa !112
+  store ptr %137, ptr %138, align 8, !tbaa !116
   %.not99 = icmp eq ptr %137, null
   br i1 %.not99, label %176, label %139
 
@@ -5678,7 +5678,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
 
 .lr.ph131:                                        ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !140
+  %147 = load ptr, ptr %146, align 8, !tbaa !144
   %wide.trip.count142 = zext nneg i32 %140 to i64
   br label %151
 
@@ -5718,15 +5718,15 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit115: ; preds = %_ZNK9btVector
   store i16 %168, ptr %169, align 4, !tbaa !52
   %170 = getelementptr inbounds nuw i8, ptr %152, i64 12
   %171 = load i32, ptr %170, align 4, !tbaa !54
-  store i32 %171, ptr %.090128, align 4, !tbaa !113
+  store i32 %171, ptr %.090128, align 4, !tbaa !117
   %172 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %173 = load i32, ptr %172, align 4, !tbaa !58
   %174 = getelementptr inbounds nuw i8, ptr %.090128, i64 4
-  store i32 %173, ptr %174, align 4, !tbaa !115
+  store i32 %173, ptr %174, align 4, !tbaa !119
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %175 = getelementptr inbounds nuw i8, ptr %.090128, i64 20
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge132, label %151, !llvm.loop !144
+  br i1 %exitcond143.not, label %._crit_edge132, label %151, !llvm.loop !148
 
 176:                                              ; preds = %.thread119, %._crit_edge132, %131
   ret ptr @.str.3
@@ -5854,18 +5854,18 @@ attributes #21 = { noreturn nounwind }
 !61 = distinct !{!61, !45}
 !62 = !{!63, !11, i64 32}
 !63 = !{!"_ZTS18btOptimizedBvhNode", !9, i64 0, !9, i64 16, !11, i64 32, !11, i64 36, !11, i64 40, !10, i64 44}
-!64 = distinct !{!64, !45}
-!65 = distinct !{!65, !45}
+!64 = distinct !{!64, !45, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !66 = distinct !{!66, !45}
-!67 = distinct !{!67, !45}
+!67 = distinct !{!67, !45, !65}
 !68 = distinct !{!68, !45}
-!69 = distinct !{!69, !45}
-!70 = !{!63, !11, i64 36}
-!71 = !{!63, !11, i64 40}
+!69 = distinct !{!69, !45, !65}
+!70 = distinct !{!70, !45}
+!71 = distinct !{!71, !45}
 !72 = distinct !{!72, !45}
 !73 = distinct !{!73, !45}
-!74 = distinct !{!74, !45}
-!75 = distinct !{!75, !45}
+!74 = !{!63, !11, i64 36}
+!75 = !{!63, !11, i64 40}
 !76 = distinct !{!76, !45}
 !77 = distinct !{!77, !45}
 !78 = distinct !{!78, !45}
@@ -5873,65 +5873,69 @@ attributes #21 = { noreturn nounwind }
 !80 = distinct !{!80, !45}
 !81 = distinct !{!81, !45}
 !82 = distinct !{!82, !45}
-!83 = !{!16, !16, i64 0}
+!83 = distinct !{!83, !45}
 !84 = distinct !{!84, !45}
 !85 = distinct !{!85, !45}
 !86 = distinct !{!86, !45}
-!87 = distinct !{!87, !45}
+!87 = !{!16, !16, i64 0}
 !88 = distinct !{!88, !45}
-!89 = !{!90, !11, i64 48}
-!90 = !{!"_ZTS23btQuantizedBvhFloatData", !91, i64 0, !91, i64 16, !91, i64 32, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !92, i64 64, !93, i64 72, !94, i64 80, !11, i64 88, !11, i64 92}
-!91 = !{!"_ZTS18btVector3FloatData", !10, i64 0}
-!92 = !{!"p1 _ZTS27btOptimizedBvhNodeFloatData", !16, i64 0}
-!93 = !{!"p1 _ZTS22btQuantizedBvhNodeData", !16, i64 0}
-!94 = !{!"p1 _ZTS20btBvhSubtreeInfoData", !16, i64 0}
-!95 = !{!90, !11, i64 52}
-!96 = !{!90, !11, i64 56}
-!97 = distinct !{!97, !45}
-!98 = distinct !{!98, !45}
-!99 = !{!90, !92, i64 64}
-!100 = !{!101, !11, i64 32}
-!101 = !{!"_ZTS27btOptimizedBvhNodeFloatData", !91, i64 0, !91, i64 16, !11, i64 32, !11, i64 36, !11, i64 40, !10, i64 44}
-!102 = !{!101, !11, i64 36}
-!103 = !{!101, !11, i64 40}
-!104 = distinct !{!104, !45}
-!105 = !{!90, !11, i64 60}
-!106 = !{!90, !93, i64 72}
-!107 = !{!108, !11, i64 12}
-!108 = !{!"_ZTS22btQuantizedBvhNodeData", !10, i64 0, !10, i64 6, !11, i64 12}
-!109 = distinct !{!109, !45}
-!110 = !{!90, !11, i64 88}
-!111 = !{!90, !11, i64 92}
-!112 = !{!90, !94, i64 80}
-!113 = !{!114, !11, i64 0}
-!114 = !{!"_ZTS20btBvhSubtreeInfoData", !11, i64 0, !11, i64 4, !10, i64 8, !10, i64 14}
-!115 = !{!114, !11, i64 4}
-!116 = distinct !{!116, !45}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"double", !10, i64 0}
-!119 = distinct !{!119, !45}
-!120 = !{!121, !11, i64 96}
-!121 = !{!"_ZTS24btQuantizedBvhDoubleData", !122, i64 0, !122, i64 32, !122, i64 64, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !123, i64 112, !93, i64 120, !11, i64 128, !11, i64 132, !94, i64 136}
-!122 = !{!"_ZTS19btVector3DoubleData", !10, i64 0}
-!123 = !{!"p1 _ZTS28btOptimizedBvhNodeDoubleData", !16, i64 0}
-!124 = !{!121, !11, i64 100}
-!125 = !{!121, !11, i64 104}
-!126 = !{!121, !123, i64 112}
-!127 = !{!128, !11, i64 64}
-!128 = !{!"_ZTS28btOptimizedBvhNodeDoubleData", !122, i64 0, !122, i64 32, !11, i64 64, !11, i64 68, !11, i64 72, !10, i64 76}
-!129 = !{!128, !11, i64 68}
-!130 = !{!128, !11, i64 72}
-!131 = distinct !{!131, !45}
-!132 = !{!121, !11, i64 108}
-!133 = !{!121, !93, i64 120}
-!134 = distinct !{!134, !45}
-!135 = !{!121, !11, i64 128}
-!136 = !{!121, !11, i64 132}
-!137 = !{!121, !94, i64 136}
+!89 = distinct !{!89, !45}
+!90 = distinct !{!90, !45}
+!91 = distinct !{!91, !45}
+!92 = distinct !{!92, !45}
+!93 = !{!94, !11, i64 48}
+!94 = !{!"_ZTS23btQuantizedBvhFloatData", !95, i64 0, !95, i64 16, !95, i64 32, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !96, i64 64, !97, i64 72, !98, i64 80, !11, i64 88, !11, i64 92}
+!95 = !{!"_ZTS18btVector3FloatData", !10, i64 0}
+!96 = !{!"p1 _ZTS27btOptimizedBvhNodeFloatData", !16, i64 0}
+!97 = !{!"p1 _ZTS22btQuantizedBvhNodeData", !16, i64 0}
+!98 = !{!"p1 _ZTS20btBvhSubtreeInfoData", !16, i64 0}
+!99 = !{!94, !11, i64 52}
+!100 = !{!94, !11, i64 56}
+!101 = distinct !{!101, !45}
+!102 = distinct !{!102, !45}
+!103 = !{!94, !96, i64 64}
+!104 = !{!105, !11, i64 32}
+!105 = !{!"_ZTS27btOptimizedBvhNodeFloatData", !95, i64 0, !95, i64 16, !11, i64 32, !11, i64 36, !11, i64 40, !10, i64 44}
+!106 = !{!105, !11, i64 36}
+!107 = !{!105, !11, i64 40}
+!108 = distinct !{!108, !45}
+!109 = !{!94, !11, i64 60}
+!110 = !{!94, !97, i64 72}
+!111 = !{!112, !11, i64 12}
+!112 = !{!"_ZTS22btQuantizedBvhNodeData", !10, i64 0, !10, i64 6, !11, i64 12}
+!113 = distinct !{!113, !45}
+!114 = !{!94, !11, i64 88}
+!115 = !{!94, !11, i64 92}
+!116 = !{!94, !98, i64 80}
+!117 = !{!118, !11, i64 0}
+!118 = !{!"_ZTS20btBvhSubtreeInfoData", !11, i64 0, !11, i64 4, !10, i64 8, !10, i64 14}
+!119 = !{!118, !11, i64 4}
+!120 = distinct !{!120, !45}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"double", !10, i64 0}
+!123 = distinct !{!123, !45}
+!124 = !{!125, !11, i64 96}
+!125 = !{!"_ZTS24btQuantizedBvhDoubleData", !126, i64 0, !126, i64 32, !126, i64 64, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !127, i64 112, !97, i64 120, !11, i64 128, !11, i64 132, !98, i64 136}
+!126 = !{!"_ZTS19btVector3DoubleData", !10, i64 0}
+!127 = !{!"p1 _ZTS28btOptimizedBvhNodeDoubleData", !16, i64 0}
+!128 = !{!125, !11, i64 100}
+!129 = !{!125, !11, i64 104}
+!130 = !{!125, !127, i64 112}
+!131 = !{!132, !11, i64 64}
+!132 = !{!"_ZTS28btOptimizedBvhNodeDoubleData", !126, i64 0, !126, i64 32, !11, i64 64, !11, i64 68, !11, i64 72, !10, i64 76}
+!133 = !{!132, !11, i64 68}
+!134 = !{!132, !11, i64 72}
+!135 = distinct !{!135, !45}
+!136 = !{!125, !11, i64 108}
+!137 = !{!125, !97, i64 120}
 !138 = distinct !{!138, !45}
-!139 = distinct !{!139, !45}
-!140 = !{!141, !16, i64 8}
-!141 = !{!"_ZTS7btChunk", !11, i64 0, !11, i64 4, !16, i64 8, !11, i64 16, !11, i64 20}
+!139 = !{!125, !11, i64 128}
+!140 = !{!125, !11, i64 132}
+!141 = !{!125, !98, i64 136}
 !142 = distinct !{!142, !45}
 !143 = distinct !{!143, !45}
-!144 = distinct !{!144, !45}
+!144 = !{!145, !16, i64 8}
+!145 = !{!"_ZTS7btChunk", !11, i64 0, !11, i64 4, !16, i64 8, !11, i64 16, !11, i64 20}
+!146 = distinct !{!146, !45}
+!147 = distinct !{!147, !45}
+!148 = distinct !{!148, !45}

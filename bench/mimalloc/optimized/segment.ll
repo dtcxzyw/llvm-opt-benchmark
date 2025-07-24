@@ -950,7 +950,7 @@ mi_page_purge.exit.us.i:                          ; preds = %74, %mi_segment_raw
   %77 = add nuw i64 %.014.us.i, 1
   %78 = load i64, ptr %12, align 8, !tbaa !43
   %79 = icmp ult i64 %77, %78
-  br i1 %79, label %.lr.ph.split.us.i, label %mi_segment_remove_all_purges.exit, !llvm.loop !56
+  br i1 %79, label %.lr.ph.split.us.i, label %mi_segment_remove_all_purges.exit, !llvm.loop !66
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %mi_page_purge.exit.i
   %.014.i = phi i64 [ %108, %mi_page_purge.exit.i ], [ 0, %.lr.ph.i ]
@@ -1157,7 +1157,7 @@ mi_segment_remove_from_free_queue.exit:           ; preds = %mi_segment_remove_a
 
 mi_segments_track_size.exit:                      ; preds = %150, %157
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %158, align 8, !tbaa !66
+  store i64 0, ptr %158, align 8, !tbaa !68
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %160 = load i8, ptr %159, align 8, !tbaa !62, !range !37, !noundef !38
   %161 = trunc nuw i8 %160 to i1
@@ -1217,10 +1217,10 @@ define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, pt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !67
-  %8 = load ptr, ptr %0, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %8 = load ptr, ptr %0, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8, !tbaa !73
+  %10 = load ptr, ptr %9, align 8, !tbaa !75
   %.not18 = icmp eq ptr %7, %10
   br i1 %.not18, label %11, label %39
 
@@ -1234,9 +1234,9 @@ define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, pt
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %0, align 8, !tbaa !68
+  %17 = load ptr, ptr %0, align 8, !tbaa !70
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %19 = load i64, ptr %18, align 8, !tbaa !79
+  %19 = load i64, ptr %18, align 8, !tbaa !81
   %.not19 = icmp ugt i64 %14, %19
   br i1 %.not19, label %20, label %39
 
@@ -1247,12 +1247,12 @@ define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, pt
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %0, align 8, !tbaa !68
+  %25 = load ptr, ptr %0, align 8, !tbaa !70
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %27 = load i64, ptr %26, align 8, !tbaa !80
+  %27 = load i64, ptr %26, align 8, !tbaa !82
   %28 = shl i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %30 = load i64, ptr %29, align 8, !tbaa !79
+  %30 = load i64, ptr %29, align 8, !tbaa !81
   %31 = icmp ugt i64 %28, %30
   br i1 %31, label %39, label %32
 
@@ -1261,7 +1261,7 @@ define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, pt
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %0, align 8, !tbaa !68
+  %35 = load ptr, ptr %0, align 8, !tbaa !70
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %1, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, ptr noundef nonnull %36) #7
   %38 = icmp ne ptr %37, null
@@ -1284,7 +1284,7 @@ define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr nound
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  store i8 0, ptr %3, align 1, !tbaa !81
+  store i8 0, ptr %3, align 1, !tbaa !83
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -1292,7 +1292,7 @@ define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr nound
   %10 = tail call i64 @_mi_thread_id() #8
   store atomic i64 %10, ptr %9 release, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %11, align 8, !tbaa !66
+  store i64 0, ptr %11, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %12, align 8, !tbaa !62
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -1390,7 +1390,7 @@ mi_segments_track_size.exit:                      ; preds = %32, %39
 64:                                               ; preds = %55
   %65 = load i8, ptr %60, align 1, !tbaa !51
   %66 = zext i8 %65 to i32
-  %67 = load i8, ptr %46, align 1, !tbaa !82
+  %67 = load i8, ptr %46, align 1, !tbaa !84
   %68 = zext i8 %67 to i32
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str, i32 noundef %66, i32 noundef %68) #8
   br label %mi_page_set_heap.exit
@@ -1401,12 +1401,12 @@ mi_page_set_heap.exit:                            ; preds = %64, %55
   %70 = ptrtoint ptr %.0 to i64
   store atomic i64 %70, ptr %69 release, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0, i64 225
-  %72 = load i8, ptr %71, align 1, !tbaa !82
+  %72 = load i8, ptr %71, align 1, !tbaa !84
   store i8 %72, ptr %60, align 1, !tbaa !51
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %51, i32 noundef 0, i1 noundef zeroext true) #8
   tail call void @_mi_page_free_collect(ptr noundef nonnull %51, i1 noundef zeroext false) #8
   %73 = getelementptr i8, ptr %51, i64 24
-  %.val55 = load i16, ptr %73, align 8, !tbaa !83
+  %.val55 = load i16, ptr %73, align 8, !tbaa !85
   %74 = icmp eq i16 %.val55, 0
   br i1 %74, label %75, label %76
 
@@ -1422,7 +1422,7 @@ mi_page_set_heap.exit:                            ; preds = %64, %55
   br i1 %78, label %79, label %92
 
 79:                                               ; preds = %76
-  %80 = load i16, ptr %73, align 8, !tbaa !83
+  %80 = load i16, ptr %73, align 8, !tbaa !85
   %81 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %82 = load i16, ptr %81, align 4, !tbaa !53
   %83 = icmp ult i16 %80, %82
@@ -1442,14 +1442,14 @@ mi_page_has_any_available.exit:                   ; preds = %79, %84
   br i1 %or.cond54, label %91, label %92
 
 91:                                               ; preds = %mi_page_has_any_available.exit
-  store i8 1, ptr %3, align 1, !tbaa !81
+  store i8 1, ptr %3, align 1, !tbaa !83
   br label %92
 
 92:                                               ; preds = %75, %91, %mi_page_has_any_available.exit, %76, %50
   %93 = add nuw i64 %.05159, 1
   %94 = load i64, ptr %42, align 8, !tbaa !43
   %95 = icmp ult i64 %93, %94
-  br i1 %95, label %50, label %._crit_edge, !llvm.loop !84
+  br i1 %95, label %50, label %._crit_edge, !llvm.loop !86
 
 96:                                               ; preds = %._crit_edge
   tail call fastcc void @mi_segment_free(ptr noundef nonnull %0, ptr noundef %4) #7
@@ -1499,7 +1499,7 @@ define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captur
   %3 = alloca %struct.mi_arena_field_cursor_s, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   call void @_mi_arena_field_cursor_init(ptr noundef %0, ptr noundef %5, i1 noundef zeroext true, ptr noundef nonnull %3) #8
   %6 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef nonnull %3) #8
   %.not5 = icmp eq ptr %6, null
@@ -1510,7 +1510,7 @@ define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captur
   %8 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %7, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef nonnull %1) #7
   %9 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef nonnull %3) #8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %3) #8
@@ -1528,7 +1528,7 @@ declare void @_mi_arena_field_cursor_done(ptr noundef) local_unnamed_addr #3
 define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #2 {
   tail call void @mi_collect(i1 noundef zeroext true) #8
   %2 = tail call ptr @mi_heap_get_default() #8
-  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   %4 = lshr i64 %0, 22
   %5 = icmp ult i64 %0, 4194304
   br i1 %5, label %6, label %8
@@ -1571,7 +1571,7 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
   br i1 %.not, label %.critedge, label %14
 
 14:                                               ; preds = %12
-  %.01828 = load ptr, ptr %11, align 8, !tbaa !87
+  %.01828 = load ptr, ptr %11, align 8, !tbaa !89
   %cond29 = icmp eq ptr %.01828, null
   br i1 %cond29, label %.critedge, label %.lr.ph
 
@@ -1585,9 +1585,9 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.01830, i64 64
-  %.018 = load ptr, ptr %18, align 8, !tbaa !87
+  %.018 = load ptr, ptr %18, align 8, !tbaa !89
   %cond = icmp eq ptr %.018, null
-  br i1 %cond, label %.critedge, label %.lr.ph, !llvm.loop !88
+  br i1 %cond, label %.critedge, label %.lr.ph, !llvm.loop !90
 
 .critedge2:                                       ; preds = %.lr.ph
   %magicptr.le = ptrtoint ptr %.01830 to i64
@@ -1635,7 +1635,7 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
   %43 = phi i64 [ %.pre.i, %41 ], [ %31, %30 ]
   %44 = add nuw i64 %.022.i, 1
   %45 = icmp ult i64 %44, %43
-  br i1 %45, label %30, label %._crit_edge.i, !llvm.loop !89
+  br i1 %45, label %30, label %._crit_edge.i, !llvm.loop !91
 
 46:                                               ; preds = %36
   store i8 0, ptr %24, align 1, !tbaa !54
@@ -1660,7 +1660,7 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
 mi_segment_force_abandon.exit:                    ; preds = %46, %50, %51
   %52 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %52, 64
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !90
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !92
 
 .critedge:                                        ; preds = %mi_segment_force_abandon.exit, %12, %14, %17, %3
   ret void
@@ -1669,7 +1669,7 @@ mi_segment_force_abandon.exit:                    ; preds = %46, %50, %51
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_segment_huge_page_reset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !91, !range !37, !noundef !38
+  %5 = load i8, ptr %4, align 8, !tbaa !93, !range !37, !noundef !38
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %18
 
@@ -1702,12 +1702,12 @@ declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = icmp ugt i64 %2, 2097152
-  br i1 %5, label %6, label %10, !prof !92
+  br i1 %5, label %6, label %10, !prof !94
 
 6:                                                ; preds = %4
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 4194304)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !93
+  %8 = load i32, ptr %7, align 8, !tbaa !95
   %9 = tail call fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %1, i64 noundef %spec.store.select, i32 noundef %8, ptr noundef %3) #7
   br label %mi_segment_large_page_alloc.exit
 
@@ -1742,7 +1742,7 @@ define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 no
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !93
+  %27 = load i32, ptr %26, align 8, !tbaa !95
   %28 = tail call fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %1, i64 noundef %2, i32 noundef %27, ptr noundef %3) #7
   br label %mi_segment_large_page_alloc.exit
 
@@ -1801,7 +1801,7 @@ mi_segment_raw_page_start.exit:                   ; preds = %mi_segment_raw_page
 
 31:                                               ; preds = %mi_segment_raw_page_start.exit
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %33 = load i8, ptr %32, align 8, !tbaa !91, !range !37, !noundef !38
+  %33 = load i8, ptr %32, align 8, !tbaa !93, !range !37, !noundef !38
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %55
 
@@ -1857,152 +1857,124 @@ define hidden noundef zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 n
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge.us.us
-  %13 = phi i64 [ %20, %.critedge.us.us ], [ %8, %.lr.ph.split.us ]
-  %.01719.us.us = phi i64 [ %21, %.critedge.us.us ], [ 0, %.lr.ph.split.us ]
-  %14 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719.us.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
+  %13 = phi i64 [ %26, %.critedge.us ], [ %8, %.lr.ph ]
+  %.01719.us = phi i64 [ %27, %.critedge.us ], [ 0, %.lr.ph ]
+  %14 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 1
-  %.not.us.us = icmp eq i8 %17, 0
-  br i1 %.not.us.us, label %.critedge.us.us, label %mi_segment_visit_page.exit.us.us
+  %.not.us = icmp eq i8 %17, 0
+  br i1 %.not.us, label %.critedge.us, label %18
 
-mi_segment_visit_page.exit.us.us:                 ; preds = %.lr.ph.split.us.split.us
+18:                                               ; preds = %.lr.ph.split.us
+  br i1 %11, label %mi_segment_visit_page.exit.us, label %19
+
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 27
+  %21 = load i8, ptr %20, align 1, !tbaa !51
+  %22 = zext i8 %21 to i32
+  %23 = icmp eq i32 %1, %22
+  br i1 %23, label %mi_segment_visit_page.exit.us, label %.critedge.us
+
+mi_segment_visit_page.exit.us:                    ; preds = %19, %18
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %14) #8
-  %18 = load i64, ptr %12, align 8, !tbaa !94
-  %19 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %18, ptr noundef %4) #8
+  %24 = load i64, ptr %12, align 8, !tbaa !96
+  %25 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %24, ptr noundef %4) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
-  br i1 %19, label %mi_segment_visit_page.exit.us.us..critedge.us.us_crit_edge, label %._crit_edge
-
-mi_segment_visit_page.exit.us.us..critedge.us.us_crit_edge: ; preds = %mi_segment_visit_page.exit.us.us
-  %.pre45 = load i64, ptr %7, align 8, !tbaa !43
-  br label %.critedge.us.us
-
-.critedge.us.us:                                  ; preds = %mi_segment_visit_page.exit.us.us..critedge.us.us_crit_edge, %.lr.ph.split.us.split.us
-  %20 = phi i64 [ %.pre45, %mi_segment_visit_page.exit.us.us..critedge.us.us_crit_edge ], [ %13, %.lr.ph.split.us.split.us ]
-  %21 = add nuw i64 %.01719.us.us, 1
-  %.not36 = icmp ult i64 %21, %20
-  br i1 %.not36, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !96
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
-  %22 = phi i64 [ %34, %.critedge.us ], [ %8, %.lr.ph.split.us ]
-  %.01719.us = phi i64 [ %35, %.critedge.us ], [ 0, %.lr.ph.split.us ]
-  %23 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719.us
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not.us = icmp eq i8 %26, 0
-  br i1 %.not.us, label %.critedge.us, label %27
-
-27:                                               ; preds = %.lr.ph.split.us.split
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 27
-  %29 = load i8, ptr %28, align 1, !tbaa !51
-  %30 = zext i8 %29 to i32
-  %31 = icmp eq i32 %1, %30
-  br i1 %31, label %mi_segment_visit_page.exit.us, label %.critedge.us
-
-mi_segment_visit_page.exit.us:                    ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
-  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %23) #8
-  %32 = load i64, ptr %12, align 8, !tbaa !94
-  %33 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %32, ptr noundef %4) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
-  br i1 %33, label %mi_segment_visit_page.exit.us..critedge.us_crit_edge, label %._crit_edge
+  br i1 %25, label %mi_segment_visit_page.exit.us..critedge.us_crit_edge, label %._crit_edge
 
 mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visit_page.exit.us
   %.pre = load i64, ptr %7, align 8, !tbaa !43
   br label %.critedge.us
 
-.critedge.us:                                     ; preds = %mi_segment_visit_page.exit.us..critedge.us_crit_edge, %27, %.lr.ph.split.us.split
-  %34 = phi i64 [ %.pre, %mi_segment_visit_page.exit.us..critedge.us_crit_edge ], [ %22, %27 ], [ %22, %.lr.ph.split.us.split ]
-  %35 = add nuw i64 %.01719.us, 1
-  %.not35 = icmp ult i64 %35, %34
-  br i1 %.not35, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !96
+.critedge.us:                                     ; preds = %mi_segment_visit_page.exit.us..critedge.us_crit_edge, %19, %.lr.ph.split.us
+  %26 = phi i64 [ %.pre, %mi_segment_visit_page.exit.us..critedge.us_crit_edge ], [ %13, %19 ], [ %13, %.lr.ph.split.us ]
+  %27 = add nuw i64 %.01719.us, 1
+  %.not33 = icmp ult i64 %27, %26
+  br i1 %.not33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !98
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us27
-  %36 = phi i64 [ %46, %.critedge.us27 ], [ %8, %.lr.ph.split ]
-  %.01719.us24 = phi i64 [ %47, %.critedge.us27 ], [ 0, %.lr.ph.split ]
-  %37 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719.us24
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 1
-  %.not.us25 = icmp eq i8 %40, 0
-  br i1 %.not.us25, label %.critedge.us27, label %41
+  %28 = phi i64 [ %38, %.critedge.us27 ], [ %8, %.lr.ph.split ]
+  %.01719.us24 = phi i64 [ %39, %.critedge.us27 ], [ 0, %.lr.ph.split ]
+  %29 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719.us24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 1
+  %.not.us25 = icmp eq i8 %32, 0
+  br i1 %.not.us25, label %.critedge.us27, label %33
 
-41:                                               ; preds = %.lr.ph.split.split.us
+33:                                               ; preds = %.lr.ph.split.split.us
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
-  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %37) #8
-  %42 = load i64, ptr %12, align 8, !tbaa !94
-  %43 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %42, ptr noundef %4) #8
-  br i1 %43, label %44, label %._crit_edge.sink.split
+  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %29) #8
+  %34 = load i64, ptr %12, align 8, !tbaa !96
+  %35 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %34, ptr noundef %4) #8
+  br i1 %35, label %36, label %._crit_edge.sink.split
 
-44:                                               ; preds = %41
-  %45 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %37, ptr noundef %3, ptr noundef %4) #8
+36:                                               ; preds = %33
+  %37 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %29, ptr noundef %3, ptr noundef %4) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
-  br i1 %45, label %..critedge.us27_crit_edge, label %._crit_edge
+  br i1 %37, label %..critedge.us27_crit_edge, label %._crit_edge
 
-..critedge.us27_crit_edge:                        ; preds = %44
-  %.pre47 = load i64, ptr %7, align 8, !tbaa !43
+..critedge.us27_crit_edge:                        ; preds = %36
+  %.pre41 = load i64, ptr %7, align 8, !tbaa !43
   br label %.critedge.us27
 
 .critedge.us27:                                   ; preds = %..critedge.us27_crit_edge, %.lr.ph.split.split.us
-  %46 = phi i64 [ %.pre47, %..critedge.us27_crit_edge ], [ %36, %.lr.ph.split.split.us ]
-  %47 = add nuw i64 %.01719.us24, 1
-  %.not38 = icmp ult i64 %47, %46
-  br i1 %.not38, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !96
+  %38 = phi i64 [ %.pre41, %..critedge.us27_crit_edge ], [ %28, %.lr.ph.split.split.us ]
+  %39 = add nuw i64 %.01719.us24, 1
+  %.not35 = icmp ult i64 %39, %38
+  br i1 %.not35, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !99
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
-  %48 = phi i64 [ %63, %.critedge ], [ %8, %.lr.ph.split ]
-  %.01719 = phi i64 [ %64, %.critedge ], [ 0, %.lr.ph.split ]
-  %49 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %.critedge, label %53
+  %40 = phi i64 [ %55, %.critedge ], [ %8, %.lr.ph.split ]
+  %.01719 = phi i64 [ %56, %.critedge ], [ 0, %.lr.ph.split ]
+  %41 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %.01719
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = and i8 %43, 1
+  %.not = icmp eq i8 %44, 0
+  br i1 %.not, label %.critedge, label %45
 
-53:                                               ; preds = %.lr.ph.split.split
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 27
-  %55 = load i8, ptr %54, align 1, !tbaa !51
-  %56 = zext i8 %55 to i32
-  %57 = icmp eq i32 %1, %56
-  br i1 %57, label %58, label %.critedge
+45:                                               ; preds = %.lr.ph.split.split
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 27
+  %47 = load i8, ptr %46, align 1, !tbaa !51
+  %48 = zext i8 %47 to i32
+  %49 = icmp eq i32 %1, %48
+  br i1 %49, label %50, label %.critedge
 
-58:                                               ; preds = %53
+50:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
-  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %49) #8
-  %59 = load i64, ptr %12, align 8, !tbaa !94
-  %60 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %59, ptr noundef %4) #8
-  br i1 %60, label %61, label %._crit_edge.sink.split
+  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %41) #8
+  %51 = load i64, ptr %12, align 8, !tbaa !96
+  %52 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %51, ptr noundef %4) #8
+  br i1 %52, label %53, label %._crit_edge.sink.split
 
-61:                                               ; preds = %58
-  %62 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %49, ptr noundef %3, ptr noundef %4) #8
+53:                                               ; preds = %50
+  %54 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %41, ptr noundef %3, ptr noundef %4) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
-  br i1 %62, label %..critedge_crit_edge, label %._crit_edge
+  br i1 %54, label %..critedge_crit_edge, label %._crit_edge
 
-..critedge_crit_edge:                             ; preds = %61
-  %.pre46 = load i64, ptr %7, align 8, !tbaa !43
+..critedge_crit_edge:                             ; preds = %53
+  %.pre40 = load i64, ptr %7, align 8, !tbaa !43
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %53, %.lr.ph.split.split
-  %63 = phi i64 [ %.pre46, %..critedge_crit_edge ], [ %48, %53 ], [ %48, %.lr.ph.split.split ]
-  %64 = add nuw i64 %.01719, 1
-  %.not37 = icmp ult i64 %64, %63
-  br i1 %.not37, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !96
+.critedge:                                        ; preds = %..critedge_crit_edge, %45, %.lr.ph.split.split
+  %55 = phi i64 [ %.pre40, %..critedge_crit_edge ], [ %40, %45 ], [ %40, %.lr.ph.split.split ]
+  %56 = add nuw i64 %.01719, 1
+  %.not34 = icmp ult i64 %56, %55
+  br i1 %.not34, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !100
 
-._crit_edge.sink.split:                           ; preds = %58, %41
+._crit_edge.sink.split:                           ; preds = %50, %33
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge.us, %mi_segment_visit_page.exit.us, %.critedge.us.us, %mi_segment_visit_page.exit.us.us, %.critedge, %61, %.critedge.us27, %44, %._crit_edge.sink.split, %5
-  %.lcssa = phi i1 [ true, %5 ], [ false, %._crit_edge.sink.split ], [ false, %44 ], [ true, %.critedge.us27 ], [ false, %61 ], [ true, %.critedge ], [ false, %mi_segment_visit_page.exit.us.us ], [ true, %.critedge.us.us ], [ false, %mi_segment_visit_page.exit.us ], [ true, %.critedge.us ]
+._crit_edge:                                      ; preds = %.critedge.us, %mi_segment_visit_page.exit.us, %.critedge, %53, %.critedge.us27, %36, %._crit_edge.sink.split, %5
+  %.lcssa = phi i1 [ true, %5 ], [ false, %._crit_edge.sink.split ], [ false, %36 ], [ true, %.critedge.us27 ], [ false, %53 ], [ true, %.critedge ], [ false, %mi_segment_visit_page.exit.us ], [ true, %.critedge.us ]
   ret i1 %.lcssa
 }
 
@@ -2088,7 +2060,7 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 17
-  %36 = load i8, ptr %35, align 1, !tbaa !97, !range !37, !noundef !38
+  %36 = load i8, ptr %35, align 1, !tbaa !101, !range !37, !noundef !38
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %.critedge.i, label %38
 
@@ -2101,13 +2073,13 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
   br label %mi_segment_os_alloc.exit.thread
 
 .critedge.i:                                      ; preds = %38, %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !98
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !102
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %42 = load i8, ptr %41, align 8, !tbaa !101, !range !37, !noundef !38
+  %42 = load i8, ptr %41, align 8, !tbaa !105, !range !37, !noundef !38
   %43 = trunc nuw i8 %42 to i1
   %44 = xor i8 %42, 1
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i8 %44, ptr %45, align 8, !tbaa !91
+  store i8 %44, ptr %45, align 8, !tbaa !93
   br i1 %43, label %50, label %46
 
 46:                                               ; preds = %.critedge.i
@@ -2123,9 +2095,9 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
   %53 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 %.033.i, ptr %53, align 8, !tbaa !14
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %55 = load ptr, ptr %54, align 8, !tbaa !85
+  %55 = load ptr, ptr %54, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store ptr %55, ptr %56, align 8, !tbaa !67
+  store ptr %55, ptr %56, align 8, !tbaa !69
   %57 = icmp sgt i64 %.033.i, -1
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %59 = load ptr, ptr %58, align 8, !tbaa !49
@@ -2186,8 +2158,8 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
   %83 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %84 = getelementptr inbounds nuw i8, ptr %32, i64 18
   %85 = select i1 %8, i8 8, i8 0
-  %.pre = load i8, ptr %83, align 1, !tbaa !102, !range !37
-  %.pre58 = load i8, ptr %84, align 2, !tbaa !103, !range !37
+  %.pre = load i8, ptr %83, align 1, !tbaa !106, !range !37
+  %.pre58 = load i8, ptr %84, align 2, !tbaa !107, !range !37
   %86 = shl nuw nsw i8 %.pre, 1
   %87 = shl nuw nsw i8 %.pre58, 2
   %invariant.op = or disjoint i8 %86, %87
@@ -2207,10 +2179,10 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
   %93 = getelementptr inbounds nuw i8, ptr %32, i64 136
   store atomic i64 %92, ptr %93 seq_cst, align 8, !tbaa !57
   %94 = ptrtoint ptr %32 to i64
-  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !104
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !108
   %96 = xor i64 %95, %94
   %97 = getelementptr inbounds nuw i8, ptr %32, i64 112
-  store i64 %96, ptr %97, align 8, !tbaa !105
+  store i64 %96, ptr %97, align 8, !tbaa !109
   br i1 %18, label %105, label %115
 
 98:                                               ; preds = %.lr.ph, %98
@@ -2225,7 +2197,7 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
   store i8 %.reass60, ptr %101, align 1
   %104 = add nuw nsw i64 %.057, 1
   %exitcond.not = icmp eq i64 %104, %.051
-  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !110
 
 105:                                              ; preds = %._crit_edge
   %.val.i = load i32, ptr %88, align 8, !tbaa !3
@@ -2402,17 +2374,17 @@ mi_segment_raw_page_start.exit.i.i:               ; preds = %59, %mi_segment_raw
   %.012.i.i.i = phi i64 [ %62, %59 ], [ %53, %mi_segment_raw_page_size.exit.i.i.i ]
   %.0.i.i.i = phi ptr [ %61, %59 ], [ %57, %mi_segment_raw_page_size.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  store i8 0, ptr %3, align 1, !tbaa !81
+  store i8 0, ptr %3, align 1, !tbaa !83
   %63 = call zeroext i1 @_mi_os_commit(ptr noundef nonnull %.0.i.i.i, i64 noundef %.012.i.i.i, ptr noundef nonnull %3) #8
   br i1 %63, label %mi_page_ensure_committed.exit.thread19.i, label %102
 
 mi_page_ensure_committed.exit.thread19.i:         ; preds = %mi_segment_raw_page_start.exit.i.i
   %64 = load i8, ptr %16, align 1
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i16 0, ptr %65, align 8, !tbaa !83
+  store i16 0, ptr %65, align 8, !tbaa !85
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %66, align 8, !tbaa !27
-  %67 = load i8, ptr %3, align 1, !tbaa !81, !range !37, !noundef !38
+  %67 = load i8, ptr %3, align 1, !tbaa !83, !range !37, !noundef !38
   %68 = shl nuw nsw i8 %67, 2
   %69 = and i8 %64, -7
   %70 = or disjoint i8 %69, 2
@@ -2509,7 +2481,7 @@ mi_segment_queue_remove.exit.i.i:                 ; preds = %100, %96
   %104 = phi i64 [ %14, %13 ], [ %.pre46, %102 ]
   %105 = add nuw i64 %.01538, 1
   %.not28 = icmp ult i64 %105, %104
-  br i1 %.not28, label %13, label %.thread25, !llvm.loop !107
+  br i1 %.not28, label %13, label %.thread25, !llvm.loop !111
 
 .thread25:                                        ; preds = %103, %2, %mi_segment_queue_remove.exit.i.i, %88, %79, %mi_page_ensure_committed.exit.thread.i
   %spec.select = phi ptr [ %15, %mi_page_ensure_committed.exit.thread.i ], [ %15, %79 ], [ %15, %88 ], [ %15, %mi_segment_queue_remove.exit.i.i ], [ null, %2 ], [ null, %103 ]
@@ -2532,7 +2504,7 @@ define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef ra
   %switch.not.not.i = icmp eq i32 %2, 0
   %spec.select14.idx.i = select i1 %switch.not.not.i, i64 0, i64 16
   %spec.select14.i = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select14.idx.i
-  %.01116.i = load ptr, ptr %spec.select14.i, align 8, !tbaa !108
+  %.01116.i = load ptr, ptr %spec.select14.i, align 8, !tbaa !112
   %.not17.i = icmp eq ptr %.01116.i, null
   br i1 %.not17.i, label %mi_segment_page_try_alloc_in_queue.exit.thread, label %.lr.ph.i
 
@@ -2542,7 +2514,7 @@ define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef ra
 
 7:                                                ; preds = %14, %.lr.ph.i
   %.01118.i = phi ptr [ %.01116.i, %.lr.ph.i ], [ %.011.i, %14 ]
-  %8 = load i32, ptr %6, align 8, !tbaa !93
+  %8 = load i32, ptr %6, align 8, !tbaa !95
   %9 = tail call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %.01118.i, i32 noundef %8) #8
   br i1 %9, label %10, label %14
 
@@ -2556,9 +2528,9 @@ define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef ra
 
 14:                                               ; preds = %10, %7
   %15 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 48
-  %.011.i = load ptr, ptr %15, align 8, !tbaa !108
+  %.011.i = load ptr, ptr %15, align 8, !tbaa !112
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %mi_segment_page_try_alloc_in_queue.exit.thread, label %7, !llvm.loop !109
+  br i1 %.not.i, label %mi_segment_page_try_alloc_in_queue.exit.thread, label %7, !llvm.loop !113
 
 mi_segment_page_try_alloc_in_queue.exit:          ; preds = %10
   %16 = tail call fastcc ptr @mi_segment_find_free(ptr noundef nonnull %.01118.i, ptr noundef %4) #7
@@ -2571,7 +2543,7 @@ mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment
   br i1 %.not, label %mi_segment_page_try_alloc_in_queue.exit32, label %19
 
 19:                                               ; preds = %mi_segment_page_try_alloc_in_queue.exit.thread
-  %.01116.i23 = load ptr, ptr %spec.select14.i, align 8, !tbaa !108
+  %.01116.i23 = load ptr, ptr %spec.select14.i, align 8, !tbaa !112
   %.not17.i24 = icmp eq ptr %.01116.i23, null
   br i1 %.not17.i24, label %mi_segment_page_try_alloc_in_queue.exit32, label %.lr.ph.i25
 
@@ -2581,7 +2553,7 @@ mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment
 
 21:                                               ; preds = %30, %.lr.ph.i25
   %.01118.i26 = phi ptr [ %.01116.i23, %.lr.ph.i25 ], [ %.011.i27, %30 ]
-  %22 = load i32, ptr %20, align 8, !tbaa !93
+  %22 = load i32, ptr %20, align 8, !tbaa !95
   %23 = tail call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %.01118.i26, i32 noundef %22) #8
   br i1 %23, label %24, label %30
 
@@ -2599,9 +2571,9 @@ mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment
 
 30:                                               ; preds = %24, %21
   %31 = getelementptr inbounds nuw i8, ptr %.01118.i26, i64 48
-  %.011.i27 = load ptr, ptr %31, align 8, !tbaa !108
+  %.011.i27 = load ptr, ptr %31, align 8, !tbaa !112
   %.not.i28 = icmp eq ptr %.011.i27, null
-  br i1 %.not.i28, label %mi_segment_page_try_alloc_in_queue.exit32, label %21, !llvm.loop !109
+  br i1 %.not.i28, label %mi_segment_page_try_alloc_in_queue.exit32, label %21, !llvm.loop !113
 
 mi_segment_page_try_alloc_in_queue.exit32:        ; preds = %30, %mi_segment_page_try_alloc_in_queue.exit.thread, %19, %28, %mi_segment_page_try_alloc_in_queue.exit
   %.1 = phi ptr [ %16, %mi_segment_page_try_alloc_in_queue.exit ], [ null, %mi_segment_page_try_alloc_in_queue.exit.thread ], [ %29, %28 ], [ null, %19 ], [ null, %30 ]
@@ -2628,14 +2600,14 @@ segment_count_is_within_target.exit.i:            ; preds = %5
 
 mi_segments_try_abandon.exit:                     ; preds = %5, %segment_count_is_within_target.exit.i, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
-  store i8 0, ptr %7, align 1, !tbaa !81
+  store i8 0, ptr %7, align 1, !tbaa !83
   %14 = tail call i64 @mi_option_get_clamp(i32 noundef 21, i64 noundef 0, i64 noundef 100) #8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %mi_segments_try_abandon.exit
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
   %19 = load atomic i64, ptr %18 monotonic, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread, label %21
@@ -2695,9 +2667,9 @@ segment_count_is_within_target.exit.thread.i:     ; preds = %36
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %45 = load i64, ptr %44, align 8, !tbaa !66
+  %45 = load i64, ptr %44, align 8, !tbaa !68
   %46 = add i64 %45, 1
-  store i64 %46, ptr %44, align 8, !tbaa !66
+  store i64 %46, ptr %44, align 8, !tbaa !68
   %47 = call zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef %0, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %42) #8
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %49 = load i64, ptr %48, align 8, !tbaa !43
@@ -2724,7 +2696,7 @@ segment_count_is_within_target.exit.thread.i:     ; preds = %36
   %57 = add i64 %.02025.i.i, 1
   call void @_mi_page_free_collect(ptr noundef nonnull %52, i1 noundef zeroext false) #8
   %58 = getelementptr i8, ptr %52, i64 24
-  %.val23.i.i = load i16, ptr %58, align 8, !tbaa !83
+  %.val23.i.i = load i16, ptr %58, align 8, !tbaa !85
   %59 = icmp eq i16 %.val23.i.i, 0
   br i1 %59, label %60, label %62
 
@@ -2761,7 +2733,7 @@ mi_page_has_any_available.exit.thread.i.i:        ; preds = %mi_page_has_any_ava
   %73 = add nuw i64 %.01727.i.i, 1
   %74 = load i64, ptr %48, align 8, !tbaa !43
   %75 = icmp ult i64 %73, %74
-  br i1 %75, label %51, label %mi_segment_check_free.exit.i, !llvm.loop !110
+  br i1 %75, label %51, label %mi_segment_check_free.exit.i, !llvm.loop !114
 
 mi_segment_check_free.exit.i:                     ; preds = %72
   %76 = icmp eq i64 %.121.i.i, %.119.i.i
@@ -2787,7 +2759,7 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
   br i1 %or.cond.i, label %mi_segment_try_reclaim.exit, label %85
 
 85:                                               ; preds = %81, %80
-  %86 = load i64, ptr %44, align 8, !tbaa !66
+  %86 = load i64, ptr %44, align 8, !tbaa !68
   %87 = icmp ugt i64 %86, 3
   %or.cond3.i = select i1 %87, i1 %47, i1 false
   br i1 %or.cond3.i, label %88, label %91
@@ -2808,7 +2780,7 @@ mi_segment_try_reclaim.exit.thread18:             ; preds = %segment_count_is_wi
 
 mi_segment_try_reclaim.exit:                      ; preds = %81
   %92 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef range(i64 0, 1048577) %1, ptr noundef nonnull %7, ptr noundef %4) #7
-  %.pre.pre = load i8, ptr %7, align 1, !tbaa !81, !range !37
+  %.pre.pre = load i8, ptr %7, align 1, !tbaa !83, !range !37
   %93 = trunc nuw i8 %.pre.pre to i1
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
@@ -2820,7 +2792,7 @@ mi_segment_try_reclaim.exit:                      ; preds = %81
 
 .thread:                                          ; preds = %16, %mi_segments_try_abandon.exit, %mi_segment_try_reclaim.exit.thread18, %94
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %96 = load i32, ptr %95, align 8, !tbaa !93
+  %96 = load i32, ptr %95, align 8, !tbaa !95
   %97 = call fastcc ptr @mi_segment_alloc(i64 noundef 0, i32 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %96, ptr noundef %4) #7
   br label %98
 
@@ -2924,48 +2896,52 @@ attributes #9 = { nounwind }
 !63 = !{!31, !10, i64 88}
 !64 = distinct !{!64, !40}
 !65 = !{!4, !9, i64 20}
-!66 = !{!4, !10, i64 80}
-!67 = !{!4, !11, i64 40}
-!68 = !{!69, !70, i64 0}
-!69 = !{!"mi_heap_s", !70, i64 0, !6, i64 8, !10, i64 16, !9, i64 24, !10, i64 32, !6, i64 40, !71, i64 56, !10, i64 192, !10, i64 200, !10, i64 208, !72, i64 216, !8, i64 224, !6, i64 225, !6, i64 232, !6, i64 1264}
-!70 = !{!"p1 _ZTS8mi_tld_s", !12, i64 0}
-!71 = !{!"mi_random_cxt_s", !6, i64 0, !6, i64 64, !9, i64 128, !8, i64 132}
-!72 = !{!"p1 _ZTS9mi_heap_s", !12, i64 0}
-!73 = !{!74, !11, i64 128}
-!74 = !{!"mi_tld_s", !75, i64 0, !8, i64 8, !72, i64 16, !72, i64 24, !31, i64 32, !76, i64 144}
-!75 = !{!"long long", !6, i64 0}
-!76 = !{!"mi_stats_s", !77, i64 0, !77, i64 32, !77, i64 64, !77, i64 96, !77, i64 128, !77, i64 160, !77, i64 192, !77, i64 224, !77, i64 256, !77, i64 288, !77, i64 320, !77, i64 352, !77, i64 384, !77, i64 416, !77, i64 448, !78, i64 480, !78, i64 496, !78, i64 512, !78, i64 528, !78, i64 544, !78, i64 560, !78, i64 576, !78, i64 592, !78, i64 608, !78, i64 624, !78, i64 640, !78, i64 656, !78, i64 672}
-!77 = !{!"mi_stat_count_s", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
-!78 = !{!"mi_stat_counter_s", !10, i64 0, !10, i64 8}
-!79 = !{!74, !10, i64 88}
-!80 = !{!74, !10, i64 120}
-!81 = !{!8, !8, i64 0}
-!82 = !{!69, !6, i64 225}
-!83 = !{!17, !18, i64 24}
-!84 = distinct !{!84, !40}
-!85 = !{!31, !11, i64 96}
+!66 = distinct !{!66, !40, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = !{!4, !10, i64 80}
+!69 = !{!4, !11, i64 40}
+!70 = !{!71, !72, i64 0}
+!71 = !{!"mi_heap_s", !72, i64 0, !6, i64 8, !10, i64 16, !9, i64 24, !10, i64 32, !6, i64 40, !73, i64 56, !10, i64 192, !10, i64 200, !10, i64 208, !74, i64 216, !8, i64 224, !6, i64 225, !6, i64 232, !6, i64 1264}
+!72 = !{!"p1 _ZTS8mi_tld_s", !12, i64 0}
+!73 = !{!"mi_random_cxt_s", !6, i64 0, !6, i64 64, !9, i64 128, !8, i64 132}
+!74 = !{!"p1 _ZTS9mi_heap_s", !12, i64 0}
+!75 = !{!76, !11, i64 128}
+!76 = !{!"mi_tld_s", !77, i64 0, !8, i64 8, !74, i64 16, !74, i64 24, !31, i64 32, !78, i64 144}
+!77 = !{!"long long", !6, i64 0}
+!78 = !{!"mi_stats_s", !79, i64 0, !79, i64 32, !79, i64 64, !79, i64 96, !79, i64 128, !79, i64 160, !79, i64 192, !79, i64 224, !79, i64 256, !79, i64 288, !79, i64 320, !79, i64 352, !79, i64 384, !79, i64 416, !79, i64 448, !80, i64 480, !80, i64 496, !80, i64 512, !80, i64 528, !80, i64 544, !80, i64 560, !80, i64 576, !80, i64 592, !80, i64 608, !80, i64 624, !80, i64 640, !80, i64 656, !80, i64 672}
+!79 = !{!"mi_stat_count_s", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
+!80 = !{!"mi_stat_counter_s", !10, i64 0, !10, i64 8}
+!81 = !{!76, !10, i64 88}
+!82 = !{!76, !10, i64 120}
+!83 = !{!8, !8, i64 0}
+!84 = !{!71, !6, i64 225}
+!85 = !{!17, !18, i64 24}
 !86 = distinct !{!86, !40}
-!87 = !{!21, !21, i64 0}
+!87 = !{!31, !11, i64 96}
 !88 = distinct !{!88, !40}
-!89 = distinct !{!89, !40}
+!89 = !{!21, !21, i64 0}
 !90 = distinct !{!90, !40}
-!91 = !{!4, !8, i64 24}
-!92 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!93 = !{!69, !9, i64 24}
-!94 = !{!95, !10, i64 32}
-!95 = !{!"mi_heap_area_s", !12, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !9, i64 48}
-!96 = distinct !{!96, !40}
-!97 = !{!5, !8, i64 17}
-!98 = !{i64 0, i64 16, !99, i64 16, i64 1, !81, i64 17, i64 1, !81, i64 18, i64 1, !81, i64 20, i64 4, !100}
-!99 = !{!6, !6, i64 0}
-!100 = !{!9, !9, i64 0}
-!101 = !{!5, !8, i64 16}
-!102 = !{!4, !8, i64 17}
-!103 = !{!4, !8, i64 18}
-!104 = !{!69, !10, i64 32}
-!105 = !{!4, !10, i64 112}
-!106 = distinct !{!106, !40}
-!107 = distinct !{!107, !40}
-!108 = !{!13, !13, i64 0}
-!109 = distinct !{!109, !40}
+!91 = distinct !{!91, !40}
+!92 = distinct !{!92, !40}
+!93 = !{!4, !8, i64 24}
+!94 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!95 = !{!71, !9, i64 24}
+!96 = !{!97, !10, i64 32}
+!97 = !{!"mi_heap_area_s", !12, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !9, i64 48}
+!98 = distinct !{!98, !40, !67}
+!99 = distinct !{!99, !40, !67}
+!100 = distinct !{!100, !40}
+!101 = !{!5, !8, i64 17}
+!102 = !{i64 0, i64 16, !103, i64 16, i64 1, !83, i64 17, i64 1, !83, i64 18, i64 1, !83, i64 20, i64 4, !104}
+!103 = !{!6, !6, i64 0}
+!104 = !{!9, !9, i64 0}
+!105 = !{!5, !8, i64 16}
+!106 = !{!4, !8, i64 17}
+!107 = !{!4, !8, i64 18}
+!108 = !{!71, !10, i64 32}
+!109 = !{!4, !10, i64 112}
 !110 = distinct !{!110, !40}
+!111 = distinct !{!111, !40}
+!112 = !{!13, !13, i64 0}
+!113 = distinct !{!113, !40}
+!114 = distinct !{!114, !40}

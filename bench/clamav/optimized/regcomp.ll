@@ -5339,7 +5339,7 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
 716:                                              ; preds = %._crit_edge.us.i, %.lr.ph39.split.us.i
   %717 = getelementptr inbounds nuw i8, ptr %.02737.us.i, i64 16
   %718 = icmp ult ptr %717, %697
-  br i1 %718, label %.lr.ph39.split.us.i, label %freezeset.exit
+  br i1 %718, label %.lr.ph39.split.us.i, label %freezeset.exit, !llvm.loop !63
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i
   %.027.val.us.i = load ptr, ptr %.02737.us.i, align 8, !tbaa !50
@@ -5361,7 +5361,7 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
 723:                                              ; preds = %.lr.ph39.split.split.us.i
   %724 = getelementptr inbounds nuw i8, ptr %.02737.us40.i, i64 16
   %725 = icmp ult ptr %724, %689
-  br i1 %725, label %.lr.ph39.split.split.us.i, label %freezeset.exit
+  br i1 %725, label %.lr.ph39.split.split.us.i, label %freezeset.exit, !llvm.loop !65
 
 .split.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph39.split.split.us.i
   %726 = phi ptr [ %689, %.lr.ph39.split.split.us.i ], [ %697, %._crit_edge.us.i ]
@@ -6617,3 +6617,6 @@ attributes #13 = { "function-inline-cost-multiplier"="2" }
 !60 = !{!61, !61, i64 0}
 !61 = !{!"p1 int", !10, i64 0}
 !62 = !{!5, !5, i64 0}
+!63 = distinct !{!63, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !64}

@@ -1062,7 +1062,7 @@ lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exi
   %143 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef 16, i32 noundef 0)
   %144 = add nuw nsw i32 %.51173.us1176, 16
   %145 = icmp slt i32 %144, %134
-  br i1 %145, label %.lr.ph1174.split.us1175, label %.thread1137, !llvm.loop !10
+  br i1 %145, label %.lr.ph1174.split.us1175, label %.thread1137, !llvm.loop !12
 
 .lr.ph1174.split.us1178:                          ; preds = %.lr.ph1174, %.lr.ph1174.split.us1178
   %.51173.us1179 = phi i32 [ %149, %.lr.ph1174.split.us1178 ], [ 0, %.lr.ph1174 ]
@@ -1071,7 +1071,7 @@ lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exi
   %148 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 4, i32 noundef 0)
   %149 = add nuw nsw i32 %.51173.us1179, 4
   %150 = icmp slt i32 %149, %134
-  br i1 %150, label %.lr.ph1174.split.us1178, label %.thread1137, !llvm.loop !10
+  br i1 %150, label %.lr.ph1174.split.us1178, label %.thread1137, !llvm.loop !13
 
 .thread1144:                                      ; preds = %lmp_valid_class.exit, %proto_item_set_generated.exit
   %151 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %92, ptr noundef nonnull @ei_lmp_invalid_class, ptr noundef nonnull @.str.508, i32 noundef %91)
@@ -1727,7 +1727,7 @@ switch.lookup:                                    ; preds = %485
   br label %557
 
 557:                                              ; preds = %556, %542
-  br i1 %555, label %.lr.ph1183, label %.thread1137, !llvm.loop !11
+  br i1 %555, label %.lr.ph1183, label %.thread1137, !llvm.loop !14
 
 .lr.ph1174.split:                                 ; preds = %.lr.ph1174
   %558 = load i32, ptr @hf_lmp_data, align 4
@@ -2243,7 +2243,7 @@ switch.lookup:                                    ; preds = %485
   %897 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %821, i32 noundef %888, ptr noundef %0, i32 noundef %890, i32 noundef 4, i32 noundef %892, ptr noundef nonnull @.str.596, ptr noundef %895, i32 noundef %896)
   %898 = add nuw nsw i32 %.110481169, 1
   %exitcond.not = icmp eq i32 %898, %smax
-  br i1 %exitcond.not, label %.loopexit, label %887, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %887, !llvm.loop !15
 
 899:                                              ; preds = %830
   %900 = load i32, ptr @hf_lmp_data, align 4
@@ -2262,7 +2262,7 @@ switch.lookup:                                    ; preds = %485
   %908 = zext i8 %907 to i32
   %909 = add nuw nsw i32 %.71170, %908
   %910 = icmp slt i32 %909, %134
-  br i1 %910, label %.lr.ph1171, label %.thread1137, !llvm.loop !13
+  br i1 %910, label %.lr.ph1171, label %.thread1137, !llvm.loop !16
 
 911:                                              ; preds = %794
   %912 = load i32, ptr @hf_lmp_data, align 4
@@ -2433,7 +2433,10 @@ attributes #4 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !11}
+!13 = distinct !{!13, !7, !11}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

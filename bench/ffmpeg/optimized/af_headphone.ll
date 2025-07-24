@@ -1498,7 +1498,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %100 = getelementptr inbounds float, ptr %.099114.us124, i64 %58
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge.us, label %.lr.ph115.split.us128, !llvm.loop !121
+  br i1 %exitcond152.not, label %._crit_edge.us, label %.lr.ph115.split.us128, !llvm.loop !122
 
 101:                                              ; preds = %.lr.ph112.us, %101
   %indvars.iv143 = phi i64 [ 0, %.lr.ph112.us ], [ %indvars.iv.next144, %101 ]
@@ -1510,7 +1510,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   store float %103, ptr %106, align 4, !tbaa !74
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.preheader.us, label %101, !llvm.loop !122
+  br i1 %exitcond147.not, label %.preheader.us, label %101, !llvm.loop !123
 
 .preheader.us:                                    ; preds = %101
   %reass.sub = sub i32 %.0102116.us, %31
@@ -1574,7 +1574,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %137 = getelementptr inbounds float, ptr %.099114.us.us, i64 %58
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge.us, label %.lr.ph115.split.us.us, !llvm.loop !121
+  br i1 %exitcond157.not, label %._crit_edge.us, label %.lr.ph115.split.us.us, !llvm.loop !124
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1584,7 +1584,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   store ptr %139, ptr %140, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader109, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %.preheader109, label %.lr.ph, !llvm.loop !125
 
 .preheader.preheader:                             ; preds = %.preheader109.thread, %.preheader.preheader
   %.098118 = phi ptr [ %141, %.preheader.preheader ], [ %42, %.preheader109.thread ]
@@ -1596,7 +1596,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %143 = and i32 %142, %40
   %144 = add nuw nsw i32 %.0101117, 1
   %145 = icmp slt i32 %144, %49
-  br i1 %145, label %.preheader.preheader, label %._crit_edge122, !llvm.loop !120
+  br i1 %145, label %.preheader.preheader, label %._crit_edge122, !llvm.loop !126
 
 ._crit_edge122:                                   ; preds = %.preheader.preheader, %63, %.preheader109.thread, %.preheader109
   %.0102.lcssa = phi i32 [ %41, %.preheader109 ], [ %41, %.preheader109.thread ], [ %67, %63 ], [ %143, %.preheader.preheader ]
@@ -1695,7 +1695,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %70 = and i32 %69, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader154, label %.lr.ph, !llvm.loop !124
+  br i1 %exitcond.not, label %.preheader154, label %.lr.ph, !llvm.loop !127
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv184 = phi i64 [ %64, %.lr.ph158.preheader ], [ %indvars.iv.next185, %.lr.ph158 ]
@@ -1705,7 +1705,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next185 to i32
   %exitcond186.not = icmp eq i32 %61, %lftr.wideiv
-  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph158, !llvm.loop !125
+  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph158, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph158, %.preheader154
   %72 = sext i32 %55 to i64
@@ -1754,7 +1754,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   store float %91, ptr %89, align 4, !tbaa !74
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.loopexit, label %.lr.ph167, !llvm.loop !126
+  br i1 %exitcond201.not, label %.loopexit, label %.lr.ph167, !llvm.loop !129
 
 92:                                               ; preds = %80
   %93 = getelementptr inbounds nuw [64 x i8], ptr %76, i64 0, i64 %indvars.iv202
@@ -1782,7 +1782,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   store float %102, ptr %103, align 4, !tbaa !89
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !127
+  br i1 %exitcond191.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !130
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %92
   tail call void %50(ptr noundef %47, ptr noundef %35, ptr noundef %38, i64 noundef 8) #8
@@ -1794,10 +1794,10 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %105 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %35, i64 %indvars.iv192
   %106 = load float, ptr %105, align 4, !tbaa !89
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %108 = load float, ptr %107, align 4, !tbaa !128
+  %108 = load float, ptr %107, align 4, !tbaa !131
   %109 = load float, ptr %104, align 4, !tbaa !89
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %111 = load float, ptr %110, align 4, !tbaa !128
+  %111 = load float, ptr %110, align 4, !tbaa !131
   %112 = fneg nsz float %111
   %113 = fmul nsz float %108, %112
   %114 = tail call nsz float @llvm.fmuladd.f32(float %106, float %109, float %113)
@@ -1809,17 +1809,17 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %119 = fmul nsz float %108, %118
   %120 = tail call nsz float @llvm.fmuladd.f32(float %106, float %111, float %119)
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %122 = load float, ptr %121, align 4, !tbaa !128
+  %122 = load float, ptr %121, align 4, !tbaa !131
   %123 = fadd nsz float %122, %120
-  store float %123, ptr %121, align 4, !tbaa !128
+  store float %123, ptr %121, align 4, !tbaa !131
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph165, !llvm.loop !129
+  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph165, !llvm.loop !132
 
 .loopexit:                                        ; preds = %.lr.ph165, %.lr.ph167, %._crit_edge162, %.preheader152
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge172, label %80, !llvm.loop !130
+  br i1 %exitcond206.not, label %._crit_edge172, label %80, !llvm.loop !133
 
 ._crit_edge172:                                   ; preds = %.loopexit, %._crit_edge
   tail call void %53(ptr noundef %44, ptr noundef %35, ptr noundef %41, i64 noundef 8) #8
@@ -1865,7 +1865,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next208, %142
-  br i1 %143, label %.lr.ph175, label %.preheader, !llvm.loop !131
+  br i1 %143, label %.lr.ph175, label %.preheader, !llvm.loop !134
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
   %indvars.iv210 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next211, %.lr.ph178 ]
@@ -1881,7 +1881,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   store float %151, ptr %149, align 4, !tbaa !74
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !132
+  br i1 %exitcond214.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !135
 
 ._crit_edge179:                                   ; preds = %.lr.ph178, %.preheader
   store i32 %.0.lcssa, ptr %13, align 4, !tbaa !27
@@ -2039,16 +2039,19 @@ attributes #8 = { nounwind }
 !117 = !{!21, !22, i64 56}
 !118 = !{!21, !15, i64 20}
 !119 = !{!82, !15, i64 388}
-!120 = distinct !{!120, !25}
-!121 = distinct !{!121, !25}
+!120 = distinct !{!120, !25, !121}
+!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !122 = distinct !{!122, !25}
 !123 = distinct !{!123, !25}
-!124 = distinct !{!124, !25}
+!124 = distinct !{!124, !25, !121}
 !125 = distinct !{!125, !25}
 !126 = distinct !{!126, !25}
 !127 = distinct !{!127, !25}
-!128 = !{!90, !22, i64 4}
+!128 = distinct !{!128, !25}
 !129 = distinct !{!129, !25}
 !130 = distinct !{!130, !25}
-!131 = distinct !{!131, !25}
+!131 = !{!90, !22, i64 4}
 !132 = distinct !{!132, !25}
+!133 = distinct !{!133, !25}
+!134 = distinct !{!134, !25}
+!135 = distinct !{!135, !25}

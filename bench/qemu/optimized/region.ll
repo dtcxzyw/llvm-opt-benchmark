@@ -740,9 +740,9 @@ alloc_code_gen_buffer_splitwx.exit.i:             ; preds = %21
 49:                                               ; preds = %alloc_code_gen_buffer_splitwx.exit.i, %47
   %.not5669.ph = phi i1 [ false, %47 ], [ true, %alloc_code_gen_buffer_splitwx.exit.i ]
   %.not59.ph = phi i1 [ true, %47 ], [ false, %alloc_code_gen_buffer_splitwx.exit.i ]
-  %.val.i82 = load ptr, ptr %5, align 8
-  %.val19.i83 = load ptr, ptr %18, align 8
-  call void @error_propagate(ptr noundef %.val19.i83, ptr noundef %.val.i82) #12
+  %.val.i81 = load ptr, ptr %5, align 8
+  %.val19.i82 = load ptr, ptr %18, align 8
+  call void @error_propagate(ptr noundef %.val19.i82, ptr noundef %.val.i81) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
   %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
@@ -814,181 +814,184 @@ tcg_n_regions.exit:                               ; preds = %59, %63, %66
   %.not56 = and i1 %.not5669.ph, %.not57
   br i1 %.not56, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not59.ph, label %._crit_edge, label %.lr.ph.split.us.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %95
+  %.04570.us = phi i64 [ %96, %95 ], [ 0, %.lr.ph ]
+  br i1 %.not59.ph, label %95, label %82
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %.04570.us = phi i64 [ %94, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
-  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
-  %84 = mul i64 %83, %.04570.us
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
-  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
-  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %89 = add i64 %88, -1
-  %90 = icmp eq i64 %.04570.us, %89
-  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
-  %92 = getelementptr inbounds nuw i8, ptr %82, i64 %91
-  %.0.i62.us = select i1 %90, ptr %92, ptr %87
-  %93 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62.us, i64 noundef %7) #12
-  %94 = add nuw i64 %.04570.us, 1
-  %exitcond79.not = icmp eq i64 %94, %81
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !14
+82:                                               ; preds = %.lr.ph.split.us
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %84 = add i64 %83, -1
+  %85 = icmp eq i64 %.04570.us, %84
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
+  %90 = mul i64 %89, %.04570.us
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 %90
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
+  %.0.i62.us = select i1 %85, ptr %88, ptr %93
+  %94 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62.us, i64 noundef %7) #12
+  br label %95
+
+95:                                               ; preds = %82, %.lr.ph.split.us
+  %96 = add nuw i64 %.04570.us, 1
+  %exitcond78.not = icmp eq i64 %96, %81
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not57, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %118
-  %.04570.us71 = phi i64 [ %119, %118 ], [ 0, %.lr.ph.split ]
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
-  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
-  %97 = mul i64 %96, %.04570.us71
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %97
-  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
-  %101 = icmp eq i64 %.04570.us71, 0
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
-  %spec.select.i.us72 = select i1 %101, ptr %102, ptr %98
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %104 = add i64 %103, -1
-  %105 = icmp eq i64 %.04570.us71, %104
-  %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
-  %107 = getelementptr inbounds nuw i8, ptr %95, i64 %106
-  %.0.i62.us73 = select i1 %105, ptr %107, ptr %100
-  %108 = ptrtoint ptr %.0.i62.us73 to i64
-  %109 = ptrtoint ptr %spec.select.i.us72 to i64
-  %110 = sub i64 %108, %109
-  %111 = call i32 @qemu_mprotect_rw(ptr noundef %spec.select.i.us72, i64 noundef %110) #12
-  %.not58.us = icmp eq i32 %111, 0
-  br i1 %.not58.us, label %115, label %112
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %120
+  %.04570.us71 = phi i64 [ %121, %120 ], [ 0, %.lr.ph.split ]
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
+  %99 = mul i64 %98, %.04570.us71
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
+  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %101
+  %103 = icmp eq i64 %.04570.us71, 0
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
+  %spec.select.i.us72 = select i1 %103, ptr %104, ptr %100
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %106 = add i64 %105, -1
+  %107 = icmp eq i64 %.04570.us71, %106
+  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
+  %109 = getelementptr inbounds nuw i8, ptr %97, i64 %108
+  %.0.i62.us73 = select i1 %107, ptr %109, ptr %102
+  %110 = ptrtoint ptr %.0.i62.us73 to i64
+  %111 = ptrtoint ptr %spec.select.i.us72 to i64
+  %112 = sub i64 %110, %111
+  %113 = call i32 @qemu_mprotect_rw(ptr noundef %spec.select.i.us72, i64 noundef %112) #12
+  %.not58.us = icmp eq i32 %113, 0
+  br i1 %.not58.us, label %117, label %114
 
-112:                                              ; preds = %.lr.ph.split.split.us
-  %113 = tail call ptr @__errno_location() #13
-  %114 = load i32, ptr %113, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str, i32 noundef 844, ptr noundef nonnull @__func__.tcg_region_init, i32 noundef %114, ptr noundef nonnull @.str.4) #12
-  br label %115
+114:                                              ; preds = %.lr.ph.split.split.us
+  %115 = tail call ptr @__errno_location() #13
+  %116 = load i32, ptr %115, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str, i32 noundef 844, ptr noundef nonnull @__func__.tcg_region_init, i32 noundef %116, ptr noundef nonnull @.str.4) #12
+  br label %117
 
-115:                                              ; preds = %112, %.lr.ph.split.split.us
-  br i1 %.not59.ph, label %118, label %116
+117:                                              ; preds = %114, %.lr.ph.split.split.us
+  br i1 %.not59.ph, label %120, label %118
 
-116:                                              ; preds = %115
-  %117 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62.us73, i64 noundef %7) #12
-  br label %118
+118:                                              ; preds = %117
+  %119 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62.us73, i64 noundef %7) #12
+  br label %120
 
-118:                                              ; preds = %116, %115
-  %119 = add nuw i64 %.04570.us71, 1
-  %exitcond78.not = icmp eq i64 %119, %81
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !14
+120:                                              ; preds = %118, %117
+  %121 = add nuw i64 %.04570.us71, 1
+  %exitcond77.not = icmp eq i64 %121, %81
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %182, %118, %.lr.ph.split.us.split, %.lr.ph.split.us, %75
-  %120 = load i32, ptr @qemu_dcache_linesize, align 4
-  %121 = sext i32 %120 to i64
-  %122 = add nsw i64 %121, 55
-  %123 = sub nsw i64 0, %121
-  %124 = and i64 %122, %123
-  store i64 %124, ptr @tree_size, align 8
-  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %126 = mul i64 %124, %125
-  %127 = call ptr @qemu_memalign(i64 noundef %121, i64 noundef %126) #12
-  store ptr %127, ptr @region_trees, align 8
-  %128 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %.not.i61 = icmp eq i64 %128, 0
+._crit_edge:                                      ; preds = %184, %120, %95, %75
+  %122 = load i32, ptr @qemu_dcache_linesize, align 4
+  %123 = sext i32 %122 to i64
+  %124 = add nsw i64 %123, 55
+  %125 = sub nsw i64 0, %123
+  %126 = and i64 %124, %125
+  store i64 %126, ptr @tree_size, align 8
+  %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %128 = mul i64 %126, %127
+  %129 = call ptr @qemu_memalign(i64 noundef %123, i64 noundef %128) #12
+  store ptr %129, ptr @region_trees, align 8
+  %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %.not.i61 = icmp eq i64 %130, 0
   br i1 %.not.i61, label %tcg_region_trees_init.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.04.i = phi i64 [ %135, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %129 = load ptr, ptr @region_trees, align 8
-  %130 = load i64, ptr @tree_size, align 8
-  %131 = mul i64 %130, %.04.i
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 %131
-  call void @qemu_mutex_init(ptr noundef %132) #12
-  %133 = call ptr @q_tree_new_full(ptr noundef nonnull @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @tb_destroy) #12
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store ptr %133, ptr %134, align 8
-  %135 = add nuw i64 %.04.i, 1
-  %136 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %137 = icmp ult i64 %135, %136
-  br i1 %137, label %.lr.ph.i, label %tcg_region_trees_init.exit, !llvm.loop !15
+  %.04.i = phi i64 [ %137, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %131 = load ptr, ptr @region_trees, align 8
+  %132 = load i64, ptr @tree_size, align 8
+  %133 = mul i64 %132, %.04.i
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %133
+  call void @qemu_mutex_init(ptr noundef %134) #12
+  %135 = call ptr @q_tree_new_full(ptr noundef nonnull @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @tb_destroy) #12
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 48
+  store ptr %135, ptr %136, align 8
+  %137 = add nuw i64 %.04.i, 1
+  %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %139 = icmp ult i64 %137, %138
+  br i1 %139, label %.lr.ph.i, label %tcg_region_trees_init.exit, !llvm.loop !17
 
 tcg_region_trees_init.exit:                       ; preds = %.lr.ph.i, %._crit_edge
-  %138 = phi i64 [ 0, %._crit_edge ], [ %136, %.lr.ph.i ]
-  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 96), align 8
-  %140 = icmp eq i64 %139, %138
-  br i1 %140, label %141, label %tcg_region_initial_alloc__locked.exit
+  %140 = phi i64 [ 0, %._crit_edge ], [ %138, %.lr.ph.i ]
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 96), align 8
+  %142 = icmp eq i64 %141, %140
+  br i1 %142, label %143, label %tcg_region_initial_alloc__locked.exit
 
-141:                                              ; preds = %tcg_region_trees_init.exit
+143:                                              ; preds = %tcg_region_trees_init.exit
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 396, ptr noundef nonnull @__func__.tcg_region_initial_alloc__locked, ptr noundef nonnull @.str.7) #11
   unreachable
 
 tcg_region_initial_alloc__locked.exit:            ; preds = %tcg_region_trees_init.exit
-  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
-  %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
-  %144 = mul i64 %143, %139
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
-  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
-  %147 = getelementptr inbounds nuw i8, ptr %145, i64 %146
-  %148 = icmp eq i64 %139, 0
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
-  %spec.select.i.i.i.i = select i1 %148, ptr %149, ptr %145
-  %150 = add i64 %138, -1
-  %151 = icmp eq i64 %139, %150
-  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
-  %153 = getelementptr inbounds nuw i8, ptr %142, i64 %152
-  %.0.i.i.i.i = select i1 %151, ptr %153, ptr %147
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
+  %146 = mul i64 %145, %141
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 %146
+  %148 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 %148
+  %150 = icmp eq i64 %141, 0
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
+  %spec.select.i.i.i.i = select i1 %150, ptr %151, ptr %147
+  %152 = add i64 %140, -1
+  %153 = icmp eq i64 %141, %152
+  %154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
+  %155 = getelementptr inbounds nuw i8, ptr %144, i64 %154
+  %.0.i.i.i.i = select i1 %153, ptr %155, ptr %149
   store ptr %spec.select.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 136), align 8
   store ptr %spec.select.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 152), align 8
-  %154 = ptrtoint ptr %.0.i.i.i.i to i64
-  %155 = ptrtoint ptr %spec.select.i.i.i.i to i64
-  %156 = sub i64 %154, %155
-  store i64 %156, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 144), align 8
-  %157 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -1024
-  store ptr %157, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 168), align 8
-  %158 = add i64 %139, 1
-  store i64 %158, ptr getelementptr inbounds nuw (i8, ptr @region, i64 96), align 8
+  %156 = ptrtoint ptr %.0.i.i.i.i to i64
+  %157 = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %158 = sub i64 %156, %157
+  store i64 %158, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 144), align 8
+  %159 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -1024
+  store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 168), align 8
+  %160 = add i64 %141, 1
+  store i64 %160, ptr getelementptr inbounds nuw (i8, ptr @region, i64 96), align 8
   ret void
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %182
-  %.04570 = phi i64 [ %183, %182 ], [ 0, %.lr.ph.split ]
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
-  %160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
-  %161 = mul i64 %160, %.04570
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
-  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %163
-  %165 = icmp eq i64 %.04570, 0
-  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
-  %spec.select.i = select i1 %165, ptr %166, ptr %162
-  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
-  %168 = add i64 %167, -1
-  %169 = icmp eq i64 %.04570, %168
-  %170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
-  %171 = getelementptr inbounds nuw i8, ptr %159, i64 %170
-  %.0.i62 = select i1 %169, ptr %171, ptr %164
-  %172 = ptrtoint ptr %.0.i62 to i64
-  %173 = ptrtoint ptr %spec.select.i to i64
-  %174 = sub i64 %172, %173
-  %175 = call i32 @qemu_mprotect_rwx(ptr noundef %spec.select.i, i64 noundef %174) #12
-  %.not58 = icmp eq i32 %175, 0
-  br i1 %.not58, label %179, label %176
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %184
+  %.04570 = phi i64 [ %185, %184 ], [ 0, %.lr.ph.split ]
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
+  %162 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 80), align 8
+  %163 = mul i64 %162, %.04570
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 %163
+  %165 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 72), align 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 %165
+  %167 = icmp eq i64 %.04570, 0
+  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 56), align 8
+  %spec.select.i = select i1 %167, ptr %168, ptr %164
+  %169 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
+  %170 = add i64 %169, -1
+  %171 = icmp eq i64 %.04570, %170
+  %172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
+  %173 = getelementptr inbounds nuw i8, ptr %161, i64 %172
+  %.0.i62 = select i1 %171, ptr %173, ptr %166
+  %174 = ptrtoint ptr %.0.i62 to i64
+  %175 = ptrtoint ptr %spec.select.i to i64
+  %176 = sub i64 %174, %175
+  %177 = call i32 @qemu_mprotect_rwx(ptr noundef %spec.select.i, i64 noundef %176) #12
+  %.not58 = icmp eq i32 %177, 0
+  br i1 %.not58, label %181, label %178
 
-176:                                              ; preds = %.lr.ph.split.split
-  %177 = tail call ptr @__errno_location() #13
-  %178 = load i32, ptr %177, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str, i32 noundef 844, ptr noundef nonnull @__func__.tcg_region_init, i32 noundef %178, ptr noundef nonnull @.str.4) #12
-  br label %179
+178:                                              ; preds = %.lr.ph.split.split
+  %179 = tail call ptr @__errno_location() #13
+  %180 = load i32, ptr %179, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str, i32 noundef 844, ptr noundef nonnull @__func__.tcg_region_init, i32 noundef %180, ptr noundef nonnull @.str.4) #12
+  br label %181
 
-179:                                              ; preds = %.lr.ph.split.split, %176
-  br i1 %.not59.ph, label %182, label %180
+181:                                              ; preds = %.lr.ph.split.split, %178
+  br i1 %.not59.ph, label %184, label %182
 
-180:                                              ; preds = %179
-  %181 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62, i64 noundef %7) #12
-  br label %182
+182:                                              ; preds = %181
+  %183 = call i32 @qemu_mprotect_none(ptr noundef %.0.i62, i64 noundef %7) #12
+  br label %184
 
-182:                                              ; preds = %180, %179
-  %183 = add nuw i64 %.04570, 1
-  %exitcond.not = icmp eq i64 %183, %81
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14
+184:                                              ; preds = %182, %181
+  %185 = add nuw i64 %.04570, 1
+  %exitcond.not = icmp eq i64 %185, %81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 }
 
 declare i64 @qemu_get_host_physmem() local_unnamed_addr #4
@@ -1017,7 +1020,7 @@ define dso_local void @tcg_region_prologue_set(ptr noundef captures(none) %0) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %2, %4
-  br i1 %.not, label %6, label %5, !prof !16
+  br i1 %.not, label %6, label %5, !prof !19
 
 5:                                                ; preds = %1
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 866, ptr noundef nonnull @__func__.tcg_region_prologue_set, ptr noundef nonnull @.str.5) #11
@@ -1097,7 +1100,7 @@ define dso_local i64 @tcg_code_size() local_unnamed_addr #1 {
   %20 = add i64 %15, %.02225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %19, %0
   %.022.lcssa = phi i64 [ %4, %0 ], [ %20, %19 ]
@@ -1170,7 +1173,7 @@ define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(no
 
 15:                                               ; preds = %13
   %.not21 = icmp eq i64 %5, %8
-  br i1 %.not21, label %25, label %16, !prof !16
+  br i1 %.not21, label %25, label %16, !prof !19
 
 16:                                               ; preds = %15
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.tb_tc_cmp, ptr noundef nonnull @.str.11) #11
@@ -1245,7 +1248,10 @@ attributes #13 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !6}
 !12 = !{i8 0, i8 2}
 !13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6, !15}
 !17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = distinct !{!20, !6}

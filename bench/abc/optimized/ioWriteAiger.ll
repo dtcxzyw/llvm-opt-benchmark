@@ -1124,7 +1124,7 @@ Io_WriteAigerEncode.exit305._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val = load i32, ptr %303, align 4, !tbaa !27
   %304 = sext i32 %.val to i64
   %305 = icmp slt i64 %indvars.iv.next387, %304
-  br i1 %305, label %.lr.ph352, label %.critedge14.preheader, !llvm.loop !64
+  br i1 %305, label %.lr.ph352, label %.critedge14.preheader, !llvm.loop !65
 
 .lr.ph358.split:                                  ; preds = %.lr.ph358, %.critedge14
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %.critedge14 ], [ 0, %.lr.ph358 ]
@@ -1161,12 +1161,12 @@ Io_WriteAigerEncode.exit305._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val252.val = load i32, ptr %321, align 4, !tbaa !27
   %322 = sext i32 %.val252.val to i64
   %323 = icmp slt i64 %indvars.iv.next390, %322
-  br i1 %323, label %.lr.ph358.split, label %.critedge16, !llvm.loop !63
+  br i1 %323, label %.lr.ph358.split, label %.critedge16, !llvm.loop !66
 
 .critedge16:                                      ; preds = %.critedge14, %.critedge14.us, %.critedge14.preheader, %259
   %324 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %24)
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %326 = load ptr, ptr %325, align 8, !tbaa !65
+  %326 = load ptr, ptr %325, align 8, !tbaa !67
   %.not213 = icmp eq ptr %326, null
   br i1 %.not213, label %330, label %327
 
@@ -1278,7 +1278,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.val237.val = load i32, ptr %26, align 4, !tbaa !27
   %27 = sext i32 %.val237.val to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !66
+  br i1 %28, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !68
 
 .lr.ph294:                                        ; preds = %.critedge.preheader, %.critedge
   %29 = phi ptr [ %41, %.critedge ], [ %18, %.critedge.preheader ]
@@ -1314,7 +1314,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.val199 = load i32, ptr %42, align 4, !tbaa !27
   %43 = sext i32 %.val199 to i64
   %44 = icmp slt i64 %indvars.iv.next333, %43
-  br i1 %44, label %.lr.ph294, label %.critedge2, !llvm.loop !67
+  br i1 %44, label %.lr.ph294, label %.critedge2, !llvm.loop !69
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %45 = getelementptr i8, ptr %0, i64 40
@@ -1454,7 +1454,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.val198 = load i32, ptr %116, align 4, !tbaa !27
   %117 = sext i32 %.val198 to i64
   %118 = icmp slt i64 %indvars.iv.next336, %117
-  br i1 %118, label %.lr.ph297, label %.critedge4.preheader, !llvm.loop !68
+  br i1 %118, label %.lr.ph297, label %.critedge4.preheader, !llvm.loop !70
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %.critedge4 ], [ 0, %.critedge4.preheader ]
@@ -1494,7 +1494,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.val226.val = load i32, ptr %140, align 4, !tbaa !27
   %141 = sext i32 %.val226.val to i64
   %142 = icmp slt i64 %indvars.iv.next339, %141
-  br i1 %142, label %.critedge4, label %.critedge6, !llvm.loop !69
+  br i1 %142, label %.critedge4, label %.critedge6, !llvm.loop !71
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   tail call void @Abc_NtkInvertConstraints(ptr noundef nonnull %0) #15
@@ -1676,7 +1676,7 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val197 = load i32, ptr %224, align 4, !tbaa !27
   %225 = sext i32 %.val197 to i64
   %226 = icmp slt i64 %indvars.iv.next342, %225
-  br i1 %226, label %154, label %.critedge8, !llvm.loop !70
+  br i1 %226, label %154, label %.critedge8, !llvm.loop !72
 
 .critedge8:                                       ; preds = %222, %.critedge6
   %.0169.lcssa = phi i32 [ 0, %.critedge6 ], [ %.1170, %222 ]
@@ -1723,7 +1723,7 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val243.val = load i32, ptr %241, align 4, !tbaa !27
   %242 = sext i32 %.val243.val to i64
   %243 = icmp slt i64 %indvars.iv.next345, %242
-  br i1 %243, label %.lr.ph313, label %.critedge10.preheader, !llvm.loop !71
+  br i1 %243, label %.lr.ph313, label %.critedge10.preheader, !llvm.loop !73
 
 .critedge12.preheader:                            ; preds = %.critedge10, %.critedge10.preheader
   %.val225317 = load ptr, ptr %66, align 8, !tbaa !33
@@ -1751,7 +1751,7 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val225.val.us = load i32, ptr %252, align 4, !tbaa !27
   %253 = sext i32 %.val225.val.us to i64
   %254 = icmp slt i64 %indvars.iv.next354, %253
-  br i1 %254, label %.critedge12.us, label %.critedge14, !llvm.loop !72
+  br i1 %254, label %.critedge12.us, label %.critedge14, !llvm.loop !74
 
 .lr.ph316:                                        ; preds = %.critedge10.preheader, %.critedge10
   %255 = phi ptr [ %271, %.critedge10 ], [ %232, %.critedge10.preheader ]
@@ -1791,7 +1791,7 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val = load i32, ptr %272, align 4, !tbaa !27
   %273 = sext i32 %.val to i64
   %274 = icmp slt i64 %indvars.iv.next348, %273
-  br i1 %274, label %.lr.ph316, label %.critedge12.preheader, !llvm.loop !73
+  br i1 %274, label %.lr.ph316, label %.critedge12.preheader, !llvm.loop !75
 
 .lr.ph322.split:                                  ; preds = %.lr.ph322, %.critedge12
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.critedge12 ], [ 0, %.lr.ph322 ]
@@ -1828,12 +1828,12 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val225.val = load i32, ptr %290, align 4, !tbaa !27
   %291 = sext i32 %.val225.val to i64
   %292 = icmp slt i64 %indvars.iv.next351, %291
-  br i1 %292, label %.lr.ph322.split, label %.critedge14, !llvm.loop !72
+  br i1 %292, label %.lr.ph322.split, label %.critedge14, !llvm.loop !76
 
 .critedge14:                                      ; preds = %.critedge12, %.critedge12.us, %.critedge12.preheader, %229
   %293 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17) #15
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %295 = load ptr, ptr %294, align 8, !tbaa !65
+  %295 = load ptr, ptr %294, align 8, !tbaa !67
   %.not186 = icmp eq ptr %295, null
   br i1 %.not186, label %299, label %296
 
@@ -1871,7 +1871,7 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %6, align 8, !tbaa !77
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %47, label %8
 
@@ -1885,15 +1885,15 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
 
 12:                                               ; preds = %36, %8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %13 = load ptr, ptr %9, align 8, !tbaa !76
-  %14 = load i32, ptr %10, align 4, !tbaa !77
+  %13 = load ptr, ptr %9, align 8, !tbaa !79
+  %14 = load i32, ptr %10, align 4, !tbaa !80
   %15 = sext i32 %14 to i64
   %16 = call i32 @vsnprintf(ptr noundef %13, i64 noundef %15, ptr noundef %1, ptr noundef nonnull %4) #15
-  store i32 %16, ptr %11, align 8, !tbaa !78
+  store i32 %16, ptr %11, align 8, !tbaa !81
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %17 = load i32, ptr %11, align 8, !tbaa !78
+  %17 = load i32, ptr %11, align 8, !tbaa !81
   %18 = icmp sgt i32 %17, -1
-  %19 = load i32, ptr %10, align 4, !tbaa !77
+  %19 = load i32, ptr %10, align 4, !tbaa !80
   br i1 %18, label %20, label %24
 
 20:                                               ; preds = %12
@@ -1910,8 +1910,8 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
 
 26:                                               ; preds = %24, %22
   %storemerge = phi i32 [ %25, %24 ], [ %23, %22 ]
-  store i32 %storemerge, ptr %10, align 4, !tbaa !77
-  %27 = load ptr, ptr %9, align 8, !tbaa !76
+  store i32 %storemerge, ptr %10, align 4, !tbaa !80
+  %27 = load ptr, ptr %9, align 8, !tbaa !79
   %.not29 = icmp eq ptr %27, null
   %28 = sext i32 %storemerge to i64
   br i1 %.not29, label %31, label %29
@@ -1930,12 +1930,12 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33
-  store ptr %34, ptr %9, align 8, !tbaa !76
+  store ptr %34, ptr %9, align 8, !tbaa !79
   br label %12
 
 37:                                               ; preds = %20
-  %38 = load ptr, ptr %6, align 8, !tbaa !74
-  %39 = load ptr, ptr %9, align 8, !tbaa !76
+  %38 = load ptr, ptr %6, align 8, !tbaa !77
+  %39 = load ptr, ptr %9, align 8, !tbaa !79
   call void @BZ2_bzWrite(ptr noundef nonnull %3, ptr noundef %38, ptr noundef %39, i32 noundef %17) #15
   %40 = load i32, ptr %3, align 4, !tbaa !41
   %41 = icmp eq i32 %40, -6
@@ -1947,7 +1947,7 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
   br label %.loopexit
 
 45:                                               ; preds = %37
-  %46 = load i32, ptr %11, align 8, !tbaa !78
+  %46 = load i32, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %45, %42
@@ -1959,7 +1959,7 @@ define i32 @fprintfBz2Aig(ptr noundef captures(none) %0, ptr noundef readonly ca
 47:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %48 = load ptr, ptr %0, align 8, !tbaa !79
+  %48 = load ptr, ptr %0, align 8, !tbaa !82
   %49 = call i32 @vfprintf(ptr noundef %48, ptr noundef %1, ptr noundef nonnull %5) #15
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
@@ -2039,7 +2039,7 @@ define void @Io_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 25:                                               ; preds = %14, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %14, !llvm.loop !80
+  br i1 %exitcond.not, label %.critedge.loopexit, label %14, !llvm.loop !83
 
 .critedge.loopexit:                               ; preds = %25, %5
   %26 = icmp eq i32 %.val290, 0
@@ -2074,12 +2074,12 @@ sub_1:                                            ; preds = %.critedge
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 4096, ptr %38, align 4, !tbaa !77
+  store i32 4096, ptr %38, align 4, !tbaa !80
   %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #13
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %39, ptr %40, align 8, !tbaa !76
+  store ptr %39, ptr %40, align 8, !tbaa !79
   %41 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.1)
-  store ptr %41, ptr %7, align 8, !tbaa !79
+  store ptr %41, ptr %7, align 8, !tbaa !82
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %47
 
@@ -2104,7 +2104,7 @@ sub_1:                                            ; preds = %.critedge
 52:                                               ; preds = %47
   %53 = call ptr @BZ2_bzWriteOpen(ptr noundef nonnull %6, ptr noundef nonnull %41, i32 noundef 9, i32 noundef 0, i32 noundef 0) #15
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %53, ptr %54, align 8, !tbaa !74
+  store ptr %53, ptr %54, align 8, !tbaa !77
   %55 = load i32, ptr %6, align 4, !tbaa !41
   %.not217 = icmp eq i32 %55, 0
   br i1 %.not217, label %61, label %56
@@ -2163,7 +2163,7 @@ sub_1:                                            ; preds = %.critedge
   %.val293.val = load i32, ptr %77, align 4, !tbaa !27
   %78 = sext i32 %.val293.val to i64
   %79 = icmp slt i64 %indvars.iv.next400, %78
-  br i1 %79, label %.lr.ph357, label %.critedge2.preheader.loopexit, !llvm.loop !81
+  br i1 %79, label %.lr.ph357, label %.critedge2.preheader.loopexit, !llvm.loop !84
 
 .lr.ph361:                                        ; preds = %.critedge2.preheader, %.critedge2
   %80 = phi ptr [ %92, %.critedge2 ], [ %69, %.critedge2.preheader ]
@@ -2199,7 +2199,7 @@ sub_1:                                            ; preds = %.critedge
   %.val249 = load i32, ptr %93, align 4, !tbaa !27
   %94 = sext i32 %.val249 to i64
   %95 = icmp slt i64 %indvars.iv.next405, %94
-  br i1 %95, label %.lr.ph361, label %.critedge4, !llvm.loop !82
+  br i1 %95, label %.lr.ph361, label %.critedge4, !llvm.loop !85
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %.not219 = icmp eq i32 %spec.select, 0
@@ -2342,7 +2342,7 @@ sub_1:                                            ; preds = %.critedge
   %.val248 = load i32, ptr %167, align 4, !tbaa !27
   %168 = sext i32 %.val248 to i64
   %169 = icmp slt i64 %indvars.iv.next408, %168
-  br i1 %169, label %.lr.ph364, label %.critedge6.preheader, !llvm.loop !83
+  br i1 %169, label %.lr.ph364, label %.critedge6.preheader, !llvm.loop !86
 
 .critedge6:                                       ; preds = %.critedge6.preheader, %.critedge6
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %.critedge6 ], [ 0, %.critedge6.preheader ]
@@ -2382,13 +2382,13 @@ sub_1:                                            ; preds = %.critedge
   %.val279.val = load i32, ptr %191, align 4, !tbaa !27
   %192 = sext i32 %.val279.val to i64
   %193 = icmp slt i64 %indvars.iv.next411, %192
-  br i1 %193, label %.critedge6, label %.critedge8, !llvm.loop !84
+  br i1 %193, label %.critedge6, label %.critedge8, !llvm.loop !87
 
 194:                                              ; preds = %112
   %195 = call ptr @Io_WriteAigerLiterals(ptr noundef nonnull %0)
   %196 = call ptr @Io_WriteEncodeLiterals(ptr noundef %195)
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !74
+  %198 = load ptr, ptr %197, align 8, !tbaa !77
   %.not224 = icmp eq ptr %198, null
   %199 = getelementptr i8, ptr %196, i64 8
   %.val285 = load ptr, ptr %199, align 8, !tbaa !47
@@ -2398,7 +2398,7 @@ sub_1:                                            ; preds = %.critedge
 
 201:                                              ; preds = %194
   %202 = sext i32 %.val314 to i64
-  %203 = load ptr, ptr %7, align 8, !tbaa !79
+  %203 = load ptr, ptr %7, align 8, !tbaa !82
   %204 = call i64 @fwrite(ptr noundef %.val285, i64 noundef 1, i64 noundef %202, ptr noundef %203)
   br label %216
 
@@ -2411,9 +2411,9 @@ sub_1:                                            ; preds = %.critedge
 208:                                              ; preds = %205
   %209 = load ptr, ptr @stdout, align 8, !tbaa !50
   %210 = call i64 @fwrite(ptr nonnull @.str.28, i64 57, i64 1, ptr %209)
-  %211 = load ptr, ptr %7, align 8, !tbaa !79
+  %211 = load ptr, ptr %7, align 8, !tbaa !82
   %212 = call i32 @fclose(ptr noundef %211)
-  %213 = load ptr, ptr %40, align 8, !tbaa !76
+  %213 = load ptr, ptr %40, align 8, !tbaa !79
   %.not225 = icmp eq ptr %213, null
   br i1 %.not225, label %.critedge244, label %214
 
@@ -2625,9 +2625,9 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
 
 298:                                              ; preds = %Io_WriteAigerEncode.exit335
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %299 = load ptr, ptr %7, align 8, !tbaa !79
+  %299 = load ptr, ptr %7, align 8, !tbaa !82
   %300 = call i32 @fclose(ptr noundef %299)
-  %301 = load ptr, ptr %40, align 8, !tbaa !76
+  %301 = load ptr, ptr %40, align 8, !tbaa !79
   %.not237 = icmp eq ptr %301, null
   br i1 %.not237, label %303, label %302
 
@@ -2647,19 +2647,19 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val247 = load i32, ptr %306, align 4, !tbaa !27
   %307 = sext i32 %.val247 to i64
   %308 = icmp slt i64 %indvars.iv.next414, %307
-  br i1 %308, label %232, label %.critedge10, !llvm.loop !85
+  br i1 %308, label %232, label %.critedge10, !llvm.loop !88
 
 .critedge10:                                      ; preds = %304, %.critedge8
   %.0186.lcssa = phi i32 [ 0, %.critedge8 ], [ %.1, %304 ]
   call void @Extra_ProgressBarStop(ptr noundef %227) #15
   %309 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %310 = load ptr, ptr %309, align 8, !tbaa !74
+  %310 = load ptr, ptr %309, align 8, !tbaa !77
   %.not226 = icmp eq ptr %310, null
   br i1 %.not226, label %311, label %315
 
 311:                                              ; preds = %.critedge10
   %312 = sext i32 %.0186.lcssa to i64
-  %313 = load ptr, ptr %7, align 8, !tbaa !79
+  %313 = load ptr, ptr %7, align 8, !tbaa !82
   %314 = call i64 @fwrite(ptr noundef %224, i64 noundef 1, i64 noundef %312, ptr noundef %313)
   br label %325
 
@@ -2672,9 +2672,9 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
 318:                                              ; preds = %315
   %319 = load ptr, ptr @stdout, align 8, !tbaa !50
   %320 = call i64 @fwrite(ptr nonnull @.str.28, i64 57, i64 1, ptr %319)
-  %321 = load ptr, ptr %7, align 8, !tbaa !79
+  %321 = load ptr, ptr %7, align 8, !tbaa !82
   %322 = call i32 @fclose(ptr noundef %321)
-  %323 = load ptr, ptr %40, align 8, !tbaa !76
+  %323 = load ptr, ptr %40, align 8, !tbaa !79
   %.not235 = icmp eq ptr %323, null
   br i1 %.not235, label %420, label %324
 
@@ -2724,7 +2724,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val299.val = load i32, ptr %339, align 4, !tbaa !27
   %340 = sext i32 %.val299.val to i64
   %341 = icmp slt i64 %indvars.iv.next417, %340
-  br i1 %341, label %.lr.ph380, label %.critedge12.preheader, !llvm.loop !86
+  br i1 %341, label %.lr.ph380, label %.critedge12.preheader, !llvm.loop !89
 
 .critedge14.preheader:                            ; preds = %.critedge12, %.critedge12.preheader
   %342 = getelementptr i8, ptr %0, i64 48
@@ -2753,7 +2753,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val278.val.us = load i32, ptr %351, align 4, !tbaa !27
   %352 = sext i32 %.val278.val.us to i64
   %353 = icmp slt i64 %indvars.iv.next426, %352
-  br i1 %353, label %.critedge14.us, label %.critedge16, !llvm.loop !87
+  br i1 %353, label %.critedge14.us, label %.critedge16, !llvm.loop !90
 
 .lr.ph383:                                        ; preds = %.critedge12.preheader, %.critedge12
   %354 = phi ptr [ %370, %.critedge12 ], [ %330, %.critedge12.preheader ]
@@ -2793,7 +2793,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val = load i32, ptr %371, align 4, !tbaa !27
   %372 = sext i32 %.val to i64
   %373 = icmp slt i64 %indvars.iv.next420, %372
-  br i1 %373, label %.lr.ph383, label %.critedge14.preheader, !llvm.loop !88
+  br i1 %373, label %.lr.ph383, label %.critedge14.preheader, !llvm.loop !91
 
 .lr.ph389.split:                                  ; preds = %.lr.ph389, %.critedge14
   %indvars.iv422 = phi i64 [ %indvars.iv.next423, %.critedge14 ], [ 0, %.lr.ph389 ]
@@ -2830,7 +2830,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   %.val278.val = load i32, ptr %389, align 4, !tbaa !27
   %390 = sext i32 %.val278.val to i64
   %391 = icmp slt i64 %indvars.iv.next423, %390
-  br i1 %391, label %.lr.ph389.split, label %.critedge16, !llvm.loop !87
+  br i1 %391, label %.lr.ph389.split, label %.critedge16, !llvm.loop !92
 
 .critedge16:                                      ; preds = %.critedge14, %.critedge14.us, %.critedge14.preheader, %327
   %392 = call i32 (ptr, ptr, ...) @fprintfBz2Aig(ptr noundef nonnull %7, ptr noundef nonnull @.str.29)
@@ -2838,7 +2838,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
 
 393:                                              ; preds = %.critedge16
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %395 = load ptr, ptr %394, align 8, !tbaa !65
+  %395 = load ptr, ptr %394, align 8, !tbaa !67
   %.not229 = icmp eq ptr %395, null
   br i1 %.not229, label %399, label %396
 
@@ -2858,7 +2858,7 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   br label %403
 
 403:                                              ; preds = %399, %.critedge16
-  %404 = load ptr, ptr %309, align 8, !tbaa !74
+  %404 = load ptr, ptr %309, align 8, !tbaa !77
   %.not231 = icmp eq ptr %404, null
   br i1 %.not231, label %415, label %405
 
@@ -2871,9 +2871,9 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
 408:                                              ; preds = %405
   %409 = load ptr, ptr @stdout, align 8, !tbaa !50
   %410 = call i64 @fwrite(ptr nonnull @.str.32, i64 54, i64 1, ptr %409)
-  %411 = load ptr, ptr %7, align 8, !tbaa !79
+  %411 = load ptr, ptr %7, align 8, !tbaa !82
   %412 = call i32 @fclose(ptr noundef %411)
-  %413 = load ptr, ptr %40, align 8, !tbaa !76
+  %413 = load ptr, ptr %40, align 8, !tbaa !79
   %.not233 = icmp eq ptr %413, null
   br i1 %.not233, label %420, label %414
 
@@ -2882,9 +2882,9 @@ Io_WriteAigerEncode.exit335._crit_edge:           ; preds = %Io_WriteAigerEncode
   br label %420
 
 415:                                              ; preds = %405, %403
-  %416 = load ptr, ptr %7, align 8, !tbaa !79
+  %416 = load ptr, ptr %7, align 8, !tbaa !82
   %417 = call i32 @fclose(ptr noundef %416)
-  %418 = load ptr, ptr %40, align 8, !tbaa !76
+  %418 = load ptr, ptr %40, align 8, !tbaa !79
   %.not232 = icmp eq ptr %418, null
   br i1 %.not232, label %420, label %419
 
@@ -2919,7 +2919,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = getelementptr i8, ptr %.val127, i64 4
   %.val127.val = load i32, ptr %7, align 4, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !89
+  %9 = load i32, ptr %8, align 4, !tbaa !93
   %10 = icmp eq i32 %.val127.val, %9
   br i1 %10, label %11, label %18
 
@@ -2927,7 +2927,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %12 = getelementptr i8, ptr %1, i64 128
   %.val128 = load i32, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !91
+  %14 = load i32, ptr %13, align 4, !tbaa !95
   %15 = icmp eq i32 %.val128, %14
   br i1 %15, label %16, label %18
 
@@ -2941,20 +2941,20 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
 
 19:                                               ; preds = %18
   %20 = getelementptr i8, ptr %2, i64 16
-  %.val129 = load i32, ptr %20, align 8, !tbaa !92
+  %.val129 = load i32, ptr %20, align 8, !tbaa !96
   %21 = getelementptr i8, ptr %2, i64 64
-  %.val130 = load ptr, ptr %21, align 8, !tbaa !106
+  %.val130 = load ptr, ptr %21, align 8, !tbaa !110
   %22 = getelementptr i8, ptr %.val130, i64 4
   %.val130.val = load i32, ptr %22, align 4, !tbaa !29
   %23 = sub nsw i32 %.val130.val, %.val129
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !89
+  %25 = load i32, ptr %24, align 4, !tbaa !93
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 4, !tbaa !91
+  %29 = load i32, ptr %28, align 4, !tbaa !95
   %30 = icmp eq i32 %.val129, %29
   br i1 %30, label %31, label %33
 
@@ -2971,7 +2971,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %35 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.1)
   %36 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 2, i64 1, ptr %35)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !91
+  %38 = load i32, ptr %37, align 4, !tbaa !95
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
@@ -2979,21 +2979,21 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %.0107154 = phi i32 [ %40, %.lr.ph ], [ 0, %34 ]
   %fputc120 = tail call i32 @fputc(i32 48, ptr %35)
   %40 = add nuw nsw i32 %.0107154, 1
-  %41 = load i32, ptr %37, align 4, !tbaa !91
+  %41 = load i32, ptr %37, align 4, !tbaa !95
   %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !107
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %fputc = tail call i32 @fputc(i32 32, ptr %35)
   tail call void @Aig_ManCleanMarkA(ptr noundef %.0109) #15
   %43 = getelementptr i8, ptr %.0109, i64 48
-  %.0109.val = load ptr, ptr %43, align 8, !tbaa !108
+  %.0109.val = load ptr, ptr %43, align 8, !tbaa !112
   %44 = getelementptr inbounds nuw i8, ptr %.0109.val, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = or i64 %45, 16
   store i64 %46, ptr %44, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !115
+  %48 = load i32, ptr %47, align 4, !tbaa !119
   %.not114178 = icmp slt i32 %48, 0
   br i1 %.not114178, label %.critedge6._crit_edge, label %.preheader151.lr.ph
 
@@ -3011,7 +3011,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
 .preheader151:                                    ; preds = %.preheader151.lr.ph, %.critedge10
   %.0180 = phi i32 [ %38, %.preheader151.lr.ph ], [ %.1.lcssa, %.critedge10 ]
   %.0106179 = phi i32 [ 0, %.preheader151.lr.ph ], [ %216, %.critedge10 ]
-  %57 = load i32, ptr %49, align 4, !tbaa !89
+  %57 = load i32, ptr %49, align 4, !tbaa !93
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph157, label %._crit_edge158
 
@@ -3029,7 +3029,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %67 = add nsw i32 %.1156, 1
   %68 = load i32, ptr %61, align 4, !tbaa !41
   %69 = lshr i32 %68, %63
-  %.0109.val132 = load ptr, ptr %51, align 8, !tbaa !116
+  %.0109.val132 = load ptr, ptr %51, align 8, !tbaa !120
   %70 = getelementptr i8, ptr %.0109.val132, i64 8
   %.0109.val132.val = load ptr, ptr %70, align 8, !tbaa !34
   %71 = getelementptr inbounds nuw ptr, ptr %.0109.val132.val, i64 %indvars.iv
@@ -3043,22 +3043,22 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %79 = or disjoint i64 %78, %77
   store i64 %79, ptr %73, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load i32, ptr %49, align 4, !tbaa !89
+  %80 = load i32, ptr %49, align 4, !tbaa !93
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph157, label %._crit_edge158, !llvm.loop !117
+  br i1 %82, label %.lr.ph157, label %._crit_edge158, !llvm.loop !121
 
 ._crit_edge158:                                   ; preds = %.lr.ph157, %.preheader151
   %.1.lcssa = phi i32 [ %.0180, %.preheader151 ], [ %67, %.lr.ph157 ]
   %fputc115 = tail call i32 @fputc(i32 32, ptr %35)
-  %83 = load ptr, ptr %52, align 8, !tbaa !118
+  %83 = load ptr, ptr %52, align 8, !tbaa !122
   %84 = getelementptr i8, ptr %83, i64 4
   %.val121159 = load i32, ptr %84, align 4, !tbaa !27
   %85 = icmp sgt i32 %.val121159, 0
   br i1 %85, label %.lr.ph162, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %126, %._crit_edge158
-  %86 = load ptr, ptr %53, align 8, !tbaa !119
+  %86 = load ptr, ptr %53, align 8, !tbaa !123
   %87 = getelementptr i8, ptr %86, i64 4
   %.val163 = load i32, ptr %87, align 4, !tbaa !27
   %88 = icmp sgt i32 %.val163, 0
@@ -3085,7 +3085,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
 
 99:                                               ; preds = %94
   %100 = getelementptr i8, ptr %92, i64 8
-  %.val134 = load ptr, ptr %100, align 8, !tbaa !120
+  %.val134 = load ptr, ptr %100, align 8, !tbaa !124
   %101 = ptrtoint ptr %.val134 to i64
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
@@ -3096,7 +3096,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %108 = trunc i64 %101 to i32
   %109 = xor i32 %107, %108
   %110 = getelementptr i8, ptr %92, i64 16
-  %.val138 = load ptr, ptr %110, align 8, !tbaa !121
+  %.val138 = load ptr, ptr %110, align 8, !tbaa !125
   %111 = ptrtoint ptr %.val138 to i64
   %112 = and i64 %111, -2
   %113 = inttoptr i64 %112 to ptr
@@ -3113,7 +3113,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %124 = and i64 %.val133, -17
   %125 = or disjoint i64 %124, %123
   store i64 %125, ptr %95, align 8
-  %.pre = load ptr, ptr %52, align 8, !tbaa !118
+  %.pre = load ptr, ptr %52, align 8, !tbaa !122
   br label %126
 
 126:                                              ; preds = %99, %94, %.lr.ph162
@@ -3123,10 +3123,10 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %.val121 = load i32, ptr %128, align 4, !tbaa !27
   %129 = sext i32 %.val121 to i64
   %130 = icmp slt i64 %indvars.iv.next186, %129
-  br i1 %130, label %.lr.ph162, label %.critedge.preheader, !llvm.loop !122
+  br i1 %130, label %.lr.ph162, label %.critedge.preheader, !llvm.loop !126
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %.0109.val140166 = load i32, ptr %54, align 8, !tbaa !123
+  %.0109.val140166 = load i32, ptr %54, align 8, !tbaa !127
   %131 = icmp sgt i32 %.0109.val140166, 0
   br i1 %131, label %.critedge2, label %.critedge4
 
@@ -3138,7 +3138,7 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %134 = getelementptr inbounds nuw ptr, ptr %.val123, i64 %indvars.iv188
   %135 = load ptr, ptr %134, align 8, !tbaa !35
   %136 = getelementptr i8, ptr %135, i64 8
-  %.val135 = load ptr, ptr %136, align 8, !tbaa !120
+  %.val135 = load ptr, ptr %136, align 8, !tbaa !124
   %137 = ptrtoint ptr %.val135 to i64
   %138 = and i64 %137, -2
   %139 = inttoptr i64 %138 to ptr
@@ -3153,16 +3153,16 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %147 = or disjoint i64 %145, %146
   store i64 %147, ptr %142, align 8
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %148 = load ptr, ptr %53, align 8, !tbaa !119
+  %148 = load ptr, ptr %53, align 8, !tbaa !123
   %149 = getelementptr i8, ptr %148, i64 4
   %.val = load i32, ptr %149, align 4, !tbaa !27
   %150 = sext i32 %.val to i64
   %151 = icmp slt i64 %indvars.iv.next189, %150
-  br i1 %151, label %.critedge, label %.critedge2.preheader, !llvm.loop !124
+  br i1 %151, label %.critedge, label %.critedge2.preheader, !llvm.loop !128
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %152 = load ptr, ptr %53, align 8, !tbaa !119
+  %152 = load ptr, ptr %53, align 8, !tbaa !123
   %153 = getelementptr i8, ptr %152, i64 8
   %.val124 = load ptr, ptr %153, align 8, !tbaa !34
   %154 = getelementptr inbounds nuw ptr, ptr %.val124, i64 %indvars.iv191
@@ -3174,21 +3174,21 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %160 = and i32 %159, 1
   %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.37, i32 noundef %160) #15
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %.0109.val140 = load i32, ptr %54, align 8, !tbaa !123
+  %.0109.val140 = load i32, ptr %54, align 8, !tbaa !127
   %162 = sext i32 %.0109.val140 to i64
   %163 = icmp slt i64 %indvars.iv.next192, %162
-  br i1 %163, label %.critedge2, label %.critedge4, !llvm.loop !125
+  br i1 %163, label %.critedge2, label %.critedge4, !llvm.loop !129
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %fputc116 = tail call i32 @fputc(i32 32, ptr %35)
-  %.0109.val143169 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val143169 = load i32, ptr %55, align 8, !tbaa !130
   %164 = icmp sgt i32 %.0109.val143169, 0
   br i1 %164, label %.lr.ph171, label %.critedge6
 
 .lr.ph171:                                        ; preds = %.critedge4, %.lr.ph171
   %.5170 = phi i32 [ %177, %.lr.ph171 ], [ 0, %.critedge4 ]
-  %165 = load ptr, ptr %53, align 8, !tbaa !119
-  %.0109.val141 = load i32, ptr %54, align 8, !tbaa !123
+  %165 = load ptr, ptr %53, align 8, !tbaa !123
+  %.0109.val141 = load i32, ptr %54, align 8, !tbaa !127
   %166 = add nsw i32 %.0109.val141, %.5170
   %167 = getelementptr i8, ptr %165, i64 8
   %.val125 = load ptr, ptr %167, align 8, !tbaa !34
@@ -3202,25 +3202,25 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %175 = and i32 %174, 1
   %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.37, i32 noundef %175) #15
   %177 = add nuw nsw i32 %.5170, 1
-  %.0109.val143 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val143 = load i32, ptr %55, align 8, !tbaa !130
   %178 = icmp slt i32 %177, %.0109.val143
-  br i1 %178, label %.lr.ph171, label %.critedge6, !llvm.loop !127
+  br i1 %178, label %.lr.ph171, label %.critedge6, !llvm.loop !131
 
 .critedge6:                                       ; preds = %.lr.ph171, %.critedge4
   %fputc117 = tail call i32 @fputc(i32 10, ptr %35)
-  %179 = load i32, ptr %47, align 4, !tbaa !115
+  %179 = load i32, ptr %47, align 4, !tbaa !119
   %180 = icmp eq i32 %.0106179, %179
   br i1 %180, label %.critedge6._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge6
-  %.0109.val144172 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val144172 = load i32, ptr %55, align 8, !tbaa !130
   %181 = icmp sgt i32 %.0109.val144172, 0
   br i1 %181, label %.lr.ph174, label %.critedge8
 
 .lr.ph174:                                        ; preds = %.preheader, %.lr.ph174
   %.6173 = phi i32 [ %194, %.lr.ph174 ], [ 0, %.preheader ]
-  %182 = load ptr, ptr %53, align 8, !tbaa !119
-  %.0109.val142 = load i32, ptr %54, align 8, !tbaa !123
+  %182 = load ptr, ptr %53, align 8, !tbaa !123
+  %.0109.val142 = load i32, ptr %54, align 8, !tbaa !127
   %183 = add nsw i32 %.0109.val142, %.6173
   %184 = getelementptr i8, ptr %182, i64 8
   %.val126 = load ptr, ptr %184, align 8, !tbaa !34
@@ -3234,28 +3234,28 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %192 = and i32 %191, 1
   %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.37, i32 noundef %192) #15
   %194 = add nuw nsw i32 %.6173, 1
-  %.0109.val144 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val144 = load i32, ptr %55, align 8, !tbaa !130
   %195 = icmp slt i32 %194, %.0109.val144
-  br i1 %195, label %.lr.ph174, label %.critedge8, !llvm.loop !128
+  br i1 %195, label %.lr.ph174, label %.critedge8, !llvm.loop !132
 
 .critedge8:                                       ; preds = %.lr.ph174, %.preheader
   %fputc118 = tail call i32 @fputc(i32 32, ptr %35)
-  %.0109.val145175 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val145175 = load i32, ptr %55, align 8, !tbaa !130
   %196 = icmp sgt i32 %.0109.val145175, 0
   br i1 %196, label %.lr.ph177, label %.critedge10
 
 .lr.ph177:                                        ; preds = %.critedge8, %.lr.ph177
   %.7176 = phi i32 [ %214, %.lr.ph177 ], [ 0, %.critedge8 ]
-  %.0109.val146 = load ptr, ptr %53, align 8, !tbaa !119
-  %.0109.val147 = load i32, ptr %54, align 8, !tbaa !123
+  %.0109.val146 = load ptr, ptr %53, align 8, !tbaa !123
+  %.0109.val147 = load i32, ptr %54, align 8, !tbaa !127
   %197 = getelementptr i8, ptr %.0109.val146, i64 8
   %.0109.val146.val = load ptr, ptr %197, align 8, !tbaa !34
   %198 = add nsw i32 %.0109.val147, %.7176
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds ptr, ptr %.0109.val146.val, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !35
-  %.0109.val148 = load ptr, ptr %51, align 8, !tbaa !116
-  %.0109.val149 = load i32, ptr %56, align 4, !tbaa !129
+  %.0109.val148 = load ptr, ptr %51, align 8, !tbaa !120
+  %.0109.val149 = load i32, ptr %56, align 4, !tbaa !133
   %202 = getelementptr i8, ptr %.0109.val148, i64 8
   %.0109.val148.val = load ptr, ptr %202, align 8, !tbaa !34
   %203 = add nsw i32 %.0109.val149, %.7176
@@ -3271,15 +3271,15 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %213 = or disjoint i64 %212, %209
   store i64 %213, ptr %210, align 8
   %214 = add nuw nsw i32 %.7176, 1
-  %.0109.val145 = load i32, ptr %55, align 8, !tbaa !126
+  %.0109.val145 = load i32, ptr %55, align 8, !tbaa !130
   %215 = icmp slt i32 %214, %.0109.val145
-  br i1 %215, label %.lr.ph177, label %.critedge10, !llvm.loop !130
+  br i1 %215, label %.lr.ph177, label %.critedge10, !llvm.loop !134
 
 .critedge10:                                      ; preds = %.lr.ph177, %.critedge8
   %216 = add nuw nsw i32 %.0106179, 1
-  %217 = load i32, ptr %47, align 4, !tbaa !115
+  %217 = load i32, ptr %47, align 4, !tbaa !119
   %.not114.not = icmp slt i32 %.0106179, %217
-  br i1 %.not114.not, label %.preheader151, label %.critedge6._crit_edge, !llvm.loop !131
+  br i1 %.not114.not, label %.preheader151, label %.critedge6._crit_edge, !llvm.loop !135
 
 .critedge6._crit_edge:                            ; preds = %.critedge10, %.critedge6, %._crit_edge
   %218 = tail call i32 @fclose(ptr noundef %35)
@@ -3396,72 +3396,76 @@ attributes #16 = { nounwind willreturn memory(read) }
 !60 = distinct !{!60, !7}
 !61 = distinct !{!61, !7}
 !62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = !{!9, !11, i64 8}
+!63 = distinct !{!63, !7, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !7}
 !66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
+!67 = !{!9, !11, i64 8}
 !68 = distinct !{!68, !7}
 !69 = distinct !{!69, !7}
 !70 = distinct !{!70, !7}
 !71 = distinct !{!71, !7}
 !72 = distinct !{!72, !7}
 !73 = distinct !{!73, !7}
-!74 = !{!75, !12, i64 8}
-!75 = !{!"bz2file", !51, i64 0, !12, i64 8, !11, i64 16, !10, i64 24, !10, i64 28}
-!76 = !{!75, !11, i64 16}
-!77 = !{!75, !10, i64 28}
-!78 = !{!75, !10, i64 24}
-!79 = !{!75, !51, i64 0}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
+!74 = distinct !{!74, !7, !64}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = !{!78, !12, i64 8}
+!78 = !{!"bz2file", !51, i64 0, !12, i64 8, !11, i64 16, !10, i64 24, !10, i64 28}
+!79 = !{!78, !11, i64 16}
+!80 = !{!78, !10, i64 28}
+!81 = !{!78, !10, i64 24}
+!82 = !{!78, !51, i64 0}
 !83 = distinct !{!83, !7}
 !84 = distinct !{!84, !7}
 !85 = distinct !{!85, !7}
 !86 = distinct !{!86, !7}
 !87 = distinct !{!87, !7}
 !88 = distinct !{!88, !7}
-!89 = !{!90, !10, i64 12}
-!90 = !{!"Abc_Cex_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !4, i64 20}
-!91 = !{!90, !10, i64 8}
-!92 = !{!93, !10, i64 16}
-!93 = !{!"Gia_Man_t_", !11, i64 0, !11, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !94, i64 32, !19, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !24, i64 64, !24, i64 72, !18, i64 80, !18, i64 96, !10, i64 112, !10, i64 116, !10, i64 120, !18, i64 128, !19, i64 144, !19, i64 152, !24, i64 160, !10, i64 168, !10, i64 172, !10, i64 176, !10, i64 180, !19, i64 184, !95, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !10, i64 224, !10, i64 228, !19, i64 232, !10, i64 240, !24, i64 248, !24, i64 256, !24, i64 264, !96, i64 272, !96, i64 280, !24, i64 288, !12, i64 296, !24, i64 304, !24, i64 312, !11, i64 320, !24, i64 328, !24, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !25, i64 368, !25, i64 376, !14, i64 384, !18, i64 392, !18, i64 408, !24, i64 424, !24, i64 432, !24, i64 440, !24, i64 448, !24, i64 456, !24, i64 464, !24, i64 472, !24, i64 480, !24, i64 488, !24, i64 496, !24, i64 504, !11, i64 512, !97, i64 520, !98, i64 528, !99, i64 536, !99, i64 544, !24, i64 552, !24, i64 560, !24, i64 568, !24, i64 576, !24, i64 584, !10, i64 592, !23, i64 596, !23, i64 600, !24, i64 608, !19, i64 616, !10, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !24, i64 656, !24, i64 664, !24, i64 672, !24, i64 680, !24, i64 688, !24, i64 696, !24, i64 704, !24, i64 712, !100, i64 720, !99, i64 728, !12, i64 736, !12, i64 744, !101, i64 752, !101, i64 760, !12, i64 768, !19, i64 776, !10, i64 784, !10, i64 788, !10, i64 792, !10, i64 796, !10, i64 800, !10, i64 804, !10, i64 808, !10, i64 812, !10, i64 816, !10, i64 820, !10, i64 824, !10, i64 828, !102, i64 832, !102, i64 840, !102, i64 848, !102, i64 856, !24, i64 864, !24, i64 872, !24, i64 880, !103, i64 888, !10, i64 896, !10, i64 900, !10, i64 904, !24, i64 912, !10, i64 920, !10, i64 924, !24, i64 928, !24, i64 936, !14, i64 944, !102, i64 952, !24, i64 960, !24, i64 968, !10, i64 976, !10, i64 980, !102, i64 984, !18, i64 992, !18, i64 1008, !18, i64 1024, !104, i64 1040, !105, i64 1048, !105, i64 1056, !10, i64 1064, !10, i64 1068, !10, i64 1072, !10, i64 1076, !105, i64 1080, !24, i64 1088, !24, i64 1096, !24, i64 1104, !14, i64 1112}
-!94 = !{!"p1 _ZTS10Gia_Obj_t_", !12, i64 0}
-!95 = !{!"p1 _ZTS10Gia_Rpr_t_", !12, i64 0}
-!96 = !{!"p1 _ZTS10Vec_Wec_t_", !12, i64 0}
-!97 = !{!"p1 _ZTS10Gia_Plc_t_", !12, i64 0}
-!98 = !{!"p1 _ZTS10Gia_Man_t_", !12, i64 0}
-!99 = !{!"p1 _ZTS10Vec_Flt_t_", !12, i64 0}
-!100 = !{!"p1 _ZTS10Vec_Vec_t_", !12, i64 0}
-!101 = !{!"long", !4, i64 0}
-!102 = !{!"p1 _ZTS10Vec_Wrd_t_", !12, i64 0}
-!103 = !{!"p1 _ZTS10Vec_Bit_t_", !12, i64 0}
-!104 = !{!"p1 _ZTS10Gia_Dat_t_", !12, i64 0}
-!105 = !{!"p1 _ZTS10Vec_Str_t_", !12, i64 0}
-!106 = !{!93, !24, i64 64}
-!107 = distinct !{!107, !7}
-!108 = !{!109, !110, i64 48}
-!109 = !{!"Aig_Man_t_", !11, i64 0, !11, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !110, i64 48, !111, i64 56, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !4, i64 128, !10, i64 156, !112, i64 160, !10, i64 168, !19, i64 176, !10, i64 184, !100, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !19, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !112, i64 248, !112, i64 256, !10, i64 264, !113, i64 272, !24, i64 280, !10, i64 288, !12, i64 296, !12, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !112, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !19, i64 368, !19, i64 376, !14, i64 384, !24, i64 392, !24, i64 400, !25, i64 408, !14, i64 416, !114, i64 424, !14, i64 432, !10, i64 440, !24, i64 448, !100, i64 456, !24, i64 464, !24, i64 472, !10, i64 480, !101, i64 488, !101, i64 496, !101, i64 504, !14, i64 512, !14, i64 520}
-!110 = !{!"p1 _ZTS10Aig_Obj_t_", !12, i64 0}
-!111 = !{!"Aig_Obj_t_", !4, i64 0, !110, i64 8, !110, i64 16, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 28, !10, i64 31, !10, i64 32, !10, i64 36, !4, i64 40}
-!112 = !{!"p2 _ZTS10Aig_Obj_t_", !12, i64 0}
-!113 = !{!"p1 _ZTS14Aig_MmFixed_t_", !12, i64 0}
-!114 = !{!"p1 _ZTS10Aig_Man_t_", !12, i64 0}
-!115 = !{!90, !10, i64 4}
-!116 = !{!109, !14, i64 16}
-!117 = distinct !{!117, !7}
-!118 = !{!109, !14, i64 32}
-!119 = !{!109, !14, i64 24}
-!120 = !{!111, !110, i64 8}
-!121 = !{!111, !110, i64 16}
-!122 = distinct !{!122, !7}
-!123 = !{!109, !10, i64 112}
-!124 = distinct !{!124, !7}
-!125 = distinct !{!125, !7}
-!126 = !{!109, !10, i64 104}
-!127 = distinct !{!127, !7}
+!89 = distinct !{!89, !7}
+!90 = distinct !{!90, !7, !64}
+!91 = distinct !{!91, !7}
+!92 = distinct !{!92, !7}
+!93 = !{!94, !10, i64 12}
+!94 = !{!"Abc_Cex_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !4, i64 20}
+!95 = !{!94, !10, i64 8}
+!96 = !{!97, !10, i64 16}
+!97 = !{!"Gia_Man_t_", !11, i64 0, !11, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !98, i64 32, !19, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !24, i64 64, !24, i64 72, !18, i64 80, !18, i64 96, !10, i64 112, !10, i64 116, !10, i64 120, !18, i64 128, !19, i64 144, !19, i64 152, !24, i64 160, !10, i64 168, !10, i64 172, !10, i64 176, !10, i64 180, !19, i64 184, !99, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !10, i64 224, !10, i64 228, !19, i64 232, !10, i64 240, !24, i64 248, !24, i64 256, !24, i64 264, !100, i64 272, !100, i64 280, !24, i64 288, !12, i64 296, !24, i64 304, !24, i64 312, !11, i64 320, !24, i64 328, !24, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !25, i64 368, !25, i64 376, !14, i64 384, !18, i64 392, !18, i64 408, !24, i64 424, !24, i64 432, !24, i64 440, !24, i64 448, !24, i64 456, !24, i64 464, !24, i64 472, !24, i64 480, !24, i64 488, !24, i64 496, !24, i64 504, !11, i64 512, !101, i64 520, !102, i64 528, !103, i64 536, !103, i64 544, !24, i64 552, !24, i64 560, !24, i64 568, !24, i64 576, !24, i64 584, !10, i64 592, !23, i64 596, !23, i64 600, !24, i64 608, !19, i64 616, !10, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !24, i64 656, !24, i64 664, !24, i64 672, !24, i64 680, !24, i64 688, !24, i64 696, !24, i64 704, !24, i64 712, !104, i64 720, !103, i64 728, !12, i64 736, !12, i64 744, !105, i64 752, !105, i64 760, !12, i64 768, !19, i64 776, !10, i64 784, !10, i64 788, !10, i64 792, !10, i64 796, !10, i64 800, !10, i64 804, !10, i64 808, !10, i64 812, !10, i64 816, !10, i64 820, !10, i64 824, !10, i64 828, !106, i64 832, !106, i64 840, !106, i64 848, !106, i64 856, !24, i64 864, !24, i64 872, !24, i64 880, !107, i64 888, !10, i64 896, !10, i64 900, !10, i64 904, !24, i64 912, !10, i64 920, !10, i64 924, !24, i64 928, !24, i64 936, !14, i64 944, !106, i64 952, !24, i64 960, !24, i64 968, !10, i64 976, !10, i64 980, !106, i64 984, !18, i64 992, !18, i64 1008, !18, i64 1024, !108, i64 1040, !109, i64 1048, !109, i64 1056, !10, i64 1064, !10, i64 1068, !10, i64 1072, !10, i64 1076, !109, i64 1080, !24, i64 1088, !24, i64 1096, !24, i64 1104, !14, i64 1112}
+!98 = !{!"p1 _ZTS10Gia_Obj_t_", !12, i64 0}
+!99 = !{!"p1 _ZTS10Gia_Rpr_t_", !12, i64 0}
+!100 = !{!"p1 _ZTS10Vec_Wec_t_", !12, i64 0}
+!101 = !{!"p1 _ZTS10Gia_Plc_t_", !12, i64 0}
+!102 = !{!"p1 _ZTS10Gia_Man_t_", !12, i64 0}
+!103 = !{!"p1 _ZTS10Vec_Flt_t_", !12, i64 0}
+!104 = !{!"p1 _ZTS10Vec_Vec_t_", !12, i64 0}
+!105 = !{!"long", !4, i64 0}
+!106 = !{!"p1 _ZTS10Vec_Wrd_t_", !12, i64 0}
+!107 = !{!"p1 _ZTS10Vec_Bit_t_", !12, i64 0}
+!108 = !{!"p1 _ZTS10Gia_Dat_t_", !12, i64 0}
+!109 = !{!"p1 _ZTS10Vec_Str_t_", !12, i64 0}
+!110 = !{!97, !24, i64 64}
+!111 = distinct !{!111, !7}
+!112 = !{!113, !114, i64 48}
+!113 = !{!"Aig_Man_t_", !11, i64 0, !11, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !114, i64 48, !115, i64 56, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !4, i64 128, !10, i64 156, !116, i64 160, !10, i64 168, !19, i64 176, !10, i64 184, !104, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !19, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !116, i64 248, !116, i64 256, !10, i64 264, !117, i64 272, !24, i64 280, !10, i64 288, !12, i64 296, !12, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !116, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !19, i64 368, !19, i64 376, !14, i64 384, !24, i64 392, !24, i64 400, !25, i64 408, !14, i64 416, !118, i64 424, !14, i64 432, !10, i64 440, !24, i64 448, !104, i64 456, !24, i64 464, !24, i64 472, !10, i64 480, !105, i64 488, !105, i64 496, !105, i64 504, !14, i64 512, !14, i64 520}
+!114 = !{!"p1 _ZTS10Aig_Obj_t_", !12, i64 0}
+!115 = !{!"Aig_Obj_t_", !4, i64 0, !114, i64 8, !114, i64 16, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 24, !10, i64 28, !10, i64 31, !10, i64 32, !10, i64 36, !4, i64 40}
+!116 = !{!"p2 _ZTS10Aig_Obj_t_", !12, i64 0}
+!117 = !{!"p1 _ZTS14Aig_MmFixed_t_", !12, i64 0}
+!118 = !{!"p1 _ZTS10Aig_Man_t_", !12, i64 0}
+!119 = !{!94, !10, i64 4}
+!120 = !{!113, !14, i64 16}
+!121 = distinct !{!121, !7}
+!122 = !{!113, !14, i64 32}
+!123 = !{!113, !14, i64 24}
+!124 = !{!115, !114, i64 8}
+!125 = !{!115, !114, i64 16}
+!126 = distinct !{!126, !7}
+!127 = !{!113, !10, i64 112}
 !128 = distinct !{!128, !7}
-!129 = !{!109, !10, i64 108}
-!130 = distinct !{!130, !7}
+!129 = distinct !{!129, !7}
+!130 = !{!113, !10, i64 104}
 !131 = distinct !{!131, !7}
+!132 = distinct !{!132, !7}
+!133 = !{!113, !10, i64 108}
+!134 = distinct !{!134, !7}
+!135 = distinct !{!135, !7}

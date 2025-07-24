@@ -22,7 +22,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %12 = load i8, ptr %11, align 4, !tbaa !3
   %13 = icmp ult i8 %12, 3
-  br i1 %13, label %224, label %14
+  br i1 %13, label %225, label %14
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
@@ -43,7 +43,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %26 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %25) #6
-  br i1 %26, label %27, label %223
+  br i1 %26, label %27, label %224
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -71,7 +71,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 %39, ptr %40, align 8, !tbaa !26
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %7) #6
-  br label %222
+  br label %223
 
 41:                                               ; preds = %27
   %42 = load i8, ptr %11, align 4, !tbaa !3
@@ -441,78 +441,78 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %203 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br i1 %cond, label %.lr.ph201.split.us, label %.lr.ph201.split
 
-.lr.ph201.split.us:                               ; preds = %.lr.ph201
-  br i1 %64, label %.lr.ph201.split.us.split.us, label %.lr.ph201.split.us.split
+.lr.ph201.split.us:                               ; preds = %.lr.ph201, %204
+  %.1151199.us = phi i32 [ %217, %204 ], [ %194, %.lr.ph201 ]
+  store i32 %.1151199.us, ptr %200, align 4, !tbaa !17
+  store i32 %.1151199.us, ptr %201, align 4, !tbaa !19
+  br i1 %64, label %204, label %.preheader185
 
-.lr.ph201.split.us.split.us:                      ; preds = %.lr.ph201.split.us, %.lr.ph201.split.us.split.us
-  %.1151199.us.us = phi i32 [ %216, %.lr.ph201.split.us.split.us ], [ %194, %.lr.ph201.split.us ]
-  store i32 %.1151199.us.us, ptr %200, align 4, !tbaa !17
-  store i32 %.1151199.us.us, ptr %201, align 4, !tbaa !19
-  %204 = load ptr, ptr %63, align 8, !tbaa !31
-  %205 = load i32, ptr %18, align 4, !tbaa !17
-  %206 = sub nsw i32 %.1151199.us.us, %205
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.lv_color_t, ptr %204, i64 %207
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %208, i64 3, i1 false), !tbaa.struct !20
-  %209 = load ptr, ptr %203, align 8, !tbaa !39
-  %210 = getelementptr inbounds i8, ptr %209, i64 %207
-  %211 = load i8, ptr %210, align 1, !tbaa !21
-  %212 = zext i8 %211 to i16
-  %213 = mul nuw i16 %212, %202
-  %214 = lshr i16 %213, 8
-  %215 = trunc nuw i16 %214 to i8
-  %storemerge = select i1 %43, i8 %211, i8 %215
+204:                                              ; preds = %.lr.ph201.split.us
+  %205 = load ptr, ptr %63, align 8, !tbaa !31
+  %206 = load i32, ptr %18, align 4, !tbaa !17
+  %207 = sub nsw i32 %.1151199.us, %206
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds %struct.lv_color_t, ptr %205, i64 %208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %209, i64 3, i1 false), !tbaa.struct !20
+  %210 = load ptr, ptr %203, align 8, !tbaa !39
+  %211 = getelementptr inbounds i8, ptr %210, i64 %208
+  %212 = load i8, ptr %211, align 1, !tbaa !21
+  %213 = zext i8 %212 to i16
+  %214 = mul nuw i16 %213, %202
+  %215 = lshr i16 %214, 8
+  %216 = trunc nuw i16 %215 to i8
+  %storemerge = select i1 %43, i8 %212, i8 %216
   store i8 %storemerge, ptr %62, align 8, !tbaa !26
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
-  %216 = add i32 %.1151199.us.us, 1
-  %exitcond218.not = icmp eq i32 %.1151199.us.us, %199
-  br i1 %exitcond218.not, label %.loopexit, label %.lr.ph201.split.us.split.us, !llvm.loop !45
+  %217 = add i32 %.1151199.us, 1
+  %exitcond218.not = icmp eq i32 %.1151199.us, %199
+  br i1 %exitcond218.not, label %.loopexit, label %.lr.ph201.split.us, !llvm.loop !45
 
 .lr.ph201.split:                                  ; preds = %.lr.ph201, %.lr.ph201.split
-  %.1151199 = phi i32 [ %217, %.lr.ph201.split ], [ %194, %.lr.ph201 ]
+  %.1151199 = phi i32 [ %218, %.lr.ph201.split ], [ %194, %.lr.ph201 ]
   store i32 %.1151199, ptr %200, align 4, !tbaa !17
   store i32 %.1151199, ptr %201, align 4, !tbaa !19
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
-  %217 = add i32 %.1151199, 1
+  %218 = add i32 %.1151199, 1
   %exitcond217.not = icmp eq i32 %.1151199, %199
-  br i1 %exitcond217.not, label %.loopexit, label %.lr.ph201.split, !llvm.loop !45
+  br i1 %exitcond217.not, label %.loopexit, label %.lr.ph201.split, !llvm.loop !47
 
-.lr.ph201.split.us.split:                         ; preds = %.lr.ph201.split.us, %.lr.ph201.split.us.split
-  br label %.lr.ph201.split.us.split
+.preheader185:                                    ; preds = %.lr.ph201.split.us, %.preheader185
+  br label %.preheader185
 
-.loopexit:                                        ; preds = %.lr.ph201.split, %.lr.ph201.split.us.split.us, %189, %175
+.loopexit:                                        ; preds = %.lr.ph201.split, %204, %189, %175
   %.not173 = icmp eq ptr %.0, null
-  br i1 %.not173, label %219, label %218
+  br i1 %.not173, label %220, label %219
 
-218:                                              ; preds = %.loopexit
+219:                                              ; preds = %.loopexit
   call void @lv_free(ptr noundef nonnull %.0) #6
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %8) #6
-  br label %219
+  br label %220
 
-219:                                              ; preds = %218, %.loopexit
-  br i1 %64, label %220, label %221
+220:                                              ; preds = %219, %.loopexit
+  br i1 %64, label %221, label %222
 
-220:                                              ; preds = %219
+221:                                              ; preds = %220
   call void @lv_draw_sw_grad_cleanup(ptr noundef nonnull %63) #6
-  br label %221
+  br label %222
 
-221:                                              ; preds = %220, %219
+222:                                              ; preds = %221, %220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #6
-  br label %222
-
-222:                                              ; preds = %221, %38
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
   br label %223
 
-223:                                              ; preds = %14, %222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+223:                                              ; preds = %222, %38
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
   br label %224
 
-224:                                              ; preds = %3, %223
+224:                                              ; preds = %14, %223
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  br label %225
+
+225:                                              ; preds = %3, %224
   ret void
 }
 
@@ -613,4 +613,6 @@ attributes #6 = { nounwind }
 !42 = distinct !{!42, !36}
 !43 = distinct !{!43, !36}
 !44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36}
+!45 = distinct !{!45, !36, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !36}

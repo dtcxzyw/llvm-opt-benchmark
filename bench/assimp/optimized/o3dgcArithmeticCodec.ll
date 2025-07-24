@@ -2203,7 +2203,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %98 = load i32, ptr %7, align 8
   %99 = zext i32 %98 to i64
   %100 = icmp samesign ult i64 %indvars.iv.next68, %99
-  br i1 %100, label %.lr.ph53.split, label %._crit_edge, !llvm.loop !20
+  br i1 %100, label %.lr.ph53.split, label %._crit_edge, !llvm.loop !22
 
 101:                                              ; preds = %._crit_edge
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2224,7 +2224,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   store i32 %106, ptr %110, align 4
   %111 = load i32, ptr %71, align 8
   %.not42 = icmp ugt i32 %108, %111
-  br i1 %.not42, label %.loopexit, label %.lr.ph60, !llvm.loop !21
+  br i1 %.not42, label %.loopexit, label %.lr.ph60, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph60, %101, %._crit_edge
   %112 = fcmp olt double %.035.lcssa, 9.999000e-01
@@ -2298,7 +2298,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %17 = shl nuw i32 1, %16
   %18 = icmp ugt i32 %.pr, %17
   %19 = add i32 %.0, 1
-  br i1 %18, label %.preheader, label %.thread, !llvm.loop !22
+  br i1 %18, label %.preheader, label %.thread, !llvm.loop !24
 
 .thread:                                          ; preds = %.preheader
   %20 = shl nuw i32 1, %.0
@@ -2370,7 +2370,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %58 = load i32, ptr %6, align 4
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next.i, %59
-  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !23
+  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !25
 
 _ZN5o3dgc19Adaptive_Data_Model5resetEv.exit:      ; preds = %36, %._crit_edge.i
   ret void
@@ -2424,7 +2424,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr noundef nonnull a
   %15 = load i32, ptr %2, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %12, label %._crit_edge, !llvm.loop !23
+  br i1 %17, label %12, label %._crit_edge, !llvm.loop !25
 
 18:                                               ; preds = %1, %._crit_edge
   ret void
@@ -2492,7 +2492,9 @@ attributes #20 = { cold noreturn nounwind }
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
+!20 = distinct !{!20, !4, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

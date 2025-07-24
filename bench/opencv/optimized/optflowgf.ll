@@ -2401,7 +2401,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   store ptr %791, ptr %gep.i162, align 8, !tbaa !125
   %indvars.iv.next278.i = add nuw nsw i64 %indvars.iv277.i, 1
   %exitcond281.not.i = icmp eq i64 %indvars.iv.next278.i, %wide.trip.count280.i
-  br i1 %exitcond281.not.i, label %.preheader228.i, label %779, !llvm.loop !127
+  br i1 %exitcond281.not.i, label %.preheader228.i, label %779, !llvm.loop !128
 
 .preheader227.i:                                  ; preds = %._crit_edge246.i, %.lr.ph249.split.us.i, %.preheader228.i
   br i1 %754, label %.lr.ph251.i, label %.preheader226.i
@@ -2432,14 +2432,14 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   %808 = call float @llvm.fmuladd.f32(float %805, float %807, float %.0162243.i)
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
   %exitcond286.not.i = icmp eq i64 %indvars.iv.next283.i, %wide.trip.count280.i
-  br i1 %exitcond286.not.i, label %._crit_edge246.i, label %796, !llvm.loop !128
+  br i1 %exitcond286.not.i, label %._crit_edge246.i, label %796, !llvm.loop !129
 
 ._crit_edge246.i:                                 ; preds = %796
   %809 = getelementptr inbounds nuw float, ptr %721, i64 %indvars.iv287.i
   store float %808, ptr %809, align 4, !tbaa !97
   %indvars.iv.next288.i = add nuw nsw i64 %indvars.iv287.i, 1
   %exitcond291.not.i = icmp eq i64 %indvars.iv.next288.i, %wide.trip.count290.i
-  br i1 %exitcond291.not.i, label %.preheader227.i, label %.lr.ph245.i, !llvm.loop !126
+  br i1 %exitcond291.not.i, label %.preheader227.i, label %.lr.ph245.i, !llvm.loop !130
 
 .preheader226.i:                                  ; preds = %.lr.ph251.i, %.preheader227.i
   br i1 %751, label %.lr.ph260.i, label %._crit_edge263.i
@@ -2458,7 +2458,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   store float %816, ptr %gep335.i, align 4, !tbaa !97
   %indvars.iv.next299.i169 = add nuw nsw i64 %indvars.iv298.i168, 1
   %exitcond302.not.i170 = icmp eq i64 %indvars.iv.next299.i169, %wide.trip.count301.i160
-  br i1 %exitcond302.not.i170, label %.preheader226.i, label %.lr.ph251.i, !llvm.loop !129
+  br i1 %exitcond302.not.i170, label %.preheader226.i, label %.lr.ph251.i, !llvm.loop !131
 
 .lr.ph260.i:                                      ; preds = %.preheader226.i, %._crit_edge257.i
   %indvars.iv308.i = phi i64 [ %indvars.iv.next309.i, %._crit_edge257.i ], [ 0, %.preheader226.i ]
@@ -2483,7 +2483,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   %829 = call float @llvm.fmuladd.f32(float %822, float %828, float %.0161254.i)
   %indvars.iv.next304.i = add nuw nsw i64 %indvars.iv303.i, 1
   %exitcond307.not.i = icmp eq i64 %indvars.iv.next304.i, %wide.trip.count280.i
-  br i1 %exitcond307.not.i, label %._crit_edge257.i, label %.lr.ph256.i, !llvm.loop !130
+  br i1 %exitcond307.not.i, label %._crit_edge257.i, label %.lr.ph256.i, !llvm.loop !132
 
 ._crit_edge257.i:                                 ; preds = %.lr.ph256.i, %.lr.ph260.i
   %.0161.lcssa.i = phi float [ %820, %.lr.ph260.i ], [ %829, %.lr.ph256.i ]
@@ -2491,7 +2491,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   store float %.0161.lcssa.i, ptr %830, align 4, !tbaa !97
   %indvars.iv.next309.i = add nuw nsw i64 %indvars.iv308.i, 1
   %exitcond313.not.i = icmp eq i64 %indvars.iv.next309.i, %wide.trip.count290.i
-  br i1 %exitcond313.not.i, label %.lr.ph262.i, label %.lr.ph260.i, !llvm.loop !131
+  br i1 %exitcond313.not.i, label %.lr.ph262.i, label %.lr.ph260.i, !llvm.loop !133
 
 .lr.ph262.i:                                      ; preds = %._crit_edge257.i, %.lr.ph262.i
   %indvars.iv314.i = phi i64 [ %indvars.iv.next315.i, %.lr.ph262.i ], [ 0, %._crit_edge257.i ]
@@ -2533,7 +2533,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   store float %861, ptr %862, align 4, !tbaa !97
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 1
   %exitcond318.not.i = icmp eq i64 %indvars.iv.next315.i, %wide.trip.count317.i
-  br i1 %exitcond318.not.i, label %._crit_edge263.i, label %.lr.ph262.i, !llvm.loop !132
+  br i1 %exitcond318.not.i, label %._crit_edge263.i, label %.lr.ph262.i, !llvm.loop !134
 
 ._crit_edge263.i:                                 ; preds = %.lr.ph262.i, %.preheader226.i
   %863 = icmp eq i64 %indvars.iv319.i, %758
@@ -2570,7 +2570,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   %.1169.i = phi i32 [ %.0168264.i, %._crit_edge263.i ], [ %.0168264.i, %867 ], [ %866, %870 ]
   %indvars.iv.next320.i = add nuw nsw i64 %indvars.iv319.i, 1
   %exitcond323.not.i = icmp eq i64 %indvars.iv.next320.i, %wide.trip.count322.i
-  br i1 %exitcond323.not.i, label %._crit_edge267.loopexit.i, label %764, !llvm.loop !133
+  br i1 %exitcond323.not.i, label %._crit_edge267.loopexit.i, label %764, !llvm.loop !135
 
 ._crit_edge267.loopexit.i:                        ; preds = %876
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !118
@@ -2680,9 +2680,9 @@ _ZN2cvL32FarnebackUpdateFlow_GaussianBlurERKNS_3MatES2_RS0_S3_ib.exit: ; preds =
   %904 = mul i32 %903, 5
   %905 = add i32 %904, 10
   %906 = sext i32 %905 to i64
-  store ptr %239, ptr %7, align 8, !tbaa !134
+  store ptr %239, ptr %7, align 8, !tbaa !136
   %.not.i.i.i177 = icmp ugt i32 %905, 136
-  store i64 %906, ptr %240, align 8, !tbaa !137
+  store i64 %906, ptr %240, align 8, !tbaa !139
   br i1 %.not.i.i.i177, label %907, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit.i
 
 907:                                              ; preds = %898
@@ -2693,7 +2693,7 @@ _ZN2cvL32FarnebackUpdateFlow_GaussianBlurERKNS_3MatES2_RS0_S3_ib.exit: ; preds =
           to label %.noexc205 unwind label %.loopexit
 
 .noexc205:                                        ; preds = %907
-  store ptr %911, ptr %7, align 8, !tbaa !134
+  store ptr %911, ptr %7, align 8, !tbaa !136
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit.i
 
 _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
@@ -2748,12 +2748,12 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   store double %936, ptr %934, align 8, !tbaa !101
   %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
   %exitcond262.not.i = icmp eq i64 %indvars.iv.next258.i, %wide.trip.count.i201
-  br i1 %exitcond262.not.i, label %._crit_edge.us.i, label %930, !llvm.loop !138
+  br i1 %exitcond262.not.i, label %._crit_edge.us.i, label %930, !llvm.loop !140
 
 ._crit_edge.us.i:                                 ; preds = %930
   %937 = add nuw nsw i32 %storemerge220.us.i, 1
   %exitcond264.not.i = icmp eq i32 %937, %smax263.i
-  br i1 %exitcond264.not.i, label %.preheader215.i, label %.lr.ph219.us.i, !llvm.loop !139
+  br i1 %exitcond264.not.i, label %.preheader215.i, label %.lr.ph219.us.i, !llvm.loop !141
 
 938:                                              ; preds = %938, %.lr.ph.i199
   %indvars.iv.i202 = phi i64 [ 0, %.lr.ph.i199 ], [ %indvars.iv.next.i203, %938 ]
@@ -2765,7 +2765,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   store double %942, ptr %943, align 8, !tbaa !101
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i202, 1
   %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, %wide.trip.count.i201
-  br i1 %exitcond.not.i204, label %.preheader216.i, label %938, !llvm.loop !140
+  br i1 %exitcond.not.i204, label %.preheader216.i, label %938, !llvm.loop !142
 
 .preheader215.i:                                  ; preds = %._crit_edge.us.i, %.preheader216.thread.i, %.preheader216.i
   %944 = phi i1 [ false, %.preheader216.i ], [ %924, %.preheader216.thread.i ], [ true, %._crit_edge.us.i ]
@@ -2836,7 +2836,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   store double %984, ptr %982, align 8, !tbaa !101
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next266.i, %wide.trip.count269.i
-  br i1 %exitcond270.not.i, label %.preheader214.i, label %.lr.ph223.i, !llvm.loop !141
+  br i1 %exitcond270.not.i, label %.preheader214.i, label %.lr.ph223.i, !llvm.loop !143
 
 .lr.ph225.i:                                      ; preds = %.preheader214.i, %.lr.ph225.i
   %indvars.iv271.i = phi i64 [ %indvars.iv.next272.i, %.lr.ph225.i ], [ 0, %.preheader214.i ]
@@ -2852,7 +2852,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   store double %991, ptr %gep.i198, align 8, !tbaa !101
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %exitcond275.not.i = icmp eq i64 %indvars.iv.next272.i, %wide.trip.count274.i
-  br i1 %exitcond275.not.i, label %._crit_edge.i185, label %.lr.ph225.i, !llvm.loop !142
+  br i1 %exitcond275.not.i, label %._crit_edge.i185, label %.lr.ph225.i, !llvm.loop !144
 
 ._crit_edge.i185:                                 ; preds = %.lr.ph225.i, %.preheader214.i
   %992 = load double, ptr %916, align 8, !tbaa !101
@@ -2900,7 +2900,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   %1016 = fadd double %.0174226.i, %1015
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
   %exitcond281.not.i197 = icmp eq i64 %indvars.iv.next277.i, %wide.trip.count280.i181
-  br i1 %exitcond281.not.i197, label %.preheader.i186, label %.lr.ph233.i, !llvm.loop !143
+  br i1 %exitcond281.not.i197, label %.preheader.i186, label %.lr.ph233.i, !llvm.loop !145
 
 .lr.ph245.i192:                                   ; preds = %.preheader.i186, %.lr.ph245.i192
   %indvars.iv282.i193 = phi i64 [ %indvars.iv.next283.i194, %.lr.ph245.i192 ], [ 0, %.preheader.i186 ]
@@ -2971,7 +2971,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
   store float %1070, ptr %1071, align 4, !tbaa !97
   %indvars.iv.next283.i194 = add nuw nsw i64 %indvars.iv282.i193, 1
   %exitcond286.not.i195 = icmp eq i64 %indvars.iv.next283.i194, %wide.trip.count285.i182
-  br i1 %exitcond286.not.i195, label %._crit_edge246.i187, label %.lr.ph245.i192, !llvm.loop !144
+  br i1 %exitcond286.not.i195, label %._crit_edge246.i187, label %.lr.ph245.i192, !llvm.loop !146
 
 ._crit_edge246.i187:                              ; preds = %.lr.ph245.i192, %.preheader.i186
   %1072 = icmp eq i64 %indvars.iv287.i183, %957
@@ -2993,7 +2993,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc205, %898
 1079:                                             ; preds = %1078
   %1080 = landingpad { ptr, i32 }
           cleanup
-  %1081 = load ptr, ptr %7, align 8, !tbaa !134
+  %1081 = load ptr, ptr %7, align 8, !tbaa !136
   %.not.i.i185.i = icmp eq ptr %1081, %239
   %1082 = icmp eq ptr %1081, null
   %or.cond299.i = or i1 %.not.i.i185.i, %1082
@@ -3011,10 +3011,10 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit.i:           ; preds = %1083, %1079
   %.1165.i = phi i32 [ %.0164248.i, %._crit_edge246.i187 ], [ %.0164248.i, %1075 ], [ %1074, %1078 ]
   %indvars.iv.next288.i188 = add nuw nsw i64 %indvars.iv287.i183, 1
   %exitcond291.not.i189 = icmp eq i64 %indvars.iv.next288.i188, %wide.trip.count290.i179
-  br i1 %exitcond291.not.i189, label %._crit_edge250.loopexit.i, label %958, !llvm.loop !145
+  br i1 %exitcond291.not.i189, label %._crit_edge250.loopexit.i, label %958, !llvm.loop !147
 
 ._crit_edge250.loopexit.i:                        ; preds = %1084
-  %.pre.i190 = load ptr, ptr %7, align 8, !tbaa !134
+  %.pre.i190 = load ptr, ptr %7, align 8, !tbaa !136
   br label %._crit_edge250.i
 
 ._crit_edge250.i:                                 ; preds = %._crit_edge250.loopexit.i, %.preheader215.i
@@ -3036,7 +3036,7 @@ _ZN2cvL24FarnebackUpdateFlow_BlurERKNS_3MatES2_RS0_S3_ib.exit: ; preds = %._crit
   %1089 = add nuw nsw i32 %.265316, 1
   %1090 = load i32, ptr %224, align 8, !tbaa !26
   %1091 = icmp slt i32 %1089, %1090
-  br i1 %1091, label %.lr.ph317, label %._crit_edge318, !llvm.loop !146
+  br i1 %1091, label %.lr.ph317, label %._crit_edge318, !llvm.loop !148
 
 ._crit_edge318:                                   ; preds = %1088, %.preheader
   %1092 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(96) %28)
@@ -3059,7 +3059,7 @@ _ZN2cvL24FarnebackUpdateFlow_BlurERKNS_3MatES2_RS0_S3_ib.exit: ; preds = %._crit
 1098:                                             ; preds = %1094
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %40) #25
   %1099 = add nsw i32 %.167319, -1
-  br i1 %.not360, label %._crit_edge320, label %.preheader241, !llvm.loop !147
+  br i1 %.not360, label %._crit_edge320, label %.preheader241, !llvm.loop !149
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit218.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.i, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit211.i, %659, %657, %655
   %.pn99 = phi { ptr, i32 } [ %660, %659 ], [ %658, %657 ], [ %656, %655 ], [ %.pn204.i, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit218.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn.pn.pn.i, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit211.i ], [ %1080, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit238, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp239, %.loopexit.split-lp.loopexit.split-lp ]
@@ -3184,7 +3184,7 @@ define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11setPyrScal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl15getFastPyramidsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !tbaa !24, !range !148, !noundef !149
+  %3 = load i8, ptr %2, align 8, !tbaa !24, !range !150, !noundef !151
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -3615,12 +3615,12 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
   store float %235, ptr %236, align 4, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !152
 
 ._crit_edge.us:                                   ; preds = %222
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge205, label %.lr.ph.us, !llvm.loop !151
+  br i1 %exitcond212.not, label %._crit_edge205, label %.lr.ph.us, !llvm.loop !153
 
 ._crit_edge205:                                   ; preds = %._crit_edge.us, %.lr.ph204, %6
   ret void
@@ -3850,29 +3850,31 @@ attributes #29 = { noreturn }
 !123 = distinct !{!123, !81}
 !124 = distinct !{!124, !81}
 !125 = !{!95, !95, i64 0}
-!126 = distinct !{!126, !81}
-!127 = distinct !{!127, !81}
+!126 = distinct !{!126, !81, !127}
+!127 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !128 = distinct !{!128, !81}
 !129 = distinct !{!129, !81}
 !130 = distinct !{!130, !81}
 !131 = distinct !{!131, !81}
 !132 = distinct !{!132, !81}
 !133 = distinct !{!133, !81}
-!134 = !{!135, !136, i64 0}
-!135 = !{!"_ZTSN2cv10AutoBufferIdLm136EEE", !136, i64 0, !54, i64 8, !6, i64 16}
-!136 = !{!"p1 double", !33, i64 0}
-!137 = !{!135, !54, i64 8}
-!138 = distinct !{!138, !81}
-!139 = distinct !{!139, !81}
+!134 = distinct !{!134, !81}
+!135 = distinct !{!135, !81}
+!136 = !{!137, !138, i64 0}
+!137 = !{!"_ZTSN2cv10AutoBufferIdLm136EEE", !138, i64 0, !54, i64 8, !6, i64 16}
+!138 = !{!"p1 double", !33, i64 0}
+!139 = !{!137, !54, i64 8}
 !140 = distinct !{!140, !81}
-!141 = distinct !{!141, !81}
+!141 = distinct !{!141, !81, !127}
 !142 = distinct !{!142, !81}
 !143 = distinct !{!143, !81}
 !144 = distinct !{!144, !81}
 !145 = distinct !{!145, !81}
 !146 = distinct !{!146, !81}
 !147 = distinct !{!147, !81}
-!148 = !{i8 0, i8 2}
-!149 = !{}
-!150 = distinct !{!150, !81}
-!151 = distinct !{!151, !81}
+!148 = distinct !{!148, !81}
+!149 = distinct !{!149, !81}
+!150 = !{i8 0, i8 2}
+!151 = !{}
+!152 = distinct !{!152, !81}
+!153 = distinct !{!153, !81, !127}

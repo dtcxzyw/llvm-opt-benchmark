@@ -555,8 +555,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i: ; preds = 
   %110 = add i64 %109, %.sroa.4.0.i26.i.i.i
   %.not13.i.i.i = icmp ugt i64 %110, %96
   %111 = add i64 %.sroa.4.0.i26.i.i.i, %97
-  %or.cond.i.not.i.i = icmp ult i64 %111, %96
-  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", label %112
+  %or.cond93.i.not.i.i = icmp ult i64 %111, %96
+  br i1 %or.cond93.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", label %112
 
 112:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i
   br i1 %.not13.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.thread.i", label %.lr.ph.split.split.i.i.i
@@ -1600,8 +1600,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i: ; preds = 
   %140 = add i64 %139, %.sroa.4.0.i26.i.i.i
   %.not13.i.i.i = icmp ugt i64 %140, %126
   %141 = add i64 %.sroa.4.0.i26.i.i.i, %127
-  %or.cond.i.not.i.i = icmp ult i64 %141, %126
-  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", label %142
+  %or.cond93.i.not.i.i = icmp ult i64 %141, %126
+  br i1 %or.cond93.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", label %142
 
 142:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd4dc916933ee9852E.exit.i.i.i", %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i
   br i1 %.not13.i.i.i, label %.loopexit85.i, label %.lr.ph.split.split.i.i.i

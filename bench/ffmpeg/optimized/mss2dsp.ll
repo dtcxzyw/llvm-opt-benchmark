@@ -209,7 +209,7 @@ define internal void @mss2_blit_wmv9_masked_c(ptr noundef writeonly captures(non
   %67 = getelementptr inbounds i8, ptr %.056.i21.us, i64 %65
   %68 = add nuw nsw i32 %15, 1
   %exitcond32.not = icmp eq i32 %68, %11
-  br i1 %exitcond32.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !15
+  br i1 %exitcond32.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !17
 
 mss2_blit_wmv9_template.exit:                     ; preds = %._crit_edge.us, %12
   ret void
@@ -261,7 +261,7 @@ define internal void @mss2_gray_fill_masked_c(ptr noundef writeonly captures(non
   %22 = getelementptr inbounds i8, ptr %.0.i9.us, i64 %1
   %23 = add nuw nsw i32 %10, 1
   %exitcond16.not = icmp eq i32 %23, %6
-  br i1 %exitcond16.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !15
+  br i1 %exitcond16.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !18
 
 mss2_blit_wmv9_template.exit:                     ; preds = %._crit_edge.us, %7
   ret void
@@ -349,13 +349,13 @@ define internal void @upsample_plane_c(ptr noundef captures(none) %0, i64 nounde
   store i8 %61, ptr %62, align 1, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %63 = icmp sgt i64 %indvars.iv, 0
-  br i1 %63, label %44, label %..loopexit72_crit_edge.us, !llvm.loop !16
+  br i1 %63, label %44, label %..loopexit72_crit_edge.us, !llvm.loop !19
 
 ..loopexit72_crit_edge.us:                        ; preds = %44
   %indvars.iv.next84 = add nsw i64 %indvars.iv83, -2
   %64 = icmp sgt i64 %indvars.iv83, 2
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -2
-  br i1 %64, label %.lr.ph.us, label %.preheader, !llvm.loop !17
+  br i1 %64, label %.lr.ph.us, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %..loopexit72_crit_edge.us, %7
   %65 = icmp sgt i32 %12, -1
@@ -417,12 +417,12 @@ define internal void @upsample_plane_c(ptr noundef captures(none) %0, i64 nounde
   %102 = getelementptr inbounds nuw i8, ptr %75, i64 %84
   store i8 %101, ptr %102, align 1, !tbaa !12
   %103 = icmp sgt i64 %indvars.iv93, 4
-  br i1 %103, label %79, label %._crit_edge.us, !llvm.loop !18
+  br i1 %103, label %79, label %._crit_edge.us, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %79
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, -1
   %104 = icmp sgt i64 %indvars.iv96, 0
-  br i1 %104, label %.lr.ph.us79, label %.loopexit, !llvm.loop !19
+  br i1 %104, label %.lr.ph.us79, label %.loopexit, !llvm.loop !22
 
 .lr.ph78.split:                                   ; preds = %.lr.ph78.split.preheader, %.lr.ph78.split
   %indvars.iv90 = phi i64 [ %71, %.lr.ph78.split.preheader ], [ %indvars.iv.next91, %.lr.ph78.split ]
@@ -434,7 +434,7 @@ define internal void @upsample_plane_c(ptr noundef captures(none) %0, i64 nounde
   store i8 %108, ptr %109, align 1, !tbaa !12
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
   %.not = icmp eq i64 %indvars.iv90, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph78.split, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph78.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph78.split, %._crit_edge.us, %.preheader, %4
   ret void
@@ -464,8 +464,12 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !12 = !{!7, !7, i64 0}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
+!15 = distinct !{!15, !14, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !14, !16}
+!18 = distinct !{!18, !14, !16}
 !19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14, !16}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14, !16}
+!23 = distinct !{!23, !14}

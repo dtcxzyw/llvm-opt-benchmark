@@ -910,7 +910,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @intlist_read(ptr noundef c
   store i32 %36, ptr %39, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph207, label %27, !llvm.loop !83
+  br i1 %exitcond.not, label %.lr.ph207, label %27, !llvm.loop !84
 
 .loopexit:                                        ; preds = %9, %4
   %40 = icmp sgt i32 %2, 0
@@ -970,10 +970,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @intlist_read(ptr noundef c
   %64 = trunc nuw nsw i32 %.0118206 to i8
   %65 = sext i32 %.0128203 to i64
   %66 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %65
-  store i8 %64, ptr %66, align 4, !tbaa !84
+  store i8 %64, ptr %66, align 4, !tbaa !85
   %67 = add nsw i32 %.0128203, 1
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i32 %45, ptr %68, align 4, !tbaa !86
+  store i32 %45, ptr %68, align 4, !tbaa !87
   %.not154 = icmp eq i32 %.0118206, 0
   %69 = select i1 %.not154, i32 %45, i32 0
   %spec.select = add nsw i32 %69, %.0124204
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @intlist_read(ptr noundef c
   %89 = shl i32 %.016.i, 1
   %90 = sub i32 %76, %spec.select.i159
   %.not.i = icmp ugt i32 %89, %90
-  br i1 %.not.i, label %read_uint_max.exit, label %.preheader.i, !llvm.loop !87
+  br i1 %.not.i, label %read_uint_max.exit, label %.preheader.i, !llvm.loop !88
 
 read_uint_max.exit:                               ; preds = %.preheader.i
   %91 = icmp sgt i32 %spec.select.i159, -1
@@ -1037,10 +1037,10 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   %95 = trunc nuw nsw i32 %.0118206 to i8
   %96 = sext i32 %.0128203 to i64
   %97 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %96
-  store i8 %95, ptr %97, align 4, !tbaa !84
+  store i8 %95, ptr %97, align 4, !tbaa !85
   %98 = add nsw i32 %.0128203, 1
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i32 %spec.select.i159, ptr %99, align 4, !tbaa !86
+  store i32 %spec.select.i159, ptr %99, align 4, !tbaa !87
   br label %.thread168
 
 .thread168:                                       ; preds = %75, %94, %93
@@ -1052,10 +1052,10 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   %101 = xor i8 %100, 1
   %102 = sext i32 %.4132 to i64
   %103 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %102
-  store i8 %101, ptr %103, align 4, !tbaa !84
+  store i8 %101, ptr %103, align 4, !tbaa !85
   %104 = add nsw i32 %.4132, 1
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  store i32 1, ptr %105, align 4, !tbaa !86
+  store i32 1, ptr %105, align 4, !tbaa !87
   %.4.v = select i1 %.not156, i32 %.012.i167171, i32 1
   %.4 = add nsw i32 %.4.v, %.0124204
   %.neg192194 = lshr i32 %.0121205, 3
@@ -1086,7 +1086,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   %.1122 = phi i32 [ %109, %.thread172 ], [ %.2123, %107 ]
   %.1119 = phi i32 [ %110, %.thread172 ], [ %.0118206, %107 ]
   %112 = icmp slt i32 %.1125, %2
-  br i1 %112, label %44, label %.lr.ph219, !llvm.loop !88
+  br i1 %112, label %44, label %.lr.ph219, !llvm.loop !89
 
 .lr.ph221:                                        ; preds = %150
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1112,13 +1112,13 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   %118 = add nsw i32 %117, %.0114217
   %119 = sext i32 %.5133213 to i64
   %120 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %119
-  %121 = load i8, ptr %120, align 4, !tbaa !84
+  %121 = load i8, ptr %120, align 4, !tbaa !85
   %.not149 = icmp eq i8 %121, 0
   br i1 %.not149, label %129, label %122
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %124 = load i32, ptr %123, align 4, !tbaa !86
+  %124 = load i32, ptr %123, align 4, !tbaa !87
   %125 = sub nsw i32 %2, %.5214
   %126 = icmp ugt i32 %124, %125
   br i1 %126, label %127, label %129
@@ -1145,7 +1145,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
 134:                                              ; preds = %.thread185
   %135 = sext i32 %.5133213 to i64
   %136 = getelementptr inbounds %struct.BitCount, ptr %6, i64 %135
-  %137 = load i8, ptr %136, align 4, !tbaa !84
+  %137 = load i8, ptr %136, align 4, !tbaa !85
   %.not151 = icmp eq i8 %137, 0
   br i1 %.not151, label %141, label %138
 
@@ -1162,9 +1162,9 @@ read_uint_max.exit:                               ; preds = %.preheader.i
 143:                                              ; preds = %141, %138
   %.7 = phi i32 [ %.5214, %138 ], [ %142, %141 ]
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !86
+  %145 = load i32, ptr %144, align 4, !tbaa !87
   %146 = sub i32 %145, %.1112191
-  store i32 %146, ptr %144, align 4, !tbaa !86
+  store i32 %146, ptr %144, align 4, !tbaa !87
   %147 = icmp eq i32 %145, %.1112191
   %148 = zext i1 %147 to i32
   %149 = add nsw i32 %.5133213, %148
@@ -1175,7 +1175,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
   %.6 = phi i32 [ %.7, %143 ], [ %.5214, %.thread185 ]
   %151 = add nsw i32 %.1117189, 1
   %152 = icmp slt i32 %.6, %2
-  br i1 %152, label %.lr.ph219, label %.lr.ph221, !llvm.loop !89
+  br i1 %152, label %.lr.ph219, label %.lr.ph221, !llvm.loop !90
 
 153:                                              ; preds = %.lr.ph221, %173
   %indvars.iv225 = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next226, %173 ]
@@ -1212,7 +1212,7 @@ read_uint_max.exit:                               ; preds = %.preheader.i
 173:                                              ; preds = %153, %156, %170
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %.thread179, label %153, !llvm.loop !90
+  br i1 %exitcond229.not, label %.thread179, label %153, !llvm.loop !91
 
 .thread179:                                       ; preds = %63, %44, %129, %.lr.ph219, %173, %.preheader198, %.loopexit
   %.2 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader198 ], [ 0, %173 ], [ -1094995529, %.lr.ph219 ], [ -1094995529, %129 ], [ -1094995529, %44 ], [ -1094995529, %63 ]
@@ -1337,12 +1337,13 @@ attributes #9 = { noreturn nounwind }
 !79 = !{!80, !80, i64 0}
 !80 = !{!"short", !8, i64 0}
 !81 = distinct !{!81, !47}
-!82 = distinct !{!82, !47}
-!83 = distinct !{!83, !47}
-!84 = !{!85, !8, i64 0}
-!85 = !{!"BitCount", !8, i64 0, !10, i64 4}
-!86 = !{!85, !10, i64 4}
-!87 = distinct !{!87, !47}
+!82 = distinct !{!82, !47, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !47}
+!85 = !{!86, !8, i64 0}
+!86 = !{!"BitCount", !8, i64 0, !10, i64 4}
+!87 = !{!86, !10, i64 4}
 !88 = distinct !{!88, !47}
 !89 = distinct !{!89, !47}
 !90 = distinct !{!90, !47}
+!91 = distinct !{!91, !47}

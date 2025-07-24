@@ -1107,7 +1107,7 @@ define internal fastcc i32 @write_manifest(ptr noundef %0, i32 noundef range(i32
   %147 = load i32, ptr %110, align 8, !tbaa !90
   %148 = trunc nuw i64 %indvars.iv.next.i to i32
   %149 = icmp sgt i32 %147, %148
-  br i1 %149, label %.lr.ph.split.i, label %output_chunk_list.exit, !llvm.loop !118
+  br i1 %149, label %.lr.ph.split.i, label %output_chunk_list.exit, !llvm.loop !120
 
 output_chunk_list.exit:                           ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %._crit_edge159, %113
   %150 = load ptr, ptr %3, align 8, !tbaa !109
@@ -1155,9 +1155,9 @@ output_chunk_list.exit:                           ; preds = %.lr.ph.split.i, %.l
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 96
   %176 = load ptr, ptr %175, align 8, !tbaa !58
   %177 = getelementptr inbounds nuw i8, ptr %167, i64 152
-  %178 = load i32, ptr %177, align 8, !tbaa !119
+  %178 = load i32, ptr %177, align 8, !tbaa !121
   %179 = getelementptr inbounds nuw i8, ptr %167, i64 132
-  %180 = load i32, ptr %179, align 4, !tbaa !120
+  %180 = load i32, ptr %179, align 4, !tbaa !122
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 112
   %182 = load i32, ptr %181, align 8, !tbaa !62
   %183 = getelementptr inbounds nuw i8, ptr %171, i64 116
@@ -1177,7 +1177,7 @@ output_chunk_list.exit:                           ; preds = %.lr.ph.split.i, %.l
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %192 = zext i32 %191 to i64
   %193 = icmp samesign ult i64 %indvars.iv.next178, %192
-  br i1 %193, label %161, label %._crit_edge166.loopexit, !llvm.loop !121
+  br i1 %193, label %161, label %._crit_edge166.loopexit, !llvm.loop !123
 
 ._crit_edge166.loopexit:                          ; preds = %190
   %194 = sext i32 %.195 to i64
@@ -1249,7 +1249,7 @@ output_chunk_list.exit:                           ; preds = %.lr.ph.split.i, %.l
   %236 = load i32, ptr %199, align 8, !tbaa !90
   %237 = trunc nuw i64 %indvars.iv.next.i134 to i32
   %238 = icmp sgt i32 %236, %237
-  br i1 %238, label %.lr.ph.split.i132, label %output_chunk_list.exit138, !llvm.loop !118
+  br i1 %238, label %.lr.ph.split.i132, label %output_chunk_list.exit138, !llvm.loop !120
 
 output_chunk_list.exit138:                        ; preds = %.lr.ph.split.i132, %.lr.ph.split.us.i135, %._crit_edge166, %202
   %239 = load ptr, ptr %3, align 8, !tbaa !109
@@ -1589,14 +1589,14 @@ copy_moof.exit:                                   ; preds = %147, %.sink.split.i
   %177 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %178 = load i32, ptr %177, align 8, !tbaa !90
   %179 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  %180 = load i32, ptr %179, align 4, !tbaa !122
+  %180 = load i32, ptr %179, align 4, !tbaa !124
   %.not.i129 = icmp slt i32 %178, %180
   br i1 %.not.i129, label %189, label %181
 
 181:                                              ; preds = %175
   %182 = shl i32 %180, 1
   %183 = add i32 %182, 2
-  store i32 %183, ptr %179, align 4, !tbaa !122
+  store i32 %183, ptr %179, align 4, !tbaa !124
   %184 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %185 = sext i32 %183 to i64
   %186 = call i32 @av_reallocp_array(ptr noundef nonnull %184, i64 noundef 8, i64 noundef %185) #8
@@ -1604,7 +1604,7 @@ copy_moof.exit:                                   ; preds = %147, %.sink.split.i
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %181
-  store i32 0, ptr %179, align 4, !tbaa !122
+  store i32 0, ptr %179, align 4, !tbaa !124
   store i32 0, ptr %177, align 8, !tbaa !90
   br label %209
 
@@ -1626,7 +1626,7 @@ copy_moof.exit:                                   ; preds = %147, %.sink.split.i
   %198 = getelementptr inbounds nuw i8, ptr %190, i64 32
   store i64 %53, ptr %198, align 8, !tbaa !104
   %199 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  %200 = load i32, ptr %199, align 8, !tbaa !123
+  %200 = load i32, ptr %199, align 8, !tbaa !125
   %201 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store i32 %200, ptr %201, align 8, !tbaa !117
   %202 = getelementptr inbounds nuw i8, ptr %25, i64 88
@@ -1638,7 +1638,7 @@ copy_moof.exit:                                   ; preds = %147, %.sink.split.i
   %207 = getelementptr inbounds ptr, ptr %203, i64 %206
   store ptr %190, ptr %207, align 8, !tbaa !100
   %208 = add nsw i32 %200, 1
-  store i32 %208, ptr %199, align 8, !tbaa !123
+  store i32 %208, ptr %199, align 8, !tbaa !125
   br label %209
 
 add_fragment.exit.thread:                         ; preds = %130, %46, %36, %.thread
@@ -1672,7 +1672,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   %210 = load i32, ptr %14, align 4, !tbaa !26
   %211 = zext i32 %210 to i64
   %212 = icmp samesign ult i64 %indvars.iv.next, %211
-  br i1 %212, label %23, label %.loopexit187, !llvm.loop !124
+  br i1 %212, label %23, label %.loopexit187, !llvm.loop !126
 
 .loopexit187:                                     ; preds = %209, %2, %add_fragment.exit
   %.1102 = phi i32 [ %.2103, %add_fragment.exit ], [ 0, %2 ], [ %.2103.ph, %209 ]
@@ -1712,7 +1712,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 72
   %229 = load i32, ptr %228, align 8, !tbaa !90
   %230 = load i32, ptr %213, align 8, !tbaa !113
-  %231 = load i32, ptr %222, align 4, !tbaa !125
+  %231 = load i32, ptr %222, align 4, !tbaa !127
   %232 = load i32, ptr %223, align 8, !tbaa !53
   %233 = add i32 %230, %231
   %234 = add i32 %233, %232
@@ -1737,7 +1737,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %246 = zext i32 %245 to i64
   %247 = icmp samesign ult i64 %indvars.iv.next231, %246
-  br i1 %247, label %.lr.ph211.split.us, label %.loopexit, !llvm.loop !126
+  br i1 %247, label %.lr.ph211.split.us, label %.loopexit, !llvm.loop !128
 
 248:                                              ; preds = %.preheader.us, %248
   %indvars.iv225 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next226, %248 ]
@@ -1756,7 +1756,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   call void @av_freep(ptr noundef %260) #8
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %237, label %248, !llvm.loop !127
+  br i1 %exitcond229.not, label %237, label %248, !llvm.loop !129
 
 .preheader.us:                                    ; preds = %.lr.ph211.split.us
   %261 = getelementptr inbounds nuw i8, ptr %227, i64 88
@@ -1770,7 +1770,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 72
   %265 = load i32, ptr %264, align 8, !tbaa !90
   %266 = load i32, ptr %213, align 8, !tbaa !113
-  %267 = load i32, ptr %222, align 4, !tbaa !125
+  %267 = load i32, ptr %222, align 4, !tbaa !127
   %268 = load i32, ptr %223, align 8, !tbaa !53
   %269 = add i32 %266, %267
   %270 = add i32 %269, %268
@@ -1803,7 +1803,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   call void @av_freep(ptr noundef %287) #8
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count
-  br i1 %exitcond.not, label %288, label %275, !llvm.loop !127
+  br i1 %exitcond.not, label %288, label %275, !llvm.loop !129
 
 288:                                              ; preds = %275
   %289 = load i32, ptr %264, align 8, !tbaa !90
@@ -1832,7 +1832,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   %301 = load i32, ptr %14, align 4, !tbaa !26
   %302 = zext i32 %301 to i64
   %303 = icmp samesign ult i64 %indvars.iv.next223, %302
-  br i1 %303, label %.lr.ph211.split, label %.loopexit, !llvm.loop !126
+  br i1 %303, label %.lr.ph211.split, label %.loopexit, !llvm.loop !130
 
 .loopexit:                                        ; preds = %300, %244, %219, %216, %215
   %304 = icmp sgt i32 %.1102, -1
@@ -2028,13 +2028,16 @@ attributes #9 = { nounwind willreturn memory(none) }
 !115 = !{!42, !13, i64 76}
 !116 = distinct !{!116, !69}
 !117 = !{!103, !13, i64 16}
-!118 = distinct !{!118, !69}
-!119 = !{!42, !13, i64 152}
-!120 = !{!42, !13, i64 132}
-!121 = distinct !{!121, !69}
-!122 = !{!45, !13, i64 76}
-!123 = !{!45, !13, i64 80}
-!124 = distinct !{!124, !69}
-!125 = !{!28, !13, i64 12}
+!118 = distinct !{!118, !69, !119}
+!119 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!120 = distinct !{!120, !69}
+!121 = !{!42, !13, i64 152}
+!122 = !{!42, !13, i64 132}
+!123 = distinct !{!123, !69}
+!124 = !{!45, !13, i64 76}
+!125 = !{!45, !13, i64 80}
 !126 = distinct !{!126, !69}
-!127 = distinct !{!127, !69}
+!127 = !{!28, !13, i64 12}
+!128 = distinct !{!128, !69, !119}
+!129 = distinct !{!129, !69}
+!130 = distinct !{!130, !69}

@@ -2923,7 +2923,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
   %10 = add nuw i32 %.01926.us, 1
   %11 = load i32, ptr %4, align 8, !tbaa !3
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %12, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
 
 13:                                               ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %5, i32 noundef %7) #14
@@ -2973,7 +2973,7 @@ define i32 @cli_event_errors(ptr noundef readonly captures(address_is_null) %0) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !24
+  %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = add i32 %6, %4
@@ -3037,4 +3037,6 @@ attributes #15 = { nounwind willreturn memory(read) }
 !21 = !{!"timeval", !12, i64 0, !12, i64 8}
 !22 = !{!21, !12, i64 8}
 !23 = !{!11, !11, i64 0}
-!24 = !{!4, !11, i64 24}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = !{!4, !11, i64 24}

@@ -590,17 +590,17 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %11
   %.013 = add nsw i32 %13, -1
-  %.not17 = icmp eq i32 %0, 0
-  br i1 %.not17, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split
+  %.not18 = icmp eq i32 %0, 0
+  br i1 %.not18, label %.lr.ph.split.split.us, label %.lr.ph.split.us.preheader
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %.lr.ph.split.us.split
-  %.014.us = phi i32 [ %.0.us, %.lr.ph.split.us.split ], [ %.013, %.lr.ph ]
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %.lr.ph.split.us.preheader
+  %.014.us = phi i32 [ %.0.us, %.lr.ph.split.us.preheader ], [ %.013, %.lr.ph ]
   %15 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %7, i32 noundef %.014.us) #7
   %16 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %7, i32 noundef range(i32 0, 2147483647) %.014.us) #7
   %17 = tail call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef nonnull %15) #7
   %.0.us = add nsw i32 %.014.us, -1
-  %.not21 = icmp eq i32 %.014.us, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !40
+  %.not22 = icmp eq i32 %.014.us, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph.split.us.preheader, !llvm.loop !40
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %27
   %.014.us15 = phi i32 [ %.0.us16, %27 ], [ %.013, %.lr.ph ]
@@ -611,9 +611,9 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.split.us
-  %23 = load ptr, ptr %18, align 8, !tbaa !41
-  %.not18 = icmp eq ptr %23, null
-  br i1 %.not18, label %27, label %24
+  %23 = load ptr, ptr %18, align 8, !tbaa !42
+  %.not19 = icmp eq ptr %23, null
+  br i1 %.not19, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %7, i32 noundef range(i32 0, 2147483647) %.014.us15) #7
@@ -623,9 +623,9 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %.lr.ph.split.split.us, %24, %22
   %.0.us16 = add nsw i32 %.014.us15, -1
   %28 = icmp sgt i32 %.014.us15, 0
-  br i1 %28, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !40
+  br i1 %28, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %27, %11
+._crit_edge:                                      ; preds = %.lr.ph.split.us.preheader, %27, %11
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %32
@@ -714,7 +714,7 @@ define internal fastcc range(i32 0, 2) i32 @conf_modules_finish_int() unnamed_ad
 module_finish.exit:                               ; preds = %.lr.ph, %21
   %30 = call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %module_finish.exit, %9
   call void @OPENSSL_sk_free(ptr noundef %10) #7
@@ -738,7 +738,7 @@ declare void @ossl_synchronize_rcu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @module_free(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !41
+  %2 = load ptr, ptr %0, align 8, !tbaa !42
   %3 = tail call i32 @DSO_free(ptr noundef %2) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !22
@@ -799,7 +799,7 @@ define internal fastcc ptr @module_add(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  store ptr %0, ptr %22, align 8, !tbaa !41
+  store ptr %0, ptr %22, align 8, !tbaa !42
   %25 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 364) #7
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !22
@@ -899,28 +899,28 @@ define ptr @CONF_imodule_get_module(ptr noundef readonly captures(none) %0) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @CONF_imodule_get_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !43
+  %3 = load i64, ptr %2, align 8, !tbaa !45
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_imodule_set_flags(ptr noundef writeonly captures(none) initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %3, align 8, !tbaa !43
+  store i64 %1, ptr %3, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_module_get_usr_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_module_set_usr_data(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %3, align 8, !tbaa !46
   ret void
 }
 
@@ -989,7 +989,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 27:                                               ; preds = %25
   %28 = icmp eq ptr %7, null
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  br i1 %28, label %.loopexit43, label %.critedge.us
+  br i1 %28, label %.loopexit43, label %.critedge.us, !llvm.loop !47
 
 30:                                               ; preds = %5
   tail call void @ERR_new() #7
@@ -1005,7 +1005,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.preheader41
   %32 = tail call ptr @__ctype_b_loc() #9
-  %33 = load ptr, ptr %32, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !48
   br label %34
 
 34:                                               ; preds = %.lr.ph, %40
@@ -1013,7 +1013,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %.23245 = phi ptr [ %.030, %.lr.ph ], [ %41, %40 ]
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr %33, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !47
+  %38 = load i16, ptr %37, align 2, !tbaa !50
   %39 = and i16 %38, 8192
   %.not38.not.not.not = icmp ne i16 %39, 0
   br i1 %.not38.not.not.not, label %40, label %.critedge.loopexit
@@ -1022,7 +1022,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %41 = getelementptr inbounds nuw i8, ptr %.23245, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !37
   %.not37 = icmp eq i8 %42, 0
-  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !49
+  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !52
 
 .critedge.loopexit:                               ; preds = %34, %40
   %.232.lcssa = phi ptr [ %.23245, %34 ], [ %41, %40 ]
@@ -1052,7 +1052,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 .preheader:                                       ; preds = %48, %49
   %.pn = phi ptr [ %51, %49 ], [ %43, %48 ]
   %52 = tail call ptr @__ctype_b_loc() #9
-  %53 = load ptr, ptr %52, align 8, !tbaa !45
+  %53 = load ptr, ptr %52, align 8, !tbaa !48
   br label %54
 
 54:                                               ; preds = %54, %.preheader
@@ -1061,10 +1061,10 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %55 = load i8, ptr %.2, align 1, !tbaa !37
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr %53, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !47
+  %58 = load i16, ptr %57, align 2, !tbaa !50
   %59 = and i16 %58, 8192
   %.not40 = icmp eq i16 %59, 0
-  br i1 %.not40, label %.loopexit, label %54, !llvm.loop !50
+  br i1 %.not40, label %.loopexit, label %54, !llvm.loop !53
 
 .loopexit:                                        ; preds = %54
   %60 = ptrtoint ptr %.2 to i64
@@ -1133,7 +1133,7 @@ define internal void @do_init_module_list_lock_ossl_() #0 {
 
 do_init_module_list_lock.exit:                    ; preds = %0, %3
   %.0.i = phi i32 [ 0, %3 ], [ 1, %0 ]
-  store i32 %.0.i, ptr @do_init_module_list_lock_ossl_ret_, align 4, !tbaa !51
+  store i32 %.0.i, ptr @do_init_module_list_lock_ossl_ret_, align 4, !tbaa !54
   ret void
 }
 
@@ -1225,15 +1225,18 @@ attributes #9 = { nounwind willreturn memory(none) }
 !37 = !{!5, !5, i64 0}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"p1 _ZTS20stack_st_CONF_MODULE", !10, i64 0}
-!40 = distinct !{!40, !21}
-!41 = !{!23, !24, i64 0}
-!42 = distinct !{!42, !21}
-!43 = !{!26, !4, i64 24}
-!44 = !{!23, !10, i64 40}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 short", !10, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"short", !5, i64 0}
-!49 = distinct !{!49, !21}
-!50 = distinct !{!50, !21}
-!51 = !{!12, !12, i64 0}
+!40 = distinct !{!40, !21, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{!23, !24, i64 0}
+!43 = distinct !{!43, !21, !41}
+!44 = distinct !{!44, !21}
+!45 = !{!26, !4, i64 24}
+!46 = !{!23, !10, i64 40}
+!47 = distinct !{!47, !41}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 short", !10, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"short", !5, i64 0}
+!52 = distinct !{!52, !21}
+!53 = distinct !{!53, !21}
+!54 = !{!12, !12, i64 0}

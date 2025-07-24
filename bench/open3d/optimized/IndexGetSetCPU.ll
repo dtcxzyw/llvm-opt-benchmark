@@ -31760,7 +31760,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i:  ; preds = %85, %.lr.ph.split.i
   %97 = mul nsw i64 %94, %96
   %98 = add nsw i64 %97, %.013.i
   %exitcond.not.i = icmp eq i64 %79, %35
-  br i1 %exitcond.not.i, label %_ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit, label %.lr.ph.split.i, !llvm.loop !669
+  br i1 %exitcond.not.i, label %_ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit, label %.lr.ph.split.i, !llvm.loop !671
 
 _ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit: ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.us.i, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit ], [ %76, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.us.i ], [ %98, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i ]
@@ -31943,7 +31943,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i:  ; preds = %84, %.lr.ph.split.i
   %96 = mul nsw i64 %93, %95
   %97 = add nsw i64 %96, %.013.i
   %exitcond.not.i = icmp eq i64 %78, %33
-  br i1 %exitcond.not.i, label %_ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit, label %.lr.ph.split.i, !llvm.loop !669
+  br i1 %exitcond.not.i, label %_ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit, label %.lr.ph.split.i, !llvm.loop !671
 
 _ZNK6open3d4core15AdvancedIndexer16GetIndexedOffsetEl.exit: ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.us.i, %_ZNK6open3d4core7Indexer12GetOutputPtrEl.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNK6open3d4core7Indexer12GetOutputPtrEl.exit ], [ %75, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.us.i ], [ %97, %_ZNK6open3d4core7Indexer11GetInputPtrEll.exit.i ]
@@ -32153,13 +32153,13 @@ define internal void @_ZN6open3d4core15ParallelForCPU_IZNS0_6kernelL27LaunchAdva
 
 18:                                               ; preds = %.lr.ph, %_ZZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIFvPKvPvEEEvRKNS0_15AdvancedIndexerERKT_ENKUllE_clEl.exit
   %.016 = phi i64 [ %16, %.lr.ph ], [ %24, %_ZZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIFvPKvPvEEEvRKNS0_15AdvancedIndexerERKT_ENKUllE_clEl.exit ]
-  %19 = load ptr, ptr %17, align 8, !tbaa !670
-  %20 = load ptr, ptr %3, align 8, !tbaa !672
+  %19 = load ptr, ptr %17, align 8, !tbaa !672
+  %20 = load ptr, ptr %3, align 8, !tbaa !674
   %21 = invoke noundef ptr @_ZNK6open3d4core15AdvancedIndexer11GetInputPtrEl(ptr noundef nonnull align 8 dereferenceable(952) %20, i64 noundef %.016)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %18
-  %22 = load ptr, ptr %3, align 8, !tbaa !672
+  %22 = load ptr, ptr %3, align 8, !tbaa !674
   %23 = invoke noundef ptr @_ZNK6open3d4core15AdvancedIndexer12GetOutputPtrEl(ptr noundef nonnull align 8 dereferenceable(952) %22, i64 noundef %.016)
           to label %.noexc13 unwind label %27
 
@@ -32277,15 +32277,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelIfEEvPKvPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #26 {
-  %3 = load float, ptr %0, align 4, !tbaa !673
-  store float %3, ptr %1, align 4, !tbaa !673
+  %3 = load float, ptr %0, align 4, !tbaa !675
+  store float %3, ptr %1, align 4, !tbaa !675
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelIdEEvPKvPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #26 {
-  %3 = load double, ptr %0, align 8, !tbaa !675
-  store double %3, ptr %1, align 8, !tbaa !675
+  %3 = load double, ptr %0, align 8, !tbaa !677
+  store double %3, ptr %1, align 8, !tbaa !677
   ret void
 }
 
@@ -32298,8 +32298,8 @@ define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelIaEEvPKvPv(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelIsEEvPKvPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #26 {
-  %3 = load i16, ptr %0, align 2, !tbaa !677
-  store i16 %3, ptr %1, align 2, !tbaa !677
+  %3 = load i16, ptr %0, align 2, !tbaa !679
+  store i16 %3, ptr %1, align 2, !tbaa !679
   ret void
 }
 
@@ -32326,8 +32326,8 @@ define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelIhEEvPKvPv(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN6open3d4core6kernelL20CPUCopyElementKernelItEEvPKvPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #26 {
-  %3 = load i16, ptr %0, align 2, !tbaa !677
-  store i16 %3, ptr %1, align 2, !tbaa !677
+  %3 = load i16, ptr %0, align 2, !tbaa !679
+  store i16 %3, ptr %1, align 2, !tbaa !679
   ret void
 }
 
@@ -32608,18 +32608,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS0_6kernelL27LaunchAdv
 
 18:                                               ; preds = %.lr.ph, %24
   %.015 = phi i64 [ %16, %.lr.ph ], [ %25, %24 ]
-  %19 = load ptr, ptr %17, align 8, !tbaa !679
-  %20 = load ptr, ptr %3, align 8, !tbaa !681
+  %19 = load ptr, ptr %17, align 8, !tbaa !681
+  %20 = load ptr, ptr %3, align 8, !tbaa !683
   %21 = invoke noundef ptr @_ZNK6open3d4core15AdvancedIndexer11GetInputPtrEl(ptr noundef nonnull align 8 dereferenceable(952) %20, i64 noundef %.015)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %18
-  %22 = load ptr, ptr %3, align 8, !tbaa !681
+  %22 = load ptr, ptr %3, align 8, !tbaa !683
   %23 = invoke noundef ptr @_ZNK6open3d4core15AdvancedIndexer12GetOutputPtrEl(ptr noundef nonnull align 8 dereferenceable(952) %22, i64 noundef %.015)
           to label %24 unwind label %28
 
 24:                                               ; preds = %.noexc
-  %.val.i = load ptr, ptr %19, align 8, !tbaa !682
+  %.val.i = load ptr, ptr %19, align 8, !tbaa !684
   %.val.val.i = load i64, ptr %.val.i, align 8, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull readonly align 1 %21, i64 noundef %.val.val.i, i1 noundef false) #25
   %25 = add nsw i64 %.015, 1
@@ -33419,18 +33419,20 @@ attributes #35 = { noreturn nounwind }
 !666 = !{!"_ZTSN6open3d4core9TensorRefE", !17, i64 0, !10, i64 8, !10, i64 16, !7, i64 24, !7, i64 64}
 !667 = !{!666, !10, i64 16}
 !668 = distinct !{!668, !49}
-!669 = distinct !{!669, !49}
-!670 = !{!671, !17, i64 8}
-!671 = !{!"_ZTSZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIFvPKvPvEEEvRKNS0_15AdvancedIndexerERKT_EUllE_", !24, i64 0, !17, i64 8}
-!672 = !{!671, !24, i64 0}
-!673 = !{!674, !674, i64 0}
-!674 = !{!"float", !7, i64 0}
+!669 = distinct !{!669, !49, !670}
+!670 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!671 = distinct !{!671, !49}
+!672 = !{!673, !17, i64 8}
+!673 = !{!"_ZTSZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIFvPKvPvEEEvRKNS0_15AdvancedIndexerERKT_EUllE_", !24, i64 0, !17, i64 8}
+!674 = !{!673, !24, i64 0}
 !675 = !{!676, !676, i64 0}
-!676 = !{!"double", !7, i64 0}
+!676 = !{!"float", !7, i64 0}
 !677 = !{!678, !678, i64 0}
-!678 = !{!"short", !7, i64 0}
-!679 = !{!680, !17, i64 8}
-!680 = !{!"_ZTSZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIZNS1_11IndexSetCPUERKNS0_6TensorERS3_RKSt6vectorIS3_SaIS3_EERKNS0_10SizeVectorESE_E3$_0EEvRKNS0_15AdvancedIndexerERKT_EUllE_", !24, i64 0, !17, i64 8}
-!681 = !{!680, !24, i64 0}
-!682 = !{!683, !16, i64 0}
-!683 = !{!"_ZTSZN6open3d4core6kernel11IndexSetCPUERKNS0_6TensorERS2_RKSt6vectorIS2_SaIS2_EERKNS0_10SizeVectorESD_E3$_0", !16, i64 0}
+!678 = !{!"double", !7, i64 0}
+!679 = !{!680, !680, i64 0}
+!680 = !{!"short", !7, i64 0}
+!681 = !{!682, !17, i64 8}
+!682 = !{!"_ZTSZN6open3d4core6kernelL27LaunchAdvancedIndexerKernelIZNS1_11IndexSetCPUERKNS0_6TensorERS3_RKSt6vectorIS3_SaIS3_EERKNS0_10SizeVectorESE_E3$_0EEvRKNS0_15AdvancedIndexerERKT_EUllE_", !24, i64 0, !17, i64 8}
+!683 = !{!682, !24, i64 0}
+!684 = !{!685, !16, i64 0}
+!685 = !{!"_ZTSZN6open3d4core6kernel11IndexSetCPUERKNS0_6TensorERS2_RKSt6vectorIS2_SaIS2_EERKNS0_10SizeVectorESD_E3$_0", !16, i64 0}

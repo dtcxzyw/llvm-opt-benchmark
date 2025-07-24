@@ -5607,7 +5607,7 @@ pci_link_speed.exit.thread.i:                     ; preds = %.lr.ph.i22, %pci_li
   %84 = add i32 %83, %77
   %85 = call fastcc ptr @next_child(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.i, ptr noundef %10)
   %.not45.i = icmp eq ptr %85, null
-  br i1 %.not45.i, label %place_children_vert.exit, label %pci_link_speed.exit.thread.i, !llvm.loop !185
+  br i1 %.not45.i, label %place_children_vert.exit, label %pci_link_speed.exit.thread.i, !llvm.loop !187
 
 place_children_vert.exit:                         ; preds = %pci_link_speed.exit.thread.i, %pci_link_speed.exit.thread.us.i, %44
   %.041.lcssa.i = phi i32 [ 0, %44 ], [ %spec.select.us.i, %pci_link_speed.exit.thread.us.i ], [ %spec.select.i23, %pci_link_speed.exit.thread.i ]
@@ -5661,7 +5661,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %110 = add i32 %109, %.0104131.i.i
   %111 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef %8)
   %.not.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !186
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !188
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %112 = udiv i32 %104, %100
@@ -5738,7 +5738,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %.1101124.i.i = phi float [ %.2102.i.i, %152 ], [ %.0100138.i.i, %.lr.ph143.i.i ]
   %154 = add i32 %.096139.i.i, -1
   %155 = icmp ugt i32 %154, 1
-  br i1 %155, label %.lr.ph143.i.i, label %._crit_edge144.i.i, !llvm.loop !187
+  br i1 %155, label %.lr.ph143.i.i, label %._crit_edge144.i.i, !llvm.loop !189
 
 ._crit_edge144.i.i:                               ; preds = %.thread.i.i
   %156 = fcmp une float %.1101124.i.i, 0.000000e+00
@@ -5843,7 +5843,7 @@ find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %.
   %211 = add nuw nsw i32 %.04971.i, 1
   %212 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.05170.i, ptr noundef %9)
   %.not.i26 = icmp eq ptr %212, null
-  br i1 %.not.i26, label %._crit_edge.loopexit.i, label %.lr.ph.i25, !llvm.loop !188
+  br i1 %.not.i26, label %._crit_edge.loopexit.i, label %.lr.ph.i25, !llvm.loop !190
 
 ._crit_edge.loopexit.i:                           ; preds = %200
   %213 = add i32 %spec.select61.i, %.158.i
@@ -5890,7 +5890,7 @@ define internal fastcc void @draw__children(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !189
+  %9 = load i32, ptr %8, align 4, !tbaa !191
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %21, label %10
 
@@ -5900,16 +5900,16 @@ define internal fastcc void @draw__children(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !190
+  %16 = load ptr, ptr %15, align 8, !tbaa !192
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !191
+  %18 = load i32, ptr %17, align 4, !tbaa !193
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !192
+  %20 = load i32, ptr %19, align 8, !tbaa !194
   tail call void %14(ptr noundef %0, ptr noundef %16, i32 noundef %3, i32 noundef %4, i32 noundef %18, i32 noundef %5, i32 noundef %20, ptr noundef %1, i32 noundef 1) #28
   br label %21
 
 21:                                               ; preds = %10, %6
-  %22 = load i32, ptr %2, align 8, !tbaa !193
+  %22 = load i32, ptr %2, align 8, !tbaa !195
   %23 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %22, ptr noundef null, ptr noundef %7)
   %.not2627 = icmp eq ptr %23, null
   br i1 %.not2627, label %._crit_edge, label %.lr.ph
@@ -5942,10 +5942,10 @@ get_type_fun.exit:                                ; preds = %25, %switch.lookup
   %35 = load i32, ptr %34, align 4, !tbaa !132
   %36 = add i32 %35, %5
   tail call void %.0.i(ptr noundef %0, ptr noundef nonnull %.028, i32 noundef %24, i32 noundef %33, i32 noundef %36) #28, !callees !97
-  %37 = load i32, ptr %2, align 8, !tbaa !193
+  %37 = load i32, ptr %2, align 8, !tbaa !195
   %38 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef nonnull %.028, ptr noundef %7)
   %.not26 = icmp eq ptr %38, null
-  br i1 %.not26, label %._crit_edge, label %25, !llvm.loop !194
+  br i1 %.not26, label %._crit_edge, label %25, !llvm.loop !196
 
 ._crit_edge:                                      ; preds = %get_type_fun.exit, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
@@ -6182,13 +6182,15 @@ attributes #29 = { nounwind allocsize(0) }
 !182 = !{!45, !24, i64 56}
 !183 = !{!45, !5, i64 208}
 !184 = distinct !{!184, !35}
-!185 = distinct !{!185, !35}
-!186 = distinct !{!186, !35}
+!185 = distinct !{!185, !35, !186}
+!186 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !187 = distinct !{!187, !35}
 !188 = distinct !{!188, !35}
-!189 = !{!49, !5, i64 20}
-!190 = !{!49, !24, i64 24}
-!191 = !{!49, !5, i64 4}
-!192 = !{!49, !5, i64 8}
-!193 = !{!49, !5, i64 0}
-!194 = distinct !{!194, !35}
+!189 = distinct !{!189, !35}
+!190 = distinct !{!190, !35}
+!191 = !{!49, !5, i64 20}
+!192 = !{!49, !24, i64 24}
+!193 = !{!49, !5, i64 4}
+!194 = !{!49, !5, i64 8}
+!195 = !{!49, !5, i64 0}
+!196 = distinct !{!196, !35}

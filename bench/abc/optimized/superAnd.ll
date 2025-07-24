@@ -147,9 +147,9 @@ define void @Super2_Precompute(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
   %45 = inttoptr i64 %indvars.iv.i to ptr
   %46 = load ptr, ptr %44, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %45, ptr %47, align 8, !tbaa !27
+  store ptr %45, ptr %47, align 8, !tbaa !28
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader40.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.preheader40.i, label %.lr.ph.i, !llvm.loop !29
 
 Super2_LibFirst.exit:                             ; preds = %._crit_edge.us.i, %3, %.preheader40.i
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %0, i32 noundef %1)
@@ -171,9 +171,9 @@ Super2_LibFirst.exit:                             ; preds = %._crit_edge.us.i, %
   br i1 %54, label %Abc_Clock.exit, label %55
 
 55:                                               ; preds = %52
-  %56 = load i64, ptr %13, align 8, !tbaa !29
+  %56 = load i64, ptr %13, align 8, !tbaa !30
   %.neg38 = mul i64 %56, -1000000
-  %57 = load i64, ptr %49, align 8, !tbaa !32
+  %57 = load i64, ptr %49, align 8, !tbaa !33
   %.neg = sdiv i64 %57, -1000
   %.neg39 = add i64 %.neg, %.neg38
   br label %Abc_Clock.exit
@@ -195,9 +195,9 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %65 = getelementptr inbounds nuw i8, ptr %calloc.i.i.i, i64 12
   store i32 %59, ptr %65, align 4, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %.073, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !33
+  %67 = load i32, ptr %66, align 8, !tbaa !34
   %68 = getelementptr inbounds nuw i8, ptr %calloc.i.i.i, i64 16
-  store i32 %67, ptr %68, align 8, !tbaa !33
+  store i32 %67, ptr %68, align 8, !tbaa !34
   %69 = getelementptr inbounds nuw i8, ptr %.073, i64 20
   %70 = load i32, ptr %69, align 4, !tbaa !16
   %71 = getelementptr inbounds nuw i8, ptr %calloc.i.i.i, i64 20
@@ -254,14 +254,14 @@ Abc_Clock.exit:                                   ; preds = %52, %55
 
 101:                                              ; preds = %92
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %102 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %102 = load ptr, ptr @stdout, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
   %103 = load i32, ptr %91, align 8, !tbaa !22
   %104 = and i32 %103, %73
   %.not.i.i = icmp ne i32 %104, 0
   %105 = sext i1 %.not.i.i to i32
   %106 = xor i32 %103, %105
-  store i32 %106, ptr %10, align 4, !tbaa !36
+  store i32 %106, ptr %10, align 4, !tbaa !37
   call void @Extra_PrintBinary(ptr noundef %102, ptr noundef nonnull %10, i32 noundef %59) #20
   %107 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %102)
   %108 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %91, i32 noundef %104, i32 noundef %67)
@@ -269,7 +269,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %fputc.i.i = call i32 @fputc(i32 10, ptr %102)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
   %puts142.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %109 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %109 = load ptr, ptr @stdout, align 8, !tbaa !35
   %110 = load ptr, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
   %111 = load i32, ptr %110, align 8, !tbaa !22
@@ -277,7 +277,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %.not.i144.i = icmp ne i32 %112, 0
   %113 = sext i1 %.not.i144.i to i32
   %114 = xor i32 %111, %113
-  store i32 %114, ptr %9, align 4, !tbaa !36
+  store i32 %114, ptr %9, align 4, !tbaa !37
   call void @Extra_PrintBinary(ptr noundef %109, ptr noundef nonnull %9, i32 noundef %59) #20
   %115 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %109)
   %116 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %110, i32 noundef %112, i32 noundef %67)
@@ -290,7 +290,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %118 = call i32 @stmm_insert(ptr noundef %88, ptr noundef %99, ptr noundef nonnull %91) #20
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i21
-  br i1 %exitcond.not.i26, label %.critedge.i, label %.lr.ph.i22, !llvm.loop !37
+  br i1 %exitcond.not.i26, label %.critedge.i, label %.lr.ph.i22, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit189.i:          ; preds = %.lr.ph.i22
   %119 = trunc nuw nsw i64 %indvars.iv.i23 to i32
@@ -298,9 +298,9 @@ Abc_Clock.exit:                                   ; preds = %52, %55
 
 .critedge.i:                                      ; preds = %117, %.critedge.loopexit.split.loop.exit189.i, %Abc_Clock.exit
   %storemerge.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %119, %.critedge.loopexit.split.loop.exit189.i ], [ %70, %117 ]
-  store i32 %storemerge.lcssa.i, ptr %calloc.i.i.i, align 8, !tbaa !38
-  store i32 %70, ptr %50, align 8, !tbaa !39
-  store i32 0, ptr %.073, align 8, !tbaa !38
+  store i32 %storemerge.lcssa.i, ptr %calloc.i.i.i, align 8, !tbaa !39
+  store i32 %70, ptr %50, align 8, !tbaa !40
+  store i32 0, ptr %.073, align 8, !tbaa !39
   %120 = load i32, ptr %69, align 4, !tbaa !16
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %.lr.ph178.i, label %Super2_LibCompute.exit
@@ -331,7 +331,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
 Super2_LibCompute.exit.thread:                    ; preds = %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  store i32 %.01972, ptr %68, align 8, !tbaa !33
+  store i32 %.01972, ptr %68, align 8, !tbaa !34
   br label %377
 
 138:                                              ; preds = %123
@@ -343,14 +343,14 @@ Super2_LibCompute.exit.thread:                    ; preds = %123
 
 141:                                              ; preds = %138
   %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %storemerge127177.i)
-  %143 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %143 = load ptr, ptr @stdout, align 8, !tbaa !35
   %144 = call i32 @fflush(ptr noundef %143)
-  %.pre.i = load i32, ptr %.073, align 8, !tbaa !38
+  %.pre.i = load i32, ptr %.073, align 8, !tbaa !39
   br label %145
 
 145:                                              ; preds = %141, %138
   %146 = phi i32 [ %.pre.i, %141 ], [ %storemerge127177.i, %138 ]
-  store i32 0, ptr %122, align 4, !tbaa !40
+  store i32 0, ptr %122, align 4, !tbaa !41
   %147 = icmp sgt i32 %146, 0
   br i1 %147, label %.lr.ph173.i, label %.critedge4.i
 
@@ -371,7 +371,7 @@ Super2_LibCompute.exit.thread:                    ; preds = %123
   %157 = load ptr, ptr %156, align 8, !tbaa !20
   store ptr %157, ptr %11, align 8, !tbaa !20
   %.not131.i = icmp eq ptr %157, null
-  br i1 %.not131.i, label %.critedge4.i, label %.lr.ph, !llvm.loop !41
+  br i1 %.not131.i, label %.critedge4.i, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.lr.ph173.i, %153
   %158 = phi ptr [ %157, %153 ], [ %152, %.lr.ph173.i ]
@@ -406,12 +406,12 @@ Super2_LibCompute.exit.thread:                    ; preds = %123
   %183 = load ptr, ptr %calloc.i, align 8, !tbaa !3
   %184 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %183) #20
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  store ptr %137, ptr %185, align 8, !tbaa !42
+  store ptr %137, ptr %185, align 8, !tbaa !43
   %186 = load ptr, ptr %11, align 8, !tbaa !20
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  store ptr %186, ptr %187, align 8, !tbaa !27
+  store ptr %186, ptr %187, align 8, !tbaa !28
   store i32 %173, ptr %184, align 8, !tbaa !22
-  %188 = load ptr, ptr %12, align 8, !tbaa !43
+  %188 = load ptr, ptr %12, align 8, !tbaa !44
   store ptr %184, ptr %188, align 8, !tbaa !20
   %189 = icmp eq i32 %159, %160
   br i1 %189, label %190, label %Super2_LibAddGate.exit.i
@@ -482,12 +482,12 @@ Super2_LibAddGate.exit.i:                         ; preds = %198, %182
   %230 = load ptr, ptr %calloc.i, align 8, !tbaa !3
   %231 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %230) #20
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store ptr %150, ptr %232, align 8, !tbaa !42
+  store ptr %150, ptr %232, align 8, !tbaa !43
   %233 = load ptr, ptr %11, align 8, !tbaa !20
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  store ptr %233, ptr %234, align 8, !tbaa !27
+  store ptr %233, ptr %234, align 8, !tbaa !28
   store i32 %222, ptr %231, align 8, !tbaa !22
-  %235 = load ptr, ptr %12, align 8, !tbaa !43
+  %235 = load ptr, ptr %12, align 8, !tbaa !44
   store ptr %231, ptr %235, align 8, !tbaa !20
   %236 = icmp eq i32 %221, %218
   br i1 %236, label %237, label %Super2_LibAddGate.exit154.i
@@ -555,15 +555,15 @@ Super2_LibAddGate.exit154.i:                      ; preds = %245, %229
   %276 = load ptr, ptr %calloc.i, align 8, !tbaa !3
   %277 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %276) #20
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store ptr %137, ptr %278, align 8, !tbaa !42
+  store ptr %137, ptr %278, align 8, !tbaa !43
   %279 = load ptr, ptr %11, align 8, !tbaa !20
   %280 = ptrtoint ptr %279 to i64
   %281 = xor i64 %280, 1
   %282 = inttoptr i64 %281 to ptr
   %283 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  store ptr %282, ptr %283, align 8, !tbaa !27
+  store ptr %282, ptr %283, align 8, !tbaa !28
   store i32 %268, ptr %277, align 8, !tbaa !22
-  %284 = load ptr, ptr %12, align 8, !tbaa !43
+  %284 = load ptr, ptr %12, align 8, !tbaa !44
   store ptr %277, ptr %284, align 8, !tbaa !20
   %285 = icmp eq i32 %266, %261
   br i1 %285, label %286, label %Super2_LibAddGate.exit161.i
@@ -627,15 +627,15 @@ Super2_LibAddGate.exit161.i:                      ; preds = %294, %275
   %322 = load ptr, ptr %calloc.i, align 8, !tbaa !3
   %323 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %322) #20
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  store ptr %150, ptr %324, align 8, !tbaa !42
+  store ptr %150, ptr %324, align 8, !tbaa !43
   %325 = load ptr, ptr %11, align 8, !tbaa !20
   %326 = ptrtoint ptr %325 to i64
   %327 = xor i64 %326, 1
   %328 = inttoptr i64 %327 to ptr
   %329 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  store ptr %328, ptr %329, align 8, !tbaa !27
+  store ptr %328, ptr %329, align 8, !tbaa !28
   store i32 %313, ptr %323, align 8, !tbaa !22
-  %330 = load ptr, ptr %12, align 8, !tbaa !43
+  %330 = load ptr, ptr %12, align 8, !tbaa !44
   store ptr %323, ptr %330, align 8, !tbaa !20
   %331 = icmp eq i32 %312, %305
   br i1 %331, label %332, label %Super2_LibAddGate.exit168.i
@@ -681,18 +681,18 @@ Super2_LibAddGate.exit168.i:                      ; preds = %340, %321
   %354 = phi ptr [ %342, %Super2_LibAddGate.exit168.i ], [ %310, %303 ]
   %355 = phi i32 [ %343, %Super2_LibAddGate.exit168.i ], [ %311, %303 ]
   %356 = phi i32 [ %344, %Super2_LibAddGate.exit168.i ], [ %312, %303 ]
-  %357 = load i32, ptr %50, align 8, !tbaa !39
+  %357 = load i32, ptr %50, align 8, !tbaa !40
   %358 = add nsw i32 %357, 4
-  store i32 %358, ptr %50, align 8, !tbaa !39
-  %359 = load i32, ptr %122, align 4, !tbaa !40
+  store i32 %358, ptr %50, align 8, !tbaa !40
+  %359 = load i32, ptr %122, align 4, !tbaa !41
   %360 = add nsw i32 %359, 1
-  store i32 %360, ptr %122, align 4, !tbaa !40
-  %361 = load i32, ptr %.073, align 8, !tbaa !38
+  store i32 %360, ptr %122, align 4, !tbaa !41
+  %361 = load i32, ptr %.073, align 8, !tbaa !39
   %362 = icmp slt i32 %360, %361
-  br i1 %362, label %153, label %..critedge4.i.loopexit_crit_edge60, !llvm.loop !41
+  br i1 %362, label %153, label %..critedge4.i.loopexit_crit_edge60, !llvm.loop !42
 
 ..critedge4.i.loopexit_crit_edge60:               ; preds = %347
-  br label %.critedge4.i, !llvm.loop !41
+  br label %.critedge4.i, !llvm.loop !42
 
 .critedge4.i:                                     ; preds = %153, %.lr.ph173.i, %..critedge4.i.loopexit_crit_edge60, %145
   %363 = phi i32 [ %124, %145 ], [ %358, %..critedge4.i.loopexit_crit_edge60 ], [ %124, %.lr.ph173.i ], [ %358, %153 ]
@@ -707,17 +707,17 @@ Super2_LibAddGate.exit168.i:                      ; preds = %340, %321
   %372 = phi i32 [ %133, %145 ], [ %356, %..critedge4.i.loopexit_crit_edge60 ], [ %133, %.lr.ph173.i ], [ %356, %153 ]
   %.lcssa.i = phi i32 [ %146, %145 ], [ %361, %..critedge4.i.loopexit_crit_edge60 ], [ %146, %.lr.ph173.i ], [ %361, %153 ]
   %373 = add nsw i32 %.lcssa.i, 1
-  store i32 %373, ptr %.073, align 8, !tbaa !38
+  store i32 %373, ptr %.073, align 8, !tbaa !39
   %374 = load i32, ptr %69, align 4, !tbaa !16
   %375 = icmp slt i32 %373, %374
-  br i1 %375, label %123, label %Super2_LibCompute.exit, !llvm.loop !44
+  br i1 %375, label %123, label %Super2_LibCompute.exit, !llvm.loop !45
 
 Super2_LibCompute.exit:                           ; preds = %.critedge4.i, %.critedge.i
   %376 = phi i32 [ %70, %.critedge.i ], [ %363, %.critedge4.i ]
   %.pr = load ptr, ptr %83, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  store i32 %.01972, ptr %68, align 8, !tbaa !33
+  store i32 %.01972, ptr %68, align 8, !tbaa !34
   %.not.i27 = icmp eq ptr %.pr, null
   br i1 %.not.i27, label %Super2_LibStop.exit, label %377
 
@@ -739,9 +739,9 @@ Super2_LibStop.exit:                              ; preds = %Super2_LibCompute.e
   br i1 %384, label %Abc_Clock.exit29, label %385
 
 385:                                              ; preds = %Super2_LibStop.exit
-  %386 = load i64, ptr %8, align 8, !tbaa !29
+  %386 = load i64, ptr %8, align 8, !tbaa !30
   %387 = mul nsw i64 %386, 1000000
-  %388 = load i64, ptr %51, align 8, !tbaa !32
+  %388 = load i64, ptr %51, align 8, !tbaa !33
   %389 = sdiv i64 %388, 1000
   %390 = add nsw i64 %389, %387
   br label %Abc_Clock.exit29
@@ -753,20 +753,20 @@ Abc_Clock.exit29:                                 ; preds = %Super2_LibStop.exit
   %392 = sitofp i64 %391 to double
   %393 = fdiv double %392, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %393)
-  %394 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %394 = load ptr, ptr @stdout, align 8, !tbaa !35
   %395 = call i32 @fflush(ptr noundef %394)
   %396 = add nuw i32 %.01972, 1
   %exitcond.not = icmp eq i32 %.01972, %1
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %Abc_Clock.exit29, %Super2_LibFirst.exit
   %.0.lcssa = phi ptr [ %calloc.i.i, %Super2_LibFirst.exit ], [ %calloc.i.i.i, %Abc_Clock.exit29 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %397 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %397 = load ptr, ptr @stdout, align 8, !tbaa !35
   %398 = call i32 @fflush(ptr noundef %397)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #20
   %399 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  %400 = load i32, ptr %399, align 8, !tbaa !33
+  %400 = load i32, ptr %399, align 8, !tbaa !34
   %401 = icmp sgt i32 %400, 5
   br i1 %401, label %402, label %404
 
@@ -781,10 +781,10 @@ Abc_Clock.exit29:                                 ; preds = %Super2_LibStop.exit
   br i1 %406, label %Abc_Clock.exit.i, label %407
 
 407:                                              ; preds = %404
-  %408 = load i64, ptr %6, align 8, !tbaa !29
+  %408 = load i64, ptr %6, align 8, !tbaa !30
   %.neg37.i = mul i64 %408, -1000000
   %409 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %410 = load i64, ptr %409, align 8, !tbaa !32
+  %410 = load i64, ptr %409, align 8, !tbaa !33
   %.neg.i = sdiv i64 %410, -1000
   %.neg38.i = add i64 %.neg.i, %.neg37.i
   br label %Abc_Clock.exit.i
@@ -794,12 +794,12 @@ Abc_Clock.exit.i:                                 ; preds = %407, %404
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
   %411 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 40
   %412 = load i32, ptr %411, align 8, !tbaa !18
-  store i32 %412, ptr @s_uMaskBit, align 4, !tbaa !36
+  store i32 %412, ptr @s_uMaskBit, align 4, !tbaa !37
   %413 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 12
   %414 = load i32, ptr %413, align 4, !tbaa !15
   %415 = sub nsw i32 32, %414
   %416 = lshr i32 -1, %415
-  store i32 %416, ptr @s_uMaskAll, align 4, !tbaa !36
+  store i32 %416, ptr @s_uMaskAll, align 4, !tbaa !37
   %417 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 32
   %418 = load ptr, ptr %417, align 8, !tbaa !19
   %419 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 20
@@ -813,10 +813,10 @@ Abc_Clock.exit.i:                                 ; preds = %407, %404
   br i1 %423, label %Abc_Clock.exit36.i, label %424
 
 424:                                              ; preds = %Abc_Clock.exit.i
-  %425 = load i64, ptr %5, align 8, !tbaa !29
+  %425 = load i64, ptr %5, align 8, !tbaa !30
   %426 = mul nsw i64 %425, 1000000
   %427 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %428 = load i64, ptr %427, align 8, !tbaa !32
+  %428 = load i64, ptr %427, align 8, !tbaa !33
   %429 = sdiv i64 %428, 1000
   %430 = add nsw i64 %429, %426
   br label %Abc_Clock.exit36.i
@@ -830,17 +830,17 @@ Abc_Clock.exit36.i:                               ; preds = %424, %Abc_Clock.exi
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %433)
   %434 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %435 = load i32, ptr %434, align 8, !tbaa !12
-  %436 = load i32, ptr %399, align 8, !tbaa !33
+  %436 = load i32, ptr %399, align 8, !tbaa !34
   %437 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %435, i32 noundef %436) #20
   %438 = call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull @.str.19)
   %439 = call ptr (...) @Extra_TimeStamp() #20
   %440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.20, ptr noundef %439) #20
   %441 = load i32, ptr %434, align 8, !tbaa !12
-  %442 = load i32, ptr %399, align 8, !tbaa !33
+  %442 = load i32, ptr %399, align 8, !tbaa !34
   %443 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.21, i32 noundef %441, i32 noundef %442) #20
   %444 = load i32, ptr %434, align 8, !tbaa !12
   %445 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.22, i32 noundef %444) #20
-  %446 = load i32, ptr %399, align 8, !tbaa !33
+  %446 = load i32, ptr %399, align 8, !tbaa !34
   %447 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.23, i32 noundef %446) #20
   %448 = load i32, ptr %419, align 4, !tbaa !16
   %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.24, i32 noundef %448) #20
@@ -851,7 +851,7 @@ Abc_Clock.exit36.i:                               ; preds = %424, %Abc_Clock.exi
   %fputc.i = call i32 @fputc(i32 10, ptr %438)
   %454 = load i32, ptr %419, align 4, !tbaa !16
   %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.26, i32 noundef %454) #20
-  store i32 0, ptr %.0.lcssa, align 8, !tbaa !38
+  store i32 0, ptr %.0.lcssa, align 8, !tbaa !39
   %456 = load i32, ptr %419, align 4, !tbaa !16
   %457 = icmp sgt i32 %456, 0
   br i1 %457, label %.lr.ph.i31, label %.critedge.i30
@@ -873,21 +873,21 @@ Abc_Clock.exit36.i:                               ; preds = %424, %Abc_Clock.exi
   %.not.i.i33 = icmp ne i32 %465, 0
   %466 = sext i1 %.not.i.i33 to i32
   %467 = xor i32 %463, %466
-  store i32 %467, ptr %4, align 4, !tbaa !36
+  store i32 %467, ptr %4, align 4, !tbaa !37
   %468 = load i32, ptr %413, align 4, !tbaa !15
   call void @Extra_PrintBinary(ptr noundef %438, ptr noundef nonnull %4, i32 noundef %468) #20
   %469 = call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %438)
-  %470 = load i32, ptr %399, align 8, !tbaa !33
+  %470 = load i32, ptr %399, align 8, !tbaa !34
   %471 = call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef nonnull readonly %461, i32 noundef %465, i32 noundef %470)
   %fputs.i.i34 = call i32 @fputs(ptr %471, ptr %438)
   %fputc.i.i35 = call i32 @fputc(i32 10, ptr %438)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  %472 = load i32, ptr %.0.lcssa, align 8, !tbaa !38
+  %472 = load i32, ptr %.0.lcssa, align 8, !tbaa !39
   %473 = add nsw i32 %472, 1
-  store i32 %473, ptr %.0.lcssa, align 8, !tbaa !38
+  store i32 %473, ptr %.0.lcssa, align 8, !tbaa !39
   %474 = load i32, ptr %419, align 4, !tbaa !16
   %475 = icmp slt i32 %473, %474
-  br i1 %475, label %.lr.ph.i31, label %.critedge.i30, !llvm.loop !46
+  br i1 %475, label %.lr.ph.i31, label %.critedge.i30, !llvm.loop !47
 
 .critedge.i30:                                    ; preds = %462, %.lr.ph.i31, %Abc_Clock.exit36.i
   %476 = call i32 @fclose(ptr noundef %438)
@@ -929,7 +929,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !36
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !37
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -942,7 +942,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #20
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !34
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !35
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #20
@@ -950,7 +950,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !34, !noalias !47
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !35, !noalias !48
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #20
   br label %17
 
@@ -1031,11 +1031,11 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define internal fastcc ptr @Super2_LibWriteGate_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs1, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs2, i64 0, i64 %4
-  %8 = load ptr, ptr %7, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %26
 
@@ -1047,23 +1047,23 @@ define internal fastcc ptr @Super2_LibWriteGate_rec(ptr noundef readonly capture
 
 15:                                               ; preds = %12
   %16 = select i1 %.not62, i8 48, i8 49
-  store i8 %16, ptr %6, align 1, !tbaa !52
+  store i8 %16, ptr %6, align 1, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 36, ptr %17, align 1, !tbaa !52
+  store i8 36, ptr %17, align 1, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 0, ptr %18, align 1, !tbaa !52
+  store i8 0, ptr %18, align 1, !tbaa !53
   br label %71
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i8
   %. = select i1 %.not62, i8 97, i8 65
   %24 = add i8 %., %23
-  store i8 %24, ptr %6, align 1, !tbaa !52
+  store i8 %24, ptr %6, align 1, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 0, ptr %25, align 1, !tbaa !52
+  store i8 0, ptr %25, align 1, !tbaa !53
   br label %71
 
 26:                                               ; preds = %3
@@ -1076,7 +1076,7 @@ define internal fastcc ptr @Super2_LibWriteGate_rec(ptr noundef readonly capture
   %33 = tail call fastcc ptr @Super2_LibWriteGate_rec(ptr noundef %29, i32 noundef %31, i32 noundef %32)
   %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %33) #20
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, -2
   %39 = inttoptr i64 %38 to ptr
@@ -1108,21 +1108,21 @@ define internal fastcc ptr @Super2_LibWriteGate_rec(ptr noundef readonly capture
 
 51:                                               ; preds = %51, %.preheader
   %.118.i = phi ptr [ %.017.i, %.preheader ], [ %54, %51 ]
-  %52 = load i8, ptr %.118.i, align 1, !tbaa !52
+  %52 = load i8, ptr %.118.i, align 1, !tbaa !53
   %.not.i = icmp ne i8 %52, 0
   %53 = icmp slt i8 %52, 65
   %or.cond.i = and i1 %.not.i, %53
   %54 = getelementptr inbounds nuw i8, ptr %.118.i, i64 1
-  br i1 %or.cond.i, label %51, label %.critedge.i, !llvm.loop !53
+  br i1 %or.cond.i, label %51, label %.critedge.i, !llvm.loop !54
 
 .critedge.i:                                      ; preds = %51, %.critedge.i
   %.1.i = phi ptr [ %57, %.critedge.i ], [ %.0.i, %51 ]
-  %55 = load i8, ptr %.1.i, align 1, !tbaa !52
+  %55 = load i8, ptr %.1.i, align 1, !tbaa !53
   %.not24.i = icmp ne i8 %55, 0
   %56 = icmp slt i8 %55, 65
   %or.cond26.i = and i1 %.not24.i, %56
   %57 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br i1 %or.cond26.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !54
+  br i1 %or.cond26.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !55
 
 .critedge2.i:                                     ; preds = %.critedge.i
   %58 = icmp eq i8 %52, 0
@@ -1177,7 +1177,7 @@ define internal range(i32 -1, 2) i32 @Super2_LibCompareGates(ptr noundef readonl
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = load ptr, ptr %1, align 8, !tbaa !20
   %5 = load i32, ptr %3, align 8, !tbaa !22
-  %6 = load i32, ptr @s_uMaskBit, align 4, !tbaa !36
+  %6 = load i32, ptr @s_uMaskBit, align 4, !tbaa !37
   %7 = and i32 %6, %5
   %.not = icmp eq i32 %7, 0
   %8 = load i32, ptr @s_uMaskAll, align 4
@@ -1276,32 +1276,33 @@ attributes #23 = { nounwind willreturn memory(read) }
 !23 = !{!"Super2_GateStruct_t_", !10, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
 !24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = !{!23, !21, i64 16}
-!28 = distinct !{!28, !25}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"timespec", !31, i64 0, !31, i64 8}
-!31 = !{!"long", !7, i64 0}
-!32 = !{!30, !31, i64 8}
-!33 = !{!13, !10, i64 16}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!36 = !{!10, !10, i64 0}
-!37 = distinct !{!37, !25}
-!38 = !{!13, !10, i64 0}
-!39 = !{!4, !10, i64 16}
-!40 = !{!13, !10, i64 4}
-!41 = distinct !{!41, !25}
-!42 = !{!23, !21, i64 8}
-!43 = !{!14, !14, i64 0}
-!44 = distinct !{!44, !25}
+!26 = distinct !{!26, !25, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = !{!23, !21, i64 16}
+!29 = distinct !{!29, !25}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"timespec", !32, i64 0, !32, i64 8}
+!32 = !{!"long", !7, i64 0}
+!33 = !{!31, !32, i64 8}
+!34 = !{!13, !10, i64 16}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!37 = !{!10, !10, i64 0}
+!38 = distinct !{!38, !25}
+!39 = !{!13, !10, i64 0}
+!40 = !{!4, !10, i64 16}
+!41 = !{!13, !10, i64 4}
+!42 = distinct !{!42, !25}
+!43 = !{!23, !21, i64 8}
+!44 = !{!14, !14, i64 0}
 !45 = distinct !{!45, !25}
 !46 = distinct !{!46, !25}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"vprintf: argument 0"}
-!49 = distinct !{!49, !"vprintf"}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 omnipotent char", !6, i64 0}
-!52 = !{!7, !7, i64 0}
-!53 = distinct !{!53, !25}
+!47 = distinct !{!47, !25}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"vprintf: argument 0"}
+!50 = distinct !{!50, !"vprintf"}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 omnipotent char", !6, i64 0}
+!53 = !{!7, !7, i64 0}
 !54 = distinct !{!54, !25}
+!55 = distinct !{!55, !25}

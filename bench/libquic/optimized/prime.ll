@@ -223,7 +223,7 @@ get_word.exit60.us.i:                             ; preds = %79, %78
 .critedge.us.i:                                   ; preds = %88
   %95 = add i64 %.047.us.i, 2
   %96 = icmp ugt i64 %95, %spec.select.i
-  br i1 %96, label %.backedge66.i, label %78
+  br i1 %96, label %.backedge66.i, label %78, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %62, %.backedge.i
   %.047.i = phi i64 [ %108, %.backedge.i ], [ 0, %62 ]
@@ -232,7 +232,7 @@ get_word.exit60.us.i:                             ; preds = %79, %78
 97:                                               ; preds = %98
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, 2048
-  br i1 %exitcond86.not.i, label %.critedge.thread.i, label %98, !llvm.loop !24
+  br i1 %exitcond86.not.i, label %.critedge.thread.i, label %98, !llvm.loop !26
 
 98:                                               ; preds = %97, %.preheader.i
   %indvars.iv83.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next84.i, %97 ]
@@ -344,7 +344,7 @@ probable_prime.exit:                              ; preds = %111
 
 .preheader.i80.backedge:                          ; preds = %139, %150
   %indvars.iv.i81.be = phi i64 [ %indvars.iv.next.i82, %139 ], [ 1, %150 ]
-  br label %.preheader.i80, !llvm.loop !25
+  br label %.preheader.i80, !llvm.loop !27
 
 .preheader.i80:                                   ; preds = %137, %.preheader.i80.backedge
   %indvars.iv.i81 = phi i64 [ %indvars.iv.i81.be, %.preheader.i80.backedge ], [ 1, %137 ]
@@ -420,7 +420,7 @@ probable_prime_dh_safe.exit:                      ; preds = %139
 
 .backedge150:                                     ; preds = %165, %172
   %indvars.iv.i85.be = phi i64 [ %indvars.iv.next.i86, %165 ], [ 1, %172 ]
-  br label %166, !llvm.loop !26
+  br label %166, !llvm.loop !28
 
 166:                                              ; preds = %.backedge150, %.preheader149
   %indvars.iv.i85 = phi i64 [ 1, %.preheader149 ], [ %indvars.iv.i85.be, %.backedge150 ]
@@ -499,7 +499,7 @@ BN_GENCB_call.exit92:                             ; preds = %185
 BN_GENCB_call.exit92.thread:                      ; preds = %185, %BN_GENCB_call.exit92
   %188 = add nuw nsw i32 %.064122, 1
   %exitcond.not = icmp eq i32 %188, %39
-  br i1 %exitcond.not, label %.thread106, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %.thread106, label %.preheader, !llvm.loop !29
 
 .thread106.loopexit154:                           ; preds = %178, %180, %BN_GENCB_call.exit
   br label %.thread106
@@ -610,7 +610,7 @@ define hidden i32 @BN_is_prime_fasttest_ex(ptr noundef %0, i32 noundef %1, ptr n
 50:                                               ; preds = %.preheader137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
-  br i1 %exitcond.not, label %56, label %.preheader137, !llvm.loop !28
+  br i1 %exitcond.not, label %56, label %.preheader137, !llvm.loop !30
 
 .preheader137:                                    ; preds = %49, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 1, %49 ]
@@ -645,7 +645,7 @@ BN_GENCB_call.exit.thread:                        ; preds = %56, %BN_GENCB_call.
   %.183 = phi ptr [ %61, %60 ], [ %2, %BN_GENCB_call.exit.thread ]
   tail call void @BN_CTX_start(ptr noundef nonnull %.183) #5
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i32, ptr %64, align 8, !tbaa !29
+  %65 = load i32, ptr %64, align 8, !tbaa !31
   %.not97 = icmp eq i32 %65, 0
   br i1 %.not97, label %73, label %66
 
@@ -661,7 +661,7 @@ BN_GENCB_call.exit.thread:                        ; preds = %56, %BN_GENCB_call.
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i32 0, ptr %72, align 8, !tbaa !29
+  store i32 0, ptr %72, align 8, !tbaa !31
   br label %73
 
 73:                                               ; preds = %71, %63
@@ -692,7 +692,7 @@ BN_GENCB_call.exit.thread:                        ; preds = %56, %BN_GENCB_call.
   %84 = tail call i32 @BN_is_bit_set(ptr noundef %74, i32 noundef %.084) #5
   %.not102 = icmp eq i32 %84, 0
   %85 = add nuw nsw i32 %.084, 1
-  br i1 %.not102, label %.preheader136, label %86, !llvm.loop !30
+  br i1 %.not102, label %.preheader136, label %86, !llvm.loop !32
 
 86:                                               ; preds = %.preheader136
   %87 = tail call i32 @BN_rshift(ptr noundef %75, ptr noundef %74, i32 noundef %.084) #5
@@ -739,7 +739,7 @@ BN_GENCB_call.exit.thread:                        ; preds = %56, %BN_GENCB_call.
 BN_GENCB_call.exit113.thread.us:                  ; preds = %98
   %100 = add nuw nsw i32 %.180139.us, 1
   %exitcond156.not = icmp eq i32 %100, %.078
-  br i1 %exitcond156.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %exitcond156.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %BN_GENCB_call.exit113.thread
   %.180139 = phi i32 [ %108, %BN_GENCB_call.exit113.thread ], [ 0, %.lr.ph ]
@@ -768,7 +768,7 @@ BN_GENCB_call.exit113:                            ; preds = %104
 BN_GENCB_call.exit113.thread:                     ; preds = %BN_GENCB_call.exit113
   %108 = add nuw nsw i32 %.180139, 1
   %exitcond155.not = icmp eq i32 %108, %.078
-  br i1 %exitcond155.not, label %.thread, label %.lr.ph.split, !llvm.loop !31
+  br i1 %exitcond155.not, label %.thread, label %.lr.ph.split, !llvm.loop !34
 
 .thread.loopexit:                                 ; preds = %98
   br label %.thread
@@ -825,7 +825,7 @@ define hidden range(i32 0, 2) i32 @BN_primality_test(ptr noundef writeonly captu
 10:                                               ; preds = %6, %9, %8
   %.sink = phi i32 [ 0, %9 ], [ %7, %8 ], [ %7, %6 ]
   %.0 = phi i32 [ 0, %9 ], [ 1, %8 ], [ %7, %6 ]
-  store i32 %.sink, ptr %0, align 4, !tbaa !32
+  store i32 %.sink, ptr %0, align 4, !tbaa !35
   ret i32 %.0
 }
 
@@ -900,7 +900,7 @@ define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef nonnull %0, ptr
 19:                                               ; preds = %17
   %20 = tail call i32 @BN_cmp(ptr noundef nonnull %0, ptr noundef %2) #5
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader, %19, %17, %15, %11, %9, %7
   %.0 = phi i32 [ -1, %7 ], [ 0, %9 ], [ 0, %11 ], [ 1, %.preheader ], [ 0, %19 ], [ 1, %17 ], [ -1, %15 ]
@@ -961,13 +961,16 @@ attributes #5 = { nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"long", !9, i64 0}
 !23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !26 = distinct !{!26, !15}
 !27 = distinct !{!27, !15}
 !28 = distinct !{!28, !15}
-!29 = !{!17, !19, i64 16}
+!29 = distinct !{!29, !15}
 !30 = distinct !{!30, !15}
-!31 = distinct !{!31, !15}
-!32 = !{!19, !19, i64 0}
-!33 = distinct !{!33, !15}
+!31 = !{!17, !19, i64 16}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15, !25}
+!34 = distinct !{!34, !15}
+!35 = !{!19, !19, i64 0}
+!36 = distinct !{!36, !15}

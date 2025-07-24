@@ -638,7 +638,7 @@ Abc_SclFindMaxAreaCell.exit.us:                   ; preds = %.lr.ph, %22
   %29 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !55
   %.not29 = icmp eq ptr %30, %20
-  br i1 %.not29, label %22, label %24, !llvm.loop !59
+  br i1 %.not29, label %22, label %24, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
@@ -677,12 +677,12 @@ Abc_SclFindMaxAreaCell.exit.loopexit:             ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %.01924, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !55
   %.not28 = icmp eq ptr %48, %32
-  br i1 %.not28, label %49, label %42, !llvm.loop !59
+  br i1 %.not28, label %49, label %42, !llvm.loop !60
 
 49:                                               ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !58
+  br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %49, %22, %Vec_IntStartFull.exit
   ret ptr %4
@@ -761,7 +761,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %13, label %.critedge, !llvm.loop !60
+  br i1 %37, label %13, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %35, %4
   tail call void @Abc_SclSclGates2MioGates(ptr poison, ptr noundef nonnull %1)
@@ -852,7 +852,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %21, %Abc_ObjIsBarBu
   %.1 = phi i32 [ %.032, %12 ], [ %.032, %Abc_ObjIsBarBuf.exit ], [ %36, %Abc_ObjIsBarBuf.exit.thread ], [ %.032, %19 ], [ %.032, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !61
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !63
 
 .critedge:                                        ; preds = %37, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %37 ]
@@ -940,7 +940,7 @@ Abc_UtilStrsav.exit:                              ; preds = %12, %14
 .backedge:                                        ; preds = %20, %Abc_UtilStrsav.exit, %25, %29, %33, %7
   %35 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef %5)
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.backedge, %3
   %36 = call i32 @fclose(ptr noundef %5)
@@ -1099,7 +1099,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %25, %28, %Vec_
   %.val = load i32, ptr %57, align 4, !tbaa !25
   %58 = sext i32 %.val to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !63
+  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %Abc_ObjIsBarBuf.exit.thread, %7, %6
   %.014 = phi ptr [ null, %6 ], [ %8, %7 ], [ %8, %Abc_ObjIsBarBuf.exit.thread ]
@@ -1144,7 +1144,7 @@ define void @Abc_SclInsertBarBufs(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %.val8 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %7, label %.critedge, !llvm.loop !64
+  br i1 %19, label %7, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %17, %2
   ret void
@@ -1258,10 +1258,12 @@ attributes #19 = { nounwind allocsize(1) }
 !55 = !{!45, !46, i64 72}
 !56 = distinct !{!56, !41}
 !57 = !{!45, !5, i64 8}
-!58 = distinct !{!58, !41}
-!59 = distinct !{!59, !41}
+!58 = distinct !{!58, !41, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !60 = distinct !{!60, !41}
 !61 = distinct !{!61, !41}
 !62 = distinct !{!62, !41}
 !63 = distinct !{!63, !41}
 !64 = distinct !{!64, !41}
+!65 = distinct !{!65, !41}
+!66 = distinct !{!66, !41}

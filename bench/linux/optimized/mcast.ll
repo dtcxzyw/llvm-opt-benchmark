@@ -179,7 +179,7 @@ define internal fastcc noundef range(i32 -98, 1) i32 @__ipv6_sock_mc_join(ptr no
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit7, label %.split, !llvm.loop !11
+  br i1 %64, label %.loopexit7, label %.split, !llvm.loop !15
 
 .loopexit7:                                       ; preds = %61, %44, %27
   %65 = tail call ptr @sock_kmalloc(ptr noundef %0, i32 noundef 56, i32 noundef 3264) #13
@@ -225,7 +225,7 @@ define internal fastcc noundef range(i32 -98, 1) i32 @__ipv6_sock_mc_join(ptr no
   store i32 %3, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store volatile ptr null, ptr %85, align 8
-  %86 = tail call fastcc i32 @__ipv6_dev_mc_inc(ptr noundef nonnull %78, ptr noundef %2, i32 noundef %3), !range !14
+  %86 = tail call fastcc i32 @__ipv6_dev_mc_inc(ptr noundef nonnull %78, ptr noundef %2, i32 noundef %3), !range !16
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %89, label %88
 
@@ -236,7 +236,7 @@ define internal fastcc noundef range(i32 -98, 1) i32 @__ipv6_sock_mc_join(ptr no
 89:                                               ; preds = %80
   %90 = load ptr, ptr %28, align 8
   store ptr %90, ptr %68, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile ptr %65, ptr %28, align 8
   br label %.loopexit
 
@@ -278,12 +278,12 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
 
 21:                                               ; preds = %13
   store i1 true, ptr @ipv6_sock_mc_drop.__already_done, align 1
-  tail call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #13, !srcloc !16
+  tail call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #13, !srcloc !18
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 255) #13
-  tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #13, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 255, i32 2313, i64 12) #13, !srcloc !18
-  tail call void asm sideeffect "999: nop\0A\09.pushsection .discard.instr_end\0A\09.long 999b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 999) #13, !srcloc !19
-  tail call void asm sideeffect "1000: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1000) #13, !srcloc !20
+  tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #13, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 255, i32 2313, i64 12) #13, !srcloc !20
+  tail call void asm sideeffect "999: nop\0A\09.pushsection .discard.instr_end\0A\09.long 999b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 999) #13, !srcloc !21
+  tail call void asm sideeffect "1000: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1000) #13, !srcloc !22
   br label %22
 
 22:                                               ; preds = %21, %13
@@ -321,14 +321,14 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
   %45 = icmp eq i64 %42, %33
   %46 = icmp eq i64 %44, %34
   %47 = and i1 %45, %46
-  br i1 %47, label %.split10.us.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %47, label %.split10.us.loopexit, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.split.us, %41
   %48 = phi ptr [ %50, %41 ], [ %28, %.split.us ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %41, !llvm.loop !21
+  br i1 %51, label %.loopexit, label %41, !llvm.loop !23
 
 .split:                                           ; preds = %30, %92
   %52 = phi ptr [ %94, %92 ], [ %28, %30 ]
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %73
-  %78 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %75, ptr noundef nonnull %.us-phi), !range !22
+  %78 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %75, ptr noundef nonnull %.us-phi), !range !24
   br label %89
 
 79:                                               ; preds = %.split10.us
@@ -388,14 +388,14 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
   %85 = shl i32 %84, 4
   %86 = add i32 %85, 24
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %87, i32 %86, ptr nonnull elementtype(i32) %87) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %87, i32 %86, ptr nonnull elementtype(i32) %87) #13, !srcloc !25
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %88, ptr noundef nonnull %81) #13
   br label %89
 
 89:                                               ; preds = %83, %79, %77, %73
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 56, ptr nonnull elementtype(i32) %90) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 56, ptr nonnull elementtype(i32) %90) #13, !srcloc !25
   %91 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
   tail call void @kvfree_call_rcu(ptr noundef nonnull %91, ptr noundef nonnull %.us-phi) #13
   br label %.loopexit
@@ -404,7 +404,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
   %93 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.loopexit, label %.split, !llvm.loop !21
+  br i1 %95, label %.loopexit, label %.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %92, %.lr.ph, %89, %26, %22
   %96 = phi i32 [ 0, %89 ], [ -22, %22 ], [ -99, %26 ], [ -99, %.lr.ph ], [ -99, %92 ]
@@ -458,7 +458,7 @@ define internal fastcc void @ip6_mc_leave_src(ptr noundef %0, ptr noundef nonnul
   %19 = shl i32 %18, 4
   %20 = add i32 %19, 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, i32 %20, ptr nonnull elementtype(i32) %21) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, i32 %20, ptr nonnull elementtype(i32) %21) #13, !srcloc !25
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %22, ptr noundef nonnull %5) #13
   br label %23
@@ -485,12 +485,12 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
 
 7:                                                ; preds = %2
   store i1 true, ptr @__ipv6_dev_mc_dec.__already_done, align 1
-  tail call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #13, !srcloc !24
+  tail call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #13, !srcloc !27
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 968) #13
-  tail call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #13, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 968, i32 2313, i64 12) #13, !srcloc !26
-  tail call void asm sideeffect "1077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1077) #13, !srcloc !27
-  tail call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #13, !srcloc !28
+  tail call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #13, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 968, i32 2313, i64 12) #13, !srcloc !29
+  tail call void asm sideeffect "1077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1077) #13, !srcloc !30
+  tail call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #13, !srcloc !31
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -515,7 +515,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   %22 = icmp eq i64 %17, %18
   %23 = icmp eq i64 %20, %21
   %24 = and i1 %22, %23
-  br i1 %24, label %25, label %11, !llvm.loop !29
+  br i1 %24, label %25, label %11, !llvm.loop !32
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 164
@@ -542,7 +542,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %39, ptr noundef nonnull %37) #13
   %40 = icmp eq ptr %38, null
-  br i1 %40, label %.loopexit4, label %.preheader3, !llvm.loop !30
+  br i1 %40, label %.loopexit4, label %.preheader3, !llvm.loop !33
 
 .loopexit4:                                       ; preds = %.preheader3, %30
   store volatile ptr null, ptr %34, align 8
@@ -557,7 +557,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %46, ptr noundef nonnull %44) #13
   %47 = icmp eq ptr %45, null
-  br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4
   store volatile ptr null, ptr %41, align 8
@@ -569,7 +569,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   store i64 1, ptr %49, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #13
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 168
-  %52 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %51, i32 -1, ptr nonnull elementtype(i32) %51) #13, !srcloc !32
+  %52 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %51, i32 -1, ptr nonnull elementtype(i32) %51) #13, !srcloc !35
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %57, label %54
 
@@ -582,11 +582,11 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   br label %ma_put.exit
 
 57:                                               ; preds = %.loopexit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 624
-  %61 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %60, i32 -1, ptr nonnull elementtype(i32) %60) #13, !srcloc !32
+  %61 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %60, i32 -1, ptr nonnull elementtype(i32) %60) #13, !srcloc !35
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %66, label %63
 
@@ -599,7 +599,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   br label %.thread4.i
 
 66:                                               ; preds = %57
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %59) #13
   br label %.thread4.i
 
@@ -651,12 +651,12 @@ define dso_local void @__ipv6_sock_mc_close(ptr noundef %0) local_unnamed_addr #
 
 19:                                               ; preds = %11
   store i1 true, ptr @__ipv6_sock_mc_close.__already_done, align 1
-  tail call void asm sideeffect "1003: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1003) #13, !srcloc !34
+  tail call void asm sideeffect "1003: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1003) #13, !srcloc !37
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 324) #13
-  tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #13, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 324, i32 2313, i64 12) #13, !srcloc !36
-  tail call void asm sideeffect "1005: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1005b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1005) #13, !srcloc !37
-  tail call void asm sideeffect "1006: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1006) #13, !srcloc !38
+  tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #13, !srcloc !38
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 324, i32 2313, i64 12) #13, !srcloc !39
+  tail call void asm sideeffect "1005: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1005b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1005) #13, !srcloc !40
+  tail call void asm sideeffect "1006: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1006) #13, !srcloc !41
   br label %20
 
 20:                                               ; preds = %19, %11
@@ -688,7 +688,7 @@ define dso_local void @__ipv6_sock_mc_close(ptr noundef %0) local_unnamed_addr #
   br i1 %37, label %49, label %38
 
 38:                                               ; preds = %34
-  %39 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %36, ptr noundef nonnull %27), !range !22
+  %39 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %36, ptr noundef nonnull %27), !range !24
   br label %49
 
 40:                                               ; preds = %26
@@ -702,18 +702,18 @@ define dso_local void @__ipv6_sock_mc_close(ptr noundef %0) local_unnamed_addr #
   %45 = load i32, ptr %42, align 8
   %46 = shl i32 %45, 4
   %47 = add i32 %46, 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %47, ptr nonnull elementtype(i32) %25) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %47, ptr nonnull elementtype(i32) %25) #13, !srcloc !25
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %48, ptr noundef nonnull %42) #13
   br label %49
 
 49:                                               ; preds = %44, %40, %38, %34
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 56, ptr nonnull elementtype(i32) %25) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 56, ptr nonnull elementtype(i32) %25) #13, !srcloc !25
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 40
   tail call void @kvfree_call_rcu(ptr noundef nonnull %50, ptr noundef nonnull %27) #13
   %51 = load ptr, ptr %21, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit, label %26, !llvm.loop !39
+  br i1 %52, label %.loopexit, label %26, !llvm.loop !42
 
 .loopexit:                                        ; preds = %49, %20
   ret void
@@ -857,7 +857,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread31, label %55, !llvm.loop !40
+  br i1 %66, label %.thread31, label %55, !llvm.loop !43
 
 .split:                                           ; preds = %49, %80
   %67 = phi ptr [ %82, %80 ], [ %47, %49 ]
@@ -881,7 +881,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread31, label %.split, !llvm.loop !40
+  br i1 %83, label %.thread31, label %.split, !llvm.loop !44
 
 .split42.us:                                      ; preds = %71, %55
   %.us-phi = phi ptr [ %56, %55 ], [ %67, %71 ]
@@ -900,7 +900,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br i1 %89, label %95, label %92
 
 92:                                               ; preds = %91
-  %93 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !41
+  %93 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !45
   %94 = load i32, ptr %87, align 4
   tail call fastcc void @ip6_mc_del_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %94, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 %1, ptr %87, align 4
@@ -944,7 +944,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 119:                                              ; preds = %109
   %120 = add nuw i32 %110, 1
   %121 = icmp eq i32 %120, %102
-  br i1 %121, label %.thread31, label %109, !llvm.loop !42
+  br i1 %121, label %.thread31, label %109, !llvm.loop !46
 
 122:                                              ; preds = %109
   %123 = icmp eq i32 %102, 1
@@ -970,7 +970,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %136 = add nuw i32 %130, 1
   %137 = load i32, ptr %101, align 4
   %138 = icmp ult i32 %136, %137
-  br i1 %138, label %.preheader, label %.loopexit, !llvm.loop !43
+  br i1 %138, label %.preheader, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %126
   %139 = phi i32 [ %128, %126 ], [ %137, %.preheader ]
@@ -1038,22 +1038,22 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %176 = add nuw i32 %172, 1
   %177 = load i32, ptr %165, align 4
   %178 = icmp ult i32 %176, %177
-  br i1 %178, label %171, label %.loopexit35, !llvm.loop !44
+  br i1 %178, label %171, label %.loopexit35, !llvm.loop !48
 
 .loopexit35:                                      ; preds = %171, %164
   %179 = load i32, ptr %96, align 8
   %180 = shl i32 %179, 4
   %181 = add i32 %180, 24
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %182, i32 %181, ptr nonnull elementtype(i32) %182) #13, !srcloc !23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %182, i32 %181, ptr nonnull elementtype(i32) %182) #13, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
   store volatile ptr %159, ptr %84, align 8
   %183 = getelementptr inbounds nuw i8, ptr %96, i64 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %183, ptr noundef nonnull %96) #13
   br label %.thread29
 
 184:                                              ; preds = %161
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !45
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
   store volatile ptr %159, ptr %84, align 8
   br label %.thread29
 
@@ -1090,7 +1090,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 204:                                              ; preds = %194
   %205 = add nuw i32 %195, 1
   %206 = icmp eq i32 %205, %187
-  br i1 %206, label %193, label %194, !llvm.loop !46
+  br i1 %206, label %193, label %194, !llvm.loop !50
 
 .preheader63:                                     ; preds = %193, %.preheader63
   %207 = phi i32 [ %213, %.preheader63 ], [ 2147483647, %193 ]
@@ -1111,7 +1111,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %217 = load i32, ptr %186, align 4
   %218 = add i32 %217, 1
   store i32 %218, ptr %186, align 4
-  %219 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 1), !range !41
+  %219 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 1), !range !45
   br label %.thread31
 
 .thread31:                                        ; preds = %80, %63, %194, %119, %.loopexit33, %.loopexit, %99, %90, %142, %44, %.thread26, %100
@@ -1122,7 +1122,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 220:                                              ; preds = %122
   tail call void @mutex_unlock(ptr noundef nonnull %45) #13
   %221 = load i32, ptr %3, align 8
-  %222 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %2, i32 noundef %221, ptr noundef nonnull %19), !range !47
+  %222 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %2, i32 noundef %221, ptr noundef nonnull %19), !range !51
   br label %.thread23
 
 .thread23:                                        ; preds = %26, %40, %36, %33, %.thread31, %220, %14
@@ -1154,7 +1154,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip6_mc_add_src(ptr nounde
   %19 = icmp eq i64 %14, %15
   %20 = icmp eq i64 %16, %18
   %21 = and i1 %19, %20
-  br i1 %21, label %22, label %8, !llvm.loop !48
+  br i1 %21, label %22, label %8, !llvm.loop !52
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -1204,7 +1204,7 @@ thread-pre-split:                                 ; preds = %47
   store i8 %49, ptr %50, align 1
   %51 = load ptr, ptr %33, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit15, label %thread-pre-split, !llvm.loop !49
+  br i1 %52, label %.loopexit15, label %thread-pre-split, !llvm.loop !53
 
 .loopexit15:                                      ; preds = %47, %22
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1245,7 +1245,7 @@ thread-pre-split:                                 ; preds = %47
 75:                                               ; preds = %78
   %76 = load ptr, ptr %79, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.loopexit13, label %78, !llvm.loop !50
+  br i1 %77, label %.loopexit13, label %78, !llvm.loop !54
 
 78:                                               ; preds = %75, %71
   %79 = phi ptr [ %69, %71 ], [ %76, %75 ]
@@ -1256,7 +1256,7 @@ thread-pre-split:                                 ; preds = %47
   %84 = icmp eq i64 %81, %72
   %85 = icmp eq i64 %83, %74
   %86 = and i1 %84, %85
-  br i1 %86, label %.loopexit12, label %75, !llvm.loop !50
+  br i1 %86, label %.loopexit12, label %75, !llvm.loop !54
 
 .loopexit13:                                      ; preds = %75, %66
   %87 = phi ptr [ null, %66 ], [ %79, %75 ]
@@ -1283,7 +1283,7 @@ thread-pre-split:                                 ; preds = %47
   store i64 %99, ptr %97, align 8
   %100 = add nuw nsw i64 %67, 1
   %101 = icmp eq i64 %100, %65
-  br i1 %101, label %.loopexit14, label %66, !llvm.loop !51
+  br i1 %101, label %.loopexit14, label %66, !llvm.loop !55
 
 102:                                              ; preds = %.loopexit13
   %103 = trunc i64 %67 to i32
@@ -1307,10 +1307,10 @@ thread-pre-split:                                 ; preds = %47
 112:                                              ; preds = %112, %110
   %113 = phi i64 [ 0, %110 ], [ %116, %112 ]
   %114 = getelementptr %struct.in6_addr, ptr %4, i64 %113
-  %115 = tail call fastcc i32 @ip6_mc_del1_src(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %114), !range !52
+  %115 = tail call fastcc i32 @ip6_mc_del1_src(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %114), !range !56
   %116 = add nuw nsw i64 %113, 1
   %117 = icmp eq i64 %116, %111
-  br i1 %117, label %mld_ifc_event.exit, label %112, !llvm.loop !53
+  br i1 %117, label %mld_ifc_event.exit, label %112, !llvm.loop !57
 
 .loopexit14:                                      ; preds = %.loopexit12, %61
   %118 = load i64, ptr %23, align 8
@@ -1350,7 +1350,7 @@ thread-pre-split:                                 ; preds = %47
   store i8 0, ptr %137, align 2
   %138 = load ptr, ptr %136, align 8
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %139, label %.loopexit, label %.preheader, !llvm.loop !58
 
 140:                                              ; preds = %.loopexit14
   %141 = tail call fastcc i32 @sf_setstate(ptr noundef nonnull %11)
@@ -1398,9 +1398,9 @@ thread-pre-split:                                 ; preds = %47
 
 169:                                              ; preds = %162
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %171 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %170, i32 1, ptr nonnull elementtype(i32) %170) #13, !srcloc !55
+  %171 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %170, i32 1, ptr nonnull elementtype(i32) %170) #13, !srcloc !59
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %177, label %173, !prof !56
+  br i1 %172, label %177, label %173, !prof !60
 
 173:                                              ; preds = %169
   %174 = add i32 %171, 1
@@ -1443,7 +1443,7 @@ define internal fastcc void @ip6_mc_del_src(ptr noundef captures(address_is_null
   %21 = icmp eq i64 %16, %17
   %22 = icmp eq i64 %18, %20
   %23 = and i1 %21, %22
-  br i1 %23, label %24, label %10, !llvm.loop !57
+  br i1 %23, label %24, label %10, !llvm.loop !61
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -1493,7 +1493,7 @@ thread-pre-split:                                 ; preds = %49
   store i8 %51, ptr %52, align 1
   %53 = load ptr, ptr %35, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.loopexit7, label %thread-pre-split, !llvm.loop !49
+  br i1 %54, label %.loopexit7, label %thread-pre-split, !llvm.loop !53
 
 .loopexit7:                                       ; preds = %49, %24
   %55 = icmp eq i32 %5, 0
@@ -1524,7 +1524,7 @@ thread-pre-split:                                 ; preds = %49
   %69 = phi i32 [ 0, %65 ], [ %75, %67 ]
   %70 = phi i32 [ 0, %65 ], [ %79, %67 ]
   %71 = getelementptr %struct.in6_addr, ptr %4, i64 %68
-  %72 = tail call fastcc i32 @ip6_mc_del1_src(ptr noundef nonnull %13, i32 noundef %2, ptr noundef %71), !range !52
+  %72 = tail call fastcc i32 @ip6_mc_del1_src(ptr noundef nonnull %13, i32 noundef %2, ptr noundef %71), !range !56
   %73 = icmp sgt i32 %72, 0
   %74 = zext i1 %73 to i32
   %75 = or i32 %69, %74
@@ -1534,7 +1534,7 @@ thread-pre-split:                                 ; preds = %49
   %79 = select i1 %78, i32 %72, i32 %70
   %80 = add nuw nsw i64 %68, 1
   %81 = icmp eq i64 %80, %66
-  br i1 %81, label %82, label %67, !llvm.loop !58
+  br i1 %81, label %82, label %67, !llvm.loop !62
 
 82:                                               ; preds = %67
   %83 = icmp ne i32 %75, 0
@@ -1576,7 +1576,7 @@ thread-pre-split:                                 ; preds = %49
   store i8 0, ptr %104, align 2
   %105 = load ptr, ptr %103, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !63
 
 107:                                              ; preds = %92, %89, %84
   %108 = tail call fastcc i32 @sf_setstate(ptr noundef nonnull %13)
@@ -1627,9 +1627,9 @@ thread-pre-split:                                 ; preds = %49
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %112, i64 624
-  %141 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %140, i32 1, ptr nonnull elementtype(i32) %140) #13, !srcloc !55
+  %141 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %140, i32 1, ptr nonnull elementtype(i32) %140) #13, !srcloc !59
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %147, label %143, !prof !56
+  br i1 %142, label %147, label %143, !prof !60
 
 143:                                              ; preds = %139
   %144 = add i32 %141, 1
@@ -1766,7 +1766,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread11, label %60, !llvm.loop !60
+  br i1 %77, label %.thread11, label %60, !llvm.loop !64
 
 78:                                               ; preds = %65
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 140
@@ -1804,7 +1804,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %100 = getelementptr i8, ptr %94, i64 128
   %101 = load i32, ptr %89, align 4
   %102 = icmp ult i32 %99, %101
-  br i1 %102, label %93, label %.loopexit, !llvm.loop !61
+  br i1 %102, label %93, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %93, %87
   %103 = getelementptr inbounds nuw i8, ptr %40, i64 576
@@ -1812,7 +1812,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %104 = load i32, ptr %22, align 8
   %105 = load i32, ptr %89, align 4
   %106 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %107 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %40, ptr noundef nonnull %17, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %106, i32 noundef 0), !range !41
+  %107 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %40, ptr noundef nonnull %17, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %106, i32 noundef 0), !range !45
   %108 = icmp eq i32 %107, 0
   tail call void @mutex_unlock(ptr noundef nonnull %103) #13
   br i1 %108, label %117, label %109
@@ -1828,7 +1828,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %114 = getelementptr inbounds nuw i8, ptr %40, i64 576
   tail call void @mutex_lock(ptr noundef nonnull %114) #13
   %115 = load i32, ptr %22, align 8
-  %116 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %40, ptr noundef nonnull %17, i32 noundef %115, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !41
+  %116 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %40, ptr noundef nonnull %17, i32 noundef %115, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !45
   tail call void @mutex_unlock(ptr noundef nonnull %114) #13
   br label %117
 
@@ -1852,7 +1852,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   %130 = shl i32 %129, 4
   %131 = add i32 %130, 24
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %132, i32 %131, ptr nonnull elementtype(i32) %132) #13, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %132, i32 %131, ptr nonnull elementtype(i32) %132) #13, !srcloc !25
   br label %134
 
 133:                                              ; preds = %117
@@ -1860,7 +1860,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   br label %134
 
 134:                                              ; preds = %133, %125
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !62
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !66
   store volatile ptr %118, ptr %120, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %119) #13
   br i1 %122, label %137, label %135
@@ -1877,7 +1877,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
 
 139:                                              ; preds = %49
   %140 = load i32, ptr %1, align 8
-  %141 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %0, i32 noundef %140, ptr noundef nonnull %17), !range !47
+  %141 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %0, i32 noundef %140, ptr noundef nonnull %17), !range !51
   br label %.thread11
 
 .thread11:                                        ; preds = %74, %53, %82, %137, %109, %28, %42, %38, %35, %139, %21, %13
@@ -1945,7 +1945,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip6_mc_msfget(ptr noundef %0, pt
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %29, !llvm.loop !63
+  br i1 %46, label %.loopexit, label %29, !llvm.loop !67
 
 47:                                               ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 20
@@ -1998,7 +1998,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip6_mc_msfget(ptr noundef %0, pt
   %77 = add i64 %70, 128
   %78 = add nuw nsw i64 %69, 1
   %79 = icmp eq i64 %78, %68
-  br i1 %79, label %.loopexit, label %.split.us, !llvm.loop !64
+  br i1 %79, label %.loopexit, label %.split.us, !llvm.loop !68
 
 .critedge:                                        ; preds = %63, %.critedge
   %80 = phi i64 [ %85, %.critedge ], [ 0, %63 ]
@@ -2014,7 +2014,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip6_mc_msfget(ptr noundef %0, pt
   %84 = add i64 %81, 128
   %85 = add nuw nsw i64 %80, 1
   %86 = icmp eq i64 %85, %68
-  br i1 %86, label %.loopexit, label %.critedge, !llvm.loop !64
+  br i1 %86, label %.loopexit, label %.critedge, !llvm.loop !69
 
 .loopexit:                                        ; preds = %43, %.critedge, %76, %.split.us, %57, %22, %16
   %87 = phi i32 [ -22, %16 ], [ 0, %57 ], [ -99, %22 ], [ -14, %.split.us ], [ 0, %76 ], [ 0, %.critedge ], [ -99, %43 ]
@@ -2067,7 +2067,7 @@ define dso_local zeroext i1 @inet6_mc_check(ptr noundef %0, ptr noundef readonly
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %22, !llvm.loop !65
+  br i1 %33, label %.loopexit, label %22, !llvm.loop !70
 
 .loopexit:                                        ; preds = %30, %13
   tail call void @__rcu_read_unlock() #13
@@ -2112,7 +2112,7 @@ define dso_local zeroext i1 @inet6_mc_check(ptr noundef %0, ptr noundef readonly
   %60 = phi i32 [ %61, %63 ], [ 0, %45 ]
   %61 = add nuw i32 %60, 1
   %62 = icmp eq i32 %61, %44
-  br i1 %62, label %72, label %63, !llvm.loop !66
+  br i1 %62, label %72, label %63, !llvm.loop !71
 
 63:                                               ; preds = %.preheader
   %64 = sext i32 %61 to i64
@@ -2123,7 +2123,7 @@ define dso_local zeroext i1 @inet6_mc_check(ptr noundef %0, ptr noundef readonly
   %69 = icmp eq i64 %66, %47
   %70 = icmp eq i64 %68, %49
   %71 = and i1 %69, %70
-  br i1 %71, label %72, label %.preheader, !llvm.loop !66
+  br i1 %71, label %72, label %.preheader, !llvm.loop !71
 
 72:                                               ; preds = %63, %.preheader
   %.lcssa = phi i32 [ %61, %63 ], [ %44, %.preheader ]
@@ -2154,7 +2154,7 @@ define dso_local zeroext i1 @inet6_mc_check(ptr noundef %0, ptr noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @ipv6_dev_mc_inc(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
-  %3 = tail call fastcc i32 @__ipv6_dev_mc_inc(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !14
+  %3 = tail call fastcc i32 @__ipv6_dev_mc_inc(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !16
   ret i32 %3
 }
 
@@ -2168,12 +2168,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
 
 8:                                                ; preds = %3
   store i1 true, ptr @__ipv6_dev_mc_inc.__already_done, align 1
-  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #13, !srcloc !67
+  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #13, !srcloc !72
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 912) #13
-  tail call void asm sideeffect "1065: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1065b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1065) #13, !srcloc !68
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 912, i32 2313, i64 12) #13, !srcloc !69
-  tail call void asm sideeffect "1066: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1066b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1066) #13, !srcloc !70
-  tail call void asm sideeffect "1067: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1067b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1067) #13, !srcloc !71
+  tail call void asm sideeffect "1065: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1065b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1065) #13, !srcloc !73
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 912, i32 2313, i64 12) #13, !srcloc !74
+  tail call void asm sideeffect "1066: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1066b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1066) #13, !srcloc !75
+  tail call void asm sideeffect "1067: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1067b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1067) #13, !srcloc !76
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -2185,9 +2185,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 624
-  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 1, ptr nonnull elementtype(i32) %14) #13, !srcloc !55
+  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 1, ptr nonnull elementtype(i32) %14) #13, !srcloc !59
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %21, label %17, !prof !56
+  br i1 %16, label %21, label %17, !prof !60
 
 17:                                               ; preds = %13
   %18 = add i32 %15, 1
@@ -2208,7 +2208,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !32
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !35
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %33, label %30
 
@@ -2221,7 +2221,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %ma_put.exit
 
 33:                                               ; preds = %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef nonnull %11) #13
   br label %ma_put.exit
 
@@ -2254,9 +2254,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
-  %55 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %11, ptr noundef nonnull %44, i32 noundef %2, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !41
+  %55 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %11, ptr noundef nonnull %44, i32 noundef %2, i32 noundef 0, ptr noundef null, i32 noundef 0), !range !45
   tail call void @mutex_unlock(ptr noundef nonnull %35) #13
-  %56 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !32
+  %56 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !35
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %61, label %58
 
@@ -2269,7 +2269,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %ma_put.exit
 
 61:                                               ; preds = %51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef nonnull %11) #13
   br label %ma_put.exit
 
@@ -2277,7 +2277,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %43, !llvm.loop !72
+  br i1 %65, label %.loopexit, label %43, !llvm.loop !77
 
 .loopexit:                                        ; preds = %62, %34
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
@@ -2334,7 +2334,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
 
 97:                                               ; preds = %.loopexit
   tail call void @mutex_unlock(ptr noundef nonnull %35) #13
-  %98 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !32
+  %98 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !35
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %103, label %100
 
@@ -2347,20 +2347,20 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %ma_put.exit
 
 103:                                              ; preds = %97
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef nonnull %11) #13
   br label %ma_put.exit
 
 104:                                              ; preds = %69, %93
   %105 = load ptr, ptr %36, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !73
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !78
   %106 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store volatile ptr %105, ptr %106, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !74
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !79
   store volatile ptr %67, ptr %36, align 8
-  %107 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 1, ptr nonnull elementtype(i32) %80) #13, !srcloc !55
+  %107 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 1, ptr nonnull elementtype(i32) %80) #13, !srcloc !59
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %113, label %109, !prof !56
+  br i1 %108, label %113, label %109, !prof !60
 
 109:                                              ; preds = %104
   %110 = add i32 %107, 1
@@ -2377,7 +2377,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   tail call fastcc void @mld_del_delrec(ptr noundef nonnull %11, ptr noundef nonnull %67)
   tail call fastcc void @igmp6_group_added(ptr noundef nonnull %67)
   tail call void @mutex_unlock(ptr noundef nonnull %35) #13
-  %116 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #13, !srcloc !32
+  %116 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #13, !srcloc !35
   %117 = icmp eq i32 %116, 1
   br i1 %117, label %121, label %118
 
@@ -2390,10 +2390,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %ma_put.exit
 
 121:                                              ; preds = %115
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %122 = load ptr, ptr %75, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 624
-  %124 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %123, i32 -1, ptr nonnull elementtype(i32) %123) #13, !srcloc !32
+  %124 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %123, i32 -1, ptr nonnull elementtype(i32) %123) #13, !srcloc !35
   %125 = icmp eq i32 %124, 1
   br i1 %125, label %129, label %126
 
@@ -2406,7 +2406,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %.thread4.i
 
 129:                                              ; preds = %121
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %122) #13
   br label %.thread4.i
 
@@ -2438,7 +2438,7 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
   br i1 %9, label %138, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
@@ -2518,9 +2518,9 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %26, i64 624
-  %62 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, i32 1, ptr nonnull elementtype(i32) %61) #13, !srcloc !55
+  %62 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, i32 1, ptr nonnull elementtype(i32) %61) #13, !srcloc !59
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %68, label %64, !prof !56
+  br i1 %63, label %68, label %64, !prof !60
 
 64:                                               ; preds = %58
   %65 = add i32 %62, 1
@@ -2549,12 +2549,12 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !76
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !81
   %81 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store volatile ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !77
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !82
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store volatile ptr %83, ptr %84, align 8
   store volatile ptr null, ptr %79, align 8
@@ -2572,15 +2572,15 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
   store i8 %.pre, ptr %87, align 2
   %88 = load ptr, ptr %86, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !78
+  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.preheader, %78, %70
   %90 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %91 = load ptr, ptr %90, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !79
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !84
   %92 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store volatile ptr %91, ptr %92, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !80
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !85
   store volatile ptr %56, ptr %90, align 8
   br label %93
 
@@ -2626,9 +2626,9 @@ define internal fastcc void @igmp6_group_dropped(ptr noundef %0) unnamed_addr #0
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %94, i64 624
-  %123 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, i32 1, ptr nonnull elementtype(i32) %122) #13, !srcloc !55
+  %123 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, i32 1, ptr nonnull elementtype(i32) %122) #13, !srcloc !59
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %129, label %125, !prof !56
+  br i1 %124, label %129, label %125, !prof !60
 
 125:                                              ; preds = %121
   %126 = add i32 %123, 1
@@ -2648,9 +2648,9 @@ mld_ifc_event.exit:                               ; preds = %129, %125, %114, %1
 
 133:                                              ; preds = %mld_ifc_event.exit
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %135 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %134, i32 -1, ptr nonnull elementtype(i32) %134) #13, !srcloc !32
+  %135 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %134, i32 -1, ptr nonnull elementtype(i32) %134) #13, !srcloc !35
   %136 = icmp slt i32 %135, 2
-  br i1 %136, label %137, label %138, !prof !56
+  br i1 %136, label %137, label %138, !prof !60
 
 137:                                              ; preds = %133
   call void @refcount_warn_saturate(ptr noundef nonnull %134, i32 noundef 4) #13
@@ -2671,12 +2671,12 @@ define dso_local noundef range(i32 -19, 1) i32 @ipv6_dev_mc_dec(ptr noundef %0, 
 
 7:                                                ; preds = %2
   store i1 true, ptr @ipv6_dev_mc_dec.__already_done, align 1
-  tail call void asm sideeffect "1079: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1079) #13, !srcloc !81
+  tail call void asm sideeffect "1079: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1079) #13, !srcloc !86
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 999) #13
-  tail call void asm sideeffect "1080: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1080) #13, !srcloc !82
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 999, i32 2313, i64 12) #13, !srcloc !83
-  tail call void asm sideeffect "1081: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1081) #13, !srcloc !84
-  tail call void asm sideeffect "1082: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1082b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1082) #13, !srcloc !85
+  tail call void asm sideeffect "1080: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1080) #13, !srcloc !87
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 999, i32 2313, i64 12) #13, !srcloc !88
+  tail call void asm sideeffect "1081: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1081) #13, !srcloc !89
+  tail call void asm sideeffect "1082: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1082b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1082) #13, !srcloc !90
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -2686,7 +2686,7 @@ define dso_local noundef range(i32 -19, 1) i32 @ipv6_dev_mc_dec(ptr noundef %0, 
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %10, ptr noundef %1), !range !22
+  %13 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef nonnull %10, ptr noundef %1), !range !24
   br label %14
 
 14:                                               ; preds = %12, %8
@@ -2722,7 +2722,7 @@ define dso_local zeroext i1 @ipv6_chk_mcast_addr(ptr noundef %0, ptr noundef rea
   %20 = icmp eq i64 %15, %16
   %21 = icmp eq i64 %18, %19
   %22 = and i1 %20, %21
-  br i1 %22, label %23, label %9, !llvm.loop !86
+  br i1 %22, label %23, label %9, !llvm.loop !91
 
 23:                                               ; preds = %14
   %24 = icmp eq ptr %2, null
@@ -2754,7 +2754,7 @@ define dso_local zeroext i1 @ipv6_chk_mcast_addr(ptr noundef %0, ptr noundef rea
   %42 = icmp eq i64 %39, %26
   %43 = icmp eq i64 %41, %28
   %44 = and i1 %42, %43
-  br i1 %44, label %45, label %33, !llvm.loop !87
+  br i1 %44, label %45, label %33, !llvm.loop !92
 
 45:                                               ; preds = %37
   %46 = getelementptr i8, ptr %35, i64 32
@@ -2827,9 +2827,9 @@ define dso_local void @igmp6_event_query(ptr noundef %0) local_unnamed_addr #0 a
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #13, !srcloc !55
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #13, !srcloc !59
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %30, !prof !56
+  br i1 %29, label %34, label %30, !prof !60
 
 30:                                               ; preds = %26
   %31 = add i32 %28, 1
@@ -2895,9 +2895,9 @@ define dso_local void @igmp6_event_report(ptr noundef %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #13, !srcloc !55
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #13, !srcloc !59
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %30, !prof !56
+  br i1 %29, label %34, label %30, !prof !60
 
 30:                                               ; preds = %26
   %31 = add i32 %28, 1
@@ -2978,7 +2978,7 @@ define dso_local void @ipv6_mc_dad_complete(ptr noundef %0) local_unnamed_addr #
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %.preheader, !llvm.loop !88
+  br i1 %40, label %41, label %.preheader, !llvm.loop !93
 
 41:                                               ; preds = %.preheader
   %42 = icmp eq ptr %37, null
@@ -3044,9 +3044,9 @@ define dso_local void @ipv6_mc_dad_complete(ptr noundef %0) local_unnamed_addr #
 
 79:                                               ; preds = %68
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %81 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 1, ptr nonnull elementtype(i32) %80) #13, !srcloc !55
+  %81 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 1, ptr nonnull elementtype(i32) %80) #13, !srcloc !59
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %87, label %83, !prof !56
+  br i1 %82, label %87, label %83, !prof !60
 
 83:                                               ; preds = %79
   %84 = add i32 %81, 1
@@ -3079,7 +3079,7 @@ define dso_local void @ipv6_mc_unmap(ptr noundef %0) local_unnamed_addr #0 align
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !89
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #13
@@ -3131,7 +3131,7 @@ define dso_local void @ipv6_mc_remap(ptr noundef initializes((40, 41), (48, 72))
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %ipv6_mc_up.exit, label %.preheader.i, !llvm.loop !90
+  br i1 %33, label %ipv6_mc_up.exit, label %.preheader.i, !llvm.loop !95
 
 ipv6_mc_up.exit:                                  ; preds = %.preheader.i, %1
   tail call void @mutex_unlock(ptr noundef nonnull %26) #13
@@ -3183,7 +3183,7 @@ define dso_local void @ipv6_mc_up(ptr noundef initializes((40, 41), (48, 72)) %0
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !90
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull %26) #13
@@ -3205,7 +3205,7 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !91
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #13
@@ -3218,9 +3218,9 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
 
 13:                                               ; preds = %.loopexit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !32
+  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #13, !srcloc !35
   %16 = icmp slt i32 %15, 2
-  br i1 %16, label %17, label %18, !prof !56
+  br i1 %16, label %17, label %18, !prof !60
 
 17:                                               ; preds = %13
   tail call void @refcount_warn_saturate(ptr noundef nonnull %14, i32 noundef 4) #13
@@ -3234,9 +3234,9 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 -1, ptr nonnull elementtype(i32) %22) #13, !srcloc !32
+  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 -1, ptr nonnull elementtype(i32) %22) #13, !srcloc !35
   %24 = icmp slt i32 %23, 2
-  br i1 %24, label %25, label %26, !prof !56
+  br i1 %24, label %25, label %26, !prof !60
 
 25:                                               ; preds = %21
   tail call void @refcount_warn_saturate(ptr noundef nonnull %22, i32 noundef 4) #13
@@ -3252,9 +3252,9 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %32 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 -1, ptr nonnull elementtype(i32) %31) #13, !srcloc !32
+  %32 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 -1, ptr nonnull elementtype(i32) %31) #13, !srcloc !35
   %33 = icmp slt i32 %32, 2
-  br i1 %33, label %34, label %35, !prof !56
+  br i1 %33, label %34, label %35, !prof !60
 
 34:                                               ; preds = %30
   tail call void @refcount_warn_saturate(ptr noundef nonnull %31, i32 noundef 4) #13
@@ -3269,9 +3269,9 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %40, i32 -1, ptr nonnull elementtype(i32) %40) #13, !srcloc !32
+  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %40, i32 -1, ptr nonnull elementtype(i32) %40) #13, !srcloc !35
   %42 = icmp slt i32 %41, 2
-  br i1 %42, label %43, label %44, !prof !56
+  br i1 %42, label %43, label %44, !prof !60
 
 43:                                               ; preds = %39
   tail call void @refcount_warn_saturate(ptr noundef nonnull %40, i32 noundef 4) #13
@@ -3285,9 +3285,9 @@ define dso_local void @ipv6_mc_down(ptr noundef %0) local_unnamed_addr #0 align 
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %49 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 -1, ptr nonnull elementtype(i32) %48) #13, !srcloc !32
+  %49 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 -1, ptr nonnull elementtype(i32) %48) #13, !srcloc !35
   %50 = icmp slt i32 %49, 2
-  br i1 %50, label %51, label %52, !prof !56
+  br i1 %50, label %51, label %52, !prof !60
 
 51:                                               ; preds = %47
   tail call void @refcount_warn_saturate(ptr noundef nonnull %48, i32 noundef 4) #13
@@ -3326,14 +3326,14 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   %20 = icmp eq i64 %17, %7
   %21 = icmp eq i64 %19, %9
   %22 = and i1 %20, %21
-  br i1 %22, label %.loopexit11, label %.preheader9, !llvm.loop !92
+  br i1 %22, label %.loopexit11, label %.preheader9, !llvm.loop !97
 
 .preheader9:                                      ; preds = %6, %16
   %23 = phi ptr [ %25, %16 ], [ %4, %6 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit10, label %16, !llvm.loop !92
+  br i1 %26, label %.loopexit10, label %16, !llvm.loop !97
 
 .loopexit11:                                      ; preds = %16, %6
   %27 = phi ptr [ %4, %6 ], [ %25, %16 ]
@@ -3359,17 +3359,17 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %44 = load ptr, ptr %43, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !93
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !98
   store volatile ptr %44, ptr %41, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !94
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !99
   store volatile ptr %42, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %48 = load ptr, ptr %47, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !100
   store volatile ptr %48, ptr %45, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !96
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !101
   store volatile ptr %46, ptr %47, align 8
   %49 = load ptr, ptr %45, align 8
   %50 = icmp eq ptr %49, null
@@ -3386,7 +3386,7 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   store i8 %.pre, ptr %55, align 2
   %56 = load ptr, ptr %54, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit8, label %53, !llvm.loop !97
+  br i1 %57, label %.loopexit8, label %53, !llvm.loop !102
 
 58:                                               ; preds = %.loopexit11
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3398,7 +3398,7 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
 .loopexit8:                                       ; preds = %53, %58, %40
   %62 = load ptr, ptr %34, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 624
-  %64 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 -1, ptr nonnull elementtype(i32) %63) #13, !srcloc !32
+  %64 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 -1, ptr nonnull elementtype(i32) %63) #13, !srcloc !35
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %69, label %66
 
@@ -3411,7 +3411,7 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   br label %.thread
 
 69:                                               ; preds = %.loopexit8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %62) #13
   br label %.thread
 
@@ -3427,7 +3427,7 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %75, ptr noundef nonnull %73) #13
   %76 = icmp eq ptr %74, null
-  br i1 %76, label %.loopexit7, label %.preheader6, !llvm.loop !30
+  br i1 %76, label %.loopexit7, label %.preheader6, !llvm.loop !33
 
 .loopexit7:                                       ; preds = %.preheader6, %.thread
   store volatile ptr null, ptr %70, align 8
@@ -3442,7 +3442,7 @@ define internal fastcc void @mld_del_delrec(ptr noundef %0, ptr noundef %1) unna
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %82, ptr noundef nonnull %80) #13
   %83 = icmp eq ptr %81, null
-  br i1 %83, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %83, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7
   store volatile ptr null, ptr %77, align 8
@@ -3474,7 +3474,7 @@ define internal fastcc void @igmp6_group_added(ptr noundef %0) unnamed_addr #0 a
   br i1 %9, label %mld_ifc_event.exit, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
@@ -3595,9 +3595,9 @@ define internal fastcc void @igmp6_group_added(ptr noundef %0) unnamed_addr #0 a
 
 82:                                               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 624
-  %84 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #13, !srcloc !55
+  %84 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #13, !srcloc !59
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %90, label %86, !prof !56
+  br i1 %85, label %90, label %86, !prof !60
 
 86:                                               ; preds = %82
   %87 = add i32 %84, 1
@@ -3759,7 +3759,7 @@ define internal void @mld_gq_work(ptr noundef %0) #0 align 16 {
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %.preheader, !llvm.loop !98
+  br i1 %23, label %24, label %.preheader, !llvm.loop !103
 
 24:                                               ; preds = %19
   %25 = icmp eq ptr %20, null
@@ -3774,7 +3774,7 @@ define internal void @mld_gq_work(ptr noundef %0) #0 align 16 {
   store i8 0, ptr %27, align 1
   tail call void @mutex_unlock(ptr noundef %3) #13
   %28 = getelementptr i8, ptr %0, i64 544
-  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 -1, ptr elementtype(i32) %28) #13, !srcloc !32
+  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 -1, ptr elementtype(i32) %28) #13, !srcloc !35
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %34, label %31
 
@@ -3787,7 +3787,7 @@ define internal void @mld_gq_work(ptr noundef %0) #0 align 16 {
   br label %.thread4
 
 34:                                               ; preds = %.thread
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %2) #13
   br label %.thread4
 
@@ -3886,7 +3886,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
 51:                                               ; preds = %47, %.preheader20
   %52 = phi ptr [ %41, %47 ], [ %42, %.preheader20 ]
   %53 = icmp eq ptr %43, null
-  br i1 %53, label %.loopexit21, label %.preheader20, !llvm.loop !99
+  br i1 %53, label %.loopexit21, label %.preheader20, !llvm.loop !104
 
 .loopexit21:                                      ; preds = %51, %37
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -3915,7 +3915,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
 67:                                               ; preds = %63, %.preheader18
   %68 = phi ptr [ %57, %63 ], [ %58, %.preheader18 ]
   %69 = icmp eq ptr %59, null
-  br i1 %69, label %.loopexit19, label %.preheader18, !llvm.loop !99
+  br i1 %69, label %.loopexit19, label %.preheader18, !llvm.loop !104
 
 .loopexit19:                                      ; preds = %67, %.loopexit21
   %.pr = load i8, ptr %24, align 4
@@ -3944,7 +3944,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 624
-  %86 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %85, i32 -1, ptr nonnull elementtype(i32) %85) #13, !srcloc !32
+  %86 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %85, i32 -1, ptr nonnull elementtype(i32) %85) #13, !srcloc !35
   %87 = icmp eq i32 %86, 1
   br i1 %87, label %91, label %88
 
@@ -3957,7 +3957,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
   br label %.thread15
 
 91:                                               ; preds = %79
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %84) #13
   br label %.thread15
 
@@ -3970,7 +3970,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
   %93 = phi ptr [ %71, %.thread15 ], [ %71, %75 ], [ %71, %.thread ], [ %34, %.loopexit19 ], [ %34, %32 ]
   %94 = phi ptr [ %12, %.thread15 ], [ %11, %75 ], [ %11, %.thread ], [ %11, %.loopexit19 ], [ %11, %32 ]
   %95 = icmp eq ptr %15, null
-  br i1 %95, label %.loopexit23, label %.preheader22, !llvm.loop !100
+  br i1 %95, label %.loopexit23, label %.preheader22, !llvm.loop !105
 
 .preheader:                                       ; preds = %.loopexit23, %116
   %96 = phi ptr [ %119, %116 ], [ %9, %.loopexit23 ]
@@ -4003,7 +4003,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
   %118 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !101
+  br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !106
 
 .loopexit:                                        ; preds = %116, %.loopexit23
   %121 = phi ptr [ %7, %.loopexit23 ], [ %117, %116 ]
@@ -4075,9 +4075,9 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
 
 163:                                              ; preds = %153
   %164 = getelementptr i8, ptr %0, i64 456
-  %165 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %164, i32 1, ptr elementtype(i32) %164) #13, !srcloc !55
+  %165 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %164, i32 1, ptr elementtype(i32) %164) #13, !srcloc !59
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %171, label %167, !prof !56
+  br i1 %166, label %171, label %167, !prof !60
 
 167:                                              ; preds = %163
   %168 = add i32 %165, 1
@@ -4093,7 +4093,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
 173:                                              ; preds = %171, %167, %153, %128, %124
   tail call void @mutex_unlock(ptr noundef %3) #13
   %174 = getelementptr i8, ptr %0, i64 456
-  %175 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %174, i32 -1, ptr elementtype(i32) %174) #13, !srcloc !32
+  %175 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %174, i32 -1, ptr elementtype(i32) %174) #13, !srcloc !35
   %176 = icmp eq i32 %175, 1
   br i1 %176, label %180, label %177
 
@@ -4106,7 +4106,7 @@ define internal void @mld_ifc_work(ptr noundef %0) #0 align 16 {
   br label %.thread17
 
 180:                                              ; preds = %173
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %2) #13
   br label %.thread17
 
@@ -4164,7 +4164,7 @@ define internal void @mld_dad_work(ptr noundef %0) #0 align 16 {
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %.preheader, !llvm.loop !88
+  br i1 %36, label %37, label %.preheader, !llvm.loop !93
 
 37:                                               ; preds = %.preheader
   %38 = icmp eq ptr %33, null
@@ -4234,9 +4234,9 @@ define internal void @mld_dad_work(ptr noundef %0) #0 align 16 {
 
 77:                                               ; preds = %67
   %78 = getelementptr i8, ptr %0, i64 368
-  %79 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, i32 1, ptr elementtype(i32) %78) #13, !srcloc !55
+  %79 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, i32 1, ptr elementtype(i32) %78) #13, !srcloc !59
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %85, label %81, !prof !56
+  br i1 %80, label %85, label %81, !prof !60
 
 81:                                               ; preds = %77
   %82 = add i32 %79, 1
@@ -4252,7 +4252,7 @@ define internal void @mld_dad_work(ptr noundef %0) #0 align 16 {
 87:                                               ; preds = %85, %81, %67, %43, %.thread
   tail call void @mutex_unlock(ptr noundef %3) #13
   %88 = getelementptr i8, ptr %0, i64 368
-  %89 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #13, !srcloc !32
+  %89 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #13, !srcloc !35
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %94, label %91
 
@@ -4265,7 +4265,7 @@ define internal void @mld_dad_work(ptr noundef %0) #0 align 16 {
   br label %.thread7
 
 94:                                               ; preds = %87
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %2) #13
   br label %.thread7
 
@@ -4319,7 +4319,7 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   store volatile i32 %25, ptr %6, align 8
   %26 = add nuw nsw i32 %11, 1
   %27 = icmp eq i32 %26, 8
-  br i1 %27, label %28, label %10, !llvm.loop !102
+  br i1 %27, label %28, label %10, !llvm.loop !107
 
 28:                                               ; preds = %16, %10
   call void @_raw_spin_unlock_bh(ptr noundef %7) #13
@@ -4349,11 +4349,11 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   %44 = load i32, ptr %43, align 4
   %45 = sub i32 %42, %44
   %46 = icmp ult i32 %45, 16
-  br i1 %46, label %47, label %53, !prof !56
+  br i1 %46, label %47, label %53, !prof !60
 
 47:                                               ; preds = %.preheader37
   %48 = icmp ult i32 %42, 16
-  br i1 %48, label %.thread31, label %49, !prof !56
+  br i1 %48, label %.thread31, label %49, !prof !60
 
 49:                                               ; preds = %47
   %50 = sub nuw nsw i32 16, %45
@@ -4419,9 +4419,9 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 624
-  %100 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 1, ptr nonnull elementtype(i32) %99) #13, !srcloc !55
+  %100 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 1, ptr nonnull elementtype(i32) %99) #13, !srcloc !59
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %106, label %102, !prof !56
+  br i1 %101, label %106, label %102, !prof !60
 
 102:                                              ; preds = %98
   %103 = add i32 %100, 1
@@ -4535,9 +4535,9 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   br i1 %171, label %172, label %176
 
 172:                                              ; preds = %168
-  %173 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !32
+  %173 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !35
   %174 = icmp slt i32 %173, 2
-  br i1 %174, label %175, label %176, !prof !56
+  br i1 %174, label %175, label %176, !prof !60
 
 175:                                              ; preds = %172
   call void @refcount_warn_saturate(ptr noundef nonnull %99, i32 noundef 4) #13
@@ -4551,9 +4551,9 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   br i1 %179, label %180, label %295
 
 180:                                              ; preds = %176
-  %181 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !32
+  %181 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !35
   %182 = icmp slt i32 %181, 2
-  br i1 %182, label %183, label %295, !prof !56
+  br i1 %182, label %183, label %295, !prof !60
 
 183:                                              ; preds = %180
   call void @refcount_warn_saturate(ptr noundef nonnull %99, i32 noundef 4) #13
@@ -4568,11 +4568,11 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   %188 = load i32, ptr %43, align 4
   %189 = sub i32 %187, %188
   %190 = icmp ult i32 %189, 20
-  br i1 %190, label %191, label %197, !prof !56
+  br i1 %190, label %191, label %197, !prof !60
 
 191:                                              ; preds = %186
   %192 = icmp ult i32 %187, 20
-  br i1 %192, label %.thread, label %193, !prof !56
+  br i1 %192, label %.thread, label %193, !prof !60
 
 193:                                              ; preds = %191
   %194 = sub nuw nsw i32 20, %189
@@ -4610,12 +4610,12 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   %220 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %221 = load i8, ptr %220, align 8
   %222 = icmp eq i8 %221, 0
-  br i1 %222, label %223, label %224, !prof !56
+  br i1 %222, label %223, label %224, !prof !60
 
 223:                                              ; preds = %214
-  call void asm sideeffect "1094: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1094b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1094) #13, !srcloc !103
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1266, i32 2305, i64 12) #13, !srcloc !104
-  call void asm sideeffect "1095: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1095b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1095) #13, !srcloc !105
+  call void asm sideeffect "1094: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1094b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1094) #13, !srcloc !108
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1266, i32 2305, i64 12) #13, !srcloc !109
+  call void asm sideeffect "1095: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1095b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1095) #13, !srcloc !110
   br label %224
 
 224:                                              ; preds = %223, %214
@@ -4637,7 +4637,7 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   %231 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %227, %229 ]
   %232 = zext i8 %231 to i32
   %233 = icmp sgt i32 %219, %232
-  br i1 %233, label %234, label %243, !prof !56
+  br i1 %233, label %234, label %243, !prof !60
 
 234:                                              ; preds = %230
   %235 = call i32 @net_ratelimit() #13
@@ -4757,7 +4757,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %305 = load ptr, ptr %304, align 8
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %.thread, label %.preheader, !llvm.loop !106
+  br i1 %306, label %.thread, label %.preheader, !llvm.loop !111
 
 307:                                              ; preds = %312, %.thread27
   %308 = phi ptr [ %310, %312 ], [ %96, %.thread27 ]
@@ -4775,7 +4775,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   %318 = icmp eq i64 %313, %314
   %319 = icmp eq i64 %315, %317
   %320 = and i1 %318, %319
-  br i1 %320, label %321, label %307, !llvm.loop !107
+  br i1 %320, label %321, label %307, !llvm.loop !112
 
 321:                                              ; preds = %312
   %322 = getelementptr inbounds nuw i8, ptr %310, i64 160
@@ -4862,7 +4862,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
 374:                                              ; preds = %377
   %375 = add nuw nsw i64 %378, 1
   %376 = icmp eq i64 %375, %357
-  br i1 %376, label %.loopexit, label %377, !llvm.loop !108
+  br i1 %376, label %.loopexit, label %377, !llvm.loop !113
 
 377:                                              ; preds = %374, %371
   %378 = phi i64 [ 0, %371 ], [ %375, %374 ]
@@ -4885,7 +4885,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   %390 = icmp eq ptr %389, null
   %391 = icmp eq i32 %388, %344
   %392 = select i1 %390, i1 true, i1 %391
-  br i1 %392, label %.loopexit35, label %358, !llvm.loop !109
+  br i1 %392, label %.loopexit35, label %358, !llvm.loop !114
 
 .loopexit35:                                      ; preds = %.loopexit, %354
   %393 = phi i32 [ 0, %354 ], [ %388, %.loopexit ]
@@ -4913,7 +4913,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
 406:                                              ; preds = %409
   %407 = add nuw nsw i64 %410, 1
   %408 = icmp eq i64 %407, %398
-  br i1 %408, label %.loopexit34, label %409, !llvm.loop !110
+  br i1 %408, label %.loopexit34, label %409, !llvm.loop !115
 
 409:                                              ; preds = %406, %399
   %410 = phi i64 [ 0, %399 ], [ %407, %406 ]
@@ -4938,7 +4938,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   %423 = icmp eq ptr %422, null
   %424 = icmp eq i32 %421, %344
   %425 = select i1 %423, i1 true, i1 %424
-  br i1 %425, label %426, label %399, !llvm.loop !111
+  br i1 %425, label %426, label %399, !llvm.loop !116
 
 426:                                              ; preds = %.loopexit34
   %427 = icmp eq i32 %421, 0
@@ -4961,7 +4961,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   br label %.thread
 
 .thread:                                          ; preds = %307, %.preheader, %191, %284, %281, %193, %282, %433, %428, %.loopexit35, %299, %184, %._crit_edge, %122, %117
-  %434 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !32
+  %434 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 -1, ptr nonnull elementtype(i32) %99) #13, !srcloc !35
   %435 = icmp eq i32 %434, 1
   br i1 %435, label %439, label %436
 
@@ -4974,7 +4974,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   br label %.thread31
 
 439:                                              ; preds = %.thread
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   call void @in6_dev_finish_destroy(ptr noundef %96) #13
   br label %.thread31
 
@@ -4988,7 +4988,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   %442 = icmp eq ptr %441, %2
   %443 = icmp eq ptr %441, null
   %444 = or i1 %442, %443
-  br i1 %444, label %.loopexit38, label %.preheader37, !llvm.loop !112
+  br i1 %444, label %.loopexit38, label %.preheader37, !llvm.loop !117
 
 .loopexit38:                                      ; preds = %.thread31, %28
   call void @mutex_unlock(ptr noundef %29) #13
@@ -5001,7 +5001,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
 
 448:                                              ; preds = %445, %.loopexit38
   %449 = getelementptr i8, ptr %0, i64 280
-  %450 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %449, i32 -1, ptr elementtype(i32) %449) #13, !srcloc !32
+  %450 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %449, i32 -1, ptr elementtype(i32) %449) #13, !srcloc !35
   %451 = icmp eq i32 %450, 1
   br i1 %451, label %455, label %452
 
@@ -5014,7 +5014,7 @@ mld_process_v2.exit:                              ; preds = %259, %267
   br label %.thread33
 
 455:                                              ; preds = %448
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   call void @in6_dev_finish_destroy(ptr noundef %3) #13
   br label %.thread33
 
@@ -5069,7 +5069,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   store volatile i32 %25, ptr %6, align 8
   %26 = add nuw nsw i32 %11, 1
   %27 = icmp eq i32 %26, 8
-  br i1 %27, label %28, label %10, !llvm.loop !113
+  br i1 %27, label %28, label %10, !llvm.loop !118
 
 28:                                               ; preds = %16, %10
   call void @_raw_spin_unlock_bh(ptr noundef %7) #13
@@ -5107,11 +5107,11 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   %50 = load i32, ptr %49, align 4
   %51 = sub i32 %48, %50
   %52 = icmp ult i32 %51, 16
-  br i1 %52, label %53, label %59, !prof !56
+  br i1 %52, label %53, label %59, !prof !60
 
 53:                                               ; preds = %46
   %54 = icmp ult i32 %48, 16
-  br i1 %54, label %.thread, label %55, !prof !56
+  br i1 %54, label %.thread, label %55, !prof !60
 
 55:                                               ; preds = %53
   %56 = sub nuw nsw i32 16, %51
@@ -5150,9 +5150,9 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 624
-  %85 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 1, ptr nonnull elementtype(i32) %84) #13, !srcloc !55
+  %85 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 1, ptr nonnull elementtype(i32) %84) #13, !srcloc !59
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %91, label %87, !prof !56
+  br i1 %86, label %91, label %87, !prof !60
 
 87:                                               ; preds = %83
   %88 = add i32 %85, 1
@@ -5187,7 +5187,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   %107 = icmp eq i64 %102, %103
   %108 = icmp eq i64 %105, %106
   %109 = and i1 %107, %108
-  br i1 %109, label %110, label %96, !llvm.loop !114
+  br i1 %109, label %110, label %96, !llvm.loop !119
 
 110:                                              ; preds = %101
   %111 = getelementptr inbounds nuw i8, ptr %99, i64 72
@@ -5196,9 +5196,9 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %99, i64 168
-  %115 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %114, i32 -1, ptr nonnull elementtype(i32) %114) #13, !srcloc !32
+  %115 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %114, i32 -1, ptr nonnull elementtype(i32) %114) #13, !srcloc !35
   %116 = icmp slt i32 %115, 2
-  br i1 %116, label %117, label %118, !prof !56
+  br i1 %116, label %117, label %118, !prof !60
 
 117:                                              ; preds = %113
   call void @refcount_warn_saturate(ptr noundef nonnull %114, i32 noundef 4) #13
@@ -5212,7 +5212,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %118
-  %122 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 -1, ptr nonnull elementtype(i32) %84) #13, !srcloc !32
+  %122 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 -1, ptr nonnull elementtype(i32) %84) #13, !srcloc !35
   %123 = icmp eq i32 %122, 1
   br i1 %123, label %127, label %124
 
@@ -5225,7 +5225,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 127:                                              ; preds = %.loopexit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   call void @in6_dev_finish_destroy(ptr noundef nonnull %81) #13
   br label %.thread
 
@@ -5239,7 +5239,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   %130 = icmp eq ptr %129, %2
   %131 = icmp eq ptr %129, null
   %132 = or i1 %130, %131
-  br i1 %132, label %.loopexit12, label %.preheader, !llvm.loop !115
+  br i1 %132, label %.loopexit12, label %.preheader, !llvm.loop !120
 
 .loopexit12:                                      ; preds = %.thread, %28
   call void @mutex_unlock(ptr noundef %29) #13
@@ -5252,7 +5252,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
 
 136:                                              ; preds = %133, %.loopexit12
   %137 = getelementptr i8, ptr %0, i64 192
-  %138 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %137, i32 -1, ptr elementtype(i32) %137) #13, !srcloc !32
+  %138 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %137, i32 -1, ptr elementtype(i32) %137) #13, !srcloc !35
   %139 = icmp eq i32 %138, 1
   br i1 %139, label %143, label %140
 
@@ -5265,7 +5265,7 @@ define internal void @mld_report_work(ptr noundef %0) #0 align 16 {
   br label %.thread11
 
 143:                                              ; preds = %136
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   call void @in6_dev_finish_destroy(ptr noundef %3) #13
   br label %.thread11
 
@@ -5314,7 +5314,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   %20 = icmp eq ptr %19, %4
   %21 = icmp eq ptr %19, null
   %22 = or i1 %20, %21
-  br i1 %22, label %.loopexit13, label %11, !llvm.loop !116
+  br i1 %22, label %.loopexit13, label %11, !llvm.loop !121
 
 .loopexit13:                                      ; preds = %11, %1
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %3) #13
@@ -5348,18 +5348,18 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   %40 = icmp eq ptr %39, %24
   %41 = icmp eq ptr %39, null
   %42 = or i1 %40, %41
-  br i1 %42, label %.loopexit12, label %31, !llvm.loop !117
+  br i1 %42, label %.loopexit12, label %31, !llvm.loop !122
 
 .loopexit12:                                      ; preds = %31, %.loopexit13
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %23) #13
-  %43 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr noundef nonnull @in6addr_linklocal_allnodes), !range !22
+  %43 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr noundef nonnull @in6addr_linklocal_allnodes), !range !24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %.loopexit12
-  %48 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr noundef nonnull @in6addr_linklocal_allrouters), !range !22
+  %48 = tail call i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr noundef nonnull @in6addr_linklocal_allrouters), !range !24
   br label %49
 
 49:                                               ; preds = %47, %.loopexit12
@@ -5373,7 +5373,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   %53 = phi ptr [ %90, %ma_put.exit ], [ %51, %49 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !118
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !123
   store volatile ptr %55, ptr %50, align 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %57 = load ptr, ptr %56, align 8
@@ -5386,7 +5386,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %61, ptr noundef nonnull %59) #13
   %62 = icmp eq ptr %60, null
-  br i1 %62, label %.loopexit9, label %.preheader8, !llvm.loop !30
+  br i1 %62, label %.loopexit9, label %.preheader8, !llvm.loop !33
 
 .loopexit9:                                       ; preds = %.preheader8, %.preheader10
   store volatile ptr null, ptr %56, align 8
@@ -5401,7 +5401,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %68, ptr noundef nonnull %66) #13
   %69 = icmp eq ptr %67, null
-  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit9
   store volatile ptr null, ptr %63, align 8
@@ -5412,7 +5412,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   store i64 0, ptr %72, align 8
   store i64 1, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %53, i64 168
-  %74 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %73, i32 -1, ptr nonnull elementtype(i32) %73) #13, !srcloc !32
+  %74 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %73, i32 -1, ptr nonnull elementtype(i32) %73) #13, !srcloc !35
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %79, label %76
 
@@ -5425,11 +5425,11 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   br label %ma_put.exit
 
 79:                                               ; preds = %.loopexit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %80 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 624
-  %83 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 -1, ptr nonnull elementtype(i32) %82) #13, !srcloc !32
+  %83 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 -1, ptr nonnull elementtype(i32) %82) #13, !srcloc !35
   %84 = icmp eq i32 %83, 1
   br i1 %84, label %88, label %85
 
@@ -5442,7 +5442,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
   br label %.thread4.i
 
 88:                                               ; preds = %79
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %81) #13
   br label %.thread4.i
 
@@ -5454,7 +5454,7 @@ define dso_local void @ipv6_mc_destroy_dev(ptr noundef %0) local_unnamed_addr #0
 ma_put.exit:                                      ; preds = %76, %78, %.thread4.i
   %90 = load ptr, ptr %50, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.loopexit11, label %.preheader10, !llvm.loop !119
+  br i1 %91, label %.loopexit11, label %.preheader10, !llvm.loop !124
 
 .loopexit11:                                      ; preds = %ma_put.exit, %49
   tail call void @mutex_unlock(ptr noundef nonnull %2) #13
@@ -5490,7 +5490,7 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %16, ptr noundef nonnull %14) #13
   %17 = icmp eq ptr %15, null
-  br i1 %17, label %.loopexit13, label %.preheader12, !llvm.loop !30
+  br i1 %17, label %.loopexit13, label %.preheader12, !llvm.loop !33
 
 .loopexit13:                                      ; preds = %.preheader12, %.preheader14
   store volatile ptr null, ptr %11, align 8
@@ -5505,7 +5505,7 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %23, ptr noundef nonnull %21) #13
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.loopexit11, label %.preheader10, !llvm.loop !31
+  br i1 %24, label %.loopexit11, label %.preheader10, !llvm.loop !34
 
 .loopexit11:                                      ; preds = %.preheader10, %.loopexit13
   store volatile ptr null, ptr %18, align 8
@@ -5518,7 +5518,7 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 624
-  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %30, i32 -1, ptr nonnull elementtype(i32) %30) #13, !srcloc !32
+  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %30, i32 -1, ptr nonnull elementtype(i32) %30) #13, !srcloc !35
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %36, label %33
 
@@ -5531,7 +5531,7 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   br label %.thread
 
 36:                                               ; preds = %.loopexit11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %29) #13
   br label %.thread
 
@@ -5539,13 +5539,13 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 192
   tail call void @kvfree_call_rcu(ptr noundef nonnull %37, ptr noundef nonnull %8) #13
   %38 = icmp eq ptr %10, null
-  br i1 %38, label %.loopexit15, label %.preheader14, !llvm.loop !120
+  br i1 %38, label %.loopexit15, label %.preheader14, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.preheader, %.preheader8
   %39 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit9, label %.preheader8, !llvm.loop !121
+  br i1 %41, label %.loopexit9, label %.preheader8, !llvm.loop !126
 
 .preheader8:                                      ; preds = %.loopexit15, %.loopexit
   %42 = phi ptr [ %40, %.loopexit ], [ %6, %.loopexit15 ]
@@ -5561,7 +5561,7 @@ define internal fastcc void @mld_clear_delrec(ptr noundef %0) unnamed_addr #0 al
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %48, ptr noundef nonnull %46) #13
   %49 = icmp eq ptr %47, null
-  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !122
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !127
 
 .loopexit9:                                       ; preds = %.loopexit, %.loopexit15
   ret void
@@ -5722,7 +5722,7 @@ define internal void @mld_mca_work(ptr noundef %0) #0 align 16 {
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !98
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !103
 
 50:                                               ; preds = %27
   %51 = getelementptr i8, ptr %0, i64 -16
@@ -5751,7 +5751,7 @@ define internal void @mld_mca_work(ptr noundef %0) #0 align 16 {
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 576
   tail call void @mutex_unlock(ptr noundef nonnull %64) #13
   %65 = getelementptr i8, ptr %0, i64 96
-  %66 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65, i32 -1, ptr nonnull elementtype(i32) %65) #13, !srcloc !32
+  %66 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65, i32 -1, ptr nonnull elementtype(i32) %65) #13, !srcloc !35
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %71, label %68
 
@@ -5764,10 +5764,10 @@ define internal void @mld_mca_work(ptr noundef %0) #0 align 16 {
   br label %ma_put.exit
 
 71:                                               ; preds = %.thread
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %72 = load ptr, ptr %3, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 624
-  %74 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %73, i32 -1, ptr nonnull elementtype(i32) %73) #13, !srcloc !32
+  %74 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %73, i32 -1, ptr nonnull elementtype(i32) %73) #13, !srcloc !35
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %79, label %76
 
@@ -5780,7 +5780,7 @@ define internal void @mld_mca_work(ptr noundef %0) #0 align 16 {
   br label %.thread4.i
 
 79:                                               ; preds = %71
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   tail call void @in6_dev_finish_destroy(ptr noundef %72) #13
   br label %.thread4.i
 
@@ -5872,23 +5872,23 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %33, label %29, !prof !56
+  br i1 %28, label %33, label %29, !prof !60
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 912
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 40
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, ptr elementtype(i64) %32) #13, !srcloc !123
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, ptr elementtype(i64) %32) #13, !srcloc !128
   br label %33
 
 33:                                               ; preds = %29, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !75
-  store i32 0, ptr %6, align 4, !annotation !75
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false), !annotation !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !80
+  store i32 0, ptr %6, align 4, !annotation !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false), !annotation !80
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 416
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 40
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, ptr elementtype(i64) %36) #13, !srcloc !124
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, ptr elementtype(i64) %36) #13, !srcloc !129
   tail call void @__rcu_read_unlock() #13
   %37 = add nuw nsw i32 %23, 72
   %38 = add nuw nsw i32 %37, %20
@@ -5901,19 +5901,19 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
   call void @__rcu_read_lock() #13
   %43 = load volatile ptr, ptr %26, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %49, label %45, !prof !56
+  br i1 %44, label %49, label %45, !prof !60
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 912
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, ptr elementtype(i64) %48) #13, !srcloc !125
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, ptr elementtype(i64) %48) #13, !srcloc !130
   br label %49
 
 49:                                               ; preds = %45, %42
   %50 = load ptr, ptr %34, align 8
   %51 = getelementptr i8, ptr %50, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, ptr elementtype(i64) %51) #13, !srcloc !126
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, ptr elementtype(i64) %51) #13, !srcloc !131
   br label %198
 
 52:                                               ; preds = %33
@@ -6033,7 +6033,7 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
   store i64 %133, ptr %134, align 8
   %135 = load ptr, ptr %65, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
-          to label %.thread [label %136], !srcloc !127
+          to label %.thread [label %136], !srcloc !132
 
 136:                                              ; preds = %123
   call void @__rcu_read_lock() #13
@@ -6048,7 +6048,7 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
 
 140:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
-  store i64 0, ptr %4, align 8, !annotation !75
+  store i64 0, ptr %4, align 8, !annotation !80
   store i8 3, ptr %4, align 8
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 10, ptr %141, align 1
@@ -6107,51 +6107,51 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
 169:                                              ; preds = %165
   %170 = or disjoint i32 %2, 256
   %171 = zext nneg i32 %170 to i64
-  br i1 %168, label %182, label %172, !prof !56
+  br i1 %168, label %182, label %172, !prof !60
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %108, i64 928
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr [512 x %struct.atomic64_t], ptr %174, i64 0, i64 %171
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %175, ptr elementtype(i64) %175) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %175, ptr elementtype(i64) %175) #13, !srcloc !133
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr [512 x %struct.atomic64_t], ptr %177, i64 0, i64 %171
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %178, ptr elementtype(i64) %178) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %178, ptr elementtype(i64) %178) #13, !srcloc !133
   %179 = getelementptr inbounds nuw i8, ptr %108, i64 920
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr i8, ptr %180, i64 24
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %181, ptr elementtype(i64) %181) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %181, ptr elementtype(i64) %181) #13, !srcloc !133
   br label %186
 
 182:                                              ; preds = %169
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr [512 x %struct.atomic64_t], ptr %184, i64 0, i64 %171
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %185, ptr elementtype(i64) %185) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %185, ptr elementtype(i64) %185) #13, !srcloc !133
   br label %186
 
 186:                                              ; preds = %182, %172
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 488
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr i8, ptr %188, i64 24
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %189, ptr elementtype(i64) %189) #13, !srcloc !129
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %189, ptr elementtype(i64) %189) #13, !srcloc !134
   br label %198
 
 190:                                              ; preds = %165
-  br i1 %168, label %195, label %191, !prof !56
+  br i1 %168, label %195, label %191, !prof !60
 
 191:                                              ; preds = %190
   %192 = getelementptr inbounds nuw i8, ptr %108, i64 912
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr i8, ptr %193, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %194, ptr elementtype(i64) %194) #13, !srcloc !130
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %194, ptr elementtype(i64) %194) #13, !srcloc !135
   br label %195
 
 195:                                              ; preds = %191, %190
   %196 = load ptr, ptr %34, align 8
   %197 = getelementptr i8, ptr %196, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %197, ptr elementtype(i64) %197) #13, !srcloc !131
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %197, ptr elementtype(i64) %197) #13, !srcloc !136
   br label %198
 
 198:                                              ; preds = %195, %186, %49
@@ -6309,7 +6309,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   %65 = add i32 %62, %64
   %66 = load ptr, ptr %61, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %.preheader, !llvm.loop !132
+  br i1 %67, label %68, label %.preheader, !llvm.loop !137
 
 68:                                               ; preds = %.preheader
   %69 = shl i32 %65, 4
@@ -6522,7 +6522,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   %.ph31 = phi ptr [ %90, %88 ], [ %90, %169 ], [ %90, %178 ], [ %91, %188 ], [ %90, %174 ]
   %.ph32 = phi ptr [ %89, %88 ], [ %.ph22, %169 ], [ %183, %178 ], [ %183, %188 ], [ %.ph22, %174 ]
   %194 = icmp eq ptr %95, null
-  br i1 %194, label %195, label %88, !llvm.loop !133
+  br i1 %194, label %195, label %88, !llvm.loop !138
 
 195:                                              ; preds = %193, %.thread17
   %196 = phi ptr [ %.ph32, %193 ], [ %89, %.thread17 ]
@@ -6661,21 +6661,21 @@ define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22, !prof !56
+  br i1 %21, label %26, label %22, !prof !60
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 912
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 40
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, ptr elementtype(i64) %25) #13, !srcloc !134
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, ptr elementtype(i64) %25) #13, !srcloc !139
   br label %26
 
 26:                                               ; preds = %22, %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !80
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 40
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, ptr elementtype(i64) %29) #13, !srcloc !135
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, ptr elementtype(i64) %29) #13, !srcloc !140
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %31 = load i32, ptr %30, align 8
   %32 = load i16, ptr %6, align 4
@@ -6743,7 +6743,7 @@ define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 9
   %81 = load ptr, ptr %49, align 8
   %82 = load ptr, ptr %14, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #13
-          to label %.thread [label %83], !srcloc !127
+          to label %.thread [label %83], !srcloc !132
 
 83:                                               ; preds = %80
   call void @__rcu_read_lock() #13
@@ -6758,7 +6758,7 @@ define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 9
 
 87:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
-  store i64 0, ptr %2, align 8, !annotation !75
+  store i64 0, ptr %2, align 8, !annotation !80
   store i8 3, ptr %2, align 8
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 10, ptr %88, align 1
@@ -6810,51 +6810,51 @@ define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 9
   br i1 %113, label %114, label %133
 
 114:                                              ; preds = %111
-  br i1 %21, label %125, label %115, !prof !56
+  br i1 %21, label %125, label %115, !prof !60
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 928
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 3192
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, ptr elementtype(i64) %118) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, ptr elementtype(i64) %118) #13, !srcloc !133
   %119 = getelementptr inbounds nuw i8, ptr %17, i64 496
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr i8, ptr %120, i64 3192
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %121, ptr elementtype(i64) %121) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %121, ptr elementtype(i64) %121) #13, !srcloc !133
   %122 = getelementptr inbounds nuw i8, ptr %20, i64 920
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr i8, ptr %123, i64 24
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %124, ptr elementtype(i64) %124) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %124, ptr elementtype(i64) %124) #13, !srcloc !133
   br label %129
 
 125:                                              ; preds = %114
   %126 = getelementptr inbounds nuw i8, ptr %17, i64 496
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 3192
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, ptr elementtype(i64) %128) #13, !srcloc !128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, ptr elementtype(i64) %128) #13, !srcloc !133
   br label %129
 
 129:                                              ; preds = %125, %115
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 488
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr i8, ptr %131, i64 24
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %132, ptr elementtype(i64) %132) #13, !srcloc !136
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %132, ptr elementtype(i64) %132) #13, !srcloc !141
   br label %141
 
 133:                                              ; preds = %142, %111
-  br i1 %21, label %138, label %134, !prof !56
+  br i1 %21, label %138, label %134, !prof !60
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds nuw i8, ptr %20, i64 912
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr i8, ptr %136, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %137, ptr elementtype(i64) %137) #13, !srcloc !137
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %137, ptr elementtype(i64) %137) #13, !srcloc !142
   br label %138
 
 138:                                              ; preds = %134, %133
   %139 = load ptr, ptr %27, align 8
   %140 = getelementptr i8, ptr %139, i64 112
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %140, ptr elementtype(i64) %140) #13, !srcloc !138
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %140, ptr elementtype(i64) %140) #13, !srcloc !143
   br label %141
 
 141:                                              ; preds = %138, %129
@@ -6887,9 +6887,9 @@ define internal fastcc ptr @mld_newpack(ptr noundef readonly captures(none) %0, 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !75
+  store i32 0, ptr %4, align 4, !annotation !80
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2024
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @llvm.smin.i32(i32 %1, i32 2048)
@@ -6918,8 +6918,8 @@ define internal fastcc ptr @mld_newpack(ptr noundef readonly captures(none) %0, 
   br i1 %39, label %41, label %40, !prof !5
 
 40:                                               ; preds = %28
-  call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #13, !srcloc !139
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 2771, i32 0, i64 12) #13, !srcloc !140
+  call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #13, !srcloc !144
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 2771, i32 0, i64 12) #13, !srcloc !145
   unreachable
 
 41:                                               ; preds = %28
@@ -7203,7 +7203,7 @@ define internal fastcc noundef range(i32 -3, 2) i32 @ip6_mc_del1_src(ptr noundef
   %18 = icmp eq i64 %13, %14
   %19 = icmp eq i64 %16, %17
   %20 = and i1 %18, %19
-  br i1 %20, label %21, label %6, !llvm.loop !141
+  br i1 %20, label %21, label %6, !llvm.loop !146
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7257,9 +7257,9 @@ define internal fastcc noundef range(i32 -3, 2) i32 @ip6_mc_del1_src(ptr noundef
   store i8 %53, ptr %54, align 2
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !142
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !147
   store volatile ptr %56, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !143
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !148
   store volatile ptr %9, ptr %55, align 8
   br label %.loopexit
 
@@ -7349,7 +7349,7 @@ thread-pre-split:                                 ; preds = %89
   %50 = icmp eq i64 %45, %46
   %51 = icmp eq i64 %48, %49
   %52 = and i1 %50, %51
-  br i1 %52, label %53, label %38, !llvm.loop !144
+  br i1 %52, label %53, label %38, !llvm.loop !149
 
 53:                                               ; preds = %43
   %54 = icmp eq ptr %39, null
@@ -7390,7 +7390,7 @@ thread-pre-split:                                 ; preds = %89
   %77 = icmp eq i64 %72, %73
   %78 = icmp eq i64 %75, %76
   %79 = and i1 %77, %78
-  br i1 %79, label %.loopexit, label %66, !llvm.loop !145
+  br i1 %79, label %.loopexit, label %66, !llvm.loop !150
 
 80:                                               ; preds = %66
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -7401,9 +7401,9 @@ thread-pre-split:                                 ; preds = %89
 84:                                               ; preds = %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
   %85 = load ptr, ptr %14, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !146
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !151
   store volatile ptr %85, ptr %82, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !147
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !152
   store volatile ptr %82, ptr %14, align 8
   br label %.loopexit
 
@@ -7418,7 +7418,7 @@ thread-pre-split:                                 ; preds = %89
   %90 = phi i32 [ %18, %31 ], [ %18, %80 ], [ %18, %58 ], [ %88, %.loopexit ]
   %91 = load ptr, ptr %17, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit6, label %thread-pre-split, !llvm.loop !148
+  br i1 %92, label %.loopexit6, label %thread-pre-split, !llvm.loop !153
 
 .loopexit6:                                       ; preds = %89, %1
   %93 = phi i32 [ 0, %1 ], [ %90, %89 ]
@@ -7492,9 +7492,9 @@ define internal fastcc void @igmp6_join_group(ptr noundef %0) unnamed_addr #0 al
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 -1, ptr nonnull elementtype(i32) %42) #13, !srcloc !32
+  %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 -1, ptr nonnull elementtype(i32) %42) #13, !srcloc !35
   %44 = icmp slt i32 %43, 2
-  br i1 %44, label %45, label %46, !prof !56
+  br i1 %44, label %45, label %46, !prof !60
 
 45:                                               ; preds = %41
   tail call void @refcount_warn_saturate(ptr noundef nonnull %42, i32 noundef 4) #13
@@ -7515,9 +7515,9 @@ define internal fastcc void @igmp6_join_group(ptr noundef %0) unnamed_addr #0 al
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %57 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %56, i32 1, ptr nonnull elementtype(i32) %56) #13, !srcloc !55
+  %57 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %56, i32 1, ptr nonnull elementtype(i32) %56) #13, !srcloc !59
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %63, label %59, !prof !56
+  br i1 %58, label %63, label %59, !prof !60
 
 59:                                               ; preds = %55
   %60 = add i32 %57, 1
@@ -7548,11 +7548,11 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef nonnull %0, i32 nou
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, %1
-  br i1 %8, label %9, label %15, !prof !56
+  br i1 %8, label %9, label %15, !prof !60
 
 9:                                                ; preds = %2
   %10 = icmp ult i32 %4, %1
-  br i1 %10, label %15, label %11, !prof !56
+  br i1 %10, label %15, label %11, !prof !60
 
 11:                                               ; preds = %9
   %12 = sub nsw i32 %1, %7
@@ -7582,9 +7582,9 @@ define internal fastcc void @mld_gq_start_work(ptr noundef nonnull initializes((
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 1, ptr nonnull elementtype(i32) %13) #13, !srcloc !55
+  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 1, ptr nonnull elementtype(i32) %13) #13, !srcloc !59
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %20, label %16, !prof !56
+  br i1 %15, label %20, label %16, !prof !60
 
 16:                                               ; preds = %12
   %17 = add i32 %14, 1
@@ -7621,9 +7621,9 @@ define internal fastcc void @igmp6_group_queried(ptr noundef %0, i64 noundef %1)
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #13, !srcloc !32
+  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #13, !srcloc !35
   %17 = icmp slt i32 %16, 2
-  br i1 %17, label %18, label %19, !prof !56
+  br i1 %17, label %18, label %19, !prof !60
 
 18:                                               ; preds = %14
   tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 4) #13
@@ -7651,9 +7651,9 @@ define internal fastcc void @igmp6_group_queried(ptr noundef %0, i64 noundef %1)
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %34 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 1, ptr nonnull elementtype(i32) %33) #13, !srcloc !55
+  %34 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 1, ptr nonnull elementtype(i32) %33) #13, !srcloc !59
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %40, label %36, !prof !56
+  br i1 %35, label %40, label %36, !prof !60
 
 36:                                               ; preds = %32
   %37 = add i32 %34, 1
@@ -7864,7 +7864,7 @@ define internal ptr @igmp6_mc_seq_start(ptr noundef readonly captures(none) %0, 
   %23 = getelementptr i8, ptr %22, i64 -360
   store ptr %23, ptr %9, align 8
   %24 = icmp eq ptr %22, %8
-  br i1 %24, label %.loopexit15.thread, label %.lr.ph, !llvm.loop !149
+  br i1 %24, label %.loopexit15.thread, label %.lr.ph, !llvm.loop !154
 
 .loopexit15:                                      ; preds = %17
   store ptr %15, ptr %7, align 8
@@ -7908,7 +7908,7 @@ define internal ptr @igmp6_mc_seq_start(ptr noundef readonly captures(none) %0, 
   br i1 %49, label %.backedge, label %50
 
 .backedge:                                        ; preds = %46, %50
-  br label %35, !llvm.loop !150
+  br label %35, !llvm.loop !155
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -7946,7 +7946,7 @@ define internal void @igmp6_mc_seq_stop(ptr noundef readonly captures(none) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8, !prof !56
+  br i1 %7, label %9, label %8, !prof !60
 
 8:                                                ; preds = %2
   store ptr null, ptr %5, align 8
@@ -8000,7 +8000,7 @@ define internal ptr @igmp6_mc_seq_next(ptr noundef readonly captures(none) %0, p
   br i1 %28, label %.backedge, label %29
 
 .backedge:                                        ; preds = %25, %29
-  br label %13, !llvm.loop !150
+  br label %13, !llvm.loop !155
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -8081,26 +8081,26 @@ define internal ptr @igmp6_mcf_seq_start(ptr noundef readonly captures(none) %0,
   %18 = getelementptr i8, ptr %17, i64 -176
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %29, label %21, !prof !56
+  br i1 %20, label %29, label %21, !prof !60
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %29, label %25, !prof !56
+  br i1 %24, label %29, label %25, !prof !60
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %.loopexit22, !prof !56
+  br i1 %28, label %29, label %.loopexit22, !prof !60
 
 29:                                               ; preds = %25, %21, %.lr.ph
   %30 = load volatile ptr, ptr %17, align 8
   %31 = getelementptr i8, ptr %30, i64 -360
   store ptr %31, ptr %13, align 8
   %32 = icmp eq ptr %30, %12
-  br i1 %32, label %.loopexit22.thread, label %.lr.ph, !llvm.loop !151
+  br i1 %32, label %.loopexit22.thread, label %.lr.ph, !llvm.loop !156
 
 .loopexit22:                                      ; preds = %25
   store ptr %23, ptr %11, align 8
@@ -8165,14 +8165,14 @@ define internal ptr @igmp6_mcf_seq_start(ptr noundef readonly captures(none) %0,
 68:                                               ; preds = %65, %61
   %69 = phi ptr [ %67, %65 ], [ null, %61 ]
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %50, label %.loopexit, !llvm.loop !152
+  br i1 %70, label %50, label %.loopexit, !llvm.loop !157
 
 .loopexit:                                        ; preds = %68, %43
   %71 = phi ptr [ %46, %43 ], [ %69, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load volatile ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %43, label %.loopexit21, !llvm.loop !153
+  br i1 %74, label %43, label %.loopexit21, !llvm.loop !158
 
 75:                                               ; preds = %50
   store ptr null, ptr %41, align 8
@@ -8204,7 +8204,7 @@ define internal void @igmp6_mcf_seq_stop(ptr noundef readonly captures(none) %0,
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8, !prof !56
+  br i1 %7, label %9, label %8, !prof !60
 
 8:                                                ; preds = %2
   store ptr null, ptr %5, align 8
@@ -8214,7 +8214,7 @@ define internal void @igmp6_mcf_seq_stop(ptr noundef readonly captures(none) %0,
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13, !prof !56
+  br i1 %12, label %14, label %13, !prof !60
 
 13:                                               ; preds = %9
   store ptr null, ptr %10, align 8
@@ -8252,19 +8252,19 @@ define internal ptr @igmp6_mcf_seq_next(ptr noundef readonly captures(none) %0, 
   %17 = getelementptr i8, ptr %16, i64 -176
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20, !prof !56
+  br i1 %19, label %28, label %20, !prof !60
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %28, label %24, !prof !56
+  br i1 %23, label %28, label %24, !prof !60
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %.thread, !prof !56
+  br i1 %27, label %28, label %.thread, !prof !60
 
 .thread:                                          ; preds = %24
   store ptr %22, ptr %10, align 8
@@ -8276,7 +8276,7 @@ define internal ptr @igmp6_mcf_seq_next(ptr noundef readonly captures(none) %0, 
   %30 = getelementptr i8, ptr %29, i64 -360
   store ptr %30, ptr %12, align 8
   %31 = icmp eq ptr %29, %11
-  br i1 %31, label %.loopexit, label %.lr.ph, !llvm.loop !151
+  br i1 %31, label %.loopexit, label %.lr.ph, !llvm.loop !156
 
 32:                                               ; preds = %3
   %33 = load volatile ptr, ptr %1, align 8
@@ -8336,14 +8336,14 @@ define internal ptr @igmp6_mcf_seq_next(ptr noundef readonly captures(none) %0, 
 66:                                               ; preds = %63, %59
   %67 = phi ptr [ %65, %63 ], [ null, %59 ]
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %47, label %.loopexit14, !llvm.loop !152
+  br i1 %68, label %47, label %.loopexit14, !llvm.loop !157
 
 .loopexit14:                                      ; preds = %66, %40
   %69 = phi ptr [ %43, %40 ], [ %67, %66 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load volatile ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %40, label %.loopexit, !llvm.loop !153
+  br i1 %72, label %40, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %.loopexit14, %28, %7, %.thread, %58, %32
   %73 = phi ptr [ null, %58 ], [ %33, %32 ], [ %26, %.thread ], [ null, %7 ], [ null, %28 ], [ %71, %.loopexit14 ]
@@ -8409,12 +8409,12 @@ define internal noundef i32 @ipv6_mc_netdev_event(ptr readnone captures(none) %0
 
 15:                                               ; preds = %10
   store i1 true, ptr @ipv6_mc_rejoin_groups.__already_done, align 1
-  tail call void asm sideeffect "1177: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1177b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1177) #13, !srcloc !154
+  tail call void asm sideeffect "1177: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1177b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1177) #13, !srcloc !159
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2820) #13
-  tail call void asm sideeffect "1178: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1178b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1178) #13, !srcloc !155
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 2820, i32 2313, i64 12) #13, !srcloc !156
-  tail call void asm sideeffect "1179: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1179b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1179) #13, !srcloc !157
-  tail call void asm sideeffect "1180: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1180b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1180) #13, !srcloc !158
+  tail call void asm sideeffect "1178: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1178b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1178) #13, !srcloc !160
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 2820, i32 2313, i64 12) #13, !srcloc !161
+  tail call void asm sideeffect "1179: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1179b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1179) #13, !srcloc !162
+  tail call void asm sideeffect "1180: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1180b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1180) #13, !srcloc !163
   br label %16
 
 16:                                               ; preds = %15, %10
@@ -8460,7 +8460,7 @@ define internal noundef i32 @ipv6_mc_netdev_event(ptr readnone captures(none) %0
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread, label %.preheader6, !llvm.loop !159
+  br i1 %44, label %.thread, label %.preheader6, !llvm.loop !164
 
 45:                                               ; preds = %33, %29, %16
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -8490,7 +8490,7 @@ define internal noundef i32 @ipv6_mc_netdev_event(ptr readnone captures(none) %0
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %.preheader, !llvm.loop !98
+  br i1 %65, label %66, label %.preheader, !llvm.loop !103
 
 66:                                               ; preds = %61
   %67 = icmp eq ptr %62, null
@@ -8556,106 +8556,106 @@ attributes #15 = { cold nounwind }
 !8 = !{i64 2160837517, i64 2160837546, i64 2160837592, i64 2160837650, i64 2160837704, i64 2160837758, i64 2160837813, i64 2160837844, i64 2160838152, i64 2160838158, i64 2160838205, i64 2160838228, i64 2160838254}
 !9 = !{i64 2160838703, i64 2160838514, i64 2160838564, i64 2160838610, i64 2160838638}
 !10 = !{i64 2160839009, i64 2160838820, i64 2160838870, i64 2160838916, i64 2160838944}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{i32 -22, i32 1}
-!15 = !{i64 2160848281}
-!16 = !{i64 2160854359, i64 2160854168, i64 2160854220, i64 2160854266, i64 2160854294}
-!17 = !{i64 2160854917, i64 2160854726, i64 2160854778, i64 2160854824, i64 2160854852}
-!18 = !{i64 2160854991, i64 2160855020, i64 2160855066, i64 2160855124, i64 2160855178, i64 2160855232, i64 2160855287, i64 2160855318, i64 2160855626, i64 2160855632, i64 2160855679, i64 2160855702, i64 2160855728}
-!19 = !{i64 2160856177, i64 2160855988, i64 2160856038, i64 2160856084, i64 2160856112}
-!20 = !{i64 2160856488, i64 2160856294, i64 2160856344, i64 2160856390, i64 2160856418}
-!21 = distinct !{!21, !12, !13}
-!22 = !{i32 -2, i32 1}
-!23 = !{i64 2148882038, i64 2148882077, i64 2148882098, i64 2148882135, i64 2148882158, i64 2148882028}
-!24 = !{i64 2161066971, i64 2161066775, i64 2161066827, i64 2161066873, i64 2161066901}
-!25 = !{i64 2161067537, i64 2161067341, i64 2161067393, i64 2161067439, i64 2161067467}
-!26 = !{i64 2161067614, i64 2161067643, i64 2161067689, i64 2161067747, i64 2161067801, i64 2161067855, i64 2161067910, i64 2161067941, i64 2161068249, i64 2161068255, i64 2161068302, i64 2161068325, i64 2161068351}
-!27 = !{i64 2161068805, i64 2161068611, i64 2161068661, i64 2161068707, i64 2161068735}
-!28 = !{i64 2161069119, i64 2161068925, i64 2161068975, i64 2161069021, i64 2161069049}
-!29 = distinct !{!29, !12, !13}
-!30 = distinct !{!30, !12, !13}
-!31 = distinct !{!31, !12, !13}
-!32 = !{i64 2148897076, i64 2148897115, i64 2148897136, i64 2148897173, i64 2148897196, i64 2148897205}
-!33 = !{i64 2150423426}
-!34 = !{i64 2160862742, i64 2160862546, i64 2160862598, i64 2160862644, i64 2160862672}
-!35 = !{i64 2160863308, i64 2160863112, i64 2160863164, i64 2160863210, i64 2160863238}
-!36 = !{i64 2160863385, i64 2160863414, i64 2160863460, i64 2160863518, i64 2160863572, i64 2160863626, i64 2160863681, i64 2160863712, i64 2160864020, i64 2160864026, i64 2160864073, i64 2160864096, i64 2160864122}
-!37 = !{i64 2160864576, i64 2160864382, i64 2160864432, i64 2160864478, i64 2160864506}
-!38 = !{i64 2160864890, i64 2160864696, i64 2160864746, i64 2160864792, i64 2160864820}
-!39 = distinct !{!39, !12, !13}
-!40 = distinct !{!40, !12, !13}
-!41 = !{i32 -105, i32 1}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12, !13}
+!16 = !{i32 -22, i32 1}
+!17 = !{i64 2160848281}
+!18 = !{i64 2160854359, i64 2160854168, i64 2160854220, i64 2160854266, i64 2160854294}
+!19 = !{i64 2160854917, i64 2160854726, i64 2160854778, i64 2160854824, i64 2160854852}
+!20 = !{i64 2160854991, i64 2160855020, i64 2160855066, i64 2160855124, i64 2160855178, i64 2160855232, i64 2160855287, i64 2160855318, i64 2160855626, i64 2160855632, i64 2160855679, i64 2160855702, i64 2160855728}
+!21 = !{i64 2160856177, i64 2160855988, i64 2160856038, i64 2160856084, i64 2160856112}
+!22 = !{i64 2160856488, i64 2160856294, i64 2160856344, i64 2160856390, i64 2160856418}
+!23 = distinct !{!23, !12, !13, !14}
+!24 = !{i32 -2, i32 1}
+!25 = !{i64 2148882038, i64 2148882077, i64 2148882098, i64 2148882135, i64 2148882158, i64 2148882028}
+!26 = distinct !{!26, !12, !13}
+!27 = !{i64 2161066971, i64 2161066775, i64 2161066827, i64 2161066873, i64 2161066901}
+!28 = !{i64 2161067537, i64 2161067341, i64 2161067393, i64 2161067439, i64 2161067467}
+!29 = !{i64 2161067614, i64 2161067643, i64 2161067689, i64 2161067747, i64 2161067801, i64 2161067855, i64 2161067910, i64 2161067941, i64 2161068249, i64 2161068255, i64 2161068302, i64 2161068325, i64 2161068351}
+!30 = !{i64 2161068805, i64 2161068611, i64 2161068661, i64 2161068707, i64 2161068735}
+!31 = !{i64 2161069119, i64 2161068925, i64 2161068975, i64 2161069021, i64 2161069049}
+!32 = distinct !{!32, !12, !13}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
+!35 = !{i64 2148897076, i64 2148897115, i64 2148897136, i64 2148897173, i64 2148897196, i64 2148897205}
+!36 = !{i64 2150423426}
+!37 = !{i64 2160862742, i64 2160862546, i64 2160862598, i64 2160862644, i64 2160862672}
+!38 = !{i64 2160863308, i64 2160863112, i64 2160863164, i64 2160863210, i64 2160863238}
+!39 = !{i64 2160863385, i64 2160863414, i64 2160863460, i64 2160863518, i64 2160863572, i64 2160863626, i64 2160863681, i64 2160863712, i64 2160864020, i64 2160864026, i64 2160864073, i64 2160864096, i64 2160864122}
+!40 = !{i64 2160864576, i64 2160864382, i64 2160864432, i64 2160864478, i64 2160864506}
+!41 = !{i64 2160864890, i64 2160864696, i64 2160864746, i64 2160864792, i64 2160864820}
 !42 = distinct !{!42, !12, !13}
-!43 = distinct !{!43, !12, !13}
+!43 = distinct !{!43, !12, !13, !14}
 !44 = distinct !{!44, !12, !13}
-!45 = !{i64 2160886200}
+!45 = !{i32 -105, i32 1}
 !46 = distinct !{!46, !12, !13}
-!47 = !{i32 -99, i32 1}
+!47 = distinct !{!47, !12, !13}
 !48 = distinct !{!48, !12, !13}
-!49 = distinct !{!49, !12, !13}
+!49 = !{i64 2160886200}
 !50 = distinct !{!50, !12, !13}
-!51 = distinct !{!51, !12, !13}
-!52 = !{i32 -3, i32 2}
+!51 = !{i32 -99, i32 1}
+!52 = distinct !{!52, !12, !13}
 !53 = distinct !{!53, !12, !13}
 !54 = distinct !{!54, !12, !13}
-!55 = !{i64 2148894891, i64 2148894930, i64 2148894951, i64 2148894988, i64 2148895011, i64 2148895020}
-!56 = !{!"branch_weights", i32 1, i32 2000}
+!55 = distinct !{!55, !12, !13}
+!56 = !{i32 -3, i32 2}
 !57 = distinct !{!57, !12, !13}
 !58 = distinct !{!58, !12, !13}
-!59 = distinct !{!59, !12, !13}
-!60 = distinct !{!60, !12, !13}
+!59 = !{i64 2148894891, i64 2148894930, i64 2148894951, i64 2148894988, i64 2148895011, i64 2148895020}
+!60 = !{!"branch_weights", i32 1, i32 2000}
 !61 = distinct !{!61, !12, !13}
-!62 = !{i64 2160904677}
+!62 = distinct !{!62, !12, !13}
 !63 = distinct !{!63, !12, !13}
 !64 = distinct !{!64, !12, !13}
 !65 = distinct !{!65, !12, !13}
-!66 = distinct !{!66, !12, !13}
-!67 = !{i64 2161045292, i64 2161045096, i64 2161045148, i64 2161045194, i64 2161045222}
-!68 = !{i64 2161045858, i64 2161045662, i64 2161045714, i64 2161045760, i64 2161045788}
-!69 = !{i64 2161045935, i64 2161045964, i64 2161046010, i64 2161046068, i64 2161046122, i64 2161046176, i64 2161046231, i64 2161046262, i64 2161046570, i64 2161046576, i64 2161046623, i64 2161046646, i64 2161046672}
-!70 = !{i64 2161047126, i64 2161046932, i64 2161046982, i64 2161047028, i64 2161047056}
-!71 = !{i64 2161047440, i64 2161047246, i64 2161047296, i64 2161047342, i64 2161047370}
-!72 = distinct !{!72, !12, !13}
-!73 = !{i64 2161053622}
-!74 = !{i64 2161061019}
-!75 = !{!"auto-init"}
-!76 = !{i64 2160936530}
-!77 = !{i64 2160945170}
-!78 = distinct !{!78, !12, !13}
-!79 = !{i64 2160958823}
-!80 = !{i64 2160966251}
-!81 = !{i64 2161071502, i64 2161071306, i64 2161071358, i64 2161071404, i64 2161071432}
-!82 = !{i64 2161072068, i64 2161071872, i64 2161071924, i64 2161071970, i64 2161071998}
-!83 = !{i64 2161072145, i64 2161072174, i64 2161072220, i64 2161072278, i64 2161072332, i64 2161072386, i64 2161072441, i64 2161072472, i64 2161072780, i64 2161072786, i64 2161072833, i64 2161072856, i64 2161072882}
-!84 = !{i64 2161073336, i64 2161073142, i64 2161073192, i64 2161073238, i64 2161073266}
-!85 = !{i64 2161073650, i64 2161073456, i64 2161073506, i64 2161073552, i64 2161073580}
-!86 = distinct !{!86, !12, !13}
-!87 = distinct !{!87, !12, !13}
-!88 = distinct !{!88, !12, !13}
-!89 = distinct !{!89, !12, !13}
-!90 = distinct !{!90, !12, !13}
+!66 = !{i64 2160904677}
+!67 = distinct !{!67, !12, !13}
+!68 = distinct !{!68, !12, !13, !14}
+!69 = distinct !{!69, !12, !13}
+!70 = distinct !{!70, !12, !13}
+!71 = distinct !{!71, !12, !13}
+!72 = !{i64 2161045292, i64 2161045096, i64 2161045148, i64 2161045194, i64 2161045222}
+!73 = !{i64 2161045858, i64 2161045662, i64 2161045714, i64 2161045760, i64 2161045788}
+!74 = !{i64 2161045935, i64 2161045964, i64 2161046010, i64 2161046068, i64 2161046122, i64 2161046176, i64 2161046231, i64 2161046262, i64 2161046570, i64 2161046576, i64 2161046623, i64 2161046646, i64 2161046672}
+!75 = !{i64 2161047126, i64 2161046932, i64 2161046982, i64 2161047028, i64 2161047056}
+!76 = !{i64 2161047440, i64 2161047246, i64 2161047296, i64 2161047342, i64 2161047370}
+!77 = distinct !{!77, !12, !13}
+!78 = !{i64 2161053622}
+!79 = !{i64 2161061019}
+!80 = !{!"auto-init"}
+!81 = !{i64 2160936530}
+!82 = !{i64 2160945170}
+!83 = distinct !{!83, !12, !13}
+!84 = !{i64 2160958823}
+!85 = !{i64 2160966251}
+!86 = !{i64 2161071502, i64 2161071306, i64 2161071358, i64 2161071404, i64 2161071432}
+!87 = !{i64 2161072068, i64 2161071872, i64 2161071924, i64 2161071970, i64 2161071998}
+!88 = !{i64 2161072145, i64 2161072174, i64 2161072220, i64 2161072278, i64 2161072332, i64 2161072386, i64 2161072441, i64 2161072472, i64 2161072780, i64 2161072786, i64 2161072833, i64 2161072856, i64 2161072882}
+!89 = !{i64 2161073336, i64 2161073142, i64 2161073192, i64 2161073238, i64 2161073266}
+!90 = !{i64 2161073650, i64 2161073456, i64 2161073506, i64 2161073552, i64 2161073580}
 !91 = distinct !{!91, !12, !13}
 !92 = distinct !{!92, !12, !13}
-!93 = !{i64 2160996470}
-!94 = !{i64 2161004103}
-!95 = !{i64 2161014064}
-!96 = !{i64 2161021964}
+!93 = distinct !{!93, !12, !13}
+!94 = distinct !{!94, !12, !13}
+!95 = distinct !{!95, !12, !13}
+!96 = distinct !{!96, !12, !13}
 !97 = distinct !{!97, !12, !13}
-!98 = distinct !{!98, !12, !13}
-!99 = distinct !{!99, !12, !13}
-!100 = distinct !{!100, !12, !13}
-!101 = distinct !{!101, !12, !13}
+!98 = !{i64 2160996470}
+!99 = !{i64 2161004103}
+!100 = !{i64 2161014064}
+!101 = !{i64 2161021964}
 !102 = distinct !{!102, !12, !13}
-!103 = !{i64 2161103026, i64 2161102830, i64 2161102882, i64 2161102928, i64 2161102956}
-!104 = !{i64 2161103103, i64 2161103132, i64 2161103178, i64 2161103236, i64 2161103290, i64 2161103344, i64 2161103399, i64 2161103430, i64 2161103738, i64 2161103744, i64 2161103791, i64 2161103814, i64 2161103840}
-!105 = !{i64 2161104295, i64 2161104101, i64 2161104151, i64 2161104197, i64 2161104225}
+!103 = distinct !{!103, !12, !13}
+!104 = distinct !{!104, !12, !13}
+!105 = distinct !{!105, !12, !13}
 !106 = distinct !{!106, !12, !13}
 !107 = distinct !{!107, !12, !13}
-!108 = distinct !{!108, !12, !13}
-!109 = distinct !{!109, !12, !13}
-!110 = distinct !{!110, !12, !13}
+!108 = !{i64 2161103026, i64 2161102830, i64 2161102882, i64 2161102928, i64 2161102956}
+!109 = !{i64 2161103103, i64 2161103132, i64 2161103178, i64 2161103236, i64 2161103290, i64 2161103344, i64 2161103399, i64 2161103430, i64 2161103738, i64 2161103744, i64 2161103791, i64 2161103814, i64 2161103840}
+!110 = !{i64 2161104295, i64 2161104101, i64 2161104151, i64 2161104197, i64 2161104225}
 !111 = distinct !{!111, !12, !13}
 !112 = distinct !{!112, !12, !13}
 !113 = distinct !{!113, !12, !13}
@@ -8663,45 +8663,50 @@ attributes #15 = { cold nounwind }
 !115 = distinct !{!115, !12, !13}
 !116 = distinct !{!116, !12, !13}
 !117 = distinct !{!117, !12, !13}
-!118 = !{i64 2161535722}
+!118 = distinct !{!118, !12, !13}
 !119 = distinct !{!119, !12, !13}
 !120 = distinct !{!120, !12, !13}
 !121 = distinct !{!121, !12, !13}
 !122 = distinct !{!122, !12, !13}
-!123 = !{i64 2161312171}
-!124 = !{i64 2161323477}
-!125 = !{i64 2161334840}
-!126 = !{i64 2161350207}
-!127 = !{i64 744315, i64 744359, i64 2148229042, i64 2148229063, i64 2148229089, i64 2148229122, i64 2148229156, i64 2148229180}
-!128 = !{i64 2148919391, i64 2148919430, i64 2148919451, i64 2148919488, i64 2148919511, i64 2148919381}
-!129 = !{i64 2161362469}
-!130 = !{i64 2161373792}
-!131 = !{i64 2161385098}
-!132 = distinct !{!132, !12, !13}
-!133 = distinct !{!133, !12, !13}
-!134 = !{i64 2161172226}
-!135 = !{i64 2161183532}
-!136 = !{i64 2161195933}
-!137 = !{i64 2161207256}
-!138 = !{i64 2161218562}
-!139 = !{i64 2155686515, i64 2155686324, i64 2155686376, i64 2155686422, i64 2155686450}
-!140 = !{i64 2155686589, i64 2155686618, i64 2155686664, i64 2155686722, i64 2155686776, i64 2155686830, i64 2155686885, i64 2155686916}
-!141 = distinct !{!141, !12, !13}
-!142 = !{i64 2161413722}
-!143 = !{i64 2161421237}
-!144 = distinct !{!144, !12, !13}
-!145 = distinct !{!145, !12, !13}
-!146 = !{i64 2161475792}
-!147 = !{i64 2161487399}
-!148 = distinct !{!148, !12, !13}
+!123 = !{i64 2161535722}
+!124 = distinct !{!124, !12, !13}
+!125 = distinct !{!125, !12, !13}
+!126 = distinct !{!126, !12, !13}
+!127 = distinct !{!127, !12, !13}
+!128 = !{i64 2161312171}
+!129 = !{i64 2161323477}
+!130 = !{i64 2161334840}
+!131 = !{i64 2161350207}
+!132 = !{i64 744315, i64 744359, i64 2148229042, i64 2148229063, i64 2148229089, i64 2148229122, i64 2148229156, i64 2148229180}
+!133 = !{i64 2148919391, i64 2148919430, i64 2148919451, i64 2148919488, i64 2148919511, i64 2148919381}
+!134 = !{i64 2161362469}
+!135 = !{i64 2161373792}
+!136 = !{i64 2161385098}
+!137 = distinct !{!137, !12, !13}
+!138 = distinct !{!138, !12, !13}
+!139 = !{i64 2161172226}
+!140 = !{i64 2161183532}
+!141 = !{i64 2161195933}
+!142 = !{i64 2161207256}
+!143 = !{i64 2161218562}
+!144 = !{i64 2155686515, i64 2155686324, i64 2155686376, i64 2155686422, i64 2155686450}
+!145 = !{i64 2155686589, i64 2155686618, i64 2155686664, i64 2155686722, i64 2155686776, i64 2155686830, i64 2155686885, i64 2155686916}
+!146 = distinct !{!146, !12, !13}
+!147 = !{i64 2161413722}
+!148 = !{i64 2161421237}
 !149 = distinct !{!149, !12, !13}
 !150 = distinct !{!150, !12, !13}
-!151 = distinct !{!151, !12, !13}
-!152 = distinct !{!152, !12, !13}
+!151 = !{i64 2161475792}
+!152 = !{i64 2161487399}
 !153 = distinct !{!153, !12, !13}
-!154 = !{i64 2161539938, i64 2161539742, i64 2161539794, i64 2161539840, i64 2161539868}
-!155 = !{i64 2161540504, i64 2161540308, i64 2161540360, i64 2161540406, i64 2161540434}
-!156 = !{i64 2161540581, i64 2161540610, i64 2161540656, i64 2161540714, i64 2161540768, i64 2161540822, i64 2161540877, i64 2161540908, i64 2161541216, i64 2161541222, i64 2161541269, i64 2161541292, i64 2161541318}
-!157 = !{i64 2161541773, i64 2161541579, i64 2161541629, i64 2161541675, i64 2161541703}
-!158 = !{i64 2161542087, i64 2161541893, i64 2161541943, i64 2161541989, i64 2161542017}
-!159 = distinct !{!159, !12, !13}
+!154 = distinct !{!154, !12, !13}
+!155 = distinct !{!155, !12, !13}
+!156 = distinct !{!156, !12, !13}
+!157 = distinct !{!157, !12, !13}
+!158 = distinct !{!158, !12, !13}
+!159 = !{i64 2161539938, i64 2161539742, i64 2161539794, i64 2161539840, i64 2161539868}
+!160 = !{i64 2161540504, i64 2161540308, i64 2161540360, i64 2161540406, i64 2161540434}
+!161 = !{i64 2161540581, i64 2161540610, i64 2161540656, i64 2161540714, i64 2161540768, i64 2161540822, i64 2161540877, i64 2161540908, i64 2161541216, i64 2161541222, i64 2161541269, i64 2161541292, i64 2161541318}
+!162 = !{i64 2161541773, i64 2161541579, i64 2161541629, i64 2161541675, i64 2161541703}
+!163 = !{i64 2161542087, i64 2161541893, i64 2161541943, i64 2161541989, i64 2161542017}
+!164 = distinct !{!164, !12, !13}

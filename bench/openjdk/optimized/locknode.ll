@@ -462,7 +462,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %62 = load i32, ptr %8, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next66, %63
-  br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !9
+  br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %93
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph.split ]
@@ -527,7 +527,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %94 = load i32, ptr %8, align 8
   %95 = zext i32 %94 to i64
   %96 = icmp samesign ult i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !9
+  br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %93, %61
   %.028.lcssa = phi i1 [ %.129.us47, %61 ], [ %.129, %93 ]
@@ -789,4 +789,7 @@ attributes #8 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !10}
+!12 = distinct !{!12, !7}

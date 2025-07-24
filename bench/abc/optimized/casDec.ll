@@ -845,7 +845,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %70 = load i32, ptr %35, align 4, !tbaa !17
   %71 = sub nsw i32 %69, %70
   %72 = icmp slt i32 %68, %71
-  br i1 %72, label %49, label %.preheader87, !llvm.loop !62
+  br i1 %72, label %49, label %.preheader87, !llvm.loop !63
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %.lr.ph93.split
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph93.split ], [ 0, %.lr.ph93 ]
@@ -858,7 +858,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %77 = load i32, ptr %39, align 4, !tbaa !19
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next112, %78
-  br i1 %79, label %.lr.ph93.split, label %._crit_edge, !llvm.loop !61
+  br i1 %79, label %.lr.ph93.split, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph93.split, %.lr.ph93.split.us, %.preheader87
   %80 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %17) #10
@@ -895,7 +895,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %97 = load i32, ptr %39, align 4, !tbaa !19
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next118, %98
-  br i1 %99, label %87, label %._crit_edge97, !llvm.loop !63
+  br i1 %99, label %87, label %._crit_edge97, !llvm.loop !65
 
 ._crit_edge97:                                    ; preds = %87, %._crit_edge
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %83) #10
@@ -927,7 +927,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next121, %110
-  br i1 %111, label %.lr.ph100, label %.preheader, !llvm.loop !64
+  br i1 %111, label %.lr.ph100, label %.preheader, !llvm.loop !66
 
 .lr.ph102:                                        ; preds = %.preheader, %116
   %112 = phi i32 [ %117, %116 ], [ %102, %.preheader ]
@@ -948,12 +948,12 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next124, %118
-  br i1 %119, label %.lr.ph102, label %._crit_edge103, !llvm.loop !65
+  br i1 %119, label %.lr.ph102, label %._crit_edge103, !llvm.loop !67
 
 ._crit_edge103:                                   ; preds = %116, %.preheader
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge108, label %14, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge108, label %14, !llvm.loop !68
 
 ._crit_edge108:                                   ; preds = %._crit_edge103, %8
   ret void
@@ -1067,9 +1067,11 @@ attributes #11 = { nounwind allocsize(0) }
 !58 = distinct !{!58, !26}
 !59 = distinct !{!59, !26}
 !60 = distinct !{!60, !26}
-!61 = distinct !{!61, !26}
-!62 = distinct !{!62, !26}
+!61 = distinct !{!61, !26, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !63 = distinct !{!63, !26}
 !64 = distinct !{!64, !26}
 !65 = distinct !{!65, !26}
 !66 = distinct !{!66, !26}
+!67 = distinct !{!67, !26}
+!68 = distinct !{!68, !26}

@@ -1765,7 +1765,7 @@ land.rhs21.us:                                    ; preds = %do.body13.us
   %call22.us = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call22.us, align 4
   %cmp23.us = icmp eq i32 %3, 4
-  br i1 %cmp23.us, label %do.body13.us, label %if.end32
+  br i1 %cmp23.us, label %do.body13.us, label %if.end32, !llvm.loop !5
 
 if.then2:                                         ; preds = %entry
   %flags = getelementptr inbounds nuw i8, ptr %send_handle, i64 88
@@ -2205,3 +2205,5 @@ attributes #14 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}

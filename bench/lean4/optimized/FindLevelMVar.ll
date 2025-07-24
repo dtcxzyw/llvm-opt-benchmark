@@ -1795,7 +1795,7 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %12, ptr %35, align 8, !tbaa !10
   %.not.us = icmp eq i64 %10, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %.02240 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
@@ -1968,7 +1968,7 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %12, ptr %35, align 8, !tbaa !10
   %.not.us = icmp eq i64 %10, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %.02240 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
@@ -2064,7 +2064,7 @@ define ptr @l_List_foldrTR___at_Lean_FindLevelMVar_main___spec__1(ptr noundef %0
 lean_nat_le.exit:
   %4 = tail call ptr @lean_array_mk(ptr noundef %2) #3
   %5 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !14
+  %.val = load i64, ptr %5, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit46, label %lean_dec.exit43
@@ -2158,7 +2158,7 @@ define ptr @l_List_foldrTR___at_Lean_FindLevelMVar_main___spec__1___at_Lean_Find
 lean_nat_le.exit:
   %3 = tail call ptr @lean_array_mk(ptr noundef %1) #3
   %4 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %4, align 8, !tbaa !14
+  %.val = load i64, ptr %4, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit42, label %lean_dec.exit39
@@ -2245,7 +2245,7 @@ lean_dec.exit45:                                  ; preds = %lean_dec.exit39, %3
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !14
+  %.val = load i64, ptr %7, align 8, !tbaa !17
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -2271,7 +2271,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__2___b
 
 lean_dec.exit12:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %17, align 8, !tbaa !14
+  %.val17 = load i64, ptr %17, align 8, !tbaa !17
   %18 = ptrtoint ptr %3 to i64
   %19 = and i64 %18, 1
   %.not18 = icmp eq i64 %19, 0
@@ -2327,7 +2327,7 @@ lean_dec.exit:                                    ; preds = %36, %35, %33, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %2, i64 8
-  %.val17 = load i64, ptr %7, align 8, !tbaa !14
+  %.val17 = load i64, ptr %7, align 8, !tbaa !17
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -2353,7 +2353,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__3___b
 
 lean_dec.exit12:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %17, align 8, !tbaa !14
+  %.val = load i64, ptr %17, align 8, !tbaa !17
   %18 = ptrtoint ptr %3 to i64
   %19 = and i64 %18, 1
   %.not18 = icmp eq i64 %19, 0
@@ -2540,5 +2540,8 @@ attributes #4 = { noreturn nounwind }
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !7, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !15}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}

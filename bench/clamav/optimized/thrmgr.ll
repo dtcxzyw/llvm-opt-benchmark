@@ -995,7 +995,7 @@ thrmgr_contended.exit.thread.us:                  ; preds = %.split.us, %thrmgr_
   %34 = load i32, ptr %16, align 8, !tbaa !19
   %35 = sub i32 %33, %34
   %.not43.us = icmp slt i32 %35, %.pre12.i.us
-  br i1 %.not43.us, label %.split45.us, label %thrmgr_contended.exit.thread.us
+  br i1 %.not43.us, label %.split45.us, label %thrmgr_contended.exit.thread.us, !llvm.loop !54
 
 .split:                                           ; preds = %12, %thrmgr_contended.exit.thread
   %.pre.i = load ptr, ptr %13, align 8, !tbaa !26
@@ -1036,7 +1036,7 @@ thrmgr_contended.exit.thread:                     ; preds = %.split, %thrmgr_con
 50:                                               ; preds = %48
   store ptr null, ptr %49, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %1, ptr %51, align 8, !tbaa !54
+  store ptr %1, ptr %51, align 8, !tbaa !56
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = tail call i32 @gettimeofday(ptr noundef nonnull %52, ptr noundef null) #13
   %54 = load ptr, ptr %.027, align 8, !tbaa !42
@@ -1045,16 +1045,16 @@ thrmgr_contended.exit.thread:                     ; preds = %.split, %thrmgr_con
   br i1 %55, label %57, label %59
 
 57:                                               ; preds = %50
-  store ptr %49, ptr %56, align 8, !tbaa !55
+  store ptr %49, ptr %56, align 8, !tbaa !57
   store ptr %49, ptr %.027, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   store i32 1, ptr %58, align 8, !tbaa !23
   br label %work_queue_add.exit
 
 59:                                               ; preds = %50
-  %60 = load ptr, ptr %56, align 8, !tbaa !55
+  %60 = load ptr, ptr %56, align 8, !tbaa !57
   store ptr %49, ptr %60, align 8, !tbaa !46
-  store ptr %49, ptr %56, align 8, !tbaa !55
+  store ptr %49, ptr %56, align 8, !tbaa !57
   %61 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !23
   %63 = add nsw i32 %62, 1
@@ -1129,9 +1129,9 @@ define dso_local range(i32 0, 2) i32 @thrmgr_group_dispatch(ptr noundef %0, ptr 
 6:                                                ; preds = %4
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #13
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !56
+  %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = add i32 %9, 1
-  store i32 %10, ptr %8, align 8, !tbaa !56
+  store i32 %10, ptr %8, align 8, !tbaa !58
   %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %1, i32 noundef %10) #13
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #13
   %13 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %2, i32 noundef %3)
@@ -1140,9 +1140,9 @@ define dso_local range(i32 0, 2) i32 @thrmgr_group_dispatch(ptr noundef %0, ptr 
 
 15:                                               ; preds = %6
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #13
-  %17 = load i32, ptr %8, align 8, !tbaa !56
+  %17 = load i32, ptr %8, align 8, !tbaa !58
   %18 = add i32 %17, -1
-  store i32 %18, ptr %8, align 8, !tbaa !56
+  store i32 %18, ptr %8, align 8, !tbaa !58
   %19 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %1, i32 noundef %18) #13
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #13
   br label %21
@@ -1160,12 +1160,12 @@ define dso_local range(i32 0, 2) i32 @thrmgr_group_finished(ptr noundef %0, i32 
 3:                                                ; preds = %2
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i32, ptr %5, align 8, !tbaa !56
+  %6 = load i32, ptr %5, align 8, !tbaa !58
   %7 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.21, ptr noundef nonnull %0, i32 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %9 = load i32, ptr %8, align 4, !tbaa !58
+  %9 = load i32, ptr %8, align 4, !tbaa !60
   %10 = add i32 %9, 1
-  store i32 %10, ptr %8, align 4, !tbaa !58
+  store i32 %10, ptr %8, align 4, !tbaa !60
   switch i32 %1, label %19 [
     i32 0, label %11
     i32 1, label %15
@@ -1173,32 +1173,32 @@ define dso_local range(i32 0, 2) i32 @thrmgr_group_finished(ptr noundef %0, i32 
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %13 = load i32, ptr %12, align 4, !tbaa !59
+  %13 = load i32, ptr %12, align 4, !tbaa !61
   %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 4, !tbaa !59
+  store i32 %14, ptr %12, align 4, !tbaa !61
   br label %19
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = load i32, ptr %16, align 8, !tbaa !60
+  %17 = load i32, ptr %16, align 8, !tbaa !62
   %18 = add i32 %17, 1
-  store i32 %18, ptr %16, align 8, !tbaa !60
+  store i32 %18, ptr %16, align 8, !tbaa !62
   br label %19
 
 19:                                               ; preds = %3, %15, %11
-  %20 = load i32, ptr %5, align 8, !tbaa !56
+  %20 = load i32, ptr %5, align 8, !tbaa !58
   %.not25 = icmp eq i32 %20, 0
   br i1 %.not25, label %.thread29, label %21
 
 21:                                               ; preds = %19
   %22 = add i32 %20, -1
-  store i32 %22, ptr %5, align 8, !tbaa !56
+  store i32 %22, ptr %5, align 8, !tbaa !58
   %.not26 = icmp eq i32 %22, 0
   br i1 %.not26, label %30, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i32 noundef %22) #13
-  %.pr = load i32, ptr %5, align 8, !tbaa !56
+  %.pr = load i32, ptr %5, align 8, !tbaa !58
   %25 = icmp eq i32 %.pr, 1
   br i1 %25, label %26, label %.thread29
 
@@ -1234,7 +1234,7 @@ define dso_local void @thrmgr_group_waitforall(ptr noundef %0, ptr noundef write
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load i32, ptr %7, align 8, !tbaa !56
+  %8 = load i32, ptr %7, align 8, !tbaa !58
   %9 = icmp ugt i32 %8, 1
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -1253,28 +1253,28 @@ define dso_local void @thrmgr_group_waitforall(ptr noundef %0, ptr noundef write
 16:                                               ; preds = %12
   %17 = call i64 @time(ptr noundef null) #13
   %18 = add nsw i64 %17, 5
-  store i64 %18, ptr %5, align 8, !tbaa !61
-  store i64 0, ptr %10, align 8, !tbaa !63
+  store i64 %18, ptr %5, align 8, !tbaa !63
+  store i64 0, ptr %10, align 8, !tbaa !65
   %19 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %5) #13
-  %20 = load i32, ptr %7, align 8, !tbaa !56
+  %20 = load i32, ptr %7, align 8, !tbaa !58
   %21 = icmp ugt i32 %20, 1
   br i1 %21, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %12, %4
   %.1 = phi i32 [ 0, %4 ], [ %14, %12 ], [ 0, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %23 = load i32, ptr %22, align 4, !tbaa !59
+  %23 = load i32, ptr %22, align 4, !tbaa !61
   store i32 %23, ptr %1, align 4, !tbaa !52
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %25 = load i32, ptr %24, align 8, !tbaa !60
+  %25 = load i32, ptr %24, align 8, !tbaa !62
   %26 = add i32 %25, %.1
   store i32 %26, ptr %2, align 4, !tbaa !52
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %28 = load i32, ptr %27, align 4, !tbaa !58
+  %28 = load i32, ptr %27, align 4, !tbaa !60
   store i32 %28, ptr %3, align 4, !tbaa !52
-  %29 = load i32, ptr %7, align 8, !tbaa !56
+  %29 = load i32, ptr %7, align 8, !tbaa !58
   %30 = add i32 %29, -1
-  store i32 %30, ptr %7, align 8, !tbaa !56
+  store i32 %30, ptr %7, align 8, !tbaa !58
   %.not22.not = icmp eq i32 %30, 0
   br i1 %.not22.not, label %.critedge, label %31
 
@@ -1307,7 +1307,7 @@ define dso_local noundef ptr @thrmgr_group_new() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 1, ptr %3, align 8, !tbaa !56
+  store i32 1, ptr %3, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %1, ptr noundef null) #13
@@ -1348,7 +1348,7 @@ define dso_local i32 @thrmgr_group_need_terminate(ptr noundef %0) local_unnamed_
 2:                                                ; preds = %1
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load i32, ptr %4, align 8, !tbaa !64
+  %5 = load i32, ptr %4, align 8, !tbaa !66
   %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   br label %7
 
@@ -1369,7 +1369,7 @@ define dso_local void @thrmgr_group_terminate(ptr noundef %0) local_unnamed_addr
 2:                                                ; preds = %1
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 1, ptr %4, align 8, !tbaa !64
+  store i32 1, ptr %4, align 8, !tbaa !66
   %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   br label %6
 
@@ -1435,7 +1435,7 @@ define internal noundef ptr @thrmgr_worker(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr %25, ptr %27, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %20, ptr %28, align 8, !tbaa !65
+  store ptr %20, ptr %28, align 8, !tbaa !67
   br label %29
 
 29:                                               ; preds = %26, %21
@@ -1479,8 +1479,8 @@ thrmgr_setactivetask.exit:                        ; preds = %thrmgr_setactiveeng
   %46 = load i32, ptr %5, align 8, !tbaa !21
   %47 = sext i32 %46 to i64
   %48 = add nsw i64 %45, %47
-  store i64 %48, ptr %2, align 8, !tbaa !61
-  store i64 0, ptr %6, align 8, !tbaa !63
+  store i64 %48, ptr %2, align 8, !tbaa !63
+  store i64 0, ptr %6, align 8, !tbaa !65
   %49 = load i32, ptr %7, align 8, !tbaa !19
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %7, align 8, !tbaa !19
@@ -1489,7 +1489,7 @@ thrmgr_setactivetask.exit:                        ; preds = %thrmgr_setactiveeng
 51:                                               ; preds = %117, %thrmgr_setactivetask.exit
   %52 = load ptr, ptr %10, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !66
+  %54 = load i32, ptr %53, align 4, !tbaa !68
   %55 = icmp slt i32 %54, 4
   %56 = load ptr, ptr %11, align 8, !tbaa !26
   br i1 %55, label %.thread.i, label %57
@@ -1508,7 +1508,7 @@ thrmgr_setactivetask.exit:                        ; preds = %thrmgr_setactiveeng
 
 59:                                               ; preds = %.thread.i
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !54
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
   %62 = load ptr, ptr %58, align 8, !tbaa !46
   store ptr %62, ptr %.02044.i, align 8, !tbaa !42
   %63 = icmp eq ptr %62, null
@@ -1516,7 +1516,7 @@ thrmgr_setactivetask.exit:                        ; preds = %thrmgr_setactiveeng
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  store ptr null, ptr %65, align 8, !tbaa !55
+  store ptr null, ptr %65, align 8, !tbaa !57
   br label %work_queue_pop.exit.i
 
 work_queue_pop.exit.i:                            ; preds = %64, %59
@@ -1530,9 +1530,9 @@ work_queue_pop.exit.i:                            ; preds = %64, %59
 
 69:                                               ; preds = %work_queue_pop.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 20
-  %71 = load i32, ptr %70, align 4, !tbaa !66
+  %71 = load i32, ptr %70, align 4, !tbaa !68
   %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %70, align 4, !tbaa !66
+  store i32 %72, ptr %70, align 4, !tbaa !68
   %73 = icmp eq i32 %72, %.048.i
   br i1 %73, label %work_queue_pop.exit30.thread.sink.split.i, label %work_queue_pop.exit30.thread.i
 
@@ -1550,7 +1550,7 @@ work_queue_pop.exit.thread.thread.i:              ; preds = %work_queue_pop.exit
 
 75:                                               ; preds = %work_queue_pop.exit.thread.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !54
+  %77 = load ptr, ptr %76, align 8, !tbaa !56
   %78 = load ptr, ptr %74, align 8, !tbaa !46
   store ptr %78, ptr %.019475667.i, align 8, !tbaa !42
   %79 = icmp eq ptr %78, null
@@ -1558,7 +1558,7 @@ work_queue_pop.exit.thread.thread.i:              ; preds = %work_queue_pop.exit
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %.019475667.i, i64 8
-  store ptr null, ptr %81, align 8, !tbaa !55
+  store ptr null, ptr %81, align 8, !tbaa !57
   br label %work_queue_pop.exit30.i
 
 work_queue_pop.exit30.i:                          ; preds = %80, %75
@@ -1572,9 +1572,9 @@ work_queue_pop.exit30.i:                          ; preds = %80, %75
 
 85:                                               ; preds = %work_queue_pop.exit30.i
   %86 = getelementptr inbounds nuw i8, ptr %.019475667.i, i64 20
-  %87 = load i32, ptr %86, align 4, !tbaa !66
+  %87 = load i32, ptr %86, align 4, !tbaa !68
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %86, align 4, !tbaa !66
+  store i32 %88, ptr %86, align 4, !tbaa !68
   %89 = icmp eq i32 %88, %.0495568.i
   br i1 %89, label %work_queue_pop.exit30.thread.sink.split.i, label %work_queue_pop.exit30.thread.i
 
@@ -1582,7 +1582,7 @@ work_queue_pop.exit30.thread.sink.split.i:        ; preds = %85, %69
   %.020455766.sink.i = phi ptr [ %.01946.i, %69 ], [ %.020455766.i, %85 ]
   %.021.ph.i = phi ptr [ %61, %69 ], [ %77, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %.020455766.sink.i, i64 20
-  store i32 0, ptr %90, align 4, !tbaa !66
+  store i32 0, ptr %90, align 4, !tbaa !68
   br label %work_queue_pop.exit30.thread.i
 
 work_queue_pop.exit30.thread.i:                   ; preds = %work_queue_pop.exit30.thread.sink.split.i, %85, %work_queue_pop.exit30.i, %work_queue_pop.exit.thread.thread.i, %work_queue_pop.exit.thread.i, %69
@@ -1719,7 +1719,7 @@ thrmgr_pop.exit:                                  ; preds = %102, %thrmgr_conten
 148:                                              ; preds = %145
   %149 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pools_lock) #13
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %151 = load ptr, ptr %150, align 8, !tbaa !65
+  %151 = load ptr, ptr %150, align 8, !tbaa !67
   %.not14.i = icmp eq ptr %151, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %147, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !48
@@ -1736,7 +1736,7 @@ thrmgr_pop.exit:                                  ; preds = %102, %thrmgr_conten
 
 154:                                              ; preds = %._crit_edge.i
   %155 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
-  store ptr %151, ptr %155, align 8, !tbaa !65
+  store ptr %151, ptr %155, align 8, !tbaa !67
   br label %156
 
 156:                                              ; preds = %154, %._crit_edge.i
@@ -1860,16 +1860,18 @@ attributes #17 = { nounwind allocsize(0,1) }
 !51 = !{!13, !6, i64 328}
 !52 = !{!14, !14, i64 0}
 !53 = !{!16, !16, i64 0}
-!54 = !{!44, !6, i64 8}
-!55 = !{!24, !25, i64 8}
-!56 = !{!57, !14, i64 88}
-!57 = !{!"jobgroup", !7, i64 0, !7, i64 40, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104}
-!58 = !{!57, !14, i64 100}
-!59 = !{!57, !14, i64 92}
-!60 = !{!57, !14, i64 96}
-!61 = !{!62, !30, i64 0}
-!62 = !{!"timespec", !30, i64 0, !30, i64 8}
-!63 = !{!62, !30, i64 8}
-!64 = !{!57, !14, i64 104}
-!65 = !{!32, !15, i64 32}
-!66 = !{!24, !14, i64 20}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = !{!44, !6, i64 8}
+!57 = !{!24, !25, i64 8}
+!58 = !{!59, !14, i64 88}
+!59 = !{!"jobgroup", !7, i64 0, !7, i64 40, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104}
+!60 = !{!59, !14, i64 100}
+!61 = !{!59, !14, i64 92}
+!62 = !{!59, !14, i64 96}
+!63 = !{!64, !30, i64 0}
+!64 = !{!"timespec", !30, i64 0, !30, i64 8}
+!65 = !{!64, !30, i64 8}
+!66 = !{!59, !14, i64 104}
+!67 = !{!32, !15, i64 32}
+!68 = !{!24, !14, i64 20}

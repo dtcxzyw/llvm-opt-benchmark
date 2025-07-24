@@ -11786,8 +11786,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %109 = add i64 %108, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %109, %93
   %110 = add i64 %.sroa.4.0.i26.i.i, %95
-  %or.cond.i.not.i = icmp ult i64 %110, %93
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b9f395b5bddfc26E.exit.i.i30", label %113
+  %or.cond93.i.not.i = icmp ult i64 %110, %93
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b9f395b5bddfc26E.exit.i.i30", label %113
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i: ; preds = %.noexc34
   %111 = trunc i64 %106 to i1

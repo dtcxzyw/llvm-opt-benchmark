@@ -102,12 +102,12 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   store i8 %56, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %57, label %51, !llvm.loop !6
+  br i1 %exitcond.not, label %57, label %51, !llvm.loop !7
 
 57:                                               ; preds = %51
   %58 = add i64 %.02429, 1
   %.not = icmp ugt i64 %58, %4
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %57
   %59 = sub nsw i64 %6, %36
@@ -116,7 +116,7 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %60, ptr noundef nonnull align 16 %12, i64 noundef range(i64 -137438953439, 137438953441) %spec.store.select, i1 noundef false) #6
   %61 = shl i64 %37, 5
   %62 = icmp ult i64 %61, %6
-  br i1 %62, label %.lr.ph, label %._crit_edge33, !llvm.loop !4
+  br i1 %62, label %.lr.ph, label %._crit_edge33, !llvm.loop !9
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %.lr.ph32.split.us, %15
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 208) #6
@@ -166,7 +166,9 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

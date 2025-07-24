@@ -54,7 +54,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 select.unfold.us47.i:                             ; preds = %6, %.split.split.split.us.i
   %9 = add nuw nsw i64 %.02937.us45.i, 1
   %exitcond64.i = icmp eq i64 %9, 30
-  br i1 %exitcond64.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us.i, !llvm.loop !9
+  br i1 %exitcond64.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us.i, !llvm.loop !14
 
 .split.split.split.us50.i:                        ; preds = %2, %select.unfold.us53.i
   %.02937.us51.i = phi i64 [ %16, %select.unfold.us53.i ], [ 0, %2 ]
@@ -72,7 +72,7 @@ select.unfold.us47.i:                             ; preds = %6, %.split.split.sp
 select.unfold.us53.i:                             ; preds = %13, %.split.split.split.us50.i
   %16 = add nuw nsw i64 %.02937.us51.i, 1
   %exitcond.i = icmp eq i64 %16, 30
-  br i1 %exitcond.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us50.i, !llvm.loop !9
+  br i1 %exitcond.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us50.i, !llvm.loop !16
 
 .split.split.split.i:                             ; preds = %2, %select.unfold.i
   %.02937.i = phi i64 [ %20, %select.unfold.i ], [ 0, %2 ]
@@ -121,7 +121,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 16:                                               ; preds = %13, %10, %.split.us
   %17 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !14
+  %19 = load i32, ptr %18, align 4, !tbaa !17
   %20 = mul nsw i32 %19, %17
   %21 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %22 = shl nuw nsw i32 %21, 1
@@ -132,7 +132,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 25:                                               ; preds = %16
   %26 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %28 = load i32, ptr %27, align 16, !tbaa !15
+  %28 = load i32, ptr %27, align 16, !tbaa !18
   %29 = mul nsw i32 %28, %26
   %30 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %31 = shl nuw nsw i32 %30, 1
@@ -170,7 +170,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
 select.unfold.us:                                 ; preds = %49, %42, %35, %25, %16, %13, %10
   %52 = add nuw nsw i64 %.02937.us, 1
   %exitcond67 = icmp eq i64 %52, 30
-  br i1 %exitcond67, label %.split39.us, label %.split.us, !llvm.loop !9
+  br i1 %exitcond67, label %.split39.us, label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %6
   br i1 %or.cond3, label %.split.split.us, label %.split.split
@@ -196,7 +196,7 @@ select.unfold.us:                                 ; preds = %49, %42, %35, %25, 
 60:                                               ; preds = %57, %54, %.split.split.us
   %61 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %53)
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !14
+  %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = mul nsw i32 %63, %61
   %65 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %53)
   %66 = shl nuw nsw i32 %65, 1
@@ -207,7 +207,7 @@ select.unfold.us:                                 ; preds = %49, %42, %35, %25, 
 69:                                               ; preds = %60
   %70 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %53)
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %72 = load i32, ptr %71, align 16, !tbaa !15
+  %72 = load i32, ptr %71, align 16, !tbaa !18
   %73 = mul nsw i32 %72, %70
   %74 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %53)
   %75 = shl nuw nsw i32 %74, 1
@@ -224,7 +224,7 @@ select.unfold.us:                                 ; preds = %49, %42, %35, %25, 
 select.unfold.us42:                               ; preds = %78, %69, %60, %57, %54
   %81 = add nuw nsw i64 %.02937.us40, 1
   %exitcond66 = icmp eq i64 %81, 30
-  br i1 %exitcond66, label %.split39.us, label %.split.split.us, !llvm.loop !9
+  br i1 %exitcond66, label %.split39.us, label %.split.split.us, !llvm.loop !20
 
 .split.split:                                     ; preds = %.split
   switch i32 %1, label %.split.split.split [
@@ -248,7 +248,7 @@ select.unfold.us42:                               ; preds = %78, %69, %60, %57, 
 select.unfold.us47:                               ; preds = %85, %.split.split.split.us
   %88 = add nuw nsw i64 %.02937.us45, 1
   %exitcond64 = icmp eq i64 %88, 30
-  br i1 %exitcond64, label %.split39.us, label %.split.split.split.us, !llvm.loop !9
+  br i1 %exitcond64, label %.split39.us, label %.split.split.split.us, !llvm.loop !14
 
 .split.split.split.us50:                          ; preds = %.split.split, %select.unfold.us53
   %.02937.us51 = phi i64 [ %95, %select.unfold.us53 ], [ 0, %.split.split ]
@@ -266,7 +266,7 @@ select.unfold.us47:                               ; preds = %85, %.split.split.s
 select.unfold.us53:                               ; preds = %92, %.split.split.split.us50
   %95 = add nuw nsw i64 %.02937.us51, 1
   %exitcond = icmp eq i64 %95, 30
-  br i1 %exitcond, label %.split39.us, label %.split.split.split.us50, !llvm.loop !9
+  br i1 %exitcond, label %.split39.us, label %.split.split.split.us50, !llvm.loop !16
 
 .split.split.split:                               ; preds = %.split.split, %select.unfold
   %.02937 = phi i64 [ %99, %select.unfold ], [ 0, %.split.split ]
@@ -306,7 +306,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEib(i32 noundef %0, 
 select.unfold.us47.i:                             ; preds = %6, %.split.split.split.us.i
   %9 = add nuw nsw i64 %.02937.us45.i, 1
   %exitcond64.i = icmp eq i64 %9, 30
-  br i1 %exitcond64.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us.i, !llvm.loop !9
+  br i1 %exitcond64.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.us.i, !llvm.loop !14
 
 .split.split.split.i:                             ; preds = %2, %select.unfold.i
   %.02937.i = phi i64 [ %13, %select.unfold.i ], [ 0, %2 ]
@@ -329,7 +329,7 @@ _ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %3 = load i32, ptr %2, align 4, !tbaa !21
   switch i32 %3, label %7 [
     i32 1, label %12
     i32 2, label %4
@@ -384,7 +384,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %3 = load i32, ptr %2, align 4, !tbaa !21
   switch i32 %3, label %7 [
     i32 1, label %12
     i32 2, label %12
@@ -447,6 +447,11 @@ attributes #6 = { noreturn }
 !11 = !{!4, !5, i64 0}
 !12 = !{i8 0, i8 2}
 !13 = !{}
-!14 = !{!4, !8, i64 12}
-!15 = !{!4, !8, i64 16}
-!16 = !{!4, !8, i64 20}
+!14 = distinct !{!14, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !10, !15}
+!17 = !{!4, !8, i64 12}
+!18 = !{!4, !8, i64 16}
+!19 = distinct !{!19, !10, !15}
+!20 = distinct !{!20, !10, !15}
+!21 = !{!4, !8, i64 20}

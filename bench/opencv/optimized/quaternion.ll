@@ -7878,7 +7878,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit62, %56
   %90 = srem i32 %81, %83
   store i32 %90, ptr %85, align 4, !tbaa !49
   %91 = icmp sgt i64 %indvars.iv, 0
-  br i1 %91, label %80, label %.lr.ph.i.i.i42, !llvm.loop !102
+  br i1 %91, label %80, label %.lr.ph.i.i.i42, !llvm.loop !103
 
 .lr.ph.i.i.i42:                                   ; preds = %80, %84
   store i32 0, ptr %71, align 4, !tbaa !49
@@ -7933,13 +7933,13 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i37:   ; preds = %92
   %117 = getelementptr inbounds nuw i8, ptr %.01.i, i64 32
   %118 = add nuw nsw i32 %100, 1
   %exitcond.not.i = icmp eq i32 %118, %13
-  br i1 %exitcond.not.i, label %.loopexit62, label %.lr.ph.i39, !llvm.loop !103
+  br i1 %exitcond.not.i, label %.loopexit62, label %.lr.ph.i39, !llvm.loop !104
 
 .loopexit62:                                      ; preds = %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i41", %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i37
   store i32 0, ptr %71, align 4, !tbaa !49
   %119 = add nsw i32 %.03066, 1
   %exitcond.not = icmp eq i32 %119, %68
-  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph, !llvm.loop !105
 
 .loopexit:                                        ; preds = %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us", %.lr.ph71, %15, %_ZNSt6vectorIiSaIiEED2Ev.exit
   ret void
@@ -8094,7 +8094,8 @@ attributes #22 = { noreturn nounwind }
 !98 = distinct !{!98, !17}
 !99 = distinct !{!99, !17}
 !100 = distinct !{!100, !17}
-!101 = distinct !{!101, !17}
-!102 = distinct !{!102, !17}
+!101 = distinct !{!101, !17, !102}
+!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !103 = distinct !{!103, !17}
 !104 = distinct !{!104, !17}
+!105 = distinct !{!105, !17}

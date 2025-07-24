@@ -2409,7 +2409,7 @@ _ZN5faiss15BitstringReader4readEi.exit.us:        ; preds = %._crit_edge.i.us, %
 ._crit_edge.us:                                   ; preds = %_ZN5faiss15BitstringReader4readEi.exit.us
   %77 = add nuw i64 %.02226.us, 1
   %exitcond33.not = icmp eq i64 %.02226.us, %18
-  br i1 %exitcond33.not, label %._crit_edge29, label %.lr.ph.us
+  br i1 %exitcond33.not, label %._crit_edge29, label %.lr.ph.us, !llvm.loop !94
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %.lr.ph28, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -2485,7 +2485,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
   %35 = add nuw i64 %.056, 1
   %36 = add i64 %32, 1
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %.lr.ph58.split, label %._crit_edge59, !llvm.loop !94
+  br i1 %37, label %.lr.ph58.split, label %._crit_edge59, !llvm.loop !96
 
 .lr.ph54:                                         ; preds = %.lr.ph58.split, %._crit_edge
   %38 = phi i64 [ %50, %._crit_edge ], [ %26, %.lr.ph58.split ]
@@ -2522,7 +2522,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
   %54 = add i64 %53, %.04451
   %55 = add nuw i64 %.04550, 1
   %56 = icmp ult i64 %55, %50
-  br i1 %56, label %.lr.ph54, label %._crit_edge55.loopexit, !llvm.loop !96
+  br i1 %56, label %.lr.ph54, label %._crit_edge55.loopexit, !llvm.loop !98
 
 57:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
@@ -2554,7 +2554,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i64, ptr %47, align 8, !tbaa !66
   %76 = icmp ugt i64 %75, %indvars.iv.next
-  br i1 %76, label %57, label %._crit_edge.loopexit, !llvm.loop !97
+  br i1 %76, label %57, label %._crit_edge.loopexit, !llvm.loop !99
 
 ._crit_edge59:                                    ; preds = %._crit_edge55, %.lr.ph58, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2640,7 +2640,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %35 = add nuw i64 %.061, 1
   %36 = add i64 %32, 1
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %.lr.ph63.split, label %._crit_edge64, !llvm.loop !98
+  br i1 %37, label %.lr.ph63.split, label %._crit_edge64, !llvm.loop !100
 
 .lr.ph59:                                         ; preds = %.lr.ph63.split, %._crit_edge
   %38 = phi i64 [ %51, %._crit_edge ], [ %26, %.lr.ph63.split ]
@@ -2680,7 +2680,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %55 = add i64 %54, %.04256
   %56 = add nuw i64 %.04355, 1
   %57 = icmp ult i64 %56, %51
-  br i1 %57, label %.lr.ph59, label %._crit_edge60.loopexit, !llvm.loop !99
+  br i1 %57, label %.lr.ph59, label %._crit_edge60.loopexit, !llvm.loop !101
 
 58:                                               ; preds = %.lr.ph, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
@@ -2789,7 +2789,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %71, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = load i64, ptr %47, align 8, !tbaa !66
   %115 = icmp ugt i64 %114, %indvars.iv.next
-  br i1 %115, label %58, label %._crit_edge.loopexit, !llvm.loop !100
+  br i1 %115, label %58, label %._crit_edge.loopexit, !llvm.loop !102
 
 ._crit_edge64:                                    ; preds = %._crit_edge60, %.lr.ph63, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -3007,7 +3007,7 @@ _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_.exit: ; preds =
   %77 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
   %78 = add nuw i64 %.02346, 1
   %exitcond.not = icmp eq i64 %78, %2
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !101
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !103
 
 79:                                               ; preds = %49
   %80 = landingpad { ptr, i32 }
@@ -3373,7 +3373,7 @@ _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_.exit: ; preds =
   %77 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
   %78 = add nuw i64 %.02346, 1
   %exitcond.not = icmp eq i64 %78, %2
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !102
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !104
 
 79:                                               ; preds = %49
   %80 = landingpad { ptr, i32 }
@@ -3727,11 +3727,13 @@ attributes #24 = { noreturn nounwind }
 !92 = distinct !{!92, !64}
 !93 = distinct !{!93, !64}
 !94 = distinct !{!94, !95}
-!95 = !{!"llvm.loop.unswitch.partial.disable"}
-!96 = distinct !{!96, !64}
-!97 = distinct !{!97, !64}
-!98 = distinct !{!98, !95}
+!95 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!96 = distinct !{!96, !97}
+!97 = !{!"llvm.loop.unswitch.partial.disable"}
+!98 = distinct !{!98, !64}
 !99 = distinct !{!99, !64}
-!100 = distinct !{!100, !64}
+!100 = distinct !{!100, !97}
 !101 = distinct !{!101, !64}
 !102 = distinct !{!102, !64}
+!103 = distinct !{!103, !64}
+!104 = distinct !{!104, !64}

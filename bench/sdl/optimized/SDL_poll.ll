@@ -26,10 +26,7 @@ define hidden i32 @SDL_IOReady(i32 noundef %0, i32 noundef %1, i64 noundef %2) l
   %.not12 = icmp eq i32 %15, 0
   br i1 %10, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3
-  br i1 %.not12, label %.split.us.split, label %.critedge.sink.split
-
-.split.us.split:                                  ; preds = %.split.us, %18
+.split.us:                                        ; preds = %3, %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   store i32 %0, ptr %4, align 4
   store i16 %spec.select13, ptr %5, align 4
@@ -38,41 +35,41 @@ define hidden i32 @SDL_IOReady(i32 noundef %0, i32 noundef %1, i64 noundef %2) l
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %.critedge
 
-18:                                               ; preds = %.split.us.split
+18:                                               ; preds = %.split.us
   %19 = tail call ptr @__errno_location() #5
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.split.us.split, label %.critedge, !llvm.loop !3
+  %or.cond.us = and i1 %.not12, %21
+  br i1 %or.cond.us, label %.split.us, label %.critedge, !llvm.loop !3
 
 .split:                                           ; preds = %3
-  br i1 %.not12, label %.split.split, label %.critedge.sink.split
+  br i1 %.not12, label %.split.split, label %.split.split.us
 
-.split.split:                                     ; preds = %.split, %24
+.split.split.us:                                  ; preds = %.split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   store i32 %0, ptr %4, align 4
   store i16 %spec.select13, ptr %5, align 4
   %22 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef %.) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %.critedge
+  br label %.critedge
 
-24:                                               ; preds = %.split.split
-  %25 = tail call ptr @__errno_location() #5
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, 4
-  br i1 %27, label %.split.split, label %.critedge, !llvm.loop !3
-
-.critedge.sink.split:                             ; preds = %.split, %.split.us
-  %..sink = phi i32 [ %14, %.split.us ], [ %., %.split ]
+.split.split:                                     ; preds = %.split, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   store i32 %0, ptr %4, align 4
   store i16 %spec.select13, ptr %5, align 4
-  %28 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef %..sink) #4
+  %23 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef %.) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  br label %.critedge
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %.critedge
 
-.critedge:                                        ; preds = %24, %.split.split, %18, %.split.us.split, %.critedge.sink.split
-  %.us-phi = phi i32 [ %28, %.critedge.sink.split ], [ %16, %.split.us.split ], [ %16, %18 ], [ %22, %.split.split ], [ %22, %24 ]
+25:                                               ; preds = %.split.split
+  %26 = tail call ptr @__errno_location() #5
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 4
+  br i1 %28, label %.split.split, label %.critedge, !llvm.loop !6
+
+.critedge:                                        ; preds = %25, %.split.split, %.split.us, %18, %.split.split.us
+  %.us-phi = phi i32 [ %22, %.split.split.us ], [ %16, %18 ], [ %16, %.split.us ], [ %23, %.split.split ], [ %23, %25 ]
   ret i32 %.us-phi
 }
 
@@ -99,5 +96,7 @@ attributes #5 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !4}

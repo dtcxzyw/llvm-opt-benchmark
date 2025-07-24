@@ -8172,7 +8172,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i: ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %77, i64 %151
-  %155 = load i8, ptr %154, align 1, !tbaa !363
+  %155 = load i8, ptr %154, align 1, !tbaa !364
   %156 = icmp eq i8 %155, 1
   br i1 %156, label %157, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i
 
@@ -8187,9 +8187,9 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit13.i: ; preds = %157
   %161 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %92, i64 %158
-  %162 = load i64, ptr %161, align 8, !tbaa !365
+  %162 = load i64, ptr %161, align 8, !tbaa !366
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %164 = load i64, ptr %163, align 8, !tbaa !367
+  %164 = load i64, ptr %163, align 8, !tbaa !368
   %165 = icmp eq i64 %164, -1
   br i1 %165, label %166, label %167
 
@@ -8279,7 +8279,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %211 = load i32, ptr %210, align 4, !tbaa !213
   %212 = icmp eq i32 %211, -1
-  br i1 %212, label %_ZN7xgboost4tree13TreeRefresher8AddStatsERKNS_7RegTreeERKNS2_4FVecERKSt6vectorINS_6detail20GradientPairInternalIfEESaISB_EERKNS_8MetaInfoEjPNS0_9GradStatsE.exit, label %.lr.ph.i14, !llvm.loop !362
+  br i1 %212, label %_ZN7xgboost4tree13TreeRefresher8AddStatsERKNS_7RegTreeERKNS2_4FVecERKSt6vectorINS_6detail20GradientPairInternalIfEESaISB_EERKNS_8MetaInfoEjPNS0_9GradStatsE.exit, label %.lr.ph.i14, !llvm.loop !369
 
 _ZN7xgboost4tree13TreeRefresher8AddStatsERKNS_7RegTreeERKNS2_4FVecERKSt6vectorINS_6detail20GradientPairInternalIfEESaISB_EERKNS_8MetaInfoEjPNS0_9GradStatsE.exit: ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us, %63
   %213 = getelementptr inbounds nuw i8, ptr %64, i64 12
@@ -8478,18 +8478,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
           to label %15 unwind label %57
 
 15:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6
-  call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  call void @llvm.experimental.noalias.scope.decl(metadata !371)
+  call void @llvm.experimental.noalias.scope.decl(metadata !370)
+  call void @llvm.experimental.noalias.scope.decl(metadata !373)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %16, ptr %14, align 8, !tbaa !22, !alias.scope !374
+  store ptr %16, ptr %14, align 8, !tbaa !22, !alias.scope !376
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %17, align 8, !tbaa !12, !alias.scope !374
-  store i8 0, ptr %16, align 1, !tbaa !23, !alias.scope !374
+  store i64 0, ptr %17, align 8, !tbaa !12, !alias.scope !376
+  store i8 0, ptr %16, align 1, !tbaa !23, !alias.scope !376
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !228, !noalias !374
+  %19 = load ptr, ptr %18, align 8, !tbaa !228, !noalias !376
   %.not.i.not.i.i = icmp eq ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %21 = load ptr, ptr %20, align 8, !noalias !374
+  %21 = load ptr, ptr %20, align 8, !noalias !376
   %22 = icmp ugt ptr %19, %21
   %.08.i.i.i = select i1 %22, ptr %19, ptr %21
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -8498,7 +8498,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !232, !noalias !374
+  %25 = load ptr, ptr %24, align 8, !tbaa !232, !noalias !376
   %26 = ptrtoint ptr %.08.i.i.i to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
@@ -8508,18 +8508,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %12
 30:                                               ; preds = %38, %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %14, align 8, !tbaa !16, !alias.scope !374
+  %32 = load ptr, ptr %14, align 8, !tbaa !16, !alias.scope !376
   %33 = icmp eq ptr %32, %16
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %30
-  %34 = load i64, ptr %17, align 8, !tbaa !12, !alias.scope !374
+  %34 = load i64, ptr %17, align 8, !tbaa !12, !alias.scope !376
   %35 = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %35)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %30
-  %36 = load i64, ptr %16, align 8, !tbaa !23, !alias.scope !374
+  %36 = load i64, ptr %16, align 8, !tbaa !23, !alias.scope !376
   %37 = add i64 %36, 1
   call void @_ZdlPvm(ptr noundef %32, i64 noundef %37) #35
   br label %.body
@@ -8598,7 +8598,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForIiZZNS_4tree13TreeRefre
   br i1 %11, label %.lr.ph147, label %.loopexit
 
 .lr.ph147:                                        ; preds = %.preheader
-  %12 = load ptr, ptr %4, align 8, !tbaa !375
+  %12 = load ptr, ptr %4, align 8, !tbaa !377
   %13 = load i32, ptr %12, align 4, !tbaa !63
   %14 = icmp sgt i32 %13, 1
   %wide.trip.count.i = zext nneg i32 %13 to i64
@@ -8636,19 +8636,19 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForIiZZNS_4tree13TreeRefre
   store double %31, ptr %20, align 8, !tbaa !351
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvENKUliE_clEi.exit.loopexit.us, label %21, !llvm.loop !377
+  br i1 %exitcond.not.i.us, label %_ZZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvENKUliE_clEi.exit.loopexit.us, label %21, !llvm.loop !379
 
 _ZZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvENKUliE_clEi.exit.loopexit.us: ; preds = %21
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.i.us, !llvm.loop !378
+  br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.i.us, !llvm.loop !380
 
 32:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %1, ptr %6, align 4, !tbaa !63, !noalias !379
-  store i32 1, ptr %7, align 4, !tbaa !63, !noalias !379
+  store i32 %1, ptr %6, align 4, !tbaa !63, !noalias !381
+  store i32 1, ptr %7, align 4, !tbaa !63, !noalias !381
   %.not.i = icmp slt i32 %1, 1
   br i1 %.not.i, label %_ZN4dmlc11LogCheck_GEIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit, label %_ZN4dmlc11LogCheck_GEIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread
 
@@ -8794,12 +8794,12 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store double %75, ptr %64, align 8, !tbaa !351
   %indvars.iv.next.i.i113.us = add nuw nsw i64 %indvars.iv.i.i112.us, 1
   %exitcond.not.i.i114.us = icmp eq i64 %indvars.iv.next.i.i113.us, %wide.trip.count.i.i111
-  br i1 %exitcond.not.i.i114.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit115.loopexit.us, label %65, !llvm.loop !377
+  br i1 %exitcond.not.i.i114.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit115.loopexit.us, label %65, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit115.loopexit.us: ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i.i108.us, !llvm.loop !382
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i.i108.us, !llvm.loop !384
 
 .preheader124:                                    ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %76 = icmp sgt i32 %0, 0
@@ -8844,12 +8844,12 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
   store double %93, ptr %82, align 8, !tbaa !351
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit.loopexit.us, label %83, !llvm.loop !377
+  br i1 %exitcond.not.i.i.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit.loopexit.us, label %83, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit.loopexit.us: ; preds = %83
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph.i.i.us, !llvm.loop !383
+  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph.i.i.us, !llvm.loop !385
 
 94:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %95 = icmp eq i64 %3, 0
@@ -8898,12 +8898,12 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
   store double %113, ptr %102, align 8, !tbaa !351
   %indvars.iv.next.i.i89.us = add nuw nsw i64 %indvars.iv.i.i88.us, 1
   %exitcond.not.i.i90.us = icmp eq i64 %indvars.iv.next.i.i89.us, %wide.trip.count.i.i87
-  br i1 %exitcond.not.i.i90.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit91.loopexit.us, label %103, !llvm.loop !377
+  br i1 %exitcond.not.i.i90.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit91.loopexit.us, label %103, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit91.loopexit.us: ; preds = %103
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %.loopexit, label %.lr.ph.i.i84.us, !llvm.loop !384
+  br i1 %exitcond175.not, label %.loopexit, label %.lr.ph.i.i84.us, !llvm.loop !386
 
 .preheader125:                                    ; preds = %94
   br i1 %96, label %.lr.ph143, label %.loopexit
@@ -8947,12 +8947,12 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
   store double %130, ptr %119, align 8, !tbaa !351
   %indvars.iv.next.i.i81.us = add nuw nsw i64 %indvars.iv.i.i80.us, 1
   %exitcond.not.i.i82.us = icmp eq i64 %indvars.iv.next.i.i81.us, %wide.trip.count.i.i79
-  br i1 %exitcond.not.i.i82.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit83.loopexit.us, label %120, !llvm.loop !377
+  br i1 %exitcond.not.i.i82.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit83.loopexit.us, label %120, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit83.loopexit.us: ; preds = %120
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %.loopexit, label %.lr.ph.i.i76.us, !llvm.loop !385
+  br i1 %exitcond180.not, label %.loopexit, label %.lr.ph.i.i76.us, !llvm.loop !387
 
 131:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %132 = icmp eq i64 %3, 0
@@ -9001,12 +9001,12 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
   store double %150, ptr %139, align 8, !tbaa !351
   %indvars.iv.next.i.i105.us = add nuw nsw i64 %indvars.iv.i.i104.us, 1
   %exitcond.not.i.i106.us = icmp eq i64 %indvars.iv.next.i.i105.us, %wide.trip.count.i.i103
-  br i1 %exitcond.not.i.i106.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit107.loopexit.us, label %140, !llvm.loop !377
+  br i1 %exitcond.not.i.i106.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit107.loopexit.us, label %140, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit107.loopexit.us: ; preds = %140
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph.i.i100.us, !llvm.loop !386
+  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph.i.i100.us, !llvm.loop !388
 
 .preheader129:                                    ; preds = %131
   br i1 %133, label %.lr.ph139, label %.loopexit
@@ -9050,12 +9050,12 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
   store double %167, ptr %156, align 8, !tbaa !351
   %indvars.iv.next.i.i97.us = add nuw nsw i64 %indvars.iv.i.i96.us, 1
   %exitcond.not.i.i98.us = icmp eq i64 %indvars.iv.next.i.i97.us, %wide.trip.count.i.i95
-  br i1 %exitcond.not.i.i98.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit99.loopexit.us, label %157, !llvm.loop !377
+  br i1 %exitcond.not.i.i98.us, label %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit99.loopexit.us, label %157, !llvm.loop !379
 
 _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit99.loopexit.us: ; preds = %157
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph.i.i92.us, !llvm.loop !387
+  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph.i.i92.us, !llvm.loop !389
 
 .loopexit:                                        ; preds = %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit115.loopexit.us, %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit107.loopexit.us, %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit99.loopexit.us, %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit91.loopexit.us, %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit83.loopexit.us, %_ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainParamEPNS2_6linalg6TensorINS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7DMatrixENS2_6common4SpanINS2_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS2_7RegTreeESaISO_EEENKUlvE0_clEvEUliE_JiEEEvT_DpT0_.exit.loopexit.us, %_ZZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvENKUliE_clEi.exit.loopexit.us, %.preheader124, %.preheader125, %.preheader127, %.preheader129, %.preheader131, %.preheader133, %.lr.ph, %.lr.ph145, %.lr.ph141, %.lr.ph143, %.lr.ph137, %.lr.ph139, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.lr.ph147, %.preheader
   ret void
@@ -9079,21 +9079,21 @@ _ZN4dmlc12OMPException3RunIZZN7xgboost4tree13TreeRefresher6UpdateEPKNS3_10TrainP
 define linkonce_odr void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind noalias writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef byval(%"class.xgboost::linalg::TensorView.69") align 8 %3, i32 noundef %4) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.std::shared_ptr.182", align 8
-  %8 = load ptr, ptr %2, align 8, !tbaa !388
+  %8 = load ptr, ptr %2, align 8, !tbaa !390
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !391
+  %10 = load i32, ptr %9, align 8, !tbaa !393
   %.not = icmp eq i32 %10, -1
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %5
-  store ptr null, ptr %0, align 8, !tbaa !411, !alias.scope !413
+  store ptr null, ptr %0, align 8, !tbaa !413, !alias.scope !415
   br label %66
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !416
+  %14 = load i64, ptr %13, align 8, !tbaa !418
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %16 = load i64, ptr %15, align 8, !tbaa !419
+  %16 = load i64, ptr %15, align 8, !tbaa !421
   %17 = icmp eq i64 %14, %16
   %18 = load i64, ptr %3, align 8
   %.not4.i.i.i = icmp eq i64 %18, 1
@@ -9132,7 +9132,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %_ZStl
 
 27:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14, %12
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.24.0.copyload = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !424
+  %.sroa.24.0.copyload = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !426
   %28 = shl i64 %14, 3
   %29 = icmp ne ptr %.sroa.24.0.copyload, null
   %30 = icmp eq i64 %28, 0
@@ -9148,7 +9148,7 @@ _ZN7xgboost6common9EraseTypeIdaEENS0_4SpanIT0_Lm18446744073709551615EEENS2_IT_Lm
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.0.0.copyload.i = load i32, ptr %33, align 8
   call void @_ZNK7xgboost10collective9CommGroup7BackendENS_9DeviceOrdE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.182") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 %.sroa.0.0.copyload.i)
-  %34 = load ptr, ptr %7, align 8, !tbaa !425
+  %34 = load ptr, ptr %7, align 8, !tbaa !427
   %35 = invoke noundef nonnull align 8 dereferenceable(184) ptr @_ZNK7xgboost10collective9CommGroup3CtxEPKNS_7ContextENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %1, i32 %.sroa.0.0.copyload.i)
           to label %36 unwind label %64
 
@@ -9389,7 +9389,7 @@ _ZNSt8functionIFPN7xgboost11TreeUpdaterEPKNS0_7ContextEPKNS0_7ObjInfoEEEC2ERKSA_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !428
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !430
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !56
@@ -9932,70 +9932,72 @@ attributes #37 = { nounwind willreturn memory(read) }
 !359 = !{!146, !147, i64 8}
 !360 = !{!146, !147, i64 0}
 !361 = !{!214, !64, i64 12}
-!362 = distinct !{!362, !19}
-!363 = !{!364, !364, i64 0}
-!364 = !{!"_ZTSN7xgboost11FeatureTypeE", !7, i64 0}
-!365 = !{!366, !11, i64 0}
-!366 = !{!"_ZTSN7xgboost7RegTree22CategoricalSplitMatrix7SegmentE", !11, i64 0, !11, i64 8}
-!367 = !{!366, !11, i64 8}
-!368 = !{!369}
-!369 = distinct !{!369, !370, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!370 = distinct !{!370, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!373 = distinct !{!373, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!374 = !{!372, !369}
-!375 = !{!376, !97, i64 0}
-!376 = !{!"_ZTSZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvEUliE_", !97, i64 0, !86, i64 8}
-!377 = distinct !{!377, !19}
-!378 = distinct !{!378, !19}
-!379 = !{!380}
-!380 = distinct !{!380, !381, !"_ZN4dmlc11LogCheck_GEB5cxx11Eii: argument 0"}
-!381 = distinct !{!381, !"_ZN4dmlc11LogCheck_GEB5cxx11Eii"}
-!382 = distinct !{!382, !19}
-!383 = distinct !{!383, !19}
-!384 = distinct !{!384, !19}
-!385 = distinct !{!385, !19}
-!386 = distinct !{!386, !19}
-!387 = distinct !{!387, !19}
-!388 = !{!389, !390, i64 0}
-!389 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective8HostCommELN9__gnu_cxx12_Lock_policyE2EE", !390, i64 0, !166, i64 8}
-!390 = !{!"p1 _ZTSN7xgboost10collective8HostCommE", !10, i64 0}
-!391 = !{!392, !64, i64 24}
-!392 = !{!"_ZTSN7xgboost10collective4CommE", !393, i64 8, !64, i64 24, !64, i64 28, !398, i64 32, !64, i64 40, !399, i64 48, !400, i64 88, !401, i64 96, !64, i64 104, !13, i64 112, !403, i64 144, !408, i64 168}
-!393 = !{!"_ZTSSt23enable_shared_from_thisIN7xgboost10collective4CommEE", !394, i64 0}
-!394 = !{!"_ZTSSt8weak_ptrIN7xgboost10collective4CommEE", !395, i64 0}
-!395 = !{!"_ZTSSt10__weak_ptrIN7xgboost10collective4CommELN9__gnu_cxx12_Lock_policyE2EE", !396, i64 0, !397, i64 8}
-!396 = !{!"p1 _ZTSN7xgboost10collective4CommE", !10, i64 0}
-!397 = !{!"_ZTSSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EE", !167, i64 0}
-!398 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
-!399 = !{!"_ZTSN7xgboost10collective5proto8PeerInfoE", !13, i64 0, !64, i64 32, !64, i64 36}
-!400 = !{!"_ZTSN7xgboost10collective10SockDomainE", !7, i64 0}
-!401 = !{!"_ZTSSt6thread", !402, i64 0}
-!402 = !{!"_ZTSNSt6thread2idE", !11, i64 0}
-!403 = !{!"_ZTSSt6vectorISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE", !404, i64 0}
-!404 = !{!"_ZTSSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE", !405, i64 0}
-!405 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE12_Vector_implE", !406, i64 0}
-!406 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE17_Vector_impl_dataE", !407, i64 0, !407, i64 8, !407, i64 16}
-!407 = !{!"p1 _ZTSSt10shared_ptrIN7xgboost10collective7ChannelEE", !10, i64 0}
-!408 = !{!"_ZTSSt10shared_ptrIN7xgboost10collective4LoopEE", !409, i64 0}
-!409 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective4LoopELN9__gnu_cxx12_Lock_policyE2EE", !410, i64 0, !166, i64 8}
-!410 = !{!"p1 _ZTSN7xgboost10collective4LoopE", !10, i64 0}
-!411 = !{!412, !112, i64 0}
-!412 = !{!"_ZTSSt10_Head_baseILm0EPN7xgboost10collective6detail10ResultImplELb0EE", !112, i64 0}
-!413 = !{!414}
-!414 = distinct !{!414, !415, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
-!415 = distinct !{!415, !"_ZN7xgboost10collective7SuccessEv"}
-!416 = !{!417, !11, i64 0}
-!417 = !{!"_ZTSN7xgboost6common4SpanIdLm18446744073709551615EEE", !11, i64 0, !418, i64 8}
-!418 = !{!"p1 double", !10, i64 0}
-!419 = !{!420, !11, i64 40}
-!420 = !{!"_ZTSN7xgboost6linalg10TensorViewIdLi1EEE", !7, i64 0, !7, i64 8, !417, i64 16, !418, i64 32, !11, i64 40, !421, i64 48}
-!421 = !{!"_ZTSN7xgboost9DeviceOrdE", !422, i64 0, !423, i64 2}
-!422 = !{!"_ZTSN7xgboost9DeviceOrd4TypeE", !7, i64 0}
-!423 = !{!"short", !7, i64 0}
-!424 = !{!418, !418, i64 0}
-!425 = !{!426, !427, i64 0}
-!426 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective4CollELN9__gnu_cxx12_Lock_policyE2EE", !427, i64 0, !166, i64 8}
-!427 = !{!"p1 _ZTSN7xgboost10collective4CollE", !10, i64 0}
-!428 = !{i64 0, i64 16, !23}
+!362 = distinct !{!362, !19, !363}
+!363 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!364 = !{!365, !365, i64 0}
+!365 = !{!"_ZTSN7xgboost11FeatureTypeE", !7, i64 0}
+!366 = !{!367, !11, i64 0}
+!367 = !{!"_ZTSN7xgboost7RegTree22CategoricalSplitMatrix7SegmentE", !11, i64 0, !11, i64 8}
+!368 = !{!367, !11, i64 8}
+!369 = distinct !{!369, !19}
+!370 = !{!371}
+!371 = distinct !{!371, !372, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!372 = distinct !{!372, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!373 = !{!374}
+!374 = distinct !{!374, !375, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!375 = distinct !{!375, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!376 = !{!374, !371}
+!377 = !{!378, !97, i64 0}
+!378 = !{!"_ZTSZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS_6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISL_EEENKUlvE0_clEvEUliE_", !97, i64 0, !86, i64 8}
+!379 = distinct !{!379, !19}
+!380 = distinct !{!380, !19, !363}
+!381 = !{!382}
+!382 = distinct !{!382, !383, !"_ZN4dmlc11LogCheck_GEB5cxx11Eii: argument 0"}
+!383 = distinct !{!383, !"_ZN4dmlc11LogCheck_GEB5cxx11Eii"}
+!384 = distinct !{!384, !19, !363}
+!385 = distinct !{!385, !19, !363}
+!386 = distinct !{!386, !19, !363}
+!387 = distinct !{!387, !19, !363}
+!388 = distinct !{!388, !19, !363}
+!389 = distinct !{!389, !19, !363}
+!390 = !{!391, !392, i64 0}
+!391 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective8HostCommELN9__gnu_cxx12_Lock_policyE2EE", !392, i64 0, !166, i64 8}
+!392 = !{!"p1 _ZTSN7xgboost10collective8HostCommE", !10, i64 0}
+!393 = !{!394, !64, i64 24}
+!394 = !{!"_ZTSN7xgboost10collective4CommE", !395, i64 8, !64, i64 24, !64, i64 28, !400, i64 32, !64, i64 40, !401, i64 48, !402, i64 88, !403, i64 96, !64, i64 104, !13, i64 112, !405, i64 144, !410, i64 168}
+!395 = !{!"_ZTSSt23enable_shared_from_thisIN7xgboost10collective4CommEE", !396, i64 0}
+!396 = !{!"_ZTSSt8weak_ptrIN7xgboost10collective4CommEE", !397, i64 0}
+!397 = !{!"_ZTSSt10__weak_ptrIN7xgboost10collective4CommELN9__gnu_cxx12_Lock_policyE2EE", !398, i64 0, !399, i64 8}
+!398 = !{!"p1 _ZTSN7xgboost10collective4CommE", !10, i64 0}
+!399 = !{!"_ZTSSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EE", !167, i64 0}
+!400 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
+!401 = !{!"_ZTSN7xgboost10collective5proto8PeerInfoE", !13, i64 0, !64, i64 32, !64, i64 36}
+!402 = !{!"_ZTSN7xgboost10collective10SockDomainE", !7, i64 0}
+!403 = !{!"_ZTSSt6thread", !404, i64 0}
+!404 = !{!"_ZTSNSt6thread2idE", !11, i64 0}
+!405 = !{!"_ZTSSt6vectorISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE", !406, i64 0}
+!406 = !{!"_ZTSSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE", !407, i64 0}
+!407 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE12_Vector_implE", !408, i64 0}
+!408 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN7xgboost10collective7ChannelEESaIS4_EE17_Vector_impl_dataE", !409, i64 0, !409, i64 8, !409, i64 16}
+!409 = !{!"p1 _ZTSSt10shared_ptrIN7xgboost10collective7ChannelEE", !10, i64 0}
+!410 = !{!"_ZTSSt10shared_ptrIN7xgboost10collective4LoopEE", !411, i64 0}
+!411 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective4LoopELN9__gnu_cxx12_Lock_policyE2EE", !412, i64 0, !166, i64 8}
+!412 = !{!"p1 _ZTSN7xgboost10collective4LoopE", !10, i64 0}
+!413 = !{!414, !112, i64 0}
+!414 = !{!"_ZTSSt10_Head_baseILm0EPN7xgboost10collective6detail10ResultImplELb0EE", !112, i64 0}
+!415 = !{!416}
+!416 = distinct !{!416, !417, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
+!417 = distinct !{!417, !"_ZN7xgboost10collective7SuccessEv"}
+!418 = !{!419, !11, i64 0}
+!419 = !{!"_ZTSN7xgboost6common4SpanIdLm18446744073709551615EEE", !11, i64 0, !420, i64 8}
+!420 = !{!"p1 double", !10, i64 0}
+!421 = !{!422, !11, i64 40}
+!422 = !{!"_ZTSN7xgboost6linalg10TensorViewIdLi1EEE", !7, i64 0, !7, i64 8, !419, i64 16, !420, i64 32, !11, i64 40, !423, i64 48}
+!423 = !{!"_ZTSN7xgboost9DeviceOrdE", !424, i64 0, !425, i64 2}
+!424 = !{!"_ZTSN7xgboost9DeviceOrd4TypeE", !7, i64 0}
+!425 = !{!"short", !7, i64 0}
+!426 = !{!420, !420, i64 0}
+!427 = !{!428, !429, i64 0}
+!428 = !{!"_ZTSSt12__shared_ptrIN7xgboost10collective4CollELN9__gnu_cxx12_Lock_policyE2EE", !429, i64 0, !166, i64 8}
+!429 = !{!"p1 _ZTSN7xgboost10collective4CollE", !10, i64 0}
+!430 = !{i64 0, i64 16, !23}

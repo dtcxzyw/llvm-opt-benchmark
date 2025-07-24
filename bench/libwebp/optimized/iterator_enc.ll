@@ -391,7 +391,7 @@ define hidden void @VP8IteratorImport(ptr noundef captures(none) %0, ptr noundef
   %61 = getelementptr inbounds i8, ptr %.02432.i, i64 %52
   %62 = add nuw nsw i32 %.033.i, 1
   %exitcond.not.i = icmp eq i32 %62, %40
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !76
 
 .lr.ph36.i:                                       ; preds = %.lr.ph36.i.preheader, %.lr.ph36.i
   %.135.i = phi i32 [ %65, %.lr.ph36.i ], [ %40, %.lr.ph36.i.preheader ]
@@ -401,7 +401,7 @@ define hidden void @VP8IteratorImport(ptr noundef captures(none) %0, ptr noundef
   %64 = getelementptr inbounds nuw i8, ptr %.12634.i, i64 32
   %65 = add nsw i32 %.135.i, 1
   %exitcond40.not.i = icmp eq i32 %65, 16
-  br i1 %exitcond40.not.i, label %ImportBlock.exit, label %.lr.ph36.i, !llvm.loop !75
+  br i1 %exitcond40.not.i, label %ImportBlock.exit, label %.lr.ph36.i, !llvm.loop !77
 
 ImportBlock.exit:                                 ; preds = %.lr.ph36.i, %.preheader.i
   %66 = load ptr, ptr %45, align 8, !tbaa !51
@@ -456,7 +456,7 @@ ImportBlock.exit99.thread:                        ; preds = %.preheader.i82
   %85 = getelementptr inbounds i8, ptr %.02432.i91, i64 %74
   %86 = add nuw nsw i32 %.033.i90, 1
   %exitcond.not.i93 = icmp eq i32 %86, %44
-  br i1 %exitcond.not.i93, label %.preheader.i82, label %.lr.ph.split.i89, !llvm.loop !73
+  br i1 %exitcond.not.i93, label %.preheader.i82, label %.lr.ph.split.i89, !llvm.loop !76
 
 .lr.ph36.i84:                                     ; preds = %.lr.ph36.i84.preheader, %.lr.ph36.i84
   %.135.i85 = phi i32 [ %90, %.lr.ph36.i84 ], [ %44, %.lr.ph36.i84.preheader ]
@@ -467,7 +467,7 @@ ImportBlock.exit99.thread:                        ; preds = %.preheader.i82
   %89 = getelementptr inbounds nuw i8, ptr %.12634.i86, i64 32
   %90 = add nsw i32 %.135.i85, 1
   %exitcond40.not.i87 = icmp eq i32 %90, 8
-  br i1 %exitcond40.not.i87, label %ImportBlock.exit99, label %.lr.ph36.i84, !llvm.loop !75
+  br i1 %exitcond40.not.i87, label %ImportBlock.exit99, label %.lr.ph36.i84, !llvm.loop !77
 
 ImportBlock.exit99:                               ; preds = %.lr.ph36.i84
   %91 = load ptr, ptr %45, align 8, !tbaa !51
@@ -522,7 +522,7 @@ ImportBlock.exit99..lr.ph.i106_crit_edge:         ; preds = %ImportBlock.exit99
   %105 = getelementptr inbounds i8, ptr %.02432.i109, i64 %97
   %106 = add nuw nsw i32 %.033.i108, 1
   %exitcond.not.i111 = icmp eq i32 %106, %44
-  br i1 %exitcond.not.i111, label %.preheader.i100, label %.lr.ph.split.i107, !llvm.loop !73
+  br i1 %exitcond.not.i111, label %.preheader.i100, label %.lr.ph.split.i107, !llvm.loop !76
 
 .lr.ph36.i102:                                    ; preds = %.lr.ph36.i102.preheader, %.lr.ph36.i102
   %.135.i103 = phi i32 [ %110, %.lr.ph36.i102 ], [ %44, %.lr.ph36.i102.preheader ]
@@ -533,7 +533,7 @@ ImportBlock.exit99..lr.ph.i106_crit_edge:         ; preds = %ImportBlock.exit99
   %109 = getelementptr inbounds nuw i8, ptr %.12634.i104, i64 32
   %110 = add nsw i32 %.135.i103, 1
   %exitcond40.not.i105 = icmp eq i32 %110, 8
-  br i1 %exitcond40.not.i105, label %ImportBlock.exit117, label %.lr.ph36.i102, !llvm.loop !75
+  br i1 %exitcond40.not.i105, label %ImportBlock.exit117, label %.lr.ph36.i102, !llvm.loop !77
 
 ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.preheader.i100
   %111 = icmp eq ptr %1, null
@@ -622,7 +622,7 @@ ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.pr
   %.sink260 = phi i64 [ 376, %144 ], [ 360, %137 ]
   %.sink = phi i8 [ %165, %144 ], [ 127, %137 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink260
-  %168 = load ptr, ptr %167, align 8, !tbaa !76
+  %168 = load ptr, ptr %167, align 8, !tbaa !78
   %169 = getelementptr inbounds i8, ptr %168, i64 -1
   store i8 %.sink, ptr %169, align 1, !tbaa !44
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -661,7 +661,7 @@ ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.pr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %182 = getelementptr inbounds i8, ptr %.01415.i, i64 %174
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i119, label %.preheader.i120, label %179, !llvm.loop !77
+  br i1 %exitcond.not.i119, label %.preheader.i120, label %179, !llvm.loop !79
 
 ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.preheader.i120
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -710,7 +710,7 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i131, 1
   %198 = getelementptr inbounds i8, ptr %.01415.i132, i64 %187
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count.i130
-  br i1 %exitcond.not.i134, label %.preheader.i135, label %195, !llvm.loop !77
+  br i1 %exitcond.not.i134, label %.preheader.i135, label %195, !llvm.loop !79
 
 .lr.ph.i145:                                      ; preds = %.preheader.i135, %.lr.ph18.i121..lr.ph.i145_crit_edge
   %wide.trip.count.i146.pre-phi = phi i64 [ %.pre236, %.lr.ph18.i121..lr.ph.i145_crit_edge ], [ %wide.trip.count.i130, %.preheader.i135 ]
@@ -751,7 +751,7 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i147, 1
   %210 = getelementptr inbounds i8, ptr %.01415.i148, i64 %202
   %exitcond.not.i150 = icmp eq i64 %indvars.iv.next.i149, %wide.trip.count.i146.pre-phi
-  br i1 %exitcond.not.i150, label %.preheader.i151, label %207, !llvm.loop !77
+  br i1 %exitcond.not.i150, label %.preheader.i151, label %207, !llvm.loop !79
 
 InitLeft.exit:                                    ; preds = %.lr.ph18.i137, %.preheader.i151, %133, %114
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -803,7 +803,7 @@ InitLeft.exit:                                    ; preds = %.lr.ph18.i137, %.pr
   %indvars.iv.next.i165 = add nuw nsw i64 %indvars.iv.i163, 1
   %229 = getelementptr inbounds nuw i8, ptr %.01415.i164, i64 1
   %exitcond.not.i166 = icmp eq i64 %indvars.iv.next.i165, %wide.trip.count.i162
-  br i1 %exitcond.not.i166, label %.preheader.i167, label %226, !llvm.loop !77
+  br i1 %exitcond.not.i166, label %.preheader.i167, label %226, !llvm.loop !79
 
 ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.preheader.i167
   %230 = icmp sgt i32 %42, 0
@@ -852,7 +852,7 @@ ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.pr
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i179, 1
   %244 = getelementptr inbounds nuw i8, ptr %.01415.i180, i64 1
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, %wide.trip.count.i178
-  br i1 %exitcond.not.i182, label %.preheader.i183, label %241, !llvm.loop !77
+  br i1 %exitcond.not.i182, label %.preheader.i183, label %241, !llvm.loop !79
 
 .lr.ph.i193:                                      ; preds = %.preheader.i183, %.lr.ph18.i169..lr.ph.i193_crit_edge
   %wide.trip.count.i194.pre-phi = phi i64 [ %.pre233, %.lr.ph18.i169..lr.ph.i193_crit_edge ], [ %wide.trip.count.i178, %.preheader.i183 ]
@@ -893,7 +893,7 @@ ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.pr
   %indvars.iv.next.i197 = add nuw nsw i64 %indvars.iv.i195, 1
   %254 = getelementptr inbounds nuw i8, ptr %.01415.i196, i64 1
   %exitcond.not.i198 = icmp eq i64 %indvars.iv.next.i197, %wide.trip.count.i194.pre-phi
-  br i1 %exitcond.not.i198, label %.preheader.i199, label %251, !llvm.loop !77
+  br i1 %exitcond.not.i198, label %.preheader.i199, label %251, !llvm.loop !79
 
 ImportLine.exit200:                               ; preds = %.lr.ph18.i185, %.preheader.i199, %215, %ImportBlock.exit117
   ret void
@@ -906,9 +906,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden void @VP8IteratorExport(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load i32, ptr %5, align 4, !tbaa !79
+  %6 = load i32, ptr %5, align 4, !tbaa !81
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %ExportBlock.exit52, label %7
 
@@ -970,7 +970,7 @@ define hidden void @VP8IteratorExport(ptr noundef readonly captures(none) %0) lo
   %51 = getelementptr inbounds i8, ptr %.078.i, i64 %48
   %52 = getelementptr inbounds nuw i8, ptr %.069.i, i64 32
   %53 = icmp samesign ugt i32 %.010.i, 1
-  br i1 %53, label %49, label %ExportBlock.exit, !llvm.loop !82
+  br i1 %53, label %49, label %ExportBlock.exit, !llvm.loop !84
 
 ExportBlock.exit:                                 ; preds = %49, %7
   %54 = add nsw i32 %spec.store.select1, 1
@@ -995,7 +995,7 @@ ExportBlock.exit:                                 ; preds = %49, %7
   %64 = getelementptr inbounds i8, ptr %.078.i46, i64 %61
   %65 = getelementptr inbounds nuw i8, ptr %.069.i45, i64 32
   %66 = icmp samesign ugt i32 %.010.i44, 1
-  br i1 %66, label %62, label %.lr.ph.i48, !llvm.loop !82
+  br i1 %66, label %62, label %.lr.ph.i48, !llvm.loop !84
 
 .lr.ph.i48:                                       ; preds = %62
   %67 = load i32, ptr %19, align 4, !tbaa !69
@@ -1011,7 +1011,7 @@ ExportBlock.exit:                                 ; preds = %49, %7
   %71 = getelementptr inbounds i8, ptr %.078.i51, i64 %68
   %72 = getelementptr inbounds nuw i8, ptr %.069.i50, i64 32
   %73 = icmp samesign ugt i32 %.010.i49, 1
-  br i1 %73, label %69, label %ExportBlock.exit52, !llvm.loop !82
+  br i1 %73, label %69, label %ExportBlock.exit52, !llvm.loop !84
 
 ExportBlock.exit52:                               ; preds = %69, %ExportBlock.exit, %1
   ret void
@@ -1194,7 +1194,7 @@ define hidden void @VP8IteratorSaveBoundary(ptr noundef readonly captures(none) 
   store i8 %19, ptr %21, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !83
+  br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !85
 
 22:                                               ; preds = %.preheader, %22
   %indvars.iv38 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next39, %22 ]
@@ -1212,7 +1212,7 @@ define hidden void @VP8IteratorSaveBoundary(ptr noundef readonly captures(none) 
   store i8 %30, ptr %32, align 1, !tbaa !44
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %33, label %22, !llvm.loop !84
+  br i1 %exitcond41.not, label %33, label %22, !llvm.loop !86
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1402,7 +1402,7 @@ define hidden void @VP8SetIntra16Mode(ptr noundef readonly captures(none) %0, i3
   %12 = getelementptr inbounds i8, ptr %.078, i64 %11
   %13 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %13, 4
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !85
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !87
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1435,7 +1435,7 @@ define hidden void @VP8SetIntra4Mode(ptr noundef readonly captures(none) %0, ptr
   %13 = getelementptr inbounds nuw i8, ptr %.0910, i64 4
   %14 = add nsw i32 %.012, -1
   %15 = icmp samesign ugt i32 %.012, 1
-  br i1 %15, label %6, label %16, !llvm.loop !86
+  br i1 %15, label %6, label %16, !llvm.loop !88
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1493,11 +1493,11 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %4, align 8, !tbaa !87
+  store i32 0, ptr %4, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %6, ptr %7, align 8, !tbaa !88
+  store ptr %6, ptr %7, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 360
   br label %10
 
@@ -1515,7 +1515,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   store i8 %14, ptr %15, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %.preheader31, label %10, !llvm.loop !89
+  br i1 %exitcond.not, label %.preheader31, label %10, !llvm.loop !91
 
 16:                                               ; preds = %.preheader31, %16
   %indvars.iv38 = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next39, %16 ]
@@ -1527,7 +1527,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   store i8 %19, ptr %21, align 1, !tbaa !44
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 16
-  br i1 %exitcond41.not, label %22, label %16, !llvm.loop !90
+  br i1 %exitcond41.not, label %22, label %16, !llvm.loop !92
 
 22:                                               ; preds = %16
   %23 = load i32, ptr %0, align 8, !tbaa !15
@@ -1552,7 +1552,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   store i8 %31, ptr %33, align 1, !tbaa !44
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 20
-  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !93
 
 34:                                               ; preds = %.preheader29, %34
   %indvars.iv42 = phi i64 [ 16, %.preheader29 ], [ %indvars.iv.next43, %34 ]
@@ -1561,7 +1561,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   store i8 %.pre, ptr %36, align 1, !tbaa !44
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 20
-  br i1 %exitcond45.not, label %.loopexit, label %34, !llvm.loop !92
+  br i1 %exitcond45.not, label %.loopexit, label %34, !llvm.loop !94
 
 .loopexit:                                        ; preds = %34, %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1643,14 +1643,14 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load i32, ptr %3, align 8, !tbaa !87
+  %4 = load i32, ptr %3, align 8, !tbaa !89
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !93
+  %7 = load i16, ptr %6, align 2, !tbaa !95
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %11 = load ptr, ptr %10, align 8, !tbaa !88
+  %11 = load ptr, ptr %10, align 8, !tbaa !90
   %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 96
   %invariant.gep31 = getelementptr i8, ptr %11, i64 -4
   br label %12
@@ -1663,10 +1663,10 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
   store i8 %13, ptr %gep32, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %12, !llvm.loop !95
+  br i1 %exitcond.not, label %14, label %12, !llvm.loop !97
 
 14:                                               ; preds = %12
-  %15 = load i32, ptr %3, align 8, !tbaa !87
+  %15 = load i32, ptr %3, align 8, !tbaa !89
   %16 = and i32 %15, 3
   %.not = icmp eq i32 %16, 3
   br i1 %.not, label %.preheader.preheader, label %.preheader29
@@ -1687,12 +1687,12 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
   store i8 %21, ptr %22, align 1, !tbaa !44
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 3
-  br i1 %exitcond41.not, label %.loopexit, label %.preheader29, !llvm.loop !96
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader29, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.preheader29, %.preheader.preheader
-  %23 = load i32, ptr %3, align 8, !tbaa !87
+  %23 = load i32, ptr %3, align 8, !tbaa !89
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %3, align 8, !tbaa !87
+  store i32 %24, ptr %3, align 8, !tbaa !89
   %25 = icmp eq i32 %24, 16
   br i1 %25, label %33, label %26
 
@@ -1703,7 +1703,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
   %30 = load i8, ptr %29, align 1, !tbaa !44
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %31
-  store ptr %32, ptr %10, align 8, !tbaa !88
+  store ptr %32, ptr %10, align 8, !tbaa !90
   br label %33
 
 33:                                               ; preds = %.loopexit, %26
@@ -1803,27 +1803,29 @@ attributes #12 = { nounwind }
 !70 = !{!64, !8, i64 32}
 !71 = !{!64, !5, i64 8}
 !72 = !{!64, !5, i64 12}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = distinct !{!75, !74}
-!76 = !{!8, !8, i64 0}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !74}
 !77 = distinct !{!77, !74}
-!78 = !{!18, !19, i64 0}
-!79 = !{!80, !5, i64 64}
-!80 = !{!"WebPConfig", !5, i64 0, !81, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !81, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112}
-!81 = !{!"float", !6, i64 0}
-!82 = distinct !{!82, !74}
-!83 = distinct !{!83, !74}
+!78 = !{!8, !8, i64 0}
+!79 = distinct !{!79, !74}
+!80 = !{!18, !19, i64 0}
+!81 = !{!82, !5, i64 64}
+!82 = !{!"WebPConfig", !5, i64 0, !83, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !83, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112}
+!83 = !{!"float", !6, i64 0}
 !84 = distinct !{!84, !74}
 !85 = distinct !{!85, !74}
 !86 = distinct !{!86, !74}
-!87 = !{!4, !5, i64 128}
-!88 = !{!4, !8, i64 120}
-!89 = distinct !{!89, !74}
-!90 = distinct !{!90, !74}
+!87 = distinct !{!87, !74}
+!88 = distinct !{!88, !74}
+!89 = !{!4, !5, i64 128}
+!90 = !{!4, !8, i64 120}
 !91 = distinct !{!91, !74}
 !92 = distinct !{!92, !74}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"short", !6, i64 0}
-!95 = distinct !{!95, !74}
-!96 = distinct !{!96, !74}
+!93 = distinct !{!93, !74}
+!94 = distinct !{!94, !74}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"short", !6, i64 0}
+!97 = distinct !{!97, !74}
+!98 = distinct !{!98, !74}

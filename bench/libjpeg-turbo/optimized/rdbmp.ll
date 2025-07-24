@@ -1182,10 +1182,10 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
   %33 = phi i32 [ %53, %52 ], [ %8, %.lr.ph ]
-  store i64 %indvars.iv, ptr %9, align 8, !tbaa !80
+  store i64 %indvars.iv, ptr %9, align 8, !tbaa !81
   %34 = zext i32 %33 to i64
-  store i64 %34, ptr %10, align 8, !tbaa !81
-  %35 = load ptr, ptr %6, align 8, !tbaa !82
+  store i64 %34, ptr %10, align 8, !tbaa !82
+  %35 = load ptr, ptr %6, align 8, !tbaa !83
   tail call void %35(ptr noundef nonnull %0) #6
   %36 = load ptr, ptr %11, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -1218,7 +1218,7 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
   %53 = load i32, ptr %7, align 4, !tbaa !77
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !79
+  br i1 %55, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %29, %2
   %56 = phi i32 [ 0, %2 ], [ %31, %29 ]
@@ -1228,9 +1228,9 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
 ._crit_edge.thread:                               ; preds = %52, %._crit_edge
   %57 = phi i32 [ %56, %._crit_edge ], [ %53, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %59 = load i32, ptr %58, align 8, !tbaa !83
+  %59 = load i32, ptr %58, align 8, !tbaa !85
   %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %58, align 8, !tbaa !83
+  store i32 %60, ptr %58, align 8, !tbaa !85
   br label %61
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -1273,7 +1273,7 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
   %76 = phi ptr [ %.pre50, %71 ], [ @get_32bit_row, %69 ], [ @get_24bit_row, %67 ], [ @get_8bit_row, %65 ]
   %77 = phi i32 [ %.pre, %71 ], [ %62, %69 ], [ %62, %67 ], [ %62, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %77, ptr %78, align 8, !tbaa !84
+  store i32 %77, ptr %78, align 8, !tbaa !86
   %79 = tail call i32 %76(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   ret i32 %79
 }
@@ -1291,9 +1291,9 @@ define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr noundef captures(n
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %11 = load i32, ptr %10, align 8, !tbaa !84
+  %11 = load i32, ptr %10, align 8, !tbaa !86
   %12 = add i32 %11, -1
-  store i32 %12, ptr %10, align 8, !tbaa !84
+  store i32 %12, ptr %10, align 8, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -1371,7 +1371,7 @@ define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr noundef captures(n
   store i8 %56, ptr %.0106133, align 1, !tbaa !30
   %58 = add i32 %.0110132, -1
   %.not122 = icmp eq i32 %58, 0
-  br i1 %.not122, label %.loopexit, label %.lr.ph135, !llvm.loop !85
+  br i1 %.not122, label %.loopexit, label %.lr.ph135, !llvm.loop !87
 
 59:                                               ; preds = %36
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1469,7 +1469,7 @@ rgb_to_cmyk.exit:                                 ; preds = %72, %99
   %123 = getelementptr inbounds nuw i8, ptr %.1107129, i64 4
   %124 = add i32 %.1111128, -1
   %.not120 = icmp eq i32 %124, 0
-  br i1 %.not120, label %.loopexit, label %64, !llvm.loop !86
+  br i1 %.not120, label %.loopexit, label %64, !llvm.loop !88
 
 125:                                              ; preds = %36
   %126 = zext i32 %41 to i64
@@ -1543,7 +1543,7 @@ rgb_to_cmyk.exit:                                 ; preds = %72, %99
   %172 = getelementptr inbounds i8, ptr %.2108143, i64 %148
   %173 = add i32 %.2112142, -1
   %.not118 = icmp eq i32 %173, 0
-  br i1 %.not118, label %.loopexit, label %149, !llvm.loop !87
+  br i1 %.not118, label %.loopexit, label %149, !llvm.loop !89
 
 174:                                              ; preds = %125
   br i1 %.not118141, label %.loopexit, label %.lr.ph140
@@ -1595,7 +1595,7 @@ rgb_to_cmyk.exit:                                 ; preds = %72, %99
   %203 = getelementptr inbounds i8, ptr %.3109138, i64 %180
   %204 = add i32 %.3113137, -1
   %.not116 = icmp eq i32 %204, 0
-  br i1 %.not116, label %.loopexit, label %181, !llvm.loop !88
+  br i1 %.not116, label %.loopexit, label %181, !llvm.loop !90
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit, %52, %189, %157, %59, %42, %174, %141
   ret i32 1
@@ -1610,9 +1610,9 @@ define internal noundef i32 @get_24bit_row(ptr noundef %0, ptr noundef captures(
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %7 = load i32, ptr %6, align 8, !tbaa !84
+  %7 = load i32, ptr %6, align 8, !tbaa !86
   %8 = add i32 %7, -1
-  store i32 %8, ptr %6, align 8, !tbaa !84
+  store i32 %8, ptr %6, align 8, !tbaa !86
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -1736,7 +1736,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %67
   %91 = getelementptr inbounds nuw i8, ptr %.07186, i64 4
   %92 = add i32 %.07485, -1
   %.not81 = icmp eq i32 %92, 0
-  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !89
+  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !91
 
 93:                                               ; preds = %32
   %94 = zext i32 %37 to i64
@@ -1789,7 +1789,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %67
   %126 = getelementptr inbounds i8, ptr %.17295, i64 %114
   %127 = add i32 %.17594, -1
   %.not80 = icmp eq i32 %127, 0
-  br i1 %.not80, label %.loopexit, label %115, !llvm.loop !90
+  br i1 %.not80, label %.loopexit, label %115, !llvm.loop !92
 
 128:                                              ; preds = %93
   br i1 %.not8093, label %.loopexit, label %.lr.ph92
@@ -1820,7 +1820,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %67
   %143 = getelementptr inbounds i8, ptr %.27390, i64 %132
   %144 = add i32 %.27689, -1
   %.not79 = icmp eq i32 %144, 0
-  br i1 %.not79, label %.loopexit, label %133, !llvm.loop !91
+  br i1 %.not79, label %.loopexit, label %133, !llvm.loop !93
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit, %133, %115, %42, %128, %109, %38
   ret i32 1
@@ -1835,9 +1835,9 @@ define internal noundef i32 @get_32bit_row(ptr noundef %0, ptr noundef captures(
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %7 = load i32, ptr %6, align 8, !tbaa !84
+  %7 = load i32, ptr %6, align 8, !tbaa !86
   %8 = add i32 %7, -1
-  store i32 %8, ptr %6, align 8, !tbaa !84
+  store i32 %8, ptr %6, align 8, !tbaa !86
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -1962,7 +1962,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %66
   %91 = getelementptr inbounds nuw i8, ptr %.07590, i64 4
   %92 = add i32 %.07889, -1
   %.not85 = icmp eq i32 %92, 0
-  br i1 %.not85, label %.loopexit, label %.lr.ph, !llvm.loop !92
+  br i1 %.not85, label %.loopexit, label %.lr.ph, !llvm.loop !94
 
 93:                                               ; preds = %32
   %94 = zext i32 %37 to i64
@@ -2017,7 +2017,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %66
   %128 = getelementptr inbounds i8, ptr %.17699, i64 %114
   %129 = add i32 %.17998, -1
   %.not84 = icmp eq i32 %129, 0
-  br i1 %.not84, label %.loopexit, label %115, !llvm.loop !93
+  br i1 %.not84, label %.loopexit, label %115, !llvm.loop !95
 
 130:                                              ; preds = %93
   br i1 %.not8497, label %.loopexit, label %.lr.ph96
@@ -2048,7 +2048,7 @@ rgb_to_cmyk.exit:                                 ; preds = %.lr.ph, %66
   %145 = getelementptr inbounds i8, ptr %.27794, i64 %134
   %146 = add i32 %.28093, -1
   %.not83 = icmp eq i32 %146, 0
-  br i1 %.not83, label %.loopexit, label %135, !llvm.loop !94
+  br i1 %.not83, label %.loopexit, label %135, !llvm.loop !96
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit, %135, %115, %42, %130, %109, %38
   ret i32 1
@@ -2155,14 +2155,14 @@ attributes #6 = { nounwind }
 !76 = !{!5, !12, i64 48}
 !77 = !{!5, !12, i64 52}
 !78 = !{!34, !7, i64 56}
-!79 = distinct !{!79, !60}
-!80 = !{!71, !28, i64 8}
-!81 = !{!71, !28, i64 16}
-!82 = !{!71, !7, i64 0}
-!83 = !{!71, !12, i64 32}
-!84 = !{!36, !12, i64 88}
-!85 = distinct !{!85, !60}
-!86 = distinct !{!86, !60}
+!79 = distinct !{!79, !60, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = !{!71, !28, i64 8}
+!82 = !{!71, !28, i64 16}
+!83 = !{!71, !7, i64 0}
+!84 = distinct !{!84, !60}
+!85 = !{!71, !12, i64 32}
+!86 = !{!36, !12, i64 88}
 !87 = distinct !{!87, !60}
 !88 = distinct !{!88, !60}
 !89 = distinct !{!89, !60}
@@ -2171,3 +2171,5 @@ attributes #6 = { nounwind }
 !92 = distinct !{!92, !60}
 !93 = distinct !{!93, !60}
 !94 = distinct !{!94, !60}
+!95 = distinct !{!95, !60}
+!96 = distinct !{!96, !60}

@@ -3254,7 +3254,7 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   %spec.select241 = select i1 %.not226, i32 %.0171250, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count264
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %132 = icmp ne i32 %spec.select.us, 0
@@ -3458,7 +3458,7 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   %212 = tail call i32 @H5Tclose(i64 noundef %204) #13
   %213 = add nuw nsw i32 %.0254, 1
   %exitcond266.not = icmp eq i32 %213, %184
-  br i1 %exitcond266.not, label %.thread245, label %.lr.ph255, !llvm.loop !69
+  br i1 %exitcond266.not, label %.thread245, label %.lr.ph255, !llvm.loop !71
 
 214:                                              ; preds = %13, %25, %21, %32, %44, %40
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 136
@@ -3635,5 +3635,7 @@ attributes #17 = { nounwind allocsize(0,1) }
 !65 = distinct !{!65, !30}
 !66 = distinct !{!66, !30}
 !67 = distinct !{!67, !30}
-!68 = distinct !{!68, !30}
-!69 = distinct !{!69, !30}
+!68 = distinct !{!68, !30, !69}
+!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!70 = distinct !{!70, !30}
+!71 = distinct !{!71, !30}

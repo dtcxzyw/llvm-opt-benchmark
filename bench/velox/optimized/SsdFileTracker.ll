@@ -679,7 +679,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   store i32 %10, ptr %add.ptr.i9.i.i.i.i.i, align 4
   %cmp10.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp10.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !14
+  br i1 %cmp10.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !16
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 4
@@ -780,7 +780,7 @@ while.body.i.i.i.i25.i:                           ; preds = %land.rhs.i.i.i.i14.
   %add.ptr.i9.i.i.i.i24.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i23.i
   store i32 %20, ptr %add.ptr.i9.i.i.i.i24.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 4
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !15
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !17
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
   %storemerge2042 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
@@ -877,7 +877,7 @@ while.cond5.i.i:                                  ; preds = %while.cond5.i.i, %w
   %45 = load i64, ptr %add.ptr.i.i.i.i7.i, align 8
   %cmp.i.i.i8.i = icmp ult i64 %45, %43
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 4
-  br i1 %cmp.i.i.i8.i, label %while.cond5.i.i, label %while.cond12.i.i, !llvm.loop !16
+  br i1 %cmp.i.i.i8.i, label %while.cond5.i.i, label %while.cond12.i.i, !llvm.loop !18
 
 while.cond12.i.i:                                 ; preds = %while.cond5.i.i, %while.cond12.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond12.i.i ], [ %__last.sroa.0.0.i.i, %while.cond5.i.i ]
@@ -887,7 +887,7 @@ while.cond12.i.i:                                 ; preds = %while.cond5.i.i, %w
   %add.ptr.i1.i.i6.i.i = getelementptr inbounds i64, ptr %__comp.val1.val.i.i, i64 %conv3.i.i5.i.i
   %47 = load i64, ptr %add.ptr.i1.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ult i64 %43, %47
-  br i1 %cmp.i.i7.i.i, label %while.cond12.i.i, label %while.end20.i.i, !llvm.loop !17
+  br i1 %cmp.i.i7.i.i, label %while.cond12.i.i, label %while.end20.i.i, !llvm.loop !19
 
 while.end20.i.i:                                  ; preds = %while.cond12.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -896,7 +896,7 @@ while.end20.i.i:                                  ; preds = %while.cond12.i.i
 if.end.i.i:                                       ; preds = %while.end20.i.i
   store i32 %46, ptr %__first.sroa.0.1.i.i, align 4
   store i32 %44, ptr %__last.sroa.0.1.i.i, align 4
-  br label %while.body.i.i5, !llvm.loop !18
+  br label %while.body.i.i5, !llvm.loop !20
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEET_SH_SH_T0_.exit": ; preds = %while.end20.i.i
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge2042, i64 noundef %dec, ptr nonnull %__comp.coerce)
@@ -1060,8 +1060,10 @@ attributes #13 = { builtin nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!14 = distinct !{!14, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

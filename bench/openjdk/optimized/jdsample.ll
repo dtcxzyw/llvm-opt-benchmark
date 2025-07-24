@@ -692,143 +692,98 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %.not = icmp eq i8 %.fr50, 0
   %23 = icmp ugt i8 %.fr, 1
   %24 = add nsw i32 %18, -1
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us.preheader
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %25 = zext i8 %.fr50 to i64
-  br i1 %23, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split.preheader
+  %26 = add nuw nsw i64 %14, 4294967295
+  %27 = and i64 %26, 4294967295
+  %28 = zext i8 %.fr to i64
+  br label %.lr.ph.split.us
 
-.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %26 = zext i8 %.fr50 to i64
-  %27 = zext nneg i8 %.fr to i64
-  br label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %28 = add nuw nsw i64 %14, 4294967295
-  %29 = and i64 %28, 4294967295
-  %30 = zext i8 %.fr to i64
-  br label %.lr.ph.split.us.split.us
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %._crit_edge.split.us.us.us
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next68, %._crit_edge.split.us.us.us ]
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next66, %._crit_edge.split.us.us.us ]
-  %indvars69 = trunc i64 %indvars.iv65 to i32
-  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv65
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %22, align 8
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
-  %.not54 = icmp eq i32 %33, 0
-  br i1 %.not54, label %._crit_edge.split.us.us.us, label %.lr.ph.us.us.us.preheader
-
-.lr.ph.us.us.us.preheader:                        ; preds = %.lr.ph.split.us.split.us
-  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv67
-  %37 = load ptr, ptr %36, align 8
-  br label %.lr.ph.us.us.us
-
-._crit_edge.split.us.us.us.loopexit:              ; preds = %.lr.ph.us.us.us
-  %.pre72 = load i32, ptr %22, align 8
-  br label %._crit_edge.split.us.us.us
-
-._crit_edge.split.us.us.us:                       ; preds = %._crit_edge.split.us.us.us.loopexit, %.lr.ph.split.us.split.us
-  %38 = phi i32 [ %.pre72, %._crit_edge.split.us.us.us.loopexit ], [ 0, %.lr.ph.split.us.split.us ]
-  %39 = add nuw nsw i32 %indvars69, 1
-  tail call void @jCopySamples(ptr noundef nonnull %7, i32 noundef %indvars69, ptr noundef nonnull %7, i32 noundef %39, i32 noundef %24, i32 noundef %38) #7
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, %30
-  %40 = load i32, ptr %19, align 4
-  %41 = trunc nuw i64 %indvars.iv.next66 to i32
-  %42 = icmp sgt i32 %40, %41
-  br i1 %42, label %.lr.ph.split.us.split.us, label %._crit_edge44, !llvm.loop !18
-
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.lr.ph.us.us.us
-  %.03239.us.us.us = phi ptr [ %44, %.lr.ph.us.us.us ], [ %37, %.lr.ph.us.us.us.preheader ]
-  %.03338.us.us.us = phi ptr [ %scevgep64, %.lr.ph.us.us.us ], [ %32, %.lr.ph.us.us.us.preheader ]
-  %43 = load i8, ptr %.03239.us.us.us, align 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.03338.us.us.us, i8 %43, i64 %25, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %.03239.us.us.us, i64 1
-  %45 = getelementptr i8, ptr %.03338.us.us.us, i64 %29
-  %scevgep64 = getelementptr i8, ptr %45, i64 1
-  %46 = icmp ult ptr %scevgep64, %35
-  br i1 %46, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.us.loopexit, !llvm.loop !19
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %._crit_edge.split.us.us
-  %47 = phi i32 [ %20, %.lr.ph.split.us.split.preheader ], [ %55, %._crit_edge.split.us.us ]
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %._crit_edge.split.us.us ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next, %._crit_edge.split.us.us ]
-  %48 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr %22, align 8
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
-  %.not53 = icmp eq i32 %50, 0
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %39
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next57, %39 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %39 ]
+  %indvars58 = trunc i64 %indvars.iv to i32
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr %22, align 8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
+  %.not53 = icmp eq i32 %31, 0
   br i1 %.not53, label %._crit_edge.split.us.us, label %.lr.ph.us.us.preheader
 
-.lr.ph.us.us.preheader:                           ; preds = %.lr.ph.split.us.split
-  %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv59
-  %54 = load ptr, ptr %53, align 8
+.lr.ph.us.us.preheader:                           ; preds = %.lr.ph.split.us
+  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv56
+  %35 = load ptr, ptr %34, align 8
   br label %.lr.ph.us.us
 
-._crit_edge.split.us.us.loopexit:                 ; preds = %.lr.ph.us.us
-  %.pre = load i32, ptr %19, align 4
-  br label %._crit_edge.split.us.us
+._crit_edge.split.us.us:                          ; preds = %.lr.ph.us.us, %.lr.ph.split.us
+  br i1 %23, label %36, label %39
 
-._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.lr.ph.split.us.split
-  %55 = phi i32 [ %.pre, %._crit_edge.split.us.us.loopexit ], [ %47, %.lr.ph.split.us.split ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %27
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph.split.us.split, label %._crit_edge44, !llvm.loop !18
+36:                                               ; preds = %._crit_edge.split.us.us
+  %37 = add nuw nsw i32 %indvars58, 1
+  %38 = load i32, ptr %22, align 8
+  tail call void @jCopySamples(ptr noundef nonnull %7, i32 noundef %indvars58, ptr noundef nonnull %7, i32 noundef %37, i32 noundef %24, i32 noundef %38) #7
+  br label %39
+
+39:                                               ; preds = %36, %._crit_edge.split.us.us
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %28
+  %40 = load i32, ptr %19, align 4
+  %41 = trunc nuw i64 %indvars.iv.next to i32
+  %42 = icmp sgt i32 %40, %41
+  br i1 %42, label %.lr.ph.split.us, label %._crit_edge44, !llvm.loop !18
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
-  %.03239.us.us = phi ptr [ %59, %.lr.ph.us.us ], [ %54, %.lr.ph.us.us.preheader ]
-  %.03338.us.us = phi ptr [ %scevgep, %.lr.ph.us.us ], [ %49, %.lr.ph.us.us.preheader ]
-  %58 = load i8, ptr %.03239.us.us, align 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.03338.us.us, i8 %58, i64 %25, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %.03239.us.us, i64 1
-  %scevgep = getelementptr i8, ptr %.03338.us.us, i64 %26
-  %60 = icmp ult ptr %scevgep, %52
-  br i1 %60, label %.lr.ph.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !19
+  %.03239.us.us = phi ptr [ %44, %.lr.ph.us.us ], [ %35, %.lr.ph.us.us.preheader ]
+  %.03338.us.us = phi ptr [ %scevgep, %.lr.ph.us.us ], [ %30, %.lr.ph.us.us.preheader ]
+  %43 = load i8, ptr %.03239.us.us, align 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.03338.us.us, i8 %43, i64 %25, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %.03239.us.us, i64 1
+  %45 = getelementptr i8, ptr %.03338.us.us, i64 %27
+  %scevgep = getelementptr i8, ptr %45, i64 1
+  %46 = icmp ult ptr %scevgep, %33
+  br i1 %46, label %.lr.ph.us.us, label %._crit_edge.split.us.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %23, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %62
-  %.042.us45 = phi i32 [ %64, %62 ], [ 0, %.lr.ph.split ]
-  %61 = load i32, ptr %22, align 8
-  %.not52 = icmp eq i32 %61, 0
-  br i1 %.not52, label %62, label %.loopexit.preheader
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %48
+  %.042.us45 = phi i32 [ %50, %48 ], [ 0, %.lr.ph.split ]
+  %47 = load i32, ptr %22, align 8
+  %.not52 = icmp eq i32 %47, 0
+  br i1 %.not52, label %48, label %.loopexit.preheader
 
-62:                                               ; preds = %.lr.ph.split.split.us
-  %63 = add nuw nsw i32 %.042.us45, 1
-  tail call void @jCopySamples(ptr noundef %7, i32 noundef %.042.us45, ptr noundef %7, i32 noundef %63, i32 noundef %24, i32 noundef 0) #7
-  %64 = add nuw nsw i32 %.042.us45, %18
-  %65 = load i32, ptr %19, align 4
-  %66 = icmp slt i32 %64, %65
-  br i1 %66, label %.lr.ph.split.split.us, label %._crit_edge44, !llvm.loop !18
+48:                                               ; preds = %.lr.ph.split.split.us
+  %49 = add nuw nsw i32 %.042.us45, 1
+  tail call void @jCopySamples(ptr noundef %7, i32 noundef %.042.us45, ptr noundef %7, i32 noundef %49, i32 noundef %24, i32 noundef 0) #7
+  %50 = add nuw nsw i32 %.042.us45, %18
+  %51 = load i32, ptr %19, align 4
+  %52 = icmp slt i32 %50, %51
+  br i1 %52, label %.lr.ph.split.split.us, label %._crit_edge44, !llvm.loop !21
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %67 = load i32, ptr %22, align 8
-  %.not51 = icmp eq i32 %67, 0
-  br label %68
+  %53 = load i32, ptr %22, align 8
+  %.not51 = icmp eq i32 %53, 0
+  br label %54
 
-68:                                               ; preds = %.lr.ph.split.split, %69
-  %.042 = phi i32 [ 0, %.lr.ph.split.split ], [ %70, %69 ]
-  br i1 %.not51, label %69, label %.loopexit.preheader
+54:                                               ; preds = %.lr.ph.split.split, %55
+  %.042 = phi i32 [ 0, %.lr.ph.split.split ], [ %56, %55 ]
+  br i1 %.not51, label %55, label %.loopexit.preheader
 
-.loopexit.preheader:                              ; preds = %68, %.lr.ph.split.split.us
+.loopexit.preheader:                              ; preds = %54, %.lr.ph.split.split.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   br label %.loopexit
 
-69:                                               ; preds = %68
-  %70 = add nuw nsw i32 %.042, %18
-  %71 = icmp slt i32 %70, %20
-  br i1 %71, label %68, label %._crit_edge44, !llvm.loop !18
+55:                                               ; preds = %54
+  %56 = add nuw nsw i32 %.042, %18
+  %57 = icmp slt i32 %56, %20
+  br i1 %57, label %54, label %._crit_edge44, !llvm.loop !22
 
-._crit_edge44:                                    ; preds = %._crit_edge.split.us.us, %._crit_edge.split.us.us.us, %69, %62, %4
+._crit_edge44:                                    ; preds = %39, %55, %48, %4
   ret void
 }
 
@@ -871,5 +826,8 @@ attributes #7 = { nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !19}
+!21 = distinct !{!21, !7, !19}
+!22 = distinct !{!22, !7}

@@ -1026,7 +1026,7 @@ define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2
   %spec.select = select i1 %43, ptr %.06085, ptr %.05984
   %.060 = load ptr, ptr %.06085, align 8, !tbaa !47
   %.not66 = icmp eq ptr %.060, null
-  br i1 %.not66, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !61
+  br i1 %.not66, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !63
 
 ._crit_edge88:                                    ; preds = %.thread
   %44 = icmp eq ptr %spec.select, null
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2
 
 61:                                               ; preds = %52
   %62 = getelementptr inbounds nuw i8, ptr %.163, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !62
+  %63 = load ptr, ptr %62, align 8, !tbaa !64
   %.not68 = icmp eq ptr %63, null
   br i1 %.not68, label %65, label %64
 
@@ -1072,16 +1072,16 @@ define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2
   br label %65
 
 65:                                               ; preds = %64, %61
-  %66 = load ptr, ptr %25, align 8, !tbaa !63
+  %66 = load ptr, ptr %25, align 8, !tbaa !65
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %65
-  store ptr %53, ptr %25, align 8, !tbaa !63
+  store ptr %53, ptr %25, align 8, !tbaa !65
   br label %69
 
 69:                                               ; preds = %68, %65
-  store ptr %53, ptr %62, align 8, !tbaa !62
+  store ptr %53, ptr %62, align 8, !tbaa !64
   br label %.thread72
 
 .thread72:                                        ; preds = %.lr.ph87.split.us, %69, %._crit_edge88
@@ -1238,6 +1238,8 @@ attributes #16 = { nounwind willreturn memory(none) }
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = !{!44, !45, i64 16}
-!63 = !{!44, !45, i64 8}
+!61 = distinct !{!61, !5, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !5}
+!64 = !{!44, !45, i64 16}
+!65 = !{!44, !45, i64 8}

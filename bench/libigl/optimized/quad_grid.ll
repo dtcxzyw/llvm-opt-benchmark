@@ -231,7 +231,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.3103.us.us = phi i32 [ %74, %69 ], [ %.1111.us.us, %66 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge.us, label %66, !llvm.loop !10
+  br i1 %exitcond143.not, label %._crit_edge.us, label %66, !llvm.loop !14
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit62._crit_edge: ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit62.preheader
   tail call void @free(ptr noundef %.sroa.0.0) #7
@@ -252,15 +252,15 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !13
+  %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %8 = load i64, ptr %7, align 8, !tbaa !20
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8, !tbaa !19
+  %11 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @free(ptr noundef %11) #7
   %12 = icmp sgt i64 %1, 0
   br i1 %12, label %13, label %.sink.split
@@ -289,12 +289,12 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 .sink.split:                                      ; preds = %10, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i
   %.sink = phi ptr [ %18, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i ], [ null, %10 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !19
+  store ptr %.sink, ptr %0, align 8, !tbaa !21
   br label %22
 
 22:                                               ; preds = %.sink.split, %4
-  store i64 %2, ptr %5, align 8, !tbaa !13
-  store i64 %3, ptr %7, align 8, !tbaa !18
+  store i64 %2, ptr %5, align 8, !tbaa !15
+  store i64 %3, ptr %7, align 8, !tbaa !20
   ret void
 }
 
@@ -334,11 +334,13 @@ attributes #9 = { nounwind allocsize(0) }
 !9 = !{!"vtable pointer", !7, i64 0}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !17, i64 8}
-!14 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EEE", !15, i64 0, !17, i64 8, !17, i64 16}
-!15 = !{!"p1 int", !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!14, !17, i64 16}
-!19 = !{!14, !15, i64 0}
+!12 = distinct !{!12, !11, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !11, !13}
+!15 = !{!16, !19, i64 8}
+!16 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EEE", !17, i64 0, !19, i64 8, !19, i64 16}
+!17 = !{!"p1 int", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!16, !19, i64 16}
+!21 = !{!16, !17, i64 0}

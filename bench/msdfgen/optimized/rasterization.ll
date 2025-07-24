@@ -420,7 +420,7 @@ invoke.cont5.i:                                   ; preds = %for.body.i
 for.cond8.preheader.i:                            ; preds = %invoke.cont5.i
   %inc44.i = add nuw nsw i32 %y.091.i, 1
   %exitcond.not.i = icmp eq i32 %inc44.i, %1
-  br i1 %exitcond.not.i, label %if.end117.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %if.end117.i, label %for.body.i, !llvm.loop !13
 
 lpad.loopexit.split-lp.loopexit.split.i:          ; preds = %invoke.cont5.i, %for.body.i
   %lpad.loopexit78.i = landingpad { ptr, i32 }
@@ -543,13 +543,13 @@ if.end109.us142.i:                                ; preds = %if.then95.us131.i, 
   %incdec.ptr110.us143.i = getelementptr inbounds nuw i8, ptr %match.398.us108.i, i64 1
   %inc112.us144.i = add nuw nsw i32 %x62.0100.us107.i, 1
   %exitcond154.not.i = icmp eq i32 %inc112.us144.i, %.fr.i
-  br i1 %exitcond154.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us106.i, !llvm.loop !12
+  br i1 %exitcond154.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us106.i, !llvm.loop !14
 
 for.cond63.for.inc114_crit_edge.us.i:             ; preds = %if.end109.us142.i, %if.end109.us.us.i
   %.us-phi102.us.i = getelementptr i8, ptr %match.2105.us.i, i64 %idx.ext.i
   %inc115.us.i = add nuw nsw i32 %y49.0104.us.i, 1
   %exitcond157.not.i = icmp eq i32 %inc115.us.i, %1
-  br i1 %exitcond157.not.i, label %if.end117.i, label %for.body52.us.i, !llvm.loop !13
+  br i1 %exitcond157.not.i, label %if.end117.i, label %for.body52.us.i, !llvm.loop !15
 
 for.body65.us.us.i:                               ; preds = %for.body52.us.i, %if.end109.us.us.i
   %x62.0100.us.us.i = phi i32 [ %inc112.us.us.i, %if.end109.us.us.i ], [ 0, %for.body52.us.i ]
@@ -621,7 +621,7 @@ if.end109.us.us.i:                                ; preds = %if.then95.us.us.i, 
   %incdec.ptr110.us.us.i = getelementptr inbounds nuw i8, ptr %match.398.us.us.i, i64 1
   %inc112.us.us.i = add nuw nsw i32 %x62.0100.us.us.i, 1
   %exitcond156.not.i = icmp eq i32 %inc112.us.us.i, %.fr.i
-  br i1 %exitcond156.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us.us.i, !llvm.loop !12
+  br i1 %exitcond156.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us.us.i, !llvm.loop !16
 
 if.end117.i:                                      ; preds = %for.cond8.preheader.i, %for.cond63.for.inc114_crit_edge.us.i, %for.end45.i
   %.pr.i = load ptr, ptr %matchMap.i, align 8
@@ -801,12 +801,12 @@ if.end53.us.i:                                    ; preds = %if.then49.us.i, %if
   %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %match.191.us.i, i64 1
   %inc.us.i = add nuw nsw i32 %x.090.us.i, 1
   %exitcond156.not.i = icmp eq i32 %inc.us.i, %.fr.i
-  br i1 %exitcond156.not.i, label %for.cond8.for.inc54_crit_edge.us.i, label %for.body10.us.i, !llvm.loop !14
+  br i1 %exitcond156.not.i, label %for.cond8.for.inc54_crit_edge.us.i, label %for.body10.us.i, !llvm.loop !17
 
 for.cond8.for.inc54_crit_edge.us.i:               ; preds = %if.end53.us.i
   %inc55.us.i = add nuw nsw i32 %y.095.us.i, 1
   %exitcond157.not.i = icmp eq i32 %inc55.us.i, %1
-  br i1 %exitcond157.not.i, label %for.end56.i, label %for.body.us.i, !llvm.loop !15
+  br i1 %exitcond157.not.i, label %for.end56.i, label %for.body.us.i, !llvm.loop !18
 
 lpad.loopexit.split-lp.loopexit.split.us.i:       ; preds = %invoke.cont5.us.i, %for.body.us.i
   %lpad.loopexit82.us.i = landingpad { ptr, i32 }
@@ -832,7 +832,7 @@ invoke.cont5.i:                                   ; preds = %for.body.i
 for.cond8.preheader.i:                            ; preds = %invoke.cont5.i
   %inc55.i = add nuw nsw i32 %y.095.i, 1
   %exitcond.not.i = icmp eq i32 %inc55.i, %1
-  br i1 %exitcond.not.i, label %if.end128.i, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %if.end128.i, label %for.body.i, !llvm.loop !19
 
 lpad.loopexit.split-lp.loopexit.split.i:          ; preds = %invoke.cont5.i, %for.body.i
   %lpad.loopexit82.i = landingpad { ptr, i32 }
@@ -955,13 +955,13 @@ if.end120.us146.i:                                ; preds = %if.then106.us135.i,
   %incdec.ptr121.us147.i = getelementptr inbounds nuw i8, ptr %match.3102.us112.i, i64 1
   %inc123.us148.i = add nuw nsw i32 %x73.0104.us111.i, 1
   %exitcond158.not.i = icmp eq i32 %inc123.us148.i, %.fr.i
-  br i1 %exitcond158.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us110.i, !llvm.loop !16
+  br i1 %exitcond158.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us110.i, !llvm.loop !20
 
 for.cond74.for.inc125_crit_edge.us.i:             ; preds = %if.end120.us146.i, %if.end120.us.us.i
   %.us-phi106.us.i = getelementptr i8, ptr %match.2109.us.i, i64 %idx.ext.i
   %inc126.us.i = add nuw nsw i32 %y60.0108.us.i, 1
   %exitcond161.not.i = icmp eq i32 %inc126.us.i, %1
-  br i1 %exitcond161.not.i, label %if.end128.i, label %for.body63.us.i, !llvm.loop !17
+  br i1 %exitcond161.not.i, label %if.end128.i, label %for.body63.us.i, !llvm.loop !21
 
 for.body76.us.us.i:                               ; preds = %for.body63.us.i, %if.end120.us.us.i
   %x73.0104.us.us.i = phi i32 [ %inc123.us.us.i, %if.end120.us.us.i ], [ 0, %for.body63.us.i ]
@@ -1033,7 +1033,7 @@ if.end120.us.us.i:                                ; preds = %if.then106.us.us.i,
   %incdec.ptr121.us.us.i = getelementptr inbounds nuw i8, ptr %match.3102.us.us.i, i64 1
   %inc123.us.us.i = add nuw nsw i32 %x73.0104.us.us.i, 1
   %exitcond160.not.i = icmp eq i32 %inc123.us.us.i, %.fr.i
-  br i1 %exitcond160.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us.us.i, !llvm.loop !16
+  br i1 %exitcond160.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us.us.i, !llvm.loop !22
 
 if.end128.i:                                      ; preds = %for.cond8.preheader.i, %for.cond74.for.inc125_crit_edge.us.i, %for.end56.i
   %.pr.i = load ptr, ptr %matchMap.i, align 8
@@ -1166,10 +1166,15 @@ attributes #12 = { builtin allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!11 = distinct !{!11, !6, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!15 = distinct !{!15, !6, !12}
+!16 = distinct !{!16, !6, !12}
 !17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6, !12}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6, !12}
+!22 = distinct !{!22, !6, !12}

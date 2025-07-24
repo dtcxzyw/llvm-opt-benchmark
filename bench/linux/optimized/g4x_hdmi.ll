@@ -103,7 +103,7 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %25, %36, %40
   %51 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit, label %.lr.ph.split.us
+  br i1 %52, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %53 = phi ptr [ %86, %.backedge ], [ %18, %.lr.ph ]
@@ -218,10 +218,10 @@ define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) loc
   %10 = add i32 %2, -1
   %11 = select i1 %9, i32 3, i32 2
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %26, label %13, !prof !9
+  br i1 %12, label %26, label %13, !prof !11
 
 13:                                               ; preds = %5
-  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #6, !srcloc !10
+  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #6, !srcloc !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @dev_driver_string(ptr noundef %15) #6
@@ -239,10 +239,10 @@ define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) loc
   %24 = phi ptr [ %22, %21 ], [ %19, %13 ]
   %25 = add i32 %2, 65
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %16, ptr noundef %24, i32 noundef %25) #6
-  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #6, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 683, i32 2313, i64 12) #6, !srcloc !12
-  tail call void asm sideeffect "903: nop\0A\09.pushsection .discard.instr_end\0A\09.long 903b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 903) #6, !srcloc !13
-  tail call void asm sideeffect "904: nop\0A\09.pushsection .discard.instr_end\0A\09.long 904b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 904) #6, !srcloc !14
+  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #6, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 683, i32 2313, i64 12) #6, !srcloc !14
+  tail call void asm sideeffect "903: nop\0A\09.pushsection .discard.instr_end\0A\09.long 903b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 903) #6, !srcloc !15
+  tail call void asm sideeffect "904: nop\0A\09.pushsection .discard.instr_end\0A\09.long 904b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 904) #6, !srcloc !16
   br label %118
 
 26:                                               ; preds = %5
@@ -557,7 +557,7 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %58 = add nuw nsw i64 %28, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %58, %59
-  br i1 %60, label %26, label %.split.loop.exit, !llvm.loop !15
+  br i1 %60, label %26, label %.split.loop.exit, !llvm.loop !17
 
 .split.loop.exit4:                                ; preds = %49
   %61 = icmp eq ptr %47, %6
@@ -821,7 +821,7 @@ define internal void @chv_hdmi_pre_enable(ptr readnone captures(none) %0, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4032
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 861
-  %17 = load i8, ptr %16, align 1, !range !16, !noundef !17
+  %17 = load i8, ptr %16, align 1, !range !18, !noundef !19
   %18 = icmp ne i8 %17, 0
   tail call void %15(ptr noundef %1, i1 noundef zeroext %18, ptr noundef %2, ptr noundef %3) #6
   %19 = load ptr, ptr %1, align 8
@@ -918,7 +918,7 @@ define internal void @vlv_hdmi_pre_enable(ptr readnone captures(none) %0, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4032
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 861
-  %17 = load i8, ptr %16, align 1, !range !16, !noundef !17
+  %17 = load i8, ptr %16, align 1, !range !18, !noundef !19
   %18 = icmp ne i8 %17, 0
   tail call void %15(ptr noundef %1, i1 noundef zeroext %18, ptr noundef %2, ptr noundef %3) #6
   %19 = load ptr, ptr %1, align 8
@@ -991,7 +991,7 @@ define internal void @intel_hdmi_pre_enable(ptr readnone captures(none) %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4032
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 861
-  %16 = load i8, ptr %15, align 1, !range !16, !noundef !17
+  %16 = load i8, ptr %15, align 1, !range !18, !noundef !19
   %17 = icmp ne i8 %16, 0
   tail call void %14(ptr noundef %1, i1 noundef zeroext %17, ptr noundef %2, ptr noundef %3) #6
   ret void
@@ -1227,18 +1227,18 @@ define internal void @g4x_hdmi_audio_enable(ptr noundef %0, ptr noundef %1, ptr 
   %12 = phi ptr [ %9, %7 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3848
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 877
-  %15 = load i8, ptr %14, align 1, !range !16, !noundef !17
+  %15 = load i8, ptr %14, align 1, !range !18, !noundef !19
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %42, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %19 = load i8, ptr %18, align 4, !range !16, !noundef !17
+  %19 = load i8, ptr %18, align 4, !range !18, !noundef !19
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %33, !prof !18
+  br i1 %20, label %21, label %33, !prof !20
 
 21:                                               ; preds = %17
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !21
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @dev_driver_string(ptr noundef %23) #6
@@ -1255,10 +1255,10 @@ define internal void @g4x_hdmi_audio_enable(ptr noundef %0, ptr noundef %1, ptr 
 31:                                               ; preds = %29, %21
   %32 = phi ptr [ %30, %29 ], [ %27, %21 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7, ptr noundef %24, ptr noundef %32, ptr noundef nonnull @.str.8) #6
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #6, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 246, i32 2313, i64 12) #6, !srcloc !21
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #6, !srcloc !22
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #6, !srcloc !23
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #6, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 246, i32 2313, i64 12) #6, !srcloc !23
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #6, !srcloc !24
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #6, !srcloc !25
   br label %33
 
 33:                                               ; preds = %31, %17
@@ -1302,7 +1302,7 @@ define internal void @g4x_hdmi_audio_disable(ptr noundef %0, ptr noundef %1, ptr
 11:                                               ; preds = %10, %7, %3, %3, %3, %3
   %12 = phi ptr [ %9, %7 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 877
-  %14 = load i8, ptr %13, align 1, !range !16, !noundef !17
+  %14 = load i8, ptr %13, align 1, !range !18, !noundef !19
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %26, label %16
 
@@ -1514,7 +1514,7 @@ define internal fastcc void @intel_hdmi_prepare(ptr noundef %0, ptr noundef read
 
 .thread:                                          ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 868
-  %18 = load i8, ptr %17, align 4, !range !16, !noundef !17
+  %18 = load i8, ptr %17, align 4, !range !18, !noundef !19
   %19 = icmp eq i8 %18, 0
   %20 = select i1 %19, i32 2048, i32 2304
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 632
@@ -1522,7 +1522,7 @@ define internal fastcc void @intel_hdmi_prepare(ptr noundef %0, ptr noundef read
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1364
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %26 = load i8, ptr %25, align 4, !range !16, !noundef !17
+  %26 = load i8, ptr %25, align 4, !range !18, !noundef !19
   br label %39
 
 27:                                               ; preds = %11
@@ -1531,7 +1531,7 @@ define internal fastcc void @intel_hdmi_prepare(ptr noundef %0, ptr noundef read
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1364
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %33 = load i8, ptr %32, align 4, !range !16, !noundef !17
+  %33 = load i8, ptr %32, align 4, !range !18, !noundef !19
   %34 = icmp eq i32 %15, 2
   br i1 %34, label %35, label %39
 
@@ -1658,18 +1658,20 @@ attributes #7 = { nounwind allocsize(2) }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"branch_weights", i32 2000, i32 1}
-!10 = !{i64 2161854682, i64 2161854491, i64 2161854543, i64 2161854589, i64 2161854617}
-!11 = !{i64 2161855240, i64 2161855049, i64 2161855101, i64 2161855147, i64 2161855175}
-!12 = !{i64 2161855314, i64 2161855343, i64 2161855389, i64 2161855447, i64 2161855501, i64 2161855555, i64 2161855610, i64 2161855641, i64 2161855949, i64 2161855955, i64 2161856002, i64 2161856025, i64 2161856051}
-!13 = !{i64 2161856523, i64 2161856334, i64 2161856384, i64 2161856430, i64 2161856458}
-!14 = !{i64 2161856829, i64 2161856640, i64 2161856690, i64 2161856736, i64 2161856764}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2161844793, i64 2161844602, i64 2161844654, i64 2161844700, i64 2161844728}
-!20 = !{i64 2161845351, i64 2161845160, i64 2161845212, i64 2161845258, i64 2161845286}
-!21 = !{i64 2161845425, i64 2161845454, i64 2161845500, i64 2161845558, i64 2161845612, i64 2161845666, i64 2161845721, i64 2161845752, i64 2161846060, i64 2161846066, i64 2161846113, i64 2161846136, i64 2161846162}
-!22 = !{i64 2161846634, i64 2161846445, i64 2161846495, i64 2161846541, i64 2161846569}
-!23 = !{i64 2161846940, i64 2161846751, i64 2161846801, i64 2161846847, i64 2161846875}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = !{i64 2161854682, i64 2161854491, i64 2161854543, i64 2161854589, i64 2161854617}
+!13 = !{i64 2161855240, i64 2161855049, i64 2161855101, i64 2161855147, i64 2161855175}
+!14 = !{i64 2161855314, i64 2161855343, i64 2161855389, i64 2161855447, i64 2161855501, i64 2161855555, i64 2161855610, i64 2161855641, i64 2161855949, i64 2161855955, i64 2161856002, i64 2161856025, i64 2161856051}
+!15 = !{i64 2161856523, i64 2161856334, i64 2161856384, i64 2161856430, i64 2161856458}
+!16 = !{i64 2161856829, i64 2161856640, i64 2161856690, i64 2161856736, i64 2161856764}
+!17 = distinct !{!17, !7, !8}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = !{i64 2161844793, i64 2161844602, i64 2161844654, i64 2161844700, i64 2161844728}
+!22 = !{i64 2161845351, i64 2161845160, i64 2161845212, i64 2161845258, i64 2161845286}
+!23 = !{i64 2161845425, i64 2161845454, i64 2161845500, i64 2161845558, i64 2161845612, i64 2161845666, i64 2161845721, i64 2161845752, i64 2161846060, i64 2161846066, i64 2161846113, i64 2161846136, i64 2161846162}
+!24 = !{i64 2161846634, i64 2161846445, i64 2161846495, i64 2161846541, i64 2161846569}
+!25 = !{i64 2161846940, i64 2161846751, i64 2161846801, i64 2161846847, i64 2161846875}

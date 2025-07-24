@@ -532,7 +532,7 @@ define internal fastcc range(i32 0, 2) i32 @pefromupx(ptr noundef %0, i32 nounde
   %25 = getelementptr inbounds nuw i32, ptr %7, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %.not.us = icmp eq i32 %26, 0
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us
   %27 = or disjoint i32 %1, -8
@@ -949,7 +949,7 @@ checkpe.exit:                                     ; preds = %.critedge.thread, %
   %.6444.ph.us = phi i32 [ %.3541.us, %.lr.ph544.split.us ], [ %.3541.us, %195 ], [ %199, %212 ], [ %199, %210 ], [ %199, %200 ], [ 0, %197 ]
   %219 = getelementptr inbounds i8, ptr %.5285542.us, i64 -1
   %220 = icmp ugt ptr %219, %2
-  br i1 %220, label %.lr.ph544.split.us, label %checkpe.exit429
+  br i1 %220, label %.lr.ph544.split.us, label %checkpe.exit429, !llvm.loop !10
 
 checkpe.exit429:                                  ; preds = %218, %212, %.lr.ph544.split.preheader
   %.5285.lcssa = phi ptr [ %scevgep599, %.lr.ph544.split.preheader ], [ %.5285542.us, %212 ], [ %219, %218 ]
@@ -2223,9 +2223,9 @@ define range(i32 -1, 2) i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr
   %26 = trunc i32 %25 to i8
   store i8 %26, ptr %10, align 1, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store ptr %10, ptr %27, align 8, !tbaa !8
+  store ptr %10, ptr %27, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 184
-  store i64 5, ptr %28, align 8, !tbaa !16
+  store i64 5, ptr %28, align 8, !tbaa !19
   %29 = zext i32 %11 to i64
   %30 = call i32 @cli_LzmaInit(ptr noundef nonnull %9, i64 noundef %29) #8
   %.not = icmp eq i32 %30, 0
@@ -2233,15 +2233,15 @@ define range(i32 -1, 2) i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr
 
 31:                                               ; preds = %19
   %32 = zext i32 %1 to i64
-  store i64 %32, ptr %28, align 8, !tbaa !16
+  store i64 %32, ptr %28, align 8, !tbaa !19
   %33 = load i32, ptr %3, align 4, !tbaa !6
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  store i64 %34, ptr %35, align 8, !tbaa !17
+  store i64 %34, ptr %35, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store ptr %36, ptr %27, align 8, !tbaa !8
+  store ptr %36, ptr %27, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  store ptr %2, ptr %37, align 8, !tbaa !18
+  store ptr %2, ptr %37, align 8, !tbaa !21
   %38 = call i32 @cli_LzmaDecode(ptr noundef nonnull %9) #8
   %39 = icmp eq i32 %38, 1
   call void @cli_LzmaShutdown(ptr noundef nonnull %9) #8
@@ -2303,14 +2303,17 @@ attributes #8 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = !{!9, !14, i64 168}
-!9 = !{!"CLI_LZMA", !10, i64 0, !4, i64 136, !7, i64 144, !7, i64 148, !7, i64 152, !7, i64 156, !15, i64 160, !14, i64 168, !14, i64 176, !15, i64 184, !15, i64 192}
-!10 = !{!"", !11, i64 0, !12, i64 16, !14, i64 24, !14, i64 32, !7, i64 40, !7, i64 44, !15, i64 48, !15, i64 56, !7, i64 64, !7, i64 68, !7, i64 72, !4, i64 76, !7, i64 92, !7, i64 96, !7, i64 100, !7, i64 104, !7, i64 108, !4, i64 112}
-!11 = !{!"_CLzmaProps", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12}
-!12 = !{!"p1 short", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!"p1 omnipotent char", !13, i64 0}
-!15 = !{!"long", !4, i64 0}
-!16 = !{!9, !15, i64 184}
-!17 = !{!9, !15, i64 192}
-!18 = !{!9, !14, i64 176}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !17, i64 168}
+!12 = !{!"CLI_LZMA", !13, i64 0, !4, i64 136, !7, i64 144, !7, i64 148, !7, i64 152, !7, i64 156, !18, i64 160, !17, i64 168, !17, i64 176, !18, i64 184, !18, i64 192}
+!13 = !{!"", !14, i64 0, !15, i64 16, !17, i64 24, !17, i64 32, !7, i64 40, !7, i64 44, !18, i64 48, !18, i64 56, !7, i64 64, !7, i64 68, !7, i64 72, !4, i64 76, !7, i64 92, !7, i64 96, !7, i64 100, !7, i64 104, !7, i64 108, !4, i64 112}
+!14 = !{!"_CLzmaProps", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12}
+!15 = !{!"p1 short", !16, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
+!17 = !{!"p1 omnipotent char", !16, i64 0}
+!18 = !{!"long", !4, i64 0}
+!19 = !{!12, !18, i64 184}
+!20 = !{!12, !18, i64 192}
+!21 = !{!12, !17, i64 176}

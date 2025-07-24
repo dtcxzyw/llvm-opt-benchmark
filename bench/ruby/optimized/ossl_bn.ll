@@ -3062,8 +3062,8 @@ define internal i64 @ossl_bn_to_s(i32 noundef %0, ptr noundef readonly captures(
   br i1 %4, label %7, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not48 = icmp eq i32 %0, 0
-  br i1 %.not48, label %rb_scan_args_set.exit, label %.split.us
+  %.not46 = icmp eq i32 %0, 0
+  br i1 %.not46, label %rb_scan_args_set.exit, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %5 = load i64, ptr %1, align 8, !tbaa !6
@@ -3212,9 +3212,9 @@ RSTRING_PTR.exit37:                               ; preds = %32, %42
   unreachable
 
 .sink.split:                                      ; preds = %58, %50
-  %.sink54 = phi i64 [ %51, %50 ], [ %59, %58 ]
+  %.sink51 = phi i64 [ %51, %50 ], [ %59, %58 ]
   %.sink = phi ptr [ %47, %50 ], [ %55, %58 ]
-  %64 = trunc nsw i64 %.sink54 to i32
+  %64 = trunc nsw i64 %.sink51 to i32
   %65 = tail call i64 @ossl_buf2str(ptr noundef nonnull %.sink, i32 noundef %64) #11
   br label %66
 

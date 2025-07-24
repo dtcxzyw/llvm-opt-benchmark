@@ -112,7 +112,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %spec.select = add nuw nsw i32 %70, %.070
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, 16
-  br i1 %exitcond.not, label %71, label %65, !llvm.loop !11
+  br i1 %exitcond.not, label %71, label %65, !llvm.loop !12
 
 71:                                               ; preds = %65
   %72 = icmp slt i32 %spec.select, %.05273
@@ -121,7 +121,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %spec.select62 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %.05273)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 4
-  br i1 %exitcond85.not, label %74, label %.preheader, !llvm.loop !12
+  br i1 %exitcond85.not, label %74, label %.preheader, !llvm.loop !13
 
 74:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #5
@@ -168,6 +168,7 @@ attributes #5 = { nounwind }
 !7 = !{!"int", !4, i64 0}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

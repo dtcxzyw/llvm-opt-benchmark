@@ -141,7 +141,7 @@ define hidden void @delete_list(ptr noundef captures(none) %0, i32 noundef %1) l
   tail call void @free(ptr noundef %9) #13
   %11 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
   ret void
@@ -164,7 +164,7 @@ define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr no
   tail call void @free(ptr noundef nonnull %4) #13
   %6 = load ptr, ptr %0, align 8
   %.not.us = icmp eq ptr %6, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %7 = phi ptr [ %11, %.lr.ph.split ], [ %3, %.lr.ph ]
@@ -176,7 +176,7 @@ define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr no
   tail call void %1(ptr noundef %9) #13
   %11 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
   ret void
@@ -280,5 +280,8 @@ attributes #13 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !11}
+!14 = distinct !{!14, !7}

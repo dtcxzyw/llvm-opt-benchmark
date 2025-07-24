@@ -306,12 +306,12 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   br label %164
 
 164:                                              ; preds = %141, %138
-  %165 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %165 = load i8, ptr %29, align 4, !range !6, !noundef !7
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %185, label %167
 
 167:                                              ; preds = %164
-  %168 = load i8, ptr %30, align 1, !range !5, !noundef !6
+  %168 = load i8, ptr %30, align 1, !range !6, !noundef !7
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %185
 
@@ -425,7 +425,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   br i1 %.not166.i, label %252, label %255
 
 252:                                              ; preds = %247
-  %253 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %253 = load i8, ptr %29, align 4, !range !6, !noundef !7
   %254 = trunc nuw i8 %253 to i1
   %..i = select i1 %254, i32 1, i32 4
   br label %255
@@ -445,7 +445,7 @@ HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %256
   %259 = load ptr, ptr %15, align 8
   %260 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %259, ptr noundef nonnull %4, i64 noundef 64, i32 noundef 0) #9
   %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.lr.ph.split, label %._crit_edge, !llvm.loop !3
+  br i1 %261, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverSteamHori_HandleStatePacket.exit, %.backedge.us, %10
   %.lcssa = phi i32 [ %17, %10 ], [ %55, %.backedge.us ], [ %260, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ]
@@ -636,7 +636,9 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4}

@@ -73,7 +73,7 @@ define dso_local void @mem_pool_discard(ptr noundef captures(none) %0, i32 nound
   %5 = load ptr, ptr %.012, align 8, !tbaa !14
   tail call void @free(ptr noundef nonnull %.012) #16
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
   store ptr null, ptr %0, align 8, !tbaa !15
@@ -288,7 +288,7 @@ define dso_local ptr @mem_pool_strndup(ptr noundef captures(none) %0, ptr nounde
   %9 = add i64 %8, 1
   %10 = tail call ptr @mem_pool_alloc(ptr noundef %0, i64 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %8
-  store i8 0, ptr %11, align 1, !tbaa !18
+  store i8 0, ptr %11, align 1, !tbaa !20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %1, i64 %8, i1 false)
   ret ptr %10
 }
@@ -317,7 +317,7 @@ define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr noundef readonly cap
 8:                                                ; preds = %.lr.ph, %4
   %.0 = load ptr, ptr %.012, align 8, !tbaa !14
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %4, %8, %2
   %.07 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %4 ]
@@ -339,7 +339,7 @@ define dso_local void @mem_pool_combine(ptr noundef captures(none) %0, ptr nound
   %.0 = phi ptr [ %5, %.preheader ], [ %3, %4 ]
   %5 = load ptr, ptr %.0, align 8, !tbaa !14
   %.not19 = icmp eq ptr %5, null
-  br i1 %.not19, label %.thread.sink.split, label %.preheader, !llvm.loop !20
+  br i1 %.not19, label %.thread.sink.split, label %.preheader, !llvm.loop !22
 
 6:                                                ; preds = %2
   br i1 %.not18, label %.thread, label %.thread.sink.split
@@ -374,7 +374,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #12 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !23
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -433,10 +433,12 @@ attributes #17 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 omnipotent char", !7, i64 0}
 !14 = !{!6, !6, i64 0}
 !15 = !{!5, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!8, !8, i64 0}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !8, i64 0}
+!20 = !{!8, !8, i64 0}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !8, i64 0}

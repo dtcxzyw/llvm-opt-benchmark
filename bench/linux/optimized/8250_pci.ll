@@ -2972,7 +2972,7 @@ define internal range(i32 -22, 16) i32 @pci_fintek_init(ptr noundef %0) #0 align
   %94 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %91, i8 noundef zeroext %93) #15
   %95 = add nuw nsw i32 %69, 1
   %96 = icmp eq i32 %95, %29
-  br i1 %96, label %.loopexit, label %.split, !llvm.loop !27
+  br i1 %96, label %.loopexit, label %.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.split, %.split.us, %28, %22, %16, %10, %1
   %97 = phi i32 [ -19, %16 ], [ -19, %10 ], [ -19, %1 ], [ -22, %22 ], [ 0, %28 ], [ %29, %.split.us ], [ %29, %.split ]
@@ -3067,7 +3067,7 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr noundef readonly capture
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %32, i16 %24) #15, !srcloc !22
   %33 = add nuw nsw i32 %18, 1
   %34 = icmp eq i32 %33, %8
-  br i1 %34, label %.loopexit, label %17, !llvm.loop !28
+  br i1 %34, label %.loopexit, label %17, !llvm.loop !30
 
 .loopexit:                                        ; preds = %17, %12
   switch i16 %3, label %43 [
@@ -3155,7 +3155,7 @@ define internal range(i32 -22, 16) i32 @pci_fintek_f815xxa_init(ptr noundef %0) 
   %21 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %18, i8 noundef zeroext 1) #15
   %22 = add nuw nsw i32 %16, 1
   %23 = icmp eq i32 %22, %15
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %10, %6, %1
   %24 = phi i32 [ -19, %1 ], [ -22, %6 ], [ 0, %10 ], [ %15, %.preheader ]
@@ -3389,7 +3389,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %64 = add nuw nsw i64 %29, 1
   %65 = icmp eq i64 %64, 134
   %66 = select i1 %49, i1 true, i1 %65
-  br i1 %66, label %67, label %28, !llvm.loop !30
+  br i1 %66, label %67, label %28, !llvm.loop !32
 
 67:                                               ; preds = %59
   %68 = icmp ult i8 %60, 9
@@ -3413,7 +3413,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %80 = and i32 %75, 2
   %81 = icmp eq i32 %80, 0
   %82 = select i1 %79, i1 %81, i1 false
-  br i1 %82, label %.preheader11, label %.loopexit12, !llvm.loop !31
+  br i1 %82, label %.preheader11, label %.loopexit12, !llvm.loop !33
 
 .preheader:                                       ; preds = %.loopexit12, %99
   %83 = phi i32 [ %102, %99 ], [ %73, %.loopexit12 ]
@@ -3447,7 +3447,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noun
   %101 = phi i16 [ %84, %87 ], [ %94, %92 ], [ 511, %95 ]
   %102 = phi i32 [ %88, %87 ], [ %93, %92 ], [ %98, %95 ]
   %103 = icmp samesign ugt i32 %102, 65535
-  br i1 %103, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %103, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %99, %.loopexit12, %16
   %104 = phi i8 [ %21, %16 ], [ %72, %.loopexit12 ], [ %100, %99 ]
@@ -3921,7 +3921,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
   %30 = add i32 %29, %16
   %31 = add nuw nsw i64 %13, 1
   %32 = icmp eq i64 %31, 6
-  br i1 %32, label %33, label %12, !llvm.loop !33
+  br i1 %32, label %33, label %12, !llvm.loop !35
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -3990,7 +3990,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
   %78 = phi i32 [ %51, %62 ], [ %51, %.preheader ], [ %51, %67 ], [ %76, %73 ], [ %51, %58 ]
   %79 = add nuw nsw i64 %50, 1
   %80 = icmp eq i64 %79, 6
-  br i1 %80, label %81, label %.preheader, !llvm.loop !34
+  br i1 %80, label %81, label %.preheader, !llvm.loop !36
 
 81:                                               ; preds = %.critedge
   %82 = icmp sgt i32 %77, 1
@@ -4336,11 +4336,13 @@ attributes #18 = { nounwind allocsize(1) }
 !24 = !{i64 2154415359}
 !25 = distinct !{!25, !8, !6}
 !26 = distinct !{!26, !8, !6}
-!27 = distinct !{!27, !8, !6}
-!28 = distinct !{!28, !8, !6}
+!27 = distinct !{!27, !8, !6, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !29 = distinct !{!29, !8, !6}
 !30 = distinct !{!30, !8, !6}
 !31 = distinct !{!31, !8, !6}
 !32 = distinct !{!32, !8, !6}
 !33 = distinct !{!33, !8, !6}
 !34 = distinct !{!34, !8, !6}
+!35 = distinct !{!35, !8, !6}
+!36 = distinct !{!36, !8, !6}

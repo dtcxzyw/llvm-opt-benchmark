@@ -780,7 +780,7 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %56 = load ptr, ptr %11, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread, label %.split, !llvm.loop !11
+  br i1 %57, label %.thread, label %.split, !llvm.loop !13
 
 .split23.us:                                      ; preds = %.split, %.split.us
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.13) #21
@@ -894,13 +894,13 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %36, %_ZNK5frame20is
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, i32 noundef 0) #21
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4981
-  %54 = load i8, ptr %53, align 1, !noalias !12
+  %54 = load i8, ptr %53, align 1, !noalias !14
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 4968
-  %58 = load ptr, ptr %57, align 8, !noalias !12
+  %58 = load ptr, ptr %57, align 8, !noalias !14
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -911,7 +911,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %56
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %56
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4960
-  %62 = load ptr, ptr %61, align 8, !noalias !12
+  %62 = load ptr, ptr %61, align 8, !noalias !14
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -2807,7 +2807,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit459:     ; preds = %642
   call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %708)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false)
   %709 = icmp slt i32 %spec.select414, %687
-  br i1 %709, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %709, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %702, %.lr.ph, %692
   %.1 = phi i32 [ %spec.select413, %692 ], [ %spec.select414, %702 ], [ %.2615, %.lr.ph ]
@@ -2893,12 +2893,12 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %738
 
 756:                                              ; preds = %746
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull %725)
-  %757 = load i8, ptr %726, align 1, !noalias !16
+  %757 = load i8, ptr %726, align 1, !noalias !18
   %758 = trunc i8 %757 to i1
   br i1 %758, label %759, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 759:                                              ; preds = %756
-  %760 = load ptr, ptr %727, align 8, !noalias !16
+  %760 = load ptr, ptr %727, align 8, !noalias !18
   %761 = icmp eq ptr %760, null
   br i1 %761, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
 
@@ -2908,7 +2908,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %759
   br i1 %.not.i.i464, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %759
-  %763 = load ptr, ptr %728, align 8, !noalias !16
+  %763 = load ptr, ptr %728, align 8, !noalias !18
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %763, ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
@@ -2919,7 +2919,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6senderEP11RegisterMap.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %764 = icmp slt i32 %spec.select415, %687
-  br i1 %764, label %729, label %.critedge51, !llvm.loop !19
+  br i1 %764, label %729, label %.critedge51, !llvm.loop !21
 
 .critedge51:                                      ; preds = %_ZN16StackFrameStream4nextEv.exit, %729, %720, %684, %716, %711, %.critedge, %683
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
@@ -3002,7 +3002,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6se
   %796 = getelementptr inbounds nuw i8, ptr %.0623, i64 8
   %.0 = load ptr, ptr %796, align 8
   %.not401 = icmp eq ptr %.0, null
-  br i1 %.not401, label %.loopexit, label %.lr.ph624, !llvm.loop !20
+  br i1 %.not401, label %.loopexit, label %.lr.ph624, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph624, %790, %787
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
@@ -4020,7 +4020,7 @@ define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr no
 
 22:                                               ; preds = %19, %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %22, %2, %14
   ret void
@@ -4079,7 +4079,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %5
 27:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader61, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader61, !llvm.loop !24
 
 28:                                               ; preds = %25, %23
   tail call void @_ZNK18InterpreterCodelet8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %0) #21
@@ -4134,7 +4134,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
 53:                                               ; preds = %47
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 10
-  br i1 %exitcond.not.i43, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader59, !llvm.loop !22
+  br i1 %exitcond.not.i43, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader59, !llvm.loop !24
 
 54:                                               ; preds = %51, %49
   tail call void @_ZNK12StubCodeDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(44) %42, ptr noundef %0) #21
@@ -4179,7 +4179,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
 71:                                               ; preds = %65
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 10
-  br i1 %exitcond.not.i49, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond.not.i49, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader, !llvm.loop !24
 
 72:                                               ; preds = %69, %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 800
@@ -4547,7 +4547,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
   br i1 %27, label %28, label %49
 
 28:                                               ; preds = %11
-  %29 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 -1, ptr nonnull @_ZN7VMError16_first_error_tidE) #21, !srcloc !23
+  %29 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 -1, ptr nonnull @_ZN7VMError16_first_error_tidE) #21, !srcloc !25
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %31, label %49
 
@@ -4590,7 +4590,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
 .preheader:                                       ; preds = %37, %.preheader
   %46 = call noundef ptr @_ZN7VMError12error_stringEPci(ptr noundef nonnull @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6buffer, i32 noundef 2000)
   %47 = call noundef zeroext i1 @_ZN2os15start_debuggingEPci(ptr noundef nonnull @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6buffer, i32 noundef 2000) #21
-  br i1 %47, label %.preheader, label %_ZN7VMError16show_message_boxEPci.exit, !llvm.loop !24
+  br i1 %47, label %.preheader, label %_ZN7VMError16show_message_boxEPci.exit, !llvm.loop !26
 
 _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   store i8 0, ptr @ShowMessageBoxOnError, align 1
@@ -4868,7 +4868,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 153:                                              ; preds = %151, %148
   %154 = load atomic i8, ptr @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE11skip_replay acquire, align 8
   %155 = icmp eq i8 %154, 0
-  br i1 %155, label %156, label %165, !prof !25
+  br i1 %155, label %156, label %165, !prof !27
 
 156:                                              ; preds = %153
   %157 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE11skip_replay) #21
@@ -4963,7 +4963,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 200:                                              ; preds = %197, %195
   %201 = load atomic i8, ptr @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_bug_url acquire, align 8
   %202 = icmp eq i8 %201, 0
-  br i1 %202, label %203, label %211, !prof !25
+  br i1 %202, label %203, label %211, !prof !27
 
 203:                                              ; preds = %200
   %204 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_bug_url) #21
@@ -5036,7 +5036,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 .preheader30.i.backedge:                          ; preds = %.critedge.i, %242, %231
   %.023.i.be = phi ptr [ %227, %.critedge.i ], [ %238, %242 ], [ %238, %231 ]
-  br label %.preheader30.i, !llvm.loop !26
+  br label %.preheader30.i, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.preheader30.i, %229
   %228 = phi i8 [ %.pr.i, %229 ], [ %226, %.preheader30.i ]
@@ -5049,7 +5049,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 229:                                              ; preds = %.preheader.i
   %230 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %.pr.i = load i8, ptr %230, align 1
-  br label %.preheader.i, !llvm.loop !27
+  br label %.preheader.i, !llvm.loop !29
 
 231:                                              ; preds = %.preheader.i, %.preheader.i
   %232 = ptrtoint ptr %.0.i to i64
@@ -5151,7 +5151,7 @@ define hidden void @_ZN7VMError16show_message_boxEPci(ptr noundef %0, i32 nounde
 3:                                                ; preds = %3, %2
   %4 = tail call noundef ptr @_ZN7VMError12error_stringEPci(ptr noundef %0, i32 noundef %1)
   %5 = tail call noundef zeroext i1 @_ZN2os15start_debuggingEPci(ptr noundef %0, i32 noundef %1) #21
-  br i1 %5, label %3, label %6, !llvm.loop !24
+  br i1 %5, label %3, label %6, !llvm.loop !26
 
 6:                                                ; preds = %3
   ret void
@@ -5243,7 +5243,7 @@ define hidden void @_ZN24VM_ReportJavaOutOfMemory4doitEv(ptr noundef nonnull rea
 
 .preheader30.i.backedge:                          ; preds = %.critedge.i, %32, %19
   %.023.i.be = phi ptr [ %15, %.critedge.i ], [ %26, %32 ], [ %26, %19 ]
-  br label %.preheader30.i, !llvm.loop !26
+  br label %.preheader30.i, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.preheader30.i, %17
   %16 = phi i8 [ %.pr.i, %17 ], [ %14, %.preheader30.i ]
@@ -5256,7 +5256,7 @@ define hidden void @_ZN24VM_ReportJavaOutOfMemory4doitEv(ptr noundef nonnull rea
 17:                                               ; preds = %.preheader.i
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %.pr.i = load i8, ptr %18, align 1
-  br label %.preheader.i, !llvm.loop !27
+  br label %.preheader.i, !llvm.loop !29
 
 19:                                               ; preds = %.preheader.i, %.preheader.i
   %20 = ptrtoint ptr %.0.i to i64
@@ -6152,20 +6152,22 @@ attributes #25 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !"_ZNK5frame6senderEP11RegisterMap"}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!14 = distinct !{!14, !"_ZNK5frame6senderEP11RegisterMap"}
-!15 = distinct !{!15, !10}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!18 = distinct !{!18, !"_ZNK5frame6senderEP11RegisterMap"}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
+!11 = distinct !{!11, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !10}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!16 = distinct !{!16, !"_ZNK5frame6senderEP11RegisterMap"}
+!17 = distinct !{!17, !10}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!20 = distinct !{!20, !"_ZNK5frame6senderEP11RegisterMap"}
 !21 = distinct !{!21, !10}
 !22 = distinct !{!22, !10}
-!23 = !{i64 2145412694}
+!23 = distinct !{!23, !10}
 !24 = distinct !{!24, !10}
-!25 = !{!"branch_weights", i32 1, i32 1048575}
+!25 = !{i64 2145412694}
 !26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
+!27 = !{!"branch_weights", i32 1, i32 1048575}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}

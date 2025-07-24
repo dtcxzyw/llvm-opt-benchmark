@@ -95,7 +95,7 @@ define dso_local void @_ZN5clang6interp13BitcastBuffer8pushDataEPKSt4byteNS0_4Bi
   %48 = add i32 %.028, 1
   %49 = zext i32 %48 to i64
   %.not = icmp eq i64 %3, %49
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -110,10 +110,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6interp13BitcastBuffer8copyBitsENS0_4BitsES2_S2_NS0_6EndianE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = lshr i64 %4, 3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #9, !noalias !10
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %7, i1 false), !noalias !10
-  store ptr %8, ptr %0, align 8, !tbaa !6, !alias.scope !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #9, !noalias !12
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %7, i1 false), !noalias !12
+  store ptr %8, ptr %0, align 8, !tbaa !6, !alias.scope !12
   %.not29 = icmp eq i64 %3, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -156,7 +156,7 @@ define dso_local void @_ZNK5clang6interp13BitcastBuffer8copyBitsENS0_4BitsES2_S2
   %32 = add i32 %.030, 1
   %33 = zext i32 %32 to i64
   %.not = icmp eq i64 %3, %33
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %31, %6
   ret void
@@ -164,16 +164,16 @@ define dso_local void @_ZNK5clang6interp13BitcastBuffer8copyBitsENS0_4BitsES2_S2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #4 align 2 {
-  %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !14
+  %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !16
   %2 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %2, label %_ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_.exit, label %3
 
 3:                                                ; preds = %1
   %4 = add i64 %.sroa.0.0.copyload, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !19
+  %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
@@ -184,9 +184,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitia
   %.02259.i = phi i1 [ %.1.ph.i, %18 ], [ false, %3 ]
   %.02358.i = phi ptr [ %22, %18 ], [ %6, %3 ]
   %.sroa.035.057.i = phi i64 [ %.sroa.035.3.ph.i, %18 ], [ 0, %3 ]
-  %.sroa.030.0.copyload.i = load i64, ptr %.02358.i, align 8, !tbaa !14
+  %.sroa.030.0.copyload.i = load i64, ptr %.02358.i, align 8, !tbaa !16
   %.sroa.7.0..023.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.02358.i, i64 8
-  %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0..023.sroa_idx.i, align 8, !tbaa !14
+  %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0..023.sroa_idx.i, align 8, !tbaa !16
   br i1 %.02259.i, label %11, label %18
 
 11:                                               ; preds = %.lr.ph.i
@@ -236,9 +236,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %6 = add i64 %1, -1
   %7 = add i64 %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !21
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
@@ -249,9 +249,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %.02259 = phi i1 [ %.1.ph, %21 ], [ false, %5 ]
   %.02358 = phi ptr [ %27, %21 ], [ %9, %5 ]
   %.sroa.035.057 = phi i64 [ %.sroa.035.3.ph, %21 ], [ 0, %5 ]
-  %.sroa.030.0.copyload = load i64, ptr %.02358, align 8, !tbaa !14
+  %.sroa.030.0.copyload = load i64, ptr %.02358, align 8, !tbaa !16
   %.sroa.7.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.02358, i64 8
-  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..023.sroa_idx, align 8, !tbaa !14
+  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..023.sroa_idx, align 8, !tbaa !16
   br i1 %.02259, label %14, label %21
 
 14:                                               ; preds = %.lr.ph
@@ -307,41 +307,41 @@ define dso_local void @_ZN5clang6interp13BitcastBuffer15markInitializedENS0_4Bit
   %8 = add i64 %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !21
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %23
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %14 = load i32, ptr %13, align 4, !tbaa !20
+  %14 = load i32, ptr %13, align 4, !tbaa !22
   %.not.i.i.not.i.not = icmp eq i32 %14, 0
-  br i1 %.not.i.i.not.i.not, label %15, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit, !prof !21
+  br i1 %.not.i.i.not.i.not, label %15, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit, !prof !23
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %16, i64 noundef 1, i64 noundef 16) #10
-  %.pre.i = load i32, ptr %10, align 8, !tbaa !19
+  %.pre.i = load i32, ptr %10, align 8, !tbaa !21
   %17 = zext i32 %.pre.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit: ; preds = %12, %15
   %18 = phi i64 [ 0, %12 ], [ %17, %15 ]
-  %19 = load ptr, ptr %9, align 8, !tbaa !16
+  %19 = load ptr, ptr %9, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %19, i64 %18
   store i64 %1, ptr %20, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %21 = load i32, ptr %10, align 8, !tbaa !19
+  %21 = load i32, ptr %10, align 8, !tbaa !21
   %22 = add i32 %21, 1
-  store i32 %22, ptr %10, align 8, !tbaa !19
+  store i32 %22, ptr %10, align 8, !tbaa !21
   br label %51
 
 23:                                               ; preds = %6
-  %24 = load ptr, ptr %9, align 8, !tbaa !16
+  %24 = load ptr, ptr %9, align 8, !tbaa !18
   %25 = zext i32 %11 to i64
   %26 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
-  %28 = load i64, ptr %27, align 8, !tbaa !14
+  %28 = load i64, ptr %27, align 8, !tbaa !16
   %.not = icmp ugt i64 %28, %1
   br i1 %.not, label %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i, label %29
 
@@ -350,21 +350,21 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  store i64 %8, ptr %27, align 8, !tbaa !14
+  store i64 %8, ptr %27, align 8, !tbaa !16
   br label %51
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i32, ptr %33, align 4, !tbaa !20
+  %34 = load i32, ptr %33, align 4, !tbaa !22
   %.not.i.i.not.i9 = icmp ult i32 %11, %34
-  br i1 %.not.i.i.not.i9, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit12, label %35, !prof !22
+  br i1 %.not.i.i.not.i9, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit12, label %35, !prof !24
 
 35:                                               ; preds = %32
   %36 = add nuw nsw i64 %25, 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %37, i64 noundef %36, i64 noundef 16) #10
-  %.pre.i10 = load i32, ptr %10, align 8, !tbaa !19
-  %.pre = load ptr, ptr %9, align 8, !tbaa !16
+  %.pre.i10 = load i32, ptr %10, align 8, !tbaa !21
+  %.pre = load ptr, ptr %9, align 8, !tbaa !18
   %.pre31 = zext i32 %.pre.i10 to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit12
 
@@ -375,9 +375,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
   store i64 %1, ptr %39, align 1
   %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i11, align 1
-  %40 = load i32, ptr %10, align 8, !tbaa !19
+  %40 = load i32, ptr %10, align 8, !tbaa !21
   %41 = add i32 %40, 1
-  store i32 %41, ptr %10, align 8, !tbaa !19
+  store i32 %41, ptr %10, align 8, !tbaa !21
   br label %51
 
 _ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i: ; preds = %23, %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i
@@ -385,7 +385,7 @@ _ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i: ; preds = %23, %_ZSt7a
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i ], [ %25, %23 ]
   %42 = lshr i64 %.01116.i.i, 1
   %43 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %.017.i.i, i64 %42
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %43, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %43, align 8, !tbaa !16
   %44 = icmp ult i64 %1, %.sroa.0.0.copyload.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = xor i64 %42, -1
@@ -393,7 +393,7 @@ _ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i: ; preds = %23, %_ZSt7a
   %.112.i.i = select i1 %44, i64 %42, i64 %47
   %.1.i.i = select i1 %44, ptr %.017.i.i, ptr %45
   %48 = icmp sgt i64 %.112.i.i, 0
-  br i1 %48, label %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPN5clang6interp8BitRangeES2_ET_S4_S4_RKT0_.exit, !llvm.loop !23
+  br i1 %48, label %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPN5clang6interp8BitRangeES2_ET_S4_S4_RKT0_.exit, !llvm.loop !25
 
 _ZSt11upper_boundIPN5clang6interp8BitRangeES2_ET_S4_S4_RKT0_.exit: ; preds = %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
@@ -418,29 +418,29 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6interp8BitRangeEE15insert_one_implIS3_EEPS3_S6_OT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !16
+  %4 = load ptr, ptr %0, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !19
+  %6 = load i32, ptr %5, align 8, !tbaa !21
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %11 = load i32, ptr %10, align 4, !tbaa !22
   %.not.i.i.not.i = icmp ult i32 %6, %11
   br i1 %9, label %12, label %24
 
 12:                                               ; preds = %3
-  %.sroa.0.0.copyload = load i64, ptr %2, align 8, !tbaa !14
+  %.sroa.0.0.copyload = load i64, ptr %2, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !14
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit, label %13, !prof !22
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !16
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit, label %13, !prof !24
 
 13:                                               ; preds = %12
   %14 = add nuw nsw i64 %7, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #10
-  %.pre.i = load i32, ptr %5, align 8, !tbaa !19
-  %.pre13 = load ptr, ptr %0, align 8, !tbaa !16
+  %.pre.i = load i32, ptr %5, align 8, !tbaa !21
+  %.pre13 = load ptr, ptr %0, align 8, !tbaa !18
   %.pre14 = zext i32 %.pre.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit
 
@@ -451,10 +451,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
   store i64 %.sroa.0.0.copyload, ptr %17, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %18 = load i32, ptr %5, align 8, !tbaa !19
+  %18 = load i32, ptr %5, align 8, !tbaa !21
   %19 = add i32 %18, 1
-  store i32 %19, ptr %5, align 8, !tbaa !19
-  %20 = load ptr, ptr %0, align 8, !tbaa !16
+  store i32 %19, ptr %5, align 8, !tbaa !21
+  %20 = load ptr, ptr %0, align 8, !tbaa !18
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
@@ -464,14 +464,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
   %25 = ptrtoint ptr %1 to i64
   %26 = ptrtoint ptr %4 to i64
   %27 = sub i64 %25, %26
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParamAndGetAddressERS3_m.exit, label %28, !prof !22
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParamAndGetAddressERS3_m.exit, label %28, !prof !24
 
 28:                                               ; preds = %24
   %29 = add nuw nsw i64 %7, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 16) #10
-  %.pre = load ptr, ptr %0, align 8, !tbaa !16
-  %.pre11 = load i32, ptr %5, align 8, !tbaa !19
+  %.pre = load ptr, ptr %0, align 8, !tbaa !18
+  %.pre11 = load i32, ptr %5, align 8, !tbaa !21
   %.pre15 = zext i32 %.pre11 to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParamAndGetAddressERS3_m.exit
 
@@ -481,9 +481,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParam
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %27
   %33 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %31, i64 %.pre-phi16
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !24
-  %35 = load ptr, ptr %0, align 8, !tbaa !16
-  %36 = load i32, ptr %5, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !26
+  %35 = load ptr, ptr %0, align 8, !tbaa !18
+  %36 = load i32, ptr %5, align 8, !tbaa !21
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %35, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
@@ -498,14 +498,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParam
   %45 = sub nsw i64 0, %44
   %46 = getelementptr inbounds %"struct.clang::interp::BitRange", ptr %38, i64 %45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %32, i64 %43, i1 false)
-  %.pre12 = load i32, ptr %5, align 8, !tbaa !19
+  %.pre12 = load i32, ptr %5, align 8, !tbaa !21
   br label %_ZSt13move_backwardIPN5clang6interp8BitRangeES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang6interp8BitRangeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParamAndGetAddressERS3_m.exit, %40
   %47 = phi i32 [ %36, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParamAndGetAddressERS3_m.exit ], [ %.pre12, %40 ]
   %48 = add i32 %47, 1
-  store i32 %48, ptr %5, align 8, !tbaa !19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !24
+  store i32 %48, ptr %5, align 8, !tbaa !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !26
   br label %49
 
 49:                                               ; preds = %_ZSt13move_backwardIPN5clang6interp8BitRangeES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit
@@ -541,20 +541,22 @@ attributes #10 = { nounwind }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"any pointer", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIA_St4byteENSt8__detail9_MakeUniqIT_E7__arrayEm: argument 0"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIA_St4byteENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!13 = distinct !{!13, !9}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !4, i64 0}
-!16 = !{!17, !7, i64 0}
-!17 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !7, i64 0, !18, i64 8, !18, i64 12}
-!18 = !{!"int", !4, i64 0}
-!19 = !{!17, !18, i64 8}
-!20 = !{!17, !18, i64 12}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!23 = distinct !{!23, !9}
-!24 = !{i64 0, i64 8, !14, i64 8, i64 8, !14}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZSt11make_uniqueIA_St4byteENSt8__detail9_MakeUniqIT_E7__arrayEm: argument 0"}
+!14 = distinct !{!14, !"_ZSt11make_uniqueIA_St4byteENSt8__detail9_MakeUniqIT_E7__arrayEm"}
+!15 = distinct !{!15, !9}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !4, i64 0}
+!18 = !{!19, !7, i64 0}
+!19 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !7, i64 0, !20, i64 8, !20, i64 12}
+!20 = !{!"int", !4, i64 0}
+!21 = !{!19, !20, i64 8}
+!22 = !{!19, !20, i64 12}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!25 = distinct !{!25, !9}
+!26 = !{i64 0, i64 8, !16, i64 8, i64 8, !16}

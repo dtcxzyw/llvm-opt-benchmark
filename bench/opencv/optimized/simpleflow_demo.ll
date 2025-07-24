@@ -810,12 +810,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %.2.us.i.i = phi float [ %303, %298 ], [ %.110.us.i.i, %281 ]
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i18, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, %wide.trip.count.i.i16
-  br i1 %exitcond.not.i.i20, label %._crit_edge.us.i.i21, label %281, !llvm.loop !42
+  br i1 %exitcond.not.i.i20, label %._crit_edge.us.i.i21, label %281, !llvm.loop !43
 
 ._crit_edge.us.i.i21:                             ; preds = %305
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, %wide.trip.count24.i.i
-  br i1 %exitcond25.not.i.i, label %._crit_edge15.loopexit.i.i, label %.preheader.us.i.i17, !llvm.loop !43
+  br i1 %exitcond25.not.i.i, label %._crit_edge15.loopexit.i.i, label %.preheader.us.i.i17, !llvm.loop !44
 
 ._crit_edge15.loopexit.i.i:                       ; preds = %._crit_edge.us.i.i21
   %306 = fpext float %.2.us.i.i to double
@@ -1038,8 +1038,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %35 = load i32, ptr %7, align 4, !tbaa !34
   %36 = load i32, ptr %6, align 4, !tbaa !34
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %8, i32 noundef %35, i32 noundef %36, i32 noundef 13)
-  %37 = load ptr, ptr %8, align 8, !tbaa !44
-  %38 = load ptr, ptr %37, align 8, !tbaa !51
+  %37 = load ptr, ptr %8, align 8, !tbaa !45
+  %38 = load ptr, ptr %37, align 8, !tbaa !52
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef -1)
@@ -1097,12 +1097,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge54_crit_edge.us, label %47, !llvm.loop !53
+  br i1 %exitcond.not, label %..critedge54_crit_edge.us, label %47, !llvm.loop !54
 
 ..critedge54_crit_edge.us:                        ; preds = %.critedge52.us
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond71.not, label %.loopexit, label %.preheader.us, !llvm.loop !55
 
 58:                                               ; preds = %34
   %59 = landingpad { ptr, i32 }
@@ -1252,17 +1252,18 @@ attributes #20 = { builtin nounwind }
 !38 = !{!"float", !7, i64 0}
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
+!41 = distinct !{!41, !40, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !43 = distinct !{!43, !40}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"_ZTSN2cv7MatExprE", !46, i64 0, !19, i64 8, !18, i64 16, !18, i64 112, !18, i64 208, !47, i64 304, !47, i64 312, !48, i64 320}
-!46 = !{!"p1 _ZTSN2cv5MatOpE", !6, i64 0}
-!47 = !{!"double", !7, i64 0}
-!48 = !{!"_ZTSN2cv7Scalar_IdEE", !49, i64 0}
-!49 = !{!"_ZTSN2cv3VecIdLi4EEE", !50, i64 0}
-!50 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !7, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"vtable pointer", !8, i64 0}
-!53 = distinct !{!53, !40}
+!44 = distinct !{!44, !40, !42}
+!45 = !{!46, !47, i64 0}
+!46 = !{!"_ZTSN2cv7MatExprE", !47, i64 0, !19, i64 8, !18, i64 16, !18, i64 112, !18, i64 208, !48, i64 304, !48, i64 312, !49, i64 320}
+!47 = !{!"p1 _ZTSN2cv5MatOpE", !6, i64 0}
+!48 = !{!"double", !7, i64 0}
+!49 = !{!"_ZTSN2cv7Scalar_IdEE", !50, i64 0}
+!50 = !{!"_ZTSN2cv3VecIdLi4EEE", !51, i64 0}
+!51 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !7, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"vtable pointer", !8, i64 0}
 !54 = distinct !{!54, !40}
+!55 = distinct !{!55, !40, !42}

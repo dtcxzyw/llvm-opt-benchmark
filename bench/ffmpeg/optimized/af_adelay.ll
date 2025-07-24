@@ -1071,7 +1071,7 @@ define internal void @delay_channel_s16p(ptr noundef captures(none) %0, i32 noun
   %.140 = phi ptr [ %33, %23 ], [ %43, %36 ]
   %.1 = phi i32 [ %35, %23 ], [ %41, %36 ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !85
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge.split.us, %4
   ret void
@@ -1212,10 +1212,10 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
   %13 = getelementptr inbounds nuw i32, ptr %6, i64 %spec.select.us53
-  %14 = load i32, ptr %13, align 4, !tbaa !87
-  store i32 %14, ptr %.04150.us, align 4, !tbaa !87
-  %15 = load i32, ptr %.03951.us, align 4, !tbaa !87
-  store i32 %15, ptr %13, align 4, !tbaa !87
+  %14 = load i32, ptr %13, align 4, !tbaa !88
+  store i32 %14, ptr %.04150.us, align 4, !tbaa !88
+  %15 = load i32, ptr %.03951.us, align 4, !tbaa !88
+  store i32 %15, ptr %13, align 4, !tbaa !88
   %16 = add nsw i32 %.052.us, -1
   %17 = add i64 %spec.select.us53, 1
   %18 = getelementptr inbounds nuw i8, ptr %.03951.us, i64 4
@@ -1223,7 +1223,7 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %.not48.us = icmp ult i64 %17, %10
   %spec.select.us = select i1 %.not48.us, i64 %17, i64 0
   %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !88
+  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !89
 
 ._crit_edge.split.us:                             ; preds = %12
   store i64 %spec.select.us, ptr %8, align 8, !tbaa !80
@@ -1260,10 +1260,10 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i32, ptr %6, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !87
-  store i32 %39, ptr %.04150, align 4, !tbaa !87
-  %40 = load i32, ptr %.03951, align 4, !tbaa !87
-  store i32 %40, ptr %38, align 4, !tbaa !87
+  %39 = load i32, ptr %38, align 4, !tbaa !88
+  store i32 %39, ptr %.04150, align 4, !tbaa !88
+  %40 = load i32, ptr %.03951, align 4, !tbaa !88
+  store i32 %40, ptr %38, align 4, !tbaa !88
   %41 = add nsw i32 %.052, -1
   %42 = add i64 %37, 1
   %43 = getelementptr inbounds nuw i8, ptr %.03951, i64 4
@@ -1279,7 +1279,7 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %.140 = phi ptr [ %33, %23 ], [ %43, %36 ]
   %.1 = phi i32 [ %35, %23 ], [ %41, %36 ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !89
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge.split.us, %4
   ret void
@@ -1431,7 +1431,7 @@ define internal void @delay_channel_fltp(ptr noundef captures(none) %0, i32 noun
   %.not48.us = icmp ult i64 %17, %10
   %spec.select.us = select i1 %.not48.us, i64 %17, i64 0
   %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !90
+  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !91
 
 ._crit_edge.split.us:                             ; preds = %12
   store i64 %spec.select.us, ptr %8, align 8, !tbaa !80
@@ -1487,7 +1487,7 @@ define internal void @delay_channel_fltp(ptr noundef captures(none) %0, i32 noun
   %.140 = phi ptr [ %33, %23 ], [ %43, %36 ]
   %.1 = phi i32 [ %35, %23 ], [ %41, %36 ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge.split.us, %4
   ret void
@@ -1628,10 +1628,10 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
   %13 = getelementptr inbounds nuw double, ptr %6, i64 %spec.select.us53
-  %14 = load double, ptr %13, align 8, !tbaa !92
-  store double %14, ptr %.04150.us, align 8, !tbaa !92
-  %15 = load double, ptr %.03951.us, align 8, !tbaa !92
-  store double %15, ptr %13, align 8, !tbaa !92
+  %14 = load double, ptr %13, align 8, !tbaa !93
+  store double %14, ptr %.04150.us, align 8, !tbaa !93
+  %15 = load double, ptr %.03951.us, align 8, !tbaa !93
+  store double %15, ptr %13, align 8, !tbaa !93
   %16 = add nsw i32 %.052.us, -1
   %17 = add i64 %spec.select.us53, 1
   %18 = getelementptr inbounds nuw i8, ptr %.03951.us, i64 8
@@ -1639,7 +1639,7 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %.not48.us = icmp ult i64 %17, %10
   %spec.select.us = select i1 %.not48.us, i64 %17, i64 0
   %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !94
+  br i1 %.not.us, label %._crit_edge.split.us, label %12, !llvm.loop !95
 
 ._crit_edge.split.us:                             ; preds = %12
   store i64 %spec.select.us, ptr %8, align 8, !tbaa !80
@@ -1676,10 +1676,10 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw double, ptr %6, i64 %37
-  %39 = load double, ptr %38, align 8, !tbaa !92
-  store double %39, ptr %.04150, align 8, !tbaa !92
-  %40 = load double, ptr %.03951, align 8, !tbaa !92
-  store double %40, ptr %38, align 8, !tbaa !92
+  %39 = load double, ptr %38, align 8, !tbaa !93
+  store double %39, ptr %.04150, align 8, !tbaa !93
+  %40 = load double, ptr %.03951, align 8, !tbaa !93
+  store double %40, ptr %38, align 8, !tbaa !93
   %41 = add nsw i32 %.052, -1
   %42 = add i64 %37, 1
   %43 = getelementptr inbounds nuw i8, ptr %.03951, i64 8
@@ -1695,7 +1695,7 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %.140 = phi ptr [ %33, %23 ], [ %43, %36 ]
   %.1 = phi i32 [ %35, %23 ], [ %41, %36 ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !95
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge.split.us, %4
   ret void
@@ -1855,7 +1855,7 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %3, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1864,7 +1864,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %12 = load i32, ptr %11, align 8, !tbaa !97
+  %12 = load i32, ptr %11, align 8, !tbaa !98
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %16
 
@@ -1950,7 +1950,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %62 = load i32, ptr %35, align 8, !tbaa !25
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %43, label %._crit_edge, !llvm.loop !98
+  br i1 %64, label %43, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %61, %33
   %65 = load i64, ptr %27, align 8, !tbaa !53
@@ -2103,18 +2103,19 @@ attributes #12 = { nounwind willreturn memory(none) }
 !81 = distinct !{!81, !27}
 !82 = !{!83, !83, i64 0}
 !83 = !{!"short", !8, i64 0}
-!84 = distinct !{!84, !27}
-!85 = distinct !{!85, !27, !86}
-!86 = !{!"llvm.loop.unswitch.partial.disable"}
-!87 = !{!15, !15, i64 0}
-!88 = distinct !{!88, !27}
-!89 = distinct !{!89, !27, !86}
-!90 = distinct !{!90, !27}
-!91 = distinct !{!91, !27, !86}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"double", !8, i64 0}
-!94 = distinct !{!94, !27}
-!95 = distinct !{!95, !27, !86}
-!96 = !{!24, !24, i64 0}
-!97 = !{!5, !15, i64 128}
-!98 = distinct !{!98, !27}
+!84 = distinct !{!84, !27, !85}
+!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!86 = distinct !{!86, !27, !87}
+!87 = !{!"llvm.loop.unswitch.partial.disable"}
+!88 = !{!15, !15, i64 0}
+!89 = distinct !{!89, !27, !85}
+!90 = distinct !{!90, !27, !87}
+!91 = distinct !{!91, !27, !85}
+!92 = distinct !{!92, !27, !87}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"double", !8, i64 0}
+!95 = distinct !{!95, !27, !85}
+!96 = distinct !{!96, !27, !87}
+!97 = !{!24, !24, i64 0}
+!98 = !{!5, !15, i64 128}
+!99 = distinct !{!99, !27}

@@ -293,12 +293,12 @@ define internal void @ps_hybrid_synthesis_deint_c(ptr noundef writeonly captures
   store i32 %14, ptr %15, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %9
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 64
-  br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !29
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret void
@@ -333,7 +333,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   store i32 %20, ptr %21, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !30
 
 22:                                               ; preds = %.lr.ph, %102
   %indvars.iv88 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next89, %102 ]
@@ -425,7 +425,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   store i32 %100, ptr %101, align 4, !tbaa !15
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 3
-  br i1 %exitcond87.not, label %102, label %47, !llvm.loop !30
+  br i1 %exitcond87.not, label %102, label %47, !llvm.loop !31
 
 102:                                              ; preds = %47
   %103 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv88
@@ -447,7 +447,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   store i32 %116, ptr %117, align 4, !tbaa !15
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
-  br i1 %exitcond91.not, label %._crit_edge, label %22, !llvm.loop !31
+  br i1 %exitcond91.not, label %._crit_edge, label %22, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %102, %.preheader
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #3
@@ -533,7 +533,7 @@ define internal void @ps_stereo_interpolate_c(ptr noundef captures(none) %0, ptr
   store i32 %64, ptr %27, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -662,7 +662,7 @@ define internal void @ps_stereo_interpolate_ipdopd_c(ptr noundef captures(none) 
   store i32 %98, ptr %43, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -707,11 +707,12 @@ attributes #3 = { nounwind }
 !23 = distinct !{!23, !18}
 !24 = distinct !{!24, !18}
 !25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
+!26 = distinct !{!26, !18, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !18}
-!29 = distinct !{!29, !18}
+!29 = distinct !{!29, !18, !27}
 !30 = distinct !{!30, !18}
 !31 = distinct !{!31, !18}
 !32 = distinct !{!32, !18}
 !33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}

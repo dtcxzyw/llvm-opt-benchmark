@@ -1102,7 +1102,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %197 = add nsw i32 %.030.i, %.162110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %162, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %162, !llvm.loop !29
 
 select.unfold:                                    ; preds = %194, %192, %186, %182, %178, %180
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %11) #8
@@ -1119,7 +1119,7 @@ do_esc_char.exit94.thread:                        ; preds = %65, %91, %93, %95, 
   %.162.lcssa = phi i32 [ %.061113, %157 ], [ %197, %196 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13) #8
   %.not69 = icmp eq ptr %.157, %15
-  br i1 %.not69, label %.loopexit, label %.lr.ph116.split.split, !llvm.loop !27
+  br i1 %.not69, label %.loopexit, label %.lr.ph116.split.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %150, %.critedge, %29, %115, %23, %.lr.ph116, %do_esc_char.exit94.thread, %select.unfold, %22, %19
   %.0 = phi i32 [ -1, %select.unfold ], [ -1, %19 ], [ -1, %22 ], [ -1, %do_esc_char.exit94.thread ], [ 0, %23 ], [ -1, %.lr.ph116 ], [ -1, %29 ], [ %116, %115 ], [ -1, %150 ], [ %.162.lcssa, %.critedge ]
@@ -1193,5 +1193,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !24 = !{!15, !15, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"short", !8, i64 0}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
+!27 = distinct !{!27, !4, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}

@@ -1079,7 +1079,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 ._crit_edge.us74:                                 ; preds = %20
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit, label %.preheader.us
+  br i1 %exitcond98.not, label %.loopexit, label %.preheader.us, !llvm.loop !75
 
 37:                                               ; preds = %14
   %38 = sext i32 %1 to i64
@@ -1123,7 +1123,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 55:                                               ; preds = %._crit_edge.us
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge68, label %.preheader65.us
+  br i1 %exitcond88.not, label %._crit_edge68, label %.preheader65.us, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %44
   %56 = load ptr, ptr %3, align 8, !tbaa !71
@@ -1237,7 +1237,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 ._crit_edge.us70:                                 ; preds = %29
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.us
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !78
 
 42:                                               ; preds = %13
   %43 = sext i32 %1 to i64
@@ -1274,7 +1274,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 54:                                               ; preds = %._crit_edge.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge63, label %.preheader60.us
+  br i1 %exitcond84.not, label %._crit_edge63, label %.preheader60.us, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %48
   %55 = load ptr, ptr %4, align 8, !tbaa !71
@@ -1976,3 +1976,8 @@ attributes #13 = { nounwind }
 !72 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
 !73 = !{!74, !74, i64 0}
 !74 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
+!75 = distinct !{!75, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !76}
+!78 = distinct !{!78, !76}
+!79 = distinct !{!79, !76}

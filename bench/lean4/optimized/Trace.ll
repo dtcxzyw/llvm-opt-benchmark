@@ -339,7 +339,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #4
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -432,7 +432,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_mixTraceArray___spec__1___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !15
+  %.val = load i64, ptr %6, align 8, !tbaa !17
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -458,7 +458,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_mixTraceArray___spec__1___rarg__
 
 lean_dec.exit11:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %3, i64 8
-  %.val16 = load i64, ptr %16, align 8, !tbaa !15
+  %.val16 = load i64, ptr %16, align 8, !tbaa !17
   %17 = ptrtoint ptr %3 to i64
   %18 = and i64 %17, 1
   %.not17 = icmp eq i64 %18, 0
@@ -515,7 +515,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 define ptr @l_Lake_mixTraceArray___rarg(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %3 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !15
+  %.val = load i64, ptr %3, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit24, label %lean_dec.exit
@@ -580,7 +580,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_mixTraceArray___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %2, i64 8
-  %.val.i = load i64, ptr %4, align 8, !tbaa !15
+  %.val.i = load i64, ptr %4, align 8, !tbaa !17
   %.mask.i = and i64 %.val.i, 9223372036854775807
   %.not.i5 = icmp eq i64 %.mask.i, 0
   br i1 %.not.i5, label %lean_dec.exit24.i, label %lean_dec.exit.i
@@ -2054,7 +2054,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit59
   store i32 1, ptr %83, align 4, !tbaa !4
   store i32 16, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i64 %6, ptr %87, align 8, !tbaa !15
+  store i64 %6, ptr %87, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %88 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %89 = icmp eq ptr %88, null
@@ -2069,7 +2069,7 @@ lean_box_usize.exit97:                            ; preds = %lean_box_usize.exit
   store i32 1, ptr %88, align 4, !tbaa !4
   store i32 16, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store i64 %7, ptr %92, align 8, !tbaa !15
+  store i64 %7, ptr %92, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %93 = tail call noalias ptr @mi_malloc_small(i64 noundef 80) #4
   %94 = icmp eq ptr %93, null
@@ -2311,7 +2311,7 @@ lean_dec.exit:                                    ; preds = %180, %179, %177, %l
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayTrace___spec__1___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val15 = load i64, ptr %9, align 8, !tbaa !15
+  %.val15 = load i64, ptr %9, align 8, !tbaa !17
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -2337,7 +2337,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayTrace___spec__1___ra
 
 lean_dec.exit12:                                  ; preds = %18, %17, %15, %8
   %19 = getelementptr i8, ptr %6, i64 8
-  %.val = load i64, ptr %19, align 8, !tbaa !15
+  %.val = load i64, ptr %19, align 8, !tbaa !17
   %20 = ptrtoint ptr %6 to i64
   %21 = and i64 %20, 1
   %.not16 = icmp eq i64 %21, 0
@@ -2394,7 +2394,7 @@ lean_alloc_closure.exit:                          ; preds = %3
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayTrace___spec__1___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr i8, ptr %6, i64 8
-  %.val16 = load i64, ptr %10, align 8, !tbaa !15
+  %.val16 = load i64, ptr %10, align 8, !tbaa !17
   %11 = ptrtoint ptr %6 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
@@ -2420,7 +2420,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayTrace___spec__1___ra
 
 lean_dec.exit13:                                  ; preds = %19, %18, %16, %9
   %20 = getelementptr i8, ptr %7, i64 8
-  %.val = load i64, ptr %20, align 8, !tbaa !15
+  %.val = load i64, ptr %20, align 8, !tbaa !17
   %21 = ptrtoint ptr %7 to i64
   %22 = and i64 %21, 1
   %.not17 = icmp eq i64 %22, 0
@@ -2453,7 +2453,7 @@ lean_dec.exit:                                    ; preds = %29, %28, %26, %lean
 define ptr @l_Lake_computeArrayTrace___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
 lean_nat_lt.exit:
   %7 = getelementptr i8, ptr %6, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !15
+  %.val = load i64, ptr %7, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit62, label %lean_dec.exit
@@ -2888,7 +2888,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit53
   store i32 1, ptr %72, align 4, !tbaa !4
   store i32 16, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i64 %4, ptr %76, align 8, !tbaa !15
+  store i64 %4, ptr %76, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %77 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %78 = icmp eq ptr %77, null
@@ -2903,7 +2903,7 @@ lean_box_usize.exit84:                            ; preds = %lean_box_usize.exit
   store i32 1, ptr %77, align 4, !tbaa !4
   store i32 16, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i64 %5, ptr %81, align 8, !tbaa !15
+  store i64 %5, ptr %81, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %82 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #4
   %83 = icmp eq ptr %82, null
@@ -3119,7 +3119,7 @@ lean_dec.exit:                                    ; preds = %159, %158, %156, %l
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instComputeTraceArrayOfMonad___spec__2___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val14 = load i64, ptr %8, align 8, !tbaa !15
+  %.val14 = load i64, ptr %8, align 8, !tbaa !17
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -3145,7 +3145,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instComputeTraceArrayOfMonad___s
 
 lean_dec.exit11:                                  ; preds = %17, %16, %14, %7
   %18 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %18, align 8, !tbaa !15
+  %.val = load i64, ptr %18, align 8, !tbaa !17
   %19 = ptrtoint ptr %5 to i64
   %20 = and i64 %19, 1
   %.not15 = icmp eq i64 %20, 0
@@ -3202,7 +3202,7 @@ lean_alloc_closure.exit:                          ; preds = %3
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instComputeTraceArrayOfMonad___spec__2___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr i8, ptr %4, i64 8
-  %.val14 = load i64, ptr %8, align 8, !tbaa !15
+  %.val14 = load i64, ptr %8, align 8, !tbaa !17
   %9 = ptrtoint ptr %4 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -3228,7 +3228,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instComputeTraceArrayOfMonad___s
 
 lean_dec.exit11:                                  ; preds = %17, %16, %14, %7
   %18 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %18, align 8, !tbaa !15
+  %.val = load i64, ptr %18, align 8, !tbaa !17
   %19 = ptrtoint ptr %5 to i64
   %20 = and i64 %19, 1
   %.not15 = icmp eq i64 %20, 0
@@ -3261,7 +3261,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 define ptr @l_Lake_computeArrayTrace___at_Lake_instComputeTraceArrayOfMonad___spec__1___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
 lean_nat_lt.exit:
   %5 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !15
+  %.val = load i64, ptr %5, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit57, label %lean_dec.exit
@@ -3538,7 +3538,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_beqHash____x40_Lake_Build_Trace___hyg_4
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lake_beqHash____x40_Lake_Build_Trace___hyg_466____boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !15
+  %.val = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -3564,7 +3564,7 @@ define nonnull ptr @l_Lake_beqHash____x40_Lake_Build_Trace___hyg_466____boxed(pt
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %2
   %13 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %13, align 8, !tbaa !15
+  %.val10 = load i64, ptr %13, align 8, !tbaa !17
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, 1
   %.not11 = icmp eq i64 %15, 0
@@ -3605,7 +3605,7 @@ define zeroext range(i8 0, 2) i8 @l___private_Lake_Build_Trace_0__Lake_decEqHash
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l___private_Lake_Build_Trace_0__Lake_decEqHash____x40_Lake_Build_Trace___hyg_524____boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %3, align 8, !tbaa !15
+  %.val10 = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -3631,7 +3631,7 @@ define nonnull ptr @l___private_Lake_Build_Trace_0__Lake_decEqHash____x40_Lake_B
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %2
   %13 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %13, align 8, !tbaa !15
+  %.val = load i64, ptr %13, align 8, !tbaa !17
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, 1
   %.not11 = icmp eq i64 %15, 0
@@ -3672,7 +3672,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqHash(i64 noundef %0, i64
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lake_instDecidableEqHash___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %3, align 8, !tbaa !15
+  %.val10 = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -3698,7 +3698,7 @@ define nonnull ptr @l_Lake_instDecidableEqHash___boxed(ptr noundef %0, ptr nound
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %2
   %13 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %13, align 8, !tbaa !15
+  %.val = load i64, ptr %13, align 8, !tbaa !17
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, 1
   %.not11 = icmp eq i64 %15, 0
@@ -3792,7 +3792,7 @@ lean_alloc_ctor.exit32:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit33:                           ; preds = %lean_alloc_ctor.exit32
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 0, ptr %27, align 8, !tbaa !15
+  store i64 0, ptr %27, align 8, !tbaa !17
   store i32 1, ptr %23, align 4, !tbaa !4
   store i32 100728856, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3881,7 +3881,7 @@ lean_alloc_ctor.exit37:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit39:                           ; preds = %lean_alloc_ctor.exit37
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 0, ptr %61, align 8, !tbaa !15
+  store i64 0, ptr %61, align 8, !tbaa !17
   store i32 1, ptr %57, align 4, !tbaa !4
   store i32 100728856, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -3894,7 +3894,7 @@ declare ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l___private_Lake_Build_Trace_0__Lake_reprHash____x40_Lake_Build_Trace___hyg_614____boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !15
+  %.val = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -4013,7 +4013,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %14, align 4, !tbaa !4
   store i32 16, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %13, ptr %18, align 8, !tbaa !15
+  store i64 %13, ptr %18, align 8, !tbaa !17
   ret ptr %14
 }
 
@@ -4021,7 +4021,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
 define ptr @l_Lake_Hash_ofString_x3f(ptr noundef %0) local_unnamed_addr #0 {
 lean_nat_eq.exit:
   %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %1, align 8, !tbaa !15
+  %.val = load i64, ptr %1, align 8, !tbaa !17
   %2 = shl i64 %.val, 1
   %3 = add i64 %2, -1
   %4 = inttoptr i64 %3 to ptr
@@ -4079,7 +4079,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit24
   store i32 1, ptr %21, align 4, !tbaa !4
   store i32 16, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %20, ptr %25, align 8, !tbaa !15
+  store i64 %20, ptr %25, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %26 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %27 = icmp eq ptr %26, null
@@ -4461,7 +4461,7 @@ declare i64 @lean_uint64_mix_hash(i64 noundef, i64 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lake_Hash_mix___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %3, align 8, !tbaa !15
+  %.val10 = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -4487,7 +4487,7 @@ define noalias nonnull ptr @l_Lake_Hash_mix___boxed(ptr noundef %0, ptr noundef 
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %2
   %13 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %13, align 8, !tbaa !15
+  %.val = load i64, ptr %13, align 8, !tbaa !17
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, 1
   %.not11 = icmp eq i64 %15, 0
@@ -4527,7 +4527,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %24, align 4, !tbaa !4
   store i32 16, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %23, ptr %28, align 8, !tbaa !15
+  store i64 %23, ptr %28, align 8, !tbaa !17
   ret ptr %24
 }
 
@@ -4555,7 +4555,7 @@ lean_uint64_to_nat.exit:                          ; preds = %3, %7
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_Hash_toString___boxed(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !15
+  %.val = load i64, ptr %2, align 8, !tbaa !17
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
@@ -4650,7 +4650,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %13, align 4, !tbaa !4
   store i32 16, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %3, ptr %17, align 8, !tbaa !15
+  store i64 %3, ptr %17, align 8, !tbaa !17
   ret ptr %13
 }
 
@@ -4703,7 +4703,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %12, align 4, !tbaa !4
   store i32 16, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %2, ptr %16, align 8, !tbaa !15
+  store i64 %2, ptr %16, align 8, !tbaa !17
   ret ptr %12
 }
 
@@ -4757,7 +4757,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %11, align 4, !tbaa !4
   store i32 16, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %..i, ptr %17, align 8, !tbaa !15
+  store i64 %..i, ptr %17, align 8, !tbaa !17
   ret ptr %11
 }
 
@@ -4787,7 +4787,7 @@ declare ptr @l_Lean_bignumToJson(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_Hash_toJson___boxed(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !15
+  %.val = load i64, ptr %2, align 8, !tbaa !17
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
@@ -5228,7 +5228,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit43
   store i32 1, ptr %28, align 4, !tbaa !4
   store i32 16, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %18, ptr %32, align 8, !tbaa !15
+  store i64 %18, ptr %32, align 8, !tbaa !17
   store ptr %28, ptr %15, align 8, !tbaa !9
   br label %113
 
@@ -5340,7 +5340,7 @@ lean_box_uint64.exit57:                           ; preds = %lean_dec.exit41
   store i32 1, ptr %67, align 4, !tbaa !4
   store i32 16, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %59, ptr %71, align 8, !tbaa !15
+  store i64 %59, ptr %71, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %72 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %73 = icmp eq ptr %72, null
@@ -5591,7 +5591,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit58
   store i32 1, ptr %40, align 4, !tbaa !4
   store i32 16, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %39, ptr %44, align 8, !tbaa !15
+  store i64 %39, ptr %44, align 8, !tbaa !17
   store ptr %40, ptr %15, align 8, !tbaa !9
   br label %137
 
@@ -5730,7 +5730,7 @@ lean_box_uint64.exit77:                           ; preds = %lean_dec.exit55
   store i32 1, ptr %91, align 4, !tbaa !4
   store i32 16, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 %90, ptr %95, align 8, !tbaa !15
+  store i64 %90, ptr %95, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %96 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %97 = icmp eq ptr %96, null
@@ -6272,7 +6272,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   store i32 1, ptr %41, align 4, !tbaa !4
   store i32 16, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %40, ptr %45, align 8, !tbaa !15
+  store i64 %40, ptr %45, align 8, !tbaa !17
   %46 = tail call ptr @lean_apply_2(ptr noundef %24, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %41) #4
   ret ptr %46
 }
@@ -6382,7 +6382,7 @@ lean_box_uint64.exit:                             ; preds = %lean_inc.exit51
   store i32 1, ptr %38, align 4, !tbaa !4
   store i32 16, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i64 %5, ptr %42, align 8, !tbaa !15
+  store i64 %5, ptr %42, align 8, !tbaa !17
   %43 = ptrtoint ptr %1 to i64
   %44 = and i64 %43, 1
   %.not89 = icmp eq i64 %44, 0
@@ -6466,7 +6466,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit49
   store i32 1, ptr %67, align 4, !tbaa !4
   store i32 16, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %3, ptr %71, align 8, !tbaa !15
+  store i64 %3, ptr %71, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %72 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %73 = icmp eq ptr %72, null
@@ -6481,7 +6481,7 @@ lean_box_usize.exit73:                            ; preds = %lean_box_usize.exit
   store i32 1, ptr %72, align 4, !tbaa !4
   store i32 16, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i64 %4, ptr %76, align 8, !tbaa !15
+  store i64 %4, ptr %76, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %77 = tail call noalias ptr @mi_malloc_small(i64 noundef 64) #4
   %78 = icmp eq ptr %77, null
@@ -6674,7 +6674,7 @@ lean_box_uint64.exit81:                           ; preds = %lean_dec.exit
   store i32 1, ptr %145, align 4, !tbaa !4
   store i32 16, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i64 %5, ptr %149, align 8, !tbaa !15
+  store i64 %5, ptr %149, align 8, !tbaa !17
   %150 = tail call ptr @lean_apply_2(ptr noundef %129, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %145) #4
   br label %151
 
@@ -6686,7 +6686,7 @@ lean_box_uint64.exit81:                           ; preds = %lean_dec.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !15
+  %.val10 = load i64, ptr %4, align 8, !tbaa !17
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -6712,7 +6712,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rar
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !15
+  %.val = load i64, ptr %14, align 8, !tbaa !17
   %15 = ptrtoint ptr %2 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -6744,7 +6744,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rarg___lambda__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val18 = load i64, ptr %7, align 8, !tbaa !15
+  %.val18 = load i64, ptr %7, align 8, !tbaa !17
   %8 = ptrtoint ptr %0 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -6770,7 +6770,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rar
 
 lean_dec.exit13:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %17, align 8, !tbaa !15
+  %.val = load i64, ptr %17, align 8, !tbaa !17
   %18 = ptrtoint ptr %4 to i64
   %19 = and i64 %18, 1
   %.not20 = icmp eq i64 %19, 0
@@ -6796,7 +6796,7 @@ lean_dec.exit13:                                  ; preds = %16, %15, %13, %6
 
 lean_dec.exit12:                                  ; preds = %26, %25, %23, %lean_dec.exit13
   %27 = getelementptr i8, ptr %5, i64 8
-  %.val19 = load i64, ptr %27, align 8, !tbaa !15
+  %.val19 = load i64, ptr %27, align 8, !tbaa !17
   %28 = ptrtoint ptr %5 to i64
   %29 = and i64 %28, 1
   %.not21 = icmp eq i64 %29, 0
@@ -6853,7 +6853,7 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %3, i64 8
-  %.val18 = load i64, ptr %7, align 8, !tbaa !15
+  %.val18 = load i64, ptr %7, align 8, !tbaa !17
   %8 = ptrtoint ptr %3 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -6879,7 +6879,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rar
 
 lean_dec.exit13:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %17, align 8, !tbaa !15
+  %.val = load i64, ptr %17, align 8, !tbaa !17
   %18 = ptrtoint ptr %4 to i64
   %19 = and i64 %18, 1
   %.not20 = icmp eq i64 %19, 0
@@ -6905,7 +6905,7 @@ lean_dec.exit13:                                  ; preds = %16, %15, %13, %6
 
 lean_dec.exit12:                                  ; preds = %26, %25, %23, %lean_dec.exit13
   %27 = getelementptr i8, ptr %5, i64 8
-  %.val19 = load i64, ptr %27, align 8, !tbaa !15
+  %.val19 = load i64, ptr %27, align 8, !tbaa !17
   %28 = ptrtoint ptr %5 to i64
   %29 = and i64 %28, 1
   %.not21 = icmp eq i64 %29, 0
@@ -6938,7 +6938,7 @@ lean_dec.exit:                                    ; preds = %36, %35, %33, %lean
 define ptr @l_Lake_computeArrayHash___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 lean_nat_lt.exit:
   %3 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !15
+  %.val = load i64, ptr %3, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit52, label %lean_dec.exit
@@ -7094,7 +7094,7 @@ lean_dec.exit48:                                  ; preds = %57, %56, %54, %lean
   br label %62
 
 lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
-  %60 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
+  %60 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
   %61 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rarg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 0, i64 noundef %.mask, i64 noundef %60)
   br label %62
 
@@ -8712,7 +8712,7 @@ lean_alloc_ctor.exit146:                          ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit147:                          ; preds = %lean_alloc_ctor.exit146
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 0, ptr %39, align 8, !tbaa !15
+  store i64 0, ptr %39, align 8, !tbaa !17
   store i32 1, ptr %35, align 4, !tbaa !4
   store i32 100728856, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -8863,7 +8863,7 @@ lean_alloc_ctor.exit156:                          ; preds = %lean_inc.exit134
 lean_alloc_ctor.exit158:                          ; preds = %lean_alloc_ctor.exit156
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i64 0, ptr %97, align 8, !tbaa !15
+  store i64 0, ptr %97, align 8, !tbaa !17
   store i32 1, ptr %93, align 4, !tbaa !4
   store i32 100728856, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -8977,7 +8977,7 @@ lean_alloc_ctor.exit163:                          ; preds = %lean_alloc_ctor.exi
 
 .thread193:                                       ; preds = %138
   %139 = getelementptr i8, ptr %131, i64 8
-  %.val187190 = load i64, ptr %139, align 8, !tbaa !15
+  %.val187190 = load i64, ptr %139, align 8, !tbaa !17
   br label %lean_dec.exit137
 
 140:                                              ; preds = %138
@@ -8987,13 +8987,13 @@ lean_alloc_ctor.exit163:                          ; preds = %lean_alloc_ctor.exi
 
 lean_inc.exit133:                                 ; preds = %lean_alloc_ctor.exit163
   %141 = getelementptr i8, ptr %131, i64 8
-  %.val = load i64, ptr %141, align 8, !tbaa !15
+  %.val = load i64, ptr %141, align 8, !tbaa !17
   br label %lean_dec.exit137
 
 142:                                              ; preds = %140, %136
   %143 = phi i32 [ %.pr, %140 ], [ %137, %136 ]
   %144 = getelementptr i8, ptr %131, i64 8
-  %.val187 = load i64, ptr %144, align 8, !tbaa !15
+  %.val187 = load i64, ptr %144, align 8, !tbaa !17
   %145 = icmp sgt i32 %143, 1
   br i1 %145, label %146, label %148, !prof !14
 
@@ -9043,7 +9043,7 @@ lean_alloc_ctor.exit167:                          ; preds = %lean_dec.exit137
 lean_alloc_ctor.exit169:                          ; preds = %lean_alloc_ctor.exit167
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  store i64 0, ptr %162, align 8, !tbaa !15
+  store i64 0, ptr %162, align 8, !tbaa !17
   store i32 1, ptr %158, align 4, !tbaa !4
   store i32 100728856, ptr %161, align 4
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -9236,7 +9236,7 @@ lean_alloc_ctor.exit178:                          ; preds = %lean_dec.exit
 lean_alloc_ctor.exit180:                          ; preds = %lean_alloc_ctor.exit178
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 4
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  store i64 0, ptr %233, align 8, !tbaa !15
+  store i64 0, ptr %233, align 8, !tbaa !17
   store i32 1, ptr %229, align 4, !tbaa !4
   store i32 100728856, ptr %232, align 4
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 8
@@ -9324,7 +9324,7 @@ lean_alloc_ctor.exit184:                          ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit186:                          ; preds = %lean_alloc_ctor.exit184
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %266 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  store i64 0, ptr %266, align 8, !tbaa !15
+  store i64 0, ptr %266, align 8, !tbaa !17
   store i32 1, ptr %262, align 4, !tbaa !4
   store i32 100728856, ptr %265, align 4
   %267 = getelementptr inbounds nuw i8, ptr %262, i64 8
@@ -9791,7 +9791,7 @@ lean_dec.exit27:                                  ; preds = %12, %18, %20, %21, 
 define ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1(ptr noundef %0) local_unnamed_addr #0 {
 lean_dec.exit27:
   %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %1, align 8, !tbaa !15
+  %.val = load i64, ptr %1, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %33, label %2
@@ -9866,7 +9866,7 @@ lean_alloc_ctor.exit31:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit32:                           ; preds = %lean_alloc_ctor.exit31
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 1, ptr %31, align 8, !tbaa !15
+  store i64 1, ptr %31, align 8, !tbaa !17
   store i32 1, ptr %27, align 4, !tbaa !4
   store i32 100728856, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -10296,7 +10296,7 @@ lean_box_uint64.exit:                             ; preds = %2
   store i32 1, ptr %5, align 4, !tbaa !4
   store i32 16, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %0, ptr %9, align 8, !tbaa !15
+  store i64 %0, ptr %9, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %10 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %11 = icmp eq ptr %10, null
@@ -10324,7 +10324,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_box_uint64.exi
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lake_BuildTrace_ofHash___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !15
+  %.val = load i64, ptr %3, align 8, !tbaa !17
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -10365,7 +10365,7 @@ lean_box_uint64.exit.i:                           ; preds = %lean_dec.exit
   store i32 1, ptr %15, align 4, !tbaa !4
   store i32 16, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.val, ptr %19, align 8, !tbaa !15
+  store i64 %.val, ptr %19, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %20 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %21 = icmp eq ptr %20, null
@@ -10409,7 +10409,7 @@ lean_box_uint64.exit:                             ; preds = %1
   store i32 1, ptr %5, align 4, !tbaa !4
   store i32 16, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %0, ptr %9, align 8, !tbaa !15
+  store i64 %0, ptr %9, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %10 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %11 = icmp eq ptr %10, null
@@ -10437,7 +10437,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_box_uint64.exi
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lake_BuildTrace_instCoeHash___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !15
+  %.val = load i64, ptr %2, align 8, !tbaa !17
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
@@ -10479,7 +10479,7 @@ lean_box_uint64.exit.i:                           ; preds = %lean_dec.exit
   store i32 1, ptr %15, align 4, !tbaa !4
   store i32 16, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.val, ptr %19, align 8, !tbaa !15
+  store i64 %.val, ptr %19, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %20 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %21 = icmp eq ptr %20, null
@@ -11539,7 +11539,7 @@ lean_dec.exit110:                                 ; preds = %78, %77, %75, %62
 
 lean_dec.exit109:                                 ; preds = %88, %87, %85, %lean_dec.exit110
   %89 = getelementptr i8, ptr %24, i64 8
-  %.val136 = load i64, ptr %89, align 8, !tbaa !15
+  %.val136 = load i64, ptr %89, align 8, !tbaa !17
   br i1 %.not175, label %90, label %lean_dec.exit108
 
 90:                                               ; preds = %lean_dec.exit109
@@ -11562,7 +11562,7 @@ lean_dec.exit109:                                 ; preds = %88, %87, %85, %lean
 
 lean_dec.exit108:                                 ; preds = %96, %95, %93, %lean_dec.exit109
   %97 = getelementptr i8, ptr %65, i64 8
-  %.val135 = load i64, ptr %97, align 8, !tbaa !15
+  %.val135 = load i64, ptr %97, align 8, !tbaa !17
   %98 = ptrtoint ptr %65 to i64
   %99 = and i64 %98, 1
   %.not183 = icmp eq i64 %99, 0
@@ -11679,7 +11679,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit106
   store i32 1, ptr %135, align 4, !tbaa !4
   store i32 16, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i64 %107, ptr %139, align 8, !tbaa !15
+  store i64 %107, ptr %139, align 8, !tbaa !17
   store ptr %34, ptr %66, align 8, !tbaa !9
   store ptr %135, ptr %64, align 8, !tbaa !9
   store ptr %60, ptr %68, align 8, !tbaa !9
@@ -11719,7 +11719,7 @@ lean_box_uint64.exit157:                          ; preds = %lean_dec.exit105
   store i32 1, ptr %147, align 4, !tbaa !4
   store i32 16, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i64 %107, ptr %151, align 8, !tbaa !15
+  store i64 %107, ptr %151, align 8, !tbaa !17
   store ptr %147, ptr %64, align 8, !tbaa !9
   store ptr %60, ptr %68, align 8, !tbaa !9
   store ptr %4, ptr %63, align 8, !tbaa !9
@@ -11800,7 +11800,7 @@ lean_inc.exit92:                                  ; preds = %172, %171, %169, %l
 
 lean_dec.exit104:                                 ; preds = %179, %178, %176, %lean_inc.exit92
   %180 = getelementptr i8, ptr %24, i64 8
-  %.val134 = load i64, ptr %180, align 8, !tbaa !15
+  %.val134 = load i64, ptr %180, align 8, !tbaa !17
   br i1 %.not175, label %181, label %lean_dec.exit103
 
 181:                                              ; preds = %lean_dec.exit104
@@ -11823,7 +11823,7 @@ lean_dec.exit104:                                 ; preds = %179, %178, %176, %l
 
 lean_dec.exit103:                                 ; preds = %187, %186, %184, %lean_dec.exit104
   %188 = getelementptr i8, ptr %154, i64 8
-  %.val = load i64, ptr %188, align 8, !tbaa !15
+  %.val = load i64, ptr %188, align 8, !tbaa !17
   br i1 %.not180, label %189, label %lean_dec.exit102
 
 189:                                              ; preds = %lean_dec.exit103
@@ -11934,7 +11934,7 @@ lean_box_uint64.exit170:                          ; preds = %lean_dec.exit101
   store i32 1, ptr %222, align 4, !tbaa !4
   store i32 16, ptr %225, align 4
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  store i64 %196, ptr %226, align 8, !tbaa !15
+  store i64 %196, ptr %226, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %227 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %228 = icmp eq ptr %227, null
@@ -11991,7 +11991,7 @@ lean_box_uint64.exit171:                          ; preds = %lean_dec.exit
   store i32 1, ptr %242, align 4, !tbaa !4
   store i32 16, ptr %245, align 4
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  store i64 %196, ptr %246, align 8, !tbaa !15
+  store i64 %196, ptr %246, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %247 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #4
   %248 = icmp eq ptr %247, null
@@ -12075,7 +12075,7 @@ lean_inc.exit:                                    ; preds = %15, %14, %12, %5
 
 lean_dec.exit22:                                  ; preds = %24, %23, %21, %lean_inc.exit
   %25 = getelementptr i8, ptr %7, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !15
+  %.val = load i64, ptr %25, align 8, !tbaa !17
   br i1 %.not, label %26, label %lean_dec.exit21
 
 26:                                               ; preds = %lean_dec.exit22
@@ -12204,7 +12204,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_BuildTrace_checkAgainstHash___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !15
+  %.val = load i64, ptr %6, align 8, !tbaa !17
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -12520,7 +12520,7 @@ _init_l___private_Lake_Build_Trace_0__Lake_reprHash____x40_Lake_Build_Trace___hy
   tail call void @lean_mark_persistent(ptr noundef %73) #4
   %74 = load ptr, ptr @l___private_Lake_Build_Trace_0__Lake_reprHash____x40_Lake_Build_Trace___hyg_614____closed__8, align 8, !tbaa !9
   %75 = getelementptr i8, ptr %74, i64 24
-  %.val.i = load i64, ptr %75, align 8, !tbaa !15
+  %.val.i = load i64, ptr %75, align 8, !tbaa !17
   %76 = shl i64 %.val.i, 1
   %77 = or disjoint i64 %76, 1
   %78 = inttoptr i64 %77 to ptr
@@ -12606,8 +12606,8 @@ _init_l_Lake_instReprHash___closed__1.exit:       ; preds = %_init_l___private_L
   %106 = load ptr, ptr @l_Lake_instReprHash___closed__1, align 8, !tbaa !9
   store ptr %106, ptr @l_Lake_instReprHash, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %106) #4
-  store i64 1723, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
-  store i64 1723, ptr @l_Lake_Hash_instNilTrace, align 8, !tbaa !15
+  store i64 1723, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
+  store i64 1723, ptr @l_Lake_Hash_instNilTrace, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %107 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %108 = icmp eq ptr %107, null
@@ -12779,7 +12779,7 @@ _init_l_Lake_instComputeHashFilePathIO___closed__1.exit: ; preds = %_init_l_Lake
   %163 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 0) #4
   store ptr %163, ptr @l_Lake_computeTextFileHash___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %163) #4
-  %164 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
+  %164 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %165 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %166 = icmp eq ptr %165, null
@@ -12794,7 +12794,7 @@ _init_l_Lake_computeArrayHash___rarg___boxed__const__1.exit: ; preds = %_init_l_
   store i32 1, ptr %165, align 4, !tbaa !4
   store i32 16, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store i64 %164, ptr %169, align 8, !tbaa !15
+  store i64 %164, ptr %169, align 8, !tbaa !17
   store ptr %165, ptr @l_Lake_computeArrayHash___rarg___boxed__const__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %165) #4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
@@ -12810,7 +12810,7 @@ _init_l_Lake_computeArrayHash___rarg___boxed__const__1.exit: ; preds = %_init_l_
 _init_l_Lake_MTime_instOfNat___closed__2.exit:    ; preds = %_init_l_Lake_computeArrayHash___rarg___boxed__const__1.exit
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  store i64 0, ptr %174, align 8, !tbaa !15
+  store i64 0, ptr %174, align 8, !tbaa !17
   store i32 1, ptr %170, align 4, !tbaa !4
   store i32 65560, ptr %173, align 4
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -12906,7 +12906,7 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace_
   tail call void @lean_mark_persistent(ptr noundef %203) #4
   %204 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__4, align 8, !tbaa !9
   %205 = getelementptr i8, ptr %204, i64 24
-  %.val.i13 = load i64, ptr %205, align 8, !tbaa !15
+  %.val.i13 = load i64, ptr %205, align 8, !tbaa !17
   %206 = shl i64 %.val.i13, 1
   %207 = or disjoint i64 %206, 1
   %208 = inttoptr i64 %207 to ptr
@@ -13152,7 +13152,7 @@ _init_l_Lake_instReprBuildTrace___closed__1.exit: ; preds = %_init_l___private_L
   %288 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.13, i64 noundef 6, i64 noundef 6) #4
   store ptr %288, ptr @l_Lake_BuildTrace_instCoeHash___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %288) #4
-  %289 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
+  %289 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %290 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %291 = icmp eq ptr %290, null
@@ -13167,13 +13167,13 @@ _init_l_Lake_BuildTrace_ofMTime___boxed__const__1.exit: ; preds = %_init_l_Lake_
   store i32 1, ptr %290, align 4, !tbaa !4
   store i32 16, ptr %293, align 4
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  store i64 %289, ptr %294, align 8, !tbaa !15
+  store i64 %289, ptr %294, align 8, !tbaa !17
   store ptr %290, ptr @l_Lake_BuildTrace_ofMTime___boxed__const__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %290) #4
   %295 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.14, i64 noundef 7, i64 noundef 7) #4
   store ptr %295, ptr @l_Lake_BuildTrace_instCoeMTime___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %295) #4
-  %296 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
+  %296 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %297 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %298 = icmp eq ptr %297, null
@@ -13188,10 +13188,10 @@ _init_l_Lake_BuildTrace_instCoeMTime___boxed__const__1.exit: ; preds = %_init_l_
   store i32 1, ptr %297, align 4, !tbaa !4
   store i32 16, ptr %300, align 4
   %301 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  store i64 %296, ptr %301, align 8, !tbaa !15
+  store i64 %296, ptr %301, align 8, !tbaa !17
   store ptr %297, ptr @l_Lake_BuildTrace_instCoeMTime___boxed__const__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %297) #4
-  %302 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !15
+  %302 = load i64, ptr @l_Lake_Hash_nil, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %303 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %304 = icmp eq ptr %303, null
@@ -13206,7 +13206,7 @@ _init_l_Lake_BuildTrace_nil___boxed__const__1.exit: ; preds = %_init_l_Lake_Buil
   store i32 1, ptr %303, align 4, !tbaa !4
   store i32 16, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store i64 %302, ptr %307, align 8, !tbaa !15
+  store i64 %302, ptr %307, align 8, !tbaa !17
   store ptr %303, ptr @l_Lake_BuildTrace_nil___boxed__const__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %303) #4
   %308 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.15, i64 noundef 5, i64 noundef 5) #4
@@ -13344,5 +13344,7 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!"short", !7, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}

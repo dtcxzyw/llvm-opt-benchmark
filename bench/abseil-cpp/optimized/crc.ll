@@ -104,19 +104,19 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
 35:                                               ; preds = %28, %32, %21
   %36 = lshr i32 %.04754, 1
   %.not50 = icmp samesign ult i32 %.04754, 2
-  br i1 %.not50, label %.preheader.preheader, label %.split, !llvm.loop !8
+  br i1 %.not50, label %.preheader.preheader, label %.split, !llvm.loop !11
 
 .preheader.preheader:                             ; preds = %.split.us, %35
   br label %.preheader
 
 .loopexit:                                        ; preds = %44
   %.not51 = icmp eq i32 %38, 256
-  br i1 %.not51, label %37, label %.preheader, !llvm.loop !10
+  br i1 %.not51, label %37, label %.preheader, !llvm.loop !12
 
 37:                                               ; preds = %.loopexit
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %.not = icmp eq i64 %indvars.iv.next62, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %.04556 = phi i32 [ %38, %.loopexit ], [ 2, %.preheader.preheader ]
@@ -139,7 +139,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   store i32 %49, ptr %50, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not52 = icmp eq i64 %indvars.iv.next, %43
-  br i1 %.not52, label %.loopexit, label %44, !llvm.loop !12
+  br i1 %.not52, label %.loopexit, label %44, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -172,12 +172,12 @@ define dso_local noundef range(i32 -2147483648, 257) i32 @_ZN4absl12crc_internal
   %.1.i = xor i32 %8, %7
   %9 = lshr i32 %.020.i, 1
   %.not.i = icmp ult i32 %.020.i, 2
-  br i1 %.not.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit, label %3, !llvm.loop !13
+  br i1 %.not.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit, label %3, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit: ; preds = %3
   %10 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %10, 3
-  br i1 %exitcond.not, label %.preheader, label %.preheader35, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %.preheader35, !llvm.loop !16
 
 .preheader:                                       ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit, %14
   %.01343 = phi i64 [ %15, %14 ], [ 1, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit ]
@@ -189,12 +189,12 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit: ; preds = %3
 
 12:                                               ; preds = %14
   %13 = icmp sgt i64 %indvars.iv, 255
-  br i1 %13, label %26, label %27, !prof !15
+  br i1 %13, label %26, label %27, !prof !17
 
 14:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24
   %15 = shl i64 %.01343, 4
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %12, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %12, label %.preheader, !llvm.loop !18
 
 16:                                               ; preds = %.preheader, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24 ]
@@ -219,13 +219,13 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit: ; preds = %3
   %.1.i22 = xor i32 %23, %22
   %24 = lshr i32 %.020.i16, 1
   %.not.i23 = icmp ult i32 %.020.i16, 2
-  br i1 %.not.i23, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24, label %18, !llvm.loop !13
+  br i1 %.not.i23, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24, label %18, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24: ; preds = %18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %25 = add nuw nsw i32 %.01240, 1
   %.not15 = icmp eq i32 %25, 16
-  br i1 %.not15, label %14, label %16, !llvm.loop !17
+  br i1 %.not15, label %14, label %16, !llvm.loop !19
 
 26:                                               ; preds = %12
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 117), i32 noundef 160, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
@@ -245,13 +245,13 @@ define dso_local noundef nonnull ptr @_ZN4absl12crc_internal7CRCImpl11NewInterna
   br i1 %2, label %3, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %0
-  %.pre = load ptr, ptr %1, align 8, !tbaa !18
+  %.pre = load ptr, ptr %1, align 8, !tbaa !20
   br label %5
 
 3:                                                ; preds = %0
   %4 = tail call noalias noundef nonnull dereferenceable(8200) ptr @_Znwm(i64 noundef 8200) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8200) %4, i8 0, i64 8200, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4absl12crc_internal5CRC32E, i64 16), ptr %4, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4absl12crc_internal5CRC32E, i64 16), ptr %4, align 8, !tbaa !20
   br label %5
 
 5:                                                ; preds = %._crit_edge, %3
@@ -319,11 +319,11 @@ define dso_local void @_ZN4absl12crc_internal5CRC3210InitTablesEv(ptr noundef no
 18:                                               ; preds = %15, %11, %4
   %19 = lshr i32 %.04754.i, 1
   %.not50.i = icmp samesign ult i32 %.04754.i, 2
-  br i1 %.not50.i, label %.preheader.i, label %.split.i, !llvm.loop !8
+  br i1 %.not50.i, label %.preheader.i, label %.split.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %27
   %.not51.i = icmp eq i32 %21, 256
-  br i1 %.not51.i, label %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader, label %.preheader.i, !llvm.loop !10
+  br i1 %.not51.i, label %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader, label %.preheader.i, !llvm.loop !12
 
 _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds = %.loopexit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -351,7 +351,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
   store i32 %32, ptr %33, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not52.i = icmp eq i64 %indvars.iv.next.i, %26
-  br i1 %.not52.i, label %.loopexit.i, label %27, !llvm.loop !12
+  br i1 %.not52.i, label %.loopexit.i, label %27, !llvm.loop !14
 
 .lr.ph.i39:                                       ; preds = %79, %65
   %indvars.iv61.i40 = phi i64 [ %indvars.iv.next62.i55, %65 ], [ 0, %79 ]
@@ -417,19 +417,19 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
 63:                                               ; preds = %60, %56, %49
   %64 = lshr i32 %.04754.i58, 1
   %.not50.i61 = icmp samesign ult i32 %.04754.i58, 2
-  br i1 %.not50.i61, label %.preheader.i48.preheader, label %.split.i57, !llvm.loop !8
+  br i1 %.not50.i61, label %.preheader.i48.preheader, label %.split.i57, !llvm.loop !11
 
 .preheader.i48.preheader:                         ; preds = %.split.us.i41, %63
   br label %.preheader.i48
 
 .loopexit.i53:                                    ; preds = %72
   %.not51.i54 = icmp eq i32 %66, 256
-  br i1 %.not51.i54, label %65, label %.preheader.i48, !llvm.loop !10
+  br i1 %.not51.i54, label %65, label %.preheader.i48, !llvm.loop !12
 
 65:                                               ; preds = %.loopexit.i53
   %indvars.iv.next62.i55 = add nuw nsw i64 %indvars.iv61.i40, 1
   %.not.i56 = icmp eq i64 %indvars.iv.next62.i55, 4
-  br i1 %.not.i56, label %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader, label %.lr.ph.i39, !llvm.loop !11
+  br i1 %.not.i56, label %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader, label %.lr.ph.i39, !llvm.loop !13
 
 _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; preds = %65
   %scevgep141 = getelementptr inbounds nuw i8, ptr %0, i64 2056
@@ -457,7 +457,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   store i32 %77, ptr %78, align 4, !tbaa !4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %.not52.i52 = icmp eq i64 %indvars.iv.next.i51, %71
-  br i1 %.not52.i52, label %.loopexit.i53, label %72, !llvm.loop !12
+  br i1 %.not52.i52, label %.loopexit.i53, label %72, !llvm.loop !14
 
 79:                                               ; preds = %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader, %79
   %.034131 = phi i32 [ -2097792136, %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader ], [ %85, %79 ]
@@ -470,7 +470,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %85 = xor i32 %84, %80
   %86 = add nuw nsw i64 %.036130, 1
   %exitcond.not = icmp eq i64 %86, 12
-  br i1 %exitcond.not, label %.lr.ph.i39, label %79, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph.i39, label %79, !llvm.loop !22
 
 .preheader35.i:                                   ; preds = %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i
   %.037.i = phi i32 [ %94, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i ], [ 0, %_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader ]
@@ -492,12 +492,12 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %.1.i.i = xor i32 %92, %91
   %93 = lshr i32 %.020.i.i, 1
   %.not.i.i = icmp ult i32 %.020.i.i, 2
-  br i1 %.not.i.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i, label %87, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i, label %87, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i: ; preds = %87
   %94 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %94, 3
-  br i1 %exitcond.not.i, label %.preheader.i63, label %.preheader35.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.preheader.i63, label %.preheader35.i, !llvm.loop !16
 
 .preheader.i63:                                   ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i, %98
   %.01343.i = phi i64 [ %99, %98 ], [ 1, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i ]
@@ -509,12 +509,12 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i: ; preds = %87
 
 96:                                               ; preds = %98
   %97 = icmp sgt i64 %indvars.iv.i64, 255
-  br i1 %97, label %110, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit, !prof !15
+  br i1 %97, label %110, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit, !prof !17
 
 98:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i
   %99 = shl i64 %.01343.i, 4
   %.not.i66 = icmp eq i64 %99, 0
-  br i1 %.not.i66, label %96, label %.preheader.i63, !llvm.loop !16
+  br i1 %.not.i66, label %96, label %.preheader.i63, !llvm.loop !18
 
 100:                                              ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i, %.preheader.i63
   %indvars.iv.i64 = phi i64 [ %95, %.preheader.i63 ], [ %indvars.iv.next.i65, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i ]
@@ -539,13 +539,13 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i: ; preds = %87
   %.1.i22.i = xor i32 %107, %106
   %108 = lshr i32 %.020.i16.i, 1
   %.not.i23.i = icmp ult i32 %.020.i16.i, 2
-  br i1 %.not.i23.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i, label %102, !llvm.loop !13
+  br i1 %.not.i23.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i, label %102, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i: ; preds = %102
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, 1
   %109 = add nuw nsw i32 %.01240.i, 1
   %.not15.i = icmp eq i32 %109, 16
-  br i1 %.not15.i, label %98, label %100, !llvm.loop !17
+  br i1 %.not15.i, label %98, label %100, !llvm.loop !19
 
 110:                                              ; preds = %96
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 117), i32 noundef 160, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
@@ -607,11 +607,11 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
 134:                                              ; preds = %131, %127, %120
   %135 = lshr i32 %.04754.i86, 1
   %.not50.i89 = icmp samesign ult i32 %.04754.i86, 2
-  br i1 %.not50.i89, label %.preheader.i76, label %.split.i85, !llvm.loop !8
+  br i1 %.not50.i89, label %.preheader.i76, label %.split.i85, !llvm.loop !11
 
 .loopexit.i81:                                    ; preds = %142
   %.not51.i82 = icmp eq i32 %136, 256
-  br i1 %.not51.i82, label %.preheader35.i91, label %.preheader.i76, !llvm.loop !10
+  br i1 %.not51.i82, label %.preheader35.i91, label %.preheader.i76, !llvm.loop !12
 
 .preheader.i76:                                   ; preds = %134, %.loopexit.i81
   %.04556.i77 = phi i32 [ %136, %.loopexit.i81 ], [ 2, %134 ]
@@ -634,7 +634,7 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
   store i32 %147, ptr %148, align 4, !tbaa !4
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %.not52.i80 = icmp eq i64 %indvars.iv.next.i79, %141
-  br i1 %.not52.i80, label %.loopexit.i81, label %142, !llvm.loop !12
+  br i1 %.not52.i80, label %.loopexit.i81, label %142, !llvm.loop !14
 
 .preheader35.i91:                                 ; preds = %.loopexit.i81, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102
   %.037.i92 = phi i32 [ %156, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102 ], [ 0, %.loopexit.i81 ]
@@ -656,12 +656,12 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
   %.1.i.i100 = xor i32 %154, %153
   %155 = lshr i32 %.020.i.i94, 1
   %.not.i.i101 = icmp ult i32 %.020.i.i94, 2
-  br i1 %.not.i.i101, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102, label %149, !llvm.loop !13
+  br i1 %.not.i.i101, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102, label %149, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102: ; preds = %149
   %156 = add nuw nsw i32 %.037.i92, 1
   %exitcond.not.i103 = icmp eq i32 %156, 3
-  br i1 %exitcond.not.i103, label %.preheader.i104.preheader, label %.preheader35.i91, !llvm.loop !14
+  br i1 %exitcond.not.i103, label %.preheader.i104.preheader, label %.preheader35.i91, !llvm.loop !16
 
 .preheader.i104.preheader:                        ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 7176
@@ -677,12 +677,12 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102: ; preds = %14
 
 159:                                              ; preds = %161
   %160 = icmp sgt i64 %indvars.iv.i109, 255
-  br i1 %160, label %173, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit124, !prof !15
+  br i1 %160, label %173, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit124, !prof !17
 
 161:                                              ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120
   %162 = shl i64 %.01343.i105, 4
   %.not.i123 = icmp eq i64 %162, 0
-  br i1 %.not.i123, label %159, label %.preheader.i104, !llvm.loop !16
+  br i1 %.not.i123, label %159, label %.preheader.i104, !llvm.loop !18
 
 163:                                              ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120, %.preheader.i104
   %indvars.iv.i109 = phi i64 [ %158, %.preheader.i104 ], [ %indvars.iv.next.i121, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120 ]
@@ -707,13 +707,13 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102: ; preds = %14
   %.1.i22.i118 = xor i32 %170, %169
   %171 = lshr i32 %.020.i16.i112, 1
   %.not.i23.i119 = icmp ult i32 %.020.i16.i112, 2
-  br i1 %.not.i23.i119, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120, label %165, !llvm.loop !13
+  br i1 %.not.i23.i119, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120, label %165, !llvm.loop !15
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120: ; preds = %165
   %indvars.iv.next.i121 = add nsw i64 %indvars.iv.i109, 1
   %172 = add nuw nsw i32 %.01240.i110, 1
   %.not15.i122 = icmp eq i32 %172, 16
-  br i1 %.not15.i122, label %161, label %163, !llvm.loop !17
+  br i1 %.not15.i122, label %161, label %163, !llvm.loop !19
 
 173:                                              ; preds = %159
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 117), i32 noundef 160, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
@@ -1174,7 +1174,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %393 = ptrtoint ptr %.1131 to i64
   %394 = sub i64 %7, %393
   %395 = icmp sgt i64 %394, 256
-  br i1 %395, label %24, label %.preheader136, !llvm.loop !21
+  br i1 %395, label %24, label %.preheader136, !llvm.loop !23
 
 .preheader:                                       ; preds = %401, %.preheader136
   %.pre-phi195 = phi i64 [ %.pre-phi198, %.preheader136 ], [ %495, %401 ]
@@ -1298,7 +1298,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %494 = ptrtoint ptr %493 to i64
   %495 = sub i64 %7, %494
   %496 = icmp ugt i64 %495, 15
-  br i1 %496, label %401, label %.preheader, !llvm.loop !22
+  br i1 %496, label %401, label %.preheader, !llvm.loop !24
 
 497:                                              ; preds = %.lr.ph167, %497
   %.2166 = phi i32 [ %.1123.lcssa, %.lr.ph167 ], [ %519, %497 ]
@@ -1333,7 +1333,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %521 = ptrtoint ptr %520 to i64
   %522 = sub i64 %7, %521
   %523 = icmp ugt i64 %522, 3
-  br i1 %523, label %497, label %._crit_edge, !llvm.loop !23
+  br i1 %523, label %497, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %497, %.preheader
   %.2135.lcssa = phi i32 [ %.1134.lcssa, %.preheader ], [ %.2129164, %497 ]
@@ -1355,7 +1355,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %531 = xor i32 %530, %526
   %532 = add nuw nsw i64 %.02.i, 1
   %exitcond.not.i = icmp eq i64 %532, 4
-  br i1 %exitcond.not.i, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit", label %525, !llvm.loop !24
+  br i1 %exitcond.not.i, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit", label %525, !llvm.loop !26
 
 "_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit": ; preds = %525
   %533 = xor i32 %531, %.2129.lcssa
@@ -1372,7 +1372,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %540 = xor i32 %539, %535
   %541 = add nuw nsw i64 %.02.i38, 1
   %exitcond.not.i40 = icmp eq i64 %541, 4
-  br i1 %exitcond.not.i40, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit41", label %534, !llvm.loop !24
+  br i1 %exitcond.not.i40, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit41", label %534, !llvm.loop !26
 
 "_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit41": ; preds = %534
   %542 = xor i32 %540, %.2126.lcssa
@@ -1389,7 +1389,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %549 = xor i32 %548, %544
   %550 = add nuw nsw i64 %.02.i42, 1
   %exitcond.not.i44 = icmp eq i64 %550, 4
-  br i1 %exitcond.not.i44, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit45", label %543, !llvm.loop !24
+  br i1 %exitcond.not.i44, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit45", label %543, !llvm.loop !26
 
 "_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit45": ; preds = %543
   %551 = xor i32 %549, %.2.lcssa
@@ -1406,7 +1406,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %558 = xor i32 %557, %553
   %559 = add nuw nsw i64 %.02.i46, 1
   %exitcond.not.i48 = icmp eq i64 %559, 4
-  br i1 %exitcond.not.i48, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit49", label %552, !llvm.loop !24
+  br i1 %exitcond.not.i48, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit49", label %552, !llvm.loop !26
 
 "_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit49": ; preds = %552, %4
   %.0130 = phi ptr [ %2, %4 ], [ %.3.lcssa, %552 ]
@@ -1423,7 +1423,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %.4174 = phi ptr [ %.0130, %.lr.ph176 ], [ %563, %561 ]
   %562 = and i32 %.1175, 255
   %563 = getelementptr inbounds nuw i8, ptr %.4174, i64 1
-  %564 = load i8, ptr %.4174, align 1, !tbaa !25
+  %564 = load i8, ptr %.4174, align 1, !tbaa !27
   %565 = zext i8 %564 to i32
   %566 = xor i32 %562, %565
   %567 = zext nneg i32 %566 to i64
@@ -1432,7 +1432,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef n
   %570 = lshr i32 %.1175, 8
   %571 = xor i32 %569, %570
   %.not = icmp eq ptr %563, %5
-  br i1 %.not, label %._crit_edge177, label %561, !llvm.loop !26
+  br i1 %.not, label %._crit_edge177, label %561, !llvm.loop !28
 
 ._crit_edge177:                                   ; preds = %561, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit49"
   %.1.lcssa = phi i32 [ %.0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_3clEjj.exit49" ], [ %571, %561 ]
@@ -1476,11 +1476,11 @@ define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4
   %20 = shl nuw nsw i64 %19, 1
   %21 = shl nuw nsw i64 %19, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
-  store i64 0, ptr %5, align 16, !tbaa !27
-  store i64 %20, ptr %8, align 8, !tbaa !27
-  store i64 %21, ptr %9, align 16, !tbaa !27
+  store i64 0, ptr %5, align 16, !tbaa !29
+  store i64 %20, ptr %8, align 8, !tbaa !29
+  store i64 %21, ptr %9, align 16, !tbaa !29
   %22 = xor i64 %21, %20
-  store i64 %22, ptr %10, align 8, !tbaa !27
+  store i64 %22, ptr %10, align 8, !tbaa !29
   br label %25
 
 23:                                               ; preds = %25
@@ -1495,24 +1495,24 @@ define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4
   %26 = and i32 %.237, 3
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !27
+  %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = lshr i32 %.237, 2
   %31 = and i32 %30, 3
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !27
+  %34 = load i64, ptr %33, align 8, !tbaa !29
   %35 = shl i64 %34, 2
   %36 = lshr i32 %.237, 4
   %37 = and i32 %36, 3
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !27
+  %40 = load i64, ptr %39, align 8, !tbaa !29
   %41 = shl i64 %40, 4
   %42 = lshr i32 %.237, 6
   %43 = and i32 %42, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !27
+  %46 = load i64, ptr %45, align 8, !tbaa !29
   %47 = shl i64 %46, 6
   %48 = xor i64 %29, %.02938
   %49 = xor i64 %48, %35
@@ -1527,14 +1527,14 @@ define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4
   %58 = xor i64 %53, %57
   %59 = add nuw nsw i32 %.039, 8
   %60 = icmp samesign ult i32 %.039, 24
-  br i1 %60, label %25, label %23, !llvm.loop !29
+  br i1 %60, label %25, label %23, !llvm.loop !31
 
 61:                                               ; preds = %23, %12
   %.1 = phi i32 [ %24, %23 ], [ %.03141, %12 ]
   %62 = add nuw nsw i32 %.03240, 15
   %63 = lshr i64 %.03042, 4
   %.not35 = icmp ult i64 %.03042, 16
-  br i1 %.not35, label %11, label %12, !llvm.loop !30
+  br i1 %.not35, label %11, label %12, !llvm.loop !32
 
 64:                                               ; preds = %11, %4
   ret void
@@ -1577,11 +1577,11 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr nou
   %20 = shl nuw nsw i64 %19, 1
   %21 = shl nuw nsw i64 %19, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
-  store i64 0, ptr %4, align 16, !tbaa !27
-  store i64 %20, ptr %8, align 8, !tbaa !27
-  store i64 %21, ptr %9, align 16, !tbaa !27
+  store i64 0, ptr %4, align 16, !tbaa !29
+  store i64 %20, ptr %8, align 8, !tbaa !29
+  store i64 %21, ptr %9, align 16, !tbaa !29
   %22 = xor i64 %21, %20
-  store i64 %22, ptr %10, align 8, !tbaa !27
+  store i64 %22, ptr %10, align 8, !tbaa !29
   br label %25
 
 23:                                               ; preds = %25
@@ -1596,24 +1596,24 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr nou
   %26 = and i32 %.237.i, 3
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !27
+  %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = lshr i32 %.237.i, 2
   %31 = and i32 %30, 3
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !27
+  %34 = load i64, ptr %33, align 8, !tbaa !29
   %35 = shl i64 %34, 2
   %36 = lshr i32 %.237.i, 4
   %37 = and i32 %36, 3
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !27
+  %40 = load i64, ptr %39, align 8, !tbaa !29
   %41 = shl i64 %40, 4
   %42 = lshr i32 %.237.i, 6
   %43 = and i32 %42, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !27
+  %46 = load i64, ptr %45, align 8, !tbaa !29
   %47 = shl i64 %46, 6
   %48 = xor i64 %29, %.02938.i
   %49 = xor i64 %48, %35
@@ -1628,14 +1628,14 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr nou
   %58 = xor i64 %53, %57
   %59 = add nuw nsw i32 %.039.i, 8
   %60 = icmp samesign ult i32 %.039.i, 24
-  br i1 %60, label %25, label %23, !llvm.loop !29
+  br i1 %60, label %25, label %23, !llvm.loop !31
 
 61:                                               ; preds = %23, %12
   %.1.i = phi i32 [ %24, %23 ], [ %.03141.i, %12 ]
   %62 = add nuw nsw i32 %.03240.i, 15
   %63 = lshr i64 %.03042.i, 4
   %.not35.i = icmp ult i64 %.03042.i, 16
-  br i1 %.not35.i, label %11, label %12, !llvm.loop !30
+  br i1 %.not35.i, label %11, label %12, !llvm.loop !32
 
 _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %3, %11
   ret void
@@ -1676,11 +1676,11 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %20 = shl nuw nsw i64 %19, 1
   %21 = shl nuw nsw i64 %19, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
-  store i64 0, ptr %4, align 16, !tbaa !27
-  store i64 %20, ptr %9, align 8, !tbaa !27
-  store i64 %21, ptr %10, align 16, !tbaa !27
+  store i64 0, ptr %4, align 16, !tbaa !29
+  store i64 %20, ptr %9, align 8, !tbaa !29
+  store i64 %21, ptr %10, align 16, !tbaa !29
   %22 = xor i64 %21, %20
-  store i64 %22, ptr %11, align 8, !tbaa !27
+  store i64 %22, ptr %11, align 8, !tbaa !29
   br label %25
 
 23:                                               ; preds = %25
@@ -1695,24 +1695,24 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %26 = and i32 %.237.i, 3
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !27
+  %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = lshr i32 %.237.i, 2
   %31 = and i32 %30, 3
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !27
+  %34 = load i64, ptr %33, align 8, !tbaa !29
   %35 = shl i64 %34, 2
   %36 = lshr i32 %.237.i, 4
   %37 = and i32 %36, 3
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !27
+  %40 = load i64, ptr %39, align 8, !tbaa !29
   %41 = shl i64 %40, 4
   %42 = lshr i32 %.237.i, 6
   %43 = and i32 %42, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !27
+  %46 = load i64, ptr %45, align 8, !tbaa !29
   %47 = shl i64 %46, 6
   %48 = xor i64 %29, %.02938.i
   %49 = xor i64 %48, %35
@@ -1727,14 +1727,14 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %58 = xor i64 %53, %57
   %59 = add nuw nsw i32 %.039.i, 8
   %60 = icmp samesign ult i32 %.039.i, 24
-  br i1 %60, label %25, label %23, !llvm.loop !29
+  br i1 %60, label %25, label %23, !llvm.loop !31
 
 61:                                               ; preds = %23, %12
   %.1.i = phi i32 [ %24, %23 ], [ %.03141.i, %12 ]
   %62 = add nuw nsw i32 %.03240.i, 15
   %63 = lshr i64 %.03042.i, 4
   %.not35.i = icmp ult i64 %.03042.i, 16
-  br i1 %.not35.i, label %_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit, label %12, !llvm.loop !30
+  br i1 %.not35.i, label %_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit, label %12, !llvm.loop !32
 
 _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %61, %3
   %64 = phi i32 [ %6, %3 ], [ %.1.i, %61 ]
@@ -1772,7 +1772,7 @@ declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4absl12crc_internal3CRCE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4absl12crc_internal3CRCE, i64 16), ptr %0, align 8, !tbaa !20
   ret void
 }
 
@@ -1780,7 +1780,7 @@ define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr noundef nonnull writeo
 define dso_local noundef ptr @_ZN4absl12crc_internal3CRC6Crc32cEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN4absl12crc_internal3CRC6Crc32cEvE9singleton acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %8, !prof !31
+  br i1 %2, label %3, label %8, !prof !33
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl12crc_internal3CRC6Crc32cEvE9singleton) #20
@@ -1792,12 +1792,12 @@ define dso_local noundef ptr @_ZN4absl12crc_internal3CRC6Crc32cEv() local_unname
           to label %7 unwind label %10
 
 7:                                                ; preds = %5
-  store ptr %6, ptr @_ZZN4absl12crc_internal3CRC6Crc32cEvE9singleton, align 8, !tbaa !32
+  store ptr %6, ptr @_ZZN4absl12crc_internal3CRC6Crc32cEvE9singleton, align 8, !tbaa !34
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl12crc_internal3CRC6Crc32cEvE9singleton) #20
   br label %8
 
 8:                                                ; preds = %7, %3, %0
-  %9 = load ptr, ptr @_ZZN4absl12crc_internal3CRC6Crc32cEvE9singleton, align 8, !tbaa !32
+  %9 = load ptr, ptr @_ZZN4absl12crc_internal3CRC6Crc32cEvE9singleton, align 8, !tbaa !34
   ret ptr %9
 
 10:                                               ; preds = %5
@@ -1877,30 +1877,32 @@ attributes #21 = { noreturn nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !9}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"vtable pointer", !7, i64 0}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = !{!6, !6, i64 0}
+!25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"long", !6, i64 0}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = !{!"branch_weights", i32 1, i32 1048575}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTSN4absl12crc_internal3CRCE", !34, i64 0}
-!34 = !{!"any pointer", !6, i64 0}
+!27 = !{!6, !6, i64 0}
+!28 = distinct !{!28, !9}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"long", !6, i64 0}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = !{!"branch_weights", i32 1, i32 1048575}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN4absl12crc_internal3CRCE", !36, i64 0}
+!36 = !{!"any pointer", !6, i64 0}

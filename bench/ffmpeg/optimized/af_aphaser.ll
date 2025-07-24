@@ -399,7 +399,7 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %58 = sub nsw i32 %56, %57
   %59 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %59, %3
-  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !70
 
 ._crit_edge81:                                    ; preds = %.lr.ph80.split, %._crit_edge.us, %5
   %.055.lcssa = phi i32 [ %11, %5 ], [ %51, %._crit_edge.us ], [ %58, %.lr.ph80.split ]
@@ -487,12 +487,12 @@ define internal void @phaser_dblp(ptr noundef captures(none) %0, ptr noundef rea
   %56 = getelementptr inbounds nuw i8, ptr %.05472.us, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.05373.us, i64 8
   %exitcond.not = icmp eq i32 %55, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !71
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !70
+  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !72
 
 58:                                               ; preds = %5
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 161) #6
@@ -566,7 +566,7 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %38 ]
   %.171.us = phi ptr [ %.05675.us, %.lr.ph.us ], [ %50, %38 ]
   %.15870.us = phi ptr [ %.05774.us, %.lr.ph.us ], [ %49, %38 ]
-  %39 = load float, ptr %.15870.us, align 4, !tbaa !71
+  %39 = load float, ptr %.15870.us, align 4, !tbaa !73
   %40 = fpext nsz float %39 to double
   %41 = load double, ptr %18, align 8, !tbaa !20
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
@@ -579,12 +579,12 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
   %48 = fptrunc nsz double %47 to float
-  store float %48, ptr %.171.us, align 4, !tbaa !71
+  store float %48, ptr %.171.us, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = getelementptr inbounds nuw i8, ptr %.15870.us, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %.171.us, i64 4
   %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge.us, label %38, !llvm.loop !73
+  br i1 %exitcond92.not, label %._crit_edge.us, label %38, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %38
   %51 = add nsw i32 %.05576.us, 1
@@ -593,7 +593,7 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %53 = sub nsw i32 %51, %52
   %54 = add nuw nsw i32 %.078.us, 1
   %exitcond93.not = icmp eq i32 %54, %3
-  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !74
+  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !76
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %.lr.ph80.split
   %.078 = phi i32 [ %61, %.lr.ph80.split ], [ 0, %.lr.ph80 ]
@@ -609,7 +609,7 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %60 = sub nsw i32 %58, %59
   %61 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %61, %3
-  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !77
 
 ._crit_edge81:                                    ; preds = %.lr.ph80.split, %._crit_edge.us, %5
   %.055.lcssa = phi i32 [ %11, %5 ], [ %53, %._crit_edge.us ], [ %60, %.lr.ph80.split ]
@@ -664,7 +664,7 @@ define internal void @phaser_fltp(ptr noundef captures(none) %0, ptr noundef rea
   %.05472.us = phi ptr [ %25, %.lr.ph.us ], [ %58, %30 ]
   %.171.us = phi i32 [ %14, %.lr.ph.us ], [ %48, %30 ]
   %.15770.us = phi i32 [ %12, %.lr.ph.us ], [ %51, %30 ]
-  %31 = load float, ptr %.05472.us, align 4, !tbaa !71
+  %31 = load float, ptr %.05472.us, align 4, !tbaa !73
   %32 = fpext nsz float %31 to double
   %33 = load double, ptr %16, align 8, !tbaa !20
   %34 = sext i32 %.171.us to i64
@@ -694,17 +694,17 @@ define internal void @phaser_fltp(ptr noundef captures(none) %0, ptr noundef rea
   %54 = load double, ptr %18, align 8, !tbaa !25
   %55 = fmul nsz double %45, %54
   %56 = fptrunc nsz double %55 to float
-  store float %56, ptr %.05373.us, align 4, !tbaa !71
+  store float %56, ptr %.05373.us, align 4, !tbaa !73
   %57 = add nuw nsw i32 %.074.us, 1
   %58 = getelementptr inbounds nuw i8, ptr %.05472.us, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %.05373.us, i64 4
   %exitcond.not = icmp eq i32 %57, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !76
+  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !79
 
 60:                                               ; preds = %5
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 162) #6
@@ -778,7 +778,7 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %38 ]
   %.171.us = phi ptr [ %.05675.us, %.lr.ph.us ], [ %50, %38 ]
   %.15870.us = phi ptr [ %.05774.us, %.lr.ph.us ], [ %49, %38 ]
-  %39 = load i16, ptr %.15870.us, align 2, !tbaa !77
+  %39 = load i16, ptr %.15870.us, align 2, !tbaa !80
   %40 = sitofp i16 %39 to double
   %41 = load double, ptr %18, align 8, !tbaa !20
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
@@ -791,12 +791,12 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
   %48 = fptosi double %47 to i16
-  store i16 %48, ptr %.171.us, align 2, !tbaa !77
+  store i16 %48, ptr %.171.us, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = getelementptr inbounds nuw i8, ptr %.15870.us, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %.171.us, i64 2
   %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge.us, label %38, !llvm.loop !79
+  br i1 %exitcond92.not, label %._crit_edge.us, label %38, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %38
   %51 = add nsw i32 %.05576.us, 1
@@ -805,7 +805,7 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %53 = sub nsw i32 %51, %52
   %54 = add nuw nsw i32 %.078.us, 1
   %exitcond93.not = icmp eq i32 %54, %3
-  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !80
+  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !83
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %.lr.ph80.split
   %.078 = phi i32 [ %61, %.lr.ph80.split ], [ 0, %.lr.ph80 ]
@@ -821,7 +821,7 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %60 = sub nsw i32 %58, %59
   %61 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %61, %3
-  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !84
 
 ._crit_edge81:                                    ; preds = %.lr.ph80.split, %._crit_edge.us, %5
   %.055.lcssa = phi i32 [ %11, %5 ], [ %53, %._crit_edge.us ], [ %60, %.lr.ph80.split ]
@@ -876,7 +876,7 @@ define internal void @phaser_s16p(ptr noundef captures(none) %0, ptr noundef rea
   %.05472.us = phi ptr [ %25, %.lr.ph.us ], [ %58, %30 ]
   %.171.us = phi i32 [ %14, %.lr.ph.us ], [ %48, %30 ]
   %.15770.us = phi i32 [ %12, %.lr.ph.us ], [ %51, %30 ]
-  %31 = load i16, ptr %.05472.us, align 2, !tbaa !77
+  %31 = load i16, ptr %.05472.us, align 2, !tbaa !80
   %32 = sitofp i16 %31 to double
   %33 = load double, ptr %16, align 8, !tbaa !20
   %34 = sext i32 %.171.us to i64
@@ -906,17 +906,17 @@ define internal void @phaser_s16p(ptr noundef captures(none) %0, ptr noundef rea
   %54 = load double, ptr %18, align 8, !tbaa !25
   %55 = fmul nsz double %45, %54
   %56 = fptosi double %55 to i16
-  store i16 %56, ptr %.05373.us, align 2, !tbaa !77
+  store i16 %56, ptr %.05373.us, align 2, !tbaa !80
   %57 = add nuw nsw i32 %.074.us, 1
   %58 = getelementptr inbounds nuw i8, ptr %.05472.us, i64 2
   %59 = getelementptr inbounds nuw i8, ptr %.05373.us, i64 2
   %exitcond.not = icmp eq i32 %57, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !85
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !82
+  br i1 %exitcond81.not, label %.split.us, label %.lr.ph.us, !llvm.loop !86
 
 60:                                               ; preds = %5
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 163) #6
@@ -1007,7 +1007,7 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %48 = getelementptr inbounds nuw i8, ptr %.15870.us, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.171.us, i64 4
   %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge.us, label %37, !llvm.loop !83
+  br i1 %exitcond92.not, label %._crit_edge.us, label %37, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %37
   %50 = add nsw i32 %.05576.us, 1
@@ -1017,7 +1017,7 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %53 = sub nsw i32 %50, %52
   %54 = add nuw nsw i32 %.078.us, 1
   %exitcond93.not = icmp eq i32 %54, %3
-  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !84
+  br i1 %exitcond93.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !88
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80
   %55 = load i32, ptr %15, align 4, !tbaa !53
@@ -1038,7 +1038,7 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %63 = sub nsw i32 %61, %62
   %64 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %64, %3
-  br i1 %exitcond.not, label %._crit_edge81, label %57, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge81, label %57, !llvm.loop !89
 
 ._crit_edge81:                                    ; preds = %57, %._crit_edge.us, %5
   %.055.lcssa = phi i32 [ %11, %5 ], [ %53, %._crit_edge.us ], [ %63, %57 ]
@@ -1135,12 +1135,12 @@ define internal void @phaser_s32p(ptr noundef captures(none) %0, ptr noundef rea
   %62 = getelementptr inbounds nuw i8, ptr %.05472.us, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.05373.us, i64 4
   %exitcond.not = icmp eq i32 %61, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !90
 
 ._crit_edge.us:                                   ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond80.not, label %.split.us, label %.lr.ph.us, !llvm.loop !86
+  br i1 %exitcond80.not, label %.split.us, label %.lr.ph.us, !llvm.loop !91
 
 64:                                               ; preds = %5
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 164) #6
@@ -1241,22 +1241,27 @@ attributes #7 = { noreturn nounwind }
 !65 = !{!22, !22, i64 0}
 !66 = distinct !{!66, !67}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = distinct !{!68, !67}
-!69 = distinct !{!69, !67}
+!68 = distinct !{!68, !67, !69}
+!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !70 = distinct !{!70, !67}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"float", !8, i64 0}
-!73 = distinct !{!73, !67}
-!74 = distinct !{!74, !67}
+!71 = distinct !{!71, !67}
+!72 = distinct !{!72, !67, !69}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"float", !8, i64 0}
 !75 = distinct !{!75, !67}
-!76 = distinct !{!76, !67}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"short", !8, i64 0}
-!79 = distinct !{!79, !67}
-!80 = distinct !{!80, !67}
-!81 = distinct !{!81, !67}
+!76 = distinct !{!76, !67, !69}
+!77 = distinct !{!77, !67}
+!78 = distinct !{!78, !67}
+!79 = distinct !{!79, !67, !69}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"short", !8, i64 0}
 !82 = distinct !{!82, !67}
-!83 = distinct !{!83, !67}
+!83 = distinct !{!83, !67, !69}
 !84 = distinct !{!84, !67}
 !85 = distinct !{!85, !67}
-!86 = distinct !{!86, !67}
+!86 = distinct !{!86, !67, !69}
+!87 = distinct !{!87, !67}
+!88 = distinct !{!88, !67, !69}
+!89 = distinct !{!89, !67}
+!90 = distinct !{!90, !67}
+!91 = distinct !{!91, !67, !69}

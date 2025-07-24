@@ -560,11 +560,11 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %156 = getelementptr inbounds nuw i8, ptr %56, i64 288
   %157 = load ptr, ptr %156, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store ptr null, ptr %2, align 8, !tbaa !87
+  store ptr null, ptr %2, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !87
+  store ptr null, ptr %3, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !87
+  store ptr null, ptr %4, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
@@ -741,7 +741,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %.3197.i = phi i32 [ %198, %197 ], [ %.2196318.i, %195 ], [ %216, %215 ], [ %.2196318.i, %213 ], [ %227, %226 ], [ %.2196318.i, %224 ]
   %229 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %4) #11
   %.not237.i = icmp eq ptr %229, null
-  br i1 %.not237.i, label %._crit_edge.i, label %180, !llvm.loop !88
+  br i1 %.not237.i, label %._crit_edge.i, label %180, !llvm.loop !89
 
 ._crit_edge.i:                                    ; preds = %228, %.preheader.i
   %.2200.lcssa.i = phi i32 [ %.0198323.i104, %.preheader.i ], [ %.3201.i, %228 ]
@@ -776,7 +776,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %243 = load i32, ptr %158, align 8, !tbaa !39
   %244 = sext i32 %243 to i64
   %.not243.i = icmp slt i64 %indvars.iv.next370.i, %244
-  br i1 %.not243.i, label %161, label %.thread268.i, !llvm.loop !89
+  br i1 %.not243.i, label %161, label %.thread268.i, !llvm.loop !90
 
 .thread.i:                                        ; preds = %.preheader273.i.preheader, %.preheader273.i._crit_edge, %220, %217, %207, %202, %189, %184, %179
   %.2.ph.i = phi i32 [ %177, %179 ], [ -22, %184 ], [ -22, %189 ], [ -22, %202 ], [ -22, %207 ], [ -22, %217 ], [ -22, %220 ], [ -22, %.preheader273.i._crit_edge ], [ -22, %.preheader273.i.preheader ]
@@ -819,20 +819,20 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 260:                                              ; preds = %266
   %indvars.iv.next373.i = add nuw nsw i64 %indvars.iv372.i, 1
   %exitcond376.not.i = icmp eq i64 %indvars.iv.next373.i, %wide.trip.count375.i
-  br i1 %exitcond376.not.i, label %.loopexit.i, label %261, !llvm.loop !90
+  br i1 %exitcond376.not.i, label %.loopexit.i, label %261, !llvm.loop !91
 
 261:                                              ; preds = %260, %.lr.ph337.i
   %indvars.iv372.i = phi i64 [ 1, %.lr.ph337.i ], [ %indvars.iv.next373.i, %260 ]
   %262 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv372.i
   %263 = load ptr, ptr %262, align 8, !tbaa !60
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 264
-  %265 = load i32, ptr %264, align 8, !tbaa !91
+  %265 = load i32, ptr %264, align 8, !tbaa !92
   %.not246.i = icmp eq i32 %265, %256
   br i1 %.not246.i, label %266, label %.critedge.i
 
 266:                                              ; preds = %261
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 268
-  %268 = load i32, ptr %267, align 4, !tbaa !92
+  %268 = load i32, ptr %267, align 4, !tbaa !93
   %.not247.i = icmp eq i32 %268, %258
   br i1 %.not247.i, label %260, label %.critedge.i
 
@@ -845,16 +845,16 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %269 = load ptr, ptr %55, align 8, !tbaa !4
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 144
   %271 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %272 = load i32, ptr %271, align 8, !tbaa !93
+  %272 = load i32, ptr %271, align 8, !tbaa !94
   %273 = call i32 @ff_framesync_init(ptr noundef nonnull %270, ptr noundef %54, i32 noundef %272) #11
   %274 = icmp slt i32 %273, 0
   br i1 %274, label %.critedge, label %275
 
 275:                                              ; preds = %.loopexit.i
   %276 = getelementptr inbounds nuw i8, ptr %269, i64 184
-  store ptr @process_frame, ptr %276, align 8, !tbaa !94
+  store ptr @process_frame, ptr %276, align 8, !tbaa !95
   %277 = getelementptr inbounds nuw i8, ptr %269, i64 192
-  store ptr %269, ptr %277, align 8, !tbaa !95
+  store ptr %269, ptr %277, align 8, !tbaa !96
   %278 = getelementptr inbounds nuw i8, ptr %269, i64 264
   %279 = load i32, ptr %278, align 8, !tbaa !39
   %280 = icmp sgt i32 %279, 0
@@ -867,16 +867,16 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 
 283:                                              ; preds = %283, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %283 ]
-  %284 = load ptr, ptr %281, align 8, !tbaa !96
+  %284 = load ptr, ptr %281, align 8, !tbaa !97
   %285 = getelementptr inbounds nuw %struct.FFFrameSyncIn, ptr %284, i64 %indvars.iv.i.i
-  store i32 0, ptr %285, align 8, !tbaa !97
-  %286 = load i32, ptr %282, align 4, !tbaa !100
+  store i32 0, ptr %285, align 8, !tbaa !98
+  %286 = load i32, ptr %282, align 4, !tbaa !101
   %.not.i.i = icmp eq i32 %286, 0
   %287 = select i1 %.not.i.i, i32 2, i32 0
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 4
-  store i32 %287, ptr %288, align 4, !tbaa !101
+  store i32 %287, ptr %288, align 4, !tbaa !102
   %289 = getelementptr inbounds nuw i8, ptr %285, i64 52
-  store i32 1, ptr %289, align 4, !tbaa !102
+  store i32 1, ptr %289, align 4, !tbaa !103
   %290 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %291 = load ptr, ptr %57, align 8, !tbaa !59
   %292 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv.i.i
@@ -888,7 +888,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %296 = load i32, ptr %278, align 8, !tbaa !39
   %297 = sext i32 %296 to i64
   %298 = icmp slt i64 %indvars.iv.next.i.i, %297
-  br i1 %298, label %283, label %init_framesync.exit.i, !llvm.loop !103
+  br i1 %298, label %283, label %init_framesync.exit.i, !llvm.loop !104
 
 init_framesync.exit.i:                            ; preds = %283, %275
   %299 = call i32 @ff_framesync_configure(ptr noundef nonnull %270) #11
@@ -906,7 +906,7 @@ config_comm_output.exit:                          ; preds = %init_framesync.exit
 
 .lr.ph109:                                        ; preds = %config_comm_output.exit
   %306 = getelementptr inbounds nuw i8, ptr %10, i64 256
-  %307 = load ptr, ptr %306, align 8, !tbaa !104
+  %307 = load ptr, ptr %306, align 8, !tbaa !105
   %308 = getelementptr inbounds nuw i8, ptr %10, i64 304
   %309 = load ptr, ptr %308, align 8, !tbaa !50
   %wide.trip.count128 = zext nneg i32 %304 to i64
@@ -915,10 +915,10 @@ config_comm_output.exit:                          ; preds = %init_framesync.exit
 ._crit_edge:                                      ; preds = %315, %config_comm_output.exit
   %310 = load i32, ptr %245, align 8, !tbaa !79
   %311 = getelementptr inbounds nuw i8, ptr %10, i64 68
-  store i32 %310, ptr %311, align 4, !tbaa !105
+  store i32 %310, ptr %311, align 4, !tbaa !106
   %312 = load i32, ptr %246, align 4, !tbaa !75
   %313 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %312, ptr %313, align 8, !tbaa !106
+  store i32 %312, ptr %313, align 8, !tbaa !107
   %314 = call i32 @ff_vaapi_vpp_config_output(ptr noundef nonnull %0) #11
   br label %.critedge
 
@@ -928,25 +928,25 @@ config_comm_output.exit:                          ; preds = %init_framesync.exit
   %317 = load i32, ptr %316, align 4, !tbaa !76
   %318 = trunc i32 %317 to i16
   %319 = getelementptr inbounds nuw %struct._VARectangle, ptr %309, i64 %indvars.iv125
-  store i16 %318, ptr %319, align 2, !tbaa !107
+  store i16 %318, ptr %319, align 2, !tbaa !108
   %320 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %307, i64 %indvars.iv125, i32 1
   %321 = load i32, ptr %320, align 4, !tbaa !78
   %322 = trunc i32 %321 to i16
   %323 = getelementptr inbounds nuw %struct._VARectangle, ptr %309, i64 %indvars.iv125, i32 1
-  store i16 %322, ptr %323, align 2, !tbaa !108
+  store i16 %322, ptr %323, align 2, !tbaa !109
   %324 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %307, i64 %indvars.iv125, i32 2
   %325 = load i32, ptr %324, align 4, !tbaa !80
   %326 = trunc i32 %325 to i16
   %327 = getelementptr inbounds nuw %struct._VARectangle, ptr %309, i64 %indvars.iv125, i32 2
-  store i16 %326, ptr %327, align 2, !tbaa !109
+  store i16 %326, ptr %327, align 2, !tbaa !110
   %328 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %307, i64 %indvars.iv125, i32 3
   %329 = load i32, ptr %328, align 4, !tbaa !81
   %330 = trunc i32 %329 to i16
   %331 = getelementptr inbounds nuw %struct._VARectangle, ptr %309, i64 %indvars.iv125, i32 3
-  store i16 %330, ptr %331, align 2, !tbaa !110
+  store i16 %330, ptr %331, align 2, !tbaa !111
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %._crit_edge, label %315, !llvm.loop !111
+  br i1 %exitcond129.not, label %._crit_edge, label %315, !llvm.loop !112
 
 .critedge:                                        ; preds = %.loopexit.i, %.thread270.i, %init_framesync.exit.i, %.thread.i, %49, %44, %39, %._crit_edge, %26
   %.060 = phi i32 [ -22, %26 ], [ %314, %._crit_edge ], [ -22, %39 ], [ -22, %44 ], [ -22, %49 ], [ %273, %.loopexit.i ], [ -22, %.thread270.i ], [ %299, %init_framesync.exit.i ], [ %.2.ph.i, %.thread.i ]
@@ -984,18 +984,18 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !113
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = load ptr, ptr %9, align 8, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !114
+  %12 = load ptr, ptr %11, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !115
+  %14 = load i32, ptr %13, align 8, !tbaa !116
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %124, label %16
 
@@ -1005,27 +1005,27 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %20 = load i32, ptr %19, align 4, !tbaa !75
   %21 = tail call ptr @ff_get_video_buffer(ptr noundef %10, i32 noundef %18, i32 noundef %20) #11
-  store ptr %21, ptr %2, align 8, !tbaa !116
+  store ptr %21, ptr %2, align 8, !tbaa !117
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %124, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !93
+  %24 = load i32, ptr %23, align 8, !tbaa !94
   %25 = zext i32 %24 to i64
   %26 = tail call noalias ptr @av_calloc(i64 noundef %25, i64 noundef 8) #11
-  store ptr %26, ptr %5, align 8, !tbaa !117
-  %27 = load i32, ptr %23, align 8, !tbaa !93
+  store ptr %26, ptr %5, align 8, !tbaa !118
+  %27 = load i32, ptr %23, align 8, !tbaa !94
   %28 = zext i32 %27 to i64
   %29 = tail call noalias ptr @av_calloc(i64 noundef %28, i64 noundef 224) #11
-  store ptr %29, ptr %4, align 8, !tbaa !118
+  store ptr %29, ptr %4, align 8, !tbaa !119
   %30 = icmp ne ptr %26, null
   %31 = icmp ne ptr %29, null
   %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %22
-  %32 = load i32, ptr %23, align 8, !tbaa !93
+  %32 = load i32, ptr %23, align 8, !tbaa !94
   %.not67 = icmp eq i32 %32, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
@@ -1050,107 +1050,107 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr %3, align 8, !tbaa !116
+  %45 = load ptr, ptr %3, align 8, !tbaa !117
   %46 = call i32 @av_frame_copy_props(ptr noundef nonnull %21, ptr noundef %45) #11
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %44, %42
-  %49 = load ptr, ptr %4, align 8, !tbaa !118
+  %49 = load ptr, ptr %4, align 8, !tbaa !119
   %50 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %49, i64 %indvars.iv
-  %51 = load ptr, ptr %3, align 8, !tbaa !116
+  %51 = load ptr, ptr %3, align 8, !tbaa !117
   %52 = call i32 @ff_vaapi_vpp_init_params(ptr noundef nonnull %7, ptr noundef %50, ptr noundef %51, ptr noundef nonnull %21) #11
   %.not59 = icmp eq i32 %52, 0
   br i1 %.not59, label %53, label %.thread
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %3, align 8, !tbaa !116
+  %54 = load ptr, ptr %3, align 8, !tbaa !117
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 116
-  %56 = load i32, ptr %55, align 4, !tbaa !120
+  %56 = load i32, ptr %55, align 4, !tbaa !121
   %57 = call ptr @av_get_pix_fmt_name(i32 noundef %56) #11
-  %58 = load ptr, ptr %3, align 8, !tbaa !116
+  %58 = load ptr, ptr %3, align 8, !tbaa !117
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
-  %60 = load i32, ptr %59, align 8, !tbaa !125
+  %60 = load i32, ptr %59, align 8, !tbaa !126
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 108
-  %62 = load i32, ptr %61, align 4, !tbaa !126
+  %62 = load i32, ptr %61, align 4, !tbaa !127
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 136
-  %64 = load i64, ptr %63, align 8, !tbaa !127
+  %64 = load i64, ptr %63, align 8, !tbaa !128
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %40, ptr noundef %57, i32 noundef %60, i32 noundef %62, i64 noundef %64) #11
-  %65 = load ptr, ptr %5, align 8, !tbaa !117
+  %65 = load ptr, ptr %5, align 8, !tbaa !118
   %66 = getelementptr inbounds nuw %struct._VARectangle, ptr %65, i64 %indvars.iv
-  store i16 0, ptr %66, align 2, !tbaa !107
+  store i16 0, ptr %66, align 2, !tbaa !108
   %67 = getelementptr inbounds nuw %struct._VARectangle, ptr %65, i64 %indvars.iv, i32 1
-  store i16 0, ptr %67, align 2, !tbaa !108
-  %68 = load ptr, ptr %3, align 8, !tbaa !116
+  store i16 0, ptr %67, align 2, !tbaa !109
+  %68 = load ptr, ptr %3, align 8, !tbaa !117
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
-  %70 = load i32, ptr %69, align 8, !tbaa !125
+  %70 = load i32, ptr %69, align 8, !tbaa !126
   %71 = trunc i32 %70 to i16
   %72 = getelementptr inbounds nuw %struct._VARectangle, ptr %65, i64 %indvars.iv, i32 2
-  store i16 %71, ptr %72, align 2, !tbaa !109
+  store i16 %71, ptr %72, align 2, !tbaa !110
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 108
-  %74 = load i32, ptr %73, align 4, !tbaa !126
+  %74 = load i32, ptr %73, align 4, !tbaa !127
   %75 = trunc i32 %74 to i16
   %76 = getelementptr inbounds nuw %struct._VARectangle, ptr %65, i64 %indvars.iv, i32 3
-  store i16 %75, ptr %76, align 2, !tbaa !110
-  %77 = load ptr, ptr %4, align 8, !tbaa !118
+  store i16 %75, ptr %76, align 2, !tbaa !111
+  %77 = load ptr, ptr %4, align 8, !tbaa !119
   %78 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %77, i64 %indvars.iv, i32 1
-  store ptr %66, ptr %78, align 8, !tbaa !128
+  store ptr %66, ptr %78, align 8, !tbaa !129
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !87
+  %80 = load ptr, ptr %79, align 8, !tbaa !88
   %81 = ptrtoint ptr %80 to i64
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %77, i64 %indvars.iv
-  store i32 %82, ptr %83, align 8, !tbaa !134
+  store i32 %82, ptr %83, align 8, !tbaa !135
   %84 = load ptr, ptr %33, align 8, !tbaa !50
   %85 = getelementptr inbounds nuw %struct._VARectangle, ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %77, i64 %indvars.iv, i32 3
-  store ptr %85, ptr %86, align 8, !tbaa !135
-  %87 = load i32, ptr %34, align 8, !tbaa !136
+  store ptr %85, ptr %86, align 8, !tbaa !136
+  %87 = load i32, ptr %34, align 8, !tbaa !137
   %.not60 = icmp eq i32 %87, 0
   br i1 %.not60, label %104, label %88
 
 88:                                               ; preds = %53
-  %89 = load i8, ptr %36, align 1, !tbaa !137
+  %89 = load i8, ptr %36, align 1, !tbaa !138
   %90 = zext i8 %89 to i32
   %91 = shl nuw i32 %90, 24
-  %92 = load i8, ptr %35, align 4, !tbaa !137
+  %92 = load i8, ptr %35, align 4, !tbaa !138
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 16
   %95 = or disjoint i32 %94, %91
-  %96 = load i8, ptr %37, align 1, !tbaa !137
+  %96 = load i8, ptr %37, align 1, !tbaa !138
   %97 = zext i8 %96 to i32
   %98 = shl nuw nsw i32 %97, 8
   %99 = or disjoint i32 %95, %98
-  %100 = load i8, ptr %38, align 2, !tbaa !137
+  %100 = load i8, ptr %38, align 2, !tbaa !138
   %101 = zext i8 %100 to i32
   %102 = or disjoint i32 %99, %101
   %103 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %77, i64 %indvars.iv, i32 4
-  store i32 %102, ptr %103, align 8, !tbaa !138
+  store i32 %102, ptr %103, align 8, !tbaa !139
   br label %104
 
 104:                                              ; preds = %53, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = load i32, ptr %23, align 8, !tbaa !93
+  %105 = load i32, ptr %23, align 8, !tbaa !94
   %106 = zext i32 %105 to i64
   %107 = icmp samesign ult i64 %indvars.iv.next, %106
-  br i1 %107, label %39, label %._crit_edge, !llvm.loop !139
+  br i1 %107, label %39, label %._crit_edge, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %104, %.preheader
   %108 = phi ptr [ %29, %.preheader ], [ %77, %104 ]
   %109 = getelementptr inbounds nuw i8, ptr %12, i64 176
-  %110 = load i64, ptr %109, align 8, !tbaa !140
+  %110 = load i64, ptr %109, align 8, !tbaa !141
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 164
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %113 = load i64, ptr %111, align 4
   %114 = load i64, ptr %112, align 8
   %115 = call i64 @av_rescale_q(i64 noundef %110, i64 %113, i64 %114) #13
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 136
-  store i64 %115, ptr %116, align 8, !tbaa !127
+  store i64 %115, ptr %116, align 8, !tbaa !128
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 124
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %119 = load i64, ptr %118, align 8
   store i64 %119, ptr %117, align 4
-  %120 = load i32, ptr %23, align 8, !tbaa !93
+  %120 = load i32, ptr %23, align 8, !tbaa !94
   %121 = call i32 @ff_vaapi_vpp_render_pictures(ptr noundef nonnull %7, ptr noundef nonnull %108, i32 noundef %120, ptr noundef nonnull %21) #11
   %.not61 = icmp eq i32 %121, 0
   br i1 %.not61, label %122, label %.thread
@@ -1331,58 +1331,59 @@ attributes #13 = { nounwind willreturn memory(none) }
 !83 = !{!24, !15, i64 272}
 !84 = distinct !{!84, !43}
 !85 = distinct !{!85, !43}
-!86 = distinct !{!86, !43}
-!87 = !{!11, !11, i64 0}
-!88 = distinct !{!88, !43}
+!86 = distinct !{!86, !43, !87}
+!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = !{!11, !11, i64 0}
 !89 = distinct !{!89, !43}
 !90 = distinct !{!90, !43}
-!91 = !{!64, !15, i64 264}
-!92 = !{!64, !15, i64 268}
-!93 = !{!5, !15, i64 40}
-!94 = !{!24, !7, i64 184}
-!95 = !{!24, !7, i64 192}
-!96 = !{!24, !34, i64 216}
-!97 = !{!98, !15, i64 0}
-!98 = !{!"FFFrameSyncIn", !15, i64 0, !15, i64 4, !32, i64 8, !99, i64 16, !99, i64 24, !33, i64 32, !33, i64 40, !8, i64 48, !8, i64 49, !15, i64 52, !15, i64 56}
-!99 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!100 = !{!24, !15, i64 268}
-!101 = !{!98, !15, i64 4}
-!102 = !{!98, !15, i64 52}
-!103 = distinct !{!103, !43}
-!104 = !{!48, !35, i64 256}
-!105 = !{!25, !15, i64 68}
-!106 = !{!25, !15, i64 72}
-!107 = !{!28, !29, i64 0}
-!108 = !{!28, !29, i64 2}
-!109 = !{!28, !29, i64 4}
-!110 = !{!28, !29, i64 6}
-!111 = distinct !{!111, !43}
-!112 = !{!30, !31, i64 8}
-!113 = !{!5, !13, i64 56}
-!114 = !{!30, !7, i64 48}
-!115 = !{!25, !15, i64 32}
-!116 = !{!99, !99, i64 0}
-!117 = !{!49, !49, i64 0}
-!118 = !{!119, !119, i64 0}
-!119 = !{!"p1 _ZTS30_VAProcPipelineParameterBuffer", !7, i64 0}
-!120 = !{!121, !15, i64 116}
-!121 = !{!"AVFrame", !8, i64 0, !8, i64 64, !122, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !32, i64 124, !33, i64 136, !33, i64 144, !32, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !123, i64 248, !15, i64 256, !55, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !33, i64 304, !124, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !33, i64 344, !33, i64 352, !33, i64 360, !33, i64 368, !7, i64 376, !54, i64 384, !33, i64 408}
-!122 = !{!"p2 omnipotent char", !14, i64 0}
-!123 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!124 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!125 = !{!121, !15, i64 104}
-!126 = !{!121, !15, i64 108}
-!127 = !{!121, !33, i64 136}
-!128 = !{!129, !49, i64 8}
-!129 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !49, i64 8, !15, i64 16, !49, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !130, i64 48, !15, i64 56, !130, i64 64, !15, i64 72, !130, i64 80, !15, i64 88, !15, i64 92, !131, i64 96, !15, i64 104, !130, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !132, i64 132, !132, i64 140, !15, i64 148, !133, i64 152, !8, i64 160}
-!130 = !{!"p1 int", !7, i64 0}
-!131 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
-!132 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
-!133 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
-!134 = !{!129, !15, i64 0}
-!135 = !{!129, !49, i64 24}
-!136 = !{!48, !15, i64 248}
-!137 = !{!8, !8, i64 0}
-!138 = !{!129, !15, i64 32}
-!139 = distinct !{!139, !43}
-!140 = !{!48, !33, i64 176}
+!91 = distinct !{!91, !43}
+!92 = !{!64, !15, i64 264}
+!93 = !{!64, !15, i64 268}
+!94 = !{!5, !15, i64 40}
+!95 = !{!24, !7, i64 184}
+!96 = !{!24, !7, i64 192}
+!97 = !{!24, !34, i64 216}
+!98 = !{!99, !15, i64 0}
+!99 = !{!"FFFrameSyncIn", !15, i64 0, !15, i64 4, !32, i64 8, !100, i64 16, !100, i64 24, !33, i64 32, !33, i64 40, !8, i64 48, !8, i64 49, !15, i64 52, !15, i64 56}
+!100 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!101 = !{!24, !15, i64 268}
+!102 = !{!99, !15, i64 4}
+!103 = !{!99, !15, i64 52}
+!104 = distinct !{!104, !43}
+!105 = !{!48, !35, i64 256}
+!106 = !{!25, !15, i64 68}
+!107 = !{!25, !15, i64 72}
+!108 = !{!28, !29, i64 0}
+!109 = !{!28, !29, i64 2}
+!110 = !{!28, !29, i64 4}
+!111 = !{!28, !29, i64 6}
+!112 = distinct !{!112, !43}
+!113 = !{!30, !31, i64 8}
+!114 = !{!5, !13, i64 56}
+!115 = !{!30, !7, i64 48}
+!116 = !{!25, !15, i64 32}
+!117 = !{!100, !100, i64 0}
+!118 = !{!49, !49, i64 0}
+!119 = !{!120, !120, i64 0}
+!120 = !{!"p1 _ZTS30_VAProcPipelineParameterBuffer", !7, i64 0}
+!121 = !{!122, !15, i64 116}
+!122 = !{!"AVFrame", !8, i64 0, !8, i64 64, !123, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !32, i64 124, !33, i64 136, !33, i64 144, !32, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !124, i64 248, !15, i64 256, !55, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !33, i64 304, !125, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !33, i64 344, !33, i64 352, !33, i64 360, !33, i64 368, !7, i64 376, !54, i64 384, !33, i64 408}
+!123 = !{!"p2 omnipotent char", !14, i64 0}
+!124 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!125 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!126 = !{!122, !15, i64 104}
+!127 = !{!122, !15, i64 108}
+!128 = !{!122, !33, i64 136}
+!129 = !{!130, !49, i64 8}
+!130 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !49, i64 8, !15, i64 16, !49, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !131, i64 48, !15, i64 56, !131, i64 64, !15, i64 72, !131, i64 80, !15, i64 88, !15, i64 92, !132, i64 96, !15, i64 104, !131, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !133, i64 132, !133, i64 140, !15, i64 148, !134, i64 152, !8, i64 160}
+!131 = !{!"p1 int", !7, i64 0}
+!132 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
+!133 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
+!134 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
+!135 = !{!130, !15, i64 0}
+!136 = !{!130, !49, i64 24}
+!137 = !{!48, !15, i64 248}
+!138 = !{!8, !8, i64 0}
+!139 = !{!130, !15, i64 32}
+!140 = distinct !{!140, !43}
+!141 = !{!48, !33, i64 176}

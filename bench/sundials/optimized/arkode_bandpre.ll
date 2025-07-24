@@ -428,7 +428,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   store double %96, ptr %94, align 8, !tbaa !52
   %97 = add nsw i64 %.0138162.us.i, %79
   %98 = icmp slt i64 %97, %83
-  br i1 %98, label %.lr.ph.split.us.i, label %._crit_edge.i
+  br i1 %98, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !53
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %125
   %.0138162.i = phi i64 [ %129, %125 ], [ %84, %.lr.ph.i ]
@@ -482,7 +482,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %130, label %.lr.ph.split.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %125, %.lr.ph.split.us.i, %82
-  %131 = load ptr, ptr %80, align 8, !tbaa !53
+  %131 = load ptr, ptr %80, align 8, !tbaa !55
   %132 = tail call i32 %33(double noundef %0, ptr noundef %29, ptr noundef %27, ptr noundef %131) #8
   %133 = load i64, ptr %81, align 8, !tbaa !31
   %134 = add nsw i64 %133, 1
@@ -678,39 +678,39 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef captures(none) %
   br label %86
 
 18:                                               ; preds = %11
-  store i64 4, ptr %2, align 8, !tbaa !54
-  store i64 0, ptr %1, align 8, !tbaa !54
+  store i64 4, ptr %2, align 8, !tbaa !56
+  store i64 0, ptr %1, align 8, !tbaa !56
   %19 = load ptr, ptr %4, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 616
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !55
+  %25 = load ptr, ptr %24, align 8, !tbaa !57
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %35, label %26
 
 26:                                               ; preds = %18
   call void @N_VSpace(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %27 = load i64, ptr %7, align 8, !tbaa !54
+  %27 = load i64, ptr %7, align 8, !tbaa !56
   %28 = shl nsw i64 %27, 1
-  %29 = load i64, ptr %2, align 8, !tbaa !54
+  %29 = load i64, ptr %2, align 8, !tbaa !56
   %30 = add nsw i64 %29, %28
-  store i64 %30, ptr %2, align 8, !tbaa !54
-  %31 = load i64, ptr %6, align 8, !tbaa !54
+  store i64 %30, ptr %2, align 8, !tbaa !56
+  %31 = load i64, ptr %6, align 8, !tbaa !56
   %32 = shl nsw i64 %31, 1
-  %33 = load i64, ptr %1, align 8, !tbaa !54
+  %33 = load i64, ptr %1, align 8, !tbaa !56
   %34 = add nsw i64 %33, %32
-  store i64 %34, ptr %1, align 8, !tbaa !54
+  store i64 %34, ptr %1, align 8, !tbaa !56
   br label %35
 
 35:                                               ; preds = %26, %18
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !56
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !59
+  %41 = load ptr, ptr %40, align 8, !tbaa !61
   %.not25 = icmp eq ptr %41, null
   br i1 %.not25, label %52, label %42
 
@@ -720,23 +720,23 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef captures(none) %
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %42
-  %46 = load i64, ptr %9, align 8, !tbaa !54
-  %47 = load i64, ptr %2, align 8, !tbaa !54
+  %46 = load i64, ptr %9, align 8, !tbaa !56
+  %47 = load i64, ptr %2, align 8, !tbaa !56
   %48 = add nsw i64 %47, %46
-  store i64 %48, ptr %2, align 8, !tbaa !54
-  %49 = load i64, ptr %8, align 8, !tbaa !54
-  %50 = load i64, ptr %1, align 8, !tbaa !54
+  store i64 %48, ptr %2, align 8, !tbaa !56
+  %49 = load i64, ptr %8, align 8, !tbaa !56
+  %50 = load i64, ptr %1, align 8, !tbaa !56
   %51 = add nsw i64 %50, %49
-  store i64 %51, ptr %1, align 8, !tbaa !54
+  store i64 %51, ptr %1, align 8, !tbaa !56
   br label %52
 
 52:                                               ; preds = %42, %45, %35
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !34
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !56
+  %56 = load ptr, ptr %55, align 8, !tbaa !58
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
-  %58 = load ptr, ptr %57, align 8, !tbaa !59
+  %58 = load ptr, ptr %57, align 8, !tbaa !61
   %.not26 = icmp eq ptr %58, null
   br i1 %.not26, label %69, label %59
 
@@ -746,23 +746,23 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef captures(none) %
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %59
-  %63 = load i64, ptr %9, align 8, !tbaa !54
-  %64 = load i64, ptr %2, align 8, !tbaa !54
+  %63 = load i64, ptr %9, align 8, !tbaa !56
+  %64 = load i64, ptr %2, align 8, !tbaa !56
   %65 = add nsw i64 %64, %63
-  store i64 %65, ptr %2, align 8, !tbaa !54
-  %66 = load i64, ptr %8, align 8, !tbaa !54
-  %67 = load i64, ptr %1, align 8, !tbaa !54
+  store i64 %65, ptr %2, align 8, !tbaa !56
+  %66 = load i64, ptr %8, align 8, !tbaa !56
+  %67 = load i64, ptr %1, align 8, !tbaa !56
   %68 = add nsw i64 %67, %66
-  store i64 %68, ptr %1, align 8, !tbaa !54
+  store i64 %68, ptr %1, align 8, !tbaa !56
   br label %69
 
 69:                                               ; preds = %59, %62, %52
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %71 = load ptr, ptr %70, align 8, !tbaa !35
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !61
+  %73 = load ptr, ptr %72, align 8, !tbaa !63
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
-  %75 = load ptr, ptr %74, align 8, !tbaa !64
+  %75 = load ptr, ptr %74, align 8, !tbaa !66
   %.not27 = icmp eq ptr %75, null
   br i1 %.not27, label %86, label %76
 
@@ -772,14 +772,14 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef captures(none) %
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %76
-  %80 = load i64, ptr %9, align 8, !tbaa !54
-  %81 = load i64, ptr %2, align 8, !tbaa !54
+  %80 = load i64, ptr %9, align 8, !tbaa !56
+  %81 = load i64, ptr %2, align 8, !tbaa !56
   %82 = add nsw i64 %81, %80
-  store i64 %82, ptr %2, align 8, !tbaa !54
-  %83 = load i64, ptr %8, align 8, !tbaa !54
-  %84 = load i64, ptr %1, align 8, !tbaa !54
+  store i64 %82, ptr %2, align 8, !tbaa !56
+  %83 = load i64, ptr %8, align 8, !tbaa !56
+  %84 = load i64, ptr %1, align 8, !tbaa !56
   %85 = add nsw i64 %84, %83
-  store i64 %85, ptr %1, align 8, !tbaa !54
+  store i64 %85, ptr %1, align 8, !tbaa !56
   br label %86
 
 86:                                               ; preds = %69, %79, %76, %3, %16
@@ -824,7 +824,7 @@ define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr noundef writeonly capt
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %15 = load i64, ptr %14, align 8, !tbaa !31
-  store i64 %15, ptr %1, align 8, !tbaa !54
+  store i64 %15, ptr %1, align 8, !tbaa !56
   br label %16
 
 16:                                               ; preds = %2, %13, %11
@@ -930,16 +930,18 @@ attributes #9 = { nounwind allocsize(0) }
 !50 = !{!9, !13, i64 568}
 !51 = !{!9, !11, i64 704}
 !52 = !{!11, !11, i64 0}
-!53 = !{!9, !5, i64 16}
-!54 = !{!16, !16, i64 0}
-!55 = !{!23, !5, i64 32}
-!56 = !{!57, !58, i64 8}
-!57 = !{!"_generic_SUNMatrix", !5, i64 0, !58, i64 8, !10, i64 16}
-!58 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
-!59 = !{!60, !5, i64 72}
-!60 = !{!"_generic_SUNMatrix_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
-!61 = !{!62, !63, i64 8}
-!62 = !{!"_generic_SUNLinearSolver", !5, i64 0, !63, i64 8, !10, i64 16}
-!63 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !5, i64 0}
-!64 = !{!65, !5, i64 96}
-!65 = !{!"_generic_SUNLinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = !{!9, !5, i64 16}
+!56 = !{!16, !16, i64 0}
+!57 = !{!23, !5, i64 32}
+!58 = !{!59, !60, i64 8}
+!59 = !{!"_generic_SUNMatrix", !5, i64 0, !60, i64 8, !10, i64 16}
+!60 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!61 = !{!62, !5, i64 72}
+!62 = !{!"_generic_SUNMatrix_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
+!63 = !{!64, !65, i64 8}
+!64 = !{!"_generic_SUNLinearSolver", !5, i64 0, !65, i64 8, !10, i64 16}
+!65 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !5, i64 0}
+!66 = !{!67, !5, i64 96}
+!67 = !{!"_generic_SUNLinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112}

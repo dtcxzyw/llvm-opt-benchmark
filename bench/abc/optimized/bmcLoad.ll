@@ -478,192 +478,162 @@ Abc_Clock.exit:                                   ; preds = %3, %10
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not35, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
-  %.val4153.us.us = phi ptr [ %.val41.us.us, %.thread.us.us ], [ %.val4150, %.lr.ph.split.us ]
-  %.val42.us.us = load ptr, ptr %32, align 8, !tbaa !13
-  %.not34.us.us = icmp eq ptr %.val42.us.us, null
-  br i1 %.not34.us.us, label %.critedge, label %.thread.us.us
-
-.thread.us.us:                                    ; preds = %.lr.ph.split.us.split.us
-  %39 = getelementptr i8, ptr %.val4153.us.us, i64 8
-  %.val43.val.us.us = load ptr, ptr %39, align 8, !tbaa !37
-  %40 = getelementptr inbounds nuw i32, ptr %.val43.val.us.us, i64 %indvars.iv61
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.thread.us ], [ 0, %.lr.ph ]
+  %.val4153.us = phi ptr [ %.val41.us, %.thread.us ], [ %.val4150, %.lr.ph ]
+  %.val42.us = load ptr, ptr %32, align 8, !tbaa !13
+  %39 = getelementptr i8, ptr %.val4153.us, i64 8
+  %.val43.val.us = load ptr, ptr %39, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw i32, ptr %.val43.val.us, i64 %indvars.iv57
   %41 = load i32, ptr %40, align 4, !tbaa !38
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42.us.us, i64 %42
-  %.val3.i44.us.us = load i64, ptr %43, align 4
-  %44 = trunc i64 %.val3.i44.us.us to i32
-  %45 = and i32 %44, 536870911
-  %46 = sub nsw i32 %41, %45
-  %47 = call i32 @Bmc_LoadAddCnf_rec(ptr noundef nonnull %14, i32 noundef %46)
-  %.val38.us.us = load i64, ptr %43, align 4
-  %48 = trunc i64 %.val38.us.us to i32
-  %49 = lshr i32 %48, 29
-  %50 = and i32 %49, 1
-  %51 = shl nsw i32 %47, 1
-  %52 = or disjoint i32 %50, %51
-  store i32 %52, ptr %7, align 4, !tbaa !38
-  %53 = load ptr, ptr %17, align 8, !tbaa !39
-  %54 = call i32 @sat_solver_solve(ptr noundef %53, ptr noundef nonnull %7, ptr noundef nonnull %37, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %.val40.us.us = load i32, ptr %33, align 8, !tbaa !58
-  %.val41.us.us = load ptr, ptr %34, align 8, !tbaa !59
-  %55 = getelementptr i8, ptr %.val41.us.us, i64 4
-  %.val41.val.us.us = load i32, ptr %55, align 4, !tbaa !35
-  %56 = sub nsw i32 %.val41.val.us.us, %.val40.us.us
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next62, %57
-  br i1 %58, label %.lr.ph.split.us.split.us, label %.critedge, !llvm.loop !60
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.thread.us ], [ 0, %.lr.ph.split.us ]
-  %.val4153.us = phi ptr [ %.val41.us, %.thread.us ], [ %.val4150, %.lr.ph.split.us ]
-  %.val42.us = load ptr, ptr %32, align 8, !tbaa !13
+  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42.us, i64 %42
   %.not34.us = icmp eq ptr %.val42.us, null
-  br i1 %.not34.us, label %.critedge, label %.thread.us
+  br i1 %.not34.us, label %.critedge, label %44
 
-.thread.us:                                       ; preds = %.lr.ph.split.us.split
-  %59 = getelementptr i8, ptr %.val4153.us, i64 8
-  %.val43.val.us = load ptr, ptr %59, align 8, !tbaa !37
-  %60 = getelementptr inbounds nuw i32, ptr %.val43.val.us, i64 %indvars.iv58
-  %61 = load i32, ptr %60, align 4, !tbaa !38
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42.us, i64 %62
-  %.val3.i.us = load i64, ptr %63, align 4
-  %64 = trunc i64 %.val3.i.us to i32
-  %65 = and i32 %64, 536870911
-  %66 = sub nsw i32 %61, %65
-  %67 = call i32 @Bmc_LoadGetSatVar(ptr noundef nonnull %14, i32 noundef %66)
-  %.val39.us = load i64, ptr %63, align 4
-  %68 = trunc i64 %.val39.us to i32
-  %69 = lshr i32 %68, 29
-  %70 = and i32 %69, 1
-  %71 = shl nsw i32 %67, 1
-  %72 = or disjoint i32 %70, %71
-  store i32 %72, ptr %7, align 4, !tbaa !38
-  %73 = load ptr, ptr %17, align 8, !tbaa !39
-  %74 = call i32 @sat_solver_solve(ptr noundef %73, ptr noundef nonnull %7, ptr noundef nonnull %37, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+44:                                               ; preds = %.lr.ph.split.us
+  %.val3.i44.us = load i64, ptr %43, align 4
+  %45 = trunc i64 %.val3.i44.us to i32
+  %46 = and i32 %45, 536870911
+  %47 = sub nsw i32 %41, %46
+  br i1 %.not, label %50, label %48
+
+48:                                               ; preds = %44
+  %49 = call i32 @Bmc_LoadGetSatVar(ptr noundef nonnull %14, i32 noundef %47)
+  br label %.thread.us
+
+50:                                               ; preds = %44
+  %51 = call i32 @Bmc_LoadAddCnf_rec(ptr noundef nonnull %14, i32 noundef %47)
+  br label %.thread.us
+
+.thread.us:                                       ; preds = %50, %48
+  %.sink62 = phi i32 [ %51, %50 ], [ %49, %48 ]
+  %.val38.us = load i64, ptr %43, align 4
+  %52 = trunc i64 %.val38.us to i32
+  %53 = lshr i32 %52, 29
+  %54 = and i32 %53, 1
+  %55 = shl nsw i32 %.sink62, 1
+  %56 = or disjoint i32 %54, %55
+  store i32 %56, ptr %7, align 4, !tbaa !38
+  %57 = load ptr, ptr %17, align 8, !tbaa !39
+  %58 = call i32 @sat_solver_solve(ptr noundef %57, ptr noundef nonnull %7, ptr noundef nonnull %37, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %.val40.us = load i32, ptr %33, align 8, !tbaa !58
   %.val41.us = load ptr, ptr %34, align 8, !tbaa !59
-  %75 = getelementptr i8, ptr %.val41.us, i64 4
-  %.val41.val.us = load i32, ptr %75, align 4, !tbaa !35
-  %76 = sub nsw i32 %.val41.val.us, %.val40.us
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next59, %77
-  br i1 %78, label %.lr.ph.split.us.split, label %.critedge, !llvm.loop !60
+  %59 = getelementptr i8, ptr %.val41.us, i64 4
+  %.val41.val.us = load i32, ptr %59, align 4, !tbaa !35
+  %60 = sub nsw i32 %.val41.val.us, %.val40.us
+  %61 = sext i32 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next58, %61
+  br i1 %62, label %.lr.ph.split.us, label %.critedge, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Abc_Clock.exit46
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_Clock.exit46 ], [ 0, %.lr.ph ]
   %.val4153 = phi ptr [ %.val41, %Abc_Clock.exit46 ], [ %.val4150, %.lr.ph ]
   %.val42 = load ptr, ptr %32, align 8, !tbaa !13
-  %79 = getelementptr i8, ptr %.val4153, i64 8
-  %.val43.val = load ptr, ptr %79, align 8, !tbaa !37
-  %80 = getelementptr inbounds nuw i32, ptr %.val43.val, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4, !tbaa !38
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42, i64 %82
+  %63 = getelementptr i8, ptr %.val4153, i64 8
+  %.val43.val = load ptr, ptr %63, align 8, !tbaa !37
+  %64 = getelementptr inbounds nuw i32, ptr %.val43.val, i64 %indvars.iv
+  %65 = load i32, ptr %64, align 4, !tbaa !38
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42, i64 %66
   %.not34 = icmp eq ptr %.val42, null
-  br i1 %.not34, label %.critedge, label %84
+  br i1 %.not34, label %.critedge, label %68
 
-84:                                               ; preds = %.lr.ph.split
-  %.val3.i44 = load i64, ptr %83, align 4
-  %85 = trunc i64 %.val3.i44 to i32
-  %86 = and i32 %85, 536870911
-  %87 = sub nsw i32 %81, %86
-  br i1 %.not, label %90, label %88
+68:                                               ; preds = %.lr.ph.split
+  %.val3.i44 = load i64, ptr %67, align 4
+  %69 = trunc i64 %.val3.i44 to i32
+  %70 = and i32 %69, 536870911
+  %71 = sub nsw i32 %65, %70
+  br i1 %.not, label %74, label %72
 
-88:                                               ; preds = %84
-  %89 = call i32 @Bmc_LoadGetSatVar(ptr noundef nonnull %14, i32 noundef %87)
-  br label %92
+72:                                               ; preds = %68
+  %73 = call i32 @Bmc_LoadGetSatVar(ptr noundef nonnull %14, i32 noundef %71)
+  br label %76
 
-90:                                               ; preds = %84
-  %91 = call i32 @Bmc_LoadAddCnf_rec(ptr noundef nonnull %14, i32 noundef %87)
-  br label %92
+74:                                               ; preds = %68
+  %75 = call i32 @Bmc_LoadAddCnf_rec(ptr noundef nonnull %14, i32 noundef %71)
+  br label %76
 
-92:                                               ; preds = %90, %88
-  %.sink67 = phi i32 [ %91, %90 ], [ %89, %88 ]
-  %.val38 = load i64, ptr %83, align 4
-  %93 = trunc i64 %.val38 to i32
-  %94 = lshr i32 %93, 29
-  %95 = and i32 %94, 1
-  %96 = shl nsw i32 %.sink67, 1
-  %97 = or disjoint i32 %95, %96
-  store i32 %97, ptr %7, align 4, !tbaa !38
-  %98 = trunc nuw nsw i64 %indvars.iv to i32
-  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %98)
-  %100 = load ptr, ptr %22, align 8, !tbaa !34
-  %101 = getelementptr i8, ptr %100, i64 4
-  %.val = load i32, ptr %101, align 4, !tbaa !35
-  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val)
-  %103 = load ptr, ptr %17, align 8, !tbaa !39
-  %104 = call i32 @sat_solver_nclauses(ptr noundef %103) #14
-  %105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %104)
-  %106 = load ptr, ptr %17, align 8, !tbaa !39
-  %107 = call i32 @sat_solver_solve(ptr noundef %106, ptr noundef nonnull %7, ptr noundef nonnull %37, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %108 = load ptr, ptr %17, align 8, !tbaa !39
-  %109 = call i32 @sat_solver_nconflicts(ptr noundef %108) #14
-  %110 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %109)
-  %switch.selectcmp = icmp eq i32 %107, 1
+76:                                               ; preds = %74, %72
+  %.sink65 = phi i32 [ %75, %74 ], [ %73, %72 ]
+  %.val38 = load i64, ptr %67, align 4
+  %77 = trunc i64 %.val38 to i32
+  %78 = lshr i32 %77, 29
+  %79 = and i32 %78, 1
+  %80 = shl nsw i32 %.sink65, 1
+  %81 = or disjoint i32 %79, %80
+  store i32 %81, ptr %7, align 4, !tbaa !38
+  %82 = trunc nuw nsw i64 %indvars.iv to i32
+  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %82)
+  %84 = load ptr, ptr %22, align 8, !tbaa !34
+  %85 = getelementptr i8, ptr %84, i64 4
+  %.val = load i32, ptr %85, align 4, !tbaa !35
+  %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val)
+  %87 = load ptr, ptr %17, align 8, !tbaa !39
+  %88 = call i32 @sat_solver_nclauses(ptr noundef %87) #14
+  %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %88)
+  %90 = load ptr, ptr %17, align 8, !tbaa !39
+  %91 = call i32 @sat_solver_solve(ptr noundef %90, ptr noundef nonnull %7, ptr noundef nonnull %37, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  %92 = load ptr, ptr %17, align 8, !tbaa !39
+  %93 = call i32 @sat_solver_nconflicts(ptr noundef %92) #14
+  %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %93)
+  %switch.selectcmp = icmp eq i32 %91, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp69 = icmp eq i32 %107, -1
-  %switch.select70 = select i1 %switch.selectcmp69, ptr @.str.4, ptr %switch.select
-  %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select70)
+  %switch.selectcmp67 = icmp eq i32 %91, -1
+  %switch.select68 = select i1 %switch.selectcmp67, ptr @.str.4, ptr %switch.select
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select68)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  %112 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %Abc_Clock.exit46, label %114
+  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %Abc_Clock.exit46, label %98
 
-114:                                              ; preds = %92
-  %115 = load i64, ptr %4, align 8, !tbaa !42
-  %116 = mul nsw i64 %115, 1000000
-  %117 = load i64, ptr %38, align 8, !tbaa !44
-  %118 = sdiv i64 %117, 1000
-  %119 = add nsw i64 %118, %116
+98:                                               ; preds = %76
+  %99 = load i64, ptr %4, align 8, !tbaa !42
+  %100 = mul nsw i64 %99, 1000000
+  %101 = load i64, ptr %38, align 8, !tbaa !44
+  %102 = sdiv i64 %101, 1000
+  %103 = add nsw i64 %102, %100
   br label %Abc_Clock.exit46
 
-Abc_Clock.exit46:                                 ; preds = %92, %114
-  %.0.i45 = phi i64 [ %119, %114 ], [ -1, %92 ]
+Abc_Clock.exit46:                                 ; preds = %76, %98
+  %.0.i45 = phi i64 [ %103, %98 ], [ -1, %76 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  %120 = add i64 %.0.i45, %.0.i.neg
+  %104 = add i64 %.0.i45, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7)
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %122)
+  %105 = sitofp i64 %104 to double
+  %106 = fdiv double %105, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %106)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val40 = load i32, ptr %33, align 8, !tbaa !58
   %.val41 = load ptr, ptr %34, align 8, !tbaa !59
-  %123 = getelementptr i8, ptr %.val41, i64 4
-  %.val41.val = load i32, ptr %123, align 4, !tbaa !35
-  %124 = sub nsw i32 %.val41.val, %.val40
-  %125 = sext i32 %124 to i64
-  %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %.lr.ph.split, label %.critedge, !llvm.loop !60
+  %107 = getelementptr i8, ptr %.val41, i64 4
+  %.val41.val = load i32, ptr %107, align 4, !tbaa !35
+  %108 = sub nsw i32 %.val41.val, %.val40
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next, %109
+  br i1 %110, label %.lr.ph.split, label %.critedge, !llvm.loop !63
 
-.critedge:                                        ; preds = %.lr.ph.split, %Abc_Clock.exit46, %.lr.ph.split.us.split, %.thread.us, %.lr.ph.split.us.split.us, %.thread.us.us, %31
-  %127 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %128 = load i32, ptr %127, align 8, !tbaa !40
-  %129 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %130 = load i32, ptr %129, align 4, !tbaa !41
-  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %128, i32 noundef %130)
-  %132 = load ptr, ptr %22, align 8, !tbaa !34
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !37
-  %.not.i.i = icmp eq ptr %134, null
-  br i1 %.not.i.i, label %Bmc_LoadStop.exit, label %135
+.critedge:                                        ; preds = %.lr.ph.split, %Abc_Clock.exit46, %.lr.ph.split.us, %.thread.us, %31
+  %111 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %112 = load i32, ptr %111, align 8, !tbaa !40
+  %113 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %114 = load i32, ptr %113, align 4, !tbaa !41
+  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %112, i32 noundef %114)
+  %116 = load ptr, ptr %22, align 8, !tbaa !34
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !37
+  %.not.i.i = icmp eq ptr %118, null
+  br i1 %.not.i.i, label %Bmc_LoadStop.exit, label %119
 
-135:                                              ; preds = %.critedge
-  call void @free(ptr noundef nonnull %134) #14
+119:                                              ; preds = %.critedge
+  call void @free(ptr noundef nonnull %118) #14
   br label %Bmc_LoadStop.exit
 
-Bmc_LoadStop.exit:                                ; preds = %.critedge, %135
-  call void @free(ptr noundef nonnull %132) #14
-  %136 = load ptr, ptr %17, align 8, !tbaa !39
-  call void @sat_solver_delete(ptr noundef %136) #14
+Bmc_LoadStop.exit:                                ; preds = %.critedge, %119
+  call void @free(ptr noundef nonnull %116) #14
+  %120 = load ptr, ptr %17, align 8, !tbaa !39
+  call void @sat_solver_delete(ptr noundef %120) #14
   call void @free(ptr noundef nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   ret void
@@ -704,7 +674,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !62
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !64
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -712,7 +682,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !62, !noalias !63
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !64, !noalias !65
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
@@ -823,9 +793,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !57 = !{!46, !6, i64 704}
 !58 = !{!14, !12, i64 16}
 !59 = !{!14, !11, i64 72}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!56, !56, i64 0}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"vprintf: argument 0"}
-!65 = distinct !{!65, !"vprintf"}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !61}
+!64 = !{!56, !56, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"vprintf: argument 0"}
+!67 = distinct !{!67, !"vprintf"}

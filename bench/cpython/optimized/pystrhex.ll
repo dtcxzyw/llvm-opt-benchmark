@@ -375,7 +375,7 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   store i8 %133, ptr %135, align 1, !tbaa !4
   %lftr.wideiv = trunc i64 %119 to i32
   %exitcond214.not = icmp eq i32 %117, %lftr.wideiv
-  br i1 %exitcond214.not, label %._crit_edge.us191, label %118, !llvm.loop !28
+  br i1 %exitcond214.not, label %._crit_edge.us191, label %118, !llvm.loop !29
 
 ._crit_edge.us191:                                ; preds = %118
   %136 = add i64 %.2112182.us, 3
@@ -383,7 +383,7 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   store i8 %.2130158, ptr %137, align 1, !tbaa !4
   %138 = add nuw nsw i64 %.0106188.us, 1
   %exitcond215.not = icmp eq i64 %138, %89
-  br i1 %exitcond215.not, label %.preheader160, label %.preheader162.us, !llvm.loop !29
+  br i1 %exitcond215.not, label %.preheader160, label %.preheader162.us, !llvm.loop !30
 
 .preheader160:                                    ; preds = %._crit_edge.us191, %.preheader162.preheader, %.preheader163
   %.1115.lcssa = phi i64 [ 0, %.preheader163 ], [ 0, %.preheader162.preheader ], [ %119, %._crit_edge.us191 ]
@@ -414,7 +414,7 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %156 = getelementptr i8, ptr %149, i64 1
   store i8 %154, ptr %156, align 1, !tbaa !4
   %exitcond216.not = icmp eq i64 %140, %1
-  br i1 %exitcond216.not, label %.thread, label %.lr.ph197, !llvm.loop !30
+  br i1 %exitcond216.not, label %.thread, label %.lr.ph197, !llvm.loop !31
 
 .preheader164:                                    ; preds = %._crit_edge.us, %.preheader166.preheader, %.preheader167
   %.4118.lcssa = phi i64 [ %87, %.preheader167 ], [ %87, %.preheader166.preheader ], [ %95, %._crit_edge.us ]
@@ -445,7 +445,7 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %174 = getelementptr i8, ptr %167, i64 -1
   store i8 %172, ptr %174, align 1, !tbaa !4
   %.not224 = icmp eq i64 %.6120179, 0
-  br i1 %.not224, label %.thread, label %.lr.ph, !llvm.loop !31
+  br i1 %.not224, label %.thread, label %.lr.ph, !llvm.loop !32
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph197, %.lr.ph200, %.preheader164, %.preheader160, %.preheader, %6, %32, %36, %20, %10, %48, %58, %54
   %.1109 = phi ptr [ %49, %48 ], [ null, %54 ], [ null, %58 ], [ null, %10 ], [ null, %20 ], [ null, %36 ], [ null, %32 ], [ null, %6 ], [ %.0122, %.preheader ], [ %.0122, %.preheader160 ], [ %.0122, %.preheader164 ], [ %.0122, %.lr.ph200 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph ]
@@ -565,8 +565,9 @@ attributes #4 = { nounwind }
 !24 = !{!"int", !5, i64 0}
 !25 = !{!"short", !5, i64 0}
 !26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
+!27 = distinct !{!27, !11, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
+!30 = distinct !{!30, !11, !28}
 !31 = distinct !{!31, !11}
+!32 = distinct !{!32, !11}

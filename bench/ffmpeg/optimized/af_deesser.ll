@@ -329,7 +329,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   store double 1.000000e+00, ptr %15, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.0 = phi i32 [ -12, %1 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -436,5 +436,6 @@ attributes #4 = { nounwind }
 !64 = !{!54, !43, i64 48}
 !65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = distinct !{!67, !66}
-!68 = distinct !{!68, !66}
+!67 = distinct !{!67, !66, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !66}

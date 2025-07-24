@@ -1321,7 +1321,7 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
 
 13:                                               ; preds = %.split.us
   %switch.us = icmp sgt i32 %11, -1
-  br i1 %switch.us, label %.split.us, label %.thread
+  br i1 %switch.us, label %.split.us, label %.thread, !llvm.loop !59
 
 .split:                                           ; preds = %2, %18
   %14 = tail call i32 @SSL_shutdown(ptr noundef %1) #10
@@ -1366,7 +1366,7 @@ define internal void @run_server_shutdown_thread() #0 {
   %3 = tail call i32 @ossl_quic_tserver_tick(ptr noundef %2) #10
   %4 = load atomic i32, ptr @shutdowndone monotonic, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %1, label %5, !llvm.loop !59
+  br i1 %.not, label %1, label %5, !llvm.loop !61
 
 5:                                                ; preds = %1
   ret void
@@ -1409,7 +1409,7 @@ define dso_local range(i32 0, 2) i32 @qtest_check_server_transport_err(ptr nound
   br i1 %.not10, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = load i64, ptr %9, align 8, !tbaa !60
+  %23 = load i64, ptr %9, align 8, !tbaa !62
   %24 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i64 noundef %23, i64 noundef %1) #10
   %.not11 = icmp ne i32 %24, 0
   %spec.select = zext i1 %.not11 to i32
@@ -1443,13 +1443,13 @@ define dso_local void @qtest_fault_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 782) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 929) #10
-  store ptr null, ptr %6, align 8, !tbaa !63
+  store ptr null, ptr %6, align 8, !tbaa !65
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 722) #10
   br label %8
 
@@ -1460,7 +1460,7 @@ define dso_local void @qtest_fault_free(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @packet_plain_finish(ptr noundef captures(none) initializes((104, 120)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !64
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 782) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -1469,18 +1469,18 @@ define internal void @packet_plain_finish(ptr noundef captures(none) initializes
 ; Function Attrs: nounwind uwtable
 define internal void @handshake_finish(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 929) #10
-  store ptr null, ptr %2, align 8, !tbaa !63
+  store ptr null, ptr %2, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @qtest_fault_set_packet_plain_listener(ptr noundef initializes((120, 136)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %1, ptr %4, align 8, !tbaa !64
+  store ptr %1, ptr %4, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %2, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %5, align 8, !tbaa !67
   %6 = load ptr, ptr %0, align 8, !tbaa !45
   %7 = tail call i32 @ossl_quic_tserver_set_plain_packet_mutator(ptr noundef %6, ptr noundef nonnull @packet_plain_mutate, ptr noundef nonnull @packet_plain_finish, ptr noundef nonnull %0) #10
   ret i32 %7
@@ -1497,64 +1497,64 @@ define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr noundef readonly ca
   %.04149 = phi i64 [ %10, %.lr.ph ], [ 0, %7 ]
   %.04248 = phi i64 [ %11, %.lr.ph ], [ 0, %7 ]
   %8 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.04248, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !66
+  %9 = load i64, ptr %8, align 8, !tbaa !68
   %10 = add i64 %9, %.04149
   %11 = add nuw i64 %.04248, 1
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.041.lcssa = phi i64 [ 0, %7 ], [ %10, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 %.041.lcssa, ptr %13, align 8, !tbaa !68
+  store i64 %.041.lcssa, ptr %13, align 8, !tbaa !70
   %14 = add i64 %.041.lcssa, 1024
   %15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 747) #10
-  store ptr %15, ptr %12, align 8, !tbaa !62
+  store ptr %15, ptr %12, align 8, !tbaa !64
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %._crit_edge
-  store i64 0, ptr %13, align 8, !tbaa !68
+  store i64 0, ptr %13, align 8, !tbaa !70
   br label %35
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i64 %14, ptr %19, align 8, !tbaa !69
+  store i64 %14, ptr %19, align 8, !tbaa !71
   br i1 %.not55, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %18, %.lr.ph53
   %.051 = phi ptr [ %24, %.lr.ph53 ], [ %15, %18 ]
   %.150 = phi i64 [ %25, %.lr.ph53 ], [ 0, %18 ]
   %20 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.150
-  %21 = load ptr, ptr %20, align 8, !tbaa !70
+  %21 = load ptr, ptr %20, align 8, !tbaa !72
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !66
+  %23 = load i64, ptr %22, align 8, !tbaa !68
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.051, ptr align 1 %21, i64 %23, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %.051, i64 %23
   %25 = add nuw i64 %.150, 1
   %exitcond57.not = icmp eq i64 %25, %2
-  br i1 %exitcond57.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !71
+  br i1 %exitcond57.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !73
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %18
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false), !tbaa.struct !72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false), !tbaa.struct !74
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !64
+  %28 = load ptr, ptr %27, align 8, !tbaa !66
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %34, label %29
 
 29:                                               ; preds = %._crit_edge54
-  %30 = load i64, ptr %13, align 8, !tbaa !68
+  %30 = load i64, ptr %13, align 8, !tbaa !70
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %32 = load ptr, ptr %31, align 8, !tbaa !65
+  %32 = load ptr, ptr %31, align 8, !tbaa !67
   %33 = tail call i32 %28(ptr noundef nonnull %6, ptr noundef nonnull %26, ptr noundef nonnull %15, i64 noundef %30, ptr noundef %32) #10
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %35, label %34
 
 34:                                               ; preds = %29, %._crit_edge54
-  store ptr %26, ptr %3, align 8, !tbaa !74
-  store ptr %12, ptr %4, align 8, !tbaa !76
+  store ptr %26, ptr %3, align 8, !tbaa !76
+  store ptr %12, ptr %4, align 8, !tbaa !78
   store i64 1, ptr %5, align 8, !tbaa !46
   br label %35
 
@@ -1567,9 +1567,9 @@ define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr noundef readonly ca
 define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load i64, ptr %4, align 8, !tbaa !68
+  %5 = load i64, ptr %4, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %7 = load i64, ptr %6, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !71
   %8 = icmp eq i64 %7, 0
   %9 = icmp ugt i64 %1, %7
   %or.cond = or i1 %8, %9
@@ -1580,16 +1580,16 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr nounde
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %3, align 8, !tbaa !62
+  %13 = load ptr, ptr %3, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %5
   %15 = sub nuw i64 %1, %5
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
   br label %16
 
 16:                                               ; preds = %12, %10
-  store i64 %1, ptr %4, align 8, !tbaa !68
+  store i64 %1, ptr %4, align 8, !tbaa !70
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %1, ptr %17, align 8, !tbaa !78
+  store i64 %1, ptr %17, align 8, !tbaa !80
   br label %18
 
 18:                                               ; preds = %2, %16
@@ -1600,15 +1600,15 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @qtest_fault_prepend_frame(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = load i64, ptr %4, align 8, !tbaa !69
+  %5 = load i64, ptr %4, align 8, !tbaa !71
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %23, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %11 = load i64, ptr %10, align 8, !tbaa !68
+  %11 = load i64, ptr %10, align 8, !tbaa !70
   %12 = add i64 %11, %2
   %13 = icmp ugt i64 %12, %5
   br i1 %13, label %qtest_fault_resize_plain_packet.exit, label %14
@@ -1623,9 +1623,9 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_prepend_frame(ptr noundef capt
   br label %18
 
 18:                                               ; preds = %16, %14
-  store i64 %12, ptr %10, align 8, !tbaa !68
+  store i64 %12, ptr %10, align 8, !tbaa !70
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %12, ptr %19, align 8, !tbaa !78
+  store i64 %12, ptr %19, align 8, !tbaa !80
   br label %qtest_fault_resize_plain_packet.exit
 
 qtest_fault_resize_plain_packet.exit:             ; preds = %7, %18
@@ -1651,9 +1651,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @qtest_fault_set_handshake_listener(ptr noundef initializes((160, 176)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %1, ptr %4, align 8, !tbaa !79
+  store ptr %1, ptr %4, align 8, !tbaa !81
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %2, ptr %5, align 8, !tbaa !80
+  store ptr %2, ptr %5, align 8, !tbaa !82
   %6 = load ptr, ptr %0, align 8, !tbaa !45
   %7 = tail call i32 @ossl_quic_tserver_set_handshake_mutator(ptr noundef %6, ptr noundef nonnull @handshake_mutate, ptr noundef nonnull @handshake_finish, ptr noundef nonnull %0) #10
   ret i32 %7
@@ -1671,11 +1671,11 @@ define internal range(i32 0, 2) i32 @handshake_mutate(ptr noundef readonly captu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr %8, ptr %11, align 8, !tbaa !63
+  store ptr %8, ptr %11, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store i64 %1, ptr %12, align 8, !tbaa !81
+  store i64 %1, ptr %12, align 8, !tbaa !83
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i64 %7, ptr %13, align 8, !tbaa !82
+  store i64 %7, ptr %13, align 8, !tbaa !84
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %0, i64 %1, i1 false)
   %or.cond = icmp slt i64 %1, 1
   br i1 %or.cond, label %PACKET_buf_init.exit.thread, label %14
@@ -1711,22 +1711,22 @@ define internal range(i32 0, 2) i32 @handshake_mutate(ptr noundef readonly captu
 34:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %36 = load ptr, ptr %35, align 8, !tbaa !83
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %34
-  store ptr %31, ptr %6, align 8, !tbaa !84
+  store ptr %31, ptr %6, align 8, !tbaa !86
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %30, ptr %39, align 8, !tbaa !86
+  store i64 %30, ptr %39, align 8, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  %41 = load ptr, ptr %40, align 8, !tbaa !87
+  %41 = load ptr, ptr %40, align 8, !tbaa !89
   %42 = call i32 %36(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef %30, ptr noundef %41) #10
   %.not35 = icmp eq i32 %42, 0
   br i1 %.not35, label %43, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %38
-  %.pre63.pre.pre = load i64, ptr %12, align 8, !tbaa !81
+  %.pre63.pre.pre = load i64, ptr %12, align 8, !tbaa !83
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %34
@@ -1741,24 +1741,24 @@ define internal range(i32 0, 2) i32 @handshake_mutate(ptr noundef readonly captu
 44:                                               ; preds = %.thread, %33
   %.pre63 = phi i64 [ %.pre63.pre, %.thread ], [ %1, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %46 = load ptr, ptr %45, align 8, !tbaa !79
+  %46 = load ptr, ptr %45, align 8, !tbaa !81
   %.not36 = icmp eq ptr %46, null
   br i1 %.not36, label %51, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %49 = load ptr, ptr %48, align 8, !tbaa !80
+  %49 = load ptr, ptr %48, align 8, !tbaa !82
   %50 = call i32 %46(ptr noundef nonnull %4, ptr noundef nonnull %8, i64 noundef %.pre63, ptr noundef %49) #10
   %.not37 = icmp eq i32 %50, 0
   br i1 %.not37, label %PACKET_buf_init.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47
-  %.pre = load i64, ptr %12, align 8, !tbaa !81
+  %.pre = load i64, ptr %12, align 8, !tbaa !83
   br label %51
 
 51:                                               ; preds = %._crit_edge, %44
   %52 = phi i64 [ %.pre, %._crit_edge ], [ %.pre63, %44 ]
-  store ptr %8, ptr %2, align 8, !tbaa !73
+  store ptr %8, ptr %2, align 8, !tbaa !75
   store i64 %52, ptr %3, align 8, !tbaa !46
   br label %PACKET_buf_init.exit.thread
 
@@ -1770,9 +1770,9 @@ PACKET_buf_init.exit.thread:                      ; preds = %14, %10, %43, %47, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @qtest_fault_set_hand_enc_ext_listener(ptr noundef initializes((176, 192)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %1, ptr %4, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %2, ptr %5, align 8, !tbaa !87
+  store ptr %2, ptr %5, align 8, !tbaa !89
   %6 = load ptr, ptr %0, align 8, !tbaa !45
   %7 = tail call i32 @ossl_quic_tserver_set_handshake_mutator(ptr noundef %6, ptr noundef nonnull @handshake_mutate, ptr noundef nonnull @handshake_finish, ptr noundef nonnull %0) #10
   ret i32 %7
@@ -1781,9 +1781,9 @@ define dso_local i32 @qtest_fault_set_hand_enc_ext_listener(ptr noundef initiali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %4 = load i64, ptr %3, align 8, !tbaa !81
+  %4 = load i64, ptr %3, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load i64, ptr %5, align 8, !tbaa !82
+  %6 = load i64, ptr %5, align 8, !tbaa !84
   %7 = icmp eq i64 %6, 0
   %8 = icmp ugt i64 %1, %6
   %or.cond = or i1 %7, %8
@@ -1795,14 +1795,14 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr noundef c
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %4
   %15 = sub nuw i64 %1, %4
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
   br label %16
 
 16:                                               ; preds = %11, %9
-  store i64 %1, ptr %3, align 8, !tbaa !81
+  store i64 %1, ptr %3, align 8, !tbaa !83
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1814,9 +1814,9 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr noundef c
 define dso_local range(i32 0, 2) i32 @qtest_fault_resize_message(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = add i64 %1, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load i64, ptr %4, align 8, !tbaa !81
+  %5 = load i64, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load i64, ptr %6, align 8, !tbaa !82
+  %7 = load i64, ptr %6, align 8, !tbaa !84
   %8 = icmp eq i64 %7, 0
   %9 = icmp ugt i64 %3, %7
   %or.cond.i = or i1 %8, %9
@@ -1828,27 +1828,27 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_message(ptr noundef cap
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !63
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %5
   %16 = sub nuw i64 %3, %5
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %16, i1 false)
   br label %17
 
 17:                                               ; preds = %12, %10
-  store i64 %3, ptr %4, align 8, !tbaa !81
+  store i64 %3, ptr %4, align 8, !tbaa !83
   %18 = lshr i64 %1, 16
   %19 = trunc i64 %18 to i8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %19, ptr %22, align 1, !tbaa !56
   %23 = lshr i64 %1, 8
   %24 = trunc i64 %23 to i8
-  %25 = load ptr, ptr %20, align 8, !tbaa !63
+  %25 = load ptr, ptr %20, align 8, !tbaa !65
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i8 %24, ptr %26, align 1, !tbaa !56
   %27 = trunc i64 %1 to i8
-  %28 = load ptr, ptr %20, align 8, !tbaa !63
+  %28 = load ptr, ptr %20, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 3
   store i8 %27, ptr %29, align 1, !tbaa !56
   br label %qtest_fault_resize_handshake.exit.thread
@@ -1865,7 +1865,7 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_delete_extension(ptr noundef c
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load i64, ptr %8, align 8, !tbaa !81
+  %9 = load i64, ptr %8, align 8, !tbaa !83
   %10 = load i64, ptr %3, align 8, !tbaa !46
   %or.cond = icmp slt i64 %10, 2
   br i1 %or.cond, label %PACKET_buf_init.exit.thread, label %11
@@ -1922,7 +1922,7 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %41
   %47 = sub nuw i64 %42, %41
   %.not38 = icmp eq i32 %30, %1
-  br i1 %.not38, label %48, label %21, !llvm.loop !88
+  br i1 %.not38, label %48, label %21, !llvm.loop !90
 
 48:                                               ; preds = %44
   %.not39 = icmp eq ptr %4, null
@@ -1950,7 +1950,7 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
 56:                                               ; preds = %53
   %57 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #10
   %58 = load i64, ptr %7, align 8, !tbaa !46
-  store i64 %58, ptr %4, align 8, !tbaa !89
+  store i64 %58, ptr %4, align 8, !tbaa !91
   %.pre = load i64, ptr %3, align 8, !tbaa !46
   br label %59
 
@@ -1984,9 +1984,9 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
 75:                                               ; preds = %65
   %76 = sub nuw i64 %9, %73
   %77 = add nuw i64 %76, 4
-  %78 = load i64, ptr %8, align 8, !tbaa !81
+  %78 = load i64, ptr %8, align 8, !tbaa !83
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %80 = load i64, ptr %79, align 8, !tbaa !82
+  %80 = load i64, ptr %79, align 8, !tbaa !84
   %81 = icmp ugt i64 %77, %80
   br i1 %81, label %PACKET_buf_init.exit.thread, label %82
 
@@ -1996,27 +1996,27 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %86 = load ptr, ptr %85, align 8, !tbaa !63
+  %86 = load ptr, ptr %85, align 8, !tbaa !65
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %78
   %88 = sub nuw i64 %77, %78
   call void @llvm.memset.p0.i64(ptr align 1 %87, i8 0, i64 %88, i1 false)
   br label %qtest_fault_resize_message.exit
 
 qtest_fault_resize_message.exit:                  ; preds = %82, %84
-  store i64 %77, ptr %8, align 8, !tbaa !81
+  store i64 %77, ptr %8, align 8, !tbaa !83
   %89 = lshr i64 %76, 16
   %90 = trunc i64 %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %92 = load ptr, ptr %91, align 8, !tbaa !63
+  %92 = load ptr, ptr %91, align 8, !tbaa !65
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 %90, ptr %93, align 1, !tbaa !56
   %94 = lshr i64 %76, 8
   %95 = trunc i64 %94 to i8
-  %96 = load ptr, ptr %91, align 8, !tbaa !63
+  %96 = load ptr, ptr %91, align 8, !tbaa !65
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 2
   store i8 %95, ptr %97, align 1, !tbaa !56
   %98 = trunc i64 %76 to i8
-  %99 = load ptr, ptr %91, align 8, !tbaa !63
+  %99 = load ptr, ptr %91, align 8, !tbaa !65
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 3
   store i8 %98, ptr %100, align 1, !tbaa !56
   br label %PACKET_buf_init.exit.thread
@@ -2067,13 +2067,13 @@ define internal i32 @pcipher_sendmmsg(ptr noundef %0, ptr noundef %1, i64 nounde
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 192
-  %21 = load ptr, ptr %20, align 8, !tbaa !91
+  %21 = load ptr, ptr %20, align 8, !tbaa !93
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %25 = load ptr, ptr %24, align 8, !tbaa !92
+  %25 = load ptr, ptr %24, align 8, !tbaa !94
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
@@ -2101,10 +2101,10 @@ define internal i32 @pcipher_sendmmsg(ptr noundef %0, ptr noundef %1, i64 nounde
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 224
   %38 = mul i64 %.05982, %2
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !95
   %40 = load ptr, ptr %16, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
-  %42 = load i64, ptr %41, align 8, !tbaa !95
+  %42 = load i64, ptr %41, align 8, !tbaa !97
   %43 = add i64 %42, 1024
   %44 = call noalias ptr @CRYPTO_malloc(i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 1118) #10
   %45 = icmp eq ptr %44, null
@@ -2113,17 +2113,17 @@ define internal i32 @pcipher_sendmmsg(ptr noundef %0, ptr noundef %1, i64 nounde
 46:                                               ; preds = %35
   %47 = load ptr, ptr %16, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 224
-  %49 = load ptr, ptr %48, align 8, !tbaa !96
+  %49 = load ptr, ptr %48, align 8, !tbaa !98
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 232
-  %51 = load i64, ptr %50, align 8, !tbaa !95
+  %51 = load i64, ptr %50, align 8, !tbaa !97
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %49, i64 %51, i1 false)
-  store ptr %44, ptr %48, align 8, !tbaa !96
-  %52 = load i64, ptr %50, align 8, !tbaa !95
+  store ptr %44, ptr %48, align 8, !tbaa !98
+  %52 = load i64, ptr %50, align 8, !tbaa !97
   %53 = add i64 %52, 1024
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 264
-  store i64 %53, ptr %54, align 8, !tbaa !97
+  store i64 %53, ptr %54, align 8, !tbaa !99
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 192
-  %56 = load ptr, ptr %55, align 8, !tbaa !91
+  %56 = load ptr, ptr %55, align 8, !tbaa !93
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %.loopexit75, label %57
 
@@ -2145,11 +2145,11 @@ PACKET_buf_init.exit:                             ; preds = %57
 62:                                               ; preds = %59
   %63 = load ptr, ptr %16, align 8, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 192
-  %65 = load ptr, ptr %64, align 8, !tbaa !91
-  %66 = load ptr, ptr %32, align 8, !tbaa !98
-  %67 = load i64, ptr %33, align 8, !tbaa !99
+  %65 = load ptr, ptr %64, align 8, !tbaa !93
+  %66 = load ptr, ptr %32, align 8, !tbaa !100
+  %67 = load i64, ptr %33, align 8, !tbaa !101
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 200
-  %69 = load ptr, ptr %68, align 8, !tbaa !100
+  %69 = load ptr, ptr %68, align 8, !tbaa !102
   %70 = call i32 %65(ptr noundef %63, ptr noundef nonnull %8, ptr noundef %66, i64 noundef %67, ptr noundef %69) #10
   %.not68 = icmp eq i32 %70, 0
   br i1 %.not68, label %.loopexit, label %71
@@ -2157,7 +2157,7 @@ PACKET_buf_init.exit:                             ; preds = %57
 71:                                               ; preds = %62
   %.val = load i64, ptr %31, align 8, !tbaa !49
   %.not69 = icmp eq i64 %.val, 0
-  br i1 %.not69, label %.loopexit75.loopexit, label %59, !llvm.loop !101
+  br i1 %.not69, label %.loopexit75.loopexit, label %59, !llvm.loop !103
 
 .loopexit75.loopexit:                             ; preds = %71
   %.pre = load ptr, ptr %16, align 8, !tbaa !15
@@ -2166,14 +2166,14 @@ PACKET_buf_init.exit:                             ; preds = %57
 .loopexit75:                                      ; preds = %.loopexit75.loopexit, %46
   %72 = phi ptr [ %.pre, %.loopexit75.loopexit ], [ %47, %46 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 208
-  %74 = load ptr, ptr %73, align 8, !tbaa !92
+  %74 = load ptr, ptr %73, align 8, !tbaa !94
   %.not70 = icmp eq ptr %74, null
   br i1 %.not70, label %80, label %75
 
 75:                                               ; preds = %.loopexit75
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 224
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 216
-  %78 = load ptr, ptr %77, align 8, !tbaa !102
+  %78 = load ptr, ptr %77, align 8, !tbaa !104
   %79 = call i32 %74(ptr noundef nonnull %72, ptr noundef nonnull %76, i64 noundef %2, ptr noundef %78) #10
   %.not71 = icmp eq i32 %79, 0
   br i1 %.not71, label %.loopexit, label %._crit_edge
@@ -2192,16 +2192,16 @@ PACKET_buf_init.exit:                             ; preds = %57
 84:                                               ; preds = %80
   %85 = load ptr, ptr %16, align 8, !tbaa !15
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 224
-  %87 = load ptr, ptr %86, align 8, !tbaa !96
+  %87 = load ptr, ptr %86, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 1164) #10
   %88 = load ptr, ptr %16, align 8, !tbaa !15
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
-  store ptr null, ptr %89, align 8, !tbaa !96
+  store ptr null, ptr %89, align 8, !tbaa !98
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 264
-  store i64 0, ptr %90, align 8, !tbaa !97
+  store i64 0, ptr %90, align 8, !tbaa !99
   %91 = add nuw i64 %.05982, 1
   %exitcond.not = icmp eq i64 %91, %3
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %35, !llvm.loop !103
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %35, !llvm.loop !105
 
 .loopexit.sink.split:                             ; preds = %84, %80
   %.sink = phi i64 [ %.05982, %80 ], [ %3, %84 ]
@@ -2215,11 +2215,11 @@ PACKET_buf_init.exit:                             ; preds = %57
   %93 = zext i1 %92 to i32
   %94 = load ptr, ptr %16, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 224
-  %96 = load ptr, ptr %95, align 8, !tbaa !96
+  %96 = load ptr, ptr %95, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 1172) #10
   %97 = load ptr, ptr %16, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 224
-  store ptr null, ptr %98, align 8, !tbaa !96
+  store ptr null, ptr %98, align 8, !tbaa !98
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %57, %35, %6, %.loopexit, %34, %27
@@ -2261,44 +2261,44 @@ declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef i32 @qtest_fault_set_packet_cipher_listener(ptr noundef writeonly captures(none) initializes((192, 208)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %1, ptr %4, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %2, ptr %5, align 8, !tbaa !100
+  store ptr %2, ptr %5, align 8, !tbaa !102
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef i32 @qtest_fault_set_datagram_listener(ptr noundef writeonly captures(none) initializes((208, 224)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %1, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %2, ptr %5, align 8, !tbaa !102
+  store ptr %2, ptr %5, align 8, !tbaa !104
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @qtest_fault_resize_datagram(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %4 = load i64, ptr %3, align 8, !tbaa !97
+  %4 = load i64, ptr %3, align 8, !tbaa !99
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = load i64, ptr %7, align 8, !tbaa !95
+  %8 = load i64, ptr %7, align 8, !tbaa !97
   %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %12 = load ptr, ptr %11, align 8, !tbaa !96
+  %12 = load ptr, ptr %11, align 8, !tbaa !98
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %8
   %14 = sub nuw i64 %1, %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %10, %6
-  store i64 %1, ptr %7, align 8, !tbaa !95
+  store i64 %1, ptr %7, align 8, !tbaa !97
   br label %16
 
 16:                                               ; preds = %2, %15
@@ -2358,26 +2358,26 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_set_bw_limit(ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr noundef captures(none) initializes((8, 16), (32, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !104
-  %4 = load ptr, ptr %1, align 8, !tbaa !104
+  %3 = load ptr, ptr %0, align 8, !tbaa !106
+  %4 = load ptr, ptr %1, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !105
+  %6 = load i64, ptr %5, align 8, !tbaa !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 %6, i1 false)
-  %7 = load i64, ptr %5, align 8, !tbaa !105
+  %7 = load i64, ptr %5, align 8, !tbaa !107
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !105
+  store i64 %7, ptr %8, align 8, !tbaa !107
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !106
+  %10 = load i64, ptr %9, align 8, !tbaa !108
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %10, ptr %11, align 8, !tbaa !106
+  store i64 %10, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !107
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %23, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !107
+  %16 = load ptr, ptr %15, align 8, !tbaa !109
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %22, label %17
 
@@ -2395,9 +2395,9 @@ define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr noundef captures(none) in
 
 23:                                               ; preds = %22, %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !108
+  %25 = load ptr, ptr %24, align 8, !tbaa !110
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !108
+  %27 = load ptr, ptr %26, align 8, !tbaa !110
   %28 = tail call i32 @BIO_ADDR_copy(ptr noundef %25, ptr noundef %27) #10
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
@@ -2527,53 +2527,55 @@ attributes #10 = { nounwind }
 !56 = !{!7, !7, i64 0}
 !57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58}
-!60 = !{!61, !17, i64 0}
-!61 = !{!"quic_terminate_cause_st", !17, i64 0, !17, i64 8, !26, i64 16, !17, i64 24, !21, i64 32, !21, i64 32}
-!62 = !{!23, !26, i64 96}
-!63 = !{!23, !26, i64 136}
-!64 = !{!23, !6, i64 120}
-!65 = !{!23, !6, i64 128}
-!66 = !{!27, !17, i64 8}
-!67 = distinct !{!67, !58}
-!68 = !{!23, !17, i64 104}
-!69 = !{!23, !17, i64 112}
-!70 = !{!27, !26, i64 0}
-!71 = distinct !{!71, !58}
-!72 = !{i64 0, i64 4, !56, i64 4, i64 4, !20, i64 8, i64 1, !56, i64 9, i64 20, !56, i64 29, i64 1, !56, i64 30, i64 20, !56, i64 50, i64 4, !56, i64 56, i64 8, !73, i64 64, i64 8, !46, i64 72, i64 8, !46, i64 80, i64 8, !73}
-!73 = !{!26, !26, i64 0}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !58}
+!62 = !{!63, !17, i64 0}
+!63 = !{!"quic_terminate_cause_st", !17, i64 0, !17, i64 8, !26, i64 16, !17, i64 24, !21, i64 32, !21, i64 32}
+!64 = !{!23, !26, i64 96}
+!65 = !{!23, !26, i64 136}
+!66 = !{!23, !6, i64 120}
+!67 = !{!23, !6, i64 128}
+!68 = !{!27, !17, i64 8}
+!69 = distinct !{!69, !58}
+!70 = !{!23, !17, i64 104}
+!71 = !{!23, !17, i64 112}
+!72 = !{!27, !26, i64 0}
+!73 = distinct !{!73, !58}
+!74 = !{i64 0, i64 4, !56, i64 4, i64 4, !20, i64 8, i64 1, !56, i64 9, i64 20, !56, i64 29, i64 1, !56, i64 30, i64 20, !56, i64 50, i64 4, !56, i64 56, i64 8, !75, i64 64, i64 8, !46, i64 72, i64 8, !46, i64 80, i64 8, !75}
+!75 = !{!26, !26, i64 0}
 !76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTS17ossl_qtx_iovec_st", !6, i64 0}
-!78 = !{!23, !17, i64 80}
-!79 = !{!23, !6, i64 160}
-!80 = !{!23, !6, i64 168}
-!81 = !{!23, !17, i64 152}
-!82 = !{!23, !17, i64 144}
-!83 = !{!23, !6, i64 176}
-!84 = !{!85, !26, i64 0}
-!85 = !{!"qtest_fault_encrypted_extensions", !26, i64 0, !17, i64 8}
-!86 = !{!85, !17, i64 8}
-!87 = !{!23, !6, i64 184}
-!88 = distinct !{!88, !58}
-!89 = !{!90, !17, i64 0}
-!90 = !{!"buf_mem_st", !17, i64 0, !26, i64 8, !17, i64 16, !17, i64 24}
-!91 = !{!23, !6, i64 192}
-!92 = !{!23, !6, i64 208}
-!93 = !{i64 0, i64 8, !42, i64 8, i64 8, !46, i64 16, i64 8, !94, i64 24, i64 8, !94, i64 32, i64 8, !46}
-!94 = !{!29, !29, i64 0}
-!95 = !{!23, !17, i64 232}
-!96 = !{!23, !6, i64 224}
-!97 = !{!23, !17, i64 264}
-!98 = !{!24, !26, i64 80}
-!99 = !{!24, !17, i64 72}
-!100 = !{!23, !6, i64 200}
-!101 = distinct !{!101, !58}
-!102 = !{!23, !6, i64 216}
+!77 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTS17ossl_qtx_iovec_st", !6, i64 0}
+!80 = !{!23, !17, i64 80}
+!81 = !{!23, !6, i64 160}
+!82 = !{!23, !6, i64 168}
+!83 = !{!23, !17, i64 152}
+!84 = !{!23, !17, i64 144}
+!85 = !{!23, !6, i64 176}
+!86 = !{!87, !26, i64 0}
+!87 = !{!"qtest_fault_encrypted_extensions", !26, i64 0, !17, i64 8}
+!88 = !{!87, !17, i64 8}
+!89 = !{!23, !6, i64 184}
+!90 = distinct !{!90, !58}
+!91 = !{!92, !17, i64 0}
+!92 = !{!"buf_mem_st", !17, i64 0, !26, i64 8, !17, i64 16, !17, i64 24}
+!93 = !{!23, !6, i64 192}
+!94 = !{!23, !6, i64 208}
+!95 = !{i64 0, i64 8, !42, i64 8, i64 8, !46, i64 16, i64 8, !96, i64 24, i64 8, !96, i64 32, i64 8, !46}
+!96 = !{!29, !29, i64 0}
+!97 = !{!23, !17, i64 232}
+!98 = !{!23, !6, i64 224}
+!99 = !{!23, !17, i64 264}
+!100 = !{!24, !26, i64 80}
+!101 = !{!24, !17, i64 72}
+!102 = !{!23, !6, i64 200}
 !103 = distinct !{!103, !58}
-!104 = !{!28, !6, i64 0}
-!105 = !{!28, !17, i64 8}
-!106 = !{!28, !17, i64 32}
-!107 = !{!28, !29, i64 24}
-!108 = !{!28, !29, i64 16}
+!104 = !{!23, !6, i64 216}
+!105 = distinct !{!105, !58}
+!106 = !{!28, !6, i64 0}
+!107 = !{!28, !17, i64 8}
+!108 = !{!28, !17, i64 32}
+!109 = !{!28, !29, i64 24}
+!110 = !{!28, !29, i64 16}

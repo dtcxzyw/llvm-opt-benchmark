@@ -1889,8 +1889,8 @@ declare dso_local ptr @clocksource_default_clock() local_unnamed_addr #6 section
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed_addr #2 align 16 {
   %2 = tail call i32 @tick_oneshot_mode_active() #16
-  %.fr29 = freeze i32 %2
-  %3 = icmp eq i32 %.fr29, 0
+  %.fr26 = freeze i32 %2
+  %3 = icmp eq i32 %.fr26, 0
   %4 = load i1, ptr @finished_booting, align 4
   br i1 %4, label %5, label %.thread
 
@@ -1903,23 +1903,17 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
   %9 = load ptr, ptr @curr_clocksource, align 8
   br i1 %3, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %8
-  br i1 %0, label %.split.us.split, label %.split.us.split.us
-
-.split.us.split.us:                               ; preds = %.split.us
-  %10 = getelementptr i8, ptr %6, i64 -56
-  br label %.split13.us
-
-.split.us.split:                                  ; preds = %.split.us, %14
-  %11 = phi ptr [ %15, %14 ], [ %6, %.split.us ]
-  %12 = getelementptr i8, ptr %11, i64 -56
-  %13 = icmp eq ptr %12, %9
+.split.us:                                        ; preds = %8, %14
+  %10 = phi ptr [ %15, %14 ], [ %6, %8 ]
+  %11 = getelementptr i8, ptr %10, i64 -56
+  %12 = icmp eq ptr %11, %9
+  %13 = select i1 %0, i1 %12, i1 false
   br i1 %13, label %14, label %.split13.us
 
-14:                                               ; preds = %.split.us.split
-  %15 = load ptr, ptr %11, align 8
+14:                                               ; preds = %.split.us
+  %15 = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %15, @clocksource_list
-  br i1 %16, label %.thread, label %.split.us.split, !llvm.loop !57
+  br i1 %16, label %.thread, label %.split.us, !llvm.loop !57
 
 .split:                                           ; preds = %8
   br i1 %0, label %.split.split, label %.split.split.us
@@ -1935,7 +1929,7 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
 22:                                               ; preds = %.split.split.us
   %23 = load ptr, ptr %17, align 8
   %24 = icmp eq ptr %23, @clocksource_list
-  br i1 %24, label %.thread, label %.split.split.us, !llvm.loop !57
+  br i1 %24, label %.thread, label %.split.split.us, !llvm.loop !59
 
 .split13.split.us:                                ; preds = %.split.split.us
   %25 = getelementptr i8, ptr %17, i64 -56
@@ -1957,10 +1951,10 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
 34:                                               ; preds = %29, %.split.split
   %35 = load ptr, ptr %26, align 8
   %36 = icmp eq ptr %35, @clocksource_list
-  br i1 %36, label %.thread, label %.split.split, !llvm.loop !57
+  br i1 %36, label %.thread, label %.split.split, !llvm.loop !60
 
-.split13.us:                                      ; preds = %29, %.split.us.split, %.split13.split.us, %.split.us.split.us
-  %.us-phi = phi ptr [ %10, %.split.us.split.us ], [ %25, %.split13.split.us ], [ %12, %.split.us.split ], [ %27, %29 ]
+.split13.us:                                      ; preds = %29, %.split.us, %.split13.split.us
+  %.us-phi = phi ptr [ %25, %.split13.split.us ], [ %11, %.split.us ], [ %27, %29 ]
   %37 = icmp eq ptr %.us-phi, null
   br i1 %37, label %.thread, label %38
 
@@ -1970,70 +1964,70 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %38
-  br i1 %0, label %.split22, label %.split22.us
+  br i1 %0, label %.split19, label %.split19.us
 
-.split22.us:                                      ; preds = %41, %47
+.split19.us:                                      ; preds = %41, %47
   %42 = phi ptr [ %48, %47 ], [ %6, %41 ]
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @strcmp(ptr noundef %44, ptr noundef nonnull dereferenceable(1) @override_name) #16
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.split24.us, label %47
+  br i1 %46, label %.split21.us, label %47
 
-47:                                               ; preds = %.split22.us
+47:                                               ; preds = %.split19.us
   %48 = load ptr, ptr %42, align 8
   %49 = icmp eq ptr %48, @clocksource_list
-  br i1 %49, label %.loopexit, label %.split22.us, !llvm.loop !58
+  br i1 %49, label %.loopexit, label %.split19.us, !llvm.loop !61
 
-.split24.us:                                      ; preds = %.split22.us
+.split21.us:                                      ; preds = %.split19.us
   %50 = getelementptr i8, ptr %42, i64 -56
-  br label %.split24
+  br label %.split21
 
-.split22:                                         ; preds = %41, %71
+.split19:                                         ; preds = %41, %71
   %51 = phi ptr [ %72, %71 ], [ %6, %41 ]
   %52 = getelementptr i8, ptr %51, i64 -56
   %53 = icmp eq ptr %52, %9
   br i1 %53, label %71, label %54
 
-54:                                               ; preds = %.split22
+54:                                               ; preds = %.split19
   %55 = getelementptr i8, ptr %51, i64 -8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @strcmp(ptr noundef %56, ptr noundef nonnull dereferenceable(1) @override_name) #16
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.split24, label %71
+  br i1 %58, label %.split21, label %71
 
-.split24:                                         ; preds = %54, %.split24.us
-  %.us-phi25 = phi ptr [ %42, %.split24.us ], [ %51, %54 ]
-  %.us-phi26 = phi ptr [ %50, %.split24.us ], [ %52, %54 ]
-  %.us-phi27 = phi ptr [ %44, %.split24.us ], [ %56, %54 ]
-  %59 = getelementptr i8, ptr %.us-phi25, i64 32
+.split21:                                         ; preds = %54, %.split21.us
+  %.us-phi22 = phi ptr [ %42, %.split21.us ], [ %51, %54 ]
+  %.us-phi23 = phi ptr [ %50, %.split21.us ], [ %52, %54 ]
+  %.us-phi24 = phi ptr [ %44, %.split21.us ], [ %56, %54 ]
+  %59 = getelementptr i8, ptr %.us-phi22, i64 32
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 32
   %62 = icmp ne i64 %61, 0
   %63 = or i1 %3, %62
   br i1 %63, label %.loopexit, label %64
 
-64:                                               ; preds = %.split24
+64:                                               ; preds = %.split21
   %65 = and i64 %60, 64
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %.us-phi27) #18
+  %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %.us-phi24) #18
   store i8 0, ptr @override_name, align 16
   br label %.loopexit
 
 69:                                               ; preds = %64
-  %70 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %.us-phi27) #18
+  %70 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %.us-phi24) #18
   br label %.loopexit
 
-71:                                               ; preds = %54, %.split22
+71:                                               ; preds = %54, %.split19
   %72 = load ptr, ptr %51, align 8
   %73 = icmp eq ptr %72, @clocksource_list
-  br i1 %73, label %.loopexit, label %.split22, !llvm.loop !58
+  br i1 %73, label %.loopexit, label %.split19, !llvm.loop !62
 
-.loopexit:                                        ; preds = %47, %71, %69, %67, %.split24, %38
-  %74 = phi ptr [ %.us-phi, %67 ], [ %.us-phi, %69 ], [ %.us-phi, %38 ], [ %.us-phi26, %.split24 ], [ %.us-phi, %71 ], [ %.us-phi, %47 ]
+.loopexit:                                        ; preds = %47, %71, %69, %67, %.split21, %38
+  %74 = phi ptr [ %.us-phi, %67 ], [ %.us-phi, %69 ], [ %.us-phi, %38 ], [ %.us-phi23, %.split21 ], [ %.us-phi, %71 ], [ %.us-phi, %47 ]
   %75 = load ptr, ptr @curr_clocksource, align 8
   %76 = icmp eq ptr %75, %74
   br i1 %76, label %.thread, label %77
@@ -2099,7 +2093,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
 .preheader16:                                     ; preds = %.preheader17, %69
   %18 = phi i64 [ %71, %69 ], [ 0, %.preheader17 ]
   %19 = phi i32 [ %70, %69 ], [ 0, %.preheader17 ]
-  tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !59
+  tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !63
   %20 = load ptr, ptr @watchdog, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 %21(ptr noundef %20) #16
@@ -2111,7 +2105,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   %28 = load ptr, ptr @watchdog, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 %29(ptr noundef %28) #16
-  tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !60
+  tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
   %31 = load ptr, ptr @watchdog, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
@@ -2141,7 +2135,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   br i1 %54, label %113, label %55
 
 55:                                               ; preds = %50
-  %56 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !61
+  %56 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !65
   %57 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %56, ptr noundef %58, i32 noundef %19) #18
@@ -2163,10 +2157,10 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   %71 = zext i32 %70 to i64
   %72 = load i64, ptr @max_cswd_read_retries, align 8
   %73 = icmp ult i64 %72, %71
-  br i1 %73, label %74, label %.preheader16, !llvm.loop !62
+  br i1 %73, label %74, label %.preheader16, !llvm.loop !66
 
 74:                                               ; preds = %69
-  %75 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !63
+  %75 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !67
   %76 = getelementptr i8, ptr %7, i64 -96
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %75, ptr noundef %77, i64 noundef %48, i64 noundef 125000, i64 noundef %67, i32 noundef %70, ptr noundef %77) #18
@@ -2204,7 +2198,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   br label %255
 
 97:                                               ; preds = %60
-  %98 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !64
+  %98 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !68
   %99 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %98, ptr noundef %100, i64 noundef %67) #18
@@ -2330,7 +2324,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   br i1 %189, label %190, label %226
 
 190:                                              ; preds = %180
-  %191 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !65
+  %191 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !69
   %192 = getelementptr i8, ptr %7, i64 -96
   %193 = load ptr, ptr %192, align 8
   %194 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %191, ptr noundef %193) #18
@@ -2433,7 +2427,7 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
 255:                                              ; preds = %254, %250, %244, %238, %234, %225, %178, %124, %120, %94, %92, %85, %15, %13
   %256 = load ptr, ptr %7, align 8
   %257 = icmp eq ptr %256, @watchdog_list
-  br i1 %257, label %.loopexit, label %.preheader17, !llvm.loop !66
+  br i1 %257, label %.loopexit, label %.preheader17, !llvm.loop !70
 
 .loopexit:                                        ; preds = %255, %.preheader, %97, %3
   %258 = phi i64 [ 300500, %97 ], [ 500, %3 ], [ 300500, %.preheader ], [ 500, %255 ]
@@ -2441,11 +2435,11 @@ define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 al
   br i1 %259, label %261, label %260
 
 260:                                              ; preds = %.loopexit
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @watchdog_reset_pending, ptr nonnull elementtype(i32) @watchdog_reset_pending) #16, !srcloc !67
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @watchdog_reset_pending, ptr nonnull elementtype(i32) @watchdog_reset_pending) #16, !srcloc !71
   br label %261
 
 261:                                              ; preds = %260, %.loopexit
-  %262 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !68
+  %262 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !72
   %263 = add i32 %262, 1
   %264 = icmp ugt i32 %263, 63
   br i1 %264, label %274, label %265, !prof !16
@@ -2572,7 +2566,7 @@ define internal noundef i64 @unbind_clocksource_store(ptr readnone captures(none
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !73
   %9 = getelementptr i8, ptr %2, i64 %3
   %10 = getelementptr i8, ptr %9, i64 -1
   %11 = load i8, ptr %10, align 1
@@ -2607,7 +2601,7 @@ define internal noundef i64 @unbind_clocksource_store(ptr readnone captures(none
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %5) #16
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %19, !llvm.loop !70
+  br i1 %27, label %28, label %19, !llvm.loop !74
 
 28:                                               ; preds = %23
   %29 = getelementptr i8, ptr %21, i64 -56
@@ -2660,7 +2654,7 @@ define internal i64 @available_clocksource_show(ptr readnone captures(none) %0, 
   %25 = phi i64 [ %23, %15 ], [ %7, %10 ]
   %26 = load ptr, ptr %6, align 8
   %27 = icmp eq ptr %26, @clocksource_list
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !71
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !75
 
 .loopexit:                                        ; preds = %24, %3
   %28 = phi i64 [ 0, %3 ], [ %25, %24 ]
@@ -2773,18 +2767,22 @@ attributes #19 = { cold }
 !54 = distinct !{!54, !7, !8}
 !55 = !{i32 -16, i32 1}
 !56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = !{i64 1872669}
-!60 = !{i64 1872761}
-!61 = !{i64 2154435777}
+!57 = distinct !{!57, !7, !8, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !7, !8, !58}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8, !58}
 !62 = distinct !{!62, !7, !8}
-!63 = !{i64 2154440748}
-!64 = !{i64 2154445102}
-!65 = !{i64 2154503641}
+!63 = !{i64 1872669}
+!64 = !{i64 1872761}
+!65 = !{i64 2154435777}
 !66 = distinct !{!66, !7, !8}
-!67 = !{i64 2148779042, i64 2148779081, i64 2148779102, i64 2148779139, i64 2148779162, i64 2148779032}
-!68 = !{i64 2154512113}
-!69 = !{!"auto-init"}
+!67 = !{i64 2154440748}
+!68 = !{i64 2154445102}
+!69 = !{i64 2154503641}
 !70 = distinct !{!70, !7, !8}
-!71 = distinct !{!71, !7, !8}
+!71 = !{i64 2148779042, i64 2148779081, i64 2148779102, i64 2148779139, i64 2148779162, i64 2148779032}
+!72 = !{i64 2154512113}
+!73 = !{!"auto-init"}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}

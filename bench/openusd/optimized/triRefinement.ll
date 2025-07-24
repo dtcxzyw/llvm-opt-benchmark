@@ -2802,7 +2802,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit._crit_edge: ;
 126:                                              ; preds = %.lr.ph.split._crit_edge, %117
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %.lr.ph.split._crit_edge ], [ %.pre-phi, %117 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count72
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %126, %76, %11
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -2810,7 +2810,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit._crit_edge: ;
   %128 = load i32, ptr %127, align 8
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next75, %129
-  br i1 %130, label %11, label %._crit_edge66, !llvm.loop !16
+  br i1 %130, label %11, label %._crit_edge66, !llvm.loop !18
 
 ._crit_edge66:                                    ; preds = %._crit_edge, %1
   ret void
@@ -2992,10 +2992,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit.us: ; preds =
   %.1.us = phi i32 [ %122, %118 ], [ %.068107.us, %111 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %75, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %75, !llvm.loop !19
 
 124:                                              ; preds = %._crit_edge.us, %.split.us
-  br i1 %39, label %.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %39, label %.split.us, label %.loopexit, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %123
   %125 = load ptr, ptr %8, align 8
@@ -3048,7 +3048,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit: ; preds = %1
   br label %154
 
 154:                                              ; preds = %.split, %_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit
-  br i1 %129, label %.split, label %.loopexit, !llvm.loop !18
+  br i1 %129, label %.split, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %154, %124, %17
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
@@ -3057,7 +3057,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level15resizeEdgeFacesEii.exit: ; preds = %1
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next121, %158
-  br i1 %159, label %11, label %._crit_edge, !llvm.loop !19
+  br i1 %159, label %11, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -3281,7 +3281,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexFacesEii.exit: ; preds = 
   %.1 = phi i32 [ %79, %75 ], [ %.03960, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %80
   %.pre = load ptr, ptr %8, align 8
@@ -3304,7 +3304,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexFacesEii.exit: ; preds = 
   %86 = load i32, ptr %85, align 8
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next67, %87
-  br i1 %88, label %11, label %._crit_edge64, !llvm.loop !21
+  br i1 %88, label %11, label %._crit_edge64, !llvm.loop !24
 
 ._crit_edge64:                                    ; preds = %83, %1
   ret void
@@ -3468,7 +3468,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexFacesEii.exit: ; preds = 
   %.3 = phi i32 [ %104, %100 ], [ %.2, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %105
   %.pre = load ptr, ptr %8, align 8
@@ -3491,7 +3491,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexFacesEii.exit: ; preds = 
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next95, %112
-  br i1 %113, label %11, label %._crit_edge92, !llvm.loop !23
+  br i1 %113, label %11, label %._crit_edge92, !llvm.loop !26
 
 ._crit_edge92:                                    ; preds = %108, %1
   ret void
@@ -3612,7 +3612,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexEdgesEii.exit: ; preds = 
   %.1 = phi i32 [ %75, %71 ], [ %.03657, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %76
   %.pre = load ptr, ptr %8, align 8
@@ -3635,7 +3635,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexEdgesEii.exit: ; preds = 
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next64, %83
-  br i1 %84, label %10, label %._crit_edge61, !llvm.loop !25
+  br i1 %84, label %10, label %._crit_edge61, !llvm.loop !28
 
 ._crit_edge61:                                    ; preds = %79, %1
   ret void
@@ -3876,7 +3876,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexEdgesEii.exit: ; preds = 
   %.4 = phi i32 [ %154, %150 ], [ %.3, %148 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %70, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %70, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre = load ptr, ptr %9, align 8
@@ -3899,7 +3899,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17resizeVertexEdgesEii.exit: ; preds = 
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next147, %162
-  br i1 %163, label %12, label %._crit_edge145, !llvm.loop !27
+  br i1 %163, label %12, label %._crit_edge145, !llvm.loop !30
 
 ._crit_edge145:                                   ; preds = %158, %1
   ret void
@@ -3961,12 +3961,12 @@ attributes #16 = { builtin allocsize(0) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!15 = distinct !{!15, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!20 = distinct !{!20, !6, !16}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
@@ -3974,3 +3974,6 @@ attributes #16 = { builtin allocsize(0) }
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}

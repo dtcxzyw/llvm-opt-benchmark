@@ -361,7 +361,7 @@ define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef
 32:                                               ; preds = %.lr.ph.split, %27
   %33 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %33, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %32, %22, %3
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.11, i32 noundef 124, ptr noundef nonnull @.str.36, i64 noundef %0, ptr noundef %1) #4
@@ -407,7 +407,7 @@ define internal void @leaf_delete(i64 noundef %0, ptr noundef %1, ptr noundef ca
 20:                                               ; preds = %.lr.ph, %12
   %21 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %21, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %20, %3
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.11, i32 noundef 140, ptr noundef nonnull @.str.36, i64 noundef %0, ptr noundef %1) #4
@@ -467,5 +467,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !13}
 !32 = !{!21, !24, i64 24}
 !33 = !{!29, !24, i64 16}
-!34 = distinct !{!34, !13}
-!35 = distinct !{!35, !13}
+!34 = distinct !{!34, !13, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !13}
+!37 = distinct !{!37, !13}

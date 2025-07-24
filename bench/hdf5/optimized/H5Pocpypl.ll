@@ -1051,7 +1051,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %31, align 8, !tbaa !18
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %32 = phi ptr [ %.pre, %.preheader ], [ %27, %26 ]
@@ -1125,7 +1125,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nound
 25:                                               ; preds = %24, %22
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #9
   %.not.not = icmp eq i64 %26, 0
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %25, %9
   %27 = phi ptr [ %10, %9 ], [ %21, %25 ]
@@ -1189,7 +1189,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr readno
 11:                                               ; preds = %4
   %12 = load ptr, ptr %3, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !38
+  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !39
 
 .preheader.i:                                     ; preds = %11, %.preheader.i
   %.0.i = phi ptr [ %14, %.preheader.i ], [ %12, %11 ]
@@ -1266,7 +1266,7 @@ define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr noundef readonly captu
   %19 = icmp ne ptr %.013, null
   %20 = icmp ne ptr %.012, null
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %.lcssa18 = phi i1 [ %10, %.preheader ], [ %19, %16 ]
@@ -1293,7 +1293,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr readnone cap
 10:                                               ; preds = %3
   %11 = load ptr, ptr %2, align 8, !tbaa !18
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !38
+  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !39
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
   %.0.i = phi ptr [ %13, %.preheader.i ], [ %11, %10 ]
@@ -1353,7 +1353,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr no
   %18 = getelementptr inbounds nuw i8, ptr %.02741, i64 8
   %.027 = load ptr, ptr %18, align 8, !tbaa !18
   %.not.not = icmp eq ptr %.027, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.126, %17 ]
@@ -1456,11 +1456,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !30 = !{!29, !20, i64 8}
 !31 = !{!20, !20, i64 0}
 !32 = !{!25, !25, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34, !36}
-!36 = !{!"llvm.loop.unswitch.partial.disable"}
-!37 = distinct !{!37, !34}
-!38 = !{!"branch_weights", i32 2002, i32 2000}
-!39 = distinct !{!39, !34}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !34, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = distinct !{!38, !34}
+!39 = !{!"branch_weights", i32 2002, i32 2000}
 !40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}

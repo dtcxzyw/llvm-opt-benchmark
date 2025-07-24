@@ -2696,7 +2696,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %.3102.ph.us.i.us = phi i32 [ %.099173.us.i.us, %111 ], [ %130, %129 ], [ %130, %133 ]
   %indvars.iv.next248.i.us = add nuw nsw i64 %indvars.iv247.i.us, 1
   %exitcond252.not.i.us = icmp eq i64 %indvars.iv.next248.i.us, %wide.trip.count251.i.us
-  br i1 %exitcond252.not.i.us, label %.thread148.i.us, label %111, !llvm.loop !134
+  br i1 %exitcond252.not.i.us, label %.thread148.i.us, label %111, !llvm.loop !136
 
 .thread148.i.us:                                  ; preds = %102, %135
   %.099.lcssa.i.us = phi i32 [ %.3102.ph.us.i.us, %135 ], [ %.3102.ph.us184.i.us, %102 ]
@@ -2732,7 +2732,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %148 = tail call float @llvm.fmuladd.f32(float %146, float %146, float %.0104204.i.us)
   %indvars.iv.next254.i.us = add nuw nsw i64 %indvars.iv253.i.us, 1
   %exitcond257.not.i.us = icmp eq i64 %indvars.iv.next254.i.us, %31
-  br i1 %exitcond257.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !135
+  br i1 %exitcond257.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !137
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %149 = fcmp oeq float %148, 0.000000e+00
@@ -2763,7 +2763,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %163 = tail call float @llvm.fmuladd.f32(float %162, float %162, float %.098207.i.us)
   %indvars.iv.next259.i.us = add nuw nsw i64 %indvars.iv258.i.us, 1
   %exitcond262.not.i.us = icmp eq i64 %indvars.iv.next259.i.us, %31
-  br i1 %exitcond262.not.i.us, label %._crit_edge211.i.us, label %.lr.ph210.i.us, !llvm.loop !136
+  br i1 %exitcond262.not.i.us, label %._crit_edge211.i.us, label %.lr.ph210.i.us, !llvm.loop !138
 
 ._crit_edge211.i.us:                              ; preds = %.lr.ph210.i.us
   %164 = fmul float %78, %154
@@ -2780,7 +2780,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %.6116156.i.us = phi i32 [ %168, %167 ], [ %.0110214.i.us, %136 ], [ %.0110214.i.us, %150 ], [ %.0110214.i.us, %._crit_edge211.i.us ]
   %indvars.iv.next264.i.us = add nuw nsw i64 %indvars.iv263.i.us, 1
   %exitcond268.not.i.us = icmp eq i64 %indvars.iv.next264.i.us, %wide.trip.count267.i.us
-  br i1 %exitcond268.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %136, !llvm.loop !137
+  br i1 %exitcond268.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %136, !llvm.loop !139
 
 _ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %100, %133, %._crit_edge.i.us, %167, %.thread152.i.us, %.thread148.i.us.thread, %.thread148.i.us
   %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us83, %.thread148.i.us.thread ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ %.not135.i.us, %._crit_edge.i.us ], [ true, %133 ], [ true, %100 ]
@@ -2892,12 +2892,12 @@ _ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us: ; pr
   %234 = getelementptr inbounds i8, ptr %.05361.us, i64 %233
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %76, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge.us, label %76, !llvm.loop !140
 
 ._crit_edge.us:                                   ; preds = %228
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge67, label %.lr.ph.us, !llvm.loop !139
+  br i1 %exitcond80.not, label %._crit_edge67, label %.lr.ph.us, !llvm.loop !141
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.lr.ph66, %2
   ret void
@@ -2980,7 +2980,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv27Bac
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !140
+  %7 = load ptr, ptr %6, align 8, !tbaa !142
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3291,11 +3291,13 @@ attributes #25 = { builtin allocsize(0) }
 !131 = !{!4, !9, i64 24}
 !132 = !{!14, !9, i64 0}
 !133 = distinct !{!133, !96}
-!134 = distinct !{!134, !96}
-!135 = distinct !{!135, !96}
-!136 = distinct !{!136, !96}
+!134 = distinct !{!134, !96, !135}
+!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!136 = distinct !{!136, !96, !135}
 !137 = distinct !{!137, !96}
 !138 = distinct !{!138, !96}
 !139 = distinct !{!139, !96}
-!140 = !{!141, !15, i64 8}
-!141 = !{!"_ZTSSt9type_info", !15, i64 8}
+!140 = distinct !{!140, !96}
+!141 = distinct !{!141, !96, !135}
+!142 = !{!143, !15, i64 8}
+!143 = !{!"_ZTSSt9type_info", !15, i64 8}

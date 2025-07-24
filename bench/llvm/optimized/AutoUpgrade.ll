@@ -33118,7 +33118,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 .split.us.us:                                     ; preds = %35
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 16
   %39 = icmp samesign ult i64 %indvars.iv.next57, %33
-  br i1 %39, label %.preheader.us, label %._crit_edge, !llvm.loop !531
+  br i1 %39, label %.preheader.us, label %._crit_edge, !llvm.loop !532
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.split ], [ 0, %.preheader.lr.ph ]
@@ -33165,7 +33165,7 @@ _ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultIns
 .split:                                           ; preds = %57
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 16
   %56 = icmp samesign ult i64 %indvars.iv.next51, %33
-  br i1 %56, label %.preheader, label %._crit_edge, !llvm.loop !531
+  br i1 %56, label %.preheader, label %._crit_edge, !llvm.loop !533
 
 57:                                               ; preds = %.preheader, %57
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %57 ]
@@ -33180,7 +33180,7 @@ _ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultIns
   store i32 %60, ptr %62, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not44 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not44, label %.split, label %57, !llvm.loop !530
+  br i1 %.not44, label %.split, label %57, !llvm.loop !534
 
 63:                                               ; preds = %_ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit, %24
   %.0 = phi ptr [ %25, %24 ], [ %.1.i, %_ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit ]
@@ -33244,7 +33244,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 16
   %indvars = trunc i64 %indvars.iv.next45 to i32
   %.not = icmp eq i32 %12, %indvars
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !532
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !535
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
@@ -33259,7 +33259,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   store i32 %32, ptr %34, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not37 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not37, label %28, label %29, !llvm.loop !533
+  br i1 %.not37, label %28, label %29, !llvm.loop !536
 
 35:                                               ; preds = %._crit_edge, %3
   %.033 = phi ptr [ %27, %._crit_edge ], [ %20, %3 ]
@@ -33330,7 +33330,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSRLDQIntrinsicsRN4llvm9IRBui
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 16
   %indvars = trunc i64 %indvars.iv.next42 to i32
   %.not = icmp eq i32 %12, %indvars
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !534
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !537
 
 30:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
@@ -33345,7 +33345,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSRLDQIntrinsicsRN4llvm9IRBui
   store i32 %34, ptr %36, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not36 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not36, label %29, label %30, !llvm.loop !535
+  br i1 %.not36, label %29, label %30, !llvm.loop !538
 
 37:                                               ; preds = %._crit_edge, %3
   %.031 = phi ptr [ %28, %._crit_edge ], [ %20, %3 ]
@@ -35440,7 +35440,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #21
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !536
+  %29 = load i32, ptr %28, align 8, !tbaa !539
   %30 = load i32, ptr %8, align 4
   %31 = icmp slt i32 %30, 0
   tail call void @llvm.assume(i1 %31)
@@ -35449,7 +35449,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
-  %37 = load i32, ptr %36, align 4, !tbaa !539
+  %37 = load i32, ptr %36, align 4, !tbaa !542
   %38 = sub i32 %37, %29
   %39 = zext i32 %38 to i64
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
@@ -35523,7 +35523,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   %34 = load ptr, ptr %33, align 8, !tbaa !68
   tail call void @_ZN4llvm11InstructionC2EPNS_4TypeEjNS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef %34, i32 noundef 56, i32 %31, ptr null, i64 0) #21
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  store ptr null, ptr %35, align 8, !tbaa !540
+  store ptr null, ptr %35, align 8, !tbaa !543
   call void @_ZN4llvm8CallInst4initEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, ptr noundef nonnull align 8 dereferenceable(34) %9) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #21
@@ -35736,10 +35736,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_Ident
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !541
+  %4 = load ptr, ptr %3, align 8, !tbaa !544
   tail call void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !542
+  %6 = load ptr, ptr %5, align 8, !tbaa !545
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !415
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 56
@@ -35753,7 +35753,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_Ident
 _ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit: ; preds = %.lr.ph, %11
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 88) #22
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !543
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !546
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit, %2
   ret void
@@ -35771,14 +35771,14 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneral
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %4 = load i8, ptr %3, align 1, !tbaa !544, !range !46, !noundef !47
+  %4 = load i8, ptr %3, align 1, !tbaa !547, !range !46, !noundef !47
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %9 = load i8, ptr %8, align 1, !tbaa !544, !range !46, !noundef !47
+  %9 = load i8, ptr %8, align 1, !tbaa !547, !range !46, !noundef !47
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %11, align 8, !range !46
@@ -36434,18 +36434,21 @@ attributes #25 = { nounwind willreturn memory(read) }
 !527 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !19, i64 0, !19, i64 4, !170, i64 8, !170, i64 9, !19, i64 12, !24, i64 16}
 !528 = !{!197, !13, i64 32}
 !529 = distinct !{!529, !233}
-!530 = distinct !{!530, !233}
-!531 = distinct !{!531, !233}
-!532 = distinct !{!532, !233}
+!530 = distinct !{!530, !233, !531}
+!531 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!532 = distinct !{!532, !233, !531}
 !533 = distinct !{!533, !233}
 !534 = distinct !{!534, !233}
 !535 = distinct !{!535, !233}
-!536 = !{!537, !19, i64 8}
-!537 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !538, i64 0, !19, i64 8, !19, i64 12}
-!538 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !12, i64 0}
-!539 = !{!537, !19, i64 12}
-!540 = !{!92, !59, i64 0}
-!541 = !{!432, !434, i64 24}
-!542 = !{!432, !434, i64 16}
-!543 = distinct !{!543, !233}
-!544 = !{!38, !24, i64 9}
+!536 = distinct !{!536, !233}
+!537 = distinct !{!537, !233}
+!538 = distinct !{!538, !233}
+!539 = !{!540, !19, i64 8}
+!540 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !541, i64 0, !19, i64 8, !19, i64 12}
+!541 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !12, i64 0}
+!542 = !{!540, !19, i64 12}
+!543 = !{!92, !59, i64 0}
+!544 = !{!432, !434, i64 24}
+!545 = !{!432, !434, i64 16}
+!546 = distinct !{!546, !233}
+!547 = !{!38, !24, i64 9}

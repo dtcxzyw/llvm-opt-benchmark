@@ -4186,7 +4186,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   %.sroa.20.0.in = getelementptr inbounds nuw i8, ptr %.sroa.20.080, i64 8
   %.sroa.20.0 = load ptr, ptr %.sroa.20.0.in, align 8
   %.not65 = icmp eq ptr %.sroa.20.080, %16
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %RemoveTargetIfNoLongerUsed.exit, %RemoveTargetIfNoLongerUsed.exit.us, %15
   store ptr %16, ptr %16, align 8
@@ -4269,7 +4269,7 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
   store ptr %.sroa.0.184, ptr %155, align 8
   store ptr %.sroa.0.184, ptr %149, align 8
   %.not67 = icmp eq ptr %.sroa.20.186, %129
-  br i1 %.not67, label %.loopexit, label %.lr.ph88, !llvm.loop !35
+  br i1 %.not67, label %.loopexit, label %.lr.ph88, !llvm.loop !37
 
 .loopexit:                                        ; preds = %ReleaseRWConflict.exit, %128, %120
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4330,7 +4330,7 @@ ReleaseRWConflict.exit75:                         ; preds = %166, %180
   store ptr %159, ptr %182, align 8
   store ptr %159, ptr %176, align 8
   %.not69 = icmp eq ptr %.sroa.20.293, %156
-  br i1 %.not69, label %._crit_edge96, label %.lr.ph95, !llvm.loop !36
+  br i1 %.not69, label %._crit_edge96, label %.lr.ph95, !llvm.loop !38
 
 ._crit_edge96:                                    ; preds = %ReleaseRWConflict.exit75, %.loopexit
   br i1 %1, label %201, label %183
@@ -4791,7 +4791,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond = select i1 %23, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond, label %pg_lfind32.exit, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %or.cond, label %pg_lfind32.exit, label %.lr.ph.i.i, !llvm.loop !39
 
 .preheader.i:                                     ; preds = %39, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %39 ]
@@ -4820,7 +4820,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
 39:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %40 = icmp samesign ult i64 %indvars.iv.next.i, %19
-  br i1 %40, label %.preheader.i, label %41, !llvm.loop !38
+  br i1 %40, label %.preheader.i, label %41, !llvm.loop !40
 
 41:                                               ; preds = %39
   %42 = add i32 %14, -16
@@ -4896,7 +4896,7 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not17 = icmp eq ptr %26, %11
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %2, %6, %10, %16
   %.0 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %6 ], [ false, %2 ], [ %.not18, %24 ], [ %.not18, %.lr.ph ]
@@ -4973,7 +4973,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.017.0100.us.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not58.us.i = icmp eq ptr %36, %9
-  br i1 %.not58.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !40
+  br i1 %.not58.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !42
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %52
   %.sroa.017.0100.i = phi ptr [ %54, %52 ], [ %11, %.lr.ph.i ]
@@ -5017,7 +5017,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.017.0100.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not58.i = icmp eq ptr %54, %9
-  br i1 %.not58.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !40
+  br i1 %.not58.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !43
 
 .critedge.i:                                      ; preds = %52, %34, %8
   %55 = and i32 %.fr106.i, 2
@@ -5087,7 +5087,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0102.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not70.i = icmp eq ptr %87, %63
-  br i1 %.not70.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !41
+  br i1 %.not70.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !44
 
 .thread93.i:                                      ; preds = %50, %48, %30, %28, %81, %79, %60, %2
   %88 = load ptr, ptr @MySerializableXact, align 8
@@ -5466,7 +5466,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not17.i = icmp eq ptr %71, %56
-  br i1 %.not17.i, label %.loopexit71, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not17.i, label %.loopexit71, label %.lr.ph.i, !llvm.loop !41
 
 .loopexit71:                                      ; preds = %69, %61, %55, %51, %47
   %72 = load ptr, ptr @MainLWLockArray, align 8
@@ -5541,7 +5541,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i64, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not17.i66 = icmp eq ptr %112, %97
-  br i1 %.not17.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !39
+  br i1 %.not17.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !41
 
 .loopexit:                                        ; preds = %110, %102, %96, %92, %88
   tail call fastcc void @FlagRWConflict(ptr noundef %25, ptr noundef %90)
@@ -5559,7 +5559,7 @@ RWConflictExists.exit67:                          ; preds = %.lr.ph.i63, %.loope
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %34, %40, %RWConflictExists.exit67, %28, %30, %33
   %.1 = phi ptr [ %.04376, %28 ], [ %23, %33 ], [ %.04376, %30 ], [ %.04376, %34 ], [ %.04376, %RWConflictExists.exit67 ], [ %.04376, %40 ], [ %.04376, %.lr.ph.i ]
   %.not49 = icmp eq ptr %.sroa.8.077, %18
-  br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !42
+  br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %RWConflictExists.exit, %14
   %.043.lcssa = phi ptr [ null, %14 ], [ %.1, %RWConflictExists.exit ]
@@ -5709,7 +5709,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %25, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %27, label %22, !llvm.loop !43
+  br i1 %exitcond.not, label %27, label %22, !llvm.loop !46
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @MainLWLockArray, align 8
@@ -5726,12 +5726,12 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %.not27 = icmp eq i32 %35, %10
-  br i1 %.not27, label %36, label %.loopexit37, !llvm.loop !44
+  br i1 %.not27, label %36, label %.loopexit37, !llvm.loop !47
 
 36:                                               ; preds = %.lr.ph45
   %37 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %37, %18
-  br i1 %.not28, label %38, label %.loopexit37, !llvm.loop !44
+  br i1 %.not28, label %38, label %.loopexit37, !llvm.loop !47
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -5799,7 +5799,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not17.i = icmp eq ptr %69, %54
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !41
 
 .loopexit:                                        ; preds = %67, %59, %53, %49, %45
   call fastcc void @FlagRWConflict(ptr noundef %44, ptr noundef %42)
@@ -5809,7 +5809,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexit, %.lr.ph
   %70 = phi ptr [ %.pre, %.loopexit ], [ %42, %.lr.ph ], [ %42, %.lr.ph.i ]
   %.not30 = icmp eq ptr %.sroa.8.043, %39
-  br i1 %.not30, label %.loopexit37, label %.lr.ph, !llvm.loop !45
+  br i1 %.not30, label %.loopexit37, label %.lr.ph, !llvm.loop !48
 
 .loopexit37:                                      ; preds = %RWConflictExists.exit, %38, %36, %.lr.ph45
   %71 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
@@ -5830,7 +5830,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexi
   call void @LWLockRelease(ptr noundef nonnull %77) #12
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %.not53 = icmp eq i64 %indvars.iv48, 0
-  br i1 %.not53, label %78, label %74, !llvm.loop !46
+  br i1 %.not53, label %78, label %74, !llvm.loop !49
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @MainLWLockArray, align 8
@@ -5942,13 +5942,13 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not30 = icmp eq ptr %53, %29
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 .loopexit:                                        ; preds = %51, %28, %49, %.lr.ph45
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.014.044, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not26 = icmp eq ptr %55, %20
-  br i1 %.not26, label %._crit_edge, label %.lr.ph45, !llvm.loop !48
+  br i1 %.not26, label %._crit_edge, label %.lr.ph45, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   %56 = load ptr, ptr @PredXact, align 8
@@ -6010,7 +6010,7 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %20, %14
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %21 = load ptr, ptr @MainLWLockArray, align 8
@@ -6588,7 +6588,7 @@ define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly c
   br i1 %24, label %25, label %.backedge
 
 .backedge:                                        ; preds = %20, %25, %29, %14
-  br label %6, !llvm.loop !50
+  br label %6, !llvm.loop !53
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -6675,15 +6675,15 @@ attributes #13 = { cold nounwind }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!34 = distinct !{!34, !7, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
 !41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
+!42 = distinct !{!42, !7, !35}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
@@ -6692,3 +6692,6 @@ attributes #13 = { cold nounwind }
 !48 = distinct !{!48, !7}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}

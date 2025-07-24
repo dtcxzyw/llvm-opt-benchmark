@@ -622,7 +622,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   %327 = phi i32 [ %180, %.preheader263.split ], [ %180, %.lr.ph274.split ], [ %314, %..critedge213_crit_edge.us ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next295, 3
-  br i1 %exitcond297.not, label %.thread238, label %.preheader263.split, !llvm.loop !64
+  br i1 %exitcond297.not, label %.thread238, label %.preheader263.split, !llvm.loop !65
 
 .thread238:                                       ; preds = %._crit_edge, %.critedge, %.preheader263, %28
   %328 = phi i32 [ %39, %28 ], [ %178, %.preheader263 ], [ %66, %.critedge ], [ %327, %._crit_edge ]
@@ -656,7 +656,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   %348 = mul nsw i32 %347, %343
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds i8, ptr %346, i64 %349
-  %351 = load ptr, ptr %332, align 8, !tbaa !65
+  %351 = load ptr, ptr %332, align 8, !tbaa !66
   %352 = sext i32 %341 to i64
   %353 = call i32 %351(ptr noundef %350, ptr noundef %350, i64 noundef %352, i32 noundef 0) #7
   %354 = load i32, ptr %331, align 4, !tbaa !36
@@ -675,7 +675,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
 .lr.ph283:                                        ; preds = %.lr.ph283.preheader, %.lr.ph283
   %.0281 = phi i32 [ %365, %.lr.ph283 ], [ 1, %.lr.ph283.preheader ]
   %.0165280 = phi ptr [ %364, %.lr.ph283 ], [ %357, %.lr.ph283.preheader ]
-  %360 = load ptr, ptr %333, align 8, !tbaa !66
+  %360 = load ptr, ptr %333, align 8, !tbaa !67
   %361 = getelementptr inbounds i8, ptr %.0165280, i64 %344
   call void %360(ptr noundef nonnull %.0165280, ptr noundef %361, ptr noundef nonnull %.0165280, i64 noundef %352, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %362 = load i8, ptr %.0165280, align 1, !tbaa !31
@@ -686,7 +686,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   %365 = add nuw nsw i32 %.0281, 1
   %366 = load i32, ptr %331, align 4, !tbaa !36
   %367 = icmp slt i32 %365, %366
-  br i1 %367, label %.lr.ph283, label %.loopexit, !llvm.loop !67
+  br i1 %367, label %.lr.ph283, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph283, %336
   %368 = phi i32 [ %354, %336 ], [ %366, %.lr.ph283 ]
@@ -694,7 +694,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next303, 3
-  br i1 %exitcond305.not, label %334, label %336, !llvm.loop !68
+  br i1 %exitcond305.not, label %334, label %336, !llvm.loop !69
 
 .thread:                                          ; preds = %92, %.lr.ph274.split, %.lr.ph274.split.us, %bits_read_vlc_be.exit.us, %67, %68, %173, %169, %.critedge211, %25, %24, %18, %12, %4, %334
   %.0166 = phi i32 [ %335, %334 ], [ -542398533, %67 ], [ -1094995529, %4 ], [ -1094995529, %12 ], [ -1094995529, %18 ], [ %26, %25 ], [ -542398533, %24 ], [ %174, %173 ], [ %171, %169 ], [ -1094995529, %.critedge211 ], [ -1094995529, %68 ], [ -1094995529, %bits_read_vlc_be.exit.us ], [ -1094995529, %.lr.ph274.split.us ], [ -1094995529, %.lr.ph274.split ], [ -1094995529, %92 ]
@@ -766,21 +766,21 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = getelementptr inbounds nuw [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 %17, ptr %19, align 4, !tbaa !69
+  store i32 %17, ptr %19, align 4, !tbaa !70
   %20 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !31
   %22 = zext i8 %21 to i16
-  store i16 %22, ptr %18, align 4, !tbaa !72
+  store i16 %22, ptr %18, align 4, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store i16 -2, ptr %23, align 2, !tbaa !73
+  store i16 -2, ptr %23, align 2, !tbaa !74
   %24 = trunc i64 %indvars.iv to i16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i16 %24, ptr %25, align 4, !tbaa !74
+  store i16 %24, ptr %25, align 4, !tbaa !75
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 6
-  store i16 %24, ptr %26, align 2, !tbaa !75
+  store i16 %24, ptr %26, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %15, !llvm.loop !76
+  br i1 %exitcond.not, label %.preheader.preheader, label %15, !llvm.loop !77
 
 .preheader.preheader:                             ; preds = %15, %2
   br label %.preheader
@@ -795,7 +795,7 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %57 ], [ %27, %.preheader ]
   %29 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv97
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 -1, ptr %30, align 4, !tbaa !69
+  store i32 -1, ptr %30, align 4, !tbaa !70
   %31 = trunc nsw i64 %indvars.iv97 to i32
   %32 = and i64 %indvars.iv97, 4294967295
   br label %33
@@ -805,21 +805,21 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.069 = phi i32 [ %.170, %46 ], [ %31, %28 ]
   %.067 = phi i32 [ %.168, %46 ], [ %31, %28 ]
   %34 = getelementptr inbounds nuw [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv94, i32 4
-  %35 = load i32, ptr %34, align 4, !tbaa !69
+  %35 = load i32, ptr %34, align 4, !tbaa !70
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %46, label %36
 
 36:                                               ; preds = %33
   %37 = sext i32 %.069 to i64
   %38 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %37, i32 4
-  %39 = load i32, ptr %38, align 4, !tbaa !69
+  %39 = load i32, ptr %38, align 4, !tbaa !70
   %40 = icmp ult i32 %35, %39
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
   %42 = sext i32 %.067 to i64
   %43 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %42, i32 4
-  %44 = load i32, ptr %43, align 4, !tbaa !69
+  %44 = load i32, ptr %43, align 4, !tbaa !70
   %.not78 = icmp ult i32 %35, %44
   %45 = trunc nuw nsw i64 %indvars.iv94 to i32
   %.067..071 = select i1 %.not78, i32 %.067, i32 %45
@@ -831,7 +831,7 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.168 = phi i32 [ %.067, %36 ], [ %.067, %33 ], [ %.071..067, %41 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.not79 = icmp eq i64 %indvars.iv.next95, %32
-  br i1 %.not79, label %47, label %33, !llvm.loop !77
+  br i1 %.not79, label %47, label %33, !llvm.loop !78
 
 47:                                               ; preds = %46
   %48 = icmp eq i32 %.170, %31
@@ -840,12 +840,12 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 49:                                               ; preds = %47
   %50 = sext i32 %.168 to i64
   %51 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %50, i32 4
-  %52 = load i32, ptr %51, align 4, !tbaa !69
+  %52 = load i32, ptr %51, align 4, !tbaa !70
   %53 = sext i32 %.170 to i64
   %54 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %53, i32 4
-  %55 = load i32, ptr %54, align 4, !tbaa !69
-  store i32 0, ptr %51, align 4, !tbaa !69
-  store i32 0, ptr %54, align 4, !tbaa !69
+  %55 = load i32, ptr %54, align 4, !tbaa !70
+  store i32 0, ptr %51, align 4, !tbaa !70
+  store i32 0, ptr %54, align 4, !tbaa !70
   %56 = xor i32 %55, -1
   %.not80 = icmp ult i32 %52, %56
   br i1 %.not80, label %57, label %.thread
@@ -856,17 +856,17 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 57:                                               ; preds = %49
   %58 = add i32 %55, %52
-  store i32 %58, ptr %30, align 4, !tbaa !69
-  store i16 -1, ptr %29, align 4, !tbaa !72
+  store i32 %58, ptr %30, align 4, !tbaa !70
+  store i16 -1, ptr %29, align 4, !tbaa !73
   %59 = trunc i64 %indvars.iv97 to i16
   %60 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store i16 %59, ptr %60, align 2, !tbaa !73
+  store i16 %59, ptr %60, align 2, !tbaa !74
   %61 = trunc i32 %.170 to i16
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i16 %61, ptr %62, align 4, !tbaa !74
+  store i16 %61, ptr %62, align 4, !tbaa !75
   %63 = trunc i32 %.168 to i16
   %64 = getelementptr inbounds nuw i8, ptr %29, i64 6
-  store i16 %63, ptr %64, align 2, !tbaa !75
+  store i16 %63, ptr %64, align 2, !tbaa !76
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   br label %28
 
@@ -875,7 +875,7 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %indvars = trunc i64 %indvars.iv.next93 to i32
   %66 = sub nsw i32 %31, %11
   %67 = icmp eq i32 %66, %indvars
-  br i1 %67, label %.preheader, label %68, !llvm.loop !78
+  br i1 %67, label %.preheader, label %68, !llvm.loop !79
 
 68:                                               ; preds = %65
   %69 = add nsw i32 %31, -1
@@ -900,7 +900,7 @@ declare void @ff_vlc_free(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @get_tree_codes(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 -2147483648, 2147483647) %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull captures(none) %7) unnamed_addr #5 {
   %9 = sext i32 %4 to i64
   %10 = getelementptr inbounds %struct.Node, ptr %3, i64 %9
-  %11 = load i16, ptr %10, align 4, !tbaa !72
+  %11 = load i16, ptr %10, align 4, !tbaa !73
   %.not44 = icmp eq i16 %11, -1
   br i1 %.not44, label %tailrecurse, label %tailrecurse._crit_edge
 
@@ -923,7 +923,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %21 = load i32, ptr %7, align 4, !tbaa !38
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i16, ptr %1, i64 %22
-  store i16 %20, ptr %23, align 2, !tbaa !79
+  store i16 %20, ptr %23, align 2, !tbaa !80
   %24 = icmp eq i32 %.tr42.lcssa, 0
   %25 = zext i1 %24 to i8
   %26 = add i8 %12, %25
@@ -941,15 +941,15 @@ tailrecurse:                                      ; preds = %8, %tailrecurse
   %31 = shl i32 %.tr4145, 1
   %32 = add nsw i32 %.tr4246, 1
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %34 = load i16, ptr %33, align 4, !tbaa !74
+  %34 = load i16, ptr %33, align 4, !tbaa !75
   %35 = sext i16 %34 to i32
   tail call fastcc void @get_tree_codes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %35, i32 noundef %31, i32 noundef %32, ptr noundef %7)
   %36 = or disjoint i32 %31, 1
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 6
-  %38 = load i16, ptr %37, align 2, !tbaa !75
+  %38 = load i16, ptr %37, align 2, !tbaa !76
   %39 = sext i16 %38 to i64
   %40 = getelementptr inbounds %struct.Node, ptr %3, i64 %39
-  %41 = load i16, ptr %40, align 4, !tbaa !72
+  %41 = load i16, ptr %40, align 4, !tbaa !73
   %.not = icmp eq i16 %41, -1
   br i1 %.not, label %tailrecurse, label %tailrecurse._crit_edge
 }
@@ -1041,20 +1041,21 @@ attributes #7 = { nounwind }
 !60 = !{!54, !56, i64 1336}
 !61 = !{!54, !10, i64 1328}
 !62 = distinct !{!62, !43}
-!63 = distinct !{!63, !43}
-!64 = distinct !{!64, !43, !45}
-!65 = !{!54, !7, i64 1488}
-!66 = !{!54, !7, i64 1480}
-!67 = distinct !{!67, !43}
+!63 = distinct !{!63, !43, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !43, !45}
+!66 = !{!54, !7, i64 1488}
+!67 = !{!54, !7, i64 1480}
 !68 = distinct !{!68, !43}
-!69 = !{!70, !10, i64 8}
-!70 = !{!"Node", !71, i64 0, !71, i64 2, !71, i64 4, !71, i64 6, !10, i64 8}
-!71 = !{!"short", !8, i64 0}
-!72 = !{!70, !71, i64 0}
-!73 = !{!70, !71, i64 2}
-!74 = !{!70, !71, i64 4}
-!75 = !{!70, !71, i64 6}
-!76 = distinct !{!76, !43}
+!69 = distinct !{!69, !43}
+!70 = !{!71, !10, i64 8}
+!71 = !{!"Node", !72, i64 0, !72, i64 2, !72, i64 4, !72, i64 6, !10, i64 8}
+!72 = !{!"short", !8, i64 0}
+!73 = !{!71, !72, i64 0}
+!74 = !{!71, !72, i64 2}
+!75 = !{!71, !72, i64 4}
+!76 = !{!71, !72, i64 6}
 !77 = distinct !{!77, !43}
 !78 = distinct !{!78, !43}
-!79 = !{!71, !71, i64 0}
+!79 = distinct !{!79, !43}
+!80 = !{!72, !72, i64 0}

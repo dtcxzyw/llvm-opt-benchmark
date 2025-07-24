@@ -3442,7 +3442,7 @@ gv_calloc.exit217:                                ; preds = %gv_calloc.exit
 gv_calloc.exit220:                                ; preds = %gv_calloc.exit217
   %44 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   %or.cond = or i1 %16, %.0203
-  br i1 %or.cond, label %gv_calloc.exit225.thread, label %gv_calloc.exit225.thread364
+  br i1 %or.cond, label %gv_calloc.exit225.thread, label %gv_calloc.exit225.thread358
 
 gv_calloc.exit220.thread:                         ; preds = %37
   %or.cond247 = or i1 %16, %.0203
@@ -3464,15 +3464,15 @@ gv_calloc.exit225:                                ; preds = %.thread, %gv_calloc
   %.0171 = phi ptr [ null, %gv_calloc.exit220.thread ], [ %45, %.thread ]
   br i1 %.0202, label %53, label %gv_calloc.exit230
 
-gv_calloc.exit225.thread364:                      ; preds = %gv_calloc.exit220
+gv_calloc.exit225.thread358:                      ; preds = %gv_calloc.exit220
   br i1 %.0202, label %.thread.i229, label %gv_calloc.exit230
 
 gv_calloc.exit225.thread:                         ; preds = %gv_calloc.exit220
   %51 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   br i1 %.0202, label %.thread.i229, label %gv_calloc.exit230
 
-.thread.i229:                                     ; preds = %gv_calloc.exit225.thread364, %gv_calloc.exit225.thread
-  %.0171258263 = phi ptr [ %51, %gv_calloc.exit225.thread ], [ null, %gv_calloc.exit225.thread364 ]
+.thread.i229:                                     ; preds = %gv_calloc.exit225.thread358, %gv_calloc.exit225.thread
+  %.0171258263 = phi ptr [ %51, %gv_calloc.exit225.thread ], [ null, %gv_calloc.exit225.thread358 ]
   %52 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
   br label %gv_calloc.exit230
 
@@ -3488,11 +3488,11 @@ gv_calloc.exit225.thread:                         ; preds = %gv_calloc.exit220
   tail call fastcc void @graphviz_exit() #25
   unreachable
 
-gv_calloc.exit230:                                ; preds = %gv_calloc.exit225.thread364, %.thread.i229, %gv_calloc.exit225.thread, %gv_calloc.exit225
-  %.0171257 = phi ptr [ %.0171, %gv_calloc.exit225 ], [ %51, %gv_calloc.exit225.thread ], [ %.0171258263, %.thread.i229 ], [ null, %gv_calloc.exit225.thread364 ]
-  %60 = phi ptr [ %38, %gv_calloc.exit225 ], [ %44, %gv_calloc.exit225.thread ], [ %44, %.thread.i229 ], [ %44, %gv_calloc.exit225.thread364 ]
-  %or.cond248255 = phi i1 [ %or.cond247, %gv_calloc.exit225 ], [ true, %gv_calloc.exit225.thread ], [ %or.cond, %.thread.i229 ], [ false, %gv_calloc.exit225.thread364 ]
-  %.0184 = phi ptr [ null, %gv_calloc.exit225 ], [ null, %gv_calloc.exit225.thread ], [ %52, %.thread.i229 ], [ null, %gv_calloc.exit225.thread364 ]
+gv_calloc.exit230:                                ; preds = %gv_calloc.exit225.thread358, %.thread.i229, %gv_calloc.exit225.thread, %gv_calloc.exit225
+  %.0171257 = phi ptr [ %.0171, %gv_calloc.exit225 ], [ %51, %gv_calloc.exit225.thread ], [ %.0171258263, %.thread.i229 ], [ null, %gv_calloc.exit225.thread358 ]
+  %60 = phi ptr [ %38, %gv_calloc.exit225 ], [ %44, %gv_calloc.exit225.thread ], [ %44, %.thread.i229 ], [ %44, %gv_calloc.exit225.thread358 ]
+  %or.cond248255 = phi i1 [ %or.cond247, %gv_calloc.exit225 ], [ true, %gv_calloc.exit225.thread ], [ %or.cond, %.thread.i229 ], [ false, %gv_calloc.exit225.thread358 ]
+  %.0184 = phi ptr [ null, %gv_calloc.exit225 ], [ null, %gv_calloc.exit225.thread ], [ %52, %.thread.i229 ], [ null, %gv_calloc.exit225.thread358 ]
   br i1 %16, label %61, label %gv_calloc.exit235
 
 gv_calloc.exit230.thread:                         ; preds = %53
@@ -3532,7 +3532,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   br i1 %.not209319, label %._crit_edge328, label %.lr.ph327.preheader
 
 .lr.ph327.preheader:                              ; preds = %gv_calloc.exit235
-  %spec.select380.idx = select i1 %or.cond248255271, i64 4, i64 0
+  %spec.select372.idx = select i1 %or.cond248255271, i64 4, i64 0
   %.2186.idx = select i1 %.0202, i64 4, i64 0
   %.2195.idx = select i1 %16, i64 4, i64 0
   br label %.lr.ph327
@@ -3553,24 +3553,24 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %.0179323, ptr %75, align 8, !tbaa !176
   %spec.select = select i1 %or.cond248255271, ptr %.1172325, ptr null
-  %spec.select380 = getelementptr inbounds nuw i8, ptr %.1172325, i64 %spec.select380.idx
+  %spec.select372 = getelementptr inbounds nuw i8, ptr %.1172325, i64 %spec.select372.idx
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %spec.select, ptr %76, align 8, !tbaa !179
   %77 = select i1 %.0202, ptr %.1185322, ptr null
   %.2186 = getelementptr inbounds nuw i8, ptr %.1185322, i64 %.2186.idx
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %77, ptr %78, align 8, !tbaa !180
-  %.sink363 = select i1 %16, ptr %.1194321, ptr null
+  %.sink357 = select i1 %16, ptr %.1194321, ptr null
   %.2195 = getelementptr inbounds nuw i8, ptr %.1194321, i64 %.2195.idx
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr %.sink363, ptr %79, align 8, !tbaa !181
+  store ptr %.sink357, ptr %79, align 8, !tbaa !181
   %80 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.0174324) #22
   %.not212303 = icmp eq ptr %80, null
   br i1 %.not212303, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph327, %189
   %.1313 = phi i32 [ %.2, %189 ], [ %.0326, %.lr.ph327 ]
-  %.3312 = phi ptr [ %.4, %189 ], [ %spec.select380, %.lr.ph327 ]
+  %.3312 = phi ptr [ %.4, %189 ], [ %spec.select372, %.lr.ph327 ]
   %.0175311 = phi i64 [ %.1176, %189 ], [ 1, %.lr.ph327 ]
   %.0177310 = phi i32 [ %.1178, %189 ], [ 1, %.lr.ph327 ]
   %.1180309 = phi ptr [ %.2181, %189 ], [ %73, %.lr.ph327 ]
@@ -3761,7 +3761,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   %.3187.lcssa = phi ptr [ %.2186, %.lr.ph327 ], [ %.4188, %189 ]
   %.1180.lcssa = phi ptr [ %73, %.lr.ph327 ], [ %.2181, %189 ]
   %.0175.lcssa = phi i64 [ 1, %.lr.ph327 ], [ %.1176, %189 ]
-  %.3.lcssa = phi ptr [ %spec.select380, %.lr.ph327 ], [ %.4, %189 ]
+  %.3.lcssa = phi ptr [ %spec.select372, %.lr.ph327 ], [ %.4, %189 ]
   %.1.lcssa = phi i32 [ %.0326, %.lr.ph327 ], [ %.2, %189 ]
   store i64 %.0175.lcssa, ptr %74, align 8, !tbaa !184
   %191 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3776,6 +3776,7 @@ gv_calloc.exit235:                                ; preds = %.thread275, %.threa
   br label %._crit_edge328
 
 ._crit_edge328:                                   ; preds = %._crit_edge328.loopexit, %gv_calloc.exit235
+  %.1185.lcssa = phi ptr [ %.0184273, %gv_calloc.exit235 ], [ %.3187.lcssa, %._crit_edge328.loopexit ]
   %.1172.lcssa = phi ptr [ %.0171257269, %gv_calloc.exit235 ], [ %.3.lcssa, %._crit_edge328.loopexit ]
   %.0.lcssa = phi i32 [ 0, %gv_calloc.exit235 ], [ %193, %._crit_edge328.loopexit ]
   br i1 %16, label %.preheader, label %acyclic.exit
@@ -3934,89 +3935,84 @@ gv_recalloc.exit242:                              ; preds = %245, %244, %.thread
 
 gv_recalloc.exit246:                              ; preds = %260, %258, %251
   %.6190 = phi ptr [ null, %251 ], [ %253, %260 ], [ %253, %258 ]
-  br i1 %.0203, label %gv_recalloc.exit246.split.us.split.us, label %gv_recalloc.exit246.split.split.us
+  br i1 %.0203, label %gv_recalloc.exit246.split.us.preheader, label %gv_recalloc.exit246.split.split.us
 
 gv_recalloc.exit246.thread:                       ; preds = %gv_recalloc.exit242
-  br i1 %.0203, label %gv_recalloc.exit246.split.us.split, label %gv_recalloc.exit246.split.split
+  br i1 %.0203, label %gv_recalloc.exit246.split.us.preheader, label %gv_recalloc.exit246.split.split
 
-gv_recalloc.exit246.split.us.split.us:            ; preds = %gv_recalloc.exit246, %gv_recalloc.exit246.split.us.split.us
-  %indvars.iv357 = phi i64 [ %indvars.iv.next358, %gv_recalloc.exit246.split.us.split.us ], [ 0, %gv_recalloc.exit246 ]
-  %.7335.us.us = phi ptr [ %268, %gv_recalloc.exit246.split.us.split.us ], [ %.6, %gv_recalloc.exit246 ]
-  %.3182334.us.us = phi ptr [ %266, %gv_recalloc.exit246.split.us.split.us ], [ %.0.i.i292, %gv_recalloc.exit246 ]
-  %.7191333.us.us = phi ptr [ %270, %gv_recalloc.exit246.split.us.split.us ], [ %.6190, %gv_recalloc.exit246 ]
-  %263 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv357
+gv_recalloc.exit246.split.us.preheader:           ; preds = %gv_recalloc.exit246.thread, %gv_recalloc.exit246
+  %.7191333.us.ph = phi ptr [ %.6190, %gv_recalloc.exit246 ], [ %.1185.lcssa, %gv_recalloc.exit246.thread ]
+  br label %gv_recalloc.exit246.split.us
+
+gv_recalloc.exit246.split.us:                     ; preds = %gv_recalloc.exit246.split.us.preheader, %272
+  %indvars.iv351 = phi i64 [ %indvars.iv.next352, %272 ], [ 0, %gv_recalloc.exit246.split.us.preheader ]
+  %.7335.us = phi ptr [ %268, %272 ], [ %.6, %gv_recalloc.exit246.split.us.preheader ]
+  %.3182334.us = phi ptr [ %266, %272 ], [ %.0.i.i292, %gv_recalloc.exit246.split.us.preheader ]
+  %.7191333.us = phi ptr [ %.8192.us, %272 ], [ %.7191333.us.ph, %gv_recalloc.exit246.split.us.preheader ]
+  %263 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv351
   %264 = load i64, ptr %263, align 8, !tbaa !184
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  store ptr %.3182334.us.us, ptr %265, align 8, !tbaa !176
-  %266 = getelementptr inbounds nuw i32, ptr %.3182334.us.us, i64 %264
+  store ptr %.3182334.us, ptr %265, align 8, !tbaa !176
+  %266 = getelementptr inbounds nuw i32, ptr %.3182334.us, i64 %264
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  store ptr %.7335.us.us, ptr %267, align 8, !tbaa !179
-  %268 = getelementptr inbounds nuw float, ptr %.7335.us.us, i64 %264
-  %269 = getelementptr inbounds nuw i8, ptr %263, i64 24
-  store ptr %.7191333.us.us, ptr %269, align 8, !tbaa !180
-  %270 = getelementptr inbounds nuw float, ptr %.7191333.us.us, i64 %264
-  %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
-  %exitcond361.not = icmp eq i64 %indvars.iv.next358, %17
-  br i1 %exitcond361.not, label %.loopexit, label %gv_recalloc.exit246.split.us.split.us, !llvm.loop !190
+  store ptr %.7335.us, ptr %267, align 8, !tbaa !179
+  %268 = getelementptr inbounds nuw float, ptr %.7335.us, i64 %264
+  br i1 %.0202, label %269, label %272
 
-gv_recalloc.exit246.split.us.split:               ; preds = %gv_recalloc.exit246.thread, %gv_recalloc.exit246.split.us.split
-  %indvars.iv352 = phi i64 [ %indvars.iv.next353, %gv_recalloc.exit246.split.us.split ], [ 0, %gv_recalloc.exit246.thread ]
-  %.7335.us = phi ptr [ %276, %gv_recalloc.exit246.split.us.split ], [ %.6, %gv_recalloc.exit246.thread ]
-  %.3182334.us = phi ptr [ %274, %gv_recalloc.exit246.split.us.split ], [ %.0.i.i292, %gv_recalloc.exit246.thread ]
-  %271 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv352
-  %272 = load i64, ptr %271, align 8, !tbaa !184
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  store ptr %.3182334.us, ptr %273, align 8, !tbaa !176
-  %274 = getelementptr inbounds nuw i32, ptr %.3182334.us, i64 %272
-  %275 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  store ptr %.7335.us, ptr %275, align 8, !tbaa !179
-  %276 = getelementptr inbounds nuw float, ptr %.7335.us, i64 %272
-  %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %exitcond356.not = icmp eq i64 %indvars.iv.next353, %17
-  br i1 %exitcond356.not, label %.loopexit, label %gv_recalloc.exit246.split.us.split, !llvm.loop !190
+269:                                              ; preds = %gv_recalloc.exit246.split.us
+  %270 = getelementptr inbounds nuw i8, ptr %263, i64 24
+  store ptr %.7191333.us, ptr %270, align 8, !tbaa !180
+  %271 = getelementptr inbounds nuw float, ptr %.7191333.us, i64 %264
+  br label %272
+
+272:                                              ; preds = %269, %gv_recalloc.exit246.split.us
+  %.8192.us = phi ptr [ %271, %269 ], [ %.7191333.us, %gv_recalloc.exit246.split.us ]
+  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
+  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %17
+  br i1 %exitcond355.not, label %.loopexit, label %gv_recalloc.exit246.split.us, !llvm.loop !190
 
 gv_recalloc.exit246.split.split.us:               ; preds = %gv_recalloc.exit246, %gv_recalloc.exit246.split.split.us
-  %indvars.iv347 = phi i64 [ %indvars.iv.next348, %gv_recalloc.exit246.split.split.us ], [ 0, %gv_recalloc.exit246 ]
-  %.3182334.us336 = phi ptr [ %280, %gv_recalloc.exit246.split.split.us ], [ %.0.i.i292, %gv_recalloc.exit246 ]
-  %.7191333.us337 = phi ptr [ %282, %gv_recalloc.exit246.split.split.us ], [ %.6190, %gv_recalloc.exit246 ]
-  %277 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv347
-  %278 = load i64, ptr %277, align 8, !tbaa !184
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store ptr %.3182334.us336, ptr %279, align 8, !tbaa !176
-  %280 = getelementptr inbounds nuw i32, ptr %.3182334.us336, i64 %278
-  %281 = getelementptr inbounds nuw i8, ptr %277, i64 24
-  store ptr %.7191333.us337, ptr %281, align 8, !tbaa !180
-  %282 = getelementptr inbounds nuw float, ptr %.7191333.us337, i64 %278
-  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond351.not = icmp eq i64 %indvars.iv.next348, %17
-  br i1 %exitcond351.not, label %.loopexit, label %gv_recalloc.exit246.split.split.us, !llvm.loop !190
+  %indvars.iv346 = phi i64 [ %indvars.iv.next347, %gv_recalloc.exit246.split.split.us ], [ 0, %gv_recalloc.exit246 ]
+  %.3182334.us336 = phi ptr [ %276, %gv_recalloc.exit246.split.split.us ], [ %.0.i.i292, %gv_recalloc.exit246 ]
+  %.7191333.us337 = phi ptr [ %278, %gv_recalloc.exit246.split.split.us ], [ %.6190, %gv_recalloc.exit246 ]
+  %273 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv346
+  %274 = load i64, ptr %273, align 8, !tbaa !184
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  store ptr %.3182334.us336, ptr %275, align 8, !tbaa !176
+  %276 = getelementptr inbounds nuw i32, ptr %.3182334.us336, i64 %274
+  %277 = getelementptr inbounds nuw i8, ptr %273, i64 24
+  store ptr %.7191333.us337, ptr %277, align 8, !tbaa !180
+  %278 = getelementptr inbounds nuw float, ptr %.7191333.us337, i64 %274
+  %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
+  %exitcond350.not = icmp eq i64 %indvars.iv.next347, %17
+  br i1 %exitcond350.not, label %.loopexit, label %gv_recalloc.exit246.split.split.us, !llvm.loop !192
 
 gv_recalloc.exit246.split.split:                  ; preds = %gv_recalloc.exit246.thread, %gv_recalloc.exit246.split.split
-  %indvars.iv344 = phi i64 [ %indvars.iv.next345, %gv_recalloc.exit246.split.split ], [ 0, %gv_recalloc.exit246.thread ]
-  %.3182334 = phi ptr [ %286, %gv_recalloc.exit246.split.split ], [ %.0.i.i292, %gv_recalloc.exit246.thread ]
-  %283 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv344
-  %284 = load i64, ptr %283, align 8, !tbaa !184
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  store ptr %.3182334, ptr %285, align 8, !tbaa !176
-  %286 = getelementptr inbounds nuw i32, ptr %.3182334, i64 %284
-  %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next345, %17
-  br i1 %exitcond.not, label %.loopexit, label %gv_recalloc.exit246.split.split, !llvm.loop !190
+  %indvars.iv343 = phi i64 [ %indvars.iv.next344, %gv_recalloc.exit246.split.split ], [ 0, %gv_recalloc.exit246.thread ]
+  %.3182334 = phi ptr [ %282, %gv_recalloc.exit246.split.split ], [ %.0.i.i292, %gv_recalloc.exit246.thread ]
+  %279 = getelementptr inbounds nuw %struct.vtx_data, ptr %18, i64 %indvars.iv343
+  %280 = load i64, ptr %279, align 8, !tbaa !184
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  store ptr %.3182334, ptr %281, align 8, !tbaa !176
+  %282 = getelementptr inbounds nuw i32, ptr %.3182334, i64 %280
+  %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next344, %17
+  br i1 %exitcond.not, label %.loopexit, label %gv_recalloc.exit246.split.split, !llvm.loop !193
 
-.loopexit:                                        ; preds = %gv_recalloc.exit246.split.split, %gv_recalloc.exit246.split.us.split, %gv_recalloc.exit246.split.split.us, %gv_recalloc.exit246.split.us.split.us, %acyclic.exit
+.loopexit:                                        ; preds = %gv_recalloc.exit246.split.split, %gv_recalloc.exit246.split.split.us, %272, %acyclic.exit
   store i32 %.0.lcssa, ptr %2, align 4, !tbaa !53
   %.not211 = icmp eq ptr %5, null
-  br i1 %.not211, label %288, label %287
+  br i1 %.not211, label %284, label %283
 
-287:                                              ; preds = %.loopexit
+283:                                              ; preds = %.loopexit
   store ptr %24, ptr %5, align 8, !tbaa !142
-  br label %289
+  br label %285
 
-288:                                              ; preds = %.loopexit
+284:                                              ; preds = %.loopexit
   tail call void @free(ptr noundef %24) #22
-  br label %289
+  br label %285
 
-289:                                              ; preds = %288, %287
+285:                                              ; preds = %284, %283
   tail call void @freePM(ptr noundef %8) #22
   ret ptr %18
 }
@@ -4118,7 +4114,7 @@ define internal fastcc void @dfsCycle(ptr noundef readonly captures(none) %0, i3
 47:                                               ; preds = %44
   %48 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %48, %40
-  br i1 %exitcond.not, label %.critedge, label %44, !llvm.loop !191
+  br i1 %exitcond.not, label %.critedge, label %44, !llvm.loop !194
 
 .critedge:                                        ; preds = %44, %47, %38
   %.0.lcssa = phi i64 [ 1, %38 ], [ %40, %47 ], [ %.041, %44 ]
@@ -4143,7 +4139,7 @@ define internal fastcc void @dfsCycle(ptr noundef readonly captures(none) %0, i3
   %57 = phi i64 [ %22, %.critedge ], [ %.pre, %55 ], [ %22, %52 ], [ %22, %21 ]
   %58 = add nuw i64 %.03844, 1
   %59 = icmp ult i64 %58, %57
-  br i1 %59, label %21, label %._crit_edge.loopexit, !llvm.loop !192
+  br i1 %59, label %21, label %._crit_edge.loopexit, !llvm.loop !195
 }
 
 declare double @elapsed_sec() local_unnamed_addr #1
@@ -4397,6 +4393,9 @@ attributes #29 = { nounwind allocsize(1) }
 !187 = !{!35, !7, i64 232}
 !188 = distinct !{!188, !47}
 !189 = distinct !{!189, !47}
-!190 = distinct !{!190, !47}
-!191 = distinct !{!191, !47}
-!192 = distinct !{!192, !47}
+!190 = distinct !{!190, !47, !191}
+!191 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!192 = distinct !{!192, !47, !191}
+!193 = distinct !{!193, !47}
+!194 = distinct !{!194, !47}
+!195 = distinct !{!195, !47}

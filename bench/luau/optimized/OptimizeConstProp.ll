@@ -9116,7 +9116,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5_
   store i32 %45, ptr %70, align 4, !tbaa !70
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !213
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !215
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -9136,33 +9136,33 @@ declare i64 @_ZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7Ir
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_OptimizeConstProp.cpp() #13 section ".text.startup" {
   store i32 3, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, align 8, !tbaa !95
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 4), align 4, !tbaa !214
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 8), align 8, !tbaa !215
-  %1 = load ptr, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !216
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 16), align 8, !tbaa !217
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 4), align 4, !tbaa !216
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 8), align 8, !tbaa !217
+  %1 = load ptr, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !218
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, i64 16), align 8, !tbaa !219
   store i32 64, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, align 8, !tbaa !95
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 4), align 4, !tbaa !214
-  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 8), align 8, !tbaa !215
-  store ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 16), align 8, !tbaa !217
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 4), align 4, !tbaa !216
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 8), align 8, !tbaa !217
+  store ptr @_ZN4FInt29LuauCodeGenMinLinearBlockPathE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, i64 16), align 8, !tbaa !219
   store i32 64, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, align 8, !tbaa !95
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 4), align 4, !tbaa !214
-  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 8), align 8, !tbaa !215
-  store ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 16), align 8, !tbaa !217
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 4), align 4, !tbaa !216
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 8), align 8, !tbaa !217
+  store ptr @_ZN4FInt25LuauCodeGenReuseSlotLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, i64 16), align 8, !tbaa !219
   store i32 8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, align 8, !tbaa !95
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 4), align 4, !tbaa !214
-  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 8), align 8, !tbaa !215
-  store ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 16), align 8, !tbaa !217
-  store ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !216
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 4), align 4, !tbaa !216
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 8), align 8, !tbaa !217
+  store ptr @_ZN4FInt29LuauCodeGenReuseUdataTagLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, i64 16), align 8, !tbaa !219
+  store ptr @_ZN4FInt29LuauCodeGenLiveSlotReuseLimitE, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !218
   store i8 0, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, align 8, !tbaa !76
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 1), align 1, !tbaa !218
-  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 8), align 8, !tbaa !219
-  %2 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !220
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 16), align 8, !tbaa !221
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 1), align 1, !tbaa !220
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 8), align 8, !tbaa !221
+  %2 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !222
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23DebugLuauAbortingChecksE, i64 16), align 8, !tbaa !223
   store i8 0, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, align 8, !tbaa !76
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 1), align 1, !tbaa !218
-  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 8), align 8, !tbaa !219
-  store ptr @_ZN5FFlag23DebugLuauAbortingChecksE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 16), align 8, !tbaa !221
-  store ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !220
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 1), align 1, !tbaa !220
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 8), align 8, !tbaa !221
+  store ptr @_ZN5FFlag23DebugLuauAbortingChecksE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, i64 16), align 8, !tbaa !223
+  store ptr @_ZN5FFlag29LuauCodeGenLimitLiveSlotReuseE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !222
   ret void
 }
 
@@ -9422,12 +9422,14 @@ attributes #21 = { allocsize(0) }
 !210 = distinct !{!210, !64}
 !211 = distinct !{!211, !64}
 !212 = distinct !{!212, !64}
-!213 = distinct !{!213, !64}
-!214 = !{!96, !14, i64 4}
-!215 = !{!96, !78, i64 8}
-!216 = !{!97, !97, i64 0}
-!217 = !{!96, !97, i64 16}
-!218 = !{!77, !14, i64 1}
-!219 = !{!77, !78, i64 8}
-!220 = !{!79, !79, i64 0}
-!221 = !{!77, !79, i64 16}
+!213 = distinct !{!213, !64, !214}
+!214 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!215 = distinct !{!215, !64}
+!216 = !{!96, !14, i64 4}
+!217 = !{!96, !78, i64 8}
+!218 = !{!97, !97, i64 0}
+!219 = !{!96, !97, i64 16}
+!220 = !{!77, !14, i64 1}
+!221 = !{!77, !78, i64 8}
+!222 = !{!79, !79, i64 0}
+!223 = !{!77, !79, i64 16}

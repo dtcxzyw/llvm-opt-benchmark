@@ -2787,11 +2787,11 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
 52:                                               ; preds = %.split
   %53 = load i32, ptr %24, align 8
   %.not33 = icmp eq i32 %53, 0
-  br i1 %.not33, label %.split38.us, label %.split, !llvm.loop !21
+  br i1 %.not33, label %.split38.us, label %.split, !llvm.loop !23
 
 .split38.us:                                      ; preds = %52, %48
   %54 = icmp sgt i64 %.fr, 0
-  br i1 %54, label %26, label %._crit_edge, !llvm.loop !22
+  br i1 %54, label %26, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.split38.us, %16
   %55 = call i32 @inflateEnd(ptr noundef nonnull %5) #21
@@ -2902,7 +2902,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_ReadEntry(ptr noundef captures(address_is_
   %46 = getelementptr inbounds i8, ptr %.03544, i64 %45
   %47 = add nsw i64 %.03643, %45
   %48 = icmp slt i64 %47, %19
-  br i1 %48, label %23, label %.loopexit, !llvm.loop !23
+  br i1 %48, label %23, label %.loopexit, !llvm.loop !25
 
 49:                                               ; preds = %11
   %50 = call zeroext i8 @InflateFully(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
@@ -3040,7 +3040,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %
 31:                                               ; preds = %19, %21
   %32 = load i32, ptr %16, align 8
   %.not12 = icmp eq i32 %32, 0
-  br i1 %.not12, label %33, label %19, !llvm.loop !24
+  br i1 %.not12, label %33, label %19, !llvm.loop !26
 
 33:                                               ; preds = %31
   %34 = call i32 @inflateEnd(ptr noundef nonnull %6) #21
@@ -3447,7 +3447,9 @@ attributes #26 = { nounwind allocsize(1) }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!21 = distinct !{!21, !7, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

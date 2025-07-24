@@ -318,7 +318,7 @@ _ZNK3euf5enode9congruentEPS0_.exit.us:            ; preds = %135, %136, %123, %1
   %146 = or i1 %.052116.us, %.011.i.us
   %147 = getelementptr inbounds nuw i8, ptr %.050117.us, i64 8
   %.not62.us = icmp eq ptr %147, %85
-  br i1 %.not62.us, label %._crit_edge119, label %_ZNK3euf5enode8get_declEv.exit.i.us
+  br i1 %.not62.us, label %._crit_edge119, label %_ZNK3euf5enode8get_declEv.exit.i.us, !llvm.loop !43
 
 ._crit_edge119:                                   ; preds = %_ZNK3euf5enode9congruentEPS0_.exit, %_ZNK3euf5enode9congruentEPS0_.exit.us
   %.052.lcssa = phi i1 [ %146, %_ZNK3euf5enode9congruentEPS0_.exit.us ], [ %195, %_ZNK3euf5enode9congruentEPS0_.exit ]
@@ -560,9 +560,9 @@ define hidden noundef range(i32 -8388608, 8388608) i32 @_ZNK3euf5enode18get_clos
 
 11:                                               ; preds = %.preheader.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.thread, label %.preheader.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.thread, label %.preheader.i.i, !llvm.loop !46
 
 _ZNK3euf5enode10get_th_varEi.exit:                ; preds = %.preheader.i.i
   %14 = ashr i32 %7, 8
@@ -607,9 +607,9 @@ define hidden noundef ptr @_ZN3euf5enode19get_closest_th_nodeEi(ptr noundef nonn
 .lr.ph:                                           ; preds = %.preheader.i.i.preheader, %.preheader.i.ithread-pre-split
   %.0.i.i24 = phi ptr [ %14, %.preheader.i.ithread-pre-split ], [ %4, %.preheader.i.i.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !43
+  %14 = load ptr, ptr %13, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.thread, label %.preheader.i.ithread-pre-split, !llvm.loop !44
+  br i1 %.not.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.thread, label %.preheader.i.ithread-pre-split, !llvm.loop !46
 
 .preheader.i.i._ZNK3euf5enode10get_th_varEi.exit_crit_edge: ; preds = %.preheader.i.ithread-pre-split
   %15 = icmp ugt i32 %.pr, -257
@@ -653,7 +653,7 @@ define hidden noundef zeroext i1 @_ZNK3euf5enode7acyclicEv(ptr noundef nonnull r
   %.110 = phi ptr [ %10, %6 ], [ null, %3 ]
   %.1 = phi ptr [ %8, %6 ], [ %.0, %3 ]
   %12 = icmp eq ptr %.110, %.1
-  br i1 %12, label %13, label %2, !llvm.loop !45
+  br i1 %12, label %13, label %2, !llvm.loop !47
 
 13:                                               ; preds = %2, %11
   ret i1 %.not
@@ -671,7 +671,7 @@ define hidden noundef zeroext i1 @_ZNK3euf5enode7reachesEPS0_(ptr noundef nonnul
   %.not = icmp ne ptr %4, null
   %5 = icmp ne ptr %4, %1
   %or.cond.not = and i1 %5, %.not
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.lcssa = phi i1 [ true, %2 ], [ %.not, %.lr.ph ]
@@ -686,13 +686,13 @@ define hidden void @_ZN3euf5enode21reverse_justificationEv(ptr noundef nonnull a
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !49
   store ptr null, ptr %4, align 8, !tbaa !25
-  store i32 0, ptr %6, align 8, !tbaa !48
+  store i32 0, ptr %6, align 8, !tbaa !50
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 -1, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr null, ptr %.sroa.513.0..sroa_idx, align 8, !tbaa !49
+  store ptr null, ptr %.sroa.513.0..sroa_idx, align 8, !tbaa !51
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -703,13 +703,13 @@ define hidden void @_ZN3euf5enode21reverse_justificationEv(ptr noundef nonnull a
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %.016, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !49
   store ptr %.01115, ptr %7, align 8, !tbaa !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -749,7 +749,7 @@ define hidden noundef zeroext i1 @_ZNK3euf5enode18children_are_rootsEv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN3euf5enode16class_generationEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !51
+  %3 = load i32, ptr %2, align 8, !tbaa !53
   br label %_ZN3euf11enode_class8iteratorppEv.exit
 
 4:                                                ; preds = %_ZN3euf11enode_class8iteratorppEv.exit
@@ -760,7 +760,7 @@ _ZN3euf11enode_class8iteratorppEv.exit:           ; preds = %1, %_ZN3euf11enode_
   %.sroa.7.017 = phi ptr [ null, %1 ], [ %spec.select, %_ZN3euf11enode_class8iteratorppEv.exit ]
   %.sroa.08.016 = phi ptr [ %0, %1 ], [ %8, %_ZN3euf11enode_class8iteratorppEv.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !51
+  %6 = load i32, ptr %5, align 8, !tbaa !53
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.018, i32 %6)
   %.not.i6 = icmp eq ptr %.sroa.7.017, null
   %spec.select = select i1 %.not.i6, ptr %.sroa.08.016, ptr %.sroa.7.017
@@ -840,12 +840,14 @@ attributes #10 = { nounwind }
 !40 = !{!4, !9, i64 11}
 !41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!17, !18, i64 8}
-!44 = distinct !{!44, !42}
-!45 = distinct !{!45, !42}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!17, !18, i64 8}
 !46 = distinct !{!46, !42}
-!47 = !{i64 0, i64 4, !48, i64 8, i64 8, !49, i64 16, i64 8, !49}
-!48 = !{!20, !20, i64 0}
-!49 = !{!7, !7, i64 0}
-!50 = distinct !{!50, !42}
-!51 = !{!4, !11, i64 40}
+!47 = distinct !{!47, !42}
+!48 = distinct !{!48, !42}
+!49 = !{i64 0, i64 4, !50, i64 8, i64 8, !51, i64 16, i64 8, !51}
+!50 = !{!20, !20, i64 0}
+!51 = !{!7, !7, i64 0}
+!52 = distinct !{!52, !42}
+!53 = !{!4, !11, i64 40}

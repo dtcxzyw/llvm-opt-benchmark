@@ -749,9 +749,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 
 .preheader.us:                                    ; preds = %.split198.us
   %23 = getelementptr inbounds nuw [5 x i16], ptr %5, i64 0, i64 %indvars.iv220
-  %.promoted.us = load i16, ptr %23, align 2, !tbaa !44
+  %.promoted.us = load i16, ptr %23, align 2, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
   %wide.trip.count = zext i16 %20 to i64
   br label %26
 
@@ -759,16 +759,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %26 ], [ 0, %.preheader.us ]
   %27 = phi i16 [ %32, %26 ], [ %.promoted.us, %.preheader.us ]
   %28 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %25, i64 %indvars.iv217
-  %29 = load i8, ptr %28, align 8, !tbaa !46
+  %29 = load i8, ptr %28, align 8, !tbaa !47
   %30 = icmp ne i8 %29, 0
   %31 = zext i1 %30 to i16
   %32 = add i16 %27, %31
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
-  br i1 %exitcond219.not, label %.split.us.us, label %26, !llvm.loop !48
+  br i1 %exitcond219.not, label %.split.us.us, label %26, !llvm.loop !49
 
 .split.us.us:                                     ; preds = %26
-  store i16 %32, ptr %23, align 2, !tbaa !44
+  store i16 %32, ptr %23, align 2, !tbaa !45
   %33 = icmp ne i16 %32, 0
   %34 = zext i1 %33 to i32
   %35 = add nsw i32 %.0176197.us, %34
@@ -797,9 +797,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 
 .preheader:                                       ; preds = %39
   %42 = getelementptr inbounds nuw [5 x i16], ptr %5, i64 0, i64 %indvars.iv
-  %.promoted = load i16, ptr %42, align 2, !tbaa !44
+  %.promoted = load i16, ptr %42, align 2, !tbaa !45
   %43 = add i16 %40, %.promoted
-  store i16 %43, ptr %42, align 2, !tbaa !44
+  store i16 %43, ptr %42, align 2, !tbaa !45
   %44 = icmp ne i16 %43, 0
   %45 = zext i1 %44 to i32
   %46 = add nsw i32 %.0176197, %45
@@ -809,7 +809,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %.1 = phi i32 [ %46, %.preheader ], [ %.0176197, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.split200.us, label %39, !llvm.loop !43
+  br i1 %exitcond.not, label %.split200.us, label %39, !llvm.loop !50
 
 48:                                               ; preds = %.split200.us
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -893,16 +893,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %.0180204 = phi i32 [ 0, %85 ], [ %.1181, %149 ]
   %98 = getelementptr inbounds nuw [5 x %struct.HVCCNALUnitArray], ptr %17, i64 0, i64 %indvars.iv230
   %99 = getelementptr inbounds nuw [5 x i16], ptr %5, i64 0, i64 %indvars.iv230
-  %100 = load i16, ptr %99, align 2, !tbaa !44
+  %100 = load i16, ptr %99, align 2, !tbaa !45
   %101 = icmp eq i16 %100, 0
   br i1 %101, label %149, label %102
 
 102:                                              ; preds = %97
-  %103 = load i8, ptr %98, align 8, !tbaa !49
+  %103 = load i8, ptr %98, align 8, !tbaa !51
   %104 = zext i8 %103 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.21, i32 noundef %.0180204, i32 noundef %104) #6
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  %106 = load i8, ptr %105, align 1, !tbaa !50
+  %106 = load i8, ptr %105, align 1, !tbaa !52
   %107 = zext i8 %106 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.22, i32 noundef %.0180204, i32 noundef %107) #6
   %108 = zext i16 %100 to i32
@@ -919,9 +919,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %128
   %112 = phi i16 [ %129, %128 ], [ %110, %.lr.ph ]
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %128 ], [ 0, %.lr.ph ]
-  %113 = load ptr, ptr %111, align 8, !tbaa !45
+  %113 = load ptr, ptr %111, align 8, !tbaa !46
   %114 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %113, i64 %indvars.iv227
-  %115 = load i8, ptr %114, align 8, !tbaa !46
+  %115 = load i8, ptr %114, align 8, !tbaa !47
   %116 = icmp eq i8 %115, 0
   br i1 %116, label %128, label %117
 
@@ -929,14 +929,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %118 = zext i8 %115 to i32
   %119 = trunc nuw nsw i64 %indvars.iv227 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.24, i32 noundef %.0180204, i32 noundef %119, i32 noundef %118) #6
-  %120 = load ptr, ptr %111, align 8, !tbaa !45
+  %120 = load ptr, ptr %111, align 8, !tbaa !46
   %121 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %120, i64 %indvars.iv227, i32 1
-  %122 = load i8, ptr %121, align 1, !tbaa !51
+  %122 = load i8, ptr %121, align 1, !tbaa !53
   %123 = zext i8 %122 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %.0180204, i32 noundef %119, i32 noundef %123) #6
-  %124 = load ptr, ptr %111, align 8, !tbaa !45
+  %124 = load ptr, ptr %111, align 8, !tbaa !46
   %125 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %124, i64 %indvars.iv227, i32 2
-  %126 = load i16, ptr %125, align 2, !tbaa !52
+  %126 = load i16, ptr %125, align 2, !tbaa !54
   %127 = zext i16 %126 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.26, i32 noundef %.0180204, i32 noundef %119, i32 noundef %127) #6
   %.pre = load i16, ptr %109, align 2, !tbaa !39
@@ -947,7 +947,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %130 = zext i16 %129 to i64
   %131 = icmp samesign ult i64 %indvars.iv.next228, %130
-  br i1 %131, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !53
+  br i1 %131, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %128, %102
   %132 = add i32 %.0180204, 1
@@ -955,36 +955,36 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %133 = load ptr, ptr %111, align 8, !tbaa !45
+  %133 = load ptr, ptr %111, align 8, !tbaa !46
   %134 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %133, i64 %indvars.iv224
-  %135 = load i8, ptr %134, align 8, !tbaa !46
+  %135 = load i8, ptr %134, align 8, !tbaa !47
   %136 = zext i8 %135 to i32
   %137 = trunc nuw nsw i64 %indvars.iv224 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.24, i32 noundef %.0180204, i32 noundef %137, i32 noundef %136) #6
-  %138 = load ptr, ptr %111, align 8, !tbaa !45
+  %138 = load ptr, ptr %111, align 8, !tbaa !46
   %139 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %138, i64 %indvars.iv224, i32 1
-  %140 = load i8, ptr %139, align 1, !tbaa !51
+  %140 = load i8, ptr %139, align 1, !tbaa !53
   %141 = zext i8 %140 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %.0180204, i32 noundef %137, i32 noundef %141) #6
-  %142 = load ptr, ptr %111, align 8, !tbaa !45
+  %142 = load ptr, ptr %111, align 8, !tbaa !46
   %143 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %142, i64 %indvars.iv224, i32 2
-  %144 = load i16, ptr %143, align 2, !tbaa !52
+  %144 = load i16, ptr %143, align 2, !tbaa !54
   %145 = zext i16 %144 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.26, i32 noundef %.0180204, i32 noundef %137, i32 noundef %145) #6
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %146 = load i16, ptr %109, align 2, !tbaa !39
   %147 = zext i16 %146 to i64
   %148 = icmp samesign ult i64 %indvars.iv.next225, %147
-  br i1 %148, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
+  br i1 %148, label %.lr.ph.split, label %._crit_edge, !llvm.loop !56
 
 149:                                              ; preds = %97, %._crit_edge
   %.1181 = phi i32 [ %132, %._crit_edge ], [ %.0180204, %97 ]
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 5
-  br i1 %exitcond233.not, label %95, label %97, !llvm.loop !54
+  br i1 %exitcond233.not, label %95, label %97, !llvm.loop !57
 
 150:                                              ; preds = %95
-  %151 = load i16, ptr %5, align 2, !tbaa !44
+  %151 = load i16, ptr %5, align 2, !tbaa !45
   %152 = add i16 %151, -1
   %or.cond = icmp ult i16 %152, 16
   %or.cond5 = select i1 %or.cond, i1 true, i1 %6
@@ -992,7 +992,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %155 = load i16, ptr %154, align 2, !tbaa !44
+  %155 = load i16, ptr %154, align 2, !tbaa !45
   %156 = add i16 %155, -17
   %or.cond9 = icmp ult i16 %156, -16
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1100,16 +1100,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %indvars.iv240 = phi i64 [ 0, %214 ], [ %indvars.iv.next241, %.loopexit ]
   %230 = getelementptr inbounds nuw [5 x %struct.HVCCNALUnitArray], ptr %17, i64 0, i64 %indvars.iv240
   %231 = getelementptr inbounds nuw [5 x i16], ptr %5, i64 0, i64 %indvars.iv240
-  %232 = load i16, ptr %231, align 2, !tbaa !44
+  %232 = load i16, ptr %231, align 2, !tbaa !45
   %.not190 = icmp eq i16 %232, 0
   br i1 %.not190, label %.loopexit, label %233
 
 233:                                              ; preds = %229
-  %234 = load i8, ptr %230, align 8, !tbaa !49
+  %234 = load i8, ptr %230, align 8, !tbaa !51
   %235 = zext i8 %234 to i32
   %236 = shl nuw nsw i32 %235, 7
   %237 = getelementptr inbounds nuw i8, ptr %230, i64 1
-  %238 = load i8, ptr %237, align 1, !tbaa !50
+  %238 = load i8, ptr %237, align 1, !tbaa !52
   %239 = and i8 %238, 63
   %240 = zext nneg i8 %239 to i32
   %241 = or disjoint i32 %236, %240
@@ -1128,20 +1128,20 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .lr.ph208.split.us:                               ; preds = %.lr.ph208, %259
   %246 = phi i16 [ %260, %259 ], [ %244, %.lr.ph208 ]
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %259 ], [ 0, %.lr.ph208 ]
-  %247 = load ptr, ptr %245, align 8, !tbaa !45
+  %247 = load ptr, ptr %245, align 8, !tbaa !46
   %248 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %247, i64 %indvars.iv237
-  %249 = load i8, ptr %248, align 8, !tbaa !46
+  %249 = load i8, ptr %248, align 8, !tbaa !47
   %250 = icmp eq i8 %249, 0
   br i1 %250, label %259, label %251
 
 251:                                              ; preds = %.lr.ph208.split.us
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 2
-  %253 = load i16, ptr %252, align 2, !tbaa !52
+  %253 = load i16, ptr %252, align 2, !tbaa !54
   %254 = zext i16 %253 to i32
   tail call void @avio_wb16(ptr noundef %1, i32 noundef %254) #6
   %255 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %256 = load ptr, ptr %255, align 8, !tbaa !55
-  %257 = load i16, ptr %252, align 2, !tbaa !52
+  %256 = load ptr, ptr %255, align 8, !tbaa !58
+  %257 = load i16, ptr %252, align 2, !tbaa !54
   %258 = zext i16 %257 to i32
   tail call void @avio_write(ptr noundef %1, ptr noundef %256, i32 noundef %258) #6
   %.pre244 = load i16, ptr %243, align 2, !tbaa !39
@@ -1152,31 +1152,31 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %261 = zext i16 %260 to i64
   %262 = icmp samesign ult i64 %indvars.iv.next238, %261
-  br i1 %262, label %.lr.ph208.split.us, label %.loopexit, !llvm.loop !56
+  br i1 %262, label %.lr.ph208.split.us, label %.loopexit, !llvm.loop !59
 
 .lr.ph208.split:                                  ; preds = %.lr.ph208, %.lr.ph208.split
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.lr.ph208.split ], [ 0, %.lr.ph208 ]
-  %263 = load ptr, ptr %245, align 8, !tbaa !45
+  %263 = load ptr, ptr %245, align 8, !tbaa !46
   %264 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %263, i64 %indvars.iv234
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 2
-  %266 = load i16, ptr %265, align 2, !tbaa !52
+  %266 = load i16, ptr %265, align 2, !tbaa !54
   %267 = zext i16 %266 to i32
   tail call void @avio_wb16(ptr noundef %1, i32 noundef %267) #6
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %269 = load ptr, ptr %268, align 8, !tbaa !55
-  %270 = load i16, ptr %265, align 2, !tbaa !52
+  %269 = load ptr, ptr %268, align 8, !tbaa !58
+  %270 = load i16, ptr %265, align 2, !tbaa !54
   %271 = zext i16 %270 to i32
   tail call void @avio_write(ptr noundef %1, ptr noundef %269, i32 noundef %271) #6
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %272 = load i16, ptr %243, align 2, !tbaa !39
   %273 = zext i16 %272 to i64
   %274 = icmp samesign ult i64 %indvars.iv.next235, %273
-  br i1 %274, label %.lr.ph208.split, label %.loopexit, !llvm.loop !56
+  br i1 %274, label %.lr.ph208.split, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph208.split, %259, %233, %229
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 5
-  br i1 %exitcond243.not, label %.loopexit194, label %229, !llvm.loop !57
+  br i1 %exitcond243.not, label %.loopexit194, label %229, !llvm.loop !61
 
 .loopexit194:                                     ; preds = %.loopexit, %153, %150
   %.0 = phi i32 [ -1094995529, %150 ], [ -1094995529, %153 ], [ 0, %.loopexit ]
@@ -1217,24 +1217,24 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %22
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %18
   %23 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %11, align 8, !tbaa !58
+  store ptr %.017.i.i, ptr %11, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 %.018.i.i, ptr %24, align 4, !tbaa !60
+  store i32 %.018.i.i, ptr %24, align 4, !tbaa !64
   %25 = add nuw nsw i32 %.018.i.i, 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 %25, ptr %26, align 8, !tbaa !61
+  store i32 %25, ptr %26, align 8, !tbaa !65
   %27 = zext nneg i32 %23 to i64
   %28 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !62
+  store ptr %28, ptr %29, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %30, align 8, !tbaa !63
+  store i32 0, ptr %30, align 8, !tbaa !67
   br i1 %or.cond.i.i, label %hvcc_parse_vps.exit, label %31
 
 31:                                               ; preds = %19
-  store i32 1, ptr %30, align 8, !tbaa !63
+  store i32 1, ptr %30, align 8, !tbaa !67
   %32 = load i32, ptr %18, align 1, !tbaa !11
-  store i32 7, ptr %30, align 8, !tbaa !63
+  store i32 7, ptr %30, align 8, !tbaa !67
   %33 = trunc i32 %32 to i8
   %34 = lshr i8 %33, 1
   %35 = and i8 %34, 63
@@ -1246,14 +1246,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %41 = and i8 %40, 63
   %42 = add nuw nsw i32 %39, 3
   %43 = call i32 @llvm.umin.i32(i32 %25, i32 %42)
-  store i32 %43, ptr %30, align 8, !tbaa !63
+  store i32 %43, ptr %30, align 8, !tbaa !67
   %44 = icmp ne i8 %41, 0
   %or.cond = select i1 %14, i1 %44, i1 false
   br i1 %or.cond, label %45, label %48
 
 45:                                               ; preds = %31
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %47 = load i8, ptr %46, align 8, !tbaa !64
+  %47 = load i8, ptr %46, align 8, !tbaa !68
   %.not47 = icmp eq i8 %41, %47
   br i1 %.not47, label %48, label %hvcc_parse_vps.exit
 
@@ -1268,13 +1268,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   br i1 %55, label %hvcc_parse_vps.exit, label %56
 
 56:                                               ; preds = %48
-  %57 = load ptr, ptr %51, align 8, !tbaa !45
+  %57 = load ptr, ptr %51, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %57, i64 %52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %0, ptr %59, align 8, !tbaa !55
+  store ptr %0, ptr %59, align 8, !tbaa !58
   %60 = trunc i32 %1 to i16
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  store i16 %60, ptr %61, align 2, !tbaa !52
+  store i16 %60, ptr %61, align 2, !tbaa !54
   %62 = load i16, ptr %49, align 2, !tbaa !39
   %63 = add i16 %62, 1
   store i16 %63, ptr %49, align 2, !tbaa !39
@@ -1283,11 +1283,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
 
 65:                                               ; preds = %56
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %67 = load i8, ptr %66, align 2, !tbaa !65
+  %67 = load i8, ptr %66, align 2, !tbaa !69
   %68 = add i8 %67, 1
-  store i8 %68, ptr %66, align 2, !tbaa !65
+  store i8 %68, ptr %66, align 2, !tbaa !69
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  store i8 %35, ptr %69, align 1, !tbaa !50
+  store i8 %35, ptr %69, align 1, !tbaa !52
   %.off = add nsw i8 %35, -32
   %switch = icmp ult i8 %.off, 3
   br i1 %switch, label %70, label %73
@@ -1295,14 +1295,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
 70:                                               ; preds = %65
   %71 = trunc nuw nsw i32 %3 to i8
   %72 = and i8 %71, 1
-  store i8 %72, ptr %17, align 8, !tbaa !49
+  store i8 %72, ptr %17, align 8, !tbaa !51
   br label %73
 
 73:                                               ; preds = %65, %70, %56
   %74 = zext i16 %63 to i64
   %75 = getelementptr %struct.HVCCNALUnit, ptr %57, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -24
-  store i8 %41, ptr %76, align 8, !tbaa !46
+  store i8 %41, ptr %76, align 8, !tbaa !47
   br i1 %.not, label %77, label %hvcc_parse_vps.exit
 
 77:                                               ; preds = %73
@@ -1313,9 +1313,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   ]
 
 78:                                               ; preds = %77
-  %79 = load i32, ptr %30, align 8, !tbaa !63
-  %80 = load i32, ptr %26, align 8, !tbaa !61
-  %81 = load ptr, ptr %11, align 8, !tbaa !58
+  %79 = load i32, ptr %30, align 8, !tbaa !67
+  %80 = load i32, ptr %26, align 8, !tbaa !65
+  %81 = load ptr, ptr %11, align 8, !tbaa !62
   %82 = lshr i32 %79, 3
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
@@ -1326,10 +1326,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %89 = lshr i32 %88, 28
   %90 = add i32 %79, 4
   %91 = call i32 @llvm.umin.i32(i32 %80, i32 %90)
-  store i32 %91, ptr %30, align 8, !tbaa !63
+  store i32 %91, ptr %30, align 8, !tbaa !67
   %92 = trunc nuw nsw i32 %89 to i8
   %93 = getelementptr i8, ptr %75, i64 -23
-  store i8 %92, ptr %93, align 1, !tbaa !51
+  store i8 %92, ptr %93, align 1, !tbaa !53
   %94 = lshr i32 %91, 3
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 %95
@@ -1338,14 +1338,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %99 = call i32 @llvm.umin.i32(i32 %80, i32 %98)
   %100 = add i32 %99, 1
   %101 = call i32 @llvm.umin.i32(i32 %80, i32 %100)
-  store i32 %101, ptr %30, align 8, !tbaa !63
+  store i32 %101, ptr %30, align 8, !tbaa !67
   %102 = lshr i32 %101, 3
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %81, i64 %103
   %105 = load i32, ptr %104, align 1, !tbaa !11
   %106 = add i32 %101, 6
   %107 = call i32 @llvm.umin.i32(i32 %80, i32 %106)
-  store i32 %107, ptr %30, align 8, !tbaa !63
+  store i32 %107, ptr %30, align 8, !tbaa !67
   %108 = lshr i32 %107, 3
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %81, i64 %109
@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %117 = call i32 @llvm.umin.i32(i32 %80, i32 %116)
   %118 = trunc nuw nsw i32 %115 to i8
   %119 = getelementptr i8, ptr %75, i64 -8
-  store i8 %118, ptr %119, align 8, !tbaa !66
+  store i8 %118, ptr %119, align 8, !tbaa !70
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 27
   %121 = load i8, ptr %120, align 1, !tbaa !33
   %122 = zext i8 %121 to i32
@@ -1368,11 +1368,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   store i8 %125, ptr %120, align 1, !tbaa !33
   %126 = add i32 %117, 17
   %127 = call i32 @llvm.umin.i32(i32 %80, i32 %126)
-  store i32 %127, ptr %30, align 8, !tbaa !63
+  store i32 %127, ptr %30, align 8, !tbaa !67
   call fastcc void @hvcc_parse_ptl(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 1, i32 noundef %115)
-  %128 = load i32, ptr %30, align 8, !tbaa !63
-  %129 = load i32, ptr %26, align 8, !tbaa !61
-  %130 = load ptr, ptr %11, align 8, !tbaa !58
+  %128 = load i32, ptr %30, align 8, !tbaa !67
+  %129 = load i32, ptr %26, align 8, !tbaa !65
+  %130 = load ptr, ptr %11, align 8, !tbaa !62
   %131 = lshr i32 %128, 3
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 %132
@@ -1382,8 +1382,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %137 = shl i32 %135, %136
   %138 = add i32 %128, 1
   %139 = call i32 @llvm.umin.i32(i32 %129, i32 %138)
-  store i32 %139, ptr %30, align 8, !tbaa !63
-  %.pre.i = load i8, ptr %119, align 8, !tbaa !66
+  store i32 %139, ptr %30, align 8, !tbaa !67
+  %.pre.i = load i8, ptr %119, align 8, !tbaa !70
   %140 = zext i8 %.pre.i to i32
   %.not.inv.i = icmp slt i32 %137, 0
   %..i = select i1 %.not.inv.i, i32 0, i32 %140
@@ -1434,7 +1434,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
 get_ue_golomb.exit.i:                             ; preds = %157, %150
   %.sink.i = phi i32 [ %156, %150 ], [ %164, %157 ]
   %..i.i = call i32 @llvm.umin.i32(i32 %129, i32 %.sink.i)
-  store i32 %..i.i, ptr %30, align 8, !tbaa !63
+  store i32 %..i.i, ptr %30, align 8, !tbaa !67
   %165 = lshr i32 %..i.i, 3
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %130, i64 %166
@@ -1477,7 +1477,7 @@ get_ue_golomb.exit.i:                             ; preds = %157, %150
 get_ue_golomb.exit71.i:                           ; preds = %180, %173
   %.sink185.i = phi i32 [ %179, %173 ], [ %187, %180 ]
   %..i70.i = call i32 @llvm.umin.i32(i32 %129, i32 %.sink185.i)
-  store i32 %..i70.i, ptr %30, align 8, !tbaa !63
+  store i32 %..i70.i, ptr %30, align 8, !tbaa !67
   %188 = lshr i32 %..i70.i, 3
   %189 = zext nneg i32 %188 to i64
   %190 = getelementptr inbounds nuw i8, ptr %130, i64 %189
@@ -1520,10 +1520,10 @@ get_ue_golomb.exit71.i:                           ; preds = %180, %173
 get_ue_golomb.exit83.i:                           ; preds = %203, %196
   %.sink186.i = phi i32 [ %202, %196 ], [ %210, %203 ]
   %..i82.i = call i32 @llvm.umin.i32(i32 %129, i32 %.sink186.i)
-  store i32 %..i82.i, ptr %30, align 8, !tbaa !63
+  store i32 %..i82.i, ptr %30, align 8, !tbaa !67
   %211 = add nuw nsw i32 %.052151.i, 1
   %exitcond.not.i = icmp eq i32 %.052151.i, %140
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %141, !llvm.loop !67
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %141, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %get_ue_golomb.exit83.i
   %212 = call i32 @llvm.bswap.i32(i32 %97)
@@ -1544,7 +1544,7 @@ get_ue_golomb.exit83.i:                           ; preds = %203, %196
   %227 = lshr i32 %226, 26
   %228 = add i32 %..i82.i, 6
   %229 = call i32 @llvm.umin.i32(i32 %129, i32 %228)
-  store i32 %229, ptr %30, align 8, !tbaa !63
+  store i32 %229, ptr %30, align 8, !tbaa !67
   %230 = lshr i32 %229, 3
   %231 = zext nneg i32 %230 to i64
   %232 = getelementptr inbounds nuw i8, ptr %130, i64 %231
@@ -1605,7 +1605,7 @@ get_ue_golomb.exit95.i:                           ; preds = %248, %238
   %..i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %265, i32 %267)
   %.0.i.i.i = select i1 %268, i32 %266, i32 %..i.i.i
   %269 = add nsw i32 %.0.i.i.i, %263
-  store i32 %269, ptr %30, align 8, !tbaa !63
+  store i32 %269, ptr %30, align 8, !tbaa !67
   %270 = lshr i32 %269, 3
   %271 = zext nneg i32 %270 to i64
   %272 = getelementptr inbounds nuw i8, ptr %130, i64 %271
@@ -1615,7 +1615,7 @@ get_ue_golomb.exit95.i:                           ; preds = %248, %238
   %276 = shl i32 %274, %275
   %277 = add i32 %269, 1
   %278 = call i32 @llvm.umin.i32(i32 %129, i32 %277)
-  store i32 %278, ptr %30, align 8, !tbaa !63
+  store i32 %278, ptr %30, align 8, !tbaa !67
   %.not56.i = icmp sgt i32 %276, -1
   br i1 %.not56.i, label %.loopexit.i, label %279
 
@@ -1626,7 +1626,7 @@ get_ue_golomb.exit95.i:                           ; preds = %248, %238
   %..i.i96.i = call i32 @llvm.smin.i32(i32 %281, i32 64)
   %.0.i.i97.i = select i1 %282, i32 %280, i32 %..i.i96.i
   %283 = add nsw i32 %.0.i.i97.i, %278
-  store i32 %283, ptr %30, align 8, !tbaa !63
+  store i32 %283, ptr %30, align 8, !tbaa !67
   %284 = lshr i32 %283, 3
   %285 = zext nneg i32 %284 to i64
   %286 = getelementptr inbounds nuw i8, ptr %130, i64 %285
@@ -1636,7 +1636,7 @@ get_ue_golomb.exit95.i:                           ; preds = %248, %238
   %290 = shl i32 %288, %289
   %291 = add i32 %283, 1
   %292 = call i32 @llvm.umin.i32(i32 %129, i32 %291)
-  store i32 %292, ptr %30, align 8, !tbaa !63
+  store i32 %292, ptr %30, align 8, !tbaa !67
   %.not57.i = icmp sgt i32 %290, -1
   br i1 %.not57.i, label %get_ue_golomb.exit109.i, label %293
 
@@ -1683,7 +1683,7 @@ get_ue_golomb.exit95.i:                           ; preds = %248, %238
 get_ue_golomb.exit109.sink.split.i:               ; preds = %309, %302
   %.sink187.i = phi i32 [ %316, %309 ], [ %308, %302 ]
   %.38.i105.i = call i32 @llvm.umin.i32(i32 %129, i32 %.sink187.i)
-  store i32 %.38.i105.i, ptr %30, align 8, !tbaa !63
+  store i32 %.38.i105.i, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb.exit109.i
 
 get_ue_golomb.exit109.i:                          ; preds = %get_ue_golomb.exit109.sink.split.i, %279
@@ -1706,7 +1706,7 @@ get_ue_golomb.exit109.i:                          ; preds = %get_ue_golomb.exit1
   %331 = zext i8 %330 to i32
   %332 = add i32 %317, %331
   %..i120.i = call i32 @llvm.umin.i32(i32 %129, i32 %332)
-  store i32 %..i120.i, ptr %30, align 8, !tbaa !63
+  store i32 %..i120.i, ptr %30, align 8, !tbaa !67
   %333 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %328
   %334 = load i8, ptr %333, align 1, !tbaa !11
   %335 = zext i8 %334 to i32
@@ -1732,7 +1732,7 @@ get_ue_golomb.exit109.i:                          ; preds = %get_ue_golomb.exit1
   %reass.sub.i116.i = add i32 %317, 63
   %347 = sub i32 %reass.sub.i116.i, %345
   %.38.i117.i = call i32 @llvm.umin.i32(i32 %129, i32 %347)
-  store i32 %.38.i117.i, ptr %30, align 8, !tbaa !63
+  store i32 %.38.i117.i, ptr %30, align 8, !tbaa !67
   %348 = icmp samesign ult i32 %344, 19
   %349 = lshr i32 %324, %346
   %350 = add nsw i32 %349, -1
@@ -1746,9 +1746,9 @@ get_ue_golomb.exit121.i:                          ; preds = %336, %326
 
 .lr.ph154.i:                                      ; preds = %get_ue_golomb.exit121.i, %391
   %.1153.i = phi i32 [ %394, %391 ], [ 0, %get_ue_golomb.exit121.i ]
-  %353 = load i32, ptr %30, align 8, !tbaa !63
-  %354 = load i32, ptr %26, align 8, !tbaa !61
-  %355 = load ptr, ptr %11, align 8, !tbaa !58
+  %353 = load i32, ptr %30, align 8, !tbaa !67
+  %354 = load i32, ptr %26, align 8, !tbaa !65
+  %355 = load ptr, ptr %11, align 8, !tbaa !62
   %356 = lshr i32 %353, 3
   %357 = zext nneg i32 %356 to i64
   %358 = getelementptr inbounds nuw i8, ptr %355, i64 %357
@@ -1791,7 +1791,7 @@ get_ue_golomb.exit121.i:                          ; preds = %336, %326
 get_ue_golomb.exit133.i:                          ; preds = %371, %364
   %.sink188.i = phi i32 [ %370, %364 ], [ %378, %371 ]
   %..i132.i = call i32 @llvm.umin.i32(i32 %354, i32 %.sink188.i)
-  store i32 %..i132.i, ptr %30, align 8, !tbaa !63
+  store i32 %..i132.i, ptr %30, align 8, !tbaa !67
   %.not59.i = icmp eq i32 %.1153.i, 0
   br i1 %.not59.i, label %391, label %379
 
@@ -1806,23 +1806,23 @@ get_ue_golomb.exit133.i:                          ; preds = %371, %364
   %387 = lshr i32 %386, 31
   %388 = add i32 %..i132.i, 1
   %389 = call i32 @llvm.umin.i32(i32 %354, i32 %388)
-  store i32 %389, ptr %30, align 8, !tbaa !63
+  store i32 %389, ptr %30, align 8, !tbaa !67
   %390 = trunc nuw nsw i32 %387 to i8
   br label %391
 
 391:                                              ; preds = %379, %get_ue_golomb.exit133.i
   %.0.i49 = phi i8 [ %390, %379 ], [ 1, %get_ue_golomb.exit133.i ]
-  %392 = load i8, ptr %119, align 8, !tbaa !66
+  %392 = load i8, ptr %119, align 8, !tbaa !70
   %393 = zext i8 %392 to i32
   call fastcc void @skip_hrd_parameters(ptr noundef nonnull %11, i8 noundef zeroext %.0.i49, i32 noundef %393)
   %394 = add nuw nsw i32 %.1153.i, 1
   %exitcond172.not.i = icmp eq i32 %394, %.0.i119.i
-  br i1 %exitcond172.not.i, label %.loopexit.loopexit.i, label %.lr.ph154.i, !llvm.loop !68
+  br i1 %exitcond172.not.i, label %.loopexit.loopexit.i, label %.lr.ph154.i, !llvm.loop !72
 
 .loopexit.loopexit.i:                             ; preds = %391
-  %.pre173.i = load i32, ptr %30, align 8, !tbaa !63
-  %.pre174.i = load i32, ptr %26, align 8, !tbaa !61
-  %.pre175.i = load ptr, ptr %11, align 8, !tbaa !58
+  %.pre173.i = load i32, ptr %30, align 8, !tbaa !67
+  %.pre174.i = load i32, ptr %26, align 8, !tbaa !65
+  %.pre175.i = load ptr, ptr %11, align 8, !tbaa !62
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %get_ue_golomb.exit121.i, %336, %get_ue_golomb.exit95.i
@@ -1838,7 +1838,7 @@ get_ue_golomb.exit133.i:                          ; preds = %371, %364
   %404 = shl i32 %402, %403
   %405 = add i32 %397, 1
   %406 = call i32 @llvm.umin.i32(i32 %396, i32 %405)
-  store i32 %406, ptr %30, align 8, !tbaa !63
+  store i32 %406, ptr %30, align 8, !tbaa !67
   %.not58.i = icmp sgt i32 %404, -1
   br i1 %.not58.i, label %hvcc_parse_vps.exit, label %407
 
@@ -1851,7 +1851,7 @@ get_ue_golomb.exit133.i:                          ; preds = %371, %364
 410:                                              ; preds = %407
   %411 = add i32 %409, %406
   %412 = call i32 @llvm.umin.i32(i32 %396, i32 %411)
-  store i32 %412, ptr %30, align 8, !tbaa !63
+  store i32 %412, ptr %30, align 8, !tbaa !67
   br label %align_get_bits.exit.i
 
 align_get_bits.exit.i:                            ; preds = %410, %407
@@ -1869,12 +1869,12 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   br i1 %or.cond.i.i48, label %417, label %420
 
 417:                                              ; preds = %align_get_bits.exit.i
-  %418 = load i8, ptr %119, align 8, !tbaa !66
+  %418 = load i8, ptr %119, align 8, !tbaa !70
   %419 = zext i8 %418 to i32
   call fastcc void @hvcc_parse_ptl(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %419)
-  %.pre176.i = load i32, ptr %30, align 8, !tbaa !63
-  %.pre177.i = load i32, ptr %26, align 8, !tbaa !61
-  %.pre178.i = load ptr, ptr %11, align 8, !tbaa !58
+  %.pre176.i = load i32, ptr %30, align 8, !tbaa !67
+  %.pre177.i = load i32, ptr %26, align 8, !tbaa !65
+  %.pre178.i = load ptr, ptr %11, align 8, !tbaa !62
   br label %420
 
 420:                                              ; preds = %417, %align_get_bits.exit.i
@@ -1887,7 +1887,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %427 = load i32, ptr %426, align 1, !tbaa !11
   %428 = add i32 %423, 1
   %429 = call i32 @llvm.umin.i32(i32 %422, i32 %428)
-  store i32 %429, ptr %30, align 8, !tbaa !63
+  store i32 %429, ptr %30, align 8, !tbaa !67
   br label %436
 
 .preheader80.i.i:                                 ; preds = %452
@@ -1917,7 +1917,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %444 = shl i32 %442, %443
   %445 = add i32 %437, 1
   %446 = call i32 @llvm.umin.i32(i32 %422, i32 %445)
-  store i32 %446, ptr %30, align 8, !tbaa !63
+  store i32 %446, ptr %30, align 8, !tbaa !67
   %.not78.i.i = icmp sgt i32 %444, -1
   br i1 %.not78.i.i, label %452, label %447
 
@@ -1933,7 +1933,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %.166.i.i = phi i8 [ %449, %447 ], [ %.06583.i.i, %436 ]
   %453 = add nuw nsw i32 %.06982.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %453, 16
-  br i1 %exitcond.not.i.i, label %.preheader80.i.i, label %436, !llvm.loop !69
+  br i1 %exitcond.not.i.i, label %.preheader80.i.i, label %436, !llvm.loop !73
 
 454:                                              ; preds = %454, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %454 ]
@@ -1948,14 +1948,14 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %463 = lshr i32 %462, 29
   %464 = add i32 %455, 3
   %465 = call i32 @llvm.umin.i32(i32 %422, i32 %464)
-  store i32 %465, ptr %30, align 8, !tbaa !63
+  store i32 %465, ptr %30, align 8, !tbaa !67
   %466 = trunc nuw nsw i32 %463 to i8
   %467 = add nuw nsw i8 %466, 1
   %468 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i
   store i8 %467, ptr %468, align 1, !tbaa !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond116.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond116.not.i.i, label %._crit_edge.i.i, label %454, !llvm.loop !70
+  br i1 %exitcond116.not.i.i, label %._crit_edge.i.i, label %454, !llvm.loop !74
 
 ._crit_edge.i.i:                                  ; preds = %454, %.preheader80.i.i
   %469 = phi i32 [ %446, %.preheader80.i.i ], [ %465, %454 ]
@@ -1965,7 +1965,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %473 = load i32, ptr %472, align 1, !tbaa !11
   %474 = add i32 %469, 1
   %475 = call i32 @llvm.umin.i32(i32 %422, i32 %474)
-  store i32 %475, ptr %30, align 8, !tbaa !63
+  store i32 %475, ptr %30, align 8, !tbaa !67
   %476 = zext nneg i8 %414 to i32
   %.not89.i.i = icmp ult i32 %217, 67108864
   br i1 %.not89.i.i, label %._crit_edge94.i.i, label %.lr.ph93.i.i
@@ -2002,7 +2002,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %491 = lshr i32 %490, 26
   %492 = add i32 %482, 6
   %493 = call i32 @llvm.umin.i32(i32 %422, i32 %492)
-  store i32 %493, ptr %30, align 8, !tbaa !63
+  store i32 %493, ptr %30, align 8, !tbaa !67
   %494 = trunc nuw nsw i32 %491 to i8
   br label %.preheader79.us.i.i
 
@@ -2034,7 +2034,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %511 = lshr i32 %509, %510
   %512 = add i32 %499, %502
   %513 = call i32 @llvm.umin.i32(i32 %422, i32 %512)
-  store i32 %513, ptr %30, align 8, !tbaa !63
+  store i32 %513, ptr %30, align 8, !tbaa !67
   %514 = icmp eq i32 %511, 1
   br i1 %514, label %515, label %520
 
@@ -2045,19 +2045,19 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   br i1 %518, label %519, label %520
 
 519:                                              ; preds = %515
-  store i8 %497, ptr %480, align 8, !tbaa !64
+  store i8 %497, ptr %480, align 8, !tbaa !68
   br label %520
 
 520:                                              ; preds = %519, %515, %.lr.ph87.us.i.i
   %indvars.iv.next128.i.i = add nuw nsw i64 %indvars.iv127.i.i, 1
   %exitcond131.not.i.i = icmp eq i64 %indvars.iv.next128.i.i, %wide.trip.count130.i.i
-  br i1 %exitcond131.not.i.i, label %.loopexit.us.i.i, label %.lr.ph87.us.i.i, !llvm.loop !71
+  br i1 %exitcond131.not.i.i, label %.loopexit.us.i.i, label %.lr.ph87.us.i.i, !llvm.loop !75
 
 .loopexit.us.i.i:                                 ; preds = %520, %.preheader79.us.i.i
   %521 = phi i32 [ %.promoted88.us.i.i, %.preheader79.us.i.i ], [ %513, %520 ]
   %indvars.iv.next133.i.i = add nuw nsw i64 %indvars.iv132.i.i, 1
   %exitcond136.not.i.i = icmp eq i64 %indvars.iv.next133.i.i, %wide.trip.count135.i.i
-  br i1 %exitcond136.not.i.i, label %._crit_edge94.i.i, label %.lr.ph93.split.us.i.i, !llvm.loop !72
+  br i1 %exitcond136.not.i.i, label %._crit_edge94.i.i, label %.lr.ph93.split.us.i.i, !llvm.loop !76
 
 .lr.ph93.split.i.i:                               ; preds = %.lr.ph93.i.i
   br i1 %.not76.i.i, label %.lr.ph93.split.split.us.i.i, label %.lr.ph93.split.split.i.i
@@ -2069,7 +2069,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   store i8 %522, ptr %523, align 1, !tbaa !11
   %indvars.iv.next123.i.i = add nuw nsw i64 %indvars.iv122.i.i, 1
   %exitcond126.not.i.i = icmp eq i64 %indvars.iv.next123.i.i, %wide.trip.count135.i.i
-  br i1 %exitcond126.not.i.i, label %._crit_edge94.thread.i.i, label %.lr.ph93.split.split.us.i.i, !llvm.loop !72
+  br i1 %exitcond126.not.i.i, label %._crit_edge94.thread.i.i, label %.lr.ph93.split.split.us.i.i, !llvm.loop !77
 
 .lr.ph93.split.split.i.i:                         ; preds = %.lr.ph93.split.i.i, %.lr.ph93.split.split.i.i
   %indvars.iv117.i.i = phi i64 [ %indvars.iv.next118.i.i, %.lr.ph93.split.split.i.i ], [ 1, %.lr.ph93.split.i.i ]
@@ -2084,13 +2084,13 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   %532 = lshr i32 %531, 26
   %533 = add i32 %524, 6
   %534 = call i32 @llvm.umin.i32(i32 %422, i32 %533)
-  store i32 %534, ptr %30, align 8, !tbaa !63
+  store i32 %534, ptr %30, align 8, !tbaa !67
   %535 = trunc nuw nsw i32 %532 to i8
   %536 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv117.i.i
   store i8 %535, ptr %536, align 1, !tbaa !11
   %indvars.iv.next118.i.i = add nuw nsw i64 %indvars.iv117.i.i, 1
   %exitcond121.not.i.i = icmp eq i64 %indvars.iv.next118.i.i, %wide.trip.count135.i.i
-  br i1 %exitcond121.not.i.i, label %._crit_edge94.thread.i.i, label %.lr.ph93.split.split.i.i, !llvm.loop !72
+  br i1 %exitcond121.not.i.i, label %._crit_edge94.thread.i.i, label %.lr.ph93.split.split.i.i, !llvm.loop !78
 
 ._crit_edge94.i.i:                                ; preds = %.loopexit.us.i.i, %._crit_edge.i.i
   %.not73.i.i = icmp sgt i32 %432, -1
@@ -2114,7 +2114,7 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   store i8 %542, ptr %543, align 1, !tbaa !11
   %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
   %exitcond141.not.i.i = icmp eq i64 %indvars.iv.next138.i.i, %wide.trip.count140.i.i
-  br i1 %exitcond141.not.i.i, label %._crit_edge104.thread.i.i, label %.lr.ph103.i.i, !llvm.loop !73
+  br i1 %exitcond141.not.i.i, label %._crit_edge104.thread.i.i, label %.lr.ph103.i.i, !llvm.loop !79
 
 ._crit_edge104.thread.i.i:                        ; preds = %.lr.ph103.i.i
   %544 = getelementptr inbounds nuw [17 x i8], ptr %10, i64 0, i64 %wide.trip.count140.i.i
@@ -2172,17 +2172,17 @@ align_get_bits.exit.i:                            ; preds = %410, %407
   br i1 %570, label %571, label %572
 
 571:                                              ; preds = %567
-  store i8 %555, ptr %552, align 8, !tbaa !64
+  store i8 %555, ptr %552, align 8, !tbaa !68
   br label %572
 
 572:                                              ; preds = %571, %567, %557
   %exitcond146.not.i.i = icmp eq i64 %indvars.iv.next143.i.i, %wide.trip.count140.i.i
-  br i1 %exitcond146.not.i.i, label %._crit_edge107.us.i.i, label %557, !llvm.loop !74
+  br i1 %exitcond146.not.i.i, label %._crit_edge107.us.i.i, label %557, !llvm.loop !80
 
 ._crit_edge107.us.i.i:                            ; preds = %572
   %indvars.iv.next148.i.i = add nuw nsw i64 %indvars.iv147.i.i, 1
   %exitcond151.not.i.i = icmp eq i64 %indvars.iv.next148.i.i, %wide.trip.count150.i.i
-  br i1 %exitcond151.not.i.i, label %.sink.split.i.i, label %.preheader.us.i.i, !llvm.loop !75
+  br i1 %exitcond151.not.i.i, label %.sink.split.i.i, label %.preheader.us.i.i, !llvm.loop !81
 
 .sink.split.i.i:                                  ; preds = %._crit_edge107.us.i.i, %546, %._crit_edge104.i.i
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %10) #6
@@ -2196,9 +2196,9 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
 
 573:                                              ; preds = %77
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
-  %574 = load i32, ptr %30, align 8, !tbaa !63
-  %575 = load i32, ptr %26, align 8, !tbaa !61
-  %576 = load ptr, ptr %11, align 8, !tbaa !58
+  %574 = load i32, ptr %30, align 8, !tbaa !67
+  %575 = load i32, ptr %26, align 8, !tbaa !65
+  %576 = load ptr, ptr %11, align 8, !tbaa !62
   %577 = lshr i32 %574, 3
   %578 = zext nneg i32 %577 to i64
   %579 = getelementptr inbounds nuw i8, ptr %576, i64 %578
@@ -2209,7 +2209,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %584 = lshr i32 %583, 28
   %585 = add i32 %574, 4
   %586 = call i32 @llvm.umin.i32(i32 %575, i32 %585)
-  store i32 %586, ptr %30, align 8, !tbaa !63
+  store i32 %586, ptr %30, align 8, !tbaa !67
   %587 = lshr i32 %586, 3
   %588 = zext nneg i32 %587 to i64
   %589 = getelementptr inbounds nuw i8, ptr %576, i64 %588
@@ -2220,7 +2220,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %594 = lshr i32 %593, 29
   %595 = add i32 %586, 3
   %596 = call i32 @llvm.umin.i32(i32 %575, i32 %595)
-  store i32 %596, ptr %30, align 8, !tbaa !63
+  store i32 %596, ptr %30, align 8, !tbaa !67
   %597 = icmp eq i32 %594, 7
   %or.cond.i50 = select i1 %44, i1 %597, i1 false
   br i1 %or.cond.i50, label %.preheader640.i, label %.thread
@@ -2243,7 +2243,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %610 = zext i8 %607 to i32
   %611 = and i32 %596, 7
   %612 = shl nuw nsw i32 %610, %611
-  store i32 %spec.select.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i, ptr %30, align 8, !tbaa !67
   %613 = trunc i32 %612 to i8
   %614 = lshr i8 %613, 7
   %615 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2292,7 +2292,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %..i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %643, i32 %645)
   %.0.i.i.i.i = select i1 %646, i32 %644, i32 %..i.i.i.i
   %647 = add nsw i32 %.0.i.i.i.i, %.sroa.46.0.copyload.i.i.i
-  store i32 %647, ptr %30, align 8, !tbaa !63
+  store i32 %647, ptr %30, align 8, !tbaa !67
   %.not.i5.i.i = icmp eq i32 %642, 32
   br i1 %.not.i5.i.i, label %get_ue_golomb_long.exit.i, label %700
 
@@ -2304,27 +2304,27 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
 
 .lr.ph.i:                                         ; preds = %.preheader640.i
   %650 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %651 = load ptr, ptr %650, align 8, !tbaa !45
+  %651 = load ptr, ptr %650, align 8, !tbaa !46
   %wide.trip.count.i = zext i16 %649 to i64
   br label %653
 
 652:                                              ; preds = %653
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i65, label %hvcc_parse_sps.exit, label %653, !llvm.loop !76
+  br i1 %exitcond.not.i65, label %hvcc_parse_sps.exit, label %653, !llvm.loop !82
 
 653:                                              ; preds = %652, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %652 ]
   %654 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %651, i64 %indvars.iv.i
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 1
-  %656 = load i8, ptr %655, align 1, !tbaa !51
+  %656 = load i8, ptr %655, align 1, !tbaa !53
   %657 = zext i8 %656 to i32
   %658 = icmp eq i32 %584, %657
   br i1 %658, label %.critedge.i, label %652
 
 .critedge.i:                                      ; preds = %653
   %659 = getelementptr inbounds nuw i8, ptr %654, i64 16
-  %660 = load i8, ptr %659, align 8, !tbaa !66
+  %660 = load i8, ptr %659, align 8, !tbaa !70
   %661 = zext i8 %660 to i32
   %662 = getelementptr inbounds nuw i8, ptr %2, i64 27
   %663 = load i8, ptr %662, align 1, !tbaa !33
@@ -2373,7 +2373,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %..i.i.i167.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %695, i32 %697)
   %.0.i.i.i168.i = select i1 %698, i32 %696, i32 %..i.i.i167.i
   %699 = add nsw i32 %.0.i.i.i168.i, %596
-  store i32 %699, ptr %30, align 8, !tbaa !63
+  store i32 %699, ptr %30, align 8, !tbaa !67
   %.not.i5.i169.i = icmp eq i32 %694, 32
   br i1 %.not.i5.i169.i, label %get_ue_golomb_long.exit172.i, label %803
 
@@ -2393,14 +2393,14 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %reass.sub222 = sub i32 %647, %642
   %711 = add i32 %reass.sub222, 32
   %712 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %711)
-  store i32 %712, ptr %30, align 8, !tbaa !63
+  store i32 %712, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit.i
 
 713:                                              ; preds = %700
   %714 = lshr i32 %708, 16
   %715 = add i32 %647, 16
   %716 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %715)
-  store i32 %716, ptr %30, align 8, !tbaa !63
+  store i32 %716, ptr %30, align 8, !tbaa !67
   %717 = sub nuw nsw i32 16, %642
   %718 = shl nuw i32 %714, %717
   %719 = lshr i32 %716, 3
@@ -2414,7 +2414,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
   %727 = lshr i32 %725, %726
   %728 = add i32 %716, %717
   %729 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %728)
-  store i32 %729, ptr %30, align 8, !tbaa !63
+  store i32 %729, ptr %30, align 8, !tbaa !67
   %730 = or i32 %727, %718
   br label %get_ue_golomb_long.exit.i
 
@@ -2424,7 +2424,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %713, %709, %.thread
   %731 = trunc i32 %.0.i.i.i55 to i8
   %732 = add i8 %731, -1
   %733 = getelementptr i8, ptr %75, i64 -23
-  store i8 %732, ptr %733, align 1, !tbaa !51
+  store i8 %732, ptr %733, align 1, !tbaa !53
   %734 = lshr i32 %.sroa.46.0.copyload.i.i141.i, 3
   %735 = zext nneg i32 %734 to i64
   %736 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %735
@@ -2465,7 +2465,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %713, %709, %.thread
   %..i.i.i150.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %761, i32 %763)
   %.0.i.i.i151.i = select i1 %764, i32 %762, i32 %..i.i.i150.i
   %765 = add nsw i32 %.0.i.i.i151.i, %.sroa.46.0.copyload.i.i141.i
-  store i32 %765, ptr %30, align 8, !tbaa !63
+  store i32 %765, ptr %30, align 8, !tbaa !67
   %.not.i5.i152.i = icmp eq i32 %760, 32
   br i1 %.not.i5.i152.i, label %get_ue_golomb_long.exit155.thread.i, label %767
 
@@ -2496,7 +2496,7 @@ get_ue_golomb_long.exit155.thread.i:              ; preds = %get_ue_golomb_long.
   %781 = lshr i32 %775, 16
   %782 = add i32 %765, 16
   %783 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %782)
-  store i32 %783, ptr %30, align 8, !tbaa !63
+  store i32 %783, ptr %30, align 8, !tbaa !67
   %784 = sub nuw nsw i32 16, %760
   %785 = shl nuw i32 %781, %784
   %786 = lshr i32 %783, 3
@@ -2516,7 +2516,7 @@ get_ue_golomb_long.exit155.thread.i:              ; preds = %get_ue_golomb_long.
 get_ue_golomb_long.exit155.i:                     ; preds = %780, %776
   %.sink.i56 = phi i32 [ %779, %776 ], [ %796, %780 ]
   %.0.i.i153.i = phi i32 [ %777, %776 ], [ %797, %780 ]
-  store i32 %.sink.i56, ptr %30, align 8, !tbaa !63
+  store i32 %.sink.i56, ptr %30, align 8, !tbaa !67
   %798 = add i32 %.0.i.i153.i, -1
   %799 = trunc i32 %798 to i8
   %800 = getelementptr inbounds nuw i8, ptr %2, i64 21
@@ -2541,14 +2541,14 @@ get_ue_golomb_long.exit155.i:                     ; preds = %780, %776
   %reass.sub226 = sub i32 %699, %694
   %814 = add i32 %reass.sub226, 32
   %815 = call i32 @llvm.umin.i32(i32 %575, i32 %814)
-  store i32 %815, ptr %30, align 8, !tbaa !63
+  store i32 %815, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit172.i
 
 816:                                              ; preds = %803
   %817 = lshr i32 %811, 16
   %818 = add i32 %699, 16
   %819 = call i32 @llvm.umin.i32(i32 %575, i32 %818)
-  store i32 %819, ptr %30, align 8, !tbaa !63
+  store i32 %819, ptr %30, align 8, !tbaa !67
   %820 = sub nuw nsw i32 16, %694
   %821 = shl nuw i32 %817, %820
   %822 = lshr i32 %819, 3
@@ -2562,7 +2562,7 @@ get_ue_golomb_long.exit155.i:                     ; preds = %780, %776
   %830 = lshr i32 %828, %829
   %831 = add i32 %819, %820
   %832 = call i32 @llvm.umin.i32(i32 %575, i32 %831)
-  store i32 %832, ptr %30, align 8, !tbaa !63
+  store i32 %832, ptr %30, align 8, !tbaa !67
   %833 = or i32 %830, %821
   br label %get_ue_golomb_long.exit172.i
 
@@ -2572,7 +2572,7 @@ get_ue_golomb_long.exit172.i:                     ; preds = %816, %812, %.crited
   %835 = trunc i32 %.0.i.i170.i to i8
   %836 = add i8 %835, -1
   %837 = getelementptr i8, ptr %75, i64 -23
-  store i8 %836, ptr %837, align 1, !tbaa !51
+  store i8 %836, ptr %837, align 1, !tbaa !53
   %838 = lshr i32 %834, 3
   %839 = zext nneg i32 %838 to i64
   %840 = getelementptr inbounds nuw i8, ptr %576, i64 %839
@@ -2582,7 +2582,7 @@ get_ue_golomb_long.exit172.i:                     ; preds = %816, %812, %.crited
   %spec.select.i173.i = add i32 %834, %843
   %844 = zext i8 %841 to i32
   %845 = and i32 %834, 7
-  store i32 %spec.select.i173.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i173.i, ptr %30, align 8, !tbaa !67
   %846 = lshr exact i32 128, %845
   %847 = and i32 %846, %844
   %.not128.i = icmp eq i32 %847, 0
@@ -2591,13 +2591,13 @@ get_ue_golomb_long.exit172.i:                     ; preds = %816, %812, %.crited
 848:                                              ; preds = %get_ue_golomb_long.exit172.i
   %849 = add i32 %spec.select.i173.i, 8
   %850 = call i32 @llvm.umin.i32(i32 %575, i32 %849)
-  store i32 %850, ptr %30, align 8, !tbaa !63
+  store i32 %850, ptr %30, align 8, !tbaa !67
   br label %1220
 
 851:                                              ; preds = %get_ue_golomb_long.exit155.i
   %852 = add i32 %.sink.i56, 1
   %853 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %852)
-  store i32 %853, ptr %30, align 8, !tbaa !63
+  store i32 %853, ptr %30, align 8, !tbaa !67
   br label %854
 
 854:                                              ; preds = %851, %get_ue_golomb_long.exit155.i, %get_ue_golomb_long.exit155.thread.i
@@ -2658,7 +2658,7 @@ get_ue_golomb_long.exit190.sink.split.i:          ; preds = %854
 
 get_ue_golomb_long.exit190.i:                     ; preds = %get_ue_golomb_long.exit190.sink.split.i, %854
   %storemerge.i = phi i32 [ %891, %get_ue_golomb_long.exit190.sink.split.i ], [ %886, %854 ]
-  store i32 %storemerge.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i, ptr %30, align 8, !tbaa !67
   %892 = lshr i32 %storemerge.i, 3
   %893 = zext nneg i32 %892 to i64
   %894 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %893
@@ -2715,7 +2715,7 @@ get_ue_golomb_long.exit207.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit207.i:                     ; preds = %get_ue_golomb_long.exit207.sink.split.i, %get_ue_golomb_long.exit190.i
   %storemerge804.i = phi i32 [ %928, %get_ue_golomb_long.exit207.sink.split.i ], [ %923, %get_ue_golomb_long.exit190.i ]
-  store i32 %storemerge804.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge804.i, ptr %30, align 8, !tbaa !67
   %929 = lshr i32 %storemerge804.i, 3
   %930 = zext nneg i32 %929 to i64
   %931 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %930
@@ -2725,7 +2725,7 @@ get_ue_golomb_long.exit207.i:                     ; preds = %get_ue_golomb_long.
   %spec.select.i208.i = add i32 %storemerge804.i, %934
   %935 = zext i8 %932 to i32
   %936 = and i32 %storemerge804.i, 7
-  store i32 %spec.select.i208.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i208.i, ptr %30, align 8, !tbaa !67
   %937 = lshr exact i32 128, %936
   %938 = and i32 %937, %935
   %.not.i = icmp eq i32 %938, 0
@@ -2788,7 +2788,7 @@ get_ue_golomb_long.exit225.sink.split.i:          ; preds = %939
 
 get_ue_golomb_long.exit225.i:                     ; preds = %get_ue_golomb_long.exit225.sink.split.i, %939
   %storemerge805.i = phi i32 [ %976, %get_ue_golomb_long.exit225.sink.split.i ], [ %971, %939 ]
-  store i32 %storemerge805.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge805.i, ptr %30, align 8, !tbaa !67
   %977 = lshr i32 %storemerge805.i, 3
   %978 = zext nneg i32 %977 to i64
   %979 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %978
@@ -2845,7 +2845,7 @@ get_ue_golomb_long.exit242.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit242.i:                     ; preds = %get_ue_golomb_long.exit242.sink.split.i, %get_ue_golomb_long.exit225.i
   %storemerge806.i = phi i32 [ %1013, %get_ue_golomb_long.exit242.sink.split.i ], [ %1008, %get_ue_golomb_long.exit225.i ]
-  store i32 %storemerge806.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge806.i, ptr %30, align 8, !tbaa !67
   %1014 = lshr i32 %storemerge806.i, 3
   %1015 = zext nneg i32 %1014 to i64
   %1016 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %1015
@@ -2902,7 +2902,7 @@ get_ue_golomb_long.exit259.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit259.i:                     ; preds = %get_ue_golomb_long.exit259.sink.split.i, %get_ue_golomb_long.exit242.i
   %storemerge807.i = phi i32 [ %1050, %get_ue_golomb_long.exit259.sink.split.i ], [ %1045, %get_ue_golomb_long.exit242.i ]
-  store i32 %storemerge807.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge807.i, ptr %30, align 8, !tbaa !67
   %1051 = lshr i32 %storemerge807.i, 3
   %1052 = zext nneg i32 %1051 to i64
   %1053 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %1052
@@ -2943,7 +2943,7 @@ get_ue_golomb_long.exit259.i:                     ; preds = %get_ue_golomb_long.
   %..i.i.i271.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1078, i32 %1080)
   %.0.i.i.i272.i = select i1 %1081, i32 %1079, i32 %..i.i.i271.i
   %1082 = add nsw i32 %.0.i.i.i272.i, %storemerge807.i
-  store i32 %1082, ptr %30, align 8, !tbaa !63
+  store i32 %1082, ptr %30, align 8, !tbaa !67
   %.not.i5.i273.i = icmp eq i32 %1077, 32
   br i1 %.not.i5.i273.i, label %get_ue_golomb_long.exit276.i, label %get_ue_golomb_long.exit276.sink.split.i
 
@@ -2956,7 +2956,7 @@ get_ue_golomb_long.exit276.sink.split.i:          ; preds = %get_ue_golomb_long.
   %reass.sub672.i = sub nsw i32 %.sink774.i, %1077
   %1086 = add i32 %reass.sub672.i, %.sink775.i
   %1087 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1086)
-  store i32 %1087, ptr %30, align 8, !tbaa !63
+  store i32 %1087, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit276.i
 
 get_ue_golomb_long.exit276.i:                     ; preds = %get_ue_golomb_long.exit276.sink.split.i, %get_ue_golomb_long.exit259.i, %get_ue_golomb_long.exit207.i
@@ -3001,7 +3001,7 @@ get_ue_golomb_long.exit276.i:                     ; preds = %get_ue_golomb_long.
   %..i.i.i288.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1115, i32 %1117)
   %.0.i.i.i289.i = select i1 %1118, i32 %1116, i32 %..i.i.i288.i
   %1119 = add nsw i32 %.0.i.i.i289.i, %.sroa.46.0.copyload.i.i279.i
-  store i32 %1119, ptr %30, align 8, !tbaa !63
+  store i32 %1119, ptr %30, align 8, !tbaa !67
   %.not.i5.i290.i = icmp eq i32 %1114, 32
   br i1 %.not.i5.i290.i, label %get_ue_golomb_long.exit293.i, label %1120
 
@@ -3021,14 +3021,14 @@ get_ue_golomb_long.exit276.i:                     ; preds = %get_ue_golomb_long.
   %reass.sub224 = sub i32 %1119, %1114
   %1131 = add i32 %reass.sub224, 32
   %1132 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1131)
-  store i32 %1132, ptr %30, align 8, !tbaa !63
+  store i32 %1132, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit293.i
 
 1133:                                             ; preds = %1120
   %1134 = lshr i32 %1128, 16
   %1135 = add i32 %1119, 16
   %1136 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1135)
-  store i32 %1136, ptr %30, align 8, !tbaa !63
+  store i32 %1136, ptr %30, align 8, !tbaa !67
   %1137 = sub nuw nsw i32 16, %1114
   %1138 = shl nuw i32 %1134, %1137
   %1139 = lshr i32 %1136, 3
@@ -3042,7 +3042,7 @@ get_ue_golomb_long.exit276.i:                     ; preds = %get_ue_golomb_long.
   %1147 = lshr i32 %1145, %1146
   %1148 = add i32 %1136, %1137
   %1149 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1148)
-  store i32 %1149, ptr %30, align 8, !tbaa !63
+  store i32 %1149, ptr %30, align 8, !tbaa !67
   %1150 = or i32 %1147, %1138
   br label %get_ue_golomb_long.exit293.i
 
@@ -3093,7 +3093,7 @@ get_ue_golomb_long.exit293.i:                     ; preds = %1133, %1129, %get_u
   %..i.i.i305.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1181, i32 %1183)
   %.0.i.i.i306.i = select i1 %1184, i32 %1182, i32 %..i.i.i305.i
   %1185 = add nsw i32 %.0.i.i.i306.i, %.sroa.46.0.copyload.i.i296.i
-  store i32 %1185, ptr %30, align 8, !tbaa !63
+  store i32 %1185, ptr %30, align 8, !tbaa !67
   %.not.i5.i307.i = icmp eq i32 %1180, 32
   br i1 %.not.i5.i307.i, label %get_ue_golomb_long.exit310.i, label %1186
 
@@ -3113,14 +3113,14 @@ get_ue_golomb_long.exit293.i:                     ; preds = %1133, %1129, %get_u
   %reass.sub225 = sub i32 %1185, %1180
   %1197 = add i32 %reass.sub225, 32
   %1198 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1197)
-  store i32 %1198, ptr %30, align 8, !tbaa !63
+  store i32 %1198, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit310.i
 
 1199:                                             ; preds = %1186
   %1200 = lshr i32 %1194, 16
   %1201 = add i32 %1185, 16
   %1202 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1201)
-  store i32 %1202, ptr %30, align 8, !tbaa !63
+  store i32 %1202, ptr %30, align 8, !tbaa !67
   %1203 = sub nuw nsw i32 16, %1180
   %1204 = shl nuw i32 %1200, %1203
   %1205 = lshr i32 %1202, 3
@@ -3134,7 +3134,7 @@ get_ue_golomb_long.exit293.i:                     ; preds = %1133, %1129, %get_u
   %1213 = lshr i32 %1211, %1212
   %1214 = add i32 %1202, %1203
   %1215 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i, i32 %1214)
-  store i32 %1215, ptr %30, align 8, !tbaa !63
+  store i32 %1215, ptr %30, align 8, !tbaa !67
   %1216 = or i32 %1213, %1204
   br label %get_ue_golomb_long.exit310.i
 
@@ -3192,7 +3192,7 @@ get_ue_golomb_long.exit310.i:                     ; preds = %1199, %1195, %get_u
   %..i.i.i322.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1248, i32 %1250)
   %.0.i.i.i323.i = select i1 %1251, i32 %1249, i32 %..i.i.i322.i
   %1252 = add nsw i32 %.0.i.i.i323.i, %.sroa.46.0.copyload.i.i313.i
-  store i32 %1252, ptr %30, align 8, !tbaa !63
+  store i32 %1252, ptr %30, align 8, !tbaa !67
   %.not.i5.i324.i = icmp eq i32 %1247, 32
   br i1 %.not.i5.i324.i, label %get_ue_golomb_long.exit327.i, label %1253
 
@@ -3212,14 +3212,14 @@ get_ue_golomb_long.exit310.i:                     ; preds = %1199, %1195, %get_u
   %reass.sub227 = sub i32 %1252, %1247
   %1264 = add i32 %reass.sub227, 32
   %1265 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1264)
-  store i32 %1265, ptr %30, align 8, !tbaa !63
+  store i32 %1265, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit327.i
 
 1266:                                             ; preds = %1253
   %1267 = lshr i32 %1261, 16
   %1268 = add i32 %1252, 16
   %1269 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1268)
-  store i32 %1269, ptr %30, align 8, !tbaa !63
+  store i32 %1269, ptr %30, align 8, !tbaa !67
   %1270 = sub nuw nsw i32 16, %1247
   %1271 = shl nuw i32 %1267, %1270
   %1272 = lshr i32 %1269, 3
@@ -3233,7 +3233,7 @@ get_ue_golomb_long.exit310.i:                     ; preds = %1199, %1195, %get_u
   %1280 = lshr i32 %1278, %1279
   %1281 = add i32 %1269, %1270
   %1282 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1281)
-  store i32 %1282, ptr %30, align 8, !tbaa !63
+  store i32 %1282, ptr %30, align 8, !tbaa !67
   %1283 = or i32 %1280, %1271
   br label %get_ue_golomb_long.exit327.i
 
@@ -3252,7 +3252,7 @@ get_ue_golomb_long.exit327.i:                     ; preds = %1266, %1262, %1220
   %spec.select.i328.i = add i32 %1284, %1291
   %1292 = zext i8 %1289 to i32
   %1293 = and i32 %1284, 7
-  store i32 %spec.select.i328.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i328.i, ptr %30, align 8, !tbaa !67
   %1294 = lshr exact i32 128, %1293
   %1295 = and i32 %1294, %1292
   %.not129.i = icmp eq i32 %1295, 0
@@ -3318,7 +3318,7 @@ get_ue_golomb_long.exit.sink.split.i.i:           ; preds = %1297
 
 get_ue_golomb_long.exit.i.i:                      ; preds = %get_ue_golomb_long.exit.sink.split.i.i, %1297
   %storemerge.i.i = phi i32 [ %1334, %get_ue_golomb_long.exit.sink.split.i.i ], [ %1329, %1297 ]
-  store i32 %storemerge.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i.i, ptr %30, align 8, !tbaa !67
   %1335 = lshr i32 %storemerge.i.i, 3
   %1336 = zext nneg i32 %1335 to i64
   %1337 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1336
@@ -3375,7 +3375,7 @@ get_ue_golomb_long.exit19.sink.split.i.i:         ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit19.i.i:                    ; preds = %get_ue_golomb_long.exit19.sink.split.i.i, %get_ue_golomb_long.exit.i.i
   %storemerge58.i.i = phi i32 [ %1371, %get_ue_golomb_long.exit19.sink.split.i.i ], [ %1366, %get_ue_golomb_long.exit.i.i ]
-  store i32 %storemerge58.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge58.i.i, ptr %30, align 8, !tbaa !67
   %1372 = lshr i32 %storemerge58.i.i, 3
   %1373 = zext nneg i32 %1372 to i64
   %1374 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1373
@@ -3432,10 +3432,10 @@ get_ue_golomb_long.exit36.sink.split.i.i:         ; preds = %get_ue_golomb_long.
 
 skip_sub_layer_ordering_info.exit.i:              ; preds = %get_ue_golomb_long.exit36.sink.split.i.i, %get_ue_golomb_long.exit19.i.i
   %storemerge59.i.i = phi i32 [ %1408, %get_ue_golomb_long.exit36.sink.split.i.i ], [ %1403, %get_ue_golomb_long.exit19.i.i ]
-  store i32 %storemerge59.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge59.i.i, ptr %30, align 8, !tbaa !67
   %1409 = add nuw nsw i32 %.1112645.i, 1
   %exitcond.not = icmp eq i32 %.1112645.i, %.0115.i145
-  br i1 %exitcond.not, label %.loopexit639.i, label %1297, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit639.i, label %1297, !llvm.loop !83
 
 .loopexit639.i:                                   ; preds = %skip_sub_layer_ordering_info.exit.i, %get_ue_golomb_long.exit327.i
   %.sroa.46.0.copyload.i.i331.i = phi i32 [ %1284, %get_ue_golomb_long.exit327.i ], [ %storemerge59.i.i, %skip_sub_layer_ordering_info.exit.i ]
@@ -3495,7 +3495,7 @@ get_ue_golomb_long.exit345.sink.split.i:          ; preds = %.loopexit639.i
 
 get_ue_golomb_long.exit345.i:                     ; preds = %get_ue_golomb_long.exit345.sink.split.i, %.loopexit639.i
   %storemerge808.i = phi i32 [ %1446, %get_ue_golomb_long.exit345.sink.split.i ], [ %1441, %.loopexit639.i ]
-  store i32 %storemerge808.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge808.i, ptr %30, align 8, !tbaa !67
   %1447 = lshr i32 %storemerge808.i, 3
   %1448 = zext nneg i32 %1447 to i64
   %1449 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1448
@@ -3552,7 +3552,7 @@ get_ue_golomb_long.exit362.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit362.i:                     ; preds = %get_ue_golomb_long.exit362.sink.split.i, %get_ue_golomb_long.exit345.i
   %storemerge809.i = phi i32 [ %1483, %get_ue_golomb_long.exit362.sink.split.i ], [ %1478, %get_ue_golomb_long.exit345.i ]
-  store i32 %storemerge809.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge809.i, ptr %30, align 8, !tbaa !67
   %1484 = lshr i32 %storemerge809.i, 3
   %1485 = zext nneg i32 %1484 to i64
   %1486 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1485
@@ -3609,7 +3609,7 @@ get_ue_golomb_long.exit379.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit379.i:                     ; preds = %get_ue_golomb_long.exit379.sink.split.i, %get_ue_golomb_long.exit362.i
   %storemerge810.i = phi i32 [ %1520, %get_ue_golomb_long.exit379.sink.split.i ], [ %1515, %get_ue_golomb_long.exit362.i ]
-  store i32 %storemerge810.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge810.i, ptr %30, align 8, !tbaa !67
   %1521 = lshr i32 %storemerge810.i, 3
   %1522 = zext nneg i32 %1521 to i64
   %1523 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1522
@@ -3666,7 +3666,7 @@ get_ue_golomb_long.exit396.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit396.i:                     ; preds = %get_ue_golomb_long.exit396.sink.split.i, %get_ue_golomb_long.exit379.i
   %storemerge811.i = phi i32 [ %1557, %get_ue_golomb_long.exit396.sink.split.i ], [ %1552, %get_ue_golomb_long.exit379.i ]
-  store i32 %storemerge811.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge811.i, ptr %30, align 8, !tbaa !67
   %1558 = lshr i32 %storemerge811.i, 3
   %1559 = zext nneg i32 %1558 to i64
   %1560 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1559
@@ -3723,7 +3723,7 @@ get_ue_golomb_long.exit413.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit413.i:                     ; preds = %get_ue_golomb_long.exit413.sink.split.i, %get_ue_golomb_long.exit396.i
   %storemerge812.i = phi i32 [ %1594, %get_ue_golomb_long.exit413.sink.split.i ], [ %1589, %get_ue_golomb_long.exit396.i ]
-  store i32 %storemerge812.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge812.i, ptr %30, align 8, !tbaa !67
   %1595 = lshr i32 %storemerge812.i, 3
   %1596 = zext nneg i32 %1595 to i64
   %1597 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1596
@@ -3780,7 +3780,7 @@ get_ue_golomb_long.exit430.sink.split.i:          ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.exit430.sink.split.i, %get_ue_golomb_long.exit413.i
   %storemerge813.i = phi i32 [ %1631, %get_ue_golomb_long.exit430.sink.split.i ], [ %1626, %get_ue_golomb_long.exit413.i ]
-  store i32 %storemerge813.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge813.i, ptr %30, align 8, !tbaa !67
   %1632 = lshr i32 %storemerge813.i, 3
   %1633 = zext nneg i32 %1632 to i64
   %1634 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1633
@@ -3790,7 +3790,7 @@ get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.
   %spec.select.i431.i = add i32 %storemerge813.i, %1637
   %1638 = zext i8 %1635 to i32
   %1639 = and i32 %storemerge813.i, 7
-  store i32 %spec.select.i431.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i431.i, ptr %30, align 8, !tbaa !67
   %1640 = lshr exact i32 128, %1639
   %1641 = and i32 %1640, %1638
   %.not131.i = icmp eq i32 %1641, 0
@@ -3809,7 +3809,7 @@ get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.
   %spec.select.i432.i = add i32 %spec.select.i431.i, %1649
   %1650 = zext i8 %1647 to i32
   %1651 = and i32 %spec.select.i431.i, 7
-  store i32 %spec.select.i432.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i432.i, ptr %30, align 8, !tbaa !67
   %1652 = lshr exact i32 128, %1651
   %1653 = and i32 %1652, %1650
   %1654 = icmp eq i32 %1653, 0
@@ -3831,7 +3831,7 @@ get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.
   %spec.select.i433.i = add i32 %1658, %1664
   %1665 = zext i8 %1662 to i32
   %1666 = and i32 %1658, 7
-  store i32 %spec.select.i433.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i433.i, ptr %30, align 8, !tbaa !67
   %1667 = lshr exact i32 128, %1666
   %1668 = and i32 %1667, %1665
   %.not133.i = icmp eq i32 %1668, 0
@@ -3860,7 +3860,7 @@ get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.
   %spec.select.i.i434.i = add i32 %.promoted4446.i.i, %1681
   %1682 = zext i8 %1679 to i32
   %1683 = and i32 %.promoted4446.i.i, 7
-  store i32 %spec.select.i.i434.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i434.i, ptr %30, align 8, !tbaa !67
   %1684 = lshr exact i32 128, %1683
   %1685 = and i32 %1684, %1682
   %.not.i.i58 = icmp eq i32 %1685, 0
@@ -3907,7 +3907,7 @@ get_ue_golomb_long.exit430.i:                     ; preds = %get_ue_golomb_long.
   %..i.i.i.i444.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1714, i32 %1716)
   %.0.i.i.i.i445.i = select i1 %1717, i32 %1715, i32 %..i.i.i.i444.i
   %1718 = add nsw i32 %.0.i.i.i.i445.i, %spec.select.i.i434.i
-  store i32 %1718, ptr %30, align 8, !tbaa !63
+  store i32 %1718, ptr %30, align 8, !tbaa !67
   %.not.i5.i.i446.i = icmp eq i32 %1713, 32
   br i1 %.not.i5.i.i446.i, label %get_ue_golomb_long.exit.i436.i, label %get_ue_golomb_long.exit.sink.split.i447.i
 
@@ -3920,7 +3920,7 @@ get_ue_golomb_long.exit.sink.split.i447.i:        ; preds = %1686
   %reass.sub56.i.i = sub nsw i32 %.sink68.i.i, %1713
   %1722 = add i32 %reass.sub56.i.i, %.sink69.i.i
   %1723 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1722)
-  store i32 %1723, ptr %30, align 8, !tbaa !63
+  store i32 %1723, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit.i436.i
 
 1724:                                             ; preds = %1675
@@ -3967,7 +3967,7 @@ get_ue_golomb_long.exit.sink.split.i447.i:        ; preds = %1686
   %..i.i.i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1753, i32 %1755)
   %.0.i.i.i.i.i.i = select i1 %1756, i32 %1754, i32 %..i.i.i.i.i.i
   %1757 = add nsw i32 %.0.i.i.i.i.i.i, %spec.select.i.i434.i
-  store i32 %1757, ptr %30, align 8, !tbaa !63
+  store i32 %1757, ptr %30, align 8, !tbaa !67
   %.not.i5.i.i.i.i = icmp eq i32 %1752, 32
   br i1 %.not.i5.i.i.i.i, label %get_se_golomb_long.exit.i.i.preheader, label %get_se_golomb_long.exit.sink.split.i.i
 
@@ -3980,7 +3980,7 @@ get_se_golomb_long.exit.sink.split.i.i:           ; preds = %1725
   %reass.sub53.i.i = sub nsw i32 %.sink.i437.i, %1752
   %1761 = add i32 %reass.sub53.i.i, %.sink61.i.i
   %1762 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1761)
-  store i32 %1762, ptr %30, align 8, !tbaa !63
+  store i32 %1762, ptr %30, align 8, !tbaa !67
   br label %get_se_golomb_long.exit.i.i.preheader
 
 get_se_golomb_long.exit.i.i.preheader:            ; preds = %get_se_golomb_long.exit.sink.split.i.i, %1725, %1724
@@ -4046,21 +4046,21 @@ get_se_golomb_long.exit33.sink.split.i.i:         ; preds = %get_se_golomb_long.
 
 get_se_golomb_long.exit33.i.i:                    ; preds = %get_se_golomb_long.exit33.sink.split.i.i, %get_se_golomb_long.exit.i.i
   %storemerge.i435.i = phi i32 [ %1799, %get_se_golomb_long.exit33.sink.split.i.i ], [ %1794, %get_se_golomb_long.exit.i.i ]
-  store i32 %storemerge.i435.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i435.i, ptr %30, align 8, !tbaa !67
   %1800 = add nuw nsw i32 %.01441.i.i, 1
   %exitcond.not.i.i59 = icmp eq i32 %1800, %1673
-  br i1 %exitcond.not.i.i59, label %get_ue_golomb_long.exit.i436.i, label %get_se_golomb_long.exit.i.i, !llvm.loop !78
+  br i1 %exitcond.not.i.i59, label %get_ue_golomb_long.exit.i436.i, label %get_se_golomb_long.exit.i.i, !llvm.loop !84
 
 get_ue_golomb_long.exit.i436.i:                   ; preds = %get_se_golomb_long.exit33.i.i, %get_ue_golomb_long.exit.sink.split.i447.i, %1686
   %.promoted4249.i.i = phi i32 [ %1718, %1686 ], [ %1723, %get_ue_golomb_long.exit.sink.split.i447.i ], [ %storemerge.i435.i, %get_se_golomb_long.exit33.i.i ]
   %1801 = add nuw nsw i32 %.01547.i.i, 1
   %exitcond58.not.i.i = icmp eq i32 %1801, %1670
-  br i1 %exitcond58.not.i.i, label %1802, label %1675, !llvm.loop !79
+  br i1 %exitcond58.not.i.i, label %1802, label %1675, !llvm.loop !85
 
 1802:                                             ; preds = %get_ue_golomb_long.exit.i436.i
   %1803 = add nuw nsw i32 %.052.i.i, 1
   %exitcond59.not.i.i = icmp eq i32 %1803, 4
-  br i1 %exitcond59.not.i.i, label %skip_scaling_list_data.exit.i, label %.preheader.i.i, !llvm.loop !80
+  br i1 %exitcond59.not.i.i, label %skip_scaling_list_data.exit.i, label %.preheader.i.i, !llvm.loop !86
 
 skip_scaling_list_data.exit.i:                    ; preds = %1802, %.critedge138.i, %1655, %get_ue_golomb_long.exit430.i
   %1804 = phi i32 [ %1657, %1655 ], [ %spec.select.i433.i, %.critedge138.i ], [ %spec.select.i431.i, %get_ue_golomb_long.exit430.i ], [ %.promoted4249.i.i, %1802 ]
@@ -4068,7 +4068,7 @@ skip_scaling_list_data.exit.i:                    ; preds = %1802, %.critedge138
   %1806 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1805)
   %1807 = add i32 %1806, 1
   %1808 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1807)
-  store i32 %1808, ptr %30, align 8, !tbaa !63
+  store i32 %1808, ptr %30, align 8, !tbaa !67
   %1809 = lshr i32 %1808, 3
   %1810 = zext nneg i32 %1809 to i64
   %1811 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1810
@@ -4078,7 +4078,7 @@ skip_scaling_list_data.exit.i:                    ; preds = %1802, %.critedge138
   %spec.select.i448.i = add i32 %1808, %1814
   %1815 = zext i8 %1812 to i32
   %1816 = and i32 %1808, 7
-  store i32 %spec.select.i448.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i448.i, ptr %30, align 8, !tbaa !67
   %1817 = lshr exact i32 128, %1816
   %1818 = and i32 %1817, %1815
   %.not134.i = icmp eq i32 %1818, 0
@@ -4089,7 +4089,7 @@ skip_scaling_list_data.exit.i:                    ; preds = %1802, %.critedge138
   %1821 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1820)
   %1822 = add i32 %1821, 4
   %1823 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1822)
-  store i32 %1823, ptr %30, align 8, !tbaa !63
+  store i32 %1823, ptr %30, align 8, !tbaa !67
   %1824 = lshr i32 %1823, 3
   %1825 = zext nneg i32 %1824 to i64
   %1826 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1825
@@ -4146,7 +4146,7 @@ get_ue_golomb_long.exit465.sink.split.i:          ; preds = %1819
 
 get_ue_golomb_long.exit465.i:                     ; preds = %get_ue_golomb_long.exit465.sink.split.i, %1819
   %storemerge814.i = phi i32 [ %1860, %get_ue_golomb_long.exit465.sink.split.i ], [ %1855, %1819 ]
-  store i32 %storemerge814.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge814.i, ptr %30, align 8, !tbaa !67
   %1861 = lshr i32 %storemerge814.i, 3
   %1862 = zext nneg i32 %1861 to i64
   %1863 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1862
@@ -4212,7 +4212,7 @@ get_ue_golomb_long.exit482.i:                     ; preds = %1898, %1895, %get_u
   %1903 = phi i32 [ %1892, %get_ue_golomb_long.exit465.i ], [ %1897, %1895 ], [ %1902, %1898 ]
   %1904 = add i32 %1903, 1
   %1905 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1904)
-  store i32 %1905, ptr %30, align 8, !tbaa !63
+  store i32 %1905, ptr %30, align 8, !tbaa !67
   br label %1906
 
 1906:                                             ; preds = %get_ue_golomb_long.exit482.i, %skip_scaling_list_data.exit.i
@@ -4257,7 +4257,7 @@ get_ue_golomb_long.exit482.i:                     ; preds = %1898, %1895, %get_u
   %..i.i.i494.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %1934, i32 %1936)
   %.0.i.i.i495.i = select i1 %1937, i32 %1935, i32 %..i.i.i494.i
   %1938 = add nsw i32 %.0.i.i.i495.i, %.sroa.46.0.copyload.i.i485.i
-  store i32 %1938, ptr %30, align 8, !tbaa !63
+  store i32 %1938, ptr %30, align 8, !tbaa !67
   %.not.i5.i496.i = icmp eq i32 %1933, 32
   br i1 %.not.i5.i496.i, label %hvcc_parse_sps.exit, label %1939
 
@@ -4283,7 +4283,7 @@ get_ue_golomb_long.exit482.i:                     ; preds = %1898, %1895, %get_u
   %1953 = lshr i32 %1947, 16
   %1954 = add i32 %1938, 16
   %1955 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i315.i, i32 %1954)
-  store i32 %1955, ptr %30, align 8, !tbaa !63
+  store i32 %1955, ptr %30, align 8, !tbaa !67
   %1956 = sub nuw nsw i32 16, %1933
   %1957 = shl nuw i32 %1953, %1956
   %1958 = lshr i32 %1955, 3
@@ -4303,7 +4303,7 @@ get_ue_golomb_long.exit482.i:                     ; preds = %1898, %1895, %get_u
 get_ue_golomb_long.exit499.i:                     ; preds = %1952, %1948
   %.promoted649.i = phi i32 [ %1951, %1948 ], [ %1968, %1952 ]
   %.0.i.i497.i = phi i32 [ %1949, %1948 ], [ %1969, %1952 ]
-  store i32 %.promoted649.i, ptr %30, align 8, !tbaa !63
+  store i32 %.promoted649.i, ptr %30, align 8, !tbaa !67
   %1970 = add i32 %.0.i.i497.i, -1
   %1971 = icmp ugt i32 %1970, 64
   br i1 %1971, label %hvcc_parse_sps.exit, label %.preheader638.i
@@ -4313,7 +4313,7 @@ get_ue_golomb_long.exit499.i:                     ; preds = %1952, %1948
   br i1 %.not695.i, label %.preheader638.._crit_edge_crit_edge.i, label %.lr.ph648.i
 
 .preheader638.._crit_edge_crit_edge.i:            ; preds = %.preheader638.i
-  %.pre.i64 = load i32, ptr %26, align 8, !tbaa !61
+  %.pre.i64 = load i32, ptr %26, align 8, !tbaa !65
   br label %._crit_edge.i60
 
 .lr.ph648.i:                                      ; preds = %.preheader638.i
@@ -4339,7 +4339,7 @@ get_ue_golomb_long.exit499.i:                     ; preds = %1952, %1948
   %spec.select.i.i501.i = add i32 %.promoted646651.i, %1980
   %1981 = zext i8 %1978 to i32
   %1982 = and i32 %.promoted646651.i, 7
-  store i32 %spec.select.i.i501.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i501.i, ptr %30, align 8, !tbaa !67
   %1983 = lshr exact i32 128, %1982
   %1984 = and i32 %1983, %1981
   %.not46.i.i = icmp eq i32 %1984, 0
@@ -4348,7 +4348,7 @@ get_ue_golomb_long.exit499.i:                     ; preds = %1952, %1948
 1985:                                             ; preds = %1974
   %1986 = add i32 %spec.select.i.i501.i, 1
   %1987 = call i32 @llvm.umin.i32(i32 %1973, i32 %1986)
-  store i32 %1987, ptr %30, align 8, !tbaa !63
+  store i32 %1987, ptr %30, align 8, !tbaa !67
   %1988 = lshr i32 %1987, 3
   %1989 = zext nneg i32 %1988 to i64
   %1990 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i54.pre.i.i, i64 %1989
@@ -4405,7 +4405,7 @@ get_ue_golomb_long.exit.sink.split.i511.i:        ; preds = %1985
 
 get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.exit.sink.split.i511.i, %1985
   %storemerge.i515.i = phi i32 [ %2024, %get_ue_golomb_long.exit.sink.split.i511.i ], [ %2019, %1985 ]
-  store i32 %storemerge.i515.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i515.i, ptr %30, align 8, !tbaa !67
   %2025 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv715.i
   store i32 0, ptr %2025, align 4, !tbaa !4
   %2026 = getelementptr i8, ptr %2025, i64 -4
@@ -4424,7 +4424,7 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %spec.select.i52.i.i = add i32 %2029, %2035
   %2036 = zext i8 %2033 to i32
   %2037 = and i32 %2029, 7
-  store i32 %spec.select.i52.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i52.i.i, ptr %30, align 8, !tbaa !67
   %2038 = lshr exact i32 128, %2037
   %2039 = and i32 %2038, %2036
   %.not50.i.i = icmp eq i32 %2039, 0
@@ -4440,7 +4440,7 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %spec.select.i53.i.i = add i32 %spec.select.i52.i.i, %2046
   %2047 = zext i8 %2044 to i32
   %2048 = and i32 %spec.select.i52.i.i, 7
-  store i32 %spec.select.i53.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i53.i.i, ptr %30, align 8, !tbaa !67
   %2049 = lshr exact i32 128, %2048
   %2050 = and i32 %2049, %2047
   %.not124.i.i = icmp eq i32 %2050, 0
@@ -4458,7 +4458,7 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %2056 = add i32 %.041132.i.i, 1
   %2057 = load i32, ptr %2026, align 4, !tbaa !4
   %.not49.i.i = icmp ugt i32 %2056, %2057
-  br i1 %.not49.i.i, label %.loopexit636.i, label %2027, !llvm.loop !81
+  br i1 %.not49.i.i, label %.loopexit636.i, label %2027, !llvm.loop !87
 
 ._crit_edge.i.i63:                                ; preds = %1972, %1974
   %2058 = phi i32 [ %1973, %1974 ], [ %.sroa.77.0.copyload.i.i58.pre.i.i, %1972 ]
@@ -4503,7 +4503,7 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %..i.i.i65.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2086, i32 %2088)
   %.0.i.i.i66.i.i = select i1 %2089, i32 %2087, i32 %..i.i.i65.i.i
   %2090 = add nsw i32 %.0.i.i.i66.i.i, %.sroa.46.0.copyload.i.i56.i.i
-  store i32 %2090, ptr %30, align 8, !tbaa !63
+  store i32 %2090, ptr %30, align 8, !tbaa !67
   %.not.i5.i67.i.i = icmp eq i32 %2085, 32
   br i1 %.not.i5.i67.i.i, label %get_ue_golomb_long.exit70.i.i, label %2091
 
@@ -4523,14 +4523,14 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %reass.sub231 = sub i32 %2090, %2085
   %2102 = add i32 %reass.sub231, 32
   %2103 = call i32 @llvm.umin.i32(i32 %2058, i32 %2102)
-  store i32 %2103, ptr %30, align 8, !tbaa !63
+  store i32 %2103, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit70.i.i
 
 2104:                                             ; preds = %2091
   %2105 = lshr i32 %2099, 16
   %2106 = add i32 %2090, 16
   %2107 = call i32 @llvm.umin.i32(i32 %2058, i32 %2106)
-  store i32 %2107, ptr %30, align 8, !tbaa !63
+  store i32 %2107, ptr %30, align 8, !tbaa !67
   %2108 = sub nuw nsw i32 16, %2085
   %2109 = shl nuw i32 %2105, %2108
   %2110 = lshr i32 %2107, 3
@@ -4544,7 +4544,7 @@ get_ue_golomb_long.exit.i514.i:                   ; preds = %get_ue_golomb_long.
   %2118 = lshr i32 %2116, %2117
   %2119 = add i32 %2107, %2108
   %2120 = call i32 @llvm.umin.i32(i32 %2058, i32 %2119)
-  store i32 %2120, ptr %30, align 8, !tbaa !63
+  store i32 %2120, ptr %30, align 8, !tbaa !67
   %2121 = or i32 %2118, %2109
   br label %get_ue_golomb_long.exit70.i.i
 
@@ -4592,7 +4592,7 @@ get_ue_golomb_long.exit70.i.i:                    ; preds = %2104, %2100, %._cri
   %..i.i.i82.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2150, i32 %2152)
   %.0.i.i.i83.i.i = select i1 %2153, i32 %2151, i32 %..i.i.i82.i.i
   %2154 = add nsw i32 %.0.i.i.i83.i.i, %.sroa.46.0.copyload.i.i73.i.i
-  store i32 %2154, ptr %30, align 8, !tbaa !63
+  store i32 %2154, ptr %30, align 8, !tbaa !67
   %.not.i5.i84.i.i = icmp eq i32 %2149, 32
   br i1 %.not.i5.i84.i.i, label %get_ue_golomb_long.exit87.i.i, label %2155
 
@@ -4612,14 +4612,14 @@ get_ue_golomb_long.exit70.i.i:                    ; preds = %2104, %2100, %._cri
   %reass.sub232 = sub i32 %2154, %2149
   %2166 = add i32 %reass.sub232, 32
   %2167 = call i32 @llvm.umin.i32(i32 %2058, i32 %2166)
-  store i32 %2167, ptr %30, align 8, !tbaa !63
+  store i32 %2167, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit87.i.i
 
 2168:                                             ; preds = %2155
   %2169 = lshr i32 %2163, 16
   %2170 = add i32 %2154, 16
   %2171 = call i32 @llvm.umin.i32(i32 %2058, i32 %2170)
-  store i32 %2171, ptr %30, align 8, !tbaa !63
+  store i32 %2171, ptr %30, align 8, !tbaa !67
   %2172 = sub nuw nsw i32 16, %2149
   %2173 = shl nuw i32 %2169, %2172
   %2174 = lshr i32 %2171, 3
@@ -4633,7 +4633,7 @@ get_ue_golomb_long.exit70.i.i:                    ; preds = %2104, %2100, %._cri
   %2182 = lshr i32 %2180, %2181
   %2183 = add i32 %2171, %2172
   %2184 = call i32 @llvm.umin.i32(i32 %2058, i32 %2183)
-  store i32 %2184, ptr %30, align 8, !tbaa !63
+  store i32 %2184, ptr %30, align 8, !tbaa !67
   %2185 = or i32 %2182, %2173
   br label %get_ue_golomb_long.exit87.i.i
 
@@ -4730,10 +4730,10 @@ get_ue_golomb_long.exit104.i.i:                   ; preds = %2234, %2231, %.lr.p
   %2239 = phi i32 [ %2228, %.lr.ph.i.i62 ], [ %2233, %2231 ], [ %2238, %2234 ]
   %2240 = add i32 %2239, 1
   %2241 = call i32 @llvm.umin.i32(i32 %2058, i32 %2240)
-  store i32 %2241, ptr %30, align 8, !tbaa !63
+  store i32 %2241, ptr %30, align 8, !tbaa !67
   %2242 = add nuw i32 %.142133.i.i, 1
   %exitcond.not.i516.i = icmp eq i32 %2242, %2122
-  br i1 %exitcond.not.i516.i, label %.preheader.i517.i, label %.lr.ph.i.i62, !llvm.loop !82
+  br i1 %exitcond.not.i516.i, label %.preheader.i517.i, label %.lr.ph.i.i62, !llvm.loop !88
 
 .lr.ph135.i.i:                                    ; preds = %.preheader.i517.i, %get_ue_golomb_long.exit121.i.i
   %2243 = phi i32 [ %2288, %get_ue_golomb_long.exit121.i.i ], [ %.promoted646650.i, %.preheader.i517.i ]
@@ -4803,22 +4803,22 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
   %2286 = phi i32 [ %2275, %.lr.ph135.i.i ], [ %2280, %2278 ], [ %2285, %2281 ]
   %2287 = add i32 %2286, 1
   %2288 = call i32 @llvm.umin.i32(i32 %2058, i32 %2287)
-  store i32 %2288, ptr %30, align 8, !tbaa !63
+  store i32 %2288, ptr %30, align 8, !tbaa !67
   %2289 = add nuw i32 %.2134.i.i, 1
   %exitcond147.not.i.i = icmp eq i32 %2289, %2186
-  br i1 %exitcond147.not.i.i, label %.loopexit636.i, label %.lr.ph135.i.i, !llvm.loop !83
+  br i1 %exitcond147.not.i.i, label %.loopexit636.i, label %.lr.ph135.i.i, !llvm.loop !89
 
 .loopexit636.i:                                   ; preds = %2053, %get_ue_golomb_long.exit121.i.i, %.preheader.i517.i
   %2290 = phi i32 [ %2058, %.preheader.i517.i ], [ %2058, %get_ue_golomb_long.exit121.i.i ], [ %1973, %2053 ]
   %.promoted646652.i = phi i32 [ %.promoted646650.i, %.preheader.i517.i ], [ %2288, %get_ue_golomb_long.exit121.i.i ], [ %2055, %2053 ]
   %indvars.iv.next716.i = add nuw nsw i64 %indvars.iv715.i, 1
   %exitcond719.not.i = icmp eq i64 %indvars.iv.next716.i, %wide.trip.count718.i
-  br i1 %exitcond719.not.i, label %._crit_edge.i60, label %1972, !llvm.loop !84
+  br i1 %exitcond719.not.i, label %._crit_edge.i60, label %1972, !llvm.loop !90
 
 ._crit_edge.i60:                                  ; preds = %.loopexit636.i, %.preheader638.._crit_edge_crit_edge.i
   %2291 = phi i32 [ %.pre.i64, %.preheader638.._crit_edge_crit_edge.i ], [ %2290, %.loopexit636.i ]
   %2292 = phi i32 [ %.promoted649.i, %.preheader638.._crit_edge_crit_edge.i ], [ %.promoted646652.i, %.loopexit636.i ]
-  %2293 = load ptr, ptr %11, align 8, !tbaa !58
+  %2293 = load ptr, ptr %11, align 8, !tbaa !62
   %2294 = lshr i32 %2292, 3
   %2295 = zext nneg i32 %2294 to i64
   %2296 = getelementptr inbounds nuw i8, ptr %2293, i64 %2295
@@ -4828,7 +4828,7 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
   %spec.select.i518.i = add i32 %2292, %2299
   %2300 = zext i8 %2297 to i32
   %2301 = and i32 %2292, 7
-  store i32 %spec.select.i518.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i518.i, ptr %30, align 8, !tbaa !67
   %2302 = lshr exact i32 128, %2301
   %2303 = and i32 %2302, %2300
   %.not135.i = icmp eq i32 %2303, 0
@@ -4875,7 +4875,7 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
   %..i.i.i530.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2332, i32 %2334)
   %.0.i.i.i531.i = select i1 %2335, i32 %2333, i32 %..i.i.i530.i
   %2336 = add nsw i32 %.0.i.i.i531.i, %spec.select.i518.i
-  store i32 %2336, ptr %30, align 8, !tbaa !63
+  store i32 %2336, ptr %30, align 8, !tbaa !67
   %.not.i5.i532.i = icmp eq i32 %2331, 32
   br i1 %.not.i5.i532.i, label %hvcc_parse_sps.exit, label %2337
 
@@ -4901,7 +4901,7 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
   %2351 = lshr i32 %2345, 16
   %2352 = add i32 %2336, 16
   %2353 = call i32 @llvm.umin.i32(i32 %2291, i32 %2352)
-  store i32 %2353, ptr %30, align 8, !tbaa !63
+  store i32 %2353, ptr %30, align 8, !tbaa !67
   %2354 = sub nuw nsw i32 16, %2331
   %2355 = shl nuw i32 %2351, %2354
   %2356 = lshr i32 %2353, 3
@@ -4921,7 +4921,7 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
 get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %.promoted658.i = phi i32 [ %2349, %2346 ], [ %2366, %2350 ]
   %.0.i.i533.i = phi i32 [ %2347, %2346 ], [ %2367, %2350 ]
-  store i32 %.promoted658.i, ptr %30, align 8, !tbaa !63
+  store i32 %.promoted658.i, ptr %30, align 8, !tbaa !67
   %2368 = add i32 %.0.i.i533.i, -1
   %2369 = icmp ult i32 %2368, 32
   br i1 %2369, label %.preheader.i, label %hvcc_parse_sps.exit
@@ -4944,7 +4944,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %2377 = call i32 @llvm.umin.i32(i32 %2291, i32 %2376)
   %2378 = add nuw nsw i32 %.3114656.i, 1
   %exitcond720.not.i = icmp eq i32 %2378, %2368
-  br i1 %exitcond720.not.i, label %.loopexit.i61, label %2372, !llvm.loop !85
+  br i1 %exitcond720.not.i, label %.loopexit.i61, label %2372, !llvm.loop !91
 
 .loopexit.i61:                                    ; preds = %2372, %.preheader.i, %._crit_edge.i60
   %2379 = phi i32 [ %.promoted658.i, %.preheader.i ], [ %spec.select.i518.i, %._crit_edge.i60 ], [ %2377, %2372 ]
@@ -4952,7 +4952,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %2381 = call i32 @llvm.umin.i32(i32 %2291, i32 %2380)
   %2382 = add i32 %2381, 1
   %2383 = call i32 @llvm.umin.i32(i32 %2291, i32 %2382)
-  store i32 %2383, ptr %30, align 8, !tbaa !63
+  store i32 %2383, ptr %30, align 8, !tbaa !67
   %2384 = lshr i32 %2383, 3
   %2385 = zext nneg i32 %2384 to i64
   %2386 = getelementptr inbounds nuw i8, ptr %2293, i64 %2385
@@ -4962,7 +4962,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %spec.select.i536.i = add i32 %2383, %2389
   %2390 = zext i8 %2387 to i32
   %2391 = and i32 %2383, 7
-  store i32 %spec.select.i536.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i536.i, ptr %30, align 8, !tbaa !67
   %2392 = lshr exact i32 128, %2391
   %2393 = and i32 %2392, %2390
   %.not136.i = icmp eq i32 %2393, 0
@@ -4978,7 +4978,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %spec.select.i.i537.i = add i32 %spec.select.i536.i, %2400
   %2401 = zext i8 %2398 to i32
   %2402 = and i32 %spec.select.i536.i, 7
-  store i32 %spec.select.i.i537.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i537.i, ptr %30, align 8, !tbaa !67
   %2403 = lshr exact i32 128, %2402
   %2404 = and i32 %2403, %2401
   %.not.i538.i = icmp eq i32 %2404, 0
@@ -4994,7 +4994,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %2412 = shl i32 %2410, %2411
   %2413 = add i32 %spec.select.i.i537.i, 8
   %2414 = call i32 @llvm.umin.i32(i32 %2291, i32 %2413)
-  store i32 %2414, ptr %30, align 8, !tbaa !63
+  store i32 %2414, ptr %30, align 8, !tbaa !67
   %2415 = icmp ugt i32 %2412, -16777217
   br i1 %2415, label %2416, label %2421
 
@@ -5005,7 +5005,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %..i.i.i563.i = call i32 @llvm.smin.i32(i32 %2418, i32 32)
   %.0.i.i.i564.i = select i1 %2419, i32 %2417, i32 %..i.i.i563.i
   %2420 = add nsw i32 %.0.i.i.i564.i, %2414
-  store i32 %2420, ptr %30, align 8, !tbaa !63
+  store i32 %2420, ptr %30, align 8, !tbaa !67
   br label %2421
 
 2421:                                             ; preds = %2416, %2405, %2394
@@ -5025,7 +5025,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %2433 = add i32 %spec.select.i43.i.i, 1
   %2434 = call i32 @llvm.umin.i32(i32 %2291, i32 %2433)
   %storemerge.i539.i = select i1 %.not35.i.i, i32 %spec.select.i43.i.i, i32 %2434
-  store i32 %storemerge.i539.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i539.i, ptr %30, align 8, !tbaa !67
   %2435 = lshr i32 %storemerge.i539.i, 3
   %2436 = zext nneg i32 %2435 to i64
   %2437 = getelementptr inbounds nuw i8, ptr %2293, i64 %2436
@@ -5035,7 +5035,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %spec.select.i44.i.i = add i32 %storemerge.i539.i, %2440
   %2441 = zext i8 %2438 to i32
   %2442 = and i32 %storemerge.i539.i, 7
-  store i32 %spec.select.i44.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i44.i.i, ptr %30, align 8, !tbaa !67
   %2443 = lshr exact i32 128, %2442
   %2444 = and i32 %2443, %2441
   %.not36.i.i = icmp eq i32 %2444, 0
@@ -5044,7 +5044,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
 2445:                                             ; preds = %2421
   %2446 = add i32 %spec.select.i44.i.i, 4
   %2447 = call i32 @llvm.umin.i32(i32 %2291, i32 %2446)
-  store i32 %2447, ptr %30, align 8, !tbaa !63
+  store i32 %2447, ptr %30, align 8, !tbaa !67
   %2448 = lshr i32 %2447, 3
   %2449 = zext nneg i32 %2448 to i64
   %2450 = getelementptr inbounds nuw i8, ptr %2293, i64 %2449
@@ -5054,7 +5054,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %spec.select.i45.i.i = add i32 %2447, %2453
   %2454 = zext i8 %2451 to i32
   %2455 = and i32 %2447, 7
-  store i32 %spec.select.i45.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i45.i.i, ptr %30, align 8, !tbaa !67
   %2456 = lshr exact i32 128, %2455
   %2457 = and i32 %2456, %2454
   %.not37.i.i = icmp eq i32 %2457, 0
@@ -5063,7 +5063,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
 2458:                                             ; preds = %2445
   %2459 = add i32 %spec.select.i45.i.i, 24
   %2460 = call i32 @llvm.umin.i32(i32 %2291, i32 %2459)
-  store i32 %2460, ptr %30, align 8, !tbaa !63
+  store i32 %2460, ptr %30, align 8, !tbaa !67
   br label %2461
 
 2461:                                             ; preds = %2458, %2445, %2421
@@ -5077,7 +5077,7 @@ get_ue_golomb_long.exit535.i:                     ; preds = %2350, %2346
   %spec.select.i46.i.i = add i32 %2462, %2468
   %2469 = zext i8 %2466 to i32
   %2470 = and i32 %2462, 7
-  store i32 %spec.select.i46.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i46.i.i, ptr %30, align 8, !tbaa !67
   %2471 = lshr exact i32 128, %2470
   %2472 = and i32 %2471, %2469
   %.not38.i.i = icmp eq i32 %2472, 0
@@ -5140,7 +5140,7 @@ get_ue_golomb_long.exit.sink.split.i549.i:        ; preds = %2473
 
 get_ue_golomb_long.exit.i552.i:                   ; preds = %get_ue_golomb_long.exit.sink.split.i549.i, %2473
   %storemerge309.i.i = phi i32 [ %2510, %get_ue_golomb_long.exit.sink.split.i549.i ], [ %2505, %2473 ]
-  store i32 %storemerge309.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge309.i.i, ptr %30, align 8, !tbaa !67
   %2511 = lshr i32 %storemerge309.i.i, 3
   %2512 = zext nneg i32 %2511 to i64
   %2513 = getelementptr inbounds nuw i8, ptr %2293, i64 %2512
@@ -5206,7 +5206,7 @@ get_ue_golomb_long.exit64.i.i:                    ; preds = %2548, %2545, %get_u
   %2553 = phi i32 [ %2552, %2548 ], [ %2547, %2545 ], [ %2542, %get_ue_golomb_long.exit.i552.i ], [ %spec.select.i46.i.i, %2461 ]
   %2554 = add i32 %2553, 3
   %2555 = call i32 @llvm.umin.i32(i32 %2291, i32 %2554)
-  store i32 %2555, ptr %30, align 8, !tbaa !63
+  store i32 %2555, ptr %30, align 8, !tbaa !67
   %2556 = lshr i32 %2555, 3
   %2557 = zext nneg i32 %2556 to i64
   %2558 = getelementptr inbounds nuw i8, ptr %2293, i64 %2557
@@ -5216,7 +5216,7 @@ get_ue_golomb_long.exit64.i.i:                    ; preds = %2548, %2545, %get_u
   %spec.select.i65.i.i = add i32 %2555, %2561
   %2562 = zext i8 %2559 to i32
   %2563 = and i32 %2555, 7
-  store i32 %spec.select.i65.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i65.i.i, ptr %30, align 8, !tbaa !67
   %2564 = lshr exact i32 128, %2563
   %2565 = and i32 %2564, %2562
   %.not39.i.i = icmp eq i32 %2565, 0
@@ -5279,7 +5279,7 @@ get_ue_golomb_long.exit82.sink.split.i.i:         ; preds = %2566
 
 get_ue_golomb_long.exit82.i.i:                    ; preds = %get_ue_golomb_long.exit82.sink.split.i.i, %2566
   %storemerge310.i.i = phi i32 [ %2603, %get_ue_golomb_long.exit82.sink.split.i.i ], [ %2598, %2566 ]
-  store i32 %storemerge310.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge310.i.i, ptr %30, align 8, !tbaa !67
   %2604 = lshr i32 %storemerge310.i.i, 3
   %2605 = zext nneg i32 %2604 to i64
   %2606 = getelementptr inbounds nuw i8, ptr %2293, i64 %2605
@@ -5336,7 +5336,7 @@ get_ue_golomb_long.exit99.sink.split.i.i:         ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit99.i.i:                    ; preds = %get_ue_golomb_long.exit99.sink.split.i.i, %get_ue_golomb_long.exit82.i.i
   %storemerge311.i.i = phi i32 [ %2640, %get_ue_golomb_long.exit99.sink.split.i.i ], [ %2635, %get_ue_golomb_long.exit82.i.i ]
-  store i32 %storemerge311.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge311.i.i, ptr %30, align 8, !tbaa !67
   %2641 = lshr i32 %storemerge311.i.i, 3
   %2642 = zext nneg i32 %2641 to i64
   %2643 = getelementptr inbounds nuw i8, ptr %2293, i64 %2642
@@ -5393,7 +5393,7 @@ get_ue_golomb_long.exit116.sink.split.i.i:        ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit116.i.i:                   ; preds = %get_ue_golomb_long.exit116.sink.split.i.i, %get_ue_golomb_long.exit99.i.i
   %storemerge312.i.i = phi i32 [ %2677, %get_ue_golomb_long.exit116.sink.split.i.i ], [ %2672, %get_ue_golomb_long.exit99.i.i ]
-  store i32 %storemerge312.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge312.i.i, ptr %30, align 8, !tbaa !67
   %2678 = lshr i32 %storemerge312.i.i, 3
   %2679 = zext nneg i32 %2678 to i64
   %2680 = getelementptr inbounds nuw i8, ptr %2293, i64 %2679
@@ -5434,7 +5434,7 @@ get_ue_golomb_long.exit116.i.i:                   ; preds = %get_ue_golomb_long.
   %..i.i.i128.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2705, i32 %2707)
   %.0.i.i.i129.i.i = select i1 %2708, i32 %2706, i32 %..i.i.i128.i.i
   %2709 = add nsw i32 %.0.i.i.i129.i.i, %storemerge312.i.i
-  store i32 %2709, ptr %30, align 8, !tbaa !63
+  store i32 %2709, ptr %30, align 8, !tbaa !67
   %.not.i5.i130.i.i = icmp eq i32 %2704, 32
   br i1 %.not.i5.i130.i.i, label %get_ue_golomb_long.exit133.i.i, label %get_ue_golomb_long.exit133.sink.split.i.i
 
@@ -5447,7 +5447,7 @@ get_ue_golomb_long.exit133.sink.split.i.i:        ; preds = %get_ue_golomb_long.
   %reass.sub254.i.i = sub nsw i32 %.sink291.i.i, %2704
   %2713 = add i32 %reass.sub254.i.i, %.sink292.i.i
   %2714 = call i32 @llvm.umin.i32(i32 %2291, i32 %2713)
-  store i32 %2714, ptr %30, align 8, !tbaa !63
+  store i32 %2714, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit133.i.i
 
 get_ue_golomb_long.exit133.i.i:                   ; preds = %get_ue_golomb_long.exit133.sink.split.i.i, %get_ue_golomb_long.exit116.i.i, %get_ue_golomb_long.exit64.i.i
@@ -5461,7 +5461,7 @@ get_ue_golomb_long.exit133.i.i:                   ; preds = %get_ue_golomb_long.
   %spec.select.i134.i.i = add i32 %2715, %2721
   %2722 = zext i8 %2719 to i32
   %2723 = and i32 %2715, 7
-  store i32 %spec.select.i134.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i134.i.i, ptr %30, align 8, !tbaa !67
   %2724 = lshr exact i32 128, %2723
   %2725 = and i32 %2724, %2722
   %.not40.i.i = icmp eq i32 %2725, 0
@@ -5480,7 +5480,7 @@ get_ue_golomb_long.exit133.i.i:                   ; preds = %get_ue_golomb_long.
   %..i.i4.i.i.i = call i32 @llvm.smin.i32(i32 %2732, i32 32)
   %.0.i.i5.i.i.i = select i1 %2733, i32 %2731, i32 %..i.i4.i.i.i
   %2734 = add nsw i32 %.0.i.i5.i.i.i, %2730
-  store i32 %2734, ptr %30, align 8, !tbaa !63
+  store i32 %2734, ptr %30, align 8, !tbaa !67
   %2735 = lshr i32 %2734, 3
   %2736 = zext nneg i32 %2735 to i64
   %2737 = getelementptr inbounds nuw i8, ptr %2293, i64 %2736
@@ -5490,7 +5490,7 @@ get_ue_golomb_long.exit133.i.i:                   ; preds = %get_ue_golomb_long.
   %spec.select.i.i137.i.i = add i32 %2734, %2740
   %2741 = zext i8 %2738 to i32
   %2742 = and i32 %2734, 7
-  store i32 %spec.select.i.i137.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i137.i.i, ptr %30, align 8, !tbaa !67
   %2743 = lshr exact i32 128, %2742
   %2744 = and i32 %2743, %2741
   %.not.i.i553.i = icmp eq i32 %2744, 0
@@ -5537,7 +5537,7 @@ get_ue_golomb_long.exit133.i.i:                   ; preds = %get_ue_golomb_long.
   %..i.i.i.i.i560.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2773, i32 %2775)
   %.0.i.i.i.i.i561.i = select i1 %2776, i32 %2774, i32 %..i.i.i.i.i560.i
   %2777 = add nsw i32 %.0.i.i.i.i.i561.i, %spec.select.i.i137.i.i
-  store i32 %2777, ptr %30, align 8, !tbaa !63
+  store i32 %2777, ptr %30, align 8, !tbaa !67
   %.not.i5.i.i.i562.i = icmp eq i32 %2772, 32
   br i1 %.not.i5.i.i.i562.i, label %skip_timing_info.exit.i.i, label %get_ue_golomb_long.exit.sink.split.i.i.i
 
@@ -5550,7 +5550,7 @@ get_ue_golomb_long.exit.sink.split.i.i.i:         ; preds = %2745
   %reass.sub7.i.i.i = sub nsw i32 %.sink.i.i.i, %2772
   %2781 = add i32 %reass.sub7.i.i.i, %.sink9.i.i.i
   %2782 = call i32 @llvm.umin.i32(i32 %2291, i32 %2781)
-  store i32 %2782, ptr %30, align 8, !tbaa !63
+  store i32 %2782, ptr %30, align 8, !tbaa !67
   br label %skip_timing_info.exit.i.i
 
 skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.exit.sink.split.i.i.i, %2745, %2726
@@ -5564,7 +5564,7 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
   %spec.select.i138.i.i = add i32 %2783, %2789
   %2790 = zext i8 %2787 to i32
   %2791 = and i32 %2783, 7
-  store i32 %spec.select.i138.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i138.i.i, ptr %30, align 8, !tbaa !67
   %2792 = lshr exact i32 128, %2791
   %2793 = and i32 %2792, %2790
   %.not41.i.i = icmp eq i32 %2793, 0
@@ -5572,9 +5572,9 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
 
 2794:                                             ; preds = %skip_timing_info.exit.i.i
   call fastcc void @skip_hrd_parameters(ptr noundef nonnull %11, i8 noundef zeroext 1, i32 noundef %.0115.i145)
-  %.pre.i.i = load i32, ptr %30, align 8, !tbaa !63
-  %.pre269.i.i = load ptr, ptr %11, align 8, !tbaa !58
-  %.pre270.i.i = load i32, ptr %26, align 8, !tbaa !61
+  %.pre.i.i = load i32, ptr %30, align 8, !tbaa !67
+  %.pre269.i.i = load ptr, ptr %11, align 8, !tbaa !62
+  %.pre270.i.i = load i32, ptr %26, align 8, !tbaa !65
   br label %2795
 
 2795:                                             ; preds = %2794, %skip_timing_info.exit.i.i, %get_ue_golomb_long.exit133.i.i
@@ -5590,7 +5590,7 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
   %spec.select.i139.i.i = add i32 %2798, %2804
   %2805 = zext i8 %2802 to i32
   %2806 = and i32 %2798, 7
-  store i32 %spec.select.i139.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i139.i.i, ptr %30, align 8, !tbaa !67
   %2807 = lshr exact i32 128, %2806
   %2808 = and i32 %2807, %2805
   %.not42.i.i = icmp eq i32 %2808, 0
@@ -5599,7 +5599,7 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
 2809:                                             ; preds = %2795
   %2810 = add i32 %spec.select.i139.i.i, 3
   %2811 = call i32 @llvm.umin.i32(i32 %2796, i32 %2810)
-  store i32 %2811, ptr %30, align 8, !tbaa !63
+  store i32 %2811, ptr %30, align 8, !tbaa !67
   %2812 = lshr i32 %2811, 3
   %2813 = zext nneg i32 %2812 to i64
   %2814 = getelementptr inbounds nuw i8, ptr %2797, i64 %2813
@@ -5640,7 +5640,7 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
   %..i.i.i151.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %2839, i32 %2841)
   %.0.i.i.i152.i.i = select i1 %2842, i32 %2840, i32 %..i.i.i151.i.i
   %2843 = add nsw i32 %.0.i.i.i152.i.i, %2811
-  store i32 %2843, ptr %30, align 8, !tbaa !63
+  store i32 %2843, ptr %30, align 8, !tbaa !67
   %.not.i5.i153.i.i = icmp eq i32 %2838, 32
   br i1 %.not.i5.i153.i.i, label %get_ue_golomb_long.exit156.i.i, label %2844
 
@@ -5660,14 +5660,14 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
   %reass.sub240 = sub i32 %2843, %2838
   %2855 = add i32 %reass.sub240, 32
   %2856 = call i32 @llvm.umin.i32(i32 %2796, i32 %2855)
-  store i32 %2856, ptr %30, align 8, !tbaa !63
+  store i32 %2856, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit156.i.i
 
 2857:                                             ; preds = %2844
   %2858 = lshr i32 %2852, 16
   %2859 = add i32 %2843, 16
   %2860 = call i32 @llvm.umin.i32(i32 %2796, i32 %2859)
-  store i32 %2860, ptr %30, align 8, !tbaa !63
+  store i32 %2860, ptr %30, align 8, !tbaa !67
   %2861 = sub nuw nsw i32 16, %2838
   %2862 = shl nuw i32 %2858, %2861
   %2863 = lshr i32 %2860, 3
@@ -5681,7 +5681,7 @@ skip_timing_info.exit.i.i:                        ; preds = %get_ue_golomb_long.
   %2871 = lshr i32 %2869, %2870
   %2872 = add i32 %2860, %2861
   %2873 = call i32 @llvm.umin.i32(i32 %2796, i32 %2872)
-  store i32 %2873, ptr %30, align 8, !tbaa !63
+  store i32 %2873, ptr %30, align 8, !tbaa !67
   %2874 = or i32 %2871, %2862
   br label %get_ue_golomb_long.exit156.i.i
 
@@ -5751,7 +5751,7 @@ get_ue_golomb_long.exit173.sink.split.i.i:        ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit173.i.i:                   ; preds = %get_ue_golomb_long.exit173.sink.split.i.i, %get_ue_golomb_long.exit156.i.i
   %storemerge313.i.i = phi i32 [ %2917, %get_ue_golomb_long.exit173.sink.split.i.i ], [ %2912, %get_ue_golomb_long.exit156.i.i ]
-  store i32 %storemerge313.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge313.i.i, ptr %30, align 8, !tbaa !67
   %2918 = lshr i32 %storemerge313.i.i, 3
   %2919 = zext nneg i32 %2918 to i64
   %2920 = getelementptr inbounds nuw i8, ptr %2797, i64 %2919
@@ -5808,7 +5808,7 @@ get_ue_golomb_long.exit190.sink.split.i.i:        ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit190.i.i:                   ; preds = %get_ue_golomb_long.exit190.sink.split.i.i, %get_ue_golomb_long.exit173.i.i
   %storemerge314.i.i = phi i32 [ %2954, %get_ue_golomb_long.exit190.sink.split.i.i ], [ %2949, %get_ue_golomb_long.exit173.i.i ]
-  store i32 %storemerge314.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge314.i.i, ptr %30, align 8, !tbaa !67
   %2955 = lshr i32 %storemerge314.i.i, 3
   %2956 = zext nneg i32 %2955 to i64
   %2957 = getelementptr inbounds nuw i8, ptr %2797, i64 %2956
@@ -5865,7 +5865,7 @@ get_ue_golomb_long.exit207.sink.split.i.i:        ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit207.i.i:                   ; preds = %get_ue_golomb_long.exit207.sink.split.i.i, %get_ue_golomb_long.exit190.i.i
   %storemerge315.i.i = phi i32 [ %2991, %get_ue_golomb_long.exit207.sink.split.i.i ], [ %2986, %get_ue_golomb_long.exit190.i.i ]
-  store i32 %storemerge315.i.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge315.i.i, ptr %30, align 8, !tbaa !67
   %2992 = lshr i32 %storemerge315.i.i, 3
   %2993 = zext nneg i32 %2992 to i64
   %2994 = getelementptr inbounds nuw i8, ptr %2797, i64 %2993
@@ -5906,7 +5906,7 @@ get_ue_golomb_long.exit207.i.i:                   ; preds = %get_ue_golomb_long.
   %..i.i.i219.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %3019, i32 %3021)
   %.0.i.i.i220.i.i = select i1 %3022, i32 %3020, i32 %..i.i.i219.i.i
   %3023 = add nsw i32 %.0.i.i.i220.i.i, %storemerge315.i.i
-  store i32 %3023, ptr %30, align 8, !tbaa !63
+  store i32 %3023, ptr %30, align 8, !tbaa !67
   %.not.i5.i221.i.i = icmp eq i32 %3018, 32
   br i1 %.not.i5.i221.i.i, label %hvcc_parse_sps.exit, label %get_ue_golomb_long.exit224.sink.split.i.i
 
@@ -5919,7 +5919,7 @@ get_ue_golomb_long.exit224.sink.split.i.i:        ; preds = %get_ue_golomb_long.
   %reass.sub263.i.i = sub nsw i32 %.sink307.i.i, %3018
   %3027 = add i32 %reass.sub263.i.i, %.sink308.i.i
   %3028 = call i32 @llvm.umin.i32(i32 %2796, i32 %3027)
-  store i32 %3028, ptr %30, align 8, !tbaa !63
+  store i32 %3028, ptr %30, align 8, !tbaa !67
   br label %hvcc_parse_sps.exit
 
 hvcc_parse_sps.exit:                              ; preds = %652, %get_ue_golomb_long.exit87.i.i, %.preheader640.i, %1906, %get_ue_golomb_long.exit499.i, %2304, %get_ue_golomb_long.exit535.i, %.loopexit.i61, %2795, %get_ue_golomb_long.exit207.i.i, %get_ue_golomb_long.exit224.sink.split.i.i
@@ -5971,7 +5971,7 @@ hvcc_parse_sps.exit:                              ; preds = %652, %get_ue_golomb
   %..i.i.i.i75 = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %3057, i32 %3059)
   %.0.i.i.i.i76 = select i1 %3060, i32 %3058, i32 %..i.i.i.i75
   %3061 = add nsw i32 %.0.i.i.i.i76, %.sroa.46.0.copyload.i.i.i67
-  store i32 %3061, ptr %30, align 8, !tbaa !63
+  store i32 %3061, ptr %30, align 8, !tbaa !67
   %.not.i5.i.i77 = icmp eq i32 %3056, 32
   br i1 %.not.i5.i.i77, label %get_ue_golomb_long.exit.i78, label %3062
 
@@ -5991,14 +5991,14 @@ hvcc_parse_sps.exit:                              ; preds = %652, %get_ue_golomb
   %reass.sub214 = sub i32 %3061, %3056
   %3073 = add i32 %reass.sub214, 32
   %3074 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3073)
-  store i32 %3074, ptr %30, align 8, !tbaa !63
+  store i32 %3074, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit.i78
 
 3075:                                             ; preds = %3062
   %3076 = lshr i32 %3070, 16
   %3077 = add i32 %3061, 16
   %3078 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3077)
-  store i32 %3078, ptr %30, align 8, !tbaa !63
+  store i32 %3078, ptr %30, align 8, !tbaa !67
   %3079 = sub nuw nsw i32 16, %3056
   %3080 = shl nuw i32 %3076, %3079
   %3081 = lshr i32 %3078, 3
@@ -6012,7 +6012,7 @@ hvcc_parse_sps.exit:                              ; preds = %652, %get_ue_golomb
   %3089 = lshr i32 %3087, %3088
   %3090 = add i32 %3078, %3079
   %3091 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3090)
-  store i32 %3091, ptr %30, align 8, !tbaa !63
+  store i32 %3091, ptr %30, align 8, !tbaa !67
   %3092 = or i32 %3089, %3080
   br label %get_ue_golomb_long.exit.i78
 
@@ -6022,7 +6022,7 @@ get_ue_golomb_long.exit.i78:                      ; preds = %3075, %3071, %3029
   %3093 = trunc i32 %.0.i.i.i79 to i8
   %3094 = add i8 %3093, -1
   %3095 = getelementptr i8, ptr %75, i64 -23
-  store i8 %3094, ptr %3095, align 1, !tbaa !51
+  store i8 %3094, ptr %3095, align 1, !tbaa !53
   %3096 = lshr i32 %.sroa.46.0.copyload.i.i28.i, 3
   %3097 = zext nneg i32 %3096 to i64
   %3098 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3097
@@ -6088,7 +6088,7 @@ get_ue_golomb_long.exit42.i:                      ; preds = %3133, %3130, %get_u
   %3138 = phi i32 [ %3127, %get_ue_golomb_long.exit.i78 ], [ %3132, %3130 ], [ %3137, %3133 ]
   %3139 = add i32 %3138, 7
   %3140 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3139)
-  store i32 %3140, ptr %30, align 8, !tbaa !63
+  store i32 %3140, ptr %30, align 8, !tbaa !67
   %3141 = lshr i32 %3140, 3
   %3142 = zext nneg i32 %3141 to i64
   %3143 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3142
@@ -6145,7 +6145,7 @@ get_ue_golomb_long.exit59.sink.split.i:           ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit59.i:                      ; preds = %get_ue_golomb_long.exit59.sink.split.i, %get_ue_golomb_long.exit42.i
   %storemerge.i81 = phi i32 [ %3177, %get_ue_golomb_long.exit59.sink.split.i ], [ %3172, %get_ue_golomb_long.exit42.i ]
-  store i32 %storemerge.i81, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge.i81, ptr %30, align 8, !tbaa !67
   %3178 = lshr i32 %storemerge.i81, 3
   %3179 = zext nneg i32 %3178 to i64
   %3180 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3179
@@ -6202,7 +6202,7 @@ get_ue_golomb_long.exit76.sink.split.i:           ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit76.i:                      ; preds = %get_ue_golomb_long.exit76.sink.split.i, %get_ue_golomb_long.exit59.i
   %storemerge123.i = phi i32 [ %3214, %get_ue_golomb_long.exit76.sink.split.i ], [ %3209, %get_ue_golomb_long.exit59.i ]
-  store i32 %storemerge123.i, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge123.i, ptr %30, align 8, !tbaa !67
   %3215 = lshr i32 %storemerge123.i, 3
   %3216 = zext nneg i32 %3215 to i64
   %3217 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3216
@@ -6268,7 +6268,7 @@ get_se_golomb_long.exit138:                       ; preds = %get_ue_golomb_long.
   %3257 = phi i32 [ %3246, %get_ue_golomb_long.exit76.i ], [ %3251, %3249 ], [ %3256, %3252 ]
   %3258 = add i32 %3257, 2
   %3259 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3258)
-  store i32 %3259, ptr %30, align 8, !tbaa !63
+  store i32 %3259, ptr %30, align 8, !tbaa !67
   %3260 = lshr i32 %3259, 3
   %3261 = zext nneg i32 %3260 to i64
   %3262 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3261
@@ -6278,7 +6278,7 @@ get_se_golomb_long.exit138:                       ; preds = %get_ue_golomb_long.
   %spec.select.i.i82 = add i32 %3259, %3265
   %3266 = zext i8 %3263 to i32
   %3267 = and i32 %3259, 7
-  store i32 %spec.select.i.i82, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i.i82, ptr %30, align 8, !tbaa !67
   %3268 = lshr exact i32 128, %3267
   %3269 = and i32 %3268, %3266
   %.not.i83 = icmp eq i32 %3269, 0
@@ -6325,7 +6325,7 @@ get_se_golomb_long.exit138:                       ; preds = %get_ue_golomb_long.
   %..i.i.i88.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %3298, i32 %3300)
   %.0.i.i.i89.i = select i1 %3301, i32 %3299, i32 %..i.i.i88.i
   %3302 = add nsw i32 %.0.i.i.i89.i, %spec.select.i.i82
-  store i32 %3302, ptr %30, align 8, !tbaa !63
+  store i32 %3302, ptr %30, align 8, !tbaa !67
   %.not.i5.i90.i = icmp eq i32 %3297, 32
   br i1 %.not.i5.i90.i, label %get_ue_golomb_long.exit93.i, label %get_ue_golomb_long.exit93.sink.split.i
 
@@ -6338,7 +6338,7 @@ get_ue_golomb_long.exit93.sink.split.i:           ; preds = %3270
   %reass.sub109.i = sub nsw i32 %.sink121.i, %3297
   %3306 = add i32 %reass.sub109.i, %.sink122.i
   %3307 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3306)
-  store i32 %3307, ptr %30, align 8, !tbaa !63
+  store i32 %3307, ptr %30, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit93.i
 
 get_ue_golomb_long.exit93.i:                      ; preds = %get_ue_golomb_long.exit93.sink.split.i, %3270, %get_se_golomb_long.exit138
@@ -6399,7 +6399,7 @@ get_se_golomb_long.exit120.sink.split:            ; preds = %get_ue_golomb_long.
 
 get_se_golomb_long.exit120:                       ; preds = %get_se_golomb_long.exit120.sink.split, %get_ue_golomb_long.exit93.i
   %storemerge = phi i32 [ %3344, %get_se_golomb_long.exit120.sink.split ], [ %3339, %get_ue_golomb_long.exit93.i ]
-  store i32 %storemerge, ptr %30, align 8, !tbaa !63
+  store i32 %storemerge, ptr %30, align 8, !tbaa !67
   %3345 = lshr i32 %storemerge, 3
   %3346 = zext nneg i32 %3345 to i64
   %3347 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3346
@@ -6465,7 +6465,7 @@ get_se_golomb_long.exit:                          ; preds = %get_se_golomb_long.
   %3387 = phi i32 [ %3376, %get_se_golomb_long.exit120 ], [ %3381, %3379 ], [ %3386, %3382 ]
   %3388 = add i32 %3387, 4
   %3389 = call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i.i68, i32 %3388)
-  store i32 %3389, ptr %30, align 8, !tbaa !63
+  store i32 %3389, ptr %30, align 8, !tbaa !67
   %3390 = lshr i32 %3389, 3
   %3391 = zext nneg i32 %3390 to i64
   %3392 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i66, i64 %3391
@@ -6477,7 +6477,7 @@ get_se_golomb_long.exit:                          ; preds = %get_se_golomb_long.
   %3397 = and i32 %3389, 7
   %3398 = shl nuw nsw i32 %3396, %3397
   %3399 = lshr i32 %3398, 7
-  store i32 %spec.select.i94.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i94.i, ptr %30, align 8, !tbaa !67
   %3400 = and i32 %3399, 1
   %3401 = lshr i32 %spec.select.i94.i, 3
   %3402 = zext nneg i32 %3401 to i64
@@ -6490,7 +6490,7 @@ get_se_golomb_long.exit:                          ; preds = %get_se_golomb_long.
   %3408 = and i32 %spec.select.i94.i, 7
   %3409 = shl nuw nsw i32 %3407, %3408
   %3410 = lshr i32 %3409, 7
-  store i32 %spec.select.i95.i, ptr %30, align 8, !tbaa !63
+  store i32 %spec.select.i95.i, ptr %30, align 8, !tbaa !67
   %3411 = and i32 %3410, 1
   %3412 = icmp ne i32 %3411, 0
   %3413 = icmp ne i32 %3400, 0
@@ -6544,13 +6544,13 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6) #6
   %.not = icmp eq i32 %2, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !63
+  %8 = load i32, ptr %7, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !61
+  %10 = load i32, ptr %9, align 8, !tbaa !65
   br i1 %.not, label %128, label %11
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr %0, align 8, !tbaa !58
+  %12 = load ptr, ptr %0, align 8, !tbaa !62
   %13 = lshr i32 %8, 3
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
@@ -6561,7 +6561,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %20 = lshr i32 %19, 30
   %21 = add i32 %8, 2
   %22 = tail call i32 @llvm.umin.i32(i32 %10, i32 %21)
-  store i32 %22, ptr %7, align 8, !tbaa !63
+  store i32 %22, ptr %7, align 8, !tbaa !67
   %23 = trunc nuw nsw i32 %20 to i8
   %24 = lshr i32 %22, 3
   %25 = zext nneg i32 %24 to i64
@@ -6573,7 +6573,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %30 = zext i8 %27 to i32
   %31 = and i32 %22, 7
   %32 = shl nuw nsw i32 %30, %31
-  store i32 %spec.select.i, ptr %7, align 8, !tbaa !63
+  store i32 %spec.select.i, ptr %7, align 8, !tbaa !67
   %33 = trunc i32 %32 to i8
   %34 = lshr i8 %33, 7
   %35 = lshr i32 %spec.select.i, 3
@@ -6586,7 +6586,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %42 = lshr i32 %41, 27
   %43 = add i32 %spec.select.i, 5
   %44 = tail call i32 @llvm.umin.i32(i32 %10, i32 %43)
-  store i32 %44, ptr %7, align 8, !tbaa !63
+  store i32 %44, ptr %7, align 8, !tbaa !67
   %45 = trunc nuw nsw i32 %42 to i8
   %46 = lshr i32 %44, 3
   %47 = zext nneg i32 %46 to i64
@@ -6598,7 +6598,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %53 = and i32 %52, -65536
   %54 = add i32 %44, 16
   %55 = tail call i32 @llvm.umin.i32(i32 %10, i32 %54)
-  store i32 %55, ptr %7, align 8, !tbaa !63
+  store i32 %55, ptr %7, align 8, !tbaa !67
   %56 = lshr i32 %55, 3
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 %57
@@ -6609,7 +6609,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %63 = lshr i32 %62, 16
   %64 = add i32 %55, 16
   %65 = tail call i32 @llvm.umin.i32(i32 %10, i32 %64)
-  store i32 %65, ptr %7, align 8, !tbaa !63
+  store i32 %65, ptr %7, align 8, !tbaa !67
   %66 = or disjoint i32 %63, %53
   %67 = lshr i32 %65, 3
   %68 = zext nneg i32 %67 to i64
@@ -6621,7 +6621,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %74 = lshr i32 %73, 16
   %75 = add i32 %65, 16
   %76 = tail call i32 @llvm.umin.i32(i32 %10, i32 %75)
-  store i32 %76, ptr %7, align 8, !tbaa !63
+  store i32 %76, ptr %7, align 8, !tbaa !67
   %77 = lshr i32 %76, 3
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 %78
@@ -6632,7 +6632,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %84 = and i32 %83, -65536
   %85 = add i32 %76, 16
   %86 = tail call i32 @llvm.umin.i32(i32 %10, i32 %85)
-  store i32 %86, ptr %7, align 8, !tbaa !63
+  store i32 %86, ptr %7, align 8, !tbaa !67
   %87 = lshr i32 %86, 3
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 %88
@@ -6643,7 +6643,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %94 = lshr i32 %93, 16
   %95 = add i32 %86, 16
   %96 = tail call i32 @llvm.umin.i32(i32 %10, i32 %95)
-  store i32 %96, ptr %7, align 8, !tbaa !63
+  store i32 %96, ptr %7, align 8, !tbaa !67
   %97 = or disjoint i32 %94, %84
   %98 = zext nneg i32 %74 to i64
   %99 = shl nuw nsw i64 %98, 32
@@ -6659,7 +6659,7 @@ define internal fastcc void @hvcc_parse_ptl(ptr noundef nonnull captures(none) %
   %109 = lshr i32 %108, 24
   %110 = add i32 %96, 8
   %111 = tail call i32 @llvm.umin.i32(i32 %10, i32 %110)
-  store i32 %111, ptr %7, align 8, !tbaa !63
+  store i32 %111, ptr %7, align 8, !tbaa !67
   %112 = trunc nuw i32 %109 to i8
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %23, ptr %113, align 1, !tbaa !20
@@ -6696,7 +6696,7 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
 128:                                              ; preds = %4
   %129 = add i32 %8, 8
   %130 = tail call i32 @llvm.umin.i32(i32 %10, i32 %129)
-  store i32 %130, ptr %7, align 8, !tbaa !63
+  store i32 %130, ptr %7, align 8, !tbaa !67
   br label %131
 
 131:                                              ; preds = %128, %hvcc_update_ptl.exit
@@ -6706,9 +6706,9 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
 
 .lr.ph:                                           ; preds = %131
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %133 = load ptr, ptr %0, align 8, !tbaa !58
+  %133 = load ptr, ptr %0, align 8, !tbaa !62
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %135 = load i32, ptr %134, align 8, !tbaa !61
+  %135 = load i32, ptr %134, align 8, !tbaa !65
   %wide.trip.count = zext i32 %3 to i64
   br label %136
 
@@ -6725,7 +6725,7 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   %143 = zext i8 %140 to i32
   %144 = and i32 %spec.select.i3440, 7
   %145 = shl nuw nsw i32 %143, %144
-  store i32 %spec.select.i33, ptr %132, align 8, !tbaa !63
+  store i32 %spec.select.i33, ptr %132, align 8, !tbaa !67
   %146 = trunc i32 %145 to i8
   %147 = lshr i8 %146, 7
   %148 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv
@@ -6740,14 +6740,14 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   %155 = zext i8 %152 to i32
   %156 = and i32 %spec.select.i33, 7
   %157 = shl nuw nsw i32 %155, %156
-  store i32 %spec.select.i34, ptr %132, align 8, !tbaa !63
+  store i32 %spec.select.i34, ptr %132, align 8, !tbaa !67
   %158 = trunc i32 %157 to i8
   %159 = lshr i8 %158, 7
   %160 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv
   store i8 %159, ptr %160, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %136
   %or.cond = icmp ult i32 %3, 8
@@ -6756,7 +6756,7 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
 .lr.ph42:                                         ; preds = %._crit_edge
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %163 = load i32, ptr %162, align 8, !tbaa !61
+  %163 = load i32, ptr %162, align 8, !tbaa !65
   br label %164
 
 164:                                              ; preds = %.lr.ph42, %164
@@ -6766,10 +6766,10 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   %167 = tail call i32 @llvm.umin.i32(i32 %163, i32 %166)
   %168 = add i32 %.141, 1
   %exitcond51.not = icmp eq i32 %168, 8
-  br i1 %exitcond51.not, label %..loopexit_crit_edge, label %164, !llvm.loop !87
+  br i1 %exitcond51.not, label %..loopexit_crit_edge, label %164, !llvm.loop !93
 
 ..loopexit_crit_edge:                             ; preds = %164
-  store i32 %167, ptr %161, align 8, !tbaa !63
+  store i32 %167, ptr %161, align 8, !tbaa !67
   br label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %..loopexit_crit_edge, %._crit_edge
@@ -6789,7 +6789,7 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
 
 175:                                              ; preds = %171
   %176 = sub nsw i32 0, %172
-  %177 = load i32, ptr %170, align 8, !tbaa !61
+  %177 = load i32, ptr %170, align 8, !tbaa !65
   %178 = sub nsw i32 %177, %172
   %179 = icmp slt i32 %172, -32
   %..i.i = tail call i32 @llvm.smin.i32(i32 %178, i32 32)
@@ -6803,7 +6803,7 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   %184 = add i32 %180, 24
   %185 = add i32 %184, %.0.i.i36
   %186 = tail call i32 @llvm.umin.i32(i32 %177, i32 %185)
-  store i32 %186, ptr %169, align 8, !tbaa !63
+  store i32 %186, ptr %169, align 8, !tbaa !67
   br label %187
 
 187:                                              ; preds = %175, %171
@@ -6814,17 +6814,17 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   br i1 %.not32, label %195, label %191
 
 191:                                              ; preds = %187
-  %192 = load i32, ptr %170, align 8, !tbaa !61
+  %192 = load i32, ptr %170, align 8, !tbaa !65
   %193 = add i32 %188, 8
   %194 = tail call i32 @llvm.umin.i32(i32 %192, i32 %193)
-  store i32 %194, ptr %169, align 8, !tbaa !63
+  store i32 %194, ptr %169, align 8, !tbaa !67
   br label %195
 
 195:                                              ; preds = %187, %191
   %196 = phi i32 [ %188, %187 ], [ %194, %191 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge47, label %171, !llvm.loop !88
+  br i1 %exitcond56.not, label %._crit_edge47, label %171, !llvm.loop !94
 
 ._crit_edge47:                                    ; preds = %195, %131
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6) #6
@@ -6839,14 +6839,14 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !63
-  %7 = load ptr, ptr %0, align 8, !tbaa !58
+  %6 = load i32, ptr %5, align 8, !tbaa !67
+  %7 = load ptr, ptr %0, align 8, !tbaa !62
   %8 = lshr i32 %6, 3
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !61
+  %13 = load i32, ptr %12, align 8, !tbaa !65
   %14 = icmp slt i32 %6, %13
   %15 = zext i1 %14 to i32
   %spec.select.i = add i32 %6, %15
@@ -6854,7 +6854,7 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
   %17 = and i32 %6, 7
   %18 = shl nuw nsw i32 %16, %17
   %19 = lshr i32 %18, 7
-  store i32 %spec.select.i, ptr %5, align 8, !tbaa !63
+  store i32 %spec.select.i, ptr %5, align 8, !tbaa !67
   %20 = and i32 %19, 1
   %21 = lshr i32 %spec.select.i, 3
   %22 = zext nneg i32 %21 to i64
@@ -6867,7 +6867,7 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
   %28 = and i32 %spec.select.i, 7
   %29 = shl nuw nsw i32 %27, %28
   %30 = lshr i32 %29, 7
-  store i32 %spec.select.i57, ptr %5, align 8, !tbaa !63
+  store i32 %spec.select.i57, ptr %5, align 8, !tbaa !67
   %31 = and i32 %30, 1
   %32 = icmp ne i32 %20, 0
   %33 = icmp ne i32 %31, 0
@@ -6908,7 +6908,7 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
   %55 = tail call i32 @llvm.umin.i32(i32 %13, i32 %.sink85)
   %56 = add i32 %55, 15
   %57 = tail call i32 @llvm.umin.i32(i32 %13, i32 %56)
-  store i32 %57, ptr %5, align 8, !tbaa !63
+  store i32 %57, ptr %5, align 8, !tbaa !67
   %58 = icmp eq i32 %20, 0
   %59 = icmp eq i32 %31, 0
   br label %60
@@ -6923,19 +6923,19 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
 
 63:                                               ; preds = %60, %207
   %.04281 = phi i32 [ 0, %60 ], [ %208, %207 ]
-  %64 = load i32, ptr %61, align 8, !tbaa !63
-  %65 = load ptr, ptr %0, align 8, !tbaa !58
+  %64 = load i32, ptr %61, align 8, !tbaa !67
+  %65 = load ptr, ptr %0, align 8, !tbaa !62
   %66 = lshr i32 %64, 3
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !11
-  %70 = load i32, ptr %62, align 8, !tbaa !61
+  %70 = load i32, ptr %62, align 8, !tbaa !65
   %71 = icmp slt i32 %64, %70
   %72 = zext i1 %71 to i32
   %spec.select.i59 = add i32 %64, %72
   %73 = zext i8 %69 to i32
   %74 = and i32 %64, 7
-  store i32 %spec.select.i59, ptr %61, align 8, !tbaa !63
+  store i32 %spec.select.i59, ptr %61, align 8, !tbaa !67
   %75 = lshr exact i32 128, %74
   %76 = and i32 %75, %73
   %.not46 = icmp eq i32 %76, 0
@@ -6951,7 +6951,7 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
   %spec.select.i60 = add i32 %spec.select.i59, %83
   %84 = zext i8 %81 to i32
   %85 = and i32 %spec.select.i59, 7
-  store i32 %spec.select.i60, ptr %61, align 8, !tbaa !63
+  store i32 %spec.select.i60, ptr %61, align 8, !tbaa !67
   %86 = lshr exact i32 128, %85
   %87 = and i32 %86, %84
   %88 = icmp eq i32 %87, 0
@@ -6998,7 +6998,7 @@ define internal fastcc void @skip_hrd_parameters(ptr noundef nonnull captures(no
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %116, i32 %118)
   %.0.i.i.i = select i1 %119, i32 %117, i32 %..i.i.i
   %120 = add nsw i32 %.0.i.i.i, %spec.select.i60
-  store i32 %120, ptr %61, align 8, !tbaa !63
+  store i32 %120, ptr %61, align 8, !tbaa !67
   %.not.i5.i = icmp eq i32 %115, 32
   br i1 %.not.i5.i, label %get_ue_golomb_long.exit, label %get_ue_golomb_long.exit.sink.split
 
@@ -7011,7 +7011,7 @@ get_ue_golomb_long.exit.sink.split:               ; preds = %.critedge54
   %reass.sub82 = sub i32 %.sink89, %115
   %124 = add i32 %reass.sub82, %.sink88
   %125 = tail call i32 @llvm.umin.i32(i32 %70, i32 %124)
-  store i32 %125, ptr %61, align 8, !tbaa !63
+  store i32 %125, ptr %61, align 8, !tbaa !67
   br label %get_ue_golomb_long.exit
 
 .critedge52:                                      ; preds = %63, %77
@@ -7025,7 +7025,7 @@ get_ue_golomb_long.exit.sink.split:               ; preds = %.critedge54
   %spec.select.i61 = add i32 %126, %132
   %133 = zext i8 %130 to i32
   %134 = and i32 %126, 7
-  store i32 %spec.select.i61, ptr %61, align 8, !tbaa !63
+  store i32 %spec.select.i61, ptr %61, align 8, !tbaa !67
   %135 = lshr exact i32 128, %134
   %136 = and i32 %135, %133
   %137 = icmp eq i32 %136, 0
@@ -7073,7 +7073,7 @@ get_ue_golomb_long.exit:                          ; preds = %get_ue_golomb_long.
   %..i.i.i73 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %165, i32 %167)
   %.0.i.i.i74 = select i1 %168, i32 %166, i32 %..i.i.i73
   %169 = add nsw i32 %.0.i.i.i74, %.sroa.46.0.copyload.i.i64
-  store i32 %169, ptr %61, align 8, !tbaa !63
+  store i32 %169, ptr %61, align 8, !tbaa !67
   %.not.i5.i75 = icmp eq i32 %164, 32
   br i1 %.not.i5.i75, label %.critedge56, label %170
 
@@ -7099,7 +7099,7 @@ get_ue_golomb_long.exit:                          ; preds = %get_ue_golomb_long.
   %184 = lshr i32 %178, 16
   %185 = add i32 %169, 16
   %186 = tail call i32 @llvm.umin.i32(i32 %70, i32 %185)
-  store i32 %186, ptr %61, align 8, !tbaa !63
+  store i32 %186, ptr %61, align 8, !tbaa !67
   %187 = sub nuw nsw i32 16, %164
   %188 = shl nuw i32 %184, %187
   %189 = lshr i32 %186, 3
@@ -7119,7 +7119,7 @@ get_ue_golomb_long.exit:                          ; preds = %get_ue_golomb_long.
 get_ue_golomb_long.exit78:                        ; preds = %179, %183
   %.sink = phi i32 [ %182, %179 ], [ %199, %183 ]
   %.0.i.i76 = phi i32 [ %180, %179 ], [ %200, %183 ]
-  store i32 %.sink, ptr %61, align 8, !tbaa !63
+  store i32 %.sink, ptr %61, align 8, !tbaa !67
   %201 = add i32 %.0.i.i76, -1
   %202 = icmp ugt i32 %201, 31
   br i1 %202, label %.critedge56, label %203
@@ -7142,7 +7142,7 @@ get_ue_golomb_long.exit78:                        ; preds = %179, %183
 207:                                              ; preds = %206, %205
   %208 = add i32 %.04281, 1
   %.not45 = icmp ugt i32 %208, %2
-  br i1 %.not45, label %.critedge56, label %63, !llvm.loop !89
+  br i1 %.not45, label %.critedge56, label %63, !llvm.loop !95
 
 .critedge56:                                      ; preds = %get_ue_golomb_long.exit, %get_ue_golomb_long.exit78, %207
   ret void
@@ -7217,7 +7217,7 @@ get_ue_golomb_long.exit.sink.split:               ; preds = %4
 
 get_ue_golomb_long.exit:                          ; preds = %get_ue_golomb_long.exit.sink.split, %4
   %storemerge = phi i32 [ %41, %get_ue_golomb_long.exit.sink.split ], [ %36, %4 ]
-  store i32 %storemerge, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !63
+  store i32 %storemerge, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !67
   %42 = lshr i32 %storemerge, 3
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %43
@@ -7274,7 +7274,7 @@ get_ue_golomb_long.exit25.sink.split:             ; preds = %get_ue_golomb_long.
 
 get_ue_golomb_long.exit25:                        ; preds = %get_ue_golomb_long.exit25.sink.split, %get_ue_golomb_long.exit
   %storemerge90 = phi i32 [ %78, %get_ue_golomb_long.exit25.sink.split ], [ %73, %get_ue_golomb_long.exit ]
-  store i32 %storemerge90, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !63
+  store i32 %storemerge90, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !67
   br i1 %.not8, label %get_ue_golomb_long.exit59, label %79
 
 79:                                               ; preds = %get_ue_golomb_long.exit25
@@ -7334,7 +7334,7 @@ get_ue_golomb_long.exit42.sink.split:             ; preds = %79
 
 get_ue_golomb_long.exit42:                        ; preds = %get_ue_golomb_long.exit42.sink.split, %79
   %storemerge91 = phi i32 [ %116, %get_ue_golomb_long.exit42.sink.split ], [ %111, %79 ]
-  store i32 %storemerge91, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !63
+  store i32 %storemerge91, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !67
   %117 = lshr i32 %storemerge91, 3
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %118
@@ -7400,10 +7400,10 @@ get_ue_golomb_long.exit59:                        ; preds = %154, %151, %get_ue_
   %.sroa.46.0.copyload.i.i4568 = phi i32 [ %158, %154 ], [ %153, %151 ], [ %148, %get_ue_golomb_long.exit42 ], [ %storemerge90, %get_ue_golomb_long.exit25 ]
   %159 = add i32 %.sroa.46.0.copyload.i.i4568, 1
   %160 = tail call i32 @llvm.umin.i32(i32 %.sroa.77.0.copyload.i.i, i32 %159)
-  store i32 %160, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !63
+  store i32 %160, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !67
   %161 = add nuw nsw i32 %.072, 1
   %exitcond.not = icmp eq i32 %.072, %1
-  br i1 %exitcond.not, label %162, label %4, !llvm.loop !90
+  br i1 %exitcond.not, label %162, label %4, !llvm.loop !96
 
 162:                                              ; preds = %get_ue_golomb_long.exit59
   ret void
@@ -7491,45 +7491,45 @@ attributes #6 = { nounwind }
 !40 = !{!"HVCCNALUnitArray", !6, i64 0, !6, i64 1, !19, i64 2, !41, i64 8}
 !41 = !{!"p1 _ZTS11HVCCNALUnit", !10, i64 0}
 !42 = distinct !{!42, !13}
-!43 = distinct !{!43, !13}
-!44 = !{!19, !19, i64 0}
-!45 = !{!40, !41, i64 8}
-!46 = !{!47, !6, i64 0}
-!47 = !{!"HVCCNALUnit", !6, i64 0, !6, i64 1, !19, i64 2, !9, i64 8, !6, i64 16}
-!48 = distinct !{!48, !13}
-!49 = !{!40, !6, i64 0}
-!50 = !{!40, !6, i64 1}
-!51 = !{!47, !6, i64 1}
-!52 = !{!47, !19, i64 2}
-!53 = distinct !{!53, !13}
-!54 = distinct !{!54, !13}
-!55 = !{!47, !9, i64 8}
+!43 = distinct !{!43, !13, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!19, !19, i64 0}
+!46 = !{!40, !41, i64 8}
+!47 = !{!48, !6, i64 0}
+!48 = !{!"HVCCNALUnit", !6, i64 0, !6, i64 1, !19, i64 2, !9, i64 8, !6, i64 16}
+!49 = distinct !{!49, !13, !44}
+!50 = distinct !{!50, !13}
+!51 = !{!40, !6, i64 0}
+!52 = !{!40, !6, i64 1}
+!53 = !{!48, !6, i64 1}
+!54 = !{!48, !19, i64 2}
+!55 = distinct !{!55, !13, !44}
 !56 = distinct !{!56, !13}
 !57 = distinct !{!57, !13}
-!58 = !{!59, !9, i64 0}
-!59 = !{!"GetBitContext", !9, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
-!60 = !{!59, !5, i64 20}
-!61 = !{!59, !5, i64 24}
-!62 = !{!59, !9, i64 8}
-!63 = !{!59, !5, i64 16}
-!64 = !{!17, !6, i64 112}
-!65 = !{!17, !6, i64 30}
-!66 = !{!47, !6, i64 16}
-!67 = distinct !{!67, !13}
-!68 = distinct !{!68, !13}
-!69 = distinct !{!69, !13}
-!70 = distinct !{!70, !13}
+!58 = !{!48, !9, i64 8}
+!59 = distinct !{!59, !13, !44}
+!60 = distinct !{!60, !13}
+!61 = distinct !{!61, !13}
+!62 = !{!63, !9, i64 0}
+!63 = !{!"GetBitContext", !9, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
+!64 = !{!63, !5, i64 20}
+!65 = !{!63, !5, i64 24}
+!66 = !{!63, !9, i64 8}
+!67 = !{!63, !5, i64 16}
+!68 = !{!17, !6, i64 112}
+!69 = !{!17, !6, i64 30}
+!70 = !{!48, !6, i64 16}
 !71 = distinct !{!71, !13}
 !72 = distinct !{!72, !13}
 !73 = distinct !{!73, !13}
 !74 = distinct !{!74, !13}
 !75 = distinct !{!75, !13}
-!76 = distinct !{!76, !13}
-!77 = distinct !{!77, !13}
+!76 = distinct !{!76, !13, !44}
+!77 = distinct !{!77, !13, !44}
 !78 = distinct !{!78, !13}
 !79 = distinct !{!79, !13}
 !80 = distinct !{!80, !13}
-!81 = distinct !{!81, !13}
+!81 = distinct !{!81, !13, !44}
 !82 = distinct !{!82, !13}
 !83 = distinct !{!83, !13}
 !84 = distinct !{!84, !13}
@@ -7539,3 +7539,9 @@ attributes #6 = { nounwind }
 !88 = distinct !{!88, !13}
 !89 = distinct !{!89, !13}
 !90 = distinct !{!90, !13}
+!91 = distinct !{!91, !13}
+!92 = distinct !{!92, !13}
+!93 = distinct !{!93, !13}
+!94 = distinct !{!94, !13}
+!95 = distinct !{!95, !13}
+!96 = distinct !{!96, !13}

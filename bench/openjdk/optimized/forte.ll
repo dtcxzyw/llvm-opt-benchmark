@@ -398,7 +398,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
 _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %34, %_ZNK11RegisterMap7in_contEv.exit.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   %42 = call noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %0)
-  br i1 %42, label %.loopexit, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.split, !llvm.loop !9
+  br i1 %42, label %.loopexit, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZNK5frame6senderEP11RegisterMap.exit, %_ZNK5frame6senderEP11RegisterMap.exit.us, %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread, %.split.us
   ret void
@@ -431,7 +431,7 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %3
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 1128
   %18 = load volatile i32, ptr %17, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %19 = add i32 %18, -57003
   %20 = icmp ult i32 %19, 4
   br i1 %20, label %_ZN6Thread20current_or_null_safeEv.exit.thread, label %22
@@ -621,16 +621,16 @@ define internal fastcc void @_ZL31forte_fill_call_trace_given_topP10JavaThreadP1
 
 25:                                               ; preds = %_ZNK5frame6senderEP11RegisterMap.exit.us.i
   %26 = call noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %0) #8
-  br i1 %26, label %.lr.ph48.i, label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread
+  br i1 %26, label %.lr.ph48.i, label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread, !llvm.loop !14
 
 .lr.ph48.i:                                       ; preds = %.lr.ph.split.us.i, %25
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %7)
-  %27 = load i8, ptr %20, align 1, !noalias !12
+  %27 = load i8, ptr %20, align 1, !noalias !15
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %_ZNK5frame6senderEP11RegisterMap.exit.us.i
 
 29:                                               ; preds = %.lr.ph48.i
-  %30 = load ptr, ptr %21, align 8, !noalias !12
+  %30 = load ptr, ptr %21, align 8, !noalias !15
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.us.i, label %_ZNK11RegisterMap7in_contEv.exit.i.us.i
 
@@ -640,7 +640,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.us.i:          ; preds = %29
   br i1 %.not.i.us.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.us.i, label %_ZNK5frame6senderEP11RegisterMap.exit.us.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.us.i:   ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.us.i, %29
-  %33 = load ptr, ptr %22, align 8, !noalias !12
+  %33 = load ptr, ptr %22, align 8, !noalias !15
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(56) %8) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit.us.i
 
@@ -657,12 +657,12 @@ _ZNK5frame6senderEP11RegisterMap.exit.us.i:       ; preds = %_ZNK11RegisterMap7i
 
 36:                                               ; preds = %.lr.ph.split.i
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %7)
-  %37 = load i8, ptr %20, align 1, !noalias !12
+  %37 = load i8, ptr %20, align 1, !noalias !15
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %21, align 8, !noalias !12
+  %40 = load ptr, ptr %21, align 8, !noalias !15
   %41 = icmp eq ptr %40, null
   br i1 %41, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
 
@@ -672,7 +672,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %39
   br i1 %.not.i.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %39
-  %43 = load ptr, ptr %22, align 8, !noalias !12
+  %43 = load ptr, ptr %22, align 8, !noalias !15
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(56) %8) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
@@ -683,7 +683,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
   %45 = add nuw nsw i32 %.03046.i, 1
   %46 = icmp slt i32 %45, %17
   %or.cond.i = select i1 %.not.i, i1 %46, i1 false
-  br i1 %or.cond.i, label %.lr.ph.split.i, label %_ZNK5frame6senderEP11RegisterMap.exit._crit_edge.i, !llvm.loop !15
+  br i1 %or.cond.i, label %.lr.ph.split.i, label %_ZNK5frame6senderEP11RegisterMap.exit._crit_edge.i, !llvm.loop !18
 
 _ZNK5frame6senderEP11RegisterMap.exit._crit_edge.i: ; preds = %_ZNK5frame6senderEP11RegisterMap.exit.i, %._ZNK5frame6senderEP11RegisterMap.exit._crit_edge_crit_edge.i
   %47 = phi ptr [ %.pre.i, %._ZNK5frame6senderEP11RegisterMap.exit._crit_edge_crit_edge.i ], [ %44, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
@@ -710,7 +710,7 @@ _ZNK5frame6senderEP11RegisterMap.exit._crit_edge.thread.i: ; preds = %_ZNK5frame
   %59 = add nuw nsw i32 %.03149.i, 1
   %60 = icmp slt i32 %59, %50
   %61 = select i1 %51, i1 true, i1 %60
-  br i1 %61, label %62, label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread, !llvm.loop !16
+  br i1 %61, label %62, label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread, !llvm.loop !19
 
 62:                                               ; preds = %58, %.lr.ph51.i
   %.03149.i = phi i32 [ 0, %.lr.ph51.i ], [ %59, %58 ]
@@ -918,12 +918,12 @@ _ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i:   ; preds = %_ZN7nmethod12pc_des
 
 176:                                              ; preds = %174
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %9)
-  %177 = load i8, ptr %55, align 1, !noalias !17
+  %177 = load i8, ptr %55, align 1, !noalias !20
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %_ZNK5frame6senderEP11RegisterMap.exit39.i
 
 179:                                              ; preds = %176
-  %180 = load ptr, ptr %56, align 8, !noalias !17
+  %180 = load ptr, ptr %56, align 8, !noalias !20
   %181 = icmp eq ptr %180, null
   br i1 %181, label %_ZNK11RegisterMap7in_contEv.exit.thread.i38.i, label %_ZNK11RegisterMap7in_contEv.exit.i36.i
 
@@ -933,7 +933,7 @@ _ZNK11RegisterMap7in_contEv.exit.i36.i:           ; preds = %179
   br i1 %.not.i37.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i38.i, label %_ZNK5frame6senderEP11RegisterMap.exit39.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i38.i:    ; preds = %_ZNK11RegisterMap7in_contEv.exit.i36.i, %179
-  %183 = load ptr, ptr %57, align 8, !noalias !17
+  %183 = load ptr, ptr %57, align 8, !noalias !20
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %183, ptr noundef nonnull align 8 dereferenceable(56) %10) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit39.i
 
@@ -1067,7 +1067,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   %229 = icmp eq i32 %228, 2
   %230 = icmp samesign uge i64 %indvars.iv.next, %207
   %.not15 = select i1 %229, i1 true, i1 %230
-  br i1 %.not15, label %._crit_edge.loopexit, label %208, !llvm.loop !20
+  br i1 %.not15, label %._crit_edge.loopexit, label %208, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %214
   %231 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -1223,28 +1223,28 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %11 = ptrtoint ptr %7 to i64
-  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !21
+  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !24
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %13, %11
   %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !21
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !24
   %17 = sext i32 %16 to i64
   %18 = add nsw i64 %17, %11
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 4, !noalias !21
+  %20 = load i32, ptr %19, align 4, !noalias !24
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i64, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !21
+  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !24
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !noalias !21
+  %26 = load ptr, ptr %25, align 8, !noalias !24
   %.not.i.i.i.i.i.i.i = icmp ule ptr %26, %.sroa.2.0.copyload.i
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %28 = load i32, ptr %27, align 4, !noalias !21
+  %28 = load i32, ptr %27, align 4, !noalias !24
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   %31 = icmp ult ptr %.sroa.2.0.copyload.i, %30
@@ -1291,28 +1291,28 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0.copyload.i13 = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %48 = ptrtoint ptr %47 to i64
-  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !24
+  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !27
   %50 = sext i32 %49 to i64
   %51 = add nsw i64 %50, %48
   %52 = inttoptr i64 %51 to ptr
-  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !24
+  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !27
   %54 = sext i32 %53 to i64
   %55 = add nsw i64 %54, %48
   %56 = inttoptr i64 %55 to ptr
-  %57 = load i32, ptr %56, align 4, !noalias !24
+  %57 = load i32, ptr %56, align 4, !noalias !27
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %52, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !24
+  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !27
   %.not.i.i.i.i.i.i14 = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i.i14, label %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15: ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !noalias !24
+  %63 = load ptr, ptr %62, align 8, !noalias !27
   %.not.i.i.i.i.i.i.i16 = icmp ule ptr %63, %.sroa.2.0.copyload.i9
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %65 = load i32, ptr %64, align 4, !noalias !24
+  %65 = load i32, ptr %64, align 4, !noalias !27
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = icmp ult ptr %.sroa.2.0.copyload.i9, %67
@@ -1439,7 +1439,7 @@ define linkonce_odr hidden void @_ZN18vframeStreamCommon24fill_from_compiled_fra
   %44 = icmp ult i8 %39, -64
   %45 = icmp eq i64 %indvars.iv.next.i.i, 4
   %or.cond.i.i = or i1 %45, %44
-  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
   %46 = trunc nsw i64 %37 to i32
@@ -1487,7 +1487,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %15, %.preheader.i.i
   %72 = icmp ult i8 %67, -64
   %73 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %73, %72
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %74 = trunc nsw i64 %65 to i32
@@ -1554,7 +1554,7 @@ _ZN19DebugInfoReadStream11read_methodEv.exit:     ; preds = %_ZN20CompressedRead
   %114 = icmp ult i8 %109, -64
   %115 = icmp eq i64 %indvars.iv.next.i.i.i10, 4
   %or.cond.i.i.i11 = or i1 %115, %114
-  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !27
+  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !30
 
 _ZN19DebugInfoReadStream8read_bciEv.exit:         ; preds = %.lr.ph.i.i.i7, %_ZN19DebugInfoReadStream11read_methodEv.exit, %.preheader.i.i.i6
   %.0.i.i.i15 = phi i32 [ %96, %_ZN19DebugInfoReadStream11read_methodEv.exit ], [ %105, %.preheader.i.i.i6 ], [ %113, %.lr.ph.i.i.i7 ]
@@ -2077,22 +2077,25 @@ attributes #8 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
 !8 = distinct !{!8, !"_ZNK5frame6senderEP11RegisterMap"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{i64 2145392468}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!14 = distinct !{!14, !"_ZNK5frame6senderEP11RegisterMap"}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!19 = distinct !{!19, !"_ZNK5frame6senderEP11RegisterMap"}
-!20 = distinct !{!20, !10}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
-!23 = distinct !{!23, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10}
+!13 = !{i64 2145392468}
+!14 = distinct !{!14, !11}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!17 = distinct !{!17, !"_ZNK5frame6senderEP11RegisterMap"}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!22 = distinct !{!22, !"_ZNK5frame6senderEP11RegisterMap"}
+!23 = distinct !{!23, !10}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
 !26 = distinct !{!26, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
-!27 = distinct !{!27, !10}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
+!29 = distinct !{!29, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!30 = distinct !{!30, !10}

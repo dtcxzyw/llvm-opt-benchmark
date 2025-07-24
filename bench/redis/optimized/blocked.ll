@@ -1175,7 +1175,7 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @dictSetVal(ptr noundef %65, ptr noundef nonnull %46, ptr noundef %67) #5
   %68 = load ptr, ptr %16, align 8, !tbaa !103
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !107
+  %70 = load ptr, ptr %69, align 8, !tbaa !108
   %71 = load ptr, ptr %44, align 8, !tbaa !102
   %72 = call ptr @dictAddRaw(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %7) #5
   %.not49 = icmp eq ptr %72, null
@@ -1195,7 +1195,7 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
 78:                                               ; preds = %75, %73, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %78, %42, %13
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -1320,7 +1320,7 @@ switch.lookup:                                    ; preds = %4
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !107
+  %16 = load ptr, ptr %15, align 8, !tbaa !108
   %17 = tail call ptr @dictFind(ptr noundef %16, ptr noundef %1) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %getBlockedTypeByType.exit, label %24
@@ -1374,7 +1374,7 @@ define dso_local void @blockForReplication(ptr noundef initializes((488, 496), (
   %7 = trunc i64 %3 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %7, ptr %8, align 8, !tbaa !30
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !108
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !110
   %10 = tail call ptr @listAddNodeHead(ptr noundef %9, ptr noundef %0) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !34
@@ -1423,8 +1423,8 @@ define dso_local void @blockForAofFsync(ptr noundef initializes((488, 496), (512
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %8, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 %3, ptr %10, align 4, !tbaa !109
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !108
+  store i32 %3, ptr %10, align 4, !tbaa !111
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !110
   %12 = tail call ptr @listAddNodeHead(ptr noundef %11, ptr noundef %0) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !34
@@ -1576,7 +1576,7 @@ declare i32 @isModuleClientUnblocked(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @blockedBeforeSleep() local_unnamed_addr #0 {
   tail call void @handleBlockedClientsTimeout() #5
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !108
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !110
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !71
   %.not = icmp eq i64 %3, 0
@@ -1663,7 +1663,7 @@ define internal fastcc void @releaseBlockedEntry(ptr noundef %0, ptr noundef %1,
 24:                                               ; preds = %21
   %25 = load ptr, ptr %6, align 8, !tbaa !103
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !107
+  %27 = load ptr, ptr %26, align 8, !tbaa !108
   %28 = tail call ptr @dictFind(ptr noundef %27, ptr noundef %4) #5
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %29, label %30, !prof !74
@@ -1681,7 +1681,7 @@ define internal fastcc void @releaseBlockedEntry(ptr noundef %0, ptr noundef %1,
 .sink.split:                                      ; preds = %30, %16
   %32 = load ptr, ptr %6, align 8, !tbaa !103
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !107
+  %34 = load ptr, ptr %33, align 8, !tbaa !108
   %35 = tail call i32 @dictDelete(ptr noundef %34, ptr noundef %4) #5
   br label %36
 
@@ -1847,7 +1847,9 @@ attributes #7 = { nounwind allocsize(0) }
 !103 = !{!6, !13, i64 32}
 !104 = !{!20, !20, i64 0}
 !105 = !{!72, !25, i64 8}
-!106 = distinct !{!106, !77}
-!107 = !{!93, !24, i64 32}
-!108 = !{!36, !18, i64 7504}
-!109 = !{!6, !12, i64 516}
+!106 = distinct !{!106, !77, !107}
+!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!108 = !{!93, !24, i64 32}
+!109 = distinct !{!109, !77}
+!110 = !{!36, !18, i64 7504}
+!111 = !{!6, !12, i64 516}

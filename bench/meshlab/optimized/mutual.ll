@@ -383,7 +383,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %46 = ashr i32 %.03853, 1
   %47 = add nuw nsw i32 %.03754, 1
   %.not45 = icmp ult i32 %46, 2
-  br i1 %.not45, label %.preheader47, label %.lr.ph55, !llvm.loop !14
+  br i1 %.not45, label %.preheader47, label %.lr.ph55, !llvm.loop !15
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %.preheader47
   %48 = load i32, ptr %0, align 8
@@ -407,7 +407,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %55 = load i32, ptr %14, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next73, %56
-  br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !15
+  br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !16
 
 58:                                               ; preds = %._crit_edge62
   %59 = load ptr, ptr %12, align 8
@@ -469,6 +469,7 @@ attributes #15 = { nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

@@ -3087,7 +3087,7 @@ dissect_sane_word.exit27.us:                      ; preds = %112, %.lr.ph.split.
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef nonnull @.str.187, i32 noundef %.034.us)
   %120 = add nuw nsw i32 %.038.us40, 1
   %exitcond48.not = icmp eq i32 %120, %.1
-  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.split.us39, !llvm.loop !25
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.split.us39, !llvm.loop !27
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %dissect_sane_word.exit28.us44
   %.038.us43 = phi i32 [ %134, %dissect_sane_word.exit28.us44 ], [ %.037, %.lr.ph ]
@@ -3113,7 +3113,7 @@ dissect_sane_word.exit27.us:                      ; preds = %112, %.lr.ph.split.
 dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.us42
   %134 = add nuw nsw i32 %.038.us43, 1
   %exitcond.not = icmp eq i32 %134, %.1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us42, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us42, !llvm.loop !28
 
 .loopexit:                                        ; preds = %dissect_sane_word.exit28.us44, %dissect_sane_word.exit27.us, %dissect_sane_word.exit26.us, %.lr.ph, %dissect_sane_word.exit25, %46
   ret void
@@ -3259,4 +3259,7 @@ attributes #8 = { noreturn }
 !22 = distinct !{!22, !7}
 !23 = !{i8 0, i8 2}
 !24 = !{}
-!25 = distinct !{!25, !7}
+!25 = distinct !{!25, !7, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !26}
+!28 = distinct !{!28, !7, !26}

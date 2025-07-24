@@ -783,7 +783,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %183 = add i32 %.1300.i, 24
   %exitcond306.not.i = icmp eq i32 %156, %127
-  br i1 %exitcond306.not.i, label %.loopexit.i, label %.lr.ph301.split.i, !llvm.loop !8
+  br i1 %exitcond306.not.i, label %.loopexit.i, label %.lr.ph301.split.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %.lr.ph301.split.i, %.lr.ph301.split.us.i, %139, %.thread.i
   %.0251.i = phi i32 [ %141, %139 ], [ %138, %.thread.i ], [ %153, %.lr.ph301.split.us.i ], [ %180, %.lr.ph301.split.i ]
@@ -1230,4 +1230,6 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

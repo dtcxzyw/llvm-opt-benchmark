@@ -11356,132 +11356,127 @@ define void @_Z18initialize_lambdasP8_IO_FILE26FreeEnergyPerturbationTypebRK8t_l
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %7, label %.split.us, label %.split.preheader
+  br i1 %7, label %.split.us.preheader, label %.split.preheader
 
 .split.preheader:                                 ; preds = %12
   %14 = load i64, ptr %9, align 8
   %15 = inttoptr i64 %14 to ptr
   br label %.split34.us
 
-.split.us:                                        ; preds = %12
+.split.us.preheader:                              ; preds = %12
   %16 = load i32, ptr %13, align 8, !tbaa !483
   store i32 %16, ptr %8, align 4, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = sext i32 %16 to i64
-  %22 = load i64, ptr %9, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = fcmp ult double %18, 0.000000e+00
-  br i1 %24, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us, label %.split.us.split
+  %19 = fcmp ult double %18, 0.000000e+00
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = sext i32 %16 to i64
+  %23 = load i64, ptr %9, align 8
+  %24 = inttoptr i64 %23 to ptr
+  br label %.split.us
 
-_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us: ; preds = %.split.us, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us ], [ 0, %.split.us ]
-  %25 = getelementptr inbounds nuw [7 x %"class.std::vector.0"], ptr %19, i64 0, i64 %indvars.iv39
-  %26 = load ptr, ptr %25, align 8, !tbaa !46
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %21
-  %28 = load double, ptr %27, align 8, !tbaa !63
-  %29 = fptrunc double %28 to float
-  %30 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv39
-  store float %29, ptr %30, align 4, !tbaa !58
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %.not31.us.us = icmp eq i64 %indvars.iv.next40, 7
-  br i1 %.not31.us.us, label %.split34.us, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us
+.split.us:                                        ; preds = %.split.us.preheader, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
+  %indvars.iv = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
+  br i1 %19, label %25, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
 
-.split.us.split:                                  ; preds = %.split.us
-  %31 = fptrunc double %18 to float
+25:                                               ; preds = %.split.us
+  %26 = getelementptr inbounds nuw [7 x %"class.std::vector.0"], ptr %20, i64 0, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %22
+  %29 = load double, ptr %28, align 8, !tbaa !63
   br label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
 
-_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us: ; preds = %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us, %.split.us.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ], [ 0, %.split.us.split ]
-  %32 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
-  store float %31, ptr %32, align 4, !tbaa !58
+_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us: ; preds = %25, %.split.us
+  %.0.i.us = phi double [ %29, %25 ], [ %18, %.split.us ]
+  %30 = fptrunc double %.0.i.us to float
+  %31 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  store float %30, ptr %31, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not31.us = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not31.us, label %.split34.us, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
+  br i1 %.not31.us, label %.split34.us, label %.split.us, !llvm.loop !491
 
-.split34.us:                                      ; preds = %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us, %.split.preheader
-  %33 = phi ptr [ %15, %.split.preheader ], [ %23, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us ], [ %23, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
-  %34 = phi ptr [ %13, %.split.preheader ], [ %20, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us ], [ %20, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
-  br i1 %2, label %35, label %.loopexit
+.split34.us:                                      ; preds = %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us, %.split.preheader
+  %32 = phi ptr [ %15, %.split.preheader ], [ %24, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
+  %33 = phi ptr [ %13, %.split.preheader ], [ %21, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
+  br i1 %2, label %34, label %.loopexit
 
-35:                                               ; preds = %.split34.us
+34:                                               ; preds = %.split34.us
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %50, label %.preheader
+  br i1 %.not, label %49, label %.preheader
 
-.preheader:                                       ; preds = %35
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !491
-  %38 = load ptr, ptr %6, align 8, !tbaa !492
+.preheader:                                       ; preds = %34
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !493
+  %37 = load ptr, ptr %6, align 8, !tbaa !494
+  %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = lshr exact i64 %41, 2
-  %43 = trunc i64 %42 to i32
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph, label %.loopexit
+  %40 = sub i64 %38, %39
+  %41 = lshr exact i64 %40, 2
+  %42 = trunc i64 %41 to i32
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %45 = load i32, ptr %34, align 8
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds float, ptr %4, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %wide.trip.count = and i64 %42, 2147483647
-  br label %51
+  %44 = load i32, ptr %33, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds float, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %wide.trip.count = and i64 %41, 2147483647
+  br label %50
 
-50:                                               ; preds = %35
+49:                                               ; preds = %34
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ18initialize_lambdasP8_IO_FILE26FreeEnergyPerturbationTypebRK8t_lambdaN3gmx8ArrayRefIKfEEP14gmx_ekindata_tbPiNS6_IfEEENK3$_0clEv", ptr noundef nonnull @.str.22, i32 noundef 474) #27
   unreachable
 
-51:                                               ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
-  %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ]
-  %52 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv42
-  %53 = load float, ptr %52, align 4, !tbaa !58
-  %54 = fcmp ogt float %53, 0.000000e+00
-  br i1 %54, label %55, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+50:                                               ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next39, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ]
+  %51 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv38
+  %52 = load float, ptr %51, align 4, !tbaa !58
+  %53 = fcmp ogt float %52, 0.000000e+00
+  br i1 %53, label %54, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-55:                                               ; preds = %51
-  %56 = load float, ptr %47, align 4, !tbaa !58
-  store float %56, ptr %52, align 4, !tbaa !58
-  %57 = load i32, ptr %48, align 8, !tbaa !493
-  %58 = icmp eq i32 %57, 2
-  %59 = icmp eq i64 %indvars.iv42, 0
-  %or.cond.i = and i1 %59, %58
-  br i1 %or.cond.i, label %60, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+54:                                               ; preds = %50
+  %55 = load float, ptr %46, align 4, !tbaa !58
+  store float %55, ptr %51, align 4, !tbaa !58
+  %56 = load i32, ptr %47, align 8, !tbaa !495
+  %57 = icmp eq i32 %56, 2
+  %58 = icmp eq i64 %indvars.iv38, 0
+  %or.cond.i = and i1 %58, %57
+  br i1 %or.cond.i, label %59, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-60:                                               ; preds = %55
-  store float %56, ptr %49, align 4, !tbaa !513
+59:                                               ; preds = %54
+  store float %55, ptr %48, align 4, !tbaa !515
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %60, %55, %51
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !514
+_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %59, %54, %50
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !516
 
 .loopexit:                                        ; preds = %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit, %.preheader, %.split34.us
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !515
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !517
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit, label %63
+  br i1 %.not.i, label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit, label %62
 
-63:                                               ; preds = %.loopexit
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #25
-  %.not1314.i = icmp eq ptr %62, %33
+62:                                               ; preds = %.loopexit
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #25
+  %.not1314.i = icmp eq ptr %61, %32
   br i1 %.not1314.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %63
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #25
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %62
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #25
   br label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit
 
-.lr.ph.i:                                         ; preds = %63, %.lr.ph.i
-  %.sroa.0.015.i = phi ptr [ %69, %.lr.ph.i ], [ %33, %63 ]
-  %66 = load float, ptr %.sroa.0.015.i, align 4, !tbaa !58
-  %67 = fpext float %66 to double
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, double noundef %67) #25
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 4
-  %.not13.i = icmp eq ptr %69, %62
+.lr.ph.i:                                         ; preds = %62, %.lr.ph.i
+  %.sroa.0.015.i = phi ptr [ %68, %.lr.ph.i ], [ %32, %62 ]
+  %65 = load float, ptr %.sroa.0.015.i, align 4, !tbaa !58
+  %66 = fpext float %65 to double
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, double noundef %66) #25
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 4
+  %.not13.i = icmp eq ptr %68, %61
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 _Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit: ; preds = %._crit_edge.i, %.loopexit, %10
@@ -12034,29 +12029,31 @@ attributes #30 = { nounwind willreturn memory(read) }
 !488 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypebLS1_7EEE", !7, i64 0}
 !489 = !{!"_ZTS16SeparateDhdlFile", !7, i64 0}
 !490 = !{!"_ZTS25DhDlDerivativeCalculation", !7, i64 0}
-!491 = !{!12, !13, i64 8}
-!492 = !{!12, !13, i64 0}
-!493 = !{!494, !411, i64 24}
-!494 = !{!"_ZTS14gmx_ekindata_t", !9, i64 0, !411, i64 24, !6, i64 28, !495, i64 32, !267, i64 56, !267, i64 64, !267, i64 72, !7, i64 80, !7, i64 116, !6, i64 152, !6, i64 156, !500, i64 160, !507, i64 168, !512, i64 192, !17, i64 204, !18, i64 208}
-!495 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !496, i64 0}
-!496 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !497, i64 0}
-!497 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !498, i64 0}
-!498 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !499, i64 0, !499, i64 8, !499, i64 16}
-!499 = !{!"p1 _ZTS12t_grp_tcstat", !14, i64 0}
-!500 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !501, i64 0}
-!501 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !502, i64 0}
-!502 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !503, i64 0}
-!503 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !504, i64 0}
-!504 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !505, i64 0}
-!505 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !506, i64 0}
-!506 = !{!"p1 _ZTS13SystemMomenta", !14, i64 0}
-!507 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !508, i64 0}
-!508 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !509, i64 0}
-!509 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !510, i64 0}
-!510 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !511, i64 0, !511, i64 8, !511, i64 16}
-!511 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !14, i64 0}
-!512 = !{!"_ZTS9t_cos_acc", !6, i64 0, !6, i64 4, !6, i64 8}
-!513 = !{!494, !6, i64 28}
-!514 = distinct !{!514, !52}
-!515 = !{!516, !13, i64 0}
-!516 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !13, i64 0}
+!491 = distinct !{!491, !492}
+!492 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!493 = !{!12, !13, i64 8}
+!494 = !{!12, !13, i64 0}
+!495 = !{!496, !411, i64 24}
+!496 = !{!"_ZTS14gmx_ekindata_t", !9, i64 0, !411, i64 24, !6, i64 28, !497, i64 32, !267, i64 56, !267, i64 64, !267, i64 72, !7, i64 80, !7, i64 116, !6, i64 152, !6, i64 156, !502, i64 160, !509, i64 168, !514, i64 192, !17, i64 204, !18, i64 208}
+!497 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !498, i64 0}
+!498 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !499, i64 0}
+!499 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !500, i64 0}
+!500 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !501, i64 0, !501, i64 8, !501, i64 16}
+!501 = !{!"p1 _ZTS12t_grp_tcstat", !14, i64 0}
+!502 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !503, i64 0}
+!503 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !504, i64 0}
+!504 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !505, i64 0}
+!505 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !506, i64 0}
+!506 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !507, i64 0}
+!507 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !508, i64 0}
+!508 = !{!"p1 _ZTS13SystemMomenta", !14, i64 0}
+!509 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !510, i64 0}
+!510 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !511, i64 0}
+!511 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !512, i64 0}
+!512 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !513, i64 0, !513, i64 8, !513, i64 16}
+!513 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !14, i64 0}
+!514 = !{!"_ZTS9t_cos_acc", !6, i64 0, !6, i64 4, !6, i64 8}
+!515 = !{!496, !6, i64 28}
+!516 = distinct !{!516, !52}
+!517 = !{!518, !13, i64 0}
+!518 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !13, i64 0}

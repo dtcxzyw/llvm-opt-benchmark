@@ -1405,7 +1405,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   call void %222(ptr noundef nonnull %10) #19
   %223 = add nuw i32 %.0320441.i, 1
   %exitcond550.not.i = icmp eq i32 %223, %.1312472.i
-  br i1 %exitcond550.not.i, label %._crit_edge445.i, label %.lr.ph444.split.i, !llvm.loop !49
+  br i1 %exitcond550.not.i, label %._crit_edge445.i, label %.lr.ph444.split.i, !llvm.loop !51
 
 ._crit_edge445.i:                                 ; preds = %._crit_edge439.us.i, %.lr.ph444.split.i, %._crit_edge434.i
   %.3.lcssa.i = phi i32 [ %.0280477.i, %._crit_edge434.i ], [ %.0280477.i, %.lr.ph444.split.i ], [ %.5.us.i, %._crit_edge439.us.i ]
@@ -1449,7 +1449,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %242 = add i64 %241, %.3334447.i
   %indvars.iv.next552.i = add nuw nsw i64 %indvars.iv551.i, 1
   %exitcond556.not.i = icmp eq i64 %indvars.iv.next552.i, %wide.trip.count541.i
-  br i1 %exitcond556.not.i, label %._crit_edge451.i, label %.lr.ph450.i, !llvm.loop !50
+  br i1 %exitcond556.not.i, label %._crit_edge451.i, label %.lr.ph450.i, !llvm.loop !52
 
 ._crit_edge451.i:                                 ; preds = %.lr.ph450.i, %237
   %.3334.lcssa.i = phi i64 [ 0, %237 ], [ %242, %.lr.ph450.i ]
@@ -1537,17 +1537,17 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %284 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %285 = load i64, ptr %284, align 8, !tbaa !43
   %286 = trunc i64 %285 to i32
-  %287 = call i32 %269(ptr noundef %281, ptr noundef %283, i32 noundef %286, i32 noundef %279, ptr noundef %7, i32 noundef range(i32 0, 65537) %8) #19, !callees !51
+  %287 = call i32 %269(ptr noundef %281, ptr noundef %283, i32 noundef %286, i32 noundef %279, ptr noundef %7, i32 noundef range(i32 0, 65537) %8) #19, !callees !53
   %288 = icmp slt i32 %287, 0
   br i1 %288, label %292, label %289
 
 289:                                              ; preds = %272
   %290 = zext nneg i32 %287 to i64
   %291 = getelementptr inbounds nuw i8, ptr %273, i64 48
-  store i64 %290, ptr %291, align 8, !tbaa !52
+  store i64 %290, ptr %291, align 8, !tbaa !54
   %indvars.iv.next558.i = add nuw nsw i64 %indvars.iv557.i, 1
   %exitcond562.not.i = icmp eq i64 %indvars.iv.next558.i, %wide.trip.count541.i
-  br i1 %exitcond562.not.i, label %.thread393.us.i, label %272, !llvm.loop !53
+  br i1 %exitcond562.not.i, label %.thread393.us.i, label %272, !llvm.loop !55
 
 292:                                              ; preds = %272
   %293 = trunc nuw i64 %indvars.iv557.i to i32
@@ -1567,7 +1567,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %.9.us.i = phi i32 [ 1, %298 ], [ 1, %292 ], [ %.7456.us.i, %289 ]
   %301 = add nuw i32 %.0299455.us.i, 1
   %exitcond563.not.i = icmp eq i32 %301, %.1316470.i
-  br i1 %exitcond563.not.i, label %._crit_edge457.i, label %.preheader.us.i, !llvm.loop !54
+  br i1 %exitcond563.not.i, label %._crit_edge457.i, label %.preheader.us.i, !llvm.loop !56
 
 ._crit_edge457.i:                                 ; preds = %.thread393.us.i, %266
   %.7.lcssa.i = phi i32 [ %.2.i, %266 ], [ %.9.us.i, %.thread393.us.i ]
@@ -1628,11 +1628,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv564.i = phi i64 [ %indvars.iv.next565.i, %.lr.ph462.i ], [ 0, %319 ]
   %.2330460.i = phi i64 [ %323, %.lr.ph462.i ], [ 0, %319 ]
   %321 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv564.i, i32 6
-  %322 = load i64, ptr %321, align 8, !tbaa !52
+  %322 = load i64, ptr %321, align 8, !tbaa !54
   %323 = add i64 %322, %.2330460.i
   %indvars.iv.next565.i = add nuw nsw i64 %indvars.iv564.i, 1
   %exitcond569.not.i = icmp eq i64 %indvars.iv.next565.i, %wide.trip.count541.i
-  br i1 %exitcond569.not.i, label %.loopexit.i, label %.lr.ph462.i, !llvm.loop !55
+  br i1 %exitcond569.not.i, label %.loopexit.i, label %.lr.ph462.i, !llvm.loop !57
 
 .loopexit.i:                                      ; preds = %.lr.ph462.i, %319
   %.1329.i = phi i64 [ %.0328467.mux.i, %319 ], [ %323, %.lr.ph462.i ]
@@ -1682,9 +1682,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 .lr.ph482.i:                                      ; preds = %350, %379
   %.0287480.i = phi i64 [ %380, %379 ], [ 0, %350 ]
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 %.0287480.i
-  %356 = load i8, ptr %355, align 1, !tbaa !56
+  %356 = load i8, ptr %355, align 1, !tbaa !58
   %357 = getelementptr inbounds nuw i8, ptr %69, i64 %.0287480.i
-  %358 = load i8, ptr %357, align 1, !tbaa !56
+  %358 = load i8, ptr %357, align 1, !tbaa !58
   %.not369.i = icmp eq i8 %356, %358
   br i1 %.not369.i, label %374, label %359
 
@@ -1706,7 +1706,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 367:                                              ; preds = %.lr.ph486.i
   %indvars.iv.next572.i = add nuw nsw i64 %indvars.iv571.i, 1
   %exitcond576.not.i = icmp eq i64 %indvars.iv.next572.i, %wide.trip.count541.i
-  br i1 %exitcond576.not.i, label %._crit_edge487.i, label %.lr.ph486.i, !llvm.loop !57
+  br i1 %exitcond576.not.i, label %._crit_edge487.i, label %.lr.ph486.i, !llvm.loop !59
 
 ._crit_edge487.loopexit.split.loop.exit.i:        ; preds = %.lr.ph486.i
   %368 = trunc nuw i64 %indvars.iv571.i to i32
@@ -1734,11 +1734,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 379:                                              ; preds = %376, %374
   %380 = add nuw nsw i64 %.0287480.i, 1
   %exitcond570.not.i = icmp eq i64 %380, %1
-  br i1 %exitcond570.not.i, label %.thread398.i, label %.lr.ph482.i, !llvm.loop !58
+  br i1 %exitcond570.not.i, label %.thread398.i, label %.lr.ph482.i, !llvm.loop !60
 
 381:                                              ; preds = %348, %345
   %382 = select i1 %.1340.i, i1 true, i1 %.1338.i
-  br i1 %382, label %172, label %.thread398.i, !llvm.loop !59
+  br i1 %382, label %172, label %.thread398.i, !llvm.loop !61
 
 .thread398.i:                                     ; preds = %381, %379, %._crit_edge487.i, %350
   %.1.i = phi i32 [ 1, %._crit_edge487.i ], [ 1, %350 ], [ 1, %379 ], [ %.6.i, %381 ]
@@ -1791,7 +1791,7 @@ BMK_benchMem.exit:                                ; preds = %388, %405
   %408 = or i32 %.1.i, %.02360
   %409 = add i32 %.02459, 1
   %exitcond.not = icmp eq i32 %.02459, %spec.select32
-  br i1 %exitcond.not, label %410, label %43, !llvm.loop !60
+  br i1 %exitcond.not, label %410, label %43, !llvm.loop !62
 
 410:                                              ; preds = %BMK_benchMem.exit
   ret i32 %408
@@ -1846,7 +1846,7 @@ define internal i32 @LZ4F_decompress_binding(ptr noundef %0, ptr noundef %1, i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @__const.LZ4F_decompress_binding.dOpt, i64 16, i1 false)
   %12 = load i32, ptr @g_skipChecksums, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !61
+  store i32 %12, ptr %13, align 4, !tbaa !63
   %14 = load ptr, ptr @g_dctx, align 8, !tbaa !33
   %15 = call i64 @LZ4F_decompress(ptr noundef %14, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %16 = icmp eq i64 %15, 0
@@ -1869,10 +1869,10 @@ declare i32 @LZ4_decompress_safe_usingDict(ptr noundef, ptr noundef, i32 noundef
 define internal void @LZ4_compressInitStream(ptr noundef captures(none) initializes((24, 56)) %0) #3 {
   %2 = tail call ptr @LZ4_createStream() #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %3, align 8, !tbaa !63
+  store ptr %2, ptr %3, align 8, !tbaa !65
   %4 = tail call ptr @LZ4_createStream() #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %5, align 8, !tbaa !64
+  store ptr %4, ptr %5, align 8, !tbaa !66
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1886,11 +1886,11 @@ define internal void @LZ4_compressInitStream(ptr noundef captures(none) initiali
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressResetStream(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   tail call void @LZ4_resetStream_fast(ptr noundef %3) #19
-  %4 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = load ptr, ptr %2, align 8, !tbaa !65
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
   tail call void @LZ4_attach_dictionary(ptr noundef %4, ptr noundef %6) #19
   ret void
 }
@@ -1902,13 +1902,13 @@ define internal i32 @LZ4_compressBlockStream(ptr noundef readonly captures(none)
   %8 = sub i32 1, %6
   %spec.select = select i1 %7, i32 %8, i32 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !63
+  %10 = load ptr, ptr %9, align 8, !tbaa !65
   tail call void @LZ4_resetStream_fast(ptr noundef %10) #19
-  %11 = load ptr, ptr %9, align 8, !tbaa !63
+  %11 = load ptr, ptr %9, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !66
   tail call void @LZ4_attach_dictionary(ptr noundef %11, ptr noundef %13) #19
-  %14 = load ptr, ptr %9, align 8, !tbaa !63
+  %14 = load ptr, ptr %9, align 8, !tbaa !65
   %15 = tail call i32 @LZ4_compress_fast_continue(ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select) #19
   ret i32 %15
 }
@@ -1916,10 +1916,10 @@ define internal i32 @LZ4_compressBlockStream(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressCleanupStream(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = tail call i32 @LZ4_freeStream(ptr noundef %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
   %7 = tail call i32 @LZ4_freeStream(ptr noundef %6) #19
   ret void
 }
@@ -1930,13 +1930,13 @@ define internal void @LZ4_compressInitStreamHC(ptr noundef captures(none) initia
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call ptr @LZ4_createStreamHC() #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %4, align 8, !tbaa !65
+  store ptr %3, ptr %4, align 8, !tbaa !67
   %5 = tail call ptr @LZ4_createStreamHC() #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %5, ptr %6, align 8, !tbaa !66
+  store ptr %5, ptr %6, align 8, !tbaa !68
   %7 = load i32, ptr %0, align 8, !tbaa !23
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %5, i32 noundef %7) #19
-  %8 = load ptr, ptr %6, align 8, !tbaa !66
+  %8 = load ptr, ptr %6, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1948,12 +1948,12 @@ define internal void @LZ4_compressInitStreamHC(ptr noundef captures(none) initia
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressResetStreamHC(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = load i32, ptr %0, align 8, !tbaa !23
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %3, i32 noundef %4) #19
-  %5 = load ptr, ptr %2, align 8, !tbaa !65
+  %5 = load ptr, ptr %2, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
   tail call void @LZ4_attach_HC_dictionary(ptr noundef %5, ptr noundef %7) #19
   ret void
 }
@@ -1961,14 +1961,14 @@ define internal void @LZ4_compressResetStreamHC(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define internal i32 @LZ4_compressBlockStreamHC(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = load i32, ptr %0, align 8, !tbaa !23
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %7, i32 noundef %8) #19
-  %9 = load ptr, ptr %6, align 8, !tbaa !65
+  %9 = load ptr, ptr %6, align 8, !tbaa !67
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !66
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   tail call void @LZ4_attach_HC_dictionary(ptr noundef %9, ptr noundef %11) #19
-  %12 = load ptr, ptr %6, align 8, !tbaa !65
+  %12 = load ptr, ptr %6, align 8, !tbaa !67
   %13 = tail call i32 @LZ4_compress_HC_continue(ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #19
   ret i32 %13
 }
@@ -1976,10 +1976,10 @@ define internal i32 @LZ4_compressBlockStreamHC(ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressCleanupStreamHC(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = tail call i32 @LZ4_freeStreamHC(ptr noundef %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !68
   %7 = tail call i32 @LZ4_freeStreamHC(ptr noundef %6) #19
   ret void
 }
@@ -2147,21 +2147,23 @@ attributes #22 = { nounwind willreturn memory(read) }
 !46 = !{!15, !12, i64 0}
 !47 = !{!15, !12, i64 8}
 !48 = distinct !{!48, !18}
-!49 = distinct !{!49, !18}
-!50 = distinct !{!50, !18}
-!51 = !{ptr @LZ4F_decompress_binding, ptr @LZ4_decompress_safe_usingDict}
-!52 = !{!36, !12, i64 48}
-!53 = distinct !{!53, !18}
-!54 = distinct !{!54, !18}
+!49 = distinct !{!49, !18, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !18}
+!52 = distinct !{!52, !18}
+!53 = !{ptr @LZ4F_decompress_binding, ptr @LZ4_decompress_safe_usingDict}
+!54 = !{!36, !12, i64 48}
 !55 = distinct !{!55, !18}
-!56 = !{!6, !6, i64 0}
+!56 = distinct !{!56, !18, !50}
 !57 = distinct !{!57, !18}
-!58 = distinct !{!58, !18}
+!58 = !{!6, !6, i64 0}
 !59 = distinct !{!59, !18}
 !60 = distinct !{!60, !18}
-!61 = !{!62, !5, i64 4}
-!62 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!63 = !{!24, !25, i64 24}
-!64 = !{!24, !25, i64 32}
-!65 = !{!24, !26, i64 40}
-!66 = !{!24, !26, i64 48}
+!61 = distinct !{!61, !18}
+!62 = distinct !{!62, !18}
+!63 = !{!64, !5, i64 4}
+!64 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!65 = !{!24, !25, i64 24}
+!66 = !{!24, !25, i64 32}
+!67 = !{!24, !26, i64 40}
+!68 = !{!24, !26, i64 48}

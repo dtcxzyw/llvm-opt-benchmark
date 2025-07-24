@@ -346,7 +346,7 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   %179 = getelementptr inbounds i8, ptr %.282.us131, i64 %178
   %180 = load i32, ptr %7, align 8, !tbaa !32
   %181 = icmp eq ptr %179, %80
-  br i1 %181, label %.thread, label %.split.split.us, !llvm.loop !51
+  br i1 %181, label %.thread, label %.split.split.us, !llvm.loop !53
 
 .split.split:                                     ; preds = %.split, %183
   %.184 = phi i32 [ %188, %183 ], [ %.083139, %.split ]
@@ -362,7 +362,7 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   %187 = getelementptr inbounds i8, ptr %.282, i64 %186
   %188 = load i32, ptr %7, align 8, !tbaa !32
   %189 = icmp eq ptr %187, %80
-  br i1 %189, label %.thread, label %.split.split, !llvm.loop !51
+  br i1 %189, label %.thread, label %.split.split, !llvm.loop !54
 
 .split127.us:                                     ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i32 [ %.184.us, %.split.us ], [ %.184.us130, %.split.split.us ], [ %.184, %.split.split ]
@@ -535,4 +535,7 @@ attributes #8 = { noreturn nounwind }
 !48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
 !50 = !{!5, !10, i64 116}
-!51 = distinct !{!51, !49}
+!51 = distinct !{!51, !49, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !49, !52}
+!54 = distinct !{!54, !49}

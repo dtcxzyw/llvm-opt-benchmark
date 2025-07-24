@@ -2862,7 +2862,7 @@ define internal fastcc zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) unname
 51:                                               ; preds = %44
   %52 = getelementptr i8, ptr %.1.pn, i64 2
   %53 = icmp eq i8 %36, 46
-  br i1 %53, label %.split, label %.loopexit, !llvm.loop !17
+  br i1 %53, label %.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %9, %30, %51, %.split36.us
   %.0 = phi i1 [ %50, %.split36.us ], [ false, %51 ], [ false, %30 ], [ false, %9 ], [ false, %21 ]
@@ -2939,7 +2939,7 @@ calculate_padding_len.exit:                       ; preds = %2, %7, %8, %9
 21:                                               ; preds = %.lr.ph
   %22 = add i32 %.02027, 1
   %exitcond.not = icmp eq i32 %22, %20
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %13, %21
   %.02027 = phi i32 [ %22, %21 ], [ %6, %13 ]
@@ -3156,7 +3156,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 30:                                               ; preds = %thread-pre-split, %9
   %31 = phi i8 [ %.pr, %thread-pre-split ], [ %10, %9 ]
   %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %30, %1
   %32 = tail call i32 @wmem_list_count(ptr noundef %2)
@@ -3223,7 +3223,7 @@ define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captu
   %spec.select.i = add i32 %.sink.i, %.01322.i
   %.012.i = load i8, ptr %.01623.i, align 1
   %.not.i = icmp eq i8 %.012.i, 0
-  br i1 %.not.i, label %skip_enclosed_container.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %skip_enclosed_container.exit, label %.lr.ph.i, !llvm.loop !22
 
 13:                                               ; preds = %2
   %.01220.i6 = load i8, ptr %3, align 1
@@ -3252,7 +3252,7 @@ define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captu
   %spec.select.i14 = add i32 %.sink.i13, %.01322.i11
   %.012.i15 = load i8, ptr %.01623.i12, align 1
   %.not.i16 = icmp eq i8 %.012.i15, 0
-  br i1 %.not.i16, label %skip_enclosed_container.exit, label %.lr.ph.i8, !llvm.loop !20
+  br i1 %.not.i16, label %skip_enclosed_container.exit, label %.lr.ph.i8, !llvm.loop !22
 
 skip_enclosed_container.exit.loopexit45:          ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   br label %skip_enclosed_container.exit
@@ -3385,11 +3385,11 @@ define internal i32 @get_dbus_message_len(ptr readnone captures(none) %0, ptr no
   %cond = icmp eq i8 %5, 108
   %tvb_get_letohl.tvb_get_ntohl = select i1 %cond, ptr @tvb_get_letohl, ptr @tvb_get_ntohl
   %6 = add i32 %2, 12
-  %7 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %6), !callees !21
+  %7 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %6), !callees !23
   %8 = add i32 %7, 23
   %9 = and i32 %8, -8
   %10 = add i32 %2, 4
-  %11 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %10), !callees !21
+  %11 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %10), !callees !23
   %12 = add i32 %9, %11
   ret i32 %12
 }
@@ -3443,8 +3443,10 @@ attributes #13 = { allocsize(1) }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = !{ptr @tvb_get_letohl, ptr @tvb_get_ntohl}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{ptr @tvb_get_letohl, ptr @tvb_get_ntohl}

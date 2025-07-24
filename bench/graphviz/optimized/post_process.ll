@@ -1901,7 +1901,7 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
   store double %252, ptr %gep382.i, align 8, !tbaa !25
   %indvars.iv.next334.i = add nuw nsw i64 %indvars.iv333.i, 1
   %exitcond337.not.i = icmp eq i64 %indvars.iv.next334.i, %wide.trip.count326.i
-  br i1 %exitcond337.not.i, label %._crit_edge.us279.i, label %250, !llvm.loop !76
+  br i1 %exitcond337.not.i, label %._crit_edge.us279.i, label %250, !llvm.loop !77
 
 .lr.ph272.us.i:                                   ; preds = %.lr.ph276.split.us.i
   %253 = sext i32 %244 to i64
@@ -1928,12 +1928,12 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
   store double %261, ptr %gep380.i, align 8, !tbaa !25
   %indvars.iv.next324.i = add nuw nsw i64 %indvars.iv323.i, 1
   %exitcond327.not.i = icmp eq i64 %indvars.iv.next324.i, %wide.trip.count326.i
-  br i1 %exitcond327.not.i, label %._crit_edge.us.us.i, label %258, !llvm.loop !77
+  br i1 %exitcond327.not.i, label %._crit_edge.us.us.i, label %258, !llvm.loop !78
 
 ._crit_edge.us.us.i:                              ; preds = %258
   %indvars.iv.next329.i = add nsw i64 %indvars.iv328.i, 1
   %exitcond332.not.i = icmp eq i64 %indvars.iv.next329.i, %wide.trip.count331.i
-  br i1 %exitcond332.not.i, label %.lr.ph.us278.i, label %.lr.ph.us.us.i, !llvm.loop !78
+  br i1 %exitcond332.not.i, label %.lr.ph.us278.i, label %.lr.ph.us.us.i, !llvm.loop !79
 
 .lr.ph.us278.i:                                   ; preds = %._crit_edge.us.us.i, %.lr.ph276.split.us.i
   %262 = sub nsw i32 %246, %244
@@ -1964,7 +1964,7 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
   %279 = getelementptr inbounds nuw double, ptr %.1.i, i64 %indvars.iv316.i
   store double %278, ptr %279, align 8, !tbaa !25
   %exitcond322.not.i = icmp eq i64 %indvars.iv.next317.i, %wide.trip.count343.i
-  br i1 %exitcond322.not.i, label %._crit_edge277.i, label %.lr.ph276.split.i, !llvm.loop !75
+  br i1 %exitcond322.not.i, label %._crit_edge277.i, label %.lr.ph276.split.i, !llvm.loop !80
 
 ._crit_edge277.i:                                 ; preds = %.lr.ph276.split.i, %._crit_edge.us279.i, %gv_calloc.exit263.i
   %.6.lcssa.i = phi i32 [ 0, %gv_calloc.exit263.i ], [ %42, %._crit_edge.us279.i ], [ %42, %.lr.ph276.split.i ]
@@ -2079,7 +2079,7 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   store double %326, ptr %324, align 8, !tbaa !25
   %327 = add nuw nsw i32 %.0151203.us, 1
   %exitcond.not = icmp eq i32 %327, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %316, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge.us, label %316, !llvm.loop !81
 
 328:                                              ; preds = %303, %313
   %.sink = phi double [ %315, %313 ], [ 0.000000e+00, %303 ]
@@ -2096,7 +2096,7 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
   %333 = sext i32 %332 to i64
   %334 = icmp slt i64 %indvars.iv.next239, %333
-  br i1 %334, label %.lr.ph208.split.us, label %._crit_edge209, !llvm.loop !80
+  br i1 %334, label %.lr.ph208.split.us, label %._crit_edge209, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %316
   %335 = tail call double @distance(ptr noundef nonnull %2, i32 noundef %1, i32 noundef %296, i32 noundef %320) #16
@@ -2153,7 +2153,7 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %360 = sext i32 %359 to i64
   %361 = icmp slt i64 %indvars.iv.next, %360
-  br i1 %361, label %.lr.ph208.split, label %._crit_edge209, !llvm.loop !80
+  br i1 %361, label %.lr.ph208.split, label %._crit_edge209, !llvm.loop !83
 
 ._crit_edge209:                                   ; preds = %358, %331, %.lr.ph
   %362 = phi i32 [ %293, %.lr.ph ], [ %332, %331 ], [ %359, %358 ]
@@ -2164,7 +2164,7 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   %365 = getelementptr inbounds double, ptr %30, i64 %364
   store double %363, ptr %365, align 8, !tbaa !25
   %exitcond244.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count41.i
-  br i1 %exitcond244.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond244.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %._crit_edge209
   tail call void @SparseMatrix_multiply_dense(ptr noundef %11, ptr noundef %2, ptr noundef nonnull %21, i32 noundef %1) #16
@@ -2191,12 +2191,12 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   store double %374, ptr %372, align 8, !tbaa !25
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %289
-  br i1 %exitcond249.not, label %._crit_edge217.us, label %368, !llvm.loop !82
+  br i1 %exitcond249.not, label %._crit_edge217.us, label %368, !llvm.loop !85
 
 ._crit_edge217.us:                                ; preds = %368
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count41.i
-  br i1 %exitcond254.not, label %.loopexit195, label %.preheader192.us, !llvm.loop !83
+  br i1 %exitcond254.not, label %.loopexit195, label %.preheader192.us, !llvm.loop !86
 
 .loopexit195:                                     ; preds = %._crit_edge217.us, %._crit_edge
   %375 = load i32, ptr %33, align 8, !tbaa !60
@@ -2223,12 +2223,12 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   store double %383, ptr %381, align 8, !tbaa !25
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %289
-  br i1 %exitcond259.not, label %._crit_edge221.us, label %377, !llvm.loop !84
+  br i1 %exitcond259.not, label %._crit_edge221.us, label %377, !llvm.loop !87
 
 ._crit_edge221.us:                                ; preds = %377
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count41.i
-  br i1 %exitcond264.not, label %.loopexit, label %.preheader.us, !llvm.loop !85
+  br i1 %exitcond264.not, label %.loopexit, label %.preheader.us, !llvm.loop !88
 
 .loopexit.thread:                                 ; preds = %.preheader192.lr.ph, %.preheader.lr.ph, %.loopexit195.thread
   %384 = load double, ptr %287, align 8, !tbaa !21
@@ -2260,14 +2260,14 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   %398 = tail call double @llvm.fmuladd.f64(double %397, double %397, double %.02629.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %289
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %391, !llvm.loop !86
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %391, !llvm.loop !89
 
 ._crit_edge.us.i:                                 ; preds = %391
   %399 = tail call double @sqrt(double noundef %398) #16, !tbaa !22
   %400 = fadd double %.02731.us.i, %399
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %total_distance.exit, label %.preheader.us.i, !llvm.loop !87
+  br i1 %exitcond42.not.i, label %total_distance.exit, label %.preheader.us.i, !llvm.loop !90
 
 total_distance.exit:                              ; preds = %._crit_edge.us.i, %.loopexit.thread, %.loopexit
   %.027.lcssa.i = phi double [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.loopexit.thread ], [ %400, %._crit_edge.us.i ]
@@ -2279,7 +2279,7 @@ total_distance.exit:                              ; preds = %._crit_edge.us.i, %
   %405 = icmp slt i32 %290, %3
   %406 = fcmp ogt double %403, 1.000000e-03
   %407 = select i1 %405, i1 %406, i1 false
-  br i1 %407, label %.preheader196, label %._crit_edge223, !llvm.loop !88
+  br i1 %407, label %.preheader196, label %._crit_edge223, !llvm.loop !91
 
 ._crit_edge223:                                   ; preds = %total_distance.exit, %get_edge_label_matrix.exit.thread
   %.1144.lcssa = phi double [ 1.000000e+00, %get_edge_label_matrix.exit.thread ], [ %403, %total_distance.exit ]
@@ -2410,7 +2410,7 @@ gv_calloc.exit:                                   ; preds = %4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
+  br i1 %45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !92
 
 ._crit_edge.loopexit:                             ; preds = %41
   %46 = sitofp i32 %.1142 to double
@@ -2422,7 +2422,7 @@ gv_calloc.exit:                                   ; preds = %4
   %49 = phi double [ 0x7FF8000000000000, %.lr.ph160 ], [ %47, %._crit_edge.loopexit ]
   store double %49, ptr %24, align 8, !tbaa !25
   %exitcond.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !93
 
 ._crit_edge161:                                   ; preds = %._crit_edge, %gv_calloc.exit
   %50 = phi ptr [ %22, %gv_calloc.exit ], [ %16, %._crit_edge ]
@@ -2608,7 +2608,7 @@ TriangleSmoother_delete.exit:                     ; preds = %95, %94
   %indvars.iv.next194 = add nsw i64 %indvars.iv193, 1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next194, %133
-  br i1 %134, label %.lr.ph169, label %._crit_edge170.loopexit, !llvm.loop !91
+  br i1 %134, label %.lr.ph169, label %._crit_edge170.loopexit, !llvm.loop !94
 
 ._crit_edge170.loopexit:                          ; preds = %131
   %135 = sext i32 %.1136 to i64
@@ -2633,7 +2633,7 @@ TriangleSmoother_delete.exit:                     ; preds = %95, %94
   %144 = getelementptr inbounds double, ptr %104, i64 %.0135.lcssa
   store double %143, ptr %144, align 8, !tbaa !25
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge182.loopexit, label %.lr.ph181, !llvm.loop !92
+  br i1 %exitcond200.not, label %._crit_edge182.loopexit, label %.lr.ph181, !llvm.loop !95
 
 ._crit_edge182.loopexit:                          ; preds = %._crit_edge170
   %145 = fdiv double %.1133.lcssa, %.1130.lcssa
@@ -2658,7 +2658,7 @@ TriangleSmoother_delete.exit:                     ; preds = %95, %94
   store double %152, ptr %150, align 8, !tbaa !25
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge188, label %.lr.ph187, !llvm.loop !93
+  br i1 %exitcond205.not, label %._crit_edge188, label %.lr.ph187, !llvm.loop !96
 
 ._crit_edge188:                                   ; preds = %.lr.ph187, %._crit_edge182
   store double %146, ptr %56, align 8, !tbaa !16
@@ -2841,7 +2841,7 @@ gv_calloc.exit:                                   ; preds = %23
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !94
+  br i1 %60, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !97
 
 ._crit_edge.loopexit:                             ; preds = %56
   %61 = sitofp i32 %.1198 to double
@@ -2853,7 +2853,7 @@ gv_calloc.exit:                                   ; preds = %23
   %64 = phi double [ 0x7FF8000000000000, %.lr.ph229 ], [ %62, %._crit_edge.loopexit ]
   store double %64, ptr %39, align 8, !tbaa !25
   %exitcond.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph251.preheader, label %.lr.ph229, !llvm.loop !95
+  br i1 %exitcond.not, label %.lr.ph251.preheader, label %.lr.ph229, !llvm.loop !98
 
 .lr.ph251.preheader:                              ; preds = %._crit_edge
   %65 = zext nneg i32 %5 to i64
@@ -2866,7 +2866,7 @@ gv_calloc.exit:                                   ; preds = %23
 .loopexit:                                        ; preds = %._crit_edge243, %.lr.ph251
   %.5.lcssa = phi i32 [ %.2199249, %.lr.ph251 ], [ %.6.lcssa, %._crit_edge243 ]
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
-  br i1 %exitcond308.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !96
+  br i1 %exitcond308.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !99
 
 .lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.loopexit
   %67 = phi i32 [ %.pre324, %.lr.ph251.preheader ], [ %71, %.loopexit ]
@@ -2912,7 +2912,7 @@ gv_calloc.exit:                                   ; preds = %23
   %.4201 = phi i32 [ %82, %81 ], [ %.3200232, %.lr.ph235 ]
   %indvars.iv.next290 = add nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
-  br i1 %exitcond293.not, label %.lr.ph247.preheader, label %.lr.ph235, !llvm.loop !97
+  br i1 %exitcond293.not, label %.lr.ph247.preheader, label %.lr.ph235, !llvm.loop !100
 
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %._crit_edge243
   %indvars.iv299 = phi i64 [ %74, %.lr.ph247.preheader ], [ %indvars.iv.next300, %._crit_edge243 ]
@@ -2953,20 +2953,20 @@ gv_calloc.exit:                                   ; preds = %23
   %.7 = phi i32 [ %100, %99 ], [ %.6239, %.lr.ph242 ]
   %indvars.iv.next295 = add nsw i64 %indvars.iv294, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
-  br i1 %exitcond298.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !98
+  br i1 %exitcond298.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !101
 
 ._crit_edge243:                                   ; preds = %101, %.lr.ph247
   %.6.lcssa = phi i32 [ %.5245, %.lr.ph247 ], [ %.7, %101 ]
   %indvars.iv.next300 = add nsw i64 %indvars.iv299, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count302
-  br i1 %exitcond303.not, label %.loopexit, label %.lr.ph247, !llvm.loop !99
+  br i1 %exitcond303.not, label %.loopexit, label %.lr.ph247, !llvm.loop !102
 
 ._crit_edge252:                                   ; preds = %.loopexit, %.preheader219.thread
   %102 = phi ptr [ %37, %.preheader219.thread ], [ %30, %.loopexit ]
   %103 = phi ptr [ %36, %.preheader219.thread ], [ %24, %.loopexit ]
   %.2199.lcssa = phi i32 [ 0, %.preheader219.thread ], [ %.5.lcssa, %.loopexit ]
   %104 = tail call ptr @SparseMatrix_new(i32 noundef %5, i32 noundef %5, i32 noundef %.2199.lcssa, i32 noundef 1, i32 noundef 0) #16
-  store ptr %104, ptr %13, align 8, !tbaa !100
+  store ptr %104, ptr %13, align 8, !tbaa !103
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %SpringSmoother_delete.exit, label %105
 
@@ -3042,7 +3042,7 @@ gv_calloc.exit:                                   ; preds = %23
   %indvars.iv.next310 = add nsw i64 %indvars.iv309, 1
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next310, %145
-  br i1 %146, label %123, label %._crit_edge259.loopexit, !llvm.loop !103
+  br i1 %146, label %123, label %._crit_edge259.loopexit, !llvm.loop !106
 
 ._crit_edge259.loopexit:                          ; preds = %143
   %.pre326 = load i32, ptr %116, align 4, !tbaa !22
@@ -3124,7 +3124,7 @@ gv_calloc.exit:                                   ; preds = %23
   %indvars.iv.next313 = add nsw i64 %indvars.iv312, 1
   %193 = sext i32 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next313, %193
-  br i1 %194, label %165, label %._crit_edge268.loopexit, !llvm.loop !104
+  br i1 %194, label %165, label %._crit_edge268.loopexit, !llvm.loop !107
 
 ._crit_edge268.loopexit:                          ; preds = %191
   %.pre328 = load i32, ptr %118, align 4, !tbaa !22
@@ -3136,14 +3136,14 @@ gv_calloc.exit:                                   ; preds = %23
   %indvars.iv.next316 = add nsw i64 %indvars.iv315, 1
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next316, %196
-  br i1 %197, label %152, label %._crit_edge274, !llvm.loop !105
+  br i1 %197, label %152, label %._crit_edge274, !llvm.loop !108
 
 ._crit_edge274:                                   ; preds = %._crit_edge268, %._crit_edge259
   %.11.lcssa = phi i32 [ %.9.lcssa, %._crit_edge259 ], [ %.12.lcssa, %._crit_edge268 ]
   %198 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv.next319
   store i32 %.11.lcssa, ptr %198, align 4, !tbaa !22
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %112
-  br i1 %exitcond322.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !106
+  br i1 %exitcond322.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !109
 
 ._crit_edge280:                                   ; preds = %._crit_edge274, %105
   %.8.lcssa = phi i32 [ 0, %105 ], [ %.11.lcssa, %._crit_edge274 ]
@@ -3151,20 +3151,20 @@ gv_calloc.exit:                                   ; preds = %23
   store i32 %.8.lcssa, ptr %199, align 8, !tbaa !42
   %200 = tail call ptr @spring_electrical_control_new() #16
   %201 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %200, ptr %201, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %200, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !108
+  store ptr %200, ptr %201, align 8, !tbaa !110
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %200, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !111
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 44
   %203 = load i8, ptr %202, align 4
   %204 = and i8 %203, -2
   store i8 %204, ptr %202, align 4
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 1, ptr %205, align 8, !tbaa !111
+  store i32 1, ptr %205, align 8, !tbaa !114
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 32
-  %207 = load double, ptr %206, align 8, !tbaa !113
+  %207 = load double, ptr %206, align 8, !tbaa !116
   %208 = fmul double %207, 5.000000e-01
-  store double %208, ptr %206, align 8, !tbaa !113
+  store double %208, ptr %206, align 8, !tbaa !116
   %209 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  store i32 20, ptr %209, align 8, !tbaa !114
+  store i32 20, ptr %209, align 8, !tbaa !117
   tail call void @free(ptr noundef %103) #16
   tail call void @free(ptr noundef %102) #16
   tail call void @SparseMatrix_delete(ptr noundef %10) #16
@@ -3181,7 +3181,7 @@ define void @SpringSmoother_delete(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !100
+  %3 = load ptr, ptr %0, align 8, !tbaa !103
   %.not7 = icmp eq ptr %3, null
   br i1 %.not7, label %5, label %4
 
@@ -3191,7 +3191,7 @@ define void @SpringSmoother_delete(ptr noundef readonly captures(address_is_null
 
 5:                                                ; preds = %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !107
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %9, label %8
 
@@ -3212,9 +3212,9 @@ define void @SpringSmoother_smooth(ptr noundef readonly captures(none) %0, ptr n
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !tbaa !22
-  %6 = load ptr, ptr %0, align 8, !tbaa !100
+  %6 = load ptr, ptr %0, align 8, !tbaa !103
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !107
+  %8 = load ptr, ptr %7, align 8, !tbaa !110
   call void @spring_electrical_spring_embedding(i32 noundef %2, ptr noundef %1, ptr noundef %6, ptr noundef %8, ptr noundef %3, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   ret void
@@ -3226,7 +3226,7 @@ declare void @spring_electrical_spring_embedding(i32 noundef, ptr noundef, ptr n
 define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !115
+  %7 = load i32, ptr %6, align 8, !tbaa !118
   switch i32 %7, label %TriangleSmoother_delete.exit [
     i32 6, label %8
     i32 5, label %8
@@ -3340,9 +3340,9 @@ define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr noundef 
   %53 = tail call ptr @SpringSmoother_new(ptr noundef %1, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !tbaa !22
-  %54 = load ptr, ptr %53, align 8, !tbaa !100
+  %54 = load ptr, ptr %53, align 8, !tbaa !103
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !107
+  %56 = load ptr, ptr %55, align 8, !tbaa !110
   call void @spring_electrical_spring_embedding(i32 noundef %0, ptr noundef %1, ptr noundef %54, ptr noundef %56, ptr noundef %3, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   %.not7.i = icmp eq ptr %54, null
@@ -3472,22 +3472,22 @@ attributes #18 = { cold noreturn nounwind }
 !72 = distinct !{!72, !27}
 !73 = distinct !{!73, !27}
 !74 = distinct !{!74, !27}
-!75 = distinct !{!75, !27}
-!76 = distinct !{!76, !27}
+!75 = distinct !{!75, !27, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !77 = distinct !{!77, !27}
 !78 = distinct !{!78, !27}
-!79 = distinct !{!79, !27}
+!79 = distinct !{!79, !27, !76}
 !80 = distinct !{!80, !27}
 !81 = distinct !{!81, !27}
-!82 = distinct !{!82, !27}
+!82 = distinct !{!82, !27, !76}
 !83 = distinct !{!83, !27}
 !84 = distinct !{!84, !27}
 !85 = distinct !{!85, !27}
-!86 = distinct !{!86, !27}
+!86 = distinct !{!86, !27, !76}
 !87 = distinct !{!87, !27}
-!88 = distinct !{!88, !27}
+!88 = distinct !{!88, !27, !76}
 !89 = distinct !{!89, !27}
-!90 = distinct !{!90, !27}
+!90 = distinct !{!90, !27, !76}
 !91 = distinct !{!91, !27}
 !92 = distinct !{!92, !27}
 !93 = distinct !{!93, !27}
@@ -3497,19 +3497,22 @@ attributes #18 = { cold noreturn nounwind }
 !97 = distinct !{!97, !27}
 !98 = distinct !{!98, !27}
 !99 = distinct !{!99, !27}
-!100 = !{!101, !18, i64 0}
-!101 = !{!"SpringSmoother_struct", !18, i64 0, !102, i64 8}
-!102 = !{!"p1 _ZTS32spring_electrical_control_struct", !9, i64 0}
-!103 = distinct !{!103, !27}
-!104 = distinct !{!104, !27}
-!105 = distinct !{!105, !27}
+!100 = distinct !{!100, !27}
+!101 = distinct !{!101, !27}
+!102 = distinct !{!102, !27}
+!103 = !{!104, !18, i64 0}
+!104 = !{!"SpringSmoother_struct", !18, i64 0, !105, i64 8}
+!105 = !{!"p1 _ZTS32spring_electrical_control_struct", !9, i64 0}
 !106 = distinct !{!106, !27}
-!107 = !{!101, !102, i64 8}
-!108 = !{i64 0, i64 8, !25, i64 8, i64 8, !25, i64 16, i64 4, !22, i64 20, i64 4, !22, i64 24, i64 4, !22, i64 32, i64 8, !25, i64 40, i64 4, !22, i64 44, i64 1, !109, i64 48, i64 4, !22, i64 52, i64 4, !22, i64 56, i64 1, !110, i64 60, i64 4, !22, i64 64, i64 8, !25, i64 72, i64 8, !25, i64 80, i64 4, !22}
-!109 = !{!6, !6, i64 0}
-!110 = !{!10, !10, i64 0}
-!111 = !{!112, !5, i64 16}
-!112 = !{!"spring_electrical_control_struct", !20, i64 0, !20, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !20, i64 32, !5, i64 40, !10, i64 44, !10, i64 44, !10, i64 44, !5, i64 48, !5, i64 52, !10, i64 56, !5, i64 60, !20, i64 64, !20, i64 72, !5, i64 80}
-!113 = !{!112, !20, i64 32}
-!114 = !{!112, !5, i64 24}
-!115 = !{!112, !5, i64 48}
+!107 = distinct !{!107, !27}
+!108 = distinct !{!108, !27}
+!109 = distinct !{!109, !27}
+!110 = !{!104, !105, i64 8}
+!111 = !{i64 0, i64 8, !25, i64 8, i64 8, !25, i64 16, i64 4, !22, i64 20, i64 4, !22, i64 24, i64 4, !22, i64 32, i64 8, !25, i64 40, i64 4, !22, i64 44, i64 1, !112, i64 48, i64 4, !22, i64 52, i64 4, !22, i64 56, i64 1, !113, i64 60, i64 4, !22, i64 64, i64 8, !25, i64 72, i64 8, !25, i64 80, i64 4, !22}
+!112 = !{!6, !6, i64 0}
+!113 = !{!10, !10, i64 0}
+!114 = !{!115, !5, i64 16}
+!115 = !{!"spring_electrical_control_struct", !20, i64 0, !20, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !20, i64 32, !5, i64 40, !10, i64 44, !10, i64 44, !10, i64 44, !5, i64 48, !5, i64 52, !10, i64 56, !5, i64 60, !20, i64 64, !20, i64 72, !5, i64 80}
+!116 = !{!115, !20, i64 32}
+!117 = !{!115, !5, i64 24}
+!118 = !{!115, !5, i64 48}

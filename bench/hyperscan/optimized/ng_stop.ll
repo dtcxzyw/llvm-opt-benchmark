@@ -175,7 +175,7 @@ thread-pre-split.us:                              ; preds = %_ZNKSt6vectorIN3ue2
   %76 = phi i64 [ %33, %thread-pre-split.us ], [ %65, %63 ], [ %33, %.lr.ph.split.us ]
   %.sroa.035.0.us = load ptr, ptr %.sroa.035.053.us, align 8
   %.not.us = icmp eq ptr %.sroa.035.0.us, %20
-  br i1 %.not.us, label %..preheader_crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %..preheader_crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .split83.us:                                      ; preds = %62
   %77 = landingpad { ptr, i32 }
@@ -623,7 +623,7 @@ thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN3ue2
   store i64 %80, ptr %78, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %66, %29
   %.sroa.077.0 = load ptr, ptr %.sroa.077.0101, align 8
@@ -655,9 +655,9 @@ thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN3ue2
 89:                                               ; preds = %89, %87
   %.0.idx9.i.i.i = phi i64 [ 0, %87 ], [ %.0.add.i.i.i, %89 ]
   %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.0.idx9.i.i.i
-  %90 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !7
+  %90 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !9
   %91 = xor i64 %90, -1
-  store i64 %91, ptr %.0.ptr.i.i.i, align 8, !alias.scope !7
+  store i64 %91, ptr %.0.ptr.i.i.i, align 8, !alias.scope !9
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx9.i.i.i, 8
   %.not.i.i.i58 = icmp eq i64 %.0.add.i.i.i, 32
   br i1 %.not.i.i.i58, label %_ZNK3ue29CharReachcoEv.exit, label %89
@@ -677,7 +677,7 @@ _ZNK3ue29CharReachcoEv.exit:                      ; preds = %89
 97:                                               ; preds = %94
   %98 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %98, 4
-  br i1 %exitcond.i.i, label %._crit_edge106, label %94, !llvm.loop !10
+  br i1 %exitcond.i.i, label %._crit_edge106, label %94, !llvm.loop !12
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   %99 = shl nuw nsw i64 %.0710.i.i, 6
@@ -699,7 +699,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 8
-  br i1 %exitcond121.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %87, !llvm.loop !11
+  br i1 %exitcond121.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %87, !llvm.loop !13
 
 .lr.ph147:                                        ; preds = %.lr.ph105, %_ZNK3ue29CharReach9find_nextEm.exit
   %.0104146 = phi i64 [ %123, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %101, %.lr.ph105 ]
@@ -733,7 +733,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   %118 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0.i.i
   %119 = load i64, ptr %118, align 8
   %.not22.i.i = icmp eq i64 %119, 0
-  br i1 %.not22.i.i, label %115, label %120, !llvm.loop !12
+  br i1 %.not22.i.i, label %115, label %120, !llvm.loop !14
 
 120:                                              ; preds = %117
   %121 = shl nuw nsw i64 %.0.i.i, 6
@@ -813,9 +813,9 @@ define hidden void @_ZN3ue226findLeftOffsetStopAlphabetERKNS_11CastleProtoENS_8s
 7:                                                ; preds = %7, %3
   %.0.idx9.i.i.i = phi i64 [ 0, %3 ], [ %.0.add.i.i.i, %7 ]
   %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx9.i.i.i
-  %8 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !13
+  %8 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !15
   %9 = xor i64 %8, -1
-  store i64 %9, ptr %.0.ptr.i.i.i, align 8, !alias.scope !13
+  store i64 %9, ptr %.0.ptr.i.i.i, align 8, !alias.scope !15
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx9.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 32
   br i1 %.not.i.i.i, label %_ZNK3ue25depthcvjEv.exit, label %7
@@ -845,7 +845,7 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %7
 19:                                               ; preds = %16
   %20 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %20, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %16, !llvm.loop !10
+  br i1 %exitcond.i.i, label %._crit_edge, label %16, !llvm.loop !12
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   %21 = shl nuw nsw i64 %.0710.i.i, 6
@@ -894,7 +894,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   %39 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.0.i.i
   %40 = load i64, ptr %39, align 8
   %.not22.i.i = icmp eq i64 %40, 0
-  br i1 %.not22.i.i, label %36, label %41, !llvm.loop !12
+  br i1 %.not22.i.i, label %36, label %41, !llvm.loop !14
 
 41:                                               ; preds = %38
   %42 = shl nuw nsw i64 %.0.i.i, 6
@@ -958,7 +958,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_desc
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1004,14 +1004,16 @@ attributes #18 = { builtin allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK3ue29CharReachcoEv: argument 0"}
-!9 = distinct !{!9, !"_ZNK3ue29CharReachcoEv"}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK3ue29CharReachcoEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK3ue29CharReachcoEv"}
-!16 = distinct !{!16, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK3ue29CharReachcoEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK3ue29CharReachcoEv"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK3ue29CharReachcoEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK3ue29CharReachcoEv"}
+!18 = distinct !{!18, !8}

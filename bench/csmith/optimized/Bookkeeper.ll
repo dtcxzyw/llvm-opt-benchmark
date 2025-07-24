@@ -2718,7 +2718,7 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink24, align 4, !tbaa !12
   %43 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %.015, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !156
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %40, %31, %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
   ret void
@@ -2883,7 +2883,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17: ; preds = %74
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 2
   %91 = icmp ult i64 %84, %90
-  br i1 %91, label %45, label %._crit_edge, !llvm.loop !157
+  br i1 %91, label %45, label %._crit_edge, !llvm.loop !159
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3067,7 +3067,7 @@ define dso_local void @_ZN10Bookkeeper26record_type_with_bitfieldsEPK4Type(ptr n
 
 31:                                               ; preds = %28, %21
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #19
-  %32 = load ptr, ptr %18, align 8, !tbaa !158
+  %32 = load ptr, ptr %18, align 8, !tbaa !160
   %33 = getelementptr inbounds nuw %class.CVQualifiers, ptr %32, i64 %.013
   call void @_ZN12CVQualifiersC1ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %33)
   %34 = invoke noundef zeroext i1 @_ZNK12CVQualifiers20is_const_after_derefEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 0)
@@ -3110,7 +3110,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %40
 46:                                               ; preds = %19, %45
   %47 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !159
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !161
 
 .loopexit:                                        ; preds = %46, %7, %1, %5
   ret void
@@ -3474,7 +3474,9 @@ attributes #21 = { builtin allocsize(0) }
 !153 = !{!154, !155, i64 8}
 !154 = !{!"_ZTS10Expression", !155, i64 8, !13, i64 12, !52, i64 16}
 !155 = !{!"_ZTS9eTermType", !8, i64 0}
-!156 = distinct !{!156, !33}
-!157 = distinct !{!157, !33}
-!158 = !{!130, !131, i64 0}
+!156 = distinct !{!156, !33, !157}
+!157 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!158 = distinct !{!158, !33}
 !159 = distinct !{!159, !33}
+!160 = !{!130, !131, i64 0}
+!161 = distinct !{!161, !33}

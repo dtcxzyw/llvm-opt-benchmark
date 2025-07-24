@@ -1714,7 +1714,7 @@ HIDAPI_IsEquivalentToDevice.exit.us48:            ; preds = %64, %.lr.ph.split.s
   %66 = getelementptr inbounds nuw i8, ptr %.01729.us46, i64 184
   %.017.us49 = load ptr, ptr %66, align 8
   %.not21.us50.not = icmp eq ptr %.017.us49, null
-  br i1 %.not21.us50.not, label %HIDAPI_IsEquivalentToDevice.exit.thread, label %.lr.ph.split.split.us, !llvm.loop !31
+  br i1 %.not21.us50.not, label %HIDAPI_IsEquivalentToDevice.exit.thread, label %.lr.ph.split.split.us, !llvm.loop !33
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %HIDAPI_IsEquivalentToDevice.exit
   %.01729 = phi ptr [ %.017, %HIDAPI_IsEquivalentToDevice.exit ], [ %.01727, %.lr.ph.split ]
@@ -1739,7 +1739,7 @@ HIDAPI_IsEquivalentToDevice.exit:                 ; preds = %69, %73, %.lr.ph.sp
   %77 = getelementptr inbounds nuw i8, ptr %.01729, i64 184
   %.017 = load ptr, ptr %77, align 8
   %.not21.not = icmp eq ptr %.017, null
-  br i1 %.not21.not, label %HIDAPI_IsEquivalentToDevice.exit.thread, label %.lr.ph.split.split, !llvm.loop !31
+  br i1 %.not21.not, label %HIDAPI_IsEquivalentToDevice.exit.thread, label %.lr.ph.split.split, !llvm.loop !34
 
 HIDAPI_IsEquivalentToDevice.exit.thread:          ; preds = %HIDAPI_IsEquivalentToDevice.exit, %73, %HIDAPI_IsEquivalentToDevice.exit.us48, %60, %64, %HIDAPI_IsEquivalentToDevice.exit.us, %34, %43, %39, %47, %26
   %.not21.lcssa = phi i1 [ false, %26 ], [ true, %47 ], [ true, %39 ], [ true, %43 ], [ true, %34 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us ], [ true, %64 ], [ true, %60 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us48 ], [ true, %73 ], [ false, %HIDAPI_IsEquivalentToDevice.exit ]
@@ -1787,7 +1787,7 @@ define hidden noalias ptr @HIDAPI_GetDeviceProductName(i16 noundef zeroext %0, i
   %16 = getelementptr inbounds nuw i8, ptr %.0814, i64 184
   %.08 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %15, %2, %10, %13
   %.0 = phi ptr [ %14, %13 ], [ null, %10 ], [ null, %2 ], [ null, %15 ]
@@ -1829,7 +1829,7 @@ define hidden noalias ptr @HIDAPI_GetDeviceManufacturerName(i16 noundef zeroext 
   %16 = getelementptr inbounds nuw i8, ptr %.0814, i64 184
   %.08 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %15, %2, %10, %13
   %.0 = phi ptr [ %14, %13 ], [ null, %10 ], [ null, %2 ], [ null, %15 ]
@@ -1864,7 +1864,7 @@ define hidden i32 @HIDAPI_GetJoystickTypeFromGUID(i64 %0, i64 %1) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %.048, i64 184
   %.04 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.04, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %11, %2, %8
   %.0 = phi i32 [ %10, %8 ], [ 0, %2 ], [ 0, %11 ]
@@ -1901,7 +1901,7 @@ define hidden i32 @HIDAPI_GetGamepadTypeFromGUID(i64 %0, i64 %1) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %.048, i64 184
   %.04 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.04, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %11, %2, %8
   %.0 = phi i32 [ %10, %8 ], [ 1, %2 ], [ 1, %11 ]
@@ -1955,7 +1955,7 @@ define hidden void @HIDAPI_UpdateDevices() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.014, i64 184
   %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %20 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @SDL_HIDAPI_updating_devices, i32 noundef 0) #9
@@ -2041,7 +2041,7 @@ define internal ptr @HIDAPI_JoystickGetDeviceName(i32 noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit:                     ; preds = %11
   %19 = load ptr, ptr %.027.i, align 8
@@ -2094,7 +2094,7 @@ define internal ptr @HIDAPI_JoystickGetDevicePath(i32 noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit:                     ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 24
@@ -2148,7 +2148,7 @@ define internal i32 @HIDAPI_JoystickGetDeviceSteamVirtualGamepadSlot(i32 noundef
   %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit:                     ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 96
@@ -2202,7 +2202,7 @@ define internal i32 @HIDAPI_JoystickGetDevicePlayerIndex(i32 noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
@@ -2262,7 +2262,7 @@ define internal void @HIDAPI_JoystickSetDevicePlayerIndex(i32 noundef %0, i32 no
   %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
@@ -2321,7 +2321,7 @@ define internal { i64, i64 } @HIDAPI_JoystickGetDeviceGUID(i32 noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit:                     ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 48
@@ -2388,7 +2388,7 @@ define internal i32 @HIDAPI_JoystickGetDeviceInstanceID(i32 noundef %0) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit:                     ; preds = %23, %1, %15
   %.0 = phi i32 [ 0, %1 ], [ %20, %15 ], [ 0, %23 ]
@@ -2437,7 +2437,7 @@ define internal zeroext i1 @HIDAPI_JoystickOpen(ptr noundef %0, i32 noundef %1) 
   %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 184
   %.0.i = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %HIDAPI_GetDeviceByIndex.exit.thread, label %.lr.ph.i, !llvm.loop !40
 
 HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
   tail call void @SDL_AssertJoysticksLocked() #9
@@ -2785,14 +2785,14 @@ define internal void @HIDAPI_JoystickQuit() #0 {
   %13 = load i32, ptr %5, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %._crit_edge, !llvm.loop !38
+  br i1 %15, label %9, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph21, %.preheader17
   %.sink = phi ptr [ %4, %.preheader17 ], [ %2, %.lr.ph21 ], [ %4, %9 ]
   tail call fastcc void @HIDAPI_DelDevice(ptr noundef nonnull %.sink)
   %16 = load ptr, ptr @SDL_HIDAPI_devices, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph21, !llvm.loop !39
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph21, !llvm.loop !42
 
 .preheader.preheader:                             ; preds = %._crit_edge, %0
   br label %.preheader
@@ -2806,7 +2806,7 @@ define internal void @HIDAPI_JoystickQuit() #0 {
   tail call void %20(ptr noundef nonnull @SDL_HIDAPIDriverHintChanged, ptr noundef %18) #9
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next25, 22
-  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !40
+  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !43
 
 21:                                               ; preds = %.preheader
   tail call void @SDL_RemoveHintCallback_REAL(ptr noundef nonnull @.str.13, ptr noundef nonnull @SDL_HIDAPIDriverHintChanged, ptr noundef null) #9
@@ -2878,7 +2878,7 @@ define internal fastcc noundef ptr @HIDAPI_AddDevice(ptr noundef nonnull readonl
   %.0106 = load ptr, ptr %.0106.in, align 8
   %.not = icmp eq ptr %.0106, null
   %6 = getelementptr inbounds nuw i8, ptr %.0106, i64 184
-  br i1 %.not, label %7, label %5, !llvm.loop !41
+  br i1 %.not, label %7, label %5, !llvm.loop !44
 
 7:                                                ; preds = %5
   %8 = tail call noalias dereferenceable_or_null(192) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 192) #11
@@ -3097,7 +3097,7 @@ HIDAPI_ConvertString.exit134:                     ; preds = %HIDAPI_ConvertStrin
 130:                                              ; preds = %131
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
-  br i1 %exitcond.not.i, label %.loopexit36.i, label %131, !llvm.loop !42
+  br i1 %exitcond.not.i, label %.loopexit36.i, label %131, !llvm.loop !45
 
 131:                                              ; preds = %130, %.preheader35.i
   %indvars.iv.i = phi i64 [ 0, %.preheader35.i ], [ %indvars.iv.next.i, %130 ]
@@ -3124,7 +3124,7 @@ HIDAPI_ConvertString.exit134:                     ; preds = %HIDAPI_ConvertStrin
 141:                                              ; preds = %142
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 18
-  br i1 %exitcond43.not.i, label %.loopexit.i, label %142, !llvm.loop !43
+  br i1 %exitcond43.not.i, label %.loopexit.i, label %142, !llvm.loop !46
 
 142:                                              ; preds = %141, %.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next41.i, %141 ]
@@ -3165,7 +3165,7 @@ SDL_GetJoystickGameControllerProtocol.exit:       ; preds = %142, %.loopexit.i, 
   store ptr %8, ptr %156, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %153, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %153, !llvm.loop !47
 
 .loopexit:                                        ; preds = %153, %SDL_GetJoystickGameControllerProtocol.exit
   %.not123 = icmp eq ptr %.0107, null
@@ -3300,7 +3300,7 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph69
   %44 = icmp eq ptr %.043, %0
-  br i1 %44, label %.lr.ph._crit_edge, label %.lr.ph69, !llvm.loop !45
+  br i1 %44, label %.lr.ph._crit_edge, label %.lr.ph69, !llvm.loop !48
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04357.lcssa = phi ptr [ %.04354, %.lr.ph.preheader ], [ %.043, %.lr.ph ]
@@ -3340,7 +3340,7 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
   tail call void @SDL_Delay_REAL(i32 noundef 10) #9
   %58 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %51) #9
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph58, label %.preheader, !llvm.loop !46
+  br i1 %59, label %.lr.ph58, label %.preheader, !llvm.loop !49
 
 60:                                               ; preds = %.lr.ph60, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %60 ]
@@ -3353,7 +3353,7 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
   %65 = load i32, ptr %54, align 8
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %60, label %._crit_edge, !llvm.loop !47
+  br i1 %67, label %60, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %60, %.preheader
   tail call void @SDL_SetObjectValid(ptr noundef nonnull %0, i32 noundef 9, i1 noundef zeroext false) #9
@@ -3383,7 +3383,7 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
   %79 = getelementptr inbounds nuw i8, ptr %.0435768, i64 184
   %.043 = load ptr, ptr %79, align 8
   %.not50 = icmp eq ptr %.043, null
-  br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !45
+  br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph69, %.thread, %._crit_edge
   ret void
@@ -3434,7 +3434,7 @@ define internal fastcc void @HIDAPI_SetupDeviceDriver(ptr noundef nonnull %0, pt
 21:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
@@ -3532,7 +3532,7 @@ define internal fastcc void @HIDAPI_SetupDeviceDriver(ptr noundef nonnull %0, pt
 77:                                               ; preds = %64, %58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 22
-  br i1 %exitcond.not.i, label %HIDAPI_GetDeviceDriver.exit.thread, label %58, !llvm.loop !49
+  br i1 %exitcond.not.i, label %HIDAPI_GetDeviceDriver.exit.thread, label %58, !llvm.loop !52
 
 HIDAPI_GetDeviceDriver.exit:                      ; preds = %64
   %.pr = load i32, ptr %32, align 8
@@ -3623,7 +3623,7 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
 125:                                              ; preds = %112, %switch.lookup
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 22
-  br i1 %exitcond.not.i55, label %.thread71, label %switch.lookup, !llvm.loop !49
+  br i1 %exitcond.not.i55, label %.thread71, label %switch.lookup, !llvm.loop !52
 
 .thread71:                                        ; preds = %125, %103, %100, %92
   store ptr null, ptr %3, align 8
@@ -3685,7 +3685,7 @@ define internal fastcc void @HIDAPI_CleanupDeviceDriver(ptr noundef nonnull %0) 
   tail call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %9)
   %10 = load i32, ptr %5, align 4
   %.not18 = icmp eq i32 %10, 0
-  br i1 %.not18, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %.not18, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !53
 
 .critedge.loopexit:                               ; preds = %8, %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -3832,9 +3832,9 @@ attributes #11 = { nounwind allocsize(0,1) }
 !28 = distinct !{!28, !4}
 !29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
+!31 = distinct !{!31, !4, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !4, !32}
 !34 = distinct !{!34, !4}
 !35 = distinct !{!35, !4}
 !36 = distinct !{!36, !4}
@@ -3852,3 +3852,6 @@ attributes #11 = { nounwind allocsize(0,1) }
 !48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
 !50 = distinct !{!50, !4}
+!51 = distinct !{!51, !4}
+!52 = distinct !{!52, !4}
+!53 = distinct !{!53, !4}

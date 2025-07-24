@@ -4232,7 +4232,7 @@ heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %.
   %184 = add i32 %.11891.us1897, %136
   %185 = add nuw nsw i32 %.016861890.us1898, 1
   %exitcond1952.not = icmp eq i32 %185, %145
-  br i1 %exitcond1952.not, label %._crit_edge1894, label %.lr.ph1893.split.us1896, !llvm.loop !11
+  br i1 %exitcond1952.not, label %._crit_edge1894, label %.lr.ph1893.split.us1896, !llvm.loop !13
 
 .lr.ph1893.split:                                 ; preds = %.lr.ph1893, %187
   %.016861890 = phi i32 [ %188, %187 ], [ 0, %.lr.ph1893 ]
@@ -4247,7 +4247,7 @@ heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %.
 187:                                              ; preds = %186, %.lr.ph1893.split
   %188 = add nuw nsw i32 %.016861890, 1
   %exitcond1954.not = icmp eq i32 %188, %145
-  br i1 %exitcond1954.not, label %._crit_edge1894.loopexit, label %.lr.ph1893.split, !llvm.loop !11
+  br i1 %exitcond1954.not, label %._crit_edge1894.loopexit, label %.lr.ph1893.split, !llvm.loop !14
 
 ._crit_edge1894.loopexit:                         ; preds = %187
   %189 = add i32 %158, %146
@@ -4283,7 +4283,7 @@ heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %.
 194:                                              ; preds = %190, %191, %192, %193
   %195 = add nuw nsw i32 %.016881902, 1
   %exitcond1955.not = icmp eq i32 %195, %.317811784
-  br i1 %exitcond1955.not, label %.loopexit1801, label %.lr.ph1905, !llvm.loop !12
+  br i1 %exitcond1955.not, label %.loopexit1801, label %.lr.ph1905, !llvm.loop !15
 
 196:                                              ; preds = %58
   %.not1760 = icmp eq i32 %.01700, 4
@@ -4482,7 +4482,7 @@ heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %.
 313:                                              ; preds = %291, %286
   %314 = add i32 %.21887, 4
   %315 = icmp slt i32 %314, %282
-  br i1 %315, label %.lr.ph1889, label %.loopexit1801, !llvm.loop !13
+  br i1 %315, label %.lr.ph1889, label %.loopexit1801, !llvm.loop !16
 
 316:                                              ; preds = %58
   %.not1755 = icmp eq i32 %.01700, 4
@@ -4767,7 +4767,7 @@ decode_mp_next_hop.exit:                          ; preds = %.thread.i, %.sink.s
   %443 = add i32 %439, %441
   %444 = add i8 %.016931882, -1
   %.not1753 = icmp eq i8 %444, 0
-  br i1 %.not1753, label %.loopexit1804.loopexit, label %434, !llvm.loop !14
+  br i1 %.not1753, label %.loopexit1804.loopexit, label %434, !llvm.loop !17
 
 .loopexit1804.loopexit:                           ; preds = %434
   %.pre1956 = add i32 %443, %350
@@ -4823,7 +4823,7 @@ decode_mp_next_hop.exit:                          ; preds = %.thread.i, %.sink.s
   %469 = sub nsw i32 %.016941884, %466
   %470 = add i32 %466, %.216981883
   %471 = icmp sgt i32 %469, 0
-  br i1 %471, label %.lr.ph1885, label %.loopexit1801, !llvm.loop !15
+  br i1 %471, label %.lr.ph1885, label %.loopexit1801, !llvm.loop !18
 
 472:                                              ; preds = %58
   %473 = add i32 %.01696, %12
@@ -4936,7 +4936,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.49, ptr noundef %540)
   %541 = add i32 %.31876, 4
   %542 = icmp slt i32 %541, %530
-  br i1 %542, label %533, label %.loopexit1801, !llvm.loop !16
+  br i1 %542, label %533, label %.loopexit1801, !llvm.loop !19
 
 543:                                              ; preds = %58
   %544 = and i32 %.01700, 7
@@ -5044,7 +5044,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
   %.pn = phi i32 [ %559, %606 ], [ %559, %600 ], [ %559, %602 ], [ %559, %594 ], [ 4, %577 ], [ 4, %577 ]
   %.5 = add i32 %.pn, %.41873
   %611 = icmp slt i32 %.5, %552
-  br i1 %611, label %.lr.ph1875, label %.loopexit1801, !llvm.loop !17
+  br i1 %611, label %.lr.ph1875, label %.loopexit1801, !llvm.loop !20
 
 612:                                              ; preds = %58
   %613 = add i32 %.01696, %12
@@ -5057,7 +5057,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
 .loopexit1800:                                    ; preds = %.loopexit1797, %.lr.ph1872
   %.7.lcssa = phi i32 [ %632, %.lr.ph1872 ], [ %.9, %.loopexit1797 ]
   %618 = icmp slt i32 %.7.lcssa, %614
-  br i1 %618, label %.lr.ph1872, label %.loopexit1801, !llvm.loop !18
+  br i1 %618, label %.lr.ph1872, label %.loopexit1801, !llvm.loop !21
 
 .lr.ph1872:                                       ; preds = %612, %.loopexit1800
   %.61870 = phi i32 [ %.7.lcssa, %.loopexit1800 ], [ %613, %612 ]
@@ -5349,7 +5349,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
   %822 = sub nsw i32 %783, %789
   %823 = and i32 %822, 65535
   %824 = icmp samesign ugt i32 %823, 2
-  br i1 %824, label %.lr.ph1864, label %.loopexit1797, !llvm.loop !19
+  br i1 %824, label %.lr.ph1864, label %.loopexit1797, !llvm.loop !22
 
 825:                                              ; preds = %650
   %826 = load i32, ptr @hf_bgp_update_encaps_tunnel_subtlv_policy_name_reserved, align 4
@@ -5372,7 +5372,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
 .loopexit1797:                                    ; preds = %821, %771, %660, %739, %748, %725, %724, %661, %674, %702, %688, %670, %834, %825, %764, %754, %729, %720, %716
   %.9 = phi i32 [ %838, %834 ], [ %669, %661 ], [ %673, %670 ], [ %687, %674 ], [ %701, %688 ], [ %715, %702 ], [ %719, %716 ], [ %723, %720 ], [ %728, %725 ], [ %659, %724 ], [ %738, %729 ], [ %753, %748 ], [ %746, %739 ], [ %763, %754 ], [ %770, %764 ], [ %833, %825 ], [ %659, %660 ], [ %774, %771 ], [ %.11, %821 ]
   %839 = icmp slt i32 %.9, %635
-  br i1 %839, label %638, label %.loopexit1800, !llvm.loop !20
+  br i1 %839, label %638, label %.loopexit1800, !llvm.loop !23
 
 840:                                              ; preds = %58
   %841 = add i32 %.01696, %12
@@ -5473,7 +5473,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %885, ptr noundef nonnull @.str.64, i32 noundef %887, i32 noundef %889, i32 noundef %891)
   %902 = add i32 %.121858, 12
   %903 = icmp slt i32 %902, %883
-  br i1 %903, label %.lr.ph1860, label %._crit_edge1861, !llvm.loop !21
+  br i1 %903, label %.lr.ph1860, label %._crit_edge1861, !llvm.loop !24
 
 ._crit_edge1861:                                  ; preds = %.lr.ph1860, %881
   %904 = call ptr @wmem_strbuf_get_str(ptr noundef %885)
@@ -5523,7 +5523,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   %934 = add i32 %.131850, 6
   %935 = add nuw nsw i32 %.116871849, 1
   %exitcond.not = icmp eq i32 %935, %923
-  br i1 %exitcond.not, label %._crit_edge1853, label %.lr.ph1852, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge1853, label %.lr.ph1852, !llvm.loop !25
 
 ._crit_edge1853:                                  ; preds = %.lr.ph1852, %915
   %.13.lcssa = phi i32 [ %922, %915 ], [ %934, %.lr.ph1852 ]
@@ -5559,7 +5559,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   %961 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %960, ptr noundef %1, i32 noundef %959, i32 noundef %951, i32 noundef 0)
   %962 = add i32 %959, %951
   %963 = icmp slt i32 %962, %907
-  br i1 %963, label %.lr.ph1857, label %.loopexit1801, !llvm.loop !23
+  br i1 %963, label %.lr.ph1857, label %.loopexit1801, !llvm.loop !26
 
 964:                                              ; preds = %58
   %965 = add i32 %.01696, %12
@@ -5672,7 +5672,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1030, ptr noundef nonnull @.str.74, i32 noundef %1038, i32 noundef %1039)
   %.reass1845 = add nuw nsw i32 %.017031841, 8
   %1040 = icmp samesign ult i32 %.reass1845, %998
-  br i1 %1040, label %1026, label %._crit_edge1844, !llvm.loop !24
+  br i1 %1040, label %1026, label %._crit_edge1844, !llvm.loop !27
 
 ._crit_edge1844:                                  ; preds = %1026, %1015
   %1041 = add i32 %1001, %1019
@@ -5813,7 +5813,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   %.pre-phi1959 = phi i32 [ %1138, %1135 ], [ %1107, %1105 ]
   %1152 = add i32 %.pre-phi1960, %.pre-phi1959
   %1153 = icmp slt i32 %1152, %1100
-  br i1 %1153, label %.lr.ph1836, label %.loopexit1798, !llvm.loop !25
+  br i1 %1153, label %.lr.ph1836, label %.loopexit1798, !llvm.loop !28
 
 1154:                                             ; preds = %.lr.ph1839
   %1155 = zext i8 %1064 to i32
@@ -5838,7 +5838,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
 .loopexit1798:                                    ; preds = %1151, %1067, %1154
   %.pre-phi1964 = phi i32 [ %1100, %1067 ], [ %.pre1963, %1154 ], [ %1100, %1151 ]
   %1170 = icmp slt i32 %.pre-phi1964, %1062
-  br i1 %1170, label %.lr.ph1839, label %._crit_edge1840, !llvm.loop !26
+  br i1 %1170, label %.lr.ph1839, label %._crit_edge1840, !llvm.loop !29
 
 ._crit_edge1840:                                  ; preds = %.loopexit1798, %1042
   %1171 = add i32 %1045, %.151846
@@ -5979,7 +5979,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   %.pre-phi1965 = phi i32 [ %1268, %1265 ], [ %1237, %1235 ]
   %1282 = add i32 %.pre-phi1966, %.pre-phi1965
   %1283 = icmp slt i32 %1282, %1230
-  br i1 %1283, label %.lr.ph1829, label %.loopexit1799, !llvm.loop !27
+  br i1 %1283, label %.lr.ph1829, label %.loopexit1799, !llvm.loop !30
 
 1284:                                             ; preds = %.lr.ph1832
   %1285 = zext i8 %1194 to i32
@@ -6004,7 +6004,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
 .loopexit1799:                                    ; preds = %1281, %1197, %1284
   %.pre-phi1970 = phi i32 [ %1230, %1197 ], [ %.pre1969, %1284 ], [ %1230, %1281 ]
   %1300 = icmp slt i32 %.pre-phi1970, %1192
-  br i1 %1300, label %.lr.ph1832, label %._crit_edge1833, !llvm.loop !28
+  br i1 %1300, label %.lr.ph1832, label %._crit_edge1833, !llvm.loop !31
 
 ._crit_edge1833:                                  ; preds = %.loopexit1799, %1172
   %1301 = add i32 %1175, %.151846
@@ -6034,7 +6034,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
 1320:                                             ; preds = %1302, %._crit_edge1833, %._crit_edge1840, %._crit_edge1844, %1012, %985, %982
   %.16 = phi i32 [ %1319, %1302 ], [ %984, %982 ], [ %996, %985 ], [ %1014, %1012 ], [ %1041, %._crit_edge1844 ], [ %1171, %._crit_edge1840 ], [ %1301, %._crit_edge1833 ]
   %1321 = icmp slt i32 %.16, %966
-  br i1 %1321, label %.lr.ph1848, label %.loopexit1801, !llvm.loop !29
+  br i1 %1321, label %.lr.ph1848, label %.loopexit1801, !llvm.loop !32
 
 1322:                                             ; preds = %58
   %1323 = trunc nuw i32 %.01700 to i16
@@ -6052,7 +6052,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   br i1 %.not.i1777, label %1342, label %1334
 
 1334:                                             ; preds = %1322
-  %1335 = load i8, ptr %1333, align 2, !range !30, !noundef !31
+  %1335 = load i8, ptr %1333, align 2, !range !33, !noundef !34
   %1336 = trunc nuw i8 %1335 to i1
   br i1 %1336, label %1337, label %1342
 
@@ -6336,7 +6336,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   %1532 = icmp ne i8 %1531, 0
   %1533 = icmp slt i32 %1530, %1508
   %1534 = and i1 %1532, %1533
-  br i1 %1534, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %1534, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1507
   %.01679.lcssa = phi i8 [ %1511, %1507 ], [ %1531, %.lr.ph ]
@@ -6369,7 +6369,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %1546 = icmp samesign ult i32 %1545, %9
-  br i1 %1546, label %11, label %._crit_edge1909, !llvm.loop !33
+  br i1 %1546, label %11, label %._crit_edge1909, !llvm.loop !36
 
 ._crit_edge1909:                                  ; preds = %.loopexit1801, %5
   call void @decrement_dissection_depth(ptr noundef %4)
@@ -6382,7 +6382,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
 
 1551:                                             ; preds = %._crit_edge1909
   %1552 = getelementptr inbounds nuw i8, ptr %1550, i64 14
-  %1553 = load i8, ptr %1552, align 2, !range !30, !noundef !31
+  %1553 = load i8, ptr %1552, align 2, !range !33, !noundef !34
   %1554 = trunc nuw i8 %1553 to i1
   br i1 %1554, label %1555, label %.loopexit
 
@@ -6413,7 +6413,7 @@ save_link_state_attr_position.exit:               ; preds = %861, %868
   store i32 %1575, ptr %1559, align 4
   %1576 = load i32, ptr %1567, align 8
   %1577 = icmp slt i32 %1575, %1576
-  br i1 %1577, label %.lr.ph1911, label %.loopexit, !llvm.loop !34
+  br i1 %1577, label %.lr.ph1911, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph1911, %1555, %.thread1792, %._crit_edge1909, %1551
   ret void
@@ -6797,7 +6797,7 @@ define internal fastcc i32 @decode_prefix_MP(ptr noundef %0, i32 noundef %1, i32
   %204 = select i1 %203, ptr @.str.1849, ptr @.str.1850
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %193, ptr noundef nonnull @.str.1848, i32 noundef %201, ptr noundef nonnull %204)
   %205 = add i32 %.021.i, 3
-  br i1 %203, label %195, label %206, !llvm.loop !35
+  br i1 %203, label %195, label %206, !llvm.loop !38
 
 206:                                              ; preds = %200
   %207 = sub i32 %205, %194
@@ -7152,7 +7152,7 @@ decode_path_prefix6.exit:                         ; preds = %272, %274
   %412 = select i1 %411, ptr @.str.1849, ptr @.str.1850
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %401, ptr noundef nonnull @.str.1848, i32 noundef %409, ptr noundef nonnull %412)
   %413 = add i32 %.021.i946, 3
-  br i1 %411, label %403, label %414, !llvm.loop !35
+  br i1 %411, label %403, label %414, !llvm.loop !38
 
 414:                                              ; preds = %408
   %415 = sub i32 %413, %402
@@ -7295,7 +7295,7 @@ decode_MPLS_stack.exit950:                        ; preds = %407, %414
   %500 = select i1 %499, ptr @.str.1849, ptr @.str.1850
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %489, ptr noundef nonnull @.str.1848, i32 noundef %497, ptr noundef nonnull %500)
   %501 = add i32 %.021.i951, 3
-  br i1 %499, label %491, label %decode_MPLS_stack.exit955, !llvm.loop !35
+  br i1 %499, label %491, label %decode_MPLS_stack.exit955, !llvm.loop !38
 
 decode_MPLS_stack.exit955:                        ; preds = %496, %495
   %502 = load i32, ptr @hf_bgp_vplsbgp_labelblock_base, align 4
@@ -8044,7 +8044,7 @@ save_path_attr_encaps_tunnel_type.exit:           ; preds = %216, %224
   %323 = call ptr @proto_tree_add_bitmask(ptr noundef %25, ptr noundef %1, i32 noundef %320, i32 noundef %321, i32 noundef %322, ptr noundef nonnull @dissect_bgp_update_ext_com.cos_flags, i32 noundef 0)
   %324 = add nuw nsw i32 %.0774791, 1
   %exitcond.not = icmp eq i32 %324, 8
-  br i1 %exitcond.not, label %.loopexit, label %319, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %319, !llvm.loop !39
 
 325:                                              ; preds = %18
   %326 = load i32, ptr @hf_bgp_ext_com_stype_tr_evpn, align 4
@@ -8697,7 +8697,7 @@ proto_item_set_generated.exit788:                 ; preds = %proto_item_set_gene
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.1961, ptr noundef %791)
   %792 = add i32 %.0792, 8
   %793 = icmp slt i32 %792, %8
-  br i1 %793, label %18, label %._crit_edge, !llvm.loop !37
+  br i1 %793, label %18, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
@@ -8823,7 +8823,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %27, ptr noundef %1, i32 noundef %20, i32 noundef 2, i32 noundef 0)
   %29 = add nuw nsw i32 %.013961547, 1
   %exitcond1570.not = icmp eq i32 %29, %16
-  br i1 %exitcond1570.not, label %.loopexit, label %18, !llvm.loop !38
+  br i1 %exitcond1570.not, label %.loopexit, label %18, !llvm.loop !41
 
 30:                                               ; preds = %5
   %31 = load i32, ptr @hf_bgp_ls_tlv_node_flags_bits, align 4
@@ -8951,7 +8951,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %123 = add i32 %.013891544, %.1608
   %124 = add nsw i32 %.013871545, %.1609
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph1546, label %.loopexit, !llvm.loop !39
+  br i1 %125, label %.lr.ph1546, label %.loopexit, !llvm.loop !42
 
 126:                                              ; preds = %5
   %127 = load i32, ptr @hf_bgp_ls_sr_tlv_local_block, align 4
@@ -8999,7 +8999,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %156 = add i32 %.013831541, %.1611
   %157 = add nsw i32 %.013821542, %.1612
   %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %.lr.ph1543, label %.loopexit, !llvm.loop !40
+  br i1 %158, label %.lr.ph1543, label %.loopexit, !llvm.loop !43
 
 159:                                              ; preds = %5
   %160 = load i32, ptr @hf_bgp_ls_sr_tlv_algorithm, align 4
@@ -9027,7 +9027,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %173 = add i32 %.013811538, 1
   %174 = add nsw i32 %.01539, -1
   %.not1484 = icmp eq i32 %174, 0
-  br i1 %.not1484, label %.loopexit, label %.lr.ph1540, !llvm.loop !41
+  br i1 %.not1484, label %.loopexit, label %.lr.ph1540, !llvm.loop !44
 
 175:                                              ; preds = %5
   %176 = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_cap, align 4
@@ -9145,7 +9145,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %252 = tail call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %249, ptr noundef %1, i32 noundef %251, i32 noundef 4, i32 noundef 0)
   %253 = add i16 %.07382.i, -4
   %.not78.i = icmp eq i16 %253, 0
-  br i1 %.not78.i, label %decode_link_state_attribute_flex_algo_subtlv.exit, label %248, !llvm.loop !42
+  br i1 %.not78.i, label %decode_link_state_attribute_flex_algo_subtlv.exit, label %248, !llvm.loop !45
 
 254:                                              ; preds = %.lr.ph1536
   %255 = load i32, ptr @hf_bgp_ls_sr_tlv_flex_algo_def_flags, align 4
@@ -9206,7 +9206,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %290 = tail call ptr @proto_tree_add_item(ptr noundef %278, i32 noundef %288, ptr noundef %1, i32 noundef %289, i32 noundef 4, i32 noundef 0)
   %291 = add nuw nsw i32 %.083.i, 4
   %292 = icmp samesign ult i32 %291, %274
-  br i1 %292, label %287, label %decode_link_state_attribute_flex_algo_subtlv.exit, !llvm.loop !43
+  br i1 %292, label %287, label %decode_link_state_attribute_flex_algo_subtlv.exit, !llvm.loop !46
 
 293:                                              ; preds = %.lr.ph1536
   %294 = zext i16 %222 to i32
@@ -9219,7 +9219,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %.pre-phi88.i = phi i32 [ %235, %.preheader79.i ], [ %275, %.preheader.i ], [ %.pre87.i, %293 ], [ %275, %285 ], [ %257, %267 ], [ %257, %265 ], [ %235, %246 ], [ %275, %287 ], [ %235, %248 ]
   %296 = add i32 %.pre-phi88.i, %.013921535
   %297 = icmp slt i32 %296, %220
-  br i1 %297, label %.lr.ph1536, label %.loopexit, !llvm.loop !44
+  br i1 %297, label %.lr.ph1536, label %.loopexit, !llvm.loop !47
 
 298:                                              ; preds = %5, %5
   %299 = icmp eq i16 %6, 266
@@ -9253,7 +9253,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %319 = add nsw i32 %.014021532, -2
   %320 = add i32 %.113931533, 2
   %321 = icmp samesign ugt i32 %319, 1
-  br i1 %321, label %.lr.ph1534, label %.loopexit, !llvm.loop !45
+  br i1 %321, label %.lr.ph1534, label %.loopexit, !llvm.loop !48
 
 322:                                              ; preds = %5
   %323 = load i32, ptr @hf_bgp_ls_tlv_ipv4_router_id_of_local_node, align 4
@@ -9420,7 +9420,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %435 = shl i32 %.013911531, 1
   %436 = add nuw nsw i32 %.113971530, 1
   %exitcond1569.not = icmp eq i32 %436, 32
-  br i1 %exitcond1569.not, label %.loopexit, label %429, !llvm.loop !46
+  br i1 %exitcond1569.not, label %.loopexit, label %429, !llvm.loop !49
 
 437:                                              ; preds = %5
   %438 = load i32, ptr @hf_bgp_ls_tlv_max_link_bandwidth, align 4
@@ -9513,7 +9513,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %502, ptr noundef nonnull @.str.2069, i32 noundef %.213981529)
   %503 = add nuw nsw i32 %.213981529, 1
   %exitcond.not = icmp eq i32 %503, 8
-  br i1 %exitcond.not, label %.loopexit, label %494, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %494, !llvm.loop !50
 
 504:                                              ; preds = %5
   %505 = load i32, ptr @hf_bgp_ls_tlv_te_default_metric, align 4
@@ -9711,7 +9711,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %627 = add i16 %.013851527, -4
   %628 = add nuw nsw i32 %.313991526, 1
   %.not1467 = icmp eq i16 %627, 0
-  br i1 %.not1467, label %.loopexit, label %617, !llvm.loop !48
+  br i1 %.not1467, label %.loopexit, label %617, !llvm.loop !51
 
 629:                                              ; preds = %5
   %630 = load i32, ptr @hf_bgp_ls_tlv_opaque_link_attribute, align 4
@@ -9881,7 +9881,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %758 = tail call fastcc i32 @decode_link_state_attribute_tlv(ptr noundef %727, ptr noundef %1, i32 noundef %.213941523, ptr noundef %3, i8 noundef zeroext %4)
   %759 = add i32 %758, %.213941523
   %760 = icmp slt i32 %759, %756
-  br i1 %760, label %.lr.ph1524, label %.loopexit, !llvm.loop !49
+  br i1 %760, label %.lr.ph1524, label %.loopexit, !llvm.loop !52
 
 761:                                              ; preds = %5
   %762 = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_lan_endx_sid, align 4
@@ -9958,7 +9958,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %809 = tail call fastcc i32 @decode_link_state_attribute_tlv(ptr noundef %767, ptr noundef %1, i32 noundef %.41521, ptr noundef %3, i8 noundef zeroext %4)
   %810 = add i32 %809, %.41521
   %811 = icmp slt i32 %810, %807
-  br i1 %811, label %.lr.ph1522, label %.loopexit, !llvm.loop !50
+  br i1 %811, label %.lr.ph1522, label %.loopexit, !llvm.loop !53
 
 812:                                              ; preds = %5
   %813 = load i32, ptr @hf_bgp_ls_tlv_app_spec_link_attrs, align 4
@@ -10053,7 +10053,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %861 = tail call fastcc i32 @decode_link_state_attribute_tlv(ptr noundef %818, ptr noundef %1, i32 noundef %.51519, ptr noundef %3, i8 noundef zeroext %4)
   %862 = add i32 %861, %.51519
   %863 = icmp slt i32 %862, %859
-  br i1 %863, label %.lr.ph1520, label %.loopexit, !llvm.loop !51
+  br i1 %863, label %.lr.ph1520, label %.loopexit, !llvm.loop !54
 
 864:                                              ; preds = %5
   %865 = load i32, ptr @hf_bgp_ls_tlv_igp_flags, align 4
@@ -10133,7 +10133,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %912 = add i16 %.113861517, -4
   %913 = add nuw nsw i32 %.414001516, 1
   %.not1461 = icmp eq i16 %912, 0
-  br i1 %.not1461, label %.loopexit, label %902, !llvm.loop !52
+  br i1 %.not1461, label %.loopexit, label %902, !llvm.loop !55
 
 914:                                              ; preds = %5
   %915 = load i32, ptr @hf_bgp_ls_tlv_route_extended_tag, align 4
@@ -10181,7 +10181,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %940 = add i16 %.21513, -8
   %941 = add nuw nsw i32 %.514011512, 1
   %.not1459 = icmp eq i16 %940, 0
-  br i1 %.not1459, label %.loopexit, label %930, !llvm.loop !53
+  br i1 %.not1459, label %.loopexit, label %930, !llvm.loop !56
 
 942:                                              ; preds = %5
   %943 = load i32, ptr @hf_bgp_ls_tlv_prefix_metric, align 4
@@ -10291,7 +10291,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %1014 = tail call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1011, ptr noundef %1, i32 noundef %1013, i32 noundef 4, i32 noundef 0)
   %1015 = add i16 %.31510, -4
   %.not1456 = icmp eq i16 %1015, 0
-  br i1 %.not1456, label %.loopexit, label %1010, !llvm.loop !54
+  br i1 %.not1456, label %.loopexit, label %1010, !llvm.loop !57
 
 1016:                                             ; preds = %5
   %1017 = load i32, ptr @hf_bgp_ls_sr_tlv_prefix_sid, align 4
@@ -10763,7 +10763,7 @@ define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0..0..0..0.4 = load volatile i32, ptr %5, align 4
   %16 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.4)
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %14, %11, %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10791,7 +10791,7 @@ define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.sink = phi ptr [ %28, %21 ], [ %0, %._crit_edge ]
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile ptr, ptr %6, align 8
-  %30 = load i8, ptr @bgp_desegment, align 1, !range !30, !noundef !31
+  %30 = load i8, ptr @bgp_desegment, align 1, !range !33, !noundef !34
   %31 = trunc nuw i8 %30 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %.0..0..0..0., ptr noundef %1, ptr noundef %2, i1 noundef zeroext %31, i32 noundef 19, ptr noundef nonnull @get_bgp_len, ptr noundef nonnull @dissect_bgp_pdu, ptr noundef null)
   %32 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -11002,7 +11002,7 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %.393.i = phi i32 [ %109, %.lr.ph.i ], [ %102, %107 ]
   %109 = call fastcc i32 @dissect_bgp_capability_item(ptr noundef %0, ptr noundef %90, ptr noundef %1, i32 noundef %.393.i, i1 noundef zeroext false)
   %110 = icmp slt i32 %109, %108
-  br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !56
+  br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !59
 
 111:                                              ; preds = %.lr.ph95.i
   %112 = load i32, ptr @hf_bgp_open_opt_param_unknown, align 4
@@ -11012,7 +11012,7 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 .loopexit.i:                                      ; preds = %.lr.ph.i, %111, %107, %103
   %.2.i = phi i32 [ %102, %111 ], [ %106, %103 ], [ %102, %107 ], [ %109, %.lr.ph.i ]
   %114 = icmp slt i32 %.2.i, %.089.i
-  br i1 %114, label %.lr.ph95.i, label %dissect_bgp_open.exit, !llvm.loop !57
+  br i1 %114, label %.lr.ph95.i, label %dissect_bgp_open.exit, !llvm.loop !60
 
 dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
@@ -11040,7 +11040,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
 128:                                              ; preds = %.preheader100.i
   %129 = add i32 %133, %.1105.i
   %130 = icmp slt i32 %129, %126
-  br i1 %130, label %.preheader100.i, label %.loopexit98.i, !llvm.loop !58
+  br i1 %130, label %.preheader100.i, label %.loopexit98.i, !llvm.loop !61
 
 .preheader100.i:                                  ; preds = %120, %128
   %.1105.i = phi i32 [ %129, %128 ], [ 21, %120 ]
@@ -11053,7 +11053,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
 135:                                              ; preds = %.preheader97.i
   %136 = add i32 %139, %.2106.i
   %137 = icmp slt i32 %136, %126
-  br i1 %137, label %.preheader97.i, label %.loopexit98.i, !llvm.loop !59
+  br i1 %137, label %.preheader97.i, label %.loopexit98.i, !llvm.loop !62
 
 .preheader97.i:                                   ; preds = %120, %135
   %.2106.i = phi i32 [ %136, %135 ], [ 21, %120 ]
@@ -11112,7 +11112,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   %169 = add i32 %167, %.3107.i
   %170 = icmp slt i32 %169, %160
   %or.cond.i = select i1 %168, i1 %170, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i64, label %dissect_bgp_update.exit, !llvm.loop !60
+  br i1 %or.cond.i, label %.lr.ph.i64, label %dissect_bgp_update.exit, !llvm.loop !63
 
 171:                                              ; preds = %162, %153
   %172 = icmp slt i32 %151, %160
@@ -11126,7 +11126,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   %176 = add i32 %174, %.4109.i
   %177 = icmp slt i32 %176, %160
   %or.cond124.i = select i1 %175, i1 %177, i1 false
-  br i1 %or.cond124.i, label %.lr.ph110.i, label %dissect_bgp_update.exit, !llvm.loop !61
+  br i1 %or.cond124.i, label %.lr.ph110.i, label %dissect_bgp_update.exit, !llvm.loop !64
 
 178:                                              ; preds = %43
   %179 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16)
@@ -11224,7 +11224,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   %.086.i = phi i32 [ %229, %.lr.ph.i67 ], [ 21, %226 ]
   %229 = tail call fastcc i32 @dissect_bgp_capability_item(ptr noundef %0, ptr noundef %.07984, ptr noundef %1, i32 noundef %.086.i, i1 noundef zeroext false)
   %230 = icmp slt i32 %229, %180
-  br i1 %230, label %.lr.ph.i67, label %dissect_bgp_update.exit, !llvm.loop !62
+  br i1 %230, label %.lr.ph.i67, label %dissect_bgp_update.exit, !llvm.loop !65
 
 231:                                              ; preds = %226
   %232 = icmp eq i8 %213, 2
@@ -11347,7 +11347,7 @@ save_afi_safi_data.exit.i:                        ; preds = %254, %239
 .backedge.i:                                      ; preds = %314, %295, %292
   %.1.be.i = phi i32 [ %293, %292 ], [ %297, %295 ], [ %316, %314 ]
   %294 = icmp slt i32 %.1.be.i, %279
-  br i1 %294, label %.lr.ph.i71, label %.loopexit.i70, !llvm.loop !63
+  br i1 %294, label %.lr.ph.i71, label %.loopexit.i70, !llvm.loop !66
 
 295:                                              ; preds = %.lr.ph.i71
   %296 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %285, ptr noundef nonnull @ei_bgp_route_refresh_orf_action_invalid, ptr noundef nonnull @.str.2688)
@@ -11388,7 +11388,7 @@ save_afi_safi_data.exit.i:                        ; preds = %254, %239
 
 .loopexit.i70:                                    ; preds = %298, %.backedge.i, %319, %317, %283, %281
   %321 = icmp slt i32 %279, %260
-  br i1 %321, label %.lr.ph102.i, label %dissect_bgp_route_refresh.exit, !llvm.loop !64
+  br i1 %321, label %.lr.ph102.i, label %dissect_bgp_route_refresh.exit, !llvm.loop !67
 
 dissect_bgp_route_refresh.exit:                   ; preds = %.loopexit.i70, %238, %save_afi_safi_data.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
@@ -11405,7 +11405,7 @@ dissect_bgp_route_refresh.exit:                   ; preds = %.loopexit.i70, %238
   %.09.i = phi i32 [ %326, %.lr.ph.i72 ], [ 19, %322 ]
   %326 = tail call fastcc i32 @dissect_bgp_capability_item(ptr noundef %0, ptr noundef %.07984, ptr noundef %1, i32 noundef %.09.i, i1 noundef zeroext true)
   %327 = icmp slt i32 %326, %324
-  br i1 %327, label %.lr.ph.i72, label %dissect_bgp_update.exit, !llvm.loop !65
+  br i1 %327, label %.lr.ph.i72, label %dissect_bgp_update.exit, !llvm.loop !68
 
 dissect_bgp_update.exit:                          ; preds = %.lr.ph.i72, %.lr.ph.i67, %.preheader100.i, %.preheader97.i, %.lr.ph.i64, %.lr.ph110.i, %322, %.thread84.i, %233, %221, %210, %171, %.preheader.i, %144, %.loopexit98.i, %dissect_bgp_open.exit, %dissect_bgp_route_refresh.exit, %43, %38
   %.058 = phi i32 [ %41, %38 ], [ %44, %43 ], [ %44, %dissect_bgp_route_refresh.exit ], [ %44, %dissect_bgp_open.exit ], [ %44, %.loopexit98.i ], [ %44, %144 ], [ %44, %.preheader.i ], [ %44, %171 ], [ %44, %210 ], [ %44, %221 ], [ %44, %233 ], [ %44, %.thread84.i ], [ %44, %322 ], [ %44, %.lr.ph110.i ], [ %44, %.lr.ph.i64 ], [ %44, %.preheader97.i ], [ %44, %.preheader100.i ], [ %44, %.lr.ph.i67 ], [ %44, %.lr.ph.i72 ]
@@ -11800,7 +11800,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
 26:                                               ; preds = %18, %20
   %.0 = add i32 %16, 4
   %27 = icmp slt i32 %.0, %2
-  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !66
+  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !69
 
 28:                                               ; preds = %.lr.ph54, %47
   %.153 = phi i32 [ %1, %.lr.ph54 ], [ %37, %47 ]
@@ -11836,7 +11836,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
 
 47:                                               ; preds = %41, %39
   %48 = icmp slt i32 %37, %2
-  br i1 %48, label %28, label %.loopexit, !llvm.loop !67
+  br i1 %48, label %28, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %20, %12, %.lr.ph, %28, %33, %41, %47, %.preheader
   %.036 = phi i32 [ 0, %.preheader ], [ 1, %28 ], [ 1, %33 ], [ 1, %41 ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %20 ]
@@ -11868,7 +11868,7 @@ define internal fastcc range(i32 -715827882, 715827883) i32 @decode_MPLS_stack(p
   %13 = select i1 %12, ptr @.str.1849, ptr @.str.1850
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.1848, i32 noundef %10, ptr noundef nonnull %13)
   %14 = add i32 %.021, 3
-  br i1 %12, label %4, label %15, !llvm.loop !35
+  br i1 %12, label %4, label %15, !llvm.loop !38
 
 15:                                               ; preds = %9
   %16 = sub i32 %14, %1
@@ -12360,7 +12360,7 @@ define internal fastcc range(i32 -1, 4097) i32 @decode_flowspec_nlri(ptr noundef
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.1865, ptr noundef nonnull %150, ptr noundef nonnull %153, ptr noundef nonnull %156, ptr noundef nonnull %159, ptr noundef nonnull %162, ptr noundef nonnull %165)
   %166 = add i32 %spec.select.i, %140
   %167 = icmp sgt i8 %120, -1
-  br i1 %167, label %117, label %decode_bgp_nlri_op_tcpf_value.exit, !llvm.loop !68
+  br i1 %167, label %117, label %decode_bgp_nlri_op_tcpf_value.exit, !llvm.loop !71
 
 decode_bgp_nlri_op_tcpf_value.exit:               ; preds = %117
   %168 = add nuw nsw i32 %.1214, 1
@@ -12418,7 +12418,7 @@ decode_bgp_nlri_op_tcpf_value.exit:               ; preds = %117
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.6, ptr noundef %202)
   %203 = add i32 %.038.i, 2
   %204 = icmp sgt i8 %177, -1
-  br i1 %204, label %174, label %205, !llvm.loop !69
+  br i1 %204, label %174, label %205, !llvm.loop !72
 
 205:                                              ; preds = %195
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.30)
@@ -12481,7 +12481,7 @@ decode_bgp_nlri_op_tcpf_value.exit:               ; preds = %117
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.1863, ptr noundef nonnull %239, ptr noundef nonnull %242, ptr noundef nonnull %245, ptr noundef nonnull %248)
   %249 = add i32 %.041.i, 2
   %250 = icmp sgt i8 %211, -1
-  br i1 %250, label %208, label %251, !llvm.loop !70
+  br i1 %250, label %208, label %251, !llvm.loop !73
 
 251:                                              ; preds = %229
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.30)
@@ -12498,7 +12498,7 @@ decode_bgp_nlri_op_dscp_value.exit:               ; preds = %251, %205, %96, %86
   %255 = add nuw i32 %.1179, 1
   call void @proto_item_set_len(ptr noundef %69, i32 noundef %255)
   %256 = icmp ult i32 %254, %.0175
-  br i1 %256, label %66, label %decode_bgp_nlri_op_dscp_value.exit.thread, !llvm.loop !71
+  br i1 %256, label %66, label %decode_bgp_nlri_op_dscp_value.exit.thread, !llvm.loop !74
 
 decode_bgp_nlri_op_dscp_value.exit.thread:        ; preds = %253, %decode_bgp_nlri_op_dscp_value.exit, %208, %174, %63
   %257 = add nsw i32 %22, -1
@@ -12750,7 +12750,7 @@ decode_bgp_mup_nlri_type1_st_route.exit:          ; preds = %85, %.sink.split.i
   %148 = call ptr @proto_item_add_subtree(ptr noundef %146, i32 noundef %147)
   %149 = load i32, ptr @hf_bgp_mup_nlri_3gpp_5g_ep_teid, align 4
   %150 = load i32, ptr %10, align 4
-  %151 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %150) #7, !srcloc !72
+  %151 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %150) #7, !srcloc !75
   %152 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %148, i32 noundef %149, ptr noundef %1, i32 noundef %.0102.i, i32 noundef %144, i32 noundef %150, ptr noundef nonnull @.str.1885, i32 noundef %151, i32 noundef %142)
   %153 = add i32 %144, %.0102.i
   br label %decode_bgp_mup_nlri_type2_st_route.exit
@@ -12906,7 +12906,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not385, label %51, label %42
 
 42:                                               ; preds = %28
-  %43 = load i8, ptr %41, align 2, !range !30, !noundef !31
+  %43 = load i8, ptr %41, align 2, !range !33, !noundef !34
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %51
 
@@ -13010,7 +13010,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not384, label %116, label %104
 
 104:                                              ; preds = %100
-  %105 = load i8, ptr %103, align 2, !range !30, !noundef !31
+  %105 = load i8, ptr %103, align 2, !range !33, !noundef !34
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %116
 
@@ -13231,7 +13231,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not383, label %242, label %233
 
 233:                                              ; preds = %225
-  %234 = load i8, ptr %232, align 2, !range !30, !noundef !31
+  %234 = load i8, ptr %232, align 2, !range !33, !noundef !34
   %235 = trunc nuw i8 %234 to i1
   br i1 %235, label %236, label %242
 
@@ -13264,7 +13264,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %260, label %251
 
 251:                                              ; preds = %243
-  %252 = load i8, ptr %250, align 2, !range !30, !noundef !31
+  %252 = load i8, ptr %250, align 2, !range !33, !noundef !34
   %253 = trunc nuw i8 %252 to i1
   br i1 %253, label %254, label %260
 
@@ -13695,7 +13695,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_link_descr
   %134 = trunc nuw nsw i32 %131 to i16
   %135 = add i16 %.0117182, %134
   %136 = icmp sgt i32 %132, 0
-  br i1 %136, label %11, label %.loopexit, !llvm.loop !73
+  br i1 %136, label %11, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %129, %13
   %.1 = phi i16 [ %16, %13 ], [ %135, %129 ]
@@ -13847,7 +13847,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_prefix_des
   %92 = trunc i32 %.pre-phi139 to i16
   %93 = add i16 %.084116, %92
   %94 = icmp sgt i32 %90, 0
-  br i1 %94, label %12, label %.loopexit, !llvm.loop !74
+  br i1 %94, label %12, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %89, %14
   %.1 = phi i16 [ %17, %14 ], [ %93, %89 ]
@@ -13960,7 +13960,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_srv6_sid_d
   %67 = trunc nuw nsw i32 %64 to i16
   %68 = add i16 %.06691, %67
   %69 = icmp sgt i32 %65, 0
-  br i1 %69, label %11, label %.loopexit, !llvm.loop !75
+  br i1 %69, label %11, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %62, %13
   %.1 = phi i16 [ %16, %13 ], [ %68, %62 ]
@@ -14192,7 +14192,7 @@ define internal fastcc i32 @decode_bgp_nlri_op_dec_value(ptr noundef %0, ptr nou
   %52 = add i32 %28, %29
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef %.157)
   %53 = icmp sgt i8 %8, -1
-  br i1 %53, label %5, label %54, !llvm.loop !76
+  br i1 %53, label %5, label %54, !llvm.loop !79
 
 54:                                               ; preds = %51
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.30)
@@ -14447,7 +14447,7 @@ define internal fastcc void @decode_MPLS_stack_tree(ptr noundef %0, i32 noundef 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1848, i32 noundef %19, ptr noundef nonnull %22)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.1848, i32 noundef %19, ptr noundef nonnull %22)
   %23 = add i32 %.0, 3
-  br i1 %21, label %24, label %8, !llvm.loop !77
+  br i1 %21, label %24, label %8, !llvm.loop !80
 
 24:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1898)
@@ -14606,7 +14606,7 @@ define internal fastcc void @decode_bgp_link_node_descriptor(ptr noundef %0, ptr
   %96 = sub nsw i32 %.0105113, %.pre-phi120
   %97 = add i32 %.pre-phi120, %.0104114
   %98 = icmp sgt i32 %96, 0
-  br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !78
+  br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %95, %5, %7
   ret void
@@ -14771,7 +14771,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0)
   %62 = add i32 %.2353, 6
   %.not335 = icmp sgt i32 %62, %53
-  br i1 %.not335, label %._crit_edge, label %.lr.ph354, !llvm.loop !79
+  br i1 %.not335, label %._crit_edge, label %.lr.ph354, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph354, %51
   %.2.lcssa = phi i32 [ %.0, %51 ], [ %62, %.lr.ph354 ]
@@ -14845,7 +14845,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   %105 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %102, i32 noundef %103, i32 noundef %104, ptr noundef nonnull @dissect_bgp_capability_item.flags, i32 noundef 0)
   %106 = add nsw i32 %.4349, 4
   %107 = icmp slt i32 %106, %87
-  br i1 %107, label %.lr.ph350, label %.loopexit, !llvm.loop !80
+  br i1 %107, label %.lr.ph350, label %.loopexit, !llvm.loop !83
 
 108:                                              ; preds = %27
   %.not333 = icmp eq i8 %18, 4
@@ -14878,7 +14878,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %122, ptr noundef %0, i32 noundef %.5348, i32 noundef 1, i32 noundef 0)
   %124 = add nsw i32 %.5348, 1
   %125 = icmp slt i32 %124, %120
-  br i1 %125, label %121, label %.loopexit, !llvm.loop !81
+  br i1 %125, label %121, label %.loopexit, !llvm.loop !84
 
 126:                                              ; preds = %27
   %127 = and i32 %19, 3
@@ -14909,7 +14909,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0)
   %143 = add nsw i32 %.6345, 4
   %144 = icmp slt i32 %143, %134
-  br i1 %144, label %.lr.ph346, label %.loopexit, !llvm.loop !82
+  br i1 %144, label %.lr.ph346, label %.loopexit, !llvm.loop !85
 
 145:                                              ; preds = %27
   %146 = load i32, ptr @hf_bgp_cap_fqdn_hostname_len, align 4
@@ -14984,7 +14984,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   %196 = add nsw i32 %.7344, 2
   %197 = add nuw nsw i32 %.0320343, 1
   %exitcond.not = icmp eq i32 %197, %190
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !86
 
 198:                                              ; preds = %27
   %199 = icmp eq i8 %18, 0
@@ -15094,9 +15094,9 @@ attributes #7 = { nounwind memory(none) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !12}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
@@ -15113,11 +15113,11 @@ attributes #7 = { nounwind memory(none) }
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = !{i8 0, i8 2}
-!31 = !{}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
+!33 = !{i8 0, i8 2}
+!34 = !{}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
@@ -15155,10 +15155,10 @@ attributes #7 = { nounwind memory(none) }
 !69 = distinct !{!69, !7}
 !70 = distinct !{!70, !7}
 !71 = distinct !{!71, !7}
-!72 = !{i64 2151779280}
+!72 = distinct !{!72, !7}
 !73 = distinct !{!73, !7}
 !74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
+!75 = !{i64 2151779280}
 !76 = distinct !{!76, !7}
 !77 = distinct !{!77, !7}
 !78 = distinct !{!78, !7}
@@ -15167,3 +15167,6 @@ attributes #7 = { nounwind memory(none) }
 !81 = distinct !{!81, !7}
 !82 = distinct !{!82, !7}
 !83 = distinct !{!83, !7}
+!84 = distinct !{!84, !7}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7}

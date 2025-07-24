@@ -4085,7 +4085,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
 AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41, %43
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
   %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !22
+  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit17
   %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit17 ], [ 0, %.lr.ph ]
@@ -4131,7 +4131,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %68 = load i32, ptr @eoxact_list_len, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !21
+  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %AtEOXact_cleanup.exit17, %AtEOXact_cleanup.exit17.us, %AtEOXact_cleanup.exit, %.preheader18, %28
   %71 = load i32, ptr @EOXactTupleDescArrayLen, align 4
@@ -4153,7 +4153,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %78 = load i32, ptr @NextEOXactTupleDescNum, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next32, %79
-  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !23
+  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph24, %.preheader
   %81 = load ptr, ptr @EOXactTupleDescArray, align 8
@@ -4201,7 +4201,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   call fastcc void @AtEOSubXact_cleanup(ptr noundef %12, i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2)
   %13 = call ptr @hash_seq_search(ptr noundef nonnull %4) #13
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !24
+  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
@@ -4222,7 +4222,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %21 = load i32, ptr @eoxact_list_len, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %20, %.lr.ph18, %.preheader, %7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
@@ -4442,7 +4442,7 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   tail call void @populate_compact_attribute(ptr noundef %65, i32 noundef %66) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %64, label %67, label %.critedge
@@ -4557,7 +4557,7 @@ switch.lookup146:                                 ; preds = %104
   store i32 %3, ptr %119, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !27
+  br i1 %exitcond136.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !29
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %107
   %120 = load ptr, ptr %73, align 8
@@ -5483,7 +5483,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %76 = load i16, ptr %45, align 4
   %77 = sext i16 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28
+  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %70
   %79 = trunc nuw i8 %73 to i1
@@ -5689,7 +5689,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %186 = load i16, ptr %45, align 4
   %187 = sext i16 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next341, %187
-  br i1 %188, label %.lr.ph316, label %._crit_edge317, !llvm.loop !29
+  br i1 %188, label %.lr.ph316, label %._crit_edge317, !llvm.loop !31
 
 ._crit_edge317:                                   ; preds = %185, %165
   %.lcssa.in = phi i16 [ %172, %165 ], [ %186, %185 ]
@@ -5876,7 +5876,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !32
 
 ._crit_edge322:                                   ; preds = %271, %241
   call void @pfree(ptr noundef %.1) #13
@@ -6005,7 +6005,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
   tail call void @populate_compact_attribute(ptr noundef %66, i32 noundef %67) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %68, label %52, !llvm.loop !31
+  br i1 %exitcond.not, label %68, label %52, !llvm.loop !33
 
 68:                                               ; preds = %52
   %69 = load ptr, ptr %46, align 8
@@ -6379,7 +6379,7 @@ RelationDecrementReferenceCount.exit:             ; preds = %120, %125
 130:                                              ; preds = %128, %RelationDecrementReferenceCount.exit
   %131 = call ptr @hash_seq_search(ptr noundef nonnull %1) #13
   %.not = icmp eq ptr %131, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %130, %22
   %132 = trunc nuw i8 %.0 to i1
@@ -6678,7 +6678,7 @@ heap_getattr.exit76:                              ; preds = %60, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
   %95 = call ptr @systable_getnext(ptr noundef %18) #13
   %.not = icmp eq ptr %95, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %91, %1
   %.067.lcssa = phi ptr [ %11, %1 ], [ %.1, %91 ]
@@ -6801,7 +6801,7 @@ define internal fastcc void @write_relcache_init_file(i1 noundef zeroext %0) unn
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 113
   %48 = load i8, ptr %47, align 1, !range !6, !noundef !7
   %.not63 = icmp eq i8 %48, %40
-  br i1 %.not63, label %49, label %.loopexit, !llvm.loop !34
+  br i1 %.not63, label %49, label %.loopexit, !llvm.loop !36
 
 49:                                               ; preds = %41
   br i1 %0, label %RelationIdIsInInitFile.exit.thread, label %50
@@ -6818,7 +6818,7 @@ define internal fastcc void @write_relcache_init_file(i1 noundef zeroext %0) unn
 
 RelationIdIsInInitFile.exit:                      ; preds = %50
   %53 = call zeroext i1 @RelationSupportsSysCache(i32 noundef %52) #13
-  br i1 %53, label %RelationIdIsInInitFile.exit.thread, label %.loopexit, !llvm.loop !34
+  br i1 %53, label %RelationIdIsInInitFile.exit.thread, label %.loopexit, !llvm.loop !36
 
 RelationIdIsInInitFile.exit.thread:               ; preds = %50, %50, %50, %50, %RelationIdIsInInitFile.exit, %49
   call fastcc void @write_item(ptr noundef nonnull %44, i64 noundef 488, ptr noundef %23)
@@ -6874,7 +6874,7 @@ write_item.exit:                                  ; preds = %66
   %77 = load i16, ptr %54, align 4
   %78 = sext i16 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %58, label %._crit_edge, !llvm.loop !35
+  br i1 %79, label %58, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %write_item.exit, %RelationIdIsInInitFile.exit.thread
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 304
@@ -7005,7 +7005,7 @@ write_item.exit69:                                ; preds = %.split55
   %148 = load i16, ptr %54, align 4
   %149 = sext i16 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next83, %149
-  br i1 %150, label %135, label %.loopexit, !llvm.loop !36
+  br i1 %150, label %135, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %147, %95, %90, %RelationIdIsInInitFile.exit, %41
   %151 = call ptr @hash_seq_search(ptr noundef nonnull %8) #13
@@ -7108,7 +7108,7 @@ define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_u
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load i8, ptr %31, align 4
   %.not35 = icmp eq i8 %32, 102
-  br i1 %.not35, label %33, label %48, !llvm.loop !37
+  br i1 %.not35, label %33, label %48, !llvm.loop !39
 
 33:                                               ; preds = %.lr.ph
   %34 = call noundef ptr @palloc0(i64 noundef 276) #13
@@ -7219,7 +7219,7 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 21
   %28 = load i8, ptr %27, align 1, !range !6, !noundef !7
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %70, !llvm.loop !38
+  br i1 %29, label %30, label %70, !llvm.loop !40
 
 30:                                               ; preds = %.lr.ph
   %31 = load i32, ptr %26, align 4
@@ -7227,11 +7227,11 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %34 = load i8, ptr %33, align 4, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %70, !llvm.loop !38
+  br i1 %35, label %36, label %70, !llvm.loop !40
 
 36:                                               ; preds = %30
   %37 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %21, i32 noundef 21, ptr noundef null) #13
-  br i1 %37, label %38, label %70, !llvm.loop !38
+  br i1 %37, label %38, label %70, !llvm.loop !40
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 14
@@ -7265,13 +7265,13 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %58 = load i8, ptr %57, align 4, !range !6, !noundef !7
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %70, !llvm.loop !38
+  br i1 %59, label %60, label %70, !llvm.loop !40
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %26, i64 18
   %62 = load i8, ptr %61, align 2, !range !6, !noundef !7
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %70, !llvm.loop !38
+  br i1 %63, label %64, label %70, !llvm.loop !40
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 22
@@ -7399,7 +7399,7 @@ define dso_local ptr @RelationGetStatExtList(ptr noundef captures(none) %0) loca
   %24 = call ptr @lappend_oid(ptr noundef %.01821, i32 noundef %23) #13
   %25 = call ptr @systable_getnext(ptr noundef %15) #13
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.018.lcssa = phi ptr [ null, %10 ], [ %24, %.lr.ph ]
@@ -8323,7 +8323,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %266 = load i16, ptr %265, align 4
   %267 = sext i16 %266 to i64
   %268 = icmp slt i64 %indvars.iv.next, %267
-  br i1 %268, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %268, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %263, %213
   %.1109.lcssa = phi ptr [ %.0108155, %213 ], [ %.2110, %263 ]
@@ -8337,7 +8337,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %269 = load i32, ptr %47, align 4
   %270 = sext i32 %269 to i64
   %.not = icmp slt i64 %indvars.iv.next177, %270
-  br i1 %.not, label %52, label %._crit_edge160, !llvm.loop !41
+  br i1 %.not, label %52, label %._crit_edge160, !llvm.loop !43
 
 271:                                              ; preds = %._crit_edge160
   %272 = load i32, ptr %41, align 8
@@ -8543,7 +8543,7 @@ RelationGetReplicaIndex.exit:                     ; preds = %12, %16
   %47 = load i16, ptr %46, align 4
   %48 = sext i16 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.1, %44 ]
@@ -8687,20 +8687,20 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 107
   %47 = load i8, ptr %46, align 1, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %92, !llvm.loop !43
+  br i1 %48, label %49, label %92, !llvm.loop !45
 
 49:                                               ; preds = %45
   switch i8 %44, label %92 [
     i8 112, label %50
     i8 117, label %50
-  ], !llvm.loop !43
+  ], !llvm.loop !45
 
 50:                                               ; preds = %49, %49, %36
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %34, align 8
   %.not91 = icmp eq i32 %52, %53
-  br i1 %.not91, label %54, label %92, !llvm.loop !43
+  br i1 %.not91, label %54, label %92, !llvm.loop !45
 
 54:                                               ; preds = %50
   %55 = trunc nuw i8 %.0102 to i1
@@ -8811,7 +8811,7 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
 103:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge105, label %104, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge105, label %104, !llvm.loop !46
 
 104:                                              ; preds = %.lr.ph104, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %103 ]
@@ -9453,7 +9453,7 @@ define dso_local void @RelationCacheInitFileRemove() local_unnamed_addr #0 {
 12:                                               ; preds = %10, %.lr.ph
   %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef 15) #13
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %12, %0
   %14 = call i32 @FreeDir(ptr noundef %3) #13
@@ -9486,7 +9486,7 @@ define internal fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef %0) un
 12:                                               ; preds = %10, %.lr.ph
   %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef %0, i32 noundef 15) #13
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %12, %1
   %14 = call i32 @FreeDir(ptr noundef %3) #13
@@ -9798,8 +9798,8 @@ attributes #16 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!21 = distinct !{!21, !5, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
@@ -9824,3 +9824,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}

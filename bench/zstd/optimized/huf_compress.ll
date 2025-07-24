@@ -2930,7 +2930,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   %.1 = phi i32 [ %.04772, %44 ], [ %spec.select56, %60 ], [ %.04772, %.lr.ph.split ]
   %62 = add i32 %.04673, 1
   %.not53 = icmp ugt i32 %62, %0
-  br i1 %.not53, label %.loopexit, label %.lr.ph.split, !llvm.loop !58
+  br i1 %.not53, label %.loopexit, label %.lr.ph.split, !llvm.loop !60
 
 .loopexit:                                        ; preds = %._crit_edge.loopexit.i, %.thread67, %40, %HUF_estimateCompressedSize.exit.us, %.thread67.us, %25, %HUF_cardinality.exit, %10
   %.045 = phi i32 [ %11, %10 ], [ %0, %HUF_cardinality.exit ], [ %.04772.us, %HUF_estimateCompressedSize.exit.us ], [ %.1.us, %.thread67.us ], [ %.04772.us, %25 ], [ %.04772, %._crit_edge.loopexit.i ], [ %.1, %.thread67 ], [ %.04772, %40 ]
@@ -3259,7 +3259,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef ran
   %20 = load i64, ptr %15, align 4
   store i64 %20, ptr %19, align 4
   %21 = icmp sgt i64 %indvars.iv32, 1
-  br i1 %21, label %14, label %.critedge.i, !llvm.loop !59
+  br i1 %21, label %14, label %.critedge.i, !llvm.loop !61
 
 .critedge.i:                                      ; preds = %14, %18
   %.0.in.i.lcssa = phi i64 [ %indvars.iv32, %14 ], [ 0, %18 ]
@@ -3271,7 +3271,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef ran
   store i32 %13, ptr %.sroa.5.0..sroa_idx7.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %HUF_insertionSort.exit, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %HUF_insertionSort.exit, label %.lr.ph, !llvm.loop !62
 
 .lr.ph.preheader.i:                               ; preds = %.preheader, %51
   %.025 = phi i32 [ %.1, %51 ], [ %1, %.preheader ]
@@ -3305,7 +3305,7 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef ran
   %.1.i = phi i32 [ %33, %32 ], [ %.01920.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
-  br i1 %exitcond.not.i, label %HUF_quickSortPartition.exit, label %.lr.ph.i, !llvm.loop !61
+  br i1 %exitcond.not.i, label %HUF_quickSortPartition.exit, label %.lr.ph.i, !llvm.loop !63
 
 HUF_quickSortPartition.exit:                      ; preds = %38
   %39 = add nsw i32 %.1.i, 1
@@ -3334,7 +3334,7 @@ HUF_quickSortPartition.exit:                      ; preds = %38
   %.122 = phi i32 [ %.02124, %47 ], [ %.1.i, %49 ]
   %.1 = phi i32 [ %48, %47 ], [ %.025, %49 ]
   %52 = icmp slt i32 %.1, %.122
-  br i1 %52, label %.lr.ph.preheader.i, label %HUF_insertionSort.exit, !llvm.loop !62
+  br i1 %52, label %.lr.ph.preheader.i, label %HUF_insertionSort.exit, !llvm.loop !64
 
 HUF_insertionSort.exit:                           ; preds = %51, %.critedge.i, %.preheader, %7
   ret void
@@ -4919,8 +4919,10 @@ attributes #14 = { nounwind }
 !55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
 !57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
+!58 = distinct !{!58, !7, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !60 = distinct !{!60, !7}
 !61 = distinct !{!61, !7}
 !62 = distinct !{!62, !7}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}

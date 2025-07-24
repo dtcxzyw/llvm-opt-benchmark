@@ -560,7 +560,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr n
   %25 = add nuw i64 %.021, 1
   %26 = tail call i64 @sk_num(ptr noundef nonnull %5) #10
   %27 = icmp ult i64 %25, %26
-  br i1 %27, label %.lr.ph.split, label %.loopexit, !llvm.loop !43
+  br i1 %27, label %.lr.ph.split, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph.split, %23, %.lr.ph.split.us, %13, %.preheader, %4
   %.015 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %13 ], [ 0, %.lr.ph.split ], [ 1, %23 ]
@@ -583,7 +583,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf(ptr noundef %0, ptr noun
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %3, align 8, !tbaa !44
+  %6 = load ptr, ptr %3, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   br label %8
 
@@ -599,7 +599,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %0, ptr 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %3, align 8, !tbaa !57
+  %6 = load ptr, ptr %3, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %8
 
@@ -613,7 +613,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %0, ptr 
 define hidden i32 @X509V3_EXT_REQ_add_nconf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !63
+  store ptr null, ptr %5, align 8, !tbaa !65
   %.not = icmp ne ptr %3, null
   %spec.select = select i1 %.not, ptr %5, ptr null
   %6 = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %spec.select)
@@ -622,9 +622,9 @@ define hidden i32 @X509V3_EXT_REQ_add_nconf(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %5, align 8, !tbaa !63
+  %9 = load ptr, ptr %5, align 8, !tbaa !65
   %10 = call i32 @X509_REQ_add_extensions(ptr noundef nonnull %3, ptr noundef %9) #10
-  %11 = load ptr, ptr %5, align 8, !tbaa !63
+  %11 = load ptr, ptr %5, align 8, !tbaa !65
   call void @sk_pop_free(ptr noundef %11, ptr noundef nonnull @X509_EXTENSION_free) #10
   br label %12
 
@@ -652,7 +652,7 @@ define hidden ptr @X509V3_get_string(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not12, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %8, align 8, !tbaa !65
+  %10 = load ptr, ptr %8, align 8, !tbaa !67
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %11, label %12
 
@@ -684,7 +684,7 @@ define hidden ptr @X509V3_get_section(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %11, label %12
 
@@ -710,7 +710,7 @@ define hidden void @X509V3_string_free(ptr noundef readonly captures(none) %0, p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %11, label %8
 
@@ -733,7 +733,7 @@ define hidden void @X509V3_section_free(ptr noundef readonly captures(none) %0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %11, label %8
 
@@ -759,14 +759,14 @@ define hidden void @X509V3_set_nconf(ptr noundef writeonly captures(none) initia
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @X509V3_set_ctx(ptr noundef writeonly captures(none) initializes((0, 4), (8, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !71
+  store ptr %2, ptr %8, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %9, align 8, !tbaa !72
+  store ptr %4, ptr %9, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %10, align 8, !tbaa !73
-  store i32 %5, ptr %0, align 8, !tbaa !74
+  store ptr %3, ptr %10, align 8, !tbaa !75
+  store i32 %5, ptr %0, align 8, !tbaa !76
   ret void
 }
 
@@ -885,35 +885,37 @@ attributes #11 = { nounwind allocsize(0) }
 !40 = !{!41, !20, i64 8}
 !41 = !{!"conf_value_st", !20, i64 0, !20, i64 8, !20, i64 16}
 !42 = !{!41, !20, i64 16}
-!43 = distinct !{!43, !15}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"x509_st", !46, i64 0, !47, i64 8, !48, i64 16, !23, i64 24, !23, i64 28, !20, i64 32, !49, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !48, i64 96, !51, i64 104, !52, i64 112, !53, i64 120, !54, i64 128, !55, i64 136, !9, i64 144, !56, i64 168}
-!46 = !{!"p1 _ZTS12x509_cinf_st", !8, i64 0}
-!47 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
-!48 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!49 = !{!"crypto_ex_data_st", !50, i64 0}
-!50 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
-!51 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !8, i64 0}
-!52 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !8, i64 0}
-!53 = !{!"p1 _ZTS19stack_st_DIST_POINT", !8, i64 0}
-!54 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !8, i64 0}
-!55 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !8, i64 0}
-!56 = !{!"p1 _ZTS16x509_cert_aux_st", !8, i64 0}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"X509_crl_st", !59, i64 0, !47, i64 8, !48, i64 16, !23, i64 24, !23, i64 28, !51, i64 32, !60, i64 40, !23, i64 48, !23, i64 52, !48, i64 56, !48, i64 64, !9, i64 72, !61, i64 96, !62, i64 104, !8, i64 112}
-!59 = !{!"p1 _ZTS16X509_crl_info_st", !8, i64 0}
-!60 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !8, i64 0}
-!61 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !8, i64 0}
-!62 = !{!"p1 _ZTS18x509_crl_method_st", !8, i64 0}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
-!65 = !{!66, !8, i64 0}
-!66 = !{!"X509V3_CONF_METHOD_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
-!67 = !{!66, !8, i64 8}
-!68 = !{!66, !8, i64 16}
-!69 = !{!66, !8, i64 24}
-!70 = !{!31, !32, i64 8}
-!71 = !{!31, !32, i64 16}
-!72 = !{!31, !34, i64 32}
-!73 = !{!31, !33, i64 24}
-!74 = !{!31, !23, i64 0}
+!43 = distinct !{!43, !15, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = distinct !{!45, !15}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"x509_st", !48, i64 0, !49, i64 8, !50, i64 16, !23, i64 24, !23, i64 28, !20, i64 32, !51, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !50, i64 96, !53, i64 104, !54, i64 112, !55, i64 120, !56, i64 128, !57, i64 136, !9, i64 144, !58, i64 168}
+!48 = !{!"p1 _ZTS12x509_cinf_st", !8, i64 0}
+!49 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
+!50 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!51 = !{!"crypto_ex_data_st", !52, i64 0}
+!52 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!53 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !8, i64 0}
+!54 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !8, i64 0}
+!55 = !{!"p1 _ZTS19stack_st_DIST_POINT", !8, i64 0}
+!56 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !8, i64 0}
+!57 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !8, i64 0}
+!58 = !{!"p1 _ZTS16x509_cert_aux_st", !8, i64 0}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"X509_crl_st", !61, i64 0, !49, i64 8, !50, i64 16, !23, i64 24, !23, i64 28, !53, i64 32, !62, i64 40, !23, i64 48, !23, i64 52, !50, i64 56, !50, i64 64, !9, i64 72, !63, i64 96, !64, i64 104, !8, i64 112}
+!61 = !{!"p1 _ZTS16X509_crl_info_st", !8, i64 0}
+!62 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !8, i64 0}
+!63 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !8, i64 0}
+!64 = !{!"p1 _ZTS18x509_crl_method_st", !8, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
+!67 = !{!68, !8, i64 0}
+!68 = !{!"X509V3_CONF_METHOD_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!69 = !{!68, !8, i64 8}
+!70 = !{!68, !8, i64 16}
+!71 = !{!68, !8, i64 24}
+!72 = !{!31, !32, i64 8}
+!73 = !{!31, !32, i64 16}
+!74 = !{!31, !34, i64 32}
+!75 = !{!31, !33, i64 24}
+!76 = !{!31, !23, i64 0}

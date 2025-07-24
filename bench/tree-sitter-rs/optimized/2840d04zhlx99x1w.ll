@@ -3238,8 +3238,8 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i: ; preds = 
   %61 = add i64 %60, %.sroa.6.0.i.i.i.i
   %62 = icmp ugt i64 %61, %.fca.1.extract.val29.i.i
   %63 = add i64 %.sroa.6.0.i.i.i.i, %45
-  %or.cond.i.i.not.i.i = icmp ult i64 %63, %.fca.1.extract.val29.i.i
-  br i1 %or.cond.i.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit.i.i.i.i", label %64
+  %or.cond91.i.i.not.i.i = icmp ult i64 %63, %.fca.1.extract.val29.i.i
+  br i1 %or.cond91.i.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit.i.i.i.i", label %64
 
 64:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit.i.i.i.i", %59
   br i1 %62, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h050e5faa7482420fE.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i

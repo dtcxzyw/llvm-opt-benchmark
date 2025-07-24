@@ -357,11 +357,11 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = getelementptr inbounds nuw i8, ptr %.03438.i, i64 24
   %24 = add nuw nsw i32 %22, 1
   %exitcond.not.i = icmp eq i32 %24, 17
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !37
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 384
   store ptr %26, ptr %27, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 392
@@ -380,7 +380,7 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
   br label %BN_POOL_get.exit.thread13
 
 BN_POOL_get.exit.thread13:                        ; preds = %31, %32
-  store ptr %16, ptr %25, align 8, !tbaa !36
+  store ptr %16, ptr %25, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %34, align 8, !tbaa !24
   %35 = load i32, ptr %12, align 4, !tbaa !34
@@ -438,9 +438,9 @@ BN_POOL_get.exit.thread:                          ; preds = %15, %BN_POOL_get.ex
   %.1.i15 = phi ptr [ %16, %BN_POOL_get.exit.thread13 ], [ %54, %BN_POOL_get.exit ]
   tail call void @BN_zero_ex(ptr noundef nonnull %.1.i15) #6
   %57 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !37
+  %58 = load i32, ptr %57, align 4, !tbaa !39
   %59 = and i32 %58, -5
-  store i32 %59, ptr %57, align 4, !tbaa !37
+  store i32 %59, ptr %57, align 4, !tbaa !39
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = load i32, ptr %60, align 8, !tbaa !27
   %62 = add i32 %61, 1
@@ -528,6 +528,8 @@ attributes #6 = { nounwind }
 !32 = !{!23, !6, i64 384}
 !33 = distinct !{!33, !21}
 !34 = !{!5, !10, i64 28}
-!35 = distinct !{!35, !21}
-!36 = !{!5, !6, i64 16}
-!37 = !{!18, !10, i64 20}
+!35 = distinct !{!35, !21, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !21}
+!38 = !{!5, !6, i64 16}
+!39 = !{!18, !10, i64 20}

@@ -1277,12 +1277,12 @@ for.body12.us:                                    ; preds = %for.cond10.preheade
   call void %12(ptr noundef nonnull align 8 dereferenceable(50) %dest, i32 noundef %dx.0294.us, i32 noundef %dy.0296.us, ptr noundef nonnull align 4 dereferenceable(4) %pxl, i1 noundef zeroext false)
   %inc150.us = add nuw i32 %dx.0294.us, 1
   %exitcond.not = icmp eq i32 %inc150.us, %dim.sroa.0.0.copyload
-  br i1 %exitcond.not, label %for.cond10.for.inc152_crit_edge.us, label %for.body12.us, !llvm.loop !47
+  br i1 %exitcond.not, label %for.cond10.for.inc152_crit_edge.us, label %for.body12.us, !llvm.loop !49
 
 for.cond10.for.inc152_crit_edge.us:               ; preds = %for.body12.us, %if.end146.us.us
   %inc153.us = add nuw i32 %dy.0296.us, 1
   %exitcond308.not = icmp eq i32 %inc153.us, %dim.sroa.6.0.copyload
-  br i1 %exitcond308.not, label %for.end154, label %for.cond10.preheader.us, !llvm.loop !48
+  br i1 %exitcond308.not, label %for.end154, label %for.cond10.preheader.us, !llvm.loop !50
 
 for.end154:                                       ; preds = %for.cond10.for.inc152_crit_edge.us, %for.cond10.preheader.lr.ph, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pxl) #11
@@ -1350,9 +1350,9 @@ if.end11:                                         ; preds = %if.end2
   %21 = extractelement <2 x i32> %13, i64 0
   %width.0 = shl i32 %21, %mul19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #11
-  store i32 %width.0, ptr %ref.tmp, align 4, !tbaa !49
+  store i32 %width.0, ptr %ref.tmp, align 4, !tbaa !51
   %Height.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
-  store i32 %spec.select, ptr %Height.i, align 4, !tbaa !50
+  store i32 %spec.select, ptr %Height.i, align 4, !tbaa !52
   %vtable21 = load ptr, ptr %driver, align 8, !tbaa !28
   %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 592
   %22 = load ptr, ptr %vfn22, align 8
@@ -1374,9 +1374,9 @@ if.end28:                                         ; preds = %if.then25, %if.end1
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %image, i64 %vbase.offset
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
-  %24 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !51
+  %24 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !53
   %dec.i59 = add nsw i32 %24, -1
-  store i32 %dec.i59, ptr %ReferenceCounter.i, align 8, !tbaa !51
+  store i32 %dec.i59, ptr %ReferenceCounter.i, align 8, !tbaa !53
   %tobool.not.i = icmp eq i32 %dec.i59, 0
   br i1 %tobool.not.i, label %delete.notnull.i, label %return
 
@@ -1480,9 +1480,11 @@ attributes #11 = { nounwind }
 !44 = distinct !{!44, !18}
 !45 = !{!46, !10, i64 0}
 !46 = !{!"_ZTSN3irr5video6SColorE", !10, i64 0}
-!47 = distinct !{!47, !18}
-!48 = distinct !{!48, !18}
-!49 = !{!9, !10, i64 0}
-!50 = !{!9, !10, i64 4}
-!51 = !{!52, !10, i64 16}
-!52 = !{!"_ZTSN3irr17IReferenceCountedE", !11, i64 8, !10, i64 16}
+!47 = distinct !{!47, !18, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !18}
+!50 = distinct !{!50, !18}
+!51 = !{!9, !10, i64 0}
+!52 = !{!9, !10, i64 4}
+!53 = !{!54, !10, i64 16}
+!54 = !{!"_ZTSN3irr17IReferenceCountedE", !11, i64 8, !10, i64 16}

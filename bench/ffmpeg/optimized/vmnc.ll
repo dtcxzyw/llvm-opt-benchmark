@@ -1461,7 +1461,7 @@ bytestream2_get_byte.exit120.us.i:                ; preds = %vmnc_get_pixel.exit
   %657 = getelementptr inbounds i8, ptr %.0.i163236.us.i, i64 %510
   %658 = add nuw nsw i32 %.039.i235.us.i, 1
   %exitcond315.not.i = icmp eq i32 %658, %spec.select.us.i
-  br i1 %exitcond315.not.i, label %paint_rect.exit.us.loopexit.i, label %656, !llvm.loop !77
+  br i1 %exitcond315.not.i, label %paint_rect.exit.us.loopexit.i, label %656, !llvm.loop !78
 
 paint_rect.exit.us.loopexit.i:                    ; preds = %656
   %.pre.i316 = load ptr, ptr %17, align 8, !tbaa !45
@@ -1486,7 +1486,7 @@ paint_raw.exit.us.i:                              ; preds = %._crit_edge.us.us.i
   %.3102.us.i = phi i32 [ %.2101184189.us.i, %.preheader207.us.i ], [ %.1100250.us.i, %542 ], [ %.1100250.us.i, %.preheader206.lr.ph.us.i ], [ %.2101184189.us.i, %paint_rect.exit173.us.i ], [ %.1100250.us.i, %._crit_edge.us.us.i ]
   %667 = getelementptr inbounds i8, ptr %.097251.us.i, i64 %512
   %668 = icmp samesign ult i32 %528, %.0.i302
-  br i1 %668, label %519, label %._crit_edge.us284.i, !llvm.loop !78
+  br i1 %668, label %519, label %._crit_edge.us284.i, !llvm.loop !79
 
 .lr.ph248.us.i:                                   ; preds = %.preheader207.us.i, %paint_rect.exit173.us.i
   %.098247.us.i = phi i32 [ %780, %paint_rect.exit173.us.i ], [ 0, %.preheader207.us.i ]
@@ -1679,13 +1679,13 @@ bytestream2_get_byte.exit.us.i:                   ; preds = %749, %745
   store i32 %.4107.us.i, ptr %767, align 4, !tbaa !60
   %indvars.iv.next317.i = add nuw nsw i64 %indvars.iv316.i, 1
   %exitcond320.not.i = icmp eq i64 %indvars.iv.next317.i, %wide.trip.count319.i
-  br i1 %exitcond320.not.i, label %768, label %766, !llvm.loop !79
+  br i1 %exitcond320.not.i, label %768, label %766, !llvm.loop !80
 
 768:                                              ; preds = %766
   %769 = getelementptr inbounds i8, ptr %.2.i165239.us.i, i64 %510
   %770 = add nuw nsw i32 %.241.i164238.us.i, 1
   %exitcond321.not.i = icmp eq i32 %.241.i164238.us.i, %754
-  br i1 %exitcond321.not.i, label %paint_rect.exit173.us.i, label %.preheader198.us.i, !llvm.loop !80
+  br i1 %exitcond321.not.i, label %paint_rect.exit173.us.i, label %.preheader198.us.i, !llvm.loop !81
 
 771:                                              ; preds = %.preheader.us.i, %771
   %.038.i170241.us.i = phi ptr [ %.1.i168243.us.i, %.preheader.us.i ], [ %772, %771 ]
@@ -1694,13 +1694,13 @@ bytestream2_get_byte.exit.us.i:                   ; preds = %749, %745
   store i16 %783, ptr %.038.i170241.us.i, align 2, !tbaa !67
   %773 = add nuw nsw i32 %.042.i169240.us.i, 1
   %exitcond322.not.i = icmp eq i32 %.042.i169240.us.i, %752
-  br i1 %exitcond322.not.i, label %774, label %771, !llvm.loop !81
+  br i1 %exitcond322.not.i, label %774, label %771, !llvm.loop !82
 
 774:                                              ; preds = %771
   %775 = getelementptr inbounds i8, ptr %.1.i168243.us.i, i64 %510
   %776 = add nuw nsw i32 %.140.i167242.us.i, 1
   %exitcond323.not.i = icmp eq i32 %.140.i167242.us.i, %754
-  br i1 %exitcond323.not.i, label %paint_rect.exit173.us.i, label %.preheader.us.i, !llvm.loop !82
+  br i1 %exitcond323.not.i, label %paint_rect.exit173.us.i, label %.preheader.us.i, !llvm.loop !83
 
 777:                                              ; preds = %.preheader199.us.i, %777
   %.0.i172245.us.i = phi ptr [ %765, %.preheader199.us.i ], [ %778, %777 ]
@@ -1709,12 +1709,12 @@ bytestream2_get_byte.exit.us.i:                   ; preds = %749, %745
   %778 = getelementptr inbounds i8, ptr %.0.i172245.us.i, i64 %510
   %779 = add nuw nsw i32 %.039.i171244.us.i, 1
   %exitcond324.not.i = icmp eq i32 %.039.i171244.us.i, %754
-  br i1 %exitcond324.not.i, label %paint_rect.exit173.us.i, label %777, !llvm.loop !77
+  br i1 %exitcond324.not.i, label %paint_rect.exit173.us.i, label %777, !llvm.loop !78
 
 paint_rect.exit173.us.i:                          ; preds = %768, %774, %777, %760
   %780 = add nuw nsw i32 %.098247.us.i, 1
   %exitcond325.not.i = icmp eq i32 %780, %.0109.us.i
-  br i1 %exitcond325.not.i, label %paint_raw.exit.us.i, label %.lr.ph248.us.i, !llvm.loop !83
+  br i1 %exitcond325.not.i, label %paint_raw.exit.us.i, label %.lr.ph248.us.i, !llvm.loop !84
 
 .preheader.us.i:                                  ; preds = %.preheader200.us.i, %774
   %.1.i168243.us.i = phi ptr [ %765, %.preheader200.us.i ], [ %775, %774 ]
@@ -1910,7 +1910,7 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %848, %844, %836, %8
   %858 = getelementptr inbounds i8, ptr %.0.i123225.us.us.i, i64 %510
   %859 = add nuw nsw i32 %.020.i224.us.us.i, 1
   %exitcond306.not.i = icmp eq i32 %859, %spec.select.us.i
-  br i1 %exitcond306.not.i, label %paint_raw.exit.us.i, label %.preheader206.us.us.i, !llvm.loop !76
+  br i1 %exitcond306.not.i, label %paint_raw.exit.us.i, label %.preheader206.us.us.i, !llvm.loop !85
 
 .preheader205.us.us.preheader.i:                  ; preds = %.preheader211.us.i
   %wide.trip.count310.i = zext nneg i32 %spec.select116.us.i to i64
@@ -1927,13 +1927,13 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %848, %844, %836, %8
   store i32 %.2101184189.us.i, ptr %861, align 4, !tbaa !60
   %indvars.iv.next308.i = add nuw nsw i64 %indvars.iv307.i, 1
   %exitcond311.not.i = icmp eq i64 %indvars.iv.next308.i, %wide.trip.count310.i
-  br i1 %exitcond311.not.i, label %._crit_edge.us229.us.i, label %860, !llvm.loop !79
+  br i1 %exitcond311.not.i, label %._crit_edge.us229.us.i, label %860, !llvm.loop !80
 
 ._crit_edge.us229.us.i:                           ; preds = %860
   %862 = getelementptr inbounds i8, ptr %.2.i228.us.us.i, i64 %510
   %863 = add nuw nsw i32 %.241.i227.us.us.i, 1
   %exitcond312.not.i = icmp eq i32 %863, %spec.select.us.i
-  br i1 %exitcond312.not.i, label %paint_rect.exit.us.i, label %.preheader205.us.us.i, !llvm.loop !80
+  br i1 %exitcond312.not.i, label %paint_rect.exit.us.i, label %.preheader205.us.us.i, !llvm.loop !86
 
 .preheader204.lr.ph.us.i:                         ; preds = %.preheader209.us.i
   %864 = icmp sgt i32 %spec.select116.us.i, 0
@@ -1952,13 +1952,13 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %848, %844, %836, %8
   store i16 %865, ptr %.038.i231.us.us.i, align 2, !tbaa !67
   %868 = add nuw nsw i32 %.042.i230.us.us.i, 1
   %exitcond313.not.i = icmp eq i32 %868, %spec.select116.us.i
-  br i1 %exitcond313.not.i, label %._crit_edge.us234.us.i, label %866, !llvm.loop !81
+  br i1 %exitcond313.not.i, label %._crit_edge.us234.us.i, label %866, !llvm.loop !82
 
 ._crit_edge.us234.us.i:                           ; preds = %866
   %869 = getelementptr inbounds i8, ptr %.1.i233.us.us.i, i64 %510
   %870 = add nuw nsw i32 %.140.i232.us.us.i, 1
   %exitcond314.not.i = icmp eq i32 %870, %spec.select.us.i
-  br i1 %exitcond314.not.i, label %paint_rect.exit.us.i, label %.preheader204.us.us.i, !llvm.loop !82
+  br i1 %exitcond314.not.i, label %paint_rect.exit.us.i, label %.preheader204.us.us.i, !llvm.loop !87
 
 .lr.ph.us.i:                                      ; preds = %.preheader208.us.i
   %871 = trunc i32 %.2101184189.us.i to i8
@@ -1968,7 +1968,7 @@ vmnc_get_pixel.exit.us.us.i:                      ; preds = %848, %844, %836, %8
 ._crit_edge.us284.i:                              ; preds = %paint_raw.exit.us.i
   %873 = getelementptr inbounds i8, ptr %.089266.us.i, i64 %514
   %874 = icmp samesign ult i32 %515, %.0.i304
-  br i1 %874, label %.lr.ph259.us.i, label %load_cursor.exit, !llvm.loop !84
+  br i1 %874, label %.lr.ph259.us.i, label %load_cursor.exit, !llvm.loop !88
 
 decode_hextile.exit:                              ; preds = %519, %536, %paint_rect.exit.us.i, %bytestream2_get_byte.exit.us.i
   %.str.14.sink.i = phi ptr [ @.str.14, %bytestream2_get_byte.exit.us.i ], [ @.str.3, %paint_rect.exit.us.i ], [ @.str.3, %536 ], [ @.str.3, %519 ]
@@ -1982,7 +1982,7 @@ load_cursor.exit.thread:                          ; preds = %166
 
 load_cursor.exit:                                 ; preds = %._crit_edge.us284.i, %._crit_edge.us, %._crit_edge105.i, %.preheader.lr.ph, %431, %.lr.ph268.i, %508, %.preheader88.lr.ph.i, %._crit_edge99.i, %214, %424, %420, %391, %389, %384, %382
   %.not284 = icmp eq i32 %111, 0
-  br i1 %.not284, label %._crit_edge, label %110, !llvm.loop !85
+  br i1 %.not284, label %._crit_edge, label %110, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %load_cursor.exit, %load_cursor.exit.thread, %.loopexit
   %876 = load ptr, ptr %43, align 8, !tbaa !55
@@ -2056,7 +2056,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   %927 = getelementptr inbounds i8, ptr %.1244409, i64 %926
   %928 = add nuw nsw i32 %.0410, 1
   %929 = icmp slt i32 %928, %.3258
-  br i1 %929, label %913, label %930, !llvm.loop !86
+  br i1 %929, label %913, label %930, !llvm.loop !90
 
 930:                                              ; preds = %913
   %931 = load i32, ptr %878, align 8, !tbaa !56
@@ -2126,7 +2126,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   store i8 %968, ptr %961, align 1, !tbaa !48
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next154.i, %959
-  br i1 %exitcond490.not, label %._crit_edge.us143.i, label %960, !llvm.loop !87
+  br i1 %exitcond490.not, label %._crit_edge.us143.i, label %960, !llvm.loop !91
 
 ._crit_edge.us143.i:                              ; preds = %960
   %969 = load i32, ptr %878, align 8, !tbaa !56
@@ -2136,7 +2136,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   %973 = getelementptr inbounds i8, ptr %.0142.us.i, i64 %926
   %974 = add nuw nsw i32 %.0113139.us.i, 1
   %975 = icmp slt i32 %974, %.1110.i
-  br i1 %975, label %.preheader.us.i320, label %put_cursor.exit, !llvm.loop !88
+  br i1 %975, label %.preheader.us.i320, label %put_cursor.exit, !llvm.loop !92
 
 .preheader123.us.preheader.i:                     ; preds = %947
   %976 = sext i32 %931 to i64
@@ -2167,7 +2167,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   store i16 %990, ptr %983, align 2, !tbaa !67
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next151.i, %981
-  br i1 %exitcond489.not, label %._crit_edge.us137.i, label %982, !llvm.loop !89
+  br i1 %exitcond489.not, label %._crit_edge.us137.i, label %982, !llvm.loop !93
 
 ._crit_edge.us137.i:                              ; preds = %982
   %991 = getelementptr inbounds i16, ptr %.0103135.us.i, i64 %976
@@ -2175,7 +2175,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   %993 = getelementptr inbounds i8, ptr %.1136.us.i, i64 %926
   %994 = add nuw nsw i32 %.1114133.us.i, 1
   %995 = icmp slt i32 %994, %.1110.i
-  br i1 %995, label %.preheader123.us.i, label %put_cursor.exit, !llvm.loop !90
+  br i1 %995, label %.preheader123.us.i, label %put_cursor.exit, !llvm.loop !94
 
 .preheader125.us.preheader.i:                     ; preds = %947
   %996 = getelementptr inbounds nuw i8, ptr %8, i64 864
@@ -2205,7 +2205,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   store i32 %1009, ptr %1002, align 4, !tbaa !60
   %indvars.iv.next.i319 = add nuw nsw i64 %indvars.iv.i318, 1
   %exitcond488.not = icmp eq i64 %indvars.iv.next.i319, %1000
-  br i1 %exitcond488.not, label %._crit_edge.us.i, label %1001, !llvm.loop !91
+  br i1 %exitcond488.not, label %._crit_edge.us.i, label %1001, !llvm.loop !95
 
 ._crit_edge.us.i:                                 ; preds = %1001
   %1010 = load i32, ptr %878, align 8, !tbaa !56
@@ -2215,7 +2215,7 @@ load_cursor.exit:                                 ; preds = %._crit_edge.us284.i
   %1014 = getelementptr inbounds i8, ptr %.2131.us.i, i64 %926
   %1015 = add nuw nsw i32 %.2115128.us.i, 1
   %1016 = icmp slt i32 %1015, %.1110.i
-  br i1 %1016, label %.preheader125.us.i, label %put_cursor.exit, !llvm.loop !92
+  br i1 %1016, label %.preheader125.us.i, label %put_cursor.exit, !llvm.loop !96
 
 put_cursor.exit:                                  ; preds = %._crit_edge.us.i, %._crit_edge.us137.i, %._crit_edge.us143.i, %947, %930, %877, %._crit_edge
   store i32 1, ptr %2, align 4, !tbaa !60
@@ -2396,8 +2396,8 @@ attributes #8 = { noreturn nounwind }
 !73 = distinct !{!73, !62}
 !74 = distinct !{!74, !62, !71}
 !75 = distinct !{!75, !62}
-!76 = distinct !{!76, !62}
-!77 = distinct !{!77, !62}
+!76 = distinct !{!76, !62, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !78 = distinct !{!78, !62}
 !79 = distinct !{!79, !62}
 !80 = distinct !{!80, !62}
@@ -2405,11 +2405,15 @@ attributes #8 = { noreturn nounwind }
 !82 = distinct !{!82, !62}
 !83 = distinct !{!83, !62}
 !84 = distinct !{!84, !62}
-!85 = distinct !{!85, !62}
-!86 = distinct !{!86, !62}
-!87 = distinct !{!87, !62}
-!88 = distinct !{!88, !62}
+!85 = distinct !{!85, !62, !77}
+!86 = distinct !{!86, !62, !77}
+!87 = distinct !{!87, !62, !77}
+!88 = distinct !{!88, !62, !77}
 !89 = distinct !{!89, !62}
 !90 = distinct !{!90, !62}
 !91 = distinct !{!91, !62}
-!92 = distinct !{!92, !62}
+!92 = distinct !{!92, !62, !77}
+!93 = distinct !{!93, !62}
+!94 = distinct !{!94, !62, !77}
+!95 = distinct !{!95, !62}
+!96 = distinct !{!96, !62, !77}

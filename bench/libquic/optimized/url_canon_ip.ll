@@ -2014,7 +2014,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
   %.334.i = phi i32 [ %132, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i ], [ %.03116.i, %.lr.ph18.split.i ]
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
-  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !53
+  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !55
 
 135:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
@@ -2191,7 +2191,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 70:                                               ; preds = %69
   %71 = add nsw i32 %.265.i.i, 1
-  br label %.critedge.i.i.outer, !llvm.loop !54
+  br label %.critedge.i.i.outer, !llvm.loop !56
 
 .thread91.i.i:                                    ; preds = %..thread91.i_crit_edge.i, %42
   %72 = phi i16 [ %.pre.i, %..thread91.i_crit_edge.i ], [ %35, %42 ]
@@ -2209,7 +2209,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 ..critedge_crit_edge.i.i:                         ; preds = %74
   %.pre.i.i = add nsw i32 %.26593.i.i, 1
-  br label %.critedge.i.i, !llvm.loop !54
+  br label %.critedge.i.i, !llvm.loop !56
 
 79:                                               ; preds = %74
   %80 = and i8 %77, 4
@@ -2316,7 +2316,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   store i8 %107, ptr %108, align 1, !tbaa !3
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i, label %.lr.ph.i.us.i, !llvm.loop !55
+  br i1 %exitcond.not.i.us.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i, label %.lr.ph.i.us.i, !llvm.loop !57
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %.lr.ph.i.us.i, %101
   %109 = sext i32 %.val40.us.i to i64
@@ -2339,7 +2339,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   %.334.us.i = phi i32 [ %117, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i ], [ %.132.us.i, %..loopexit_crit_edge.us.i ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count.i
-  br i1 %exitcond33.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !56
+  br i1 %exitcond33.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %119, %138, %.preheader7.i
   %.031.lcssa.i = phi i32 [ 0, %.preheader7.i ], [ %.334.i, %138 ], [ %.334.us.i, %119 ]
@@ -2375,7 +2375,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   store i8 %126, ptr %127, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i, label %.lr.ph.i.i, !llvm.loop !55
+  br i1 %exitcond.not.i.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %.lr.ph.i.i, %120
   %128 = sext i32 %.val40.i to i64
@@ -2398,7 +2398,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
   %.334.i = phi i32 [ %136, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i ], [ %.03116.i, %.lr.ph18.split.i ]
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
-  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !56
+  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !59
 
 139:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
@@ -2502,7 +2502,10 @@ attributes #9 = { nounwind }
 !50 = !{!"_ZTSN3url12_GLOBAL__N_110IPv6ParsedE", !4, i64 0, !10, i64 64, !10, i64 68, !23, i64 72}
 !51 = !{!50, !10, i64 68}
 !52 = distinct !{!52, !13}
-!53 = distinct !{!53, !13}
-!54 = distinct !{!54, !13}
+!53 = distinct !{!53, !13, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !55 = distinct !{!55, !13}
 !56 = distinct !{!56, !13}
+!57 = distinct !{!57, !13}
+!58 = distinct !{!58, !13, !54}
+!59 = distinct !{!59, !13}

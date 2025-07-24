@@ -4327,7 +4327,7 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   %269 = load ptr, ptr %.097227, align 8, !tbaa !311
   %.not116 = icmp eq ptr %269, null
-  br i1 %.not116, label %.critedge, label %.lr.ph.split, !llvm.loop !312
+  br i1 %.not116, label %.critedge, label %.lr.ph.split, !llvm.loop !315
 
 .critedge:                                        ; preds = %209, %203, %268, %228, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138", %28, %18, %_ZNK4llvm8MCSymbol11getFragmentEb.exit136, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit137", %130, %135, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit", %.split231.us, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183, %6
   ret void
@@ -4339,9 +4339,9 @@ declare noundef i64 @_ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolE(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6lookupES4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !314
+  %3 = load ptr, ptr %0, align 8, !tbaa !316
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !317
+  %5 = load i32, ptr %4, align 8, !tbaa !319
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -4355,9 +4355,9 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN
   %.01826.i.i = and i32 %13, %12
   %14 = zext nneg i32 %.01826.i.i to i64
   %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !318
+  %16 = load ptr, ptr %15, align 8, !tbaa !320
   %17 = icmp eq ptr %1, %16
-  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit, label %.lr.ph.i.i, !prof !319
+  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit, label %.lr.ph.i.i, !prof !321
 
 .lr.ph.i.i:                                       ; preds = %7, %20
   %18 = phi ptr [ %25, %20 ], [ %16, %7 ]
@@ -4372,9 +4372,9 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN
   %.018.i.i = and i32 %22, %13
   %23 = zext i32 %.018.i.i to i64
   %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !318
+  %25 = load ptr, ptr %24, align 8, !tbaa !320
   %26 = icmp eq ptr %1, %25
-  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit, label %.lr.ph.i.i, !prof !320, !llvm.loop !321
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit, label %.lr.ph.i.i, !prof !322, !llvm.loop !323
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit: ; preds = %20, %7
   %27 = phi i64 [ %14, %7 ], [ %23, %20 ]
@@ -4755,13 +4755,15 @@ attributes #17 = { noreturn nounwind }
 !309 = !{!308, !6, i64 30}
 !310 = !{!165, !16, i64 8}
 !311 = !{!298, !280, i64 0}
-!312 = distinct !{!312, !313}
+!312 = distinct !{!312, !313, !314}
 !313 = !{!"llvm.loop.mustprogress"}
-!314 = !{!315, !316, i64 0}
-!315 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !316, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!316 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEmEE", !11, i64 0}
-!317 = !{!315, !8, i64 16}
-!318 = !{!299, !299, i64 0}
-!319 = !{!"branch_weights", i32 1999, i32 1}
-!320 = !{!"branch_weights", i32 1, i32 0}
-!321 = distinct !{!321, !313}
+!314 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!315 = distinct !{!315, !313}
+!316 = !{!317, !318, i64 0}
+!317 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !318, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!318 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEmEE", !11, i64 0}
+!319 = !{!317, !8, i64 16}
+!320 = !{!299, !299, i64 0}
+!321 = !{!"branch_weights", i32 1999, i32 1}
+!322 = !{!"branch_weights", i32 1, i32 0}
+!323 = distinct !{!323, !313}

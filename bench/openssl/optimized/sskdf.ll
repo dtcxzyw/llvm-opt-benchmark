@@ -863,7 +863,7 @@ define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef nonnull %
   store i8 %50, ptr %28, align 1, !tbaa !31
   %51 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %.not64.us = icmp eq i32 %51, 0
-  br i1 %.not64.us, label %.loopexit, label %.lr.ph.split.us
+  br i1 %.not64.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !32
 
 .thread:                                          ; preds = %.lr.ph, %65
   %.080 = phi ptr [ %66, %65 ], [ %6, %.lr.ph ]
@@ -1215,3 +1215,5 @@ attributes #7 = { nounwind }
 !29 = !{!14, !14, i64 0}
 !30 = !{!5, !5, i64 0}
 !31 = !{!6, !6, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}

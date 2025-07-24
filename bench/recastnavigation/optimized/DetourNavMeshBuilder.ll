@@ -411,7 +411,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 186:                                              ; preds = %.lr.ph573
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond668.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count667
-  br i1 %exitcond668.not, label %._crit_edge, label %.lr.ph573, !llvm.loop !10
+  br i1 %exitcond668.not, label %._crit_edge, label %.lr.ph573, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph573
   %indvars664.le = trunc i64 %indvars.iv662 to i32
@@ -423,7 +423,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %188 = sub i32 %187, %.0466.lcssa
   %indvars.iv.next670 = add nuw nsw i64 %indvars.iv669, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next670, %wide.trip.count672
-  br i1 %exitcond673.not, label %.loopexit529, label %177, !llvm.loop !11
+  br i1 %exitcond673.not, label %.loopexit529, label %177, !llvm.loop !12
 
 189:                                              ; preds = %.lr.ph594, %._crit_edge588
   %indvars.iv681 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next682, %._crit_edge588 ]
@@ -444,7 +444,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 197:                                              ; preds = %.lr.ph587
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond680.not = icmp eq i64 %indvars.iv.next675, %wide.trip.count679
-  br i1 %exitcond680.not, label %._crit_edge588, label %.lr.ph587, !llvm.loop !12
+  br i1 %exitcond680.not, label %._crit_edge588, label %.lr.ph587, !llvm.loop !13
 
 ._crit_edge588.loopexit.split.loop.exit:          ; preds = %.lr.ph587
   %indvars676.le = trunc i64 %indvars.iv674 to i32
@@ -456,7 +456,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %199 = add i32 %198, %.0469.lcssa
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %exitcond685.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count684
-  br i1 %exitcond685.not, label %.loopexit529, label %189, !llvm.loop !13
+  br i1 %exitcond685.not, label %.loopexit529, label %189, !llvm.loop !14
 
 .loopexit529:                                     ; preds = %._crit_edge, %._crit_edge588, %._crit_edge567.thread, %.thread731
   %200 = phi ptr [ %162, %.thread731 ], [ %162, %._crit_edge567.thread ], [ %167, %._crit_edge588 ], [ %172, %._crit_edge ]
@@ -650,7 +650,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %334 = load i32, ptr %8, align 8
   %335 = sext i32 %334 to i64
   %336 = icmp slt i64 %indvars.iv.next687, %335
-  br i1 %336, label %310, label %.preheader527, !llvm.loop !14
+  br i1 %336, label %310, label %.preheader527, !llvm.loop !15
 
 337:                                              ; preds = %.lr.ph601, %368
   %338 = phi i32 [ %307, %.lr.ph601 ], [ %369, %368 ]
@@ -703,7 +703,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %370 = sext i32 %369 to i64
   %371 = icmp slt i64 %indvars.iv.next690, %370
-  br i1 %371, label %337, label %._crit_edge602, !llvm.loop !15
+  br i1 %371, label %337, label %._crit_edge602, !llvm.loop !16
 
 ._crit_edge602:                                   ; preds = %368, %.preheader527
   %372 = phi i32 [ %307, %.preheader527 ], [ %369, %368 ]
@@ -813,7 +813,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   store i8 %418, ptr %388, align 2
   %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
   %exitcond696.not = icmp eq i64 %indvars.iv.next693, %381
-  br i1 %exitcond696.not, label %._crit_edge606, label %400, !llvm.loop !16
+  br i1 %exitcond696.not, label %._crit_edge606, label %400, !llvm.loop !17
 
 ._crit_edge606:                                   ; preds = %416, %400, %386
   %419 = getelementptr inbounds i16, ptr %.0453608, i64 %380
@@ -821,7 +821,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %420 = load i32, ptr %14, align 8
   %421 = sext i32 %420 to i64
   %422 = icmp slt i64 %indvars.iv.next698, %421
-  br i1 %422, label %386, label %.preheader526.loopexit, !llvm.loop !17
+  br i1 %422, label %386, label %.preheader526.loopexit, !llvm.loop !18
 
 423:                                              ; preds = %.lr.ph614, %451
   %424 = phi i32 [ %382, %.lr.ph614 ], [ %452, %451 ]
@@ -869,7 +869,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
   %453 = sext i32 %452 to i64
   %454 = icmp slt i64 %indvars.iv.next701, %453
-  br i1 %454, label %423, label %._crit_edge615, !llvm.loop !18
+  br i1 %454, label %423, label %._crit_edge615, !llvm.loop !19
 
 ._crit_edge615:                                   ; preds = %451, %.preheader526
   %455 = load ptr, ptr %200, align 8
@@ -945,7 +945,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %499 = load i32, ptr %14, align 8
   %500 = sext i32 %499 to i64
   %501 = icmp slt i64 %indvars.iv.next704, %500
-  br i1 %501, label %459, label %._crit_edge619, !llvm.loop !19
+  br i1 %501, label %459, label %._crit_edge619, !llvm.loop !20
 
 ._crit_edge619:                                   ; preds = %498, %.preheader525
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1002,7 +1002,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv.next706 = add nsw i64 %indvars.iv705, 1
   %530 = add nuw nsw i32 %.0425621, 1
   %exitcond708.not = icmp eq i32 %530, %511
-  br i1 %exitcond708.not, label %._crit_edge624.loopexit, label %519, !llvm.loop !20
+  br i1 %exitcond708.not, label %._crit_edge624.loopexit, label %519, !llvm.loop !21
 
 ._crit_edge624.loopexit:                          ; preds = %519
   %531 = trunc nsw i64 %indvars.iv.next706 to i32
@@ -1014,7 +1014,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %532 = load i32, ptr %14, align 8
   %533 = sext i32 %532 to i64
   %534 = icmp slt i64 %indvars.iv.next710, %533
-  br i1 %534, label %.lr.ph628, label %.loopexit, !llvm.loop !21
+  br i1 %534, label %.lr.ph628, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge624, %.preheader, %._crit_edge619
   %535 = load i8, ptr %208, align 8
@@ -1117,7 +1117,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv.next713 = add nuw nsw i64 %indvars.iv712, 1
   %596 = sext i32 %595 to i64
   %597 = icmp slt i64 %indvars.iv.next713, %596
-  br i1 %597, label %545, label %._crit_edge633, !llvm.loop !22
+  br i1 %597, label %545, label %._crit_edge633, !llvm.loop !23
 
 ._crit_edge633:                                   ; preds = %594, %538
   tail call void @_Z6dtFreePv(ptr noundef %.0422)
@@ -1230,7 +1230,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %59 = select i1 %58, float %.sroa.8.0127, float %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.sroa.8121.0.lcssa = phi float [ %40, %27 ], [ %53, %.lr.ph ]
@@ -1418,7 +1418,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %180 = load i32, ptr %20, align 4
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next155, %181
-  br i1 %182, label %.lr.ph138, label %._crit_edge139, !llvm.loop !24
+  br i1 %182, label %.lr.ph138, label %._crit_edge139, !llvm.loop !25
 
 ._crit_edge139:                                   ; preds = %178, %.lr.ph138, %107
   %183 = phi i16 [ %125, %107 ], [ %175, %178 ], [ %139, %.lr.ph138 ]
@@ -1446,7 +1446,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %200 = load i32, ptr %7, align 8
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next158, %201
-  br i1 %202, label %22, label %._crit_edge144, !llvm.loop !25
+  br i1 %202, label %22, label %._crit_edge144, !llvm.loop !26
 
 ._crit_edge144:                                   ; preds = %199, %2
   %.lcssa = phi i32 [ %12, %2 ], [ %200, %199 ]
@@ -1865,7 +1865,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   store i8 %54, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader93, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader93, label %.lr.ph, !llvm.loop !27
 
 .preheader92.loopexit:                            ; preds = %70
   %.pre = load i32, ptr %17, align 4
@@ -1899,7 +1899,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   store i8 %68, ptr %67, align 1
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 6
-  br i1 %exitcond112.not, label %70, label %61, !llvm.loop !27
+  br i1 %exitcond112.not, label %70, label %61, !llvm.loop !28
 
 70:                                               ; preds = %61
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 28
@@ -1912,7 +1912,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   %75 = load i32, ptr %11, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next114, %76
-  br i1 %77, label %.lr.ph97, label %.preheader92.loopexit, !llvm.loop !28
+  br i1 %77, label %.lr.ph97, label %.preheader92.loopexit, !llvm.loop !29
 
 .preheader91:                                     ; preds = %.lr.ph99, %.preheader92
   %78 = load i32, ptr %20, align 4
@@ -1949,7 +1949,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   %96 = load i32, ptr %17, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next117, %97
-  br i1 %98, label %.lr.ph99, label %.preheader91, !llvm.loop !29
+  br i1 %98, label %.lr.ph99, label %.preheader91, !llvm.loop !30
 
 .preheader90:                                     ; preds = %.lr.ph101, %.preheader91
   %99 = load i32, ptr %26, align 4
@@ -1975,7 +1975,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   %110 = mul nsw i32 %109, 3
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next120, %111
-  br i1 %112, label %.lr.ph101, label %.preheader90, !llvm.loop !30
+  br i1 %112, label %.lr.ph101, label %.preheader90, !llvm.loop !31
 
 .preheader:                                       ; preds = %126, %.preheader90
   %113 = load i32, ptr %29, align 4
@@ -2004,7 +2004,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   store i8 %124, ptr %123, align 1
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %126, label %117, !llvm.loop !31
+  br i1 %exitcond125.not, label %126, label %117, !llvm.loop !32
 
 126:                                              ; preds = %117
   %127 = getelementptr inbounds nuw i8, ptr %115, i64 12
@@ -2023,7 +2023,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   %135 = load i32, ptr %26, align 4
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next127, %136
-  br i1 %137, label %.lr.ph104, label %.preheader, !llvm.loop !32
+  br i1 %137, label %.lr.ph104, label %.preheader, !llvm.loop !33
 
 .lr.ph107:                                        ; preds = %.preheader, %148
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %148 ], [ 0, %.preheader ]
@@ -2046,7 +2046,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   store i8 %146, ptr %145, align 1
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 6
-  br i1 %exitcond132.not, label %148, label %139, !llvm.loop !33
+  br i1 %exitcond132.not, label %148, label %139, !llvm.loop !34
 
 148:                                              ; preds = %139
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -2071,7 +2071,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   %161 = load i32, ptr %29, align 4
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next134, %162
-  br i1 %163, label %.lr.ph107, label %.loopexit, !llvm.loop !34
+  br i1 %163, label %.lr.ph107, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %148, %.preheader, %4, %2
   %.073 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %.preheader ], [ true, %148 ]
@@ -2227,7 +2227,7 @@ define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %0
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_ZL11calcExtendsP6BVItemiiiPtS1_.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %_ZL11calcExtendsP6BVItemiiiPtS1_.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZL11calcExtendsP6BVItemiiiPtS1_.exit:            ; preds = %93, %33
   %95 = phi i16 [ %42, %33 ], [ %76, %93 ]
@@ -2336,8 +2336,8 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -2363,3 +2363,4 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}

@@ -337,7 +337,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %163 = select i1 %162, double %.1552656, double %157
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
   %exitcond751.not = icmp eq i64 %indvars.iv.next748, %wide.trip.count755
-  br i1 %exitcond751.not, label %.loopexit651, label %.lr.ph658.split, !llvm.loop !13
+  br i1 %exitcond751.not, label %.loopexit651, label %.lr.ph658.split, !llvm.loop !15
 
 ._crit_edge666:                                   ; preds = %.loopexit651
   %164 = call double @dlamch_(ptr noundef nonnull @.str.9) #5
@@ -363,7 +363,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %gep731, ptr noundef nonnull %171, ptr noundef %11, ptr noundef nonnull %14) #5
   %indvars.iv.next821 = add nuw nsw i64 %indvars.iv820, 1
   %.not602.not = icmp samesign ult i64 %indvars.iv820, %169
-  br i1 %.not602.not, label %.lr.ph735, label %.loopexit, !llvm.loop !14
+  br i1 %.not602.not, label %.lr.ph735, label %.loopexit, !llvm.loop !16
 
 172:                                              ; preds = %._crit_edge666
   %.not603726 = icmp slt i32 %55, 1
@@ -420,12 +420,12 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 1.000000e+00, ptr %gep847, align 8, !tbaa !7
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count763
-  br i1 %exitcond764.not, label %192, label %191, !llvm.loop !15
+  br i1 %exitcond764.not, label %192, label %191, !llvm.loop !17
 
 192:                                              ; preds = %191
   %indvars.iv.next766 = add nuw nsw i64 %indvars.iv765, 1
   %.not605.not = icmp samesign ult i64 %indvars.iv765, %188
-  br i1 %.not605.not, label %189, label %.lr.ph712, !llvm.loop !16
+  br i1 %.not605.not, label %189, label %.lr.ph712, !llvm.loop !18
 
 .lr.ph712:                                        ; preds = %192, %182
   store i32 %.638..635, ptr %17, align 4, !tbaa !3
@@ -526,7 +526,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 1.000000e+00, ptr %gep851, align 8, !tbaa !7
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
   %exitcond790.not = icmp eq i64 %indvars.iv.next787, %wide.trip.count789
-  br i1 %exitcond790.not, label %243, label %242, !llvm.loop !17
+  br i1 %exitcond790.not, label %243, label %242, !llvm.loop !19
 
 243:                                              ; preds = %242
   %.pre = add nsw i64 %240, %209
@@ -585,7 +585,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 1.000000e+00, ptr %gep849, align 8, !tbaa !7
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
   %exitcond776.not = icmp eq i64 %indvars.iv.next773, %wide.trip.count775
-  br i1 %exitcond776.not, label %.loopexit869, label %265, !llvm.loop !18
+  br i1 %exitcond776.not, label %.loopexit869, label %265, !llvm.loop !20
 
 .loopexit869:                                     ; preds = %265, %244, %257, %243
   %266 = phi double [ %230, %244 ], [ 1.000000e+00, %257 ], [ 1.000000e+00, %243 ], [ 1.000000e+00, %265 ]
@@ -600,7 +600,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %271 = sext i32 %270 to i64
   %.not613.not = icmp slt i64 %indvars.iv793, %271
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 1
-  br i1 %.not613.not, label %210, label %._crit_edge695, !llvm.loop !19
+  br i1 %.not613.not, label %210, label %._crit_edge695, !llvm.loop !21
 
 ._crit_edge695:                                   ; preds = %.loopexit869, %195
   br i1 %181, label %274, label %272
@@ -723,7 +723,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %337 = load i32, ptr %20, align 4, !tbaa !3
   %338 = sext i32 %337 to i64
   %.not616.not = icmp slt i64 %indvars.iv798, %338
-  br i1 %.not616.not, label %293, label %._crit_edge702, !llvm.loop !20
+  br i1 %.not616.not, label %293, label %._crit_edge702, !llvm.loop !22
 
 ._crit_edge702:                                   ; preds = %336, %283
   %339 = sub i32 %.641, %285
@@ -747,7 +747,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %352 = icmp sge i32 %349, %351
   %353 = icmp sle i32 %349, %351
   %.in614 = select i1 %350, i1 %352, i1 %353
-  br i1 %.in614, label %283, label %._crit_edge707, !llvm.loop !21
+  br i1 %.in614, label %283, label %._crit_edge707, !llvm.loop !23
 
 ._crit_edge707:                                   ; preds = %._crit_edge702, %272, %274
   %354 = load i32, ptr %17, align 4, !tbaa !3
@@ -756,7 +756,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %357 = icmp sge i32 %355, %.637..634
   %358 = icmp sle i32 %355, %.637..634
   %.in = select i1 %356, i1 %357, i1 %358
-  br i1 %.in, label %195, label %._crit_edge713, !llvm.loop !22
+  br i1 %.in, label %195, label %._crit_edge713, !llvm.loop !24
 
 ._crit_edge713:                                   ; preds = %._crit_edge707
   br i1 %.not605669, label %._crit_edge719.thread, label %.lr.ph718.preheader
@@ -789,12 +789,12 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %366, ptr %gep859, align 8, !tbaa !7
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
   %exitcond805.not = icmp eq i64 %indvars.iv.next802, %wide.trip.count804
-  br i1 %exitcond805.not, label %367, label %362, !llvm.loop !23
+  br i1 %exitcond805.not, label %367, label %362, !llvm.loop !25
 
 367:                                              ; preds = %362
   %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
   %.not607.not = icmp samesign ult i64 %indvars.iv806, %360
-  br i1 %.not607.not, label %.lr.ph718, label %._crit_edge719, !llvm.loop !24
+  br i1 %.not607.not, label %.lr.ph718, label %._crit_edge719, !llvm.loop !26
 
 ._crit_edge719:                                   ; preds = %367
   store i32 %187, ptr %17, align 4, !tbaa !3
@@ -851,7 +851,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 397:                                              ; preds = %381, %389
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond813.not = icmp eq i64 %indvars.iv.next810, %wide.trip.count812
-  br i1 %exitcond813.not, label %.loopexit649.loopexit, label %381, !llvm.loop !25
+  br i1 %exitcond813.not, label %.loopexit649.loopexit, label %381, !llvm.loop !27
 
 .loopexit649.loopexit:                            ; preds = %397
   %.pre828 = load i32, ptr %17, align 4, !tbaa !3
@@ -862,12 +862,12 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
   %399 = sext i32 %398 to i64
   %.not608.not = icmp slt i64 %indvars.iv814, %399
-  br i1 %.not608.not, label %369, label %._crit_edge725, !llvm.loop !26
+  br i1 %.not608.not, label %369, label %._crit_edge725, !llvm.loop !28
 
 ._crit_edge725:                                   ; preds = %.loopexit649, %._crit_edge719.thread
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %.not603.not = icmp samesign ult i64 %indvars.iv817, %180
-  br i1 %.not603.not, label %182, label %.loopexit, !llvm.loop !27
+  br i1 %.not603.not, label %182, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge725, %.lr.ph735, %.lr.ph741, %172, %166, %107, %93, %._crit_edge, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
@@ -948,8 +948,8 @@ attributes #5 = { nounwind }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!13 = distinct !{!13, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
 !17 = distinct !{!17, !10}
@@ -963,3 +963,5 @@ attributes #5 = { nounwind }
 !25 = distinct !{!25, !10}
 !26 = distinct !{!26, !10}
 !27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}

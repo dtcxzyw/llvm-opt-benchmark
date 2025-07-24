@@ -855,7 +855,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i: ; preds = %.lr.ph.i.i.i
 ._crit_edge56.split.us.us.i:                      ; preds = %._crit_edge.us.us.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %23
-  br i1 %exitcond68.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i, !llvm.loop !76
+  br i1 %exitcond68.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i, !llvm.loop !77
 
 55:                                               ; preds = %5
   %56 = ptrtoint ptr %2 to i64
@@ -924,7 +924,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i6: ; preds = %.lr.ph.i.i.
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %indvars.iv.next.i13 = add i32 %indvars.iv.i10, 8
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next63.i, %70
-  br i1 %exitcond.not.i14, label %._crit_edge.us.us.i15, label %78, !llvm.loop !77
+  br i1 %exitcond.not.i14, label %._crit_edge.us.us.i15, label %78, !llvm.loop !78
 
 84:                                               ; preds = %84, %78
   %indvars.iv59.i11 = phi i64 [ %indvars.iv.next60.i12, %84 ], [ %79, %78 ]
@@ -951,17 +951,17 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i6: ; preds = %.lr.ph.i.i.
   %102 = fadd float %100, %101
   store float %102, ptr %76, align 4, !tbaa !37
   %indvars.iv.next60.i12 = add nsw i64 %indvars.iv59.i11, 6
-  br i1 %85, label %84, label %83, !llvm.loop !78
+  br i1 %85, label %84, label %83, !llvm.loop !79
 
 ._crit_edge.us.us.i15:                            ; preds = %83
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %70
-  br i1 %exitcond69.not.i, label %._crit_edge57.split.us.us.i, label %.preheader.us.us.i9, !llvm.loop !79
+  br i1 %exitcond69.not.i, label %._crit_edge57.split.us.us.i, label %.preheader.us.us.i9, !llvm.loop !80
 
 ._crit_edge57.split.us.us.i:                      ; preds = %._crit_edge.us.us.i15
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %70
-  br i1 %exitcond74.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i8, !llvm.loop !80
+  br i1 %exitcond74.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i8, !llvm.loop !81
 
 103:                                              ; preds = %5
   %104 = ptrtoint ptr %2 to i64
@@ -1030,7 +1030,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i21: ; preds = %.lr.ph.i.i
   %indvars.iv.next63.i30 = add nuw nsw i64 %indvars.iv62.i25, 1
   %indvars.iv.next.i31 = add i32 %indvars.iv.i26, 32
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i30, %118
-  br i1 %exitcond65.not.i, label %._crit_edge.us.us.i32, label %126, !llvm.loop !81
+  br i1 %exitcond65.not.i, label %._crit_edge.us.us.i32, label %126, !llvm.loop !82
 
 132:                                              ; preds = %132, %126
   %indvars.iv59.i27 = phi i64 [ %indvars.iv.next60.i28, %132 ], [ %127, %126 ]
@@ -1059,17 +1059,17 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i21: ; preds = %.lr.ph.i.i
   %indvars.iv.next60.i28 = add nsw i64 %indvars.iv59.i27, 10
   %150 = add nuw nsw i32 %.054.us.us.i, 1
   %exitcond.not.i29 = icmp eq i32 %150, 4
-  br i1 %exitcond.not.i29, label %131, label %132, !llvm.loop !82
+  br i1 %exitcond.not.i29, label %131, label %132, !llvm.loop !83
 
 ._crit_edge.us.us.i32:                            ; preds = %131
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %118
-  br i1 %exitcond70.not.i, label %._crit_edge57.split.us.us.i33, label %.preheader.us.us.i24, !llvm.loop !83
+  br i1 %exitcond70.not.i, label %._crit_edge57.split.us.us.i33, label %.preheader.us.us.i24, !llvm.loop !84
 
 ._crit_edge57.split.us.us.i33:                    ; preds = %._crit_edge.us.us.i32
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %118
-  br i1 %exitcond75.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i23, !llvm.loop !84
+  br i1 %exitcond75.not.i, label %_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit, label %.preheader52.us.i23, !llvm.loop !85
 
 _ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesILi2EEEvNS_8ArrayRefIfEES4_.exit: ; preds = %._crit_edge57.split.us.us.i33, %._crit_edge57.split.us.us.i, %._crit_edge56.split.us.us.i, %_ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i21, %_ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i6, %_ZSt4fillIN3gmx12ArrayRefIterIfEEfEvT_S3_RKT0_.exit48.i, %5
   ret void
@@ -1192,13 +1192,14 @@ attributes #23 = { builtin allocsize(0) }
 !72 = !{!45, !45, i64 0}
 !73 = !{!40, !15, i64 32}
 !74 = distinct !{!74, !5}
-!75 = distinct !{!75, !5}
-!76 = distinct !{!76, !5}
-!77 = distinct !{!77, !5}
+!75 = distinct !{!75, !5, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !5, !76}
 !78 = distinct !{!78, !5}
 !79 = distinct !{!79, !5}
-!80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
+!80 = distinct !{!80, !5, !76}
+!81 = distinct !{!81, !5, !76}
 !82 = distinct !{!82, !5}
 !83 = distinct !{!83, !5}
-!84 = distinct !{!84, !5}
+!84 = distinct !{!84, !5, !76}
+!85 = distinct !{!85, !5, !76}

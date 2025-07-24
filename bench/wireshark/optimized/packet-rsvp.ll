@@ -8139,7 +8139,7 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
   %2543 = zext i16 %2395 to i32
   call void @proto_item_set_len(ptr noundef %2542, i32 noundef %2543)
   %exitcond423.not.i = icmp eq i32 %2384, %2374
-  br i1 %exitcond423.not.i, label %.loopexit410.i, label %.preheader409.split.i, !llvm.loop !26
+  br i1 %exitcond423.not.i, label %.loopexit410.i, label %.preheader409.split.i, !llvm.loop !28
 
 .loopexit410.i:                                   ; preds = %.preheader409.split.us.i, %2541, %2352
   %.3.i = phi i32 [ %2372, %2352 ], [ %.7.i, %2541 ], [ %2381, %.preheader409.split.us.i ]
@@ -8270,7 +8270,7 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
   %.0396.i = phi i32 [ %2622, %2621 ], [ 0, %2616 ]
   %2626 = add i32 %.0396.i, %2619
   %exitcond424.not.i = icmp eq i32 %2583, %2576
-  br i1 %exitcond424.not.i, label %._crit_edge.i593, label %.lr.ph.i591, !llvm.loop !27
+  br i1 %exitcond424.not.i, label %._crit_edge.i593, label %.lr.ph.i591, !llvm.loop !29
 
 ._crit_edge.i593:                                 ; preds = %2625, %.lr.ph.i591, %.preheader.i
   %2627 = add i32 %2562, %2565
@@ -8313,7 +8313,7 @@ proto_item_set_hidden.exit.i586:                  ; preds = %2329, %2326, %2322
   %.1391.i = phi i32 [ %2645, %.loopexit.i588 ], [ %.0390417.i, %.lr.ph420.i ]
   %.1.i589 = phi i32 [ %.11.i, %.loopexit.i588 ], [ %2350, %.lr.ph420.i ]
   %2647 = icmp sgt i32 %.1391.i, 0
-  br i1 %2647, label %.lr.ph420.i, label %dissect_rsvp_3gpp_object.exit, !llvm.loop !28
+  br i1 %2647, label %.lr.ph420.i, label %dissect_rsvp_3gpp_object.exit, !llvm.loop !30
 
 dissect_rsvp_3gpp_object.exit:                    ; preds = %2646, %proto_item_set_hidden.exit.i586, %2336
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -8908,7 +8908,7 @@ proto_item_set_hidden.exit.i622:                  ; preds = %2990, %2987, %2983
   %3023 = add nsw i32 %.060.i, -8
   %3024 = add nuw nsw i32 %.05558.i, 1
   %.not.i626 = icmp eq i32 %3023, 0
-  br i1 %.not.i626, label %.loopexit680, label %3002, !llvm.loop !29
+  br i1 %.not.i626, label %.loopexit680, label %3002, !llvm.loop !31
 
 3025:                                             ; preds = %proto_item_set_hidden.exit.i622
   %3026 = load i32, ptr @hf_rsvp_detour_data, align 4
@@ -8973,7 +8973,7 @@ proto_item_set_hidden.exit.i629:                  ; preds = %3037, %3034, %3030
   %3053 = add i32 %.044.i633, 4
   %3054 = add nuw nsw i32 %.04143.i, 1
   %exitcond.not.i634 = icmp eq i32 %3054, %3048
-  br i1 %exitcond.not.i634, label %dissect_rsvp_diffserv.exit, label %.lr.ph.i632, !llvm.loop !30
+  br i1 %exitcond.not.i634, label %dissect_rsvp_diffserv.exit, label %.lr.ph.i632, !llvm.loop !32
 
 3055:                                             ; preds = %proto_item_set_hidden.exit.i629
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3031, ptr noundef nonnull @.str.1184)
@@ -9318,7 +9318,7 @@ proto_item_set_hidden.exit89.i:                   ; preds = %3199, %3196, %proto
   %.1.i656 = add i32 %.03.i, %3226
   %3236 = add nsw i32 %.0852.i, -1
   %.not.i657 = icmp eq i32 %3236, 0
-  br i1 %.not.i657, label %._crit_edge.i658, label %.lr.ph.i655, !llvm.loop !31
+  br i1 %.not.i657, label %._crit_edge.i658, label %.lr.ph.i655, !llvm.loop !33
 
 ._crit_edge.i658:                                 ; preds = %3233, %3207
   %.0.lcssa.i = phi i32 [ %3216, %3207 ], [ %.1.i656, %3233 ]
@@ -10615,7 +10615,7 @@ define internal fastcc void @dissect_rsvp_ifid_tlv(ptr noundef %0, ptr noundef %
 178:                                              ; preds = %174, %171
   %179 = add nuw nsw i32 %18, %173
   %180 = icmp slt i32 %179, %5
-  br i1 %180, label %11, label %.loopexit, !llvm.loop !32
+  br i1 %180, label %11, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %178, %7, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -10851,7 +10851,7 @@ define internal fastcc void @dissect_rsvp_eth_tspec_tlv(ptr noundef %0, ptr noun
 
 153:                                              ; preds = %150, %95, %89, %84, %26
   %154 = icmp slt i32 %20, %5
-  br i1 %154, label %12, label %.loopexit, !llvm.loop !33
+  br i1 %154, label %12, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %153, %7, %82, %22
   ret void
@@ -11718,7 +11718,7 @@ define internal fastcc void @dissect_rsvp_lsp_tunnel_if_id_tlv(ptr noundef %0, p
 
 82:                                               ; preds = %78, %44, %33, %23
   %83 = icmp slt i32 %18, %4
-  br i1 %83, label %10, label %.loopexit, !llvm.loop !34
+  br i1 %83, label %10, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %82, %6, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
@@ -11864,8 +11864,8 @@ attributes #14 = { allocsize(2) }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!26 = distinct !{!26, !7, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
@@ -11873,3 +11873,5 @@ attributes #14 = { allocsize(2) }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}

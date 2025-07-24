@@ -128,7 +128,7 @@ define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0
 30:                                               ; preds = %22, %.preheader36.split.us
   %31 = call i32 @gtk_tree_model_iter_next(ptr noundef %14, ptr noundef nonnull %4) #14
   %.not31.us = icmp eq i32 %31, 0
-  br i1 %.not31.us, label %.loopexit37, label %.preheader36.split.us
+  br i1 %.not31.us, label %.loopexit37, label %.preheader36.split.us, !llvm.loop !19
 
 .preheader36.split:                               ; preds = %.preheader36, %51
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %5, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 3, ptr noundef nonnull %9, i32 noundef -1) #14
@@ -170,7 +170,7 @@ define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0
 
 .loopexit37:                                      ; preds = %51, %30, %3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !19
+  %54 = load ptr, ptr %53, align 8, !tbaa !21
   %55 = call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef %12) #14
   %56 = call ptr @gtk_tree_view_get_model(ptr noundef %55) #14
   %57 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %56, ptr noundef nonnull %4) #14
@@ -275,11 +275,11 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %15 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #16
   %16 = tail call noalias ptr @g_strdup(ptr noundef %1) #14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %16, ptr %17, align 8, !tbaa !20
+  store ptr %16, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %2, ptr %18, align 4, !tbaa !21
+  store i32 %2, ptr %18, align 4, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %3, ptr %19, align 8, !tbaa !22
+  store ptr %3, ptr %19, align 8, !tbaa !24
   %20 = icmp ne i32 %0, 0
   br i1 %20, label %21, label %28
 
@@ -289,7 +289,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %24 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #14
   %25 = tail call ptr @gtk_check_button_new_with_label(ptr noundef %24) #14
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %25, ptr %26, align 8, !tbaa !23
+  store ptr %25, ptr %26, align 8, !tbaa !25
   %27 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #14
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %25, ptr noundef %27) #14
   br label %32
@@ -298,12 +298,12 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #14
   %30 = call i64 @g_strlcpy(ptr noundef nonnull %8, ptr noundef %29, i64 noundef 512) #14
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr null, ptr %31, align 8, !tbaa !23
+  store ptr null, ptr %31, align 8, !tbaa !25
   br label %32
 
 32:                                               ; preds = %28, %21
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
-  %34 = load ptr, ptr %33, align 8, !tbaa !60
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
+  %34 = load ptr, ptr %33, align 8, !tbaa !62
   %35 = call ptr @dt_ui_main_window(ptr noundef %34) #14
   %36 = tail call i64 @gtk_window_get_type() #15
   %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %36) #14
@@ -328,9 +328,9 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %54 = call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %53) #14
   call void @gtk_scrolled_window_set_policy(ptr noundef %54, i32 noundef 2, i32 noundef 1) #14
   %55 = call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %53) #14
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1424
-  %58 = load double, ptr %57, align 8, !tbaa !65
+  %58 = load double, ptr %57, align 8, !tbaa !67
   %59 = fmul reassoc nsz arcp contract afn double %58, 4.500000e+02
   %60 = fptosi double %59 to i32
   call void @gtk_scrolled_window_set_min_content_height(ptr noundef %55, i32 noundef %60) #14
@@ -345,37 +345,37 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   call void @gtk_container_add(ptr noundef %66, ptr noundef %67) #14
   %68 = call ptr @gtk_entry_new() #14
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %68, ptr %69, align 8, !tbaa !66
+  store ptr %68, ptr %69, align 8, !tbaa !68
   %70 = tail call i64 @gtk_entry_get_type() #15
   %71 = call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef %70) #14
   %72 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #14
   call void @gtk_entry_set_placeholder_text(ptr noundef %71, ptr noundef %72) #14
-  %73 = load ptr, ptr %69, align 8, !tbaa !66
+  %73 = load ptr, ptr %69, align 8, !tbaa !68
   %74 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #14
   call void @gtk_widget_set_tooltip_text(ptr noundef %73, ptr noundef %74) #14
-  %75 = load ptr, ptr %69, align 8, !tbaa !66
+  %75 = load ptr, ptr %69, align 8, !tbaa !68
   %76 = call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %70) #14
   call void @gtk_entry_set_activates_default(ptr noundef %76, i32 noundef 1) #14
   call void @gtk_dialog_set_response_sensitive(ptr noundef %44, i32 noundef -3, i32 noundef 0) #14
-  %77 = load ptr, ptr %69, align 8, !tbaa !66
+  %77 = load ptr, ptr %69, align 8, !tbaa !68
   %78 = call i64 @g_signal_connect_data(ptr noundef %77, ptr noundef nonnull @.str.24, ptr noundef nonnull @_name_changed, ptr noundef %44, ptr noundef null, i32 noundef 0) #14
   %79 = call ptr @gtk_entry_new() #14
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %79, ptr %80, align 8, !tbaa !67
+  store ptr %79, ptr %80, align 8, !tbaa !69
   %81 = call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %70) #14
   %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #14
   call void @gtk_entry_set_placeholder_text(ptr noundef %81, ptr noundef %82) #14
-  %83 = load ptr, ptr %80, align 8, !tbaa !67
+  %83 = load ptr, ptr %80, align 8, !tbaa !69
   %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #14
   call void @gtk_widget_set_tooltip_text(ptr noundef %83, ptr noundef %84) #14
-  %85 = load ptr, ptr %80, align 8, !tbaa !67
+  %85 = load ptr, ptr %80, align 8, !tbaa !69
   %86 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %70) #14
   call void @gtk_entry_set_activates_default(ptr noundef %86, i32 noundef 1) #14
   %or.cond = and i1 %20, %10
   br i1 %or.cond, label %87, label %94
 
 87:                                               ; preds = %32
-  %88 = load ptr, ptr %69, align 8, !tbaa !66
+  %88 = load ptr, ptr %69, align 8, !tbaa !68
   %89 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %70) #14
   call void @gtk_entry_set_text(ptr noundef %89, ptr noundef nonnull %1) #14
   %90 = call ptr @dt_styles_get_description(ptr noundef nonnull %1) #14
@@ -383,16 +383,16 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   br i1 %.not, label %94, label %91
 
 91:                                               ; preds = %87
-  %92 = load ptr, ptr %80, align 8, !tbaa !67
+  %92 = load ptr, ptr %80, align 8, !tbaa !69
   %93 = call ptr @g_type_check_instance_cast(ptr noundef %92, i64 noundef %70) #14
   call void @gtk_entry_set_text(ptr noundef %93, ptr noundef nonnull %90) #14
   call void @g_free(ptr noundef nonnull %90) #14
   br label %94
 
 94:                                               ; preds = %87, %91, %32
-  %95 = load ptr, ptr %69, align 8, !tbaa !66
+  %95 = load ptr, ptr %69, align 8, !tbaa !68
   call void @gtk_box_pack_start(ptr noundef %51, ptr noundef %95, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
-  %96 = load ptr, ptr %80, align 8, !tbaa !67
+  %96 = load ptr, ptr %80, align 8, !tbaa !69
   call void @gtk_box_pack_start(ptr noundef %51, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   %97 = call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %64) #14
   call void @gtk_box_pack_start(ptr noundef %51, ptr noundef %97, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
@@ -406,7 +406,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %104 = call ptr @gtk_tree_view_new() #14
   %105 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %99) #14
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr %105, ptr %106, align 8, !tbaa !19
+  store ptr %105, ptr %106, align 8, !tbaa !21
   %107 = call ptr (i32, ...) @gtk_list_store_new(i32 noundef 8, i64 noundef 20, i64 noundef 64, i64 noundef %102, i64 noundef 20, i64 noundef 64, i64 noundef %102, i64 noundef 24, i64 noundef 24) #14
   %108 = call ptr @gtk_cell_renderer_toggle_new() #14
   %109 = tail call i64 @gtk_cell_renderer_toggle_get_type() #15
@@ -439,7 +439,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %128 = call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef 80) #14
   call void @g_object_set_data(ptr noundef %128, ptr noundef nonnull @.str.27, ptr noundef null) #14
   %129 = call i64 @g_signal_connect_data(ptr noundef %126, ptr noundef nonnull @.str.28, ptr noundef nonnull @_gui_styles_item_new_toggled, ptr noundef nonnull %15, ptr noundef null, i32 noundef 0) #14
-  %130 = load ptr, ptr %106, align 8, !tbaa !19
+  %130 = load ptr, ptr %106, align 8, !tbaa !21
   %131 = call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %99) #14
   %132 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #14
   %133 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %131, i32 noundef -1, ptr noundef %132, ptr noundef %126, ptr noundef nonnull @.str.31, i32 noundef 0, ptr noundef null) #14
@@ -449,7 +449,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %136 = call ptr @g_type_check_instance_cast(ptr noundef %134, i64 noundef 80) #14
   call void @g_object_set_data(ptr noundef %136, ptr noundef nonnull @.str.27, ptr noundef nonnull inttoptr (i64 3 to ptr)) #14
   %137 = call i64 @g_signal_connect_data(ptr noundef %134, ptr noundef nonnull @.str.28, ptr noundef nonnull @_gui_styles_item_new_autoinit_toggled, ptr noundef nonnull %15, ptr noundef null, i32 noundef 0) #14
-  %138 = load ptr, ptr %106, align 8, !tbaa !19
+  %138 = load ptr, ptr %106, align 8, !tbaa !21
   %139 = call ptr @g_type_check_instance_cast(ptr noundef %138, i64 noundef %99) #14
   %140 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #14
   %141 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %139, i32 noundef -1, ptr noundef %140, ptr noundef %134, ptr noundef nonnull @.str.31, i32 noundef 3, ptr noundef null) #14
@@ -477,9 +477,9 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %156 = call i32 @gtk_tree_view_append_column(ptr noundef %155, ptr noundef %153) #14
   call void @gtk_tree_view_column_set_alignment(ptr noundef %153, float noundef 5.000000e-01) #14
   call void @gtk_tree_view_column_set_clickable(ptr noundef %153, i32 noundef 0) #14
-  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1424
-  %159 = load double, ptr %158, align 8, !tbaa !65
+  %159 = load double, ptr %158, align 8, !tbaa !67
   %160 = fmul reassoc nsz arcp contract afn double %159, 3.000000e+01
   %161 = fptosi double %160 to i32
   call void @gtk_tree_view_column_set_min_width(ptr noundef %153, i32 noundef %161) #14
@@ -489,13 +489,13 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %163 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef nonnull @.str.34, ptr noundef %152, ptr noundef nonnull @.str.35, i32 noundef 2, ptr noundef null) #14
   call void @gtk_tree_view_column_set_alignment(ptr noundef %163, float noundef 5.000000e-01) #14
   call void @gtk_tree_view_column_set_clickable(ptr noundef %163, i32 noundef 0) #14
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 1424
-  %166 = load double, ptr %165, align 8, !tbaa !65
+  %166 = load double, ptr %165, align 8, !tbaa !67
   %167 = fmul reassoc nsz arcp contract afn double %166, 3.000000e+01
   %168 = fptosi double %167 to i32
   call void @gtk_tree_view_column_set_min_width(ptr noundef %163, i32 noundef %168) #14
-  %169 = load ptr, ptr %106, align 8, !tbaa !19
+  %169 = load ptr, ptr %106, align 8, !tbaa !21
   %170 = call ptr @g_type_check_instance_cast(ptr noundef %169, i64 noundef %99) #14
   %171 = call i32 @gtk_tree_view_append_column(ptr noundef %170, ptr noundef %163) #14
   br label %172
@@ -512,7 +512,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   br i1 %20, label %179, label %184
 
 179:                                              ; preds = %172
-  %180 = load ptr, ptr %106, align 8, !tbaa !19
+  %180 = load ptr, ptr %106, align 8, !tbaa !21
   %181 = call ptr @g_type_check_instance_cast(ptr noundef %180, i64 noundef %99) #14
   %182 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #14
   %183 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %181, i32 noundef -1, ptr noundef %182, ptr noundef %173, ptr noundef nonnull @.str.38, i32 noundef 4, ptr noundef null) #14
@@ -527,9 +527,9 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %190 = call i32 @gtk_tree_view_append_column(ptr noundef %189, ptr noundef %187) #14
   call void @gtk_tree_view_column_set_alignment(ptr noundef %187, float noundef 5.000000e-01) #14
   call void @gtk_tree_view_column_set_clickable(ptr noundef %187, i32 noundef 0) #14
-  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 1424
-  %193 = load double, ptr %192, align 8, !tbaa !65
+  %193 = load double, ptr %192, align 8, !tbaa !67
   %194 = fmul reassoc nsz arcp contract afn double %193, 3.000000e+01
   %195 = fptosi double %194 to i32
   call void @gtk_tree_view_column_set_min_width(ptr noundef %187, i32 noundef %195) #14
@@ -540,13 +540,13 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %198 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %197, ptr noundef %185, ptr noundef nonnull @.str.35, i32 noundef 5, ptr noundef null) #14
   call void @gtk_tree_view_column_set_alignment(ptr noundef %198, float noundef 5.000000e-01) #14
   call void @gtk_tree_view_column_set_clickable(ptr noundef %198, i32 noundef 0) #14
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1424
-  %201 = load double, ptr %200, align 8, !tbaa !65
+  %201 = load double, ptr %200, align 8, !tbaa !67
   %202 = fmul reassoc nsz arcp contract afn double %201, 3.000000e+01
   %203 = fptosi double %202 to i32
   call void @gtk_tree_view_column_set_min_width(ptr noundef %198, i32 noundef %203) #14
-  %204 = load ptr, ptr %106, align 8, !tbaa !19
+  %204 = load ptr, ptr %106, align 8, !tbaa !21
   %205 = call ptr @g_type_check_instance_cast(ptr noundef %204, i64 noundef %99) #14
   %206 = call i32 @gtk_tree_view_append_column(ptr noundef %205, ptr noundef %198) #14
   br label %207
@@ -561,11 +561,11 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %213 = tail call i64 @gtk_tree_model_get_type() #15
   %214 = call ptr @g_type_check_instance_cast(ptr noundef %103, i64 noundef %213) #14
   call void @gtk_tree_view_set_model(ptr noundef %212, ptr noundef %214) #14
-  %215 = load ptr, ptr %106, align 8, !tbaa !19
+  %215 = load ptr, ptr %106, align 8, !tbaa !21
   %216 = call ptr @g_type_check_instance_cast(ptr noundef %215, i64 noundef %99) #14
   %217 = call ptr @gtk_tree_view_get_selection(ptr noundef %216) #14
   call void @gtk_tree_selection_set_mode(ptr noundef %217, i32 noundef 1) #14
-  %218 = load ptr, ptr %106, align 8, !tbaa !19
+  %218 = load ptr, ptr %106, align 8, !tbaa !21
   %219 = call ptr @g_type_check_instance_cast(ptr noundef %218, i64 noundef %99) #14
   %220 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %213) #14
   call void @gtk_tree_view_set_model(ptr noundef %219, ptr noundef %220) #14
@@ -574,15 +574,15 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %222 = call ptr @gtk_widget_get_style_context(ptr noundef %221) #14
   %223 = call i32 @gtk_widget_get_state_flags(ptr noundef %221) #14
   call void @gtk_style_context_get_color(ptr noundef %222, i32 noundef %223, ptr noundef nonnull %7) #14
-  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1424
-  %226 = load double, ptr %225, align 8, !tbaa !65
+  %226 = load double, ptr %225, align 8, !tbaa !67
   %227 = fmul reassoc nsz arcp contract afn double %226, 1.000000e+01
   %228 = fptosi double %227 to i32
   %229 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %228, i32 noundef %228) #14
   %230 = call ptr @cairo_create(ptr noundef %229) #14
   call void @gdk_cairo_set_source_rgba(ptr noundef %230, ptr noundef nonnull %7) #14
-  call void @dtgtk_cairo_paint_switch(ptr noundef %230, i32 noundef 0, i32 noundef 0, i32 noundef %228, i32 noundef %228, i32 noundef 0, ptr noundef null) #14, !callees !68
+  call void @dtgtk_cairo_paint_switch(ptr noundef %230, i32 noundef 0, i32 noundef 0, i32 noundef %228, i32 noundef %228, i32 noundef 0, ptr noundef null) #14, !callees !70
   call void @cairo_destroy(ptr noundef %230) #14
   %231 = call ptr @cairo_image_surface_get_data(ptr noundef %229) #14
   %.not40.i.i = icmp eq i32 %228, 0
@@ -610,11 +610,11 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %242 = or disjoint i32 %236, 3
   %243 = zext i32 %242 to i64
   %244 = getelementptr inbounds nuw i8, ptr %231, i64 %243
-  %245 = load i8, ptr %238, align 1, !tbaa !69
-  %246 = load i8, ptr %241, align 1, !tbaa !69
-  store i8 %246, ptr %238, align 1, !tbaa !69
-  store i8 %245, ptr %241, align 1, !tbaa !69
-  %247 = load i8, ptr %244, align 1, !tbaa !69
+  %245 = load i8, ptr %238, align 1, !tbaa !71
+  %246 = load i8, ptr %241, align 1, !tbaa !71
+  store i8 %246, ptr %238, align 1, !tbaa !71
+  store i8 %245, ptr %241, align 1, !tbaa !71
+  %247 = load i8, ptr %244, align 1, !tbaa !71
   %.not.us.i.i = icmp eq i8 %247, 0
   br i1 %.not.us.i.i, label %265, label %248
 
@@ -628,16 +628,16 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   %255 = uitofp i8 %246 to float
   %256 = fmul reassoc nsz arcp contract afn float %254, %255
   %257 = fptoui float %256 to i8
-  store i8 %257, ptr %238, align 1, !tbaa !69
-  %258 = load i8, ptr %251, align 1, !tbaa !69
+  store i8 %257, ptr %238, align 1, !tbaa !71
+  %258 = load i8, ptr %251, align 1, !tbaa !71
   %259 = uitofp i8 %258 to float
   %260 = fmul reassoc nsz arcp contract afn float %259, %254
   %261 = fptoui float %260 to i8
-  store i8 %261, ptr %251, align 1, !tbaa !69
+  store i8 %261, ptr %251, align 1, !tbaa !71
   %262 = uitofp i8 %245 to float
   %263 = fmul reassoc nsz arcp contract afn float %254, %262
   %264 = fptoui float %263 to i8
-  store i8 %264, ptr %241, align 1, !tbaa !69
+  store i8 %264, ptr %241, align 1, !tbaa !71
   br label %265
 
 265:                                              ; preds = %248, %233
@@ -648,7 +648,7 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
 ._crit_edge.us.i.i:                               ; preds = %265
   %266 = add nuw i32 %.038.us.i.i, 1
   %exitcond43.not.i.i = icmp eq i32 %266, %228
-  br i1 %exitcond43.not.i.i, label %dt_draw_paint_to_pixbuf.exit, label %.preheader.us.i.i
+  br i1 %exitcond43.not.i.i, label %dt_draw_paint_to_pixbuf.exit, label %.preheader.us.i.i, !llvm.loop !72
 
 dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i, %207
   %267 = sext i32 %228 to i64
@@ -665,15 +665,15 @@ dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i,
   %274 = call ptr @gtk_widget_get_style_context(ptr noundef %273) #14
   %275 = call i32 @gtk_widget_get_state_flags(ptr noundef %273) #14
   call void @gtk_style_context_get_color(ptr noundef %274, i32 noundef %275, ptr noundef nonnull %6) #14
-  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 1424
-  %278 = load double, ptr %277, align 8, !tbaa !65
+  %278 = load double, ptr %277, align 8, !tbaa !67
   %279 = fmul reassoc nsz arcp contract afn double %278, 1.000000e+01
   %280 = fptosi double %279 to i32
   %281 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %280, i32 noundef %280) #14
   %282 = call ptr @cairo_create(ptr noundef %281) #14
   call void @gdk_cairo_set_source_rgba(ptr noundef %282, ptr noundef nonnull %6) #14
-  call void @dtgtk_cairo_paint_switch_inactive(ptr noundef %282, i32 noundef 0, i32 noundef 0, i32 noundef %280, i32 noundef %280, i32 noundef 0, ptr noundef null) #14, !callees !68
+  call void @dtgtk_cairo_paint_switch_inactive(ptr noundef %282, i32 noundef 0, i32 noundef 0, i32 noundef %280, i32 noundef %280, i32 noundef 0, ptr noundef null) #14, !callees !70
   call void @cairo_destroy(ptr noundef %282) #14
   %283 = call ptr @cairo_image_surface_get_data(ptr noundef %281) #14
   %.not40.i.i257 = icmp eq i32 %280, 0
@@ -701,11 +701,11 @@ dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i,
   %294 = or disjoint i32 %288, 3
   %295 = zext i32 %294 to i64
   %296 = getelementptr inbounds nuw i8, ptr %283, i64 %295
-  %297 = load i8, ptr %290, align 1, !tbaa !69
-  %298 = load i8, ptr %293, align 1, !tbaa !69
-  store i8 %298, ptr %290, align 1, !tbaa !69
-  store i8 %297, ptr %293, align 1, !tbaa !69
-  %299 = load i8, ptr %296, align 1, !tbaa !69
+  %297 = load i8, ptr %290, align 1, !tbaa !71
+  %298 = load i8, ptr %293, align 1, !tbaa !71
+  store i8 %298, ptr %290, align 1, !tbaa !71
+  store i8 %297, ptr %293, align 1, !tbaa !71
+  %299 = load i8, ptr %296, align 1, !tbaa !71
   %.not.us.i.i263 = icmp eq i8 %299, 0
   br i1 %.not.us.i.i263, label %317, label %300
 
@@ -719,16 +719,16 @@ dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i,
   %307 = uitofp i8 %298 to float
   %308 = fmul reassoc nsz arcp contract afn float %306, %307
   %309 = fptoui float %308 to i8
-  store i8 %309, ptr %290, align 1, !tbaa !69
-  %310 = load i8, ptr %303, align 1, !tbaa !69
+  store i8 %309, ptr %290, align 1, !tbaa !71
+  %310 = load i8, ptr %303, align 1, !tbaa !71
   %311 = uitofp i8 %310 to float
   %312 = fmul reassoc nsz arcp contract afn float %311, %306
   %313 = fptoui float %312 to i8
-  store i8 %313, ptr %303, align 1, !tbaa !69
+  store i8 %313, ptr %303, align 1, !tbaa !71
   %314 = uitofp i8 %297 to float
   %315 = fmul reassoc nsz arcp contract afn float %306, %314
   %316 = fptoui float %315 to i8
-  store i8 %316, ptr %293, align 1, !tbaa !69
+  store i8 %316, ptr %293, align 1, !tbaa !71
   br label %317
 
 317:                                              ; preds = %300, %285
@@ -739,7 +739,7 @@ dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i,
 ._crit_edge.us.i.i266:                            ; preds = %317
   %318 = add nuw i32 %.038.us.i.i261, 1
   %exitcond43.not.i.i267 = icmp eq i32 %318, %280
-  br i1 %exitcond43.not.i.i267, label %dt_draw_paint_to_pixbuf.exit268, label %.preheader.us.i.i260
+  br i1 %exitcond43.not.i.i267, label %dt_draw_paint_to_pixbuf.exit268, label %.preheader.us.i.i260, !llvm.loop !72
 
 dt_draw_paint_to_pixbuf.exit268:                  ; preds = %._crit_edge.us.i.i266, %dt_draw_paint_to_pixbuf.exit
   %319 = sext i32 %280 to i64
@@ -756,15 +756,15 @@ dt_draw_paint_to_pixbuf.exit268:                  ; preds = %._crit_edge.us.i.i2
   %326 = call ptr @gtk_widget_get_style_context(ptr noundef %325) #14
   %327 = call i32 @gtk_widget_get_state_flags(ptr noundef %325) #14
   call void @gtk_style_context_get_color(ptr noundef %326, i32 noundef %327, ptr noundef nonnull %5) #14
-  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
+  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 1424
-  %330 = load double, ptr %329, align 8, !tbaa !65
+  %330 = load double, ptr %329, align 8, !tbaa !67
   %331 = fmul reassoc nsz arcp contract afn double %330, 1.000000e+01
   %332 = fptosi double %331 to i32
   %333 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %332, i32 noundef %332) #14
   %334 = call ptr @cairo_create(ptr noundef %333) #14
   call void @gdk_cairo_set_source_rgba(ptr noundef %334, ptr noundef nonnull %5) #14
-  call void @dtgtk_cairo_paint_showmask(ptr noundef %334, i32 noundef 0, i32 noundef 0, i32 noundef %332, i32 noundef %332, i32 noundef 0, ptr noundef null) #14, !callees !68
+  call void @dtgtk_cairo_paint_showmask(ptr noundef %334, i32 noundef 0, i32 noundef 0, i32 noundef %332, i32 noundef %332, i32 noundef 0, ptr noundef null) #14, !callees !70
   call void @cairo_destroy(ptr noundef %334) #14
   %335 = call ptr @cairo_image_surface_get_data(ptr noundef %333) #14
   %.not40.i.i269 = icmp eq i32 %332, 0
@@ -792,11 +792,11 @@ dt_draw_paint_to_pixbuf.exit268:                  ; preds = %._crit_edge.us.i.i2
   %346 = or disjoint i32 %340, 3
   %347 = zext i32 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %335, i64 %347
-  %349 = load i8, ptr %342, align 1, !tbaa !69
-  %350 = load i8, ptr %345, align 1, !tbaa !69
-  store i8 %350, ptr %342, align 1, !tbaa !69
-  store i8 %349, ptr %345, align 1, !tbaa !69
-  %351 = load i8, ptr %348, align 1, !tbaa !69
+  %349 = load i8, ptr %342, align 1, !tbaa !71
+  %350 = load i8, ptr %345, align 1, !tbaa !71
+  store i8 %350, ptr %342, align 1, !tbaa !71
+  store i8 %349, ptr %345, align 1, !tbaa !71
+  %351 = load i8, ptr %348, align 1, !tbaa !71
   %.not.us.i.i275 = icmp eq i8 %351, 0
   br i1 %.not.us.i.i275, label %369, label %352
 
@@ -810,16 +810,16 @@ dt_draw_paint_to_pixbuf.exit268:                  ; preds = %._crit_edge.us.i.i2
   %359 = uitofp i8 %350 to float
   %360 = fmul reassoc nsz arcp contract afn float %358, %359
   %361 = fptoui float %360 to i8
-  store i8 %361, ptr %342, align 1, !tbaa !69
-  %362 = load i8, ptr %355, align 1, !tbaa !69
+  store i8 %361, ptr %342, align 1, !tbaa !71
+  %362 = load i8, ptr %355, align 1, !tbaa !71
   %363 = uitofp i8 %362 to float
   %364 = fmul reassoc nsz arcp contract afn float %363, %358
   %365 = fptoui float %364 to i8
-  store i8 %365, ptr %355, align 1, !tbaa !69
+  store i8 %365, ptr %355, align 1, !tbaa !71
   %366 = uitofp i8 %349 to float
   %367 = fmul reassoc nsz arcp contract afn float %358, %366
   %368 = fptoui float %367 to i8
-  store i8 %368, ptr %345, align 1, !tbaa !69
+  store i8 %368, ptr %345, align 1, !tbaa !71
   br label %369
 
 369:                                              ; preds = %352, %337
@@ -830,7 +830,7 @@ dt_draw_paint_to_pixbuf.exit268:                  ; preds = %._crit_edge.us.i.i2
 ._crit_edge.us.i.i278:                            ; preds = %369
   %370 = add nuw i32 %.038.us.i.i273, 1
   %exitcond43.not.i.i279 = icmp eq i32 %370, %332
-  br i1 %exitcond43.not.i.i279, label %dt_draw_paint_to_pixbuf.exit280, label %.preheader.us.i.i272
+  br i1 %exitcond43.not.i.i279, label %dt_draw_paint_to_pixbuf.exit280, label %.preheader.us.i.i272, !llvm.loop !72
 
 dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i278, %dt_draw_paint_to_pixbuf.exit268
   %371 = sext i32 %332 to i64
@@ -861,14 +861,14 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
   %.1224297 = phi i32 [ %.2, %417 ], [ 0, %377 ]
   %.1226296 = phi i32 [ %.2227, %417 ], [ 0, %377 ]
   %.0229295 = phi ptr [ %419, %417 ], [ %383, %377 ]
-  %384 = load ptr, ptr %.0229295, align 8, !tbaa !70
+  %384 = load ptr, ptr %.0229295, align 8, !tbaa !73
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 72
-  %386 = load ptr, ptr %385, align 8, !tbaa !72
-  %387 = load i32, ptr %386, align 4, !tbaa !75
-  %388 = load i32, ptr %384, align 8, !tbaa !78
+  %386 = load ptr, ptr %385, align 8, !tbaa !75
+  %387 = load i32, ptr %386, align 4, !tbaa !78
+  %388 = load i32, ptr %384, align 8, !tbaa !81
   %.not248 = icmp eq i32 %388, -1
   %389 = getelementptr inbounds nuw i8, ptr %384, i64 4
-  %390 = load i32, ptr %389, align 4, !tbaa !79
+  %390 = load i32, ptr %389, align 4, !tbaa !82
   %.not251 = icmp eq i32 %390, -1
   br i1 %.not248, label %403, label %391
 
@@ -880,15 +880,15 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
   call void @gtk_list_store_append(ptr noundef %393, ptr noundef nonnull %9) #14
   %394 = call ptr @g_type_check_instance_cast(ptr noundef %103, i64 noundef %378) #14
   %395 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  %396 = load i32, ptr %395, align 8, !tbaa !80
+  %396 = load i32, ptr %395, align 8, !tbaa !83
   %.not255 = icmp eq i32 %396, 0
   %397 = select i1 %.not255, ptr %324, ptr %272
   %398 = getelementptr inbounds nuw i8, ptr %384, i64 24
-  %399 = load ptr, ptr %398, align 8, !tbaa !81
+  %399 = load ptr, ptr %398, align 8, !tbaa !84
   %.not256 = icmp eq i32 %387, 0
   %400 = select i1 %.not256, ptr null, ptr %376
-  %401 = load i32, ptr %384, align 8, !tbaa !78
-  %402 = load i32, ptr %389, align 4, !tbaa !79
+  %401 = load i32, ptr %384, align 8, !tbaa !81
+  %402 = load i32, ptr %389, align 4, !tbaa !82
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %394, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef %397, i32 noundef 4, ptr noundef %399, i32 noundef 5, ptr noundef %400, i32 noundef 6, i32 noundef %401, i32 noundef 7, i32 noundef %402, i32 noundef -1) #14
   br label %417
 
@@ -899,19 +899,19 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
   %405 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %378) #14
   call void @gtk_list_store_append(ptr noundef %405, ptr noundef nonnull %9) #14
   %406 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %378) #14
-  %407 = load i32, ptr %384, align 8, !tbaa !78
+  %407 = load i32, ptr %384, align 8, !tbaa !81
   %.not252 = icmp ne i32 %407, -1
   %408 = zext i1 %.not252 to i32
   %409 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  %410 = load i32, ptr %409, align 8, !tbaa !80
+  %410 = load i32, ptr %409, align 8, !tbaa !83
   %.not253 = icmp eq i32 %410, 0
   %411 = select i1 %.not253, ptr %324, ptr %272
   %412 = getelementptr inbounds nuw i8, ptr %384, i64 24
-  %413 = load ptr, ptr %412, align 8, !tbaa !81
+  %413 = load ptr, ptr %412, align 8, !tbaa !84
   %.not254 = icmp eq i32 %387, 0
   %414 = select i1 %.not254, ptr null, ptr %376
   %415 = getelementptr inbounds nuw i8, ptr %384, i64 4
-  %416 = load i32, ptr %415, align 4, !tbaa !79
+  %416 = load i32, ptr %415, align 4, !tbaa !82
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %406, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %408, i32 noundef 3, i32 noundef 0, i32 noundef 2, ptr noundef %411, i32 noundef 4, ptr noundef %413, i32 noundef 5, ptr noundef %414, i32 noundef 6, i32 noundef %407, i32 noundef 7, i32 noundef %416, i32 noundef -1) #14
   br label %417
 
@@ -919,7 +919,7 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
   %.2227 = phi i32 [ 1, %392 ], [ %.1226296, %404 ], [ %.1226296, %403 ]
   %.2 = phi i32 [ %.1224297, %392 ], [ 1, %404 ], [ %.1224297, %403 ]
   %418 = getelementptr inbounds nuw i8, ptr %.0229295, i64 8
-  %419 = load ptr, ptr %418, align 8, !tbaa !82
+  %419 = load ptr, ptr %418, align 8, !tbaa !85
   %.not245 = icmp eq ptr %419, null
   br i1 %.not245, label %458, label %.preheader
 
@@ -940,24 +940,24 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
 
 .preheader293:                                    ; preds = %420, %443
   %.0222294 = phi ptr [ %456, %443 ], [ %428, %420 ]
-  %429 = load ptr, ptr %.0222294, align 8, !tbaa !70
-  %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !83
+  %429 = load ptr, ptr %.0222294, align 8, !tbaa !73
+  %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 2056
-  %432 = load ptr, ptr %431, align 8, !tbaa !84
+  %432 = load ptr, ptr %431, align 8, !tbaa !87
   %.not239 = icmp eq ptr %432, null
   br i1 %.not239, label %443, label %433
 
 433:                                              ; preds = %.preheader293
   %434 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %435 = load ptr, ptr %434, align 8, !tbaa !112
+  %435 = load ptr, ptr %434, align 8, !tbaa !115
   %436 = call ptr @g_list_find_custom(ptr noundef nonnull %432, ptr noundef %435, ptr noundef nonnull @_g_list_find_module_by_name) #14
   %.not240 = icmp eq ptr %436, null
   br i1 %.not240, label %443, label %437
 
 437:                                              ; preds = %433
-  %438 = load ptr, ptr %436, align 8, !tbaa !70
+  %438 = load ptr, ptr %436, align 8, !tbaa !73
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 64
-  %440 = load ptr, ptr %439, align 16, !tbaa !114
+  %440 = load ptr, ptr %439, align 16, !tbaa !117
   %441 = call i32 %440() #14
   %442 = and i32 %441, 1
   br label %443
@@ -968,19 +968,19 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
   call void @gtk_list_store_append(ptr noundef %444, ptr noundef nonnull %9) #14
   %445 = call ptr @g_type_check_instance_cast(ptr noundef %103, i64 noundef %425) #14
   %446 = getelementptr inbounds nuw i8, ptr %429, i64 24
-  %447 = load i32, ptr %446, align 8, !tbaa !124
+  %447 = load i32, ptr %446, align 8, !tbaa !127
   %.not242 = icmp eq i32 %447, 0
   %448 = select i1 %.not242, ptr %324, ptr %272
   %449 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  %450 = load ptr, ptr %449, align 8, !tbaa !125
+  %450 = load ptr, ptr %449, align 8, !tbaa !128
   %451 = getelementptr inbounds nuw i8, ptr %429, i64 28
-  %452 = load i32, ptr %451, align 4, !tbaa !126
+  %452 = load i32, ptr %451, align 4, !tbaa !129
   %.not243 = icmp eq i32 %452, 0
   %453 = select i1 %.not243, ptr null, ptr %376
-  %454 = load i32, ptr %429, align 8, !tbaa !127
+  %454 = load i32, ptr %429, align 8, !tbaa !130
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %445, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %.0221, i32 noundef 3, i32 noundef 0, i32 noundef 2, ptr noundef %448, i32 noundef 4, ptr noundef %450, i32 noundef 5, ptr noundef %453, i32 noundef 6, i32 noundef %454, i32 noundef -1) #14
   %455 = getelementptr inbounds nuw i8, ptr %.0222294, i64 8
-  %456 = load ptr, ptr %455, align 8, !tbaa !82
+  %456 = load ptr, ptr %455, align 8, !tbaa !85
   %.not238 = icmp eq ptr %456, null
   br i1 %.not238, label %.thread298, label %.preheader293
 
@@ -1010,7 +1010,7 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
 
 .sink.split:                                      ; preds = %464, %461, %.thread298
   %.sink304.in = phi ptr [ %101, %.thread298 ], [ %106, %461 ], [ %106, %464 ]
-  %.sink304 = load ptr, ptr %.sink304.in, align 8, !tbaa !128
+  %.sink304 = load ptr, ptr %.sink304.in, align 8, !tbaa !131
   %465 = call ptr @g_type_check_instance_cast(ptr noundef %.sink304, i64 noundef %64) #14
   call void @gtk_box_pack_start(ptr noundef %62, ptr noundef %465, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
   br label %466
@@ -1021,7 +1021,7 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
 .thread292:                                       ; preds = %377, %466
   %467 = call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %50) #14
   %468 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %469 = load ptr, ptr %468, align 8, !tbaa !23
+  %469 = load ptr, ptr %468, align 8, !tbaa !25
   %470 = call ptr @g_type_check_instance_cast(ptr noundef %469, i64 noundef %64) #14
   call void @gtk_box_pack_start(ptr noundef %467, ptr noundef %470, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   br label %.critedge
@@ -1052,7 +1052,7 @@ dt_draw_paint_to_pixbuf.exit280:                  ; preds = %._crit_edge.us.i.i2
 define void @dt_gui_styles_dialog_edit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !129
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !132
   %5 = and i32 %4, 256
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %7, label %6
@@ -1062,22 +1062,22 @@ define void @dt_gui_styles_dialog_edit(ptr noundef %0, ptr noundef %1) local_unn
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !130
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !133
   %9 = tail call ptr @dt_database_get(ptr noundef %8) #14
   %10 = call i32 @sqlite3_prepare_v2(ptr noundef %9, ptr noundef nonnull @.str.10, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #14
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !131
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !130
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !134
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !133
   %14 = call ptr @dt_database_get(ptr noundef %13) #14
   %15 = call ptr @sqlite3_errmsg(ptr noundef %14) #14
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.9, i32 noundef 73, ptr noundef nonnull @__FUNCTION__._single_selected_imgid, ptr noundef nonnull @.str.10, ptr noundef %15) #17
   br label %17
 
 17:                                               ; preds = %11, %7
-  %18 = load ptr, ptr %3, align 8, !tbaa !133
+  %18 = load ptr, ptr %3, align 8, !tbaa !136
   %19 = call i32 @sqlite3_step(ptr noundef %18) #14
   %20 = icmp eq i32 %19, 100
   br i1 %20, label %.lr.ph.i, label %_single_selected_imgid.exit
@@ -1088,16 +1088,16 @@ define void @dt_gui_styles_dialog_edit(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %21, label %_single_selected_imgid.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = load ptr, ptr %3, align 8, !tbaa !133
+  %23 = load ptr, ptr %3, align 8, !tbaa !136
   %24 = call i32 @sqlite3_column_int(ptr noundef %23, i32 noundef 0) #14
-  %25 = load ptr, ptr %3, align 8, !tbaa !133
+  %25 = load ptr, ptr %3, align 8, !tbaa !136
   %26 = call i32 @sqlite3_step(ptr noundef %25) #14
   %27 = icmp eq i32 %26, 100
   br i1 %27, label %.lr.ph.i, label %_single_selected_imgid.exit
 
 _single_selected_imgid.exit:                      ; preds = %.lr.ph.i, %22, %17
   %.1.i = phi i32 [ 0, %17 ], [ %24, %22 ], [ 0, %.lr.ph.i ]
-  %28 = load ptr, ptr %3, align 8, !tbaa !133
+  %28 = load ptr, ptr %3, align 8, !tbaa !136
   %29 = call i32 @sqlite3_finalize(ptr noundef %28) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call fastcc void @_gui_styles_dialog_run(i32 noundef 1, ptr noundef %0, i32 noundef %.1.i, ptr noundef %1)
@@ -1112,7 +1112,7 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   call void @dt_history_hash_read(i32 noundef %1, ptr noundef nonnull %3) #14
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 128), align 8, !tbaa !135
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 128), align 8, !tbaa !138
   %.not = icmp eq i32 %1, %6
   br i1 %.not, label %7, label %18
 
@@ -1122,52 +1122,52 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not63, label %9, label %18
 
 9:                                                ; preds = %7
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 152), align 8, !tbaa !138
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 152), align 8, !tbaa !141
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !139
+  %12 = load i32, ptr %11, align 8, !tbaa !142
   %.not64 = icmp eq i32 %10, %12
   br i1 %.not64, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !141
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !144
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !142
+  %16 = load ptr, ptr %15, align 8, !tbaa !145
   %17 = sext i32 %10 to i64
   %bcmp = call i32 @bcmp(ptr %14, ptr %16, i64 %17)
   %.not65 = icmp eq i32 %bcmp, 0
   br i1 %.not65, label %32, label %18
 
 18:                                               ; preds = %13, %9, %7, %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 136), align 8, !tbaa !143
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 136), align 8, !tbaa !146
   %.not66 = icmp eq ptr %19, null
   br i1 %.not66, label %21, label %20
 
 20:                                               ; preds = %18
   call void @cairo_surface_destroy(ptr noundef nonnull %19) #14
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 136), align 8, !tbaa !143
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 136), align 8, !tbaa !146
   br label %21
 
 21:                                               ; preds = %20, %18
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 128), align 8, !tbaa !135
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 128), align 8, !tbaa !138
   %22 = call i64 @g_strlcpy(ptr noundef nonnull @dt_gui_style_content_dialog.data, ptr noundef %0, i64 noundef 128) #14
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !141
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !144
   call void @g_free(ptr noundef %23) #14
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %25 = load i32, ptr %24, align 8, !tbaa !139
+  %25 = load i32, ptr %24, align 8, !tbaa !142
   %26 = sext i32 %25 to i64
   %27 = call noalias ptr @g_malloc(i64 noundef %26) #16
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !141
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 144), align 8, !tbaa !144
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !142
-  %30 = load i32, ptr %24, align 8, !tbaa !139
+  %29 = load ptr, ptr %28, align 8, !tbaa !145
+  %30 = load i32, ptr %24, align 8, !tbaa !142
   %31 = sext i32 %30 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %29, i64 %31, i1 false)
-  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 152), align 8, !tbaa !138
+  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 152), align 8, !tbaa !141
   br label %32
 
 32:                                               ; preds = %21, %13
   call void @dt_history_hash_free(ptr noundef nonnull %3) #14
-  %33 = load i8, ptr %0, align 1, !tbaa !69
+  %33 = load i8, ptr %0, align 1, !tbaa !71
   %.not67 = icmp eq i8 %33, 0
   br i1 %.not67, label %92, label %34
 
@@ -1227,9 +1227,9 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
 .lr.ph:                                           ; preds = %57, %71
   %.05876 = phi ptr [ %82, %71 ], [ %60, %57 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #14
-  %61 = load ptr, ptr %.05876, align 8, !tbaa !70
+  %61 = load ptr, ptr %.05876, align 8, !tbaa !73
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !144
+  %63 = load ptr, ptr %62, align 8, !tbaa !147
   %.not71 = icmp eq ptr %63, null
   br i1 %.not71, label %67, label %64
 
@@ -1244,18 +1244,18 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
 
 67:                                               ; preds = %64, %.lr.ph
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !145
+  %69 = load i32, ptr %68, align 4, !tbaa !148
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.2, i32 noundef %69) #14
   br label %71
 
 71:                                               ; preds = %67, %65
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #14
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !80
+  %73 = load i32, ptr %72, align 8, !tbaa !83
   %.not74 = icmp eq i32 %73, 0
   %74 = select i1 %.not74, ptr @.str.5, ptr @.str.4
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !81
+  %76 = load ptr, ptr %75, align 8, !tbaa !84
   %77 = call ptr @dcgettext(ptr noundef null, ptr noundef %76, i32 noundef 5) #14
   %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull %74, ptr noundef %77, ptr noundef nonnull %4) #14
   %79 = call ptr @gtk_label_new(ptr noundef nonnull %5) #14
@@ -1263,7 +1263,7 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
   %80 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %43) #14
   call void @gtk_box_pack_start(ptr noundef %80, ptr noundef %79, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %81 = getelementptr inbounds nuw i8, ptr %.05876, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !82
+  %82 = load ptr, ptr %81, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
   %.not70 = icmp eq ptr %82, null
@@ -1285,7 +1285,7 @@ define ptr @dt_gui_style_content_dialog(ptr noundef %0, i32 noundef %1) local_un
   call void @gtk_widget_set_app_paintable(ptr noundef %88, i32 noundef 1) #14
   %89 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %43) #14
   call void @gtk_box_pack_start(ptr noundef %89, ptr noundef %88, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 132), align 4, !tbaa !146
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @dt_gui_style_content_dialog.data, i64 132), align 4, !tbaa !149
   %90 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef 80) #14
   %91 = call i64 @g_signal_connect_data(ptr noundef %90, ptr noundef nonnull @.str.7, ptr noundef nonnull @_preview_draw, ptr noundef nonnull @dt_gui_style_content_dialog.data, ptr noundef null, i32 noundef 0) #14
   br label %92
@@ -1376,19 +1376,19 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_preview_draw(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %5 = load i32, ptr %4, align 8, !tbaa !135
+  %5 = load i32, ptr %4, align 8, !tbaa !138
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  %9 = load i32, ptr %8, align 4, !tbaa !146
+  %9 = load i32, ptr %8, align 4, !tbaa !149
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %12 = load ptr, ptr %11, align 8, !tbaa !143
+  %12 = load ptr, ptr %11, align 8, !tbaa !146
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %13, label %17
 
@@ -1396,22 +1396,22 @@ define internal noundef i32 @_preview_draw(ptr noundef %0, ptr noundef %1, ptr n
   %14 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.6) #14
   %15 = sext i32 %14 to i64
   %16 = tail call ptr @dt_imageio_preview(i32 noundef %5, i64 noundef %15, i64 noundef %15, i32 noundef -1, ptr noundef nonnull %2) #14
-  store ptr %16, ptr %11, align 8, !tbaa !143
+  store ptr %16, ptr %11, align 8, !tbaa !146
   br label %17
 
 17:                                               ; preds = %13, %10, %7, %3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !143
+  %19 = load ptr, ptr %18, align 8, !tbaa !146
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %35, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.6) #14
-  %22 = load ptr, ptr %18, align 8, !tbaa !143
+  %22 = load ptr, ptr %18, align 8, !tbaa !146
   %23 = tail call i32 @cairo_image_surface_get_width(ptr noundef %22) #14
-  %24 = load ptr, ptr %18, align 8, !tbaa !143
+  %24 = load ptr, ptr %18, align 8, !tbaa !146
   %25 = tail call i32 @cairo_image_surface_get_height(ptr noundef %24) #14
-  %26 = load ptr, ptr %18, align 8, !tbaa !143
+  %26 = load ptr, ptr %18, align 8, !tbaa !146
   %27 = sub nsw i32 %21, %23
   %28 = sitofp i32 %27 to float
   %29 = fmul reassoc nsz arcp contract afn float %28, 5.000000e-01
@@ -1426,7 +1426,7 @@ define internal noundef i32 @_preview_draw(ptr noundef %0, ptr noundef %1, ptr n
 
 35:                                               ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  store i32 0, ptr %36, align 4, !tbaa !146
+  store i32 0, ptr %36, align 4, !tbaa !149
   tail call void @gtk_widget_queue_draw(ptr noundef %0) #14
   br label %37
 
@@ -1523,7 +1523,7 @@ define internal void @_name_changed(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %3, align 1, !tbaa !69
+  %5 = load i8, ptr %3, align 1, !tbaa !71
   %6 = icmp ne i8 %5, 0
   %7 = zext i1 %6 to i32
   br label %8
@@ -1645,7 +1645,7 @@ define internal void @_gui_styles_item_new_toggled(ptr readnone captures(none) %
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = tail call i64 @gtk_tree_view_get_type() #15
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
   %10 = tail call ptr @gtk_tree_view_get_model(ptr noundef %9) #14
@@ -1684,7 +1684,7 @@ define internal void @_gui_styles_item_new_autoinit_toggled(ptr readnone capture
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = tail call i64 @gtk_tree_view_get_type() #15
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
   %10 = tail call ptr @gtk_tree_view_get_model(ptr noundef %9) #14
@@ -1846,18 +1846,18 @@ define internal void @_gui_styles_edit_style_response(ptr noundef %0, i32 nounde
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
   %23 = tail call i64 @gtk_entry_get_type() #15
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #14
   %25 = tail call ptr @gtk_entry_get_text(ptr noundef %24) #14
   %26 = tail call noalias ptr @g_strdup(ptr noundef %25) #14
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %20
-  store ptr %26, ptr %28, align 8, !tbaa !147
+  store ptr %26, ptr %28, align 8, !tbaa !150
   br label %30
 
 30:                                               ; preds = %29, %20
@@ -1874,26 +1874,26 @@ define internal void @_gui_styles_edit_style_response(ptr noundef %0, i32 nounde
   br i1 %.not36, label %92, label %33
 
 33:                                               ; preds = %32
-  %34 = load i8, ptr %26, align 1, !tbaa !69
+  %34 = load i8, ptr %26, align 1, !tbaa !71
   %.not37 = icmp eq i8 %34, 0
   br i1 %.not37, label %92, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = tail call i64 @gtk_toggle_button_get_type() #15
   %39 = call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %38) #14
   %40 = call i32 @gtk_toggle_button_get_active(ptr noundef %39) #14
   %.not38 = icmp eq i32 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !20
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !67
+  %44 = load ptr, ptr %43, align 8, !tbaa !69
   %45 = call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %23) #14
   %46 = call ptr @gtk_entry_get_text(ptr noundef %45) #14
   %47 = load ptr, ptr %16, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !21
+  %49 = load i32, ptr %48, align 4, !tbaa !23
   %50 = load ptr, ptr %17, align 8, !tbaa !17
   %51 = getelementptr i8, ptr %2, i64 48
   %.val39 = load ptr, ptr %51, align 8, !tbaa !6
@@ -2022,8 +2022,8 @@ _gui_styles_is_update_module_order_set.exit52:    ; preds = %_gui_styles_is_copy
   br label %105
 
 92:                                               ; preds = %33, %32
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
-  %94 = load ptr, ptr %93, align 8, !tbaa !60
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
+  %94 = load ptr, ptr %93, align 8, !tbaa !62
   %95 = call ptr @dt_ui_main_window(ptr noundef %94) #14
   %96 = tail call i64 @gtk_window_get_type() #15
   %97 = call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #14
@@ -2042,7 +2042,7 @@ _gui_styles_is_update_module_order_set.exit52:    ; preds = %_gui_styles_is_copy
 
 105:                                              ; preds = %.critedge, %30
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !20
+  %107 = load ptr, ptr %106, align 8, !tbaa !22
   call void @g_free(ptr noundef %107) #14
   call void @g_free(ptr noundef nonnull %2) #14
   %108 = tail call i64 @gtk_widget_get_type() #15
@@ -2079,18 +2079,18 @@ define internal void @_gui_styles_new_style_response(ptr noundef %0, i32 noundef
   store ptr null, ptr %7, align 8, !tbaa !17
   call void @_gui_styles_get_active_items(ptr noundef %2, ptr noundef nonnull %7, ptr noundef null)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !68
   %13 = tail call i64 @gtk_entry_get_type() #15
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #14
   %15 = tail call ptr @gtk_entry_get_text(ptr noundef %14) #14
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #14
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %10
-  store ptr %16, ptr %18, align 8, !tbaa !147
+  store ptr %16, ptr %18, align 8, !tbaa !150
   br label %20
 
 20:                                               ; preds = %19, %10
@@ -2098,7 +2098,7 @@ define internal void @_gui_styles_new_style_response(ptr noundef %0, i32 noundef
   br i1 %.not31, label %52, label %21
 
 21:                                               ; preds = %20
-  %22 = load i8, ptr %16, align 1, !tbaa !69
+  %22 = load i8, ptr %16, align 1, !tbaa !71
   %.not32 = icmp eq i8 %22, 0
   br i1 %.not32, label %52, label %23
 
@@ -2120,11 +2120,11 @@ define internal void @_gui_styles_new_style_response(ptr noundef %0, i32 noundef
 
 30:                                               ; preds = %29, %23
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !67
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
   %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %13) #14
   %34 = tail call ptr @gtk_entry_get_text(ptr noundef %33) #14
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !21
+  %36 = load i32, ptr %35, align 4, !tbaa !23
   %37 = load ptr, ptr %7, align 8, !tbaa !17
   %38 = getelementptr i8, ptr %2, i64 48
   %.val = load ptr, ptr %38, align 8, !tbaa !6
@@ -2165,8 +2165,8 @@ _gui_styles_is_copy_module_order_set.exit:        ; preds = %30, %43
   br label %.thread
 
 52:                                               ; preds = %21, %20
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !24
-  %54 = load ptr, ptr %53, align 8, !tbaa !60
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !26
+  %54 = load ptr, ptr %53, align 8, !tbaa !62
   %55 = tail call ptr @dt_ui_main_window(ptr noundef %54) #14
   %56 = tail call i64 @gtk_window_get_type() #15
   %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %56) #14
@@ -2191,7 +2191,7 @@ _gui_styles_is_copy_module_order_set.exit:        ; preds = %30, %43
 
 66:                                               ; preds = %.thread, %3
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !20
+  %68 = load ptr, ptr %67, align 8, !tbaa !22
   call void @g_free(ptr noundef %68) #14
   call void @g_free(ptr noundef %2) #14
   %69 = tail call i64 @gtk_widget_get_type() #15
@@ -2243,11 +2243,11 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 define internal fastcc void @_gui_styles_select_all_items(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %.not = icmp eq ptr %5, null
   %.in.v = select i1 %.not, i64 48, i64 56
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %6 = load ptr, ptr %.in, align 8, !tbaa !128
+  %6 = load ptr, ptr %.in, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %7 = tail call i64 @gtk_tree_view_get_type() #15
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #14
@@ -2347,132 +2347,135 @@ attributes #18 = { nounwind willreturn memory(read) }
 !16 = !{!8, !8, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTS6_GList", !12, i64 0}
-!19 = !{!7, !15, i64 56}
-!20 = !{!7, !11, i64 8}
-!21 = !{!7, !8, i64 4}
-!22 = !{!7, !13, i64 16}
-!23 = !{!7, !14, i64 40}
-!24 = !{!25, !34, i64 104}
-!25 = !{!"darktable_t", !26, i64 0, !8, i64 4, !8, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !27, i64 48, !28, i64 56, !29, i64 64, !30, i64 72, !31, i64 80, !32, i64 88, !33, i64 96, !34, i64 104, !35, i64 112, !36, i64 120, !37, i64 128, !38, i64 136, !39, i64 144, !40, i64 152, !41, i64 160, !42, i64 168, !43, i64 176, !44, i64 184, !45, i64 192, !46, i64 200, !47, i64 208, !48, i64 216, !49, i64 224, !9, i64 232, !50, i64 2792, !50, i64 2832, !50, i64 2872, !50, i64 2912, !50, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !51, i64 3096, !18, i64 3104, !52, i64 3112, !18, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !53, i64 3328, !54, i64 3336, !55, i64 3344, !58, i64 3384, !59, i64 3416}
-!26 = !{!"dt_codepath_t", !8, i64 0}
-!27 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
-!28 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
-!29 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
-!30 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
-!31 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
-!32 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
-!33 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
-!34 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
-!35 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
-!36 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
-!37 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
-!38 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
-!39 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
-!40 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
-!41 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
-!42 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
-!43 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
-!44 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
-!45 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
-!46 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
-!47 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
-!48 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
-!49 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
-!50 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!51 = !{!"", !8, i64 0}
-!52 = !{!"double", !9, i64 0}
-!53 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
-!54 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
-!55 = !{!"dt_sys_resources_t", !56, i64 0, !56, i64 8, !57, i64 16, !57, i64 24, !8, i64 32}
-!56 = !{!"long", !9, i64 0}
-!57 = !{!"p1 int", !12, i64 0}
-!58 = !{!"dt_backthumb_t", !52, i64 0, !52, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
-!59 = !{!"dt_gimp_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"dt_gui_gtk_t", !62, i64 0, !63, i64 8, !64, i64 56, !8, i64 80, !11, i64 88, !8, i64 96, !9, i64 104, !8, i64 1352, !8, i64 1356, !8, i64 1360, !8, i64 1364, !8, i64 1368, !52, i64 1376, !52, i64 1384, !52, i64 1392, !52, i64 1400, !14, i64 1408, !52, i64 1416, !52, i64 1424, !52, i64 1432, !52, i64 1440, !8, i64 1448, !8, i64 1452, !9, i64 1456, !8, i64 5552, !8, i64 5556, !8, i64 5560, !50, i64 5568}
-!62 = !{!"p1 _ZTS7dt_ui_t", !12, i64 0}
-!63 = !{!"dt_gui_widgets_t", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !8, i64 32, !8, i64 36, !8, i64 40}
-!64 = !{!"dt_gui_scrollbars_t", !14, i64 0, !14, i64 8, !8, i64 16}
-!65 = !{!61, !52, i64 1424}
-!66 = !{!7, !14, i64 24}
-!67 = !{!7, !14, i64 32}
-!68 = !{ptr @dtgtk_cairo_paint_showmask, ptr @dtgtk_cairo_paint_switch, ptr @dtgtk_cairo_paint_switch_inactive}
-!69 = !{!9, !9, i64 0}
-!70 = !{!71, !12, i64 0}
-!71 = !{!"_GList", !12, i64 0, !18, i64 8, !18, i64 16}
-!72 = !{!73, !74, i64 72}
-!73 = !{!"dt_style_item_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !12, i64 64, !74, i64 72, !8, i64 80, !8, i64 84}
-!74 = !{!"p1 _ZTS25dt_develop_blend_params_t", !12, i64 0}
-!75 = !{!76, !8, i64 0}
-!76 = !{!"dt_develop_blend_params_t", !8, i64 0, !8, i64 4, !8, i64 8, !77, i64 12, !77, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !77, i64 32, !8, i64 36, !77, i64 40, !77, i64 44, !77, i64 48, !77, i64 52, !8, i64 56, !9, i64 60, !9, i64 68, !9, i64 324, !9, i64 388, !8, i64 408, !8, i64 412, !8, i64 416}
-!77 = !{!"float", !9, i64 0}
-!78 = !{!73, !8, i64 0}
-!79 = !{!73, !8, i64 4}
-!80 = !{!73, !8, i64 8}
-!81 = !{!73, !11, i64 24}
-!82 = !{!71, !18, i64 8}
-!83 = !{!25, !29, i64 64}
-!84 = !{!85, !18, i64 2056}
-!85 = !{!"dt_develop_t", !8, i64 0, !8, i64 4, !8, i64 8, !12, i64 16, !52, i64 24, !52, i64 32, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !52, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !86, i64 88, !87, i64 96, !88, i64 112, !8, i64 1968, !8, i64 1972, !50, i64 1976, !8, i64 2016, !18, i64 2024, !8, i64 2032, !86, i64 2040, !8, i64 2048, !18, i64 2056, !18, i64 2064, !8, i64 2072, !18, i64 2080, !18, i64 2088, !57, i64 2096, !57, i64 2104, !8, i64 2112, !8, i64 2116, !18, i64 2120, !97, i64 2128, !98, i64 2136, !18, i64 2144, !8, i64 2152, !8, i64 2156, !8, i64 2160, !77, i64 2164, !77, i64 2168, !86, i64 2176, !8, i64 2184, !99, i64 2192, !104, i64 2344, !105, i64 2464, !106, i64 2488, !107, i64 2528, !108, i64 2560, !109, i64 2568, !110, i64 2584, !14, i64 2608, !14, i64 2616, !111, i64 2624, !111, i64 2712, !8, i64 2800, !8, i64 2804, !8, i64 2808, !18, i64 2816}
-!86 = !{!"p1 _ZTS15dt_iop_module_t", !12, i64 0}
-!87 = !{!"p1 _ZTS18dt_dev_pixelpipe_t", !12, i64 0}
-!88 = !{!"dt_image_t", !8, i64 0, !8, i64 4, !77, i64 8, !77, i64 12, !77, i64 16, !77, i64 20, !77, i64 24, !77, i64 28, !77, i64 32, !9, i64 36, !9, i64 100, !9, i64 164, !9, i64 292, !9, i64 356, !9, i64 420, !9, i64 484, !56, i64 552, !8, i64 560, !9, i64 564, !9, i64 792, !9, i64 856, !9, i64 920, !9, i64 984, !8, i64 1112, !9, i64 1116, !8, i64 1372, !8, i64 1376, !8, i64 1380, !8, i64 1384, !8, i64 1388, !8, i64 1392, !8, i64 1396, !8, i64 1400, !8, i64 1404, !8, i64 1408, !77, i64 1412, !8, i64 1416, !8, i64 1420, !8, i64 1424, !8, i64 1428, !8, i64 1432, !8, i64 1436, !56, i64 1440, !56, i64 1448, !56, i64 1456, !56, i64 1464, !8, i64 1472, !89, i64 1488, !9, i64 1616, !11, i64 1656, !8, i64 1664, !8, i64 1668, !93, i64 1672, !94, i64 1680, !95, i64 1704, !91, i64 1716, !9, i64 1718, !8, i64 1728, !8, i64 1732, !77, i64 1736, !77, i64 1740, !9, i64 1744, !9, i64 1760, !9, i64 1808, !18, i64 1824, !96, i64 1832, !8, i64 1840, !8, i64 1844}
-!89 = !{!"dt_iop_buffer_dsc_t", !8, i64 0, !8, i64 4, !8, i64 8, !9, i64 12, !90, i64 48, !92, i64 64, !9, i64 96, !8, i64 112}
-!90 = !{!"", !91, i64 0, !91, i64 2}
-!91 = !{!"short", !9, i64 0}
-!92 = !{!"", !8, i64 0, !9, i64 16}
-!93 = !{!"dt_image_raw_parameters_t", !8, i64 0, !8, i64 3}
-!94 = !{!"dt_image_geoloc_t", !52, i64 0, !52, i64 8, !52, i64 16}
-!95 = !{!"_color_harmony_t", !8, i64 0, !8, i64 4, !8, i64 8}
-!96 = !{!"p1 _ZTS16dt_cache_entry_t", !12, i64 0}
-!97 = !{!"p1 _ZTS15dt_masks_form_t", !12, i64 0}
-!98 = !{!"p1 _ZTS19dt_masks_form_gui_t", !12, i64 0}
-!99 = !{!"", !100, i64 0, !86, i64 32, !101, i64 40, !103, i64 112}
-!100 = !{!"dt_dev_proxy_exposure_t", !86, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!101 = !{!"", !102, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
-!102 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
-!103 = !{!"", !102, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
-!104 = !{!"dt_dev_chroma_t", !86, i64 0, !86, i64 8, !9, i64 16, !9, i64 48, !9, i64 80, !8, i64 112}
-!105 = !{!"", !86, i64 0, !86, i64 8, !12, i64 16}
-!106 = !{!"", !14, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !77, i64 24, !77, i64 28, !8, i64 32}
-!107 = !{!"", !14, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !77, i64 28}
-!108 = !{!"", !14, i64 0}
-!109 = !{!"", !14, i64 0, !8, i64 8}
-!110 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16}
-!111 = !{!"dt_dev_viewport_t", !14, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !52, i64 32, !52, i64 40, !52, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !77, i64 68, !77, i64 72, !77, i64 76, !87, i64 80}
-!112 = !{!113, !11, i64 8}
-!113 = !{!"dt_history_item_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
-!114 = !{!115, !12, i64 64}
-!115 = !{!"dt_iop_module_t", !8, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !12, i64 376, !12, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !12, i64 424, !12, i64 432, !12, i64 440, !116, i64 448, !9, i64 456, !8, i64 476, !8, i64 480, !8, i64 484, !8, i64 488, !8, i64 492, !8, i64 496, !8, i64 500, !9, i64 512, !9, i64 528, !9, i64 544, !9, i64 560, !9, i64 576, !9, i64 592, !57, i64 608, !117, i64 616, !9, i64 640, !8, i64 656, !8, i64 660, !29, i64 664, !8, i64 672, !8, i64 676, !12, i64 680, !12, i64 688, !8, i64 696, !12, i64 704, !50, i64 712, !12, i64 752, !74, i64 760, !74, i64 768, !12, i64 776, !118, i64 784, !14, i64 816, !14, i64 824, !14, i64 832, !14, i64 840, !14, i64 848, !14, i64 856, !14, i64 864, !8, i64 872, !14, i64 880, !14, i64 888, !14, i64 896, !122, i64 904, !122, i64 912, !14, i64 920, !14, i64 928, !8, i64 936, !123, i64 944, !8, i64 952, !9, i64 956, !8, i64 1084, !14, i64 1088, !12, i64 1096, !8, i64 1104}
-!116 = !{!"p1 _ZTS8_GModule", !12, i64 0}
-!117 = !{!"dt_dev_histogram_stats_t", !8, i64 0, !56, i64 8, !8, i64 16, !8, i64 20}
-!118 = !{!"", !119, i64 0, !121, i64 16}
-!119 = !{!"", !120, i64 0, !120, i64 8}
-!120 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
-!121 = !{!"", !86, i64 0, !8, i64 8}
-!122 = !{!"p1 _ZTS7_GSList", !12, i64 0}
-!123 = !{!"p1 _ZTS18dt_iop_module_so_t", !12, i64 0}
-!124 = !{!113, !8, i64 24}
-!125 = !{!113, !11, i64 16}
-!126 = !{!113, !8, i64 28}
-!127 = !{!113, !8, i64 0}
-!128 = !{!15, !15, i64 0}
-!129 = !{!25, !8, i64 8}
-!130 = !{!25, !38, i64 136}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!133 = !{!134, !134, i64 0}
-!134 = !{!"p1 _ZTS12sqlite3_stmt", !12, i64 0}
-!135 = !{!136, !8, i64 128}
-!136 = !{!"_preview_data_t", !9, i64 0, !8, i64 128, !8, i64 132, !137, i64 136, !11, i64 144, !8, i64 152}
-!137 = !{!"p1 _ZTS14_cairo_surface", !12, i64 0}
-!138 = !{!136, !8, i64 152}
-!139 = !{!140, !8, i64 40}
-!140 = !{!"dt_history_hash_values_t", !11, i64 0, !8, i64 8, !11, i64 16, !8, i64 24, !11, i64 32, !8, i64 40}
-!141 = !{!136, !11, i64 144}
-!142 = !{!140, !11, i64 32}
-!143 = !{!136, !137, i64 136}
-!144 = !{!73, !11, i64 40}
-!145 = !{!73, !8, i64 12}
-!146 = !{!136, !8, i64 132}
-!147 = !{!11, !11, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!7, !15, i64 56}
+!22 = !{!7, !11, i64 8}
+!23 = !{!7, !8, i64 4}
+!24 = !{!7, !13, i64 16}
+!25 = !{!7, !14, i64 40}
+!26 = !{!27, !36, i64 104}
+!27 = !{!"darktable_t", !28, i64 0, !8, i64 4, !8, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !29, i64 48, !30, i64 56, !31, i64 64, !32, i64 72, !33, i64 80, !34, i64 88, !35, i64 96, !36, i64 104, !37, i64 112, !38, i64 120, !39, i64 128, !40, i64 136, !41, i64 144, !42, i64 152, !43, i64 160, !44, i64 168, !45, i64 176, !46, i64 184, !47, i64 192, !48, i64 200, !49, i64 208, !50, i64 216, !51, i64 224, !9, i64 232, !52, i64 2792, !52, i64 2832, !52, i64 2872, !52, i64 2912, !52, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !53, i64 3096, !18, i64 3104, !54, i64 3112, !18, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !55, i64 3328, !56, i64 3336, !57, i64 3344, !60, i64 3384, !61, i64 3416}
+!28 = !{!"dt_codepath_t", !8, i64 0}
+!29 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
+!30 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
+!31 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
+!32 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
+!33 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
+!34 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
+!35 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
+!36 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
+!37 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
+!38 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
+!39 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
+!40 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
+!41 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
+!42 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
+!43 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
+!44 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
+!45 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
+!46 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
+!47 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
+!48 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
+!49 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
+!50 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
+!51 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
+!52 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!53 = !{!"", !8, i64 0}
+!54 = !{!"double", !9, i64 0}
+!55 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
+!56 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
+!57 = !{!"dt_sys_resources_t", !58, i64 0, !58, i64 8, !59, i64 16, !59, i64 24, !8, i64 32}
+!58 = !{!"long", !9, i64 0}
+!59 = !{!"p1 int", !12, i64 0}
+!60 = !{!"dt_backthumb_t", !54, i64 0, !54, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
+!61 = !{!"dt_gimp_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"dt_gui_gtk_t", !64, i64 0, !65, i64 8, !66, i64 56, !8, i64 80, !11, i64 88, !8, i64 96, !9, i64 104, !8, i64 1352, !8, i64 1356, !8, i64 1360, !8, i64 1364, !8, i64 1368, !54, i64 1376, !54, i64 1384, !54, i64 1392, !54, i64 1400, !14, i64 1408, !54, i64 1416, !54, i64 1424, !54, i64 1432, !54, i64 1440, !8, i64 1448, !8, i64 1452, !9, i64 1456, !8, i64 5552, !8, i64 5556, !8, i64 5560, !52, i64 5568}
+!64 = !{!"p1 _ZTS7dt_ui_t", !12, i64 0}
+!65 = !{!"dt_gui_widgets_t", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !8, i64 32, !8, i64 36, !8, i64 40}
+!66 = !{!"dt_gui_scrollbars_t", !14, i64 0, !14, i64 8, !8, i64 16}
+!67 = !{!63, !54, i64 1424}
+!68 = !{!7, !14, i64 24}
+!69 = !{!7, !14, i64 32}
+!70 = !{ptr @dtgtk_cairo_paint_showmask, ptr @dtgtk_cairo_paint_switch, ptr @dtgtk_cairo_paint_switch_inactive}
+!71 = !{!9, !9, i64 0}
+!72 = distinct !{!72, !20}
+!73 = !{!74, !12, i64 0}
+!74 = !{!"_GList", !12, i64 0, !18, i64 8, !18, i64 16}
+!75 = !{!76, !77, i64 72}
+!76 = !{!"dt_style_item_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !12, i64 64, !77, i64 72, !8, i64 80, !8, i64 84}
+!77 = !{!"p1 _ZTS25dt_develop_blend_params_t", !12, i64 0}
+!78 = !{!79, !8, i64 0}
+!79 = !{!"dt_develop_blend_params_t", !8, i64 0, !8, i64 4, !8, i64 8, !80, i64 12, !80, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !80, i64 32, !8, i64 36, !80, i64 40, !80, i64 44, !80, i64 48, !80, i64 52, !8, i64 56, !9, i64 60, !9, i64 68, !9, i64 324, !9, i64 388, !8, i64 408, !8, i64 412, !8, i64 416}
+!80 = !{!"float", !9, i64 0}
+!81 = !{!76, !8, i64 0}
+!82 = !{!76, !8, i64 4}
+!83 = !{!76, !8, i64 8}
+!84 = !{!76, !11, i64 24}
+!85 = !{!74, !18, i64 8}
+!86 = !{!27, !31, i64 64}
+!87 = !{!88, !18, i64 2056}
+!88 = !{!"dt_develop_t", !8, i64 0, !8, i64 4, !8, i64 8, !12, i64 16, !54, i64 24, !54, i64 32, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !54, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !89, i64 88, !90, i64 96, !91, i64 112, !8, i64 1968, !8, i64 1972, !52, i64 1976, !8, i64 2016, !18, i64 2024, !8, i64 2032, !89, i64 2040, !8, i64 2048, !18, i64 2056, !18, i64 2064, !8, i64 2072, !18, i64 2080, !18, i64 2088, !59, i64 2096, !59, i64 2104, !8, i64 2112, !8, i64 2116, !18, i64 2120, !100, i64 2128, !101, i64 2136, !18, i64 2144, !8, i64 2152, !8, i64 2156, !8, i64 2160, !80, i64 2164, !80, i64 2168, !89, i64 2176, !8, i64 2184, !102, i64 2192, !107, i64 2344, !108, i64 2464, !109, i64 2488, !110, i64 2528, !111, i64 2560, !112, i64 2568, !113, i64 2584, !14, i64 2608, !14, i64 2616, !114, i64 2624, !114, i64 2712, !8, i64 2800, !8, i64 2804, !8, i64 2808, !18, i64 2816}
+!89 = !{!"p1 _ZTS15dt_iop_module_t", !12, i64 0}
+!90 = !{!"p1 _ZTS18dt_dev_pixelpipe_t", !12, i64 0}
+!91 = !{!"dt_image_t", !8, i64 0, !8, i64 4, !80, i64 8, !80, i64 12, !80, i64 16, !80, i64 20, !80, i64 24, !80, i64 28, !80, i64 32, !9, i64 36, !9, i64 100, !9, i64 164, !9, i64 292, !9, i64 356, !9, i64 420, !9, i64 484, !58, i64 552, !8, i64 560, !9, i64 564, !9, i64 792, !9, i64 856, !9, i64 920, !9, i64 984, !8, i64 1112, !9, i64 1116, !8, i64 1372, !8, i64 1376, !8, i64 1380, !8, i64 1384, !8, i64 1388, !8, i64 1392, !8, i64 1396, !8, i64 1400, !8, i64 1404, !8, i64 1408, !80, i64 1412, !8, i64 1416, !8, i64 1420, !8, i64 1424, !8, i64 1428, !8, i64 1432, !8, i64 1436, !58, i64 1440, !58, i64 1448, !58, i64 1456, !58, i64 1464, !8, i64 1472, !92, i64 1488, !9, i64 1616, !11, i64 1656, !8, i64 1664, !8, i64 1668, !96, i64 1672, !97, i64 1680, !98, i64 1704, !94, i64 1716, !9, i64 1718, !8, i64 1728, !8, i64 1732, !80, i64 1736, !80, i64 1740, !9, i64 1744, !9, i64 1760, !9, i64 1808, !18, i64 1824, !99, i64 1832, !8, i64 1840, !8, i64 1844}
+!92 = !{!"dt_iop_buffer_dsc_t", !8, i64 0, !8, i64 4, !8, i64 8, !9, i64 12, !93, i64 48, !95, i64 64, !9, i64 96, !8, i64 112}
+!93 = !{!"", !94, i64 0, !94, i64 2}
+!94 = !{!"short", !9, i64 0}
+!95 = !{!"", !8, i64 0, !9, i64 16}
+!96 = !{!"dt_image_raw_parameters_t", !8, i64 0, !8, i64 3}
+!97 = !{!"dt_image_geoloc_t", !54, i64 0, !54, i64 8, !54, i64 16}
+!98 = !{!"_color_harmony_t", !8, i64 0, !8, i64 4, !8, i64 8}
+!99 = !{!"p1 _ZTS16dt_cache_entry_t", !12, i64 0}
+!100 = !{!"p1 _ZTS15dt_masks_form_t", !12, i64 0}
+!101 = !{!"p1 _ZTS19dt_masks_form_gui_t", !12, i64 0}
+!102 = !{!"", !103, i64 0, !89, i64 32, !104, i64 40, !106, i64 112}
+!103 = !{!"dt_dev_proxy_exposure_t", !89, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!104 = !{!"", !105, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
+!105 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
+!106 = !{!"", !105, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!107 = !{!"dt_dev_chroma_t", !89, i64 0, !89, i64 8, !9, i64 16, !9, i64 48, !9, i64 80, !8, i64 112}
+!108 = !{!"", !89, i64 0, !89, i64 8, !12, i64 16}
+!109 = !{!"", !14, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !80, i64 24, !80, i64 28, !8, i64 32}
+!110 = !{!"", !14, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !80, i64 28}
+!111 = !{!"", !14, i64 0}
+!112 = !{!"", !14, i64 0, !8, i64 8}
+!113 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16}
+!114 = !{!"dt_dev_viewport_t", !14, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !54, i64 32, !54, i64 40, !54, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !80, i64 68, !80, i64 72, !80, i64 76, !90, i64 80}
+!115 = !{!116, !11, i64 8}
+!116 = !{!"dt_history_item_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
+!117 = !{!118, !12, i64 64}
+!118 = !{!"dt_iop_module_t", !8, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !12, i64 376, !12, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !12, i64 424, !12, i64 432, !12, i64 440, !119, i64 448, !9, i64 456, !8, i64 476, !8, i64 480, !8, i64 484, !8, i64 488, !8, i64 492, !8, i64 496, !8, i64 500, !9, i64 512, !9, i64 528, !9, i64 544, !9, i64 560, !9, i64 576, !9, i64 592, !59, i64 608, !120, i64 616, !9, i64 640, !8, i64 656, !8, i64 660, !31, i64 664, !8, i64 672, !8, i64 676, !12, i64 680, !12, i64 688, !8, i64 696, !12, i64 704, !52, i64 712, !12, i64 752, !77, i64 760, !77, i64 768, !12, i64 776, !121, i64 784, !14, i64 816, !14, i64 824, !14, i64 832, !14, i64 840, !14, i64 848, !14, i64 856, !14, i64 864, !8, i64 872, !14, i64 880, !14, i64 888, !14, i64 896, !125, i64 904, !125, i64 912, !14, i64 920, !14, i64 928, !8, i64 936, !126, i64 944, !8, i64 952, !9, i64 956, !8, i64 1084, !14, i64 1088, !12, i64 1096, !8, i64 1104}
+!119 = !{!"p1 _ZTS8_GModule", !12, i64 0}
+!120 = !{!"dt_dev_histogram_stats_t", !8, i64 0, !58, i64 8, !8, i64 16, !8, i64 20}
+!121 = !{!"", !122, i64 0, !124, i64 16}
+!122 = !{!"", !123, i64 0, !123, i64 8}
+!123 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
+!124 = !{!"", !89, i64 0, !8, i64 8}
+!125 = !{!"p1 _ZTS7_GSList", !12, i64 0}
+!126 = !{!"p1 _ZTS18dt_iop_module_so_t", !12, i64 0}
+!127 = !{!116, !8, i64 24}
+!128 = !{!116, !11, i64 16}
+!129 = !{!116, !8, i64 28}
+!130 = !{!116, !8, i64 0}
+!131 = !{!15, !15, i64 0}
+!132 = !{!27, !8, i64 8}
+!133 = !{!27, !40, i64 136}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTS12sqlite3_stmt", !12, i64 0}
+!138 = !{!139, !8, i64 128}
+!139 = !{!"_preview_data_t", !9, i64 0, !8, i64 128, !8, i64 132, !140, i64 136, !11, i64 144, !8, i64 152}
+!140 = !{!"p1 _ZTS14_cairo_surface", !12, i64 0}
+!141 = !{!139, !8, i64 152}
+!142 = !{!143, !8, i64 40}
+!143 = !{!"dt_history_hash_values_t", !11, i64 0, !8, i64 8, !11, i64 16, !8, i64 24, !11, i64 32, !8, i64 40}
+!144 = !{!139, !11, i64 144}
+!145 = !{!143, !11, i64 32}
+!146 = !{!139, !140, i64 136}
+!147 = !{!76, !11, i64 40}
+!148 = !{!76, !8, i64 12}
+!149 = !{!139, !8, i64 132}
+!150 = !{!11, !11, i64 0}

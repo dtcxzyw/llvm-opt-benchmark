@@ -853,7 +853,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %23 = load volatile ptr, ptr %9, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.split13.us, label %.lr.ph
+  br i1 %24, label %.split13.us, label %.lr.ph, !llvm.loop !16
 
 .split:                                           ; preds = %12
   br i1 %15, label %.split13.us.thread, label %25
@@ -1069,7 +1069,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   call void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonitor13ExitOnSuspendEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %5) #9
   %37 = load i8, ptr %32, align 8
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %36, label %39, !llvm.loop !16
+  br i1 %38, label %36, label %39, !llvm.loop !18
 
 39:                                               ; preds = %36
   %40 = call noundef zeroext i1 @_ZN10JavaThread25get_and_clear_interruptedEv(ptr noundef nonnull align 8 dereferenceable(1800) %2) #9
@@ -1283,7 +1283,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMoni
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1379,5 +1379,7 @@ attributes #10 = { noreturn nounwind }
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}

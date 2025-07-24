@@ -1314,17 +1314,17 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %471, %466, %_ZN2cv1
   store double %576, ptr %561, align 8, !tbaa !16
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond390.not = icmp eq i64 %indvars.iv.next387, %wide.trip.count389
-  br i1 %exitcond390.not, label %._crit_edge350, label %.preheader, !llvm.loop !96
+  br i1 %exitcond390.not, label %._crit_edge350, label %.preheader, !llvm.loop !98
 
 ._crit_edge350:                                   ; preds = %.preheader, %._crit_edge347.us, %._crit_edge342
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count404
-  br i1 %exitcond405.not, label %._crit_edge353, label %502, !llvm.loop !97
+  br i1 %exitcond405.not, label %._crit_edge353, label %502, !llvm.loop !99
 
 ._crit_edge353:                                   ; preds = %._crit_edge350, %.preheader293
   %577 = add nuw nsw i32 %.1170354, 1
   %exitcond406.not = icmp eq i32 %577, %smax
-  br i1 %exitcond406.not, label %._crit_edge356, label %205, !llvm.loop !98
+  br i1 %exitcond406.not, label %._crit_edge356, label %205, !llvm.loop !100
 
 ._crit_edge356:                                   ; preds = %._crit_edge353
   %578 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1354,7 +1354,7 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %471, %466, %_ZN2cv1
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #13
   %586 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i235 = icmp eq ptr %586, %266
-  br i1 %.not.i.i.i.i235, label %_ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !99
+  br i1 %.not.i.i.i.i235, label %_ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !101
 
 _ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %22, align 8, !tbaa !45
@@ -1477,7 +1477,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4Mat_IdEESaIS2_EED2Ev(ptr noun
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #13
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !99
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !101
 
 _ZSt8_DestroyIPN2cv4Mat_IdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !45
@@ -1656,7 +1656,9 @@ attributes #16 = { builtin allocsize(0) }
 !93 = distinct !{!93, !29}
 !94 = distinct !{!94, !29}
 !95 = distinct !{!95, !29}
-!96 = distinct !{!96, !29}
-!97 = distinct !{!97, !29}
+!96 = distinct !{!96, !29, !97}
+!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !98 = distinct !{!98, !29}
 !99 = distinct !{!99, !29}
+!100 = distinct !{!100, !29}
+!101 = distinct !{!101, !29}

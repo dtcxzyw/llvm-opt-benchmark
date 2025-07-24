@@ -951,7 +951,7 @@ define internal fastcc i64 @setup_hash(i32 noundef %0, ptr noundef readonly capt
 
 .preheader.split.split:                           ; preds = %2
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %rb_scan_args_set.exit.thread13, label %.split.us
+  br i1 %.not, label %rb_scan_args_set.exit.thread10, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %4 = load i64, ptr %1, align 8, !tbaa !6
@@ -981,7 +981,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %7, %rbimpl_RB_TYPE_
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.18) #8
   unreachable
 
-rb_scan_args_set.exit.thread13:                   ; preds = %.preheader.split.split
+rb_scan_args_set.exit.thread10:                   ; preds = %.preheader.split.split
   %17 = tail call i64 @rb_hash_new() #7
   br label %31
 
@@ -1013,8 +1013,8 @@ RHASH_EMPTY_P.exit:                               ; preds = %21, %24
   tail call void @rb_hash_foreach(i64 noundef %4, ptr noundef nonnull @set_zero_i, i64 noundef %4) #7
   br label %31
 
-31:                                               ; preds = %RHASH_EMPTY_P.exit, %30, %rb_scan_args_set.exit.thread13
-  %32 = phi i64 [ %4, %RHASH_EMPTY_P.exit ], [ %4, %30 ], [ %17, %rb_scan_args_set.exit.thread13 ]
+31:                                               ; preds = %RHASH_EMPTY_P.exit, %30, %rb_scan_args_set.exit.thread10
+  %32 = phi i64 [ %4, %RHASH_EMPTY_P.exit ], [ %4, %30 ], [ %17, %rb_scan_args_set.exit.thread10 ]
   ret i64 %32
 }
 

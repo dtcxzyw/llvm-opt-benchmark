@@ -248,7 +248,7 @@ rev_list_push.exit.i:                             ; preds = %55, %52, %48, %.lr.
   %59 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !35
   %.not30.i = icmp eq ptr %60, null
-  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !36
+  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !38
 
 61:                                               ; preds = %.loopexit.i
   %62 = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
@@ -395,11 +395,11 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
   %39 = load ptr, ptr @the_repository, align 8, !tbaa !20
   %40 = call i32 @repo_parse_commit_gently(ptr noundef %39, ptr noundef nonnull %22, i32 noundef 0) #5
   %.not35 = icmp eq i32 %40, 0
-  br i1 %.not35, label %41, label %.critedge, !llvm.loop !37
+  br i1 %.not35, label %41, label %.critedge, !llvm.loop !39
 
 41:                                               ; preds = %38, %35
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %.041 = load ptr, ptr %42, align 8, !tbaa !38
+  %.041 = load ptr, ptr %42, align 8, !tbaa !40
   %.not3642 = icmp eq ptr %.041, null
   br i1 %.not3642, label %.critedge, label %.lr.ph
 
@@ -431,9 +431,9 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
 
 54:                                               ; preds = %.lr.ph, %52
   %55 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %.0 = load ptr, ptr %55, align 8, !tbaa !38
+  %.0 = load ptr, ptr %55, align 8, !tbaa !40
   %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %54, %41, %32, %29, %25, %38
   %56 = call ptr @prio_queue_get(ptr noundef nonnull %5) #5
@@ -514,7 +514,9 @@ attributes #5 = { nounwind }
 !33 = !{!"commit_list", !34, i64 0, !30, i64 8}
 !34 = !{!"p1 _ZTS6commit", !6, i64 0}
 !35 = !{!33, !30, i64 8}
-!36 = distinct !{!36, !24}
-!37 = distinct !{!37, !24}
-!38 = !{!30, !30, i64 0}
+!36 = distinct !{!36, !24, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !24}
 !39 = distinct !{!39, !24}
+!40 = !{!30, !30, i64 0}
+!41 = distinct !{!41, !24}

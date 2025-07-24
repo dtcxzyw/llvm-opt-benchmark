@@ -59,7 +59,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   %17 = add nuw i64 %.018, 1
   %18 = load i64, ptr %0, align 8
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
+  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph.split.us, %8, %2
   %.015 = phi i1 [ true, %2 ], [ %.not24.not, %8 ], [ %.not24.not, %.lr.ph.split.us ], [ %.1, %16 ]
@@ -135,7 +135,7 @@ define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream
   %25 = getelementptr inbounds [320 x %class.LogSelection], ptr %11, i64 0, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  br i1 %.not23, label %.loopexit.loopexit, label %12, !llvm.loop !8
+  br i1 %.not23, label %.loopexit.loopexit, label %12, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %20, %22
   %.not26.ph = xor i1 %21, true
@@ -189,7 +189,7 @@ define hidden noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr nou
   %11 = add nuw i64 %.08, 1
   %12 = load i64, ptr %0, align 8
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %5, label %._crit_edge, !llvm.loop !9
+  br i1 %13, label %5, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %10, %2
   %.06.lcssa = phi i32 [ 8, %2 ], [ %.1, %10 ]
@@ -215,7 +215,9 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

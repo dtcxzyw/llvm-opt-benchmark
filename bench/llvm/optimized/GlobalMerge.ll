@@ -7813,7 +7813,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPPN4llvm14GlobalVar
   %50 = icmp ne ptr %.1.i, %25
   %51 = icmp ne ptr %.120.i, %26
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %.lr.ph.i35, label %._crit_edge.i.loopexit, !llvm.loop !440
+  br i1 %52, label %.lr.ph.i35, label %._crit_edge.i.loopexit, !llvm.loop !441
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i35
   %53 = ptrtoint ptr %25 to i64
@@ -7843,7 +7843,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.i: ; preds = %56, %._cri
   %63 = sub i64 %5, %58
   %64 = ashr exact i64 %63, 3
   %.not.i = icmp slt i64 %64, %18
-  br i1 %.not.i, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit", label %.lr.ph.i21, !llvm.loop !439
+  br i1 %.not.i, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit", label %.lr.ph.i21, !llvm.loop !442
 
 "_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit": ; preds = %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit", %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit.us", %17
   %.019.lcssa.i = phi ptr [ %2, %17 ], [ %22, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit.us" ], [ %62, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit" ]
@@ -7873,7 +7873,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.i: ; preds = %56, %._cri
   %71 = sub i64 %16, %68
   %72 = ashr exact i64 %71, 3
   %.not.i27.us = icmp slt i64 %72, %66
-  br i1 %.not.i27.us, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32", label %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60.us", !llvm.loop !439
+  br i1 %.not.i27.us, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32", label %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60.us", !llvm.loop !443
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60"
   %.028.i25 = phi ptr [ %74, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60" ], [ %2, %.lr.ph.i24.preheader ]
@@ -7926,7 +7926,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.i: ; preds = %56, %._cri
   %98 = icmp ne ptr %.1.i58, %73
   %99 = icmp ne ptr %.120.i56, %74
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %.lr.ph.i43, label %._crit_edge.i36.loopexit, !llvm.loop !440
+  br i1 %100, label %.lr.ph.i43, label %._crit_edge.i36.loopexit, !llvm.loop !441
 
 ._crit_edge.i36.loopexit:                         ; preds = %.lr.ph.i43
   %101 = ptrtoint ptr %73 to i64
@@ -7956,7 +7956,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.i41: ; preds = %104, %._
   %111 = sub i64 %16, %106
   %112 = ashr exact i64 %111, 3
   %.not.i27 = icmp slt i64 %112, %66
-  br i1 %.not.i27, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32", label %.lr.ph.i24, !llvm.loop !439
+  br i1 %.not.i27, label %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32", label %.lr.ph.i24, !llvm.loop !442
 
 "_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32": ; preds = %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60", %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60.us", %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit"
   %.019.lcssa.i28 = phi ptr [ %0, %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit" ], [ %70, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60.us" ], [ %110, %"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_.exit60" ]
@@ -7966,7 +7966,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.i41: ; preds = %104, %._
   %113 = getelementptr inbounds ptr, ptr %.0.lcssa.i29, i64 %.sroa.speculated.i31
   tail call fastcc void @"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr noundef %.0.lcssa.i29, ptr noundef %113, ptr noundef %113, ptr noundef %9, ptr noundef %.019.lcssa.i28, ptr %3)
   %114 = icmp slt i64 %66, %8
-  br i1 %114, label %17, label %._crit_edge, !llvm.loop !441
+  br i1 %114, label %17, label %._crit_edge, !llvm.loop !444
 
 ._crit_edge:                                      ; preds = %"_ZSt17__merge_sort_loopIPPN4llvm14GlobalVariableES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_T2_.exit32", %"_ZSt22__chunk_insertion_sortIPPN4llvm14GlobalVariableElN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERNS0_15SmallVectorImplIS2_EERNS0_6ModuleEbjE3$_0EEEvT_SG_T0_T1_.exit"
   ret void
@@ -8044,7 +8044,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse.
   %41 = icmp ne ptr %.1.i, %14
   %42 = icmp ne ptr %.120.i, %2
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !442
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !445
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit ], [ %.1.i, %.lr.ph.i ]
@@ -8131,7 +8131,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit70.thread: ; preds = %47
   %80 = load ptr, ptr %.026.i.ph, align 8, !tbaa !123
   store ptr %80, ptr %78, align 8, !tbaa !123
   %81 = icmp eq ptr %.tr113, %.026.i.ph
-  br i1 %81, label %82, label %.outer, !llvm.loop !443
+  br i1 %81, label %82, label %.outer, !llvm.loop !446
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %.024.i71, i64 8
@@ -8146,7 +8146,7 @@ _ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit70.thread: ; preds = %47
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %.024.i71, i64 -8
-  br label %55, !llvm.loop !443
+  br label %55, !llvm.loop !446
 
 _ZSt13move_backwardIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit70.thread, %82
   %.sink42.i = phi ptr [ %83, %82 ], [ %51, %_ZSt4moveIPPN4llvm14GlobalVariableES3_ET0_T_S5_S4_.exit70.thread ]
@@ -8345,7 +8345,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPPN4llvm14GlobalVariableES3_N9_
   %33 = icmp ne ptr %.1, %1
   %34 = icmp ne ptr %.120, %3
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !440
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !441
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.019.lcssa = phi ptr [ %2, %6 ], [ %.120, %.lr.ph ]
@@ -8473,7 +8473,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPai
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !262
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !444
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !447
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
@@ -8495,7 +8495,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPai
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !262
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !444
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !447
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -8571,7 +8571,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6d
   %70 = phi i32 [ %40, %39 ], [ %40, %39 ], [ %68, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i8 = icmp eq ptr %71, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %39, !llvm.loop !445
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %39, !llvm.loop !448
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit: ; preds = %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #20
@@ -8987,7 +8987,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit:         ; preds = %_ZN4llvm15SmallVect
   store i32 %109, ptr %110, align 8, !tbaa !235
   %111 = add nsw i64 %.010.i.i.i.i.i, -1
   %112 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %112, label %60, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit, !llvm.loop !446
+  br i1 %112, label %60, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit, !llvm.loop !449
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit: ; preds = %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit, %_ZZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS1_14GlobalVariableEEERNS1_6ModuleEbjEN13UsedGlobalSetC2EOS9_.exit
   br i1 %19, label %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit32, label %113
@@ -9280,7 +9280,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit47:       ; preds = %_ZN4llvm15SmallVect
   %224 = load i32, ptr %179, align 8, !tbaa !235
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 72
   store i32 %224, ptr %225, align 8, !tbaa !235
-  br label %157, !llvm.loop !447
+  br label %157, !llvm.loop !450
 
 226:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclIZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i"
   %227 = icmp eq ptr %.sroa.06.0.i, %3
@@ -9406,7 +9406,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit.i:       ; preds = %_ZN4llvm15SmallVect
 271:                                              ; preds = %_ZZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS1_14GlobalVariableEEERNS1_6ModuleEbjEN13UsedGlobalSetD2Ev.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEENS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_T0_.exit"
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.059, i64 80
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !448
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !451
 
 .loopexit:                                        ; preds = %271, %.preheader, %2
   ret void
@@ -9568,7 +9568,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %_Z
   %.sroa.011.1.i = select i1 %77, ptr %78, ptr %.sroa.011.013.i
   %.1.i = select i1 %77, i64 %80, i64 %56
   %81 = icmp sgt i64 %.1.i, 0
-  br i1 %81, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !449
+  br i1 %81, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !452
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclINS_17__normal_iteratorIPZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetSt6vectorISG_SaISG_EEEEKSG_EEbT_RT0_.exit.i"
   %.pre = ptrtoint ptr %.sroa.011.1.i to i64
@@ -9655,7 +9655,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i68:         ; preds = %.lr.ph.i.i.i.i64, %
   %.sroa.011.1.i77 = select i1 %118, ptr %.sroa.011.013.i61, ptr %119
   %.1.i78 = select i1 %118, i64 %97, i64 %121
   %122 = icmp sgt i64 %.1.i78, 0
-  br i1 %122, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i59, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !450
+  br i1 %122, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i59, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !453
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclIKZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i"
   %.pre107 = ptrtoint ptr %.sroa.011.1.i77 to i64
@@ -9873,7 +9873,7 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPZNK
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 80
   %.not.i.i = icmp eq ptr %19, %1
-  br i1 %.not.i.i, label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS5_14GlobalVariableEEERNS5_6ModuleEbjE13UsedGlobalSetSt6vectorISD_SaISD_EEEEEET_SJ_SJ_SJ_St26random_access_iterator_tag.exit, label %.lr.ph.i.i, !llvm.loop !451
+  br i1 %.not.i.i, label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS5_14GlobalVariableEEERNS5_6ModuleEbjE13UsedGlobalSetSt6vectorISD_SaISD_EEEEEET_SJ_SJ_SJ_St26random_access_iterator_tag.exit, label %.lr.ph.i.i, !llvm.loop !454
 
 21:                                               ; preds = %9
   %22 = sub i64 %10, %14
@@ -10170,7 +10170,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImp
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.076.0104.i, i64 80
   %141 = add nuw nsw i64 %.019105.i, 1
   %exitcond112.not.i = icmp eq i64 %141, %35
-  br i1 %exitcond112.not.i, label %._crit_edge108.i, label %.lr.ph107.i, !llvm.loop !452
+  br i1 %exitcond112.not.i, label %._crit_edge108.i, label %.lr.ph107.i, !llvm.loop !455
 
 142:                                              ; preds = %._crit_edge108.i
   %143 = sub nsw i64 %.0.i, %40
@@ -10193,7 +10193,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImp
   %.097.i.be = phi i64 [ %.0.i, %142 ], [ %35, %._crit_edge.i ]
   %.0.i.be = phi i64 [ %143, %142 ], [ %149, %._crit_edge.i ]
   %.sroa.077.0.i.be = phi ptr [ %.sroa.077.1.lcssa.i, %142 ], [ %.sroa.077.3.lcssa.i, %._crit_edge.i ]
-  br label %34, !llvm.loop !453
+  br label %34, !llvm.loop !456
 
 .lr.ph.i:                                         ; preds = %144, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_EvT_T0_.exit57.i
   %.018102.i = phi i64 [ %250, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_EvT_T0_.exit57.i ], [ 0, %144 ]
@@ -10453,7 +10453,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImp
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #20
   %250 = add nuw nsw i64 %.018102.i, 1
   %exitcond.not.i = icmp eq i64 %250, %.0.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !454
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !457
 
 _ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS5_14GlobalVariableEEERNS5_6ModuleEbjE13UsedGlobalSetSt6vectorISD_SaISD_EEEEEET_SJ_SJ_SJ_St26random_access_iterator_tag.exit: ; preds = %._crit_edge108.i, %._crit_edge.i, %.lr.ph.i.i, %3, %7
   %.sroa.015.0.i = phi ptr [ %2, %3 ], [ %0, %7 ], [ %1, %.lr.ph.i.i ], [ %23, %._crit_edge.i ], [ %23, %._crit_edge108.i ]
@@ -10481,7 +10481,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %11 = ptrtoint ptr %10 to i64
   %12 = sub i64 %4, %11
   %13 = icmp sgt i64 %12, 480
-  br i1 %13, label %.lr.ph.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_.exit", !llvm.loop !455
+  br i1 %13, label %.lr.ph.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_.exit", !llvm.loop !458
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_.exit": ; preds = %.lr.ph.i
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_"(ptr nonnull %10, ptr %1)
@@ -10796,7 +10796,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit86:       ; preds = %_ZN4llvm15SmallVect
   %134 = icmp ne ptr %.sroa.023.1.i, %19
   %135 = icmp ne ptr %.sroa.021.1.i, %20
   %or.cond.i = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i29, label %.critedge.i, !llvm.loop !456
+  br i1 %or.cond.i, label %.lr.ph.i29, label %.critedge.i, !llvm.loop !459
 
 .critedge.i:                                      ; preds = %130
   %136 = ptrtoint ptr %19 to i64
@@ -10932,7 +10932,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit71:       ; preds = %.lr.ph.i.i.i.i.i.i,
   %192 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 80
   %193 = add nsw i64 %.012.i.i.i.i.i.i, -1
   %194 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %194, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i, !llvm.loop !457
+  br i1 %194, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit71, %.critedge.i
   %.08.lcssa.i.i.i.i.i.i = phi ptr [ %133, %.critedge.i ], [ %192, %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit71 ]
@@ -11069,14 +11069,14 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit:         ; preds = %.lr.ph.i.i.i.i.i16.
   %251 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i18.i, i64 80
   %252 = add nsw i64 %.012.i.i.i.i.i17.i, -1
   %253 = icmp samesign ugt i64 %.012.i.i.i.i.i17.i, 1
-  br i1 %253, label %.lr.ph.i.i.i.i.i16.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit", !llvm.loop !457
+  br i1 %253, label %.lr.ph.i.i.i.i.i16.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit", !llvm.loop !460
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit": ; preds = %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i
   %.08.lcssa.i.i.i.i.i14.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i ], [ %251, %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit ]
   %254 = sub i64 %4, %195
   %255 = sdiv exact i64 %254, 80
   %.not.i = icmp slt i64 %255, %18
-  br i1 %.not.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_T2_.exit", label %.lr.ph.i22, !llvm.loop !458
+  br i1 %.not.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_T2_.exit", label %.lr.ph.i22, !llvm.loop !461
 
 "_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_T2_.exit": ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit", %17
   %.sroa.030.0.lcssa.i = phi ptr [ %0, %17 ], [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit" ]
@@ -11386,7 +11386,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit146:      ; preds = %_ZN4llvm15SmallVect
   %373 = icmp ne ptr %.1.i, %258
   %374 = icmp ne ptr %.117.i, %259
   %375 = select i1 %373, i1 %374, i1 false
-  br i1 %375, label %.lr.ph.i38, label %._crit_edge.i, !llvm.loop !459
+  br i1 %375, label %.lr.ph.i38, label %._crit_edge.i, !llvm.loop !462
 
 ._crit_edge.i:                                    ; preds = %369
   %376 = ptrtoint ptr %258 to i64
@@ -11522,7 +11522,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit131:      ; preds = %.lr.ph.i.i.i.i.i.i3
   %432 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i36, i64 80
   %433 = add nsw i64 %.012.i.i.i.i.i.i35, -1
   %434 = icmp samesign ugt i64 %.012.i.i.i.i.i.i35, 1
-  br i1 %434, label %.lr.ph.i.i.i.i.i.i34, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.i, !llvm.loop !457
+  br i1 %434, label %.lr.ph.i.i.i.i.i.i34, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.i, !llvm.loop !460
 
 _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit131, %._crit_edge.i
   %.08.lcssa.i.i.i.i.i.i32 = phi ptr [ %372, %._crit_edge.i ], [ %432, %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit131 ]
@@ -11663,7 +11663,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit116:      ; preds = %.lr.ph.i.i.i.i.i21.
   %495 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i23.i, i64 80
   %496 = add nsw i64 %.012.i.i.i.i.i22.i, -1
   %497 = icmp samesign ugt i64 %.012.i.i.i.i.i22.i, 1
-  br i1 %497, label %.lr.ph.i.i.i.i.i21.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25.loopexit.i, !llvm.loop !457
+  br i1 %497, label %.lr.ph.i.i.i.i.i21.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25.loopexit.i, !llvm.loop !460
 
 _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25.loopexit.i: ; preds = %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit116
   %498 = ptrtoint ptr %495 to i64
@@ -11676,7 +11676,7 @@ _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIP
   %501 = sub i64 %15, %439
   %502 = sdiv exact i64 %501, 80
   %.not.i24 = icmp slt i64 %502, %257
-  br i1 %.not.i24, label %"_ZSt17__merge_sort_loopIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEElNSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_T1_T2_.exit", label %.lr.ph.i23, !llvm.loop !460
+  br i1 %.not.i24, label %"_ZSt17__merge_sort_loopIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEElNSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_T1_T2_.exit", label %.lr.ph.i23, !llvm.loop !463
 
 "_ZSt17__merge_sort_loopIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEElNSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_T1_T2_.exit": ; preds = %"_ZSt12__move_mergeIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEENSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit", %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_T2_.exit"
   %.0.lcssa.i25 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_T2_.exit" ], [ %259, %"_ZSt12__move_mergeIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEENSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_.exit" ]
@@ -11686,7 +11686,7 @@ _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIP
   %503 = getelementptr inbounds %struct.UsedGlobalSet, ptr %.0.lcssa.i25, i64 %.sroa.speculated.i27
   tail call fastcc void @"_ZSt12__move_mergeIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEENSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEET0_T_SN_SN_SN_SM_T1_"(ptr noundef %.0.lcssa.i25, ptr noundef %503, ptr noundef %503, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
   %504 = icmp slt i64 %257, %7
-  br i1 %504, label %17, label %._crit_edge, !llvm.loop !461
+  br i1 %504, label %17, label %._crit_edge, !llvm.loop !464
 
 ._crit_edge:                                      ; preds = %"_ZSt17__merge_sort_loopIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEElNSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_T1_T2_.exit", %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_.exit.thread", %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEEvT_SM_T0_T1_.exit"
   ret void
@@ -11734,7 +11734,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   %23 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 80
   %24 = add nsw i64 %.012.i.i.i.i.i, -1
   %25 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %25, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !457
+  br i1 %25, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !460
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %60
   %.027.i = phi ptr [ %.1.i, %60 ], [ %5, %.lr.ph.i.i.i.i.i ]
@@ -11821,7 +11821,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %26
   store i32 %.sink.i, ptr %62, align 8, !tbaa !235
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.026.i, i64 80
   %.not.i = icmp eq ptr %.1.i, %23
-  br i1 %.not.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", label %.lr.ph.i, !llvm.loop !462
+  br i1 %.not.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", label %.lr.ph.i, !llvm.loop !465
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %64 = ptrtoint ptr %23 to i64
@@ -11851,7 +11851,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %26
   %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 80
   %78 = add nsw i64 %.012.i.i.i.i.i.i, -1
   %79 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %79, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !457
+  br i1 %79, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !460
 
 80:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit
   %.not207 = phi i1 [ %.not199, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
@@ -11889,7 +11889,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %26
   %94 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i87, i64 80
   %95 = add nsw i64 %.012.i.i.i.i.i86, -1
   %96 = icmp samesign ugt i64 %.012.i.i.i.i.i86, 1
-  br i1 %96, label %.lr.ph.i.i.i.i.i85, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit89, !llvm.loop !457
+  br i1 %96, label %.lr.ph.i.i.i.i.i85, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit89, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit89: ; preds = %.lr.ph.i.i.i.i.i85, %82
   %.08.lcssa.i.i.i.i.i83 = phi ptr [ %5, %82 ], [ %94, %.lr.ph.i.i.i.i.i85 ]
@@ -11923,7 +11923,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doM
   store i32 %110, ptr %111, align 8, !tbaa !235
   %112 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %113 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %113, label %.lr.ph.i.i.i.i.i.i107, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !446
+  br i1 %113, label %.lr.ph.i.i.i.i.i.i107, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !449
 
 114:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit89
   %115 = icmp eq ptr %5, %.08.lcssa.i.i.i.i.i83
@@ -12008,7 +12008,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i96:         ; preds = %.lr.ph.i.i.i.i92, %
   %154 = load i32, ptr %150, align 8, !tbaa !235
   store i32 %154, ptr %148, align 8, !tbaa !235
   %155 = icmp eq ptr %.tr202, %.sroa.032.0.i.ph
-  br i1 %155, label %156, label %.outer, !llvm.loop !463
+  br i1 %155, label %156, label %.outer, !llvm.loop !466
 
 156:                                              ; preds = %149
   %157 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -12038,7 +12038,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i96:         ; preds = %.lr.ph.i.i.i.i92, %
   store i32 %169, ptr %170, align 8, !tbaa !235
   %171 = add nsw i64 %.010.i.i.i.i.i27.i, -1
   %172 = icmp samesign ugt i64 %.010.i.i.i.i.i27.i, 1
-  br i1 %172, label %.lr.ph.i.i.i.i.i26.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !446
+  br i1 %172, label %.lr.ph.i.i.i.i.i26.i, label %"_ZSt21__move_merge_adaptiveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEESH_NSC_5__ops15_Iter_comp_iterIZNKS1_7doMergeES7_S9_bjE3$_1EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !449
 
 173:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclIPZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetNS_17__normal_iteratorISG_St6vectorISF_SaISF_EEEEEEbT_T0_.exit.i"
   %174 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(76) %146, ptr noundef nonnull align 8 dereferenceable(76) %.0.i)
@@ -12052,7 +12052,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i96:         ; preds = %.lr.ph.i.i.i.i92, %
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds i8, ptr %.0.i, i64 -80
-  br label %120, !llvm.loop !463
+  br label %120, !llvm.loop !466
 
 181:                                              ; preds = %80
   br i1 %.not207, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit127
@@ -12130,7 +12130,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i116:        ; preds = %.lr.ph.i.i.i.i112, 
   %.sroa.011.1.i = select i1 %215, ptr %216, ptr %.sroa.011.013.i
   %.1.i123 = select i1 %215, i64 %218, i64 %194
   %219 = icmp sgt i64 %.1.i123, 0
-  br i1 %219, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !449
+  br i1 %219, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !452
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Iter_comp_valIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclINS_17__normal_iteratorIPZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetSt6vectorISG_SaISG_EEEEKSG_EEbT_RT0_.exit.i"
   %.pre = ptrtoint ptr %.sroa.011.1.i to i64
@@ -12217,7 +12217,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i141:        ; preds = %.lr.ph.i.i.i.i137, 
   %.sroa.011.1.i150 = select i1 %256, ptr %.sroa.011.013.i134, ptr %257
   %.1.i151 = select i1 %256, i64 %235, i64 %259
   %260 = icmp sgt i64 %.1.i151, 0
-  br i1 %260, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i132, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !450
+  br i1 %260, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEElEvRT_T0_.exit.i132, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !453
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESC_NS0_5__ops14_Val_comp_iterIZNKS3_7doMergeES9_SB_bjE3$_1EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE3$_1EclIKZNKS3_7doMergeES9_SB_bjE13UsedGlobalSetNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i"
   %.pre233 = ptrtoint ptr %.sroa.011.1.i150 to i64
@@ -12273,7 +12273,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i.i141:        ; preds = %.lr.ph.i.i.i.i137, 
   %281 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i160, i64 80
   %282 = add nsw i64 %.012.i.i.i.i.i.i159, -1
   %283 = icmp samesign ugt i64 %.012.i.i.i.i.i.i159, 1
-  br i1 %283, label %.lr.ph.i.i.i.i.i.i158, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i, !llvm.loop !457
+  br i1 %283, label %.lr.ph.i.i.i.i.i.i158, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i158, %267
   %.08.lcssa.i.i.i.i.i.i = phi ptr [ %5, %267 ], [ %281, %.lr.ph.i.i.i.i.i.i158 ]
@@ -12303,7 +12303,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doM
   store i32 %295, ptr %296, align 8, !tbaa !235
   %297 = add nsw i64 %.010.i.i.i.i.i.i154, -1
   %298 = icmp samesign ugt i64 %.010.i.i.i.i.i.i154, 1
-  br i1 %298, label %.lr.ph.i.i.i.i.i38.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i, !llvm.loop !446
+  br i1 %298, label %.lr.ph.i.i.i.i.i38.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i, !llvm.loop !449
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i: ; preds = %.lr.ph.i.i.i.i.i38.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit.i
   %299 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i to i64
@@ -12332,7 +12332,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMer
   %311 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43.i, i64 80
   %312 = add nsw i64 %.012.i.i.i.i.i42.i, -1
   %313 = icmp samesign ugt i64 %.012.i.i.i.i.i42.i, 1
-  br i1 %313, label %.lr.ph.i.i.i.i.i41.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i, !llvm.loop !457
+  br i1 %313, label %.lr.ph.i.i.i.i.i41.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i, !llvm.loop !460
 
 _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i41.i
   %.pre70.i = ptrtoint ptr %311 to i64
@@ -12380,7 +12380,7 @@ _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIP
   %332 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49.i, i64 80
   %333 = add nsw i64 %.012.i.i.i.i.i48.i, -1
   %334 = icmp samesign ugt i64 %.012.i.i.i.i.i48.i, 1
-  br i1 %334, label %.lr.ph.i.i.i.i.i47.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit51.i, !llvm.loop !457
+  br i1 %334, label %.lr.ph.i.i.i.i.i47.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit51.i, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit51.i: ; preds = %.lr.ph.i.i.i.i.i47.i, %318
   %.08.lcssa.i.i.i.i.i45.i = phi ptr [ %5, %318 ], [ %332, %.lr.ph.i.i.i.i.i47.i ]
@@ -12410,7 +12410,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doM
   %347 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56.i, i64 80
   %348 = add nsw i64 %.012.i.i.i.i.i55.i, -1
   %349 = icmp samesign ugt i64 %.012.i.i.i.i.i55.i, 1
-  br i1 %349, label %.lr.ph.i.i.i.i.i54.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i, !llvm.loop !457
+  br i1 %349, label %.lr.ph.i.i.i.i.i54.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i: ; preds = %.lr.ph.i.i.i.i.i54.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit51.i
   %350 = ptrtoint ptr %.08.lcssa.i.i.i.i.i45.i to i64
@@ -12439,7 +12439,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doM
   store i32 %361, ptr %362, align 8, !tbaa !235
   %363 = add nsw i64 %.010.i.i.i.i.i61.i, -1
   %364 = icmp samesign ugt i64 %.010.i.i.i.i.i61.i, 1
-  br i1 %364, label %.lr.ph.i.i.i.i.i60.i, label %_ZSt13move_backwardIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i, !llvm.loop !446
+  br i1 %364, label %.lr.ph.i.i.i.i.i60.i, label %_ZSt13move_backwardIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i, !llvm.loop !449
 
 _ZSt13move_backwardIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i60.i
   %.pre.i = ptrtoint ptr %355 to i64
@@ -12558,7 +12558,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.
   %45 = icmp ne ptr %.sroa.023.1, %1
   %46 = icmp ne ptr %.sroa.021.1, %3
   %or.cond = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !456
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !459
 
 .critedge:                                        ; preds = %41, %5
   %.sroa.021.0.lcssa = phi ptr [ %2, %5 ], [ %.sroa.021.1, %41 ]
@@ -12591,7 +12591,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.
   %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 80
   %61 = add nsw i64 %.012.i.i.i.i.i, -1
   %62 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %62, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit, !llvm.loop !457
+  br i1 %62, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.critedge
   %.08.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %.critedge ], [ %60, %.lr.ph.i.i.i.i.i ]
@@ -12622,7 +12622,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doM
   %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i18, i64 80
   %77 = add nsw i64 %.012.i.i.i.i.i17, -1
   %78 = icmp samesign ugt i64 %.012.i.i.i.i.i17, 1
-  br i1 %78, label %.lr.ph.i.i.i.i.i16, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit20, !llvm.loop !457
+  br i1 %78, label %.lr.ph.i.i.i.i.i16, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit20, !llvm.loop !460
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit20: ; preds = %.lr.ph.i.i.i.i.i16, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS4_14GlobalVariableEEERNS4_6ModuleEbjE13UsedGlobalSetSt6vectorISC_SaISC_EEEESD_ET0_T_SJ_SI_.exit
   ret void
@@ -12718,7 +12718,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.
   %46 = icmp ne ptr %.1, %1
   %47 = icmp ne ptr %.117, %3
   %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !459
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !462
 
 ._crit_edge:                                      ; preds = %42, %5
   %.sroa.0.0.lcssa = phi ptr [ %4, %5 ], [ %45, %42 ]
@@ -12751,7 +12751,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.
   %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 80
   %63 = add nsw i64 %.012.i.i.i.i.i, -1
   %64 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %64, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit, !llvm.loop !457
+  br i1 %64, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit, !llvm.loop !460
 
 _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
   %.08.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.0.lcssa, %._crit_edge ], [ %62, %.lr.ph.i.i.i.i.i ]
@@ -12786,7 +12786,7 @@ _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIP
   %82 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i23, i64 80
   %83 = add nsw i64 %.012.i.i.i.i.i22, -1
   %84 = icmp samesign ugt i64 %.012.i.i.i.i.i22, 1
-  br i1 %84, label %.lr.ph.i.i.i.i.i21, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25, !llvm.loop !457
+  br i1 %84, label %.lr.ph.i.i.i.i.i21, label %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25, !llvm.loop !460
 
 _ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit25: ; preds = %.lr.ph.i.i.i.i.i21, %_ZSt4moveIPZNK12_GLOBAL__N_115GlobalMergeImpl7doMergeERN4llvm15SmallVectorImplIPNS2_14GlobalVariableEEERNS2_6ModuleEbjE13UsedGlobalSetN9__gnu_cxx17__normal_iteratorISB_St6vectorISA_SaISA_EEEEET0_T_SJ_SI_.exit
   ret void
@@ -12930,10 +12930,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #2 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !94
-  %3 = load ptr, ptr %2, align 8, !tbaa !464
+  %3 = load ptr, ptr %2, align 8, !tbaa !467
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !466
-  %6 = load ptr, ptr %5, align 8, !tbaa !467
+  %5 = load ptr, ptr %4, align 8, !tbaa !469
+  %6 = load ptr, ptr %5, align 8, !tbaa !470
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #20
   ret void
 }
@@ -13588,11 +13588,11 @@ attributes #24 = { nounwind allocsize(0) }
 !436 = distinct !{!436, !126}
 !437 = distinct !{!437, !126}
 !438 = distinct !{!438, !126}
-!439 = distinct !{!439, !126}
-!440 = distinct !{!440, !126}
+!439 = distinct !{!439, !126, !440}
+!440 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !441 = distinct !{!441, !126}
 !442 = distinct !{!442, !126}
-!443 = distinct !{!443, !126}
+!443 = distinct !{!443, !126, !440}
 !444 = distinct !{!444, !126}
 !445 = distinct !{!445, !126}
 !446 = distinct !{!446, !126}
@@ -13613,9 +13613,12 @@ attributes #24 = { nounwind allocsize(0) }
 !461 = distinct !{!461, !126}
 !462 = distinct !{!462, !126}
 !463 = distinct !{!463, !126}
-!464 = !{!465, !12, i64 0}
-!465 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !12, i64 0, !177, i64 8}
-!466 = !{!465, !177, i64 8}
-!467 = !{!468, !469, i64 0}
-!468 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !469, i64 0}
-!469 = !{!"p1 _ZTSN4llvm12PassRegistryE", !12, i64 0}
+!464 = distinct !{!464, !126}
+!465 = distinct !{!465, !126}
+!466 = distinct !{!466, !126}
+!467 = !{!468, !12, i64 0}
+!468 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !12, i64 0, !177, i64 8}
+!469 = !{!468, !177, i64 8}
+!470 = !{!471, !472, i64 0}
+!471 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !472, i64 0}
+!472 = !{!"p1 _ZTSN4llvm12PassRegistryE", !12, i64 0}

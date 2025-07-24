@@ -536,7 +536,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %41 = load i32, ptr %6, align 8
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next87, %42
-  br i1 %43, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !6
+  br i1 %43, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !9
 
 44:                                               ; preds = %10
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -578,7 +578,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %62 = load i32, ptr %11, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !8
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41 ], [ %50, %.lr.ph ]
@@ -612,7 +612,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %78 = load i32, ptr %11, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next73, %79
-  br i1 %80, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !8
+  br i1 %80, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !11
 
 ._crit_edgethread-pre-split:                      ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us, %.lr.ph.split, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41
   %.2.lcssa.ph = phi i32 [ %77, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41 ], [ %2, %.lr.ph.split ], [ %61, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ]
@@ -658,7 +658,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %96 = load i32, ptr %45, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next76, %97
-  br i1 %98, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !9
+  br i1 %98, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !12
 
 .lr.ph52.split:                                   ; preds = %.lr.ph52, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ 0, %.lr.ph52 ]
@@ -692,7 +692,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %112 = load i32, ptr %45, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next79, %113
-  br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !9
+  br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !13
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
   %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
@@ -748,7 +748,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7}

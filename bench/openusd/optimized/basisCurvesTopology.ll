@@ -2375,7 +2375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   %132 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   %133 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
   %.not = icmp eq ptr %132, %133
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %131, %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45, %34
   %.016 = phi i64 [ %36, %34 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45 ], [ %.1.us, %115 ], [ %.1, %131 ]
@@ -2494,4 +2494,6 @@ attributes #14 = { noreturn nounwind }
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv: argument 0"}
 !26 = distinct !{!26, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv"}
-!27 = distinct !{!27, !5}
+!27 = distinct !{!27, !5, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !5}

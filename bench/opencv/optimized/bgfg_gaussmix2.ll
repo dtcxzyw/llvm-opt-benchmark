@@ -4180,7 +4180,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %299 = call float @llvm.fmuladd.f32(float %297, float %297, float %.05571.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %55
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.us.i, !llvm.loop !167
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.us.i, !llvm.loop !168
 
 ._crit_edge78.us.i:                               ; preds = %282
   %300 = fmul float %272, %.sroa.4.0.copyload.us.i
@@ -4206,7 +4206,7 @@ _ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %290, %._c
   %312 = sext i32 %311 to i64
   %313 = getelementptr inbounds float, ptr %.0219285, i64 %312
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
-  br i1 %exitcond347.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !168
+  br i1 %exitcond347.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !169
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -4331,7 +4331,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv28Bac
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !169
+  %7 = load ptr, ptr %6, align 8, !tbaa !170
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -4362,7 +4362,7 @@ define linkonce_odr hidden void @_ZN2cv28BackgroundSubtractorMOG2ImplC2Eifb(ptr 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !171
+  store i32 0, ptr %7, align 4, !tbaa !172
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4666,9 +4666,10 @@ attributes #25 = { builtin allocsize(0) }
 !163 = distinct !{!163, !90}
 !164 = distinct !{!164, !90}
 !165 = distinct !{!165, !90}
-!166 = distinct !{!166, !90}
-!167 = distinct !{!167, !90}
+!166 = distinct !{!166, !90, !167}
+!167 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !168 = distinct !{!168, !90}
-!169 = !{!170, !13, i64 8}
-!170 = !{!"_ZTSSt9type_info", !13, i64 8}
-!171 = !{!8, !9, i64 4}
+!169 = distinct !{!169, !90}
+!170 = !{!171, !13, i64 8}
+!171 = !{!"_ZTSSt9type_info", !13, i64 8}
+!172 = !{!8, !9, i64 4}

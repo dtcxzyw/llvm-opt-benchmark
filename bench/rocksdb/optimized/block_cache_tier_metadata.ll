@@ -1143,7 +1143,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i: ; pred
 _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.i
   %.sroa.05.0.i.i = load ptr, ptr %.sroa.05.015.i.i, align 8, !tbaa !47
   %.not12.i.i = icmp eq ptr %.sroa.05.0.i.i, %25
-  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.thread.i, label %.lr.ph.i.split.i, !llvm.loop !97
+  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.thread.i, label %.lr.ph.i.split.i, !llvm.loop !99
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.us.i
   %.us-phi.i = phi ptr [ %.sroa.05.015.i.us.i, %.lr.ph.i.split.us.i ], [ %.sroa.05.015.i.i, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i ]
@@ -1159,9 +1159,9 @@ _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5Equal
   store ptr %.pre.i, ptr %42, align 8, !tbaa !93
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(24) %25) #15
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !98
+  %44 = load i64, ptr %43, align 8, !tbaa !100
   %45 = add i64 %44, 1
-  store i64 %45, ptr %43, align 8, !tbaa !98
+  store i64 %45, ptr %43, align 8, !tbaa !100
   br label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE6InsertEPNS6_6BucketERKS2_.exit
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE6InsertEPNS6_6BucketERKS2_.exit: ; preds = %.noexc, %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.i
@@ -1390,7 +1390,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %4
 _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.us.i: ; preds = %.lr.ph.i.split.us.i
   %.sroa.05.0.i.us.i = load ptr, ptr %.sroa.05.015.i.us.i, align 8, !tbaa !47
   %.not12.i.us.i = icmp eq ptr %.sroa.05.0.i.us.i, %27
-  br i1 %.not12.i.us.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNS6_6BucketERKS2_PS2_.exit.thread, label %.lr.ph.i.split.us.i, !llvm.loop !97
+  br i1 %.not12.i.us.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNS6_6BucketERKS2_PS2_.exit.thread, label %.lr.ph.i.split.us.i, !llvm.loop !101
 
 .lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i
   %.sroa.05.015.i.i = phi ptr [ %.sroa.05.0.i.i, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i ], [ %.sroa.05.013.i.i, %.lr.ph.i.i ]
@@ -1411,7 +1411,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i: ; pred
 _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.i
   %.sroa.05.0.i.i = load ptr, ptr %.sroa.05.015.i.i, align 8, !tbaa !47
   %.not12.i.i = icmp eq ptr %.sroa.05.0.i.i, %27
-  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNS6_6BucketERKS2_PS2_.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !97
+  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNS6_6BucketERKS2_PS2_.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !99
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.us.i
   %44 = phi ptr [ %33, %.lr.ph.i.split.us.i ], [ %38, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i ]
@@ -1576,7 +1576,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %3
 _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.us.i: ; preds = %.lr.ph.i.split.us.i
   %.sroa.05.0.i.us.i = load ptr, ptr %.sroa.05.015.i.us.i, align 8, !tbaa !47
   %.not12.i.us.i = icmp eq ptr %.sroa.05.0.i.us.i, %26
-  br i1 %.not12.i.us.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit, label %.lr.ph.i.split.us.i, !llvm.loop !97
+  br i1 %.not12.i.us.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit, label %.lr.ph.i.split.us.i, !llvm.loop !102
 
 .lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i
   %.sroa.05.015.i.i = phi ptr [ %.sroa.05.0.i.i, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i ], [ %.sroa.05.013.i.i, %.lr.ph.i.i ]
@@ -1597,7 +1597,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i: ; pred
 _ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.thread.i.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.i
   %.sroa.05.0.i.i = load ptr, ptr %.sroa.05.015.i.i, align 8, !tbaa !47
   %.not12.i.i = icmp eq ptr %.sroa.05.0.i.i, %26
-  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit, label %.lr.ph.i.split.i, !llvm.loop !97
+  br i1 %.not12.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit, label %.lr.ph.i.split.i, !llvm.loop !99
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit.i: ; preds = %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i, %.lr.ph.i.split.us.i
   %43 = phi ptr [ %32, %.lr.ph.i.split.us.i ], [ %37, %_ZNK7rocksdb22BlockCacheTierMetadata5EqualclEPNS_9BlockInfoES3_.exit.i.i ]
@@ -1615,9 +1615,9 @@ _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5Equal
 
 46:                                               ; preds = %45, %44
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !98
+  %48 = load i64, ptr %47, align 8, !tbaa !100
   %49 = add i64 %48, -1
-  store i64 %49, ptr %47, align 8, !tbaa !98
+  store i64 %49, ptr %47, align 8, !tbaa !100
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %.us-phi.i, i64 noundef 24) #17
   br label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5EraseEPNS6_6BucketERKS2_PS2_.exit
@@ -2238,7 +2238,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb7LRUListINS_14BlockCacheFileEE3PopEv
   %7 = getelementptr inbounds nuw i8, ptr %.0918, i64 8
   %.09 = load ptr, ptr %7, align 8, !tbaa !48
   %.not = icmp eq ptr %.09, null
-  br i1 %.not, label %.critedge11, label %.lr.ph, !llvm.loop !99
+  br i1 %.not, label %.critedge11, label %.lr.ph, !llvm.loop !103
 
 .critedge:                                        ; preds = %.lr.ph
   invoke void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -2335,7 +2335,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr void @_ZNSt17_Function_handlerIFvPN7rocksdb14BlockCacheFileEESt5_BindIFMNS0_22BlockCacheTierMetadataEFvS2_EPS5_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
   %.unpack.i.i.i.i.i.i = load i64, ptr %3, align 8, !tbaa !65
   %.elt3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack4.i.i.i.i.i.i = load i64, ptr %.elt3.i.i.i.i.i.i, align 8, !tbaa !65
@@ -2348,7 +2348,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvPN7rocksdb14BlockCacheFileE
   %9 = load ptr, ptr %6, align 8, !tbaa !60
   %10 = getelementptr i8, ptr %9, i64 %.unpack.i.i.i.i.i.i
   %11 = getelementptr i8, ptr %10, i64 -1
-  %12 = load ptr, ptr %11, align 8, !nosanitize !102
+  %12 = load ptr, ptr %11, align 8, !nosanitize !106
   br label %_ZSt10__invoke_rIvRSt5_BindIFMN7rocksdb22BlockCacheTierMetadataEFvPNS1_14BlockCacheFileEEPS2_St12_PlaceholderILi1EEEEJS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 13:                                               ; preds = %2
@@ -2377,7 +2377,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvPN7rocksdb14B
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN7rocksdb22BlockCacheTierMetadataEFvPNS2_14BlockCacheFileEEPS3_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !103
+  store ptr null, ptr %0, align 8, !tbaa !107
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN7rocksdb22BlockCacheTierMetadataEFvPNS2_14BlockCacheFileEEPS3_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 7:                                                ; preds = %3
@@ -2526,11 +2526,15 @@ attributes #17 = { builtin nounwind }
 !94 = !{!"p1 _ZTSN7rocksdb9BlockInfoE", !8, i64 0}
 !95 = !{i64 0, i64 4, !96, i64 4, i64 4, !96, i64 8, i64 4, !96}
 !96 = !{!19, !19, i64 0}
-!97 = distinct !{!97, !50}
-!98 = !{!21, !13, i64 16}
+!97 = distinct !{!97, !50, !98}
+!98 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !99 = distinct !{!99, !50}
-!100 = !{!101, !101, i64 0}
-!101 = !{!"p1 _ZTSN7rocksdb22BlockCacheTierMetadataE", !8, i64 0}
-!102 = !{}
-!103 = !{!104, !104, i64 0}
-!104 = !{!"p1 _ZTSSt9type_info", !8, i64 0}
+!100 = !{!21, !13, i64 16}
+!101 = distinct !{!101, !50, !98}
+!102 = distinct !{!102, !50, !98}
+!103 = distinct !{!103, !50}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSN7rocksdb22BlockCacheTierMetadataE", !8, i64 0}
+!106 = !{}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTSSt9type_info", !8, i64 0}

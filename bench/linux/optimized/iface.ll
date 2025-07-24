@@ -5602,7 +5602,7 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
 114:                                              ; preds = %106, %94, %79, %.split.split.us
   %115 = load ptr, ptr %77, align 8
   %116 = icmp eq ptr %115, %11
-  br i1 %116, label %.loopexit5, label %.split.split.us, !llvm.loop !212
+  br i1 %116, label %.loopexit5, label %.split.split.us, !llvm.loop !214
 
 .split.split:                                     ; preds = %.split, %157
   %117 = phi ptr [ %158, %157 ], [ %12, %.split ]
@@ -5670,7 +5670,7 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
 157:                                              ; preds = %148, %136, %119, %.split.split
   %158 = load ptr, ptr %117, align 8
   %159 = icmp eq ptr %158, %11
-  br i1 %159, label %.loopexit5, label %.split.split, !llvm.loop !212
+  br i1 %159, label %.loopexit5, label %.split.split, !llvm.loop !215
 
 .loopexit5:                                       ; preds = %157, %114, %74, %10
   %160 = tail call i32 @ieee80211_check_combinations(ptr noundef %0, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #15
@@ -6248,4 +6248,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !209 = !{i64 2167422681, i64 2167422710, i64 2167422756, i64 2167422814, i64 2167422868, i64 2167422922, i64 2167422977, i64 2167423008, i64 2167423316, i64 2167423322, i64 2167423369, i64 2167423392, i64 2167423418}
 !210 = !{i64 2167423876, i64 2167423682, i64 2167423732, i64 2167423778, i64 2167423806}
 !211 = !{i64 2167424190, i64 2167423996, i64 2167424046, i64 2167424092, i64 2167424120}
-!212 = distinct !{!212, !28, !29}
+!212 = distinct !{!212, !28, !29, !213}
+!213 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!214 = distinct !{!214, !28, !29, !213}
+!215 = distinct !{!215, !28, !29}

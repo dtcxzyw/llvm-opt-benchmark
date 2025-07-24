@@ -344,7 +344,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
   %89 = load i32, ptr %2, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph.split, label %.loopexit, !llvm.loop !8
+  br i1 %91, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit, %5
   ret void
@@ -433,7 +433,7 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %9
 
 29:                                               ; preds = %25, %.lr.ph
   %30 = icmp samesign ugt i32 %.in, 1
-  br i1 %30, label %.lr.ph, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, !llvm.loop !9
+  br i1 %30, label %.lr.ph, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, !llvm.loop !11
 
 _ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread: ; preds = %16, %25, %29, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit, %4
   %.012 = phi ptr [ null, %4 ], [ null, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ], [ %22, %25 ], [ null, %29 ], [ null, %16 ]
@@ -475,7 +475,7 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %21 = load i32, ptr %20, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.11, i32 noundef %17, i32 noundef %19, i32 noundef %21) #9
   %.not26 = icmp eq i32 %14, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.in = phi i32 [ %22, %.lr.ph.split ], [ %4, %.thread ]
@@ -493,7 +493,7 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %32 = ptrtoint ptr %31 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull @.str.10, i32 noundef %25, i32 noundef %27, i32 noundef %29, i64 noundef %32) #9
   %.not24 = icmp eq i32 %22, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %8
   ret void
@@ -525,7 +525,7 @@ define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr noundef nonnull rea
   %16 = add i32 %15, %14
   %17 = load i32, ptr %4, align 8
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -577,7 +577,7 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %7
   %27 = load i32, ptr %26, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.11, i32 noundef %23, i32 noundef %25, i32 noundef %27) #9
   %.not26.i = icmp eq i32 %20, 0
-  br i1 %.not26.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %.not26.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit, label %.lr.ph.split.us.i, !llvm.loop !12
 
 _ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit: ; preds = %14, %.lr.ph.split.us.i, %2, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit
   ret void
@@ -660,7 +660,7 @@ define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(p
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !15
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -732,7 +732,7 @@ define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull @.str.15, i64 noundef %28, i64 noundef %33) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %34, label %11, !llvm.loop !13
+  br i1 %exitcond.not, label %34, label %11, !llvm.loop !16
 
 34:                                               ; preds = %19
   %35 = load ptr, ptr @tty, align 8
@@ -874,7 +874,7 @@ define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr noundef no
 11:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !17
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -927,10 +927,13 @@ attributes #9 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!12 = distinct !{!12, !7, !9}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

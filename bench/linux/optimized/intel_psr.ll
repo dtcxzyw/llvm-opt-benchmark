@@ -8057,7 +8057,7 @@ define internal i32 @i915_edp_psr_debug_set(ptr noundef %0, i64 noundef %1) #1 a
   %55 = phi i32 [ %53, %48 ], [ %38, %.split ]
   %56 = load ptr, ptr %37, align 8
   %57 = icmp eq ptr %56, %10
-  br i1 %57, label %.loopexit, label %.split, !llvm.loop !139
+  br i1 %57, label %.loopexit, label %.split, !llvm.loop !141
 
 .loopexit:                                        ; preds = %54, %33, %9, %2
   %58 = phi i32 [ -19, %2 ], [ -19, %9 ], [ %34, %33 ], [ %55, %54 ]
@@ -8115,7 +8115,7 @@ define internal noundef range(i32 -19, 1) i32 @i915_edp_psr_status_show(ptr noun
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %15, i64 -8
   %19 = tail call zeroext i1 @intel_encoder_can_psr(ptr noundef %18)
-  br i1 %19, label %20, label %13, !llvm.loop !140
+  br i1 %19, label %20, label %13, !llvm.loop !142
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %15, i64 120
@@ -8458,7 +8458,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   store i32 %233, ptr %234, align 4
   %235 = add nuw nsw i64 %217, 3
   %236 = icmp samesign ult i64 %217, 5
-  br i1 %236, label %216, label %237, !llvm.loop !141
+  br i1 %236, label %216, label %237, !llvm.loop !143
 
 237:                                              ; preds = %216
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.127) #10
@@ -8477,7 +8477,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.128, i32 noundef %239, i32 noundef %247) #10
   %248 = add nuw nsw i32 %239, 1
   %249 = icmp eq i32 %248, 8
-  br i1 %249, label %250, label %238, !llvm.loop !142
+  br i1 %249, label %250, label %238, !llvm.loop !144
 
 250:                                              ; preds = %238
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 3304
@@ -8947,7 +8947,9 @@ attributes #11 = { cold nounwind }
 !136 = distinct !{!136, !91, !92}
 !137 = distinct !{!137, !91, !92}
 !138 = distinct !{!138, !91, !92}
-!139 = distinct !{!139, !91, !92}
-!140 = distinct !{!140, !91, !92}
+!139 = distinct !{!139, !91, !92, !140}
+!140 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !141 = distinct !{!141, !91, !92}
 !142 = distinct !{!142, !91, !92}
+!143 = distinct !{!143, !91, !92}
+!144 = distinct !{!144, !91, !92}

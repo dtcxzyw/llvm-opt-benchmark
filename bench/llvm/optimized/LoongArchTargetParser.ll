@@ -930,7 +930,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch14isValidCPUNameENS_9Stri
   %.011.add.i.us = add nuw nsw i64 %.011.idx17.i.us, 24
   %.not.not.i.us = icmp eq i64 %.011.add.i.us, 72
   %or.cond = select i1 %.not.i.i.us, i1 true, i1 %.not.not.i.us
-  br i1 %or.cond, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %.split.us
+  br i1 %or.cond, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %.split.us, !llvm.loop !66
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i
   %.011.idx17.i = phi i64 [ %.011.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ 0, %2 ]
@@ -970,11 +970,11 @@ define dso_local void @_ZN4llvm9LoongArch16fillValidCPUListERNS_15SmallVectorImp
   %.0.idx5 = phi i64 [ 0, %1 ], [ %.0.add, %_ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKS1_EEERS1_DpOT_.exit ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.0.idx5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr, i64 24, i1 false), !tbaa.struct !66
-  %7 = load i32, ptr %3, align 8, !tbaa !69
-  %8 = load i32, ptr %4, align 4, !tbaa !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr, i64 24, i1 false), !tbaa.struct !68
+  %7 = load i32, ptr %3, align 8, !tbaa !71
+  %8 = load i32, ptr %4, align 4, !tbaa !73
   %.not.i = icmp ult i32 %7, %8
-  br i1 %.not.i, label %11, label %9, !prof !72
+  br i1 %.not.i, label %11, label %9, !prof !74
 
 9:                                                ; preds = %6
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18growAndEmplaceBackIJRKS1_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -982,12 +982,12 @@ define dso_local void @_ZN4llvm9LoongArch16fillValidCPUListERNS_15SmallVectorImp
 
 11:                                               ; preds = %6
   %12 = zext i32 %7 to i64
-  %13 = load ptr, ptr %0, align 8, !tbaa !73
+  %13 = load ptr, ptr %0, align 8, !tbaa !75
   %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %13, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr, i64 16, i1 false)
-  %15 = load i32, ptr %3, align 8, !tbaa !69
+  %15 = load i32, ptr %3, align 8, !tbaa !71
   %16 = add i32 %15, 1
-  store i32 %16, ptr %3, align 8, !tbaa !69
+  store i32 %16, ptr %3, align 8, !tbaa !71
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKS1_EEERS1_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKS1_EEERS1_DpOT_.exit: ; preds = %9, %11
@@ -1021,32 +1021,32 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !69
+  %4 = load i32, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !71
+  %6 = load i32, ptr %5, align 4, !tbaa !73
   %.not.i.i.not.i = icmp ult i32 %4, %6
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %7, !prof !72
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %7, !prof !74
 
 7:                                                ; preds = %2
   %8 = zext i32 %4 to i64
   %9 = add nuw nsw i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %10, i64 noundef %9, i64 noundef 16) #15
-  %.pre.i = load i32, ptr %3, align 8, !tbaa !69
+  %.pre.i = load i32, ptr %3, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %2, %7
   %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
-  %12 = load ptr, ptr %0, align 8, !tbaa !73
+  %12 = load ptr, ptr %0, align 8, !tbaa !75
   %13 = zext i32 %11 to i64
   %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %13
   store ptr %.sroa.0.0.copyload, ptr %14, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %15 = load i32, ptr %3, align 8, !tbaa !69
+  %15 = load i32, ptr %3, align 8, !tbaa !71
   %16 = add i32 %15, 1
-  store i32 %16, ptr %3, align 8, !tbaa !69
-  %17 = load ptr, ptr %0, align 8, !tbaa !73
+  store i32 %16, ptr %3, align 8, !tbaa !71
+  %17 = load ptr, ptr %0, align 8, !tbaa !75
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -16
@@ -1152,11 +1152,13 @@ attributes #15 = { nounwind }
 !63 = distinct !{!63, !64, !"_ZSt19__relocate_object_aIN4llvm9StringRefES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !64 = distinct !{!64, !"_ZSt19__relocate_object_aIN4llvm9StringRefES1_SaIS1_EEvPT_PT0_RT1_"}
 !65 = distinct !{!65, !64, !"_ZSt19__relocate_object_aIN4llvm9StringRefES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!66 = !{i64 0, i64 8, !3, i64 8, i64 8, !8, i64 16, i64 4, !67, i64 20, i64 4, !10}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"_ZTSN4llvm9LoongArch8ArchKindE", !6, i64 0}
-!69 = !{!70, !11, i64 8}
-!70 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !11, i64 8, !11, i64 12}
-!71 = !{!70, !11, i64 12}
-!72 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!73 = !{!70, !5, i64 0}
+!66 = distinct !{!66, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = !{i64 0, i64 8, !3, i64 8, i64 8, !8, i64 16, i64 4, !69, i64 20, i64 4, !10}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"_ZTSN4llvm9LoongArch8ArchKindE", !6, i64 0}
+!71 = !{!72, !11, i64 8}
+!72 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !11, i64 8, !11, i64 12}
+!73 = !{!72, !11, i64 12}
+!74 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!75 = !{!72, !5, i64 0}

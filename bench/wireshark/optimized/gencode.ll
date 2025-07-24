@@ -129,7 +129,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
 
 .split.us.i.backedge:                             ; preds = %61, %56
   %.034.us.i.be = phi i32 [ %62, %61 ], [ %60, %56 ]
-  br label %.split.us.i
+  br label %.split.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %43, %.split.i.backedge
   %.034.i = phi i32 [ %.034.i.be, %.split.i.backedge ], [ %38, %43 ]
@@ -192,7 +192,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
 94:                                               ; preds = %.split39.us.i, %42, %.lr.ph._crit_edge.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %39, %.split39.us.i ], [ %39, %42 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %optimize.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %optimize.exit, label %.lr.ph.i, !llvm.loop !8
 
 optimize.exit:                                    ; preds = %94, %23, %1
   ret void
@@ -452,7 +452,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 60
   %109 = load i32, ptr %108, align 4
   %.not.i = icmp eq i32 %109, -1
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %101
   %.0.lcssa.i = phi ptr [ %102, %101 ], [ %107, %.lr.ph.i ]
@@ -507,7 +507,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
   %133 = getelementptr inbounds nuw i8, ptr %.131.i, i64 64
   %134 = load ptr, ptr %133, align 8
   %.not26.i = icmp eq ptr %134, null
-  br i1 %.not26.i, label %gen_exists.exit, label %129, !llvm.loop !9
+  br i1 %.not26.i, label %gen_exists.exit, label %129, !llvm.loop !11
 
 135:                                              ; preds = %2, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -804,7 +804,7 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i
   call void @g_slist_free(ptr noundef %39)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %34, %5
   call void @set_nodelist_free(ptr noundef %9)
@@ -899,7 +899,7 @@ define internal fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %18 = load i32, ptr %17, align 4
   %.not.i = icmp eq i32 %18, -1
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %9
   %.0.lcssa.i = phi ptr [ %10, %9 ], [ %16, %.lr.ph.i ]
@@ -1070,7 +1070,7 @@ dfw_append_read_tree.exit:                        ; preds = %57, %42
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 60
   %111 = load i32, ptr %110, align 4
   %.not.i62 = icmp eq i32 %111, -1
-  br i1 %.not.i62, label %._crit_edge.i63, label %.lr.ph.i61, !llvm.loop !12
+  br i1 %.not.i62, label %._crit_edge.i63, label %.lr.ph.i61, !llvm.loop !14
 
 ._crit_edge.i63:                                  ; preds = %.lr.ph.i61, %102
   %.0.lcssa.i64 = phi ptr [ %103, %102 ], [ %109, %.lr.ph.i61 ]
@@ -1128,7 +1128,7 @@ dfw_append_read_tree.exit:                        ; preds = %57, %42
   %141 = getelementptr inbounds nuw i8, ptr %.134.i, i64 64
   %142 = load ptr, ptr %141, align 8
   %.not31.i = icmp eq ptr %142, null
-  br i1 %.not31.i, label %dfw_append_read_reference.exit, label %137, !llvm.loop !13
+  br i1 %.not31.i, label %dfw_append_read_reference.exit, label %137, !llvm.loop !15
 
 dfw_append_read_reference.exit:                   ; preds = %137, %119
   %.not = icmp eq ptr %2, null
@@ -1330,7 +1330,7 @@ common.ret96:                                     ; preds = %155, %171, %153, %2
   %261 = getelementptr inbounds nuw i8, ptr %.040.i70, i64 8
   %262 = load ptr, ptr %261, align 8
   %.not.i66 = icmp eq ptr %262, null
-  br i1 %.not.i66, label %._crit_edge, label %249, !llvm.loop !14
+  br i1 %.not.i66, label %._crit_edge, label %249, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %249, %235
   %.039.i.lcssa = phi i32 [ 0, %235 ], [ %260, %249 ]
@@ -1631,11 +1631,13 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

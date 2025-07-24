@@ -96489,7 +96489,7 @@ l___private_Lean_Environment_0__Lean_setImportedEntries_unsafe__1.exit.us: ; pre
 44:                                               ; preds = %42, %41, %40, %l___private_Lean_Environment_0__Lean_setImportedEntries_unsafe__1.exit.us
   %45 = add nuw i64 %.02245.us, 1
   %exitcond49.not = icmp eq i64 %45, %2
-  br i1 %exitcond49.not, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %exitcond49.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %6
   %.pre = ptrtoint ptr %0 to i64
@@ -178845,7 +178845,7 @@ lean_inc.exit286.us:                              ; preds = %147, %146, %145, %1
 
 .split.us.backedge:                               ; preds = %154, %153, %152, %lean_inc.exit286.us, %128, %127, %126, %lean_inc.exit283.us
   %.0227.us.be = phi ptr [ %140, %153 ], [ %140, %152 ], [ %140, %154 ], [ %140, %lean_inc.exit286.us ], [ %114, %127 ], [ %114, %126 ], [ %114, %128 ], [ %114, %lean_inc.exit283.us ]
-  br label %.split.us
+  br label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %9, %.split.backedge
   %.0227 = phi ptr [ %.0227.be, %.split.backedge ], [ %7, %9 ]
@@ -182083,7 +182083,7 @@ lean_inc.exit37.us:                               ; preds = %33, %32, %31, %lean
 
 lean_dec.exit43.us:                               ; preds = %40, %39, %38, %lean_inc.exit37.us
   %42 = tail call ptr @l___private_Lean_Environment_0__Lean_AsyncConsts_add(ptr noundef %.0.us, ptr noundef %16)
-  br label %.split.us
+  br label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %.split.backedge, %.split.outer
   %.032 = phi ptr [ %.032.ph, %.split.outer ], [ %64, %.split.backedge ]
@@ -182455,7 +182455,7 @@ lean_inc.exit37.us:                               ; preds = %33, %32, %31, %lean
 
 lean_dec.exit43.us:                               ; preds = %40, %39, %38, %lean_inc.exit37.us
   %42 = tail call ptr @l___private_Lean_Environment_0__Lean_AsyncConsts_add(ptr noundef %.0.us, ptr noundef %16)
-  br label %.split.us
+  br label %.split.us, !llvm.loop !25
 
 .split:                                           ; preds = %.split.backedge, %.split.outer
   %.032 = phi ptr [ %.032.ph, %.split.outer ], [ %64, %.split.backedge ]
@@ -206963,3 +206963,8 @@ attributes #12 = { "function-inline-cost-multiplier"="2" }
 !18 = !{!7, !7, i64 0}
 !19 = !{!6, !6, i64 0}
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}

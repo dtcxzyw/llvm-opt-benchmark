@@ -77,7 +77,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
   %21 = call i64 @recvfrom(i32 noundef %9, ptr noundef %10, i64 noundef %12, i32 noundef 0, ptr %11, ptr noundef nonnull %8) #5
   %22 = trunc i64 %21 to i32
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %18, label %.critedge
+  br i1 %23, label %18, label %.critedge, !llvm.loop !8
 
 .split:                                           ; preds = %7
   br i1 %16, label %24, label %.critedge
@@ -175,3 +175,5 @@ attributes #6 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}

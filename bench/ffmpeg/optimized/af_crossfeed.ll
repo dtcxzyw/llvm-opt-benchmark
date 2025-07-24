@@ -574,7 +574,7 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr noundef %0, i32 nound
   %121 = getelementptr inbounds nuw i8, ptr %.019023, i64 16
   %122 = getelementptr inbounds nuw i8, ptr %.118625, i64 16
   %exitcond44.not = icmp eq i32 %120, %99
-  br i1 %exitcond44.not, label %.loopexit, label %.lr.ph27.split, !llvm.loop !71
+  br i1 %exitcond44.not, label %.loopexit, label %.lr.ph27.split, !llvm.loop !73
 
 123:                                              ; preds = %90
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 136
@@ -620,7 +620,7 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr noundef %0, i32 nound
   store double %141, ptr %146, align 8, !tbaa !69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i205, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i205, label %.lr.ph.i, !llvm.loop !74
 
 .lr.ph.preheader.i205:                            ; preds = %.lr.ph.i
   store double %143, ptr %130, align 8, !tbaa !66
@@ -643,7 +643,7 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr noundef %0, i32 nound
   store double %150, ptr %155, align 8, !tbaa !69
   %indvars.iv.next.i211 = add nuw nsw i64 %indvars.iv.i208, 1
   %exitcond.not.i212 = icmp eq i64 %indvars.iv.next.i211, %wide.trip.count.i
-  br i1 %exitcond.not.i212, label %.lr.ph.preheader.i214, label %.lr.ph.i207, !llvm.loop !72
+  br i1 %exitcond.not.i212, label %.lr.ph.preheader.i214, label %.lr.ph.i207, !llvm.loop !74
 
 filter_samples.exit213:                           ; preds = %._crit_edge32
   store double %131, ptr %130, align 8, !tbaa !66
@@ -667,7 +667,7 @@ filter_samples.exit213:                           ; preds = %._crit_edge32
   store double %161, ptr %162, align 8, !tbaa !69
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %exitcond.not.i219 = icmp eq i64 %indvars.iv.next12.i, %159
-  br i1 %exitcond.not.i219, label %.lr.ph.i224, label %.lr.ph.i216, !llvm.loop !73
+  br i1 %exitcond.not.i219, label %.lr.ph.i224, label %.lr.ph.i216, !llvm.loop !75
 
 .lr.ph.i224:                                      ; preds = %.lr.ph.i216, %.lr.ph.i224
   %indvars.iv.i225 = phi i64 [ %indvars.iv.next.i228, %.lr.ph.i224 ], [ 0, %.lr.ph.i216 ]
@@ -683,7 +683,7 @@ filter_samples.exit213:                           ; preds = %._crit_edge32
   store double %165, ptr %163, align 8, !tbaa !69
   %indvars.iv.next.i228 = add nuw nsw i64 %indvars.iv.i225, 1
   %exitcond.not.i229 = icmp eq i64 %indvars.iv.next.i228, %159
-  br i1 %exitcond.not.i229, label %.lr.ph.i233, label %.lr.ph.i224, !llvm.loop !72
+  br i1 %exitcond.not.i229, label %.lr.ph.i233, label %.lr.ph.i224, !llvm.loop !74
 
 .lr.ph.i233:                                      ; preds = %.lr.ph.i224, %.lr.ph.i233
   %indvars.iv11.i234 = phi i64 [ %indvars.iv.next12.i237, %.lr.ph.i233 ], [ 0, %.lr.ph.i224 ]
@@ -695,7 +695,7 @@ filter_samples.exit213:                           ; preds = %._crit_edge32
   store double %171, ptr %172, align 8, !tbaa !69
   %indvars.iv.next12.i237 = add nuw nsw i64 %indvars.iv11.i234, 1
   %exitcond.not.i238 = icmp eq i64 %indvars.iv.next12.i237, %159
-  br i1 %exitcond.not.i238, label %reverse_samples.exit239, label %.lr.ph.i233, !llvm.loop !73
+  br i1 %exitcond.not.i238, label %reverse_samples.exit239, label %.lr.ph.i233, !llvm.loop !75
 
 reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filter_samples.exit213
   br i1 %136, label %.lr.ph37, label %._crit_edge38
@@ -733,7 +733,7 @@ reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filte
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %187 = getelementptr inbounds nuw i8, ptr %.218734.us, i64 16
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge38, label %.lr.ph37.split.us, !llvm.loop !74
+  br i1 %exitcond57.not, label %._crit_edge38, label %.lr.ph37.split.us, !llvm.loop !76
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv47 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next48, %.lr.ph31 ]
@@ -756,7 +756,7 @@ reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filte
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %201 = getelementptr inbounds nuw i8, ptr %.129, i64 16
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !75
+  br i1 %exitcond51.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !77
 
 ._crit_edge38:                                    ; preds = %.lr.ph37.split, %.lr.ph37.split.us, %reverse_samples.exit239
   %202 = shl nsw i64 %91, 3
@@ -783,7 +783,7 @@ reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filte
   %213 = getelementptr inbounds nuw i8, ptr %.236, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %.218734, i64 16
   %exitcond52.not = icmp eq i32 %212, %135
-  br i1 %exitcond52.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !74
+  br i1 %exitcond52.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph27.split, %.lr.ph27.split.us, %92, %._crit_edge38, %._crit_edge
   %215 = phi ptr [ %43, %._crit_edge38 ], [ %53, %._crit_edge ], [ %43, %92 ], [ %43, %.lr.ph27.split.us ], [ %43, %.lr.ph27.split ]
@@ -797,17 +797,17 @@ reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filte
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %221 = load i32, ptr %220, align 8, !tbaa !60
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %223 = load i64, ptr %222, align 8, !tbaa !76
+  %223 = load i64, ptr %222, align 8, !tbaa !79
   %224 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %225 = load i64, ptr %224, align 8, !tbaa !65
   %226 = getelementptr inbounds nuw i8, ptr %216, i64 136
-  store i64 %225, ptr %226, align 8, !tbaa !76
+  store i64 %225, ptr %226, align 8, !tbaa !79
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %228 = load i32, ptr %227, align 8, !tbaa !77
+  %228 = load i32, ptr %227, align 8, !tbaa !80
   %229 = getelementptr inbounds nuw i8, ptr %216, i64 112
   store i32 %228, ptr %229, align 8, !tbaa !60
   store i64 %223, ptr %224, align 8, !tbaa !65
-  store i32 %221, ptr %227, align 8, !tbaa !77
+  store i32 %221, ptr %227, align 8, !tbaa !80
   br label %230
 
 230:                                              ; preds = %219, %.loopexit
@@ -946,10 +946,13 @@ attributes #7 = { nounwind }
 !68 = !{!5, !15, i64 128}
 !69 = !{!30, !30, i64 0}
 !70 = distinct !{!70, !21}
-!71 = distinct !{!71, !21}
-!72 = distinct !{!72, !21}
+!71 = distinct !{!71, !21, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !73 = distinct !{!73, !21}
 !74 = distinct !{!74, !21}
 !75 = distinct !{!75, !21}
-!76 = !{!61, !31, i64 136}
-!77 = !{!29, !15, i64 128}
+!76 = distinct !{!76, !21, !72}
+!77 = distinct !{!77, !21}
+!78 = distinct !{!78, !21}
+!79 = !{!61, !31, i64 136}
+!80 = !{!29, !15, i64 128}

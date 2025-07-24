@@ -447,7 +447,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %191 = getelementptr inbounds nuw i8, ptr %.1248340, i64 64
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %.loopexit, label %.lr.ph343, !llvm.loop !53
+  br i1 %exitcond394.not, label %.loopexit, label %.lr.ph343, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph343, %185, %.lr.ph350.split
   %.0247 = phi ptr [ %184, %.lr.ph350.split ], [ %188, %185 ], [ %191, %.lr.ph343 ]
@@ -462,7 +462,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %198 = sub nsw i32 %.1193347, %171
   %199 = add nsw i32 %171, %.0194346
   %200 = icmp sgt i32 %198, 0
-  br i1 %200, label %.lr.ph350.split, label %.thread, !llvm.loop !52
+  br i1 %200, label %.lr.ph350.split, label %.thread, !llvm.loop !55
 
 .thread.sink.split:                               ; preds = %63, %57, %60, %47, %37, %114, %.loopexit254, %3, %104
   %.str.2.sink = phi ptr [ @.str.5, %104 ], [ @.str.6, %3 ], [ @.str.6, %.loopexit254 ], [ @.str.7, %114 ], [ @.str.1, %37 ], [ @.str.2, %47 ], [ @.str.3, %60 ], [ @.str.3, %57 ], [ @.str.4, %63 ]
@@ -562,5 +562,7 @@ attributes #7 = { nounwind }
 !49 = distinct !{!49, !47}
 !50 = distinct !{!50, !47}
 !51 = !{!25, !13, i64 56}
-!52 = distinct !{!52, !47}
-!53 = distinct !{!53, !47}
+!52 = distinct !{!52, !47, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !47}
+!55 = distinct !{!55, !47}

@@ -53,7 +53,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery19downcase_identifierEPKcibb(pt
   store i8 %.0.us26, ptr %20, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count43
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %33
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %33 ], [ 0, %.lr.ph.split ]
@@ -88,7 +88,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery19downcase_identifierEPKcibb(pt
   store i8 %.0, ptr %34, align 1, !tbaa !9
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count43
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !10
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %33, %.lr.ph.split.us, %4
   %.020.lcssa = phi i32 [ 0, %4 ], [ %1, %.lr.ph.split.us ], [ %1, %33 ], [ %1, %.lr.ph.split.split.us ]
@@ -160,5 +160,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !7 = !{i8 0, i8 2}
 !8 = !{}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11}

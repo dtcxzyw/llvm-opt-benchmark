@@ -1225,7 +1225,7 @@ _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.e
   %35 = getelementptr inbounds nuw i8, ptr %.02125, i64 %.sink36
   %.021 = load ptr, ptr %35, align 8, !tbaa !48
   %.not = icmp eq ptr %.021, null
-  br i1 %.not, label %._crit_edge.loopexit41, label %.lr.ph.split, !llvm.loop !50
+  br i1 %.not, label %._crit_edge.loopexit41, label %.lr.ph.split, !llvm.loop !51
 
 ._crit_edge.loopexit41:                           ; preds = %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit.thread
   %36 = select i1 %30, i1 true, i1 %33
@@ -1335,7 +1335,7 @@ _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.e
   %20 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %20, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !53
 
 _ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i: ; preds = %19
   %21 = icmp eq ptr %.19.i.i.i, %5
@@ -1470,7 +1470,8 @@ attributes #18 = { nounwind willreturn memory(read) }
 !46 = !{!5, !9, i64 16}
 !47 = distinct !{!47, !21}
 !48 = !{!9, !9, i64 0}
-!49 = distinct !{!49, !21}
-!50 = distinct !{!50, !21, !51}
-!51 = !{!"llvm.loop.unswitch.partial.disable"}
-!52 = distinct !{!52, !21}
+!49 = distinct !{!49, !21, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !21, !52}
+!52 = !{!"llvm.loop.unswitch.partial.disable"}
+!53 = distinct !{!53, !21}

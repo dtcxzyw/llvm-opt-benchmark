@@ -1885,7 +1885,7 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
   %26 = shl i32 %.2.us, 1
   %27 = or i32 %26, 255
   %.old1.us = icmp ult i32 %26, 256
-  br i1 %.old1.us, label %getbit_from_table.exit.us, label %.loopexit
+  br i1 %.old1.us, label %getbit_from_table.exit.us, label %.loopexit, !llvm.loop !24
 
 .preheader.split:                                 ; preds = %.preheader
   %28 = zext i32 %25 to i64
@@ -2276,3 +2276,5 @@ attributes #7 = { nounwind }
 !21 = !{!15, !8, i64 28}
 !22 = !{!15, !16, i64 0}
 !23 = !{!15, !8, i64 20}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}

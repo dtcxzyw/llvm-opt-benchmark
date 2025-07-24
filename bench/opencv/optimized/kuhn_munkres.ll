@@ -610,7 +610,7 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres3RunEv(ptr noundef nonnul
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next27.i, %36
-  br i1 %37, label %.lr.ph18.split.i, label %_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit, !llvm.loop !67
+  br i1 %37, label %.lr.ph18.split.i, label %_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit, !llvm.loop !68
 
 38:                                               ; preds = %47, %.lr.ph.i
   %39 = phi i32 [ %30, %.lr.ph.i ], [ %48, %47 ]
@@ -636,7 +636,7 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres3RunEv(ptr noundef nonnul
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next.i, %50
-  br i1 %51, label %38, label %._crit_edge.i, !llvm.loop !69
+  br i1 %51, label %38, label %._crit_edge.i, !llvm.loop !70
 
 _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit: ; preds = %._crit_edge.i
   %.not131 = icmp slt i32 %.1.lcssa.i, %35
@@ -680,7 +680,7 @@ _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit: ; preds = %._
   %.3.us.i = phi float [ %.01429.us.i, %.lr.ph30.split.us.i ], [ %.2.us.i, %72 ]
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %._crit_edge.loopexit.i, label %.lr.ph30.split.us.i, !llvm.loop !70
+  br i1 %exitcond40.not.i, label %._crit_edge.loopexit.i, label %.lr.ph30.split.us.i, !llvm.loop !71
 
 63:                                               ; preds = %72, %.lr.ph.us.i
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i51, %72 ]
@@ -694,7 +694,7 @@ _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit: ; preds = %._
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i50
-  %68 = load float, ptr %67, align 4, !tbaa !71
+  %68 = load float, ptr %67, align 4, !tbaa !72
   %69 = fcmp olt float %68, %.121.us.i
   br i1 %69, label %70, label %72
 
@@ -708,7 +708,7 @@ _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit: ; preds = %._
   %.2.us.i = phi float [ %68, %70 ], [ %.121.us.i, %66 ], [ %.121.us.i, %63 ]
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count39.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %63, !llvm.loop !73
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %63, !llvm.loop !74
 
 ._crit_edge.loopexit.i:                           ; preds = %..loopexit_crit_edge.us.i
   %73 = zext i32 %.sroa.3.3.us.i to i64
@@ -726,7 +726,7 @@ _ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit: ; preds = %.
   %sext = shl i64 %.sroa.018.0.insert.insert.i, 32
   %81 = ashr exact i64 %sext, 32
   %82 = getelementptr inbounds float, ptr %80, i64 %81
-  %83 = load float, ptr %82, align 4, !tbaa !71
+  %83 = load float, ptr %82, align 4, !tbaa !72
   %84 = fcmp ogt float %83, 0.000000e+00
   br i1 %84, label %85, label %107
 
@@ -751,9 +751,9 @@ _ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit: ; preds = %.
 .lr.ph.split.us23.i:                              ; preds = %.lr.ph.us.i52, %99
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %99 ], [ 0, %.lr.ph.us.i52 ]
   %92 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i54
-  %93 = load float, ptr %92, align 4, !tbaa !71
+  %93 = load float, ptr %92, align 4, !tbaa !72
   %94 = fadd float %83, %93
-  store float %94, ptr %92, align 4, !tbaa !71
+  store float %94, ptr %92, align 4, !tbaa !72
   %95 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.i54
   %96 = load i32, ptr %95, align 4, !tbaa !29
   %.not14.us21.i = icmp eq i32 %96, 0
@@ -761,18 +761,18 @@ _ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit: ; preds = %.
 
 97:                                               ; preds = %.lr.ph.split.us23.i
   %98 = fsub float %94, %83
-  store float %98, ptr %92, align 4, !tbaa !71
+  store float %98, ptr %92, align 4, !tbaa !72
   br label %99
 
 99:                                               ; preds = %97, %.lr.ph.split.us23.i
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count34.i
-  br i1 %exitcond.not.i56, label %._crit_edge.us.i, label %.lr.ph.split.us23.i, !llvm.loop !74
+  br i1 %exitcond.not.i56, label %._crit_edge.us.i, label %.lr.ph.split.us23.i, !llvm.loop !75
 
 ._crit_edge.us.i:                                 ; preds = %99, %106
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %.loopexit, label %.lr.ph.us.i52, !llvm.loop !75
+  br i1 %exitcond35.not.i, label %.loopexit, label %.lr.ph.us.i52, !llvm.loop !76
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i52, %106
   %indvars.iv26.i57 = phi i64 [ %indvars.iv.next27.i58, %106 ], [ 0, %.lr.ph.us.i52 ]
@@ -783,15 +783,15 @@ _ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit: ; preds = %.
 
 102:                                              ; preds = %.lr.ph.split.us.us.i
   %103 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv26.i57
-  %104 = load float, ptr %103, align 4, !tbaa !71
+  %104 = load float, ptr %103, align 4, !tbaa !72
   %105 = fsub float %104, %83
-  store float %105, ptr %103, align 4, !tbaa !71
+  store float %105, ptr %103, align 4, !tbaa !72
   br label %106
 
 106:                                              ; preds = %102, %.lr.ph.split.us.us.i
   %indvars.iv.next27.i58 = add nuw nsw i64 %indvars.iv26.i57, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i58, %wide.trip.count34.i
-  br i1 %exitcond30.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !74
+  br i1 %exitcond30.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !77
 
 107:                                              ; preds = %_ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit
   %108 = mul i64 %52, %78
@@ -821,7 +821,7 @@ _ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv.exit: ; preds = %.
 121:                                              ; preds = %117
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i
-  br i1 %exitcond.not.i63, label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread, label %117, !llvm.loop !76
+  br i1 %exitcond.not.i63, label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread, label %117, !llvm.loop !78
 
 .thread:                                          ; preds = %117
   %122 = load ptr, ptr %14, align 8, !tbaa !51
@@ -866,7 +866,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-spl
   %137 = phi ptr [ %130, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %135, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %.035189 = phi i32 [ 0, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %131, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %138 = phi i32 [ %128, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %.pr, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
-  %139 = load i32, ptr %.in, align 4, !tbaa !77
+  %139 = load i32, ptr %.in, align 4, !tbaa !79
   %140 = load ptr, ptr %9, align 8, !tbaa !60
   %141 = load ptr, ptr %10, align 8, !tbaa !61
   %142 = load i64, ptr %141, align 8, !tbaa !58
@@ -886,7 +886,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-spl
 148:                                              ; preds = %144
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i68
-  br i1 %exitcond.not.i71, label %.lr.ph.preheader, label %144, !llvm.loop !79
+  br i1 %exitcond.not.i71, label %.lr.ph.preheader, label %144, !llvm.loop !81
 
 _ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit: ; preds = %144
   %149 = or disjoint i32 %.035189, 1
@@ -898,7 +898,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit: ; preds = %144
   store i64 %.sroa.0119.0.insert.insert, ptr %151, align 4
   %152 = load ptr, ptr %15, align 8, !tbaa !41
   %153 = getelementptr inbounds nuw %"class.cv::Point_", ptr %152, i64 %150, i32 1
-  %154 = load i32, ptr %153, align 4, !tbaa !80
+  %154 = load i32, ptr %153, align 4, !tbaa !82
   %155 = load i32, ptr %6, align 8, !tbaa !30
   %.not10.i73 = icmp sgt i32 %155, 0
   br i1 %.not10.i73, label %.lr.ph.i76, label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split
@@ -923,7 +923,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit: ; preds = %144
 166:                                              ; preds = %162
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i77
-  br i1 %exitcond.not.i80, label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split, label %162, !llvm.loop !76
+  br i1 %exitcond.not.i80, label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split, label %162, !llvm.loop !78
 
 ._crit_edge.loopexit.split.loop.exit.i81:         ; preds = %162
   %167 = and i64 %indvars.iv.i78, 4294967295
@@ -962,8 +962,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   %176 = load ptr, ptr %15, align 8, !tbaa !41
   %177 = getelementptr inbounds nuw %"class.cv::Point_", ptr %176, i64 %indvars.iv
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %179 = load i32, ptr %178, align 4, !tbaa !80
-  %180 = load i32, ptr %177, align 4, !tbaa !77
+  %179 = load i32, ptr %178, align 4, !tbaa !82
+  %180 = load i32, ptr %177, align 4, !tbaa !79
   %181 = load ptr, ptr %9, align 8, !tbaa !60
   %182 = load ptr, ptr %10, align 8, !tbaa !61
   %183 = load i64, ptr %182, align 8, !tbaa !58
@@ -978,7 +978,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   store i8 %191, ptr %188, align 1, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc83, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.11111.5 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %174, %.noexc83 ]
@@ -1083,7 +1083,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit97:                  ; preds = %200, %_ZNSt6vectorI
   %.pre = phi i32 [ %.pre161, %85 ], [ %.pre.pre, %.thread ], [ %.pre161, %._crit_edge.us.i ]
   %210 = phi i64 [ %52, %85 ], [ %114, %.thread ], [ %52, %._crit_edge.us.i ]
   %211 = phi ptr [ %53, %85 ], [ %112, %.thread ], [ %53, %._crit_edge.us.i ]
-  br label %.preheader133, !llvm.loop !82
+  br label %.preheader133, !llvm.loop !84
 
 _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit.thread: ; preds = %_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit, %.critedge, %1
   ret void
@@ -1149,24 +1149,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.preheader.i.i:                             ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.pre.i.i = load float, ptr %20, align 4, !tbaa !71
+  %.pre.i.i = load float, ptr %20, align 4, !tbaa !72
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %29 = phi float [ %33, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %30 = phi ptr [ %34, %.lr.ph.i.i ], [ %28, %.lr.ph.preheader.i.i ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %20, %.lr.ph.preheader.i.i ]
-  %31 = load float, ptr %30, align 4, !tbaa !71
+  %31 = load float, ptr %30, align 4, !tbaa !72
   %32 = fcmp olt float %31, %29
   %33 = select i1 %32, float %31, float %29
   %spec.select.i.i = select i1 %32, ptr %30, ptr %.018.i.i
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.not.i.i = icmp eq ptr %34, %27
-  br i1 %.not.i.i, label %_ZSt11min_elementIPfET_S1_S1_.exit, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %.not.i.i, label %_ZSt11min_elementIPfET_S1_S1_.exit, label %.lr.ph.i.i, !llvm.loop !85
 
 _ZSt11min_elementIPfET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %14
   %.011.i.i = phi ptr [ %20, %14 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %35 = load float, ptr %.011.i.i, align 4, !tbaa !71
+  %35 = load float, ptr %.011.i.i, align 4, !tbaa !72
   %36 = icmp sgt i32 %15, 0
   br i1 %36, label %.lr.ph, label %._crit_edge
 
@@ -1183,16 +1183,16 @@ _ZSt11min_elementIPfET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %14
   %38 = phi i32 [ %55, %._crit_edge.loopexit ], [ %15, %_ZSt11min_elementIPfET_S1_S1_.exit ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %39 = icmp slt i64 %indvars.iv.next83, %.pre-phi
-  br i1 %39, label %14, label %13, !llvm.loop !84
+  br i1 %39, label %14, label %13, !llvm.loop !86
 
 40:                                               ; preds = %.lr.ph, %54
   %41 = phi i32 [ %15, %.lr.ph ], [ %55, %54 ]
   %42 = phi i32 [ %15, %.lr.ph ], [ %56, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %43 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
-  %44 = load float, ptr %43, align 4, !tbaa !71
+  %44 = load float, ptr %43, align 4, !tbaa !72
   %45 = fsub float %44, %35
-  store float %45, ptr %43, align 4, !tbaa !71
+  store float %45, ptr %43, align 4, !tbaa !72
   %46 = fcmp oeq float %45, 0.000000e+00
   br i1 %46, label %47, label %54
 
@@ -1221,7 +1221,7 @@ _ZSt11min_elementIPfET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %40, label %._crit_edge.loopexit, !llvm.loop !85
+  br i1 %58, label %40, label %._crit_edge.loopexit, !llvm.loop !87
 
 _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %.noexc28
   %59 = landingpad { ptr, i32 }
@@ -1273,7 +1273,7 @@ define hidden noundef zeroext i1 @_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOp
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next27, %18
-  br i1 %19, label %.lr.ph18.split, label %._crit_edge19.loopexit, !llvm.loop !67
+  br i1 %19, label %.lr.ph18.split, label %._crit_edge19.loopexit, !llvm.loop !68
 
 20:                                               ; preds = %.lr.ph, %29
   %21 = phi i32 [ %12, %.lr.ph ], [ %30, %29 ]
@@ -1299,7 +1299,7 @@ define hidden noundef zeroext i1 @_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOp
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %20, label %._crit_edge, !llvm.loop !69
+  br i1 %33, label %20, label %._crit_edge, !llvm.loop !70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1344,7 +1344,7 @@ define hidden i64 @_ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv
   %.3.us = phi float [ %.01429.us, %.lr.ph30.split.us ], [ %.2.us, %28 ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge.loopexit, label %.lr.ph30.split.us, !llvm.loop !70
+  br i1 %exitcond40.not, label %._crit_edge.loopexit, label %.lr.ph30.split.us, !llvm.loop !71
 
 19:                                               ; preds = %.lr.ph.us, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
@@ -1358,7 +1358,7 @@ define hidden i64 @_ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !71
+  %24 = load float, ptr %23, align 4, !tbaa !72
   %25 = fcmp olt float %24, %.121.us
   br i1 %25, label %26, label %28
 
@@ -1372,7 +1372,7 @@ define hidden i64 @_ZN2cv6detail8tracking11KuhnMunkres22FindUncoveredMinValPosEv
   %.2.us = phi float [ %24, %26 ], [ %.121.us, %22 ], [ %.121.us, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19, !llvm.loop !73
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19, !llvm.loop !74
 
 ._crit_edge.loopexit:                             ; preds = %..loopexit_crit_edge.us
   %29 = zext i32 %.sroa.3.3.us to i64
@@ -1418,9 +1418,9 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres25UpdateDissimilarityMatr
 .lr.ph.split.us23:                                ; preds = %.lr.ph.us, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph.us ]
   %19 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
-  %20 = load float, ptr %19, align 4, !tbaa !71
+  %20 = load float, ptr %19, align 4, !tbaa !72
   %21 = fadd float %1, %20
-  store float %21, ptr %19, align 4, !tbaa !71
+  store float %21, ptr %19, align 4, !tbaa !72
   %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !29
   %.not14.us21 = icmp eq i32 %23, 0
@@ -1428,18 +1428,18 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres25UpdateDissimilarityMatr
 
 24:                                               ; preds = %.lr.ph.split.us23
   %25 = fsub float %21, %1
-  store float %25, ptr %19, align 4, !tbaa !71
+  store float %25, ptr %19, align 4, !tbaa !72
   br label %26
 
 26:                                               ; preds = %24, %.lr.ph.split.us23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %26, %33
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge19, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond35.not, label %._crit_edge19, label %.lr.ph.us, !llvm.loop !76
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %33
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %33 ], [ 0, %.lr.ph.us ]
@@ -1450,15 +1450,15 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres25UpdateDissimilarityMatr
 
 29:                                               ; preds = %.lr.ph.split.us.us
   %30 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv26
-  %31 = load float, ptr %30, align 4, !tbaa !71
+  %31 = load float, ptr %30, align 4, !tbaa !72
   %32 = fsub float %31, %1
-  store float %32, ptr %30, align 4, !tbaa !71
+  store float %32, ptr %30, align 4, !tbaa !72
   br label %33
 
 33:                                               ; preds = %29, %.lr.ph.split.us.us
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
-  br i1 %exitcond30.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !74
+  br i1 %exitcond30.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !77
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %2
   ret void
@@ -1494,7 +1494,7 @@ define hidden noundef i32 @_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii(ptr 
 19:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !78
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %14
   %20 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1535,7 +1535,7 @@ define hidden noundef i32 @_ZN2cv6detail8tracking11KuhnMunkres9FindInColEii(ptr 
 17:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !81
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %12
   %18 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1679,23 +1679,25 @@ attributes #19 = { builtin allocsize(0) }
 !63 = !{!6, !6, i64 0}
 !64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = distinct !{!66, !65}
-!67 = distinct !{!67, !65, !68}
-!68 = !{!"llvm.loop.unswitch.partial.disable"}
-!69 = distinct !{!69, !65}
+!66 = distinct !{!66, !65, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !65, !69}
+!69 = !{!"llvm.loop.unswitch.partial.disable"}
 !70 = distinct !{!70, !65}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"float", !6, i64 0}
-!73 = distinct !{!73, !65}
+!71 = distinct !{!71, !65, !67}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"float", !6, i64 0}
 !74 = distinct !{!74, !65}
 !75 = distinct !{!75, !65}
-!76 = distinct !{!76, !65}
-!77 = !{!78, !5, i64 0}
-!78 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
-!79 = distinct !{!79, !65}
-!80 = !{!78, !5, i64 4}
+!76 = distinct !{!76, !65, !67}
+!77 = distinct !{!77, !65, !67}
+!78 = distinct !{!78, !65}
+!79 = !{!80, !5, i64 0}
+!80 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
 !81 = distinct !{!81, !65}
-!82 = distinct !{!82, !65}
+!82 = !{!80, !5, i64 4}
 !83 = distinct !{!83, !65}
 !84 = distinct !{!84, !65}
 !85 = distinct !{!85, !65}
+!86 = distinct !{!86, !65}
+!87 = distinct !{!87, !65}

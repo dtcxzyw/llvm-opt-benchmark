@@ -4661,7 +4661,7 @@ read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22
   %150 = sub nsw i32 %.01129.us.i, %149
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
   %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph.split.us.i, label %word_skip_macro_extnames.exit
+  br i1 %151, label %.lr.ph.split.us.i, label %word_skip_macro_extnames.exit, !llvm.loop !92
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %159
   %.01129.i = phi i32 [ %162, %159 ], [ %139, %.lr.ph.i ]
@@ -4795,13 +4795,13 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %199 = shl nuw nsw i64 %198, 2
   %200 = call ptr @cli_max_malloc(i64 noundef %199) #16
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  store ptr %200, ptr %201, align 8, !tbaa !92
+  store ptr %200, ptr %201, align 8, !tbaa !94
   %202 = load i16, ptr %29, align 8, !tbaa !83
   %203 = zext i16 %202 to i64
   %204 = call ptr @cli_max_malloc(i64 noundef %203) #16
   %205 = getelementptr inbounds nuw i8, ptr %195, i64 32
-  store ptr %204, ptr %205, align 8, !tbaa !93
-  %206 = load ptr, ptr %201, align 8, !tbaa !92
+  store ptr %204, ptr %205, align 8, !tbaa !95
+  %206 = load ptr, ptr %201, align 8, !tbaa !94
   %.not56 = icmp eq ptr %206, null
   %.not57 = icmp eq ptr %204, null
   %or.cond = select i1 %.not56, i1 true, i1 %.not57
@@ -4826,12 +4826,12 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv
   store i32 %213, ptr %215, align 4, !tbaa !11
   %216 = load i32, ptr %.0105, align 4, !tbaa !89
-  %217 = load ptr, ptr %201, align 8, !tbaa !92
+  %217 = load ptr, ptr %201, align 8, !tbaa !94
   %218 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv
   store i32 %216, ptr %218, align 4, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %.0105, i64 8
   %220 = load i8, ptr %219, align 4, !tbaa !86
-  %221 = load ptr, ptr %205, align 8, !tbaa !93
+  %221 = load ptr, ptr %205, align 8, !tbaa !95
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv
   store i8 %220, ptr %222, align 1, !tbaa !10
   %223 = getelementptr inbounds nuw i8, ptr %.0105, i64 12
@@ -4854,7 +4854,7 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %233 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %234 = load ptr, ptr %233, align 8, !tbaa !57
   call void @free(ptr noundef %234) #16
-  %235 = load ptr, ptr %201, align 8, !tbaa !92
+  %235 = load ptr, ptr %201, align 8, !tbaa !94
   %.not58 = icmp eq ptr %235, null
   br i1 %.not58, label %237, label %236
 
@@ -4863,7 +4863,7 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   br label %237
 
 237:                                              ; preds = %236, %227
-  %238 = load ptr, ptr %205, align 8, !tbaa !93
+  %238 = load ptr, ptr %205, align 8, !tbaa !95
   %.not59 = icmp eq ptr %238, null
   br i1 %.not59, label %240, label %239
 
@@ -4993,7 +4993,7 @@ define void @cli_free_vba_project(ptr noundef captures(address_is_null) %0) loca
 
 17:                                               ; preds = %16, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !92
+  %19 = load ptr, ptr %18, align 8, !tbaa !94
   %.not24 = icmp eq ptr %19, null
   br i1 %.not24, label %21, label %20
 
@@ -5003,7 +5003,7 @@ define void @cli_free_vba_project(ptr noundef captures(address_is_null) %0) loca
 
 21:                                               ; preds = %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !93
+  %23 = load ptr, ptr %22, align 8, !tbaa !95
   %.not25 = icmp eq ptr %23, null
   br i1 %.not25, label %25, label %24
 
@@ -5166,5 +5166,7 @@ attributes #19 = { nounwind allocsize(0,1) }
 !89 = !{!87, !12, i64 0}
 !90 = !{!85, !12, i64 20}
 !91 = !{!87, !12, i64 4}
-!92 = !{!53, !51, i64 24}
-!93 = !{!53, !4, i64 32}
+!92 = distinct !{!92, !93}
+!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!94 = !{!53, !51, i64 24}
+!95 = !{!53, !4, i64 32}

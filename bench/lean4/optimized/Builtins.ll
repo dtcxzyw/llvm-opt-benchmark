@@ -244977,7 +244977,7 @@ lean_alloc_ctor.exit.us:                          ; preds = %lean_inc.exit33.us
 39:                                               ; preds = %37, %36, %35
   %40 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %18, ptr noundef %33, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %.03151.us) #7
   %.not.us = icmp eq i64 %16, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_alloc_ctor.exit
   %.02952 = phi i64 [ %41, %lean_alloc_ctor.exit ], [ %2, %.lr.ph ]
@@ -245156,7 +245156,7 @@ lean_alloc_ctor.exit.us:                          ; preds = %lean_inc.exit33.us
 39:                                               ; preds = %37, %36, %35
   %40 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %18, ptr noundef %33, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %.03151.us) #7
   %.not.us = icmp eq i64 %16, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_alloc_ctor.exit
   %.02952 = phi i64 [ %41, %lean_alloc_ctor.exit ], [ %2, %.lr.ph ]
@@ -381639,3 +381639,6 @@ attributes #8 = { noreturn nounwind }
 !22 = !{!"branch_weights", !"expected", i32 1073203, i32 2146410445}
 !23 = !{!"branch_weights", !"expected", i32 1074010025, i32 1073473623}
 !24 = !{!"branch_weights", !"expected", i32 669, i32 2147482979}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !26}

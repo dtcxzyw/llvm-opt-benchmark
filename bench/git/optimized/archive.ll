@@ -1127,7 +1127,7 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
   %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv.i
   %193 = load ptr, ptr %192, align 8, !tbaa !11
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  %195 = load i32, ptr %194, align 8, !tbaa !118
+  %195 = load i32, ptr %194, align 8, !tbaa !119
   %196 = and i32 %195, 2
   %.not50.i = icmp eq i32 %196, 0
   br i1 %.not50.i, label %199, label %197
@@ -1145,7 +1145,7 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %202 = sext i32 %200 to i64
   %203 = icmp slt i64 %indvars.iv.next.i, %202
-  br i1 %203, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !117
+  br i1 %203, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !120
 
 ._crit_edge.i:                                    ; preds = %199, %.lr.ph.split.us.i, %.preheader.i
   %204 = call i32 @common_exit(ptr noundef nonnull @.str.51, i32 noundef 699, i32 noundef 0) #19
@@ -1199,7 +1199,7 @@ match_extension.exit.i.i:                         ; preds = %222
 match_extension.exit.thread.i.i:                  ; preds = %match_extension.exit.i.i, %222, %214
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %archive_format_from_filename.exit.i, label %214, !llvm.loop !119
+  br i1 %exitcond.not.i.i, label %archive_format_from_filename.exit.i, label %214, !llvm.loop !121
 
 archive_format_from_filename.exit.i:              ; preds = %match_extension.exit.thread.i.i, %match_extension.exit.i.i, %209
   %.05.i.i = phi ptr [ null, %209 ], [ %217, %match_extension.exit.i.i ], [ null, %match_extension.exit.thread.i.i ]
@@ -1237,7 +1237,7 @@ archive_format_from_filename.exit.i:              ; preds = %match_extension.exi
 240:                                              ; preds = %241
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i53.i, 1
   %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, %wide.trip.count.i52.i
-  br i1 %exitcond.not.i55.i, label %lookup_archiver.exit.thread.i, label %241, !llvm.loop !120
+  br i1 %exitcond.not.i55.i, label %lookup_archiver.exit.thread.i, label %241, !llvm.loop !122
 
 241:                                              ; preds = %240, %.lr.ph.i51.i
   %indvars.iv.i53.i = phi i64 [ 0, %.lr.ph.i51.i ], [ %indvars.iv.next.i54.i, %240 ]
@@ -1253,7 +1253,7 @@ archive_format_from_filename.exit.i:              ; preds = %match_extension.exi
 
 247:                                              ; preds = %246
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  %249 = load i32, ptr %248, align 8, !tbaa !118
+  %249 = load i32, ptr %248, align 8, !tbaa !119
   %250 = and i32 %249, 2
   %.not46.i = icmp eq i32 %250, 0
   br i1 %.not46.i, label %lookup_archiver.exit.thread.i, label %253
@@ -1266,14 +1266,14 @@ lookup_archiver.exit.thread.i:                    ; preds = %240, %.preheader.i.
 
 253:                                              ; preds = %247, %246
   %254 = getelementptr inbounds nuw i8, ptr %27, i64 108
-  store i32 -1, ptr %254, align 4, !tbaa !121
+  store i32 -1, ptr %254, align 4, !tbaa !123
   %255 = load i32, ptr %20, align 4, !tbaa !4
   %.not47.i = icmp eq i32 %255, -1
   br i1 %.not47.i, label %parse_archive_args.exit, label %256
 
 256:                                              ; preds = %253
   %257 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  %258 = load i32, ptr %257, align 8, !tbaa !118
+  %258 = load i32, ptr %257, align 8, !tbaa !119
   %259 = and i32 %258, 1
   %.not48.i = icmp eq i32 %259, 0
   br i1 %.not48.i, label %265, label %260
@@ -1286,7 +1286,7 @@ lookup_archiver.exit.thread.i:                    ; preds = %240, %.preheader.i.
   br i1 %or.cond3.i, label %264, label %265
 
 264:                                              ; preds = %260
-  store i32 %255, ptr %254, align 4, !tbaa !121
+  store i32 %255, ptr %254, align 4, !tbaa !123
   br label %parse_archive_args.exit
 
 265:                                              ; preds = %260, %256
@@ -1319,7 +1319,7 @@ parse_archive_args.exit:                          ; preds = %253, %264
   store i8 %284, ptr %270, align 8
   %285 = load ptr, ptr %19, align 8, !tbaa !104
   %286 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store ptr %285, ptr %286, align 8, !tbaa !122
+  store ptr %285, ptr %286, align 8, !tbaa !124
   call void @llvm.lifetime.end.p0(i64 1408, ptr nonnull %24) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #19
@@ -1331,8 +1331,8 @@ parse_archive_args.exit:                          ; preds = %253, %264
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
-  %287 = load ptr, ptr @startup_info, align 8, !tbaa !123
-  %288 = load i32, ptr %287, align 8, !tbaa !125
+  %287 = load ptr, ptr @startup_info, align 8, !tbaa !125
+  %288 = load i32, ptr %287, align 8, !tbaa !127
   %.not = icmp eq i32 %288, 0
   br i1 %.not, label %289, label %291
 
@@ -1393,20 +1393,20 @@ parse_archive_args.exit:                          ; preds = %253, %264
 317:                                              ; preds = %314
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 4
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 40
-  %320 = load i64, ptr %319, align 8, !tbaa !127
+  %320 = load i64, ptr %319, align 8, !tbaa !129
   br label %324
 
 321:                                              ; preds = %314
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
   %322 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #19
-  %323 = load i64, ptr %9, align 8, !tbaa !131
+  %323 = load i64, ptr %9, align 8, !tbaa !133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
   br label %324
 
 324:                                              ; preds = %321, %317
   %.036.i = phi i64 [ %320, %317 ], [ %323, %321 ]
   %.0.i = phi ptr [ %318, %317 ], [ null, %321 ]
-  %325 = load ptr, ptr %286, align 8, !tbaa !122
+  %325 = load ptr, ptr %286, align 8, !tbaa !124
   %.not42.i20 = icmp eq ptr %325, null
   br i1 %.not42.i20, label %328, label %326
 
@@ -1437,23 +1437,23 @@ parse_archive_args.exit:                          ; preds = %253, %264
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %12, i8 0, i64 1120, i1 false)
   %337 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 1, ptr %337, align 8, !tbaa !133
+  store i32 1, ptr %337, align 8, !tbaa !135
   %338 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  store i32 -1, ptr %338, align 8, !tbaa !151
+  store i32 -1, ptr %338, align 8, !tbaa !153
   %339 = load ptr, ptr %27, align 8, !tbaa !40
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 384
   %341 = load ptr, ptr %340, align 8, !tbaa !61
   %342 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  store ptr %341, ptr %342, align 8, !tbaa !152
+  store ptr %341, ptr %342, align 8, !tbaa !154
   %343 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  store ptr %341, ptr %343, align 8, !tbaa !153
+  store ptr %341, ptr %343, align 8, !tbaa !155
   %344 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store ptr @oneway_merge, ptr %344, align 8, !tbaa !154
+  store ptr @oneway_merge, ptr %344, align 8, !tbaa !156
   %345 = getelementptr inbounds nuw i8, ptr %329, i64 4
   %346 = getelementptr inbounds nuw i8, ptr %329, i64 40
-  %347 = load ptr, ptr %346, align 8, !tbaa !155
+  %347 = load ptr, ptr %346, align 8, !tbaa !157
   %348 = getelementptr inbounds nuw i8, ptr %329, i64 48
-  %349 = load i64, ptr %348, align 8, !tbaa !157
+  %349 = load i64, ptr %348, align 8, !tbaa !159
   call void @init_tree_desc(ptr noundef nonnull %13, ptr noundef nonnull %345, ptr noundef %347, i64 noundef %349) #19
   %350 = call i32 @unpack_trees(i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %12) #19
   %.not45.i = icmp eq i32 %350, 0
@@ -1474,15 +1474,15 @@ parse_archive_args.exit:                          ; preds = %253, %264
 parse_treeish_arg.exit:                           ; preds = %333, %354
   %355 = load ptr, ptr %11, align 8, !tbaa !104
   %356 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %355, ptr %356, align 8, !tbaa !158
+  store ptr %355, ptr %356, align 8, !tbaa !160
   %357 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %329, ptr %357, align 8, !tbaa !34
   %358 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store ptr %.0.i, ptr %358, align 8, !tbaa !159
+  store ptr %.0.i, ptr %358, align 8, !tbaa !161
   %359 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store ptr %316, ptr %359, align 8, !tbaa !160
+  store ptr %316, ptr %359, align 8, !tbaa !162
   %360 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store i64 %.1.i, ptr %360, align 8, !tbaa !161
+  store i64 %.1.i, ptr %360, align 8, !tbaa !163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #19
   %361 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1515,7 +1515,7 @@ parse_treeish_arg.exit:                           ; preds = %333, %354
   store ptr %372, ptr %7, align 16, !tbaa !104
   store ptr null, ptr %368, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
-  store ptr %27, ptr %369, align 8, !tbaa !162
+  store ptr %27, ptr %369, align 8, !tbaa !164
   %375 = load ptr, ptr %36, align 8, !tbaa !103
   call void @parse_pathspec(ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef %375, ptr noundef nonnull %7) #19
   %376 = load i8, ptr %370, align 4
@@ -1557,14 +1557,14 @@ path_exists.exit.i:                               ; preds = %379, %374
   %392 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %393 = load ptr, ptr %392, align 8, !tbaa !104
   %.not13.i = icmp eq ptr %393, null
-  br i1 %.not13.i, label %parse_pathspec_arg.exit, label %371, !llvm.loop !164
+  br i1 %.not13.i, label %parse_pathspec_arg.exit, label %371, !llvm.loop !166
 
 parse_pathspec_arg.exit:                          ; preds = %391, %parse_treeish_arg.exit
   %394 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %395 = load ptr, ptr %394, align 8, !tbaa !165
+  %395 = load ptr, ptr %394, align 8, !tbaa !167
   %396 = call i32 %395(ptr noundef nonnull %243, ptr noundef nonnull %27) #19
   call void @string_list_clear_func(ptr noundef nonnull %37, ptr noundef nonnull @extra_file_info_clear) #19
-  %397 = load ptr, ptr %356, align 8, !tbaa !158
+  %397 = load ptr, ptr %356, align 8, !tbaa !160
   call void @free(ptr noundef %397) #19
   call void @clear_pathspec(ptr noundef nonnull %362) #19
   call void @free(ptr noundef %42) #19
@@ -1638,7 +1638,7 @@ match_extension.exit:                             ; preds = %14
 match_extension.exit.thread:                      ; preds = %6, %14, %match_extension.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %match_extension.exit._crit_edge, label %6, !llvm.loop !119
+  br i1 %exitcond.not, label %match_extension.exit._crit_edge, label %6, !llvm.loop !121
 
 match_extension.exit._crit_edge:                  ; preds = %match_extension.exit.thread, %match_extension.exit, %1
   %.05 = phi ptr [ null, %1 ], [ %9, %match_extension.exit ], [ null, %match_extension.exit.thread ]
@@ -1920,8 +1920,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %102, label %103, label %111
 
 103:                                              ; preds = %99
-  %104 = load i64, ptr %12, align 8, !tbaa !166
-  %105 = load i64, ptr @big_file_threshold, align 8, !tbaa !166
+  %104 = load i64, ptr %12, align 8, !tbaa !168
+  %105 = load i64, ptr @big_file_threshold, align 8, !tbaa !168
   %106 = icmp ugt i64 %104, %105
   br i1 %106, label %107, label %111
 
@@ -1940,16 +1940,16 @@ sub_1:                                            ; preds = %sub_0
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %117 = load ptr, ptr %116, align 8, !tbaa !160
+  %117 = load ptr, ptr %116, align 8, !tbaa !162
   br label %118
 
 118:                                              ; preds = %115, %111
   %119 = phi ptr [ %117, %115 ], [ null, %111 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #19
   %120 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !158
+  %121 = load ptr, ptr %120, align 8, !tbaa !160
   %122 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %123 = load ptr, ptr %122, align 8, !tbaa !159
+  %123 = load ptr, ptr %122, align 8, !tbaa !161
   %.not28.i = icmp eq ptr %123, null
   br i1 %.not28.i, label %124, label %128
 
@@ -1981,15 +1981,15 @@ object_file_to_archive.exit.thread:               ; preds = %128
 
 object_file_to_archive.exit.thread7:              ; preds = %134
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #19
-  %.pre = load i64, ptr %12, align 8, !tbaa !166
+  %.pre = load i64, ptr %12, align 8, !tbaa !168
   br label %186
 
 136:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
-  store i64 0, ptr %10, align 8, !tbaa !166
-  %137 = load i64, ptr %12, align 8, !tbaa !166
+  store i64 0, ptr %10, align 8, !tbaa !168
+  %137 = load i64, ptr %12, align 8, !tbaa !168
   %138 = add i64 %137, 1
   call void @strbuf_attach(ptr noundef nonnull %9, ptr noundef nonnull %133, i64 noundef %137, i64 noundef %138) #19
   %139 = load ptr, ptr %.0.val, align 8, !tbaa !40
@@ -2077,8 +2077,8 @@ format_subst.exit.i:                              ; preds = %167, %156, %147
 
 object_file_to_archive.exit:                      ; preds = %136, %format_subst.exit.i
   %178 = call ptr @strbuf_detach(ptr noundef nonnull %9, ptr noundef nonnull %10) #19
-  %179 = load i64, ptr %10, align 8, !tbaa !166
-  store i64 %179, ptr %12, align 8, !tbaa !166
+  %179 = load i64, ptr %10, align 8, !tbaa !168
+  store i64 %179, ptr %12, align 8, !tbaa !168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #19
@@ -2483,7 +2483,7 @@ define internal range(i32 -1, 2) i32 @reject_entry(ptr readnone captures(none) %
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %10) #19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !162
+  %12 = load ptr, ptr %11, align 8, !tbaa !164
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
   %15 = load ptr, ptr %14, align 8, !tbaa !61
@@ -2659,53 +2659,55 @@ attributes #21 = { nounwind willreturn memory(read) }
 !114 = !{!106, !19, i64 56}
 !115 = !{!116, !18, i64 0}
 !116 = !{!"archiver", !18, i64 0, !10, i64 8, !5, i64 16, !18, i64 24}
-!117 = distinct !{!117, !31}
-!118 = !{!116, !5, i64 16}
-!119 = distinct !{!119, !31}
+!117 = distinct !{!117, !31, !118}
+!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = !{!116, !5, i64 16}
 !120 = distinct !{!120, !31}
-!121 = !{!16, !5, i64 108}
-!122 = !{!16, !18, i64 64}
-!123 = !{!124, !124, i64 0}
-!124 = !{!"p1 _ZTS12startup_info", !10, i64 0}
-!125 = !{!126, !5, i64 0}
-!126 = !{!"startup_info", !5, i64 0, !18, i64 8, !18, i64 16}
-!127 = !{!128, !19, i64 40}
-!128 = !{!"commit", !129, i64 0, !19, i64 40, !130, i64 48, !20, i64 56, !5, i64 64}
-!129 = !{!"object", !5, i64 0, !5, i64 0, !5, i64 0, !14, i64 4}
-!130 = !{!"p1 _ZTS11commit_list", !10, i64 0}
-!131 = !{!132, !19, i64 0}
-!132 = !{!"timeval", !19, i64 0, !19, i64 8}
-!133 = !{!134, !5, i64 16}
-!134 = !{!"unpack_trees_options", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !18, i64 72, !18, i64 80, !135, i64 88, !10, i64 96, !5, i64 104, !136, i64 112, !10, i64 120, !75, i64 128, !75, i64 136, !137, i64 144, !138, i64 224}
-!135 = !{!"p1 _ZTS8pathspec", !10, i64 0}
-!136 = !{!"p1 _ZTS11cache_entry", !10, i64 0}
-!137 = !{!"checkout_metadata", !18, i64 0, !14, i64 8, !14, i64 44}
-!138 = !{!"unpack_trees_options_internal", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 24, !139, i64 120, !6, i64 144, !141, i64 624, !149, i64 880, !150, i64 888}
-!139 = !{!"strvec", !140, i64 0, !19, i64 8, !19, i64 16}
-!140 = !{!"p2 omnipotent char", !10, i64 0}
-!141 = !{!"index_state", !142, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !97, i64 24, !143, i64 32, !144, i64 40, !145, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 60, !67, i64 64, !67, i64 112, !14, i64 160, !146, i64 200, !18, i64 208, !147, i64 216, !69, i64 224, !148, i64 232, !17, i64 240, !149, i64 248}
-!142 = !{!"p2 _ZTS11cache_entry", !10, i64 0}
-!143 = !{!"p1 _ZTS10cache_tree", !10, i64 0}
-!144 = !{!"p1 _ZTS11split_index", !10, i64 0}
-!145 = !{!"cache_time", !5, i64 0, !5, i64 4}
-!146 = !{!"p1 _ZTS15untracked_cache", !10, i64 0}
-!147 = !{!"p1 _ZTS11ewah_bitmap", !10, i64 0}
-!148 = !{!"p1 _ZTS8progress", !10, i64 0}
-!149 = !{!"p1 _ZTS12pattern_list", !10, i64 0}
-!150 = !{!"p1 _ZTS10dir_struct", !10, i64 0}
-!151 = !{!134, !5, i64 104}
-!152 = !{!134, !75, i64 136}
-!153 = !{!134, !75, i64 128}
-!154 = !{!134, !10, i64 96}
-!155 = !{!156, !10, i64 40}
-!156 = !{!"tree", !129, i64 0, !10, i64 40, !19, i64 48}
-!157 = !{!156, !19, i64 48}
-!158 = !{!16, !18, i64 8}
-!159 = !{!16, !21, i64 48}
-!160 = !{!16, !22, i64 56}
-!161 = !{!16, !19, i64 72}
-!162 = !{!163, !37, i64 24}
-!163 = !{!"path_exists_context", !23, i64 0, !37, i64 24}
-!164 = distinct !{!164, !31}
-!165 = !{!116, !10, i64 8}
-!166 = !{!19, !19, i64 0}
+!121 = distinct !{!121, !31}
+!122 = distinct !{!122, !31}
+!123 = !{!16, !5, i64 108}
+!124 = !{!16, !18, i64 64}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTS12startup_info", !10, i64 0}
+!127 = !{!128, !5, i64 0}
+!128 = !{!"startup_info", !5, i64 0, !18, i64 8, !18, i64 16}
+!129 = !{!130, !19, i64 40}
+!130 = !{!"commit", !131, i64 0, !19, i64 40, !132, i64 48, !20, i64 56, !5, i64 64}
+!131 = !{!"object", !5, i64 0, !5, i64 0, !5, i64 0, !14, i64 4}
+!132 = !{!"p1 _ZTS11commit_list", !10, i64 0}
+!133 = !{!134, !19, i64 0}
+!134 = !{!"timeval", !19, i64 0, !19, i64 8}
+!135 = !{!136, !5, i64 16}
+!136 = !{!"unpack_trees_options", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !18, i64 72, !18, i64 80, !137, i64 88, !10, i64 96, !5, i64 104, !138, i64 112, !10, i64 120, !75, i64 128, !75, i64 136, !139, i64 144, !140, i64 224}
+!137 = !{!"p1 _ZTS8pathspec", !10, i64 0}
+!138 = !{!"p1 _ZTS11cache_entry", !10, i64 0}
+!139 = !{!"checkout_metadata", !18, i64 0, !14, i64 8, !14, i64 44}
+!140 = !{!"unpack_trees_options_internal", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 24, !141, i64 120, !6, i64 144, !143, i64 624, !151, i64 880, !152, i64 888}
+!141 = !{!"strvec", !142, i64 0, !19, i64 8, !19, i64 16}
+!142 = !{!"p2 omnipotent char", !10, i64 0}
+!143 = !{!"index_state", !144, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !97, i64 24, !145, i64 32, !146, i64 40, !147, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 60, !67, i64 64, !67, i64 112, !14, i64 160, !148, i64 200, !18, i64 208, !149, i64 216, !69, i64 224, !150, i64 232, !17, i64 240, !151, i64 248}
+!144 = !{!"p2 _ZTS11cache_entry", !10, i64 0}
+!145 = !{!"p1 _ZTS10cache_tree", !10, i64 0}
+!146 = !{!"p1 _ZTS11split_index", !10, i64 0}
+!147 = !{!"cache_time", !5, i64 0, !5, i64 4}
+!148 = !{!"p1 _ZTS15untracked_cache", !10, i64 0}
+!149 = !{!"p1 _ZTS11ewah_bitmap", !10, i64 0}
+!150 = !{!"p1 _ZTS8progress", !10, i64 0}
+!151 = !{!"p1 _ZTS12pattern_list", !10, i64 0}
+!152 = !{!"p1 _ZTS10dir_struct", !10, i64 0}
+!153 = !{!136, !5, i64 104}
+!154 = !{!136, !75, i64 136}
+!155 = !{!136, !75, i64 128}
+!156 = !{!136, !10, i64 96}
+!157 = !{!158, !10, i64 40}
+!158 = !{!"tree", !131, i64 0, !10, i64 40, !19, i64 48}
+!159 = !{!158, !19, i64 48}
+!160 = !{!16, !18, i64 8}
+!161 = !{!16, !21, i64 48}
+!162 = !{!16, !22, i64 56}
+!163 = !{!16, !19, i64 72}
+!164 = !{!165, !37, i64 24}
+!165 = !{!"path_exists_context", !23, i64 0, !37, i64 24}
+!166 = distinct !{!166, !31}
+!167 = !{!116, !10, i64 8}
+!168 = !{!19, !19, i64 0}

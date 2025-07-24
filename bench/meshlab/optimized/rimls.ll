@@ -2168,7 +2168,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   store float %193, ptr %195, align 4
   %196 = add nuw i64 %.04263, 1
   %exitcond.not = icmp eq i64 %196, %umax88
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 197:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
   %198 = landingpad { ptr, i32 }
@@ -2310,11 +2310,11 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !22
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -2663,7 +2663,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %154 = fadd float %.sroa.8.0297.us, %151
   %155 = add nuw i32 %.098307.us, 1
   %exitcond.not = icmp eq i32 %155, %15
-  br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !27
 
 ._crit_edge.us:                                   ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit117.us
   %156 = fadd float %146, %138
@@ -2714,7 +2714,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   store float %193, ptr %198, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond395.not, label %.split321.us, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond395.not, label %.split321.us, label %.preheader.us, !llvm.loop !28
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.preheader ], [ 0, %3 ]
@@ -2756,7 +2756,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   store float %226, ptr %231, align 4
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next397, 3
-  br i1 %exitcond399.not, label %.split321.us, label %.preheader, !llvm.loop !26
+  br i1 %exitcond399.not, label %.split321.us, label %.preheader, !llvm.loop !29
 
 .split323.us:                                     ; preds = %79
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %80, i64 noundef %45) #24
@@ -2932,7 +2932,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   store float %84, ptr %86, align 4
   %87 = add nuw i64 %.01931, 1
   %exitcond.not = icmp eq i64 %87, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   ret void
@@ -4603,12 +4603,15 @@ attributes #27 = { builtin allocsize(0) }
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNK7GaelMls10MlsSurfaceI6CMeshOE9positionsEv: argument 0"}
 !18 = distinct !{!18, !"_ZNK7GaelMls10MlsSurfaceI6CMeshOE9positionsEv"}
-!19 = distinct !{!19, !6}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!23 = distinct !{!23, !22, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
+!19 = distinct !{!19, !6, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !6}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!25 = distinct !{!25, !24, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6, !20}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}

@@ -5452,7 +5452,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   store i16 %spec.select1938, ptr %243, align 2, !tbaa !73
   %456 = add nuw nsw i32 %.016641957, 2
   %457 = icmp slt i32 %456, %15
-  br i1 %457, label %45, label %._crit_edge.loopexit, !llvm.loop !125
+  br i1 %457, label %45, label %._crit_edge.loopexit, !llvm.loop !126
 
 ._crit_edge.loopexit:                             ; preds = %.thread1972
   %.pre = load i16, ptr %4, align 4, !tbaa !71
@@ -5464,7 +5464,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %460 = zext i16 %458 to i32
   %461 = add nsw i32 %460, -5
   %462 = icmp slt i32 %459, %461
-  br i1 %462, label %22, label %._crit_edge1961, !llvm.loop !126
+  br i1 %462, label %22, label %._crit_edge1961, !llvm.loop !127
 
 ._crit_edge1961:                                  ; preds = %._crit_edge, %1
   ret void
@@ -5476,7 +5476,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %4 = load i32, ptr %3, align 4, !tbaa !127
+  %4 = load i32, ptr %3, align 4, !tbaa !128
   %.not = icmp ne i32 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %6 = load i32, ptr %5, align 8
@@ -5919,7 +5919,7 @@ _ZN6LibRaw7dcb_mapEv.exit:                        ; preds = %._crit_edge.i26, %1
   tail call void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %182 = add nuw i32 %.0127, 1
   %exitcond.not = icmp eq i32 %.0127, %1
-  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %_ZN6LibRaw7dcb_mapEv.exit, %_ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit
   tail call void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6643,8 +6643,9 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !121 = distinct !{!121, !76}
 !122 = distinct !{!122, !76}
 !123 = distinct !{!123, !76}
-!124 = distinct !{!124, !76}
-!125 = distinct !{!125, !76}
+!124 = distinct !{!124, !76, !125}
+!125 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !126 = distinct !{!126, !76}
-!127 = !{!7, !15, i64 540}
-!128 = distinct !{!128, !76}
+!127 = distinct !{!127, !76}
+!128 = !{!7, !15, i64 540}
+!129 = distinct !{!129, !76}

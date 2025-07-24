@@ -4841,7 +4841,7 @@ sw.default.i:                                     ; preds = %for.body.i
 for.inc.i:                                        ; preds = %sw.default.i
   %inc.i = add nuw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %length
-  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !32
 
 if.then:                                          ; preds = %for.inc.i, %for.inc.us.i, %entry
   %cmp.not = icmp eq ptr %safe_prefix, null
@@ -4934,7 +4934,7 @@ if.else40:                                        ; preds = %if.else25
 for.inc:                                          ; preds = %if.then16, %if.then37, %if.else40, %if.then22
   %inc = add nuw i64 %j.023, 1
   %exitcond.not = icmp eq i64 %inc, %length
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.inc
   %18 = load ptr, ptr %out, align 8
@@ -5431,5 +5431,7 @@ attributes #21 = { nounwind allocsize(1) }
 !27 = distinct !{!27, !28, !"_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st: %agg.result"}
 !28 = distinct !{!28, !"_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st"}
 !29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
+!30 = distinct !{!30, !12, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !12}
+!33 = distinct !{!33, !12}

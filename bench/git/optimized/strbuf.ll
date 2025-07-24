@@ -2089,7 +2089,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.030, i64 noundef %49)
   %50 = sub i64 %.02129, %49
   %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %46, %.lr.ph.split.us, %5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2609,7 +2609,7 @@ strbuf_addch.exit17:                              ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %59, align 1, !tbaa !4
   %60 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %60, %4
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %strbuf_addch.exit17, %2
   ret void
@@ -2730,7 +2730,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 47:                                               ; preds = %strbuf_addch.exit, %23
   %48 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %48, %4
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %47, %3
   ret void
@@ -4144,7 +4144,7 @@ strbuf_addch.exit.i:                              ; preds = %51, %45, %.thread8.
 
 61:                                               ; preds = %59, %strbuf_addch.exit.i
   %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %strbuf_add_urlencode.exit, label %31, !llvm.loop !39
+  br i1 %.not.i, label %strbuf_add_urlencode.exit, label %31, !llvm.loop !41
 
 strbuf_add_urlencode.exit:                        ; preds = %61, %strbuf_grow.exit.i
   ret void
@@ -4285,14 +4285,14 @@ define dso_local range(i32 -1, -2147483648) i32 @printf_ln(ptr noundef readonly 
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !40, !noalias !42
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !44
   %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #25
   call void @llvm.va_end.p0(ptr nonnull %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !40
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !42
   %8 = call i32 @putc(i32 noundef 10, ptr noundef %7)
   %9 = icmp eq i32 %8, -1
   %10 = add nuw nsw i32 %4, 1
@@ -4355,7 +4355,7 @@ define dso_local ptr @xstrdup_tolower(ptr noundef readonly captures(none) %0) lo
   store i8 %.0.i9, ptr %11, align 1, !tbaa !4
   %12 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %3
@@ -4385,7 +4385,7 @@ define dso_local ptr @xstrdup_toupper(ptr noundef readonly captures(none) %0) lo
   store i8 %11, ptr %12, align 1, !tbaa !4
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %3
@@ -4815,7 +4815,7 @@ strbuf_add.exit69:                                ; preds = %.preheader, %77, %7
   %117 = ptrtoint ptr %.176 to i64
   %118 = sub i64 %116, %117
   %119 = icmp eq i64 %118, -1
-  br i1 %119, label %._crit_edge, label %19, !llvm.loop !47
+  br i1 %119, label %._crit_edge, label %19, !llvm.loop !49
 
 120:                                              ; preds = %strbuf_add.exit
   %121 = load i64, ptr %0, align 8, !tbaa !15
@@ -4982,7 +4982,7 @@ strbuf_grow.exit59:                               ; preds = %182, %183
   %188 = sub i64 %187, %185
   %189 = tail call i64 @strftime(ptr noundef %186, i64 noundef %188, ptr noundef %161, ptr noundef %2) #25
   %.not30 = icmp eq i64 %189, 0
-  br i1 %.not30, label %165, label %190, !llvm.loop !48
+  br i1 %.not30, label %165, label %190, !llvm.loop !50
 
 190:                                              ; preds = %strbuf_grow.exit59
   %191 = add i64 %189, -1
@@ -5157,7 +5157,7 @@ starts_with.exit.thread.us:                       ; preds = %54, %46
   %57 = add i64 %32, %.04462.us
   %58 = add i64 %.06.i55.us, %.146.us
   %59 = icmp ult i64 %57, %56
-  br i1 %59, label %starts_with.exit.us, label %._crit_edge, !llvm.loop !49
+  br i1 %59, label %starts_with.exit.us, label %._crit_edge, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %starts_with.exit.thread
   %60 = phi i64 [ %100, %starts_with.exit.thread ], [ %22, %.lr.ph ]
@@ -5256,7 +5256,7 @@ starts_with.exit.thread:                          ; preds = %73, %69, %90, %98
   %101 = add i64 %68, %.04462
   %102 = add i64 %.043, %.146
   %103 = icmp ult i64 %101, %100
-  br i1 %103, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
+  br i1 %103, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %starts_with.exit.thread, %starts_with.exit.thread.us
   %.045.lcssa = phi i64 [ %58, %starts_with.exit.thread.us ], [ %102, %starts_with.exit.thread ]
@@ -5415,17 +5415,20 @@ attributes #27 = { nounwind willreturn memory(none) }
 !33 = !{!28, !28, i64 0}
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
+!36 = distinct !{!36, !8, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"vprintf: argument 0"}
-!44 = distinct !{!44, !"vprintf"}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
+!40 = distinct !{!40, !8}
+!41 = distinct !{!41, !8}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"vprintf: argument 0"}
+!46 = distinct !{!46, !"vprintf"}
 !47 = distinct !{!47, !8}
 !48 = distinct !{!48, !8}
 !49 = distinct !{!49, !8}
+!50 = distinct !{!50, !8}
+!51 = distinct !{!51, !8, !37}
+!52 = distinct !{!52, !8}

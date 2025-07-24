@@ -148,7 +148,7 @@ switch.lookup:                                    ; preds = %9
   %.1 = phi i32 [ %.093, %64 ], [ %60, %59 ]
   %68 = add nuw nsw i32 %.04592, 1
   %exitcond96.not = icmp eq i32 %68, %spec.select
-  br i1 %exitcond96.not, label %.thread88, label %.preheader.split, !llvm.loop !3
+  br i1 %exitcond96.not, label %.thread88, label %.preheader.split, !llvm.loop !6
 
 .thread88:                                        ; preds = %45, %43, %41, %37, %35, %.preheader.split.us, %62, %59, %57, %53, %49, %.preheader.split, %67, %24, %27, %30
   %.3 = phi i32 [ %31, %30 ], [ %28, %27 ], [ %25, %24 ], [ 0, %67 ], [ %61, %59 ], [ %58, %57 ], [ %56, %53 ], [ %63, %62 ], [ %50, %49 ], [ %48, %.preheader.split ], [ 0, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %37 ], [ %36, %35 ], [ %34, %.preheader.split.us ]
@@ -163,19 +163,19 @@ switch.lookup:                                    ; preds = %9
   %.01528.i = phi ptr [ %69, %.lr.ph29.i ], [ %10, %.preheader23.i ]
   %.01827.i = phi i32 [ %70, %.lr.ph29.i ], [ 64, %.preheader23.i ]
   %69 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !5
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !7
   %70 = add nsw i32 %.01827.i, -8
   %.not90 = icmp eq i32 %70, 0
-  br i1 %.not90, label %.lr.ph29.i83, label %.lr.ph29.i, !llvm.loop !9
+  br i1 %.not90, label %.lr.ph29.i83, label %.lr.ph29.i, !llvm.loop !11
 
 .lr.ph29.i83:                                     ; preds = %.lr.ph29.i, %.lr.ph29.i83
   %.01528.i84 = phi ptr [ %71, %.lr.ph29.i83 ], [ %11, %.lr.ph29.i ]
   %.01827.i85 = phi i32 [ %72, %.lr.ph29.i83 ], [ 784, %.lr.ph29.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.01528.i84, i64 8
-  store volatile i64 0, ptr %.01528.i84, align 8, !tbaa !5
+  store volatile i64 0, ptr %.01528.i84, align 8, !tbaa !7
   %72 = add nsw i32 %.01827.i85, -8
   %.not91 = icmp eq i32 %72, 0
-  br i1 %.not91, label %ForceZero.exit86, label %.lr.ph29.i83, !llvm.loop !9
+  br i1 %.not91, label %ForceZero.exit86, label %.lr.ph29.i83, !llvm.loop !11
 
 ForceZero.exit86:                                 ; preds = %.lr.ph29.i83, %9, %switch.lookup
   %.048 = phi i32 [ -232, %9 ], [ -173, %switch.lookup ], [ %.046, %.lr.ph29.i83 ]
@@ -258,14 +258,14 @@ define i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nou
   %.sroa.0.0.i = phi ptr [ %40, %.lr.ph.i.i ], [ %11, %._crit_edge.i ]
   %.04.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  %41 = load i64, ptr %.sroa.0.0.i, align 8, !tbaa !5
+  %41 = load i64, ptr %.sroa.0.0.i, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.i, i64 8
-  %43 = load i64, ptr %.sroa.026.0.i, align 8, !tbaa !5
+  %43 = load i64, ptr %.sroa.026.0.i, align 8, !tbaa !7
   %44 = xor i64 %43, %41
-  store i64 %44, ptr %.sroa.026.0.i, align 8, !tbaa !5
+  store i64 %44, ptr %.sroa.026.0.i, align 8, !tbaa !7
   %45 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %45, %39
-  br i1 %exitcond.not.i.i, label %XorWords.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %XorWords.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit_edge.i
   %.sroa.026.1.i = phi ptr [ %0, %._crit_edge.i ], [ %42, %.lr.ph.i.i ]
@@ -287,14 +287,14 @@ XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i, %.lr.ph38.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph38.preheader.i ], [ %indvars.iv.next.i, %.lr.ph38.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %indvars.iv.i
-  %49 = load i8, ptr %48, align 1, !tbaa !11
+  %49 = load i8, ptr %48, align 1, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %.019.i, i64 %indvars.iv.i
-  %51 = load i8, ptr %50, align 1, !tbaa !11
+  %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = xor i8 %51, %49
-  store i8 %52, ptr %50, align 1, !tbaa !11
+  store i8 %52, ptr %50, align 1, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader23.i, label %.lr.ph38.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader23.i, label %.lr.ph38.i, !llvm.loop !14
 
 .preheader23.i:                                   ; preds = %.lr.ph38.i, %47
   %53 = icmp samesign ugt i32 %1, 7
@@ -310,19 +310,19 @@ XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit
   %.01528.i = phi ptr [ %54, %.lr.ph29.i ], [ %11, %.preheader23.i ]
   %.01827.i = phi i32 [ %55, %.lr.ph29.i ], [ %1, %.preheader23.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !5
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !7
   %55 = add i32 %.01827.i, -8
   %56 = icmp ugt i32 %55, 7
-  br i1 %56, label %.lr.ph29.i, label %.preheader.i42, !llvm.loop !9
+  br i1 %56, label %.lr.ph29.i, label %.preheader.i42, !llvm.loop !11
 
 .lr.ph35.i:                                       ; preds = %.preheader.i42, %.lr.ph35.i
   %.11734.i = phi ptr [ %58, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i42 ]
   %.11933.i = phi i32 [ %57, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i42 ]
   %57 = add i32 %.11933.i, -1
   %58 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !11
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !13
   %.not22.i = icmp eq i32 %57, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !13
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !15
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i42, %20, %26, %10, %16
   %.0 = phi i32 [ -132, %16 ], [ -132, %10 ], [ %33, %26 ], [ %24, %20 ], [ 0, %.preheader.i42 ], [ 0, %.lr.ph35.i ]
@@ -447,13 +447,13 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
 19:                                               ; preds = %13
   %20 = lshr i32 %1, 8
   %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %14, align 16, !tbaa !11
+  store i8 %21, ptr %14, align 16, !tbaa !13
   %22 = trunc i32 %1 to i8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store i8 %22, ptr %23, align 1, !tbaa !11
+  store i8 %22, ptr %23, align 1, !tbaa !13
   %24 = trunc i32 %15 to i8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i8 %24, ptr %25, align 2, !tbaa !11
+  store i8 %24, ptr %25, align 2, !tbaa !13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %30, label %26
 
@@ -483,7 +483,7 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
   %38 = add i32 %.1, 1
   %39 = zext i32 %.1 to i64
   %40 = getelementptr inbounds nuw [111 x i8], ptr %14, i64 0, i64 %39
-  store i8 %37, ptr %40, align 1, !tbaa !11
+  store i8 %37, ptr %40, align 1, !tbaa !13
   %.not46 = icmp eq i32 %9, 0
   br i1 %.not46, label %.preheader23.i, label %41
 
@@ -511,19 +511,19 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
   %.01528.i = phi ptr [ %48, %.lr.ph29.i ], [ %14, %.preheader23.i ]
   %.01827.i = phi i32 [ %49, %.lr.ph29.i ], [ %.2, %.preheader23.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !5
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !7
   %49 = add i32 %.01827.i, -8
   %50 = icmp ugt i32 %49, 7
-  br i1 %50, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !9
+  br i1 %50, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !11
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %52, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i ]
   %.11933.i = phi i32 [ %51, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i ]
   %51 = add i32 %.11933.i, -1
   %52 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !11
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !13
   %.not22.i = icmp eq i32 %51, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !13
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !15
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %13
   %.041 = phi i32 [ -132, %13 ], [ %46, %.preheader.i ], [ %46, %.lr.ph35.i ]
@@ -546,13 +546,13 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
 17:                                               ; preds = %11
   %18 = lshr i32 %1, 8
   %19 = trunc i32 %18 to i8
-  store i8 %19, ptr %12, align 16, !tbaa !11
+  store i8 %19, ptr %12, align 16, !tbaa !13
   %20 = trunc i32 %1 to i8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 %20, ptr %21, align 1, !tbaa !11
+  store i8 %20, ptr %21, align 1, !tbaa !13
   %22 = trunc i32 %13 to i8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store i8 %22, ptr %23, align 2, !tbaa !11
+  store i8 %22, ptr %23, align 2, !tbaa !13
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %28, label %24
 
@@ -582,7 +582,7 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
   %36 = add i32 %.1.i, 1
   %37 = zext i32 %.1.i to i64
   %38 = getelementptr inbounds nuw [111 x i8], ptr %12, i64 0, i64 %37
-  store i8 %35, ptr %38, align 1, !tbaa !11
+  store i8 %35, ptr %38, align 1, !tbaa !13
   %.not46.i = icmp eq i32 %9, 0
   br i1 %.not46.i, label %.preheader23.i.i, label %39
 
@@ -610,19 +610,19 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
   %.01528.i.i = phi ptr [ %46, %.lr.ph29.i.i ], [ %12, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %47, %.lr.ph29.i.i ], [ %.2.i, %.preheader23.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !5
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !7
   %47 = add i32 %.01827.i.i, -8
   %48 = icmp ugt i32 %47, 7
-  br i1 %48, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !9
+  br i1 %48, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !11
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %50, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %49, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i ]
   %49 = add i32 %.11933.i.i, -1
   %50 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !11
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !13
   %.not22.i.i = icmp eq i32 %49, 0
-  br i1 %.not22.i.i, label %wc_Tls13_HKDF_Expand_Label_ex.exit, label %.lr.ph35.i.i, !llvm.loop !13
+  br i1 %.not22.i.i, label %wc_Tls13_HKDF_Expand_Label_ex.exit, label %.lr.ph35.i.i, !llvm.loop !15
 
 wc_Tls13_HKDF_Expand_Label_ex.exit:               ; preds = %.lr.ph35.i.i, %11, %.preheader.i.i
   %.041.i = phi i32 [ -132, %11 ], [ %44, %.preheader.i.i ], [ %44, %.lr.ph35.i.i ]
@@ -646,14 +646,16 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"long", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = !{!7, !7, i64 0}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !4}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!13 = !{!9, !9, i64 0}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

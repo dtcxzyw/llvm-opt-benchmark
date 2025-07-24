@@ -23,55 +23,55 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringA(ptr noundef %0, ptr noun
 6:                                                ; preds = %2
   %7 = load i8, ptr %0, align 1, !tbaa !3
   %cond = icmp eq i8 %7, 47
-  br i1 %cond, label %.thread87.i, label %.thread87.split.us.split.i.preheader
+  br i1 %cond, label %.thread87.i, label %.thread87.split.us.i.preheader
 
 .thread87.i:                                      ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1, ptr noundef nonnull align 1 dereferenceable(7) @.str, i64 7, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  br label %.thread87.split.us.split.i.preheader
+  br label %.thread87.split.us.i.preheader
 
-.thread87.split.us.split.i.preheader:             ; preds = %6, %.thread87.i
+.thread87.split.us.i.preheader:                   ; preds = %6, %.thread87.i
   %.164.us.i.ph = phi ptr [ %1, %6 ], [ %8, %.thread87.i ]
-  br label %.thread87.split.us.split.i
+  br label %.thread87.split.us.i
 
-.thread87.split.us.split.i:                       ; preds = %.thread87.split.us.split.i.preheader, %19
-  %.164.us.i = phi ptr [ %.4.us.i, %19 ], [ %.164.us.i.ph, %.thread87.split.us.split.i.preheader ]
-  %.060.us.i = phi ptr [ %.1.us.i, %19 ], [ %3, %.thread87.split.us.split.i.preheader ]
-  %.059.us.i = phi ptr [ %20, %19 ], [ %0, %.thread87.split.us.split.i.preheader ]
+.thread87.split.us.i:                             ; preds = %.thread87.split.us.i.preheader, %.thread142.i.thread
+  %.164.us.i = phi ptr [ %.4.us.i, %.thread142.i.thread ], [ %.164.us.i.ph, %.thread87.split.us.i.preheader ]
+  %.060.us.i = phi ptr [ %.1.us.i, %.thread142.i.thread ], [ %3, %.thread87.split.us.i.preheader ]
+  %.059.us.i = phi ptr [ %18, %.thread142.i.thread ], [ %0, %.thread87.split.us.i.preheader ]
   %9 = load i8, ptr %.059.us.i, align 1, !tbaa !3
-  switch i8 %9, label %15 [
+  switch i8 %9, label %.thread142.i.thread [
     i8 47, label %10
     i8 0, label %10
   ]
 
-10:                                               ; preds = %.thread87.split.us.split.i, %.thread87.split.us.split.i
+10:                                               ; preds = %.thread87.split.us.i, %.thread87.split.us.i
   %11 = getelementptr inbounds nuw i8, ptr %.060.us.i, i64 1
   %12 = icmp ult ptr %11, %.059.us.i
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = tail call ptr @uriEscapeExA(ptr noundef nonnull %11, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre114.i = load i8, ptr %.059.us.i, align 1, !tbaa !3
+  %.pre112.i = load i8, ptr %.059.us.i, align 1, !tbaa !3
   br label %15
 
-15:                                               ; preds = %13, %10, %.thread87.split.us.split.i
-  %16 = phi i8 [ %.pre114.i, %13 ], [ %9, %10 ], [ %9, %.thread87.split.us.split.i ]
-  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ]
-  switch i8 %16, label %19 [
+15:                                               ; preds = %13, %10
+  %16 = phi i8 [ %.pre112.i, %13 ], [ %9, %10 ]
+  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ]
+  switch i8 %16, label %.thread142.i.thread [
     i8 0, label %.split.us.i
-    i8 47, label %17
+    i8 47, label %.sink.split.i
   ]
 
-17:                                               ; preds = %15
+.sink.split.i:                                    ; preds = %15
   store i8 47, ptr %.2.us.i, align 1, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 1
-  br label %19
+  %17 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 1
+  br label %.thread142.i.thread
 
-19:                                               ; preds = %17, %15
-  %.4.us.i = phi ptr [ %18, %17 ], [ %.2.us.i, %15 ]
-  %.1.us.i = phi ptr [ %.059.us.i, %17 ], [ %.060.us.i, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 1
-  br label %.thread87.split.us.split.i
+.thread142.i.thread:                              ; preds = %15, %.thread87.split.us.i, %.sink.split.i
+  %.4.us.i = phi ptr [ %17, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %15 ]
+  %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 1
+  br label %.thread87.split.us.i, !llvm.loop !6
 
 .split.us.i:                                      ; preds = %15
   store i8 0, ptr %.2.us.i, align 1, !tbaa !3
@@ -94,7 +94,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   %7 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %7, label %..thread78_crit_edge.i [
     i8 92, label %.thread.i
-    i8 0, label %.thread87.split.us.split.us.i.preheader
+    i8 0, label %.thread87.split.us.i.preheader
   ]
 
 .thread.i:                                        ; preds = %6
@@ -113,10 +113,10 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   %12 = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
   %13 = icmp eq i8 %11, 58
   %brmerge.i = select i1 %13, i1 true, i1 %12
-  br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.split.us.i.preheader
+  br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.i.preheader
 
-.thread87.split.us.split.us.i.preheader:          ; preds = %6, %.thread78.i
-  br label %.thread87.split.us.split.us.i
+.thread87.split.us.i.preheader:                   ; preds = %6, %.thread78.i
+  br label %.thread87.split.us.i
 
 .thread83.i:                                      ; preds = %.thread78.i
   %not..i = xor i1 %13, true
@@ -128,107 +128,107 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
   br label %.thread87.split.split.us.i
 
-.thread87.split.us.split.us.i:                    ; preds = %.thread87.split.us.split.us.i.preheader, %26
-  %16 = phi i8 [ %.pre, %26 ], [ %7, %.thread87.split.us.split.us.i.preheader ]
-  %.164.us.us.i = phi ptr [ %.4.us.us.i, %26 ], [ %1, %.thread87.split.us.split.us.i.preheader ]
-  %.060.us.us.i = phi ptr [ %.1.us.us.i, %26 ], [ %3, %.thread87.split.us.split.us.i.preheader ]
-  %.059.us.us.i = phi ptr [ %27, %26 ], [ %0, %.thread87.split.us.split.us.i.preheader ]
-  switch i8 %16, label %22 [
+.thread87.split.us.i:                             ; preds = %.thread87.split.us.i.preheader, %.thread142.i.thread
+  %16 = phi i8 [ %.pre, %.thread142.i.thread ], [ %7, %.thread87.split.us.i.preheader ]
+  %.164.us.i = phi ptr [ %.4.us.i, %.thread142.i.thread ], [ %1, %.thread87.split.us.i.preheader ]
+  %.060.us.i = phi ptr [ %.1.us.i, %.thread142.i.thread ], [ %3, %.thread87.split.us.i.preheader ]
+  %.059.us.i = phi ptr [ %25, %.thread142.i.thread ], [ %0, %.thread87.split.us.i.preheader ]
+  switch i8 %16, label %.thread142.i.thread [
     i8 92, label %17
     i8 0, label %17
   ]
 
-17:                                               ; preds = %.thread87.split.us.split.us.i, %.thread87.split.us.split.us.i
-  %18 = getelementptr inbounds nuw i8, ptr %.060.us.us.i, i64 1
-  %19 = icmp ult ptr %18, %.059.us.us.i
+17:                                               ; preds = %.thread87.split.us.i, %.thread87.split.us.i
+  %18 = getelementptr inbounds nuw i8, ptr %.060.us.i, i64 1
+  %19 = icmp ult ptr %18, %.059.us.i
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @uriEscapeExA(ptr noundef nonnull %18, ptr noundef nonnull %.059.us.us.i, ptr noundef %.164.us.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre115.i = load i8, ptr %.059.us.us.i, align 1, !tbaa !3
+  %21 = tail call ptr @uriEscapeExA(ptr noundef nonnull %18, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
+  %.pre112.i = load i8, ptr %.059.us.i, align 1, !tbaa !3
   br label %22
 
-22:                                               ; preds = %20, %17, %.thread87.split.us.split.us.i
-  %23 = phi i8 [ %.pre115.i, %20 ], [ %16, %17 ], [ %16, %.thread87.split.us.split.us.i ]
-  %.2.us.us.i = phi ptr [ %21, %20 ], [ %.164.us.us.i, %17 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ]
-  switch i8 %23, label %26 [
+22:                                               ; preds = %20, %17
+  %23 = phi i8 [ %.pre112.i, %20 ], [ %16, %17 ]
+  %.2.us.i = phi ptr [ %21, %20 ], [ %.164.us.i, %17 ]
+  switch i8 %23, label %.thread142.i.thread [
     i8 0, label %.split.us.i
-    i8 92, label %24
+    i8 92, label %.sink.split.i
   ]
 
-24:                                               ; preds = %22
-  store i8 47, ptr %.2.us.us.i, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %.2.us.us.i, i64 1
-  br label %26
+.sink.split.i:                                    ; preds = %22
+  store i8 47, ptr %.2.us.i, align 1, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 1
+  br label %.thread142.i.thread
 
-26:                                               ; preds = %24, %22
-  %.4.us.us.i = phi ptr [ %25, %24 ], [ %.2.us.us.i, %22 ]
-  %.1.us.us.i = phi ptr [ %.059.us.us.i, %24 ], [ %.060.us.us.i, %22 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.059.us.us.i, i64 1
-  %.pre = load i8, ptr %27, align 1, !tbaa !3
-  br label %.thread87.split.us.split.us.i
+.thread142.i.thread:                              ; preds = %22, %.thread87.split.us.i, %.sink.split.i
+  %.4.us.i = phi ptr [ %24, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %22 ]
+  %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %22 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 1
+  %.pre = load i8, ptr %25, align 1, !tbaa !3
+  br label %.thread87.split.us.i, !llvm.loop !6
 
-.thread87.split.split.us.i:                       ; preds = %45, %.thread83.i
-  %.164.us96.i = phi ptr [ %.4.us106.i, %45 ], [ %15, %.thread83.i ]
-  %.061.us97.i = phi i32 [ %.162.us103.i, %45 ], [ 1, %.thread83.i ]
-  %.060.us98.i = phi ptr [ %.1.us107.i, %45 ], [ %3, %.thread83.i ]
-  %.059.us99.i = phi ptr [ %46, %45 ], [ %0, %.thread83.i ]
-  %28 = load i8, ptr %.059.us99.i, align 1, !tbaa !3
-  switch i8 %28, label %41 [
-    i8 92, label %29
-    i8 0, label %29
+.thread87.split.split.us.i:                       ; preds = %43, %.thread83.i
+  %.164.us96.i = phi ptr [ %.4.us106.i, %43 ], [ %15, %.thread83.i ]
+  %.061.us97.i = phi i32 [ %.162.us103.i, %43 ], [ 1, %.thread83.i ]
+  %.060.us98.i = phi ptr [ %.1.us107.i, %43 ], [ %3, %.thread83.i ]
+  %.059.us99.i = phi ptr [ %44, %43 ], [ %0, %.thread83.i ]
+  %26 = load i8, ptr %.059.us99.i, align 1, !tbaa !3
+  switch i8 %26, label %39 [
+    i8 92, label %27
+    i8 0, label %27
   ]
 
-29:                                               ; preds = %.thread87.split.split.us.i, %.thread87.split.split.us.i
-  %30 = getelementptr inbounds nuw i8, ptr %.060.us98.i, i64 1
-  %31 = icmp ult ptr %30, %.059.us99.i
-  br i1 %31, label %32, label %thread-pre-split.i
+27:                                               ; preds = %.thread87.split.split.us.i, %.thread87.split.split.us.i
+  %28 = getelementptr inbounds nuw i8, ptr %.060.us98.i, i64 1
+  %29 = icmp ult ptr %28, %.059.us99.i
+  br i1 %29, label %30, label %thread-pre-split.i
 
-32:                                               ; preds = %29
-  %.not156.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not156.i, label %33, label %35
+30:                                               ; preds = %27
+  %.not147.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not147.i, label %31, label %33
 
-33:                                               ; preds = %32
-  %34 = tail call ptr @uriEscapeExA(ptr noundef nonnull %30, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
+31:                                               ; preds = %30
+  %32 = tail call ptr @uriEscapeExA(ptr noundef nonnull %28, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
   br label %thread-pre-split.i
 
-35:                                               ; preds = %32
-  %36 = ptrtoint ptr %.059.us99.i to i64
-  %37 = ptrtoint ptr %30 to i64
-  %38 = sub i64 %36, %37
-  %sext.us.i = shl i64 %38, 32
-  %39 = ashr exact i64 %sext.us.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.164.us96.i, ptr nonnull align 1 %30, i64 %39, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.164.us96.i, i64 %39
+33:                                               ; preds = %30
+  %34 = ptrtoint ptr %.059.us99.i to i64
+  %35 = ptrtoint ptr %28 to i64
+  %36 = sub i64 %34, %35
+  %sext.us.i = shl i64 %36, 32
+  %37 = ashr exact i64 %sext.us.i, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.164.us96.i, ptr nonnull align 1 %28, i64 %37, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.164.us96.i, i64 %37
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %35, %33, %29
-  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %29 ], [ %34, %33 ], [ %40, %35 ]
+thread-pre-split.i:                               ; preds = %33, %31, %27
+  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %27 ], [ %32, %31 ], [ %38, %33 ]
   %.pr.i = load i8, ptr %.059.us99.i, align 1, !tbaa !3
-  br label %41
+  br label %39
 
-41:                                               ; preds = %thread-pre-split.i, %.thread87.split.split.us.i
-  %42 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %28, %.thread87.split.split.us.i ]
+39:                                               ; preds = %thread-pre-split.i, %.thread87.split.split.us.i
+  %40 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %26, %.thread87.split.split.us.i ]
   %.2.us102.i = phi ptr [ %.2.us102.ph.i, %thread-pre-split.i ], [ %.164.us96.i, %.thread87.split.split.us.i ]
   %.162.us103.i = phi i32 [ 0, %thread-pre-split.i ], [ %.061.us97.i, %.thread87.split.split.us.i ]
-  switch i8 %42, label %45 [
+  switch i8 %40, label %43 [
     i8 0, label %.split.us.i
-    i8 92, label %43
+    i8 92, label %41
   ]
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   store i8 47, ptr %.2.us102.i, align 1, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %.2.us102.i, i64 1
-  br label %45
+  %42 = getelementptr inbounds nuw i8, ptr %.2.us102.i, i64 1
+  br label %43
 
-45:                                               ; preds = %43, %41
-  %.4.us106.i = phi ptr [ %44, %43 ], [ %.2.us102.i, %41 ]
-  %.1.us107.i = phi ptr [ %.059.us99.i, %43 ], [ %.060.us98.i, %41 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 1
-  br label %.thread87.split.split.us.i
+43:                                               ; preds = %41, %39
+  %.4.us106.i = phi ptr [ %42, %41 ], [ %.2.us102.i, %39 ]
+  %.1.us107.i = phi ptr [ %.059.us99.i, %41 ], [ %.060.us98.i, %39 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 1
+  br label %.thread87.split.split.us.i, !llvm.loop !8
 
-.split.us.i:                                      ; preds = %22, %41
-  %.us-phi.i = phi ptr [ %.2.us102.i, %41 ], [ %.2.us.us.i, %22 ]
+.split.us.i:                                      ; preds = %22, %39
+  %.us-phi.i = phi ptr [ %.2.us102.i, %39 ], [ %.2.us.i, %22 ]
   store i8 0, ptr %.us-phi.i, align 1, !tbaa !3
   br label %uriFilenameToUriStringA.exit
 
@@ -348,7 +348,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly 
 
 31:                                               ; preds = %30, %.preheader.i
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %.preheader.i, !llvm.loop !6
+  br label %.preheader.i, !llvm.loop !9
 
 uriUriStringToFilenameA.exit:                     ; preds = %.preheader.i, %2
   %.046.i = phi i32 [ 2, %2 ], [ 0, %.preheader.i ]
@@ -364,60 +364,60 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   br i1 %or.cond.i, label %uriFilenameToUriStringW.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %0, align 4, !tbaa !8
+  %7 = load i32, ptr %0, align 4, !tbaa !11
   %cond = icmp eq i32 %7, 47
-  br i1 %cond, label %.thread87.i, label %.thread87.split.us.split.i.preheader
+  br i1 %cond, label %.thread87.i, label %.thread87.split.us.i.preheader
 
 .thread87.i:                                      ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1, ptr noundef nonnull align 4 dereferenceable(28) @.str.4, i64 28, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  br label %.thread87.split.us.split.i.preheader
+  br label %.thread87.split.us.i.preheader
 
-.thread87.split.us.split.i.preheader:             ; preds = %6, %.thread87.i
+.thread87.split.us.i.preheader:                   ; preds = %6, %.thread87.i
   %.164.us.i.ph = phi ptr [ %1, %6 ], [ %8, %.thread87.i ]
-  br label %.thread87.split.us.split.i
+  br label %.thread87.split.us.i
 
-.thread87.split.us.split.i:                       ; preds = %.thread87.split.us.split.i.preheader, %19
-  %.164.us.i = phi ptr [ %.4.us.i, %19 ], [ %.164.us.i.ph, %.thread87.split.us.split.i.preheader ]
-  %.060.us.i = phi ptr [ %.1.us.i, %19 ], [ %3, %.thread87.split.us.split.i.preheader ]
-  %.059.us.i = phi ptr [ %20, %19 ], [ %0, %.thread87.split.us.split.i.preheader ]
-  %9 = load i32, ptr %.059.us.i, align 4, !tbaa !8
-  switch i32 %9, label %15 [
+.thread87.split.us.i:                             ; preds = %.thread87.split.us.i.preheader, %.thread138.i.thread
+  %.164.us.i = phi ptr [ %.4.us.i, %.thread138.i.thread ], [ %.164.us.i.ph, %.thread87.split.us.i.preheader ]
+  %.060.us.i = phi ptr [ %.1.us.i, %.thread138.i.thread ], [ %3, %.thread87.split.us.i.preheader ]
+  %.059.us.i = phi ptr [ %18, %.thread138.i.thread ], [ %0, %.thread87.split.us.i.preheader ]
+  %9 = load i32, ptr %.059.us.i, align 4, !tbaa !11
+  switch i32 %9, label %.thread138.i.thread [
     i32 47, label %10
     i32 0, label %10
   ]
 
-10:                                               ; preds = %.thread87.split.us.split.i, %.thread87.split.us.split.i
+10:                                               ; preds = %.thread87.split.us.i, %.thread87.split.us.i
   %11 = getelementptr inbounds nuw i8, ptr %.060.us.i, i64 4
   %12 = icmp ult ptr %11, %.059.us.i
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = tail call ptr @uriEscapeExW(ptr noundef nonnull %11, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre114.i = load i32, ptr %.059.us.i, align 4, !tbaa !8
+  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !11
   br label %15
 
-15:                                               ; preds = %13, %10, %.thread87.split.us.split.i
-  %16 = phi i32 [ %.pre114.i, %13 ], [ %9, %10 ], [ %9, %.thread87.split.us.split.i ]
-  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ]
-  switch i32 %16, label %19 [
+15:                                               ; preds = %13, %10
+  %16 = phi i32 [ %.pre112.i, %13 ], [ %9, %10 ]
+  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ]
+  switch i32 %16, label %.thread138.i.thread [
     i32 0, label %.split.us.i
-    i32 47, label %17
+    i32 47, label %.sink.split.i
   ]
 
-17:                                               ; preds = %15
-  store i32 47, ptr %.2.us.i, align 4, !tbaa !8
-  %18 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 4
-  br label %19
+.sink.split.i:                                    ; preds = %15
+  store i32 47, ptr %.2.us.i, align 4, !tbaa !11
+  %17 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 4
+  br label %.thread138.i.thread
 
-19:                                               ; preds = %17, %15
-  %.4.us.i = phi ptr [ %18, %17 ], [ %.2.us.i, %15 ]
-  %.1.us.i = phi ptr [ %.059.us.i, %17 ], [ %.060.us.i, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 4
-  br label %.thread87.split.us.split.i
+.thread138.i.thread:                              ; preds = %15, %.thread87.split.us.i, %.sink.split.i
+  %.4.us.i = phi ptr [ %17, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %15 ]
+  %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 4
+  br label %.thread87.split.us.i, !llvm.loop !13
 
 .split.us.i:                                      ; preds = %15
-  store i32 0, ptr %.2.us.i, align 4, !tbaa !8
+  store i32 0, ptr %.2.us.i, align 4, !tbaa !11
   br label %uriFilenameToUriStringW.exit
 
 uriFilenameToUriStringW.exit:                     ; preds = %2, %.split.us.i
@@ -434,21 +434,21 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br i1 %or.cond.i, label %uriFilenameToUriStringW.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %0, align 4, !tbaa !8
+  %7 = load i32, ptr %0, align 4, !tbaa !11
   switch i32 %7, label %..thread78_crit_edge.i [
     i32 92, label %.thread.i
-    i32 0, label %.thread87.split.us.split.us.i.preheader
+    i32 0, label %.thread87.split.us.i.preheader
   ]
 
 .thread.i:                                        ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !8
+  %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = icmp eq i32 %9, 92
   br label %.thread78.i
 
 ..thread78_crit_edge.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !8
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !11
   br label %.thread78.i
 
 .thread78.i:                                      ; preds = %..thread78_crit_edge.i, %.thread.i
@@ -456,10 +456,10 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %12 = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
   %13 = icmp eq i32 %11, 58
   %brmerge.i = select i1 %13, i1 true, i1 %12
-  br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.split.us.i.preheader
+  br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.i.preheader
 
-.thread87.split.us.split.us.i.preheader:          ; preds = %6, %.thread78.i
-  br label %.thread87.split.us.split.us.i
+.thread87.split.us.i.preheader:                   ; preds = %6, %.thread78.i
+  br label %.thread87.split.us.i
 
 .thread83.i:                                      ; preds = %.thread78.i
   %not..i = xor i1 %13, true
@@ -472,109 +472,109 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %14
   br label %.thread87.split.split.us.i
 
-.thread87.split.us.split.us.i:                    ; preds = %.thread87.split.us.split.us.i.preheader, %27
-  %17 = phi i32 [ %.pre, %27 ], [ %7, %.thread87.split.us.split.us.i.preheader ]
-  %.164.us.us.i = phi ptr [ %.4.us.us.i, %27 ], [ %1, %.thread87.split.us.split.us.i.preheader ]
-  %.060.us.us.i = phi ptr [ %.1.us.us.i, %27 ], [ %3, %.thread87.split.us.split.us.i.preheader ]
-  %.059.us.us.i = phi ptr [ %28, %27 ], [ %0, %.thread87.split.us.split.us.i.preheader ]
-  switch i32 %17, label %23 [
+.thread87.split.us.i:                             ; preds = %.thread87.split.us.i.preheader, %.thread138.i.thread
+  %17 = phi i32 [ %.pre, %.thread138.i.thread ], [ %7, %.thread87.split.us.i.preheader ]
+  %.164.us.i = phi ptr [ %.4.us.i, %.thread138.i.thread ], [ %1, %.thread87.split.us.i.preheader ]
+  %.060.us.i = phi ptr [ %.1.us.i, %.thread138.i.thread ], [ %3, %.thread87.split.us.i.preheader ]
+  %.059.us.i = phi ptr [ %26, %.thread138.i.thread ], [ %0, %.thread87.split.us.i.preheader ]
+  switch i32 %17, label %.thread138.i.thread [
     i32 92, label %18
     i32 0, label %18
   ]
 
-18:                                               ; preds = %.thread87.split.us.split.us.i, %.thread87.split.us.split.us.i
-  %19 = getelementptr inbounds nuw i8, ptr %.060.us.us.i, i64 4
-  %20 = icmp ult ptr %19, %.059.us.us.i
+18:                                               ; preds = %.thread87.split.us.i, %.thread87.split.us.i
+  %19 = getelementptr inbounds nuw i8, ptr %.060.us.i, i64 4
+  %20 = icmp ult ptr %19, %.059.us.i
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @uriEscapeExW(ptr noundef nonnull %19, ptr noundef nonnull %.059.us.us.i, ptr noundef %.164.us.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre115.i = load i32, ptr %.059.us.us.i, align 4, !tbaa !8
+  %22 = tail call ptr @uriEscapeExW(ptr noundef nonnull %19, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
+  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !11
   br label %23
 
-23:                                               ; preds = %21, %18, %.thread87.split.us.split.us.i
-  %24 = phi i32 [ %.pre115.i, %21 ], [ %17, %18 ], [ %17, %.thread87.split.us.split.us.i ]
-  %.2.us.us.i = phi ptr [ %22, %21 ], [ %.164.us.us.i, %18 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ]
-  switch i32 %24, label %27 [
+23:                                               ; preds = %21, %18
+  %24 = phi i32 [ %.pre112.i, %21 ], [ %17, %18 ]
+  %.2.us.i = phi ptr [ %22, %21 ], [ %.164.us.i, %18 ]
+  switch i32 %24, label %.thread138.i.thread [
     i32 0, label %.split.us.i
-    i32 92, label %25
+    i32 92, label %.sink.split.i
   ]
 
-25:                                               ; preds = %23
-  store i32 47, ptr %.2.us.us.i, align 4, !tbaa !8
-  %26 = getelementptr inbounds nuw i8, ptr %.2.us.us.i, i64 4
-  br label %27
+.sink.split.i:                                    ; preds = %23
+  store i32 47, ptr %.2.us.i, align 4, !tbaa !11
+  %25 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 4
+  br label %.thread138.i.thread
 
-27:                                               ; preds = %25, %23
-  %.4.us.us.i = phi ptr [ %26, %25 ], [ %.2.us.us.i, %23 ]
-  %.1.us.us.i = phi ptr [ %.059.us.us.i, %25 ], [ %.060.us.us.i, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.059.us.us.i, i64 4
-  %.pre = load i32, ptr %28, align 4, !tbaa !8
-  br label %.thread87.split.us.split.us.i
+.thread138.i.thread:                              ; preds = %23, %.thread87.split.us.i, %.sink.split.i
+  %.4.us.i = phi ptr [ %25, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %23 ]
+  %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 4
+  %.pre = load i32, ptr %26, align 4, !tbaa !11
+  br label %.thread87.split.us.i, !llvm.loop !13
 
-.thread87.split.split.us.i:                       ; preds = %47, %.thread83.i
-  %.164.us96.i = phi ptr [ %.4.us106.i, %47 ], [ %16, %.thread83.i ]
-  %.061.us97.i = phi i32 [ %.162.us103.i, %47 ], [ 1, %.thread83.i ]
-  %.060.us98.i = phi ptr [ %.1.us107.i, %47 ], [ %3, %.thread83.i ]
-  %.059.us99.i = phi ptr [ %48, %47 ], [ %0, %.thread83.i ]
-  %29 = load i32, ptr %.059.us99.i, align 4, !tbaa !8
-  switch i32 %29, label %43 [
-    i32 92, label %30
-    i32 0, label %30
+.thread87.split.split.us.i:                       ; preds = %45, %.thread83.i
+  %.164.us96.i = phi ptr [ %.4.us106.i, %45 ], [ %16, %.thread83.i ]
+  %.061.us97.i = phi i32 [ %.162.us103.i, %45 ], [ 1, %.thread83.i ]
+  %.060.us98.i = phi ptr [ %.1.us107.i, %45 ], [ %3, %.thread83.i ]
+  %.059.us99.i = phi ptr [ %46, %45 ], [ %0, %.thread83.i ]
+  %27 = load i32, ptr %.059.us99.i, align 4, !tbaa !11
+  switch i32 %27, label %41 [
+    i32 92, label %28
+    i32 0, label %28
   ]
 
-30:                                               ; preds = %.thread87.split.split.us.i, %.thread87.split.split.us.i
-  %31 = getelementptr inbounds nuw i8, ptr %.060.us98.i, i64 4
-  %32 = icmp ult ptr %31, %.059.us99.i
-  br i1 %32, label %33, label %thread-pre-split.i
+28:                                               ; preds = %.thread87.split.split.us.i, %.thread87.split.split.us.i
+  %29 = getelementptr inbounds nuw i8, ptr %.060.us98.i, i64 4
+  %30 = icmp ult ptr %29, %.059.us99.i
+  br i1 %30, label %31, label %thread-pre-split.i
 
-33:                                               ; preds = %30
-  %.not152.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not152.i, label %34, label %36
+31:                                               ; preds = %28
+  %.not143.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not143.i, label %32, label %34
 
-34:                                               ; preds = %33
-  %35 = tail call ptr @uriEscapeExW(ptr noundef nonnull %31, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
+32:                                               ; preds = %31
+  %33 = tail call ptr @uriEscapeExW(ptr noundef nonnull %29, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
   br label %thread-pre-split.i
 
-36:                                               ; preds = %33
-  %37 = ptrtoint ptr %.059.us99.i to i64
-  %38 = ptrtoint ptr %31 to i64
-  %39 = sub i64 %37, %38
-  %sext.us.i = shl i64 %39, 30
-  %40 = ashr i64 %sext.us.i, 32
-  %41 = shl nsw i64 %40, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.164.us96.i, ptr nonnull align 4 %31, i64 %41, i1 false)
-  %42 = getelementptr inbounds i32, ptr %.164.us96.i, i64 %40
+34:                                               ; preds = %31
+  %35 = ptrtoint ptr %.059.us99.i to i64
+  %36 = ptrtoint ptr %29 to i64
+  %37 = sub i64 %35, %36
+  %sext.us.i = shl i64 %37, 30
+  %38 = ashr i64 %sext.us.i, 32
+  %39 = shl nsw i64 %38, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.164.us96.i, ptr nonnull align 4 %29, i64 %39, i1 false)
+  %40 = getelementptr inbounds i32, ptr %.164.us96.i, i64 %38
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %36, %34, %30
-  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %30 ], [ %35, %34 ], [ %42, %36 ]
-  %.pr.i = load i32, ptr %.059.us99.i, align 4, !tbaa !8
-  br label %43
+thread-pre-split.i:                               ; preds = %34, %32, %28
+  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %28 ], [ %33, %32 ], [ %40, %34 ]
+  %.pr.i = load i32, ptr %.059.us99.i, align 4, !tbaa !11
+  br label %41
 
-43:                                               ; preds = %thread-pre-split.i, %.thread87.split.split.us.i
-  %44 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %29, %.thread87.split.split.us.i ]
+41:                                               ; preds = %thread-pre-split.i, %.thread87.split.split.us.i
+  %42 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %27, %.thread87.split.split.us.i ]
   %.2.us102.i = phi ptr [ %.2.us102.ph.i, %thread-pre-split.i ], [ %.164.us96.i, %.thread87.split.split.us.i ]
   %.162.us103.i = phi i32 [ 0, %thread-pre-split.i ], [ %.061.us97.i, %.thread87.split.split.us.i ]
-  switch i32 %44, label %47 [
+  switch i32 %42, label %45 [
     i32 0, label %.split.us.i
-    i32 92, label %45
+    i32 92, label %43
   ]
 
-45:                                               ; preds = %43
-  store i32 47, ptr %.2.us102.i, align 4, !tbaa !8
-  %46 = getelementptr inbounds nuw i8, ptr %.2.us102.i, i64 4
-  br label %47
+43:                                               ; preds = %41
+  store i32 47, ptr %.2.us102.i, align 4, !tbaa !11
+  %44 = getelementptr inbounds nuw i8, ptr %.2.us102.i, i64 4
+  br label %45
 
-47:                                               ; preds = %45, %43
-  %.4.us106.i = phi ptr [ %46, %45 ], [ %.2.us102.i, %43 ]
-  %.1.us107.i = phi ptr [ %.059.us99.i, %45 ], [ %.060.us98.i, %43 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 4
-  br label %.thread87.split.split.us.i
+45:                                               ; preds = %43, %41
+  %.4.us106.i = phi ptr [ %44, %43 ], [ %.2.us102.i, %41 ]
+  %.1.us107.i = phi ptr [ %.059.us99.i, %43 ], [ %.060.us98.i, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 4
+  br label %.thread87.split.split.us.i, !llvm.loop !14
 
-.split.us.i:                                      ; preds = %23, %43
-  %.us-phi.i = phi ptr [ %.2.us102.i, %43 ], [ %.2.us.us.i, %23 ]
-  store i32 0, ptr %.us-phi.i, align 4, !tbaa !8
+.split.us.i:                                      ; preds = %23, %41
+  %.us-phi.i = phi ptr [ %.2.us102.i, %41 ], [ %.2.us.i, %23 ]
+  store i32 0, ptr %.us-phi.i, align 4, !tbaa !11
   br label %uriFilenameToUriStringW.exit
 
 uriFilenameToUriStringW.exit:                     ; preds = %2, %.split.us.i
@@ -662,9 +662,9 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %17
-  store i32 92, ptr %1, align 4, !tbaa !8
+  store i32 92, ptr %1, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 92, ptr %24, align 4, !tbaa !8
+  store i32 92, ptr %24, align 4, !tbaa !11
   br label %25
 
 25:                                               ; preds = %.thread, %23, %17
@@ -679,19 +679,19 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %34, %25
   %.0.i = phi ptr [ %35, %34 ], [ %1, %25 ]
-  %32 = load i32, ptr %.0.i, align 4, !tbaa !8
+  %32 = load i32, ptr %.0.i, align 4, !tbaa !11
   switch i32 %32, label %34 [
     i32 0, label %uriUriStringToFilenameW.exit
     i32 47, label %33
   ]
 
 33:                                               ; preds = %.preheader.i
-  store i32 92, ptr %.0.i, align 4, !tbaa !8
+  store i32 92, ptr %.0.i, align 4, !tbaa !11
   br label %34
 
 34:                                               ; preds = %33, %.preheader.i
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i, !llvm.loop !15
 
 uriUriStringToFilenameW.exit:                     ; preds = %.preheader.i, %2
   %.046.i = phi i32 [ 2, %2 ], [ %32, %.preheader.i ]
@@ -738,7 +738,12 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !10}

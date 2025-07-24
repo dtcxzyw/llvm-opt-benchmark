@@ -189,7 +189,7 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %88 = add nsw i64 %.1123, 2
   %89 = add nsw i64 %.0127, -1
   %90 = icmp sgt i64 %.0127, 1
-  br i1 %90, label %.preheader152.split.split, label %.loopexit153, !llvm.loop !9
+  br i1 %90, label %.preheader152.split.split, label %.loopexit153, !llvm.loop !11
 
 .loopexit153:                                     ; preds = %87, %74, %.preheader152.split.split.us.preheader, %7
   %.0130 = phi ptr [ %6, %7 ], [ %6, %.preheader152.split.split.us.preheader ], [ %.5135.us, %74 ], [ %.5135, %87 ]
@@ -244,7 +244,7 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %110 = add nsw i64 %.2126, 1
   %111 = add nsw i64 %.1129, -1
   %112 = icmp sgt i64 %.1129, 1
-  br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %109, %.loopexit153
   ret i32 0
@@ -263,5 +263,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

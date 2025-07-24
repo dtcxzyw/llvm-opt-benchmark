@@ -3592,7 +3592,7 @@ HandleFullControllerState.exit:                   ; preds = %1015, %1255, %1442,
   %1654 = getelementptr inbounds nuw i8, ptr %1653, i64 136
   %1655 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %1654) #9
   %1656 = icmp sgt i32 %1655, 0
-  br i1 %1656, label %ReadInput.exit, label %.lr.ph.split, !llvm.loop !7
+  br i1 %1656, label %ReadInput.exit, label %.lr.ph.split, !llvm.loop !9
 
 ReadInput.exit:                                   ; preds = %.backedge, %.lr.ph.split, %.backedge.us, %.lr.ph.split.us
   %.058.lcssa = phi i32 [ %.05888.us, %.lr.ph.split.us ], [ %173, %.backedge.us ], [ %.05888, %.lr.ph.split ], [ %1652, %.backedge ]
@@ -3992,7 +3992,7 @@ WritePacket.exit.us.i.i:                          ; preds = %82, %78
   %88 = add nuw nsw i32 %.02016.us.i.i, 1
   %89 = load i32, ptr %63, align 4
   %.not.us.i.i = icmp slt i32 %.02016.us.i.i, %89
-  br i1 %.not.us.i.i, label %.lr.ph.split.us.i.i, label %.loopexit70, !llvm.loop !8
+  br i1 %.not.us.i.i, label %.lr.ph.split.us.i.i, label %.loopexit70, !llvm.loop !10
 
 .loopexit70:                                      ; preds = %87, %58, %60
   %90 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #9
@@ -4262,10 +4262,10 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   br label %269
 
 269:                                              ; preds = %265, %261
-  br i1 %247, label %246, label %270, !llvm.loop !9
+  br i1 %247, label %246, label %270, !llvm.loop !11
 
 270:                                              ; preds = %269
-  br i1 %243, label %.preheader119.i, label %.preheader118.i, !llvm.loop !10
+  br i1 %243, label %.preheader119.i, label %.preheader118.i, !llvm.loop !12
 
 .preheader117.i:                                  ; preds = %300, %.preheader118.i
   %271 = phi i1 [ true, %.preheader118.i ], [ false, %300 ]
@@ -4320,10 +4320,10 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %298 = fptosi float %297 to i16
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 2
   store i16 %298, ptr %299, align 2
-  br i1 %285, label %284, label %300, !llvm.loop !11
+  br i1 %285, label %284, label %300, !llvm.loop !13
 
 300:                                              ; preds = %284
-  br i1 %271, label %.preheader117.i, label %.preheader116.i, !llvm.loop !12
+  br i1 %271, label %.preheader117.i, label %.preheader116.i, !llvm.loop !14
 
 .loopexit69:                                      ; preds = %102, %95, %BTrySetupUSB.exit
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #9
@@ -4568,7 +4568,7 @@ WritePacket.exit.us.i:                            ; preds = %439, %435
   %445 = add nuw nsw i32 %.02016.us.i, 1
   %446 = load i32, ptr %420, align 4
   %.not.us.i = icmp slt i32 %.02016.us.i, %446
-  br i1 %.not.us.i, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !8
+  br i1 %.not.us.i, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %444, %419
   %447 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #9
@@ -5664,14 +5664,14 @@ ReadSubcommandReply.exit.thread:                  ; preds = %78
 .thread20.i:                                      ; preds = %.thread.i, %78, %74, %71, %.thread24.i
   %80 = call i64 @SDL_GetTicks_REAL() #9
   %.not13.i = icmp ult i64 %80, %53
-  br i1 %.not13.i, label %54, label %ReadSubcommandReply.exit, !llvm.loop !13
+  br i1 %.not13.i, label %54, label %ReadSubcommandReply.exit, !llvm.loop !15
 
 ReadSubcommandReply.exit:                         ; preds = %.thread20.i, %ReadInput.exit.i, %WritePacket.exit.thread, %WritePacket.exit
   call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %7) #9
   %81 = add nuw nsw i32 %.02130, 1
   %82 = load i32, ptr %8, align 4
   %.not.not.not = icmp slt i32 %.02130, %82
-  br i1 %.not.not.not, label %.lr.ph, label %.critedge, !llvm.loop !14
+  br i1 %.not.not.not, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %ReadSubcommandReply.exit, %5, %ReadSubcommandReply.exit.thread
   %.not.not.not28 = phi i1 [ true, %ReadSubcommandReply.exit.thread ], [ false, %5 ], [ false, %ReadSubcommandReply.exit ]
@@ -5769,7 +5769,7 @@ WritePacket.exit.us:                              ; preds = %31, %27
   %37 = add nuw nsw i32 %.02016.us, 1
   %38 = load i32, ptr %6, align 4
   %.not.us = icmp slt i32 %.02016.us, %38
-  br i1 %.not.us, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !8
+  br i1 %.not.us, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ReadProprietaryReply.exit.thread9
   %.02016 = phi i32 [ %87, %ReadProprietaryReply.exit.thread9 ], [ 1, %.lr.ph ]
@@ -5895,14 +5895,14 @@ ReadProprietaryReply.exit.thread11:               ; preds = %81
 85:                                               ; preds = %.thread.i, %81, %78, %.thread15.i
   %86 = call i64 @SDL_GetTicks_REAL() #9
   %.not7.i = icmp ult i64 %86, %60
-  br i1 %.not7.i, label %61, label %ReadProprietaryReply.exit.thread9, !llvm.loop !15
+  br i1 %.not7.i, label %61, label %ReadProprietaryReply.exit.thread9, !llvm.loop !17
 
 ReadProprietaryReply.exit.thread9:                ; preds = %ReadInput.exit.i, %85, %WritePacket.exit, %WritePacket.exit.thread
   call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
   %87 = add nuw nsw i32 %.02016, 1
   %88 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %.02016, %88
-  br i1 %.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !8
+  br i1 %.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %36, %WritePacket.exit.us, %ReadProprietaryReply.exit.thread9, %3, %ReadProprietaryReply.exit.thread11
   %.not14 = phi i1 [ true, %ReadProprietaryReply.exit.thread11 ], [ false, %3 ], [ false, %ReadProprietaryReply.exit.thread9 ], [ false, %36 ], [ true, %WritePacket.exit.us ]
@@ -6164,7 +6164,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(pt
 5:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 101
-  br i1 %exitcond.not.i, label %EncodeRumbleHighAmplitude.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %EncodeRumbleHighAmplitude.exit, label %6, !llvm.loop !19
 
 6:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
@@ -6186,7 +6186,7 @@ EncodeRumbleHighAmplitude.exit:                   ; preds = %5, %9
 13:                                               ; preds = %14
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 101
-  br i1 %exitcond.not.i22, label %EncodeRumbleLowAmplitude.exit, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i22, label %EncodeRumbleLowAmplitude.exit, label %14, !llvm.loop !20
 
 14:                                               ; preds = %13, %EncodeRumbleHighAmplitude.exit
   %indvars.iv.i18 = phi i64 [ 0, %EncodeRumbleHighAmplitude.exit ], [ %indvars.iv.next.i21, %13 ]
@@ -6548,10 +6548,10 @@ attributes #10 = { nounwind allocsize(0,1) }
 !4 = !{}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!10 = distinct !{!10, !6, !8}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -6559,3 +6559,6 @@ attributes #10 = { nounwind allocsize(0,1) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

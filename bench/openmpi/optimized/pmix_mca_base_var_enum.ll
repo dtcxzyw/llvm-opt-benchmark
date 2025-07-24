@@ -1021,7 +1021,7 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
 32:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us, %22
   %33 = trunc nuw nsw i64 %indvars.iv36 to i32
@@ -1082,7 +1082,7 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
 16:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %12, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge.thread, label %12, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %12
   %17 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1252,7 +1252,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !41
   %.not54 = icmp eq ptr %48, null
-  br i1 %.not54, label %.thread72, label %14, !llvm.loop !72
+  br i1 %.not54, label %.thread72, label %14, !llvm.loop !74
 
 .thread72:                                        ; preds = %44, %.preheader
   %.046.lcssa = phi i32 [ 0, %.preheader ], [ %46, %44 ]
@@ -1341,7 +1341,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %38 to i64
   %.not38 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %.not38, label %11, label %._crit_edge, !llvm.loop !73
+  br i1 %.not38, label %11, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %37, %.preheader
   %.030.lcssa = phi i32 [ %1, %.preheader ], [ %.131, %37 ]
@@ -1409,7 +1409,7 @@ define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captu
   %11 = load i32, ptr %7, align 8, !tbaa !22
   %12 = sext i32 %11 to i64
   %.not22 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %.not22, label %13, label %.loopexit, !llvm.loop !74
+  br i1 %.not22, label %13, label %.loopexit, !llvm.loop !76
 
 13:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -1542,8 +1542,10 @@ attributes #27 = { noreturn nounwind }
 !67 = !{!38, !10, i64 0}
 !68 = !{!38, !10, i64 16}
 !69 = distinct !{!69, !26}
-!70 = distinct !{!70, !26}
-!71 = distinct !{!71, !26}
+!70 = distinct !{!70, !26, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !72 = distinct !{!72, !26}
 !73 = distinct !{!73, !26}
 !74 = distinct !{!74, !26}
+!75 = distinct !{!75, !26}
+!76 = distinct !{!76, !26}

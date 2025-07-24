@@ -1538,7 +1538,7 @@ check_background_thread_creation.exit.thread.us:  ; preds = %check_background_th
   br label %.backedge.us.backedge
 
 .backedge.us.backedge:                            ; preds = %check_background_thread_creation.exit.thread.us, %background_thread_pause_check.exit.us
-  br label %.backedge.us
+  br label %.backedge.us, !llvm.loop !39
 
 check_background_thread_creation.exit.thread38.loopexit.us: ; preds = %85
   %87 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
@@ -1688,7 +1688,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
   %26 = icmp ult i32 %25, %10
-  br i1 %26, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %71, %22, %3
   %.022.lcssa = phi i64 [ -1, %3 ], [ %.1.us, %22 ], [ %.1, %71 ]
@@ -1697,13 +1697,13 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8, !tbaa !32
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store i64 0, ptr %30, align 8, !tbaa !39
+  store i64 0, ptr %30, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %31 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %32 = load i64, ptr %4, align 8, !tbaa !40
+  %32 = load i64, ptr %4, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !42
+  %34 = load i64, ptr %33, align 8, !tbaa !45
   %35 = mul nsw i64 %34, 1000
   call void @duckdb_je_nstime_init2(ptr noundef nonnull %5, i64 noundef %32, i64 noundef %35) #12
   %36 = icmp eq i64 %.022.lcssa, -1
@@ -1734,10 +1734,10 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   call void @duckdb_je_nstime_iadd(ptr noundef nonnull %7, i64 noundef %43) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
   %48 = call i64 @duckdb_je_nstime_sec(ptr noundef nonnull %7) #12
-  store i64 %48, ptr %8, align 8, !tbaa !43
+  store i64 %48, ptr %8, align 8, !tbaa !46
   %49 = call i64 @duckdb_je_nstime_nsec(ptr noundef nonnull %7) #12
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %49, ptr %50, align 8, !tbaa !45
+  store i64 %49, ptr %50, align 8, !tbaa !48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %53 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %8) #12
@@ -1749,8 +1749,8 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
 54:                                               ; preds = %42, %37
   %55 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  %56 = load i64, ptr %4, align 8, !tbaa !40
-  %57 = load i64, ptr %33, align 8, !tbaa !42
+  %56 = load i64, ptr %4, align 8, !tbaa !43
+  %57 = load i64, ptr %33, align 8, !tbaa !45
   %58 = mul nsw i64 %57, 1000
   call void @duckdb_je_nstime_init2(ptr noundef nonnull %9, i64 noundef %56, i64 noundef %58) #12
   %59 = call i32 @duckdb_je_nstime_compare(ptr noundef nonnull %9, ptr noundef nonnull %5) #12
@@ -1905,10 +1905,13 @@ attributes #13 = { noreturn nounwind }
 !36 = !{!13, !13, i64 0}
 !37 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !38 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
-!39 = !{!20, !7, i64 184}
-!40 = !{!41, !7, i64 0}
-!41 = !{!"timeval", !7, i64 0, !7, i64 8}
-!42 = !{!41, !7, i64 8}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !40}
+!42 = !{!20, !7, i64 184}
 !43 = !{!44, !7, i64 0}
-!44 = !{!"timespec", !7, i64 0, !7, i64 8}
+!44 = !{!"timeval", !7, i64 0, !7, i64 8}
 !45 = !{!44, !7, i64 8}
+!46 = !{!47, !7, i64 0}
+!47 = !{!"timespec", !7, i64 0, !7, i64 8}
+!48 = !{!47, !7, i64 8}

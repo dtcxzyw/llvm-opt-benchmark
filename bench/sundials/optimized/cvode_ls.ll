@@ -2911,7 +2911,7 @@ define i32 @cvLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store double %68, ptr %66, align 8, !tbaa !87
   %69 = add nsw i64 %.0141163.us, %50
   %70 = icmp slt i64 %69, %10
-  br i1 %70, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %70, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !120
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %._crit_edge182
   %.0141163 = phi i64 [ %104, %._crit_edge182 ], [ %56, %.lr.ph ]
@@ -3271,3 +3271,5 @@ attributes #14 = { nounwind allocsize(0) }
 !117 = !{!14, !17, i64 264}
 !118 = !{!14, !15, i64 8}
 !119 = !{!14, !15, i64 320}
+!120 = distinct !{!120, !121}
+!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}

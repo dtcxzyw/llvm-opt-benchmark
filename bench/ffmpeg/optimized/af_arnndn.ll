@@ -4415,7 +4415,7 @@ define internal fastcc void @compute_dense(ptr noundef readonly captures(none) %
   store float %28, ptr %29, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !201
+  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !203
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %sigmoid_approx.exit
   %indvars.iv93 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next94, %sigmoid_approx.exit ]
@@ -4456,7 +4456,7 @@ sigmoid_approx.exit:                              ; preds = %.lr.ph68, %34, %36
   store float %54, ptr %30, align 4, !tbaa !25
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph68, !llvm.loop !202
+  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph68, !llvm.loop !204
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %tansig_approx.exit
   %indvars.iv88 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next89, %tansig_approx.exit ]
@@ -4495,7 +4495,7 @@ tansig_approx.exit:                               ; preds = %.lr.ph66, %58, %60
   store float %.0.i, ptr %55, align 4, !tbaa !25
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph66, !llvm.loop !203
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph66, !llvm.loop !205
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv83 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next84, %.lr.ph ]
@@ -4506,7 +4506,7 @@ tansig_approx.exit:                               ; preds = %.lr.ph66, %58, %60
   store float %81, ptr %78, align 4, !tbaa !25
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %.loopexit, label %.lr.ph, !llvm.loop !204
+  br i1 %exitcond87.not, label %.loopexit, label %.lr.ph, !llvm.loop !206
 
 82:                                               ; preds = %._crit_edge63
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1275) #11
@@ -4617,7 +4617,7 @@ sigmoid_approx.exit:                              ; preds = %32, %55, %57
   store float %75, ptr %76, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph115, label %32, !llvm.loop !205
+  br i1 %exitcond.not, label %.lr.ph115, label %32, !llvm.loop !207
 
 .lr.ph120:                                        ; preds = %sigmoid_approx.exit108
   %77 = shl nuw nsw i32 %11, 1
@@ -4696,7 +4696,7 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   store float %135, ptr %136, align 4, !tbaa !25
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %.lr.ph120, label %89, !llvm.loop !206
+  br i1 %exitcond127.not, label %.lr.ph120, label %89, !llvm.loop !208
 
 ._crit_edge121:                                   ; preds = %tansig_approx.exit, %4
   %137 = sext i32 %11 to i64
@@ -4749,7 +4749,7 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   %165 = tail call nsz float @llvm.fmuladd.f32(float %162, float %164, float %.0100116)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count136
-  br i1 %exitcond132.not, label %._crit_edge, label %157, !llvm.loop !207
+  br i1 %exitcond132.not, label %._crit_edge, label %157, !llvm.loop !209
 
 166:                                              ; preds = %._crit_edge
   %167 = fmul nsz float %165, 3.906250e-03
@@ -4841,7 +4841,7 @@ tansig_approx.exit:                               ; preds = %196, %194, %191, %2
   store float %225, ptr %226, align 4, !tbaa !25
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %._crit_edge121, label %.lr.ph118, !llvm.loop !208
+  br i1 %exitcond137.not, label %._crit_edge121, label %.lr.ph118, !llvm.loop !210
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -5082,11 +5082,13 @@ attributes #13 = { noreturn nounwind }
 !198 = distinct !{!198, !27}
 !199 = distinct !{!199, !27}
 !200 = distinct !{!200, !27}
-!201 = distinct !{!201, !27}
-!202 = distinct !{!202, !27}
+!201 = distinct !{!201, !27, !202}
+!202 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !203 = distinct !{!203, !27}
 !204 = distinct !{!204, !27}
 !205 = distinct !{!205, !27}
 !206 = distinct !{!206, !27}
 !207 = distinct !{!207, !27}
 !208 = distinct !{!208, !27}
+!209 = distinct !{!209, !27}
+!210 = distinct !{!210, !27}

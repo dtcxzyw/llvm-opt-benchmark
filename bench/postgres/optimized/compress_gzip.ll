@@ -356,7 +356,7 @@ define internal void @EndCompressorGzip(ptr noundef %0, ptr noundef captures(non
 
 33:                                               ; preds = %.thread.i.i, %26
   %34 = icmp eq i32 %17, 1
-  br i1 %34, label %DeflateCompressorCommon.exit.i, label %.split.us.i.i, !llvm.loop !8
+  br i1 %34, label %DeflateCompressorCommon.exit.i, label %.split.us.i.i, !llvm.loop !9
 
 .split31.us.i.i:                                  ; preds = %.split.us.i.i
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -730,3 +730,5 @@ attributes #13 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

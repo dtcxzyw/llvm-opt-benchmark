@@ -31211,7 +31211,7 @@ lean_nat_lt.exit.thread46.us:                     ; preds = %lean_obj_tag.exit.u
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread46.us
   %.024.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread46.us ]
-  br label %.split.us
+  br label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %2, %.split.backedge
   %.024 = phi ptr [ %.024.be, %.split.backedge ], [ %0, %2 ]
@@ -31380,7 +31380,7 @@ lean_dec.exit607:                                 ; preds = %lean_dec.exit607.ba
   %24 = and i64 %23, 1
   %25 = icmp ne i64 %24, 0
   %or.cond = select i1 %22, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %26, label %lean_nat_lt.exit, !prof !21
 
 26:                                               ; preds = %lean_dec.exit607
   %27 = icmp ult ptr %.0475, %19
@@ -35106,7 +35106,7 @@ lean_dec.exit128:                                 ; preds = %lean_dec.exit128.ba
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
   %or.cond = select i1 %28, i1 %31, i1 false
-  br i1 %or.cond, label %32, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %32, label %lean_nat_lt.exit, !prof !21
 
 32:                                               ; preds = %lean_dec.exit128
   %33 = icmp ult ptr %.0105, %25
@@ -51681,7 +51681,7 @@ lean_dec.exit556:                                 ; preds = %lean_dec.exit556.ba
   %38 = and i64 %37, 1
   %39 = icmp ne i64 %38, 0
   %or.cond = select i1 %36, i1 %39, i1 false
-  br i1 %or.cond, label %40, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %40, label %lean_nat_lt.exit, !prof !21
 
 40:                                               ; preds = %lean_dec.exit556
   %41 = icmp ult ptr %.0393, %33
@@ -72779,4 +72779,6 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !6, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}

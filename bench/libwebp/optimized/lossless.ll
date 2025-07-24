@@ -473,7 +473,7 @@ define hidden void @VP8LColorIndexInverseTransformAlpha(ptr noundef readonly cap
   br i1 %exitcond45.not, label %.loopexit, label %.preheader.us, !llvm.loop !22
 
 36:                                               ; preds = %5
-  %37 = load ptr, ptr @VP8LMapColor8b, align 8, !tbaa !23
+  %37 = load ptr, ptr @VP8LMapColor8b, align 8, !tbaa !24
   tail call void %37(ptr noundef %3, ptr noundef %12, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %10) #12
   br label %.loopexit
 
@@ -486,7 +486,7 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   %6 = alloca %struct.VP8LMultipliers, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !18
-  %9 = load i32, ptr %0, align 8, !tbaa !24
+  %9 = load i32, ptr %0, align 8, !tbaa !25
   switch i32 %9, label %ColorSpaceInverseTransform_C.exit [
     i32 2, label %10
     i32 0, label %14
@@ -495,7 +495,7 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   ]
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr @VP8LAddGreenToBlueAndRed, align 8, !tbaa !23
+  %11 = load ptr, ptr @VP8LAddGreenToBlueAndRed, align 8, !tbaa !24
   %12 = sub nsw i32 %2, %1
   %13 = mul nsw i32 %8, %12
   tail call void %11(ptr noundef %3, i32 noundef %13, ptr noundef %4) #12
@@ -506,16 +506,16 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   br i1 %15, label %.lr.ph.i.i, label %40
 
 .lr.ph.i.i:                                       ; preds = %14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %16 = load i32, ptr %3, align 4, !tbaa !3, !noalias !25
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %16 = load i32, ptr %3, align 4, !tbaa !3, !noalias !26
   %17 = and i32 %16, -16711936
   %18 = add i32 %17, -16777216
   %19 = and i32 %16, 16711935
   %20 = or disjoint i32 %18, %19
-  store i32 %20, ptr %4, align 4, !tbaa !3, !alias.scope !25
+  store i32 %20, ptr %4, align 4, !tbaa !3, !alias.scope !26
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %23 = icmp sgt i32 %8, 1
   br i1 %23, label %.lr.ph.preheader.i.i, label %PredictorAdd1_C.exit.i
 
@@ -528,7 +528,7 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   %indvars.iv.i70.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i71.i, %.lr.ph.i69.i ]
   %.010.i.i = phi i32 [ %20, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i69.i ]
   %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i70.i
-  %26 = load i32, ptr %25, align 4, !tbaa !3, !noalias !28
+  %26 = load i32, ptr %25, align 4, !tbaa !3, !noalias !29
   %27 = and i32 %26, -16711936
   %28 = and i32 %.010.i.i, -16711936
   %29 = add i32 %27, %28
@@ -539,10 +539,10 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   %34 = and i32 %32, 16711935
   %35 = or disjoint i32 %33, %34
   %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i70.i
-  store i32 %35, ptr %36, align 4, !tbaa !3, !alias.scope !28
+  store i32 %35, ptr %36, align 4, !tbaa !3, !alias.scope !29
   %indvars.iv.next.i71.i = add nuw nsw i64 %indvars.iv.i70.i, 1
   %exitcond.not.i72.i = icmp eq i64 %indvars.iv.next.i71.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i72.i, label %PredictorAdd1_C.exit.i, label %.lr.ph.i69.i, !llvm.loop !31
+  br i1 %exitcond.not.i72.i, label %PredictorAdd1_C.exit.i, label %.lr.ph.i69.i, !llvm.loop !32
 
 PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.ph.i.i
   %37 = sext i32 %8 to i64
@@ -586,9 +586,9 @@ PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.
   %.16381.us.i = phi ptr [ %87, %PredictorAdd2_C.exit._crit_edge.us.i ], [ %.062.i, %.lr.ph84.split.us.preheader.i ]
   %.06480.us.i = phi i32 [ %88, %PredictorAdd2_C.exit._crit_edge.us.i ], [ %.056.i, %.lr.ph84.split.us.preheader.i ]
   %59 = getelementptr inbounds i32, ptr %.16381.us.i, i64 %50
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %60 = load i32, ptr %59, align 4, !tbaa !3, !noalias !32
-  %61 = load i32, ptr %.16182.us.i, align 4, !tbaa !3, !noalias !32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %60 = load i32, ptr %59, align 4, !tbaa !3, !noalias !33
+  %61 = load i32, ptr %.16182.us.i, align 4, !tbaa !3, !noalias !33
   %62 = and i32 %61, -16711936
   %63 = and i32 %60, -16711936
   %64 = add i32 %62, %63
@@ -598,7 +598,7 @@ PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.
   %68 = and i32 %64, -16711936
   %69 = and i32 %67, 16711935
   %70 = or disjoint i32 %68, %69
-  store i32 %70, ptr %.16381.us.i, align 4, !tbaa !3, !alias.scope !32
+  store i32 %70, ptr %.16381.us.i, align 4, !tbaa !3, !alias.scope !33
   br label %PredictorAdd2_C.exit.us.i
 
 PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exit.us.i, %.lr.ph84.split.us.i
@@ -610,7 +610,7 @@ PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exi
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw [16 x ptr], ptr @VP8LPredictorsAdd, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !23
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = and i32 %.05779.us.i, %52
   %79 = add nsw i32 %78, %43
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %79, i32 %8)
@@ -621,7 +621,7 @@ PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exi
   %84 = sub nsw i32 %spec.select.us.i, %.05779.us.i
   tail call void %77(ptr noundef nonnull %81, ptr noundef nonnull %83, i32 noundef %84, ptr noundef nonnull %82) #12
   %85 = icmp slt i32 %79, %8
-  br i1 %85, label %PredictorAdd2_C.exit.us.i, label %PredictorAdd2_C.exit._crit_edge.us.i, !llvm.loop !35
+  br i1 %85, label %PredictorAdd2_C.exit.us.i, label %PredictorAdd2_C.exit._crit_edge.us.i, !llvm.loop !36
 
 PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exit.us.i
   %86 = getelementptr inbounds nuw i32, ptr %.16182.us.i, i64 %49
@@ -633,16 +633,16 @@ PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exi
   %.1.idx.us.i = sext i32 %narrow.us.i to i64
   %.1.us.i = getelementptr inbounds i32, ptr %.05983.us.i, i64 %.1.idx.us.i
   %exitcond86.not.i = icmp eq i32 %88, %2
-  br i1 %exitcond86.not.i, label %PredictorInverseTransform_C.exit, label %.lr.ph84.split.us.i, !llvm.loop !36
+  br i1 %exitcond86.not.i, label %PredictorInverseTransform_C.exit, label %.lr.ph84.split.us.i, !llvm.loop !37
 
 .lr.ph84.split.i:                                 ; preds = %.lr.ph84.i, %.lr.ph84.split.i
   %.16182.i = phi ptr [ %103, %.lr.ph84.split.i ], [ %.060.i, %.lr.ph84.i ]
   %.16381.i = phi ptr [ %104, %.lr.ph84.split.i ], [ %.062.i, %.lr.ph84.i ]
   %.06480.i = phi i32 [ %105, %.lr.ph84.split.i ], [ %.056.i, %.lr.ph84.i ]
   %91 = getelementptr inbounds i32, ptr %.16381.i, i64 %50
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %92 = load i32, ptr %91, align 4, !tbaa !3, !noalias !32
-  %93 = load i32, ptr %.16182.i, align 4, !tbaa !3, !noalias !32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %92 = load i32, ptr %91, align 4, !tbaa !3, !noalias !33
+  %93 = load i32, ptr %.16182.i, align 4, !tbaa !3, !noalias !33
   %94 = and i32 %93, -16711936
   %95 = and i32 %92, -16711936
   %96 = add i32 %94, %95
@@ -652,16 +652,16 @@ PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exi
   %100 = and i32 %96, -16711936
   %101 = and i32 %99, 16711935
   %102 = or disjoint i32 %100, %101
-  store i32 %102, ptr %.16381.i, align 4, !tbaa !3, !alias.scope !32
+  store i32 %102, ptr %.16381.i, align 4, !tbaa !3, !alias.scope !33
   %103 = getelementptr inbounds i32, ptr %.16182.i, i64 %49
   %104 = getelementptr inbounds i32, ptr %.16381.i, i64 %49
   %105 = add nsw i32 %.06480.i, 1
   %exitcond.not.i = icmp eq i32 %105, %2
-  br i1 %exitcond.not.i, label %PredictorInverseTransform_C.exit, label %.lr.ph84.split.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %PredictorInverseTransform_C.exit, label %.lr.ph84.split.i, !llvm.loop !38
 
 PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %PredictorAdd2_C.exit._crit_edge.us.i, %40
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %107 = load i32, ptr %106, align 4, !tbaa !37
+  %107 = load i32, ptr %106, align 4, !tbaa !39
   %.not = icmp eq i32 %2, %107
   br i1 %.not, label %ColorSpaceInverseTransform_C.exit, label %108
 
@@ -733,12 +733,12 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %150 = lshr i32 %146, 16
   %151 = trunc i32 %150 to i8
   store i8 %151, ptr %138, align 1, !tbaa !12
-  %152 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
+  %152 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !24
   call void %152(ptr noundef nonnull %6, ptr noundef %.154.i, i32 noundef %121, ptr noundef %.14653.i) #12
   %153 = getelementptr inbounds i32, ptr %.154.i, i64 %139
   %154 = getelementptr inbounds i32, ptr %.14653.i, i64 %139
   %155 = icmp ult ptr %153, %143
-  br i1 %155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
+  br i1 %155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %142
   %.048.lcssa.i = phi ptr [ %.04958.i, %142 ], [ %145, %.lr.ph.i ]
@@ -757,7 +757,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %162 = lshr i32 %158, 16
   %163 = trunc i32 %162 to i8
   store i8 %163, ptr %138, align 1, !tbaa !12
-  %164 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
+  %164 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !24
   call void %164(ptr noundef nonnull %6, ptr noundef %.1.lcssa.i, i32 noundef %125, ptr noundef %.146.lcssa.i) #12
   %165 = getelementptr inbounds i32, ptr %.1.lcssa.i, i64 %140
   %166 = getelementptr inbounds i32, ptr %.146.lcssa.i, i64 %140
@@ -774,7 +774,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %.150.i = getelementptr inbounds i32, ptr %.04958.i, i64 %.150.idx.i
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #12
   %exitcond.not.i54 = icmp eq i32 %168, %2
-  br i1 %exitcond.not.i54, label %ColorSpaceInverseTransform_C.exit, label %142, !llvm.loop !39
+  br i1 %exitcond.not.i54, label %ColorSpaceInverseTransform_C.exit, label %142, !llvm.loop !41
 
 171:                                              ; preds = %5
   %172 = icmp eq ptr %3, %4
@@ -851,15 +851,15 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %214 = lshr i32 %.1.us.i55, %191
   %215 = add nuw nsw i32 %.039.us.i, 1
   %exitcond.not.i56 = icmp eq i32 %215, %192
-  br i1 %exitcond.not.i56, label %._crit_edge.us.i, label %200, !llvm.loop !40
+  br i1 %exitcond.not.i56, label %._crit_edge.us.i, label %200, !llvm.loop !42
 
 ._crit_edge.us.i:                                 ; preds = %208
   %216 = add nsw i32 %.03341.us.i, 1
   %exitcond45.not.i = icmp eq i32 %216, %2
-  br i1 %exitcond45.not.i, label %ColorSpaceInverseTransform_C.exit, label %.preheader.us.i, !llvm.loop !41
+  br i1 %exitcond45.not.i, label %ColorSpaceInverseTransform_C.exit, label %.preheader.us.i, !llvm.loop !43
 
 217:                                              ; preds = %176
-  %218 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !23
+  %218 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !24
   tail call void %218(ptr noundef %188, ptr noundef %194, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %192) #12
   br label %ColorSpaceInverseTransform_C.exit
 
@@ -914,15 +914,15 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %241 = lshr i32 %.1.us.i70, %219
   %242 = add nuw nsw i32 %.039.us.i65, 1
   %exitcond.not.i71 = icmp eq i32 %242, %8
-  br i1 %exitcond.not.i71, label %._crit_edge.us.i72, label %227, !llvm.loop !40
+  br i1 %exitcond.not.i71, label %._crit_edge.us.i72, label %227, !llvm.loop !42
 
 ._crit_edge.us.i72:                               ; preds = %235
   %243 = add nsw i32 %.03341.us.i64, 1
   %exitcond45.not.i73 = icmp eq i32 %243, %2
-  br i1 %exitcond45.not.i73, label %ColorSpaceInverseTransform_C.exit, label %.preheader.us.i61, !llvm.loop !41
+  br i1 %exitcond45.not.i73, label %ColorSpaceInverseTransform_C.exit, label %.preheader.us.i61, !llvm.loop !43
 
 244:                                              ; preds = %._crit_edge
-  %245 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !23
+  %245 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !24
   tail call void %245(ptr noundef %3, ptr noundef %221, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %8) #12
   br label %ColorSpaceInverseTransform_C.exit
 
@@ -961,7 +961,7 @@ define hidden void @VP8LConvertBGRAToRGB_C(ptr noalias noundef readonly captures
   %16 = getelementptr inbounds nuw i8, ptr %.01011, i64 3
   store i8 %15, ptr %14, align 1, !tbaa !20
   %17 = icmp ult ptr %7, %5
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -996,7 +996,7 @@ define hidden void @VP8LConvertBGRAToRGBA_C(ptr noalias noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %.01213, i64 4
   store i8 %18, ptr %16, align 1, !tbaa !20
   %20 = icmp ult ptr %7, %5
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1030,7 +1030,7 @@ define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noalias noundef readonly cap
   %20 = getelementptr inbounds nuw i8, ptr %.01213, i64 2
   store i8 %18, ptr %19, align 1, !tbaa !20
   %21 = icmp ult ptr %7, %5
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1066,7 +1066,7 @@ define hidden void @VP8LConvertBGRAToRGB565_C(ptr noalias noundef readonly captu
   %22 = getelementptr inbounds nuw i8, ptr %.01213, i64 2
   store i8 %20, ptr %21, align 1, !tbaa !20
   %23 = icmp ult ptr %7, %5
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1097,7 +1097,7 @@ define hidden void @VP8LConvertBGRAToBGR_C(ptr noalias noundef readonly captures
   %16 = getelementptr inbounds nuw i8, ptr %.01011, i64 3
   store i8 %15, ptr %13, align 1, !tbaa !20
   %17 = icmp ult ptr %7, %5
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1120,44 +1120,44 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr @VP8LConvertBGRAToRGB, align 8, !tbaa !23
+  %6 = load ptr, ptr @VP8LConvertBGRAToRGB, align 8, !tbaa !24
   tail call void %6(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !23
+  %8 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !24
   tail call void %8(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !23
+  %10 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !24
   tail call void %10(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
-  %11 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
+  %11 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !24
   tail call void %11(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr @VP8LConvertBGRAToBGR, align 8, !tbaa !23
+  %13 = load ptr, ptr @VP8LConvertBGRAToBGR, align 8, !tbaa !24
   tail call void %13(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
 14:                                               ; preds = %4
   %15 = sext i32 %1 to i64
   %.idx.i = shl nsw i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i, i1 false), !alias.scope !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i, i1 false), !alias.scope !49
   br label %CopyOrSwap.exit
 
 16:                                               ; preds = %4
   %17 = sext i32 %1 to i64
   %.idx.i41 = shl nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i41, i1 false), !alias.scope !51
-  %18 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i41, i1 false), !alias.scope !53
+  %18 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !24
   tail call void %18(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
 19:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %20 = sext i32 %1 to i64
   %.idx.i42 = shl nsw i64 %20, 2
   %21 = getelementptr inbounds i8, ptr %0, i64 %.idx.i42
@@ -1168,16 +1168,16 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
   %.013.i = phi ptr [ %23, %.lr.ph.i ], [ %0, %19 ]
   %.01112.i = phi ptr [ %26, %.lr.ph.i ], [ %3, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
-  %24 = load i32, ptr %.013.i, align 4, !tbaa !3, !alias.scope !55, !noalias !58
+  %24 = load i32, ptr %.013.i, align 4, !tbaa !3, !alias.scope !57, !noalias !60
   %25 = tail call noundef i32 @llvm.bswap.i32(i32 %24)
-  store i32 %25, ptr %.01112.i, align 1, !alias.scope !58, !noalias !55
+  store i32 %25, ptr %.01112.i, align 1, !alias.scope !60, !noalias !57
   %26 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 4
   %27 = icmp ult ptr %23, %21
-  br i1 %27, label %.lr.ph.i, label %CopyOrSwap.exit, !llvm.loop !60
+  br i1 %27, label %.lr.ph.i, label %CopyOrSwap.exit, !llvm.loop !62
 
 28:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %29 = sext i32 %1 to i64
   %.idx.i43 = shl nsw i64 %29, 2
   %30 = getelementptr inbounds i8, ptr %0, i64 %.idx.i43
@@ -1188,32 +1188,32 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
   %.013.i45 = phi ptr [ %32, %.lr.ph.i44 ], [ %0, %28 ]
   %.01112.i46 = phi ptr [ %35, %.lr.ph.i44 ], [ %3, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.013.i45, i64 4
-  %33 = load i32, ptr %.013.i45, align 4, !tbaa !3, !alias.scope !61, !noalias !64
+  %33 = load i32, ptr %.013.i45, align 4, !tbaa !3, !alias.scope !63, !noalias !66
   %34 = tail call noundef i32 @llvm.bswap.i32(i32 %33)
-  store i32 %34, ptr %.01112.i46, align 1, !alias.scope !64, !noalias !61
+  store i32 %34, ptr %.01112.i46, align 1, !alias.scope !66, !noalias !63
   %35 = getelementptr inbounds nuw i8, ptr %.01112.i46, i64 4
   %36 = icmp ult ptr %32, %30
-  br i1 %36, label %.lr.ph.i44, label %CopyOrSwap.exit47, !llvm.loop !60
+  br i1 %36, label %.lr.ph.i44, label %CopyOrSwap.exit47, !llvm.loop !62
 
 CopyOrSwap.exit47:                                ; preds = %.lr.ph.i44, %28
-  %37 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
+  %37 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !24
   tail call void %37(ptr noundef %3, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
 38:                                               ; preds = %4
-  %39 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !23
+  %39 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !24
   tail call void %39(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
 40:                                               ; preds = %4
-  %41 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !23
+  %41 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !24
   tail call void %41(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
-  %42 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !23
+  %42 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !24
   tail call void %42(ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
   br label %CopyOrSwap.exit
 
 43:                                               ; preds = %4
-  %44 = load ptr, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !23
+  %44 = load ptr, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !24
   tail call void %44(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
   br label %CopyOrSwap.exit
 
@@ -1228,69 +1228,69 @@ define hidden void @VP8LDspInit() local_unnamed_addr #3 {
   br i1 %.not, label %2, label %14
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr @VP8LDspInit.VP8LDspInit_body_last_cpuinfo_used, align 8, !tbaa !23
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !23
+  %3 = load volatile ptr, ptr @VP8LDspInit.VP8LDspInit_body_last_cpuinfo_used, align 8, !tbaa !24
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !24
   %.not1 = icmp eq ptr %3, %4
   br i1 %.not1, label %VP8LDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @VP8LPredictor0_C, ptr @VP8LPredictors, align 16, !tbaa !23
-  store ptr @VP8LPredictor1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 8), align 8, !tbaa !23
-  store ptr @VP8LPredictor2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 16), align 16, !tbaa !23
-  store ptr @VP8LPredictor3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 24), align 8, !tbaa !23
-  store ptr @VP8LPredictor4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 32), align 16, !tbaa !23
-  store ptr @VP8LPredictor5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 40), align 8, !tbaa !23
-  store ptr @VP8LPredictor6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 48), align 16, !tbaa !23
-  store ptr @VP8LPredictor7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 56), align 8, !tbaa !23
-  store ptr @VP8LPredictor8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 64), align 16, !tbaa !23
-  store ptr @VP8LPredictor9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 72), align 8, !tbaa !23
-  store ptr @VP8LPredictor10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 80), align 16, !tbaa !23
-  store ptr @VP8LPredictor11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 88), align 8, !tbaa !23
-  store ptr @VP8LPredictor12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 96), align 16, !tbaa !23
-  store ptr @VP8LPredictor13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 104), align 8, !tbaa !23
-  store ptr @VP8LPredictor0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 112), align 16, !tbaa !23
-  store ptr @VP8LPredictor0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 120), align 8, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr @VP8LPredictorsAdd, align 16, !tbaa !23
-  store ptr @PredictorAdd1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 8), align 8, !tbaa !23
-  store ptr @PredictorAdd2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 16), align 16, !tbaa !23
-  store ptr @PredictorAdd3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 24), align 8, !tbaa !23
-  store ptr @PredictorAdd4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 32), align 16, !tbaa !23
-  store ptr @PredictorAdd5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 40), align 8, !tbaa !23
-  store ptr @PredictorAdd6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 48), align 16, !tbaa !23
-  store ptr @PredictorAdd7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 56), align 8, !tbaa !23
-  store ptr @PredictorAdd8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 64), align 16, !tbaa !23
-  store ptr @PredictorAdd9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 72), align 8, !tbaa !23
-  store ptr @PredictorAdd10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 80), align 16, !tbaa !23
-  store ptr @PredictorAdd11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 88), align 8, !tbaa !23
-  store ptr @PredictorAdd12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 96), align 16, !tbaa !23
-  store ptr @PredictorAdd13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 104), align 8, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 112), align 16, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 120), align 8, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr @VP8LPredictorsAdd_C, align 16, !tbaa !23
-  store ptr @PredictorAdd1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 8), align 8, !tbaa !23
-  store ptr @PredictorAdd2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 16), align 16, !tbaa !23
-  store ptr @PredictorAdd3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8, !tbaa !23
-  store ptr @PredictorAdd4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16, !tbaa !23
-  store ptr @PredictorAdd5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 40), align 8, !tbaa !23
-  store ptr @PredictorAdd6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 48), align 16, !tbaa !23
-  store ptr @PredictorAdd7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 56), align 8, !tbaa !23
-  store ptr @PredictorAdd8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 64), align 16, !tbaa !23
-  store ptr @PredictorAdd9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 72), align 8, !tbaa !23
-  store ptr @PredictorAdd10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16, !tbaa !23
-  store ptr @PredictorAdd11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8, !tbaa !23
-  store ptr @PredictorAdd12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16, !tbaa !23
-  store ptr @PredictorAdd13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 104), align 8, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 112), align 16, !tbaa !23
-  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 120), align 8, !tbaa !23
-  store ptr @VP8LAddGreenToBlueAndRed_C, ptr @VP8LAddGreenToBlueAndRed, align 8, !tbaa !23
-  store ptr @VP8LTransformColorInverse_C, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
-  store ptr @VP8LConvertBGRAToRGBA_C, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !23
-  store ptr @VP8LConvertBGRAToRGB_C, ptr @VP8LConvertBGRAToRGB, align 8, !tbaa !23
-  store ptr @VP8LConvertBGRAToBGR_C, ptr @VP8LConvertBGRAToBGR, align 8, !tbaa !23
-  store ptr @VP8LConvertBGRAToRGBA4444_C, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !23
-  store ptr @VP8LConvertBGRAToRGB565_C, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !23
-  store ptr @MapARGB_C, ptr @VP8LMapColor32b, align 8, !tbaa !23
-  store ptr @MapAlpha_C, ptr @VP8LMapColor8b, align 8, !tbaa !23
+  store ptr @VP8LPredictor0_C, ptr @VP8LPredictors, align 16, !tbaa !24
+  store ptr @VP8LPredictor1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 8), align 8, !tbaa !24
+  store ptr @VP8LPredictor2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 16), align 16, !tbaa !24
+  store ptr @VP8LPredictor3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 24), align 8, !tbaa !24
+  store ptr @VP8LPredictor4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 32), align 16, !tbaa !24
+  store ptr @VP8LPredictor5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 40), align 8, !tbaa !24
+  store ptr @VP8LPredictor6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 48), align 16, !tbaa !24
+  store ptr @VP8LPredictor7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 56), align 8, !tbaa !24
+  store ptr @VP8LPredictor8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 64), align 16, !tbaa !24
+  store ptr @VP8LPredictor9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 72), align 8, !tbaa !24
+  store ptr @VP8LPredictor10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 80), align 16, !tbaa !24
+  store ptr @VP8LPredictor11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 88), align 8, !tbaa !24
+  store ptr @VP8LPredictor12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 96), align 16, !tbaa !24
+  store ptr @VP8LPredictor13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 104), align 8, !tbaa !24
+  store ptr @VP8LPredictor0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 112), align 16, !tbaa !24
+  store ptr @VP8LPredictor0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 120), align 8, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr @VP8LPredictorsAdd, align 16, !tbaa !24
+  store ptr @PredictorAdd1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 8), align 8, !tbaa !24
+  store ptr @PredictorAdd2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 16), align 16, !tbaa !24
+  store ptr @PredictorAdd3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 24), align 8, !tbaa !24
+  store ptr @PredictorAdd4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 32), align 16, !tbaa !24
+  store ptr @PredictorAdd5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 40), align 8, !tbaa !24
+  store ptr @PredictorAdd6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 48), align 16, !tbaa !24
+  store ptr @PredictorAdd7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 56), align 8, !tbaa !24
+  store ptr @PredictorAdd8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 64), align 16, !tbaa !24
+  store ptr @PredictorAdd9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 72), align 8, !tbaa !24
+  store ptr @PredictorAdd10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 80), align 16, !tbaa !24
+  store ptr @PredictorAdd11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 88), align 8, !tbaa !24
+  store ptr @PredictorAdd12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 96), align 16, !tbaa !24
+  store ptr @PredictorAdd13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 104), align 8, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 112), align 16, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 120), align 8, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr @VP8LPredictorsAdd_C, align 16, !tbaa !24
+  store ptr @PredictorAdd1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 8), align 8, !tbaa !24
+  store ptr @PredictorAdd2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 16), align 16, !tbaa !24
+  store ptr @PredictorAdd3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8, !tbaa !24
+  store ptr @PredictorAdd4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16, !tbaa !24
+  store ptr @PredictorAdd5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 40), align 8, !tbaa !24
+  store ptr @PredictorAdd6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 48), align 16, !tbaa !24
+  store ptr @PredictorAdd7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 56), align 8, !tbaa !24
+  store ptr @PredictorAdd8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 64), align 16, !tbaa !24
+  store ptr @PredictorAdd9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 72), align 8, !tbaa !24
+  store ptr @PredictorAdd10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16, !tbaa !24
+  store ptr @PredictorAdd11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8, !tbaa !24
+  store ptr @PredictorAdd12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16, !tbaa !24
+  store ptr @PredictorAdd13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 104), align 8, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 112), align 16, !tbaa !24
+  store ptr @PredictorAdd0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 120), align 8, !tbaa !24
+  store ptr @VP8LAddGreenToBlueAndRed_C, ptr @VP8LAddGreenToBlueAndRed, align 8, !tbaa !24
+  store ptr @VP8LTransformColorInverse_C, ptr @VP8LTransformColorInverse, align 8, !tbaa !24
+  store ptr @VP8LConvertBGRAToRGBA_C, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !24
+  store ptr @VP8LConvertBGRAToRGB_C, ptr @VP8LConvertBGRAToRGB, align 8, !tbaa !24
+  store ptr @VP8LConvertBGRAToBGR_C, ptr @VP8LConvertBGRAToBGR, align 8, !tbaa !24
+  store ptr @VP8LConvertBGRAToRGBA4444_C, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !24
+  store ptr @VP8LConvertBGRAToRGB565_C, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !24
+  store ptr @MapARGB_C, ptr @VP8LMapColor32b, align 8, !tbaa !24
+  store ptr @MapAlpha_C, ptr @VP8LMapColor8b, align 8, !tbaa !24
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %VP8LDspInit_body.exit, label %6
 
@@ -1301,7 +1301,7 @@ define hidden void @VP8LDspInit() local_unnamed_addr #3 {
 
 8:                                                ; preds = %6
   tail call void @VP8LDspInitSSE2() #12
-  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !23
+  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !24
   %10 = tail call i32 %9(i32 noundef 3) #12
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %VP8LDspInit_body.exit, label %11
@@ -1311,8 +1311,8 @@ define hidden void @VP8LDspInit() local_unnamed_addr #3 {
   br label %VP8LDspInit_body.exit
 
 VP8LDspInit_body.exit:                            ; preds = %11, %8, %6, %5, %2
-  %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !23
-  store volatile ptr %12, ptr @VP8LDspInit.VP8LDspInit_body_last_cpuinfo_used, align 8, !tbaa !23
+  %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !24
+  store volatile ptr %12, ptr @VP8LDspInit.VP8LDspInit_body_last_cpuinfo_used, align 8, !tbaa !24
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LDspInit.VP8LDspInit_body_lock) #12
   br label %14
 
@@ -1350,7 +1350,7 @@ define internal void @PredictorAdd0_C(ptr noundef readonly captures(none) %0, pt
   store i32 %11, ptr %12, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1385,7 +1385,7 @@ define internal void @PredictorAdd1_C(ptr noundef readonly captures(none) %0, pt
   store i32 %18, ptr %19, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1419,7 +1419,7 @@ define internal void @PredictorAdd2_C(ptr noundef readonly captures(none) %0, pt
   store i32 %19, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1471,7 +1471,7 @@ define internal void @PredictorAdd3_C(ptr noundef readonly captures(none) %0, pt
   store i32 %18, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1506,7 +1506,7 @@ define internal void @PredictorAdd4_C(ptr noundef readonly captures(none) %0, pt
   store i32 %18, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1555,7 +1555,7 @@ define internal void @PredictorAdd5_C(ptr noundef readonly captures(none) %0, pt
   store i32 %31, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1598,7 +1598,7 @@ define internal void @PredictorAdd6_C(ptr noundef readonly captures(none) %0, pt
   store i32 %23, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1640,7 +1640,7 @@ define internal void @PredictorAdd7_C(ptr noundef readonly captures(none) %0, pt
   store i32 %24, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1681,7 +1681,7 @@ define internal void @PredictorAdd8_C(ptr noundef readonly captures(none) %0, pt
   store i32 %26, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1722,7 +1722,7 @@ define internal void @PredictorAdd9_C(ptr noundef readonly captures(none) %0, pt
   store i32 %26, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1778,7 +1778,7 @@ define internal void @PredictorAdd10_C(ptr noundef readonly captures(none) %0, p
   store i32 %38, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1860,7 +1860,7 @@ define internal void @PredictorAdd11_C(ptr noundef readonly captures(none) %0, p
   store i32 %63, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1947,7 +1947,7 @@ define internal void @PredictorAdd12_C(ptr noundef readonly captures(none) %0, p
   store i32 %65, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2045,7 +2045,7 @@ define internal void @PredictorAdd13_C(ptr noundef readonly captures(none) %0, p
   store i32 %68, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2079,12 +2079,12 @@ define internal void @MapARGB_C(ptr noundef readonly captures(none) %0, ptr noun
   store i32 %16, ptr %.11213.us, align 4, !tbaa !3
   %18 = add nuw nsw i32 %.015.us, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %9
   %19 = add nsw i32 %.0919.us, 1
   %exitcond23.not = icmp eq i32 %19, %4
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !80
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !82
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -2118,12 +2118,12 @@ define internal void @MapAlpha_C(ptr noundef readonly captures(none) %0, ptr nou
   store i8 %16, ptr %.11213.us, align 1, !tbaa !20
   %18 = add nuw nsw i32 %.015.us, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !83
 
 ._crit_edge.us:                                   ; preds = %9
   %19 = add nsw i32 %.0919.us, 1
   %exitcond23.not = icmp eq i32 %19, %4
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !82
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !84
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -2177,52 +2177,52 @@ attributes #12 = { nounwind }
 !19 = !{!15, !16, i64 16}
 !20 = !{!5, !5, i64 0}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = !{!17, !17, i64 0}
-!24 = !{!15, !4, i64 0}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"PredictorAdd0_C: argument 0"}
-!27 = distinct !{!27, !"PredictorAdd0_C"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"PredictorAdd1_C: argument 0"}
-!30 = distinct !{!30, !"PredictorAdd1_C"}
-!31 = distinct !{!31, !8}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"PredictorAdd2_C: argument 0"}
-!34 = distinct !{!34, !"PredictorAdd2_C"}
-!35 = distinct !{!35, !8}
+!22 = distinct !{!22, !8, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = !{!17, !17, i64 0}
+!25 = !{!15, !4, i64 0}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"PredictorAdd0_C: argument 0"}
+!28 = distinct !{!28, !"PredictorAdd0_C"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"PredictorAdd1_C: argument 0"}
+!31 = distinct !{!31, !"PredictorAdd1_C"}
+!32 = distinct !{!32, !8}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"PredictorAdd2_C: argument 0"}
+!35 = distinct !{!35, !"PredictorAdd2_C"}
 !36 = distinct !{!36, !8}
-!37 = !{!15, !4, i64 12}
+!37 = distinct !{!37, !8, !23}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
+!39 = !{!15, !4, i64 12}
 !40 = distinct !{!40, !8}
 !41 = distinct !{!41, !8}
 !42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
+!43 = distinct !{!43, !8, !23}
 !44 = distinct !{!44, !8}
 !45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"CopyOrSwap: argument 0"}
-!49 = distinct !{!49, !"CopyOrSwap"}
-!50 = distinct !{!50, !49, !"CopyOrSwap: argument 1"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"CopyOrSwap: argument 0"}
-!53 = distinct !{!53, !"CopyOrSwap"}
-!54 = distinct !{!54, !53, !"CopyOrSwap: argument 1"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"CopyOrSwap: argument 0"}
-!57 = distinct !{!57, !"CopyOrSwap"}
-!58 = !{!59}
-!59 = distinct !{!59, !57, !"CopyOrSwap: argument 1"}
-!60 = distinct !{!60, !8}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"CopyOrSwap: argument 0"}
-!63 = distinct !{!63, !"CopyOrSwap"}
-!64 = !{!65}
-!65 = distinct !{!65, !63, !"CopyOrSwap: argument 1"}
-!66 = distinct !{!66, !8}
-!67 = distinct !{!67, !8}
+!47 = distinct !{!47, !8}
+!48 = distinct !{!48, !8}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"CopyOrSwap: argument 0"}
+!51 = distinct !{!51, !"CopyOrSwap"}
+!52 = distinct !{!52, !51, !"CopyOrSwap: argument 1"}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"CopyOrSwap: argument 0"}
+!55 = distinct !{!55, !"CopyOrSwap"}
+!56 = distinct !{!56, !55, !"CopyOrSwap: argument 1"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"CopyOrSwap: argument 0"}
+!59 = distinct !{!59, !"CopyOrSwap"}
+!60 = !{!61}
+!61 = distinct !{!61, !59, !"CopyOrSwap: argument 1"}
+!62 = distinct !{!62, !8}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"CopyOrSwap: argument 0"}
+!65 = distinct !{!65, !"CopyOrSwap"}
+!66 = !{!67}
+!67 = distinct !{!67, !65, !"CopyOrSwap: argument 1"}
 !68 = distinct !{!68, !8}
 !69 = distinct !{!69, !8}
 !70 = distinct !{!70, !8}
@@ -2237,4 +2237,6 @@ attributes #12 = { nounwind }
 !79 = distinct !{!79, !8}
 !80 = distinct !{!80, !8}
 !81 = distinct !{!81, !8}
-!82 = distinct !{!82, !8}
+!82 = distinct !{!82, !8, !23}
+!83 = distinct !{!83, !8}
+!84 = distinct !{!84, !8, !23}

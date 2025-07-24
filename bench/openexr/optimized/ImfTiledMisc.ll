@@ -734,7 +734,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 45:                                               ; preds = %46
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit.thread, label %46, !llvm.loop !46
+  br i1 %exitcond65.not, label %.loopexit.thread, label %46, !llvm.loop !47
 
 46:                                               ; preds = %.lr.ph, %45
   %indvars.iv61 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next62, %45 ]
@@ -995,5 +995,6 @@ attributes #18 = { noreturn nounwind }
 !42 = !{!40, !5, i64 4}
 !43 = !{!40, !5, i64 12}
 !44 = distinct !{!44, !20}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
+!45 = distinct !{!45, !20, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !20}

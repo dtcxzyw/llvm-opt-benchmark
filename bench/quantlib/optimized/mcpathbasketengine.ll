@@ -727,7 +727,7 @@ invoke.cont94:                                    ; preds = %call.i71.noexc, %fo
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %61 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i81 = icmp eq ptr %61, null
-  br i1 %cmp.not.i81, label %cond.false.i, label %invoke.cont96, !prof !52
+  br i1 %cmp.not.i81, label %cond.false.i, label %invoke.cont96, !prof !53
 
 cond.false.i:                                     ; preds = %invoke.cont94
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10PathPayoffEEptEv, ptr noundef nonnull @.str.17, i64 noundef 784)
@@ -752,9 +752,9 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  %64 = load ptr, ptr %states, align 8, !tbaa !53
+  %64 = load ptr, ptr %states, align 8, !tbaa !54
   %_M_finish.i82 = getelementptr inbounds nuw i8, ptr %states, i64 8
-  %65 = load ptr, ptr %_M_finish.i82, align 8, !tbaa !55
+  %65 = load ptr, ptr %_M_finish.i82, align 8, !tbaa !56
   %cmp.not3.i.i.i.i = icmp eq ptr %64, %65
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i83
 
@@ -772,10 +772,10 @@ _ZSt8_DestroyIN8QuantLib5ArrayEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_de
   store ptr null, ptr %__first.addr.04.i.i.i.i84, align 8, !tbaa !28
   %incdec.ptr.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i84, i64 16
   %cmp.not.i.i.i.i86 = icmp eq ptr %incdec.ptr.i.i.i.i85, %65
-  br i1 %cmp.not.i.i.i.i86, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i83, !llvm.loop !56
+  br i1 %cmp.not.i.i.i.i86, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i83, !llvm.loop !57
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN8QuantLib5ArrayEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %states, align 8, !tbaa !53
+  %.pr.i = load ptr, ptr %states, align 8, !tbaa !54
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont100
@@ -785,7 +785,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %states, i64 16
-  %68 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !57
+  %68 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !58
   %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i.i88 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i87, %sub.ptr.rhs.cast.i.i88
@@ -1100,7 +1100,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.not.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i, !llvm.loop !58
+  br i1 %cmp.not.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i, !llvm.loop !59
 
 _ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit:  ; preds = %for.body.i, %do.end
   %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %do.end ], [ %29, %for.body.i ]
@@ -1113,9 +1113,9 @@ unreachable:                                      ; preds = %invoke.cont26
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !53
+  %0 = load ptr, ptr %this, align 8, !tbaa !54
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !56
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -1133,10 +1133,10 @@ _ZSt8_DestroyIN8QuantLib5ArrayEEvPT_.exit.i.i.i:  ; preds = %_ZNKSt14default_del
   store ptr null, ptr %__first.addr.04.i.i.i, align 8, !tbaa !28
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !56
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !57
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN8QuantLib5ArrayEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %this, align 8, !tbaa !53
+  %.pr = load ptr, ptr %this, align 8, !tbaa !54
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
@@ -1146,7 +1146,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !57
+  %4 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !58
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1222,7 +1222,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN8QuantLib6HandleINS0_18YieldTermStructureEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !59
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !60
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN8QuantLib6HandleINS0_18YieldTermStructureEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %forwardTermStructures_, align 8, !tbaa !24
@@ -1424,12 +1424,13 @@ attributes #23 = { builtin allocsize(0) }
 !48 = !{!49, !9, i64 8}
 !49 = !{!"_ZTSN8QuantLib5ArrayE", !37, i64 0, !9, i64 8}
 !50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
-!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!53 = !{!54, !5, i64 0}
-!54 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!55 = !{!54, !5, i64 8}
-!56 = distinct !{!56, !47}
-!57 = !{!54, !5, i64 16}
-!58 = distinct !{!58, !47}
+!51 = distinct !{!51, !47, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!54 = !{!55, !5, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!56 = !{!55, !5, i64 8}
+!57 = distinct !{!57, !47}
+!58 = !{!55, !5, i64 16}
 !59 = distinct !{!59, !47}
+!60 = distinct !{!60, !47}

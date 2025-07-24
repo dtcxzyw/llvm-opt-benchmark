@@ -5751,7 +5751,7 @@ find_watcher.exit.thread.us:                      ; preds = %.lr.ph44, %find_wat
   %19 = getelementptr inbounds nuw i8, ptr %.043.us, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = icmp ult ptr %20, %12
-  br i1 %21, label %find_watcher.exit.thread.us, label %.loopexit.backedge
+  br i1 %21, label %find_watcher.exit.thread.us, label %.loopexit.backedge, !llvm.loop !4
 
 22:                                               ; preds = %.loopexit
   %23 = tail call ptr @__errno_location() #19
@@ -5885,7 +5885,7 @@ find_watcher.exit.thread:                         ; preds = %37, %.lr.ph44.split
   %73 = getelementptr inbounds nuw i8, ptr %.043, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = icmp ult ptr %74, %12
-  br i1 %75, label %.lr.ph44.split, label %.loopexit.backedge, !llvm.loop !4
+  br i1 %75, label %.lr.ph44.split, label %.loopexit.backedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %22
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #17
@@ -5949,4 +5949,6 @@ attributes #21 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.partial.disable"}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}

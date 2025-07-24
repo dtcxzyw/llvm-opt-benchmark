@@ -1620,19 +1620,19 @@ define hidden void @Ushort555RgbxDrawGlyphListLCD(ptr noundef readonly captures(
 181:                                              ; preds = %102, %179, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit182, label %90, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit182, label %90, !llvm.loop !49
 
 .loopexit182:                                     ; preds = %181
   %182 = add nsw i64 %.0148.in, %33
   %183 = getelementptr inbounds i8, ptr %.3, i64 %78
   %184 = add nsw i32 %.0158, -1
   %185 = icmp sgt i32 %.0158, 1
-  br i1 %185, label %.preheader181, label %.loopexit183, !llvm.loop !47
+  br i1 %185, label %.preheader181, label %.loopexit183, !llvm.loop !50
 
 .loopexit183:                                     ; preds = %.loopexit182, %.loopexit.us, %47, %38
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge, label %38, !llvm.loop !49
+  br i1 %exitcond197.not, label %._crit_edge, label %38, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit183, %14
   ret void
@@ -1728,6 +1728,8 @@ attributes #6 = { nounwind }
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
+!47 = distinct !{!47, !7, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}

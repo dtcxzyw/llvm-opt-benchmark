@@ -361,7 +361,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
   %124 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %117, i32 noundef 4)
   %125 = load ptr, ptr %104, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load i8, ptr %126, align 8, !range !8, !noundef !9
+  %127 = load i8, ptr %126, align 8, !range !9, !noundef !10
   %128 = trunc nuw i8 %127 to i1
   %129 = load i32, ptr @proto_bat_plugin, align 4
   br i1 %128, label %130, label %135
@@ -390,13 +390,13 @@ dissect_bat_hna.exit.i:                           ; preds = %135, %130
   %145 = load i8, ptr %50, align 1
   %146 = zext i8 %145 to i32
   %147 = icmp samesign ult i32 %144, %146
-  br i1 %147, label %.lr.ph.split.i, label %dissect_bat_batman_v5.exit, !llvm.loop !6
+  br i1 %147, label %.lr.ph.split.i, label %dissect_bat_batman_v5.exit, !llvm.loop !11
 
 dissect_bat_batman_v5.exit:                       ; preds = %dissect_bat_hna.exit.i, %dissect_bat_hna.exit.us.i, %60
   %.0.lcssa.i = phi i32 [ %101, %60 ], [ %112, %dissect_bat_hna.exit.us.i ], [ %143, %dissect_bat_hna.exit.i ]
   %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i)
   %149 = icmp sgt i32 %148, 0
-  br i1 %149, label %12, label %.loopexit, !llvm.loop !10
+  br i1 %149, label %12, label %.loopexit, !llvm.loop !12
 
 150:                                              ; preds = %4
   %151 = zext i8 %8 to i32
@@ -583,7 +583,7 @@ dissect_vis_entry_v22.exit.us.i:                  ; preds = %50, %.lr.ph.split.u
   %52 = add i32 %.06166.us.i, 7
   %53 = add i32 %.06265.us.i, 7
   %54 = icmp slt i32 %53, %45
-  br i1 %54, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %54, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %.not.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
@@ -622,7 +622,7 @@ dissect_vis_entry_v22.exit.us69.i:                ; preds = %58, %.lr.ph.split.s
   %71 = add i32 %.06166.us67.i, 7
   %72 = add i32 %.06265.us68.i, 7
   %73 = icmp slt i32 %72, %45
-  br i1 %73, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %73, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !14
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %dissect_vis_entry_v22.exit.i
   %.06166.i = phi i32 [ %107, %dissect_vis_entry_v22.exit.i ], [ 8, %.lr.ph.split.i ]
@@ -687,7 +687,7 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   %107 = add i32 %.06166.i, 7
   %108 = add i32 %.06265.i, 7
   %109 = icmp slt i32 %108, %45
-  br i1 %109, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %109, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %dissect_vis_entry_v22.exit.i, %dissect_vis_entry_v22.exit.us69.i, %dissect_vis_entry_v22.exit.us.i, %43
   %.061.lcssa.i = phi i32 [ 8, %43 ], [ %52, %dissect_vis_entry_v22.exit.us.i ], [ %71, %dissect_vis_entry_v22.exit.us69.i ], [ %107, %dissect_vis_entry_v22.exit.i ]
@@ -783,7 +783,7 @@ dissect_vis_entry_v23.exit.us.i:                  ; preds = %160, %.lr.ph.split.
   %162 = add i32 %.06166.us.i29, 6
   %163 = add i32 %.06265.us.i30, 6
   %164 = icmp slt i32 %163, %155
-  br i1 %164, label %.lr.ph.split.us.i28, label %._crit_edge.i16, !llvm.loop !12
+  br i1 %164, label %.lr.ph.split.us.i28, label %._crit_edge.i16, !llvm.loop !16
 
 .lr.ph.split.i19:                                 ; preds = %.lr.ph.i18
   br i1 %.not.i14, label %.lr.ph.split.split.us.i25, label %.lr.ph.split.split.i20
@@ -822,7 +822,7 @@ dissect_vis_entry_v23.exit.us69.i:                ; preds = %168, %.lr.ph.split.
   %181 = add i32 %.06166.us67.i26, 6
   %182 = add i32 %.06265.us68.i27, 6
   %183 = icmp slt i32 %182, %155
-  br i1 %183, label %.lr.ph.split.split.us.i25, label %._crit_edge.i16, !llvm.loop !12
+  br i1 %183, label %.lr.ph.split.split.us.i25, label %._crit_edge.i16, !llvm.loop !17
 
 .lr.ph.split.split.i20:                           ; preds = %.lr.ph.split.i19, %dissect_vis_entry_v23.exit.i
   %.06166.i21 = phi i32 [ %217, %dissect_vis_entry_v23.exit.i ], [ 7, %.lr.ph.split.i19 ]
@@ -886,7 +886,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i23, 
   %217 = add i32 %.06166.i21, 6
   %218 = add i32 %.06265.i22, 6
   %219 = icmp slt i32 %218, %155
-  br i1 %219, label %.lr.ph.split.split.i20, label %._crit_edge.i16, !llvm.loop !12
+  br i1 %219, label %.lr.ph.split.split.i20, label %._crit_edge.i16, !llvm.loop !18
 
 ._crit_edge.i16:                                  ; preds = %dissect_vis_entry_v23.exit.i, %dissect_vis_entry_v23.exit.us69.i, %dissect_vis_entry_v23.exit.us.i, %153
   %.061.lcssa.i17 = phi i32 [ 7, %153 ], [ %162, %dissect_vis_entry_v23.exit.us.i ], [ %181, %dissect_vis_entry_v23.exit.us69.i ], [ %217, %dissect_vis_entry_v23.exit.i ]
@@ -1044,10 +1044,16 @@ attributes #3 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7}

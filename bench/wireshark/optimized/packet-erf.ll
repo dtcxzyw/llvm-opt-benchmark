@@ -4373,7 +4373,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
 .split85.us.us.i.i:                               ; preds = %1319
   %indvars.iv.next106.i.i = add nuw nsw i64 %indvars.iv105.i.i, 1
   %exitcond108.not.i.i = icmp eq i64 %indvars.iv.next106.i.i, %wide.trip.count.i.i
-  br i1 %exitcond108.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.us.i.i, !llvm.loop !26
+  br i1 %exitcond108.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.us.i.i, !llvm.loop !27
 
 .lr.ph91.split.i.i:                               ; preds = %.split85.i.i, %.lr.ph91.split.preheader.i.i
   %indvars.iv100.i.i = phi i64 [ 0, %.lr.ph91.split.preheader.i.i ], [ %indvars.iv.next101.i.i, %.split85.i.i ]
@@ -4440,12 +4440,12 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %1355 = add i32 %.16282.i.i, 1
   %1356 = add nuw nsw i32 %.06381.i.i, 1
   %exitcond99.not.i.i = icmp eq i32 %1356, 32
-  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1346, !llvm.loop !25
+  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1346, !llvm.loop !28
 
 .split85.i.i:                                     ; preds = %1354
   %indvars.iv.next101.i.i = add nuw nsw i64 %indvars.iv100.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next101.i.i, %wide.trip.count.i.i
-  br i1 %exitcond103.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.i.i, !llvm.loop !26
+  br i1 %exitcond103.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.i.i, !llvm.loop !29
 
 ._crit_edge92.i.i:                                ; preds = %.split85.i.i, %.split85.us.us.i.i
   %.059.lcssa.i.i = phi i8 [ %.2.us.us.i.i, %.split85.us.us.i.i ], [ %.2.i.i, %.split85.i.i ]
@@ -4648,7 +4648,7 @@ erf_ts_to_nstime.exit.i:                          ; preds = %1394, %1390
   %1433 = add i32 %1432, %.0410615.i
   %1434 = sub i32 %997, %1433
   %1435 = icmp sgt i32 %1434, 3
-  br i1 %1435, label %1005, label %._crit_edge.i138, !llvm.loop !27
+  br i1 %1435, label %1005, label %._crit_edge.i138, !llvm.loop !30
 
 ._crit_edge.i138:                                 ; preds = %1430, %988
   %.0410.lcssa.i = phi i32 [ 0, %988 ], [ %1433, %1430 ]
@@ -5500,6 +5500,9 @@ attributes #13 = { noreturn }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!25 = distinct !{!25, !7, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !26}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

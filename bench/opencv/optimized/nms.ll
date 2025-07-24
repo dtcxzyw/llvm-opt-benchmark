@@ -4800,7 +4800,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_S
   %50 = sub i64 %7, %49
   %51 = ashr exact i64 %50, 3
   %.not = icmp slt i64 %51, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !134
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.loopexit, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.us, %4
   %.sroa.031.0.lcssa = phi ptr [ %0, %4 ], [ %12, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.us ], [ %17, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.loopexit ]
@@ -4941,7 +4941,7 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_i
   %17 = icmp ne ptr %.sroa.020.1.i, %12
   %18 = icmp ne ptr %.sroa.016.1.i, %13
   %or.cond.i = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !135
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !137
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %11
   %.sroa.016.0.lcssa.i = phi ptr [ %12, %11 ], [ %.sroa.016.1.i, %.lr.ph.i ]
@@ -5000,7 +5000,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3
   %45 = sub i64 %7, %32
   %46 = ashr exact i64 %45, 3
   %.not = icmp slt i64 %46, %6
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !136
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit, %5
   %.sroa.052.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
@@ -5034,7 +5034,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3
   %53 = icmp ne ptr %.sroa.020.1.i39, %47
   %54 = icmp ne ptr %.sroa.016.1.i37, %1
   %or.cond.i43 = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond.i43, label %.lr.ph.i31, label %.critedge.i16, !llvm.loop !135
+  br i1 %or.cond.i43, label %.lr.ph.i31, label %.critedge.i16, !llvm.loop !137
 
 .critedge.i16:                                    ; preds = %.lr.ph.i31, %._crit_edge
   %.sroa.016.0.lcssa.i17 = phi ptr [ %47, %._crit_edge ], [ %.sroa.016.1.i37, %.lr.ph.i31 ]
@@ -5134,7 +5134,7 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIPSt4pairIfiEN9__gnu_cxx
   %17 = icmp ne ptr %.1.i, %12
   %18 = icmp ne ptr %.117.i, %13
   %19 = select i1 %17, i1 %18, i1 false
-  br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !137
+  br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !139
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
   %.sroa.024.0.lcssa.i = phi ptr [ %.sroa.021.068, %11 ], [ %16, %.lr.ph.i ]
@@ -5203,7 +5203,7 @@ _ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_Sa
   %53 = sub i64 %7, %37
   %54 = ashr exact i64 %53, 3
   %.not = icmp slt i64 %54, %6
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !138
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit, %5
   %.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
@@ -5237,7 +5237,7 @@ _ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_Sa
   %62 = icmp ne ptr %.1.i48, %55
   %63 = icmp ne ptr %.117.i46, %1
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.i40, label %._crit_edge.i24, !llvm.loop !137
+  br i1 %64, label %.lr.ph.i40, label %._crit_edge.i24, !llvm.loop !139
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i40, %._crit_edge
   %.sroa.024.0.lcssa.i25 = phi ptr [ %.sroa.021.0.lcssa, %._crit_edge ], [ %61, %.lr.ph.i40 ]
@@ -5687,8 +5687,10 @@ attributes #22 = { nounwind allocsize(0) }
 !131 = distinct !{!131, !34}
 !132 = distinct !{!132, !34}
 !133 = distinct !{!133, !34}
-!134 = distinct !{!134, !34}
-!135 = distinct !{!135, !34}
+!134 = distinct !{!134, !34, !135}
+!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !136 = distinct !{!136, !34}
 !137 = distinct !{!137, !34}
 !138 = distinct !{!138, !34}
+!139 = distinct !{!139, !34}
+!140 = distinct !{!140, !34}

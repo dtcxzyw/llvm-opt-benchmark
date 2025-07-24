@@ -2452,7 +2452,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %62 = load i32, ptr %10, align 4
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %59, %36, %1
   %.lcssa = phi i32 [ %11, %1 ], [ %39, %36 ], [ %62, %59 ]
@@ -2830,7 +2830,7 @@ define dso_local i64 @regexp_split_to_array(ptr noundef readonly captures(none) 
   store i32 %40, ptr %32, align 8
   %41 = load i32, ptr %33, align 8
   %.not = icmp sgt i32 %40, %41
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.0.lcssa = phi ptr [ null, %20 ], [ %38, %.lr.ph ]
@@ -3188,5 +3188,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

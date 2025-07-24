@@ -1430,7 +1430,7 @@ get_content_length.exit:                          ; preds = %2, %15, %._crit_edg
 
 57:                                               ; preds = %50
   %58 = call i32 @close(i32 noundef 1) #19
-  br i1 %27, label %59, label %107
+  br i1 %27, label %59, label %98
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %0, align 8, !tbaa !34
@@ -1449,262 +1449,221 @@ get_content_length.exit:                          ; preds = %2, %15, %._crit_edg
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  br i1 %.not.i42, label %.split.us.i, label %.split.split.i.preheader
+  br i1 %.not.i42, label %.split.us.i.preheader, label %.split.split.i.preheader
 
-.split.us.i:                                      ; preds = %59
-  br i1 %47, label %.split.us.split.i.preheader, label %.split.us.split.us.i.preheader
-
-.split.us.split.us.i.preheader:                   ; preds = %.split.us.i
-  %68 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef 8192) #19
+.split.us.i.preheader:                            ; preds = %59
+  %.034..us.i71 = call i64 @llvm.umin.i64(i64 %20, i64 8192)
+  %68 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef %.034..us.i71) #19
   store ptr %7, ptr %63, align 8, !tbaa !53
   %69 = icmp slt i64 %68, 1
-  br i1 %69, label %.split48.us.i, label %.lr.ph
+  br i1 %69, label %.split48.us.i, label %.lr.ph.preheader
 
-.split.us.split.i.preheader:                      ; preds = %.split.us.i
-  %spec.select.i80 = call i64 @llvm.umin.i64(i64 %20, i64 8192)
-  %70 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef %spec.select.i80) #19
+.lr.ph.preheader:                                 ; preds = %.split.us.i.preheader
+  %70 = select i1 %47, i64 %68, i64 0
+  %.236.us.i72 = sub i64 %20, %70
+  br label %.lr.ph
+
+.split.us.i.loopexit:                             ; preds = %thread-pre-split.us.i
+  %71 = icmp ult i64 %.236.us.i74, 8193
+  %or.cond.us.i = select i1 %47, i1 %71, i1 false
+  %.034..us.i = select i1 %or.cond.us.i, i64 %.236.us.i74, i64 8192
+  %72 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef %.034..us.i) #19
   store ptr %7, ptr %63, align 8, !tbaa !53
-  %71 = icmp slt i64 %70, 1
-  br i1 %71, label %.split48.us.i, label %.lr.ph84.preheader
+  %73 = call i64 @llvm.smax.i64(i64 %72, i64 0)
+  %74 = select i1 %47, i64 %73, i64 0
+  %.236.us.i = sub i64 %.236.us.i74, %74
+  %75 = icmp slt i64 %72, 1
+  br i1 %75, label %.split48.us.i, label %.lr.ph, !llvm.loop !57
 
-.lr.ph84.preheader:                               ; preds = %.split.us.split.i.preheader
-  %.236.us.i81 = sub nsw i64 %20, %70
-  br label %.lr.ph84
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.split.us.i.loopexit
+  %.236.us.i74 = phi i64 [ %.236.us.i, %.split.us.i.loopexit ], [ %.236.us.i72, %.lr.ph.preheader ]
+  %76 = phi i64 [ %72, %.split.us.i.loopexit ], [ %68, %.lr.ph.preheader ]
+  %.029.us.i73 = phi i64 [ %84, %.split.us.i.loopexit ], [ 0, %.lr.ph.preheader ]
+  store i64 %76, ptr %64, align 8, !tbaa !59
+  br label %77
 
-.split.us.split.us.i.loopexit:                    ; preds = %thread-pre-split.us.us.i
-  %72 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef 8192) #19
-  store ptr %7, ptr %63, align 8, !tbaa !53
-  %73 = icmp slt i64 %72, 1
-  br i1 %73, label %.split48.us.i, label %.lr.ph
+77:                                               ; preds = %thread-pre-split.us.i, %.lr.ph
+  %.13045.us.i = phi i64 [ %.029.us.i73, %.lr.ph ], [ %84, %thread-pre-split.us.i ]
+  store ptr %8, ptr %65, align 8, !tbaa !60
+  store i64 8192, ptr %66, align 8, !tbaa !61
+  %78 = call i32 @git_inflate(ptr noundef nonnull %5, i32 noundef 0) #19
+  %or.cond5.us.i = icmp ugt i32 %78, 1
+  br i1 %or.cond5.us.i, label %.split50.us.i, label %79
 
-.lr.ph:                                           ; preds = %.split.us.split.us.i.preheader, %.split.us.split.us.i.loopexit
-  %74 = phi i64 [ %72, %.split.us.split.us.i.loopexit ], [ %68, %.split.us.split.us.i.preheader ]
-  %.029.us.us.i79 = phi i64 [ %82, %.split.us.split.us.i.loopexit ], [ 0, %.split.us.split.us.i.preheader ]
-  store i64 %74, ptr %64, align 8, !tbaa !57
-  br label %75
+79:                                               ; preds = %77
+  %80 = load i64, ptr %67, align 8, !tbaa !62
+  %81 = sub i64 %80, %.13045.us.i
+  %82 = call i64 @write_in_full(i32 noundef %62, ptr noundef nonnull %8, i64 noundef %81) #19
+  %83 = icmp slt i64 %82, 0
+  br i1 %83, label %.split52.us.i, label %write_to_child.exit.us.i
 
-75:                                               ; preds = %thread-pre-split.us.us.i, %.lr.ph
-  %.13045.us.us.i = phi i64 [ %.029.us.us.i79, %.lr.ph ], [ %82, %thread-pre-split.us.us.i ]
-  store ptr %8, ptr %65, align 8, !tbaa !58
-  store i64 8192, ptr %66, align 8, !tbaa !59
-  %76 = call i32 @git_inflate(ptr noundef nonnull %5, i32 noundef 0) #19
-  %or.cond5.us.us.i = icmp ugt i32 %76, 1
-  br i1 %or.cond5.us.us.i, label %.split50.us.i, label %77
-
-77:                                               ; preds = %75
-  %78 = load i64, ptr %67, align 8, !tbaa !60
-  %79 = sub i64 %78, %.13045.us.us.i
-  %80 = call i64 @write_in_full(i32 noundef %62, ptr noundef nonnull %8, i64 noundef %79) #19
-  %81 = icmp slt i64 %80, 0
-  br i1 %81, label %.split52.us.i, label %write_to_child.exit.us.us.i
-
-write_to_child.exit.us.us.i:                      ; preds = %77
-  %.not41.us.us.not.i = icmp eq i32 %76, 1
-  br i1 %.not41.us.us.not.i, label %inflate_request.exit, label %thread-pre-split.us.us.i, !llvm.loop !61
-
-thread-pre-split.us.us.i:                         ; preds = %write_to_child.exit.us.us.i
-  %82 = load i64, ptr %67, align 8, !tbaa !60
-  %.pr.us.us.i = load i64, ptr %64, align 8, !tbaa !57
-  %.not40.us.us.i = icmp eq i64 %.pr.us.us.i, 0
-  br i1 %.not40.us.us.i, label %.split.us.split.us.i.loopexit, label %75
-
-.split.us.split.i.loopexit:                       ; preds = %thread-pre-split.us.i
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %.236.us.i83, i64 8192)
-  %83 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %7, i64 noundef %spec.select.i) #19
-  store ptr %7, ptr %63, align 8, !tbaa !53
-  %.236.us.i = sub i64 %.236.us.i83, %83
-  %84 = icmp slt i64 %83, 1
-  br i1 %84, label %.split48.us.i, label %.lr.ph84
-
-.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.split.us.split.i.loopexit
-  %.236.us.i83 = phi i64 [ %.236.us.i, %.split.us.split.i.loopexit ], [ %.236.us.i81, %.lr.ph84.preheader ]
-  %85 = phi i64 [ %83, %.split.us.split.i.loopexit ], [ %70, %.lr.ph84.preheader ]
-  %.029.us.i82 = phi i64 [ %93, %.split.us.split.i.loopexit ], [ 0, %.lr.ph84.preheader ]
-  store i64 %85, ptr %64, align 8, !tbaa !57
-  br label %86
-
-86:                                               ; preds = %thread-pre-split.us.i, %.lr.ph84
-  %.13045.us.i = phi i64 [ %.029.us.i82, %.lr.ph84 ], [ %93, %thread-pre-split.us.i ]
-  store ptr %8, ptr %65, align 8, !tbaa !58
-  store i64 8192, ptr %66, align 8, !tbaa !59
-  %87 = call i32 @git_inflate(ptr noundef nonnull %5, i32 noundef 0) #19
-  %or.cond5.us.i = icmp ugt i32 %87, 1
-  br i1 %or.cond5.us.i, label %.split50.us.i, label %88
-
-88:                                               ; preds = %86
-  %89 = load i64, ptr %67, align 8, !tbaa !60
-  %90 = sub i64 %89, %.13045.us.i
-  %91 = call i64 @write_in_full(i32 noundef %62, ptr noundef nonnull %8, i64 noundef %90) #19
-  %92 = icmp slt i64 %91, 0
-  br i1 %92, label %.split52.us.i, label %write_to_child.exit.us.i
-
-write_to_child.exit.us.i:                         ; preds = %88
-  %.not41.us.not.i = icmp eq i32 %87, 1
-  br i1 %.not41.us.not.i, label %inflate_request.exit, label %thread-pre-split.us.i, !llvm.loop !61
+write_to_child.exit.us.i:                         ; preds = %79
+  %.not41.us.not.i = icmp eq i32 %78, 1
+  br i1 %.not41.us.not.i, label %inflate_request.exit, label %thread-pre-split.us.i, !llvm.loop !63
 
 thread-pre-split.us.i:                            ; preds = %write_to_child.exit.us.i
-  %93 = load i64, ptr %67, align 8, !tbaa !60
-  %.pr.us.i = load i64, ptr %64, align 8, !tbaa !57
+  %84 = load i64, ptr %67, align 8, !tbaa !62
+  %.pr.us.i = load i64, ptr %64, align 8, !tbaa !59
   %.not40.us.i = icmp eq i64 %.pr.us.i, 0
-  br i1 %.not40.us.i, label %.split.us.split.i.loopexit, label %86
+  br i1 %.not40.us.i, label %.split.us.i.loopexit, label %77, !llvm.loop !57
 
 .split.split.i.loopexit:                          ; preds = %thread-pre-split.i
   %.not39.i = icmp eq ptr %.pre.i43, null
-  br i1 %.not39.i, label %.split.split.i.preheader, label %.thread89.i, !llvm.loop !62
+  br i1 %.not39.i, label %.split.split.i.preheader, label %.thread79.i, !llvm.loop !64
 
-.thread89.i:                                      ; preds = %.split.split.i.loopexit
+.thread79.i:                                      ; preds = %.split.split.i.loopexit
   store ptr %.pre.i43, ptr %63, align 8, !tbaa !53
   br label %.split48.us.i
 
 .split.split.i.preheader:                         ; preds = %59, %.split.split.i.loopexit
-  %.029.i78 = phi i64 [ %97, %.split.split.i.loopexit ], [ 0, %59 ]
-  %94 = call fastcc i64 @read_request(ptr noundef %6, i64 noundef %20)
+  %.029.i69 = phi i64 [ %88, %.split.split.i.loopexit ], [ 0, %59 ]
+  %85 = call fastcc i64 @read_request(ptr noundef %6, i64 noundef %20)
   %.pre.i43 = load ptr, ptr %6, align 8, !tbaa !34
   store ptr %.pre.i43, ptr %63, align 8, !tbaa !53
-  %95 = icmp slt i64 %94, 1
-  br i1 %95, label %.split48.us.i, label %96
+  %86 = icmp slt i64 %85, 1
+  br i1 %86, label %.split48.us.i, label %87
 
-.split48.us.i:                                    ; preds = %.split.split.i.preheader, %.split.us.split.us.i.loopexit, %.split.us.split.i.loopexit, %.split.us.split.us.i.preheader, %.split.us.split.i.preheader, %.thread89.i
+.split48.us.i:                                    ; preds = %.split.split.i.preheader, %.split.us.i.loopexit, %.split.us.i.preheader, %.thread79.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.80) #20
   unreachable
 
-96:                                               ; preds = %.split.split.i.preheader
-  store i64 %94, ptr %64, align 8, !tbaa !57
-  br label %98
+87:                                               ; preds = %.split.split.i.preheader
+  store i64 %85, ptr %64, align 8, !tbaa !59
+  br label %89
 
 thread-pre-split.i:                               ; preds = %write_to_child.exit.i
-  %97 = load i64, ptr %67, align 8, !tbaa !60
-  %.pr.i = load i64, ptr %64, align 8, !tbaa !57
+  %88 = load i64, ptr %67, align 8, !tbaa !62
+  %.pr.i = load i64, ptr %64, align 8, !tbaa !59
   %.not40.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not40.i, label %.split.split.i.loopexit, label %98, !llvm.loop !62
+  br i1 %.not40.i, label %.split.split.i.loopexit, label %89, !llvm.loop !64
 
-98:                                               ; preds = %thread-pre-split.i, %96
-  %.13045.i = phi i64 [ %.029.i78, %96 ], [ %97, %thread-pre-split.i ]
-  store ptr %8, ptr %65, align 8, !tbaa !58
-  store i64 8192, ptr %66, align 8, !tbaa !59
-  %99 = call i32 @git_inflate(ptr noundef nonnull %5, i32 noundef 0) #19
-  %or.cond5.i = icmp ugt i32 %99, 1
-  br i1 %or.cond5.i, label %.split50.us.i, label %100
+89:                                               ; preds = %thread-pre-split.i, %87
+  %.13045.i = phi i64 [ %.029.i69, %87 ], [ %88, %thread-pre-split.i ]
+  store ptr %8, ptr %65, align 8, !tbaa !60
+  store i64 8192, ptr %66, align 8, !tbaa !61
+  %90 = call i32 @git_inflate(ptr noundef nonnull %5, i32 noundef 0) #19
+  %or.cond5.i = icmp ugt i32 %90, 1
+  br i1 %or.cond5.i, label %.split50.us.i, label %91
 
-.split50.us.i:                                    ; preds = %98, %75, %86
-  %.us-phi.i = phi i32 [ %87, %86 ], [ %76, %75 ], [ %99, %98 ]
+.split50.us.i:                                    ; preds = %89, %77
+  %.us-phi.i = phi i32 [ %78, %77 ], [ %90, %89 ]
   call void (ptr, ...) @die(ptr noundef nonnull @.str.81, i32 noundef %.us-phi.i) #20
   unreachable
 
-100:                                              ; preds = %98
-  %101 = load i64, ptr %67, align 8, !tbaa !60
-  %102 = sub i64 %101, %.13045.i
-  %103 = call i64 @write_in_full(i32 noundef %62, ptr noundef nonnull %8, i64 noundef %102) #19
-  %104 = icmp slt i64 %103, 0
-  br i1 %104, label %.split52.us.i, label %write_to_child.exit.i
+91:                                               ; preds = %89
+  %92 = load i64, ptr %67, align 8, !tbaa !62
+  %93 = sub i64 %92, %.13045.i
+  %94 = call i64 @write_in_full(i32 noundef %62, ptr noundef nonnull %8, i64 noundef %93) #19
+  %95 = icmp slt i64 %94, 0
+  br i1 %95, label %.split52.us.i, label %write_to_child.exit.i
 
-.split52.us.i:                                    ; preds = %100, %77, %88
+.split52.us.i:                                    ; preds = %91, %79
   call void (ptr, ...) @die(ptr noundef nonnull @.str.85, ptr noundef %60) #20
   unreachable
 
-write_to_child.exit.i:                            ; preds = %100
-  %.not41.not.i = icmp eq i32 %99, 1
-  br i1 %.not41.not.i, label %inflate_request.exit, label %thread-pre-split.i, !llvm.loop !61
+write_to_child.exit.i:                            ; preds = %91
+  %.not41.not.i = icmp eq i32 %90, 1
+  br i1 %.not41.not.i, label %inflate_request.exit, label %thread-pre-split.i, !llvm.loop !63
 
-inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.us.i, %write_to_child.exit.us.i
-  %105 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i43, %write_to_child.exit.i ]
+inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.i
+  %96 = phi ptr [ null, %write_to_child.exit.us.i ], [ %.pre.i43, %write_to_child.exit.i ]
   call void @git_inflate_end(ptr noundef nonnull %5) #19
-  %106 = call i32 @close(i32 noundef %62) #19
-  call void @free(ptr noundef %105) #19
+  %97 = call i32 @close(i32 noundef %62) #19
+  call void @free(ptr noundef %96) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #19
-  br label %138
+  br label %129
 
-107:                                              ; preds = %57
-  br i1 %46, label %108, label %121
+98:                                               ; preds = %57
+  br i1 %46, label %99, label %112
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr %0, align 8, !tbaa !34
-  %110 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %111 = load i32, ptr %110, align 8, !tbaa !51
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %0, align 8, !tbaa !34
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %102 = load i32, ptr %101, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  %112 = call fastcc i64 @read_request(ptr noundef %4, i64 noundef %20)
-  %113 = icmp slt i64 %112, 0
-  br i1 %113, label %114, label %115
+  %103 = call fastcc i64 @read_request(ptr noundef %4, i64 noundef %20)
+  %104 = icmp slt i64 %103, 0
+  br i1 %104, label %105, label %106
 
-114:                                              ; preds = %108
+105:                                              ; preds = %99
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.86) #20
   unreachable
 
-115:                                              ; preds = %108
-  %116 = load ptr, ptr %4, align 8, !tbaa !34
-  %117 = call i64 @write_in_full(i32 noundef %111, ptr noundef %116, i64 noundef %112) #19
-  %118 = icmp slt i64 %117, 0
-  br i1 %118, label %119, label %copy_request.exit
+106:                                              ; preds = %99
+  %107 = load ptr, ptr %4, align 8, !tbaa !34
+  %108 = call i64 @write_in_full(i32 noundef %102, ptr noundef %107, i64 noundef %103) #19
+  %109 = icmp slt i64 %108, 0
+  br i1 %109, label %110, label %copy_request.exit
 
-119:                                              ; preds = %115
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.85, ptr noundef %109) #20
+110:                                              ; preds = %106
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.85, ptr noundef %100) #20
   unreachable
 
-copy_request.exit:                                ; preds = %115
-  %120 = call i32 @close(i32 noundef %111) #19
-  call void @free(ptr noundef %116) #19
+copy_request.exit:                                ; preds = %106
+  %111 = call i32 @close(i32 noundef %102) #19
+  call void @free(ptr noundef %107) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  br label %138
+  br label %129
 
-121:                                              ; preds = %107
-  br i1 %47, label %122, label %136
+112:                                              ; preds = %98
+  br i1 %47, label %113, label %127
 
-122:                                              ; preds = %121
-  %123 = load ptr, ptr %0, align 8, !tbaa !34
-  %124 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %125 = load i32, ptr %124, align 8, !tbaa !51
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %0, align 8, !tbaa !34
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %116 = load i32, ptr %115, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #19
   %.not12.i = icmp eq i64 %20, 0
   br i1 %.not12.i, label %pipe_fixed_length.exit, label %.lr.ph.i
 
-126:                                              ; preds = %write_to_child.exit.i45
-  %127 = sub i64 %.013.i, %129
-  %.not.i46 = icmp eq i64 %127, 0
-  br i1 %.not.i46, label %pipe_fixed_length.exit, label %.lr.ph.i, !llvm.loop !64
+117:                                              ; preds = %write_to_child.exit.i45
+  %118 = sub i64 %.013.i, %120
+  %.not.i46 = icmp eq i64 %118, 0
+  br i1 %.not.i46, label %pipe_fixed_length.exit, label %.lr.ph.i, !llvm.loop !66
 
-.lr.ph.i:                                         ; preds = %122, %126
-  %.013.i = phi i64 [ %127, %126 ], [ %20, %122 ]
-  %128 = call i64 @llvm.umin.i64(i64 %.013.i, i64 8192)
-  %129 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %3, i64 noundef %128) #19
-  %130 = icmp slt i64 %129, 0
-  br i1 %130, label %131, label %write_to_child.exit.i45
+.lr.ph.i:                                         ; preds = %113, %117
+  %.013.i = phi i64 [ %118, %117 ], [ %20, %113 ]
+  %119 = call i64 @llvm.umin.i64(i64 %.013.i, i64 8192)
+  %120 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %3, i64 noundef %119) #19
+  %121 = icmp slt i64 %120, 0
+  br i1 %121, label %122, label %write_to_child.exit.i45
 
-131:                                              ; preds = %.lr.ph.i
+122:                                              ; preds = %.lr.ph.i
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.87) #20
   unreachable
 
 write_to_child.exit.i45:                          ; preds = %.lr.ph.i
-  %132 = call i64 @write_in_full(i32 noundef %125, ptr noundef nonnull %3, i64 noundef %129) #19
-  %133 = icmp slt i64 %132, 0
-  br i1 %133, label %134, label %126
+  %123 = call i64 @write_in_full(i32 noundef %116, ptr noundef nonnull %3, i64 noundef %120) #19
+  %124 = icmp slt i64 %123, 0
+  br i1 %124, label %125, label %117
 
-134:                                              ; preds = %write_to_child.exit.i45
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.85, ptr noundef %123) #20
+125:                                              ; preds = %write_to_child.exit.i45
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.85, ptr noundef %114) #20
   unreachable
 
-pipe_fixed_length.exit:                           ; preds = %126, %122
-  %135 = call i32 @close(i32 noundef %125) #19
+pipe_fixed_length.exit:                           ; preds = %117, %113
+  %126 = call i32 @close(i32 noundef %116) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #19
-  br label %138
+  br label %129
 
-136:                                              ; preds = %121
-  %137 = call i32 @close(i32 noundef 0) #19
-  br label %138
+127:                                              ; preds = %112
+  %128 = call i32 @close(i32 noundef 0) #19
+  br label %129
 
-138:                                              ; preds = %copy_request.exit, %136, %pipe_fixed_length.exit, %inflate_request.exit
-  %139 = call i32 @finish_command(ptr noundef nonnull %10) #19
-  %.not41 = icmp eq i32 %139, 0
-  br i1 %.not41, label %142, label %140
+129:                                              ; preds = %copy_request.exit, %127, %pipe_fixed_length.exit, %inflate_request.exit
+  %130 = call i32 @finish_command(ptr noundef nonnull %10) #19
+  %.not41 = icmp eq i32 %130, 0
+  br i1 %.not41, label %133, label %131
 
-140:                                              ; preds = %138
-  %141 = call i32 @common_exit(ptr noundef nonnull @.str.14, i32 noundef 513, i32 noundef 1) #19
-  call void @exit(i32 noundef %141) #20
+131:                                              ; preds = %129
+  %132 = call i32 @common_exit(ptr noundef nonnull @.str.14, i32 noundef 513, i32 noundef 1) #19
+  call void @exit(i32 noundef %132) #20
   unreachable
 
-142:                                              ; preds = %138
+133:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10) #19
   ret void
 }
@@ -1906,11 +1865,11 @@ define internal fastcc void @send_local_file(ptr noundef %0, ptr noundef %1, ptr
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !65
+  %19 = load i64, ptr %18, align 8, !tbaa !67
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull @content_length, i64 noundef %19) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @content_type, ptr noundef %1) #19
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %21 = load i64, ptr %20, align 8, !tbaa !68
+  %21 = load i64, ptr %20, align 8, !tbaa !70
   %22 = tail call { i64, ptr } @date_mode_from_type(i32 noundef 6) #19
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
@@ -2029,6 +1988,9 @@ declare i32 @repo_config_get_ulong(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #18
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2114,15 +2076,17 @@ attributes #24 = { nounwind willreturn memory(none) }
 !54 = !{!"git_zstream", !55, i64 0, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !9, i64 144, !9, i64 152}
 !55 = !{!"z_stream_s", !9, i64 0, !20, i64 8, !14, i64 16, !9, i64 24, !20, i64 32, !14, i64 40, !9, i64 48, !56, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !20, i64 88, !14, i64 96, !14, i64 104}
 !56 = !{!"p1 _ZTS14internal_state", !10, i64 0}
-!57 = !{!54, !14, i64 112}
-!58 = !{!54, !9, i64 152}
-!59 = !{!54, !14, i64 120}
-!60 = !{!54, !14, i64 136}
-!61 = distinct !{!61, !17}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.unswitch.partial.disable"}
-!64 = distinct !{!64, !17}
-!65 = !{!66, !14, i64 48}
-!66 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !67, i64 72, !67, i64 88, !67, i64 104, !5, i64 120}
-!67 = !{!"timespec", !14, i64 0, !14, i64 8}
-!68 = !{!66, !14, i64 88}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = !{!54, !14, i64 112}
+!60 = !{!54, !9, i64 152}
+!61 = !{!54, !14, i64 120}
+!62 = !{!54, !14, i64 136}
+!63 = distinct !{!63, !17}
+!64 = distinct !{!64, !65}
+!65 = !{!"llvm.loop.unswitch.partial.disable"}
+!66 = distinct !{!66, !17}
+!67 = !{!68, !14, i64 48}
+!68 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !69, i64 72, !69, i64 88, !69, i64 104, !5, i64 120}
+!69 = !{!"timespec", !14, i64 0, !14, i64 8}
+!70 = !{!68, !14, i64 88}

@@ -112,12 +112,12 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   %64 = load i32, ptr %50, align 4, !tbaa !16
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next77, %65
-  br i1 %66, label %.lr.ph63.us, label %.loopexit.us, !llvm.loop !20
+  br i1 %66, label %.lr.ph63.us, label %.loopexit.us, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph63, %.lr.ph66.split
   %67 = phi i32 [ %70, %.lr.ph66.split ], [ %85, %.lr.ph63 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count82
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph66.split, !llvm.loop !19
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph66.split, !llvm.loop !22
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.loopexit
   %68 = phi i32 [ %67, %.loopexit ], [ %.pre84, %.lr.ph66 ]
@@ -146,14 +146,14 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   %81 = getelementptr inbounds i32, ptr %33, i64 %80
   store i32 %73, ptr %81, align 4, !tbaa !16
   %82 = getelementptr inbounds double, ptr %17, i64 %indvars.iv70
-  %83 = load double, ptr %82, align 8, !tbaa !21
+  %83 = load double, ptr %82, align 8, !tbaa !23
   %84 = getelementptr inbounds double, ptr %.fr, i64 %80
-  store double %83, ptr %84, align 8, !tbaa !21
+  store double %83, ptr %84, align 8, !tbaa !23
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %85 = load i32, ptr %69, align 4, !tbaa !16
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next71, %86
-  br i1 %87, label %.lr.ph63, label %.loopexit, !llvm.loop !20
+  br i1 %87, label %.lr.ph63, label %.loopexit, !llvm.loop !25
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.us, %._crit_edge, %7
   %.sink = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %.loopexit.us ], [ 1, %.loopexit ]
@@ -198,7 +198,10 @@ attributes #2 = { nounwind }
 !16 = !{!5, !5, i64 0}
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
+!19 = distinct !{!19, !18, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !18, !20}
+!22 = distinct !{!22, !18}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"double", !6, i64 0}
+!25 = distinct !{!25, !18}

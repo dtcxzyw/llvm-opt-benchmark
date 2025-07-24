@@ -904,10 +904,10 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %23 = phi i32 [ %34, %.lr.ph.split ], [ %6, %.lr.ph ]
-  store i64 %indvars.iv, ptr %7, align 8, !tbaa !82
+  store i64 %indvars.iv, ptr %7, align 8, !tbaa !83
   %24 = zext i32 %23 to i64
-  store i64 %24, ptr %8, align 8, !tbaa !83
-  %25 = load ptr, ptr %4, align 8, !tbaa !84
+  store i64 %24, ptr %8, align 8, !tbaa !84
+  %25 = load ptr, ptr %4, align 8, !tbaa !85
   tail call void %25(ptr noundef nonnull %0) #4
   %26 = load ptr, ptr %9, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -922,7 +922,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %34 = load i32, ptr %5, align 4, !tbaa !73
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread36, !llvm.loop !81
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread36, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %2
   br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread36
@@ -930,9 +930,9 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
 ._crit_edge.thread36:                             ; preds = %.lr.ph.split, %._crit_edge
   %.lcssa39 = phi i32 [ 0, %._crit_edge ], [ %34, %.lr.ph.split ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !85
+  %38 = load i32, ptr %37, align 8, !tbaa !87
   %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %37, align 8, !tbaa !85
+  store i32 %39, ptr %37, align 8, !tbaa !87
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread36, %._crit_edge
@@ -940,7 +940,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @get_memory_row, ptr %40, align 8, !tbaa !63
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 0, ptr %41, align 8, !tbaa !86
+  store i32 0, ptr %41, align 8, !tbaa !88
   %42 = add i32 %.lcssa35, -1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !32
@@ -951,9 +951,9 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %49 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %48, i32 noundef %42, i32 noundef 1, i32 noundef 0) #4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %49, ptr %50, align 8, !tbaa !62
-  %51 = load i32, ptr %41, align 8, !tbaa !86
+  %51 = load i32, ptr %41, align 8, !tbaa !88
   %52 = add i32 %51, 1
-  store i32 %52, ptr %41, align 8, !tbaa !86
+  store i32 %52, ptr %41, align 8, !tbaa !88
   ret i32 1
 }
 
@@ -962,7 +962,7 @@ define internal noundef i32 @get_memory_row(ptr noundef %0, ptr noundef captures
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %6 = load i32, ptr %5, align 8, !tbaa !86
+  %6 = load i32, ptr %5, align 8, !tbaa !88
   %7 = xor i32 %6, -1
   %8 = add i32 %4, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -974,9 +974,9 @@ define internal noundef i32 @get_memory_row(ptr noundef %0, ptr noundef captures
   %15 = tail call ptr %12(ptr noundef %0, ptr noundef %14, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %15, ptr %16, align 8, !tbaa !62
-  %17 = load i32, ptr %5, align 8, !tbaa !86
+  %17 = load i32, ptr %5, align 8, !tbaa !88
   %18 = add i32 %17, 1
-  store i32 %18, ptr %5, align 8, !tbaa !86
+  store i32 %18, ptr %5, align 8, !tbaa !88
   ret i32 1
 }
 
@@ -1072,9 +1072,11 @@ attributes #4 = { nounwind }
 !78 = distinct !{!78, !65}
 !79 = distinct !{!79, !65}
 !80 = !{!34, !7, i64 56}
-!81 = distinct !{!81, !65}
-!82 = !{!58, !28, i64 8}
-!83 = !{!58, !28, i64 16}
-!84 = !{!58, !7, i64 0}
-!85 = !{!58, !12, i64 32}
-!86 = !{!36, !12, i64 88}
+!81 = distinct !{!81, !65, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = !{!58, !28, i64 8}
+!84 = !{!58, !28, i64 16}
+!85 = !{!58, !7, i64 0}
+!86 = distinct !{!86, !65}
+!87 = !{!58, !12, i64 32}
+!88 = !{!36, !12, i64 88}

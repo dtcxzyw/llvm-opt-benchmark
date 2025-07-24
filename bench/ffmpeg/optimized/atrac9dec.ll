@@ -2485,7 +2485,7 @@ apply_scalefactors.exit:                          ; preds = %._crit_edge.us.i, %
 
 .loopexit142.i:                                   ; preds = %.lr.ph.i66, %.preheader.i
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next162.i, 3
-  br i1 %exitcond164.not.i, label %1295, label %.preheader.i, !llvm.loop !129
+  br i1 %exitcond164.not.i, label %1295, label %.preheader.i, !llvm.loop !130
 
 .preheader.i:                                     ; preds = %.loopexit142.i, %1286
   %1289 = phi i32 [ %1262, %1286 ], [ %1291, %.loopexit142.i ]
@@ -2525,7 +2525,7 @@ apply_scalefactors.exit:                          ; preds = %._crit_edge.us.i, %
   store float %1302, ptr %1304, align 4, !tbaa !48
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i65
-  br i1 %exitcond.not.i69, label %.loopexit142.i, label %.lr.ph.i66, !llvm.loop !130
+  br i1 %exitcond.not.i69, label %.loopexit142.i, label %.lr.ph.i66, !llvm.loop !131
 
 1305:                                             ; preds = %1295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
@@ -2639,12 +2639,12 @@ apply_scalefactors.exit:                          ; preds = %._crit_edge.us.i, %
   %.01927.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i54 ], [ %narrow.sel.i.i, %1380 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   call void @av_bmg_get(ptr noundef nonnull %42, ptr noundef nonnull %6) #9
-  %1381 = load double, ptr %6, align 16, !tbaa !131
+  %1381 = load double, ptr %6, align 16, !tbaa !132
   %1382 = fptrunc nsz double %1381 to float
   %1383 = add nsw i64 %indvars.iv.i.i55, %1378
   %1384 = getelementptr inbounds [256 x float], ptr %1288, i64 0, i64 %1383
   store float %1382, ptr %1384, align 4, !tbaa !48
-  %1385 = load double, ptr %48, align 8, !tbaa !131
+  %1385 = load double, ptr %48, align 8, !tbaa !132
   %1386 = fptrunc nsz double %1385 to float
   %1387 = trunc nuw nsw i64 %indvars.iv.i.i55 to i32
   %.reass.i.i = add i32 %invariant.op.i.i, %1387
@@ -2666,7 +2666,7 @@ apply_scalefactors.exit:                          ; preds = %._crit_edge.us.i, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %indvars.iv.next.i.i57 = add nuw nsw i64 %indvars.iv.i.i55, 2
   %1400 = icmp samesign ult i64 %indvars.iv.next.i.i57, %1379
-  br i1 %1400, label %1380, label %.lr.ph30.i.i, !llvm.loop !133
+  br i1 %1400, label %1380, label %.lr.ph30.i.i, !llvm.loop !134
 
 .lr.ph30.i.i:                                     ; preds = %1380, %.lr.ph30.i.i
   %indvars.iv32.i.i58 = phi i64 [ %indvars.iv.next33.i.i59, %.lr.ph30.i.i ], [ 0, %1380 ]
@@ -2677,14 +2677,14 @@ apply_scalefactors.exit:                          ; preds = %._crit_edge.us.i, %
   store float %1404, ptr %1402, align 4, !tbaa !48
   %indvars.iv.next33.i.i59 = add nuw nsw i64 %indvars.iv32.i.i58, 1
   %exitcond.not.i.i60 = icmp eq i64 %indvars.iv.next33.i.i59, %1379
-  br i1 %exitcond.not.i.i60, label %fill_with_noise.exit.i, label %.lr.ph30.i.i, !llvm.loop !134
+  br i1 %exitcond.not.i.i60, label %fill_with_noise.exit.i, label %.lr.ph30.i.i, !llvm.loop !135
 
 fill_with_noise.exit.i:                           ; preds = %.lr.ph30.i.i
   br i1 %1273, label %.lr.ph17.i.i, label %scale_band_ext_coeffs.exit.i
 
 .loopexit.i.i63:                                  ; preds = %1413, %.lr.ph17.i.i
   %exitcond23.not.i.i64 = icmp eq i64 %indvars.iv.next20.i.i62, %1269
-  br i1 %exitcond23.not.i.i64, label %scale_band_ext_coeffs.exit.i, label %.lr.ph17.i.i, !llvm.loop !135
+  br i1 %exitcond23.not.i.i64, label %scale_band_ext_coeffs.exit.i, label %.lr.ph17.i.i, !llvm.loop !136
 
 .lr.ph17.i.i:                                     ; preds = %fill_with_noise.exit.i, %.loopexit.i.i63
   %1405 = phi i32 [ %1407, %.loopexit.i.i63 ], [ %1262, %fill_with_noise.exit.i ]
@@ -2711,7 +2711,7 @@ fill_with_noise.exit.i:                           ; preds = %.lr.ph30.i.i
   store float %1416, ptr %1414, align 4, !tbaa !48
   %indvars.iv.next.i110.i = add nsw i64 %indvars.iv.i109.i, 1
   %exitcond.not.i111.i = icmp eq i64 %indvars.iv.next.i110.i, %wide.trip.count.i108.i
-  br i1 %exitcond.not.i111.i, label %.loopexit.i.i63, label %1413, !llvm.loop !136
+  br i1 %exitcond.not.i111.i, label %.loopexit.i.i63, label %1413, !llvm.loop !137
 
 scale_band_ext_coeffs.exit.i:                     ; preds = %.loopexit.i.i63, %fill_with_noise.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
@@ -2733,12 +2733,12 @@ scale_band_ext_coeffs.exit.i:                     ; preds = %.loopexit.i.i63, %f
   %.01927.i115.i = phi float [ %narrow.sel.i118.i, %.lr.ph.i113.i ], [ 0.000000e+00, %._crit_edge.i53 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @av_bmg_get(ptr noundef nonnull %42, ptr noundef nonnull %5) #9
-  %1419 = load double, ptr %5, align 16, !tbaa !131
+  %1419 = load double, ptr %5, align 16, !tbaa !132
   %1420 = fptrunc nsz double %1419 to float
   %1421 = add nsw i64 %indvars.iv.i114.i, %1276
   %1422 = getelementptr inbounds [256 x float], ptr %1288, i64 0, i64 %1421
   store float %1420, ptr %1422, align 4, !tbaa !48
-  %1423 = load double, ptr %43, align 8, !tbaa !131
+  %1423 = load double, ptr %43, align 8, !tbaa !132
   %1424 = fptrunc nsz double %1423 to float
   %1425 = trunc nuw nsw i64 %indvars.iv.i114.i to i32
   %.reass.i116.i = add i32 %invariant.op.i112.i, %1425
@@ -2760,7 +2760,7 @@ scale_band_ext_coeffs.exit.i:                     ; preds = %.loopexit.i.i63, %f
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i114.i, 2
   %1438 = icmp samesign ult i64 %indvars.iv.next.i119.i, %1277
-  br i1 %1438, label %.lr.ph.i113.i, label %.lr.ph30.i120.i, !llvm.loop !133
+  br i1 %1438, label %.lr.ph.i113.i, label %.lr.ph30.i120.i, !llvm.loop !134
 
 .lr.ph30.i120.i:                                  ; preds = %.lr.ph.i113.i, %.lr.ph30.i120.i
   %indvars.iv32.i122.i = phi i64 [ %indvars.iv.next33.i123.i, %.lr.ph30.i120.i ], [ 0, %.lr.ph.i113.i ]
@@ -2771,14 +2771,14 @@ scale_band_ext_coeffs.exit.i:                     ; preds = %.loopexit.i.i63, %f
   store float %1442, ptr %1440, align 4, !tbaa !48
   %indvars.iv.next33.i123.i = add nuw nsw i64 %indvars.iv32.i122.i, 1
   %exitcond.not.i124.i = icmp eq i64 %indvars.iv.next33.i123.i, %1277
-  br i1 %exitcond.not.i124.i, label %fill_with_noise.exit125.i, label %.lr.ph30.i120.i, !llvm.loop !134
+  br i1 %exitcond.not.i124.i, label %fill_with_noise.exit125.i, label %.lr.ph30.i120.i, !llvm.loop !135
 
 fill_with_noise.exit125.i:                        ; preds = %.lr.ph30.i120.i, %._crit_edge.i53
   br i1 %1273, label %.lr.ph17.i126.i, label %scale_band_ext_coeffs.exit139.i
 
 .loopexit.i132.i:                                 ; preds = %1451, %.lr.ph17.i126.i
   %exitcond23.not.i133.i = icmp eq i64 %indvars.iv.next20.i131.i, %1269
-  br i1 %exitcond23.not.i133.i, label %scale_band_ext_coeffs.exit139.i, label %.lr.ph17.i126.i, !llvm.loop !135
+  br i1 %exitcond23.not.i133.i, label %scale_band_ext_coeffs.exit139.i, label %.lr.ph17.i126.i, !llvm.loop !136
 
 .lr.ph17.i126.i:                                  ; preds = %fill_with_noise.exit125.i, %.loopexit.i132.i
   %1443 = phi i32 [ %1445, %.loopexit.i132.i ], [ %1262, %fill_with_noise.exit125.i ]
@@ -2805,7 +2805,7 @@ fill_with_noise.exit125.i:                        ; preds = %.lr.ph30.i120.i, %.
   store float %1454, ptr %1452, align 4, !tbaa !48
   %indvars.iv.next.i137.i = add nsw i64 %indvars.iv.i136.i, 1
   %exitcond.not.i138.i = icmp eq i64 %indvars.iv.next.i137.i, %wide.trip.count.i135.i
-  br i1 %exitcond.not.i138.i, label %.loopexit.i132.i, label %1451, !llvm.loop !136
+  br i1 %exitcond.not.i138.i, label %.loopexit.i132.i, label %1451, !llvm.loop !137
 
 scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %fill_with_noise.exit125.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
@@ -2823,7 +2823,7 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
   store float %1460, ptr %1462, align 4, !tbaa !48
   %indvars.iv.next188.i = add nsw i64 %indvars.iv187.i, 1
   %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %1269
-  br i1 %exitcond191.not.i, label %._crit_edge.i53, label %1455, !llvm.loop !137
+  br i1 %exitcond191.not.i, label %._crit_edge.i53, label %1455, !llvm.loop !138
 
 1463:                                             ; preds = %1295
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0140)
@@ -2843,7 +2843,7 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
   br label %1475
 
 .loopexit.i52:                                    ; preds = %1482, %1475
-  br i1 %1477, label %1475, label %1474, !llvm.loop !138
+  br i1 %1477, label %1475, label %1474, !llvm.loop !139
 
 1474:                                             ; preds = %.loopexit.i52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0140)
@@ -2873,7 +2873,7 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
   store float %1485, ptr %1483, align 4, !tbaa !48
   %indvars.iv.next180.i = add nsw i64 %indvars.iv179.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count182.i
-  br i1 %exitcond183.not.i, label %.loopexit.i52, label %1482, !llvm.loop !139
+  br i1 %exitcond183.not.i, label %.loopexit.i52, label %1482, !llvm.loop !140
 
 1486:                                             ; preds = %1295
   %1487 = getelementptr inbounds nuw i8, ptr %1287, i64 12
@@ -2904,7 +2904,7 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
   store float %1503, ptr %1501, align 4, !tbaa !48
   %indvars.iv.next175.i = add nsw i64 %indvars.iv174.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next175.i, %wide.trip.count177.i
-  br i1 %exitcond178.not.i, label %.loopexit143.i, label %1499, !llvm.loop !140
+  br i1 %exitcond178.not.i, label %.loopexit143.i, label %1499, !llvm.loop !141
 
 1504:                                             ; preds = %1295
   %1505 = getelementptr inbounds nuw i8, ptr %1287, i64 8
@@ -2923,7 +2923,7 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
 
 .loopexit141.i:                                   ; preds = %1522, %1514
   %exitcond173.not.i = icmp eq i64 %indvars.iv.next171.i, 3
-  br i1 %exitcond173.not.i, label %1513, label %1514, !llvm.loop !141
+  br i1 %exitcond173.not.i, label %1513, label %1514, !llvm.loop !142
 
 1513:                                             ; preds = %.loopexit141.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #9
@@ -2953,12 +2953,12 @@ scale_band_ext_coeffs.exit139.i:                  ; preds = %.loopexit.i132.i, %
   store float %1525, ptr %1523, align 4, !tbaa !48
   %indvars.iv.next166.i = add nsw i64 %indvars.iv165.i, 1
   %exitcond169.not.i = icmp eq i64 %indvars.iv.next166.i, %wide.trip.count168.i
-  br i1 %exitcond169.not.i, label %.loopexit141.i, label %1522, !llvm.loop !142
+  br i1 %exitcond169.not.i, label %.loopexit141.i, label %1522, !llvm.loop !143
 
 .loopexit143.i:                                   ; preds = %1499, %1513, %1486, %1474, %scale_band_ext_coeffs.exit139.i, %scale_band_ext_coeffs.exit.i, %1295
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count.i
-  br i1 %exitcond196.not.i, label %apply_band_extension.exit, label %1286, !llvm.loop !143
+  br i1 %exitcond196.not.i, label %apply_band_extension.exit, label %1286, !llvm.loop !144
 
 apply_band_extension.exit:                        ; preds = %.loopexit143.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
@@ -2981,18 +2981,18 @@ apply_scalefactors.exit.i:                        ; preds = %.loopexit.us.i.i, %
   %1534 = shl i32 %.037208, %1532
   %1535 = sext i32 %1534 to i64
   %1536 = shl nsw i64 %1535, 2
-  %1537 = load ptr, ptr %49, align 8, !tbaa !144
+  %1537 = load ptr, ptr %49, align 8, !tbaa !145
   %1538 = sext i32 %1531 to i64
   %1539 = getelementptr inbounds ptr, ptr %1537, i64 %1538
-  %1540 = load ptr, ptr %1539, align 8, !tbaa !145
+  %1540 = load ptr, ptr %1539, align 8, !tbaa !146
   %1541 = getelementptr inbounds i8, ptr %1540, i64 %1536
-  %1542 = load ptr, ptr %50, align 8, !tbaa !146
-  %1543 = load ptr, ptr %51, align 16, !tbaa !147
+  %1542 = load ptr, ptr %50, align 8, !tbaa !147
+  %1543 = load ptr, ptr %51, align 16, !tbaa !148
   %1544 = getelementptr inbounds nuw i8, ptr %1527, i64 2800
   call void %1542(ptr noundef %1543, ptr noundef nonnull %52, ptr noundef nonnull %1544, i64 noundef 4) #9
   %1545 = load ptr, ptr %53, align 8, !tbaa !50
   %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 40
-  %1547 = load ptr, ptr %1546, align 8, !tbaa !148
+  %1547 = load ptr, ptr %1546, align 8, !tbaa !149
   %1548 = getelementptr inbounds nuw i8, ptr %1527, i64 3824
   %1549 = ashr i32 %1533, 1
   call void %1547(ptr noundef %1541, ptr noundef nonnull %1548, ptr noundef nonnull %52, ptr noundef nonnull %54, i32 noundef %1549) #9
@@ -3004,7 +3004,7 @@ apply_scalefactors.exit.i:                        ; preds = %.loopexit.us.i.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %1548, ptr nonnull align 4 %1551, i64 %1554, i1 false)
   %indvars.iv.next406.i = add nuw nsw i64 %indvars.iv405.i, 1
   %exitcond409.not.i = icmp eq i64 %indvars.iv.next406.i, %wide.trip.count408.i
-  br i1 %exitcond409.not.i, label %atrac9_decode_block.exit, label %1526, !llvm.loop !150
+  br i1 %exitcond409.not.i, label %atrac9_decode_block.exit, label %1526, !llvm.loop !151
 
 atrac9_decode_block.exit:                         ; preds = %1526
   %1555 = sub nsw i32 0, %.sroa.16.13
@@ -3019,14 +3019,14 @@ atrac9_decode_block.exit:                         ; preds = %1526
   %1561 = load i32, ptr %1560, align 4, !tbaa !63
   %1562 = sext i32 %1561 to i64
   %.not46 = icmp slt i64 %indvars.iv.next, %1562
-  br i1 %.not46, label %.lr.ph, label %.thread, !llvm.loop !151
+  br i1 %.not46, label %.lr.ph, label %.thread, !llvm.loop !152
 
 .thread:                                          ; preds = %atrac9_decode_block.exit, %.preheader
   %1563 = phi ptr [ %59, %.preheader ], [ %1559, %atrac9_decode_block.exit ]
   %.sroa.16.1.lcssa = phi i32 [ %.sroa.16.0207, %.preheader ], [ %.sroa.16.37, %atrac9_decode_block.exit ]
   %1564 = add nuw nsw i32 %.037208, 1
   %exitcond.not = icmp eq i32 %1564, %.
-  br i1 %exitcond.not, label %.thread150, label %.preheader, !llvm.loop !152
+  br i1 %exitcond.not, label %.thread150, label %.preheader, !llvm.loop !153
 
 .thread150:                                       ; preds = %.thread, %.preheader.lr.ph, %.preheader163
   store i32 1, ptr %2, align 4, !tbaa !39
@@ -3085,7 +3085,7 @@ define internal void @atrac9_decode_flush(ptr noundef readonly captures(none) %0
   %20 = load i32, ptr %19, align 4, !tbaa !63
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next18, %21
-  br i1 %22, label %10, label %._crit_edge, !llvm.loop !154
+  br i1 %22, label %10, label %._crit_edge, !llvm.loop !155
 
 23:                                               ; preds = %10, %23
   %24 = phi i1 [ true, %10 ], [ false, %23 ]
@@ -3093,7 +3093,7 @@ define internal void @atrac9_decode_flush(ptr noundef readonly captures(none) %0
   %25 = getelementptr inbounds nuw [2 x %struct.ATRAC9ChannelData], ptr %12, i64 0, i64 %indvars.iv, i32 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %25, i8 0, i64 512, i1 false)
   %.not.not = and i1 %24, %16
-  br i1 %.not.not, label %23, label %17, !llvm.loop !155
+  br i1 %.not.not, label %23, label %17, !llvm.loop !156
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3137,7 +3137,7 @@ define internal void @atrac9_init_static() #0 {
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %2 ]
   %.02933 = phi ptr [ @at9_sfb_a_tab, %0 ], [ %6, %2 ]
   %3 = getelementptr inbounds nuw [7 x %struct.HuffmanCodebook], ptr @at9_huffman_sf_unsigned, i64 0, i64 %indvars.iv
-  %4 = load i32, ptr %3, align 16, !tbaa !156
+  %4 = load i32, ptr %3, align 16, !tbaa !157
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [2 x i8], ptr %.02933, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %.02933, i64 1
@@ -3146,13 +3146,13 @@ define internal void @atrac9_init_static() #0 {
   store ptr %8, ptr %9, align 8, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader32, label %2, !llvm.loop !157
+  br i1 %exitcond.not, label %.preheader32, label %2, !llvm.loop !158
 
 .preheader32:                                     ; preds = %2, %.preheader32
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader32 ], [ 2, %2 ]
   %.135 = phi ptr [ %13, %.preheader32 ], [ @at9_sfb_b_tab, %2 ]
   %10 = getelementptr inbounds nuw [6 x %struct.HuffmanCodebook], ptr @at9_huffman_sf_signed, i64 0, i64 %indvars.iv44
-  %11 = load i32, ptr %10, align 16, !tbaa !156
+  %11 = load i32, ptr %10, align 16, !tbaa !157
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [2 x i8], ptr %.135, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %.135, i64 1
@@ -3161,7 +3161,7 @@ define internal void @atrac9_init_static() #0 {
   store ptr %15, ptr %16, align 8, !tbaa !94
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 6
-  br i1 %exitcond47.not, label %.preheader30, label %.preheader32, !llvm.loop !158
+  br i1 %exitcond47.not, label %.preheader30, label %.preheader32, !llvm.loop !159
 
 .preheader30:                                     ; preds = %.preheader32, %19
   %17 = phi i1 [ false, %19 ], [ true, %.preheader32 ]
@@ -3179,18 +3179,18 @@ define internal void @atrac9_init_static() #0 {
   br label %20
 
 19:                                               ; preds = %._crit_edge
-  br i1 %17, label %.preheader30, label %18, !llvm.loop !159
+  br i1 %17, label %.preheader30, label %18, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %20
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 8
-  br i1 %exitcond57.not, label %19, label %.preheader, !llvm.loop !160
+  br i1 %exitcond57.not, label %19, label %.preheader, !llvm.loop !161
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv50 = phi i64 [ %indvars.iv48, %.preheader ], [ %indvars.iv.next51, %20 ]
   %.437 = phi ptr [ %.339, %.preheader ], [ %24, %20 ]
   %21 = getelementptr inbounds nuw [2 x [8 x [4 x %struct.HuffmanCodebook]]], ptr @at9_huffman_coeffs, i64 0, i64 %indvars.iv48, i64 %indvars.iv54, i64 %indvars.iv50
-  %22 = load i32, ptr %21, align 16, !tbaa !156
+  %22 = load i32, ptr %21, align 16, !tbaa !157
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [2 x i8], ptr %.437, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %.437, i64 1
@@ -3199,7 +3199,7 @@ define internal void @atrac9_init_static() #0 {
   store ptr %26, ptr %27, align 8, !tbaa !94
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %._crit_edge, label %20, !llvm.loop !161
+  br i1 %exitcond53.not, label %._crit_edge, label %20, !llvm.loop !162
 }
 
 declare ptr @ff_vlc_init_tables_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -3380,12 +3380,12 @@ attributes #9 = { nounwind }
 !125 = !{!66, !10, i64 8680}
 !126 = distinct !{!126, !52}
 !127 = distinct !{!127, !52}
-!128 = distinct !{!128, !52}
-!129 = distinct !{!129, !52}
+!128 = distinct !{!128, !52, !129}
+!129 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !130 = distinct !{!130, !52}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"double", !8, i64 0}
-!133 = distinct !{!133, !52}
+!131 = distinct !{!131, !52}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"double", !8, i64 0}
 !134 = distinct !{!134, !52}
 !135 = distinct !{!135, !52}
 !136 = distinct !{!136, !52}
@@ -3396,21 +3396,22 @@ attributes #9 = { nounwind }
 !141 = distinct !{!141, !52}
 !142 = distinct !{!142, !52}
 !143 = distinct !{!143, !52}
-!144 = !{!58, !59, i64 96}
-!145 = !{!14, !14, i64 0}
-!146 = !{!28, !7, i64 24}
-!147 = !{!28, !31, i64 16}
-!148 = !{!149, !7, i64 40}
-!149 = !{!"AVFloatDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
-!150 = distinct !{!150, !52}
+!144 = distinct !{!144, !52}
+!145 = !{!58, !59, i64 96}
+!146 = !{!14, !14, i64 0}
+!147 = !{!28, !7, i64 24}
+!148 = !{!28, !31, i64 16}
+!149 = !{!150, !7, i64 40}
+!150 = !{!"AVFloatDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
 !151 = distinct !{!151, !52}
-!152 = distinct !{!152, !52, !153}
-!153 = !{!"llvm.loop.unswitch.partial.disable"}
-!154 = distinct !{!154, !52}
+!152 = distinct !{!152, !52}
+!153 = distinct !{!153, !52, !154}
+!154 = !{!"llvm.loop.unswitch.partial.disable"}
 !155 = distinct !{!155, !52}
-!156 = !{!115, !10, i64 0}
-!157 = distinct !{!157, !52}
+!156 = distinct !{!156, !52}
+!157 = !{!115, !10, i64 0}
 !158 = distinct !{!158, !52}
 !159 = distinct !{!159, !52}
 !160 = distinct !{!160, !52}
 !161 = distinct !{!161, !52}
+!162 = distinct !{!162, !52}

@@ -371,7 +371,7 @@ _set_span.exit.thread.thread:                     ; preds = %10
   store i32 %22, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %19
   %23 = sub nsw i32 %.05573.us.i, %.04876.us.i
@@ -397,7 +397,7 @@ _set_span.exit.thread.thread:                     ; preds = %10
   store i32 %31, ptr %29, align 4
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %14
-  br i1 %exitcond100.not.i, label %26, label %28, !llvm.loop !14
+  br i1 %exitcond100.not.i, label %26, label %28, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %.lr.ph.i ], [ 0, %26 ]
@@ -409,7 +409,7 @@ _set_span.exit.thread.thread:                     ; preds = %10
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %35 = add nsw i32 %.283.i, -1
   %.not64.i = icmp eq i32 %35, 0
-  br i1 %.not64.i, label %_set_span.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not64.i, label %_set_span.exit, label %.lr.ph.i, !llvm.loop !16
 
 _set_span.exit:                                   ; preds = %.lr.ph.i, %26
   %36 = add nuw nsw i32 %.05174.us.i, 2
@@ -482,7 +482,7 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   %68 = call i32 @slurm_hostlist_push_host(ptr noundef %67, ptr noundef %62) #8
   call void @free(ptr noundef %62) #8
   %69 = add nuw nsw i32 %.063, 1
-  br i1 %.not38, label %.critedge2, label %.lr.ph, !llvm.loop !16
+  br i1 %.not38, label %.critedge2, label %.lr.ph, !llvm.loop !17
 
 70:                                               ; preds = %.critedge2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
@@ -513,7 +513,7 @@ _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_s
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %2, align 4
   %85 = icmp slt i32 %84, %43
-  br i1 %85, label %.lr.ph65, label %.critedge, !llvm.loop !17
+  br i1 %85, label %.lr.ph65, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph65, %82, %_set_span.exit.thread.thread49
   call void @slurm_xfree(ptr noundef nonnull %5) #8
@@ -662,7 +662,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %51 = load ptr, ptr %15, align 8
   %52 = call ptr @next_node_bitmap(ptr noundef %51, ptr noundef nonnull %2) #8
   %.not115 = icmp eq ptr %52, null
-  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %48, %1
   %53 = load ptr, ptr %11, align 8
@@ -752,7 +752,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   store i32 %93, ptr %2, align 4
   %94 = call ptr @next_node(ptr noundef nonnull %2) #8
   %.not120 = icmp eq ptr %94, null
-  br i1 %.not120, label %.preheader167, label %.lr.ph182, !llvm.loop !19
+  br i1 %.not120, label %.preheader167, label %.lr.ph182, !llvm.loop !20
 
 .lr.ph200:                                        ; preds = %.preheader167, %.thread155
   %.087199 = phi i32 [ %.289148161, %.thread155 ], [ %77, %.preheader167 ]
@@ -813,7 +813,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %117 = load ptr, ptr %15, align 8
   %118 = call ptr @next_node_bitmap(ptr noundef %117, ptr noundef nonnull %2) #8
   %.not122.us = icmp eq ptr %118, null
-  br i1 %.not122.us, label %._crit_edge189, label %.lr.ph188.split.us, !llvm.loop !20
+  br i1 %.not122.us, label %._crit_edge189, label %.lr.ph188.split.us, !llvm.loop !21
 
 .lr.ph188.split:                                  ; preds = %.lr.ph188, %136
   %.0186 = phi i32 [ %.2, %136 ], [ 1, %.lr.ph188 ]
@@ -862,7 +862,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %139 = load ptr, ptr %15, align 8
   %140 = call ptr @next_node_bitmap(ptr noundef %139, ptr noundef nonnull %2) #8
   %.not122 = icmp eq ptr %140, null
-  br i1 %.not122, label %._crit_edge189, label %.lr.ph188.split, !llvm.loop !20
+  br i1 %.not122, label %._crit_edge189, label %.lr.ph188.split, !llvm.loop !22
 
 ._crit_edge189:                                   ; preds = %136, %114, %.lr.ph200
   %.188.lcssa = phi i32 [ %.087199, %.lr.ph200 ], [ %.3.us, %114 ], [ %.3, %136 ]
@@ -888,7 +888,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %.289148161 = phi i32 [ %.289147, %145 ], [ %.188.lcssa, %._crit_edge189 ]
   %147 = add nuw nsw i32 %.097194, 1
   %exitcond.not = icmp eq i32 %147, %.192
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph200, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph200, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread155, %.preheader167, %81
   %.093 = phi i32 [ %82, %81 ], [ %71, %.preheader167 ], [ %.295162, %.thread155 ]
@@ -983,7 +983,7 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   %201 = load ptr, ptr %15, align 8
   %202 = call ptr @next_node_bitmap(ptr noundef %201, ptr noundef nonnull %2) #8
   %.not131 = icmp eq ptr %202, null
-  br i1 %.not131, label %.thread165, label %.lr.ph204, !llvm.loop !22
+  br i1 %.not131, label %.thread165, label %.lr.ph204, !llvm.loop !24
 
 .thread165:                                       ; preds = %145, %198, %.preheader169, %.preheader, %.loopexit, %.thread163
   %.6 = phi i32 [ 0, %.thread163 ], [ %.093, %.loopexit ], [ 0, %.preheader ], [ %71, %.preheader169 ], [ %.4, %198 ], [ %143, %145 ]
@@ -1157,7 +1157,7 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr noundef readonly 
   store ptr %50, ptr %58, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 59:                                               ; preds = %._crit_edge, %2
   %.036 = phi i32 [ 0, %2 ], [ %spec.select, %._crit_edge ]
@@ -1238,8 +1238,8 @@ attributes #9 = { noreturn nounwind }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!12 = distinct !{!12, !9, !10, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
@@ -1247,6 +1247,8 @@ attributes #9 = { noreturn nounwind }
 !18 = distinct !{!18, !9, !10}
 !19 = distinct !{!19, !9, !10}
 !20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!21 = distinct !{!21, !9, !10, !13}
 !22 = distinct !{!22, !9, !10}
 !23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

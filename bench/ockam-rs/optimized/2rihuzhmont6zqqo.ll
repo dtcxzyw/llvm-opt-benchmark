@@ -443,8 +443,8 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %21,
   %29 = add i64 %28, %.sroa.6.0.i.i
   %30 = icmp ugt i64 %29, %7
   %31 = add i64 %.sroa.6.0.i.i, %12
-  %or.cond.i.not.i = icmp ult i64 %31, %7
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i", label %32
+  %or.cond90.i.not.i = icmp ult i64 %31, %7
+  br i1 %or.cond90.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i", label %32
 
 32:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i", %27
   %33 = sub nuw i64 %7, %29
@@ -553,8 +553,8 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i47: ; preds = %6
   %73 = add i64 %72, %.sroa.6.0.i.i36
   %74 = icmp ugt i64 %73, %38
   %75 = add i64 %.sroa.6.0.i.i36, %56
-  %or.cond.i.not.i37 = icmp ult i64 %75, %38
-  br i1 %or.cond.i.not.i37, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i38", label %76
+  %or.cond90.i.not.i37 = icmp ult i64 %75, %38
+  br i1 %or.cond90.i.not.i37, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i38", label %76
 
 76:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit.i.i38", %71
   %77 = sub nuw i64 %38, %73

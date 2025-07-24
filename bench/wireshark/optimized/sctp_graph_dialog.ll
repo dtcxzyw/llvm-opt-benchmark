@@ -3983,7 +3983,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i, %422, %416
   %464 = add nuw nsw i32 %.4486, 1
   %exitcond.not = icmp eq i32 %.4486, %71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us, %66
   %.4.lcssa = phi i32 [ %70, %66 ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
@@ -3992,7 +3992,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %_ZN9QtPriv
   %spec.select94 = getelementptr i8, ptr %.073488, i64 %spec.select94.idx
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond506.not = icmp eq i32 %indvars.iv.next, %61
-  br i1 %exitcond506.not, label %466, label %66, !llvm.loop !18
+  br i1 %exitcond506.not, label %466, label %66, !llvm.loop !20
 
 466:                                              ; preds = %._crit_edge
   %.not89 = icmp ult i32 %58, %.076
@@ -4395,13 +4395,13 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit184: ; preds = %_ZN9QtP
   %663 = getelementptr inbounds nuw i8, ptr %.079490, i64 8
   %664 = load ptr, ptr %663, align 8
   %.not83 = icmp eq ptr %664, null
-  br i1 %.not83, label %._crit_edge494, label %47, !llvm.loop !19
+  br i1 %.not83, label %._crit_edge494, label %47, !llvm.loop !21
 
 ._crit_edge494:                                   ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit184, %40
   %665 = getelementptr inbounds nuw i8, ptr %.1498, i64 16
   %666 = load ptr, ptr %665, align 8
   %.not = icmp eq ptr %666, null
-  br i1 %.not, label %._crit_edge501, label %40, !llvm.loop !20
+  br i1 %.not, label %._crit_edge501, label %40, !llvm.loop !22
 
 ._crit_edge501:                                   ; preds = %._crit_edge494, %2
   ret void
@@ -4510,7 +4510,7 @@ define void @_ZN15SCTPGraphDialog13drawSACKGraphEPK16_sctp_assoc_info(ptr nounde
   %rev = tail call i16 @llvm.bswap.i16(i16 %74)
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %76 = load i32, ptr %75, align 4
-  %77 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #20, !srcloc !21
+  %77 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #20, !srcloc !23
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 14
   %79 = load i16, ptr %78, align 2
   %rev180 = tail call i16 @llvm.bswap.i16(i16 %79)
@@ -4937,7 +4937,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %238, %244, %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
   %286 = add nuw nsw i32 %.0144706, 1
   %exitcond.not = icmp eq i32 %.0144706, %89
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit, %85
   %287 = icmp slt i32 %.0141707, %84
@@ -4945,7 +4945,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %238, %244,
   %spec.select191 = getelementptr i8, ptr %.0113708, i64 %spec.select191.idx
   %288 = add nuw nsw i32 %.0141707, 1
   %exitcond720.not = icmp eq i32 %288, %80
-  br i1 %exitcond720.not, label %.loopexit704, label %85, !llvm.loop !23
+  br i1 %exitcond720.not, label %.loopexit704, label %85, !llvm.loop !25
 
 .loopexit704:                                     ; preds = %._crit_edge, %72
   %.not182 = icmp ult i32 %77, %.0139
@@ -5359,7 +5359,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit342: ; preds = %_ZN9QtP
   %indvars.iv = phi i64 [ 0, %485 ], [ %indvars.iv.next, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit378 ]
   %490 = getelementptr i32, ptr %488, i64 %indvars.iv
   %491 = load i32, ptr %490, align 4
-  %492 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %491) #20, !srcloc !24
+  %492 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %491) #20, !srcloc !26
   %.not187 = icmp ult i32 %492, %.0139
   br i1 %.not187, label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit378, label %493
 
@@ -5759,19 +5759,19 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit378: ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i372, %647, %641, %489
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond723.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond723.not, label %.loopexit, label %489, !llvm.loop !25
+  br i1 %exitcond723.not, label %.loopexit, label %489, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit378, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit342, %68
   %689 = getelementptr inbounds nuw i8, ptr %.0112711, i64 8
   %690 = load ptr, ptr %689, align 8
   %.not176 = icmp eq ptr %690, null
-  br i1 %.not176, label %._crit_edge714, label %68, !llvm.loop !26
+  br i1 %.not176, label %._crit_edge714, label %68, !llvm.loop !28
 
 ._crit_edge714:                                   ; preds = %.loopexit, %61
   %691 = getelementptr inbounds nuw i8, ptr %.1716, i64 16
   %692 = load ptr, ptr %691, align 8
   %.not = icmp eq ptr %692, null
-  br i1 %.not, label %._crit_edge719, label %61, !llvm.loop !27
+  br i1 %.not, label %._crit_edge719, label %61, !llvm.loop !29
 
 ._crit_edge719:                                   ; preds = %._crit_edge714, %2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #18
@@ -6820,7 +6820,7 @@ define void @_ZN15SCTPGraphDialog12drawTSNGraphEPK16_sctp_assoc_info(ptr noundef
 40:                                               ; preds = %37, %37, %37
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !28
+  %43 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !30
   %44 = sub i32 %43, %.055
   %45 = uitofp i32 %44 to double
   %46 = load i64, ptr %22, align 8
@@ -7217,13 +7217,13 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %_ZN9QtPriv
   %239 = getelementptr inbounds nuw i8, ptr %.046187, i64 8
   %240 = load ptr, ptr %239, align 8
   %.not66 = icmp eq ptr %240, null
-  br i1 %.not66, label %._crit_edge, label %37, !llvm.loop !29
+  br i1 %.not66, label %._crit_edge, label %37, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit, %30
   %241 = getelementptr inbounds nuw i8, ptr %.1189, i64 16
   %242 = load ptr, ptr %241, align 8
   %.not = icmp eq ptr %242, null
-  br i1 %.not, label %._crit_edge192, label %30, !llvm.loop !30
+  br i1 %.not, label %._crit_edge192, label %30, !llvm.loop !32
 
 ._crit_edge192:                                   ; preds = %._crit_edge, %20
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #18
@@ -7655,23 +7655,23 @@ define void @_ZN15SCTPGraphDialog12graphClickedEP20QCPAbstractPlottableiP11QMous
   %39 = sitofp i32 %38 to double
   %40 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef align 8 dereferenceable_or_null(472) %31, double noundef %39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %42 = load ptr, ptr %41, align 8, !noalias !31
-  store ptr %42, ptr %10, align 8, !alias.scope !31
+  %42 = load ptr, ptr %41, align 8, !noalias !33
+  store ptr %42, ptr %10, align 8, !alias.scope !33
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %45 = load ptr, ptr %44, align 8, !noalias !31
-  store ptr %45, ptr %43, align 8, !alias.scope !31
+  %45 = load ptr, ptr %44, align 8, !noalias !33
+  store ptr %45, ptr %43, align 8, !alias.scope !33
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %48 = load i64, ptr %47, align 8, !noalias !31
-  store i64 %48, ptr %46, align 8, !alias.scope !31
+  %48 = load i64, ptr %47, align 8, !noalias !33
+  store i64 %48, ptr %46, align 8, !alias.scope !33
   %.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i, label %_ZNK20QCPAbstractPlottable4nameEv.exit, label %49
 
 49:                                               ; preds = %4
-  %50 = atomicrmw add ptr %42, i32 1 seq_cst, align 4, !noalias !31
+  %50 = atomicrmw add ptr %42, i32 1 seq_cst, align 4, !noalias !33
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit
 
 _ZNK20QCPAbstractPlottable4nameEv.exit:           ; preds = %4, %49
@@ -7745,7 +7745,7 @@ _ZN7QStringD2Ev.exit74:                           ; preds = %_ZN7QStringD2Ev.exi
   %74 = add i32 %.045245, 1
   %75 = sext i32 %74 to i64
   %76 = icmp sgt i64 %70, %75
-  br i1 %76, label %77, label %.loopexit, !llvm.loop !34
+  br i1 %76, label %77, label %.loopexit, !llvm.loop !36
 
 77:                                               ; preds = %.lr.ph, %73
   %78 = phi i64 [ 0, %.lr.ph ], [ %75, %73 ]
@@ -7809,20 +7809,20 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %_ZN7QStringD2Ev.exi
 
 98:                                               ; preds = %_ZN7QStringD2Ev.exit74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %99 = load ptr, ptr %41, align 8, !noalias !35
-  store ptr %99, ptr %12, align 8, !alias.scope !35
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %99 = load ptr, ptr %41, align 8, !noalias !37
+  store ptr %99, ptr %12, align 8, !alias.scope !37
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %101 = load ptr, ptr %44, align 8, !noalias !35
-  store ptr %101, ptr %100, align 8, !alias.scope !35
+  %101 = load ptr, ptr %44, align 8, !noalias !37
+  store ptr %101, ptr %100, align 8, !alias.scope !37
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %103 = load i64, ptr %47, align 8, !noalias !35
-  store i64 %103, ptr %102, align 8, !alias.scope !35
+  %103 = load i64, ptr %47, align 8, !noalias !37
+  store i64 %103, ptr %102, align 8, !alias.scope !37
   %.not.i.i.i.i83 = icmp eq ptr %99, null
   br i1 %.not.i.i.i.i83, label %_ZNK20QCPAbstractPlottable4nameEv.exit84, label %104
 
 104:                                              ; preds = %98
-  %105 = atomicrmw add ptr %99, i32 1 seq_cst, align 4, !noalias !35
+  %105 = atomicrmw add ptr %99, i32 1 seq_cst, align 4, !noalias !37
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit84
 
 _ZNK20QCPAbstractPlottable4nameEv.exit84:         ; preds = %98, %104
@@ -7896,7 +7896,7 @@ _ZN7QStringD2Ev.exit94:                           ; preds = %_ZN7QStringD2Ev.exi
   %129 = add i32 %.146246, 1
   %130 = sext i32 %129 to i64
   %131 = icmp sgt i64 %125, %130
-  br i1 %131, label %132, label %.loopexit, !llvm.loop !38
+  br i1 %131, label %132, label %.loopexit, !llvm.loop !40
 
 132:                                              ; preds = %.lr.ph247, %128
   %133 = phi i64 [ 0, %.lr.ph247 ], [ %130, %128 ]
@@ -7960,20 +7960,20 @@ _ZN7QStringD2Ev.exit103:                          ; preds = %_ZN7QStringD2Ev.exi
 
 153:                                              ; preds = %_ZN7QStringD2Ev.exit94
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %154 = load ptr, ptr %41, align 8, !noalias !39
-  store ptr %154, ptr %14, align 8, !alias.scope !39
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %154 = load ptr, ptr %41, align 8, !noalias !41
+  store ptr %154, ptr %14, align 8, !alias.scope !41
   %155 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %156 = load ptr, ptr %44, align 8, !noalias !39
-  store ptr %156, ptr %155, align 8, !alias.scope !39
+  %156 = load ptr, ptr %44, align 8, !noalias !41
+  store ptr %156, ptr %155, align 8, !alias.scope !41
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %158 = load i64, ptr %47, align 8, !noalias !39
-  store i64 %158, ptr %157, align 8, !alias.scope !39
+  %158 = load i64, ptr %47, align 8, !noalias !41
+  store i64 %158, ptr %157, align 8, !alias.scope !41
   %.not.i.i.i.i104 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i104, label %_ZNK20QCPAbstractPlottable4nameEv.exit105, label %159
 
 159:                                              ; preds = %153
-  %160 = atomicrmw add ptr %154, i32 1 seq_cst, align 4, !noalias !39
+  %160 = atomicrmw add ptr %154, i32 1 seq_cst, align 4, !noalias !41
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit105
 
 _ZNK20QCPAbstractPlottable4nameEv.exit105:        ; preds = %153, %159
@@ -8047,7 +8047,7 @@ _ZN7QStringD2Ev.exit115:                          ; preds = %_ZN7QStringD2Ev.exi
   %184 = add i32 %.247248, 1
   %185 = sext i32 %184 to i64
   %186 = icmp sgt i64 %180, %185
-  br i1 %186, label %187, label %.loopexit, !llvm.loop !42
+  br i1 %186, label %187, label %.loopexit, !llvm.loop !44
 
 187:                                              ; preds = %.lr.ph249, %183
   %188 = phi i64 [ 0, %.lr.ph249 ], [ %185, %183 ]
@@ -8111,20 +8111,20 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
 
 208:                                              ; preds = %_ZN7QStringD2Ev.exit115
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %209 = load ptr, ptr %41, align 8, !noalias !43
-  store ptr %209, ptr %16, align 8, !alias.scope !43
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %209 = load ptr, ptr %41, align 8, !noalias !45
+  store ptr %209, ptr %16, align 8, !alias.scope !45
   %210 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %211 = load ptr, ptr %44, align 8, !noalias !43
-  store ptr %211, ptr %210, align 8, !alias.scope !43
+  %211 = load ptr, ptr %44, align 8, !noalias !45
+  store ptr %211, ptr %210, align 8, !alias.scope !45
   %212 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %213 = load i64, ptr %47, align 8, !noalias !43
-  store i64 %213, ptr %212, align 8, !alias.scope !43
+  %213 = load i64, ptr %47, align 8, !noalias !45
+  store i64 %213, ptr %212, align 8, !alias.scope !45
   %.not.i.i.i.i125 = icmp eq ptr %209, null
   br i1 %.not.i.i.i.i125, label %_ZNK20QCPAbstractPlottable4nameEv.exit126, label %214
 
 214:                                              ; preds = %208
-  %215 = atomicrmw add ptr %209, i32 1 seq_cst, align 4, !noalias !43
+  %215 = atomicrmw add ptr %209, i32 1 seq_cst, align 4, !noalias !45
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit126
 
 _ZNK20QCPAbstractPlottable4nameEv.exit126:        ; preds = %208, %214
@@ -8198,7 +8198,7 @@ _ZN7QStringD2Ev.exit136:                          ; preds = %_ZN7QStringD2Ev.exi
   %239 = add i32 %.348250, 1
   %240 = sext i32 %239 to i64
   %241 = icmp sgt i64 %235, %240
-  br i1 %241, label %242, label %.loopexit, !llvm.loop !46
+  br i1 %241, label %242, label %.loopexit, !llvm.loop !48
 
 242:                                              ; preds = %.lr.ph251, %238
   %243 = phi i64 [ 0, %.lr.ph251 ], [ %240, %238 ]
@@ -8262,20 +8262,20 @@ _ZN7QStringD2Ev.exit145:                          ; preds = %_ZN7QStringD2Ev.exi
 
 263:                                              ; preds = %_ZN7QStringD2Ev.exit136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %264 = load ptr, ptr %41, align 8, !noalias !47
-  store ptr %264, ptr %18, align 8, !alias.scope !47
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %264 = load ptr, ptr %41, align 8, !noalias !49
+  store ptr %264, ptr %18, align 8, !alias.scope !49
   %265 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %266 = load ptr, ptr %44, align 8, !noalias !47
-  store ptr %266, ptr %265, align 8, !alias.scope !47
+  %266 = load ptr, ptr %44, align 8, !noalias !49
+  store ptr %266, ptr %265, align 8, !alias.scope !49
   %267 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %268 = load i64, ptr %47, align 8, !noalias !47
-  store i64 %268, ptr %267, align 8, !alias.scope !47
+  %268 = load i64, ptr %47, align 8, !noalias !49
+  store i64 %268, ptr %267, align 8, !alias.scope !49
   %.not.i.i.i.i146 = icmp eq ptr %264, null
   br i1 %.not.i.i.i.i146, label %_ZNK20QCPAbstractPlottable4nameEv.exit147, label %269
 
 269:                                              ; preds = %263
-  %270 = atomicrmw add ptr %264, i32 1 seq_cst, align 4, !noalias !47
+  %270 = atomicrmw add ptr %264, i32 1 seq_cst, align 4, !noalias !49
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit147
 
 _ZNK20QCPAbstractPlottable4nameEv.exit147:        ; preds = %263, %269
@@ -8349,7 +8349,7 @@ _ZN7QStringD2Ev.exit157:                          ; preds = %_ZN7QStringD2Ev.exi
   %294 = add i32 %.449252, 1
   %295 = sext i32 %294 to i64
   %296 = icmp sgt i64 %290, %295
-  br i1 %296, label %297, label %.loopexit, !llvm.loop !50
+  br i1 %296, label %297, label %.loopexit, !llvm.loop !52
 
 297:                                              ; preds = %.lr.ph253, %293
   %298 = phi i64 [ 0, %.lr.ph253 ], [ %295, %293 ]
@@ -8446,20 +8446,20 @@ _ZN7QStringD2Ev.exit166:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #18
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable_or_null(56) @_ZN15SCTPGraphDialog16staticMetaObjectE, ptr noundef nonnull @.str.18, ptr noundef null, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %333 = load ptr, ptr %41, align 8, !noalias !51
-  store ptr %333, ptr %24, align 8, !alias.scope !51
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %333 = load ptr, ptr %41, align 8, !noalias !53
+  store ptr %333, ptr %24, align 8, !alias.scope !53
   %334 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %335 = load ptr, ptr %44, align 8, !noalias !51
-  store ptr %335, ptr %334, align 8, !alias.scope !51
+  %335 = load ptr, ptr %44, align 8, !noalias !53
+  store ptr %335, ptr %334, align 8, !alias.scope !53
   %336 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %337 = load i64, ptr %47, align 8, !noalias !51
-  store i64 %337, ptr %336, align 8, !alias.scope !51
+  %337 = load i64, ptr %47, align 8, !noalias !53
+  store i64 %337, ptr %336, align 8, !alias.scope !53
   %.not.i.i.i.i167 = icmp eq ptr %333, null
   br i1 %.not.i.i.i.i167, label %_ZNK20QCPAbstractPlottable4nameEv.exit168, label %338
 
 338:                                              ; preds = %329
-  %339 = atomicrmw add ptr %333, i32 1 seq_cst, align 4, !noalias !51
+  %339 = atomicrmw add ptr %333, i32 1 seq_cst, align 4, !noalias !53
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit168
 
 _ZNK20QCPAbstractPlottable4nameEv.exit168:        ; preds = %329, %338
@@ -11081,7 +11081,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !54
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !56
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11123,7 +11123,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !55
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !57
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -12248,42 +12248,44 @@ attributes #21 = { cold noreturn }
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{i64 2170503463}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!17 = distinct !{!17, !15, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !15}
 !20 = distinct !{!20, !15}
-!21 = !{i64 2170505689}
+!21 = distinct !{!21, !15}
 !22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = !{i64 2170507298}
+!23 = !{i64 2170505689}
+!24 = distinct !{!24, !15}
 !25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
+!26 = !{i64 2170507298}
 !27 = distinct !{!27, !15}
-!28 = !{i64 2170509228}
+!28 = distinct !{!28, !15}
 !29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!33 = distinct !{!33, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!34 = distinct !{!34, !15}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!38 = distinct !{!38, !15}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!41 = distinct !{!41, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!42 = distinct !{!42, !15}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!45 = distinct !{!45, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!46 = distinct !{!46, !15}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!49 = distinct !{!49, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!50 = distinct !{!50, !15}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!53 = distinct !{!53, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!54 = distinct !{!54, !15}
-!55 = distinct !{!55, !15}
+!30 = !{i64 2170509228}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!35 = distinct !{!35, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!36 = distinct !{!36, !15}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!39 = distinct !{!39, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!40 = distinct !{!40, !15}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!44 = distinct !{!44, !15}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!48 = distinct !{!48, !15}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!51 = distinct !{!51, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!52 = distinct !{!52, !15}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!55 = distinct !{!55, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!56 = distinct !{!56, !15}
+!57 = distinct !{!57, !15}

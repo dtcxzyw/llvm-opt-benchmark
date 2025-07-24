@@ -145,11 +145,11 @@ declare noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn14ShuffleChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14ShuffleChannelE, i64 16), ptr %0, align 8, !tbaa !46
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14ShuffleChannelE, i64 16), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %2, align 8, !tbaa !48
+  store i8 1, ptr %2, align 8, !tbaa !49
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %3, align 1, !tbaa !49
+  store i8 0, ptr %3, align 1, !tbaa !50
   ret void
 }
 
@@ -223,8 +223,9 @@ attributes #7 = { builtin nounwind }
 !42 = distinct !{!42, !"_ZNK4ncnn3Mat7channelEi"}
 !43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"vtable pointer", !9, i64 0}
-!48 = !{!6, !7, i64 8}
-!49 = !{!6, !7, i64 9}
+!45 = distinct !{!45, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !9, i64 0}
+!49 = !{!6, !7, i64 8}
+!50 = !{!6, !7, i64 9}

@@ -1883,7 +1883,7 @@ uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %47 = tail call ptr @__errno_location() #13
   %48 = load i32, ptr %47, align 4, !tbaa !36
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %.critedge, !llvm.loop !102
+  br i1 %49, label %42, label %.critedge, !llvm.loop !103
 
 .critedge:                                        ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
@@ -1900,7 +1900,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   %54 = tail call ptr @__errno_location() #13
   %55 = load i32, ptr %54, align 4, !tbaa !36
   %56 = icmp eq i32 %55, 4
-  br i1 %56, label %uv__writev.exit, label %.critedge2.thread, !llvm.loop !101
+  br i1 %56, label %uv__writev.exit, label %.critedge2.thread, !llvm.loop !104
 
 .critedge2:                                       ; preds = %uv__writev.exit, %uv__writev.exit.us, %.critedge
   %.131 = phi i64 [ %44, %.critedge ], [ %14, %uv__writev.exit.us ], [ %51, %uv__writev.exit ]
@@ -2152,7 +2152,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %61 = load i32, ptr %54, align 4, !tbaa !77
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %57, label %._crit_edge.loopexit, !llvm.loop !103
+  br i1 %63, label %57, label %._crit_edge.loopexit, !llvm.loop !105
 
 ._crit_edge.loopexit:                             ; preds = %57
   %.pre = load ptr, ptr %52, align 8, !tbaa !24
@@ -2337,6 +2337,8 @@ attributes #14 = { cold nounwind }
 !98 = !{!99, !6, i64 0}
 !99 = !{!"iovec", !6, i64 0, !18, i64 8}
 !100 = !{!99, !18, i64 8}
-!101 = distinct !{!101, !47}
-!102 = distinct !{!102, !47}
+!101 = distinct !{!101, !47, !102}
+!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !103 = distinct !{!103, !47}
+!104 = distinct !{!104, !47}
+!105 = distinct !{!105, !47}

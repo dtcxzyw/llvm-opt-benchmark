@@ -9850,7 +9850,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 84
   %238 = load i32, ptr %237, align 4
   %.not70 = icmp slt i32 %238, %236
-  br i1 %.not70, label %.loopexit, label %.lr.ph.split, !llvm.loop !89
+  br i1 %.not70, label %.loopexit, label %.lr.ph.split, !llvm.loop !91
 
 239:                                              ; preds = %199
   %240 = getelementptr inbounds nuw i8, ptr %13, i64 72
@@ -9996,7 +9996,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   br label %312
 
 312:                                              ; preds = %304, %311
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !90
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !92
   %313 = load ptr, ptr @XLogCtl, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 448
   store i8 0, ptr %314, align 8
@@ -10058,7 +10058,7 @@ define internal fastcc void @RecoveryRestartPoint(ptr noundef nonnull readonly c
   store i64 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 352
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !91
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !93
   %29 = load ptr, ptr @XLogCtl, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 448
   store i8 0, ptr %30, align 8
@@ -10452,7 +10452,7 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %89 = load ptr, ptr @XLogCtl, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 440
   %91 = load i64, ptr %90, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !92
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !94
   %92 = load ptr, ptr @XLogCtl, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 448
   store i8 0, ptr %93, align 8
@@ -10517,7 +10517,7 @@ WALInsertLockAcquireExclusive.exit87:             ; preds = %101
 
 WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   store i1 false, ptr @holdingAllLocks, align 1
-  br i1 %.2, label %121, label %64, !llvm.loop !93
+  br i1 %.2, label %121, label %64, !llvm.loop !95
 
 121:                                              ; preds = %WALInsertLockRelease.exit93
   %122 = load ptr, ptr @DataDir, align 8
@@ -10545,13 +10545,13 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 19
   %132 = load i8, ptr %131, align 1
   %133 = icmp slt i8 %132, 49
-  br i1 %133, label %197, label %134, !llvm.loop !94
+  br i1 %133, label %197, label %134, !llvm.loop !96
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 20
   %136 = load i8, ptr %135, align 1
   %137 = icmp sgt i8 %136, 57
-  br i1 %137, label %197, label %138, !llvm.loop !94
+  br i1 %137, label %197, label %138, !llvm.loop !96
 
 138:                                              ; preds = %134
   %139 = call ptr @__errno_location() #28
@@ -10561,14 +10561,14 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   %142 = load ptr, ptr %9, align 8
   %143 = load i8, ptr %142, align 1
   %.not78 = icmp eq i8 %143, 0
-  br i1 %.not78, label %144, label %197, !llvm.loop !94
+  br i1 %.not78, label %144, label %197, !llvm.loop !96
 
 144:                                              ; preds = %138
   %145 = load i32, ptr %139, align 4
   switch i32 %145, label %146 [
     i32 22, label %197
     i32 34, label %197
-  ], !llvm.loop !94
+  ], !llvm.loop !96
 
 146:                                              ; preds = %144
   %147 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1034, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, ptr noundef nonnull %131) #26
@@ -10576,7 +10576,7 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   switch i32 %148, label %197 [
     i32 4, label %149
     i32 3, label %185
-  ], !llvm.loop !94
+  ], !llvm.loop !96
 
 149:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #26
@@ -10587,10 +10587,10 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
 
 153:                                              ; preds = %149
   %154 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #26
-  br i1 %154, label %155, label %.thread, !llvm.loop !94
+  br i1 %154, label %155, label %.thread, !llvm.loop !96
 
 155:                                              ; preds = %153
-  br label %.thread.sink.split, !llvm.loop !94
+  br label %.thread.sink.split, !llvm.loop !96
 
 156:                                              ; preds = %149
   %157 = and i64 %150, 2147483647
@@ -10599,10 +10599,10 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
 
 159:                                              ; preds = %156
   %160 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #26
-  br i1 %160, label %161, label %.thread, !llvm.loop !94
+  br i1 %160, label %161, label %.thread, !llvm.loop !96
 
 161:                                              ; preds = %159
-  br label %.thread.sink.split, !llvm.loop !94
+  br label %.thread.sink.split, !llvm.loop !96
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %157
@@ -10649,7 +10649,7 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   %179 = phi i8 [ %176, %175 ], [ %.pre, %177 ]
   call void @appendStringInfoChar(ptr noundef nonnull %10, i8 noundef signext %179) #26
   %180 = getelementptr inbounds nuw i8, ptr %.065, i64 1
-  br label %175, !llvm.loop !95
+  br label %175, !llvm.loop !97
 
 .thread.sink.split:                               ; preds = %161, %155
   %.str.86.sink = phi ptr [ @.str.86, %155 ], [ @.str.87, %161 ]
@@ -10934,7 +10934,7 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %56 = load ptr, ptr @XLogCtl, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 440
   %58 = load i64, ptr %57, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !96
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !98
   %59 = load ptr, ptr @XLogCtl, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 448
   store i8 0, ptr %60, align 8
@@ -11087,7 +11087,7 @@ IsBackupHistoryFileName.exit.i:                   ; preds = %130
 IsBackupHistoryFileName.exit.thread.i:            ; preds = %143, %137, %IsBackupHistoryFileName.exit.i, %130, %.lr.ph.i
   %146 = call ptr @ReadDir(ptr noundef %124, ptr noundef nonnull @.str.22) #26
   %.not.i = icmp eq ptr %146, null
-  br i1 %.not.i, label %CleanupBackupHistory.exit, label %.lr.ph.i, !llvm.loop !97
+  br i1 %.not.i, label %CleanupBackupHistory.exit, label %.lr.ph.i, !llvm.loop !99
 
 CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFileName.exit.thread.i, %123
   %147 = call i32 @FreeDir(ptr noundef %124) #26
@@ -11183,7 +11183,7 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   call void @ResetLatch(ptr noundef %198) #26
   %199 = add i32 %.051, 1
   %.not65 = icmp slt i32 %199, %.052.ph
-  br i1 %.not65, label %183, label %200, !llvm.loop !98
+  br i1 %.not65, label %183, label %200, !llvm.loop !100
 
 200:                                              ; preds = %195
   %201 = shl i32 %.052.ph, 1
@@ -11197,7 +11197,7 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %203, %200
-  br label %.outer, !llvm.loop !98
+  br label %.outer, !llvm.loop !100
 
 206:                                              ; preds = %185
   %207 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #26
@@ -11372,7 +11372,7 @@ define dso_local void @SetWalWriterSleeping(i1 noundef zeroext %0) local_unnamed
   %11 = load ptr, ptr @XLogCtl, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 329
   store i8 %10, ptr %12, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !99
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !101
   %13 = load ptr, ptr @XLogCtl, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 448
   store i8 0, ptr %14, align 8
@@ -11609,7 +11609,7 @@ define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull ca
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.117, i32 noundef %4, i32 noundef %36, i32 noundef %38) #26
   %40 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %7) #26
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !100
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %30, %.preheader, %27
   %42 = call i32 @durable_rename(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 15) #26
@@ -11863,15 +11863,17 @@ attributes #31 = { noreturn nounwind }
 !86 = distinct !{!86, !9}
 !87 = !{i64 2151605214}
 !88 = !{i64 2151606535}
-!89 = distinct !{!89, !9}
-!90 = !{i64 2151610453}
-!91 = !{i64 2151589297}
-!92 = !{i64 2151618364}
-!93 = distinct !{!93, !9}
-!94 = distinct !{!94, !9}
+!89 = distinct !{!89, !9, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !9}
+!92 = !{i64 2151610453}
+!93 = !{i64 2151589297}
+!94 = !{i64 2151618364}
 !95 = distinct !{!95, !9}
-!96 = !{i64 2151626157}
+!96 = distinct !{!96, !9}
 !97 = distinct !{!97, !9}
-!98 = distinct !{!98, !9}
-!99 = !{i64 2151635562}
+!98 = !{i64 2151626157}
+!99 = distinct !{!99, !9}
 !100 = distinct !{!100, !9}
+!101 = !{i64 2151635562}
+!102 = distinct !{!102, !9}

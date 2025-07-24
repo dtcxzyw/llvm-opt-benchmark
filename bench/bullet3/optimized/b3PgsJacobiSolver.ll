@@ -7887,7 +7887,7 @@ define dso_local noundef float @_ZN17b3PgsJacobiSolver29solveGroupCacheFriendlyF
   store float %42, ptr %43, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count244
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !193
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !195
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -8092,7 +8092,7 @@ define dso_local noundef float @_ZN17b3PgsJacobiSolver29solveGroupCacheFriendlyF
 210:                                              ; preds = %208, %200
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %._crit_edge, label %50, !llvm.loop !194
+  br i1 %exitcond250.not, label %._crit_edge, label %50, !llvm.loop !196
 
 ._crit_edge:                                      ; preds = %210, %.loopexit
   invoke void @b3EnterProfileZone(ptr noundef nonnull @.str.5)
@@ -8292,7 +8292,7 @@ _ZN13b3ProfileZoneC2EPKc.exit:                    ; preds = %326, %333, %222
   %337 = load i32, ptr %211, align 4, !tbaa !31
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next252, %338
-  br i1 %339, label %222, label %_ZN13b3ProfileZoneC2EPKc.exit._crit_edge, !llvm.loop !195
+  br i1 %339, label %222, label %_ZN13b3ProfileZoneC2EPKc.exit._crit_edge, !llvm.loop !197
 
 340:                                              ; preds = %335, %239
   %.pn87.pn = phi { ptr, i32 } [ %240, %239 ], [ %336, %335 ]
@@ -9230,6 +9230,8 @@ attributes #22 = { nounwind }
 !190 = distinct !{!190, !114}
 !191 = distinct !{!191, !114, !189}
 !192 = distinct !{!192, !114}
-!193 = distinct !{!193, !114}
-!194 = distinct !{!194, !114}
+!193 = distinct !{!193, !114, !194}
+!194 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !195 = distinct !{!195, !114}
+!196 = distinct !{!196, !114}
+!197 = distinct !{!197, !114}

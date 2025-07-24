@@ -87,7 +87,7 @@ define void @av_xtea_crypt(ptr noundef readonly captures(none) %0, ptr noundef c
   %13 = getelementptr inbounds nuw i8, ptr %.03447.i, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %.03348.i, i64 8
   %.not41.i = icmp eq i32 %12, 0
-  br i1 %.not41.i, label %xtea_crypt.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not41.i, label %xtea_crypt.exit, label %.lr.ph.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %.lr.ph53.i, %23
   %15 = phi i32 [ %27, %23 ], [ %7, %.lr.ph53.i ]
@@ -106,7 +106,7 @@ define void @av_xtea_crypt(ptr noundef readonly captures(none) %0, ptr noundef c
   store i8 %21, ptr %22, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %23, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %23, label %16, !llvm.loop !16
 
 23:                                               ; preds = %16
   tail call fastcc void @xtea_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.152.i, ptr noundef nonnull %.152.i, i32 noundef 0, ptr noundef null) #6, !callees !12
@@ -116,7 +116,7 @@ define void @av_xtea_crypt(ptr noundef readonly captures(none) %0, ptr noundef c
   %26 = getelementptr inbounds nuw i8, ptr %.152.i, i64 8
   %27 = add nsw i32 %15, -1
   %.not39.i = icmp eq i32 %15, 0
-  br i1 %.not39.i, label %xtea_crypt.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %.not39.i, label %xtea_crypt.exit, label %.preheader.i, !llvm.loop !17
 
 xtea_crypt.exit:                                  ; preds = %.lr.ph.i, %23, %.lr.ph53.split.us.i, %.preheader43.i, %.preheader42.i
   ret void
@@ -1101,7 +1101,7 @@ define void @av_xtea_le_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   %34 = sub i32 %.064.i.us, %33
   %35 = add nuw nsw i32 %.05661.i.us, 1
   %exitcond.not.i7.us = icmp eq i32 %35, 32
-  br i1 %exitcond.not.i7.us, label %xtea_le_crypt_ecb.exit14.us, label %.preheader60.i.us, !llvm.loop !16
+  br i1 %exitcond.not.i7.us, label %xtea_le_crypt_ecb.exit14.us, label %.preheader60.i.us, !llvm.loop !18
 
 xtea_le_crypt_ecb.exit14.us:                      ; preds = %.preheader60.i.us
   %36 = add nsw i32 %.03646.i.us, -1
@@ -1111,7 +1111,7 @@ xtea_le_crypt_ecb.exit14.us:                      ; preds = %.preheader60.i.us
   %38 = getelementptr inbounds nuw i8, ptr %.03447.i.us, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.03348.i.us, i64 8
   %.not41.i.us = icmp eq i32 %36, 0
-  br i1 %.not41.i.us, label %xtea_crypt.exit, label %.lr.ph.i.us, !llvm.loop !14
+  br i1 %.not41.i.us, label %xtea_crypt.exit, label %.lr.ph.i.us, !llvm.loop !19
 
 .preheader42.i:                                   ; preds = %6
   br i1 %.not3950.i, label %xtea_crypt.exit, label %.lr.ph53.i
@@ -1161,7 +1161,7 @@ xtea_le_crypt_ecb.exit14.us:                      ; preds = %.preheader60.i.us
   %68 = add i32 %67, %.35566.i18
   %69 = add nuw nsw i32 %.15765.i19, 1
   %exitcond72.not.i20 = icmp eq i32 %69, 32
-  br i1 %exitcond72.not.i20, label %xtea_le_crypt_ecb.exit23, label %.preheader.i15, !llvm.loop !17
+  br i1 %exitcond72.not.i20, label %xtea_le_crypt_ecb.exit23, label %.preheader.i15, !llvm.loop !20
 
 xtea_le_crypt_ecb.exit23:                         ; preds = %.preheader.i15
   store i32 %55, ptr %.152.us.i, align 1, !tbaa !4
@@ -1213,7 +1213,7 @@ xtea_le_crypt_ecb.exit23:                         ; preds = %.preheader.i15
   %100 = sub i32 %.064.i, %99
   %101 = add nuw nsw i32 %.05661.i, 1
   %exitcond.not.i7 = icmp eq i32 %101, 32
-  br i1 %exitcond.not.i7, label %xtea_le_crypt_ecb.exit14, label %.preheader60.i, !llvm.loop !16
+  br i1 %exitcond.not.i7, label %xtea_le_crypt_ecb.exit14, label %.preheader60.i, !llvm.loop !18
 
 xtea_le_crypt_ecb.exit14:                         ; preds = %.preheader60.i
   %102 = add nsw i32 %.03646.i, -1
@@ -1229,7 +1229,7 @@ xtea_le_crypt_ecb.exit14:                         ; preds = %.preheader60.i
   %109 = getelementptr inbounds nuw i8, ptr %.03447.i, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %.03348.i, i64 8
   %.not41.i = icmp eq i32 %102, 0
-  br i1 %.not41.i, label %xtea_crypt.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not41.i, label %xtea_crypt.exit, label %.lr.ph.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %.lr.ph53.i, %xtea_le_crypt_ecb.exit
   %111 = phi i32 [ %151, %xtea_le_crypt_ecb.exit ], [ %40, %.lr.ph53.i ]
@@ -1248,7 +1248,7 @@ xtea_le_crypt_ecb.exit14:                         ; preds = %.preheader60.i
   store i8 %117, ptr %118, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %119, label %112, !llvm.loop !15
+  br i1 %exitcond.not.i, label %119, label %112, !llvm.loop !16
 
 119:                                              ; preds = %112
   %120 = load i32, ptr %.152.i, align 1, !tbaa !4
@@ -1287,7 +1287,7 @@ xtea_le_crypt_ecb.exit14:                         ; preds = %.preheader60.i
   %146 = add i32 %145, %.35566.i
   %147 = add nuw nsw i32 %.15765.i, 1
   %exitcond72.not.i = icmp eq i32 %147, 32
-  br i1 %exitcond72.not.i, label %xtea_le_crypt_ecb.exit, label %.preheader.i5, !llvm.loop !17
+  br i1 %exitcond72.not.i, label %xtea_le_crypt_ecb.exit, label %.preheader.i5, !llvm.loop !20
 
 xtea_le_crypt_ecb.exit:                           ; preds = %.preheader.i5
   store i32 %133, ptr %.152.i, align 1, !tbaa !4
@@ -1298,7 +1298,7 @@ xtea_le_crypt_ecb.exit:                           ; preds = %.preheader.i5
   %150 = getelementptr inbounds nuw i8, ptr %.152.i, i64 8
   %151 = add nsw i32 %111, -1
   %.not39.i = icmp eq i32 %111, 0
-  br i1 %.not39.i, label %xtea_crypt.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %.not39.i, label %xtea_crypt.exit, label %.preheader.i, !llvm.loop !17
 
 xtea_crypt.exit:                                  ; preds = %xtea_le_crypt_ecb.exit14, %xtea_le_crypt_ecb.exit14.us, %xtea_le_crypt_ecb.exit, %xtea_le_crypt_ecb.exit23, %.preheader43.i, %.preheader42.i
   ret void
@@ -1330,8 +1330,11 @@ attributes #6 = { nounwind }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{ptr @xtea_crypt_ecb, null}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!13 = distinct !{!13, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
 !17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10, !14}
+!20 = distinct !{!20, !10}

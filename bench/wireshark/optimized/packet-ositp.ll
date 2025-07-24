@@ -2889,7 +2889,7 @@ define internal fastcc noundef ptr @print_tsap(ptr noundef %0, ptr noundef %1, i
   %.146 = getelementptr i8, ptr %.04549, i64 1
   %41 = add nsw i32 %.04450, -1
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %8
   ret ptr %6
@@ -2997,4 +2997,6 @@ attributes #10 = { allocsize(1) }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}

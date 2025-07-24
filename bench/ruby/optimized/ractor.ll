@@ -7330,12 +7330,12 @@ ractor_queue_advance.exit.i.i:                    ; preds = %38, %32
 ractor_check_ints.exit.us.i.i:                    ; preds = %52, %.split.us.i.i
   %.pr.us.i.i = load i32, ptr %17, align 4, !tbaa !106
   %53 = icmp eq i32 %.pr.us.i.i, 0
-  br i1 %53, label %.split.us.i.i, label %ractor_sleep.exit, !llvm.loop !158
+  br i1 %53, label %.split.us.i.i, label %ractor_sleep.exit, !llvm.loop !268
 
 ractor_sleep.exit:                                ; preds = %ractor_check_ints.exit.us.i.i
   store i32 0, ptr %16, align 8, !tbaa !105
   store i32 0, ptr %17, align 4, !tbaa !106
-  br label %18, !llvm.loop !268
+  br label %18, !llvm.loop !270
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph.i
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %9) #19
@@ -7498,7 +7498,7 @@ define internal void @ractor_selector_mark(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !269
+  %11 = load i64, ptr %10, align 8, !tbaa !271
   tail call void @rb_gc_mark(i64 noundef %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !100
@@ -7617,7 +7617,7 @@ define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0
   %.2 = phi i8 [ 1, %28 ], [ %.121, %24 ], [ %.121, %14 ]
   %31 = add nuw nsw i32 %.01920, 1
   %32 = icmp slt i32 %31, %30
-  br i1 %32, label %14, label %._crit_edge, !llvm.loop !270
+  br i1 %32, label %14, label %._crit_edge, !llvm.loop !272
 
 33:                                               ; preds = %._crit_edge
   %34 = icmp sgt i32 %30, 0
@@ -7930,7 +7930,7 @@ define internal fastcc void @ractor_selector_wait_cleaup(ptr noundef %0, ptr nou
   tail call void @rb_thread_sleep(i32 noundef 0) #19
   %.val = load i32, ptr %1, align 8, !tbaa !100
   %5 = icmp eq i32 %.val, 8
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !271
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   store i32 6, ptr %1, align 8, !tbaa !100
@@ -7967,17 +7967,17 @@ define internal fastcc range(i32 0, 2) i32 @obj_traverse_i(i64 noundef %0, ptr n
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !272
+  %17 = load ptr, ptr %16, align 8, !tbaa !274
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %obj_traverse_rec.exit, !prof !171
 
 18:                                               ; preds = %15
   %19 = tail call i64 @rb_ident_hash_new() #19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %19, ptr %20, align 8, !tbaa !273
+  store i64 %19, ptr %20, align 8, !tbaa !275
   %21 = add i64 %19, 24
   %22 = inttoptr i64 %21 to ptr
-  store ptr %22, ptr %16, align 8, !tbaa !272
+  store ptr %22, ptr %16, align 8, !tbaa !274
   br label %obj_traverse_rec.exit
 
 obj_traverse_rec.exit:                            ; preds = %15, %18
@@ -7990,10 +7990,10 @@ obj_traverse_rec.exit:                            ; preds = %15, %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
-  store ptr %1, ptr %26, align 8, !tbaa !274
+  store ptr %1, ptr %26, align 8, !tbaa !276
   %27 = ptrtoint ptr %3 to i64
   call void @rb_ivar_foreach(i64 noundef %0, ptr noundef nonnull @obj_traverse_ivar_foreach_i, i64 noundef %27) #19
-  %28 = load i8, ptr %3, align 8, !tbaa !277, !range !98, !noundef !99
+  %28 = load i8, ptr %3, align 8, !tbaa !279, !range !98, !noundef !99
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %.loopexit, label %30
 
@@ -8059,7 +8059,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %48 = call fastcc i32 @obj_traverse_i(i64 noundef %47, ptr noundef nonnull %1)
   %.not65 = icmp eq i32 %48, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not65, label %36, label %.loopexit, !llvm.loop !278
+  br i1 %.not65, label %36, label %.loopexit, !llvm.loop !280
 
 49:                                               ; preds = %30
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -8072,10 +8072,10 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %4, align 8
-  store ptr %1, ptr %54, align 8, !tbaa !274
+  store ptr %1, ptr %54, align 8, !tbaa !276
   %55 = ptrtoint ptr %4 to i64
   call void @rb_hash_foreach(i64 noundef %0, ptr noundef nonnull @obj_hash_traverse_i, i64 noundef %55) #19
-  %56 = load i8, ptr %4, align 8, !tbaa !277, !range !98, !noundef !99
+  %56 = load i8, ptr %4, align 8, !tbaa !279, !range !98, !noundef !99
   %57 = trunc nuw i8 %56 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   br i1 %57, label %.loopexit, label %.critedge
@@ -8107,7 +8107,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %60, %64
 69:                                               ; preds = %.lr.ph
   %70 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %70, %.0.i75
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !279
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !281
 
 .lr.ph:                                           ; preds = %RSTRUCT_CONST_PTR.exit, %69
   %.082 = phi i64 [ %70, %69 ], [ 0, %RSTRUCT_CONST_PTR.exit ]
@@ -8149,7 +8149,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %60, %64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %5, align 8
-  store ptr %1, ptr %91, align 8, !tbaa !274
+  store ptr %1, ptr %91, align 8, !tbaa !276
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
   %92 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
   %.not.i.i72 = icmp eq ptr %92, null
@@ -8171,7 +8171,7 @@ rb_vm_lock_enter_nb.exit:                         ; preds = %90, %93
 
 rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb.exit, %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  %96 = load i8, ptr %5, align 8, !tbaa !277, !range !98, !noundef !99
+  %96 = load i8, ptr %5, align 8, !tbaa !279, !range !98, !noundef !99
   %97 = trunc nuw i8 %96 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
   br i1 %97, label %.loopexit, label %.critedge
@@ -8223,13 +8223,13 @@ declare void @rb_ivar_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnam
 define internal range(i32 0, 2) i32 @obj_traverse_ivar_foreach_i(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !274
+  %6 = load ptr, ptr %5, align 8, !tbaa !276
   %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  store i8 1, ptr %4, align 8, !tbaa !277
+  store i8 1, ptr %4, align 8, !tbaa !279
   br label %9
 
 9:                                                ; preds = %3, %8
@@ -8243,19 +8243,19 @@ declare void @rb_hash_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnam
 define internal range(i32 0, 2) i32 @obj_hash_traverse_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !274
+  %6 = load ptr, ptr %5, align 8, !tbaa !276
   %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %.sink.split
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8, !tbaa !274
+  %9 = load ptr, ptr %5, align 8, !tbaa !276
   %10 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %9)
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %11, label %.sink.split
 
 .sink.split:                                      ; preds = %8, %3
-  store i8 1, ptr %4, align 8, !tbaa !277
+  store i8 1, ptr %4, align 8, !tbaa !279
   br label %11
 
 11:                                               ; preds = %.sink.split, %8
@@ -8266,13 +8266,13 @@ define internal range(i32 0, 2) i32 @obj_hash_traverse_i(i64 noundef %0, i64 nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @obj_traverse_reachable_i(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !274
+  %4 = load ptr, ptr %3, align 8, !tbaa !276
   %5 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  store i8 1, ptr %1, align 8, !tbaa !277
+  store i8 1, ptr %1, align 8, !tbaa !279
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -8694,17 +8694,17 @@ define internal fastcc void @ractor_yield(ptr noundef %0, ptr noundef %1, i64 no
 ractor_check_ints.exit.us.i.i.i:                  ; preds = %35, %.split.us.i.i.i
   %.pr.us.i.i.i = load i32, ptr %13, align 4, !tbaa !106
   %36 = icmp eq i32 %.pr.us.i.i.i, 0
-  br i1 %36, label %.split.us.i.i.i, label %ractor_sleep.exit.i, !llvm.loop !158
+  br i1 %36, label %.split.us.i.i.i, label %ractor_sleep.exit.i, !llvm.loop !268
 
 ractor_sleep.exit.i:                              ; preds = %ractor_check_ints.exit.us.i.i.i
   store i32 0, ptr %12, align 8, !tbaa !105
   store i32 0, ptr %13, align 4, !tbaa !106
-  br label %15, !llvm.loop !280
+  br label %15, !llvm.loop !282
 
 ractor_wait_yield.exit:                           ; preds = %.loopexit.i, %26
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %7) #19
   %37 = tail call fastcc zeroext i1 @ractor_try_yield(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i64 noundef %2, i64 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
-  br i1 %37, label %._crit_edge, label %14, !llvm.loop !281
+  br i1 %37, label %._crit_edge, label %14, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %ractor_wait_yield.exit, %4
   ret void
@@ -8888,8 +8888,8 @@ ractor_try_take.exit:                             ; preds = %.critedge.i
 
 28:                                               ; preds = %ractor_try_take.exit.thread, %ractor_try_take.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  store ptr %1, ptr %5, align 8, !tbaa !282
-  store ptr %6, ptr %13, align 8, !tbaa !284
+  store ptr %1, ptr %5, align 8, !tbaa !284
+  store ptr %6, ptr %13, align 8, !tbaa !286
   call void @rb_native_mutex_lock(ptr noundef nonnull %12) #19
   %.val8.i = load i32, ptr %6, align 8, !tbaa !100
   switch i32 %.val8.i, label %ractor_wait_take.exit [
@@ -8996,7 +8996,7 @@ ractor_sleep_with_cleanup.exit.i:                 ; preds = %ractor_check_ints.e
 ractor_wait_take.exit:                            ; preds = %28, %ractor_sleep_with_cleanup.exit.i
   call void @rb_native_mutex_unlock(ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %22, !llvm.loop !285
+  br label %22, !llvm.loop !287
 
 54:                                               ; preds = %ractor_try_take.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
@@ -9005,9 +9005,9 @@ ractor_wait_take.exit:                            ; preds = %28, %ractor_sleep_w
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ractor_wait_take_cleanup(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !282
+  %2 = load ptr, ptr %0, align 8, !tbaa !284
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !284
+  %4 = load ptr, ptr %3, align 8, !tbaa !286
   %.val1.i = load i32, ptr %4, align 8, !tbaa !100
   %5 = icmp eq i32 %.val1.i, 0
   br i1 %5, label %.lr.ph.i, label %ractor_take_cleanup.exit
@@ -9148,13 +9148,13 @@ ractor_queue_compact.exit.thread20:               ; preds = %ractor_receive_if_l
   store i32 1, ptr %27, align 8, !tbaa !100
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %14) #19
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i8 1, ptr %62, align 4, !tbaa !286
+  store i8 1, ptr %62, align 4, !tbaa !288
   br label %65
 
 ractor_queue_compact.exit.thread:                 ; preds = %41, %ractor_queue_advance.exit.i, %32
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %14) #19
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i8 1, ptr %63, align 4, !tbaa !286
+  store i8 1, ptr %63, align 4, !tbaa !288
   %64 = load i64, ptr %10, align 8, !tbaa !210
   br label %65
 
@@ -9168,7 +9168,7 @@ define internal noundef i64 @receive_if_ensure(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load ptr, ptr %2, align 8, !tbaa !206
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i8, ptr %4, align 4, !tbaa !286, !range !98, !noundef !99
+  %5 = load i8, ptr %4, align 4, !tbaa !288, !range !98, !noundef !99
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %26, label %7
 
@@ -9594,22 +9594,24 @@ attributes #38 = { nounwind willreturn memory(read) }
 !265 = !{!266, !13, i64 16}
 !266 = !{!"rb_shape", !34, i64 0, !17, i64 8, !13, i64 16, !13, i64 20, !10, i64 24, !10, i64 25, !13, i64 28, !267, i64 32}
 !267 = !{!"p1 _ZTS13redblack_node", !9, i64 0}
-!268 = distinct !{!268, !82}
-!269 = !{!138, !17, i64 16}
+!268 = distinct !{!268, !82, !269}
+!269 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !270 = distinct !{!270, !82}
-!271 = distinct !{!271, !82}
-!272 = !{!161, !33, i64 16}
-!273 = !{!161, !17, i64 24}
-!274 = !{!275, !276, i64 8}
-!275 = !{!"obj_traverse_callback_data", !20, i64 0, !276, i64 8}
-!276 = !{!"p1 _ZTS17obj_traverse_data", !9, i64 0}
-!277 = !{!275, !20, i64 0}
-!278 = distinct !{!278, !82}
-!279 = distinct !{!279, !82}
+!271 = !{!138, !17, i64 16}
+!272 = distinct !{!272, !82}
+!273 = distinct !{!273, !82}
+!274 = !{!161, !33, i64 16}
+!275 = !{!161, !17, i64 24}
+!276 = !{!277, !278, i64 8}
+!277 = !{!"obj_traverse_callback_data", !20, i64 0, !278, i64 8}
+!278 = !{!"p1 _ZTS17obj_traverse_data", !9, i64 0}
+!279 = !{!277, !20, i64 0}
 !280 = distinct !{!280, !82}
 !281 = distinct !{!281, !82}
-!282 = !{!283, !40, i64 0}
-!283 = !{!"take_wait_take_cleanup_data", !40, i64 0, !23, i64 8}
-!284 = !{!283, !23, i64 8}
-!285 = distinct !{!285, !82}
-!286 = !{!207, !20, i64 28}
+!282 = distinct !{!282, !82}
+!283 = distinct !{!283, !82}
+!284 = !{!285, !40, i64 0}
+!285 = !{!"take_wait_take_cleanup_data", !40, i64 0, !23, i64 8}
+!286 = !{!285, !23, i64 8}
+!287 = distinct !{!287, !82}
+!288 = !{!207, !20, i64 28}

@@ -4724,7 +4724,7 @@ define noalias noundef ptr @Gia_SweeperGraft(ptr noundef %0, ptr noundef readonl
   store i32 %47, ptr %48, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !125
+  br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !127
 
 .critedge:                                        ; preds = %39, %17, %.lr.ph, %3
   %49 = getelementptr i8, ptr %2, i64 32
@@ -4778,7 +4778,7 @@ define noalias noundef ptr @Gia_SweeperGraft(ptr noundef %0, ptr noundef readonl
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next80, %80
-  br i1 %81, label %.lr.ph63, label %.critedge2.loopexit, !llvm.loop !126
+  br i1 %81, label %.lr.ph63, label %.critedge2.loopexit, !llvm.loop !128
 
 .critedge2.loopexit:                              ; preds = %78, %.lr.ph63
   %.val51.pre = load i32, ptr %4, align 8, !tbaa !73
@@ -4896,7 +4896,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %133 = sub nsw i32 %.val50.val, %.val49
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next83, %134
-  br i1 %135, label %.lr.ph70, label %.critedge4, !llvm.loop !127
+  br i1 %135, label %.lr.ph70, label %.critedge4, !llvm.loop !129
 
 .critedge4:                                       ; preds = %.lr.ph70, %Vec_IntPush.exit, %Vec_IntAlloc.exit
   ret ptr %85
@@ -4907,13 +4907,13 @@ define ptr @Gia_SweeperSweep(ptr noundef %0, ptr noundef readonly captures(none)
   %7 = alloca %struct.Ssc_Pars_t_, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #23
   call void @Ssc_ManSetDefaultParams(ptr noundef nonnull %7) #23
-  store i32 %2, ptr %7, align 4, !tbaa !128
+  store i32 %2, ptr %7, align 4, !tbaa !130
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %3, ptr %8, align 4, !tbaa !130
+  store i32 %3, ptr %8, align 4, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %4, ptr %9, align 4, !tbaa !131
+  store i32 %4, ptr %9, align 4, !tbaa !133
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %5, ptr %10, align 4, !tbaa !132
+  store i32 %5, ptr %10, align 4, !tbaa !134
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -5002,7 +5002,7 @@ define range(i32 0, 2) i32 @Gia_SweeperFraig(ptr noundef %0, ptr noundef readonl
   %.val = load i32, ptr %19, align 4, !tbaa !3
   %35 = sext i32 %.val to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %28, label %.critedge.thread, !llvm.loop !133
+  br i1 %36, label %28, label %.critedge.thread, !llvm.loop !135
 
 .critedge:                                        ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -5087,7 +5087,7 @@ define noundef i32 @Gia_SweeperRun(ptr noundef %0, ptr noundef readonly captures
   %.val = load i32, ptr %17, align 4, !tbaa !3
   %33 = sext i32 %.val to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %26, label %.critedge.thread, !llvm.loop !134
+  br i1 %34, label %26, label %.critedge.thread, !llvm.loop !136
 
 .critedge:                                        ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5440,7 +5440,7 @@ Gia_SweeperCondPush.exit:                         ; preds = %.Vec_IntGrow.exit10
   %161 = sub nsw i32 %.val30.val, %.val29
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next, %162
-  br i1 %163, label %24, label %.critedge, !llvm.loop !135
+  br i1 %163, label %24, label %.critedge, !llvm.loop !137
 
 .critedge:                                        ; preds = %24, %157, %Vec_IntAlloc.exit
   %164 = phi ptr [ %18, %Vec_IntAlloc.exit ], [ %25, %24 ], [ %.pre.i61, %157 ]
@@ -5525,7 +5525,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !136
+  %5 = load i32, ptr %4, align 4, !tbaa !138
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %47
 
@@ -5542,7 +5542,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %14 = load i32, ptr %13, align 4, !tbaa !137
+  %14 = load i32, ptr %13, align 4, !tbaa !139
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
@@ -5569,7 +5569,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 26:                                               ; preds = %24, %22
   %27 = phi ptr [ %23, %22 ], [ %25, %24 ]
   store ptr %27, ptr %18, align 8, !tbaa !71
-  %28 = load i32, ptr %4, align 4, !tbaa !136
+  %28 = load i32, ptr %4, align 4, !tbaa !138
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %27, i64 %29
   %31 = sub nsw i32 %9, %28
@@ -5577,7 +5577,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %33 = mul nsw i64 %32, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !138
+  %35 = load ptr, ptr %34, align 8, !tbaa !140
   %.not34 = icmp eq ptr %35, null
   br i1 %.not34, label %46, label %36
 
@@ -5585,8 +5585,8 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
   %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #26
-  store ptr %39, ptr %34, align 8, !tbaa !138
-  %40 = load i32, ptr %4, align 4, !tbaa !136
+  store ptr %39, ptr %34, align 8, !tbaa !140
+  %40 = load i32, ptr %4, align 4, !tbaa !138
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %39, i64 %41
   %43 = sub nsw i32 %9, %40
@@ -5596,7 +5596,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br label %46
 
 46:                                               ; preds = %36, %26
-  store i32 %9, ptr %4, align 4, !tbaa !136
+  store i32 %9, ptr %4, align 4, !tbaa !138
   br label %47
 
 47:                                               ; preds = %46, %1
@@ -6332,17 +6332,19 @@ attributes #28 = { cold noreturn nounwind }
 !122 = !{!104, !8, i64 328}
 !123 = distinct !{!123, !70}
 !124 = distinct !{!124, !70}
-!125 = distinct !{!125, !70}
-!126 = distinct !{!126, !70}
+!125 = distinct !{!125, !70, !126}
+!126 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !127 = distinct !{!127, !70}
-!128 = !{!129, !5, i64 0}
-!129 = !{!"Ssc_Pars_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
-!130 = !{!129, !5, i64 4}
-!131 = !{!129, !5, i64 24}
-!132 = !{!129, !5, i64 20}
-!133 = distinct !{!133, !70}
-!134 = distinct !{!134, !70}
+!128 = distinct !{!128, !70}
+!129 = distinct !{!129, !70}
+!130 = !{!131, !5, i64 0}
+!131 = !{!"Ssc_Pars_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
+!132 = !{!131, !5, i64 4}
+!133 = !{!131, !5, i64 24}
+!134 = !{!131, !5, i64 20}
 !135 = distinct !{!135, !70}
-!136 = !{!11, !5, i64 28}
-!137 = !{!11, !5, i64 796}
-!138 = !{!11, !8, i64 40}
+!136 = distinct !{!136, !70}
+!137 = distinct !{!137, !70}
+!138 = !{!11, !5, i64 28}
+!139 = !{!11, !5, i64 796}
+!140 = !{!11, !8, i64 40}

@@ -110,7 +110,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %31 = load ptr, ptr %30, align 8, !tbaa !52
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
   %wide.trip.count = and i64 %17, 4294967295
   br label %.split
 
@@ -122,7 +122,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
-  %34 = load ptr, ptr %4, align 8, !tbaa !53
+  %34 = load ptr, ptr %4, align 8, !tbaa !54
   %.not.i.i.i.i22 = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i22, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23, label %49
 
@@ -137,24 +137,24 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa !17
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond37.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond37.not, label %._crit_edge, label %.split, !llvm.loop !50
+  br i1 %exitcond37.not, label %._crit_edge, label %.split, !llvm.loop !55
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %.split, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %37 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.33"], ptr %36, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %37, align 4, !tbaa !54
+  %.sroa.0.0.copyload = load i32, ptr %37, align 4, !tbaa !56
   %38 = zext i32 %.sroa.0.0.copyload to i64
   %39 = getelementptr inbounds nuw %"class.draco::IndexType.34", ptr %31, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !54
+  %40 = load i32, ptr %39, align 4, !tbaa !56
   %41 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %5, i64 0, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split32, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !55
+  br i1 %exitcond.not, label %.split32, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !57
 
 42:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
-  %43 = load ptr, ptr %4, align 8, !tbaa !53
+  %43 = load ptr, ptr %4, align 8, !tbaa !54
   %.not.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, label %44
 
@@ -249,7 +249,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 20:                                               ; preds = %._crit_edge
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %3, align 8, !tbaa !53
+  %22 = load ptr, ptr %3, align 8, !tbaa !54
   %.not.i.i.i.i14 = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i14, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit15, label %31
 
@@ -261,10 +261,10 @@ _ZNSt5arrayIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEELm3EEaSERKS4_.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep23, ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNSt5arrayIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEELm3EEaSERKS4_.exit, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNSt5arrayIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEELm3EEaSERKS4_.exit, !llvm.loop !58
 
 24:                                               ; preds = %._crit_edge
-  %25 = load ptr, ptr %3, align 8, !tbaa !53
+  %25 = load ptr, ptr %3, align 8, !tbaa !54
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, label %26
 
@@ -375,10 +375,12 @@ attributes #12 = { builtin nounwind }
 !47 = !{!"p1 _ZTSN5draco22AttributeTransformDataE", !6, i64 0}
 !48 = !{i8 0, i8 2}
 !49 = !{}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!39, !40, i64 0}
-!53 = !{!14, !15, i64 0}
-!54 = !{!19, !19, i64 0}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!39, !40, i64 0}
+!54 = !{!14, !15, i64 0}
 !55 = distinct !{!55, !51}
-!56 = distinct !{!56, !51}
+!56 = !{!19, !19, i64 0}
+!57 = distinct !{!57, !51}
+!58 = distinct !{!58, !51}

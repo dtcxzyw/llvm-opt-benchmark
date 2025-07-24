@@ -165,11 +165,11 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %32 = lshr i64 %31, %15
   %33 = trunc i64 %32 to i16
   %34 = getelementptr inbounds nuw [2 x [2064 x i16]], ptr %6, i64 0, i64 %indvars.iv87, i64 %indvars.iv84
-  store i16 %33, ptr %34, align 2, !tbaa !80
+  store i16 %33, ptr %34, align 2, !tbaa !81
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %35 = zext i16 %28 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next85, %35
-  br i1 %36, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !81
+  br i1 %36, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !82
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us, %._crit_edge.us.us.us
   %.14758.us.us.us = phi i32 [ %49, %._crit_edge.us.us.us ], [ %26, %.lr.ph.us ]
@@ -190,12 +190,12 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %46 = or i64 %.355.us.us.us, %45
   %47 = add nuw nsw i32 %.04456.us.us.us, 8
   %48 = icmp slt i32 %47, %2
-  br i1 %48, label %38, label %._crit_edge.us.us.us, !llvm.loop !82
+  br i1 %48, label %38, label %._crit_edge.us.us.us, !llvm.loop !83
 
 ._crit_edge.us.us.us:                             ; preds = %38
   %49 = add nsw i32 %.14758.us.us.us, %2
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %.lr.ph.us.us.us, label %._crit_edge61.split.us.us.us.loopexit, !llvm.loop !83
+  br i1 %50, label %.lr.ph.us.us.us, label %._crit_edge61.split.us.us.us.loopexit, !llvm.loop !84
 
 .preheader:                                       ; preds = %._crit_edge.split, %._crit_edge.split.us.us
   %51 = phi i16 [ %24, %._crit_edge.split.us.us ], [ %88, %._crit_edge.split ]
@@ -207,8 +207,8 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %54 = add nuw nsw i64 %53, 4294967295
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 4128
   %wide.trip.count93 = and i64 %54, 4294967295
-  %.pre95 = load i16, ptr %6, align 16, !tbaa !80
-  %.pre96 = load i16, ptr %55, align 16, !tbaa !80
+  %.pre95 = load i16, ptr %6, align 16, !tbaa !81
+  %.pre96 = load i16, ptr %55, align 16, !tbaa !81
   %.not115 = icmp eq i16 %51, 2
   br i1 %.not115, label %.ph, label %.ph.lver.orig
 
@@ -219,7 +219,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %58 = zext i16 %57 to i32
   %indvars.iv.next91.lver.orig = add nuw nsw i64 %indvars.iv90.lver.orig, 1
   %59 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91.lver.orig
-  %60 = load i16, ptr %59, align 2, !tbaa !80
+  %60 = load i16, ptr %59, align 2, !tbaa !81
   %61 = zext i16 %60 to i32
   %62 = sub nsw i32 %58, %61
   %63 = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
@@ -232,7 +232,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   store double %69, ptr %67, align 8, !tbaa !74
   %70 = zext i16 %56 to i32
   %71 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91.lver.orig
-  %72 = load i16, ptr %71, align 2, !tbaa !80
+  %72 = load i16, ptr %71, align 2, !tbaa !81
   %73 = zext i16 %72 to i32
   %74 = sub nsw i32 %70, %73
   %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
@@ -243,7 +243,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %80 = fadd reassoc nsz arcp contract afn double %79, %76
   store double %80, ptr %78, align 8, !tbaa !74
   %exitcond94.not.lver.orig = icmp eq i64 %indvars.iv.next91.lver.orig, %wide.trip.count93
-  br i1 %exitcond94.not.lver.orig, label %._crit_edge, label %.ph.lver.orig, !llvm.loop !84
+  br i1 %exitcond94.not.lver.orig, label %._crit_edge, label %.ph.lver.orig, !llvm.loop !85
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -283,7 +283,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %92 = shl i64 %.257, %12
   %93 = add nsw i32 %.14758, %2
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.lr.ph60, label %._crit_edge61.split, !llvm.loop !83
+  br i1 %94, label %.lr.ph60, label %._crit_edge61.split, !llvm.loop !86
 
 ._crit_edge61.split:                              ; preds = %.lr.ph60, %89
   %.2.lcssa = phi i64 [ %.14965, %89 ], [ %92, %.lr.ph60 ]
@@ -294,14 +294,14 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %98 = lshr i64 %97, %15
   %99 = trunc i64 %98 to i16
   %100 = getelementptr inbounds nuw [2 x [2064 x i16]], ptr %6, i64 0, i64 %indvars.iv81, i64 %indvars.iv
-  store i16 %99, ptr %100, align 2, !tbaa !80
+  store i16 %99, ptr %100, align 2, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !87
 
 ._crit_edge.split:                                ; preds = %._crit_edge61.split, %.preheader54.split
   %.149.lcssa = phi i64 [ %.04870, %.preheader54.split ], [ %.2.lcssa, %._crit_edge61.split ]
-  br i1 %.not, label %.preheader54.split, label %.preheader, !llvm.loop !79
+  br i1 %.not, label %.preheader54.split, label %.preheader, !llvm.loop !88
 
 101:                                              ; preds = %.ph, %101
   %store_forwarded = phi double [ %load_initial, %.ph ], [ %115, %101 ]
@@ -311,7 +311,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %104 = zext i16 %103 to i32
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %105 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91
-  %106 = load i16, ptr %105, align 2, !tbaa !80
+  %106 = load i16, ptr %105, align 2, !tbaa !81
   %107 = zext i16 %106 to i32
   %108 = sub nsw i32 %104, %107
   %109 = tail call i32 @llvm.abs.i32(i32 %108, i1 true)
@@ -324,7 +324,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   store double %115, ptr %113, align 8, !tbaa !74
   %116 = zext i16 %102 to i32
   %117 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91
-  %118 = load i16, ptr %117, align 2, !tbaa !80
+  %118 = load i16, ptr %117, align 2, !tbaa !81
   %119 = zext i16 %118 to i32
   %120 = sub nsw i32 %116, %119
   %121 = tail call i32 @llvm.abs.i32(i32 %120, i1 true)
@@ -334,7 +334,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %125 = fadd reassoc nsz arcp contract afn double %store_forwarded, %122
   store double %125, ptr %124, align 8, !tbaa !74
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge, label %101, !llvm.loop !84
+  br i1 %exitcond94.not, label %._crit_edge, label %101, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.ph.lver.orig, %101
   %.pre97 = load double, ptr %7, align 16, !tbaa !74
@@ -405,7 +405,7 @@ define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unna
   %13 = sext i8 %12 to i32
   %14 = tail call i32 @isspace(i32 noundef %13) #12
   %.not16 = icmp eq i32 %14, 0
-  br i1 %.not16, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %.not16, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !89
 
 .lr.ph26:                                         ; preds = %.preheader, %18
   %15 = phi i8 [ %21, %18 ], [ %10, %.preheader ]
@@ -421,7 +421,7 @@ define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unna
   %20 = add nsw i32 %.125, -1
   %21 = load i8, ptr %19, align 1, !tbaa !73
   %.not17 = icmp eq i8 %21, 0
-  br i1 %.not17, label %.critedge, label %.lr.ph26, !llvm.loop !86
+  br i1 %.not17, label %.critedge, label %.lr.ph26, !llvm.loop !90
 
 .critedge:                                        ; preds = %.lr.ph26, %18, %.preheader
   %.013.lcssa = phi ptr [ %0, %.preheader ], [ %19, %18 ], [ %.01324, %.lr.ph26 ]
@@ -476,7 +476,7 @@ define void @_ZN6LibRaw22remove_trailing_spacesEPcm(ptr noundef %0, i64 noundef 
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @isspace(i32 noundef %17) #12
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %4, %2
   ret void
@@ -499,7 +499,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
 .loopexit:                                        ; preds = %.lr.ph.preheader, %8
   %7 = tail call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef %0, ptr noundef nonnull %1)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !88
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !92
 
 8:                                                ; preds = %.lr.ph16, %.loopexit
   %9 = phi ptr [ %3, %.lr.ph16 ], [ %7, %.loopexit ]
@@ -564,7 +564,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @isspace(i32 noundef %34) #12
   %.not16.i = icmp eq i32 %35, 0
-  br i1 %.not16.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !85
+  br i1 %.not16.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !89
 
 .lr.ph26.i:                                       ; preds = %.preheader.i, %39
   %36 = phi i8 [ %42, %39 ], [ %31, %.preheader.i ]
@@ -580,7 +580,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   %41 = add nsw i32 %.125.i, -1
   %42 = load i8, ptr %40, align 1, !tbaa !73
   %.not17.i = icmp eq i8 %42, 0
-  br i1 %.not17.i, label %.critedge.i, label %.lr.ph26.i, !llvm.loop !86
+  br i1 %.not17.i, label %.critedge.i, label %.lr.ph26.i, !llvm.loop !90
 
 .critedge.i:                                      ; preds = %39, %.lr.ph26.i, %.preheader.i
   %.013.lcssa.i = phi ptr [ %0, %.preheader.i ], [ %.01324.i, %.lr.ph26.i ], [ %40, %39 ]
@@ -615,7 +615,7 @@ define void @_ZN6LibRaw21removeExcessiveSpacesEPc(ptr noundef captures(none) %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %8 = load i8, ptr %7, align 1, !tbaa !73
   %9 = icmp eq i8 %8, 32
-  br i1 %9, label %5, label %.critedge, !llvm.loop !89
+  br i1 %9, label %5, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %6
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -648,7 +648,7 @@ define void @_ZN6LibRaw21removeExcessiveSpacesEPc(ptr noundef captures(none) %0)
   %.125 = phi i32 [ %15, %.sink.split ], [ %.02427, %.lr.ph ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond34.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge.loopexit:                             ; preds = %18
   %19 = sext i32 %.125 to i64
@@ -771,15 +771,19 @@ attributes #12 = { nounwind willreturn memory(read) }
 !76 = !{!"llvm.loop.mustprogress"}
 !77 = distinct !{!77, !76}
 !78 = !{!7, !14, i64 22}
-!79 = distinct !{!79, !76}
-!80 = !{!14, !14, i64 0}
-!81 = distinct !{!81, !76}
-!82 = distinct !{!82, !76}
+!79 = distinct !{!79, !76, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = !{!14, !14, i64 0}
+!82 = distinct !{!82, !76, !80}
 !83 = distinct !{!83, !76}
-!84 = distinct !{!84, !76}
+!84 = distinct !{!84, !76, !80}
 !85 = distinct !{!85, !76}
 !86 = distinct !{!86, !76}
 !87 = distinct !{!87, !76}
 !88 = distinct !{!88, !76}
 !89 = distinct !{!89, !76}
 !90 = distinct !{!90, !76}
+!91 = distinct !{!91, !76}
+!92 = distinct !{!92, !76}
+!93 = distinct !{!93, !76}
+!94 = distinct !{!94, !76}

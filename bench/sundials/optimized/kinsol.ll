@@ -4205,7 +4205,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 ._crit_edge352.us:                                ; preds = %111
   %116 = add nuw nsw i64 %.1302353.us, 1
   %exitcond405.not = icmp eq i64 %116, %168
-  br i1 %exitcond405.not, label %._crit_edge354, label %.preheader336.us
+  br i1 %exitcond405.not, label %._crit_edge354, label %.preheader336.us, !llvm.loop !145
 
 117:                                              ; preds = %.lr.ph348, %._crit_edge
   %118 = phi i64 [ %85, %.lr.ph348 ], [ %168, %._crit_edge ]
@@ -4782,3 +4782,5 @@ attributes #17 = { nounwind willreturn memory(read) }
 !142 = !{!4, !6, i64 568}
 !143 = !{!12, !12, i64 0}
 !144 = !{!9, !9, i64 0}
+!145 = distinct !{!145, !146}
+!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}

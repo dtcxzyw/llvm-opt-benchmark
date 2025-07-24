@@ -440,7 +440,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %.pn127.i = select i1 %206, i32 %207, i32 %209
   %.1115.i = or i32 %.pn127.i, %.0114139.i
   %210 = sub nsw i32 %.0117138.i, %203
-  br i1 %206, label %.lr.ph141.i, label %._crit_edge142.loopexit.i, !llvm.loop !46
+  br i1 %206, label %.lr.ph141.i, label %._crit_edge142.loopexit.i, !llvm.loop !47
 
 ._crit_edge142.loopexit.i:                        ; preds = %.lr.ph141.i
   %211 = trunc i32 %.1115.i to i8
@@ -452,7 +452,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %212 = add nuw i32 %.0121145.i, 1
   %213 = getelementptr inbounds nuw i8, ptr %.0122144.i, i64 1
   %exitcond164.not.i = icmp eq i32 %212, %194
-  br i1 %exitcond164.not.i, label %.loopexit.i, label %.lr.ph147.i, !llvm.loop !47
+  br i1 %exitcond164.not.i, label %.loopexit.i, label %.lr.ph147.i, !llvm.loop !48
 
 214:                                              ; preds = %191
   br i1 %.not159.i, label %.loopexit.i, label %.lr.ph137.i
@@ -487,7 +487,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %.pn.i = select i1 %230, i32 %231, i32 %233
   %.1108.i = or i32 %.pn.i, %.0107133.i
   %234 = sub nsw i32 %.0109132.i, %227
-  br i1 %230, label %.lr.ph.i52, label %._crit_edge.i50, !llvm.loop !48
+  br i1 %230, label %.lr.ph.i52, label %._crit_edge.i50, !llvm.loop !49
 
 ._crit_edge.i50:                                  ; preds = %.lr.ph.i52, %.lr.ph137.i
   %.0107.lcssa.i = phi i32 [ 0, %.lr.ph137.i ], [ %.1108.i, %.lr.ph.i52 ]
@@ -499,7 +499,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   store i8 %237, ptr %219, align 1, !tbaa !30
   %239 = add nuw i32 %.0112135.i, 1
   %exitcond.not.i51 = icmp eq i32 %239, %194
-  br i1 %exitcond.not.i51, label %.loopexit.i, label %.lr.ph137.i, !llvm.loop !49
+  br i1 %exitcond.not.i51, label %.loopexit.i, label %.lr.ph137.i, !llvm.loop !50
 
 .loopexit.i:                                      ; preds = %._crit_edge.i50, %._crit_edge142.i, %._crit_edge152.us.i, %214, %195, %.lr.ph157.split.preheader.i, %170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
@@ -552,7 +552,7 @@ png_do_shift.exit:                                ; preds = %.loopexit.i, %126, 
   store i8 %255, ptr %258, align 1, !tbaa !30
   %262 = add nuw i32 %.06489.i, 1
   %exitcond101.not.i = icmp eq i32 %262, %252
-  br i1 %exitcond101.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph92.i, !llvm.loop !50
+  br i1 %exitcond101.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph92.i, !llvm.loop !51
 
 263:                                              ; preds = %248
   br i1 %.not95.i, label %png_do_write_swap_alpha.exit, label %.lr.ph88.i
@@ -586,7 +586,7 @@ png_do_shift.exit:                                ; preds = %.loopexit.i, %126, 
   store i8 %267, ptr %276, align 1, !tbaa !30
   %280 = add nuw i32 %.07385.i, 1
   %exitcond100.not.i = icmp eq i32 %280, %252
-  br i1 %exitcond100.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph88.i, !llvm.loop !51
+  br i1 %exitcond100.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph88.i, !llvm.loop !52
 
 281:                                              ; preds = %242
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -610,7 +610,7 @@ png_do_shift.exit:                                ; preds = %.loopexit.i, %126, 
   store i8 %288, ptr %287, align 1, !tbaa !30
   %291 = add nuw i32 %.07083.i, 1
   %exitcond99.not.i = icmp eq i32 %291, %285
-  br i1 %exitcond99.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph84.i, !llvm.loop !52
+  br i1 %exitcond99.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph84.i, !llvm.loop !53
 
 292:                                              ; preds = %281
   br i1 %.not93.i55, label %png_do_write_swap_alpha.exit, label %.lr.ph.i56
@@ -632,7 +632,7 @@ png_do_shift.exit:                                ; preds = %.loopexit.i, %126, 
   store i8 %296, ptr %297, align 1, !tbaa !30
   %301 = add nuw i32 %.06580.i, 1
   %exitcond.not.i57 = icmp eq i32 %301, %285
-  br i1 %exitcond.not.i57, label %png_do_write_swap_alpha.exit, label %.lr.ph.i56, !llvm.loop !53
+  br i1 %exitcond.not.i57, label %png_do_write_swap_alpha.exit, label %.lr.ph.i56, !llvm.loop !54
 
 png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i56, %.lr.ph84.i, %.lr.ph88.i, %.lr.ph92.i, %292, %286, %263, %253, %242, %png_do_shift.exit
   %302 = load i32, ptr %7, align 4, !tbaa !3
@@ -672,7 +672,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i56, %.lr.ph
   store i8 %319, ptr %316, align 1, !tbaa !30
   %320 = add nuw i32 %.04864.i, 1
   %exitcond75.not.i = icmp eq i32 %320, %314
-  br i1 %exitcond75.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph66.i, !llvm.loop !54
+  br i1 %exitcond75.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph66.i, !llvm.loop !55
 
 321:                                              ; preds = %310
   br i1 %.not69.i, label %png_do_write_invert_alpha.exit, label %.lr.ph63.i
@@ -691,7 +691,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i56, %.lr.ph
   store i8 %328, ptr %323, align 1, !tbaa !30
   %329 = add nuw i32 %.04962.i, 1
   %exitcond74.not.i = icmp eq i32 %329, %314
-  br i1 %exitcond74.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph63.i, !llvm.loop !55
+  br i1 %exitcond74.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph63.i, !llvm.loop !56
 
 330:                                              ; preds = %304
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -714,7 +714,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i56, %.lr.ph
   store i8 %339, ptr %336, align 1, !tbaa !30
   %340 = add nuw i32 %.04559.i, 1
   %exitcond73.not.i = icmp eq i32 %340, %334
-  br i1 %exitcond73.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph60.i, !llvm.loop !56
+  br i1 %exitcond73.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph60.i, !llvm.loop !57
 
 341:                                              ; preds = %330
   br i1 %.not67.i, label %png_do_write_invert_alpha.exit, label %.lr.ph.i59
@@ -733,7 +733,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i56, %.lr.ph
   store i8 %348, ptr %343, align 1, !tbaa !30
   %349 = add nuw i32 %.04356.i, 1
   %exitcond.not.i60 = icmp eq i32 %349, %334
-  br i1 %exitcond.not.i60, label %png_do_write_invert_alpha.exit, label %.lr.ph.i59, !llvm.loop !57
+  br i1 %exitcond.not.i60, label %png_do_write_invert_alpha.exit, label %.lr.ph.i59, !llvm.loop !58
 
 png_do_write_invert_alpha.exit:                   ; preds = %.lr.ph.i59, %.lr.ph60.i, %.lr.ph63.i, %.lr.ph66.i, %341, %335, %321, %315, %304, %png_do_write_swap_alpha.exit
   %350 = load i32, ptr %7, align 4, !tbaa !3
@@ -838,8 +838,8 @@ attributes #4 = { nounwind }
 !42 = !{!20, !5, i64 3}
 !43 = !{!20, !5, i64 4}
 !44 = distinct !{!44, !32}
-!45 = distinct !{!45, !32}
-!46 = distinct !{!46, !32}
+!45 = distinct !{!45, !32, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !47 = distinct !{!47, !32}
 !48 = distinct !{!48, !32}
 !49 = distinct !{!49, !32}
@@ -851,3 +851,4 @@ attributes #4 = { nounwind }
 !55 = distinct !{!55, !32}
 !56 = distinct !{!56, !32}
 !57 = distinct !{!57, !32}
+!58 = distinct !{!58, !32}

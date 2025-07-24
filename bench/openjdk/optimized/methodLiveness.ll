@@ -1877,11 +1877,11 @@ _ZN24ciExceptionHandlerStream4nextEv.exit:        ; preds = %.backedge
 
 .backedge.backedge:                               ; preds = %_ZN24ciExceptionHandlerStream4nextEv.exit, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit
   %.sroa.4.0345.be = phi i32 [ %.old, %_ZN24ciExceptionHandlerStream4nextEv.exit ], [ %910, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit ]
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge, !llvm.loop !20
 
 _ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge: ; preds = %_ZN24ciExceptionHandlerStream4nextEv.exit, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
   %911 = icmp sgt i64 %indvars.iv377, 1
-  br i1 %911, label %.lr.ph351, label %._crit_edge352, !llvm.loop !20
+  br i1 %911, label %.lr.ph351, label %._crit_edge352, !llvm.loop !21
 
 ._crit_edge352:                                   ; preds = %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge, %.loopexit325
   ret void
@@ -2153,7 +2153,7 @@ define hidden void @_ZN14MethodLiveness10BasicBlock9propagateEPS_(ptr noundef no
 
 _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit: ; preds = %26, %22, %14
   %29 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %29, label %14, label %._crit_edge, !llvm.loop !21
+  br i1 %29, label %14, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit, %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2195,7 +2195,7 @@ _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit: ; preds = %26, %22, %
 
 _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit12: ; preds = %48, %44, %36
   %51 = icmp samesign ugt i64 %indvars.iv21, 1
-  br i1 %51, label %36, label %._crit_edge19, !llvm.loop !22
+  br i1 %51, label %36, label %._crit_edge19, !llvm.loop !23
 
 ._crit_edge19:                                    ; preds = %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit12, %._crit_edge
   ret void
@@ -2252,7 +2252,7 @@ define hidden void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind no
   %19 = and i1 %18, %17
   %20 = add nsw i32 %.0, -1
   %21 = zext nneg i32 %20 to i64
-  br i1 %19, label %16, label %22, !llvm.loop !23
+  br i1 %19, label %16, label %22, !llvm.loop !24
 
 22:                                               ; preds = %16
   br i1 %17, label %23, label %25
@@ -2626,7 +2626,7 @@ _ZN16ciBytecodeStream4nextEv.exit.thread9:        ; preds = %_ZN9Bytecodes10leng
   store ptr %42, ptr %18, align 8
   %43 = load ptr, ptr %19, align 8
   %.not.i6 = icmp ult ptr %42, %43
-  br i1 %.not.i6, label %24, label %_ZN16ciBytecodeStream4nextEv.exit.thread, !llvm.loop !24
+  br i1 %.not.i6, label %24, label %_ZN16ciBytecodeStream4nextEv.exit.thread, !llvm.loop !25
 
 _ZN16ciBytecodeStream4nextEv.exit.thread:         ; preds = %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit.thread9, %_ZN6BitMap5clearEv.exit5
   ret void
@@ -3490,10 +3490,11 @@ attributes #13 = { noreturn nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

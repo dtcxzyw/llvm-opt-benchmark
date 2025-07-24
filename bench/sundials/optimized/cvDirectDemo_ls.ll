@@ -1679,7 +1679,7 @@ define internal noundef i32 @f2(double %0, ptr noundef %1, ptr noundef %2, ptr r
   store double %.021.us, ptr %16, align 8, !tbaa !26
   %17 = add nuw nsw i64 %.023.us, 1
   %exitcond26.not = icmp eq i64 %17, 5
-  br i1 %exitcond26.not, label %.split.us, label %.preheader.split.us
+  br i1 %exitcond26.not, label %.split.us, label %.preheader.split.us, !llvm.loop !40
 
 .preheader.split:                                 ; preds = %.preheader, %26
   %.023 = phi i64 [ %31, %26 ], [ 0, %.preheader ]
@@ -1781,3 +1781,5 @@ attributes #10 = { cold nounwind }
 !37 = !{!38, !35, i64 64}
 !38 = !{!"_SUNMatrixContent_Band", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !25, i64 48, !23, i64 56, !35, i64 64}
 !39 = !{!38, !23, i64 40}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}

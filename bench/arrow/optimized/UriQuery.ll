@@ -215,7 +215,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br i1 %17, label %46, label %44
 
 44:                                               ; preds = %43
-  store i8 38, ptr %.07398.i, align 1, !tbaa !16
+  store i8 38, ptr %.07398.i, align 1, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %.07398.i, i64 1
   br label %46
 
@@ -237,7 +237,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br i1 %55, label %uriComposeQueryEngineA.exit, label %56
 
 56:                                               ; preds = %50
-  store i8 61, ptr %49, align 1, !tbaa !16
+  store i8 61, ptr %49, align 1, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %58 = sext i32 %32 to i64
   %59 = getelementptr inbounds i8, ptr %20, i64 %58
@@ -249,10 +249,10 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   %62 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !13
   %.not.i = icmp eq ptr %63, null
-  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !14
+  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !18
 
 .split102.us.i:                                   ; preds = %61
-  store i8 0, ptr %.275.i, align 1, !tbaa !16
+  store i8 0, ptr %.275.i, align 1, !tbaa !17
   %.not88.i = icmp eq ptr %3, null
   br i1 %.not88.i, label %uriComposeQueryEngineA.exit, label %64
 
@@ -353,7 +353,7 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly ca
 
 uriComposeQueryCharsRequiredExA.exit:             ; preds = %33
   %43 = add nsw i32 %40, 1
-  %44 = load ptr, ptr %.022, align 8, !tbaa !17
+  %44 = load ptr, ptr %.022, align 8, !tbaa !19
   %45 = sext i32 %43 to i64
   %46 = tail call ptr %44(ptr noundef nonnull %.022, i64 noundef %45) #7
   %47 = icmp eq ptr %46, null
@@ -366,12 +366,12 @@ uriComposeQueryCharsRequiredExA.exit:             ; preds = %33
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %.022, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !19
+  %52 = load ptr, ptr %51, align 8, !tbaa !21
   tail call void %52(ptr noundef nonnull %.022, ptr noundef nonnull %46) #7
   br label %uriComposeQueryCharsRequiredExA.exit.thread
 
 53:                                               ; preds = %48
-  store ptr %46, ptr %0, align 8, !tbaa !20
+  store ptr %46, ptr %0, align 8, !tbaa !22
   br label %uriComposeQueryCharsRequiredExA.exit.thread
 
 uriComposeQueryCharsRequiredExA.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExA.exit, %9, %5, %53, %50
@@ -390,17 +390,17 @@ define void @uriFreeQueryListA(ptr noundef %0) local_unnamed_addr #2 {
   %.01519.i = phi ptr [ %3, %.lr.ph.i ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
   %5 = load ptr, ptr %.01519.i, align 8, !tbaa !7
   tail call void %4(ptr noundef nonnull @defaultMemoryManager, ptr noundef %5) #7
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   tail call void %6(ptr noundef nonnull @defaultMemoryManager, ptr noundef %8) #7
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
   tail call void %9(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %.01519.i) #7
   %.not17.i = icmp eq ptr %3, null
-  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %.lr.ph.i, !llvm.loop !23
 
 uriFreeQueryListMmA.exit:                         ; preds = %.lr.ph.i, %1
   ret void
@@ -429,17 +429,17 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1)
   %.01519 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01519, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !13
-  %11 = load ptr, ptr %7, align 8, !tbaa !19
+  %11 = load ptr, ptr %7, align 8, !tbaa !21
   %12 = load ptr, ptr %.01519, align 8, !tbaa !7
   tail call void %11(ptr noundef nonnull %.014, ptr noundef %12) #7
-  %13 = load ptr, ptr %7, align 8, !tbaa !19
+  %13 = load ptr, ptr %7, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   tail call void %13(ptr noundef nonnull %.014, ptr noundef %15) #7
-  %16 = load ptr, ptr %7, align 8, !tbaa !19
+  %16 = load ptr, ptr %7, align 8, !tbaa !21
   tail call void %16(ptr noundef nonnull %.014, ptr noundef nonnull %.01519) #7
   %.not17 = icmp eq ptr %10, null
-  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !21
+  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !23
 
 .loopexit:                                        ; preds = %8, %6, %4
   %.0 = phi i32 [ 10, %4 ], [ 0, %6 ], [ 0, %8 ]
@@ -488,7 +488,7 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(add
 
 22:                                               ; preds = %18, %20
   %.077 = phi ptr [ %6, %20 ], [ @defaultMemoryManager, %18 ]
-  store ptr null, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %0, align 8, !tbaa !24
   store i32 0, ptr %12, align 4, !tbaa !3
   %23 = icmp ult ptr %2, %3
   br i1 %23, label %.lr.ph.preheader, label %.split83
@@ -509,7 +509,7 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(add
   %.067138 = phi ptr [ %.168, %81 ], [ null, %.lr.ph.outer ]
   %.069137 = phi ptr [ %.271, %81 ], [ null, %.lr.ph.outer ]
   %.076134 = phi ptr [ %82, %81 ], [ %.076134.ph, %.lr.ph.outer ]
-  %25 = load i8, ptr %.076134, align 1, !tbaa !16
+  %25 = load i8, ptr %.076134, align 1, !tbaa !17
   switch i8 %25, label %81 [
     i8 38, label %26
     i8 61, label %77
@@ -536,16 +536,16 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(add
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %.077, align 8, !tbaa !17
+  %38 = load ptr, ptr %.077, align 8, !tbaa !19
   %39 = call ptr %38(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %39, ptr %.063140.ph, align 8, !tbaa !22
+  store ptr %39, ptr %.063140.ph, align 8, !tbaa !24
   %40 = icmp eq ptr %39, null
   br i1 %40, label %uriAppendQueryItemA.exit.thread113, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr null, ptr %42, align 8, !tbaa !13
-  %43 = load ptr, ptr %.077, align 8, !tbaa !17
+  %43 = load ptr, ptr %.077, align 8, !tbaa !19
   %44 = shl i64 %29, 32
   %sext.i = add i64 %44, 4294967296
   %45 = ashr exact i64 %sext.i, 32
@@ -555,16 +555,16 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(add
 
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %.077, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
-  %51 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  %50 = load ptr, ptr %49, align 8, !tbaa !21
+  %51 = load ptr, ptr %.063140.ph, align 8, !tbaa !24
   call void %50(ptr noundef nonnull %.077, ptr noundef %51) #7
-  store ptr null, ptr %.063140.ph, align 8, !tbaa !22
+  store ptr null, ptr %.063140.ph, align 8, !tbaa !24
   br label %uriAppendQueryItemA.exit.thread113
 
 52:                                               ; preds = %41
   %53 = ashr exact i64 %44, 32
   %54 = getelementptr inbounds i8, ptr %46, i64 %53
-  store i8 0, ptr %54, align 1, !tbaa !16
+  store i8 0, ptr %54, align 1, !tbaa !17
   %55 = icmp sgt i32 %30, 0
   br i1 %55, label %56, label %58
 
@@ -574,7 +574,7 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(add
   br label %58
 
 58:                                               ; preds = %56, %52
-  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !24
   store ptr %46, ptr %59, align 8, !tbaa !7
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr null, ptr %60, align 8, !tbaa !12
@@ -590,7 +590,7 @@ uriAppendQueryItemA.exit:                         ; preds = %26
 
 uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQueryItemA.exit, %48
   store i32 0, ptr %12, align 4, !tbaa !3
-  %65 = load ptr, ptr %0, align 8, !tbaa !22
+  %65 = load ptr, ptr %0, align 8, !tbaa !24
   %66 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
   %.not.i = icmp ne i32 %66, 1
   %.not1718.i = icmp eq ptr %65, null
@@ -605,17 +605,17 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   %.01519.i = phi ptr [ %65, %.lr.ph.i ], [ %70, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !13
-  %71 = load ptr, ptr %67, align 8, !tbaa !19
+  %71 = load ptr, ptr %67, align 8, !tbaa !21
   %72 = load ptr, ptr %.01519.i, align 8, !tbaa !7
   call void %71(ptr noundef nonnull %.077, ptr noundef %72) #7
-  %73 = load ptr, ptr %67, align 8, !tbaa !19
+  %73 = load ptr, ptr %67, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !12
   call void %73(ptr noundef nonnull %.077, ptr noundef %75) #7
-  %76 = load ptr, ptr %67, align 8, !tbaa !19
+  %76 = load ptr, ptr %67, align 8, !tbaa !21
   call void %76(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i) #7
   %.not17.i = icmp eq ptr %70, null
-  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %68, !llvm.loop !21
+  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %68, !llvm.loop !23
 
 77:                                               ; preds = %.lr.ph
   %78 = icmp eq ptr %.069137, null
@@ -631,10 +631,10 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %80, %79 ]
   %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
   %exitcond.not = icmp eq ptr %82, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .thread:                                          ; preds = %uriAppendQueryItemA.exit, %58, %33, %.split79
-  %83 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  %83 = load ptr, ptr %.063140.ph, align 8, !tbaa !24
   %.not95 = icmp eq ptr %83, null
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %spec.select = select i1 %.not95, ptr %.063140.ph, ptr %84
@@ -643,7 +643,7 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   %.174 = select i1 %86, ptr %85, ptr null
   %87 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
   %exitcond.not165 = icmp eq ptr %87, %3
-  br i1 %exitcond.not165, label %.split83, label %.lr.ph.outer, !llvm.loop !23
+  br i1 %exitcond.not165, label %.split83, label %.lr.ph.outer, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %81
   %88 = icmp eq ptr %.266, null
@@ -668,16 +668,16 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br i1 %or.cond190, label %uriFreeQueryListMmA.exit, label %97
 
 97:                                               ; preds = %.split83
-  %98 = load ptr, ptr %.077, align 8, !tbaa !17
+  %98 = load ptr, ptr %.077, align 8, !tbaa !19
   %99 = call ptr %98(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %99, ptr %.063.lcssa159, align 8, !tbaa !22
+  store ptr %99, ptr %.063.lcssa159, align 8, !tbaa !24
   %100 = icmp eq ptr %99, null
   br i1 %100, label %uriAppendQueryItemA.exit103.thread117, label %101
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr null, ptr %102, align 8, !tbaa !13
-  %103 = load ptr, ptr %.077, align 8, !tbaa !17
+  %103 = load ptr, ptr %.077, align 8, !tbaa !19
   %104 = shl i64 %91, 32
   %sext.i100 = add i64 %104, 4294967296
   %105 = ashr exact i64 %sext.i100, 32
@@ -687,16 +687,16 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %.077, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !19
-  %111 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  %110 = load ptr, ptr %109, align 8, !tbaa !21
+  %111 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !24
   call void %110(ptr noundef nonnull %.077, ptr noundef %111) #7
-  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !22
+  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !24
   br label %uriAppendQueryItemA.exit103.thread117
 
 112:                                              ; preds = %101
   %113 = ashr exact i64 %104, 32
   %114 = getelementptr inbounds i8, ptr %106, i64 %113
-  store i8 0, ptr %114, align 1, !tbaa !16
+  store i8 0, ptr %114, align 1, !tbaa !17
   %115 = icmp sgt i32 %92, 0
   br i1 %115, label %116, label %118
 
@@ -706,7 +706,7 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br label %118
 
 118:                                              ; preds = %116, %112
-  %119 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  %119 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !24
   store ptr %106, ptr %119, align 8, !tbaa !7
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr null, ptr %120, align 8, !tbaa !12
@@ -722,7 +722,7 @@ uriAppendQueryItemA.exit103:                      ; preds = %._crit_edge
 
 uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppendQueryItemA.exit103
   store i32 0, ptr %12, align 4, !tbaa !3
-  %125 = load ptr, ptr %0, align 8, !tbaa !22
+  %125 = load ptr, ptr %0, align 8, !tbaa !24
   %126 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
   %.not.i104 = icmp ne i32 %126, 1
   %.not1718.i106 = icmp eq ptr %125, null
@@ -737,17 +737,17 @@ uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppen
   %.01519.i108 = phi ptr [ %125, %.lr.ph.i107 ], [ %130, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !13
-  %131 = load ptr, ptr %127, align 8, !tbaa !19
+  %131 = load ptr, ptr %127, align 8, !tbaa !21
   %132 = load ptr, ptr %.01519.i108, align 8, !tbaa !7
   call void %131(ptr noundef nonnull %.077, ptr noundef %132) #7
-  %133 = load ptr, ptr %127, align 8, !tbaa !19
+  %133 = load ptr, ptr %127, align 8, !tbaa !21
   %134 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !12
   call void %133(ptr noundef nonnull %.077, ptr noundef %135) #7
-  %136 = load ptr, ptr %127, align 8, !tbaa !19
+  %136 = load ptr, ptr %127, align 8, !tbaa !21
   call void %136(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i108) #7
   %.not17.i109 = icmp eq ptr %130, null
-  br i1 %.not17.i109, label %uriFreeQueryListMmA.exit, label %128, !llvm.loop !21
+  br i1 %.not17.i109, label %uriFreeQueryListMmA.exit, label %128, !llvm.loop !23
 
 uriFreeQueryListMmA.exit:                         ; preds = %68, %128, %.split83, %118, %uriAppendQueryItemA.exit103.thread117, %uriAppendQueryItemA.exit.thread113, %uriAppendQueryItemA.exit103, %20, %16, %7
   %.0 = phi i32 [ 2, %7 ], [ 9, %16 ], [ 10, %20 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 0, %118 ], [ 0, %.split83 ], [ 3, %128 ], [ 3, %68 ]
@@ -784,16 +784,16 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
   br i1 %27, label %76, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %8, align 8, !tbaa !17
+  %29 = load ptr, ptr %8, align 8, !tbaa !19
   %30 = tail call ptr %29(ptr noundef nonnull %8, i64 noundef 24) #7
-  store ptr %30, ptr %0, align 8, !tbaa !22
+  store ptr %30, ptr %0, align 8, !tbaa !24
   %31 = icmp eq ptr %30, null
   br i1 %31, label %76, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr null, ptr %33, align 8, !tbaa !13
-  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %34 = load ptr, ptr %8, align 8, !tbaa !19
   %35 = shl i64 %12, 32
   %sext = add i64 %35, 4294967296
   %36 = ashr exact i64 %sext, 32
@@ -803,16 +803,16 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !19
-  %42 = load ptr, ptr %0, align 8, !tbaa !22
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
+  %42 = load ptr, ptr %0, align 8, !tbaa !24
   tail call void %41(ptr noundef nonnull %8, ptr noundef %42) #7
-  store ptr null, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %0, align 8, !tbaa !24
   br label %76
 
 43:                                               ; preds = %32
   %44 = ashr exact i64 %35, 32
   %45 = getelementptr inbounds i8, ptr %37, i64 %44
-  store i8 0, ptr %45, align 1, !tbaa !16
+  store i8 0, ptr %45, align 1, !tbaa !17
   %46 = icmp sgt i32 %13, 0
   br i1 %46, label %47, label %49
 
@@ -822,12 +822,12 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
   br label %49
 
 49:                                               ; preds = %47, %43
-  %50 = load ptr, ptr %0, align 8, !tbaa !22
+  %50 = load ptr, ptr %0, align 8, !tbaa !24
   store ptr %37, ptr %50, align 8, !tbaa !7
   br i1 %25, label %71, label %51
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr %8, align 8, !tbaa !17
+  %52 = load ptr, ptr %8, align 8, !tbaa !19
   %53 = shl i64 %16, 32
   %sext86 = add i64 %53, 4294967296
   %54 = ashr exact i64 %sext86, 32
@@ -837,18 +837,18 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !19
+  %59 = load ptr, ptr %58, align 8, !tbaa !21
   tail call void %59(ptr noundef nonnull %8, ptr noundef nonnull %37) #7
-  %60 = load ptr, ptr %58, align 8, !tbaa !19
-  %61 = load ptr, ptr %0, align 8, !tbaa !22
+  %60 = load ptr, ptr %58, align 8, !tbaa !21
+  %61 = load ptr, ptr %0, align 8, !tbaa !24
   tail call void %60(ptr noundef nonnull %8, ptr noundef %61) #7
-  store ptr null, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %0, align 8, !tbaa !24
   br label %76
 
 62:                                               ; preds = %51
   %63 = ashr exact i64 %53, 32
   %64 = getelementptr inbounds i8, ptr %55, i64 %63
-  store i8 0, ptr %64, align 1, !tbaa !16
+  store i8 0, ptr %64, align 1, !tbaa !17
   %65 = icmp sgt i32 %17, 0
   br i1 %65, label %66, label %68
 
@@ -858,7 +858,7 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
   br label %68
 
 68:                                               ; preds = %66, %62
-  %69 = load ptr, ptr %0, align 8, !tbaa !22
+  %69 = load ptr, ptr %0, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %55, ptr %70, align 8, !tbaa !12
   br label %71
@@ -893,9 +893,9 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly c
   %6 = phi i32 [ %29, %22 ], [ 0, %5 ]
   %.063100.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
   %.06999.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
-  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !24
+  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %7, null
   br i1 %10, label %14, label %11
 
@@ -931,9 +931,9 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly c
   %29 = add i32 %28, %26
   store i32 %29, ptr %1, align 4, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
   %.not.us.i.i = icmp eq ptr %31, null
-  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !30
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !32
 
 uriComposeQueryCharsRequiredExW.exit:             ; preds = %20, %22, %2
   %.0.i = phi i32 [ 2, %2 ], [ 4, %20 ], [ 0, %22 ]
@@ -958,9 +958,9 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly
   %11 = phi i32 [ %34, %27 ], [ 0, %7 ]
   %.063100.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
   %.06999.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
-  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !24
+  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = icmp eq ptr %12, null
   br i1 %15, label %19, label %16
 
@@ -996,9 +996,9 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly
   %34 = add nsw i32 %33, %11
   store i32 %34, ptr %1, align 4, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %36 = load ptr, ptr %35, align 8, !tbaa !31
   %.not.us.i = icmp eq ptr %36, null
-  br i1 %.not.us.i, label %uriComposeQueryEngineW.exit, label %.split.us.i, !llvm.loop !30
+  br i1 %.not.us.i, label %uriComposeQueryEngineW.exit, label %.split.us.i, !llvm.loop !32
 
 uriComposeQueryEngineW.exit:                      ; preds = %25, %27, %4
   %.0 = phi i32 [ 2, %4 ], [ 0, %27 ], [ 4, %25 ]
@@ -1036,9 +1036,9 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   %17 = phi i1 [ false, %64 ], [ true, %.split.preheader.i ]
   %.06999.i = phi i32 [ %.372.i, %64 ], [ 0, %.split.preheader.i ]
   %.07398.i = phi ptr [ %.275.i, %64 ], [ %0, %.split.preheader.i ]
-  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !24
+  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
 
@@ -1114,9 +1114,9 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
 64:                                               ; preds = %59, %47
   %.275.i = phi ptr [ %63, %59 ], [ %50, %47 ]
   %65 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !29
+  %66 = load ptr, ptr %65, align 8, !tbaa !31
   %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !30
+  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !33
 
 .split102.us.i:                                   ; preds = %64
   store i32 0, ptr %.275.i, align 4, !tbaa !3
@@ -1178,9 +1178,9 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly ca
   %17 = phi i32 [ %40, %33 ], [ 0, %13 ]
   %.063100.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
   %.06999.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
-  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !24
+  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
 
@@ -1215,13 +1215,13 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly ca
   %39 = add i32 %38, %34
   %40 = add i32 %39, %37
   %41 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %42 = load ptr, ptr %41, align 8, !tbaa !31
   %.not.us.i.i = icmp eq ptr %42, null
-  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !30
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !32
 
 uriComposeQueryCharsRequiredExW.exit:             ; preds = %33
   %43 = add nsw i32 %40, 1
-  %44 = load ptr, ptr %.022, align 8, !tbaa !17
+  %44 = load ptr, ptr %.022, align 8, !tbaa !19
   %45 = sext i32 %43 to i64
   %46 = shl nsw i64 %45, 2
   %47 = tail call ptr %44(ptr noundef nonnull %.022, i64 noundef %46) #7
@@ -1235,12 +1235,12 @@ uriComposeQueryCharsRequiredExW.exit:             ; preds = %33
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %.022, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !19
+  %53 = load ptr, ptr %52, align 8, !tbaa !21
   tail call void %53(ptr noundef nonnull %.022, ptr noundef nonnull %47) #7
   br label %uriComposeQueryCharsRequiredExW.exit.thread
 
 54:                                               ; preds = %49
-  store ptr %47, ptr %0, align 8, !tbaa !31
+  store ptr %47, ptr %0, align 8, !tbaa !34
   br label %uriComposeQueryCharsRequiredExW.exit.thread
 
 uriComposeQueryCharsRequiredExW.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExW.exit, %9, %5, %54, %51
@@ -1256,18 +1256,18 @@ define void @uriFreeQueryListW(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.01519.i = phi ptr [ %3, %.lr.ph.i ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
-  %5 = load ptr, ptr %.01519.i, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
+  %5 = load ptr, ptr %.01519.i, align 8, !tbaa !26
   tail call void %4(ptr noundef nonnull @defaultMemoryManager, ptr noundef %5) #7
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   tail call void %6(ptr noundef nonnull @defaultMemoryManager, ptr noundef %8) #7
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !21
   tail call void %9(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %.01519.i) #7
   %.not17.i = icmp eq ptr %3, null
-  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %.lr.ph.i, !llvm.loop !35
 
 uriFreeQueryListMmW.exit:                         ; preds = %.lr.ph.i, %1
   ret void
@@ -1295,18 +1295,18 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1)
 8:                                                ; preds = %.lr.ph, %8
   %.01519 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01519, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
-  %11 = load ptr, ptr %7, align 8, !tbaa !19
-  %12 = load ptr, ptr %.01519, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %11 = load ptr, ptr %7, align 8, !tbaa !21
+  %12 = load ptr, ptr %.01519, align 8, !tbaa !26
   tail call void %11(ptr noundef nonnull %.014, ptr noundef %12) #7
-  %13 = load ptr, ptr %7, align 8, !tbaa !19
+  %13 = load ptr, ptr %7, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   tail call void %13(ptr noundef nonnull %.014, ptr noundef %15) #7
-  %16 = load ptr, ptr %7, align 8, !tbaa !19
+  %16 = load ptr, ptr %7, align 8, !tbaa !21
   tail call void %16(ptr noundef nonnull %.014, ptr noundef nonnull %.01519) #7
   %.not17 = icmp eq ptr %10, null
-  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !32
+  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !35
 
 .loopexit:                                        ; preds = %8, %6, %4
   %.0 = phi i32 [ 10, %4 ], [ 0, %6 ], [ 0, %8 ]
@@ -1353,7 +1353,7 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(add
 
 20:                                               ; preds = %16, %18
   %.077 = phi ptr [ %6, %18 ], [ @defaultMemoryManager, %16 ]
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !36
   store i32 0, ptr %10, align 4, !tbaa !3
   %21 = icmp ult ptr %2, %3
   br i1 %21, label %.lr.ph.outer, label %.split83
@@ -1397,16 +1397,16 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(add
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %.077, align 8, !tbaa !17
+  %36 = load ptr, ptr %.077, align 8, !tbaa !19
   %37 = call ptr %36(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %37, ptr %.063140.ph, align 8, !tbaa !33
+  store ptr %37, ptr %.063140.ph, align 8, !tbaa !36
   %38 = icmp eq ptr %37, null
   br i1 %38, label %uriAppendQueryItemW.exit.thread113, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr null, ptr %40, align 8, !tbaa !29
-  %41 = load ptr, ptr %.077, align 8, !tbaa !17
+  store ptr null, ptr %40, align 8, !tbaa !31
+  %41 = load ptr, ptr %.077, align 8, !tbaa !19
   %42 = shl i64 %26, 30
   %sext.i = add i64 %42, 4294967296
   %43 = ashr exact i64 %sext.i, 30
@@ -1417,10 +1417,10 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(add
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %.077, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = load ptr, ptr %.063140.ph, align 8, !tbaa !36
   call void %49(ptr noundef nonnull %.077, ptr noundef %50) #7
-  store ptr null, ptr %.063140.ph, align 8, !tbaa !33
+  store ptr null, ptr %.063140.ph, align 8, !tbaa !36
   br label %uriAppendQueryItemW.exit.thread113
 
 51:                                               ; preds = %39
@@ -1437,10 +1437,10 @@ define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(add
   br label %58
 
 58:                                               ; preds = %55, %51
-  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
-  store ptr %45, ptr %59, align 8, !tbaa !24
+  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !36
+  store ptr %45, ptr %59, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr null, ptr %60, align 8, !tbaa !28
+  store ptr null, ptr %60, align 8, !tbaa !30
   %61 = load i32, ptr %10, align 4, !tbaa !3
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %10, align 4, !tbaa !3
@@ -1453,7 +1453,7 @@ uriAppendQueryItemW.exit:                         ; preds = %23
 
 uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQueryItemW.exit, %47
   store i32 0, ptr %10, align 4, !tbaa !3
-  %65 = load ptr, ptr %0, align 8, !tbaa !33
+  %65 = load ptr, ptr %0, align 8, !tbaa !36
   %66 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
   %.not.i = icmp ne i32 %66, 1
   %.not1718.i = icmp eq ptr %65, null
@@ -1467,18 +1467,18 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
 68:                                               ; preds = %68, %.lr.ph.i
   %.01519.i = phi ptr [ %65, %.lr.ph.i ], [ %70, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !29
-  %71 = load ptr, ptr %67, align 8, !tbaa !19
-  %72 = load ptr, ptr %.01519.i, align 8, !tbaa !24
+  %70 = load ptr, ptr %69, align 8, !tbaa !31
+  %71 = load ptr, ptr %67, align 8, !tbaa !21
+  %72 = load ptr, ptr %.01519.i, align 8, !tbaa !26
   call void %71(ptr noundef nonnull %.077, ptr noundef %72) #7
-  %73 = load ptr, ptr %67, align 8, !tbaa !19
+  %73 = load ptr, ptr %67, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %75 = load ptr, ptr %74, align 8, !tbaa !30
   call void %73(ptr noundef nonnull %.077, ptr noundef %75) #7
-  %76 = load ptr, ptr %67, align 8, !tbaa !19
+  %76 = load ptr, ptr %67, align 8, !tbaa !21
   call void %76(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i) #7
   %.not17.i = icmp eq ptr %70, null
-  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %68, !llvm.loop !32
+  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %68, !llvm.loop !35
 
 77:                                               ; preds = %.lr.ph
   %78 = icmp eq ptr %.069137, null
@@ -1497,10 +1497,10 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %spec.select97, %79 ]
   %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
   %83 = icmp ult ptr %82, %3
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 .thread:                                          ; preds = %uriAppendQueryItemW.exit, %58, %31, %.split79
-  %84 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
+  %84 = load ptr, ptr %.063140.ph, align 8, !tbaa !36
   %.not95 = icmp eq ptr %84, null
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %spec.select = select i1 %.not95, ptr %.063140.ph, ptr %85
@@ -1509,7 +1509,7 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   %.174 = select i1 %87, ptr %86, ptr null
   %88 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
   %89 = icmp ult ptr %88, %3
-  br i1 %89, label %.lr.ph.outer, label %.split83, !llvm.loop !34
+  br i1 %89, label %.lr.ph.outer, label %.split83, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %81
   %90 = icmp eq ptr %.266, null
@@ -1535,16 +1535,16 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   br i1 %or.cond190, label %uriFreeQueryListMmW.exit, label %100
 
 100:                                              ; preds = %.split83
-  %101 = load ptr, ptr %.077, align 8, !tbaa !17
+  %101 = load ptr, ptr %.077, align 8, !tbaa !19
   %102 = call ptr %101(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %102, ptr %.063.lcssa159, align 8, !tbaa !33
+  store ptr %102, ptr %.063.lcssa159, align 8, !tbaa !36
   %103 = icmp eq ptr %102, null
   br i1 %103, label %uriAppendQueryItemW.exit103.thread117, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store ptr null, ptr %105, align 8, !tbaa !29
-  %106 = load ptr, ptr %.077, align 8, !tbaa !17
+  store ptr null, ptr %105, align 8, !tbaa !31
+  %106 = load ptr, ptr %.077, align 8, !tbaa !19
   %107 = shl i64 %93, 30
   %sext.i100 = add i64 %107, 4294967296
   %108 = ashr exact i64 %sext.i100, 30
@@ -1555,10 +1555,10 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
 
 112:                                              ; preds = %104
   %113 = getelementptr inbounds nuw i8, ptr %.077, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !19
-  %115 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
+  %114 = load ptr, ptr %113, align 8, !tbaa !21
+  %115 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !36
   call void %114(ptr noundef nonnull %.077, ptr noundef %115) #7
-  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !33
+  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !36
   br label %uriAppendQueryItemW.exit103.thread117
 
 116:                                              ; preds = %104
@@ -1575,10 +1575,10 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   br label %123
 
 123:                                              ; preds = %120, %116
-  %124 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
-  store ptr %110, ptr %124, align 8, !tbaa !24
+  %124 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !36
+  store ptr %110, ptr %124, align 8, !tbaa !26
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store ptr null, ptr %125, align 8, !tbaa !28
+  store ptr null, ptr %125, align 8, !tbaa !30
   %126 = load i32, ptr %10, align 4, !tbaa !3
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %10, align 4, !tbaa !3
@@ -1591,7 +1591,7 @@ uriAppendQueryItemW.exit103:                      ; preds = %._crit_edge
 
 uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppendQueryItemW.exit103
   store i32 0, ptr %10, align 4, !tbaa !3
-  %130 = load ptr, ptr %0, align 8, !tbaa !33
+  %130 = load ptr, ptr %0, align 8, !tbaa !36
   %131 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
   %.not.i104 = icmp ne i32 %131, 1
   %.not1718.i106 = icmp eq ptr %130, null
@@ -1605,18 +1605,18 @@ uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppe
 133:                                              ; preds = %133, %.lr.ph.i107
   %.01519.i108 = phi ptr [ %130, %.lr.ph.i107 ], [ %135, %133 ]
   %134 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !29
-  %136 = load ptr, ptr %132, align 8, !tbaa !19
-  %137 = load ptr, ptr %.01519.i108, align 8, !tbaa !24
+  %135 = load ptr, ptr %134, align 8, !tbaa !31
+  %136 = load ptr, ptr %132, align 8, !tbaa !21
+  %137 = load ptr, ptr %.01519.i108, align 8, !tbaa !26
   call void %136(ptr noundef nonnull %.077, ptr noundef %137) #7
-  %138 = load ptr, ptr %132, align 8, !tbaa !19
+  %138 = load ptr, ptr %132, align 8, !tbaa !21
   %139 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !28
+  %140 = load ptr, ptr %139, align 8, !tbaa !30
   call void %138(ptr noundef nonnull %.077, ptr noundef %140) #7
-  %141 = load ptr, ptr %132, align 8, !tbaa !19
+  %141 = load ptr, ptr %132, align 8, !tbaa !21
   call void %141(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i108) #7
   %.not17.i109 = icmp eq ptr %135, null
-  br i1 %.not17.i109, label %uriFreeQueryListMmW.exit, label %133, !llvm.loop !32
+  br i1 %.not17.i109, label %uriFreeQueryListMmW.exit, label %133, !llvm.loop !35
 
 uriFreeQueryListMmW.exit:                         ; preds = %68, %133, %.split83, %123, %uriAppendQueryItemW.exit103.thread117, %uriAppendQueryItemW.exit.thread113, %uriAppendQueryItemW.exit103, %18, %14, %7
   %.0 = phi i32 [ 2, %7 ], [ 9, %14 ], [ 10, %18 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 0, %123 ], [ 0, %.split83 ], [ 3, %133 ], [ 3, %68 ]
@@ -1655,16 +1655,16 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
   br i1 %29, label %82, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %8, align 8, !tbaa !17
+  %31 = load ptr, ptr %8, align 8, !tbaa !19
   %32 = tail call ptr %31(ptr noundef nonnull %8, i64 noundef 24) #7
-  store ptr %32, ptr %0, align 8, !tbaa !33
+  store ptr %32, ptr %0, align 8, !tbaa !36
   %33 = icmp eq ptr %32, null
   br i1 %33, label %82, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr null, ptr %35, align 8, !tbaa !29
-  %36 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr null, ptr %35, align 8, !tbaa !31
+  %36 = load ptr, ptr %8, align 8, !tbaa !19
   %37 = shl i64 %12, 30
   %sext = add i64 %37, 4294967296
   %38 = ashr exact i64 %sext, 30
@@ -1675,10 +1675,10 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !19
-  %45 = load ptr, ptr %0, align 8, !tbaa !33
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %45 = load ptr, ptr %0, align 8, !tbaa !36
   tail call void %44(ptr noundef nonnull %8, ptr noundef %45) #7
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !36
   br label %82
 
 46:                                               ; preds = %34
@@ -1695,12 +1695,12 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %46
-  %54 = load ptr, ptr %0, align 8, !tbaa !33
-  store ptr %40, ptr %54, align 8, !tbaa !24
+  %54 = load ptr, ptr %0, align 8, !tbaa !36
+  store ptr %40, ptr %54, align 8, !tbaa !26
   br i1 %27, label %77, label %55
 
 55:                                               ; preds = %53
-  %56 = load ptr, ptr %8, align 8, !tbaa !17
+  %56 = load ptr, ptr %8, align 8, !tbaa !19
   %57 = shl i64 %17, 30
   %sext86 = add i64 %57, 4294967296
   %58 = ashr exact i64 %sext86, 30
@@ -1711,12 +1711,12 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %64 = load ptr, ptr %63, align 8, !tbaa !19
+  %64 = load ptr, ptr %63, align 8, !tbaa !21
   tail call void %64(ptr noundef nonnull %8, ptr noundef nonnull %40) #7
-  %65 = load ptr, ptr %63, align 8, !tbaa !19
-  %66 = load ptr, ptr %0, align 8, !tbaa !33
+  %65 = load ptr, ptr %63, align 8, !tbaa !21
+  %66 = load ptr, ptr %0, align 8, !tbaa !36
   tail call void %65(ptr noundef nonnull %8, ptr noundef %66) #7
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !36
   br label %82
 
 67:                                               ; preds = %55
@@ -1733,16 +1733,16 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
   br label %74
 
 74:                                               ; preds = %71, %67
-  %75 = load ptr, ptr %0, align 8, !tbaa !33
+  %75 = load ptr, ptr %0, align 8, !tbaa !36
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %60, ptr %76, align 8, !tbaa !28
+  store ptr %60, ptr %76, align 8, !tbaa !30
   br label %77
 
 77:                                               ; preds = %53, %74
   %78 = phi ptr [ %75, %74 ], [ %54, %53 ]
   %.0 = phi ptr [ %60, %74 ], [ null, %53 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %.0, ptr %79, align 8, !tbaa !28
+  store ptr %.0, ptr %79, align 8, !tbaa !30
   %80 = load i32, ptr %1, align 4, !tbaa !3
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %1, align 4, !tbaa !3
@@ -1795,24 +1795,27 @@ attributes #7 = { nounwind }
 !11 = !{!"p1 _ZTS19UriQueryListStructA", !10, i64 0}
 !12 = !{!8, !9, i64 8}
 !13 = !{!8, !11, i64 16}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!5, !5, i64 0}
-!17 = !{!18, !10, i64 0}
-!18 = !{!"UriMemoryManagerStruct", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!19 = !{!18, !10, i64 32}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !15}
-!22 = !{!11, !11, i64 0}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!5, !5, i64 0}
+!18 = distinct !{!18, !15}
+!19 = !{!20, !10, i64 0}
+!20 = !{!"UriMemoryManagerStruct", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
+!21 = !{!20, !10, i64 32}
+!22 = !{!9, !9, i64 0}
 !23 = distinct !{!23, !15}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"UriQueryListStructW", !26, i64 0, !26, i64 8, !27, i64 16}
-!26 = !{!"p1 int", !10, i64 0}
-!27 = !{!"p1 _ZTS19UriQueryListStructW", !10, i64 0}
-!28 = !{!25, !26, i64 8}
-!29 = !{!25, !27, i64 16}
-!30 = distinct !{!30, !15}
-!31 = !{!26, !26, i64 0}
-!32 = distinct !{!32, !15}
-!33 = !{!27, !27, i64 0}
-!34 = distinct !{!34, !15}
+!24 = !{!11, !11, i64 0}
+!25 = distinct !{!25, !15}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"UriQueryListStructW", !28, i64 0, !28, i64 8, !29, i64 16}
+!28 = !{!"p1 int", !10, i64 0}
+!29 = !{!"p1 _ZTS19UriQueryListStructW", !10, i64 0}
+!30 = !{!27, !28, i64 8}
+!31 = !{!27, !29, i64 16}
+!32 = distinct !{!32, !15, !16}
+!33 = distinct !{!33, !15}
+!34 = !{!28, !28, i64 0}
+!35 = distinct !{!35, !15}
+!36 = !{!29, !29, i64 0}
+!37 = distinct !{!37, !15}

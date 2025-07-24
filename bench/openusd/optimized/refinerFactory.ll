@@ -2018,7 +2018,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   store i32 %813, ptr %814, align 4
   %indvars.iv.next.i28.i.i = add nuw nsw i64 %indvars.iv.i27.i.i, 1
   %exitcond.not.i29.i.i = icmp eq i64 %indvars.iv.next.i28.i.i, %wide.trip.count.i25.i.i
-  br i1 %exitcond.not.i29.i.i, label %.loopexit4.loopexit.i.i.i, label %.lr.ph.i26.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i29.i.i, label %.loopexit4.loopexit.i.i.i, label %.lr.ph.i26.i.i, !llvm.loop !30
 
 .loopexit4.loopexit.i.i.i:                        ; preds = %.lr.ph.i26.i.i
   %815 = trunc nsw i64 %indvars.iv.next17.i.i.i to i32
@@ -2033,7 +2033,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
   %817 = sext i32 %816 to i64
   %818 = icmp slt i64 %indvars.iv.next22.i.i.i, %817
-  br i1 %818, label %.preheader.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !28
+  br i1 %818, label %.preheader.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !31
 
 ._crit_edge.i.i.i:                                ; preds = %.loopexit4.i.i.i, %.loopexit.us.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i.i.i
   %819 = getelementptr inbounds nuw i8, ptr %19, i64 136
@@ -2133,7 +2133,7 @@ _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrRese
   %852 = add i32 %851, %850
   %853 = add nuw i64 %.098167.i.i.i, 1
   %exitcond.not.i32.i.i = icmp eq i64 %853, %844
-  br i1 %exitcond.not.i32.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i31.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i32.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i31.i.i, !llvm.loop !32
 
 854:                                              ; preds = %.noexc35
   %855 = landingpad { ptr, i32 }
@@ -2379,7 +2379,7 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel8FindEdgeEii.exit.i.i.i: ; preds = %93
   %spec.select.i.i.i = add i64 %.1103169.i.i.i, %887
   %953 = add nuw nsw i64 %.0100170.i.i.i, 1
   %exitcond194.not.i.i.i = icmp eq i64 %953, %894
-  br i1 %exitcond194.not.i.i.i, label %._crit_edge173.i.i.i, label %.lr.ph172.i.i.i, !llvm.loop !31
+  br i1 %exitcond194.not.i.i.i, label %._crit_edge173.i.i.i, label %.lr.ph172.i.i.i, !llvm.loop !33
 
 ._crit_edge173.i.i.i:                             ; preds = %.critedge.i.i.i, %891
   %.1103.lcssa.i.i.i = phi i64 [ %.0102175.i.i.i, %891 ], [ %spec.select.i.i.i, %.critedge.i.i.i ]
@@ -2393,7 +2393,7 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel8FindEdgeEii.exit.i.i.i: ; preds = %93
   %958 = add i64 %.0101176.i.i.i, %957
   %959 = add nuw i64 %.099177.i.i.i, 1
   %exitcond195.not.i.i.i = icmp eq i64 %959, %844
-  br i1 %exitcond195.not.i.i.i, label %._crit_edge180.i.i.i, label %889, !llvm.loop !32
+  br i1 %exitcond195.not.i.i.i, label %._crit_edge180.i.i.i, label %889, !llvm.loop !34
 
 ._crit_edge180.i.i.i:                             ; preds = %955, %874, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i.i.i
   %960 = getelementptr inbounds nuw i8, ptr %838, i64 288
@@ -2531,7 +2531,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit137.i.i.i: ; preds 
 1016:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit137.i.i.i, %1001
   %1017 = add nuw i64 %.093181.i.i.i, 1
   %exitcond196.not.i.i.i = icmp eq i64 %1017, %964
-  br i1 %exitcond196.not.i.i.i, label %._crit_edge185.i.i.i, label %988, !llvm.loop !33
+  br i1 %exitcond196.not.i.i.i, label %._crit_edge185.i.i.i, label %988, !llvm.loop !35
 
 ._crit_edge185.i.i.i:                             ; preds = %1016, %983, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit134.i.i.i
   %1018 = getelementptr inbounds nuw i8, ptr %838, i64 96
@@ -2629,7 +2629,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit139.i.i.i: ; preds 
 1060:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit139.i.i.i, %1039
   %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i36.i.i, 1
   %exitcond198.not.i.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, %wide.trip.count.i35.i.i
-  br i1 %exitcond198.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE19assignComponentTagsERNS1_15TopologyRefinerERKS5_.exit.i.i, label %1029, !llvm.loop !34
+  br i1 %exitcond198.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE19assignComponentTagsERNS1_15TopologyRefinerERKS5_.exit.i.i, label %1029, !llvm.loop !36
 
 1061:                                             ; preds = %1050, %.loopexit.split-lp150.i.i.i, %.loopexit149.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %1050 ], [ %lpad.loopexit151.i.i.i, %.loopexit149.i.i.i ], [ %lpad.loopexit.split-lp152.i.i.i, %.loopexit.split-lp150.i.i.i ]
@@ -2725,7 +2725,7 @@ _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrRese
   %.sroa.speculated.i43.i.i = call i32 @llvm.smax.i32(i32 %.05055.i.i.i, i32 %1082)
   %1084 = add nuw i64 %.04156.i.i.i, 1
   %1085 = icmp ult i64 %1084, %1083
-  br i1 %1085, label %.lr.ph.i42.i.i, label %._crit_edge.loopexit.i44.i.i, !llvm.loop !35
+  br i1 %1085, label %.lr.ph.i42.i.i, label %._crit_edge.loopexit.i44.i.i, !llvm.loop !37
 
 ._crit_edge.loopexit.i44.i.i:                     ; preds = %.noexc39
   %1086 = add nsw i32 %.sroa.speculated.i43.i.i, 1
@@ -2856,7 +2856,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   %indvars.iv.next.i57.i.i = add nsw i64 %indvars.iv.i56.i.i, -1
   %.1.i.i.i = add i64 %.164.i.i.i, 1
   %1126 = icmp samesign ugt i64 %indvars.iv.i56.i.i, 1
-  br i1 %1126, label %.lr.ph66.i.i.i, label %.loopexit.i55.i.i, !llvm.loop !36
+  br i1 %1126, label %.lr.ph66.i.i.i, label %.loopexit.i55.i.i, !llvm.loop !38
 
 .lr.ph59.i.i.i:                                   ; preds = %.preheader.i53.i.i, %.noexc47
   %.058.i.i.i = phi i64 [ %1132, %.noexc47 ], [ 0, %.preheader.i53.i.i ]
@@ -2873,13 +2873,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   store i32 %1129, ptr %1131, align 4
   %1132 = add nuw i64 %.058.i.i.i, 1
   %exitcond.not.i54.i.i = icmp eq i64 %1132, %1113
-  br i1 %exitcond.not.i54.i.i, label %.loopexit.i55.i.i, label %.lr.ph59.i.i.i, !llvm.loop !37
+  br i1 %exitcond.not.i54.i.i, label %.loopexit.i55.i.i, label %.lr.ph59.i.i.i, !llvm.loop !39
 
 .loopexit.i55.i.i:                                ; preds = %.noexc47, %.noexc46, %.noexc45, %.preheader.i53.i.i
   %.3.i.i.i = phi i64 [ %.162.i.i.i, %.noexc45 ], [ %.04269.i.i.i, %.preheader.i53.i.i ], [ %.1.i.i.i, %.noexc46 ], [ %1128, %.noexc47 ]
   %1133 = add nuw i64 %.04368.i.i.i, 1
   %exitcond82.not.i.i.i = icmp eq i64 %1133, %1087
-  br i1 %exitcond82.not.i.i.i, label %._crit_edge71.i.i.i, label %.lr.ph70.i.i.i, !llvm.loop !38
+  br i1 %exitcond82.not.i.i.i, label %._crit_edge71.i.i.i, label %.lr.ph70.i.i.i, !llvm.loop !40
 
 ._crit_edge71.i.i.i:                              ; preds = %.loopexit.i55.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i50.i.i
   %1134 = add nuw i64 %.04072.i.i.i, 1
@@ -2892,7 +2892,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   %1141 = sub i64 %1139, %1140
   %1142 = sdiv exact i64 %1141, 40
   %1143 = icmp ult i64 %1134, %1142
-  br i1 %1143, label %1077, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE17populateBaseLevelERNS1_15TopologyRefinerERKS5_NS6_7OptionsE.exit.i, !llvm.loop !39
+  br i1 %1143, label %1077, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE17populateBaseLevelERNS1_15TopologyRefinerERKS5_NS6_7OptionsE.exit.i, !llvm.loop !41
 
 _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE25assignFaceVaryingTopologyERNS1_15TopologyRefinerERKS5_.exit.i.i: ; preds = %.noexc44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -3717,14 +3717,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_le
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i ], [ %45, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %46 = load i8, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !43, !noalias !40
-  store i8 %46, ptr %.012.i.i.i.i.i, align 1, !alias.scope !40, !noalias !43
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %46 = load i8, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !45, !noalias !42
+  store i8 %46, ptr %.012.i.i.i.i.i, align 1, !alias.scope !42, !noalias !45
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %47, %24
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %.not.i31.i.i = icmp eq ptr %25, null
@@ -4039,14 +4039,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_le
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %29, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %31 = load i16, ptr %.0911.i.i.i.i, align 2, !alias.scope !49, !noalias !46
-  store i16 %31, ptr %.012.i.i.i.i, align 2, !alias.scope !46, !noalias !49
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %31 = load i16, ptr %.0911.i.i.i.i, align 2, !alias.scope !51, !noalias !48
+  store i16 %31, ptr %.012.i.i.i.i, align 2, !alias.scope !48, !noalias !51
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 2
   %.not.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !51
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !53
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -4361,8 +4361,8 @@ attributes #19 = { noreturn }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
+!28 = distinct !{!28, !5, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
@@ -4373,15 +4373,17 @@ attributes #19 = { noreturn }
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!42 = distinct !{!42, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!45 = distinct !{!45, !5}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!48 = distinct !{!48, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_"}
-!49 = !{!50}
-!50 = distinct !{!50, !48, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!51 = distinct !{!51, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!47 = distinct !{!47, !5}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!50 = distinct !{!50, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_"}
+!51 = !{!52}
+!52 = distinct !{!52, !50, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!53 = distinct !{!53, !5}

@@ -240,7 +240,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.3118.us = phi i64 [ %81, %75 ], [ %.0115.us, %71 ], [ %.0115.us, %67 ]
   %.3113.us = phi i64 [ %.4114.us, %75 ], [ %.0110.us, %71 ], [ %.0110.us, %67 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
-          to label %63 unwind label %.split275.us
+          to label %63 unwind label %.split275.us, !llvm.loop !79
 
 .loopexit.split.us:                               ; preds = %66, %63
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -279,7 +279,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.us-phi270 = phi i1 [ %.1120.us, %67 ], [ %.1120, %87 ]
   %.us-phi271 = phi i64 [ %.0115.us, %67 ], [ %.0115, %87 ]
   %.us-phi272 = phi i64 [ %.0110.us, %67 ], [ %.0110, %87 ]
-  %89 = load i8, ptr %34, align 1, !tbaa !79, !range !26, !noundef !27
+  %89 = load i8, ptr %34, align 1, !tbaa !81, !range !26, !noundef !27
   %90 = trunc nuw i8 %89 to i1
   %91 = load i32, ptr %35, align 8
   %92 = icmp eq i32 %91, 2
@@ -287,7 +287,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %93, label %.thread
 
 93:                                               ; preds = %.split269.us
-  %94 = load i32, ptr %36, align 4, !tbaa !80
+  %94 = load i32, ptr %36, align 4, !tbaa !82
   %95 = add i32 %94, 1
   %96 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 50, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef %95) #6
   br label %.thread
@@ -407,12 +407,12 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.398 = phi i64 [ %.297, %.thread ], [ %129, %128 ], [ %.297, %116 ], [ %.297, %.thread ]
   %.3 = phi i64 [ %.2, %.thread ], [ %130, %128 ], [ %.2, %116 ], [ %.2, %.thread ]
   %133 = add i32 %.2139, 1
-  %134 = load i64, ptr %37, align 8, !tbaa !81
+  %134 = load i64, ptr %37, align 8, !tbaa !83
   %.not151 = icmp eq i64 %134, 0
   br i1 %.not151, label %.thread175, label %135
 
 135:                                              ; preds = %132
-  %136 = load i8, ptr %38, align 1, !tbaa !82, !range !26, !noundef !27
+  %136 = load i8, ptr %38, align 1, !tbaa !84, !range !26, !noundef !27
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %143, label %138
 
@@ -579,14 +579,14 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48840
-  %23 = load i32, ptr %22, align 8, !tbaa !83
+  %23 = load i32, ptr %22, align 8, !tbaa !85
   br i1 %4, label %170, label %24
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #6
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8296
-  %26 = load i64, ptr %25, align 8, !tbaa !84
+  %26 = load i64, ptr %25, align 8, !tbaa !86
   %27 = icmp eq i64 %26, 9223372034707292159
   br i1 %27, label %28, label %29
 
@@ -600,17 +600,17 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
 
 30:                                               ; preds = %29, %28
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8288
-  %32 = load i64, ptr %31, align 8, !tbaa !85
+  %32 = load i64, ptr %31, align 8, !tbaa !87
   call void @_Z4itoalPwm(i64 noundef %32, ptr noundef nonnull %8, i64 noundef 30)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #6
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !86
+  %34 = load i32, ptr %33, align 4, !tbaa !88
   %35 = icmp eq i32 %34, 3
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8456
-  %38 = load i8, ptr %37, align 8, !tbaa !87, !range !26, !noundef !27
+  %38 = load i8, ptr %37, align 8, !tbaa !89, !range !26, !noundef !27
   %39 = trunc nuw i8 %38 to i1
   %40 = select i1 %39, i32 73, i32 46
   %41 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %9, i64 noundef 30, ptr noundef nonnull @.str.21, i32 noundef %40) #6
@@ -618,9 +618,9 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
 
 42:                                               ; preds = %30
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !88
+  %44 = load i32, ptr %43, align 4, !tbaa !90
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8460
-  %46 = load i32, ptr %45, align 4, !tbaa !89
+  %46 = load i32, ptr %45, align 4, !tbaa !91
   switch i32 %46, label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit [
     i32 0, label %47
     i32 1, label %63
@@ -709,7 +709,7 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
 _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8352
-  %95 = load i8, ptr %94, align 8, !tbaa !90, !range !26, !noundef !27
+  %95 = load i8, ptr %94, align 8, !tbaa !92, !range !26, !noundef !27
   %96 = trunc nuw i8 %95 to i1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8353
   %98 = load i8, ptr %97, align 1, !range !26
@@ -736,8 +736,8 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %110
 
 105:                                              ; preds = %103
-  %106 = load i64, ptr %31, align 8, !tbaa !85
-  %107 = load i64, ptr %25, align 8, !tbaa !84
+  %106 = load i64, ptr %31, align 8, !tbaa !87
+  %107 = load i64, ptr %25, align 8, !tbaa !86
   %108 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %106, i64 noundef %107)
   %109 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 10, ptr noundef nonnull @.str.25, i32 noundef %108) #6
   br label %110
@@ -749,7 +749,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %3, label %112, label %.critedge
 
 112:                                              ; preds = %110
-  %113 = load i32, ptr %33, align 4, !tbaa !86
+  %113 = load i32, ptr %33, align 4, !tbaa !88
   %114 = icmp eq i32 %113, 2
   br i1 %114, label %120, label %115
 
@@ -767,7 +767,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 
 120:                                              ; preds = %115, %112
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8464
-  %122 = load i32, ptr %121, align 8, !tbaa !91
+  %122 = load i32, ptr %121, align 8, !tbaa !93
   %.not116 = icmp ne i32 %122, 0
   %123 = icmp eq i32 %23, 2
   %or.cond131 = select i1 %.not116, i1 %123, i1 false
@@ -776,7 +776,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 124:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %13) #6
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 22331
-  %126 = load i8, ptr %125, align 1, !tbaa !92, !range !26, !noundef !27
+  %126 = load i8, ptr %125, align 1, !tbaa !94, !range !26, !noundef !27
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %129
 
@@ -785,14 +785,14 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %136
 
 129:                                              ; preds = %124
-  %130 = load i64, ptr %31, align 8, !tbaa !85
+  %130 = load i64, ptr %31, align 8, !tbaa !87
   %spec.select = call i64 @llvm.umin.i64(i64 %130, i64 2047)
-  %131 = load ptr, ptr %0, align 8, !tbaa !93
+  %131 = load ptr, ptr %0, align 8, !tbaa !95
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = call noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
   %135 = getelementptr inbounds nuw [2048 x i8], ptr %13, i64 0, i64 %spec.select
-  store i8 0, ptr %135, align 1, !tbaa !88
+  store i8 0, ptr %135, align 1, !tbaa !90
   br label %136
 
 136:                                              ; preds = %129, %128
@@ -824,7 +824,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 
 146:                                              ; preds = %145, %142
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 8312
-  %148 = load i32, ptr %147, align 8, !tbaa !95
+  %148 = load i32, ptr %147, align 8, !tbaa !97
   %cond = icmp eq i32 %148, 3
   br i1 %cond, label %149, label %.thread129
 
@@ -837,7 +837,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 
 .thread129:                                       ; preds = %146, %149
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8443
-  %152 = load i8, ptr %151, align 1, !tbaa !96, !range !26, !noundef !27
+  %152 = load i8, ptr %151, align 1, !tbaa !98, !range !26, !noundef !27
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %156
 
@@ -847,13 +847,13 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 
 156:                                              ; preds = %154, %.thread129
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 16661
-  %158 = load i8, ptr %157, align 1, !tbaa !97, !range !26, !noundef !27
+  %158 = load i8, ptr %157, align 1, !tbaa !99, !range !26, !noundef !27
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %.critedge
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 16664
-  %162 = load i8, ptr %161, align 8, !tbaa !88
+  %162 = load i8, ptr %161, align 8, !tbaa !90
   %.not120 = icmp eq i8 %162, 0
   br i1 %.not120, label %165, label %163
 
@@ -863,7 +863,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
 
 165:                                              ; preds = %160, %163
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 16920
-  %167 = load i8, ptr %166, align 8, !tbaa !88
+  %167 = load i8, ptr %166, align 8, !tbaa !90
   %.not121 = icmp eq i8 %167, 0
   br i1 %.not121, label %.critedge, label %168
 
@@ -1006,22 +1006,24 @@ attributes #7 = { nounwind willreturn memory(read) }
 !76 = !{!8, !10, i64 57431}
 !77 = !{!33, !10, i64 22328}
 !78 = !{!33, !11, i64 22264}
-!79 = !{!33, !10, i64 31191}
-!80 = !{!33, !9, i64 48884}
-!81 = !{!8, !11, i64 57464}
-!82 = !{!33, !10, i64 22329}
-!83 = !{!33, !75, i64 48840}
-!84 = !{!64, !11, i64 8296}
-!85 = !{!64, !11, i64 8288}
-!86 = !{!56, !51, i64 4}
-!87 = !{!64, !10, i64 8456}
-!88 = !{!5, !5, i64 0}
-!89 = !{!64, !67, i64 8460}
-!90 = !{!64, !10, i64 8352}
-!91 = !{!64, !68, i64 8464}
-!92 = !{!33, !10, i64 22331}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"vtable pointer", !6, i64 0}
-!95 = !{!64, !17, i64 8312}
-!96 = !{!64, !10, i64 8443}
-!97 = !{!64, !10, i64 16661}
+!79 = distinct !{!79, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = !{!33, !10, i64 31191}
+!82 = !{!33, !9, i64 48884}
+!83 = !{!8, !11, i64 57464}
+!84 = !{!33, !10, i64 22329}
+!85 = !{!33, !75, i64 48840}
+!86 = !{!64, !11, i64 8296}
+!87 = !{!64, !11, i64 8288}
+!88 = !{!56, !51, i64 4}
+!89 = !{!64, !10, i64 8456}
+!90 = !{!5, !5, i64 0}
+!91 = !{!64, !67, i64 8460}
+!92 = !{!64, !10, i64 8352}
+!93 = !{!64, !68, i64 8464}
+!94 = !{!33, !10, i64 22331}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"vtable pointer", !6, i64 0}
+!97 = !{!64, !17, i64 8312}
+!98 = !{!64, !10, i64 8443}
+!99 = !{!64, !10, i64 16661}

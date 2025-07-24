@@ -223,166 +223,125 @@ define void @ff_h264_parse_framesize(ptr noundef writeonly captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %4, 2
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %9, label %.split.us, label %.preheader
-
-.split.us:                                        ; preds = %8
   %.not64 = icmp eq ptr %6, null
-  br i1 %.not64, label %.preheader.us.us, label %.preheader.us
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br i1 %9, label %.preheader.us, label %.preheader
 
-.preheader.us.us:                                 ; preds = %.split.us, %15
-  %11 = phi i1 [ false, %15 ], [ true, %.split.us ]
-  %.048102.us.us = phi ptr [ %16, %15 ], [ null, %.split.us ]
-  %.053101.us.us = phi i32 [ %.us-phi87.us.us, %15 ], [ 0, %.split.us ]
-  br i1 %11, label %.lr.ph.split.us.us.us, label %.lr.ph.split.us108.us
+.preheader.us:                                    ; preds = %8, %15
+  %11 = phi i1 [ false, %15 ], [ true, %8 ]
+  %.048102.us = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.053101.us = phi i32 [ %.us-phi87.us, %15 ], [ 0, %8 ]
+  br i1 %11, label %.lr.ph.split.us.us, label %.lr.ph.split.us108
 
-12:                                               ; preds = %._crit_edge.us.us
-  %13 = tail call i32 @av_new_packet(ptr noundef %2, i32 noundef %.us-phi87.us.us) #10
+12:                                               ; preds = %._crit_edge.us
+  %13 = tail call i32 @av_new_packet(ptr noundef %2, i32 noundef %.us-phi87.us) #10
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %10, align 8, !tbaa !26
-  br label %.preheader.us.us, !llvm.loop !29
-
-._crit_edge.us.us:                                ; preds = %34, %21
-  %.us-phi87.us.us = phi i32 [ %24, %21 ], [ %.053101.us.us, %34 ]
-  br i1 %11, label %12, label %.loopexit
-
-.lr.ph.split.us.us.us:                            ; preds = %.preheader.us.us, %21
-  %.04384.us.us.us = phi i32 [ %28, %21 ], [ %4, %.preheader.us.us ]
-  %.04583.us.us.us = phi ptr [ %27, %21 ], [ %3, %.preheader.us.us ]
-  %.15481.us.us.us = phi i32 [ %24, %21 ], [ %.053101.us.us, %.preheader.us.us ]
-  %17 = load i16, ptr %.04583.us.us.us, align 1, !tbaa !4
-  %18 = tail call i16 @llvm.bswap.i16(i16 %17)
-  %19 = add nsw i32 %.04384.us.us.us, -2
-  %20 = zext i16 %18 to i32
-  %.not.not.us.us.us = icmp samesign ult i32 %19, %20
-  br i1 %.not.not.us.us.us, label %.thread, label %21
-
-21:                                               ; preds = %.lr.ph.split.us.us.us
-  %22 = getelementptr inbounds nuw i8, ptr %.04583.us.us.us, i64 2
-  %23 = add i32 %.15481.us.us.us, 4
-  %24 = add i32 %23, %20
-  %25 = add nsw i32 %5, %20
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %22, i64 %26
-  %28 = sub nsw i32 %19, %25
-  %29 = icmp sgt i32 %28, 2
-  br i1 %29, label %.lr.ph.split.us.us.us, label %._crit_edge.us.us
-
-.lr.ph.split.us108.us:                            ; preds = %.preheader.us.us, %34
-  %.04384.us89.us.us = phi i32 [ %42, %34 ], [ %4, %.preheader.us.us ]
-  %.04583.us90.us.us = phi ptr [ %41, %34 ], [ %3, %.preheader.us.us ]
-  %.14982.us91.us.us = phi ptr [ %38, %34 ], [ %.048102.us.us, %.preheader.us.us ]
-  %30 = load i16, ptr %.04583.us90.us.us, align 1, !tbaa !4
-  %31 = tail call i16 @llvm.bswap.i16(i16 %30)
-  %32 = add nsw i32 %.04384.us89.us.us, -2
-  %33 = zext i16 %31 to i32
-  %.not.not.us92.us.us = icmp samesign ult i32 %32, %33
-  br i1 %.not.not.us92.us.us, label %.thread, label %34
-
-34:                                               ; preds = %.lr.ph.split.us108.us
-  %35 = getelementptr inbounds nuw i8, ptr %.04583.us90.us.us, i64 2
-  store i32 16777216, ptr %.14982.us91.us.us, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %.14982.us91.us.us, i64 4
-  %37 = zext i16 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %35, i64 %37, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
-  %39 = add nsw i32 %5, %33
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %35, i64 %40
-  %42 = sub nsw i32 %32, %39
-  %43 = icmp sgt i32 %42, 2
-  br i1 %43, label %.lr.ph.split.us108.us, label %._crit_edge.us.us
-
-.preheader.us:                                    ; preds = %.split.us, %48
-  %44 = phi i1 [ false, %48 ], [ true, %.split.us ]
-  %.048102.us = phi ptr [ %49, %48 ], [ null, %.split.us ]
-  %.053101.us = phi i32 [ %.us-phi87.us, %48 ], [ 0, %.split.us ]
-  br i1 %44, label %.lr.ph.split.us.us, label %.lr.ph.split.us108
-
-45:                                               ; preds = %._crit_edge.us
-  %46 = tail call i32 @av_new_packet(ptr noundef %2, i32 noundef %.us-phi87.us) #10
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.loopexit, label %48
-
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %10, align 8, !tbaa !26
   br label %.preheader.us, !llvm.loop !29
 
-.lr.ph.split.us108:                               ; preds = %.preheader.us, %54
-  %.04384.us104 = phi i32 [ %69, %54 ], [ %4, %.preheader.us ]
-  %.04583.us105 = phi ptr [ %68, %54 ], [ %3, %.preheader.us ]
-  %.14982.us = phi ptr [ %65, %54 ], [ %.048102.us, %.preheader.us ]
-  %50 = load i16, ptr %.04583.us105, align 1, !tbaa !4
-  %51 = tail call i16 @llvm.bswap.i16(i16 %50)
-  %52 = add nsw i32 %.04384.us104, -2
-  %53 = zext i16 %51 to i32
-  %.not.not.us106 = icmp samesign ult i32 %52, %53
-  br i1 %.not.not.us106, label %.thread, label %54
+.lr.ph.split.split.us109:                         ; preds = %.lr.ph.split.us108, %21
+  %.04384.us104 = phi i32 [ %36, %21 ], [ %4, %.lr.ph.split.us108 ]
+  %.04583.us105 = phi ptr [ %35, %21 ], [ %3, %.lr.ph.split.us108 ]
+  %.14982.us = phi ptr [ %32, %21 ], [ %.048102.us, %.lr.ph.split.us108 ]
+  %17 = load i16, ptr %.04583.us105, align 1, !tbaa !4
+  %18 = tail call i16 @llvm.bswap.i16(i16 %17)
+  %19 = add nsw i32 %.04384.us104, -2
+  %20 = zext i16 %18 to i32
+  %.not.not.us106 = icmp samesign ult i32 %19, %20
+  br i1 %.not.not.us106, label %.thread, label %21
 
-54:                                               ; preds = %.lr.ph.split.us108
-  %55 = getelementptr inbounds nuw i8, ptr %.04583.us105, i64 2
+21:                                               ; preds = %.lr.ph.split.split.us109
+  %22 = getelementptr inbounds nuw i8, ptr %.04583.us105, i64 2
   store i32 16777216, ptr %.14982.us, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %.14982.us, i64 4
-  %57 = zext i16 %51 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %55, i64 %57, i1 false)
-  %58 = load i8, ptr %55, align 1, !tbaa !4
-  %59 = zext i8 %58 to i32
-  %60 = and i32 %7, %59
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !12
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %62, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  %66 = add nsw i32 %5, %53
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %55, i64 %67
-  %69 = sub nsw i32 %52, %66
-  %70 = icmp sgt i32 %69, 2
-  br i1 %70, label %.lr.ph.split.us108, label %._crit_edge.us
+  %23 = getelementptr inbounds nuw i8, ptr %.14982.us, i64 4
+  %24 = zext i16 %18 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %22, i64 %24, i1 false)
+  %25 = load i8, ptr %22, align 1, !tbaa !4
+  %26 = zext i8 %25 to i32
+  %27 = and i32 %7, %26
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !12
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %29, align 4, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  %33 = add nsw i32 %5, %20
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %22, i64 %34
+  %36 = sub nsw i32 %19, %33
+  %37 = icmp sgt i32 %36, 2
+  br i1 %37, label %.lr.ph.split.split.us109, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %54, %75
-  %.us-phi87.us = phi i32 [ %78, %75 ], [ %.053101.us, %54 ]
-  br i1 %44, label %45, label %.loopexit
+.lr.ph.split.us108:                               ; preds = %.preheader.us
+  br i1 %.not64, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us109
 
-.lr.ph.split.us.us:                               ; preds = %.preheader.us, %75
-  %.04384.us.us = phi i32 [ %82, %75 ], [ %4, %.preheader.us ]
-  %.04583.us.us = phi ptr [ %81, %75 ], [ %3, %.preheader.us ]
-  %.15481.us.us = phi i32 [ %78, %75 ], [ %.053101.us, %.preheader.us ]
-  %71 = load i16, ptr %.04583.us.us, align 1, !tbaa !4
-  %72 = tail call i16 @llvm.bswap.i16(i16 %71)
-  %73 = add nsw i32 %.04384.us.us, -2
-  %74 = zext i16 %72 to i32
-  %.not.not.us.us = icmp samesign ult i32 %73, %74
-  br i1 %.not.not.us.us, label %.thread, label %75
+._crit_edge.us:                                   ; preds = %21, %55, %42
+  %.us-phi87.us = phi i32 [ %45, %42 ], [ %.053101.us, %55 ], [ %.053101.us, %21 ]
+  br i1 %11, label %12, label %.loopexit
 
-75:                                               ; preds = %.lr.ph.split.us.us
-  %76 = getelementptr inbounds nuw i8, ptr %.04583.us.us, i64 2
-  %77 = add i32 %.15481.us.us, 4
-  %78 = add i32 %77, %74
-  %79 = add nsw i32 %5, %74
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %76, i64 %80
-  %82 = sub nsw i32 %73, %79
-  %83 = icmp sgt i32 %82, 2
-  br i1 %83, label %.lr.ph.split.us.us, label %._crit_edge.us
+.lr.ph.split.us.us:                               ; preds = %.preheader.us, %42
+  %.04384.us.us = phi i32 [ %49, %42 ], [ %4, %.preheader.us ]
+  %.04583.us.us = phi ptr [ %48, %42 ], [ %3, %.preheader.us ]
+  %.15481.us.us = phi i32 [ %45, %42 ], [ %.053101.us, %.preheader.us ]
+  %38 = load i16, ptr %.04583.us.us, align 1, !tbaa !4
+  %39 = tail call i16 @llvm.bswap.i16(i16 %38)
+  %40 = add nsw i32 %.04384.us.us, -2
+  %41 = zext i16 %39 to i32
+  %.not.not.us.us = icmp samesign ult i32 %40, %41
+  br i1 %.not.not.us.us, label %.thread, label %42
 
-.thread:                                          ; preds = %.lr.ph.split.us108, %.lr.ph.split.us.us, %.lr.ph.split.us108.us, %.lr.ph.split.us.us.us
-  %.us-phi = phi i32 [ %19, %.lr.ph.split.us.us.us ], [ %32, %.lr.ph.split.us108.us ], [ %73, %.lr.ph.split.us.us ], [ %52, %.lr.ph.split.us108 ]
-  %.us-phi86 = phi i32 [ %20, %.lr.ph.split.us.us.us ], [ %33, %.lr.ph.split.us108.us ], [ %74, %.lr.ph.split.us.us ], [ %53, %.lr.ph.split.us108 ]
+42:                                               ; preds = %.lr.ph.split.us.us
+  %43 = getelementptr inbounds nuw i8, ptr %.04583.us.us, i64 2
+  %44 = add i32 %.15481.us.us, 4
+  %45 = add i32 %44, %41
+  %46 = add nsw i32 %5, %41
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %43, i64 %47
+  %49 = sub nsw i32 %40, %46
+  %50 = icmp sgt i32 %49, 2
+  br i1 %50, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !31
+
+.lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us108, %55
+  %.04384.us89.us = phi i32 [ %63, %55 ], [ %4, %.lr.ph.split.us108 ]
+  %.04583.us90.us = phi ptr [ %62, %55 ], [ %3, %.lr.ph.split.us108 ]
+  %.14982.us91.us = phi ptr [ %59, %55 ], [ %.048102.us, %.lr.ph.split.us108 ]
+  %51 = load i16, ptr %.04583.us90.us, align 1, !tbaa !4
+  %52 = tail call i16 @llvm.bswap.i16(i16 %51)
+  %53 = add nsw i32 %.04384.us89.us, -2
+  %54 = zext i16 %52 to i32
+  %.not.not.us92.us = icmp samesign ult i32 %53, %54
+  br i1 %.not.not.us92.us, label %.thread, label %55
+
+55:                                               ; preds = %.lr.ph.split.split.us.us
+  %56 = getelementptr inbounds nuw i8, ptr %.04583.us90.us, i64 2
+  store i32 16777216, ptr %.14982.us91.us, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %.14982.us91.us, i64 4
+  %58 = zext i16 %52 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %56, i64 %58, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
+  %60 = add nsw i32 %5, %54
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %56, i64 %61
+  %63 = sub nsw i32 %53, %60
+  %64 = icmp sgt i32 %63, 2
+  br i1 %64, label %.lr.ph.split.split.us.us, label %._crit_edge.us, !llvm.loop !32
+
+.thread:                                          ; preds = %.lr.ph.split.split.us109, %.lr.ph.split.split.us.us, %.lr.ph.split.us.us
+  %.us-phi = phi i32 [ %40, %.lr.ph.split.us.us ], [ %53, %.lr.ph.split.split.us.us ], [ %19, %.lr.ph.split.split.us109 ]
+  %.us-phi86 = phi i32 [ %41, %.lr.ph.split.us.us ], [ %54, %.lr.ph.split.split.us.us ], [ %20, %.lr.ph.split.split.us109 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.us-phi86, i32 noundef %.us-phi) #10
   br label %.loopexit
 
 .preheader:                                       ; preds = %8
-  %84 = tail call i32 @av_new_packet(ptr noundef %2, i32 noundef 0) #10
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %84, i32 0)
+  %65 = tail call i32 @av_new_packet(ptr noundef %2, i32 noundef 0) #10
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %65, i32 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %._crit_edge.us, %12, %._crit_edge.us.us, %.preheader, %.thread
-  %.4 = phi i32 [ -1094995529, %.thread ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.us.us ], [ %13, %12 ], [ 0, %._crit_edge.us ], [ %46, %45 ]
+.loopexit:                                        ; preds = %12, %._crit_edge.us, %.preheader, %.thread
+  %.4 = phi i32 [ -1094995529, %.thread ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.us ], [ %13, %12 ]
   ret i32 %.4
 }
 
@@ -437,17 +396,17 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = zext nneg i32 %1 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !47
   %14 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %43, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %17 = load ptr, ptr %16, align 8, !tbaa !49
   %18 = load ptr, ptr %6, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #10
   br label %19
@@ -596,81 +555,81 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   %28 = add nsw i32 %6, -1
   %29 = icmp sgt i32 %6, 3
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br i1 %29, label %.preheader.us.us.i, label %.critedge
+  br i1 %29, label %.preheader.us.i, label %.critedge
 
-.preheader.us.us.i:                               ; preds = %26, %35
+.preheader.us.i:                                  ; preds = %26, %35
   %31 = phi i1 [ false, %35 ], [ true, %26 ]
-  %.048102.us.us.i = phi ptr [ %36, %35 ], [ null, %26 ]
-  %.053101.us.us.i = phi i32 [ %.us-phi87.us.us.i, %35 ], [ 0, %26 ]
-  br i1 %31, label %.lr.ph.split.us.us.us.i, label %.lr.ph.split.us108.us.i
+  %.048102.us.i = phi ptr [ %36, %35 ], [ null, %26 ]
+  %.053101.us.i = phi i32 [ %.us-phi87.us.i, %35 ], [ 0, %26 ]
+  br i1 %31, label %.lr.ph.split.us.us.i, label %.lr.ph.split.split.us.us.i
 
-32:                                               ; preds = %._crit_edge.us.us.i
-  %33 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %.us-phi87.us.us.i) #10
+32:                                               ; preds = %._crit_edge.us.i
+  %33 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %.us-phi87.us.i) #10
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %ff_h264_handle_aggregated_packet.exit, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %30, align 8, !tbaa !26
-  br label %.preheader.us.us.i, !llvm.loop !29
+  br label %.preheader.us.i, !llvm.loop !29
 
-._crit_edge.us.us.i:                              ; preds = %53, %41
-  %.us-phi87.us.us.i = phi i32 [ %44, %41 ], [ %.053101.us.us.i, %53 ]
+._crit_edge.us.i:                                 ; preds = %53, %41
+  %.us-phi87.us.i = phi i32 [ %44, %41 ], [ %.053101.us.i, %53 ]
   br i1 %31, label %32, label %ff_h264_handle_aggregated_packet.exit
 
-.lr.ph.split.us.us.us.i:                          ; preds = %.preheader.us.us.i, %41
-  %.04384.us.us.us.i = phi i32 [ %47, %41 ], [ %28, %.preheader.us.us.i ]
-  %.04583.us.us.us.i = phi ptr [ %46, %41 ], [ %27, %.preheader.us.us.i ]
-  %.15481.us.us.us.i = phi i32 [ %44, %41 ], [ %.053101.us.us.i, %.preheader.us.us.i ]
-  %37 = load i16, ptr %.04583.us.us.us.i, align 1, !tbaa !4
+.lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %41
+  %.04384.us.us.i = phi i32 [ %47, %41 ], [ %28, %.preheader.us.i ]
+  %.04583.us.us.i = phi ptr [ %46, %41 ], [ %27, %.preheader.us.i ]
+  %.15481.us.us.i = phi i32 [ %44, %41 ], [ %.053101.us.i, %.preheader.us.i ]
+  %37 = load i16, ptr %.04583.us.us.i, align 1, !tbaa !4
   %38 = tail call i16 @llvm.bswap.i16(i16 %37)
-  %39 = add nsw i32 %.04384.us.us.us.i, -2
+  %39 = add nsw i32 %.04384.us.us.i, -2
   %40 = zext i16 %38 to i32
-  %.not.not.us.us.us.i = icmp samesign ult i32 %39, %40
-  br i1 %.not.not.us.us.us.i, label %.thread.i, label %41
+  %.not.not.us.us.i = icmp samesign ult i32 %39, %40
+  br i1 %.not.not.us.us.i, label %.thread.i, label %41
 
-41:                                               ; preds = %.lr.ph.split.us.us.us.i
-  %42 = getelementptr inbounds nuw i8, ptr %.04583.us.us.us.i, i64 2
-  %43 = add i32 %.15481.us.us.us.i, 4
+41:                                               ; preds = %.lr.ph.split.us.us.i
+  %42 = getelementptr inbounds nuw i8, ptr %.04583.us.us.i, i64 2
+  %43 = add i32 %.15481.us.us.i, 4
   %44 = add i32 %43, %40
   %45 = zext i16 %38 to i64
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
   %47 = sub nuw nsw i32 %39, %40
   %48 = icmp sgt i32 %47, 2
-  br i1 %48, label %.lr.ph.split.us.us.us.i, label %._crit_edge.us.us.i
+  br i1 %48, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !31
 
-.lr.ph.split.us108.us.i:                          ; preds = %.preheader.us.us.i, %53
-  %.04384.us89.us.us.i = phi i32 [ %59, %53 ], [ %28, %.preheader.us.us.i ]
-  %.04583.us90.us.us.i = phi ptr [ %58, %53 ], [ %27, %.preheader.us.us.i ]
-  %.14982.us91.us.us.i = phi ptr [ %57, %53 ], [ %.048102.us.us.i, %.preheader.us.us.i ]
-  %49 = load i16, ptr %.04583.us90.us.us.i, align 1, !tbaa !4
+.lr.ph.split.split.us.us.i:                       ; preds = %.preheader.us.i, %53
+  %.04384.us89.us.i = phi i32 [ %59, %53 ], [ %28, %.preheader.us.i ]
+  %.04583.us90.us.i = phi ptr [ %58, %53 ], [ %27, %.preheader.us.i ]
+  %.14982.us91.us.i = phi ptr [ %57, %53 ], [ %.048102.us.i, %.preheader.us.i ]
+  %49 = load i16, ptr %.04583.us90.us.i, align 1, !tbaa !4
   %50 = tail call i16 @llvm.bswap.i16(i16 %49)
-  %51 = add nsw i32 %.04384.us89.us.us.i, -2
+  %51 = add nsw i32 %.04384.us89.us.i, -2
   %52 = zext i16 %50 to i32
-  %.not.not.us92.us.us.i = icmp samesign ult i32 %51, %52
-  br i1 %.not.not.us92.us.us.i, label %.thread.i, label %53
+  %.not.not.us92.us.i = icmp samesign ult i32 %51, %52
+  br i1 %.not.not.us92.us.i, label %.thread.i, label %53
 
-53:                                               ; preds = %.lr.ph.split.us108.us.i
-  %54 = getelementptr inbounds nuw i8, ptr %.04583.us90.us.us.i, i64 2
-  store i32 16777216, ptr %.14982.us91.us.us.i, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %.14982.us91.us.us.i, i64 4
+53:                                               ; preds = %.lr.ph.split.split.us.us.i
+  %54 = getelementptr inbounds nuw i8, ptr %.04583.us90.us.i, i64 2
+  store i32 16777216, ptr %.14982.us91.us.i, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %.14982.us91.us.i, i64 4
   %56 = zext i16 %50 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %54, i64 %56, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %56
   %59 = sub nuw nsw i32 %51, %52
   %60 = icmp sgt i32 %59, 2
-  br i1 %60, label %.lr.ph.split.us108.us.i, label %._crit_edge.us.us.i
+  br i1 %60, label %.lr.ph.split.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !32
 
-.thread.i:                                        ; preds = %.lr.ph.split.us108.us.i, %.lr.ph.split.us.us.us.i
-  %.us-phi.i = phi i32 [ %39, %.lr.ph.split.us.us.us.i ], [ %51, %.lr.ph.split.us108.us.i ]
-  %.us-phi86.i = phi i32 [ %40, %.lr.ph.split.us.us.us.i ], [ %52, %.lr.ph.split.us108.us.i ]
+.thread.i:                                        ; preds = %.lr.ph.split.split.us.us.i, %.lr.ph.split.us.us.i
+  %.us-phi.i = phi i32 [ %39, %.lr.ph.split.us.us.i ], [ %51, %.lr.ph.split.split.us.us.i ]
+  %.us-phi86.i = phi i32 [ %40, %.lr.ph.split.us.us.i ], [ %52, %.lr.ph.split.split.us.us.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.us-phi86.i, i32 noundef %.us-phi.i) #10
   br label %ff_h264_handle_aggregated_packet.exit
 
 .critedge:                                        ; preds = %26
   %61 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef 0) #10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %61, i32 0)
-  br label %ff_h264_handle_aggregated_packet.exit, !llvm.loop !29
+  br label %ff_h264_handle_aggregated_packet.exit, !llvm.loop !52
 
 62:                                               ; preds = %11, %11, %11, %11
   tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %15) #10
@@ -724,12 +683,12 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %15) #10
   br label %ff_h264_handle_aggregated_packet.exit
 
-ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.us.i, %32, %.critedge, %83, %66, %65, %.thread.i, %88, %62, %20
-  %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.critedge ], [ %33, %32 ], [ 0, %._crit_edge.us.us.i ]
+ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.i, %32, %.critedge, %83, %66, %65, %.thread.i, %88, %62, %20
+  %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.critedge ], [ %33, %32 ], [ 0, %._crit_edge.us.i ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !49
+  %90 = load i32, ptr %89, align 8, !tbaa !53
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %90, ptr %91, align 4, !tbaa !50
+  store i32 %90, ptr %91, align 4, !tbaa !54
   br label %92
 
 92:                                               ; preds = %16, %ff_h264_handle_aggregated_packet.exit, %10
@@ -748,7 +707,7 @@ declare i32 @ff_parse_fmtp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [3 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @.str.6) #11
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %18
@@ -760,7 +719,7 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %14, ptr %15, align 4, !tbaa !51
+  store i32 %14, ptr %15, align 4, !tbaa !55
   %16 = icmp sgt i32 %14, 1
   br i1 %16, label %17, label %69
 
@@ -813,11 +772,11 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
   %47 = trunc i64 %41 to i32
   %48 = and i32 %47, 255
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %44, i32 noundef %46, i32 noundef %48) #10
-  store i8 %30, ptr %2, align 4, !tbaa !53
+  store i8 %30, ptr %2, align 4, !tbaa !57
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %36, ptr %49, align 1, !tbaa !54
+  store i8 %36, ptr %49, align 1, !tbaa !58
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %42, ptr %50, align 2, !tbaa !55
+  store i8 %42, ptr %50, align 2, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #10
   br label %69
 
@@ -845,12 +804,12 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %64, align 8, !tbaa !56
+  store i32 0, ptr %64, align 8, !tbaa !60
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @av_freep(ptr noundef nonnull %65) #10
   %66 = tail call i32 @ff_h264_parse_sprop_parameter_sets(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %64, ptr noundef nonnull %4)
-  %67 = load ptr, ptr %65, align 8, !tbaa !57
-  %68 = load i32, ptr %64, align 8, !tbaa !56
+  %67 = load ptr, ptr %65, align 8, !tbaa !61
+  %68 = load i32, ptr %64, align 8, !tbaa !60
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.12, ptr noundef %67, i32 noundef %68) #10
   br label %69
 
@@ -919,32 +878,36 @@ attributes #11 = { nounwind willreturn memory(read) }
 !26 = !{!27, !10, i64 24}
 !27 = !{!"AVPacket", !28, i64 0, !22, i64 8, !22, i64 16, !10, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !21, i64 48, !13, i64 56, !22, i64 64, !22, i64 72, !11, i64 80, !28, i64 88, !23, i64 96}
 !28 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
-!29 = distinct !{!29, !8}
-!30 = !{!31, !36, i64 48}
-!31 = !{!"AVFormatContext", !32, i64 0, !33, i64 8, !34, i64 16, !11, i64 24, !35, i64 32, !13, i64 40, !13, i64 44, !36, i64 48, !13, i64 56, !38, i64 64, !13, i64 72, !39, i64 80, !10, i64 88, !22, i64 96, !22, i64 104, !22, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !22, i64 136, !22, i64 144, !10, i64 152, !13, i64 160, !13, i64 164, !40, i64 168, !13, i64 176, !13, i64 180, !13, i64 184, !13, i64 188, !41, i64 192, !22, i64 200, !13, i64 208, !13, i64 212, !42, i64 216, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !22, i64 248, !13, i64 256, !13, i64 260, !13, i64 264, !13, i64 268, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !22, i64 304, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !13, i64 368, !43, i64 376, !43, i64 384, !43, i64 392, !43, i64 400, !13, i64 408, !11, i64 416, !11, i64 424, !22, i64 432, !10, i64 440, !11, i64 448, !11, i64 456, !22, i64 464}
-!32 = !{!"p1 _ZTS7AVClass", !11, i64 0}
-!33 = !{!"p1 _ZTS13AVInputFormat", !11, i64 0}
-!34 = !{!"p1 _ZTS14AVOutputFormat", !11, i64 0}
-!35 = !{!"p1 _ZTS11AVIOContext", !11, i64 0}
-!36 = !{!"p2 _ZTS8AVStream", !37, i64 0}
-!37 = !{!"any p2 pointer", !11, i64 0}
-!38 = !{!"p2 _ZTS13AVStreamGroup", !37, i64 0}
-!39 = !{!"p2 _ZTS9AVChapter", !37, i64 0}
-!40 = !{!"p2 _ZTS9AVProgram", !37, i64 0}
-!41 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
-!42 = !{!"AVIOInterruptCB", !11, i64 0, !11, i64 8}
-!43 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS8AVStream", !11, i64 0}
-!46 = !{!47, !48, i64 16}
-!47 = !{!"AVStream", !32, i64 0, !13, i64 8, !13, i64 12, !48, i64 16, !11, i64 24, !23, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !13, i64 64, !13, i64 68, !23, i64 72, !41, i64 80, !23, i64 88, !27, i64 96, !13, i64 200, !23, i64 204, !13, i64 212}
-!48 = !{!"p1 _ZTS17AVCodecParameters", !11, i64 0}
-!49 = !{!47, !13, i64 8}
-!50 = !{!27, !13, i64 36}
-!51 = !{!52, !13, i64 4}
-!52 = !{!"PayloadContext", !5, i64 0, !5, i64 1, !5, i64 2, !13, i64 4}
-!53 = !{!52, !5, i64 0}
-!54 = !{!52, !5, i64 1}
-!55 = !{!52, !5, i64 2}
-!56 = !{!20, !13, i64 24}
-!57 = !{!20, !10, i64 16}
+!29 = distinct !{!29, !8, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = !{!34, !39, i64 48}
+!34 = !{!"AVFormatContext", !35, i64 0, !36, i64 8, !37, i64 16, !11, i64 24, !38, i64 32, !13, i64 40, !13, i64 44, !39, i64 48, !13, i64 56, !41, i64 64, !13, i64 72, !42, i64 80, !10, i64 88, !22, i64 96, !22, i64 104, !22, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !22, i64 136, !22, i64 144, !10, i64 152, !13, i64 160, !13, i64 164, !43, i64 168, !13, i64 176, !13, i64 180, !13, i64 184, !13, i64 188, !44, i64 192, !22, i64 200, !13, i64 208, !13, i64 212, !45, i64 216, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !22, i64 248, !13, i64 256, !13, i64 260, !13, i64 264, !13, i64 268, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !22, i64 304, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !13, i64 368, !46, i64 376, !46, i64 384, !46, i64 392, !46, i64 400, !13, i64 408, !11, i64 416, !11, i64 424, !22, i64 432, !10, i64 440, !11, i64 448, !11, i64 456, !22, i64 464}
+!35 = !{!"p1 _ZTS7AVClass", !11, i64 0}
+!36 = !{!"p1 _ZTS13AVInputFormat", !11, i64 0}
+!37 = !{!"p1 _ZTS14AVOutputFormat", !11, i64 0}
+!38 = !{!"p1 _ZTS11AVIOContext", !11, i64 0}
+!39 = !{!"p2 _ZTS8AVStream", !40, i64 0}
+!40 = !{!"any p2 pointer", !11, i64 0}
+!41 = !{!"p2 _ZTS13AVStreamGroup", !40, i64 0}
+!42 = !{!"p2 _ZTS9AVChapter", !40, i64 0}
+!43 = !{!"p2 _ZTS9AVProgram", !40, i64 0}
+!44 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
+!45 = !{!"AVIOInterruptCB", !11, i64 0, !11, i64 8}
+!46 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS8AVStream", !11, i64 0}
+!49 = !{!50, !51, i64 16}
+!50 = !{!"AVStream", !35, i64 0, !13, i64 8, !13, i64 12, !51, i64 16, !11, i64 24, !23, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !13, i64 64, !13, i64 68, !23, i64 72, !44, i64 80, !23, i64 88, !27, i64 96, !13, i64 200, !23, i64 204, !13, i64 212}
+!51 = !{!"p1 _ZTS17AVCodecParameters", !11, i64 0}
+!52 = distinct !{!52, !8}
+!53 = !{!50, !13, i64 8}
+!54 = !{!27, !13, i64 36}
+!55 = !{!56, !13, i64 4}
+!56 = !{!"PayloadContext", !5, i64 0, !5, i64 1, !5, i64 2, !13, i64 4}
+!57 = !{!56, !5, i64 0}
+!58 = !{!56, !5, i64 1}
+!59 = !{!56, !5, i64 2}
+!60 = !{!20, !13, i64 24}
+!61 = !{!20, !10, i64 16}

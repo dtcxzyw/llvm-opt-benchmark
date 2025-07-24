@@ -849,7 +849,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %.292120.us = phi i32 [ %.5.ph.us, %._crit_edge130.us ], [ %.292125.us, %87 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge137.us, label %50, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge137.us, label %50, !llvm.loop !11
 
 89:                                               ; preds = %71
   store float %81, ptr %83, align 4
@@ -874,7 +874,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %101 = sext i32 %.pre-phi to i64
   %102 = icmp slt i64 %indvars.iv.next150, %101
-  br i1 %102, label %71, label %._crit_edge130.us, !llvm.loop !11
+  br i1 %102, label %71, label %._crit_edge130.us, !llvm.loop !12
 
 .lr.ph129.us:                                     ; preds = %50
   %103 = getelementptr inbounds nuw i8, ptr %51, i64 1024
@@ -935,7 +935,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 134:                                              ; preds = %131, %124
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
   %135 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %135, label %124, label %._crit_edge143, !llvm.loop !9
+  br i1 %135, label %124, label %._crit_edge143, !llvm.loop !13
 
 ._crit_edge143:                                   ; preds = %69, %134, %._crit_edge122.thread, %._crit_edge122
   %136 = phi ptr [ %45, %._crit_edge122.thread ], [ %39, %._crit_edge122 ], [ %105, %134 ], [ %39, %69 ]
@@ -1001,6 +1001,8 @@ attributes #7 = { cold nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

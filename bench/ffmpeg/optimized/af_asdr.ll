@@ -523,15 +523,15 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
   %.04145.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %36, %33 ]
   %.04244.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %40, %33 ]
   %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8, !tbaa !77
+  %35 = load double, ptr %34, align 8, !tbaa !78
   %36 = tail call nsz double @llvm.fmuladd.f64(double %35, double %35, double %.04145.us)
   %37 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
-  %38 = load double, ptr %37, align 8, !tbaa !77
+  %38 = load double, ptr %37, align 8, !tbaa !78
   %39 = fsub nsz double %35, %38
   %40 = tail call nsz double @llvm.fmuladd.f64(double %39, double %39, double %.04244.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %33
   %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv55
@@ -544,7 +544,7 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
   store double %46, ptr %41, align 8, !tbaa !29
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge51, label %.lr.ph.us, !llvm.loop !79
+  br i1 %exitcond59.not, label %._crit_edge51, label %.lr.ph.us, !llvm.loop !80
 
 ._crit_edge51:                                    ; preds = %._crit_edge.us, %.lr.ph50, %4
   ret i32 0
@@ -614,7 +614,7 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
   %46 = fadd nsz double %.04648.us, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %33
   %47 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
@@ -631,7 +631,7 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
   store double %55, ptr %53, align 8, !tbaa !34
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph.us, !llvm.loop !81
+  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph.us, !llvm.loop !82
 
 ._crit_edge57:                                    ; preds = %._crit_edge.us, %.lr.ph56, %4
   ret i32 0
@@ -687,15 +687,15 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
   %.04549.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %36, %33 ]
   %.04648.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %40, %33 ]
   %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8, !tbaa !77
+  %35 = load double, ptr %34, align 8, !tbaa !78
   %36 = tail call nsz double @llvm.fmuladd.f64(double %35, double %35, double %.04549.us)
   %37 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
-  %38 = load double, ptr %37, align 8, !tbaa !77
+  %38 = load double, ptr %37, align 8, !tbaa !78
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %38, double %.04450.us)
   %40 = tail call nsz double @llvm.fmuladd.f64(double %35, double %38, double %.04648.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !83
 
 ._crit_edge.us:                                   ; preds = %33
   %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
@@ -712,7 +712,7 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
   store double %49, ptr %47, align 8, !tbaa !34
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph.us, !llvm.loop !83
+  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph.us, !llvm.loop !84
 
 ._crit_edge57:                                    ; preds = %._crit_edge.us, %.lr.ph56, %4
   ret i32 0
@@ -775,7 +775,7 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
   %41 = fadd nsz double %.03436.us, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !85
 
 ._crit_edge.us:                                   ; preds = %33
   %42 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44, i32 2
@@ -784,7 +784,7 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
   store double %44, ptr %42, align 8, !tbaa !31
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !85
+  br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !86
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %4
   ret i32 0
@@ -838,14 +838,14 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %33 ]
   %.03436.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %39, %33 ]
   %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8, !tbaa !77
+  %35 = load double, ptr %34, align 8, !tbaa !78
   %36 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
-  %37 = load double, ptr %36, align 8, !tbaa !77
+  %37 = load double, ptr %36, align 8, !tbaa !78
   %38 = fsub nsz double %35, %37
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %38, double %.03436.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %33
   %40 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44, i32 2
@@ -854,7 +854,7 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
   store double %42, ptr %40, align 8, !tbaa !31
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !87
+  br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !88
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %4
   ret i32 0
@@ -999,15 +999,16 @@ attributes #10 = { nounwind }
 !73 = !{!74, !74, i64 0}
 !74 = !{!"float", !8, i64 0}
 !75 = distinct !{!75, !33}
-!76 = distinct !{!76, !33}
-!77 = !{!26, !26, i64 0}
-!78 = distinct !{!78, !33}
+!76 = distinct !{!76, !33, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = !{!26, !26, i64 0}
 !79 = distinct !{!79, !33}
-!80 = distinct !{!80, !33}
+!80 = distinct !{!80, !33, !77}
 !81 = distinct !{!81, !33}
-!82 = distinct !{!82, !33}
+!82 = distinct !{!82, !33, !77}
 !83 = distinct !{!83, !33}
-!84 = distinct !{!84, !33}
+!84 = distinct !{!84, !33, !77}
 !85 = distinct !{!85, !33}
-!86 = distinct !{!86, !33}
+!86 = distinct !{!86, !33, !77}
 !87 = distinct !{!87, !33}
+!88 = distinct !{!88, !33, !77}

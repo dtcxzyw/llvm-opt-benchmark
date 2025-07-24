@@ -403,7 +403,7 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %.03771.us, i64 48
   %.037.us = load ptr, ptr %14, align 8, !tbaa !58
   %.not.us = icmp eq ptr %.037.us, null
-  br i1 %.not.us, label %.critedge, label %.lr.ph74.split.us
+  br i1 %.not.us, label %.critedge, label %.lr.ph74.split.us, !llvm.loop !59
 
 .lr.ph74.split:                                   ; preds = %.lr.ph74
   %.not47 = icmp eq ptr %4, null
@@ -447,7 +447,7 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
   %28 = getelementptr inbounds nuw i8, ptr %.03771.us80, i64 48
   %.037.us84 = load ptr, ptr %28, align 8, !tbaa !58
   %.not.us85 = icmp eq ptr %.037.us84, null
-  br i1 %.not.us85, label %.critedge, label %.lr.ph74.split.split.us
+  br i1 %.not.us85, label %.critedge, label %.lr.ph74.split.split.us, !llvm.loop !61
 
 .lr.ph74.split.split:                             ; preds = %.lr.ph74.split, %.loopexit
   %.03771 = phi ptr [ %.037, %.loopexit ], [ %.03769, %.lr.ph74.split ]
@@ -489,10 +489,10 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
   %.03663 = phi i64 [ 0, %.lr.ph ], [ %54, %53 ]
   %45 = getelementptr inbounds nuw %struct.cli_section_hash, ptr %41, i64 %.03663
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !59
+  %47 = load i64, ptr %46, align 8, !tbaa !62
   %48 = getelementptr inbounds nuw %struct.cli_section_hash, ptr %43, i64 %.03663
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !59
+  %50 = load i64, ptr %49, align 8, !tbaa !62
   %51 = icmp eq i64 %47, %50
   br i1 %51, label %52, label %53
 
@@ -643,13 +643,13 @@ free_sample.exit:                                 ; preds = %22, %25, %27
   store ptr null, ptr %11, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %31, align 8, !tbaa !40
-  %32 = load ptr, ptr %1, align 8, !tbaa !61
+  %32 = load ptr, ptr %1, align 8, !tbaa !64
   %.not26 = icmp eq ptr %32, null
   br i1 %.not26, label %34, label %33
 
 33:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %32) #14
-  store ptr null, ptr %1, align 8, !tbaa !61
+  store ptr null, ptr %1, align 8, !tbaa !64
   br label %34
 
 34:                                               ; preds = %33, %._crit_edge
@@ -737,7 +737,7 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %14 = load ptr, ptr %13, align 8, !tbaa !62
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %.not43 = icmp eq ptr %14, null
   br i1 %.not43, label %15, label %19
 
@@ -857,24 +857,24 @@ free_sample.exit:                                 ; preds = %49, %52, %54
 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %60 = load i32, ptr %59, align 4, !tbaa !63
+  %60 = load i32, ptr %59, align 4, !tbaa !66
   call void @submit_post(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %33, i32 noundef %60) #14
   call void @free(ptr noundef nonnull %33) #14
   br label %61
 
 61:                                               ; preds = %58, %._crit_edge
-  %62 = load ptr, ptr %3, align 8, !tbaa !61
+  %62 = load ptr, ptr %3, align 8, !tbaa !64
   %.not49 = icmp eq ptr %62, null
   br i1 %.not49, label %66, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr %1, align 8, !tbaa !61
+  %64 = load ptr, ptr %1, align 8, !tbaa !64
   %.not50 = icmp eq ptr %64, null
   br i1 %.not50, label %65, label %66
 
 65:                                               ; preds = %63
   call void @free(ptr noundef nonnull %62) #14
-  store ptr null, ptr %3, align 8, !tbaa !61
+  store ptr null, ptr %3, align 8, !tbaa !64
   br label %66
 
 66:                                               ; preds = %65, %63, %61
@@ -941,7 +941,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly captures(address_is
   %18 = getelementptr inbounds nuw i8, ptr %.03771.us.i, i64 48
   %.037.us.i = load ptr, ptr %18, align 8, !tbaa !58
   %.not.us.i = icmp eq ptr %.037.us.i, null
-  br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph74.split.us.i
+  br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph74.split.us.i, !llvm.loop !59
 
 .lr.ph74.split.split.us.i:                        ; preds = %.lr.ph74.i, %.loopexit.us.i
   %.03771.us80.i = phi ptr [ %.037.us84.i, %.loopexit.us.i ], [ %.03769.i49, %.lr.ph74.i ]
@@ -981,7 +981,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly captures(address_is
   %32 = getelementptr inbounds nuw i8, ptr %.03771.us80.i, i64 48
   %.037.us84.i = load ptr, ptr %32, align 8, !tbaa !58
   %.not.us85.i = icmp eq ptr %.037.us84.i, null
-  br i1 %.not.us85.i, label %find_sample.exit.thread, label %.lr.ph74.split.split.us.i
+  br i1 %.not.us85.i, label %find_sample.exit.thread, label %.lr.ph74.split.split.us.i, !llvm.loop !61
 
 find_sample.exit.thread38:                        ; preds = %15, %.lr.ph68.us.i
   %.03762.i41 = phi ptr [ %.03771.us80.i, %.lr.ph68.us.i ], [ %.03771.us.i, %15 ]
@@ -1126,7 +1126,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   %18 = getelementptr inbounds nuw i8, ptr %.03771.us.i, i64 48
   %.037.us.i = load ptr, ptr %18, align 8, !tbaa !58
   %.not.us.i = icmp eq ptr %.037.us.i, null
-  br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph74.split.us.i
+  br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph74.split.us.i, !llvm.loop !59
 
 .lr.ph74.split.split.us.i:                        ; preds = %.lr.ph74.i, %.loopexit.us.i
   %.03771.us80.i = phi ptr [ %.037.us84.i, %.loopexit.us.i ], [ %.03769.i, %.lr.ph74.i ]
@@ -1166,7 +1166,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   %32 = getelementptr inbounds nuw i8, ptr %.03771.us80.i, i64 48
   %.037.us84.i = load ptr, ptr %32, align 8, !tbaa !58
   %.not.us85.i = icmp eq ptr %.037.us84.i, null
-  br i1 %.not.us85.i, label %find_sample.exit.thread, label %.lr.ph74.split.split.us.i
+  br i1 %.not.us85.i, label %find_sample.exit.thread, label %.lr.ph74.split.split.us.i, !llvm.loop !61
 
 find_sample.exit.thread37:                        ; preds = %.lr.ph68.us.i, %15
   %.03762.i40 = phi ptr [ %.03771.us.i, %15 ], [ %.03771.us80.i, %.lr.ph68.us.i ]
@@ -1179,7 +1179,7 @@ find_sample.exit.thread37:                        ; preds = %.lr.ph68.us.i, %15
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1096
-  %40 = load ptr, ptr %39, align 8, !tbaa !64
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   %.not33 = icmp eq ptr %40, null
   br i1 %.not33, label %42, label %41
 
@@ -1240,28 +1240,28 @@ define void @cl_engine_set_clcb_stats_submit(ptr noundef writeonly captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_stats_set_cbdata(ptr noundef writeonly captures(none) initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  store ptr %1, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %3, align 8, !tbaa !68
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_add_sample(ptr noundef writeonly captures(none) initializes((1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store ptr %1, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %3, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_remove_sample(ptr noundef writeonly captures(none) initializes((1096, 1104)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  store ptr %1, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %3, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_decrement_count(ptr noundef writeonly captures(none) initializes((1104, 1112)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store ptr %1, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %3, align 8, !tbaa !70
   ret void
 }
 
@@ -1289,14 +1289,14 @@ define void @cl_engine_set_clcb_stats_get_size(ptr noundef writeonly captures(no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_get_hostid(ptr noundef writeonly captures(none) initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  store ptr %1, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %3, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_stats_enable(ptr noundef writeonly captures(none) initializes((1088, 1096), (1112, 1120)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store ptr @clamav_stats_add_sample, ptr %2, align 8, !tbaa !66
+  store ptr @clamav_stats_add_sample, ptr %2, align 8, !tbaa !69
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr @clamav_stats_submit, ptr %3, align 8, !tbaa !41
   ret void
@@ -1388,12 +1388,15 @@ attributes #17 = { nounwind willreturn memory(read) }
 !56 = !{!53, !54, i64 8}
 !57 = !{!45, !10, i64 28}
 !58 = !{!9, !9, i64 0}
-!59 = !{!60, !11, i64 16}
-!60 = !{!"cli_section_hash", !7, i64 0, !11, i64 16}
-!61 = !{!4, !5, i64 0}
-!62 = !{!14, !6, i64 1144}
-!63 = !{!4, !10, i64 36}
-!64 = !{!14, !6, i64 1096}
-!65 = !{!14, !6, i64 1080}
-!66 = !{!14, !6, i64 1088}
-!67 = !{!14, !6, i64 1104}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !60}
+!62 = !{!63, !11, i64 16}
+!63 = !{!"cli_section_hash", !7, i64 0, !11, i64 16}
+!64 = !{!4, !5, i64 0}
+!65 = !{!14, !6, i64 1144}
+!66 = !{!4, !10, i64 36}
+!67 = !{!14, !6, i64 1096}
+!68 = !{!14, !6, i64 1080}
+!69 = !{!14, !6, i64 1088}
+!70 = !{!14, !6, i64 1104}

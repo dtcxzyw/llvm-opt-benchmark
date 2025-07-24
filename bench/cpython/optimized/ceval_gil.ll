@@ -1963,7 +1963,7 @@ define hidden void @_Py_FinishPendingCalls(ptr noundef %0) local_unnamed_addr #4
   %28 = load atomic i32, ptr %13 monotonic, align 4
   %29 = add i32 %28, %27
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.split, label %.split15.us, !llvm.loop !199
+  br i1 %30, label %.split, label %.split15.us, !llvm.loop !201
 
 .split15.us:                                      ; preds = %26, %19
   ret void
@@ -1985,7 +1985,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_pending_calls(ptr noundef %0) 
   br label %_PyMutex_Lock.exit
 
 _PyMutex_Lock.exit:                               ; preds = %1, %9
-  %10 = load ptr, ptr %5, align 8, !tbaa !200
+  %10 = load ptr, ptr %5, align 8, !tbaa !202
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
 
@@ -2003,7 +2003,7 @@ _PyMutex_Lock.exit:                               ; preds = %1, %9
   br label %_PyMutex_Unlock.exit
 
 19:                                               ; preds = %_PyMutex_Lock.exit
-  store ptr %0, ptr %5, align 8, !tbaa !200
+  store ptr %0, ptr %5, align 8, !tbaa !202
   %20 = cmpxchg ptr %6, i8 1, i8 0 seq_cst seq_cst, align 1
   %21 = extractvalue { i8, i1 } %20, 1
   br i1 %21, label %_PyMutex_Unlock.exit31, label %22
@@ -2021,7 +2021,7 @@ _PyMutex_Unlock.exit31:                           ; preds = %19, %22
   br i1 %.not27, label %28, label %26
 
 26:                                               ; preds = %_PyMutex_Unlock.exit31
-  store ptr null, ptr %5, align 8, !tbaa !200
+  store ptr null, ptr %5, align 8, !tbaa !202
   %27 = atomicrmw or ptr %23, i64 4 seq_cst, align 8
   br label %47
 
@@ -2049,7 +2049,7 @@ _PyMutex_Unlock.exit31:                           ; preds = %19, %22
   br i1 %.not30, label %41, label %39
 
 39:                                               ; preds = %37
-  store ptr null, ptr %5, align 8, !tbaa !200
+  store ptr null, ptr %5, align 8, !tbaa !202
   %40 = atomicrmw or ptr %23, i64 4 seq_cst, align 8
   br label %47
 
@@ -2063,7 +2063,7 @@ _PyMutex_Unlock.exit31:                           ; preds = %19, %22
   br label %46
 
 46:                                               ; preds = %41, %44, %33
-  store ptr null, ptr %5, align 8, !tbaa !200
+  store ptr null, ptr %5, align 8, !tbaa !202
   br label %47
 
 47:                                               ; preds = %46, %39, %26
@@ -2190,7 +2190,7 @@ _PyEval_MakePendingCalls.exit:                    ; preds = %handle_signals.exit
 define hidden void @_PyEval_InitState(ptr noundef writeonly captures(none) initializes((7752, 7760), (7768, 7772)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7752
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7768
-  store i32 -1, ptr %3, align 8, !tbaa !201
+  store i32 -1, ptr %3, align 8, !tbaa !203
   store i64 5000, ptr %2, align 8, !tbaa !93
   ret void
 }
@@ -2265,7 +2265,7 @@ handle_signals.exit.thread:                       ; preds = %17, %9, %7
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 222984
-  store i64 100000, ptr %34, align 8, !tbaa !202
+  store i64 100000, ptr %34, align 8, !tbaa !204
   br label %35
 
 35:                                               ; preds = %30, %28
@@ -2293,13 +2293,13 @@ handle_signals.exit.thread:                       ; preds = %17, %9, %7
 
 45:                                               ; preds = %40
   tail call void @_PyErr_SetNone(ptr noundef nonnull %0, ptr noundef nonnull %44) #14
-  %46 = load i32, ptr %44, align 8, !tbaa !203
+  %46 = load i32, ptr %44, align 8, !tbaa !205
   %.not.i = icmp sgt i32 %46, -1
   br i1 %.not.i, label %47, label %.critedge
 
 47:                                               ; preds = %45
   %48 = add nsw i32 %46, -1
-  store i32 %48, ptr %44, align 8, !tbaa !203
+  store i32 %48, ptr %44, align 8, !tbaa !205
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.critedge
 
@@ -2418,7 +2418,7 @@ declare i64 @PyThread_get_thread_ident() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_make_pending_calls(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !204
+  %4 = load i32, ptr %3, align 4, !tbaa !206
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
 
@@ -2442,7 +2442,7 @@ define internal fastcc range(i32 -1, 1) i32 @_make_pending_calls(ptr noundef %0,
 15:                                               ; preds = %49
   %16 = add nuw nsw i32 %.01744, 1
   %exitcond.not = icmp eq i32 %16, %.018
-  br i1 %exitcond.not, label %.thread38, label %17, !llvm.loop !205
+  br i1 %exitcond.not, label %.thread38, label %17, !llvm.loop !207
 
 17:                                               ; preds = %.lr.ph, %15
   %.01744 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
@@ -2460,7 +2460,7 @@ _PyMutex_Lock.exit:                               ; preds = %17, %20
   br i1 %22, label %_pop_pending_call.exit, label %_next_pending_call.exit.i
 
 _next_pending_call.exit.i:                        ; preds = %_PyMutex_Lock.exit
-  %23 = load i32, ptr %13, align 8, !tbaa !206
+  %23 = load i32, ptr %13, align 8, !tbaa !208
   %24 = sext i32 %23 to i64
   %25 = getelementptr [300 x %struct._pending_call], ptr %14, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !192
@@ -2477,7 +2477,7 @@ _next_pending_call.exit.i:                        ; preds = %_PyMutex_Lock.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %35 = add nuw i32 %23, 1
   %36 = srem i32 %35, 300
-  store i32 %36, ptr %13, align 8, !tbaa !206
+  store i32 %36, ptr %13, align 8, !tbaa !208
   %37 = atomicrmw add ptr %12, i32 -1 seq_cst, align 4
   %.pre = load i32, ptr %12, align 4, !tbaa !189
   br label %_pop_pending_call.exit
@@ -2750,11 +2750,13 @@ attributes #16 = { nounwind willreturn memory(none) }
 !196 = !{!22, !29, i64 7376}
 !197 = distinct !{!197, !183}
 !198 = distinct !{!198, !183}
-!199 = distinct !{!199, !183}
-!200 = !{!25, !5, i64 0}
-!201 = !{!37, !14, i64 16}
-!202 = !{!22, !12, i64 222984}
-!203 = !{!7, !7, i64 0}
-!204 = !{!25, !14, i64 20}
-!205 = distinct !{!205, !183}
-!206 = !{!25, !14, i64 7224}
+!199 = distinct !{!199, !183, !200}
+!200 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!201 = distinct !{!201, !183}
+!202 = !{!25, !5, i64 0}
+!203 = !{!37, !14, i64 16}
+!204 = !{!22, !12, i64 222984}
+!205 = !{!7, !7, i64 0}
+!206 = !{!25, !14, i64 20}
+!207 = distinct !{!207, !183}
+!208 = !{!25, !14, i64 7224}

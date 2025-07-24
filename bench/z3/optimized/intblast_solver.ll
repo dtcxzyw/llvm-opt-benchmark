@@ -13844,7 +13844,7 @@ _Z9get_depthPK4expr.exit.i.i.i:                   ; preds = %25, %21, %.lr.ph.i
   %39 = icmp ne ptr %.1.i, %17
   %40 = icmp ne ptr %.120.i, %18
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !632
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !633
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorI4expr11ast_managerER10ptr_vectorIS5_EE3$_0EclIPPS5_SG_EEbT_T0_.exit.i"
   %42 = ptrtoint ptr %17 to i64
@@ -13874,7 +13874,7 @@ _ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit.i:          ; preds = %45, %._crit_edge.i.
   %52 = sub i64 %6, %47
   %53 = ashr exact i64 %52, 3
   %.not = icmp slt i64 %53, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !631
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !634
 
 ._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEET0_T_SI_SI_SI_SH_T1_.exit", %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEET0_T_SI_SI_SI_SH_T1_.exit.us", %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEET0_T_SI_SI_SI_SH_T1_.exit.us" ], [ %51, %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEET0_T_SI_SI_SI_SH_T1_.exit" ]
@@ -13947,7 +13947,7 @@ _Z9get_depthPK4expr.exit.i.i.i37:                 ; preds = %64, %60, %.lr.ph.i3
   %78 = icmp ne ptr %.1.i46, %54
   %79 = icmp ne ptr %.120.i44, %1
   %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !632
+  br i1 %80, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !633
 
 ._crit_edge.i23:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorI4expr11ast_managerER10ptr_vectorIS5_EE3$_0EclIPPS5_SG_EEbT_T0_.exit.i40", %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %54, %._crit_edge ], [ %.120.i44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorI4expr11ast_managerER10ptr_vectorIS5_EE3$_0EclIPPS5_SG_EEbT_T0_.exit.i40" ]
@@ -14062,7 +14062,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3euf5enod
   %.1 = phi ptr [ %.04465, %27 ], [ %.04564, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.04564, i64 8
   %.not = icmp eq ptr %41, %25
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !633
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !635
 
 .lr.ph69:                                         ; preds = %.preheader, %56
   %.268 = phi ptr [ %.3, %56 ], [ %.044.lcssa, %.preheader ]
@@ -14108,7 +14108,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3euf5enod
   %.3 = phi ptr [ %.268, %43 ], [ %.14667, %.lr.ph69 ]
   %57 = getelementptr inbounds nuw i8, ptr %.14667, i64 8
   %.not47 = icmp eq ptr %57, %23
-  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !634
+  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !636
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 405, ptr noundef nonnull @.str.8)
@@ -14179,7 +14179,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
 25:                                               ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.034.i, i64 8
   %.not29.i = icmp eq ptr %26, %13
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !635
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !637
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %30
   %.136.i = phi ptr [ %31, %30 ], [ %7, %.preheader.i ]
@@ -14194,7 +14194,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
 30:                                               ; preds = %.lr.ph37.i
   %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
   %.not30.i = icmp eq ptr %31, %21
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !636
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !638
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 213, ptr noundef nonnull @.str.8)
@@ -14204,7 +14204,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
 32:                                               ; preds = %._crit_edge.i, %29, %24, %.lr.ph41.i
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 8
   %.not.i = icmp eq ptr %33, %12
-  br i1 %.not.i, label %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE10move_tableEPS3_jS9_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !637
+  br i1 %.not.i, label %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE10move_tableEPS3_jS9_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !639
 
 _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE10move_tableEPS3_jS9_j.exit.loopexit: ; preds = %32
   %.pre = load ptr, ptr %0, align 8, !tbaa !589
@@ -14910,10 +14910,12 @@ attributes #31 = { builtin allocsize(0) }
 !628 = distinct !{!628, !429}
 !629 = distinct !{!629, !429}
 !630 = distinct !{!630, !429}
-!631 = distinct !{!631, !429}
-!632 = distinct !{!632, !429}
+!631 = distinct !{!631, !429, !632}
+!632 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !633 = distinct !{!633, !429}
 !634 = distinct !{!634, !429}
 !635 = distinct !{!635, !429}
 !636 = distinct !{!636, !429}
 !637 = distinct !{!637, !429}
+!638 = distinct !{!638, !429}
+!639 = distinct !{!639, !429}

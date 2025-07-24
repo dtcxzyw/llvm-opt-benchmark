@@ -503,7 +503,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %136 = load ptr, ptr %93, align 8, !tbaa !29
   tail call void @N_VScale(double noundef %135, ptr noundef %136, ptr noundef %136) #6
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %66
-  br i1 %exitcond391.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond391.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %130, %124, %._crit_edge331.thread
   %.not311.lcssa = phi i1 [ false, %._crit_edge331.thread ], [ %129, %124 ], [ %129, %130 ]
@@ -541,7 +541,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   tail call void @N_VLinearSum(double noundef %142, ptr noundef %144, double noundef 1.000000e+00, ptr noundef %27, ptr noundef %27) #6
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next397, %wide.trip.count400
-  br i1 %exitcond401.not, label %._crit_edge349, label %.lr.ph348, !llvm.loop !34
+  br i1 %exitcond401.not, label %._crit_edge349, label %.lr.ph348, !llvm.loop !35
 
 ._crit_edge349:                                   ; preds = %.lr.ph348, %.preheader317
   br i1 %.not311.lcssa, label %145, label %157
@@ -603,7 +603,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %167 = fmul double %.0275350, %166
   %indvars.iv.next403 = add nsw i64 %indvars.iv402, -1
   %168 = icmp samesign ugt i64 %indvars.iv402, 1
-  br i1 %168, label %.lr.ph352, label %._crit_edge353.thread, !llvm.loop !35
+  br i1 %168, label %.lr.ph352, label %._crit_edge353.thread, !llvm.loop !36
 
 ._crit_edge353.thread:                            ; preds = %.lr.ph352
   store double %167, ptr %29, align 8, !tbaa !30
@@ -629,7 +629,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   store double %174, ptr %172, align 8, !tbaa !30
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next407, %wide.trip.count410
-  br i1 %exitcond411.not, label %._crit_edge359, label %.lr.ph358, !llvm.loop !36
+  br i1 %exitcond411.not, label %._crit_edge359, label %.lr.ph358, !llvm.loop !37
 
 ._crit_edge359:                                   ; preds = %.lr.ph358, %._crit_edge353
   %175 = phi double [ %.0270366, %._crit_edge353 ], [ %170, %.lr.ph358 ]
@@ -654,7 +654,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   tail call void @N_VLinearSum(double noundef %181, ptr noundef %183, double noundef 1.000000e+00, ptr noundef %184, ptr noundef %184) #6
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count416
-  br i1 %exitcond417.not, label %._crit_edge364, label %.lr.ph363, !llvm.loop !37
+  br i1 %exitcond417.not, label %._crit_edge364, label %.lr.ph363, !llvm.loop !38
 
 ._crit_edge364:                                   ; preds = %.lr.ph363, %._crit_edge359
   %185 = add nuw nsw i32 %.0368, 1
@@ -752,7 +752,7 @@ define void @SpgmrFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
   tail call void @free(ptr noundef %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %7, %.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %6, %7 ]
@@ -830,10 +830,11 @@ attributes #7 = { nounwind allocsize(0) }
 !29 = !{!21, !21, i64 0}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"double", !6, i64 0}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
+!32 = distinct !{!32, !9, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !34 = distinct !{!34, !9}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}
 !37 = distinct !{!37, !9}
 !38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}

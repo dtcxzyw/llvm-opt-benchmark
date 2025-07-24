@@ -670,7 +670,7 @@ define hidden void @_ZN11FileMapInfo15populate_headerEm(ptr noundef nonnull alig
   %51 = tail call noundef ptr @_ZN2os14file_separatorEv() #25
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %50, %52
-  br i1 %53, label %.loopexit.loopexit.split.loop.exit.i, label %.split.us.i, !llvm.loop !9
+  br i1 %53, label %.loopexit.loopexit.split.loop.exit.i, label %.split.us.i, !llvm.loop !10
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %45
   %54 = and i64 %indvars.iv24.i, 4294967295
@@ -766,9 +766,9 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   store ptr %11, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %29 = load volatile ptr, ptr %28, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit, %1
   ret ptr %2
@@ -834,7 +834,7 @@ define hidden noundef i32 @_ZN11FileMapInfo39longest_common_app_classpath_prefix
   %27 = tail call noundef ptr @_ZN2os14file_separatorEv() #25
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %26, %28
-  br i1 %29, label %.loopexit.loopexit.split.loop.exit, label %.split.us, !llvm.loop !9
+  br i1 %29, label %.loopexit.loopexit.split.loop.exit, label %.split.us, !llvm.loop !10
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %21
   %30 = trunc nuw i64 %indvars.iv24 to i32
@@ -1104,7 +1104,7 @@ define hidden void @_ZN13FileMapHeader5printEP12outputStream(ptr noundef nonnull
   tail call void @_ZN13FileMapRegion5printEP12outputStreami(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull %1, i32 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %32, label %29, !llvm.loop !12
+  br i1 %exitcond.not, label %32, label %29, !llvm.loop !13
 
 32:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10) #25
@@ -1965,7 +1965,7 @@ define hidden void @_ZN15SharedPathTable21metaspace_pointers_doEP16MetaspaceClos
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15SharedPathTable13dumptime_initEP15ClassLoaderDataP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr @_ZN11ClassLoader24_first_append_entry_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   %.not4.i = icmp eq ptr %4, null
   br i1 %.not4.i, label %_ZN11ClassLoader26num_boot_classpath_entriesEv.exit, label %.lr.ph.i
 
@@ -1975,9 +1975,9 @@ define hidden void @_ZN15SharedPathTable13dumptime_initEP15ClassLoaderDataP10Jav
   %5 = add nuw nsw i32 %.035.i, 1
   %6 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %7 = load volatile ptr, ptr %6, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZN11ClassLoader26num_boot_classpath_entriesEv.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN11ClassLoader26num_boot_classpath_entriesEv.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN11ClassLoader26num_boot_classpath_entriesEv.exit: ; preds = %.lr.ph.i, %3
   %.03.lcssa.i = phi i32 [ 1, %3 ], [ %5, %.lr.ph.i ]
@@ -1991,9 +1991,9 @@ _ZN11ClassLoader26num_boot_classpath_entriesEv.exit: ; preds = %.lr.ph.i, %3
   %9 = add nuw nsw i32 %.035.i14, 1
   %10 = getelementptr inbounds nuw i8, ptr %.06.i13, i64 8
   %11 = load volatile ptr, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   %.not.i15 = icmp eq ptr %11, null
-  br i1 %.not.i15, label %_ZN11ClassLoader25num_app_classpath_entriesEv.exit, label %.lr.ph.i12, !llvm.loop !14
+  br i1 %.not.i15, label %_ZN11ClassLoader25num_app_classpath_entriesEv.exit, label %.lr.ph.i12, !llvm.loop !15
 
 _ZN11ClassLoader25num_app_classpath_entriesEv.exit: ; preds = %.lr.ph.i12, %_ZN11ClassLoader26num_boot_classpath_entriesEv.exit
   %.03.lcssa.i16 = phi i32 [ 0, %_ZN11ClassLoader26num_boot_classpath_entriesEv.exit ], [ %9, %.lr.ph.i12 ]
@@ -2058,7 +2058,7 @@ _ZN15MetadataFactory9new_arrayIP20SharedClassPathEntryEEP5ArrayIT_EP15ClassLoade
   store ptr %27, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %33, %_ZN15MetadataFactory9new_arrayIP20SharedClassPathEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
   ret void
@@ -2173,7 +2173,7 @@ _ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit: ; preds =
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr @_ZN11FileMapInfo25_non_existent_class_pathsE, align 8
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread, label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, !llvm.loop !16
+  br i1 %.not.i, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread, label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, !llvm.loop !17
 
 _ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread: ; preds = %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit, %_ZN15MetadataFactory9new_arrayIcEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %46, %13, %9, %6, %1
   ret void
@@ -2254,26 +2254,26 @@ define hidden noundef i32 @_ZN11FileMapInfo21add_shared_classpathsEiPKcP14ClassP
 
 43:                                               ; preds = %40
   %44 = load volatile ptr, ptr @_ZN11ClassLoader24_first_append_entry_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   br label %_ZN11ClassLoader29get_next_boot_classpath_entryEP14ClassPathEntry.exit
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %.02631, i64 8
   %47 = load volatile ptr, ptr %46, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   br label %_ZN11ClassLoader29get_next_boot_classpath_entryEP14ClassPathEntry.exit
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %.02631, i64 8
   %50 = load volatile ptr, ptr %49, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !11
   br label %_ZN11ClassLoader29get_next_boot_classpath_entryEP14ClassPathEntry.exit
 
 _ZN11ClassLoader29get_next_boot_classpath_entryEP14ClassPathEntry.exit: ; preds = %45, %43, %48
   %.1 = phi ptr [ %50, %48 ], [ %44, %43 ], [ %47, %45 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge.loopexit.split.loop.exit, label %7, !llvm.loop !17
+  br i1 %.not, label %._crit_edge.loopexit.split.loop.exit, label %7, !llvm.loop !18
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %_ZN11ClassLoader29get_next_boot_classpath_entryEP14ClassPathEntry.exit
   %51 = trunc nsw i64 %indvars.iv.next to i32
@@ -2440,7 +2440,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %20, %26
   %.1 = phi i1 [ %.015, %_ZNK20SharedClassPathEntry4nameEv.exit ], [ %.015, %.lr.ph ], [ true, %31 ], [ true, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %34
   br i1 %.1, label %35, label %.critedge
@@ -2698,7 +2698,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit23:         ; preds = %74, %80
 
 87:                                               ; preds = %46, %86
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %38, !llvm.loop !19
+  br label %38, !llvm.loop !20
 
 88:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20, %86
   %.1 = phi i32 [ %.pre-phi, %86 ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20 ]
@@ -2815,7 +2815,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo21check_paths_existenceEPKc(pt
   %19 = load i64, ptr %10, align 8
   %20 = icmp sgt i64 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %11, !llvm.loop !20
+  br i1 %or.cond, label %21, label %11, !llvm.loop !21
 
 21:                                               ; preds = %15, %11
   ret i1 %14
@@ -2910,7 +2910,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us:
   %49 = load i32, ptr %16, align 4
   %50 = load i32, ptr %15, align 8
   %51 = icmp slt i32 %49, %50
-  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %72
   %52 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #25
@@ -2952,7 +2952,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %73 = load i32, ptr %16, align 4
   %74 = load i32, ptr %15, align 8
   %75 = icmp slt i32 %73, %74
-  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %72, %48, %2
   ret ptr %6
@@ -3009,7 +3009,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo11check_pathsEiiP13GrowableArr
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %19, label %14, label %20, !llvm.loop !22
+  br i1 %19, label %14, label %20, !llvm.loop !24
 
 20:                                               ; preds = %14
   %21 = trunc nsw i64 %indvars.iv to i32
@@ -3047,7 +3047,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %25, %31
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %42 = add nsw i32 %21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %41, %_ZNK20SharedClassPathEntry4nameEv.exit
   %.lcssa16.ph = xor i1 %40, true
@@ -3133,7 +3133,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo25validate_boot_class_pathsEv(
   %52 = load i64, ptr %43, align 8
   %53 = icmp sgt i64 %52, 0
   %or.cond.i = select i1 %51, i1 %53, i1 false
-  br i1 %or.cond.i, label %_ZN11FileMapInfo21check_paths_existenceEPKc.exit, label %44, !llvm.loop !20
+  br i1 %or.cond.i, label %_ZN11FileMapInfo21check_paths_existenceEPKc.exit, label %44, !llvm.loop !21
 
 _ZN11FileMapInfo21check_paths_existenceEPKc.exit: ; preds = %44, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -3208,7 +3208,7 @@ _ZN11FileMapInfo21check_paths_existenceEPKc.exit: ; preds = %44, %48
   %86 = load i8, ptr %85, align 2
   %87 = trunc i8 %86 to i1
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
-  br i1 %87, label %82, label %88, !llvm.loop !22
+  br i1 %87, label %82, label %88, !llvm.loop !24
 
 88:                                               ; preds = %82
   %89 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #25
@@ -3240,7 +3240,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %98, %92
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next22.i, %wide.trip.count.i
   %or.cond53.not = select i1 %105, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond53.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !23
+  br i1 %or.cond53.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit.i
   %.lcssa16.ph.i = xor i1 %105, true
@@ -3395,7 +3395,7 @@ _ZN11FileMapInfo9num_pathsEPKc.exit:              ; preds = %select.unfold.i, %2
   %60 = load i8, ptr %59, align 2
   %61 = trunc i8 %60 to i1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br i1 %61, label %56, label %62, !llvm.loop !22
+  br i1 %61, label %56, label %62, !llvm.loop !24
 
 62:                                               ; preds = %56
   %63 = trunc nsw i64 %indvars.iv.i to i32
@@ -3431,7 +3431,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %73, %67
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %82 = add nsw i32 %63, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38, label %.preheader.i, !llvm.loop !25
 
 .preheader.i40:                                   ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit.i
   %83 = load ptr, ptr %46, align 8
@@ -3487,7 +3487,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %73, %67
   %106 = tail call noundef ptr @_ZN2os14file_separatorEv() #25
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %105, %107
-  br i1 %108, label %.loopexit.loopexit.split.loop.exit.i, label %.split.us.i, !llvm.loop !9
+  br i1 %108, label %.loopexit.loopexit.split.loop.exit.i, label %.split.us.i, !llvm.loop !10
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %100
   %109 = trunc nuw i64 %indvars.iv24.i to i32
@@ -3529,7 +3529,7 @@ _ZN11FileMapInfo39longest_common_app_classpath_prefix_lenEiP13GrowableArrayIPKcE
   %123 = load i8, ptr %122, align 2
   %124 = trunc i8 %123 to i1
   %indvars.iv.next.i52 = add nsw i64 %indvars.iv.i51, 1
-  br i1 %124, label %119, label %125, !llvm.loop !22
+  br i1 %124, label %119, label %125, !llvm.loop !24
 
 125:                                              ; preds = %119
   %126 = trunc nsw i64 %indvars.iv.i51 to i32
@@ -3567,7 +3567,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i54:       ; preds = %136, %130
   %indvars.iv.next22.i58 = add nuw nsw i64 %indvars.iv21.i49, 1
   %147 = add nsw i32 %126, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next22.i58, %wide.trip.count.i
-  br i1 %exitcond.not.i59, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38, label %.preheader.i48, !llvm.loop !23
+  br i1 %exitcond.not.i59, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38, label %.preheader.i48, !llvm.loop !25
 
 .critedge:                                        ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit.i54, %_ZN11FileMapInfo39longest_common_app_classpath_prefix_lenEiP13GrowableArrayIPKcE.exit
   tail call void @_ZN11ClassLoader16trace_class_pathEPKcS1_(ptr noundef nonnull @.str.74, ptr noundef %4) #25
@@ -3671,7 +3671,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %19, %25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit, %7
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
@@ -3746,7 +3746,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo18check_module_pathsEv(ptr nou
   %35 = load i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
-  br i1 %36, label %31, label %37, !llvm.loop !22
+  br i1 %36, label %31, label %37, !llvm.loop !24
 
 37:                                               ; preds = %31
   %38 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #25
@@ -3778,7 +3778,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %47, %41
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next22.i, %wide.trip.count.i
   %or.cond.not = select i1 %54, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !23
+  br i1 %or.cond.not, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit.i
   %.lcssa16.ph.i = xor i1 %54, true
@@ -3956,7 +3956,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo26validate_shared_path_tableEv
   %76 = load i16, ptr %75, align 4
   %77 = sext i16 %76 to i64
   %.not.not = icmp slt i64 %indvars.iv, %77
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %73
   %78 = icmp eq i16 %76, 0
@@ -4078,7 +4078,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit.i:         ; preds = %128, %122
 
 135:                                              ; preds = %132, %111
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br label %103, !llvm.loop !26
+  br label %103, !llvm.loop !28
 
 _ZN11FileMapInfo33validate_non_existent_class_pathsEv.exit: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.i
   store i8 0, ptr @_ZN11FileMapInfo29_validating_shared_path_tableE, align 1
@@ -4189,7 +4189,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %30, %36
 
 43:                                               ; preds = %19, %40
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %11, !llvm.loop !26
+  br label %11, !llvm.loop !28
 
 44:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
   ret void
@@ -4565,7 +4565,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo14init_from_fileEi(ptr noundef
 131:                                              ; preds = %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %132, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %132, !llvm.loop !29
 
 132:                                              ; preds = %122, %131
   %indvars.iv = phi i64 [ 0, %122 ], [ %indvars.iv.next, %131 ]
@@ -5380,75 +5380,75 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FileMapInfo11oopmap_viewEi(ptr dead_on_unwind noalias writable writeonly sret(%class.BitMapView) align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load ptr, ptr %4, align 8, !noalias !28
+  %5 = load ptr, ptr %4, align 8, !noalias !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %6, i64 0, i64 %7
-  %9 = load i8, ptr %1, align 8, !noalias !28
+  %9 = load i8, ptr %1, align 8, !noalias !30
   %10 = trunc i8 %9 to i1
-  %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !28
-  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !28
+  %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !30
+  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !30
   %11 = select i1 %10, ptr %_ZN11FileMapInfo13_current_infoE.val.i, ptr %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i
-  %12 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %11), !noalias !28
+  %12 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %11), !noalias !30
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.in.i = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %13 = load i64, ptr %.in.i, align 8, !noalias !28
-  %.pn.i = load i64, ptr %.pn.in.i, align 8, !noalias !28
+  %13 = load i64, ptr %.in.i, align 8, !noalias !30
+  %.pn.i = load i64, ptr %.pn.in.i, align 8, !noalias !30
   %14 = getelementptr inbounds i8, ptr %12, i64 %.pn.i
-  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !28
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !30
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN11FileMapInfo11bitmap_viewEib.exit, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %7
-  %18 = load ptr, ptr %17, align 8, !noalias !28
+  %18 = load ptr, ptr %17, align 8, !noalias !30
   %19 = ptrtoint ptr %14 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.115, i64 noundef %19, i64 noundef %13), !noalias !28
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.115, i64 noundef %19, i64 noundef %13), !noalias !30
   br label %_ZN11FileMapInfo11bitmap_viewEib.exit
 
 _ZN11FileMapInfo11bitmap_viewEib.exit:            ; preds = %3, %16
-  store ptr %14, ptr %0, align 8, !alias.scope !28
+  store ptr %14, ptr %0, align 8, !alias.scope !30
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %20, align 8, !alias.scope !28
+  store i64 %13, ptr %20, align 8, !alias.scope !30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FileMapInfo11ptrmap_viewEi(ptr dead_on_unwind noalias writable writeonly sret(%class.BitMapView) align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load ptr, ptr %4, align 8, !noalias !31
+  %5 = load ptr, ptr %4, align 8, !noalias !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %6, i64 0, i64 %7
-  %9 = load i8, ptr %1, align 8, !noalias !31
+  %9 = load i8, ptr %1, align 8, !noalias !33
   %10 = trunc i8 %9 to i1
-  %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !31
-  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !31
+  %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !33
+  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !33
   %11 = select i1 %10, ptr %_ZN11FileMapInfo13_current_infoE.val.i, ptr %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i
-  %12 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %11), !noalias !31
+  %12 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %11), !noalias !33
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.in.i = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %13 = load i64, ptr %.in.i, align 8, !noalias !31
-  %.pn.i = load i64, ptr %.pn.in.i, align 8, !noalias !31
+  %13 = load i64, ptr %.in.i, align 8, !noalias !33
+  %.pn.i = load i64, ptr %.pn.in.i, align 8, !noalias !33
   %14 = getelementptr inbounds i8, ptr %12, i64 %.pn.i
-  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !31
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !33
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN11FileMapInfo11bitmap_viewEib.exit, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %7
-  %18 = load ptr, ptr %17, align 8, !noalias !31
+  %18 = load ptr, ptr %17, align 8, !noalias !33
   %19 = ptrtoint ptr %14 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.116, i64 noundef %19, i64 noundef %13), !noalias !31
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.116, i64 noundef %19, i64 noundef %13), !noalias !33
   br label %_ZN11FileMapInfo11bitmap_viewEib.exit
 
 _ZN11FileMapInfo11bitmap_viewEib.exit:            ; preds = %3, %16
-  store ptr %14, ptr %0, align 8, !alias.scope !31
+  store ptr %14, ptr %0, align 8, !alias.scope !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %20, align 8, !alias.scope !31
+  store i64 %13, ptr %20, align 8, !alias.scope !33
   ret void
 }
 
@@ -5649,7 +5649,7 @@ define hidden noundef i64 @_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHea
   %18 = getelementptr inbounds nuw i64, ptr %6, i64 %17
   %19 = load i64, ptr %18, align 8
   %.not36.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not36.i.i.i, label %15, label %20, !llvm.loop !34
+  br i1 %.not36.i.i.i, label %15, label %20, !llvm.loop !36
 
 20:                                               ; preds = %16
   %21 = shl i64 %17, 6
@@ -5708,7 +5708,7 @@ define hidden noundef ptr @_ZN11FileMapInfo19write_bitmap_regionEP11CHeapBitMapS
   %21 = getelementptr inbounds nuw i64, ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8
   %.not36.i.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not36.i.i.i.i, label %18, label %23, !llvm.loop !34
+  br i1 %.not36.i.i.i.i, label %18, label %23, !llvm.loop !36
 
 23:                                               ; preds = %19
   %24 = shl i64 %20, 6
@@ -5760,7 +5760,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
   %44 = getelementptr inbounds nuw i64, ptr %32, i64 %43
   %45 = load i64, ptr %44, align 8
   %.not36.i.i.i.i50 = icmp eq i64 %45, 0
-  br i1 %.not36.i.i.i.i50, label %41, label %46, !llvm.loop !34
+  br i1 %.not36.i.i.i.i50, label %41, label %46, !llvm.loop !36
 
 46:                                               ; preds = %42
   %47 = shl i64 %43, 6
@@ -5836,7 +5836,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51: ; preds = %
   %85 = getelementptr inbounds nuw i64, ptr %73, i64 %84
   %86 = load i64, ptr %85, align 8
   %.not36.i.i.i.i60 = icmp eq i64 %86, 0
-  br i1 %.not36.i.i.i.i60, label %82, label %87, !llvm.loop !34
+  br i1 %.not36.i.i.i.i60, label %82, label %87, !llvm.loop !36
 
 87:                                               ; preds = %83
   %88 = shl i64 %84, 6
@@ -5889,7 +5889,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61: ; preds = %
   %109 = getelementptr inbounds nuw i64, ptr %97, i64 %108
   %110 = load i64, ptr %109, align 8
   %.not36.i.i.i.i70 = icmp eq i64 %110, 0
-  br i1 %.not36.i.i.i.i70, label %106, label %111, !llvm.loop !34
+  br i1 %.not36.i.i.i.i70, label %106, label %111, !llvm.loop !36
 
 111:                                              ; preds = %107
   %112 = shl i64 %108, 6
@@ -6345,7 +6345,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo11map_regionsEPiiPc13
 40:                                               ; preds = %20, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %40
   %.pre = load ptr, ptr %6, align 8
@@ -6527,47 +6527,47 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo33relocate_pointers_in_core_re
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !noalias !36
-  %13 = load i8, ptr %0, align 8, !noalias !36
+  %12 = load ptr, ptr %11, align 8, !noalias !38
+  %13 = load i8, ptr %0, align 8, !noalias !38
   %14 = trunc i8 %13 to i1
-  %_ZN11FileMapInfo13_current_infoE.val.i.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !36
-  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !36
+  %_ZN11FileMapInfo13_current_infoE.val.i.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !38
+  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !38
   %15 = select i1 %14, ptr %_ZN11FileMapInfo13_current_infoE.val.i.i, ptr %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i
-  %16 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %15), !noalias !36
+  %16 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %15), !noalias !38
   %.pn.in.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %.in.i.i = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %17 = load i64, ptr %.in.i.i, align 8, !noalias !36
-  %.pn.i.i = load i64, ptr %.pn.in.i.i, align 8, !noalias !36
+  %17 = load i64, ptr %.in.i.i, align 8, !noalias !38
+  %.pn.i.i = load i64, ptr %.pn.in.i.i, align 8, !noalias !38
   %18 = getelementptr inbounds i8, ptr %16, i64 %.pn.i.i
-  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !36
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !38
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZN11FileMapInfo11ptrmap_viewEi.exit, label %20
 
 20:                                               ; preds = %10
   %21 = ptrtoint ptr %18 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.116, i64 noundef %21, i64 noundef %17), !noalias !36
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.116, i64 noundef %21, i64 noundef %17), !noalias !38
   br label %_ZN11FileMapInfo11ptrmap_viewEi.exit
 
 _ZN11FileMapInfo11ptrmap_viewEi.exit:             ; preds = %10, %20
-  %22 = load ptr, ptr %11, align 8, !noalias !41
-  %23 = load i8, ptr %0, align 8, !noalias !41
+  %22 = load ptr, ptr %11, align 8, !noalias !43
+  %23 = load i8, ptr %0, align 8, !noalias !43
   %24 = trunc i8 %23 to i1
-  %_ZN11FileMapInfo13_current_infoE.val.i.i21 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !41
-  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i22 = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !41
+  %_ZN11FileMapInfo13_current_infoE.val.i.i21 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !43
+  %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i22 = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8, !noalias !43
   %25 = select i1 %24, ptr %_ZN11FileMapInfo13_current_infoE.val.i.i21, ptr %_ZN11FileMapInfo21_dynamic_archive_infoE.val.i.i22
-  %26 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %25), !noalias !41
+  %26 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %25), !noalias !43
   %.pn.in.i.i23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %.in.i.i24 = getelementptr inbounds nuw i8, ptr %22, i64 184
-  %27 = load i64, ptr %.in.i.i24, align 8, !noalias !41
-  %.pn.i.i25 = load i64, ptr %.pn.in.i.i23, align 8, !noalias !41
+  %27 = load i64, ptr %.in.i.i24, align 8, !noalias !43
+  %.pn.i.i25 = load i64, ptr %.pn.in.i.i23, align 8, !noalias !43
   %28 = getelementptr inbounds i8, ptr %26, i64 %.pn.i.i25
-  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !41
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8, !noalias !43
   %.not.i.i26 = icmp eq ptr %29, null
   br i1 %.not.i.i26, label %_ZN11FileMapInfo11ptrmap_viewEi.exit27, label %30
 
 30:                                               ; preds = %_ZN11FileMapInfo11ptrmap_viewEi.exit
   %31 = ptrtoint ptr %28 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.116, i64 noundef %31, i64 noundef %27), !noalias !41
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.116, i64 noundef %31, i64 noundef %27), !noalias !43
   br label %_ZN11FileMapInfo11ptrmap_viewEi.exit27
 
 _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11ptrmap_viewEi.exit, %30
@@ -6662,7 +6662,7 @@ _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11p
   %102 = getelementptr inbounds nuw i64, ptr %18, i64 %99
   %103 = load i64, ptr %102, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %103, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %104, !llvm.loop !34
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %104, !llvm.loop !36
 
 104:                                              ; preds = %101
   %105 = shl i64 %99, 6
@@ -6688,7 +6688,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %106, %90
   %114 = add nuw i64 %.0.i.i.i.i.i, 1
   %115 = icmp ult i64 %114, %17
   %or.cond = select i1 %113, i1 %115, i1 false
-  br i1 %or.cond, label %90, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit, !llvm.loop !46
+  br i1 %or.cond, label %90, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit, !llvm.loop !48
 
 _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %110, %.preheader.i.i.i, %_ZN11FileMapInfo11ptrmap_viewEi.exit27
   %.not.i28 = icmp eq i64 %27, 0
@@ -6724,7 +6724,7 @@ _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitM
   %130 = getelementptr inbounds nuw i64, ptr %28, i64 %127
   %131 = load i64, ptr %130, align 8
   %.not36.i.i.i.i.i40 = icmp eq i64 %131, 0
-  br i1 %.not36.i.i.i.i.i40, label %.preheader.i.i.i38, label %132, !llvm.loop !34
+  br i1 %.not36.i.i.i.i.i40, label %.preheader.i.i.i38, label %132, !llvm.loop !36
 
 132:                                              ; preds = %129
   %133 = shl i64 %127, 6
@@ -6750,7 +6750,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i32:  ; preds = %134, %118
   %142 = add nuw i64 %.0.i.i.i.i.i33, 1
   %143 = icmp ult i64 %142, %27
   %or.cond46 = select i1 %141, i1 %143, i1 false
-  br i1 %or.cond46, label %118, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41, !llvm.loop !46
+  br i1 %or.cond46, label %118, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41, !llvm.loop !48
 
 _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41: ; preds = %134, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i32, %138, %.preheader.i.i.i38, %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit
   %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -7876,7 +7876,7 @@ define hidden void @_ZN11FileMapInfo13unmap_regionsEPii(ptr noundef nonnull read
   tail call void @_ZN11FileMapInfo12unmap_regionEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -9108,7 +9108,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI20Sh
   %19 = load i32, ptr %5, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %13, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit, !llvm.loop !48
+  br i1 %21, label %13, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit, !llvm.loop !50
 
 _ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit: ; preds = %13, %9
   ret void
@@ -9150,7 +9150,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI20Sh
   %17 = load i32, ptr %2, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %19, label %11, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit, !llvm.loop !48
+  br i1 %19, label %11, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit, !llvm.loop !50
 
 _ZNK16MetaspaceClosure18MSOPointerArrayRefI20SharedClassPathEntryE29metaspace_pointers_do_at_implEPS_P5ArrayIPS1_E.exit: ; preds = %11, %7
   ret void
@@ -9338,7 +9338,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !49
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !51
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9354,7 +9354,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !50
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !52
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -9489,10 +9489,10 @@ attributes #28 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = !{i64 2145392468}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -9503,32 +9503,34 @@ attributes #28 = { noreturn nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!22 = distinct !{!22, !7, !9}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
-!30 = distinct !{!30, !"_ZN11FileMapInfo11bitmap_viewEib"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
-!33 = distinct !{!33, !"_ZN11FileMapInfo11bitmap_viewEib"}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = !{!37, !39}
-!37 = distinct !{!37, !38, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
-!38 = distinct !{!38, !"_ZN11FileMapInfo11bitmap_viewEib"}
-!39 = distinct !{!39, !40, !"_ZN11FileMapInfo11ptrmap_viewEi: argument 0"}
-!40 = distinct !{!40, !"_ZN11FileMapInfo11ptrmap_viewEi"}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
-!43 = distinct !{!43, !"_ZN11FileMapInfo11bitmap_viewEib"}
-!44 = distinct !{!44, !45, !"_ZN11FileMapInfo11ptrmap_viewEi: argument 0"}
-!45 = distinct !{!45, !"_ZN11FileMapInfo11ptrmap_viewEi"}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
+!32 = distinct !{!32, !"_ZN11FileMapInfo11bitmap_viewEib"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
+!35 = distinct !{!35, !"_ZN11FileMapInfo11bitmap_viewEib"}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
+!40 = distinct !{!40, !"_ZN11FileMapInfo11bitmap_viewEib"}
+!41 = distinct !{!41, !42, !"_ZN11FileMapInfo11ptrmap_viewEi: argument 0"}
+!42 = distinct !{!42, !"_ZN11FileMapInfo11ptrmap_viewEi"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZN11FileMapInfo11bitmap_viewEib: argument 0"}
+!45 = distinct !{!45, !"_ZN11FileMapInfo11bitmap_viewEib"}
+!46 = distinct !{!46, !47, !"_ZN11FileMapInfo11ptrmap_viewEi: argument 0"}
+!47 = distinct !{!47, !"_ZN11FileMapInfo11ptrmap_viewEi"}
 !48 = distinct !{!48, !7}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}

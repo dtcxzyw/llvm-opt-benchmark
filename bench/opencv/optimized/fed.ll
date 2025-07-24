@@ -200,7 +200,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   %61 = load i32, ptr %0, align 4, !tbaa !7
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
+  br i1 %63, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
   %.lcssa101119 = phi i32 [ %.pre, %._crit_edge ], [ %49, %.lr.ph.split.us ]
@@ -236,7 +236,7 @@ _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_in
   br i1 %or.cond24.i, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %76
 
 _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %67, %_Z21fed_is_prime_internalRKi.exit.thread, %_Z21fed_is_prime_internalRKi.exit
-  br label %_Z21fed_is_prime_internalRKi.exit.thread, !llvm.loop !21
+  br label %_Z21fed_is_prime_internalRKi.exit.thread, !llvm.loop !23
 
 76:                                               ; preds = %67
   %77 = uitofp nneg i32 %storemerge to float
@@ -254,7 +254,7 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %67, %_Z21fed_is_pr
   %spec.select.i = select i1 %81, i1 %.01826.i, i1 false
   %82 = add nuw nsw i32 %.027.i, 2
   %.not.i = icmp sgt i32 %82, %79
-  br i1 %.not.i, label %_Z21fed_is_prime_internalRKi.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %_Z21fed_is_prime_internalRKi.exit, label %.lr.ph.i, !llvm.loop !24
 
 _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
@@ -280,7 +280,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   %87 = mul nsw i32 %86, %64
   %88 = srem i32 %87, %storemerge
   %.not.not = icmp sgt i32 %88, %.lcssa101119
-  br i1 %.not.not, label %85, label %89, !llvm.loop !23
+  br i1 %.not.not, label %85, label %89, !llvm.loop !25
 
 89:                                               ; preds = %85
   %90 = sext i32 %88 to i64
@@ -290,7 +290,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   store float %91, ptr %92, align 4, !tbaa !3
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader97, %._crit_edge
   %.lcssa101118 = phi i32 [ %.lcssa101119, %.preheader97 ], [ %.pre, %._crit_edge ], [ %61, %.lr.ph.split ]
@@ -360,7 +360,7 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
   %spec.select = select i1 %20, i1 %.01826, i1 false
   %21 = add nuw nsw i32 %.027, 2
   %.not = icmp sgt i32 %21, %18
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %15, %6, %1
   %.017 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %15 ], [ true, %4 ], [ %spec.select, %.lr.ph ]
@@ -421,9 +421,11 @@ attributes #13 = { noreturn }
 !16 = !{!"bool", !5, i64 0}
 !17 = !{i8 0, i8 2}
 !18 = !{}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !20}
 !23 = distinct !{!23, !20}
 !24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}

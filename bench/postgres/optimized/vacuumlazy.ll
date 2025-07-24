@@ -2344,7 +2344,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %1158 = sext i32 %1157 to i64
   %1159 = icmp slt i64 %indvars.iv.next285, %1158
-  br i1 %1159, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !17
+  br i1 %1159, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2538,7 +2538,7 @@ define internal fastcc noundef zeroext i1 @lazy_check_wraparound_failsafe(ptr no
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = tail call zeroext i1 @vacuum_xid_failsafe_check(ptr noundef nonnull %7) #10
-  br i1 %8, label %9, label %28, !prof !18
+  br i1 %8, label %9, label %28, !prof !20
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -2962,7 +2962,7 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef %indvars.iv.next.i) #10
   %103 = call fastcc zeroext i1 @lazy_check_wraparound_failsafe(ptr noundef nonnull %0)
-  br i1 %103, label %lazy_vacuum_all_indexes.exit, label %78, !llvm.loop !19
+  br i1 %103, label %lazy_vacuum_all_indexes.exit, label %78, !llvm.loop !21
 
 104:                                              ; preds = %55
   %105 = fptosi float %52 to i64
@@ -3105,7 +3105,7 @@ BufferGetPage.exit.i.i:                           ; preds = %152, %146
   %178 = getelementptr inbounds nuw [291 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
   store i16 %174, ptr %178, align 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %172, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %172, !llvm.loop !22
 
 179:                                              ; preds = %._crit_edge.i.i
   %180 = load i32, ptr @wal_level, align 4
@@ -3273,7 +3273,7 @@ HeapTupleHeaderGetXmin.exit.i.i.i:                ; preds = %244, %241
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   %259 = add i16 %.055.i.i.i, 1
   %.not60.i.i.i = icmp ugt i16 %259, %212
-  br i1 %.not60.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !21
+  br i1 %.not60.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !23
 
 heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetXmin.exit.i.i.i, %237, %227, %227, %227, %227, %224
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
@@ -3607,8 +3607,10 @@ attributes #11 = { cold nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

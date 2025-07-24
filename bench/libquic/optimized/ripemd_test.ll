@@ -239,4 +239,5 @@ attributes #16 = { builtin nounwind }
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!16 = distinct !{!16, !13}
+!16 = distinct !{!16, !13, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}

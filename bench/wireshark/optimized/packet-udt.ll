@@ -307,7 +307,7 @@ get_sqn.exit241:                                  ; preds = %55
   %.1.ph = phi i32 [ %.0272, %64 ], [ %57, %get_sqn.exit241 ]
   %68 = add i32 %.1.ph, 4
   %.not223 = icmp ugt i32 %68, %33
-  br i1 %.not223, label %._crit_edge, label %get_sqn.exit238, !llvm.loop !6
+  br i1 %.not223, label %._crit_edge, label %get_sqn.exit238, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %55, %48, %38, %27
   %69 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -542,7 +542,7 @@ get_sqn.exit253:                                  ; preds = %168, %172
   %186 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %187 = add i32 %186, -4
   %.not229 = icmp ugt i32 %185, %187
-  br i1 %.not229, label %._crit_edge277, label %157, !llvm.loop !8
+  br i1 %.not229, label %._crit_edge277, label %157, !llvm.loop !10
 
 ._crit_edge277:                                   ; preds = %184, %164, %.preheader
   %188 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -713,7 +713,7 @@ define internal fastcc noundef zeroext i1 @dissect_udt_heur(ptr noundef %0, ptr 
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = load i8, ptr %9, align 4, !range !9, !noundef !10
+  %11 = load i8, ptr %9, align 4, !range !11, !noundef !12
   %.not32 = icmp eq i8 %11, %6
   br i1 %.not32, label %.sink.split, label %36
 
@@ -809,8 +809,10 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}

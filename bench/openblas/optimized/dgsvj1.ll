@@ -304,7 +304,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
 
 148:                                              ; preds = %448
   %.not807.not = icmp slt i64 %indvars.iv.next1040, %147
-  br i1 %.not807.not, label %149, label %.loopexit837.loopexit, !llvm.loop !13
+  br i1 %.not807.not, label %149, label %.loopexit837.loopexit, !llvm.loop !14
 
 149:                                              ; preds = %.lr.ph, %148
   %indvars.iv1039 = phi i64 [ %136, %.lr.ph ], [ %indvars.iv.next1040, %148 ]
@@ -903,7 +903,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
   %.7 = phi i32 [ %.6, %.loopexit837 ], [ %.2962, %462 ], [ %.2962, %460 ]
   %indvars.iv.next1045 = add nsw i64 %indvars.iv1044, 1
   %.not804.not = icmp slt i64 %indvars.iv1044, %137
-  br i1 %.not804.not, label %138, label %._crit_edge, !llvm.loop !14
+  br i1 %.not804.not, label %138, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %463, %129
   %.2739.lcssa = phi double [ %.1738969, %129 ], [ %.7744, %463 ]
@@ -913,7 +913,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
   %464 = add nuw i32 %.0717973, 1
   %indvars.iv.next = add i32 %indvars.iv, %spec.select
   %exitcond.not = icmp eq i32 %.0717973, %.0752
-  br i1 %exitcond.not, label %..loopexit838_crit_edge, label %129, !llvm.loop !15
+  br i1 %exitcond.not, label %..loopexit838_crit_edge, label %129, !llvm.loop !16
 
 ..loopexit838_crit_edge:                          ; preds = %._crit_edge, %446
   %.5742 = phi double [ %.4741, %446 ], [ %.2739.lcssa, %._crit_edge ]
@@ -949,7 +949,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
   %473 = add nuw nsw i32 %.0991, 1
   %.not797.not = icmp slt i32 %.0991, %.0754
   %indvars.iv.next1043 = add i32 %indvars.iv1042, %spec.select
-  br i1 %.not797.not, label %.lr.ph975, label %._crit_edge994, !llvm.loop !12
+  br i1 %.not797.not, label %.lr.ph975, label %._crit_edge994, !llvm.loop !17
 
 ._crit_edge994:                                   ; preds = %472, %123, %112
   %474 = phi i32 [ %113, %112 ], [ %113, %123 ], [ %465, %472 ]
@@ -1026,7 +1026,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
 512:                                              ; preds = %507, %511
   %513 = add nuw nsw i32 %.07601007, 1
   %.not796.not = icmp slt i32 %.07601007, %103
-  br i1 %.not796.not, label %112, label %._crit_edge1010.loopexit, !llvm.loop !16
+  br i1 %.not796.not, label %112, label %._crit_edge1010.loopexit, !llvm.loop !18
 
 ._crit_edge1010.loopexit:                         ; preds = %512
   %.pre1061 = load i32, ptr %14, align 4, !tbaa !3
@@ -1106,7 +1106,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
 546:                                              ; preds = %531, %.lr.ph1022.split.us
   %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv1058, 1
   %.not800.us.not = icmp slt i64 %indvars.iv1058, %521
-  br i1 %.not800.us.not, label %.lr.ph1022.split.us, label %.loopexit, !llvm.loop !17
+  br i1 %.not800.us.not, label %.lr.ph1022.split.us, label %.loopexit, !llvm.loop !19
 
 .lr.ph1022.split:                                 ; preds = %.lr.ph1022.split.preheader, %568
   %indvars.iv1055 = phi i64 [ 1, %.lr.ph1022.split.preheader ], [ %indvars.iv.next1056, %568 ]
@@ -1149,7 +1149,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
 568:                                              ; preds = %556, %.lr.ph1022.split
   %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
   %.not800.not = icmp slt i64 %indvars.iv1055, %519
-  br i1 %.not800.not, label %.lr.ph1022.split, label %.loopexit, !llvm.loop !17
+  br i1 %.not800.not, label %.lr.ph1022.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %568, %546, %.loopexit839, %75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
@@ -1230,9 +1230,12 @@ attributes #6 = { nounwind }
 !9 = !{!"branch_weights", i32 1, i32 1048575}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
+!12 = distinct !{!12, !11, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !11}
 !15 = distinct !{!15, !11}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11, !13}
+!20 = distinct !{!20, !11}

@@ -162,14 +162,14 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19
   %18 = getelementptr inbounds nuw i8, ptr %.0525972, i64 8
   %.052 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.052, %12
-  br i1 %.not, label %._crit_edge.thread64, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.thread64, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph73
   %19 = getelementptr inbounds nuw i8, ptr %.052, i64 17
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = icmp ugt i32 %4, %21
-  br i1 %22, label %._crit_edge, label %.lr.ph73, !llvm.loop !8
+  br i1 %22, label %._crit_edge, label %.lr.ph73, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
   %.058.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0525972, %.lr.ph ]
@@ -294,6 +294,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

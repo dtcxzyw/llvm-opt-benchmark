@@ -827,116 +827,116 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef 
   %19 = and i64 %11, 2147483647
   br i1 %18, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14
-  br i1 %16, label %.loopexit, label %.split.us.split
+.split.us:                                        ; preds = %14, %31
+  %20 = phi i64 [ %32, %31 ], [ 0, %14 ]
+  br i1 %16, label %31, label %21
 
-.split.us.split:                                  ; preds = %.split.us, %30
-  %20 = phi i64 [ %31, %30 ], [ 0, %.split.us ]
-  %21 = getelementptr %struct.drm_color_lut, ptr %8, i64 %20
-  %22 = load i16, ptr %21, align 2
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = load i16, ptr %23, align 2
-  %25 = icmp eq i16 %22, %24
-  br i1 %25, label %26, label %.split6.us
+21:                                               ; preds = %.split.us
+  %22 = getelementptr %struct.drm_color_lut, ptr %8, i64 %20
+  %23 = load i16, ptr %22, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %25 = load i16, ptr %24, align 2
+  %26 = icmp eq i16 %23, %25
+  br i1 %26, label %27, label %.split6.us
 
-26:                                               ; preds = %.split.us.split
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %28 = load i16, ptr %27, align 2
-  %29 = icmp eq i16 %22, %28
-  br i1 %29, label %30, label %.split6.us
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = icmp eq i16 %23, %29
+  br i1 %30, label %31, label %.split6.us
 
-30:                                               ; preds = %26
-  %31 = add nuw nsw i64 %20, 1
-  %32 = icmp eq i64 %31, %19
-  br i1 %32, label %.loopexit, label %.split.us.split, !llvm.loop !34
+31:                                               ; preds = %27, %.split.us
+  %32 = add nuw nsw i64 %20, 1
+  %33 = icmp eq i64 %32, %19
+  br i1 %33, label %.loopexit, label %.split.us, !llvm.loop !34
 
 .split:                                           ; preds = %14
   br i1 %16, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %53
-  %33 = phi i64 [ %54, %53 ], [ 0, %.split ]
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %53, label %35
+.split.split.us:                                  ; preds = %.split, %54
+  %34 = phi i64 [ %55, %54 ], [ 0, %.split ]
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %54, label %36
 
-35:                                               ; preds = %.split.split.us
-  %36 = getelementptr %struct.drm_color_lut, ptr %8, i64 %33
-  %37 = load i16, ptr %36, align 2
-  %38 = getelementptr i8, ptr %36, i64 -8
-  %39 = load i16, ptr %38, align 2
-  %40 = icmp ult i16 %37, %39
-  br i1 %40, label %.split6.us, label %41
+36:                                               ; preds = %.split.split.us
+  %37 = getelementptr %struct.drm_color_lut, ptr %8, i64 %34
+  %38 = load i16, ptr %37, align 2
+  %39 = getelementptr i8, ptr %37, i64 -8
+  %40 = load i16, ptr %39, align 2
+  %41 = icmp ult i16 %38, %40
+  br i1 %41, label %.split6.us, label %42
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  %43 = load i16, ptr %42, align 2
-  %44 = getelementptr i8, ptr %36, i64 -6
-  %45 = load i16, ptr %44, align 2
-  %46 = icmp ult i16 %43, %45
-  br i1 %46, label %.split6.us, label %47
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %44 = load i16, ptr %43, align 2
+  %45 = getelementptr i8, ptr %37, i64 -6
+  %46 = load i16, ptr %45, align 2
+  %47 = icmp ult i16 %44, %46
+  br i1 %47, label %.split6.us, label %48
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %49 = load i16, ptr %48, align 2
-  %50 = getelementptr i8, ptr %36, i64 -4
-  %51 = load i16, ptr %50, align 2
-  %52 = icmp ult i16 %49, %51
-  br i1 %52, label %.split6.us, label %53
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %50 = load i16, ptr %49, align 2
+  %51 = getelementptr i8, ptr %37, i64 -4
+  %52 = load i16, ptr %51, align 2
+  %53 = icmp ult i16 %50, %52
+  br i1 %53, label %.split6.us, label %54
 
-53:                                               ; preds = %47, %.split.split.us
-  %54 = add nuw nsw i64 %33, 1
-  %55 = icmp eq i64 %54, %19
-  br i1 %55, label %.loopexit, label %.split.split.us, !llvm.loop !34
+54:                                               ; preds = %48, %.split.split.us
+  %55 = add nuw nsw i64 %34, 1
+  %56 = icmp eq i64 %55, %19
+  br i1 %56, label %.loopexit, label %.split.split.us, !llvm.loop !36
 
-.split.split:                                     ; preds = %.split, %80
-  %56 = phi i64 [ %81, %80 ], [ 0, %.split ]
-  %57 = getelementptr %struct.drm_color_lut, ptr %8, i64 %56
-  %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %60 = load i16, ptr %59, align 2
-  %61 = icmp eq i16 %58, %60
-  br i1 %61, label %62, label %.split6.us
+.split.split:                                     ; preds = %.split, %81
+  %57 = phi i64 [ %82, %81 ], [ 0, %.split ]
+  %58 = getelementptr %struct.drm_color_lut, ptr %8, i64 %57
+  %59 = load i16, ptr %58, align 2
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %61 = load i16, ptr %60, align 2
+  %62 = icmp eq i16 %59, %61
+  br i1 %62, label %63, label %.split6.us
 
-62:                                               ; preds = %.split.split
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 2
-  %64 = load i16, ptr %63, align 2
-  %65 = icmp eq i16 %58, %64
-  br i1 %65, label %66, label %.split6.us
+63:                                               ; preds = %.split.split
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %65 = load i16, ptr %64, align 2
+  %66 = icmp eq i16 %59, %65
+  br i1 %66, label %67, label %.split6.us
 
-66:                                               ; preds = %62
-  %67 = icmp eq i64 %56, 0
-  br i1 %67, label %80, label %68
+67:                                               ; preds = %63
+  %68 = icmp eq i64 %57, 0
+  br i1 %68, label %81, label %69
 
-68:                                               ; preds = %66
-  %69 = getelementptr i8, ptr %57, i64 -8
-  %70 = load i16, ptr %69, align 2
-  %71 = icmp ult i16 %58, %70
-  br i1 %71, label %.split6.us, label %72
+69:                                               ; preds = %67
+  %70 = getelementptr i8, ptr %58, i64 -8
+  %71 = load i16, ptr %70, align 2
+  %72 = icmp ult i16 %59, %71
+  br i1 %72, label %.split6.us, label %73
 
-72:                                               ; preds = %68
-  %73 = getelementptr i8, ptr %57, i64 -6
-  %74 = load i16, ptr %73, align 2
-  %75 = icmp ult i16 %58, %74
-  br i1 %75, label %.split6.us, label %76
+73:                                               ; preds = %69
+  %74 = getelementptr i8, ptr %58, i64 -6
+  %75 = load i16, ptr %74, align 2
+  %76 = icmp ult i16 %59, %75
+  br i1 %76, label %.split6.us, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr i8, ptr %57, i64 -4
-  %78 = load i16, ptr %77, align 2
-  %79 = icmp ult i16 %58, %78
-  br i1 %79, label %.split6.us, label %80
+77:                                               ; preds = %73
+  %78 = getelementptr i8, ptr %58, i64 -4
+  %79 = load i16, ptr %78, align 2
+  %80 = icmp ult i16 %59, %79
+  br i1 %80, label %.split6.us, label %81
 
-80:                                               ; preds = %76, %66
-  %81 = add nuw nsw i64 %56, 1
-  %82 = icmp eq i64 %81, %19
-  br i1 %82, label %.loopexit, label %.split.split, !llvm.loop !34
+81:                                               ; preds = %77, %67
+  %82 = add nuw nsw i64 %57, 1
+  %83 = icmp eq i64 %82, %19
+  br i1 %83, label %.loopexit, label %.split.split, !llvm.loop !37
 
-.split6.us:                                       ; preds = %76, %72, %68, %62, %.split.split, %47, %41, %35, %.split.us.split, %26
-  %.us-phi = phi ptr [ @.str.4, %26 ], [ @.str.4, %.split.us.split ], [ @.str.5, %35 ], [ @.str.5, %41 ], [ @.str.5, %47 ], [ @.str.4, %62 ], [ @.str.4, %.split.split ], [ @.str.5, %76 ], [ @.str.5, %72 ], [ @.str.5, %68 ]
+.split6.us:                                       ; preds = %77, %73, %69, %63, %.split.split, %48, %42, %36, %21, %27
+  %.us-phi = phi ptr [ @.str.4, %27 ], [ @.str.4, %21 ], [ @.str.5, %36 ], [ @.str.5, %42 ], [ @.str.5, %48 ], [ @.str.4, %63 ], [ @.str.4, %.split.split ], [ @.str.5, %77 ], [ @.str.5, %73 ], [ @.str.5, %69 ]
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.us-phi) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %80, %53, %30, %.split.us, %.split6.us, %6, %2
-  %83 = phi i32 [ 0, %2 ], [ 0, %6 ], [ -22, %.split6.us ], [ 0, %.split.us ], [ 0, %30 ], [ 0, %53 ], [ 0, %80 ]
-  ret i32 %83
+.loopexit:                                        ; preds = %81, %54, %31, %.split6.us, %6, %2
+  %84 = phi i32 [ 0, %2 ], [ 0, %6 ], [ -22, %.split6.us ], [ 0, %31 ], [ 0, %54 ], [ 0, %81 ]
+  ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1032,4 +1032,7 @@ attributes #7 = { nounwind allocsize(0) }
 !31 = !{i64 2155564421, i64 2155564232, i64 2155564282, i64 2155564328, i64 2155564356}
 !32 = distinct !{!32, !10, !11}
 !33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
+!34 = distinct !{!34, !10, !11, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !10, !11, !35}
+!37 = distinct !{!37, !10, !11}

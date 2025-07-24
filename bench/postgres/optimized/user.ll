@@ -4256,7 +4256,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 74:                                               ; preds = %55, %66, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph61, label %55, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph61, label %55, !llvm.loop !20
 
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %96
   %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph61 ]
@@ -4301,7 +4301,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next66, %98
-  br i1 %99, label %.lr.ph61.split, label %.thread55, !llvm.loop !18
+  br i1 %99, label %.lr.ph61.split, label %.thread55, !llvm.loop !21
 
 .thread55:                                        ; preds = %70, %96, %53, %29, %24, %20, %5
   ret void
@@ -4352,5 +4352,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

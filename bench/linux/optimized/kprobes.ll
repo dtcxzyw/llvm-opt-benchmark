@@ -5171,7 +5171,7 @@ report_probe.exit:                                ; preds = %.preheader, %report
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %83, ptr noundef nonnull %82, ptr noundef nonnull %87, ptr noundef nonnull %90) #21
   %91 = load volatile ptr, ptr %58, align 8
   %92 = icmp eq ptr %91, %22
-  br i1 %92, label %.loopexit, label %report_probe.exit, !llvm.loop !110
+  br i1 %92, label %.loopexit, label %report_probe.exit, !llvm.loop !112
 
 93:                                               ; preds = %12
   %94 = load i64, ptr %3, align 8
@@ -5221,10 +5221,10 @@ report_probe.exit3:                               ; preds = %105, %109
 .loopexit:                                        ; preds = %report_probe.exit, %report_probe.exit.us, %report_probe.exit3, %21
   %126 = load volatile ptr, ptr %13, align 8
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit5, label %12, !llvm.loop !111
+  br i1 %127, label %.loopexit5, label %12, !llvm.loop !113
 
 .loopexit5:                                       ; preds = %.loopexit, %2
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !112
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !114
   %128 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !42
   %129 = icmp ult i8 %128, 2
   call void @llvm.assume(i1 %129)
@@ -5233,7 +5233,7 @@ report_probe.exit3:                               ; preds = %105, %109
 
 131:                                              ; preds = %.loopexit5
   %132 = call i64 @llvm.read_register.i64(metadata !0)
-  %133 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %132) #21, !srcloc !113
+  %133 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %132) #21, !srcloc !115
   call void @llvm.write_register.i64(metadata !0, i64 %133)
   br label %134
 
@@ -5335,7 +5335,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %42 = phi i32 [ %25, %.preheader11 ], [ %38, %32 ]
   %43 = load ptr, ptr %24, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit12, label %.preheader11, !llvm.loop !114
+  br i1 %44, label %.loopexit12, label %.preheader11, !llvm.loop !116
 
 .loopexit12:                                      ; preds = %39, %16
   %45 = phi i32 [ %20, %16 ], [ %40, %39 ]
@@ -5343,7 +5343,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %47 = phi i32 [ %18, %16 ], [ %42, %39 ]
   %48 = add nuw nsw i64 %17, 1
   %49 = icmp eq i64 %48, 64
-  br i1 %49, label %50, label %16, !llvm.loop !115
+  br i1 %49, label %50, label %16, !llvm.loop !117
 
 50:                                               ; preds = %.loopexit12
   %51 = icmp eq i32 %46, 0
@@ -5405,7 +5405,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %87 = phi i32 [ %67, %.preheader ], [ %67, %72 ], [ %83, %77 ]
   %88 = load ptr, ptr %66, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit10, label %.preheader, !llvm.loop !116
+  br i1 %89, label %.loopexit10, label %.preheader, !llvm.loop !118
 
 .loopexit10:                                      ; preds = %84, %58
   %90 = phi i32 [ %62, %58 ], [ %85, %84 ]
@@ -5413,7 +5413,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %92 = phi i32 [ %60, %58 ], [ %87, %84 ]
   %93 = add nuw nsw i64 %59, 1
   %94 = icmp eq i64 %93, 64
-  br i1 %94, label %95, label %58, !llvm.loop !117
+  br i1 %94, label %95, label %58, !llvm.loop !119
 
 95:                                               ; preds = %.loopexit10
   %96 = icmp eq i32 %91, 0
@@ -5699,11 +5699,13 @@ attributes #27 = { cold }
 !107 = distinct !{!107, !7, !8}
 !108 = distinct !{!108, !7, !8}
 !109 = !{i64 2156097306}
-!110 = distinct !{!110, !7, !8}
-!111 = distinct !{!111, !7, !8}
-!112 = !{i64 2156150773}
-!113 = !{i64 2156150955}
-!114 = distinct !{!114, !7, !8}
-!115 = distinct !{!115, !7, !8}
+!110 = distinct !{!110, !7, !8, !111}
+!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!112 = distinct !{!112, !7, !8}
+!113 = distinct !{!113, !7, !8}
+!114 = !{i64 2156150773}
+!115 = !{i64 2156150955}
 !116 = distinct !{!116, !7, !8}
 !117 = distinct !{!117, !7, !8}
+!118 = distinct !{!118, !7, !8}
+!119 = distinct !{!119, !7, !8}

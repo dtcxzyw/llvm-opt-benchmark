@@ -9952,7 +9952,7 @@ _ZN11reduceDB_ltclEjj.exit.backedge.us:           ; preds = %.lr.ph, %_ZN11reduc
   %80 = getelementptr inbounds nuw [0 x %union.anon], ptr %78, i64 0, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !154
   %82 = fcmp olt float %81, %70
-  br i1 %82, label %_ZN11reduceDB_ltclEjj.exit.backedge, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit100, !llvm.loop !278
+  br i1 %82, label %_ZN11reduceDB_ltclEjj.exit.backedge, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit100, !llvm.loop !280
 
 _ZN11reduceDB_ltclEjj.exit.backedge:              ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ %52, %.lr.ph.split ]
@@ -9963,7 +9963,7 @@ _ZN11reduceDB_ltclEjj.exit.backedge:              ; preds = %.lr.ph.split, %76
   %86 = getelementptr inbounds nuw i32, ptr %46, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp ugt i32 %87, 95
-  br i1 %88, label %76, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit100, !llvm.loop !278
+  br i1 %88, label %76, label %_ZN11reduceDB_ltclEjj.exit39.preheader.loopexit100, !llvm.loop !280
 
 _ZN11reduceDB_ltclEjj.exit39.preheader.loopexit:  ; preds = %_ZN11reduceDB_ltclEjj.exit.backedge.us
   %89 = trunc nsw i64 %indvars.iv.next95 to i32
@@ -10014,7 +10014,7 @@ _ZN11reduceDB_ltclEjj.exit39.backedge.us:         ; preds = %107, %100
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, -1
   %114 = getelementptr inbounds i32, ptr %.tr76, i64 %indvars.iv.next98
   %115 = load i32, ptr %114, align 4, !tbaa !65
-  br label %100
+  br label %100, !llvm.loop !281
 
 _ZN11reduceDB_ltclEjj.exit39.thread.loopexit:     ; preds = %107
   %116 = trunc nsw i64 %indvars.iv97 to i32
@@ -10031,7 +10031,7 @@ _ZN11reduceDB_ltclEjj.exit39.thread:              ; preds = %_ZN11reduceDB_ltclE
   %118 = getelementptr inbounds i32, ptr %.tr76, i64 %.lcssa65
   store i32 %.lcssa47, ptr %91, align 4, !tbaa !65
   store i32 %.lcssa44, ptr %118, align 4, !tbaa !65
-  br label %50, !llvm.loop !279
+  br label %50, !llvm.loop !282
 
 tailrecurse:                                      ; preds = %_ZN11reduceDB_ltclEjj.exit39.thread
   tail call void @_ZN7Minisat4sortIj11reduceDB_ltEEvPT_iT0_(ptr noundef nonnull %.tr76, i32 noundef %.lcssa46, ptr nonnull %2)
@@ -10453,5 +10453,8 @@ attributes #38 = { nounwind willreturn memory(read) }
 !275 = distinct !{!275, !118}
 !276 = distinct !{!276, !118}
 !277 = distinct !{!277, !118}
-!278 = distinct !{!278, !118}
-!279 = distinct !{!279, !118}
+!278 = distinct !{!278, !118, !279}
+!279 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!280 = distinct !{!280, !118}
+!281 = distinct !{!281, !279}
+!282 = distinct !{!282, !118}

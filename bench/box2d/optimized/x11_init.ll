@@ -1555,7 +1555,7 @@ thread-pre-split40.i:                             ; preds = %431
   store i16 %.043.us.i.i, ptr %511, align 2, !tbaa !318
   %indvars.iv.next91.i.i = add nuw nsw i64 %indvars.iv90.i.i, 1
   %exitcond94.not.i.i = icmp eq i64 %indvars.iv.next91.i.i, %wide.trip.count93.i.i
-  br i1 %exitcond94.not.i.i, label %._crit_edge60.i.i, label %.preheader50.us.i.i
+  br i1 %exitcond94.not.i.i, label %._crit_edge60.i.i, label %.preheader50.us.i.i, !llvm.loop !319
 
 .preheader50.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader50.preheader.i.i
   %indvars.iv82.i.i = phi i64 [ %496, %.preheader50.preheader.i.i ], [ %indvars.iv.next83.i.i, %._crit_edge.i.i ]
@@ -1589,7 +1589,7 @@ thread-pre-split40.i:                             ; preds = %431
   br i1 %.not4855.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %515, %.loopexit51.i.i
-  %523 = load ptr, ptr %494, align 8, !tbaa !319
+  %523 = load ptr, ptr %494, align 8, !tbaa !321
   br label %524
 
 524:                                              ; preds = %.loopexit.i.i, %.lr.ph.i.i
@@ -2250,151 +2250,151 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   %711 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %713 = call i64 %711(ptr noundef %712, ptr noundef nonnull @.str.166, i32 noundef 0) #13
-  store i64 %713, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141288), align 8, !tbaa !320
+  store i64 %713, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141288), align 8, !tbaa !322
   %714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %716 = call i64 %714(ptr noundef %715, ptr noundef nonnull @.str.167, i32 noundef 0) #13
-  store i64 %716, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !321
+  store i64 %716, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !323
   %717 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %718 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %719 = call i64 %717(ptr noundef %718, ptr noundef nonnull @.str.168, i32 noundef 0) #13
-  store i64 %719, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141312), align 8, !tbaa !322
+  store i64 %719, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141312), align 8, !tbaa !324
   %720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %721 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %722 = call i64 %720(ptr noundef %721, ptr noundef nonnull @.str.169, i32 noundef 0) #13
-  store i64 %722, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141320), align 8, !tbaa !323
+  store i64 %722, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141320), align 8, !tbaa !325
   %723 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %724 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %725 = call i64 %723(ptr noundef %724, ptr noundef nonnull @.str.170, i32 noundef 0) #13
-  store i64 %725, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141232), align 8, !tbaa !324
+  store i64 %725, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141232), align 8, !tbaa !326
   %726 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %728 = call i64 %726(ptr noundef %727, ptr noundef nonnull @.str.171, i32 noundef 0) #13
-  store i64 %728, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141240), align 8, !tbaa !325
+  store i64 %728, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141240), align 8, !tbaa !327
   %729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %730 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %731 = call i64 %729(ptr noundef %730, ptr noundef nonnull @.str.172, i32 noundef 0) #13
-  store i64 %731, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141264), align 8, !tbaa !326
+  store i64 %731, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141264), align 8, !tbaa !328
   %732 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %733 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %734 = call i64 %732(ptr noundef %733, ptr noundef nonnull @.str.173, i32 noundef 0) #13
-  store i64 %734, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141248), align 8, !tbaa !327
+  store i64 %734, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141248), align 8, !tbaa !329
   %735 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %737 = call i64 %735(ptr noundef %736, ptr noundef nonnull @.str.174, i32 noundef 0) #13
-  store i64 %737, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !328
+  store i64 %737, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !330
   %738 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %740 = call i64 %738(ptr noundef %739, ptr noundef nonnull @.str.175, i32 noundef 0) #13
-  store i64 %740, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141272), align 8, !tbaa !329
+  store i64 %740, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141272), align 8, !tbaa !331
   %741 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %742 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %743 = call i64 %741(ptr noundef %742, ptr noundef nonnull @.str.176, i32 noundef 0) #13
-  store i64 %743, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141280), align 8, !tbaa !330
+  store i64 %743, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141280), align 8, !tbaa !332
   %744 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %745 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %746 = call i64 %744(ptr noundef %745, ptr noundef nonnull @.str.177, i32 noundef 0) #13
-  store i64 %746, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141152), align 8, !tbaa !331
+  store i64 %746, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141152), align 8, !tbaa !333
   %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %748 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %749 = call i64 %747(ptr noundef %748, ptr noundef nonnull @.str.178, i32 noundef 0) #13
-  store i64 %749, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141160), align 8, !tbaa !332
+  store i64 %749, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141160), align 8, !tbaa !334
   %750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %751 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %752 = call i64 %750(ptr noundef %751, ptr noundef nonnull @.str.179, i32 noundef 0) #13
-  store i64 %752, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141168), align 8, !tbaa !333
+  store i64 %752, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141168), align 8, !tbaa !335
   %753 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %754 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %755 = call i64 %753(ptr noundef %754, ptr noundef nonnull @.str.180, i32 noundef 0) #13
-  store i64 %755, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141176), align 8, !tbaa !334
+  store i64 %755, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141176), align 8, !tbaa !336
   %756 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %757 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %758 = call i64 %756(ptr noundef %757, ptr noundef nonnull @.str.181, i32 noundef 0) #13
-  store i64 %758, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141184), align 8, !tbaa !335
+  store i64 %758, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141184), align 8, !tbaa !337
   %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %760 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %761 = call i64 %759(ptr noundef %760, ptr noundef nonnull @.str.182, i32 noundef 0) #13
-  store i64 %761, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141192), align 8, !tbaa !336
+  store i64 %761, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141192), align 8, !tbaa !338
   %762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %763 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %764 = call i64 %762(ptr noundef %763, ptr noundef nonnull @.str.183, i32 noundef 0) #13
-  store i64 %764, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141200), align 8, !tbaa !337
+  store i64 %764, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141200), align 8, !tbaa !339
   %765 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %767 = call i64 %765(ptr noundef %766, ptr noundef nonnull @.str.184, i32 noundef 0) #13
-  store i64 %767, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141208), align 8, !tbaa !338
+  store i64 %767, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141208), align 8, !tbaa !340
   %768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %769 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %770 = call i64 %768(ptr noundef %769, ptr noundef nonnull @.str.185, i32 noundef 0) #13
-  store i64 %770, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141216), align 8, !tbaa !339
+  store i64 %770, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141216), align 8, !tbaa !341
   %771 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %772 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %773 = call i64 %771(ptr noundef %772, ptr noundef nonnull @.str.186, i32 noundef 0) #13
-  store i64 %773, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141224), align 8, !tbaa !340
+  store i64 %773, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141224), align 8, !tbaa !342
   %774 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %776 = call i64 %774(ptr noundef %775, ptr noundef nonnull @.str.187, i32 noundef 0) #13
-  store i64 %776, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140944), align 8, !tbaa !341
+  store i64 %776, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140944), align 8, !tbaa !343
   %777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %778 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %779 = call i64 %777(ptr noundef %778, ptr noundef nonnull @.str.188, i32 noundef 0) #13
-  store i64 %779, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !342
+  store i64 %779, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !344
   %780 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %781 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %782 = call i64 %780(ptr noundef %781, ptr noundef nonnull @.str.189, i32 noundef 0) #13
-  store i64 %782, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140960), align 8, !tbaa !343
+  store i64 %782, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140960), align 8, !tbaa !345
   %783 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %784 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %785 = call i64 %783(ptr noundef %784, ptr noundef nonnull @.str.190, i32 noundef 0) #13
-  store i64 %785, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
+  store i64 %785, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !346
   %786 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %787 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %788 = call i64 %786(ptr noundef %787, ptr noundef nonnull @.str.191, i32 noundef 0) #13
-  store i64 %788, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  store i64 %788, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !347
   %789 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %790 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %791 = call i64 %789(ptr noundef %790, ptr noundef nonnull @.str.192, i32 noundef 0) #13
-  store i64 %791, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140984), align 8, !tbaa !346
+  store i64 %791, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140984), align 8, !tbaa !348
   %792 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %793 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %794 = call i64 %792(ptr noundef %793, ptr noundef nonnull @.str.193, i32 noundef 0) #13
-  store i64 %794, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141000), align 8, !tbaa !347
+  store i64 %794, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141000), align 8, !tbaa !349
   %795 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %796 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %797 = call i64 %795(ptr noundef %796, ptr noundef nonnull @.str.194, i32 noundef 0) #13
-  store i64 %797, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140992), align 8, !tbaa !348
+  store i64 %797, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140992), align 8, !tbaa !350
   %798 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %799 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %800 = call i64 %798(ptr noundef %799, ptr noundef nonnull @.str.195, i32 noundef 0) #13
-  store i64 %800, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140968), align 8, !tbaa !349
+  store i64 %800, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140968), align 8, !tbaa !351
   %801 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %802 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %803 = call i64 %801(ptr noundef %802, ptr noundef nonnull @.str.196, i32 noundef 0) #13
-  store i64 %803, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140976), align 8, !tbaa !350
+  store i64 %803, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140976), align 8, !tbaa !352
   %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %805 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %806 = call i64 %804(ptr noundef %805, ptr noundef nonnull @.str.197, i32 noundef 0) #13
-  store i64 %806, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141072), align 8, !tbaa !351
+  store i64 %806, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141072), align 8, !tbaa !353
   %807 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %808 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %809 = call i64 %807(ptr noundef %808, ptr noundef nonnull @.str.198, i32 noundef 0) #13
-  store i64 %809, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !352
+  store i64 %809, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !354
   %810 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %811 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %812 = call i64 %810(ptr noundef %811, ptr noundef nonnull @.str.199, i32 noundef 0) #13
-  store i64 %812, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !353
+  store i64 %812, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !355
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
   %813 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
   %814 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.200, i32 noundef %813) #13
   %815 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %816 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %817 = call i64 %815(ptr noundef %816, ptr noundef nonnull %11, i32 noundef 0) #13
-  store i64 %817, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141096), align 8, !tbaa !354
+  store i64 %817, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141096), align 8, !tbaa !356
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !tbaa !355
+  store ptr null, ptr %3, align 8, !tbaa !357
   %818 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
-  %819 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  %819 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !347
   %820 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %818, i64 noundef %819, i64 noundef 33, ptr noundef nonnull %3) #13
   %.not.i38.i = icmp eq i64 %820, 0
   br i1 %.not.i38.i, label %initExtensions.exit, label %821
@@ -2405,17 +2405,17 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   %823 = call ptr %822(ptr noundef nonnull @errorHandler) #13
   store ptr %823, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !tbaa !355
-  %824 = load ptr, ptr %3, align 8, !tbaa !355
+  store ptr null, ptr %4, align 8, !tbaa !357
+  %824 = load ptr, ptr %3, align 8, !tbaa !357
   %825 = load i64, ptr %824, align 8, !tbaa !268
-  %826 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  %826 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !347
   %827 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %825, i64 noundef %826, i64 noundef 33, ptr noundef nonnull %4) #13
   %.not14.i.i = icmp eq i64 %827, 0
   br i1 %.not14.i.i, label %828, label %832
 
 828:                                              ; preds = %821
   %829 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %830 = load ptr, ptr %3, align 8, !tbaa !355
+  %830 = load ptr, ptr %3, align 8, !tbaa !357
   %831 = call i32 %829(ptr noundef %830) #13
   br label %983
 
@@ -2427,25 +2427,25 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   %837 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
   %838 = call ptr %836(ptr noundef %837) #13
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
-  %839 = load ptr, ptr %3, align 8, !tbaa !355
+  %839 = load ptr, ptr %3, align 8, !tbaa !357
   %840 = load i64, ptr %839, align 8, !tbaa !268
-  %841 = load ptr, ptr %4, align 8, !tbaa !355
+  %841 = load ptr, ptr %4, align 8, !tbaa !357
   %842 = load i64, ptr %841, align 8, !tbaa !268
   %.not15.i.i = icmp eq i64 %840, %842
   %843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
   %844 = call i32 %843(ptr noundef nonnull %839) #13
   %845 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %846 = load ptr, ptr %4, align 8, !tbaa !355
+  %846 = load ptr, ptr %4, align 8, !tbaa !357
   %847 = call i32 %845(ptr noundef %846) #13
   br i1 %.not15.i.i, label %848, label %983
 
 848:                                              ; preds = %832
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  store ptr null, ptr %5, align 8, !tbaa !355
+  store ptr null, ptr %5, align 8, !tbaa !357
   %849 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
-  %850 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
+  %850 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !346
   %851 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %849, i64 noundef %850, i64 noundef 4, ptr noundef nonnull %5) #13
-  %852 = load ptr, ptr %5, align 8, !tbaa !355
+  %852 = load ptr, ptr %5, align 8, !tbaa !357
   %853 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %854 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %855 = call i64 %853(ptr noundef %854, ptr noundef nonnull @.str.322, i32 noundef 0) #13
@@ -2466,8 +2466,8 @@ createKeyTables.exit.i:                           ; preds = %708, %543
 
 getAtomIfSupported.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %856, %848
   %spec.select.i.i.i = phi i64 [ 0, %848 ], [ 0, %856 ], [ %855, %.lr.ph.i.i.i ]
-  store i64 %spec.select.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !356
-  %861 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !358
+  %861 = load ptr, ptr %5, align 8, !tbaa !357
   %862 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %863 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %864 = call i64 %862(ptr noundef %863, ptr noundef nonnull @.str.323, i32 noundef 0) #13
@@ -2487,8 +2487,8 @@ getAtomIfSupported.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %856,
 
 getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %865, %getAtomIfSupported.exit.i.i
   %spec.select.i21.i.i = phi i64 [ 0, %getAtomIfSupported.exit.i.i ], [ 0, %865 ], [ %864, %.lr.ph.i18.i.i ]
-  store i64 %spec.select.i21.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141032), align 8, !tbaa !357
-  %870 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i21.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141032), align 8, !tbaa !359
+  %870 = load ptr, ptr %5, align 8, !tbaa !357
   %871 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %873 = call i64 %871(ptr noundef %872, ptr noundef nonnull @.str.324, i32 noundef 0) #13
@@ -2508,8 +2508,8 @@ getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %86
 
 getAtomIfSupported.exit28.i.i:                    ; preds = %.lr.ph.i24.i.i, %874, %getAtomIfSupported.exit22.i.i
   %spec.select.i27.i.i = phi i64 [ 0, %getAtomIfSupported.exit22.i.i ], [ 0, %874 ], [ %873, %.lr.ph.i24.i.i ]
-  store i64 %spec.select.i27.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141040), align 8, !tbaa !358
-  %879 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i27.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141040), align 8, !tbaa !360
+  %879 = load ptr, ptr %5, align 8, !tbaa !357
   %880 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %881 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %882 = call i64 %880(ptr noundef %881, ptr noundef nonnull @.str.325, i32 noundef 0) #13
@@ -2529,8 +2529,8 @@ getAtomIfSupported.exit28.i.i:                    ; preds = %.lr.ph.i24.i.i, %87
 
 getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %883, %getAtomIfSupported.exit28.i.i
   %spec.select.i33.i.i = phi i64 [ 0, %getAtomIfSupported.exit28.i.i ], [ 0, %883 ], [ %882, %.lr.ph.i30.i.i ]
-  store i64 %spec.select.i33.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !359
-  %888 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i33.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !361
+  %888 = load ptr, ptr %5, align 8, !tbaa !357
   %889 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %890 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %891 = call i64 %889(ptr noundef %890, ptr noundef nonnull @.str.326, i32 noundef 0) #13
@@ -2550,8 +2550,8 @@ getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %88
 
 getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %892, %getAtomIfSupported.exit34.i.i
   %spec.select.i39.i.i = phi i64 [ 0, %getAtomIfSupported.exit34.i.i ], [ 0, %892 ], [ %891, %.lr.ph.i36.i.i ]
-  store i64 %spec.select.i39.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !360
-  %897 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i39.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !362
+  %897 = load ptr, ptr %5, align 8, !tbaa !357
   %898 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %899 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %900 = call i64 %898(ptr noundef %899, ptr noundef nonnull @.str.327, i32 noundef 0) #13
@@ -2571,8 +2571,8 @@ getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %89
 
 getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %901, %getAtomIfSupported.exit40.i.i
   %spec.select.i45.i.i = phi i64 [ 0, %getAtomIfSupported.exit40.i.i ], [ 0, %901 ], [ %900, %.lr.ph.i42.i.i ]
-  store i64 %spec.select.i45.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141064), align 8, !tbaa !361
-  %906 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i45.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141064), align 8, !tbaa !363
+  %906 = load ptr, ptr %5, align 8, !tbaa !357
   %907 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %908 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %909 = call i64 %907(ptr noundef %908, ptr noundef nonnull @.str.328, i32 noundef 0) #13
@@ -2592,8 +2592,8 @@ getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %90
 
 getAtomIfSupported.exit52.i.i:                    ; preds = %.lr.ph.i48.i.i, %910, %getAtomIfSupported.exit46.i.i
   %spec.select.i51.i.i = phi i64 [ 0, %getAtomIfSupported.exit46.i.i ], [ 0, %910 ], [ %909, %.lr.ph.i48.i.i ]
-  store i64 %spec.select.i51.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141080), align 8, !tbaa !362
-  %915 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i51.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141080), align 8, !tbaa !364
+  %915 = load ptr, ptr %5, align 8, !tbaa !357
   %916 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %917 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %918 = call i64 %916(ptr noundef %917, ptr noundef nonnull @.str.329, i32 noundef 0) #13
@@ -2613,8 +2613,8 @@ getAtomIfSupported.exit52.i.i:                    ; preds = %.lr.ph.i48.i.i, %91
 
 getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %919, %getAtomIfSupported.exit52.i.i
   %spec.select.i57.i.i = phi i64 [ 0, %getAtomIfSupported.exit52.i.i ], [ 0, %919 ], [ %918, %.lr.ph.i54.i.i ]
-  store i64 %spec.select.i57.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141008), align 8, !tbaa !363
-  %924 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i57.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141008), align 8, !tbaa !365
+  %924 = load ptr, ptr %5, align 8, !tbaa !357
   %925 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %926 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %927 = call i64 %925(ptr noundef %926, ptr noundef nonnull @.str.330, i32 noundef 0) #13
@@ -2634,8 +2634,8 @@ getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %91
 
 getAtomIfSupported.exit64.i.i:                    ; preds = %.lr.ph.i60.i.i, %928, %getAtomIfSupported.exit58.i.i
   %spec.select.i63.i.i = phi i64 [ 0, %getAtomIfSupported.exit58.i.i ], [ 0, %928 ], [ %927, %.lr.ph.i60.i.i ]
-  store i64 %spec.select.i63.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141016), align 8, !tbaa !364
-  %933 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i63.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141016), align 8, !tbaa !366
+  %933 = load ptr, ptr %5, align 8, !tbaa !357
   %934 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %935 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %936 = call i64 %934(ptr noundef %935, ptr noundef nonnull @.str.331, i32 noundef 0) #13
@@ -2655,8 +2655,8 @@ getAtomIfSupported.exit64.i.i:                    ; preds = %.lr.ph.i60.i.i, %92
 
 getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %937, %getAtomIfSupported.exit64.i.i
   %spec.select.i69.i.i = phi i64 [ 0, %getAtomIfSupported.exit64.i.i ], [ 0, %937 ], [ %936, %.lr.ph.i66.i.i ]
-  store i64 %spec.select.i69.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !365
-  %942 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i69.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !367
+  %942 = load ptr, ptr %5, align 8, !tbaa !357
   %943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %944 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %945 = call i64 %943(ptr noundef %944, ptr noundef nonnull @.str.332, i32 noundef 0) #13
@@ -2676,8 +2676,8 @@ getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %93
 
 getAtomIfSupported.exit76.i.i:                    ; preds = %.lr.ph.i72.i.i, %946, %getAtomIfSupported.exit70.i.i
   %spec.select.i75.i.i = phi i64 [ 0, %getAtomIfSupported.exit70.i.i ], [ 0, %946 ], [ %945, %.lr.ph.i72.i.i ]
-  store i64 %spec.select.i75.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !366
-  %951 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i75.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !368
+  %951 = load ptr, ptr %5, align 8, !tbaa !357
   %952 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %953 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %954 = call i64 %952(ptr noundef %953, ptr noundef nonnull @.str.333, i32 noundef 0) #13
@@ -2697,8 +2697,8 @@ getAtomIfSupported.exit76.i.i:                    ; preds = %.lr.ph.i72.i.i, %94
 
 getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %955, %getAtomIfSupported.exit76.i.i
   %spec.select.i81.i.i = phi i64 [ 0, %getAtomIfSupported.exit76.i.i ], [ 0, %955 ], [ %954, %.lr.ph.i78.i.i ]
-  store i64 %spec.select.i81.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141120), align 8, !tbaa !367
-  %960 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i81.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141120), align 8, !tbaa !369
+  %960 = load ptr, ptr %5, align 8, !tbaa !357
   %961 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %962 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %963 = call i64 %961(ptr noundef %962, ptr noundef nonnull @.str.334, i32 noundef 0) #13
@@ -2718,8 +2718,8 @@ getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %95
 
 getAtomIfSupported.exit88.i.i:                    ; preds = %.lr.ph.i84.i.i, %964, %getAtomIfSupported.exit82.i.i
   %spec.select.i87.i.i = phi i64 [ 0, %getAtomIfSupported.exit82.i.i ], [ 0, %964 ], [ %963, %.lr.ph.i84.i.i ]
-  store i64 %spec.select.i87.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !368
-  %969 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i87.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !370
+  %969 = load ptr, ptr %5, align 8, !tbaa !357
   %970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %972 = call i64 %970(ptr noundef %971, ptr noundef nonnull @.str.335, i32 noundef 0) #13
@@ -2739,8 +2739,8 @@ getAtomIfSupported.exit88.i.i:                    ; preds = %.lr.ph.i84.i.i, %96
 
 getAtomIfSupported.exit94.i.i:                    ; preds = %.lr.ph.i90.i.i, %973, %getAtomIfSupported.exit88.i.i
   %spec.select.i93.i.i = phi i64 [ 0, %getAtomIfSupported.exit88.i.i ], [ 0, %973 ], [ %972, %.lr.ph.i90.i.i ]
-  store i64 %spec.select.i93.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141136), align 8, !tbaa !369
-  %978 = load ptr, ptr %5, align 8, !tbaa !355
+  store i64 %spec.select.i93.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141136), align 8, !tbaa !371
+  %978 = load ptr, ptr %5, align 8, !tbaa !357
   %.not16.i.i = icmp eq ptr %978, null
   br i1 %.not16.i.i, label %982, label %979
 
@@ -2761,7 +2761,7 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #13
   %984 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i64 4194304, ptr %984, align 8, !tbaa !370
+  store i64 4194304, ptr %984, align 8, !tbaa !372
   %985 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141456), align 8, !tbaa !132
   %986 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %987 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
@@ -2770,10 +2770,10 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
   %990 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
   %991 = sext i32 %990 to i64
   %992 = getelementptr inbounds %struct.Screen, ptr %989, i64 %991, i32 10
-  %993 = load ptr, ptr %992, align 8, !tbaa !372
+  %993 = load ptr, ptr %992, align 8, !tbaa !374
   %994 = call i64 %985(ptr noundef %986, i64 noundef %987, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef %993, i64 noundef 2048, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #13
-  store i64 %994, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  store i64 %994, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %1, i8 0, i64 1024, i1 false)
   %995 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
@@ -2848,7 +2848,7 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
 createHiddenCursor.exit:                          ; preds = %initExtensions.exit, %996, %._crit_edge.i.i13
   %.0.i.i = phi i64 [ 0, %initExtensions.exit ], [ %1006, %._crit_edge.i.i13 ], [ 0, %996 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #13
-  store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !374
+  store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !376
   %1036 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141936), align 8, !tbaa !190
   %1037 = call i32 %1036() #13
   %1038 = icmp ne i32 %1037, 0
@@ -2876,22 +2876,22 @@ createHiddenCursor.exit:                          ; preds = %initExtensions.exit
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwTerminateX11() #0 {
-  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141640), align 8, !tbaa !154
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !328
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !330
   %6 = tail call i64 %3(ptr noundef %4, i64 noundef %5) #13
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
   %8 = icmp eq i64 %6, %7
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
   tail call void @_glfwPushSelectionToManagerX11() #13
-  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -2899,11 +2899,11 @@ define hidden void @_glfwTerminateX11() #0 {
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141504), align 8, !tbaa !138
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %14 = tail call i32 %12(ptr noundef %13, i64 noundef %11) #13
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
   br label %15
 
 15:                                               ; preds = %10, %0
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !374
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !376
   %.not12 = icmp eq i64 %16, 0
   br i1 %.not12, label %21, label %17
 
@@ -2911,25 +2911,25 @@ define hidden void @_glfwTerminateX11() #0 {
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141568), align 8, !tbaa !146
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %20 = tail call i32 %18(ptr noundef %19, i64 noundef %16) #13
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !374
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !376
   br label %21
 
 21:                                               ; preds = %17, %15
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137920), align 8, !tbaa !375
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137920), align 8, !tbaa !377
   tail call void @_glfw_free(ptr noundef %22) #13
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137928), align 8, !tbaa !376
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137928), align 8, !tbaa !378
   tail call void @_glfw_free(ptr noundef %23) #13
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142008), align 8, !tbaa !211
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %26 = tail call i32 %24(ptr noundef %25, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @inputMethodInstantiateCallback, ptr noundef null) #13
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %.not13 = icmp eq ptr %27, null
   br i1 %.not13, label %31, label %28
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141408), align 8, !tbaa !126
   %30 = tail call i32 %29(ptr noundef nonnull %27) #13
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   br label %31
 
 31:                                               ; preds = %28, %21
@@ -3204,7 +3204,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 define internal void @inputMethodInstantiateCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.XIMCallback, align 8
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %.thread
 
@@ -3212,7 +3212,7 @@ define internal void @inputMethodInstantiateCallback(ptr readnone captures(none)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141752), align 8, !tbaa !168
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %10 = tail call ptr %8(ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null) #13
-  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %.thread, label %11
 
@@ -3226,13 +3226,13 @@ define internal void @inputMethodInstantiateCallback(ptr readnone captures(none)
 
 .preheader.i:                                     ; preds = %11
   %14 = load ptr, ptr %4, align 8, !tbaa !117
-  %15 = load i16, ptr %14, align 8, !tbaa !378
+  %15 = load i16, ptr %14, align 8, !tbaa !380
   %.not12.i = icmp eq i16 %15, 0
   br i1 %.not12.i, label %hasUsableInputMethodStyle.exit.thread9, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !380
+  %17 = load ptr, ptr %16, align 8, !tbaa !382
   %wide.trip.count.i = zext i16 %15 to i64
   br label %19
 
@@ -3256,27 +3256,27 @@ hasUsableInputMethodStyle.exit.thread9:           ; preds = %18, %.preheader.i
 hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInputMethodStyle.exit.thread9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141408), align 8, !tbaa !126
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %27 = call i32 %25(ptr noundef %26) #13
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   br label %.thread
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
   %30 = call i32 %29(ptr noundef nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %.not5 = icmp eq ptr %.pr, null
   br i1 %.not5, label %.thread, label %31
 
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @inputMethodDestroyCallback, ptr %32, align 8, !tbaa !381
-  store ptr null, ptr %5, align 8, !tbaa !383
+  store ptr @inputMethodDestroyCallback, ptr %32, align 8, !tbaa !383
+  store ptr null, ptr %5, align 8, !tbaa !385
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141872), align 8, !tbaa !182
   %34 = call ptr (ptr, ...) %33(ptr noundef nonnull %.pr, ptr noundef nonnull @.str.336, ptr noundef nonnull %5, ptr noundef null) #13
-  %.013 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !384
+  %.013 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !386
   %.not614 = icmp eq ptr %.013, null
   br i1 %.not614, label %._crit_edge, label %.lr.ph
 
@@ -3287,7 +3287,7 @@ hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInput
 .lr.ph:                                           ; preds = %31, %.lr.ph
   %.015 = phi ptr [ %.0, %.lr.ph ], [ %.013, %31 ]
   call void @_glfwCreateInputContextX11(ptr noundef nonnull %.015) #13
-  %.0 = load ptr, ptr %.015, align 8, !tbaa !384
+  %.0 = load ptr, ptr %.015, align 8, !tbaa !386
   %.not6 = icmp eq ptr %.0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -3336,7 +3336,7 @@ declare i64 @_glfwGetWindowPropertyX11(i64 noundef, i64 noundef, i64 noundef, pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @inputMethodDestroyCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !377
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   ret void
 }
 
@@ -3680,69 +3680,71 @@ attributes #15 = { nounwind willreturn memory(none) }
 !316 = !{!313, !6, i64 489}
 !317 = !{!229, !5, i64 0}
 !318 = !{!285, !285, i64 0}
-!319 = !{!313, !315, i64 464}
-!320 = !{!4, !16, i64 141288}
-!321 = !{!4, !16, i64 141296}
-!322 = !{!4, !16, i64 141312}
-!323 = !{!4, !16, i64 141320}
-!324 = !{!4, !16, i64 141232}
-!325 = !{!4, !16, i64 141240}
-!326 = !{!4, !16, i64 141264}
-!327 = !{!4, !16, i64 141248}
-!328 = !{!4, !16, i64 141256}
-!329 = !{!4, !16, i64 141272}
-!330 = !{!4, !16, i64 141280}
-!331 = !{!4, !16, i64 141152}
-!332 = !{!4, !16, i64 141160}
-!333 = !{!4, !16, i64 141168}
-!334 = !{!4, !16, i64 141176}
-!335 = !{!4, !16, i64 141184}
-!336 = !{!4, !16, i64 141192}
-!337 = !{!4, !16, i64 141200}
-!338 = !{!4, !16, i64 141208}
-!339 = !{!4, !16, i64 141216}
-!340 = !{!4, !16, i64 141224}
-!341 = !{!4, !16, i64 140944}
-!342 = !{!4, !16, i64 140952}
-!343 = !{!4, !16, i64 140960}
-!344 = !{!4, !16, i64 140928}
-!345 = !{!4, !16, i64 140936}
-!346 = !{!4, !16, i64 140984}
-!347 = !{!4, !16, i64 141000}
-!348 = !{!4, !16, i64 140992}
-!349 = !{!4, !16, i64 140968}
-!350 = !{!4, !16, i64 140976}
-!351 = !{!4, !16, i64 141072}
-!352 = !{!4, !16, i64 141088}
-!353 = !{!4, !16, i64 141144}
-!354 = !{!4, !16, i64 141096}
-!355 = !{!265, !265, i64 0}
-!356 = !{!4, !16, i64 141024}
-!357 = !{!4, !16, i64 141032}
-!358 = !{!4, !16, i64 141040}
-!359 = !{!4, !16, i64 141048}
-!360 = !{!4, !16, i64 141056}
-!361 = !{!4, !16, i64 141064}
-!362 = !{!4, !16, i64 141080}
-!363 = !{!4, !16, i64 141008}
-!364 = !{!4, !16, i64 141016}
-!365 = !{!4, !16, i64 141104}
-!366 = !{!4, !16, i64 141112}
-!367 = !{!4, !16, i64 141120}
-!368 = !{!4, !16, i64 141128}
-!369 = !{!4, !16, i64 141136}
-!370 = !{!371, !16, i64 72}
-!371 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !16, i64 48, !16, i64 56, !5, i64 64, !16, i64 72, !16, i64 80, !5, i64 88, !16, i64 96, !16, i64 104}
-!372 = !{!223, !9, i64 64}
-!373 = !{!4, !16, i64 137872}
-!374 = !{!4, !16, i64 137880}
-!375 = !{!4, !18, i64 137920}
-!376 = !{!4, !18, i64 137928}
-!377 = !{!4, !75, i64 137896}
-!378 = !{!379, !285, i64 0}
-!379 = !{!"", !285, i64 0, !265, i64 8}
-!380 = !{!379, !265, i64 8}
-!381 = !{!382, !9, i64 8}
-!382 = !{!"", !18, i64 0, !9, i64 8}
-!383 = !{!382, !18, i64 0}
-!384 = !{!22, !22, i64 0}
+!319 = distinct !{!319, !320}
+!320 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!321 = !{!313, !315, i64 464}
+!322 = !{!4, !16, i64 141288}
+!323 = !{!4, !16, i64 141296}
+!324 = !{!4, !16, i64 141312}
+!325 = !{!4, !16, i64 141320}
+!326 = !{!4, !16, i64 141232}
+!327 = !{!4, !16, i64 141240}
+!328 = !{!4, !16, i64 141264}
+!329 = !{!4, !16, i64 141248}
+!330 = !{!4, !16, i64 141256}
+!331 = !{!4, !16, i64 141272}
+!332 = !{!4, !16, i64 141280}
+!333 = !{!4, !16, i64 141152}
+!334 = !{!4, !16, i64 141160}
+!335 = !{!4, !16, i64 141168}
+!336 = !{!4, !16, i64 141176}
+!337 = !{!4, !16, i64 141184}
+!338 = !{!4, !16, i64 141192}
+!339 = !{!4, !16, i64 141200}
+!340 = !{!4, !16, i64 141208}
+!341 = !{!4, !16, i64 141216}
+!342 = !{!4, !16, i64 141224}
+!343 = !{!4, !16, i64 140944}
+!344 = !{!4, !16, i64 140952}
+!345 = !{!4, !16, i64 140960}
+!346 = !{!4, !16, i64 140928}
+!347 = !{!4, !16, i64 140936}
+!348 = !{!4, !16, i64 140984}
+!349 = !{!4, !16, i64 141000}
+!350 = !{!4, !16, i64 140992}
+!351 = !{!4, !16, i64 140968}
+!352 = !{!4, !16, i64 140976}
+!353 = !{!4, !16, i64 141072}
+!354 = !{!4, !16, i64 141088}
+!355 = !{!4, !16, i64 141144}
+!356 = !{!4, !16, i64 141096}
+!357 = !{!265, !265, i64 0}
+!358 = !{!4, !16, i64 141024}
+!359 = !{!4, !16, i64 141032}
+!360 = !{!4, !16, i64 141040}
+!361 = !{!4, !16, i64 141048}
+!362 = !{!4, !16, i64 141056}
+!363 = !{!4, !16, i64 141064}
+!364 = !{!4, !16, i64 141080}
+!365 = !{!4, !16, i64 141008}
+!366 = !{!4, !16, i64 141016}
+!367 = !{!4, !16, i64 141104}
+!368 = !{!4, !16, i64 141112}
+!369 = !{!4, !16, i64 141120}
+!370 = !{!4, !16, i64 141128}
+!371 = !{!4, !16, i64 141136}
+!372 = !{!373, !16, i64 72}
+!373 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !16, i64 48, !16, i64 56, !5, i64 64, !16, i64 72, !16, i64 80, !5, i64 88, !16, i64 96, !16, i64 104}
+!374 = !{!223, !9, i64 64}
+!375 = !{!4, !16, i64 137872}
+!376 = !{!4, !16, i64 137880}
+!377 = !{!4, !18, i64 137920}
+!378 = !{!4, !18, i64 137928}
+!379 = !{!4, !75, i64 137896}
+!380 = !{!381, !285, i64 0}
+!381 = !{!"", !285, i64 0, !265, i64 8}
+!382 = !{!381, !265, i64 8}
+!383 = !{!384, !9, i64 8}
+!384 = !{!"", !18, i64 0, !9, i64 8}
+!385 = !{!384, !18, i64 0}
+!386 = !{!22, !22, i64 0}

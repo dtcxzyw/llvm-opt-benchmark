@@ -9443,7 +9443,7 @@ _ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8Functio
   store ptr %53, ptr %86, align 8, !tbaa !201
   %.not = icmp eq i64 %.014, 0
   %87 = add nsw i64 %.014, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !423
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !425
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit, %3
   ret void
@@ -9662,7 +9662,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 .critedge.i.us:                                   ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i.us, %._crit_edge._crit_edge52.i.i.i.i.i.us, %._crit_edge.i.i.i.i.i.us, %.lr.ph.i.split.us
   %101 = getelementptr inbounds nuw i8, ptr %.01522.i.us, i64 32
   %.not.not.i.us = icmp eq ptr %101, %49
-  br i1 %.not.not.i.us, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE18usesValueFromCycleERKNS_11InstructionERKNS_12GenericCycleIS3_EE.exit, label %.lr.ph.i.split.us
+  br i1 %.not.not.i.us, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE18usesValueFromCycleERKNS_11InstructionERKNS_12GenericCycleIS3_EE.exit, label %.lr.ph.i.split.us, !llvm.loop !426
 
 ._crit_edge.i.i.i.i.i.us.unreachabledefault:      ; preds = %._crit_edge.i.i.i.i.i.us
   unreachable
@@ -10082,7 +10082,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx
   %35 = getelementptr inbounds nuw i8, ptr %.02952, i64 32
   %36 = add nsw i64 %.053, -1
   %37 = icmp sgt i64 %.053, 1
-  br i1 %37, label %11, label %._crit_edge.loopexit, !llvm.loop !424
+  br i1 %37, label %11, label %._crit_edge.loopexit, !llvm.loop !427
 
 ._crit_edge.loopexit:                             ; preds = %34
   %.pre = ptrtoint ptr %35 to i64
@@ -10191,11 +10191,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN4llv
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE5printERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !425
+  store ptr null, ptr %0, align 8, !tbaa !428
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE5printERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !430
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE5printERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE5printERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -10207,7 +10207,7 @@ define linkonce_odr hidden void @_ZZNK4llvm12GenericCycleINS_17GenericSSAContext
   %3 = alloca %"class.llvm::Printable", align 8
   %4 = alloca %"class.llvm::Printable", align 8
   %5 = alloca %"class.llvm::Printable", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !428
+  %6 = load ptr, ptr %0, align 8, !tbaa !431
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !188
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -10260,14 +10260,14 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %34, %32
   %.0.i.i12 = phi ptr [ %33, %32 ], [ %23, %34 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !430
+  %38 = load ptr, ptr %37, align 8, !tbaa !433
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE12printEntriesERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %39, align 8, !tbaa !198, !alias.scope !431
+  store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE12printEntriesERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %39, align 8, !tbaa !198, !alias.scope !434
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %4, align 8, !alias.scope !431
+  store ptr %6, ptr %4, align 8, !alias.scope !434
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %38, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !200, !alias.scope !431
-  store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE12printEntriesERKS7_EUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %40, align 8, !tbaa !196, !alias.scope !431
+  store ptr %38, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !200, !alias.scope !434
+  store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE12printEntriesERKS7_EUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %40, align 8, !tbaa !196, !alias.scope !434
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !180
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10309,7 +10309,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %34, %32
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i:           ; preds = %58, %56, %51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
-  %60 = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !434
+  %60 = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !437
   call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_10BasicBlockE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %52) #19
   %61 = load ptr, ptr %49, align 8, !tbaa !196
   %.not.i.i.i.i.i.i.i = icmp eq ptr %61, null
@@ -10509,7 +10509,7 @@ _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE7isEntryEPKNS_10B
 _ZN4llvm11raw_ostreamlsEc.exit17:                 ; preds = %131, %133
   %.0.i16 = phi ptr [ %132, %131 ], [ %1, %133 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
-  %135 = load ptr, ptr %37, align 8, !tbaa !430
+  %135 = load ptr, ptr %37, align 8, !tbaa !433
   call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_10BasicBlockE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef %88) #19
   %136 = load ptr, ptr %85, align 8, !tbaa !196
   %.not.i.i.i18 = icmp eq ptr %136, null
@@ -10545,7 +10545,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE12printEntriesERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #1 comdat align 2 {
   %3 = alloca %"class.llvm::Printable", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !436
+  %4 = load ptr, ptr %0, align 8, !tbaa !439
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !180
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10588,7 +10588,7 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostream
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %23, %21, %16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
-  %25 = load ptr, ptr %13, align 8, !tbaa !434
+  %25 = load ptr, ptr %13, align 8, !tbaa !437
   call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_10BasicBlockE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %17) #19
   %26 = load ptr, ptr %14, align 8, !tbaa !196
   %.not.i.i.i.i.i.i = icmp eq ptr %26, null
@@ -10632,11 +10632,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN4llv
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE12printEntriesERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !425
+  store ptr null, ptr %0, align 8, !tbaa !428
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE12printEntriesERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !430
   br label %_ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE12printEntriesERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZNK4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEE12printEntriesERKS5_EUlRNS1_11raw_ostreamEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -10657,10 +10657,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !116
-  %3 = load ptr, ptr %2, align 8, !tbaa !437
+  %3 = load ptr, ptr %2, align 8, !tbaa !440
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !439
-  %6 = load ptr, ptr %5, align 8, !tbaa !440
+  %5 = load ptr, ptr %4, align 8, !tbaa !442
+  %6 = load ptr, ptr %5, align 8, !tbaa !443
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #19
   ret void
 }
@@ -11136,23 +11136,26 @@ attributes #23 = { nounwind willreturn memory(read) }
 !420 = distinct !{!420, !17}
 !421 = distinct !{!421, !17}
 !422 = distinct !{!422, !17}
-!423 = distinct !{!423, !17}
-!424 = distinct !{!424, !17}
-!425 = !{!426, !426, i64 0}
-!426 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!427 = !{i64 0, i64 8, !201, i64 8, i64 8, !173}
-!428 = !{!429, !149, i64 0}
-!429 = !{!"_ZTSZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE5printERKS3_EUlRNS_11raw_ostreamEE_", !149, i64 0, !27, i64 8}
-!430 = !{!429, !27, i64 8}
-!431 = !{!432}
-!432 = distinct !{!432, !433, !"_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_: argument 0"}
-!433 = distinct !{!433, !"_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_"}
-!434 = !{!435, !27, i64 8}
-!435 = !{!"_ZTSZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_EUlRNS_11raw_ostreamEE_", !149, i64 0, !27, i64 8}
-!436 = !{!435, !149, i64 0}
-!437 = !{!438, !6, i64 0}
-!438 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !232, i64 8}
-!439 = !{!438, !232, i64 8}
-!440 = !{!441, !442, i64 0}
-!441 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !442, i64 0}
-!442 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}
+!423 = distinct !{!423, !17, !424}
+!424 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!425 = distinct !{!425, !17}
+!426 = distinct !{!426, !424}
+!427 = distinct !{!427, !17}
+!428 = !{!429, !429, i64 0}
+!429 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!430 = !{i64 0, i64 8, !201, i64 8, i64 8, !173}
+!431 = !{!432, !149, i64 0}
+!432 = !{!"_ZTSZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE5printERKS3_EUlRNS_11raw_ostreamEE_", !149, i64 0, !27, i64 8}
+!433 = !{!432, !27, i64 8}
+!434 = !{!435}
+!435 = distinct !{!435, !436, !"_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_: argument 0"}
+!436 = distinct !{!436, !"_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_"}
+!437 = !{!438, !27, i64 8}
+!438 = !{!"_ZTSZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE12printEntriesERKS3_EUlRNS_11raw_ostreamEE_", !149, i64 0, !27, i64 8}
+!439 = !{!438, !149, i64 0}
+!440 = !{!441, !6, i64 0}
+!441 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !232, i64 8}
+!442 = !{!441, !232, i64 8}
+!443 = !{!444, !445, i64 0}
+!444 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !445, i64 0}
+!445 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}

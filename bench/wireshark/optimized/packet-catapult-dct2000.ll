@@ -4226,7 +4226,7 @@ define internal fastcc void @dissect_pdcp_lte(ptr noundef %0, i32 noundef %1, pt
   %110 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %.1 = add i32 %.2, 1
   %.not119 = icmp eq i8 %110, 65
-  br i1 %.not119, label %.critedge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %.not119, label %.critedge, label %.lr.ph.split, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph.split, %109, %.lr.ph.split.us, %99, %85
   %.1.lcssa = phi i32 [ %.1120, %85 ], [ %.1.us, %99 ], [ %.1124.us, %.lr.ph.split.us ], [ %.1, %109 ], [ %.1124, %.lr.ph.split ]
@@ -4303,7 +4303,7 @@ define internal fastcc void @dissect_tty_lines(ptr noundef %0, ptr noundef reado
   %45 = add i32 %44, %.04953
   %46 = add nuw nsw i32 %.05052, 1
   %exitcond.not = icmp eq i32 %46, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %23
   %.048 = phi ptr [ %17, %23 ], [ %32, %26 ], [ %32, %.lr.ph ]
@@ -4320,7 +4320,7 @@ define internal fastcc void @dissect_tty_lines(ptr noundef %0, ptr noundef reado
 51:                                               ; preds = %49, %.loopexit
   %52 = load i32, ptr %5, align 4
   %53 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %52)
-  br i1 %53, label %14, label %._crit_edge, !llvm.loop !26
+  br i1 %53, label %14, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51
   %.not = icmp eq i32 %47, 0
@@ -4401,7 +4401,7 @@ sub_1:                                            ; preds = %sub_0
   %28 = zext i16 %27 to i32
   %29 = load i32, ptr %4, align 4
   %30 = icmp ugt i32 %29, %28
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %22, %26
   %31 = phi i32 [ %28, %26 ], [ 1, %22 ]
@@ -4478,7 +4478,7 @@ sub_1:                                            ; preds = %sub_0
   %72 = add i16 %.161, 1
   %73 = zext i16 %72 to i32
   %74 = icmp ugt i32 %46, %73
-  br i1 %74, label %62, label %._crit_edge, !llvm.loop !28
+  br i1 %74, label %62, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %62, %.loopexit
   %75 = trunc nuw i32 %46 to i16
@@ -4854,7 +4854,7 @@ switch.lookup:                                    ; preds = %5
   %168 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %162, i64 noundef %163, i32 noundef 2, i64 noundef %163, ptr noundef nonnull @.str.412, i32 noundef %167)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %get_key.exit, label %160, !llvm.loop !29
+  br i1 %exitcond.not.i, label %get_key.exit, label %160, !llvm.loop !31
 
 get_key.exit:                                     ; preds = %160
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -5210,7 +5210,7 @@ define internal fastcc noundef zeroext i1 @find_ipprim_data_offset(ptr noundef %
   %63 = add i32 %31, %34
   %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63)
   %65 = icmp sgt i32 %64, 2
-  br i1 %65, label %20, label %.loopexit, !llvm.loop !30
+  br i1 %65, label %20, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %62, %16, %11, %29
   %.073 = phi i1 [ true, %29 ], [ false, %11 ], [ false, %16 ], [ false, %62 ]
@@ -5432,7 +5432,7 @@ define internal fastcc noundef zeroext i1 @find_sctpprim_variant1_data_offset(pt
   %26 = add i32 %.02629, %.sink
   %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
   %28 = icmp sgt i32 %27, 2
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !31
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 29:                                               ; preds = %22
   store i32 %23, ptr %2, align 4
@@ -5547,7 +5547,7 @@ define internal fastcc noundef zeroext i1 @find_sctpprim_variant3_data_offset(pt
   %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1)
   %51 = add i32 %.1, 2
   %.not101 = icmp eq i16 %50, 3072
-  br i1 %.not101, label %.critedge103, label %.lr.ph, !llvm.loop !32
+  br i1 %.not101, label %.critedge103, label %.lr.ph, !llvm.loop !34
 
 .critedge103:                                     ; preds = %49, %31
   %.097.lcssa = phi i32 [ %34, %31 ], [ %51, %49 ]
@@ -5652,7 +5652,7 @@ define internal fastcc void @get_key(ptr noundef %0, i32 noundef %1) unnamed_add
   %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %6, i64 noundef %7, i32 noundef 2, i64 noundef %7, ptr noundef nonnull @.str.412, i32 noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !29
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5725,8 +5725,8 @@ attributes #15 = { noreturn }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!24 = distinct !{!24, !7, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
@@ -5734,3 +5734,5 @@ attributes #15 = { noreturn }
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}

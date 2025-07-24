@@ -694,7 +694,7 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   store double %106, ptr %104, align 8, !tbaa !69
   %107 = add nsw i64 %.0152181.us.i, %87
   %108 = icmp slt i64 %107, %92
-  br i1 %108, label %.lr.ph.split.us.i, label %._crit_edge.i
+  br i1 %108, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !70
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %136
   %.0152181.i = phi i64 [ %140, %136 ], [ %93, %.lr.ph.i ]
@@ -1196,3 +1196,5 @@ attributes #10 = { nounwind allocsize(0) }
 !67 = !{!4, !11, i64 264}
 !68 = !{!4, !9, i64 320}
 !69 = !{!9, !9, i64 0}
+!70 = distinct !{!70, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}

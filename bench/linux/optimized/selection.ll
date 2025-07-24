@@ -134,17 +134,17 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   tail call void @complement_pos(ptr noundef %11, i32 noundef -1) #9
   %12 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %475, label %14
+  br i1 %13, label %453, label %14
 
 14:                                               ; preds = %10
   %15 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub50 = sub i32 %16, %15
-  %18 = add i32 %reass.sub50, 2
+  %reass.sub41 = sub i32 %16, %15
+  %18 = add i32 %reass.sub41, 2
   tail call void @invert_screen(ptr noundef %17, i32 noundef %15, i32 noundef %18, i1 noundef zeroext true) #9
   store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  br label %475
+  br label %453
 
 19:                                               ; preds = %2
   %20 = load i16, ptr %0, align 2
@@ -206,7 +206,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %68 = load i16, ptr %29, align 2
   %69 = zext i16 %68 to i32
   tail call void @mouse_report(ptr noundef %1, i32 noundef %65, i32 noundef %67, i32 noundef %69) #9
-  br label %475
+  br label %453
 
 70:                                               ; preds = %59, %19
   %71 = load i16, ptr %29, align 2
@@ -256,649 +256,607 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %102 = load i32, ptr @fg_console, align 4
   %103 = tail call i32 @vt_do_kdgkbmode(i32 noundef %102) #9
   %104 = icmp eq i32 %103, 3
-  switch i16 %101, label %475 [
+  switch i16 %101, label %453 [
     i16 0, label %.loopexit29
     i16 1, label %105
-    i16 2, label %249
-    i16 3, label %257
+    i16 2, label %227
+    i16 3, label %235
   ]
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %107, label %.thread64
+  br i1 %104, label %107, label %.thread49
 
 107:                                              ; preds = %105
   %108 = sdiv i32 %88, 2
   %109 = tail call i32 @screen_glyph_unicode(ptr noundef %106, i32 noundef %108) #9
   %110 = icmp eq i32 %109, 32
-  br i1 %110, label %.split.us.split.us, label %.split.split.us
+  br i1 %110, label %.split.us.preheader, label %.split.split.us
 
-.thread64:                                        ; preds = %105
+.thread49:                                        ; preds = %105
   %111 = tail call zeroext i16 @screen_glyph(ptr noundef %106, i32 noundef %88) #9
   %112 = tail call zeroext i16 @inverse_translate(ptr noundef %106, i16 noundef zeroext %111, i1 noundef zeroext false) #9
   %113 = icmp eq i16 %112, 32
-  br i1 %113, label %.split.us.split, label %.split.split
+  br i1 %113, label %.split.us.preheader, label %.split.split
 
-.split.us.split.us:                               ; preds = %107
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %115 = sdiv i32 %88, 2
-  %116 = tail call i32 @screen_glyph_unicode(ptr noundef %114, i32 noundef %115) #9
-  %117 = icmp eq i32 %116, 32
-  br i1 %117, label %.critedge.us.us, label %.split32.us.thread
+.split.us.preheader:                              ; preds = %.thread49, %107
+  br label %.split.us
 
-.split32.us.thread:                               ; preds = %.split.us.split.us
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br label %186
+.split.us:                                        ; preds = %.split.us.preheader, %130
+  %114 = phi i32 [ %115, %130 ], [ %88, %.split.us.preheader ]
+  %115 = phi i32 [ %131, %130 ], [ %88, %.split.us.preheader ]
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %121, label %117
 
-.critedge.us.us:                                  ; preds = %.split.us.split.us, %123
-  %119 = phi i32 [ %124, %123 ], [ %88, %.split.us.split.us ]
-  %120 = load i32, ptr %73, align 4
-  %121 = urem i32 %119, %120
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.split32.us, label %123
+117:                                              ; preds = %.split.us
+  %118 = tail call zeroext i16 @screen_glyph(ptr noundef %116, i32 noundef %115) #9
+  %119 = tail call zeroext i16 @inverse_translate(ptr noundef %116, i16 noundef zeroext %118, i1 noundef zeroext false) #9
+  %120 = zext i16 %119 to i32
+  br label %124
 
-123:                                              ; preds = %.critedge.us.us
-  %124 = add i32 %119, -2
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %126 = sdiv i32 %124, 2
-  %127 = tail call i32 @screen_glyph_unicode(ptr noundef %125, i32 noundef %126) #9
-  %128 = icmp eq i32 %127, 32
-  br i1 %128, label %.critedge.us.us, label %.split32.us, !llvm.loop !7
+121:                                              ; preds = %.split.us
+  %122 = sdiv i32 %115, 2
+  %123 = tail call i32 @screen_glyph_unicode(ptr noundef %116, i32 noundef %122) #9
+  br label %124
 
-.split.us.split:                                  ; preds = %.thread64
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %130 = tail call zeroext i16 @screen_glyph(ptr noundef %129, i32 noundef %88) #9
-  %131 = tail call zeroext i16 @inverse_translate(ptr noundef %129, i16 noundef zeroext %130, i1 noundef zeroext false) #9
-  %132 = icmp eq i16 %131, 32
-  br i1 %132, label %.critedge.us, label %.split32.us.thread68
+124:                                              ; preds = %121, %117
+  %125 = phi i32 [ %123, %121 ], [ %120, %117 ]
+  %126 = icmp eq i32 %125, 32
+  br i1 %126, label %.critedge.us, label %.split32.us
 
-.split32.us.thread68:                             ; preds = %.split.us.split
-  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br label %.thread71
+.critedge.us:                                     ; preds = %124
+  %127 = load i32, ptr %73, align 4
+  %128 = urem i32 %115, %127
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %.split32.us, label %130
 
-.critedge.us:                                     ; preds = %.split.us.split, %138
-  %134 = phi i32 [ %139, %138 ], [ %88, %.split.us.split ]
-  %135 = load i32, ptr %73, align 4
-  %136 = urem i32 %134, %135
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %.split32.us, label %138
+130:                                              ; preds = %.critedge.us
+  %131 = add i32 %115, -2
+  br label %.split.us, !llvm.loop !7
 
-138:                                              ; preds = %.critedge.us
-  %139 = add i32 %134, -2
-  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %141 = tail call zeroext i16 @screen_glyph(ptr noundef %140, i32 noundef %139) #9
-  %142 = tail call zeroext i16 @inverse_translate(ptr noundef %140, i16 noundef zeroext %141, i1 noundef zeroext false) #9
-  %143 = icmp eq i16 %142, 32
-  br i1 %143, label %.critedge.us, label %.split32.us, !llvm.loop !7
+.split.split.us:                                  ; preds = %107, %150
+  %132 = phi i32 [ %133, %150 ], [ %88, %107 ]
+  %133 = phi i32 [ %151, %150 ], [ %88, %107 ]
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  %135 = sdiv i32 %133, 2
+  %136 = tail call i32 @screen_glyph_unicode(ptr noundef %134, i32 noundef %135) #9
+  %137 = icmp ugt i32 %136, 127
+  br i1 %137, label %.critedge.us33, label %138
 
-.split.split.us:                                  ; preds = %107, %162
-  %144 = phi i32 [ %145, %162 ], [ %88, %107 ]
-  %145 = phi i32 [ %163, %162 ], [ %88, %107 ]
-  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %147 = sdiv i32 %145, 2
-  %148 = tail call i32 @screen_glyph_unicode(ptr noundef %146, i32 noundef %147) #9
-  %149 = icmp ugt i32 %148, 127
-  br i1 %149, label %.critedge.us33, label %150
+138:                                              ; preds = %.split.split.us
+  %139 = lshr i32 %136, 5
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %140
+  %142 = load i32, ptr %141, align 4
+  %143 = and i32 %136, 31
+  %144 = shl nuw i32 1, %143
+  %145 = and i32 %142, %144
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %.split32.us, label %.critedge.us33
 
-150:                                              ; preds = %.split.split.us
-  %151 = lshr i32 %148, 5
-  %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %152
-  %154 = load i32, ptr %153, align 4
-  %155 = and i32 %148, 31
-  %156 = shl nuw i32 1, %155
-  %157 = and i32 %154, %156
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.split32.us, label %.critedge.us33
+.critedge.us33:                                   ; preds = %138, %.split.split.us
+  %147 = load i32, ptr %73, align 4
+  %148 = urem i32 %133, %147
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %.split32.us, label %150
 
-.critedge.us33:                                   ; preds = %150, %.split.split.us
-  %159 = load i32, ptr %73, align 4
-  %160 = urem i32 %145, %159
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.split32.us, label %162
+150:                                              ; preds = %.critedge.us33
+  %151 = add i32 %133, -2
+  br label %.split.split.us, !llvm.loop !10
 
-162:                                              ; preds = %.critedge.us33
-  %163 = add i32 %145, -2
-  br label %.split.split.us, !llvm.loop !7
+.split.split:                                     ; preds = %.thread49, %171
+  %152 = phi i32 [ %153, %171 ], [ %88, %.thread49 ]
+  %153 = phi i32 [ %172, %171 ], [ %88, %.thread49 ]
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  %155 = tail call zeroext i16 @screen_glyph(ptr noundef %154, i32 noundef %153) #9
+  %156 = tail call zeroext i16 @inverse_translate(ptr noundef %154, i16 noundef zeroext %155, i1 noundef zeroext false) #9
+  %157 = icmp ugt i16 %156, 127
+  br i1 %157, label %.critedge, label %158
 
-.split.split:                                     ; preds = %.thread64, %183
-  %164 = phi i32 [ %165, %183 ], [ %88, %.thread64 ]
-  %165 = phi i32 [ %184, %183 ], [ %88, %.thread64 ]
-  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %167 = tail call zeroext i16 @screen_glyph(ptr noundef %166, i32 noundef %165) #9
-  %168 = tail call zeroext i16 @inverse_translate(ptr noundef %166, i16 noundef zeroext %167, i1 noundef zeroext false) #9
-  %169 = icmp ugt i16 %168, 127
-  br i1 %169, label %.critedge, label %170
+158:                                              ; preds = %.split.split
+  %159 = zext nneg i16 %156 to i32
+  %160 = lshr i32 %159, 5
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = and i32 %159, 31
+  %165 = shl nuw i32 1, %164
+  %166 = and i32 %163, %165
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %.split32.us, label %.critedge
 
-170:                                              ; preds = %.split.split
-  %171 = zext nneg i16 %168 to i32
-  %172 = lshr i32 %171, 5
-  %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %173
-  %175 = load i32, ptr %174, align 4
-  %176 = and i32 %171, 31
-  %177 = shl nuw i32 1, %176
-  %178 = and i32 %175, %177
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %.split32.us, label %.critedge
+.critedge:                                        ; preds = %.split.split, %158
+  %168 = load i32, ptr %73, align 4
+  %169 = urem i32 %153, %168
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %.split32.us, label %171
 
-.critedge:                                        ; preds = %.split.split, %170
-  %180 = load i32, ptr %73, align 4
-  %181 = urem i32 %165, %180
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.split32.us, label %183
+171:                                              ; preds = %.critedge
+  %172 = add i32 %153, -2
+  br label %.split.split, !llvm.loop !11
 
-183:                                              ; preds = %.critedge
-  %184 = add i32 %165, -2
-  br label %.split.split, !llvm.loop !7
+.split32.us:                                      ; preds = %.critedge, %158, %.critedge.us33, %138, %124, %.critedge.us
+  %.us-phi = phi i32 [ %115, %.critedge.us ], [ %114, %124 ], [ %133, %.critedge.us33 ], [ %132, %138 ], [ %153, %.critedge ], [ %152, %158 ]
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %174, label %177
 
-.split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
-  %.us-phi = phi i32 [ %119, %.critedge.us.us ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %144, %150 ], [ %134, %.critedge.us ], [ %134, %138 ], [ %165, %.critedge ], [ %164, %170 ]
-  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %186, label %.thread71
+174:                                              ; preds = %.split32.us
+  %175 = sdiv i32 %87, 2
+  %176 = tail call i32 @screen_glyph_unicode(ptr noundef %173, i32 noundef %175) #9
+  br label %181
 
-186:                                              ; preds = %.split32.us, %.split32.us.thread
-  %187 = phi ptr [ %118, %.split32.us.thread ], [ %185, %.split32.us ]
-  %.us-phi67 = phi i32 [ %88, %.split32.us.thread ], [ %.us-phi, %.split32.us ]
-  %188 = sdiv i32 %87, 2
-  %189 = tail call i32 @screen_glyph_unicode(ptr noundef %187, i32 noundef %188) #9
-  %190 = icmp eq i32 %189, 32
-  br i1 %190, label %.split39.us.split.us, label %.split39.preheader
+177:                                              ; preds = %.split32.us
+  %178 = tail call zeroext i16 @screen_glyph(ptr noundef %173, i32 noundef %87) #9
+  %179 = tail call zeroext i16 @inverse_translate(ptr noundef %173, i16 noundef zeroext %178, i1 noundef zeroext false) #9
+  %180 = zext i16 %179 to i32
+  br label %181
 
-.thread71:                                        ; preds = %.split32.us, %.split32.us.thread68
-  %191 = phi ptr [ %133, %.split32.us.thread68 ], [ %185, %.split32.us ]
-  %.us-phi70 = phi i32 [ %88, %.split32.us.thread68 ], [ %.us-phi, %.split32.us ]
-  %192 = tail call zeroext i16 @screen_glyph(ptr noundef %191, i32 noundef %87) #9
-  %193 = tail call zeroext i16 @inverse_translate(ptr noundef %191, i16 noundef zeroext %192, i1 noundef zeroext false) #9
-  %194 = icmp eq i16 %193, 32
-  br i1 %194, label %.split39.us.split, label %.split39.preheader
+181:                                              ; preds = %177, %174
+  %182 = phi i32 [ %176, %174 ], [ %180, %177 ]
+  %183 = icmp eq i32 %182, 32
+  br i1 %183, label %.split35.us, label %.split35
 
-.split39.preheader:                               ; preds = %.thread71, %186
-  %.us-phi6674 = phi i32 [ %.us-phi70, %.thread71 ], [ %.us-phi67, %186 ]
-  br label %.split39
+.split35.us:                                      ; preds = %181, %.critedge16.us
+  %184 = phi i32 [ %185, %.critedge16.us ], [ %87, %181 ]
+  %185 = phi i32 [ %197, %.critedge16.us ], [ %87, %181 ]
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %191, label %187
 
-.split39.us.split.us:                             ; preds = %186
-  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %196 = sdiv i32 %87, 2
-  %197 = tail call i32 @screen_glyph_unicode(ptr noundef %195, i32 noundef %196) #9
-  %198 = icmp eq i32 %197, 32
-  br i1 %198, label %.critedge16.us.us, label %.loopexit29
+187:                                              ; preds = %.split35.us
+  %188 = tail call zeroext i16 @screen_glyph(ptr noundef %186, i32 noundef %185) #9
+  %189 = tail call zeroext i16 @inverse_translate(ptr noundef %186, i16 noundef zeroext %188, i1 noundef zeroext false) #9
+  %190 = zext i16 %189 to i32
+  br label %194
 
-199:                                              ; preds = %.critedge16.us.us
-  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %201 = sdiv i32 %205, 2
-  %202 = tail call i32 @screen_glyph_unicode(ptr noundef %200, i32 noundef %201) #9
-  %203 = icmp eq i32 %202, 32
-  br i1 %203, label %.critedge16.us.us, label %.loopexit29, !llvm.loop !9
+191:                                              ; preds = %.split35.us
+  %192 = sdiv i32 %185, 2
+  %193 = tail call i32 @screen_glyph_unicode(ptr noundef %186, i32 noundef %192) #9
+  br label %194
 
-.critedge16.us.us:                                ; preds = %.split39.us.split.us, %199
-  %204 = phi i32 [ %205, %199 ], [ %87, %.split39.us.split.us ]
-  %205 = add i32 %204, 2
-  %206 = load i32, ptr %73, align 4
-  %207 = urem i32 %205, %206
-  %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge, label %199, !llvm.loop !9
+194:                                              ; preds = %191, %187
+  %195 = phi i32 [ %193, %191 ], [ %190, %187 ]
+  %196 = icmp eq i32 %195, 32
+  br i1 %196, label %.critedge16.us, label %.loopexit29
 
-.critedge16.us.us..loopexit29.split.us.split.us_crit_edge: ; preds = %.critedge16.us.us
-  br label %.loopexit29, !llvm.loop !9
+.critedge16.us:                                   ; preds = %194
+  %197 = add i32 %185, 2
+  %198 = load i32, ptr %73, align 4
+  %199 = urem i32 %197, %198
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %.loopexit29, label %.split35.us, !llvm.loop !12
 
-.split39.us.split:                                ; preds = %.thread71
-  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %210 = tail call zeroext i16 @screen_glyph(ptr noundef %209, i32 noundef %87) #9
-  %211 = tail call zeroext i16 @inverse_translate(ptr noundef %209, i16 noundef zeroext %210, i1 noundef zeroext false) #9
-  %212 = icmp eq i16 %211, 32
-  br i1 %212, label %.critedge16.us, label %.loopexit29
+.split35:                                         ; preds = %181, %.critedge16
+  %201 = phi i32 [ %202, %.critedge16 ], [ %87, %181 ]
+  %202 = phi i32 [ %223, %.critedge16 ], [ %87, %181 ]
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %204, label %207
 
-213:                                              ; preds = %.critedge16.us
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %215 = tail call zeroext i16 @screen_glyph(ptr noundef %214, i32 noundef %219) #9
-  %216 = tail call zeroext i16 @inverse_translate(ptr noundef %214, i16 noundef zeroext %215, i1 noundef zeroext false) #9
-  %217 = icmp eq i16 %216, 32
-  br i1 %217, label %.critedge16.us, label %.loopexit29, !llvm.loop !9
+204:                                              ; preds = %.split35
+  %205 = sdiv i32 %202, 2
+  %206 = tail call i32 @screen_glyph_unicode(ptr noundef %203, i32 noundef %205) #9
+  br label %211
 
-.critedge16.us:                                   ; preds = %.split39.us.split, %213
-  %218 = phi i32 [ %219, %213 ], [ %87, %.split39.us.split ]
-  %219 = add i32 %218, 2
-  %220 = load i32, ptr %73, align 4
-  %221 = urem i32 %219, %220
+207:                                              ; preds = %.split35
+  %208 = tail call zeroext i16 @screen_glyph(ptr noundef %203, i32 noundef %202) #9
+  %209 = tail call zeroext i16 @inverse_translate(ptr noundef %203, i16 noundef zeroext %208, i1 noundef zeroext false) #9
+  %210 = zext i16 %209 to i32
+  br label %211
+
+211:                                              ; preds = %207, %204
+  %212 = phi i32 [ %206, %204 ], [ %210, %207 ]
+  %213 = icmp ugt i32 %212, 127
+  br i1 %213, label %.critedge16, label %214
+
+214:                                              ; preds = %211
+  %215 = lshr i32 %212, 5
+  %216 = zext nneg i32 %215 to i64
+  %217 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %216
+  %218 = load i32, ptr %217, align 4
+  %219 = and i32 %212, 31
+  %220 = shl nuw i32 1, %219
+  %221 = and i32 %218, %220
   %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.critedge16.us..loopexit29.split.us.split_crit_edge, label %213, !llvm.loop !9
+  br i1 %222, label %.loopexit29, label %.critedge16
 
-.critedge16.us..loopexit29.split.us.split_crit_edge: ; preds = %.critedge16.us
-  br label %.loopexit29, !llvm.loop !9
+.critedge16:                                      ; preds = %211, %214
+  %223 = add i32 %202, 2
+  %224 = load i32, ptr %73, align 4
+  %225 = urem i32 %223, %224
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %.loopexit29, label %.split35, !llvm.loop !13
 
-.split39:                                         ; preds = %.split39.preheader, %.critedge16
-  %223 = phi i32 [ %224, %.critedge16 ], [ %87, %.split39.preheader ]
-  %224 = phi i32 [ %245, %.critedge16 ], [ %87, %.split39.preheader ]
-  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %226, label %229
-
-226:                                              ; preds = %.split39
-  %227 = sdiv i32 %224, 2
-  %228 = tail call i32 @screen_glyph_unicode(ptr noundef %225, i32 noundef %227) #9
-  br label %233
-
-229:                                              ; preds = %.split39
-  %230 = tail call zeroext i16 @screen_glyph(ptr noundef %225, i32 noundef %224) #9
-  %231 = tail call zeroext i16 @inverse_translate(ptr noundef %225, i16 noundef zeroext %230, i1 noundef zeroext false) #9
-  %232 = zext i16 %231 to i32
-  br label %233
-
-233:                                              ; preds = %229, %226
-  %234 = phi i32 [ %228, %226 ], [ %232, %229 ]
-  %235 = icmp ugt i32 %234, 127
-  br i1 %235, label %.critedge16, label %236
-
-236:                                              ; preds = %233
-  %237 = lshr i32 %234, 5
-  %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %238
-  %240 = load i32, ptr %239, align 4
-  %241 = and i32 %234, 31
-  %242 = shl nuw i32 1, %241
-  %243 = and i32 %240, %242
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %.loopexit29, label %.critedge16
-
-.critedge16:                                      ; preds = %233, %236
-  %245 = add i32 %224, 2
-  %246 = load i32, ptr %73, align 4
-  %247 = urem i32 %245, %246
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %.loopexit29, label %.split39, !llvm.loop !9
-
-249:                                              ; preds = %100
-  %250 = load i32, ptr %73, align 4
-  %251 = urem i32 %88, %250
-  %252 = sub nuw i32 %88, %251
-  %253 = urem i32 %87, %250
-  %254 = add i32 %87, -2
-  %255 = add i32 %254, %250
-  %256 = sub i32 %255, %253
+227:                                              ; preds = %100
+  %228 = load i32, ptr %73, align 4
+  %229 = urem i32 %88, %228
+  %230 = sub nuw i32 %88, %229
+  %231 = urem i32 %87, %228
+  %232 = add i32 %87, -2
+  %233 = add i32 %232, %228
+  %234 = sub i32 %233, %231
   br label %.loopexit29
 
-257:                                              ; preds = %100
-  %258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  tail call void @complement_pos(ptr noundef %258, i32 noundef %87) #9
-  br label %475
+235:                                              ; preds = %100
+  %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  tail call void @complement_pos(ptr noundef %236, i32 noundef %87) #9
+  br label %453
 
-.loopexit29:                                      ; preds = %213, %236, %.critedge16, %199, %.split39.us.split, %.critedge16.us..loopexit29.split.us.split_crit_edge, %.split39.us.split.us, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge, %249, %100
-  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %204, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %87, %.split39.us.split.us ], [ %218, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ]
-  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi67, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %.us-phi67, %.split39.us.split.us ], [ %.us-phi70, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %.us-phi70, %.split39.us.split ], [ %.us-phi67, %199 ], [ %.us-phi6674, %.critedge16 ], [ %.us-phi6674, %236 ], [ %.us-phi70, %213 ]
-  %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  tail call void @complement_pos(ptr noundef %261, i32 noundef -1) #9
-  %262 = icmp sgt i32 %259, %260
-  br i1 %262, label %263, label %.critedge18
+.loopexit29:                                      ; preds = %214, %.critedge16, %.critedge16.us, %194, %227, %100
+  %237 = phi i32 [ %234, %227 ], [ %87, %100 ], [ %184, %194 ], [ %185, %.critedge16.us ], [ %201, %214 ], [ %202, %.critedge16 ]
+  %238 = phi i32 [ %230, %227 ], [ %88, %100 ], [ %.us-phi, %194 ], [ %.us-phi, %.critedge16.us ], [ %.us-phi, %.critedge16 ], [ %.us-phi, %214 ]
+  %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  tail call void @complement_pos(ptr noundef %239, i32 noundef -1) #9
+  %240 = icmp sgt i32 %237, %238
+  br i1 %240, label %241, label %.critedge18
 
-263:                                              ; preds = %.loopexit29
-  %264 = load i32, ptr %73, align 4
-  %265 = srem i32 %259, %264
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %.critedge18, label %267
+241:                                              ; preds = %.loopexit29
+  %242 = load i32, ptr %73, align 4
+  %243 = srem i32 %237, %242
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %.critedge18, label %245
 
-267:                                              ; preds = %263
-  %268 = add i32 %259, 2
-  %269 = srem i32 %268, %264
-  %.not = icmp eq i32 %269, 0
-  br i1 %.not, label %.critedge18, label %270
+245:                                              ; preds = %241
+  %246 = add i32 %237, 2
+  %247 = srem i32 %246, %242
+  %.not = icmp eq i32 %247, 0
+  br i1 %.not, label %.critedge18, label %248
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %272, label %275
+248:                                              ; preds = %245
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %250, label %253
 
-272:                                              ; preds = %270
-  %273 = sdiv i32 %259, 2
-  %274 = tail call i32 @screen_glyph_unicode(ptr noundef %271, i32 noundef %273) #9
-  br label %279
+250:                                              ; preds = %248
+  %251 = sdiv i32 %237, 2
+  %252 = tail call i32 @screen_glyph_unicode(ptr noundef %249, i32 noundef %251) #9
+  br label %257
 
-275:                                              ; preds = %270
-  %276 = tail call zeroext i16 @screen_glyph(ptr noundef %271, i32 noundef %259) #9
-  %277 = tail call zeroext i16 @inverse_translate(ptr noundef %271, i16 noundef zeroext %276, i1 noundef zeroext false) #9
-  %278 = zext i16 %277 to i32
-  br label %279
+253:                                              ; preds = %248
+  %254 = tail call zeroext i16 @screen_glyph(ptr noundef %249, i32 noundef %237) #9
+  %255 = tail call zeroext i16 @inverse_translate(ptr noundef %249, i16 noundef zeroext %254, i1 noundef zeroext false) #9
+  %256 = zext i16 %255 to i32
+  br label %257
 
-279:                                              ; preds = %275, %272
-  %280 = phi i32 [ %274, %272 ], [ %278, %275 ]
-  %281 = icmp eq i32 %280, 32
-  br i1 %281, label %.preheader28, label %.critedge18
+257:                                              ; preds = %253, %250
+  %258 = phi i32 [ %252, %250 ], [ %256, %253 ]
+  %259 = icmp eq i32 %258, 32
+  br i1 %259, label %.preheader28, label %.critedge18
 
-.preheader28:                                     ; preds = %279, %299
-  %282 = phi i32 [ %283, %299 ], [ %259, %279 ]
-  %283 = add i32 %282, 2
-  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %285, label %288
+.preheader28:                                     ; preds = %257, %277
+  %260 = phi i32 [ %261, %277 ], [ %237, %257 ]
+  %261 = add i32 %260, 2
+  %262 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %263, label %266
 
-285:                                              ; preds = %.preheader28
-  %286 = sdiv i32 %283, 2
-  %287 = tail call i32 @screen_glyph_unicode(ptr noundef %284, i32 noundef %286) #9
-  br label %292
+263:                                              ; preds = %.preheader28
+  %264 = sdiv i32 %261, 2
+  %265 = tail call i32 @screen_glyph_unicode(ptr noundef %262, i32 noundef %264) #9
+  br label %270
 
-288:                                              ; preds = %.preheader28
-  %289 = tail call zeroext i16 @screen_glyph(ptr noundef %284, i32 noundef %283) #9
-  %290 = tail call zeroext i16 @inverse_translate(ptr noundef %284, i16 noundef zeroext %289, i1 noundef zeroext false) #9
-  %291 = zext i16 %290 to i32
-  br label %292
+266:                                              ; preds = %.preheader28
+  %267 = tail call zeroext i16 @screen_glyph(ptr noundef %262, i32 noundef %261) #9
+  %268 = tail call zeroext i16 @inverse_translate(ptr noundef %262, i16 noundef zeroext %267, i1 noundef zeroext false) #9
+  %269 = zext i16 %268 to i32
+  br label %270
 
-292:                                              ; preds = %288, %285
-  %293 = phi i32 [ %287, %285 ], [ %291, %288 ]
-  %294 = icmp eq i32 %293, 32
-  br i1 %294, label %295, label %.critedge20
+270:                                              ; preds = %266, %263
+  %271 = phi i32 [ %265, %263 ], [ %269, %266 ]
+  %272 = icmp eq i32 %271, 32
+  br i1 %272, label %273, label %.critedge20
 
-295:                                              ; preds = %292
-  %296 = load i32, ptr %73, align 4
-  %297 = srem i32 %283, %296
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %.critedge20, label %299
+273:                                              ; preds = %270
+  %274 = load i32, ptr %73, align 4
+  %275 = srem i32 %261, %274
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %.critedge20, label %277
 
-299:                                              ; preds = %295
-  %300 = add i32 %282, 4
-  %301 = srem i32 %300, %296
-  %.not22 = icmp eq i32 %301, 0
-  br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !10
+277:                                              ; preds = %273
+  %278 = add i32 %260, 4
+  %279 = srem i32 %278, %274
+  %.not22 = icmp eq i32 %279, 0
+  br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !14
 
-.critedge20:                                      ; preds = %295, %299, %292
-  %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %303, label %306
+.critedge20:                                      ; preds = %273, %277, %270
+  %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %281, label %284
 
-303:                                              ; preds = %.critedge20
-  %304 = sdiv i32 %283, 2
-  %305 = tail call i32 @screen_glyph_unicode(ptr noundef %302, i32 noundef %304) #9
-  br label %310
+281:                                              ; preds = %.critedge20
+  %282 = sdiv i32 %261, 2
+  %283 = tail call i32 @screen_glyph_unicode(ptr noundef %280, i32 noundef %282) #9
+  br label %288
 
-306:                                              ; preds = %.critedge20
-  %307 = tail call zeroext i16 @screen_glyph(ptr noundef %302, i32 noundef %283) #9
-  %308 = tail call zeroext i16 @inverse_translate(ptr noundef %302, i16 noundef zeroext %307, i1 noundef zeroext false) #9
-  %309 = zext i16 %308 to i32
-  br label %310
+284:                                              ; preds = %.critedge20
+  %285 = tail call zeroext i16 @screen_glyph(ptr noundef %280, i32 noundef %261) #9
+  %286 = tail call zeroext i16 @inverse_translate(ptr noundef %280, i16 noundef zeroext %285, i1 noundef zeroext false) #9
+  %287 = zext i16 %286 to i32
+  br label %288
 
-310:                                              ; preds = %306, %303
-  %311 = phi i32 [ %305, %303 ], [ %309, %306 ]
-  %312 = icmp eq i32 %311, 32
-  %313 = select i1 %312, i32 %283, i32 %259
+288:                                              ; preds = %284, %281
+  %289 = phi i32 [ %283, %281 ], [ %287, %284 ]
+  %290 = icmp eq i32 %289, 32
+  %291 = select i1 %290, i32 %261, i32 %237
   br label %.critedge18
 
-.critedge18:                                      ; preds = %263, %310, %279, %267, %.loopexit29
-  %314 = phi i32 [ %259, %267 ], [ %259, %279 ], [ %259, %.loopexit29 ], [ %313, %310 ], [ %259, %263 ]
+.critedge18:                                      ; preds = %241, %288, %257, %245, %.loopexit29
+  %292 = phi i32 [ %237, %245 ], [ %237, %257 ], [ %237, %.loopexit29 ], [ %291, %288 ], [ %237, %241 ]
+  %293 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %294 = icmp eq i32 %293, -1
+  br i1 %294, label %295, label %298
+
+295:                                              ; preds = %.critedge18
+  %296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  %reass.sub39 = sub i32 %292, %238
+  %297 = add i32 %reass.sub39, 2
+  tail call void @invert_screen(ptr noundef %296, i32 noundef %238, i32 noundef %297, i1 noundef zeroext true) #9
+  br label %335
+
+298:                                              ; preds = %.critedge18
+  %299 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %300 = icmp eq i32 %238, %299
+  %301 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %302 = icmp eq i32 %292, %301
+  br i1 %300, label %303, label %313
+
+303:                                              ; preds = %298
+  br i1 %302, label %453, label %304
+
+304:                                              ; preds = %303
+  %305 = icmp sgt i32 %292, %301
+  %306 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %305, label %307, label %310
+
+307:                                              ; preds = %304
+  %308 = add i32 %301, 2
+  %309 = sub i32 %292, %301
+  tail call void @invert_screen(ptr noundef %306, i32 noundef %308, i32 noundef %309, i1 noundef zeroext true) #9
+  br label %335
+
+310:                                              ; preds = %304
+  %311 = add i32 %292, 2
+  %312 = sub i32 %301, %292
+  tail call void @invert_screen(ptr noundef %306, i32 noundef %311, i32 noundef %312, i1 noundef zeroext true) #9
+  br label %335
+
+313:                                              ; preds = %298
+  br i1 %302, label %314, label %323
+
+314:                                              ; preds = %313
   %315 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %316 = icmp eq i32 %315, -1
-  br i1 %316, label %317, label %320
-
-317:                                              ; preds = %.critedge18
+  %316 = icmp slt i32 %238, %315
+  %317 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
   %318 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub48 = sub i32 %314, %260
-  %319 = add i32 %reass.sub48, 2
-  tail call void @invert_screen(ptr noundef %318, i32 noundef %260, i32 noundef %319, i1 noundef zeroext true) #9
-  br label %357
+  br i1 %316, label %319, label %321
 
-320:                                              ; preds = %.critedge18
-  %321 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %322 = icmp eq i32 %260, %321
-  %323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %324 = icmp eq i32 %314, %323
-  br i1 %322, label %325, label %335
+319:                                              ; preds = %314
+  %320 = sub i32 %317, %238
+  tail call void @invert_screen(ptr noundef %318, i32 noundef %238, i32 noundef %320, i1 noundef zeroext true) #9
+  br label %335
 
-325:                                              ; preds = %320
-  br i1 %324, label %475, label %326
+321:                                              ; preds = %314
+  %322 = sub i32 %238, %317
+  tail call void @invert_screen(ptr noundef %318, i32 noundef %317, i32 noundef %322, i1 noundef zeroext true) #9
+  br label %335
 
-326:                                              ; preds = %325
-  %327 = icmp sgt i32 %314, %323
-  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %327, label %329, label %332
+323:                                              ; preds = %313
+  %324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  tail call void @complement_pos(ptr noundef %324, i32 noundef -1) #9
+  %325 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %326 = icmp eq i32 %325, -1
+  br i1 %326, label %332, label %327
 
-329:                                              ; preds = %326
-  %330 = add i32 %323, 2
-  %331 = sub i32 %314, %323
-  tail call void @invert_screen(ptr noundef %328, i32 noundef %330, i32 noundef %331, i1 noundef zeroext true) #9
-  br label %357
+327:                                              ; preds = %323
+  %328 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %330 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  %reass.sub37 = sub i32 %329, %328
+  %331 = add i32 %reass.sub37, 2
+  tail call void @invert_screen(ptr noundef %330, i32 noundef %328, i32 noundef %331, i1 noundef zeroext true) #9
+  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  br label %332
 
-332:                                              ; preds = %326
-  %333 = add i32 %314, 2
-  %334 = sub i32 %323, %314
-  tail call void @invert_screen(ptr noundef %328, i32 noundef %333, i32 noundef %334, i1 noundef zeroext true) #9
-  br label %357
+332:                                              ; preds = %327, %323
+  %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  %reass.sub38 = sub i32 %292, %238
+  %334 = add i32 %reass.sub38, 2
+  tail call void @invert_screen(ptr noundef %333, i32 noundef %238, i32 noundef %334, i1 noundef zeroext true) #9
+  br label %335
 
-335:                                              ; preds = %320
-  br i1 %324, label %336, label %345
+335:                                              ; preds = %332, %321, %319, %310, %307, %295
+  store volatile i32 %238, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  store i32 %292, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %336 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %337 = sub i32 %292, %336
+  %338 = sdiv i32 %337, 2
+  %339 = add nsw i32 %338, 1
+  %340 = sext i32 %339 to i64
+  %341 = select i1 %104, i64 4, i64 1
+  %342 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %340, i64 %341)
+  %343 = extractvalue { i64, i1 } %342, 1
+  br i1 %343, label %.thread, label %344, !prof !15
 
-336:                                              ; preds = %335
-  %337 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %338 = icmp slt i32 %260, %337
-  %339 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %338, label %341, label %343
+344:                                              ; preds = %335
+  %345 = extractvalue { i64, i1 } %342, 0
+  %346 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %345, i32 noundef 11456) #10
+  %347 = icmp eq ptr %346, null
+  br i1 %347, label %.thread, label %357
 
-341:                                              ; preds = %336
-  %342 = sub i32 %339, %260
-  tail call void @invert_screen(ptr noundef %340, i32 noundef %260, i32 noundef %342, i1 noundef zeroext true) #9
-  br label %357
-
-343:                                              ; preds = %336
-  %344 = sub i32 %260, %339
-  tail call void @invert_screen(ptr noundef %340, i32 noundef %339, i32 noundef %344, i1 noundef zeroext true) #9
-  br label %357
-
-345:                                              ; preds = %335
-  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  tail call void @complement_pos(ptr noundef %346, i32 noundef -1) #9
-  %347 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %348 = icmp eq i32 %347, -1
-  br i1 %348, label %354, label %349
-
-349:                                              ; preds = %345
+.thread:                                          ; preds = %335, %344
+  %348 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
+  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  tail call void @complement_pos(ptr noundef %349, i32 noundef -1) #9
   %350 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %351 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub46 = sub i32 %351, %350
-  %353 = add i32 %reass.sub46, 2
-  tail call void @invert_screen(ptr noundef %352, i32 noundef %350, i32 noundef %353, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  br label %354
+  %351 = icmp eq i32 %350, -1
+  br i1 %351, label %453, label %352
 
-354:                                              ; preds = %349, %345
+352:                                              ; preds = %.thread
+  %353 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub47 = sub i32 %314, %260
-  %356 = add i32 %reass.sub47, 2
-  tail call void @invert_screen(ptr noundef %355, i32 noundef %260, i32 noundef %356, i1 noundef zeroext true) #9
-  br label %357
-
-357:                                              ; preds = %354, %343, %341, %332, %329, %317
-  store volatile i32 %260, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  store i32 %314, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %358 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %359 = sub i32 %314, %358
-  %360 = sdiv i32 %359, 2
-  %361 = add nsw i32 %360, 1
-  %362 = sext i32 %361 to i64
-  %363 = select i1 %104, i64 4, i64 1
-  %364 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %362, i64 %363)
-  %365 = extractvalue { i64, i1 } %364, 1
-  br i1 %365, label %.thread, label %366, !prof !11
-
-366:                                              ; preds = %357
-  %367 = extractvalue { i64, i1 } %364, 0
-  %368 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %367, i32 noundef 11456) #10
-  %369 = icmp eq ptr %368, null
-  br i1 %369, label %.thread, label %379
-
-.thread:                                          ; preds = %357, %366
-  %370 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %371 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  tail call void @complement_pos(ptr noundef %371, i32 noundef -1) #9
-  %372 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %373 = icmp eq i32 %372, -1
-  br i1 %373, label %475, label %374
-
-374:                                              ; preds = %.thread
-  %375 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %376 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub49 = sub i32 %376, %375
-  %378 = add i32 %reass.sub49, 2
-  tail call void @invert_screen(ptr noundef %377, i32 noundef %375, i32 noundef %378, i1 noundef zeroext true) #9
+  %reass.sub40 = sub i32 %354, %353
+  %356 = add i32 %reass.sub40, 2
+  tail call void @invert_screen(ptr noundef %355, i32 noundef %353, i32 noundef %356, i1 noundef zeroext true) #9
   store volatile i32 -1, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  br label %475
+  br label %453
 
-379:                                              ; preds = %366
-  %380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
-  tail call void @kfree(ptr noundef %380) #9
-  store ptr %368, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
-  %381 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
-  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %383 = icmp ugt i32 %381, %382
-  br i1 %383, label %.loopexit, label %.preheader
+357:                                              ; preds = %344
+  %358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
+  tail call void @kfree(ptr noundef %358) #9
+  store ptr %346, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
+  %359 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 52), align 4
+  %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %361 = icmp ugt i32 %359, %360
+  br i1 %361, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %379, %464
-  %384 = phi i32 [ %456, %464 ], [ %381, %379 ]
-  %385 = phi ptr [ %466, %464 ], [ %368, %379 ]
-  %386 = phi ptr [ %465, %464 ], [ %368, %379 ]
-  %387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %388, label %445
+.preheader:                                       ; preds = %357, %442
+  %362 = phi i32 [ %434, %442 ], [ %359, %357 ]
+  %363 = phi ptr [ %444, %442 ], [ %346, %357 ]
+  %364 = phi ptr [ %443, %442 ], [ %346, %357 ]
+  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
+  br i1 %104, label %366, label %423
 
-388:                                              ; preds = %.preheader
-  %389 = sdiv i32 %384, 2
-  %390 = tail call i32 @screen_glyph_unicode(ptr noundef %387, i32 noundef %389) #9
-  %391 = icmp ult i32 %390, 128
-  br i1 %391, label %392, label %394
+366:                                              ; preds = %.preheader
+  %367 = sdiv i32 %362, 2
+  %368 = tail call i32 @screen_glyph_unicode(ptr noundef %365, i32 noundef %367) #9
+  %369 = icmp ult i32 %368, 128
+  br i1 %369, label %370, label %372
 
-392:                                              ; preds = %388
-  %393 = trunc nuw nsw i32 %390 to i8
-  store i8 %393, ptr %386, align 1
+370:                                              ; preds = %366
+  %371 = trunc nuw nsw i32 %368 to i8
+  store i8 %371, ptr %364, align 1
+  br label %420
+
+372:                                              ; preds = %366
+  %373 = icmp ult i32 %368, 2048
+  br i1 %373, label %374, label %382
+
+374:                                              ; preds = %372
+  %375 = lshr i32 %368, 6
+  %376 = trunc nuw nsw i32 %375 to i8
+  %377 = or disjoint i8 %376, -64
+  store i8 %377, ptr %364, align 1
+  %378 = trunc i32 %368 to i8
+  %379 = and i8 %378, 63
+  %380 = or disjoint i8 %379, -128
+  %381 = getelementptr i8, ptr %364, i64 1
+  store i8 %380, ptr %381, align 1
+  br label %420
+
+382:                                              ; preds = %372
+  %383 = icmp ult i32 %368, 65536
+  br i1 %383, label %384, label %397
+
+384:                                              ; preds = %382
+  %385 = lshr i32 %368, 12
+  %386 = trunc nuw nsw i32 %385 to i8
+  %387 = or disjoint i8 %386, -32
+  store i8 %387, ptr %364, align 1
+  %388 = lshr i32 %368, 6
+  %389 = trunc i32 %388 to i8
+  %390 = and i8 %389, 63
+  %391 = or disjoint i8 %390, -128
+  %392 = getelementptr i8, ptr %364, i64 1
+  store i8 %391, ptr %392, align 1
+  %393 = trunc i32 %368 to i8
+  %394 = and i8 %393, 63
+  %395 = or disjoint i8 %394, -128
+  %396 = getelementptr i8, ptr %364, i64 2
+  store i8 %395, ptr %396, align 1
+  br label %420
+
+397:                                              ; preds = %382
+  %398 = icmp ult i32 %368, 1114112
+  br i1 %398, label %399, label %417
+
+399:                                              ; preds = %397
+  %400 = lshr i32 %368, 18
+  %401 = trunc nuw nsw i32 %400 to i8
+  %402 = or disjoint i8 %401, -16
+  store i8 %402, ptr %364, align 1
+  %403 = lshr i32 %368, 12
+  %404 = trunc i32 %403 to i8
+  %405 = and i8 %404, 63
+  %406 = or disjoint i8 %405, -128
+  %407 = getelementptr i8, ptr %364, i64 1
+  store i8 %406, ptr %407, align 1
+  %408 = lshr i32 %368, 6
+  %409 = trunc i32 %408 to i8
+  %410 = and i8 %409, 63
+  %411 = or disjoint i8 %410, -128
+  %412 = getelementptr i8, ptr %364, i64 2
+  store i8 %411, ptr %412, align 1
+  %413 = trunc i32 %368 to i8
+  %414 = and i8 %413, 63
+  %415 = or disjoint i8 %414, -128
+  %416 = getelementptr i8, ptr %364, i64 3
+  store i8 %415, ptr %416, align 1
+  br label %420
+
+417:                                              ; preds = %397
+  store i8 -17, ptr %364, align 1
+  %418 = getelementptr i8, ptr %364, i64 1
+  store i8 -65, ptr %418, align 1
+  %419 = getelementptr i8, ptr %364, i64 2
+  store i8 -67, ptr %419, align 1
+  br label %420
+
+420:                                              ; preds = %417, %399, %384, %374, %370
+  %421 = phi i64 [ 1, %370 ], [ 2, %374 ], [ 3, %384 ], [ 4, %399 ], [ 3, %417 ]
+  %422 = getelementptr i8, ptr %364, i64 %421
+  br label %429
+
+423:                                              ; preds = %.preheader
+  %424 = tail call zeroext i16 @screen_glyph(ptr noundef %365, i32 noundef %362) #9
+  %425 = tail call zeroext i16 @inverse_translate(ptr noundef %365, i16 noundef zeroext %424, i1 noundef zeroext false) #9
+  %426 = zext i16 %425 to i32
+  %427 = trunc i16 %425 to i8
+  %428 = getelementptr i8, ptr %364, i64 1
+  store i8 %427, ptr %364, align 1
+  br label %429
+
+429:                                              ; preds = %423, %420
+  %430 = phi i32 [ %368, %420 ], [ %426, %423 ]
+  %431 = phi ptr [ %422, %420 ], [ %428, %423 ]
+  %432 = icmp eq i32 %430, 32
+  %433 = select i1 %432, ptr %363, ptr %431
+  %434 = add i32 %362, 2
+  %435 = load i32, ptr %73, align 4
+  %436 = urem i32 %434, %435
+  %437 = icmp eq i32 %436, 0
+  br i1 %437, label %438, label %442
+
+438:                                              ; preds = %429
+  %439 = icmp eq ptr %433, %431
+  br i1 %439, label %442, label %440
+
+440:                                              ; preds = %438
+  %441 = getelementptr i8, ptr %433, i64 1
+  store i8 13, ptr %433, align 1
   br label %442
 
-394:                                              ; preds = %388
-  %395 = icmp ult i32 %390, 2048
-  br i1 %395, label %396, label %404
+442:                                              ; preds = %440, %438, %429
+  %443 = phi ptr [ %431, %429 ], [ %441, %440 ], [ %431, %438 ]
+  %444 = phi ptr [ %433, %429 ], [ %441, %440 ], [ %431, %438 ]
+  %445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
+  %446 = icmp ugt i32 %434, %445
+  br i1 %446, label %.loopexit.loopexit, label %.preheader, !llvm.loop !16
 
-396:                                              ; preds = %394
-  %397 = lshr i32 %390, 6
-  %398 = trunc nuw nsw i32 %397 to i8
-  %399 = or disjoint i8 %398, -64
-  store i8 %399, ptr %386, align 1
-  %400 = trunc i32 %390 to i8
-  %401 = and i8 %400, 63
-  %402 = or disjoint i8 %401, -128
-  %403 = getelementptr i8, ptr %386, i64 1
-  store i8 %402, ptr %403, align 1
-  br label %442
-
-404:                                              ; preds = %394
-  %405 = icmp ult i32 %390, 65536
-  br i1 %405, label %406, label %419
-
-406:                                              ; preds = %404
-  %407 = lshr i32 %390, 12
-  %408 = trunc nuw nsw i32 %407 to i8
-  %409 = or disjoint i8 %408, -32
-  store i8 %409, ptr %386, align 1
-  %410 = lshr i32 %390, 6
-  %411 = trunc i32 %410 to i8
-  %412 = and i8 %411, 63
-  %413 = or disjoint i8 %412, -128
-  %414 = getelementptr i8, ptr %386, i64 1
-  store i8 %413, ptr %414, align 1
-  %415 = trunc i32 %390 to i8
-  %416 = and i8 %415, 63
-  %417 = or disjoint i8 %416, -128
-  %418 = getelementptr i8, ptr %386, i64 2
-  store i8 %417, ptr %418, align 1
-  br label %442
-
-419:                                              ; preds = %404
-  %420 = icmp ult i32 %390, 1114112
-  br i1 %420, label %421, label %439
-
-421:                                              ; preds = %419
-  %422 = lshr i32 %390, 18
-  %423 = trunc nuw nsw i32 %422 to i8
-  %424 = or disjoint i8 %423, -16
-  store i8 %424, ptr %386, align 1
-  %425 = lshr i32 %390, 12
-  %426 = trunc i32 %425 to i8
-  %427 = and i8 %426, 63
-  %428 = or disjoint i8 %427, -128
-  %429 = getelementptr i8, ptr %386, i64 1
-  store i8 %428, ptr %429, align 1
-  %430 = lshr i32 %390, 6
-  %431 = trunc i32 %430 to i8
-  %432 = and i8 %431, 63
-  %433 = or disjoint i8 %432, -128
-  %434 = getelementptr i8, ptr %386, i64 2
-  store i8 %433, ptr %434, align 1
-  %435 = trunc i32 %390 to i8
-  %436 = and i8 %435, 63
-  %437 = or disjoint i8 %436, -128
-  %438 = getelementptr i8, ptr %386, i64 3
-  store i8 %437, ptr %438, align 1
-  br label %442
-
-439:                                              ; preds = %419
-  store i8 -17, ptr %386, align 1
-  %440 = getelementptr i8, ptr %386, i64 1
-  store i8 -65, ptr %440, align 1
-  %441 = getelementptr i8, ptr %386, i64 2
-  store i8 -67, ptr %441, align 1
-  br label %442
-
-442:                                              ; preds = %439, %421, %406, %396, %392
-  %443 = phi i64 [ 1, %392 ], [ 2, %396 ], [ 3, %406 ], [ 4, %421 ], [ 3, %439 ]
-  %444 = getelementptr i8, ptr %386, i64 %443
-  br label %451
-
-445:                                              ; preds = %.preheader
-  %446 = tail call zeroext i16 @screen_glyph(ptr noundef %387, i32 noundef %384) #9
-  %447 = tail call zeroext i16 @inverse_translate(ptr noundef %387, i16 noundef zeroext %446, i1 noundef zeroext false) #9
-  %448 = zext i16 %447 to i32
-  %449 = trunc i16 %447 to i8
-  %450 = getelementptr i8, ptr %386, i64 1
-  store i8 %449, ptr %386, align 1
-  br label %451
-
-451:                                              ; preds = %445, %442
-  %452 = phi i32 [ %390, %442 ], [ %448, %445 ]
-  %453 = phi ptr [ %444, %442 ], [ %450, %445 ]
-  %454 = icmp eq i32 %452, 32
-  %455 = select i1 %454, ptr %385, ptr %453
-  %456 = add i32 %384, 2
-  %457 = load i32, ptr %73, align 4
-  %458 = urem i32 %456, %457
-  %459 = icmp eq i32 %458, 0
-  br i1 %459, label %460, label %464
-
-460:                                              ; preds = %451
-  %461 = icmp eq ptr %455, %453
-  br i1 %461, label %464, label %462
-
-462:                                              ; preds = %460
-  %463 = getelementptr i8, ptr %455, i64 1
-  store i8 13, ptr %455, align 1
-  br label %464
-
-464:                                              ; preds = %462, %460, %451
-  %465 = phi ptr [ %453, %451 ], [ %463, %462 ], [ %453, %460 ]
-  %466 = phi ptr [ %455, %451 ], [ %463, %462 ], [ %453, %460 ]
-  %467 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
-  %468 = icmp ugt i32 %456, %467
-  br i1 %468, label %.loopexit.loopexit, label %.preheader, !llvm.loop !12
-
-.loopexit.loopexit:                               ; preds = %464
+.loopexit.loopexit:                               ; preds = %442
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %379
-  %469 = phi ptr [ %368, %379 ], [ %.pre, %.loopexit.loopexit ]
-  %470 = phi ptr [ %368, %379 ], [ %465, %.loopexit.loopexit ]
-  %471 = ptrtoint ptr %470 to i64
-  %472 = ptrtoint ptr %469 to i64
-  %473 = sub i64 %471, %472
-  %474 = trunc i64 %473 to i32
-  store i32 %474, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
-  br label %475
+.loopexit:                                        ; preds = %.loopexit.loopexit, %357
+  %447 = phi ptr [ %346, %357 ], [ %.pre, %.loopexit.loopexit ]
+  %448 = phi ptr [ %346, %357 ], [ %443, %.loopexit.loopexit ]
+  %449 = ptrtoint ptr %448 to i64
+  %450 = ptrtoint ptr %447 to i64
+  %451 = sub i64 %449, %450
+  %452 = trunc i64 %451 to i32
+  store i32 %452, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
+  br label %453
 
-475:                                              ; preds = %.loopexit, %374, %.thread, %325, %257, %100, %64, %14, %10
-  %476 = phi i32 [ 0, %64 ], [ 0, %10 ], [ 0, %14 ], [ 0, %257 ], [ -22, %100 ], [ 0, %325 ], [ 0, %.loopexit ], [ -12, %.thread ], [ -12, %374 ]
+453:                                              ; preds = %.loopexit, %352, %.thread, %303, %235, %100, %64, %14, %10
+  %454 = phi i32 [ 0, %64 ], [ 0, %10 ], [ 0, %14 ], [ 0, %235 ], [ -22, %100 ], [ 0, %303 ], [ 0, %.loopexit ], [ -12, %.thread ], [ -12, %352 ]
   tail call void @console_unlock() #9
   tail call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
-  ret i32 %476
+  ret i32 %454
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -920,7 +878,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !18
   %7 = inttoptr i64 %6 to ptr
   store i64 0, ptr %2, align 8
   store ptr %7, ptr %5, align 8
@@ -954,11 +912,11 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
 
 22:                                               ; preds = %37, %19
   %23 = phi i32 [ 0, %19 ], [ %38, %37 ]
-  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 1, ptr nonnull elementtype(i32) %20) #9, !srcloc !15
+  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 1, ptr nonnull elementtype(i32) %20) #9, !srcloc !19
   %25 = load volatile i64, ptr %7, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.critedge, !prof !16
+  br i1 %27, label %28, label %.critedge, !prof !20
 
 28:                                               ; preds = %22
   %29 = load volatile i64, ptr %7, align 8
@@ -985,7 +943,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   %42 = icmp ugt i32 %41, %38
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %22, label %.critedge, !llvm.loop !17
+  br i1 %43, label %22, label %.critedge, !llvm.loop !21
 
 44:                                               ; preds = %32
   store volatile i32 0, ptr %20, align 8
@@ -1117,14 +1075,18 @@ attributes #12 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -22, i32 1}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = distinct !{!12, !13, !8}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{i64 2148354779}
-!15 = !{i64 2155026336}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = distinct !{!17, !13, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = distinct !{!16, !17, !8}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{i64 2148354779}
+!19 = !{i64 2155026336}
+!20 = !{!"branch_weights", i32 2000, i32 1}
+!21 = distinct !{!21, !17, !8}

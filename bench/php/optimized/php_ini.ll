@@ -1025,7 +1025,7 @@ zend_string_release_ex.exit:                      ; preds = %103, %98, %94, %80
   %203 = call i64 @php_strlcat(ptr noundef %200, ptr noundef nonnull %202, i64 noundef %195) #16
   %.0140.us = load ptr, ptr %.0140232.us, align 8, !tbaa !85
   %.not191.us = icmp eq ptr %.0140.us, null
-  br i1 %.not191.us, label %.loopexit, label %.lr.ph234.split.us
+  br i1 %.not191.us, label %.loopexit, label %.lr.ph234.split.us, !llvm.loop !88
 
 .lr.ph234.split:                                  ; preds = %.lr.ph234.split.preheader, %.lr.ph234.split
   %.0140232 = phi ptr [ %.0140, %.lr.ph234.split ], [ %.0140230277, %.lr.ph234.split.preheader ]
@@ -1058,7 +1058,7 @@ zend_string_release_ex.exit:                      ; preds = %103, %98, %94, %80
   br label %215
 
 215:                                              ; preds = %214, %.loopexit
-  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 256), align 8, !tbaa !88
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 256), align 8, !tbaa !90
   %.not192 = icmp eq ptr %216, null
   br i1 %.not192, label %219, label %217
 
@@ -1270,7 +1270,7 @@ zend_string_dup.exit:                             ; preds = %.thread, %45
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %78 = load i8, ptr %77, align 1, !tbaa !47
   %79 = icmp sgt i8 %78, 57
-  br i1 %79, label %_zend_handle_numeric_str.exit.thread, label %80, !prof !89
+  br i1 %79, label %_zend_handle_numeric_str.exit.thread, label %80, !prof !91
 
 80:                                               ; preds = %75
   %81 = icmp slt i8 %78, 48
@@ -1292,7 +1292,7 @@ _zend_handle_numeric_str.exit:                    ; preds = %80, %83
   br i1 %87, label %88, label %_zend_handle_numeric_str.exit.thread
 
 88:                                               ; preds = %_zend_handle_numeric_str.exit
-  %89 = load i64, ptr %6, align 8, !tbaa !90
+  %89 = load i64, ptr %6, align 8, !tbaa !92
   %90 = call ptr @zend_hash_index_update(ptr noundef %76, i64 noundef %89, ptr noundef nonnull %1) #16
   br label %zend_symtable_update.exit
 
@@ -1721,7 +1721,7 @@ define dso_local void @php_ini_activate_config(ptr noundef readonly captures(non
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.020, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !91
+  %18 = load ptr, ptr %17, align 8, !tbaa !93
   %19 = load ptr, ptr %.020, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !47
@@ -1898,7 +1898,7 @@ define dso_local range(i32 -1, 1) i32 @cfg_get_long(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !47
   %9 = icmp eq i8 %8, 4
-  br i1 %9, label %10, label %12, !prof !89
+  br i1 %9, label %10, label %12, !prof !91
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %4, align 8, !tbaa !47
@@ -1911,7 +1911,7 @@ define dso_local range(i32 -1, 1) i32 @cfg_get_long(ptr noundef %0, ptr noundef 
 zval_get_long.exit:                               ; preds = %12, %10, %2
   %storemerge = phi i64 [ 0, %2 ], [ %11, %10 ], [ %13, %12 ]
   %.0 = phi i32 [ -1, %2 ], [ 0, %10 ], [ 0, %12 ]
-  store i64 %storemerge, ptr %1, align 8, !tbaa !90
+  store i64 %storemerge, ptr %1, align 8, !tbaa !92
   ret i32 %.0
 }
 
@@ -1926,7 +1926,7 @@ define dso_local range(i32 -1, 1) i32 @cfg_get_double(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !47
   %9 = icmp eq i8 %8, 5
-  br i1 %9, label %10, label %12, !prof !89
+  br i1 %9, label %10, label %12, !prof !91
 
 10:                                               ; preds = %6
   %11 = load double, ptr %4, align 8, !tbaa !47
@@ -1939,7 +1939,7 @@ define dso_local range(i32 -1, 1) i32 @cfg_get_double(ptr noundef %0, ptr nounde
 zval_get_double.exit:                             ; preds = %12, %10, %2
   %storemerge = phi double [ 0.000000e+00, %2 ], [ %11, %10 ], [ %13, %12 ]
   %.0 = phi i32 [ -1, %2 ], [ 0, %10 ], [ 0, %12 ]
-  store double %storemerge, ptr %1, align 8, !tbaa !93
+  store double %storemerge, ptr %1, align 8, !tbaa !95
   ret i32 %.0
 }
 
@@ -2119,10 +2119,12 @@ attributes #19 = { nounwind allocsize(1) }
 !85 = !{!69, !69, i64 0}
 !86 = !{!87, !69, i64 0}
 !87 = !{!"_zend_llist_element", !69, i64 0, !69, i64 8, !7, i64 16}
-!88 = !{!54, !13, i64 256}
-!89 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!90 = !{!15, !15, i64 0}
-!91 = !{!92, !43, i64 24}
-!92 = !{!"_Bucket", !18, i64 0, !15, i64 16, !43, i64 24}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"double", !7, i64 0}
+!88 = distinct !{!88, !89}
+!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = !{!54, !13, i64 256}
+!91 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!92 = !{!15, !15, i64 0}
+!93 = !{!94, !43, i64 24}
+!94 = !{!"_Bucket", !18, i64 0, !15, i64 16, !43, i64 24}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"double", !7, i64 0}

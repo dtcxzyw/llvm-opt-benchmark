@@ -8502,7 +8502,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19Opd
   %115 = icmp ne ptr %.1.i.i, %106
   %116 = icmp ne ptr %.117.i.i, %107
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %.lr.ph.i.i23, label %._crit_edge.i.loopexit.i, !llvm.loop !556
+  br i1 %117, label %.lr.ph.i.i23, label %._crit_edge.i.loopexit.i, !llvm.loop !557
 
 ._crit_edge.i.loopexit.i:                         ; preds = %113
   %118 = ptrtoint ptr %106 to i64
@@ -8532,7 +8532,7 @@ _ZSt12__move_mergeIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iterato
   %128 = sub i64 %45, %123
   %129 = ashr exact i64 %128, 4
   %.not.i24 = icmp slt i64 %129, %99
-  br i1 %.not.i24, label %._crit_edge.i25, label %.lr.ph.i.preheader.i22, !llvm.loop !555
+  br i1 %.not.i24, label %._crit_edge.i25, label %.lr.ph.i.preheader.i22, !llvm.loop !558
 
 ._crit_edge.i25:                                  ; preds = %_ZSt12__move_mergeIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit.i, %._crit_edge.i.us.i, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_.exit
   %.0.lcssa.i26 = phi ptr [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_.exit ], [ %100, %._crit_edge.i.us.i ], [ %107, %_ZSt12__move_mergeIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit.i ]
@@ -8572,7 +8572,7 @@ _ZSt12__move_mergeIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iterato
   %141 = icmp ne ptr %.1.i35.i, %130
   %142 = icmp ne ptr %.117.i34.i, %10
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %.lr.ph.i28.i, label %._crit_edge.i21.i, !llvm.loop !556
+  br i1 %143, label %.lr.ph.i28.i, label %._crit_edge.i21.i, !llvm.loop !557
 
 ._crit_edge.i21.i:                                ; preds = %139, %._crit_edge.i25
   %.sroa.0.0.lcssa.i22.i = phi ptr [ %.sroa.018.0.lcssa.i, %._crit_edge.i25 ], [ %140, %139 ]
@@ -8601,7 +8601,7 @@ _ZSt4moveIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6v
 
 _ZSt17__merge_sort_loopIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_.exit: ; preds = %_ZSt4moveIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i26.i, %148
   %152 = icmp slt i64 %99, %9
-  br i1 %152, label %46, label %._crit_edge, !llvm.loop !557
+  br i1 %152, label %46, label %._crit_edge, !llvm.loop !559
 
 ._crit_edge:                                      ; preds = %_ZSt17__merge_sort_loopIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_.exit, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_.exit
   ret void
@@ -8663,7 +8663,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   %.1.i = phi ptr [ %.024.i, %19 ], [ %22, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 16
   %.not.i = icmp eq ptr %.1.i, %15
-  br i1 %.not.i, label %_ZSt21__move_merge_adaptiveIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit, label %.lr.ph.i, !llvm.loop !558
+  br i1 %.not.i, label %_ZSt21__move_merge_adaptiveIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit, label %.lr.ph.i, !llvm.loop !560
 
 _ZSt4moveIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i
   %25 = ptrtoint ptr %15 to i64
@@ -8716,7 +8716,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vect
 39:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.028.0.i.ph, i64 16, i1 false), !tbaa.struct !527
   %40 = icmp eq ptr %.tr117, %.sroa.028.0.i.ph
-  br i1 %40, label %41, label %.outer, !llvm.loop !559
+  br i1 %40, label %41, label %.outer, !llvm.loop !561
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -8730,7 +8730,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vect
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br label %36, !llvm.loop !559
+  br label %36, !llvm.loop !561
 
 _ZSt13move_backwardIPN4mold12_GLOBAL__N_19OpdSymbolEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit74.thread, %41
   %.sink38.i = phi ptr [ %42, %41 ], [ %32, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold12_GLOBAL__N_19OpdSymbolESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit74.thread ]
@@ -9070,9 +9070,9 @@ define internal noundef ptr @"_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx1
   %10 = sub i64 %9, %8
   %11 = ashr exact i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !560
+  %13 = load ptr, ptr %12, align 8, !tbaa !562
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %15 = load ptr, ptr %14, align 32, !tbaa !563
+  %15 = load ptr, ptr %14, align 32, !tbaa !565
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   store ptr null, ptr %3, align 8, !tbaa !479
   %16 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192) #25
@@ -9113,7 +9113,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx1
   store i64 1, ptr %31, align 8, !tbaa !432
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %32, align 8, !tbaa !434
-  store ptr %4, ptr %20, align 16, !tbaa !564
+  store ptr %4, ptr %20, align 16, !tbaa !566
   call void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_group_contextERNS2_12wait_contextES6_(ptr noundef nonnull align 64 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(128) %13) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
@@ -9121,7 +9121,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx1
 
 "_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEEEvRKT_RKT0_RNS1_18task_group_contextE.exit": ; preds = %2, %7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %34 = load ptr, ptr %33, align 16, !tbaa !568
+  %34 = load ptr, ptr %33, align 16, !tbaa !570
   %35 = load ptr, ptr %34, align 8, !tbaa !282
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -9132,7 +9132,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx1
 ; Function Attrs: mustprogress nounwind
 define internal noundef ptr @"_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_E6cancelERNS0_2d114execution_dataE"(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 16, !tbaa !568
+  %4 = load ptr, ptr %3, align 16, !tbaa !570
   %5 = load ptr, ptr %4, align 8, !tbaa !282
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -9186,14 +9186,14 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = load ptr, ptr %20, align 16, !tbaa !564
+  %21 = load ptr, ptr %20, align 16, !tbaa !566
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load atomic i32, ptr %22 seq_cst, align 4
   %24 = icmp sgt i32 %23, 1
   br i1 %24, label %25, label %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSF_7PPC64V1EEESt6vectorISJ_SaISJ_EEEEZNSF_20ppc64v1_scan_symbolsERNSF_7ContextISH_EEE3$_0SJ_EEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit"
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %20, align 16, !tbaa !564
+  %26 = load ptr, ptr %20, align 16, !tbaa !566
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store atomic i8 1, ptr %27 monotonic, align 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -9262,9 +9262,9 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %61 = load i64, ptr %32, align 16, !tbaa !503
   store i64 %61, ptr %60, align 8, !tbaa !503
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !tbaa.struct !569
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !tbaa.struct !571
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  store ptr null, ptr %63, align 16, !tbaa !564
+  store ptr null, ptr %63, align 16, !tbaa !566
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 120
   %65 = load i64, ptr %13, align 8, !tbaa !487
   %66 = lshr i64 %65, 1
@@ -9288,8 +9288,8 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store i64 %76, ptr %75, align 8, !tbaa !488
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i8 0, ptr %77, align 1, !tbaa !509
-  store ptr %72, ptr %50, align 16, !tbaa !564
-  store ptr %72, ptr %63, align 16, !tbaa !564
+  store ptr %72, ptr %50, align 16, !tbaa !566
+  store ptr %72, ptr %63, align 16, !tbaa !566
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !510
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %51, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
@@ -9321,7 +9321,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; preds = %89, %83
-  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !571
+  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !573
 
 .critedge.i:                                      ; preds = %87, %86, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, %43, %42, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSF_7PPC64V1EEESt6vectorISJ_SaISJ_EEEEZNSF_20ppc64v1_scan_symbolsERNSF_7ContextISH_EEE3$_0SJ_EEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit"
   %.pre-phi.i = phi i64 [ %37, %42 ], [ %37, %43 ], [ %37, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSF_7PPC64V1EEESt6vectorISJ_SaISJ_EEEEZNSF_20ppc64v1_scan_symbolsERNSF_7ContextISH_EEE3$_0SJ_EEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit" ], [ %81, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %81, %86 ], [ %81, %87 ]
@@ -9393,7 +9393,7 @@ _ZNK4mold6SymbolINS_7PPC64V1EE8get_typeEv.exit.thread6.i.i.i.i.i.i.i.i.i.i.i.i.i
 "_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i.i.i.i": ; preds = %125, %.lr.ph.i.i.i.i.i.i.i.i
   %128 = add i64 %.02.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %128, %92
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSD_7PPC64V1EEESt6vectorISH_SaISH_EEEEZNSD_20ppc64v1_scan_symbolsERNSD_7ContextISF_EEE3$_0SH_EEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !572
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSD_7PPC64V1EEESt6vectorISH_SaISH_EEEEZNSD_20ppc64v1_scan_symbolsERNSD_7ContextISF_EEE3$_0SH_EEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !574
 
 129:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #25
@@ -9490,7 +9490,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %.promoted.i.pr45.i.i = phi i8 [ %173, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted.i.pr46.i.i, %136 ]
   %175 = phi i8 [ %174, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %138, %136 ]
   %.promoted4.i41.i.i = phi i8 [ %174, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted4.i.i.i, %136 ]
-  %176 = load ptr, ptr %134, align 16, !tbaa !564
+  %176 = load ptr, ptr %134, align 16, !tbaa !566
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load atomic i8, ptr %177 monotonic, align 1
   %179 = trunc i8 %178 to i1
@@ -9520,9 +9520,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %189, ptr noundef nonnull readonly align 8 dereferenceable(24) %184, i64 24, i1 false), !tbaa.struct !517
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, ptr noundef nonnull align 8 dereferenceable(24) %135, i64 24, i1 false), !tbaa.struct !569
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, ptr noundef nonnull align 8 dereferenceable(24) %135, i64 24, i1 false), !tbaa.struct !571
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 112
-  store ptr null, ptr %191, align 16, !tbaa !564
+  store ptr null, ptr %191, align 16, !tbaa !566
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 120
   %193 = load i64, ptr %13, align 8, !tbaa !487
   %194 = lshr i64 %193, 1
@@ -9547,8 +9547,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store i64 %205, ptr %204, align 8, !tbaa !488
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i8 0, ptr %206, align 1, !tbaa !509
-  store ptr %201, ptr %134, align 16, !tbaa !564
-  store ptr %201, ptr %191, align 16, !tbaa !564
+  store ptr %201, ptr %134, align 16, !tbaa !566
+  store ptr %201, ptr %191, align 16, !tbaa !566
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !510
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %187, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
@@ -9637,7 +9637,7 @@ _ZNK4mold6SymbolINS_7PPC64V1EE8get_typeEv.exit.thread6.i.i.i.i.i.i.i.i.i.i.i.i23
 "_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i.i19.i.i": ; preds = %250, %.lr.ph.i.i.i.i.i.i14.i.i
   %253 = add i64 %.02.i.i.i.i.i.i15.i.i, 1
   %.not.i.i.i.i.i.i20.i.i = icmp eq i64 %253, %.val11.i.i
-  br i1 %.not.i.i.i.i.i.i20.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEE8run_bodyERS4_.exit24.i.i", label %.lr.ph.i.i.i.i.i.i14.i.i, !llvm.loop !572
+  br i1 %.not.i.i.i.i.i.i20.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEE8run_bodyERS4_.exit24.i.i", label %.lr.ph.i.i.i.i.i.i14.i.i, !llvm.loop !574
 
 "_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEE8run_bodyERS4_.exit24.i.i": ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i.i19.i.i", %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSB_7PPC64V1EEESt6vectorISF_SaISF_EEEEZNSB_20ppc64v1_scan_symbolsERNSB_7ContextISD_EEE3$_0SF_EEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
   %254 = add i8 %.promoted.i.pr45.i.i, -1
@@ -9666,7 +9666,7 @@ thread-pre-split27.i.i:                           ; preds = %"_ZN3tbb6detail2d19
   %266 = load ptr, ptr %265, align 8
   %.0.i.i.i.i = select i1 %264, ptr %266, ptr %261
   %267 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i) #25
-  br i1 %267, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !573
+  br i1 %267, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !575
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i: ; preds = %259, %thread-pre-split27.i.i
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #25
@@ -9674,7 +9674,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i: ; pre
 
 "_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSD_7PPC64V1EEESt6vectorISH_SaISH_EEEEZNSD_20ppc64v1_scan_symbolsERNSD_7ContextISF_EEE3$_0SH_EEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit": ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i.i.i.i", %98, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %269 = load ptr, ptr %268, align 16, !tbaa !564
+  %269 = load ptr, ptr %268, align 16, !tbaa !566
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %271 = load i64, ptr %270, align 8, !tbaa !488
   %272 = load ptr, ptr %0, align 64, !tbaa !282
@@ -9724,7 +9724,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit.i.i: ; pre
 ; Function Attrs: mustprogress nounwind
 define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load ptr, ptr %3, align 16, !tbaa !564
+  %4 = load ptr, ptr %3, align 16, !tbaa !566
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8, !tbaa !488
   %7 = load ptr, ptr %0, align 64, !tbaa !282
@@ -10391,22 +10391,24 @@ attributes #29 = { nounwind allocsize(0) }
 !552 = distinct !{!552, !344}
 !553 = distinct !{!553, !344}
 !554 = distinct !{!554, !344}
-!555 = distinct !{!555, !344}
-!556 = distinct !{!556, !344}
+!555 = distinct !{!555, !344, !556}
+!556 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !557 = distinct !{!557, !344}
 !558 = distinct !{!558, !344}
 !559 = distinct !{!559, !344}
-!560 = !{!561, !438, i64 88}
-!561 = !{!"_ZTSN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_EE", !474, i64 0, !476, i64 64, !476, i64 72, !436, i64 80, !438, i64 88, !7, i64 96, !562, i64 104}
-!562 = !{!"_ZTSN3tbb6detail2d213feeder_holderIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_vEE"}
-!563 = !{!561, !7, i64 96}
-!564 = !{!565, !491, i64 112}
-!565 = !{!"_ZTSN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEEE", !474, i64 0, !495, i64 64, !566, i64 88, !491, i64 112, !498, i64 120, !480, i64 136}
-!566 = !{!"_ZTSN3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_EE", !476, i64 0, !7, i64 8, !567, i64 16}
-!567 = !{!"p1 _ZTSN3tbb6detail2d211feeder_implIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0PNS3_10ObjectFileIS5_EEEE", !7, i64 0}
-!568 = !{!561, !436, i64 80}
-!569 = !{i64 0, i64 8, !412, i64 8, i64 8, !439, i64 16, i64 8, !570}
-!570 = !{!567, !567, i64 0}
-!571 = distinct !{!571, !344}
-!572 = distinct !{!572, !344}
+!560 = distinct !{!560, !344}
+!561 = distinct !{!561, !344}
+!562 = !{!563, !438, i64 88}
+!563 = !{!"_ZTSN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_EE", !474, i64 0, !476, i64 64, !476, i64 72, !436, i64 80, !438, i64 88, !7, i64 96, !564, i64 104}
+!564 = !{!"_ZTSN3tbb6detail2d213feeder_holderIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_vEE"}
+!565 = !{!563, !7, i64 96}
+!566 = !{!567, !491, i64 112}
+!567 = !{!"_ZTSN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS9_7PPC64V1EEESt6vectorISD_SaISD_EEEEZNS9_20ppc64v1_scan_symbolsERNS9_7ContextISB_EEE3$_0SD_EEKNS1_16auto_partitionerEEE", !474, i64 0, !495, i64 64, !568, i64 88, !491, i64 112, !498, i64 120, !480, i64 136}
+!568 = !{!"_ZTSN3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS5_7PPC64V1EEESt6vectorIS9_SaIS9_EEEEZNS5_20ppc64v1_scan_symbolsERNS5_7ContextIS7_EEE3$_0S9_EE", !476, i64 0, !7, i64 8, !569, i64 16}
+!569 = !{!"p1 _ZTSN3tbb6detail2d211feeder_implIZN4mold20ppc64v1_scan_symbolsERNS3_7ContextINS3_7PPC64V1EEEE3$_0PNS3_10ObjectFileIS5_EEEE", !7, i64 0}
+!570 = !{!563, !436, i64 80}
+!571 = !{i64 0, i64 8, !412, i64 8, i64 8, !439, i64 16, i64 8, !572}
+!572 = !{!569, !569, i64 0}
 !573 = distinct !{!573, !344}
+!574 = distinct !{!574, !344}
+!575 = distinct !{!575, !344}

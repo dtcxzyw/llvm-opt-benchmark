@@ -2166,7 +2166,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 48:                                               ; preds = %.lr.ph.us
   %49 = add nuw i64 %.05565.us, 1
   %exitcond.not = icmp eq i64 %49, %.sroa.speculated.us
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !94
 
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph72 ]
@@ -2189,7 +2189,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   %58 = call noundef i32 @_ZNK17PreprocessResidue5natomEv(ptr noundef nonnull align 8 dereferenceable(320) %0)
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph72.split, label %.loopexit, !llvm.loop !92
+  br i1 %60, label %.lr.ph72.split, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %57, %._crit_edge.us, %26, %.split.us
   %.253 = phi i64 [ %56, %.split.us ], [ %.05177, %26 ], [ %spec.select.us, %._crit_edge.us ], [ %.05177, %57 ]
@@ -2198,7 +2198,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   %62 = icmp samesign ult i32 %61, %.049
   %63 = icmp eq i32 %.2, -1
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %23, label %22, !llvm.loop !94
+  br i1 %64, label %23, label %22, !llvm.loop !96
 
 65:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
@@ -2394,6 +2394,8 @@ attributes #22 = { nounwind willreturn memory(read) }
 !89 = !{!"any p2 pointer", !7, i64 0}
 !90 = !{!91, !91, i64 0}
 !91 = !{!"p2 omnipotent char", !89, i64 0}
-!92 = distinct !{!92, !53}
-!93 = distinct !{!93, !53}
+!92 = distinct !{!92, !53, !93}
+!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !94 = distinct !{!94, !53}
+!95 = distinct !{!95, !53}
+!96 = distinct !{!96, !53}

@@ -554,7 +554,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %138 = load i8, ptr %5, align 4, !tbaa !44
   %139 = sext i8 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph.split, label %.loopexit, !llvm.loop !57
+  br i1 %140, label %.lr.ph.split, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %137, %79, %.thread, %18, %4
   %.057 = phi float [ 0.000000e+00, %4 ], [ %9, %18 ], [ %9, %.thread ], [ %.1.us, %79 ], [ %.1, %137 ]
@@ -633,7 +633,7 @@ define void @Map_MappingSetRefs_rec(ptr noundef readonly captures(none) %0, ptr 
 
 tailrecurse:                                      ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !58
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %21, %27
   %29 = and i64 %27, -2
@@ -671,7 +671,7 @@ tailrecurse:                                      ; preds = %23
   %.029 = phi i32 [ %19, %47 ], [ %18, %42 ]
   %.0 = phi ptr [ %50, %47 ], [ %45, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %53 = load i32, ptr %52, align 8, !tbaa !59
+  %53 = load i32, ptr %52, align 8, !tbaa !61
   %.not35 = icmp eq i32 %53, 0
   %.pre = zext nneg i32 %.029 to i64
   %.pre62 = mul nuw nsw i64 %.pre, 40
@@ -715,7 +715,7 @@ tailrecurse:                                      ; preds = %23
   %77 = load i8, ptr %63, align 4, !tbaa !44
   %78 = sext i8 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %67, label %.loopexit, !llvm.loop !60
+  br i1 %79, label %67, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %67, %2, %._crit_edge
   ret void
@@ -728,7 +728,7 @@ declare i32 @Map_NodeIsBuf(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load i32, ptr %2, align 8, !tbaa !59
+  %3 = load i32, ptr %2, align 8, !tbaa !61
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
@@ -736,7 +736,7 @@ define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !61
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
@@ -754,7 +754,7 @@ define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_un
 
 .preheader:                                       ; preds = %20, %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i32, ptr %16, align 8, !tbaa !62
+  %17 = load i32, ptr %16, align 8, !tbaa !64
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph20, label %._crit_edge
 
@@ -776,11 +776,11 @@ define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_un
   %26 = load i32, ptr %12, align 8, !tbaa !26
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %20, label %.preheader, !llvm.loop !63
+  br i1 %28, label %20, label %.preheader, !llvm.loop !65
 
 29:                                               ; preds = %.lr.ph20, %35
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %35 ]
-  %30 = load ptr, ptr %19, align 8, !tbaa !64
+  %30 = load ptr, ptr %19, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv22
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = tail call i32 @Map_NodeIsConst(ptr noundef %32) #7
@@ -793,10 +793,10 @@ define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_un
 
 35:                                               ; preds = %29, %34
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %36 = load i32, ptr %16, align 8, !tbaa !62
+  %36 = load i32, ptr %16, align 8, !tbaa !64
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next23, %37
-  br i1 %38, label %29, label %._crit_edge, !llvm.loop !65
+  br i1 %38, label %29, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   ret void
@@ -809,7 +809,7 @@ declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load i32, ptr %2, align 8, !tbaa !59
+  %3 = load i32, ptr %2, align 8, !tbaa !61
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
@@ -817,7 +817,7 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !61
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
@@ -836,7 +836,7 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
 .preheader:                                       ; preds = %94, %9
   %.039.lcssa = phi float [ 0.000000e+00, %9 ], [ %.140, %94 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i32, ptr %16, align 8, !tbaa !62
+  %17 = load i32, ptr %16, align 8, !tbaa !64
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph53, label %._crit_edge
 
@@ -891,7 +891,7 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 236
   %48 = load float, ptr %47, align 4, !tbaa !41
   %49 = fadd float %.03949, %48
-  %50 = load i32, ptr %2, align 8, !tbaa !59
+  %50 = load i32, ptr %2, align 8, !tbaa !61
   %.not46 = icmp eq i32 %50, 0
   br i1 %.not46, label %54, label %51
 
@@ -925,7 +925,7 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 236
   %68 = load float, ptr %67, align 4, !tbaa !41
   %69 = fadd float %.3, %68
-  %70 = load i32, ptr %2, align 8, !tbaa !59
+  %70 = load i32, ptr %2, align 8, !tbaa !61
   %.not48 = icmp eq i32 %70, 0
   br i1 %.not48, label %74, label %71
 
@@ -974,12 +974,12 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
   %97 = load i32, ptr %96, align 8, !tbaa !26
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %21, label %.preheader, !llvm.loop !66
+  br i1 %99, label %21, label %.preheader, !llvm.loop !68
 
 100:                                              ; preds = %.lr.ph53, %116
   %indvars.iv56 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next57, %116 ]
   %.451 = phi float [ %.039.lcssa, %.lr.ph53 ], [ %.5, %116 ]
-  %101 = load ptr, ptr %19, align 8, !tbaa !64
+  %101 = load ptr, ptr %19, align 8, !tbaa !66
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv56
   %103 = load ptr, ptr %102, align 8, !tbaa !29
   %104 = tail call i32 @Map_NodeIsVar(ptr noundef %103) #7
@@ -987,7 +987,7 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not41, label %116, label %105
 
 105:                                              ; preds = %100
-  %106 = load ptr, ptr %19, align 8, !tbaa !64
+  %106 = load ptr, ptr %19, align 8, !tbaa !66
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv56
   %108 = load ptr, ptr %107, align 8, !tbaa !29
   %109 = ptrtoint ptr %108 to i64
@@ -998,17 +998,17 @@ define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_u
 111:                                              ; preds = %105
   %112 = load ptr, ptr %20, align 8, !tbaa !50
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 144
-  %114 = load float, ptr %113, align 8, !tbaa !67
+  %114 = load float, ptr %113, align 8, !tbaa !69
   %115 = fadd float %.451, %114
   br label %116
 
 116:                                              ; preds = %100, %105, %111
   %.5 = phi float [ %.451, %105 ], [ %115, %111 ], [ %.451, %100 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %117 = load i32, ptr %16, align 8, !tbaa !62
+  %117 = load i32, ptr %16, align 8, !tbaa !64
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next57, %118
-  br i1 %119, label %100, label %._crit_edge, !llvm.loop !68
+  br i1 %119, label %100, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %116, %.preheader
   %.4.lcssa = phi float [ %.039.lcssa, %.preheader ], [ %.5, %116 ]
@@ -1085,15 +1085,17 @@ attributes #7 = { nounwind }
 !54 = !{!"p2 _ZTS18Map_SuperStruct_t_", !5, i64 0}
 !55 = !{!"p1 _ZTS22Map_HashTableStruct_t_", !5, i64 0}
 !56 = !{!"p1 _ZTS15Extra_MmFlex_t_", !5, i64 0}
-!57 = distinct !{!57, !34}
-!58 = !{!31, !15, i64 64}
-!59 = !{!13, !9, i64 168}
-!60 = distinct !{!60, !34}
-!61 = !{!52, !53, i64 8}
-!62 = !{!13, !9, i64 40}
-!63 = distinct !{!63, !34}
-!64 = !{!13, !14, i64 32}
+!57 = distinct !{!57, !34, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !34}
+!60 = !{!31, !15, i64 64}
+!61 = !{!13, !9, i64 168}
+!62 = distinct !{!62, !34}
+!63 = !{!52, !53, i64 8}
+!64 = !{!13, !9, i64 40}
 !65 = distinct !{!65, !34}
-!66 = distinct !{!66, !34}
-!67 = !{!52, !11, i64 144}
+!66 = !{!13, !14, i64 32}
+!67 = distinct !{!67, !34}
 !68 = distinct !{!68, !34}
+!69 = !{!52, !11, i64 144}
+!70 = distinct !{!70, !34}

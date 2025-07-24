@@ -152,7 +152,7 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
   store i32 0, ptr %12, align 4
   %13 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
-  br i1 %13, label %14, label %.thread178
+  br i1 %13, label %14, label %.thread179
 
 14:                                               ; preds = %9
   %15 = tail call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef %0) #6
@@ -177,9 +177,9 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
 
 28:                                               ; preds = %.thread, %20
   %29 = phi i8 [ %19, %.thread ], [ %25, %20 ]
-  %.094170 = phi i1 [ false, %.thread ], [ %21, %20 ]
+  %.094171 = phi i1 [ false, %.thread ], [ %21, %20 ]
   %30 = icmp eq i8 %29, 32
-  br i1 %30, label %31, label %.thread178
+  br i1 %30, label %31, label %.thread179
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -188,7 +188,7 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   %.mask = and i32 %33, -268435456
   %.not106 = icmp eq i32 %.mask, 268435456
   %or.cond114 = or i1 %.not, %.not106
-  br i1 %or.cond114, label %34, label %.thread178
+  br i1 %or.cond114, label %34, label %.thread179
 
 34:                                               ; preds = %31
   %35 = lshr i32 %33, 24
@@ -200,7 +200,7 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
 37:                                               ; preds = %34
   %38 = lshr i32 %33, 20
   %39 = and i32 %38, 15
-  switch i32 %39, label %.thread178 [
+  switch i32 %39, label %.thread179 [
     i32 3, label %61
     i32 4, label %61
     i32 7, label %61
@@ -210,12 +210,12 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
 40:                                               ; preds = %34
   %.off117 = add nsw i32 %36, -7
   %switch118 = icmp ult i32 %.off117, 5
-  br i1 %switch118, label %41, label %.thread178
+  br i1 %switch118, label %41, label %.thread179
 
 41:                                               ; preds = %40
   %42 = lshr i32 %33, 20
   %43 = and i32 %42, 15
-  switch i32 %43, label %.thread178 [
+  switch i32 %43, label %.thread179 [
     i32 3, label %61
     i32 2, label %61
     i32 6, label %61
@@ -232,9 +232,9 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   %51 = load i32, ptr %50, align 4
   %52 = call ptr @SDL_CreateSurface_REAL(i32 noundef %46, i32 noundef %49, i32 noundef %51) #6
   %.not110 = icmp eq ptr %52, null
-  br i1 %.not110, label %.thread178, label %.thread182
+  br i1 %.not110, label %.thread179, label %.thread183
 
-.thread182:                                       ; preds = %44
+.thread183:                                       ; preds = %44
   %53 = fmul double %6, 6.553600e+04
   %54 = fmul double %7, 6.553600e+04
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -254,7 +254,7 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   %66 = add nsw i32 %65, 2
   %67 = call ptr @SDL_CreateSurface_REAL(i32 noundef %63, i32 noundef %66, i32 noundef %33) #6
   %.not111 = icmp eq ptr %67, null
-  br i1 %.not111, label %.thread178, label %68
+  br i1 %.not111, label %.thread179, label %68
 
 68:                                               ; preds = %61
   %69 = fmul double %6, 6.553600e+04
@@ -263,18 +263,18 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 %71, ptr %72, align 4
   %73 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %0, ptr noundef nonnull %11) #6
-  br i1 %.094170, label %74, label %83
+  br i1 %.094171, label %74, label %83
 
-74:                                               ; preds = %.thread182, %68
-  %75 = phi ptr [ %59, %.thread182 ], [ %72, %68 ]
-  %76 = phi double [ %53, %.thread182 ], [ %69, %68 ]
-  %77 = phi double [ %54, %.thread182 ], [ %70, %68 ]
-  %78 = phi i1 [ true, %.thread182 ], [ false, %68 ]
-  %.093187190 = phi ptr [ %52, %.thread182 ], [ %67, %68 ]
+74:                                               ; preds = %.thread183, %68
+  %75 = phi ptr [ %59, %.thread183 ], [ %72, %68 ]
+  %76 = phi double [ %53, %.thread183 ], [ %69, %68 ]
+  %77 = phi double [ %54, %.thread183 ], [ %70, %68 ]
+  %78 = phi i1 [ true, %.thread183 ], [ false, %68 ]
+  %.093188191 = phi ptr [ %52, %.thread183 ], [ %67, %68 ]
   %79 = load i32, ptr %12, align 4
-  %80 = call zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef nonnull %.093187190, i1 noundef zeroext true, i32 noundef %79) #6
+  %80 = call zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef nonnull %.093188191, i1 noundef zeroext true, i32 noundef %79) #6
   %81 = load i32, ptr %12, align 4
-  %82 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %.093187190, ptr noundef null, i32 noundef %81) #6
+  %82 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %.093188191, ptr noundef null, i32 noundef %81) #6
   br label %91
 
 83:                                               ; preds = %68
@@ -302,9 +302,9 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   %93 = phi double [ %69, %83 ], [ %69, %85 ], [ %69, %86 ], [ %76, %74 ]
   %94 = phi double [ %70, %83 ], [ %70, %85 ], [ %70, %86 ], [ %77, %74 ]
   %95 = phi i1 [ false, %83 ], [ false, %85 ], [ false, %86 ], [ %78, %74 ]
-  %.093187189 = phi ptr [ %67, %83 ], [ %67, %85 ], [ %67, %86 ], [ %.093187190, %74 ]
+  %.093188190 = phi ptr [ %67, %83 ], [ %67, %85 ], [ %67, %86 ], [ %.093188191, %74 ]
   %96 = load i32, ptr %11, align 4
-  %97 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %.093187189, i32 noundef %96) #6
+  %97 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %.093188190, i32 noundef %96) #6
   %98 = load i32, ptr %0, align 8
   %99 = and i32 %98, 2
   %.not112 = icmp eq i32 %99, 0
@@ -315,36 +315,36 @@ define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %
   br i1 %101, label %103, label %102
 
 102:                                              ; preds = %100
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.093187189) #6
-  br label %.thread178
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.093188190) #6
+  br label %.thread179
 
 103:                                              ; preds = %100, %91
   %104 = fdiv double %1, 9.000000e+01
   %105 = fptosi double %104 to i32
   %106 = sitofp i32 %105 to double
   %107 = fcmp oeq double %104, %106
-  br i1 %107, label %108, label %.thread191
+  br i1 %107, label %108, label %.thread192
 
 108:                                              ; preds = %103
   %spec.select116 = and i32 %105, 3
-  %109 = getelementptr inbounds nuw i8, ptr %.093187189, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.093188190, i64 16
   %110 = load i32, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.093187189, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.093188190, i64 8
   %112 = load i32, ptr %111, align 8
   br i1 %95, label %117, label %327
 
-.thread191:                                       ; preds = %103
+.thread192:                                       ; preds = %103
   %113 = fptosi double %94 to i32
   %114 = fptosi double %93 to i32
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %116 = load i32, ptr %115, align 8
-  br i1 %95, label %.thread195, label %.thread197
+  br i1 %95, label %.thread196, label %.thread198
 
 117:                                              ; preds = %108
   %118 = sub i32 %110, %112
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.093187189, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.093188190, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not.i.i = icmp eq i32 %4, 0
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -482,7 +482,7 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %188 = getelementptr inbounds i8, ptr %.351.i, i64 %168
   %189 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
   %.not.i = icmp eq ptr %189, %186
-  br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
   %.pre.i = load i32, ptr %92, align 4
@@ -496,16 +496,16 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %192 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %170
   %193 = add nuw nsw i32 %.056.i, 1
   %194 = icmp slt i32 %193, %190
-  br i1 %194, label %.lr.ph57.split.i, label %transformSurfaceY90.exit, !llvm.loop !6
+  br i1 %194, label %.lr.ph57.split.i, label %transformSurfaceY90.exit, !llvm.loop !7
 
-.thread195:                                       ; preds = %.thread191
+.thread196:                                       ; preds = %.thread192
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %196 = load i32, ptr %195, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %.093187189, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %.093188190, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %.093187189, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.093188190, i64 16
   %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %.093187189, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %.093188190, i64 8
   %202 = load i32, ptr %201, align 8
   %203 = sub nsw i32 %200, %202
   %204 = load float, ptr %8, align 4
@@ -522,14 +522,14 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %213 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %0) #6
   br i1 %213, label %214, label %get_colorkey.exit.i
 
-214:                                              ; preds = %.thread195
+214:                                              ; preds = %.thread196
   %215 = call zeroext i1 @SDL_GetSurfaceColorKey_REAL(ptr noundef nonnull %0, ptr noundef nonnull %10) #6
   %.pre.i.i = load i32, ptr %10, align 4
   %216 = trunc i32 %.pre.i.i to i8
   br label %get_colorkey.exit.i
 
-get_colorkey.exit.i:                              ; preds = %214, %.thread195
-  %217 = phi i8 [ %216, %214 ], [ 0, %.thread195 ]
+get_colorkey.exit.i:                              ; preds = %214, %.thread196
+  %217 = phi i8 [ %216, %214 ], [ 0, %.thread196 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   %218 = load i32, ptr %199, align 8
   %219 = sext i32 %218 to i64
@@ -633,7 +633,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %287 = getelementptr inbounds nuw i8, ptr %.165.us.i, i64 1
   %288 = add nuw nsw i32 %.06064.us.i, 1
   %289 = icmp slt i32 %288, %284
-  br i1 %289, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %289, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i121, %312
   %290 = phi i32 [ %313, %312 ], [ %236, %.lr.ph.i121 ]
@@ -679,7 +679,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %317 = getelementptr inbounds nuw i8, ptr %.165.i, i64 1
   %318 = add nuw nsw i32 %.06064.i, 1
   %319 = icmp slt i32 %318, %314
-  br i1 %319, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %319, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %312, %283, %.lr.ph70.split.i
   %320 = phi i32 [ %236, %.lr.ph70.split.i ], [ %284, %283 ], [ %313, %312 ]
@@ -690,14 +690,14 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %324 = add nuw nsw i32 %.05968.i, 1
   %325 = load i32, ptr %92, align 4
   %326 = icmp slt i32 %324, %325
-  br i1 %326, label %.lr.ph70.split.i, label %transformSurfaceY90.exit, !llvm.loop !9
+  br i1 %326, label %.lr.ph70.split.i, label %transformSurfaceY90.exit, !llvm.loop !11
 
 327:                                              ; preds = %108
   %328 = shl i32 %112, 2
   %329 = sub i32 %110, %328
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %.093187189, i64 24
+  %332 = getelementptr inbounds nuw i8, ptr %.093188190, i64 24
   %333 = load ptr, ptr %332, align 8
   %.not.i.i123 = icmp eq i32 %4, 0
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -814,7 +814,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %394 = add nuw nsw i32 %.056.us.i154, 1
   %395 = load i32, ptr %92, align 4
   %396 = icmp slt i32 %394, %395
-  br i1 %396, label %.lr.ph57.split.us.i153, label %transformSurfaceY90.exit, !llvm.loop !10
+  br i1 %396, label %.lr.ph57.split.us.i153, label %transformSurfaceY90.exit, !llvm.loop !12
 
 .lr.ph57.split.i139:                              ; preds = %.lr.ph57.split.i139.preheader, %.loopexit.i150
   %397 = phi i32 [ %405, %.loopexit.i150 ], [ %377, %.lr.ph57.split.i139.preheader ]
@@ -836,7 +836,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %403 = getelementptr inbounds i8, ptr %.351.i146, i64 %380
   %404 = getelementptr inbounds nuw i8, ptr %.152.i145, i64 4
   %.not.i147 = icmp eq ptr %404, %401
-  br i1 %.not.i147, label %.loopexit.loopexit.i148, label %.lr.ph.i144, !llvm.loop !11
+  br i1 %.not.i147, label %.loopexit.loopexit.i148, label %.lr.ph.i144, !llvm.loop !13
 
 .loopexit.loopexit.i148:                          ; preds = %.lr.ph.i144
   %.pre.i149 = load i32, ptr %92, align 4
@@ -850,18 +850,18 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %407 = getelementptr inbounds i8, ptr %.1.lcssa.i152, i64 %382
   %408 = add nuw nsw i32 %.056.i140, 1
   %409 = icmp slt i32 %408, %405
-  br i1 %409, label %.lr.ph57.split.i139, label %transformSurfaceY90.exit, !llvm.loop !12
+  br i1 %409, label %.lr.ph57.split.i139, label %transformSurfaceY90.exit, !llvm.loop !14
 
-.thread197:                                       ; preds = %.thread191
+.thread198:                                       ; preds = %.thread192
   %410 = add nsw i32 %116, -1
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %412 = load i32, ptr %411, align 4
   %413 = add nsw i32 %412, -1
-  %414 = getelementptr inbounds nuw i8, ptr %.093187189, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %.093188190, i64 24
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds nuw i8, ptr %.093187189, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %.093188190, i64 16
   %417 = load i32, ptr %416, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %.093187189, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %.093188190, i64 8
   %419 = load i32, ptr %418, align 8
   %420 = shl nsw i32 %419, 2
   %421 = sub nsw i32 %417, %420
@@ -879,7 +879,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %432 = icmp sgt i32 %431, 0
   br i1 %.not.i160, label %.preheader.i, label %.preheader249.i
 
-.preheader249.i:                                  ; preds = %.thread197
+.preheader249.i:                                  ; preds = %.thread198
   br i1 %432, label %.lr.ph257.i, label %transformSurfaceY90.exit
 
 .lr.ph257.i:                                      ; preds = %.preheader249.i
@@ -897,10 +897,10 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %442 = icmp sgt i32 %419, 0
   br i1 %442, label %.lr.ph257.split.i, label %transformSurfaceY90.exit
 
-.preheader.i:                                     ; preds = %.thread197
-  br i1 %432, label %.lr.ph269.i, label %transformSurfaceY90.exit
+.preheader.i:                                     ; preds = %.thread198
+  br i1 %432, label %.lr.ph268.i, label %transformSurfaceY90.exit
 
-.lr.ph269.i:                                      ; preds = %.preheader.i
+.lr.ph268.i:                                      ; preds = %.preheader.i
   %443 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %444 = sitofp i32 %114 to double
   %445 = sitofp i32 %113 to double
@@ -913,7 +913,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %451 = sext i32 %421 to i64
   %452 = icmp sgt i32 %419, 0
-  br i1 %452, label %.lr.ph269.split.i, label %transformSurfaceY90.exit
+  br i1 %452, label %.lr.ph268.split.i, label %transformSurfaceY90.exit
 
 .lr.ph257.split.i:                                ; preds = %.lr.ph257.i, %._crit_edge.i162
   %453 = phi i32 [ %601, %._crit_edge.i162 ], [ %431, %.lr.ph257.i ]
@@ -1160,213 +1160,166 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %598 = getelementptr inbounds nuw i8, ptr %.1251.i, i64 4
   %599 = add nuw nsw i32 %.0239252.i, 1
   %600 = icmp slt i32 %599, %595
-  br i1 %600, label %.lr.ph.i164, label %._crit_edge.loopexit.i, !llvm.loop !13
+  br i1 %600, label %.lr.ph.i164, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %594
-  %.pre278.i = load i32, ptr %92, align 4
+  %.pre275.i = load i32, ptr %92, align 4
   br label %._crit_edge.i162
 
 ._crit_edge.i162:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph257.split.i
-  %601 = phi i32 [ %453, %.lr.ph257.split.i ], [ %.pre278.i, %._crit_edge.loopexit.i ]
+  %601 = phi i32 [ %453, %.lr.ph257.split.i ], [ %.pre275.i, %._crit_edge.loopexit.i ]
   %602 = phi i32 [ %454, %.lr.ph257.split.i ], [ %595, %._crit_edge.loopexit.i ]
   %603 = phi i32 [ %455, %.lr.ph257.split.i ], [ %595, %._crit_edge.loopexit.i ]
   %.1.lcssa.i163 = phi ptr [ %.0241255.i, %.lr.ph257.split.i ], [ %598, %._crit_edge.loopexit.i ]
   %604 = getelementptr inbounds i8, ptr %.1.lcssa.i163, i64 %441
   %605 = add nuw nsw i32 %.0240256.i, 1
   %606 = icmp slt i32 %605, %601
-  br i1 %606, label %.lr.ph257.split.i, label %transformSurfaceY90.exit, !llvm.loop !14
+  br i1 %606, label %.lr.ph257.split.i, label %transformSurfaceY90.exit, !llvm.loop !16
 
-.lr.ph269.split.i:                                ; preds = %.lr.ph269.i, %._crit_edge264.i
-  %607 = phi i32 [ %717, %._crit_edge264.i ], [ %419, %.lr.ph269.i ]
-  %608 = phi i32 [ %718, %._crit_edge264.i ], [ %419, %.lr.ph269.i ]
-  %609 = phi i32 [ %719, %._crit_edge264.i ], [ %419, %.lr.ph269.i ]
-  %610 = phi i32 [ %720, %._crit_edge264.i ], [ %419, %.lr.ph269.i ]
-  %.0234268.i = phi i32 [ %722, %._crit_edge264.i ], [ 0, %.lr.ph269.i ]
-  %.2267.i = phi ptr [ %721, %._crit_edge264.i ], [ %415, %.lr.ph269.i ]
+.lr.ph268.split.i:                                ; preds = %.lr.ph268.i, %._crit_edge264.i
+  %607 = phi i32 [ %688, %._crit_edge264.i ], [ %419, %.lr.ph268.i ]
+  %608 = phi i32 [ %689, %._crit_edge264.i ], [ %419, %.lr.ph268.i ]
+  %609 = phi i32 [ %690, %._crit_edge264.i ], [ %419, %.lr.ph268.i ]
+  %.0234267.i = phi i32 [ %692, %._crit_edge264.i ], [ 0, %.lr.ph268.i ]
+  %.2266.i = phi ptr [ %691, %._crit_edge264.i ], [ %415, %.lr.ph268.i ]
+  %610 = icmp sgt i32 %609, 0
+  br i1 %610, label %.lr.ph263.i, label %._crit_edge264.i
+
+.lr.ph263.i:                                      ; preds = %.lr.ph268.split.i
   %611 = load i32, ptr %5, align 4
   %612 = sitofp i32 %611 to double
   %613 = fadd double %612, 5.000000e-01
   %614 = load float, ptr %8, align 4
   %615 = fpext float %614 to double
   %616 = fsub double %613, %615
-  %617 = load i32, ptr %443, align 4
-  %618 = sitofp i32 %617 to double
-  %619 = uitofp nneg i32 %.0234268.i to double
-  %620 = fadd double %619, %618
+  %617 = uitofp nneg i32 %.0234267.i to double
+  %618 = load i32, ptr %443, align 4
+  %619 = sitofp i32 %618 to double
+  %620 = fadd double %617, %619
   %621 = fadd double %620, 5.000000e-01
   %622 = load float, ptr %426, align 4
   %623 = fpext float %622 to double
   %624 = fsub double %621, %623
-  %625 = fmul double %624, %446
-  %626 = call double @llvm.fmuladd.f64(double %444, double %616, double %625)
-  %627 = fadd double %626, %447
+  %625 = fmul double %624, %444
+  %626 = call double @llvm.fmuladd.f64(double %445, double %616, double %625)
+  %627 = fadd double %626, %448
   %628 = fadd double %627, -3.276800e+04
   %629 = fptosi double %628 to i32
-  %630 = fmul double %624, %444
-  %631 = call double @llvm.fmuladd.f64(double %445, double %616, double %630)
-  %632 = fadd double %631, %448
+  %630 = fmul double %624, %446
+  %631 = call double @llvm.fmuladd.f64(double %444, double %616, double %630)
+  %632 = fadd double %631, %447
   %633 = fadd double %632, -3.276800e+04
   %634 = fptosi double %633 to i32
-  %635 = icmp sgt i32 %610, 0
-  br i1 %635, label %.lr.ph263.i, label %._crit_edge264.i
-
-.lr.ph263.i:                                      ; preds = %.lr.ph269.split.i
   br i1 %.not244.i, label %.lr.ph263.split.us.i, label %.lr.ph263.split.i
 
-.lr.ph263.split.us.i:                             ; preds = %.lr.ph263.i
-  br i1 %.not245.i, label %.lr.ph263.split.us.split.us.i, label %.lr.ph263.split.us.split.i
+.lr.ph263.split.us.i:                             ; preds = %.lr.ph263.i, %653
+  %635 = phi i32 [ %654, %653 ], [ %607, %.lr.ph263.i ]
+  %.0231261.us.i = phi i32 [ %656, %653 ], [ %629, %.lr.ph263.i ]
+  %.0232260.us.i = phi i32 [ %655, %653 ], [ %634, %.lr.ph263.i ]
+  %.0233259.us.i = phi i32 [ %658, %653 ], [ 0, %.lr.ph263.i ]
+  %.3258.us.i = phi ptr [ %657, %653 ], [ %.2266.i, %.lr.ph263.i ]
+  %636 = ashr i32 %.0232260.us.i, 16
+  %637 = ashr i32 %.0231261.us.i, 16
+  %638 = load i32, ptr %115, align 8
+  %639 = icmp ult i32 %636, %638
+  br i1 %639, label %640, label %653
 
-.lr.ph263.split.us.split.us.i:                    ; preds = %.lr.ph263.split.us.i, %653
-  %636 = phi i32 [ %654, %653 ], [ %607, %.lr.ph263.split.us.i ]
-  %.0231261.us.us.i = phi i32 [ %656, %653 ], [ %634, %.lr.ph263.split.us.i ]
-  %.0232260.us.us.i = phi i32 [ %655, %653 ], [ %629, %.lr.ph263.split.us.i ]
-  %.0233259.us.us.i = phi i32 [ %658, %653 ], [ 0, %.lr.ph263.split.us.i ]
-  %.3258.us.us.i = phi ptr [ %657, %653 ], [ %.2267.i, %.lr.ph263.split.us.i ]
-  %637 = ashr i32 %.0232260.us.us.i, 16
-  %638 = ashr i32 %.0231261.us.us.i, 16
-  %639 = load i32, ptr %115, align 8
-  %640 = icmp ult i32 %637, %639
-  br i1 %640, label %641, label %653
+640:                                              ; preds = %.lr.ph263.split.us.i
+  %641 = load i32, ptr %411, align 4
+  %642 = icmp ult i32 %637, %641
+  br i1 %642, label %643, label %653
 
-641:                                              ; preds = %.lr.ph263.split.us.split.us.i
-  %642 = load i32, ptr %411, align 4
-  %643 = icmp ult i32 %638, %642
-  br i1 %643, label %644, label %653
-
-644:                                              ; preds = %641
+643:                                              ; preds = %640
+  %644 = sub nsw i32 %413, %637
+  %.0.us.i169 = select i1 %.not245.i, i32 %637, i32 %644
   %645 = load ptr, ptr %449, align 8
   %646 = load i32, ptr %450, align 8
-  %647 = mul nsw i32 %646, %638
+  %647 = mul nsw i32 %646, %.0.us.i169
   %648 = sext i32 %647 to i64
   %649 = getelementptr inbounds i8, ptr %645, i64 %648
-  %650 = sext i32 %637 to i64
+  %650 = sext i32 %636 to i64
   %651 = getelementptr inbounds %struct.tColorRGBA, ptr %649, i64 %650
   %652 = load i32, ptr %651, align 1
-  store i32 %652, ptr %.3258.us.us.i, align 1
-  %.pre281.i = load i32, ptr %418, align 8
+  store i32 %652, ptr %.3258.us.i, align 1
+  %.pre277.i = load i32, ptr %418, align 8
   br label %653
 
-653:                                              ; preds = %644, %641, %.lr.ph263.split.us.split.us.i
-  %654 = phi i32 [ %.pre281.i, %644 ], [ %636, %641 ], [ %636, %.lr.ph263.split.us.split.us.i ]
-  %655 = add nsw i32 %.0232260.us.us.i, %114
-  %656 = add nsw i32 %.0231261.us.us.i, %113
-  %657 = getelementptr inbounds nuw i8, ptr %.3258.us.us.i, i64 4
-  %658 = add nuw nsw i32 %.0233259.us.us.i, 1
+653:                                              ; preds = %643, %640, %.lr.ph263.split.us.i
+  %654 = phi i32 [ %.pre277.i, %643 ], [ %635, %640 ], [ %635, %.lr.ph263.split.us.i ]
+  %655 = add nsw i32 %.0232260.us.i, %114
+  %656 = add nsw i32 %.0231261.us.i, %113
+  %657 = getelementptr inbounds nuw i8, ptr %.3258.us.i, i64 4
+  %658 = add nuw nsw i32 %.0233259.us.i, 1
   %659 = icmp slt i32 %658, %654
-  br i1 %659, label %.lr.ph263.split.us.split.us.i, label %._crit_edge264.i, !llvm.loop !15
+  br i1 %659, label %.lr.ph263.split.us.i, label %._crit_edge264.i, !llvm.loop !17
 
-.lr.ph263.split.us.split.i:                       ; preds = %.lr.ph263.split.us.i, %679
-  %660 = phi i32 [ %680, %679 ], [ %607, %.lr.ph263.split.us.i ]
-  %661 = phi i32 [ %681, %679 ], [ %608, %.lr.ph263.split.us.i ]
-  %.0231261.us.i = phi i32 [ %683, %679 ], [ %634, %.lr.ph263.split.us.i ]
-  %.0232260.us.i = phi i32 [ %682, %679 ], [ %629, %.lr.ph263.split.us.i ]
-  %.0233259.us.i = phi i32 [ %685, %679 ], [ 0, %.lr.ph263.split.us.i ]
-  %.3258.us.i = phi ptr [ %684, %679 ], [ %.2267.i, %.lr.ph263.split.us.i ]
-  %662 = ashr i32 %.0232260.us.i, 16
-  %663 = ashr i32 %.0231261.us.i, 16
+.lr.ph263.split.i:                                ; preds = %.lr.ph263.i, %680
+  %660 = phi i32 [ %681, %680 ], [ %607, %.lr.ph263.i ]
+  %661 = phi i32 [ %682, %680 ], [ %608, %.lr.ph263.i ]
+  %.0231261.i = phi i32 [ %684, %680 ], [ %629, %.lr.ph263.i ]
+  %.0232260.i = phi i32 [ %683, %680 ], [ %634, %.lr.ph263.i ]
+  %.0233259.i = phi i32 [ %686, %680 ], [ 0, %.lr.ph263.i ]
+  %.3258.i = phi ptr [ %685, %680 ], [ %.2266.i, %.lr.ph263.i ]
+  %662 = ashr i32 %.0232260.i, 16
+  %663 = ashr i32 %.0231261.i, 16
   %664 = load i32, ptr %115, align 8
   %665 = icmp ult i32 %662, %664
-  br i1 %665, label %666, label %679
+  br i1 %665, label %666, label %680
 
-666:                                              ; preds = %.lr.ph263.split.us.split.i
+666:                                              ; preds = %.lr.ph263.split.i
   %667 = load i32, ptr %411, align 4
   %668 = icmp ult i32 %663, %667
-  br i1 %668, label %669, label %679
+  br i1 %668, label %669, label %680
 
 669:                                              ; preds = %666
-  %670 = sub nsw i32 %413, %663
-  %671 = load ptr, ptr %449, align 8
-  %672 = load i32, ptr %450, align 8
-  %673 = mul nsw i32 %672, %670
-  %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds i8, ptr %671, i64 %674
-  %676 = sext i32 %662 to i64
-  %677 = getelementptr inbounds %struct.tColorRGBA, ptr %675, i64 %676
-  %678 = load i32, ptr %677, align 1
-  store i32 %678, ptr %.3258.us.i, align 1
-  %.pre280.i = load i32, ptr %418, align 8
-  br label %679
+  %670 = sub nsw i32 %410, %662
+  %671 = sub nsw i32 %413, %663
+  %.0.i168 = select i1 %.not245.i, i32 %663, i32 %671
+  %672 = load ptr, ptr %449, align 8
+  %673 = load i32, ptr %450, align 8
+  %674 = mul nsw i32 %673, %.0.i168
+  %675 = sext i32 %674 to i64
+  %676 = getelementptr inbounds i8, ptr %672, i64 %675
+  %677 = sext i32 %670 to i64
+  %678 = getelementptr inbounds %struct.tColorRGBA, ptr %676, i64 %677
+  %679 = load i32, ptr %678, align 1
+  store i32 %679, ptr %.3258.i, align 1
+  %.pre276.i = load i32, ptr %418, align 8
+  br label %680
 
-679:                                              ; preds = %669, %666, %.lr.ph263.split.us.split.i
-  %680 = phi i32 [ %.pre280.i, %669 ], [ %660, %666 ], [ %660, %.lr.ph263.split.us.split.i ]
-  %681 = phi i32 [ %.pre280.i, %669 ], [ %661, %666 ], [ %661, %.lr.ph263.split.us.split.i ]
-  %682 = add nsw i32 %.0232260.us.i, %114
-  %683 = add nsw i32 %.0231261.us.i, %113
-  %684 = getelementptr inbounds nuw i8, ptr %.3258.us.i, i64 4
-  %685 = add nuw nsw i32 %.0233259.us.i, 1
-  %686 = icmp slt i32 %685, %681
-  br i1 %686, label %.lr.ph263.split.us.split.i, label %._crit_edge264.i, !llvm.loop !15
+680:                                              ; preds = %669, %666, %.lr.ph263.split.i
+  %681 = phi i32 [ %.pre276.i, %669 ], [ %660, %666 ], [ %660, %.lr.ph263.split.i ]
+  %682 = phi i32 [ %.pre276.i, %669 ], [ %661, %666 ], [ %661, %.lr.ph263.split.i ]
+  %683 = add nsw i32 %.0232260.i, %114
+  %684 = add nsw i32 %.0231261.i, %113
+  %685 = getelementptr inbounds nuw i8, ptr %.3258.i, i64 4
+  %686 = add nuw nsw i32 %.0233259.i, 1
+  %687 = icmp slt i32 %686, %682
+  br i1 %687, label %.lr.ph263.split.i, label %._crit_edge264.i, !llvm.loop !18
 
-.lr.ph263.split.i:                                ; preds = %.lr.ph263.i, %708
-  %687 = phi i32 [ %709, %708 ], [ %607, %.lr.ph263.i ]
-  %688 = phi i32 [ %710, %708 ], [ %608, %.lr.ph263.i ]
-  %689 = phi i32 [ %711, %708 ], [ %609, %.lr.ph263.i ]
-  %.0231261.i = phi i32 [ %713, %708 ], [ %634, %.lr.ph263.i ]
-  %.0232260.i = phi i32 [ %712, %708 ], [ %629, %.lr.ph263.i ]
-  %.0233259.i = phi i32 [ %715, %708 ], [ 0, %.lr.ph263.i ]
-  %.3258.i = phi ptr [ %714, %708 ], [ %.2267.i, %.lr.ph263.i ]
-  %690 = ashr i32 %.0232260.i, 16
-  %691 = ashr i32 %.0231261.i, 16
-  %692 = load i32, ptr %115, align 8
-  %693 = icmp ult i32 %690, %692
-  br i1 %693, label %694, label %708
+._crit_edge264.i:                                 ; preds = %680, %653, %.lr.ph268.split.i
+  %688 = phi i32 [ %607, %.lr.ph268.split.i ], [ %654, %653 ], [ %681, %680 ]
+  %689 = phi i32 [ %608, %.lr.ph268.split.i ], [ %654, %653 ], [ %682, %680 ]
+  %690 = phi i32 [ %609, %.lr.ph268.split.i ], [ %654, %653 ], [ %682, %680 ]
+  %.3.lcssa.i167 = phi ptr [ %.2266.i, %.lr.ph268.split.i ], [ %657, %653 ], [ %685, %680 ]
+  %691 = getelementptr inbounds i8, ptr %.3.lcssa.i167, i64 %451
+  %692 = add nuw nsw i32 %.0234267.i, 1
+  %693 = load i32, ptr %92, align 4
+  %694 = icmp slt i32 %692, %693
+  br i1 %694, label %.lr.ph268.split.i, label %transformSurfaceY90.exit, !llvm.loop !19
 
-694:                                              ; preds = %.lr.ph263.split.i
-  %695 = load i32, ptr %411, align 4
-  %696 = icmp ult i32 %691, %695
-  br i1 %696, label %697, label %708
+transformSurfaceY90.exit:                         ; preds = %._crit_edge.i162, %._crit_edge264.i, %._crit_edge.i, %.loopexit.i150, %.lr.ph57.split.us.i153, %.loopexit.i, %.lr.ph57.split.us.i, %.lr.ph57.split.i139.preheader, %.lr.ph57.split.i.preheader, %.lr.ph268.i, %.preheader.i, %.lr.ph257.i, %.preheader249.i, %376, %.lr.ph70.i, %get_colorkey.exit.i, %164
+  %695 = load i32, ptr %0, align 8
+  %696 = and i32 %695, 2
+  %.not113 = icmp eq i32 %696, 0
+  br i1 %.not113, label %.thread179, label %697
 
-697:                                              ; preds = %694
-  %698 = sub nsw i32 %410, %690
-  %699 = sub nsw i32 %413, %691
-  %.0.i168 = select i1 %.not245.i, i32 %691, i32 %699
-  %700 = load ptr, ptr %449, align 8
-  %701 = load i32, ptr %450, align 8
-  %702 = mul nsw i32 %701, %.0.i168
-  %703 = sext i32 %702 to i64
-  %704 = getelementptr inbounds i8, ptr %700, i64 %703
-  %705 = sext i32 %698 to i64
-  %706 = getelementptr inbounds %struct.tColorRGBA, ptr %704, i64 %705
-  %707 = load i32, ptr %706, align 1
-  store i32 %707, ptr %.3258.i, align 1
-  %.pre279.i = load i32, ptr %418, align 8
-  br label %708
-
-708:                                              ; preds = %697, %694, %.lr.ph263.split.i
-  %709 = phi i32 [ %.pre279.i, %697 ], [ %687, %694 ], [ %687, %.lr.ph263.split.i ]
-  %710 = phi i32 [ %.pre279.i, %697 ], [ %688, %694 ], [ %688, %.lr.ph263.split.i ]
-  %711 = phi i32 [ %.pre279.i, %697 ], [ %689, %694 ], [ %689, %.lr.ph263.split.i ]
-  %712 = add nsw i32 %.0232260.i, %114
-  %713 = add nsw i32 %.0231261.i, %113
-  %714 = getelementptr inbounds nuw i8, ptr %.3258.i, i64 4
-  %715 = add nuw nsw i32 %.0233259.i, 1
-  %716 = icmp slt i32 %715, %711
-  br i1 %716, label %.lr.ph263.split.i, label %._crit_edge264.i, !llvm.loop !15
-
-._crit_edge264.i:                                 ; preds = %708, %679, %653, %.lr.ph269.split.i
-  %717 = phi i32 [ %607, %.lr.ph269.split.i ], [ %654, %653 ], [ %680, %679 ], [ %709, %708 ]
-  %718 = phi i32 [ %608, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %710, %708 ]
-  %719 = phi i32 [ %609, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %711, %708 ]
-  %720 = phi i32 [ %610, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %711, %708 ]
-  %.3.lcssa.i167 = phi ptr [ %.2267.i, %.lr.ph269.split.i ], [ %657, %653 ], [ %684, %679 ], [ %714, %708 ]
-  %721 = getelementptr inbounds i8, ptr %.3.lcssa.i167, i64 %451
-  %722 = add nuw nsw i32 %.0234268.i, 1
-  %723 = load i32, ptr %92, align 4
-  %724 = icmp slt i32 %722, %723
-  br i1 %724, label %.lr.ph269.split.i, label %transformSurfaceY90.exit, !llvm.loop !16
-
-transformSurfaceY90.exit:                         ; preds = %._crit_edge.i162, %._crit_edge264.i, %._crit_edge.i, %.loopexit.i150, %.lr.ph57.split.us.i153, %.loopexit.i, %.lr.ph57.split.us.i, %.lr.ph57.split.i139.preheader, %.lr.ph57.split.i.preheader, %.lr.ph269.i, %.preheader.i, %.lr.ph257.i, %.preheader249.i, %376, %.lr.ph70.i, %get_colorkey.exit.i, %164
-  %725 = load i32, ptr %0, align 8
-  %726 = and i32 %725, 2
-  %.not113 = icmp eq i32 %726, 0
-  br i1 %.not113, label %.thread178, label %727
-
-727:                                              ; preds = %transformSurfaceY90.exit
+697:                                              ; preds = %transformSurfaceY90.exit
   call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %0) #6
-  br label %.thread178
+  br label %.thread179
 
-.thread178:                                       ; preds = %37, %44, %31, %40, %transformSurfaceY90.exit, %727, %61, %28, %41, %9, %102
-  %.0 = phi ptr [ null, %102 ], [ null, %9 ], [ null, %41 ], [ null, %40 ], [ null, %28 ], [ null, %61 ], [ %.093187189, %727 ], [ %.093187189, %transformSurfaceY90.exit ], [ null, %31 ], [ null, %44 ], [ null, %37 ]
+.thread179:                                       ; preds = %37, %44, %31, %40, %transformSurfaceY90.exit, %697, %61, %28, %41, %9, %102
+  %.0 = phi ptr [ null, %102 ], [ null, %9 ], [ null, %41 ], [ null, %40 ], [ null, %28 ], [ null, %61 ], [ %.093188190, %697 ], [ %.093188190, %transformSurfaceY90.exit ], [ null, %31 ], [ null, %44 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   ret ptr %.0
@@ -1420,17 +1373,20 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4, !7}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !4, !5}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4, !7}
+!11 = distinct !{!11, !4, !8}
+!12 = distinct !{!12, !4, !5}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !7}
+!14 = distinct !{!14, !4, !8}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !7}
+!16 = distinct !{!16, !4, !8}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4, !8}

@@ -32543,7 +32543,7 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   %62 = fadd float %55, %61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1227
+  br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1229
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3RGBixEi.exit.us23.i.i, %_ZNK4pbrt3RGBixEi.exit.us.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i
   %63 = phi float [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
@@ -32551,7 +32551,7 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
-  br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1228
+  br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1230
 
 _ZN4pbrt3RGBixEi.exit.split.i.i:                  ; preds = %41, %_ZNK4pbrt3RGBixEi.exit.i.i
   %indvars.iv38.i.i = phi i64 [ %indvars.iv.next39.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ 0, %41 ]
@@ -32577,7 +32577,7 @@ _ZNK4pbrt3RGBixEi.exit.i.i:                       ; preds = %71, %70, %_ZN4pbrt3
   %73 = fadd float %66, %72
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, 3
-  br i1 %exitcond41.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.i.i, !llvm.loop !1227
+  br i1 %exitcond41.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.i.i, !llvm.loop !1231
 
 _ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %.split.i.i
   %74 = insertelement <2 x float> poison, float %64, i64 0
@@ -32592,7 +32592,7 @@ _ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %.sp
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = bitcast i64 %77 to double
   %79 = fmul double %36, %78
-  %80 = load float, ptr %38, align 8, !tbaa !1229
+  %80 = load float, ptr %38, align 8, !tbaa !1232
   %81 = fpext float %80 to double
   %82 = fdiv double %79, %81
   %83 = trunc nuw nsw i64 %indvars.iv to i32
@@ -32616,7 +32616,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %75, %84, %85
   store float %89, ptr %.0.i, align 4, !tbaa !916
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %39, label %75, !llvm.loop !1231
+  br i1 %exitcond.not, label %39, label %75, !llvm.loop !1234
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32654,7 +32654,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt11GBufferFilm11Ge
   store float %23, ptr %.sroa.0.sroa.6, align 4, !tbaa !1008
   store float %26, ptr %.sroa.15, align 4, !tbaa !1009
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %28 = load double, ptr %27, align 8, !tbaa !1232
+  %28 = load double, ptr %27, align 8, !tbaa !1235
   %29 = fptrunc double %28 to float
   %30 = fcmp une float %29, 0.000000e+00
   br i1 %30, label %31, label %35
@@ -32740,7 +32740,7 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   %62 = fadd float %55, %61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1227
+  br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1229
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3RGBixEi.exit.us23.i.i, %_ZNK4pbrt3RGBixEi.exit.us.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i
   %63 = phi float [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
@@ -32748,7 +32748,7 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
-  br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1228
+  br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1230
 
 _ZN4pbrt3RGBixEi.exit.split.i.i:                  ; preds = %41, %_ZNK4pbrt3RGBixEi.exit.i.i
   %indvars.iv38.i.i = phi i64 [ %indvars.iv.next39.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ 0, %41 ]
@@ -32774,7 +32774,7 @@ _ZNK4pbrt3RGBixEi.exit.i.i:                       ; preds = %71, %70, %_ZN4pbrt3
   %73 = fadd float %66, %72
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, 3
-  br i1 %exitcond41.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.i.i, !llvm.loop !1227
+  br i1 %exitcond41.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.i.i, !llvm.loop !1231
 
 _ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %.split.i.i
   %74 = insertelement <2 x float> poison, float %64, i64 0
@@ -32789,7 +32789,7 @@ _ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %.sp
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = bitcast i64 %77 to double
   %79 = fmul double %36, %78
-  %80 = load float, ptr %38, align 8, !tbaa !1234
+  %80 = load float, ptr %38, align 8, !tbaa !1237
   %81 = fpext float %80 to double
   %82 = fdiv double %79, %81
   %83 = trunc nuw nsw i64 %indvars.iv to i32
@@ -32813,7 +32813,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %75, %84, %85
   store float %89, ptr %.0.i, align 4, !tbaa !916
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %39, label %75, !llvm.loop !1236
+  br i1 %exitcond.not, label %39, label %75, !llvm.loop !1239
 }
 
 declare { <2 x float>, float } @_ZNK4pbrt12SpectralFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(180), i64, float noundef) local_unnamed_addr #1
@@ -32824,12 +32824,12 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   %.val2 = load i64, ptr %1, align 8, !tbaa !260
   %3 = trunc i64 %.val2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !1237
+  %5 = load ptr, ptr %4, align 8, !tbaa !1240
   %6 = load i32, ptr %.val, align 8, !tbaa !936
   %7 = srem i32 %3, %6
   %8 = sdiv i32 %3, %6
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = load float, ptr %9, align 8, !tbaa !1239
+  %10 = load float, ptr %9, align 8, !tbaa !1242
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %12 = load i64, ptr %11, align 8, !tbaa !110
   %13 = and i64 %12, 144115188075855871
@@ -32876,7 +32876,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   %.sroa.0.0.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %25, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i, float %26, i64 1
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !1240
+  %29 = load ptr, ptr %28, align 8, !tbaa !1243
   %sext.i.i = shl i64 %.val2, 32
   %30 = ashr exact i64 %sext.i.i, 32
   %31 = getelementptr inbounds %"class.pbrt::RGB", ptr %29, i64 %30
@@ -34237,17 +34237,20 @@ attributes #36 = { nounwind willreturn memory(none) }
 !1224 = !{!475, !475, i64 0}
 !1225 = !{!1226, !475, i64 24}
 !1226 = !{!"_ZTSN4pbrt7RGBFilm5PixelE", !7, i64 0, !475, i64 24, !7, i64 32}
-!1227 = distinct !{!1227, !103}
-!1228 = distinct !{!1228, !103}
-!1229 = !{!1230, !168, i64 96}
-!1230 = !{!"_ZTSN4pbrt7RGBFilmE", !955, i64 0, !327, i64 80, !168, i64 88, !6, i64 92, !168, i64 96, !957, i64 100, !940, i64 136}
+!1227 = distinct !{!1227, !103, !1228}
+!1228 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!1229 = distinct !{!1229, !103, !1228}
+!1230 = distinct !{!1230, !103}
 !1231 = distinct !{!1231, !103}
-!1232 = !{!1233, !475, i64 24}
-!1233 = !{!"_ZTSN4pbrt11GBufferFilm5PixelE", !7, i64 0, !475, i64 24, !475, i64 32, !7, i64 40, !978, i64 64, !168, i64 76, !168, i64 80, !991, i64 84, !991, i64 96, !1030, i64 108, !7, i64 120, !7, i64 144}
-!1234 = !{!1235, !168, i64 832}
-!1235 = !{!"_ZTSN4pbrt11GBufferFilmE", !955, i64 0, !413, i64 80, !6, i64 776, !944, i64 784, !327, i64 816, !168, i64 824, !6, i64 828, !168, i64 832, !957, i64 836}
-!1236 = distinct !{!1236, !103}
-!1237 = !{!1238, !447, i64 24}
-!1238 = !{!"_ZTSZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0", !473, i64 0, !49, i64 8, !168, i64 16, !447, i64 24}
-!1239 = !{!1238, !168, i64 16}
-!1240 = !{!1238, !49, i64 8}
+!1232 = !{!1233, !168, i64 96}
+!1233 = !{!"_ZTSN4pbrt7RGBFilmE", !955, i64 0, !327, i64 80, !168, i64 88, !6, i64 92, !168, i64 96, !957, i64 100, !940, i64 136}
+!1234 = distinct !{!1234, !103}
+!1235 = !{!1236, !475, i64 24}
+!1236 = !{!"_ZTSN4pbrt11GBufferFilm5PixelE", !7, i64 0, !475, i64 24, !475, i64 32, !7, i64 40, !978, i64 64, !168, i64 76, !168, i64 80, !991, i64 84, !991, i64 96, !1030, i64 108, !7, i64 120, !7, i64 144}
+!1237 = !{!1238, !168, i64 832}
+!1238 = !{!"_ZTSN4pbrt11GBufferFilmE", !955, i64 0, !413, i64 80, !6, i64 776, !944, i64 784, !327, i64 816, !168, i64 824, !6, i64 828, !168, i64 832, !957, i64 836}
+!1239 = distinct !{!1239, !103}
+!1240 = !{!1241, !447, i64 24}
+!1241 = !{!"_ZTSZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0", !473, i64 0, !49, i64 8, !168, i64 16, !447, i64 24}
+!1242 = !{!1241, !168, i64 16}
+!1243 = !{!1241, !49, i64 8}

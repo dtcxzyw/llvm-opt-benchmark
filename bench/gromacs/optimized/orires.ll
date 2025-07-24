@@ -4287,13 +4287,13 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   store float %183, ptr %184, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond121.not, label %.preheader, label %175, !llvm.loop !327
+  br i1 %exitcond121.not, label %.preheader, label %175, !llvm.loop !328
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 3
   %185 = trunc nuw i64 %indvars.iv.next131 to i32
   %186 = icmp sgt i32 %0, %185
-  br i1 %186, label %43, label %.loopexit, !llvm.loop !328
+  br i1 %186, label %43, label %.loopexit, !llvm.loop !329
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader.split ], [ 0, %.preheader ]
@@ -4317,7 +4317,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   store float %200, ptr %198, align 4, !tbaa !50
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %.split.us, label %.preheader.split, !llvm.loop !326
+  br i1 %exitcond125.not, label %.split.us, label %.preheader.split, !llvm.loop !330
 
 .loopexit:                                        ; preds = %.split.us, %32, %14
   %.0100 = phi float [ 0.000000e+00, %14 ], [ 0.000000e+00, %32 ], [ %103, %.split.us ]
@@ -4359,7 +4359,7 @@ define void @_ZN12t_oriresdata13updateHistoryEv(ptr noundef nonnull align 8 dere
 15:                                               ; preds = %16
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count
-  br i1 %exitcond15.not, label %.loopexit, label %.preheader, !llvm.loop !329
+  br i1 %exitcond15.not, label %.loopexit, label %.preheader, !llvm.loop !331
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
@@ -4372,7 +4372,7 @@ define void @_ZN12t_oriresdata13updateHistoryEv(ptr noundef nonnull align 8 dere
   store float %18, ptr %22, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %15, label %16, !llvm.loop !330
+  br i1 %exitcond.not, label %15, label %16, !llvm.loop !332
 
 .loopexit:                                        ; preds = %15, %5, %1
   ret void
@@ -4758,8 +4758,10 @@ attributes #29 = { noreturn nounwind }
 !323 = distinct !{!323, !127}
 !324 = distinct !{!324, !127}
 !325 = distinct !{!325, !127}
-!326 = distinct !{!326, !127}
-!327 = distinct !{!327, !127}
+!326 = distinct !{!326, !127, !327}
+!327 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !328 = distinct !{!328, !127}
 !329 = distinct !{!329, !127}
 !330 = distinct !{!330, !127}
+!331 = distinct !{!331, !127}
+!332 = distinct !{!332, !127}

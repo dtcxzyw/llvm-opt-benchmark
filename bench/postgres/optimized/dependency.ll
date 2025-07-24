@@ -278,7 +278,7 @@ define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1
   %55 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %stack_address_present_add_flags.exit, label %.lr.ph.split.i, !llvm.loop !4
+  br i1 %.not.i, label %stack_address_present_add_flags.exit, label %.lr.ph.split.i, !llvm.loop !7
 
 stack_address_present_add_flags.exit:             ; preds = %54, %30
   %.0.lcssa.i = phi i1 [ %.1.us.i, %30 ], [ %.1.i, %54 ]
@@ -340,7 +340,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   %.1.us.i157 = phi i1 [ %.027.us.i, %67 ], [ %.027.us.i, %.lr.ph.split.us.i156 ], [ %spec.select.i158, %77 ], [ true, %72 ]
   %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, -1
   %80 = icmp sgt i64 %indvars.iv31.i, 0
-  br i1 %80, label %.lr.ph.split.us.i156, label %object_address_present_add_flags.exit, !llvm.loop !6
+  br i1 %80, label %.lr.ph.split.us.i156, label %object_address_present_add_flags.exit, !llvm.loop !8
 
 .lr.ph.split.i150:                                ; preds = %102, %.lr.ph.split.preheader.i148
   %indvars.iv.i = phi i64 [ %63, %.lr.ph.split.preheader.i148 ], [ %indvars.iv.next.i, %102 ]
@@ -388,7 +388,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   %.1.i151 = phi i1 [ %.027.i, %98 ], [ %.027.i, %86 ], [ %.027.i, %.lr.ph.split.i150 ], [ true, %96 ], [ %.1.ph.i153, %.sink.split.i152 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %103 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %103, label %.lr.ph.split.i150, label %object_address_present_add_flags.exit, !llvm.loop !6
+  br i1 %103, label %.lr.ph.split.i150, label %object_address_present_add_flags.exit, !llvm.loop !9
 
 object_address_present_add_flags.exit:            ; preds = %102, %79
   %.0.lcssa.i145 = phi i1 [ %.1.us.i157, %79 ], [ %.1.i151, %102 ]
@@ -482,7 +482,7 @@ object_address_present_add_flags.exit.thread:     ; preds = %stack_address_prese
 150:                                              ; preds = %147
   %151 = load i32, ptr %119, align 4
   %152 = icmp eq i32 %151, 0
-  br i1 %152, label %ReleaseDeletionLock.exit, label %153, !llvm.loop !7
+  br i1 %152, label %ReleaseDeletionLock.exit, label %153, !llvm.loop !10
 
 153:                                              ; preds = %150, %147, %132
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -501,7 +501,7 @@ object_address_present_add_flags.exit.thread:     ; preds = %stack_address_prese
   br i1 %.not141, label %157, label %ReleaseDeletionLock.exit
 
 157:                                              ; preds = %156
-  %158 = load i8, ptr @creating_extension, align 1, !range !8, !noundef !9
+  %158 = load i8, ptr @creating_extension, align 1, !range !11, !noundef !12
   %159 = trunc nuw i8 %158 to i1
   %160 = icmp eq i32 %140, 3079
   %or.cond = and i1 %160, %159
@@ -551,7 +551,7 @@ object_address_present_add_flags.exit.thread:     ; preds = %stack_address_prese
 .critedge.i:                                      ; preds = %178, %174, %170
   %indvars.iv.next.i161 = add nsw i64 %indvars.iv.i160, -1
   %183 = icmp sgt i64 %indvars.iv.i160, 0
-  br i1 %183, label %170, label %object_address_present.exit.thread, !llvm.loop !10
+  br i1 %183, label %170, label %object_address_present.exit.thread, !llvm.loop !13
 
 object_address_present.exit:                      ; preds = %178
   call void @systable_endscan(ptr noundef %126) #9
@@ -726,7 +726,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
   %.1.us.i198 = phi i1 [ %.027.us.i197, %231 ], [ %.027.us.i197, %.lr.ph.split.us.i195 ], [ %spec.select.i200, %241 ], [ true, %236 ]
   %indvars.iv.next32.i199 = add nsw i64 %indvars.iv31.i196, -1
   %244 = icmp sgt i64 %indvars.iv31.i196, 0
-  br i1 %244, label %.lr.ph.split.us.i195, label %object_address_present_add_flags.exit201, !llvm.loop !6
+  br i1 %244, label %.lr.ph.split.us.i195, label %object_address_present_add_flags.exit201, !llvm.loop !8
 
 .lr.ph.split.i182:                                ; preds = %266, %.lr.ph.split.preheader.i180
   %indvars.iv.i183 = phi i64 [ %227, %.lr.ph.split.preheader.i180 ], [ %indvars.iv.next.i186, %266 ]
@@ -774,7 +774,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
   %.1.i185 = phi i1 [ %.027.i184, %262 ], [ %.027.i184, %250 ], [ %.027.i184, %.lr.ph.split.i182 ], [ true, %260 ], [ %.1.ph.i190, %.sink.split.i188 ]
   %indvars.iv.next.i186 = add nsw i64 %indvars.iv.i183, -1
   %267 = icmp sgt i64 %indvars.iv.i183, 0
-  br i1 %267, label %.lr.ph.split.i182, label %object_address_present_add_flags.exit201, !llvm.loop !6
+  br i1 %267, label %.lr.ph.split.i182, label %object_address_present_add_flags.exit201, !llvm.loop !9
 
 object_address_present_add_flags.exit201:         ; preds = %266, %243
   %.0.lcssa.i177 = phi i1 [ %.1.us.i198, %243 ], [ %.1.i185, %266 ]
@@ -916,7 +916,7 @@ ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_ad
 331:                                              ; preds = %328
   %332 = load i32, ptr %119, align 4
   %333 = icmp eq i32 %332, 0
-  br i1 %333, label %ReleaseDeletionLock.exit203, label %334, !llvm.loop !11
+  br i1 %333, label %ReleaseDeletionLock.exit203, label %334, !llvm.loop !14
 
 334:                                              ; preds = %331, %328, %314
   switch i32 %321, label %AcquireDeletionLock.exit202 [
@@ -945,11 +945,11 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
 
 .thread282:                                       ; preds = %AcquireDeletionLock.exit202.thread281, %338
   call void @UnlockRelationOid(i32 noundef %323, i32 noundef 8) #9
-  br label %ReleaseDeletionLock.exit203, !llvm.loop !11
+  br label %ReleaseDeletionLock.exit203, !llvm.loop !14
 
 .thread280:                                       ; preds = %AcquireDeletionLock.exit202.thread, %338
   call void @UnlockDatabaseObject(i32 noundef %321, i32 noundef %323, i16 noundef zeroext 0, i32 noundef 8) #9
-  br label %ReleaseDeletionLock.exit203, !llvm.loop !11
+  br label %ReleaseDeletionLock.exit203, !llvm.loop !14
 
 340:                                              ; preds = %AcquireDeletionLock.exit202.thread281, %AcquireDeletionLock.exit202.thread, %AcquireDeletionLock.exit202
   %341 = getelementptr inbounds nuw i8, ptr %320, i64 24
@@ -1065,7 +1065,7 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread280, %.threa
   call fastcc void @findDependentObjects(ptr noundef %379, i32 noundef %381, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.0120.lcssa286290
-  br i1 %exitcond.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !15
 
 382:                                              ; preds = %._crit_edge256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
@@ -1173,7 +1173,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 14:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !16
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
@@ -1316,7 +1316,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %.1.us = phi i1 [ %.2.us, %74 ], [ %.0110.us, %.lr.ph113.split.us ], [ %.0110.us, %44 ]
   %indvars.iv.next128 = add nsw i64 %indvars.iv127, -1
   %76 = icmp sgt i64 %indvars.iv127, 0
-  br i1 %76, label %.lr.ph113.split.us, label %._crit_edge114, !llvm.loop !14
+  br i1 %76, label %.lr.ph113.split.us, label %._crit_edge114, !llvm.loop !17
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %107
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %107 ], [ %39, %.lr.ph113 ]
@@ -1399,7 +1399,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %.178 = phi i32 [ %.279, %106 ], [ %.077109, %.lr.ph113.split ], [ %.077109, %81 ]
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, -1
   %108 = icmp sgt i64 %indvars.iv124, 0
-  br i1 %108, label %.lr.ph113.split, label %._crit_edge114, !llvm.loop !14
+  br i1 %108, label %.lr.ph113.split, label %._crit_edge114, !llvm.loop !18
 
 ._crit_edge114:                                   ; preds = %107, %75
   %.080.lcssa = phi i32 [ %.181.us, %75 ], [ %.181, %107 ]
@@ -1537,7 +1537,7 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
   %23 = load i32, ptr %8, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %12, label %.loopexit, !llvm.loop !15
+  br i1 %25, label %12, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %22, %3
   %26 = phi i32 [ %9, %3 ], [ %23, %22 ]
@@ -1635,7 +1635,7 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
   call void @CatalogTupleDelete(ptr noundef %72, ptr noundef nonnull %73) #9
   %74 = call ptr @systable_getnext(ptr noundef %69) #9
   %.not31.i = icmp eq ptr %74, null
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %67
   call void @systable_endscan(ptr noundef %69) #9
@@ -1678,7 +1678,7 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
   call void @CatalogTupleDelete(ptr noundef %81, ptr noundef nonnull %93) #9
   %94 = call ptr @systable_getnext(ptr noundef %90) #9
   %.not12.i.i = icmp eq ptr %94, null
-  br i1 %.not12.i.i, label %deleteOneObject.exit, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not12.i.i, label %deleteOneObject.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 deleteOneObject.exit:                             ; preds = %.lr.ph.i.i, %89
   call void @systable_endscan(ptr noundef %90) #9
@@ -1694,7 +1694,7 @@ deleteOneObject.exit:                             ; preds = %.lr.ph.i.i, %89
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next39, %97
-  br i1 %98, label %36, label %._crit_edge, !llvm.loop !18
+  br i1 %98, label %36, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %95, %.preheader, %.loopexit
   ret void
@@ -1783,7 +1783,7 @@ AcquireDeletionLock.exit.us:                      ; preds = %25, %24, %23
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next27, %27
-  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
+  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %AcquireDeletionLock.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %AcquireDeletionLock.exit ], [ 0, %.lr.ph ]
@@ -1815,7 +1815,7 @@ AcquireDeletionLock.exit:                         ; preds = %34, %35, %36
   %37 = load i32, ptr %5, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %39, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %AcquireDeletionLock.exit, %AcquireDeletionLock.exit.us
   %.lcssa = phi i32 [ %26, %AcquireDeletionLock.exit.us ], [ %37, %AcquireDeletionLock.exit ]
@@ -1965,7 +1965,7 @@ define dso_local void @recordDependencyOnExpr(ptr noundef %0, ptr noundef %1, pt
   %48 = load i32, ptr %15, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next.i, %49
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %47, %18
   %.023.lcssa.i = phi i32 [ 1, %18 ], [ %.124.i, %47 ]
@@ -2142,7 +2142,7 @@ list_length.exit465.thread:                       ; preds = %list_length.exit465
 
 56:                                               ; preds = %48, %48, %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load i8, ptr %57, align 8, !range !8, !noundef !9
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %695, label %60
 
@@ -2881,7 +2881,7 @@ add_object_address.exit478:                       ; preds = %401, %409
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   %444 = sext i32 %443 to i64
   %445 = icmp slt i64 %indvars.iv.next624, %444
-  br i1 %445, label %432, label %._crit_edge573.loopexit, !llvm.loop !21
+  br i1 %445, label %432, label %._crit_edge573.loopexit, !llvm.loop !26
 
 446:                                              ; preds = %.lr.ph655
   %447 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2960,7 +2960,7 @@ list_length.exit480.thread:                       ; preds = %462, %list_length.e
   %489 = getelementptr inbounds nuw %union.ListCell, ptr %488, i64 %indvars.iv629
   %490 = load ptr, ptr %489, align 8
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 42
-  %492 = load i8, ptr %491, align 2, !range !8, !noundef !9
+  %492 = load i8, ptr %491, align 2, !range !11, !noundef !12
   %493 = trunc nuw i8 %492 to i1
   br i1 %493, label %517, label %494
 
@@ -3446,7 +3446,7 @@ define dso_local void @recordDependencyOnSingleRelExpr(ptr noundef %0, ptr nound
   %56 = load i32, ptr %23, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next.i, %57
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %55, %26
   %.023.lcssa.i = phi i32 [ 1, %26 ], [ %.124.i, %55 ]
@@ -3546,7 +3546,7 @@ add_exact_object_address.exit:                    ; preds = %84, %87
   %104 = load i32, ptr %103, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %101, %64
   %.lcssa42 = phi ptr [ %70, %64 ], [ %102, %101 ]
@@ -3575,7 +3575,7 @@ add_exact_object_address.exit:                    ; preds = %84, %87
   %115 = load i32, ptr %66, align 8
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next51, %116
-  br i1 %117, label %.lr.ph48, label %.loopexit, !llvm.loop !23
+  br i1 %117, label %.lr.ph48, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph48, %.preheader, %110
   %118 = load ptr, ptr %65, align 8
@@ -3704,7 +3704,7 @@ define dso_local noundef zeroext i1 @object_address_present(ptr noundef readonly
 .critedge:                                        ; preds = %20, %15, %11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %26 = icmp sgt i64 %indvars.iv, 0
-  br i1 %26, label %11, label %._crit_edge, !llvm.loop !10
+  br i1 %26, label %11, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %20, %.critedge, %2
   %.lcssa = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %20 ]
@@ -3775,7 +3775,7 @@ define dso_local void @record_object_address_dependencies(ptr noundef %0, ptr no
   %35 = load i32, ptr %4, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !20
+  br i1 %37, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !25
 
 ._crit_edge.i.loopexit:                           ; preds = %34
   %.pre.pre = load ptr, ptr %1, align 8
@@ -4378,7 +4378,7 @@ add_object_address.exit:                          ; preds = %30, %37
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %3
   %.0.lcssa = phi i32 [ 1, %3 ], [ 1, %.lr.ph ], [ %50, %._crit_edge.loopexit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %52 = load i8, ptr %51, align 8, !range !8, !noundef !9
+  %52 = load i8, ptr %51, align 8, !range !11, !noundef !12
   %53 = trunc nuw i8 %52 to i1
   %54 = sext i16 %1 to i32
   %55 = icmp eq i32 %.0.lcssa, %54
@@ -4440,23 +4440,28 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!11 = !{i8 0, i8 2}
+!12 = !{}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!17 = distinct !{!17, !5, !6}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}

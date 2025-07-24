@@ -1355,7 +1355,7 @@ equalkey.exit.thread.us:                          ; preds = %10, %14, %18, %23, 
   %.not15.us = icmp eq i32 %36, 0
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %union.Node, ptr %.012.us, i64 %37
-  br i1 %.not15.us, label %equalkey.exit.thread18, label %.split.us
+  br i1 %.not15.us, label %equalkey.exit.thread18, label %.split.us, !llvm.loop !32
 
 .split:                                           ; preds = %3, %equalkey.exit.thread
   %.012 = phi ptr [ %74, %equalkey.exit.thread ], [ %4, %3 ]
@@ -1610,14 +1610,14 @@ luaH_Hgetshortstr.exit:                           ; preds = %20, %24
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %54 = load i8, ptr %53, align 1, !tbaa !32
+  %54 = load i8, ptr %53, align 1, !tbaa !34
   %55 = and i8 %54, 32
   %.not28 = icmp eq i8 %55, 0
   br i1 %.not28, label %60, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %58 = load i8, ptr %57, align 1, !tbaa !33
+  %58 = load i8, ptr %57, align 1, !tbaa !35
   %59 = and i8 %58, 24
   %.not29 = icmp eq i8 %59, 0
   br i1 %.not29, label %60, label %retpsetcode.exit
@@ -1766,7 +1766,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
   %54 = sdiv exact i64 %53, 24
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %50, align 4, !tbaa !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !36
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %57 = load i32, ptr %56, align 4, !tbaa !16
   %.not60 = icmp eq i32 %57, 0
@@ -2461,7 +2461,7 @@ newcheckedkey.exit:                               ; preds = %keyinarray.exit.thr
 
 135:                                              ; preds = %newcheckedkey.exit
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %137 = load i8, ptr %136, align 1, !tbaa !35
+  %137 = load i8, ptr %136, align 1, !tbaa !37
   %138 = and i8 %137, 32
   %.not16 = icmp eq i8 %138, 0
   br i1 %.not16, label %145, label %139
@@ -2469,7 +2469,7 @@ newcheckedkey.exit:                               ; preds = %keyinarray.exit.thr
 139:                                              ; preds = %135
   %140 = load ptr, ptr %2, align 8, !tbaa !16
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 9
-  %142 = load i8, ptr %141, align 1, !tbaa !35
+  %142 = load i8, ptr %141, align 1, !tbaa !37
   %143 = and i8 %142, 24
   %.not17 = icmp eq i8 %143, 0
   br i1 %.not17, label %145, label %144
@@ -3258,8 +3258,10 @@ attributes #13 = { nounwind }
 !29 = !{!26, !8, i64 8}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"long long", !8, i64 0}
-!32 = !{!5, !8, i64 9}
-!33 = !{!26, !8, i64 9}
-!34 = !{i64 0, i64 24, !16}
-!35 = !{!36, !8, i64 9}
-!36 = !{!"GCObject", !6, i64 0, !8, i64 8, !8, i64 9}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = !{!5, !8, i64 9}
+!35 = !{!26, !8, i64 9}
+!36 = !{i64 0, i64 24, !16}
+!37 = !{!38, !8, i64 9}
+!38 = !{!"GCObject", !6, i64 0, !8, i64 8, !8, i64 9}

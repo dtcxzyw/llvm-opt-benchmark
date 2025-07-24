@@ -26868,7 +26868,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %16, ptr %21, align 8, !tbaa !106
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !315
+  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !317
 
 .loopexit:                                        ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %5
   %22 = icmp sgt i32 %3, 0
@@ -26890,7 +26890,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !316
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !318
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -26977,7 +26977,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %3
   %.sroa.083.0.copyload = load ptr, ptr %2, align 8, !tbaa !106
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !106
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !106
-  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !317
+  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !319
   %.sroa.585.0.copyload = load i32, ptr %.sroa.585.0..sroa_idx, align 8, !tbaa !37
   %20 = icmp ult ptr %.0111149, %19
   br i1 %20, label %.lr.ph.i.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUlmE_EESB_SB_SB_T_.exit.thread119
@@ -27106,7 +27106,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgIN
   %.sroa.093.0.copyload = load ptr, ptr %2, align 8, !tbaa !106
   %.sroa.294.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !106
   %.sroa.395.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !106
-  %.sroa.496.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !317
+  %.sroa.496.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !319
   %.sroa.597.0.copyload = load i32, ptr %.sroa.585.0..sroa_idx, align 8, !tbaa !37
   %77 = icmp slt i64 %75, %73
   br i1 %77, label %.lr.ph.i47.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUlmE_EESB_SB_SB_T_.exit62
@@ -27249,7 +27249,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgIN
   %143 = sub i64 %141, %142
   %.037 = trunc i64 %143 to i32
   %144 = icmp sgt i32 %131, %.037
-  br i1 %144, label %18, label %._crit_edge, !llvm.loop !318
+  br i1 %144, label %18, label %._crit_edge, !llvm.loop !320
 
 ._crit_edge:                                      ; preds = %137, %10
   %.0111.lcssa = phi ptr [ %storemerge.i116, %10 ], [ %139, %137 ]
@@ -27262,7 +27262,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgIN
   %.sroa.3107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3107.0.copyload = load ptr, ptr %.sroa.3107.0..sroa_idx, align 8, !tbaa !106
   %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.4108.0.copyload = load ptr, ptr %.sroa.4108.0..sroa_idx, align 8, !tbaa !317
+  %.sroa.4108.0.copyload = load ptr, ptr %.sroa.4108.0..sroa_idx, align 8, !tbaa !319
   %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.5109.0.copyload = load i32, ptr %.sroa.5109.0..sroa_idx, align 8, !tbaa !37
   %147 = icmp sgt i32 %.029.lcssa, 0
@@ -27415,15 +27415,15 @@ define internal fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEach
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !319
-  %7 = load ptr, ptr %3, align 8, !tbaa !323
+  %6 = load ptr, ptr %5, align 8, !tbaa !321
+  %7 = load ptr, ptr %3, align 8, !tbaa !325
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !324
+  %9 = load ptr, ptr %8, align 8, !tbaa !326
   %.pre = load ptr, ptr %7, align 8, !tbaa !267
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !325
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !327
   ret void
 
 10:                                               ; preds = %.lr.ph, %10
@@ -27436,7 +27436,7 @@ define internal fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEach
   store ptr %15, ptr %7, align 8, !tbaa !267
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06) #34
   %.not = icmp eq ptr %16, %2
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !328
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !330
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27458,7 +27458,7 @@ define internal fastcc nonnull ptr @"_ZN6google8protobuf8internal12ExtensionSet7
   store i64 %9, ptr %2, align 8, !tbaa !119
   %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08) #34
   %.not = icmp eq ptr %10, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !329
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !331
 }
 
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -27763,7 +27763,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
   %.1.in.i30.i = getelementptr inbounds nuw i8, ptr %.012.i26.i, i64 %.1.in.v.i29.i
   %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8, !tbaa !78
   %.not.i32.i = icmp eq ptr %.1.i31.i, null
-  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE11equal_rangeERS1_.exit, label %.lr.ph.i25.i, !llvm.loop !330
+  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE11equal_rangeERS1_.exit, label %.lr.ph.i25.i, !llvm.loop !332
 
 23:                                               ; preds = %10, %6
   %.sink.i = phi i64 [ 24, %6 ], [ 16, %10 ]
@@ -27771,7 +27771,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
   %24 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %.sink.i
   %.0.i = load ptr, ptr %24, align 8, !tbaa !78
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !331
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !333
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE11equal_rangeERS1_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i
   %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
@@ -27817,7 +27817,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
   %39 = add i64 %38, -1
   store i64 %39, ptr %25, align 8, !tbaa !155
   %.not.i3 = icmp eq ptr %36, %.sroa.3.0.i
-  br i1 %.not.i3, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2, !llvm.loop !332
+  br i1 %.not.i3, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2, !llvm.loop !334
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE5clearEv.exit.i, %.critedge.i
   %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
@@ -27945,7 +27945,7 @@ define internal fastcc nonnull ptr @"_ZN6google8protobuf8internal12ExtensionSet7
   store i64 %46, ptr %2, align 8, !tbaa !119
   %47 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08) #34
   %.not = icmp eq ptr %47, %1
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !333
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !335
 }
 
 ; Function Attrs: uwtable
@@ -28312,22 +28312,24 @@ attributes #35 = { allocsize(0) }
 !312 = !{i64 0, i64 8, !36, i64 8, i64 8, !313, i64 16, i64 8, !313}
 !313 = !{!309, !309, i64 0}
 !314 = distinct !{!314, !28}
-!315 = distinct !{!315, !28}
-!316 = distinct !{!316, !28}
-!317 = !{!195, !195, i64 0}
+!315 = distinct !{!315, !28, !316}
+!316 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!317 = distinct !{!317, !28}
 !318 = distinct !{!318, !28}
-!319 = !{!320, !6, i64 8}
-!320 = !{!"_ZTSZNK6google8protobuf8internal12ExtensionSet49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0", !321, i64 0, !6, i64 8, !322, i64 16, !309, i64 24}
-!321 = !{!"p2 omnipotent char", !15, i64 0}
-!322 = !{!"p1 _ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !7, i64 0}
-!323 = !{!320, !321, i64 0}
-!324 = !{!320, !322, i64 16}
-!325 = !{i64 0, i64 8, !326, i64 8, i64 8, !36, i64 16, i64 8, !327, i64 24, i64 8, !313}
-!326 = !{!321, !321, i64 0}
-!327 = !{!322, !322, i64 0}
-!328 = distinct !{!328, !28}
-!329 = distinct !{!329, !28}
+!319 = !{!195, !195, i64 0}
+!320 = distinct !{!320, !28}
+!321 = !{!322, !6, i64 8}
+!322 = !{!"_ZTSZNK6google8protobuf8internal12ExtensionSet49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0", !323, i64 0, !6, i64 8, !324, i64 16, !309, i64 24}
+!323 = !{!"p2 omnipotent char", !15, i64 0}
+!324 = !{!"p1 _ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !7, i64 0}
+!325 = !{!322, !323, i64 0}
+!326 = !{!322, !324, i64 16}
+!327 = !{i64 0, i64 8, !328, i64 8, i64 8, !36, i64 16, i64 8, !329, i64 24, i64 8, !313}
+!328 = !{!323, !323, i64 0}
+!329 = !{!324, !324, i64 0}
 !330 = distinct !{!330, !28}
 !331 = distinct !{!331, !28}
 !332 = distinct !{!332, !28}
 !333 = distinct !{!333, !28}
+!334 = distinct !{!334, !28}
+!335 = distinct !{!335, !28}

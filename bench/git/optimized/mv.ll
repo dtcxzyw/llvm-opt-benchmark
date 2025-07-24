@@ -1536,82 +1536,72 @@ define internal fastcc void @internal_prefix_pathspec(ptr noundef nonnull %0, pt
   %11 = icmp samesign ult i32 %4, 2
   %12 = and i32 %4, 1
   %.not30 = icmp eq i32 %12, 0
-  %wide.trip.count71 = zext nneg i32 %3 to i64
-  br i1 %11, label %.split.split.us, label %.split.us
+  %wide.trip.count65 = zext nneg i32 %3 to i64
+  br i1 %11, label %.split.split.us, label %.critedge.us
 
-.split.us:                                        ; preds = %9
-  br i1 %.not30, label %.critedge.us.us, label %.critedge.us
-
-.critedge.us.us:                                  ; preds = %.split.us, %.critedge.us.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.critedge.us.us ], [ 0, %.split.us ]
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv63
+.critedge.us:                                     ; preds = %9, %19
+  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %9 ]
+  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #14
   %16 = tail call ptr @xmemdupz(ptr noundef nonnull %14, i64 noundef %15) #12
-  %17 = tail call ptr @prefix_path(ptr noundef %1, i32 noundef %10, ptr noundef %16) #12
-  %18 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %17) #12
-  tail call void @free(ptr noundef %17) #12
-  tail call void @free(ptr noundef %16) #12
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count71
-  br i1 %exitcond67.not, label %.split39.us, label %.critedge.us.us, !llvm.loop !79
+  br i1 %.not30, label %19, label %17
 
-.critedge.us:                                     ; preds = %.split.us, %.critedge.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us ], [ 0, %.split.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #14
-  %22 = tail call ptr @xmemdupz(ptr noundef nonnull %20, i64 noundef %21) #12
-  %23 = tail call ptr @__xpg_basename(ptr noundef %22) #12
-  %24 = tail call ptr @prefix_path(ptr noundef %1, i32 noundef %10, ptr noundef %23) #12
-  %25 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %24) #12
-  tail call void @free(ptr noundef %24) #12
-  tail call void @free(ptr noundef %22) #12
+17:                                               ; preds = %.critedge.us
+  %18 = tail call ptr @__xpg_basename(ptr noundef %16) #12
+  br label %19
+
+19:                                               ; preds = %17, %.critedge.us
+  %20 = phi ptr [ %18, %17 ], [ %16, %.critedge.us ]
+  %21 = tail call ptr @prefix_path(ptr noundef %1, i32 noundef %10, ptr noundef %20) #12
+  %22 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %21) #12
+  tail call void @free(ptr noundef %21) #12
+  tail call void @free(ptr noundef %16) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
   br i1 %exitcond.not, label %.split39.us, label %.critedge.us, !llvm.loop !79
 
-.split.split.us:                                  ; preds = %9, %33
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %33 ], [ 0, %9 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv68
-  %27 = load ptr, ptr %26, align 8, !tbaa !23
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #14
-  %invariant.gep.us42 = getelementptr i8, ptr %27, i64 -1
-  %.not56 = icmp eq i64 %28, 0
+.split.split.us:                                  ; preds = %9, %30
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %30 ], [ 0, %9 ]
+  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv62
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #14
+  %invariant.gep.us42 = getelementptr i8, ptr %24, i64 -1
+  %.not56 = icmp eq i64 %25, 0
   br i1 %.not56, label %.critedge.us45, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.split.split.us, %37
-  %.02733.us = phi i64 [ %38, %37 ], [ %28, %.split.split.us ]
+.lr.ph.us:                                        ; preds = %.split.split.us, %34
+  %.02733.us = phi i64 [ %35, %34 ], [ %25, %.split.split.us ]
   %gep.us43 = getelementptr i8, ptr %invariant.gep.us42, i64 %.02733.us
-  %29 = load i8, ptr %gep.us43, align 1, !tbaa !27
-  %.not31.us44 = icmp eq i8 %29, 47
-  br i1 %.not31.us44, label %37, label %.critedge.us45
+  %26 = load i8, ptr %gep.us43, align 1, !tbaa !27
+  %.not31.us44 = icmp eq i8 %26, 47
+  br i1 %.not31.us44, label %34, label %.critedge.us45
 
-.critedge.us45:                                   ; preds = %.lr.ph.us, %37, %.split.split.us
-  %.027.lcssa.us46 = phi i64 [ 0, %.split.split.us ], [ 0, %37 ], [ %.02733.us, %.lr.ph.us ]
-  %30 = tail call ptr @xmemdupz(ptr noundef nonnull %27, i64 noundef %.027.lcssa.us46) #12
-  br i1 %.not30, label %33, label %31
+.critedge.us45:                                   ; preds = %.lr.ph.us, %34, %.split.split.us
+  %.027.lcssa.us46 = phi i64 [ 0, %.split.split.us ], [ 0, %34 ], [ %.02733.us, %.lr.ph.us ]
+  %27 = tail call ptr @xmemdupz(ptr noundef nonnull %24, i64 noundef %.027.lcssa.us46) #12
+  br i1 %.not30, label %30, label %28
 
-31:                                               ; preds = %.critedge.us45
-  %32 = tail call ptr @__xpg_basename(ptr noundef %30) #12
-  br label %33
+28:                                               ; preds = %.critedge.us45
+  %29 = tail call ptr @__xpg_basename(ptr noundef %27) #12
+  br label %30
 
-33:                                               ; preds = %31, %.critedge.us45
-  %34 = phi ptr [ %32, %31 ], [ %30, %.critedge.us45 ]
-  %35 = tail call ptr @prefix_path(ptr noundef %1, i32 noundef %10, ptr noundef %34) #12
-  %36 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %35) #12
-  tail call void @free(ptr noundef %35) #12
-  tail call void @free(ptr noundef %30) #12
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %.split39.us, label %.split.split.us, !llvm.loop !79
+30:                                               ; preds = %28, %.critedge.us45
+  %31 = phi ptr [ %29, %28 ], [ %27, %.critedge.us45 ]
+  %32 = tail call ptr @prefix_path(ptr noundef %1, i32 noundef %10, ptr noundef %31) #12
+  %33 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %32) #12
+  tail call void @free(ptr noundef %32) #12
+  tail call void @free(ptr noundef %27) #12
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
+  br i1 %exitcond66.not, label %.split39.us, label %.split.split.us, !llvm.loop !81
 
-37:                                               ; preds = %.lr.ph.us
-  %38 = add i64 %.02733.us, -1
-  %.not57 = icmp eq i64 %38, 0
-  br i1 %.not57, label %.critedge.us45, label %.lr.ph.us, !llvm.loop !80
+34:                                               ; preds = %.lr.ph.us
+  %35 = add i64 %.02733.us, -1
+  %.not57 = icmp eq i64 %35, 0
+  br i1 %.not57, label %.critedge.us45, label %.lr.ph.us, !llvm.loop !82
 
-.split39.us:                                      ; preds = %.critedge.us, %.critedge.us.us, %33
+.split39.us:                                      ; preds = %19, %30
   ret void
 }
 
@@ -1676,7 +1666,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 384
   %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !81
+  %29 = load i32, ptr %28, align 4, !tbaa !83
   %.not = icmp ugt i32 %29, %24
   br i1 %.not, label %30, label %42
 
@@ -1786,7 +1776,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
   %31 = load ptr, ptr %30, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !81
+  %33 = load i32, ptr %32, align 4, !tbaa !83
   %34 = icmp ugt i32 %33, %28
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -1809,7 +1799,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !84
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %38
   %44 = trunc nuw i64 %indvars.iv to i32
@@ -2001,7 +1991,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !76 = !{!25, !12, i64 8}
 !77 = !{!64, !12, i64 8}
 !78 = distinct !{!78, !66}
-!79 = distinct !{!79, !66}
-!80 = distinct !{!80, !66}
-!81 = !{!50, !5, i64 12}
+!79 = distinct !{!79, !66, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !66, !80}
 !82 = distinct !{!82, !66}
+!83 = !{!50, !5, i64 12}
+!84 = distinct !{!84, !66}

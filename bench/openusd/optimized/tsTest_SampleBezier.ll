@@ -332,7 +332,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleEJRKS1_EEvPT_
   %22 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
@@ -374,7 +374,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleEJRKS1_EEvPT_
   %35 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i30, i64 16
   %.not.i.i.i.i.i33 = icmp eq ptr %35, %5
-  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleES2_SaIS1_EET0_T_S5_S4_RT1_.exit38, label %.lr.ph.i.i.i.i.i29, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleES2_SaIS1_EET0_T_S5_S4_RT1_.exit38, label %.lr.ph.i.i.i.i.i29, !llvm.loop !11
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i29
   %38 = landingpad { ptr, i32 }
@@ -503,5 +503,6 @@ attributes #16 = { builtin allocsize(0) }
 !6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__L14_ComputeSampleERKNS_17TsTest_SplineData4KnotES3_d"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}

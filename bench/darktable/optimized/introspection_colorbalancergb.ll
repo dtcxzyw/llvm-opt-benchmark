@@ -6348,7 +6348,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us191, %.lr.ph.split.us.us
   %113 = add nuw i64 %.0152185.us, 1
   %exitcond205.not = icmp eq i64 %113, %84
-  br i1 %exitcond205.not, label %._crit_edge186, label %.preheader182.us
+  br i1 %exitcond205.not, label %._crit_edge186, label %.preheader182.us, !llvm.loop !263
 
 .lr.ph.split.us.us:                               ; preds = %.preheader182.us, %.lr.ph.split.us.us
   %.0155184.us.us = phi i64 [ %122, %.lr.ph.split.us.us ], [ 0, %.preheader182.us ]
@@ -6367,7 +6367,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   store i8 %102, ptr %gep.us.us, align 1, !tbaa !149
   %122 = add nuw i64 %.0155184.us.us, 1
   %exitcond204.not = icmp eq i64 %122, %82
-  br i1 %exitcond204.not, label %._crit_edge.us, label %.lr.ph.split.us.us
+  br i1 %exitcond204.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !265
 
 ._crit_edge186:                                   ; preds = %._crit_edge.us, %.preheader182.lr.ph, %3
   %123 = fpext reassoc nsz arcp contract afn float %58 to double
@@ -6426,13 +6426,13 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 145:                                              ; preds = %173
   %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !253
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 688
-  %.sroa.0.0.copyload = load double, ptr %147, align 8, !tbaa !263
+  %.sroa.0.0.copyload = load double, ptr %147, align 8, !tbaa !266
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 696
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !263
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !266
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 704
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !263
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !266
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 712
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !263
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !266
   %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !105
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1424
   %150 = load double, ptr %149, align 8, !tbaa !136
@@ -6572,14 +6572,14 @@ define internal void @mask_callback(ptr noundef %0, ptr noundef %1) #1 {
 6:                                                ; preds = %2
   tail call void @dt_iop_request_focus(ptr noundef %1) #19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 824
-  %8 = load ptr, ptr %7, align 8, !tbaa !264
+  %8 = load ptr, ptr %7, align 8, !tbaa !267
   %9 = tail call i64 @gtk_toggle_button_get_type() #23
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #19
   tail call void @gtk_toggle_button_set_active(ptr noundef %10, i32 noundef 1) #19
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %12 = load ptr, ptr %11, align 16, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  %14 = load i32, ptr %13, align 16, !tbaa !265
+  %14 = load i32, ptr %13, align 16, !tbaa !268
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %17, label %.thread
 
@@ -6790,7 +6790,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #15 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !266
+  %3 = load i32, ptr @introspection, align 8, !tbaa !269
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
@@ -7982,9 +7982,12 @@ attributes #24 = { nounwind willreturn memory(read) }
 !260 = !{!137, !79, i64 1416}
 !261 = !{!262, !11, i64 12}
 !262 = !{!"_PangoRectangle", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
-!263 = !{!79, !79, i64 0}
-!264 = !{!53, !60, i64 824}
-!265 = !{!53, !11, i64 496}
-!266 = !{!267, !11, i64 0}
-!267 = !{!"dt_introspection_t", !11, i64 0, !11, i64 4, !33, i64 8, !45, i64 16, !268, i64 24, !45, i64 32, !45, i64 40, !51, i64 48}
-!268 = !{!"p1 _ZTS24dt_introspection_field_t", !18, i64 0}
+!263 = distinct !{!263, !264}
+!264 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!265 = distinct !{!265, !264}
+!266 = !{!79, !79, i64 0}
+!267 = !{!53, !60, i64 824}
+!268 = !{!53, !11, i64 496}
+!269 = !{!270, !11, i64 0}
+!270 = !{!"dt_introspection_t", !11, i64 0, !11, i64 4, !33, i64 8, !45, i64 16, !271, i64 24, !45, i64 32, !45, i64 40, !51, i64 48}
+!271 = !{!"p1 _ZTS24dt_introspection_field_t", !18, i64 0}

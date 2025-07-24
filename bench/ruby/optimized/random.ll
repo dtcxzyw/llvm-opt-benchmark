@@ -3889,7 +3889,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   %34 = lshr i64 %.1, %narrow
   %35 = and i64 %.128, %11
   %36 = icmp ult i64 %2, %35
-  br i1 %36, label %.split, label %limited_rand.exit, !llvm.loop !97
+  br i1 %36, label %.split, label %limited_rand.exit, !llvm.loop !99
 
 37:                                               ; preds = %5
   %38 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
@@ -4051,7 +4051,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %13
 
 .lr.ph.us.backedge:                               ; preds = %35, %.loopexit.us
   %.03641.us.be = phi i64 [ %37, %35 ], [ 0, %.loopexit.us ]
-  br label %.lr.ph.us, !llvm.loop !98
+  br label %.lr.ph.us, !llvm.loop !100
 
 .loopexit.us:                                     ; preds = %.lr.ph.us
   %39 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %24, i64 noundef %26)
@@ -4221,7 +4221,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %.03450.be = phi i64 [ %.034, %46 ], [ %.03447, %42 ]
   %.03249.be = phi i32 [ %47, %46 ], [ 0, %42 ]
   %.03548.be = phi i32 [ %.1, %46 ], [ 1, %42 ]
-  br label %.lr.ph, !llvm.loop !99
+  br label %.lr.ph, !llvm.loop !101
 
 .loopexit._crit_edge:                             ; preds = %46, %17
   %50 = call i64 @rb_integer_unpack(ptr noundef %19, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
@@ -4244,7 +4244,7 @@ define internal fastcc i64 @rand_init_default(ptr noundef nonnull readonly captu
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
   store i64 0, ptr %3, align 8, !tbaa !43
-  %4 = load i64, ptr %0, align 8, !tbaa !100
+  %4 = load i64, ptr %0, align 8, !tbaa !102
   %5 = add i64 %4, 31
   %6 = lshr i64 %5, 5
   %7 = add nuw nsw i64 %6, 1
@@ -4666,7 +4666,9 @@ attributes #29 = { memory(none) }
 !94 = !{!95, !95, i64 0}
 !95 = !{!"p1 long", !9, i64 0}
 !96 = !{i64 2156216534}
-!97 = distinct !{!97, !24}
-!98 = distinct !{!98, !24}
+!97 = distinct !{!97, !24, !98}
+!98 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !99 = distinct !{!99, !24}
-!100 = !{!40, !15, i64 0}
+!100 = distinct !{!100, !98}
+!101 = distinct !{!101, !24}
+!102 = !{!40, !15, i64 0}

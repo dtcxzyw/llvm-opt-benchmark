@@ -504,7 +504,7 @@ define hidden ptr @_PyTokenizer_translate_newlines(ptr noundef readonly captures
   %25 = getelementptr i8, ptr %.04570, i64 1
   %26 = load i8, ptr %24, align 1, !tbaa !22
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %22, %.preheader
   %.045.lcssa = phi ptr [ %7, %.preheader ], [ %25, %22 ], [ %13, %.lr.ph.split.us.split ]
@@ -555,7 +555,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 %0(ptr noundef %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 2744
-  store i32 1, ptr %6, align 8, !tbaa !34
+  store i32 1, ptr %6, align 8, !tbaa !36
   switch i32 %5, label %13 [
     i32 -1, label %24
     i32 239, label %7
@@ -588,7 +588,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly c
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2752
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %.not39 = icmp eq ptr %16, null
   br i1 %.not39, label %18, label %17
 
@@ -613,7 +613,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly c
   br label %_PyTokenizer_new_string.exit
 
 _PyTokenizer_new_string.exit:                     ; preds = %20, %22
-  store ptr %19, ptr %15, align 8, !tbaa !35
+  store ptr %19, ptr %15, align 8, !tbaa !37
   %. = zext i1 %.not.i to i32
   br label %24
 
@@ -626,13 +626,13 @@ _PyTokenizer_new_string.exit:                     ; preds = %20, %22
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [13 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2760
-  %7 = load i32, ptr %6, align 8, !tbaa !36
+  %7 = load i32, ptr %6, align 8, !tbaa !38
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %9, align 8, !tbaa !34
+  store i32 2, ptr %9, align 8, !tbaa !36
   br label %get_coding_spec.exit
 
 10:                                               ; preds = %4
@@ -654,7 +654,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
 15:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %16 = add nuw nsw i64 %.05795.i, 1
   %exitcond.not.i = icmp eq i64 %16, %11
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %.057.lcssa.i = phi i64 [ 0, %10 ], [ %.05795.i, %.lr.ph.i ]
@@ -696,7 +696,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   %.153.i = phi ptr [ %30, %.critedge2.i ], [ %23, %.critedge.i ]
   %26 = zext i8 %25 to i64
   %27 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !38
+  %28 = load i32, ptr %27, align 4, !tbaa !40
   %.fr89.i = freeze i32 %28
   %29 = and i32 %.fr89.i, 7
   %.not71.not.i = icmp eq i32 %29, 0
@@ -712,7 +712,7 @@ switch.early.test.i:                              ; preds = %.preheader.i
 .critedge2.i:                                     ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.preheader.i
   %30 = getelementptr i8, ptr %.153.i, i64 1
   %.pr.i = load i8, ptr %30, align 1, !tbaa !22
-  br label %.preheader.i, !llvm.loop !39
+  br label %.preheader.i, !llvm.loop !41
 
 31:                                               ; preds = %switch.early.test.i
   %32 = icmp ult ptr %23, %.153.i
@@ -760,7 +760,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %33
   store i8 %.sink.i.i, ptr %50, align 1, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
-  br i1 %exitcond.not.i.i, label %51, label %42, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %51, label %42, !llvm.loop !42
 
 51:                                               ; preds = %49, %42
   %.013.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %42 ], [ 12, %49 ]
@@ -835,7 +835,7 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
 .thread87.i:                                      ; preds = %31, %20, %.lr.ph102.i
   %75 = add nuw nsw i64 %.158100.i, 1
   %exitcond105.not.i = icmp eq i64 %75, %11
-  br i1 %exitcond105.not.i, label %.loopexit, label %.lr.ph102.i, !llvm.loop !41
+  br i1 %exitcond105.not.i, label %.loopexit, label %.lr.ph102.i, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph.i, %15, %.thread87.i, %._crit_edge.i
   %76 = icmp sgt i64 %1, 0
@@ -856,20 +856,20 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
 
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %80, align 8, !tbaa !34
+  store i32 2, ptr %80, align 8, !tbaa !36
   br label %get_coding_spec.exit
 
 81:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %82 = add nuw nsw i64 %.058, 1
   %exitcond.not = icmp eq i64 %82, %1
-  br i1 %exitcond.not, label %get_coding_spec.exit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %get_coding_spec.exit, label %.lr.ph, !llvm.loop !44
 
 83:                                               ; preds = %get_normal_name.exit.i, %_PyTokenizer_new_string.exit78.i
   %.047.ph.ph = phi ptr [ %72, %_PyTokenizer_new_string.exit78.i ], [ %38, %get_normal_name.exit.i ]
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %84, align 8, !tbaa !34
+  store i32 2, ptr %84, align 8, !tbaa !36
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  %86 = load ptr, ptr %85, align 8, !tbaa !35
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %97
 
@@ -891,7 +891,7 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
   br label %get_coding_spec.exit
 
 96:                                               ; preds = %90, %88
-  store ptr %.047.ph.ph, ptr %85, align 8, !tbaa !35
+  store ptr %.047.ph.ph, ptr %85, align 8, !tbaa !37
   br label %get_coding_spec.exit
 
 97:                                               ; preds = %83
@@ -1015,7 +1015,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr noundef readonly
 32:                                               ; preds = %34
   %33 = add nsw i32 %.123.i, -1
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %valid_utf8.exit.loopexit, label %34, !llvm.loop !43
+  br i1 %.not.i, label %valid_utf8.exit.loopexit, label %34, !llvm.loop !45
 
 34:                                               ; preds = %32, %.thread.i
   %.123.i = phi i32 [ %.020.i, %.thread.i ], [ %33, %32 ]
@@ -1034,7 +1034,7 @@ valid_utf8.exit:                                  ; preds = %valid_utf8.exit.loo
   %39 = getelementptr i8, ptr %.01025, i64 %.0.i
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !46
 
 .thread19:                                        ; preds = %8, %21, %13, %17, %29, %27, %34
   %41 = zext i8 %4 to i32
@@ -1114,16 +1114,18 @@ attributes #10 = { nounwind willreturn memory(read) }
 !29 = !{!5, !12, i64 2800}
 !30 = !{!5, !6, i64 0}
 !31 = !{!5, !10, i64 2848}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!5, !10, i64 2744}
-!35 = !{!5, !6, i64 2752}
-!36 = !{!5, !10, i64 2760}
-!37 = distinct !{!37, !33}
-!38 = !{!10, !10, i64 0}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !33}
+!36 = !{!5, !10, i64 2744}
+!37 = !{!5, !6, i64 2752}
+!38 = !{!5, !10, i64 2760}
 !39 = distinct !{!39, !33}
-!40 = distinct !{!40, !33}
+!40 = !{!10, !10, i64 0}
 !41 = distinct !{!41, !33}
 !42 = distinct !{!42, !33}
 !43 = distinct !{!43, !33}
 !44 = distinct !{!44, !33}
+!45 = distinct !{!45, !33}
+!46 = distinct !{!46, !33}

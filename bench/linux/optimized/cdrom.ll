@@ -4727,7 +4727,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   %117 = sext i32 %116 to i64
   %118 = getelementptr i8, ptr %102, i64 %117
   %119 = icmp eq i32 %114, 0
-  br i1 %119, label %.thread, label %101, !llvm.loop !51
+  br i1 %119, label %.thread, label %101, !llvm.loop !53
 
 120:                                              ; preds = %101
   %121 = load i32, ptr %59, align 4
@@ -6312,12 +6312,12 @@ define internal fastcc i32 @mmc_ioctl_cdrom_last_written(ptr noundef %0, ptr nou
 14:                                               ; preds = %6
   %15 = trunc i64 %13 to i32
   %16 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %17 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %15, i64 4, i64 %16) #17, !srcloc !52
+  %17 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %15, i64 4, i64 %16) #17, !srcloc !54
   br label %21
 
 18:                                               ; preds = %6
   %19 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %20 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %13, i64 8, i64 %19) #17, !srcloc !53
+  %20 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %13, i64 8, i64 %19) #17, !srcloc !55
   br label %21
 
 21:                                               ; preds = %18, %14
@@ -6357,7 +6357,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef initializes((96, 97)
 14:                                               ; preds = %9
   %15 = lshr i32 %10, 1
   %16 = icmp samesign ult i32 %10, 2
-  br i1 %16, label %.thread, label %9, !llvm.loop !54
+  br i1 %16, label %.thread, label %9, !llvm.loop !56
 
 17:                                               ; preds = %9
   store ptr %12, ptr %8, align 8
@@ -6426,7 +6426,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef initializes((96, 97)
   %59 = sub nsw i32 %34, %37
   %60 = add i32 %37, %35
   %61 = icmp sgt i32 %59, 0
-  br i1 %61, label %32, label %62, !llvm.loop !55
+  br i1 %61, label %32, label %62, !llvm.loop !57
 
 62:                                               ; preds = %57, %52, %32
   %63 = phi i32 [ 0, %57 ], [ %50, %32 ], [ -14, %52 ]
@@ -6647,7 +6647,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %30 = add i32 %28, %21
   %31 = load ptr, ptr %22, align 8
   %32 = icmp eq ptr %31, @cdrom_list
-  br i1 %32, label %.loopexit233, label %.preheader231, !llvm.loop !56
+  br i1 %32, label %.loopexit233, label %.preheader231, !llvm.loop !58
 
 .loopexit233:                                     ; preds = %29, %17
   %.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
@@ -6682,7 +6682,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %53 = add i32 %51, %43
   %54 = load ptr, ptr %44, align 8
   %55 = icmp eq ptr %54, @cdrom_list
-  br i1 %55, label %.loopexit230, label %.preheader228, !llvm.loop !56
+  br i1 %55, label %.loopexit230, label %.preheader228, !llvm.loop !58
 
 .loopexit230:                                     ; preds = %52, %39
   %.ph120 = phi i32 [ %40, %39 ], [ %53, %52 ]
@@ -6717,7 +6717,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %76 = add i32 %74, %66
   %77 = load ptr, ptr %67, align 8
   %78 = icmp eq ptr %77, @cdrom_list
-  br i1 %78, label %.loopexit227, label %.preheader225, !llvm.loop !56
+  br i1 %78, label %.loopexit227, label %.preheader225, !llvm.loop !58
 
 .loopexit227:                                     ; preds = %75, %62
   %.ph123 = phi i32 [ %63, %62 ], [ %76, %75 ]
@@ -6759,7 +6759,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %106 = add i32 %104, %89
   %107 = load ptr, ptr %90, align 8
   %108 = icmp eq ptr %107, @cdrom_list
-  br i1 %108, label %.loopexit224, label %.preheader222, !llvm.loop !56
+  br i1 %108, label %.loopexit224, label %.preheader222, !llvm.loop !58
 
 .loopexit224:                                     ; preds = %105, %85
   %.ph126 = phi i32 [ %86, %85 ], [ %106, %105 ]
@@ -6802,7 +6802,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %137 = add i32 %135, %119
   %138 = load ptr, ptr %120, align 8
   %139 = icmp eq ptr %138, @cdrom_list
-  br i1 %139, label %.loopexit221, label %.preheader219, !llvm.loop !56
+  br i1 %139, label %.loopexit221, label %.preheader219, !llvm.loop !58
 
 .loopexit221:                                     ; preds = %136, %115
   %.ph129 = phi i32 [ %116, %115 ], [ %137, %136 ]
@@ -6845,7 +6845,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %168 = add i32 %166, %150
   %169 = load ptr, ptr %151, align 8
   %170 = icmp eq ptr %169, @cdrom_list
-  br i1 %170, label %.loopexit218, label %.preheader216, !llvm.loop !56
+  br i1 %170, label %.loopexit218, label %.preheader216, !llvm.loop !58
 
 .loopexit218:                                     ; preds = %167, %146
   %.ph132 = phi i32 [ %147, %146 ], [ %168, %167 ]
@@ -6888,7 +6888,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %199 = add i32 %197, %181
   %200 = load ptr, ptr %182, align 8
   %201 = icmp eq ptr %200, @cdrom_list
-  br i1 %201, label %.loopexit215, label %.preheader213, !llvm.loop !56
+  br i1 %201, label %.loopexit215, label %.preheader213, !llvm.loop !58
 
 .loopexit215:                                     ; preds = %198, %177
   %.ph135 = phi i32 [ %178, %177 ], [ %199, %198 ]
@@ -6931,7 +6931,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %230 = add i32 %228, %212
   %231 = load ptr, ptr %213, align 8
   %232 = icmp eq ptr %231, @cdrom_list
-  br i1 %232, label %.loopexit212, label %.preheader210, !llvm.loop !56
+  br i1 %232, label %.loopexit212, label %.preheader210, !llvm.loop !58
 
 .loopexit212:                                     ; preds = %229, %208
   %.ph138 = phi i32 [ %209, %208 ], [ %230, %229 ]
@@ -6974,7 +6974,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %261 = add i32 %259, %243
   %262 = load ptr, ptr %244, align 8
   %263 = icmp eq ptr %262, @cdrom_list
-  br i1 %263, label %.loopexit209, label %.preheader207, !llvm.loop !56
+  br i1 %263, label %.loopexit209, label %.preheader207, !llvm.loop !58
 
 .loopexit209:                                     ; preds = %260, %239
   %.ph141 = phi i32 [ %240, %239 ], [ %261, %260 ]
@@ -7017,7 +7017,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %292 = add i32 %290, %274
   %293 = load ptr, ptr %275, align 8
   %294 = icmp eq ptr %293, @cdrom_list
-  br i1 %294, label %.loopexit206, label %.preheader204, !llvm.loop !56
+  br i1 %294, label %.loopexit206, label %.preheader204, !llvm.loop !58
 
 .loopexit206:                                     ; preds = %291, %270
   %.ph144 = phi i32 [ %271, %270 ], [ %292, %291 ]
@@ -7060,7 +7060,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %323 = add i32 %321, %305
   %324 = load ptr, ptr %306, align 8
   %325 = icmp eq ptr %324, @cdrom_list
-  br i1 %325, label %.loopexit203, label %.preheader201, !llvm.loop !56
+  br i1 %325, label %.loopexit203, label %.preheader201, !llvm.loop !58
 
 .loopexit203:                                     ; preds = %322, %301
   %.ph147 = phi i32 [ %302, %301 ], [ %323, %322 ]
@@ -7103,7 +7103,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %354 = add i32 %352, %336
   %355 = load ptr, ptr %337, align 8
   %356 = icmp eq ptr %355, @cdrom_list
-  br i1 %356, label %.loopexit200, label %.preheader198, !llvm.loop !56
+  br i1 %356, label %.loopexit200, label %.preheader198, !llvm.loop !58
 
 .loopexit200:                                     ; preds = %353, %332
   %.ph150 = phi i32 [ %333, %332 ], [ %354, %353 ]
@@ -7146,7 +7146,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %385 = add i32 %383, %367
   %386 = load ptr, ptr %368, align 8
   %387 = icmp eq ptr %386, @cdrom_list
-  br i1 %387, label %.loopexit197, label %.preheader195, !llvm.loop !56
+  br i1 %387, label %.loopexit197, label %.preheader195, !llvm.loop !58
 
 .loopexit197:                                     ; preds = %384, %363
   %.ph153 = phi i32 [ %364, %363 ], [ %385, %384 ]
@@ -7189,7 +7189,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %416 = add i32 %414, %398
   %417 = load ptr, ptr %399, align 8
   %418 = icmp eq ptr %417, @cdrom_list
-  br i1 %418, label %.loopexit194, label %.preheader192, !llvm.loop !56
+  br i1 %418, label %.loopexit194, label %.preheader192, !llvm.loop !58
 
 .loopexit194:                                     ; preds = %415, %394
   %.ph156 = phi i32 [ %395, %394 ], [ %416, %415 ]
@@ -7232,7 +7232,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %447 = add i32 %445, %429
   %448 = load ptr, ptr %430, align 8
   %449 = icmp eq ptr %448, @cdrom_list
-  br i1 %449, label %.loopexit191, label %.preheader189, !llvm.loop !56
+  br i1 %449, label %.loopexit191, label %.preheader189, !llvm.loop !58
 
 .loopexit191:                                     ; preds = %446, %425
   %.ph159 = phi i32 [ %426, %425 ], [ %447, %446 ]
@@ -7275,7 +7275,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %478 = add i32 %476, %460
   %479 = load ptr, ptr %461, align 8
   %480 = icmp eq ptr %479, @cdrom_list
-  br i1 %480, label %.loopexit188, label %.preheader186, !llvm.loop !56
+  br i1 %480, label %.loopexit188, label %.preheader186, !llvm.loop !58
 
 .loopexit188:                                     ; preds = %477, %456
   %.ph162 = phi i32 [ %457, %456 ], [ %478, %477 ]
@@ -7318,7 +7318,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %509 = add i32 %507, %491
   %510 = load ptr, ptr %492, align 8
   %511 = icmp eq ptr %510, @cdrom_list
-  br i1 %511, label %.loopexit185, label %.preheader183, !llvm.loop !56
+  br i1 %511, label %.loopexit185, label %.preheader183, !llvm.loop !58
 
 .loopexit185:                                     ; preds = %508, %487
   %.ph165 = phi i32 [ %488, %487 ], [ %509, %508 ]
@@ -7361,7 +7361,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %540 = add i32 %538, %522
   %541 = load ptr, ptr %523, align 8
   %542 = icmp eq ptr %541, @cdrom_list
-  br i1 %542, label %.loopexit182, label %.preheader180, !llvm.loop !56
+  br i1 %542, label %.loopexit182, label %.preheader180, !llvm.loop !58
 
 .loopexit182:                                     ; preds = %539, %518
   %.ph168 = phi i32 [ %519, %518 ], [ %540, %539 ]
@@ -7404,7 +7404,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %571 = add i32 %569, %553
   %572 = load ptr, ptr %554, align 8
   %573 = icmp eq ptr %572, @cdrom_list
-  br i1 %573, label %.loopexit179, label %.preheader177, !llvm.loop !56
+  br i1 %573, label %.loopexit179, label %.preheader177, !llvm.loop !58
 
 .loopexit179:                                     ; preds = %570, %549
   %.ph171 = phi i32 [ %550, %549 ], [ %571, %570 ]
@@ -7447,7 +7447,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %602 = add i32 %600, %584
   %603 = load ptr, ptr %585, align 8
   %604 = icmp eq ptr %603, @cdrom_list
-  br i1 %604, label %.loopexit176, label %.preheader, !llvm.loop !56
+  br i1 %604, label %.loopexit176, label %.preheader, !llvm.loop !58
 
 .loopexit176:                                     ; preds = %601, %580
   %.ph174 = phi i32 [ %581, %580 ], [ %602, %601 ]
@@ -7477,7 +7477,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
 define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = tail call i32 @proc_dointvec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
   %7 = icmp eq i32 %1, 0
-  br i1 %7, label %174, label %8
+  br i1 %7, label %164, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
@@ -7580,16 +7580,13 @@ define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr no
   store i32 %73, ptr %38, align 4
   %74 = load ptr, ptr %36, align 8
   %75 = icmp eq ptr %74, @cdrom_list
-  br i1 %75, label %.loopexit, label %.split.us, !llvm.loop !57
+  br i1 %75, label %.loopexit, label %.split.us, !llvm.loop !59
 
 .split:                                           ; preds = %26
   br i1 %30, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split
-  br i1 %32, label %.split.split.us.split.us, label %.split.split.us.split
-
-.split.split.us.split.us:                         ; preds = %.split.split.us, %.split.split.us.split.us
-  %76 = phi ptr [ %89, %.split.split.us.split.us ], [ %24, %.split.split.us ]
+.split.split.us:                                  ; preds = %.split, %97
+  %76 = phi ptr [ %101, %97 ], [ %24, %.split ]
   %77 = getelementptr i8, ptr %76, i64 -8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 104
@@ -7599,148 +7596,137 @@ define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr no
   %83 = xor i32 %82, -1
   %84 = and i32 %80, 1
   %85 = and i32 %84, %83
-  %.phi.trans.insert14 = getelementptr i8, ptr %76, i64 44
-  %.pre15 = load i32, ptr %.phi.trans.insert14, align 4
-  %86 = getelementptr i8, ptr %76, i64 44
-  %.pre15.masked = and i32 %.pre15, -27
-  %87 = or i32 %.pre15.masked, %85
-  %88 = or disjoint i32 %87, %35
-  store i32 %88, ptr %86, align 4
-  %89 = load ptr, ptr %76, align 8
-  %90 = icmp eq ptr %89, @cdrom_list
-  br i1 %90, label %.loopexit, label %.split.split.us.split.us, !llvm.loop !57
+  %.phi.trans.insert11 = getelementptr i8, ptr %76, i64 44
+  %.pre12 = load i32, ptr %.phi.trans.insert11, align 4
+  %86 = or i32 %.pre12, %85
+  %87 = getelementptr i8, ptr %76, i64 44
+  %88 = and i32 %86, -3
+  store i32 %88, ptr %87, align 4
+  br i1 %32, label %95, label %89
 
-.split.split.us.split:                            ; preds = %.split.split.us, %.split.split.us.split
-  %91 = phi ptr [ %111, %.split.split.us.split ], [ %24, %.split.split.us ]
-  %92 = getelementptr i8, ptr %91, i64 -8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 104
-  %95 = load i32, ptr %94, align 8
-  %96 = getelementptr i8, ptr %91, i64 32
-  %97 = load i32, ptr %96, align 8
-  %98 = xor i32 %97, -1
-  %99 = and i32 %95, 1
-  %100 = and i32 %99, %98
-  %.phi.trans.insert12 = getelementptr i8, ptr %91, i64 44
-  %.pre13 = load i32, ptr %.phi.trans.insert12, align 4
-  %101 = getelementptr i8, ptr %91, i64 44
-  %.pre13.masked = and i32 %.pre13, -3
-  %102 = or i32 %.pre13.masked, %100
-  store i32 %102, ptr %101, align 4
-  %103 = load i32, ptr %94, align 8
-  %104 = and i32 %103, 4
-  %105 = and i32 %104, %98
-  %106 = icmp eq i32 %105, 0
-  %107 = or i32 %102, 8
-  %108 = select i1 %106, i32 %102, i32 %107
-  %109 = and i32 %108, -19
-  %110 = or disjoint i32 %109, %35
-  store i32 %110, ptr %101, align 4
-  %111 = load ptr, ptr %91, align 8
-  %112 = icmp eq ptr %111, @cdrom_list
-  br i1 %112, label %.loopexit, label %.split.split.us.split, !llvm.loop !57
+89:                                               ; preds = %.split.split.us
+  %90 = load i32, ptr %79, align 8
+  %91 = and i32 %90, 4
+  %92 = and i32 %91, %83
+  %93 = icmp eq i32 %92, 0
+  %94 = or i32 %88, 8
+  %spec.select16 = select i1 %93, i32 %88, i32 %94
+  br label %97
+
+95:                                               ; preds = %.split.split.us
+  %96 = and i32 %86, -11
+  br label %97
+
+97:                                               ; preds = %89, %95
+  %98 = phi i32 [ %96, %95 ], [ %spec.select16, %89 ]
+  %99 = and i32 %98, -17
+  %100 = or disjoint i32 %99, %35
+  store i32 %100, ptr %87, align 4
+  %101 = load ptr, ptr %76, align 8
+  %102 = icmp eq ptr %101, @cdrom_list
+  br i1 %102, label %.loopexit, label %.split.split.us, !llvm.loop !60
 
 .split.split:                                     ; preds = %.split
   br i1 %32, label %.split.split.split.us, label %.split.split.split
 
-.split.split.split.us:                            ; preds = %.split.split, %._crit_edge9
-  %113 = phi ptr [ %137, %._crit_edge9 ], [ %24, %.split.split ]
-  %114 = getelementptr i8, ptr %113, i64 -8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 104
-  %117 = load i32, ptr %116, align 8
-  %118 = getelementptr i8, ptr %113, i64 32
-  %119 = load i32, ptr %118, align 8
-  %120 = xor i32 %119, -1
-  %121 = and i32 %117, 1
-  %122 = and i32 %121, %120
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %._crit_edge9, label %124
+.split.split.split.us:                            ; preds = %.split.split, %._crit_edge8
+  %103 = phi ptr [ %127, %._crit_edge8 ], [ %24, %.split.split ]
+  %104 = getelementptr i8, ptr %103, i64 -8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 104
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr i8, ptr %103, i64 32
+  %109 = load i32, ptr %108, align 8
+  %110 = xor i32 %109, -1
+  %111 = and i32 %107, 1
+  %112 = and i32 %111, %110
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %._crit_edge8, label %114
 
-124:                                              ; preds = %.split.split.split.us
-  %125 = getelementptr i8, ptr %113, i64 44
-  %126 = load i32, ptr %125, align 4
-  %127 = or i32 %126, 1
-  store i32 %127, ptr %125, align 4
-  %.pre8 = load i32, ptr %116, align 8
-  br label %._crit_edge9
+114:                                              ; preds = %.split.split.split.us
+  %115 = getelementptr i8, ptr %103, i64 44
+  %116 = load i32, ptr %115, align 4
+  %117 = or i32 %116, 1
+  store i32 %117, ptr %115, align 4
+  %.pre7 = load i32, ptr %106, align 8
+  br label %._crit_edge8
 
-._crit_edge9:                                     ; preds = %124, %.split.split.split.us
-  %128 = phi i32 [ %.pre8, %124 ], [ %117, %.split.split.split.us ]
-  %129 = and i32 %128, 2
-  %130 = and i32 %129, %120
-  %131 = icmp eq i32 %130, 0
-  %.phi.trans.insert10 = getelementptr i8, ptr %113, i64 44
-  %.pre11 = load i32, ptr %.phi.trans.insert10, align 4
-  %132 = or i32 %.pre11, 2
-  %133 = select i1 %131, i32 %.pre11, i32 %132
-  %134 = getelementptr i8, ptr %113, i64 44
-  %135 = and i32 %133, -25
-  %136 = or disjoint i32 %135, %35
-  store i32 %136, ptr %134, align 4
-  %137 = load ptr, ptr %113, align 8
-  %138 = icmp eq ptr %137, @cdrom_list
-  br i1 %138, label %.loopexit, label %.split.split.split.us, !llvm.loop !57
+._crit_edge8:                                     ; preds = %114, %.split.split.split.us
+  %118 = phi i32 [ %.pre7, %114 ], [ %107, %.split.split.split.us ]
+  %119 = and i32 %118, 2
+  %120 = and i32 %119, %110
+  %121 = icmp eq i32 %120, 0
+  %.phi.trans.insert9 = getelementptr i8, ptr %103, i64 44
+  %.pre10 = load i32, ptr %.phi.trans.insert9, align 4
+  %122 = or i32 %.pre10, 2
+  %123 = select i1 %121, i32 %.pre10, i32 %122
+  %124 = getelementptr i8, ptr %103, i64 44
+  %125 = and i32 %123, -25
+  %126 = or disjoint i32 %125, %35
+  store i32 %126, ptr %124, align 4
+  %127 = load ptr, ptr %103, align 8
+  %128 = icmp eq ptr %127, @cdrom_list
+  br i1 %128, label %.loopexit, label %.split.split.split.us, !llvm.loop !61
 
 .split.split.split:                               ; preds = %.split.split, %._crit_edge
-  %139 = phi ptr [ %172, %._crit_edge ], [ %24, %.split.split ]
-  %140 = getelementptr i8, ptr %139, i64 -8
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 104
-  %143 = load i32, ptr %142, align 8
-  %144 = getelementptr i8, ptr %139, i64 32
-  %145 = load i32, ptr %144, align 8
-  %146 = xor i32 %145, -1
-  %147 = and i32 %143, 1
-  %148 = and i32 %147, %146
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %154, label %150
+  %129 = phi ptr [ %162, %._crit_edge ], [ %24, %.split.split ]
+  %130 = getelementptr i8, ptr %129, i64 -8
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
+  %133 = load i32, ptr %132, align 8
+  %134 = getelementptr i8, ptr %129, i64 32
+  %135 = load i32, ptr %134, align 8
+  %136 = xor i32 %135, -1
+  %137 = and i32 %133, 1
+  %138 = and i32 %137, %136
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %144, label %140
 
-150:                                              ; preds = %.split.split.split
-  %151 = getelementptr i8, ptr %139, i64 44
-  %152 = load i32, ptr %151, align 4
-  %153 = or i32 %152, 1
-  store i32 %153, ptr %151, align 4
-  %.pre = load i32, ptr %142, align 8
-  br label %154
+140:                                              ; preds = %.split.split.split
+  %141 = getelementptr i8, ptr %129, i64 44
+  %142 = load i32, ptr %141, align 4
+  %143 = or i32 %142, 1
+  store i32 %143, ptr %141, align 4
+  %.pre = load i32, ptr %132, align 8
+  br label %144
 
-154:                                              ; preds = %150, %.split.split.split
-  %155 = phi i32 [ %.pre, %150 ], [ %143, %.split.split.split ]
-  %156 = and i32 %155, 2
-  %157 = and i32 %156, %146
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %._crit_edge, label %159
+144:                                              ; preds = %140, %.split.split.split
+  %145 = phi i32 [ %.pre, %140 ], [ %133, %.split.split.split ]
+  %146 = and i32 %145, 2
+  %147 = and i32 %146, %136
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %._crit_edge, label %149
 
-159:                                              ; preds = %154
-  %160 = getelementptr i8, ptr %139, i64 44
-  %161 = load i32, ptr %160, align 4
-  %162 = or i32 %161, 2
-  store i32 %162, ptr %160, align 4
-  %.pre6 = load i32, ptr %142, align 8
+149:                                              ; preds = %144
+  %150 = getelementptr i8, ptr %129, i64 44
+  %151 = load i32, ptr %150, align 4
+  %152 = or i32 %151, 2
+  store i32 %152, ptr %150, align 4
+  %.pre5 = load i32, ptr %132, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %159, %154
-  %163 = phi i32 [ %.pre6, %159 ], [ %155, %154 ]
-  %164 = and i32 %163, 4
-  %165 = and i32 %164, %146
-  %166 = icmp eq i32 %165, 0
-  %.phi.trans.insert = getelementptr i8, ptr %139, i64 44
-  %.pre7 = load i32, ptr %.phi.trans.insert, align 4
-  %167 = or i32 %.pre7, 8
-  %168 = select i1 %166, i32 %.pre7, i32 %167
-  %169 = getelementptr i8, ptr %139, i64 44
-  %170 = and i32 %168, -17
-  %171 = or disjoint i32 %170, %35
-  store i32 %171, ptr %169, align 4
-  %172 = load ptr, ptr %139, align 8
-  %173 = icmp eq ptr %172, @cdrom_list
-  br i1 %173, label %.loopexit, label %.split.split.split, !llvm.loop !57
+._crit_edge:                                      ; preds = %149, %144
+  %153 = phi i32 [ %.pre5, %149 ], [ %145, %144 ]
+  %154 = and i32 %153, 4
+  %155 = and i32 %154, %136
+  %156 = icmp eq i32 %155, 0
+  %.phi.trans.insert = getelementptr i8, ptr %129, i64 44
+  %.pre6 = load i32, ptr %.phi.trans.insert, align 4
+  %157 = or i32 %.pre6, 8
+  %158 = select i1 %156, i32 %.pre6, i32 %157
+  %159 = getelementptr i8, ptr %129, i64 44
+  %160 = and i32 %158, -17
+  %161 = or disjoint i32 %160, %35
+  store i32 %161, ptr %159, align 4
+  %162 = load ptr, ptr %129, align 8
+  %163 = icmp eq ptr %162, @cdrom_list
+  br i1 %163, label %.loopexit, label %.split.split.split, !llvm.loop !62
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge9, %.split.split.us.split, %.split.split.us.split.us, %70, %8
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge8, %97, %70, %8
   tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #17
-  br label %174
+  br label %164
 
-174:                                              ; preds = %.loopexit, %5
+164:                                              ; preds = %.loopexit, %5
   ret i32 %6
 }
 
@@ -7844,10 +7830,15 @@ attributes #20 = { nounwind memory(none) }
 !48 = distinct !{!48, !11, !12}
 !49 = !{i64 2155677847, i64 2155677875, i64 2155677881, i64 2155677897, i64 2155677913, i64 2155677940, i64 2155678254, i64 2155677611, i64 2155678260, i64 2155678308, i64 2155678372, i64 2155678436, i64 2155678493, i64 2155677692, i64 2155677717, i64 2155678700, i64 2155678822, i64 2155678761, i64 2155678836, i64 2155677809}
 !50 = !{i64 2148977085}
-!51 = distinct !{!51, !11, !12}
-!52 = !{i64 2155711315}
-!53 = !{i64 2155712473}
-!54 = distinct !{!54, !11, !12}
-!55 = distinct !{!55, !11, !12}
+!51 = distinct !{!51, !11, !12, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !11, !12}
+!54 = !{i64 2155711315}
+!55 = !{i64 2155712473}
 !56 = distinct !{!56, !11, !12}
 !57 = distinct !{!57, !11, !12}
+!58 = distinct !{!58, !11, !12}
+!59 = distinct !{!59, !11, !12, !52}
+!60 = distinct !{!60, !11, !12, !52}
+!61 = distinct !{!61, !11, !12, !52}
+!62 = distinct !{!62, !11, !12}

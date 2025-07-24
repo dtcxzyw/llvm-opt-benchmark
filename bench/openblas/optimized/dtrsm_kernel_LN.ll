@@ -128,7 +128,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %63 = getelementptr inbounds nuw i8, ptr %.148.i, i64 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %solve.exit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %solve.exit, label %.split.i, !llvm.loop !11
 
 .split51.us.i:                                    ; preds = %._crit_edge.us.i
   %64 = getelementptr inbounds double, ptr %.04353.i293, i64 %23
@@ -143,7 +143,7 @@ solve.exit:                                       ; preds = %.split.i, %.prehead
   %.2 = phi i64 [ %.1298, %.preheader282 ], [ %36, %.split.i ]
   %68 = shl nuw nsw i64 %.0169297, 1
   %69 = icmp samesign ult i64 %.0169297, 8
-  br i1 %69, label %.preheader282, label %.loopexit283, !llvm.loop !10
+  br i1 %69, label %.preheader282, label %.loopexit283, !llvm.loop !12
 
 .loopexit283:                                     ; preds = %solve.exit, %20
   %.0 = phi i64 [ %12, %20 ], [ %.2, %solve.exit ]
@@ -234,7 +234,7 @@ solve.exit:                                       ; preds = %.split.i, %.prehead
   %103 = getelementptr inbounds nuw i8, ptr %.148.i223, i64 8
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i222, 1
   %exitcond.not.i225 = icmp eq i64 %indvars.iv.next.i224, 2
-  br i1 %exitcond.not.i225, label %solve.exit226, label %.split.i221, !llvm.loop !9
+  br i1 %exitcond.not.i225, label %solve.exit226, label %.split.i221, !llvm.loop !11
 
 .split51.us.i218:                                 ; preds = %._crit_edge.us.i215
   %104 = getelementptr inbounds i8, ptr %.04353.i204300, i64 -128
@@ -251,14 +251,14 @@ solve.exit226:                                    ; preds = %.split.i221
   %110 = getelementptr inbounds i8, ptr %.0163, i64 -128
   %111 = add nsw i64 %.1170, -1
   %112 = icmp sgt i64 %.1170, 1
-  br i1 %112, label %72, label %.loopexit281, !llvm.loop !11
+  br i1 %112, label %72, label %.loopexit281, !llvm.loop !13
 
 .loopexit281:                                     ; preds = %solve.exit226, %.loopexit283
   %113 = getelementptr inbounds i8, ptr %.0173303, i64 %.idx197
   %114 = getelementptr inbounds i8, ptr %.0176302, i64 %.idx198
   %115 = add nsw i64 %.0167304, -1
   %116 = icmp sgt i64 %.0167304, 1
-  br i1 %116, label %20, label %._crit_edge, !llvm.loop !12
+  br i1 %116, label %20, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit281, %9
   %.0176.lcssa = phi ptr [ %6, %9 ], [ %114, %.loopexit281 ]
@@ -366,7 +366,7 @@ solve.exit251:                                    ; preds = %.split.i246.prehead
   %.6 = phi i64 [ %.5315, %.preheader ], [ %141, %.split.i246.preheader ]
   %167 = shl nuw nsw i64 %.2171314, 1
   %168 = icmp samesign ult i64 %.2171314, 8
-  br i1 %168, label %.preheader, label %.loopexit278, !llvm.loop !13
+  br i1 %168, label %.preheader, label %.loopexit278, !llvm.loop !15
 
 .loopexit278:                                     ; preds = %solve.exit251, %.preheader279
   %.4 = phi i64 [ %118, %.preheader279 ], [ %.6, %solve.exit251 ]
@@ -413,7 +413,7 @@ solve.exit251:                                    ; preds = %.split.i246.prehead
   %188 = getelementptr inbounds i8, ptr %.1164, i64 -128
   %189 = add nsw i64 %.3172, -1
   %190 = icmp sgt i64 %.3172, 1
-  br i1 %190, label %171, label %.loopexit, !llvm.loop !14
+  br i1 %190, label %171, label %.loopexit, !llvm.loop !16
 
 .lr.ph.us.i257.preheader:                         ; preds = %178, %._crit_edge.us.i265
   %191 = phi ptr [ %184, %178 ], [ %205, %._crit_edge.us.i265 ]
@@ -475,9 +475,11 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

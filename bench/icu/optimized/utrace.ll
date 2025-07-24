@@ -507,7 +507,7 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %114, %.split.us.i
 _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.us35.i
   %.not29.i.us36.i = icmp eq i8 %119, 0
   %142 = add nsw i32 %.lcssa544547, 1
-  br i1 %.not29.i.us36.i, label %_ZL10outputCharcPcPiii.exit175.loopexit, label %.split.split.split.us.i, !llvm.loop !15
+  br i1 %.not29.i.us36.i, label %_ZL10outputCharcPcPiii.exit175.loopexit, label %.split.split.split.us.i, !llvm.loop !17
 
 143:                                              ; preds = %._crit_edge
   %144 = load i32, ptr %4, align 8
@@ -599,7 +599,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
 _ZL10outputCharcPcPiii.exit.i:                    ; preds = %186, %.loopexit.i.i
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %192 = icmp samesign ugt i64 %indvars.iv.i177, 7
-  br i1 %192, label %.loopexit.i.i, label %_ZL10outputCharcPcPiii.exit175.loopexit421, !llvm.loop !16
+  br i1 %192, label %.loopexit.i.i, label %_ZL10outputCharcPcPiii.exit175.loopexit421, !llvm.loop !18
 
 193:                                              ; preds = %._crit_edge
   %194 = load i32, ptr %4, align 8
@@ -646,7 +646,7 @@ _ZL10outputCharcPcPiii.exit.i:                    ; preds = %186, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %210, %.loopexit.i.i180
   %indvars.iv.next620 = add nsw i64 %indvars.iv619, 1
   %216 = icmp samesign ugt i64 %indvars.iv.i181, 7
-  br i1 %216, label %.loopexit.i.i180, label %_ZL10outputCharcPcPiii.exit175.loopexit422, !llvm.loop !16
+  br i1 %216, label %.loopexit.i.i180, label %_ZL10outputCharcPcPiii.exit175.loopexit422, !llvm.loop !18
 
 217:                                              ; preds = %._crit_edge
   %218 = load i32, ptr %4, align 8
@@ -693,7 +693,7 @@ _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %210, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i187
   %indvars.iv.next617 = add nsw i64 %indvars.iv616, 1
   %240 = icmp samesign ugt i64 %indvars.iv.i188, 7
-  br i1 %240, label %.loopexit.i.i187, label %_ZL10outputCharcPcPiii.exit175.loopexit423, !llvm.loop !16
+  br i1 %240, label %.loopexit.i.i187, label %_ZL10outputCharcPcPiii.exit175.loopexit423, !llvm.loop !18
 
 241:                                              ; preds = %._crit_edge
   %242 = load i32, ptr %4, align 8
@@ -716,7 +716,7 @@ _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i
 
 252:                                              ; preds = %249, %244
   %253 = phi ptr [ %247, %244 ], [ %250, %249 ]
-  %254 = load i64, ptr %253, align 8, !tbaa !17
+  %254 = load i64, ptr %253, align 8, !tbaa !19
   %255 = sext i32 %.promoted551 to i64
   br label %.loopexit.i.i194
 
@@ -739,7 +739,7 @@ _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %257, %.loopexit.i.i194
   %indvars.iv.next614 = add nsw i64 %indvars.iv613, 1
   %263 = icmp samesign ugt i64 %indvars.iv.i195, 7
-  br i1 %263, label %.loopexit.i.i194, label %_ZL10outputCharcPcPiii.exit175.loopexit424, !llvm.loop !16
+  br i1 %263, label %.loopexit.i.i194, label %_ZL10outputCharcPcPiii.exit175.loopexit424, !llvm.loop !18
 
 264:                                              ; preds = %._crit_edge
   %265 = load i32, ptr %4, align 8
@@ -795,14 +795,14 @@ _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %257, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i.i:                  ; preds = %283, %.loopexit.i.i.i
   %indvars.iv.next611 = add nsw i64 %indvars.iv610, 1
   %289 = icmp samesign ugt i64 %indvars.iv.i.i, 7
-  br i1 %289, label %.loopexit.i.i.i, label %_ZL14outputHexBytesliPcPii.exit.i, !llvm.loop !16
+  br i1 %289, label %.loopexit.i.i.i, label %_ZL14outputHexBytesliPcPii.exit.i, !llvm.loop !18
 
 _ZL14outputHexBytesliPcPii.exit.i:                ; preds = %_ZL10outputCharcPcPiii.exit.i.i
   %290 = trunc nsw i64 %indvars.iv.next611 to i32
   %291 = getelementptr inbounds i8, ptr %.010.i, i64 -1
   %292 = add nuw nsw i32 %.089.i, 1
   %exitcond.not.i200 = icmp eq i32 %292, 8
-  br i1 %exitcond.not.i200, label %_ZL14outputPtrBytesPvPcPii.exit, label %278, !llvm.loop !19
+  br i1 %exitcond.not.i200, label %_ZL14outputPtrBytesPvPcPii.exit, label %278, !llvm.loop !21
 
 _ZL14outputPtrBytesPvPcPii.exit:                  ; preds = %_ZL14outputHexBytesliPcPii.exit.i
   store i32 %290, ptr %8, align 4
@@ -1015,13 +1015,13 @@ _ZL10outputCharcPcPiii.exit.us.i219:              ; preds = %352, %.split.us.i21
 _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.us35.i223
   %382 = add nsw i32 %.lcssa507510, 1
   %exitcond606 = icmp eq i64 %indvars.iv.next44.i222, 8
-  br i1 %exitcond606, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.split.split.us.i220, !llvm.loop !15
+  br i1 %exitcond606, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.split.split.us.i220, !llvm.loop !17
 
 383:                                              ; preds = %.thread
   %384 = add nuw nsw i32 %.0499, 1
   %385 = icmp slt i32 %384, %344
   %386 = or i1 %346, %385
-  br i1 %386, label %.lr.ph500, label %_ZL12outputStringPKcPcPiii.exit235, !llvm.loop !20
+  br i1 %386, label %.lr.ph500, label %_ZL12outputStringPKcPcPiii.exit235, !llvm.loop !22
 
 .lr.ph500:                                        ; preds = %.preheader, %383
   %.pre.i310 = phi i32 [ %569, %383 ], [ %.promoted551, %.preheader ]
@@ -1053,7 +1053,7 @@ _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.u
 
 391:                                              ; preds = %.lr.ph500
   %392 = getelementptr inbounds nuw i8, ptr %.0137494, i64 2
-  %393 = load i16, ptr %.0137494, align 2, !tbaa !21
+  %393 = load i16, ptr %.0137494, align 2, !tbaa !23
   %394 = sext i16 %393 to i64
   br label %.thread399
 
@@ -1065,7 +1065,7 @@ _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.u
 
 399:                                              ; preds = %.lr.ph500
   %400 = getelementptr inbounds nuw i8, ptr %.0133496, i64 8
-  %401 = load i64, ptr %.0133496, align 8, !tbaa !17
+  %401 = load i64, ptr %.0133496, align 8, !tbaa !19
   br label %.thread399
 
 402:                                              ; preds = %.lr.ph500
@@ -1102,14 +1102,14 @@ _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.u
 _ZL10outputCharcPcPiii.exit.i.i243:               ; preds = %409, %.loopexit.i.i.i240
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %415 = icmp samesign ugt i64 %indvars.iv.i.i241, 7
-  br i1 %415, label %.loopexit.i.i.i240, label %_ZL14outputHexBytesliPcPii.exit.i244, !llvm.loop !16
+  br i1 %415, label %.loopexit.i.i.i240, label %_ZL14outputHexBytesliPcPii.exit.i244, !llvm.loop !18
 
 _ZL14outputHexBytesliPcPii.exit.i244:             ; preds = %_ZL10outputCharcPcPiii.exit.i.i243
   %416 = trunc nsw i64 %indvars.iv.next601 to i32
   %417 = getelementptr inbounds i8, ptr %.010.i238, i64 -1
   %418 = add nuw nsw i32 %.089.i239, 1
   %exitcond.not.i245 = icmp eq i32 %418, 8
-  br i1 %exitcond.not.i245, label %_ZL14outputPtrBytesPvPcPii.exit247, label %404, !llvm.loop !19
+  br i1 %exitcond.not.i245, label %_ZL14outputPtrBytesPvPcPii.exit247, label %404, !llvm.loop !21
 
 _ZL14outputPtrBytesPvPcPii.exit247:               ; preds = %_ZL14outputHexBytesliPcPii.exit.i244
   store i32 %416, ptr %8, align 4
@@ -1306,7 +1306,7 @@ _ZL10outputCharcPcPiii.exit.us.i271:              ; preds = %463, %.split.us.i26
 _ZL10outputCharcPcPiii.exit.us37.i277:            ; preds = %488, %.loopexit.i.us35.i275
   %.not29.i.us36.i276 = icmp eq i8 %468, 0
   %491 = add nsw i32 %.lcssa467470, 1
-  br i1 %.not29.i.us36.i276, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.split.split.us.i272, !llvm.loop !15
+  br i1 %.not29.i.us36.i276, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.split.split.us.i272, !llvm.loop !17
 
 _ZL12outputStringPKcPcPiii.exit287:               ; preds = %_ZL10outputCharcPcPiii.exit.us.i271, %_ZL10outputCharcPcPiii.exit.us37.i277
   %.promoted471 = phi i32 [ %.lcssa467470, %_ZL10outputCharcPcPiii.exit.us37.i277 ], [ %459, %_ZL10outputCharcPcPiii.exit.us.i271 ]
@@ -1453,7 +1453,7 @@ _ZL10outputCharcPcPiii.exit309:                   ; preds = %.loopexit.i302, %52
 _ZL10outputCharcPcPiii.exit.i314:                 ; preds = %540, %.loopexit.i.i311
   %indvars.iv.next604 = add nsw i64 %indvars.iv603, 1
   %546 = icmp samesign ugt i64 %indvars.iv.i312, 7
-  br i1 %546, label %.loopexit.i.i311, label %_ZL14outputHexBytesliPcPii.exit316, !llvm.loop !16
+  br i1 %546, label %.loopexit.i.i311, label %_ZL14outputHexBytesliPcPii.exit316, !llvm.loop !18
 
 _ZL14outputHexBytesliPcPii.exit316:               ; preds = %_ZL10outputCharcPcPiii.exit.i314
   %547 = trunc nsw i64 %indvars.iv.next604 to i32
@@ -1609,7 +1609,7 @@ _ZL10outputCharcPcPiii.exit338:                   ; preds = %.loopexit.i331, %58
 _ZL10outputCharcPcPiii.exit.i343:                 ; preds = %595, %.loopexit.i.i340
   %indvars.iv.next608 = add nsw i64 %indvars.iv607, 1
   %601 = icmp samesign ugt i64 %indvars.iv.i341, 7
-  br i1 %601, label %.loopexit.i.i340, label %_ZL14outputHexBytesliPcPii.exit345, !llvm.loop !16
+  br i1 %601, label %.loopexit.i.i340, label %_ZL14outputHexBytesliPcPii.exit345, !llvm.loop !18
 
 _ZL14outputHexBytesliPcPii.exit345:               ; preds = %_ZL10outputCharcPcPiii.exit.i343
   %602 = trunc nsw i64 %indvars.iv.next608 to i32
@@ -1950,20 +1950,20 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %50
   %51 = load i32, ptr %3, align 4, !tbaa !11
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %3, align 4, !tbaa !11
-  br label %.split.split.split.us.i, !llvm.loop !15
+  br label %.split.split.split.us.i, !llvm.loop !17
 
 53:                                               ; preds = %_ZL10outputCharcPcPiii.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = trunc nuw i64 %indvars.iv.next to i32
   %55 = icmp sgt i32 %1, %54
   %56 = or i1 %8, %55
-  br i1 %56, label %57, label %_ZL12outputStringPKcPcPiii.exit, !llvm.loop !23
+  br i1 %56, label %57, label %_ZL12outputStringPKcPcPiii.exit, !llvm.loop !25
 
 57:                                               ; preds = %.lr.ph, %53
   %.pre.i = phi i32 [ %.pre.i.pre, %.lr.ph ], [ %96, %53 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %58 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %59 = load i16, ptr %58, align 2, !tbaa !24
+  %59 = load i16, ptr %58, align 2, !tbaa !26
   %60 = zext i16 %59 to i64
   br label %.loopexit.i.i
 
@@ -1990,7 +1990,7 @@ _ZL10outputCharcPcPiii.exit.i:                    ; preds = %63, %.loopexit.i.i
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %3, align 4, !tbaa !11
   %72 = icmp samesign ugt i64 %indvars.iv.i23, 7
-  br i1 %72, label %.loopexit.i.i, label %_ZL14outputHexBytesliPcPii.exit, !llvm.loop !16
+  br i1 %72, label %.loopexit.i.i, label %_ZL14outputHexBytesliPcPii.exit, !llvm.loop !18
 
 _ZL14outputHexBytesliPcPii.exit:                  ; preds = %_ZL10outputCharcPcPiii.exit.i
   %73 = icmp eq i32 %71, 0
@@ -2205,14 +2205,16 @@ attributes #13 = { noreturn nounwind }
 !12 = !{!"int", !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !4, i64 0}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !5, i64 0}
-!23 = distinct !{!23, !9}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"char16_t", !5, i64 0}
+!15 = distinct !{!15, !9, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !9, !16}
+!18 = distinct !{!18, !9}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !5, i64 0}
+!25 = distinct !{!25, !9}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"char16_t", !5, i64 0}

@@ -108,7 +108,7 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   store double %44, ptr %42, align 8, !tbaa !17
   %45 = add nuw nsw i64 %.385.us, 1
   %exitcond101.not = icmp eq i64 %45, %1
-  br i1 %exitcond101.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !23
+  br i1 %exitcond101.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !24
 
 .preheader.us:                                    ; preds = %.lr.ph88.split.us
   %46 = fneg double %36
@@ -122,7 +122,7 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   store double %49, ptr %47, align 8, !tbaa !17
   %50 = add nuw nsw i64 %.282, 1
   %exitcond100.not = icmp eq i64 %50, %1
-  br i1 %exitcond100.not, label %.preheader74, label %.lr.ph84, !llvm.loop !24
+  br i1 %exitcond100.not, label %.preheader74, label %.lr.ph84, !llvm.loop !25
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %.loopexit75, %4
   %.0 = phi i64 [ 0, %4 ], [ 0, %.loopexit75 ], [ %8, %._crit_edge ]
@@ -162,11 +162,11 @@ define void @DenseGETRS(ptr noundef readonly captures(none) %0, ptr noundef read
 17:                                               ; preds = %12, %.lr.ph.i
   %18 = add nuw nsw i64 %.05056.i, 1
   %exitcond.not.i = icmp eq i64 %18, %7
-  br i1 %exitcond.not.i, label %.preheader55.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.preheader55.i, label %.lr.ph.i, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %23
   %exitcond65.not.i = icmp eq i64 %21, %9
-  br i1 %exitcond65.not.i, label %.lr.ph63.i, label %.lr.ph58.i, !llvm.loop !26
+  br i1 %exitcond65.not.i, label %.lr.ph63.i, label %.lr.ph58.i, !llvm.loop !27
 
 .lr.ph58.i:                                       ; preds = %.preheader55.i, %.loopexit.i
   %.15159.i = phi i64 [ %21, %.loopexit.i ], [ 0, %.preheader55.i ]
@@ -188,7 +188,7 @@ define void @DenseGETRS(ptr noundef readonly captures(none) %0, ptr noundef read
   store double %30, ptr %27, align 8, !tbaa !17
   %31 = add nuw nsw i64 %.057.i, 1
   %exitcond64.not.i = icmp eq i64 %31, %7
-  br i1 %exitcond64.not.i, label %.loopexit.i, label %23, !llvm.loop !27
+  br i1 %exitcond64.not.i, label %.loopexit.i, label %23, !llvm.loop !28
 
 .lr.ph63.i:                                       ; preds = %.loopexit.i, %48
   %.262.i = phi i64 [ %49, %48 ], [ %9, %.loopexit.i ]
@@ -214,12 +214,12 @@ define void @DenseGETRS(ptr noundef readonly captures(none) %0, ptr noundef read
   store double %46, ptr %43, align 8, !tbaa !17
   %47 = add nuw nsw i64 %.161.i, 1
   %exitcond66.not.i = icmp eq i64 %47, %.262.i
-  br i1 %exitcond66.not.i, label %48, label %39, !llvm.loop !28
+  br i1 %exitcond66.not.i, label %48, label %39, !llvm.loop !29
 
 48:                                               ; preds = %39
   %49 = add nsw i64 %.262.i, -1
   %50 = icmp sgt i64 %.262.i, 1
-  br i1 %50, label %.lr.ph63.i, label %denseGETRS.exit, !llvm.loop !29
+  br i1 %50, label %.lr.ph63.i, label %denseGETRS.exit, !llvm.loop !30
 
 denseGETRS.exit:                                  ; preds = %48, %3, %.preheader55.i
   %51 = load ptr, ptr %5, align 8, !tbaa !16
@@ -259,11 +259,11 @@ define void @denseGETRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
 14:                                               ; preds = %.lr.ph, %9
   %15 = add nuw nsw i64 %.05056, 1
   %exitcond.not = icmp eq i64 %15, %1
-  br i1 %exitcond.not, label %.preheader55, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader55, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %20
   %exitcond65.not = icmp eq i64 %18, %6
-  br i1 %exitcond65.not, label %.lr.ph63, label %.lr.ph58, !llvm.loop !26
+  br i1 %exitcond65.not, label %.lr.ph63, label %.lr.ph58, !llvm.loop !27
 
 .lr.ph58:                                         ; preds = %.preheader55, %.loopexit
   %.15159 = phi i64 [ %18, %.loopexit ], [ 0, %.preheader55 ]
@@ -285,7 +285,7 @@ define void @denseGETRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   store double %27, ptr %24, align 8, !tbaa !17
   %28 = add nuw nsw i64 %.057, 1
   %exitcond64.not = icmp eq i64 %28, %1
-  br i1 %exitcond64.not, label %.loopexit, label %20, !llvm.loop !27
+  br i1 %exitcond64.not, label %.loopexit, label %20, !llvm.loop !28
 
 .lr.ph63:                                         ; preds = %.loopexit, %45
   %.262 = phi i64 [ %46, %45 ], [ %6, %.loopexit ]
@@ -311,12 +311,12 @@ define void @denseGETRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   store double %43, ptr %40, align 8, !tbaa !17
   %44 = add nuw nsw i64 %.161, 1
   %exitcond66.not = icmp eq i64 %44, %.262
-  br i1 %exitcond66.not, label %45, label %36, !llvm.loop !28
+  br i1 %exitcond66.not, label %45, label %36, !llvm.loop !29
 
 45:                                               ; preds = %36
   %46 = add nsw i64 %.262, -1
   %47 = icmp sgt i64 %.262, 1
-  br i1 %47, label %.lr.ph63, label %._crit_edge, !llvm.loop !29
+  br i1 %47, label %.lr.ph63, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %45, %4, %.preheader55
   %48 = load ptr, ptr %0, align 8, !tbaa !16
@@ -363,12 +363,12 @@ define i64 @DensePOTRF(ptr noundef readonly captures(none) %0) local_unnamed_add
   store double %19, ptr %9, align 8, !tbaa !17
   %20 = add nuw nsw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %20, %.03344.i
-  br i1 %exitcond.not.i, label %21, label %10, !llvm.loop !30
+  br i1 %exitcond.not.i, label %21, label %10, !llvm.loop !31
 
 21:                                               ; preds = %10
   %22 = add nuw nsw i64 %.03442.i, 1
   %exitcond48.not.i = icmp eq i64 %22, %5
-  br i1 %exitcond48.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !31
+  br i1 %exitcond48.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %21, %.lr.ph46.i
   %23 = getelementptr inbounds nuw double, ptr %8, i64 %.03344.i
@@ -392,12 +392,12 @@ define i64 @DensePOTRF(ptr noundef readonly captures(none) %0) local_unnamed_add
   store double %31, ptr %29, align 8, !tbaa !17
   %32 = add nuw nsw i64 %.143.i, 1
   %exitcond49.not.i = icmp eq i64 %32, %5
-  br i1 %exitcond49.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond49.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %33 = add nuw nsw i64 %.03344.i, 1
   %exitcond50.not.i = icmp eq i64 %33, %5
-  br i1 %exitcond50.not.i, label %densePOTRF.exit, label %.lr.ph46.i, !llvm.loop !33
+  br i1 %exitcond50.not.i, label %densePOTRF.exit, label %.lr.ph46.i, !llvm.loop !34
 
 densePOTRF.exit:                                  ; preds = %._crit_edge.i, %1, %26
   %.035.i = phi i64 [ %27, %26 ], [ 0, %1 ], [ 0, %._crit_edge.i ]
@@ -436,12 +436,12 @@ define i64 @densePOTRF(ptr noundef readonly captures(none) %0, i64 noundef %1) l
   store double %16, ptr %6, align 8, !tbaa !17
   %17 = add nuw nsw i64 %.041, 1
   %exitcond.not = icmp eq i64 %17, %.03344
-  br i1 %exitcond.not, label %18, label %7, !llvm.loop !30
+  br i1 %exitcond.not, label %18, label %7, !llvm.loop !31
 
 18:                                               ; preds = %7
   %19 = add nuw nsw i64 %.03442, 1
   %exitcond48.not = icmp eq i64 %19, %1
-  br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %18, %.lr.ph46
   %20 = getelementptr inbounds nuw double, ptr %5, i64 %.03344
@@ -465,12 +465,12 @@ define i64 @densePOTRF(ptr noundef readonly captures(none) %0, i64 noundef %1) l
   store double %28, ptr %26, align 8, !tbaa !17
   %29 = add nuw nsw i64 %.143, 1
   %exitcond49.not = icmp eq i64 %29, %1
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %30 = add nuw nsw i64 %.03344, 1
   %exitcond50.not = icmp eq i64 %30, %1
-  br i1 %exitcond50.not, label %.loopexit39, label %.lr.ph46, !llvm.loop !33
+  br i1 %exitcond50.not, label %.loopexit39, label %.lr.ph46, !llvm.loop !34
 
 .loopexit39:                                      ; preds = %._crit_edge, %2, %23
   %.035 = phi i64 [ %24, %23 ], [ 0, %2 ], [ 0, %._crit_edge ]
@@ -489,7 +489,7 @@ define void @DensePOTRS(ptr noundef readonly captures(none) %0, ptr noundef capt
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
   %exitcond64.not.i = icmp eq i64 %16, %7
-  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i, !llvm.loop !34
+  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i, !llvm.loop !35
 
 .lr.ph.preheader.i:                               ; preds = %2, %.loopexit.i
   %.053.i = phi i64 [ %16, %.loopexit.i ], [ 0, %2 ]
@@ -516,7 +516,7 @@ define void @DensePOTRS(ptr noundef readonly captures(none) %0, ptr noundef capt
   store double %23, ptr %20, align 8, !tbaa !17
   %24 = add nuw nsw i64 %.04952.i, 1
   %exitcond.not.i = icmp eq i64 %24, %6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %2
   %25 = getelementptr inbounds ptr, ptr %4, i64 %7
@@ -558,7 +558,7 @@ define void @DensePOTRS(ptr noundef readonly captures(none) %0, ptr noundef capt
   store double %45, ptr %38, align 8, !tbaa !17
   %.1.i = add nuw nsw i64 %.156.i, 1
   %exitcond65.not.i = icmp eq i64 %.1.i, %6
-  br i1 %exitcond65.not.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !36
+  br i1 %exitcond65.not.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !37
 
 ._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %.lr.ph62.i
   %46 = phi double [ %.promoted.i, %.lr.ph62.i ], [ %45, %.lr.ph58.i ]
@@ -568,7 +568,7 @@ define void @DensePOTRS(ptr noundef readonly captures(none) %0, ptr noundef capt
   store double %49, ptr %38, align 8, !tbaa !17
   %50 = add nsw i64 %.15060.i, -1
   %51 = icmp sgt i64 %.15060.i, 0
-  br i1 %51, label %.lr.ph62.i, label %densePOTRS.exit, !llvm.loop !37
+  br i1 %51, label %.lr.ph62.i, label %densePOTRS.exit, !llvm.loop !38
 
 densePOTRS.exit:                                  ; preds = %._crit_edge59.i, %._crit_edge.i
   ret void
@@ -582,7 +582,7 @@ define void @densePOTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
 
 .loopexit:                                        ; preds = %.lr.ph
   %exitcond64.not = icmp eq i64 %13, %4
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !34
+  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !35
 
 .lr.ph.preheader:                                 ; preds = %3, %.loopexit
   %.053 = phi i64 [ %13, %.loopexit ], [ 0, %3 ]
@@ -609,7 +609,7 @@ define void @densePOTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   store double %20, ptr %17, align 8, !tbaa !17
   %21 = add nuw nsw i64 %.04952, 1
   %exitcond.not = icmp eq i64 %21, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %22 = getelementptr inbounds ptr, ptr %0, i64 %4
@@ -651,7 +651,7 @@ define void @densePOTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   store double %42, ptr %35, align 8, !tbaa !17
   %.1 = add nuw nsw i64 %.156, 1
   %exitcond65.not = icmp eq i64 %.1, %1
-  br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !36
+  br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !37
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %.lr.ph62
   %43 = phi double [ %.promoted, %.lr.ph62 ], [ %42, %.lr.ph58 ]
@@ -662,7 +662,7 @@ define void @densePOTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   store double %47, ptr %46, align 8, !tbaa !17
   %48 = add nsw i64 %.15060, -1
   %49 = icmp sgt i64 %.15060, 0
-  br i1 %49, label %.lr.ph62, label %._crit_edge63, !llvm.loop !37
+  br i1 %49, label %.lr.ph62, label %._crit_edge63, !llvm.loop !38
 
 ._crit_edge63:                                    ; preds = %._crit_edge59, %._crit_edge
   ret void
@@ -711,7 +711,7 @@ define noundef i32 @denseGEQRF(ptr noundef readonly captures(none) %0, i64 nound
   %17 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.08996)
   %18 = add nuw nsw i64 %.08897, 1
   %exitcond.not = icmp eq i64 %18, %indvars.iv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %19 = fcmp une double %17, 0.000000e+00
@@ -742,7 +742,7 @@ define noundef i32 @denseGEQRF(ptr noundef readonly captures(none) %0, i64 nound
   store double %35, ptr %33, align 8, !tbaa !17
   %36 = add nuw nsw i64 %.199, 1
   %exitcond129.not = icmp eq i64 %36, %indvars.iv
-  br i1 %exitcond129.not, label %.lr.ph118, label %.lr.ph101, !llvm.loop !39
+  br i1 %exitcond129.not, label %.lr.ph118, label %.lr.ph101, !llvm.loop !40
 
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge
   %37 = getelementptr inbounds nuw double, ptr %3, i64 %.087124
@@ -771,7 +771,7 @@ define noundef i32 @denseGEQRF(ptr noundef readonly captures(none) %0, i64 nound
   %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %.190104)
   %47 = add nuw nsw i64 %.2105, 1
   %exitcond130.not = icmp eq i64 %47, %indvars.iv
-  br i1 %exitcond130.not, label %.lr.ph114, label %.lr.ph107, !llvm.loop !40
+  br i1 %exitcond130.not, label %.lr.ph114, label %.lr.ph107, !llvm.loop !41
 
 .lr.ph114:                                        ; preds = %.lr.ph107
   %48 = load double, ptr %39, align 8, !tbaa !17
@@ -789,12 +789,12 @@ define noundef i32 @denseGEQRF(ptr noundef readonly captures(none) %0, i64 nound
   store double %55, ptr %gep111, align 8, !tbaa !17
   %56 = add nuw nsw i64 %.3112, 1
   %exitcond131.not = icmp eq i64 %56, %indvars.iv
-  br i1 %exitcond131.not, label %._crit_edge115, label %51, !llvm.loop !41
+  br i1 %exitcond131.not, label %._crit_edge115, label %51, !llvm.loop !42
 
 ._crit_edge115:                                   ; preds = %51, %40
   %57 = add nuw nsw i64 %.0116, 1
   %exitcond132.not = icmp eq i64 %57, %2
-  br i1 %exitcond132.not, label %._crit_edge119, label %40, !llvm.loop !42
+  br i1 %exitcond132.not, label %._crit_edge119, label %40, !llvm.loop !43
 
 ._crit_edge119:                                   ; preds = %._crit_edge115
   %58 = icmp sge i64 %.087124, %7
@@ -809,13 +809,13 @@ define noundef i32 @denseGEQRF(ptr noundef readonly captures(none) %0, i64 nound
   store double %60, ptr %gep121, align 8, !tbaa !17
   %61 = add nuw nsw i64 %.4122, 1
   %exitcond134.not = icmp eq i64 %61, %indvars.iv
-  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph123, !llvm.loop !43
+  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph123, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph123, %._crit_edge119
   %62 = add nuw nsw i64 %.087124, 1
   %indvars.iv.next = add i64 %indvars.iv, -1
   %exitcond135.not = icmp eq i64 %62, %2
-  br i1 %exitcond135.not, label %._crit_edge127, label %8, !llvm.loop !44
+  br i1 %exitcond135.not, label %._crit_edge127, label %8, !llvm.loop !45
 
 ._crit_edge127:                                   ; preds = %.loopexit, %5
   ret i32 0
@@ -852,7 +852,7 @@ define noundef i32 @DenseORMQR(ptr noundef readonly captures(none) %0, ptr nound
   store double %18, ptr %19, align 8, !tbaa !17
   %20 = add nuw nsw i64 %.04854.i, 1
   %exitcond.not.i = icmp eq i64 %20, %11
-  br i1 %exitcond.not.i, label %.preheader53.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.preheader53.i, label %.lr.ph.i, !llvm.loop !46
 
 .preheader.i:                                     ; preds = %.lr.ph56.preheader.i, %.preheader53.i
   br i1 %12, label %.lr.ph66.preheader.i, label %denseORMQR.exit
@@ -865,7 +865,7 @@ define noundef i32 @DenseORMQR(ptr noundef readonly captures(none) %0, ptr nound
 .loopexit.i:                                      ; preds = %44, %._crit_edge.i
   %23 = icmp samesign ugt i64 %.065.in.i, 1
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
-  br i1 %23, label %.lr.ph66.i, label %denseORMQR.exit, !llvm.loop !46
+  br i1 %23, label %.lr.ph66.i, label %denseORMQR.exit, !llvm.loop !47
 
 .lr.ph66.i:                                       ; preds = %.loopexit.i, %.lr.ph66.preheader.i
   %indvars.iv.i = phi i64 [ %22, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
@@ -893,7 +893,7 @@ define noundef i32 @DenseORMQR(ptr noundef readonly captures(none) %0, ptr nound
   %36 = tail call double @llvm.fmuladd.f64(double %32, double %35, double %.04957.i)
   %37 = add nuw nsw i64 %.258.i, 1
   %38 = icmp slt i64 %37, %28
-  br i1 %38, label %.lr.ph59.i, label %.lr.ph63.i, !llvm.loop !47
+  br i1 %38, label %.lr.ph59.i, label %.lr.ph63.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %.lr.ph66.i
   %39 = icmp eq i64 %28, 1
@@ -917,7 +917,7 @@ define noundef i32 @DenseORMQR(ptr noundef readonly captures(none) %0, ptr nound
   store double %48, ptr %gep.i, align 8, !tbaa !17
   %49 = add nuw nsw i64 %.361.i, 1
   %exitcond69.not.i = icmp eq i64 %49, %indvars.iv.i
-  br i1 %exitcond69.not.i, label %.loopexit.i, label %44, !llvm.loop !48
+  br i1 %exitcond69.not.i, label %.loopexit.i, label %44, !llvm.loop !49
 
 denseORMQR.exit:                                  ; preds = %.loopexit.i, %.preheader.i
   ret i32 0
@@ -948,7 +948,7 @@ define noundef i32 @denseORMQR(ptr noundef readonly captures(none) %0, i64 nound
   store double %14, ptr %15, align 8, !tbaa !17
   %16 = add nuw nsw i64 %.04854, 1
   %exitcond.not = icmp eq i64 %16, %2
-  br i1 %exitcond.not, label %.preheader53, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.preheader53, label %.lr.ph, !llvm.loop !46
 
 .preheader:                                       ; preds = %.lr.ph56.preheader, %.preheader53
   br i1 %8, label %.lr.ph66.preheader, label %._crit_edge67
@@ -961,7 +961,7 @@ define noundef i32 @denseORMQR(ptr noundef readonly captures(none) %0, i64 nound
 .loopexit:                                        ; preds = %40, %._crit_edge
   %19 = icmp samesign ugt i64 %.065.in, 1
   %indvars.iv.next = add i64 %indvars.iv, 1
-  br i1 %19, label %.lr.ph66, label %._crit_edge67, !llvm.loop !46
+  br i1 %19, label %.lr.ph66, label %._crit_edge67, !llvm.loop !47
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.loopexit
   %indvars.iv = phi i64 [ %18, %.lr.ph66.preheader ], [ %indvars.iv.next, %.loopexit ]
@@ -989,7 +989,7 @@ define noundef i32 @denseORMQR(ptr noundef readonly captures(none) %0, i64 nound
   %32 = tail call double @llvm.fmuladd.f64(double %28, double %31, double %.04957)
   %33 = add nuw nsw i64 %.258, 1
   %34 = icmp slt i64 %33, %24
-  br i1 %34, label %.lr.ph59, label %.lr.ph63, !llvm.loop !47
+  br i1 %34, label %.lr.ph59, label %.lr.ph63, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph66
   %35 = icmp eq i64 %24, 1
@@ -1013,7 +1013,7 @@ define noundef i32 @denseORMQR(ptr noundef readonly captures(none) %0, i64 nound
   store double %44, ptr %gep, align 8, !tbaa !17
   %45 = add nuw nsw i64 %.361, 1
   %exitcond69.not = icmp eq i64 %45, %indvars.iv
-  br i1 %exitcond69.not, label %.loopexit, label %40, !llvm.loop !48
+  br i1 %exitcond69.not, label %.loopexit, label %40, !llvm.loop !49
 
 ._crit_edge67:                                    ; preds = %.loopexit, %.preheader
   ret i32 0
@@ -1050,12 +1050,12 @@ define void @DenseCopy(ptr noundef readonly captures(none) %0, ptr noundef reado
   store double %19, ptr %20, align 8, !tbaa !17
   %21 = add nuw nsw i64 %.014.us.i, 1
   %exitcond.not.i = icmp eq i64 %21, %8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %17, !llvm.loop !49
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %17, !llvm.loop !50
 
 ._crit_edge.us.i:                                 ; preds = %17
   %22 = add nuw nsw i64 %.01315.us.i, 1
   %exitcond20.not.i = icmp eq i64 %22, %10
-  br i1 %exitcond20.not.i, label %denseCopy.exit, label %.lr.ph.us.i, !llvm.loop !50
+  br i1 %exitcond20.not.i, label %denseCopy.exit, label %.lr.ph.us.i, !llvm.loop !51
 
 denseCopy.exit:                                   ; preds = %._crit_edge.us.i, %2
   ret void
@@ -1084,12 +1084,12 @@ define void @denseCopy(ptr noundef readonly captures(none) %0, ptr noundef reado
   store double %13, ptr %14, align 8, !tbaa !17
   %15 = add nuw nsw i64 %.014.us, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %11
   %16 = add nuw nsw i64 %.01315.us, 1
   %exitcond20.not = icmp eq i64 %16, %3
-  br i1 %exitcond20.not, label %._crit_edge18, label %.lr.ph.us, !llvm.loop !50
+  br i1 %exitcond20.not, label %._crit_edge18, label %.lr.ph.us, !llvm.loop !51
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -1122,12 +1122,12 @@ define void @DenseScale(double noundef %0, ptr noundef readonly captures(none) %
   store double %16, ptr %14, align 8, !tbaa !17
   %17 = add nuw nsw i64 %.011.us.i, 1
   %exitcond.not.i = icmp eq i64 %17, %6
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !51
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !52
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i64 %.01012.us.i, 1
   %exitcond17.not.i = icmp eq i64 %18, %8
-  br i1 %exitcond17.not.i, label %denseScale.exit, label %.lr.ph.us.i, !llvm.loop !52
+  br i1 %exitcond17.not.i, label %denseScale.exit, label %.lr.ph.us.i, !llvm.loop !53
 
 denseScale.exit:                                  ; preds = %._crit_edge.us.i, %2
   ret void
@@ -1154,12 +1154,12 @@ define void @denseScale(double noundef %0, ptr noundef readonly captures(none) %
   store double %12, ptr %10, align 8, !tbaa !17
   %13 = add nuw nsw i64 %.011.us, 1
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !52
 
 ._crit_edge.us:                                   ; preds = %9
   %14 = add nuw nsw i64 %.01012.us, 1
   %exitcond17.not = icmp eq i64 %14, %3
-  br i1 %exitcond17.not, label %._crit_edge15, label %.lr.ph.us, !llvm.loop !52
+  br i1 %exitcond17.not, label %._crit_edge15, label %.lr.ph.us, !llvm.loop !53
 
 ._crit_edge15:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -1200,12 +1200,12 @@ define void @DenseMatvec(ptr noundef readonly captures(none) %0, ptr noundef rea
   store double %22, ptr %20, align 8, !tbaa !17
   %23 = add nuw nsw i64 %.121.us.i, 1
   %exitcond.not.i = icmp eq i64 %23, %7
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %16, !llvm.loop !53
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %16, !llvm.loop !54
 
 ._crit_edge.us.i:                                 ; preds = %16
   %24 = add nuw nsw i64 %.01823.us.i, 1
   %exitcond27.not.i = icmp eq i64 %24, %9
-  br i1 %exitcond27.not.i, label %denseMatvec.exit, label %.lr.ph22.us.i, !llvm.loop !54
+  br i1 %exitcond27.not.i, label %denseMatvec.exit, label %.lr.ph22.us.i, !llvm.loop !55
 
 denseMatvec.exit:                                 ; preds = %._crit_edge.us.i, %3, %.preheader.i
   ret void
@@ -1240,12 +1240,12 @@ define void @denseMatvec(ptr noundef readonly captures(none) %0, ptr noundef rea
   store double %18, ptr %16, align 8, !tbaa !17
   %19 = add nuw nsw i64 %.121.us, 1
   %exitcond.not = icmp eq i64 %19, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %12
   %20 = add nuw nsw i64 %.01823.us, 1
   %exitcond27.not = icmp eq i64 %20, %4
-  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph22.us, !llvm.loop !54
+  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph22.us, !llvm.loop !55
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %5, %.preheader
   ret void
@@ -1273,7 +1273,7 @@ define void @denseAddIdentity(ptr noundef readonly captures(none) %0, i64 nounde
   store double %8, ptr %6, align 8, !tbaa !17
   %9 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1314,8 +1314,8 @@ attributes #6 = { nounwind }
 !19 = distinct !{!19, !15}
 !20 = !{!8, !8, i64 0}
 !21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
+!22 = distinct !{!22, !15, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !15}
 !25 = distinct !{!25, !15}
 !26 = distinct !{!26, !15}
@@ -1343,8 +1343,9 @@ attributes #6 = { nounwind }
 !48 = distinct !{!48, !15}
 !49 = distinct !{!49, !15}
 !50 = distinct !{!50, !15}
-!51 = distinct !{!51, !15}
+!51 = distinct !{!51, !15, !23}
 !52 = distinct !{!52, !15}
-!53 = distinct !{!53, !15}
+!53 = distinct !{!53, !15, !23}
 !54 = distinct !{!54, !15}
-!55 = distinct !{!55, !15}
+!55 = distinct !{!55, !15, !23}
+!56 = distinct !{!56, !15}

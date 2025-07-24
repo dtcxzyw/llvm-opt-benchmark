@@ -790,7 +790,7 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next96 to i32
   %exitcond98.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond98.not, label %._crit_edge88, label %.noexc44.us
+  br i1 %exitcond98.not, label %._crit_edge88, label %.noexc44.us, !llvm.loop !67
 
 ._crit_edge88:                                    ; preds = %._crit_edge.us, %.noexc44.lr.ph, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -817,7 +817,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #9
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare !callback !67 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
+declare !callback !69 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5) #8 personality ptr @__gxx_personality_v0 {
@@ -849,17 +849,17 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not56, label %._crit_edge58, label %.noexc32.lr.ph
 
 .noexc32.lr.ph:                                   ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !69
+  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !71
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !69
+  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !71
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !69
+  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !71
   %factor.op.mul = mul i64 %21, %23
-  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !72
+  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !74
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !72
+  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !74
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !72
+  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !74
   %factor.op.mul59 = mul i64 %26, %28
   %29 = load i32, ptr %5, align 4, !tbaa !42
   %30 = icmp sgt i32 %29, 0
@@ -889,13 +889,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %40, ptr %38, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %35
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next64 to i32
   %exitcond66.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond66.not, label %._crit_edge58, label %.noexc32.us
+  br i1 %exitcond66.not, label %._crit_edge58, label %.noexc32.us, !llvm.loop !78
 
 ._crit_edge58:                                    ; preds = %._crit_edge.us, %.noexc32.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -939,23 +939,23 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not86, label %._crit_edge88, label %.noexc45.lr.ph
 
 .noexc45.lr.ph:                                   ; preds = %14
-  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !76
+  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !79
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !76
+  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !79
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !76
+  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !79
   %factor.op.mul = mul i64 %22, %24
-  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !79
+  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !82
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !79
+  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !82
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !79
+  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !82
   %factor.op.mul89 = mul i64 %27, %29
-  %30 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !82
+  %30 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !85
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %32 = load i64, ptr %31, align 8, !tbaa !17, !noalias !82
+  %32 = load i64, ptr %31, align 8, !tbaa !17, !noalias !85
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !34, !noalias !82
+  %34 = load i64, ptr %33, align 8, !tbaa !34, !noalias !85
   %factor.op.mul91 = mul i64 %32, %34
   %35 = load i32, ptr %6, align 4, !tbaa !42
   %36 = icmp sgt i32 %35, 0
@@ -988,13 +988,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %47, ptr %48, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %42
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next96 to i32
   %exitcond98.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond98.not, label %._crit_edge88, label %.noexc45.us
+  br i1 %exitcond98.not, label %._crit_edge88, label %.noexc45.us, !llvm.loop !89
 
 ._crit_edge88:                                    ; preds = %._crit_edge.us, %.noexc45.lr.ph, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -1038,17 +1038,17 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not56, label %._crit_edge58, label %.noexc32.lr.ph
 
 .noexc32.lr.ph:                                   ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !86
+  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !90
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !86
+  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !90
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !86
+  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !90
   %factor.op.mul = mul i64 %21, %23
-  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !89
+  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !93
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !89
+  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !93
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !89
+  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !93
   %factor.op.mul59 = mul i64 %26, %28
   %29 = load i32, ptr %5, align 4, !tbaa !42
   %30 = icmp sgt i32 %29, 0
@@ -1078,13 +1078,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %40, ptr %38, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %35
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next64 to i32
   %exitcond66.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond66.not, label %._crit_edge58, label %.noexc32.us
+  br i1 %exitcond66.not, label %._crit_edge58, label %.noexc32.us, !llvm.loop !97
 
 ._crit_edge58:                                    ; preds = %._crit_edge.us, %.noexc32.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1128,23 +1128,23 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not88, label %._crit_edge90, label %.noexc47.lr.ph
 
 .noexc47.lr.ph:                                   ; preds = %16
-  %22 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !93
+  %22 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !98
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %24 = load i64, ptr %23, align 8, !tbaa !17, !noalias !93
+  %24 = load i64, ptr %23, align 8, !tbaa !17, !noalias !98
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !34, !noalias !93
+  %26 = load i64, ptr %25, align 8, !tbaa !34, !noalias !98
   %factor.op.mul = mul i64 %24, %26
-  %27 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !96
+  %27 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !101
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %29 = load i64, ptr %28, align 8, !tbaa !17, !noalias !96
+  %29 = load i64, ptr %28, align 8, !tbaa !17, !noalias !101
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !34, !noalias !96
+  %31 = load i64, ptr %30, align 8, !tbaa !34, !noalias !101
   %factor.op.mul91 = mul i64 %29, %31
-  %32 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !99
+  %32 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !104
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %34 = load i64, ptr %33, align 8, !tbaa !17, !noalias !99
+  %34 = load i64, ptr %33, align 8, !tbaa !17, !noalias !104
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !34, !noalias !99
+  %36 = load i64, ptr %35, align 8, !tbaa !34, !noalias !104
   %factor.op.mul93 = mul i64 %34, %36
   %37 = load i32, ptr %6, align 4, !tbaa !42
   %38 = icmp sgt i32 %37, 0
@@ -1181,13 +1181,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %53, ptr %54, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !107
 
 ._crit_edge.us:                                   ; preds = %44
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32
   %exitcond100.not = icmp eq i32 %40, %lftr.wideiv
-  br i1 %exitcond100.not, label %._crit_edge90, label %.noexc47.us
+  br i1 %exitcond100.not, label %._crit_edge90, label %.noexc47.us, !llvm.loop !108
 
 ._crit_edge90:                                    ; preds = %._crit_edge.us, %.noexc47.lr.ph, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -1231,17 +1231,17 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not57, label %._crit_edge59, label %.noexc33.lr.ph
 
 .noexc33.lr.ph:                                   ; preds = %14
-  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !103
+  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !109
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !103
+  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !109
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !103
+  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !109
   %factor.op.mul = mul i64 %22, %24
-  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !106
+  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !112
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !106
+  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !112
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !106
+  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !112
   %factor.op.mul60 = mul i64 %27, %29
   %30 = load i32, ptr %5, align 4, !tbaa !42
   %31 = icmp sgt i32 %30, 0
@@ -1273,13 +1273,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %43, ptr %41, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !115
 
 ._crit_edge.us:                                   ; preds = %36
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next65 to i32
   %exitcond67.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond67.not, label %._crit_edge59, label %.noexc33.us
+  br i1 %exitcond67.not, label %._crit_edge59, label %.noexc33.us, !llvm.loop !116
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %.noexc33.lr.ph, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -1323,23 +1323,23 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not87, label %._crit_edge89, label %.noexc45.lr.ph
 
 .noexc45.lr.ph:                                   ; preds = %14
-  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !110
+  %20 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !117
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !110
+  %22 = load i64, ptr %21, align 8, !tbaa !17, !noalias !117
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !110
+  %24 = load i64, ptr %23, align 8, !tbaa !34, !noalias !117
   %factor.op.mul = mul i64 %22, %24
-  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !113
+  %25 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !120
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !113
+  %27 = load i64, ptr %26, align 8, !tbaa !17, !noalias !120
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !113
+  %29 = load i64, ptr %28, align 8, !tbaa !34, !noalias !120
   %factor.op.mul90 = mul i64 %27, %29
-  %30 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !116
+  %30 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !123
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %32 = load i64, ptr %31, align 8, !tbaa !17, !noalias !116
+  %32 = load i64, ptr %31, align 8, !tbaa !17, !noalias !123
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !34, !noalias !116
+  %34 = load i64, ptr %33, align 8, !tbaa !34, !noalias !123
   %factor.op.mul92 = mul i64 %32, %34
   %35 = load i32, ptr %6, align 4, !tbaa !42
   %36 = icmp sgt i32 %35, 0
@@ -1373,13 +1373,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %48, ptr %49, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !126
 
 ._crit_edge.us:                                   ; preds = %42
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next97 to i32
   %exitcond99.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond99.not, label %._crit_edge89, label %.noexc45.us
+  br i1 %exitcond99.not, label %._crit_edge89, label %.noexc45.us, !llvm.loop !127
 
 ._crit_edge89:                                    ; preds = %._crit_edge.us, %.noexc45.lr.ph, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -1423,17 +1423,17 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   br i1 %.not59, label %._crit_edge61, label %.noexc34.lr.ph
 
 .noexc34.lr.ph:                                   ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !120
+  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !128
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !120
+  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !128
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !120
+  %23 = load i64, ptr %22, align 8, !tbaa !34, !noalias !128
   %factor.op.mul = mul i64 %21, %23
-  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !123
+  %24 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !131
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !123
+  %26 = load i64, ptr %25, align 8, !tbaa !17, !noalias !131
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !123
+  %28 = load i64, ptr %27, align 8, !tbaa !34, !noalias !131
   %factor.op.mul62 = mul i64 %26, %28
   %29 = load i32, ptr %5, align 4, !tbaa !42
   %30 = icmp sgt i32 %29, 0
@@ -1464,13 +1464,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
   store float %41, ptr %36, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !134
 
 ._crit_edge.us:                                   ; preds = %35
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
   %exitcond69.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond69.not, label %._crit_edge61, label %.noexc34.us
+  br i1 %exitcond69.not, label %._crit_edge61, label %.noexc34.us, !llvm.loop !135
 
 ._crit_edge61:                                    ; preds = %._crit_edge.us, %.noexc34.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1578,59 +1578,59 @@ attributes #14 = { builtin nounwind }
 !64 = distinct !{!64, !65, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !65 = distinct !{!65, !"_ZN4ncnn3Mat7channelEi"}
 !66 = distinct !{!66, !48}
-!67 = !{!68}
-!68 = !{i64 2, i64 -1, i64 -1, i1 true}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!71 = distinct !{!71, !"_ZNK4ncnn3Mat7channelEi"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!74 = distinct !{!74, !"_ZN4ncnn3Mat7channelEi"}
-!75 = distinct !{!75, !48}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!78 = distinct !{!78, !"_ZNK4ncnn3Mat7channelEi"}
+!70 = !{i64 2, i64 -1, i64 -1, i1 true}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!73 = distinct !{!73, !"_ZNK4ncnn3Mat7channelEi"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!76 = distinct !{!76, !"_ZN4ncnn3Mat7channelEi"}
+!77 = distinct !{!77, !48}
+!78 = distinct !{!78, !68}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
 !81 = distinct !{!81, !"_ZNK4ncnn3Mat7channelEi"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!84 = distinct !{!84, !"_ZN4ncnn3Mat7channelEi"}
-!85 = distinct !{!85, !48}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!88 = distinct !{!88, !"_ZNK4ncnn3Mat7channelEi"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!91 = distinct !{!91, !"_ZN4ncnn3Mat7channelEi"}
-!92 = distinct !{!92, !48}
+!83 = distinct !{!83, !84, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!84 = distinct !{!84, !"_ZNK4ncnn3Mat7channelEi"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!87 = distinct !{!87, !"_ZN4ncnn3Mat7channelEi"}
+!88 = distinct !{!88, !48}
+!89 = distinct !{!89, !68}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!92 = distinct !{!92, !"_ZNK4ncnn3Mat7channelEi"}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!95 = distinct !{!95, !"_ZNK4ncnn3Mat7channelEi"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!98 = distinct !{!98, !"_ZNK4ncnn3Mat7channelEi"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!101 = distinct !{!101, !"_ZN4ncnn3Mat7channelEi"}
-!102 = distinct !{!102, !48}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!105 = distinct !{!105, !"_ZNK4ncnn3Mat7channelEi"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!108 = distinct !{!108, !"_ZN4ncnn3Mat7channelEi"}
-!109 = distinct !{!109, !48}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!112 = distinct !{!112, !"_ZNK4ncnn3Mat7channelEi"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!115 = distinct !{!115, !"_ZNK4ncnn3Mat7channelEi"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!118 = distinct !{!118, !"_ZN4ncnn3Mat7channelEi"}
-!119 = distinct !{!119, !48}
+!94 = distinct !{!94, !95, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!95 = distinct !{!95, !"_ZN4ncnn3Mat7channelEi"}
+!96 = distinct !{!96, !48}
+!97 = distinct !{!97, !68}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!100 = distinct !{!100, !"_ZNK4ncnn3Mat7channelEi"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!103 = distinct !{!103, !"_ZNK4ncnn3Mat7channelEi"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!106 = distinct !{!106, !"_ZN4ncnn3Mat7channelEi"}
+!107 = distinct !{!107, !48}
+!108 = distinct !{!108, !68}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!111 = distinct !{!111, !"_ZNK4ncnn3Mat7channelEi"}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!114 = distinct !{!114, !"_ZN4ncnn3Mat7channelEi"}
+!115 = distinct !{!115, !48}
+!116 = distinct !{!116, !68}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!119 = distinct !{!119, !"_ZNK4ncnn3Mat7channelEi"}
 !120 = !{!121}
 !121 = distinct !{!121, !122, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
 !122 = distinct !{!122, !"_ZNK4ncnn3Mat7channelEi"}
@@ -1638,3 +1638,12 @@ attributes #14 = { builtin nounwind }
 !124 = distinct !{!124, !125, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !125 = distinct !{!125, !"_ZN4ncnn3Mat7channelEi"}
 !126 = distinct !{!126, !48}
+!127 = distinct !{!127, !68}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!130 = distinct !{!130, !"_ZNK4ncnn3Mat7channelEi"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!133 = distinct !{!133, !"_ZN4ncnn3Mat7channelEi"}
+!134 = distinct !{!134, !48}
+!135 = distinct !{!135, !68}

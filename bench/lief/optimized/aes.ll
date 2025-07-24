@@ -2297,75 +2297,77 @@ define hidden i32 @mbedtls_aes_crypt_cfb8(ptr noundef %0, i32 noundef %1, i64 no
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = add i64 %2, -1
+  %8 = icmp eq i32 %1, 0
+  %9 = icmp eq i32 %1, 1
   %.sroa.0.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   %.sroa.4.1..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 15
-  %trunc = trunc nuw i32 %1 to i1
-  br i1 %trunc, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split
+  br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %12
-  %8 = phi i64 [ %18, %12 ], [ %7, %.lr.ph ]
-  %.01928.us = phi ptr [ %17, %12 ], [ %5, %.lr.ph ]
-  %.02027.us = phi ptr [ %15, %12 ], [ %4, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %14
+  %10 = phi i64 [ %20, %14 ], [ %7, %.lr.ph ]
+  %.01928.us = phi ptr [ %19, %14 ], [ %5, %.lr.ph ]
+  %.02027.us = phi ptr [ %17, %14 ], [ %4, %.lr.ph ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
-  %9 = tail call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
-  %.not.i.us = icmp eq i32 %9, 0
+  %11 = tail call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
+  %.not.i.us = icmp eq i32 %11, 0
   br i1 %.not.i.us, label %mbedtls_aes_crypt_ecb.exit.thread.us, label %mbedtls_aes_crypt_ecb.exit.us
 
-mbedtls_aes_crypt_ecb.exit.us:                    ; preds = %.lr.ph.split.us.split
-  %10 = tail call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %3) #11
-  %.not23.us = icmp eq i32 %10, 0
-  br i1 %.not23.us, label %12, label %.loopexit
+mbedtls_aes_crypt_ecb.exit.us:                    ; preds = %.lr.ph.split.us
+  %12 = tail call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %3) #11
+  %.not23.us = icmp eq i32 %12, 0
+  br i1 %.not23.us, label %14, label %.loopexit
 
-mbedtls_aes_crypt_ecb.exit.thread.us:             ; preds = %.lr.ph.split.us.split
-  %11 = tail call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %3)
-  br label %12
+mbedtls_aes_crypt_ecb.exit.thread.us:             ; preds = %.lr.ph.split.us
+  %13 = tail call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %3)
+  br label %14
 
-12:                                               ; preds = %mbedtls_aes_crypt_ecb.exit.thread.us, %mbedtls_aes_crypt_ecb.exit.us
-  %13 = load i8, ptr %.02027.us, align 1, !tbaa !9
-  %14 = load i8, ptr %3, align 1, !tbaa !9
-  %15 = getelementptr inbounds nuw i8, ptr %.02027.us, i64 1
-  %16 = xor i8 %13, %14
-  %17 = getelementptr inbounds nuw i8, ptr %.01928.us, i64 1
-  store i8 %16, ptr %.01928.us, align 1, !tbaa !9
+14:                                               ; preds = %mbedtls_aes_crypt_ecb.exit.thread.us, %mbedtls_aes_crypt_ecb.exit.us
+  %15 = load i8, ptr %.02027.us, align 1, !tbaa !9
+  %16 = load i8, ptr %3, align 1, !tbaa !9
+  %17 = getelementptr inbounds nuw i8, ptr %.02027.us, i64 1
+  %18 = xor i8 %15, %16
+  %19 = getelementptr inbounds nuw i8, ptr %.01928.us, i64 1
+  store i8 %18, ptr %.01928.us, align 1, !tbaa !9
+  %spec.select.us = select i1 %9, i8 %18, i8 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.0.1..sroa_idx, i64 15, i1 false)
-  store i8 %13, ptr %.sroa.4.1..sroa_idx, align 1
-  %18 = add i64 %8, -1
-  %.not.us = icmp eq i64 %8, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !35
+  store i8 %spec.select.us, ptr %.sroa.4.1..sroa_idx, align 1
+  %20 = add i64 %10, -1
+  %.not.us = icmp eq i64 %10, 0
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !35
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph, %23
-  %19 = phi i64 [ %29, %23 ], [ %7, %.lr.ph ]
-  %.01928.us33 = phi ptr [ %28, %23 ], [ %5, %.lr.ph ]
-  %.02027.us34 = phi ptr [ %25, %23 ], [ %4, %.lr.ph ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph, %25
+  %21 = phi i64 [ %31, %25 ], [ %7, %.lr.ph ]
+  %.01928.us33 = phi ptr [ %30, %25 ], [ %5, %.lr.ph ]
+  %.02027.us34 = phi ptr [ %27, %25 ], [ %4, %.lr.ph ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
-  %20 = tail call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
-  %.not.i.us35 = icmp eq i32 %20, 0
+  %22 = tail call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
+  %.not.i.us35 = icmp eq i32 %22, 0
   br i1 %.not.i.us35, label %mbedtls_aes_crypt_ecb.exit.thread.us38, label %mbedtls_aes_crypt_ecb.exit.us36
 
 mbedtls_aes_crypt_ecb.exit.us36:                  ; preds = %.lr.ph.split.split.us
-  %21 = tail call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %3) #11
-  %.not23.us37 = icmp eq i32 %21, 0
-  br i1 %.not23.us37, label %23, label %.loopexit
+  %23 = tail call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %3) #11
+  %.not23.us37 = icmp eq i32 %23, 0
+  br i1 %.not23.us37, label %25, label %.loopexit
 
 mbedtls_aes_crypt_ecb.exit.thread.us38:           ; preds = %.lr.ph.split.split.us
-  %22 = tail call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %3)
-  br label %23
+  %24 = tail call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %3)
+  br label %25
 
-23:                                               ; preds = %mbedtls_aes_crypt_ecb.exit.thread.us38, %mbedtls_aes_crypt_ecb.exit.us36
-  %24 = load i8, ptr %3, align 1, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %.02027.us34, i64 1
-  %26 = load i8, ptr %.02027.us34, align 1, !tbaa !9
-  %27 = xor i8 %26, %24
-  %28 = getelementptr inbounds nuw i8, ptr %.01928.us33, i64 1
-  store i8 %27, ptr %.01928.us33, align 1, !tbaa !9
+25:                                               ; preds = %mbedtls_aes_crypt_ecb.exit.thread.us38, %mbedtls_aes_crypt_ecb.exit.us36
+  %26 = load i8, ptr %3, align 1, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %.02027.us34, i64 1
+  %28 = load i8, ptr %.02027.us34, align 1, !tbaa !9
+  %29 = xor i8 %28, %26
+  %30 = getelementptr inbounds nuw i8, ptr %.01928.us33, i64 1
+  store i8 %29, ptr %.01928.us33, align 1, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.0.1..sroa_idx, i64 15, i1 false)
-  store i8 %27, ptr %.sroa.4.1..sroa_idx, align 1
-  %29 = add i64 %19, -1
-  %.not.us39 = icmp eq i64 %19, 0
-  br i1 %.not.us39, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !35
+  store i8 %29, ptr %.sroa.4.1..sroa_idx, align 1
+  %31 = add i64 %21, -1
+  %.not.us39 = icmp eq i64 %21, 0
+  br i1 %.not.us39, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !37
 
-.loopexit:                                        ; preds = %12, %mbedtls_aes_crypt_ecb.exit.us, %23, %mbedtls_aes_crypt_ecb.exit.us36, %.preheader, %6
-  %.0 = phi i32 [ -33, %6 ], [ 0, %.preheader ], [ 0, %23 ], [ %21, %mbedtls_aes_crypt_ecb.exit.us36 ], [ 0, %12 ], [ %10, %mbedtls_aes_crypt_ecb.exit.us ]
+.loopexit:                                        ; preds = %25, %mbedtls_aes_crypt_ecb.exit.us36, %14, %mbedtls_aes_crypt_ecb.exit.us, %.preheader, %6
+  %.0 = phi i32 [ -33, %6 ], [ 0, %.preheader ], [ 0, %14 ], [ %12, %mbedtls_aes_crypt_ecb.exit.us ], [ 0, %25 ], [ %23, %mbedtls_aes_crypt_ecb.exit.us36 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   ret i32 %.0
 }
@@ -2414,7 +2416,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %11
   %22 = add nuw nsw i64 %.031, 1
   %23 = and i64 %22, 15
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %.0.lcssa = phi i64 [ %7, %.preheader ], [ %23, %15 ]
@@ -2523,7 +2525,7 @@ mbedtls_ctr_increment_counter.exit:               ; preds = %15, %23
 ._crit_edge:                                      ; preds = %.lr.ph64, %.preheader
   %43 = add i64 %spec.select, %.03266
   %44 = icmp ult i64 %43, %1
-  br i1 %44, label %.lr.ph67, label %._crit_edge68.loopexit, !llvm.loop !37
+  br i1 %44, label %.lr.ph67, label %._crit_edge68.loopexit, !llvm.loop !39
 
 ._crit_edge68.loopexit:                           ; preds = %._crit_edge
   %.pre = load i64, ptr %2, align 8, !tbaa !32
@@ -2641,7 +2643,7 @@ mbedtls_aes_crypt_ecb.exit.us:                    ; preds = %.preheader308.split
 mbedtls_aes_crypt_ecb.exit.thread.us:             ; preds = %37, %mbedtls_aes_crypt_ecb.exit.us
   %39 = add nuw nsw i32 %.0155321.us, 1
   %exitcond361.not = icmp eq i32 %39, 10000
-  br i1 %exitcond361.not, label %.split323.us, label %.preheader308.split.us, !llvm.loop !38
+  br i1 %exitcond361.not, label %.split323.us, label %.preheader308.split.us, !llvm.loop !40
 
 .preheader308.split:                              ; preds = %.preheader308, %mbedtls_aes_crypt_ecb.exit.thread
   %.0155321 = phi i32 [ %44, %mbedtls_aes_crypt_ecb.exit.thread ], [ 0, %.preheader308 ]
@@ -2661,7 +2663,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %.preheader308.split
 mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_crypt_ecb.exit
   %44 = add nuw nsw i32 %.0155321, 1
   %exitcond.not = icmp eq i32 %44, 10000
-  br i1 %exitcond.not, label %.split323.us, label %.preheader308.split, !llvm.loop !38
+  br i1 %exitcond.not, label %.split323.us, label %.preheader308.split, !llvm.loop !41
 
 .split323.us:                                     ; preds = %mbedtls_aes_crypt_ecb.exit.thread, %mbedtls_aes_crypt_ecb.exit.thread.us
   %bcmp234 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %31, i64 16)
@@ -2679,7 +2681,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_cr
 
 .backedge419.backedge:                            ; preds = %46, %.thread, %.thread372
   %.0157324.be = phi i32 [ %47, %46 ], [ %49, %.thread ], [ %48, %.thread372 ]
-  br label %.backedge419, !llvm.loop !39
+  br label %.backedge419, !llvm.loop !42
 
 .thread372:                                       ; preds = %45
   %puts236 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -2780,7 +2782,7 @@ mbedtls_aes_crypt_ecb.exit.thread.i.us:           ; preds = %75, %mbedtls_aes_cr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %79 = add nuw nsw i32 %.1156325.us, 1
   %exitcond364.not = icmp eq i32 %79, 10000
-  br i1 %exitcond364.not, label %.split328.us, label %.split.us, !llvm.loop !40
+  br i1 %exitcond364.not, label %.split328.us, label %.split.us, !llvm.loop !43
 
 .split170:                                        ; preds = %.preheader, %mbedtls_aes_crypt_cbc.exit244.thread
   %.1156325 = phi i32 [ %85, %mbedtls_aes_crypt_cbc.exit244.thread ], [ 0, %.preheader ]
@@ -2814,7 +2816,7 @@ mbedtls_aes_crypt_cbc.exit244.thread:             ; preds = %mbedtls_aes_crypt_e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   %85 = add nuw nsw i32 %.1156325, 1
   %exitcond363.not = icmp eq i32 %85, 10000
-  br i1 %exitcond363.not, label %.split328.us, label %.split170, !llvm.loop !40
+  br i1 %exitcond363.not, label %.split328.us, label %.split170, !llvm.loop !44
 
 mbedtls_aes_crypt_cbc.exit244:                    ; preds = %mbedtls_aes_crypt_ecb.exit.i.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -2836,7 +2838,7 @@ mbedtls_aes_crypt_cbc.exit244:                    ; preds = %mbedtls_aes_crypt_e
 
 .backedge413.backedge:                            ; preds = %87, %.thread375, %.thread378
   %.1158329.be = phi i32 [ %88, %87 ], [ %90, %.thread375 ], [ %89, %.thread378 ]
-  br label %.backedge413, !llvm.loop !41
+  br label %.backedge413, !llvm.loop !45
 
 .thread378:                                       ; preds = %86
   %puts229 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -2992,7 +2994,7 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %131
 
 .thread377.backedge:                              ; preds = %144, %.thread381, %.thread387
   %.2159333.be = phi i32 [ %145, %144 ], [ %147, %.thread381 ], [ %146, %.thread387 ]
-  br label %.thread377, !llvm.loop !42
+  br label %.thread377, !llvm.loop !46
 
 .thread387:                                       ; preds = %143
   %puts224 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -3105,7 +3107,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
   %185 = add nuw nsw i64 %.031.i, 1
   %186 = and i64 %185, 15
   %.not.i257 = icmp eq i64 %173, 0
-  br i1 %.not.i257, label %187, label %.lr.ph.i255, !llvm.loop !36
+  br i1 %.not.i257, label %187, label %.lr.ph.i255, !llvm.loop !38
 
 187:                                              ; preds = %179
   %bcmp216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %4, ptr noundef nonnull dereferenceable(64) %.3, i64 64)
@@ -3123,7 +3125,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .backedge406.backedge:                            ; preds = %189, %.thread392, %.thread398
   %.3160338.be = phi i32 [ %190, %189 ], [ %192, %.thread392 ], [ %191, %.thread398 ]
-  br label %.backedge406, !llvm.loop !43
+  br label %.backedge406, !llvm.loop !47
 
 .thread398:                                       ; preds = %188
   %puts218 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -3199,7 +3201,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .thread396.backedge:                              ; preds = %215, %.thread403
   %.4161339.be = phi i32 [ %216, %215 ], [ %217, %.thread403 ]
-  br label %.thread396, !llvm.loop !44
+  br label %.thread396, !llvm.loop !48
 
 .thread403:                                       ; preds = %214
   %217 = add nuw nsw i32 %.4161339, 1
@@ -3277,7 +3279,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 240:                                              ; preds = %.thread282, %239
   %241 = add nuw nsw i32 %.5162340, 1
   %exitcond369.not = icmp eq i32 %241, 6
-  br i1 %exitcond369.not, label %242, label %219, !llvm.loop !45
+  br i1 %exitcond369.not, label %242, label %219, !llvm.loop !49
 
 242:                                              ; preds = %240
   br i1 %13, label %243, label %.thread287
@@ -3394,14 +3396,18 @@ attributes #11 = { nounwind }
 !32 = !{!8, !8, i64 0}
 !33 = distinct !{!33, !11}
 !34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11}
-!36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11}
+!35 = distinct !{!35, !11, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !11, !36}
 !38 = distinct !{!38, !11}
 !39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
+!40 = distinct !{!40, !11, !36}
 !41 = distinct !{!41, !11}
 !42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
+!43 = distinct !{!43, !11, !36}
 !44 = distinct !{!44, !11}
 !45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11}
+!49 = distinct !{!49, !11}

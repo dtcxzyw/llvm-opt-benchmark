@@ -98,7 +98,7 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
 23:                                               ; preds = %15, %.preheader.split
   %24 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   %.not19 = icmp eq i32 %24, 0
-  br i1 %.not19, label %.preheader.split, label %tryrdlock.exit, !llvm.loop !6
+  br i1 %.not19, label %.preheader.split, label %tryrdlock.exit, !llvm.loop !9
 
 tryrdlock.exit:                                   ; preds = %23, %12, %21, %.split.us
   %.0 = phi i32 [ 0, %21 ], [ 11, %.split.us ], [ %13, %12 ], [ %24, %23 ]
@@ -168,7 +168,7 @@ define i32 @pthread_rwlock_timedrdlock(ptr noundef %0, ptr noundef %1) local_unn
 22:                                               ; preds = %14, %.preheader.split.i
   %23 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %1) #2
   %.not19.i = icmp eq i32 %23, 0
-  br i1 %.not19.i, label %.preheader.split.i, label %tryrdlock.exit.i, !llvm.loop !6
+  br i1 %.not19.i, label %.preheader.split.i, label %tryrdlock.exit.i, !llvm.loop !9
 
 tryrdlock.exit.i:                                 ; preds = %22, %11, %20, %.split.us.i
   %.0.i = phi i32 [ 0, %20 ], [ 11, %.split.us.i ], [ %12, %11 ], [ %23, %22 ]
@@ -240,5 +240,7 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

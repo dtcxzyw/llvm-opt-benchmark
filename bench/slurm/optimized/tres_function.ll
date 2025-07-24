@@ -277,13 +277,13 @@ _set_cond.exit.us:                                ; preds = %25, %20
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_set_cond.exit, label %49, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_set_cond.exit, label %49, !llvm.loop !12
 
 _set_cond.exit:                                   ; preds = %136, %46, %70
   %.1 = phi i32 [ %72, %70 ], [ %.0108, %46 ], [ %0, %136 ]
   %137 = add nsw i32 %.1, 1
   %138 = icmp slt i32 %137, %0
-  br i1 %138, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+  br i1 %138, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %_set_cond.exit.us, %2
   %139 = load i32, ptr @exit_code, align 4
@@ -468,14 +468,14 @@ _set_cond.exit:                                   ; preds = %136, %46, %70
   %216 = add nuw nsw i32 %.0112, 1
   %217 = tail call ptr @list_next(ptr noundef %186) #7
   %.not94 = icmp eq ptr %217, null
-  br i1 %.not94, label %._crit_edge114, label %194, !llvm.loop !12
+  br i1 %.not94, label %._crit_edge114, label %194, !llvm.loop !14
 
 ._crit_edge114:                                   ; preds = %215, %.preheader
   tail call void @list_iterator_reset(ptr noundef %186) #7
   %putchar = tail call i32 @putchar(i32 10)
   %218 = tail call ptr @list_next(ptr noundef %185) #7
   %.not92 = icmp eq ptr %218, null
-  br i1 %.not92, label %._crit_edge116, label %.preheader, !llvm.loop !13
+  br i1 %.not92, label %._crit_edge116, label %.preheader, !llvm.loop !15
 
 ._crit_edge116:                                   ; preds = %._crit_edge114, %184
   tail call void @list_iterator_destroy(ptr noundef %185) #7
@@ -578,9 +578,11 @@ attributes #10 = { cold nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !9, !10}
 !13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

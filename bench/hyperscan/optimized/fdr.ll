@@ -1719,7 +1719,7 @@ do_confirm_fdr.exit258.us:                        ; preds = %confWithBit.exit308
 .thread546.loopexit.us:                           ; preds = %206
   %888 = add nuw nsw i64 %.0104769.us, 1
   %exitcond904.not = icmp eq i64 %888, %.0.i
-  br i1 %exitcond904.not, label %.thread577, label %getInitState.exit.split.us
+  br i1 %exitcond904.not, label %.thread577, label %getInitState.exit.split.us, !llvm.loop !9
 
 .lr.ph727.us:                                     ; preds = %.preheader593.us
   %889 = getelementptr inbounds nuw i8, ptr %231, i64 80
@@ -2881,7 +2881,7 @@ do_confirm_fdr.exit268.us:                        ; preds = %confWithBit.exit294
 .thread546.loopexit609.us:                        ; preds = %946
   %1564 = add nuw nsw i64 %.0104769.us774, 1
   %exitcond885.not = icmp eq i64 %1564, %.0.i
-  br i1 %exitcond885.not, label %.thread577, label %getInitState.exit.split.us772
+  br i1 %exitcond885.not, label %.thread577, label %getInitState.exit.split.us772, !llvm.loop !11
 
 .lr.ph680.us:                                     ; preds = %.preheader600.us
   %1565 = getelementptr inbounds nuw i8, ptr %971, i64 80
@@ -4007,7 +4007,7 @@ do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us
 .thread546.loopexit611.us:                        ; preds = %1622
   %2204 = add nuw nsw i64 %.0104769.us790, 1
   %exitcond.not = icmp eq i64 %2204, %.0.i
-  br i1 %exitcond.not, label %.thread577, label %getInitState.exit.split.us788
+  br i1 %exitcond.not, label %.thread577, label %getInitState.exit.split.us788, !llvm.loop !12
 
 .lr.ph635.us:                                     ; preds = %.preheader607.us
   %2205 = getelementptr inbounds nuw i8, ptr %1647, i64 80
@@ -4143,3 +4143,7 @@ attributes #10 = { nounwind memory(none) }
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = !{i64 5545}
 !8 = !{i64 4538185, i64 4538215}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

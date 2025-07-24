@@ -3665,7 +3665,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__c
   %60 = load ptr, ptr %23, align 8, !tbaa !114
   %61 = getelementptr i8, ptr %60, i64 %.unpack.fr
   %62 = getelementptr i8, ptr %61, i64 -1
-  %63 = load ptr, ptr %62, align 8, !nosanitize !119
+  %63 = load ptr, ptr %62, align 8, !nosanitize !120
   %64 = load ptr, ptr %8, align 8, !tbaa !116
   %65 = call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef %64, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %57, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %66 = load ptr, ptr %9, align 8, !tbaa !117
@@ -3685,7 +3685,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__c
   %75 = load i64, ptr %20, align 8, !tbaa !95
   %76 = sub i64 %75, %71
   %77 = icmp slt i64 %76, %22
-  br i1 %77, label %.split, label %.critedge.thread, !llvm.loop !118
+  br i1 %77, label %.split, label %.critedge.thread, !llvm.loop !121
 
 .critedge:                                        ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %37, %.split.us ], [ %65, %.split ]
@@ -3898,5 +3898,7 @@ attributes #24 = { nounwind willreturn memory(none) }
 !115 = !{!"vtable pointer", !16, i64 0}
 !116 = !{!13, !13, i64 0}
 !117 = !{!94, !94, i64 0}
-!118 = distinct !{!118, !76}
-!119 = !{}
+!118 = distinct !{!118, !76, !119}
+!119 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!120 = !{}
+!121 = distinct !{!121, !76}

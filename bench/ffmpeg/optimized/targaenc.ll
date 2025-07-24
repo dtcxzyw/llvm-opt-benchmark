@@ -179,7 +179,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   store i8 %89, ptr %93, align 1, !tbaa !32
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 256
-  br i1 %exitcond110.not, label %.split103.us, label %.split, !llvm.loop !38
+  br i1 %exitcond110.not, label %.split103.us, label %.split, !llvm.loop !40
 
 .split103.us:                                     ; preds = %.split, %.split.us
   %94 = shl nuw nsw i32 %.0, 5
@@ -238,7 +238,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %123 = lshr i8 %122, 3
   %124 = zext nneg i8 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !39
+  %126 = load i32, ptr %125, align 8, !tbaa !41
   %.not93 = icmp eq i32 %126, 0
   br i1 %.not93, label %targa_encode_rle.exit.thread, label %127
 
@@ -271,7 +271,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %143 = sub nsw i32 %.02023.i, %138
   %144 = add nuw nsw i32 %.01924.i, 1
   %exitcond.not.i = icmp eq i32 %144, %129
-  br i1 %exitcond.not.i, label %targa_encode_rle.exit, label %132, !llvm.loop !41
+  br i1 %exitcond.not.i, label %targa_encode_rle.exit, label %132, !llvm.loop !43
 
 targa_encode_rle.exit:                            ; preds = %140, %127
   %.0.lcssa.i = phi ptr [ %.088, %127 ], [ %142, %140 ]
@@ -314,7 +314,7 @@ targa_encode_rle.exit.thread:                     ; preds = %132, %119, %targa_e
   %166 = getelementptr inbounds i8, ptr %.019.i, i64 %165
   %167 = add nuw nsw i32 %.01617.i, 1
   %exitcond.not.i96 = icmp eq i32 %167, %155
-  br i1 %exitcond.not.i96, label %targa_encode_normal.exit, label %162, !llvm.loop !42
+  br i1 %exitcond.not.i96, label %targa_encode_normal.exit, label %162, !llvm.loop !44
 
 targa_encode_normal.exit:                         ; preds = %162, %targa_encode_rle.exit.thread
   %.015.lcssa.i = phi ptr [ %.088, %targa_encode_rle.exit.thread ], [ %163, %162 ]
@@ -336,7 +336,7 @@ targa_encode_normal.exit:                         ; preds = %162, %targa_encode_
   %178 = sub i64 %176, %177
   %179 = trunc i64 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %179, ptr %180, align 8, !tbaa !43
+  store i32 %179, ptr %180, align 8, !tbaa !45
   store i32 1, ptr %3, align 4, !tbaa !37
   br label %181
 
@@ -414,9 +414,11 @@ attributes #5 = { nounwind }
 !35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
 !37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !36}
-!39 = !{!40, !10, i64 8}
-!40 = !{!"TargaContext", !6, i64 0, !10, i64 8}
-!41 = distinct !{!41, !36}
-!42 = distinct !{!42, !36}
-!43 = !{!31, !10, i64 32}
+!38 = distinct !{!38, !36, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !36}
+!41 = !{!42, !10, i64 8}
+!42 = !{!"TargaContext", !6, i64 0, !10, i64 8}
+!43 = distinct !{!43, !36}
+!44 = distinct !{!44, !36}
+!45 = !{!31, !10, i64 32}

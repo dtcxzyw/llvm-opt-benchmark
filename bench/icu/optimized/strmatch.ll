@@ -837,7 +837,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %69, %78
 
 .backedge:                                        ; preds = %100, %97
   %105 = icmp samesign ugt i64 %indvars.iv89, 1
-  br i1 %105, label %69, label %._crit_edge81.loopexit, !llvm.loop !34
+  br i1 %105, label %69, label %._crit_edge81.loopexit, !llvm.loop !35
 
 ._crit_edge81.loopexit:                           ; preds = %.backedge
   %.pre.pre = load i32, ptr %6, align 4, !tbaa !12
@@ -914,7 +914,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit63:       ; preds = %.lr.ph.split
   %147 = select i1 %143, i32 %146, i32 %145
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next, %148
-  br i1 %149, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
+  br i1 %149, label %.lr.ph.split, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %141, %47, %.preheader
   %150 = load i32, ptr %2, align 4, !tbaa !12
@@ -1081,7 +1081,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %72 = select i1 %68, i32 %71, i32 %70
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %._crit_edge, !llvm.loop !35
+  br i1 %74, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %._crit_edge, !llvm.loop !37
 
 75:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -1257,7 +1257,7 @@ define void @_ZNK6icu_7713StringMatcher13addMatchSetToERNS_10UnicodeSetE(ptr nou
   %33 = load i32, ptr %4, align 4
   %34 = select i1 %30, i32 %33, i32 %32
   %35 = icmp slt i32 %28, %34
-  br i1 %35, label %14, label %._crit_edge, !llvm.loop !36
+  br i1 %35, label %14, label %._crit_edge, !llvm.loop !38
 }
 
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #9
@@ -1310,7 +1310,7 @@ define void @_ZThn8_NK6icu_7713StringMatcher13addMatchSetToERNS_10UnicodeSetE(pt
   %33 = load i32, ptr %4, align 4
   %34 = select i1 %30, i32 %33, i32 %32
   %35 = icmp slt i32 %28, %34
-  br i1 %35, label %14, label %_ZNK6icu_7713StringMatcher13addMatchSetToERNS_10UnicodeSetE.exit, !llvm.loop !36
+  br i1 %35, label %14, label %_ZNK6icu_7713StringMatcher13addMatchSetToERNS_10UnicodeSetE.exit, !llvm.loop !38
 
 _ZNK6icu_7713StringMatcher13addMatchSetToERNS_10UnicodeSetE.exit: ; preds = %25, %2
   ret void
@@ -1559,7 +1559,7 @@ define void @_ZN6icu_7713StringMatcher7setDataEPKNS_23TransliterationRuleDataE(p
   %31 = load i32, ptr %5, align 4
   %32 = select i1 %28, i32 %31, i32 %30
   %33 = icmp slt i32 %26, %32
-  br i1 %33, label %14, label %._crit_edge, !llvm.loop !37
+  br i1 %33, label %14, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %23, %2
   ret void
@@ -1628,9 +1628,11 @@ attributes #18 = { noreturn nounwind }
 !29 = !{!19, !9, i64 104}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"char16_t", !7, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !35 = distinct !{!35, !33}
 !36 = distinct !{!36, !33}
 !37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}

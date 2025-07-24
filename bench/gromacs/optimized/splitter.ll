@@ -2282,7 +2282,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0
   %66 = add nsw i64 %.015, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !84
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !86
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit.us, %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit, %3
   ret void
@@ -2319,14 +2319,14 @@ define internal noundef i32 @_ZL7ms_compPKvS0_(ptr noundef readonly captures(non
 define linkonce_odr void @_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !85
-  %7 = load ptr, ptr %4, align 8, !tbaa !85
+  %6 = load ptr, ptr %5, align 8, !tbaa !87
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   tail call void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN3gmx12ArrayRefIterIKiEEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EET_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %11, ptr %1, ptr %2)
-  %12 = load ptr, ptr %4, align 8, !tbaa !85
+  %12 = load ptr, ptr %4, align 8, !tbaa !87
   %13 = load ptr, ptr %5, align 8, !tbaa !31
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %12 to i64
@@ -2461,7 +2461,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %34 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 4
   %35 = add nsw i64 %.048.i.i.i.i.i, -1
   %36 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
-  br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !86
+  br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !88
 
 _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
   %37 = getelementptr inbounds i8, ptr %2, i64 %19
@@ -2481,7 +2481,7 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
   %44 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %45 = add nsw i64 %.048.i.i.i.i.i.i.i.i, -1
   %46 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i, 1
-  br i1 %46, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !86
+  br i1 %46, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !88
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit
   %47 = sub nuw nsw i64 %9, %20
@@ -2513,7 +2513,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %56 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i59, i64 4
   %57 = add nsw i64 %.048.i.i.i.i.i60, -1
   %58 = icmp samesign ugt i64 %.048.i.i.i.i.i60, 1
-  br i1 %58, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !86
+  br i1 %58, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !88
 
 59:                                               ; preds = %5
   %60 = load ptr, ptr %0, align 8, !tbaa !32
@@ -2722,6 +2722,8 @@ attributes #23 = { nounwind }
 !81 = distinct !{!81, !10}
 !82 = distinct !{!82, !10}
 !83 = !{!6, !6, i64 0}
-!84 = distinct !{!84, !10}
-!85 = !{!19, !19, i64 0}
+!84 = distinct !{!84, !10, !85}
+!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !86 = distinct !{!86, !10}
+!87 = !{!19, !19, i64 0}
+!88 = distinct !{!88, !10}

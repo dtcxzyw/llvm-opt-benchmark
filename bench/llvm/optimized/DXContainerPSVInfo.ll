@@ -189,7 +189,7 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   %75 = getelementptr inbounds nuw i8, ptr %.010.us.i, i64 4
   %.not.us.i = icmp eq ptr %75, %72
-  br i1 %.not.us.i, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, label %.lr.ph.split.us.i, !llvm.loop !19
 
 76:                                               ; preds = %.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68
   %.056.idx107 = phi i64 [ %.056.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68 ], [ 456, %.preheader ]
@@ -212,7 +212,7 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   %84 = getelementptr inbounds nuw i8, ptr %.010.us.i66, i64 4
   %.not.us.i67 = icmp eq ptr %84, %81
-  br i1 %.not.us.i67, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68, label %.lr.ph.split.us.i65
+  br i1 %.not.us.i67, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68, label %.lr.ph.split.us.i65, !llvm.loop !19
 
 _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68: ; preds = %.lr.ph.split.us.i65, %76
   %.056.add = add nuw nsw i64 %.056.idx107, 64
@@ -239,7 +239,7 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   %94 = getelementptr inbounds nuw i8, ptr %.010.us.i73, i64 4
   %.not.us.i74 = icmp eq ptr %94, %91
-  br i1 %.not.us.i74, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, label %.lr.ph.split.us.i72
+  br i1 %.not.us.i74, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, label %.lr.ph.split.us.i72, !llvm.loop !19
 
 _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75: ; preds = %.lr.ph.split.us.i72, %85
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -261,7 +261,7 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   %103 = getelementptr inbounds nuw i8, ptr %.010.us.i80, i64 4
   %.not.us.i81 = icmp eq ptr %103, %100
-  br i1 %.not.us.i81, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82, label %.lr.ph.split.us.i79
+  br i1 %.not.us.i81, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82, label %.lr.ph.split.us.i79, !llvm.loop !19
 
 _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit: ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89
   %.053.idx108 = phi i64 [ %.053.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89 ], [ 776, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader ]
@@ -284,7 +284,7 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %111 = getelementptr inbounds nuw i8, ptr %.010.us.i87, i64 4
   %.not.us.i88 = icmp eq ptr %111, %108
-  br i1 %.not.us.i88, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89, label %.lr.ph.split.us.i86
+  br i1 %.not.us.i88, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89, label %.lr.ph.split.us.i86, !llvm.loop !19
 
 _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89: ; preds = %.lr.ph.split.us.i86, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit
   %.053.add = add nuw nsw i64 %.053.idx108, 64
@@ -308,33 +308,33 @@ declare void @_ZNK4llvm18StringTableBuilder5writeERNS_11raw_ostreamE(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15EnvironmentTypeE(ptr noundef nonnull align 8 dereferenceable(2016) initializes((0, 1), (32, 35)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.17", align 8
-  store i8 1, ptr %0, align 8, !tbaa !19
+  store i8 1, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8, !tbaa !7
   %7 = zext i32 %6 to i64
   %8 = trunc i32 %6 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %8, ptr %9, align 8, !tbaa !50
+  store i8 %8, ptr %9, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = trunc i32 %12 to i8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %13, ptr %14, align 1, !tbaa !51
+  store i8 %13, ptr %14, align 1, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %17 = load i32, ptr %16, align 8, !tbaa !7
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 %18, ptr %19, align 2, !tbaa !52
+  store i8 %18, ptr %19, align 2, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %3) #12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %20, ptr %3, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 32, ptr %22, align 4, !tbaa !53
+  store i32 32, ptr %22, align 4, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -349,9 +349,9 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %32 = zext i32 %31 to i64
   call fastcc void @_ZL18ProcessElementListRN4llvm18StringTableBuilderERNS_15SmallVectorImplIjEERNS2_INS_4dxbc3PSV2v016SignatureElementEEERNS2_INS_9StringRefEEENS_8ArrayRefINS_6mcdxbc19PSVSignatureElementEEE(ptr noundef nonnull align 8 dereferenceable(38) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %30, i64 %32)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %.sroa.06.0.copyload = load ptr, ptr %33, align 8, !tbaa !54
+  %.sroa.06.0.copyload = load ptr, ptr %33, align 8, !tbaa !56
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !57
   %34 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload) #12
   %.sroa.4.8.insert.ext.i = zext i32 %34 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
@@ -359,14 +359,14 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i
   %35 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %23, ptr %.sroa.06.0.copyload, i64 %.sroa.2.8.insert.insert.i) #12
   call void @_ZN4llvm18StringTableBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(38) %23) #12
-  %36 = load ptr, ptr %25, align 8, !tbaa !10, !noalias !56
-  %37 = load ptr, ptr %3, align 8, !tbaa !10, !noalias !56
+  %36 = load ptr, ptr %25, align 8, !tbaa !10, !noalias !58
+  %37 = load ptr, ptr %3, align 8, !tbaa !10, !noalias !58
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %39 = load i32, ptr %38, align 8, !tbaa !7, !noalias !61
+  %39 = load i32, ptr %38, align 8, !tbaa !7, !noalias !63
   %40 = zext i32 %39 to i64
   %.idx = shl nuw nsw i64 %40, 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
-  %42 = load i32, ptr %21, align 8, !tbaa !7, !noalias !61
+  %42 = load i32, ptr %21, align 8, !tbaa !7, !noalias !63
   %43 = zext i32 %42 to i64
   %.idx35 = shl nuw nsw i64 %43, 4
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx35
@@ -376,8 +376,8 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   br i1 %.not3.i32, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.sroa.0.0.copyload = load ptr, ptr %33, align 8, !tbaa !54
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.0.0.copyload = load ptr, ptr %33, align 8, !tbaa !56
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !57
   %47 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #12
   %.sroa.4.8.insert.ext.i9 = zext i32 %47 to i64
   %.sroa.4.8.insert.shift.i10 = shl nuw i64 %.sroa.4.8.insert.ext.i9, 32
@@ -386,7 +386,7 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %48 = call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %23, ptr %.sroa.0.0.copyload, i64 %.sroa.2.8.insert.insert.i12) #12
   %49 = trunc i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %49, ptr %50, align 4, !tbaa !66
+  store i32 %49, ptr %50, align 4, !tbaa !68
   %51 = load ptr, ptr %3, align 8, !tbaa !10
   %52 = icmp eq ptr %51, %20
   br i1 %52, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %53
@@ -402,9 +402,9 @@ _ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %._crit_edge, %53
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.7.034 = phi ptr [ %57, %.lr.ph ], [ %36, %2 ]
   %.sroa.019.033 = phi ptr [ %58, %.lr.ph ], [ %37, %2 ]
-  %.sroa.03.0.copyload = load ptr, ptr %.sroa.019.033, align 8, !tbaa !54
+  %.sroa.03.0.copyload = load ptr, ptr %.sroa.019.033, align 8, !tbaa !56
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 8
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !57
   %54 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.03.0.copyload, i64 %.sroa.4.0.copyload) #12
   %.sroa.4.8.insert.ext.i13 = zext i32 %54 to i64
   %.sroa.4.8.insert.shift.i14 = shl nuw i64 %.sroa.4.8.insert.ext.i13, 32
@@ -412,7 +412,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %._crit_edge, %53
   %.sroa.2.8.insert.insert.i16 = or disjoint i64 %.sroa.4.8.insert.shift.i14, %.sroa.2.8.insert.ext.i15
   %55 = call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %23, ptr %.sroa.03.0.copyload, i64 %.sroa.2.8.insert.insert.i16) #12
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %.sroa.7.034, align 4, !tbaa !67
+  store i32 %56, ptr %.sroa.7.034, align 4, !tbaa !69
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.7.034, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
   %59 = icmp ne ptr %57, %41
@@ -443,21 +443,21 @@ define internal fastcc void @_ZL18ProcessElementListRN4llvm18StringTableBuilderE
 
 15:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EE9push_backES4_.exit
   %.070 = phi ptr [ %4, %.lr.ph ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EE9push_backES4_.exit ]
-  %.sroa.030.0.copyload = load ptr, ptr %.070, align 8, !tbaa !54
+  %.sroa.030.0.copyload = load ptr, ptr %.070, align 8, !tbaa !56
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %.sroa.231.0.copyload = load i64, ptr %.sroa.231.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.231.0.copyload = load i64, ptr %.sroa.231.0..sroa_idx, align 8, !tbaa !57
   %16 = tail call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.030.0.copyload, i64 %.sroa.231.0.copyload) #12
   %.sroa.4.8.insert.ext.i = zext i32 %16 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.ext.i = and i64 %.sroa.231.0.copyload, 4294967295
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i
   %17 = tail call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %0, ptr %.sroa.030.0.copyload, i64 %.sroa.2.8.insert.insert.i) #12
-  %.sroa.028.0.copyload = load ptr, ptr %.070, align 8, !tbaa !54
-  %.sroa.229.0.copyload = load i64, ptr %.sroa.231.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.028.0.copyload = load ptr, ptr %.070, align 8, !tbaa !56
+  %.sroa.229.0.copyload = load i64, ptr %.sroa.231.0..sroa_idx, align 8, !tbaa !57
   %18 = load i32, ptr %8, align 8, !tbaa !7
-  %19 = load i32, ptr %9, align 4, !tbaa !53
+  %19 = load i32, ptr %9, align 4, !tbaa !55
   %.not.i.i.not.i = icmp ult i32 %18, %19
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %20, !prof !72
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %20, !prof !74
 
 20:                                               ; preds = %15
   %21 = zext i32 %18 to i64
@@ -483,44 +483,44 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %32 = zext i32 %31 to i64
   %.sroa.6.8.insert.ext = and i64 %32, 255
   %33 = getelementptr inbounds nuw i8, ptr %.070, i64 80
-  %34 = load i8, ptr %33, align 8, !tbaa !73
+  %34 = load i8, ptr %33, align 8, !tbaa !75
   %.sroa.6.9.insert.ext = zext i8 %34 to i64
   %.sroa.6.9.insert.shift = shl nuw nsw i64 %.sroa.6.9.insert.ext, 8
   %.sroa.6.9.insert.insert = or disjoint i64 %.sroa.6.9.insert.shift, %.sroa.6.8.insert.ext
   %35 = getelementptr inbounds nuw i8, ptr %.070, i64 81
-  %36 = load i8, ptr %35, align 1, !tbaa !75
+  %36 = load i8, ptr %35, align 1, !tbaa !77
   %37 = and i8 %36, 15
   %38 = getelementptr inbounds nuw i8, ptr %.070, i64 82
-  %39 = load i8, ptr %38, align 2, !tbaa !76
+  %39 = load i8, ptr %38, align 2, !tbaa !78
   %40 = shl i8 %39, 4
   %41 = and i8 %40, 48
   %42 = or disjoint i8 %37, %41
   %43 = getelementptr inbounds nuw i8, ptr %.070, i64 83
-  %44 = load i8, ptr %43, align 1, !tbaa !77, !range !78, !noundef !79
+  %44 = load i8, ptr %43, align 1, !tbaa !79, !range !80, !noundef !81
   %45 = shl nuw nsw i8 %44, 6
   %46 = or disjoint i8 %42, %45
   %.sroa.6.10.insert.ext16 = zext nneg i8 %46 to i64
   %.sroa.6.10.insert.shift17 = shl nuw nsw i64 %.sroa.6.10.insert.ext16, 16
   %.sroa.6.10.insert.insert19 = or disjoint i64 %.sroa.6.10.insert.shift17, %.sroa.6.9.insert.insert
   %47 = getelementptr inbounds nuw i8, ptr %.070, i64 84
-  %48 = load i8, ptr %47, align 4, !tbaa !80
+  %48 = load i8, ptr %47, align 4, !tbaa !82
   %.sroa.6.11.insert.ext = zext i8 %48 to i64
   %.sroa.6.11.insert.shift = shl nuw nsw i64 %.sroa.6.11.insert.ext, 24
   %.sroa.6.11.insert.insert = or disjoint i64 %.sroa.6.10.insert.insert19, %.sroa.6.11.insert.shift
   %49 = getelementptr inbounds nuw i8, ptr %.070, i64 85
-  %50 = load i8, ptr %49, align 1, !tbaa !81
+  %50 = load i8, ptr %49, align 1, !tbaa !83
   %.sroa.6.12.insert.ext = zext i8 %50 to i64
   %.sroa.6.12.insert.shift = shl nuw nsw i64 %.sroa.6.12.insert.ext, 32
   %51 = getelementptr inbounds nuw i8, ptr %.070, i64 86
-  %52 = load i8, ptr %51, align 2, !tbaa !82
+  %52 = load i8, ptr %51, align 2, !tbaa !84
   %.sroa.6.13.insert.ext = zext i8 %52 to i64
   %.sroa.6.13.insert.shift = shl nuw nsw i64 %.sroa.6.13.insert.ext, 40
   %.sroa.6.13.insert.mask = or disjoint i64 %.sroa.6.11.insert.insert, %.sroa.6.12.insert.shift
   %53 = getelementptr inbounds nuw i8, ptr %.070, i64 87
-  %54 = load i8, ptr %53, align 1, !tbaa !83
+  %54 = load i8, ptr %53, align 1, !tbaa !85
   %55 = and i8 %54, 15
   %56 = getelementptr inbounds nuw i8, ptr %.070, i64 88
-  %57 = load i8, ptr %56, align 8, !tbaa !84
+  %57 = load i8, ptr %56, align 8, !tbaa !86
   %58 = shl i8 %57, 4
   %59 = and i8 %58, 48
   %60 = or disjoint i8 %59, %55
@@ -550,7 +550,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 71:                                               ; preds = %68
   %72 = add i64 %.0613.i, 1
   %.not.i = icmp ugt i64 %72, %66
-  br i1 %.not.i, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread, label %68, !llvm.loop !85
+  br i1 %.not.i, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread, label %68, !llvm.loop !87
 
 _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit:     ; preds = %68
   %73 = icmp eq i64 %.0613.i, -1
@@ -566,9 +566,9 @@ _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread: ; preds = %71, %_ZN4llvm23S
   %.sroa.02.sroa.4.1.in = phi i64 [ %63, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread ], [ %.0613.i, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit ]
   %.sroa.02.sroa.4.0.insert.ext = shl i64 %.sroa.02.sroa.4.1.in, 32
   %78 = load i32, ptr %12, align 8, !tbaa !7
-  %79 = load i32, ptr %13, align 4, !tbaa !53
+  %79 = load i32, ptr %13, align 4, !tbaa !55
   %.not.i.i.not.i60 = icmp ult i32 %78, %79
-  br i1 %.not.i.i.not.i60, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EE9push_backES4_.exit, label %80, !prof !72
+  br i1 %.not.i.i.not.i60, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EE9push_backES4_.exit, label %80, !prof !74
 
 80:                                               ; preds = %77
   %81 = zext i32 %78 to i64
@@ -610,7 +610,7 @@ define dso_local void @_ZN4llvm6mcdxbc9Signature5writeERNS_11raw_ostreamE(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %8, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %9, align 4, !tbaa !53
+  store i32 1, ptr %9, align 4, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !7
   %12 = icmp ugt i32 %11, 1
@@ -668,7 +668,7 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
+  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !89
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i
   call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %.val, ptr noundef nonnull %32)
@@ -686,9 +686,9 @@ _ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.
 "_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %._crit_edge, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %37 = load i32, ptr %10, align 8, !tbaa !7
-  store i32 %37, ptr %6, align 4, !tbaa !88
+  store i32 %37, ptr %6, align 4, !tbaa !90
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 8, ptr %38, align 4, !tbaa !90
+  store i32 8, ptr %38, align 4, !tbaa !92
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %6, i64 noundef 8) #12
   %40 = load ptr, ptr %3, align 8, !tbaa !10
   %41 = load i32, ptr %8, align 8, !tbaa !7
@@ -715,12 +715,12 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
   %.025 = phi ptr [ %19, %.lr.ph ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 28, i1 false)
-  %49 = load i32, ptr %.025, align 8, !tbaa !91
-  store i32 %49, ptr %5, align 4, !tbaa !96
+  %49 = load i32, ptr %.025, align 8, !tbaa !93
+  store i32 %49, ptr %5, align 4, !tbaa !98
   %50 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %50, align 8, !tbaa !54
+  %.sroa.0.0.copyload = load ptr, ptr %50, align 8, !tbaa !56
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.025, i64 16
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !57
   %51 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #12
   %.sroa.4.8.insert.ext.i = zext i32 %51 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
@@ -729,42 +729,42 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
   %52 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.8.insert.insert.i) #12
   %53 = trunc i64 %52 to i32
   %54 = add i32 %18, %53
-  store i32 %54, ptr %21, align 4, !tbaa !99
+  store i32 %54, ptr %21, align 4, !tbaa !101
   %55 = getelementptr inbounds nuw i8, ptr %.025, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !100
-  store i32 %56, ptr %22, align 4, !tbaa !101
+  %56 = load i32, ptr %55, align 8, !tbaa !102
+  store i32 %56, ptr %22, align 4, !tbaa !103
   %57 = getelementptr inbounds nuw i8, ptr %.025, i64 28
-  %58 = load i32, ptr %57, align 4, !tbaa !102
-  store i32 %58, ptr %23, align 4, !tbaa !103
+  %58 = load i32, ptr %57, align 4, !tbaa !104
+  store i32 %58, ptr %23, align 4, !tbaa !105
   %59 = getelementptr inbounds nuw i8, ptr %.025, i64 32
-  %60 = load i32, ptr %59, align 8, !tbaa !104
-  store i32 %60, ptr %24, align 4, !tbaa !105
+  %60 = load i32, ptr %59, align 8, !tbaa !106
+  store i32 %60, ptr %24, align 4, !tbaa !107
   %61 = getelementptr inbounds nuw i8, ptr %.025, i64 36
-  %62 = load i32, ptr %61, align 4, !tbaa !106
-  store i32 %62, ptr %25, align 4, !tbaa !107
+  %62 = load i32, ptr %61, align 4, !tbaa !108
+  store i32 %62, ptr %25, align 4, !tbaa !109
   %63 = getelementptr inbounds nuw i8, ptr %.025, i64 40
-  %64 = load i8, ptr %63, align 8, !tbaa !108
-  store i8 %64, ptr %26, align 4, !tbaa !109
+  %64 = load i8, ptr %63, align 8, !tbaa !110
+  store i8 %64, ptr %26, align 4, !tbaa !111
   %65 = getelementptr inbounds nuw i8, ptr %.025, i64 41
-  %66 = load i8, ptr %65, align 1, !tbaa !110
-  store i8 %66, ptr %27, align 1, !tbaa !111
+  %66 = load i8, ptr %65, align 1, !tbaa !112
+  store i8 %66, ptr %27, align 1, !tbaa !113
   %67 = getelementptr inbounds nuw i8, ptr %.025, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !112
-  store i32 %68, ptr %28, align 4, !tbaa !113
+  %68 = load i32, ptr %67, align 4, !tbaa !114
+  store i32 %68, ptr %28, align 4, !tbaa !115
   %69 = load i32, ptr %8, align 8, !tbaa !7
   %70 = zext i32 %69 to i64
   %71 = add nuw nsw i64 %70, 1
-  %72 = load i32, ptr %9, align 4, !tbaa !53
+  %72 = load i32, ptr %9, align 4, !tbaa !55
   %.not.i.i.not.i = icmp ult i32 %69, %72
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !10
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, label %73, !prof !72
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, label %73, !prof !74
 
 73:                                               ; preds = %48
   %74 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.pre3.i, i64 %70
   %75 = icmp uge ptr %5, %.pre3.i
   %76 = icmp ult ptr %5, %74
   %spec.select.i.i.i.i.i = and i1 %75, %76
-  br i1 %spec.select.i.i.i.i.i, label %78, label %77, !prof !114
+  br i1 %spec.select.i.i.i.i.i, label %78, label %77, !prof !116
 
 77:                                               ; preds = %73
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
@@ -825,7 +825,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIjE6insertIPKjv
   %18 = ashr exact i64 %16, 2
   %19 = add nsw i64 %18, %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !53
+  %21 = load i32, ptr %20, align 4, !tbaa !55
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i
@@ -865,7 +865,7 @@ _ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
   %35 = ashr exact i64 %16, 2
   %36 = add nsw i64 %35, %11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !53
+  %38 = load i32, ptr %37, align 4, !tbaa !55
   %39 = zext i32 %38 to i64
   %40 = icmp ugt i64 %36, %39
   br i1 %40, label %41, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
@@ -893,7 +893,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %34, %41
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
   %49 = getelementptr inbounds i8, ptr %46, i64 %.idx52
   %50 = add nsw i64 %35, %.pre-phi
-  %51 = load i32, ptr %37, align 4, !tbaa !53
+  %51 = load i32, ptr %37, align 4, !tbaa !55
   %52 = zext i32 %51 to i64
   %53 = icmp ugt i64 %50, %52
   br i1 %53, label %54, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i45
@@ -978,7 +978,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %82 = getelementptr inbounds nuw i8, ptr %.04256, i64 4
   %83 = add i64 %.04057, -1
   %.not44 = icmp eq i64 %83, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 _ZSt4copyIPKjPjET0_T_S4_S3_.exit:                 ; preds = %77, %._crit_edge, %69, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
   %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit ], [ %45, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ], [ %45, %69 ], [ %45, %._crit_edge ], [ %45, %77 ]
@@ -1059,7 +1059,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i": ; preds = %21, %18, %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) %.022.i, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) %.022.i, i64 32, i1 false), !tbaa.struct !118
   %24 = getelementptr inbounds nuw i8, ptr %.pn21.i, i64 64
   %25 = ptrtoint ptr %.022.i to i64
   %26 = sub i64 %25, %5
@@ -1067,7 +1067,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
   %28 = sub nsw i64 0, %27
   %29 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %24, i64 %28
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %40
 
@@ -1076,7 +1076,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
   %.sroa.5.0.copyload.i.i = phi i32 [ %.sroa.5.0.copyload.i.pre.i, %"._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread18_crit_edge.i" ], [ %.sroa.5.0.copyload.i.pre23.i, %21 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.6.i.i)
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn21.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn21.i, i64 56
   %30 = load i64, ptr %.sroa.7.0..sroa_idx.i.i, align 4
   br label %31
@@ -1107,15 +1107,15 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
   br i1 %or.cond.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i": ; preds = %37, %35, %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i, i64 32, i1 false), !tbaa.struct !116
-  br label %31, !llvm.loop !123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i, i64 32, i1 false), !tbaa.struct !118
+  br label %31, !llvm.loop !125
 
 "_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i": ; preds = %37, %33
   store i32 %14, ptr %.09.i.i, align 4, !tbaa !3
   %.sroa.5.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 4
   store i32 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..09.sroa_idx.i.i, align 4, !tbaa !3
   %.sroa.6.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.612.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 20
   store i32 %.sroa.612.0.copyload.i.i, ptr %.sroa.612.0..09.sroa_idx.i.i, align 4, !tbaa !3
   %.sroa.7.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 24
@@ -1126,7 +1126,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramS
 40:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i"
   %.0.i = getelementptr inbounds nuw i8, ptr %.022.i, i64 32
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !124
+  br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !126
 
 common.ret25:                                     ; preds = %.preheader.i, %9, %40, %41
   ret void
@@ -1229,9 +1229,9 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23Program
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread": ; preds = %20, %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.tr79, i64 32, i1 false), !tbaa.struct !116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr79, ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, i64 32, i1 false), !tbaa.struct !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.tr79, i64 32, i1 false), !tbaa.struct !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr79, ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, i64 32, i1 false), !tbaa.struct !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68"
 
@@ -1301,7 +1301,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
   %56 = phi i64 [ %35, %46 ], [ %35, %41 ], [ %50, %.thread.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i" ]
   %57 = phi ptr [ %.027.i, %46 ], [ %.027.i, %41 ], [ %48, %.thread.i ], [ %spec.select25.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i" ]
   %58 = icmp sgt i64 %56, 0
-  br i1 %58, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !125
+  br i1 %58, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !127
 
 "_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread22.i
   %.pre = ptrtoint ptr %57 to i64
@@ -1377,7 +1377,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45: ; preds =
   %89 = phi i64 [ %83, %.thread22.i55 ], [ %72, %77 ], [ %72, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45 ], [ %72, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ], [ %87, %85 ]
   %90 = phi ptr [ %81, %.thread22.i55 ], [ %.026.i, %77 ], [ %.026.i, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45 ], [ %.026.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ], [ %88, %85 ]
   %91 = icmp sgt i64 %89, 0
-  br i1 %91, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
+  br i1 %91, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !128
 
 "_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i54
   %.pre87 = ptrtoint ptr %90 to i64
@@ -1438,14 +1438,14 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatu
   %.010.i = phi ptr [ %23, %.lr.ph.i ], [ %1, %12 ]
   %.079.i = phi ptr [ %22, %.lr.ph.i ], [ %0, %12 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.079.i, i64 32, i1 false), !tbaa.struct !116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.079.i, ptr noundef nonnull align 4 dereferenceable(32) %.010.i, i64 32, i1 false), !tbaa.struct !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.010.i, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.079.i, i64 32, i1 false), !tbaa.struct !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.079.i, ptr noundef nonnull align 4 dereferenceable(32) %.010.i, i64 32, i1 false), !tbaa.struct !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.010.i, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %22 = getelementptr inbounds nuw i8, ptr %.079.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.010.i, i64 32
   %.not.i = icmp eq ptr %22, %1
-  br i1 %.not.i, label %_ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, label %.lr.ph.i, !llvm.loop !127
+  br i1 %.not.i, label %_ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, label %.lr.ph.i, !llvm.loop !129
 
 24:                                               ; preds = %12
   %25 = sub i64 %13, %17
@@ -1466,7 +1466,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatu
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !118
   %.idx96 = shl nsw i64 %.085, 5
   %33 = getelementptr inbounds i8, ptr %.054, i64 %.idx96
   %.not.i.i.i.i.i = icmp eq i64 %.085, 1
@@ -1480,7 +1480,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatu
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = %32, %34
   %36 = getelementptr inbounds i8, ptr %33, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %36, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %36, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %_ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
 
@@ -1503,15 +1503,15 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   %.052106 = phi ptr [ %42, %.lr.ph109 ], [ %39, %.lr.ph109.preheader ]
   %.155105 = phi ptr [ %41, %.lr.ph109 ], [ %.054, %.lr.ph109.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %.155105, i64 32, i1 false), !tbaa.struct !116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.155105, ptr noundef nonnull align 4 dereferenceable(32) %.052106, i64 32, i1 false), !tbaa.struct !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.052106, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %.155105, i64 32, i1 false), !tbaa.struct !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.155105, ptr noundef nonnull align 4 dereferenceable(32) %.052106, i64 32, i1 false), !tbaa.struct !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.052106, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %.155105, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.052106, i64 32
   %43 = add nuw nsw i64 %.051107, 1
   %exitcond118.not = icmp eq i64 %43, %28
-  br i1 %exitcond118.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !128
+  br i1 %exitcond118.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !130
 
 44:                                               ; preds = %._crit_edge110
   %45 = sub nsw i64 %.082, %40
@@ -1526,7 +1526,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   %.idx = shl nsw i64 %.085, 5
   %49 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !118
   %.not.i.i.i.i.i66 = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i66, label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, label %51
 
@@ -1539,7 +1539,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = %48, %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.054, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.054, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %_ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
 
@@ -1560,7 +1560,7 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: 
   %.085.be = phi i64 [ %.082, %44 ], [ %28, %._crit_edge ]
   %.082.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
   %.054.be = phi ptr [ %.155.lcssa, %44 ], [ %.357.lcssa, %._crit_edge ]
-  br label %27, !llvm.loop !129
+  br label %27, !llvm.loop !131
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
   %.0104 = phi i64 [ %64, %.lr.ph ], [ 0, %56 ]
@@ -1569,13 +1569,13 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: 
   %62 = getelementptr inbounds i8, ptr %.357102, i64 -32
   %63 = getelementptr inbounds i8, ptr %.050103, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %62, i64 32, i1 false), !tbaa.struct !116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %62, ptr noundef nonnull align 4 dereferenceable(32) %63, i64 32, i1 false), !tbaa.struct !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %63, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %62, i64 32, i1 false), !tbaa.struct !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %62, ptr noundef nonnull align 4 dereferenceable(32) %63, i64 32, i1 false), !tbaa.struct !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %63, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %64 = add nuw nsw i64 %.0104, 1
   %exitcond.not = icmp eq i64 %64, %.082
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 _ZSt11swap_rangesIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, %10, %3
   %.053 = phi ptr [ %2, %3 ], [ %0, %10 ], [ %26, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ], [ %26, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
@@ -1639,7 +1639,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i.i": ; preds = %23, %20, %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %.022.i.ptr.i, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %.022.i.ptr.i, i64 32, i1 false), !tbaa.struct !118
   %26 = getelementptr inbounds nuw i8, ptr %.pn21.i.i, i64 64
   %27 = ptrtoint ptr %.022.i.ptr.i to i64
   %28 = sub i64 %27, %12
@@ -1647,7 +1647,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %26, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %31, ptr noundef nonnull align 4 dereferenceable(1) %.050.i, i64 %28, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.050.i, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.050.i, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %42
 
@@ -1656,7 +1656,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %.sroa.5.0.copyload.i.i.i = phi i32 [ %.sroa.5.0.copyload.i.pre.i.i, %"._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread18_crit_edge.i.i" ], [ %.sroa.5.0.copyload.i.pre23.i.i, %23 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.6.i.i.i)
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.pn21.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.pn21.i.i, i64 56
   %32 = load i64, ptr %.sroa.7.0..sroa_idx.i.i.i, align 4
   br label %33
@@ -1687,15 +1687,15 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   br i1 %or.cond.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i.i": ; preds = %39, %37, %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i.i, i64 32, i1 false), !tbaa.struct !116
-  br label %33, !llvm.loop !123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i.i, i64 32, i1 false), !tbaa.struct !118
+  br label %33, !llvm.loop !125
 
 "_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i": ; preds = %39, %35
   store i32 %16, ptr %.09.i.i.i, align 4, !tbaa !3
   %.sroa.5.0..09.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 4
   store i32 %.sroa.5.0.copyload.i.i.i, ptr %.sroa.5.0..09.sroa_idx.i.i.i, align 4, !tbaa !3
   %.sroa.6.0..09.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.612.0..09.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 20
   store i32 %.sroa.612.0.copyload.i.i.i, ptr %.sroa.612.0..09.sroa_idx.i.i.i, align 4, !tbaa !3
   %.sroa.7.0..09.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
@@ -1706,14 +1706,14 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
 42:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i.i"
   %.022.i.add.i = add nuw nsw i64 %.022.i.idx.i, 32
   %.not.i.i = icmp eq i64 %.022.i.add.i, 224
-  br i1 %.not.i.i, label %"_ZSt16__insertion_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_.exit.i", label %13, !llvm.loop !124
+  br i1 %.not.i.i, label %"_ZSt16__insertion_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_.exit.i", label %13, !llvm.loop !126
 
 "_ZSt16__insertion_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_.exit.i": ; preds = %42
   %43 = getelementptr inbounds nuw i8, ptr %.050.i, i64 224
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %6, %44
   %46 = icmp sgt i64 %45, 192
-  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !131
+  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %"_ZSt16__insertion_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_.exit.i", %3
   %.0.lcssa.i = phi ptr [ %0, %3 ], [ %43, %"_ZSt16__insertion_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_.exit.i" ]
@@ -1766,7 +1766,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i45.i": ; preds = %58, %55, %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %.022.i17.i, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %.022.i17.i, i64 32, i1 false), !tbaa.struct !118
   %61 = getelementptr inbounds nuw i8, ptr %.pn21.i18.i, i64 64
   %62 = ptrtoint ptr %.022.i17.i to i64
   %63 = sub i64 %62, %.lcssa.i
@@ -1774,7 +1774,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %65 = sub nsw i64 0, %64
   %66 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %61, i64 %65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %66, ptr noundef nonnull align 4 dereferenceable(1) %.0.lcssa.i, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0.lcssa.i, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0.lcssa.i, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %77
 
@@ -1783,7 +1783,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   %.sroa.5.0.copyload.i.i26.i = phi i32 [ %.sroa.5.0.copyload.i.pre.i47.i, %"._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread18_crit_edge.i46.i" ], [ %.sroa.5.0.copyload.i.pre23.i22.i, %58 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.6.i.i13.i)
   %.sroa.6.0..sroa_idx.i.i27.i = getelementptr inbounds nuw i8, ptr %.pn21.i18.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i13.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i27.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i13.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i.i27.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.7.0..sroa_idx.i.i28.i = getelementptr inbounds nuw i8, ptr %.pn21.i18.i, i64 56
   %67 = load i64, ptr %.sroa.7.0..sroa_idx.i.i28.i, align 4
   br label %68
@@ -1814,15 +1814,15 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   br i1 %or.cond.i.i36.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i44.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i37.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclINS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.thread.i.i44.i": ; preds = %74, %72, %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i29.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i30.i, i64 32, i1 false), !tbaa.struct !116
-  br label %68, !llvm.loop !123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.09.i.i29.i, ptr noundef nonnull align 4 dereferenceable(32) %.0.i.i30.i, i64 32, i1 false), !tbaa.struct !118
+  br label %68, !llvm.loop !125
 
 "_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i37.i": ; preds = %74, %70
   store i32 %51, ptr %.09.i.i29.i, align 4, !tbaa !3
   %.sroa.5.0..09.sroa_idx.i.i38.i = getelementptr inbounds nuw i8, ptr %.09.i.i29.i, i64 4
   store i32 %.sroa.5.0.copyload.i.i26.i, ptr %.sroa.5.0..09.sroa_idx.i.i38.i, align 4, !tbaa !3
   %.sroa.6.0..09.sroa_idx.i.i39.i = getelementptr inbounds nuw i8, ptr %.09.i.i29.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i39.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i13.i, i64 12, i1 false), !tbaa.struct !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..09.sroa_idx.i.i39.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i.i13.i, i64 12, i1 false), !tbaa.struct !124
   %.sroa.612.0..09.sroa_idx.i.i40.i = getelementptr inbounds nuw i8, ptr %.09.i.i29.i, i64 20
   store i32 %.sroa.612.0.copyload.i.i25.i, ptr %.sroa.612.0..09.sroa_idx.i.i40.i, align 4, !tbaa !3
   %.sroa.7.0..09.sroa_idx.i.i41.i = getelementptr inbounds nuw i8, ptr %.09.i.i29.i, i64 24
@@ -1833,7 +1833,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
 77:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i37.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i45.i"
   %.0.i42.i = getelementptr inbounds nuw i8, ptr %.022.i17.i, i64 32
   %.not.i43.i = icmp eq ptr %.0.i42.i, %1
-  br i1 %.not.i43.i, label %"_ZSt22__chunk_insertion_sortIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_.exit", label %48, !llvm.loop !124
+  br i1 %.not.i43.i, label %"_ZSt22__chunk_insertion_sortIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_.exit", label %48, !llvm.loop !126
 
 "_ZSt22__chunk_insertion_sortIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_.exit": ; preds = %77, %._crit_edge.i, %.preheader.i.i
   %78 = icmp sgt i64 %9, 7
@@ -1846,7 +1846,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
   tail call fastcc void @"_ZSt17__merge_sort_loopIPN4llvm4dxbc23ProgramSignatureElementES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %2, ptr noundef %10, ptr noundef %0, i64 noundef %79)
   %80 = shl nsw i64 %.024, 2
   %81 = icmp slt i64 %80, %9
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !132
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %.lr.ph, %"_ZSt22__chunk_insertion_sortIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_.exit"
   ret void
@@ -1917,12 +1917,12 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread23.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %23, %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.026.i, ptr noundef nonnull align 4 dereferenceable(32) %.01924.i, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.026.i, ptr noundef nonnull align 4 dereferenceable(32) %.01924.i, i64 32, i1 false), !tbaa.struct !118
   %30 = getelementptr inbounds nuw i8, ptr %.01924.i, i64 32
   br label %32
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread23.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %26, %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.026.i, ptr noundef nonnull align 4 dereferenceable(32) %.01825.i, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.026.i, ptr noundef nonnull align 4 dereferenceable(32) %.01825.i, i64 32, i1 false), !tbaa.struct !118
   %31 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 32
   br label %32
 
@@ -1933,7 +1933,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
   %34 = icmp ne ptr %.1.i, %13
   %35 = icmp ne ptr %.120.i, %2
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !133
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !135
 
 ._crit_edge.i:                                    ; preds = %32, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ], [ %.1.i, %32 ]
@@ -2014,9 +2014,9 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ;
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i80", %55, %48
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %62, ptr noundef nonnull align 4 dereferenceable(32) %.026.i74.ph, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %62, ptr noundef nonnull align 4 dereferenceable(32) %.026.i74.ph, i64 32, i1 false), !tbaa.struct !118
   %63 = icmp eq ptr %.tr141, %.026.i74.ph
-  br i1 %63, label %64, label %.outer, !llvm.loop !134
+  br i1 %63, label %64, label %.outer, !llvm.loop !136
 
 64:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82"
   %65 = getelementptr inbounds nuw i8, ptr %.024.i, i64 32
@@ -2025,13 +2025,13 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ;
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread36.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i80", %58, %53
   %66 = getelementptr inbounds i8, ptr %.0.i, i64 -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %66, ptr noundef nonnull align 4 dereferenceable(32) %.024.i, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %66, ptr noundef nonnull align 4 dereferenceable(32) %.024.i, i64 32, i1 false), !tbaa.struct !118
   %67 = icmp eq ptr %5, %.024.i
   br i1 %67, label %"_ZSt21__move_merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit", label %68
 
 68:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread36.i"
   %69 = getelementptr inbounds i8, ptr %.024.i, i64 -32
-  br label %48, !llvm.loop !134
+  br label %48, !llvm.loop !136
 
 _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread, %64
   %.sink44.i = phi ptr [ %65, %64 ], [ %44, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread ]
@@ -2110,7 +2110,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
   %104 = phi i64 [ %83, %94 ], [ %83, %89 ], [ %98, %.thread.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i" ]
   %105 = phi ptr [ %.027.i, %94 ], [ %.027.i, %89 ], [ %96, %.thread.i ], [ %spec.select25.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i" ]
   %106 = icmp sgt i64 %104, 0
-  br i1 %106, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !125
+  br i1 %106, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !127
 
 "_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread22.i
   %.pre = ptrtoint ptr %105 to i64
@@ -2186,7 +2186,7 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97: ; preds =
   %137 = phi i64 [ %131, %.thread22.i108 ], [ %120, %125 ], [ %120, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97 ], [ %120, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ], [ %135, %133 ]
   %138 = phi ptr [ %129, %.thread22.i108 ], [ %.026.i98, %125 ], [ %.026.i98, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97 ], [ %.026.i98, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ], [ %136, %133 ]
   %139 = icmp sgt i64 %137, 0
-  br i1 %139, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
+  br i1 %139, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !128
 
 "_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i107
   %.pre155 = ptrtoint ptr %138 to i64
@@ -2347,7 +2347,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm4dxbc23ProgramSigna
   %15 = sub i64 %6, %14
   %16 = ashr exact i64 %15, 5
   %.not.us = icmp slt i64 %16, %5
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !135
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !137
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
   %.057 = phi ptr [ %18, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %0, %.lr.ph ]
@@ -2390,12 +2390,12 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm4dxbc23ProgramSigna
   br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %25, %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i, i64 32, i1 false), !tbaa.struct !118
   %32 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 32
   br label %34
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %28, %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i, i64 32, i1 false), !tbaa.struct !118
   %33 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 32
   br label %34
 
@@ -2406,7 +2406,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm4dxbc23ProgramSigna
   %36 = icmp ne ptr %.1.i, %17
   %37 = icmp ne ptr %.120.i, %18
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !136
+  br i1 %38, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !138
 
 ._crit_edge.i.loopexit:                           ; preds = %34
   %39 = ptrtoint ptr %17 to i64
@@ -2436,7 +2436,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds 
   %49 = sub i64 %6, %44
   %50 = ashr exact i64 %49, 5
   %.not = icmp slt i64 %50, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !135
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %48, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
@@ -2484,12 +2484,12 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds 
   br i1 %67, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %61, %.lr.ph.i30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i33, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i33, i64 32, i1 false), !tbaa.struct !118
   %68 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 32
   br label %70
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %64, %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i32, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i32, i64 32, i1 false), !tbaa.struct !118
   %69 = getelementptr inbounds nuw i8, ptr %.01826.i32, i64 32
   br label %70
 
@@ -2500,7 +2500,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds 
   %72 = icmp ne ptr %.1.i42, %51
   %73 = icmp ne ptr %.120.i41, %1
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !136
+  br i1 %74, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !138
 
 ._crit_edge.i23:                                  ; preds = %70, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %51, %._crit_edge ], [ %.120.i41, %70 ]
@@ -2576,121 +2576,124 @@ attributes #13 = { nounwind allocsize(0) }
 !16 = !{!"_ZTSN4llvm18StringTableBuilder4KindE", !5, i64 0}
 !17 = !{!"_ZTSN4llvm5AlignE", !5, i64 0}
 !18 = !{!"bool", !5, i64 0}
-!19 = !{!20, !18, i64 0}
-!20 = !{!"_ZTSN4llvm6mcdxbc14PSVRuntimeInfoE", !18, i64 0, !21, i64 4, !25, i64 56, !30, i64 120, !30, i64 232, !30, i64 344, !35, i64 456, !36, i64 712, !35, i64 776, !36, i64 1032, !36, i64 1096, !41, i64 1160, !43, i64 1176, !45, i64 1448, !12, i64 1976}
-!21 = !{!"_ZTSN4llvm4dxbc3PSV2v311RuntimeInfoE", !22, i64 0, !4, i64 48}
-!22 = !{!"_ZTSN4llvm4dxbc3PSV2v211RuntimeInfoE", !23, i64 0, !4, i64 36, !4, i64 40, !4, i64 44}
-!23 = !{!"_ZTSN4llvm4dxbc3PSV2v111RuntimeInfoE", !24, i64 0, !5, i64 24, !5, i64 25, !5, i64 26, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31, !5, i64 32}
-!24 = !{!"_ZTSN4llvm4dxbc3PSV2v011RuntimeInfoE", !5, i64 0, !4, i64 16, !4, i64 20}
-!25 = !{!"_ZTSN4llvm11SmallVectorINS_4dxbc3PSV2v216ResourceBindInfoELj2EEE", !26, i64 0, !29, i64 16}
-!26 = !{!"_ZTSN4llvm15SmallVectorImplINS_4dxbc3PSV2v216ResourceBindInfoEEE", !27, i64 0}
-!27 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v216ResourceBindInfoELb1EEE", !28, i64 0}
-!28 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_4dxbc3PSV2v216ResourceBindInfoEvEE", !8, i64 0}
-!29 = !{!"_ZTSN4llvm18SmallVectorStorageINS_4dxbc3PSV2v216ResourceBindInfoELj2EEE", !5, i64 0}
-!30 = !{!"_ZTSN4llvm11SmallVectorINS_6mcdxbc19PSVSignatureElementELj1EEE", !31, i64 0, !34, i64 16}
-!31 = !{!"_ZTSN4llvm15SmallVectorImplINS_6mcdxbc19PSVSignatureElementEEE", !32, i64 0}
-!32 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_6mcdxbc19PSVSignatureElementELb0EEE", !33, i64 0}
-!33 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_6mcdxbc19PSVSignatureElementEvEE", !8, i64 0}
-!34 = !{!"_ZTSN4llvm18SmallVectorStorageINS_6mcdxbc19PSVSignatureElementELj1EEE", !5, i64 0}
-!35 = !{!"_ZTSSt5arrayIN4llvm11SmallVectorIjLj12EEELm4EE", !5, i64 0}
-!36 = !{!"_ZTSN4llvm11SmallVectorIjLj12EEE", !37, i64 0, !40, i64 16}
-!37 = !{!"_ZTSN4llvm15SmallVectorImplIjEE", !38, i64 0}
-!38 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIjLb1EEE", !39, i64 0}
-!39 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIjvEE", !8, i64 0}
-!40 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj12EEE", !5, i64 0}
-!41 = !{!"_ZTSN4llvm9StringRefE", !42, i64 0, !15, i64 8}
-!42 = !{!"p1 omnipotent char", !9, i64 0}
-!43 = !{!"_ZTSN4llvm11SmallVectorIjLj64EEE", !37, i64 0, !44, i64 16}
-!44 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj64EEE", !5, i64 0}
-!45 = !{!"_ZTSN4llvm11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEE", !46, i64 0, !49, i64 16}
-!46 = !{!"_ZTSN4llvm15SmallVectorImplINS_4dxbc3PSV2v016SignatureElementEEE", !47, i64 0}
-!47 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EEE", !48, i64 0}
-!48 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_4dxbc3PSV2v016SignatureElementEvEE", !8, i64 0}
-!49 = !{!"_ZTSN4llvm18SmallVectorStorageINS_4dxbc3PSV2v016SignatureElementELj32EEE", !5, i64 0}
-!50 = !{!23, !5, i64 28}
-!51 = !{!23, !5, i64 29}
-!52 = !{!23, !5, i64 30}
-!53 = !{!8, !4, i64 12}
-!54 = !{!42, !42, i64 0}
-!55 = !{!15, !15, i64 0}
-!56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE10begin_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE: argument 0"}
-!58 = distinct !{!58, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE10begin_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE"}
-!59 = distinct !{!59, !60, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE5beginEv: argument 0"}
-!60 = distinct !{!60, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE5beginEv"}
-!61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE8end_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE: argument 0"}
-!63 = distinct !{!63, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE8end_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE"}
-!64 = distinct !{!64, !65, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE3endEv: argument 0"}
-!65 = distinct !{!65, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE3endEv"}
-!66 = !{!20, !4, i64 52}
-!67 = !{!68, !4, i64 0}
-!68 = !{!"_ZTSN4llvm4dxbc3PSV2v016SignatureElementE", !4, i64 0, !4, i64 4, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 10, !5, i64 10, !5, i64 10, !69, i64 11, !70, i64 12, !71, i64 13, !5, i64 14, !5, i64 14, !5, i64 14, !5, i64 15}
-!69 = !{!"_ZTSN4llvm4dxbc3PSV12SemanticKindE", !5, i64 0}
-!70 = !{!"_ZTSN4llvm4dxbc3PSV13ComponentTypeE", !5, i64 0}
-!71 = !{!"_ZTSN4llvm4dxbc3PSV17InterpolationModeE", !5, i64 0}
-!72 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!73 = !{!74, !5, i64 80}
-!74 = !{!"_ZTSN4llvm6mcdxbc19PSVSignatureElementE", !41, i64 0, !36, i64 16, !5, i64 80, !5, i64 81, !5, i64 82, !18, i64 83, !69, i64 84, !70, i64 85, !71, i64 86, !5, i64 87, !5, i64 88}
-!75 = !{!74, !5, i64 81}
-!76 = !{!74, !5, i64 82}
-!77 = !{!74, !18, i64 83}
-!78 = !{i8 0, i8 2}
-!79 = !{}
-!80 = !{!74, !69, i64 84}
-!81 = !{!74, !70, i64 85}
-!82 = !{!74, !71, i64 86}
-!83 = !{!74, !5, i64 87}
-!84 = !{!74, !5, i64 88}
-!85 = distinct !{!85, !86}
-!86 = !{!"llvm.loop.mustprogress"}
-!87 = distinct !{!87, !86}
-!88 = !{!89, !4, i64 0}
-!89 = !{!"_ZTSN4llvm4dxbc22ProgramSignatureHeaderE", !4, i64 0, !4, i64 4}
-!90 = !{!89, !4, i64 4}
-!91 = !{!92, !4, i64 0}
-!92 = !{!"_ZTSN4llvm6mcdxbc9Signature9ParameterE", !4, i64 0, !41, i64 8, !4, i64 24, !93, i64 28, !94, i64 32, !4, i64 36, !5, i64 40, !5, i64 41, !95, i64 44}
-!93 = !{!"_ZTSN4llvm4dxbc14D3DSystemValueE", !5, i64 0}
-!94 = !{!"_ZTSN4llvm4dxbc16SigComponentTypeE", !5, i64 0}
-!95 = !{!"_ZTSN4llvm4dxbc15SigMinPrecisionE", !5, i64 0}
-!96 = !{!97, !4, i64 0}
-!97 = !{!"_ZTSN4llvm4dxbc23ProgramSignatureElementE", !4, i64 0, !4, i64 4, !4, i64 8, !93, i64 12, !94, i64 16, !4, i64 20, !5, i64 24, !5, i64 25, !98, i64 26, !95, i64 28}
-!98 = !{!"short", !5, i64 0}
-!99 = !{!97, !4, i64 4}
-!100 = !{!92, !4, i64 24}
-!101 = !{!97, !4, i64 8}
-!102 = !{!92, !93, i64 28}
-!103 = !{!97, !93, i64 12}
-!104 = !{!92, !94, i64 32}
-!105 = !{!97, !94, i64 16}
-!106 = !{!92, !4, i64 36}
-!107 = !{!97, !4, i64 20}
-!108 = !{!92, !5, i64 40}
-!109 = !{!97, !5, i64 24}
-!110 = !{!92, !5, i64 41}
-!111 = !{!97, !5, i64 25}
-!112 = !{!92, !95, i64 44}
-!113 = !{!97, !95, i64 28}
-!114 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!115 = distinct !{!115, !86}
-!116 = !{i64 0, i64 4, !3, i64 4, i64 4, !3, i64 8, i64 4, !3, i64 12, i64 4, !117, i64 16, i64 4, !118, i64 20, i64 4, !3, i64 24, i64 1, !119, i64 25, i64 1, !119, i64 26, i64 2, !120, i64 28, i64 4, !121}
-!117 = !{!93, !93, i64 0}
-!118 = !{!94, !94, i64 0}
-!119 = !{!5, !5, i64 0}
-!120 = !{!98, !98, i64 0}
-!121 = !{!95, !95, i64 0}
-!122 = !{i64 0, i64 4, !3, i64 4, i64 4, !117, i64 8, i64 4, !118, i64 12, i64 4, !3, i64 16, i64 1, !119, i64 17, i64 1, !119, i64 18, i64 2, !120, i64 20, i64 4, !121}
-!123 = distinct !{!123, !86}
-!124 = distinct !{!124, !86}
-!125 = distinct !{!125, !86}
-!126 = distinct !{!126, !86}
-!127 = distinct !{!127, !86}
-!128 = distinct !{!128, !86}
-!129 = distinct !{!129, !86}
-!130 = distinct !{!130, !86}
-!131 = distinct !{!131, !86}
-!132 = distinct !{!132, !86}
-!133 = distinct !{!133, !86}
-!134 = distinct !{!134, !86}
-!135 = distinct !{!135, !86}
-!136 = distinct !{!136, !86}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!22, !18, i64 0}
+!22 = !{!"_ZTSN4llvm6mcdxbc14PSVRuntimeInfoE", !18, i64 0, !23, i64 4, !27, i64 56, !32, i64 120, !32, i64 232, !32, i64 344, !37, i64 456, !38, i64 712, !37, i64 776, !38, i64 1032, !38, i64 1096, !43, i64 1160, !45, i64 1176, !47, i64 1448, !12, i64 1976}
+!23 = !{!"_ZTSN4llvm4dxbc3PSV2v311RuntimeInfoE", !24, i64 0, !4, i64 48}
+!24 = !{!"_ZTSN4llvm4dxbc3PSV2v211RuntimeInfoE", !25, i64 0, !4, i64 36, !4, i64 40, !4, i64 44}
+!25 = !{!"_ZTSN4llvm4dxbc3PSV2v111RuntimeInfoE", !26, i64 0, !5, i64 24, !5, i64 25, !5, i64 26, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31, !5, i64 32}
+!26 = !{!"_ZTSN4llvm4dxbc3PSV2v011RuntimeInfoE", !5, i64 0, !4, i64 16, !4, i64 20}
+!27 = !{!"_ZTSN4llvm11SmallVectorINS_4dxbc3PSV2v216ResourceBindInfoELj2EEE", !28, i64 0, !31, i64 16}
+!28 = !{!"_ZTSN4llvm15SmallVectorImplINS_4dxbc3PSV2v216ResourceBindInfoEEE", !29, i64 0}
+!29 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v216ResourceBindInfoELb1EEE", !30, i64 0}
+!30 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_4dxbc3PSV2v216ResourceBindInfoEvEE", !8, i64 0}
+!31 = !{!"_ZTSN4llvm18SmallVectorStorageINS_4dxbc3PSV2v216ResourceBindInfoELj2EEE", !5, i64 0}
+!32 = !{!"_ZTSN4llvm11SmallVectorINS_6mcdxbc19PSVSignatureElementELj1EEE", !33, i64 0, !36, i64 16}
+!33 = !{!"_ZTSN4llvm15SmallVectorImplINS_6mcdxbc19PSVSignatureElementEEE", !34, i64 0}
+!34 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_6mcdxbc19PSVSignatureElementELb0EEE", !35, i64 0}
+!35 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_6mcdxbc19PSVSignatureElementEvEE", !8, i64 0}
+!36 = !{!"_ZTSN4llvm18SmallVectorStorageINS_6mcdxbc19PSVSignatureElementELj1EEE", !5, i64 0}
+!37 = !{!"_ZTSSt5arrayIN4llvm11SmallVectorIjLj12EEELm4EE", !5, i64 0}
+!38 = !{!"_ZTSN4llvm11SmallVectorIjLj12EEE", !39, i64 0, !42, i64 16}
+!39 = !{!"_ZTSN4llvm15SmallVectorImplIjEE", !40, i64 0}
+!40 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIjLb1EEE", !41, i64 0}
+!41 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIjvEE", !8, i64 0}
+!42 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj12EEE", !5, i64 0}
+!43 = !{!"_ZTSN4llvm9StringRefE", !44, i64 0, !15, i64 8}
+!44 = !{!"p1 omnipotent char", !9, i64 0}
+!45 = !{!"_ZTSN4llvm11SmallVectorIjLj64EEE", !39, i64 0, !46, i64 16}
+!46 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj64EEE", !5, i64 0}
+!47 = !{!"_ZTSN4llvm11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEE", !48, i64 0, !51, i64 16}
+!48 = !{!"_ZTSN4llvm15SmallVectorImplINS_4dxbc3PSV2v016SignatureElementEEE", !49, i64 0}
+!49 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_4dxbc3PSV2v016SignatureElementELb1EEE", !50, i64 0}
+!50 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_4dxbc3PSV2v016SignatureElementEvEE", !8, i64 0}
+!51 = !{!"_ZTSN4llvm18SmallVectorStorageINS_4dxbc3PSV2v016SignatureElementELj32EEE", !5, i64 0}
+!52 = !{!25, !5, i64 28}
+!53 = !{!25, !5, i64 29}
+!54 = !{!25, !5, i64 30}
+!55 = !{!8, !4, i64 12}
+!56 = !{!44, !44, i64 0}
+!57 = !{!15, !15, i64 0}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE10begin_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE: argument 0"}
+!60 = distinct !{!60, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE10begin_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE"}
+!61 = distinct !{!61, !62, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE5beginEv: argument 0"}
+!62 = distinct !{!62, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE5beginEv"}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE8end_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE: argument 0"}
+!65 = distinct !{!65, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE8end_implIJLm0ELm1EEEENS2_IJPS7_PSA_EEESt16integer_sequenceImJXspT_EEE"}
+!66 = distinct !{!66, !67, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE3endEv: argument 0"}
+!67 = distinct !{!67, !"_ZN4llvm6detail5zippyINS0_12zip_shortestEJRNS_11SmallVectorINS_4dxbc3PSV2v016SignatureElementELj32EEERNS3_INS_9StringRefELj32EEEEE3endEv"}
+!68 = !{!22, !4, i64 52}
+!69 = !{!70, !4, i64 0}
+!70 = !{!"_ZTSN4llvm4dxbc3PSV2v016SignatureElementE", !4, i64 0, !4, i64 4, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 10, !5, i64 10, !5, i64 10, !71, i64 11, !72, i64 12, !73, i64 13, !5, i64 14, !5, i64 14, !5, i64 14, !5, i64 15}
+!71 = !{!"_ZTSN4llvm4dxbc3PSV12SemanticKindE", !5, i64 0}
+!72 = !{!"_ZTSN4llvm4dxbc3PSV13ComponentTypeE", !5, i64 0}
+!73 = !{!"_ZTSN4llvm4dxbc3PSV17InterpolationModeE", !5, i64 0}
+!74 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!75 = !{!76, !5, i64 80}
+!76 = !{!"_ZTSN4llvm6mcdxbc19PSVSignatureElementE", !43, i64 0, !38, i64 16, !5, i64 80, !5, i64 81, !5, i64 82, !18, i64 83, !71, i64 84, !72, i64 85, !73, i64 86, !5, i64 87, !5, i64 88}
+!77 = !{!76, !5, i64 81}
+!78 = !{!76, !5, i64 82}
+!79 = !{!76, !18, i64 83}
+!80 = !{i8 0, i8 2}
+!81 = !{}
+!82 = !{!76, !71, i64 84}
+!83 = !{!76, !72, i64 85}
+!84 = !{!76, !73, i64 86}
+!85 = !{!76, !5, i64 87}
+!86 = !{!76, !5, i64 88}
+!87 = distinct !{!87, !88}
+!88 = !{!"llvm.loop.mustprogress"}
+!89 = distinct !{!89, !88}
+!90 = !{!91, !4, i64 0}
+!91 = !{!"_ZTSN4llvm4dxbc22ProgramSignatureHeaderE", !4, i64 0, !4, i64 4}
+!92 = !{!91, !4, i64 4}
+!93 = !{!94, !4, i64 0}
+!94 = !{!"_ZTSN4llvm6mcdxbc9Signature9ParameterE", !4, i64 0, !43, i64 8, !4, i64 24, !95, i64 28, !96, i64 32, !4, i64 36, !5, i64 40, !5, i64 41, !97, i64 44}
+!95 = !{!"_ZTSN4llvm4dxbc14D3DSystemValueE", !5, i64 0}
+!96 = !{!"_ZTSN4llvm4dxbc16SigComponentTypeE", !5, i64 0}
+!97 = !{!"_ZTSN4llvm4dxbc15SigMinPrecisionE", !5, i64 0}
+!98 = !{!99, !4, i64 0}
+!99 = !{!"_ZTSN4llvm4dxbc23ProgramSignatureElementE", !4, i64 0, !4, i64 4, !4, i64 8, !95, i64 12, !96, i64 16, !4, i64 20, !5, i64 24, !5, i64 25, !100, i64 26, !97, i64 28}
+!100 = !{!"short", !5, i64 0}
+!101 = !{!99, !4, i64 4}
+!102 = !{!94, !4, i64 24}
+!103 = !{!99, !4, i64 8}
+!104 = !{!94, !95, i64 28}
+!105 = !{!99, !95, i64 12}
+!106 = !{!94, !96, i64 32}
+!107 = !{!99, !96, i64 16}
+!108 = !{!94, !4, i64 36}
+!109 = !{!99, !4, i64 20}
+!110 = !{!94, !5, i64 40}
+!111 = !{!99, !5, i64 24}
+!112 = !{!94, !5, i64 41}
+!113 = !{!99, !5, i64 25}
+!114 = !{!94, !97, i64 44}
+!115 = !{!99, !97, i64 28}
+!116 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!117 = distinct !{!117, !88}
+!118 = !{i64 0, i64 4, !3, i64 4, i64 4, !3, i64 8, i64 4, !3, i64 12, i64 4, !119, i64 16, i64 4, !120, i64 20, i64 4, !3, i64 24, i64 1, !121, i64 25, i64 1, !121, i64 26, i64 2, !122, i64 28, i64 4, !123}
+!119 = !{!95, !95, i64 0}
+!120 = !{!96, !96, i64 0}
+!121 = !{!5, !5, i64 0}
+!122 = !{!100, !100, i64 0}
+!123 = !{!97, !97, i64 0}
+!124 = !{i64 0, i64 4, !3, i64 4, i64 4, !119, i64 8, i64 4, !120, i64 12, i64 4, !3, i64 16, i64 1, !121, i64 17, i64 1, !121, i64 18, i64 2, !122, i64 20, i64 4, !123}
+!125 = distinct !{!125, !88}
+!126 = distinct !{!126, !88}
+!127 = distinct !{!127, !88}
+!128 = distinct !{!128, !88}
+!129 = distinct !{!129, !88}
+!130 = distinct !{!130, !88}
+!131 = distinct !{!131, !88}
+!132 = distinct !{!132, !88}
+!133 = distinct !{!133, !88}
+!134 = distinct !{!134, !88}
+!135 = distinct !{!135, !88}
+!136 = distinct !{!136, !88}
+!137 = distinct !{!137, !88, !20}
+!138 = distinct !{!138, !88}
+!139 = distinct !{!139, !88}

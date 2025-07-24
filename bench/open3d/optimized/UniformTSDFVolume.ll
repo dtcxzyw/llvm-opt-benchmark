@@ -35071,7 +35071,7 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume16Inje
 ._crit_edge.us:                                   ; preds = %33
   %44 = add i64 %.033.us, 1
   %exitcond39.not = icmp eq i64 %.033.us, %18
-  br i1 %exitcond39.not, label %._crit_edge36, label %.lr.ph.us
+  br i1 %exitcond39.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !841
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -35147,7 +35147,7 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume17Inje
   %29 = phi i32 [ %23, %.lr.ph32.split ], [ %46, %.lr.ph ]
   %30 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %18
-  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !841
+  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !843
 
 .lr.ph:                                           ; preds = %.lr.ph32.split, %.lr.ph
   %31 = phi i32 [ %46, %.lr.ph ], [ %23, %.lr.ph32.split ]
@@ -35170,7 +35170,7 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume17Inje
   %45 = add nuw nsw i32 %.02728, 1
   %46 = load i32, ptr %9, align 8, !tbaa !65
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !842
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !844
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %.lr.ph32, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -35402,7 +35402,7 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume44Inte
   %160 = getelementptr inbounds nuw %"class.open3d::geometry::TSDFVoxel", ptr %159, i64 %137
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 44
-  %163 = load float, ptr %162, align 4, !tbaa !142, !noalias !843
+  %163 = load float, ptr %162, align 4, !tbaa !142, !noalias !845
   %164 = fpext float %163 to double
   %165 = fadd float %163, 1.000000e+00
   %166 = fpext float %165 to double
@@ -35426,9 +35426,9 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume44Inte
   %177 = getelementptr inbounds nuw %"class.open3d::geometry::TSDFVoxel", ptr %176, i64 %137
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 44
-  %180 = load float, ptr %179, align 4, !tbaa !142, !noalias !846
+  %180 = load float, ptr %179, align 4, !tbaa !142, !noalias !848
   %181 = fpext float %180 to double
-  %182 = load float, ptr %174, align 4, !tbaa !142, !noalias !849
+  %182 = load float, ptr %174, align 4, !tbaa !142, !noalias !851
   %183 = fpext float %182 to double
   %184 = fadd float %180, 1.000000e+00
   %185 = fpext float %184 to double
@@ -35480,7 +35480,7 @@ define internal void @_ZN6open3d9pipelines11integration17UniformTSDFVolume44Inte
   %.sroa.0132.8.vec.insert = insertelement <4 x float> %.sroa.0132.4.vec.insert, float %211, i64 2
   %212 = load i32, ptr %22, align 8, !tbaa !65
   %213 = icmp slt i32 %205, %212
-  br i1 %213, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !852
+  br i1 %213, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !854
 
 ._crit_edge159:                                   ; preds = %._crit_edge, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %29)
@@ -35517,7 +35517,7 @@ define noundef double @_ZN6open3d9pipelines11integration17UniformTSDFVolume9GetT
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load double, ptr %5, align 8, !tbaa !87, !noalias !853
+  %6 = load double, ptr %5, align 8, !tbaa !87, !noalias !855
   %.sroa.6.24.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %6, i64 0
   %7 = load <2 x double>, ptr %1, align 8, !tbaa !52
   %8 = shufflevector <2 x double> %.sroa.6.24.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -36595,18 +36595,20 @@ attributes #42 = { nounwind willreturn memory(read) }
 !838 = distinct !{!838, !76}
 !839 = distinct !{!839, !75}
 !840 = distinct !{!840, !75}
-!841 = distinct !{!841, !76}
-!842 = distinct !{!842, !75}
-!843 = !{!844}
-!844 = distinct !{!844, !845, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
-!845 = distinct !{!845, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
-!846 = !{!847}
-!847 = distinct !{!847, !848, !"_ZNK5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS8_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSB_NS9_IdSB_EEEEEE5valueEE4typeEEEKS4_KNS8_19plain_constant_typeIS4_SG_E4typeEEERKSB_: argument 0"}
-!848 = distinct !{!848, !"_ZNK5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS8_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSB_NS9_IdSB_EEEEEE5valueEE4typeEEEKS4_KNS8_19plain_constant_typeIS4_SG_E4typeEEERKSB_"}
-!849 = !{!850}
-!850 = distinct !{!850, !851, !"_ZNK5Eigen9ArrayBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_5ArrayIdLi3ELi1ELi0ELi3ELi1EEEEEEEEplIfEEKNS1_INS2_13scalar_sum_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSN_NSL_IdSN_EEEEEE5valueEE4typeEEEKSI_KNS2_19plain_constant_typeISI_SS_E4typeEEERKSN_: argument 0"}
-!851 = distinct !{!851, !"_ZNK5Eigen9ArrayBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_5ArrayIdLi3ELi1ELi0ELi3ELi1EEEEEEEEplIfEEKNS1_INS2_13scalar_sum_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSN_NSL_IdSN_EEEEEE5valueEE4typeEEEKSI_KNS2_19plain_constant_typeISI_SS_E4typeEEERKSN_"}
-!852 = distinct !{!852, !75}
-!853 = !{!854}
-!854 = distinct !{!854, !855, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEdvIdEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
-!855 = distinct !{!855, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEdvIdEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
+!841 = distinct !{!841, !842}
+!842 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!843 = distinct !{!843, !76}
+!844 = distinct !{!844, !75}
+!845 = !{!846}
+!846 = distinct !{!846, !847, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
+!847 = distinct !{!847, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
+!848 = !{!849}
+!849 = distinct !{!849, !850, !"_ZNK5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS8_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSB_NS9_IdSB_EEEEEE5valueEE4typeEEEKS4_KNS8_19plain_constant_typeIS4_SG_E4typeEEERKSB_: argument 0"}
+!850 = distinct !{!850, !"_ZNK5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEmlIfEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIdNS8_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSB_NS9_IdSB_EEEEEE5valueEE4typeEEEKS4_KNS8_19plain_constant_typeIS4_SG_E4typeEEERKSB_"}
+!851 = !{!852}
+!852 = distinct !{!852, !853, !"_ZNK5Eigen9ArrayBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_5ArrayIdLi3ELi1ELi0ELi3ELi1EEEEEEEEplIfEEKNS1_INS2_13scalar_sum_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSN_NSL_IdSN_EEEEEE5valueEE4typeEEEKSI_KNS2_19plain_constant_typeISI_SS_E4typeEEERKSN_: argument 0"}
+!853 = distinct !{!853, !"_ZNK5Eigen9ArrayBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_12ArrayWrapperINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_5ArrayIdLi3ELi1ELi0ELi3ELi1EEEEEEEEplIfEEKNS1_INS2_13scalar_sum_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSN_NSL_IdSN_EEEEEE5valueEE4typeEEEKSI_KNS2_19plain_constant_typeISI_SS_E4typeEEERKSN_"}
+!854 = distinct !{!854, !75}
+!855 = !{!856}
+!856 = distinct !{!856, !857, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEdvIdEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
+!857 = distinct !{!857, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEdvIdEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIdNS6_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdS9_NS7_IdS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}

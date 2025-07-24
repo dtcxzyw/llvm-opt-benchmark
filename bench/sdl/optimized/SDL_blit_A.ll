@@ -4087,13 +4087,13 @@ define internal void @Blit8888to8888PixelAlphaSwizzle(ptr noundef readonly captu
   %89 = getelementptr inbounds nuw i8, ptr %.15661.us, i64 4
   %90 = add nuw nsw i32 %.05760.us, 1
   %exitcond.not = icmp eq i32 %90, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %33
   %91 = getelementptr inbounds i8, ptr %88, i64 %30
   %92 = getelementptr inbounds i8, ptr %89, i64 %31
   %.not59.us = icmp eq i32 %32, 0
-  br i1 %.not59.us, label %._crit_edge67, label %.preheader.us, !llvm.loop !15
+  br i1 %.not59.us, label %._crit_edge67, label %.preheader.us, !llvm.loop !16
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
@@ -5042,7 +5042,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %788 = getelementptr inbounds nuw i8, ptr %.4, i64 %40
   %789 = add nsw i32 %.3419, -1
   %790 = icmp sgt i32 %.3419, 1
-  br i1 %790, label %45, label %791, !llvm.loop !16
+  br i1 %790, label %45, label %791, !llvm.loop !17
 
 default.unreachable431:                           ; preds = %43
   unreachable
@@ -5051,7 +5051,7 @@ default.unreachable431:                           ; preds = %43
   %792 = getelementptr inbounds i8, ptr %788, i64 %41
   %793 = getelementptr inbounds i8, ptr %787, i64 %42
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %791, %1
   ret void
@@ -7252,7 +7252,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1894 = getelementptr inbounds nuw i8, ptr %.4804, i64 %50
   %1895 = add nsw i32 %.3836, -1
   %1896 = icmp sgt i32 %.3836, 1
-  br i1 %1896, label %55, label %1897, !llvm.loop !18
+  br i1 %1896, label %55, label %1897, !llvm.loop !19
 
 default.unreachable842:                           ; preds = %53
   unreachable
@@ -7261,7 +7261,7 @@ default.unreachable842:                           ; preds = %53
   %1898 = getelementptr inbounds i8, ptr %1893, i64 %51
   %1899 = getelementptr inbounds i8, ptr %1894, i64 %52
   %.not838 = icmp eq i32 %54, 0
-  br i1 %.not838, label %.loopexit, label %53, !llvm.loop !19
+  br i1 %.not838, label %.loopexit, label %53, !llvm.loop !20
 
 .loopexit:                                        ; preds = %1897, %.preheader, %1
   ret void
@@ -7426,7 +7426,7 @@ define internal void @Blit565to565SurfaceAlpha(ptr noundef readonly captures(non
   store i16 %112, ptr %.377, align 2
   %114 = add nsw i32 %.281, -1
   %115 = icmp sgt i32 %.281, 1
-  br i1 %115, label %30, label %116, !llvm.loop !20
+  br i1 %115, label %30, label %116, !llvm.loop !21
 
 default.unreachable88:                            ; preds = %28
   unreachable
@@ -7435,7 +7435,7 @@ default.unreachable88:                            ; preds = %28
   %117 = getelementptr inbounds i16, ptr %94, i64 %26
   %118 = getelementptr inbounds i16, ptr %113, i64 %27
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.loopexit, label %28, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %28, !llvm.loop !22
 
 .loopexit:                                        ; preds = %116, %6, %5
   ret void
@@ -7600,7 +7600,7 @@ define internal void @Blit555to555SurfaceAlpha(ptr noundef readonly captures(non
   store i16 %112, ptr %.377, align 2
   %114 = add nsw i32 %.281, -1
   %115 = icmp sgt i32 %.281, 1
-  br i1 %115, label %30, label %116, !llvm.loop !22
+  br i1 %115, label %30, label %116, !llvm.loop !23
 
 default.unreachable88:                            ; preds = %28
   unreachable
@@ -7609,7 +7609,7 @@ default.unreachable88:                            ; preds = %28
   %117 = getelementptr inbounds i16, ptr %94, i64 %26
   %118 = getelementptr inbounds i16, ptr %113, i64 %27
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.loopexit, label %28, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %28, !llvm.loop !24
 
 .loopexit:                                        ; preds = %116, %6, %5
   ret void
@@ -7736,7 +7736,7 @@ define internal void @BlitRGBtoRGBSurfaceAlpha(ptr noundef readonly captures(non
   store i32 %77, ptr %.345.i, align 4
   %79 = add nsw i32 %.249.i, -1
   %80 = icmp sgt i32 %.249.i, 1
-  br i1 %80, label %27, label %81, !llvm.loop !24
+  br i1 %80, label %27, label %81, !llvm.loop !25
 
 .unreachabledefault:                              ; preds = %25
   unreachable
@@ -7748,7 +7748,7 @@ default.unreachable131:                           ; preds = %103
   %82 = getelementptr inbounds i32, ptr %67, i64 %23
   %83 = getelementptr inbounds i32, ptr %78, i64 %24
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %25, !llvm.loop !25
+  br i1 %.not.i, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %25, !llvm.loop !26
 
 84:                                               ; preds = %1
   br i1 %.not52.i, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %.lr.ph
@@ -7918,13 +7918,13 @@ default.unreachable131:                           ; preds = %103
   %208 = getelementptr inbounds nuw i8, ptr %.3112, i64 4
   %209 = add nsw i32 %.2116, -1
   %210 = icmp sgt i32 %.2116, 1
-  br i1 %210, label %105, label %211, !llvm.loop !26
+  br i1 %210, label %105, label %211, !llvm.loop !27
 
 211:                                              ; preds = %183
   %212 = getelementptr inbounds i32, ptr %207, i64 %101
   %213 = getelementptr inbounds i32, ptr %208, i64 %102
   %.not = icmp eq i32 %104, 0
-  br i1 %.not, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %103, !llvm.loop !27
+  br i1 %.not, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %103, !llvm.loop !28
 
 BlitRGBtoRGBSurfaceAlpha128.exit:                 ; preds = %211, %81, %84, %7
   ret void
@@ -8905,7 +8905,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %794 = getelementptr inbounds nuw i8, ptr %.4, i64 %42
   %795 = add nsw i32 %.3432, -1
   %796 = icmp sgt i32 %.3432, 1
-  br i1 %796, label %47, label %797, !llvm.loop !28
+  br i1 %796, label %47, label %797, !llvm.loop !29
 
 default.unreachable445:                           ; preds = %45
   unreachable
@@ -8914,7 +8914,7 @@ default.unreachable445:                           ; preds = %45
   %798 = getelementptr inbounds i8, ptr %794, i64 %43
   %799 = getelementptr inbounds i8, ptr %793, i64 %44
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %797, %1
   ret void
@@ -10806,7 +10806,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1592 = getelementptr inbounds nuw i8, ptr %.4712, i64 %52
   %1593 = add nsw i32 %.3736, -1
   %1594 = icmp sgt i32 %.3736, 1
-  br i1 %1594, label %57, label %1595, !llvm.loop !30
+  br i1 %1594, label %57, label %1595, !llvm.loop !31
 
 default.unreachable756:                           ; preds = %55
   unreachable
@@ -10815,7 +10815,7 @@ default.unreachable756:                           ; preds = %55
   %1596 = getelementptr inbounds i8, ptr %1591, i64 %53
   %1597 = getelementptr inbounds i8, ptr %1592, i64 %54
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %._crit_edge, label %55, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %55, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %1595, %1
   ret void
@@ -10922,7 +10922,7 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
   %65 = getelementptr inbounds nuw i8, ptr %.2133, i64 4
   %66 = add nsw i32 %.1122130, -2
   %67 = icmp samesign ugt i32 %.1122130, 3
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
   %.1122.lcssa = phi i32 [ %.0121, %48 ], [ %66, %.lr.ph ]
@@ -11005,7 +11005,7 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
   %115 = getelementptr inbounds nuw i8, ptr %.6118138, i64 4
   %116 = add nsw i32 %.1124137, -2
   %117 = icmp samesign ugt i32 %.1124137, 3
-  br i1 %117, label %.lr.ph141, label %._crit_edge142, !llvm.loop !33
+  br i1 %117, label %.lr.ph141, label %._crit_edge142, !llvm.loop !34
 
 ._crit_edge142:                                   ; preds = %.lr.ph141, %102
   %.1124.lcssa = phi i32 [ %.0123, %102 ], [ %116, %.lr.ph141 ]
@@ -11043,7 +11043,7 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
   %.4 = phi ptr [ %84, %82 ], [ %134, %133 ]
   %.4116 = getelementptr inbounds i16, ptr %.3115.pn, i64 %24
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %._crit_edge151, label %25, !llvm.loop !34
+  br i1 %.not, label %._crit_edge151, label %25, !llvm.loop !35
 
 ._crit_edge151:                                   ; preds = %135, %2
   ret void
@@ -11075,10 +11075,10 @@ attributes #6 = { nounwind }
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
+!13 = distinct !{!13, !4, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
+!16 = distinct !{!16, !4, !14}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
@@ -11097,3 +11097,4 @@ attributes #6 = { nounwind }
 !32 = distinct !{!32, !4}
 !33 = distinct !{!33, !4}
 !34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}

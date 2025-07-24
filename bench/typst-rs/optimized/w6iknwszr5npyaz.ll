@@ -914,23 +914,23 @@ define hidden void @_ZN6flate23zio4read17hc35652f304a070acE.llvm.114174862178405
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = icmp eq i64 %4, 0
-  br i1 %16, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
-  %.cast.us.us = ptrtoint ptr %11 to i64
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %.val8.us.pre = load i64, ptr %12, align 8
+  %.val10.us.pre = load i64, ptr %13, align 8
+  %.cast.us = ptrtoint ptr %11 to i64
   %17 = icmp eq ptr %11, null
-  %.val8.us.us = load i64, ptr %12, align 8, !noundef !16
-  %.val10.us.us = load i64, ptr %13, align 8, !noundef !16
-  %spec.select.us.us = select i1 %17, i8 4, i8 0
-  %18 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %.cast.us.us, ptr noalias noundef nonnull align 1 %3, i64 noundef 0, i8 noundef %spec.select.us.us)
-  %.val.us.us = load i64, ptr %12, align 8, !noundef !16
-  %.val9.us.us = load i64, ptr %13, align 8, !noundef !16
-  %19 = sub i64 %.val9.us.us, %.val10.us.us
+  %spec.select.us = select i1 %17, i8 4, i8 0
+  %18 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %.cast.us, ptr noalias noundef nonnull align 1 %3, i64 noundef 0, i8 noundef %spec.select.us)
+  %.val.us = load i64, ptr %12, align 8, !noundef !16
+  %.val9.us = load i64, ptr %13, align 8, !noundef !16
+  %19 = sub i64 %.val9.us, %.val10.us.pre
   %20 = load i64, ptr %14, align 8, !alias.scope !68, !noundef !16
   %21 = add i64 %19, %20
   %22 = load i64, ptr %15, align 8, !alias.scope !68, !noundef !16
-  %.0.sroa.speculated.i.i.us.us = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 %22)
-  store i64 %.0.sroa.speculated.i.i.us.us, ptr %14, align 8, !alias.scope !68
+  %.0.sroa.speculated.i.i.us = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 %22)
+  store i64 %.0.sroa.speculated.i.i.us, ptr %14, align 8, !alias.scope !68
   %23 = and i64 %18, 4294967295
   %24 = icmp eq i64 %23, 2
   br i1 %24, label %.split20.us, label %.split.us
@@ -974,7 +974,7 @@ define hidden void @_ZN6flate23zio4read17hc35652f304a070acE.llvm.114174862178405
     i8 2, label %.split20.us
   ]
 
-.split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split.us
+.split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %37 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5bc4d4926b6faab7E"(i64 noundef 22, i1 noundef zeroext false), !noalias !71
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
@@ -1041,9 +1041,9 @@ _ZN3std2io5error5Error3new17hc760458b07e5e3bbE.exit: ; preds = %.split.us
   %or.cond3 = or i1 %27, %58
   br i1 %or.cond3, label %.split20.us, label %.backedge
 
-.split20.us:                                      ; preds = %57, %52, %36, %.lr.ph.split.us.split.us
-  %.us-phi = phi i64 [ %.val8.us.us, %.lr.ph.split.us.split.us ], [ %.val8, %36 ], [ %.val8, %52 ], [ %.val8, %57 ]
-  %.us-phi21 = phi i64 [ %.val.us.us, %.lr.ph.split.us.split.us ], [ %.val, %36 ], [ %.val, %52 ], [ %.val, %57 ]
+.split20.us:                                      ; preds = %57, %52, %36, %.lr.ph.split.us
+  %.us-phi = phi i64 [ %.val8.us.pre, %.lr.ph.split.us ], [ %.val8, %36 ], [ %.val8, %52 ], [ %.val8, %57 ]
+  %.us-phi21 = phi i64 [ %.val.us, %.lr.ph.split.us ], [ %.val, %36 ], [ %.val, %52 ], [ %.val, %57 ]
   %59 = sub i64 %.us-phi21, %.us-phi
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %59, ptr %60, align 8

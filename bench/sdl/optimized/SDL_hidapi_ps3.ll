@@ -457,7 +457,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %116, %130
   %132 = load ptr, ptr %16, align 8
   %133 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %132, ptr noundef nonnull %5, i64 noundef 64, i32 noundef 0) #10
   %134 = icmp sgt i32 %133, 0
-  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
+  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 135:                                              ; preds = %.lr.ph.split
   %136 = load i8, ptr %5, align 16
@@ -598,7 +598,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %116, %130
   %.1.i = phi i8 [ %221, %212 ], [ %.0116.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %222, %183
   %223 = load i8, ptr %34, align 2, !range !3, !noundef !4
@@ -1025,7 +1025,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_UpdateDevice(ptr noundef 
   %34 = load ptr, ptr %13, align 8
   %35 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %34, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #10
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.backedge.us, label %._crit_edge, !llvm.loop !8
+  br i1 %36, label %.backedge.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %37 = phi i32 [ %231, %.backedge ], [ %15, %.lr.ph ]
@@ -1214,7 +1214,7 @@ switch.lookup:                                    ; preds = %99
   %.198.i = phi i8 [ %144, %135 ], [ %.097118.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit, label %.preheader.i, !llvm.loop !11
 
 HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   %146 = call i32 @llvm.umin.i32(i32 range(i32 19, -2147483648) %37, i32 64)
@@ -1352,7 +1352,7 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   %.1.i22 = phi i8 [ %228, %219 ], [ %.086.i, %.preheader.i20 ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 15
-  br i1 %exitcond.not.i24, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit, label %.preheader.i20, !llvm.loop !10
+  br i1 %exitcond.not.i24, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit, label %.preheader.i20, !llvm.loop !12
 
 HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit: ; preds = %229, %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %17, ptr noundef nonnull readonly align 16 dereferenceable(18) %2, i64 18, i1 false)
@@ -1362,7 +1362,7 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit: ; preds = %229, %190
   %230 = load ptr, ptr %13, align 8
   %231 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %230, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #10
   %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+  br i1 %232, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %8
   %.lcssa = phi i32 [ %15, %8 ], [ %35, %.backedge.us ], [ %231, %.backedge ]
@@ -1789,7 +1789,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %.1.i = phi i8 [ %121, %112 ], [ %.0116.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %122, %76
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 18
@@ -2107,10 +2107,13 @@ attributes #11 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!10 = distinct !{!10, !6, !7}
 !11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

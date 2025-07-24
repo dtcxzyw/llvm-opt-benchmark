@@ -1451,7 +1451,7 @@ Abc_Clock.exit51:                                 ; preds = %.critedge46, %52
   %.val49 = load i32, ptr %13, align 4, !tbaa !19
   %61 = sext i32 %.val49 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.critedge46, label %.critedge, !llvm.loop !81
+  br i1 %62, label %.critedge46, label %.critedge, !llvm.loop !83
 
 .critedge:                                        ; preds = %Abc_Clock.exit51, %.thread.us, %Abc_Clock.exit
   ret void
@@ -1474,7 +1474,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #13
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !82
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !84
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
@@ -1482,7 +1482,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !82, !noalias !83
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !84, !noalias !85
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #13
   br label %17
 
@@ -1530,7 +1530,7 @@ define void @Llb_ImgQuantifyReset(ptr noundef readonly captures(none) %0) local_
   %.val9 = load i32, ptr %2, align 4, !tbaa !19
   %12 = sext i32 %.val9 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %5, label %.critedge, !llvm.loop !86
+  br i1 %13, label %5, label %.critedge, !llvm.loop !88
 
 .critedge:                                        ; preds = %5, %1
   ret void
@@ -1713,7 +1713,7 @@ Abc_Clock.exit136:                                ; preds = %69, %77
   %.val132 = load i32, ptr %33, align 4, !tbaa !19
   %86 = sext i32 %.val132 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %39, label %.critedge, !llvm.loop !87
+  br i1 %87, label %39, label %.critedge, !llvm.loop !89
 
 .critedge:                                        ; preds = %.critedge124, %32
   %.1.lcssa = phi ptr [ %.sink169, %32 ], [ %65, %.critedge124 ]
@@ -1935,10 +1935,12 @@ attributes #16 = { nounwind willreturn memory(read) }
 !78 = !{!"timespec", !24, i64 0, !24, i64 8}
 !79 = !{!78, !24, i64 8}
 !80 = !{!21, !23, i64 744}
-!81 = distinct !{!81, !18}
-!82 = !{!35, !35, i64 0}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"vprintf: argument 0"}
-!85 = distinct !{!85, !"vprintf"}
-!86 = distinct !{!86, !18}
-!87 = distinct !{!87, !18}
+!81 = distinct !{!81, !18, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = distinct !{!83, !18}
+!84 = !{!35, !35, i64 0}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"vprintf: argument 0"}
+!87 = distinct !{!87, !"vprintf"}
+!88 = distinct !{!88, !18}
+!89 = distinct !{!89, !18}

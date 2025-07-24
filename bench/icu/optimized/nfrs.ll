@@ -2385,7 +2385,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %40 = icmp ne i32 %39, 0
   %41 = icmp ne i64 %35, 0
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %.lr.ph.split, label %._crit_edge, !llvm.loop !70
+  br i1 %42, label %.lr.ph.split, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %20
   %.157.lcssa = phi ptr [ %.056, %20 ], [ %30, %.lr.ph.split.us ], [ %38, %.lr.ph.split ]
@@ -2417,7 +2417,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %52 = getelementptr inbounds nuw i8, ptr %.15267, i64 2
   %53 = getelementptr inbounds i8, ptr %49, i64 -2
   %54 = icmp ugt ptr %53, %52
-  br i1 %54, label %.lr.ph69, label %._crit_edge70, !llvm.loop !71
+  br i1 %54, label %.lr.ph69, label %._crit_edge70, !llvm.loop !73
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %44
   %55 = ptrtoint ptr %.157.lcssa79 to i64
@@ -2581,5 +2581,7 @@ attributes #17 = { allocsize(1) }
 !67 = distinct !{!67, !32}
 !68 = distinct !{!68, !32}
 !69 = distinct !{!69, !32}
-!70 = distinct !{!70, !32}
-!71 = distinct !{!71, !32}
+!70 = distinct !{!70, !32, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !32}
+!73 = distinct !{!73, !32}

@@ -452,7 +452,7 @@ alloc_large_chunk.exit:                           ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, 62
-  br i1 %exitcond.not, label %.split59.us.loopexit60, label %.split, !llvm.loop !39
+  br i1 %exitcond.not, label %.split59.us.loopexit60, label %.split, !llvm.loop !41
 
 .split59.us.loopexit60:                           ; preds = %.split, %96
   %.us-phi.ph61 = phi i32 [ 63, %96 ], [ %85, %.split ]
@@ -509,7 +509,7 @@ alloc_large_chunk.exit:                           ; preds = %41
 118:                                              ; preds = %122
   %119 = add nuw nsw i32 %.057.i, 1
   %exitcond.not.i = icmp eq i32 %121, 63
-  br i1 %exitcond.not.i, label %slabs_preallocate.exit, label %120, !llvm.loop !40
+  br i1 %exitcond.not.i, label %slabs_preallocate.exit, label %120, !llvm.loop !42
 
 120:                                              ; preds = %118, %116
   %.08.i = phi i32 [ 0, %116 ], [ %121, %118 ]
@@ -608,7 +608,7 @@ do_grow_slab_list.exit.us:                        ; preds = %19, %14, %12
   %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
   store ptr %10, ptr %23, align 8, !tbaa !16
   %24 = icmp ult i64 %11, %1
-  br i1 %24, label %memory_allocate.exit.us, label %.critedge.sink.split, !llvm.loop !41
+  br i1 %24, label %memory_allocate.exit.us, label %.critedge.sink.split, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %do_grow_slab_list.exit
   %25 = phi i64 [ %32, %do_grow_slab_list.exit ], [ %mem_malloced.promoted, %.lr.ph.split.preheader ]
@@ -659,7 +659,7 @@ do_grow_slab_list.exit:                           ; preds = %33, %35, %40
   %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
   store ptr %26, ptr %44, align 8, !tbaa !16
   %45 = icmp ult i64 %32, %1
-  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !41
+  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !44
 
 .critedge.sink.split:                             ; preds = %do_grow_slab_list.exit.us, %memory_allocate.exit.us
   store i64 %11, ptr @mem_malloced, align 8, !tbaa !31
@@ -726,23 +726,23 @@ define dso_local void @fill_slab_stats_automove(ptr noundef writeonly captures(n
   %5 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !38
-  store i32 %7, ptr %5, align 8, !tbaa !42
+  store i32 %7, ptr %5, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !23
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !44
+  store i64 %10, ptr %11, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %14, ptr %15, align 8, !tbaa !45
+  store i64 %14, ptr %15, align 8, !tbaa !48
   %16 = load i32, ptr %4, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %16, ptr %17, align 4, !tbaa !46
+  store i32 %16, ptr %17, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %18, label %3, !llvm.loop !47
+  br i1 %exitcond.not, label %18, label %3, !llvm.loop !50
 
 18:                                               ; preds = %3
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
@@ -760,7 +760,7 @@ define dso_local i32 @global_page_pool_size(ptr noundef writeonly captures(addre
   %5 = load i64, ptr @mem_limit, align 8, !tbaa !31
   %6 = icmp uge i64 %4, %5
   %7 = zext i1 %6 to i8
-  store i8 %7, ptr %0, align 1, !tbaa !48
+  store i8 %7, ptr %0, align 1, !tbaa !51
   br label %8
 
 8:                                                ; preds = %3, %1
@@ -903,13 +903,13 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   %45 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %43, ptr %46, align 8, !tbaa !12
-  %47 = load ptr, ptr %40, align 8, !tbaa !49
+  %47 = load ptr, ptr %40, align 8, !tbaa !52
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %50, label %48
 
 48:                                               ; preds = %25
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr null, ptr %49, align 8, !tbaa !49
+  store ptr null, ptr %49, align 8, !tbaa !52
   br label %50
 
 50:                                               ; preds = %48, %25
@@ -941,18 +941,18 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   %61 = load i8, ptr %60, align 8, !tbaa !12
   %62 = zext i8 %61 to i64
   %63 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %62
-  %64 = load ptr, ptr %.142.i, align 8, !tbaa !49
+  %64 = load ptr, ptr %.142.i, align 8, !tbaa !52
   %65 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
-  store ptr null, ptr %65, align 8, !tbaa !49
+  store ptr null, ptr %65, align 8, !tbaa !52
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !22
-  store ptr %67, ptr %.142.i, align 8, !tbaa !49
+  store ptr %67, ptr %.142.i, align 8, !tbaa !52
   %.not40.i = icmp eq ptr %67, null
   br i1 %.not40.i, label %70, label %68
 
 68:                                               ; preds = %.lr.ph.i
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %.142.i, ptr %69, align 8, !tbaa !49
+  store ptr %.142.i, ptr %69, align 8, !tbaa !52
   br label %70
 
 70:                                               ; preds = %68, %.lr.ph.i
@@ -962,7 +962,7 @@ define internal fastcc void @do_slabs_free(ptr noundef %0, i32 noundef %1) unnam
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 8, !tbaa !23
   %.not39.i = icmp eq ptr %64, null
-  br i1 %.not39.i, label %do_slabs_free_chunked.exit, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not39.i, label %do_slabs_free_chunked.exit, label %.lr.ph.i, !llvm.loop !54
 
 do_slabs_free_chunked.exit:                       ; preds = %70, %55, %21, %2
   ret void
@@ -1037,48 +1037,48 @@ define dso_local void @slabs_stats(ptr noundef %0, ptr noundef %1) local_unnamed
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.21) #21
   %46 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %8, i64 0, i64 %indvars.iv.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !52
+  %48 = load i64, ptr %47, align 8, !tbaa !55
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %48) #21
   %50 = trunc i32 %45 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %50, ptr noundef nonnull %5, i32 noundef %49, ptr noundef %1) #21
   %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.23) #21
-  %52 = load i64, ptr %46, align 8, !tbaa !54
+  %52 = load i64, ptr %46, align 8, !tbaa !57
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %52) #21
   %54 = trunc i32 %51 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %54, ptr noundef nonnull %5, i32 noundef %53, ptr noundef %1) #21
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.24) #21
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %57 = load i64, ptr %56, align 8, !tbaa !55
+  %57 = load i64, ptr %56, align 8, !tbaa !58
   %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %57) #21
   %59 = trunc i32 %55 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %59, ptr noundef nonnull %5, i32 noundef %58, ptr noundef %1) #21
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.25) #21
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %62 = load i64, ptr %61, align 8, !tbaa !56
+  %62 = load i64, ptr %61, align 8, !tbaa !59
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %62) #21
   %64 = trunc i32 %60 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %64, ptr noundef nonnull %5, i32 noundef %63, ptr noundef %1) #21
   %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.26) #21
   %66 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %67 = load i64, ptr %66, align 8, !tbaa !57
+  %67 = load i64, ptr %66, align 8, !tbaa !60
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %67) #21
   %69 = trunc i32 %65 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %69, ptr noundef nonnull %5, i32 noundef %68, ptr noundef %1) #21
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.27) #21
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %72 = load i64, ptr %71, align 8, !tbaa !58
+  %72 = load i64, ptr %71, align 8, !tbaa !61
   %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %72) #21
   %74 = trunc i32 %70 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %74, ptr noundef nonnull %5, i32 noundef %73, ptr noundef %1) #21
   %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.28) #21
   %76 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %77 = load i64, ptr %76, align 8, !tbaa !59
+  %77 = load i64, ptr %76, align 8, !tbaa !62
   %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %77) #21
   %79 = trunc i32 %75 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %79, ptr noundef nonnull %5, i32 noundef %78, ptr noundef %1) #21
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %17, ptr noundef nonnull @.str.29) #21
   %81 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %82 = load i64, ptr %81, align 8, !tbaa !60
+  %82 = load i64, ptr %81, align 8, !tbaa !63
   %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %82) #21
   %84 = trunc i32 %80 to i16
   call void %0(ptr noundef nonnull %4, i16 noundef zeroext %84, ptr noundef nonnull %5, i32 noundef %83, ptr noundef %1) #21
@@ -1094,7 +1094,7 @@ define dso_local void @slabs_stats(ptr noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %88 = sext i32 %87 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i, %88
-  br i1 %.not.not.i, label %9, label %do_slabs_stats.exit, !llvm.loop !61
+  br i1 %.not.not.i, label %9, label %do_slabs_stats.exit, !llvm.loop !64
 
 do_slabs_stats.exit:                              ; preds = %86, %2
   %.0105.lcssa.i = phi i32 [ 0, %2 ], [ %.1.i, %86 ]
@@ -1115,9 +1115,9 @@ define dso_local noundef zeroext i1 @slabs_adjust_mem_limit(i64 noundef %0) loca
   br i1 %.not.i, label %4, label %do_slabs_adjust_mem_limit.exit
 
 4:                                                ; preds = %1
-  store i64 %0, ptr @settings, align 8, !tbaa !62
+  store i64 %0, ptr @settings, align 8, !tbaa !65
   store i64 %0, ptr @mem_limit, align 8, !tbaa !31
-  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !63
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !66
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %.preheader.i.i, label %do_slabs_adjust_mem_limit.exit
 
@@ -1155,7 +1155,7 @@ get_page_from_global_pool.exit.i.i:               ; preds = %10
   %19 = sub i64 %11, %18
   store i64 %19, ptr @mem_malloced, align 8, !tbaa !31
   %20 = icmp ugt i64 %19, %0
-  br i1 %20, label %10, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !64
+  br i1 %20, label %10, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !67
 
 do_slabs_adjust_mem_limit.exit:                   ; preds = %10, %get_page_from_global_pool.exit.i.i, %16, %1, %4, %.preheader.i.i
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
@@ -1177,7 +1177,7 @@ define dso_local i32 @slabs_available_chunks(i32 noundef %0, ptr noundef writeon
   %11 = load i64, ptr @mem_limit, align 8, !tbaa !31
   %12 = icmp uge i64 %10, %11
   %13 = zext i1 %12 to i8
-  store i8 %13, ptr %1, align 1, !tbaa !48
+  store i8 %13, ptr %1, align 1, !tbaa !51
   br label %14
 
 14:                                               ; preds = %9, %3
@@ -1372,13 +1372,13 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
   %51 = add nuw nsw i32 %.09.i, 1
   %52 = load i32, ptr %46, align 4, !tbaa !38
   %53 = icmp ult i32 %51, %52
-  br i1 %53, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !65
+  br i1 %53, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !68
 
 54:                                               ; preds = %do_grow_slab_list.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %55 = load ptr, ptr @mem_base, align 8, !tbaa !16
   %.not.i21 = icmp eq ptr %55, null
-  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !63
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !66
   %57 = trunc nuw i8 %56 to i1
   %or.cond.i = select i1 %.not.i21, i1 %57, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %split_slab_page_into_freelist.exit
@@ -1418,7 +1418,7 @@ get_page_from_global_pool.exit.i:                 ; preds = %62
   %71 = sub i64 %63, %70
   store i64 %71, ptr @mem_malloced, align 8, !tbaa !31
   %72 = icmp ugt i64 %71, %58
-  br i1 %72, label %62, label %split_slab_page_into_freelist.exit, !llvm.loop !64
+  br i1 %72, label %62, label %split_slab_page_into_freelist.exit, !llvm.loop !67
 
 split_slab_page_into_freelist.exit:               ; preds = %68, %get_page_from_global_pool.exit.i, %62, %.lr.ph.i, %.preheader.i, %54, %43
   %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
@@ -1456,7 +1456,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
 15:                                               ; preds = %7, %3
   %16 = add nsw i32 %.07, -1
   %17 = icmp samesign ugt i32 %.07, 1
-  br i1 %17, label %3, label %18, !llvm.loop !66
+  br i1 %17, label %3, label %18, !llvm.loop !69
 
 18:                                               ; preds = %15
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
@@ -1523,7 +1523,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 define internal fastcc range(i32 0, 2) i32 @do_slabs_newslab(i32 noundef %0) unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %2
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !67, !range !63, !noundef !68
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !70, !range !66, !noundef !71
   %5 = trunc nuw i8 %4 to i1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8
@@ -1678,7 +1678,7 @@ memory_allocate.exit:                             ; preds = %53, %62, %64
   %74 = add nuw nsw i32 %.09.i, 1
   %75 = load i32, ptr %69, align 4, !tbaa !38
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !65
+  br i1 %76, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !68
 
 split_slab_page_into_freelist.exit:               ; preds = %.lr.ph.i, %68
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1792,33 +1792,36 @@ attributes #25 = { nounwind allocsize(0) }
 !36 = !{!25, !6, i64 120}
 !37 = !{!25, !6, i64 124}
 !38 = !{!5, !6, i64 4}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
+!39 = distinct !{!39, !11, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !41 = distinct !{!41, !11}
-!42 = !{!43, !6, i64 0}
-!43 = !{!"", !6, i64 0, !6, i64 4, !26, i64 8, !26, i64 16}
-!44 = !{!43, !26, i64 8}
-!45 = !{!43, !26, i64 16}
-!46 = !{!43, !6, i64 4}
-!47 = distinct !{!47, !11}
-!48 = !{!29, !29, i64 0}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 _ZTS9_strchunk", !9, i64 0}
-!51 = distinct !{!51, !11}
-!52 = !{!53, !26, i64 8}
-!53 = !{!"slab_stats", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56}
-!54 = !{!53, !26, i64 0}
-!55 = !{!53, !26, i64 24}
-!56 = !{!53, !26, i64 48}
-!57 = !{!53, !26, i64 56}
-!58 = !{!53, !26, i64 32}
-!59 = !{!53, !26, i64 40}
-!60 = !{!53, !26, i64 16}
-!61 = distinct !{!61, !11}
-!62 = !{!25, !26, i64 0}
-!63 = !{i8 0, i8 2}
+!42 = distinct !{!42, !11}
+!43 = distinct !{!43, !11, !40}
+!44 = distinct !{!44, !11}
+!45 = !{!46, !6, i64 0}
+!46 = !{!"", !6, i64 0, !6, i64 4, !26, i64 8, !26, i64 16}
+!47 = !{!46, !26, i64 8}
+!48 = !{!46, !26, i64 16}
+!49 = !{!46, !6, i64 4}
+!50 = distinct !{!50, !11}
+!51 = !{!29, !29, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS9_strchunk", !9, i64 0}
+!54 = distinct !{!54, !11}
+!55 = !{!56, !26, i64 8}
+!56 = !{!"slab_stats", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56}
+!57 = !{!56, !26, i64 0}
+!58 = !{!56, !26, i64 24}
+!59 = !{!56, !26, i64 48}
+!60 = !{!56, !26, i64 56}
+!61 = !{!56, !26, i64 32}
+!62 = !{!56, !26, i64 40}
+!63 = !{!56, !26, i64 16}
 !64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11}
-!67 = !{!25, !29, i64 137}
-!68 = !{}
+!65 = !{!25, !26, i64 0}
+!66 = !{i8 0, i8 2}
+!67 = distinct !{!67, !11}
+!68 = distinct !{!68, !11}
+!69 = distinct !{!69, !11}
+!70 = !{!25, !29, i64 137}
+!71 = !{}

@@ -271,11 +271,11 @@ common.resume:                                    ; preds = %778, %461, %144
   %147 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %69, i64 %.0139208.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store float -1.000000e+00, ptr %148, align 4, !tbaa !40
-  %149 = load float, ptr %147, align 4, !tbaa !45
+  %149 = load float, ptr %147, align 4, !tbaa !46
   %150 = insertelement <4 x float> poison, float %149, i64 0
   %151 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %150)
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %153 = load float, ptr %152, align 4, !tbaa !46
+  %153 = load float, ptr %152, align 4, !tbaa !47
   %154 = insertelement <4 x float> poison, float %153, i64 0
   %155 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %154)
   %156 = sext i32 %155 to i64
@@ -441,7 +441,7 @@ common.resume:                                    ; preds = %778, %461, %144
   %.1143.i = phi i32 [ %278, %277 ], [ 0, %269 ]
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
   %exitcond218.not.i = icmp eq i64 %indvars.iv.next216.i, 13
-  br i1 %exitcond218.not.i, label %.thread.i, label %269, !llvm.loop !47
+  br i1 %exitcond218.not.i, label %.thread.i, label %269, !llvm.loop !48
 
 .thread.i:                                        ; preds = %289, %288, %285, %280, %216
   %290 = and i32 %265, 2
@@ -492,12 +492,12 @@ common.resume:                                    ; preds = %778, %461, %144
   %.1137.i = phi i32 [ %302, %301 ], [ 0, %293 ]
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond222.not.i = icmp eq i64 %indvars.iv.next220.i, 13
-  br i1 %exitcond222.not.i, label %.thread192.i, label %293, !llvm.loop !48
+  br i1 %exitcond222.not.i, label %.thread192.i, label %293, !llvm.loop !49
 
 .thread192.i:                                     ; preds = %313, %312, %309, %304, %.thread.i, %178, %146
   %314 = add nuw i64 %.0139208.i, 1
   %exitcond223.not.i = icmp eq i64 %314, %73
-  br i1 %exitcond223.not.i, label %.preheader.i, label %146, !llvm.loop !49
+  br i1 %exitcond223.not.i, label %.preheader.i, label %146, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %142, %339, %327, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i
   %315 = load ptr, ptr %17, align 8, !tbaa !32
@@ -560,7 +560,7 @@ common.resume:                                    ; preds = %778, %461, %144
 339:                                              ; preds = %.sink.split.i, %328
   %340 = phi ptr [ %318, %328 ], [ %338, %.sink.split.i ]
   %.not.i = icmp eq i64 %319, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph211.split.i, !llvm.loop !44
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph211.split.i, !llvm.loop !51
 
 _ZN12_GLOBAL__N_117FASTForPointSet_tILi8EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit: ; preds = %._crit_edge.i, %317
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %17) #11
@@ -572,13 +572,13 @@ _ZN12_GLOBAL__N_117FASTForPointSet_tILi8EEEvRKN2cv11_InputArrayERSt6vectorINS1_8
 
 341:                                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10) #11
-  %342 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !50
+  %342 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !52
   %343 = icmp eq i32 %342, 65536
   br i1 %343, label %344, label %347
 
 344:                                              ; preds = %341
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %346 = load ptr, ptr %345, align 8, !tbaa !11, !noalias !50
+  %346 = load ptr, ptr %345, align 8, !tbaa !11, !noalias !52
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %346)
   br label %_ZNK2cv11_InputArray6getMatEi.exit.i18
 
@@ -641,7 +641,7 @@ _ZN12_GLOBAL__N_111makeOffsetsEPiii.exit.i30:     ; preds = %.lr.ph.i.i25
   store i8 %367, ptr %369, align 1, !tbaa !21
   %indvars.iv.next.i34 = add nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 256
-  br i1 %exitcond.not.i35, label %370, label %363, !llvm.loop !53
+  br i1 %exitcond.not.i35, label %370, label %363, !llvm.loop !55
 
 370:                                              ; preds = %363
   %371 = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -775,7 +775,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
 459:                                              ; preds = %456, %.lr.ph211.split.us.i60
   %460 = phi ptr [ %444, %.lr.ph211.split.us.i60 ], [ %458, %456 ]
   %.not.us.i65 = icmp eq i64 %445, 0
-  br i1 %.not.us.i65, label %._crit_edge.i66, label %.lr.ph211.split.us.i60, !llvm.loop !54
+  br i1 %.not.us.i65, label %._crit_edge.i66, label %.lr.ph211.split.us.i60, !llvm.loop !56
 
 461:                                              ; preds = %381
   %462 = landingpad { ptr, i32 }
@@ -792,11 +792,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %464 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %386, i64 %.0139208.i42
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 16
   store float -1.000000e+00, ptr %465, align 4, !tbaa !40
-  %466 = load float, ptr %464, align 4, !tbaa !45
+  %466 = load float, ptr %464, align 4, !tbaa !46
   %467 = insertelement <4 x float> poison, float %466, i64 0
   %468 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %467)
   %469 = getelementptr inbounds nuw i8, ptr %464, i64 4
-  %470 = load float, ptr %469, align 4, !tbaa !46
+  %470 = load float, ptr %469, align 4, !tbaa !47
   %471 = insertelement <4 x float> poison, float %470, i64 0
   %472 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %471)
   %473 = sext i32 %472 to i64
@@ -962,7 +962,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %.1143.i47 = phi i32 [ %595, %594 ], [ 0, %586 ]
   %indvars.iv.next216.i48 = add nuw nsw i64 %indvars.iv215.i45, 1
   %exitcond218.not.i49 = icmp eq i64 %indvars.iv.next216.i48, 19
-  br i1 %exitcond218.not.i49, label %.thread.i50, label %586, !llvm.loop !55
+  br i1 %exitcond218.not.i49, label %.thread.i50, label %586, !llvm.loop !57
 
 .thread.i50:                                      ; preds = %606, %605, %602, %597, %533
   %607 = and i32 %582, 2
@@ -1013,12 +1013,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %.1137.i54 = phi i32 [ %619, %618 ], [ 0, %610 ]
   %indvars.iv.next220.i55 = add nuw nsw i64 %indvars.iv219.i52, 1
   %exitcond222.not.i56 = icmp eq i64 %indvars.iv.next220.i55, 19
-  br i1 %exitcond222.not.i56, label %.thread192.i57, label %610, !llvm.loop !56
+  br i1 %exitcond222.not.i56, label %.thread192.i57, label %610, !llvm.loop !58
 
 .thread192.i57:                                   ; preds = %630, %629, %626, %621, %.thread.i50, %495, %463
   %631 = add nuw i64 %.0139208.i42, 1
   %exitcond223.not.i58 = icmp eq i64 %631, %390
-  br i1 %exitcond223.not.i58, label %.preheader.i59, label %463, !llvm.loop !57
+  br i1 %exitcond223.not.i58, label %.preheader.i59, label %463, !llvm.loop !59
 
 ._crit_edge.i66:                                  ; preds = %459, %656, %644, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i37
   %632 = load ptr, ptr %13, align 8, !tbaa !32
@@ -1081,7 +1081,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
 656:                                              ; preds = %.sink.split.i75, %645
   %657 = phi ptr [ %635, %645 ], [ %655, %.sink.split.i75 ]
   %.not.i77 = icmp eq i64 %636, 0
-  br i1 %.not.i77, label %._crit_edge.i66, label %.lr.ph211.split.i69, !llvm.loop !54
+  br i1 %.not.i77, label %._crit_edge.i66, label %.lr.ph211.split.i69, !llvm.loop !60
 
 _ZN12_GLOBAL__N_117FASTForPointSet_tILi12EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit: ; preds = %._crit_edge.i66, %634
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %13) #11
@@ -1093,13 +1093,13 @@ _ZN12_GLOBAL__N_117FASTForPointSet_tILi12EEEvRKN2cv11_InputArrayERSt6vectorINS1_
 
 658:                                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
-  %659 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !58
+  %659 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !61
   %660 = icmp eq i32 %659, 65536
   br i1 %660, label %661, label %664
 
 661:                                              ; preds = %658
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %663 = load ptr, ptr %662, align 8, !tbaa !11, !noalias !58
+  %663 = load ptr, ptr %662, align 8, !tbaa !11, !noalias !61
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %663)
   br label %_ZNK2cv11_InputArray6getMatEi.exit.i85
 
@@ -1162,7 +1162,7 @@ _ZN12_GLOBAL__N_111makeOffsetsEPiii.exit.i97:     ; preds = %.lr.ph.i.i92
   store i8 %684, ptr %686, align 1, !tbaa !21
   %indvars.iv.next.i101 = add nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, 256
-  br i1 %exitcond.not.i102, label %687, label %680, !llvm.loop !61
+  br i1 %exitcond.not.i102, label %687, label %680, !llvm.loop !64
 
 687:                                              ; preds = %680
   %688 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1296,7 +1296,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
 776:                                              ; preds = %773, %.lr.ph211.split.us.i127
   %777 = phi ptr [ %761, %.lr.ph211.split.us.i127 ], [ %775, %773 ]
   %.not.us.i132 = icmp eq i64 %762, 0
-  br i1 %.not.us.i132, label %._crit_edge.i133, label %.lr.ph211.split.us.i127, !llvm.loop !62
+  br i1 %.not.us.i132, label %._crit_edge.i133, label %.lr.ph211.split.us.i127, !llvm.loop !65
 
 778:                                              ; preds = %698
   %779 = landingpad { ptr, i32 }
@@ -1313,11 +1313,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %781 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %703, i64 %.0139208.i109
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 16
   store float -1.000000e+00, ptr %782, align 4, !tbaa !40
-  %783 = load float, ptr %781, align 4, !tbaa !45
+  %783 = load float, ptr %781, align 4, !tbaa !46
   %784 = insertelement <4 x float> poison, float %783, i64 0
   %785 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %784)
   %786 = getelementptr inbounds nuw i8, ptr %781, i64 4
-  %787 = load float, ptr %786, align 4, !tbaa !46
+  %787 = load float, ptr %786, align 4, !tbaa !47
   %788 = insertelement <4 x float> poison, float %787, i64 0
   %789 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %788)
   %790 = sext i32 %789 to i64
@@ -1483,7 +1483,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %.1143.i114 = phi i32 [ %912, %911 ], [ 0, %903 ]
   %indvars.iv.next216.i115 = add nuw nsw i64 %indvars.iv215.i112, 1
   %exitcond218.not.i116 = icmp eq i64 %indvars.iv.next216.i115, 25
-  br i1 %exitcond218.not.i116, label %.thread.i117, label %903, !llvm.loop !63
+  br i1 %exitcond218.not.i116, label %.thread.i117, label %903, !llvm.loop !66
 
 .thread.i117:                                     ; preds = %923, %922, %919, %914, %850
   %924 = and i32 %899, 2
@@ -1534,12 +1534,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %.1137.i121 = phi i32 [ %936, %935 ], [ 0, %927 ]
   %indvars.iv.next220.i122 = add nuw nsw i64 %indvars.iv219.i119, 1
   %exitcond222.not.i123 = icmp eq i64 %indvars.iv.next220.i122, 25
-  br i1 %exitcond222.not.i123, label %.thread192.i124, label %927, !llvm.loop !64
+  br i1 %exitcond222.not.i123, label %.thread192.i124, label %927, !llvm.loop !67
 
 .thread192.i124:                                  ; preds = %947, %946, %943, %938, %.thread.i117, %812, %780
   %948 = add nuw i64 %.0139208.i109, 1
   %exitcond223.not.i125 = icmp eq i64 %948, %707
-  br i1 %exitcond223.not.i125, label %.preheader.i126, label %780, !llvm.loop !65
+  br i1 %exitcond223.not.i125, label %.preheader.i126, label %780, !llvm.loop !68
 
 ._crit_edge.i133:                                 ; preds = %776, %973, %961, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i104
   %949 = load ptr, ptr %9, align 8, !tbaa !32
@@ -1602,7 +1602,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
 973:                                              ; preds = %.sink.split.i142, %962
   %974 = phi ptr [ %952, %962 ], [ %972, %.sink.split.i142 ]
   %.not.i144 = icmp eq i64 %953, 0
-  br i1 %.not.i144, label %._crit_edge.i133, label %.lr.ph211.split.i136, !llvm.loop !62
+  br i1 %.not.i144, label %._crit_edge.i133, label %.lr.ph211.split.i136, !llvm.loop !69
 
 _ZN12_GLOBAL__N_117FASTForPointSet_tILi16EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit: ; preds = %._crit_edge.i133, %951
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %9) #11
@@ -1647,20 +1647,20 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
   %15 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv
-  store i16 %14, ptr %15, align 2, !tbaa !66
+  store i16 %14, ptr %15, align 2, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !68
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !72
 
 .preheader:                                       ; preds = %7, %39
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %39 ], [ 0, %7 ]
   %.0113122 = phi i32 [ %.1114, %39 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv127, 1
   %17 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !66
+  %18 = load i16, ptr %17, align 2, !tbaa !70
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 2
   %19 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next128
-  %20 = load i16, ptr %19, align 4, !tbaa !66
+  %20 = load i16, ptr %19, align 4, !tbaa !70
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated88 = sext i16 %21 to i32
   %.not25 = icmp slt i32 %.0113122, %.sroa.speculated88
@@ -1669,20 +1669,20 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 22:                                               ; preds = %.preheader
   %23 = add nuw nsw i64 %indvars.iv127, 3
   %24 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !66
+  %25 = load i16, ptr %24, align 2, !tbaa !70
   %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
   %27 = add nuw nsw i64 %indvars.iv127, 4
   %28 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !66
+  %29 = load i16, ptr %28, align 4, !tbaa !70
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
   %31 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv127
-  %32 = load i16, ptr %31, align 4, !tbaa !66
+  %32 = load i16, ptr %31, align 4, !tbaa !70
   %33 = tail call i16 @llvm.smin.i16(i16 %32, i16 %30)
   %34 = sext i16 %33 to i32
   %.sroa.speculated106 = tail call i32 @llvm.smax.i32(i32 %.0113122, i32 %34)
   %35 = add nuw nsw i64 %indvars.iv127, 5
   %36 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !66
+  %37 = load i16, ptr %36, align 2, !tbaa !70
   %.v = tail call i16 @llvm.smin.i16(i16 %37, i16 %30)
   %38 = sext i16 %.v to i32
   %.sroa.speculated103 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated106, i32 %38)
@@ -1691,7 +1691,7 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 39:                                               ; preds = %.preheader, %22
   %.1114 = phi i32 [ %.sroa.speculated103, %22 ], [ %.0113122, %.preheader ]
   %40 = icmp samesign ult i64 %indvars.iv127, 6
-  br i1 %40, label %.preheader, label %41, !llvm.loop !69
+  br i1 %40, label %.preheader, label %41, !llvm.loop !73
 
 41:                                               ; preds = %39
   %42 = sub nsw i32 0, %.1114
@@ -1702,14 +1702,14 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %.0115124 = phi i32 [ %42, %41 ], [ %.1116, %67 ]
   %44 = or disjoint i64 %indvars.iv130, 1
   %45 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !66
+  %46 = load i16, ptr %45, align 2, !tbaa !70
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 2
   %47 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next131
-  %48 = load i16, ptr %47, align 4, !tbaa !66
+  %48 = load i16, ptr %47, align 4, !tbaa !70
   %49 = tail call i16 @llvm.smax.i16(i16 %46, i16 %48)
   %50 = add nuw nsw i64 %indvars.iv130, 3
   %51 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !66
+  %52 = load i16, ptr %51, align 2, !tbaa !70
   %53 = tail call i16 @llvm.smax.i16(i16 %49, i16 %52)
   %.sroa.speculated44 = sext i16 %53 to i32
   %.not = icmp sgt i32 %.0115124, %.sroa.speculated44
@@ -1718,16 +1718,16 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 54:                                               ; preds = %43
   %55 = add nuw nsw i64 %indvars.iv130, 4
   %56 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 4, !tbaa !66
+  %57 = load i16, ptr %56, align 4, !tbaa !70
   %58 = tail call i16 @llvm.smax.i16(i16 %53, i16 %57)
   %59 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv130
-  %60 = load i16, ptr %59, align 4, !tbaa !66
+  %60 = load i16, ptr %59, align 4, !tbaa !70
   %61 = tail call i16 @llvm.smax.i16(i16 %58, i16 %60)
   %62 = sext i16 %61 to i32
   %.sroa.speculated65 = tail call i32 @llvm.smin.i32(i32 %62, i32 %.0115124)
   %63 = add nuw nsw i64 %indvars.iv130, 5
   %64 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !66
+  %65 = load i16, ptr %64, align 2, !tbaa !70
   %.v134 = tail call i16 @llvm.smax.i16(i16 %58, i16 %65)
   %66 = sext i16 %.v134 to i32
   %.sroa.speculated62 = tail call i32 @llvm.smin.i32(i32 %66, i32 %.sroa.speculated65)
@@ -1736,7 +1736,7 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 67:                                               ; preds = %43, %54
   %.1116 = phi i32 [ %.sroa.speculated62, %54 ], [ %.0115124, %43 ]
   %68 = icmp samesign ult i64 %indvars.iv130, 6
-  br i1 %68, label %43, label %69, !llvm.loop !70
+  br i1 %68, label %43, label %69, !llvm.loop !74
 
 69:                                               ; preds = %67
   %70 = xor i32 %.1116, -1
@@ -1783,20 +1783,20 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
   %15 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv
-  store i16 %14, ptr %15, align 2, !tbaa !66
+  store i16 %14, ptr %15, align 2, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !71
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !75
 
 .preheader:                                       ; preds = %7, %47
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %47 ], [ 0, %7 ]
   %.0147156 = phi i32 [ %.1148, %47 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv161, 1
   %17 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !66
+  %18 = load i16, ptr %17, align 2, !tbaa !70
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 2
   %19 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv.next162
-  %20 = load i16, ptr %19, align 4, !tbaa !66
+  %20 = load i16, ptr %19, align 4, !tbaa !70
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated120 = sext i16 %21 to i32
   %.not29 = icmp slt i32 %.0147156, %.sroa.speculated120
@@ -1805,28 +1805,28 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 22:                                               ; preds = %.preheader
   %23 = add nuw nsw i64 %indvars.iv161, 3
   %24 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !66
+  %25 = load i16, ptr %24, align 2, !tbaa !70
   %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
   %27 = add nuw nsw i64 %indvars.iv161, 4
   %28 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !66
+  %29 = load i16, ptr %28, align 4, !tbaa !70
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
   %31 = add nuw nsw i64 %indvars.iv161, 5
   %32 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !66
+  %33 = load i16, ptr %32, align 2, !tbaa !70
   %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
   %35 = add nuw nsw i64 %indvars.iv161, 6
   %36 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 4, !tbaa !66
+  %37 = load i16, ptr %36, align 4, !tbaa !70
   %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
   %39 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv161
-  %40 = load i16, ptr %39, align 4, !tbaa !66
+  %40 = load i16, ptr %39, align 4, !tbaa !70
   %41 = tail call i16 @llvm.smin.i16(i16 %40, i16 %38)
   %42 = sext i16 %41 to i32
   %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147156, i32 %42)
   %43 = add nuw nsw i64 %indvars.iv161, 7
   %44 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !66
+  %45 = load i16, ptr %44, align 2, !tbaa !70
   %.v = tail call i16 @llvm.smin.i16(i16 %45, i16 %38)
   %46 = sext i16 %.v to i32
   %.sroa.speculated137 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated140, i32 %46)
@@ -1835,12 +1835,12 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 47:                                               ; preds = %.preheader, %22
   %.1148 = phi i32 [ %.sroa.speculated137, %22 ], [ %.0147156, %.preheader ]
   %48 = icmp samesign ult i64 %indvars.iv161, 10
-  br i1 %48, label %.preheader, label %49, !llvm.loop !72
+  br i1 %48, label %.preheader, label %49, !llvm.loop !76
 
 49:                                               ; preds = %47
   %50 = sub nsw i32 0, %.1148
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !66
+  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !70
   br label %51
 
 51:                                               ; preds = %49, %82
@@ -1849,16 +1849,16 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %.0149158 = phi i32 [ %50, %49 ], [ %.1150, %82 ]
   %53 = or disjoint i64 %indvars.iv164, 1
   %54 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !66
+  %55 = load i16, ptr %54, align 2, !tbaa !70
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
   %56 = tail call i16 @llvm.smax.i16(i16 %55, i16 %52)
   %57 = add nuw nsw i64 %indvars.iv164, 3
   %58 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !66
+  %59 = load i16, ptr %58, align 2, !tbaa !70
   %60 = tail call i16 @llvm.smax.i16(i16 %56, i16 %59)
   %61 = add nuw nsw i64 %indvars.iv164, 4
   %62 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 4, !tbaa !66
+  %63 = load i16, ptr %62, align 4, !tbaa !70
   %64 = tail call i16 @llvm.smax.i16(i16 %60, i16 %63)
   %.sroa.speculated57 = sext i16 %64 to i32
   %.not = icmp sgt i32 %.0149158, %.sroa.speculated57
@@ -1867,20 +1867,20 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 65:                                               ; preds = %51
   %66 = add nuw nsw i64 %indvars.iv164, 5
   %67 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %66
-  %68 = load i16, ptr %67, align 2, !tbaa !66
+  %68 = load i16, ptr %67, align 2, !tbaa !70
   %69 = tail call i16 @llvm.smax.i16(i16 %64, i16 %68)
   %70 = add nuw nsw i64 %indvars.iv164, 6
   %71 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 4, !tbaa !66
+  %72 = load i16, ptr %71, align 4, !tbaa !70
   %73 = tail call i16 @llvm.smax.i16(i16 %69, i16 %72)
   %74 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv164
-  %75 = load i16, ptr %74, align 4, !tbaa !66
+  %75 = load i16, ptr %74, align 4, !tbaa !70
   %76 = tail call i16 @llvm.smax.i16(i16 %73, i16 %75)
   %77 = sext i16 %76 to i32
   %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %77, i32 %.0149158)
   %78 = add nuw nsw i64 %indvars.iv164, 7
   %79 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !66
+  %80 = load i16, ptr %79, align 2, !tbaa !70
   %.v168 = tail call i16 @llvm.smax.i16(i16 %73, i16 %80)
   %81 = sext i16 %.v168 to i32
   %.sroa.speculated82 = tail call i32 @llvm.smin.i32(i32 %81, i32 %.sroa.speculated85)
@@ -1889,7 +1889,7 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 82:                                               ; preds = %51, %65
   %.1150 = phi i32 [ %.sroa.speculated82, %65 ], [ %.0149158, %51 ]
   %83 = icmp samesign ult i64 %indvars.iv164, 10
-  br i1 %83, label %51, label %84, !llvm.loop !73
+  br i1 %83, label %51, label %84, !llvm.loop !77
 
 84:                                               ; preds = %82
   %85 = xor i32 %.1150, -1
@@ -1915,24 +1915,24 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
   %15 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv
-  store i16 %14, ptr %15, align 2, !tbaa !66
+  store i16 %14, ptr %15, align 2, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !74
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !78
 
 .preheader:                                       ; preds = %7, %55
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %55 ], [ 0, %7 ]
   %.0181190 = phi i32 [ %.1182, %55 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv195, 1
   %17 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !66
+  %18 = load i16, ptr %17, align 2, !tbaa !70
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 2
   %19 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv.next196
-  %20 = load i16, ptr %19, align 4, !tbaa !66
+  %20 = load i16, ptr %19, align 4, !tbaa !70
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %22 = add nuw nsw i64 %indvars.iv195, 3
   %23 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !66
+  %24 = load i16, ptr %23, align 2, !tbaa !70
   %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
   %.sroa.speculated146 = sext i16 %25 to i32
   %.not33 = icmp slt i32 %.0181190, %.sroa.speculated146
@@ -1941,32 +1941,32 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 26:                                               ; preds = %.preheader
   %27 = add nuw nsw i64 %indvars.iv195, 4
   %28 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !66
+  %29 = load i16, ptr %28, align 4, !tbaa !70
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %25)
   %31 = add nuw nsw i64 %indvars.iv195, 5
   %32 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !66
+  %33 = load i16, ptr %32, align 2, !tbaa !70
   %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
   %35 = add nuw nsw i64 %indvars.iv195, 6
   %36 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 4, !tbaa !66
+  %37 = load i16, ptr %36, align 4, !tbaa !70
   %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
   %39 = add nuw nsw i64 %indvars.iv195, 7
   %40 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !66
+  %41 = load i16, ptr %40, align 2, !tbaa !70
   %42 = tail call i16 @llvm.smin.i16(i16 %41, i16 %38)
   %43 = add nuw nsw i64 %indvars.iv195, 8
   %44 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 4, !tbaa !66
+  %45 = load i16, ptr %44, align 4, !tbaa !70
   %46 = tail call i16 @llvm.smin.i16(i16 %45, i16 %42)
   %47 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv195
-  %48 = load i16, ptr %47, align 4, !tbaa !66
+  %48 = load i16, ptr %47, align 4, !tbaa !70
   %49 = tail call i16 @llvm.smin.i16(i16 %48, i16 %46)
   %50 = sext i16 %49 to i32
   %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181190, i32 %50)
   %51 = add nuw nsw i64 %indvars.iv195, 9
   %52 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !66
+  %53 = load i16, ptr %52, align 2, !tbaa !70
   %.v = tail call i16 @llvm.smin.i16(i16 %53, i16 %46)
   %54 = sext i16 %.v to i32
   %.sroa.speculated171 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated174, i32 %54)
@@ -1975,14 +1975,14 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 55:                                               ; preds = %.preheader, %26
   %.1182 = phi i32 [ %.sroa.speculated171, %26 ], [ %.0181190, %.preheader ]
   %56 = icmp samesign ult i64 %indvars.iv195, 14
-  br i1 %56, label %.preheader, label %57, !llvm.loop !75
+  br i1 %56, label %.preheader, label %57, !llvm.loop !79
 
 57:                                               ; preds = %55
   %58 = sub nsw i32 0, %.1182
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !66
+  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !70
   %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %.pre203 = load i16, ptr %.phi.trans.insert202, align 2, !tbaa !66
+  %.pre203 = load i16, ptr %.phi.trans.insert202, align 2, !tbaa !70
   br label %59
 
 59:                                               ; preds = %57, %96
@@ -1992,17 +1992,17 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
   %.0183192 = phi i32 [ %58, %57 ], [ %.1184, %96 ]
   %62 = or disjoint i64 %indvars.iv198, 1
   %63 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !66
+  %64 = load i16, ptr %63, align 2, !tbaa !70
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 2
   %65 = tail call i16 @llvm.smax.i16(i16 %64, i16 %61)
   %66 = tail call i16 @llvm.smax.i16(i16 %65, i16 %60)
   %67 = add nuw nsw i64 %indvars.iv198, 4
   %68 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 4, !tbaa !66
+  %69 = load i16, ptr %68, align 4, !tbaa !70
   %70 = tail call i16 @llvm.smax.i16(i16 %66, i16 %69)
   %71 = add nuw nsw i64 %indvars.iv198, 5
   %72 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !66
+  %73 = load i16, ptr %72, align 2, !tbaa !70
   %74 = tail call i16 @llvm.smax.i16(i16 %70, i16 %73)
   %.sroa.speculated70 = sext i16 %74 to i32
   %.not = icmp sgt i32 %.0183192, %.sroa.speculated70
@@ -2011,24 +2011,24 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 75:                                               ; preds = %59
   %76 = add nuw nsw i64 %indvars.iv198, 6
   %77 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 4, !tbaa !66
+  %78 = load i16, ptr %77, align 4, !tbaa !70
   %79 = tail call i16 @llvm.smax.i16(i16 %74, i16 %78)
   %80 = add nuw nsw i64 %indvars.iv198, 7
   %81 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !66
+  %82 = load i16, ptr %81, align 2, !tbaa !70
   %83 = tail call i16 @llvm.smax.i16(i16 %79, i16 %82)
   %84 = add nuw nsw i64 %indvars.iv198, 8
   %85 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 4, !tbaa !66
+  %86 = load i16, ptr %85, align 4, !tbaa !70
   %87 = tail call i16 @llvm.smax.i16(i16 %83, i16 %86)
   %88 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv198
-  %89 = load i16, ptr %88, align 4, !tbaa !66
+  %89 = load i16, ptr %88, align 4, !tbaa !70
   %90 = tail call i16 @llvm.smax.i16(i16 %87, i16 %89)
   %91 = sext i16 %90 to i32
   %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %91, i32 %.0183192)
   %92 = add nuw nsw i64 %indvars.iv198, 9
   %93 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !66
+  %94 = load i16, ptr %93, align 2, !tbaa !70
   %.v204 = tail call i16 @llvm.smax.i16(i16 %87, i16 %94)
   %95 = sext i16 %.v204 to i32
   %.sroa.speculated102 = tail call i32 @llvm.smin.i32(i32 %95, i32 %.sroa.speculated105)
@@ -2037,7 +2037,7 @@ define internal fastcc noundef range(i32 -32768, 2147483647) i32 @_ZN12_GLOBAL__
 96:                                               ; preds = %59, %75
   %.1184 = phi i32 [ %.sroa.speculated102, %75 ], [ %.0183192, %59 ]
   %97 = icmp samesign ult i64 %indvars.iv198, 14
-  br i1 %97, label %59, label %98, !llvm.loop !76
+  br i1 %97, label %59, label %98, !llvm.loop !80
 
 98:                                               ; preds = %96
   %99 = xor i32 %.1184, -1
@@ -2121,36 +2121,40 @@ attributes #13 = { builtin nounwind }
 !41 = !{!"_ZTSN2cv8KeyPointE", !42, i64 0, !43, i64 8, !43, i64 12, !43, i64 16, !13, i64 20, !13, i64 24}
 !42 = !{!"_ZTSN2cv6Point_IfEE", !43, i64 0, !43, i64 4}
 !43 = !{!"float", !6, i64 0}
-!44 = distinct !{!44, !19}
-!45 = !{!42, !43, i64 0}
-!46 = !{!42, !43, i64 4}
-!47 = distinct !{!47, !19}
+!44 = distinct !{!44, !19, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = !{!42, !43, i64 0}
+!47 = !{!42, !43, i64 4}
 !48 = distinct !{!48, !19}
 !49 = distinct !{!49, !19}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!52 = distinct !{!52, !"_ZNK2cv11_InputArray6getMatEi"}
-!53 = distinct !{!53, !19}
-!54 = distinct !{!54, !19}
+!50 = distinct !{!50, !19}
+!51 = distinct !{!51, !19}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!54 = distinct !{!54, !"_ZNK2cv11_InputArray6getMatEi"}
 !55 = distinct !{!55, !19}
-!56 = distinct !{!56, !19}
+!56 = distinct !{!56, !19, !45}
 !57 = distinct !{!57, !19}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!60 = distinct !{!60, !"_ZNK2cv11_InputArray6getMatEi"}
-!61 = distinct !{!61, !19}
-!62 = distinct !{!62, !19}
-!63 = distinct !{!63, !19}
+!58 = distinct !{!58, !19}
+!59 = distinct !{!59, !19}
+!60 = distinct !{!60, !19}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!63 = distinct !{!63, !"_ZNK2cv11_InputArray6getMatEi"}
 !64 = distinct !{!64, !19}
-!65 = distinct !{!65, !19}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"short", !6, i64 0}
+!65 = distinct !{!65, !19, !45}
+!66 = distinct !{!66, !19}
+!67 = distinct !{!67, !19}
 !68 = distinct !{!68, !19}
 !69 = distinct !{!69, !19}
-!70 = distinct !{!70, !19}
-!71 = distinct !{!71, !19}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"short", !6, i64 0}
 !72 = distinct !{!72, !19}
 !73 = distinct !{!73, !19}
 !74 = distinct !{!74, !19}
 !75 = distinct !{!75, !19}
 !76 = distinct !{!76, !19}
+!77 = distinct !{!77, !19}
+!78 = distinct !{!78, !19}
+!79 = distinct !{!79, !19}
+!80 = distinct !{!80, !19}

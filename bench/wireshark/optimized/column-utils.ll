@@ -3147,7 +3147,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %77 = getelementptr i32, ptr %75, i64 %.pre-phi
   %78 = load i32, ptr %77, align 4
   %.not.i9 = icmp sgt i32 %76, %78
-  br i1 %.not.i9, label %col_do_append_str.exit, label %.lr.ph.split.i, !llvm.loop !32
+  br i1 %.not.i9, label %col_do_append_str.exit, label %.lr.ph.split.i, !llvm.loop !34
 
 col_do_append_str.exit:                           ; preds = %23, %74, %8, %.preheader.i, %10, %4, %41, %33, %col_get_writable.exit, %38
   ret void
@@ -4063,7 +4063,7 @@ get_default_timestamp_precision.exit:             ; preds = %58, %63
   %78 = getelementptr i32, ptr %76, i64 %.pre-phi
   %79 = load i32, ptr %78, align 4
   %.not = icmp sgt i32 %77, %79
-  br i1 %.not, label %col_get_writable.exit.thread, label %48, !llvm.loop !33
+  br i1 %.not, label %col_get_writable.exit.thread, label %48, !llvm.loop !35
 
 col_get_writable.exit.thread:                     ; preds = %23, %75, %.preheader, %8, %.preheader.i, %10, %4, %33, %col_get_writable.exit, %38
   ret void
@@ -4752,7 +4752,7 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   %89 = load i32, ptr %88, align 8
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %16, label %.loopexit, !llvm.loop !34
+  br i1 %91, label %16, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %86, %.preheader, %3
   ret void
@@ -5127,7 +5127,7 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
   %17 = load i32, ptr %5, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next33, %18
-  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !35
+  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
   %20 = phi i32 [ %31, %30 ], [ %6, %.lr.ph ]
@@ -5179,7 +5179,7 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph.split, label %.loopexit, !llvm.loop !35
+  br i1 %33, label %.lr.ph.split, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %30, %16, %.preheader, %28, %4
   ret void
@@ -5316,7 +5316,7 @@ proto_item_set_hidden.exit36:                     ; preds = %45, %42, %41, %25
   %49 = load i32, ptr %21, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %25, label %.loopexit, !llvm.loop !36
+  br i1 %51, label %25, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit36, %proto_item_set_hidden.exit, %6, %3
   ret void
@@ -6022,8 +6022,11 @@ attributes #21 = { noreturn }
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!32 = distinct !{!32, !7, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7, !33}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}

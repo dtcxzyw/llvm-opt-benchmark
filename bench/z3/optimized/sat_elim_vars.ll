@@ -4797,7 +4797,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat9elim_vars11comp
   store i32 %61, ptr %101, align 4, !tbaa !80
   %.not = icmp eq i64 %.014, 0
   %102 = add nsw i64 %.014, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !305
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !307
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat9elim_vars11compare_occEEEEvT_T0_S9_T1_T2_.exit.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat9elim_vars11compare_occEEEEvT_T0_S9_T1_T2_.exit, %3
   ret void
@@ -4974,7 +4974,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !306
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !308
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #22
@@ -5676,5 +5676,7 @@ attributes #25 = { builtin allocsize(0) }
 !302 = distinct !{!302, !90}
 !303 = !{!304, !304, i64 0}
 !304 = !{!"p1 _ZTSN3sat9elim_varsE", !5, i64 0}
-!305 = distinct !{!305, !90}
-!306 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!305 = distinct !{!305, !90, !306}
+!306 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!307 = distinct !{!307, !90}
+!308 = !{!"branch_weights", !"expected", i32 1, i32 2000}

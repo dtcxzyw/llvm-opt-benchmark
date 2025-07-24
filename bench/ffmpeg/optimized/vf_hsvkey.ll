@@ -712,12 +712,12 @@ do_hsvkey_pixel.exit.us:                          ; preds = %127, %125
 do_hsvkey_pixel.exit.thread.us:                   ; preds = %136, %do_hsvkey_pixel.exit.us, %105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %do_hsvkey_pixel.exit.thread.us
   %154 = add nsw i32 %.066.us, 1
   %exitcond70.not = icmp eq i32 %154, %21
-  br i1 %exitcond70.not, label %._crit_edge67, label %.preheader.us, !llvm.loop !76
+  br i1 %exitcond70.not, label %._crit_edge67, label %.preheader.us, !llvm.loop !77
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -910,12 +910,12 @@ do_hsvkey_pixel.exit.us:                          ; preds = %130, %129
 do_hsvkey_pixel.exit.thread.us:                   ; preds = %139, %do_hsvkey_pixel.exit.us, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %do_hsvkey_pixel.exit.thread.us
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge72, label %.preheader.us, !llvm.loop !78
+  br i1 %exitcond79.not, label %._crit_edge72, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge72:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1028,8 +1028,9 @@ attributes #9 = { nounwind }
 !71 = !{!72, !72, i64 0}
 !72 = !{!"short", !8, i64 0}
 !73 = distinct !{!73, !63}
-!74 = distinct !{!74, !63}
-!75 = distinct !{!75, !63}
+!74 = distinct !{!74, !63, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !76 = distinct !{!76, !63}
-!77 = distinct !{!77, !63}
+!77 = distinct !{!77, !63, !75}
 !78 = distinct !{!78, !63}
+!79 = distinct !{!79, !63, !75}

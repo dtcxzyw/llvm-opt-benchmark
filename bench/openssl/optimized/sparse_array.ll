@@ -33,9 +33,9 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !7
   store ptr %6, ptr %3, align 16, !tbaa !11
-  br label %.split.us.split.i
+  br label %.split.us.i
 
-.split.us.split.i:                                ; preds = %32, %4
+.split.us.i:                                      ; preds = %32, %4
   %.03141.us.i = phi i32 [ %.132.us.i, %32 ], [ 0, %4 ]
   %7 = zext nneg i32 %.03141.us.i to i64
   %8 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %7
@@ -45,7 +45,7 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
   %12 = icmp sgt i32 %9, 15
   br i1 %12, label %28, label %13
 
-13:                                               ; preds = %.split.us.split.i
+13:                                               ; preds = %.split.us.i
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr %8, align 4, !tbaa !3
   %.not.us.i = icmp eq ptr %11, null
@@ -73,9 +73,9 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %18, ptr %27, align 8, !tbaa !11
   br label %32
 
-28:                                               ; preds = %.split.us.split.i
-  %.not54.i = icmp eq ptr %11, null
-  br i1 %.not54.i, label %30, label %29
+28:                                               ; preds = %.split.us.i
+  %.not3 = icmp eq ptr %11, null
+  br i1 %.not3, label %30, label %29
 
 29:                                               ; preds = %28
   tail call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 102) #5
@@ -88,7 +88,7 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
 32:                                               ; preds = %30, %23, %19, %15, %13
   %.132.us.i = phi i32 [ %31, %30 ], [ %24, %23 ], [ %.03141.us.i, %15 ], [ %.03141.us.i, %13 ], [ %.03141.us.i, %19 ]
   %33 = icmp sgt i32 %.132.us.i, -1
-  br i1 %33, label %.split.us.split.i, label %sa_doall.exit, !llvm.loop !13
+  br i1 %33, label %.split.us.i, label %sa_doall.exit, !llvm.loop !13
 
 sa_doall.exit:                                    ; preds = %32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #5
@@ -125,8 +125,8 @@ define void @ossl_sa_free_leaves(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.split.split.i
-  %.not53.i = icmp eq ptr %10, null
-  br i1 %.not53.i, label %14, label %13
+  %.not52.i = icmp eq ptr %10, null
+  br i1 %.not52.i, label %14, label %13
 
 13:                                               ; preds = %12
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 102) #5
@@ -171,7 +171,7 @@ define void @ossl_sa_free_leaves(ptr noundef %0) local_unnamed_addr #0 {
 32:                                               ; preds = %31, %26, %18, %16, %14
   %.132.i = phi i32 [ %15, %14 ], [ %27, %26 ], [ %.03141.i, %31 ], [ %.03141.i, %18 ], [ %.03141.i, %16 ]
   %33 = icmp sgt i32 %.132.i, -1
-  br i1 %33, label %.split.split.i, label %sa_doall.exit, !llvm.loop !13
+  br i1 %33, label %.split.split.i, label %sa_doall.exit, !llvm.loop !16
 
 sa_doall.exit:                                    ; preds = %32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #5
@@ -251,7 +251,7 @@ define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %0, pt
   %.132.us50.i = phi i32 [ %34, %33 ], [ %28, %27 ], [ %.03141.us46.i, %26 ], [ %.03141.us46.i, %16 ], [ %.03141.us46.i, %14 ]
   %.1.us51.i = phi i64 [ %35, %33 ], [ %32, %27 ], [ %22, %26 ], [ %.042.us45.i, %16 ], [ %.042.us45.i, %14 ]
   %37 = icmp sgt i32 %.132.us50.i, -1
-  br i1 %37, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !13
+  br i1 %37, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !17
 
 sa_doall.exit:                                    ; preds = %36
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
@@ -277,11 +277,11 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   store ptr %8, ptr %5, align 16, !tbaa !11
   %.not40.i = icmp eq ptr %1, null
-  br i1 %.not40.i, label %.split.us.split.us.i, label %.split.split.us.i
+  br i1 %.not40.i, label %.split.us.i, label %.split.split.us.i
 
-.split.us.split.us.i:                             ; preds = %6, %32
-  %.03141.us.us.i = phi i32 [ %.132.us.us.i, %32 ], [ 0, %6 ]
-  %9 = zext nneg i32 %.03141.us.us.i to i64
+.split.us.i:                                      ; preds = %6, %32
+  %.03141.us.i = phi i32 [ %.132.us.i, %32 ], [ 0, %6 ]
+  %9 = zext nneg i32 %.03141.us.i to i64
   %10 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %9
@@ -289,27 +289,27 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   %14 = icmp sgt i32 %11, 15
   br i1 %14, label %30, label %15
 
-15:                                               ; preds = %.split.us.split.us.i
+15:                                               ; preds = %.split.us.i
   %16 = add nsw i32 %11, 1
   store i32 %16, ptr %10, align 4, !tbaa !3
-  %.not.us.us.i = icmp eq ptr %13, null
-  br i1 %.not.us.us.i, label %32, label %17
+  %.not.us.i = icmp eq ptr %13, null
+  br i1 %.not.us.i, label %32, label %17
 
 17:                                               ; preds = %15
   %18 = sext i32 %11 to i64
   %19 = getelementptr inbounds ptr, ptr %13, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !11
-  %.not39.us.us.i = icmp eq ptr %20, null
-  br i1 %.not39.us.us.i, label %32, label %21
+  %.not39.us.i = icmp eq ptr %20, null
+  br i1 %.not39.us.i, label %32, label %21
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %0, align 8, !tbaa !12
   %23 = add nsw i32 %22, -1
-  %24 = icmp slt i32 %.03141.us.us.i, %23
+  %24 = icmp slt i32 %.03141.us.i, %23
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %21
-  %26 = add nuw nsw i32 %.03141.us.us.i, 1
+  %26 = add nuw nsw i32 %.03141.us.i, 1
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %27
   store i32 0, ptr %28, align 4, !tbaa !3
@@ -317,14 +317,14 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   store ptr %20, ptr %29, align 8, !tbaa !11
   br label %32
 
-30:                                               ; preds = %.split.us.split.us.i
-  %31 = add nsw i32 %.03141.us.us.i, -1
+30:                                               ; preds = %.split.us.i
+  %31 = add nsw i32 %.03141.us.i, -1
   br label %32
 
 32:                                               ; preds = %30, %25, %21, %17, %15
-  %.132.us.us.i = phi i32 [ %31, %30 ], [ %26, %25 ], [ %.03141.us.us.i, %17 ], [ %.03141.us.us.i, %15 ], [ %.03141.us.us.i, %21 ]
-  %33 = icmp sgt i32 %.132.us.us.i, -1
-  br i1 %33, label %.split.us.split.us.i, label %sa_doall.exit, !llvm.loop !13
+  %.132.us.i = phi i32 [ %31, %30 ], [ %26, %25 ], [ %.03141.us.i, %17 ], [ %.03141.us.i, %15 ], [ %.03141.us.i, %21 ]
+  %33 = icmp sgt i32 %.132.us.i, -1
+  br i1 %33, label %.split.us.i, label %sa_doall.exit, !llvm.loop !13
 
 .split.split.us.i:                                ; preds = %6, %62
   %.042.us45.i = phi i64 [ %.1.us51.i, %62 ], [ 0, %6 ]
@@ -381,7 +381,7 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   %.132.us50.i = phi i32 [ %60, %59 ], [ %54, %53 ], [ %.03141.us46.i, %52 ], [ %.03141.us46.i, %42 ], [ %.03141.us46.i, %40 ]
   %.1.us51.i = phi i64 [ %61, %59 ], [ %58, %53 ], [ %48, %52 ], [ %.042.us45.i, %42 ], [ %.042.us45.i, %40 ]
   %63 = icmp sgt i32 %.132.us50.i, -1
-  br i1 %63, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !13
+  br i1 %63, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !17
 
 sa_doall.exit:                                    ; preds = %62, %32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #5
@@ -399,7 +399,7 @@ define i64 @ossl_sa_num(ptr noundef readonly captures(address_is_null) %0) local
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !15
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -414,13 +414,13 @@ define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %0, i64 n
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !15
+  %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %30, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !16
+  %10 = load i64, ptr %9, align 8, !tbaa !19
   %.not = icmp ugt i64 %1, %10
   br i1 %.not, label %30, label %11
 
@@ -449,7 +449,7 @@ define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %0, i64 n
   %22 = icmp ne ptr %.016, null
   %23 = icmp samesign ugt i64 %indvars.iv, 2
   %24 = and i1 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.016.lcssa = phi ptr [ %.01621, %11 ], [ %.016, %.lr.ph ]
@@ -494,7 +494,7 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
   %11 = icmp samesign ugt i32 %.04051, 14
   %12 = icmp ult i64 %.03952, 256
   %or.cond = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond, label %.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %or.cond, label %.preheader, label %.lr.ph, !llvm.loop !21
 
 13:                                               ; preds = %.lr.ph53, %16
   %14 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 176) #5
@@ -509,17 +509,17 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %0, align 8, !tbaa !12
   %20 = icmp slt i32 %19, %.040.lcssa
-  br i1 %20, label %13, label %._crit_edge, !llvm.loop !19
+  br i1 %20, label %13, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %.lcssa = phi i32 [ %6, %.preheader ], [ %19, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !16
+  %22 = load i64, ptr %21, align 8, !tbaa !19
   %23 = icmp ult i64 %22, %1
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %._crit_edge
-  store i64 %1, ptr %21, align 8, !tbaa !16
+  store i64 %1, ptr %21, align 8, !tbaa !19
   br label %25
 
 25:                                               ; preds = %24, %._crit_edge
@@ -553,7 +553,7 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
 38:                                               ; preds = %35, %.lr.ph60
   %.0 = phi ptr [ %36, %35 ], [ %33, %.lr.ph60 ]
   %39 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %39, label %.lr.ph60, label %._crit_edge61, !llvm.loop !20
+  br i1 %39, label %.lr.ph60, label %._crit_edge61, !llvm.loop !23
 
 ._crit_edge61:                                    ; preds = %38, %25
   %.0.lcssa = phi ptr [ %.055, %25 ], [ %.0, %38 ]
@@ -573,9 +573,9 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
 .sink.split:                                      ; preds = %44, %43
   %.sink75 = phi i64 [ -1, %43 ], [ 1, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !15
+  %46 = load i64, ptr %45, align 8, !tbaa !18
   %47 = add i64 %46, %.sink75
-  store i64 %47, ptr %45, align 8, !tbaa !15
+  store i64 %47, ptr %45, align 8, !tbaa !18
   br label %48
 
 48:                                               ; preds = %.sink.split, %43, %44
@@ -609,11 +609,14 @@ attributes #5 = { nounwind }
 !10 = !{!"any pointer", !5, i64 0}
 !11 = !{!10, !10, i64 0}
 !12 = !{!8, !4, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!8, !9, i64 16}
-!16 = !{!8, !9, i64 8}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!8, !9, i64 16}
+!19 = !{!8, !9, i64 8}
 !20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}

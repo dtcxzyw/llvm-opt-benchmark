@@ -4361,7 +4361,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thre
 58:                                               ; preds = %55, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %53, %.preheader.split.us.i ], [ %56, %55 ]
   %59 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader.split.us.i
+  br label %.preheader.split.us.i, !llvm.loop !27
 
 .thread.i:                                        ; preds = %55, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
   %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #9
@@ -4376,7 +4376,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   %62 = add nsw i64 %.122.i, %.04917
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !29
 
 .thread:                                          ; preds = %61, %yy_syntax_error_arguments.exit.thread6
   %.049.lcssa = phi i64 [ %45, %yy_syntax_error_arguments.exit.thread6 ], [ %62, %61 ]
@@ -4465,7 +4465,7 @@ yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.
   %.1 = phi i32 [ %74, %.thread.thread.i ], [ %74, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %68 ]
   %96 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
   %97 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader, !llvm.loop !30
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %65, %yy_syntax_error_arguments.exit
   %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %65 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
@@ -4753,9 +4753,9 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   %5 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef nonnull %3) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !34
+  %9 = load i32, ptr %8, align 8, !tbaa !36
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = call ptr @jq_yy_scan_bytes(ptr noundef %7, i32 noundef %9, ptr noundef %10) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -4925,11 +4925,13 @@ attributes #10 = { nounwind }
 !24 = distinct !{!24, !23}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p1 omnipotent char", !10, i64 0}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23}
-!29 = !{!30, !26, i64 16}
-!30 = !{!"locfile", !31, i64 0, !26, i64 16, !5, i64 24, !32, i64 32, !5, i64 40, !26, i64 48, !33, i64 56, !5, i64 64}
-!31 = !{!"", !6, i64 0, !6, i64 1, !15, i64 2, !5, i64 4, !6, i64 8}
-!32 = !{!"p1 int", !10, i64 0}
-!33 = !{!"p1 _ZTS8jq_state", !10, i64 0}
-!34 = !{!30, !5, i64 24}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !23}
+!31 = !{!32, !26, i64 16}
+!32 = !{!"locfile", !33, i64 0, !26, i64 16, !5, i64 24, !34, i64 32, !5, i64 40, !26, i64 48, !35, i64 56, !5, i64 64}
+!33 = !{!"", !6, i64 0, !6, i64 1, !15, i64 2, !5, i64 4, !6, i64 8}
+!34 = !{!"p1 int", !10, i64 0}
+!35 = !{!"p1 _ZTS8jq_state", !10, i64 0}
+!36 = !{!32, !5, i64 24}

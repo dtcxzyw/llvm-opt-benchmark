@@ -2208,7 +2208,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
   %20 = getelementptr inbounds nuw i8, ptr %.01019.i, i64 16
   %.not.i = icmp eq ptr %20, %16
-  br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split, !llvm.loop !123
+  br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split, !llvm.loop !125
 
 _ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
   %.us-phi = phi ptr [ %.01019.i.us, %.lr.ph.i.split.us ], [ %.01019.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
@@ -2253,7 +2253,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr %35, ptr %4, align 8, !tbaa !124
+  store ptr %35, ptr %4, align 8, !tbaa !126
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   br label %37
 
@@ -2262,7 +2262,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %38 = call ptr @_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr nonnull %36, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.07.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 16
   %.not.i.i21 = icmp eq ptr %39, %16
-  br i1 %.not.i.i21, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit, label %37, !llvm.loop !126
+  br i1 %.not.i.i21, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit, label %37, !llvm.loop !128
 
 _ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit: ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
@@ -2276,11 +2276,11 @@ _ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEE
   %.us-phi.sink = phi ptr [ %34, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ %.fca.0.extract, %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit ], [ %.fca.0.extract11, %8 ], [ %.us-phi, %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
   %.sink = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ 1, %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit ], [ %.fca.1.extract12, %8 ], [ 0, %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink53, ptr %42, align 8, !tbaa !127
+  store i8 %.sink53, ptr %42, align 8, !tbaa !129
   %43 = ptrtoint ptr %.us-phi.sink to i64
   store i64 %43, ptr %0, align 8, !tbaa !27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %44, align 8, !tbaa !129
+  store i8 %.sink, ptr %44, align 8, !tbaa !131
   ret void
 }
 
@@ -2400,7 +2400,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37: ; preds = %_ZNKSt4lessI
   %12 = getelementptr inbounds nuw i8, ptr %.03546, i64 %.sink
   %.035 = load ptr, ptr %12, align 8, !tbaa !103
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !131
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37
   br i1 %11, label %._crit_edge.thread, label %18
@@ -2763,7 +2763,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8SmallSetINS_9StringRefE
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us:  ; preds = %.lr.ph.i.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 16
   %.not.i.us = icmp eq ptr %13, %11
-  br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split.us, !llvm.loop !123
+  br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split.us, !llvm.loop !134
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
   %.01019.i = phi ptr [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %7, %.lr.ph.i ]
@@ -2781,7 +2781,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
   %15 = getelementptr inbounds nuw i8, ptr %.01019.i, i64 16
   %.not.i = icmp eq ptr %15, %11
-  br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !123
+  br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !125
 
 _ZNK4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us, %.lr.ph.i.split.us, %6
   %.1.i = phi ptr [ %11, %6 ], [ %.01019.i.us, %.lr.ph.i.split.us ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %.01019.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ]
@@ -2836,7 +2836,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread.i.i.i: ; preds = %_ZNKSt4l
   %28 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %28, align 8, !tbaa !103
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, label %22, !llvm.loop !132
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, label %22, !llvm.loop !135
 
 _ZNKSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i: ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread.i.i.i
   %29 = icmp eq ptr %.19.i.i.i, %21
@@ -3189,7 +3189,7 @@ _ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.thread37: ; preds = %_ZNKSt4lessI
   %12 = getelementptr inbounds nuw i8, ptr %.03546, i64 %.sink
   %.035 = load ptr, ptr %12, align 8, !tbaa !103
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !133
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.thread37
   br i1 %11, label %._crit_edge.thread, label %18
@@ -3412,14 +3412,17 @@ attributes #20 = { builtin nounwind allocsize(0) }
 !120 = !{!43, !45, i64 16}
 !121 = distinct !{!121, !57}
 !122 = distinct !{!122, !57}
-!123 = distinct !{!123, !57}
-!124 = !{!125, !125, i64 0}
-!125 = !{!"p1 _ZTSSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE", !5, i64 0}
-!126 = distinct !{!126, !57}
-!127 = !{!128, !38, i64 8}
-!128 = !{!"_ZTSN4llvm16SmallSetIteratorINS_9StringRefELj4ESt4lessIS1_EEE", !6, i64 0, !38, i64 8}
-!129 = !{!130, !38, i64 16}
-!130 = !{!"_ZTSSt4pairIN4llvm16SmallSetIteratorINS0_9StringRefELj4ESt4lessIS2_EEEbE", !128, i64 0, !38, i64 16}
-!131 = distinct !{!131, !57}
-!132 = distinct !{!132, !57}
+!123 = distinct !{!123, !57, !124}
+!124 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!125 = distinct !{!125, !57}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTSSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE", !5, i64 0}
+!128 = distinct !{!128, !57}
+!129 = !{!130, !38, i64 8}
+!130 = !{!"_ZTSN4llvm16SmallSetIteratorINS_9StringRefELj4ESt4lessIS1_EEE", !6, i64 0, !38, i64 8}
+!131 = !{!132, !38, i64 16}
+!132 = !{!"_ZTSSt4pairIN4llvm16SmallSetIteratorINS0_9StringRefELj4ESt4lessIS2_EEEbE", !130, i64 0, !38, i64 16}
 !133 = distinct !{!133, !57}
+!134 = distinct !{!134, !57, !124}
+!135 = distinct !{!135, !57}
+!136 = distinct !{!136, !57}

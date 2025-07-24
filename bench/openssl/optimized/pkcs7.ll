@@ -225,7 +225,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
 
 68:                                               ; preds = %65, %64
   %.not86 = icmp eq i32 %.068, 0
-  br i1 %.not86, label %133, label %69
+  br i1 %.not86, label %125, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %3, align 8, !tbaa !4
@@ -267,152 +267,131 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
 
 .lr.ph:                                           ; preds = %.preheader108
   %.not94 = icmp eq i32 %.066, 0
+  %.not95 = icmp eq i32 %.060, 0
   %.not96 = icmp eq i32 %.064, 0
   br i1 %.not94, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not95 = icmp eq i32 %.060, 0
-  br i1 %.not95, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %90
+  %.070137.us = phi i32 [ %92, %90 ], [ 0, %.lr.ph ]
+  %85 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us) #3
+  br i1 %.not95, label %86, label %87
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  br i1 %.not96, label %.lr.ph.split.us.split.us.split.us, label %.lr.ph.split.us.split.us.split
-
-.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
-  %.070137.us.us.us = phi i32 [ %88, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %85 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us.us.us) #3
+86:                                               ; preds = %.lr.ph.split.us
   call void @dump_cert_text(ptr noundef nonnull %62, ptr noundef %85) #3
-  %86 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %62, ptr noundef %85) #3
-  %87 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %88 = add nuw nsw i32 %.070137.us.us.us, 1
-  %89 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %90 = icmp slt i32 %88, %89
-  br i1 %90, label %.lr.ph.split.us.split.us.split.us, label %.loopexit, !llvm.loop !27
+  br label %87
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
-  %.070137.us.us = phi i32 [ %93, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %91 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us.us) #3
-  call void @dump_cert_text(ptr noundef nonnull %62, ptr noundef %91) #3
-  %92 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %93 = add nuw nsw i32 %.070137.us.us, 1
-  %94 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %95 = icmp slt i32 %93, %94
-  br i1 %95, label %.lr.ph.split.us.split.us.split, label %.loopexit, !llvm.loop !27
+87:                                               ; preds = %86, %.lr.ph.split.us
+  br i1 %.not96, label %88, label %90
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %.not96, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+88:                                               ; preds = %87
+  %89 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %62, ptr noundef %85) #3
+  br label %90
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
-  %.070137.us.us139 = phi i32 [ %99, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %96 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us.us139) #3
-  %97 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %62, ptr noundef %96) #3
-  %98 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %99 = add nuw nsw i32 %.070137.us.us139, 1
-  %100 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %101 = icmp slt i32 %99, %100
-  br i1 %101, label %.lr.ph.split.us.split.split.us, label %.loopexit, !llvm.loop !27
-
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
-  %.070137.us = phi i32 [ %104, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %102 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us) #3
-  %103 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %104 = add nuw nsw i32 %.070137.us, 1
-  %105 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph.split.us.split.split, label %.loopexit, !llvm.loop !27
+90:                                               ; preds = %88, %87
+  %91 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
+  %92 = add nuw nsw i32 %.070137.us, 1
+  %93 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
+  %94 = icmp slt i32 %92, %93
+  br i1 %94, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not96, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %.070137.us138 = phi i32 [ %111, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %107 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us138) #3
-  %108 = call i32 @X509_print(ptr noundef nonnull %62, ptr noundef %107) #3
-  %109 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %62, ptr noundef %107) #3
-  %110 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %111 = add nuw nsw i32 %.070137.us138, 1
-  %112 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %113 = icmp slt i32 %111, %112
-  br i1 %113, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !27
+  %.070137.us138 = phi i32 [ %99, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %95 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137.us138) #3
+  %96 = call i32 @X509_print(ptr noundef nonnull %62, ptr noundef %95) #3
+  %97 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %62, ptr noundef %95) #3
+  %98 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
+  %99 = add nuw nsw i32 %.070137.us138, 1
+  %100 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
+  %101 = icmp slt i32 %99, %100
+  br i1 %101, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !29
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %.070137 = phi i32 [ %117, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %114 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137) #3
-  %115 = call i32 @X509_print(ptr noundef nonnull %62, ptr noundef %114) #3
-  %116 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %117 = add nuw nsw i32 %.070137, 1
-  %118 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
-  %119 = icmp slt i32 %117, %118
-  br i1 %119, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !27
+  %.070137 = phi i32 [ %105, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %102 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.056, i32 noundef %.070137) #3
+  %103 = call i32 @X509_print(ptr noundef nonnull %62, ptr noundef %102) #3
+  %104 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
+  %105 = add nuw nsw i32 %.070137, 1
+  %106 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %.preheader108, %82
+.loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %90, %.preheader108, %82
   %.not92 = icmp eq ptr %.055, null
   br i1 %.not92, label %.thread104, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit
-  %120 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph143, label %.thread104
+  %108 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %.lr.ph140, label %.thread104
 
-.lr.ph143:                                        ; preds = %.preheader
+.lr.ph140:                                        ; preds = %.preheader
   %.not93 = icmp eq i32 %.064, 0
-  br label %122
+  br i1 %.not93, label %.lr.ph140.split.us, label %.lr.ph140.split
 
-122:                                              ; preds = %.lr.ph143, %128
-  %.171142 = phi i32 [ 0, %.lr.ph143 ], [ %130, %128 ]
-  %123 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.055, i32 noundef %.171142) #3
-  %124 = call i64 @get_nameopt() #3
-  %125 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %62, ptr noundef %123, i64 noundef %124) #3
-  br i1 %.not93, label %126, label %128
+.lr.ph140.split.us:                               ; preds = %.lr.ph140, %.lr.ph140.split.us
+  %.171139.us = phi i32 [ %115, %.lr.ph140.split.us ], [ 0, %.lr.ph140 ]
+  %110 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.055, i32 noundef %.171139.us) #3
+  %111 = call i64 @get_nameopt() #3
+  %112 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %62, ptr noundef %110, i64 noundef %111) #3
+  %113 = call i32 @PEM_write_bio_X509_CRL(ptr noundef nonnull %62, ptr noundef %110) #3
+  %114 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
+  %115 = add nuw nsw i32 %.171139.us, 1
+  %116 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
+  %117 = icmp slt i32 %115, %116
+  br i1 %117, label %.lr.ph140.split.us, label %.thread104, !llvm.loop !31
 
-126:                                              ; preds = %122
-  %127 = call i32 @PEM_write_bio_X509_CRL(ptr noundef nonnull %62, ptr noundef %123) #3
-  br label %128
+.lr.ph140.split:                                  ; preds = %.lr.ph140, %.lr.ph140.split
+  %.171139 = phi i32 [ %122, %.lr.ph140.split ], [ 0, %.lr.ph140 ]
+  %118 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.055, i32 noundef %.171139) #3
+  %119 = call i64 @get_nameopt() #3
+  %120 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %62, ptr noundef %118, i64 noundef %119) #3
+  %121 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
+  %122 = add nuw nsw i32 %.171139, 1
+  %123 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
+  %124 = icmp slt i32 %122, %123
+  br i1 %124, label %.lr.ph140.split, label %.thread104, !llvm.loop !32
 
-128:                                              ; preds = %126, %122
-  %129 = call i32 @BIO_puts(ptr noundef nonnull %62, ptr noundef nonnull @.str.37) #3
-  %130 = add nuw nsw i32 %.171142, 1
-  %131 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
-  %132 = icmp slt i32 %130, %131
-  br i1 %132, label %122, label %.thread104, !llvm.loop !28
-
-133:                                              ; preds = %68
+125:                                              ; preds = %68
   %.not87 = icmp eq i32 %.064, 0
-  br i1 %.not87, label %134, label %.thread104
+  br i1 %.not87, label %126, label %.thread104
 
-134:                                              ; preds = %133
-  %135 = load i32, ptr %5, align 4, !tbaa !9
-  %136 = icmp eq i32 %135, 4
-  %137 = load ptr, ptr %3, align 8, !tbaa !4
-  br i1 %136, label %138, label %140
+126:                                              ; preds = %125
+  %127 = load i32, ptr %5, align 4, !tbaa !9
+  %128 = icmp eq i32 %127, 4
+  %129 = load ptr, ptr %3, align 8, !tbaa !4
+  br i1 %128, label %130, label %132
 
-138:                                              ; preds = %134
-  %139 = call i32 @i2d_PKCS7_bio(ptr noundef nonnull %62, ptr noundef %137) #3
-  br label %142
+130:                                              ; preds = %126
+  %131 = call i32 @i2d_PKCS7_bio(ptr noundef nonnull %62, ptr noundef %129) #3
+  br label %134
 
-140:                                              ; preds = %134
-  %141 = call i32 @PEM_write_bio_PKCS7(ptr noundef nonnull %62, ptr noundef %137) #3
-  br label %142
+132:                                              ; preds = %126
+  %133 = call i32 @PEM_write_bio_PKCS7(ptr noundef nonnull %62, ptr noundef %129) #3
+  br label %134
 
-142:                                              ; preds = %140, %138
-  %.2 = phi i32 [ %139, %138 ], [ %141, %140 ]
+134:                                              ; preds = %132, %130
+  %.2 = phi i32 [ %131, %130 ], [ %133, %132 ]
   %.not88 = icmp eq i32 %.2, 0
-  br i1 %.not88, label %143, label %.thread104
+  br i1 %.not88, label %135, label %.thread104
 
-143:                                              ; preds = %142
-  %144 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %145 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %144, ptr noundef nonnull @.str.38) #3
-  %146 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  call void @ERR_print_errors(ptr noundef %146) #3
+135:                                              ; preds = %134
+  %136 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %137 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %136, ptr noundef nonnull @.str.38) #3
+  %138 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  call void @ERR_print_errors(ptr noundef %138) #3
   br label %.thread104
 
-.thread104:                                       ; preds = %31, %128, %.preheader, %69, %74, %78, %133, %142, %.loopexit, %60, %35, %143, %56, %43, %12, %.loopexit109
-  %.072 = phi ptr [ null, %.loopexit109 ], [ null, %12 ], [ null, %35 ], [ null, %43 ], [ null, %56 ], [ null, %60 ], [ %62, %143 ], [ %62, %.loopexit ], [ %62, %142 ], [ %62, %133 ], [ %62, %78 ], [ %62, %74 ], [ %62, %69 ], [ %62, %.preheader ], [ %62, %128 ], [ null, %31 ]
-  %.059 = phi i32 [ 1, %.loopexit109 ], [ 0, %12 ], [ 1, %35 ], [ 1, %43 ], [ 1, %56 ], [ 1, %60 ], [ 1, %143 ], [ 0, %.loopexit ], [ 0, %142 ], [ 0, %133 ], [ 0, %78 ], [ 0, %74 ], [ 0, %69 ], [ 0, %.preheader ], [ 0, %128 ], [ 1, %31 ]
-  %.058 = phi ptr [ null, %.loopexit109 ], [ null, %12 ], [ null, %35 ], [ %37, %43 ], [ %37, %56 ], [ %37, %60 ], [ %37, %143 ], [ %37, %.loopexit ], [ %37, %142 ], [ %37, %133 ], [ %37, %78 ], [ %37, %74 ], [ %37, %69 ], [ %37, %.preheader ], [ %37, %128 ], [ null, %31 ]
-  %147 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @PKCS7_free(ptr noundef %147) #3
+.thread104:                                       ; preds = %31, %.lr.ph140.split, %.lr.ph140.split.us, %.preheader, %69, %74, %78, %125, %134, %.loopexit, %60, %35, %135, %56, %43, %12, %.loopexit109
+  %.072 = phi ptr [ null, %.loopexit109 ], [ null, %12 ], [ null, %35 ], [ null, %43 ], [ null, %56 ], [ null, %60 ], [ %62, %135 ], [ %62, %.loopexit ], [ %62, %134 ], [ %62, %125 ], [ %62, %78 ], [ %62, %74 ], [ %62, %69 ], [ %62, %.preheader ], [ %62, %.lr.ph140.split.us ], [ %62, %.lr.ph140.split ], [ null, %31 ]
+  %.059 = phi i32 [ 1, %.loopexit109 ], [ 0, %12 ], [ 1, %35 ], [ 1, %43 ], [ 1, %56 ], [ 1, %60 ], [ 1, %135 ], [ 0, %.loopexit ], [ 0, %134 ], [ 0, %125 ], [ 0, %78 ], [ 0, %74 ], [ 0, %69 ], [ 0, %.preheader ], [ 0, %.lr.ph140.split.us ], [ 0, %.lr.ph140.split ], [ 1, %31 ]
+  %.058 = phi ptr [ null, %.loopexit109 ], [ null, %12 ], [ null, %35 ], [ %37, %43 ], [ %37, %56 ], [ %37, %60 ], [ %37, %135 ], [ %37, %.loopexit ], [ %37, %134 ], [ %37, %125 ], [ %37, %78 ], [ %37, %74 ], [ %37, %69 ], [ %37, %.preheader ], [ %37, %.lr.ph140.split.us ], [ %37, %.lr.ph140.split ], [ null, %31 ]
+  %139 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @PKCS7_free(ptr noundef %139) #3
   call void @release_engine(ptr noundef %.054) #3
-  %148 = call i32 @BIO_free(ptr noundef %.058) #3
+  %140 = call i32 @BIO_free(ptr noundef %.058) #3
   call void @BIO_free_all(ptr noundef %.072) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
@@ -526,5 +505,9 @@ attributes #3 = { nounwind }
 !24 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p1 _ZTS13stack_st_X509", !6, i64 0}
-!27 = distinct !{!27, !12}
-!28 = distinct !{!28, !12}
+!27 = distinct !{!27, !12, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !12, !28}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12, !28}
+!32 = distinct !{!32, !12}

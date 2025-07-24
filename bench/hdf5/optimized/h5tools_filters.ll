@@ -187,7 +187,7 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   %.2 = phi i32 [ %.143, %68 ], [ %.143, %49 ], [ %.143, %49 ], [ %.143, %49 ], [ %.143, %49 ], [ 0, %.sink.split ]
   %73 = add nuw nsw i32 %.02142, 1
   %exitcond.not = icmp eq i32 %73, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %72, %30, %60, %64, %.split45.us, %41, %45, %.split.us, %21, %13, %17, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %17 ], [ -1, %13 ], [ 1, %21 ], [ -1, %.split.us ], [ -1, %45 ], [ -1, %41 ], [ -1, %.split45.us ], [ -1, %64 ], [ -1, %60 ], [ %.2.us, %30 ], [ %.2, %72 ]
@@ -251,5 +251,7 @@ attributes #7 = { cold nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !13}

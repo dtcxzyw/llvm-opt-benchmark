@@ -9673,7 +9673,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit: ; preds = 
 
 .lr.ph.i111.preheader:                            ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit.thread, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit
   %40 = phi i64 [ -3, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit.thread ], [ %39, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit ]
-  %.sroa.0.0.lcssa.i413 = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit.thread ], [ %37, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit ]
+  %.sroa.0.0.lcssa.i410 = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit.thread ], [ %37, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit ]
   br label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %.lr.ph.i111.preheader, %42
@@ -9697,11 +9697,11 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit: ; preds = 
   br label %46
 
 .loopexit391.loopexit:                            ; preds = %42
-  %45 = add i64 %.sroa.0.0.lcssa.i413, -2
+  %45 = add i64 %.sroa.0.0.lcssa.i410, -2
   br label %.loopexit391
 
 .loopexit391:                                     ; preds = %.loopexit391.loopexit, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit
-  %.sroa.0.0.lcssa.i414 = phi i64 [ 1, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit ], [ %45, %.loopexit391.loopexit ]
+  %.sroa.0.0.lcssa.i411 = phi i64 [ 1, %_ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit ], [ %45, %.loopexit391.loopexit ]
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h984a6a047e0f22cbE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %34, ptr noalias noundef nonnull align 8 dereferenceable(64) %33)
   %.pr = load i8, ptr %34, align 8
   %.not94 = icmp eq i8 %.pr, 10
@@ -9774,7 +9774,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   call void @_ZN3std4path4Path10components17hb5ce4a661cf7f370E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %31, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %.not8.i113 = icmp eq i64 %.sroa.0.0.lcssa.i414, 0
+  %.not8.i113 = icmp eq i64 %.sroa.0.0.lcssa.i411, 0
   br i1 %.not8.i113, label %.loopexit, label %.lr.ph.i114
 
 .lr.ph.i114:                                      ; preds = %48, %50
@@ -9788,12 +9788,12 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit: ; preds = 
 50:                                               ; preds = %.lr.ph.i114
   %51 = add nuw i64 %.sroa.01.07.i115, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !643
-  %exitcond.not.i117 = icmp eq i64 %51, %.sroa.0.0.lcssa.i414
+  %exitcond.not.i117 = icmp eq i64 %51, %.sroa.0.0.lcssa.i411
   br i1 %exitcond.not.i117, label %.loopexit, label %.lr.ph.i114
 
 .thread337:                                       ; preds = %.lr.ph.i114
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !643
-  %52 = icmp ne i64 %.sroa.0.0.lcssa.i414, %.sroa.01.07.i115
+  %52 = icmp ne i64 %.sroa.0.0.lcssa.i411, %.sroa.01.07.i115
   call void @llvm.assume(i1 %52)
   br label %56
 

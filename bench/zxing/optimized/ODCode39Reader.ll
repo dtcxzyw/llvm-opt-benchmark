@@ -1901,7 +1901,7 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %93, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit15
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 4
   %.not = icmp ult ptr %104, %49
-  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !60
+  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit.us, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -1928,11 +1928,11 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
   %5 = load ptr, ptr %0, align 8, !tbaa !24
   %6 = load i16, ptr %5, align 2, !tbaa !50
-  store i16 %6, ptr %2, align 4, !tbaa !61
+  store i16 %6, ptr %2, align 4, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !50
-  store i16 %9, ptr %7, align 2, !tbaa !63
+  store i16 %9, ptr %7, align 2, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
   %10 = load i32, ptr %2, align 4
   store i32 %10, ptr %3, align 4
@@ -1949,8 +1949,8 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.5)
-  store i16 0, ptr %.sroa.0, align 2, !tbaa !61
-  store i16 0, ptr %.sroa.5, align 2, !tbaa !63
+  store i16 0, ptr %.sroa.0, align 2, !tbaa !63
+  store i16 0, ptr %.sroa.5, align 2, !tbaa !65
   br label %21
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1968,7 +1968,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   store i16 %.sroa.speculated.i.i, ptr %16, align 2, !tbaa !50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
 
 21:                                               ; preds = %40, %._crit_edge.i
   %.not.i = phi i1 [ true, %._crit_edge.i ], [ false, %40 ]
@@ -2009,7 +2009,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %42, i32 %44)
   %45 = trunc i32 %.sroa.speculated.i to i16
   store i16 %45, ptr %indvars.iv29.i.sroa.phi, align 2, !tbaa !50
-  br i1 %.not.i, label %21, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit, !llvm.loop !65
+  br i1 %.not.i, label %21, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit, !llvm.loop !67
 
 _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread: ; preds = %34, %29, %21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0)
@@ -2064,7 +2064,7 @@ _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds 
   %61 = or disjoint i32 %60, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph, %57, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, %.preheader, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit
   %.012 = phi i32 [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit ], [ 0, %.preheader ], [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread ], [ -1, %.lr.ph ], [ %61, %57 ]
@@ -2177,10 +2177,12 @@ attributes #22 = { noreturn }
 !57 = distinct !{!57, !"_ZNK5ZXing11PatternView7subViewEii"}
 !58 = distinct !{!58, !14}
 !59 = distinct !{!59, !14}
-!60 = distinct !{!60, !14}
-!61 = !{!62, !30, i64 0}
-!62 = !{!"_ZTSN5ZXing11BarAndSpaceItEE", !30, i64 0, !30, i64 2}
-!63 = !{!62, !30, i64 2}
-!64 = distinct !{!64, !14}
-!65 = distinct !{!65, !14}
+!60 = distinct !{!60, !14, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !14}
+!63 = !{!64, !30, i64 0}
+!64 = !{!"_ZTSN5ZXing11BarAndSpaceItEE", !30, i64 0, !30, i64 2}
+!65 = !{!64, !30, i64 2}
 !66 = distinct !{!66, !14}
+!67 = distinct !{!67, !14}
+!68 = distinct !{!68, !14}

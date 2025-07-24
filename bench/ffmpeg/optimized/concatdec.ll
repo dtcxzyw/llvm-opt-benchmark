@@ -2159,7 +2159,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %71 = load i32, ptr %70, align 8, !tbaa !121
+  %71 = load i32, ptr %70, align 8, !tbaa !122
   %.not35.i = icmp eq i32 %71, 0
   br i1 %.not35.i, label %117, label %72
 
@@ -2210,26 +2210,26 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
   br i1 %98, label %detect_stream_specific.exit.thread, label %99
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr %2, align 8, !tbaa !122
+  %100 = load ptr, ptr %2, align 8, !tbaa !123
   store ptr %100, ptr %60, align 8, !tbaa !93
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !123
+  %102 = load ptr, ptr %101, align 8, !tbaa !124
   %103 = load ptr, ptr %64, align 8, !tbaa !67
   %104 = call i32 @avcodec_parameters_copy(ptr noundef %102, ptr noundef %103) #14
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %detect_stream_specific.exit.thread, label %106
 
 106:                                              ; preds = %99
-  %107 = load ptr, ptr %2, align 8, !tbaa !122
+  %107 = load ptr, ptr %2, align 8, !tbaa !123
   %108 = call i32 @av_bsf_init(ptr noundef %107) #14
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %detect_stream_specific.exit.thread, label %110
 
 110:                                              ; preds = %106
   %111 = load ptr, ptr %64, align 8, !tbaa !67
-  %112 = load ptr, ptr %2, align 8, !tbaa !122
+  %112 = load ptr, ptr %2, align 8, !tbaa !123
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !126
+  %114 = load ptr, ptr %113, align 8, !tbaa !127
   %115 = call i32 @avcodec_parameters_copy(ptr noundef %111, ptr noundef %114) #14
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %detect_stream_specific.exit.thread, label %._crit_edge56
@@ -2251,7 +2251,7 @@ detect_stream_specific.exit.thread:               ; preds = %96, %99, %106, %110
   %120 = load i32, ptr %119, align 4, !tbaa !41
   %121 = trunc nsw i64 %indvars.iv.next to i32
   %122 = icmp ugt i32 %120, %121
-  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !127
+  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %117, %.lr.ph.split.us, %19
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -2326,7 +2326,7 @@ detect_stream_specific.exit.thread:               ; preds = %96, %99, %106, %110
   %165 = load i32, ptr %164, align 4, !tbaa !41
   %166 = trunc nsw i64 %indvars.iv.next.i to i32
   %167 = icmp ugt i32 %165, %166
-  br i1 %167, label %139, label %.loopexit, !llvm.loop !129
+  br i1 %167, label %139, label %.loopexit, !llvm.loop !130
 
 168:                                              ; preds = %._crit_edge
   %169 = load ptr, ptr %3, align 8, !tbaa !11
@@ -2405,7 +2405,7 @@ detect_stream_specific.exit.thread:               ; preds = %96, %99, %106, %110
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %215 = zext i32 %214 to i64
   %216 = icmp samesign ult i64 %indvars.iv.next.i40, %215
-  br i1 %216, label %192, label %._crit_edge.loopexit.i, !llvm.loop !130
+  br i1 %216, label %192, label %._crit_edge.loopexit.i, !llvm.loop !131
 
 ._crit_edge.loopexit.i:                           ; preds = %213
   %.pre40.i = load ptr, ptr %174, align 8, !tbaa !80
@@ -2420,7 +2420,7 @@ detect_stream_specific.exit.thread:               ; preds = %96, %99, %106, %110
   %221 = load i32, ptr %220, align 4, !tbaa !41
   %222 = trunc nsw i64 %indvars.iv.next38.i to i32
   %223 = icmp ugt i32 %221, %222
-  br i1 %223, label %.lr.ph32.split.i, label %.loopexit, !llvm.loop !131
+  br i1 %223, label %.lr.ph32.split.i, label %.loopexit, !llvm.loop !132
 
 .loopexit:                                        ; preds = %._crit_edge.i, %158, %125, %168, %.lr.ph32.i
   %224 = load ptr, ptr %9, align 8, !tbaa !80
@@ -2465,10 +2465,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_stream_props(ptr noun
 
 ._crit_edge:                                      ; preds = %2, %9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !121
+  %13 = load i32, ptr %12, align 8, !tbaa !122
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !121
+  %16 = load i32, ptr %15, align 8, !tbaa !122
   %17 = icmp slt i32 %13, %16
   br i1 %17, label %18, label %21
 
@@ -2480,7 +2480,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_stream_props(ptr noun
 ._crit_edge32:                                    ; preds = %18
   %.pre33 = load ptr, ptr %14, align 8, !tbaa !67
   %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %.pre33, i64 24
-  %.pre35 = load i32, ptr %.phi.trans.insert34, align 8, !tbaa !121
+  %.pre35 = load i32, ptr %.phi.trans.insert34, align 8, !tbaa !122
   br label %21
 
 21:                                               ; preds = %._crit_edge32, %._crit_edge
@@ -2518,13 +2518,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_stream_props(ptr noun
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %45 = load i32, ptr %44, align 8, !tbaa !132
+  %45 = load i32, ptr %44, align 8, !tbaa !133
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !133
+  %47 = load i32, ptr %46, align 4, !tbaa !134
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %0, i32 noundef 64, i32 noundef %45, i32 noundef %47) #14
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %50 = load ptr, ptr %49, align 8, !tbaa !134
+  %50 = load ptr, ptr %49, align 8, !tbaa !135
   %51 = tail call i32 @av_dict_copy(ptr noundef nonnull %48, ptr noundef %50, i32 noundef 0) #14
   br label %52
 
@@ -2708,18 +2708,19 @@ attributes #17 = { nounwind willreturn memory(none) }
 !117 = !{!12, !21, i64 96}
 !118 = !{!38, !10, i64 60}
 !119 = !{!38, !10, i64 56}
-!120 = distinct !{!120, !32}
-!121 = !{!69, !10, i64 24}
-!122 = !{!92, !92, i64 0}
-!123 = !{!124, !58, i64 24}
-!124 = !{!"AVBSFContext", !13, i64 0, !125, i64 8, !7, i64 16, !58, i64 24, !58, i64 32, !59, i64 40, !59, i64 48}
-!125 = !{!"p1 _ZTS17AVBitStreamFilter", !7, i64 0}
-!126 = !{!124, !58, i64 32}
-!127 = distinct !{!127, !32, !128}
-!128 = !{!"llvm.loop.unswitch.partial.disable"}
-!129 = distinct !{!129, !32}
+!120 = distinct !{!120, !32, !121}
+!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!122 = !{!69, !10, i64 24}
+!123 = !{!92, !92, i64 0}
+!124 = !{!125, !58, i64 24}
+!125 = !{!"AVBSFContext", !13, i64 0, !126, i64 8, !7, i64 16, !58, i64 24, !58, i64 32, !59, i64 40, !59, i64 48}
+!126 = !{!"p1 _ZTS17AVBitStreamFilter", !7, i64 0}
+!127 = !{!125, !58, i64 32}
+!128 = distinct !{!128, !32, !129}
+!129 = !{!"llvm.loop.unswitch.partial.disable"}
 !130 = distinct !{!130, !32}
-!131 = distinct !{!131, !32, !128}
-!132 = !{!57, !10, i64 32}
-!133 = !{!57, !10, i64 36}
-!134 = !{!57, !23, i64 80}
+!131 = distinct !{!131, !32}
+!132 = distinct !{!132, !32, !129}
+!133 = !{!57, !10, i64 32}
+!134 = !{!57, !10, i64 36}
+!135 = !{!57, !23, i64 80}

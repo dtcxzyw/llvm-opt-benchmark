@@ -3166,7 +3166,7 @@ _ZN5nlsat26compare_interval_with_zeroERKNS_8intervalERK15_scoped_numeralIN17alge
 101:                                              ; preds = %90
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %._crit_edge124, label %.lr.ph123.split, !llvm.loop !69
+  br i1 %exitcond153.not, label %._crit_edge124, label %.lr.ph123.split, !llvm.loop !71
 
 ._crit_edge124:                                   ; preds = %101, %85, %62
   %.not89119.not178 = phi i1 [ true, %62 ], [ false, %85 ], [ false, %101 ]
@@ -3233,7 +3233,7 @@ _ZN5nlsat26compare_interval_with_zeroERKNS_8intervalERK15_scoped_numeralIN17alge
   %.1 = phi i32 [ %.067137, %106 ], [ %.067137, %.lr.ph139 ], [ %spec.select, %117 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
-  br i1 %exitcond165.not, label %.critedge.loopexit, label %.lr.ph139, !llvm.loop !70
+  br i1 %exitcond165.not, label %.critedge.loopexit, label %.lr.ph139, !llvm.loop !72
 
 .critedge.loopexit:                               ; preds = %120
   %121 = zext i32 %.1 to i64
@@ -3249,7 +3249,7 @@ _ZN5nlsat26compare_interval_with_zeroERKNS_8intervalERK15_scoped_numeralIN17alge
           to label %.thread unwind label %131
 
 .thread:                                          ; preds = %99, %92, %115, %.critedge, %61, %54, %.critedge141, %._crit_edge124
-  %126 = load ptr, ptr %6, align 8, !tbaa !71
+  %126 = load ptr, ptr %6, align 8, !tbaa !73
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %126, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit unwind label %127
 
@@ -3293,7 +3293,7 @@ declare noundef zeroext i1 @_ZN17algebraic_numbers7manager11is_rationalERKNS_4an
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !71
+  %2 = load ptr, ptr %0, align 8, !tbaa !73
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -3352,7 +3352,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5nlsat20interv
   %20 = load i32, ptr %2, align 8, !tbaa !18
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %14, label %._crit_edge, !llvm.loop !73
+  br i1 %22, label %14, label %._crit_edge, !llvm.loop !75
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i64 noundef 1)
@@ -3544,7 +3544,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !74
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !76
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #25
@@ -3880,9 +3880,11 @@ attributes #27 = { builtin allocsize(0) }
 !66 = distinct !{!66, !25}
 !67 = !{!30, !10, i64 0}
 !68 = distinct !{!68, !25}
-!69 = distinct !{!69, !25}
-!70 = distinct !{!70, !25}
-!71 = !{!72, !9, i64 0}
-!72 = !{!"_ZTS15_scoped_numeralIN17algebraic_numbers7managerEE", !9, i64 0, !30, i64 8}
-!73 = distinct !{!73, !25}
-!74 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!69 = distinct !{!69, !25, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !25}
+!72 = distinct !{!72, !25}
+!73 = !{!74, !9, i64 0}
+!74 = !{!"_ZTS15_scoped_numeralIN17algebraic_numbers7managerEE", !9, i64 0, !30, i64 8}
+!75 = distinct !{!75, !25}
+!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}

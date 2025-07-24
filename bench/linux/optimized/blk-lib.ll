@@ -322,7 +322,7 @@ define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store i64 %60, ptr %63, align 8
   %64 = icmp ugt i64 %59, %50
-  br i1 %64, label %.lr.ph12.i, label %.thread6.i
+  br i1 %64, label %.lr.ph12.i, label %.thread6.i, !llvm.loop !16
 
 .split.split.i:                                   ; preds = %.split.i
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -372,7 +372,7 @@ __blkdev_issue_write_zeroes.exit:                 ; preds = %41, %42
   br i1 %89, label %90, label %__blkdev_issue_write_zeroes.exit.thread
 
 90:                                               ; preds = %__blkdev_issue_write_zeroes.exit
-  %91 = tail call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4), !range !16
+  %91 = tail call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4), !range !18
   br label %__blkdev_issue_write_zeroes.exit.thread
 
 __blkdev_issue_write_zeroes.exit.thread:          ; preds = %23, %28, %36, %86, %90, %__blkdev_issue_write_zeroes.exit, %18
@@ -446,12 +446,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %52 = icmp uge i32 %47, %40
   %53 = icmp ne i64 %50, 0
   %54 = and i1 %52, %53
-  br i1 %54, label %35, label %.split5.us.us, !llvm.loop !17
+  br i1 %54, label %35, label %.split5.us.us, !llvm.loop !19
 
 .split5.us.us:                                    ; preds = %35
   %55 = tail call i32 @__SCT__cond_resched() #6
   %56 = icmp eq i64 %50, 0
-  br i1 %56, label %.loopexit, label %.split.us.us, !llvm.loop !18
+  br i1 %56, label %.loopexit, label %.split.us.us, !llvm.loop !20
 
 .split:                                           ; preds = %.preheader, %.split5
   %57 = phi i64 [ %82, %.split5 ], [ %1, %.preheader ]
@@ -486,12 +486,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %83 = icmp uge i32 %78, %71
   %84 = icmp ne i64 %81, 0
   %85 = and i1 %83, %84
-  br i1 %85, label %66, label %.split5, !llvm.loop !17
+  br i1 %85, label %66, label %.split5, !llvm.loop !21
 
 .split5:                                          ; preds = %66
   %86 = tail call i32 @__SCT__cond_resched() #6
   %87 = icmp eq i64 %81, 0
-  br i1 %87, label %.loopexit, label %.split, !llvm.loop !18
+  br i1 %87, label %.loopexit, label %.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.split5, %.split5.us.us, %23
   %88 = phi ptr [ %6, %23 ], [ %33, %.split5.us.us ], [ %64, %.split5 ]
@@ -548,271 +548,235 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
 
 .split25.us:                                      ; preds = %27
   call void @blk_start_plug(ptr noundef nonnull %7) #6
-  br i1 %29, label %.split25.us.split.us.split.preheader, label %.split25.us.split.split
+  br i1 %22, label %36, label %35
 
-.split25.us.split.us.split.preheader:             ; preds = %.split25.us
-  br i1 %22, label %.lr.ph65, label %56
+.critedge:                                        ; preds = %.thread13.us
+  call void @blk_start_plug(ptr noundef nonnull %7) #6
+  br label %35
 
-.lr.ph65:                                         ; preds = %.split25.us.split.us.split.preheader
-  %35 = load i8, ptr %30, align 8, !range !5, !noundef !6
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %.thread13.us.us
-
-37:                                               ; preds = %.lr.ph65
-  %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = load i8, ptr %41, align 8, !range !5, !noundef !6
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %.thread13.us.us
-
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 352
-  %46 = load volatile i64, ptr %45, align 8
-  %47 = and i64 %46, 2
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %.thread13.us.us
-
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread13.us.us, label %52
-
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 200
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread13.us.us, label %.thread48
-
-.thread48:                                        ; preds = %52
+35:                                               ; preds = %.critedge, %.split25.us
   store ptr null, ptr %6, align 8
-  br label %.thread13.us.us.thread
+  br i1 %29, label %58, label %.thread13.thread
 
-56:                                               ; preds = %.thread13.us.us, %.split25.us.split.us.split.preheader
+36:                                               ; preds = %.split25.us
+  %37 = load i8, ptr %30, align 8, !range !5, !noundef !6
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %.thread13.us
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %31, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %44 = load i8, ptr %43, align 8, !range !5, !noundef !6
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %.thread13.us
+
+46:                                               ; preds = %39
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 352
+  %48 = load volatile i64, ptr %47, align 8
+  %49 = and i64 %48, 2
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %.thread13.us
+
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.thread13.us, label %54
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 200
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.thread13.us, label %.thread42
+
+.thread42:                                        ; preds = %54
   store ptr null, ptr %6, align 8
-  %57 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef 0, i32 noundef %3, ptr noundef nonnull %6), !range !16
-  %.pre47 = load ptr, ptr %6, align 8
-  %58 = icmp eq i32 %57, 0
-  %59 = icmp ne ptr %.pre47, null
-  %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %61, label %.thread13.us.us.thread
+  br label %.thread13.us.thread
 
-61:                                               ; preds = %56
-  %62 = call i32 @submit_bio_wait(ptr noundef nonnull %.pre47) #6
-  call void @bio_put(ptr noundef nonnull %.pre47) #6
-  br label %.thread13.us.us.thread
+58:                                               ; preds = %35
+  %59 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef 0, i32 noundef %3, ptr noundef nonnull %6), !range !18
+  %.pre41 = load ptr, ptr %6, align 8
+  %60 = icmp eq i32 %59, 0
+  %61 = icmp ne ptr %.pre41, null
+  %62 = select i1 %60, i1 %61, i1 false
+  br i1 %62, label %63, label %.thread13.us.thread
 
-.thread13.us.us.thread:                           ; preds = %.thread48, %61, %56
-  %.ph = phi i32 [ 0, %.thread48 ], [ %57, %56 ], [ %62, %61 ]
+63:                                               ; preds = %58
+  %64 = call i32 @submit_bio_wait(ptr noundef nonnull %.pre41) #6
+  call void @bio_put(ptr noundef nonnull %.pre41) #6
+  br label %.thread13.us.thread
+
+.thread13.us.thread:                              ; preds = %.thread42, %63, %58
+  %.ph = phi i32 [ 0, %.thread42 ], [ %59, %58 ], [ %64, %63 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.loopexit14
 
-.thread13.us.us:                                  ; preds = %52, %49, %44, %37, %.lr.ph65
+.thread13.us:                                     ; preds = %54, %51, %46, %39, %36
+  %65 = phi i32 [ -1, %36 ], [ -1, %39 ], [ -95, %54 ], [ -1, %46 ], [ -95, %51 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
-  call void @blk_start_plug(ptr noundef nonnull %7) #6
-  br label %56
+  br i1 %29, label %.critedge, label %.split28.us.loopexit, !llvm.loop !23
 
-.split25.us.split.split:                          ; preds = %.split25.us
-  br i1 %22, label %63, label %.thread13.thread
-
-63:                                               ; preds = %.split25.us.split.split
-  %64 = load i8, ptr %30, align 8, !range !5, !noundef !6
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %.split28.us.split
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %31, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %71 = load i8, ptr %70, align 8, !range !5, !noundef !6
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %.split28.us.split
-
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 352
-  %75 = load volatile i64, ptr %74, align 8
-  %76 = and i64 %75, 2
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %.split28.us.split
-
-78:                                               ; preds = %73
-  %79 = load ptr, ptr %8, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %.split28.us.split, label %81
-
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 200
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.split28.us.split, label %.loopexit14.split.us.split
-
-.loopexit14.split.us.split:                       ; preds = %81
-  call void @blk_finish_plug(ptr noundef nonnull %7) #6
-  br label %.loopexit14
-
-.split28.us.split:                                ; preds = %81, %63, %66, %73, %78
-  %.ph49 = phi i32 [ -95, %78 ], [ -1, %73 ], [ -1, %66 ], [ -1, %63 ], [ -95, %81 ]
-  call void @blk_finish_plug(ptr noundef nonnull %7) #6
-  br label %.split28
-
-.split25:                                         ; preds = %27, %158
-  %85 = phi i1 [ false, %158 ], [ %22, %27 ]
+.split25:                                         ; preds = %27, %139
+  %66 = phi i1 [ false, %139 ], [ %22, %27 ]
   store ptr null, ptr %6, align 8
   call void @blk_start_plug(ptr noundef nonnull %7) #6
-  br i1 %85, label %86, label %144
+  br i1 %66, label %67, label %125
 
-86:                                               ; preds = %.split25
-  %87 = load i8, ptr %30, align 8, !range !5, !noundef !6
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %89, label %.thread13
+67:                                               ; preds = %.split25
+  %68 = load i8, ptr %30, align 8, !range !5, !noundef !6
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %70, label %.thread13
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %31, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %94 = load i8, ptr %93, align 8, !range !5, !noundef !6
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %96, label %.thread13
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %31, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  %75 = load i8, ptr %74, align 8, !range !5, !noundef !6
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %77, label %.thread13
 
-96:                                               ; preds = %89
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 352
-  %98 = load volatile i64, ptr %97, align 8
-  %99 = and i64 %98, 2
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %.thread13
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 352
+  %79 = load volatile i64, ptr %78, align 8
+  %80 = and i64 %79, 2
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %82, label %.thread13
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %8, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread13, label %104
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %8, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread13, label %85
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 200
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %.thread13, label %.split
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 200
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.thread13, label %.split
 
-.split:                                           ; preds = %104
-  %108 = zext i32 %106 to i64
-  %109 = shl i32 %106, 9
-  %110 = call ptr @blk_next_bio(ptr noundef null, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  store i64 %1, ptr %111, align 8
+.split:                                           ; preds = %85
+  %89 = zext i32 %87 to i64
+  %90 = shl i32 %87, 9
+  %91 = call ptr @blk_next_bio(ptr noundef null, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  store i64 %1, ptr %92, align 8
   br i1 %34, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %112 = icmp ugt i64 %2, %108
-  br i1 %112, label %.lr.ph22, label %.thread12
+  %93 = icmp ugt i64 %2, %89
+  br i1 %93, label %.lr.ph22, label %.thread12
 
 .lr.ph22:                                         ; preds = %.split.split.us, %.lr.ph22
-  %113 = phi ptr [ %120, %.lr.ph22 ], [ %110, %.split.split.us ]
-  %114 = phi i64 [ %117, %.lr.ph22 ], [ %2, %.split.split.us ]
-  %115 = phi i64 [ %118, %.lr.ph22 ], [ %1, %.split.split.us ]
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store i32 %109, ptr %116, align 8
-  %117 = sub nuw i64 %114, %108
-  %118 = add i64 %115, %108
-  %119 = call i32 @__SCT__cond_resched() #6
-  %120 = call ptr @blk_next_bio(ptr noundef %113, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  store i64 %118, ptr %121, align 8
-  %122 = icmp ugt i64 %117, %108
-  br i1 %122, label %.lr.ph22, label %.thread12
+  %94 = phi ptr [ %101, %.lr.ph22 ], [ %91, %.split.split.us ]
+  %95 = phi i64 [ %98, %.lr.ph22 ], [ %2, %.split.split.us ]
+  %96 = phi i64 [ %99, %.lr.ph22 ], [ %1, %.split.split.us ]
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  store i32 %90, ptr %97, align 8
+  %98 = sub nuw i64 %95, %89
+  %99 = add i64 %96, %89
+  %100 = call i32 @__SCT__cond_resched() #6
+  %101 = call ptr @blk_next_bio(ptr noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  store i64 %99, ptr %102, align 8
+  %103 = icmp ugt i64 %98, %89
+  br i1 %103, label %.lr.ph22, label %.thread12, !llvm.loop !24
 
 .split.split:                                     ; preds = %.split
-  %123 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %124 = load i32, ptr %123, align 8
-  %125 = or i32 %124, 134217728
-  store i32 %125, ptr %123, align 8
-  %126 = icmp ugt i64 %2, %108
-  br i1 %126, label %.lr.ph, label %.thread12
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %105 = load i32, ptr %104, align 8
+  %106 = or i32 %105, 134217728
+  store i32 %106, ptr %104, align 8
+  %107 = icmp ugt i64 %2, %89
+  br i1 %107, label %.lr.ph, label %.thread12
 
 .thread12:                                        ; preds = %.lr.ph, %.lr.ph22, %.split.split, %.split.split.us
-  %.us-phi = phi i64 [ %2, %.split.split.us ], [ %2, %.split.split ], [ %117, %.lr.ph22 ], [ %135, %.lr.ph ]
-  %.us-phi20 = phi ptr [ %110, %.split.split.us ], [ %110, %.split.split ], [ %120, %.lr.ph22 ], [ %138, %.lr.ph ]
-  %127 = trunc nuw i64 %.us-phi to i32
-  %128 = shl i32 %127, 9
-  %129 = getelementptr inbounds nuw i8, ptr %.us-phi20, i64 40
-  store i32 %128, ptr %129, align 8
-  %130 = call i32 @__SCT__cond_resched() #6
+  %.us-phi = phi i64 [ %2, %.split.split.us ], [ %2, %.split.split ], [ %98, %.lr.ph22 ], [ %116, %.lr.ph ]
+  %.us-phi20 = phi ptr [ %91, %.split.split.us ], [ %91, %.split.split ], [ %101, %.lr.ph22 ], [ %119, %.lr.ph ]
+  %108 = trunc nuw i64 %.us-phi to i32
+  %109 = shl i32 %108, 9
+  %110 = getelementptr inbounds nuw i8, ptr %.us-phi20, i64 40
+  store i32 %109, ptr %110, align 8
+  %111 = call i32 @__SCT__cond_resched() #6
   store ptr %.us-phi20, ptr %6, align 8
-  br label %147
+  br label %128
 
 .lr.ph:                                           ; preds = %.split.split, %.lr.ph
-  %131 = phi ptr [ %138, %.lr.ph ], [ %110, %.split.split ]
-  %132 = phi i64 [ %135, %.lr.ph ], [ %2, %.split.split ]
-  %133 = phi i64 [ %136, %.lr.ph ], [ %1, %.split.split ]
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  store i32 %109, ptr %134, align 8
-  %135 = sub nuw i64 %132, %108
-  %136 = add i64 %133, %108
-  %137 = call i32 @__SCT__cond_resched() #6
-  %138 = call ptr @blk_next_bio(ptr noundef %131, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  store i64 %136, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %141 = load i32, ptr %140, align 8
-  %142 = or i32 %141, 134217728
-  store i32 %142, ptr %140, align 8
-  %143 = icmp ugt i64 %135, %108
-  br i1 %143, label %.lr.ph, label %.thread12
+  %112 = phi ptr [ %119, %.lr.ph ], [ %91, %.split.split ]
+  %113 = phi i64 [ %116, %.lr.ph ], [ %2, %.split.split ]
+  %114 = phi i64 [ %117, %.lr.ph ], [ %1, %.split.split ]
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  store i32 %90, ptr %115, align 8
+  %116 = sub nuw i64 %113, %89
+  %117 = add i64 %114, %89
+  %118 = call i32 @__SCT__cond_resched() #6
+  %119 = call ptr @blk_next_bio(ptr noundef %112, ptr noundef %0, i32 noundef 0, i32 noundef 9, i32 noundef %3) #6
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  store i64 %117, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %122 = load i32, ptr %121, align 8
+  %123 = or i32 %122, 134217728
+  store i32 %123, ptr %121, align 8
+  %124 = icmp ugt i64 %116, %89
+  br i1 %124, label %.lr.ph, label %.thread12
 
-144:                                              ; preds = %.split25
-  br i1 %29, label %145, label %.thread13.thread
+125:                                              ; preds = %.split25
+  br i1 %29, label %126, label %.thread13.thread
 
-.thread13.thread:                                 ; preds = %144, %.split25.us.split.split
+.thread13.thread:                                 ; preds = %125, %35
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.loopexit14
 
-145:                                              ; preds = %144
-  %146 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6), !range !16
+126:                                              ; preds = %125
+  %127 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6), !range !18
   %.pre = load ptr, ptr %6, align 8
-  br label %147
+  br label %128
 
-147:                                              ; preds = %145, %.thread12
-  %148 = phi ptr [ %.pre, %145 ], [ %.us-phi20, %.thread12 ]
-  %149 = phi i32 [ %146, %145 ], [ 0, %.thread12 ]
-  %150 = icmp eq i32 %149, 0
-  %151 = icmp ne ptr %148, null
-  %152 = select i1 %150, i1 %151, i1 false
-  br i1 %152, label %153, label %.thread13
+128:                                              ; preds = %126, %.thread12
+  %129 = phi ptr [ %.pre, %126 ], [ %.us-phi20, %.thread12 ]
+  %130 = phi i32 [ %127, %126 ], [ 0, %.thread12 ]
+  %131 = icmp eq i32 %130, 0
+  %132 = icmp ne ptr %129, null
+  %133 = select i1 %131, i1 %132, i1 false
+  br i1 %133, label %134, label %.thread13
 
-153:                                              ; preds = %147
-  %154 = call i32 @submit_bio_wait(ptr noundef nonnull %148) #6
-  call void @bio_put(ptr noundef nonnull %148) #6
+134:                                              ; preds = %128
+  %135 = call i32 @submit_bio_wait(ptr noundef nonnull %129) #6
+  call void @bio_put(ptr noundef nonnull %129) #6
   br label %.thread13
 
-.thread13:                                        ; preds = %101, %86, %89, %104, %96, %153, %147
-  %155 = phi i32 [ %154, %153 ], [ %149, %147 ], [ -1, %86 ], [ -1, %89 ], [ -95, %104 ], [ -1, %96 ], [ -95, %101 ]
+.thread13:                                        ; preds = %82, %67, %70, %85, %77, %134, %128
+  %136 = phi i32 [ %135, %134 ], [ %130, %128 ], [ -1, %67 ], [ -1, %70 ], [ -95, %85 ], [ -1, %77 ], [ -95, %82 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
-  %156 = icmp ne i32 %155, 0
-  %157 = select i1 %156, i1 %85, i1 false
-  br i1 %157, label %158, label %.loopexit14
+  %137 = icmp ne i32 %136, 0
+  %138 = select i1 %137, i1 %66, i1 false
+  br i1 %138, label %139, label %.loopexit14
 
-158:                                              ; preds = %.thread13
-  br i1 %29, label %.split25, label %.split28
+139:                                              ; preds = %.thread13
+  br i1 %29, label %.split25, label %.split28.us
 
-.split28:                                         ; preds = %158, %.split28.us.split
-  %.us-phi29 = phi i32 [ %.ph49, %.split28.us.split ], [ %155, %158 ]
-  %159 = load ptr, ptr %8, align 8
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %.loopexit14, label %161
+.split28.us.loopexit:                             ; preds = %.thread13.us
+  store ptr null, ptr %6, align 8
+  br label %.split28.us
 
-161:                                              ; preds = %.split28
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 200
-  %163 = load i32, ptr %162, align 8
-  %164 = icmp eq i32 %163, 0
-  %165 = select i1 %164, i32 -95, i32 %.us-phi29
+.split28.us:                                      ; preds = %139, %.split28.us.loopexit
+  %.us-phi29 = phi i32 [ %65, %.split28.us.loopexit ], [ %136, %139 ]
+  %140 = load ptr, ptr %8, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %.loopexit14, label %142
+
+142:                                              ; preds = %.split28.us
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 200
+  %144 = load i32, ptr %143, align 8
+  %145 = icmp eq i32 %144, 0
+  %146 = select i1 %145, i32 -95, i32 %.us-phi29
   br label %.loopexit14
 
-.loopexit14:                                      ; preds = %.thread13, %.thread13.us.us.thread, %.loopexit14.split.us.split, %.thread13.thread, %161, %.split28, %.thread
-  %166 = phi i32 [ -22, %.thread ], [ %165, %161 ], [ -95, %.split28 ], [ -95, %.thread13.thread ], [ 0, %.loopexit14.split.us.split ], [ %.ph, %.thread13.us.us.thread ], [ %155, %.thread13 ]
+.loopexit14:                                      ; preds = %.thread13, %.thread13.us.thread, %.thread13.thread, %142, %.split28.us, %.thread
+  %147 = phi i32 [ -22, %.thread ], [ %146, %142 ], [ -95, %.split28.us ], [ -95, %.thread13.thread ], [ %.ph, %.thread13.us.thread ], [ %136, %.thread13 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  ret i32 %166
+  ret i32 %147
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -960,6 +924,12 @@ attributes #7 = { cold nounwind }
 !13 = !{!"llvm.loop.unroll.disable"}
 !14 = !{!"auto-init"}
 !15 = !{i32 -95, i32 1}
-!16 = !{i32 -1, i32 1}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{i32 -1, i32 1}
+!19 = distinct !{!19, !12, !13, !17}
+!20 = distinct !{!20, !12, !13, !17}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}

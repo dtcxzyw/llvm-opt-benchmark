@@ -181,201 +181,137 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %.not22, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us
-  br i1 %.not23, label %.lr.ph.split.split.us.split.us.split.us, label %.lr.ph.split.split.us.split.us.split
-
-.lr.ph.split.split.us.split.us.split.us:          ; preds = %.lr.ph.split.split.us.split.us, %.lr.ph.split.split.us.split.us.split.us
-  %.029.us30.us.us = phi ptr [ %32, %.lr.ph.split.split.us.split.us.split.us ], [ %1, %.lr.ph.split.split.us.split.us ]
-  %.01928.us31.us.us = phi i32 [ %33, %.lr.ph.split.split.us.split.us.split.us ], [ %2, %.lr.ph.split.split.us.split.us ]
-  %.sroa.06.0.copyload.us.us.us = load i16, ptr %.029.us30.us.us, align 2, !tbaa !9
-  %30 = zext i16 %.sroa.06.0.copyload.us.us.us to i64
-  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %30
-  %.sroa.0.0.copyload.i.us.us.us = load i16, ptr %31, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us.us, ptr %.029.us30.us.us, align 2, !tbaa !9
-  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us.us, i64 %12
-  %33 = add nsw i32 %.01928.us31.us.us, -1
-  %.not.us36.us.us = icmp eq i32 %33, 0
-  br i1 %.not.us36.us.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split.us, !llvm.loop !36
-
-.lr.ph.split.split.us.split.us.split:             ; preds = %.lr.ph.split.split.us.split.us, %.lr.ph.split.split.us.split.us.split
-  %.029.us30.us = phi ptr [ %39, %.lr.ph.split.split.us.split.us.split ], [ %1, %.lr.ph.split.split.us.split.us ]
-  %.01928.us31.us = phi i32 [ %40, %.lr.ph.split.split.us.split.us.split ], [ %2, %.lr.ph.split.split.us.split.us ]
-  %.sroa.06.0.copyload.us.us = load i16, ptr %.029.us30.us, align 2, !tbaa !9
-  %34 = zext i16 %.sroa.06.0.copyload.us.us to i64
-  %35 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %34
-  %.sroa.0.0.copyload.i.us.us = load i16, ptr %35, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us, ptr %.029.us30.us, align 2, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %.029.us30.us, i64 6
-  %.sroa.0.0.copyload.us34.us = load i16, ptr %36, align 2, !tbaa !9
-  %37 = zext i16 %.sroa.0.0.copyload.us34.us to i64
-  %38 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %37
-  %.sroa.0.0.copyload.i26.us35.us = load i16, ptr %38, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i26.us35.us, ptr %36, align 2, !tbaa !9
-  %39 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us, i64 %12
-  %40 = add nsw i32 %.01928.us31.us, -1
-  %.not.us36.us = icmp eq i32 %40, 0
-  br i1 %.not.us36.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !36
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  br i1 %.not23, label %.lr.ph.split.split.us.split.split.us, label %.lr.ph.split.split.us.split.split
-
-.lr.ph.split.split.us.split.split.us:             ; preds = %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.split.us
-  %.029.us30.us55 = phi ptr [ %46, %.lr.ph.split.split.us.split.split.us ], [ %1, %.lr.ph.split.split.us.split ]
-  %.01928.us31.us56 = phi i32 [ %47, %.lr.ph.split.split.us.split.split.us ], [ %2, %.lr.ph.split.split.us.split ]
-  %.sroa.06.0.copyload.us.us57 = load i16, ptr %.029.us30.us55, align 2, !tbaa !9
-  %41 = zext i16 %.sroa.06.0.copyload.us.us57 to i64
-  %42 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %41
-  %.sroa.0.0.copyload.i.us.us58 = load i16, ptr %42, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us58, ptr %.029.us30.us55, align 2, !tbaa !9
-  %43 = getelementptr inbounds nuw i8, ptr %.029.us30.us55, i64 4
-  %.sroa.02.0.copyload.us32.us = load i16, ptr %43, align 2, !tbaa !9
-  %44 = zext i16 %.sroa.02.0.copyload.us32.us to i64
-  %45 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %44
-  %.sroa.0.0.copyload.i25.us33.us = load i16, ptr %45, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i25.us33.us, ptr %43, align 2, !tbaa !9
-  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us55, i64 %12
-  %47 = add nsw i32 %.01928.us31.us56, -1
-  %.not.us36.us59 = icmp eq i32 %47, 0
-  br i1 %.not.us36.us59, label %._crit_edge, label %.lr.ph.split.split.us.split.split.us, !llvm.loop !36
-
-.lr.ph.split.split.us.split.split:                ; preds = %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.split
-  %.029.us30 = phi ptr [ %56, %.lr.ph.split.split.us.split.split ], [ %1, %.lr.ph.split.split.us.split ]
-  %.01928.us31 = phi i32 [ %57, %.lr.ph.split.split.us.split.split ], [ %2, %.lr.ph.split.split.us.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %41
+  %.029.us30 = phi ptr [ %42, %41 ], [ %1, %.lr.ph.split ]
+  %.01928.us31 = phi i32 [ %43, %41 ], [ %2, %.lr.ph.split ]
   %.sroa.06.0.copyload.us = load i16, ptr %.029.us30, align 2, !tbaa !9
-  %48 = zext i16 %.sroa.06.0.copyload.us to i64
-  %49 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %48
-  %.sroa.0.0.copyload.i.us = load i16, ptr %49, align 2, !tbaa !9
+  %30 = zext i16 %.sroa.06.0.copyload.us to i64
+  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %30
+  %.sroa.0.0.copyload.i.us = load i16, ptr %31, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i.us, ptr %.029.us30, align 2, !tbaa !9
-  %50 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 4
-  %.sroa.02.0.copyload.us32 = load i16, ptr %50, align 2, !tbaa !9
-  %51 = zext i16 %.sroa.02.0.copyload.us32 to i64
-  %52 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %51
-  %.sroa.0.0.copyload.i25.us33 = load i16, ptr %52, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i25.us33, ptr %50, align 2, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 6
-  %.sroa.0.0.copyload.us34 = load i16, ptr %53, align 2, !tbaa !9
-  %54 = zext i16 %.sroa.0.0.copyload.us34 to i64
-  %55 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %54
-  %.sroa.0.0.copyload.i26.us35 = load i16, ptr %55, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i26.us35, ptr %53, align 2, !tbaa !9
-  %56 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30, i64 %12
-  %57 = add nsw i32 %.01928.us31, -1
-  %.not.us36 = icmp eq i32 %57, 0
-  br i1 %.not.us36, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !36
+  br i1 %.not22, label %36, label %32
+
+32:                                               ; preds = %.lr.ph.split.split.us
+  %33 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 4
+  %.sroa.02.0.copyload.us32 = load i16, ptr %33, align 2, !tbaa !9
+  %34 = zext i16 %.sroa.02.0.copyload.us32 to i64
+  %35 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %34
+  %.sroa.0.0.copyload.i25.us33 = load i16, ptr %35, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us33, ptr %33, align 2, !tbaa !9
+  br label %36
+
+36:                                               ; preds = %32, %.lr.ph.split.split.us
+  br i1 %.not23, label %41, label %37
+
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 6
+  %.sroa.0.0.copyload.us34 = load i16, ptr %38, align 2, !tbaa !9
+  %39 = zext i16 %.sroa.0.0.copyload.us34 to i64
+  %40 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %39
+  %.sroa.0.0.copyload.i26.us35 = load i16, ptr %40, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us35, ptr %38, align 2, !tbaa !9
+  br label %41
+
+41:                                               ; preds = %37, %36
+  %42 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30, i64 %12
+  %43 = add nsw i32 %.01928.us31, -1
+  %.not.us36 = icmp eq i32 %43, 0
+  br i1 %.not.us36, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !38
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not22, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  br i1 %.not23, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.us.split
-
-.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split.us
-  %.029.us37.us = phi ptr [ %63, %.lr.ph.split.split.split.us.split.us ], [ %1, %.lr.ph.split.split.split.us ]
-  %.01928.us38.us = phi i32 [ %64, %.lr.ph.split.split.split.us.split.us ], [ %2, %.lr.ph.split.split.split.us ]
-  %.sroa.06.0.copyload.us39.us = load i16, ptr %.029.us37.us, align 2, !tbaa !9
-  %58 = zext i16 %.sroa.06.0.copyload.us39.us to i64
-  %59 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %58
-  %.sroa.0.0.copyload.i.us40.us = load i16, ptr %59, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us40.us, ptr %.029.us37.us, align 2, !tbaa !9
-  %60 = getelementptr inbounds nuw i8, ptr %.029.us37.us, i64 2
-  %.sroa.04.0.copyload.us41.us = load i16, ptr %60, align 2, !tbaa !9
-  %61 = zext i16 %.sroa.04.0.copyload.us41.us to i64
-  %62 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %61
-  %.sroa.0.0.copyload.i24.us42.us = load i16, ptr %62, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i24.us42.us, ptr %60, align 2, !tbaa !9
-  %63 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37.us, i64 %12
-  %64 = add nsw i32 %.01928.us38.us, -1
-  %.not.us45.us = icmp eq i32 %64, 0
-  br i1 %.not.us45.us, label %._crit_edge, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !36
-
-.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split
-  %.029.us37 = phi ptr [ %73, %.lr.ph.split.split.split.us.split ], [ %1, %.lr.ph.split.split.split.us ]
-  %.01928.us38 = phi i32 [ %74, %.lr.ph.split.split.split.us.split ], [ %2, %.lr.ph.split.split.split.us ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %53
+  %.029.us37 = phi ptr [ %54, %53 ], [ %1, %.lr.ph.split.split ]
+  %.01928.us38 = phi i32 [ %55, %53 ], [ %2, %.lr.ph.split.split ]
   %.sroa.06.0.copyload.us39 = load i16, ptr %.029.us37, align 2, !tbaa !9
-  %65 = zext i16 %.sroa.06.0.copyload.us39 to i64
-  %66 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %65
-  %.sroa.0.0.copyload.i.us40 = load i16, ptr %66, align 2, !tbaa !9
+  %44 = zext i16 %.sroa.06.0.copyload.us39 to i64
+  %45 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %44
+  %.sroa.0.0.copyload.i.us40 = load i16, ptr %45, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i.us40, ptr %.029.us37, align 2, !tbaa !9
-  %67 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 2
-  %.sroa.04.0.copyload.us41 = load i16, ptr %67, align 2, !tbaa !9
-  %68 = zext i16 %.sroa.04.0.copyload.us41 to i64
-  %69 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %68
-  %.sroa.0.0.copyload.i24.us42 = load i16, ptr %69, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i24.us42, ptr %67, align 2, !tbaa !9
-  %70 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 6
-  %.sroa.0.0.copyload.us43 = load i16, ptr %70, align 2, !tbaa !9
-  %71 = zext i16 %.sroa.0.0.copyload.us43 to i64
-  %72 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %71
-  %.sroa.0.0.copyload.i26.us44 = load i16, ptr %72, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i26.us44, ptr %70, align 2, !tbaa !9
-  %73 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37, i64 %12
-  %74 = add nsw i32 %.01928.us38, -1
-  %.not.us45 = icmp eq i32 %74, 0
-  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !36
+  %46 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 2
+  %.sroa.04.0.copyload.us41 = load i16, ptr %46, align 2, !tbaa !9
+  %47 = zext i16 %.sroa.04.0.copyload.us41 to i64
+  %48 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %47
+  %.sroa.0.0.copyload.i24.us42 = load i16, ptr %48, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us42, ptr %46, align 2, !tbaa !9
+  br i1 %.not23, label %53, label %49
+
+49:                                               ; preds = %.lr.ph.split.split.split.us
+  %50 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 6
+  %.sroa.0.0.copyload.us43 = load i16, ptr %50, align 2, !tbaa !9
+  %51 = zext i16 %.sroa.0.0.copyload.us43 to i64
+  %52 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %51
+  %.sroa.0.0.copyload.i26.us44 = load i16, ptr %52, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us44, ptr %50, align 2, !tbaa !9
+  br label %53
+
+53:                                               ; preds = %49, %.lr.ph.split.split.split.us
+  %54 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37, i64 %12
+  %55 = add nsw i32 %.01928.us38, -1
+  %.not.us45 = icmp eq i32 %55, 0
+  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !39
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not23, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.029.us46 = phi ptr [ %83, %.lr.ph.split.split.split.split.us ], [ %1, %.lr.ph.split.split.split ]
-  %.01928.us47 = phi i32 [ %84, %.lr.ph.split.split.split.split.us ], [ %2, %.lr.ph.split.split.split ]
+  %.029.us46 = phi ptr [ %64, %.lr.ph.split.split.split.split.us ], [ %1, %.lr.ph.split.split.split ]
+  %.01928.us47 = phi i32 [ %65, %.lr.ph.split.split.split.split.us ], [ %2, %.lr.ph.split.split.split ]
   %.sroa.06.0.copyload.us48 = load i16, ptr %.029.us46, align 2, !tbaa !9
-  %75 = zext i16 %.sroa.06.0.copyload.us48 to i64
-  %76 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %75
-  %.sroa.0.0.copyload.i.us49 = load i16, ptr %76, align 2, !tbaa !9
+  %56 = zext i16 %.sroa.06.0.copyload.us48 to i64
+  %57 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %56
+  %.sroa.0.0.copyload.i.us49 = load i16, ptr %57, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i.us49, ptr %.029.us46, align 2, !tbaa !9
-  %77 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 2
-  %.sroa.04.0.copyload.us50 = load i16, ptr %77, align 2, !tbaa !9
-  %78 = zext i16 %.sroa.04.0.copyload.us50 to i64
-  %79 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %78
-  %.sroa.0.0.copyload.i24.us51 = load i16, ptr %79, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i24.us51, ptr %77, align 2, !tbaa !9
-  %80 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 4
-  %.sroa.02.0.copyload.us52 = load i16, ptr %80, align 2, !tbaa !9
-  %81 = zext i16 %.sroa.02.0.copyload.us52 to i64
-  %82 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %81
-  %.sroa.0.0.copyload.i25.us53 = load i16, ptr %82, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i25.us53, ptr %80, align 2, !tbaa !9
-  %83 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us46, i64 %12
-  %84 = add nsw i32 %.01928.us47, -1
-  %.not.us54 = icmp eq i32 %84, 0
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !36
+  %58 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 2
+  %.sroa.04.0.copyload.us50 = load i16, ptr %58, align 2, !tbaa !9
+  %59 = zext i16 %.sroa.04.0.copyload.us50 to i64
+  %60 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %59
+  %.sroa.0.0.copyload.i24.us51 = load i16, ptr %60, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us51, ptr %58, align 2, !tbaa !9
+  %61 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 4
+  %.sroa.02.0.copyload.us52 = load i16, ptr %61, align 2, !tbaa !9
+  %62 = zext i16 %.sroa.02.0.copyload.us52 to i64
+  %63 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %62
+  %.sroa.0.0.copyload.i25.us53 = load i16, ptr %63, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us53, ptr %61, align 2, !tbaa !9
+  %64 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us46, i64 %12
+  %65 = add nsw i32 %.01928.us47, -1
+  %.not.us54 = icmp eq i32 %65, 0
+  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !40
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.029 = phi ptr [ %96, %.lr.ph.split.split.split.split ], [ %1, %.lr.ph.split.split.split ]
-  %.01928 = phi i32 [ %97, %.lr.ph.split.split.split.split ], [ %2, %.lr.ph.split.split.split ]
+  %.029 = phi ptr [ %77, %.lr.ph.split.split.split.split ], [ %1, %.lr.ph.split.split.split ]
+  %.01928 = phi i32 [ %78, %.lr.ph.split.split.split.split ], [ %2, %.lr.ph.split.split.split ]
   %.sroa.06.0.copyload = load i16, ptr %.029, align 2, !tbaa !9
-  %85 = zext i16 %.sroa.06.0.copyload to i64
-  %86 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %85
-  %.sroa.0.0.copyload.i = load i16, ptr %86, align 2, !tbaa !9
+  %66 = zext i16 %.sroa.06.0.copyload to i64
+  %67 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %66
+  %.sroa.0.0.copyload.i = load i16, ptr %67, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i, ptr %.029, align 2, !tbaa !9
-  %87 = getelementptr inbounds nuw i8, ptr %.029, i64 2
-  %.sroa.04.0.copyload = load i16, ptr %87, align 2, !tbaa !9
-  %88 = zext i16 %.sroa.04.0.copyload to i64
-  %89 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %88
-  %.sroa.0.0.copyload.i24 = load i16, ptr %89, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i24, ptr %87, align 2, !tbaa !9
-  %90 = getelementptr inbounds nuw i8, ptr %.029, i64 4
-  %.sroa.02.0.copyload = load i16, ptr %90, align 2, !tbaa !9
-  %91 = zext i16 %.sroa.02.0.copyload to i64
-  %92 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %91
-  %.sroa.0.0.copyload.i25 = load i16, ptr %92, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i25, ptr %90, align 2, !tbaa !9
-  %93 = getelementptr inbounds nuw i8, ptr %.029, i64 6
-  %.sroa.0.0.copyload = load i16, ptr %93, align 2, !tbaa !9
-  %94 = zext i16 %.sroa.0.0.copyload to i64
-  %95 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %94
-  %.sroa.0.0.copyload.i26 = load i16, ptr %95, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i26, ptr %93, align 2, !tbaa !9
-  %96 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029, i64 %12
-  %97 = add nsw i32 %.01928, -1
-  %.not = icmp eq i32 %97, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !36
+  %68 = getelementptr inbounds nuw i8, ptr %.029, i64 2
+  %.sroa.04.0.copyload = load i16, ptr %68, align 2, !tbaa !9
+  %69 = zext i16 %.sroa.04.0.copyload to i64
+  %70 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %69
+  %.sroa.0.0.copyload.i24 = load i16, ptr %70, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24, ptr %68, align 2, !tbaa !9
+  %71 = getelementptr inbounds nuw i8, ptr %.029, i64 4
+  %.sroa.02.0.copyload = load i16, ptr %71, align 2, !tbaa !9
+  %72 = zext i16 %.sroa.02.0.copyload to i64
+  %73 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %72
+  %.sroa.0.0.copyload.i25 = load i16, ptr %73, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25, ptr %71, align 2, !tbaa !9
+  %74 = getelementptr inbounds nuw i8, ptr %.029, i64 6
+  %.sroa.0.0.copyload = load i16, ptr %74, align 2, !tbaa !9
+  %75 = zext i16 %.sroa.0.0.copyload to i64
+  %76 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %75
+  %.sroa.0.0.copyload.i26 = load i16, ptr %76, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26, ptr %74, align 2, !tbaa !9
+  %77 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029, i64 %12
+  %78 = add nsw i32 %.01928, -1
+  %.not = icmp eq i32 %78, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.us.split.split, %.lr.ph.split.split.us.split.split.us, %.lr.ph.split.split.us.split.us.split, %.lr.ph.split.split.us.split.us.split.us, %27, %4
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %53, %41, %27, %4
   ret void
 }
 
@@ -413,530 +349,231 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
 .lr.ph67.split:                                   ; preds = %.lr.ph67
   %25 = and i32 %19, 1
   %.not37 = icmp eq i32 %25, 0
-  br i1 %.not37, label %.lr.ph67.split.split.us, label %.lr.ph67.split.split
+  br i1 %.not37, label %.lr.ph.us, label %.lr.ph67.split.split
 
-.lr.ph67.split.split.us:                          ; preds = %.lr.ph67.split
-  br i1 %.not38, label %.lr.ph67.split.split.us.split.us, label %.lr.ph67.split.split.us.split
-
-.lr.ph67.split.split.us.split.us:                 ; preds = %.lr.ph67.split.split.us
-  br i1 %.not39, label %.lr.ph67.split.split.us.split.us.split.us, label %.lr.ph67.split.split.us.split.us.split
-
-.lr.ph67.split.split.us.split.us.split.us:        ; preds = %.lr.ph67.split.split.us.split.us
-  br i1 %.not40, label %._crit_edge68, label %.lr.ph.us.us.us
-
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph67.split.split.us.split.us.split.us, %._crit_edge.split.us.us.split.us.split.us.split.us132.us
-  %.065.us69.us.us = phi ptr [ %34, %._crit_edge.split.us.us.split.us.split.us.split.us132.us ], [ %10, %.lr.ph67.split.split.us.split.us.split.us ]
-  %.03364.us70.us.us = phi i32 [ %35, %._crit_edge.split.us.us.split.us.split.us.split.us132.us ], [ %7, %.lr.ph67.split.split.us.split.us.split.us ]
-  %26 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us, i64 %16
+.lr.ph.us:                                        ; preds = %.lr.ph67.split, %._crit_edge.split.us.us
+  %.065.us69 = phi ptr [ %46, %._crit_edge.split.us.us ], [ %10, %.lr.ph67.split ]
+  %.03364.us70 = phi i32 [ %47, %._crit_edge.split.us.us ], [ %7, %.lr.ph67.split ]
+  %26 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %16
   %27 = load ptr, ptr %0, align 8
   br label %28
 
-28:                                               ; preds = %.lr.ph.us.us.us, %28
-  %.03446.us.us.us.us.us129.us = phi ptr [ %26, %.lr.ph.us.us.us ], [ %32, %28 ]
-  %.03545.us.us.us.us.us130.us = phi i32 [ %14, %.lr.ph.us.us.us ], [ %33, %28 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us.us129.us, i64 6
-  %.sroa.0.0.copyload.us.us.us.us.us.us = load i16, ptr %29, align 2, !tbaa !9
-  %30 = zext i16 %.sroa.0.0.copyload.us.us.us.us.us.us to i64
-  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %27, i64 %30
-  %.sroa.0.0.copyload.i43.us.us.us.us.us.us = load i16, ptr %31, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us.us.us.us.us.us, ptr %29, align 2, !tbaa !9
-  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us.us129.us, i64 %23
-  %33 = add i32 %.03545.us.us.us.us.us130.us, 1
-  %exitcond195.not = icmp eq i32 %.03545.us.us.us.us.us130.us, %17
-  br i1 %exitcond195.not, label %._crit_edge.split.us.us.split.us.split.us.split.us132.us, label %28, !llvm.loop !37
+28:                                               ; preds = %43, %.lr.ph.us
+  %.03446.us.us = phi ptr [ %26, %.lr.ph.us ], [ %44, %43 ]
+  %.03545.us.us = phi i32 [ %14, %.lr.ph.us ], [ %45, %43 ]
+  br i1 %.not38, label %33, label %29
 
-._crit_edge.split.us.us.split.us.split.us.split.us132.us: ; preds = %28
-  %34 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us, i64 %24
-  %35 = add i32 %.03364.us70.us.us, 1
-  %exitcond196.not = icmp eq i32 %.03364.us70.us.us, %12
-  br i1 %exitcond196.not, label %._crit_edge68, label %.lr.ph.us.us.us, !llvm.loop !38
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 2
+  %.sroa.04.0.copyload.us.us = load i16, ptr %30, align 2, !tbaa !9
+  %31 = zext i16 %.sroa.04.0.copyload.us.us to i64
+  %32 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %27, i64 %31
+  %.sroa.0.0.copyload.i41.us.us = load i16, ptr %32, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us.us, ptr %30, align 2, !tbaa !9
+  br label %33
 
-.lr.ph67.split.split.us.split.us.split:           ; preds = %.lr.ph67.split.split.us.split.us
-  br i1 %.not40, label %.lr.ph.us.us.us151, label %.lr.ph.us.us
+33:                                               ; preds = %29, %28
+  br i1 %.not39, label %38, label %34
 
-.lr.ph.us.us.us151:                               ; preds = %.lr.ph67.split.split.us.split.us.split, %._crit_edge.split.us.us.split.us.split.split.us.us.us
-  %.065.us69.us.us152 = phi ptr [ %44, %._crit_edge.split.us.us.split.us.split.split.us.us.us ], [ %10, %.lr.ph67.split.split.us.split.us.split ]
-  %.03364.us70.us.us153 = phi i32 [ %45, %._crit_edge.split.us.us.split.us.split.split.us.us.us ], [ %7, %.lr.ph67.split.split.us.split.us.split ]
-  %36 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us152, i64 %16
-  %37 = load ptr, ptr %0, align 8
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 4
+  %.sroa.02.0.copyload.us.us = load i16, ptr %35, align 2, !tbaa !9
+  %36 = zext i16 %.sroa.02.0.copyload.us.us to i64
+  %37 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %27, i64 %36
+  %.sroa.0.0.copyload.i42.us.us = load i16, ptr %37, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us.us, ptr %35, align 2, !tbaa !9
   br label %38
 
-38:                                               ; preds = %38, %.lr.ph.us.us.us151
-  %.03446.us.us.us.us117.us.us = phi ptr [ %36, %.lr.ph.us.us.us151 ], [ %42, %38 ]
-  %.03545.us.us.us.us118.us.us = phi i32 [ %14, %.lr.ph.us.us.us151 ], [ %43, %38 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us117.us.us, i64 4
-  %.sroa.02.0.copyload.us.us.us.us.us.us = load i16, ptr %39, align 2, !tbaa !9
-  %40 = zext i16 %.sroa.02.0.copyload.us.us.us.us.us.us to i64
-  %41 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %37, i64 %40
-  %.sroa.0.0.copyload.i42.us.us.us.us.us.us = load i16, ptr %41, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us.us.us.us.us.us, ptr %39, align 2, !tbaa !9
-  %42 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us117.us.us, i64 %23
-  %43 = add i32 %.03545.us.us.us.us118.us.us, 1
-  %exitcond193.not = icmp eq i32 %.03545.us.us.us.us118.us.us, %17
-  br i1 %exitcond193.not, label %._crit_edge.split.us.us.split.us.split.split.us.us.us, label %38, !llvm.loop !37
+38:                                               ; preds = %34, %33
+  br i1 %.not40, label %43, label %39
 
-._crit_edge.split.us.us.split.us.split.split.us.us.us: ; preds = %38
-  %44 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us152, i64 %24
-  %45 = add i32 %.03364.us70.us.us153, 1
-  %exitcond194.not = icmp eq i32 %.03364.us70.us.us153, %12
-  br i1 %exitcond194.not, label %._crit_edge68, label %.lr.ph.us.us.us151, !llvm.loop !38
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 6
+  %.sroa.0.0.copyload.us.us = load i16, ptr %40, align 2, !tbaa !9
+  %41 = zext i16 %.sroa.0.0.copyload.us.us to i64
+  %42 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %27, i64 %41
+  %.sroa.0.0.copyload.i43.us.us = load i16, ptr %42, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us.us, ptr %40, align 2, !tbaa !9
+  br label %43
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph67.split.split.us.split.us.split, %._crit_edge.split.us.us.split.us.split.split.us127
-  %.065.us69.us = phi ptr [ %57, %._crit_edge.split.us.us.split.us.split.split.us127 ], [ %10, %.lr.ph67.split.split.us.split.us.split ]
-  %.03364.us70.us = phi i32 [ %58, %._crit_edge.split.us.us.split.us.split.split.us127 ], [ %7, %.lr.ph67.split.split.us.split.us.split ]
-  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us, i64 %16
-  %47 = load ptr, ptr %0, align 8
-  br label %48
+43:                                               ; preds = %39, %38
+  %44 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us, i64 %23
+  %45 = add i32 %.03545.us.us, 1
+  %exitcond89.not = icmp eq i32 %.03545.us.us, %17
+  br i1 %exitcond89.not, label %._crit_edge.split.us.us, label %28, !llvm.loop !42
 
-48:                                               ; preds = %.lr.ph.us.us, %48
-  %.03446.us.us.us.us120 = phi ptr [ %46, %.lr.ph.us.us ], [ %55, %48 ]
-  %.03545.us.us.us.us121 = phi i32 [ %14, %.lr.ph.us.us ], [ %56, %48 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us120, i64 4
-  %.sroa.02.0.copyload.us.us.us.us122 = load i16, ptr %49, align 2, !tbaa !9
-  %50 = zext i16 %.sroa.02.0.copyload.us.us.us.us122 to i64
-  %51 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %47, i64 %50
-  %.sroa.0.0.copyload.i42.us.us.us.us123 = load i16, ptr %51, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us.us.us.us123, ptr %49, align 2, !tbaa !9
-  %52 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us120, i64 6
-  %.sroa.0.0.copyload.us.us.us.us124 = load i16, ptr %52, align 2, !tbaa !9
-  %53 = zext i16 %.sroa.0.0.copyload.us.us.us.us124 to i64
-  %54 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %47, i64 %53
-  %.sroa.0.0.copyload.i43.us.us.us.us125 = load i16, ptr %54, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us.us.us.us125, ptr %52, align 2, !tbaa !9
-  %55 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us120, i64 %23
-  %56 = add i32 %.03545.us.us.us.us121, 1
-  %exitcond191.not = icmp eq i32 %.03545.us.us.us.us121, %17
-  br i1 %exitcond191.not, label %._crit_edge.split.us.us.split.us.split.split.us127, label %48, !llvm.loop !37
-
-._crit_edge.split.us.us.split.us.split.split.us127: ; preds = %48
-  %57 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us, i64 %24
-  %58 = add i32 %.03364.us70.us, 1
-  %exitcond192.not = icmp eq i32 %.03364.us70.us, %12
-  br i1 %exitcond192.not, label %._crit_edge68, label %.lr.ph.us.us, !llvm.loop !38
-
-.lr.ph67.split.split.us.split:                    ; preds = %.lr.ph67.split.split.us
-  br i1 %.not39, label %.lr.ph67.split.split.us.split.split.us, label %.lr.ph67.split.split.us.split.split
-
-.lr.ph67.split.split.us.split.split.us:           ; preds = %.lr.ph67.split.split.us.split
-  br i1 %.not40, label %.lr.ph.us.us136.us, label %.lr.ph.us.us136
-
-.lr.ph.us.us136.us:                               ; preds = %.lr.ph67.split.split.us.split.split.us, %._crit_edge.split.us.us.split.split.us.split.us.us.us
-  %.065.us69.us137.us = phi ptr [ %67, %._crit_edge.split.us.us.split.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.us.split.split.us ]
-  %.03364.us70.us138.us = phi i32 [ %68, %._crit_edge.split.us.us.split.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.us.split.split.us ]
-  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137.us, i64 %16
-  %60 = load ptr, ptr %0, align 8
-  br label %61
-
-61:                                               ; preds = %61, %.lr.ph.us.us136.us
-  %.03446.us.us.us105.us.us.us = phi ptr [ %59, %.lr.ph.us.us136.us ], [ %65, %61 ]
-  %.03545.us.us.us106.us.us.us = phi i32 [ %14, %.lr.ph.us.us136.us ], [ %66, %61 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us.us.us, i64 2
-  %.sroa.04.0.copyload.us.us.us.us.us.us = load i16, ptr %62, align 2, !tbaa !9
-  %63 = zext i16 %.sroa.04.0.copyload.us.us.us.us.us.us to i64
-  %64 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %60, i64 %63
-  %.sroa.0.0.copyload.i41.us.us.us.us.us.us = load i16, ptr %64, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us.us.us.us.us.us, ptr %62, align 2, !tbaa !9
-  %65 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us105.us.us.us, i64 %23
-  %66 = add i32 %.03545.us.us.us106.us.us.us, 1
-  %exitcond189.not = icmp eq i32 %.03545.us.us.us106.us.us.us, %17
-  br i1 %exitcond189.not, label %._crit_edge.split.us.us.split.split.us.split.us.us.us, label %61, !llvm.loop !37
-
-._crit_edge.split.us.us.split.split.us.split.us.us.us: ; preds = %61
-  %67 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137.us, i64 %24
-  %68 = add i32 %.03364.us70.us138.us, 1
-  %exitcond190.not = icmp eq i32 %.03364.us70.us138.us, %12
-  br i1 %exitcond190.not, label %._crit_edge68, label %.lr.ph.us.us136.us, !llvm.loop !38
-
-.lr.ph.us.us136:                                  ; preds = %.lr.ph67.split.split.us.split.split.us, %._crit_edge.split.us.us.split.split.us.split.us145
-  %.065.us69.us137 = phi ptr [ %80, %._crit_edge.split.us.us.split.split.us.split.us145 ], [ %10, %.lr.ph67.split.split.us.split.split.us ]
-  %.03364.us70.us138 = phi i32 [ %81, %._crit_edge.split.us.us.split.split.us.split.us145 ], [ %7, %.lr.ph67.split.split.us.split.split.us ]
-  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137, i64 %16
-  %70 = load ptr, ptr %0, align 8
-  br label %71
-
-71:                                               ; preds = %.lr.ph.us.us136, %71
-  %.03446.us.us.us105.us140 = phi ptr [ %69, %.lr.ph.us.us136 ], [ %78, %71 ]
-  %.03545.us.us.us106.us141 = phi i32 [ %14, %.lr.ph.us.us136 ], [ %79, %71 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us140, i64 2
-  %.sroa.04.0.copyload.us.us.us.us142 = load i16, ptr %72, align 2, !tbaa !9
-  %73 = zext i16 %.sroa.04.0.copyload.us.us.us.us142 to i64
-  %74 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %70, i64 %73
-  %.sroa.0.0.copyload.i41.us.us.us.us143 = load i16, ptr %74, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us.us.us.us143, ptr %72, align 2, !tbaa !9
-  %75 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us140, i64 6
-  %.sroa.0.0.copyload.us.us.us107.us = load i16, ptr %75, align 2, !tbaa !9
-  %76 = zext i16 %.sroa.0.0.copyload.us.us.us107.us to i64
-  %77 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %70, i64 %76
-  %.sroa.0.0.copyload.i43.us.us.us108.us = load i16, ptr %77, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us.us.us108.us, ptr %75, align 2, !tbaa !9
-  %78 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us105.us140, i64 %23
-  %79 = add i32 %.03545.us.us.us106.us141, 1
-  %exitcond187.not = icmp eq i32 %.03545.us.us.us106.us141, %17
-  br i1 %exitcond187.not, label %._crit_edge.split.us.us.split.split.us.split.us145, label %71, !llvm.loop !37
-
-._crit_edge.split.us.us.split.split.us.split.us145: ; preds = %71
-  %80 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137, i64 %24
-  %81 = add i32 %.03364.us70.us138, 1
-  %exitcond188.not = icmp eq i32 %.03364.us70.us138, %12
-  br i1 %exitcond188.not, label %._crit_edge68, label %.lr.ph.us.us136, !llvm.loop !38
-
-.lr.ph67.split.split.us.split.split:              ; preds = %.lr.ph67.split.split.us.split
-  br i1 %.not40, label %.lr.ph.us.us147, label %.lr.ph.us
-
-.lr.ph.us.us147:                                  ; preds = %.lr.ph67.split.split.us.split.split, %._crit_edge.split.us.us.split.split.split.us.us
-  %.065.us69.us148 = phi ptr [ %93, %._crit_edge.split.us.us.split.split.split.us.us ], [ %10, %.lr.ph67.split.split.us.split.split ]
-  %.03364.us70.us149 = phi i32 [ %94, %._crit_edge.split.us.us.split.split.split.us.us ], [ %7, %.lr.ph67.split.split.us.split.split ]
-  %82 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us148, i64 %16
-  %83 = load ptr, ptr %0, align 8
-  br label %84
-
-84:                                               ; preds = %84, %.lr.ph.us.us147
-  %.03446.us.us.us110.us = phi ptr [ %82, %.lr.ph.us.us147 ], [ %91, %84 ]
-  %.03545.us.us.us111.us = phi i32 [ %14, %.lr.ph.us.us147 ], [ %92, %84 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us110.us, i64 2
-  %.sroa.04.0.copyload.us.us.us112.us = load i16, ptr %85, align 2, !tbaa !9
-  %86 = zext i16 %.sroa.04.0.copyload.us.us.us112.us to i64
-  %87 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %83, i64 %86
-  %.sroa.0.0.copyload.i41.us.us.us113.us = load i16, ptr %87, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us.us.us113.us, ptr %85, align 2, !tbaa !9
-  %88 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us110.us, i64 4
-  %.sroa.02.0.copyload.us.us.us114.us = load i16, ptr %88, align 2, !tbaa !9
-  %89 = zext i16 %.sroa.02.0.copyload.us.us.us114.us to i64
-  %90 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %83, i64 %89
-  %.sroa.0.0.copyload.i42.us.us.us115.us = load i16, ptr %90, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us.us.us115.us, ptr %88, align 2, !tbaa !9
-  %91 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us110.us, i64 %23
-  %92 = add i32 %.03545.us.us.us111.us, 1
-  %exitcond185.not = icmp eq i32 %.03545.us.us.us111.us, %17
-  br i1 %exitcond185.not, label %._crit_edge.split.us.us.split.split.split.us.us, label %84, !llvm.loop !37
-
-._crit_edge.split.us.us.split.split.split.us.us:  ; preds = %84
-  %93 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us148, i64 %24
-  %94 = add i32 %.03364.us70.us149, 1
-  %exitcond186.not = icmp eq i32 %.03364.us70.us149, %12
-  br i1 %exitcond186.not, label %._crit_edge68, label %.lr.ph.us.us147, !llvm.loop !38
-
-.lr.ph.us:                                        ; preds = %.lr.ph67.split.split.us.split.split, %._crit_edge.split.us.us.split.split.split
-  %.065.us69 = phi ptr [ %109, %._crit_edge.split.us.us.split.split.split ], [ %10, %.lr.ph67.split.split.us.split.split ]
-  %.03364.us70 = phi i32 [ %110, %._crit_edge.split.us.us.split.split.split ], [ %7, %.lr.ph67.split.split.us.split.split ]
-  %95 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %16
-  %96 = load ptr, ptr %0, align 8
-  br label %97
-
-97:                                               ; preds = %97, %.lr.ph.us
-  %.03446.us.us = phi ptr [ %95, %.lr.ph.us ], [ %107, %97 ]
-  %.03545.us.us = phi i32 [ %14, %.lr.ph.us ], [ %108, %97 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 2
-  %.sroa.04.0.copyload.us.us = load i16, ptr %98, align 2, !tbaa !9
-  %99 = zext i16 %.sroa.04.0.copyload.us.us to i64
-  %100 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %99
-  %.sroa.0.0.copyload.i41.us.us = load i16, ptr %100, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us.us, ptr %98, align 2, !tbaa !9
-  %101 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 4
-  %.sroa.02.0.copyload.us.us = load i16, ptr %101, align 2, !tbaa !9
-  %102 = zext i16 %.sroa.02.0.copyload.us.us to i64
-  %103 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %102
-  %.sroa.0.0.copyload.i42.us.us = load i16, ptr %103, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us.us, ptr %101, align 2, !tbaa !9
-  %104 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 6
-  %.sroa.0.0.copyload.us.us = load i16, ptr %104, align 2, !tbaa !9
-  %105 = zext i16 %.sroa.0.0.copyload.us.us to i64
-  %106 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %105
-  %.sroa.0.0.copyload.i43.us.us = load i16, ptr %106, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us.us, ptr %104, align 2, !tbaa !9
-  %107 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us, i64 %23
-  %108 = add i32 %.03545.us.us, 1
-  %exitcond183.not = icmp eq i32 %.03545.us.us, %17
-  br i1 %exitcond183.not, label %._crit_edge.split.us.us.split.split.split, label %97, !llvm.loop !37
-
-._crit_edge.split.us.us.split.split.split:        ; preds = %97
-  %109 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %24
-  %110 = add i32 %.03364.us70, 1
-  %exitcond184.not = icmp eq i32 %.03364.us70, %12
-  br i1 %exitcond184.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !38
+._crit_edge.split.us.us:                          ; preds = %43
+  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %24
+  %47 = add i32 %.03364.us70, 1
+  %exitcond90.not = icmp eq i32 %.03364.us70, %12
+  br i1 %exitcond90.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !43
 
 .lr.ph67.split.split:                             ; preds = %.lr.ph67.split
-  br i1 %.not38, label %.lr.ph67.split.split.split.us, label %.lr.ph67.split.split.split
+  br i1 %.not38, label %.lr.ph.us72, label %.lr.ph67.split.split.split
 
-.lr.ph67.split.split.split.us:                    ; preds = %.lr.ph67.split.split
-  br i1 %.not39, label %.lr.ph67.split.split.split.us.split.us, label %.lr.ph67.split.split.split.us.split
+.lr.ph.us72:                                      ; preds = %.lr.ph67.split.split, %._crit_edge.split.split.us.us
+  %.065.us73 = phi ptr [ %65, %._crit_edge.split.split.us.us ], [ %10, %.lr.ph67.split.split ]
+  %.03364.us74 = phi i32 [ %66, %._crit_edge.split.split.us.us ], [ %7, %.lr.ph67.split.split ]
+  %48 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %16
+  %49 = load ptr, ptr %0, align 8
+  br label %50
 
-.lr.ph67.split.split.split.us.split.us:           ; preds = %.lr.ph67.split.split.split.us
-  br i1 %.not40, label %.lr.ph.us72.us.us, label %.lr.ph.us72.us
-
-.lr.ph.us72.us.us:                                ; preds = %.lr.ph67.split.split.split.us.split.us, %._crit_edge.split.split.us.us.split.us.split.us.us.us
-  %.065.us73.us.us = phi ptr [ %118, %._crit_edge.split.split.us.us.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.split.us.split.us ]
-  %.03364.us74.us.us = phi i32 [ %119, %._crit_edge.split.split.us.us.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.split.us.split.us ]
-  %111 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us.us, i64 %16
-  %112 = load ptr, ptr %0, align 8
-  br label %113
-
-113:                                              ; preds = %113, %.lr.ph.us72.us.us
-  %.03446.us47.us.us.us.us.us = phi ptr [ %111, %.lr.ph.us72.us.us ], [ %116, %113 ]
-  %.03545.us48.us.us.us.us.us = phi i32 [ %14, %.lr.ph.us72.us.us ], [ %117, %113 ]
-  %.sroa.06.0.copyload.us.us.us.us.us.us = load i16, ptr %.03446.us47.us.us.us.us.us, align 2, !tbaa !9
-  %114 = zext i16 %.sroa.06.0.copyload.us.us.us.us.us.us to i64
-  %115 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %112, i64 %114
-  %.sroa.0.0.copyload.i.us.us.us.us.us.us = load i16, ptr %115, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us.us.us.us.us, ptr %.03446.us47.us.us.us.us.us, align 2, !tbaa !9
-  %116 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us.us.us.us, i64 %23
-  %117 = add i32 %.03545.us48.us.us.us.us.us, 1
-  %exitcond181.not = icmp eq i32 %.03545.us48.us.us.us.us.us, %17
-  br i1 %exitcond181.not, label %._crit_edge.split.split.us.us.split.us.split.us.us.us, label %113, !llvm.loop !37
-
-._crit_edge.split.split.us.us.split.us.split.us.us.us: ; preds = %113
-  %118 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us.us, i64 %24
-  %119 = add i32 %.03364.us74.us.us, 1
-  %exitcond182.not = icmp eq i32 %.03364.us74.us.us, %12
-  br i1 %exitcond182.not, label %._crit_edge68, label %.lr.ph.us72.us.us, !llvm.loop !38
-
-.lr.ph.us72.us:                                   ; preds = %.lr.ph67.split.split.split.us.split.us, %._crit_edge.split.split.us.us.split.us.split.us99
-  %.065.us73.us = phi ptr [ %130, %._crit_edge.split.split.us.us.split.us.split.us99 ], [ %10, %.lr.ph67.split.split.split.us.split.us ]
-  %.03364.us74.us = phi i32 [ %131, %._crit_edge.split.split.us.us.split.us.split.us99 ], [ %7, %.lr.ph67.split.split.split.us.split.us ]
-  %120 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us, i64 %16
-  %121 = load ptr, ptr %0, align 8
-  br label %122
-
-122:                                              ; preds = %.lr.ph.us72.us, %122
-  %.03446.us47.us.us.us94 = phi ptr [ %120, %.lr.ph.us72.us ], [ %128, %122 ]
-  %.03545.us48.us.us.us95 = phi i32 [ %14, %.lr.ph.us72.us ], [ %129, %122 ]
-  %.sroa.06.0.copyload.us.us.us.us96 = load i16, ptr %.03446.us47.us.us.us94, align 2, !tbaa !9
-  %123 = zext i16 %.sroa.06.0.copyload.us.us.us.us96 to i64
-  %124 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %121, i64 %123
-  %.sroa.0.0.copyload.i.us.us.us.us97 = load i16, ptr %124, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us.us.us97, ptr %.03446.us47.us.us.us94, align 2, !tbaa !9
-  %125 = getelementptr inbounds nuw i8, ptr %.03446.us47.us.us.us94, i64 6
-  %.sroa.0.0.copyload.us51.us.us.us = load i16, ptr %125, align 2, !tbaa !9
-  %126 = zext i16 %.sroa.0.0.copyload.us51.us.us.us to i64
-  %127 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %121, i64 %126
-  %.sroa.0.0.copyload.i43.us52.us.us.us = load i16, ptr %127, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us52.us.us.us, ptr %125, align 2, !tbaa !9
-  %128 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us.us94, i64 %23
-  %129 = add i32 %.03545.us48.us.us.us95, 1
-  %exitcond179.not = icmp eq i32 %.03545.us48.us.us.us95, %17
-  br i1 %exitcond179.not, label %._crit_edge.split.split.us.us.split.us.split.us99, label %122, !llvm.loop !37
-
-._crit_edge.split.split.us.us.split.us.split.us99: ; preds = %122
-  %130 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us, i64 %24
-  %131 = add i32 %.03364.us74.us, 1
-  %exitcond180.not = icmp eq i32 %.03364.us74.us, %12
-  br i1 %exitcond180.not, label %._crit_edge68, label %.lr.ph.us72.us, !llvm.loop !38
-
-.lr.ph67.split.split.split.us.split:              ; preds = %.lr.ph67.split.split.split.us
-  br i1 %.not40, label %.lr.ph.us72.us101, label %.lr.ph.us72
-
-.lr.ph.us72.us101:                                ; preds = %.lr.ph67.split.split.split.us.split, %._crit_edge.split.split.us.us.split.split.us.us
-  %.065.us73.us102 = phi ptr [ %142, %._crit_edge.split.split.us.us.split.split.us.us ], [ %10, %.lr.ph67.split.split.split.us.split ]
-  %.03364.us74.us103 = phi i32 [ %143, %._crit_edge.split.split.us.us.split.split.us.us ], [ %7, %.lr.ph67.split.split.split.us.split ]
-  %132 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us102, i64 %16
-  %133 = load ptr, ptr %0, align 8
-  br label %134
-
-134:                                              ; preds = %134, %.lr.ph.us72.us101
-  %.03446.us47.us.us89.us = phi ptr [ %132, %.lr.ph.us72.us101 ], [ %140, %134 ]
-  %.03545.us48.us.us90.us = phi i32 [ %14, %.lr.ph.us72.us101 ], [ %141, %134 ]
-  %.sroa.06.0.copyload.us.us.us91.us = load i16, ptr %.03446.us47.us.us89.us, align 2, !tbaa !9
-  %135 = zext i16 %.sroa.06.0.copyload.us.us.us91.us to i64
-  %136 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %133, i64 %135
-  %.sroa.0.0.copyload.i.us.us.us92.us = load i16, ptr %136, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us.us.us92.us, ptr %.03446.us47.us.us89.us, align 2, !tbaa !9
-  %137 = getelementptr inbounds nuw i8, ptr %.03446.us47.us.us89.us, i64 4
-  %.sroa.02.0.copyload.us49.us.us.us = load i16, ptr %137, align 2, !tbaa !9
-  %138 = zext i16 %.sroa.02.0.copyload.us49.us.us.us to i64
-  %139 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %133, i64 %138
-  %.sroa.0.0.copyload.i42.us50.us.us.us = load i16, ptr %139, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us50.us.us.us, ptr %137, align 2, !tbaa !9
-  %140 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us89.us, i64 %23
-  %141 = add i32 %.03545.us48.us.us90.us, 1
-  %exitcond177.not = icmp eq i32 %.03545.us48.us.us90.us, %17
-  br i1 %exitcond177.not, label %._crit_edge.split.split.us.us.split.split.us.us, label %134, !llvm.loop !37
-
-._crit_edge.split.split.us.us.split.split.us.us:  ; preds = %134
-  %142 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us102, i64 %24
-  %143 = add i32 %.03364.us74.us103, 1
-  %exitcond178.not = icmp eq i32 %.03364.us74.us103, %12
-  br i1 %exitcond178.not, label %._crit_edge68, label %.lr.ph.us72.us101, !llvm.loop !38
-
-.lr.ph.us72:                                      ; preds = %.lr.ph67.split.split.split.us.split, %._crit_edge.split.split.us.us.split.split
-  %.065.us73 = phi ptr [ %157, %._crit_edge.split.split.us.us.split.split ], [ %10, %.lr.ph67.split.split.split.us.split ]
-  %.03364.us74 = phi i32 [ %158, %._crit_edge.split.split.us.us.split.split ], [ %7, %.lr.ph67.split.split.split.us.split ]
-  %144 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %16
-  %145 = load ptr, ptr %0, align 8
-  br label %146
-
-146:                                              ; preds = %146, %.lr.ph.us72
-  %.03446.us47.us = phi ptr [ %144, %.lr.ph.us72 ], [ %155, %146 ]
-  %.03545.us48.us = phi i32 [ %14, %.lr.ph.us72 ], [ %156, %146 ]
+50:                                               ; preds = %62, %.lr.ph.us72
+  %.03446.us47.us = phi ptr [ %48, %.lr.ph.us72 ], [ %63, %62 ]
+  %.03545.us48.us = phi i32 [ %14, %.lr.ph.us72 ], [ %64, %62 ]
   %.sroa.06.0.copyload.us.us = load i16, ptr %.03446.us47.us, align 2, !tbaa !9
-  %147 = zext i16 %.sroa.06.0.copyload.us.us to i64
-  %148 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %147
-  %.sroa.0.0.copyload.i.us.us = load i16, ptr %148, align 2, !tbaa !9
+  %51 = zext i16 %.sroa.06.0.copyload.us.us to i64
+  %52 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %49, i64 %51
+  %.sroa.0.0.copyload.i.us.us = load i16, ptr %52, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i.us.us, ptr %.03446.us47.us, align 2, !tbaa !9
-  %149 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 4
-  %.sroa.02.0.copyload.us49.us = load i16, ptr %149, align 2, !tbaa !9
-  %150 = zext i16 %.sroa.02.0.copyload.us49.us to i64
-  %151 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %150
-  %.sroa.0.0.copyload.i42.us50.us = load i16, ptr %151, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42.us50.us, ptr %149, align 2, !tbaa !9
-  %152 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 6
-  %.sroa.0.0.copyload.us51.us = load i16, ptr %152, align 2, !tbaa !9
-  %153 = zext i16 %.sroa.0.0.copyload.us51.us to i64
-  %154 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %153
-  %.sroa.0.0.copyload.i43.us52.us = load i16, ptr %154, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us52.us, ptr %152, align 2, !tbaa !9
-  %155 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us, i64 %23
-  %156 = add i32 %.03545.us48.us, 1
-  %exitcond175.not = icmp eq i32 %.03545.us48.us, %17
-  br i1 %exitcond175.not, label %._crit_edge.split.split.us.us.split.split, label %146, !llvm.loop !37
+  br i1 %.not39, label %57, label %53
 
-._crit_edge.split.split.us.us.split.split:        ; preds = %146
-  %157 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %24
-  %158 = add i32 %.03364.us74, 1
-  %exitcond176.not = icmp eq i32 %.03364.us74, %12
-  br i1 %exitcond176.not, label %._crit_edge68, label %.lr.ph.us72, !llvm.loop !38
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 4
+  %.sroa.02.0.copyload.us49.us = load i16, ptr %54, align 2, !tbaa !9
+  %55 = zext i16 %.sroa.02.0.copyload.us49.us to i64
+  %56 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %49, i64 %55
+  %.sroa.0.0.copyload.i42.us50.us = load i16, ptr %56, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us50.us, ptr %54, align 2, !tbaa !9
+  br label %57
+
+57:                                               ; preds = %53, %50
+  br i1 %.not40, label %62, label %58
+
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 6
+  %.sroa.0.0.copyload.us51.us = load i16, ptr %59, align 2, !tbaa !9
+  %60 = zext i16 %.sroa.0.0.copyload.us51.us to i64
+  %61 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %49, i64 %60
+  %.sroa.0.0.copyload.i43.us52.us = load i16, ptr %61, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us52.us, ptr %59, align 2, !tbaa !9
+  br label %62
+
+62:                                               ; preds = %58, %57
+  %63 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us, i64 %23
+  %64 = add i32 %.03545.us48.us, 1
+  %exitcond87.not = icmp eq i32 %.03545.us48.us, %17
+  br i1 %exitcond87.not, label %._crit_edge.split.split.us.us, label %50, !llvm.loop !44
+
+._crit_edge.split.split.us.us:                    ; preds = %62
+  %65 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %24
+  %66 = add i32 %.03364.us74, 1
+  %exitcond88.not = icmp eq i32 %.03364.us74, %12
+  br i1 %exitcond88.not, label %._crit_edge68, label %.lr.ph.us72, !llvm.loop !45
 
 .lr.ph67.split.split.split:                       ; preds = %.lr.ph67.split.split
-  br i1 %.not39, label %.lr.ph67.split.split.split.split.us, label %.lr.ph
+  br i1 %.not39, label %.lr.ph.us76, label %.lr.ph
 
-.lr.ph67.split.split.split.split.us:              ; preds = %.lr.ph67.split.split.split
-  br i1 %.not40, label %.lr.ph.us76.us, label %.lr.ph.us76
+.lr.ph.us76:                                      ; preds = %.lr.ph67.split.split.split, %._crit_edge.split.split.split.us.us
+  %.065.us77 = phi ptr [ %82, %._crit_edge.split.split.split.us.us ], [ %10, %.lr.ph67.split.split.split ]
+  %.03364.us78 = phi i32 [ %83, %._crit_edge.split.split.split.us.us ], [ %7, %.lr.ph67.split.split.split ]
+  %67 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %16
+  %68 = load ptr, ptr %0, align 8
+  br label %69
 
-.lr.ph.us76.us:                                   ; preds = %.lr.ph67.split.split.split.split.us, %._crit_edge.split.split.split.us.split.us.us.us
-  %.065.us77.us = phi ptr [ %169, %._crit_edge.split.split.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.split.split.us ]
-  %.03364.us78.us = phi i32 [ %170, %._crit_edge.split.split.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.split.split.us ]
-  %159 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77.us, i64 %16
-  %160 = load ptr, ptr %0, align 8
-  br label %161
+69:                                               ; preds = %79, %.lr.ph.us76
+  %.03446.us54.us = phi ptr [ %67, %.lr.ph.us76 ], [ %80, %79 ]
+  %.03545.us55.us = phi i32 [ %14, %.lr.ph.us76 ], [ %81, %79 ]
+  %.sroa.06.0.copyload.us56.us = load i16, ptr %.03446.us54.us, align 2, !tbaa !9
+  %70 = zext i16 %.sroa.06.0.copyload.us56.us to i64
+  %71 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %68, i64 %70
+  %.sroa.0.0.copyload.i.us57.us = load i16, ptr %71, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us57.us, ptr %.03446.us54.us, align 2, !tbaa !9
+  %72 = getelementptr inbounds nuw i8, ptr %.03446.us54.us, i64 2
+  %.sroa.04.0.copyload.us58.us = load i16, ptr %72, align 2, !tbaa !9
+  %73 = zext i16 %.sroa.04.0.copyload.us58.us to i64
+  %74 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %68, i64 %73
+  %.sroa.0.0.copyload.i41.us59.us = load i16, ptr %74, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us59.us, ptr %72, align 2, !tbaa !9
+  br i1 %.not40, label %79, label %75
 
-161:                                              ; preds = %161, %.lr.ph.us76.us
-  %.03446.us54.us.us.us = phi ptr [ %159, %.lr.ph.us76.us ], [ %167, %161 ]
-  %.03545.us55.us.us.us = phi i32 [ %14, %.lr.ph.us76.us ], [ %168, %161 ]
-  %.sroa.06.0.copyload.us56.us.us.us = load i16, ptr %.03446.us54.us.us.us, align 2, !tbaa !9
-  %162 = zext i16 %.sroa.06.0.copyload.us56.us.us.us to i64
-  %163 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %160, i64 %162
-  %.sroa.0.0.copyload.i.us57.us.us.us = load i16, ptr %163, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us57.us.us.us, ptr %.03446.us54.us.us.us, align 2, !tbaa !9
-  %164 = getelementptr inbounds nuw i8, ptr %.03446.us54.us.us.us, i64 2
-  %.sroa.04.0.copyload.us58.us.us.us = load i16, ptr %164, align 2, !tbaa !9
-  %165 = zext i16 %.sroa.04.0.copyload.us58.us.us.us to i64
-  %166 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %160, i64 %165
-  %.sroa.0.0.copyload.i41.us59.us.us.us = load i16, ptr %166, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us59.us.us.us, ptr %164, align 2, !tbaa !9
-  %167 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us.us.us, i64 %23
-  %168 = add i32 %.03545.us55.us.us.us, 1
-  %exitcond173.not = icmp eq i32 %.03545.us55.us.us.us, %17
-  br i1 %exitcond173.not, label %._crit_edge.split.split.split.us.split.us.us.us, label %161, !llvm.loop !37
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %.03446.us54.us, i64 6
+  %.sroa.0.0.copyload.us60.us = load i16, ptr %76, align 2, !tbaa !9
+  %77 = zext i16 %.sroa.0.0.copyload.us60.us to i64
+  %78 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %68, i64 %77
+  %.sroa.0.0.copyload.i43.us61.us = load i16, ptr %78, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us61.us, ptr %76, align 2, !tbaa !9
+  br label %79
 
-._crit_edge.split.split.split.us.split.us.us.us:  ; preds = %161
-  %169 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77.us, i64 %24
-  %170 = add i32 %.03364.us78.us, 1
-  %exitcond174.not = icmp eq i32 %.03364.us78.us, %12
-  br i1 %exitcond174.not, label %._crit_edge68, label %.lr.ph.us76.us, !llvm.loop !38
+79:                                               ; preds = %75, %69
+  %80 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us, i64 %23
+  %81 = add i32 %.03545.us55.us, 1
+  %exitcond85.not = icmp eq i32 %.03545.us55.us, %17
+  br i1 %exitcond85.not, label %._crit_edge.split.split.split.us.us, label %69, !llvm.loop !46
 
-.lr.ph.us76:                                      ; preds = %.lr.ph67.split.split.split.split.us, %._crit_edge.split.split.split.us.split.us87
-  %.065.us77 = phi ptr [ %184, %._crit_edge.split.split.split.us.split.us87 ], [ %10, %.lr.ph67.split.split.split.split.us ]
-  %.03364.us78 = phi i32 [ %185, %._crit_edge.split.split.split.us.split.us87 ], [ %7, %.lr.ph67.split.split.split.split.us ]
-  %171 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %16
-  %172 = load ptr, ptr %0, align 8
-  br label %173
+._crit_edge.split.split.split.us.us:              ; preds = %79
+  %82 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %24
+  %83 = add i32 %.03364.us78, 1
+  %exitcond86.not = icmp eq i32 %.03364.us78, %12
+  br i1 %exitcond86.not, label %._crit_edge68, label %.lr.ph.us76, !llvm.loop !47
 
-173:                                              ; preds = %.lr.ph.us76, %173
-  %.03446.us54.us80 = phi ptr [ %171, %.lr.ph.us76 ], [ %182, %173 ]
-  %.03545.us55.us81 = phi i32 [ %14, %.lr.ph.us76 ], [ %183, %173 ]
-  %.sroa.06.0.copyload.us56.us82 = load i16, ptr %.03446.us54.us80, align 2, !tbaa !9
-  %174 = zext i16 %.sroa.06.0.copyload.us56.us82 to i64
-  %175 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %174
-  %.sroa.0.0.copyload.i.us57.us83 = load i16, ptr %175, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i.us57.us83, ptr %.03446.us54.us80, align 2, !tbaa !9
-  %176 = getelementptr inbounds nuw i8, ptr %.03446.us54.us80, i64 2
-  %.sroa.04.0.copyload.us58.us84 = load i16, ptr %176, align 2, !tbaa !9
-  %177 = zext i16 %.sroa.04.0.copyload.us58.us84 to i64
-  %178 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %177
-  %.sroa.0.0.copyload.i41.us59.us85 = load i16, ptr %178, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41.us59.us85, ptr %176, align 2, !tbaa !9
-  %179 = getelementptr inbounds nuw i8, ptr %.03446.us54.us80, i64 6
-  %.sroa.0.0.copyload.us60.us = load i16, ptr %179, align 2, !tbaa !9
-  %180 = zext i16 %.sroa.0.0.copyload.us60.us to i64
-  %181 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %180
-  %.sroa.0.0.copyload.i43.us61.us = load i16, ptr %181, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43.us61.us, ptr %179, align 2, !tbaa !9
-  %182 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us80, i64 %23
-  %183 = add i32 %.03545.us55.us81, 1
-  %exitcond171.not = icmp eq i32 %.03545.us55.us81, %17
-  br i1 %exitcond171.not, label %._crit_edge.split.split.split.us.split.us87, label %173, !llvm.loop !37
-
-._crit_edge.split.split.split.us.split.us87:      ; preds = %173
-  %184 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %24
-  %185 = add i32 %.03364.us78, 1
-  %exitcond172.not = icmp eq i32 %.03364.us78, %12
-  br i1 %exitcond172.not, label %._crit_edge68, label %.lr.ph.us76, !llvm.loop !38
-
-._crit_edge68:                                    ; preds = %._crit_edge.split.split.split, %._crit_edge.split.split.split.us.split.us87, %._crit_edge.split.split.split.us.split.us.us.us, %._crit_edge.split.split.us.us.split.split, %._crit_edge.split.split.us.us.split.split.us.us, %._crit_edge.split.split.us.us.split.us.split.us99, %._crit_edge.split.split.us.us.split.us.split.us.us.us, %._crit_edge.split.us.us.split.split.split, %._crit_edge.split.us.us.split.split.split.us.us, %._crit_edge.split.us.us.split.split.us.split.us145, %._crit_edge.split.us.us.split.split.us.split.us.us.us, %._crit_edge.split.us.us.split.us.split.split.us127, %._crit_edge.split.us.us.split.us.split.split.us.us.us, %._crit_edge.split.us.us.split.us.split.us.split.us132.us, %.lr.ph67.split.split.us.split.us.split.us, %.lr.ph67, %5
+._crit_edge68:                                    ; preds = %._crit_edge.split.split.split, %._crit_edge.split.split.split.us.us, %._crit_edge.split.split.us.us, %._crit_edge.split.us.us, %.lr.ph67, %5
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph67.split.split.split, %._crit_edge.split.split.split
-  %.065 = phi ptr [ %188, %._crit_edge.split.split.split ], [ %10, %.lr.ph67.split.split.split ]
-  %.03364 = phi i32 [ %189, %._crit_edge.split.split.split ], [ %7, %.lr.ph67.split.split.split ]
-  %186 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %16
-  %187 = load ptr, ptr %0, align 8
-  br label %190
+  %.065 = phi ptr [ %86, %._crit_edge.split.split.split ], [ %10, %.lr.ph67.split.split.split ]
+  %.03364 = phi i32 [ %87, %._crit_edge.split.split.split ], [ %7, %.lr.ph67.split.split.split ]
+  %84 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %16
+  %85 = load ptr, ptr %0, align 8
+  br label %88
 
-._crit_edge.split.split.split:                    ; preds = %203
-  %188 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %24
-  %189 = add i32 %.03364, 1
-  %exitcond170.not = icmp eq i32 %.03364, %12
-  br i1 %exitcond170.not, label %._crit_edge68, label %.lr.ph, !llvm.loop !38
+._crit_edge.split.split.split:                    ; preds = %101
+  %86 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %24
+  %87 = add i32 %.03364, 1
+  %exitcond84.not = icmp eq i32 %.03364, %12
+  br i1 %exitcond84.not, label %._crit_edge68, label %.lr.ph, !llvm.loop !48
 
-190:                                              ; preds = %.lr.ph, %203
-  %.03446 = phi ptr [ %186, %.lr.ph ], [ %204, %203 ]
-  %.03545 = phi i32 [ %14, %.lr.ph ], [ %205, %203 ]
+88:                                               ; preds = %.lr.ph, %101
+  %.03446 = phi ptr [ %84, %.lr.ph ], [ %102, %101 ]
+  %.03545 = phi i32 [ %14, %.lr.ph ], [ %103, %101 ]
   %.sroa.06.0.copyload = load i16, ptr %.03446, align 2, !tbaa !9
-  %191 = zext i16 %.sroa.06.0.copyload to i64
-  %192 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %191
-  %.sroa.0.0.copyload.i = load i16, ptr %192, align 2, !tbaa !9
+  %89 = zext i16 %.sroa.06.0.copyload to i64
+  %90 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %85, i64 %89
+  %.sroa.0.0.copyload.i = load i16, ptr %90, align 2, !tbaa !9
   store i16 %.sroa.0.0.copyload.i, ptr %.03446, align 2, !tbaa !9
-  %193 = getelementptr inbounds nuw i8, ptr %.03446, i64 2
-  %.sroa.04.0.copyload = load i16, ptr %193, align 2, !tbaa !9
-  %194 = zext i16 %.sroa.04.0.copyload to i64
-  %195 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %194
-  %.sroa.0.0.copyload.i41 = load i16, ptr %195, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i41, ptr %193, align 2, !tbaa !9
-  %196 = getelementptr inbounds nuw i8, ptr %.03446, i64 4
-  %.sroa.02.0.copyload = load i16, ptr %196, align 2, !tbaa !9
-  %197 = zext i16 %.sroa.02.0.copyload to i64
-  %198 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %197
-  %.sroa.0.0.copyload.i42 = load i16, ptr %198, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i42, ptr %196, align 2, !tbaa !9
-  br i1 %.not40, label %203, label %199
+  %91 = getelementptr inbounds nuw i8, ptr %.03446, i64 2
+  %.sroa.04.0.copyload = load i16, ptr %91, align 2, !tbaa !9
+  %92 = zext i16 %.sroa.04.0.copyload to i64
+  %93 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %85, i64 %92
+  %.sroa.0.0.copyload.i41 = load i16, ptr %93, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41, ptr %91, align 2, !tbaa !9
+  %94 = getelementptr inbounds nuw i8, ptr %.03446, i64 4
+  %.sroa.02.0.copyload = load i16, ptr %94, align 2, !tbaa !9
+  %95 = zext i16 %.sroa.02.0.copyload to i64
+  %96 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %85, i64 %95
+  %.sroa.0.0.copyload.i42 = load i16, ptr %96, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42, ptr %94, align 2, !tbaa !9
+  br i1 %.not40, label %101, label %97
 
-199:                                              ; preds = %190
-  %200 = getelementptr inbounds nuw i8, ptr %.03446, i64 6
-  %.sroa.0.0.copyload = load i16, ptr %200, align 2, !tbaa !9
-  %201 = zext i16 %.sroa.0.0.copyload to i64
-  %202 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %201
-  %.sroa.0.0.copyload.i43 = load i16, ptr %202, align 2, !tbaa !9
-  store i16 %.sroa.0.0.copyload.i43, ptr %200, align 2, !tbaa !9
-  br label %203
+97:                                               ; preds = %88
+  %98 = getelementptr inbounds nuw i8, ptr %.03446, i64 6
+  %.sroa.0.0.copyload = load i16, ptr %98, align 2, !tbaa !9
+  %99 = zext i16 %.sroa.0.0.copyload to i64
+  %100 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %85, i64 %99
+  %.sroa.0.0.copyload.i43 = load i16, ptr %100, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43, ptr %98, align 2, !tbaa !9
+  br label %101
 
-203:                                              ; preds = %199, %190
-  %204 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446, i64 %23
-  %205 = add i32 %.03545, 1
+101:                                              ; preds = %97, %88
+  %102 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446, i64 %23
+  %103 = add i32 %.03545, 1
   %exitcond.not = icmp eq i32 %.03545, %17
-  br i1 %exitcond.not, label %._crit_edge.split.split.split, label %190, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.split.split.split, label %88, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
 define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !39
+  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !50
   %3 = zext i16 %0 to i64
   %4 = getelementptr inbounds nuw %union.imath_half_uif, ptr %2, i64 %3
-  %5 = load float, ptr %4, align 4, !tbaa !41
+  %5 = load float, ptr %4, align 4, !tbaa !52
   %6 = fcmp ugt float %5, 0.000000e+00
   br i1 %6, label %7, label %_ZN9Imath_3_24halfC2Ef.exit
 
 7:                                                ; preds = %1
   %8 = fdiv float %5, 0x3FC6A09E60000000
-  %9 = tail call noundef float @logf(float noundef %8) #9, !tbaa !42
+  %9 = tail call noundef float @logf(float noundef %8) #9, !tbaa !53
   %10 = fpext float %9 to double
   %11 = fmul double %10, 2.000000e+02
   %12 = fdiv double %11, 0x3FE62E42FEFA39EF
@@ -961,7 +598,7 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
 
 29:                                               ; preds = %7
   %30 = icmp samesign ugt i32 %24, 2139095039
-  br i1 %30, label %31, label %42, !prof !43
+  br i1 %30, label %31, label %42, !prof !54
 
 31:                                               ; preds = %29
   %32 = or disjoint i16 %27, 31744
@@ -980,7 +617,7 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
 
 42:                                               ; preds = %29
   %43 = icmp samesign ugt i32 %24, 1199566847
-  br i1 %43, label %44, label %46, !prof !43
+  br i1 %43, label %44, label %46, !prof !54
 
 44:                                               ; preds = %42
   %45 = or disjoint i16 %27, 31744
@@ -1103,11 +740,22 @@ attributes #9 = { nounwind }
 !33 = !{!34, !35, i64 8}
 !34 = !{!"_ZTSN7Imf_3_47RgbaLutE", !4, i64 0, !35, i64 8}
 !35 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !7, i64 0}
-!36 = distinct !{!36, !12}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS14imath_half_uif", !6, i64 0}
-!41 = !{!7, !7, i64 0}
-!42 = !{!18, !18, i64 0}
-!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = distinct !{!36, !12, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !12, !37}
+!39 = distinct !{!39, !12, !37}
+!40 = distinct !{!40, !12, !37}
+!41 = distinct !{!41, !12}
+!42 = distinct !{!42, !12, !37}
+!43 = distinct !{!43, !12, !37}
+!44 = distinct !{!44, !12, !37}
+!45 = distinct !{!45, !12, !37}
+!46 = distinct !{!46, !12, !37}
+!47 = distinct !{!47, !12, !37}
+!48 = distinct !{!48, !12}
+!49 = distinct !{!49, !12}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS14imath_half_uif", !6, i64 0}
+!52 = !{!7, !7, i64 0}
+!53 = !{!18, !18, i64 0}
+!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}

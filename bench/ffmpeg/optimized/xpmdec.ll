@@ -247,8 +247,8 @@ define internal i32 @xpm_decode_frame(ptr noundef initializes((136, 140)) %0, pt
   br label %47
 
 47:                                               ; preds = %.critedge4.i, %44
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %.critedge4.i ], [ %46, %44 ]
-  %48 = getelementptr inbounds i8, ptr %.099188, i64 %indvars.iv89.i
+  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.critedge4.i ], [ %46, %44 ]
+  %48 = getelementptr inbounds i8, ptr %.099188, i64 %indvars.iv88.i
   %49 = load i8, ptr %48, align 1, !tbaa !33
   switch i8 %49, label %.critedge4.i [
     i8 0, label %.critedge2.i
@@ -262,11 +262,11 @@ define internal i32 @xpm_decode_frame(ptr noundef initializes((136, 140)) %0, pt
   br i1 %.not64.i, label %.critedge2.i, label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %50, %47
-  %indvars.iv.next90.i = add nsw i64 %indvars.iv89.i, 1
+  %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, 1
   br label %47, !llvm.loop !36
 
 .critedge2.i:                                     ; preds = %50, %47
-  %53 = trunc nsw i64 %indvars.iv89.i to i32
+  %53 = trunc nsw i64 %indvars.iv88.i to i32
   %54 = add nsw i32 %53, 1
   br label %.critedge6.i
 
@@ -280,20 +280,20 @@ define internal i32 @xpm_decode_frame(ptr noundef initializes((136, 140)) %0, pt
   %59 = getelementptr inbounds i8, ptr %.099188, i64 %indvars.iv.i
   %60 = load i8, ptr %59, align 1, !tbaa !33
   switch i8 %60, label %61 [
-    i8 0, label %.critedge6.loopexit85.i
-    i8 10, label %.critedge6.loopexit85.i
+    i8 0, label %.critedge6.loopexit83.i
+    i8 10, label %.critedge6.loopexit83.i
   ]
 
 61:                                               ; preds = %58
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   br label %58, !llvm.loop !37
 
-.critedge6.loopexit85.i:                          ; preds = %58, %58
+.critedge6.loopexit83.i:                          ; preds = %58, %58
   %62 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge6.i
 
-.critedge6.i:                                     ; preds = %.lr.ph77.split.i, %41, %.critedge6.loopexit85.i, %.critedge2.i
-  %.3.i = phi i32 [ %54, %.critedge2.i ], [ %62, %.critedge6.loopexit85.i ], [ %.04874.i, %41 ], [ %.04874.i, %.lr.ph77.split.i ]
+.critedge6.i:                                     ; preds = %.lr.ph77.split.i, %41, %.critedge6.loopexit83.i, %.critedge2.i
+  %.3.i = phi i32 [ %54, %.critedge2.i ], [ %62, %.critedge6.loopexit83.i ], [ %.04874.i, %41 ], [ %.04874.i, %.lr.ph77.split.i ]
   %63 = add nsw i32 %.3.i, 1
   br label %.lr.ph77.split.i
 
@@ -434,8 +434,8 @@ mod_strcspn.exit:                                 ; preds = %.lr.ph77.split.i, %
   br label %125
 
 125:                                              ; preds = %.critedge4.i137, %122
-  %indvars.iv89.i135 = phi i64 [ %indvars.iv.next90.i138, %.critedge4.i137 ], [ %124, %122 ]
-  %126 = getelementptr inbounds i8, ptr %.1100194, i64 %indvars.iv89.i135
+  %indvars.iv88.i135 = phi i64 [ %indvars.iv.next89.i138, %.critedge4.i137 ], [ %124, %122 ]
+  %126 = getelementptr inbounds i8, ptr %.1100194, i64 %indvars.iv88.i135
   %127 = load i8, ptr %126, align 1, !tbaa !33
   switch i8 %127, label %.critedge4.i137 [
     i8 0, label %.critedge2.i139
@@ -449,11 +449,11 @@ mod_strcspn.exit:                                 ; preds = %.lr.ph77.split.i, %
   br i1 %.not64.i136, label %.critedge2.i139, label %.critedge4.i137
 
 .critedge4.i137:                                  ; preds = %128, %125
-  %indvars.iv.next90.i138 = add nsw i64 %indvars.iv89.i135, 1
+  %indvars.iv.next89.i138 = add nsw i64 %indvars.iv88.i135, 1
   br label %125, !llvm.loop !36
 
 .critedge2.i139:                                  ; preds = %128, %125
-  %131 = trunc nsw i64 %indvars.iv89.i135 to i32
+  %131 = trunc nsw i64 %indvars.iv88.i135 to i32
   %132 = add nsw i32 %131, 1
   br label %.critedge6.i132
 
@@ -467,20 +467,20 @@ mod_strcspn.exit:                                 ; preds = %.lr.ph77.split.i, %
   %137 = getelementptr inbounds i8, ptr %.1100194, i64 %indvars.iv.i130
   %138 = load i8, ptr %137, align 1, !tbaa !33
   switch i8 %138, label %139 [
-    i8 0, label %.critedge6.loopexit85.i131
-    i8 10, label %.critedge6.loopexit85.i131
+    i8 0, label %.critedge6.loopexit83.i131
+    i8 10, label %.critedge6.loopexit83.i131
   ]
 
 139:                                              ; preds = %136
   %indvars.iv.next.i134 = add nsw i64 %indvars.iv.i130, 1
   br label %136, !llvm.loop !37
 
-.critedge6.loopexit85.i131:                       ; preds = %136, %136
+.critedge6.loopexit83.i131:                       ; preds = %136, %136
   %140 = trunc nsw i64 %indvars.iv.i130 to i32
   br label %.critedge6.i132
 
-.critedge6.i132:                                  ; preds = %.lr.ph77.split.i128, %119, %.critedge6.loopexit85.i131, %.critedge2.i139
-  %.3.i133 = phi i32 [ %132, %.critedge2.i139 ], [ %140, %.critedge6.loopexit85.i131 ], [ %.04874.i129, %119 ], [ %.04874.i129, %.lr.ph77.split.i128 ]
+.critedge6.i132:                                  ; preds = %.lr.ph77.split.i128, %119, %.critedge6.loopexit83.i131, %.critedge2.i139
+  %.3.i133 = phi i32 [ %132, %.critedge2.i139 ], [ %140, %.critedge6.loopexit83.i131 ], [ %.04874.i129, %119 ], [ %.04874.i129, %.lr.ph77.split.i128 ]
   %141 = add nsw i32 %.3.i133, 1
   br label %.lr.ph77.split.i128
 
@@ -690,9 +690,9 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
 
 .lr.ph77:                                         ; preds = %2
   %.not57 = icmp eq ptr %1, null
-  br i1 %.not57, label %.lr.ph77.split.us.split, label %.lr.ph77.split
+  br i1 %.not57, label %.lr.ph77.split.us, label %.lr.ph77.split
 
-.lr.ph77.split.us.split:                          ; preds = %.lr.ph77, %.critedge6.us
+.lr.ph77.split.us:                                ; preds = %.lr.ph77, %.critedge6.us
   %.04874.us = phi i32 [ %28, %.critedge6.us ], [ 0, %.lr.ph77 ]
   %3 = sext i32 %.04874.us to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
@@ -702,7 +702,7 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
     i8 47, label %6
   ]
 
-6:                                                ; preds = %.lr.ph77.split.us.split
+6:                                                ; preds = %.lr.ph77.split.us
   %7 = getelementptr i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !33
   switch i8 %8, label %.critedge6.us [
@@ -716,8 +716,8 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br label %12
 
 12:                                               ; preds = %15, %9
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %15 ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv94
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %15 ], [ %11, %9 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv93
   %14 = load i8, ptr %13, align 1, !tbaa !33
   switch i8 %14, label %15 [
     i8 0, label %.critedge6.us.loopexit
@@ -725,7 +725,7 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   ]
 
 15:                                               ; preds = %12
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   br label %12, !llvm.loop !37
 
 16:                                               ; preds = %6
@@ -734,8 +734,8 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br label %19
 
 19:                                               ; preds = %.critedge4.us, %16
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.critedge4.us ], [ %18, %16 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv97
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.critedge4.us ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv96
   %21 = load i8, ptr %20, align 1, !tbaa !33
   switch i8 %21, label %.critedge4.us [
     i8 0, label %.critedge2.us
@@ -749,22 +749,22 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br i1 %.not64.us, label %.critedge2.us, label %.critedge4.us
 
 .critedge2.us:                                    ; preds = %22, %19
-  %25 = trunc nsw i64 %indvars.iv97 to i32
+  %25 = trunc nsw i64 %indvars.iv96 to i32
   %26 = add nsw i32 %25, 1
   br label %.critedge6.us
 
 .critedge4.us:                                    ; preds = %22, %19
-  %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
+  %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   br label %19, !llvm.loop !36
 
 .critedge6.us.loopexit:                           ; preds = %12, %12
-  %27 = trunc nsw i64 %indvars.iv94 to i32
+  %27 = trunc nsw i64 %indvars.iv93 to i32
   br label %.critedge6.us
 
-.critedge6.us:                                    ; preds = %6, %.critedge6.us.loopexit, %.lr.ph77.split.us.split, %.critedge2.us
-  %.3.us = phi i32 [ %26, %.critedge2.us ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %27, %.critedge6.us.loopexit ], [ %.04874.us, %6 ]
+.critedge6.us:                                    ; preds = %6, %.critedge6.us.loopexit, %.lr.ph77.split.us, %.critedge2.us
+  %.3.us = phi i32 [ %26, %.critedge2.us ], [ %.04874.us, %.lr.ph77.split.us ], [ %27, %.critedge6.us.loopexit ], [ %.04874.us, %6 ]
   %28 = add nsw i32 %.3.us, 1
-  br label %.lr.ph77.split.us.split
+  br label %.lr.ph77.split.us
 
 .lr.ph77.split:                                   ; preds = %.lr.ph77, %.critedge6
   %.04874 = phi i32 [ %60, %.critedge6 ], [ 0, %.lr.ph77 ]
@@ -790,8 +790,8 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br label %38
 
 38:                                               ; preds = %.critedge4, %35
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.critedge4 ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv89
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.critedge4 ], [ %37, %35 ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv88
   %40 = load i8, ptr %39, align 1, !tbaa !33
   switch i8 %40, label %.critedge4 [
     i8 0, label %.critedge2
@@ -805,11 +805,11 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br i1 %.not64, label %.critedge2, label %.critedge4
 
 .critedge4:                                       ; preds = %38, %41
-  %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
+  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   br label %38, !llvm.loop !36
 
 .critedge2:                                       ; preds = %38, %41
-  %44 = trunc nsw i64 %indvars.iv89 to i32
+  %44 = trunc nsw i64 %indvars.iv88 to i32
   %45 = add nsw i32 %44, 1
   br label %.critedge6
 
@@ -823,8 +823,8 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   %50 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1, !tbaa !33
   switch i8 %51, label %52 [
-    i8 0, label %.critedge6.loopexit85
-    i8 10, label %.critedge6.loopexit85
+    i8 0, label %.critedge6.loopexit83
+    i8 10, label %.critedge6.loopexit83
   ]
 
 52:                                               ; preds = %49
@@ -837,29 +837,29 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br i1 %.not5871, label %.critedge6, label %.lr.ph73
 
 54:                                               ; preds = %.lr.ph73
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next93
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next92
   %56 = load i8, ptr %55, align 1, !tbaa !33
   %.not58 = icmp eq i8 %56, 0
   br i1 %.not58, label %.critedge6, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph.split, %54
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %54 ], [ 0, %.lr.ph.split ]
+  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %54 ], [ 0, %.lr.ph.split ]
   %57 = phi i8 [ %56, %54 ], [ %53, %.lr.ph.split ]
   %58 = icmp eq i8 %31, %57
   br i1 %58, label %.critedge, label %54
 
-.critedge6.loopexit85:                            ; preds = %49, %49
+.critedge6.loopexit83:                            ; preds = %49, %49
   %59 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %54, %.critedge6.loopexit85, %.lr.ph.split, %.critedge2
-  %.3 = phi i32 [ %45, %.critedge2 ], [ %.04874, %.lr.ph.split ], [ %59, %.critedge6.loopexit85 ], [ %.04874, %54 ]
+.critedge6:                                       ; preds = %54, %.critedge6.loopexit83, %.lr.ph.split, %.critedge2
+  %.3 = phi i32 [ %45, %.critedge2 ], [ %.04874, %.lr.ph.split ], [ %59, %.critedge6.loopexit83 ], [ %.04874, %54 ]
   %60 = add nsw i32 %.3, 1
   br label %.lr.ph77.split
 
-.critedge:                                        ; preds = %.lr.ph77.split, %.lr.ph73, %.lr.ph77.split.us.split, %2
-  %.04868 = phi i32 [ 0, %2 ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %.04874, %.lr.ph73 ], [ %.04874, %.lr.ph77.split ]
+.critedge:                                        ; preds = %.lr.ph77.split, %.lr.ph73, %.lr.ph77.split.us, %2
+  %.04868 = phi i32 [ 0, %2 ], [ %.04874.us, %.lr.ph77.split.us ], [ %.04874, %.lr.ph73 ], [ %.04874, %.lr.ph77.split ]
   %61 = sext i32 %.04868 to i64
   ret i64 %61
 }

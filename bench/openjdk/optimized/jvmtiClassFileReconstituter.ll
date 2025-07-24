@@ -1980,7 +1980,7 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8, !nonnull !14, !noundef !14
+  %129 = load ptr, ptr %128, align 8, !nonnull !15, !noundef !15
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
@@ -2009,7 +2009,7 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8, !nonnull !14, !noundef !14
+  %150 = load ptr, ptr %149, align 8, !nonnull !15, !noundef !15
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
@@ -2024,7 +2024,7 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %116, %.lr
   %158 = getelementptr inbounds i8, ptr %.054, i64 %157
   %159 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %160, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes11put_Java_u2EPht.exit.us, %2
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2254,7 +2254,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i14: ; preds = %90, %
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit16: ; preds = %101, %102
   %103 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #12
-  br i1 %103, label %58, label %._crit_edge, !llvm.loop !15
+  br i1 %103, label %58, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit16, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -2662,7 +2662,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %165, %166
   %172 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %171) #12
   %173 = zext i16 %172 to i32
   %174 = icmp samesign ult i32 %168, %173
-  br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit41, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -2993,7 +2993,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %168, %167, %.lr.p
   %174 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %173) #12
   %175 = zext i16 %174 to i32
   %176 = icmp samesign ult i32 %170, %175
-  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit44, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -3143,7 +3143,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16: ; preds = %60, %
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %71, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -3324,7 +3324,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i20: ; preds = %78, %
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit22: ; preds = %89, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit22, %_ZN27JvmtiClassFileReconstituter8write_u1Eh.exit
   ret void
@@ -3606,7 +3606,7 @@ _ZN27JvmtiClassFileReconstituter8write_u1Eh.exit: ; preds = %.lr.ph, %44
   store i8 %36, ptr %50, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u1Eh.exit, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   ret void
@@ -3774,7 +3774,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
   %32 = add i32 %29, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1, %12, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit
   %33 = phi i1 [ false, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ false, %12 ], [ false, %1 ], [ true, %.lr.ph ]
@@ -4037,12 +4037,12 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i44: ; preds = %157, 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit46: ; preds = %168, %169
   %170 = add nuw nsw i32 %.02449, 1
   %exitcond56.not = icmp eq i32 %170, %138
-  br i1 %exitcond56.not, label %._crit_edge51, label %.lr.ph50, !llvm.loop !22
+  br i1 %exitcond56.not, label %._crit_edge51, label %.lr.ph50, !llvm.loop !24
 
 ._crit_edge51:                                    ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit46, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit41
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !23
+  br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !25
 
 ._crit_edge54:                                    ; preds = %._crit_edge51, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -4288,7 +4288,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16: ; preds = %65, %
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %76, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -4442,7 +4442,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16: ; preds = %65, %
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %76, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -4502,7 +4502,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter22write_record_attributeEv(p
   %.3 = phi i32 [ %28, %25 ], [ %.2, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %29, %1
   %.0.lcssa = phi i32 [ %8, %1 ], [ %.3, %29 ]
@@ -4768,7 +4768,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit63: ; preds = %150, %151
 160:                                              ; preds = %157, %159
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge68, label %75, !llvm.loop !27
+  br i1 %exitcond74.not, label %._crit_edge68, label %75, !llvm.loop !29
 
 ._crit_edge68:                                    ; preds = %160, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -5070,7 +5070,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit28: ; preds = %150, %151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %152 = trunc nuw i64 %indvars.iv.next to i32
   %.not41 = icmp sgt i32 %1, %152
-  br i1 %.not41, label %63, label %._crit_edge, !llvm.loop !28
+  br i1 %.not41, label %63, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   ret void
@@ -5834,7 +5834,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr n
   %spec.select = add nuw nsw i32 %22, %.02549
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %14, %1
   %.025.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %14 ]
@@ -5927,7 +5927,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %46, %47
   store i32 %65, ptr %64, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.lr.ph55, label %.lr.ph53, !llvm.loop !30
+  br i1 %exitcond67.not, label %.lr.ph55, label %.lr.ph53, !llvm.loop !32
 
 66:                                               ; preds = %.lr.ph55, %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next69, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
@@ -5981,7 +5981,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %66, %_ZN26GrowableA
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %66, !llvm.loop !31
+  br i1 %exitcond72.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %66, !llvm.loop !33
 
 94:                                               ; preds = %.lr.ph51, %_ZN12methodHandleC2EP6ThreadP6Method.exit34
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next59, %_ZN12methodHandleC2EP6ThreadP6Method.exit34 ]
@@ -6032,7 +6032,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit34:      ; preds = %94, %_ZN26GrowableA
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %94, !llvm.loop !32
+  br i1 %exitcond62.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %94, !llvm.loop !34
 
 _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit34, %_ZN12methodHandleC2EP6ThreadP6Method.exit, %52, %.preheader46
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
@@ -6668,7 +6668,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit58: ; preds = %365, %366
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %303, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %303, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit49
   call void @_ZN27JvmtiClassFileReconstituter17write_field_infosEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
@@ -7002,7 +7002,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !36
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7018,7 +7018,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !37
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -7840,9 +7840,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{}
-!15 = distinct !{!15, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
@@ -7863,3 +7863,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

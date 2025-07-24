@@ -103,7 +103,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
   %50 = call i64 @read(i32 noundef %7, ptr noundef nonnull %6, i64 noundef 8192) #7
   %51 = trunc i64 %50 to i32
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.thread, %58
   %53 = phi i32 [ %60, %58 ], [ %44, %.thread ]
@@ -213,3 +213,5 @@ attributes #7 = { nounwind }
 !8 = !{!"long", !4, i64 0}
 !9 = !{!"int", !4, i64 0}
 !10 = !{!"timespec", !8, i64 0, !8, i64 8}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}

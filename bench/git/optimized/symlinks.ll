@@ -618,7 +618,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   switch i16 %trunc.us, label %.loopexit.sink.split.loopexit235 [
     i16 16384, label %.split.us
     i16 -24576, label %.loopexit.sink.split
-  ]
+  ], !llvm.loop !33
 
 .split:                                           ; preds = %.split.preheader, %118
   %.089 = phi i32 [ %103, %118 ], [ %.090, %.split.preheader ]
@@ -847,3 +847,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !30 = !{!31, !5, i64 24}
 !31 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !32, i64 72, !32, i64 88, !32, i64 104, !6, i64 120}
 !32 = !{!"timespec", !16, i64 0, !16, i64 8}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -1800,7 +1800,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.addr.022, i64 4
   %inc6 = add nuw nsw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
-  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !16
+  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !18
 
 for.end13:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc6.us, %for.inc.us ], [ %inc6, %for.inc ]
@@ -1869,7 +1869,7 @@ vaarg.end41:                                      ; preds = %vaarg.in_mem37, %va
   %vaarg.addr42 = phi ptr [ %19, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
   %21 = load i32, ptr %vaarg.addr42, align 4
   %cmp43.not = icmp eq i32 %21, -1
-  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !17
+  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !19
 
 do.end:                                           ; preds = %vaarg.end41
   %tobool44.not = icmp eq ptr %pName, null
@@ -1920,7 +1920,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !20
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -1953,7 +1953,7 @@ for.body22:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc35:                                        ; preds = %for.body22
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 100
-  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !19
+  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !21
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2014,7 +2014,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47, label %for.body, !llvm.loop !22
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2047,7 +2047,7 @@ for.body24:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc39:                                        ; preds = %for.body24
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 100
-  br i1 %exitcond117.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i70, label %for.body24, !llvm.loop !21
+  br i1 %exitcond117.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i70, label %for.body24, !llvm.loop !23
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIcNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2108,7 +2108,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i49, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i49, label %for.body, !llvm.loop !24
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2141,7 +2141,7 @@ for.body24:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc39:                                        ; preds = %for.body24
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 100
-  br i1 %exitcond119.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i72, label %for.body24, !llvm.loop !23
+  br i1 %exitcond119.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i72, label %for.body24, !llvm.loop !25
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2202,7 +2202,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !26
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2235,7 +2235,7 @@ for.body22:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc35:                                        ; preds = %for.body22
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 100
-  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !25
+  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !27
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIfNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2296,7 +2296,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !28
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2329,7 +2329,7 @@ for.body22:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc35:                                        ; preds = %for.body22
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 100
-  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !27
+  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !29
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIdNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2390,7 +2390,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI11
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i50, label %for.body, !llvm.loop !30
 
 ehcleanup.thread:                                 ; preds = %for.body
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2423,7 +2423,7 @@ for.body22:                                       ; preds = %_ZN5eastl6vectorI11
 for.inc35:                                        ; preds = %for.body22
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 100
-  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !29
+  br i1 %exitcond120.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i73, label %for.body22, !llvm.loop !31
 
 ehcleanup:                                        ; preds = %_ZN5eastl10VectorBaseIPvNS_9allocatorEE10DoAllocateEm.exit.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2523,8 +2523,8 @@ attributes #11 = { nounwind }
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!16 = distinct !{!16, !8, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
@@ -2537,3 +2537,5 @@ attributes #11 = { nounwind }
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !8}

@@ -429,7 +429,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(777) %63, ptr noundef %54, i32 noundef %1) #6
   %.not53.us = icmp eq ptr %53, %48
-  br i1 %.not53.us, label %._crit_edge, label %_ZN4llvmplERKNS_5TwineES2_.exit.us
+  br i1 %.not53.us, label %._crit_edge, label %_ZN4llvmplERKNS_5TwineES2_.exit.us, !llvm.loop !299
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %_ZN4llvmplERKNS_5TwineES2_.exit.us, %.thread, %47
   %.1.lcssa = phi i32 [ %.0, %47 ], [ 0, %.thread ], [ %58, %_ZN4llvmplERKNS_5TwineES2_.exit.us ], [ 0, %.lr.ph.split ]
@@ -440,9 +440,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 208
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(296) %69, ptr noundef %2, ptr null) #6
-  %.pre85 = load ptr, ptr %13, align 8, !tbaa !299
+  %.pre85 = load ptr, ptr %13, align 8, !tbaa !301
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 600
-  %74 = load ptr, ptr %73, align 8, !tbaa !299
+  %74 = load ptr, ptr %73, align 8, !tbaa !301
   br i1 %19, label %81, label %.thread91
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
@@ -483,14 +483,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 160
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(296) %94) #6
-  %.pre84 = load ptr, ptr %13, align 8, !tbaa !299
+  %.pre84 = load ptr, ptr %13, align 8, !tbaa !301
   br label %98
 
 98:                                               ; preds = %83, %81
   %99 = phi ptr [ %.pre85, %81 ], [ %.pre84, %83 ]
   %.3 = phi i32 [ %.1.lcssa, %81 ], [ 0, %83 ]
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 600
-  %101 = load ptr, ptr %100, align 8, !tbaa !299
+  %101 = load ptr, ptr %100, align 8, !tbaa !301
   %102 = icmp ult ptr %99, %101
   br i1 %102, label %.lr.ph60, label %._crit_edge61
 
@@ -508,7 +508,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %.thread.us ], [ undef, %.lr.ph60 ]
   %.458.us = phi i32 [ %108, %.thread.us ], [ %.3, %.lr.ph60 ]
   %.sroa.041.057.us = phi ptr [ %127, %.thread.us ], [ %99, %.lr.ph60 ]
-  %107 = load i32, ptr %.sroa.041.057.us, align 4, !tbaa !300
+  %107 = load i32, ptr %.sroa.041.057.us, align 4, !tbaa !302
   %108 = add nsw i32 %.458.us, -1
   %.not.us = icmp eq i32 %107, 0
   br i1 %.not.us, label %.thread.us, label %.thread50.us
@@ -523,10 +523,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %.sroa.0.0.insert.mask = and i64 %112, -4294967296
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
   %113 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
-  store ptr @.str.3, ptr %7, align 8, !alias.scope !301
-  store ptr %113, ptr %104, align 8, !alias.scope !301
-  store i8 3, ptr %105, align 8, !tbaa !269, !alias.scope !301
-  store i8 10, ptr %106, align 1, !tbaa !265, !alias.scope !301
+  store ptr @.str.3, ptr %7, align 8, !alias.scope !303
+  store ptr %113, ptr %104, align 8, !alias.scope !303
+  store i8 3, ptr %105, align 8, !tbaa !269, !alias.scope !303
+  store i8 10, ptr %106, align 1, !tbaa !265, !alias.scope !303
   %114 = load ptr, ptr %111, align 8, !tbaa !3
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 120
   %116 = load ptr, ptr %115, align 8
@@ -549,14 +549,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   call void %126(ptr noundef nonnull align 8 dereferenceable(777) %123, ptr noundef %122, i32 noundef %1) #6
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.041.057.us, i64 4
   %128 = icmp ult ptr %127, %101
-  br i1 %128, label %.lr.ph60.split.us, label %._crit_edge61, !llvm.loop !306
+  br i1 %128, label %.lr.ph60.split.us, label %._crit_edge61, !llvm.loop !308
 
 ._crit_edge61:                                    ; preds = %138, %.thread.us, %.thread91, %98
   ret void
 
 .lr.ph60.split:                                   ; preds = %.thread91, %138
   %.sroa.041.057 = phi ptr [ %143, %138 ], [ %.pre85, %.thread91 ]
-  %129 = load i32, ptr %.sroa.041.057, align 4, !tbaa !300
+  %129 = load i32, ptr %.sroa.041.057, align 4, !tbaa !302
   %130 = load ptr, ptr %8, align 8, !tbaa !16
   %131 = icmp eq i32 %129, 0
   br i1 %131, label %138, label %132
@@ -577,7 +577,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   call void %142(ptr noundef nonnull align 8 dereferenceable(777) %130, ptr noundef %139, i32 noundef %1) #6
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.041.057, i64 4
   %144 = icmp ult ptr %143, %74
-  br i1 %144, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !306
+  br i1 %144, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !310
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -948,12 +948,15 @@ attributes #7 = { builtin nounwind }
 !296 = distinct !{!296, !"_ZNK4llvm5Twine6concatERKS0_"}
 !297 = distinct !{!297, !298, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !298 = distinct !{!298, !"_ZN4llvmplERKNS_5TwineES2_"}
-!299 = !{!236, !236, i64 0}
-!300 = !{!49, !49, i64 0}
-!301 = !{!302, !304}
-!302 = distinct !{!302, !303, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!303 = distinct !{!303, !"_ZNK4llvm5Twine6concatERKS0_"}
-!304 = distinct !{!304, !305, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!305 = distinct !{!305, !"_ZN4llvmplERKNS_5TwineES2_"}
-!306 = distinct !{!306, !307}
-!307 = !{!"llvm.loop.mustprogress"}
+!299 = distinct !{!299, !300}
+!300 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!301 = !{!236, !236, i64 0}
+!302 = !{!49, !49, i64 0}
+!303 = !{!304, !306}
+!304 = distinct !{!304, !305, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!305 = distinct !{!305, !"_ZNK4llvm5Twine6concatERKS0_"}
+!306 = distinct !{!306, !307, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!307 = distinct !{!307, !"_ZN4llvmplERKNS_5TwineES2_"}
+!308 = distinct !{!308, !309, !300}
+!309 = !{!"llvm.loop.mustprogress"}
+!310 = distinct !{!310, !309}

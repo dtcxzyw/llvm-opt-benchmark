@@ -3493,7 +3493,7 @@ _ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_
   %35 = getelementptr inbounds nuw i8, ptr %.03762, i64 %.sink
   %.037 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i.i.preheader, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i.i.preheader, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %34, %._crit_edge.i.i.i.us
   %.036.lcssa = phi ptr [ %.03762.us, %._crit_edge.i.i.i.us ], [ %.03762, %34 ]
@@ -3949,4 +3949,6 @@ attributes #29 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
+!30 = distinct !{!30, !5, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !5}

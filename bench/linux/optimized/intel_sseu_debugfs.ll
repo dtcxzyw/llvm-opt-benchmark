@@ -616,13 +616,13 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %398 = phi i16 [ %392, %378 ], [ %372, %.split ]
   %399 = add nuw nsw i32 %373, 1
   %400 = icmp eq i32 %399, %348
-  br i1 %400, label %.loopexit16, label %.split, !llvm.loop !19
+  br i1 %400, label %.loopexit16, label %.split, !llvm.loop !21
 
 .loopexit16:                                      ; preds = %396, %.split.us, %333, %326
   %401 = phi i8 [ %336, %333 ], [ %327, %326 ], [ %336, %.split.us ], [ %336, %396 ]
   %402 = add nuw nsw i64 %328, 1
   %403 = icmp eq i64 %402, %321
-  br i1 %403, label %.loopexit17, label %326, !llvm.loop !20
+  br i1 %403, label %.loopexit17, label %326, !llvm.loop !22
 
 .loopexit17:                                      ; preds = %.loopexit16, %286, %323
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
@@ -730,7 +730,7 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !21
+  %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !23
   ret i32 %5
 }
 
@@ -748,13 +748,13 @@ define internal noundef i32 @sseu_topology_show(ptr noundef %0, ptr readnone cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
-  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !22
+  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !22
+  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %7, align 8, !alias.scope !22
+  store ptr %0, ptr %7, align 8, !alias.scope !24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr null, ptr %8, align 8, !alias.scope !22
+  store ptr null, ptr %8, align 8, !alias.scope !24
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4968
   call void @intel_sseu_print_topology(ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %3) #6
@@ -806,9 +806,11 @@ attributes #9 = { nounwind memory(read) }
 !16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !9, !10}
 !18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{i32 -19, i32 1}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"drm_seq_file_printer: argument 0"}
-!24 = distinct !{!24, !"drm_seq_file_printer"}
+!19 = distinct !{!19, !9, !10, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = !{i32 -19, i32 1}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"drm_seq_file_printer: argument 0"}
+!26 = distinct !{!26, !"drm_seq_file_printer"}

@@ -461,7 +461,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us:  ; preds = %42
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 648
-  %84 = load i8, ptr %83, align 8, !tbaa !44, !range !40, !noundef !41
+  %84 = load i8, ptr %83, align 8, !tbaa !45, !range !40, !noundef !41
   %85 = trunc nuw i8 %84 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us47
 
@@ -474,7 +474,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us47: ; preds = %82, %74
   %88 = add nuw i32 %.03942.us45, 1
   %89 = add i32 %18, %.043.us44
   %exitcond58.not = icmp eq i32 %88, %13
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !42
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !67
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %2, label %.lr.ph.split.split.split.us.preheader, label %.lr.ph.split.split.split
@@ -524,7 +524,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us47: ; preds = %82, %74
 
 115:                                              ; preds = %107
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 648
-  %117 = load i8, ptr %116, align 8, !tbaa !44, !range !40, !noundef !41
+  %117 = load i8, ptr %116, align 8, !tbaa !45, !range !40, !noundef !41
   %118 = trunc nuw i8 %117 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us52
 
@@ -537,7 +537,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us52: ; preds = %115, %107
   %121 = add nuw i32 %.03942.us49, 1
   %122 = add i32 %18, %.043.us48
   %exitcond57.not = icmp eq i32 %121, %13
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !42
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %158, %120, %87, %52, %7, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   ret void
@@ -588,7 +588,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us52: ; preds = %115, %107
 
 153:                                              ; preds = %144
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 648
-  %155 = load i8, ptr %154, align 8, !tbaa !44, !range !40, !noundef !41
+  %155 = load i8, ptr %154, align 8, !tbaa !45, !range !40, !noundef !41
   %156 = trunc nuw i8 %155 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit
 
@@ -601,7 +601,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %153, %144
   %159 = add nuw i32 %.03942, 1
   %160 = add i32 %18, %.043
   %exitcond.not = icmp eq i32 %159, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -652,7 +652,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3
   %24 = add nuw i32 %.01618, 1
   %25 = add i32 %14, %.019
   %exitcond.not = icmp eq i32 %24, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -683,7 +683,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %4
   %16 = zext i32 %.026 to i64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !72
   %19 = load ptr, ptr %11, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !34
@@ -700,7 +700,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %4
   %26 = add nuw i32 %.02325, 1
   %27 = add i32 %15, %.026
   %exitcond.not = icmp eq i32 %26, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -759,9 +759,9 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   store i64 %11, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %14 = load i32, ptr %13, align 8, !tbaa !72
+  %14 = load i32, ptr %13, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 644
-  %16 = load i32, ptr %15, align 4, !tbaa !73
+  %16 = load i32, ptr %15, align 4, !tbaa !77
   %17 = add i32 %16, %14
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 8)
   store i32 %18, ptr %12, align 8, !tbaa !3
@@ -805,9 +805,9 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %10, align 8, !tbaa !78
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !75
+  %13 = load i32, ptr %12, align 8, !tbaa !79
   %14 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 5
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
@@ -821,9 +821,9 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %7 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 280
-  %18 = load ptr, ptr %17, align 8, !tbaa !74
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 288
-  %20 = load i32, ptr %19, align 8, !tbaa !75
+  %20 = load i32, ptr %19, align 8, !tbaa !79
   %21 = zext i32 %20 to i64
   %.idx71 = mul nuw nsw i64 %21, 24
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx71
@@ -837,9 +837,9 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.060 = phi ptr [ %28, %.lr.ph ], [ %11, %7 ]
   %24 = getelementptr inbounds nuw i8, ptr %.060, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !76
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
   %26 = getelementptr inbounds nuw i8, ptr %.060, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !78
+  %27 = load i32, ptr %26, align 8, !tbaa !82
   tail call fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0_10DescriptorEjb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %25, i32 noundef %27, i1 noundef zeroext false)
   %28 = getelementptr inbounds nuw i8, ptr %.060, i64 32
   %.not = icmp eq ptr %28, %15
@@ -852,9 +852,9 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %._crit_edge
   %29 = phi ptr [ %.pre73, %._crit_edge65.loopexit ], [ %16, %._crit_edge ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 488
-  %31 = load ptr, ptr %30, align 8, !tbaa !74
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 496
-  %33 = load i32, ptr %32, align 8, !tbaa !75
+  %33 = load i32, ptr %32, align 8, !tbaa !79
   %34 = zext i32 %33 to i64
   %.idx72 = shl nuw nsw i64 %34, 5
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx72
@@ -872,7 +872,7 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 648
-  %43 = load i8, ptr %42, align 8, !tbaa !44, !range !40, !noundef !41
+  %43 = load i8, ptr %42, align 8, !tbaa !45, !range !40, !noundef !41
   %44 = trunc nuw i8 %43 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit
 
@@ -880,9 +880,9 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %36, %41
   %45 = phi i1 [ false, %36 ], [ %44, %41 ]
   %46 = or i1 %5, %45
   %47 = getelementptr inbounds nuw i8, ptr %.04762, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !79
+  %48 = load ptr, ptr %47, align 8, !tbaa !83
   %49 = getelementptr inbounds nuw i8, ptr %.04762, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !82
+  %50 = load i32, ptr %49, align 8, !tbaa !86
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -16
@@ -949,7 +949,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %36, %41
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 648
-  %96 = load i8, ptr %95, align 8, !tbaa !44, !range !40, !noundef !41
+  %96 = load i8, ptr %95, align 8, !tbaa !45, !range !40, !noundef !41
   %97 = trunc nuw i8 %96 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i
 
@@ -969,9 +969,9 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit: ; pre
 .lr.ph69:                                         ; preds = %._crit_edge65, %.lr.ph69
   %.04867 = phi ptr [ %104, %.lr.ph69 ], [ %31, %._crit_edge65 ]
   %100 = getelementptr inbounds nuw i8, ptr %.04867, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !76
+  %101 = load ptr, ptr %100, align 8, !tbaa !80
   %102 = getelementptr inbounds nuw i8, ptr %.04867, i64 8
-  %103 = load i32, ptr %102, align 8, !tbaa !78
+  %103 = load i32, ptr %102, align 8, !tbaa !82
   tail call fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0_10DescriptorEjb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %101, i32 noundef %103, i1 noundef zeroext true)
   %104 = getelementptr inbounds nuw i8, ptr %.04867, i64 32
   %.not50 = icmp eq ptr %104, %35
@@ -983,9 +983,9 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %6, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !75
+  %9 = load i32, ptr %8, align 8, !tbaa !79
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
@@ -999,9 +999,9 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %12 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !78
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 288
-  %16 = load i32, ptr %15, align 8, !tbaa !75
+  %16 = load i32, ptr %15, align 8, !tbaa !79
   %17 = zext i32 %16 to i64
   %.idx57 = mul nuw nsw i64 %17, 24
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx57
@@ -1011,9 +1011,9 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.046 = phi ptr [ %23, %.lr.ph ], [ %7, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !76
+  %20 = load ptr, ptr %19, align 8, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %.046, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !78
+  %22 = load i32, ptr %21, align 8, !tbaa !82
   tail call fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj(ptr noundef %0, ptr noundef %1, ptr noundef %20, i32 noundef %22)
   %23 = getelementptr inbounds nuw i8, ptr %.046, i64 32
   %.not = icmp eq ptr %23, %11
@@ -1026,9 +1026,9 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
 ._crit_edge51:                                    ; preds = %._crit_edge51.loopexit, %._crit_edge
   %24 = phi ptr [ %.pre59, %._crit_edge51.loopexit ], [ %12, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 488
-  %26 = load ptr, ptr %25, align 8, !tbaa !74
+  %26 = load ptr, ptr %25, align 8, !tbaa !78
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 496
-  %28 = load i32, ptr %27, align 8, !tbaa !75
+  %28 = load i32, ptr %27, align 8, !tbaa !79
   %29 = zext i32 %28 to i64
   %.idx58 = shl nuw nsw i64 %29, 5
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx58
@@ -1038,7 +1038,7 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
 .lr.ph50:                                         ; preds = %._crit_edge, %_ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit
   %.03348 = phi ptr [ %40, %_ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit ], [ %14, %._crit_edge ]
   %31 = getelementptr inbounds nuw i8, ptr %.03348, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !79
+  %32 = load ptr, ptr %31, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %.not.i = icmp eq ptr %34, null
@@ -1046,7 +1046,7 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
 
 35:                                               ; preds = %.lr.ph50
   %36 = getelementptr inbounds nuw i8, ptr %.03348, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !82
+  %37 = load i32, ptr %36, align 8, !tbaa !86
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   tail call void %34(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %32) #21
@@ -1063,9 +1063,9 @@ _ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit: ; pred
 .lr.ph55:                                         ; preds = %._crit_edge51, %.lr.ph55
   %.03453 = phi ptr [ %45, %.lr.ph55 ], [ %26, %._crit_edge51 ]
   %41 = getelementptr inbounds nuw i8, ptr %.03453, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %42 = load ptr, ptr %41, align 8, !tbaa !80
   %43 = getelementptr inbounds nuw i8, ptr %.03453, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !78
+  %44 = load i32, ptr %43, align 8, !tbaa !82
   tail call fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %44)
   %45 = getelementptr inbounds nuw i8, ptr %.03453, i64 32
   %.not36 = icmp eq ptr %45, %30
@@ -1077,9 +1077,9 @@ define internal void @_ZL10moveRecordPN5clang6interp5BlockEPSt4byteS4_PKNS0_10De
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %10 = load i32, ptr %9, align 8, !tbaa !75
+  %10 = load i32, ptr %9, align 8, !tbaa !79
   %11 = zext i32 %10 to i64
   %.idx = mul nuw nsw i64 %11, 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -1092,7 +1092,7 @@ define internal void @_ZL10moveRecordPN5clang6interp5BlockEPSt4byteS4_PKNS0_10De
 .lr.ph:                                           ; preds = %4, %25
   %.025 = phi ptr [ %26, %25 ], [ %8, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !82
+  %14 = load i32, ptr %13, align 8, !tbaa !86
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
@@ -1100,7 +1100,7 @@ define internal void @_ZL10moveRecordPN5clang6interp5BlockEPSt4byteS4_PKNS0_10De
   %19 = getelementptr inbounds i8, ptr %18, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %.025, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !79
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %.not23 = icmp eq ptr %23, null
@@ -1177,7 +1177,7 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor7getTypeEv(ptr noundef nonnul
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !83
+  %21 = load ptr, ptr %20, align 8, !tbaa !87
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -16
   br label %39
@@ -1193,9 +1193,9 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor7getTypeEv(ptr noundef nonnul
   br i1 %.not35, label %36, label %30
 
 30:                                               ; preds = %.thread
-  %31 = load ptr, ptr %28, align 8, !tbaa !98
+  %31 = load ptr, ptr %28, align 8, !tbaa !102
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !83
+  %33 = load ptr, ptr %32, align 8, !tbaa !87
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -16
   br label %39
@@ -1247,7 +1247,7 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor15getElemQualTypeEv(ptr nound
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !83
+  %19 = load ptr, ptr %18, align 8, !tbaa !87
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -16
   br label %_ZNK5clang6interp10Descriptor7getTypeEv.exit
@@ -1263,9 +1263,9 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor15getElemQualTypeEv(ptr nound
   br i1 %.not35.i, label %34, label %28
 
 28:                                               ; preds = %.thread.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !98
+  %29 = load ptr, ptr %26, align 8, !tbaa !102
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !83
+  %31 = load ptr, ptr %30, align 8, !tbaa !87
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -16
   br label %_ZNK5clang6interp10Descriptor7getTypeEv.exit
@@ -1284,12 +1284,12 @@ _ZNK5clang6interp10Descriptor7getTypeEv.exit:     ; preds = %11, %17, %28, %34, 
   %.sroa.0.1.i = phi i64 [ %33, %28 ], [ undef, %34 ], [ %.sroa.0.0.copyload.i17.i, %35 ], [ %21, %17 ], [ %.sroa.0.0.copyload.i.i, %11 ]
   %37 = and i64 %.sroa.0.1.i, -16
   %38 = inttoptr i64 %37 to ptr
-  %39 = load ptr, ptr %38, align 16, !tbaa !99
+  %39 = load ptr, ptr %38, align 16, !tbaa !103
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i19 = load i64, ptr %40, align 8, !tbaa !25
   %41 = and i64 %.sroa.0.0.copyload.i.i.i.i.i19, -16
   %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16, !tbaa !99
+  %43 = load ptr, ptr %42, align 16, !tbaa !103
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 16
   %.off = add i8 %45, -41
@@ -1305,7 +1305,7 @@ _ZNK5clang6interp10Descriptor7getTypeEv.exit:     ; preds = %11, %17, %28, %34, 
 48:                                               ; preds = %_ZNK5clang6interp10Descriptor7getTypeEv.exit, %46
   %.pre-phi105 = phi ptr [ %38, %_ZNK5clang6interp10Descriptor7getTypeEv.exit ], [ %.pre104, %46 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1.i, %_ZNK5clang6interp10Descriptor7getTypeEv.exit ], [ %47, %46 ]
-  %49 = load ptr, ptr %.pre-phi105, align 8, !tbaa !99
+  %49 = load ptr, ptr %.pre-phi105, align 8, !tbaa !103
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 16
   %52 = add i8 %51, -7
@@ -1317,7 +1317,7 @@ _ZNK5clang6interp10Descriptor7getTypeEv.exit:     ; preds = %11, %17, %28, %34, 
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %54, align 8, !tbaa !25
   %55 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
   %56 = inttoptr i64 %55 to ptr
-  %57 = load ptr, ptr %56, align 16, !tbaa !99
+  %57 = load ptr, ptr %56, align 16, !tbaa !103
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i8, ptr %58, align 16
   %60 = add i8 %59, -2
@@ -1330,7 +1330,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %53
   br i1 %.not, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit..thread_crit_edge, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread52
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit..thread_crit_edge: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
-  %.pre = load ptr, ptr %.pre-phi105, align 8, !tbaa !99
+  %.pre = load ptr, ptr %.pre-phi105, align 8, !tbaa !103
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre99 = load i8, ptr %.phi.trans.insert, align 16
   br label %.thread
@@ -1347,12 +1347,12 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread52: ; preds = %48, %_ZNK5clan
   br i1 %67, label %.preheader, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split
 
 .preheader:                                       ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread52
-  %68 = load ptr, ptr %.pre-phi105, align 8, !tbaa !99
+  %68 = load ptr, ptr %.pre-phi105, align 8, !tbaa !103
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.0.0.copyload.i.i.i.i2397 = load i64, ptr %69, align 8, !tbaa !25
   %70 = and i64 %.sroa.0.0.copyload.i.i.i.i2397, -16
   %71 = inttoptr i64 %70 to ptr
-  %72 = load ptr, ptr %71, align 16, !tbaa !99
+  %72 = load ptr, ptr %71, align 16, !tbaa !103
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load i8, ptr %73, align 16
   %75 = add i8 %74, -2
@@ -1377,17 +1377,17 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30:   ; preds = %.lr.ph, %80
   %.sroa.0.0.copyload.i = load i64, ptr %82, align 16, !tbaa !25
   %83 = and i64 %.sroa.0.0.copyload.i, -16
   %84 = inttoptr i64 %83 to ptr
-  %85 = load ptr, ptr %84, align 16, !tbaa !99
+  %85 = load ptr, ptr %84, align 16, !tbaa !103
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.sroa.0.0.copyload.i.i.i.i23 = load i64, ptr %86, align 8, !tbaa !25
   %87 = and i64 %.sroa.0.0.copyload.i.i.i.i23, -16
   %88 = inttoptr i64 %87 to ptr
-  %89 = load ptr, ptr %88, align 16, !tbaa !99
+  %89 = load ptr, ptr %88, align 16, !tbaa !103
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i8, ptr %90, align 16
   %92 = add i8 %91, -2
   %switch.i.i.i.i.i.i.i.i.i24 = icmp ult i8 %92, 5
-  br i1 %switch.i.i.i.i.i.i.i.i.i24, label %.lr.ph, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread, !llvm.loop !104
+  br i1 %switch.i.i.i.i.i.i.i.i.i24, label %.lr.ph, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread, !llvm.loop !108
 
 .thread:                                          ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit..thread_crit_edge, %53
   %93 = phi i8 [ %.pre99, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit..thread_crit_edge ], [ %51, %53 ]
@@ -1400,7 +1400,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30:   ; preds = %.lr.ph, %80
   %.sroa.0.0.copyload.i.i.i.i34 = load i64, ptr %96, align 8, !tbaa !25
   %97 = and i64 %.sroa.0.0.copyload.i.i.i.i34, -16
   %98 = inttoptr i64 %97 to ptr
-  %99 = load ptr, ptr %98, align 16, !tbaa !99
+  %99 = load ptr, ptr %98, align 16, !tbaa !103
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i8, ptr %100, align 16
   %102 = icmp eq i8 %101, 14
@@ -1412,7 +1412,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %95
   br i1 %.not17, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread_crit_edge, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.sink.split
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread_crit_edge: ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
-  %.pre100 = load ptr, ptr %.pre-phi105, align 8, !tbaa !99
+  %.pre100 = load ptr, ptr %.pre-phi105, align 8, !tbaa !103
   %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %.pre100, i64 16
   %.pre102 = load i8, ptr %.phi.trans.insert101, align 16
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread
@@ -1429,7 +1429,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5clan
   %.sroa.0.0.copyload.i.i.i.i38 = load i64, ptr %108, align 8, !tbaa !25
   %109 = and i64 %.sroa.0.0.copyload.i.i.i.i38, -16
   %110 = inttoptr i64 %109 to ptr
-  %111 = load ptr, ptr %110, align 16, !tbaa !99
+  %111 = load ptr, ptr %110, align 16, !tbaa !103
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i8, ptr %112, align 16
   %114 = and i8 %113, -2
@@ -1467,7 +1467,7 @@ define dso_local i32 @_ZNK5clang6interp10Descriptor11getLocationEv(ptr noundef n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.0.0.copyload.i = load i32, ptr %7, align 8, !tbaa !69
+  %.sroa.0.0.copyload.i = load i32, ptr %7, align 8, !tbaa !73
   br label %11
 
 8:                                                ; preds = %1
@@ -1514,7 +1514,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp10Descriptor7isUnionEv(ptr
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 648
-  %10 = load i8, ptr %9, align 8, !tbaa !44, !range !40, !noundef !41
+  %10 = load i8, ptr %9, align 8, !tbaa !45, !range !40, !noundef !41
   %11 = trunc nuw i8 %10 to i1
   br label %12
 
@@ -1525,22 +1525,22 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp10Descriptor7isUnionEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6interp7InitMapC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  store i32 %1, ptr %0, align 8, !tbaa !105
+  store i32 %1, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = add nuw nsw i64 %4, 63
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 1073741816
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #23, !noalias !114
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !noalias !114
-  store ptr %8, ptr %3, align 8, !tbaa !117, !alias.scope !114
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #23, !noalias !118
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !noalias !118
+  store ptr %8, ptr %3, align 8, !tbaa !121, !alias.scope !118
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %_ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
   %10 = and i64 %6, 1073741816
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %10, i1 false), !tbaa !118
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %10, i1 false), !tbaa !122
   br label %_ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit
 
 _ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %2
@@ -1554,20 +1554,20 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp7InitMap17initializeElement
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !117
+  %8 = load ptr, ptr %7, align 8, !tbaa !121
   %9 = zext nneg i32 %3 to i64
   %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
-  %11 = load i64, ptr %10, align 8, !tbaa !118
+  %11 = load i64, ptr %10, align 8, !tbaa !122
   %12 = and i64 %11, %6
   %.not = icmp eq i64 %12, 0
-  %.pre = load i32, ptr %0, align 8, !tbaa !105
+  %.pre = load i32, ptr %0, align 8, !tbaa !109
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = or i64 %11, %6
-  store i64 %14, ptr %10, align 8, !tbaa !118
+  store i64 %14, ptr %10, align 8, !tbaa !122
   %15 = add i32 %.pre, -1
-  store i32 %15, ptr %0, align 8, !tbaa !105
+  store i32 %15, ptr %0, align 8, !tbaa !109
   br label %16
 
 16:                                               ; preds = %13, %2
@@ -1580,10 +1580,10 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp7InitMap17initializeElement
 define dso_local noundef zeroext i1 @_ZNK5clang6interp7InitMap20isElementInitializedEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !117
+  %5 = load ptr, ptr %4, align 8, !tbaa !121
   %6 = zext nneg i32 %3 to i64
   %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
-  %8 = load i64, ptr %7, align 8, !tbaa !118
+  %8 = load i64, ptr %7, align 8, !tbaa !122
   %9 = and i32 %1, 63
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw i64 1, %10
@@ -1607,7 +1607,7 @@ define internal void @_ZL6ctorTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4byteb
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr readnone captures(none) %6) #10 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %8, align 8, !tbaa !119
+  store i32 3, ptr %8, align 8, !tbaa !123
   store i64 7, ptr %1, align 8, !tbaa !25
   ret void
 }
@@ -1615,7 +1615,7 @@ define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr readnone captures(none) %6) #10 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %8, align 8, !tbaa !119
+  store i32 3, ptr %8, align 8, !tbaa !123
   store i64 7, ptr %1, align 8, !tbaa !25
   ret void
 }
@@ -1624,11 +1624,11 @@ define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockE
 define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 72)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr readnone captures(none) %6) #10 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
-  store i32 1, ptr %8, align 8, !tbaa !121
+  store i32 1, ptr %8, align 8, !tbaa !125
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 0, ptr %10, align 8, !tbaa !125
+  store i32 0, ptr %10, align 8, !tbaa !129
   ret void
 }
 
@@ -1636,7 +1636,7 @@ define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt
 define internal void @_ZL6ctorTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 40), (48, 52)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr readnone captures(none) %6) #10 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %1, i8 0, i64 24, i1 false)
-  store i32 1, ptr %8, align 8, !tbaa !121
+  store i32 1, ptr %8, align 8, !tbaa !125
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   ret void
@@ -1677,7 +1677,7 @@ _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %6, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL6dtorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !119
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   %6 = icmp ugt i32 %5, 64
   br i1 %6, label %7, label %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit
 
@@ -1697,7 +1697,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %3, %7, %10
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL6dtorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !119
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   %6 = icmp ugt i32 %5, 64
   br i1 %6, label %7, label %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit
 
@@ -1729,7 +1729,7 @@ define internal void @_ZL6dtorTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytePK
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !128
+  %3 = load ptr, ptr %2, align 8, !tbaa !132
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit, label %4
 
@@ -1770,7 +1770,7 @@ _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
-  store ptr null, ptr %2, align 8, !tbaa !128
+  store ptr null, ptr %2, align 8, !tbaa !132
   ret void
 }
 
@@ -1809,11 +1809,11 @@ _ZN5clang6interp8FloatingC2EOS1_.exit:            ; preds = %7, %8
 define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2, ptr readnone captures(none) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !119
-  store i32 %7, ptr %5, align 8, !tbaa !119
+  %7 = load i32, ptr %6, align 8, !tbaa !123
+  store i32 %7, ptr %5, align 8, !tbaa !123
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %2, align 8
-  store i32 0, ptr %6, align 8, !tbaa !119
+  store i32 0, ptr %6, align 8, !tbaa !123
   ret void
 }
 
@@ -1821,11 +1821,11 @@ define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockE
 define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2, ptr readnone captures(none) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !119
-  store i32 %7, ptr %5, align 8, !tbaa !119
+  %7 = load i32, ptr %6, align 8, !tbaa !123
+  store i32 %7, ptr %5, align 8, !tbaa !123
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %2, align 8
-  store i32 0, ptr %6, align 8, !tbaa !119
+  store i32 0, ptr %6, align 8, !tbaa !123
   ret void
 }
 
@@ -1853,7 +1853,7 @@ declare void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -1869,7 +1869,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !132
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !136
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -1879,7 +1879,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -1895,7 +1895,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !134
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !138
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -1905,7 +1905,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -1922,7 +1922,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %9, i8 0, i64 %17, i1 false), !tbaa !136
+  tail call void @llvm.memset.p0.i64(ptr align 2 %9, i8 0, i64 %17, i1 false), !tbaa !140
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -1932,7 +1932,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -1949,7 +1949,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %9, i8 0, i64 %17, i1 false), !tbaa !139
+  tail call void @llvm.memset.p0.i64(ptr align 2 %9, i8 0, i64 %17, i1 false), !tbaa !143
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -1959,7 +1959,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -1976,7 +1976,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %17, i1 false), !tbaa !141
+  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %17, i1 false), !tbaa !145
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -1986,7 +1986,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2003,7 +2003,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %17, i1 false), !tbaa !143
+  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %17, i1 false), !tbaa !147
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -2013,7 +2013,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2030,7 +2030,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %17, i1 false), !tbaa !145
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %17, i1 false), !tbaa !149
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -2040,7 +2040,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2057,7 +2057,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %17, i1 false), !tbaa !147
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %17, i1 false), !tbaa !151
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -2067,7 +2067,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2092,17 +2092,17 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 3, ptr %17, align 8, !tbaa !119
+  store i32 3, ptr %17, align 8, !tbaa !123
   store i64 7, ptr %16, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !153
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2127,18 +2127,18 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 3, ptr %17, align 8, !tbaa !119
+  store i32 3, ptr %17, align 8, !tbaa !123
   store i64 7, ptr %16, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %9, align 8, !tbaa !130
+  store i8 0, ptr %9, align 8, !tbaa !134
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !22
@@ -2170,13 +2170,13 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2192,7 +2192,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   %15 = udiv i32 %11, %14
   %16 = zext i32 %15 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !152
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %16, i1 false), !tbaa !156
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph.preheader, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
@@ -2202,7 +2202,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2228,18 +2228,18 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %16 = getelementptr inbounds nuw %"class.clang::interp::Pointer", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %16, i8 0, i64 24, i1 false)
-  store i32 1, ptr %17, align 8, !tbaa !121
+  store i32 1, ptr %17, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2266,7 +2266,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2292,20 +2292,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %16 = getelementptr inbounds nuw %"class.clang::interp::MemberPointer", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
-  store i32 1, ptr %17, align 8, !tbaa !121
+  store i32 1, ptr %17, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i32 0, ptr %19, align 8, !tbaa !125
+  store i32 0, ptr %19, align 8, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !159
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZL11ctorArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr noundef readonly captures(none) %6) #16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 0, ptr %8, align 8, !tbaa !130
+  store i8 0, ptr %8, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !22
@@ -2330,28 +2330,28 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 0, ptr %17, align 8, !tbaa !119
+  store i32 0, ptr %17, align 8, !tbaa !123
   store i64 0, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i8 1, ptr %18, align 4, !tbaa !156
+  store i8 1, ptr %18, align 4, !tbaa !160
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %19, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !158
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !162
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2363,14 +2363,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2383,7 +2383,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2393,7 +2393,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2406,14 +2406,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2425,14 +2425,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2445,7 +2445,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2455,7 +2455,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2468,14 +2468,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2487,14 +2487,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2507,7 +2507,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2517,7 +2517,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2530,14 +2530,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2549,14 +2549,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2569,7 +2569,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2579,7 +2579,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2592,14 +2592,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2611,14 +2611,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2631,7 +2631,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2641,7 +2641,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2654,14 +2654,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2673,14 +2673,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2693,7 +2693,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2703,7 +2703,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2716,14 +2716,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2735,14 +2735,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2755,7 +2755,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2765,7 +2765,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2778,14 +2778,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -2797,14 +2797,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2817,7 +2817,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2827,7 +2827,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2840,14 +2840,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -2859,14 +2859,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2879,7 +2879,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2889,7 +2889,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2920,7 +2920,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit ]
   %38 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !119
+  %40 = load i32, ptr %39, align 8, !tbaa !123
   %41 = icmp ugt i32 %40, 64
   br i1 %41, label %42, label %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit
 
@@ -2936,20 +2936,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %.lr.ph, %42, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !168
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !172
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -2961,14 +2961,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -2981,7 +2981,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -2991,7 +2991,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3022,7 +3022,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit ]
   %38 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !119
+  %40 = load i32, ptr %39, align 8, !tbaa !123
   %41 = icmp ugt i32 %40, 64
   br i1 %41, label %42, label %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit
 
@@ -3038,20 +3038,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %.lr.ph, %42, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !169
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -3063,14 +3063,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3083,7 +3083,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3093,7 +3093,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3139,20 +3139,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %42, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !170
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !174
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -3164,14 +3164,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3184,7 +3184,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3194,7 +3194,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3207,14 +3207,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -3226,14 +3226,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3246,7 +3246,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3256,7 +3256,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3289,20 +3289,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %38) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !171
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !175
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
 
@@ -3314,14 +3314,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3334,7 +3334,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3344,7 +3344,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !167
+  br i1 %29, label %30, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3357,14 +3357,14 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3, %7, %15, %_ZN9_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -3376,14 +3376,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3396,7 +3396,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3406,7 +3406,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3439,20 +3439,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %38) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !172
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11dtorArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !130, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !134, !range !40, !noundef !41
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 7:                                                ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !130
+  store i8 0, ptr %4, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
 
@@ -3464,14 +3464,14 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !162
+  store i32 0, ptr %11, align 8, !tbaa !166
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !164
-  %17 = load ptr, ptr %9, align 8, !tbaa !165
+  store i32 0, ptr %16, align 4, !tbaa !168
+  %17 = load ptr, ptr %9, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
-  %20 = load ptr, ptr %9, align 8, !tbaa !165
+  %20 = load ptr, ptr %9, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3484,7 +3484,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !69
+  store i32 %26, ptr %11, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3494,7 +3494,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %29, label %30, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -3525,7 +3525,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5clang6interp10FixedPointD2Ev.exit ]
   %38 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %31, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !119
+  %40 = load i32, ptr %39, align 8, !tbaa !123
   %41 = icmp ugt i32 %40, 64
   br i1 %41, label %42, label %_ZN5clang6interp10FixedPointD2Ev.exit
 
@@ -3541,12 +3541,12 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 _ZN5clang6interp10FixedPointD2Ev.exit:            ; preds = %.lr.ph, %42, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !177
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #17 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !165
+  %2 = load ptr, ptr %0, align 8, !tbaa !169
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -3556,9 +3556,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !69
+  %8 = load i32, ptr %5, align 4, !tbaa !73
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !69
+  store i32 %9, ptr %5, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -3571,7 +3571,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !165
+  %14 = load ptr, ptr %0, align 8, !tbaa !169
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -3584,14 +3584,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -3603,14 +3603,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3623,7 +3623,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -3633,7 +3633,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3669,20 +3669,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   store i8 %42, ptr %41, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -3694,14 +3694,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3714,7 +3714,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -3724,7 +3724,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3760,20 +3760,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   store i8 %42, ptr %41, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !175
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !179
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -3785,14 +3785,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3805,7 +3805,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -3815,7 +3815,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3847,24 +3847,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.73", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.73", ptr %33, i64 %indvars.iv
-  %42 = load i16, ptr %40, align 2, !tbaa !176
-  store i16 %42, ptr %41, align 2, !tbaa !176
+  %42 = load i16, ptr %40, align 2, !tbaa !180
+  store i16 %42, ptr %41, align 2, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !177
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !181
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -3876,14 +3876,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3896,7 +3896,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -3906,7 +3906,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3938,24 +3938,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.74", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.74", ptr %33, i64 %indvars.iv
-  %42 = load i16, ptr %40, align 2, !tbaa !176
-  store i16 %42, ptr %41, align 2, !tbaa !176
+  %42 = load i16, ptr %40, align 2, !tbaa !180
+  store i16 %42, ptr %41, align 2, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -3967,14 +3967,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -3987,7 +3987,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -3997,7 +3997,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4029,24 +4029,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.75", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.75", ptr %33, i64 %indvars.iv
-  %42 = load i32, ptr %40, align 4, !tbaa !69
-  store i32 %42, ptr %41, align 4, !tbaa !69
+  %42 = load i32, ptr %40, align 4, !tbaa !73
+  store i32 %42, ptr %41, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !179
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !183
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4058,14 +4058,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4078,7 +4078,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4088,7 +4088,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4120,24 +4120,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.76", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.76", ptr %33, i64 %indvars.iv
-  %42 = load i32, ptr %40, align 4, !tbaa !69
-  store i32 %42, ptr %41, align 4, !tbaa !69
+  %42 = load i32, ptr %40, align 4, !tbaa !73
+  store i32 %42, ptr %41, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4149,14 +4149,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4169,7 +4169,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4179,7 +4179,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4211,24 +4211,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.77", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.77", ptr %33, i64 %indvars.iv
-  %42 = load i64, ptr %40, align 8, !tbaa !118
-  store i64 %42, ptr %41, align 8, !tbaa !118
+  %42 = load i64, ptr %40, align 8, !tbaa !122
+  store i64 %42, ptr %41, align 8, !tbaa !122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !181
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !185
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4240,14 +4240,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4260,7 +4260,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4270,7 +4270,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4302,24 +4302,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Integral.78", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Integral.78", ptr %33, i64 %indvars.iv
-  %42 = load i64, ptr %40, align 8, !tbaa !118
-  store i64 %42, ptr %41, align 8, !tbaa !118
+  %42 = load i64, ptr %40, align 8, !tbaa !122
+  store i64 %42, ptr %41, align 8, !tbaa !122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !186
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4331,14 +4331,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4351,7 +4351,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4361,7 +4361,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4395,27 +4395,27 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %41 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP", ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !119
-  store i32 %44, ptr %42, align 8, !tbaa !119
+  %44 = load i32, ptr %43, align 8, !tbaa !123
+  store i32 %44, ptr %42, align 8, !tbaa !123
   %45 = load i64, ptr %40, align 8
   store i64 %45, ptr %41, align 8
-  store i32 0, ptr %43, align 8, !tbaa !119
+  store i32 0, ptr %43, align 8, !tbaa !123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !183
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4427,14 +4427,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4447,7 +4447,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4457,7 +4457,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4491,27 +4491,27 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %41 = getelementptr inbounds nuw %"class.clang::interp::IntegralAP.60", ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !119
-  store i32 %44, ptr %42, align 8, !tbaa !119
+  %44 = load i32, ptr %43, align 8, !tbaa !123
+  store i32 %44, ptr %42, align 8, !tbaa !123
   %45 = load i64, ptr %40, align 8
   store i64 %45, ptr %41, align 8
-  store i32 0, ptr %43, align 8, !tbaa !119
+  store i32 0, ptr %43, align 8, !tbaa !123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4523,14 +4523,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4543,7 +4543,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4553,7 +4553,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4601,20 +4601,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 _ZN5clang6interp8FloatingC2EOS1_.exit:            ; preds = %45, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !185
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !189
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4626,14 +4626,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4646,7 +4646,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4656,7 +4656,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4688,24 +4688,24 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::Boolean", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::Boolean", ptr %33, i64 %indvars.iv
-  %42 = load i8, ptr %40, align 1, !tbaa !186
-  store i8 %42, ptr %41, align 1, !tbaa !186
+  %42 = load i8, ptr %40, align 1, !tbaa !190
+  store i8 %42, ptr %41, align 1, !tbaa !190
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !191
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4717,14 +4717,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4737,7 +4737,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4747,7 +4747,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4782,20 +4782,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %41, ptr noundef nonnull align 8 dereferenceable(52) %40) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !192
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4807,14 +4807,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4827,7 +4827,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4837,7 +4837,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4869,23 +4869,23 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr inbounds nuw %"class.clang::interp::FunctionPointer", ptr %32, i64 %indvars.iv
   %41 = getelementptr inbounds nuw %"class.clang::interp::FunctionPointer", ptr %33, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !189
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !192
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !196
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4897,14 +4897,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4917,7 +4917,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -4927,7 +4927,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -4965,20 +4965,20 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !197
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11moveArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !130, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !134, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 8:                                                ; preds = %4
-  store i8 0, ptr %5, align 8, !tbaa !130
+  store i8 0, ptr %5, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !163
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
 
@@ -4990,14 +4990,14 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8, !tbaa !162
+  store i32 0, ptr %12, align 8, !tbaa !166
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !164
-  %18 = load ptr, ptr %10, align 8, !tbaa !165
+  store i32 0, ptr %17, align 4, !tbaa !168
+  %18 = load ptr, ptr %10, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  %21 = load ptr, ptr %10, align 8, !tbaa !165
+  %21 = load ptr, ptr %10, align 8, !tbaa !169
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -5010,7 +5010,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !69
+  store i32 %27, ptr %12, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -5020,7 +5020,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10FixedPointEEvPNS1_5BlockE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %28, %26
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %26 ], [ %29, %28 ]
   %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !167
+  br i1 %30, label %31, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, !prof !171
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
@@ -5054,22 +5054,22 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %41 = getelementptr inbounds nuw %"class.clang::interp::FixedPoint", ptr %33, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !119
-  store i32 %44, ptr %42, align 8, !tbaa !119
+  %44 = load i32, ptr %43, align 8, !tbaa !123
+  store i32 %44, ptr %42, align 8, !tbaa !123
   %45 = load i64, ptr %40, align 8
   store i64 %45, ptr %41, align 8
-  store i32 0, ptr %43, align 8, !tbaa !119
+  store i32 0, ptr %43, align 8, !tbaa !123
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %48 = load i8, ptr %47, align 4, !tbaa !156, !range !40, !noundef !41
-  store i8 %48, ptr %46, align 4, !tbaa !156
+  %48 = load i8, ptr %47, align 4, !tbaa !160, !range !40, !noundef !41
+  store i8 %48, ptr %46, align 4, !tbaa !160
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !25
   store i32 %51, ptr %49, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !194
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5125,9 +5125,9 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !74
+  %48 = load ptr, ptr %47, align 8, !tbaa !78
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !75
+  %50 = load i32, ptr %49, align 8, !tbaa !79
   %51 = zext i32 %50 to i64
   %.idx = shl nuw nsw i64 %51, 5
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
@@ -5141,9 +5141,9 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
   %53 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %46, %39 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 280
-  %55 = load ptr, ptr %54, align 8, !tbaa !74
+  %55 = load ptr, ptr %54, align 8, !tbaa !78
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 288
-  %57 = load i32, ptr %56, align 8, !tbaa !75
+  %57 = load i32, ptr %56, align 8, !tbaa !79
   %58 = zext i32 %57 to i64
   %.idx73 = mul nuw nsw i64 %58, 24
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx73
@@ -5157,9 +5157,9 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
 .lr.ph65.split.us:                                ; preds = %.lr.ph65, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us
   %.05463.us = phi ptr [ %94, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us ], [ %55, %.lr.ph65 ]
   %60 = getelementptr inbounds nuw i8, ptr %.05463.us, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !79
+  %61 = load ptr, ptr %60, align 8, !tbaa !83
   %62 = getelementptr inbounds nuw i8, ptr %.05463.us, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !82
+  %63 = load i32, ptr %62, align 8, !tbaa !86
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
@@ -5214,7 +5214,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us: ; preds = %86
 _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us: ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us, %86
   %94 = getelementptr inbounds nuw i8, ptr %.05463.us, i64 24
   %.not55.us = icmp eq ptr %94, %59
-  br i1 %.not55.us, label %._crit_edge66, label %.lr.ph65.split.us
+  br i1 %.not55.us, label %._crit_edge66, label %.lr.ph65.split.us, !llvm.loop !199
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65
   br i1 %3, label %.lr.ph65.split.split.us, label %.lr.ph65.split.split
@@ -5222,9 +5222,9 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us: ; 
 .lr.ph65.split.split.us:                          ; preds = %.lr.ph65.split, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71
   %.05463.us67 = phi ptr [ %132, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71 ], [ %55, %.lr.ph65.split ]
   %95 = getelementptr inbounds nuw i8, ptr %.05463.us67, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !79
+  %96 = load ptr, ptr %95, align 8, !tbaa !83
   %97 = getelementptr inbounds nuw i8, ptr %.05463.us67, i64 8
-  %98 = load i32, ptr %97, align 8, !tbaa !82
+  %98 = load i32, ptr %97, align 8, !tbaa !86
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -16
@@ -5270,7 +5270,7 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us: ; 
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 648
-  %129 = load i8, ptr %128, align 8, !tbaa !44, !range !40, !noundef !41
+  %129 = load i8, ptr %128, align 8, !tbaa !45, !range !40, !noundef !41
   %130 = trunc nuw i8 %129 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us70
 
@@ -5282,14 +5282,14 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us70: ; preds = %127, %120
 _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71: ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us70, %113
   %132 = getelementptr inbounds nuw i8, ptr %.05463.us67, i64 24
   %.not55.us72 = icmp eq ptr %132, %59
-  br i1 %.not55.us72, label %._crit_edge66, label %.lr.ph65.split.split.us
+  br i1 %.not55.us72, label %._crit_edge66, label %.lr.ph65.split.split.us, !llvm.loop !200
 
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %.061 = phi ptr [ %137, %.lr.ph ], [ %48, %39 ]
   %133 = getelementptr inbounds nuw i8, ptr %.061, i64 16
-  %134 = load ptr, ptr %133, align 8, !tbaa !76
+  %134 = load ptr, ptr %133, align 8, !tbaa !80
   %135 = getelementptr inbounds nuw i8, ptr %.061, i64 8
-  %136 = load i32, ptr %135, align 8, !tbaa !78
+  %136 = load i32, ptr %135, align 8, !tbaa !82
   tail call fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0_10DescriptorEjb(ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %134, i32 noundef %136, i1 noundef zeroext false)
   %137 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   %.not = icmp eq ptr %137, %52
@@ -5301,9 +5301,9 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71: 
 .lr.ph65.split.split:                             ; preds = %.lr.ph65.split, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit
   %.05463 = phi ptr [ %180, %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit ], [ %55, %.lr.ph65.split ]
   %138 = getelementptr inbounds nuw i8, ptr %.05463, i64 16
-  %139 = load ptr, ptr %138, align 8, !tbaa !79
+  %139 = load ptr, ptr %138, align 8, !tbaa !83
   %140 = getelementptr inbounds nuw i8, ptr %.05463, i64 8
-  %141 = load i32, ptr %140, align 8, !tbaa !82
+  %141 = load i32, ptr %140, align 8, !tbaa !86
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %11, i64 %142
   %144 = getelementptr inbounds i8, ptr %143, i64 -16
@@ -5355,7 +5355,7 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71: 
 
 175:                                              ; preds = %167
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 648
-  %177 = load i8, ptr %176, align 8, !tbaa !44, !range !40, !noundef !41
+  %177 = load i8, ptr %176, align 8, !tbaa !45, !range !40, !noundef !41
   %178 = trunc nuw i8 %177 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i
 
@@ -5375,9 +5375,9 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !75
+  %10 = load i32, ptr %9, align 8, !tbaa !79
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -5396,9 +5396,9 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %15 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %6, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %16, align 8, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 288
-  %19 = load i32, ptr %18, align 8, !tbaa !75
+  %19 = load i32, ptr %18, align 8, !tbaa !79
   %20 = zext i32 %19 to i64
   %.idx36 = mul nuw nsw i64 %20, 24
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx36
@@ -5413,9 +5413,9 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
 24:                                               ; preds = %.lr.ph, %24
   %.030 = phi ptr [ %8, %.lr.ph ], [ %29, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %.030, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %26 = load ptr, ptr %25, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !78
+  %28 = load i32, ptr %27, align 8, !tbaa !82
   tail call fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj(ptr noundef %0, ptr noundef %14, ptr noundef %26, i32 noundef %28)
   %29 = getelementptr inbounds nuw i8, ptr %.030, i64 32
   %.not = icmp eq ptr %29, %12
@@ -5427,7 +5427,7 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
 30:                                               ; preds = %.lr.ph34, %_ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit
   %.02332 = phi ptr [ %17, %.lr.ph34 ], [ %40, %_ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %.02332, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !79
+  %32 = load ptr, ptr %31, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %.not.i = icmp eq ptr %34, null
@@ -5435,7 +5435,7 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %.02332, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !82
+  %37 = load i32, ptr %36, align 8, !tbaa !86
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 %38
   tail call void %34(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %32) #21
@@ -5529,156 +5529,162 @@ attributes #25 = { builtin nounwind }
 !39 = !{!38, !16, i64 8}
 !40 = !{i8 0, i8 2}
 !41 = !{}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !21, i64 648}
-!45 = !{!"_ZTSN5clang6interp6RecordE", !46, i64 0, !47, i64 8, !53, i64 280, !58, i64 488, !60, i64 568, !62, i64 592, !64, i64 616, !13, i64 640, !13, i64 644, !21, i64 648, !21, i64 649}
-!46 = !{!"p1 _ZTSN5clang10RecordDeclE", !15, i64 0}
-!47 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record4BaseELj8EEE", !48, i64 0, !52, i64 16}
-!48 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang6interp6Record4BaseEEE", !49, i64 0}
-!49 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang6interp6Record4BaseELb1EEE", !50, i64 0}
-!50 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang6interp6Record4BaseEvEE", !51, i64 0}
-!51 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !15, i64 0, !13, i64 8, !13, i64 12}
-!52 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record4BaseELj8EEE", !11, i64 0}
-!53 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record5FieldELj8EEE", !54, i64 0, !57, i64 16}
-!54 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang6interp6Record5FieldEEE", !55, i64 0}
-!55 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang6interp6Record5FieldELb1EEE", !56, i64 0}
-!56 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang6interp6Record5FieldEvEE", !51, i64 0}
-!57 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record5FieldELj8EEE", !11, i64 0}
-!58 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record4BaseELj2EEE", !48, i64 0, !59, i64 16}
-!59 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record4BaseELj2EEE", !11, i64 0}
-!60 = !{!"_ZTSN4llvm8DenseMapIPKN5clang10RecordDeclEPKNS1_6interp6Record4BaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEE", !61, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!61 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseEEE", !15, i64 0}
-!62 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9FieldDeclEPKNS1_6interp6Record5FieldENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEE", !63, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!63 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9FieldDeclEPKNS2_6interp6Record5FieldEEE", !15, i64 0}
-!64 = !{!"_ZTSN4llvm8DenseMapIPKN5clang10RecordDeclEPNS1_6interp6Record4BaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEE", !65, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!65 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang10RecordDeclEPNS2_6interp6Record4BaseEEE", !15, i64 0}
-!66 = distinct !{!66, !43, !67}
-!67 = !{!"llvm.loop.unswitch.partial.disable"}
-!68 = !{i64 0, i64 4, !69, i64 4, i64 1, !25, i64 8, i64 8, !70}
-!69 = !{!13, !13, i64 0}
-!70 = !{!16, !16, i64 0}
-!71 = distinct !{!71, !43}
-!72 = !{!45, !13, i64 640}
-!73 = !{!45, !13, i64 644}
-!74 = !{!51, !15, i64 0}
-!75 = !{!51, !13, i64 8}
-!76 = !{!77, !16, i64 16}
-!77 = !{!"_ZTSN5clang6interp6Record4BaseE", !46, i64 0, !13, i64 8, !16, i64 16, !14, i64 24}
-!78 = !{!77, !13, i64 8}
-!79 = !{!80, !16, i64 16}
-!80 = !{!"_ZTSN5clang6interp6Record5FieldE", !81, i64 0, !13, i64 8, !16, i64 16}
-!81 = !{!"p1 _ZTSN5clang9FieldDeclE", !15, i64 0}
-!82 = !{!80, !13, i64 8}
-!83 = !{!84, !97, i64 48}
-!84 = !{!"_ZTSN5clang8TypeDeclE", !85, i64 0, !97, i64 48, !94, i64 56}
-!85 = !{!"_ZTSN5clang9NamedDeclE", !86, i64 0, !95, i64 40}
-!86 = !{!"_ZTSN5clang4DeclE", !87, i64 8, !89, i64 16, !94, i64 24, !13, i64 28, !13, i64 28, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 30, !13, i64 32}
-!87 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !88, i64 0}
-!88 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !11, i64 0}
-!89 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !90, i64 0}
-!90 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !91, i64 0}
-!91 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !92, i64 0}
-!92 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !93, i64 0}
-!93 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !10, i64 0}
-!94 = !{!"_ZTSN5clang14SourceLocationE", !13, i64 0}
-!95 = !{!"_ZTSN5clang15DeclarationNameE", !96, i64 0}
-!96 = !{!"long", !11, i64 0}
-!97 = !{!"p1 _ZTSN5clang4TypeE", !15, i64 0}
-!98 = !{!45, !46, i64 0}
-!99 = !{!100, !97, i64 0}
-!100 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !97, i64 0, !101, i64 8}
-!101 = !{!"_ZTSN5clang8QualTypeE", !102, i64 0}
-!102 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPKN5clang4TypeEPKNS2_8ExtQualsEEEELj3EjNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj3ESB_EEEE", !103, i64 0}
-!103 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPKN5clang4TypeEPKNS3_8ExtQualsEEEEEE", !11, i64 0}
-!104 = distinct !{!104, !43}
-!105 = !{!106, !13, i64 0}
-!106 = !{!"_ZTSN5clang6interp7InitMapE", !13, i64 0, !107, i64 8}
-!107 = !{!"_ZTSSt10unique_ptrIA_mSt14default_deleteIS0_EE", !108, i64 0}
-!108 = !{!"_ZTSSt15__uniq_ptr_dataImSt14default_deleteIA_mELb1ELb1EE", !109, i64 0}
-!109 = !{!"_ZTSSt15__uniq_ptr_implImSt14default_deleteIA_mEE", !110, i64 0}
-!110 = !{!"_ZTSSt5tupleIJPmSt14default_deleteIA_mEEE", !111, i64 0}
-!111 = !{!"_ZTSSt11_Tuple_implILm0EJPmSt14default_deleteIA_mEEE", !112, i64 0}
-!112 = !{!"_ZTSSt10_Head_baseILm0EPmLb0EE", !113, i64 0}
-!113 = !{!"p1 long", !15, i64 0}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZSt11make_uniqueIA_mENSt8__detail9_MakeUniqIT_E7__arrayEm: argument 0"}
-!116 = distinct !{!116, !"_ZSt11make_uniqueIA_mENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!117 = !{!113, !113, i64 0}
-!118 = !{!96, !96, i64 0}
-!119 = !{!120, !13, i64 8}
-!120 = !{!"_ZTSN4llvm5APIntE", !11, i64 0, !13, i64 8}
-!121 = !{!122, !124, i64 48}
-!122 = !{!"_ZTSN5clang6interp7PointerE", !96, i64 0, !123, i64 8, !123, i64 16, !11, i64 24, !124, i64 48}
-!123 = !{!"p1 _ZTSN5clang6interp7PointerE", !15, i64 0}
-!124 = !{!"_ZTSN5clang6interp7StorageE", !11, i64 0}
-!125 = !{!126, !13, i64 64}
-!126 = !{!"_ZTSN5clang6interp13MemberPointerE", !122, i64 0, !127, i64 56, !13, i64 64}
-!127 = !{!"p1 _ZTSN5clang9ValueDeclE", !15, i64 0}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"p1 _ZTSN4llvm7APFloatE", !15, i64 0}
-!130 = !{!131, !21, i64 24}
-!131 = !{!"_ZTSSt22_Optional_payload_baseISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEE", !11, i64 0, !21, i64 24}
-!132 = !{!133, !11, i64 0}
-!133 = !{!"_ZTSN5clang6interp8IntegralILj8ELb1EEE", !11, i64 0}
-!134 = !{!135, !11, i64 0}
-!135 = !{!"_ZTSN5clang6interp8IntegralILj8ELb0EEE", !11, i64 0}
-!136 = !{!137, !138, i64 0}
-!137 = !{!"_ZTSN5clang6interp8IntegralILj16ELb1EEE", !138, i64 0}
-!138 = !{!"short", !11, i64 0}
-!139 = !{!140, !138, i64 0}
-!140 = !{!"_ZTSN5clang6interp8IntegralILj16ELb0EEE", !138, i64 0}
-!141 = !{!142, !13, i64 0}
-!142 = !{!"_ZTSN5clang6interp8IntegralILj32ELb1EEE", !13, i64 0}
-!143 = !{!144, !13, i64 0}
-!144 = !{!"_ZTSN5clang6interp8IntegralILj32ELb0EEE", !13, i64 0}
-!145 = !{!146, !96, i64 0}
-!146 = !{!"_ZTSN5clang6interp8IntegralILj64ELb1EEE", !96, i64 0}
-!147 = !{!148, !96, i64 0}
-!148 = !{!"_ZTSN5clang6interp8IntegralILj64ELb0EEE", !96, i64 0}
-!149 = distinct !{!149, !43}
-!150 = distinct !{!150, !43}
-!151 = distinct !{!151, !43}
-!152 = !{!153, !21, i64 0}
-!153 = !{!"_ZTSN5clang6interp7BooleanE", !21, i64 0}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!46, !21, i64 648}
+!46 = !{!"_ZTSN5clang6interp6RecordE", !47, i64 0, !48, i64 8, !54, i64 280, !59, i64 488, !61, i64 568, !63, i64 592, !65, i64 616, !13, i64 640, !13, i64 644, !21, i64 648, !21, i64 649}
+!47 = !{!"p1 _ZTSN5clang10RecordDeclE", !15, i64 0}
+!48 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record4BaseELj8EEE", !49, i64 0, !53, i64 16}
+!49 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang6interp6Record4BaseEEE", !50, i64 0}
+!50 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang6interp6Record4BaseELb1EEE", !51, i64 0}
+!51 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang6interp6Record4BaseEvEE", !52, i64 0}
+!52 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !15, i64 0, !13, i64 8, !13, i64 12}
+!53 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record4BaseELj8EEE", !11, i64 0}
+!54 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record5FieldELj8EEE", !55, i64 0, !58, i64 16}
+!55 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang6interp6Record5FieldEEE", !56, i64 0}
+!56 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang6interp6Record5FieldELb1EEE", !57, i64 0}
+!57 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang6interp6Record5FieldEvEE", !52, i64 0}
+!58 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record5FieldELj8EEE", !11, i64 0}
+!59 = !{!"_ZTSN4llvm11SmallVectorIN5clang6interp6Record4BaseELj2EEE", !49, i64 0, !60, i64 16}
+!60 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang6interp6Record4BaseELj2EEE", !11, i64 0}
+!61 = !{!"_ZTSN4llvm8DenseMapIPKN5clang10RecordDeclEPKNS1_6interp6Record4BaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEE", !62, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!62 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseEEE", !15, i64 0}
+!63 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9FieldDeclEPKNS1_6interp6Record5FieldENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEE", !64, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!64 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9FieldDeclEPKNS2_6interp6Record5FieldEEE", !15, i64 0}
+!65 = !{!"_ZTSN4llvm8DenseMapIPKN5clang10RecordDeclEPNS1_6interp6Record4BaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEE", !66, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!66 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang10RecordDeclEPNS2_6interp6Record4BaseEEE", !15, i64 0}
+!67 = distinct !{!67, !43, !44}
+!68 = distinct !{!68, !43, !44}
+!69 = distinct !{!69, !43}
+!70 = distinct !{!70, !43, !71}
+!71 = !{!"llvm.loop.unswitch.partial.disable"}
+!72 = !{i64 0, i64 4, !73, i64 4, i64 1, !25, i64 8, i64 8, !74}
+!73 = !{!13, !13, i64 0}
+!74 = !{!16, !16, i64 0}
+!75 = distinct !{!75, !43}
+!76 = !{!46, !13, i64 640}
+!77 = !{!46, !13, i64 644}
+!78 = !{!52, !15, i64 0}
+!79 = !{!52, !13, i64 8}
+!80 = !{!81, !16, i64 16}
+!81 = !{!"_ZTSN5clang6interp6Record4BaseE", !47, i64 0, !13, i64 8, !16, i64 16, !14, i64 24}
+!82 = !{!81, !13, i64 8}
+!83 = !{!84, !16, i64 16}
+!84 = !{!"_ZTSN5clang6interp6Record5FieldE", !85, i64 0, !13, i64 8, !16, i64 16}
+!85 = !{!"p1 _ZTSN5clang9FieldDeclE", !15, i64 0}
+!86 = !{!84, !13, i64 8}
+!87 = !{!88, !101, i64 48}
+!88 = !{!"_ZTSN5clang8TypeDeclE", !89, i64 0, !101, i64 48, !98, i64 56}
+!89 = !{!"_ZTSN5clang9NamedDeclE", !90, i64 0, !99, i64 40}
+!90 = !{!"_ZTSN5clang4DeclE", !91, i64 8, !93, i64 16, !98, i64 24, !13, i64 28, !13, i64 28, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 29, !13, i64 30, !13, i64 32}
+!91 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !92, i64 0}
+!92 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !11, i64 0}
+!93 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !94, i64 0}
+!94 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !95, i64 0}
+!95 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !96, i64 0}
+!96 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !97, i64 0}
+!97 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !10, i64 0}
+!98 = !{!"_ZTSN5clang14SourceLocationE", !13, i64 0}
+!99 = !{!"_ZTSN5clang15DeclarationNameE", !100, i64 0}
+!100 = !{!"long", !11, i64 0}
+!101 = !{!"p1 _ZTSN5clang4TypeE", !15, i64 0}
+!102 = !{!46, !47, i64 0}
+!103 = !{!104, !101, i64 0}
+!104 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !101, i64 0, !105, i64 8}
+!105 = !{!"_ZTSN5clang8QualTypeE", !106, i64 0}
+!106 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPKN5clang4TypeEPKNS2_8ExtQualsEEEELj3EjNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj3ESB_EEEE", !107, i64 0}
+!107 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPKN5clang4TypeEPKNS3_8ExtQualsEEEEEE", !11, i64 0}
+!108 = distinct !{!108, !43}
+!109 = !{!110, !13, i64 0}
+!110 = !{!"_ZTSN5clang6interp7InitMapE", !13, i64 0, !111, i64 8}
+!111 = !{!"_ZTSSt10unique_ptrIA_mSt14default_deleteIS0_EE", !112, i64 0}
+!112 = !{!"_ZTSSt15__uniq_ptr_dataImSt14default_deleteIA_mELb1ELb1EE", !113, i64 0}
+!113 = !{!"_ZTSSt15__uniq_ptr_implImSt14default_deleteIA_mEE", !114, i64 0}
+!114 = !{!"_ZTSSt5tupleIJPmSt14default_deleteIA_mEEE", !115, i64 0}
+!115 = !{!"_ZTSSt11_Tuple_implILm0EJPmSt14default_deleteIA_mEEE", !116, i64 0}
+!116 = !{!"_ZTSSt10_Head_baseILm0EPmLb0EE", !117, i64 0}
+!117 = !{!"p1 long", !15, i64 0}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZSt11make_uniqueIA_mENSt8__detail9_MakeUniqIT_E7__arrayEm: argument 0"}
+!120 = distinct !{!120, !"_ZSt11make_uniqueIA_mENSt8__detail9_MakeUniqIT_E7__arrayEm"}
+!121 = !{!117, !117, i64 0}
+!122 = !{!100, !100, i64 0}
+!123 = !{!124, !13, i64 8}
+!124 = !{!"_ZTSN4llvm5APIntE", !11, i64 0, !13, i64 8}
+!125 = !{!126, !128, i64 48}
+!126 = !{!"_ZTSN5clang6interp7PointerE", !100, i64 0, !127, i64 8, !127, i64 16, !11, i64 24, !128, i64 48}
+!127 = !{!"p1 _ZTSN5clang6interp7PointerE", !15, i64 0}
+!128 = !{!"_ZTSN5clang6interp7StorageE", !11, i64 0}
+!129 = !{!130, !13, i64 64}
+!130 = !{!"_ZTSN5clang6interp13MemberPointerE", !126, i64 0, !131, i64 56, !13, i64 64}
+!131 = !{!"p1 _ZTSN5clang9ValueDeclE", !15, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 _ZTSN4llvm7APFloatE", !15, i64 0}
+!134 = !{!135, !21, i64 24}
+!135 = !{!"_ZTSSt22_Optional_payload_baseISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEE", !11, i64 0, !21, i64 24}
+!136 = !{!137, !11, i64 0}
+!137 = !{!"_ZTSN5clang6interp8IntegralILj8ELb1EEE", !11, i64 0}
+!138 = !{!139, !11, i64 0}
+!139 = !{!"_ZTSN5clang6interp8IntegralILj8ELb0EEE", !11, i64 0}
+!140 = !{!141, !142, i64 0}
+!141 = !{!"_ZTSN5clang6interp8IntegralILj16ELb1EEE", !142, i64 0}
+!142 = !{!"short", !11, i64 0}
+!143 = !{!144, !142, i64 0}
+!144 = !{!"_ZTSN5clang6interp8IntegralILj16ELb0EEE", !142, i64 0}
+!145 = !{!146, !13, i64 0}
+!146 = !{!"_ZTSN5clang6interp8IntegralILj32ELb1EEE", !13, i64 0}
+!147 = !{!148, !13, i64 0}
+!148 = !{!"_ZTSN5clang6interp8IntegralILj32ELb0EEE", !13, i64 0}
+!149 = !{!150, !100, i64 0}
+!150 = !{!"_ZTSN5clang6interp8IntegralILj64ELb1EEE", !100, i64 0}
+!151 = !{!152, !100, i64 0}
+!152 = !{!"_ZTSN5clang6interp8IntegralILj64ELb0EEE", !100, i64 0}
+!153 = distinct !{!153, !43}
 !154 = distinct !{!154, !43}
 !155 = distinct !{!155, !43}
-!156 = !{!157, !21, i64 12}
-!157 = !{!"_ZTSN4llvm6APSIntE", !120, i64 0, !21, i64 12}
+!156 = !{!157, !21, i64 0}
+!157 = !{!"_ZTSN5clang6interp7BooleanE", !21, i64 0}
 !158 = distinct !{!158, !43}
-!159 = !{!160, !161, i64 0}
-!160 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !161, i64 0}
-!161 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
-!162 = !{!163, !13, i64 8}
-!163 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !13, i64 8, !13, i64 12}
-!164 = !{!163, !13, i64 12}
-!165 = !{!166, !166, i64 0}
-!166 = !{!"vtable pointer", !12, i64 0}
-!167 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!168 = distinct !{!168, !43}
-!169 = distinct !{!169, !43}
-!170 = distinct !{!170, !43}
-!171 = distinct !{!171, !43}
+!159 = distinct !{!159, !43}
+!160 = !{!161, !21, i64 12}
+!161 = !{!"_ZTSN4llvm6APSIntE", !124, i64 0, !21, i64 12}
+!162 = distinct !{!162, !43}
+!163 = !{!164, !165, i64 0}
+!164 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !165, i64 0}
+!165 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
+!166 = !{!167, !13, i64 8}
+!167 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !13, i64 8, !13, i64 12}
+!168 = !{!167, !13, i64 12}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"vtable pointer", !12, i64 0}
+!171 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !172 = distinct !{!172, !43}
 !173 = distinct !{!173, !43}
 !174 = distinct !{!174, !43}
 !175 = distinct !{!175, !43}
-!176 = !{!138, !138, i64 0}
+!176 = distinct !{!176, !43}
 !177 = distinct !{!177, !43}
 !178 = distinct !{!178, !43}
 !179 = distinct !{!179, !43}
-!180 = distinct !{!180, !43}
+!180 = !{!142, !142, i64 0}
 !181 = distinct !{!181, !43}
 !182 = distinct !{!182, !43}
 !183 = distinct !{!183, !43}
 !184 = distinct !{!184, !43}
 !185 = distinct !{!185, !43}
-!186 = !{!21, !21, i64 0}
+!186 = distinct !{!186, !43}
 !187 = distinct !{!187, !43}
 !188 = distinct !{!188, !43}
-!189 = !{i64 0, i64 8, !190, i64 8, i64 8, !118, i64 16, i64 1, !186}
-!190 = !{!191, !191, i64 0}
-!191 = !{!"p1 _ZTSN5clang6interp8FunctionE", !15, i64 0}
+!189 = distinct !{!189, !43}
+!190 = !{!21, !21, i64 0}
+!191 = distinct !{!191, !43}
 !192 = distinct !{!192, !43}
-!193 = distinct !{!193, !43}
-!194 = distinct !{!194, !43}
+!193 = !{i64 0, i64 8, !194, i64 8, i64 8, !122, i64 16, i64 1, !190}
+!194 = !{!195, !195, i64 0}
+!195 = !{!"p1 _ZTSN5clang6interp8FunctionE", !15, i64 0}
+!196 = distinct !{!196, !43}
+!197 = distinct !{!197, !43}
+!198 = distinct !{!198, !43}
+!199 = distinct !{!199, !44}
+!200 = distinct !{!200, !44}

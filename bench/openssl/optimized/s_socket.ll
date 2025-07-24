@@ -723,12 +723,12 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %129 = call ptr @BIO_ADDR_new() #9
   store ptr %129, ptr @ourpeer, align 8, !tbaa !14
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %.split161.us, label %.preheader.us
+  br i1 %130, label %.split161.us, label %.preheader.us, !llvm.loop !26
 
 131:                                              ; preds = %98
   %132 = call i32 @BIO_sock_should_retry(i32 noundef %100) #9
   %.not136.us = icmp eq i32 %132, 0
-  br i1 %.not136.us, label %.critedge, label %98, !llvm.loop !26
+  br i1 %.not136.us, label %.critedge, label %98, !llvm.loop !28
 
 .preheader.us:                                    ; preds = %.split.us, %127
   %.0111.us168 = phi i32 [ %spec.select141.us, %127 ], [ %8, %.split.us ]
@@ -853,7 +853,7 @@ define void @do_ssl_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %7 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %6, %.lr.ph, %1
   ret void
@@ -907,5 +907,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !23 = !{!21, !22, i64 8}
 !24 = !{!22, !22, i64 0}
 !25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}

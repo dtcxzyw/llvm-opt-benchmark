@@ -1571,7 +1571,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   %32 = load i16, ptr %2, align 2, !tbaa !49
   %33 = icmp eq i16 %32, 2
   %34 = select i1 %33, i32 0, i32 41
-  store i32 0, ptr %9, align 8, !tbaa !86
+  store i32 0, ptr %9, align 8, !tbaa !87
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 2 %2, i64 %14, i1 false)
   %35 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %35, i64 128, i1 false)
@@ -1592,7 +1592,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !88
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !89
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %56
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %56 ], [ 0, %.lr.ph55 ]
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count76
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !85
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !90
 
 .loopexit:                                        ; preds = %42, %56, %30, %.preheader49, %.preheader, %.thread46, %38
   %.3 = phi i32 [ %41, %38 ], [ %.5.ph, %.thread46 ], [ 0, %.preheader ], [ 0, %.preheader49 ], [ 0, %30 ], [ 0, %56 ], [ 0, %42 ]
@@ -1817,7 +1817,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   %46 = call i64 @av_fifo_can_read(ptr noundef %45) #11
   %.081 = trunc i64 %46 to i32
   %47 = icmp slt i32 %.081, 4
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !89
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %43, %38
   %48 = load ptr, ptr %29, align 8, !tbaa !64
@@ -1951,7 +1951,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   %.384 = phi i32 [ %97, %96 ], [ %.182130, %100 ], [ %.182130, %100 ]
   %.280 = phi ptr [ %99, %96 ], [ %.078131, %100 ], [ %.078131, %100 ]
   %.not110 = icmp eq i32 %.384, 0
-  br i1 %.not110, label %._crit_edge134, label %.lr.ph133, !llvm.loop !90
+  br i1 %.not110, label %._crit_edge134, label %.lr.ph133, !llvm.loop !92
 
 ._crit_edge134:                                   ; preds = %107, %82
   %108 = call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #11
@@ -2040,7 +2040,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = load i32, ptr %20, align 4, !tbaa !91
+  %46 = load i32, ptr %20, align 4, !tbaa !93
   %.not31 = icmp eq i32 %46, 0
   br i1 %.not31, label %48, label %47
 
@@ -2257,10 +2257,12 @@ attributes #14 = { noreturn nounwind }
 !82 = !{!"ip_mreq_source", !73, i64 0, !73, i64 4, !73, i64 8}
 !83 = !{!82, !12, i64 4}
 !84 = !{!82, !12, i64 8}
-!85 = distinct !{!85, !54}
-!86 = !{!87, !12, i64 0}
-!87 = !{!"group_source_req", !12, i64 0, !18, i64 8, !18, i64 136}
-!88 = distinct !{!88, !54}
+!85 = distinct !{!85, !54, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = !{!88, !12, i64 0}
+!88 = !{!"group_source_req", !12, i64 0, !18, i64 8, !18, i64 136}
 !89 = distinct !{!89, !54}
 !90 = distinct !{!90, !54}
-!91 = !{!17, !12, i64 44}
+!91 = distinct !{!91, !54}
+!92 = distinct !{!92, !54}
+!93 = !{!17, !12, i64 44}

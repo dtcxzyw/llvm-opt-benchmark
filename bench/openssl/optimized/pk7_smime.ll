@@ -603,9 +603,9 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not103.us, label %.loopexit, label %68
 
 68:                                               ; preds = %66, %65
-  %69 = load ptr, ptr %57, align 8, !tbaa !36
+  %69 = load ptr, ptr %57, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !37
+  %71 = load ptr, ptr %70, align 8, !tbaa !38
   call void @X509_STORE_CTX_set0_crls(ptr noundef nonnull %40, ptr noundef %71) #3
   %72 = call i32 @X509_verify_cert(ptr noundef nonnull %40) #3
   %73 = icmp slt i32 %72, 1
@@ -626,7 +626,7 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
   %78 = add nuw nsw i32 %.083109.us112, 1
   %79 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %34) #3
   %80 = icmp slt i32 %78, %79
-  br i1 %80, label %.lr.ph.split.split.us, label %.loopexit107, !llvm.loop !35
+  br i1 %80, label %.lr.ph.split.split.us, label %.loopexit107, !llvm.loop !44
 
 81:                                               ; preds = %.lr.ph.split.split.us
   %82 = call i32 @X509_STORE_CTX_set_default(ptr noundef nonnull %40, ptr noundef nonnull @.str.1) #3
@@ -642,7 +642,7 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = add nuw nsw i32 %.083109, 1
   %88 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %34) #3
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %.lr.ph.split.split, label %.loopexit107, !llvm.loop !35
+  br i1 %89, label %.lr.ph.split.split, label %.loopexit107, !llvm.loop !45
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %86
   %.083109 = phi i32 [ %87, %86 ], [ 0, %.lr.ph.split ]
@@ -716,7 +716,7 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph115.split.us:                               ; preds = %.lr.ph115, %.lr.ph115.split.us
   %115 = call i32 @BIO_read(ptr noundef nonnull %99, ptr noundef nonnull %111, i32 noundef 4096) #3
   %116 = icmp slt i32 %115, 1
-  br i1 %116, label %._crit_edge, label %.lr.ph115.split.us
+  br i1 %116, label %._crit_edge, label %.lr.ph115.split.us, !llvm.loop !46
 
 .lr.ph115.split:                                  ; preds = %.lr.ph115, %.lr.ph115.split
   %117 = phi i32 [ %119, %.lr.ph115.split ], [ %113, %.lr.ph115 ]
@@ -758,7 +758,7 @@ define range(i32 0, 2) i32 @PKCS7_verify(ptr noundef %0, ptr noundef %1, ptr nou
   %132 = add nuw nsw i32 %.084116, 1
   %133 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #3
   %134 = icmp slt i32 %132, %133
-  br i1 %134, label %.lr.ph117, label %.loopexit, !llvm.loop !43
+  br i1 %134, label %.lr.ph117, label %.loopexit, !llvm.loop !47
 
 .lr.ph117:                                        ; preds = %.preheader, %131
   %.084116 = phi i32 [ %132, %131 ], [ 0, %.preheader ]
@@ -859,10 +859,10 @@ define ptr @PKCS7_get0_signers(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %.034.us = phi i32 [ %34, %33 ], [ 0, %.lr.ph ]
   %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.034.us) #3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !44
-  %28 = load ptr, ptr %27, align 8, !tbaa !45
+  %27 = load ptr, ptr %26, align 8, !tbaa !48
+  %28 = load ptr, ptr %27, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef %1, ptr noundef %28, ptr noundef %30) #3
   %32 = icmp eq ptr %31, null
   br i1 %32, label %37, label %.thread31.us
@@ -871,11 +871,11 @@ define ptr @PKCS7_get0_signers(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %34 = add nuw nsw i32 %.034.us, 1
   %35 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #3
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !49
+  br i1 %36, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !53
 
 37:                                               ; preds = %.lr.ph.split.us
-  %38 = load ptr, ptr %27, align 8, !tbaa !45
-  %39 = load ptr, ptr %29, align 8, !tbaa !48
+  %38 = load ptr, ptr %27, align 8, !tbaa !49
+  %39 = load ptr, ptr %29, align 8, !tbaa !52
   %40 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef %13, ptr noundef %38, ptr noundef %39) #3
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %.thread31.us
@@ -896,16 +896,16 @@ define ptr @PKCS7_get0_signers(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %45 = add nuw nsw i32 %.034, 1
   %46 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #3
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %.lr.ph.split, label %.loopexit, !llvm.loop !49
+  br i1 %47, label %.lr.ph.split, label %.loopexit, !llvm.loop !54
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %44
   %.034 = phi i32 [ %45, %44 ], [ 0, %.lr.ph ]
   %48 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.034) #3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !44
-  %51 = load ptr, ptr %50, align 8, !tbaa !45
+  %50 = load ptr, ptr %49, align 8, !tbaa !48
+  %51 = load ptr, ptr %50, align 8, !tbaa !49
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !48
+  %53 = load ptr, ptr %52, align 8, !tbaa !52
   %54 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef %1, ptr noundef %51, ptr noundef %53) #3
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %.thread31
@@ -1012,7 +1012,7 @@ define ptr @PKCS7_encrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %17 = add nuw nsw i32 %.02026, 1
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.02026 = phi i32 [ %17, %16 ], [ 0, %.preheader ]
@@ -1268,19 +1268,24 @@ attributes #3 = { nounwind }
 !32 = !{!"pkcs7_st", !26, i64 0, !27, i64 8, !25, i64 16, !25, i64 20, !20, i64 24, !9, i64 32, !33, i64 40}
 !33 = !{!"PKCS7_CTX_st", !34, i64 0, !26, i64 8}
 !34 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!35 = distinct !{!35, !4}
-!36 = !{!9, !9, i64 0}
-!37 = !{!38, !40, i64 24}
-!38 = !{!"pkcs7_signed_st", !7, i64 0, !39, i64 8, !30, i64 16, !40, i64 24, !41, i64 32, !42, i64 40}
-!39 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !8, i64 0}
-!40 = !{!"p1 _ZTS17stack_st_X509_CRL", !8, i64 0}
-!41 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !8, i64 0}
-!42 = !{!"p1 _ZTS8pkcs7_st", !8, i64 0}
-!43 = distinct !{!43, !4}
-!44 = !{!6, !11, i64 8}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"pkcs7_issuer_and_serial_st", !47, i64 0, !7, i64 8}
-!47 = !{!"p1 _ZTS12X509_name_st", !8, i64 0}
-!48 = !{!46, !7, i64 8}
-!49 = distinct !{!49, !4}
-!50 = distinct !{!50, !4}
+!35 = distinct !{!35, !4, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!9, !9, i64 0}
+!38 = !{!39, !41, i64 24}
+!39 = !{!"pkcs7_signed_st", !7, i64 0, !40, i64 8, !30, i64 16, !41, i64 24, !42, i64 32, !43, i64 40}
+!40 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !8, i64 0}
+!41 = !{!"p1 _ZTS17stack_st_X509_CRL", !8, i64 0}
+!42 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !8, i64 0}
+!43 = !{!"p1 _ZTS8pkcs7_st", !8, i64 0}
+!44 = distinct !{!44, !4, !36}
+!45 = distinct !{!45, !4}
+!46 = distinct !{!46, !36}
+!47 = distinct !{!47, !4}
+!48 = !{!6, !11, i64 8}
+!49 = !{!50, !51, i64 0}
+!50 = !{!"pkcs7_issuer_and_serial_st", !51, i64 0, !7, i64 8}
+!51 = !{!"p1 _ZTS12X509_name_st", !8, i64 0}
+!52 = !{!50, !7, i64 8}
+!53 = distinct !{!53, !4, !36}
+!54 = distinct !{!54, !4}
+!55 = distinct !{!55, !4}

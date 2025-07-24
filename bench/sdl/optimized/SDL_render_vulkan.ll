@@ -2160,7 +2160,7 @@ define internal noundef zeroext i1 @VULKAN_QueueDrawPoints(ptr noundef %0, ptr n
   %35 = getelementptr inbounds nuw i8, ptr %.02426, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count33
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %10, %4
   ret i1 %.not
@@ -2215,250 +2215,199 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   br i1 %45, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42
-  %wide.trip.count97 = zext nneg i32 %16 to i64
+  %wide.trip.count91 = zext nneg i32 %16 to i64
   br i1 %.not68, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %21, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %58
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %58 ], [ 0, %.lr.ph.split.us ]
-  %.06375.us.us = phi ptr [ %74, %58 ], [ %20, %.lr.ph.split.us ]
-  %46 = trunc nuw nsw i64 %indvars.iv94 to i32
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %73
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %73 ], [ 0, %.lr.ph ]
+  %.06375.us = phi ptr [ %76, %73 ], [ %20, %.lr.ph ]
+  %46 = trunc nuw nsw i64 %indvars.iv88 to i32
   switch i32 %44, label %58 [
     i32 4, label %55
     i32 2, label %51
     i32 1, label %47
   ]
 
-47:                                               ; preds = %.lr.ph.split.us.split.us
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv94
+47:                                               ; preds = %.lr.ph.split.us
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv88
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   br label %58
 
-51:                                               ; preds = %.lr.ph.split.us.split.us
-  %52 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv94
+51:                                               ; preds = %.lr.ph.split.us
+  %52 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv88
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   br label %58
 
-55:                                               ; preds = %.lr.ph.split.us.split.us
-  %56 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv94
+55:                                               ; preds = %.lr.ph.split.us
+  %56 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv88
   %57 = load i32, ptr %56, align 4
   br label %58
 
-58:                                               ; preds = %55, %51, %47, %.lr.ph.split.us.split.us
-  %.061.us.us = phi i32 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %.lr.ph.split.us.split.us ]
-  %59 = mul nsw i32 %.061.us.us, %4
+58:                                               ; preds = %55, %51, %47, %.lr.ph.split.us
+  %.061.us = phi i32 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %.lr.ph.split.us ]
+  %59 = mul nsw i32 %.061.us, %4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %3, i64 %60
   %62 = load float, ptr %61, align 4
   %63 = fmul float %13, %62
-  store float %63, ptr %.06375.us.us, align 4
+  store float %63, ptr %.06375.us, align 4
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %65 = load float, ptr %64, align 4
   %66 = fmul float %14, %65
-  %67 = getelementptr inbounds nuw i8, ptr %.06375.us.us, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 4
   store float %66, ptr %67, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %.06375.us.us, i64 16
-  %69 = mul nsw i32 %.061.us.us, %6
+  %68 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 16
+  %69 = mul nsw i32 %.061.us, %6
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %5, i64 %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %71, i64 16, i1 false)
+  br i1 %21, label %72, label %73
+
+72:                                               ; preds = %58
   tail call void @SDL_ConvertToLinear(ptr noundef nonnull %68) #8
-  %72 = getelementptr inbounds nuw i8, ptr %.06375.us.us, i64 8
-  store float 0.000000e+00, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.06375.us.us, i64 12
-  store float 0.000000e+00, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %.06375.us.us, i64 32
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !10
+  br label %73
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %87
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %87 ], [ 0, %.lr.ph.split.us ]
-  %.06375.us = phi ptr [ %103, %87 ], [ %20, %.lr.ph.split.us ]
-  %75 = trunc nuw nsw i64 %indvars.iv89 to i32
-  switch i32 %44, label %87 [
-    i32 4, label %84
-    i32 2, label %80
-    i32 1, label %76
-  ]
-
-76:                                               ; preds = %.lr.ph.split.us.split
-  %77 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv89
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  br label %87
-
-80:                                               ; preds = %.lr.ph.split.us.split
-  %81 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv89
-  %82 = load i16, ptr %81, align 2
-  %83 = zext i16 %82 to i32
-  br label %87
-
-84:                                               ; preds = %.lr.ph.split.us.split
-  %85 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv89
-  %86 = load i32, ptr %85, align 4
-  br label %87
-
-87:                                               ; preds = %84, %80, %76, %.lr.ph.split.us.split
-  %.061.us = phi i32 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %.lr.ph.split.us.split ]
-  %88 = mul nsw i32 %.061.us, %4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %3, i64 %89
-  %91 = load float, ptr %90, align 4
-  %92 = fmul float %13, %91
-  store float %92, ptr %.06375.us, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fmul float %14, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 4
-  store float %95, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 16
-  %98 = mul nsw i32 %.061.us, %6
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %5, i64 %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false)
-  %101 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 8
-  store float 0.000000e+00, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 12
-  store float 0.000000e+00, ptr %102, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 32
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count97
-  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !10
+73:                                               ; preds = %72, %58
+  %74 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 8
+  store float 0.000000e+00, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 12
+  store float 0.000000e+00, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %.06375.us, i64 32
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %116
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %116 ], [ 0, %.lr.ph.split ]
-  %.06375.us78 = phi ptr [ %140, %116 ], [ %20, %.lr.ph.split ]
-  %104 = trunc nuw nsw i64 %indvars.iv84 to i32
-  switch i32 %44, label %116 [
-    i32 4, label %113
-    i32 2, label %109
-    i32 1, label %105
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %89
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %89 ], [ 0, %.lr.ph.split ]
+  %.06375.us78 = phi ptr [ %113, %89 ], [ %20, %.lr.ph.split ]
+  %77 = trunc nuw nsw i64 %indvars.iv83 to i32
+  switch i32 %44, label %89 [
+    i32 4, label %86
+    i32 2, label %82
+    i32 1, label %78
   ]
 
-105:                                              ; preds = %.lr.ph.split.split.us
-  %106 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv84
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i32
-  br label %116
+78:                                               ; preds = %.lr.ph.split.split.us
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv83
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  br label %89
 
-109:                                              ; preds = %.lr.ph.split.split.us
-  %110 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv84
-  %111 = load i16, ptr %110, align 2
-  %112 = zext i16 %111 to i32
-  br label %116
+82:                                               ; preds = %.lr.ph.split.split.us
+  %83 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv83
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i32
+  br label %89
 
-113:                                              ; preds = %.lr.ph.split.split.us
-  %114 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv84
-  %115 = load i32, ptr %114, align 4
-  br label %116
+86:                                               ; preds = %.lr.ph.split.split.us
+  %87 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv83
+  %88 = load i32, ptr %87, align 4
+  br label %89
 
-116:                                              ; preds = %113, %109, %105, %.lr.ph.split.split.us
-  %.061.us79 = phi i32 [ %115, %113 ], [ %112, %109 ], [ %108, %105 ], [ %104, %.lr.ph.split.split.us ]
-  %117 = mul nsw i32 %.061.us79, %4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %3, i64 %118
-  %120 = load float, ptr %119, align 4
-  %121 = fmul float %13, %120
-  store float %121, ptr %.06375.us78, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %123 = load float, ptr %122, align 4
-  %124 = fmul float %14, %123
-  %125 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 4
-  store float %124, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 16
-  %127 = mul nsw i32 %.061.us79, %6
+89:                                               ; preds = %86, %82, %78, %.lr.ph.split.split.us
+  %.061.us79 = phi i32 [ %88, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %.lr.ph.split.split.us ]
+  %90 = mul nsw i32 %.061.us79, %4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i8, ptr %3, i64 %91
+  %93 = load float, ptr %92, align 4
+  %94 = fmul float %13, %93
+  store float %94, ptr %.06375.us78, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = fmul float %14, %96
+  %98 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 4
+  store float %97, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 16
+  %100 = mul nsw i32 %.061.us79, %6
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %5, i64 %101
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %99, ptr noundef nonnull align 4 dereferenceable(16) %102, i64 16, i1 false)
+  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %99) #8
+  %103 = mul nsw i32 %.061.us79, %8
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %7, i64 %104
+  %106 = load float, ptr %105, align 4
+  %107 = fmul float %40, %106
+  %108 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 8
+  store float %107, ptr %108, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %110 = load float, ptr %109, align 4
+  %111 = fmul float %41, %110
+  %112 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 12
+  store float %111, ptr %112, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 32
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count91
+  br i1 %exitcond87.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !13
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %126
+  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph.split ]
+  %.06375 = phi ptr [ %150, %126 ], [ %20, %.lr.ph.split ]
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %44, label %126 [
+    i32 4, label %115
+    i32 2, label %118
+    i32 1, label %122
+  ]
+
+115:                                              ; preds = %.lr.ph.split.split
+  %116 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %117 = load i32, ptr %116, align 4
+  br label %126
+
+118:                                              ; preds = %.lr.ph.split.split
+  %119 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %120 = load i16, ptr %119, align 2
+  %121 = zext i16 %120 to i32
+  br label %126
+
+122:                                              ; preds = %.lr.ph.split.split
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i32
+  br label %126
+
+126:                                              ; preds = %.lr.ph.split.split, %118, %122, %115
+  %.061 = phi i32 [ %117, %115 ], [ %121, %118 ], [ %125, %122 ], [ %114, %.lr.ph.split.split ]
+  %127 = mul nsw i32 %.061, %4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %5, i64 %128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %126, ptr noundef nonnull align 4 dereferenceable(16) %129, i64 16, i1 false)
-  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %126) #8
-  %130 = mul nsw i32 %.061.us79, %8
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %7, i64 %131
+  %129 = getelementptr inbounds i8, ptr %3, i64 %128
+  %130 = load float, ptr %129, align 4
+  %131 = fmul float %13, %130
+  store float %131, ptr %.06375, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %133 = load float, ptr %132, align 4
-  %134 = fmul float %40, %133
-  %135 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 8
+  %134 = fmul float %14, %133
+  %135 = getelementptr inbounds nuw i8, ptr %.06375, i64 4
   store float %134, ptr %135, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %137 = load float, ptr %136, align 4
-  %138 = fmul float %41, %137
-  %139 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 12
-  store float %138, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.06375.us78, i64 32
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count97
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !10
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %153
-  %indvars.iv = phi i64 [ %indvars.iv.next, %153 ], [ 0, %.lr.ph.split ]
-  %.06375 = phi ptr [ %177, %153 ], [ %20, %.lr.ph.split ]
-  %141 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %44, label %153 [
-    i32 4, label %142
-    i32 2, label %145
-    i32 1, label %149
-  ]
-
-142:                                              ; preds = %.lr.ph.split.split
-  %143 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %144 = load i32, ptr %143, align 4
-  br label %153
-
-145:                                              ; preds = %.lr.ph.split.split
-  %146 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  %147 = load i16, ptr %146, align 2
-  %148 = zext i16 %147 to i32
-  br label %153
-
-149:                                              ; preds = %.lr.ph.split.split
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i32
-  br label %153
-
-153:                                              ; preds = %.lr.ph.split.split, %145, %149, %142
-  %.061 = phi i32 [ %144, %142 ], [ %148, %145 ], [ %152, %149 ], [ %141, %.lr.ph.split.split ]
-  %154 = mul nsw i32 %.061, %4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %3, i64 %155
-  %157 = load float, ptr %156, align 4
-  %158 = fmul float %13, %157
-  store float %158, ptr %.06375, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  %160 = load float, ptr %159, align 4
-  %161 = fmul float %14, %160
-  %162 = getelementptr inbounds nuw i8, ptr %.06375, i64 4
-  store float %161, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %.06375, i64 16
-  %164 = mul nsw i32 %.061, %6
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i8, ptr %5, i64 %165
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %163, ptr noundef nonnull align 4 dereferenceable(16) %166, i64 16, i1 false)
-  %167 = mul nsw i32 %.061, %8
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i8, ptr %7, i64 %168
-  %170 = load float, ptr %169, align 4
-  %171 = fmul float %40, %170
-  %172 = getelementptr inbounds nuw i8, ptr %.06375, i64 8
-  store float %171, ptr %172, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %174 = load float, ptr %173, align 4
-  %175 = fmul float %41, %174
-  %176 = getelementptr inbounds nuw i8, ptr %.06375, i64 12
-  store float %175, ptr %176, align 4
-  %177 = getelementptr inbounds nuw i8, ptr %.06375, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %.06375, i64 16
+  %137 = mul nsw i32 %.061, %6
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i8, ptr %5, i64 %138
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %136, ptr noundef nonnull align 4 dereferenceable(16) %139, i64 16, i1 false)
+  %140 = mul nsw i32 %.061, %8
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %7, i64 %141
+  %143 = load float, ptr %142, align 4
+  %144 = fmul float %40, %143
+  %145 = getelementptr inbounds nuw i8, ptr %.06375, i64 8
+  store float %144, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  %147 = load float, ptr %146, align 4
+  %148 = fmul float %41, %147
+  %149 = getelementptr inbounds nuw i8, ptr %.06375, i64 12
+  store float %148, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.06375, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count97
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count91
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !14
 
-.loopexit:                                        ; preds = %153, %116, %87, %58, %42, %.thread73
+.loopexit:                                        ; preds = %126, %89, %73, %42, %.thread73
   ret i1 %.not70
 }
 
@@ -3253,7 +3202,7 @@ VULKAN_SetCopyState.exit:                         ; preds = %.critedge.i.i, %342
   %399 = getelementptr inbounds nuw i8, ptr %.092117, i64 80
   %400 = load ptr, ptr %399, align 8
   %.not96 = icmp eq ptr %400, null
-  br i1 %.not96, label %.loopexit, label %145, !llvm.loop !11
+  br i1 %.not96, label %.loopexit, label %145, !llvm.loop !15
 
 .loopexit:                                        ; preds = %398, %.preheader, %52, %36, %24
   %.0 = phi i1 [ %25, %24 ], [ false, %36 ], [ false, %52 ], [ true, %.preheader ], [ true, %398 ]
@@ -4198,7 +4147,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
   br label %97
 
 97:                                               ; preds = %90, %94
-  br i1 %91, label %90, label %89, !llvm.loop !12
+  br i1 %91, label %90, label %89, !llvm.loop !16
 
 98:                                               ; preds = %2, %89
   ret void
@@ -4422,7 +4371,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   store ptr %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 68:                                               ; preds = %._crit_edge
   %69 = zext i32 %62 to i64
@@ -5031,7 +4980,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond224 = icmp eq i64 %indvars.iv.next222, 3
-  br i1 %exitcond224, label %358, label %338, !llvm.loop !14
+  br i1 %exitcond224, label %358, label %338, !llvm.loop !18
 
 .sink.split235:                                   ; preds = %351, %344
   %.lcssa232.sink = phi i32 [ %343, %344 ], [ %350, %351 ]
@@ -5082,7 +5031,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call fastcc void @VULKAN_CreateVertexBuffer(ptr noundef nonnull %12, i64 noundef %indvars.iv225, i64 noundef 65536)
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next226, 256
-  br i1 %exitcond228.not, label %363, label %.preheader, !llvm.loop !15
+  br i1 %exitcond228.not, label %363, label %.preheader, !llvm.loop !19
 
 380:                                              ; preds = %355, %363, %362, %337, %328
   %.5 = phi i32 [ %323, %328 ], [ 0, %337 ], [ %361, %362 ], [ 0, %363 ], [ %.lcssa.sink, %355 ]
@@ -5182,7 +5131,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %48 = load i32, ptr %38, align 4
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %42, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %50, label %42, label %._crit_edge.loopexit, !llvm.loop !20
 
 51:                                               ; preds = %._crit_edge, %35
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 1696
@@ -5231,7 +5180,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next163, %68
-  br i1 %69, label %58, label %._crit_edge72.loopexit, !llvm.loop !17
+  br i1 %69, label %58, label %._crit_edge72.loopexit, !llvm.loop !21
 
 70:                                               ; preds = %._crit_edge72, %51
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 1672
@@ -5302,7 +5251,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %100 = zext i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next166, %100
-  br i1 %101, label %90, label %._crit_edge75.loopexit, !llvm.loop !18
+  br i1 %101, label %90, label %._crit_edge75.loopexit, !llvm.loop !22
 
 102:                                              ; preds = %._crit_edge75, %83
   %103 = getelementptr inbounds nuw i8, ptr %20, i64 10304
@@ -5352,7 +5301,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %118 = load i32, ptr %105, align 4
   %119 = zext i32 %118 to i64
   %120 = icmp samesign ult i64 %indvars.iv.next172, %119
-  br i1 %120, label %.preheader57, label %._crit_edge80.loopexit, !llvm.loop !19
+  br i1 %120, label %.preheader57, label %._crit_edge80.loopexit, !llvm.loop !23
 
 .lr.ph77:                                         ; preds = %.preheader57, %130
   %121 = phi ptr [ %131, %130 ], [ %109, %.preheader57 ]
@@ -5379,7 +5328,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %indvars.iv.next169, %134
-  br i1 %135, label %.lr.ph77, label %._crit_edge78, !llvm.loop !20
+  br i1 %135, label %.lr.ph77, label %._crit_edge78, !llvm.loop !24
 
 136:                                              ; preds = %._crit_edge80, %102
   %137 = getelementptr inbounds nuw i8, ptr %20, i64 10416
@@ -5428,7 +5377,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %153 = zext i32 %152 to i64
   %154 = icmp samesign ult i64 %indvars.iv.next175, %153
-  br i1 %154, label %143, label %._crit_edge83.loopexit, !llvm.loop !21
+  br i1 %154, label %143, label %._crit_edge83.loopexit, !llvm.loop !25
 
 155:                                              ; preds = %._crit_edge83, %136
   %156 = getelementptr inbounds nuw i8, ptr %20, i64 10424
@@ -5477,7 +5426,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %172 = zext i32 %171 to i64
   %173 = icmp samesign ult i64 %indvars.iv.next178, %172
-  br i1 %173, label %162, label %._crit_edge86.loopexit, !llvm.loop !22
+  br i1 %173, label %162, label %._crit_edge86.loopexit, !llvm.loop !26
 
 174:                                              ; preds = %._crit_edge86, %155
   %175 = getelementptr inbounds nuw i8, ptr %20, i64 10200
@@ -5518,7 +5467,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %185 = load i32, ptr %177, align 4
   %186 = zext i32 %185 to i64
   %187 = icmp samesign ult i64 %indvars.iv.next184, %186
-  br i1 %187, label %.preheader53, label %._crit_edge89.loopexit, !llvm.loop !23
+  br i1 %187, label %.preheader53, label %._crit_edge89.loopexit, !llvm.loop !27
 
 188:                                              ; preds = %.preheader53, %VULKAN_DestroyBuffer.exit11
   %indvars.iv180 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next181, %VULKAN_DestroyBuffer.exit11 ]
@@ -5553,7 +5502,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %192, i8 0, i64 32, i1 false)
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next181, 32
-  br i1 %exitcond.not, label %181, label %188, !llvm.loop !24
+  br i1 %exitcond.not, label %181, label %188, !llvm.loop !28
 
 203:                                              ; preds = %._crit_edge89, %174
   %204 = getelementptr inbounds nuw i8, ptr %20, i64 10216
@@ -5603,7 +5552,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
   %219 = load i32, ptr %206, align 4
   %220 = zext i32 %219 to i64
   %221 = icmp samesign ult i64 %indvars.iv.next190, %220
-  br i1 %221, label %.preheader51, label %._crit_edge94.loopexit, !llvm.loop !25
+  br i1 %221, label %.preheader51, label %._crit_edge94.loopexit, !llvm.loop !29
 
 .lr.ph91:                                         ; preds = %.preheader51, %VULKAN_DestroyBuffer.exit
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %VULKAN_DestroyBuffer.exit ], [ 0, %.preheader51 ]
@@ -5642,7 +5591,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   %238 = load i32, ptr %237, align 4
   %239 = zext i32 %238 to i64
   %240 = icmp samesign ult i64 %indvars.iv.next187, %239
-  br i1 %240, label %.lr.ph91, label %._crit_edge92, !llvm.loop !26
+  br i1 %240, label %.lr.ph91, label %._crit_edge92, !llvm.loop !30
 
 241:                                              ; preds = %._crit_edge94, %203
   %242 = load i32, ptr %26, align 8
@@ -5737,7 +5686,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
 284:                                              ; preds = %278, %.lr.ph97
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
-  br i1 %exitcond195.not, label %.loopexit50, label %.lr.ph97, !llvm.loop !27
+  br i1 %exitcond195.not, label %.loopexit50, label %.lr.ph97, !llvm.loop !31
 
 .loopexit50:                                      ; preds = %284, %267, %282, %265
   %285 = getelementptr inbounds nuw i8, ptr %20, i64 1720
@@ -5902,12 +5851,12 @@ thread-pre-split:                                 ; preds = %299, %305
   %.6425.i = phi i32 [ 1, %348 ], [ %347, %.lr.ph104 ], [ %spec.select.i, %349 ]
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %.sink.split.sink.split, label %.lr.ph104, !llvm.loop !28
+  br i1 %exitcond205.not, label %.sink.split.sink.split, label %.lr.ph104, !llvm.loop !32
 
 352:                                              ; preds = %.lr.ph99
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %.sink.split.sink.split, label %.lr.ph99, !llvm.loop !29
+  br i1 %exitcond200.not, label %.sink.split.sink.split, label %.lr.ph99, !llvm.loop !33
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %352
   %indvars.iv196 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next197, %352 ]
@@ -6148,7 +6097,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %469 = load i32, ptr %406, align 4
   %470 = zext i32 %469 to i64
   %.not504.i = icmp samesign ult i64 %indvars.iv.next207, %470
-  br i1 %.not504.i, label %451, label %._crit_edge112, !llvm.loop !30
+  br i1 %.not504.i, label %451, label %._crit_edge112, !llvm.loop !34
 
 ._crit_edge112:                                   ; preds = %466, %432
   %471 = phi i32 [ 0, %432 ], [ %469, %466 ]
@@ -6243,7 +6192,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %509 = load i32, ptr %406, align 4
   %510 = zext i32 %509 to i64
   %.not507.i = icmp samesign ult i64 %indvars.iv.next210, %510
-  br i1 %.not507.i, label %496, label %.preheader, !llvm.loop !31
+  br i1 %.not507.i, label %496, label %.preheader, !llvm.loop !35
 
 511:                                              ; preds = %528
   %512 = load i32, ptr %406, align 4
@@ -6276,7 +6225,7 @@ thread-pre-split:                                 ; preds = %299, %305
   br label %528
 
 528:                                              ; preds = %525, %521
-  br i1 %522, label %521, label %511, !llvm.loop !32
+  br i1 %522, label %521, label %511, !llvm.loop !36
 
 529:                                              ; preds = %511
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
@@ -6327,7 +6276,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %554 = load i32, ptr %406, align 4
   %555 = zext i32 %554 to i64
   %556 = icmp samesign ult i64 %indvars.iv.next216, %555
-  br i1 %556, label %.lr.ph120, label %._crit_edge121.loopexit, !llvm.loop !33
+  br i1 %556, label %.lr.ph120, label %._crit_edge121.loopexit, !llvm.loop !37
 
 ._crit_edge121.loopexit:                          ; preds = %.lr.ph120
   %557 = zext i32 %554 to i64
@@ -6350,7 +6299,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %564 = load i32, ptr %406, align 4
   %565 = zext i32 %564 to i64
   %.not509.i = icmp samesign ult i64 %indvars.iv.next219, %565
-  br i1 %.not509.i, label %.lr.ph126, label %._crit_edge127.loopexit, !llvm.loop !34
+  br i1 %.not509.i, label %.lr.ph126, label %._crit_edge127.loopexit, !llvm.loop !38
 
 .lr.ph126:                                        ; preds = %._crit_edge121, %563
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %563 ], [ 0, %._crit_edge121 ]
@@ -6428,14 +6377,14 @@ thread-pre-split:                                 ; preds = %299, %305
   %603 = load i32, ptr %406, align 4
   %604 = zext i32 %603 to i64
   %605 = icmp samesign ult i64 %indvars.iv.next222, %604
-  br i1 %605, label %.lr.ph130, label %._crit_edge131, !llvm.loop !35
+  br i1 %605, label %.lr.ph130, label %._crit_edge131, !llvm.loop !39
 
 606:                                              ; preds = %.lr.ph135
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %607 = load i32, ptr %406, align 4
   %608 = zext i32 %607 to i64
   %.not511.i = icmp samesign ult i64 %indvars.iv.next225, %608
-  br i1 %.not511.i, label %.lr.ph135, label %VULKAN_CreateSwapChain.exit, !llvm.loop !36
+  br i1 %.not511.i, label %.lr.ph135, label %VULKAN_CreateSwapChain.exit, !llvm.loop !40
 
 .lr.ph135:                                        ; preds = %._crit_edge131, %606
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %606 ], [ 0, %._crit_edge131 ]
@@ -6775,7 +6724,7 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
 70:                                               ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !41
 
 71:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
@@ -6967,7 +6916,7 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %VULKAN_GetBytesPerP
   %52 = getelementptr inbounds i8, ptr %.05970, i64 %47
   %53 = getelementptr inbounds nuw i8, ptr %.06069, i64 %spec.select
   %.not63 = icmp eq i64 %51, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not63, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %50, %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1808
@@ -7724,7 +7673,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %52, label %36, label %._crit_edge, !llvm.loop !39
+  br i1 %52, label %36, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge35:                                    ; preds = %VULKAN_DestroyBuffer.exit, %._crit_edge
   %.lcssa31 = phi i64 [ %30, %._crit_edge ], [ %72, %VULKAN_DestroyBuffer.exit ]
@@ -7774,7 +7723,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %65, %67
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next40, %75
-  br i1 %76, label %54, label %._crit_edge35, !llvm.loop !40
+  br i1 %76, label %54, label %._crit_edge35, !llvm.loop !44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8023,7 +7972,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
 130:                                              ; preds = %126, %122, %118, %114, %110, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %106, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %106, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %130, %100
   %.val163 = load ptr, ptr %37, align 8
@@ -8257,7 +8206,7 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   store i32 %210, ptr %213, align 4
   %214 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 32
   store ptr @.str.34, ptr %214, align 16
-  br i1 %209, label %208, label %144, !llvm.loop !42
+  br i1 %209, label %208, label %144, !llvm.loop !46
 
 215:                                              ; preds = %GetBlendFactor.exit65.i
   %216 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
@@ -9245,7 +9194,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %11 = getelementptr inbounds nuw i8, ptr %.0242325, i64 296
   %.0242 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0242, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 12:                                               ; preds = %._crit_edge
   tail call void @SDL_free_REAL(ptr noundef nonnull %10) #8
@@ -9362,7 +9311,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next, %56
-  br i1 %57, label %44, label %._crit_edge328.loopexit, !llvm.loop !44
+  br i1 %57, label %44, label %._crit_edge328.loopexit, !llvm.loop !48
 
 58:                                               ; preds = %._crit_edge328, %37
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 10400
@@ -9411,7 +9360,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next376, %75
-  br i1 %76, label %65, label %._crit_edge331.loopexit, !llvm.loop !45
+  br i1 %76, label %65, label %._crit_edge331.loopexit, !llvm.loop !49
 
 77:                                               ; preds = %._crit_edge331, %58
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 10408
@@ -9471,7 +9420,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %98 = zext i32 %97 to i64
   %99 = icmp samesign ult i64 %indvars.iv.next379, %98
-  br i1 %99, label %88, label %._crit_edge334.loopexit, !llvm.loop !46
+  br i1 %99, label %88, label %._crit_edge334.loopexit, !llvm.loop !50
 
 100:                                              ; preds = %._crit_edge334, %81
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 10240
@@ -9499,7 +9448,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 110:                                              ; preds = %104, %107
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next382, 8
-  br i1 %exitcond.not, label %.preheader316, label %104, !llvm.loop !47
+  br i1 %exitcond.not, label %.preheader316, label %104, !llvm.loop !51
 
 111:                                              ; preds = %VULKAN_DestroyBuffer.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8192) %103, i8 0, i64 8192, i1 false)
@@ -9536,7 +9485,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %114, i8 0, i64 32, i1 false)
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next385, 256
-  br i1 %exitcond387.not, label %111, label %113, !llvm.loop !48
+  br i1 %exitcond387.not, label %111, label %113, !llvm.loop !52
 
 125:                                              ; preds = %137
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 10416
@@ -9566,7 +9515,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   br label %137
 
 137:                                              ; preds = %130, %134
-  br i1 %131, label %130, label %125, !llvm.loop !49
+  br i1 %131, label %130, label %125, !llvm.loop !53
 
 ._crit_edge340.loopexit:                          ; preds = %146
   %.pre428 = load ptr, ptr %126, align 8
@@ -9599,7 +9548,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %148 = zext i32 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next392, %148
-  br i1 %149, label %.lr.ph339, label %._crit_edge340.loopexit, !llvm.loop !50
+  br i1 %149, label %.lr.ph339, label %._crit_edge340.loopexit, !llvm.loop !54
 
 150:                                              ; preds = %._crit_edge340, %125
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 10424
@@ -9644,7 +9593,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %165 = zext i32 %164 to i64
   %166 = icmp samesign ult i64 %indvars.iv.next395, %165
-  br i1 %166, label %.lr.ph342, label %._crit_edge343.loopexit, !llvm.loop !51
+  br i1 %166, label %.lr.ph342, label %._crit_edge343.loopexit, !llvm.loop !55
 
 167:                                              ; preds = %._crit_edge343, %150
   %168 = getelementptr inbounds nuw i8, ptr %5, i64 1672
@@ -9729,7 +9678,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %201 = load i32, ptr %189, align 4
   %202 = zext i32 %201 to i64
   %203 = icmp samesign ult i64 %indvars.iv.next401, %202
-  br i1 %203, label %.preheader312, label %._crit_edge348.loopexit, !llvm.loop !52
+  br i1 %203, label %.preheader312, label %._crit_edge348.loopexit, !llvm.loop !56
 
 .lr.ph345:                                        ; preds = %.preheader312, %213
   %204 = phi ptr [ %214, %213 ], [ %192, %.preheader312 ]
@@ -9756,7 +9705,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %216 = load i32, ptr %215, align 4
   %217 = zext i32 %216 to i64
   %218 = icmp samesign ult i64 %indvars.iv.next398, %217
-  br i1 %218, label %.lr.ph345, label %._crit_edge346, !llvm.loop !53
+  br i1 %218, label %.lr.ph345, label %._crit_edge346, !llvm.loop !57
 
 219:                                              ; preds = %._crit_edge348, %186
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 1816
@@ -9799,7 +9748,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 237:                                              ; preds = %231, %234
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next404, 3
-  br i1 %exitcond406.not, label %222, label %225, !llvm.loop !54
+  br i1 %exitcond406.not, label %222, label %225, !llvm.loop !58
 
 238:                                              ; preds = %222
   %239 = load ptr, ptr @vkDestroyDescriptorSetLayout, align 8
@@ -9864,7 +9813,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %265 = load i32, ptr %248, align 8
   %266 = sext i32 %265 to i64
   %267 = icmp slt i64 %indvars.iv.next408, %266
-  br i1 %267, label %259, label %._crit_edge353, !llvm.loop !55
+  br i1 %267, label %259, label %._crit_edge353, !llvm.loop !59
 
 .preheader310:                                    ; preds = %.preheader310.lr.ph, %._crit_edge356
   %indvars.iv413 = phi i64 [ 0, %.preheader310.lr.ph ], [ %indvars.iv.next414, %._crit_edge356 ]
@@ -9893,7 +9842,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %278 = load i32, ptr %256, align 4
   %279 = zext i32 %278 to i64
   %280 = icmp samesign ult i64 %indvars.iv.next414, %279
-  br i1 %280, label %.preheader310, label %._crit_edge358, !llvm.loop !56
+  br i1 %280, label %.preheader310, label %._crit_edge358, !llvm.loop !60
 
 .lr.ph355:                                        ; preds = %.preheader310, %VULKAN_DestroyBuffer.exit305
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %VULKAN_DestroyBuffer.exit305 ], [ 0, %.preheader310 ]
@@ -9932,7 +9881,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
   %297 = load i32, ptr %296, align 4
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next411, %298
-  br i1 %299, label %.lr.ph355, label %._crit_edge356, !llvm.loop !57
+  br i1 %299, label %.lr.ph355, label %._crit_edge356, !llvm.loop !61
 
 300:                                              ; preds = %._crit_edge358, %._crit_edge353
   %301 = getelementptr inbounds nuw i8, ptr %5, i64 10216
@@ -9981,7 +9930,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
   %315 = load i32, ptr %303, align 4
   %316 = zext i32 %315 to i64
   %317 = icmp samesign ult i64 %indvars.iv.next420, %316
-  br i1 %317, label %.preheader, label %._crit_edge363.loopexit, !llvm.loop !58
+  br i1 %317, label %.preheader, label %._crit_edge363.loopexit, !llvm.loop !62
 
 .lr.ph360:                                        ; preds = %.preheader, %VULKAN_DestroyBuffer.exit308
   %indvars.iv416 = phi i64 [ %indvars.iv.next417, %VULKAN_DestroyBuffer.exit308 ], [ 0, %.preheader ]
@@ -10020,7 +9969,7 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
   %334 = load i32, ptr %333, align 4
   %335 = zext i32 %334 to i64
   %336 = icmp samesign ult i64 %indvars.iv.next417, %335
-  br i1 %336, label %.lr.ph360, label %._crit_edge361, !llvm.loop !59
+  br i1 %336, label %.lr.ph360, label %._crit_edge361, !llvm.loop !63
 
 337:                                              ; preds = %._crit_edge363, %300
   %338 = load ptr, ptr %102, align 8
@@ -10158,7 +10107,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
   %28 = load i32, ptr %2, align 4
   %29 = zext i32 %28 to i64
   %.not26 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %.not26, label %.lr.ph, label %.critedge, !llvm.loop !60
+  br i1 %.not26, label %.lr.ph, label %.critedge, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
@@ -10210,7 +10159,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unname
   %12 = load i32, ptr %1, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %5, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %5 ]
@@ -10453,7 +10402,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %.loopexit166, !llvm.loop !62
+  br i1 %98, label %.lr.ph, label %.loopexit166, !llvm.loop !66
 
 .loopexit166:                                     ; preds = %95, %68, %94
   %99 = phi i32 [ 0, %68 ], [ %.pre244, %94 ], [ %96, %95 ]
@@ -10549,7 +10498,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %138 = load i32, ptr %4, align 4
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next238, %139
-  br i1 %140, label %.lr.ph200, label %.loopexit, !llvm.loop !63
+  br i1 %140, label %.lr.ph200, label %.loopexit, !llvm.loop !67
 
 .lr.ph200:                                        ; preds = %.preheader, %137
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %137 ], [ 0, %.preheader ]
@@ -10581,7 +10530,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %144 = load i32, ptr %2, align 4
   %145 = zext i32 %144 to i64
   %146 = icmp samesign ult i64 %indvars.iv.next241, %145
-  br i1 %146, label %48, label %.loopexit167, !llvm.loop !64
+  br i1 %146, label %48, label %.loopexit167, !llvm.loop !68
 
 .loopexit167:                                     ; preds = %.loopexit, %39, %.critedge
   %.1110 = phi ptr [ %.3112, %.critedge ], [ null, %39 ], [ %.2111.ph, %.loopexit ]
@@ -10692,7 +10641,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
   %32 = load i32, ptr %2, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %35, label %.split, !llvm.loop !65
+  br i1 %34, label %35, label %.split, !llvm.loop !69
 
 35:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
@@ -10703,7 +10652,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 
 ._crit_edge:                                      ; preds = %35
   %39 = icmp samesign ugt i64 %indvars.iv132, 2
-  br i1 %39, label %.split, label %.preheaderthread-pre-split, !llvm.loop !66
+  br i1 %39, label %.split, label %.preheaderthread-pre-split, !llvm.loop !70
 
 .split:                                           ; preds = %.preheaderthread-pre-split, %._crit_edge, %31, %.preheader2
   %.us-phi = phi i1 [ false, %.preheader2 ], [ false, %31 ], [ %39, %._crit_edge ], [ %39, %.preheaderthread-pre-split ]
@@ -12363,11 +12312,11 @@ attributes #12 = { nounwind allocsize(1) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!9 = distinct !{!9, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!12 = distinct !{!12, !6, !10}
+!13 = distinct !{!13, !6, !10}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
@@ -12420,5 +12369,9 @@ attributes #12 = { nounwind allocsize(1) }
 !63 = distinct !{!63, !6}
 !64 = distinct !{!64, !6}
 !65 = distinct !{!65, !6}
-!66 = distinct !{!66, !6, !67}
-!67 = !{!"llvm.loop.unswitch.partial.disable"}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6, !71}
+!71 = !{!"llvm.loop.unswitch.partial.disable"}

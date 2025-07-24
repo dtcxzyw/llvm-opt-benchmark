@@ -400,7 +400,7 @@ sub_1.us:                                         ; preds = %sub_0.us
 55:                                               ; preds = %54, %53, %51, %47
   %56 = getelementptr inbounds nuw i8, ptr %.039.us42, i64 1
   %57 = icmp ult ptr %56, %7
-  br i1 %57, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !45
+  br i1 %57, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !48
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %73
   %.039 = phi ptr [ %74, %73 ], [ %1, %.lr.ph.split ]
@@ -449,7 +449,7 @@ sub_1.us:                                         ; preds = %sub_0.us
 73:                                               ; preds = %62, %63, %65, %72, %68
   %74 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %75 = icmp ult ptr %74, %7
-  br i1 %75, label %.lr.ph.split.split, label %.critedge, !llvm.loop !45
+  br i1 %75, label %.lr.ph.split.split, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %.lr.ph.split.split, %73, %.lr.ph.split.split.us, %55, %.lr.ph.split.us, %41, %5
   ret void
@@ -516,5 +516,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !42 = !{!43, !10, i64 0}
 !43 = !{!"FFASSDecoderContext", !10, i64 0}
 !44 = !{!8, !8, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46}

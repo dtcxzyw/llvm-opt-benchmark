@@ -2633,7 +2633,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   %1230 = load ptr, ptr %1228, align 8
   %1231 = call i32 @bit_set_count(ptr noundef %1230) #7
   %.not486.i = icmp eq i32 %1231, 0
-  br i1 %.not486.i, label %.critedge798.i, label %.preheader621.i, !llvm.loop !36
+  br i1 %.not486.i, label %.critedge798.i, label %.preheader621.i, !llvm.loop !38
 
 .preheader621.i:                                  ; preds = %1229, %1225
   %.us-phi706.i = phi ptr [ %1218, %1225 ], [ %1228, %1229 ]
@@ -2715,7 +2715,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   %1276 = load ptr, ptr %.us-phi706.i, align 8
   %1277 = call ptr @next_node_bitmap(ptr noundef %1276, ptr noundef nonnull %12) #7
   %.not488.i = icmp eq ptr %1277, null
-  br i1 %.not488.i, label %._crit_edge711.i, label %.lr.ph710.i, !llvm.loop !37
+  br i1 %.not488.i, label %._crit_edge711.i, label %.lr.ph710.i, !llvm.loop !39
 
 ._crit_edge711.i:                                 ; preds = %1273, %.preheader621.i
   %.1344.lcssa.i = phi i32 [ %.0343.ph.i, %.preheader621.i ], [ %.2345.i, %1273 ]
@@ -2763,7 +2763,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
 
 .outer.i.backedge:                                ; preds = %1293, %1290, %.thread580.i
   %.0342.ph.i.be = phi i1 [ %1296, %1293 ], [ true, %1290 ], [ false, %.thread580.i ]
-  br label %.outer.i, !llvm.loop !36
+  br label %.outer.i, !llvm.loop !38
 
 .critedge.i25:                                    ; preds = %.outer.split.i, %.outer.split.us.i, %.critedge798.i, %.critedge797.i
   call void @list_iterator_destroy(ptr noundef %1215) #7
@@ -2908,7 +2908,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   %1358 = load ptr, ptr %9, align 8
   %1359 = call ptr @next_node_bitmap(ptr noundef %1358, ptr noundef nonnull %12) #7
   %.not501.i = icmp eq ptr %1359, null
-  br i1 %.not501.i, label %.critedge3.i26, label %.lr.ph719.i, !llvm.loop !38
+  br i1 %.not501.i, label %.critedge3.i26, label %.lr.ph719.i, !llvm.loop !40
 
 .critedge3.i26:                                   ; preds = %1355, %.lr.ph719.i, %.preheader620.i
   %.6405.lcssa.i = phi i64 [ %.1398.i, %.preheader620.i ], [ %.6405715.i, %.lr.ph719.i ], [ %.7406.i, %1355 ]
@@ -2955,7 +2955,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   store i32 %1376, ptr %12, align 4
   %1377 = load i32, ptr @switch_record_cnt, align 4
   %1378 = icmp slt i32 %1376, %1377
-  br i1 %1378, label %.lr.ph730.i, label %._crit_edge731.i, !llvm.loop !39
+  br i1 %1378, label %.lr.ph730.i, label %._crit_edge731.i, !llvm.loop !41
 
 ._crit_edge731.i:                                 ; preds = %1374, %.critedge3.i26
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3053,7 +3053,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   store i32 %1431, ptr %12, align 4
   %1432 = load i32, ptr @switch_record_cnt, align 4
   %1433 = icmp slt i32 %1431, %1432
-  br i1 %1433, label %.lr.ph734.i, label %._crit_edge735.i, !llvm.loop !40
+  br i1 %1433, label %.lr.ph734.i, label %._crit_edge735.i, !llvm.loop !42
 
 ._crit_edge735.i:                                 ; preds = %.lr.ph734.i, %1404
   %1434 = phi i32 [ %1411, %1404 ], [ %1432, %.lr.ph734.i ]
@@ -3121,7 +3121,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   store i32 %1467, ptr %12, align 4
   %1468 = load i32, ptr @switch_record_cnt, align 4
   %1469 = icmp slt i32 %1467, %1468
-  br i1 %1469, label %.lr.ph737.i, label %.loopexit619.i, !llvm.loop !41
+  br i1 %1469, label %.lr.ph737.i, label %.loopexit619.i, !llvm.loop !43
 
 .loopexit619.i:                                   ; preds = %1465, %.preheader618.i, %._crit_edge735.i
   %1470 = phi i32 [ %1434, %.preheader618.i ], [ %1434, %._crit_edge735.i ], [ %1468, %1465 ]
@@ -3255,7 +3255,7 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   %1535 = load ptr, ptr %1534, align 8
   %1536 = call ptr @next_node_bitmap(ptr noundef %1535, ptr noundef nonnull %13) #7
   %.not510.i = icmp eq ptr %1536, null
-  br i1 %.not510.i, label %._crit_edge745.i, label %.lr.ph744.i, !llvm.loop !42
+  br i1 %.not510.i, label %._crit_edge745.i, label %.lr.ph744.i, !llvm.loop !44
 
 ._crit_edge745.i:                                 ; preds = %1529, %.preheader616.i
   %.11410.lcssa.i = phi i64 [ %.9408752.i, %.preheader616.i ], [ %.12411.i, %1529 ]
@@ -3299,7 +3299,7 @@ _decrement_node_cnt.exit.i:                       ; preds = %_decrement_node_cnt
   store i32 %1550, ptr %12, align 4
   %1551 = load i32, ptr @switch_record_cnt, align 4
   %1552 = icmp slt i32 %1550, %1551
-  br i1 %1552, label %1476, label %.thread581.i, !llvm.loop !43
+  br i1 %1552, label %1476, label %.thread581.i, !llvm.loop !45
 
 .thread581.i:                                     ; preds = %_decrement_node_cnt.exit.i, %.preheader617.i, %.loopexit619.i
   %1553 = phi i32 [ %1470, %.loopexit619.i ], [ %1470, %.preheader617.i ], [ %1551, %_decrement_node_cnt.exit.i ]
@@ -3364,7 +3364,7 @@ _decrement_node_cnt.exit.i:                       ; preds = %_decrement_node_cnt
   %1580 = load i32, ptr @switch_record_cnt, align 4
   %1581 = sext i32 %1580 to i64
   %1582 = icmp slt i64 %indvars.iv.next.i.i, %1581
-  br i1 %1582, label %.lr.ph.i547.i, label %_topo_add_dist.exit.loopexit.i, !llvm.loop !44
+  br i1 %1582, label %.lr.ph.i547.i, label %_topo_add_dist.exit.loopexit.i, !llvm.loop !46
 
 _topo_add_dist.exit.loopexit.i:                   ; preds = %1579
   %.pre863.i = load i32, ptr %12, align 4
@@ -3376,7 +3376,7 @@ _topo_add_dist.exit.i:                            ; preds = %_topo_add_dist.exit
   %1585 = add nsw i32 %1584, 1
   store i32 %1585, ptr %12, align 4
   %1586 = icmp slt i32 %1585, %1583
-  br i1 %1586, label %.lr.ph763.i, label %._crit_edge764.i, !llvm.loop !45
+  br i1 %1586, label %.lr.ph763.i, label %._crit_edge764.i, !llvm.loop !47
 
 ._crit_edge764.i:                                 ; preds = %_topo_add_dist.exit.i, %.thread581.i
   %1587 = getelementptr inbounds nuw i8, ptr %883, i64 392
@@ -3569,7 +3569,7 @@ _topo_choose_best_switch.exit.i:                  ; preds = %.thread87.i.i.i, %_
   %1666 = trunc nuw nsw i64 %indvars.iv.next.i32 to i32
   store i32 %1666, ptr %12, align 4
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
-  br i1 %exitcond.not.i33, label %._crit_edge771.i, label %1596, !llvm.loop !46
+  br i1 %exitcond.not.i33, label %._crit_edge771.i, label %1596, !llvm.loop !48
 
 ._crit_edge771.i:                                 ; preds = %_topo_choose_best_switch.exit.i
   %1667 = icmp eq i32 %.1565.i, -1
@@ -3610,7 +3610,7 @@ _topo_choose_best_switch.exit.i:                  ; preds = %.thread87.i.i.i, %_
   %1685 = load i32, ptr @switch_record_cnt, align 4
   %1686 = sext i32 %1685 to i64
   %1687 = icmp slt i64 %indvars.iv.next.i552.i, %1686
-  br i1 %1687, label %.lr.ph.i550.i, label %_topo_add_dist.exit553.i, !llvm.loop !44
+  br i1 %1687, label %.lr.ph.i550.i, label %_topo_add_dist.exit553.i, !llvm.loop !46
 
 _topo_add_dist.exit553.i:                         ; preds = %1684
   store i32 0, ptr %12, align 4
@@ -3701,7 +3701,7 @@ _topo_add_dist.exit553.i:                         ; preds = %1684
   %1735 = load ptr, ptr %1689, align 8
   %1736 = call ptr @next_node_bitmap(ptr noundef %1735, ptr noundef nonnull %12) #7
   %.not516.i = icmp eq ptr %1736, null
-  br i1 %.not516.i, label %.critedge11.i, label %.lr.ph779.i, !llvm.loop !47
+  br i1 %.not516.i, label %.critedge11.i, label %.lr.ph779.i, !llvm.loop !49
 
 .critedge11.i:                                    ; preds = %1732, %.lr.ph779.i, %_topo_add_dist.exit553.i
   %.16415.lcssa.i = phi i64 [ %.14413.i90, %_topo_add_dist.exit553.i ], [ %.16415775.i, %.lr.ph779.i ], [ %.17416.i, %1732 ]
@@ -3825,7 +3825,7 @@ _topo_add_dist.exit553.i:                         ; preds = %1684
   %1783 = add nsw i32 %1781, 1
   store i32 %1783, ptr %12, align 4
   %1784 = icmp slt i32 %1783, %1780
-  br i1 %1784, label %1766, label %._crit_edge698.i, !llvm.loop !48
+  br i1 %1784, label %1766, label %._crit_edge698.i, !llvm.loop !50
 
 ._crit_edge698.i:                                 ; preds = %1779, %.preheader622.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader622.i ], [ %.1.i40, %1779 ]
@@ -3903,7 +3903,7 @@ _topo_add_dist.exit553.i:                         ; preds = %1684
   store i32 %1825, ptr %12, align 4
   %1826 = load i32, ptr @switch_record_cnt, align 4
   %1827 = icmp slt i32 %1825, %1826
-  br i1 %1827, label %.lr.ph702.i, label %._crit_edge703.i, !llvm.loop !49
+  br i1 %1827, label %.lr.ph702.i, label %._crit_edge703.i, !llvm.loop !51
 
 ._crit_edge703.i:                                 ; preds = %.lr.ph702.i, %1800
   %1828 = load ptr, ptr %8, align 8
@@ -4075,7 +4075,7 @@ _topo_add_dist.exit553.i:                         ; preds = %1684
   store i32 %1884, ptr %12, align 4
   %1885 = load i32, ptr @switch_record_cnt, align 4
   %1886 = icmp slt i32 %1884, %1885
-  br i1 %1886, label %.lr.ph792.i, label %._crit_edge793.i, !llvm.loop !50
+  br i1 %1886, label %.lr.ph792.i, label %._crit_edge793.i, !llvm.loop !52
 
 ._crit_edge793.i:                                 ; preds = %1880, %.preheader612.i
   call void @slurm_xfree(ptr noundef nonnull %3) #7
@@ -4118,7 +4118,7 @@ _topo_add_dist.exit553.i:                         ; preds = %1684
   store i32 %1900, ptr %12, align 4
   %1901 = load i32, ptr @switch_record_cnt, align 4
   %1902 = icmp slt i32 %1900, %1901
-  br i1 %1902, label %.lr.ph795.i, label %._crit_edge796.i, !llvm.loop !51
+  br i1 %1902, label %.lr.ph795.i, label %._crit_edge796.i, !llvm.loop !53
 
 ._crit_edge796.i:                                 ; preds = %1896, %.preheader.i21
   call void @slurm_xfree(ptr noundef nonnull %4) #7
@@ -4317,8 +4317,8 @@ attributes #7 = { nounwind }
 !33 = distinct !{!33, !9, !10}
 !34 = distinct !{!34, !9, !10}
 !35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
+!36 = distinct !{!36, !9, !10, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !38 = distinct !{!38, !9, !10}
 !39 = distinct !{!39, !9, !10}
 !40 = distinct !{!40, !9, !10}
@@ -4333,3 +4333,5 @@ attributes #7 = { nounwind }
 !49 = distinct !{!49, !9, !10}
 !50 = distinct !{!50, !9, !10}
 !51 = distinct !{!51, !9, !10}
+!52 = distinct !{!52, !9, !10}
+!53 = distinct !{!53, !9, !10}

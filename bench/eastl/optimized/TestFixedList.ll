@@ -9232,7 +9232,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
   %inc7 = add nuw nsw i32 %seqIndex.019, 1
   %21 = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %20, %21
-  br i1 %cmp.i.not, label %for.end14, label %for.body, !llvm.loop !433
+  br i1 %cmp.i.not, label %for.end14, label %for.body, !llvm.loop !435
 
 for.end14:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc7.us, %for.inc.us ], [ %inc7, %for.inc ]
@@ -9301,7 +9301,7 @@ vaarg.end42:                                      ; preds = %vaarg.in_mem38, %va
   %vaarg.addr43 = phi ptr [ %29, %vaarg.in_reg36 ], [ %overflow_arg_area4031, %vaarg.in_mem38 ]
   %31 = load i32, ptr %vaarg.addr43, align 4
   %cmp44.not = icmp eq i32 %31, -1
-  br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !434
+  br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !436
 
 do.end:                                           ; preds = %vaarg.end42
   %tobool45.not = icmp eq ptr %pName, null
@@ -9361,7 +9361,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end13
 
 if.else:                                          ; preds = %entry
-  %10 = load ptr, ptr %x, align 8, !noalias !435
+  %10 = load ptr, ptr %x, align 8, !noalias !437
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
   %cmp.i.not1.i.i = icmp eq ptr %10, %x
   br i1 %cmp.i.not1.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit, label %for.body.lr.ph.i.i
@@ -9376,48 +9376,48 @@ for.body.lr.ph.i.i:                               ; preds = %if.else
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
   %agg.tmp.sroa.0.0.i = phi ptr [ %10, %for.body.lr.ph.i.i ], [ %19, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.i, i64 16
-  %11 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !438
+  %11 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !440
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %12 = load ptr, ptr %11, align 8, !noalias !438
-  store ptr %12, ptr %mSecond.i.i.i, align 8, !noalias !438
+  %12 = load ptr, ptr %11, align 8, !noalias !440
+  store ptr %12, ptr %mSecond.i.i.i, align 8, !noalias !440
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %13 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !438
-  %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !438
+  %13 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !440
+  %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !440
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, %14
-  %15 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !438
+  %15 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !440
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %15
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !438
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !440
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %15, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !438
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %15, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !440
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i.i ], [ %13, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 16
-  %16 = load i32, ptr %mValue.i.i.i, align 4, !noalias !438
-  store i32 %16, ptr %mValue.i.i.i.i, align 4, !noalias !438
-  store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !438
-  %17 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !438
+  %16 = load i32, ptr %mValue.i.i.i, align 4, !noalias !440
+  store i32 %16, ptr %mValue.i.i.i.i, align 4, !noalias !440
+  store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !440
+  %17 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !440
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 8
-  store ptr %17, ptr %mpPrev2.i.i.i.i, align 8, !noalias !438
-  store ptr %result.0.i.i.i.i.i.i, ptr %17, align 8, !noalias !438
-  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !438
-  %18 = load i64, ptr %mSize.i.i.i, align 8, !noalias !438
+  store ptr %17, ptr %mpPrev2.i.i.i.i, align 8, !noalias !440
+  store ptr %result.0.i.i.i.i.i.i, ptr %17, align 8, !noalias !440
+  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !440
+  %18 = load i64, ptr %mSize.i.i.i, align 8, !noalias !440
   %inc.i.i.i = add i64 %18, 1
-  store i64 %inc.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !438
-  %19 = load ptr, ptr %agg.tmp.sroa.0.0.i, align 8, !noalias !438
+  store i64 %inc.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !440
+  %19 = load ptr, ptr %agg.tmp.sroa.0.0.i, align 8, !noalias !440
   %cmp.i.not.i.i = icmp eq ptr %19, %x
-  br i1 %cmp.i.not.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit.loopexit, label %for.body.i.i, !llvm.loop !441
+  br i1 %cmp.i.not.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit.loopexit, label %for.body.i.i, !llvm.loop !443
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit.loopexit: ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
   %.pre = load ptr, ptr %x, align 8
@@ -9508,77 +9508,77 @@ if.then8:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %mValue.i = getelementptr inbounds nuw i8, ptr %i.coerce, i64 16
-  %8 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !442
+  %8 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !444
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
-  %9 = load ptr, ptr %8, align 8, !noalias !442
-  store ptr %9, ptr %mSecond.i.i.i, align 8, !noalias !442
+  %9 = load ptr, ptr %8, align 8, !noalias !444
+  store ptr %9, ptr %mSecond.i.i.i, align 8, !noalias !444
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.else
   %mpNext3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %10 = load ptr, ptr %mpNext3.i.i.i.i.i.i, align 8, !noalias !442
+  %10 = load ptr, ptr %mpNext3.i.i.i.i.i.i, align 8, !noalias !444
   %mpCapacity.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !442
+  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !444
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, %11
   %mnNodeSize9.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %12 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i, align 8, !noalias !442
+  %12 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i, align 8, !noalias !444
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %12
-  store ptr %add.ptr.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i, align 8, !noalias !442
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i, align 8, !noalias !444
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %12, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !442
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %12, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !444
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %8, %if.then.i.i.i.i.i.i ], [ %10, %if.then4.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i ]
   %mValue.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i, i64 16
-  %13 = load i32, ptr %mValue.i, align 4, !noalias !442
-  store i32 %13, ptr %mValue.i.i, align 4, !noalias !442
-  store ptr %position.coerce, ptr %result.0.i.i.i.i, align 8, !noalias !442
+  %13 = load i32, ptr %mValue.i, align 4, !noalias !444
+  store i32 %13, ptr %mValue.i.i, align 4, !noalias !444
+  store ptr %position.coerce, ptr %result.0.i.i.i.i, align 8, !noalias !444
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
-  %14 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !442
+  %14 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !444
   %mpPrev2.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i, i64 8
-  store ptr %14, ptr %mpPrev2.i.i, align 8, !noalias !442
-  store ptr %result.0.i.i.i.i, ptr %14, align 8, !noalias !442
-  store ptr %result.0.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !442
+  store ptr %14, ptr %mpPrev2.i.i, align 8, !noalias !444
+  store ptr %result.0.i.i.i.i, ptr %14, align 8, !noalias !444
+  store ptr %result.0.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !444
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %15 = load i64, ptr %mSize.i, align 8, !noalias !442
+  %15 = load i64, ptr %mSize.i, align 8, !noalias !444
   %inc.i = add i64 %15, 1
-  store i64 %inc.i, ptr %mSize.i, align 8, !noalias !442
-  %16 = load ptr, ptr %i.coerce, align 8, !noalias !445
+  store i64 %inc.i, ptr %mSize.i, align 8, !noalias !444
+  %16 = load ptr, ptr %i.coerce, align 8, !noalias !447
   %mpPrev.i6 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %17 = load ptr, ptr %mpPrev.i6, align 8, !noalias !445
+  %17 = load ptr, ptr %mpPrev.i6, align 8, !noalias !447
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %18 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !445
-  %19 = load ptr, ptr %17, align 8, !noalias !445
+  %18 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !447
+  %19 = load ptr, ptr %17, align 8, !noalias !447
   %mpPrev2.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %18, ptr %mpPrev2.i.i.i, align 8, !noalias !445
-  %20 = load ptr, ptr %17, align 8, !noalias !445
-  store ptr %20, ptr %18, align 8, !noalias !445
+  store ptr %18, ptr %mpPrev2.i.i.i, align 8, !noalias !447
+  %20 = load ptr, ptr %17, align 8, !noalias !447
+  store ptr %20, ptr %18, align 8, !noalias !447
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !445
+  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !447
   %cmp.not.i.i.i.i.i = icmp uge ptr %17, %21
   %mpCapacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 32
-  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8, !noalias !445
+  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8, !noalias !447
   %cmp2.i.i.i.i.i = icmp ult ptr %17, %22
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
-  %23 = load ptr, ptr %mSecond.i.i.i3, align 8, !noalias !445
-  store ptr %23, ptr %17, align 8, !noalias !445
-  store ptr %17, ptr %mSecond.i.i.i3, align 8, !noalias !445
+  %23 = load ptr, ptr %mSecond.i.i.i3, align 8, !noalias !447
+  store ptr %23, ptr %17, align 8, !noalias !447
+  store ptr %17, ptr %mSecond.i.i.i3, align 8, !noalias !447
   br label %if.end18.sink.split
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #13, !noalias !445
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #13, !noalias !447
   br label %if.end18.sink.split
 
 if.end18.sink.split:                              ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then8
@@ -9610,7 +9610,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   %0 = load ptr, ptr %first.sroa.0.04.i.i, align 8
   %inc.i.i = add nuw nsw i64 %n.05.i.i, 1
   %cmp.i.not.i.i = icmp eq ptr %0, %last.coerce
-  br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !448
+  br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !450
 
 if.then10:                                        ; preds = %while.body.i.i
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %last.coerce, i64 8
@@ -9653,48 +9653,48 @@ for.body.lr.ph.i.i:                               ; preds = %if.else
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
   %first.sroa.0.04.i.i7 = phi ptr [ %first.coerce, %for.body.lr.ph.i.i ], [ %17, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.04.i.i7, i64 16
-  %9 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !449
+  %9 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !451
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %10 = load ptr, ptr %9, align 8, !noalias !449
-  store ptr %10, ptr %mSecond.i.i.i, align 8, !noalias !449
+  %10 = load ptr, ptr %9, align 8, !noalias !451
+  store ptr %10, ptr %mSecond.i.i.i, align 8, !noalias !451
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %11 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !449
-  %12 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !449
+  %11 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !451
+  %12 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !451
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
-  %13 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !449
+  %13 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !451
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %13
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !449
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !451
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !449
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !451
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i ], [ %11, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 16
-  %14 = load i32, ptr %mValue.i.i.i, align 4, !noalias !449
-  store i32 %14, ptr %mValue.i.i.i.i, align 4, !noalias !449
-  store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !449
-  %15 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !449
+  %14 = load i32, ptr %mValue.i.i.i, align 4, !noalias !451
+  store i32 %14, ptr %mValue.i.i.i.i, align 4, !noalias !451
+  store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !451
+  %15 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !451
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 8
-  store ptr %15, ptr %mpPrev2.i.i.i.i, align 8, !noalias !449
-  store ptr %result.0.i.i.i.i.i.i, ptr %15, align 8, !noalias !449
-  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !449
-  %16 = load i64, ptr %mSize.i.i.i, align 8, !noalias !449
+  store ptr %15, ptr %mpPrev2.i.i.i.i, align 8, !noalias !451
+  store ptr %result.0.i.i.i.i.i.i, ptr %15, align 8, !noalias !451
+  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !451
+  %16 = load i64, ptr %mSize.i.i.i, align 8, !noalias !451
   %inc.i.i.i = add i64 %16, 1
-  store i64 %inc.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !449
-  %17 = load ptr, ptr %first.sroa.0.04.i.i7, align 8, !noalias !449
+  store i64 %inc.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !451
+  %17 = load ptr, ptr %first.sroa.0.04.i.i7, align 8, !noalias !451
   %cmp.i.not.i.i8 = icmp eq ptr %17, %last.coerce
-  br i1 %cmp.i.not.i.i8, label %while.body.lr.ph.i, label %for.body.i.i, !llvm.loop !452
+  br i1 %cmp.i.not.i.i8, label %while.body.lr.ph.i, label %for.body.i.i, !llvm.loop !454
 
 while.body.lr.ph.i:                               ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 56
@@ -9704,39 +9704,39 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4listIiNS_
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %first.coerce, %while.body.lr.ph.i ], [ %18, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %18 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !453
+  %18 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !455
   %mpPrev.i.i10 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load ptr, ptr %mpPrev.i.i10, align 8, !noalias !453
+  %19 = load ptr, ptr %mpPrev.i.i10, align 8, !noalias !455
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %20 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !453
-  %21 = load ptr, ptr %19, align 8, !noalias !453
+  %20 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !455
+  %21 = load ptr, ptr %19, align 8, !noalias !455
   %mpPrev2.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %20, ptr %mpPrev2.i.i.i.i11, align 8, !noalias !453
-  %22 = load ptr, ptr %19, align 8, !noalias !453
-  store ptr %22, ptr %20, align 8, !noalias !453
-  %23 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !453
+  store ptr %20, ptr %mpPrev2.i.i.i.i11, align 8, !noalias !455
+  %22 = load ptr, ptr %19, align 8, !noalias !455
+  store ptr %22, ptr %20, align 8, !noalias !455
+  %23 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !455
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %19, %23
-  %24 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !453
+  %24 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !455
   %cmp2.i.i.i.i.i.i = icmp ult ptr %19, %24
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %25 = load ptr, ptr %mSecond.i.i.i5, align 8, !noalias !453
-  store ptr %25, ptr %19, align 8, !noalias !453
-  store ptr %19, ptr %mSecond.i.i.i5, align 8, !noalias !453
+  %25 = load ptr, ptr %mSecond.i.i.i5, align 8, !noalias !455
+  store ptr %25, ptr %19, align 8, !noalias !455
+  store ptr %19, ptr %mSecond.i.i.i5, align 8, !noalias !455
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #13, !noalias !453
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #13, !noalias !455
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %26 = load i64, ptr %mSize.i.i.i9, align 8, !noalias !453
+  %26 = load i64, ptr %mSize.i.i.i9, align 8, !noalias !455
   %dec.i.i.i = add i64 %26, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i9, align 8, !noalias !453
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i9, align 8, !noalias !455
   %cmp.i.not.i = icmp eq ptr %18, %last.coerce
-  br i1 %cmp.i.not.i, label %if.end25, label %while.body.i, !llvm.loop !458
+  br i1 %cmp.i.not.i, label %if.end25, label %while.body.i, !llvm.loop !460
 
 if.end25:                                         ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %if.else, %if.then, %if.then10
   ret void
@@ -9795,7 +9795,7 @@ invoke.cont:
   %mAllocVolume.i.i = getelementptr inbounds nuw i8, ptr %x, i64 56
   %9 = load i64, ptr %mAllocVolume.i.i, align 8
   store i64 %9, ptr %mAllocVolume.i.i.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %x, align 8, !noalias !459
+  %10 = load ptr, ptr %x, align 8, !noalias !461
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
   store ptr %10, ptr %agg.tmp.i, align 8
@@ -10206,7 +10206,7 @@ for.body:                                         ; preds = %land.rhs
   %1 = load ptr, ptr %first.sroa.0.017, align 8
   %pNode.0 = load ptr, ptr %pNode.018, align 8
   %cmp.not = icmp eq ptr %pNode.0, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !462
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !464
 
 for.end:                                          ; preds = %for.body, %entry
   %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %1, %for.body ]
@@ -10222,37 +10222,37 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.018, %while.body.lr.ph.i ], [ %2, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !463
+  %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !465
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !463
+  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !465
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !463
-  %5 = load ptr, ptr %3, align 8, !noalias !463
+  %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !465
+  %5 = load ptr, ptr %3, align 8, !noalias !465
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !463
-  %6 = load ptr, ptr %3, align 8, !noalias !463
-  store ptr %6, ptr %4, align 8, !noalias !463
-  %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !463
+  store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !465
+  %6 = load ptr, ptr %3, align 8, !noalias !465
+  store ptr %6, ptr %4, align 8, !noalias !465
+  %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !465
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %3, %7
-  %8 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !463
+  %8 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !465
   %cmp2.i.i.i.i.i.i = icmp ult ptr %3, %8
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %9 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !463
-  store ptr %9, ptr %3, align 8, !noalias !463
-  store ptr %3, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !463
+  %9 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !465
+  store ptr %9, ptr %3, align 8, !noalias !465
+  store ptr %3, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !465
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #13, !noalias !463
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #13, !noalias !465
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %10 = load i64, ptr %mSize.i.i.i, align 8, !noalias !463
+  %10 = load i64, ptr %mSize.i.i.i, align 8, !noalias !465
   %dec.i.i.i = add i64 %10, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !463
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !465
   %cmp.i.not.i = icmp eq ptr %2, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
@@ -10309,7 +10309,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %19 = load ptr, ptr %first.sroa.0.04.i, align 8
   %cmp.i.not.i6 = icmp eq ptr %19, %last.coerce
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !468
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !470
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -10340,7 +10340,7 @@ for.body:                                         ; preds = %land.rhs
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %first, align 8
   %cmp.not = icmp eq ptr %4, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !469
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !471
 
 for.end:                                          ; preds = %for.body, %entry
   %7 = phi ptr [ %.pre16, %entry ], [ %6, %for.body ]
@@ -10357,37 +10357,37 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %9, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !470
+  %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !472
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !470
+  %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !472
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !470
-  %12 = load ptr, ptr %10, align 8, !noalias !470
+  %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !472
+  %12 = load ptr, ptr %10, align 8, !noalias !472
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !470
-  %13 = load ptr, ptr %10, align 8, !noalias !470
-  store ptr %13, ptr %11, align 8, !noalias !470
-  %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !470
+  store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !472
+  %13 = load ptr, ptr %10, align 8, !noalias !472
+  store ptr %13, ptr %11, align 8, !noalias !472
+  %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !472
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %10, %14
-  %15 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !470
+  %15 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !472
   %cmp2.i.i.i.i.i.i = icmp ult ptr %10, %15
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %16 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !470
-  store ptr %16, ptr %10, align 8, !noalias !470
-  store ptr %10, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !470
+  %16 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !472
+  store ptr %16, ptr %10, align 8, !noalias !472
+  store ptr %10, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !472
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #13, !noalias !470
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #13, !noalias !472
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !470
+  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !472
   %dec.i.i.i = add i64 %17, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !470
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !472
   %cmp.i.not.i = icmp eq ptr %9, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
@@ -10444,7 +10444,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %26 = load ptr, ptr %agg.tmp12.sroa.0.0, align 8
   %cmp.i.not.i6 = icmp eq ptr %26, %8
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !475
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !477
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -10470,7 +10470,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
   %2 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %2, label %for.body, label %for.end, !llvm.loop !476
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !478
 
 for.end:                                          ; preds = %for.body, %entry
   %first.addr.0.lcssa = phi ptr [ %first, %entry ], [ %incdec.ptr, %for.body ]
@@ -10491,37 +10491,37 @@ while.body.lr.ph.i:                               ; preds = %if.then
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !477
+  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !479
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !477
+  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !479
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !477
-  %6 = load ptr, ptr %4, align 8, !noalias !477
+  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !479
+  %6 = load ptr, ptr %4, align 8, !noalias !479
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !477
-  %7 = load ptr, ptr %4, align 8, !noalias !477
-  store ptr %7, ptr %5, align 8, !noalias !477
-  %8 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !477
+  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !479
+  %7 = load ptr, ptr %4, align 8, !noalias !479
+  store ptr %7, ptr %5, align 8, !noalias !479
+  %8 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !479
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %4, %8
-  %9 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !477
+  %9 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !479
   %cmp2.i.i.i.i.i.i = icmp ult ptr %4, %9
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %10 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !477
-  store ptr %10, ptr %4, align 8, !noalias !477
-  store ptr %4, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !477
+  %10 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !479
+  store ptr %10, ptr %4, align 8, !noalias !479
+  store ptr %4, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !479
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #13, !noalias !477
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #13, !noalias !479
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %11 = load i64, ptr %mSize.i.i.i, align 8, !noalias !477
+  %11 = load i64, ptr %mSize.i.i.i, align 8, !noalias !479
   %dec.i.i.i = add i64 %11, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !477
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !479
   %cmp.i.not.i = icmp eq ptr %3, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
@@ -10577,7 +10577,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
-  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !482
+  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !484
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %if.then
   ret void
@@ -10990,7 +10990,7 @@ entry:
   store ptr %temp, ptr %temp, align 8
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store ptr %temp, ptr %mpPrev.i.i.i.i, align 8
-  %1 = load ptr, ptr %a, align 8, !noalias !483
+  %1 = load ptr, ptr %a, align 8, !noalias !485
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
   store ptr %1, ptr %agg.tmp.i.i, align 8
@@ -11177,7 +11177,7 @@ for.body:                                         ; preds = %land.rhs
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %first, align 8
   %cmp.not = icmp eq ptr %4, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !486
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !488
 
 for.end:                                          ; preds = %for.body, %entry
   %7 = phi ptr [ %.pre16, %entry ], [ %6, %for.body ]
@@ -11194,37 +11194,37 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %9, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !487
+  %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !489
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !487
+  %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !489
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !487
-  %12 = load ptr, ptr %10, align 8, !noalias !487
+  %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !489
+  %12 = load ptr, ptr %10, align 8, !noalias !489
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !487
-  %13 = load ptr, ptr %10, align 8, !noalias !487
-  store ptr %13, ptr %11, align 8, !noalias !487
-  %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !487
+  store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !489
+  %13 = load ptr, ptr %10, align 8, !noalias !489
+  store ptr %13, ptr %11, align 8, !noalias !489
+  %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !489
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %10, %14
-  %15 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !487
+  %15 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !489
   %cmp2.i.i.i.i.i.i = icmp ult ptr %10, %15
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %16 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !487
-  store ptr %16, ptr %10, align 8, !noalias !487
-  store ptr %10, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !487
+  %16 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !489
+  store ptr %16, ptr %10, align 8, !noalias !489
+  store ptr %10, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !489
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #13, !noalias !487
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #13, !noalias !489
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !487
+  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !489
   %dec.i.i.i = add i64 %17, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !487
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !489
   %cmp.i.not.i = icmp eq ptr %9, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !88
 
@@ -11281,7 +11281,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %26 = load ptr, ptr %agg.tmp12.sroa.0.0, align 8
   %cmp.i.not.i6 = icmp eq ptr %26, %8
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !492
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !494
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -11308,7 +11308,7 @@ for.body:                                         ; preds = %land.rhs
   %1 = load ptr, ptr %first.sroa.0.017, align 8
   %pNode.0 = load ptr, ptr %pNode.018, align 8
   %cmp.not = icmp eq ptr %pNode.0, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !493
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !495
 
 for.end:                                          ; preds = %for.body, %entry
   %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %1, %for.body ]
@@ -11324,37 +11324,37 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.018, %while.body.lr.ph.i ], [ %2, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !494
+  %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !496
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !494
+  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !496
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !494
-  %5 = load ptr, ptr %3, align 8, !noalias !494
+  %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !496
+  %5 = load ptr, ptr %3, align 8, !noalias !496
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !494
-  %6 = load ptr, ptr %3, align 8, !noalias !494
-  store ptr %6, ptr %4, align 8, !noalias !494
-  %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !494
+  store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !496
+  %6 = load ptr, ptr %3, align 8, !noalias !496
+  store ptr %6, ptr %4, align 8, !noalias !496
+  %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !496
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %3, %7
-  %8 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !494
+  %8 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !496
   %cmp2.i.i.i.i.i.i = icmp ult ptr %3, %8
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %9 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !494
-  store ptr %9, ptr %3, align 8, !noalias !494
-  store ptr %3, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !494
+  %9 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !496
+  store ptr %9, ptr %3, align 8, !noalias !496
+  store ptr %3, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !496
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #13, !noalias !494
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #13, !noalias !496
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %10 = load i64, ptr %mSize.i.i.i, align 8, !noalias !494
+  %10 = load i64, ptr %mSize.i.i.i, align 8, !noalias !496
   %dec.i.i.i = add i64 %10, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !494
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !496
   %cmp.i.not.i = icmp eq ptr %2, %this
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !88
 
@@ -11411,7 +11411,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %19 = load ptr, ptr %first.sroa.0.04.i, align 8
   %cmp.i.not.i6 = icmp eq ptr %19, %last.coerce
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !499
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !501
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -11479,7 +11479,7 @@ if.end:                                           ; preds = %sw.bb2
 sw.bb8:                                           ; preds = %entry
   %13 = load ptr, ptr %i1, align 8
   store ptr %13, ptr %agg.result, align 8
-  %14 = load ptr, ptr %13, align 8, !noalias !500
+  %14 = load ptr, ptr %13, align 8, !noalias !502
   %15 = load ptr, ptr %end2, align 8
   %cmp.i23.not75 = icmp eq ptr %14, %15
   br i1 %cmp.i23.not75, label %if.then17, label %for.body
@@ -11505,7 +11505,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.076, %if.then13 ]
   %23 = load ptr, ptr %current.sroa.0.076, align 8
   %cmp.i23.not = icmp eq ptr %23, %15
-  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !503
+  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !505
 
 for.end:                                          ; preds = %for.inc
   %cmp.i27 = icmp eq ptr %21, %13
@@ -11574,9 +11574,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
   %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !504
+  %42 = load ptr, ptr %41, align 8, !noalias !506
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !507
+  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !509
 
 _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
   store ptr %40, ptr %agg.tmp32, align 8
@@ -11613,7 +11613,7 @@ land.rhs:                                         ; preds = %while.cond
   %mValue.i44 = getelementptr inbounds nuw i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i44, align 4
   %cmp.i46 = icmp slt i32 %51, %48
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !508
+  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !510
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %mpPrev = getelementptr inbounds nuw i8, ptr %ix.sroa.0.0, i64 8
@@ -11678,7 +11678,7 @@ land.rhs64:                                       ; preds = %while.cond62
   %mValue.i55 = getelementptr inbounds nuw i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i55, align 4
   %cmp.i57 = icmp slt i32 %64, %63
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !509
+  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !511
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %mpPrev76 = getelementptr inbounds nuw i8, ptr %ix61.sroa.0.0, i64 8
@@ -11711,7 +11711,7 @@ for.inc82:                                        ; preds = %for.body56, %while.
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
   %cmp.i49.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !510
+  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !512
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -11739,7 +11739,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
   %2 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %2, label %for.body, label %for.end, !llvm.loop !511
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !513
 
 for.end:                                          ; preds = %for.body, %entry
   %first.addr.0.lcssa = phi ptr [ %first, %entry ], [ %incdec.ptr, %for.body ]
@@ -11760,39 +11760,39 @@ while.body.lr.ph.i:                               ; preds = %if.then
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
-  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !512
+  %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !514
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !512
+  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !514
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !512
-  %6 = load ptr, ptr %4, align 8, !noalias !512
+  %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !514
+  %6 = load ptr, ptr %4, align 8, !noalias !514
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !512
-  %7 = load ptr, ptr %4, align 8, !noalias !512
-  store ptr %7, ptr %5, align 8, !noalias !512
-  %8 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !512
+  store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !514
+  %7 = load ptr, ptr %4, align 8, !noalias !514
+  store ptr %7, ptr %5, align 8, !noalias !514
+  %8 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !514
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %4, %8
-  %9 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !512
+  %9 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !514
   %cmp2.i.i.i.i.i.i = icmp ult ptr %4, %9
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i
-  %10 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !512
-  store ptr %10, ptr %4, align 8, !noalias !512
-  store ptr %4, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !512
+  %10 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !514
+  store ptr %10, ptr %4, align 8, !noalias !514
+  store ptr %4, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !514
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #13, !noalias !512
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #13, !noalias !514
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %11 = load i64, ptr %mSize.i.i.i, align 8, !noalias !512
+  %11 = load i64, ptr %mSize.i.i.i, align 8, !noalias !514
   %dec.i.i.i = add i64 %11, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !512
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !514
   %cmp.i.not.i = icmp eq ptr %3, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !458
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !460
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %mSecond.i.i.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11846,7 +11846,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
-  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !517
+  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !519
 
 if.end:                                           ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %if.then
   ret void
@@ -11865,7 +11865,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %cmp3 = icmp ult i64 %i.0, %n
   %0 = select i1 %cmp, i1 %cmp3, i1 false
   %inc = add nuw i64 %i.0, 1
-  br i1 %0, label %while.cond, label %while.end, !llvm.loop !518
+  br i1 %0, label %while.cond, label %while.end, !llvm.loop !520
 
 while.end:                                        ; preds = %while.cond
   %cmp5 = icmp eq i64 %i.0, %n
@@ -11884,58 +11884,58 @@ while.body.lr.ph.i:                               ; preds = %if.then
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
-  %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !519
+  %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !521
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !519
+  %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !521
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !519
-  %4 = load ptr, ptr %2, align 8, !noalias !519
+  %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !521
+  %4 = load ptr, ptr %2, align 8, !noalias !521
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !519
-  %5 = load ptr, ptr %2, align 8, !noalias !519
-  store ptr %5, ptr %3, align 8, !noalias !519
+  store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !521
+  %5 = load ptr, ptr %2, align 8, !noalias !521
+  store ptr %5, ptr %3, align 8, !noalias !521
   %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !519
+  %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !521
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %7 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !519
+  %7 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !521
   %inc.i.i.i.i.i = add nsw i32 %7, 1
-  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !519
+  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !521
   br label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
 
 _ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %while.body.i
-  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !519
-  %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !519
+  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !521
+  %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !521
   %dec.i.i.i.i.i = add nsw i64 %8, -1
-  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !519
-  %9 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !519
+  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !521
+  %9 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !521
   %inc3.i.i.i.i.i = add nsw i64 %9, 1
-  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !519
-  %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !519
+  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !521
+  %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !521
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %2, %10
-  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !519
+  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !521
   %cmp2.i.i.i.i.i.i = icmp ult ptr %2, %11
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %12 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !519
-  store ptr %12, ptr %2, align 8, !noalias !519
-  store ptr %2, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !519
+  %12 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !521
+  store ptr %12, ptr %2, align 8, !noalias !521
+  store ptr %2, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !521
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #13, !noalias !519
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #13, !noalias !521
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %13 = load i64, ptr %mSize.i.i.i, align 8, !noalias !519
+  %13 = load i64, ptr %mSize.i.i.i, align 8, !noalias !521
   %dec.i.i.i = add i64 %13, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !519
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !521
   %cmp.i.not.i = icmp eq ptr %1, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !524
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !526
 
 if.else:                                          ; preds = %while.end
   %mpPrev.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11951,66 +11951,66 @@ if.else:                                          ; preds = %while.end
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %if.else
   %n.addr.03.i.i = phi i64 [ %sub, %if.else ], [ %dec.i.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
-  %14 = load ptr, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !525
+  %14 = load ptr, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !527
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %15 = load ptr, ptr %14, align 8, !noalias !525
-  store ptr %15, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !525
+  %15 = load ptr, ptr %14, align 8, !noalias !527
+  store ptr %15, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !527
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %16 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !525
-  %17 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !525
+  %16 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !527
+  %17 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !527
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, %17
-  %18 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !525
+  %18 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !527
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %18
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !525
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !527
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %18, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !525
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %18, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !527
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %14, %if.then.i.i.i.i.i.i.i.i ], [ %16, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 16
-  %19 = load i32, ptr %value, align 8, !noalias !525
-  store i32 %19, ptr %mValue.i.i.i.i, align 8, !noalias !525
+  %19 = load i32, ptr %value, align 8, !noalias !527
+  store i32 %19, ptr %mValue.i.i.i.i, align 8, !noalias !527
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 20
-  %20 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !525
+  %20 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !527
   %frombool.i.i.i.i.i = and i8 %20, 1
-  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !525
+  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !527
   %mMagicValue.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 32
-  %21 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !525
-  store i32 %21, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !525
-  %22 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !525
+  %21 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !527
+  store i32 %21, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !527
+  %22 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !527
   %inc.i.i.i.i.i9 = add nsw i64 %22, 1
-  store i64 %inc.i.i.i.i.i9, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !525
-  %23 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !525
+  store i64 %inc.i.i.i.i.i9, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !527
+  %23 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !527
   %inc5.i.i.i.i.i = add nsw i64 %23, 1
-  store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !525
-  %24 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !525
+  store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !527
+  %24 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !527
   %inc6.i.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !525
+  store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !527
   %mId.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 24
-  store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !525
-  store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !525
-  %25 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !525
+  store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !527
+  store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !527
+  %25 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !527
   %mpPrev2.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 8
-  store ptr %25, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !525
-  store ptr %result.0.i.i.i.i.i.i, ptr %25, align 8, !noalias !525
-  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !525
-  %26 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !525
+  store ptr %25, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !527
+  store ptr %result.0.i.i.i.i.i.i, ptr %25, align 8, !noalias !527
+  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !527
+  %26 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !527
   %inc.i.i.i = add i64 %26, 1
-  store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !525
+  store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !527
   %dec.i.i = add i64 %n.addr.03.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !528
+  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !530
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %if.then
   ret void
@@ -12060,7 +12060,7 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %first, align 8
   %cmp.not = icmp eq ptr %7, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !529
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !531
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %10 = phi ptr [ %.pre16, %entry ], [ %9, %_ZN10TestObjectaSERKS_.exit ]
@@ -12077,58 +12077,58 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %12, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
-  %12 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !530
+  %12 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !532
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !530
+  %13 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !532
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !530
-  %15 = load ptr, ptr %13, align 8, !noalias !530
+  %14 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !532
+  %15 = load ptr, ptr %13, align 8, !noalias !532
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %14, ptr %mpPrev2.i.i.i.i, align 8, !noalias !530
-  %16 = load ptr, ptr %13, align 8, !noalias !530
-  store ptr %16, ptr %14, align 8, !noalias !530
+  store ptr %14, ptr %mpPrev2.i.i.i.i, align 8, !noalias !532
+  %16 = load ptr, ptr %13, align 8, !noalias !532
+  store ptr %16, ptr %14, align 8, !noalias !532
   %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !530
+  %17 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !532
   %cmp.not.i.i.i.i.i = icmp eq i32 %17, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %18 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !530
+  %18 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !532
   %inc.i.i.i.i.i = add nsw i32 %18, 1
-  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !530
+  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !532
   br label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
 
 _ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %while.body.i
-  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !530
-  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !530
+  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !532
+  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !532
   %dec.i.i.i.i.i = add nsw i64 %19, -1
-  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !530
-  %20 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !530
+  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !532
+  %20 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !532
   %inc3.i.i.i.i.i = add nsw i64 %20, 1
-  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !530
-  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !530
+  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !532
+  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !532
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %13, %21
-  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !530
+  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !532
   %cmp2.i.i.i.i.i.i = icmp ult ptr %13, %22
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %23 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !530
-  store ptr %23, ptr %13, align 8, !noalias !530
-  store ptr %13, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !530
+  %23 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !532
+  store ptr %23, ptr %13, align 8, !noalias !532
+  store ptr %13, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !532
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #13, !noalias !530
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #13, !noalias !532
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %24 = load i64, ptr %mSize.i.i.i, align 8, !noalias !530
+  %24 = load i64, ptr %mSize.i.i.i, align 8, !noalias !532
   %dec.i.i.i = add i64 %24, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !530
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !532
   %cmp.i.not.i = icmp eq ptr %12, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !524
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !526
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12203,7 +12203,7 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9a
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %38 = load ptr, ptr %agg.tmp13.sroa.0.0, align 8
   %cmp.i.not.i6 = icmp eq ptr %38, %11
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !535
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !537
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -12222,7 +12222,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %cmp3 = icmp ult i64 %i.0, %n
   %0 = select i1 %cmp, i1 %cmp3, i1 false
   %inc = add nuw i64 %i.0, 1
-  br i1 %0, label %while.cond, label %while.end, !llvm.loop !536
+  br i1 %0, label %while.cond, label %while.end, !llvm.loop !538
 
 while.end:                                        ; preds = %while.cond
   %cmp5 = icmp eq i64 %i.0, %n
@@ -12243,59 +12243,59 @@ while.body.lr.ph.i:                               ; preds = %if.then
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
-  %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !537
+  %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !539
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !537
+  %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !539
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !537
-  %4 = load ptr, ptr %2, align 8, !noalias !537
+  %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !539
+  %4 = load ptr, ptr %2, align 8, !noalias !539
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !537
-  %5 = load ptr, ptr %2, align 8, !noalias !537
-  store ptr %5, ptr %3, align 8, !noalias !537
+  store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !539
+  %5 = load ptr, ptr %2, align 8, !noalias !539
+  store ptr %5, ptr %3, align 8, !noalias !539
   %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !537
+  %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !539
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %7 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !537
+  %7 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !539
   %inc.i.i.i.i.i = add nsw i32 %7, 1
-  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !537
+  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !539
   br label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
 
 _ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %while.body.i
-  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !537
-  %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !537
+  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !539
+  %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !539
   %dec.i.i.i.i.i = add nsw i64 %8, -1
-  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !537
-  %9 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !537
+  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !539
+  %9 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !539
   %inc3.i.i.i.i.i = add nsw i64 %9, 1
-  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !537
-  %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !537
+  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !539
+  %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !539
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %2, %10
-  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !537
+  %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !539
   %cmp2.i.i.i.i.i.i = icmp ult ptr %2, %11
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %12 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !537
-  store ptr %12, ptr %2, align 8, !noalias !537
-  store ptr %2, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !537
+  %12 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !539
+  store ptr %12, ptr %2, align 8, !noalias !539
+  store ptr %2, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !539
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %13 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !537
-  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %2, i64 noundef %13), !noalias !537
+  %13 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !539
+  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %2, i64 noundef %13), !noalias !539
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %14 = load i64, ptr %mSize.i.i.i, align 8, !noalias !537
+  %14 = load i64, ptr %mSize.i.i.i, align 8, !noalias !539
   %dec.i.i.i = add i64 %14, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !537
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !539
   %cmp.i.not.i = icmp eq ptr %1, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !542
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !544
 
 if.else:                                          ; preds = %while.end
   %mpPrev.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -12312,66 +12312,66 @@ if.else:                                          ; preds = %while.end
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %if.else
   %n.addr.03.i.i = phi i64 [ %sub, %if.else ], [ %dec.i.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
-  %15 = load ptr, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !543
+  %15 = load ptr, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !545
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %16 = load ptr, ptr %15, align 8, !noalias !543
-  store ptr %16, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !543
+  %16 = load ptr, ptr %15, align 8, !noalias !545
+  store ptr %16, ptr %mSecond.i.i.i.i.i.i.i.i, align 8, !noalias !545
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i
-  %17 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !543
-  %18 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !543
+  %17 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !545
+  %18 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !545
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %17, %18
-  %19 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i, align 8, !noalias !543
+  %19 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i, align 8, !noalias !545
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %19
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !543
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !545
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i.i.i, i64 noundef %19, i32 noundef 0), !noalias !543
+  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i.i.i, i64 noundef %19, i32 noundef 0), !noalias !545
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %15, %if.then.i.i.i.i.i.i.i.i ], [ %17, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 16
-  %20 = load i32, ptr %value, align 8, !noalias !543
-  store i32 %20, ptr %mValue.i.i.i.i, align 8, !noalias !543
+  %20 = load i32, ptr %value, align 8, !noalias !545
+  store i32 %20, ptr %mValue.i.i.i.i, align 8, !noalias !545
   %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 20
-  %21 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !543
+  %21 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !545
   %frombool.i.i.i.i.i = and i8 %21, 1
-  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !543
+  store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !545
   %mMagicValue.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 32
-  %22 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !543
-  store i32 %22, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !543
-  %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !543
+  %22 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !545
+  store i32 %22, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !545
+  %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !545
   %inc.i.i.i.i.i9 = add nsw i64 %23, 1
-  store i64 %inc.i.i.i.i.i9, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !543
-  %24 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !543
+  store i64 %inc.i.i.i.i.i9, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !545
+  %24 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !545
   %inc5.i.i.i.i.i = add nsw i64 %24, 1
-  store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !543
-  %25 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !543
+  store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !545
+  %25 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !545
   %inc6.i.i.i.i.i = add nsw i64 %25, 1
-  store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !543
+  store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !545
   %mId.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 24
-  store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !543
-  store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !543
-  %26 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !543
+  store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !545
+  store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !545
+  %26 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !545
   %mpPrev2.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 8
-  store ptr %26, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !543
-  store ptr %result.0.i.i.i.i.i.i, ptr %26, align 8, !noalias !543
-  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !543
-  %27 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !543
+  store ptr %26, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !545
+  store ptr %result.0.i.i.i.i.i.i, ptr %26, align 8, !noalias !545
+  store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !545
+  %27 = load i64, ptr %mSize.i.i.i7, align 8, !noalias !545
   %inc.i.i.i = add i64 %27, 1
-  store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !543
+  store i64 %inc.i.i.i, ptr %mSize.i.i.i7, align 8, !noalias !545
   %dec.i.i = add i64 %n.addr.03.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !546
+  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !548
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %if.then
   ret void
@@ -12421,7 +12421,7 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %first, align 8
   %cmp.not = icmp eq ptr %7, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !547
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !549
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %10 = phi ptr [ %.pre16, %entry ], [ %9, %_ZN10TestObjectaSERKS_.exit ]
@@ -12440,59 +12440,59 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %12, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
-  %12 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !548
+  %12 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !550
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !548
+  %13 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !550
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !548
-  %15 = load ptr, ptr %13, align 8, !noalias !548
+  %14 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !550
+  %15 = load ptr, ptr %13, align 8, !noalias !550
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %14, ptr %mpPrev2.i.i.i.i, align 8, !noalias !548
-  %16 = load ptr, ptr %13, align 8, !noalias !548
-  store ptr %16, ptr %14, align 8, !noalias !548
+  store ptr %14, ptr %mpPrev2.i.i.i.i, align 8, !noalias !550
+  %16 = load ptr, ptr %13, align 8, !noalias !550
+  store ptr %16, ptr %14, align 8, !noalias !550
   %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !548
+  %17 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !550
   %cmp.not.i.i.i.i.i = icmp eq i32 %17, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %18 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !548
+  %18 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !550
   %inc.i.i.i.i.i = add nsw i32 %18, 1
-  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !548
+  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !550
   br label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
 
 _ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %while.body.i
-  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !548
-  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !548
+  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !550
+  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !550
   %dec.i.i.i.i.i = add nsw i64 %19, -1
-  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !548
-  %20 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !548
+  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !550
+  %20 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !550
   %inc3.i.i.i.i.i = add nsw i64 %20, 1
-  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !548
-  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !548
+  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !550
+  %21 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !550
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %13, %21
-  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !548
+  %22 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !550
   %cmp2.i.i.i.i.i.i = icmp ult ptr %13, %22
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %23 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !548
-  store ptr %23, ptr %13, align 8, !noalias !548
-  store ptr %13, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !548
+  %23 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !550
+  store ptr %23, ptr %13, align 8, !noalias !550
+  store ptr %13, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !550
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %24 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !548
-  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %13, i64 noundef %24), !noalias !548
+  %24 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !550
+  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %13, i64 noundef %24), !noalias !550
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %25 = load i64, ptr %mSize.i.i.i, align 8, !noalias !548
+  %25 = load i64, ptr %mSize.i.i.i, align 8, !noalias !550
   %dec.i.i.i = add i64 %25, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !548
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !550
   %cmp.i.not.i = icmp eq ptr %12, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !542
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !544
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12568,7 +12568,7 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %39 = load ptr, ptr %agg.tmp13.sroa.0.0, align 8
   %cmp.i.not.i6 = icmp eq ptr %39, %11
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !553
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !555
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -12702,7 +12702,7 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %3 = load ptr, ptr %first.sroa.0.019, align 8
   %pNode.0 = load ptr, ptr %pNode.020, align 8
   %cmp.not = icmp eq ptr %pNode.0, %this
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !554
+  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !556
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %entry ], [ %3, %_ZN10TestObjectaSERKS_.exit ]
@@ -12720,59 +12720,59 @@ while.body.lr.ph.i:                               ; preds = %land.rhs
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.020, %while.body.lr.ph.i ], [ %4, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
-  %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !555
+  %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !557
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !555
+  %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !557
   %mpPrev.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !555
-  %7 = load ptr, ptr %5, align 8, !noalias !555
+  %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !557
+  %7 = load ptr, ptr %5, align 8, !noalias !557
   %mpPrev2.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !555
-  %8 = load ptr, ptr %5, align 8, !noalias !555
-  store ptr %8, ptr %6, align 8, !noalias !555
+  store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !557
+  %8 = load ptr, ptr %5, align 8, !noalias !557
+  store ptr %8, ptr %6, align 8, !noalias !557
   %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !555
+  %9 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !557
   %cmp.not.i.i.i.i.i = icmp eq i32 %9, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %10 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !555
+  %10 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !557
   %inc.i.i.i.i.i = add nsw i32 %10, 1
-  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !555
+  store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !557
   br label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
 
 _ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %while.body.i
-  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !555
-  %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !555
+  store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !557
+  %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !557
   %dec.i.i.i.i.i = add nsw i64 %11, -1
-  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !555
-  %12 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !555
+  store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !557
+  %12 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !557
   %inc3.i.i.i.i.i = add nsw i64 %12, 1
-  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !555
-  %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !555
+  store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !557
+  %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8, !noalias !557
   %cmp.not.i.i.i.i.i.i = icmp uge ptr %5, %13
-  %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !555
+  %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !557
   %cmp2.i.i.i.i.i.i = icmp ult ptr %5, %14
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %15 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !555
-  store ptr %15, ptr %5, align 8, !noalias !555
-  store ptr %5, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !555
+  %15 = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !557
+  store ptr %15, ptr %5, align 8, !noalias !557
+  store ptr %5, ptr %mSecond.i.i.i.i.i.i.i, align 8, !noalias !557
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i
-  %16 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !555
-  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %5, i64 noundef %16), !noalias !555
+  %16 = load i64, ptr %mnNodeSize.i.i.i.i.i.i, align 8, !noalias !557
+  tail call void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i, ptr noundef nonnull %5, i64 noundef %16), !noalias !557
   br label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !555
+  %17 = load i64, ptr %mSize.i.i.i, align 8, !noalias !557
   %dec.i.i.i = add i64 %17, -1
-  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !555
+  store i64 %dec.i.i.i, ptr %mSize.i.i.i, align 8, !noalias !557
   %cmp.i.not.i = icmp eq ptr %4, %this
-  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !542
+  br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !544
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12848,7 +12848,7 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %31 = load ptr, ptr %first.sroa.0.04.i, align 8
   %cmp.i.not.i6 = icmp eq ptr %31, %last.coerce
-  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !560
+  br i1 %cmp.i.not.i6, label %if.end, label %for.body.i, !llvm.loop !562
 
 if.end:                                           ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.end
   ret void
@@ -13321,131 +13321,133 @@ attributes #15 = { builtin allocsize(0) }
 !430 = distinct !{!430, !431, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIiPKiRS6_EEmS8_: %agg.result"}
 !431 = distinct !{!431, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIiPKiRS6_EEmS8_"}
 !432 = distinct !{!432, !6}
-!433 = distinct !{!433, !6}
-!434 = distinct !{!434, !6}
-!435 = !{!436}
-!436 = distinct !{!436, !437, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv: %agg.result"}
-!437 = distinct !{!437, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv"}
-!438 = !{!439}
-!439 = distinct !{!439, !440, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_: %agg.result"}
-!440 = distinct !{!440, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_"}
-!441 = distinct !{!441, !6}
-!442 = !{!443}
-!443 = distinct !{!443, !444, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_: %agg.result"}
-!444 = distinct !{!444, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_"}
-!445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!447 = distinct !{!447, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!448 = distinct !{!448, !6}
-!449 = !{!450}
-!450 = distinct !{!450, !451, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPKiRS7_EEEENS6_IiPiRiEESA_T_SE_: %agg.result"}
-!451 = distinct !{!451, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPKiRS7_EEEENS6_IiPiRiEESA_T_SE_"}
-!452 = distinct !{!452, !6}
-!453 = !{!454, !456}
-!454 = distinct !{!454, !455, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!455 = distinct !{!455, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!456 = distinct !{!456, !457, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!457 = distinct !{!457, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!458 = distinct !{!458, !6}
-!459 = !{!460}
-!460 = distinct !{!460, !461, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv: %agg.result"}
-!461 = distinct !{!461, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv"}
-!462 = distinct !{!462, !6}
-!463 = !{!464, !466}
-!464 = distinct !{!464, !465, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!465 = distinct !{!465, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!466 = distinct !{!466, !467, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!467 = distinct !{!467, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!468 = distinct !{!468, !6}
-!469 = distinct !{!469, !6}
-!470 = !{!471, !473}
-!471 = distinct !{!471, !472, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!472 = distinct !{!472, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!473 = distinct !{!473, !474, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!474 = distinct !{!474, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!475 = distinct !{!475, !6}
-!476 = distinct !{!476, !6}
-!477 = !{!478, !480}
-!478 = distinct !{!478, !479, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!479 = distinct !{!479, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!480 = distinct !{!480, !481, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!481 = distinct !{!481, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!482 = distinct !{!482, !6}
-!483 = !{!484}
-!484 = distinct !{!484, !485, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv: %agg.result"}
-!485 = distinct !{!485, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv"}
-!486 = distinct !{!486, !6}
-!487 = !{!488, !490}
-!488 = distinct !{!488, !489, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!489 = distinct !{!489, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!490 = distinct !{!490, !491, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!491 = distinct !{!491, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!492 = distinct !{!492, !6}
-!493 = distinct !{!493, !6}
-!494 = !{!495, !497}
-!495 = distinct !{!495, !496, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!496 = distinct !{!496, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!497 = distinct !{!497, !498, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!498 = distinct !{!498, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!499 = distinct !{!499, !6}
-!500 = !{!501}
-!501 = distinct !{!501, !502, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv: %agg.result"}
-!502 = distinct !{!502, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv"}
-!503 = distinct !{!503, !6}
-!504 = !{!505}
-!505 = distinct !{!505, !506, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
-!506 = distinct !{!506, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
-!507 = distinct !{!507, !6}
-!508 = distinct !{!508, !6}
+!433 = distinct !{!433, !6, !434}
+!434 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!435 = distinct !{!435, !6}
+!436 = distinct !{!436, !6}
+!437 = !{!438}
+!438 = distinct !{!438, !439, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv: %agg.result"}
+!439 = distinct !{!439, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv"}
+!440 = !{!441}
+!441 = distinct !{!441, !442, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_: %agg.result"}
+!442 = distinct !{!442, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_"}
+!443 = distinct !{!443, !6}
+!444 = !{!445}
+!445 = distinct !{!445, !446, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_: %agg.result"}
+!446 = distinct !{!446, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_"}
+!447 = !{!448}
+!448 = distinct !{!448, !449, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!449 = distinct !{!449, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!450 = distinct !{!450, !6}
+!451 = !{!452}
+!452 = distinct !{!452, !453, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPKiRS7_EEEENS6_IiPiRiEESA_T_SE_: %agg.result"}
+!453 = distinct !{!453, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPKiRS7_EEEENS6_IiPiRiEESA_T_SE_"}
+!454 = distinct !{!454, !6}
+!455 = !{!456, !458}
+!456 = distinct !{!456, !457, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!457 = distinct !{!457, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!458 = distinct !{!458, !459, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!459 = distinct !{!459, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!460 = distinct !{!460, !6}
+!461 = !{!462}
+!462 = distinct !{!462, !463, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv: %agg.result"}
+!463 = distinct !{!463, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv"}
+!464 = distinct !{!464, !6}
+!465 = !{!466, !468}
+!466 = distinct !{!466, !467, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!467 = distinct !{!467, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!468 = distinct !{!468, !469, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!469 = distinct !{!469, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!470 = distinct !{!470, !6}
+!471 = distinct !{!471, !6}
+!472 = !{!473, !475}
+!473 = distinct !{!473, !474, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!474 = distinct !{!474, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!475 = distinct !{!475, !476, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!476 = distinct !{!476, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!477 = distinct !{!477, !6}
+!478 = distinct !{!478, !6}
+!479 = !{!480, !482}
+!480 = distinct !{!480, !481, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!481 = distinct !{!481, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!482 = distinct !{!482, !483, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!483 = distinct !{!483, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!484 = distinct !{!484, !6}
+!485 = !{!486}
+!486 = distinct !{!486, !487, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv: %agg.result"}
+!487 = distinct !{!487, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5beginEv"}
+!488 = distinct !{!488, !6}
+!489 = !{!490, !492}
+!490 = distinct !{!490, !491, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!491 = distinct !{!491, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!492 = distinct !{!492, !493, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!493 = distinct !{!493, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!494 = distinct !{!494, !6}
+!495 = distinct !{!495, !6}
+!496 = !{!497, !499}
+!497 = distinct !{!497, !498, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!498 = distinct !{!498, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!499 = distinct !{!499, !500, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!500 = distinct !{!500, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!501 = distinct !{!501, !6}
+!502 = !{!503}
+!503 = distinct !{!503, !504, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv: %agg.result"}
+!504 = distinct !{!504, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv"}
+!505 = distinct !{!505, !6}
+!506 = !{!507}
+!507 = distinct !{!507, !508, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
+!508 = distinct !{!508, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
 !509 = distinct !{!509, !6}
 !510 = distinct !{!510, !6}
 !511 = distinct !{!511, !6}
-!512 = !{!513, !515}
-!513 = distinct !{!513, !514, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
-!514 = distinct !{!514, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
-!515 = distinct !{!515, !516, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
-!516 = distinct !{!516, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
-!517 = distinct !{!517, !6}
-!518 = distinct !{!518, !6}
-!519 = !{!520, !522}
-!520 = distinct !{!520, !521, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
-!521 = distinct !{!521, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
-!522 = distinct !{!522, !523, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
-!523 = distinct !{!523, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
-!524 = distinct !{!524, !6}
-!525 = !{!526}
-!526 = distinct !{!526, !527, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_: %agg.result"}
-!527 = distinct !{!527, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_"}
-!528 = distinct !{!528, !6}
-!529 = distinct !{!529, !6}
-!530 = !{!531, !533}
-!531 = distinct !{!531, !532, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
-!532 = distinct !{!532, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
-!533 = distinct !{!533, !534, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
-!534 = distinct !{!534, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
-!535 = distinct !{!535, !6}
-!536 = distinct !{!536, !6}
-!537 = !{!538, !540}
-!538 = distinct !{!538, !539, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
-!539 = distinct !{!539, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
-!540 = distinct !{!540, !541, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
-!541 = distinct !{!541, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
-!542 = distinct !{!542, !6}
-!543 = !{!544}
-!544 = distinct !{!544, !545, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_: %agg.result"}
-!545 = distinct !{!545, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_"}
-!546 = distinct !{!546, !6}
-!547 = distinct !{!547, !6}
-!548 = !{!549, !551}
-!549 = distinct !{!549, !550, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
-!550 = distinct !{!550, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
-!551 = distinct !{!551, !552, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
-!552 = distinct !{!552, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
-!553 = distinct !{!553, !6}
-!554 = distinct !{!554, !6}
-!555 = !{!556, !558}
-!556 = distinct !{!556, !557, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
-!557 = distinct !{!557, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
-!558 = distinct !{!558, !559, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
-!559 = distinct !{!559, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
-!560 = distinct !{!560, !6}
+!512 = distinct !{!512, !6}
+!513 = distinct !{!513, !6}
+!514 = !{!515, !517}
+!515 = distinct !{!515, !516, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE: %agg.result"}
+!516 = distinct !{!516, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE"}
+!517 = distinct !{!517, !518, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_: %agg.result"}
+!518 = distinct !{!518, !"_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EES9_"}
+!519 = distinct !{!519, !6}
+!520 = distinct !{!520, !6}
+!521 = !{!522, !524}
+!522 = distinct !{!522, !523, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
+!523 = distinct !{!523, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
+!524 = distinct !{!524, !525, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
+!525 = distinct !{!525, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
+!526 = distinct !{!526, !6}
+!527 = !{!528}
+!528 = distinct !{!528, !529, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_: %agg.result"}
+!529 = distinct !{!529, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_"}
+!530 = distinct !{!530, !6}
+!531 = distinct !{!531, !6}
+!532 = !{!533, !535}
+!533 = distinct !{!533, !534, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
+!534 = distinct !{!534, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
+!535 = distinct !{!535, !536, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
+!536 = distinct !{!536, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
+!537 = distinct !{!537, !6}
+!538 = distinct !{!538, !6}
+!539 = !{!540, !542}
+!540 = distinct !{!540, !541, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
+!541 = distinct !{!541, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
+!542 = distinct !{!542, !543, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
+!543 = distinct !{!543, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
+!544 = distinct !{!544, !6}
+!545 = !{!546}
+!546 = distinct !{!546, !547, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_: %agg.result"}
+!547 = distinct !{!547, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6insertENS_12ListIteratorIS1_PKS1_RS7_EEmS9_"}
+!548 = distinct !{!548, !6}
+!549 = distinct !{!549, !6}
+!550 = !{!551, !553}
+!551 = distinct !{!551, !552, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
+!552 = distinct !{!552, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
+!553 = distinct !{!553, !554, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
+!554 = distinct !{!554, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
+!555 = distinct !{!555, !6}
+!556 = distinct !{!556, !6}
+!557 = !{!558, !560}
+!558 = distinct !{!558, !559, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE: %agg.result"}
+!559 = distinct !{!559, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE"}
+!560 = distinct !{!560, !561, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_: %agg.result"}
+!561 = distinct !{!561, !"_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EESA_"}
+!562 = distinct !{!562, !6}

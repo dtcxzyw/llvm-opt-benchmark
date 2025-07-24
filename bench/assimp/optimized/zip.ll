@@ -967,7 +967,7 @@ define range(i32 -5, 2) i32 @mz_deflate(ptr noundef captures(address_is_null) %0
 
 64:                                               ; preds = %62
   %.not51.us = icmp eq i32 %57, %56
-  br i1 %.not51.us, label %.thread58, label %.split.us
+  br i1 %.not51.us, label %.thread58, label %.split.us, !llvm.loop !3
 
 .split:                                           ; preds = %24, %99
   %65 = phi ptr [ %89, %99 ], [ %12, %24 ]
@@ -5981,7 +5981,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %216 = lshr i32 %215, 8
   %217 = add i32 %214, -8
   %218 = icmp ugt i32 %217, 7
-  br i1 %218, label %.lr.ph373.split.us, label %._crit_edge374.split.us
+  br i1 %218, label %.lr.ph373.split.us, label %._crit_edge374.split.us, !llvm.loop !5
 
 ._crit_edge374.split.us:                          ; preds = %.lr.ph373.split.us
   store i32 %216, ptr %118, align 8
@@ -6013,7 +6013,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %231 = add i32 %228, -8
   store i32 %231, ptr %115, align 4
   %232 = icmp ugt i32 %231, 7
-  br i1 %232, label %.lr.ph373.split, label %._crit_edge374.loopexit, !llvm.loop !3
+  br i1 %232, label %.lr.ph373.split, label %._crit_edge374.loopexit, !llvm.loop !6
 
 ._crit_edge374.loopexit:                          ; preds = %227
   %.pre438 = load i32, ptr %202, align 4
@@ -6057,7 +6057,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %256 = lshr i32 %255, 8
   %257 = add i32 %254, -8
   %258 = icmp ugt i32 %257, 7
-  br i1 %258, label %.lr.ph379.split.us, label %._crit_edge380.split.us
+  br i1 %258, label %.lr.ph379.split.us, label %._crit_edge380.split.us, !llvm.loop !8
 
 ._crit_edge380.split.us:                          ; preds = %.lr.ph379.split.us
   store i32 %256, ptr %118, align 8
@@ -6089,7 +6089,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %271 = add i32 %268, -8
   store i32 %271, ptr %115, align 4
   %272 = icmp ugt i32 %271, 7
-  br i1 %272, label %.lr.ph379.split, label %._crit_edge380.loopexit, !llvm.loop !5
+  br i1 %272, label %.lr.ph379.split, label %._crit_edge380.loopexit, !llvm.loop !9
 
 ._crit_edge380.loopexit:                          ; preds = %267
   %.pre441 = load i32, ptr %202, align 4
@@ -6193,7 +6193,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %315 = lshr i32 %314, 8
   %316 = add i32 %313, -8
   %317 = icmp ugt i32 %316, 7
-  br i1 %317, label %.lr.ph401.split.us, label %._crit_edge402.split.us
+  br i1 %317, label %.lr.ph401.split.us, label %._crit_edge402.split.us, !llvm.loop !10
 
 ._crit_edge402.split.us:                          ; preds = %.lr.ph401.split.us
   store i32 %315, ptr %118, align 8
@@ -6225,7 +6225,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %330 = add i32 %327, -8
   store i32 %330, ptr %115, align 4
   %331 = icmp ugt i32 %330, 7
-  br i1 %331, label %.lr.ph401.split, label %._crit_edge402, !llvm.loop !6
+  br i1 %331, label %.lr.ph401.split, label %._crit_edge402, !llvm.loop !11
 
 ._crit_edge402:                                   ; preds = %326, %._crit_edge402.split.us
   %332 = phi i32 [ %315, %._crit_edge402.split.us ], [ %329, %326 ]
@@ -6332,7 +6332,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %376 = lshr i32 %375, 8
   %377 = add i32 %374, -8
   %378 = icmp ugt i32 %377, 7
-  br i1 %378, label %.lr.ph392.split.us, label %._crit_edge393.split.us
+  br i1 %378, label %.lr.ph392.split.us, label %._crit_edge393.split.us, !llvm.loop !12
 
 ._crit_edge393.split.us:                          ; preds = %.lr.ph392.split.us
   store i32 %376, ptr %118, align 8
@@ -6364,7 +6364,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %391 = add i32 %388, -8
   store i32 %391, ptr %115, align 4
   %392 = icmp ugt i32 %391, 7
-  br i1 %392, label %.lr.ph392.split, label %._crit_edge393, !llvm.loop !7
+  br i1 %392, label %.lr.ph392.split, label %._crit_edge393, !llvm.loop !13
 
 ._crit_edge393:                                   ; preds = %387, %._crit_edge393.split.us
   %393 = phi i32 [ %376, %._crit_edge393.split.us ], [ %390, %387 ]
@@ -10684,7 +10684,7 @@ mz_zip_set_error.exit236:                         ; preds = %85
   %109 = add i64 %.0157304.us, %100
   %110 = sub i64 %.1163303.us, %100
   %.not200.us = icmp eq i64 %110, 0
-  br i1 %.not200.us, label %.thread262.loopexit, label %.lr.ph.split.us
+  br i1 %.not200.us, label %.thread262.loopexit, label %.lr.ph.split.us, !llvm.loop !14
 
 111:                                              ; preds = %96
   %112 = call i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0152, i64 noundef %39) #35
@@ -13366,7 +13366,7 @@ mz_zip_set_error.exit42:                          ; preds = %31
   %43 = add nuw i32 %.02749.us, 1
   %44 = load i32, ptr %38, align 8
   %45 = icmp ult i32 %43, %44
-  br i1 %45, label %.lr.ph.split.us, label %mz_zip_set_error.exit48
+  br i1 %45, label %.lr.ph.split.us, label %mz_zip_set_error.exit48, !llvm.loop !15
 
 46:                                               ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21764,7 +21764,7 @@ mz_zip_reader_file_stat.exit.us.i.i:              ; preds = %43, %41, %..critedg
   %.1.ph.us.i.i = select i1 %36, i64 %spec.select.us.i.i, i64 %.05287.us.i.i
   %58 = add nuw nsw i64 %.05586.us.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %58, %13
-  br i1 %exitcond100.not.i.i, label %.preheader.i.i, label %.lr.ph88.split.us.i.i
+  br i1 %exitcond100.not.i.i, label %.preheader.i.i, label %.lr.ph88.split.us.i.i, !llvm.loop !16
 
 zip_name_match.exit.thread.us.i.i:                ; preds = %zip_name_match.exit.us.i.i, %zip_strrpl.exit.i.us.i.i
   %59 = add nuw i64 %.085.us.i.i, 1
@@ -22218,7 +22218,7 @@ mz_zip_reader_file_stat.exit.us.i.i:              ; preds = %32, %30, %..critedg
   %.1.ph.us.i.i = select i1 %25, i64 %spec.select.us.i.i, i64 %.05282.us.i.i
   %47 = add nuw nsw i64 %.05581.us.i.i, 1
   %exitcond95.not.i.i = icmp eq i64 %47, %13
-  br i1 %exitcond95.not.i.i, label %.preheader.i.i, label %.lr.ph83.split.us.i.i
+  br i1 %exitcond95.not.i.i, label %.preheader.i.i, label %.lr.ph83.split.us.i.i, !llvm.loop !17
 
 .preheader.i.i:                                   ; preds = %41, %64
   %.052.lcssa.i.i = phi i64 [ -1, %64 ], [ %.1.ph.us.i.i, %41 ]
@@ -24302,7 +24302,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %425 = lshr i32 %424, 8
   %426 = add i32 %423, -8
   %427 = icmp ugt i32 %426, 7
-  br i1 %427, label %.lr.ph358.split.us.i, label %._crit_edge359.split.us.i
+  br i1 %427, label %.lr.ph358.split.us.i, label %._crit_edge359.split.us.i, !llvm.loop !18
 
 ._crit_edge359.split.us.i:                        ; preds = %.lr.ph358.split.us.i
   store i32 %425, ptr %298, align 8
@@ -24334,7 +24334,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %440 = add i32 %437, -8
   store i32 %440, ptr %295, align 4
   %441 = icmp ugt i32 %440, 7
-  br i1 %441, label %.lr.ph358.split.i, label %._crit_edge359.i, !llvm.loop !8
+  br i1 %441, label %.lr.ph358.split.i, label %._crit_edge359.i, !llvm.loop !19
 
 ._crit_edge359.i:                                 ; preds = %436, %._crit_edge359.split.us.i, %407
   %442 = phi i32 [ %425, %._crit_edge359.split.us.i ], [ %417, %407 ], [ %439, %436 ]
@@ -24378,7 +24378,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %467 = lshr i32 %466, 8
   %468 = add i32 %465, -8
   %469 = icmp ugt i32 %468, 7
-  br i1 %469, label %.lr.ph364.split.us.i, label %._crit_edge365.split.us.i
+  br i1 %469, label %.lr.ph364.split.us.i, label %._crit_edge365.split.us.i, !llvm.loop !20
 
 ._crit_edge365.split.us.i:                        ; preds = %.lr.ph364.split.us.i
   store i32 %467, ptr %298, align 8
@@ -24410,7 +24410,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %482 = add i32 %479, -8
   store i32 %482, ptr %295, align 4
   %483 = icmp ugt i32 %482, 7
-  br i1 %483, label %.lr.ph364.split.i, label %._crit_edge365.i, !llvm.loop !9
+  br i1 %483, label %.lr.ph364.split.i, label %._crit_edge365.i, !llvm.loop !21
 
 ._crit_edge365.i:                                 ; preds = %478, %._crit_edge365.split.us.i, %444
   %484 = phi i32 [ %459, %444 ], [ %467, %._crit_edge365.split.us.i ], [ %481, %478 ]
@@ -24449,7 +24449,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %507 = lshr i32 %506, 8
   %508 = add i32 %505, -8
   %509 = icmp ugt i32 %508, 7
-  br i1 %509, label %.lr.ph372.split.us.i, label %..loopexit_crit_edge.split.us.i
+  br i1 %509, label %.lr.ph372.split.us.i, label %..loopexit_crit_edge.split.us.i, !llvm.loop !22
 
 ..loopexit_crit_edge.split.us.i:                  ; preds = %.lr.ph372.split.us.i
   store i32 %507, ptr %298, align 8
@@ -24481,7 +24481,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   %522 = add i32 %519, -8
   store i32 %522, ptr %295, align 4
   %523 = icmp ugt i32 %522, 7
-  br i1 %523, label %.lr.ph372.split.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %523, label %.lr.ph372.split.i, label %.loopexit.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %518, %..loopexit_crit_edge.split.us.i, %487, %._crit_edge365.i
   %524 = phi i32 [ %484, %._crit_edge365.i ], [ %507, %..loopexit_crit_edge.split.us.i ], [ %499, %487 ], [ %521, %518 ]
@@ -24827,7 +24827,7 @@ tdefl_start_static_block.exit:                    ; preds = %100, %tdefl_optimiz
   %726 = lshr i32 %725, 8
   %727 = add i32 %724, -8
   %728 = icmp ugt i32 %727, 7
-  br i1 %728, label %.lr.ph148.split.us.i, label %._crit_edge149.split.us.i
+  br i1 %728, label %.lr.ph148.split.us.i, label %._crit_edge149.split.us.i, !llvm.loop !24
 
 ._crit_edge149.split.us.i:                        ; preds = %.lr.ph148.split.us.i
   store i32 %726, ptr %715, align 8
@@ -24859,7 +24859,7 @@ tdefl_start_static_block.exit:                    ; preds = %100, %tdefl_optimiz
   %741 = add i32 %738, -8
   store i32 %741, ptr %713, align 4
   %742 = icmp ugt i32 %741, 7
-  br i1 %742, label %.lr.ph148.split.i, label %tdefl_compress_lz_codes.exit, !llvm.loop !11
+  br i1 %742, label %.lr.ph148.split.i, label %tdefl_compress_lz_codes.exit, !llvm.loop !25
 
 tdefl_compress_lz_codes.exit:                     ; preds = %737, %._crit_edge146.i, %._crit_edge149.split.us.i
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -25028,7 +25028,7 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %71 = add nuw nsw i32 %.03854.us.i, 8
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %spec.select.i
-  br i1 %exitcond74.not.i, label %tdefl_radix_sort_syms.exit, label %.critedge.preheader.split55.us.i
+  br i1 %exitcond74.not.i, label %tdefl_radix_sort_syms.exit, label %.critedge.preheader.split55.us.i, !llvm.loop !26
 
 tdefl_radix_sort_syms.exit.thread:                ; preds = %72
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #35
@@ -26462,11 +26462,26 @@ attributes #40 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.unswitch.partial.disable"}
+!4 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
 !8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !4}

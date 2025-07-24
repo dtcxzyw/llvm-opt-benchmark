@@ -1507,7 +1507,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %.1115.us = phi nsz double [ %33, %35 ], [ %.0114129.us, %32 ], [ %30, %27 ]
   %37 = add nuw i64 %.0130.us, 1
   %exitcond.not = icmp eq i64 %37, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %36
   %38 = getelementptr inbounds nuw double, ptr %20, i64 %.0116131.us
@@ -1529,7 +1529,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 45:                                               ; preds = %44, %.preheader
   %46 = add nuw nsw i64 %.0116131, 1
   %exitcond144.not = icmp eq i64 %46, %17
-  br i1 %exitcond144.not, label %.loopexit, label %.preheader, !llvm.loop !58
+  br i1 %exitcond144.not, label %.loopexit, label %.preheader, !llvm.loop !61
 
 .loopexit:                                        ; preds = %25, %45, %5
   %47 = zext i32 %16 to i64
@@ -1629,12 +1629,12 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   store double %113, ptr %75, align 8, !tbaa !29
   %114 = add nuw i64 %.1132.us, 1
   %exitcond145.not = icmp eq i64 %114, %3
-  br i1 %exitcond145.not, label %._crit_edge.us137, label %79, !llvm.loop !60
+  br i1 %exitcond145.not, label %._crit_edge.us137, label %79, !llvm.loop !62
 
 115:                                              ; preds = %._crit_edge.us137, %.lr.ph135.split.us
   %116 = add nuw nsw i64 %.1117133.us, 1
   %exitcond146.not = icmp eq i64 %116, %47
-  br i1 %exitcond146.not, label %._crit_edge136, label %.lr.ph135.split.us, !llvm.loop !61
+  br i1 %exitcond146.not, label %._crit_edge136, label %.lr.ph135.split.us, !llvm.loop !63
 
 ._crit_edge.us137:                                ; preds = %79
   %.idx.us = mul nuw nsw i64 %73, 40
@@ -1706,7 +1706,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 164:                                              ; preds = %.lr.ph135.split, %140
   %165 = add nuw nsw i64 %.1117133, 1
   %exitcond147.not = icmp eq i64 %165, %47
-  br i1 %exitcond147.not, label %._crit_edge136, label %.lr.ph135.split, !llvm.loop !61
+  br i1 %exitcond147.not, label %._crit_edge136, label %.lr.ph135.split, !llvm.loop !64
 
 ._crit_edge136:                                   ; preds = %115, %164, %.preheader128, %.loopexit
   ret void
@@ -1794,7 +1794,10 @@ attributes #11 = { nounwind }
 !55 = distinct !{!55, !21}
 !56 = distinct !{!56, !21}
 !57 = distinct !{!57, !21}
-!58 = distinct !{!58, !21}
-!59 = distinct !{!59, !21}
+!58 = distinct !{!58, !21, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !60 = distinct !{!60, !21}
 !61 = distinct !{!61, !21}
+!62 = distinct !{!62, !21}
+!63 = distinct !{!63, !21, !59}
+!64 = distinct !{!64, !21}

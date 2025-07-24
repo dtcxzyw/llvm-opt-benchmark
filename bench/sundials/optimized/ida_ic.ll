@@ -235,7 +235,7 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %132, ptr noundef %133) #3
   %134 = add nuw nsw i32 %.0105175.us, 1
   %exitcond204.not = icmp eq i32 %134, 3
-  br i1 %exitcond204.not, label %IDAnlsIC.exit.thread134, label %.preheader.us
+  br i1 %exitcond204.not, label %IDAnlsIC.exit.thread134, label %.preheader.us, !llvm.loop !39
 
 .preheader:                                       ; preds = %.preheader.preheader, %358
   %.0105175 = phi i32 [ %363, %358 ], [ 1, %.preheader.preheader ]
@@ -246,18 +246,18 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   %.4172 = phi double [ %.2174, %.preheader ], [ %350, %349 ]
   %.0107171 = phi i32 [ 1, %.preheader ], [ %352, %349 ]
   %136 = load ptr, ptr %40, align 8, !tbaa !21
-  %137 = load ptr, ptr %99, align 8, !tbaa !39
+  %137 = load ptr, ptr %99, align 8, !tbaa !41
   %138 = load ptr, ptr %100, align 8, !tbaa !25
-  %139 = load ptr, ptr %101, align 8, !tbaa !40
+  %139 = load ptr, ptr %101, align 8, !tbaa !42
   %140 = load double, ptr %48, align 8, !tbaa !24
   %141 = load ptr, ptr %43, align 8, !tbaa !22
   %142 = load ptr, ptr %46, align 8, !tbaa !23
-  %143 = load ptr, ptr %102, align 8, !tbaa !41
-  %144 = load ptr, ptr %103, align 8, !tbaa !42
+  %143 = load ptr, ptr %102, align 8, !tbaa !43
+  %144 = load ptr, ptr %103, align 8, !tbaa !44
   %145 = tail call i32 %139(double noundef %140, ptr noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef %144) #3
-  %146 = load i64, ptr %104, align 8, !tbaa !43
+  %146 = load i64, ptr %104, align 8, !tbaa !45
   %147 = add nsw i64 %146, 1
-  store i64 %147, ptr %104, align 8, !tbaa !43
+  store i64 %147, ptr %104, align 8, !tbaa !45
   %148 = icmp slt i32 %145, 0
   br i1 %148, label %.thread, label %149
 
@@ -266,26 +266,26 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   br i1 %.not.i, label %150, label %.thread
 
 150:                                              ; preds = %149
-  %151 = load ptr, ptr %102, align 8, !tbaa !41
-  %152 = load ptr, ptr %105, align 8, !tbaa !44
+  %151 = load ptr, ptr %102, align 8, !tbaa !43
+  %152 = load ptr, ptr %105, align 8, !tbaa !46
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %151, ptr noundef %152) #3
-  %153 = load i32, ptr %106, align 4, !tbaa !45
+  %153 = load i32, ptr %106, align 4, !tbaa !47
   %.not4260.i = icmp slt i32 %153, 1
   br i1 %.not4260.i, label %IDAnlsIC.exit.thread130, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %150, %333
   %.03861.i = phi i32 [ %336, %333 ], [ 1, %150 ]
-  %154 = load ptr, ptr %107, align 8, !tbaa !46
+  %154 = load ptr, ptr %107, align 8, !tbaa !48
   %.not43.i = icmp eq ptr %154, null
   br i1 %.not43.i, label %164, label %155
 
 155:                                              ; preds = %.lr.ph.i
-  %156 = load i64, ptr %108, align 8, !tbaa !47
+  %156 = load i64, ptr %108, align 8, !tbaa !49
   %157 = add nsw i64 %156, 1
-  store i64 %157, ptr %108, align 8, !tbaa !47
+  store i64 %157, ptr %108, align 8, !tbaa !49
   %158 = load ptr, ptr %43, align 8, !tbaa !22
   %159 = load ptr, ptr %46, align 8, !tbaa !23
-  %160 = load ptr, ptr %102, align 8, !tbaa !41
+  %160 = load ptr, ptr %102, align 8, !tbaa !43
   %161 = tail call i32 %154(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %159, ptr noundef %160, ptr noundef %136, ptr noundef %137, ptr noundef %138) #3
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %.thread, label %163
@@ -296,13 +296,13 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
 
 164:                                              ; preds = %163, %.lr.ph.i
   %165 = load ptr, ptr %100, align 8, !tbaa !25
-  store ptr %165, ptr %109, align 8, !tbaa !48
-  %166 = load ptr, ptr %110, align 8, !tbaa !49
-  %167 = load ptr, ptr %102, align 8, !tbaa !41
+  store ptr %165, ptr %109, align 8, !tbaa !50
+  %166 = load ptr, ptr %110, align 8, !tbaa !51
+  %167 = load ptr, ptr %102, align 8, !tbaa !43
   %168 = load ptr, ptr %74, align 8, !tbaa !32
   %169 = load ptr, ptr %43, align 8, !tbaa !22
   %170 = load ptr, ptr %46, align 8, !tbaa !23
-  %171 = load ptr, ptr %105, align 8, !tbaa !44
+  %171 = load ptr, ptr %105, align 8, !tbaa !46
   %172 = tail call i32 %166(ptr noundef nonnull %0, ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef %171) #3
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %.thread, label %174
@@ -312,7 +312,7 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   br i1 %.not.i.i, label %175, label %.loopexit
 
 175:                                              ; preds = %174
-  %176 = load ptr, ptr %102, align 8, !tbaa !41
+  %176 = load ptr, ptr %102, align 8, !tbaa !43
   %177 = load ptr, ptr %74, align 8, !tbaa !32
   %178 = tail call double @IDAWrmsNorm(ptr noundef nonnull %0, ptr noundef %176, ptr noundef %177, i32 noundef 0) #3
   %179 = load i32, ptr %55, align 8, !tbaa !26
@@ -334,43 +334,43 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   br i1 %189, label %.preheader.i.i, label %IDAnlsIC.exit.thread130
 
 .preheader.i.i:                                   ; preds = %187
-  %190 = load i32, ptr %111, align 8, !tbaa !50
+  %190 = load i32, ptr %111, align 8, !tbaa !52
   %191 = icmp sgt i32 %190, 0
   br i1 %191, label %.lr.ph.i.i, label %IDANewtonIC.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %321
   %.03256.i.i = phi i32 [ %324, %321 ], [ 0, %.preheader.i.i ]
   %.155.i.i = phi double [ %.1.i.i.i, %321 ], [ %.043.i.i, %.preheader.i.i ]
-  %192 = load i64, ptr %112, align 8, !tbaa !51
+  %192 = load i64, ptr %112, align 8, !tbaa !53
   %193 = add nsw i64 %192, 1
-  store i64 %193, ptr %112, align 8, !tbaa !51
+  store i64 %193, ptr %112, align 8, !tbaa !53
   %194 = load ptr, ptr %40, align 8, !tbaa !21
   %195 = load ptr, ptr %113, align 8, !tbaa !25
-  store ptr %195, ptr %114, align 8, !tbaa !52
-  %196 = load ptr, ptr %99, align 8, !tbaa !39
-  store ptr %196, ptr %115, align 8, !tbaa !53
-  store ptr %194, ptr %116, align 8, !tbaa !54
+  store ptr %195, ptr %114, align 8, !tbaa !54
+  %196 = load ptr, ptr %99, align 8, !tbaa !41
+  store ptr %196, ptr %115, align 8, !tbaa !55
+  store ptr %194, ptr %116, align 8, !tbaa !56
   %197 = fmul double %.155.i.i, %.155.i.i
   %198 = fmul double %197, 5.000000e-01
-  %199 = load i32, ptr %117, align 8, !tbaa !55
+  %199 = load i32, ptr %117, align 8, !tbaa !57
   %.not.i.i.i = icmp eq i32 %199, 0
   br i1 %.not.i.i.i, label %228, label %200
 
 200:                                              ; preds = %.lr.ph.i.i
   %201 = load i32, ptr %18, align 8, !tbaa !17
   %202 = icmp eq i32 %201, 1
-  %203 = load ptr, ptr %102, align 8, !tbaa !41
+  %203 = load ptr, ptr %102, align 8, !tbaa !43
   br i1 %202, label %204, label %211
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr %118, align 8, !tbaa !18
   tail call void @N_VProd(ptr noundef %205, ptr noundef %203, ptr noundef %195) #3
-  %206 = load ptr, ptr %102, align 8, !tbaa !41
-  %207 = load ptr, ptr %114, align 8, !tbaa !52
+  %206 = load ptr, ptr %102, align 8, !tbaa !43
+  %207 = load ptr, ptr %114, align 8, !tbaa !54
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %206, double noundef -1.000000e+00, ptr noundef %207, ptr noundef %207) #3
   %208 = load ptr, ptr %43, align 8, !tbaa !22
-  %209 = load ptr, ptr %114, align 8, !tbaa !52
-  %210 = load ptr, ptr %115, align 8, !tbaa !53
+  %209 = load ptr, ptr %114, align 8, !tbaa !54
+  %210 = load ptr, ptr %115, align 8, !tbaa !55
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %208, double noundef -1.000000e+00, ptr noundef %209, ptr noundef %210) #3
   br label %IDANewy.exit.i.i.i
 
@@ -380,27 +380,27 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   br label %IDANewy.exit.i.i.i
 
 IDANewy.exit.i.i.i:                               ; preds = %211, %204
-  %213 = load ptr, ptr %119, align 8, !tbaa !56
-  %214 = load ptr, ptr %115, align 8, !tbaa !53
+  %213 = load ptr, ptr %119, align 8, !tbaa !58
+  %214 = load ptr, ptr %115, align 8, !tbaa !55
   %215 = tail call i32 @N_VConstrMask(ptr noundef %213, ptr noundef %214, ptr noundef %194) #3
   %.not61.i.i.i = icmp eq i32 %215, 0
   br i1 %.not61.i.i.i, label %216, label %228
 
 216:                                              ; preds = %IDANewy.exit.i.i.i
-  %217 = load ptr, ptr %102, align 8, !tbaa !41
-  %218 = load ptr, ptr %114, align 8, !tbaa !52
+  %217 = load ptr, ptr %102, align 8, !tbaa !43
+  %218 = load ptr, ptr %114, align 8, !tbaa !54
   tail call void @N_VProd(ptr noundef %194, ptr noundef %217, ptr noundef %218) #3
   %219 = load ptr, ptr %43, align 8, !tbaa !22
-  %220 = load ptr, ptr %114, align 8, !tbaa !52
+  %220 = load ptr, ptr %114, align 8, !tbaa !54
   %221 = tail call double @N_VMinQuotient(ptr noundef %219, ptr noundef %220) #3
   %222 = fmul double %221, 0x3FEFAE147AE147AE
   %223 = fmul double %.155.i.i, %222
-  %224 = load double, ptr %120, align 8, !tbaa !57
+  %224 = load double, ptr %120, align 8, !tbaa !59
   %225 = fcmp ugt double %223, %224
   br i1 %225, label %226, label %.loopexit
 
 226:                                              ; preds = %216
-  %227 = load ptr, ptr %102, align 8, !tbaa !41
+  %227 = load ptr, ptr %102, align 8, !tbaa !43
   tail call void @N_VScale(double noundef %222, ptr noundef %227, ptr noundef %227) #3
   br label %228
 
@@ -409,7 +409,7 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
   %.058.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i ], [ %222, %226 ], [ 1.000000e+00, %IDANewy.exit.i.i.i ]
   %229 = fmul double %198, -2.000000e+00
   %230 = fmul double %229, %.058.i.i.i
-  %231 = load double, ptr %120, align 8, !tbaa !57
+  %231 = load double, ptr %120, align 8, !tbaa !59
   %232 = fdiv double %231, %.044.i.i
   %233 = load i32, ptr %18, align 8, !tbaa !17
   %234 = icmp eq i32 %233, 2
@@ -417,12 +417,12 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
 
 235:                                              ; preds = %228
   %236 = load ptr, ptr %46, align 8, !tbaa !23
-  %237 = load ptr, ptr %116, align 8, !tbaa !54
+  %237 = load ptr, ptr %116, align 8, !tbaa !56
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %236, ptr noundef %237) #3
   br label %238
 
 238:                                              ; preds = %235, %228
-  %239 = load i32, ptr %121, align 4, !tbaa !58
+  %239 = load i32, ptr %121, align 4, !tbaa !60
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -439,18 +439,18 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
 
 245:                                              ; preds = %242
   %246 = load ptr, ptr %118, align 8, !tbaa !18
-  %247 = load ptr, ptr %102, align 8, !tbaa !41
-  %248 = load ptr, ptr %114, align 8, !tbaa !52
+  %247 = load ptr, ptr %102, align 8, !tbaa !43
+  %248 = load ptr, ptr %114, align 8, !tbaa !54
   tail call void @N_VProd(ptr noundef %246, ptr noundef %247, ptr noundef %248) #3
   %249 = load ptr, ptr %46, align 8, !tbaa !23
   %250 = load double, ptr %98, align 8, !tbaa !35
   %251 = fneg double %250
   %252 = fmul double %.05969.i.i.i, %251
-  %253 = load ptr, ptr %114, align 8, !tbaa !52
-  %254 = load ptr, ptr %116, align 8, !tbaa !54
+  %253 = load ptr, ptr %114, align 8, !tbaa !54
+  %254 = load ptr, ptr %116, align 8, !tbaa !56
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %249, double noundef %252, ptr noundef %253, ptr noundef %254) #3
-  %255 = load ptr, ptr %102, align 8, !tbaa !41
-  %256 = load ptr, ptr %114, align 8, !tbaa !52
+  %255 = load ptr, ptr %102, align 8, !tbaa !43
+  %256 = load ptr, ptr %114, align 8, !tbaa !54
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %255, double noundef -1.000000e+00, ptr noundef %256, ptr noundef %256) #3
   br label %IDANewyyp.exit.i.i.i
 
@@ -459,18 +459,18 @@ IDANewyyp.exit.i.i.i:                             ; preds = %242, %245
   %257 = load ptr, ptr %43, align 8, !tbaa !22
   %258 = fneg double %.05969.i.i.i
   %259 = load ptr, ptr %.sink240, align 8, !tbaa !25
-  %260 = load ptr, ptr %115, align 8, !tbaa !53
+  %260 = load ptr, ptr %115, align 8, !tbaa !55
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %257, double noundef %258, ptr noundef %259, ptr noundef %260) #3
-  %261 = load ptr, ptr %101, align 8, !tbaa !40
+  %261 = load ptr, ptr %101, align 8, !tbaa !42
   %262 = load double, ptr %48, align 8, !tbaa !24
-  %263 = load ptr, ptr %115, align 8, !tbaa !53
-  %264 = load ptr, ptr %116, align 8, !tbaa !54
-  %265 = load ptr, ptr %109, align 8, !tbaa !48
-  %266 = load ptr, ptr %103, align 8, !tbaa !42
+  %263 = load ptr, ptr %115, align 8, !tbaa !55
+  %264 = load ptr, ptr %116, align 8, !tbaa !56
+  %265 = load ptr, ptr %109, align 8, !tbaa !50
+  %266 = load ptr, ptr %103, align 8, !tbaa !44
   %267 = tail call i32 %261(double noundef %262, ptr noundef %263, ptr noundef %264, ptr noundef %265, ptr noundef %266) #3
-  %268 = load i64, ptr %104, align 8, !tbaa !43
+  %268 = load i64, ptr %104, align 8, !tbaa !45
   %269 = add nsw i64 %268, 1
-  store i64 %269, ptr %104, align 8, !tbaa !43
+  store i64 %269, ptr %104, align 8, !tbaa !45
   %270 = icmp slt i32 %267, 0
   br i1 %270, label %.thread, label %271
 
@@ -479,15 +479,15 @@ IDANewyyp.exit.i.i.i:                             ; preds = %242, %245
   br i1 %.not.i.i.i.i, label %272, label %.loopexit
 
 272:                                              ; preds = %271
-  %273 = load ptr, ptr %109, align 8, !tbaa !48
-  %274 = load ptr, ptr %105, align 8, !tbaa !44
+  %273 = load ptr, ptr %109, align 8, !tbaa !50
+  %274 = load ptr, ptr %105, align 8, !tbaa !46
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %273, ptr noundef %274) #3
-  %275 = load ptr, ptr %110, align 8, !tbaa !49
-  %276 = load ptr, ptr %109, align 8, !tbaa !48
+  %275 = load ptr, ptr %110, align 8, !tbaa !51
+  %276 = load ptr, ptr %109, align 8, !tbaa !50
   %277 = load ptr, ptr %74, align 8, !tbaa !32
-  %278 = load ptr, ptr %115, align 8, !tbaa !53
-  %279 = load ptr, ptr %116, align 8, !tbaa !54
-  %280 = load ptr, ptr %105, align 8, !tbaa !44
+  %278 = load ptr, ptr %115, align 8, !tbaa !55
+  %279 = load ptr, ptr %116, align 8, !tbaa !56
+  %280 = load ptr, ptr %105, align 8, !tbaa !46
   %281 = tail call i32 %275(ptr noundef nonnull %0, ptr noundef %276, ptr noundef %277, ptr noundef %278, ptr noundef %279, ptr noundef %280) #3
   %282 = icmp slt i32 %281, 0
   br i1 %282, label %.thread, label %283
@@ -497,7 +497,7 @@ IDANewyyp.exit.i.i.i:                             ; preds = %242, %245
   br i1 %.not30.i.i.i.i, label %284, label %.loopexit
 
 284:                                              ; preds = %283
-  %285 = load ptr, ptr %109, align 8, !tbaa !48
+  %285 = load ptr, ptr %109, align 8, !tbaa !50
   %286 = load ptr, ptr %74, align 8, !tbaa !32
   %287 = tail call double @IDAWrmsNorm(ptr noundef nonnull %0, ptr noundef %285, ptr noundef %286, i32 noundef 0) #3
   %288 = load i32, ptr %55, align 8, !tbaa !26
@@ -514,7 +514,7 @@ IDANewyyp.exit.i.i.i:                             ; preds = %242, %245
 
 IDAfnorm.exit.i.i.i:                              ; preds = %290, %284
   %.1.i.i.i = phi double [ %295, %290 ], [ %287, %284 ]
-  %296 = load i32, ptr %122, align 4, !tbaa !59
+  %296 = load i32, ptr %122, align 4, !tbaa !61
   %.not63.i.i.i = icmp eq i32 %296, 0
   br i1 %.not63.i.i.i, label %297, label %311
 
@@ -535,12 +535,12 @@ IDAfnorm.exit.i.i.i:                              ; preds = %290, %284
   %307 = add nsw i32 %306, 1
   store i32 %307, ptr %71, align 4, !tbaa !31
   %308 = add nuw nsw i32 %.05770.i.i.i, 1
-  %309 = load i32, ptr %121, align 4, !tbaa !58
+  %309 = load i32, ptr %121, align 4, !tbaa !60
   %310 = icmp eq i32 %308, %309
   br i1 %310, label %.loopexit, label %242
 
 311:                                              ; preds = %297, %IDAfnorm.exit.i.i.i
-  %312 = load ptr, ptr %115, align 8, !tbaa !53
+  %312 = load ptr, ptr %115, align 8, !tbaa !55
   %313 = load ptr, ptr %43, align 8, !tbaa !22
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %312, ptr noundef %313) #3
   %314 = load i32, ptr %18, align 8, !tbaa !17
@@ -548,7 +548,7 @@ IDAfnorm.exit.i.i.i:                              ; preds = %290, %284
   br i1 %315, label %316, label %IDALineSrch.exit.i.i
 
 316:                                              ; preds = %311
-  %317 = load ptr, ptr %116, align 8, !tbaa !54
+  %317 = load ptr, ptr %116, align 8, !tbaa !56
   %318 = load ptr, ptr %46, align 8, !tbaa !23
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %317, ptr noundef %318) #3
   br label %IDALineSrch.exit.i.i
@@ -559,11 +559,11 @@ IDALineSrch.exit.i.i:                             ; preds = %316, %311
   br i1 %320, label %321, label %IDAnlsIC.exit.thread130
 
 321:                                              ; preds = %IDALineSrch.exit.i.i
-  %322 = load ptr, ptr %109, align 8, !tbaa !48
-  %323 = load ptr, ptr %102, align 8, !tbaa !41
+  %322 = load ptr, ptr %109, align 8, !tbaa !50
+  %323 = load ptr, ptr %102, align 8, !tbaa !43
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %322, ptr noundef %323) #3
   %324 = add nuw nsw i32 %.03256.i.i, 1
-  %325 = load i32, ptr %111, align 8, !tbaa !50
+  %325 = load i32, ptr %111, align 8, !tbaa !52
   %326 = icmp slt i32 %324, %325
   br i1 %326, label %.lr.ph.i.i, label %327
 
@@ -576,32 +576,32 @@ IDALineSrch.exit.i.i:                             ; preds = %316, %311
   br i1 %or.cond.i.i, label %IDANewtonIC.exit.i, label %.loopexit
 
 IDANewtonIC.exit.i:                               ; preds = %327, %.preheader.i.i
-  %332 = load ptr, ptr %107, align 8, !tbaa !46
+  %332 = load ptr, ptr %107, align 8, !tbaa !48
   %.not45.i = icmp eq ptr %332, null
   br i1 %.not45.i, label %.loopexit, label %333
 
 333:                                              ; preds = %IDANewtonIC.exit.i
-  %334 = load ptr, ptr %105, align 8, !tbaa !44
-  %335 = load ptr, ptr %102, align 8, !tbaa !41
+  %334 = load ptr, ptr %105, align 8, !tbaa !46
+  %335 = load ptr, ptr %102, align 8, !tbaa !43
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %334, ptr noundef %335) #3
   %336 = add nuw nsw i32 %.03861.i, 1
-  %337 = load i32, ptr %106, align 4, !tbaa !45
+  %337 = load i32, ptr %106, align 4, !tbaa !47
   %.not42.not.i = icmp slt i32 %.03861.i, %337
   br i1 %.not42.not.i, label %.lr.ph.i, label %.loopexit
 
 .thread:                                          ; preds = %149, %135, %164, %155, %272, %IDANewyyp.exit.i.i.i
   %.0.i.ph.ph = phi i32 [ -7, %272 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %164 ], [ -6, %155 ], [ -12, %149 ], [ -8, %135 ]
-  %338 = load i64, ptr %123, align 8, !tbaa !60
+  %338 = load i64, ptr %123, align 8, !tbaa !62
   %339 = add nsw i64 %338, 1
-  store i64 %339, ptr %123, align 8, !tbaa !60
+  store i64 %339, ptr %123, align 8, !tbaa !62
   br label %IDAnlsIC.exit.thread134
 
 .loopexit:                                        ; preds = %163, %333, %IDANewtonIC.exit.i, %174, %327, %216, %238, %304, %302, %271, %283
   %.not120 = phi i1 [ false, %283 ], [ false, %271 ], [ false, %302 ], [ false, %304 ], [ false, %238 ], [ false, %216 ], [ false, %163 ], [ true, %333 ], [ true, %IDANewtonIC.exit.i ], [ false, %174 ], [ false, %327 ]
   %.0.i.ph = phi i32 [ 3, %304 ], [ 3, %302 ], [ 1, %271 ], [ 1, %283 ], [ 2, %216 ], [ 3, %238 ], [ 1, %163 ], [ 5, %333 ], [ 5, %IDANewtonIC.exit.i ], [ 1, %174 ], [ 4, %327 ]
-  %340 = load i64, ptr %123, align 8, !tbaa !60
+  %340 = load i64, ptr %123, align 8, !tbaa !62
   %341 = add nsw i64 %340, 1
-  store i64 %341, ptr %123, align 8, !tbaa !60
+  store i64 %341, ptr %123, align 8, !tbaa !62
   %342 = icmp eq i32 %.0107171, %.0108209
   br i1 %342, label %IDAnlsIC.exit.thread134, label %343
 
@@ -656,7 +656,7 @@ IDAnlsIC.exit.thread134:                          ; preds = %358, %IDAnlsIC.exit
 
 366:                                              ; preds = %IDAnlsIC.exit.thread134
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store double %.3, ptr %367, align 8, !tbaa !61
+  store double %.3, ptr %367, align 8, !tbaa !63
   br label %368
 
 368:                                              ; preds = %366, %IDAnlsIC.exit.thread134
@@ -806,26 +806,28 @@ attributes #3 = { nounwind }
 !36 = !{!4, !10, i64 552}
 !37 = !{!4, !6, i64 72}
 !38 = !{!4, !6, i64 80}
-!39 = !{!4, !11, i64 472}
-!40 = !{!4, !6, i64 16}
-!41 = !{!4, !11, i64 424}
-!42 = !{!4, !6, i64 24}
-!43 = !{!4, !12, i64 872}
-!44 = !{!4, !11, i64 448}
-!45 = !{!4, !10, i64 556}
-!46 = !{!4, !6, i64 1016}
-!47 = !{!4, !12, i64 912}
-!48 = !{!4, !11, i64 504}
-!49 = !{!4, !6, i64 1024}
-!50 = !{!4, !10, i64 560}
-!51 = !{!4, !12, i64 896}
-!52 = !{!4, !11, i64 512}
-!53 = !{!4, !11, i64 488}
-!54 = !{!4, !11, i64 496}
-!55 = !{!4, !10, i64 88}
-!56 = !{!4, !11, i64 440}
-!57 = !{!4, !9, i64 584}
-!58 = !{!4, !10, i64 572}
-!59 = !{!4, !10, i64 548}
-!60 = !{!4, !12, i64 880}
-!61 = !{!4, !9, i64 664}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = !{!4, !11, i64 472}
+!42 = !{!4, !6, i64 16}
+!43 = !{!4, !11, i64 424}
+!44 = !{!4, !6, i64 24}
+!45 = !{!4, !12, i64 872}
+!46 = !{!4, !11, i64 448}
+!47 = !{!4, !10, i64 556}
+!48 = !{!4, !6, i64 1016}
+!49 = !{!4, !12, i64 912}
+!50 = !{!4, !11, i64 504}
+!51 = !{!4, !6, i64 1024}
+!52 = !{!4, !10, i64 560}
+!53 = !{!4, !12, i64 896}
+!54 = !{!4, !11, i64 512}
+!55 = !{!4, !11, i64 488}
+!56 = !{!4, !11, i64 496}
+!57 = !{!4, !10, i64 88}
+!58 = !{!4, !11, i64 440}
+!59 = !{!4, !9, i64 584}
+!60 = !{!4, !10, i64 572}
+!61 = !{!4, !10, i64 548}
+!62 = !{!4, !12, i64 880}
+!63 = !{!4, !9, i64 664}

@@ -1892,7 +1892,7 @@ define dso_local void @msetGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %64 = load i32, ptr %3, align 8, !tbaa !59
   %65 = trunc nuw i64 %indvars.iv.next44 to i32
   %66 = icmp sgt i32 %64, %65
-  br i1 %66, label %.lr.ph38.split, label %._crit_edge, !llvm.loop !82
+  br i1 %66, label %.lr.ph38.split, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph38.split, %.lr.ph38.split.us, %.preheader, %.loopexit.thread49, %.loopexit
   %.lcssa = phi i32 [ %13, %.loopexit ], [ %4, %.loopexit.thread49 ], [ %4, %.preheader ], [ %45, %.lr.ph38.split.us ], [ %64, %.lr.ph38.split ]
@@ -1981,7 +1981,7 @@ define dso_local void @incrDecrCommand(ptr noundef %0, i64 noundef %1) local_unn
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !83
+  %31 = load i32, ptr %30, align 4, !tbaa !85
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %40
 
@@ -2148,10 +2148,10 @@ define dso_local void @incrbyfloatCommand(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not28, label %20, label %51
 
 20:                                               ; preds = %15
-  %21 = load x86_fp80, ptr %2, align 16, !tbaa !84
-  %22 = load x86_fp80, ptr %3, align 16, !tbaa !84
+  %21 = load x86_fp80, ptr %2, align 16, !tbaa !86
+  %22 = load x86_fp80, ptr %3, align 16, !tbaa !86
   %23 = fadd x86_fp80 %21, %22
-  store x86_fp80 %23, ptr %3, align 16, !tbaa !84
+  store x86_fp80 %23, ptr %3, align 16, !tbaa !86
   %24 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %23)
   %or.cond = fcmp ueq x86_fp80 %24, 0xK7FFF8000000000000000
   br i1 %or.cond, label %25, label %26
@@ -2198,7 +2198,7 @@ define dso_local void @incrbyfloatCommand(ptr noundef %0) local_unnamed_addr #0 
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8, !tbaa !56
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %49) #11
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %27) #11
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 712), align 8, !tbaa !86
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 712), align 8, !tbaa !88
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %50) #11
   br label %51
 
@@ -2576,7 +2576,7 @@ define dso_local void @lcsCommand(ptr noundef %0) local_unnamed_addr #0 {
   %70 = add i32 %.2209.ph, 1
   %71 = load i32, ptr %39, align 8, !tbaa !59
   %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !87
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %69
   %73 = icmp ne i32 %.2237.ph, 0
@@ -2797,7 +2797,7 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
 .split.us:                                        ; preds = %204, %.preheader.split.us.preheader
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond381 = icmp eq i64 %indvars.iv.next377, %wide.trip.count380
-  br i1 %exitcond381, label %164, label %.preheader, !llvm.loop !88
+  br i1 %exitcond381, label %164, label %.preheader, !llvm.loop !90
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %204
   %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %204 ]
@@ -2849,10 +2849,10 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
 204:                                              ; preds = %173, %191, %182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.split.us, label %.preheader.split, !llvm.loop !89
+  br i1 %exitcond, label %.split.us, label %.preheader.split, !llvm.loop !91
 
 205:                                              ; preds = %164
-  %206 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !90
+  %206 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !92
   %207 = zext i32 %169 to i64
   %208 = call ptr @sdsnewlen(ptr noundef %206, i64 noundef %207) #11
   br i1 %.0238.lcssa387, label %209, label %.thread297
@@ -3016,7 +3016,7 @@ sdslen.exit281:                                   ; preds = %sdslen.exit279, %12
   %270 = icmp ne i32 %.1324, 0
   %271 = icmp ne i32 %.4322, 0
   %or.cond11 = select i1 %270, i1 %271, i1 false
-  br i1 %or.cond11, label %216, label %.critedge.loopexit, !llvm.loop !91
+  br i1 %or.cond11, label %216, label %.critedge.loopexit, !llvm.loop !93
 
 .critedge.loopexit:                               ; preds = %.thread325
   %272 = zext i32 %.1215 to i64
@@ -3213,13 +3213,15 @@ attributes #14 = { noreturn nounwind }
 !79 = !{!57, !16, i64 16}
 !80 = distinct !{!80, !64}
 !81 = distinct !{!81, !64}
-!82 = distinct !{!82, !64}
-!83 = !{!61, !14, i64 4}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"long double", !7, i64 0}
-!86 = !{!57, !16, i64 712}
-!87 = distinct !{!87, !64}
-!88 = distinct !{!88, !64}
+!82 = distinct !{!82, !64, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !64}
+!85 = !{!61, !14, i64 4}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"long double", !7, i64 0}
+!88 = !{!57, !16, i64 712}
 !89 = distinct !{!89, !64}
-!90 = !{!17, !17, i64 0}
+!90 = distinct !{!90, !64}
 !91 = distinct !{!91, !64}
+!92 = !{!17, !17, i64 0}
+!93 = distinct !{!93, !64}

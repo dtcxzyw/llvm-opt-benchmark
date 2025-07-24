@@ -423,7 +423,7 @@ Wlc_ObjFanin.exit40.us:                           ; preds = %26, %.lr.ph.split.u
 48:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !36
 
 49:                                               ; preds = %.lr.ph.split.split.us, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph.split.split.us ]
@@ -476,7 +476,7 @@ Wlc_ObjFanin.exit.preheader:                      ; preds = %.lr.ph.split
 71:                                               ; preds = %90
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit, label %Wlc_ObjFanin.exit, !llvm.loop !34
+  br i1 %exitcond95.not, label %.loopexit, label %Wlc_ObjFanin.exit, !llvm.loop !37
 
 Wlc_ObjFanin.exit:                                ; preds = %Wlc_ObjFanin.exit.preheader, %71
   %indvars.iv91 = phi i64 [ 0, %Wlc_ObjFanin.exit.preheader ], [ %indvars.iv.next92, %71 ]
@@ -617,7 +617,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = sext i32 %.val12 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %9, label %.critedge, !llvm.loop !35
+  br i1 %40, label %9, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %38
   %.val.pre = load i32, ptr %3, align 4, !tbaa !3
@@ -796,7 +796,7 @@ Wlc_ObjFanin.exit40.us.i:                         ; preds = %46, %.lr.ph.split.u
 68:                                               ; preds = %88
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Wlc_NtkPairIsUifable.exit, label %69, !llvm.loop !34
+  br i1 %exitcond.not.i, label %Wlc_NtkPairIsUifable.exit, label %69, !llvm.loop !36
 
 69:                                               ; preds = %68, %.lr.ph.split.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %68 ], [ 0, %.lr.ph.split.split.us.i ]
@@ -849,7 +849,7 @@ Wlc_ObjFanin.exit.preheader.i:                    ; preds = %.lr.ph.split.i
 91:                                               ; preds = %110
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %wide.trip.count94.i
-  br i1 %exitcond95.not.i, label %Wlc_NtkPairIsUifable.exit, label %Wlc_ObjFanin.exit.i, !llvm.loop !34
+  br i1 %exitcond95.not.i, label %Wlc_NtkPairIsUifable.exit, label %Wlc_ObjFanin.exit.i, !llvm.loop !37
 
 Wlc_ObjFanin.exit.i:                              ; preds = %91, %Wlc_ObjFanin.exit.preheader.i
   %indvars.iv91.i = phi i64 [ 0, %Wlc_ObjFanin.exit.preheader.i ], [ %indvars.iv.next92.i, %91 ]
@@ -1018,7 +1018,7 @@ Wlc_NtkPairIsUifable.exit.thread:                 ; preds = %88, %Wlc_ObjFanin.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = sext i32 %.val32 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
-  br i1 %167, label %21, label %.critedge2, !llvm.loop !36
+  br i1 %167, label %21, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %Wlc_NtkPairIsUifable.exit.thread, %21, %.lr.ph61.split
   %.val33 = phi i32 [ %.val3390, %.lr.ph61.split ], [ %.val3387, %Wlc_NtkPairIsUifable.exit.thread ], [ %.val3389, %21 ]
@@ -1027,7 +1027,7 @@ Wlc_NtkPairIsUifable.exit.thread:                 ; preds = %88, %Wlc_ObjFanin.e
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %168 = sext i32 %.val33 to i64
   %169 = icmp slt i64 %indvars.iv.next69, %168
-  br i1 %169, label %.lr.ph61.split, label %.critedge, !llvm.loop !37
+  br i1 %169, label %.lr.ph61.split, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.critedge2, %1
   %170 = phi ptr [ %5, %1 ], [ %.pre.i4278, %.critedge2 ]
@@ -1100,12 +1100,12 @@ define ptr @Wlc_NtkAbstractNodes(ptr noundef %0, ptr noundef captures(address) %
   %.049.val = load i32, ptr %7, align 4, !tbaa !3
   %18 = sext i32 %.049.val to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %11, label %.critedge, !llvm.loop !39
+  br i1 %19, label %11, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %11, %.preheader65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %22 = load i32, ptr %21, align 4, !tbaa !40
+  %22 = load i32, ptr %21, align 4, !tbaa !43
   %23 = load i32, ptr %20, align 8, !tbaa !10
   %.not.i.i.i = icmp slt i32 %23, %22
   br i1 %.not.i.i.i, label %24, label %Vec_IntGrow.exit.i.i
@@ -1253,7 +1253,7 @@ Wlc_ObjFanins.exit:                               ; preds = %Wlc_ObjFaninId.exit
   %.val59 = load i32, ptr %51, align 4, !tbaa !32
   %87 = sext i32 %.val59 to i64
   %88 = icmp slt i64 %indvars.iv.next80, %87
-  br i1 %88, label %65, label %.critedge4, !llvm.loop !41
+  br i1 %88, label %65, label %.critedge4, !llvm.loop !44
 
 .critedge4:                                       ; preds = %Wlc_ObjFanins.exit, %.preheader, %55
   %.046 = phi i32 [ %64, %55 ], [ %53, %.preheader ], [ %53, %Wlc_ObjFanins.exit ]
@@ -1264,7 +1264,7 @@ Wlc_ObjFanins.exit:                               ; preds = %Wlc_ObjFaninId.exit
   %.val53 = load i32, ptr %41, align 8, !tbaa !19
   %90 = sext i32 %.val53 to i64
   %91 = icmp slt i64 %indvars.iv.next83, %90
-  br i1 %91, label %44, label %.critedge2, !llvm.loop !42
+  br i1 %91, label %44, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %44, %.critedge4, %Wlc_NtkCleanCopy.exit
   %.not51 = icmp eq ptr %.04986, %1
@@ -1511,7 +1511,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.096.val = load i32, ptr %97, align 4, !tbaa !32
   %98 = sext i32 %.096.val to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %36, label %.critedge2.loopexit, !llvm.loop !43
+  br i1 %99, label %36, label %.critedge2.loopexit, !llvm.loop !46
 
 .critedge2.loopexit:                              ; preds = %Vec_IntPush.exit
   %.val104.pre = load i32, ptr %12, align 4, !tbaa !3
@@ -1665,7 +1665,7 @@ Vec_IntPush.exit145:                              ; preds = %Vec_IntPush.exit145
   %158 = trunc i64 %indvars.iv.next186 to i32
   %159 = or disjoint i32 %158, 1
   %160 = icmp slt i32 %159, %.095.val
-  br i1 %160, label %23, label %.critedge, !llvm.loop !44
+  br i1 %160, label %23, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %Vec_IntPush.exit145
   %.val103.pre = load i32, ptr %16, align 4, !tbaa !3
@@ -1780,7 +1780,7 @@ Vec_IntGrow.exit.i154:                            ; preds = %192, %182
   %.val116 = load i32, ptr %177, align 4, !tbaa !3
   %207 = sext i32 %.val116 to i64
   %208 = icmp slt i64 %indvars.iv.next189, %207
-  br i1 %208, label %182, label %.critedge4, !llvm.loop !45
+  br i1 %208, label %182, label %.critedge4, !llvm.loop !48
 
 .critedge4:                                       ; preds = %Vec_IntGrow.exit.i154, %176
   %209 = load ptr, ptr %18, align 8, !tbaa !11
@@ -1907,15 +1907,18 @@ attributes #10 = { nounwind }
 !31 = distinct !{!31, !14}
 !32 = !{!29, !5, i64 4}
 !33 = !{!6, !6, i64 0}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = distinct !{!34, !14, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !14, !35}
+!37 = distinct !{!37, !14}
+!38 = distinct !{!38, !14}
 !39 = distinct !{!39, !14}
-!40 = !{!20, !5, i64 652}
-!41 = distinct !{!41, !14}
+!40 = distinct !{!40, !14, !41}
+!41 = !{!"llvm.loop.unswitch.partial.disable"}
 !42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
+!43 = !{!20, !5, i64 652}
 !44 = distinct !{!44, !14}
 !45 = distinct !{!45, !14}
+!46 = distinct !{!46, !14}
+!47 = distinct !{!47, !14}
+!48 = distinct !{!48, !14}

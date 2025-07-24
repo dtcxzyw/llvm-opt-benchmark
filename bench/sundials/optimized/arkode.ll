@@ -5698,7 +5698,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   %71 = fneg double %82
   %72 = call i32 @arkYddNorm(ptr noundef nonnull %0, double noundef %71, ptr noundef nonnull %3)
   %73 = icmp slt i32 %72, 0
-  br i1 %73, label %.loopexit, label %.lr.ph.split.us
+  br i1 %73, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !170
 
 74:                                               ; preds = %.lr.ph.split.us
   %75 = fmul double %.0.i, %.083100.us
@@ -6273,7 +6273,7 @@ define range(i32 -21, 1) i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef %1,
   br label %13
 
 12:                                               ; preds = %7
-  store ptr %9, ptr %3, align 8, !tbaa !170
+  store ptr %9, ptr %3, align 8, !tbaa !172
   br label %13
 
 13:                                               ; preds = %12, %11, %6
@@ -6510,4 +6510,6 @@ attributes #18 = { nounwind willreturn memory(read) }
 !167 = !{!168, !168, i64 0}
 !168 = !{!"p1 _ZTS12ARKodeMemRec", !6, i64 0}
 !169 = !{!4, !11, i64 624}
-!170 = !{!13, !13, i64 0}
+!170 = distinct !{!170, !171}
+!171 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!172 = !{!13, !13, i64 0}

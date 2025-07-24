@@ -1124,7 +1124,7 @@ StartTransaction.exit:                            ; preds = %CommitTransaction.e
 45:                                               ; preds = %24, %44, %.lr.ph.split
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #14
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph.split.us, %4
   %47 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef %0, ptr noundef nonnull @.str.25) #11
@@ -1184,7 +1184,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
 
 18:                                               ; preds = %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %.027, i64 1
-  br label %14, !llvm.loop !10
+  br label %14, !llvm.loop !12
 
 20:                                               ; preds = %17
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.027, ptr noundef nonnull dereferenceable(14) @.str.27, i64 noundef 13) #14
@@ -1213,7 +1213,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %35 = and i16 %34, 2048
   %.not37 = icmp eq i16 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %.128, i64 1
-  br i1 %.not37, label %.loopexit, label %30, !llvm.loop !11
+  br i1 %.not37, label %.loopexit, label %30, !llvm.loop !13
 
 37:                                               ; preds = %20
   %38 = icmp eq i8 %15, 59
@@ -1235,7 +1235,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 8192
   %.not36 = icmp eq i16 %47, 0
-  br i1 %.not36, label %.loopexit, label %42, !llvm.loop !12
+  br i1 %.not36, label %.loopexit, label %42, !llvm.loop !14
 
 .thread44:                                        ; preds = %.thread, %37
   %48 = getelementptr inbounds nuw i8, ptr %.027, i64 1
@@ -1245,7 +1245,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %.132 = phi ptr [ %.031.ph, %.thread44 ], [ %.031.ph, %30 ], [ %.3, %42 ]
   %.130 = phi ptr [ %.029.ph, %.thread44 ], [ %.128, %30 ], [ null, %42 ]
   %.2 = phi ptr [ %48, %.thread44 ], [ %.128, %30 ], [ %.3, %42 ]
-  br label %.outer, !llvm.loop !10
+  br label %.outer, !llvm.loop !12
 
 49:                                               ; preds = %14
   tail call void @pg_free(ptr noundef %13) #11
@@ -1309,7 +1309,9 @@ attributes #15 = { nounwind willreturn memory(none) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

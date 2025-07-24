@@ -1003,12 +1003,12 @@ define internal void @scale_samples_dbl(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %12
   %17 = add nuw nsw i32 %.01417.us, 1
   %exitcond22.not = icmp eq i32 %17, %2
-  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !76
+  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !77
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1047,12 +1047,12 @@ define internal void @fade_samples_dblp(ptr noundef readonly captures(none) %0, 
   store double %24, ptr %25, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !78
+  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !79
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1087,12 +1087,12 @@ define internal void @scale_samples_dblp(ptr noundef readonly captures(none) %0,
   store double %15, ptr %16, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !80
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !81
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1125,21 +1125,21 @@ define internal void @fade_samples_flt(ptr noundef readonly captures(none) %0, p
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds float, ptr %12, i64 %indvars.iv
-  %23 = load float, ptr %22, align 4, !tbaa !81
+  %23 = load float, ptr %22, align 4, !tbaa !82
   %24 = fpext nsz float %23 to double
   %25 = fmul nsz double %18, %24
   %26 = fptrunc nsz double %25 to float
   %27 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
-  store float %26, ptr %27, align 4, !tbaa !81
+  store float %26, ptr %27, align 4, !tbaa !82
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !84
+  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !85
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1164,21 +1164,21 @@ define internal void @scale_samples_flt(ptr noundef readonly captures(none) %0, 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !81
+  %14 = load float, ptr %13, align 4, !tbaa !82
   %15 = fpext nsz float %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptrunc nsz double %16 to float
   %18 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
-  store float %17, ptr %18, align 4, !tbaa !81
+  store float %17, ptr %18, align 4, !tbaa !82
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %12
   %19 = add nuw nsw i32 %.01417.us, 1
   %exitcond22.not = icmp eq i32 %19, %2
-  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !86
+  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !87
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1211,20 +1211,20 @@ define internal void @fade_samples_fltp(ptr noundef readonly captures(none) %0, 
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
   %22 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv29
-  %23 = load float, ptr %22, align 4, !tbaa !81
+  %23 = load float, ptr %22, align 4, !tbaa !82
   %24 = fpext nsz float %23 to double
   %25 = fmul nsz double %16, %24
   %26 = fptrunc nsz double %25 to float
   %27 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv29
-  store float %26, ptr %27, align 4, !tbaa !81
+  store float %26, ptr %27, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !88
+  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !89
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1253,20 +1253,20 @@ define internal void @scale_samples_fltp(ptr noundef readonly captures(none) %0,
   %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv20
-  %14 = load float, ptr %13, align 4, !tbaa !81
+  %14 = load float, ptr %13, align 4, !tbaa !82
   %15 = fpext nsz float %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptrunc nsz double %16 to float
   %18 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv20
-  store float %17, ptr %18, align 4, !tbaa !81
+  store float %17, ptr %18, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !90
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !90
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !91
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1299,21 +1299,21 @@ define internal void @fade_samples_s16(ptr noundef readonly captures(none) %0, p
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds i16, ptr %12, i64 %indvars.iv
-  %23 = load i16, ptr %22, align 2, !tbaa !91
+  %23 = load i16, ptr %22, align 2, !tbaa !92
   %24 = sitofp i16 %23 to double
   %25 = fmul nsz double %18, %24
   %26 = fptosi double %25 to i16
   %27 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv
-  store i16 %26, ptr %27, align 2, !tbaa !91
+  store i16 %26, ptr %27, align 2, !tbaa !92
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !94
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !94
+  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !95
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1338,21 +1338,21 @@ define internal void @scale_samples_s16(ptr noundef readonly captures(none) %0, 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ %10, %.preheader.us ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv
-  %14 = load i16, ptr %13, align 2, !tbaa !91
+  %14 = load i16, ptr %13, align 2, !tbaa !92
   %15 = sitofp i16 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i16
   %18 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
-  store i16 %17, ptr %18, align 2, !tbaa !91
+  store i16 %17, ptr %18, align 2, !tbaa !92
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %12
   %19 = add nuw nsw i32 %.01417.us, 1
   %exitcond22.not = icmp eq i32 %19, %2
-  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !96
+  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !97
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1385,20 +1385,20 @@ define internal void @fade_samples_s16p(ptr noundef readonly captures(none) %0, 
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
   %22 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv29
-  %23 = load i16, ptr %22, align 2, !tbaa !91
+  %23 = load i16, ptr %22, align 2, !tbaa !92
   %24 = sitofp i16 %23 to double
   %25 = fmul nsz double %16, %24
   %26 = fptosi double %25 to i16
   %27 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv29
-  store i16 %26, ptr %27, align 2, !tbaa !91
+  store i16 %26, ptr %27, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !98
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !98
+  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !99
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1427,20 +1427,20 @@ define internal void @scale_samples_s16p(ptr noundef readonly captures(none) %0,
   %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv20
-  %14 = load i16, ptr %13, align 2, !tbaa !91
+  %14 = load i16, ptr %13, align 2, !tbaa !92
   %15 = sitofp i16 %14 to double
   %16 = fmul nsz double %4, %15
   %17 = fptosi double %16 to i16
   %18 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv20
-  store i16 %17, ptr %18, align 2, !tbaa !91
+  store i16 %17, ptr %18, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !100
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !100
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !101
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1482,12 +1482,12 @@ define internal void @fade_samples_s32(ptr noundef readonly captures(none) %0, p
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !102
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !102
+  br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !103
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1521,12 +1521,12 @@ define internal void @scale_samples_s32(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !104
 
 ._crit_edge.us:                                   ; preds = %12
   %19 = add nuw nsw i32 %.01417.us, 1
   %exitcond22.not = icmp eq i32 %19, %2
-  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !104
+  br i1 %exitcond22.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !105
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -1567,12 +1567,12 @@ define internal void @fade_samples_s32p(ptr noundef readonly captures(none) %0, 
   store i32 %26, ptr %27, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !106
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !106
+  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !107
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -1609,12 +1609,12 @@ define internal void @scale_samples_s32p(ptr noundef readonly captures(none) %0,
   store i32 %17, ptr %18, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !108
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !108
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !109
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -2026,12 +2026,12 @@ define internal void @crossfade_samples_dbl(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !110
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %12
-  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !110
+  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !111
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.lr.ph32, %7
   ret void
@@ -2078,12 +2078,12 @@ define internal void @crossfade_samples_dblp(ptr noundef readonly captures(none)
   store double %28, ptr %29, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %9
-  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !112
+  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !113
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.lr.ph31, %7
   ret void
@@ -2120,25 +2120,25 @@ define internal void @crossfade_samples_flt(ptr noundef readonly captures(none) 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
-  %23 = load float, ptr %22, align 4, !tbaa !81
+  %23 = load float, ptr %22, align 4, !tbaa !82
   %24 = fpext nsz float %23 to double
   %25 = getelementptr inbounds float, ptr %10, i64 %indvars.iv
-  %26 = load float, ptr %25, align 4, !tbaa !81
+  %26 = load float, ptr %25, align 4, !tbaa !82
   %27 = fpext nsz float %26 to double
   %28 = fmul nsz double %18, %27
   %29 = tail call nsz double @llvm.fmuladd.f64(double %24, double %17, double %28)
   %30 = fptrunc nsz double %29 to float
   %31 = getelementptr inbounds float, ptr %8, i64 %indvars.iv
-  store float %30, ptr %31, align 4, !tbaa !81
+  store float %30, ptr %31, align 4, !tbaa !82
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !114
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %12
-  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !114
+  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !115
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.lr.ph32, %7
   ret void
@@ -2176,24 +2176,24 @@ define internal void @crossfade_samples_fltp(ptr noundef readonly captures(none)
   %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
   %23 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv35
-  %24 = load float, ptr %23, align 4, !tbaa !81
+  %24 = load float, ptr %23, align 4, !tbaa !82
   %25 = fpext nsz float %24 to double
   %26 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv35
-  %27 = load float, ptr %26, align 4, !tbaa !81
+  %27 = load float, ptr %26, align 4, !tbaa !82
   %28 = fpext nsz float %27 to double
   %29 = fmul nsz double %15, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %14, double %29)
   %31 = fptrunc nsz double %30 to float
   %32 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv35
-  store float %31, ptr %32, align 4, !tbaa !81
+  store float %31, ptr %32, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !115
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !116
 
 ._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %9
-  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !116
+  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !117
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.lr.ph31, %7
   ret void
@@ -2230,25 +2230,25 @@ define internal void @crossfade_samples_s16(ptr noundef readonly captures(none) 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv
-  %23 = load i16, ptr %22, align 2, !tbaa !91
+  %23 = load i16, ptr %22, align 2, !tbaa !92
   %24 = sitofp i16 %23 to double
   %25 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv
-  %26 = load i16, ptr %25, align 2, !tbaa !91
+  %26 = load i16, ptr %25, align 2, !tbaa !92
   %27 = sitofp i16 %26 to double
   %28 = fmul nsz double %18, %27
   %29 = tail call nsz double @llvm.fmuladd.f64(double %24, double %17, double %28)
   %30 = fptosi double %29 to i16
   %31 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv
-  store i16 %30, ptr %31, align 2, !tbaa !91
+  store i16 %30, ptr %31, align 2, !tbaa !92
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %12
-  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !118
+  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !119
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.lr.ph32, %7
   ret void
@@ -2286,24 +2286,24 @@ define internal void @crossfade_samples_s16p(ptr noundef readonly captures(none)
   %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !71
   %23 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv35
-  %24 = load i16, ptr %23, align 2, !tbaa !91
+  %24 = load i16, ptr %23, align 2, !tbaa !92
   %25 = sitofp i16 %24 to double
   %26 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv35
-  %27 = load i16, ptr %26, align 2, !tbaa !91
+  %27 = load i16, ptr %26, align 2, !tbaa !92
   %28 = sitofp i16 %27 to double
   %29 = fmul nsz double %15, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %14, double %29)
   %31 = fptosi double %30 to i16
   %32 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv35
-  store i16 %31, ptr %32, align 2, !tbaa !91
+  store i16 %31, ptr %32, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !120
 
 ._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %9
-  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !120
+  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !121
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.lr.ph31, %7
   ret void
@@ -2353,12 +2353,12 @@ define internal void @crossfade_samples_s32(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !122
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %12
-  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !122
+  br i1 %exitcond39.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !123
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.lr.ph32, %7
   ret void
@@ -2408,12 +2408,12 @@ define internal void @crossfade_samples_s32p(ptr noundef readonly captures(none)
   store i32 %31, ptr %32, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !124
 
 ._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %9
-  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !124
+  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph.us, !llvm.loop !125
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.lr.ph31, %7
   ret void
@@ -2532,54 +2532,55 @@ attributes #12 = { nounwind willreturn memory(none) }
 !71 = !{!11, !11, i64 0}
 !72 = !{!23, !23, i64 0}
 !73 = distinct !{!73, !48}
-!74 = distinct !{!74, !48}
-!75 = distinct !{!75, !48}
+!74 = distinct !{!74, !48, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !76 = distinct !{!76, !48}
-!77 = distinct !{!77, !48}
+!77 = distinct !{!77, !48, !75}
 !78 = distinct !{!78, !48}
-!79 = distinct !{!79, !48}
+!79 = distinct !{!79, !48, !75}
 !80 = distinct !{!80, !48}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"float", !8, i64 0}
-!83 = distinct !{!83, !48}
+!81 = distinct !{!81, !48, !75}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"float", !8, i64 0}
 !84 = distinct !{!84, !48}
-!85 = distinct !{!85, !48}
+!85 = distinct !{!85, !48, !75}
 !86 = distinct !{!86, !48}
-!87 = distinct !{!87, !48}
+!87 = distinct !{!87, !48, !75}
 !88 = distinct !{!88, !48}
-!89 = distinct !{!89, !48}
+!89 = distinct !{!89, !48, !75}
 !90 = distinct !{!90, !48}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"short", !8, i64 0}
-!93 = distinct !{!93, !48}
+!91 = distinct !{!91, !48, !75}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"short", !8, i64 0}
 !94 = distinct !{!94, !48}
-!95 = distinct !{!95, !48}
+!95 = distinct !{!95, !48, !75}
 !96 = distinct !{!96, !48}
-!97 = distinct !{!97, !48}
+!97 = distinct !{!97, !48, !75}
 !98 = distinct !{!98, !48}
-!99 = distinct !{!99, !48}
+!99 = distinct !{!99, !48, !75}
 !100 = distinct !{!100, !48}
-!101 = distinct !{!101, !48}
+!101 = distinct !{!101, !48, !75}
 !102 = distinct !{!102, !48}
-!103 = distinct !{!103, !48}
+!103 = distinct !{!103, !48, !75}
 !104 = distinct !{!104, !48}
-!105 = distinct !{!105, !48}
+!105 = distinct !{!105, !48, !75}
 !106 = distinct !{!106, !48}
-!107 = distinct !{!107, !48}
+!107 = distinct !{!107, !48, !75}
 !108 = distinct !{!108, !48}
-!109 = distinct !{!109, !48}
+!109 = distinct !{!109, !48, !75}
 !110 = distinct !{!110, !48}
-!111 = distinct !{!111, !48}
+!111 = distinct !{!111, !48, !75}
 !112 = distinct !{!112, !48}
-!113 = distinct !{!113, !48}
+!113 = distinct !{!113, !48, !75}
 !114 = distinct !{!114, !48}
-!115 = distinct !{!115, !48}
+!115 = distinct !{!115, !48, !75}
 !116 = distinct !{!116, !48}
-!117 = distinct !{!117, !48}
+!117 = distinct !{!117, !48, !75}
 !118 = distinct !{!118, !48}
-!119 = distinct !{!119, !48}
+!119 = distinct !{!119, !48, !75}
 !120 = distinct !{!120, !48}
-!121 = distinct !{!121, !48}
+!121 = distinct !{!121, !48, !75}
 !122 = distinct !{!122, !48}
-!123 = distinct !{!123, !48}
+!123 = distinct !{!123, !48, !75}
 !124 = distinct !{!124, !48}
+!125 = distinct !{!125, !48, !75}

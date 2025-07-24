@@ -329,7 +329,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 ._crit_edge119.us.i.i:                            ; preds = %166
   %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
   %exitcond140.not.i.i = icmp eq i64 %indvars.iv.next138.i.i, 9
-  br i1 %exitcond140.not.i.i, label %.loopexit.i.i, label %.preheader.us.i.i
+  br i1 %exitcond140.not.i.i, label %.loopexit.i.i, label %.preheader.us.i.i, !llvm.loop !17
 
 .loopexit.i16.i:                                  ; preds = %.lr.ph.i12.i
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
@@ -411,7 +411,7 @@ gauss_solve.exit:                                 ; preds = %189
   %202 = load double, ptr %201, align 8, !tbaa !13
   %203 = fptrunc reassoc nsz arcp contract afn double %202 to float
   %204 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  store float %203, ptr %204, align 4, !tbaa !17
+  store float %203, ptr %204, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %.loopexit, label %200
@@ -433,35 +433,35 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local <2 x float> @apply_homography(<2 x float> %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load float, ptr %3, align 4, !tbaa !17
+  %4 = load float, ptr %3, align 4, !tbaa !19
   %5 = fmul reassoc nsz arcp contract afn float %4, %.sroa.0.0.vec.extract
   %.sroa.0.4.vec.extract = extractelement <2 x float> %0, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load float, ptr %6, align 4, !tbaa !17
+  %7 = load float, ptr %6, align 4, !tbaa !19
   %8 = fmul reassoc nsz arcp contract afn float %7, %.sroa.0.4.vec.extract
   %9 = fadd reassoc nsz arcp contract afn float %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load float, ptr %10, align 4, !tbaa !17
+  %11 = load float, ptr %10, align 4, !tbaa !19
   %12 = fadd reassoc nsz arcp contract afn float %9, %11
-  %13 = load float, ptr %1, align 4, !tbaa !17
+  %13 = load float, ptr %1, align 4, !tbaa !19
   %14 = fmul reassoc nsz arcp contract afn float %13, %.sroa.0.0.vec.extract
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load float, ptr %15, align 4, !tbaa !17
+  %16 = load float, ptr %15, align 4, !tbaa !19
   %17 = fmul reassoc nsz arcp contract afn float %16, %.sroa.0.4.vec.extract
   %18 = fadd reassoc nsz arcp contract afn float %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load float, ptr %19, align 4, !tbaa !17
+  %20 = load float, ptr %19, align 4, !tbaa !19
   %21 = fadd reassoc nsz arcp contract afn float %18, %20
   %22 = fdiv reassoc nsz arcp contract afn float %21, %12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %24 = load float, ptr %23, align 4, !tbaa !17
+  %24 = load float, ptr %23, align 4, !tbaa !19
   %25 = fmul reassoc nsz arcp contract afn float %24, %.sroa.0.0.vec.extract
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load float, ptr %26, align 4, !tbaa !17
+  %27 = load float, ptr %26, align 4, !tbaa !19
   %28 = fmul reassoc nsz arcp contract afn float %27, %.sroa.0.4.vec.extract
   %29 = fadd reassoc nsz arcp contract afn float %28, %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %31 = load float, ptr %30, align 4, !tbaa !17
+  %31 = load float, ptr %30, align 4, !tbaa !19
   %32 = fadd reassoc nsz arcp contract afn float %29, %31
   %33 = fdiv reassoc nsz arcp contract afn float %32, %12
   %.sroa.021.0.vec.insert = insertelement <2 x float> poison, float %22, i64 0
@@ -472,35 +472,35 @@ define dso_local <2 x float> @apply_homography(<2 x float> %0, ptr noundef reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local float @apply_homography_scaling(<2 x float> %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = load float, ptr %1, align 4, !tbaa !17
+  %3 = load float, ptr %1, align 4, !tbaa !19
   %4 = fmul reassoc nsz arcp contract afn float %3, %.sroa.0.0.vec.extract
   %.sroa.0.4.vec.extract = extractelement <2 x float> %0, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load float, ptr %5, align 4, !tbaa !17
+  %6 = load float, ptr %5, align 4, !tbaa !19
   %7 = fmul reassoc nsz arcp contract afn float %6, %.sroa.0.4.vec.extract
   %8 = fadd reassoc nsz arcp contract afn float %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load float, ptr %9, align 4, !tbaa !17
+  %10 = load float, ptr %9, align 4, !tbaa !19
   %11 = fadd reassoc nsz arcp contract afn float %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = load float, ptr %12, align 4, !tbaa !17
+  %13 = load float, ptr %12, align 4, !tbaa !19
   %14 = fmul reassoc nsz arcp contract afn float %13, %.sroa.0.0.vec.extract
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load float, ptr %15, align 4, !tbaa !17
+  %16 = load float, ptr %15, align 4, !tbaa !19
   %17 = fmul reassoc nsz arcp contract afn float %16, %.sroa.0.4.vec.extract
   %18 = fadd reassoc nsz arcp contract afn float %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load float, ptr %19, align 4, !tbaa !17
+  %20 = load float, ptr %19, align 4, !tbaa !19
   %21 = fadd reassoc nsz arcp contract afn float %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load float, ptr %22, align 4, !tbaa !17
+  %23 = load float, ptr %22, align 4, !tbaa !19
   %24 = fmul reassoc nsz arcp contract afn float %23, %.sroa.0.0.vec.extract
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %26 = load float, ptr %25, align 4, !tbaa !17
+  %26 = load float, ptr %25, align 4, !tbaa !19
   %27 = fmul reassoc nsz arcp contract afn float %26, %.sroa.0.4.vec.extract
   %28 = fadd reassoc nsz arcp contract afn float %27, %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load float, ptr %29, align 4, !tbaa !17
+  %30 = load float, ptr %29, align 4, !tbaa !19
   %31 = fadd reassoc nsz arcp contract afn float %28, %30
   %32 = fmul reassoc nsz arcp contract afn float %31, %3
   %33 = fmul reassoc nsz arcp contract afn float %23, %11
@@ -568,4 +568,6 @@ attributes #8 = { nounwind allocsize(0) }
 !14 = !{!"double", !10, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"int", !10, i64 0}
-!17 = !{!9, !9, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!9, !9, i64 0}

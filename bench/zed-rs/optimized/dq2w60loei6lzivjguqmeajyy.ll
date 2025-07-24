@@ -93,8 +93,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %33 = add i64 %32, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %33, %2
   %34 = add i64 %.sroa.4.0.i26.i.i, %20
-  %or.cond.i.not.i = icmp ult i64 %34, %2
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %36
+  %or.cond93.i.not.i = icmp ult i64 %34, %2
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %36
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i: ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
   %35 = trunc nuw i64 %30 to i1
@@ -408,8 +408,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i275: ; preds =
   %171 = add i64 %170, %.sroa.4.0.i26.i.i276
   %.not13.i.i277 = icmp ugt i64 %171, %104
   %172 = add i64 %.sroa.4.0.i26.i.i276, %158
-  %or.cond.i.not.i278 = icmp ult i64 %172, %104
-  br i1 %or.cond.i.not.i278, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i280", label %175
+  %or.cond93.i.not.i278 = icmp ult i64 %172, %104
+  br i1 %or.cond93.i.not.i278, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i280", label %175
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i270: ; preds = %.noexc288
   %173 = trunc nuw i64 %168 to i1
@@ -1403,8 +1403,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %31 = add i64 %30, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %31, %.val257
   %32 = add i64 %.sroa.4.0.i26.i.i, %18
-  %or.cond.i.not.i = icmp ult i64 %32, %.val257
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %34
+  %or.cond93.i.not.i = icmp ult i64 %32, %.val257
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %34
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i: ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
   %33 = trunc nuw i64 %28 to i1
@@ -1716,8 +1716,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i274: ; preds =
   %167 = add i64 %166, %.sroa.4.0.i26.i.i275
   %.not13.i.i276 = icmp ugt i64 %167, %100
   %168 = add i64 %.sroa.4.0.i26.i.i275, %154
-  %or.cond.i.not.i277 = icmp ult i64 %168, %100
-  br i1 %or.cond.i.not.i277, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i279", label %171
+  %or.cond93.i.not.i277 = icmp ult i64 %168, %100
+  br i1 %or.cond93.i.not.i277, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i279", label %171
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i269: ; preds = %.noexc287
   %169 = trunc nuw i64 %164 to i1
@@ -2670,8 +2670,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %33 = add i64 %32, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %33, %2
   %34 = add i64 %.sroa.4.0.i26.i.i, %20
-  %or.cond.i.not.i = icmp ult i64 %34, %2
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %36
+  %or.cond93.i.not.i = icmp ult i64 %34, %2
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %36
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i: ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
   %35 = trunc nuw i64 %30 to i1
@@ -2985,8 +2985,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i275: ; preds =
   %171 = add i64 %170, %.sroa.4.0.i26.i.i276
   %.not13.i.i277 = icmp ugt i64 %171, %104
   %172 = add i64 %.sroa.4.0.i26.i.i276, %158
-  %or.cond.i.not.i278 = icmp ult i64 %172, %104
-  br i1 %or.cond.i.not.i278, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i280", label %175
+  %or.cond93.i.not.i278 = icmp ult i64 %172, %104
+  br i1 %or.cond93.i.not.i278, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i280", label %175
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread.i.loopexit3.i270: ; preds = %.noexc288
   %173 = trunc nuw i64 %168 to i1
@@ -3980,8 +3980,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i: ; preds = 
   %27 = add i64 %26, %.sroa.4.0.i26.i.i.i
   %.not13.i.i.i = icmp ugt i64 %27, %2
   %28 = add i64 %.sroa.4.0.i26.i.i.i, %14
-  %or.cond.i.not.i.i = icmp ult i64 %28, %2
-  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i.i", label %29
+  %or.cond93.i.not.i.i = icmp ult i64 %28, %2
+  br i1 %or.cond93.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i.i", label %29
 
 29:                                               ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i
   br i1 %.not13.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hf87765c3a2fe5e64E.exit.i", label %.lr.ph.split.split.i.i.i.backedge
@@ -4781,8 +4781,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %31 = add i64 %30, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %31, %3
   %32 = add i64 %.sroa.4.0.i26.i.i, %18
-  %or.cond.i.not.i = icmp ult i64 %32, %3
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %33
+  %or.cond93.i.not.i = icmp ult i64 %32, %3
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %33
 
 33:                                               ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i
   br i1 %.not13.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hf87765c3a2fe5e64E.exit", label %.lr.ph.split.split.i.i.backedge
@@ -5295,8 +5295,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %31 = add i64 %30, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %31, %3
   %32 = add i64 %.sroa.4.0.i26.i.i, %18
-  %or.cond.i.not.i = icmp ult i64 %32, %3
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %33
+  %or.cond93.i.not.i = icmp ult i64 %32, %3
+  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E.exit.i.i", label %33
 
 33:                                               ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i
   br i1 %.not13.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hf87765c3a2fe5e64E.exit", label %.lr.ph.split.split.i.i.backedge

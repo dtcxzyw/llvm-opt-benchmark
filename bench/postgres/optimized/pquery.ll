@@ -1947,7 +1947,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %30 = load ptr, ptr %15, align 8
   %31 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %30, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #11
   store ptr %29, ptr @CurrentMemoryContext, align 8
-  br i1 %31, label %.lr.ph, label %.thread
+  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !11
 
 .split:                                           ; preds = %12, %39
   %.1 = phi i64 [ %43, %39 ], [ 0, %12 ]
@@ -2254,3 +2254,5 @@ attributes #14 = { noreturn nounwind }
 !8 = distinct !{!8, !7}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}

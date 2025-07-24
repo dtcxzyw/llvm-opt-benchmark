@@ -1067,7 +1067,7 @@ define dso_local noundef range(i32 0, 2) i32 @tty_port_close_start(ptr noundef %
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 445
-  %40 = load i8, ptr %39, align 1, !range !21, !noundef !22
+  %40 = load i8, ptr %39, align 1, !range !22, !noundef !23
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %43, label %42
 
@@ -1185,7 +1185,7 @@ declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tty_port_close(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call i32 @tty_port_close_start(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !23
+  %4 = tail call i32 @tty_port_close_start(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !24
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %49, label %6
 
@@ -1347,7 +1347,7 @@ define dso_local i32 @tty_port_open(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 39:                                               ; preds = %38, %21
   tail call void @mutex_unlock(ptr noundef nonnull %22) #6
-  %40 = tail call i32 @tty_port_block_til_ready(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !24
+  %40 = tail call i32 @tty_port_block_til_ready(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !25
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -1422,9 +1422,10 @@ attributes #8 = { cold nounwind }
 !16 = !{i64 2148584938, i64 2148584977, i64 2148584998, i64 2148585035, i64 2148585058, i64 2148584928}
 !17 = !{i64 2148586226, i64 2148586265, i64 2148586286, i64 2148586323, i64 2148586346, i64 2148586216}
 !18 = !{i64 2148171048}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.unroll.disable"}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{i32 0, i32 2}
-!24 = !{i32 -512, i32 1}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{i32 0, i32 2}
+!25 = !{i32 -512, i32 1}

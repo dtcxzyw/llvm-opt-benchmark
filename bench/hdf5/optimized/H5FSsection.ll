@@ -2358,7 +2358,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %80, %74, %68, %62, 
   %162 = zext i32 %161 to i64
   %163 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %159, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 120
-  %165 = load ptr, ptr %164, align 8, !tbaa !118
+  %165 = load ptr, ptr %164, align 8, !tbaa !119
   %.not89.i = icmp eq ptr %165, null
   br i1 %.not89.i, label %260, label %166
 
@@ -2494,7 +2494,7 @@ H5FS__size_node_decr.exit.i:                      ; preds = %229, %221
   br i1 %.not87.i, label %272, label %250
 
 250:                                              ; preds = %249
-  %251 = load ptr, ptr %168, align 8, !tbaa !118
+  %251 = load ptr, ptr %168, align 8, !tbaa !119
   %252 = load ptr, ptr %3, align 8, !tbaa !84
   %253 = tail call ptr %251(ptr noundef %252, i64 noundef %154) #5
   %254 = tail call fastcc i32 @H5FS__sect_link(ptr noundef nonnull %1, ptr noundef %253, i32 noundef 0)
@@ -2510,7 +2510,7 @@ H5FS__size_node_decr.exit.i:                      ; preds = %229, %221
 260:                                              ; preds = %158, %.lr.ph.i
   %261 = tail call ptr @H5SL_next(ptr noundef nonnull %.067118.i) #5
   %.not86.i = icmp eq ptr %261, null
-  br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !119
+  br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !120
 
 ._crit_edge.i:                                    ; preds = %260, %.lr.ph123.i
   %262 = tail call ptr @H5SL_next(ptr noundef nonnull %.070121.i) #5
@@ -2524,7 +2524,7 @@ H5FS__size_node_decr.exit.i:                      ; preds = %229, %221
   %265 = load i32, ptr %264, align 4, !tbaa !27
   %266 = zext i32 %265 to i64
   %267 = icmp samesign ult i64 %indvars.iv.next.i, %266
-  br i1 %267, label %.split.i, label %.loopexit, !llvm.loop !117
+  br i1 %267, label %.split.i, label %.loopexit, !llvm.loop !121
 
 268:                                              ; preds = %121, %135, %143, %256, %245, %H5FS__size_node_decr.exit.i, %172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2572,11 +2572,11 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   br i1 %11, label %12, label %52, !prof !9
 
 12:                                               ; preds = %4
-  store ptr %1, ptr %5, align 8, !tbaa !120
+  store ptr %1, ptr %5, align 8, !tbaa !122
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %13, align 8, !tbaa !122
+  store ptr %2, ptr %13, align 8, !tbaa !124
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %14, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !125
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %16 = load i64, ptr %15, align 8, !tbaa !106
   %.not = icmp eq i64 %16, 0
@@ -2633,7 +2633,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   %43 = load i32, ptr %42, align 4, !tbaa !27
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !124
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %40, %.preheader, %36
   %.2.ph = phi i32 [ -1, %36 ], [ 0, %.preheader ], [ 0, %40 ]
@@ -2885,9 +2885,9 @@ H5VM_log2_gen.exit:                               ; preds = %34, %40, %46, %52, 
 
 112:                                              ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %98, i64 280
-  %114 = load i64, ptr %113, align 8, !tbaa !125
+  %114 = load i64, ptr %113, align 8, !tbaa !127
   %115 = add i64 %114, -1
-  store i64 %115, ptr %113, align 8, !tbaa !125
+  store i64 %115, ptr %113, align 8, !tbaa !127
   br label %116
 
 116:                                              ; preds = %112, %94
@@ -2922,9 +2922,9 @@ H5VM_log2_gen.exit:                               ; preds = %34, %40, %46, %52, 
 
 136:                                              ; preds = %118
   %137 = getelementptr inbounds nuw i8, ptr %122, i64 280
-  %138 = load i64, ptr %137, align 8, !tbaa !125
+  %138 = load i64, ptr %137, align 8, !tbaa !127
   %139 = add i64 %138, 1
-  store i64 %139, ptr %137, align 8, !tbaa !125
+  store i64 %139, ptr %137, align 8, !tbaa !127
   br label %140
 
 140:                                              ; preds = %136, %118
@@ -2935,9 +2935,9 @@ H5VM_log2_gen.exit:                               ; preds = %34, %40, %46, %52, 
   %.sink102 = phi ptr [ %98, %116 ], [ %122, %140 ]
   %.sink101 = phi i64 [ 1, %116 ], [ -1, %140 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sink102, i64 288
-  %143 = load i64, ptr %142, align 8, !tbaa !126
+  %143 = load i64, ptr %142, align 8, !tbaa !128
   %144 = add i64 %143, %.sink101
-  store i64 %144, ptr %142, align 8, !tbaa !126
+  store i64 %144, ptr %142, align 8, !tbaa !128
   br label %145
 
 145:                                              ; preds = %.sink.split, %116, %140, %14
@@ -3069,7 +3069,7 @@ define internal fastcc void @H5FS__sect_serialize_size(ptr noundef captures(none
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  %18 = load i64, ptr %17, align 8, !tbaa !125
+  %18 = load i64, ptr %17, align 8, !tbaa !127
   %19 = lshr i64 %10, 32
   %.not.i.i = icmp ult i64 %10, 4294967296
   br i1 %.not.i.i, label %46, label %20
@@ -3344,7 +3344,7 @@ define range(i32 -1, 1) i32 @H5FS_vfd_alloc_hdr_and_section_info_if_needed(ptr n
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %18 = load i64, ptr %17, align 8, !tbaa !127
+  %18 = load i64, ptr %17, align 8, !tbaa !129
   %.not74 = icmp eq i64 %18, -1
   br i1 %.not74, label %19, label %75
 
@@ -3398,7 +3398,7 @@ define range(i32 -1, 1) i32 @H5FS_vfd_alloc_hdr_and_section_info_if_needed(ptr n
   %58 = add nuw nsw i64 %57, %49
   %59 = add nuw nsw i64 %58, %51
   %60 = tail call i64 @H5MF_alloc(ptr noundef %0, i32 noundef 6, i64 noundef %59) #5
-  store i64 %60, ptr %17, align 8, !tbaa !127
+  store i64 %60, ptr %17, align 8, !tbaa !129
   %61 = icmp eq i64 %60, -1
   br i1 %61, label %62, label %66
 
@@ -3420,7 +3420,7 @@ define range(i32 -1, 1) i32 @H5FS_vfd_alloc_hdr_and_section_info_if_needed(ptr n
   br label %130
 
 73:                                               ; preds = %66
-  %74 = load i64, ptr %17, align 8, !tbaa !127
+  %74 = load i64, ptr %17, align 8, !tbaa !129
   store i64 %74, ptr %2, align 8, !tbaa !10
   br label %75
 
@@ -3769,9 +3769,9 @@ define internal range(i32 -1, 1) i32 @H5FS__iterate_sect_cb(ptr noundef %0, ptr 
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !122
+  %12 = load ptr, ptr %11, align 8, !tbaa !124
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !123
+  %14 = load ptr, ptr %13, align 8, !tbaa !125
   %15 = tail call i32 %12(ptr noundef %0, ptr noundef %14) #5
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -3916,14 +3916,16 @@ attributes #5 = { nounwind }
 !114 = !{!"branch_weights", !"expected", i32 2146409907, i32 1073741}
 !115 = !{!13, !11, i64 392}
 !116 = !{!13, !11, i64 400}
-!117 = distinct !{!117, !95}
-!118 = !{!89, !16, i64 120}
-!119 = distinct !{!119, !95}
-!120 = !{!121, !30, i64 0}
-!121 = !{!"", !30, i64 0, !16, i64 8, !16, i64 16}
-!122 = !{!121, !16, i64 8}
-!123 = !{!121, !16, i64 16}
-!124 = distinct !{!124, !95}
-!125 = !{!28, !11, i64 280}
-!126 = !{!28, !11, i64 288}
-!127 = !{!13, !11, i64 344}
+!117 = distinct !{!117, !95, !118}
+!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = !{!89, !16, i64 120}
+!120 = distinct !{!120, !95}
+!121 = distinct !{!121, !95}
+!122 = !{!123, !30, i64 0}
+!123 = !{!"", !30, i64 0, !16, i64 8, !16, i64 16}
+!124 = !{!123, !16, i64 8}
+!125 = !{!123, !16, i64 16}
+!126 = distinct !{!126, !95}
+!127 = !{!28, !11, i64 280}
+!128 = !{!28, !11, i64 288}
+!129 = !{!13, !11, i64 344}

@@ -1991,7 +1991,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %54, %.split.us
   br i1 %.not101.us, label %30, label %.split153.us
 
 68:                                               ; preds = %.split80
-  br i1 %69, label %.split80, label %.split151.us, !llvm.loop !36
+  br i1 %69, label %.split80, label %.split151.us, !llvm.loop !38
 
 .split80:                                         ; preds = %._crit_edge, %68
   %69 = phi i1 [ false, %68 ], [ true, %._crit_edge ]
@@ -2024,7 +2024,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %54, %.split.us
 
 .backedge200.backedge:                            ; preds = %76, %.thread
   %.076154.be = phi i32 [ %77, %76 ], [ %78, %.thread ]
-  br label %.backedge200, !llvm.loop !37
+  br label %.backedge200, !llvm.loop !39
 
 .thread:                                          ; preds = %.split151.us
   %puts99 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2168,12 +2168,12 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %54, %.split.us
 142:                                              ; preds = %.split82.us
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, 3
-  br i1 %exitcond179.not, label %.split158.us, label %.split82.us, !llvm.loop !38
+  br i1 %exitcond179.not, label %.split158.us, label %.split82.us, !llvm.loop !40
 
 143:                                              ; preds = %.split84
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next173, 3
-  br i1 %exitcond175.not, label %.split158.us, label %.split84, !llvm.loop !38
+  br i1 %exitcond175.not, label %.split158.us, label %.split84, !llvm.loop !41
 
 .split84:                                         ; preds = %.split84.preheader, %143
   %indvars.iv172 = phi i64 [ 0, %.split84.preheader ], [ %indvars.iv.next173, %143 ]
@@ -2211,7 +2211,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %54, %.split.us
 
 .backedge196.backedge:                            ; preds = %150, %.thread187
   %.1161.be = phi i32 [ %151, %150 ], [ %152, %.thread187 ]
-  br label %.backedge196, !llvm.loop !39
+  br label %.backedge196, !llvm.loop !42
 
 .thread187:                                       ; preds = %.split158.us
   %puts94 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2372,7 +2372,7 @@ mbedtls_camellia_crypt_ctr.exit131:               ; preds = %.loopexit.i122
 
 .backedge.backedge:                               ; preds = %214, %.thread190
   %.2162.be = phi i32 [ %215, %214 ], [ %216, %.thread190 ]
-  br label %.backedge, !llvm.loop !40
+  br label %.backedge, !llvm.loop !43
 
 .thread190:                                       ; preds = %213
   %puts92 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2463,8 +2463,11 @@ attributes #12 = { nounwind }
 !33 = distinct !{!33, !10}
 !34 = distinct !{!34, !10}
 !35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = distinct !{!37, !10}
+!36 = distinct !{!36, !10, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !38 = distinct !{!38, !10}
 !39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
+!40 = distinct !{!40, !10, !37}
+!41 = distinct !{!41, !10}
+!42 = distinct !{!42, !10}
+!43 = distinct !{!43, !10}

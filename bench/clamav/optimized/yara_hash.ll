@@ -102,14 +102,14 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next29, %10
-  br i1 %11, label %.lr.ph24.split.us, label %._crit_edge25
+  br i1 %11, label %.lr.ph24.split.us, label %._crit_edge25, !llvm.loop !15
 
 .lr.ph.us:                                        ; preds = %.lr.ph24.split.us, %17
   %.01521.us.us = phi ptr [ %13, %17 ], [ %8, %.lr.ph24.split.us ]
   %12 = getelementptr inbounds nuw i8, ptr %.01521.us.us, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %.01521.us.us, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %.not19.us.us = icmp eq ptr %15, null
   br i1 %.not19.us.us, label %17, label %16
 
@@ -118,11 +118,11 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
   br label %17
 
 17:                                               ; preds = %16, %.lr.ph.us
-  %18 = load ptr, ptr %.01521.us.us, align 8, !tbaa !19
+  %18 = load ptr, ptr %.01521.us.us, align 8, !tbaa !21
   tail call void @free(ptr noundef %18) #8
   tail call void @free(ptr noundef nonnull %.01521.us.us) #8
   %.not.us.us = icmp eq ptr %13, null
-  br i1 %.not.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph.us
+  br i1 %.not.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph.us, !llvm.loop !22
 
 .lr.ph24.split:                                   ; preds = %.lr.ph24, %._crit_edge.split
   %19 = phi i32 [ %32, %._crit_edge.split ], [ %3, %.lr.ph24 ]
@@ -135,12 +135,12 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
 .lr.ph:                                           ; preds = %.lr.ph24.split, %30
   %.01521 = phi ptr [ %23, %30 ], [ %21, %.lr.ph24.split ]
   %22 = getelementptr inbounds nuw i8, ptr %.01521, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %.01521, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !20
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = tail call i32 %1(ptr noundef %25) #8
   %27 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
   %.not19 = icmp eq ptr %28, null
   br i1 %.not19, label %30, label %29
 
@@ -149,7 +149,7 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
   br label %30
 
 30:                                               ; preds = %29, %.lr.ph
-  %31 = load ptr, ptr %.01521, align 8, !tbaa !19
+  %31 = load ptr, ptr %.01521, align 8, !tbaa !21
   tail call void @free(ptr noundef %31) #8
   tail call void @free(ptr noundef nonnull %.01521) #8
   %.not = icmp eq ptr %23, null
@@ -263,14 +263,14 @@ hash.exit33:                                      ; preds = %22, %._crit_edge.lo
 
 .lr.ph:                                           ; preds = %41, %60
   %.01938 = phi ptr [ %.019, %60 ], [ %.01936, %41 ]
-  %47 = load ptr, ptr %.01938, align 8, !tbaa !19
+  %47 = load ptr, ptr %.01938, align 8, !tbaa !21
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %1) #9
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %.lr.ph
   %51 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !18
+  %52 = load ptr, ptr %51, align 8, !tbaa !20
   %53 = icmp eq ptr %52, %2
   br i1 %53, label %57, label %54
 
@@ -281,7 +281,7 @@ hash.exit33:                                      ; preds = %22, %._crit_edge.lo
 
 57:                                               ; preds = %54, %50
   %58 = getelementptr inbounds nuw i8, ptr %.01938, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !20
+  %59 = load ptr, ptr %58, align 8, !tbaa !23
   br label %.loopexit
 
 60:                                               ; preds = %54, %.lr.ph
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @yr_hash_table_add(ptr noundef captures(none) %0, ptr
 
 7:                                                ; preds = %4
   %8 = tail call ptr @cli_safer_strdup(ptr noundef %1) #8
-  store ptr %8, ptr %5, align 8, !tbaa !19
+  store ptr %8, ptr %5, align 8, !tbaa !21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -324,24 +324,24 @@ define range(i32 0, 2) i32 @yr_hash_table_add(ptr noundef captures(none) %0, ptr
 12:                                               ; preds = %11
   %13 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %2) #8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !18
+  store ptr %13, ptr %14, align 8, !tbaa !20
   %15 = icmp eq ptr %13, null
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8, !tbaa !19
+  %17 = load ptr, ptr %5, align 8, !tbaa !21
   tail call void @free(ptr noundef %17) #8
   tail call void @free(ptr noundef nonnull %5) #8
   br label %67
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %19, align 8, !tbaa !18
+  store ptr null, ptr %19, align 8, !tbaa !20
   br label %20
 
 20:                                               ; preds = %12, %18
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %21, align 8, !tbaa !20
+  store ptr %3, ptr %21, align 8, !tbaa !23
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %23 = trunc i64 %22 to i32
   %24 = icmp sgt i32 %23, 1
@@ -424,7 +424,7 @@ hash.exit40:                                      ; preds = %40, %._crit_edge.lo
   %64 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %65, ptr %66, align 8, !tbaa !15
+  store ptr %65, ptr %66, align 8, !tbaa !17
   store ptr %5, ptr %64, align 8, !tbaa !10
   br label %67
 
@@ -469,9 +469,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !12 = !{!"any pointer", !4, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS14_YR_HASH_TABLE", !12, i64 0}
-!15 = !{!16, !11, i64 24}
-!16 = !{!"_YR_HASH_TABLE_ENTRY", !17, i64 0, !17, i64 8, !12, i64 16, !11, i64 24}
-!17 = !{!"p1 omnipotent char", !12, i64 0}
-!18 = !{!16, !17, i64 8}
-!19 = !{!16, !17, i64 0}
-!20 = !{!16, !12, i64 16}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!18, !11, i64 24}
+!18 = !{!"_YR_HASH_TABLE_ENTRY", !19, i64 0, !19, i64 8, !12, i64 16, !11, i64 24}
+!19 = !{!"p1 omnipotent char", !12, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!18, !19, i64 0}
+!22 = distinct !{!22, !16}
+!23 = !{!18, !12, i64 16}

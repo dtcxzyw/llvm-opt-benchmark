@@ -1683,7 +1683,7 @@ check_background_thread_creation.exit.thread:     ; preds = %21, %check_backgrou
   br label %.outer.split.backedge
 
 .outer.split.backedge:                            ; preds = %check_background_thread_creation.exit.thread, %background_thread_pause_check.exit
-  br label %.outer.split, !llvm.loop !61
+  br label %.outer.split, !llvm.loop !63
 
 .lr.ph52:                                         ; preds = %.preheader, %128
   %96 = phi i64 [ %130, %128 ], [ 1, %.preheader ]
@@ -1756,7 +1756,7 @@ malloc_mutex_lock.exit:                           ; preds = %110, %116
   %129 = add i32 %.151, 1
   %130 = zext i32 %129 to i64
   %131 = icmp ugt i64 %.fr53, %130
-  br i1 %131, label %.lr.ph52, label %._crit_edge.loopexit, !llvm.loop !62
+  br i1 %131, label %.lr.ph52, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %128
   %.pre = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
@@ -1812,7 +1812,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
   %26 = icmp ult i32 %25, %10
-  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !63
+  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %73, %22, %3
   %.022.lcssa = phi i64 [ -1, %3 ], [ %.1.us, %22 ], [ %.1, %73 ]
@@ -1821,13 +1821,13 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store i64 0, ptr %30, align 8, !tbaa !64
+  store i64 0, ptr %30, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %31 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %32 = load i64, ptr %4, align 8, !tbaa !65
+  %32 = load i64, ptr %4, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !67
+  %34 = load i64, ptr %33, align 8, !tbaa !69
   %35 = mul nsw i64 %34, 1000
   call void @je_nstime_init2(ptr noundef nonnull %5, i64 noundef %32, i64 noundef %35) #12
   %36 = icmp eq i64 %.022.lcssa, -1
@@ -1861,10 +1861,10 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   call void @je_nstime_iadd(ptr noundef nonnull %7, i64 noundef %44) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
   %49 = call i64 @je_nstime_sec(ptr noundef nonnull %7) #12
-  store i64 %49, ptr %8, align 8, !tbaa !68
+  store i64 %49, ptr %8, align 8, !tbaa !70
   %50 = call i64 @je_nstime_nsec(ptr noundef nonnull %7) #12
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %50, ptr %51, align 8, !tbaa !70
+  store i64 %50, ptr %51, align 8, !tbaa !72
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store atomic i8 0, ptr %52 monotonic, align 1
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1879,8 +1879,8 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
 56:                                               ; preds = %43, %37
   %57 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  %58 = load i64, ptr %4, align 8, !tbaa !65
-  %59 = load i64, ptr %33, align 8, !tbaa !67
+  %58 = load i64, ptr %4, align 8, !tbaa !67
+  %59 = load i64, ptr %33, align 8, !tbaa !69
   %60 = mul nsw i64 %59, 1000
   call void @je_nstime_init2(ptr noundef nonnull %9, i64 noundef %58, i64 noundef %60) #12
   %61 = call i32 @je_nstime_compare(ptr noundef nonnull %9, ptr noundef nonnull %5) #12
@@ -1926,7 +1926,7 @@ background_thread_sleep.exit:                     ; preds = %56, %63
   %75 = trunc i64 %74 to i32
   %76 = add i32 %.02326, %75
   %77 = icmp ult i32 %76, %10
-  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
+  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !73
 }
 
 declare void @je_nstime_init(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -2061,13 +2061,16 @@ attributes #14 = { nounwind willreturn memory(none) }
 !58 = distinct !{!58, !34}
 !59 = distinct !{!59, !34}
 !60 = distinct !{!60, !34}
-!61 = distinct !{!61, !34}
-!62 = distinct !{!62, !34}
+!61 = distinct !{!61, !34, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !63 = distinct !{!63, !34}
-!64 = !{!21, !11, i64 184}
-!65 = !{!66, !11, i64 0}
-!66 = !{!"timeval", !11, i64 0, !11, i64 8}
-!67 = !{!66, !11, i64 8}
-!68 = !{!69, !11, i64 0}
-!69 = !{!"timespec", !11, i64 0, !11, i64 8}
-!70 = !{!69, !11, i64 8}
+!64 = distinct !{!64, !34}
+!65 = distinct !{!65, !34, !62}
+!66 = !{!21, !11, i64 184}
+!67 = !{!68, !11, i64 0}
+!68 = !{!"timeval", !11, i64 0, !11, i64 8}
+!69 = !{!68, !11, i64 8}
+!70 = !{!71, !11, i64 0}
+!71 = !{!"timespec", !11, i64 0, !11, i64 8}
+!72 = !{!71, !11, i64 8}
+!73 = distinct !{!73, !34}

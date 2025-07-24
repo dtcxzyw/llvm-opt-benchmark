@@ -278,12 +278,12 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   store double %24, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv55
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph46
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.preheader.preheader, label %.lr.ph46, !llvm.loop !13
+  br i1 %exitcond59.not, label %.preheader.preheader, label %.lr.ph46, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge49
   %indvars.iv60 = phi i64 [ %7, %.preheader.preheader ], [ %indvars.iv.next61, %._crit_edge49 ]
@@ -316,7 +316,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %37 = trunc nuw i64 %indvars.iv.next63 to i32
   %38 = icmp sgt i32 %3, %37
-  br i1 %38, label %28, label %._crit_edge49, !llvm.loop !14
+  br i1 %38, label %28, label %._crit_edge49, !llvm.loop !15
 
 ._crit_edge49:                                    ; preds = %28, %.preheader.._crit_edge49_crit_edge
   %39 = phi double [ %.pre66, %.preheader.._crit_edge49_crit_edge ], [ %36, %28 ]
@@ -328,7 +328,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   %45 = fdiv contract double %39, %44
   store double %45, ptr %40, align 8
   %46 = icmp samesign ugt i64 %indvars.iv60, 1
-  br i1 %46, label %.preheader, label %._crit_edge53, !llvm.loop !15
+  br i1 %46, label %.preheader, label %._crit_edge53, !llvm.loop !16
 
 ._crit_edge53:                                    ; preds = %._crit_edge49, %5
   ret void
@@ -391,7 +391,7 @@ define hidden void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_ad
   %19 = fadd contract double %.02838, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %5, !llvm.loop !16
+  br i1 %exitcond.not, label %20, label %5, !llvm.loop !17
 
 20:                                               ; preds = %5
   %21 = fdiv contract double %15, %3
@@ -618,13 +618,13 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %73 = fadd contract double %65, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %74, label %64, !llvm.loop !17
+  br i1 %exitcond.not, label %74, label %64, !llvm.loop !18
 
 74:                                               ; preds = %64
   store double %73, ptr %63, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 3
-  br i1 %exitcond57.not, label %.preheader48, label %.preheader, !llvm.loop !18
+  br i1 %exitcond57.not, label %.preheader48, label %.preheader, !llvm.loop !19
 
 .preheader48:                                     ; preds = %74, %.preheader48
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader48 ], [ 0, %74 ]
@@ -638,12 +638,12 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   store double %81, ptr %79, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %82, label %.preheader48, !llvm.loop !19
+  br i1 %exitcond61.not, label %82, label %.preheader48, !llvm.loop !20
 
 82:                                               ; preds = %.preheader48
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 283
-  br i1 %exitcond65.not, label %83, label %17, !llvm.loop !20
+  br i1 %exitcond65.not, label %83, label %17, !llvm.loop !21
 
 83:                                               ; preds = %82
   ret void
@@ -692,7 +692,7 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
   %14 = fadd contract double %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !22
 
 15:                                               ; preds = %10
   %16 = fmul contract double %14, 5.000000e-01
@@ -714,12 +714,12 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
   store double %28, ptr %26, align 8
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %29, label %22, !llvm.loop !22
+  br i1 %exitcond36.not, label %29, label %22, !llvm.loop !23
 
 29:                                               ; preds = %22
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 283
-  br i1 %exitcond40.not, label %30, label %5, !llvm.loop !23
+  br i1 %exitcond40.not, label %30, label %5, !llvm.loop !24
 
 30:                                               ; preds = %29
   call void @_Z7cie_labPd(ptr noundef nonnull %4)
@@ -737,7 +737,7 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
   store double %36, ptr %34, align 8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
-  br i1 %exitcond44.not, label %37, label %31, !llvm.loop !24
+  br i1 %exitcond44.not, label %37, label %31, !llvm.loop !25
 
 37:                                               ; preds = %31
   ret void
@@ -780,7 +780,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
   %22 = fadd contract double %19, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %23, label %18, !llvm.loop !21
+  br i1 %exitcond.not.i, label %23, label %18, !llvm.loop !22
 
 23:                                               ; preds = %18
   %24 = fmul contract double %22, 5.000000e-01
@@ -802,12 +802,12 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
   store double %36, ptr %34, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 3
-  br i1 %exitcond36.not.i, label %37, label %30, !llvm.loop !22
+  br i1 %exitcond36.not.i, label %37, label %30, !llvm.loop !23
 
 37:                                               ; preds = %30
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 283
-  br i1 %exitcond40.not.i, label %38, label %13, !llvm.loop !23
+  br i1 %exitcond40.not.i, label %38, label %13, !llvm.loop !24
 
 38:                                               ; preds = %37
   call void @_Z7cie_labPd(ptr noundef nonnull %5)
@@ -825,7 +825,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
   store double %44, ptr %42, align 8
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 3
-  br i1 %exitcond44.not.i, label %_Z13eval_residualPKdS0_Pd.exit, label %39, !llvm.loop !24
+  br i1 %exitcond44.not.i, label %_Z13eval_residualPKdS0_Pd.exit, label %39, !llvm.loop !25
 
 _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -854,7 +854,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %39
   %56 = fadd contract double %53, %55
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 3
-  br i1 %exitcond.not.i19, label %57, label %52, !llvm.loop !21
+  br i1 %exitcond.not.i19, label %57, label %52, !llvm.loop !22
 
 57:                                               ; preds = %52
   %58 = fmul contract double %56, 5.000000e-01
@@ -876,12 +876,12 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %39
   store double %70, ptr %68, align 8
   %indvars.iv.next34.i21 = add nuw nsw i64 %indvars.iv33.i20, 1
   %exitcond36.not.i22 = icmp eq i64 %indvars.iv.next34.i21, 3
-  br i1 %exitcond36.not.i22, label %71, label %64, !llvm.loop !22
+  br i1 %exitcond36.not.i22, label %71, label %64, !llvm.loop !23
 
 71:                                               ; preds = %64
   %indvars.iv.next38.i23 = add nuw nsw i64 %indvars.iv37.i15, 1
   %exitcond40.not.i24 = icmp eq i64 %indvars.iv.next38.i23, 283
-  br i1 %exitcond40.not.i24, label %72, label %47, !llvm.loop !23
+  br i1 %exitcond40.not.i24, label %72, label %47, !llvm.loop !24
 
 72:                                               ; preds = %71
   call void @_Z7cie_labPd(ptr noundef nonnull %4)
@@ -899,7 +899,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %39
   store double %78, ptr %76, align 8
   %indvars.iv.next42.i26 = add nuw nsw i64 %indvars.iv41.i25, 1
   %exitcond44.not.i27 = icmp eq i64 %indvars.iv.next42.i26, 3
-  br i1 %exitcond44.not.i27, label %_Z13eval_residualPKdS0_Pd.exit28, label %73, !llvm.loop !24
+  br i1 %exitcond44.not.i27, label %_Z13eval_residualPKdS0_Pd.exit28, label %73, !llvm.loop !25
 
 _Z13eval_residualPKdS0_Pd.exit28:                 ; preds = %73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -919,12 +919,12 @@ _Z13eval_residualPKdS0_Pd.exit28:                 ; preds = %73
   store double %85, ptr %88, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %89, label %79, !llvm.loop !25
+  br i1 %exitcond.not, label %89, label %79, !llvm.loop !26
 
 89:                                               ; preds = %79
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond37.not, label %90, label %9, !llvm.loop !26
+  br i1 %exitcond37.not, label %90, label %9, !llvm.loop !27
 
 90:                                               ; preds = %89
   ret void
@@ -977,7 +977,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   %28 = fadd contract double %25, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %29, label %24, !llvm.loop !21
+  br i1 %exitcond.not.i, label %29, label %24, !llvm.loop !22
 
 29:                                               ; preds = %24
   %30 = fmul contract double %28, 5.000000e-01
@@ -999,12 +999,12 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   store double %42, ptr %40, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 3
-  br i1 %exitcond36.not.i, label %43, label %36, !llvm.loop !22
+  br i1 %exitcond36.not.i, label %43, label %36, !llvm.loop !23
 
 43:                                               ; preds = %36
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 283
-  br i1 %exitcond40.not.i, label %44, label %19, !llvm.loop !23
+  br i1 %exitcond40.not.i, label %44, label %19, !llvm.loop !24
 
 44:                                               ; preds = %43
   call void @_Z7cie_labPd(ptr noundef nonnull %4)
@@ -1022,7 +1022,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   store double %50, ptr %48, align 8
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 3
-  br i1 %exitcond44.not.i, label %_Z13eval_residualPKdS0_Pd.exit, label %45, !llvm.loop !24
+  br i1 %exitcond44.not.i, label %_Z13eval_residualPKdS0_Pd.exit, label %45, !llvm.loop !25
 
 _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -1201,12 +1201,12 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   store double %139, ptr %129, align 8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %indvars.iv55.i
-  br i1 %exitcond.not.i44, label %._crit_edge.i, label %132, !llvm.loop !12
+  br i1 %exitcond.not.i44, label %._crit_edge.i, label %132, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %132, %.lr.ph46.i
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, 3
-  br i1 %exitcond59.not.i, label %.preheader.i45, label %.lr.ph46.i, !llvm.loop !13
+  br i1 %exitcond59.not.i, label %.preheader.i45, label %.lr.ph46.i, !llvm.loop !14
 
 .preheader.i45:                                   ; preds = %._crit_edge.i, %._crit_edge49.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %._crit_edge49.i ], [ 3, %._crit_edge.i ]
@@ -1240,7 +1240,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   store double %151, ptr %142, align 8
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63.i, 3
-  br i1 %exitcond.not, label %._crit_edge49.i, label %144, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge49.i, label %144, !llvm.loop !15
 
 ._crit_edge49.i:                                  ; preds = %144, %.preheader.._crit_edge49_crit_edge.i
   %152 = phi ptr [ %.pre, %.preheader.._crit_edge49_crit_edge.i ], [ %143, %144 ]
@@ -1251,7 +1251,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   %157 = fdiv contract double %153, %156
   store double %157, ptr %154, align 8
   %158 = icmp samesign ugt i64 %indvars.iv60.i, 1
-  br i1 %158, label %.preheader.i45, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !15
+  br i1 %158, label %.preheader.i45, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !16
 
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0, %._crit_edge49.i ]
@@ -1268,7 +1268,7 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   %167 = fadd contract double %.252, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond60.not, label %168, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !27
+  br i1 %exitcond60.not, label %168, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !28
 
 168:                                              ; preds = %_Z8LUPSolvePPdPiS_iS_.exit
   %169 = load double, ptr %1, align 8
@@ -1293,14 +1293,14 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   store double %181, ptr %179, align 8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 3
-  br i1 %exitcond64.not, label %.loopexit, label %178, !llvm.loop !28
+  br i1 %exitcond64.not, label %.loopexit, label %178, !llvm.loop !29
 
 .loopexit:                                        ; preds = %178, %168
   %182 = fcmp contract olt double %167, 0x3EB0C6F7A0B5ED8D
   %183 = add nuw nsw i32 %.03654, 1
   %exitcond65.not = icmp eq i32 %183, %2
   %or.cond = select i1 %182, i1 true, i1 %exitcond65.not
-  br i1 %or.cond, label %._crit_edge, label %18, !llvm.loop !29
+  br i1 %or.cond, label %._crit_edge, label %18, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %.1 = phi double [ 0.000000e+00, %3 ], [ %167, %.loopexit ]
@@ -1699,7 +1699,7 @@ select.unfold:                                    ; preds = %22, %9, %10, %14, %
   store float %52, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   %55 = mul nsw i32 %28, 9
@@ -1821,7 +1821,7 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 
 23:                                               ; preds = %.lr.ph115, %.loopexit98
   %24 = load i64, ptr %6, align 8
-  %25 = load i64, ptr %7, align 8, !llvm.access.group !31
+  %25 = load i64, ptr %7, align 8, !llvm.access.group !32
   %.not96109 = icmp sgt i64 %24, %25
   br i1 %.not96109, label %.loopexit98, label %.lr.ph112.preheader
 
@@ -1842,9 +1842,9 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %33 = sitofp i32 %32 to double
   %34 = fdiv contract double %31, %33
   %putchar = call i32 @putchar(i32 46)
-  %35 = load ptr, ptr @stdout, align 8, !llvm.access.group !31
-  %36 = call i32 @fflush(ptr noundef %35), !llvm.access.group !31
-  %37 = load i32, ptr %2, align 4, !llvm.access.group !31
+  %35 = load ptr, ptr @stdout, align 8, !llvm.access.group !32
+  %36 = call i32 @fflush(ptr noundef %35), !llvm.access.group !32
+  %37 = load i32, ptr %2, align 4, !llvm.access.group !32
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph107, label %._crit_edge108
 
@@ -1869,7 +1869,7 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %52 = add nsw i32 %50, -1
   %53 = sitofp i32 %52 to double
   %54 = fdiv contract double %51, %53
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false), !llvm.access.group !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false), !llvm.access.group !32
   %55 = sdiv i32 %50, 5
   %56 = icmp sgt i32 %50, 0
   br i1 %56, label %.lr.ph.preheader, label %._crit_edge
@@ -1880,23 +1880,23 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ %57, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %58 = load ptr, ptr %3, align 8, !llvm.access.group !31
+  %58 = load ptr, ptr %3, align 8, !llvm.access.group !32
   %59 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
-  %60 = load float, ptr %59, align 4, !llvm.access.group !31
+  %60 = load float, ptr %59, align 4, !llvm.access.group !32
   %61 = fpext float %60 to double
-  store double %61, ptr %40, align 8, !llvm.access.group !31
+  store double %61, ptr %40, align 8, !llvm.access.group !32
   %62 = fmul contract double %54, %61
-  store double %62, ptr %44, align 8, !llvm.access.group !31
+  store double %62, ptr %44, align 8, !llvm.access.group !32
   %63 = fmul contract double %34, %61
-  store double %63, ptr %48, align 8, !llvm.access.group !31
+  store double %63, ptr %48, align 8, !llvm.access.group !32
   %64 = invoke noundef double @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 15)
-          to label %65 unwind label %.loopexit.split-lp, !llvm.access.group !31
+          to label %65 unwind label %.loopexit.split-lp, !llvm.access.group !32
 
 65:                                               ; preds = %.lr.ph
-  %66 = load double, ptr %10, align 16, !llvm.access.group !31
-  %67 = load double, ptr %20, align 8, !llvm.access.group !31
-  %68 = load double, ptr %21, align 16, !llvm.access.group !31
-  %69 = load i32, ptr %2, align 4, !llvm.access.group !31
+  %66 = load double, ptr %10, align 16, !llvm.access.group !32
+  %67 = load double, ptr %20, align 8, !llvm.access.group !32
+  %68 = load double, ptr %21, align 16, !llvm.access.group !32
+  %69 = load i32, ptr %2, align 4, !llvm.access.group !32
   %70 = mul nsw i32 %69, %28
   %71 = trunc nsw i64 %indvars.iv to i32
   %72 = add nsw i32 %70, %71
@@ -1917,29 +1917,29 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %87 = fmul contract double %66, 0x3FE2C62BCE6636EE
   %88 = fadd contract double %87, %86
   %89 = fptrunc double %78 to float
-  %90 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %90 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %91 = mul nsw i64 %77, 3
   %92 = getelementptr inbounds float, ptr %90, i64 %91
-  store float %89, ptr %92, align 4, !llvm.access.group !31
+  store float %89, ptr %92, align 4, !llvm.access.group !32
   %93 = fptrunc double %83 to float
-  %94 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %94 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %95 = getelementptr float, ptr %94, i64 %91
   %96 = getelementptr i8, ptr %95, i64 4
-  store float %93, ptr %96, align 4, !llvm.access.group !31
+  store float %93, ptr %96, align 4, !llvm.access.group !32
   %97 = fptrunc double %88 to float
-  %98 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %98 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %99 = getelementptr float, ptr %98, i64 %91
   %100 = getelementptr i8, ptr %99, i64 8
-  store float %97, ptr %100, align 4, !llvm.access.group !31
+  store float %97, ptr %100, align 4, !llvm.access.group !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = load i32, ptr %2, align 4, !llvm.access.group !31
+  %101 = load i32, ptr %2, align 4, !llvm.access.group !32
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %65, %49
   %104 = phi i32 [ %50, %49 ], [ %101, %65 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false), !llvm.access.group !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false), !llvm.access.group !32
   %105 = icmp sgt i32 %50, -5
   br i1 %105, label %.lr.ph103.preheader, label %._crit_edge104
 
@@ -1949,23 +1949,23 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %114
   %indvars.iv117 = phi i64 [ %106, %.lr.ph103.preheader ], [ %indvars.iv.next118, %114 ]
-  %107 = load ptr, ptr %3, align 8, !llvm.access.group !31
+  %107 = load ptr, ptr %3, align 8, !llvm.access.group !32
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv117
-  %109 = load float, ptr %108, align 4, !llvm.access.group !31
+  %109 = load float, ptr %108, align 4, !llvm.access.group !32
   %110 = fpext float %109 to double
-  store double %110, ptr %40, align 8, !llvm.access.group !31
+  store double %110, ptr %40, align 8, !llvm.access.group !32
   %111 = fmul contract double %54, %110
-  store double %111, ptr %44, align 8, !llvm.access.group !31
+  store double %111, ptr %44, align 8, !llvm.access.group !32
   %112 = fmul contract double %34, %110
-  store double %112, ptr %48, align 8, !llvm.access.group !31
+  store double %112, ptr %48, align 8, !llvm.access.group !32
   %113 = invoke noundef double @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 15)
-          to label %114 unwind label %.loopexit, !llvm.access.group !31
+          to label %114 unwind label %.loopexit, !llvm.access.group !32
 
 114:                                              ; preds = %.lr.ph103
-  %115 = load double, ptr %10, align 16, !llvm.access.group !31
-  %116 = load double, ptr %20, align 8, !llvm.access.group !31
-  %117 = load double, ptr %21, align 16, !llvm.access.group !31
-  %118 = load i32, ptr %2, align 4, !llvm.access.group !31
+  %115 = load double, ptr %10, align 16, !llvm.access.group !32
+  %116 = load double, ptr %20, align 8, !llvm.access.group !32
+  %117 = load double, ptr %21, align 16, !llvm.access.group !32
+  %118 = load i32, ptr %2, align 4, !llvm.access.group !32
   %119 = mul nsw i32 %118, %28
   %120 = trunc nuw nsw i64 %indvars.iv117 to i32
   %121 = add nsw i32 %119, %120
@@ -1986,40 +1986,40 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %136 = fmul contract double %115, 0x3FE2C62BCE6636EE
   %137 = fadd contract double %136, %135
   %138 = fptrunc double %127 to float
-  %139 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %139 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %140 = mul nsw i64 %126, 3
   %141 = getelementptr inbounds float, ptr %139, i64 %140
-  store float %138, ptr %141, align 4, !llvm.access.group !31
+  store float %138, ptr %141, align 4, !llvm.access.group !32
   %142 = fptrunc double %132 to float
-  %143 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %143 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %144 = getelementptr float, ptr %143, i64 %140
   %145 = getelementptr i8, ptr %144, i64 4
-  store float %142, ptr %145, align 4, !llvm.access.group !31
+  store float %142, ptr %145, align 4, !llvm.access.group !32
   %146 = fptrunc double %137 to float
-  %147 = load ptr, ptr %4, align 8, !llvm.access.group !31
+  %147 = load ptr, ptr %4, align 8, !llvm.access.group !32
   %148 = getelementptr float, ptr %147, i64 %140
   %149 = getelementptr i8, ptr %148, i64 8
-  store float %146, ptr %149, align 4, !llvm.access.group !31
+  store float %146, ptr %149, align 4, !llvm.access.group !32
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, -1
   %150 = icmp sgt i64 %indvars.iv117, 0
-  br i1 %150, label %.lr.ph103, label %._crit_edge104.loopexit, !llvm.loop !33
+  br i1 %150, label %.lr.ph103, label %._crit_edge104.loopexit, !llvm.loop !34
 
 ._crit_edge104.loopexit:                          ; preds = %114
-  %.pre120 = load i32, ptr %2, align 4, !llvm.access.group !31
+  %.pre120 = load i32, ptr %2, align 4, !llvm.access.group !32
   br label %._crit_edge104
 
 ._crit_edge104:                                   ; preds = %._crit_edge104.loopexit, %._crit_edge
   %151 = phi i32 [ %.pre120, %._crit_edge104.loopexit ], [ %104, %._crit_edge ]
   %152 = add nuw nsw i32 %.092105, 1
   %153 = icmp slt i32 %152, %151
-  br i1 %153, label %49, label %._crit_edge108, !llvm.loop !34
+  br i1 %153, label %49, label %._crit_edge108, !llvm.loop !35
 
 ._crit_edge108:                                   ; preds = %._crit_edge104, %.lr.ph112
   %154 = phi i32 [ %37, %.lr.ph112 ], [ %151, %._crit_edge104 ]
   %155 = add nsw i64 %.0110, 1
-  %156 = load i64, ptr %7, align 8, !llvm.access.group !31
+  %156 = load i64, ptr %7, align 8, !llvm.access.group !32
   %.not96.not = icmp slt i64 %.0110, %156
-  br i1 %.not96.not, label %.lr.ph112, label %.loopexit98, !llvm.loop !35
+  br i1 %.not96.not, label %.lr.ph112, label %.loopexit98, !llvm.loop !36
 
 .loopexit99:                                      ; preds = %.loopexit98, %15, %5
   ret void
@@ -2037,7 +2037,7 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 157:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %158 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %158) #27, !llvm.access.group !31
+  call void @__clang_call_terminate(ptr %158) #27, !llvm.access.group !32
   unreachable
 }
 
@@ -2051,7 +2051,7 @@ declare i32 @__kmpc_dispatch_next_8(ptr, i32, ptr, ptr, ptr, ptr) local_unnamed_
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare !callback !37 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #20
+declare !callback !38 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15
@@ -2133,8 +2133,8 @@ attributes #32 = { builtin nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -2153,11 +2153,12 @@ attributes #32 = { builtin nounwind }
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
-!31 = distinct !{}
-!32 = distinct !{!32, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.parallel_accesses", !31}
-!37 = !{!38}
-!38 = !{i64 2, i64 -1, i64 -1, i1 true}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.parallel_accesses", !32}
+!38 = !{!39}
+!39 = !{i64 2, i64 -1, i64 -1, i1 true}

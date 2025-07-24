@@ -553,10 +553,10 @@ _ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i55: ;
 .lr.ph.i.i.i.i.i.i59:                             ; preds = %_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i55, %.lr.ph.i.i.i.i.i.i59
   %.012.i.i.i.i.i.i60 = phi ptr [ %252, %.lr.ph.i.i.i.i.i.i59 ], [ %248, %_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i55 ]
   %.0911.i.i.i.i.i.i61 = phi ptr [ %251, %.lr.ph.i.i.i.i.i.i59 ], [ %236, %_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i55 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %250 = load i64, ptr %.0911.i.i.i.i.i.i61, align 4, !alias.scope !70, !noalias !67
-  store i64 %250, ptr %.012.i.i.i.i.i.i60, align 4, !alias.scope !67, !noalias !70
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  %250 = load i64, ptr %.0911.i.i.i.i.i.i61, align 4, !alias.scope !71, !noalias !68
+  store i64 %250, ptr %.012.i.i.i.i.i.i60, align 4, !alias.scope !68, !noalias !71
   %251 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i61, i64 8
   %252 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i60, i64 8
   %.not.i.i.i.i.i.i62 = icmp eq ptr %251, %230
@@ -584,18 +584,18 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67: ; preds = %2
   %257 = add nsw i32 %.1112, %3
   %258 = add nuw nsw i32 %.044111, 1
   %exitcond130.not = icmp eq i32 %258, %1
-  br i1 %exitcond130.not, label %.preheader100, label %229, !llvm.loop !72
+  br i1 %exitcond130.not, label %.preheader100, label %229, !llvm.loop !73
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader101, %.preheader101.thread, %.preheader100
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %259 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11, !noalias !73
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %259 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11, !noalias !74
   invoke void @_ZN5ceres8internal17BlockSparseMatrixC1EPNS0_27CompressedRowBlockStructureEb(ptr noundef nonnull align 8 dereferenceable(56) %259, ptr noundef nonnull %8, i1 noundef zeroext false)
-          to label %262 unwind label %260, !noalias !73
+          to label %262 unwind label %260, !noalias !74
 
 260:                                              ; preds = %._crit_edge123
   %261 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %259, i64 noundef 56) #13, !noalias !73
+  tail call void @_ZdlPvm(ptr noundef nonnull %259, i64 noundef 56) #13, !noalias !74
   resume { ptr, i32 } %261
 
 .split.us:                                        ; preds = %146
@@ -603,11 +603,11 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67: ; preds = %2
   unreachable
 
 262:                                              ; preds = %._crit_edge123
-  store ptr %259, ptr %0, align 8, !tbaa !76, !alias.scope !73
+  store ptr %259, ptr %0, align 8, !tbaa !77, !alias.scope !74
   %263 = getelementptr inbounds nuw i8, ptr %259, i64 32
-  %264 = load ptr, ptr %263, align 8, !tbaa !78
+  %264 = load ptr, ptr %263, align 8, !tbaa !79
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 20
-  %266 = load i32, ptr %265, align 4, !tbaa !91
+  %266 = load i32, ptr %265, align 4, !tbaa !92
   %267 = sext i32 %266 to i64
   %268 = icmp sgt i32 %266, 0
   br i1 %268, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9setRandomEv.exit
@@ -620,10 +620,10 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67: ; preds = %2
   %272 = fmul double %271, 2.000000e+00
   %273 = fdiv double %272, 0x41DFFFFFFFC00000
   %274 = fadd double %273, -1.000000e+00
-  store double %274, ptr %269, align 8, !tbaa !92
+  store double %274, ptr %269, align 8, !tbaa !93
   %275 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %275, %267
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9setRandomEv.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9setRandomEv.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !95
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9setRandomEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %262
   ret void
@@ -753,32 +753,33 @@ attributes #14 = { nounwind }
 !63 = !{!"_ZTSN5ceres8internal4CellE", !28, i64 0, !28, i64 4}
 !64 = !{!63, !28, i64 4}
 !65 = distinct !{!65, !17}
-!66 = distinct !{!66, !17}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
-!70 = !{!71}
-!71 = distinct !{!71, !69, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!72 = distinct !{!72, !17}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!75 = distinct !{!75, !"_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTSN5ceres8internal17BlockSparseMatrixE", !6, i64 0}
-!78 = !{!79, !83, i64 32}
-!79 = !{!"_ZTSN5ceres8internal17BlockSparseMatrixE", !80, i64 0, !82, i64 8, !28, i64 12, !28, i64 16, !28, i64 20, !28, i64 24, !83, i64 32, !84, i64 40, !84, i64 48}
-!80 = !{!"_ZTSN5ceres8internal12SparseMatrixE", !81, i64 0}
-!81 = !{!"_ZTSN5ceres8internal14LinearOperatorE"}
-!82 = !{!"bool", !7, i64 0}
-!83 = !{!"p1 double", !6, i64 0}
-!84 = !{!"_ZTSSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !85, i64 0}
-!85 = !{!"_ZTSSt15__uniq_ptr_dataIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_ELb1ELb1EE", !86, i64 0}
-!86 = !{!"_ZTSSt15__uniq_ptr_implIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !87, i64 0}
-!87 = !{!"_ZTSSt5tupleIJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !88, i64 0}
-!88 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !89, i64 0}
-!89 = !{!"_ZTSSt10_Head_baseILm0EPN5ceres8internal27CompressedRowBlockStructureELb0EE", !90, i64 0}
-!90 = !{!"p1 _ZTSN5ceres8internal27CompressedRowBlockStructureE", !6, i64 0}
-!91 = !{!79, !28, i64 20}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"double", !7, i64 0}
-!94 = distinct !{!94, !17}
+!66 = distinct !{!66, !17, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!70 = distinct !{!70, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
+!71 = !{!72}
+!72 = distinct !{!72, !70, !"_ZSt19__relocate_object_aIN5ceres8internal5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!73 = distinct !{!73, !17}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!76 = distinct !{!76, !"_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSN5ceres8internal17BlockSparseMatrixE", !6, i64 0}
+!79 = !{!80, !84, i64 32}
+!80 = !{!"_ZTSN5ceres8internal17BlockSparseMatrixE", !81, i64 0, !83, i64 8, !28, i64 12, !28, i64 16, !28, i64 20, !28, i64 24, !84, i64 32, !85, i64 40, !85, i64 48}
+!81 = !{!"_ZTSN5ceres8internal12SparseMatrixE", !82, i64 0}
+!82 = !{!"_ZTSN5ceres8internal14LinearOperatorE"}
+!83 = !{!"bool", !7, i64 0}
+!84 = !{!"p1 double", !6, i64 0}
+!85 = !{!"_ZTSSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !86, i64 0}
+!86 = !{!"_ZTSSt15__uniq_ptr_dataIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_ELb1ELb1EE", !87, i64 0}
+!87 = !{!"_ZTSSt15__uniq_ptr_implIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !88, i64 0}
+!88 = !{!"_ZTSSt5tupleIJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !89, i64 0}
+!89 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !90, i64 0}
+!90 = !{!"_ZTSSt10_Head_baseILm0EPN5ceres8internal27CompressedRowBlockStructureELb0EE", !91, i64 0}
+!91 = !{!"p1 _ZTSN5ceres8internal27CompressedRowBlockStructureE", !6, i64 0}
+!92 = !{!80, !28, i64 20}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"double", !7, i64 0}
+!95 = distinct !{!95, !17}

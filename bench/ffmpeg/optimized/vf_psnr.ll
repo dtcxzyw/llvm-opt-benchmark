@@ -856,7 +856,7 @@ define internal i32 @do_psnr(ptr noundef %0) #0 {
   store double %110, ptr %111, align 8, !tbaa !43
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
-  br i1 %exitcond268.not, label %.lr.ph221, label %99, !llvm.loop !97
+  br i1 %exitcond268.not, label %.lr.ph221, label %99, !llvm.loop !98
 
 ._crit_edge222:                                   ; preds = %124, %.preheader211.lr.ph, %.preheader210
   %112 = phi i1 [ false, %.preheader210 ], [ false, %.preheader211.lr.ph ], [ true, %124 ]
@@ -892,7 +892,7 @@ define internal i32 @do_psnr(ptr noundef %0) #0 {
   %129 = call nsz double @llvm.fmuladd.f64(double %126, double %128, double %.0178220)
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %._crit_edge222, label %124, !llvm.loop !98
+  br i1 %exitcond273.not, label %._crit_edge222, label %124, !llvm.loop !99
 
 ._crit_edge227:                                   ; preds = %._crit_edge222
   %130 = getelementptr inbounds nuw i8, ptr %16, i64 160
@@ -922,7 +922,7 @@ define internal i32 @do_psnr(ptr noundef %0) #0 {
   store double %145, ptr %143, align 8, !tbaa !43
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
-  br i1 %exitcond278.not, label %.lr.ph230, label %140, !llvm.loop !99
+  br i1 %exitcond278.not, label %.lr.ph230, label %140, !llvm.loop !100
 
 ._crit_edge231:                                   ; preds = %set_meta.exit208, %._crit_edge227
   %146 = phi ptr [ %130, %._crit_edge227 ], [ %133, %set_meta.exit208 ]
@@ -1023,7 +1023,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %203 = load i32, ptr %28, align 4, !tbaa !41
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv.next280, %204
-  br i1 %205, label %164, label %._crit_edge231, !llvm.loop !100
+  br i1 %205, label %164, label %._crit_edge231, !llvm.loop !101
 
 206:                                              ; preds = %._crit_edge231
   %207 = getelementptr inbounds nuw i8, ptr %16, i64 184
@@ -1033,7 +1033,7 @@ set_meta.exit208:                                 ; preds = %197, %201
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds nuw i8, ptr %16, i64 188
-  %212 = load i32, ptr %211, align 4, !tbaa !101
+  %212 = load i32, ptr %211, align 4, !tbaa !102
   %.not199 = icmp eq i32 %212, 0
   br i1 %.not199, label %213, label %261
 
@@ -1071,7 +1071,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %231 = load i32, ptr %28, align 4, !tbaa !41
   %232 = sext i32 %231 to i64
   %233 = icmp slt i64 %indvars.iv.next283, %232
-  br i1 %233, label %225, label %._crit_edge235, !llvm.loop !102
+  br i1 %233, label %225, label %._crit_edge235, !llvm.loop !103
 
 ._crit_edge239:                                   ; preds = %236, %._crit_edge235
   %234 = getelementptr inbounds nuw i8, ptr %16, i64 192
@@ -1090,7 +1090,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %242 = load i32, ptr %28, align 4, !tbaa !41
   %243 = sext i32 %242 to i64
   %244 = icmp slt i64 %indvars.iv.next286, %243
-  br i1 %244, label %236, label %._crit_edge239, !llvm.loop !103
+  br i1 %244, label %236, label %._crit_edge239, !llvm.loop !104
 
 245:                                              ; preds = %._crit_edge239
   %246 = load ptr, ptr %162, align 8, !tbaa !36
@@ -1114,12 +1114,12 @@ set_meta.exit208:                                 ; preds = %197, %201
   %257 = load i32, ptr %28, align 4, !tbaa !41
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next289, %258
-  br i1 %259, label %251, label %.loopexit209, !llvm.loop !104
+  br i1 %259, label %251, label %.loopexit209, !llvm.loop !105
 
 .loopexit209:                                     ; preds = %251, %245, %._crit_edge239
   %260 = load ptr, ptr %162, align 8, !tbaa !36
   %fputc = call i32 @fputc(i32 10, ptr %260)
-  store i32 1, ptr %211, align 4, !tbaa !101
+  store i32 1, ptr %211, align 4, !tbaa !102
   %.pre300 = load ptr, ptr %162, align 8, !tbaa !36
   br label %261
 
@@ -1183,7 +1183,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %300 = load i32, ptr %28, align 4, !tbaa !41
   %301 = sext i32 %300 to i64
   %302 = icmp slt i64 %indvars.iv.next292, %301
-  br i1 %302, label %284, label %._crit_edge246, !llvm.loop !105
+  br i1 %302, label %284, label %._crit_edge246, !llvm.loop !106
 
 ._crit_edge250:                                   ; preds = %311, %._crit_edge246
   %303 = load i32, ptr %207, align 8, !tbaa !33
@@ -1223,7 +1223,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %328 = load i32, ptr %28, align 4, !tbaa !41
   %329 = sext i32 %328 to i64
   %330 = icmp slt i64 %indvars.iv.next295, %329
-  br i1 %330, label %305, label %._crit_edge250, !llvm.loop !106
+  br i1 %330, label %305, label %._crit_edge250, !llvm.loop !107
 
 331:                                              ; preds = %._crit_edge250
   %332 = getelementptr inbounds nuw i8, ptr %16, i64 192
@@ -1272,7 +1272,7 @@ set_meta.exit208:                                 ; preds = %197, %201
   %360 = load i32, ptr %28, align 4, !tbaa !41
   %361 = sext i32 %360 to i64
   %362 = icmp slt i64 %indvars.iv.next298, %361
-  br i1 %362, label %344, label %.loopexit, !llvm.loop !107
+  br i1 %362, label %344, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %350, %334, %331, %._crit_edge250
   %363 = load ptr, ptr %162, align 8, !tbaa !36
@@ -1281,7 +1281,7 @@ set_meta.exit208:                                 ; preds = %197, %201
 
 .sink.split:                                      ; preds = %._crit_edge231, %.loopexit, %19
   %364 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %365 = load ptr, ptr %364, align 8, !tbaa !108
+  %365 = load ptr, ptr %364, align 8, !tbaa !109
   %366 = load ptr, ptr %365, align 8, !tbaa !62
   %367 = load ptr, ptr %8, align 8, !tbaa !80
   %368 = call i32 @ff_filter_frame(ptr noundef %366, ptr noundef %367) #12
@@ -1377,7 +1377,7 @@ define internal noundef i32 @compute_images_mse(ptr readnone captures(none) %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %47 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %20, label %._crit_edge54, !llvm.loop !109
+  br i1 %50, label %20, label %._crit_edge54, !llvm.loop !110
 
 51:                                               ; preds = %.lr.ph, %51
   %.050 = phi i32 [ %27, %.lr.ph ], [ %58, %51 ]
@@ -1385,14 +1385,14 @@ define internal noundef i32 @compute_images_mse(ptr readnone captures(none) %0, 
   %.04448 = phi ptr [ %37, %.lr.ph ], [ %56, %51 ]
   %.04547 = phi ptr [ %44, %.lr.ph ], [ %57, %51 ]
   %52 = load ptr, ptr %19, align 8, !tbaa !85
-  %53 = load ptr, ptr %52, align 8, !tbaa !110
+  %53 = load ptr, ptr %52, align 8, !tbaa !111
   %54 = tail call i64 %53(ptr noundef %.04547, ptr noundef %.04448, i32 noundef %23) #12
   %55 = add i64 %54, %.04349
   %56 = getelementptr inbounds i8, ptr %.04448, i64 %45
   %57 = getelementptr inbounds i8, ptr %.04547, i64 %46
   %58 = add i32 %.050, 1
   %exitcond.not = icmp eq i32 %58, %29
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %51, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %51, !llvm.loop !112
 }
 
 ; Function Attrs: nofree nounwind
@@ -1540,19 +1540,20 @@ attributes #14 = { nounwind willreturn memory(read) }
 !93 = distinct !{!93, !45}
 !94 = !{!25, !25, i64 0}
 !95 = distinct !{!95, !45}
-!96 = distinct !{!96, !45}
-!97 = distinct !{!97, !45}
+!96 = distinct !{!96, !45, !97}
+!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !98 = distinct !{!98, !45}
 !99 = distinct !{!99, !45}
 !100 = distinct !{!100, !45}
-!101 = !{!21, !15, i64 188}
-!102 = distinct !{!102, !45}
+!101 = distinct !{!101, !45}
+!102 = !{!21, !15, i64 188}
 !103 = distinct !{!103, !45}
 !104 = distinct !{!104, !45}
 !105 = distinct !{!105, !45}
 !106 = distinct !{!106, !45}
 !107 = distinct !{!107, !45}
-!108 = !{!5, !13, i64 56}
-!109 = distinct !{!109, !45}
-!110 = !{!30, !7, i64 0}
-!111 = distinct !{!111, !45}
+!108 = distinct !{!108, !45}
+!109 = !{!5, !13, i64 56}
+!110 = distinct !{!110, !45}
+!111 = !{!30, !7, i64 0}
+!112 = distinct !{!112, !45}

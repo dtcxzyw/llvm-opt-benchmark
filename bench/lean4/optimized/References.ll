@@ -235599,7 +235599,7 @@ lean_inc.exit196.us:                              ; preds = %120, %119, %118, %l
 lean_dec.exit217.us:                              ; preds = %127, %126, %125, %lean_inc.exit196.us
   %.1160.us = add nuw i64 %.0159401.us, 1
   %exitcond406.not = icmp eq i64 %.1160.us, %4
-  br i1 %exitcond406.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond406.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %lean_dec.exit217, %lean_dec.exit217.us, %8
   %.0166.lcssa = phi ptr [ %7, %8 ], [ %94, %lean_dec.exit217.us ], [ %.1167, %lean_dec.exit217 ]
@@ -251615,3 +251615,5 @@ attributes #9 = { noreturn nounwind }
 !25 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
 !26 = !{!"branch_weights", !"expected", i32 1074010193, i32 1073473455}
 !27 = !{!"branch_weights", i32 4001, i32 4000000}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}

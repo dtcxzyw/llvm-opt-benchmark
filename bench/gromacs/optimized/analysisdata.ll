@@ -772,7 +772,7 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
   store i64 %35, ptr %32, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -952,4 +952,6 @@ attributes #15 = { noreturn }
 !56 = !{!41, !48, i64 44}
 !57 = !{!51, !52, i64 4}
 !58 = !{!52, !52, i64 0}
-!59 = distinct !{!59, !18}
+!59 = distinct !{!59, !18, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !18}

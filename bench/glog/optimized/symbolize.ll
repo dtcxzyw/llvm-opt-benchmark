@@ -195,7 +195,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41: ; preds = %5
   switch i32 %.0.i50.us, label %.thread [
     i32 0, label %.preheader.i42.us
     i32 3, label %73
-  ], !llvm.loop !11
+  ], !llvm.loop !19
 
 73:                                               ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %.preheader.i42.us
   %.122.i44.us = phi i64 [ %.223.i49.us, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ %.021.i43.us, %.preheader.i42.us ]
@@ -272,7 +272,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51: ; preds = %9
 
 97:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
-  %98 = load i32, ptr %3, align 8, !tbaa !19
+  %98 = load i32, ptr %3, align 8, !tbaa !21
   %99 = zext i32 %98 to i64
   %100 = add i64 %61, %99
   %101 = call fastcc noundef i64 @_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm(i32 noundef %0, ptr noundef nonnull %7, i64 noundef %2, i64 noundef %100)
@@ -297,7 +297,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51: ; preds = %9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #20
   %106 = add nuw nsw i64 %.02778, 1
   %exitcond.not = icmp eq i64 %106, %58
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !23
 
 .thread:                                          ; preds = %105, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47", %89, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %75, %.preheader, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us, %.thread58
   %.not3171 = phi i1 [ true, %.thread58 ], [ false, %.preheader ], [ true, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ true, %75 ], [ true, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ true, %89 ], [ true, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ %.not115.not, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ %.not115.not, %105 ]
@@ -409,16 +409,16 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   %13 = alloca %"class.google::glog_internal_namespace_::FileDescriptor", align 4
   %14 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
-  store i64 0, ptr %10, align 8, !tbaa !22
+  store i64 0, ptr %10, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
-  store i64 0, ptr %11, align 8, !tbaa !22
+  store i64 0, ptr %11, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #20
-  store i32 -1, ptr %12, align 4, !tbaa !23
+  store i32 -1, ptr %12, align 4, !tbaa !25
   %15 = icmp eq i64 %2, 0
   br i1 %15, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit97, label %16
 
 16:                                               ; preds = %3
-  store i8 0, ptr %1, align 1, !tbaa !25
+  store i8 0, ptr %1, align 1, !tbaa !27
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %18 = icmp ult i64 %17, %2
   br i1 %18, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit, label %19
@@ -433,7 +433,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit: ; preds = %
   %22 = tail call ptr @strncpy(ptr noundef nonnull %20, ptr noundef nonnull dereferenceable(2) @.str.2, i64 noundef %21) #20
   %23 = getelementptr i8, ptr %1, i64 %2
   %24 = getelementptr i8, ptr %23, i64 -1
-  store i8 0, ptr %24, align 1, !tbaa !25
+  store i8 0, ptr %24, align 1, !tbaa !27
   %25 = load ptr, ptr @_ZN6google24glog_internal_namespace_12_GLOBAL__N_137g_symbolize_open_object_file_callbackE, align 8, !tbaa !3
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %32, label %26
@@ -445,7 +445,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit: ; preds = %
           to label %_ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit unwind label %30
 
 _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit: ; preds = %26
-  store i32 %29, ptr %12, align 4, !tbaa !23
+  store i32 %29, ptr %12, align 4, !tbaa !25
   br label %38
 
 30:                                               ; preds = %26
@@ -462,7 +462,7 @@ _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit: ; preds = %26
 
 _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %32
   %35 = load i32, ptr %13, align 4, !tbaa !7
-  store i32 %35, ptr %12, align 4, !tbaa !23
+  store i32 %35, ptr %12, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
   br label %38
 
@@ -479,12 +479,12 @@ _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %32
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !25
+  %41 = load i8, ptr %40, align 1, !tbaa !27
   %.not63 = icmp eq i8 %41, 0
   br i1 %.not63, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit97, label %42
 
 42:                                               ; preds = %39
-  store i8 0, ptr %24, align 1, !tbaa !25
+  store i8 0, ptr %24, align 1, !tbaa !27
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %44 = icmp ult i64 %43, %2
   br i1 %44, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit67, label %45
@@ -497,8 +497,8 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit67: ; preds =
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %43
   %47 = sub nuw i64 %2, %43
   %48 = call ptr @strncpy(ptr noundef nonnull %46, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %47) #20
-  store i8 0, ptr %24, align 1, !tbaa !25
-  %49 = load i64, ptr %11, align 8, !tbaa !22
+  store i8 0, ptr %24, align 1, !tbaa !27
+  %49 = load i64, ptr %11, align 8, !tbaa !24
   %50 = sub i64 %14, %49
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %9) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %9, i8 0, i64 17, i1 false)
@@ -512,36 +512,36 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit67: ; preds =
   br i1 %exitcond.i.i, label %52, label %53
 
 52:                                               ; preds = %51
-  store i8 0, ptr %9, align 16, !tbaa !25
+  store i8 0, ptr %9, align 16, !tbaa !27
   br label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i
 
 53:                                               ; preds = %51
   %54 = add nuw nsw i64 %.032.i.i, 1
   %55 = and i64 %.035.i.i, 15
   %56 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !25
+  %57 = load i8, ptr %56, align 1, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 1
-  store i8 %57, ptr %.029.i.i, align 1, !tbaa !25
+  store i8 %57, ptr %.029.i.i, align 1, !tbaa !27
   %59 = lshr i64 %.035.i.i, 4
   %60 = icmp ugt i64 %.035.i.i, 15
-  br i1 %60, label %51, label %61, !llvm.loop !26
+  br i1 %60, label %51, label %61, !llvm.loop !28
 
 61:                                               ; preds = %53
-  store i8 0, ptr %58, align 1, !tbaa !25
+  store i8 0, ptr %58, align 1, !tbaa !27
   %62 = icmp ugt ptr %.029.i.i, %9
   br i1 %62, label %.lr.ph.i.i, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
   %63 = phi ptr [ %67, %.lr.ph.i.i ], [ %.029.i.i, %61 ]
   %.03140.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %9, %61 ]
-  %64 = load i8, ptr %63, align 1, !tbaa !25
-  %65 = load i8, ptr %.03140.i.i, align 1, !tbaa !25
-  store i8 %65, ptr %63, align 1, !tbaa !25
+  %64 = load i8, ptr %63, align 1, !tbaa !27
+  %65 = load i8, ptr %.03140.i.i, align 1, !tbaa !27
+  store i8 %65, ptr %63, align 1, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %.03140.i.i, i64 1
-  store i8 %64, ptr %.03140.i.i, align 1, !tbaa !25
+  store i8 %64, ptr %.03140.i.i, align 1, !tbaa !27
   %67 = getelementptr inbounds i8, ptr %63, i64 -1
   %68 = icmp ugt ptr %67, %66
-  br i1 %68, label %.lr.ph.i.i, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i, !llvm.loop !27
+  br i1 %68, label %.lr.ph.i.i, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i, !llvm.loop !29
 
 _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i: ; preds = %.lr.ph.i.i, %61, %52
   %.1.i.i = phi ptr [ null, %52 ], [ %9, %61 ], [ %9, %.lr.ph.i.i ]
@@ -557,7 +557,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i: ; preds = %.lr.ph.i.
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 %69
   %74 = sub nuw i64 %2, %69
   %75 = call ptr @strncpy(ptr noundef nonnull %73, ptr noundef readonly %.1.i.i, i64 noundef %74) #20
-  store i8 0, ptr %24, align 1, !tbaa !25
+  store i8 0, ptr %24, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %9) #20
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %77 = icmp ult i64 %76, %2
@@ -571,7 +571,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit68: ; preds =
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 %76
   %80 = sub nuw i64 %2, %76
   %81 = call ptr @strncpy(ptr noundef nonnull %79, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %80) #20
-  store i8 0, ptr %24, align 1, !tbaa !25
+  store i8 0, ptr %24, align 1, !tbaa !27
   br label %243
 
 82:                                               ; preds = %38
@@ -694,7 +694,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit68: ; preds =
 .preheader.i.i69.preheader:                       ; preds = %104, %111
   %.052 = phi i64 [ %.153, %111 ], [ %2, %104 ]
   %.050 = phi ptr [ %.151, %111 ], [ %1, %104 ]
-  %115 = load i64, ptr %11, align 8, !tbaa !22
+  %115 = load i64, ptr %11, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #20
   br label %.preheader.i.i69
 
@@ -762,7 +762,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i: ; preds = %1
 
 139:                                              ; preds = %.noexc79
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %141 = load i32, ptr %140, align 8, !tbaa !28
+  %141 = load i32, ptr %140, align 8, !tbaa !30
   %142 = zext i32 %141 to i64
   %143 = shl nuw nsw i64 %142, 6
   %144 = add i64 %143, %137
@@ -836,7 +836,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit25.i: ; preds = 
 
 168:                                              ; preds = %.noexc82
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %170 = load i32, ptr %169, align 8, !tbaa !28
+  %170 = load i32, ptr %169, align 8, !tbaa !30
   %171 = zext i32 %170 to i64
   %172 = shl nuw nsw i64 %171, 6
   %173 = add i64 %172, %137
@@ -909,7 +909,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit35.i: ; preds = 
 .thread:                                          ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74", %123, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i, %.thread100
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #20
   %195 = getelementptr inbounds nuw i8, ptr %.050, i64 1
-  %196 = load i8, ptr %195, align 1, !tbaa !25
+  %196 = load i8, ptr %195, align 1, !tbaa !27
   %197 = icmp eq i8 %196, 0
   %198 = load ptr, ptr @_ZN6google24glog_internal_namespace_12_GLOBAL__N_120g_symbolize_callbackE, align 8
   %199 = icmp ne ptr %198, null
@@ -919,7 +919,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit35.i: ; preds = 
 200:                                              ; preds = %.thread
   %201 = getelementptr i8, ptr %.050, i64 %.052
   %202 = getelementptr i8, ptr %201, i64 -1
-  store i8 0, ptr %202, align 1, !tbaa !25
+  store i8 0, ptr %202, align 1, !tbaa !27
   %203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #23
   %204 = icmp ult i64 %203, %.052
   br i1 %204, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit85, label %205
@@ -932,8 +932,8 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit85: ; preds =
   %206 = getelementptr inbounds nuw i8, ptr %.050, i64 %203
   %207 = sub nuw i64 %.052, %203
   %208 = call ptr @strncpy(ptr noundef nonnull %206, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %207) #20
-  store i8 0, ptr %202, align 1, !tbaa !25
-  %209 = load i64, ptr %11, align 8, !tbaa !22
+  store i8 0, ptr %202, align 1, !tbaa !27
+  %209 = load i64, ptr %11, align 8, !tbaa !24
   %210 = sub i64 %14, %209
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, i8 0, i64 17, i1 false)
@@ -947,36 +947,36 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit85: ; preds =
   br i1 %exitcond.i.i89, label %212, label %213
 
 212:                                              ; preds = %211
-  store i8 0, ptr %4, align 16, !tbaa !25
+  store i8 0, ptr %4, align 16, !tbaa !27
   br label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90
 
 213:                                              ; preds = %211
   %214 = add nuw nsw i64 %.032.i.i87, 1
   %215 = and i64 %.035.i.i86, 15
   %216 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !25
+  %217 = load i8, ptr %216, align 1, !tbaa !27
   %218 = getelementptr inbounds nuw i8, ptr %.029.i.i88, i64 1
-  store i8 %217, ptr %.029.i.i88, align 1, !tbaa !25
+  store i8 %217, ptr %.029.i.i88, align 1, !tbaa !27
   %219 = lshr i64 %.035.i.i86, 4
   %220 = icmp ugt i64 %.035.i.i86, 15
-  br i1 %220, label %211, label %221, !llvm.loop !26
+  br i1 %220, label %211, label %221, !llvm.loop !28
 
 221:                                              ; preds = %213
-  store i8 0, ptr %218, align 1, !tbaa !25
+  store i8 0, ptr %218, align 1, !tbaa !27
   %222 = icmp ugt ptr %.029.i.i88, %4
   br i1 %222, label %.lr.ph.i.i92, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90
 
 .lr.ph.i.i92:                                     ; preds = %221, %.lr.ph.i.i92
   %223 = phi ptr [ %227, %.lr.ph.i.i92 ], [ %.029.i.i88, %221 ]
   %.03140.i.i93 = phi ptr [ %226, %.lr.ph.i.i92 ], [ %4, %221 ]
-  %224 = load i8, ptr %223, align 1, !tbaa !25
-  %225 = load i8, ptr %.03140.i.i93, align 1, !tbaa !25
-  store i8 %225, ptr %223, align 1, !tbaa !25
+  %224 = load i8, ptr %223, align 1, !tbaa !27
+  %225 = load i8, ptr %.03140.i.i93, align 1, !tbaa !27
+  store i8 %225, ptr %223, align 1, !tbaa !27
   %226 = getelementptr inbounds nuw i8, ptr %.03140.i.i93, i64 1
-  store i8 %224, ptr %.03140.i.i93, align 1, !tbaa !25
+  store i8 %224, ptr %.03140.i.i93, align 1, !tbaa !27
   %227 = getelementptr inbounds i8, ptr %223, i64 -1
   %228 = icmp ugt ptr %227, %226
-  br i1 %228, label %.lr.ph.i.i92, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90, !llvm.loop !27
+  br i1 %228, label %.lr.ph.i.i92, label %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90, !llvm.loop !29
 
 _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90: ; preds = %.lr.ph.i.i92, %221, %212
   %.1.i.i91 = phi ptr [ null, %212 ], [ %4, %221 ], [ %4, %.lr.ph.i.i92 ]
@@ -992,7 +992,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i90: ; preds = %.lr.ph.
   %233 = getelementptr inbounds nuw i8, ptr %.050, i64 %229
   %234 = sub nuw i64 %.052, %229
   %235 = call ptr @strncpy(ptr noundef nonnull %233, ptr noundef readonly %.1.i.i91, i64 noundef %234) #20
-  store i8 0, ptr %202, align 1, !tbaa !25
+  store i8 0, ptr %202, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #20
   %236 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #23
   %237 = icmp ult i64 %236, %.052
@@ -1006,7 +1006,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit95: ; preds =
   %239 = getelementptr inbounds nuw i8, ptr %.050, i64 %236
   %240 = sub nuw i64 %.052, %236
   %241 = call ptr @strncpy(ptr noundef nonnull %239, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %240) #20
-  store i8 0, ptr %202, align 1, !tbaa !25
+  store i8 0, ptr %202, align 1, !tbaa !27
   br label %243
 
 242:                                              ; preds = %.noexc84, %.noexc81
@@ -1078,14 +1078,14 @@ define internal fastcc void @_ZN6google24glog_internal_namespace_L44OpenObjectFi
   %17 = tail call ptr @__errno_location() #22
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.thread148, !llvm.loop !29
+  br i1 %19, label %13, label %.thread148, !llvm.loop !31
 
 .thread148:                                       ; preds = %16
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit94
 
 20:                                               ; preds = %13
-  store i32 %14, ptr %7, align 4, !tbaa !23
+  store i32 %14, ptr %7, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
   br label %21
 
@@ -1101,10 +1101,10 @@ define internal fastcc void @_ZN6google24glog_internal_namespace_L44OpenObjectFi
   %25 = tail call ptr @__errno_location() #22
   %26 = load i32, ptr %25, align 4, !tbaa !7
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %21, label %.thread145, !llvm.loop !30
+  br i1 %27, label %21, label %.thread145, !llvm.loop !32
 
 .thread145:                                       ; preds = %24
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %230
 
 28:                                               ; preds = %21
@@ -1113,7 +1113,7 @@ define internal fastcc void @_ZN6google24glog_internal_namespace_L44OpenObjectFi
   br label %229
 
 30:                                               ; preds = %.noexc
-  store i32 %22, ptr %8, align 4, !tbaa !23
+  store i32 %22, ptr %8, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #20
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -1189,7 +1189,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %58, %.noexc75, %.noexc76
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %224
 
 66:                                               ; preds = %51, %39
@@ -1198,8 +1198,8 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br label %223
 
 68:                                               ; preds = %58
-  store i8 0, ptr %62, align 1, !tbaa !25
-  store i64 0, ptr %2, align 8, !tbaa !22
+  store i8 0, ptr %62, align 1, !tbaa !27
+  store i64 0, ptr %2, align 8, !tbaa !24
   %69 = icmp ult ptr %.sroa.21.0, %62
   br i1 %69, label %.lr.ph.preheader.i, label %switch.early.test._crit_edge.i
 
@@ -1211,7 +1211,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %71 = phi i64 [ %84, %75 ], [ 0, %.lr.ph.preheader.i ]
   %.02532.i = phi ptr [ %85, %75 ], [ %.sroa.21.0, %.lr.ph.preheader.i ]
-  %72 = load i8, ptr %.02532.i, align 1, !tbaa !25
+  %72 = load i8, ptr %.02532.i, align 1, !tbaa !27
   %.fr31.i = freeze i8 %72
   %73 = sext i8 %.fr31.i to i32
   %74 = add i8 %.fr31.i, -48
@@ -1244,10 +1244,10 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %82 = zext nneg i32 %81 to i64
   %83 = select i1 %77, i64 %79, i64 %82
   %84 = or i64 %83, %76
-  store i64 %84, ptr %2, align 8, !tbaa !22
+  store i64 %84, ptr %2, align 8, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %.02532.i, i64 1
   %exitcond.not.i = icmp eq ptr %85, %62
-  br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 switch.early.test._crit_edge.i:                   ; preds = %75, %switch.early.test.i, %68
   %86 = phi i64 [ 0, %68 ], [ %84, %75 ], [ %71, %switch.early.test.i ]
@@ -1264,12 +1264,12 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit: ; preds = %switch.ea
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit
-  %90 = load i8, ptr %.025.lcssa.i, align 1, !tbaa !25
+  %90 = load i8, ptr %.025.lcssa.i, align 1, !tbaa !27
   %.not = icmp eq i8 %90, 45
   br i1 %.not, label %92, label %91
 
 91:                                               ; preds = %89, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %224
 
 92:                                               ; preds = %89
@@ -1286,7 +1286,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit: ; preds = %switch.ea
 .lr.ph.i83:                                       ; preds = %100, %.lr.ph.preheader.i81
   %.1 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %109, %100 ]
   %.02532.i84 = phi ptr [ %93, %.lr.ph.preheader.i81 ], [ %110, %100 ]
-  %97 = load i8, ptr %.02532.i84, align 1, !tbaa !25
+  %97 = load i8, ptr %.02532.i84, align 1, !tbaa !27
   %.fr31.i85 = freeze i8 %97
   %98 = sext i8 %.fr31.i85 to i32
   %99 = add i8 %.fr31.i85, -48
@@ -1321,7 +1321,7 @@ switch.early.test.i87:                            ; preds = %.lr.ph.i83
   %109 = or i64 %108, %101
   %110 = getelementptr inbounds nuw i8, ptr %.02532.i84, i64 1
   %exitcond.not.i88 = icmp eq ptr %110, %62
-  br i1 %exitcond.not.i88, label %switch.early.test._crit_edge.i78.loopexit, label %.lr.ph.i83, !llvm.loop !31
+  br i1 %exitcond.not.i88, label %switch.early.test._crit_edge.i78.loopexit, label %.lr.ph.i83, !llvm.loop !33
 
 switch.early.test._crit_edge.i78.loopexit:        ; preds = %switch.early.test.i87, %100
   %.0.ph = phi i64 [ %109, %100 ], [ %.1, %switch.early.test.i87 ]
@@ -1345,12 +1345,12 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89
-  %115 = load i8, ptr %.025.lcssa.i79, align 1, !tbaa !25
+  %115 = load i8, ptr %.025.lcssa.i79, align 1, !tbaa !27
   %.not50 = icmp eq i8 %115, 32
   br i1 %.not50, label %117, label %116
 
 116:                                              ; preds = %114, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %224
 
 117:                                              ; preds = %114
@@ -1366,7 +1366,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %121
   %storemerge.ptr182 = phi ptr [ %storemerge.ptr, %121 ], [ %.ptr150, %.lr.ph.preheader ]
   %storemerge.idx181 = phi i64 [ %storemerge.add, %121 ], [ 1, %.lr.ph.preheader ]
-  %120 = load i8, ptr %storemerge.ptr182, align 1, !tbaa !25
+  %120 = load i8, ptr %storemerge.ptr182, align 1, !tbaa !27
   %.not51 = icmp eq i8 %120, 32
   br i1 %.not51, label %.critedge, label %121
 
@@ -1374,7 +1374,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   %storemerge.add = add nuw i64 %storemerge.idx181, 1
   %storemerge.ptr = getelementptr inbounds nuw i8, ptr %.025.lcssa.i79, i64 %storemerge.add
   %exitcond.not = icmp eq i64 %storemerge.add, %119
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %121
   %storemerge.idx.lcssa.ph = phi i64 [ %storemerge.idx181, %.lr.ph ], [ %119, %121 ]
@@ -1385,12 +1385,12 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br i1 %or.cond64, label %.critedge.thread, label %124
 
 .critedge.thread:                                 ; preds = %117, %.critedge
-  store i32 -1, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %0, align 4, !tbaa !25
   br label %224
 
 124:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #20
-  %125 = load i8, ptr %.ptr150, align 1, !tbaa !25
+  %125 = load i8, ptr %.ptr150, align 1, !tbaa !27
   %126 = icmp eq i8 %125, 114
   br i1 %126, label %127, label %.thread
 
@@ -1455,7 +1455,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br i1 %or.cond65, label %148, label %.thread
 
 148:                                              ; preds = %146
-  %149 = load i16, ptr %31, align 8, !tbaa !33
+  %149 = load i16, ptr %31, align 8, !tbaa !35
   switch i16 %149, label %.thread [
     i16 2, label %152
     i16 3, label %153
@@ -1467,18 +1467,18 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br label %222
 
 152:                                              ; preds = %148
-  store i64 0, ptr %3, align 8, !tbaa !22
+  store i64 0, ptr %3, align 8, !tbaa !24
   br label %.thread
 
 153:                                              ; preds = %148
-  %154 = load i64, ptr %2, align 8, !tbaa !22
-  store i64 %154, ptr %3, align 8, !tbaa !22
-  %155 = load i16, ptr %32, align 8, !tbaa !34
+  %154 = load i64, ptr %2, align 8, !tbaa !24
+  store i64 %154, ptr %3, align 8, !tbaa !24
+  %155 = load i16, ptr %32, align 8, !tbaa !36
   %.not53187 = icmp eq i16 %155, 0
   br i1 %.not53187, label %.thread, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %153
-  %156 = load i64, ptr %33, align 8, !tbaa !35
+  %156 = load i64, ptr %33, align 8, !tbaa !37
   %157 = zext i16 %155 to i64
   br label %.preheader.i96.preheader
 
@@ -1486,7 +1486,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   %indvars.iv = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next, %.critedge67 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #20
   %158 = mul nuw nsw i64 %indvars.iv, 56
-  %159 = load i64, ptr %2, align 8, !tbaa !22
+  %159 = load i64, ptr %2, align 8, !tbaa !24
   %160 = add i64 %159, %158
   %161 = add i64 %160, %156
   br label %.preheader.i96
@@ -1549,10 +1549,10 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br i1 %or.cond6, label %184, label %.critedge67
 
 184:                                              ; preds = %.loopexit
-  %185 = load i64, ptr %2, align 8, !tbaa !22
-  %186 = load i64, ptr %35, align 8, !tbaa !36
+  %185 = load i64, ptr %2, align 8, !tbaa !24
+  %186 = load i64, ptr %35, align 8, !tbaa !38
   %187 = sub i64 %185, %186
-  store i64 %187, ptr %3, align 8, !tbaa !22
+  store i64 %187, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #20
   br label %.thread
 
@@ -1566,24 +1566,24 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not53 = icmp eq i64 %indvars.iv.next, %157
-  br i1 %.not53, label %.thread, label %.preheader.i96.preheader, !llvm.loop !38
+  br i1 %.not53, label %.thread, label %.preheader.i96.preheader, !llvm.loop !40
 
 .thread:                                          ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i", %.critedge67, %137, %153, %184, %152, %148, %146, %124
-  %190 = load i64, ptr %2, align 8, !tbaa !22
+  %190 = load i64, ptr %2, align 8, !tbaa !24
   %191 = icmp ule i64 %190, %1
   %or.cond68 = select i1 %191, i1 %.0, i1 false
-  br i1 %or.cond68, label %192, label %221, !llvm.loop !39
+  br i1 %or.cond68, label %192, label %221, !llvm.loop !41
 
 192:                                              ; preds = %.thread
-  %193 = load i8, ptr %.ptr150, align 1, !tbaa !25
+  %193 = load i8, ptr %.ptr150, align 1, !tbaa !27
   %.not55 = icmp eq i8 %193, 114
-  br i1 %.not55, label %194, label %221, !llvm.loop !39
+  br i1 %.not55, label %194, label %221, !llvm.loop !41
 
 194:                                              ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i79, i64 3
-  %196 = load i8, ptr %195, align 1, !tbaa !25
+  %196 = load i8, ptr %195, align 1, !tbaa !27
   %.not56 = icmp eq i8 %196, 120
-  br i1 %.not56, label %197, label %221, !llvm.loop !39
+  br i1 %.not56, label %197, label %221, !llvm.loop !41
 
 197:                                              ; preds = %194
   %198 = getelementptr inbounds nuw i8, ptr %storemerge.ptr.lcssa.ph, i64 1
@@ -1594,7 +1594,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   br i1 %201, label %.critedge74, label %202
 
 202:                                              ; preds = %197
-  %203 = load i8, ptr %199, align 1, !tbaa !25
+  %203 = load i8, ptr %199, align 1, !tbaa !27
   %.not57 = icmp eq i8 %203, 32
   br i1 %.not57, label %.preheader, label %.critedge74
 
@@ -1612,7 +1612,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
 .lr.ph193:                                        ; preds = %.lr.ph193.preheader, %212
   %storemerge58192 = phi ptr [ %storemerge58, %212 ], [ %storemerge58190, %.lr.ph193.preheader ]
   %.033191 = phi i32 [ %.134, %212 ], [ 0, %.lr.ph193.preheader ]
-  %206 = load i8, ptr %storemerge58192, align 1, !tbaa !25
+  %206 = load i8, ptr %storemerge58192, align 1, !tbaa !27
   %207 = icmp eq i8 %206, 32
   br i1 %207, label %208, label %210
 
@@ -1628,7 +1628,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   %.134 = phi i32 [ %209, %208 ], [ %.033191, %210 ]
   %storemerge58 = getelementptr inbounds nuw i8, ptr %storemerge58192, i64 1
   %exitcond243.not = icmp eq ptr %storemerge58, %scevgep242
-  br i1 %exitcond243.not, label %._crit_edge, label %.lr.ph193, !llvm.loop !40
+  br i1 %exitcond243.not, label %._crit_edge, label %.lr.ph193, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %212, %210, %.preheader
   %storemerge58.lcssa = phi ptr [ %storemerge58190, %.preheader ], [ %storemerge58192, %210 ], [ %scevgep242, %212 ]
@@ -1639,7 +1639,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
   %215 = call ptr @strncpy(ptr noundef %4, ptr noundef nonnull %storemerge58.lcssa, i64 noundef %5) #20
   %216 = getelementptr i8, ptr %4, i64 %5
   %217 = getelementptr i8, ptr %216, i64 -1
-  store i8 0, ptr %217, align 1, !tbaa !25
+  store i8 0, ptr %217, align 1, !tbaa !27
   %218 = invoke fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nonnull %storemerge58.lcssa)
           to label %.critedge74 unwind label %219
 
@@ -1651,7 +1651,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
 
 .critedge74:                                      ; preds = %214, %._crit_edge, %197, %202
   %.sink = phi i32 [ -1, %202 ], [ -1, %197 ], [ -1, %._crit_edge ], [ %218, %214 ]
-  store i32 %.sink, ptr %0, align 4, !tbaa !23
+  store i32 %.sink, ptr %0, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #20
   br label %224
@@ -1709,7 +1709,7 @@ _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit94: ; preds = %.thr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !23
+  %2 = load i32, ptr %0, align 4, !tbaa !25
   %.not.i = icmp eq i32 %2, -1
   br i1 %.not.i, label %_ZN6google24glog_internal_namespace_14FileDescriptor10safe_closeEv.exit, label %3
 
@@ -1781,7 +1781,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #14 {
-  store i64 0, ptr %2, align 8, !tbaa !22
+  store i64 0, ptr %2, align 8, !tbaa !24
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph.preheader, label %switch.early.test._crit_edge
 
@@ -1795,7 +1795,7 @@ define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %8 = phi i64 [ %21, %12 ], [ 0, %.lr.ph.preheader ]
   %.02532 = phi ptr [ %22, %12 ], [ %0, %.lr.ph.preheader ]
-  %9 = load i8, ptr %.02532, align 1, !tbaa !25
+  %9 = load i8, ptr %.02532, align 1, !tbaa !27
   %.fr31 = freeze i8 %9
   %10 = sext i8 %.fr31 to i32
   %11 = add i8 %.fr31, -48
@@ -1828,10 +1828,10 @@ switch.early.test:                                ; preds = %.lr.ph
   %19 = zext nneg i32 %18 to i64
   %20 = select i1 %14, i64 %16, i64 %19
   %21 = or i64 %13, %20
-  store i64 %21, ptr %2, align 8, !tbaa !22
+  store i64 %21, ptr %2, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %.02532, i64 1
   %exitcond.not = icmp eq ptr %22, %1
-  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !33
 
 switch.early.test._crit_edge:                     ; preds = %12, %switch.early.test, %3
   %.025.lcssa = phi ptr [ %0, %3 ], [ %.02532, %switch.early.test ], [ %scevgep, %12 ]
@@ -1859,7 +1859,7 @@ define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOB
   %6 = tail call ptr @__errno_location() #22
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = icmp eq i32 %7, 4
-  br i1 %8, label %2, label %.critedge, !llvm.loop !41
+  br i1 %8, label %2, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %2, %5
   ret i32 %3
@@ -1921,18 +1921,18 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 23:                                               ; preds = %.lr.ph
   %24 = add nuw nsw i64 %.052, 1
   %exitcond.not = icmp eq i64 %24, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %.052 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
   %25 = getelementptr inbounds nuw [16 x %struct.Elf64_Shdr], ptr %6, i64 0, i64 %.052
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !43
+  %27 = load i32, ptr %26, align 4, !tbaa !45
   %28 = icmp eq i32 %27, %3
   br i1 %28, label %.thread44, label %23
 
 .thread44:                                        ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %25, i64 64, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %25, i64 64, i1 false), !tbaa.struct !46
   br label %.thread
 
 ._crit_edge:                                      ; preds = %23, %.preheader
@@ -1952,9 +1952,9 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 %.24.val, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #17 {
   %7 = alloca [32 x %struct.Elf64_Sym], align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !45
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %11 = load i64, ptr %10, align 8, !tbaa !46
+  %11 = load i64, ptr %10, align 8, !tbaa !48
   %12 = udiv i64 %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = icmp sgt i32 %1, -1
@@ -1965,8 +1965,8 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 .lr.ph34:                                         ; preds = %6, %.loopexit
   %15 = phi i64 [ %74, %.loopexit ], [ 0, %6 ]
   %.05133 = phi i32 [ %73, %.loopexit ], [ 0, %6 ]
-  %16 = load i64, ptr %13, align 8, !tbaa !47
-  %17 = load i64, ptr %10, align 8, !tbaa !46
+  %16 = load i64, ptr %13, align 8, !tbaa !49
+  %17 = load i64, ptr %10, align 8, !tbaa !48
   %18 = mul i64 %17, %15
   %19 = add i64 %18, %16
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %7) #20
@@ -2000,17 +2000,17 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   %.05815 = phi i32 [ %70, %69 ], [ 0, %.preheader ]
   %30 = getelementptr inbounds nuw [32 x %struct.Elf64_Sym], ptr %7, i64 0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !48
+  %32 = load i64, ptr %31, align 8, !tbaa !50
   %.not65 = icmp eq i64 %32, 0
   br i1 %.not65, label %69, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = add i64 %32, %4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !50
+  %36 = load i64, ptr %35, align 8, !tbaa !52
   %37 = add i64 %36, %34
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 6
-  %39 = load i16, ptr %38, align 2, !tbaa !51
+  %39 = load i16, ptr %38, align 2, !tbaa !53
   %.not66 = icmp ne i16 %39, 0
   %.not67 = icmp ule i64 %34, %0
   %or.cond.not8 = and i1 %.not67, %.not66
@@ -2019,7 +2019,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %or.cond70, label %41, label %69
 
 41:                                               ; preds = %33
-  %42 = load i32, ptr %30, align 8, !tbaa !52
+  %42 = load i32, ptr %30, align 8, !tbaa !54
   %43 = zext i32 %42 to i64
   %44 = add i64 %.24.val, %43
   br i1 %14, label %46, label %45
@@ -2095,7 +2095,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   %70 = add i32 %.05815, 1
   %71 = zext i32 %70 to i64
   %.not68.not = icmp samesign ugt i64 %24, %71
-  br i1 %.not68.not, label %.lr.ph, label %.loopexit, !llvm.loop !53
+  br i1 %.not68.not, label %.lr.ph, label %.loopexit, !llvm.loop !55
 
 .loopexit.thread:                                 ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, %66
   %.4.ph = phi i1 [ true, %66 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread ]
@@ -2108,7 +2108,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %7) #20
   %74 = zext i32 %73 to i64
   %.not69 = icmp ugt i64 %12, %74
-  br i1 %.not69, label %.lr.ph34, label %.loopexit24, !llvm.loop !54
+  br i1 %.not69, label %.lr.ph34, label %.loopexit24, !llvm.loop !56
 
 .loopexit24:                                      ; preds = %.loopexit, %6, %.loopexit.thread
   %spec.select = phi i1 [ %.4.ph, %.loopexit.thread ], [ false, %6 ], [ false, %.loopexit ]
@@ -2178,39 +2178,41 @@ attributes #23 = { nounwind willreturn memory(read) }
 !16 = !{!13, !14, i64 58}
 !17 = !{!13, !14, i64 62}
 !18 = !{!13, !14, i64 60}
-!19 = !{!20, !8, i64 0}
-!20 = !{!"_ZTS10Elf64_Shdr", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !8, i64 40, !8, i64 44, !15, i64 48, !15, i64 56}
-!21 = distinct !{!21, !10}
-!22 = !{!15, !15, i64 0}
-!23 = !{!24, !8, i64 0}
-!24 = !{!"_ZTSN6google24glog_internal_namespace_14FileDescriptorE", !8, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = !{!20, !8, i64 40}
+!19 = distinct !{!19, !10, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!22, !8, i64 0}
+!22 = !{!"_ZTS10Elf64_Shdr", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !8, i64 40, !8, i64 44, !15, i64 48, !15, i64 56}
+!23 = distinct !{!23, !10}
+!24 = !{!15, !15, i64 0}
+!25 = !{!26, !8, i64 0}
+!26 = !{!"_ZTSN6google24glog_internal_namespace_14FileDescriptorE", !8, i64 0}
+!27 = !{!5, !5, i64 0}
+!28 = distinct !{!28, !10}
 !29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
+!30 = !{!22, !8, i64 40}
 !31 = distinct !{!31, !10}
 !32 = distinct !{!32, !10}
-!33 = !{!13, !14, i64 16}
-!34 = !{!13, !14, i64 56}
-!35 = !{!13, !15, i64 32}
-!36 = !{!37, !15, i64 16}
-!37 = !{!"_ZTS10Elf64_Phdr", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = !{!13, !14, i64 16}
+!36 = !{!13, !14, i64 56}
+!37 = !{!13, !15, i64 32}
+!38 = !{!39, !15, i64 16}
+!39 = !{!"_ZTS10Elf64_Phdr", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48}
 !40 = distinct !{!40, !10}
 !41 = distinct !{!41, !10}
 !42 = distinct !{!42, !10}
-!43 = !{!20, !8, i64 4}
-!44 = !{i64 0, i64 4, !7, i64 4, i64 4, !7, i64 8, i64 8, !22, i64 16, i64 8, !22, i64 24, i64 8, !22, i64 32, i64 8, !22, i64 40, i64 4, !7, i64 44, i64 4, !7, i64 48, i64 8, !22, i64 56, i64 8, !22}
-!45 = !{!20, !15, i64 32}
-!46 = !{!20, !15, i64 56}
-!47 = !{!20, !15, i64 24}
-!48 = !{!49, !15, i64 8}
-!49 = !{!"_ZTS9Elf64_Sym", !8, i64 0, !5, i64 4, !5, i64 5, !14, i64 6, !15, i64 8, !15, i64 16}
-!50 = !{!49, !15, i64 16}
-!51 = !{!49, !14, i64 6}
-!52 = !{!49, !8, i64 0}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
+!43 = distinct !{!43, !10}
+!44 = distinct !{!44, !10}
+!45 = !{!22, !8, i64 4}
+!46 = !{i64 0, i64 4, !7, i64 4, i64 4, !7, i64 8, i64 8, !24, i64 16, i64 8, !24, i64 24, i64 8, !24, i64 32, i64 8, !24, i64 40, i64 4, !7, i64 44, i64 4, !7, i64 48, i64 8, !24, i64 56, i64 8, !24}
+!47 = !{!22, !15, i64 32}
+!48 = !{!22, !15, i64 56}
+!49 = !{!22, !15, i64 24}
+!50 = !{!51, !15, i64 8}
+!51 = !{!"_ZTS9Elf64_Sym", !8, i64 0, !5, i64 4, !5, i64 5, !14, i64 6, !15, i64 8, !15, i64 16}
+!52 = !{!51, !15, i64 16}
+!53 = !{!51, !14, i64 6}
+!54 = !{!51, !8, i64 0}
+!55 = distinct !{!55, !10}
+!56 = distinct !{!56, !10}

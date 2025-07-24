@@ -852,7 +852,7 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
   store i32 %55, ptr %4, align 4
   %58 = and i64 %57, 4294967295
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.split.us15, label %.thread4
+  br i1 %59, label %.split.us15, label %.thread4, !llvm.loop !44
 
 select.unfold.us:                                 ; preds = %50
   %60 = load i32, ptr %4, align 4
@@ -868,13 +868,13 @@ select.unfold.us:                                 ; preds = %50
 62:                                               ; preds = %select.unfold.us, %.thread5.us
   %63 = add nuw nsw i64 %23, 1
   %64 = icmp eq i64 %63, %6
-  br i1 %64, label %.thread4, label %22, !llvm.loop !44
+  br i1 %64, label %.thread4, label %22, !llvm.loop !46
 
 .loopexit8.us.loopexit:                           ; preds = %19
   br label %.loopexit8.us, !llvm.loop !42
 
 .loopexit8.us:                                    ; preds = %.loopexit8.us.preheader, %.loopexit8.us.loopexit
-  %65 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 8193, ptr nonnull elementtype(i32) %81) #8, !srcloc !45
+  %65 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 8193, ptr nonnull elementtype(i32) %81) #8, !srcloc !47
   br label %22
 
 .split.us.us:                                     ; preds = %3, %76
@@ -893,7 +893,7 @@ select.unfold.us:                                 ; preds = %50
 76:                                               ; preds = %.split.us.us
   %77 = add nuw nsw i64 %66, 1
   %78 = icmp eq i64 %77, %6
-  br i1 %78, label %.loopexit8.us.preheader, label %.split.us.us, !llvm.loop !42
+  br i1 %78, label %.loopexit8.us.preheader, label %.split.us.us, !llvm.loop !48
 
 .loopexit8.us.preheader:                          ; preds = %76
   %79 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
@@ -905,7 +905,7 @@ select.unfold.us:                                 ; preds = %50
   %82 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %85 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 8193, ptr nonnull elementtype(i32) %84) #8, !srcloc !45
+  %85 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %84, i32 8193, ptr nonnull elementtype(i32) %84) #8, !srcloc !47
   br label %.thread4
 
 .thread4:                                         ; preds = %.split.us.us, %51, %select.unfold.us, %62, %48, %12, %.split13
@@ -976,7 +976,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %25 = add i32 %20, -1
   %26 = getelementptr i8, ptr %19, i64 152
   %27 = icmp eq i32 %25, 0
-  br i1 %27, label %.loopexit6.us, label %.preheader5.us, !llvm.loop !46
+  br i1 %27, label %.loopexit6.us, label %.preheader5.us, !llvm.loop !49
 
 .loopexit6.us:                                    ; preds = %24, %18
   tail call void @schedule() #8
@@ -1023,173 +1023,160 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %51 = load volatile i64, ptr %29, align 8
   %52 = and i64 %51, 4
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %.split.us, label %.critedge, !llvm.loop !47
+  br i1 %53, label %.split.us, label %.critedge, !llvm.loop !50
 
 .split:                                           ; preds = %7
   br i1 %9, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split
-  br i1 %5, label %.split.split.us.split.us, label %.split.split.us.split
-
-.split.split.us.split.us:                         ; preds = %.split.split.us, %62
+.split.split.us:                                  ; preds = %.split, %75
   %54 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread.us12.us, label %.split10.us
+  br i1 %55, label %56, label %.split10.us
 
-.thread.us12.us:                                  ; preds = %.split.split.us.split.us
+56:                                               ; preds = %.split.split.us
+  br i1 %5, label %.thread.us12, label %57
+
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %8, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %.thread.us12.thread, label %.thread.us12
+
+.thread.us12.thread:                              ; preds = %57
+  %60 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
+  %61 = inttoptr i64 %60 to ptr
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store volatile i32 0, ptr %62, align 8
+  br label %66
+
+.thread.us12:                                     ; preds = %56, %57
   tail call void @schedule() #8
-  %56 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
-  %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store volatile i32 0, ptr %58, align 8
-  %59 = load volatile i64, ptr %57, align 8
-  %60 = and i64 %59, 131072
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %.critedge, !prof !16
+  %63 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
+  %64 = inttoptr i64 %63 to ptr
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store volatile i32 0, ptr %65, align 8
+  br i1 %5, label %70, label %66
 
-62:                                               ; preds = %.thread.us12.us
-  %63 = load volatile i64, ptr %57, align 8
-  %64 = and i64 %63, 4
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.split.split.us.split.us, label %.critedge, !llvm.loop !47
+66:                                               ; preds = %.thread.us12.thread, %.thread.us12
+  %67 = phi ptr [ %61, %.thread.us12.thread ], [ %64, %.thread.us12 ]
+  %68 = load ptr, ptr %8, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.critedge, label %70
 
-.split.split.us.split:                            ; preds = %.split.split.us, %81
-  %66 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.split10.us
+70:                                               ; preds = %66, %.thread.us12
+  %71 = phi ptr [ %67, %66 ], [ %64, %.thread.us12 ]
+  %72 = load volatile i64, ptr %71, align 8
+  %73 = and i64 %72, 131072
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %.critedge, !prof !16
 
-68:                                               ; preds = %.split.split.us.split
-  %69 = load ptr, ptr %8, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread.us12, label %71
-
-71:                                               ; preds = %68
-  tail call void @schedule() #8
-  br label %.thread.us12
-
-.thread.us12:                                     ; preds = %71, %68
-  %72 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store volatile i32 0, ptr %74, align 8
-  %75 = load ptr, ptr %8, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %.critedge, label %77
-
-77:                                               ; preds = %.thread.us12
-  %78 = load volatile i64, ptr %73, align 8
-  %79 = and i64 %78, 131072
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %.critedge, !prof !16
-
-81:                                               ; preds = %77
-  %82 = load volatile i64, ptr %73, align 8
-  %83 = and i64 %82, 4
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.split.split.us.split, label %.critedge, !llvm.loop !47
+75:                                               ; preds = %70
+  %76 = load volatile i64, ptr %71, align 8
+  %77 = and i64 %76, 4
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %.split.split.us, label %.critedge, !llvm.loop !51
 
 .split.split:                                     ; preds = %.split
   br i1 %5, label %.split.split.split.us, label %.split.split.split
 
-.split.split.split.us:                            ; preds = %.split.split, %102
-  %85 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.preheader5.us17, label %.split10.us
+.split.split.split.us:                            ; preds = %.split.split, %96
+  %79 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %.preheader5.us17, label %.split10.us
 
-.preheader5.us17:                                 ; preds = %.split.split.split.us, %92
-  %87 = phi ptr [ %94, %92 ], [ %0, %.split.split.split.us ]
-  %88 = phi i32 [ %93, %92 ], [ %1, %.split.split.split.us ]
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 72
-  %90 = load volatile ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread.us18, label %92
+.preheader5.us17:                                 ; preds = %.split.split.split.us, %86
+  %81 = phi ptr [ %88, %86 ], [ %0, %.split.split.split.us ]
+  %82 = phi i32 [ %87, %86 ], [ %1, %.split.split.split.us ]
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 72
+  %84 = load volatile ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.thread.us18, label %86
 
-92:                                               ; preds = %.preheader5.us17
-  %93 = add i32 %88, -1
-  %94 = getelementptr i8, ptr %87, i64 152
-  %95 = icmp eq i32 %93, 0
-  br i1 %95, label %.loopexit6.us20, label %.preheader5.us17, !llvm.loop !46
+86:                                               ; preds = %.preheader5.us17
+  %87 = add i32 %82, -1
+  %88 = getelementptr i8, ptr %81, i64 152
+  %89 = icmp eq i32 %87, 0
+  br i1 %89, label %.loopexit6.us20, label %.preheader5.us17, !llvm.loop !49
 
 .thread.us18:                                     ; preds = %.preheader5.us17, %.loopexit6.us20
-  %96 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
-  %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store volatile i32 0, ptr %98, align 8
-  %99 = load volatile i64, ptr %97, align 8
-  %100 = and i64 %99, 131072
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %.critedge, !prof !16
+  %90 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
+  %91 = inttoptr i64 %90 to ptr
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  store volatile i32 0, ptr %92, align 8
+  %93 = load volatile i64, ptr %91, align 8
+  %94 = and i64 %93, 131072
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %96, label %.critedge, !prof !16
 
-102:                                              ; preds = %.thread.us18
-  %103 = load volatile i64, ptr %97, align 8
-  %104 = and i64 %103, 4
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %.split.split.split.us, label %.critedge, !llvm.loop !47
+96:                                               ; preds = %.thread.us18
+  %97 = load volatile i64, ptr %91, align 8
+  %98 = and i64 %97, 4
+  %99 = icmp eq i64 %98, 0
+  br i1 %99, label %.split.split.split.us, label %.critedge, !llvm.loop !52
 
-.loopexit6.us20:                                  ; preds = %92
+.loopexit6.us20:                                  ; preds = %86
   tail call void @schedule() #8
   br label %.thread.us18
 
-.split.split.split:                               ; preds = %.split.split, %132
-  %106 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %111, label %.split10.us
+.split.split.split:                               ; preds = %.split.split, %126
+  %100 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %105, label %.split10.us
 
-.split10.us:                                      ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us.split, %.split.split.us.split.us, %.split.us
-  %.us-phi = phi i32 [ %12, %.split.us ], [ %54, %.split.split.us.split.us ], [ %66, %.split.split.us.split ], [ %85, %.split.split.split.us ], [ %106, %.split.split.split ]
-  %108 = icmp sgt i32 %.us-phi, 0
-  %109 = load i32, ptr %4, align 4
-  %110 = select i1 %108, i32 %109, i32 %.us-phi
+.split10.us:                                      ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us, %.split.us
+  %.us-phi = phi i32 [ %12, %.split.us ], [ %54, %.split.split.us ], [ %79, %.split.split.split.us ], [ %100, %.split.split.split ]
+  %102 = icmp sgt i32 %.us-phi, 0
+  %103 = load i32, ptr %4, align 4
+  %104 = select i1 %102, i32 %103, i32 %.us-phi
   br label %.critedge
 
-111:                                              ; preds = %.split.split.split
-  %112 = load ptr, ptr %8, align 8
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %.thread, label %.preheader5
+105:                                              ; preds = %.split.split.split
+  %106 = load ptr, ptr %8, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.thread, label %.preheader5
 
-.preheader5:                                      ; preds = %111, %119
-  %114 = phi ptr [ %121, %119 ], [ %0, %111 ]
-  %115 = phi i32 [ %120, %119 ], [ %1, %111 ]
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 72
-  %117 = load volatile ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %.thread, label %119
+.preheader5:                                      ; preds = %105, %113
+  %108 = phi ptr [ %115, %113 ], [ %0, %105 ]
+  %109 = phi i32 [ %114, %113 ], [ %1, %105 ]
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %111 = load volatile ptr, ptr %110, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %.thread, label %113
 
-119:                                              ; preds = %.preheader5
-  %120 = add i32 %115, -1
-  %121 = getelementptr i8, ptr %114, i64 152
-  %122 = icmp eq i32 %120, 0
-  br i1 %122, label %.loopexit6, label %.preheader5, !llvm.loop !46
+113:                                              ; preds = %.preheader5
+  %114 = add i32 %109, -1
+  %115 = getelementptr i8, ptr %108, i64 152
+  %116 = icmp eq i32 %114, 0
+  br i1 %116, label %.loopexit6, label %.preheader5, !llvm.loop !49
 
-.loopexit6:                                       ; preds = %119
+.loopexit6:                                       ; preds = %113
   tail call void @schedule() #8
   br label %.thread
 
-.thread:                                          ; preds = %.preheader5, %.loopexit6, %111
-  %123 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  store volatile i32 0, ptr %125, align 8
-  %126 = load ptr, ptr %8, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %.critedge, label %128
+.thread:                                          ; preds = %.preheader5, %.loopexit6, %105
+  %117 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
+  %118 = inttoptr i64 %117 to ptr
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store volatile i32 0, ptr %119, align 8
+  %120 = load ptr, ptr %8, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %.critedge, label %122
 
-128:                                              ; preds = %.thread
-  %129 = load volatile i64, ptr %124, align 8
-  %130 = and i64 %129, 131072
-  %131 = icmp eq i64 %130, 0
-  br i1 %131, label %132, label %.critedge, !prof !16
+122:                                              ; preds = %.thread
+  %123 = load volatile i64, ptr %118, align 8
+  %124 = and i64 %123, 131072
+  %125 = icmp eq i64 %124, 0
+  br i1 %125, label %126, label %.critedge, !prof !16
 
-132:                                              ; preds = %128
-  %133 = load volatile i64, ptr %124, align 8
-  %134 = and i64 %133, 4
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.split.split.split, label %.critedge, !llvm.loop !47
+126:                                              ; preds = %122
+  %127 = load volatile i64, ptr %118, align 8
+  %128 = and i64 %127, 4
+  %129 = icmp eq i64 %128, 0
+  br i1 %129, label %.split.split.split, label %.critedge, !llvm.loop !53
 
-.critedge:                                        ; preds = %.thread, %132, %128, %102, %.thread.us18, %81, %77, %.thread.us12, %62, %.thread.us12.us, %50, %46, %43, %41, %.split10.us
-  %136 = phi i32 [ %110, %.split10.us ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ %38, %41 ], [ -512, %.thread.us12.us ], [ -512, %62 ], [ -512, %77 ], [ -512, %81 ], [ -110, %.thread.us12 ], [ -512, %.thread.us18 ], [ -512, %102 ], [ -512, %128 ], [ -512, %132 ], [ -110, %.thread ]
+.critedge:                                        ; preds = %.thread, %126, %122, %96, %.thread.us18, %66, %70, %75, %50, %46, %43, %41, %.split10.us
+  %130 = phi i32 [ %104, %.split10.us ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ %38, %41 ], [ -512, %70 ], [ -512, %75 ], [ -110, %66 ], [ -512, %.thread.us18 ], [ -512, %96 ], [ -512, %122 ], [ -512, %126 ], [ -110, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  ret i32 %136
+  ret i32 %130
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1218,7 +1205,7 @@ define dso_local i32 @futex_wait_setup(ptr noundef %0, i32 noundef %1, i32 nound
   %16 = load ptr, ptr %4, align 8
   call void @futex_q_unlock(ptr noundef %16) #8
   %17 = call i64 @llvm.read_register.i64(metadata !0)
-  %18 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %17) #8, !srcloc !48
+  %18 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %17) #8, !srcloc !54
   %19 = extractvalue { ptr, i32, i64 } %18, 0
   %20 = extractvalue { ptr, i32, i64 } %18, 1
   %21 = extractvalue { ptr, i32, i64 } %18, 2
@@ -1234,13 +1221,13 @@ define dso_local i32 @futex_wait_setup(ptr noundef %0, i32 noundef %1, i32 nound
   store ptr %26, ptr %4, align 8
   %27 = call i32 @futex_get_value_locked(ptr noundef nonnull %6, ptr noundef %0) #8
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %28, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %41
   %29 = load ptr, ptr %4, align 8
   call void @futex_q_unlock(ptr noundef %29) #8
   %30 = call i64 @llvm.read_register.i64(metadata !0)
-  %31 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %30) #8, !srcloc !48
+  %31 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %30) #8, !srcloc !54
   %32 = extractvalue { ptr, i32, i64 } %31, 0
   %33 = extractvalue { ptr, i32, i64 } %31, 1
   %34 = extractvalue { ptr, i32, i64 } %31, 2
@@ -1336,7 +1323,7 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
   %34 = load volatile i64, ptr %19, align 8
   %35 = and i64 %34, 4
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.split.us, label %.critedge
+  br i1 %36, label %.split.us, label %.critedge, !llvm.loop !56
 
 .split:                                           ; preds = %9, %61
   %37 = call i32 @futex_wait_setup(ptr noundef %0, i32 noundef %2, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -1615,8 +1602,16 @@ attributes #10 = { cold nounwind }
 !41 = distinct !{!41, !21, !22}
 !42 = distinct !{!42, !21, !22}
 !43 = !{i64 2153617260}
-!44 = distinct !{!44, !21, !22}
-!45 = !{i64 2153614364}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !46 = distinct !{!46, !21, !22}
-!47 = distinct !{!47, !22}
-!48 = !{i64 2153624665}
+!47 = !{i64 2153614364}
+!48 = distinct !{!48, !21, !22, !45}
+!49 = distinct !{!49, !21, !22}
+!50 = distinct !{!50, !22, !45}
+!51 = distinct !{!51, !22, !45}
+!52 = distinct !{!52, !22, !45}
+!53 = distinct !{!53, !22}
+!54 = !{i64 2153624665}
+!55 = distinct !{!55, !45}
+!56 = distinct !{!56, !45}

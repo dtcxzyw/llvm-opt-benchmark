@@ -201,13 +201,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %38, ptr noundef nonnull @.str.35, ptr noundef %81, i32 noundef %.08997.i) #9
   %83 = add nuw nsw i32 %.08997.i, 1
   %exitcond110.not.i = icmp eq i32 %83, %66
-  br i1 %exitcond110.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %exitcond110.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %80, %65
   %84 = call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr nonnull %38)
   %85 = add nuw nsw i32 %.298.i, 1
   %exitcond111.not.i = icmp eq i32 %85, 6
-  br i1 %exitcond111.not.i, label %86, label %65, !llvm.loop !21
+  br i1 %exitcond111.not.i, label %86, label %65, !llvm.loop !23
 
 86:                                               ; preds = %._crit_edge.i
   %87 = call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr nonnull %38)
@@ -260,7 +260,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %fputc.us.i = call i32 @fputc(i32 10, ptr nonnull %38)
   %110 = add nuw nsw i32 %.190100.us.i, 1
   %exitcond113.not.i = icmp eq i32 %110, %90
-  br i1 %exitcond113.not.i, label %._crit_edge103.i, label %.lr.ph102.split.us.i, !llvm.loop !22
+  br i1 %exitcond113.not.i, label %._crit_edge103.i, label %.lr.ph102.split.us.i, !llvm.loop !24
 
 .lr.ph102.split.i:                                ; preds = %.lr.ph102.i, %.lr.ph102.split.i
   %.190100.i = phi i32 [ %114, %.lr.ph102.split.i ], [ 0, %.lr.ph102.i ]
@@ -270,13 +270,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %fputc.i = call i32 @fputc(i32 10, ptr nonnull %38)
   %114 = add nuw nsw i32 %.190100.i, 1
   %exitcond112.not.i = icmp eq i32 %114, %90
-  br i1 %exitcond112.not.i, label %._crit_edge103.i, label %.lr.ph102.split.i, !llvm.loop !22
+  br i1 %exitcond112.not.i, label %._crit_edge103.i, label %.lr.ph102.split.i, !llvm.loop !25
 
 ._crit_edge103.i:                                 ; preds = %.lr.ph102.split.i, %109, %89
   %115 = call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr nonnull %38)
   %116 = add nuw nsw i32 %.3104.i, 1
   %exitcond114.not.i = icmp eq i32 %116, 6
-  br i1 %exitcond114.not.i, label %117, label %89, !llvm.loop !23
+  br i1 %exitcond114.not.i, label %117, label %89, !llvm.loop !26
 
 117:                                              ; preds = %._crit_edge103.i
   %118 = call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr nonnull %38)
@@ -445,7 +445,10 @@ attributes #12 = { cold noreturn nounwind }
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
+!20 = distinct !{!20, !18, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !18}
 !23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18, !21}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}

@@ -2517,59 +2517,59 @@ malloc_mutex_prof_merge.exit201.i:                ; preds = %595, %579
   %763 = add i64 %762, %760
   store i64 %763, ptr %761, align 8, !tbaa !111
   %764 = getelementptr inbounds nuw i8, ptr %732, i64 48
-  %765 = load i64, ptr %764, align 8, !tbaa !126
+  %765 = load i64, ptr %764, align 8, !tbaa !127
   %766 = getelementptr inbounds nuw i8, ptr %733, i64 48
-  %767 = load i64, ptr %766, align 8, !tbaa !126
+  %767 = load i64, ptr %766, align 8, !tbaa !127
   %768 = add i64 %767, %765
-  store i64 %768, ptr %766, align 8, !tbaa !126
+  store i64 %768, ptr %766, align 8, !tbaa !127
   %769 = getelementptr inbounds nuw i8, ptr %732, i64 56
-  %770 = load i64, ptr %769, align 8, !tbaa !127
+  %770 = load i64, ptr %769, align 8, !tbaa !128
   %771 = getelementptr inbounds nuw i8, ptr %733, i64 56
-  %772 = load i64, ptr %771, align 8, !tbaa !127
+  %772 = load i64, ptr %771, align 8, !tbaa !128
   %773 = add i64 %772, %770
-  store i64 %773, ptr %771, align 8, !tbaa !127
+  store i64 %773, ptr %771, align 8, !tbaa !128
   br i1 %4, label %785, label %774
 
 774:                                              ; preds = %753
   %775 = getelementptr inbounds nuw i8, ptr %732, i64 64
-  %776 = load i64, ptr %775, align 8, !tbaa !128
+  %776 = load i64, ptr %775, align 8, !tbaa !129
   %777 = getelementptr inbounds nuw i8, ptr %733, i64 64
-  %778 = load i64, ptr %777, align 8, !tbaa !128
+  %778 = load i64, ptr %777, align 8, !tbaa !129
   %779 = add i64 %778, %776
-  store i64 %779, ptr %777, align 8, !tbaa !128
+  store i64 %779, ptr %777, align 8, !tbaa !129
   %780 = getelementptr inbounds nuw i8, ptr %732, i64 72
-  %781 = load i64, ptr %780, align 8, !tbaa !129
+  %781 = load i64, ptr %780, align 8, !tbaa !130
   %782 = getelementptr inbounds nuw i8, ptr %733, i64 72
-  %783 = load i64, ptr %782, align 8, !tbaa !129
+  %783 = load i64, ptr %782, align 8, !tbaa !130
   %784 = add i64 %783, %781
-  store i64 %784, ptr %782, align 8, !tbaa !129
+  store i64 %784, ptr %782, align 8, !tbaa !130
   br label %785
 
 785:                                              ; preds = %774, %753
   %786 = getelementptr inbounds nuw i8, ptr %732, i64 80
-  %787 = load i64, ptr %786, align 8, !tbaa !130
+  %787 = load i64, ptr %786, align 8, !tbaa !131
   %788 = getelementptr inbounds nuw i8, ptr %733, i64 80
-  %789 = load i64, ptr %788, align 8, !tbaa !130
+  %789 = load i64, ptr %788, align 8, !tbaa !131
   %790 = add i64 %789, %787
-  store i64 %790, ptr %788, align 8, !tbaa !130
+  store i64 %790, ptr %788, align 8, !tbaa !131
   %791 = getelementptr inbounds nuw i8, ptr %732, i64 88
-  %792 = load i64, ptr %791, align 8, !tbaa !131
+  %792 = load i64, ptr %791, align 8, !tbaa !132
   %793 = getelementptr inbounds nuw i8, ptr %733, i64 88
-  %794 = load i64, ptr %793, align 8, !tbaa !131
+  %794 = load i64, ptr %793, align 8, !tbaa !132
   %795 = add i64 %794, %792
-  store i64 %795, ptr %793, align 8, !tbaa !131
+  store i64 %795, ptr %793, align 8, !tbaa !132
   %796 = getelementptr inbounds nuw i8, ptr %732, i64 96
-  %797 = load i64, ptr %796, align 8, !tbaa !132
+  %797 = load i64, ptr %796, align 8, !tbaa !133
   %798 = getelementptr inbounds nuw i8, ptr %733, i64 96
-  %799 = load i64, ptr %798, align 8, !tbaa !132
+  %799 = load i64, ptr %798, align 8, !tbaa !133
   %800 = add i64 %799, %797
-  store i64 %800, ptr %798, align 8, !tbaa !132
+  store i64 %800, ptr %798, align 8, !tbaa !133
   %801 = getelementptr inbounds nuw i8, ptr %732, i64 104
-  %802 = load i64, ptr %801, align 8, !tbaa !133
+  %802 = load i64, ptr %801, align 8, !tbaa !134
   %803 = getelementptr inbounds nuw i8, ptr %733, i64 104
-  %804 = load i64, ptr %803, align 8, !tbaa !133
+  %804 = load i64, ptr %803, align 8, !tbaa !134
   %805 = add i64 %804, %802
-  store i64 %805, ptr %803, align 8, !tbaa !133
+  store i64 %805, ptr %803, align 8, !tbaa !134
   %806 = getelementptr inbounds nuw i8, ptr %733, i64 112
   %807 = getelementptr inbounds nuw i8, ptr %732, i64 112
   tail call void @je_nstime_add(ptr noundef nonnull %806, ptr noundef nonnull %807) #15
@@ -2628,7 +2628,7 @@ malloc_mutex_prof_merge.exit202.i:                ; preds = %829, %813
   store i64 %844, ptr %842, align 8, !tbaa !17
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 36
-  br i1 %exitcond.not.i9, label %.preheader203.i, label %731, !llvm.loop !134
+  br i1 %exitcond.not.i9, label %.preheader203.i, label %731, !llvm.loop !135
 
 .preheader.i:                                     ; preds = %.preheader203.split.i, %.preheader203.split.us.i
   %845 = getelementptr inbounds nuw i8, ptr %39, i64 26176
@@ -2656,56 +2656,56 @@ malloc_mutex_prof_merge.exit202.i:                ; preds = %829, %813
   %861 = add i64 %860, %859
   store atomic i64 %861, ptr %857 monotonic, align 8
   %862 = getelementptr inbounds nuw i8, ptr %848, i64 40
-  %863 = load i64, ptr %862, align 8, !tbaa !135
+  %863 = load i64, ptr %862, align 8, !tbaa !136
   %864 = getelementptr inbounds nuw i8, ptr %847, i64 40
-  %865 = load i64, ptr %864, align 8, !tbaa !135
+  %865 = load i64, ptr %864, align 8, !tbaa !136
   %866 = add i64 %865, %863
-  store i64 %866, ptr %864, align 8, !tbaa !135
+  store i64 %866, ptr %864, align 8, !tbaa !136
   %indvars.iv.next210.i = add nuw nsw i64 %indvars.iv209.i, 1
   %exitcond212.not.i = icmp eq i64 %indvars.iv.next210.i, 196
-  br i1 %exitcond212.not.i, label %.preheader.i, label %.preheader203.split.i, !llvm.loop !125
+  br i1 %exitcond212.not.i, label %.preheader.i, label %.preheader203.split.i, !llvm.loop !138
 
 867:                                              ; preds = %867, %.preheader.i
   %indvars.iv217.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next218.i, %867 ]
   %868 = getelementptr inbounds nuw [199 x %struct.pac_estats_s], ptr %845, i64 0, i64 %indvars.iv217.i
-  %869 = load i64, ptr %868, align 8, !tbaa !137
+  %869 = load i64, ptr %868, align 8, !tbaa !139
   %870 = getelementptr inbounds nuw [199 x %struct.pac_estats_s], ptr %846, i64 0, i64 %indvars.iv217.i
-  %871 = load i64, ptr %870, align 8, !tbaa !137
+  %871 = load i64, ptr %870, align 8, !tbaa !139
   %872 = add i64 %871, %869
-  store i64 %872, ptr %870, align 8, !tbaa !137
+  store i64 %872, ptr %870, align 8, !tbaa !139
   %873 = getelementptr inbounds nuw i8, ptr %868, i64 16
-  %874 = load i64, ptr %873, align 8, !tbaa !139
+  %874 = load i64, ptr %873, align 8, !tbaa !141
   %875 = getelementptr inbounds nuw i8, ptr %870, i64 16
-  %876 = load i64, ptr %875, align 8, !tbaa !139
+  %876 = load i64, ptr %875, align 8, !tbaa !141
   %877 = add i64 %876, %874
-  store i64 %877, ptr %875, align 8, !tbaa !139
+  store i64 %877, ptr %875, align 8, !tbaa !141
   %878 = getelementptr inbounds nuw i8, ptr %868, i64 32
-  %879 = load i64, ptr %878, align 8, !tbaa !140
+  %879 = load i64, ptr %878, align 8, !tbaa !142
   %880 = getelementptr inbounds nuw i8, ptr %870, i64 32
-  %881 = load i64, ptr %880, align 8, !tbaa !140
+  %881 = load i64, ptr %880, align 8, !tbaa !142
   %882 = add i64 %881, %879
-  store i64 %882, ptr %880, align 8, !tbaa !140
+  store i64 %882, ptr %880, align 8, !tbaa !142
   %883 = getelementptr inbounds nuw i8, ptr %868, i64 8
-  %884 = load i64, ptr %883, align 8, !tbaa !141
+  %884 = load i64, ptr %883, align 8, !tbaa !143
   %885 = getelementptr inbounds nuw i8, ptr %870, i64 8
-  %886 = load i64, ptr %885, align 8, !tbaa !141
+  %886 = load i64, ptr %885, align 8, !tbaa !143
   %887 = add i64 %886, %884
-  store i64 %887, ptr %885, align 8, !tbaa !141
+  store i64 %887, ptr %885, align 8, !tbaa !143
   %888 = getelementptr inbounds nuw i8, ptr %868, i64 24
-  %889 = load i64, ptr %888, align 8, !tbaa !142
+  %889 = load i64, ptr %888, align 8, !tbaa !144
   %890 = getelementptr inbounds nuw i8, ptr %870, i64 24
-  %891 = load i64, ptr %890, align 8, !tbaa !142
+  %891 = load i64, ptr %890, align 8, !tbaa !144
   %892 = add i64 %891, %889
-  store i64 %892, ptr %890, align 8, !tbaa !142
+  store i64 %892, ptr %890, align 8, !tbaa !144
   %893 = getelementptr inbounds nuw i8, ptr %868, i64 40
-  %894 = load i64, ptr %893, align 8, !tbaa !143
+  %894 = load i64, ptr %893, align 8, !tbaa !145
   %895 = getelementptr inbounds nuw i8, ptr %870, i64 40
-  %896 = load i64, ptr %895, align 8, !tbaa !143
+  %896 = load i64, ptr %895, align 8, !tbaa !145
   %897 = add i64 %896, %894
-  store i64 %897, ptr %895, align 8, !tbaa !143
+  store i64 %897, ptr %895, align 8, !tbaa !145
   %indvars.iv.next218.i = add nuw nsw i64 %indvars.iv217.i, 1
   %exitcond220.not.i = icmp eq i64 %indvars.iv.next218.i, 199
-  br i1 %exitcond220.not.i, label %ctl_arena_stats_sdmerge.exit, label %867, !llvm.loop !144
+  br i1 %exitcond220.not.i, label %ctl_arena_stats_sdmerge.exit, label %867, !llvm.loop !146
 
 ctl_arena_stats_sdmerge.exit:                     ; preds = %867
   %898 = getelementptr inbounds nuw i8, ptr %112, i64 35728
@@ -2713,10 +2713,10 @@ ctl_arena_stats_sdmerge.exit:                     ; preds = %867
   tail call void @je_hpa_shard_stats_accum(ptr noundef nonnull %898, ptr noundef nonnull %899) #15
   %900 = getelementptr inbounds nuw i8, ptr %112, i64 39008
   %901 = getelementptr inbounds nuw i8, ptr %39, i64 39008
-  %.val.i = load i64, ptr %901, align 8, !tbaa !145
-  %902 = load i64, ptr %900, align 8, !tbaa !145
+  %.val.i = load i64, ptr %901, align 8, !tbaa !147
+  %902 = load i64, ptr %900, align 8, !tbaa !147
   %903 = add i64 %902, %.val.i
-  store i64 %903, ptr %900, align 8, !tbaa !145
+  store i64 %903, ptr %900, align 8, !tbaa !147
   ret void
 }
 
@@ -2935,7 +2935,7 @@ malloc_mutex_lock.exit62:                         ; preds = %20, %24
 28:                                               ; preds = %malloc_mutex_lock.exit62
   %29 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %30 = and i8 %29, 1
-  store i8 %30, ptr %8, align 1, !tbaa !146
+  store i8 %30, ptr %8, align 1, !tbaa !148
   %31 = icmp ne ptr %3, null
   %32 = icmp ne ptr %4, null
   %or.cond = and i1 %31, %32
@@ -2958,7 +2958,7 @@ malloc_mutex_lock.exit62:                         ; preds = %20, %24
   br label %60
 
 38:                                               ; preds = %33
-  store i8 %30, ptr %3, align 1, !tbaa !146
+  store i8 %30, ptr %3, align 1, !tbaa !148
   br label %60
 
 39:                                               ; preds = %malloc_mutex_lock.exit62
@@ -2968,7 +2968,7 @@ malloc_mutex_lock.exit62:                         ; preds = %20, %24
 40:                                               ; preds = %39
   %41 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %42 = and i8 %41, 1
-  store i8 %42, ptr %8, align 1, !tbaa !146
+  store i8 %42, ptr %8, align 1, !tbaa !148
   %43 = icmp ne ptr %3, null
   %44 = icmp ne ptr %4, null
   %or.cond4 = and i1 %43, %44
@@ -2991,11 +2991,11 @@ malloc_mutex_lock.exit62:                         ; preds = %20, %24
   br label %60
 
 50:                                               ; preds = %45
-  store i8 %42, ptr %3, align 1, !tbaa !146
+  store i8 %42, ptr %3, align 1, !tbaa !148
   br label %51
 
 51:                                               ; preds = %50, %40
-  %52 = load i8, ptr %5, align 1, !tbaa !146, !range !48, !noundef !49
+  %52 = load i8, ptr %5, align 1, !tbaa !148, !range !48, !noundef !49
   %53 = icmp eq i8 %52, %42
   br i1 %53, label %.thread, label %54
 
@@ -3198,7 +3198,7 @@ define internal range(i32 0, 23) i32 @thread_arena_ctl(ptr noundef %0, ptr readn
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %9, i64 79016
-  %.val = load i32, ptr %12, align 8, !tbaa !147
+  %.val = load i32, ptr %12, align 8, !tbaa !149
   store i32 %.val, ptr %8, align 4, !tbaa !96
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %16, label %13
@@ -3278,7 +3278,7 @@ arena_get.exit:                                   ; preds = %35, %40
 
 43:                                               ; preds = %arena_get.exit
   tail call void @je_arena_migrate(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %.0.i51) #15
-  %44 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %44 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %.thread
 
@@ -3344,7 +3344,7 @@ define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr 
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store ptr %12, ptr %8, align 8, !tbaa !188
+  store ptr %12, ptr %8, align 8, !tbaa !190
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -3362,7 +3362,7 @@ define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr 
   br label %19
 
 18:                                               ; preds = %15
-  store ptr %12, ptr %3, align 8, !tbaa !188
+  store ptr %12, ptr %3, align 8, !tbaa !190
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
@@ -3421,7 +3421,7 @@ define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, pt
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  store ptr %12, ptr %8, align 8, !tbaa !188
+  store ptr %12, ptr %8, align 8, !tbaa !190
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -3439,7 +3439,7 @@ define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, pt
   br label %19
 
 18:                                               ; preds = %15
-  store ptr %12, ptr %3, align 8, !tbaa !188
+  store ptr %12, ptr %3, align 8, !tbaa !190
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
@@ -3460,7 +3460,7 @@ define internal range(i32 0, 2) i32 @thread_idle_ctl(ptr noundef %0, ptr readnon
   br i1 %or.cond5, label %24, label %12
 
 12:                                               ; preds = %7
-  %13 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %13 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -3514,7 +3514,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0) unnamed_addr #11 {
 
 14:                                               ; preds = %10
   %15 = tail call ptr @je_arena_choose_hard(ptr noundef nonnull %0, i1 noundef zeroext false) #15
-  %16 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %16 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %26
 
@@ -3522,7 +3522,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0) unnamed_addr #11 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %22 = load ptr, ptr %21, align 8, !tbaa !190
+  %22 = load ptr, ptr %21, align 8, !tbaa !192
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %25, label %23
 
@@ -3546,7 +3546,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0) unnamed_addr #11 {
 
 percpu_arena_ind_limit.exit.i:                    ; preds = %26
   %29 = getelementptr i8, ptr %.037.i, i64 79016
-  %.037.val47.i = load i32, ptr %29, align 8, !tbaa !147
+  %.037.val47.i = load i32, ptr %29, align 8, !tbaa !149
   %30 = icmp eq i32 %27, 4
   %31 = load i32, ptr @je_ncpus, align 4
   %32 = icmp ugt i32 %31, 1
@@ -3560,7 +3560,7 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %26
 
 36:                                               ; preds = %percpu_arena_ind_limit.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
-  %38 = load ptr, ptr %37, align 16, !tbaa !197
+  %38 = load ptr, ptr %37, align 16, !tbaa !199
   %.not44.i = icmp eq ptr %38, %0
   br i1 %.not44.i, label %arena_choose_impl.exit, label %39
 
@@ -3580,14 +3580,14 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %26
 
 percpu_arena_choose.exit.i:                       ; preds = %43, %39
   %.0.i46.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %43 ]
-  %.037.val.i = load i32, ptr %29, align 8, !tbaa !147
+  %.037.val.i = load i32, ptr %29, align 8, !tbaa !149
   %.not45.i = icmp eq i32 %.037.val.i, %.0.i46.i
   br i1 %.not45.i, label %64, label %48
 
 48:                                               ; preds = %percpu_arena_choose.exit.i
   %49 = load ptr, ptr %11, align 8, !tbaa !60
   %50 = getelementptr i8, ptr %49, i64 79016
-  %.val.i.i = load i32, ptr %50, align 8, !tbaa !147
+  %.val.i.i = load i32, ptr %50, align 8, !tbaa !149
   %.not.i49.i = icmp eq i32 %.val.i.i, %.0.i46.i
   br i1 %.not.i49.i, label %percpu_arena_update.exit.i, label %51
 
@@ -3606,7 +3606,7 @@ percpu_arena_choose.exit.i:                       ; preds = %43, %39
 arena_get.exit.i.i:                               ; preds = %56, %51
   %.0.i18.i.i = phi ptr [ %57, %56 ], [ %.0.i.i.i.i, %51 ]
   tail call void @je_arena_migrate(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef %.0.i18.i.i) #15
-  %58 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %58 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %percpu_arena_update.exit.i
 
@@ -3623,7 +3623,7 @@ percpu_arena_update.exit.i:                       ; preds = %60, %arena_get.exit
 64:                                               ; preds = %percpu_arena_update.exit.i, %percpu_arena_choose.exit.i
   %.2.i = phi ptr [ %63, %percpu_arena_update.exit.i ], [ %.037.i, %percpu_arena_choose.exit.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  store ptr %0, ptr %65, align 16, !tbaa !197
+  store ptr %0, ptr %65, align 16, !tbaa !199
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %5, %8, %26, %percpu_arena_ind_limit.exit.i, %36, %64
@@ -3646,8 +3646,8 @@ declare i32 @sched_getcpu() local_unnamed_addr #4
 define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %.val = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %.val, ptr %8, align 1, !tbaa !146
+  %.val = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %.val, ptr %8, align 1, !tbaa !148
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %9
 
@@ -3656,7 +3656,7 @@ define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %0, 
   br i1 %.not24, label %10, label %22
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr %5, align 1, !tbaa !146, !range !48, !noundef !49
+  %11 = load i8, ptr %5, align 1, !tbaa !148, !range !48, !noundef !49
   %12 = trunc nuw i8 %11 to i1
   tail call void @je_tcache_enabled_set(ptr noundef nonnull %0, i1 noundef zeroext %12) #15
   br label %13
@@ -3684,7 +3684,7 @@ define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %0, 
   br label %22
 
 21:                                               ; preds = %16
-  store i8 %.val, ptr %3, align 1, !tbaa !146
+  store i8 %.val, ptr %3, align 1, !tbaa !148
   br label %22
 
 22:                                               ; preds = %19, %9, %21, %13
@@ -3698,9 +3698,9 @@ define internal range(i32 0, 23) i32 @thread_tcache_max_ctl(ptr noundef %0, ptr 
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %10 = load ptr, ptr %9, align 8, !tbaa !198
+  %10 = load ptr, ptr %9, align 8, !tbaa !200
   %11 = getelementptr i8, ptr %10, i64 48
-  %.val = load i32, ptr %11, align 8, !tbaa !200
+  %.val = load i32, ptr %11, align 8, !tbaa !202
   %12 = add i32 %.val, -1
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %13
@@ -3778,7 +3778,7 @@ sz_s2u.exit:                                      ; preds = %27, %35
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 15) i32 @thread_tcache_flush_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef readnone captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
-  %8 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %8 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %16
 
@@ -3821,12 +3821,12 @@ define internal range(i32 0, 23) i32 @thread_tcache_ncached_max_read_sizeclass_c
 
 11:                                               ; preds = %7
   %12 = load i64, ptr %5, align 8, !tbaa !4
-  store i16 0, ptr %8, align 2, !tbaa !201
+  store i16 0, ptr %8, align 2, !tbaa !203
   %13 = call zeroext i1 @je_tcache_bin_ncached_max_read(ptr noundef %0, i64 noundef %12, ptr noundef nonnull %8) #15
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %11
-  %15 = load i16, ptr %8, align 2, !tbaa !201
+  %15 = load i16, ptr %8, align 2, !tbaa !203
   %16 = zext i16 %15 to i64
   store i64 %16, ptr %9, align 8, !tbaa !4
   %17 = icmp ne ptr %3, null
@@ -3866,7 +3866,7 @@ define internal range(i32 0, 23) i32 @thread_tcache_ncached_max_write_ctl(ptr no
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = load i8, ptr %0, align 1, !tbaa !146, !range !48, !noundef !49
+  %12 = load i8, ptr %0, align 1, !tbaa !148, !range !48, !noundef !49
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %.thread
 
@@ -3993,7 +3993,7 @@ define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone ca
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 1, ptr %8, align 1, !tbaa !146
+  store i8 1, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4016,7 +4016,7 @@ define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone ca
   br label %20
 
 19:                                               ; preds = %14
-  store i8 1, ptr %3, align 1, !tbaa !146
+  store i8 1, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4035,7 +4035,7 @@ define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(non
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4058,7 +4058,7 @@ define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(non
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4077,7 +4077,7 @@ define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 1, ptr %8, align 1, !tbaa !146
+  store i8 1, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4100,7 +4100,7 @@ define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none
   br label %20
 
 19:                                               ; preds = %14
-  store i8 1, ptr %3, align 1, !tbaa !146
+  store i8 1, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4119,7 +4119,7 @@ define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4142,7 +4142,7 @@ define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4198,7 +4198,7 @@ define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone 
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4221,7 +4221,7 @@ define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone 
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4240,7 +4240,7 @@ define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4263,7 +4263,7 @@ define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4282,7 +4282,7 @@ define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captur
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4305,7 +4305,7 @@ define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captur
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4324,7 +4324,7 @@ define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone cap
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4347,7 +4347,7 @@ define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone cap
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4366,7 +4366,7 @@ define internal range(i32 0, 23) i32 @config_prof_frameptr_ctl(ptr readnone capt
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4389,7 +4389,7 @@ define internal range(i32 0, 23) i32 @config_prof_frameptr_ctl(ptr readnone capt
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4408,7 +4408,7 @@ define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(non
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 1, ptr %8, align 1, !tbaa !146
+  store i8 1, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4431,7 +4431,7 @@ define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(non
   br label %20
 
 19:                                               ; preds = %14
-  store i8 1, ptr %3, align 1, !tbaa !146
+  store i8 1, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4450,7 +4450,7 @@ define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(no
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4473,7 +4473,7 @@ define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(no
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4492,7 +4492,7 @@ define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(n
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7
-  store i8 0, ptr %8, align 1, !tbaa !146
+  store i8 0, ptr %8, align 1, !tbaa !148
   %12 = icmp ne ptr %3, null
   %13 = icmp ne ptr %4, null
   %or.cond3 = and i1 %12, %13
@@ -4515,7 +4515,7 @@ define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(n
   br label %20
 
 19:                                               ; preds = %14
-  store i8 0, ptr %3, align 1, !tbaa !146
+  store i8 0, ptr %3, align 1, !tbaa !148
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
@@ -4534,8 +4534,8 @@ define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) 
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_abort, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_abort, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4558,7 +4558,7 @@ define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) 
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4577,8 +4577,8 @@ define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(n
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4601,7 +4601,7 @@ define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(n
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4620,8 +4620,8 @@ define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captu
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_cache_oblivious, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_cache_oblivious, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4644,7 +4644,7 @@ define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captu
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4663,8 +4663,8 @@ define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone capture
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_trust_madvise, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_trust_madvise, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4687,7 +4687,7 @@ define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone capture
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4706,8 +4706,8 @@ define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_confirm_conf, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_confirm_conf, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4730,7 +4730,7 @@ define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4749,8 +4749,8 @@ define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_hpa, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_hpa, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4773,7 +4773,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4792,7 +4792,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone ca
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr @je_opt_hpa_opts, align 8, !tbaa !203
+  %12 = load i64, ptr @je_opt_hpa_opts, align 8, !tbaa !205
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -4830,7 +4830,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr rea
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 8), align 8, !tbaa !204
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 8), align 8, !tbaa !206
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -4868,7 +4868,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone c
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 24), align 8, !tbaa !205
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 24), align 8, !tbaa !207
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -4906,8 +4906,8 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_sync_ctl(ptr readnone captu
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 32), align 8, !tbaa !206, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 32), align 8, !tbaa !208, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -4930,7 +4930,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_sync_ctl(ptr readnone captu
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -4949,7 +4949,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr read
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 40), align 8, !tbaa !207
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 40), align 8, !tbaa !209
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -4987,7 +4987,7 @@ define internal range(i32 0, 23) i32 @opt_experimental_hpa_max_purge_nhp_ctl(ptr
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 48), align 8, !tbaa !208
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 48), align 8, !tbaa !210
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5025,7 +5025,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captur
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 16), align 8, !tbaa !209
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_opts, i64 16), align 8, !tbaa !211
   store i32 %12, ptr %8, align 4, !tbaa !96
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5063,7 +5063,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captu
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr @je_opt_hpa_sec_opts, align 8, !tbaa !210
+  %12 = load i64, ptr @je_opt_hpa_sec_opts, align 8, !tbaa !212
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5101,7 +5101,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone cap
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 8), align 8, !tbaa !211
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 8), align 8, !tbaa !213
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5139,7 +5139,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone cap
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 16), align 8, !tbaa !212
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 16), align 8, !tbaa !214
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5177,7 +5177,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr read
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 24), align 8, !tbaa !213
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 24), align 8, !tbaa !215
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5215,7 +5215,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readn
   br i1 %or.cond, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 32), align 8, !tbaa !214
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_opt_hpa_sec_opts, i64 32), align 8, !tbaa !216
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
@@ -5294,8 +5294,8 @@ define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none)
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_retain, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_retain, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -5318,7 +5318,7 @@ define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none)
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -5530,8 +5530,8 @@ define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone cap
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_background_thread, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_background_thread, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -5554,7 +5554,7 @@ define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone cap
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -5687,8 +5687,8 @@ define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_stats_print, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_stats_print, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -5711,7 +5711,7 @@ define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -5880,8 +5880,8 @@ define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_zero, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_zero, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -5904,7 +5904,7 @@ define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -5933,8 +5933,8 @@ define internal range(i32 0, 23) i32 @opt_experimental_infallible_new_ctl(ptr re
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_experimental_infallible_new, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_experimental_infallible_new, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -5957,7 +5957,7 @@ define internal range(i32 0, 23) i32 @opt_experimental_infallible_new_ctl(ptr re
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -5976,8 +5976,8 @@ define internal range(i32 0, 23) i32 @opt_experimental_tcache_gc_ctl(ptr readnon
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_experimental_tcache_gc, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_experimental_tcache_gc, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -6000,7 +6000,7 @@ define internal range(i32 0, 23) i32 @opt_experimental_tcache_gc_ctl(ptr readnon
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -6133,8 +6133,8 @@ define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none)
   br i1 %or.cond, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr @je_opt_tcache, align 1, !tbaa !146, !range !48, !noundef !49
-  store i8 %12, ptr %8, align 1, !tbaa !146
+  %12 = load i8, ptr @je_opt_tcache, align 1, !tbaa !148, !range !48, !noundef !49
+  store i8 %12, ptr %8, align 1, !tbaa !148
   %13 = icmp ne ptr %3, null
   %14 = icmp ne ptr %4, null
   %or.cond3 = and i1 %13, %14
@@ -6157,7 +6157,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none)
   br label %21
 
 20:                                               ; preds = %15
-  store i8 %12, ptr %3, align 1, !tbaa !146
+  store i8 %12, ptr %3, align 1, !tbaa !148
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
@@ -7171,7 +7171,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i8, ptr %43, align 4, !tbaa !36, !range !48, !noundef !49
-  store i8 %44, ptr %8, align 1, !tbaa !146
+  store i8 %44, ptr %8, align 1, !tbaa !148
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #15
   %46 = icmp ne ptr %3, null
@@ -7196,7 +7196,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 53:                                               ; preds = %48
-  store i8 %44, ptr %3, align 1, !tbaa !146
+  store i8 %44, ptr %3, align 1, !tbaa !148
   br label %54
 
 54:                                               ; preds = %51, %7, %11, %53, %arenas_i.exit
@@ -7286,7 +7286,7 @@ define internal range(i32 0, 15) i32 @arena_i_reset_ctl(ptr noundef %0, ptr noun
 arena_get.exit.i:                                 ; preds = %16
   %.0.i.i.i = inttoptr i64 %19 to ptr
   %21 = getelementptr i8, ptr %.0.i.i.i, i64 79016
-  %.val.i = load i32, ptr %21, align 8, !tbaa !147
+  %.val.i = load i32, ptr %21, align 8, !tbaa !149
   %22 = load i32, ptr @je_manual_arena_base, align 4, !tbaa !96
   %23 = icmp ult i32 %.val.i, %22
   br i1 %23, label %arena_i_reset_destroy_helper.exit.thread, label %arena_i_reset_destroy_helper.exit
@@ -7299,7 +7299,7 @@ arena_i_reset_destroy_helper.exit:                ; preds = %arena_get.exit.i
   br i1 %25, label %26, label %arena_reset_finish_background_thread.exit
 
 26:                                               ; preds = %arena_i_reset_destroy_helper.exit
-  %27 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !215
+  %27 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !217
   %28 = load i64, ptr @je_max_background_threads, align 8, !tbaa !4
   %29 = urem i64 %14, %28
   %30 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %27, i64 %29
@@ -7338,7 +7338,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %26
 
 malloc_mutex_lock.exit.i:                         ; preds = %42, %36
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 168
-  store i32 1, ptr %46, align 8, !tbaa !217
+  store i32 1, ptr %46, align 8, !tbaa !219
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 120
   store atomic i8 0, ptr %47 monotonic, align 1
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #15
@@ -7409,7 +7409,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %14
 arena_get.exit.i:                                 ; preds = %25
   %.0.i.i.i = inttoptr i64 %28 to ptr
   %30 = getelementptr i8, ptr %.0.i.i.i, i64 79016
-  %.val.i = load i32, ptr %30, align 8, !tbaa !147
+  %.val.i = load i32, ptr %30, align 8, !tbaa !149
   %31 = load i32, ptr @je_manual_arena_base, align 4, !tbaa !96
   %32 = icmp ult i32 %.val.i, %31
   br i1 %32, label %arena_i_reset_destroy_helper.exit.thread, label %arena_i_reset_destroy_helper.exit
@@ -7484,9 +7484,9 @@ arenas_i.exit38:                                  ; preds = %tsd_fetch_impl.exit
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i8 0, ptr %62, align 4, !tbaa !36
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %61, ptr %63, align 8, !tbaa !219
+  store ptr %61, ptr %63, align 8, !tbaa !221
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store ptr %61, ptr %64, align 8, !tbaa !220
+  store ptr %61, ptr %64, align 8, !tbaa !222
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !45
   %67 = icmp eq ptr %66, null
@@ -7494,19 +7494,19 @@ arenas_i.exit38:                                  ; preds = %tsd_fetch_impl.exit
 
 68:                                               ; preds = %arenas_i.exit38
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !220
-  store ptr %70, ptr %63, align 8, !tbaa !219
-  store ptr %61, ptr %69, align 8, !tbaa !220
-  %71 = load ptr, ptr %64, align 8, !tbaa !220
+  %70 = load ptr, ptr %69, align 8, !tbaa !222
+  store ptr %70, ptr %63, align 8, !tbaa !221
+  store ptr %61, ptr %69, align 8, !tbaa !222
+  %71 = load ptr, ptr %64, align 8, !tbaa !222
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !219
-  store ptr %73, ptr %64, align 8, !tbaa !220
-  %74 = load ptr, ptr %69, align 8, !tbaa !220
+  %73 = load ptr, ptr %72, align 8, !tbaa !221
+  store ptr %73, ptr %64, align 8, !tbaa !222
+  %74 = load ptr, ptr %69, align 8, !tbaa !222
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %66, ptr %75, align 8, !tbaa !219
+  store ptr %66, ptr %75, align 8, !tbaa !221
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %61, ptr %76, align 8, !tbaa !219
-  %.pre = load ptr, ptr %63, align 8, !tbaa !219
+  store ptr %61, ptr %76, align 8, !tbaa !221
+  %.pre = load ptr, ptr %63, align 8, !tbaa !221
   br label %77
 
 77:                                               ; preds = %68, %arenas_i.exit38
@@ -7517,7 +7517,7 @@ arenas_i.exit38:                                  ; preds = %tsd_fetch_impl.exit
   br i1 %80, label %81, label %arena_reset_finish_background_thread.exit
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !215
+  %82 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !217
   %83 = load i64, ptr @je_max_background_threads, align 8, !tbaa !4
   %84 = urem i64 %23, %83
   %85 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %82, i64 %84
@@ -7556,7 +7556,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %81
 
 malloc_mutex_lock.exit.i:                         ; preds = %97, %91
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 168
-  store i32 1, ptr %101, align 8, !tbaa !217
+  store i32 1, ptr %101, align 8, !tbaa !219
   %102 = getelementptr inbounds nuw i8, ptr %85, i64 120
   store atomic i8 0, ptr %102 monotonic, align 1
   %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %86) #15
@@ -7643,7 +7643,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
 32:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.thread66, label %.preheader, !llvm.loop !221
+  br i1 %exitcond.not, label %.thread66, label %.preheader, !llvm.loop !223
 
 .thread.loopexit:                                 ; preds = %.preheader
   %33 = trunc nuw nsw i64 %indvars.iv to i32
@@ -7680,7 +7680,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %49 = load atomic i64, ptr %48 acquire, align 8
   %.0.i.i = inttoptr i64 %49 to ptr
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.thread66, label %51, !prof !222
+  br i1 %50, label %.thread66, label %51, !prof !224
 
 51:                                               ; preds = %47
   %.not60 = icmp eq i32 %.049, 3
@@ -7741,7 +7741,7 @@ define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnon
   %14 = load atomic i64, ptr %13 acquire, align 8
   %.0.i.i = inttoptr i64 %14 to ptr
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %arena_get.exit.thread, label %16, !prof !222
+  br i1 %15, label %arena_get.exit.thread, label %16, !prof !224
 
 16:                                               ; preds = %12
   %17 = icmp ne ptr %3, null
@@ -7802,7 +7802,7 @@ define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %0,
   %13 = load atomic i64, ptr %12 acquire, align 8
   %.0.i.i.i = inttoptr i64 %13 to ptr
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %arena_i_decay_ms_ctl_impl.exit, label %15, !prof !222
+  br i1 %14, label %arena_i_decay_ms_ctl_impl.exit, label %15, !prof !224
 
 15:                                               ; preds = %11
   %16 = icmp ne ptr %3, null
@@ -7864,7 +7864,7 @@ define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %0,
   %13 = load atomic i64, ptr %12 acquire, align 8
   %.0.i.i.i = inttoptr i64 %13 to ptr
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %arena_i_decay_ms_ctl_impl.exit, label %15, !prof !222
+  br i1 %14, label %arena_i_decay_ms_ctl_impl.exit, label %15, !prof !224
 
 15:                                               ; preds = %11
   %16 = icmp ne ptr %3, null
@@ -7962,7 +7962,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   %28 = load atomic i64, ptr %27 acquire, align 8
   %.0.i.i = inttoptr i64 %28 to ptr
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %arena_get.exit.thread, label %43, !prof !222
+  br i1 %29, label %arena_get.exit.thread, label %43, !prof !224
 
 arena_get.exit.thread:                            ; preds = %26
   %30 = load i32, ptr @je_narenas_auto, align 4, !tbaa !96
@@ -7970,7 +7970,7 @@ arena_get.exit.thread:                            ; preds = %26
   br i1 %.not92, label %31, label %.sink.split
 
 31:                                               ; preds = %arena_get.exit.thread
-  store ptr @je_ehooks_default_extent_hooks, ptr %8, align 8, !tbaa !223
+  store ptr @je_ehooks_default_extent_hooks, ptr %8, align 8, !tbaa !225
   %32 = icmp ne ptr %3, null
   %33 = icmp ne ptr %4, null
   %or.cond = and i1 %32, %33
@@ -7982,7 +7982,7 @@ arena_get.exit.thread:                            ; preds = %26
   br i1 %.not93, label %36, label %.thread108.sink.split
 
 36:                                               ; preds = %34
-  store ptr @je_ehooks_default_extent_hooks, ptr %3, align 8, !tbaa !223
+  store ptr @je_ehooks_default_extent_hooks, ptr %3, align 8, !tbaa !225
   br label %37
 
 37:                                               ; preds = %36, %31
@@ -7994,10 +7994,10 @@ arena_get.exit.thread:                            ; preds = %26
   br i1 %.not95, label %39, label %.sink.split
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8, !tbaa !223
+  %40 = load ptr, ptr %5, align 8, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !225
-  store ptr %40, ptr %9, align 8, !tbaa !226
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !227
+  store ptr %40, ptr %9, align 8, !tbaa !228
   %41 = call ptr @je_arena_init(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %9) #15
   %42 = icmp eq ptr %41, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
@@ -8012,9 +8012,9 @@ arena_get.exit.thread:                            ; preds = %26
   br i1 %.not90, label %45, label %.sink.split
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %5, align 8, !tbaa !223
+  %46 = load ptr, ptr %5, align 8, !tbaa !225
   %47 = tail call ptr @je_arena_set_extent_hooks(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef %46) #15
-  store ptr %47, ptr %8, align 8, !tbaa !223
+  store ptr %47, ptr %8, align 8, !tbaa !225
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
   %or.cond4 = and i1 %48, %49
@@ -8030,7 +8030,7 @@ arena_get.exit.thread:                            ; preds = %26
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load atomic i64, ptr %54 acquire, align 8
   %.0.i.i98 = inttoptr i64 %55 to ptr
-  store ptr %.0.i.i98, ptr %8, align 8, !tbaa !223
+  store ptr %.0.i.i98, ptr %8, align 8, !tbaa !225
   %56 = icmp ne ptr %3, null
   %57 = icmp ne ptr %4, null
   %or.cond6 = and i1 %56, %57
@@ -8050,7 +8050,7 @@ arena_get.exit.thread:                            ; preds = %26
 
 .thread104.sink.split:                            ; preds = %58, %50
   %.sink113 = phi ptr [ %47, %50 ], [ %.0.i.i98, %58 ]
-  store ptr %.sink113, ptr %3, align 8, !tbaa !223
+  store ptr %.sink113, ptr %3, align 8, !tbaa !225
   br label %.thread104
 
 .thread104:                                       ; preds = %.thread104.sink.split, %45, %39, %52, %37
@@ -8072,7 +8072,7 @@ arena_get.exit.thread:                            ; preds = %26
 define internal range(i32 0, 23) i32 @arena_i_retain_grow_limit_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %10 = load i8, ptr @je_opt_retain, align 1, !tbaa !146, !range !48, !noundef !49
+  %10 = load i8, ptr @je_opt_retain, align 1, !tbaa !148, !range !48, !noundef !49
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %48
 
@@ -8121,7 +8121,7 @@ malloc_mutex_lock.exit:                           ; preds = %15, %19
   %31 = load atomic i64, ptr %30 acquire, align 8
   %.0.i.i = inttoptr i64 %31 to ptr
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %arena_get.exit.thread, label %32, !prof !222
+  br i1 %.not, label %arena_get.exit.thread, label %32, !prof !224
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
@@ -8234,7 +8234,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %14
   %29 = load atomic i64, ptr %28 acquire, align 8
   %.0.i.i = inttoptr i64 %29 to ptr
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %arena_get.exit.thread, label %31, !prof !222
+  br i1 %30, label %arena_get.exit.thread, label %31, !prof !224
 
 31:                                               ; preds = %27
   %32 = icmp ne ptr %3, null
@@ -8343,7 +8343,7 @@ arena_get.exit:                                   ; preds = %.lr.ph, %26
   store ptr %.0.i, ptr %27, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %arena_get.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
@@ -8364,7 +8364,7 @@ arena_get.exit:                                   ; preds = %.lr.ph, %26
 32:                                               ; preds = %.lr.ph39, %31
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %19
-  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !229
+  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !231
 
 ._crit_edge40:                                    ; preds = %32, %._crit_edge.thread
   call void @llvm.stackrestore.p0(ptr %20)
@@ -8429,7 +8429,7 @@ malloc_mutex_lock.exit:                           ; preds = %5, %9
 
 14:                                               ; preds = %malloc_mutex_lock.exit
   %15 = zext i32 %1 to i64
-  %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !215
+  %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !217
   %17 = load i64, ptr @je_max_background_threads, align 8, !tbaa !4
   %18 = urem i64 %15, %17
   %19 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %16, i64 %18
@@ -8468,7 +8468,7 @@ malloc_mutex_trylock_final.exit.i8:               ; preds = %14
 
 malloc_mutex_lock.exit9:                          ; preds = %25, %31
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 168
-  store i32 2, ptr %35, align 8, !tbaa !217
+  store i32 2, ptr %35, align 8, !tbaa !219
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store atomic i8 0, ptr %36 monotonic, align 1
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #15
@@ -8989,7 +8989,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br label %35
 
 24:                                               ; preds = %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !227
   %.not33 = icmp eq ptr %5, null
   br i1 %.not33, label %28, label %25
 
@@ -8998,8 +8998,8 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br i1 %.not34, label %26, label %35
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8, !tbaa !223
-  store ptr %27, ptr %9, align 8, !tbaa !226
+  %27 = load ptr, ptr %5, align 8, !tbaa !225
+  store ptr %27, ptr %9, align 8, !tbaa !228
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -9072,7 +9072,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br i1 %.not35, label %20, label %92
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %5, align 8, !tbaa !230
+  %21 = load ptr, ptr %5, align 8, !tbaa !232
   %22 = ptrtoint ptr %21 to i64
   br label %23
 
@@ -9096,13 +9096,13 @@ tsdn_rtree_ctx.exit:                              ; preds = %25, %26
   %29 = and i64 %28, 15
   %30 = and i64 %.028, -1073741824
   %31 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i, i64 0, i64 %29
-  %32 = load i64, ptr %31, align 8, !tbaa !231
+  %32 = load i64, ptr %31, align 8, !tbaa !233
   %33 = icmp eq i64 %32, %30
   br i1 %33, label %34, label %40, !prof !58
 
 34:                                               ; preds = %tsdn_rtree_ctx.exit
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !234
+  %36 = load ptr, ptr %35, align 8, !tbaa !236
   %37 = lshr i64 %.028, 12
   %38 = and i64 %37, 262143
   %39 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %36, i64 %38
@@ -9110,19 +9110,19 @@ tsdn_rtree_ctx.exit:                              ; preds = %25, %26
 
 40:                                               ; preds = %tsdn_rtree_ctx.exit
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 256
-  %42 = load i64, ptr %41, align 8, !tbaa !231
+  %42 = load i64, ptr %41, align 8, !tbaa !233
   %43 = icmp eq i64 %42, %30
   br i1 %43, label %44, label %.preheader.i, !prof !58
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 264
-  %46 = load ptr, ptr %45, align 8, !tbaa !234
-  store i64 %32, ptr %41, align 8, !tbaa !231
+  %46 = load ptr, ptr %45, align 8, !tbaa !236
+  store i64 %32, ptr %41, align 8, !tbaa !233
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !234
-  store ptr %48, ptr %45, align 8, !tbaa !234
-  store i64 %30, ptr %31, align 8, !tbaa !231
-  store ptr %46, ptr %47, align 8, !tbaa !234
+  %48 = load ptr, ptr %47, align 8, !tbaa !236
+  store ptr %48, ptr %45, align 8, !tbaa !236
+  store i64 %30, ptr %31, align 8, !tbaa !233
+  store ptr %46, ptr %47, align 8, !tbaa !236
   %49 = lshr i64 %.028, 12
   %50 = and i64 %49, 262143
   %51 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %46, i64 %50
@@ -9131,32 +9131,32 @@ tsdn_rtree_ctx.exit:                              ; preds = %25, %26
 .preheader.i:                                     ; preds = %40, %55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 1, %40 ]
   %52 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %41, i64 0, i64 %indvars.iv.i
-  %53 = load i64, ptr %52, align 8, !tbaa !231
+  %53 = load i64, ptr %52, align 8, !tbaa !233
   %54 = icmp eq i64 %53, %30
   br i1 %54, label %56, label %55, !prof !58
 
 55:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %70, label %.preheader.i, !llvm.loop !235
+  br i1 %exitcond.i, label %70, label %.preheader.i, !llvm.loop !237
 
 56:                                               ; preds = %.preheader.i
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !234
+  %58 = load ptr, ptr %57, align 8, !tbaa !236
   %59 = add nuw i64 %indvars.iv.i, 4294967295
   %60 = and i64 %59, 4294967295
   %61 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %41, i64 0, i64 %60
-  %62 = load i64, ptr %61, align 8, !tbaa !231
-  store i64 %62, ptr %52, align 8, !tbaa !231
+  %62 = load i64, ptr %61, align 8, !tbaa !233
+  store i64 %62, ptr %52, align 8, !tbaa !233
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !234
-  store ptr %64, ptr %57, align 8, !tbaa !234
-  store i64 %32, ptr %61, align 8, !tbaa !231
+  %64 = load ptr, ptr %63, align 8, !tbaa !236
+  store ptr %64, ptr %57, align 8, !tbaa !236
+  store i64 %32, ptr %61, align 8, !tbaa !233
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !234
-  store ptr %66, ptr %63, align 8, !tbaa !234
-  store i64 %30, ptr %31, align 8, !tbaa !231
-  store ptr %58, ptr %65, align 8, !tbaa !234
+  %66 = load ptr, ptr %65, align 8, !tbaa !236
+  store ptr %66, ptr %63, align 8, !tbaa !236
+  store i64 %30, ptr %31, align 8, !tbaa !233
+  store ptr %58, ptr %65, align 8, !tbaa !236
   %67 = lshr i64 %.028, 12
   %68 = and i64 %67, 262143
   %69 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %58, i64 %68
@@ -9176,7 +9176,7 @@ emap_full_alloc_ctx_try_lookup.exit.thread:       ; preds = %rtree_leaf_elm_look
   br label %92
 
 emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_lookup.exit.i
-  %73 = load atomic i64, ptr %.0.i.i acquire, align 8, !noalias !236
+  %73 = load atomic i64, ptr %.0.i.i acquire, align 8, !noalias !238
   %74 = shl i64 %73, 16
   %75 = ashr exact i64 %74, 16
   %76 = and i64 %75, -128
@@ -9186,7 +9186,7 @@ emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_look
 
 78:                                               ; preds = %emap_full_alloc_ctx_try_lookup.exit
   %79 = inttoptr i64 %76 to ptr
-  %.val.i = load i64, ptr %79, align 128, !tbaa !239
+  %.val.i = load i64, ptr %79, align 128, !tbaa !241
   %80 = and i64 %.val.i, 4095
   %81 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %80
   %82 = load atomic i64, ptr %81 monotonic, align 8
@@ -9196,7 +9196,7 @@ emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_look
 84:                                               ; preds = %78
   %.0.i.i37 = inttoptr i64 %82 to ptr
   %85 = getelementptr i8, ptr %.0.i.i37, i64 79016
-  %.val = load i32, ptr %85, align 8, !tbaa !147
+  %.val = load i32, ptr %85, align 8, !tbaa !149
   store i32 %.val, ptr %9, align 4, !tbaa !96
   %86 = icmp ne ptr %3, null
   %87 = icmp ne ptr %4, null
@@ -9254,7 +9254,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone capture
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !241
+  %15 = load i64, ptr %14, align 8, !tbaa !243
   store i64 %15, ptr %8, align 8, !tbaa !4
   %16 = icmp ne ptr %3, null
   %17 = icmp ne ptr %4, null
@@ -9295,7 +9295,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captur
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %13, i32 2
-  %15 = load i32, ptr %14, align 8, !tbaa !244
+  %15 = load i32, ptr %14, align 8, !tbaa !246
   store i32 %15, ptr %8, align 4, !tbaa !96
   %16 = icmp ne ptr %3, null
   %17 = icmp ne ptr %4, null
@@ -9336,7 +9336,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone ca
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %13, i32 1
-  %15 = load i64, ptr %14, align 8, !tbaa !245
+  %15 = load i64, ptr %14, align 8, !tbaa !247
   store i64 %15, ptr %8, align 8, !tbaa !4
   %16 = icmp ne ptr %3, null
   %17 = icmp ne ptr %4, null
@@ -9377,7 +9377,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone capt
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %13, i32 3
-  %15 = load i32, ptr %14, align 4, !tbaa !246
+  %15 = load i32, ptr %14, align 4, !tbaa !248
   store i32 %15, ptr %8, align 4, !tbaa !96
   %16 = icmp ne ptr %3, null
   %17 = icmp ne ptr %4, null
@@ -9465,7 +9465,7 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !220
+  %9 = load ptr, ptr %8, align 8, !tbaa !222
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
 
@@ -9475,29 +9475,29 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !219
+  %14 = load ptr, ptr %13, align 8, !tbaa !221
   store ptr %14, ptr %4, align 8, !tbaa !45
   %15 = icmp eq ptr %14, %9
   br i1 %15, label %28, label %.thread28
 
 .thread28:                                        ; preds = %10, %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !219
+  %17 = load ptr, ptr %16, align 8, !tbaa !221
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !220
+  %19 = load ptr, ptr %18, align 8, !tbaa !222
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !220
+  %21 = load ptr, ptr %20, align 8, !tbaa !222
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %19, ptr %22, align 8, !tbaa !219
-  %23 = load ptr, ptr %16, align 8, !tbaa !219
+  store ptr %19, ptr %22, align 8, !tbaa !221
+  %23 = load ptr, ptr %16, align 8, !tbaa !221
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %21, ptr %24, align 8, !tbaa !220
-  store ptr %19, ptr %20, align 8, !tbaa !220
-  %25 = load ptr, ptr %24, align 8, !tbaa !220
+  store ptr %21, ptr %24, align 8, !tbaa !222
+  store ptr %19, ptr %20, align 8, !tbaa !222
+  %25 = load ptr, ptr %24, align 8, !tbaa !222
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %23, ptr %26, align 8, !tbaa !219
+  store ptr %23, ptr %26, align 8, !tbaa !221
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %9, ptr %27, align 8, !tbaa !219
+  store ptr %9, ptr %27, align 8, !tbaa !221
   br label %30
 
 28:                                               ; preds = %12
@@ -10388,7 +10388,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
 20:                                               ; preds = %malloc_mutex_lock.exit
   %21 = load ptr, ptr @ctl_stats, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %23 = load i64, ptr %22, align 8, !tbaa !247
+  %23 = load i64, ptr %22, align 8, !tbaa !249
   store i64 %23, ptr %8, align 8, !tbaa !4
   %24 = icmp ne ptr %3, null
   %25 = icmp ne ptr %4, null
@@ -10458,7 +10458,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
 20:                                               ; preds = %malloc_mutex_lock.exit
   %21 = load ptr, ptr @ctl_stats, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %23 = load i64, ptr %22, align 8, !tbaa !248
+  %23 = load i64, ptr %22, align 8, !tbaa !250
   store i64 %23, ptr %8, align 8, !tbaa !4
   %24 = icmp ne ptr %3, null
   %25 = icmp ne ptr %4, null
@@ -10641,7 +10641,7 @@ malloc_mutex_lock.exit87:                         ; preds = %20, %24
   %30 = load atomic i64, ptr %29 acquire, align 8
   %.0.i.i = inttoptr i64 %30 to ptr
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %arena_get.exit.thread, label %31, !prof !222
+  br i1 %.not, label %arena_get.exit.thread, label %31, !prof !224
 
 31:                                               ; preds = %.lr.ph134
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10552
@@ -10949,7 +10949,7 @@ malloc_mutex_lock.exit119:                        ; preds = %156, %162
   store atomic i8 0, ptr %166 monotonic, align 1
   %167 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %152) #15
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 79024
-  %169 = load ptr, ptr %168, align 16, !tbaa !249
+  %169 = load ptr, ptr %168, align 16, !tbaa !251
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
   %171 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %170) #15
   %.not.i120 = icmp eq i32 %171, 0
@@ -10984,10 +10984,10 @@ malloc_mutex_trylock_final.exit.i122:             ; preds = %malloc_mutex_lock.e
   br label %malloc_mutex_lock.exit123
 
 malloc_mutex_lock.exit123:                        ; preds = %175, %181
-  %185 = load ptr, ptr %168, align 16, !tbaa !249
+  %185 = load ptr, ptr %168, align 16, !tbaa !251
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
   tail call void @je_malloc_mutex_prof_data_reset(ptr noundef %0, ptr noundef nonnull %186) #15
-  %187 = load ptr, ptr %168, align 16, !tbaa !249
+  %187 = load ptr, ptr %168, align 16, !tbaa !251
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 96
   store atomic i8 0, ptr %188 monotonic, align 1
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 104
@@ -10997,7 +10997,7 @@ malloc_mutex_lock.exit123:                        ; preds = %175, %181
 .preheader:                                       ; preds = %malloc_mutex_lock.exit123, %._crit_edge
   %indvars.iv139 = phi i64 [ 0, %malloc_mutex_lock.exit123 ], [ %indvars.iv.next140, %._crit_edge ]
   %191 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv139, i32 3
-  %192 = load i32, ptr %191, align 4, !tbaa !246
+  %192 = load i32, ptr %191, align 4, !tbaa !248
   %.not137 = icmp eq i32 %192, 0
   br i1 %.not137, label %._crit_edge, label %.lr.ph
 
@@ -11008,7 +11008,7 @@ malloc_mutex_lock.exit123:                        ; preds = %175, %181
 ._crit_edge:                                      ; preds = %malloc_mutex_lock.exit128, %.preheader
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next140, 36
-  br i1 %exitcond.not, label %arena_get.exit.thread, label %.preheader, !llvm.loop !250
+  br i1 %exitcond.not, label %arena_get.exit.thread, label %.preheader, !llvm.loop !252
 
 194:                                              ; preds = %.lr.ph, %malloc_mutex_lock.exit128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %malloc_mutex_lock.exit128 ]
@@ -11059,15 +11059,15 @@ malloc_mutex_lock.exit128:                        ; preds = %207, %213
   store atomic i8 0, ptr %217 monotonic, align 1
   %218 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %203) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %219 = load i32, ptr %191, align 4, !tbaa !246
+  %219 = load i32, ptr %191, align 4, !tbaa !248
   %220 = zext i32 %219 to i64
   %221 = icmp samesign ult i64 %indvars.iv.next, %220
-  br i1 %221, label %194, label %._crit_edge, !llvm.loop !251
+  br i1 %221, label %194, label %._crit_edge, !llvm.loop !253
 
 arena_get.exit.thread:                            ; preds = %._crit_edge, %.lr.ph134
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
-  br i1 %exitcond145.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !252
+  br i1 %exitcond145.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !254
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15962,7 +15962,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %39 = getelementptr inbounds nuw [4097 x ptr], ptr %38, i64 0, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load i64, ptr %41, align 8, !tbaa !253
+  %42 = load i64, ptr %41, align 8, !tbaa !255
   store i64 %42, ptr %8, align 8, !tbaa !4
   %43 = icmp ne ptr %3, null
   %44 = icmp ne ptr %4, null
@@ -16070,7 +16070,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %39 = getelementptr inbounds nuw [4097 x ptr], ptr %38, i64 0, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = load i64, ptr %41, align 8, !tbaa !254
+  %42 = load i64, ptr %41, align 8, !tbaa !256
   store i64 %42, ptr %8, align 8, !tbaa !4
   %43 = icmp ne ptr %3, null
   %44 = icmp ne ptr %4, null
@@ -18483,7 +18483,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 39008
-  %44 = load i64, ptr %43, align 8, !tbaa !255
+  %44 = load i64, ptr %43, align 8, !tbaa !257
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -19923,7 +19923,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw [36 x %struct.bin_stats_data_s], ptr %43, i64 0, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !256
+  %47 = load i64, ptr %46, align 8, !tbaa !258
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20037,7 +20037,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10440
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !258
+  %47 = load i64, ptr %46, align 8, !tbaa !260
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20151,7 +20151,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10448
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !259
+  %47 = load i64, ptr %46, align 8, !tbaa !261
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20265,7 +20265,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10456
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !260
+  %47 = load i64, ptr %46, align 8, !tbaa !262
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20379,7 +20379,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10464
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !261
+  %47 = load i64, ptr %46, align 8, !tbaa !263
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20493,7 +20493,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10472
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !262
+  %47 = load i64, ptr %46, align 8, !tbaa !264
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20607,7 +20607,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10480
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !263
+  %47 = load i64, ptr %46, align 8, !tbaa !265
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20721,7 +20721,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10488
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !264
+  %47 = load i64, ptr %46, align 8, !tbaa !266
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20835,7 +20835,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10496
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !265
+  %47 = load i64, ptr %46, align 8, !tbaa !267
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -20949,7 +20949,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10504
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !266
+  %47 = load i64, ptr %46, align 8, !tbaa !268
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -21063,7 +21063,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10512
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !267
+  %47 = load i64, ptr %46, align 8, !tbaa !269
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -21177,7 +21177,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10520
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !268
+  %47 = load i64, ptr %46, align 8, !tbaa !270
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -21291,7 +21291,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10528
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !269
+  %47 = load i64, ptr %46, align 8, !tbaa !271
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -21405,7 +21405,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 176
   %45 = getelementptr i8, ptr %42, i64 10536
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !270
+  %47 = load i64, ptr %46, align 8, !tbaa !272
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -21520,7 +21520,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 10544
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load i64, ptr %47, align 8, !tbaa !271
+  %48 = load i64, ptr %47, align 8, !tbaa !273
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -21635,7 +21635,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 10544
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !272
+  %48 = load i64, ptr %47, align 8, !tbaa !274
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -21750,7 +21750,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 10544
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load i64, ptr %47, align 8, !tbaa !273
+  %48 = load i64, ptr %47, align 8, !tbaa !275
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -21865,7 +21865,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 10544
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !274
+  %48 = load i64, ptr %47, align 8, !tbaa !276
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -22209,7 +22209,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 10544
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !275
+  %48 = load i32, ptr %47, align 8, !tbaa !277
   store i32 %48, ptr %8, align 4, !tbaa !96
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -22671,7 +22671,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 16808
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !135
+  %47 = load i64, ptr %46, align 8, !tbaa !136
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -22791,7 +22791,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw [199 x %struct.pac_estats_s], ptr %43, i64 0, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !137
+  %47 = load i64, ptr %46, align 8, !tbaa !139
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -22905,7 +22905,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 26192
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !139
+  %47 = load i64, ptr %46, align 8, !tbaa !141
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -23019,7 +23019,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 26208
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !140
+  %47 = load i64, ptr %46, align 8, !tbaa !142
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -23133,7 +23133,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 26184
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !141
+  %47 = load i64, ptr %46, align 8, !tbaa !143
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -23247,7 +23247,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 26200
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !142
+  %47 = load i64, ptr %46, align 8, !tbaa !144
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -23361,7 +23361,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 26216
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !143
+  %47 = load i64, ptr %46, align 8, !tbaa !145
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -32711,7 +32711,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35728
-  %44 = load i64, ptr %43, align 8, !tbaa !276
+  %44 = load i64, ptr %43, align 8, !tbaa !278
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -32821,7 +32821,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35736
-  %44 = load i64, ptr %43, align 8, !tbaa !277
+  %44 = load i64, ptr %43, align 8, !tbaa !279
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -32931,7 +32931,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35744
-  %44 = load i64, ptr %43, align 8, !tbaa !278
+  %44 = load i64, ptr %43, align 8, !tbaa !280
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33041,7 +33041,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38968
-  %44 = load i64, ptr %43, align 8, !tbaa !279
+  %44 = load i64, ptr %43, align 8, !tbaa !281
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33151,7 +33151,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38976
-  %44 = load i64, ptr %43, align 8, !tbaa !280
+  %44 = load i64, ptr %43, align 8, !tbaa !282
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33261,7 +33261,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38984
-  %44 = load i64, ptr %43, align 8, !tbaa !281
+  %44 = load i64, ptr %43, align 8, !tbaa !283
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33371,7 +33371,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38992
-  %44 = load i64, ptr %43, align 8, !tbaa !282
+  %44 = load i64, ptr %43, align 8, !tbaa !284
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33481,7 +33481,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 39000
-  %44 = load i64, ptr %43, align 8, !tbaa !283
+  %44 = load i64, ptr %43, align 8, !tbaa !285
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33591,7 +33591,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35752
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33701,7 +33701,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35776
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33811,7 +33811,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35760
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -33921,7 +33921,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35784
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34031,7 +34031,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35768
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34141,7 +34141,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 35792
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34251,7 +34251,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38872
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34361,7 +34361,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38896
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34471,7 +34471,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38880
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34581,7 +34581,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38904
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34691,7 +34691,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38888
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34801,7 +34801,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38912
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -34911,7 +34911,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38920
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35021,7 +35021,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38944
-  %44 = load i64, ptr %43, align 8, !tbaa !284
+  %44 = load i64, ptr %43, align 8, !tbaa !286
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35131,7 +35131,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38928
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35241,7 +35241,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38952
-  %44 = load i64, ptr %43, align 8, !tbaa !285
+  %44 = load i64, ptr %43, align 8, !tbaa !287
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35351,7 +35351,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38936
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35461,7 +35461,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 38960
-  %44 = load i64, ptr %43, align 8, !tbaa !286
+  %44 = load i64, ptr %43, align 8, !tbaa !288
   store i64 %44, ptr %8, align 8, !tbaa !4
   %45 = icmp ne ptr %3, null
   %46 = icmp ne ptr %4, null
@@ -35581,7 +35581,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw [64 x [2 x %struct.psset_bin_stats_s]], ptr %43, i64 0, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !284
+  %47 = load i64, ptr %46, align 8, !tbaa !286
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -35695,7 +35695,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 35824
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !284
+  %47 = load i64, ptr %46, align 8, !tbaa !286
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -35809,7 +35809,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 35808
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !285
+  %47 = load i64, ptr %46, align 8, !tbaa !287
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -35924,7 +35924,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 35824
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !285
+  %48 = load i64, ptr %47, align 8, !tbaa !287
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -36038,7 +36038,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.idx = mul nuw nsw i64 %44, 48
   %45 = getelementptr i8, ptr %42, i64 35816
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = load i64, ptr %46, align 8, !tbaa !286
+  %47 = load i64, ptr %46, align 8, !tbaa !288
   store i64 %47, ptr %8, align 8, !tbaa !4
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
@@ -36153,7 +36153,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %45 = getelementptr i8, ptr %42, i64 35824
   %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !286
+  %48 = load i64, ptr %47, align 8, !tbaa !288
   store i64 %48, ptr %8, align 8, !tbaa !4
   %49 = icmp ne ptr %3, null
   %50 = icmp ne ptr %4, null
@@ -36217,7 +36217,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %7
 
 malloc_mutex_lock.exit:                           ; preds = %12, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !227
   %19 = icmp eq ptr %3, null
   %20 = icmp eq ptr %4, null
   %or.cond = or i1 %19, %20
@@ -36244,7 +36244,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br i1 %.not34, label %26, label %34
 
 26:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !227
   br label %27
 
 27:                                               ; preds = %26, %24
@@ -36304,7 +36304,7 @@ define internal range(i32 0, 23) i32 @experimental_batch_alloc_ctl(ptr readnone 
   br i1 %or.cond3, label %22, label %17
 
 17:                                               ; preds = %14
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !230
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !232
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -36346,9 +36346,9 @@ define internal range(i32 0, 23) i32 @experimental_hooks_install_ctl(ptr noundef
   br i1 %or.cond33, label %13, label %20
 
 13:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !287
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !289
   %14 = call ptr @je_hook_install(ptr noundef %0, ptr noundef nonnull %8) #15
-  store ptr %14, ptr %9, align 8, !tbaa !230
+  store ptr %14, ptr %9, align 8, !tbaa !232
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
 
@@ -36364,7 +36364,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_install_ctl(ptr noundef
   br label %20
 
 19:                                               ; preds = %16
-  store ptr %14, ptr %3, align 8, !tbaa !230
+  store ptr %14, ptr %3, align 8, !tbaa !232
   br label %20
 
 20:                                               ; preds = %19, %18, %7, %13
@@ -36386,7 +36386,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_remove_ctl(ptr noundef 
   br i1 %or.cond13, label %11, label %.thread
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr %5, align 8, !tbaa !230
+  %12 = load ptr, ptr %5, align 8, !tbaa !232
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
@@ -36413,7 +36413,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %13 = tail call ptr @je_prof_backtrace_hook_get() #15
-  store ptr %13, ptr %8, align 8, !tbaa !230
+  store ptr %13, ptr %8, align 8, !tbaa !232
   %.not34 = icmp eq ptr %4, null
   br i1 %.not34, label %.thread, label %14
 
@@ -36423,7 +36423,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br i1 %.not35, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %13, ptr %3, align 8, !tbaa !230
+  store ptr %13, ptr %3, align 8, !tbaa !232
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
@@ -36441,7 +36441,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br i1 %10, label %.thread45, label %19
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !146, !range !48, !noundef !49
+  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !148, !range !48, !noundef !49
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %.thread45
 
@@ -36450,7 +36450,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br i1 %.not37, label %23, label %.thread45
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %5, align 8, !tbaa !230
+  %24 = load ptr, ptr %5, align 8, !tbaa !232
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread45, label %26
 
@@ -36477,7 +36477,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %13 = tail call ptr @je_prof_dump_hook_get() #15
-  store ptr %13, ptr %8, align 8, !tbaa !230
+  store ptr %13, ptr %8, align 8, !tbaa !232
   %.not33 = icmp eq ptr %4, null
   br i1 %.not33, label %.thread, label %14
 
@@ -36487,7 +36487,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br i1 %.not34, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %13, ptr %3, align 8, !tbaa !230
+  store ptr %13, ptr %3, align 8, !tbaa !232
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
@@ -36505,7 +36505,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br i1 %10, label %24, label %19
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !146, !range !48, !noundef !49
+  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !148, !range !48, !noundef !49
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -36514,7 +36514,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br i1 %.not36, label %.thread43, label %24
 
 .thread43:                                        ; preds = %22
-  %23 = load ptr, ptr %5, align 8, !tbaa !230
+  %23 = load ptr, ptr %5, align 8, !tbaa !232
   tail call void @je_prof_dump_hook_set(ptr noundef %23) #15
   br label %24
 
@@ -36537,7 +36537,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %13 = tail call ptr @je_prof_sample_hook_get() #15
-  store ptr %13, ptr %8, align 8, !tbaa !230
+  store ptr %13, ptr %8, align 8, !tbaa !232
   %.not33 = icmp eq ptr %4, null
   br i1 %.not33, label %.thread, label %14
 
@@ -36547,7 +36547,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
   br i1 %.not34, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %13, ptr %3, align 8, !tbaa !230
+  store ptr %13, ptr %3, align 8, !tbaa !232
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
@@ -36565,7 +36565,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
   br i1 %10, label %24, label %19
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !146, !range !48, !noundef !49
+  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !148, !range !48, !noundef !49
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -36574,7 +36574,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
   br i1 %.not36, label %.thread43, label %24
 
 .thread43:                                        ; preds = %22
-  %23 = load ptr, ptr %5, align 8, !tbaa !230
+  %23 = load ptr, ptr %5, align 8, !tbaa !232
   tail call void @je_prof_sample_hook_set(ptr noundef %23) #15
   br label %24
 
@@ -36597,7 +36597,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %13 = tail call ptr @je_prof_sample_free_hook_get() #15
-  store ptr %13, ptr %8, align 8, !tbaa !230
+  store ptr %13, ptr %8, align 8, !tbaa !232
   %.not33 = icmp eq ptr %4, null
   br i1 %.not33, label %.thread, label %14
 
@@ -36607,7 +36607,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
   br i1 %.not34, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %13, ptr %3, align 8, !tbaa !230
+  store ptr %13, ptr %3, align 8, !tbaa !232
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
@@ -36625,7 +36625,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
   br i1 %10, label %24, label %19
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !146, !range !48, !noundef !49
+  %20 = load i8, ptr @je_opt_prof, align 1, !tbaa !148, !range !48, !noundef !49
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -36634,7 +36634,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
   br i1 %.not36, label %.thread43, label %24
 
 .thread43:                                        ; preds = %22
-  %23 = load ptr, ptr %5, align 8, !tbaa !230
+  %23 = load ptr, ptr %5, align 8, !tbaa !232
   tail call void @je_prof_sample_free_hook_set(ptr noundef %23) #15
   br label %24
 
@@ -36657,7 +36657,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_threshold_ctl(ptr 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %13 = tail call ptr @je_prof_threshold_hook_get() #15
-  store ptr %13, ptr %8, align 8, !tbaa !230
+  store ptr %13, ptr %8, align 8, !tbaa !232
   %.not33 = icmp eq ptr %4, null
   br i1 %.not33, label %.thread, label %14
 
@@ -36667,7 +36667,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_threshold_ctl(ptr 
   br i1 %.not34, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %13, ptr %3, align 8, !tbaa !230
+  store ptr %13, ptr %3, align 8, !tbaa !232
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
@@ -36689,7 +36689,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_threshold_ctl(ptr 
   br i1 %.not36, label %.thread43, label %21
 
 .thread43:                                        ; preds = %19
-  %20 = load ptr, ptr %5, align 8, !tbaa !230
+  %20 = load ptr, ptr %5, align 8, !tbaa !232
   tail call void @je_prof_threshold_hook_set(ptr noundef %20) #15
   br label %21
 
@@ -36714,7 +36714,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_safety_check_abort_ctl(
   br i1 %.not15, label %12, label %14
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %5, align 8, !tbaa !230
+  %13 = load ptr, ptr %5, align 8, !tbaa !232
   tail call void @je_safety_check_set_abort(ptr noundef %13) #15
   br label %14
 
@@ -36766,7 +36766,7 @@ define internal range(i32 0, 23) i32 @experimental_utilization_query_ctl(ptr nou
   br i1 %or.cond23, label %14, label %21
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8, !tbaa !230
+  %15 = load ptr, ptr %5, align 8, !tbaa !232
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -36804,14 +36804,14 @@ define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(p
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.042 = phi i64 [ %22, %.lr.ph ], [ 0, %14 ]
   %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %.042
-  %18 = load ptr, ptr %17, align 8, !tbaa !230
+  %18 = load ptr, ptr %17, align 8, !tbaa !232
   %19 = getelementptr inbounds nuw %struct.inspect_extent_util_stats_s, ptr %3, i64 %.042
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   tail call void @je_inspect_extent_util_stats_get(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21) #15
   %22 = add nuw nsw i64 %.042, 1
   %exitcond.not = icmp eq i64 %22, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !288
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !290
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %14
   %.028 = phi i32 [ 22, %14 ], [ 22, %7 ], [ 0, %.lr.ph ]
@@ -36962,12 +36962,12 @@ malloc_mutex_lock.exit:                           ; preds = %16, %20
   %34 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %27
   %35 = load atomic i64, ptr %34 acquire, align 8
   %.not38 = icmp eq i64 %35, 0
-  br i1 %.not38, label %arena_get.exit.thread, label %36, !prof !222
+  br i1 %.not38, label %arena_get.exit.thread, label %36, !prof !224
 
 36:                                               ; preds = %33
   %.0.i.i = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10672
-  store ptr %37, ptr %8, align 8, !tbaa !188
+  store ptr %37, ptr %8, align 8, !tbaa !190
   %38 = load i64, ptr %4, align 8, !tbaa !4
   %.not39 = icmp eq i64 %38, 8
   br i1 %.not39, label %40, label %39
@@ -36979,7 +36979,7 @@ malloc_mutex_lock.exit:                           ; preds = %16, %20
   br label %arena_get.exit.thread
 
 40:                                               ; preds = %36
-  store ptr %37, ptr %3, align 8, !tbaa !188
+  store ptr %37, ptr %3, align 8, !tbaa !190
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %33, %29, %25, %malloc_mutex_lock.exit, %39, %40
@@ -37011,9 +37011,9 @@ define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(
   %8 = alloca %struct.activity_callback_thunk_s, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !230
+  %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !232
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !230
+  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !232
   store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.2.0.copyload.i, ptr %.8..8..8..8..sroa_idx, align 8
@@ -37034,7 +37034,7 @@ define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(
   br label %18
 
 15:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !289
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !291
   br label %16
 
 16:                                               ; preds = %15, %7
@@ -37047,10 +37047,10 @@ define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(
 
 .thread:                                          ; preds = %17
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !230
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !230
-  store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !230
-  store ptr %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !230
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !232
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !232
+  store ptr %.sroa.0.0.copyload, ptr %9, align 8, !tbaa !232
+  store ptr %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !232
   br label %18
 
 18:                                               ; preds = %16, %.thread, %17, %14
@@ -37207,168 +37207,170 @@ attributes #16 = { nounwind willreturn memory(read) }
 !122 = !{!64, !5, i64 88}
 !123 = !{!64, !5, i64 184}
 !124 = !{!64, !5, i64 192}
-!125 = distinct !{!125, !44}
-!126 = !{!106, !5, i64 48}
-!127 = !{!106, !5, i64 56}
-!128 = !{!106, !5, i64 64}
-!129 = !{!106, !5, i64 72}
-!130 = !{!106, !5, i64 80}
-!131 = !{!106, !5, i64 88}
-!132 = !{!106, !5, i64 96}
-!133 = !{!106, !5, i64 104}
-!134 = distinct !{!134, !44}
-!135 = !{!136, !5, i64 40}
-!136 = !{!"arena_stats_large_s", !69, i64 0, !69, i64 8, !69, i64 16, !69, i64 24, !69, i64 32, !5, i64 40}
-!137 = !{!138, !5, i64 0}
-!138 = !{!"pac_estats_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
-!139 = !{!138, !5, i64 16}
-!140 = !{!138, !5, i64 32}
-!141 = !{!138, !5, i64 8}
-!142 = !{!138, !5, i64 24}
-!143 = !{!138, !5, i64 40}
-!144 = distinct !{!144, !44}
-!145 = !{!74, !5, i64 0}
-!146 = !{!14, !14, i64 0}
-!147 = !{!148, !20, i64 79016}
-!148 = !{!"arena_s", !6, i64 0, !21, i64 8, !22, i64 16, !65, i64 24, !149, i64 10408, !151, i64 10416, !153, i64 10424, !21, i64 10536, !154, i64 10544, !153, i64 10552, !157, i64 10664, !20, i64 79016, !164, i64 79024, !19, i64 79032, !6, i64 79040, !6, i64 79104}
-!149 = !{!"", !150, i64 0}
-!150 = !{!"p1 _ZTS13tcache_slow_s", !10, i64 0}
+!125 = distinct !{!125, !44, !126}
+!126 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!127 = !{!106, !5, i64 48}
+!128 = !{!106, !5, i64 56}
+!129 = !{!106, !5, i64 64}
+!130 = !{!106, !5, i64 72}
+!131 = !{!106, !5, i64 80}
+!132 = !{!106, !5, i64 88}
+!133 = !{!106, !5, i64 96}
+!134 = !{!106, !5, i64 104}
+!135 = distinct !{!135, !44}
+!136 = !{!137, !5, i64 40}
+!137 = !{!"arena_stats_large_s", !69, i64 0, !69, i64 8, !69, i64 16, !69, i64 24, !69, i64 32, !5, i64 40}
+!138 = distinct !{!138, !44}
+!139 = !{!140, !5, i64 0}
+!140 = !{!"pac_estats_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!141 = !{!140, !5, i64 16}
+!142 = !{!140, !5, i64 32}
+!143 = !{!140, !5, i64 8}
+!144 = !{!140, !5, i64 24}
+!145 = !{!140, !5, i64 40}
+!146 = distinct !{!146, !44}
+!147 = !{!74, !5, i64 0}
+!148 = !{!14, !14, i64 0}
+!149 = !{!150, !20, i64 79016}
+!150 = !{!"arena_s", !6, i64 0, !21, i64 8, !22, i64 16, !65, i64 24, !151, i64 10408, !153, i64 10416, !155, i64 10424, !21, i64 10536, !156, i64 10544, !155, i64 10552, !159, i64 10664, !20, i64 79016, !166, i64 79024, !19, i64 79032, !6, i64 79040, !6, i64 79104}
 !151 = !{!"", !152, i64 0}
-!152 = !{!"p1 _ZTS28cache_bin_array_descriptor_s", !10, i64 0}
-!153 = !{!"malloc_mutex_s", !6, i64 0}
-!154 = !{!"", !155, i64 0}
-!155 = !{!"", !156, i64 0}
-!156 = !{!"p1 _ZTS7edata_s", !10, i64 0}
-!157 = !{!"pa_shard_s", !158, i64 0, !19, i64 8, !159, i64 16, !14, i64 17, !160, i64 24, !172, i64 62264, !176, i64 62384, !184, i64 68168, !20, i64 68312, !170, i64 68320, !187, i64 68328, !165, i64 68336, !164, i64 68344}
-!158 = !{!"p1 _ZTS12pa_central_s", !10, i64 0}
-!159 = !{!"", !14, i64 0}
-!160 = !{!"pac_s", !161, i64 0, !162, i64 56, !162, i64 19496, !162, i64 38936, !164, i64 58376, !165, i64 58384, !166, i64 58392, !167, i64 58400, !153, i64 58408, !168, i64 58520, !19, i64 58640, !169, i64 58648, !169, i64 60432, !170, i64 62216, !171, i64 62224, !19, i64 62232}
-!161 = !{!"pai_s", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!162 = !{!"ecache_s", !153, i64 0, !163, i64 112, !163, i64 9768, !20, i64 19424, !20, i64 19428, !14, i64 19432}
-!163 = !{!"eset_s", !6, i64 0, !6, i64 32, !6, i64 6432, !154, i64 9632, !19, i64 9640, !20, i64 9648}
-!164 = !{!"p1 _ZTS6base_s", !10, i64 0}
-!165 = !{!"p1 _ZTS6emap_s", !10, i64 0}
-!166 = !{!"p1 _ZTS13edata_cache_s", !10, i64 0}
-!167 = !{!"exp_grow_s", !20, i64 0, !20, i64 4}
-!168 = !{!"san_bump_alloc_s", !153, i64 0, !156, i64 112}
-!169 = !{!"decay_s", !153, i64 0, !14, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !5, i64 144, !19, i64 152, !5, i64 160, !5, i64 168, !6, i64 176, !5, i64 1776}
-!170 = !{!"p1 _ZTS14malloc_mutex_s", !10, i64 0}
-!171 = !{!"p1 _ZTS11pac_stats_s", !10, i64 0}
-!172 = !{!"sec_s", !161, i64 0, !173, i64 56, !174, i64 64, !175, i64 104, !20, i64 112}
-!173 = !{!"p1 _ZTS5pai_s", !10, i64 0}
-!174 = !{!"sec_opts_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
-!175 = !{!"p1 _ZTS11sec_shard_s", !10, i64 0}
-!176 = !{!"hpa_shard_s", !161, i64 0, !177, i64 56, !153, i64 64, !153, i64 176, !164, i64 288, !178, i64 296, !179, i64 320, !5, i64 5648, !20, i64 5656, !165, i64 5664, !183, i64 5672, !5, i64 5728, !73, i64 5736, !19, i64 5776}
-!177 = !{!"p1 _ZTS13hpa_central_s", !10, i64 0}
-!178 = !{!"edata_cache_fast_s", !154, i64 0, !166, i64 8, !14, i64 16}
-!179 = !{!"psset_s", !6, i64 0, !6, i64 1024, !71, i64 1032, !180, i64 4272, !6, i64 4280, !6, i64 5304, !180, i64 5320}
-!180 = !{!"", !181, i64 0}
-!181 = !{!"", !182, i64 0}
-!182 = !{!"p1 _ZTS8hpdata_s", !10, i64 0}
-!183 = !{!"hpa_shard_opts_s", !5, i64 0, !5, i64 8, !20, i64 16, !14, i64 20, !5, i64 24, !14, i64 32, !5, i64 40, !5, i64 48}
-!184 = !{!"edata_cache_s", !185, i64 0, !19, i64 16, !153, i64 24, !164, i64 136}
-!185 = !{!"", !186, i64 0}
-!186 = !{!"ph_s", !10, i64 0, !5, i64 8}
-!187 = !{!"p1 _ZTS16pa_shard_stats_s", !10, i64 0}
-!188 = !{!189, !189, i64 0}
-!189 = !{!"p1 long", !10, i64 0}
-!190 = !{!191, !61, i64 40}
-!191 = !{!"tcache_slow_s", !192, i64 0, !193, i64 16, !61, i64 40, !20, i64 48, !19, i64 56, !20, i64 64, !20, i64 68, !20, i64 72, !6, i64 76, !6, i64 148, !6, i64 184, !10, i64 224, !196, i64 232}
-!192 = !{!"", !150, i64 0, !150, i64 8}
-!193 = !{!"cache_bin_array_descriptor_s", !194, i64 0, !195, i64 16}
+!152 = !{!"p1 _ZTS13tcache_slow_s", !10, i64 0}
+!153 = !{!"", !154, i64 0}
+!154 = !{!"p1 _ZTS28cache_bin_array_descriptor_s", !10, i64 0}
+!155 = !{!"malloc_mutex_s", !6, i64 0}
+!156 = !{!"", !157, i64 0}
+!157 = !{!"", !158, i64 0}
+!158 = !{!"p1 _ZTS7edata_s", !10, i64 0}
+!159 = !{!"pa_shard_s", !160, i64 0, !19, i64 8, !161, i64 16, !14, i64 17, !162, i64 24, !174, i64 62264, !178, i64 62384, !186, i64 68168, !20, i64 68312, !172, i64 68320, !189, i64 68328, !167, i64 68336, !166, i64 68344}
+!160 = !{!"p1 _ZTS12pa_central_s", !10, i64 0}
+!161 = !{!"", !14, i64 0}
+!162 = !{!"pac_s", !163, i64 0, !164, i64 56, !164, i64 19496, !164, i64 38936, !166, i64 58376, !167, i64 58384, !168, i64 58392, !169, i64 58400, !155, i64 58408, !170, i64 58520, !19, i64 58640, !171, i64 58648, !171, i64 60432, !172, i64 62216, !173, i64 62224, !19, i64 62232}
+!163 = !{!"pai_s", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!164 = !{!"ecache_s", !155, i64 0, !165, i64 112, !165, i64 9768, !20, i64 19424, !20, i64 19428, !14, i64 19432}
+!165 = !{!"eset_s", !6, i64 0, !6, i64 32, !6, i64 6432, !156, i64 9632, !19, i64 9640, !20, i64 9648}
+!166 = !{!"p1 _ZTS6base_s", !10, i64 0}
+!167 = !{!"p1 _ZTS6emap_s", !10, i64 0}
+!168 = !{!"p1 _ZTS13edata_cache_s", !10, i64 0}
+!169 = !{!"exp_grow_s", !20, i64 0, !20, i64 4}
+!170 = !{!"san_bump_alloc_s", !155, i64 0, !158, i64 112}
+!171 = !{!"decay_s", !155, i64 0, !14, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !5, i64 144, !19, i64 152, !5, i64 160, !5, i64 168, !6, i64 176, !5, i64 1776}
+!172 = !{!"p1 _ZTS14malloc_mutex_s", !10, i64 0}
+!173 = !{!"p1 _ZTS11pac_stats_s", !10, i64 0}
+!174 = !{!"sec_s", !163, i64 0, !175, i64 56, !176, i64 64, !177, i64 104, !20, i64 112}
+!175 = !{!"p1 _ZTS5pai_s", !10, i64 0}
+!176 = !{!"sec_opts_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!177 = !{!"p1 _ZTS11sec_shard_s", !10, i64 0}
+!178 = !{!"hpa_shard_s", !163, i64 0, !179, i64 56, !155, i64 64, !155, i64 176, !166, i64 288, !180, i64 296, !181, i64 320, !5, i64 5648, !20, i64 5656, !167, i64 5664, !185, i64 5672, !5, i64 5728, !73, i64 5736, !19, i64 5776}
+!179 = !{!"p1 _ZTS13hpa_central_s", !10, i64 0}
+!180 = !{!"edata_cache_fast_s", !156, i64 0, !168, i64 8, !14, i64 16}
+!181 = !{!"psset_s", !6, i64 0, !6, i64 1024, !71, i64 1032, !182, i64 4272, !6, i64 4280, !6, i64 5304, !182, i64 5320}
+!182 = !{!"", !183, i64 0}
+!183 = !{!"", !184, i64 0}
+!184 = !{!"p1 _ZTS8hpdata_s", !10, i64 0}
+!185 = !{!"hpa_shard_opts_s", !5, i64 0, !5, i64 8, !20, i64 16, !14, i64 20, !5, i64 24, !14, i64 32, !5, i64 40, !5, i64 48}
+!186 = !{!"edata_cache_s", !187, i64 0, !19, i64 16, !155, i64 24, !166, i64 136}
+!187 = !{!"", !188, i64 0}
+!188 = !{!"ph_s", !10, i64 0, !5, i64 8}
+!189 = !{!"p1 _ZTS16pa_shard_stats_s", !10, i64 0}
+!190 = !{!191, !191, i64 0}
+!191 = !{!"p1 long", !10, i64 0}
+!192 = !{!193, !61, i64 40}
+!193 = !{!"tcache_slow_s", !194, i64 0, !195, i64 16, !61, i64 40, !20, i64 48, !19, i64 56, !20, i64 64, !20, i64 68, !20, i64 72, !6, i64 76, !6, i64 148, !6, i64 184, !10, i64 224, !198, i64 232}
 !194 = !{!"", !152, i64 0, !152, i64 8}
-!195 = !{!"p1 _ZTS11cache_bin_s", !10, i64 0}
-!196 = !{!"p1 _ZTS8tcache_s", !10, i64 0}
-!197 = !{!148, !22, i64 16}
-!198 = !{!199, !150, i64 0}
-!199 = !{!"tcache_s", !150, i64 0, !6, i64 8}
-!200 = !{!191, !20, i64 48}
-!201 = !{!202, !202, i64 0}
-!202 = !{!"short", !6, i64 0}
-!203 = !{!183, !5, i64 0}
-!204 = !{!183, !5, i64 8}
-!205 = !{!183, !5, i64 24}
-!206 = !{!183, !14, i64 32}
-!207 = !{!183, !5, i64 40}
-!208 = !{!183, !5, i64 48}
-!209 = !{!183, !20, i64 16}
-!210 = !{!174, !5, i64 0}
-!211 = !{!174, !5, i64 8}
-!212 = !{!174, !5, i64 16}
-!213 = !{!174, !5, i64 24}
-!214 = !{!174, !5, i64 32}
-!215 = !{!216, !216, i64 0}
-!216 = !{!"p1 _ZTS24background_thread_info_s", !10, i64 0}
-!217 = !{!218, !20, i64 168}
-!218 = !{!"background_thread_info_s", !5, i64 0, !6, i64 8, !153, i64 56, !20, i64 168, !159, i64 172, !19, i64 176, !5, i64 184, !5, i64 192, !19, i64 200}
-!219 = !{!32, !30, i64 8}
-!220 = !{!32, !30, i64 16}
-!221 = distinct !{!221, !44}
-!222 = !{!"branch_weights", i32 2002, i32 2000}
-!223 = !{!224, !224, i64 0}
-!224 = !{!"p1 _ZTS14extent_hooks_s", !10, i64 0}
-!225 = !{i64 0, i64 8, !223, i64 8, i64 1, !146}
-!226 = !{!227, !224, i64 0}
-!227 = !{!"arena_config_s", !224, i64 0, !14, i64 8}
-!228 = distinct !{!228, !44}
-!229 = distinct !{!229, !44}
-!230 = !{!10, !10, i64 0}
-!231 = !{!232, !5, i64 0}
-!232 = !{!"rtree_ctx_cache_elm_s", !5, i64 0, !233, i64 8}
-!233 = !{!"p1 _ZTS16rtree_leaf_elm_s", !10, i64 0}
-!234 = !{!232, !233, i64 8}
-!235 = distinct !{!235, !44}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"rtree_leaf_elm_read: argument 0"}
-!238 = distinct !{!238, !"rtree_leaf_elm_read"}
-!239 = !{!240, !5, i64 0}
-!240 = !{!"edata_s", !5, i64 0, !10, i64 8, !6, i64 16, !182, i64 24, !5, i64 32, !6, i64 40, !6, i64 64}
+!195 = !{!"cache_bin_array_descriptor_s", !196, i64 0, !197, i64 16}
+!196 = !{!"", !154, i64 0, !154, i64 8}
+!197 = !{!"p1 _ZTS11cache_bin_s", !10, i64 0}
+!198 = !{!"p1 _ZTS8tcache_s", !10, i64 0}
+!199 = !{!150, !22, i64 16}
+!200 = !{!201, !152, i64 0}
+!201 = !{!"tcache_s", !152, i64 0, !6, i64 8}
+!202 = !{!193, !20, i64 48}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"short", !6, i64 0}
+!205 = !{!185, !5, i64 0}
+!206 = !{!185, !5, i64 8}
+!207 = !{!185, !5, i64 24}
+!208 = !{!185, !14, i64 32}
+!209 = !{!185, !5, i64 40}
+!210 = !{!185, !5, i64 48}
+!211 = !{!185, !20, i64 16}
+!212 = !{!176, !5, i64 0}
+!213 = !{!176, !5, i64 8}
+!214 = !{!176, !5, i64 16}
+!215 = !{!176, !5, i64 24}
+!216 = !{!176, !5, i64 32}
+!217 = !{!218, !218, i64 0}
+!218 = !{!"p1 _ZTS24background_thread_info_s", !10, i64 0}
+!219 = !{!220, !20, i64 168}
+!220 = !{!"background_thread_info_s", !5, i64 0, !6, i64 8, !155, i64 56, !20, i64 168, !161, i64 172, !19, i64 176, !5, i64 184, !5, i64 192, !19, i64 200}
+!221 = !{!32, !30, i64 8}
+!222 = !{!32, !30, i64 16}
+!223 = distinct !{!223, !44}
+!224 = !{!"branch_weights", i32 2002, i32 2000}
+!225 = !{!226, !226, i64 0}
+!226 = !{!"p1 _ZTS14extent_hooks_s", !10, i64 0}
+!227 = !{i64 0, i64 8, !225, i64 8, i64 1, !148}
+!228 = !{!229, !226, i64 0}
+!229 = !{!"arena_config_s", !226, i64 0, !14, i64 8}
+!230 = distinct !{!230, !44}
+!231 = distinct !{!231, !44}
+!232 = !{!10, !10, i64 0}
+!233 = !{!234, !5, i64 0}
+!234 = !{!"rtree_ctx_cache_elm_s", !5, i64 0, !235, i64 8}
+!235 = !{!"p1 _ZTS16rtree_leaf_elm_s", !10, i64 0}
+!236 = !{!234, !235, i64 8}
+!237 = distinct !{!237, !44}
+!238 = !{!239}
+!239 = distinct !{!239, !240, !"rtree_leaf_elm_read: argument 0"}
+!240 = distinct !{!240, !"rtree_leaf_elm_read"}
 !241 = !{!242, !5, i64 0}
-!242 = !{!"bin_info_s", !5, i64 0, !5, i64 8, !20, i64 16, !20, i64 20, !243, i64 24}
-!243 = !{!"bitmap_info_s", !5, i64 0, !5, i64 8}
-!244 = !{!242, !20, i64 16}
-!245 = !{!242, !5, i64 8}
-!246 = !{!242, !20, i64 20}
-!247 = !{!77, !5, i64 72}
-!248 = !{!77, !5, i64 80}
-!249 = !{!148, !164, i64 79024}
-!250 = distinct !{!250, !44}
-!251 = distinct !{!251, !44}
+!242 = !{!"edata_s", !5, i64 0, !10, i64 8, !6, i64 16, !184, i64 24, !5, i64 32, !6, i64 40, !6, i64 64}
+!243 = !{!244, !5, i64 0}
+!244 = !{!"bin_info_s", !5, i64 0, !5, i64 8, !20, i64 16, !20, i64 20, !245, i64 24}
+!245 = !{!"bitmap_info_s", !5, i64 0, !5, i64 8}
+!246 = !{!244, !20, i64 16}
+!247 = !{!244, !5, i64 8}
+!248 = !{!244, !20, i64 20}
+!249 = !{!77, !5, i64 72}
+!250 = !{!77, !5, i64 80}
+!251 = !{!150, !166, i64 79024}
 !252 = distinct !{!252, !44}
-!253 = !{!32, !5, i64 40}
-!254 = !{!32, !5, i64 48}
-!255 = !{!64, !5, i64 39008}
-!256 = !{!257, !5, i64 0}
-!257 = !{!"bin_stats_data_s", !106, i64 0, !18, i64 112}
-!258 = !{!257, !5, i64 8}
-!259 = !{!257, !5, i64 16}
-!260 = !{!257, !5, i64 24}
-!261 = !{!257, !5, i64 32}
-!262 = !{!257, !5, i64 40}
-!263 = !{!257, !5, i64 48}
-!264 = !{!257, !5, i64 56}
-!265 = !{!257, !5, i64 64}
-!266 = !{!257, !5, i64 72}
-!267 = !{!257, !5, i64 80}
-!268 = !{!257, !5, i64 88}
-!269 = !{!257, !5, i64 96}
-!270 = !{!257, !5, i64 104}
-!271 = !{!257, !5, i64 168}
-!272 = !{!257, !5, i64 128}
-!273 = !{!257, !5, i64 136}
-!274 = !{!257, !5, i64 152}
-!275 = !{!257, !20, i64 144}
-!276 = !{!64, !5, i64 35728}
-!277 = !{!64, !5, i64 35736}
-!278 = !{!64, !5, i64 35744}
-!279 = !{!64, !5, i64 38968}
-!280 = !{!64, !5, i64 38976}
-!281 = !{!64, !5, i64 38984}
-!282 = !{!64, !5, i64 38992}
-!283 = !{!64, !5, i64 39000}
-!284 = !{!72, !5, i64 0}
-!285 = !{!72, !5, i64 8}
-!286 = !{!72, !5, i64 16}
-!287 = !{i64 0, i64 8, !230, i64 8, i64 8, !230, i64 16, i64 8, !230, i64 24, i64 8, !230}
-!288 = distinct !{!288, !44}
-!289 = !{i64 0, i64 8, !230, i64 8, i64 8, !230}
+!253 = distinct !{!253, !44}
+!254 = distinct !{!254, !44}
+!255 = !{!32, !5, i64 40}
+!256 = !{!32, !5, i64 48}
+!257 = !{!64, !5, i64 39008}
+!258 = !{!259, !5, i64 0}
+!259 = !{!"bin_stats_data_s", !106, i64 0, !18, i64 112}
+!260 = !{!259, !5, i64 8}
+!261 = !{!259, !5, i64 16}
+!262 = !{!259, !5, i64 24}
+!263 = !{!259, !5, i64 32}
+!264 = !{!259, !5, i64 40}
+!265 = !{!259, !5, i64 48}
+!266 = !{!259, !5, i64 56}
+!267 = !{!259, !5, i64 64}
+!268 = !{!259, !5, i64 72}
+!269 = !{!259, !5, i64 80}
+!270 = !{!259, !5, i64 88}
+!271 = !{!259, !5, i64 96}
+!272 = !{!259, !5, i64 104}
+!273 = !{!259, !5, i64 168}
+!274 = !{!259, !5, i64 128}
+!275 = !{!259, !5, i64 136}
+!276 = !{!259, !5, i64 152}
+!277 = !{!259, !20, i64 144}
+!278 = !{!64, !5, i64 35728}
+!279 = !{!64, !5, i64 35736}
+!280 = !{!64, !5, i64 35744}
+!281 = !{!64, !5, i64 38968}
+!282 = !{!64, !5, i64 38976}
+!283 = !{!64, !5, i64 38984}
+!284 = !{!64, !5, i64 38992}
+!285 = !{!64, !5, i64 39000}
+!286 = !{!72, !5, i64 0}
+!287 = !{!72, !5, i64 8}
+!288 = !{!72, !5, i64 16}
+!289 = !{i64 0, i64 8, !232, i64 8, i64 8, !232, i64 16, i64 8, !232, i64 24, i64 8, !232}
+!290 = distinct !{!290, !44}
+!291 = !{i64 0, i64 8, !232, i64 8, i64 8, !232}

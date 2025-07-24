@@ -1875,7 +1875,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %104, %99, %98, %93,
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next111 to i32
   %exitcond113.not = icmp eq i32 %47, %lftr.wideiv
-  br i1 %exitcond113.not, label %._crit_edge86, label %.lr.ph.us95
+  br i1 %exitcond113.not, label %._crit_edge86, label %.lr.ph.us95, !llvm.loop !65
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us96, %.lr.ph85, %22
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %24)
@@ -1902,7 +1902,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #10
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare !callback !64 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
+declare !callback !66 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #11
@@ -2033,9 +2033,9 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %5, %_ZN4ncnn3Mat7re
 
 _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !68
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !69
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %70, ptr %71, align 8, !tbaa !54
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2061,9 +2061,9 @@ _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0
 
 84:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !68
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !69
+  %86 = load ptr, ptr %85, align 8, !tbaa !71
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !54
   %88 = lshr i32 %82, 1
@@ -2091,9 +2091,9 @@ _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0
 
 102:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !68
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !69
+  %104 = load ptr, ptr %103, align 8, !tbaa !71
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %104, ptr %105, align 8, !tbaa !54
   %106 = lshr i32 %100, 1
@@ -2206,10 +2206,12 @@ attributes #17 = { builtin nounwind }
 !60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
 !62 = distinct !{!62, !61}
-!63 = distinct !{!63, !61}
-!64 = !{!65}
-!65 = !{i64 2, i64 -1, i64 -1, i1 true}
-!66 = !{i64 0, i64 1, !67, i64 4, i64 4, !57, i64 8, i64 8, !68, i64 16, i64 8, !68, i64 24, i64 4, !57, i64 28, i64 1, !67, i64 29, i64 1, !67, i64 30, i64 1, !67, i64 31, i64 1, !67, i64 32, i64 1, !67, i64 33, i64 1, !67, i64 34, i64 1, !67, i64 35, i64 1, !67, i64 36, i64 1, !67, i64 37, i64 1, !67, i64 38, i64 1, !67, i64 39, i64 1, !67, i64 40, i64 1, !67, i64 41, i64 1, !67, i64 42, i64 1, !67, i64 43, i64 1, !67, i64 44, i64 1, !67, i64 45, i64 1, !67, i64 46, i64 1, !67, i64 47, i64 1, !67, i64 48, i64 4, !57, i64 52, i64 1, !67, i64 53, i64 1, !67, i64 54, i64 1, !67, i64 55, i64 1, !67, i64 56, i64 1, !67, i64 57, i64 1, !67, i64 58, i64 1, !67, i64 59, i64 1, !67, i64 60, i64 1, !67, i64 61, i64 1, !67, i64 62, i64 1, !67, i64 63, i64 1, !67}
-!67 = !{!21, !21, i64 0}
-!68 = !{!14, !14, i64 0}
-!69 = !{!55, !14, i64 16}
+!63 = distinct !{!63, !61, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !64}
+!66 = !{!67}
+!67 = !{i64 2, i64 -1, i64 -1, i1 true}
+!68 = !{i64 0, i64 1, !69, i64 4, i64 4, !57, i64 8, i64 8, !70, i64 16, i64 8, !70, i64 24, i64 4, !57, i64 28, i64 1, !69, i64 29, i64 1, !69, i64 30, i64 1, !69, i64 31, i64 1, !69, i64 32, i64 1, !69, i64 33, i64 1, !69, i64 34, i64 1, !69, i64 35, i64 1, !69, i64 36, i64 1, !69, i64 37, i64 1, !69, i64 38, i64 1, !69, i64 39, i64 1, !69, i64 40, i64 1, !69, i64 41, i64 1, !69, i64 42, i64 1, !69, i64 43, i64 1, !69, i64 44, i64 1, !69, i64 45, i64 1, !69, i64 46, i64 1, !69, i64 47, i64 1, !69, i64 48, i64 4, !57, i64 52, i64 1, !69, i64 53, i64 1, !69, i64 54, i64 1, !69, i64 55, i64 1, !69, i64 56, i64 1, !69, i64 57, i64 1, !69, i64 58, i64 1, !69, i64 59, i64 1, !69, i64 60, i64 1, !69, i64 61, i64 1, !69, i64 62, i64 1, !69, i64 63, i64 1, !69}
+!69 = !{!21, !21, i64 0}
+!70 = !{!14, !14, i64 0}
+!71 = !{!55, !14, i64 16}

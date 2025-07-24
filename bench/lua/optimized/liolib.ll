@@ -1112,7 +1112,7 @@ test2.exit37.i:                                   ; preds = %getc_unlocked.exit.
   %223 = load i16, ptr %222, align 2, !tbaa !39
   %224 = and i16 %223, 2048
   %.not5.us.i.i = icmp eq i16 %224, 0
-  br i1 %.not5.us.i.i, label %readdigits.exit.i, label %.lr.ph18.i.i
+  br i1 %.not5.us.i.i, label %readdigits.exit.i, label %.lr.ph18.i.i, !llvm.loop !40
 
 readdigits.exit.i.sink.split:                     ; preds = %.lr.ph18.i.i, %150
   %.ph = phi i32 [ %.pre47.i, %150 ], [ %199, %.lr.ph18.i.i ]
@@ -1283,7 +1283,7 @@ getc_unlocked.exit:                               ; preds = %13, %15
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !40
+  %31 = load i64, ptr %30, align 8, !tbaa !42
   %32 = icmp ult i64 %25, %31
   br i1 %32, label %.thread, label %33
 
@@ -1294,7 +1294,7 @@ getc_unlocked.exit:                               ; preds = %13, %15
 
 .thread:                                          ; preds = %29, %33
   %35 = phi i64 [ %25, %29 ], [ %.pre, %33 ]
-  %36 = load ptr, ptr %4, align 8, !tbaa !41
+  %36 = load ptr, ptr %4, align 8, !tbaa !43
   %37 = add i64 %35, 1
   store i64 %37, ptr %7, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %35
@@ -1418,7 +1418,7 @@ define internal fastcc i32 @readdigits(ptr noundef nonnull captures(none) %0, i3
   %38 = load i16, ptr %37, align 2, !tbaa !39
   %39 = and i16 %38, 2048
   %.not5.us = icmp eq i16 %39, 0
-  br i1 %.not5.us, label %.critedge, label %.lr.ph18
+  br i1 %.not5.us, label %.critedge, label %.lr.ph18, !llvm.loop !40
 
 .split:                                           ; preds = %2
   %40 = and i16 %11, 4096
@@ -1539,13 +1539,13 @@ define internal fastcc i32 @g_write(ptr noundef %0, ptr noundef captures(none) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %11 = call i32 @lua_numbertocstring(ptr noundef %0, i32 noundef %.01623, ptr noundef nonnull %4) #9
   %12 = zext i32 %11 to i64
-  store i64 %12, ptr %5, align 8, !tbaa !42
+  store i64 %12, ptr %5, align 8, !tbaa !44
   %.not20 = icmp eq i32 %11, 0
   br i1 %.not20, label %15, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = add nsw i64 %12, -1
-  store i64 %14, ptr %5, align 8, !tbaa !42
+  store i64 %14, ptr %5, align 8, !tbaa !44
   br label %17
 
 15:                                               ; preds = %.lr.ph
@@ -1557,9 +1557,9 @@ define internal fastcc i32 @g_write(ptr noundef %0, ptr noundef captures(none) %
   br i1 %.01424, label %.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !tbaa !42
+  %19 = load i64, ptr %5, align 8, !tbaa !44
   %20 = call i64 @fwrite(ptr noundef %.0, i64 noundef 1, i64 noundef %19, ptr noundef %1)
-  %21 = load i64, ptr %5, align 8, !tbaa !42
+  %21 = load i64, ptr %5, align 8, !tbaa !44
   %22 = icmp ne i64 %20, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
@@ -1579,7 +1579,7 @@ define internal fastcc i32 @g_write(ptr noundef %0, ptr noundef captures(none) %
   br i1 %.not25, label %._crit_edge.thread, label %.lr.ph.backedge
 
 ._crit_edge:                                      ; preds = %18
-  br i1 %22, label %._crit_edge.thread, label %.critedge, !prof !43
+  br i1 %22, label %._crit_edge.thread, label %.critedge, !prof !45
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   %23 = call i32 @luaL_fileresult(ptr noundef %0, i32 noundef 0, ptr noundef null) #9
@@ -1875,7 +1875,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !37 = !{!38, !38, i64 0}
 !38 = !{!"p1 short", !6, i64 0}
 !39 = !{!32, !32, i64 0}
-!40 = !{!20, !22, i64 8}
-!41 = !{!20, !21, i64 0}
-!42 = !{!22, !22, i64 0}
-!43 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{!20, !22, i64 8}
+!43 = !{!20, !21, i64 0}
+!44 = !{!22, !22, i64 0}
+!45 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

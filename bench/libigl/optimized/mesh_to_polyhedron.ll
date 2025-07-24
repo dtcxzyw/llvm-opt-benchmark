@@ -3266,7 +3266,7 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25:   ; preds = %_ZN4CGAL15Verbose_o
   br i1 %.not105, label %.split.us, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge
 
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
-  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, !llvm.loop !172
+  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, !llvm.loop !174
 
 .split.us:                                        ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us
   br i1 %13, label %.thread100, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
@@ -3355,7 +3355,7 @@ define linkonce_odr dso_local void @_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartes
   %7 = load ptr, ptr %6, align 8, !tbaa !94
   tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i, i64 noundef 56) #18
   %.not.i.i = icmp eq ptr %7, %3
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !173
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !175
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !83
@@ -3411,7 +3411,7 @@ _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_ite
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.03.05.i.i
   tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i.i, i64 noundef 128) #18
   %.not.i.i2 = icmp eq ptr %22, %13
-  br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !174
+  br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !176
 
 _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit: ; preds = %17, %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE14vertices_clearEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3429,7 +3429,7 @@ _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_ite
   %42 = load ptr, ptr %41, align 8, !tbaa !146
   tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i5, i64 noundef 32) #18
   %.not.i.i6 = icmp eq ptr %42, %38
-  br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !175
+  br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !177
 
 ._crit_edge.loopexit.i.i7:                        ; preds = %.lr.ph.i.i4
   %.pre.i.i8 = load ptr, ptr %37, align 8, !tbaa !145
@@ -3954,7 +3954,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226: ; preds = %2
   %.sroa.0378.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901015, i64 48
   %.sroa.0378.0 = load ptr, ptr %.sroa.0378.0.in, align 8, !tbaa !67
   %.not422 = icmp eq ptr %.sroa.0378.0, %70
-  br i1 %.not422, label %.critedge, label %.lr.ph1018, !llvm.loop !176
+  br i1 %.not422, label %.critedge, label %.lr.ph1018, !llvm.loop !178
 
 .critedge:                                        ; preds = %244, %.lr.ph, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120
   %.0404485 = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ 0, %.lr.ph ], [ %246, %244 ]
@@ -4070,7 +4070,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149:    ; preds = %271, %_ZN4CGAL15Ver
 297:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
   %298 = load ptr, ptr %0, align 8, !tbaa !62
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 80
-  %300 = load i64, ptr %299, align 8, !tbaa !177
+  %300 = load i64, ptr %299, align 8, !tbaa !179
   %.not97 = icmp ne i64 %.089476766787795810820, %300
   %brmerge949.not = and i1 %.not97, %1
   br i1 %brmerge949.not, label %301, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
@@ -4132,7 +4132,7 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %297, %_ZSt4endlIcSt
 
 .critedge111:                                     ; preds = %327
   %329 = getelementptr inbounds nuw i8, ptr %323, i64 80
-  %330 = load i64, ptr %329, align 8, !tbaa !177
+  %330 = load i64, ptr %329, align 8, !tbaa !179
   %331 = icmp eq i64 %.089476766787795810820, %330
   br i1 %331, label %.lr.ph535, label %.critedge115.thread.thread
 
@@ -4300,7 +4300,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit256.us: ; preds =
   %.sroa.0.0.copyload.i161.us = load ptr, ptr %403, align 8, !tbaa !54
   %.sroa.0.0.copyload.i162.us = load ptr, ptr %.sroa.0.0.copyload.i161.us, align 8, !tbaa !54
   %.not434.us = icmp eq ptr %.sroa.0.0.copyload.i162.us, %.sroa.0.0.copyload.i.i.i153
-  br i1 %.not434.us, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us, !llvm.loop !180
+  br i1 %.not434.us, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us, !llvm.loop !182
 
 .preheader435.split.split.split:                  ; preds = %.preheader435
   %404 = load ptr, ptr %0, align 8, !tbaa !62
@@ -4366,7 +4366,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
   %.sroa.0.0.copyload.i161 = load ptr, ptr %428, align 8, !tbaa !54
   %.sroa.0.0.copyload.i162 = load ptr, ptr %.sroa.0.0.copyload.i161, align 8, !tbaa !54
   %.not434 = icmp eq ptr %.sroa.0.0.copyload.i162, %.sroa.0.0.copyload.i.i.i153
-  br i1 %.not434, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit, !llvm.loop !180
+  br i1 %.not434, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit, !llvm.loop !183
 
 .critedge7:                                       ; preds = %.critedge113, %.critedge113.us, %379
   %.2406 = phi i64 [ %.14055331024, %379 ], [ %402, %.critedge113.us ], [ %427, %.critedge113 ]
@@ -4374,7 +4374,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
   %.sroa.0340.0534.in = getelementptr inbounds nuw i8, ptr %.sroa.0340.05341026, i64 40
   %.sroa.0340.0534 = load ptr, ptr %.sroa.0340.0534.in, align 8, !tbaa !94
   %.not428 = icmp eq ptr %.sroa.0340.0534, %333
-  br i1 %.not428, label %.critedge3, label %.lr.ph1027, !llvm.loop !181
+  br i1 %.not428, label %.critedge3, label %.lr.ph1027, !llvm.loop !184
 
 .critedge3:                                       ; preds = %.critedge7, %.lr.ph535
   %.1405533.lcssa = phi i64 [ 0, %.lr.ph535 ], [ %.2406, %.critedge7 ]
@@ -4667,7 +4667,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit286.us: ; preds =
   %563 = getelementptr inbounds nuw i8, ptr %.sroa.0313.0.us, i64 8
   %.sroa.0.0.copyload.i179.us = load ptr, ptr %563, align 8, !tbaa !54
   %.not433.us = icmp eq ptr %.sroa.0.0.copyload.i179.us, %.sroa.0.0.copyload.i.i.i170
-  br i1 %.not433.us, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us, !llvm.loop !182
+  br i1 %.not433.us, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us, !llvm.loop !185
 
 .preheader.split.split.split:                     ; preds = %.preheader
   %564 = load ptr, ptr %0, align 8, !tbaa !62
@@ -4732,7 +4732,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   %588 = getelementptr inbounds nuw i8, ptr %.sroa.0313.0, i64 8
   %.sroa.0.0.copyload.i179 = load ptr, ptr %588, align 8, !tbaa !54
   %.not433 = icmp eq ptr %.sroa.0.0.copyload.i179, %.sroa.0.0.copyload.i.i.i170
-  br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !182
+  br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !186
 
 .critedge15:                                      ; preds = %.critedge117, %.critedge117.us, %514, %539
   %.5409 = phi i64 [ %.44085731033, %539 ], [ %.44085731033, %514 ], [ %562, %.critedge117.us ], [ %587, %.critedge117 ]
@@ -4740,7 +4740,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   %.sroa.0323.0574.in = getelementptr inbounds nuw i8, ptr %.sroa.0323.05741035, i64 16
   %.sroa.0323.0574 = load ptr, ptr %.sroa.0323.0574.in, align 8, !tbaa !146
   %.not431 = icmp eq ptr %.sroa.0323.0574, %488
-  br i1 %.not431, label %.critedge11, label %.lr.ph1036, !llvm.loop !183
+  br i1 %.not431, label %.critedge11, label %.lr.ph1036, !llvm.loop !187
 
 .critedge11:                                      ; preds = %.critedge15, %.lr.ph575
   %.4408573.lcssa = phi i64 [ 0, %.lr.ph575 ], [ %.5409, %.critedge15 ]
@@ -5058,7 +5058,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %2, %_ZSt4endlIcSt11
   %.sroa.066.0.in = getelementptr inbounds nuw i8, ptr %36, i64 48
   %.sroa.066.0 = load ptr, ptr %.sroa.066.0.in, align 8, !tbaa !67
   %.not = icmp eq ptr %.sroa.066.0, %26
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !184
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !188
 
 .critedge:                                        ; preds = %30, %34, %.lr.ph, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
   %storemerge.lcssa = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit ], [ %storemerge155, %.lr.ph ], [ %37, %34 ], [ %storemerge155, %30 ]
@@ -5176,7 +5176,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27: ; preds = %64
   %90 = load ptr, ptr %89, align 8, !tbaa !67
   %91 = add i64 %storemerge6166, 1
   %.not149 = icmp eq ptr %90, %63
-  br i1 %.not149, label %.critedge2, label %.lr.ph167, !llvm.loop !185
+  br i1 %.not149, label %.critedge2, label %.lr.ph167, !llvm.loop !189
 
 .critedge2:                                       ; preds = %.lr.ph167, %86, %.preheader
   %.sroa.066.1.lcssa = phi ptr [ %.sroa.066.0.lcssa, %.preheader ], [ %90, %86 ], [ %.sroa.066.1165, %.lr.ph167 ]
@@ -5622,17 +5622,21 @@ attributes #20 = { builtin allocsize(0) }
 !169 = distinct !{!169, !47}
 !170 = distinct !{!170, !47}
 !171 = distinct !{!171, !47}
-!172 = distinct !{!172, !47}
-!173 = distinct !{!173, !47}
+!172 = distinct !{!172, !47, !173}
+!173 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !174 = distinct !{!174, !47}
 !175 = distinct !{!175, !47}
 !176 = distinct !{!176, !47}
-!177 = !{!178, !11, i64 80}
-!178 = !{!"_ZTSN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEE", !76, i64 0, !179, i64 1, !79, i64 2, !75, i64 8, !65, i64 32, !78, i64 56, !11, i64 80, !11, i64 88, !27, i64 96}
-!179 = !{!"_ZTSSaISt4pairIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESE_EE"}
-!180 = distinct !{!180, !47}
-!181 = distinct !{!181, !47}
-!182 = distinct !{!182, !47}
+!177 = distinct !{!177, !47}
+!178 = distinct !{!178, !47}
+!179 = !{!180, !11, i64 80}
+!180 = !{!"_ZTSN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEE", !76, i64 0, !181, i64 1, !79, i64 2, !75, i64 8, !65, i64 32, !78, i64 56, !11, i64 80, !11, i64 88, !27, i64 96}
+!181 = !{!"_ZTSSaISt4pairIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESE_EE"}
+!182 = distinct !{!182, !47, !173}
 !183 = distinct !{!183, !47}
 !184 = distinct !{!184, !47}
-!185 = distinct !{!185, !47}
+!185 = distinct !{!185, !47, !173}
+!186 = distinct !{!186, !47}
+!187 = distinct !{!187, !47}
+!188 = distinct !{!188, !47}
+!189 = distinct !{!189, !47}

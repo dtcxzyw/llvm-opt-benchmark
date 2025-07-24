@@ -1551,7 +1551,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, 2
   %147 = add nuw nsw i32 %.0108121.us, 2
   %148 = icmp slt i32 %147, %74
-  br i1 %148, label %118, label %._crit_edge.us, !llvm.loop !14
+  br i1 %148, label %118, label %._crit_edge.us, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %118
   %149 = trunc nsw i64 %indvars.iv.next170 to i32
@@ -1596,7 +1596,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 2
   %176 = add nuw nsw i32 %.0111124.us130, 1
   %exitcond168.not = icmp eq i32 %176, %38
-  br i1 %exitcond168.not, label %._crit_edge127.loopexit159, label %.lr.ph126.split.split.us, !llvm.loop !13
+  br i1 %exitcond168.not, label %._crit_edge127.loopexit159, label %.lr.ph126.split.split.us, !llvm.loop !16
 
 .lr.ph126.split.split:                            ; preds = %.lr.ph126.split, %.lr.ph126.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph126.split.split ], [ 1, %.lr.ph126.split ]
@@ -1624,7 +1624,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %195 = add nuw nsw i32 %.0111124, 1
   %exitcond.not = icmp eq i32 %195, %38
-  br i1 %exitcond.not, label %._crit_edge127.loopexit160, label %.lr.ph126.split.split, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge127.loopexit160, label %.lr.ph126.split.split, !llvm.loop !17
 
 ._crit_edge127.loopexit159:                       ; preds = %.lr.ph126.split.split.us
   %196 = trunc nuw nsw i64 %indvars.iv.next166 to i32
@@ -1706,13 +1706,13 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %.1102.us = phi float [ %.0101137.us, %211 ], [ %225, %228 ], [ %.0101137.us, %224 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
-  br i1 %exitcond176.not, label %._crit_edge.us151, label %211, !llvm.loop !15
+  br i1 %exitcond176.not, label %._crit_edge.us151, label %211, !llvm.loop !18
 
 ._crit_edge.us151:                                ; preds = %229
   %230 = fmul float %.0107143.us, 5.000000e-01
   %231 = add nuw nsw i32 %.0103145.us, 1
   %exitcond177.not = icmp eq i32 %231, %32
-  br i1 %exitcond177.not, label %._crit_edge146, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond177.not, label %._crit_edge146, label %.preheader.us, !llvm.loop !19
 
 ._crit_edge146:                                   ; preds = %._crit_edge.us151, %.preheader.lr.ph, %._crit_edge127
   %.sroa.7.0.lcssa = phi float [ %202, %._crit_edge127 ], [ 0.000000e+00, %.preheader.lr.ph ], [ %.sroa.6.1.us, %._crit_edge.us151 ]
@@ -1773,7 +1773,10 @@ attributes #14 = { noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!16 = distinct !{!16, !5, !14}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5, !14}

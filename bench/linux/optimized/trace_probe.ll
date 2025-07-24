@@ -1928,7 +1928,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %73 = add nuw i32 %63, 1
   %74 = load i32, ptr %33, align 8
   %75 = icmp ult i32 %73, %74
-  br i1 %75, label %.preheader.split, label %.loopexit3, !llvm.loop !24
+  br i1 %75, label %.preheader.split, label %.loopexit3, !llvm.loop !26
 
 .loopexit3:                                       ; preds = %.preheader.split, %.preheader.split.us, %45
   %76 = phi i32 [ %47, %45 ], [ %58, %.preheader.split.us ], [ %72, %.preheader.split ]
@@ -1951,7 +1951,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %89 = add nuw i32 %21, 1
   %90 = load i32, ptr %14, align 8
   %91 = icmp ult i32 %89, %90
-  br i1 %91, label %19, label %.loopexit4, !llvm.loop !25
+  br i1 %91, label %19, label %.loopexit4, !llvm.loop !27
 
 .loopexit4:                                       ; preds = %87, %8
   %92 = phi i32 [ %13, %8 ], [ %88, %87 ]
@@ -2005,7 +2005,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %127 = add nuw i32 %105, 1
   %128 = load i32, ptr %14, align 8
   %129 = icmp ult i32 %127, %128
-  br i1 %129, label %.split9.us, label %.loopexit2, !llvm.loop !26
+  br i1 %129, label %.split9.us, label %.loopexit2, !llvm.loop !28
 
 130:                                              ; preds = %130, %.split.us.us
   %131 = phi i32 [ %104, %.split.us.us ], [ %137, %130 ]
@@ -2018,7 +2018,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %138 = add nuw i32 %132, 1
   %139 = load i32, ptr %108, align 8
   %140 = icmp ult i32 %138, %139
-  br i1 %140, label %130, label %.loopexit.split.us.us, !llvm.loop !27
+  br i1 %140, label %130, label %.loopexit.split.us.us, !llvm.loop !29
 
 .split9:                                          ; preds = %102, %.loopexit.split
   %141 = phi i32 [ %178, %.loopexit.split ], [ %99, %102 ]
@@ -2053,7 +2053,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %165 = add nuw i32 %157, 1
   %166 = load i32, ptr %145, align 8
   %167 = icmp ult i32 %165, %166
-  br i1 %167, label %155, label %.loopexit.split, !llvm.loop !27
+  br i1 %167, label %155, label %.loopexit.split, !llvm.loop !30
 
 168:                                              ; preds = %.split9
   %169 = select i1 %152, ptr @.str.142, ptr @.str.141
@@ -2072,7 +2072,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %179 = add nuw i32 %142, 1
   %180 = load i32, ptr %14, align 8
   %181 = icmp ult i32 %179, %180
-  br i1 %181, label %.split9, label %.loopexit2, !llvm.loop !26
+  br i1 %181, label %.split9, label %.loopexit2, !llvm.loop !31
 
 .loopexit2:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us, %.loopexit4, %7
   %182 = phi i32 [ 0, %7 ], [ %99, %.loopexit4 ], [ %126, %.loopexit.split.us.us ], [ %178, %.loopexit.split ]
@@ -2095,7 +2095,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
   %11 = add nuw i32 %15, 1
   %12 = load i32, ptr %5, align 8
   %13 = icmp ult i32 %11, %12
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !28
+  br i1 %13, label %14, label %.loopexit, !llvm.loop !32
 
 14:                                               ; preds = %10, %8
   %15 = phi i32 [ 0, %8 ], [ %11, %10 ]
@@ -2286,7 +2286,7 @@ traceprobe_free_probe_arg.exit:                   ; preds = %7, %.loopexit.loope
   %28 = add nuw i32 %8, 1
   %29 = load i32, ptr %2, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %7, label %.loopexit, !llvm.loop !29
+  br i1 %30, label %7, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %traceprobe_free_probe_arg.exit, %1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2490,7 +2490,7 @@ define dso_local i32 @trace_probe_register_event_call(ptr noundef readonly captu
 .thread:                                          ; preds = %48, %56, %53, %33, %.preheader
   %59 = load ptr, ptr %28, align 8
   %60 = icmp eq ptr %59, @ftrace_events
-  br i1 %60, label %.thread7, label %.preheader, !llvm.loop !30
+  br i1 %60, label %.thread7, label %.preheader, !llvm.loop !34
 
 61:                                               ; preds = %56
   %62 = icmp eq ptr %28, null
@@ -2545,7 +2545,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_add_file(ptr noundef
   %13 = load ptr, ptr %12, align 8
   store ptr %11, ptr %7, align 8
   store ptr %13, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !35
   store volatile ptr %7, ptr %13, align 8
   store ptr %7, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
@@ -2576,7 +2576,7 @@ define dso_local ptr @trace_probe_get_file_link(ptr noundef readonly captures(no
   %11 = getelementptr i8, ptr %8, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %.split.loop.exit1.split.loop.exit4, label %6, !llvm.loop !32
+  br i1 %13, label %.split.loop.exit1.split.loop.exit4, label %6, !llvm.loop !36
 
 .split.loop.exit1.split.loop.exit4:               ; preds = %10
   %14 = getelementptr i8, ptr %8, i64 -8
@@ -2604,7 +2604,7 @@ define dso_local noundef range(i32 -2, 1) i32 @trace_probe_remove_file(ptr nound
   %11 = getelementptr i8, ptr %8, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %6, !llvm.loop !32
+  br i1 %13, label %14, label %6, !llvm.loop !36
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %8, i64 -8
@@ -2711,7 +2711,7 @@ define dso_local i32 @trace_probe_compare_arg_type(ptr noundef readonly captures
 47:                                               ; preds = %37
   %48 = add nuw i32 %20, 1
   %49 = icmp eq i32 %48, %4
-  br i1 %49, label %.loopexit, label %19, !llvm.loop !33
+  br i1 %49, label %.loopexit, label %19, !llvm.loop !37
 
 .loopexit:                                        ; preds = %47, %44, %17, %12, %8
   %50 = phi i32 [ %9, %8 ], [ %18, %17 ], [ %46, %44 ], [ 0, %12 ], [ 0, %47 ]
@@ -2755,7 +2755,7 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef readonly
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp ne i64 %25, %12
   %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %13, label %.loopexit, !llvm.loop !34
+  br i1 %27, label %13, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %13, %8, %3
   %28 = phi i1 [ false, %3 ], [ true, %8 ], [ %24, %13 ]
@@ -2819,7 +2819,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_print_args(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %28, !prof !35
+  br i1 %16, label %17, label %28, !prof !39
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -2872,12 +2872,12 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_print_args(ptr nound
   %54 = add nuw i32 %39, 1
   %55 = load i32, ptr %14, align 8
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %37, label %.loopexit, !llvm.loop !36
+  br i1 %56, label %37, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %45, %17, %28
   %57 = add nuw nsw i64 %10, 1
   %58 = icmp eq i64 %57, %8
-  br i1 %58, label %select.unfold, label %9, !llvm.loop !37
+  br i1 %58, label %select.unfold, label %9, !llvm.loop !41
 
 select.unfold:                                    ; preds = %17, %.loopexit, %37, %5
   %59 = phi i32 [ 0, %5 ], [ -12, %37 ], [ -12, %17 ], [ 0, %.loopexit ]
@@ -2973,14 +2973,14 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
   %38 = phi i64 [ %39, %41 ], [ 0, %18 ]
   %39 = add nuw nsw i64 %38, 1
   %40 = icmp eq i64 %39, 17
-  br i1 %40, label %.loopexit, label %41, !llvm.loop !38
+  br i1 %40, label %.loopexit, label %41, !llvm.loop !42
 
 41:                                               ; preds = %.preheader
   %42 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %39
   %43 = load ptr, ptr %42, align 16
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit.sink.split:                             ; preds = %28, %24, %21, %35
   %.ph = phi ptr [ %37, %35 ], [ null, %21 ], [ null, %24 ], [ null, %28 ]
@@ -3063,7 +3063,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @strcmp(ptr noundef %12, ptr noundef %40) #16
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %34, !llvm.loop !39
+  br i1 %42, label %43, label %34, !llvm.loop !43
 
 43:                                               ; preds = %38
   store i32 20, ptr %9, align 8
@@ -3739,19 +3739,23 @@ attributes #18 = { nounwind allocsize(2) }
 !21 = !{i64 2157001691, i64 2157001500, i64 2157001552, i64 2157001598, i64 2157001626}
 !22 = !{i64 2157001765, i64 2157001794, i64 2157001840, i64 2157001898, i64 2157001952, i64 2157002006, i64 2157002061, i64 2157002092, i64 2157002400, i64 2157002406, i64 2157002453, i64 2157002476, i64 2157002502}
 !23 = !{i64 2157002962, i64 2157002773, i64 2157002823, i64 2157002869, i64 2157002897}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
+!24 = distinct !{!24, !6, !7, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !26 = distinct !{!26, !6, !7}
 !27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
+!28 = distinct !{!28, !6, !7, !25}
+!29 = distinct !{!29, !6, !7, !25}
 !30 = distinct !{!30, !6, !7}
-!31 = !{i64 2152226939}
+!31 = distinct !{!31, !6, !7}
 !32 = distinct !{!32, !6, !7}
 !33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
-!35 = !{!"branch_weights", i32 2000, i32 1}
+!35 = !{i64 2152226939}
 !36 = distinct !{!36, !6, !7}
 !37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
+!39 = !{!"branch_weights", i32 2000, i32 1}
+!40 = distinct !{!40, !6, !7}
+!41 = distinct !{!41, !6, !7}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}

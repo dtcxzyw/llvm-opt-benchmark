@@ -575,7 +575,7 @@ list_length.exit:                                 ; preds = %13, %14
 206:                                              ; preds = %194, %194, %203, %201, %198
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count398
-  br i1 %exitcond399.not, label %.thread242, label %190, !llvm.loop !6
+  br i1 %exitcond399.not, label %.thread242, label %190, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %225
   %indvars.iv400 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next401, %225 ]
@@ -615,7 +615,7 @@ list_length.exit:                                 ; preds = %13, %14
 225:                                              ; preds = %215, %213, %210
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
-  br i1 %exitcond404.not, label %.thread242, label %.lr.ph.split.split, !llvm.loop !6
+  br i1 %exitcond404.not, label %.thread242, label %.lr.ph.split.split, !llvm.loop !10
 
 .thread242:                                       ; preds = %172, %189, %190, %206, %.lr.ph.split.split, %225, %.preheader248
   %226 = tail call ptr @cstring_to_text(ptr noundef nonnull %166) #8
@@ -783,7 +783,7 @@ switch.early.test:                                ; preds = %266
 299:                                              ; preds = %.lr.ph353, %296
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
-  br i1 %exitcond411.not, label %._crit_edge354, label %.lr.ph353, !llvm.loop !8
+  br i1 %exitcond411.not, label %._crit_edge354, label %.lr.ph353, !llvm.loop !11
 
 ._crit_edge354:                                   ; preds = %299, %.preheader
   %300 = tail call ptr @construct_array_builtin(ptr noundef %24, i32 noundef %17, i32 noundef 25) #8
@@ -1425,7 +1425,7 @@ compute_function_attributes.exit:                 ; preds = %194, %196
   %256 = load i32, ptr %244, align 4
   %257 = sext i32 %256 to i64
   %.not89 = icmp slt i64 %indvars.iv.next, %257
-  br i1 %.not89, label %247, label %.loopexit, !llvm.loop !9
+  br i1 %.not89, label %247, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %247, %.preheader, %243
   %.0 = phi ptr [ null, %243 ], [ null, %.preheader ], [ %255, %247 ]
@@ -1641,7 +1641,7 @@ list_length.exit104:                              ; preds = %357, %list_length.e
   %363 = load i32, ptr %348, align 4
   %364 = sext i32 %363 to i64
   %.not97 = icmp slt i64 %indvars.iv.next240, %364
-  br i1 %.not97, label %357, label %list_length.exit104, !llvm.loop !10
+  br i1 %.not97, label %357, label %list_length.exit104, !llvm.loop !13
 
 365:                                              ; preds = %347, %list_length.exit104
   %.072 = phi i64 [ %356, %list_length.exit104 ], [ 0, %347 ]
@@ -4352,7 +4352,7 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
   %28 = load i32, ptr %13, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %17, label %.loopexit, !llvm.loop !11
+  br i1 %30, label %17, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %.preheader, %12
   ret ptr %13
@@ -4420,9 +4420,12 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

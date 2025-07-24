@@ -1279,7 +1279,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   %110 = load ptr, ptr %7, align 8, !tbaa !15
   %111 = tail call i32 @OPENSSL_sk_num(ptr noundef %110) #14
   %112 = icmp slt i32 %109, %111
-  br i1 %112, label %75, label %.preheader, !llvm.loop !43
+  br i1 %112, label %75, label %.preheader, !llvm.loop !44
 
 .preheader.split:                                 ; preds = %.preheader, %117
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %117 ], [ 0, %.preheader ]
@@ -1293,7 +1293,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 117:                                              ; preds = %.preheader.split
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond137.not, label %.loopexit, label %.preheader.split, !llvm.loop !42
+  br i1 %exitcond137.not, label %.loopexit, label %.preheader.split, !llvm.loop !45
 
 .loopexit110:                                     ; preds = %49, %45, %102, %75, %.preheader.split, %.preheader.split.us, %84
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1318,7 +1318,7 @@ mempacket_free.exit:                              ; preds = %119, %123
   %.inv = icmp sgt i32 %124, 0
   %125 = icmp samesign ult i64 %indvars.iv143, 2
   %126 = select i1 %.inv, i1 %125, i1 false
-  br i1 %126, label %119, label %.loopexit, !llvm.loop !44
+  br i1 %126, label %119, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %30 ], [ %2, %88 ], [ -1, %mempacket_free.exit ], [ %2, %95 ], [ %2, %91 ], [ %2, %72 ], [ %2, %117 ]
@@ -1427,28 +1427,28 @@ define dso_local ptr @bio_s_always_retry() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @always_retry_write(ptr noundef %0, ptr readnone captures(none) %1, i32 %2) #0 {
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #14
-  %4 = load i32, ptr @retry_err, align 4, !tbaa !45
+  %4 = load i32, ptr @retry_err, align 4, !tbaa !47
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @always_retry_read(ptr noundef %0, ptr readnone captures(none) %1, i32 %2) #0 {
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 9) #14
-  %4 = load i32, ptr @retry_err, align 4, !tbaa !45
+  %4 = load i32, ptr @retry_err, align 4, !tbaa !47
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @always_retry_puts(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #14
-  %3 = load i32, ptr @retry_err, align 4, !tbaa !45
+  %3 = load i32, ptr @retry_err, align 4, !tbaa !47
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @always_retry_gets(ptr noundef %0, ptr readnone captures(none) %1, i32 %2) #0 {
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 9) #14
-  %4 = load i32, ptr @retry_err, align 4, !tbaa !45
+  %4 = load i32, ptr @retry_err, align 4, !tbaa !47
   ret i32 %4
 }
 
@@ -1487,7 +1487,7 @@ define dso_local void @bio_s_always_retry_free() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @set_always_retry_err_val(i32 noundef %0) local_unnamed_addr #5 {
-  store i32 %0, ptr @retry_err, align 4, !tbaa !45
+  store i32 %0, ptr @retry_err, align 4, !tbaa !47
   ret void
 }
 
@@ -1554,7 +1554,7 @@ define internal i32 @maybe_retry_write(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %4, align 4, !tbaa !46
+  %7 = load i32, ptr %4, align 4, !tbaa !48
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
@@ -1564,7 +1564,7 @@ define internal i32 @maybe_retry_write(ptr noundef %0, ptr noundef %1, i32 nound
 
 10:                                               ; preds = %6
   %11 = add i32 %7, -1
-  store i32 %11, ptr %4, align 4, !tbaa !46
+  store i32 %11, ptr %4, align 4, !tbaa !48
   %12 = tail call ptr @BIO_next(ptr noundef %0) #14
   %13 = tail call i32 @BIO_write(ptr noundef %12, ptr noundef %1, i32 noundef %2) #14
   br label %14
@@ -1588,11 +1588,11 @@ define internal i64 @maybe_retry_ctrl(ptr noundef %0, i32 noundef %1, i64 nounde
 
 8:                                                ; preds = %7
   %9 = trunc i64 %2 to i32
-  store i32 %9, ptr %5, align 4, !tbaa !46
+  store i32 %9, ptr %5, align 4, !tbaa !48
   br label %19
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr %5, align 4, !tbaa !46
+  %11 = load i32, ptr %5, align 4, !tbaa !48
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
 
@@ -1602,7 +1602,7 @@ define internal i64 @maybe_retry_ctrl(ptr noundef %0, i32 noundef %1, i64 nounde
 
 14:                                               ; preds = %10
   %15 = add i32 %11, -1
-  store i32 %15, ptr %5, align 4, !tbaa !46
+  store i32 %15, ptr %5, align 4, !tbaa !48
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -1653,7 +1653,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %9
-  %11 = load ptr, ptr %5, align 8, !tbaa !48
+  %11 = load ptr, ptr %5, align 8, !tbaa !50
   %.not64 = icmp eq ptr %11, null
   br i1 %.not64, label %12, label %20
 
@@ -1677,7 +1677,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not67, label %26, label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %6, align 8, !tbaa !48
+  %22 = load ptr, ptr %6, align 8, !tbaa !50
   %.not68 = icmp eq ptr %22, null
   br i1 %.not68, label %23, label %26
 
@@ -1777,14 +1777,14 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %74
-  store ptr %.048, ptr %5, align 8, !tbaa !48
+  store ptr %.048, ptr %5, align 8, !tbaa !50
   br label %76
 
 76:                                               ; preds = %75, %74
   br i1 %.not67, label %87, label %77
 
 77:                                               ; preds = %76
-  store ptr %.1, ptr %6, align 8, !tbaa !48
+  store ptr %.1, ptr %6, align 8, !tbaa !50
   br label %87
 
 78:                                               ; preds = %65, %68, %71, %47, %55, %30, %38, %23
@@ -1794,7 +1794,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
 .thread:                                          ; preds = %15, %12, %78
   %.082 = phi ptr [ %.0, %78 ], [ null, %12 ], [ null, %15 ]
   %.14981 = phi ptr [ %.048, %78 ], [ %13, %12 ], [ %13, %15 ]
-  %79 = load ptr, ptr %5, align 8, !tbaa !48
+  %79 = load ptr, ptr %5, align 8, !tbaa !50
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %82
 
@@ -1808,7 +1808,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not78, label %87, label %83
 
 83:                                               ; preds = %82
-  %84 = load ptr, ptr %6, align 8, !tbaa !48
+  %84 = load ptr, ptr %6, align 8, !tbaa !50
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %87
 
@@ -1843,7 +1843,7 @@ define dso_local range(i32 0, 2) i32 @wait_until_sock_readable(i32 noundef %0) l
   %3 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !tbaa !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !tbaa !52
   %4 = add nsw i32 %0, 1
   %5 = srem i32 %0, 64
   %6 = zext nneg i32 %5 to i64
@@ -1851,14 +1851,14 @@ define dso_local range(i32 0, 2) i32 @wait_until_sock_readable(i32 noundef %0) l
   %8 = sdiv i32 %0, 64
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %9
-  %11 = load i64, ptr %10, align 8, !tbaa !50
+  %11 = load i64, ptr %10, align 8, !tbaa !52
   %12 = or i64 %11, %7
-  store i64 %12, ptr %10, align 8, !tbaa !50
-  store i64 10, ptr %3, align 8, !tbaa !52
+  store i64 %12, ptr %10, align 8, !tbaa !52
+  store i64 10, ptr %3, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !54
+  store i64 0, ptr %13, align 8, !tbaa !56
   %14 = call i32 @select(i32 noundef %4, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #14
-  %15 = load i64, ptr %10, align 8, !tbaa !50
+  %15 = load i64, ptr %10, align 8, !tbaa !52
   %16 = lshr i64 %15, %6
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 1
@@ -1875,12 +1875,12 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
-  store i32 16, ptr %6, align 4, !tbaa !45
+  store i32 16, ptr %6, align 4, !tbaa !47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store i16 2, ptr %5, align 4, !tbaa !55
+  store i16 2, ptr %5, align 4, !tbaa !57
   %7 = tail call i32 @inet_addr(ptr noundef nonnull @.str.40) #14
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %7, ptr %8, align 4, !tbaa !58
+  store i32 %7, ptr %8, align 4, !tbaa !60
   %9 = icmp eq i32 %2, 1
   %10 = select i1 %9, i32 6, i32 17
   %11 = tail call i32 @BIO_socket(i32 noundef 2, i32 noundef %2, i32 noundef %10, i32 noundef 0) #14
@@ -1902,10 +1902,10 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = load i16, ptr %5, align 4, !tbaa !55
+  %21 = load i16, ptr %5, align 4, !tbaa !57
   %22 = zext i16 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %24 = load i16, ptr %23, align 2, !tbaa !59
+  %24 = load i16, ptr %23, align 2, !tbaa !61
   %25 = call i32 @BIO_ADDR_rawmake(ptr noundef nonnull %3, i32 noundef %22, ptr noundef nonnull %8, i64 noundef 4, i16 noundef zeroext %24) #14
   %.not48 = icmp eq i32 %25, 0
   br i1 %.not48, label %.thread76, label %26
@@ -1941,7 +1941,7 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
 
 38:                                               ; preds = %.lr.ph
   %39 = tail call ptr @__errno_location() #16
-  %40 = load i32, ptr %39, align 4, !tbaa !45
+  %40 = load i32, ptr %39, align 4, !tbaa !47
   %.not53 = icmp eq i32 %40, 11
   br i1 %.not53, label %41, label %.thread64.thread
 
@@ -1954,7 +1954,7 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   br i1 %44, label %.thread64, label %45
 
 45:                                               ; preds = %42, %41
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %45, %35
   %.2.lcssa = phi i32 [ %11, %35 ], [ %36, %45 ]
@@ -1968,8 +1968,8 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   br i1 %.not52, label %.thread64, label %49
 
 49:                                               ; preds = %47
-  store i32 %31, ptr %0, align 4, !tbaa !45
-  store i32 %.2.lcssa, ptr %1, align 4, !tbaa !45
+  store i32 %31, ptr %0, align 4, !tbaa !47
+  store i32 %.2.lcssa, ptr %1, align 4, !tbaa !47
   br label %54
 
 .thread64.thread:                                 ; preds = %38, %33
@@ -2044,7 +2044,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = load ptr, ptr %2, align 8, !tbaa !61
+  %9 = load ptr, ptr %2, align 8, !tbaa !63
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %13
 
@@ -2056,7 +2056,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %0, ptr no
 
 13:                                               ; preds = %6, %10
   %.034 = phi ptr [ %11, %10 ], [ %9, %6 ]
-  %14 = load ptr, ptr %3, align 8, !tbaa !61
+  %14 = load ptr, ptr %3, align 8, !tbaa !63
   %.not40 = icmp eq ptr %14, null
   br i1 %.not40, label %15, label %18
 
@@ -2118,13 +2118,13 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %0, ptr no
   br i1 %.not48, label %82, label %45
 
 45:                                               ; preds = %40
-  %46 = load i32, ptr %7, align 8, !tbaa !63
+  %46 = load i32, ptr %7, align 8, !tbaa !65
   %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1118, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef %46, i32 noundef 1) #14
   %.not49 = icmp eq i32 %47, 0
   br i1 %.not49, label %82, label %48
 
 48:                                               ; preds = %45
-  %49 = load i32, ptr %8, align 8, !tbaa !63
+  %49 = load i32, ptr %8, align 8, !tbaa !65
   %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1119, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.49, i32 noundef %49, i32 noundef 1) #14
   %.not50 = icmp eq i32 %50, 0
   br i1 %.not50, label %82, label %51
@@ -2160,13 +2160,13 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %0, ptr no
   br i1 %.not54, label %82, label %69
 
 69:                                               ; preds = %64
-  %70 = load i32, ptr %7, align 8, !tbaa !63
+  %70 = load i32, ptr %7, align 8, !tbaa !65
   %71 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1126, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef %70, i32 noundef 1) #14
   %.not55 = icmp eq i32 %71, 0
   br i1 %.not55, label %82, label %72
 
 72:                                               ; preds = %69
-  %73 = load i32, ptr %8, align 8, !tbaa !63
+  %73 = load i32, ptr %8, align 8, !tbaa !65
   %74 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1127, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.49, i32 noundef %73, i32 noundef 1) #14
   %.not56 = icmp eq i32 %74, 0
   br i1 %.not56, label %82, label %75
@@ -2184,8 +2184,8 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %0, ptr no
   br i1 %.not58, label %82, label %81
 
 81:                                               ; preds = %78
-  store ptr %.034, ptr %2, align 8, !tbaa !61
-  store ptr %.1, ptr %3, align 8, !tbaa !61
+  store ptr %.034, ptr %2, align 8, !tbaa !63
+  store ptr %.1, ptr %3, align 8, !tbaa !63
   br label %85
 
 82:                                               ; preds = %59, %64, %69, %72, %75, %78, %35, %40, %45, %48, %51, %55, %32, %18, %21, %15, %10
@@ -2224,7 +2224,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @create_ssl_objects(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %2, align 8, !tbaa !61
+  %7 = load ptr, ptr %2, align 8, !tbaa !63
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
 
@@ -2236,7 +2236,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects(ptr noundef %0, ptr nou
 
 11:                                               ; preds = %6, %8
   %.038 = phi ptr [ %9, %8 ], [ %7, %6 ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !61
+  %12 = load ptr, ptr %3, align 8, !tbaa !63
   %.not46 = icmp eq ptr %12, null
   br i1 %.not46, label %13, label %16
 
@@ -2311,8 +2311,8 @@ define dso_local range(i32 0, 2) i32 @create_ssl_objects(ptr noundef %0, ptr nou
   %45 = tail call i32 @BIO_up_ref(ptr noundef %.235) #14
   %46 = tail call i32 @BIO_up_ref(ptr noundef %.2) #14
   tail call void @SSL_set_bio(ptr noundef %.137, ptr noundef %.235, ptr noundef %.2) #14
-  store ptr %.038, ptr %2, align 8, !tbaa !61
-  store ptr %.137, ptr %3, align 8, !tbaa !61
+  store ptr %.038, ptr %2, align 8, !tbaa !63
+  store ptr %.137, ptr %3, align 8, !tbaa !63
   br label %52
 
 47:                                               ; preds = %39, %35, %26, %30, %18, %22, %13, %8
@@ -2456,7 +2456,7 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
   %39 = icmp slt i32 %.2101.fr, 1
   %40 = icmp eq i32 %.3, 3
   %or.cond29 = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond29, label %.lr.ph139.split, label %.critedge9, !llvm.loop !65
+  br i1 %or.cond29, label %.lr.ph139.split, label %.critedge9, !llvm.loop !67
 
 .critedge9:                                       ; preds = %38
   br i1 %39, label %switch.early.test, label %.critedge9.thread
@@ -2551,7 +2551,7 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
 
 67:                                               ; preds = %62, %66
   %68 = select i1 %.lcssa165, i1 true, i1 %.lcssa129183
-  br i1 %68, label %16, label %.loopexit, !llvm.loop !66
+  br i1 %68, label %16, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %67, %.critedge9.thread, %.critedge.thread, %43, %57, %61
   %.095 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 1, %67 ], [ 0, %.critedge9.thread ], [ 0, %.critedge.thread ], [ 0, %43 ]
@@ -2602,7 +2602,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_connection(ptr noundef %0, ptr 
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %.preheader
-  %10 = load i64, ptr %5, align 8, !tbaa !50
+  %10 = load i64, ptr %5, align 8, !tbaa !52
   %11 = call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 1360, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i64 noundef %10, i64 noundef 0) #14
   %.not9 = icmp eq i32 %11, 0
   %brmerge = or i1 %.not9, %.not11
@@ -2722,7 +2722,7 @@ declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !tbaa !67
+  store ptr null, ptr %4, align 8, !tbaa !69
   %5 = tail call ptr @BIO_new_file(ptr noundef %2, ptr noundef nonnull @.str.81) #14
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 1428, ptr noundef nonnull @.str.80, ptr noundef %5) #14
   %.not = icmp eq i32 %6, 0
@@ -2730,7 +2730,7 @@ define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %
 
 7:                                                ; preds = %3
   %8 = tail call ptr @X509_new_ex(ptr noundef %0, ptr noundef null) #14
-  store ptr %8, ptr %4, align 8, !tbaa !67
+  store ptr %8, ptr %4, align 8, !tbaa !69
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 1431, ptr noundef nonnull @.str.82, ptr noundef %8) #14
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %.loopexit, label %10
@@ -2742,7 +2742,7 @@ define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %
 
 13:                                               ; preds = %10
   %14 = call i32 @BIO_free(ptr noundef %5) #14
-  %15 = load ptr, ptr %4, align 8, !tbaa !67
+  %15 = load ptr, ptr %4, align 8, !tbaa !69
   %16 = call i32 @i2d_X509(ptr noundef %15, ptr noundef null) #14
   %17 = icmp sgt i32 %16, 546
   br i1 %17, label %.preheader, label %18
@@ -2754,23 +2754,23 @@ define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %
 19:                                               ; preds = %23
   %20 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %20, 40
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !71
 
 .preheader:                                       ; preds = %13, %19
   %.014 = phi i32 [ %20, %19 ], [ 0, %13 ]
-  %21 = load ptr, ptr %4, align 8, !tbaa !67
+  %21 = load ptr, ptr %4, align 8, !tbaa !69
   %22 = call i32 @X509_up_ref(ptr noundef %21) #14
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %.loopexit, label %23
 
 23:                                               ; preds = %.preheader
-  %24 = load ptr, ptr %4, align 8, !tbaa !67
+  %24 = load ptr, ptr %4, align 8, !tbaa !69
   %25 = call i64 @SSL_CTX_ctrl(ptr noundef %1, i32 noundef 14, i64 noundef 0, ptr noundef %24) #14
   %.not13 = icmp eq i64 %25, 0
   br i1 %.not13, label %26, label %19
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %4, align 8, !tbaa !67
+  %27 = load ptr, ptr %4, align 8, !tbaa !69
   call void @X509_free(ptr noundef %27) #14
   br label %.loopexit
 
@@ -2778,7 +2778,7 @@ define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %
   %.010 = phi ptr [ %5, %10 ], [ null, %26 ], [ %5, %7 ], [ %5, %3 ], [ null, %.preheader ], [ null, %19 ]
   %.09 = phi i32 [ 0, %10 ], [ 0, %26 ], [ 0, %7 ], [ 0, %3 ], [ 1, %19 ], [ 0, %.preheader ]
   %28 = call i32 @BIO_free(ptr noundef %.010) #14
-  %29 = load ptr, ptr %4, align 8, !tbaa !67
+  %29 = load ptr, ptr %4, align 8, !tbaa !69
   call void @X509_free(ptr noundef %29) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   ret i32 %.09
@@ -2955,31 +2955,33 @@ attributes #17 = { noreturn nounwind }
 !39 = !{!"p1 _ZTS12mempacket_st", !6, i64 0}
 !40 = !{!16, !19, i64 20}
 !41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
+!42 = distinct !{!42, !11, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !44 = distinct !{!44, !11}
-!45 = !{!19, !19, i64 0}
-!46 = !{!47, !19, i64 0}
-!47 = !{!"maybe_retry_data_st", !19, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = !{!19, !19, i64 0}
+!48 = !{!49, !19, i64 0}
+!49 = !{!"maybe_retry_data_st", !19, i64 0}
 !50 = !{!51, !51, i64 0}
-!51 = !{!"long", !7, i64 0}
-!52 = !{!53, !51, i64 0}
-!53 = !{!"timeval", !51, i64 0, !51, i64 8}
-!54 = !{!53, !51, i64 8}
-!55 = !{!56, !18, i64 0}
-!56 = !{!"sockaddr_in", !18, i64 0, !18, i64 2, !57, i64 4, !7, i64 8}
-!57 = !{!"in_addr", !19, i64 0}
-!58 = !{!56, !19, i64 4}
-!59 = !{!56, !18, i64 2}
-!60 = distinct !{!60, !11}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!63 = !{!64, !19, i64 0}
-!64 = !{!"bio_poll_descriptor_st", !19, i64 0, !7, i64 8}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTS7x509_st", !6, i64 0}
-!69 = distinct !{!69, !11}
+!51 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"long", !7, i64 0}
+!54 = !{!55, !53, i64 0}
+!55 = !{!"timeval", !53, i64 0, !53, i64 8}
+!56 = !{!55, !53, i64 8}
+!57 = !{!58, !18, i64 0}
+!58 = !{!"sockaddr_in", !18, i64 0, !18, i64 2, !59, i64 4, !7, i64 8}
+!59 = !{!"in_addr", !19, i64 0}
+!60 = !{!58, !19, i64 4}
+!61 = !{!58, !18, i64 2}
+!62 = distinct !{!62, !11}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!65 = !{!66, !19, i64 0}
+!66 = !{!"bio_poll_descriptor_st", !19, i64 0, !7, i64 8}
+!67 = distinct !{!67, !11}
+!68 = distinct !{!68, !11}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS7x509_st", !6, i64 0}
+!71 = distinct !{!71, !11}

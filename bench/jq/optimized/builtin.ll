@@ -6609,7 +6609,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %494 = load i32, ptr %148, align 4, !tbaa !48
   %495 = sext i32 %494 to i64
   %496 = icmp slt i64 %indvars.iv.next549, %495
-  br i1 %496, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !54
+  br i1 %496, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !55
 
 .lr.ph526.us:                                     ; preds = %.preheader476.us, %.lr.ph526.us
   %.0418525.us = phi i64 [ %501, %.lr.ph526.us ], [ 0, %.preheader476.us ]
@@ -6624,7 +6624,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %504 = sext i32 %503 to i64
   %505 = getelementptr inbounds i8, ptr %136, i64 %504
   %506 = icmp ult ptr %500, %505
-  br i1 %506, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !55
+  br i1 %506, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !56
 
 .preheader.us:                                    ; preds = %284
   %507 = icmp sgt i32 %224, 0
@@ -6729,12 +6729,12 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_input_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = load ptr, ptr %5, align 8, !tbaa !57
   %10 = call { i64, ptr } %6(ptr noundef %0, ptr noundef %9) #14
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
@@ -6771,12 +6771,12 @@ define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_debug_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !57
   %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
@@ -6798,12 +6798,12 @@ define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_stderr_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !57
   %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
@@ -6843,9 +6843,9 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 8, ptr %16, align 8, !tbaa !57
+  store i32 8, ptr %16, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 367, ptr %17, align 4, !tbaa !60
+  store i32 367, ptr %17, align 4, !tbaa !61
   %18 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
   %19 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
   %20 = call ptr @strptime(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %6) #14
@@ -6859,10 +6859,10 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 24:                                               ; preds = %22
   %25 = tail call ptr @__ctype_b_loc() #15
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !62
   %27 = zext i8 %23 to i64
   %28 = getelementptr inbounds nuw i16, ptr %26, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !63
+  %29 = load i16, ptr %28, align 2, !tbaa !64
   %30 = and i16 %29, 8192
   %.not55 = icmp eq i16 %30, 0
   br i1 %.not55, label %31, label %36
@@ -6878,7 +6878,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 36:                                               ; preds = %24, %22
   call void @jv_free(i64 %3, ptr %4) #14
-  %37 = load i32, ptr %16, align 8, !tbaa !57
+  %37 = load i32, ptr %16, align 8, !tbaa !58
   %38 = icmp eq i32 %37, 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %40 = load i32, ptr %39, align 4
@@ -6892,7 +6892,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %47 = load i32, ptr %46, align 4, !tbaa !65
+  %47 = load i32, ptr %46, align 4, !tbaa !66
   %48 = add nsw i32 %47, 1900
   %49 = sdiv i32 %48, 100
   %50 = srem i32 %48, 100
@@ -6923,11 +6923,11 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   %72 = icmp slt i32 %71, 0
   %73 = add nsw i32 %71, 7
   %.0.i = select i1 %72, i32 %73, i32 %71
-  store i32 %.0.i, ptr %16, align 8, !tbaa !57
+  store i32 %.0.i, ptr %16, align 8, !tbaa !58
   br label %74
 
 74:                                               ; preds = %45, %36
-  %75 = load i32, ptr %17, align 4, !tbaa !60
+  %75 = load i32, ptr %17, align 4, !tbaa !61
   %76 = icmp eq i32 %75, 367
   %or.cond11 = select i1 %76, i1 %41, i1 false
   %or.cond17 = select i1 %or.cond11, i1 %44, i1 false
@@ -6939,7 +6939,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %81 = load i32, ptr %80, align 4, !tbaa !65
+  %81 = load i32, ptr %80, align 4, !tbaa !66
   %82 = add nsw i32 %81, 1900
   %83 = and i32 %81, 3
   %84 = icmp ne i32 %83, 0
@@ -6959,7 +6959,7 @@ set_tm_yday.exit:                                 ; preds = %77, %79
   %91 = load i32, ptr %90, align 4, !tbaa !19
   %92 = add i32 %.014.i, %40
   %93 = add i32 %92, %91
-  store i32 %93, ptr %17, align 4, !tbaa !60
+  store i32 %93, ptr %17, align 4, !tbaa !61
   br label %94
 
 94:                                               ; preds = %set_tm_yday.exit, %74
@@ -7262,7 +7262,7 @@ define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, p
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %14 = fptosi double %13 to i64
-  store i64 %14, ptr %5, align 8, !tbaa !66
+  store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
   %15 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
   %16 = icmp eq ptr %15, null
@@ -7328,7 +7328,7 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %14 = fptosi double %13 to i64
-  store i64 %14, ptr %5, align 8, !tbaa !66
+  store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
   %15 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
   %16 = icmp eq ptr %15, null
@@ -7387,10 +7387,10 @@ define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr 
   br label %18
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %4, align 8, !tbaa !67
+  %11 = load i64, ptr %4, align 8, !tbaa !68
   %12 = sitofp i64 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !69
+  %14 = load i64, ptr %13, align 8, !tbaa !70
   %15 = sitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+06
   %17 = fadd double %16, %12
@@ -7958,7 +7958,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %111 = extractvalue { i64, ptr } %109, 1
   %112 = tail call i32 @jv_array_length(i64 %110, ptr %111) #14
   %113 = icmp slt i32 %108, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !71
 
 114:                                              ; preds = %._crit_edge, %63, %46, %26, %13
   %.fca.1.insert.merged = phi { i64, ptr } [ %23, %13 ], [ %36, %26 ], [ %56, %46 ], [ %64, %63 ], [ %.merged, %._crit_edge ]
@@ -7993,7 +7993,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !25
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
@@ -8043,7 +8043,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.pn = phi { i64, ptr } [ %32, %31 ], [ %38, %33 ]
   %40 = call ptr @jvp_utf8_next(ptr noundef nonnull %24, ptr noundef %22, ptr noundef nonnull %5) #14
   %.not32 = icmp eq ptr %40, null
-  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !72
+  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !73
 
 ._crit_edge47:                                    ; preds = %39, %._crit_edge
   %.pn34.lcssa = phi { i64, ptr } [ %15, %._crit_edge ], [ %.pn, %39 ]
@@ -8161,7 +8161,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %.sroa.7.1 = phi ptr [ %38, %24 ], [ %.sroa.7.033, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !74
 }
 
 declare void @onig_region_free(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -8190,7 +8190,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !65
+  %6 = load i32, ptr %5, align 4, !tbaa !66
   %7 = add nsw i32 %6, 1900
   %8 = sitofp i32 %7 to double
   %9 = tail call { i64, ptr } @jv_number(double noundef %8) #14
@@ -8200,7 +8200,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !74
+  %16 = load i32, ptr %15, align 8, !tbaa !75
   %17 = sitofp i32 %16 to double
   %18 = tail call { i64, ptr } @jv_number(double noundef %17) #14
   %19 = extractvalue { i64, ptr } %18, 0
@@ -8209,7 +8209,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !75
+  %25 = load i32, ptr %24, align 4, !tbaa !76
   %26 = sitofp i32 %25 to double
   %27 = tail call { i64, ptr } @jv_number(double noundef %26) #14
   %28 = extractvalue { i64, ptr } %27, 0
@@ -8218,7 +8218,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !76
+  %34 = load i32, ptr %33, align 8, !tbaa !77
   %35 = sitofp i32 %34 to double
   %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
   %37 = extractvalue { i64, ptr } %36, 0
@@ -8227,7 +8227,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %40 = extractvalue { i64, ptr } %39, 0
   %41 = extractvalue { i64, ptr } %39, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !77
+  %43 = load i32, ptr %42, align 4, !tbaa !78
   %44 = sitofp i32 %43 to double
   %45 = tail call { i64, ptr } @jv_number(double noundef %44) #14
   %46 = extractvalue { i64, ptr } %45, 0
@@ -8235,7 +8235,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %48 = tail call { i64, ptr } @jv_array_append(i64 %40, ptr %41, i64 %46, ptr %47) #14
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
-  %51 = load i32, ptr %0, align 8, !tbaa !78
+  %51 = load i32, ptr %0, align 8, !tbaa !79
   %52 = sitofp i32 %51 to double
   %53 = tail call { i64, ptr } @jv_number(double noundef %52) #14
   %54 = extractvalue { i64, ptr } %53, 0
@@ -8244,7 +8244,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !57
+  %60 = load i32, ptr %59, align 8, !tbaa !58
   %61 = sitofp i32 %60 to double
   %62 = tail call { i64, ptr } @jv_number(double noundef %61) #14
   %63 = extractvalue { i64, ptr } %62, 0
@@ -8253,7 +8253,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %69 = load i32, ptr %68, align 4, !tbaa !60
+  %69 = load i32, ptr %68, align 4, !tbaa !61
   %70 = sitofp i32 %69 to double
   %71 = tail call { i64, ptr } @jv_number(double noundef %70) #14
   %72 = extractvalue { i64, ptr } %71, 0
@@ -8310,13 +8310,13 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 25:                                               ; preds = %17, %22
   %26 = phi i32 [ %24, %22 ], [ -2147483648, %17 ]
   %27 = getelementptr inbounds nuw [8 x i64], ptr @jv2tm.offsets, i64 0, i64 %.03047
-  %28 = load i64, ptr %27, align 8, !tbaa !66
+  %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !19
   tail call void @jv_free(i64 %10, ptr %11) #14
   %30 = add nuw nsw i64 %.03047, 1
   %exitcond.not = icmp eq i64 %30, 8
-  br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !79
+  br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !80
 
 31:                                               ; preds = %13, %15
   tail call void @jv_free(i64 %0, ptr %1) #14
@@ -8433,30 +8433,31 @@ attributes #17 = { nounwind willreturn memory(read) }
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
+!53 = distinct !{!53, !5, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !55 = distinct !{!55, !5}
-!56 = !{!11, !11, i64 0}
-!57 = !{!58, !20, i64 24}
-!58 = !{!"tm", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !59, i64 40, !10, i64 48}
-!59 = !{!"long", !12, i64 0}
-!60 = !{!58, !20, i64 28}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 short", !11, i64 0}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"short", !12, i64 0}
-!65 = !{!58, !20, i64 20}
-!66 = !{!59, !59, i64 0}
-!67 = !{!68, !59, i64 0}
-!68 = !{!"timeval", !59, i64 0, !59, i64 8}
-!69 = !{!68, !59, i64 8}
-!70 = distinct !{!70, !5}
+!56 = distinct !{!56, !5}
+!57 = !{!11, !11, i64 0}
+!58 = !{!59, !20, i64 24}
+!59 = !{!"tm", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !60, i64 40, !10, i64 48}
+!60 = !{!"long", !12, i64 0}
+!61 = !{!59, !20, i64 28}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 short", !11, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"short", !12, i64 0}
+!66 = !{!59, !20, i64 20}
+!67 = !{!60, !60, i64 0}
+!68 = !{!69, !60, i64 0}
+!69 = !{!"timeval", !60, i64 0, !60, i64 8}
+!70 = !{!69, !60, i64 8}
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
 !73 = distinct !{!73, !5}
-!74 = !{!58, !20, i64 16}
-!75 = !{!58, !20, i64 12}
-!76 = !{!58, !20, i64 8}
-!77 = !{!58, !20, i64 4}
-!78 = !{!58, !20, i64 0}
-!79 = distinct !{!79, !5}
+!74 = distinct !{!74, !5}
+!75 = !{!59, !20, i64 16}
+!76 = !{!59, !20, i64 12}
+!77 = !{!59, !20, i64 8}
+!78 = !{!59, !20, i64 4}
+!79 = !{!59, !20, i64 0}
+!80 = distinct !{!80, !5}

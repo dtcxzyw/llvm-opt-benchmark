@@ -245,7 +245,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   store ptr %114, ptr %115, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph87.split.i:                                 ; preds = %.preheader.thread.i, %132
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %132 ], [ 0, %.preheader.thread.i ]
@@ -278,7 +278,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   tail call void @multi_sort_add_dimension(ptr noundef %64, i32 noundef %133, i32 noundef %128, i32 noundef %125) #10
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
-  br i1 %exitcond108.not.i, label %._crit_edge88.i, label %.lr.ph87.split.i, !llvm.loop !10
+  br i1 %exitcond108.not.i, label %._crit_edge88.i, label %.lr.ph87.split.i, !llvm.loop !13
 
 ._crit_edge88.i:                                  ; preds = %132, %._crit_edge.us.i, %.preheader.i
   tail call void @qsort_interruptible(ptr noundef %67, i64 noundef %65, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef %64) #10
@@ -309,7 +309,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %140 = select i1 %.not.i, i32 1, i32 %139
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
-  br i1 %exitcond123.not.i, label %._crit_edge.loopexit.i, label %.lr.ph93.i, !llvm.loop !12
+  br i1 %exitcond123.not.i, label %._crit_edge.loopexit.i, label %.lr.ph93.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph93.i
   %141 = icmp eq i32 %140, 1
@@ -341,7 +341,7 @@ ndistinct_for_combination.exit:                   ; preds = %._crit_edge88.threa
   %159 = load i32, ptr %34, align 8
   %160 = load i32, ptr %27, align 4
   %161 = icmp eq i32 %159, %160
-  br i1 %161, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !13
+  br i1 %161, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !15
 
 generator_next.exit.thread:                       ; preds = %generator_next.exit, %ndistinct_for_combination.exit, %generator_init.exit
   %.1.lcssa = phi i32 [ %.03554, %generator_init.exit ], [ %158, %ndistinct_for_combination.exit ], [ %.151, %generator_next.exit ]
@@ -350,7 +350,7 @@ generator_next.exit.thread:                       ; preds = %generator_next.exit
   tail call void @pfree(ptr noundef nonnull %19) #10
   %163 = add i32 %.03455, 1
   %.not = icmp sgt i32 %163, %4
-  br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !14
+  br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %generator_next.exit.thread, %2
   ret ptr %10
@@ -666,7 +666,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %150 = add nuw i32 %.07093, 1
   %151 = load i32, ptr %129, align 8
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %131, label %.loopexit, !llvm.loop !15
+  br i1 %152, label %131, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %131, %1
   %.0 = phi ptr [ null, %1 ], [ %127, %131 ]
@@ -701,7 +701,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %12 = add i64 %11, %10
   %13 = add nuw i32 %.038, 1
   %exitcond.not = icmp eq i32 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %5, %1
   %.036.lcssa = phi i64 [ 16, %1 ], [ %12, %5 ]
@@ -749,7 +749,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %35 = add nuw i32 %.140, 1
   %36 = load i32, ptr %2, align 8
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %27, label %._crit_edge43, !llvm.loop !17
+  br i1 %37, label %27, label %._crit_edge43, !llvm.loop !19
 
 ._crit_edge43:                                    ; preds = %27, %._crit_edge
   ret ptr %14
@@ -828,7 +828,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %21, i32 noundef %22) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %23 = fptosi double %.sroa.0.0.copyload to i32
@@ -836,7 +836,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
   %24 = add nuw i32 %.015, 1
   %25 = load i32, ptr %8, align 8
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %11, label %._crit_edge18, !llvm.loop !19
+  br i1 %26, label %11, label %._crit_edge18, !llvm.loop !21
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %1
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
@@ -910,7 +910,7 @@ define internal fastcc void @generate_combinations_recurse(ptr noundef captures(
   tail call fastcc void @generate_combinations_recurse(ptr noundef nonnull %0, i32 noundef %12, i32 noundef %14, ptr noundef %3)
   %15 = load i32, ptr %7, align 4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %13, label %.loopexit, !llvm.loop !20
+  br i1 %16, label %13, label %.loopexit, !llvm.loop !22
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -968,8 +968,8 @@ attributes #11 = { cold nounwind }
 !7 = !{i8 0, i8 2}
 !8 = !{}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -979,3 +979,5 @@ attributes #11 = { cold nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

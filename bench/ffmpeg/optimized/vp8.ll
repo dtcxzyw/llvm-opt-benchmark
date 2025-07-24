@@ -19159,7 +19159,7 @@ define internal range(i32 -2147483648, 1) i32 @vp7_decode_mb_row_sliced(ptr noun
   %93 = load i16, ptr %18, align 2, !tbaa !93
   %94 = zext i16 %93 to i32
   %95 = icmp slt i32 %92, %94
-  br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
+  br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !259
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
   %.0.i = phi i32 [ %.us-phi5, %67 ], [ %.us-phi5, %.split.us ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
@@ -19247,7 +19247,7 @@ define internal range(i32 -2147483648, 1) i32 @vp8_decode_mb_row_sliced(ptr noun
   %53 = load i16, ptr %18, align 2, !tbaa !93
   %54 = zext i16 %53 to i32
   %55 = icmp slt i32 %52, %54
-  br i1 %55, label %.lr.ph.split.us, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
+  br i1 %55, label %.lr.ph.split.us, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !260
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %91
   %.091.i4 = phi i32 [ %92, %91 ], [ %2, %.lr.ph ]
@@ -19319,7 +19319,7 @@ define internal range(i32 -2147483648, 1) i32 @vp8_decode_mb_row_sliced(ptr noun
   %93 = load i16, ptr %18, align 2, !tbaa !93
   %94 = zext i16 %93 to i32
   %95 = icmp slt i32 %92, %94
-  br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
+  br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !259
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
   %.0.i = phi i32 [ %.us-phi5, %67 ], [ %.us-phi5, %.split.us ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
@@ -19577,7 +19577,7 @@ vp89_rac_get_uint.exit:                           ; preds = %vp89_rac_get_uint.e
   %85 = getelementptr inbounds nuw [8 x [10 x i8]], ptr @vp8_coeff_band_indexes, i64 0, i64 %indvars.iv98, i64 %indvars.iv.next
   %86 = load i8, ptr %85, align 1, !tbaa !56
   %87 = icmp sgt i8 %86, -1
-  br i1 %87, label %vp89_rac_get_uint.exit, label %.loopexit, !llvm.loop !258
+  br i1 %87, label %vp89_rac_get_uint.exit, label %.loopexit, !llvm.loop !261
 
 .loopexit:                                        ; preds = %vp89_rac_get_uint.exit, %vp89_rac_get_uint.exit.preheader, %vpx_rac_get_prob_branchy.exit.thread
   %.promoted80 = phi i32 [ %.0.i.i, %vpx_rac_get_prob_branchy.exit.thread ], [ %78, %vp89_rac_get_uint.exit.preheader ], [ %78, %vp89_rac_get_uint.exit ]
@@ -19585,22 +19585,22 @@ vp89_rac_get_uint.exit:                           ; preds = %vp89_rac_get_uint.e
   %.promoted5774 = phi i32 [ %39, %vpx_rac_get_prob_branchy.exit.thread ], [ %76, %vp89_rac_get_uint.exit.preheader ], [ %76, %vp89_rac_get_uint.exit ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, 11
-  br i1 %exitcond.not, label %88, label %9, !llvm.loop !259
+  br i1 %exitcond.not, label %88, label %9, !llvm.loop !262
 
 88:                                               ; preds = %.loopexit
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 3
-  br i1 %exitcond97.not, label %89, label %.preheader, !llvm.loop !260
+  br i1 %exitcond97.not, label %89, label %.preheader, !llvm.loop !263
 
 89:                                               ; preds = %88
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 8
-  br i1 %exitcond101.not, label %90, label %.preheader34, !llvm.loop !261
+  br i1 %exitcond101.not, label %90, label %.preheader34, !llvm.loop !264
 
 90:                                               ; preds = %89
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 4
-  br i1 %exitcond105.not, label %91, label %.preheader35, !llvm.loop !262
+  br i1 %exitcond105.not, label %91, label %.preheader35, !llvm.loop !265
 
 91:                                               ; preds = %90
   ret void
@@ -19735,7 +19735,7 @@ vp89_rac_get_uint.exit:                           ; preds = %vpx_rac_renorm.exit
   store i8 %81, ptr %82, align 1, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit52, label %42, !llvm.loop !263
+  br i1 %exitcond.not, label %.loopexit52, label %42, !llvm.loop !266
 
 .loopexit52:                                      ; preds = %vp89_rac_get_uint.exit, %vpx_rac_renorm.exit29
   %83 = phi i32 [ %37, %vpx_rac_renorm.exit29 ], [ %80, %vp89_rac_get_uint.exit ]
@@ -19862,7 +19862,7 @@ vp89_rac_get_uint.exit45:                         ; preds = %vpx_rac_renorm.exit
   store i8 %158, ptr %159, align 1, !tbaa !56
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 3
-  br i1 %exitcond107.not, label %.loopexit, label %119, !llvm.loop !264
+  br i1 %exitcond107.not, label %.loopexit, label %119, !llvm.loop !267
 
 .loopexit:                                        ; preds = %vp89_rac_get_uint.exit45, %vpx_rac_renorm.exit
   %.promoted85 = phi i32 [ %114, %vpx_rac_renorm.exit ], [ %157, %vp89_rac_get_uint.exit45 ]
@@ -20014,10 +20014,10 @@ vp8_rac_get_nn.exit:                              ; preds = %vpx_rac_renorm.exit
   %.promoted7081 = phi i32 [ %193, %vpx_rac_get_prob_branchy.exit.thread ], [ %230, %vp8_rac_get_nn.exit ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
-  br i1 %exitcond111.not, label %240, label %164, !llvm.loop !265
+  br i1 %exitcond111.not, label %240, label %164, !llvm.loop !268
 
 240:                                              ; preds = %239
-  br i1 %163, label %.preheader, label %241, !llvm.loop !266
+  br i1 %163, label %.preheader, label %241, !llvm.loop !269
 
 241:                                              ; preds = %240
   ret void
@@ -20175,12 +20175,12 @@ vp8_alloc_frame.exit:                             ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %82, i64 %67, i1 false)
   %83 = add nuw nsw i32 %.01516.us.i, 1
   %exitcond.not.i46 = icmp eq i32 %83, %63
-  br i1 %exitcond.not.i46, label %._crit_edge.us.i, label %72, !llvm.loop !267
+  br i1 %exitcond.not.i46, label %._crit_edge.us.i, label %72, !llvm.loop !270
 
 ._crit_edge.us.i:                                 ; preds = %72
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i47, 3
-  br i1 %exitcond22.not.i, label %copy_chroma.exit.thread, label %.preheader.us.i, !llvm.loop !268
+  br i1 %exitcond22.not.i, label %copy_chroma.exit.thread, label %.preheader.us.i, !llvm.loop !271
 
 copy_chroma.exit.thread:                          ; preds = %._crit_edge.us.i, %vp8_alloc_frame.exit, %24
   %.037 = phi ptr [ %25, %24 ], [ %62, %vp8_alloc_frame.exit ], [ %62, %._crit_edge.us.i ]
@@ -20228,12 +20228,12 @@ copy_chroma.exit.thread:                          ; preds = %._crit_edge.us.i, %
   store i8 %.0.i.us.i, ptr %106, align 1, !tbaa !56
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i
-  br i1 %exitcond.not.i52, label %._crit_edge.us.i53, label %96, !llvm.loop !269
+  br i1 %exitcond.not.i52, label %._crit_edge.us.i53, label %96, !llvm.loop !272
 
 ._crit_edge.us.i53:                               ; preds = %96
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %copy_chroma.exit, label %.lr.ph.us.i, !llvm.loop !270
+  br i1 %exitcond32.not.i, label %copy_chroma.exit, label %.lr.ph.us.i, !llvm.loop !273
 
 copy_chroma.exit:                                 ; preds = %._crit_edge.us.i53, %vp8_find_free_buffer.exit, %61, %21, %3, %copy_chroma.exit.thread
   %.3 = phi i32 [ 0, %copy_chroma.exit.thread ], [ 0, %3 ], [ %.0.i, %61 ], [ %46, %vp8_find_free_buffer.exit ], [ -1094995529, %21 ], [ 0, %._crit_edge.us.i53 ]
@@ -22277,7 +22277,7 @@ vpx_rac_renorm.exit.i7:                           ; preds = %402, %387
   %422 = or disjoint i32 %391, %420
   %423 = load i8, ptr %392, align 1, !tbaa !56
   %.not.i10 = icmp eq i8 %423, 0
-  br i1 %.not.i10, label %vp8_rac_get_coeff.exit, label %387, !llvm.loop !271
+  br i1 %.not.i10, label %vp8_rac_get_coeff.exit, label %387, !llvm.loop !274
 
 vp8_rac_get_coeff.exit:                           ; preds = %vpx_rac_renorm.exit.i7
   %424 = shl nuw nsw i32 8, %383
@@ -22346,7 +22346,7 @@ vpx_rac_renorm.exit76.i:                          ; preds = %437, %vpx_rac_get_p
   store i16 %461, ptr %466, align 2, !tbaa !118
   %467 = add nsw i32 %.0.i, 1
   %468 = icmp slt i32 %.0.i, 15
-  br i1 %468, label %8, label %decode_block_coeffs_internal.exit, !llvm.loop !272
+  br i1 %468, label %8, label %decode_block_coeffs_internal.exit, !llvm.loop !275
 
 decode_block_coeffs_internal.exit:                ; preds = %vpx_rac_renorm.exit.i113.i, %60, %vpx_rac_renorm.exit76.i
   %.sroa.159.11 = phi i32 [ %.0.i.i108.i, %60 ], [ %453, %vpx_rac_renorm.exit76.i ], [ %.0.i.i115.i, %vpx_rac_renorm.exit.i113.i ]
@@ -22985,7 +22985,7 @@ vpx_rac_renorm.exit.i6:                           ; preds = %400, %385
   %420 = or disjoint i32 %389, %418
   %421 = load i8, ptr %390, align 1, !tbaa !56
   %.not.i9 = icmp eq i8 %421, 0
-  br i1 %.not.i9, label %vp8_rac_get_coeff.exit, label %385, !llvm.loop !271
+  br i1 %.not.i9, label %vp8_rac_get_coeff.exit, label %385, !llvm.loop !274
 
 vp8_rac_get_coeff.exit:                           ; preds = %vpx_rac_renorm.exit.i6
   %422 = shl nuw nsw i32 8, %381
@@ -23054,7 +23054,7 @@ vpx_rac_renorm.exit76.i:                          ; preds = %435, %vpx_rac_get_p
   store i16 %459, ptr %464, align 2, !tbaa !118
   %465 = add nsw i32 %.0.i, 1
   %466 = icmp slt i32 %.0.i, 15
-  br i1 %466, label %7, label %decode_block_coeffs_internal.exit, !llvm.loop !272
+  br i1 %466, label %7, label %decode_block_coeffs_internal.exit, !llvm.loop !275
 
 decode_block_coeffs_internal.exit:                ; preds = %vpx_rac_renorm.exit.i113.i, %58, %vpx_rac_renorm.exit76.i
   %.sroa.159.10 = phi i32 [ %.0.i.i108.i, %58 ], [ %451, %vpx_rac_renorm.exit76.i ], [ %.0.i.i115.i, %vpx_rac_renorm.exit.i113.i ]
@@ -30762,10 +30762,10 @@ attributes #13 = { noreturn nounwind }
 !254 = distinct !{!254, !28}
 !255 = !{!109, !10, i64 1628}
 !256 = !{!109, !10, i64 1636}
-!257 = distinct !{!257, !28}
-!258 = distinct !{!258, !28}
+!257 = distinct !{!257, !28, !258}
+!258 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !259 = distinct !{!259, !28}
-!260 = distinct !{!260, !28}
+!260 = distinct !{!260, !28, !258}
 !261 = distinct !{!261, !28}
 !262 = distinct !{!262, !28}
 !263 = distinct !{!263, !28}
@@ -30776,5 +30776,8 @@ attributes #13 = { noreturn nounwind }
 !268 = distinct !{!268, !28}
 !269 = distinct !{!269, !28}
 !270 = distinct !{!270, !28}
-!271 = distinct !{!271, !28}
+!271 = distinct !{!271, !28, !258}
 !272 = distinct !{!272, !28}
+!273 = distinct !{!273, !28, !258}
+!274 = distinct !{!274, !28}
+!275 = distinct !{!275, !28}

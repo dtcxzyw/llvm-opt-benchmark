@@ -2402,7 +2402,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %33 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #22
   %34 = add nuw nsw i64 %.01824, 1
   %exitcond27.not = icmp eq i64 %34, 20
-  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !36
+  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !38
 
 35:                                               ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2429,7 +2429,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %50 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 83) #22
   %51 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %51, 20
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !39
 
 .loopexit:                                        ; preds = %44, %.split, %.split.us, %10
   %.1 = phi i1 [ false, %10 ], [ true, %.split.us ], [ true, %.split ], [ true, %44 ]
@@ -2533,5 +2533,7 @@ attributes #22 = { nounwind }
 !33 = !{!34, !28, i64 0}
 !34 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !28, i64 0, !31, i64 8}
 !35 = !{!34, !31, i64 8}
-!36 = distinct !{!36, !21}
-!37 = distinct !{!37, !21}
+!36 = distinct !{!36, !21, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !21}
+!39 = distinct !{!39, !21}

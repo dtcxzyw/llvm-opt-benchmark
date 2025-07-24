@@ -2904,7 +2904,7 @@ for.inc.i.us.us:                                  ; preds = %for.body.i.us.us
   %sub.i.i.us.us = add nsw i32 %__begin5.sroa.0.024.i.us.us, -1
   %and.i9.i.us.us = and i32 %sub.i.i.us.us, %__begin5.sroa.0.024.i.us.us
   %cmp.i.not.i.us.us = icmp eq i32 %and.i9.i.us.us, 0
-  br i1 %cmp.i.not.i.us.us, label %for.end.i.us, label %for.body.i.us.us
+  br i1 %cmp.i.not.i.us.us, label %for.end.i.us, label %for.body.i.us.us, !llvm.loop !75
 
 while.body.i:                                     ; preds = %entry, %if.end34.i
   %xor.i.i.i.pn.i = phi i64 [ %add3.i.i, %if.end34.i ], [ %xor.i.i.i.i, %entry ]
@@ -2962,7 +2962,7 @@ for.end.i:                                        ; preds = %for.inc.i, %while.b
 if.end34.i:                                       ; preds = %for.end.i
   %add.i12.i = add i64 %seq.sroa.10.0.i, 16
   %add3.i.i = add i64 %add.i12.i, %seq.sroa.4.0.i
-  br label %while.body.i, !llvm.loop !73
+  br label %while.body.i, !llvm.loop !76
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE4findIS7_EENSF_8iteratorERKT_m.exit: ; preds = %for.end.i, %for.end.i.us, %if.then.i
   %call25.pn.i = phi { ptr, ptr } [ %.fca.1.insert.i.i, %if.then.i ], [ { ptr null, ptr undef }, %for.end.i.us ], [ { ptr null, ptr undef }, %for.end.i ]
@@ -3137,4 +3137,7 @@ attributes #29 = { allocsize(0) }
 !70 = !{!71}
 !71 = distinct !{!71, !72, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !72 = distinct !{!72, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!73 = distinct !{!73, !17}
+!73 = distinct !{!73, !17, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !74}
+!76 = distinct !{!76, !17}

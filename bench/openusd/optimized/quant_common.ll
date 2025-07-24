@@ -350,12 +350,12 @@ av1_get_adjusted_tx_size.exit.us.us.us:           ; preds = %av1_get_adjusted_tx
   store ptr null, ptr %36, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 19
-  br i1 %exitcond77.not, label %.split.us.us.us, label %av1_get_adjusted_tx_size.exit.us.us.us, !llvm.loop !6
+  br i1 %exitcond77.not, label %.split.us.us.us, label %av1_get_adjusted_tx_size.exit.us.us.us, !llvm.loop !9
 
 .split.us.us.us:                                  ; preds = %av1_get_adjusted_tx_size.exit.us.us.us
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !4
+  br i1 %exitcond82.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !10
 
 .split66.us:                                      ; preds = %._crit_edge.us, %2
   ret void
@@ -382,4 +382,7 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !8}
+!10 = distinct !{!10, !5, !8}

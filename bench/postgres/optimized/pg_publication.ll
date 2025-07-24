@@ -1156,7 +1156,7 @@ define dso_local ptr @pub_form_cols_map(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1316,7 +1316,7 @@ is_publishable_class.exit:                        ; preds = %17
   %21 = icmp eq i8 %20, 112
   %22 = icmp ugt i32 %14, 16383
   %spec.select.i = and i1 %22, %21
-  br i1 %spec.select.i, label %23, label %is_publishable_class.exit.thread, !llvm.loop !13
+  br i1 %spec.select.i, label %23, label %is_publishable_class.exit.thread, !llvm.loop !15
 
 23:                                               ; preds = %is_publishable_class.exit
   %24 = call signext i8 @get_rel_relkind(i32 noundef %14) #6
@@ -1384,7 +1384,7 @@ define dso_local ptr @GetPublicationRelations(i32 noundef %0, i32 noundef %1) lo
   %16 = call ptr @GetPubPartitionOptionRelations(ptr noundef %.013, i32 noundef %1, i32 noundef %15)
   %17 = call ptr @systable_getnext(ptr noundef %6) #6
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %16, %.lr.ph ]
@@ -1426,7 +1426,7 @@ define dso_local ptr @GetAllTablesPublications() local_unnamed_addr #0 {
   %12 = call ptr @lappend_oid(ptr noundef %.09, i32 noundef %11) #6
   %13 = call ptr @systable_getnext(ptr noundef %3) #6
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.0.lcssa = phi ptr [ null, %0 ], [ %12, %.lr.ph ]
@@ -1487,7 +1487,7 @@ is_publishable_class.exit.thread.us:              ; preds = %21, %is_publishable
   %.1.us = phi ptr [ %22, %21 ], [ %.031.us, %is_publishable_class.exit.us ], [ %.031.us, %15 ], [ %.031.us, %.lr.ph.split.us ]
   %23 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not.us = icmp eq ptr %23, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %is_publishable_class.exit.thread
   %24 = phi ptr [ %45, %is_publishable_class.exit.thread ], [ %5, %.lr.ph ]
@@ -1532,7 +1532,7 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %33, 
   %.1 = phi ptr [ %.031, %39 ], [ %44, %43 ], [ %.031, %is_publishable_class.exit ], [ %.031, %33 ], [ %.031, %.lr.ph.split ]
   %45 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %is_publishable_class.exit.thread.us, %is_publishable_class.exit.thread, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %is_publishable_class.exit.thread ], [ %.1.us, %is_publishable_class.exit.thread.us ]
@@ -1594,7 +1594,7 @@ is_publishable_class.exit29.thread:               ; preds = %.lr.ph35, %63, %73,
   %.4 = phi ptr [ %.333, %69 ], [ %74, %73 ], [ %.333, %is_publishable_class.exit29 ], [ %.333, %63 ], [ %.333, %.lr.ph35 ]
   %75 = call ptr @heap_getnext(ptr noundef %52, i32 noundef 1) #6
   %.not26 = icmp eq ptr %75, null
-  br i1 %.not26, label %._crit_edge36, label %.lr.ph35, !llvm.loop !17
+  br i1 %.not26, label %._crit_edge36, label %.lr.ph35, !llvm.loop !20
 
 ._crit_edge36:                                    ; preds = %is_publishable_class.exit29.thread, %51
   %.3.lcssa = phi ptr [ %.0.lcssa, %51 ], [ %.4, %is_publishable_class.exit29.thread ]
@@ -1643,7 +1643,7 @@ define dso_local ptr @GetPublicationSchemas(i32 noundef %0) local_unnamed_addr #
   %15 = call ptr @lappend_oid(ptr noundef %.010, i32 noundef %14) #6
   %16 = call ptr @systable_getnext(ptr noundef %5) #6
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %15, %.lr.ph ]
@@ -1737,14 +1737,14 @@ define dso_local i64 @pg_get_publication_tables(ptr noundef %0) local_unnamed_ad
   call void @deconstruct_array_builtin(ptr noundef %18, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #6
   %19 = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph132, label %filter_partitions.exit
+  br i1 %20, label %.lr.ph133, label %filter_partitions.exit
 
-.lr.ph132:                                        ; preds = %10, %._crit_edge
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %._crit_edge ], [ 0, %10 ]
-  %.090130 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %10 ]
-  %.093128 = phi i1 [ %spec.select, %._crit_edge ], [ false, %10 ]
+.lr.ph133:                                        ; preds = %10, %._crit_edge
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %._crit_edge ], [ 0, %10 ]
+  %.090131 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %10 ]
+  %.093129 = phi i1 [ %spec.select, %._crit_edge ], [ false, %10 ]
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv144
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv146
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
   %25 = call ptr @text_to_cstring(ptr noundef %24) #6
@@ -1752,12 +1752,12 @@ define dso_local i64 @pg_get_publication_tables(ptr noundef %0) local_unnamed_ad
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %GetPublicationByName.exit, label %27
 
-27:                                               ; preds = %.lr.ph132
+27:                                               ; preds = %.lr.ph133
   %28 = call ptr @GetPublication(i32 noundef %26)
   br label %GetPublicationByName.exit
 
-GetPublicationByName.exit:                        ; preds = %.lr.ph132, %27
-  %29 = phi ptr [ %28, %27 ], [ null, %.lr.ph132 ]
+GetPublicationByName.exit:                        ; preds = %.lr.ph133, %27
+  %29 = phi ptr [ %28, %27 ], [ null, %.lr.ph133 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i8, ptr %30, align 8, !range !4, !noundef !5
   %32 = trunc nuw i8 %31 to i1
@@ -1821,23 +1821,23 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph23.i, %38, %.
   %63 = getelementptr inbounds nuw i8, ptr %.097, i64 16
   %64 = load i32, ptr %62, align 4
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph126, label %._crit_edge
+  br i1 %65, label %.lr.ph127, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph126, %.lr.ph, %61
-  %.1.lcssa = phi ptr [ %.090130, %61 ], [ %.090130, %.lr.ph ], [ %78, %.lr.ph126 ]
+._crit_edge:                                      ; preds = %.lr.ph127, %.lr.ph, %61
+  %.1.lcssa = phi ptr [ %.090131, %61 ], [ %.090131, %.lr.ph ], [ %78, %.lr.ph127 ]
   %66 = getelementptr inbounds nuw i8, ptr %29, i64 17
   %67 = load i8, ptr %66, align 1, !range !4, !noundef !5
   %68 = trunc nuw i8 %67 to i1
-  %spec.select = select i1 %68, i1 true, i1 %.093128
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %spec.select = select i1 %68, i1 true, i1 %.093129
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %69 = load i32, ptr %3, align 4
   %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next145, %70
-  br i1 %71, label %.lr.ph132, label %._crit_edge133, !llvm.loop !19
+  %71 = icmp slt i64 %indvars.iv.next147, %70
+  br i1 %71, label %.lr.ph133, label %._crit_edge134, !llvm.loop !22
 
-.lr.ph126:                                        ; preds = %.lr.ph, %.lr.ph126
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph126 ], [ 0, %.lr.ph ]
-  %.1120124 = phi ptr [ %78, %.lr.ph126 ], [ %.090130, %.lr.ph ]
+.lr.ph127:                                        ; preds = %.lr.ph, %.lr.ph127
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph127 ], [ 0, %.lr.ph ]
+  %.1121125 = phi ptr [ %78, %.lr.ph127 ], [ %.090131, %.lr.ph ]
   %72 = load ptr, ptr %63, align 8
   %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv
   %74 = call ptr @palloc(i64 noundef 8) #6
@@ -1846,22 +1846,22 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph23.i, %38, %.
   %76 = load i32, ptr %29, align 8
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %76, ptr %77, align 4
-  %78 = call ptr @lappend(ptr noundef %.1120124, ptr noundef nonnull %74) #6
+  %78 = call ptr @lappend(ptr noundef %.1121125, ptr noundef nonnull %74) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i32, ptr %62, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph126, label %._crit_edge
+  br i1 %81, label %.lr.ph127, label %._crit_edge
 
-._crit_edge133:                                   ; preds = %._crit_edge
+._crit_edge134:                                   ; preds = %._crit_edge
   %.not54.i = icmp ne ptr %.1.lcssa, null
   %or.cond.not = select i1 %spec.select, i1 %.not54.i, i1 false
   br i1 %or.cond.not, label %.lr.ph58.i, label %filter_partitions.exit
 
-.lr.ph58.i:                                       ; preds = %._crit_edge133, %.loopexit.i
-  %.057.i = phi ptr [ %.1.i, %.loopexit.i ], [ %.1.lcssa, %._crit_edge133 ]
-  %.sroa.7.056.i = phi i32 [ %116, %.loopexit.i ], [ 0, %._crit_edge133 ]
-  %.sroa.010.055.i = phi ptr [ %.sroa.010.1.i, %.loopexit.i ], [ %.1.lcssa, %._crit_edge133 ]
+.lr.ph58.i:                                       ; preds = %._crit_edge134, %.loopexit.i
+  %.057.i = phi ptr [ %.1.i, %.loopexit.i ], [ %.1.lcssa, %._crit_edge134 ]
+  %.sroa.7.056.i = phi i32 [ %116, %.loopexit.i ], [ 0, %._crit_edge134 ]
+  %.sroa.010.055.i = phi ptr [ %.sroa.010.1.i, %.loopexit.i ], [ %.1.lcssa, %._crit_edge134 ]
   %.057.fr.i = freeze ptr %.057.i
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.010.055.i, i64 4
   %83 = load i32, ptr %82, align 4
@@ -1910,8 +1910,8 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph23.i, %38, %.
   br label %.lr.ph.i.us46.i
 
 .lr.ph.i.us46.i:                                  ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us53.i, %.lr.ph.i.lr.ph.split.us.i
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ], [ 0, %.lr.ph.i.lr.ph.split.us.i ]
-  %107 = getelementptr inbounds nuw %union.ListCell, ptr %102, i64 %indvars.iv146
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ], [ 0, %.lr.ph.i.lr.ph.split.us.i ]
+  %107 = getelementptr inbounds nuw %union.ListCell, ptr %102, i64 %indvars.iv148
   %108 = load i32, ptr %107, align 8
   br label %109
 
@@ -1929,25 +1929,25 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph23.i, %38, %.
   br i1 %exitcond.not.i.us51.i, label %is_ancestor_member_tableinfos.exit.loopexit.us53.i, label %109
 
 is_ancestor_member_tableinfos.exit.loopexit.us53.i: ; preds = %113
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next147, %106
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i.us46.i
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next149, %106
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i.us46.i, !llvm.loop !23
 
 .thread39.i:                                      ; preds = %109
   %114 = add i32 %.sroa.7.056.i, -1
   %115 = call ptr @list_delete_nth_cell(ptr noundef nonnull %.057.fr.i, i32 noundef %.sroa.7.056.i) #6
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us53.i, %.thread39.i, %.lr.ph.i.lr.ph.i, %.lr.ph.split.split.i, %.lr.ph.i110, %93, %85
-  %.sroa.010.1.i = phi ptr [ %115, %.thread39.i ], [ %.sroa.010.055.i, %.lr.ph.split.split.i ], [ %.sroa.010.055.i, %93 ], [ %.sroa.010.055.i, %.lr.ph.i110 ], [ %.sroa.010.055.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.055.i, %85 ], [ %.sroa.010.055.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
-  %.sroa.7.1.i = phi i32 [ %114, %.thread39.i ], [ %.sroa.7.056.i, %.lr.ph.split.split.i ], [ %.sroa.7.056.i, %93 ], [ %.sroa.7.056.i, %.lr.ph.i110 ], [ %.sroa.7.056.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.056.i, %85 ], [ %.sroa.7.056.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
-  %.1.i = phi ptr [ %115, %.thread39.i ], [ %.057.fr.i, %.lr.ph.split.split.i ], [ %.057.fr.i, %93 ], [ null, %.lr.ph.i110 ], [ %.057.fr.i, %.lr.ph.i.lr.ph.i ], [ %.057.fr.i, %85 ], [ %.057.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
+.loopexit.i:                                      ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us53.i, %.lr.ph.i110, %.thread39.i, %.lr.ph.i.lr.ph.i, %.lr.ph.split.split.i, %93, %85
+  %.sroa.010.1.i = phi ptr [ %115, %.thread39.i ], [ %.sroa.010.055.i, %.lr.ph.split.split.i ], [ %.sroa.010.055.i, %93 ], [ %.sroa.010.055.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.055.i, %85 ], [ %.sroa.010.055.i, %.lr.ph.i110 ], [ %.sroa.010.055.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
+  %.sroa.7.1.i = phi i32 [ %114, %.thread39.i ], [ %.sroa.7.056.i, %.lr.ph.split.split.i ], [ %.sroa.7.056.i, %93 ], [ %.sroa.7.056.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.056.i, %85 ], [ %.sroa.7.056.i, %.lr.ph.i110 ], [ %.sroa.7.056.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
+  %.1.i = phi ptr [ %115, %.thread39.i ], [ %.057.fr.i, %.lr.ph.split.split.i ], [ %.057.fr.i, %93 ], [ %.057.fr.i, %.lr.ph.i.lr.ph.i ], [ %.057.fr.i, %85 ], [ null, %.lr.ph.i110 ], [ %.057.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us53.i ]
   %116 = add i32 %.sroa.7.1.i, 1
   %.not.i109 = icmp eq ptr %.sroa.010.1.i, null
-  br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph58.i, !llvm.loop !20
+  br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph58.i, !llvm.loop !24
 
-filter_partitions.exit:                           ; preds = %.loopexit.i, %.lr.ph58.i, %10, %._crit_edge133
-  %.090.lcssa158 = phi ptr [ %.1.lcssa, %._crit_edge133 ], [ null, %10 ], [ %.1.lcssa, %.lr.ph58.i ], [ %.1.lcssa, %.loopexit.i ]
+filter_partitions.exit:                           ; preds = %.loopexit.i, %.lr.ph58.i, %10, %._crit_edge134
+  %.090.lcssa160 = phi ptr [ %.1.lcssa, %._crit_edge134 ], [ null, %10 ], [ %.1.lcssa, %.lr.ph58.i ], [ %.1.lcssa, %.loopexit.i ]
   %117 = call ptr @CreateTemplateTupleDesc(i32 noundef 4) #6
   call void @TupleDescInitEntry(ptr noundef %117, i16 noundef signext 1, ptr noundef nonnull @.str.8, i32 noundef 26, i32 noundef -1, i32 noundef 0) #6
   call void @TupleDescInitEntry(ptr noundef %117, i16 noundef signext 2, ptr noundef nonnull @.str.9, i32 noundef 26, i32 noundef -1, i32 noundef 0) #6
@@ -1957,7 +1957,7 @@ filter_partitions.exit:                           ; preds = %.loopexit.i, %.lr.p
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %.090.lcssa158, ptr %120, align 8
+  store ptr %.090.lcssa160, ptr %120, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
@@ -2052,20 +2052,20 @@ list_length.exit:                                 ; preds = %121
   %invariant.gep = getelementptr i8, ptr %171, i64 24
   %176 = load i32, ptr %171, align 8
   %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph139, label %._crit_edge140.thread
+  br i1 %177, label %.lr.ph140, label %._crit_edge141.thread
 
-.lr.ph139:                                        ; preds = %167
+.lr.ph140:                                        ; preds = %167
   %178 = getelementptr inbounds nuw i8, ptr %140, i64 20
   br label %179
 
-179:                                              ; preds = %.lr.ph139, %198
-  %180 = phi i32 [ %176, %.lr.ph139 ], [ %199, %198 ]
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next150, %198 ]
-  %.095136 = phi i32 [ 0, %.lr.ph139 ], [ %.196, %198 ]
+179:                                              ; preds = %.lr.ph140, %198
+  %180 = phi i32 [ %176, %.lr.ph140 ], [ %199, %198 ]
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next152, %198 ]
+  %.095137 = phi i32 [ 0, %.lr.ph140 ], [ %.196, %198 ]
   %181 = sext i32 %180 to i64
   %182 = shl nsw i64 %181, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %182
-  %183 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv149
+  %183 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv151
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 91
   %185 = load i8, ptr %184, align 1, !range !4, !noundef !5
   %186 = trunc nuw i8 %185 to i1
@@ -2087,39 +2087,39 @@ list_length.exit:                                 ; preds = %121
 192:                                              ; preds = %187, %190
   %193 = getelementptr inbounds nuw i8, ptr %183, i64 74
   %194 = load i16, ptr %193, align 2
-  %195 = add i32 %.095136, 1
-  %196 = sext i32 %.095136 to i64
+  %195 = add i32 %.095137, 1
+  %196 = sext i32 %.095137 to i64
   %197 = getelementptr inbounds i16, ptr %175, i64 %196
   store i16 %194, ptr %197, align 2
-  %.pre152 = load i32, ptr %171, align 8
-  %.pre153 = sext i32 %.pre152 to i64
+  %.pre154 = load i32, ptr %171, align 8
+  %.pre155 = sext i32 %.pre154 to i64
   br label %198
 
 198:                                              ; preds = %190, %187, %179, %192
-  %.pre-phi = phi i64 [ %181, %190 ], [ %181, %187 ], [ %181, %179 ], [ %.pre153, %192 ]
-  %199 = phi i32 [ %180, %190 ], [ %180, %187 ], [ %180, %179 ], [ %.pre152, %192 ]
-  %.196 = phi i32 [ %.095136, %190 ], [ %.095136, %187 ], [ %.095136, %179 ], [ %195, %192 ]
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %200 = icmp slt i64 %indvars.iv.next150, %.pre-phi
-  br i1 %200, label %179, label %._crit_edge140, !llvm.loop !21
+  %.pre-phi = phi i64 [ %181, %190 ], [ %181, %187 ], [ %181, %179 ], [ %.pre155, %192 ]
+  %199 = phi i32 [ %180, %190 ], [ %180, %187 ], [ %180, %179 ], [ %.pre154, %192 ]
+  %.196 = phi i32 [ %.095137, %190 ], [ %.095137, %187 ], [ %.095137, %179 ], [ %195, %192 ]
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %200 = icmp slt i64 %indvars.iv.next152, %.pre-phi
+  br i1 %200, label %179, label %._crit_edge141, !llvm.loop !25
 
-._crit_edge140:                                   ; preds = %198
+._crit_edge141:                                   ; preds = %198
   %201 = icmp sgt i32 %.196, 0
-  br i1 %201, label %202, label %._crit_edge140.thread
+  br i1 %201, label %202, label %._crit_edge141.thread
 
-202:                                              ; preds = %._crit_edge140
+202:                                              ; preds = %._crit_edge141
   %203 = call ptr @buildint2vector(ptr noundef %175, i32 noundef %.196) #6
   %204 = ptrtoint ptr %203 to i64
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %204, ptr %205, align 16
   store i8 0, ptr %168, align 1
-  br label %._crit_edge140.thread
+  br label %._crit_edge141.thread
 
-._crit_edge140.thread:                            ; preds = %167, %202, %._crit_edge140
+._crit_edge141.thread:                            ; preds = %167, %202, %._crit_edge141
   call void @table_close(ptr noundef %169, i32 noundef 1) #6
   br label %206
 
-206:                                              ; preds = %._crit_edge140.thread, %158
+206:                                              ; preds = %._crit_edge141.thread, %158
   %207 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %208 = load ptr, ptr %207, align 8
   %209 = call ptr @heap_form_tuple(ptr noundef %208, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -2224,13 +2224,17 @@ attributes #7 = { cold nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!18 = distinct !{!18, !7, !13}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

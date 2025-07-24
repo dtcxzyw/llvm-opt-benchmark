@@ -268,7 +268,7 @@ _ZNK9Imath_3_23BoxINS_4Vec2IiEEEeqERKS3_.exit.thread: ; preds = %13, %_ZNK9Imath
 ._crit_edge45.split.us.us:                        ; preds = %._crit_edge.us.us
   %93 = add nuw nsw i32 %.046.us, 1
   %exitcond49.not = icmp eq i32 %93, 6
-  br i1 %exitcond49.not, label %.loopexit, label %.preheader42.us, !llvm.loop !33
+  br i1 %exitcond49.not, label %.loopexit, label %.preheader42.us, !llvm.loop !34
 
 .loopexit:                                        ; preds = %._crit_edge45.split.us.us, %_ZNK9Imath_3_23BoxINS_4Vec2IiEEEeqERKS3_.exit.thread, %35
   ret void
@@ -336,5 +336,6 @@ attributes #7 = { nounwind }
 !29 = distinct !{!29, !14}
 !30 = !{!6, !7, i64 0}
 !31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
+!32 = distinct !{!32, !14, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !14, !33}

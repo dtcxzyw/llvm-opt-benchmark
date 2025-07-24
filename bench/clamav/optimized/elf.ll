@@ -677,7 +677,7 @@ fmap_readn.exit.us:                               ; preds = %55
   %60 = add i64 %.0140185.us, 56
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count199
-  br i1 %exitcond200.not, label %.lr.ph.i, label %.split.us
+  br i1 %exitcond200.not, label %.lr.ph.i, label %.split.us, !llvm.loop !36
 
 .split:                                           ; preds = %.split.preheader, %106
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %106 ]
@@ -737,42 +737,42 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 80:                                               ; preds = %fmap_readn.exit
   %81 = add i64 %.0140185, 56
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.46, i32 noundef %63) #9
-  %82 = load i32, ptr %61, align 8, !tbaa !36
+  %82 = load i32, ptr %61, align 8, !tbaa !38
   br i1 %.not157, label %97, label %83
 
 83:                                               ; preds = %80
   %84 = tail call i32 @llvm.bswap.i32(i32 %82)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, i32 noundef %84) #9
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !38
+  %86 = load i64, ptr %85, align 8, !tbaa !40
   %87 = tail call i64 @llvm.bswap.i64(i64 %86)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.48, i64 noundef %87) #9
   %88 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !39
+  %89 = load i64, ptr %88, align 8, !tbaa !41
   %90 = tail call i64 @llvm.bswap.i64(i64 %89)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49, i64 noundef %90) #9
   %91 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %92 = load i64, ptr %91, align 8, !tbaa !40
+  %92 = load i64, ptr %91, align 8, !tbaa !42
   %93 = tail call i64 @llvm.bswap.i64(i64 %92)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50, i64 noundef %93) #9
   %94 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %95 = load i64, ptr %94, align 8, !tbaa !41
+  %95 = load i64, ptr %94, align 8, !tbaa !43
   %96 = tail call i64 @llvm.bswap.i64(i64 %95)
   br label %106
 
 97:                                               ; preds = %80
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, i32 noundef %82) #9
   %98 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !38
+  %99 = load i64, ptr %98, align 8, !tbaa !40
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.48, i64 noundef %99) #9
   %100 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %101 = load i64, ptr %100, align 8, !tbaa !39
+  %101 = load i64, ptr %100, align 8, !tbaa !41
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49, i64 noundef %101) #9
   %102 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %103 = load i64, ptr %102, align 8, !tbaa !40
+  %103 = load i64, ptr %102, align 8, !tbaa !42
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50, i64 noundef %103) #9
   %104 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %105 = load i64, ptr %104, align 8, !tbaa !41
+  %105 = load i64, ptr %104, align 8, !tbaa !43
   br label %106
 
 106:                                              ; preds = %97, %83
@@ -792,13 +792,13 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %117
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %117 ], [ 0, %.lr.ph.i ]
   %110 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv125.i, i32 3
-  %111 = load i64, ptr %110, align 8, !tbaa !39
+  %111 = load i64, ptr %110, align 8, !tbaa !41
   %.not107.us.i = icmp ugt i64 %111, %23
   br i1 %.not107.us.i, label %117, label %112
 
 112:                                              ; preds = %.lr.ph.split.us.i
   %113 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv125.i, i32 6
-  %114 = load i64, ptr %113, align 8, !tbaa !41
+  %114 = load i64, ptr %113, align 8, !tbaa !43
   %115 = add i64 %114, %111
   %116 = icmp ugt i64 %115, %23
   br i1 %116, label %.split.us.i, label %117
@@ -806,19 +806,19 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 117:                                              ; preds = %112, %.lr.ph.split.us.i
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %exitcond129.not.i = icmp eq i64 %indvars.iv.next126.i, %109
-  br i1 %exitcond129.not.i, label %.loopexit, label %.lr.ph.split.us.i
+  br i1 %exitcond129.not.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !44
 
 .thread.i:                                        ; preds = %.lr.ph.i, %126
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %126 ], [ 0, %.lr.ph.i ]
   %118 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv.i, i32 3
-  %119 = load i64, ptr %118, align 8, !tbaa !39
+  %119 = load i64, ptr %118, align 8, !tbaa !41
   %120 = tail call i64 @llvm.bswap.i64(i64 %119)
   %.not107111.i = icmp ugt i64 %120, %23
   br i1 %.not107111.i, label %126, label %.thread114.i
 
 .thread114.i:                                     ; preds = %.thread.i
   %121 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv.i, i32 6
-  %122 = load i64, ptr %121, align 8, !tbaa !41
+  %122 = load i64, ptr %121, align 8, !tbaa !43
   %123 = tail call i64 @llvm.bswap.i64(i64 %122)
   %124 = add i64 %123, %120
   %125 = icmp ugt i64 %124, %23
@@ -832,19 +832,19 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 127:                                              ; preds = %.thread114.i
   %128 = and i64 %indvars.iv.i, 65535
   %129 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %128, i32 3
-  %130 = load i64, ptr %129, align 8, !tbaa !39
+  %130 = load i64, ptr %129, align 8, !tbaa !41
   %131 = tail call i64 @llvm.bswap.i64(i64 %130)
   %132 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %128, i32 2
-  %133 = load i64, ptr %132, align 8, !tbaa !38
+  %133 = load i64, ptr %132, align 8, !tbaa !40
   %134 = tail call i64 @llvm.bswap.i64(i64 %133)
   br label %150
 
 .split.us.i:                                      ; preds = %112
   %135 = and i64 %indvars.iv125.i, 65535
   %136 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %135, i32 3
-  %137 = load i64, ptr %136, align 8, !tbaa !39
+  %137 = load i64, ptr %136, align 8, !tbaa !41
   %138 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %135, i32 2
-  %139 = load i64, ptr %138, align 8, !tbaa !38
+  %139 = load i64, ptr %138, align 8, !tbaa !40
   br label %150
 
 .loopexit:                                        ; preds = %126, %117
@@ -890,7 +890,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 156:                                              ; preds = %155
   %157 = trunc i64 %.0141 to i32
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %157, ptr %158, align 4, !tbaa !42
+  store i32 %157, ptr %158, align 4, !tbaa !45
   br label %159
 
 159:                                              ; preds = %155, %156, %146, %76, %36, %17, %149, %79, %48, %39, %20
@@ -901,7 +901,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %7 = load i16, ptr %6, align 4, !tbaa !49
+  %7 = load i16, ptr %6, align 4, !tbaa !52
   %8 = zext i16 %7 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %8) #9
   %9 = icmp ugt i16 %7, 128
@@ -931,7 +931,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load i32, ptr %22, align 4, !tbaa !51
+  %23 = load i32, ptr %22, align 4, !tbaa !54
   %24 = icmp ne i16 %7, 0
   %25 = icmp ne i32 %23, 0
   %or.cond = select i1 %24, i1 %25, i1 false
@@ -939,7 +939,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 42
-  %28 = load i16, ptr %27, align 2, !tbaa !52
+  %28 = load i16, ptr %27, align 2, !tbaa !55
   %.not = icmp eq i16 %28, 32
   br i1 %.not, label %40, label %29
 
@@ -967,7 +967,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
 
 40:                                               ; preds = %26
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !53
+  %42 = load i32, ptr %41, align 4, !tbaa !56
   %.not118 = icmp eq ptr %0, null
   br i1 %.not118, label %43, label %.thread
 
@@ -1029,7 +1029,7 @@ fmap_readn.exit.us:                               ; preds = %56
   %61 = add i32 %.0108153.us, 32
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count167
-  br i1 %exitcond168.not, label %.lr.ph.i, label %.split.us
+  br i1 %exitcond168.not, label %.lr.ph.i, label %.split.us, !llvm.loop !57
 
 .split:                                           ; preds = %.split.preheader, %108
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %108 ]
@@ -1090,42 +1090,42 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 82:                                               ; preds = %fmap_readn.exit
   %83 = add i32 %.0108153, 32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.46, i32 noundef %65) #9
-  %84 = load i32, ptr %62, align 4, !tbaa !54
+  %84 = load i32, ptr %62, align 4, !tbaa !58
   br i1 %.not125, label %99, label %85
 
 85:                                               ; preds = %82
   %86 = tail call i32 @llvm.bswap.i32(i32 %84)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, i32 noundef %86) #9
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !56
+  %88 = load i32, ptr %87, align 4, !tbaa !60
   %89 = tail call i32 @llvm.bswap.i32(i32 %88)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %89) #9
   %90 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %91 = load i32, ptr %90, align 4, !tbaa !57
+  %91 = load i32, ptr %90, align 4, !tbaa !61
   %92 = tail call i32 @llvm.bswap.i32(i32 %91)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, i32 noundef %92) #9
   %93 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !58
+  %94 = load i32, ptr %93, align 4, !tbaa !62
   %95 = tail call i32 @llvm.bswap.i32(i32 %94)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, i32 noundef %95) #9
   %96 = getelementptr inbounds nuw i8, ptr %62, i64 20
-  %97 = load i32, ptr %96, align 4, !tbaa !59
+  %97 = load i32, ptr %96, align 4, !tbaa !63
   %98 = tail call i32 @llvm.bswap.i32(i32 %97)
   br label %108
 
 99:                                               ; preds = %82
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, i32 noundef %84) #9
   %100 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %101 = load i32, ptr %100, align 4, !tbaa !56
+  %101 = load i32, ptr %100, align 4, !tbaa !60
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %101) #9
   %102 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %103 = load i32, ptr %102, align 4, !tbaa !57
+  %103 = load i32, ptr %102, align 4, !tbaa !61
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, i32 noundef %103) #9
   %104 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %105 = load i32, ptr %104, align 4, !tbaa !58
+  %105 = load i32, ptr %104, align 4, !tbaa !62
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, i32 noundef %105) #9
   %106 = getelementptr inbounds nuw i8, ptr %62, i64 20
-  %107 = load i32, ptr %106, align 4, !tbaa !59
+  %107 = load i32, ptr %106, align 4, !tbaa !63
   br label %108
 
 108:                                              ; preds = %99, %85
@@ -1145,13 +1145,13 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %119
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %119 ], [ 0, %.lr.ph.i ]
   %112 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv85.i, i32 2
-  %113 = load i32, ptr %112, align 4, !tbaa !57
+  %113 = load i32, ptr %112, align 4, !tbaa !61
   %.not67.us.i = icmp ugt i32 %113, %23
   br i1 %.not67.us.i, label %119, label %114
 
 114:                                              ; preds = %.lr.ph.split.us.i
   %115 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv85.i, i32 5
-  %116 = load i32, ptr %115, align 4, !tbaa !59
+  %116 = load i32, ptr %115, align 4, !tbaa !63
   %117 = add i32 %116, %113
   %118 = icmp ugt i32 %117, %23
   br i1 %118, label %.split.us.i, label %119
@@ -1159,19 +1159,19 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 119:                                              ; preds = %114, %.lr.ph.split.us.i
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %111
-  br i1 %exitcond89.not.i, label %.loopexit, label %.lr.ph.split.us.i
+  br i1 %exitcond89.not.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !64
 
 .thread.i:                                        ; preds = %.lr.ph.i, %128
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %128 ], [ 0, %.lr.ph.i ]
   %120 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv.i, i32 2
-  %121 = load i32, ptr %120, align 4, !tbaa !57
+  %121 = load i32, ptr %120, align 4, !tbaa !61
   %122 = tail call i32 @llvm.bswap.i32(i32 %121)
   %.not6771.i = icmp ugt i32 %122, %23
   br i1 %.not6771.i, label %128, label %.thread74.i
 
 .thread74.i:                                      ; preds = %.thread.i
   %123 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv.i, i32 5
-  %124 = load i32, ptr %123, align 4, !tbaa !59
+  %124 = load i32, ptr %123, align 4, !tbaa !63
   %125 = tail call i32 @llvm.bswap.i32(i32 %124)
   %126 = add i32 %125, %122
   %127 = icmp ugt i32 %126, %23
@@ -1185,19 +1185,19 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 129:                                              ; preds = %.thread74.i
   %130 = and i64 %indvars.iv.i, 65535
   %131 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %130, i32 2
-  %132 = load i32, ptr %131, align 4, !tbaa !57
+  %132 = load i32, ptr %131, align 4, !tbaa !61
   %133 = tail call i32 @llvm.bswap.i32(i32 %132)
   %134 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %130, i32 1
-  %135 = load i32, ptr %134, align 4, !tbaa !56
+  %135 = load i32, ptr %134, align 4, !tbaa !60
   %136 = tail call i32 @llvm.bswap.i32(i32 %135)
   br label %152
 
 .split.us.i:                                      ; preds = %114
   %137 = and i64 %indvars.iv85.i, 65535
   %138 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %137, i32 2
-  %139 = load i32, ptr %138, align 4, !tbaa !57
+  %139 = load i32, ptr %138, align 4, !tbaa !61
   %140 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %137, i32 1
-  %141 = load i32, ptr %140, align 4, !tbaa !56
+  %141 = load i32, ptr %140, align 4, !tbaa !60
   br label %152
 
 .loopexit:                                        ; preds = %128, %119
@@ -1242,7 +1242,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 158:                                              ; preds = %157
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %.0109, ptr %159, align 4, !tbaa !42
+  store i32 %.0109, ptr %159, align 4, !tbaa !45
   br label %160
 
 160:                                              ; preds = %157, %158, %148, %78, %36, %17, %151, %81, %48, %39, %20
@@ -1253,7 +1253,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %7 = load i16, ptr %6, align 4, !tbaa !60
+  %7 = load i16, ptr %6, align 4, !tbaa !65
   %8 = zext i16 %7 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, i32 noundef %8) #9
   %9 = icmp ne ptr %0, null
@@ -1280,12 +1280,12 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 %7, ptr %18, align 8, !tbaa !61
+  store i16 %7, ptr %18, align 8, !tbaa !66
   br label %19
 
 19:                                               ; preds = %17, %16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %21 = load i16, ptr %20, align 2, !tbaa !62
+  %21 = load i16, ptr %20, align 2, !tbaa !67
   %.not = icmp eq i16 %21, 64
   br i1 %.not, label %33, label %22
 
@@ -1318,7 +1318,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %38 = load i64, ptr %37, align 8, !tbaa !63
+  %38 = load i64, ptr %37, align 8, !tbaa !68
   br i1 %9, label %39, label %40
 
 39:                                               ; preds = %36
@@ -1331,7 +1331,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
 41:                                               ; preds = %40
   %42 = zext i16 %7 to i64
   %43 = tail call ptr @cli_max_calloc(i64 noundef %42, i64 noundef 36) #9
-  store ptr %43, ptr %2, align 8, !tbaa !64
+  store ptr %43, ptr %2, align 8, !tbaa !69
   %.not199 = icmp eq ptr %43, null
   br i1 %.not199, label %44, label %45
 
@@ -1420,38 +1420,38 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %75 = load i64, ptr %74, align 8, !tbaa !65
+  %75 = load i64, ptr %74, align 8, !tbaa !70
   br i1 %.not202, label %89, label %76
 
 76:                                               ; preds = %73
   %77 = tail call i64 @llvm.bswap.i64(i64 %75)
   %78 = trunc i64 %77 to i32
-  %79 = load ptr, ptr %2, align 8, !tbaa !64
+  %79 = load ptr, ptr %2, align 8, !tbaa !69
   %80 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv
-  store i32 %78, ptr %80, align 4, !tbaa !67
+  store i32 %78, ptr %80, align 4, !tbaa !72
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %82 = load i64, ptr %81, align 8, !tbaa !69
+  %82 = load i64, ptr %81, align 8, !tbaa !74
   %83 = tail call i64 @llvm.bswap.i64(i64 %82)
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv, i32 2
-  store i32 %84, ptr %85, align 4, !tbaa !70
+  store i32 %84, ptr %85, align 4, !tbaa !75
   %86 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %87 = load i64, ptr %86, align 8, !tbaa !71
+  %87 = load i64, ptr %86, align 8, !tbaa !76
   %88 = tail call i64 @llvm.bswap.i64(i64 %87)
   br label %99
 
 89:                                               ; preds = %73
   %90 = trunc i64 %75 to i32
-  %91 = load ptr, ptr %2, align 8, !tbaa !64
+  %91 = load ptr, ptr %2, align 8, !tbaa !69
   %92 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %91, i64 %indvars.iv
-  store i32 %90, ptr %92, align 4, !tbaa !67
+  store i32 %90, ptr %92, align 4, !tbaa !72
   %93 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %94 = load i64, ptr %93, align 8, !tbaa !69
+  %94 = load i64, ptr %93, align 8, !tbaa !74
   %95 = trunc i64 %94 to i32
   %96 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %91, i64 %indvars.iv, i32 2
-  store i32 %95, ptr %96, align 4, !tbaa !70
+  store i32 %95, ptr %96, align 4, !tbaa !75
   %97 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %98 = load i64, ptr %97, align 8, !tbaa !71
+  %98 = load i64, ptr %97, align 8, !tbaa !76
   br label %99
 
 99:                                               ; preds = %89, %76
@@ -1459,7 +1459,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   %101 = phi i64 [ %88, %76 ], [ %98, %89 ]
   %102 = trunc i64 %101 to i32
   %103 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %100, i64 %indvars.iv, i32 3
-  store i32 %102, ptr %103, align 4, !tbaa !72
+  store i32 %102, ptr %103, align 4, !tbaa !77
   br label %104
 
 104:                                              ; preds = %99, %71
@@ -1469,33 +1469,33 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.70, i32 noundef %106) #9
   %107 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %108 = load i64, ptr %107, align 8, !tbaa !69
+  %108 = load i64, ptr %107, align 8, !tbaa !74
   br i1 %.not202, label %120, label %109
 
 109:                                              ; preds = %105
   %110 = tail call i64 @llvm.bswap.i64(i64 %108)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.71, i64 noundef %110) #9
   %111 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %112 = load i64, ptr %111, align 8, !tbaa !71
+  %112 = load i64, ptr %111, align 8, !tbaa !76
   %113 = tail call i64 @llvm.bswap.i64(i64 %112)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.72, i64 noundef %113) #9
   %114 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !73
+  %115 = load i32, ptr %114, align 4, !tbaa !78
   %116 = tail call i32 @llvm.bswap.i32(i32 %115)
   %117 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !74
+  %118 = load i64, ptr %117, align 8, !tbaa !79
   %119 = tail call i64 @llvm.bswap.i64(i64 %118)
   br label %127
 
 120:                                              ; preds = %105
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.71, i64 noundef %108) #9
   %121 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %122 = load i64, ptr %121, align 8, !tbaa !71
+  %122 = load i64, ptr %121, align 8, !tbaa !76
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.72, i64 noundef %122) #9
   %123 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %124 = load i32, ptr %123, align 4, !tbaa !73
+  %124 = load i32, ptr %123, align 4, !tbaa !78
   %125 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %126 = load i64, ptr %125, align 8, !tbaa !74
+  %126 = load i64, ptr %125, align 8, !tbaa !79
   br label %127
 
 127:                                              ; preds = %120, %109
@@ -1525,7 +1525,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %7 = load i16, ptr %6, align 4, !tbaa !75
+  %7 = load i16, ptr %6, align 4, !tbaa !80
   %8 = zext i16 %7 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, i32 noundef %8) #9
   %9 = icmp ne ptr %0, null
@@ -1552,12 +1552,12 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 %7, ptr %18, align 8, !tbaa !61
+  store i16 %7, ptr %18, align 8, !tbaa !66
   br label %19
 
 19:                                               ; preds = %17, %16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 46
-  %21 = load i16, ptr %20, align 2, !tbaa !76
+  %21 = load i16, ptr %20, align 2, !tbaa !81
   %.not = icmp eq i16 %21, 40
   br i1 %.not, label %33, label %22
 
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !77
+  %38 = load i32, ptr %37, align 4, !tbaa !82
   br i1 %9, label %39, label %40
 
 39:                                               ; preds = %36
@@ -1603,7 +1603,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
 41:                                               ; preds = %40
   %42 = zext i16 %7 to i64
   %43 = tail call ptr @cli_max_calloc(i64 noundef %42, i64 noundef 36) #9
-  store ptr %43, ptr %2, align 8, !tbaa !64
+  store ptr %43, ptr %2, align 8, !tbaa !69
   %.not151 = icmp eq ptr %43, null
   br i1 %.not151, label %44, label %45
 
@@ -1693,41 +1693,41 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !78
+  %76 = load i32, ptr %75, align 4, !tbaa !83
   br i1 %.not154, label %88, label %77
 
 77:                                               ; preds = %74
   %78 = tail call i32 @llvm.bswap.i32(i32 %76)
-  %79 = load ptr, ptr %2, align 8, !tbaa !64
+  %79 = load ptr, ptr %2, align 8, !tbaa !69
   %80 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv
-  store i32 %78, ptr %80, align 4, !tbaa !67
+  store i32 %78, ptr %80, align 4, !tbaa !72
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %82 = load i32, ptr %81, align 4, !tbaa !80
+  %82 = load i32, ptr %81, align 4, !tbaa !85
   %83 = tail call i32 @llvm.bswap.i32(i32 %82)
   %84 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv, i32 2
-  store i32 %83, ptr %84, align 4, !tbaa !70
+  store i32 %83, ptr %84, align 4, !tbaa !75
   %85 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %86 = load i32, ptr %85, align 4, !tbaa !81
+  %86 = load i32, ptr %85, align 4, !tbaa !86
   %87 = tail call i32 @llvm.bswap.i32(i32 %86)
   br label %96
 
 88:                                               ; preds = %74
-  %89 = load ptr, ptr %2, align 8, !tbaa !64
+  %89 = load ptr, ptr %2, align 8, !tbaa !69
   %90 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %89, i64 %indvars.iv
-  store i32 %76, ptr %90, align 4, !tbaa !67
+  store i32 %76, ptr %90, align 4, !tbaa !72
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %92 = load i32, ptr %91, align 4, !tbaa !80
+  %92 = load i32, ptr %91, align 4, !tbaa !85
   %93 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %89, i64 %indvars.iv, i32 2
-  store i32 %92, ptr %93, align 4, !tbaa !70
+  store i32 %92, ptr %93, align 4, !tbaa !75
   %94 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %95 = load i32, ptr %94, align 4, !tbaa !81
+  %95 = load i32, ptr %94, align 4, !tbaa !86
   br label %96
 
 96:                                               ; preds = %88, %77
   %97 = phi ptr [ %79, %77 ], [ %89, %88 ]
   %98 = phi i32 [ %87, %77 ], [ %95, %88 ]
   %99 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %97, i64 %indvars.iv, i32 3
-  store i32 %98, ptr %99, align 4, !tbaa !72
+  store i32 %98, ptr %99, align 4, !tbaa !77
   br label %100
 
 100:                                              ; preds = %96, %72
@@ -1737,33 +1737,33 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
   %102 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.70, i32 noundef %102) #9
   %103 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %104 = load i32, ptr %103, align 4, !tbaa !80
+  %104 = load i32, ptr %103, align 4, !tbaa !85
   br i1 %.not154, label %116, label %105
 
 105:                                              ; preds = %101
   %106 = tail call i32 @llvm.bswap.i32(i32 %104)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96, i32 noundef %106) #9
   %107 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %108 = load i32, ptr %107, align 4, !tbaa !81
+  %108 = load i32, ptr %107, align 4, !tbaa !86
   %109 = tail call i32 @llvm.bswap.i32(i32 %108)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.97, i32 noundef %109) #9
   %110 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !82
+  %111 = load i32, ptr %110, align 4, !tbaa !87
   %112 = tail call i32 @llvm.bswap.i32(i32 %111)
   %113 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %114 = load i32, ptr %113, align 4, !tbaa !83
+  %114 = load i32, ptr %113, align 4, !tbaa !88
   %115 = tail call i32 @llvm.bswap.i32(i32 %114)
   br label %123
 
 116:                                              ; preds = %101
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96, i32 noundef %104) #9
   %117 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !81
+  %118 = load i32, ptr %117, align 4, !tbaa !86
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.97, i32 noundef %118) #9
   %119 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !82
+  %120 = load i32, ptr %119, align 4, !tbaa !87
   %121 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %122 = load i32, ptr %121, align 4, !tbaa !83
+  %122 = load i32, ptr %121, align 4, !tbaa !88
   br label %123
 
 123:                                              ; preds = %116, %105
@@ -1804,7 +1804,7 @@ define range(i32 0, 27) i32 @cli_elfheader(ptr noundef readonly captures(none) %
   store i8 0, ptr %5, align 1, !tbaa !23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !84
+  %7 = load i32, ptr %6, align 8, !tbaa !89
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -1858,7 +1858,7 @@ define range(i32 0, 27) i32 @cli_elfheader(ptr noundef readonly captures(none) %
 define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  store ptr null, ptr %2, align 8, !tbaa !85
+  store ptr null, ptr %2, align 8, !tbaa !90
   %3 = tail call ptr @cli_bytecode_context_alloc() #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread47, label %4
@@ -1871,7 +1871,7 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @cli_bytecode_context_setctx(ptr noundef nonnull %3, ptr noundef %0) #9
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = tail call i32 @cli_bytecode_runhook(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, i32 noundef 261, ptr noundef %8) #9
@@ -1891,7 +1891,7 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %14) #9
   %16 = call i64 @lseek(i32 noundef %12, i64 noundef 0, i32 noundef 0) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28) #9
-  %17 = load ptr, ptr %2, align 8, !tbaa !85
+  %17 = load ptr, ptr %2, align 8, !tbaa !90
   %18 = call i32 @cli_magic_scan_desc(i32 noundef %12, ptr noundef %17, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #9
   br label %20
 
@@ -1902,7 +1902,7 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %.thread33, %19
   %.038 = phi i32 [ %18, %.thread33 ], [ 0, %19 ]
   %21 = call i32 @close(i32 noundef %12) #9
-  %.pre = load ptr, ptr %2, align 8, !tbaa !85
+  %.pre = load ptr, ptr %2, align 8, !tbaa !90
   br label %.thread
 
 .thread:                                          ; preds = %20, %19
@@ -1913,15 +1913,15 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !86
+  %25 = load ptr, ptr %24, align 8, !tbaa !91
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load i32, ptr %26, align 8, !tbaa !87
+  %27 = load i32, ptr %26, align 8, !tbaa !92
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %30
 
 28:                                               ; preds = %23
   %29 = call i32 @cli_unlink(ptr noundef nonnull %22) #9
-  %.pre39 = load ptr, ptr %2, align 8, !tbaa !85
+  %.pre39 = load ptr, ptr %2, align 8, !tbaa !90
   br label %30
 
 30:                                               ; preds = %28, %23
@@ -2143,72 +2143,77 @@ attributes #9 = { nounwind }
 !33 = !{!31, !12, i64 24}
 !34 = !{!31, !32, i64 54}
 !35 = !{!31, !12, i64 32}
-!36 = !{!37, !14, i64 0}
-!37 = !{!"elf_program_hdr64", !14, i64 0, !14, i64 4, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
-!38 = !{!37, !12, i64 8}
-!39 = !{!37, !12, i64 16}
-!40 = !{!37, !12, i64 32}
-!41 = !{!37, !12, i64 40}
-!42 = !{!43, !14, i64 12}
-!43 = !{!"cli_exe_info", !44, i64 0, !14, i64 8, !14, i64 12, !32, i64 16, !14, i64 20, !14, i64 24, !45, i64 32, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !48, i64 108, !7, i64 136, !7, i64 248}
-!44 = !{!"p1 _ZTS15cli_exe_section", !6, i64 0}
-!45 = !{!"cli_hashset", !46, i64 0, !46, i64 8, !47, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36}
-!46 = !{!"p1 int", !6, i64 0}
-!47 = !{!"p1 _ZTS2MP", !6, i64 0}
-!48 = !{!"pe_image_file_hdr", !14, i64 0, !32, i64 4, !32, i64 6, !14, i64 8, !14, i64 12, !14, i64 16, !32, i64 20, !32, i64 22}
-!49 = !{!50, !32, i64 44}
-!50 = !{!"elf_file_hdr32", !7, i64 0, !32, i64 16, !32, i64 18, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !32, i64 40, !32, i64 42, !32, i64 44, !32, i64 46, !32, i64 48, !32, i64 50}
-!51 = !{!50, !14, i64 24}
-!52 = !{!50, !32, i64 42}
-!53 = !{!50, !14, i64 28}
-!54 = !{!55, !14, i64 0}
-!55 = !{!"elf_program_hdr32", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
-!56 = !{!55, !14, i64 4}
-!57 = !{!55, !14, i64 8}
-!58 = !{!55, !14, i64 16}
-!59 = !{!55, !14, i64 20}
-!60 = !{!31, !32, i64 60}
-!61 = !{!43, !32, i64 16}
-!62 = !{!31, !32, i64 58}
-!63 = !{!31, !12, i64 40}
-!64 = !{!43, !44, i64 0}
-!65 = !{!66, !12, i64 16}
-!66 = !{!"elf_section_hdr64", !14, i64 0, !14, i64 4, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !14, i64 40, !14, i64 44, !12, i64 48, !12, i64 56}
-!67 = !{!68, !14, i64 0}
-!68 = !{!"cli_exe_section", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32}
-!69 = !{!66, !12, i64 24}
-!70 = !{!68, !14, i64 8}
-!71 = !{!66, !12, i64 32}
-!72 = !{!68, !14, i64 12}
-!73 = !{!66, !14, i64 4}
-!74 = !{!66, !12, i64 8}
-!75 = !{!50, !32, i64 48}
-!76 = !{!50, !32, i64 46}
-!77 = !{!50, !14, i64 32}
-!78 = !{!79, !14, i64 12}
-!79 = !{!"elf_section_hdr32", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36}
-!80 = !{!79, !14, i64 16}
-!81 = !{!79, !14, i64 20}
-!82 = !{!79, !14, i64 4}
-!83 = !{!79, !14, i64 8}
-!84 = !{!43, !14, i64 8}
-!85 = !{!5, !5, i64 0}
-!86 = !{!4, !11, i64 48}
-!87 = !{!88, !14, i64 40}
-!88 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !89, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !90, i64 136, !91, i64 144, !91, i64 152, !92, i64 160, !17, i64 168, !93, i64 176, !93, i64 184, !94, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !95, i64 224, !96, i64 232, !97, i64 240, !12, i64 248, !47, i64 256, !98, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !100, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !104, i64 1192}
-!89 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!90 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!91 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!92 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!93 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!94 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!95 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!96 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!97 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!98 = !{!"", !99, i64 0, !14, i64 8}
-!99 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!100 = !{!"cli_all_bc", !101, i64 0, !14, i64 8, !102, i64 16, !103, i64 24, !14, i64 516}
-!101 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!102 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!103 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!104 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!39, !14, i64 0}
+!39 = !{!"elf_program_hdr64", !14, i64 0, !14, i64 4, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!40 = !{!39, !12, i64 8}
+!41 = !{!39, !12, i64 16}
+!42 = !{!39, !12, i64 32}
+!43 = !{!39, !12, i64 40}
+!44 = distinct !{!44, !37}
+!45 = !{!46, !14, i64 12}
+!46 = !{!"cli_exe_info", !47, i64 0, !14, i64 8, !14, i64 12, !32, i64 16, !14, i64 20, !14, i64 24, !48, i64 32, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !51, i64 108, !7, i64 136, !7, i64 248}
+!47 = !{!"p1 _ZTS15cli_exe_section", !6, i64 0}
+!48 = !{!"cli_hashset", !49, i64 0, !49, i64 8, !50, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36}
+!49 = !{!"p1 int", !6, i64 0}
+!50 = !{!"p1 _ZTS2MP", !6, i64 0}
+!51 = !{!"pe_image_file_hdr", !14, i64 0, !32, i64 4, !32, i64 6, !14, i64 8, !14, i64 12, !14, i64 16, !32, i64 20, !32, i64 22}
+!52 = !{!53, !32, i64 44}
+!53 = !{!"elf_file_hdr32", !7, i64 0, !32, i64 16, !32, i64 18, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !32, i64 40, !32, i64 42, !32, i64 44, !32, i64 46, !32, i64 48, !32, i64 50}
+!54 = !{!53, !14, i64 24}
+!55 = !{!53, !32, i64 42}
+!56 = !{!53, !14, i64 28}
+!57 = distinct !{!57, !37}
+!58 = !{!59, !14, i64 0}
+!59 = !{!"elf_program_hdr32", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
+!60 = !{!59, !14, i64 4}
+!61 = !{!59, !14, i64 8}
+!62 = !{!59, !14, i64 16}
+!63 = !{!59, !14, i64 20}
+!64 = distinct !{!64, !37}
+!65 = !{!31, !32, i64 60}
+!66 = !{!46, !32, i64 16}
+!67 = !{!31, !32, i64 58}
+!68 = !{!31, !12, i64 40}
+!69 = !{!46, !47, i64 0}
+!70 = !{!71, !12, i64 16}
+!71 = !{!"elf_section_hdr64", !14, i64 0, !14, i64 4, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !14, i64 40, !14, i64 44, !12, i64 48, !12, i64 56}
+!72 = !{!73, !14, i64 0}
+!73 = !{!"cli_exe_section", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32}
+!74 = !{!71, !12, i64 24}
+!75 = !{!73, !14, i64 8}
+!76 = !{!71, !12, i64 32}
+!77 = !{!73, !14, i64 12}
+!78 = !{!71, !14, i64 4}
+!79 = !{!71, !12, i64 8}
+!80 = !{!53, !32, i64 48}
+!81 = !{!53, !32, i64 46}
+!82 = !{!53, !14, i64 32}
+!83 = !{!84, !14, i64 12}
+!84 = !{!"elf_section_hdr32", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36}
+!85 = !{!84, !14, i64 16}
+!86 = !{!84, !14, i64 20}
+!87 = !{!84, !14, i64 4}
+!88 = !{!84, !14, i64 8}
+!89 = !{!46, !14, i64 8}
+!90 = !{!5, !5, i64 0}
+!91 = !{!4, !11, i64 48}
+!92 = !{!93, !14, i64 40}
+!93 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !94, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !95, i64 136, !96, i64 144, !96, i64 152, !97, i64 160, !17, i64 168, !98, i64 176, !98, i64 184, !99, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !100, i64 224, !101, i64 232, !102, i64 240, !12, i64 248, !50, i64 256, !103, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !105, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !109, i64 1192}
+!94 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!95 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!96 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!97 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!98 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!99 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!100 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!101 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!102 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!103 = !{!"", !104, i64 0, !14, i64 8}
+!104 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!105 = !{!"cli_all_bc", !106, i64 0, !14, i64 8, !107, i64 16, !108, i64 24, !14, i64 516}
+!106 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!107 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!108 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!109 = !{!"p1 _ZTS12_yara_global", !6, i64 0}

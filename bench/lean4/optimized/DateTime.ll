@@ -5995,7 +5995,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %18, %17, %16, %11
-  br label %.split.us
+  br label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %3, %.split.backedge
   %.017 = phi ptr [ %32, %.split.backedge ], [ %2, %3 ]
@@ -23047,7 +23047,7 @@ lean_dec.exit157:                                 ; preds = %99, %98, %96, %lean
 110:                                              ; preds = %109, %106
   %111 = phi i32 [ %.pr, %109 ], [ %107, %106 ]
   %112 = icmp sgt i32 %111, 1
-  br i1 %112, label %113, label %115, !prof !16
+  br i1 %112, label %113, label %115, !prof !18
 
 113:                                              ; preds = %110
   %114 = add nsw i32 %111, -1
@@ -24043,9 +24043,9 @@ _init_l_Lake_Toml_Time_instToString___closed__1.exit: ; preds = %_init_l_Lake_To
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @l_Lake_Toml_Time_toString, ptr %47, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i16 1, ptr %48, align 8, !tbaa !17
+  store i16 1, ptr %48, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 18
-  store i16 0, ptr %49, align 2, !tbaa !17
+  store i16 0, ptr %49, align 2, !tbaa !19
   store ptr %43, ptr @l_Lake_Toml_Time_instToString___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %43) #4
   %50 = load ptr, ptr @l_Lake_Toml_Time_instToString___closed__1, align 8, !tbaa !4
@@ -24114,9 +24114,9 @@ _init_l___private_Init_Data_Option_Basic_0__Option_decEqOption____x40_Init_Data_
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr @l_instDecidableEqBool___boxed, ptr %72, align 8, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i16 2, ptr %73, align 8, !tbaa !17
+  store i16 2, ptr %73, align 8, !tbaa !19
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 18
-  store i16 0, ptr %74, align 2, !tbaa !17
+  store i16 0, ptr %74, align 2, !tbaa !19
   store ptr %68, ptr @l___private_Init_Data_Option_Basic_0__Option_decEqOption____x40_Init_Data_Option_Basic___hyg_5____at___private_Lake_Toml_Data_DateTime_0__Lake_Toml_decEqDateTime____x40_Lake_Toml_Data_DateTime___hyg_1023____spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %68) #4
   tail call void @lean_inc_heartbeat() #4
@@ -24135,9 +24135,9 @@ _init_l___private_Init_Data_Option_Basic_0__Option_decEqOption____x40_Init_Data_
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr @l_Lake_Toml_instDecidableEqTime___boxed, ptr %79, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i16 2, ptr %80, align 8, !tbaa !17
+  store i16 2, ptr %80, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 18
-  store i16 0, ptr %81, align 2, !tbaa !17
+  store i16 0, ptr %81, align 2, !tbaa !19
   store ptr %75, ptr @l___private_Init_Data_Option_Basic_0__Option_decEqOption____x40_Init_Data_Option_Basic___hyg_5____at___private_Lake_Toml_Data_DateTime_0__Lake_Toml_decEqDateTime____x40_Lake_Toml_Data_DateTime___hyg_1023____spec__1___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %75) #4
   %82 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 1, i64 noundef 1) #4
@@ -24168,9 +24168,9 @@ _init_l_Lake_Toml_DateTime_instToString___closed__1.exit: ; preds = %_init_l___p
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr @l_Lake_Toml_DateTime_toString, ptr %90, align 8, !tbaa !4
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store i16 1, ptr %91, align 8, !tbaa !17
+  store i16 1, ptr %91, align 8, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 18
-  store i16 0, ptr %92, align 2, !tbaa !17
+  store i16 0, ptr %92, align 2, !tbaa !19
   store ptr %86, ptr @l_Lake_Toml_DateTime_instToString___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %86) #4
   %93 = load ptr, ptr @l_Lake_Toml_DateTime_instToString___closed__1, align 8, !tbaa !4
@@ -24255,6 +24255,8 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !6, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}

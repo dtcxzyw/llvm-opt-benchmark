@@ -6910,7 +6910,7 @@ if.end22:                                         ; preds = %if.end16.thread, %_
   %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0137, i64 128
   %dec = add nsw i64 %__trip_count.0138, -1
   %cmp = icmp sgt i64 %__trip_count.0138, 1
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !75
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !77
 
 for.end.loopexit:                                 ; preds = %if.end22, %if.end22.us
   %.pre140 = ptrtoint ptr %scevgep to i64
@@ -7436,4 +7436,6 @@ attributes #32 = { noreturn nounwind }
 !72 = distinct !{!72, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
 !73 = !{!74}
 !74 = distinct !{!74, !72, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!75 = distinct !{!75, !27}
+!75 = distinct !{!75, !27, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !27}

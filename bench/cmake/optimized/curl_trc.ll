@@ -748,12 +748,12 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 .preheader.split21.us.i.i:                        ; preds = %.split.us.i.i, %.preheader.split21.us.i.i
   %.120.us.i.i = phi i64 [ %22, %.preheader.split21.us.i.i ], [ 0, %.split.us.i.i ]
   %19 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.us.i.i
-  %20 = load ptr, ptr %19, align 16, !tbaa !98
+  %20 = load ptr, ptr %19, align 16, !tbaa !99
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.0.i, ptr %21, align 8, !tbaa !82
   %22 = add nuw nsw i64 %.120.us.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %22, 5
-  br i1 %exitcond28.not.i.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.us.i.i, !llvm.loop !100
+  br i1 %exitcond28.not.i.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.us.i.i, !llvm.loop !101
 
 23:                                               ; preds = %13
   %24 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.8) #8
@@ -763,7 +763,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 .split.i.i:                                       ; preds = %23, %32
   %.019.i.i = phi i64 [ %33, %32 ], [ 0, %23 ]
   %25 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i.i, i32 1
-  %26 = load i32, ptr %25, align 8, !tbaa !101
+  %26 = load i32, ptr %25, align 8, !tbaa !102
   %27 = and i32 %26, 1
   %.not18.i.i = icmp eq i32 %27, 0
   br i1 %.not18.i.i, label %32, label %28
@@ -778,19 +778,19 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 32:                                               ; preds = %28, %.split.i.i
   %33 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %33, 15
-  br i1 %exitcond.not.i.i, label %.preheader.split21.i.i, label %.split.i.i, !llvm.loop !96
+  br i1 %exitcond.not.i.i, label %.preheader.split21.i.i, label %.split.i.i, !llvm.loop !103
 
 .preheader.split21.i.i:                           ; preds = %32, %41
   %.120.i.i = phi i64 [ %42, %41 ], [ 0, %32 ]
   %34 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i.i, i32 1
-  %35 = load i32, ptr %34, align 8, !tbaa !102
+  %35 = load i32, ptr %34, align 8, !tbaa !104
   %36 = and i32 %35, 1
   %.not16.i.i = icmp eq i32 %36, 0
   br i1 %.not16.i.i, label %41, label %37
 
 37:                                               ; preds = %.preheader.split21.i.i
   %38 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i.i
-  %39 = load ptr, ptr %38, align 16, !tbaa !98
+  %39 = load ptr, ptr %38, align 16, !tbaa !99
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %.0.i, ptr %40, align 8, !tbaa !82
   br label %41
@@ -798,7 +798,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 41:                                               ; preds = %37, %.preheader.split21.i.i
   %42 = add nuw nsw i64 %.120.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %42, 5
-  br i1 %exitcond27.not.i.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i.i, !llvm.loop !100
+  br i1 %exitcond27.not.i.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i.i, !llvm.loop !105
 
 43:                                               ; preds = %23
   %44 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.9) #8
@@ -808,7 +808,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 .split.i27.i:                                     ; preds = %43, %52
   %.019.i28.i = phi i64 [ %53, %52 ], [ 0, %43 ]
   %45 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i28.i, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !101
+  %46 = load i32, ptr %45, align 8, !tbaa !102
   %47 = and i32 %46, 2
   %.not18.i29.i = icmp eq i32 %47, 0
   br i1 %.not18.i29.i, label %52, label %48
@@ -823,19 +823,19 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 52:                                               ; preds = %48, %.split.i27.i
   %53 = add nuw nsw i64 %.019.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %53, 15
-  br i1 %exitcond.not.i30.i, label %.preheader.split21.i32.i, label %.split.i27.i, !llvm.loop !96
+  br i1 %exitcond.not.i30.i, label %.preheader.split21.i32.i, label %.split.i27.i, !llvm.loop !103
 
 .preheader.split21.i32.i:                         ; preds = %52, %61
   %.120.i33.i = phi i64 [ %62, %61 ], [ 0, %52 ]
   %54 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i33.i, i32 1
-  %55 = load i32, ptr %54, align 8, !tbaa !102
+  %55 = load i32, ptr %54, align 8, !tbaa !104
   %56 = and i32 %55, 2
   %.not16.i34.i = icmp eq i32 %56, 0
   br i1 %.not16.i34.i, label %61, label %57
 
 57:                                               ; preds = %.preheader.split21.i32.i
   %58 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i33.i
-  %59 = load ptr, ptr %58, align 16, !tbaa !98
+  %59 = load ptr, ptr %58, align 16, !tbaa !99
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %.0.i, ptr %60, align 8, !tbaa !82
   br label %61
@@ -843,7 +843,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 61:                                               ; preds = %57, %.preheader.split21.i32.i
   %62 = add nuw nsw i64 %.120.i33.i, 1
   %exitcond27.not.i35.i = icmp eq i64 %62, 5
-  br i1 %exitcond27.not.i35.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i32.i, !llvm.loop !100
+  br i1 %exitcond27.not.i35.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i32.i, !llvm.loop !105
 
 63:                                               ; preds = %43
   %64 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.10) #8
@@ -853,7 +853,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 .split.i37.i:                                     ; preds = %63, %72
   %.019.i38.i = phi i64 [ %73, %72 ], [ 0, %63 ]
   %65 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i38.i, i32 1
-  %66 = load i32, ptr %65, align 8, !tbaa !101
+  %66 = load i32, ptr %65, align 8, !tbaa !102
   %67 = and i32 %66, 4
   %.not18.i39.i = icmp eq i32 %67, 0
   br i1 %.not18.i39.i, label %72, label %68
@@ -868,19 +868,19 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 72:                                               ; preds = %68, %.split.i37.i
   %73 = add nuw nsw i64 %.019.i38.i, 1
   %exitcond.not.i40.i = icmp eq i64 %73, 15
-  br i1 %exitcond.not.i40.i, label %.preheader.split21.i42.i, label %.split.i37.i, !llvm.loop !96
+  br i1 %exitcond.not.i40.i, label %.preheader.split21.i42.i, label %.split.i37.i, !llvm.loop !103
 
 .preheader.split21.i42.i:                         ; preds = %72, %81
   %.120.i43.i = phi i64 [ %82, %81 ], [ 0, %72 ]
   %74 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i43.i, i32 1
-  %75 = load i32, ptr %74, align 8, !tbaa !102
+  %75 = load i32, ptr %74, align 8, !tbaa !104
   %76 = and i32 %75, 4
   %.not16.i44.i = icmp eq i32 %76, 0
   br i1 %.not16.i44.i, label %81, label %77
 
 77:                                               ; preds = %.preheader.split21.i42.i
   %78 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i43.i
-  %79 = load ptr, ptr %78, align 16, !tbaa !98
+  %79 = load ptr, ptr %78, align 16, !tbaa !99
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 %.0.i, ptr %80, align 8, !tbaa !82
   br label %81
@@ -888,12 +888,12 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 81:                                               ; preds = %77, %.preheader.split21.i42.i
   %82 = add nuw nsw i64 %.120.i43.i, 1
   %exitcond27.not.i45.i = icmp eq i64 %82, 5
-  br i1 %exitcond27.not.i45.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i42.i, !llvm.loop !100
+  br i1 %exitcond27.not.i45.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i42.i, !llvm.loop !105
 
 83:                                               ; preds = %.preheader.i
   %84 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i47.i = icmp eq i64 %84, 15
-  br i1 %exitcond.not.i47.i, label %.loopexit12.i.i.preheader, label %.preheader.i, !llvm.loop !103
+  br i1 %exitcond.not.i47.i, label %.loopexit12.i.i.preheader, label %.preheader.i, !llvm.loop !106
 
 .preheader.i:                                     ; preds = %63, %83
   %.014.i.i = phi i64 [ %84, %83 ], [ 0, %63 ]
@@ -915,12 +915,12 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 91:                                               ; preds = %.loopexit12.i.i
   %92 = add nuw nsw i64 %.115.i.i, 1
   %exitcond19.not.i.i = icmp eq i64 %92, 5
-  br i1 %exitcond19.not.i.i, label %trc_apply_level_by_category.exit.i, label %.loopexit12.i.i, !llvm.loop !104
+  br i1 %exitcond19.not.i.i, label %trc_apply_level_by_category.exit.i, label %.loopexit12.i.i, !llvm.loop !107
 
 .loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %91
   %.115.i.i = phi i64 [ %92, %91 ], [ 0, %.loopexit12.i.i.preheader ]
   %93 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.115.i.i
-  %94 = load ptr, ptr %93, align 16, !tbaa !98
+  %94 = load ptr, ptr %93, align 16, !tbaa !99
   %95 = load ptr, ptr %94, align 8, !tbaa !84
   %96 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %95) #8
   %.not11.i.i = icmp eq i32 %96, 0
@@ -934,7 +934,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 trc_apply_level_by_category.exit.i:               ; preds = %.preheader.split21.us.i.i, %41, %61, %81, %91, %97
   %99 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef nonnull %2) #8
   %.not21.i = icmp eq ptr %99, null
-  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !105
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %trc_apply_level_by_category.exit.i, %6
   %100 = load ptr, ptr @Curl_cfree, align 8, !tbaa !93
@@ -1069,13 +1069,16 @@ attributes #8 = { nounwind }
 !93 = !{!11, !11, i64 0}
 !94 = !{!95, !87, i64 0}
 !95 = !{!"trc_cft_def", !87, i64 0, !6, i64 8}
-!96 = distinct !{!96, !97}
+!96 = distinct !{!96, !97, !98}
 !97 = !{!"llvm.loop.mustprogress"}
-!98 = !{!99, !68, i64 0}
-!99 = !{!"trc_feat_def", !68, i64 0, !6, i64 8}
-!100 = distinct !{!100, !97}
-!101 = !{!95, !6, i64 8}
-!102 = !{!99, !6, i64 8}
+!98 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!99 = !{!100, !68, i64 0}
+!100 = !{!"trc_feat_def", !68, i64 0, !6, i64 8}
+!101 = distinct !{!101, !97, !98}
+!102 = !{!95, !6, i64 8}
 !103 = distinct !{!103, !97}
-!104 = distinct !{!104, !97}
+!104 = !{!100, !6, i64 8}
 !105 = distinct !{!105, !97}
+!106 = distinct !{!106, !97}
+!107 = distinct !{!107, !97}
+!108 = distinct !{!108, !97}

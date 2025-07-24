@@ -1035,7 +1035,7 @@ default.unreachable66:                            ; preds = %4
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #11
   %43 = add nuw nsw i32 %.04660, 1
   %exitcond.not = icmp eq i32 %43, %20
-  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !13
 
 ._crit_edge63:                                    ; preds = %.lr.ph62.split, %.lr.ph62.split.us, %23
   call void @termPQExpBuffer(ptr noundef nonnull %6) #11
@@ -1149,4 +1149,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!11 = distinct !{!11, !5, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5}

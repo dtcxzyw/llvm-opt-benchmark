@@ -1122,7 +1122,7 @@ do_sarray_io.exit:                                ; preds = %.lr.ph.split.i, %72
   %133 = load i32, ptr %101, align 4
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %132, %134
-  br i1 %135, label %.lr.ph.split.us.i, label %do_sarray_io.exit80, !llvm.loop !16
+  br i1 %135, label %.lr.ph.split.us.i, label %do_sarray_io.exit80, !llvm.loop !17
 
 do_sarray_io.exit80:                              ; preds = %123, %.lr.ph.split.us.i, %95, %26
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1194,7 +1194,7 @@ do_sarray_io.exit80:                              ; preds = %123, %.lr.ph.split.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %160, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit.thread:                                 ; preds = %.thread90, %147
   %166 = load ptr, ptr %0, align 8
@@ -1343,7 +1343,7 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
   %83 = load i32, ptr %48, align 4
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %82, %84
-  br i1 %85, label %.lr.ph.split.i, label %do_barray_io.exit, !llvm.loop !18
+  br i1 %85, label %.lr.ph.split.i, label %do_barray_io.exit, !llvm.loop !20
 
 do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73, %42
   store i32 0, ptr %40, align 8
@@ -1427,7 +1427,7 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
   %135 = load i32, ptr %103, align 4
   %136 = zext i32 %135 to i64
   %137 = icmp samesign ult i64 %134, %136
-  br i1 %137, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !18
+  br i1 %137, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !21
 
 do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.us.i, %96, %26
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1500,7 +1500,7 @@ do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %163, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit.thread:                                 ; preds = %.thread90, %149
   %169 = load ptr, ptr %0, align 8
@@ -1577,7 +1577,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %.05765, i64 48
   %.057 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %.057, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %21, %13
   store ptr null, ptr %14, align 8
@@ -1605,7 +1605,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %31 = getelementptr inbounds nuw i8, ptr %.05668, i64 48
   %.056 = load ptr, ptr %31, align 8
   %.not58 = icmp eq ptr %.056, null
-  br i1 %.not58, label %._crit_edge71, label %.lr.ph70, !llvm.loop !21
+  br i1 %.not58, label %._crit_edge71, label %.lr.ph70, !llvm.loop !24
 
 ._crit_edge71:                                    ; preds = %30, %._crit_edge
   store ptr null, ptr %23, align 8
@@ -1638,7 +1638,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %47 = sub i64 %46, %45
   store i64 %47, ptr %37, align 8
   %.not59 = icmp eq ptr %39, null
-  br i1 %.not59, label %._crit_edge76, label %38, !llvm.loop !22
+  br i1 %.not59, label %._crit_edge76, label %38, !llvm.loop !25
 
 ._crit_edge76:                                    ; preds = %38, %32
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -1666,7 +1666,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %61 = sub i64 %60, %59
   store i64 %61, ptr %51, align 8
   %.not60 = icmp eq ptr %53, null
-  br i1 %.not60, label %._crit_edge81, label %52, !llvm.loop !23
+  br i1 %.not60, label %._crit_edge81, label %52, !llvm.loop !26
 
 ._crit_edge81:                                    ; preds = %52, %._crit_edge76
   ret void
@@ -1681,7 +1681,7 @@ define internal void @self_destruct(ptr noundef %0) #0 {
   tail call void @free_pool(ptr noundef %0, i32 noundef %.07)
   %3 = add nsw i32 %.07, -1
   %.not = icmp eq i32 %.07, 0
-  br i1 %.not, label %4, label %2, !llvm.loop !24
+  br i1 %.not, label %4, label %2, !llvm.loop !27
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1752,11 +1752,14 @@ attributes #6 = { nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !7, !18}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}

@@ -4906,7 +4906,7 @@ __quicklistDecompressNode.exit:                   ; preds = %76, %75, %.lr.ph.sp
   %96 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %.0 = load ptr, ptr %96, align 8, !tbaa !16
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %95, %.lr.ph.split.us, %2
   ret void
@@ -4919,7 +4919,7 @@ declare void @lpRepr(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !57
+  %4 = load ptr, ptr %0, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 64424509440
@@ -4939,7 +4939,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captur
 12:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %12 ]
@@ -4959,7 +4959,7 @@ _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
   %18 = and i64 %17, 240
   %19 = add nuw nsw i64 %18, 56
   %20 = tail call ptr @zrealloc(ptr noundef nonnull %4, i64 noundef %19) #25
-  store ptr %20, ptr %0, align 8, !tbaa !57
+  store ptr %20, ptr %0, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = load i64, ptr %22, align 8
@@ -5003,7 +5003,7 @@ define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
@@ -5038,7 +5038,7 @@ define dso_local ptr @quicklistBookmarkFind(ptr noundef readonly captures(none) 
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_quicklistBookmarkFindByName.exit.thread, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %_quicklistBookmarkFindByName.exit.thread, label %.lr.ph.i, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
@@ -5075,7 +5075,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkDelete(ptr noundef captur
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_quicklistBookmarkFindByName.exit.thread, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %_quicklistBookmarkFindByName.exit.thread, label %.lr.ph.i, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
@@ -5216,6 +5216,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !53 = !{!36, !36, i64 0}
 !54 = !{ptr @lpNext, ptr @lpPrev}
 !55 = distinct !{!55, !19}
-!56 = distinct !{!56, !19}
-!57 = !{!35, !35, i64 0}
+!56 = distinct !{!56, !19, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !58 = distinct !{!58, !19}
+!59 = !{!35, !35, i64 0}
+!60 = distinct !{!60, !19}

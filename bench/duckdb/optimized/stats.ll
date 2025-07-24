@@ -4595,7 +4595,7 @@ emitter_gen_fmt.exit17.us.i:                      ; preds = %68, %emitter_gen_fm
   %72 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 255
   %73 = call i64 (ptr, i64, ptr, ...) @duckdb_je_malloc_snprintf(ptr noundef nonnull %7, i64 noundef 10, ptr noundef nonnull @.str.229, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 1)) #14
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  br i1 %71, label %emitter_gen_fmt.exit17.us.i, label %emitter_emit_str.exit
+  br i1 %71, label %emitter_gen_fmt.exit17.us.i, label %emitter_emit_str.exit, !llvm.loop !39
 
 emitter_gen_fmt.exit17.us20.i:                    ; preds = %68, %emitter_gen_fmt.exit17.us20.i
   %.0.us19.i = phi ptr [ %76, %emitter_gen_fmt.exit17.us20.i ], [ %69, %68 ]
@@ -4604,7 +4604,7 @@ emitter_gen_fmt.exit17.us20.i:                    ; preds = %68, %emitter_gen_fm
   %76 = getelementptr inbounds nuw i8, ptr %.0.us19.i, i64 255
   %77 = call i64 (ptr, i64, ptr, ...) @duckdb_je_malloc_snprintf(ptr noundef nonnull %7, i64 noundef 10, ptr noundef nonnull @.str.230, i32 noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 1)) #14
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  br i1 %75, label %emitter_gen_fmt.exit17.us20.i, label %emitter_emit_str.exit
+  br i1 %75, label %emitter_gen_fmt.exit17.us20.i, label %emitter_emit_str.exit, !llvm.loop !41
 
 emitter_gen_fmt.exit17.i:                         ; preds = %68, %emitter_gen_fmt.exit17.i
   %.0.i = phi ptr [ %80, %emitter_gen_fmt.exit17.i ], [ %69, %68 ]
@@ -4712,21 +4712,21 @@ define internal fastcc void @mutex_stats_init_cols(ptr noundef nonnull captures(
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %2, ptr %7, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %2, ptr %8, align 8, !tbaa !39
+  store ptr %2, ptr %8, align 8, !tbaa !42
   %9 = load ptr, ptr %0, align 8, !tbaa !24
   %10 = icmp eq ptr %9, null
   br i1 %10, label %emitter_col_init.exit, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   store ptr %13, ptr %7, align 8, !tbaa !33
-  store ptr %2, ptr %12, align 8, !tbaa !39
-  %14 = load ptr, ptr %8, align 8, !tbaa !39
+  store ptr %2, ptr %12, align 8, !tbaa !42
+  %14 = load ptr, ptr %8, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !33
-  store ptr %16, ptr %8, align 8, !tbaa !39
-  %17 = load ptr, ptr %12, align 8, !tbaa !39
+  store ptr %16, ptr %8, align 8, !tbaa !42
+  %17 = load ptr, ptr %12, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %9, ptr %18, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -4750,21 +4750,21 @@ emitter_col_init.exit:                            ; preds = %6, %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %3, ptr %25, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %3, ptr %26, align 8, !tbaa !39
+  store ptr %3, ptr %26, align 8, !tbaa !42
   %27 = load ptr, ptr %0, align 8, !tbaa !24
   %28 = icmp eq ptr %27, null
   br i1 %28, label %emitter_col_init.exit117, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !39
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
   store ptr %31, ptr %25, align 8, !tbaa !33
-  store ptr %3, ptr %30, align 8, !tbaa !39
-  %32 = load ptr, ptr %26, align 8, !tbaa !39
+  store ptr %3, ptr %30, align 8, !tbaa !42
+  %32 = load ptr, ptr %26, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !33
-  store ptr %34, ptr %26, align 8, !tbaa !39
-  %35 = load ptr, ptr %30, align 8, !tbaa !39
+  store ptr %34, ptr %26, align 8, !tbaa !42
+  %35 = load ptr, ptr %30, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %27, ptr %36, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -4786,21 +4786,21 @@ emitter_col_init.exit117:                         ; preds = %24, %29
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %42, ptr %43, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %42, ptr %44, align 8, !tbaa !39
+  store ptr %42, ptr %44, align 8, !tbaa !42
   %45 = load ptr, ptr %0, align 8, !tbaa !24
   %46 = icmp eq ptr %45, null
   br i1 %46, label %emitter_col_init.exit119, label %47
 
 47:                                               ; preds = %emitter_col_init.exit117
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !39
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
   store ptr %49, ptr %43, align 8, !tbaa !33
-  store ptr %42, ptr %48, align 8, !tbaa !39
-  %50 = load ptr, ptr %44, align 8, !tbaa !39
+  store ptr %42, ptr %48, align 8, !tbaa !42
+  %50 = load ptr, ptr %44, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !33
-  store ptr %52, ptr %44, align 8, !tbaa !39
-  %53 = load ptr, ptr %48, align 8, !tbaa !39
+  store ptr %52, ptr %44, align 8, !tbaa !42
+  %53 = load ptr, ptr %48, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %45, ptr %54, align 8, !tbaa !33
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -4822,21 +4822,21 @@ emitter_col_init.exit119:                         ; preds = %emitter_col_init.ex
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %60, ptr %61, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr %60, ptr %62, align 8, !tbaa !39
+  store ptr %60, ptr %62, align 8, !tbaa !42
   %63 = load ptr, ptr %0, align 8, !tbaa !24
   %64 = icmp eq ptr %63, null
   br i1 %64, label %emitter_col_init.exit121, label %65
 
 65:                                               ; preds = %emitter_col_init.exit119
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !39
+  %67 = load ptr, ptr %66, align 8, !tbaa !42
   store ptr %67, ptr %61, align 8, !tbaa !33
-  store ptr %60, ptr %66, align 8, !tbaa !39
-  %68 = load ptr, ptr %62, align 8, !tbaa !39
+  store ptr %60, ptr %66, align 8, !tbaa !42
+  %68 = load ptr, ptr %62, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !33
-  store ptr %70, ptr %62, align 8, !tbaa !39
-  %71 = load ptr, ptr %66, align 8, !tbaa !39
+  store ptr %70, ptr %62, align 8, !tbaa !42
+  %71 = load ptr, ptr %66, align 8, !tbaa !42
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %63, ptr %72, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -4858,21 +4858,21 @@ emitter_col_init.exit121:                         ; preds = %emitter_col_init.ex
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %78, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr %78, ptr %80, align 8, !tbaa !39
+  store ptr %78, ptr %80, align 8, !tbaa !42
   %81 = load ptr, ptr %0, align 8, !tbaa !24
   %82 = icmp eq ptr %81, null
   br i1 %82, label %emitter_col_init.exit123, label %83
 
 83:                                               ; preds = %emitter_col_init.exit121
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %85 = load ptr, ptr %84, align 8, !tbaa !39
+  %85 = load ptr, ptr %84, align 8, !tbaa !42
   store ptr %85, ptr %79, align 8, !tbaa !33
-  store ptr %78, ptr %84, align 8, !tbaa !39
-  %86 = load ptr, ptr %80, align 8, !tbaa !39
+  store ptr %78, ptr %84, align 8, !tbaa !42
+  %86 = load ptr, ptr %80, align 8, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8, !tbaa !33
-  store ptr %88, ptr %80, align 8, !tbaa !39
-  %89 = load ptr, ptr %84, align 8, !tbaa !39
+  store ptr %88, ptr %80, align 8, !tbaa !42
+  %89 = load ptr, ptr %84, align 8, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %81, ptr %90, align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
@@ -4894,21 +4894,21 @@ emitter_col_init.exit123:                         ; preds = %emitter_col_init.ex
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store ptr %96, ptr %97, align 8, !tbaa !33
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  store ptr %96, ptr %98, align 8, !tbaa !39
+  store ptr %96, ptr %98, align 8, !tbaa !42
   %99 = load ptr, ptr %0, align 8, !tbaa !24
   %100 = icmp eq ptr %99, null
   br i1 %100, label %emitter_col_init.exit125, label %101
 
 101:                                              ; preds = %emitter_col_init.exit123
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !39
+  %103 = load ptr, ptr %102, align 8, !tbaa !42
   store ptr %103, ptr %97, align 8, !tbaa !33
-  store ptr %96, ptr %102, align 8, !tbaa !39
-  %104 = load ptr, ptr %98, align 8, !tbaa !39
+  store ptr %96, ptr %102, align 8, !tbaa !42
+  %104 = load ptr, ptr %98, align 8, !tbaa !42
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !33
-  store ptr %106, ptr %98, align 8, !tbaa !39
-  %107 = load ptr, ptr %102, align 8, !tbaa !39
+  store ptr %106, ptr %98, align 8, !tbaa !42
+  %107 = load ptr, ptr %102, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store ptr %99, ptr %108, align 8, !tbaa !33
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -4930,21 +4930,21 @@ emitter_col_init.exit125:                         ; preds = %emitter_col_init.ex
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store ptr %114, ptr %115, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  store ptr %114, ptr %116, align 8, !tbaa !39
+  store ptr %114, ptr %116, align 8, !tbaa !42
   %117 = load ptr, ptr %0, align 8, !tbaa !24
   %118 = icmp eq ptr %117, null
   br i1 %118, label %emitter_col_init.exit127, label %119
 
 119:                                              ; preds = %emitter_col_init.exit125
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %121 = load ptr, ptr %120, align 8, !tbaa !39
+  %121 = load ptr, ptr %120, align 8, !tbaa !42
   store ptr %121, ptr %115, align 8, !tbaa !33
-  store ptr %114, ptr %120, align 8, !tbaa !39
-  %122 = load ptr, ptr %116, align 8, !tbaa !39
+  store ptr %114, ptr %120, align 8, !tbaa !42
+  %122 = load ptr, ptr %116, align 8, !tbaa !42
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !33
-  store ptr %124, ptr %116, align 8, !tbaa !39
-  %125 = load ptr, ptr %120, align 8, !tbaa !39
+  store ptr %124, ptr %116, align 8, !tbaa !42
+  %125 = load ptr, ptr %120, align 8, !tbaa !42
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store ptr %117, ptr %126, align 8, !tbaa !33
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 24
@@ -4966,21 +4966,21 @@ emitter_col_init.exit127:                         ; preds = %emitter_col_init.ex
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 264
   store ptr %132, ptr %133, align 8, !tbaa !33
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  store ptr %132, ptr %134, align 8, !tbaa !39
+  store ptr %132, ptr %134, align 8, !tbaa !42
   %135 = load ptr, ptr %0, align 8, !tbaa !24
   %136 = icmp eq ptr %135, null
   br i1 %136, label %emitter_col_init.exit129, label %137
 
 137:                                              ; preds = %emitter_col_init.exit127
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !39
+  %139 = load ptr, ptr %138, align 8, !tbaa !42
   store ptr %139, ptr %133, align 8, !tbaa !33
-  store ptr %132, ptr %138, align 8, !tbaa !39
-  %140 = load ptr, ptr %134, align 8, !tbaa !39
+  store ptr %132, ptr %138, align 8, !tbaa !42
+  %140 = load ptr, ptr %134, align 8, !tbaa !42
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8, !tbaa !33
-  store ptr %142, ptr %134, align 8, !tbaa !39
-  %143 = load ptr, ptr %138, align 8, !tbaa !39
+  store ptr %142, ptr %134, align 8, !tbaa !42
+  %143 = load ptr, ptr %138, align 8, !tbaa !42
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store ptr %135, ptr %144, align 8, !tbaa !33
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -5002,21 +5002,21 @@ emitter_col_init.exit129:                         ; preds = %emitter_col_init.ex
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 304
   store ptr %150, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 312
-  store ptr %150, ptr %152, align 8, !tbaa !39
+  store ptr %150, ptr %152, align 8, !tbaa !42
   %153 = load ptr, ptr %0, align 8, !tbaa !24
   %154 = icmp eq ptr %153, null
   br i1 %154, label %emitter_col_init.exit131, label %155
 
 155:                                              ; preds = %emitter_col_init.exit129
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !39
+  %157 = load ptr, ptr %156, align 8, !tbaa !42
   store ptr %157, ptr %151, align 8, !tbaa !33
-  store ptr %150, ptr %156, align 8, !tbaa !39
-  %158 = load ptr, ptr %152, align 8, !tbaa !39
+  store ptr %150, ptr %156, align 8, !tbaa !42
+  %158 = load ptr, ptr %152, align 8, !tbaa !42
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load ptr, ptr %159, align 8, !tbaa !33
-  store ptr %160, ptr %152, align 8, !tbaa !39
-  %161 = load ptr, ptr %156, align 8, !tbaa !39
+  store ptr %160, ptr %152, align 8, !tbaa !42
+  %161 = load ptr, ptr %156, align 8, !tbaa !42
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store ptr %153, ptr %162, align 8, !tbaa !33
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 24
@@ -5038,21 +5038,21 @@ emitter_col_init.exit131:                         ; preds = %emitter_col_init.ex
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store ptr %168, ptr %169, align 8, !tbaa !33
   %170 = getelementptr inbounds nuw i8, ptr %3, i64 352
-  store ptr %168, ptr %170, align 8, !tbaa !39
+  store ptr %168, ptr %170, align 8, !tbaa !42
   %171 = load ptr, ptr %0, align 8, !tbaa !24
   %172 = icmp eq ptr %171, null
   br i1 %172, label %emitter_col_init.exit133, label %173
 
 173:                                              ; preds = %emitter_col_init.exit131
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %175 = load ptr, ptr %174, align 8, !tbaa !39
+  %175 = load ptr, ptr %174, align 8, !tbaa !42
   store ptr %175, ptr %169, align 8, !tbaa !33
-  store ptr %168, ptr %174, align 8, !tbaa !39
-  %176 = load ptr, ptr %170, align 8, !tbaa !39
+  store ptr %168, ptr %174, align 8, !tbaa !42
+  %176 = load ptr, ptr %170, align 8, !tbaa !42
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8, !tbaa !33
-  store ptr %178, ptr %170, align 8, !tbaa !39
-  %179 = load ptr, ptr %174, align 8, !tbaa !39
+  store ptr %178, ptr %170, align 8, !tbaa !42
+  %179 = load ptr, ptr %174, align 8, !tbaa !42
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %171, ptr %180, align 8, !tbaa !33
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
@@ -5074,21 +5074,21 @@ emitter_col_init.exit133:                         ; preds = %emitter_col_init.ex
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 384
   store ptr %186, ptr %187, align 8, !tbaa !33
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 392
-  store ptr %186, ptr %188, align 8, !tbaa !39
+  store ptr %186, ptr %188, align 8, !tbaa !42
   %189 = load ptr, ptr %0, align 8, !tbaa !24
   %190 = icmp eq ptr %189, null
   br i1 %190, label %emitter_col_init.exit135, label %191
 
 191:                                              ; preds = %emitter_col_init.exit133
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 32
-  %193 = load ptr, ptr %192, align 8, !tbaa !39
+  %193 = load ptr, ptr %192, align 8, !tbaa !42
   store ptr %193, ptr %187, align 8, !tbaa !33
-  store ptr %186, ptr %192, align 8, !tbaa !39
-  %194 = load ptr, ptr %188, align 8, !tbaa !39
+  store ptr %186, ptr %192, align 8, !tbaa !42
+  %194 = load ptr, ptr %188, align 8, !tbaa !42
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !33
-  store ptr %196, ptr %188, align 8, !tbaa !39
-  %197 = load ptr, ptr %192, align 8, !tbaa !39
+  store ptr %196, ptr %188, align 8, !tbaa !42
+  %197 = load ptr, ptr %192, align 8, !tbaa !42
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store ptr %189, ptr %198, align 8, !tbaa !33
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
@@ -5110,21 +5110,21 @@ emitter_col_init.exit135:                         ; preds = %emitter_col_init.ex
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 424
   store ptr %204, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 432
-  store ptr %204, ptr %206, align 8, !tbaa !39
+  store ptr %204, ptr %206, align 8, !tbaa !42
   %207 = load ptr, ptr %0, align 8, !tbaa !24
   %208 = icmp eq ptr %207, null
   br i1 %208, label %emitter_col_init.exit137, label %209
 
 209:                                              ; preds = %emitter_col_init.exit135
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 32
-  %211 = load ptr, ptr %210, align 8, !tbaa !39
+  %211 = load ptr, ptr %210, align 8, !tbaa !42
   store ptr %211, ptr %205, align 8, !tbaa !33
-  store ptr %204, ptr %210, align 8, !tbaa !39
-  %212 = load ptr, ptr %206, align 8, !tbaa !39
+  store ptr %204, ptr %210, align 8, !tbaa !42
+  %212 = load ptr, ptr %206, align 8, !tbaa !42
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8, !tbaa !33
-  store ptr %214, ptr %206, align 8, !tbaa !39
-  %215 = load ptr, ptr %210, align 8, !tbaa !39
+  store ptr %214, ptr %206, align 8, !tbaa !42
+  %215 = load ptr, ptr %210, align 8, !tbaa !42
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store ptr %207, ptr %216, align 8, !tbaa !33
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 24
@@ -5145,21 +5145,21 @@ emitter_col_init.exit137:                         ; preds = %emitter_col_init.ex
   %222 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %4, ptr %222, align 8, !tbaa !33
   %223 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %4, ptr %223, align 8, !tbaa !39
+  store ptr %4, ptr %223, align 8, !tbaa !42
   %224 = load ptr, ptr %0, align 8, !tbaa !24
   %225 = icmp eq ptr %224, null
   br i1 %225, label %emitter_col_init.exit139, label %226
 
 226:                                              ; preds = %emitter_col_init.exit137
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 32
-  %228 = load ptr, ptr %227, align 8, !tbaa !39
+  %228 = load ptr, ptr %227, align 8, !tbaa !42
   store ptr %228, ptr %222, align 8, !tbaa !33
-  store ptr %4, ptr %227, align 8, !tbaa !39
-  %229 = load ptr, ptr %223, align 8, !tbaa !39
+  store ptr %4, ptr %227, align 8, !tbaa !42
+  %229 = load ptr, ptr %223, align 8, !tbaa !42
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8, !tbaa !33
-  store ptr %231, ptr %223, align 8, !tbaa !39
-  %232 = load ptr, ptr %227, align 8, !tbaa !39
+  store ptr %231, ptr %223, align 8, !tbaa !42
+  %232 = load ptr, ptr %227, align 8, !tbaa !42
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store ptr %224, ptr %233, align 8, !tbaa !33
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 24
@@ -6100,7 +6100,7 @@ emitter_col_init.exit209:                         ; preds = %426
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %213) #14
   %436 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %437 = getelementptr inbounds nuw i8, ptr %213, i64 32
-  store ptr %212, ptr %437, align 8, !tbaa !39
+  store ptr %212, ptr %437, align 8, !tbaa !42
   store ptr %213, ptr %431, align 8, !tbaa !33
   store i32 1, ptr %213, align 8, !tbaa !28
   %438 = getelementptr inbounds nuw i8, ptr %213, i64 4
@@ -6111,7 +6111,7 @@ emitter_col_init.exit209:                         ; preds = %426
   store ptr @.str.331, ptr %440, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %214) #14
   %441 = getelementptr inbounds nuw i8, ptr %214, i64 32
-  store ptr %213, ptr %441, align 8, !tbaa !39
+  store ptr %213, ptr %441, align 8, !tbaa !42
   store ptr %214, ptr %436, align 8, !tbaa !33
   store i32 1, ptr %214, align 8, !tbaa !28
   %442 = getelementptr inbounds nuw i8, ptr %214, i64 4
@@ -6122,7 +6122,7 @@ emitter_col_init.exit209:                         ; preds = %426
   store ptr @.str.332, ptr %444, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %215) #14
   %445 = getelementptr inbounds nuw i8, ptr %215, i64 32
-  store ptr %214, ptr %445, align 8, !tbaa !39
+  store ptr %214, ptr %445, align 8, !tbaa !42
   %446 = getelementptr inbounds nuw i8, ptr %214, i64 24
   store ptr %215, ptr %446, align 8, !tbaa !33
   store i32 1, ptr %215, align 8, !tbaa !28
@@ -6135,8 +6135,8 @@ emitter_col_init.exit209:                         ; preds = %426
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %216) #14
   %450 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %451 = getelementptr inbounds nuw i8, ptr %216, i64 32
-  store ptr %216, ptr %432, align 8, !tbaa !39
-  store ptr %215, ptr %451, align 8, !tbaa !39
+  store ptr %216, ptr %432, align 8, !tbaa !42
+  store ptr %215, ptr %451, align 8, !tbaa !42
   store ptr %212, ptr %450, align 8, !tbaa !33
   %452 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store ptr %216, ptr %452, align 8, !tbaa !33
@@ -6150,12 +6150,12 @@ emitter_col_init.exit209:                         ; preds = %426
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %217) #14
   %456 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %457 = getelementptr inbounds nuw i8, ptr %217, i64 32
-  store ptr %217, ptr %457, align 8, !tbaa !39
+  store ptr %217, ptr %457, align 8, !tbaa !42
   %458 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %459 = load ptr, ptr %458, align 8, !tbaa !39
+  %459 = load ptr, ptr %458, align 8, !tbaa !42
   store ptr %459, ptr %456, align 8, !tbaa !33
-  store ptr %217, ptr %458, align 8, !tbaa !39
-  store ptr %459, ptr %457, align 8, !tbaa !39
+  store ptr %217, ptr %458, align 8, !tbaa !42
+  store ptr %459, ptr %457, align 8, !tbaa !42
   %460 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %212, ptr %460, align 8, !tbaa !33
   %461 = getelementptr inbounds nuw i8, ptr %459, i64 24
@@ -6308,7 +6308,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %219) #14
   %514 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %515 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  store ptr %218, ptr %515, align 8, !tbaa !39
+  store ptr %218, ptr %515, align 8, !tbaa !42
   store ptr %219, ptr %509, align 8, !tbaa !33
   store i32 1, ptr %219, align 8, !tbaa !28
   %516 = getelementptr inbounds nuw i8, ptr %219, i64 4
@@ -6319,7 +6319,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store ptr @.str.252, ptr %518, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %220) #14
   %519 = getelementptr inbounds nuw i8, ptr %220, i64 32
-  store ptr %219, ptr %519, align 8, !tbaa !39
+  store ptr %219, ptr %519, align 8, !tbaa !42
   store ptr %220, ptr %514, align 8, !tbaa !33
   store i32 1, ptr %220, align 8, !tbaa !28
   %520 = getelementptr inbounds nuw i8, ptr %220, i64 4
@@ -6330,7 +6330,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store ptr @.str.339, ptr %522, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %221) #14
   %523 = getelementptr inbounds nuw i8, ptr %221, i64 32
-  store ptr %220, ptr %523, align 8, !tbaa !39
+  store ptr %220, ptr %523, align 8, !tbaa !42
   %524 = getelementptr inbounds nuw i8, ptr %220, i64 24
   store ptr %221, ptr %524, align 8, !tbaa !33
   store i32 1, ptr %221, align 8, !tbaa !28
@@ -6343,8 +6343,8 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %222) #14
   %528 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %529 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  store ptr %222, ptr %510, align 8, !tbaa !39
-  store ptr %221, ptr %529, align 8, !tbaa !39
+  store ptr %222, ptr %510, align 8, !tbaa !42
+  store ptr %221, ptr %529, align 8, !tbaa !42
   store ptr %218, ptr %528, align 8, !tbaa !33
   %530 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store ptr %222, ptr %530, align 8, !tbaa !33
@@ -6358,12 +6358,12 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %223) #14
   %534 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %535 = getelementptr inbounds nuw i8, ptr %223, i64 32
-  store ptr %223, ptr %535, align 8, !tbaa !39
+  store ptr %223, ptr %535, align 8, !tbaa !42
   %536 = getelementptr inbounds nuw i8, ptr %218, i64 32
-  %537 = load ptr, ptr %536, align 8, !tbaa !39
+  %537 = load ptr, ptr %536, align 8, !tbaa !42
   store ptr %537, ptr %534, align 8, !tbaa !33
-  store ptr %223, ptr %536, align 8, !tbaa !39
-  store ptr %537, ptr %535, align 8, !tbaa !39
+  store ptr %223, ptr %536, align 8, !tbaa !42
+  store ptr %537, ptr %535, align 8, !tbaa !42
   %538 = getelementptr inbounds nuw i8, ptr %223, i64 24
   store ptr %218, ptr %538, align 8, !tbaa !33
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 24
@@ -6380,20 +6380,20 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   %543 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store ptr %224, ptr %543, align 8, !tbaa !33
   %544 = getelementptr inbounds nuw i8, ptr %224, i64 32
-  store ptr %224, ptr %544, align 8, !tbaa !39
+  store ptr %224, ptr %544, align 8, !tbaa !42
   %545 = icmp eq ptr %.pre.i238, null
   br i1 %545, label %emitter_col_init.exit241, label %546
 
 546:                                              ; preds = %emitter_col_init.exit239
   %547 = getelementptr inbounds nuw i8, ptr %.pre.i238, i64 32
-  %548 = load ptr, ptr %547, align 8, !tbaa !39
+  %548 = load ptr, ptr %547, align 8, !tbaa !42
   store ptr %548, ptr %543, align 8, !tbaa !33
-  store ptr %224, ptr %547, align 8, !tbaa !39
-  %549 = load ptr, ptr %544, align 8, !tbaa !39
+  store ptr %224, ptr %547, align 8, !tbaa !42
+  %549 = load ptr, ptr %544, align 8, !tbaa !42
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 24
   %551 = load ptr, ptr %550, align 8, !tbaa !33
-  store ptr %551, ptr %544, align 8, !tbaa !39
-  %552 = load ptr, ptr %547, align 8, !tbaa !39
+  store ptr %551, ptr %544, align 8, !tbaa !42
+  %552 = load ptr, ptr %547, align 8, !tbaa !42
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 24
   store ptr %.pre.i238, ptr %553, align 8, !tbaa !33
   %554 = getelementptr inbounds nuw i8, ptr %551, i64 24
@@ -6414,20 +6414,20 @@ emitter_col_init.exit241:                         ; preds = %emitter_col_init.ex
   %559 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr %225, ptr %559, align 8, !tbaa !33
   %560 = getelementptr inbounds nuw i8, ptr %225, i64 32
-  store ptr %225, ptr %560, align 8, !tbaa !39
+  store ptr %225, ptr %560, align 8, !tbaa !42
   %561 = icmp eq ptr %555, null
   br i1 %561, label %emitter_col_init.exit243, label %562
 
 562:                                              ; preds = %emitter_col_init.exit241
   %563 = getelementptr inbounds nuw i8, ptr %555, i64 32
-  %564 = load ptr, ptr %563, align 8, !tbaa !39
+  %564 = load ptr, ptr %563, align 8, !tbaa !42
   store ptr %564, ptr %559, align 8, !tbaa !33
-  store ptr %225, ptr %563, align 8, !tbaa !39
-  %565 = load ptr, ptr %560, align 8, !tbaa !39
+  store ptr %225, ptr %563, align 8, !tbaa !42
+  %565 = load ptr, ptr %560, align 8, !tbaa !42
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 24
   %567 = load ptr, ptr %566, align 8, !tbaa !33
-  store ptr %567, ptr %560, align 8, !tbaa !39
-  %568 = load ptr, ptr %563, align 8, !tbaa !39
+  store ptr %567, ptr %560, align 8, !tbaa !42
+  %568 = load ptr, ptr %563, align 8, !tbaa !42
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 24
   store ptr %555, ptr %569, align 8, !tbaa !33
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 24
@@ -6448,20 +6448,20 @@ emitter_col_init.exit243:                         ; preds = %emitter_col_init.ex
   %575 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store ptr %226, ptr %575, align 8, !tbaa !33
   %576 = getelementptr inbounds nuw i8, ptr %226, i64 32
-  store ptr %226, ptr %576, align 8, !tbaa !39
+  store ptr %226, ptr %576, align 8, !tbaa !42
   %577 = icmp eq ptr %571, null
   br i1 %577, label %emitter_col_init.exit245, label %578
 
 578:                                              ; preds = %emitter_col_init.exit243
   %579 = getelementptr inbounds nuw i8, ptr %571, i64 32
-  %580 = load ptr, ptr %579, align 8, !tbaa !39
+  %580 = load ptr, ptr %579, align 8, !tbaa !42
   store ptr %580, ptr %575, align 8, !tbaa !33
-  store ptr %226, ptr %579, align 8, !tbaa !39
-  %581 = load ptr, ptr %576, align 8, !tbaa !39
+  store ptr %226, ptr %579, align 8, !tbaa !42
+  %581 = load ptr, ptr %576, align 8, !tbaa !42
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 24
   %583 = load ptr, ptr %582, align 8, !tbaa !33
-  store ptr %583, ptr %576, align 8, !tbaa !39
-  %584 = load ptr, ptr %579, align 8, !tbaa !39
+  store ptr %583, ptr %576, align 8, !tbaa !42
+  %584 = load ptr, ptr %579, align 8, !tbaa !42
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 24
   store ptr %571, ptr %585, align 8, !tbaa !33
   %586 = getelementptr inbounds nuw i8, ptr %583, i64 24
@@ -6482,20 +6482,20 @@ emitter_col_init.exit245:                         ; preds = %emitter_col_init.ex
   %591 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store ptr %227, ptr %591, align 8, !tbaa !33
   %592 = getelementptr inbounds nuw i8, ptr %227, i64 32
-  store ptr %227, ptr %592, align 8, !tbaa !39
+  store ptr %227, ptr %592, align 8, !tbaa !42
   %593 = icmp eq ptr %587, null
   br i1 %593, label %emitter_col_init.exit247, label %594
 
 594:                                              ; preds = %emitter_col_init.exit245
   %595 = getelementptr inbounds nuw i8, ptr %587, i64 32
-  %596 = load ptr, ptr %595, align 8, !tbaa !39
+  %596 = load ptr, ptr %595, align 8, !tbaa !42
   store ptr %596, ptr %591, align 8, !tbaa !33
-  store ptr %227, ptr %595, align 8, !tbaa !39
-  %597 = load ptr, ptr %592, align 8, !tbaa !39
+  store ptr %227, ptr %595, align 8, !tbaa !42
+  %597 = load ptr, ptr %592, align 8, !tbaa !42
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 24
   %599 = load ptr, ptr %598, align 8, !tbaa !33
-  store ptr %599, ptr %592, align 8, !tbaa !39
-  %600 = load ptr, ptr %595, align 8, !tbaa !39
+  store ptr %599, ptr %592, align 8, !tbaa !42
+  %600 = load ptr, ptr %595, align 8, !tbaa !42
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 24
   store ptr %587, ptr %601, align 8, !tbaa !33
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 24
@@ -6516,20 +6516,20 @@ emitter_col_init.exit247:                         ; preds = %emitter_col_init.ex
   %607 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store ptr %228, ptr %607, align 8, !tbaa !33
   %608 = getelementptr inbounds nuw i8, ptr %228, i64 32
-  store ptr %228, ptr %608, align 8, !tbaa !39
+  store ptr %228, ptr %608, align 8, !tbaa !42
   %609 = icmp eq ptr %603, null
   br i1 %609, label %emitter_col_init.exit249, label %610
 
 610:                                              ; preds = %emitter_col_init.exit247
   %611 = getelementptr inbounds nuw i8, ptr %603, i64 32
-  %612 = load ptr, ptr %611, align 8, !tbaa !39
+  %612 = load ptr, ptr %611, align 8, !tbaa !42
   store ptr %612, ptr %607, align 8, !tbaa !33
-  store ptr %228, ptr %611, align 8, !tbaa !39
-  %613 = load ptr, ptr %608, align 8, !tbaa !39
+  store ptr %228, ptr %611, align 8, !tbaa !42
+  %613 = load ptr, ptr %608, align 8, !tbaa !42
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 24
   %615 = load ptr, ptr %614, align 8, !tbaa !33
-  store ptr %615, ptr %608, align 8, !tbaa !39
-  %616 = load ptr, ptr %611, align 8, !tbaa !39
+  store ptr %615, ptr %608, align 8, !tbaa !42
+  %616 = load ptr, ptr %611, align 8, !tbaa !42
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 24
   store ptr %603, ptr %617, align 8, !tbaa !33
   %618 = getelementptr inbounds nuw i8, ptr %615, i64 24
@@ -6550,20 +6550,20 @@ emitter_col_init.exit249:                         ; preds = %emitter_col_init.ex
   %623 = getelementptr inbounds nuw i8, ptr %229, i64 24
   store ptr %229, ptr %623, align 8, !tbaa !33
   %624 = getelementptr inbounds nuw i8, ptr %229, i64 32
-  store ptr %229, ptr %624, align 8, !tbaa !39
+  store ptr %229, ptr %624, align 8, !tbaa !42
   %625 = icmp eq ptr %619, null
   br i1 %625, label %emitter_col_init.exit251, label %626
 
 626:                                              ; preds = %emitter_col_init.exit249
   %627 = getelementptr inbounds nuw i8, ptr %619, i64 32
-  %628 = load ptr, ptr %627, align 8, !tbaa !39
+  %628 = load ptr, ptr %627, align 8, !tbaa !42
   store ptr %628, ptr %623, align 8, !tbaa !33
-  store ptr %229, ptr %627, align 8, !tbaa !39
-  %629 = load ptr, ptr %624, align 8, !tbaa !39
+  store ptr %229, ptr %627, align 8, !tbaa !42
+  %629 = load ptr, ptr %624, align 8, !tbaa !42
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 24
   %631 = load ptr, ptr %630, align 8, !tbaa !33
-  store ptr %631, ptr %624, align 8, !tbaa !39
-  %632 = load ptr, ptr %627, align 8, !tbaa !39
+  store ptr %631, ptr %624, align 8, !tbaa !42
+  %632 = load ptr, ptr %627, align 8, !tbaa !42
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 24
   store ptr %619, ptr %633, align 8, !tbaa !33
   %634 = getelementptr inbounds nuw i8, ptr %631, i64 24
@@ -7510,8 +7510,8 @@ emitter_col_init.exit345:                         ; preds = %select.unfold._crit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %267) #14
   %947 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %948 = getelementptr inbounds nuw i8, ptr %267, i64 32
-  store ptr %267, ptr %943, align 8, !tbaa !39
-  store ptr %266, ptr %948, align 8, !tbaa !39
+  store ptr %267, ptr %943, align 8, !tbaa !42
+  store ptr %266, ptr %948, align 8, !tbaa !42
   store ptr %266, ptr %947, align 8, !tbaa !33
   store ptr %267, ptr %942, align 8, !tbaa !33
   store i32 1, ptr %267, align 8, !tbaa !28
@@ -9576,7 +9576,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73) #14
   %1567 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %1568 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store ptr %70, ptr %1568, align 8, !tbaa !39
+  store ptr %70, ptr %1568, align 8, !tbaa !42
   store ptr %72, ptr %1558, align 8, !tbaa !33
   store i32 1, ptr %72, align 8, !tbaa !28
   %1569 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -9585,7 +9585,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 3, ptr %1570, align 8, !tbaa !32
   %1571 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %1572 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr %71, ptr %1572, align 8, !tbaa !39
+  store ptr %71, ptr %1572, align 8, !tbaa !42
   store ptr %73, ptr %1562, align 8, !tbaa !33
   store i32 1, ptr %73, align 8, !tbaa !28
   %1573 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -9597,7 +9597,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %74) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75) #14
   %1576 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr %72, ptr %1576, align 8, !tbaa !39
+  store ptr %72, ptr %1576, align 8, !tbaa !42
   store ptr %74, ptr %1567, align 8, !tbaa !33
   store i32 1, ptr %74, align 8, !tbaa !28
   %1577 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -9605,7 +9605,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   %1578 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 6, ptr %1578, align 8, !tbaa !32
   %1579 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store ptr %73, ptr %1579, align 8, !tbaa !39
+  store ptr %73, ptr %1579, align 8, !tbaa !42
   store ptr %75, ptr %1571, align 8, !tbaa !33
   store i32 1, ptr %75, align 8, !tbaa !28
   %1580 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -9617,7 +9617,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %76) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77) #14
   %1583 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store ptr %74, ptr %1583, align 8, !tbaa !39
+  store ptr %74, ptr %1583, align 8, !tbaa !42
   %1584 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %76, ptr %1584, align 8, !tbaa !33
   store i32 1, ptr %76, align 8, !tbaa !28
@@ -9626,7 +9626,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   %1586 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 6, ptr %1586, align 8, !tbaa !32
   %1587 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store ptr %75, ptr %1587, align 8, !tbaa !39
+  store ptr %75, ptr %1587, align 8, !tbaa !42
   %1588 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %77, ptr %1588, align 8, !tbaa !33
   store i32 1, ptr %77, align 8, !tbaa !28
@@ -9640,7 +9640,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %79) #14
   %1592 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %1593 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr %76, ptr %1593, align 8, !tbaa !39
+  store ptr %76, ptr %1593, align 8, !tbaa !42
   %1594 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %78, ptr %1594, align 8, !tbaa !33
   store i32 1, ptr %78, align 8, !tbaa !28
@@ -9650,7 +9650,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 6, ptr %1596, align 8, !tbaa !32
   %1597 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %1598 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr %77, ptr %1598, align 8, !tbaa !39
+  store ptr %77, ptr %1598, align 8, !tbaa !42
   %1599 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %79, ptr %1599, align 8, !tbaa !33
   store i32 1, ptr %79, align 8, !tbaa !28
@@ -9664,7 +9664,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %81) #14
   %1603 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %1604 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store ptr %78, ptr %1604, align 8, !tbaa !39
+  store ptr %78, ptr %1604, align 8, !tbaa !42
   store ptr %80, ptr %1592, align 8, !tbaa !33
   store i32 1, ptr %80, align 8, !tbaa !28
   %1605 = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -9673,7 +9673,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 6, ptr %1606, align 8, !tbaa !32
   %1607 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %1608 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store ptr %79, ptr %1608, align 8, !tbaa !39
+  store ptr %79, ptr %1608, align 8, !tbaa !42
   store ptr %81, ptr %1597, align 8, !tbaa !33
   store i32 1, ptr %81, align 8, !tbaa !28
   %1609 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -9686,7 +9686,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %83) #14
   %1612 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %1613 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr %80, ptr %1613, align 8, !tbaa !39
+  store ptr %80, ptr %1613, align 8, !tbaa !42
   store ptr %82, ptr %1603, align 8, !tbaa !33
   store i32 1, ptr %82, align 8, !tbaa !28
   %1614 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -9695,7 +9695,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 6, ptr %1615, align 8, !tbaa !32
   %1616 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %1617 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr %81, ptr %1617, align 8, !tbaa !39
+  store ptr %81, ptr %1617, align 8, !tbaa !42
   store ptr %83, ptr %1607, align 8, !tbaa !33
   store i32 1, ptr %83, align 8, !tbaa !28
   %1618 = getelementptr inbounds nuw i8, ptr %83, i64 4
@@ -9708,7 +9708,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %85) #14
   %1621 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %1622 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr %82, ptr %1622, align 8, !tbaa !39
+  store ptr %82, ptr %1622, align 8, !tbaa !42
   store ptr %84, ptr %1612, align 8, !tbaa !33
   store i32 1, ptr %84, align 8, !tbaa !28
   %1623 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -9717,7 +9717,7 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 6, ptr %1624, align 8, !tbaa !32
   %1625 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %1626 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store ptr %83, ptr %1626, align 8, !tbaa !39
+  store ptr %83, ptr %1626, align 8, !tbaa !42
   store ptr %85, ptr %1616, align 8, !tbaa !33
   store i32 1, ptr %85, align 8, !tbaa !28
   %1627 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -9730,8 +9730,8 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %87) #14
   %1630 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %1631 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store ptr %86, ptr %1559, align 8, !tbaa !39
-  store ptr %84, ptr %1631, align 8, !tbaa !39
+  store ptr %86, ptr %1559, align 8, !tbaa !42
+  store ptr %84, ptr %1631, align 8, !tbaa !42
   store ptr %70, ptr %1630, align 8, !tbaa !33
   store ptr %86, ptr %1621, align 8, !tbaa !33
   store i32 1, ptr %86, align 8, !tbaa !28
@@ -9741,8 +9741,8 @@ emitter_col_init.exit197.i:                       ; preds = %emitter_indent.exit
   store i32 6, ptr %1633, align 8, !tbaa !32
   %1634 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %1635 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store ptr %87, ptr %1563, align 8, !tbaa !39
-  store ptr %85, ptr %1635, align 8, !tbaa !39
+  store ptr %87, ptr %1563, align 8, !tbaa !42
+  store ptr %85, ptr %1635, align 8, !tbaa !42
   store ptr %71, ptr %1634, align 8, !tbaa !33
   store ptr %87, ptr %1625, align 8, !tbaa !33
   store i32 1, ptr %87, align 8, !tbaa !28
@@ -10567,7 +10567,7 @@ emitter_col_init.exit171:                         ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #14
   %168 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %169 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %26, ptr %169, align 8, !tbaa !39
+  store ptr %26, ptr %169, align 8, !tbaa !42
   store ptr %28, ptr %159, align 8, !tbaa !33
   store i32 1, ptr %28, align 8, !tbaa !28
   %170 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -10576,7 +10576,7 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 3, ptr %171, align 8, !tbaa !32
   %172 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %173 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %27, ptr %173, align 8, !tbaa !39
+  store ptr %27, ptr %173, align 8, !tbaa !42
   store ptr %29, ptr %163, align 8, !tbaa !33
   store i32 1, ptr %29, align 8, !tbaa !28
   %174 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -10588,7 +10588,7 @@ emitter_col_init.exit171:                         ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #14
   %177 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr %28, ptr %177, align 8, !tbaa !39
+  store ptr %28, ptr %177, align 8, !tbaa !42
   store ptr %30, ptr %168, align 8, !tbaa !33
   store i32 1, ptr %30, align 8, !tbaa !28
   %178 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -10596,7 +10596,7 @@ emitter_col_init.exit171:                         ; preds = %156
   %179 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 6, ptr %179, align 8, !tbaa !32
   %180 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store ptr %29, ptr %180, align 8, !tbaa !39
+  store ptr %29, ptr %180, align 8, !tbaa !42
   store ptr %31, ptr %172, align 8, !tbaa !33
   store i32 1, ptr %31, align 8, !tbaa !28
   %181 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -10608,7 +10608,7 @@ emitter_col_init.exit171:                         ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #14
   %184 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr %30, ptr %184, align 8, !tbaa !39
+  store ptr %30, ptr %184, align 8, !tbaa !42
   %185 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %32, ptr %185, align 8, !tbaa !33
   store i32 1, ptr %32, align 8, !tbaa !28
@@ -10617,7 +10617,7 @@ emitter_col_init.exit171:                         ; preds = %156
   %187 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 5, ptr %187, align 8, !tbaa !32
   %188 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %31, ptr %188, align 8, !tbaa !39
+  store ptr %31, ptr %188, align 8, !tbaa !42
   %189 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %33, ptr %189, align 8, !tbaa !33
   store i32 1, ptr %33, align 8, !tbaa !28
@@ -10631,8 +10631,8 @@ emitter_col_init.exit171:                         ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #14
   %193 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %194 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr %34, ptr %160, align 8, !tbaa !39
-  store ptr %32, ptr %194, align 8, !tbaa !39
+  store ptr %34, ptr %160, align 8, !tbaa !42
+  store ptr %32, ptr %194, align 8, !tbaa !42
   store ptr %26, ptr %193, align 8, !tbaa !33
   %195 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %34, ptr %195, align 8, !tbaa !33
@@ -10643,8 +10643,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 5, ptr %197, align 8, !tbaa !32
   %198 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %199 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %35, ptr %164, align 8, !tbaa !39
-  store ptr %33, ptr %199, align 8, !tbaa !39
+  store ptr %35, ptr %164, align 8, !tbaa !42
+  store ptr %33, ptr %199, align 8, !tbaa !42
   store ptr %27, ptr %198, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %35, ptr %200, align 8, !tbaa !33
@@ -10659,12 +10659,12 @@ emitter_col_init.exit171:                         ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #14
   %204 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %205 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %36, ptr %205, align 8, !tbaa !39
+  store ptr %36, ptr %205, align 8, !tbaa !42
   %206 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %207 = load ptr, ptr %206, align 8, !tbaa !39
+  %207 = load ptr, ptr %206, align 8, !tbaa !42
   store ptr %207, ptr %204, align 8, !tbaa !33
-  store ptr %36, ptr %206, align 8, !tbaa !39
-  store ptr %207, ptr %205, align 8, !tbaa !39
+  store ptr %36, ptr %206, align 8, !tbaa !42
+  store ptr %207, ptr %205, align 8, !tbaa !42
   %208 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %26, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 24
@@ -10678,12 +10678,12 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 5, ptr %211, align 8, !tbaa !32
   %212 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %213 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store ptr %37, ptr %213, align 8, !tbaa !39
+  store ptr %37, ptr %213, align 8, !tbaa !42
   %214 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %215 = load ptr, ptr %214, align 8, !tbaa !39
+  %215 = load ptr, ptr %214, align 8, !tbaa !42
   store ptr %215, ptr %212, align 8, !tbaa !33
-  store ptr %37, ptr %214, align 8, !tbaa !39
-  store ptr %215, ptr %213, align 8, !tbaa !39
+  store ptr %37, ptr %214, align 8, !tbaa !42
+  store ptr %215, ptr %213, align 8, !tbaa !42
   %216 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %27, ptr %216, align 8, !tbaa !33
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 24
@@ -10702,20 +10702,20 @@ emitter_col_init.exit171:                         ; preds = %156
   %221 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %38, ptr %221, align 8, !tbaa !33
   %222 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store ptr %38, ptr %222, align 8, !tbaa !39
+  store ptr %38, ptr %222, align 8, !tbaa !42
   %223 = icmp eq ptr %.pre.i168, null
   br i1 %223, label %emitter_col_init.exit173, label %224
 
 224:                                              ; preds = %emitter_col_init.exit171
   %225 = getelementptr inbounds nuw i8, ptr %.pre.i168, i64 32
-  %226 = load ptr, ptr %225, align 8, !tbaa !39
+  %226 = load ptr, ptr %225, align 8, !tbaa !42
   store ptr %226, ptr %221, align 8, !tbaa !33
-  store ptr %38, ptr %225, align 8, !tbaa !39
-  %227 = load ptr, ptr %222, align 8, !tbaa !39
+  store ptr %38, ptr %225, align 8, !tbaa !42
+  %227 = load ptr, ptr %222, align 8, !tbaa !42
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %229 = load ptr, ptr %228, align 8, !tbaa !33
-  store ptr %229, ptr %222, align 8, !tbaa !39
-  %230 = load ptr, ptr %225, align 8, !tbaa !39
+  store ptr %229, ptr %222, align 8, !tbaa !42
+  %230 = load ptr, ptr %225, align 8, !tbaa !42
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   store ptr %.pre.i168, ptr %231, align 8, !tbaa !33
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 24
@@ -10734,20 +10734,20 @@ emitter_col_init.exit173:                         ; preds = %emitter_col_init.ex
   %236 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %39, ptr %236, align 8, !tbaa !33
   %237 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %39, ptr %237, align 8, !tbaa !39
+  store ptr %39, ptr %237, align 8, !tbaa !42
   %238 = icmp eq ptr %.pre.i170, null
   br i1 %238, label %emitter_col_init.exit175, label %239
 
 239:                                              ; preds = %emitter_col_init.exit173
   %240 = getelementptr inbounds nuw i8, ptr %.pre.i170, i64 32
-  %241 = load ptr, ptr %240, align 8, !tbaa !39
+  %241 = load ptr, ptr %240, align 8, !tbaa !42
   store ptr %241, ptr %236, align 8, !tbaa !33
-  store ptr %39, ptr %240, align 8, !tbaa !39
-  %242 = load ptr, ptr %237, align 8, !tbaa !39
+  store ptr %39, ptr %240, align 8, !tbaa !42
+  %242 = load ptr, ptr %237, align 8, !tbaa !42
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %244 = load ptr, ptr %243, align 8, !tbaa !33
-  store ptr %244, ptr %237, align 8, !tbaa !39
-  %245 = load ptr, ptr %240, align 8, !tbaa !39
+  store ptr %244, ptr %237, align 8, !tbaa !42
+  %245 = load ptr, ptr %240, align 8, !tbaa !42
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   store ptr %.pre.i170, ptr %246, align 8, !tbaa !33
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 24
@@ -10770,20 +10770,20 @@ emitter_col_init.exit175:                         ; preds = %emitter_col_init.ex
   %252 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %40, ptr %252, align 8, !tbaa !33
   %253 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr %40, ptr %253, align 8, !tbaa !39
+  store ptr %40, ptr %253, align 8, !tbaa !42
   %254 = icmp eq ptr %233, null
   br i1 %254, label %emitter_col_init.exit177, label %255
 
 255:                                              ; preds = %emitter_col_init.exit175
   %256 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  %257 = load ptr, ptr %256, align 8, !tbaa !39
+  %257 = load ptr, ptr %256, align 8, !tbaa !42
   store ptr %257, ptr %252, align 8, !tbaa !33
-  store ptr %40, ptr %256, align 8, !tbaa !39
-  %258 = load ptr, ptr %253, align 8, !tbaa !39
+  store ptr %40, ptr %256, align 8, !tbaa !42
+  %258 = load ptr, ptr %253, align 8, !tbaa !42
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8, !tbaa !33
-  store ptr %260, ptr %253, align 8, !tbaa !39
-  %261 = load ptr, ptr %256, align 8, !tbaa !39
+  store ptr %260, ptr %253, align 8, !tbaa !42
+  %261 = load ptr, ptr %256, align 8, !tbaa !42
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
   store ptr %233, ptr %262, align 8, !tbaa !33
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 24
@@ -10802,20 +10802,20 @@ emitter_col_init.exit177:                         ; preds = %emitter_col_init.ex
   %267 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %41, ptr %267, align 8, !tbaa !33
   %268 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %41, ptr %268, align 8, !tbaa !39
+  store ptr %41, ptr %268, align 8, !tbaa !42
   %269 = icmp eq ptr %248, null
   br i1 %269, label %emitter_col_init.exit179, label %270
 
 270:                                              ; preds = %emitter_col_init.exit177
   %271 = getelementptr inbounds nuw i8, ptr %248, i64 32
-  %272 = load ptr, ptr %271, align 8, !tbaa !39
+  %272 = load ptr, ptr %271, align 8, !tbaa !42
   store ptr %272, ptr %267, align 8, !tbaa !33
-  store ptr %41, ptr %271, align 8, !tbaa !39
-  %273 = load ptr, ptr %268, align 8, !tbaa !39
+  store ptr %41, ptr %271, align 8, !tbaa !42
+  %273 = load ptr, ptr %268, align 8, !tbaa !42
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load ptr, ptr %274, align 8, !tbaa !33
-  store ptr %275, ptr %268, align 8, !tbaa !39
-  %276 = load ptr, ptr %271, align 8, !tbaa !39
+  store ptr %275, ptr %268, align 8, !tbaa !42
+  %276 = load ptr, ptr %271, align 8, !tbaa !42
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   store ptr %248, ptr %277, align 8, !tbaa !33
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 24
@@ -10838,20 +10838,20 @@ emitter_col_init.exit179:                         ; preds = %emitter_col_init.ex
   %283 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %42, ptr %283, align 8, !tbaa !33
   %284 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr %42, ptr %284, align 8, !tbaa !39
+  store ptr %42, ptr %284, align 8, !tbaa !42
   %285 = icmp eq ptr %264, null
   br i1 %285, label %emitter_col_init.exit181, label %286
 
 286:                                              ; preds = %emitter_col_init.exit179
   %287 = getelementptr inbounds nuw i8, ptr %264, i64 32
-  %288 = load ptr, ptr %287, align 8, !tbaa !39
+  %288 = load ptr, ptr %287, align 8, !tbaa !42
   store ptr %288, ptr %283, align 8, !tbaa !33
-  store ptr %42, ptr %287, align 8, !tbaa !39
-  %289 = load ptr, ptr %284, align 8, !tbaa !39
+  store ptr %42, ptr %287, align 8, !tbaa !42
+  %289 = load ptr, ptr %284, align 8, !tbaa !42
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %291 = load ptr, ptr %290, align 8, !tbaa !33
-  store ptr %291, ptr %284, align 8, !tbaa !39
-  %292 = load ptr, ptr %287, align 8, !tbaa !39
+  store ptr %291, ptr %284, align 8, !tbaa !42
+  %292 = load ptr, ptr %287, align 8, !tbaa !42
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
   store ptr %264, ptr %293, align 8, !tbaa !33
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 24
@@ -10870,20 +10870,20 @@ emitter_col_init.exit181:                         ; preds = %emitter_col_init.ex
   %298 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %43, ptr %298, align 8, !tbaa !33
   %299 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store ptr %43, ptr %299, align 8, !tbaa !39
+  store ptr %43, ptr %299, align 8, !tbaa !42
   %300 = icmp eq ptr %279, null
   br i1 %300, label %emitter_col_init.exit183, label %301
 
 301:                                              ; preds = %emitter_col_init.exit181
   %302 = getelementptr inbounds nuw i8, ptr %279, i64 32
-  %303 = load ptr, ptr %302, align 8, !tbaa !39
+  %303 = load ptr, ptr %302, align 8, !tbaa !42
   store ptr %303, ptr %298, align 8, !tbaa !33
-  store ptr %43, ptr %302, align 8, !tbaa !39
-  %304 = load ptr, ptr %299, align 8, !tbaa !39
+  store ptr %43, ptr %302, align 8, !tbaa !42
+  %304 = load ptr, ptr %299, align 8, !tbaa !42
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %306 = load ptr, ptr %305, align 8, !tbaa !33
-  store ptr %306, ptr %299, align 8, !tbaa !39
-  %307 = load ptr, ptr %302, align 8, !tbaa !39
+  store ptr %306, ptr %299, align 8, !tbaa !42
+  %307 = load ptr, ptr %302, align 8, !tbaa !42
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
   store ptr %279, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 24
@@ -10906,20 +10906,20 @@ emitter_col_init.exit183:                         ; preds = %emitter_col_init.ex
   %314 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %44, ptr %314, align 8, !tbaa !33
   %315 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store ptr %44, ptr %315, align 8, !tbaa !39
+  store ptr %44, ptr %315, align 8, !tbaa !42
   %316 = icmp eq ptr %295, null
   br i1 %316, label %emitter_col_init.exit185, label %317
 
 317:                                              ; preds = %emitter_col_init.exit183
   %318 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %319 = load ptr, ptr %318, align 8, !tbaa !39
+  %319 = load ptr, ptr %318, align 8, !tbaa !42
   store ptr %319, ptr %314, align 8, !tbaa !33
-  store ptr %44, ptr %318, align 8, !tbaa !39
-  %320 = load ptr, ptr %315, align 8, !tbaa !39
+  store ptr %44, ptr %318, align 8, !tbaa !42
+  %320 = load ptr, ptr %315, align 8, !tbaa !42
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %322 = load ptr, ptr %321, align 8, !tbaa !33
-  store ptr %322, ptr %315, align 8, !tbaa !39
-  %323 = load ptr, ptr %318, align 8, !tbaa !39
+  store ptr %322, ptr %315, align 8, !tbaa !42
+  %323 = load ptr, ptr %318, align 8, !tbaa !42
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
   store ptr %295, ptr %324, align 8, !tbaa !33
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 24
@@ -10938,20 +10938,20 @@ emitter_col_init.exit185:                         ; preds = %emitter_col_init.ex
   %329 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %45, ptr %329, align 8, !tbaa !33
   %330 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store ptr %45, ptr %330, align 8, !tbaa !39
+  store ptr %45, ptr %330, align 8, !tbaa !42
   %331 = icmp eq ptr %310, null
   br i1 %331, label %emitter_col_init.exit187, label %332
 
 332:                                              ; preds = %emitter_col_init.exit185
   %333 = getelementptr inbounds nuw i8, ptr %310, i64 32
-  %334 = load ptr, ptr %333, align 8, !tbaa !39
+  %334 = load ptr, ptr %333, align 8, !tbaa !42
   store ptr %334, ptr %329, align 8, !tbaa !33
-  store ptr %45, ptr %333, align 8, !tbaa !39
-  %335 = load ptr, ptr %330, align 8, !tbaa !39
+  store ptr %45, ptr %333, align 8, !tbaa !42
+  %335 = load ptr, ptr %330, align 8, !tbaa !42
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load ptr, ptr %336, align 8, !tbaa !33
-  store ptr %337, ptr %330, align 8, !tbaa !39
-  %338 = load ptr, ptr %333, align 8, !tbaa !39
+  store ptr %337, ptr %330, align 8, !tbaa !42
+  %338 = load ptr, ptr %333, align 8, !tbaa !42
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   store ptr %310, ptr %339, align 8, !tbaa !33
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 24
@@ -10974,20 +10974,20 @@ emitter_col_init.exit187:                         ; preds = %emitter_col_init.ex
   %345 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %46, ptr %345, align 8, !tbaa !33
   %346 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  store ptr %46, ptr %346, align 8, !tbaa !39
+  store ptr %46, ptr %346, align 8, !tbaa !42
   %347 = icmp eq ptr %326, null
   br i1 %347, label %emitter_col_init.exit189, label %348
 
 348:                                              ; preds = %emitter_col_init.exit187
   %349 = getelementptr inbounds nuw i8, ptr %326, i64 32
-  %350 = load ptr, ptr %349, align 8, !tbaa !39
+  %350 = load ptr, ptr %349, align 8, !tbaa !42
   store ptr %350, ptr %345, align 8, !tbaa !33
-  store ptr %46, ptr %349, align 8, !tbaa !39
-  %351 = load ptr, ptr %346, align 8, !tbaa !39
+  store ptr %46, ptr %349, align 8, !tbaa !42
+  %351 = load ptr, ptr %346, align 8, !tbaa !42
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8, !tbaa !33
-  store ptr %353, ptr %346, align 8, !tbaa !39
-  %354 = load ptr, ptr %349, align 8, !tbaa !39
+  store ptr %353, ptr %346, align 8, !tbaa !42
+  %354 = load ptr, ptr %349, align 8, !tbaa !42
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 24
   store ptr %326, ptr %355, align 8, !tbaa !33
   %356 = getelementptr inbounds nuw i8, ptr %353, i64 24
@@ -11006,20 +11006,20 @@ emitter_col_init.exit189:                         ; preds = %emitter_col_init.ex
   %360 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %47, ptr %360, align 8, !tbaa !33
   %361 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store ptr %47, ptr %361, align 8, !tbaa !39
+  store ptr %47, ptr %361, align 8, !tbaa !42
   %362 = icmp eq ptr %341, null
   br i1 %362, label %emitter_col_init.exit191, label %363
 
 363:                                              ; preds = %emitter_col_init.exit189
   %364 = getelementptr inbounds nuw i8, ptr %341, i64 32
-  %365 = load ptr, ptr %364, align 8, !tbaa !39
+  %365 = load ptr, ptr %364, align 8, !tbaa !42
   store ptr %365, ptr %360, align 8, !tbaa !33
-  store ptr %47, ptr %364, align 8, !tbaa !39
-  %366 = load ptr, ptr %361, align 8, !tbaa !39
+  store ptr %47, ptr %364, align 8, !tbaa !42
+  %366 = load ptr, ptr %361, align 8, !tbaa !42
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load ptr, ptr %367, align 8, !tbaa !33
-  store ptr %368, ptr %361, align 8, !tbaa !39
-  %369 = load ptr, ptr %364, align 8, !tbaa !39
+  store ptr %368, ptr %361, align 8, !tbaa !42
+  %369 = load ptr, ptr %364, align 8, !tbaa !42
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 24
   store ptr %341, ptr %370, align 8, !tbaa !33
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 24
@@ -11042,20 +11042,20 @@ emitter_col_init.exit191:                         ; preds = %emitter_col_init.ex
   %376 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %48, ptr %376, align 8, !tbaa !33
   %377 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %48, ptr %377, align 8, !tbaa !39
+  store ptr %48, ptr %377, align 8, !tbaa !42
   %378 = icmp eq ptr %357, null
   br i1 %378, label %emitter_col_init.exit193, label %379
 
 379:                                              ; preds = %emitter_col_init.exit191
   %380 = getelementptr inbounds nuw i8, ptr %357, i64 32
-  %381 = load ptr, ptr %380, align 8, !tbaa !39
+  %381 = load ptr, ptr %380, align 8, !tbaa !42
   store ptr %381, ptr %376, align 8, !tbaa !33
-  store ptr %48, ptr %380, align 8, !tbaa !39
-  %382 = load ptr, ptr %377, align 8, !tbaa !39
+  store ptr %48, ptr %380, align 8, !tbaa !42
+  %382 = load ptr, ptr %377, align 8, !tbaa !42
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %384 = load ptr, ptr %383, align 8, !tbaa !33
-  store ptr %384, ptr %377, align 8, !tbaa !39
-  %385 = load ptr, ptr %380, align 8, !tbaa !39
+  store ptr %384, ptr %377, align 8, !tbaa !42
+  %385 = load ptr, ptr %380, align 8, !tbaa !42
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 24
   store ptr %357, ptr %386, align 8, !tbaa !33
   %387 = getelementptr inbounds nuw i8, ptr %384, i64 24
@@ -11074,20 +11074,20 @@ emitter_col_init.exit193:                         ; preds = %emitter_col_init.ex
   %391 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %49, ptr %391, align 8, !tbaa !33
   %392 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store ptr %49, ptr %392, align 8, !tbaa !39
+  store ptr %49, ptr %392, align 8, !tbaa !42
   %393 = icmp eq ptr %372, null
   br i1 %393, label %emitter_col_init.exit195, label %394
 
 394:                                              ; preds = %emitter_col_init.exit193
   %395 = getelementptr inbounds nuw i8, ptr %372, i64 32
-  %396 = load ptr, ptr %395, align 8, !tbaa !39
+  %396 = load ptr, ptr %395, align 8, !tbaa !42
   store ptr %396, ptr %391, align 8, !tbaa !33
-  store ptr %49, ptr %395, align 8, !tbaa !39
-  %397 = load ptr, ptr %392, align 8, !tbaa !39
+  store ptr %49, ptr %395, align 8, !tbaa !42
+  %397 = load ptr, ptr %392, align 8, !tbaa !42
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %399 = load ptr, ptr %398, align 8, !tbaa !33
-  store ptr %399, ptr %392, align 8, !tbaa !39
-  %400 = load ptr, ptr %395, align 8, !tbaa !39
+  store ptr %399, ptr %392, align 8, !tbaa !42
+  %400 = load ptr, ptr %395, align 8, !tbaa !42
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 24
   store ptr %372, ptr %401, align 8, !tbaa !33
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 24
@@ -11110,20 +11110,20 @@ emitter_col_init.exit195:                         ; preds = %emitter_col_init.ex
   %407 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %50, ptr %407, align 8, !tbaa !33
   %408 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store ptr %50, ptr %408, align 8, !tbaa !39
+  store ptr %50, ptr %408, align 8, !tbaa !42
   %409 = icmp eq ptr %388, null
   br i1 %409, label %emitter_col_init.exit197, label %410
 
 410:                                              ; preds = %emitter_col_init.exit195
   %411 = getelementptr inbounds nuw i8, ptr %388, i64 32
-  %412 = load ptr, ptr %411, align 8, !tbaa !39
+  %412 = load ptr, ptr %411, align 8, !tbaa !42
   store ptr %412, ptr %407, align 8, !tbaa !33
-  store ptr %50, ptr %411, align 8, !tbaa !39
-  %413 = load ptr, ptr %408, align 8, !tbaa !39
+  store ptr %50, ptr %411, align 8, !tbaa !42
+  %413 = load ptr, ptr %408, align 8, !tbaa !42
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
   %415 = load ptr, ptr %414, align 8, !tbaa !33
-  store ptr %415, ptr %408, align 8, !tbaa !39
-  %416 = load ptr, ptr %411, align 8, !tbaa !39
+  store ptr %415, ptr %408, align 8, !tbaa !42
+  %416 = load ptr, ptr %411, align 8, !tbaa !42
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
   store ptr %388, ptr %417, align 8, !tbaa !33
   %418 = getelementptr inbounds nuw i8, ptr %415, i64 24
@@ -11142,20 +11142,20 @@ emitter_col_init.exit197:                         ; preds = %emitter_col_init.ex
   %422 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %51, ptr %422, align 8, !tbaa !33
   %423 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store ptr %51, ptr %423, align 8, !tbaa !39
+  store ptr %51, ptr %423, align 8, !tbaa !42
   %424 = icmp eq ptr %403, null
   br i1 %424, label %emitter_col_init.exit199, label %425
 
 425:                                              ; preds = %emitter_col_init.exit197
   %426 = getelementptr inbounds nuw i8, ptr %403, i64 32
-  %427 = load ptr, ptr %426, align 8, !tbaa !39
+  %427 = load ptr, ptr %426, align 8, !tbaa !42
   store ptr %427, ptr %422, align 8, !tbaa !33
-  store ptr %51, ptr %426, align 8, !tbaa !39
-  %428 = load ptr, ptr %423, align 8, !tbaa !39
+  store ptr %51, ptr %426, align 8, !tbaa !42
+  %428 = load ptr, ptr %423, align 8, !tbaa !42
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8, !tbaa !33
-  store ptr %430, ptr %423, align 8, !tbaa !39
-  %431 = load ptr, ptr %426, align 8, !tbaa !39
+  store ptr %430, ptr %423, align 8, !tbaa !42
+  %431 = load ptr, ptr %426, align 8, !tbaa !42
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 24
   store ptr %403, ptr %432, align 8, !tbaa !33
   %433 = getelementptr inbounds nuw i8, ptr %430, i64 24
@@ -11178,20 +11178,20 @@ emitter_col_init.exit199:                         ; preds = %emitter_col_init.ex
   %438 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %52, ptr %438, align 8, !tbaa !33
   %439 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store ptr %52, ptr %439, align 8, !tbaa !39
+  store ptr %52, ptr %439, align 8, !tbaa !42
   %440 = icmp eq ptr %419, null
   br i1 %440, label %emitter_col_init.exit201, label %441
 
 441:                                              ; preds = %emitter_col_init.exit199
   %442 = getelementptr inbounds nuw i8, ptr %419, i64 32
-  %443 = load ptr, ptr %442, align 8, !tbaa !39
+  %443 = load ptr, ptr %442, align 8, !tbaa !42
   store ptr %443, ptr %438, align 8, !tbaa !33
-  store ptr %52, ptr %442, align 8, !tbaa !39
-  %444 = load ptr, ptr %439, align 8, !tbaa !39
+  store ptr %52, ptr %442, align 8, !tbaa !42
+  %444 = load ptr, ptr %439, align 8, !tbaa !42
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 24
   %446 = load ptr, ptr %445, align 8, !tbaa !33
-  store ptr %446, ptr %439, align 8, !tbaa !39
-  %447 = load ptr, ptr %442, align 8, !tbaa !39
+  store ptr %446, ptr %439, align 8, !tbaa !42
+  %447 = load ptr, ptr %442, align 8, !tbaa !42
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 24
   store ptr %419, ptr %448, align 8, !tbaa !33
   %449 = getelementptr inbounds nuw i8, ptr %446, i64 24
@@ -11210,20 +11210,20 @@ emitter_col_init.exit201:                         ; preds = %emitter_col_init.ex
   %453 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %53, ptr %453, align 8, !tbaa !33
   %454 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr %53, ptr %454, align 8, !tbaa !39
+  store ptr %53, ptr %454, align 8, !tbaa !42
   %455 = icmp eq ptr %434, null
   br i1 %455, label %emitter_col_init.exit203, label %456
 
 456:                                              ; preds = %emitter_col_init.exit201
   %457 = getelementptr inbounds nuw i8, ptr %434, i64 32
-  %458 = load ptr, ptr %457, align 8, !tbaa !39
+  %458 = load ptr, ptr %457, align 8, !tbaa !42
   store ptr %458, ptr %453, align 8, !tbaa !33
-  store ptr %53, ptr %457, align 8, !tbaa !39
-  %459 = load ptr, ptr %454, align 8, !tbaa !39
+  store ptr %53, ptr %457, align 8, !tbaa !42
+  %459 = load ptr, ptr %454, align 8, !tbaa !42
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 24
   %461 = load ptr, ptr %460, align 8, !tbaa !33
-  store ptr %461, ptr %454, align 8, !tbaa !39
-  %462 = load ptr, ptr %457, align 8, !tbaa !39
+  store ptr %461, ptr %454, align 8, !tbaa !42
+  %462 = load ptr, ptr %457, align 8, !tbaa !42
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 24
   store ptr %434, ptr %463, align 8, !tbaa !33
   %464 = getelementptr inbounds nuw i8, ptr %461, i64 24
@@ -11246,20 +11246,20 @@ emitter_col_init.exit203:                         ; preds = %emitter_col_init.ex
   %469 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %54, ptr %469, align 8, !tbaa !33
   %470 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store ptr %54, ptr %470, align 8, !tbaa !39
+  store ptr %54, ptr %470, align 8, !tbaa !42
   %471 = icmp eq ptr %450, null
   br i1 %471, label %emitter_col_init.exit205, label %472
 
 472:                                              ; preds = %emitter_col_init.exit203
   %473 = getelementptr inbounds nuw i8, ptr %450, i64 32
-  %474 = load ptr, ptr %473, align 8, !tbaa !39
+  %474 = load ptr, ptr %473, align 8, !tbaa !42
   store ptr %474, ptr %469, align 8, !tbaa !33
-  store ptr %54, ptr %473, align 8, !tbaa !39
-  %475 = load ptr, ptr %470, align 8, !tbaa !39
+  store ptr %54, ptr %473, align 8, !tbaa !42
+  %475 = load ptr, ptr %470, align 8, !tbaa !42
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 24
   %477 = load ptr, ptr %476, align 8, !tbaa !33
-  store ptr %477, ptr %470, align 8, !tbaa !39
-  %478 = load ptr, ptr %473, align 8, !tbaa !39
+  store ptr %477, ptr %470, align 8, !tbaa !42
+  %478 = load ptr, ptr %473, align 8, !tbaa !42
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 24
   store ptr %450, ptr %479, align 8, !tbaa !33
   %480 = getelementptr inbounds nuw i8, ptr %477, i64 24
@@ -11278,20 +11278,20 @@ emitter_col_init.exit205:                         ; preds = %emitter_col_init.ex
   %484 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %55, ptr %484, align 8, !tbaa !33
   %485 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr %55, ptr %485, align 8, !tbaa !39
+  store ptr %55, ptr %485, align 8, !tbaa !42
   %486 = icmp eq ptr %465, null
   br i1 %486, label %emitter_col_init.exit207, label %487
 
 487:                                              ; preds = %emitter_col_init.exit205
   %488 = getelementptr inbounds nuw i8, ptr %465, i64 32
-  %489 = load ptr, ptr %488, align 8, !tbaa !39
+  %489 = load ptr, ptr %488, align 8, !tbaa !42
   store ptr %489, ptr %484, align 8, !tbaa !33
-  store ptr %55, ptr %488, align 8, !tbaa !39
-  %490 = load ptr, ptr %485, align 8, !tbaa !39
+  store ptr %55, ptr %488, align 8, !tbaa !42
+  %490 = load ptr, ptr %485, align 8, !tbaa !42
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %492 = load ptr, ptr %491, align 8, !tbaa !33
-  store ptr %492, ptr %485, align 8, !tbaa !39
-  %493 = load ptr, ptr %488, align 8, !tbaa !39
+  store ptr %492, ptr %485, align 8, !tbaa !42
+  %493 = load ptr, ptr %488, align 8, !tbaa !42
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 24
   store ptr %465, ptr %494, align 8, !tbaa !33
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 24
@@ -11314,20 +11314,20 @@ emitter_col_init.exit207:                         ; preds = %emitter_col_init.ex
   %500 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %56, ptr %500, align 8, !tbaa !33
   %501 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store ptr %56, ptr %501, align 8, !tbaa !39
+  store ptr %56, ptr %501, align 8, !tbaa !42
   %502 = icmp eq ptr %481, null
   br i1 %502, label %emitter_col_init.exit209, label %503
 
 503:                                              ; preds = %emitter_col_init.exit207
   %504 = getelementptr inbounds nuw i8, ptr %481, i64 32
-  %505 = load ptr, ptr %504, align 8, !tbaa !39
+  %505 = load ptr, ptr %504, align 8, !tbaa !42
   store ptr %505, ptr %500, align 8, !tbaa !33
-  store ptr %56, ptr %504, align 8, !tbaa !39
-  %506 = load ptr, ptr %501, align 8, !tbaa !39
+  store ptr %56, ptr %504, align 8, !tbaa !42
+  %506 = load ptr, ptr %501, align 8, !tbaa !42
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
   %508 = load ptr, ptr %507, align 8, !tbaa !33
-  store ptr %508, ptr %501, align 8, !tbaa !39
-  %509 = load ptr, ptr %504, align 8, !tbaa !39
+  store ptr %508, ptr %501, align 8, !tbaa !42
+  %509 = load ptr, ptr %504, align 8, !tbaa !42
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 24
   store ptr %481, ptr %510, align 8, !tbaa !33
   %511 = getelementptr inbounds nuw i8, ptr %508, i64 24
@@ -11346,20 +11346,20 @@ emitter_col_init.exit209:                         ; preds = %emitter_col_init.ex
   %515 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %57, ptr %515, align 8, !tbaa !33
   %516 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store ptr %57, ptr %516, align 8, !tbaa !39
+  store ptr %57, ptr %516, align 8, !tbaa !42
   %517 = icmp eq ptr %496, null
   br i1 %517, label %emitter_col_init.exit211, label %518
 
 518:                                              ; preds = %emitter_col_init.exit209
   %519 = getelementptr inbounds nuw i8, ptr %496, i64 32
-  %520 = load ptr, ptr %519, align 8, !tbaa !39
+  %520 = load ptr, ptr %519, align 8, !tbaa !42
   store ptr %520, ptr %515, align 8, !tbaa !33
-  store ptr %57, ptr %519, align 8, !tbaa !39
-  %521 = load ptr, ptr %516, align 8, !tbaa !39
+  store ptr %57, ptr %519, align 8, !tbaa !42
+  %521 = load ptr, ptr %516, align 8, !tbaa !42
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %523 = load ptr, ptr %522, align 8, !tbaa !33
-  store ptr %523, ptr %516, align 8, !tbaa !39
-  %524 = load ptr, ptr %519, align 8, !tbaa !39
+  store ptr %523, ptr %516, align 8, !tbaa !42
+  %524 = load ptr, ptr %519, align 8, !tbaa !42
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 24
   store ptr %496, ptr %525, align 8, !tbaa !33
   %526 = getelementptr inbounds nuw i8, ptr %523, i64 24
@@ -11382,20 +11382,20 @@ emitter_col_init.exit211:                         ; preds = %emitter_col_init.ex
   %531 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %58, ptr %531, align 8, !tbaa !33
   %532 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  store ptr %58, ptr %532, align 8, !tbaa !39
+  store ptr %58, ptr %532, align 8, !tbaa !42
   %533 = icmp eq ptr %512, null
   br i1 %533, label %emitter_col_init.exit213, label %534
 
 534:                                              ; preds = %emitter_col_init.exit211
   %535 = getelementptr inbounds nuw i8, ptr %512, i64 32
-  %536 = load ptr, ptr %535, align 8, !tbaa !39
+  %536 = load ptr, ptr %535, align 8, !tbaa !42
   store ptr %536, ptr %531, align 8, !tbaa !33
-  store ptr %58, ptr %535, align 8, !tbaa !39
-  %537 = load ptr, ptr %532, align 8, !tbaa !39
+  store ptr %58, ptr %535, align 8, !tbaa !42
+  %537 = load ptr, ptr %532, align 8, !tbaa !42
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 24
   %539 = load ptr, ptr %538, align 8, !tbaa !33
-  store ptr %539, ptr %532, align 8, !tbaa !39
-  %540 = load ptr, ptr %535, align 8, !tbaa !39
+  store ptr %539, ptr %532, align 8, !tbaa !42
+  %540 = load ptr, ptr %535, align 8, !tbaa !42
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 24
   store ptr %512, ptr %541, align 8, !tbaa !33
   %542 = getelementptr inbounds nuw i8, ptr %539, i64 24
@@ -11414,20 +11414,20 @@ emitter_col_init.exit213:                         ; preds = %emitter_col_init.ex
   %546 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %59, ptr %546, align 8, !tbaa !33
   %547 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %59, ptr %547, align 8, !tbaa !39
+  store ptr %59, ptr %547, align 8, !tbaa !42
   %548 = icmp eq ptr %527, null
   br i1 %548, label %emitter_col_init.exit215, label %549
 
 549:                                              ; preds = %emitter_col_init.exit213
   %550 = getelementptr inbounds nuw i8, ptr %527, i64 32
-  %551 = load ptr, ptr %550, align 8, !tbaa !39
+  %551 = load ptr, ptr %550, align 8, !tbaa !42
   store ptr %551, ptr %546, align 8, !tbaa !33
-  store ptr %59, ptr %550, align 8, !tbaa !39
-  %552 = load ptr, ptr %547, align 8, !tbaa !39
+  store ptr %59, ptr %550, align 8, !tbaa !42
+  %552 = load ptr, ptr %547, align 8, !tbaa !42
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 24
   %554 = load ptr, ptr %553, align 8, !tbaa !33
-  store ptr %554, ptr %547, align 8, !tbaa !39
-  %555 = load ptr, ptr %550, align 8, !tbaa !39
+  store ptr %554, ptr %547, align 8, !tbaa !42
+  %555 = load ptr, ptr %550, align 8, !tbaa !42
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 24
   store ptr %527, ptr %556, align 8, !tbaa !33
   %557 = getelementptr inbounds nuw i8, ptr %554, i64 24
@@ -11450,20 +11450,20 @@ emitter_col_init.exit215:                         ; preds = %emitter_col_init.ex
   %562 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %60, ptr %562, align 8, !tbaa !33
   %563 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr %60, ptr %563, align 8, !tbaa !39
+  store ptr %60, ptr %563, align 8, !tbaa !42
   %564 = icmp eq ptr %543, null
   br i1 %564, label %emitter_col_init.exit217, label %565
 
 565:                                              ; preds = %emitter_col_init.exit215
   %566 = getelementptr inbounds nuw i8, ptr %543, i64 32
-  %567 = load ptr, ptr %566, align 8, !tbaa !39
+  %567 = load ptr, ptr %566, align 8, !tbaa !42
   store ptr %567, ptr %562, align 8, !tbaa !33
-  store ptr %60, ptr %566, align 8, !tbaa !39
-  %568 = load ptr, ptr %563, align 8, !tbaa !39
+  store ptr %60, ptr %566, align 8, !tbaa !42
+  %568 = load ptr, ptr %563, align 8, !tbaa !42
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 24
   %570 = load ptr, ptr %569, align 8, !tbaa !33
-  store ptr %570, ptr %563, align 8, !tbaa !39
-  %571 = load ptr, ptr %566, align 8, !tbaa !39
+  store ptr %570, ptr %563, align 8, !tbaa !42
+  %571 = load ptr, ptr %566, align 8, !tbaa !42
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 24
   store ptr %543, ptr %572, align 8, !tbaa !33
   %573 = getelementptr inbounds nuw i8, ptr %570, i64 24
@@ -11482,20 +11482,20 @@ emitter_col_init.exit217:                         ; preds = %emitter_col_init.ex
   %577 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %61, ptr %577, align 8, !tbaa !33
   %578 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  store ptr %61, ptr %578, align 8, !tbaa !39
+  store ptr %61, ptr %578, align 8, !tbaa !42
   %579 = icmp eq ptr %558, null
   br i1 %579, label %emitter_col_init.exit219, label %580
 
 580:                                              ; preds = %emitter_col_init.exit217
   %581 = getelementptr inbounds nuw i8, ptr %558, i64 32
-  %582 = load ptr, ptr %581, align 8, !tbaa !39
+  %582 = load ptr, ptr %581, align 8, !tbaa !42
   store ptr %582, ptr %577, align 8, !tbaa !33
-  store ptr %61, ptr %581, align 8, !tbaa !39
-  %583 = load ptr, ptr %578, align 8, !tbaa !39
+  store ptr %61, ptr %581, align 8, !tbaa !42
+  %583 = load ptr, ptr %578, align 8, !tbaa !42
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 24
   %585 = load ptr, ptr %584, align 8, !tbaa !33
-  store ptr %585, ptr %578, align 8, !tbaa !39
-  %586 = load ptr, ptr %581, align 8, !tbaa !39
+  store ptr %585, ptr %578, align 8, !tbaa !42
+  %586 = load ptr, ptr %581, align 8, !tbaa !42
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 24
   store ptr %558, ptr %587, align 8, !tbaa !33
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 24
@@ -11518,20 +11518,20 @@ emitter_col_init.exit219:                         ; preds = %emitter_col_init.ex
   %593 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %62, ptr %593, align 8, !tbaa !33
   %594 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  store ptr %62, ptr %594, align 8, !tbaa !39
+  store ptr %62, ptr %594, align 8, !tbaa !42
   %595 = icmp eq ptr %574, null
   br i1 %595, label %emitter_col_init.exit221, label %596
 
 596:                                              ; preds = %emitter_col_init.exit219
   %597 = getelementptr inbounds nuw i8, ptr %574, i64 32
-  %598 = load ptr, ptr %597, align 8, !tbaa !39
+  %598 = load ptr, ptr %597, align 8, !tbaa !42
   store ptr %598, ptr %593, align 8, !tbaa !33
-  store ptr %62, ptr %597, align 8, !tbaa !39
-  %599 = load ptr, ptr %594, align 8, !tbaa !39
+  store ptr %62, ptr %597, align 8, !tbaa !42
+  %599 = load ptr, ptr %594, align 8, !tbaa !42
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 24
   %601 = load ptr, ptr %600, align 8, !tbaa !33
-  store ptr %601, ptr %594, align 8, !tbaa !39
-  %602 = load ptr, ptr %597, align 8, !tbaa !39
+  store ptr %601, ptr %594, align 8, !tbaa !42
+  %602 = load ptr, ptr %597, align 8, !tbaa !42
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 24
   store ptr %574, ptr %603, align 8, !tbaa !33
   %604 = getelementptr inbounds nuw i8, ptr %601, i64 24
@@ -11550,20 +11550,20 @@ emitter_col_init.exit221:                         ; preds = %emitter_col_init.ex
   %608 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %63, ptr %608, align 8, !tbaa !33
   %609 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr %63, ptr %609, align 8, !tbaa !39
+  store ptr %63, ptr %609, align 8, !tbaa !42
   %610 = icmp eq ptr %589, null
   br i1 %610, label %emitter_col_init.exit223, label %611
 
 611:                                              ; preds = %emitter_col_init.exit221
   %612 = getelementptr inbounds nuw i8, ptr %589, i64 32
-  %613 = load ptr, ptr %612, align 8, !tbaa !39
+  %613 = load ptr, ptr %612, align 8, !tbaa !42
   store ptr %613, ptr %608, align 8, !tbaa !33
-  store ptr %63, ptr %612, align 8, !tbaa !39
-  %614 = load ptr, ptr %609, align 8, !tbaa !39
+  store ptr %63, ptr %612, align 8, !tbaa !42
+  %614 = load ptr, ptr %609, align 8, !tbaa !42
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 24
   %616 = load ptr, ptr %615, align 8, !tbaa !33
-  store ptr %616, ptr %609, align 8, !tbaa !39
-  %617 = load ptr, ptr %612, align 8, !tbaa !39
+  store ptr %616, ptr %609, align 8, !tbaa !42
+  %617 = load ptr, ptr %612, align 8, !tbaa !42
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 24
   store ptr %589, ptr %618, align 8, !tbaa !33
   %619 = getelementptr inbounds nuw i8, ptr %616, i64 24
@@ -11586,20 +11586,20 @@ emitter_col_init.exit223:                         ; preds = %emitter_col_init.ex
   %624 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %64, ptr %624, align 8, !tbaa !33
   %625 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  store ptr %64, ptr %625, align 8, !tbaa !39
+  store ptr %64, ptr %625, align 8, !tbaa !42
   %626 = icmp eq ptr %605, null
   br i1 %626, label %emitter_col_init.exit225, label %627
 
 627:                                              ; preds = %emitter_col_init.exit223
   %628 = getelementptr inbounds nuw i8, ptr %605, i64 32
-  %629 = load ptr, ptr %628, align 8, !tbaa !39
+  %629 = load ptr, ptr %628, align 8, !tbaa !42
   store ptr %629, ptr %624, align 8, !tbaa !33
-  store ptr %64, ptr %628, align 8, !tbaa !39
-  %630 = load ptr, ptr %625, align 8, !tbaa !39
+  store ptr %64, ptr %628, align 8, !tbaa !42
+  %630 = load ptr, ptr %625, align 8, !tbaa !42
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 24
   %632 = load ptr, ptr %631, align 8, !tbaa !33
-  store ptr %632, ptr %625, align 8, !tbaa !39
-  %633 = load ptr, ptr %628, align 8, !tbaa !39
+  store ptr %632, ptr %625, align 8, !tbaa !42
+  %633 = load ptr, ptr %628, align 8, !tbaa !42
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 24
   store ptr %605, ptr %634, align 8, !tbaa !33
   %635 = getelementptr inbounds nuw i8, ptr %632, i64 24
@@ -11618,20 +11618,20 @@ emitter_col_init.exit225:                         ; preds = %emitter_col_init.ex
   %639 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %65, ptr %639, align 8, !tbaa !33
   %640 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store ptr %65, ptr %640, align 8, !tbaa !39
+  store ptr %65, ptr %640, align 8, !tbaa !42
   %641 = icmp eq ptr %620, null
   br i1 %641, label %emitter_col_init.exit227, label %642
 
 642:                                              ; preds = %emitter_col_init.exit225
   %643 = getelementptr inbounds nuw i8, ptr %620, i64 32
-  %644 = load ptr, ptr %643, align 8, !tbaa !39
+  %644 = load ptr, ptr %643, align 8, !tbaa !42
   store ptr %644, ptr %639, align 8, !tbaa !33
-  store ptr %65, ptr %643, align 8, !tbaa !39
-  %645 = load ptr, ptr %640, align 8, !tbaa !39
+  store ptr %65, ptr %643, align 8, !tbaa !42
+  %645 = load ptr, ptr %640, align 8, !tbaa !42
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 24
   %647 = load ptr, ptr %646, align 8, !tbaa !33
-  store ptr %647, ptr %640, align 8, !tbaa !39
-  %648 = load ptr, ptr %643, align 8, !tbaa !39
+  store ptr %647, ptr %640, align 8, !tbaa !42
+  %648 = load ptr, ptr %643, align 8, !tbaa !42
   %649 = getelementptr inbounds nuw i8, ptr %648, i64 24
   store ptr %620, ptr %649, align 8, !tbaa !33
   %650 = getelementptr inbounds nuw i8, ptr %647, i64 24
@@ -11654,20 +11654,20 @@ emitter_col_init.exit227:                         ; preds = %emitter_col_init.ex
   %655 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %66, ptr %655, align 8, !tbaa !33
   %656 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store ptr %66, ptr %656, align 8, !tbaa !39
+  store ptr %66, ptr %656, align 8, !tbaa !42
   %657 = icmp eq ptr %636, null
   br i1 %657, label %emitter_col_init.exit229, label %658
 
 658:                                              ; preds = %emitter_col_init.exit227
   %659 = getelementptr inbounds nuw i8, ptr %636, i64 32
-  %660 = load ptr, ptr %659, align 8, !tbaa !39
+  %660 = load ptr, ptr %659, align 8, !tbaa !42
   store ptr %660, ptr %655, align 8, !tbaa !33
-  store ptr %66, ptr %659, align 8, !tbaa !39
-  %661 = load ptr, ptr %656, align 8, !tbaa !39
+  store ptr %66, ptr %659, align 8, !tbaa !42
+  %661 = load ptr, ptr %656, align 8, !tbaa !42
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 24
   %663 = load ptr, ptr %662, align 8, !tbaa !33
-  store ptr %663, ptr %656, align 8, !tbaa !39
-  %664 = load ptr, ptr %659, align 8, !tbaa !39
+  store ptr %663, ptr %656, align 8, !tbaa !42
+  %664 = load ptr, ptr %659, align 8, !tbaa !42
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 24
   store ptr %636, ptr %665, align 8, !tbaa !33
   %666 = getelementptr inbounds nuw i8, ptr %663, i64 24
@@ -11686,20 +11686,20 @@ emitter_col_init.exit229:                         ; preds = %emitter_col_init.ex
   %670 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %67, ptr %670, align 8, !tbaa !33
   %671 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store ptr %67, ptr %671, align 8, !tbaa !39
+  store ptr %67, ptr %671, align 8, !tbaa !42
   %672 = icmp eq ptr %651, null
   br i1 %672, label %emitter_col_init.exit231, label %673
 
 673:                                              ; preds = %emitter_col_init.exit229
   %674 = getelementptr inbounds nuw i8, ptr %651, i64 32
-  %675 = load ptr, ptr %674, align 8, !tbaa !39
+  %675 = load ptr, ptr %674, align 8, !tbaa !42
   store ptr %675, ptr %670, align 8, !tbaa !33
-  store ptr %67, ptr %674, align 8, !tbaa !39
-  %676 = load ptr, ptr %671, align 8, !tbaa !39
+  store ptr %67, ptr %674, align 8, !tbaa !42
+  %676 = load ptr, ptr %671, align 8, !tbaa !42
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 24
   %678 = load ptr, ptr %677, align 8, !tbaa !33
-  store ptr %678, ptr %671, align 8, !tbaa !39
-  %679 = load ptr, ptr %674, align 8, !tbaa !39
+  store ptr %678, ptr %671, align 8, !tbaa !42
+  %679 = load ptr, ptr %674, align 8, !tbaa !42
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 24
   store ptr %651, ptr %680, align 8, !tbaa !33
   %681 = getelementptr inbounds nuw i8, ptr %678, i64 24
@@ -11722,20 +11722,20 @@ emitter_col_init.exit231:                         ; preds = %emitter_col_init.ex
   %686 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %68, ptr %686, align 8, !tbaa !33
   %687 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store ptr %68, ptr %687, align 8, !tbaa !39
+  store ptr %68, ptr %687, align 8, !tbaa !42
   %688 = icmp eq ptr %667, null
   br i1 %688, label %emitter_col_init.exit233, label %689
 
 689:                                              ; preds = %emitter_col_init.exit231
   %690 = getelementptr inbounds nuw i8, ptr %667, i64 32
-  %691 = load ptr, ptr %690, align 8, !tbaa !39
+  %691 = load ptr, ptr %690, align 8, !tbaa !42
   store ptr %691, ptr %686, align 8, !tbaa !33
-  store ptr %68, ptr %690, align 8, !tbaa !39
-  %692 = load ptr, ptr %687, align 8, !tbaa !39
+  store ptr %68, ptr %690, align 8, !tbaa !42
+  %692 = load ptr, ptr %687, align 8, !tbaa !42
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 24
   %694 = load ptr, ptr %693, align 8, !tbaa !33
-  store ptr %694, ptr %687, align 8, !tbaa !39
-  %695 = load ptr, ptr %690, align 8, !tbaa !39
+  store ptr %694, ptr %687, align 8, !tbaa !42
+  %695 = load ptr, ptr %690, align 8, !tbaa !42
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 24
   store ptr %667, ptr %696, align 8, !tbaa !33
   %697 = getelementptr inbounds nuw i8, ptr %694, i64 24
@@ -11754,20 +11754,20 @@ emitter_col_init.exit233:                         ; preds = %emitter_col_init.ex
   %701 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %69, ptr %701, align 8, !tbaa !33
   %702 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store ptr %69, ptr %702, align 8, !tbaa !39
+  store ptr %69, ptr %702, align 8, !tbaa !42
   %703 = icmp eq ptr %682, null
   br i1 %703, label %emitter_col_init.exit235, label %704
 
 704:                                              ; preds = %emitter_col_init.exit233
   %705 = getelementptr inbounds nuw i8, ptr %682, i64 32
-  %706 = load ptr, ptr %705, align 8, !tbaa !39
+  %706 = load ptr, ptr %705, align 8, !tbaa !42
   store ptr %706, ptr %701, align 8, !tbaa !33
-  store ptr %69, ptr %705, align 8, !tbaa !39
-  %707 = load ptr, ptr %702, align 8, !tbaa !39
+  store ptr %69, ptr %705, align 8, !tbaa !42
+  %707 = load ptr, ptr %702, align 8, !tbaa !42
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 24
   %709 = load ptr, ptr %708, align 8, !tbaa !33
-  store ptr %709, ptr %702, align 8, !tbaa !39
-  %710 = load ptr, ptr %705, align 8, !tbaa !39
+  store ptr %709, ptr %702, align 8, !tbaa !42
+  %710 = load ptr, ptr %705, align 8, !tbaa !42
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 24
   store ptr %682, ptr %711, align 8, !tbaa !33
   %712 = getelementptr inbounds nuw i8, ptr %709, i64 24
@@ -11790,20 +11790,20 @@ emitter_col_init.exit235:                         ; preds = %emitter_col_init.ex
   %717 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %70, ptr %717, align 8, !tbaa !33
   %718 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr %70, ptr %718, align 8, !tbaa !39
+  store ptr %70, ptr %718, align 8, !tbaa !42
   %719 = icmp eq ptr %698, null
   br i1 %719, label %emitter_col_init.exit237, label %720
 
 720:                                              ; preds = %emitter_col_init.exit235
   %721 = getelementptr inbounds nuw i8, ptr %698, i64 32
-  %722 = load ptr, ptr %721, align 8, !tbaa !39
+  %722 = load ptr, ptr %721, align 8, !tbaa !42
   store ptr %722, ptr %717, align 8, !tbaa !33
-  store ptr %70, ptr %721, align 8, !tbaa !39
-  %723 = load ptr, ptr %718, align 8, !tbaa !39
+  store ptr %70, ptr %721, align 8, !tbaa !42
+  %723 = load ptr, ptr %718, align 8, !tbaa !42
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 24
   %725 = load ptr, ptr %724, align 8, !tbaa !33
-  store ptr %725, ptr %718, align 8, !tbaa !39
-  %726 = load ptr, ptr %721, align 8, !tbaa !39
+  store ptr %725, ptr %718, align 8, !tbaa !42
+  %726 = load ptr, ptr %721, align 8, !tbaa !42
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 24
   store ptr %698, ptr %727, align 8, !tbaa !33
   %728 = getelementptr inbounds nuw i8, ptr %725, i64 24
@@ -11822,20 +11822,20 @@ emitter_col_init.exit237:                         ; preds = %emitter_col_init.ex
   %732 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %71, ptr %732, align 8, !tbaa !33
   %733 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store ptr %71, ptr %733, align 8, !tbaa !39
+  store ptr %71, ptr %733, align 8, !tbaa !42
   %734 = icmp eq ptr %713, null
   br i1 %734, label %emitter_col_init.exit239, label %735
 
 735:                                              ; preds = %emitter_col_init.exit237
   %736 = getelementptr inbounds nuw i8, ptr %713, i64 32
-  %737 = load ptr, ptr %736, align 8, !tbaa !39
+  %737 = load ptr, ptr %736, align 8, !tbaa !42
   store ptr %737, ptr %732, align 8, !tbaa !33
-  store ptr %71, ptr %736, align 8, !tbaa !39
-  %738 = load ptr, ptr %733, align 8, !tbaa !39
+  store ptr %71, ptr %736, align 8, !tbaa !42
+  %738 = load ptr, ptr %733, align 8, !tbaa !42
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 24
   %740 = load ptr, ptr %739, align 8, !tbaa !33
-  store ptr %740, ptr %733, align 8, !tbaa !39
-  %741 = load ptr, ptr %736, align 8, !tbaa !39
+  store ptr %740, ptr %733, align 8, !tbaa !42
+  %741 = load ptr, ptr %736, align 8, !tbaa !42
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 24
   store ptr %713, ptr %742, align 8, !tbaa !33
   %743 = getelementptr inbounds nuw i8, ptr %740, i64 24
@@ -11858,20 +11858,20 @@ emitter_col_init.exit239:                         ; preds = %emitter_col_init.ex
   %748 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %72, ptr %748, align 8, !tbaa !33
   %749 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store ptr %72, ptr %749, align 8, !tbaa !39
+  store ptr %72, ptr %749, align 8, !tbaa !42
   %750 = icmp eq ptr %729, null
   br i1 %750, label %emitter_col_init.exit241, label %751
 
 751:                                              ; preds = %emitter_col_init.exit239
   %752 = getelementptr inbounds nuw i8, ptr %729, i64 32
-  %753 = load ptr, ptr %752, align 8, !tbaa !39
+  %753 = load ptr, ptr %752, align 8, !tbaa !42
   store ptr %753, ptr %748, align 8, !tbaa !33
-  store ptr %72, ptr %752, align 8, !tbaa !39
-  %754 = load ptr, ptr %749, align 8, !tbaa !39
+  store ptr %72, ptr %752, align 8, !tbaa !42
+  %754 = load ptr, ptr %749, align 8, !tbaa !42
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 24
   %756 = load ptr, ptr %755, align 8, !tbaa !33
-  store ptr %756, ptr %749, align 8, !tbaa !39
-  %757 = load ptr, ptr %752, align 8, !tbaa !39
+  store ptr %756, ptr %749, align 8, !tbaa !42
+  %757 = load ptr, ptr %752, align 8, !tbaa !42
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 24
   store ptr %729, ptr %758, align 8, !tbaa !33
   %759 = getelementptr inbounds nuw i8, ptr %756, i64 24
@@ -11890,20 +11890,20 @@ emitter_col_init.exit241:                         ; preds = %emitter_col_init.ex
   %763 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %73, ptr %763, align 8, !tbaa !33
   %764 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr %73, ptr %764, align 8, !tbaa !39
+  store ptr %73, ptr %764, align 8, !tbaa !42
   %765 = icmp eq ptr %744, null
   br i1 %765, label %emitter_col_init.exit243, label %766
 
 766:                                              ; preds = %emitter_col_init.exit241
   %767 = getelementptr inbounds nuw i8, ptr %744, i64 32
-  %768 = load ptr, ptr %767, align 8, !tbaa !39
+  %768 = load ptr, ptr %767, align 8, !tbaa !42
   store ptr %768, ptr %763, align 8, !tbaa !33
-  store ptr %73, ptr %767, align 8, !tbaa !39
-  %769 = load ptr, ptr %764, align 8, !tbaa !39
+  store ptr %73, ptr %767, align 8, !tbaa !42
+  %769 = load ptr, ptr %764, align 8, !tbaa !42
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 24
   %771 = load ptr, ptr %770, align 8, !tbaa !33
-  store ptr %771, ptr %764, align 8, !tbaa !39
-  %772 = load ptr, ptr %767, align 8, !tbaa !39
+  store ptr %771, ptr %764, align 8, !tbaa !42
+  %772 = load ptr, ptr %767, align 8, !tbaa !42
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 24
   store ptr %744, ptr %773, align 8, !tbaa !33
   %774 = getelementptr inbounds nuw i8, ptr %771, i64 24
@@ -11926,20 +11926,20 @@ emitter_col_init.exit243:                         ; preds = %emitter_col_init.ex
   %779 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %74, ptr %779, align 8, !tbaa !33
   %780 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr %74, ptr %780, align 8, !tbaa !39
+  store ptr %74, ptr %780, align 8, !tbaa !42
   %781 = icmp eq ptr %760, null
   br i1 %781, label %emitter_col_init.exit245, label %782
 
 782:                                              ; preds = %emitter_col_init.exit243
   %783 = getelementptr inbounds nuw i8, ptr %760, i64 32
-  %784 = load ptr, ptr %783, align 8, !tbaa !39
+  %784 = load ptr, ptr %783, align 8, !tbaa !42
   store ptr %784, ptr %779, align 8, !tbaa !33
-  store ptr %74, ptr %783, align 8, !tbaa !39
-  %785 = load ptr, ptr %780, align 8, !tbaa !39
+  store ptr %74, ptr %783, align 8, !tbaa !42
+  %785 = load ptr, ptr %780, align 8, !tbaa !42
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 24
   %787 = load ptr, ptr %786, align 8, !tbaa !33
-  store ptr %787, ptr %780, align 8, !tbaa !39
-  %788 = load ptr, ptr %783, align 8, !tbaa !39
+  store ptr %787, ptr %780, align 8, !tbaa !42
+  %788 = load ptr, ptr %783, align 8, !tbaa !42
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 24
   store ptr %760, ptr %789, align 8, !tbaa !33
   %790 = getelementptr inbounds nuw i8, ptr %787, i64 24
@@ -11958,20 +11958,20 @@ emitter_col_init.exit245:                         ; preds = %emitter_col_init.ex
   %794 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %75, ptr %794, align 8, !tbaa !33
   %795 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store ptr %75, ptr %795, align 8, !tbaa !39
+  store ptr %75, ptr %795, align 8, !tbaa !42
   %796 = icmp eq ptr %775, null
   br i1 %796, label %emitter_col_init.exit247, label %797
 
 797:                                              ; preds = %emitter_col_init.exit245
   %798 = getelementptr inbounds nuw i8, ptr %775, i64 32
-  %799 = load ptr, ptr %798, align 8, !tbaa !39
+  %799 = load ptr, ptr %798, align 8, !tbaa !42
   store ptr %799, ptr %794, align 8, !tbaa !33
-  store ptr %75, ptr %798, align 8, !tbaa !39
-  %800 = load ptr, ptr %795, align 8, !tbaa !39
+  store ptr %75, ptr %798, align 8, !tbaa !42
+  %800 = load ptr, ptr %795, align 8, !tbaa !42
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 24
   %802 = load ptr, ptr %801, align 8, !tbaa !33
-  store ptr %802, ptr %795, align 8, !tbaa !39
-  %803 = load ptr, ptr %798, align 8, !tbaa !39
+  store ptr %802, ptr %795, align 8, !tbaa !42
+  %803 = load ptr, ptr %798, align 8, !tbaa !42
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 24
   store ptr %775, ptr %804, align 8, !tbaa !33
   %805 = getelementptr inbounds nuw i8, ptr %802, i64 24
@@ -11994,20 +11994,20 @@ emitter_col_init.exit247:                         ; preds = %emitter_col_init.ex
   %810 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %76, ptr %810, align 8, !tbaa !33
   %811 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store ptr %76, ptr %811, align 8, !tbaa !39
+  store ptr %76, ptr %811, align 8, !tbaa !42
   %812 = icmp eq ptr %791, null
   br i1 %812, label %emitter_col_init.exit249, label %813
 
 813:                                              ; preds = %emitter_col_init.exit247
   %814 = getelementptr inbounds nuw i8, ptr %791, i64 32
-  %815 = load ptr, ptr %814, align 8, !tbaa !39
+  %815 = load ptr, ptr %814, align 8, !tbaa !42
   store ptr %815, ptr %810, align 8, !tbaa !33
-  store ptr %76, ptr %814, align 8, !tbaa !39
-  %816 = load ptr, ptr %811, align 8, !tbaa !39
+  store ptr %76, ptr %814, align 8, !tbaa !42
+  %816 = load ptr, ptr %811, align 8, !tbaa !42
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 24
   %818 = load ptr, ptr %817, align 8, !tbaa !33
-  store ptr %818, ptr %811, align 8, !tbaa !39
-  %819 = load ptr, ptr %814, align 8, !tbaa !39
+  store ptr %818, ptr %811, align 8, !tbaa !42
+  %819 = load ptr, ptr %814, align 8, !tbaa !42
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 24
   store ptr %791, ptr %820, align 8, !tbaa !33
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 24
@@ -12026,20 +12026,20 @@ emitter_col_init.exit249:                         ; preds = %emitter_col_init.ex
   %825 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %77, ptr %825, align 8, !tbaa !33
   %826 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store ptr %77, ptr %826, align 8, !tbaa !39
+  store ptr %77, ptr %826, align 8, !tbaa !42
   %827 = icmp eq ptr %806, null
   br i1 %827, label %emitter_col_init.exit251, label %828
 
 828:                                              ; preds = %emitter_col_init.exit249
   %829 = getelementptr inbounds nuw i8, ptr %806, i64 32
-  %830 = load ptr, ptr %829, align 8, !tbaa !39
+  %830 = load ptr, ptr %829, align 8, !tbaa !42
   store ptr %830, ptr %825, align 8, !tbaa !33
-  store ptr %77, ptr %829, align 8, !tbaa !39
-  %831 = load ptr, ptr %826, align 8, !tbaa !39
+  store ptr %77, ptr %829, align 8, !tbaa !42
+  %831 = load ptr, ptr %826, align 8, !tbaa !42
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 24
   %833 = load ptr, ptr %832, align 8, !tbaa !33
-  store ptr %833, ptr %826, align 8, !tbaa !39
-  %834 = load ptr, ptr %829, align 8, !tbaa !39
+  store ptr %833, ptr %826, align 8, !tbaa !42
+  %834 = load ptr, ptr %829, align 8, !tbaa !42
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 24
   store ptr %806, ptr %835, align 8, !tbaa !33
   %836 = getelementptr inbounds nuw i8, ptr %833, i64 24
@@ -12062,20 +12062,20 @@ emitter_col_init.exit251:                         ; preds = %emitter_col_init.ex
   %841 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %78, ptr %841, align 8, !tbaa !33
   %842 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr %78, ptr %842, align 8, !tbaa !39
+  store ptr %78, ptr %842, align 8, !tbaa !42
   %843 = icmp eq ptr %822, null
   br i1 %843, label %emitter_col_init.exit253, label %844
 
 844:                                              ; preds = %emitter_col_init.exit251
   %845 = getelementptr inbounds nuw i8, ptr %822, i64 32
-  %846 = load ptr, ptr %845, align 8, !tbaa !39
+  %846 = load ptr, ptr %845, align 8, !tbaa !42
   store ptr %846, ptr %841, align 8, !tbaa !33
-  store ptr %78, ptr %845, align 8, !tbaa !39
-  %847 = load ptr, ptr %842, align 8, !tbaa !39
+  store ptr %78, ptr %845, align 8, !tbaa !42
+  %847 = load ptr, ptr %842, align 8, !tbaa !42
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 24
   %849 = load ptr, ptr %848, align 8, !tbaa !33
-  store ptr %849, ptr %842, align 8, !tbaa !39
-  %850 = load ptr, ptr %845, align 8, !tbaa !39
+  store ptr %849, ptr %842, align 8, !tbaa !42
+  %850 = load ptr, ptr %845, align 8, !tbaa !42
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 24
   store ptr %822, ptr %851, align 8, !tbaa !33
   %852 = getelementptr inbounds nuw i8, ptr %849, i64 24
@@ -12094,20 +12094,20 @@ emitter_col_init.exit253:                         ; preds = %emitter_col_init.ex
   %856 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store ptr %79, ptr %856, align 8, !tbaa !33
   %857 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr %79, ptr %857, align 8, !tbaa !39
+  store ptr %79, ptr %857, align 8, !tbaa !42
   %858 = icmp eq ptr %837, null
   br i1 %858, label %emitter_col_init.exit255, label %859
 
 859:                                              ; preds = %emitter_col_init.exit253
   %860 = getelementptr inbounds nuw i8, ptr %837, i64 32
-  %861 = load ptr, ptr %860, align 8, !tbaa !39
+  %861 = load ptr, ptr %860, align 8, !tbaa !42
   store ptr %861, ptr %856, align 8, !tbaa !33
-  store ptr %79, ptr %860, align 8, !tbaa !39
-  %862 = load ptr, ptr %857, align 8, !tbaa !39
+  store ptr %79, ptr %860, align 8, !tbaa !42
+  %862 = load ptr, ptr %857, align 8, !tbaa !42
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 24
   %864 = load ptr, ptr %863, align 8, !tbaa !33
-  store ptr %864, ptr %857, align 8, !tbaa !39
-  %865 = load ptr, ptr %860, align 8, !tbaa !39
+  store ptr %864, ptr %857, align 8, !tbaa !42
+  %865 = load ptr, ptr %860, align 8, !tbaa !42
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
   store ptr %837, ptr %866, align 8, !tbaa !33
   %867 = getelementptr inbounds nuw i8, ptr %864, i64 24
@@ -12130,20 +12130,20 @@ emitter_col_init.exit255:                         ; preds = %emitter_col_init.ex
   %872 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store ptr %80, ptr %872, align 8, !tbaa !33
   %873 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store ptr %80, ptr %873, align 8, !tbaa !39
+  store ptr %80, ptr %873, align 8, !tbaa !42
   %874 = icmp eq ptr %853, null
   br i1 %874, label %emitter_col_init.exit257, label %875
 
 875:                                              ; preds = %emitter_col_init.exit255
   %876 = getelementptr inbounds nuw i8, ptr %853, i64 32
-  %877 = load ptr, ptr %876, align 8, !tbaa !39
+  %877 = load ptr, ptr %876, align 8, !tbaa !42
   store ptr %877, ptr %872, align 8, !tbaa !33
-  store ptr %80, ptr %876, align 8, !tbaa !39
-  %878 = load ptr, ptr %873, align 8, !tbaa !39
+  store ptr %80, ptr %876, align 8, !tbaa !42
+  %878 = load ptr, ptr %873, align 8, !tbaa !42
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 24
   %880 = load ptr, ptr %879, align 8, !tbaa !33
-  store ptr %880, ptr %873, align 8, !tbaa !39
-  %881 = load ptr, ptr %876, align 8, !tbaa !39
+  store ptr %880, ptr %873, align 8, !tbaa !42
+  %881 = load ptr, ptr %876, align 8, !tbaa !42
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 24
   store ptr %853, ptr %882, align 8, !tbaa !33
   %883 = getelementptr inbounds nuw i8, ptr %880, i64 24
@@ -12162,20 +12162,20 @@ emitter_col_init.exit257:                         ; preds = %emitter_col_init.ex
   %887 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %81, ptr %887, align 8, !tbaa !33
   %888 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store ptr %81, ptr %888, align 8, !tbaa !39
+  store ptr %81, ptr %888, align 8, !tbaa !42
   %889 = icmp eq ptr %868, null
   br i1 %889, label %emitter_col_init.exit259, label %890
 
 890:                                              ; preds = %emitter_col_init.exit257
   %891 = getelementptr inbounds nuw i8, ptr %868, i64 32
-  %892 = load ptr, ptr %891, align 8, !tbaa !39
+  %892 = load ptr, ptr %891, align 8, !tbaa !42
   store ptr %892, ptr %887, align 8, !tbaa !33
-  store ptr %81, ptr %891, align 8, !tbaa !39
-  %893 = load ptr, ptr %888, align 8, !tbaa !39
+  store ptr %81, ptr %891, align 8, !tbaa !42
+  %893 = load ptr, ptr %888, align 8, !tbaa !42
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 24
   %895 = load ptr, ptr %894, align 8, !tbaa !33
-  store ptr %895, ptr %888, align 8, !tbaa !39
-  %896 = load ptr, ptr %891, align 8, !tbaa !39
+  store ptr %895, ptr %888, align 8, !tbaa !42
+  %896 = load ptr, ptr %891, align 8, !tbaa !42
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 24
   store ptr %868, ptr %897, align 8, !tbaa !33
   %898 = getelementptr inbounds nuw i8, ptr %895, i64 24
@@ -12198,20 +12198,20 @@ emitter_col_init.exit259:                         ; preds = %emitter_col_init.ex
   %903 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %82, ptr %903, align 8, !tbaa !33
   %904 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr %82, ptr %904, align 8, !tbaa !39
+  store ptr %82, ptr %904, align 8, !tbaa !42
   %905 = icmp eq ptr %884, null
   br i1 %905, label %emitter_col_init.exit261, label %906
 
 906:                                              ; preds = %emitter_col_init.exit259
   %907 = getelementptr inbounds nuw i8, ptr %884, i64 32
-  %908 = load ptr, ptr %907, align 8, !tbaa !39
+  %908 = load ptr, ptr %907, align 8, !tbaa !42
   store ptr %908, ptr %903, align 8, !tbaa !33
-  store ptr %82, ptr %907, align 8, !tbaa !39
-  %909 = load ptr, ptr %904, align 8, !tbaa !39
+  store ptr %82, ptr %907, align 8, !tbaa !42
+  %909 = load ptr, ptr %904, align 8, !tbaa !42
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 24
   %911 = load ptr, ptr %910, align 8, !tbaa !33
-  store ptr %911, ptr %904, align 8, !tbaa !39
-  %912 = load ptr, ptr %907, align 8, !tbaa !39
+  store ptr %911, ptr %904, align 8, !tbaa !42
+  %912 = load ptr, ptr %907, align 8, !tbaa !42
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 24
   store ptr %884, ptr %913, align 8, !tbaa !33
   %914 = getelementptr inbounds nuw i8, ptr %911, i64 24
@@ -12230,20 +12230,20 @@ emitter_col_init.exit261:                         ; preds = %emitter_col_init.ex
   %918 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr %83, ptr %918, align 8, !tbaa !33
   %919 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr %83, ptr %919, align 8, !tbaa !39
+  store ptr %83, ptr %919, align 8, !tbaa !42
   %920 = icmp eq ptr %899, null
   br i1 %920, label %emitter_col_init.exit263, label %921
 
 921:                                              ; preds = %emitter_col_init.exit261
   %922 = getelementptr inbounds nuw i8, ptr %899, i64 32
-  %923 = load ptr, ptr %922, align 8, !tbaa !39
+  %923 = load ptr, ptr %922, align 8, !tbaa !42
   store ptr %923, ptr %918, align 8, !tbaa !33
-  store ptr %83, ptr %922, align 8, !tbaa !39
-  %924 = load ptr, ptr %919, align 8, !tbaa !39
+  store ptr %83, ptr %922, align 8, !tbaa !42
+  %924 = load ptr, ptr %919, align 8, !tbaa !42
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 24
   %926 = load ptr, ptr %925, align 8, !tbaa !33
-  store ptr %926, ptr %919, align 8, !tbaa !39
-  %927 = load ptr, ptr %922, align 8, !tbaa !39
+  store ptr %926, ptr %919, align 8, !tbaa !42
+  %927 = load ptr, ptr %922, align 8, !tbaa !42
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 24
   store ptr %899, ptr %928, align 8, !tbaa !33
   %929 = getelementptr inbounds nuw i8, ptr %926, i64 24
@@ -12266,20 +12266,20 @@ emitter_col_init.exit263:                         ; preds = %emitter_col_init.ex
   %934 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %84, ptr %934, align 8, !tbaa !33
   %935 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr %84, ptr %935, align 8, !tbaa !39
+  store ptr %84, ptr %935, align 8, !tbaa !42
   %936 = icmp eq ptr %915, null
   br i1 %936, label %emitter_col_init.exit265, label %937
 
 937:                                              ; preds = %emitter_col_init.exit263
   %938 = getelementptr inbounds nuw i8, ptr %915, i64 32
-  %939 = load ptr, ptr %938, align 8, !tbaa !39
+  %939 = load ptr, ptr %938, align 8, !tbaa !42
   store ptr %939, ptr %934, align 8, !tbaa !33
-  store ptr %84, ptr %938, align 8, !tbaa !39
-  %940 = load ptr, ptr %935, align 8, !tbaa !39
+  store ptr %84, ptr %938, align 8, !tbaa !42
+  %940 = load ptr, ptr %935, align 8, !tbaa !42
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 24
   %942 = load ptr, ptr %941, align 8, !tbaa !33
-  store ptr %942, ptr %935, align 8, !tbaa !39
-  %943 = load ptr, ptr %938, align 8, !tbaa !39
+  store ptr %942, ptr %935, align 8, !tbaa !42
+  %943 = load ptr, ptr %938, align 8, !tbaa !42
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 24
   store ptr %915, ptr %944, align 8, !tbaa !33
   %945 = getelementptr inbounds nuw i8, ptr %942, i64 24
@@ -12298,20 +12298,20 @@ emitter_col_init.exit265:                         ; preds = %emitter_col_init.ex
   %949 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %85, ptr %949, align 8, !tbaa !33
   %950 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store ptr %85, ptr %950, align 8, !tbaa !39
+  store ptr %85, ptr %950, align 8, !tbaa !42
   %951 = icmp eq ptr %930, null
   br i1 %951, label %emitter_col_init.exit267, label %952
 
 952:                                              ; preds = %emitter_col_init.exit265
   %953 = getelementptr inbounds nuw i8, ptr %930, i64 32
-  %954 = load ptr, ptr %953, align 8, !tbaa !39
+  %954 = load ptr, ptr %953, align 8, !tbaa !42
   store ptr %954, ptr %949, align 8, !tbaa !33
-  store ptr %85, ptr %953, align 8, !tbaa !39
-  %955 = load ptr, ptr %950, align 8, !tbaa !39
+  store ptr %85, ptr %953, align 8, !tbaa !42
+  %955 = load ptr, ptr %950, align 8, !tbaa !42
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 24
   %957 = load ptr, ptr %956, align 8, !tbaa !33
-  store ptr %957, ptr %950, align 8, !tbaa !39
-  %958 = load ptr, ptr %953, align 8, !tbaa !39
+  store ptr %957, ptr %950, align 8, !tbaa !42
+  %958 = load ptr, ptr %953, align 8, !tbaa !42
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 24
   store ptr %930, ptr %959, align 8, !tbaa !33
   %960 = getelementptr inbounds nuw i8, ptr %957, i64 24
@@ -12334,20 +12334,20 @@ emitter_col_init.exit267:                         ; preds = %emitter_col_init.ex
   %965 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %86, ptr %965, align 8, !tbaa !33
   %966 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store ptr %86, ptr %966, align 8, !tbaa !39
+  store ptr %86, ptr %966, align 8, !tbaa !42
   %967 = icmp eq ptr %946, null
   br i1 %967, label %emitter_col_init.exit269, label %968
 
 968:                                              ; preds = %emitter_col_init.exit267
   %969 = getelementptr inbounds nuw i8, ptr %946, i64 32
-  %970 = load ptr, ptr %969, align 8, !tbaa !39
+  %970 = load ptr, ptr %969, align 8, !tbaa !42
   store ptr %970, ptr %965, align 8, !tbaa !33
-  store ptr %86, ptr %969, align 8, !tbaa !39
-  %971 = load ptr, ptr %966, align 8, !tbaa !39
+  store ptr %86, ptr %969, align 8, !tbaa !42
+  %971 = load ptr, ptr %966, align 8, !tbaa !42
   %972 = getelementptr inbounds nuw i8, ptr %971, i64 24
   %973 = load ptr, ptr %972, align 8, !tbaa !33
-  store ptr %973, ptr %966, align 8, !tbaa !39
-  %974 = load ptr, ptr %969, align 8, !tbaa !39
+  store ptr %973, ptr %966, align 8, !tbaa !42
+  %974 = load ptr, ptr %969, align 8, !tbaa !42
   %975 = getelementptr inbounds nuw i8, ptr %974, i64 24
   store ptr %946, ptr %975, align 8, !tbaa !33
   %976 = getelementptr inbounds nuw i8, ptr %973, i64 24
@@ -12366,20 +12366,20 @@ emitter_col_init.exit269:                         ; preds = %emitter_col_init.ex
   %980 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store ptr %87, ptr %980, align 8, !tbaa !33
   %981 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store ptr %87, ptr %981, align 8, !tbaa !39
+  store ptr %87, ptr %981, align 8, !tbaa !42
   %982 = icmp eq ptr %961, null
   br i1 %982, label %emitter_col_init.exit271, label %983
 
 983:                                              ; preds = %emitter_col_init.exit269
   %984 = getelementptr inbounds nuw i8, ptr %961, i64 32
-  %985 = load ptr, ptr %984, align 8, !tbaa !39
+  %985 = load ptr, ptr %984, align 8, !tbaa !42
   store ptr %985, ptr %980, align 8, !tbaa !33
-  store ptr %87, ptr %984, align 8, !tbaa !39
-  %986 = load ptr, ptr %981, align 8, !tbaa !39
+  store ptr %87, ptr %984, align 8, !tbaa !42
+  %986 = load ptr, ptr %981, align 8, !tbaa !42
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 24
   %988 = load ptr, ptr %987, align 8, !tbaa !33
-  store ptr %988, ptr %981, align 8, !tbaa !39
-  %989 = load ptr, ptr %984, align 8, !tbaa !39
+  store ptr %988, ptr %981, align 8, !tbaa !42
+  %989 = load ptr, ptr %984, align 8, !tbaa !42
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 24
   store ptr %961, ptr %990, align 8, !tbaa !33
   %991 = getelementptr inbounds nuw i8, ptr %988, i64 24
@@ -12402,20 +12402,20 @@ emitter_col_init.exit271:                         ; preds = %emitter_col_init.ex
   %996 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %88, ptr %996, align 8, !tbaa !33
   %997 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  store ptr %88, ptr %997, align 8, !tbaa !39
+  store ptr %88, ptr %997, align 8, !tbaa !42
   %998 = icmp eq ptr %977, null
   br i1 %998, label %emitter_col_init.exit273, label %999
 
 999:                                              ; preds = %emitter_col_init.exit271
   %1000 = getelementptr inbounds nuw i8, ptr %977, i64 32
-  %1001 = load ptr, ptr %1000, align 8, !tbaa !39
+  %1001 = load ptr, ptr %1000, align 8, !tbaa !42
   store ptr %1001, ptr %996, align 8, !tbaa !33
-  store ptr %88, ptr %1000, align 8, !tbaa !39
-  %1002 = load ptr, ptr %997, align 8, !tbaa !39
+  store ptr %88, ptr %1000, align 8, !tbaa !42
+  %1002 = load ptr, ptr %997, align 8, !tbaa !42
   %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 24
   %1004 = load ptr, ptr %1003, align 8, !tbaa !33
-  store ptr %1004, ptr %997, align 8, !tbaa !39
-  %1005 = load ptr, ptr %1000, align 8, !tbaa !39
+  store ptr %1004, ptr %997, align 8, !tbaa !42
+  %1005 = load ptr, ptr %1000, align 8, !tbaa !42
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   store ptr %977, ptr %1006, align 8, !tbaa !33
   %1007 = getelementptr inbounds nuw i8, ptr %1004, i64 24
@@ -12434,20 +12434,20 @@ emitter_col_init.exit273:                         ; preds = %emitter_col_init.ex
   %1011 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %89, ptr %1011, align 8, !tbaa !33
   %1012 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  store ptr %89, ptr %1012, align 8, !tbaa !39
+  store ptr %89, ptr %1012, align 8, !tbaa !42
   %1013 = icmp eq ptr %992, null
   br i1 %1013, label %emitter_col_init.exit275, label %1014
 
 1014:                                             ; preds = %emitter_col_init.exit273
   %1015 = getelementptr inbounds nuw i8, ptr %992, i64 32
-  %1016 = load ptr, ptr %1015, align 8, !tbaa !39
+  %1016 = load ptr, ptr %1015, align 8, !tbaa !42
   store ptr %1016, ptr %1011, align 8, !tbaa !33
-  store ptr %89, ptr %1015, align 8, !tbaa !39
-  %1017 = load ptr, ptr %1012, align 8, !tbaa !39
+  store ptr %89, ptr %1015, align 8, !tbaa !42
+  %1017 = load ptr, ptr %1012, align 8, !tbaa !42
   %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 24
   %1019 = load ptr, ptr %1018, align 8, !tbaa !33
-  store ptr %1019, ptr %1012, align 8, !tbaa !39
-  %1020 = load ptr, ptr %1015, align 8, !tbaa !39
+  store ptr %1019, ptr %1012, align 8, !tbaa !42
+  %1020 = load ptr, ptr %1015, align 8, !tbaa !42
   %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 24
   store ptr %992, ptr %1021, align 8, !tbaa !33
   %1022 = getelementptr inbounds nuw i8, ptr %1019, i64 24
@@ -14110,7 +14110,7 @@ emitter_col_init.exit87:                          ; preds = %50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #14
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %8, ptr %63, align 8, !tbaa !39
+  store ptr %8, ptr %63, align 8, !tbaa !42
   store ptr %10, ptr %53, align 8, !tbaa !33
   store i32 1, ptr %10, align 8, !tbaa !28
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -14119,7 +14119,7 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 3, ptr %65, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %9, ptr %67, align 8, !tbaa !39
+  store ptr %9, ptr %67, align 8, !tbaa !42
   store ptr %11, ptr %57, align 8, !tbaa !33
   store i32 1, ptr %11, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -14131,7 +14131,7 @@ emitter_col_init.exit87:                          ; preds = %50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #14
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %10, ptr %71, align 8, !tbaa !39
+  store ptr %10, ptr %71, align 8, !tbaa !42
   store ptr %12, ptr %62, align 8, !tbaa !33
   store i32 1, ptr %12, align 8, !tbaa !28
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -14139,7 +14139,7 @@ emitter_col_init.exit87:                          ; preds = %50
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 6, ptr %73, align 8, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %11, ptr %74, align 8, !tbaa !39
+  store ptr %11, ptr %74, align 8, !tbaa !42
   store ptr %13, ptr %66, align 8, !tbaa !33
   store i32 1, ptr %13, align 8, !tbaa !28
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -14151,7 +14151,7 @@ emitter_col_init.exit87:                          ; preds = %50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #14
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %12, ptr %78, align 8, !tbaa !39
+  store ptr %12, ptr %78, align 8, !tbaa !42
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %14, ptr %79, align 8, !tbaa !33
   store i32 1, ptr %14, align 8, !tbaa !28
@@ -14160,7 +14160,7 @@ emitter_col_init.exit87:                          ; preds = %50
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 5, ptr %81, align 8, !tbaa !32
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %13, ptr %82, align 8, !tbaa !39
+  store ptr %13, ptr %82, align 8, !tbaa !42
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %15, ptr %83, align 8, !tbaa !33
   store i32 1, ptr %15, align 8, !tbaa !28
@@ -14174,8 +14174,8 @@ emitter_col_init.exit87:                          ; preds = %50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #14
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %16, ptr %54, align 8, !tbaa !39
-  store ptr %14, ptr %88, align 8, !tbaa !39
+  store ptr %16, ptr %54, align 8, !tbaa !42
+  store ptr %14, ptr %88, align 8, !tbaa !42
   store ptr %8, ptr %87, align 8, !tbaa !33
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %16, ptr %89, align 8, !tbaa !33
@@ -14186,8 +14186,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 5, ptr %91, align 8, !tbaa !32
   %92 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %17, ptr %58, align 8, !tbaa !39
-  store ptr %15, ptr %93, align 8, !tbaa !39
+  store ptr %17, ptr %58, align 8, !tbaa !42
+  store ptr %15, ptr %93, align 8, !tbaa !42
   store ptr %9, ptr %92, align 8, !tbaa !33
   %94 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %17, ptr %94, align 8, !tbaa !33
@@ -14202,12 +14202,12 @@ emitter_col_init.exit87:                          ; preds = %50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #14
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %18, ptr %99, align 8, !tbaa !39
+  store ptr %18, ptr %99, align 8, !tbaa !42
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !39
+  %101 = load ptr, ptr %100, align 8, !tbaa !42
   store ptr %101, ptr %98, align 8, !tbaa !33
-  store ptr %18, ptr %100, align 8, !tbaa !39
-  store ptr %101, ptr %99, align 8, !tbaa !39
+  store ptr %18, ptr %100, align 8, !tbaa !42
+  store ptr %101, ptr %99, align 8, !tbaa !42
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %8, ptr %102, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -14220,12 +14220,12 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 5, ptr %105, align 8, !tbaa !32
   %106 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %107 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %19, ptr %107, align 8, !tbaa !39
+  store ptr %19, ptr %107, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !39
+  %109 = load ptr, ptr %108, align 8, !tbaa !42
   store ptr %109, ptr %106, align 8, !tbaa !33
-  store ptr %19, ptr %108, align 8, !tbaa !39
-  store ptr %109, ptr %107, align 8, !tbaa !39
+  store ptr %19, ptr %108, align 8, !tbaa !42
+  store ptr %109, ptr %107, align 8, !tbaa !42
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %9, ptr %110, align 8, !tbaa !33
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 24
@@ -14243,20 +14243,20 @@ emitter_col_init.exit87:                          ; preds = %50
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %20, ptr %115, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %20, ptr %116, align 8, !tbaa !39
+  store ptr %20, ptr %116, align 8, !tbaa !42
   %117 = icmp eq ptr %.pre.i84, null
   br i1 %117, label %emitter_col_init.exit89, label %118
 
 118:                                              ; preds = %emitter_col_init.exit87
   %119 = getelementptr inbounds nuw i8, ptr %.pre.i84, i64 32
-  %120 = load ptr, ptr %119, align 8, !tbaa !39
+  %120 = load ptr, ptr %119, align 8, !tbaa !42
   store ptr %120, ptr %115, align 8, !tbaa !33
-  store ptr %20, ptr %119, align 8, !tbaa !39
-  %121 = load ptr, ptr %116, align 8, !tbaa !39
+  store ptr %20, ptr %119, align 8, !tbaa !42
+  %121 = load ptr, ptr %116, align 8, !tbaa !42
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8, !tbaa !33
-  store ptr %123, ptr %116, align 8, !tbaa !39
-  %124 = load ptr, ptr %119, align 8, !tbaa !39
+  store ptr %123, ptr %116, align 8, !tbaa !42
+  %124 = load ptr, ptr %119, align 8, !tbaa !42
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store ptr %.pre.i84, ptr %125, align 8, !tbaa !33
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
@@ -14274,20 +14274,20 @@ emitter_col_init.exit89:                          ; preds = %emitter_col_init.ex
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %21, ptr %130, align 8, !tbaa !33
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr %21, ptr %131, align 8, !tbaa !39
+  store ptr %21, ptr %131, align 8, !tbaa !42
   %132 = icmp eq ptr %.pre.i86, null
   br i1 %132, label %emitter_col_init.exit91, label %133
 
 133:                                              ; preds = %emitter_col_init.exit89
   %134 = getelementptr inbounds nuw i8, ptr %.pre.i86, i64 32
-  %135 = load ptr, ptr %134, align 8, !tbaa !39
+  %135 = load ptr, ptr %134, align 8, !tbaa !42
   store ptr %135, ptr %130, align 8, !tbaa !33
-  store ptr %21, ptr %134, align 8, !tbaa !39
-  %136 = load ptr, ptr %131, align 8, !tbaa !39
+  store ptr %21, ptr %134, align 8, !tbaa !42
+  %136 = load ptr, ptr %131, align 8, !tbaa !42
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = load ptr, ptr %137, align 8, !tbaa !33
-  store ptr %138, ptr %131, align 8, !tbaa !39
-  %139 = load ptr, ptr %134, align 8, !tbaa !39
+  store ptr %138, ptr %131, align 8, !tbaa !42
+  %139 = load ptr, ptr %134, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store ptr %.pre.i86, ptr %140, align 8, !tbaa !33
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -14309,20 +14309,20 @@ emitter_col_init.exit91:                          ; preds = %emitter_col_init.ex
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %22, ptr %146, align 8, !tbaa !33
   %147 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %22, ptr %147, align 8, !tbaa !39
+  store ptr %22, ptr %147, align 8, !tbaa !42
   %148 = icmp eq ptr %127, null
   br i1 %148, label %emitter_col_init.exit93, label %149
 
 149:                                              ; preds = %emitter_col_init.exit91
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %151 = load ptr, ptr %150, align 8, !tbaa !39
+  %151 = load ptr, ptr %150, align 8, !tbaa !42
   store ptr %151, ptr %146, align 8, !tbaa !33
-  store ptr %22, ptr %150, align 8, !tbaa !39
-  %152 = load ptr, ptr %147, align 8, !tbaa !39
+  store ptr %22, ptr %150, align 8, !tbaa !42
+  %152 = load ptr, ptr %147, align 8, !tbaa !42
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8, !tbaa !33
-  store ptr %154, ptr %147, align 8, !tbaa !39
-  %155 = load ptr, ptr %150, align 8, !tbaa !39
+  store ptr %154, ptr %147, align 8, !tbaa !42
+  %155 = load ptr, ptr %150, align 8, !tbaa !42
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store ptr %127, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 24
@@ -14340,20 +14340,20 @@ emitter_col_init.exit93:                          ; preds = %emitter_col_init.ex
   %161 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %23, ptr %161, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr %23, ptr %162, align 8, !tbaa !39
+  store ptr %23, ptr %162, align 8, !tbaa !42
   %163 = icmp eq ptr %142, null
   br i1 %163, label %emitter_col_init.exit95, label %164
 
 164:                                              ; preds = %emitter_col_init.exit93
   %165 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %166 = load ptr, ptr %165, align 8, !tbaa !39
+  %166 = load ptr, ptr %165, align 8, !tbaa !42
   store ptr %166, ptr %161, align 8, !tbaa !33
-  store ptr %23, ptr %165, align 8, !tbaa !39
-  %167 = load ptr, ptr %162, align 8, !tbaa !39
+  store ptr %23, ptr %165, align 8, !tbaa !42
+  %167 = load ptr, ptr %162, align 8, !tbaa !42
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !33
-  store ptr %169, ptr %162, align 8, !tbaa !39
-  %170 = load ptr, ptr %165, align 8, !tbaa !39
+  store ptr %169, ptr %162, align 8, !tbaa !42
+  %170 = load ptr, ptr %165, align 8, !tbaa !42
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store ptr %142, ptr %171, align 8, !tbaa !33
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 24
@@ -14375,20 +14375,20 @@ emitter_col_init.exit95:                          ; preds = %emitter_col_init.ex
   %177 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %24, ptr %177, align 8, !tbaa !33
   %178 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %24, ptr %178, align 8, !tbaa !39
+  store ptr %24, ptr %178, align 8, !tbaa !42
   %179 = icmp eq ptr %158, null
   br i1 %179, label %emitter_col_init.exit97, label %180
 
 180:                                              ; preds = %emitter_col_init.exit95
   %181 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  %182 = load ptr, ptr %181, align 8, !tbaa !39
+  %182 = load ptr, ptr %181, align 8, !tbaa !42
   store ptr %182, ptr %177, align 8, !tbaa !33
-  store ptr %24, ptr %181, align 8, !tbaa !39
-  %183 = load ptr, ptr %178, align 8, !tbaa !39
+  store ptr %24, ptr %181, align 8, !tbaa !42
+  %183 = load ptr, ptr %178, align 8, !tbaa !42
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load ptr, ptr %184, align 8, !tbaa !33
-  store ptr %185, ptr %178, align 8, !tbaa !39
-  %186 = load ptr, ptr %181, align 8, !tbaa !39
+  store ptr %185, ptr %178, align 8, !tbaa !42
+  %186 = load ptr, ptr %181, align 8, !tbaa !42
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %158, ptr %187, align 8, !tbaa !33
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
@@ -14406,20 +14406,20 @@ emitter_col_init.exit97:                          ; preds = %emitter_col_init.ex
   %192 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %25, ptr %192, align 8, !tbaa !33
   %193 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %25, ptr %193, align 8, !tbaa !39
+  store ptr %25, ptr %193, align 8, !tbaa !42
   %194 = icmp eq ptr %173, null
   br i1 %194, label %emitter_col_init.exit99, label %195
 
 195:                                              ; preds = %emitter_col_init.exit97
   %196 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %197 = load ptr, ptr %196, align 8, !tbaa !39
+  %197 = load ptr, ptr %196, align 8, !tbaa !42
   store ptr %197, ptr %192, align 8, !tbaa !33
-  store ptr %25, ptr %196, align 8, !tbaa !39
-  %198 = load ptr, ptr %193, align 8, !tbaa !39
+  store ptr %25, ptr %196, align 8, !tbaa !42
+  %198 = load ptr, ptr %193, align 8, !tbaa !42
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !33
-  store ptr %200, ptr %193, align 8, !tbaa !39
-  %201 = load ptr, ptr %196, align 8, !tbaa !39
+  store ptr %200, ptr %193, align 8, !tbaa !42
+  %201 = load ptr, ptr %196, align 8, !tbaa !42
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store ptr %173, ptr %202, align 8, !tbaa !33
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 24
@@ -14441,20 +14441,20 @@ emitter_col_init.exit99:                          ; preds = %emitter_col_init.ex
   %208 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %26, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %26, ptr %209, align 8, !tbaa !39
+  store ptr %26, ptr %209, align 8, !tbaa !42
   %210 = icmp eq ptr %189, null
   br i1 %210, label %emitter_col_init.exit101, label %211
 
 211:                                              ; preds = %emitter_col_init.exit99
   %212 = getelementptr inbounds nuw i8, ptr %189, i64 32
-  %213 = load ptr, ptr %212, align 8, !tbaa !39
+  %213 = load ptr, ptr %212, align 8, !tbaa !42
   store ptr %213, ptr %208, align 8, !tbaa !33
-  store ptr %26, ptr %212, align 8, !tbaa !39
-  %214 = load ptr, ptr %209, align 8, !tbaa !39
+  store ptr %26, ptr %212, align 8, !tbaa !42
+  %214 = load ptr, ptr %209, align 8, !tbaa !42
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !33
-  store ptr %216, ptr %209, align 8, !tbaa !39
-  %217 = load ptr, ptr %212, align 8, !tbaa !39
+  store ptr %216, ptr %209, align 8, !tbaa !42
+  %217 = load ptr, ptr %212, align 8, !tbaa !42
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %189, ptr %218, align 8, !tbaa !33
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 24
@@ -14472,20 +14472,20 @@ emitter_col_init.exit101:                         ; preds = %emitter_col_init.ex
   %223 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %27, ptr %223, align 8, !tbaa !33
   %224 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %27, ptr %224, align 8, !tbaa !39
+  store ptr %27, ptr %224, align 8, !tbaa !42
   %225 = icmp eq ptr %204, null
   br i1 %225, label %emitter_col_init.exit103, label %226
 
 226:                                              ; preds = %emitter_col_init.exit101
   %227 = getelementptr inbounds nuw i8, ptr %204, i64 32
-  %228 = load ptr, ptr %227, align 8, !tbaa !39
+  %228 = load ptr, ptr %227, align 8, !tbaa !42
   store ptr %228, ptr %223, align 8, !tbaa !33
-  store ptr %27, ptr %227, align 8, !tbaa !39
-  %229 = load ptr, ptr %224, align 8, !tbaa !39
+  store ptr %27, ptr %227, align 8, !tbaa !42
+  %229 = load ptr, ptr %224, align 8, !tbaa !42
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8, !tbaa !33
-  store ptr %231, ptr %224, align 8, !tbaa !39
-  %232 = load ptr, ptr %227, align 8, !tbaa !39
+  store ptr %231, ptr %224, align 8, !tbaa !42
+  %232 = load ptr, ptr %227, align 8, !tbaa !42
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store ptr %204, ptr %233, align 8, !tbaa !33
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 24
@@ -15120,7 +15120,7 @@ emitter_col_init.exit81:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #14
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %2, ptr %53, align 8, !tbaa !39
+  store ptr %2, ptr %53, align 8, !tbaa !42
   store ptr %4, ptr %43, align 8, !tbaa !33
   store i32 1, ptr %4, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -15129,7 +15129,7 @@ emitter_col_init.exit81:
   store i32 3, ptr %55, align 8, !tbaa !32
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %3, ptr %57, align 8, !tbaa !39
+  store ptr %3, ptr %57, align 8, !tbaa !42
   store ptr %5, ptr %47, align 8, !tbaa !33
   store i32 1, ptr %5, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -15141,7 +15141,7 @@ emitter_col_init.exit81:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #14
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %4, ptr %61, align 8, !tbaa !39
+  store ptr %4, ptr %61, align 8, !tbaa !42
   store ptr %6, ptr %52, align 8, !tbaa !33
   store i32 1, ptr %6, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -15149,7 +15149,7 @@ emitter_col_init.exit81:
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 6, ptr %63, align 8, !tbaa !32
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %5, ptr %64, align 8, !tbaa !39
+  store ptr %5, ptr %64, align 8, !tbaa !42
   store ptr %7, ptr %56, align 8, !tbaa !33
   store i32 1, ptr %7, align 8, !tbaa !28
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -15161,7 +15161,7 @@ emitter_col_init.exit81:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #14
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %6, ptr %68, align 8, !tbaa !39
+  store ptr %6, ptr %68, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %8, ptr %69, align 8, !tbaa !33
   store i32 1, ptr %8, align 8, !tbaa !28
@@ -15170,7 +15170,7 @@ emitter_col_init.exit81:
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 6, ptr %71, align 8, !tbaa !32
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %7, ptr %72, align 8, !tbaa !39
+  store ptr %7, ptr %72, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %9, ptr %73, align 8, !tbaa !33
   store i32 1, ptr %9, align 8, !tbaa !28
@@ -15184,8 +15184,8 @@ emitter_col_init.exit81:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #14
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %10, ptr %44, align 8, !tbaa !39
-  store ptr %8, ptr %78, align 8, !tbaa !39
+  store ptr %10, ptr %44, align 8, !tbaa !42
+  store ptr %8, ptr %78, align 8, !tbaa !42
   store ptr %2, ptr %77, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %10, ptr %79, align 8, !tbaa !33
@@ -15196,8 +15196,8 @@ emitter_col_init.exit81:
   store i32 6, ptr %81, align 8, !tbaa !32
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %11, ptr %48, align 8, !tbaa !39
-  store ptr %9, ptr %83, align 8, !tbaa !39
+  store ptr %11, ptr %48, align 8, !tbaa !42
+  store ptr %9, ptr %83, align 8, !tbaa !42
   store ptr %3, ptr %82, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %11, ptr %84, align 8, !tbaa !33
@@ -15212,12 +15212,12 @@ emitter_col_init.exit81:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #14
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %12, ptr %89, align 8, !tbaa !39
+  store ptr %12, ptr %89, align 8, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !39
+  %91 = load ptr, ptr %90, align 8, !tbaa !42
   store ptr %91, ptr %88, align 8, !tbaa !33
-  store ptr %12, ptr %90, align 8, !tbaa !39
-  store ptr %91, ptr %89, align 8, !tbaa !39
+  store ptr %12, ptr %90, align 8, !tbaa !42
+  store ptr %91, ptr %89, align 8, !tbaa !42
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %2, ptr %92, align 8, !tbaa !33
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
@@ -15230,12 +15230,12 @@ emitter_col_init.exit81:
   store i32 6, ptr %95, align 8, !tbaa !32
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %13, ptr %97, align 8, !tbaa !39
+  store ptr %13, ptr %97, align 8, !tbaa !42
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %99 = load ptr, ptr %98, align 8, !tbaa !39
+  %99 = load ptr, ptr %98, align 8, !tbaa !42
   store ptr %99, ptr %96, align 8, !tbaa !33
-  store ptr %13, ptr %98, align 8, !tbaa !39
-  store ptr %99, ptr %97, align 8, !tbaa !39
+  store ptr %13, ptr %98, align 8, !tbaa !42
+  store ptr %99, ptr %97, align 8, !tbaa !42
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %3, ptr %100, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 24
@@ -15253,20 +15253,20 @@ emitter_col_init.exit81:
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %14, ptr %105, align 8, !tbaa !33
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %14, ptr %106, align 8, !tbaa !39
+  store ptr %14, ptr %106, align 8, !tbaa !42
   %107 = icmp eq ptr %.pre.i78, null
   br i1 %107, label %emitter_col_init.exit83, label %108
 
 108:                                              ; preds = %emitter_col_init.exit81
   %109 = getelementptr inbounds nuw i8, ptr %.pre.i78, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !39
+  %110 = load ptr, ptr %109, align 8, !tbaa !42
   store ptr %110, ptr %105, align 8, !tbaa !33
-  store ptr %14, ptr %109, align 8, !tbaa !39
-  %111 = load ptr, ptr %106, align 8, !tbaa !39
+  store ptr %14, ptr %109, align 8, !tbaa !42
+  %111 = load ptr, ptr %106, align 8, !tbaa !42
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !33
-  store ptr %113, ptr %106, align 8, !tbaa !39
-  %114 = load ptr, ptr %109, align 8, !tbaa !39
+  store ptr %113, ptr %106, align 8, !tbaa !42
+  %114 = load ptr, ptr %109, align 8, !tbaa !42
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store ptr %.pre.i78, ptr %115, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 24
@@ -15284,20 +15284,20 @@ emitter_col_init.exit83:                          ; preds = %emitter_col_init.ex
   %120 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %15, ptr %120, align 8, !tbaa !33
   %121 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %15, ptr %121, align 8, !tbaa !39
+  store ptr %15, ptr %121, align 8, !tbaa !42
   %122 = icmp eq ptr %.pre.i80, null
   br i1 %122, label %emitter_col_init.exit85, label %123
 
 123:                                              ; preds = %emitter_col_init.exit83
   %124 = getelementptr inbounds nuw i8, ptr %.pre.i80, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !39
+  %125 = load ptr, ptr %124, align 8, !tbaa !42
   store ptr %125, ptr %120, align 8, !tbaa !33
-  store ptr %15, ptr %124, align 8, !tbaa !39
-  %126 = load ptr, ptr %121, align 8, !tbaa !39
+  store ptr %15, ptr %124, align 8, !tbaa !42
+  %126 = load ptr, ptr %121, align 8, !tbaa !42
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !33
-  store ptr %128, ptr %121, align 8, !tbaa !39
-  %129 = load ptr, ptr %124, align 8, !tbaa !39
+  store ptr %128, ptr %121, align 8, !tbaa !42
+  %129 = load ptr, ptr %124, align 8, !tbaa !42
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %.pre.i80, ptr %130, align 8, !tbaa !33
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 24
@@ -15319,20 +15319,20 @@ emitter_col_init.exit85:                          ; preds = %emitter_col_init.ex
   %136 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %16, ptr %136, align 8, !tbaa !33
   %137 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %16, ptr %137, align 8, !tbaa !39
+  store ptr %16, ptr %137, align 8, !tbaa !42
   %138 = icmp eq ptr %117, null
   br i1 %138, label %emitter_col_init.exit87, label %139
 
 139:                                              ; preds = %emitter_col_init.exit85
   %140 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !39
+  %141 = load ptr, ptr %140, align 8, !tbaa !42
   store ptr %141, ptr %136, align 8, !tbaa !33
-  store ptr %16, ptr %140, align 8, !tbaa !39
-  %142 = load ptr, ptr %137, align 8, !tbaa !39
+  store ptr %16, ptr %140, align 8, !tbaa !42
+  %142 = load ptr, ptr %137, align 8, !tbaa !42
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8, !tbaa !33
-  store ptr %144, ptr %137, align 8, !tbaa !39
-  %145 = load ptr, ptr %140, align 8, !tbaa !39
+  store ptr %144, ptr %137, align 8, !tbaa !42
+  %145 = load ptr, ptr %140, align 8, !tbaa !42
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store ptr %117, ptr %146, align 8, !tbaa !33
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 24
@@ -15350,20 +15350,20 @@ emitter_col_init.exit87:                          ; preds = %emitter_col_init.ex
   %151 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %17, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %17, ptr %152, align 8, !tbaa !39
+  store ptr %17, ptr %152, align 8, !tbaa !42
   %153 = icmp eq ptr %132, null
   br i1 %153, label %emitter_col_init.exit89, label %154
 
 154:                                              ; preds = %emitter_col_init.exit87
   %155 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  %156 = load ptr, ptr %155, align 8, !tbaa !39
+  %156 = load ptr, ptr %155, align 8, !tbaa !42
   store ptr %156, ptr %151, align 8, !tbaa !33
-  store ptr %17, ptr %155, align 8, !tbaa !39
-  %157 = load ptr, ptr %152, align 8, !tbaa !39
+  store ptr %17, ptr %155, align 8, !tbaa !42
+  %157 = load ptr, ptr %152, align 8, !tbaa !42
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8, !tbaa !33
-  store ptr %159, ptr %152, align 8, !tbaa !39
-  %160 = load ptr, ptr %155, align 8, !tbaa !39
+  store ptr %159, ptr %152, align 8, !tbaa !42
+  %160 = load ptr, ptr %155, align 8, !tbaa !42
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store ptr %132, ptr %161, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 24
@@ -15385,20 +15385,20 @@ emitter_col_init.exit89:                          ; preds = %emitter_col_init.ex
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %18, ptr %167, align 8, !tbaa !33
   %168 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %18, ptr %168, align 8, !tbaa !39
+  store ptr %18, ptr %168, align 8, !tbaa !42
   %169 = icmp eq ptr %148, null
   br i1 %169, label %emitter_col_init.exit91, label %170
 
 170:                                              ; preds = %emitter_col_init.exit89
   %171 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %172 = load ptr, ptr %171, align 8, !tbaa !39
+  %172 = load ptr, ptr %171, align 8, !tbaa !42
   store ptr %172, ptr %167, align 8, !tbaa !33
-  store ptr %18, ptr %171, align 8, !tbaa !39
-  %173 = load ptr, ptr %168, align 8, !tbaa !39
+  store ptr %18, ptr %171, align 8, !tbaa !42
+  %173 = load ptr, ptr %168, align 8, !tbaa !42
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !33
-  store ptr %175, ptr %168, align 8, !tbaa !39
-  %176 = load ptr, ptr %171, align 8, !tbaa !39
+  store ptr %175, ptr %168, align 8, !tbaa !42
+  %176 = load ptr, ptr %171, align 8, !tbaa !42
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store ptr %148, ptr %177, align 8, !tbaa !33
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 24
@@ -15416,20 +15416,20 @@ emitter_col_init.exit91:                          ; preds = %emitter_col_init.ex
   %182 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %19, ptr %182, align 8, !tbaa !33
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %19, ptr %183, align 8, !tbaa !39
+  store ptr %19, ptr %183, align 8, !tbaa !42
   %184 = icmp eq ptr %163, null
   br i1 %184, label %emitter_col_init.exit93, label %185
 
 185:                                              ; preds = %emitter_col_init.exit91
   %186 = getelementptr inbounds nuw i8, ptr %163, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !39
+  %187 = load ptr, ptr %186, align 8, !tbaa !42
   store ptr %187, ptr %182, align 8, !tbaa !33
-  store ptr %19, ptr %186, align 8, !tbaa !39
-  %188 = load ptr, ptr %183, align 8, !tbaa !39
+  store ptr %19, ptr %186, align 8, !tbaa !42
+  %188 = load ptr, ptr %183, align 8, !tbaa !42
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load ptr, ptr %189, align 8, !tbaa !33
-  store ptr %190, ptr %183, align 8, !tbaa !39
-  %191 = load ptr, ptr %186, align 8, !tbaa !39
+  store ptr %190, ptr %183, align 8, !tbaa !42
+  %191 = load ptr, ptr %186, align 8, !tbaa !42
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr %163, ptr %192, align 8, !tbaa !33
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 24
@@ -15451,20 +15451,20 @@ emitter_col_init.exit93:                          ; preds = %emitter_col_init.ex
   %198 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %20, ptr %198, align 8, !tbaa !33
   %199 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %20, ptr %199, align 8, !tbaa !39
+  store ptr %20, ptr %199, align 8, !tbaa !42
   %200 = icmp eq ptr %179, null
   br i1 %200, label %emitter_col_init.exit95, label %201
 
 201:                                              ; preds = %emitter_col_init.exit93
   %202 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  %203 = load ptr, ptr %202, align 8, !tbaa !39
+  %203 = load ptr, ptr %202, align 8, !tbaa !42
   store ptr %203, ptr %198, align 8, !tbaa !33
-  store ptr %20, ptr %202, align 8, !tbaa !39
-  %204 = load ptr, ptr %199, align 8, !tbaa !39
+  store ptr %20, ptr %202, align 8, !tbaa !42
+  %204 = load ptr, ptr %199, align 8, !tbaa !42
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !33
-  store ptr %206, ptr %199, align 8, !tbaa !39
-  %207 = load ptr, ptr %202, align 8, !tbaa !39
+  store ptr %206, ptr %199, align 8, !tbaa !42
+  %207 = load ptr, ptr %202, align 8, !tbaa !42
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %179, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 24
@@ -15482,20 +15482,20 @@ emitter_col_init.exit95:                          ; preds = %emitter_col_init.ex
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %21, ptr %213, align 8, !tbaa !33
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr %21, ptr %214, align 8, !tbaa !39
+  store ptr %21, ptr %214, align 8, !tbaa !42
   %215 = icmp eq ptr %194, null
   br i1 %215, label %emitter_col_init.exit97, label %216
 
 216:                                              ; preds = %emitter_col_init.exit95
   %217 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %218 = load ptr, ptr %217, align 8, !tbaa !39
+  %218 = load ptr, ptr %217, align 8, !tbaa !42
   store ptr %218, ptr %213, align 8, !tbaa !33
-  store ptr %21, ptr %217, align 8, !tbaa !39
-  %219 = load ptr, ptr %214, align 8, !tbaa !39
+  store ptr %21, ptr %217, align 8, !tbaa !42
+  %219 = load ptr, ptr %214, align 8, !tbaa !42
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %221 = load ptr, ptr %220, align 8, !tbaa !33
-  store ptr %221, ptr %214, align 8, !tbaa !39
-  %222 = load ptr, ptr %217, align 8, !tbaa !39
+  store ptr %221, ptr %214, align 8, !tbaa !42
+  %222 = load ptr, ptr %217, align 8, !tbaa !42
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   store ptr %194, ptr %223, align 8, !tbaa !33
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 24
@@ -16095,4 +16095,7 @@ attributes #16 = { cold }
 !36 = !{!"counter_accum_s", !37, i64 0, !4, i64 8}
 !37 = !{!"locked_u64_s", !38, i64 0}
 !38 = !{!"", !4, i64 0}
-!39 = !{!29, !27, i64 32}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !40}
+!42 = !{!29, !27, i64 32}

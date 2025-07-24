@@ -1329,7 +1329,7 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %.115.i = select i1 %29, i32 %.01420.i, i32 %28
   %.1.i = select i1 %29, i32 %24, i32 %.021.i
   %30 = icmp slt i32 %.1.i, %.115.i
-  br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !11
+  br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !13
 
 length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i
   %.0.lcssa.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ %.1.us.i, %.lr.ph.split.us.i ]
@@ -1429,7 +1429,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %.2 = phi double [ %75, %71 ], [ %.081129, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 79:                                               ; preds = %.lr.ph
   %80 = and i64 %indvars.iv, 4294967295
@@ -1556,5 +1556,7 @@ attributes #11 = { cold nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

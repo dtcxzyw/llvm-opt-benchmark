@@ -656,7 +656,7 @@ thread-pre-split:                                 ; preds = %31
 177:                                              ; preds = %176, %175, %.split.split.us
   %178 = add nuw nsw i64 %158, 1
   %179 = icmp eq i64 %178, 102
-  br i1 %179, label %.split25.us, label %.split.split.us, !llvm.loop !11
+  br i1 %179, label %.split25.us, label %.split.split.us, !llvm.loop !15
 
 .split.split:                                     ; preds = %.split
   br i1 %34, label %.split.split.split, label %.split.split.split.us
@@ -686,7 +686,7 @@ thread-pre-split:                                 ; preds = %31
 190:                                              ; preds = %189, %188, %.split.split.split.us
   %191 = add nuw nsw i64 %180, 1
   %192 = icmp eq i64 %191, 102
-  br i1 %192, label %.split25.us, label %.split.split.split.us, !llvm.loop !11
+  br i1 %192, label %.split25.us, label %.split.split.split.us, !llvm.loop !16
 
 .split.split.split:                               ; preds = %.split.split, %205
   %193 = phi i64 [ %206, %205 ], [ 0, %.split.split ]
@@ -716,7 +716,7 @@ thread-pre-split:                                 ; preds = %31
 205:                                              ; preds = %204, %203, %.split.split.split
   %206 = add nuw nsw i64 %193, 1
   %207 = icmp eq i64 %206, 102
-  br i1 %207, label %.split25.us, label %.split.split.split, !llvm.loop !11
+  br i1 %207, label %.split25.us, label %.split.split.split, !llvm.loop !17
 
 .split25.us:                                      ; preds = %190, %205, %177, %155
   %208 = call zeroext i1 @__bitmap_equal(ptr noundef nonnull %3, ptr noundef nonnull %76, i32 noundef 102) #7
@@ -828,6 +828,10 @@ attributes #7 = { nounwind }
 !8 = !{i64 2147878321, i64 2147878395}
 !9 = !{i64 2147864922, i64 2147864961, i64 2147864982, i64 2147865019, i64 2147865042, i64 2147864912}
 !10 = !{i64 2147866218, i64 2147866257, i64 2147866278, i64 2147866315, i64 2147866338, i64 2147866208}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12, !13, !14}
+!16 = distinct !{!16, !12, !13, !14}
+!17 = distinct !{!17, !12, !13}

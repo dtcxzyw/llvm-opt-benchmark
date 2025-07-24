@@ -3228,7 +3228,7 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr noundef nonnull c
 21:                                               ; preds = %18, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %16, %.preheader.split.us.i ], [ %19, %18 ]
   %22 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader.split.us.i
+  br label %.preheader.split.us.i, !llvm.loop !48
 
 .thread.i:                                        ; preds = %18, %.preheader.split.us.i, %.preheader.split.us.i, %5
   %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #14
@@ -3304,7 +3304,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
 56:                                               ; preds = %53, %.preheader.split.us.i112
   %.1.us.i117 = phi ptr [ %51, %.preheader.split.us.i112 ], [ %54, %53 ]
   %57 = add nuw nsw i64 %.020.us.i113, 1
-  br label %.preheader.split.us.i112
+  br label %.preheader.split.us.i112, !llvm.loop !48
 
 .thread.i109:                                     ; preds = %53, %.preheader.split.us.i112, %.preheader.split.us.i112, %43
   %58 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #14
@@ -3530,3 +3530,5 @@ attributes #15 = { noreturn nounwind }
 !45 = !{!11, !12, i64 3064}
 !46 = !{!11, !12, i64 408}
 !47 = !{!11, !12, i64 412}
+!48 = distinct !{!48, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}

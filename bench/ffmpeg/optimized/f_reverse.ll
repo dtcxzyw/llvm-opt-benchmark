@@ -610,13 +610,13 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   store i16 %174, ptr %gep315.i, align 2, !tbaa !64
   %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
   %exitcond273.not.i = icmp eq i64 %indvars.iv.next270.i, %170
-  br i1 %exitcond273.not.i, label %._crit_edge.us208.i, label %173, !llvm.loop !79
+  br i1 %exitcond273.not.i, label %._crit_edge.us208.i, label %173, !llvm.loop !80
 
 ._crit_edge.us208.i:                              ; preds = %173
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
   %indvars.iv.next275.i = add nsw i64 %indvars.iv274.i, -1
   %176 = icmp slt i64 %indvars.iv.next277.i, %indvars.iv.next275.i
-  br i1 %176, label %.preheader175.us.i, label %reverse_samples_planar.exit, !llvm.loop !80
+  br i1 %176, label %.preheader175.us.i, label %reverse_samples_planar.exit, !llvm.loop !81
 
 177:                                              ; preds = %141
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -654,13 +654,13 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   store i32 %191, ptr %gep311.i, align 4, !tbaa !67
   %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
   %exitcond261.not.i = icmp eq i64 %indvars.iv.next258.i, %187
-  br i1 %exitcond261.not.i, label %._crit_edge.us203.i, label %190, !llvm.loop !81
+  br i1 %exitcond261.not.i, label %._crit_edge.us203.i, label %190, !llvm.loop !82
 
 ._crit_edge.us203.i:                              ; preds = %190
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %indvars.iv.next263.i = add nsw i64 %indvars.iv262.i, -1
   %193 = icmp slt i64 %indvars.iv.next265.i, %indvars.iv.next263.i
-  br i1 %193, label %.preheader177.us.i, label %reverse_samples_planar.exit, !llvm.loop !82
+  br i1 %193, label %.preheader177.us.i, label %reverse_samples_planar.exit, !llvm.loop !83
 
 194:                                              ; preds = %141
   %195 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -698,13 +698,13 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   store i64 %208, ptr %gep307.i, align 8, !tbaa !49
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 1
   %exitcond249.not.i = icmp eq i64 %indvars.iv.next246.i, %204
-  br i1 %exitcond249.not.i, label %._crit_edge.us198.i, label %207, !llvm.loop !83
+  br i1 %exitcond249.not.i, label %._crit_edge.us198.i, label %207, !llvm.loop !84
 
 ._crit_edge.us198.i:                              ; preds = %207
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %indvars.iv.next251.i = add nsw i64 %indvars.iv250.i, -1
   %210 = icmp slt i64 %indvars.iv.next253.i, %indvars.iv.next251.i
-  br i1 %210, label %.preheader179.us.i, label %reverse_samples_planar.exit, !llvm.loop !84
+  br i1 %210, label %.preheader179.us.i, label %reverse_samples_planar.exit, !llvm.loop !85
 
 211:                                              ; preds = %141
   %212 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -742,13 +742,13 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   store float %225, ptr %gep303.i, align 4, !tbaa !70
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond237.not.i = icmp eq i64 %indvars.iv.next234.i, %221
-  br i1 %exitcond237.not.i, label %._crit_edge.us193.i, label %224, !llvm.loop !85
+  br i1 %exitcond237.not.i, label %._crit_edge.us193.i, label %224, !llvm.loop !86
 
 ._crit_edge.us193.i:                              ; preds = %224
   %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
   %indvars.iv.next239.i = add nsw i64 %indvars.iv238.i, -1
   %227 = icmp slt i64 %indvars.iv.next241.i, %indvars.iv.next239.i
-  br i1 %227, label %.preheader181.us.i, label %reverse_samples_planar.exit, !llvm.loop !86
+  br i1 %227, label %.preheader181.us.i, label %reverse_samples_planar.exit, !llvm.loop !87
 
 228:                                              ; preds = %141
   %229 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -786,13 +786,13 @@ define internal i32 @areverse_request_frame(ptr noundef %0) #1 {
   store double %242, ptr %gep299.i, align 8, !tbaa !73
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i33, %238
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %241, !llvm.loop !87
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %241, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %241
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %indvars.iv.next227.i = add nsw i64 %indvars.iv226.i, -1
   %244 = icmp slt i64 %indvars.iv.next229.i, %indvars.iv.next227.i
-  br i1 %244, label %.preheader183.us.i, label %reverse_samples_planar.exit, !llvm.loop !88
+  br i1 %244, label %.preheader183.us.i, label %reverse_samples_planar.exit, !llvm.loop !89
 
 reverse_samples_planar.exit:                      ; preds = %.loopexit.i, %._crit_edge.us.i, %._crit_edge.us193.i, %._crit_edge.us198.i, %._crit_edge.us203.i, %._crit_edge.us208.i, %._crit_edge.us213.i, %228, %211, %194, %177, %160, %143, %141, %54
   %245 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef %19) #3
@@ -898,14 +898,15 @@ attributes #3 = { nounwind }
 !75 = distinct !{!75, !29}
 !76 = distinct !{!76, !29}
 !77 = distinct !{!77, !29}
-!78 = distinct !{!78, !29}
-!79 = distinct !{!79, !29}
+!78 = distinct !{!78, !29, !79}
+!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !80 = distinct !{!80, !29}
-!81 = distinct !{!81, !29}
+!81 = distinct !{!81, !29, !79}
 !82 = distinct !{!82, !29}
-!83 = distinct !{!83, !29}
+!83 = distinct !{!83, !29, !79}
 !84 = distinct !{!84, !29}
-!85 = distinct !{!85, !29}
+!85 = distinct !{!85, !29, !79}
 !86 = distinct !{!86, !29}
-!87 = distinct !{!87, !29}
+!87 = distinct !{!87, !29, !79}
 !88 = distinct !{!88, !29}
+!89 = distinct !{!89, !29, !79}

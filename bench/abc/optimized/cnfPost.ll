@@ -396,7 +396,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %81 = getelementptr i8, ptr %74, i64 40
   %.val89 = load ptr, ptr %81, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 36
-  %83 = load i32, ptr %82, align 4, !tbaa !44
+  %83 = load i32, ptr %82, align 4, !tbaa !45
   %84 = tail call ptr @Cnf_CutCompose(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef %.val89, i32 noundef %83) #5
   %cond = icmp eq ptr %84, null
   br i1 %cond, label %101, label %85
@@ -436,7 +436,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %102 = load i8, ptr %.val87, align 8, !tbaa !37
   %103 = sext i8 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next120, %103
-  br i1 %104, label %63, label %.critedge4, !llvm.loop !45
+  br i1 %104, label %63, label %.critedge4, !llvm.loop !46
 
 .critedge4:                                       ; preds = %Aig_ManObj.exit93, %101, %63, %21, %14, %.lr.ph111, %99
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -447,7 +447,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %.val = load i32, ptr %108, align 4, !tbaa !25
   %109 = sext i32 %.val to i64
   %110 = icmp slt i64 %indvars.iv.next123, %109
-  br i1 %110, label %.lr.ph111, label %.critedge, !llvm.loop !46
+  br i1 %110, label %.lr.ph111, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.critedge4, %1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
@@ -511,7 +511,8 @@ attributes #5 = { nounwind }
 !40 = !{!38, !7, i64 1}
 !41 = distinct !{!41, !31}
 !42 = distinct !{!42, !31}
-!43 = distinct !{!43, !31}
-!44 = !{!19, !11, i64 36}
-!45 = distinct !{!45, !31}
+!43 = distinct !{!43, !31, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!19, !11, i64 36}
 !46 = distinct !{!46, !31}
+!47 = distinct !{!47, !31}

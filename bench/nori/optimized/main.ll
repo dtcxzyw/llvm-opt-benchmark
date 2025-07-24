@@ -4832,7 +4832,7 @@ _ZN4nori10ImageBlock5clearEv.exit.i.i:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %116 = add nsw i32 %.023.i, 1
   %117 = load i32, ptr %1, align 8
   %118 = icmp slt i32 %116, %117
-  br i1 %118, label %45, label %._crit_edge.i, !llvm.loop !34
+  br i1 %118, label %45, label %._crit_edge.i, !llvm.loop !35
 
 119:                                              ; preds = %2
   %120 = landingpad { ptr, i32 }
@@ -5114,5 +5114,6 @@ attributes #29 = { noreturn nounwind }
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
+!33 = distinct !{!33, !6, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !6}

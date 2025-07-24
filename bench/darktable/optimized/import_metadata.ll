@@ -1163,7 +1163,7 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
 .critedge.us:                                     ; preds = %.critedge46.us, %14, %.split.us
   %19 = add nuw nsw i32 %.051.us, 1
   %exitcond.not = icmp eq i32 %19, 12
-  br i1 %exitcond.not, label %.split53.us, label %.split.us
+  br i1 %exitcond.not, label %.split53.us, label %.split.us, !llvm.loop !82
 
 .split53.us:                                      ; preds = %.critedge.us, %.critedge
   br i1 %.not55, label %.loopexit, label %.preheader
@@ -1482,3 +1482,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !79 = !{!"p1 _ZTS11_GTypeClass", !9, i64 0}
 !80 = !{!81, !49, i64 0}
 !81 = !{!"_GTypeClass", !49, i64 0}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}

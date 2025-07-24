@@ -257,7 +257,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   br i1 %57, label %.thread, label %.thread143.thread
 
 .split221.us:                                     ; preds = %44
-  %58 = load ptr, ptr %19, align 8, !tbaa !39
+  %58 = load ptr, ptr %19, align 8, !tbaa !40
   %.not124 = icmp eq ptr %58, null
   br i1 %.not124, label %72, label %59
 
@@ -274,11 +274,11 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 1
   %71 = getelementptr inbounds i32, ptr %58, i64 %70
-  store i32 %65, ptr %71, align 4, !tbaa !40
+  store i32 %65, ptr %71, align 4, !tbaa !41
   br label %72
 
 72:                                               ; preds = %59, %.split221.us
-  store i16 126, ptr %.0111.ph248, align 2, !tbaa !41
+  store i16 126, ptr %.0111.ph248, align 2, !tbaa !42
   store i8 0, ptr %18, align 1, !tbaa !24
   br label %.outer.backedge
 
@@ -286,13 +286,13 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %73 = phi ptr [ %20, %72 ], [ %110, %128 ]
   %.0111.ph.be = getelementptr inbounds nuw i8, ptr %.0111.ph248, i64 2
   %74 = icmp ult ptr %27, %9
-  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !37
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .split224.us:                                     ; preds = %45
   store i8 0, ptr %18, align 1, !tbaa !24
   store i32 18, ptr %1, align 4, !tbaa !11
   %75 = getelementptr inbounds nuw i8, ptr %20, i64 284
-  store i32 2, ptr %75, align 4, !tbaa !43
+  store i32 2, ptr %75, align 4, !tbaa !45
   %76 = getelementptr inbounds nuw i8, ptr %20, i64 65
   store i8 126, ptr %76, align 1, !tbaa !35
   %77 = load ptr, ptr %10, align 8, !tbaa !34
@@ -300,7 +300,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i8 %28, ptr %78, align 1, !tbaa !35
   %79 = load ptr, ptr %10, align 8, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  store i8 2, ptr %80, align 8, !tbaa !44
+  store i8 2, ptr %80, align 8, !tbaa !46
   br label %.loopexit
 
 .split214.us:                                     ; preds = %44
@@ -332,7 +332,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %.2 = phi ptr [ %27, %87 ], [ %.0199.us, %83 ], [ %.0199.us, %85 ]
   %91 = load ptr, ptr %10, align 8, !tbaa !34
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  store i8 %.sink, ptr %92, align 8, !tbaa !44
+  store i8 %.sink, ptr %92, align 8, !tbaa !46
   br label %.loopexit
 
 .thread138:                                       ; preds = %.split.us
@@ -356,9 +356,9 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i8 %100, ptr %14, align 1, !tbaa !35
   %101 = load ptr, ptr %13, align 8, !tbaa !17
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  %103 = load ptr, ptr %102, align 8, !tbaa !45
+  %103 = load ptr, ptr %102, align 8, !tbaa !47
   %104 = getelementptr inbounds nuw i8, ptr %20, i64 63
-  %105 = load i8, ptr %104, align 1, !tbaa !46
+  %105 = load i8, ptr %104, align 1, !tbaa !48
   %106 = call i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef %103, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext %105)
   %.fr = freeze i32 %106
   %107 = load ptr, ptr %10, align 8, !tbaa !34
@@ -370,7 +370,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
 .thread:                                          ; preds = %.split209.us, %97
   %110 = phi ptr [ %107, %97 ], [ %20, %.split209.us ]
   %.1113129 = phi i32 [ %.fr, %97 ], [ %29, %.split209.us ]
-  %111 = load ptr, ptr %19, align 8, !tbaa !39
+  %111 = load ptr, ptr %19, align 8, !tbaa !40
   %.not122 = icmp eq ptr %111, null
   br i1 %.not122, label %128, label %112
 
@@ -390,12 +390,12 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 1
   %127 = getelementptr inbounds i32, ptr %111, i64 %126
-  store i32 %121, ptr %127, align 4, !tbaa !40
+  store i32 %121, ptr %127, align 4, !tbaa !41
   br label %128
 
 128:                                              ; preds = %112, %.thread
   %129 = trunc i32 %.1113129 to i16
-  store i16 %129, ptr %.0111.ph248, align 2, !tbaa !41
+  store i16 %129, ptr %.0111.ph248, align 2, !tbaa !42
   br label %.outer.backedge
 
 .thread143:                                       ; preds = %97
@@ -421,7 +421,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i8 %138, ptr %140, align 1, !tbaa !35
   %141 = load ptr, ptr %10, align 8, !tbaa !34
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  store i8 2, ptr %142, align 8, !tbaa !44
+  store i8 2, ptr %142, align 8, !tbaa !46
   br label %.loopexit
 
 .thread143.thread311:                             ; preds = %.thread138, %.thread143.thread, %.thread143
@@ -433,7 +433,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i8 %144, ptr %145, align 1, !tbaa !35
   %146 = load ptr, ptr %10, align 8, !tbaa !34
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  store i8 1, ptr %147, align 8, !tbaa !44
+  store i8 1, ptr %147, align 8, !tbaa !46
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -453,19 +453,19 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
 define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !51
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %7 to i64
   %14 = sub i64 %12, %13
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !52
+  %17 = load ptr, ptr %16, align 8, !tbaa !54
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %5 to i64
   %20 = sub i64 %18, %19
@@ -473,7 +473,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   %22 = trunc i64 %21 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 18
@@ -511,14 +511,14 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.0221 = phi ptr [ %.0.ph236, %.lr.ph ], [ %.3, %.loopexit ]
   %.1149219 = phi i32 [ %.1149.ph234, %.lr.ph ], [ %.4152, %.loopexit ]
-  store i32 65535, ptr %3, align 4, !tbaa !40
+  store i32 65535, ptr %3, align 4, !tbaa !41
   %38 = icmp slt i32 %.1149219, %15
   br i1 %38, label %39, label %240
 
 39:                                               ; preds = %37
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %40 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
-  %41 = load i16, ptr %40, align 2, !tbaa !41
+  %41 = load i16, ptr %40, align 2, !tbaa !42
   %42 = icmp eq i16 %41, 126
   %43 = trunc nsw i64 %indvars.iv to i32
   br i1 %42, label %.preheader, label %67
@@ -533,17 +533,17 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br i1 %45, label %47, label %56
 
 47:                                               ; preds = %.preheader
-  %48 = load ptr, ptr %6, align 8, !tbaa !49
+  %48 = load ptr, ptr %6, align 8, !tbaa !51
   %49 = sext i32 %.3151215 to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
   store i8 %46, ptr %50, align 1, !tbaa !35
-  %51 = load ptr, ptr %8, align 8, !tbaa !50
+  %51 = load ptr, ptr %8, align 8, !tbaa !52
   %.not181 = icmp eq ptr %51, null
   br i1 %.not181, label %54, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.1217, i64 4
-  store i32 %43, ptr %.1217, align 4, !tbaa !40
+  store i32 %43, ptr %.1217, align 4, !tbaa !41
   br label %54
 
 54:                                               ; preds = %52, %47
@@ -552,12 +552,12 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br label %64
 
 56:                                               ; preds = %.preheader
-  %57 = load ptr, ptr %23, align 8, !tbaa !53
+  %57 = load ptr, ptr %23, align 8, !tbaa !55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 104
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 91
-  %60 = load i8, ptr %59, align 1, !tbaa !54
+  %60 = load i8, ptr %59, align 1, !tbaa !56
   %61 = add i8 %60, 1
-  store i8 %61, ptr %59, align 1, !tbaa !54
+  store i8 %61, ptr %59, align 1, !tbaa !56
   %62 = sext i8 %60 to i64
   %63 = getelementptr inbounds [32 x i8], ptr %58, i64 0, i64 %62
   store i8 %46, ptr %63, align 1, !tbaa !35
@@ -570,7 +570,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   %65 = getelementptr inbounds nuw i8, ptr %.0142216, i64 1
   %66 = add nsw i32 %44, -1
   %.not267 = icmp eq i32 %44, 0
-  br i1 %.not267, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %.not267, label %.loopexit, label %.preheader, !llvm.loop !57
 
 67:                                               ; preds = %39
   %68 = trunc nsw i64 %indvars.iv.next to i32
@@ -581,16 +581,16 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
 71:                                               ; preds = %67
   %72 = load ptr, ptr %26, align 8, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %74 = load ptr, ptr %73, align 8, !tbaa !45
-  %75 = load ptr, ptr %23, align 8, !tbaa !53
+  %74 = load ptr, ptr %73, align 8, !tbaa !47
+  %75 = load ptr, ptr %23, align 8, !tbaa !55
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 63
-  %77 = load i8, ptr %76, align 1, !tbaa !46
+  %77 = load i8, ptr %76, align 1, !tbaa !48
   %78 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %74, i32 noundef %69, ptr noundef nonnull %3, i8 noundef signext %77)
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %80, label %.loopexit196
 
 80:                                               ; preds = %71
-  %81 = load i32, ptr %3, align 4, !tbaa !40
+  %81 = load i32, ptr %3, align 4, !tbaa !41
   %82 = add i32 %81, 24159
   %83 = and i32 %82, 65534
   %84 = icmp samesign ult i32 %83, 23646
@@ -605,7 +605,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
 
 select.unfold:                                    ; preds = %85, %67
   %storemerge172 = phi i32 [ %69, %67 ], [ %89, %85 ]
-  store i32 %storemerge172, ptr %3, align 4, !tbaa !40
+  store i32 %storemerge172, ptr %3, align 4, !tbaa !41
   %.not173 = icmp eq i32 %storemerge172, 65535
   br i1 %.not173, label %.loopexit196, label %90
 
@@ -619,7 +619,7 @@ select.unfold:                                    ; preds = %85, %67
   br i1 %.not174, label %95, label %97
 
 95:                                               ; preds = %90
-  %96 = load i8, ptr %33, align 8, !tbaa !56
+  %96 = load i8, ptr %33, align 8, !tbaa !58
   %.not175 = icmp eq i8 %96, 0
   br i1 %.not175, label %97, label %144
 
@@ -636,17 +636,17 @@ select.unfold:                                    ; preds = %85, %67
   br i1 %99, label %101, label %110
 
 101:                                              ; preds = %.preheader193
-  %102 = load ptr, ptr %6, align 8, !tbaa !49
+  %102 = load ptr, ptr %6, align 8, !tbaa !51
   %103 = sext i32 %.6154227 to i64
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
   store i8 %100, ptr %104, align 1, !tbaa !35
-  %105 = load ptr, ptr %8, align 8, !tbaa !50
+  %105 = load ptr, ptr %8, align 8, !tbaa !52
   %.not176 = icmp eq ptr %105, null
   br i1 %.not176, label %108, label %106
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %.5229, i64 4
-  store i32 %43, ptr %.5229, align 4, !tbaa !40
+  store i32 %43, ptr %.5229, align 4, !tbaa !41
   br label %108
 
 108:                                              ; preds = %106, %101
@@ -655,12 +655,12 @@ select.unfold:                                    ; preds = %85, %67
   br label %118
 
 110:                                              ; preds = %.preheader193
-  %111 = load ptr, ptr %23, align 8, !tbaa !53
+  %111 = load ptr, ptr %23, align 8, !tbaa !55
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 104
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 91
-  %114 = load i8, ptr %113, align 1, !tbaa !54
+  %114 = load i8, ptr %113, align 1, !tbaa !56
   %115 = add i8 %114, 1
-  store i8 %115, ptr %113, align 1, !tbaa !54
+  store i8 %115, ptr %113, align 1, !tbaa !56
   %116 = sext i8 %114 to i64
   %117 = getelementptr inbounds [32 x i8], ptr %112, i64 0, i64 %116
   store i8 %100, ptr %117, align 1, !tbaa !35
@@ -673,7 +673,7 @@ select.unfold:                                    ; preds = %85, %67
   %119 = getelementptr inbounds nuw i8, ptr %.1143228, i64 1
   %120 = add nsw i32 %98, -1
   %.not265 = icmp eq i32 %98, 0
-  br i1 %.not265, label %.sink.split, label %.preheader193, !llvm.loop !57
+  br i1 %.not265, label %.sink.split, label %.preheader193, !llvm.loop !59
 
 .preheader192:                                    ; preds = %97, %141
   %121 = phi i32 [ %143, %141 ], [ 1, %97 ]
@@ -685,17 +685,17 @@ select.unfold:                                    ; preds = %85, %67
   br i1 %122, label %124, label %133
 
 124:                                              ; preds = %.preheader192
-  %125 = load ptr, ptr %6, align 8, !tbaa !49
+  %125 = load ptr, ptr %6, align 8, !tbaa !51
   %126 = sext i32 %.8156230 to i64
   %127 = getelementptr inbounds i8, ptr %125, i64 %126
   store i8 %123, ptr %127, align 1, !tbaa !35
-  %128 = load ptr, ptr %8, align 8, !tbaa !50
+  %128 = load ptr, ptr %8, align 8, !tbaa !52
   %.not180 = icmp eq ptr %128, null
   br i1 %.not180, label %131, label %129
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %.8232, i64 4
-  store i32 %43, ptr %.8232, align 4, !tbaa !40
+  store i32 %43, ptr %.8232, align 4, !tbaa !41
   br label %131
 
 131:                                              ; preds = %129, %124
@@ -704,12 +704,12 @@ select.unfold:                                    ; preds = %85, %67
   br label %141
 
 133:                                              ; preds = %.preheader192
-  %134 = load ptr, ptr %23, align 8, !tbaa !53
+  %134 = load ptr, ptr %23, align 8, !tbaa !55
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 104
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 91
-  %137 = load i8, ptr %136, align 1, !tbaa !54
+  %137 = load i8, ptr %136, align 1, !tbaa !56
   %138 = add i8 %137, 1
-  store i8 %138, ptr %136, align 1, !tbaa !54
+  store i8 %138, ptr %136, align 1, !tbaa !56
   %139 = sext i8 %137 to i64
   %140 = getelementptr inbounds [32 x i8], ptr %135, i64 0, i64 %139
   store i8 %123, ptr %140, align 1, !tbaa !35
@@ -722,19 +722,19 @@ select.unfold:                                    ; preds = %85, %67
   %142 = getelementptr inbounds nuw i8, ptr %.2144231, i64 1
   %143 = add nsw i32 %121, -1
   %.not266 = icmp eq i32 %121, 0
-  br i1 %.not266, label %.sink.split, label %.preheader192, !llvm.loop !58
+  br i1 %.not266, label %.sink.split, label %.preheader192, !llvm.loop !60
 
 .sink.split:                                      ; preds = %118, %141
   %.5153.ph = phi i32 [ %.9157, %141 ], [ %.7155, %118 ]
   %.4.ph = phi ptr [ %.10, %141 ], [ %.7, %118 ]
-  store i8 1, ptr %33, align 8, !tbaa !56
+  store i8 1, ptr %33, align 8, !tbaa !58
   br label %144
 
 144:                                              ; preds = %.sink.split, %95
   %.5153 = phi i32 [ %.1149219, %95 ], [ %.5153.ph, %.sink.split ]
   %.4 = phi ptr [ %.0221, %95 ], [ %.4.ph, %.sink.split ]
   %145 = icmp slt i32 %.5153, %15
-  %146 = load i32, ptr %3, align 4, !tbaa !40
+  %146 = load i32, ptr %3, align 4, !tbaa !41
   br i1 %91, label %147, label %195
 
 147:                                              ; preds = %144
@@ -752,9 +752,9 @@ select.unfold:                                    ; preds = %85, %67
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %43, ptr %.4, align 4, !tbaa !40
+  store i32 %43, ptr %.4, align 4, !tbaa !41
   %156 = icmp slt i32 %151, %15
-  %.pre = load i32, ptr %3, align 4, !tbaa !40
+  %.pre = load i32, ptr %3, align 4, !tbaa !41
   br i1 %156, label %162, label %168
 
 .thread185:                                       ; preds = %150
@@ -776,19 +776,19 @@ select.unfold:                                    ; preds = %85, %67
   %166 = getelementptr inbounds i8, ptr %7, i64 %165
   store i8 %163, ptr %166, align 1, !tbaa !35
   %167 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i32 %43, ptr %155, align 4, !tbaa !40
+  store i32 %43, ptr %155, align 4, !tbaa !41
   br label %.outer
 
 168:                                              ; preds = %.thread185, %154
   %169 = phi i32 [ %146, %.thread185 ], [ %.pre, %154 ]
   %.11188 = phi ptr [ null, %.thread185 ], [ %155, %154 ]
   %170 = trunc i32 %169 to i8
-  %171 = load ptr, ptr %23, align 8, !tbaa !53
+  %171 = load ptr, ptr %23, align 8, !tbaa !55
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 104
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 91
-  %174 = load i8, ptr %173, align 1, !tbaa !54
+  %174 = load i8, ptr %173, align 1, !tbaa !56
   %175 = add i8 %174, 1
-  store i8 %175, ptr %173, align 1, !tbaa !54
+  store i8 %175, ptr %173, align 1, !tbaa !56
   %176 = sext i8 %174 to i64
   %177 = getelementptr inbounds [32 x i8], ptr %172, i64 0, i64 %176
   store i8 %170, ptr %177, align 1, !tbaa !35
@@ -796,23 +796,23 @@ select.unfold:                                    ; preds = %85, %67
   br label %.outer
 
 178:                                              ; preds = %147
-  %179 = load ptr, ptr %23, align 8, !tbaa !53
+  %179 = load ptr, ptr %23, align 8, !tbaa !55
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 104
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 91
-  %182 = load i8, ptr %181, align 1, !tbaa !54
+  %182 = load i8, ptr %181, align 1, !tbaa !56
   %183 = add i8 %182, 1
-  store i8 %183, ptr %181, align 1, !tbaa !54
+  store i8 %183, ptr %181, align 1, !tbaa !56
   %184 = sext i8 %182 to i64
   %185 = getelementptr inbounds [32 x i8], ptr %180, i64 0, i64 %184
   store i8 %149, ptr %185, align 1, !tbaa !35
-  %186 = load i32, ptr %3, align 4, !tbaa !40
+  %186 = load i32, ptr %3, align 4, !tbaa !41
   %187 = trunc i32 %186 to i8
-  %188 = load ptr, ptr %23, align 8, !tbaa !53
+  %188 = load ptr, ptr %23, align 8, !tbaa !55
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 104
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 91
-  %191 = load i8, ptr %190, align 1, !tbaa !54
+  %191 = load i8, ptr %190, align 1, !tbaa !56
   %192 = add i8 %191, 1
-  store i8 %192, ptr %190, align 1, !tbaa !54
+  store i8 %192, ptr %190, align 1, !tbaa !56
   %193 = sext i8 %191 to i64
   %194 = getelementptr inbounds [32 x i8], ptr %189, i64 0, i64 %193
   store i8 %187, ptr %194, align 1, !tbaa !35
@@ -833,16 +833,16 @@ select.unfold:                                    ; preds = %85, %67
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %43, ptr %.4, align 4, !tbaa !40
+  store i32 %43, ptr %.4, align 4, !tbaa !41
   br label %.outer
 
 203:                                              ; preds = %195
-  %204 = load ptr, ptr %23, align 8, !tbaa !53
+  %204 = load ptr, ptr %23, align 8, !tbaa !55
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 104
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 91
-  %207 = load i8, ptr %206, align 1, !tbaa !54
+  %207 = load i8, ptr %206, align 1, !tbaa !56
   %208 = add i8 %207, 1
-  store i8 %208, ptr %206, align 1, !tbaa !54
+  store i8 %208, ptr %206, align 1, !tbaa !56
   %209 = sext i8 %207 to i64
   %210 = getelementptr inbounds [32 x i8], ptr %205, i64 0, i64 %209
   store i8 %196, ptr %210, align 1, !tbaa !35
@@ -860,7 +860,7 @@ select.unfold:                                    ; preds = %85, %67
   br i1 %215, label %216, label %237
 
 216:                                              ; preds = %213
-  %217 = load ptr, ptr %23, align 8, !tbaa !53
+  %217 = load ptr, ptr %23, align 8, !tbaa !55
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 84
   store i32 %69, ptr %218, align 4, !tbaa !26
   br label %219
@@ -876,10 +876,10 @@ select.unfold:                                    ; preds = %85, %67
   br i1 %222, label %223, label %237
 
 223:                                              ; preds = %219
-  %224 = load ptr, ptr %4, align 8, !tbaa !47
+  %224 = load ptr, ptr %4, align 8, !tbaa !49
   %225 = sext i32 %.0137 to i64
   %226 = getelementptr inbounds i16, ptr %224, i64 %225
-  %227 = load i16, ptr %226, align 2, !tbaa !41
+  %227 = load i16, ptr %226, align 2, !tbaa !42
   %228 = zext i16 %227 to i32
   %229 = and i32 %228, 64512
   %230 = icmp eq i32 %229, 56320
@@ -901,7 +901,7 @@ select.unfold:                                    ; preds = %85, %67
   %.10158 = phi i32 [ %.0148, %231 ], [ %.0148, %223 ], [ %.0148, %219 ], [ %.1149219, %213 ], [ %.1149219, %.loopexit196 ]
   %.4141 = phi i32 [ %232, %231 ], [ %.0137, %223 ], [ %.0137, %219 ], [ %68, %213 ], [ %68, %.loopexit196 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !11
-  %238 = load ptr, ptr %23, align 8, !tbaa !53
+  %238 = load ptr, ptr %23, align 8, !tbaa !55
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 84
   store i32 %.2166, ptr %239, align 4, !tbaa !26
   br label %.loopexit195
@@ -914,9 +914,9 @@ select.unfold:                                    ; preds = %85, %67
 .outer:                                           ; preds = %.thread189, %203, %201, %197, %178, %162, %168
   %.11159 = phi i32 [ %164, %162 ], [ %151, %168 ], [ %.5153, %178 ], [ %198, %201 ], [ %198, %197 ], [ %.5153, %203 ], [ %159, %.thread189 ]
   %.12 = phi ptr [ %167, %162 ], [ %.11188, %168 ], [ %.4, %178 ], [ %202, %201 ], [ null, %197 ], [ %.4, %203 ], [ null, %.thread189 ]
-  store i32 65535, ptr %3, align 4, !tbaa !40
+  store i32 65535, ptr %3, align 4, !tbaa !41
   %242 = icmp slt i32 %68, %22
-  br i1 %242, label %.lr.ph, label %.loopexit195, !llvm.loop !59
+  br i1 %242, label %.lr.ph, label %.loopexit195, !llvm.loop !61
 
 .loopexit195.loopexit:                            ; preds = %.loopexit
   %243 = trunc nsw i64 %indvars.iv.next to i32
@@ -926,14 +926,14 @@ select.unfold:                                    ; preds = %85, %67
   %.2162 = phi i8 [ %.3163, %237 ], [ %.1161.ph233, %240 ], [ %28, %.preheader194 ], [ %.1161.ph233, %.loopexit195.loopexit ], [ %92, %.outer ]
   %.2150 = phi i32 [ %.10158, %237 ], [ %.1149219, %240 ], [ 0, %.preheader194 ], [ %.4152, %.loopexit195.loopexit ], [ %.11159, %.outer ]
   %.2139 = phi i32 [ %.4141, %237 ], [ %241, %240 ], [ 0, %.preheader194 ], [ %243, %.loopexit195.loopexit ], [ %68, %.outer ]
-  %244 = load ptr, ptr %6, align 8, !tbaa !49
+  %244 = load ptr, ptr %6, align 8, !tbaa !51
   %245 = sext i32 %.2150 to i64
   %246 = getelementptr inbounds i8, ptr %244, i64 %245
-  store ptr %246, ptr %6, align 8, !tbaa !49
-  %247 = load ptr, ptr %4, align 8, !tbaa !47
+  store ptr %246, ptr %6, align 8, !tbaa !51
+  %247 = load ptr, ptr %4, align 8, !tbaa !49
   %248 = sext i32 %.2139 to i64
   %249 = getelementptr inbounds i16, ptr %247, i64 %248
-  store ptr %249, ptr %4, align 8, !tbaa !47
+  store ptr %249, ptr %4, align 8, !tbaa !49
   store i8 %.2162, ptr %27, align 2, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   ret void
@@ -943,7 +943,7 @@ select.unfold:                                    ; preds = %85, %67
 define internal void @_ZL12_HZ_WriteSubP25UConverterFromUnicodeArgsiP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
@@ -963,7 +963,7 @@ define internal void @_ZL12_HZ_WriteSubP25UConverterFromUnicodeArgsiP10UErrorCod
 14:                                               ; preds = %11, %3
   %.0 = phi ptr [ %13, %11 ], [ %4, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !60
+  %16 = load ptr, ptr %15, align 8, !tbaa !62
   %17 = load i8, ptr %16, align 1, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %17, ptr %.0, align 1, !tbaa !35
@@ -985,12 +985,12 @@ define internal noundef ptr @_ZL13_HZ_SafeClonePK10UConverterPvPiP10UErrorCode(p
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %2, align 4, !tbaa !40
+  %9 = load i32, ptr %2, align 4, !tbaa !41
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  store i32 600, ptr %2, align 4, !tbaa !40
+  store i32 600, ptr %2, align 4, !tbaa !41
   br label %23
 
 12:                                               ; preds = %8
@@ -999,15 +999,15 @@ define internal noundef ptr @_ZL13_HZ_SafeClonePK10UConverterPvPiP10UErrorCode(p
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(24) %15, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %13, ptr %16, align 8, !tbaa !61
+  store ptr %13, ptr %16, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 62
-  store i8 1, ptr %17, align 2, !tbaa !63
-  store i32 288, ptr %5, align 4, !tbaa !40
+  store i8 1, ptr %17, align 2, !tbaa !65
+  store i32 288, ptr %5, align 4, !tbaa !41
   %18 = load ptr, ptr %14, align 8, !tbaa !13
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %21 = call ptr @ucnv_safeClone_77(ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %22 = load ptr, ptr %16, align 8, !tbaa !61
+  %22 = load ptr, ptr %16, align 8, !tbaa !63
   store ptr %21, ptr %22, align 8, !tbaa !17
   br label %23
 
@@ -1020,14 +1020,14 @@ define internal noundef ptr @_ZL13_HZ_SafeClonePK10UConverterPvPiP10UErrorCode(p
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL17_HZ_GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !64
-  %7 = load ptr, ptr %1, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %7 = load ptr, ptr %1, align 8, !tbaa !69
   tail call void %6(ptr noundef %7, i32 noundef 0, i32 noundef 127)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !47
   tail call void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %12, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 5, ptr noundef %3)
   ret void
 }
@@ -1114,34 +1114,36 @@ attributes #8 = { nounwind }
 !34 = !{!29, !19, i64 8}
 !35 = !{!6, !6, i64 0}
 !36 = !{!29, !30, i64 40}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!29, !31, i64 48}
-!40 = !{!5, !5, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"char16_t", !6, i64 0}
-!43 = !{!14, !16, i64 284}
-!44 = !{!14, !6, i64 64}
-!45 = !{!14, !15, i64 48}
-!46 = !{!14, !6, i64 63}
-!47 = !{!48, !30, i64 16}
-!48 = !{!"_ZTS25UConverterFromUnicodeArgs", !8, i64 0, !6, i64 2, !19, i64 8, !30, i64 16, !30, i64 24, !9, i64 32, !9, i64 40, !31, i64 48}
-!49 = !{!48, !9, i64 32}
-!50 = !{!48, !31, i64 48}
-!51 = !{!48, !9, i64 40}
-!52 = !{!48, !30, i64 24}
-!53 = !{!48, !19, i64 8}
-!54 = !{!14, !6, i64 91}
-!55 = distinct !{!55, !38}
-!56 = !{!18, !6, i64 16}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = !{!29, !31, i64 48}
+!41 = !{!5, !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"char16_t", !6, i64 0}
+!44 = distinct !{!44, !38}
+!45 = !{!14, !16, i64 284}
+!46 = !{!14, !6, i64 64}
+!47 = !{!14, !15, i64 48}
+!48 = !{!14, !6, i64 63}
+!49 = !{!50, !30, i64 16}
+!50 = !{!"_ZTS25UConverterFromUnicodeArgs", !8, i64 0, !6, i64 2, !19, i64 8, !30, i64 16, !30, i64 24, !9, i64 32, !9, i64 40, !31, i64 48}
+!51 = !{!50, !9, i64 32}
+!52 = !{!50, !31, i64 48}
+!53 = !{!50, !9, i64 40}
+!54 = !{!50, !30, i64 24}
+!55 = !{!50, !19, i64 8}
+!56 = !{!14, !6, i64 91}
 !57 = distinct !{!57, !38}
-!58 = distinct !{!58, !38}
+!58 = !{!18, !6, i64 16}
 !59 = distinct !{!59, !38}
-!60 = !{!14, !9, i64 40}
-!61 = !{!62, !10, i64 16}
-!62 = !{!"_ZTS13cloneHZStruct", !14, i64 0, !14, i64 288, !18, i64 576}
-!63 = !{!62, !6, i64 62}
-!64 = !{!65, !10, i64 16}
-!65 = !{!"_ZTS9USetAdder", !66, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!66 = !{!"p1 _ZTS4USet", !10, i64 0}
-!67 = !{!65, !66, i64 0}
+!60 = distinct !{!60, !38}
+!61 = distinct !{!61, !38}
+!62 = !{!14, !9, i64 40}
+!63 = !{!64, !10, i64 16}
+!64 = !{!"_ZTS13cloneHZStruct", !14, i64 0, !14, i64 288, !18, i64 576}
+!65 = !{!64, !6, i64 62}
+!66 = !{!67, !10, i64 16}
+!67 = !{!"_ZTS9USetAdder", !68, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
+!68 = !{!"p1 _ZTS4USet", !10, i64 0}
+!69 = !{!67, !68, i64 0}

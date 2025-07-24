@@ -799,7 +799,7 @@ pad_block_int64.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   %18 = add nuw i64 %.039.us.i, 1
   %19 = getelementptr inbounds i64, ptr %24, i64 %9
   %exitcond75.not.i = icmp eq i64 %18, %3
-  br i1 %exitcond75.not.i, label %.preheader.i, label %.preheader35.us.i
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.preheader35.us.i, !llvm.loop !38
 
 20:                                               ; preds = %20, %.preheader35.us.i
   %.02337.us.i = phi i64 [ 0, %.preheader35.us.i ], [ %23, %20 ]
@@ -847,7 +847,7 @@ pad_block_int64.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   store i64 %.pre.i33.i.us, ptr %29, align 8, !tbaa !4
   %30 = add nuw nsw i64 %.168.i.us6, 1
   %exitcond79.not.i.us8 = icmp eq i64 %30, 4
-  br i1 %exitcond79.not.i.us8, label %gather_partial_int64_2.exit, label %._crit_edge.i32.i.us
+  br i1 %exitcond79.not.i.us8, label %gather_partial_int64_2.exit, label %._crit_edge.i32.i.us, !llvm.loop !40
 
 ._crit_edge15.i29.i.us:                           ; preds = %.preheader.i, %._crit_edge15.i29.i.us
   %.168.i.us10 = phi i64 [ %35, %._crit_edge15.i29.i.us ], [ 0, %.preheader.i ]
@@ -861,7 +861,7 @@ pad_block_int64.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   store i64 %33, ptr %34, align 8, !tbaa !4
   %35 = add nuw nsw i64 %.168.i.us10, 1
   %exitcond79.not.i.us12 = icmp eq i64 %35, 4
-  br i1 %exitcond79.not.i.us12, label %gather_partial_int64_2.exit, label %._crit_edge15.i29.i.us
+  br i1 %exitcond79.not.i.us12, label %gather_partial_int64_2.exit, label %._crit_edge15.i29.i.us, !llvm.loop !41
 
 pad_block_int64.exit34.i.us15:                    ; preds = %.preheader.i, %pad_block_int64.exit34.i.us15
   %.168.i.us14 = phi i64 [ %39, %pad_block_int64.exit34.i.us15 ], [ 0, %.preheader.i ]
@@ -871,7 +871,7 @@ pad_block_int64.exit34.i.us15:                    ; preds = %.preheader.i, %pad_
   store i64 %37, ptr %38, align 8, !tbaa !4
   %39 = add nuw nsw i64 %.168.i.us14, 1
   %exitcond79.not.i.us16 = icmp eq i64 %39, 4
-  br i1 %exitcond79.not.i.us16, label %gather_partial_int64_2.exit, label %pad_block_int64.exit34.i.us15
+  br i1 %exitcond79.not.i.us16, label %gather_partial_int64_2.exit, label %pad_block_int64.exit34.i.us15, !llvm.loop !42
 
 gather_partial_int64_2.exit:                      ; preds = %._crit_edge15.i29.i.us, %._crit_edge.i32.i.us, %pad_block_int64.exit34.i.us15, %.preheader.i, %.preheader.i.split.us
   %40 = call i64 @zfp_encode_block_int64_2(ptr noundef %0, ptr noundef nonnull %7)
@@ -943,3 +943,8 @@ attributes #7 = { nounwind }
 !35 = !{!36}
 !36 = distinct !{!36, !34, !"encode_few_ints_prec_uint64: argument 1"}
 !37 = !{!33, !36}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}
+!42 = distinct !{!42, !39}

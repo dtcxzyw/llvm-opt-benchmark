@@ -902,7 +902,7 @@ _ZL7messageP8_IO_FILEPKc.exit57:                  ; preds = %234, %235
 282:                                              ; preds = %305
   %283 = add nuw nsw i32 %.038.i, 1
   %exitcond.i71 = icmp eq i32 %283, 100
-  br i1 %exitcond.i71, label %thread-pre-split.thread.i62, label %.split.i, !llvm.loop !26
+  br i1 %exitcond.i71, label %thread-pre-split.thread.i62, label %.split.i, !llvm.loop !28
 
 .split.i:                                         ; preds = %257, %282
   %.038.i = phi i32 [ %283, %282 ], [ 0, %257 ]
@@ -1102,7 +1102,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
 
 _ZL8flush_fpP8_IO_FILE.exit81:                    ; preds = %343, %342
   tail call fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef %.sroa.0.0.lcssa, ptr noundef nonnull @.str.12)
-  store ptr null, ptr %15, align 8, !tbaa !27
+  store ptr null, ptr %15, align 8, !tbaa !29
   %345 = invoke fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %.sroa.0.0.lcssa, ptr noundef nonnull %46, ptr noundef %15)
           to label %346 unwind label %349
 
@@ -1672,7 +1672,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.ex
 
 56:                                               ; preds = %54
   %.not29.us = icmp eq i32 %55, 0
-  br i1 %.not29.us, label %.split.us, label %.preheader.split.us, !llvm.loop !29
+  br i1 %.not29.us, label %.split.us, label %.preheader.split.us, !llvm.loop !31
 
 .loopexit.split.us:                               ; preds = %54, %51, %47, %44, %39
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -1766,7 +1766,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit36:                  ; preds = %77
 
 88:                                               ; preds = %86
   %.not29 = icmp eq i32 %87, 0
-  br i1 %.not29, label %.split.us, label %.preheader.split, !llvm.loop !29
+  br i1 %.not29, label %.split.us, label %.preheader.split, !llvm.loop !32
 
 .split.us:                                        ; preds = %88, %56
   %89 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -1977,7 +1977,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_rshift1P8_IO_FILE(ptr nound
 33:                                               ; preds = %52
   %34 = add nuw nsw i32 %.039.us, 1
   %exitcond48 = icmp eq i32 %34, 100
-  br i1 %exitcond48, label %thread-pre-split, label %.split.us, !llvm.loop !30
+  br i1 %exitcond48, label %thread-pre-split, label %.split.us, !llvm.loop !33
 
 35:                                               ; preds = %.split.us
   %.not19.us = icmp eq i32 %32, 0
@@ -2033,7 +2033,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_rshift1P8_IO_FILE(ptr nound
 54:                                               ; preds = %84
   %55 = add nuw nsw i32 %.039, 1
   %exitcond = icmp eq i32 %55, 100
-  br i1 %exitcond, label %thread-pre-split, label %.split, !llvm.loop !30
+  br i1 %exitcond, label %thread-pre-split, label %.split, !llvm.loop !34
 
 .split:                                           ; preds = %22, %54
   %56 = phi ptr [ %70, %54 ], [ %8, %22 ]
@@ -2331,7 +2331,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_rshiftP8_IO_FILEP10bignum_c
 
 60:                                               ; preds = %58
   %.not35.us = icmp eq i32 %59, 0
-  br i1 %.not35.us, label %.split57.us, label %.split.us, !llvm.loop !31
+  br i1 %.not35.us, label %.split57.us, label %.split.us, !llvm.loop !35
 
 .split54.us:                                      ; preds = %58, %55, %52, %49, %45
   %61 = landingpad { ptr, i32 }
@@ -2402,7 +2402,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit39:                  ; preds = %75
 
 85:                                               ; preds = %83
   %.not35 = icmp eq i32 %84, 0
-  br i1 %.not35, label %.split57.us, label %.split, !llvm.loop !31
+  br i1 %.not35, label %.split57.us, label %.split, !llvm.loop !36
 
 .split57.us:                                      ; preds = %85, %60
   %86 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2587,7 +2587,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_sqrP8_IO_FILEP10bignum_ctx(p
 26:                                               ; preds = %64
   %27 = add nuw nsw i32 %.092, 1
   %exitcond = icmp eq i32 %27, 100
-  br i1 %exitcond, label %.critedge, label %28, !llvm.loop !32
+  br i1 %exitcond, label %.critedge, label %28, !llvm.loop !37
 
 28:                                               ; preds = %.preheader, %26
   %.092 = phi i32 [ 0, %.preheader ], [ %27, %26 ]
@@ -2988,7 +2988,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mulP8_IO_FILE(ptr noundef %0
 37:                                               ; preds = %87
   %38 = add nuw nsw i32 %.064, 1
   %exitcond = icmp eq i32 %38, 150
-  br i1 %exitcond, label %.critedge, label %39, !llvm.loop !33
+  br i1 %exitcond, label %.critedge, label %39, !llvm.loop !38
 
 39:                                               ; preds = %.preheader, %37
   %.064 = phi i32 [ 0, %.preheader ], [ %38, %37 ]
@@ -3403,7 +3403,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_divP8_IO_FILEP10bignum_ctx(p
 45:                                               ; preds = %111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 150
-  br i1 %exitcond, label %.critedge, label %46, !llvm.loop !34
+  br i1 %exitcond, label %.critedge, label %46, !llvm.loop !39
 
 46:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
@@ -3787,7 +3787,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thre
 10:                                               ; preds = %59
   %11 = add nuw nsw i32 %.02977, 1
   %exitcond = icmp eq i32 %11, 100
-  br i1 %exitcond, label %.critedge.thread, label %.preheader, !llvm.loop !35
+  br i1 %exitcond, label %.critedge.thread, label %.preheader, !llvm.loop !40
 
 .preheader:                                       ; preds = %.preheader70, %10
   %12 = phi ptr [ %5, %.preheader70 ], [ %.pr.pre.pre, %10 ]
@@ -3828,7 +3828,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thre
 
 22:                                               ; preds = %20
   %.not37 = icmp eq i32 %21, 0
-  br i1 %.not37, label %23, label %13, !llvm.loop !36
+  br i1 %.not37, label %23, label %13, !llvm.loop !41
 
 23:                                               ; preds = %22
   %24 = invoke ptr @BN_copy(ptr noundef %.pr.pre.pre, ptr noundef nonnull %4)
@@ -3839,8 +3839,8 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thre
   br i1 %.not38, label %.critedge, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %.pr.pre.pre, align 8, !tbaa !37
-  %28 = load i64, ptr %27, align 8, !tbaa !38
+  %27 = load ptr, ptr %.pr.pre.pre, align 8, !tbaa !42
+  %28 = load i64, ptr %27, align 8, !tbaa !43
   %29 = invoke i64 @BN_div_word(ptr noundef nonnull %.pr.pre.pre, i64 noundef %28)
           to label %30 unwind label %32
 
@@ -4066,7 +4066,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_modP8_IO_FILEP10bignum_ctx(p
 37:                                               ; preds = %77
   %38 = add nuw nsw i32 %.054, 1
   %exitcond = icmp eq i32 %38, 100
-  br i1 %exitcond, label %thread-pre-split, label %39, !llvm.loop !40
+  br i1 %exitcond, label %thread-pre-split, label %39, !llvm.loop !45
 
 39:                                               ; preds = %.preheader, %37
   %.054 = phi i32 [ 0, %.preheader ], [ %38, %37 ]
@@ -4405,7 +4405,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_mulP8_IO_FILEP10bignum_
 53:                                               ; preds = %118
   %54 = add nuw nsw i32 %.084, 1
   %exitcond = icmp eq i32 %54, 100
-  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !41
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !46
 
 .preheader:                                       ; preds = %50, %53
   %55 = phi ptr [ %73, %53 ], [ %47, %50 ]
@@ -4562,7 +4562,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit67:                  ; preds = %103
 .critedge:                                        ; preds = %53
   %122 = add nuw nsw i32 %.02685, 1
   %exitcond87 = icmp eq i32 %122, 3
-  br i1 %exitcond87, label %thread-pre-split, label %46, !llvm.loop !42
+  br i1 %exitcond87, label %thread-pre-split, label %46, !llvm.loop !47
 
 thread-pre-split:                                 ; preds = %.critedge, %50, %109, %112, %115, %65, %.invoke, %17, %.thread-pre-split.loopexit_crit_edge, %16
   %123 = phi ptr [ %15, %16 ], [ %15, %17 ], [ %.pr.pre.pre, %.thread-pre-split.loopexit_crit_edge ], [ %.pr.pre.pre91, %.invoke ], [ %.pr.pre.pre91, %65 ], [ %.pr.pre.pre91, %115 ], [ %.pr.pre.pre91, %112 ], [ %.pr.pre.pre91, %109 ], [ %.pr89, %50 ], [ %.pr.pre.pre91, %.critedge ]
@@ -4741,7 +4741,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_montP8_IO_FILEP10bignum_ctx(
           to label %25 unwind label %47
 
 25:                                               ; preds = %23
-  store ptr %24, ptr %10, align 8, !tbaa !43
+  store ptr %24, ptr %10, align 8, !tbaa !48
   %.not100 = icmp eq ptr %11, null
   br i1 %.not100, label %thread-pre-split, label %26
 
@@ -5001,7 +5001,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit75:                  ; preds = %121
 
 132:                                              ; preds = %130
   %.not68 = icmp eq i32 %131, 0
-  br i1 %.not68, label %133, label %76, !llvm.loop !45
+  br i1 %.not68, label %133, label %76, !llvm.loop !50
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -5322,7 +5322,7 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_expP8_IO_FILEP10bignum_
 49:                                               ; preds = %88
   %50 = add nuw nsw i32 %.074, 1
   %exitcond = icmp eq i32 %50, 5
-  br i1 %exitcond, label %.critedge, label %51, !llvm.loop !46
+  br i1 %exitcond, label %.critedge, label %51, !llvm.loop !51
 
 51:                                               ; preds = %.preheader, %49
   %.074 = phi i32 [ 0, %.preheader ], [ %50, %49 ]
@@ -5744,7 +5744,7 @@ define internal fastcc noundef zeroext i1 @_ZL27test_mod_exp_mont_consttimeP8_IO
 59:                                               ; preds = %98
   %60 = add nuw nsw i32 %.069, 1
   %exitcond = icmp eq i32 %60, 5
-  br i1 %exitcond, label %thread-pre-split, label %61, !llvm.loop !47
+  br i1 %exitcond, label %thread-pre-split, label %61, !llvm.loop !52
 
 61:                                               ; preds = %.preheader, %59
   %.069 = phi i32 [ 0, %.preheader ], [ %60, %59 ]
@@ -6111,7 +6111,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
           to label %62 unwind label %80
 
 62:                                               ; preds = %60
-  store ptr %61, ptr %7, align 8, !tbaa !43
+  store ptr %61, ptr %7, align 8, !tbaa !48
   %.not5 = icmp eq ptr %61, null
   br i1 %.not5, label %101, label %63
 
@@ -6124,7 +6124,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
   br i1 %.not24, label %101, label %66
 
 66:                                               ; preds = %65
-  %67 = load ptr, ptr %7, align 8, !tbaa !43
+  %67 = load ptr, ptr %7, align 8, !tbaa !48
   %68 = invoke i32 @BN_MONT_CTX_set(ptr noundef %67, ptr noundef nonnull %11, ptr noundef %0)
           to label %69 unwind label %82
 
@@ -6133,7 +6133,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
   br i1 %.not25, label %101, label %70
 
 70:                                               ; preds = %69
-  %71 = load ptr, ptr %7, align 8, !tbaa !43
+  %71 = load ptr, ptr %7, align 8, !tbaa !48
   %72 = invoke i32 @BN_from_montgomery(ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef %71, ptr noundef %0)
           to label %73 unwind label %82
 
@@ -6399,7 +6399,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_expP8_IO_FILEP10bignum_ctx(p
 24:                                               ; preds = %71
   %25 = add nuw nsw i32 %.052, 1
   %exitcond = icmp eq i32 %25, 5
-  br i1 %exitcond, label %thread-pre-split.loopexit53, label %26, !llvm.loop !48
+  br i1 %exitcond, label %thread-pre-split.loopexit53, label %26, !llvm.loop !53
 
 26:                                               ; preds = %.preheader50, %24
   %27 = phi ptr [ %7, %.preheader50 ], [ %39, %24 ]
@@ -6504,7 +6504,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit39:                  ; preds = %49
 
 65:                                               ; preds = %63
   %.not35 = icmp eq i32 %64, 0
-  br i1 %.not35, label %thread-pre-split, label %.preheader, !llvm.loop !49
+  br i1 %.not35, label %thread-pre-split, label %.preheader, !llvm.loop !54
 
 66:                                               ; preds = %57
   %67 = invoke i32 @BN_sub(ptr noundef %53, ptr noundef %53, ptr noundef %38)
@@ -6936,7 +6936,7 @@ define internal fastcc noundef zeroext i1 @_ZL13test_mod_sqrtP8_IO_FILEP10bignum
 50:                                               ; preds = %97
   %51 = add nuw nsw i32 %.03, 1
   %exitcond = icmp eq i32 %51, 5
-  br i1 %exitcond, label %.critedge, label %52, !llvm.loop !50
+  br i1 %exitcond, label %.critedge, label %52, !llvm.loop !55
 
 52:                                               ; preds = %42, %50
   %53 = phi ptr [ %18, %42 ], [ %.pr.pre.pre, %50 ]
@@ -7089,7 +7089,7 @@ define internal fastcc noundef zeroext i1 @_ZL13test_mod_sqrtP8_IO_FILEP10bignum
 .critedge:                                        ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond7 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond7, label %thread-pre-split, label %.preheader, !llvm.loop !51
+  br i1 %exitcond7, label %thread-pre-split, label %.preheader, !llvm.loop !56
 
 115:                                              ; preds = %.loopexit, %.loopexit.split-lp, %40, %27
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -7265,7 +7265,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_sqrtP8_IO_FILEP10bignum_ctx(
 17:                                               ; preds = %31
   %18 = add nuw nsw i32 %.0167, 1
   %exitcond = icmp eq i32 %18, 100
-  br i1 %exitcond, label %.critedge.preheader, label %.preheader, !llvm.loop !52
+  br i1 %exitcond, label %.critedge.preheader, label %.preheader, !llvm.loop !57
 
 .preheader:                                       ; preds = %10, %17
   %.0167 = phi i32 [ %18, %17 ], [ 0, %10 ]
@@ -7392,7 +7392,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_sqrtP8_IO_FILEP10bignum_ctx(
 .critedge:                                        ; preds = %51, %54
   %59 = add nuw nsw i32 %.0158, 1
   %exitcond9 = icmp eq i32 %59, 100
-  br i1 %exitcond9, label %thread-pre-split.thread, label %.critedge.preheader, !llvm.loop !53
+  br i1 %exitcond9, label %thread-pre-split.thread, label %.critedge.preheader, !llvm.loop !58
 
 thread-pre-split:                                 ; preds = %27, %10, %47, %9
   %.not.i = icmp eq ptr %8, null
@@ -7669,7 +7669,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   %77 = sub nuw nsw i64 256, %.0
   %bcmp38 = call i32 @bcmp(ptr nonnull %2, ptr nonnull %1, i64 %77)
   %.not39 = icmp eq i32 %bcmp38, 0
-  br i1 %.not39, label %25, label %78, !llvm.loop !54
+  br i1 %.not39, label %25, label %78, !llvm.loop !59
 
 78:                                               ; preds = %76, %73, %72
   %79 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -7720,7 +7720,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !tbaa !27
+  store ptr null, ptr %6, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8, !tbaa !19
   %7 = invoke i32 @BN_dec2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.88)
@@ -7969,7 +7969,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !tbaa !27
+  store ptr null, ptr %6, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8, !tbaa !19
   %7 = invoke i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.88)
@@ -8221,15 +8221,15 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::unique_ptr.10", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19, !noalias !55
-  store ptr null, ptr %8, align 8, !tbaa !19, !noalias !55
-  %10 = call i32 @BN_asc2bn(ptr noundef nonnull %8, ptr noundef nonnull @.str.88), !noalias !55
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19, !noalias !60
+  store ptr null, ptr %8, align 8, !tbaa !19, !noalias !60
+  %10 = call i32 @BN_asc2bn(ptr noundef nonnull %8, ptr noundef nonnull @.str.88), !noalias !60
   %.not.i = icmp eq i32 %10, 0
-  %11 = load ptr, ptr %8, align 8, !noalias !55
+  %11 = load ptr, ptr %8, align 8, !noalias !60
   %storemerge.i = select i1 %.not.i, ptr null, ptr %11
-  store ptr %storemerge.i, ptr %9, align 8, !tbaa !19, !alias.scope !55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19, !noalias !55
+  store ptr %storemerge.i, ptr %9, align 8, !tbaa !19, !alias.scope !60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19, !noalias !60
   %.not20 = icmp eq ptr %storemerge.i, null
   br i1 %.not20, label %125, label %12
 
@@ -8255,16 +8255,16 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   br label %133
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19, !noalias !58
-  store ptr null, ptr %7, align 8, !tbaa !19, !noalias !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19, !noalias !63
+  store ptr null, ptr %7, align 8, !tbaa !19, !noalias !63
   %21 = invoke i32 @BN_asc2bn(ptr noundef nonnull %7, ptr noundef nonnull @.str.90)
           to label %22 unwind label %33
 
 22:                                               ; preds = %20
   %.not.i20 = icmp eq i32 %21, 0
-  %23 = load ptr, ptr %7, align 8, !noalias !58
+  %23 = load ptr, ptr %7, align 8, !noalias !63
   %storemerge.i21 = select i1 %.not.i20, ptr null, ptr %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19, !noalias !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19, !noalias !63
   store ptr %storemerge.i21, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %24
@@ -8302,16 +8302,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   br label %133
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19, !noalias !61
-  store ptr null, ptr %6, align 8, !tbaa !19, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19, !noalias !66
+  store ptr null, ptr %6, align 8, !tbaa !19, !noalias !66
   %36 = invoke i32 @BN_asc2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.91)
           to label %37 unwind label %48
 
 37:                                               ; preds = %35
   %.not.i23 = icmp eq i32 %36, 0
-  %38 = load ptr, ptr %6, align 8, !noalias !61
+  %38 = load ptr, ptr %6, align 8, !noalias !66
   %storemerge.i24 = select i1 %.not.i23, ptr null, ptr %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !66
   store ptr %storemerge.i24, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29 unwind label %39
@@ -8349,16 +8349,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   br label %133
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !64
-  store ptr null, ptr %5, align 8, !tbaa !19, !noalias !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !69
+  store ptr null, ptr %5, align 8, !tbaa !19, !noalias !69
   %51 = invoke i32 @BN_asc2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.97)
           to label %52 unwind label %63
 
 52:                                               ; preds = %50
   %.not.i30 = icmp eq i32 %51, 0
-  %53 = load ptr, ptr %5, align 8, !noalias !64
+  %53 = load ptr, ptr %5, align 8, !noalias !69
   %storemerge.i31 = select i1 %.not.i30, ptr null, ptr %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !69
   store ptr %storemerge.i31, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %38)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36 unwind label %54
@@ -8396,16 +8396,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   br label %133
 
 65:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19, !noalias !67
-  store ptr null, ptr %4, align 8, !tbaa !19, !noalias !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19, !noalias !72
+  store ptr null, ptr %4, align 8, !tbaa !19, !noalias !72
   %66 = invoke i32 @BN_asc2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.98)
           to label %67 unwind label %78
 
 67:                                               ; preds = %65
   %.not.i37 = icmp eq i32 %66, 0
-  %68 = load ptr, ptr %4, align 8, !noalias !67
+  %68 = load ptr, ptr %4, align 8, !noalias !72
   %storemerge.i38 = select i1 %.not.i37, ptr null, ptr %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !67
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !72
   store ptr %storemerge.i38, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %53)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43 unwind label %69
@@ -8443,16 +8443,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   br label %133
 
 80:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !70
-  store ptr null, ptr %3, align 8, !tbaa !19, !noalias !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !75
+  store ptr null, ptr %3, align 8, !tbaa !19, !noalias !75
   %81 = invoke i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.99)
           to label %82 unwind label %93
 
 82:                                               ; preds = %80
   %.not.i44 = icmp eq i32 %81, 0
-  %83 = load ptr, ptr %3, align 8, !noalias !70
+  %83 = load ptr, ptr %3, align 8, !noalias !75
   %storemerge.i45 = select i1 %.not.i44, ptr null, ptr %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !70
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !75
   store ptr %storemerge.i45, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %68)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 unwind label %84
@@ -8490,16 +8490,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   br label %133
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !73
-  store ptr null, ptr %2, align 8, !tbaa !19, !noalias !73
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !78
+  store ptr null, ptr %2, align 8, !tbaa !19, !noalias !78
   %96 = invoke i32 @BN_asc2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.92)
           to label %97 unwind label %108
 
 97:                                               ; preds = %95
   %.not.i51 = icmp eq i32 %96, 0
-  %98 = load ptr, ptr %2, align 8, !noalias !73
+  %98 = load ptr, ptr %2, align 8, !noalias !78
   %storemerge.i52 = select i1 %.not.i51, ptr null, ptr %98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !73
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !78
   store ptr %storemerge.i52, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %83)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57 unwind label %99
@@ -8537,16 +8537,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   br label %133
 
 110:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !76
-  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !81
+  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !81
   %111 = invoke i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.100)
           to label %112 unwind label %123
 
 112:                                              ; preds = %110
   %.not.i58 = icmp eq i32 %111, 0
-  %113 = load ptr, ptr %1, align 8, !noalias !76
+  %113 = load ptr, ptr %1, align 8, !noalias !81
   %storemerge.i59 = select i1 %.not.i58, ptr null, ptr %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !76
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !81
   store ptr %storemerge.i59, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %98)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64 unwind label %114
@@ -8628,16 +8628,16 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
   %.031107 = phi i64 [ 0, %0 ], [ %55, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 ]
   %6 = getelementptr inbounds nuw [6 x %struct.MPITest], ptr @_ZL9kMPITests, i64 0, i64 %.031107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  %7 = load ptr, ptr %6, align 8, !tbaa !79
-  call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !81
-  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !81
-  %8 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef %7), !noalias !81
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !86
+  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !86
+  %8 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef %7), !noalias !86
   %.not.i = icmp eq i32 %8, 0
-  %9 = load ptr, ptr %1, align 8, !noalias !81
+  %9 = load ptr, ptr %1, align 8, !noalias !86
   %storemerge.i = select i1 %.not.i, ptr null, ptr %9
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !19, !alias.scope !81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !81
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !19, !alias.scope !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !86
   %10 = invoke i64 @BN_bn2mpi(ptr noundef %storemerge.i, ptr noundef null)
           to label %11 unwind label %13
 
@@ -8670,13 +8670,13 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !84
+  %20 = load i64, ptr %19, align 8, !tbaa !89
   %.not37 = icmp eq i64 %10, %20
   br i1 %.not37, label %21, label %24
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !85
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   %bcmp = call i32 @bcmp(ptr %23, ptr nonnull %2, i64 %10)
   %.not38 = icmp eq i32 %bcmp, 0
   br i1 %.not38, label %33, label %24
@@ -8688,7 +8688,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.103, i32 noundef %26) #20
   %28 = load ptr, ptr @stderr, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !85
+  %30 = load ptr, ptr %29, align 8, !tbaa !90
   invoke void @hexdump(ptr noundef %28, ptr noundef nonnull @.str.104, ptr noundef %30, i64 noundef %.lcssa141)
           to label %31 unwind label %.loopexit.split-lp
 
@@ -8763,7 +8763,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   %55 = add nuw nsw i64 %.031107, 1
   %exitcond = icmp eq i64 %55, 6
-  br i1 %exitcond, label %.critedge45, label %5, !llvm.loop !86
+  br i1 %exitcond, label %.critedge45, label %5, !llvm.loop !91
 
 56:                                               ; preds = %45, %40
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %41, %40 ]
@@ -8998,16 +8998,16 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   %.046.idx208 = phi i64 [ 0, %0 ], [ %.046.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ]
   %.046.ptr209 = getelementptr inbounds nuw i8, ptr @_ZL10kASN1Tests, i64 %.046.idx208
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  %18 = load ptr, ptr %.046.ptr209, align 8, !tbaa !87
-  call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !89
-  store ptr null, ptr %3, align 8, !tbaa !19, !noalias !89
-  %19 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %18), !noalias !89
+  %18 = load ptr, ptr %.046.ptr209, align 8, !tbaa !92
+  call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !94
+  store ptr null, ptr %3, align 8, !tbaa !19, !noalias !94
+  %19 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %18), !noalias !94
   %.not.i = icmp eq i32 %19, 0
-  %20 = load ptr, ptr %3, align 8, !noalias !89
+  %20 = load ptr, ptr %3, align 8, !noalias !94
   %storemerge.i = select i1 %.not.i, ptr null, ptr %20
-  store ptr %storemerge.i, ptr %4, align 8, !tbaa !19, !alias.scope !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !89
+  store ptr %storemerge.i, ptr %4, align 8, !tbaa !19, !alias.scope !94
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !94
   %.not196 = icmp eq ptr %storemerge.i, null
   br i1 %.not196, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134, label %21
 
@@ -9029,9 +9029,9 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
   %27 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !92
+  %28 = load ptr, ptr %27, align 8, !tbaa !97
   %29 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !93
+  %30 = load i64, ptr %29, align 8, !tbaa !98
   invoke void @CBS_init(ptr noundef nonnull %6, ptr noundef %28, i64 noundef %30)
           to label %31 unwind label %40
 
@@ -9121,7 +9121,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %8, align 8, !tbaa !6
-  %61 = load i64, ptr %9, align 8, !tbaa !38
+  %61 = load i64, ptr %9, align 8, !tbaa !43
   %.not82 = icmp eq i64 %61, %30
   br i1 %.not82, label %62, label %63
 
@@ -9373,9 +9373,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
 127:                                              ; preds = %.preheader202
   %.073.ptr211 = getelementptr inbounds nuw i8, ptr @_ZL17kASN1InvalidTests, i64 %.073.idx210
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
-  %128 = load ptr, ptr %.073.ptr211, align 16, !tbaa !94
+  %128 = load ptr, ptr %.073.ptr211, align 16, !tbaa !99
   %129 = getelementptr inbounds nuw i8, ptr %.073.ptr211, i64 8
-  %130 = load i64, ptr %129, align 8, !tbaa !96
+  %130 = load i64, ptr %129, align 8, !tbaa !101
   invoke void @CBS_init(ptr noundef nonnull %11, ptr noundef %128, i64 noundef %130)
           to label %131 unwind label %134
 
@@ -9467,9 +9467,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 153:                                              ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #19
   %154 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !92
+  %155 = load ptr, ptr %154, align 8, !tbaa !97
   %156 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 16
-  %157 = load i64, ptr %156, align 8, !tbaa !93
+  %157 = load i64, ptr %156, align 8, !tbaa !98
   invoke void @CBS_init(ptr noundef nonnull %13, ptr noundef %155, i64 noundef %157)
           to label %158 unwind label %164
 
@@ -9501,19 +9501,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 
 167:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
-  %168 = load ptr, ptr %.047.ptr213, align 8, !tbaa !87
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !97
-  store ptr null, ptr %2, align 8, !tbaa !19, !noalias !97
+  %168 = load ptr, ptr %.047.ptr213, align 8, !tbaa !92
+  call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !102
+  store ptr null, ptr %2, align 8, !tbaa !19, !noalias !102
   %169 = invoke i32 @BN_asc2bn(ptr noundef nonnull %2, ptr noundef %168)
           to label %170 unwind label %172
 
 170:                                              ; preds = %167
   %.not.i159 = icmp eq i32 %169, 0
-  %171 = load ptr, ptr %2, align 8, !noalias !97
+  %171 = load ptr, ptr %2, align 8, !noalias !102
   %storemerge.i160 = select i1 %.not.i159, ptr null, ptr %171
-  store ptr %storemerge.i160, ptr %14, align 8, !tbaa !19, !alias.scope !97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !97
+  store ptr %storemerge.i160, ptr %14, align 8, !tbaa !19, !alias.scope !102
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !102
   %.not200 = icmp eq ptr %storemerge.i160, null
   br i1 %.not200, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, label %174
 
@@ -9654,15 +9654,15 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
 
 213:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !100
-  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !100
-  %214 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.111), !noalias !100
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !105
+  store ptr null, ptr %1, align 8, !tbaa !19, !noalias !105
+  %214 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.111), !noalias !105
   %.not.i171 = icmp eq i32 %214, 0
-  %215 = load ptr, ptr %1, align 8, !noalias !100
+  %215 = load ptr, ptr %1, align 8, !noalias !105
   %storemerge.i172 = select i1 %.not.i171, ptr null, ptr %215
-  store ptr %storemerge.i172, ptr %15, align 8, !tbaa !19, !alias.scope !100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !100
+  store ptr %storemerge.i172, ptr %15, align 8, !tbaa !19, !alias.scope !105
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !105
   %.not201 = icmp eq ptr %storemerge.i172, null
   br i1 %.not201, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174, label %216
 
@@ -9850,7 +9850,7 @@ declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !43
+  %2 = load ptr, ptr %0, align 8, !tbaa !48
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI14bn_mont_ctx_stXadL_Z16BN_MONT_CTX_freeEEEclEPS0_.exit, label %3
 
@@ -9859,7 +9859,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDele
           to label %_ZN14OpenSSLDeleterI14bn_mont_ctx_stXadL_Z16BN_MONT_CTX_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI14bn_mont_ctx_stXadL_Z16BN_MONT_CTX_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !43
+  store ptr null, ptr %0, align 8, !tbaa !48
   ret void
 
 4:                                                ; preds = %3
@@ -10034,80 +10034,85 @@ attributes #21 = { noreturn nounwind }
 !23 = !{!"_ZTS9bignum_st", !24, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20}
 !24 = !{!"p1 long", !8, i64 0}
 !25 = distinct !{!25, !16}
-!26 = distinct !{!26, !16}
-!27 = !{!28, !20, i64 0}
-!28 = !{!"_ZTSSt10_Head_baseILm0EP9bignum_stLb0EE", !20, i64 0}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = distinct !{!31, !16}
+!26 = distinct !{!26, !16, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !16}
+!29 = !{!30, !20, i64 0}
+!30 = !{!"_ZTSSt10_Head_baseILm0EP9bignum_stLb0EE", !20, i64 0}
+!31 = distinct !{!31, !16, !27}
 !32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
+!33 = distinct !{!33, !16, !27}
 !34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
+!35 = distinct !{!35, !16, !27}
 !36 = distinct !{!36, !16}
-!37 = !{!23, !24, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"long", !9, i64 0}
+!37 = distinct !{!37, !16}
+!38 = distinct !{!38, !16}
+!39 = distinct !{!39, !16}
 !40 = distinct !{!40, !16}
 !41 = distinct !{!41, !16}
-!42 = distinct !{!42, !16}
+!42 = !{!23, !24, i64 0}
 !43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!44 = !{!"long", !9, i64 0}
 !45 = distinct !{!45, !16}
 !46 = distinct !{!46, !16}
 !47 = distinct !{!47, !16}
-!48 = distinct !{!48, !16}
-!49 = distinct !{!49, !16}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
 !50 = distinct !{!50, !16}
 !51 = distinct !{!51, !16}
 !52 = distinct !{!52, !16}
 !53 = distinct !{!53, !16}
 !54 = distinct !{!54, !16}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!57 = distinct !{!57, !"_ZL13ASCIIToBIGNUMPKc"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!60 = distinct !{!60, !"_ZL13ASCIIToBIGNUMPKc"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!63 = distinct !{!63, !"_ZL13ASCIIToBIGNUMPKc"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!66 = distinct !{!66, !"_ZL13ASCIIToBIGNUMPKc"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!69 = distinct !{!69, !"_ZL13ASCIIToBIGNUMPKc"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!72 = distinct !{!72, !"_ZL13ASCIIToBIGNUMPKc"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!75 = distinct !{!75, !"_ZL13ASCIIToBIGNUMPKc"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!78 = distinct !{!78, !"_ZL13ASCIIToBIGNUMPKc"}
-!79 = !{!80, !7, i64 0}
-!80 = !{!"_ZTS7MPITest", !7, i64 0, !7, i64 8, !39, i64 16}
+!55 = distinct !{!55, !16}
+!56 = distinct !{!56, !16}
+!57 = distinct !{!57, !16}
+!58 = distinct !{!58, !16}
+!59 = distinct !{!59, !16}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!62 = distinct !{!62, !"_ZL13ASCIIToBIGNUMPKc"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!65 = distinct !{!65, !"_ZL13ASCIIToBIGNUMPKc"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!68 = distinct !{!68, !"_ZL13ASCIIToBIGNUMPKc"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!71 = distinct !{!71, !"_ZL13ASCIIToBIGNUMPKc"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!74 = distinct !{!74, !"_ZL13ASCIIToBIGNUMPKc"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!77 = distinct !{!77, !"_ZL13ASCIIToBIGNUMPKc"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!80 = distinct !{!80, !"_ZL13ASCIIToBIGNUMPKc"}
 !81 = !{!82}
 !82 = distinct !{!82, !83, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
 !83 = distinct !{!83, !"_ZL13ASCIIToBIGNUMPKc"}
-!84 = !{!80, !39, i64 16}
-!85 = !{!80, !7, i64 8}
-!86 = distinct !{!86, !16}
-!87 = !{!88, !7, i64 0}
-!88 = !{!"_ZTS8ASN1Test", !7, i64 0, !7, i64 8, !39, i64 16}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!91 = distinct !{!91, !"_ZL13ASCIIToBIGNUMPKc"}
-!92 = !{!88, !7, i64 8}
-!93 = !{!88, !39, i64 16}
-!94 = !{!95, !7, i64 0}
-!95 = !{!"_ZTS15ASN1InvalidTest", !7, i64 0, !39, i64 8}
-!96 = !{!95, !39, i64 8}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!99 = distinct !{!99, !"_ZL13ASCIIToBIGNUMPKc"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
-!102 = distinct !{!102, !"_ZL13ASCIIToBIGNUMPKc"}
+!84 = !{!85, !7, i64 0}
+!85 = !{!"_ZTS7MPITest", !7, i64 0, !7, i64 8, !44, i64 16}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!88 = distinct !{!88, !"_ZL13ASCIIToBIGNUMPKc"}
+!89 = !{!85, !44, i64 16}
+!90 = !{!85, !7, i64 8}
+!91 = distinct !{!91, !16}
+!92 = !{!93, !7, i64 0}
+!93 = !{!"_ZTS8ASN1Test", !7, i64 0, !7, i64 8, !44, i64 16}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!96 = distinct !{!96, !"_ZL13ASCIIToBIGNUMPKc"}
+!97 = !{!93, !7, i64 8}
+!98 = !{!93, !44, i64 16}
+!99 = !{!100, !7, i64 0}
+!100 = !{!"_ZTS15ASN1InvalidTest", !7, i64 0, !44, i64 8}
+!101 = !{!100, !44, i64 8}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!104 = distinct !{!104, !"_ZL13ASCIIToBIGNUMPKc"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZL13ASCIIToBIGNUMPKc: argument 0"}
+!107 = distinct !{!107, !"_ZL13ASCIIToBIGNUMPKc"}

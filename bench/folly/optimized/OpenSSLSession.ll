@@ -371,7 +371,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   store i32 %37, ptr %1, align 4, !tbaa !10
   %38 = and i32 %37, %2
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i
+  br i1 %39, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !28
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %47
   %40 = phi i32 [ %48, %47 ], [ %22, %.lr.ph.i ]
@@ -468,19 +468,19 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
 24:                                               ; preds = %17
   %25 = add i32 %.4, 1
   %26 = icmp eq i32 %25, %8
-  br i1 %26, label %.thread48, label %17, !llvm.loop !28
+  br i1 %26, label %.thread48, label %17, !llvm.loop !30
 
 27:                                               ; preds = %17
   %28 = add nuw nsw i32 %.02856, 1
   %exitcond.not = icmp eq i32 %28, 3
-  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !31
 
 29:                                               ; preds = %27
   %30 = icmp slt i64 %.036, 0
   %31 = add nuw nsw i64 %.036, 2
   %.not39 = icmp slt i64 %.335, %31
   %or.cond = select i1 %30, i1 true, i1 %.not39
-  br i1 %or.cond, label %10, label %32, !llvm.loop !30
+  br i1 %or.cond, label %10, label %32, !llvm.loop !32
 
 32:                                               ; preds = %29, %10
   %.1 = phi i32 [ %.0, %10 ], [ %.4, %29 ]
@@ -514,7 +514,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.127 = phi i32 [ %.02658, %35 ], [ %..026, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond63.not, label %._crit_edge, label %35, !llvm.loop !31
+  br i1 %exitcond63.not, label %._crit_edge, label %35, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %46
   %.not40 = icmp eq i32 %.127, 0
@@ -544,159 +544,159 @@ define void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_o
   %5 = alloca i32, align 4
   %6 = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %7 = alloca %"class.folly::LockedPtr.6", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4, !noalias !32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 8, !tbaa !38, !alias.scope !35, !noalias !32
+  store ptr %8, ptr %7, align 8, !tbaa !40, !alias.scope !37, !noalias !34
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 0, ptr %9, align 8, !tbaa !44, !alias.scope !35, !noalias !32
+  store i16 0, ptr %9, align 8, !tbaa !46, !alias.scope !37, !noalias !34
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i16 0, ptr %10, align 2, !tbaa !45, !alias.scope !35, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4, !noalias !46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4, !noalias !46
-  %11 = load atomic i32, ptr %8 monotonic, align 8, !noalias !46
-  store i32 %11, ptr %5, align 4, !tbaa !10, !noalias !46
+  store i16 0, ptr %10, align 2, !tbaa !47, !alias.scope !37, !noalias !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4, !noalias !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4, !noalias !48
+  %11 = load atomic i32, ptr %8 monotonic, align 8, !noalias !48
+  store i32 %11, ptr %5, align 4, !tbaa !10, !noalias !48
   %12 = and i32 %11, -1408
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   %15 = or disjoint i32 %11, 2048
-  %16 = cmpxchg ptr %8, i32 %11, i32 %15 seq_cst seq_cst, align 4, !noalias !46
+  %16 = cmpxchg ptr %8, i32 %11, i32 %15 seq_cst seq_cst, align 4, !noalias !48
   %17 = extractvalue { i32, i1 } %16, 1
   br i1 %17, label %19, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i: ; preds = %14
   %18 = extractvalue { i32, i1 } %16, 0
-  store i32 %18, ptr %5, align 4, !noalias !46
+  store i32 %18, ptr %5, align 4, !noalias !48
   br label %20
 
 19:                                               ; preds = %14
-  store i16 2, ptr %9, align 8, !tbaa !44, !alias.scope !35, !noalias !32
+  store i16 2, ptr %9, align 8, !tbaa !46, !alias.scope !37, !noalias !34
   br label %22
 
 20:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i.i, %2
-  %21 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(4) %9, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !32
+  %21 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(4) %9, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !34
   br label %22
 
 22:                                               ; preds = %20, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4, !noalias !46
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4, !noalias !46
-  %23 = load ptr, ptr %7, align 8, !tbaa !38, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4, !noalias !48
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4, !noalias !48
+  %23 = load ptr, ptr %7, align 8, !tbaa !40, !noalias !34
   %.not.i.i.i = icmp eq ptr %23, null
   %.neg.i.i.i = select i1 %.not.i.i.i, i64 0, i64 -8
   %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i.i
-  %.val.i = load ptr, ptr %24, align 8, !tbaa !16, !noalias !32
+  %.val.i = load ptr, ptr %24, align 8, !tbaa !16, !noalias !34
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %26, label %.split5.i.i
 
 .split5.i.i:                                      ; preds = %22
   %25 = invoke i32 @SSL_SESSION_up_ref(ptr noundef nonnull %.val.i)
-          to label %26 unwind label %59, !noalias !32
+          to label %26 unwind label %59, !noalias !34
 
 26:                                               ; preds = %.split5.i.i, %22
-  store ptr %.val.i, ptr %0, align 8, !tbaa !16, !alias.scope !47
-  %27 = load i16, ptr %9, align 8, !tbaa !44, !noalias !32
+  store ptr %.val.i, ptr %0, align 8, !tbaa !16, !alias.scope !49
+  %27 = load i16, ptr %9, align 8, !tbaa !46, !noalias !34
   %.not.i.i3.i = icmp eq i16 %27, 0
   br i1 %.not.i.i3.i, label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit", label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %7, align 8, !tbaa !38, !noalias !32
+  %29 = load ptr, ptr %7, align 8, !tbaa !40, !noalias !34
   switch i16 %27, label %50 [
     i16 1, label %30
     i16 3, label %42
   ]
 
 30:                                               ; preds = %28
-  %31 = load atomic i32, ptr %29 acquire, align 4, !noalias !32
+  %31 = load atomic i32, ptr %29 acquire, align 4, !noalias !34
   %32 = and i32 %31, 768
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %30
   %35 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv(ptr noundef nonnull align 4 dereferenceable(4) %29)
-          to label %.noexc4.i unwind label %56, !noalias !32
+          to label %.noexc4.i unwind label %56, !noalias !34
 
 .noexc4.i:                                        ; preds = %34
   br i1 %35, label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit", label %36
 
 36:                                               ; preds = %.noexc4.i, %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4, !noalias !32
-  %37 = atomicrmw sub ptr %29, i32 2048 seq_cst, align 4, !noalias !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4, !noalias !34
+  %37 = atomicrmw sub ptr %29, i32 2048 seq_cst, align 4, !noalias !34
   %38 = add i32 %37, -2048
-  store i32 %38, ptr %4, align 4, !tbaa !10, !noalias !32
+  store i32 %38, ptr %4, align 4, !tbaa !10, !noalias !34
   %39 = icmp ugt i32 %38, 2047
   %40 = and i32 %37, 16
   %.not.i.i.i.i.i = icmp eq i32 %40, 0
   %or.cond.i.i.i.i = or i1 %39, %.not.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i, label %41, !prof !50
+  br i1 %or.cond.i.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i, label %41, !prof !52
 
 41:                                               ; preds = %36
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 16)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i unwind label %56, !noalias !32
+          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i unwind label %56, !noalias !34
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i: ; preds = %41, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4, !noalias !34
   br label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit"
 
 42:                                               ; preds = %28
-  %43 = load i16, ptr %10, align 2, !tbaa !45, !noalias !32
+  %43 = load i16, ptr %10, align 2, !tbaa !47, !noalias !34
   %44 = zext i16 %43 to i64
   %45 = ptrtoint ptr %29 to i64
   %46 = shl nuw nsw i64 %44, 2
   %47 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.3"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %46
-  %48 = cmpxchg ptr %47, i64 %45, i64 0 seq_cst seq_cst, align 8, !noalias !32
+  %48 = cmpxchg ptr %47, i64 %45, i64 0 seq_cst seq_cst, align 8, !noalias !34
   %49 = extractvalue { i64, i1 } %48, 1
   br i1 %49, label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit", label %50
 
 50:                                               ; preds = %42, %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4, !noalias !32
-  %51 = atomicrmw sub ptr %29, i32 2048 seq_cst, align 4, !noalias !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4, !noalias !34
+  %51 = atomicrmw sub ptr %29, i32 2048 seq_cst, align 4, !noalias !34
   %52 = add i32 %51, -2048
-  store i32 %52, ptr %3, align 4, !tbaa !10, !noalias !32
+  store i32 %52, ptr %3, align 4, !tbaa !10, !noalias !34
   %53 = icmp ugt i32 %52, 2047
   %54 = and i32 %51, 16
   %.not.i.i.i.i = icmp eq i32 %54, 0
   %or.cond.i.i.i = or i1 %53, %.not.i.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i, label %55, !prof !50
+  br i1 %or.cond.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i, label %55, !prof !52
 
 55:                                               ; preds = %50
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 16)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i unwind label %56, !noalias !32
+          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i unwind label %56, !noalias !34
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i: ; preds = %55, %50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4, !noalias !34
   br label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit"
 
 56:                                               ; preds = %55, %41, %34
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #12, !noalias !32
+  call void @__clang_call_terminate(ptr %58) #12, !noalias !34
   unreachable
 
 59:                                               ; preds = %.split5.i.i
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #4, !noalias !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4, !noalias !32
+  call void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #4, !noalias !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4, !noalias !34
   resume { ptr, i32 } %60
 
 "_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_.exit": ; preds = %26, %.noexc4.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i.i, %42, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4, !noalias !34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i16, ptr %2, align 8, !tbaa !44
+  %3 = load i16, ptr %2, align 8, !tbaa !46
   %.not.i = icmp eq i16 %3, 0
   br i1 %.not.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !38
+  %5 = load ptr, ptr %0, align 8, !tbaa !40
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(4) %2)
           to label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit unwind label %6
 
@@ -810,7 +810,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %42, %44
   br label %55
 
 54:                                               ; preds = %55
-  br i1 %56, label %55, label %.loopexit.loopexit, !llvm.loop !51
+  br i1 %56, label %55, label %.loopexit.loopexit, !llvm.loop !53
 
 55:                                               ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, %54
   %56 = phi i1 [ true, %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit ], [ false, %54 ]
@@ -848,7 +848,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
   br i1 %14, label %.thread81, label %70
 
 70:                                               ; preds = %69
-  store i16 2, ptr %2, align 2, !tbaa !44
+  store i16 2, ptr %2, align 2, !tbaa !46
   br label %.thread81
 
 71:                                               ; preds = %37, %63
@@ -893,7 +893,7 @@ _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %107, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit63, %.thread82, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, %79
-  br label %18, !llvm.loop !52
+  br label %18, !llvm.loop !54
 
 91:                                               ; preds = %.thread77
   %92 = load atomic i32, ptr %0 acquire, align 4
@@ -912,10 +912,10 @@ _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; 
   br i1 %.not5380, label %.thread82, label %.thread81
 
 97:                                               ; preds = %91
-  store i16 3, ptr %2, align 2, !tbaa !44
+  store i16 3, ptr %2, align 2, !tbaa !46
   %98 = trunc i32 %.044.ph to i16
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %98, ptr %99, align 2, !tbaa !45
+  store i16 %98, ptr %99, align 2, !tbaa !47
   br label %.thread81
 
 .thread82:                                        ; preds = %.thread79
@@ -931,7 +931,7 @@ _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; 
   %105 = and i32 %102, 16
   %.not.i.i = icmp eq i32 %105, 0
   %or.cond.i = or i1 %104, %.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %106, !prof !50
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %106, !prof !52
 
 106:                                              ; preds = %101
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 16)
@@ -955,7 +955,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   %114 = and i32 %111, 16
   %.not.i.i60 = icmp eq i32 %114, 0
   %or.cond.i61 = or i1 %113, %.not.i.i60
-  br i1 %or.cond.i61, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit63, label %115, !prof !50
+  br i1 %or.cond.i61, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit63, label %115, !prof !52
 
 115:                                              ; preds = %110
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 16)
@@ -1069,28 +1069,30 @@ attributes #13 = { cold }
 !25 = distinct !{!25, !21}
 !26 = distinct !{!26, !21}
 !27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !30 = distinct !{!30, !21}
 !31 = distinct !{!31, !21}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_: argument 0"}
-!34 = distinct !{!34, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5rlockEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5rlockEv"}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"_ZTSSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEE", !40, i64 0, !41, i64 8}
-!40 = !{!"p1 _ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !18, i64 0}
-!41 = !{!"_ZTSN5folly16SharedMutexTokenE", !42, i64 0, !43, i64 2}
-!42 = !{!"_ZTSN5folly16SharedMutexToken5StateE", !12, i64 0}
-!43 = !{!"short", !12, i64 0}
-!44 = !{!41, !42, i64 0}
-!45 = !{!41, !43, i64 2}
-!46 = !{!36, !33}
-!47 = !{!48, !33}
-!48 = distinct !{!48, !49, !"_ZZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEvENK3$_0clIKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEEEDaRT_: argument 0"}
-!49 = distinct !{!49, !"_ZZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEvENK3$_0clIKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEEEDaRT_"}
-!50 = !{!"branch_weights", i32 4001, i32 1}
-!51 = distinct !{!51, !21}
-!52 = distinct !{!52, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_: argument 0"}
+!36 = distinct !{!36, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNS_3ssl6detail14OpenSSLSession16getActiveSessionEvE3$_0EEDaOT_"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5rlockEv: argument 0"}
+!39 = distinct !{!39, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5rlockEv"}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"_ZTSSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEE", !42, i64 0, !43, i64 8}
+!42 = !{!"p1 _ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !18, i64 0}
+!43 = !{!"_ZTSN5folly16SharedMutexTokenE", !44, i64 0, !45, i64 2}
+!44 = !{!"_ZTSN5folly16SharedMutexToken5StateE", !12, i64 0}
+!45 = !{!"short", !12, i64 0}
+!46 = !{!43, !44, i64 0}
+!47 = !{!43, !45, i64 2}
+!48 = !{!38, !35}
+!49 = !{!50, !35}
+!50 = distinct !{!50, !51, !"_ZZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEvENK3$_0clIKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEEEDaRT_: argument 0"}
+!51 = distinct !{!51, !"_ZZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEvENK3$_0clIKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEEEDaRT_"}
+!52 = !{!"branch_weights", i32 4001, i32 1}
+!53 = distinct !{!53, !21}
+!54 = distinct !{!54, !21}

@@ -1454,7 +1454,7 @@ remove_old_requests.exit:                         ; preds = %remove_old_requests
 151:                                              ; preds = %150
   %152 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02128.i.i)
   %.not.i.i = icmp eq ptr %152, null
-  br i1 %.not.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !15
 
 get_matched_request.exit.thread.i:                ; preds = %142, %151, %103
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #15
@@ -2149,7 +2149,7 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
   store i32 0, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %13 = icmp samesign ult i64 %indvars.iv, 62
-  br i1 %13, label %8, label %14, !llvm.loop !14
+  br i1 %13, label %8, label %14, !llvm.loop !16
 
 14:                                               ; preds = %8
   %15 = load i32, ptr @proto_ipmi, align 4
@@ -2464,7 +2464,7 @@ define internal void @parse_binary(ptr noundef writeonly captures(none) %0, ptr 
   store i8 32, ptr %18, align 1
   %20 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %20, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %21 = getelementptr i8, ptr %.01213, i64 2
@@ -2521,7 +2521,7 @@ define internal void @parse_bcdplus(ptr noundef writeonly captures(none) %0, ptr
   %16 = sub nuw nsw i32 4, %.01116
   %17 = add nuw i32 %.01314, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2587,7 +2587,7 @@ define internal void @parse_6bit_ascii(ptr noundef writeonly captures(none) %0, 
   %27 = getelementptr i8, ptr %.03437, i64 4
   %28 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %28, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.034.lcssa = phi ptr [ %0, %4 ], [ %27, %.lr.ph ]
@@ -2666,7 +2666,7 @@ define internal void @get_len_8bit_ascii(ptr noundef captures(none) initializes(
   store i32 %12, ptr %0, align 4
   %13 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -2701,7 +2701,7 @@ define internal void @parse_8bit_ascii(ptr noundef %0, ptr noundef %1, i32 nound
 16:                                               ; preds = %12, %10
   %.1 = phi ptr [ %11, %10 ], [ %15, %12 ]
   %17 = icmp ult ptr %.1, %6
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %16, %4
   ret void
@@ -2738,7 +2738,7 @@ define internal void @parse_unicode(ptr noundef %0, ptr noundef %1, i32 noundef 
   %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.014, i64 noundef 7, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.146, i32 noundef %12, i32 noundef %13)
   %15 = getelementptr i8, ptr %.014, i64 6
   %16 = icmp ult ptr %15, %6
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2873,11 +2873,13 @@ attributes #15 = { nounwind }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = !{}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

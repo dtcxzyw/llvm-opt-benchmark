@@ -1930,7 +1930,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   store float %1012, ptr %1013, align 4
   %indvars.iv.next173.i.i = add nuw nsw i64 %indvars.iv172.i.i, 1
   %exitcond175.not.i.i = icmp eq i64 %indvars.iv.next173.i.i, 8
-  br i1 %exitcond175.not.i.i, label %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, label %.preheader.split152.us.i.i, !llvm.loop !22
+  br i1 %exitcond175.not.i.i, label %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, label %.preheader.split152.us.i.i, !llvm.loop !23
 
 .split.i.i:                                       ; preds = %944, %.split.i.i
   %indvars.iv160.i.i = phi i64 [ %indvars.iv.next161.i.i, %.split.i.i ], [ 0, %944 ]
@@ -1959,7 +1959,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   store float %1033, ptr %1034, align 4
   %indvars.iv.next161.i.i = add nuw nsw i64 %indvars.iv160.i.i, 1
   %exitcond163.not.i.i = icmp eq i64 %indvars.iv.next161.i.i, 12
-  br i1 %exitcond163.not.i.i, label %.preheader.split152.i.i, label %.split.i.i, !llvm.loop !21
+  br i1 %exitcond163.not.i.i, label %.preheader.split152.i.i, label %.split.i.i, !llvm.loop !24
 
 .preheader.split152.i.i:                          ; preds = %.split.i.i, %.preheader.split152.i.i
   %indvars.iv168.i.i = phi i64 [ %indvars.iv.next169.i.i, %.preheader.split152.i.i ], [ 0, %.split.i.i ]
@@ -1992,7 +1992,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   store float %1058, ptr %1059, align 4
   %indvars.iv.next169.i.i = add nuw nsw i64 %indvars.iv168.i.i, 1
   %exitcond171.not.i.i = icmp eq i64 %indvars.iv.next169.i.i, 8
-  br i1 %exitcond171.not.i.i, label %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, label %.preheader.split152.i.i, !llvm.loop !22
+  br i1 %exitcond171.not.i.i, label %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, label %.preheader.split152.i.i, !llvm.loop !25
 
 _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; preds = %.preheader.split152.i.i, %.preheader.split152.us.i.i, %943
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -2459,7 +2459,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float 0.000000e+00, ptr %1366, align 4
   %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i100.i, 1
   %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, 4
-  br i1 %exitcond.not.i102.i, label %1367, label %.preheader.i99.i, !llvm.loop !23
+  br i1 %exitcond.not.i102.i, label %1367, label %.preheader.i99.i, !llvm.loop !26
 
 1367:                                             ; preds = %.preheader.i99.i
   store float 1.000000e+00, ptr %8, align 4
@@ -2554,7 +2554,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
   store float %1406, ptr %1404, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1396
   %1407 = icmp ne ptr %7, null
@@ -2590,7 +2590,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
   store float %1421, ptr %1419, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
-  br i1 %exitcond118.not, label %.loopexit, label %.lr.ph110, !llvm.loop !25
+  br i1 %exitcond118.not, label %.loopexit, label %.lr.ph110, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph110, %1410, %._crit_edge, %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
   ret i32 %.0.i
@@ -3199,7 +3199,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit108: ; pred
 _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit114: ; preds = %.lr.ph.i111, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond165.not, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %105, !llvm.loop !26
+  br i1 %exitcond165.not, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %105, !llvm.loop !29
 
 _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit114, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit99
   %.not.i115 = icmp eq ptr %.sroa.0135.0157, null
@@ -3213,7 +3213,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdi
   %.sroa.0.1 = select i1 %.not.i118, ptr null, ptr %136
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %.loopexit, label %76, !llvm.loop !27
+  br i1 %exitcond170.not, label %.loopexit, label %76, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, %48, %40, %31, %21, %13
   %.075 = phi i1 [ false, %13 ], [ false, %21 ], [ false, %31 ], [ false, %40 ], [ true, %48 ], [ true, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit ]
@@ -3641,7 +3641,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit186: ; pred
 _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit192: ; preds = %.lr.ph.i189, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond294.not, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %165, !llvm.loop !28
+  br i1 %exitcond294.not, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, label %165, !llvm.loop !31
 
 _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit192, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit159
   %.not.i193 = icmp eq ptr %.sroa.0246.0283, null
@@ -3664,7 +3664,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdi
   %.sroa.0.1 = select i1 %.not.i202, ptr null, ptr %223
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
-  br i1 %exitcond299.not, label %.loopexit, label %136, !llvm.loop !29
+  br i1 %exitcond299.not, label %.loopexit, label %136, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit, %84, %76, %67, %58, %49, %40, %30, %19
   %.0108 = phi i1 [ false, %19 ], [ false, %30 ], [ false, %40 ], [ false, %49 ], [ false, %58 ], [ false, %67 ], [ false, %76 ], [ true, %84 ], [ true, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit ]
@@ -3727,12 +3727,15 @@ attributes #12 = { nounwind }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
+!21 = distinct !{!21, !6, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !6, !22}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}

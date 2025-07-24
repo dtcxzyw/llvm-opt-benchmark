@@ -341,7 +341,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %61 = getelementptr inbounds nuw i8, ptr %.1.us.i, i64 1
   %62 = load i8, ptr %60, align 1, !tbaa !13
   %.not.us.i = icmp eq i8 %62, 0
-  br i1 %.not.us.i, label %.critedge.i39, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.critedge.i39, label %.lr.ph.split.us.i, !llvm.loop !17
 
 .lr.ph.split.i37:                                 ; preds = %.lr.ph.i, %69
   %63 = phi i8 [ %72, %69 ], [ %43, %.lr.ph.i ]
@@ -446,7 +446,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.not1315 = icmp eq ptr %7, null
   br i1 %.not1315, label %.loopexit, label %.lr.ph
 
@@ -457,7 +457,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef
   br i1 %.not14, label %9, label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %.116, align 8, !tbaa !18
+  %10 = load ptr, ptr %.116, align 8, !tbaa !20
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
@@ -501,7 +501,7 @@ get_object_item.exit.i:                           ; preds = %10, %.thread
 
 13:                                               ; preds = %get_object_item.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(4) @.str.7) #14
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %44, label %18
@@ -533,7 +533,7 @@ get_object_item.exit.i:                           ; preds = %10, %.thread
 
 decode_patch_operation.exit:                      ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.0.i162164, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %34 = load ptr, ptr %33, align 8, !tbaa !21
   %35 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %34, i32 noundef %2)
   br i1 %.not.i, label %38, label %36
 
@@ -554,20 +554,20 @@ get_object_item.exit151:                          ; preds = %36, %38
 .thread252:                                       ; preds = %27, %24
   %.0.i148.ph.ph = phi i32 [ 4, %24 ], [ 5, %27 ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i162164, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %43 = load ptr, ptr %42, align 8, !tbaa !21
   br label %78
 
 44:                                               ; preds = %13, %21
   %.0.i148.ph = phi i32 [ 3, %21 ], [ 1, %13 ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.i162164, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !19
+  %46 = load ptr, ptr %45, align 8, !tbaa !21
   %47 = load i8, ptr %46, align 1, !tbaa !13
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %68, label %78
 
 .thread171:                                       ; preds = %18
   %49 = getelementptr inbounds nuw i8, ptr %.0.i162164, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %50 = load ptr, ptr %49, align 8, !tbaa !21
   %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %.thread177
@@ -588,7 +588,7 @@ get_object_item.exit151:                          ; preds = %36, %38
 
 59:                                               ; preds = %58, %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !19
+  %61 = load ptr, ptr %60, align 8, !tbaa !21
   %.not11.i = icmp eq ptr %61, null
   br i1 %.not11.i, label %63, label %62
 
@@ -598,7 +598,7 @@ get_object_item.exit151:                          ; preds = %36, %38
 
 63:                                               ; preds = %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !17
+  %65 = load ptr, ptr %64, align 8, !tbaa !19
   %.not12.i = icmp eq ptr %65, null
   br i1 %.not12.i, label %67, label %66
 
@@ -679,14 +679,14 @@ get_object_item.exit155:                          ; preds = %89, %91
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %.0.i154, i64 32
-  %97 = load ptr, ptr %96, align 8, !tbaa !19
+  %97 = load ptr, ptr %96, align 8, !tbaa !21
   %98 = tail call fastcc ptr @detach_path(ptr noundef %0, ptr noundef %97, i32 noundef %2)
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread219.thread, label %.thread241
 
 .thread196:                                       ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %.0.i154, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !19
+  %101 = load ptr, ptr %100, align 8, !tbaa !21
   %102 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %101, i32 noundef %2)
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread219.thread, label %104
@@ -721,7 +721,7 @@ get_object_item.exit158:                          ; preds = %108, %110
 .thread241:                                       ; preds = %95, %104, %113
   %116 = phi ptr [ %107, %113 ], [ %80, %104 ], [ %80, %95 ]
   %.5114 = phi ptr [ %114, %113 ], [ %105, %104 ], [ %98, %95 ]
-  %117 = load ptr, ptr %116, align 8, !tbaa !19
+  %117 = load ptr, ptr %116, align 8, !tbaa !21
   %118 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %117) #14
   %119 = add i64 %118, 1
   %120 = tail call ptr @cJSON_malloc(i64 noundef %119) #13
@@ -806,13 +806,13 @@ sub_0:                                            ; preds = %140
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 0, ptr %4, align 8, !tbaa !20
+  store i64 0, ptr %4, align 8, !tbaa !22
   %148 = call fastcc i32 @decode_array_index_from_pointer(ptr noundef %126, ptr noundef %4)
   %.not134 = icmp eq i32 %148, 0
   br i1 %.not134, label %.thread237, label %149
 
 149:                                              ; preds = %.tail.thread
-  %150 = load i64, ptr %4, align 8, !tbaa !20
+  %150 = load i64, ptr %4, align 8, !tbaa !22
   %151 = tail call fastcc i32 @insert_item_in_array(ptr noundef %127, i64 noundef %150, ptr noundef nonnull %.5114)
   %.not135 = icmp eq i32 %151, 0
   br i1 %.not135, label %.thread237, label %159
@@ -876,7 +876,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.not1315 = icmp eq ptr %7, null
   br i1 %.not1315, label %.loopexit, label %.lr.ph
 
@@ -887,7 +887,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0
   br i1 %.not14, label %9, label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %.116, align 8, !tbaa !18
+  %10 = load ptr, ptr %.116, align 8, !tbaa !20
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
@@ -1040,10 +1040,10 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !22
+  %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = and i32 %10, 255
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !24
   %14 = and i32 %13, 255
   %.not = icmp eq i32 %11, %14
   br i1 %.not, label %16, label %15
@@ -1064,17 +1064,17 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !23
+  %21 = load i32, ptr %20, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %23 = load i32, ptr %22, align 8, !tbaa !23
+  %23 = load i32, ptr %22, align 8, !tbaa !25
   %.not110 = icmp eq i32 %21, %23
   br i1 %.not110, label %24, label %36
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %26 = load double, ptr %25, align 8, !tbaa !24
+  %26 = load double, ptr %25, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %28 = load double, ptr %27, align 8, !tbaa !24
+  %28 = load double, ptr %27, align 8, !tbaa !26
   %29 = tail call double @llvm.fabs.f64(double %26)
   %30 = tail call double @llvm.fabs.f64(double %28)
   %31 = fcmp ogt double %29, %30
@@ -1091,9 +1091,9 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 
 37:                                               ; preds = %16
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !19
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %41) #14
   %.not109 = icmp eq i32 %42, 0
   br i1 %.not109, label %.loopexit, label %43
@@ -1104,9 +1104,9 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 
 44:                                               ; preds = %16
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !17
+  %48 = load ptr, ptr %47, align 8, !tbaa !19
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %50 = add i64 %49, 22
   %51 = tail call ptr @cJSON_malloc(i64 noundef %50) #13
@@ -1128,8 +1128,8 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
   %.097128 = phi ptr [ %57, %.lr.ph131 ], [ %48, %44 ]
   %55 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %1, i64 noundef %.0130) #13
   tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %.095129, ptr noundef nonnull %.097128, i32 noundef %4)
-  %56 = load ptr, ptr %.095129, align 8, !tbaa !18
-  %57 = load ptr, ptr %.097128, align 8, !tbaa !18
+  %56 = load ptr, ptr %.095129, align 8, !tbaa !20
+  %57 = load ptr, ptr %.097128, align 8, !tbaa !20
   %58 = add i64 %.0130, 1
   %59 = icmp ne ptr %56, null
   %60 = icmp ne ptr %57, null
@@ -1144,14 +1144,14 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
   %.196135 = phi ptr [ %63, %.lr.ph136 ], [ %.095.lcssa, %.preheader124 ]
   %62 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %.0.lcssa) #13
   tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef null)
-  %63 = load ptr, ptr %.196135, align 8, !tbaa !18
+  %63 = load ptr, ptr %.196135, align 8, !tbaa !20
   %.not107 = icmp eq ptr %63, null
   br i1 %.not107, label %.preheader, label %.lr.ph136
 
 .lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
   %.198138 = phi ptr [ %64, %.lr.ph139 ], [ %.097.lcssa, %.preheader ]
   tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.198138)
-  %64 = load ptr, ptr %.198138, align 8, !tbaa !18
+  %64 = load ptr, ptr %.198138, align 8, !tbaa !20
   %.not108 = icmp eq ptr %64, null
   br i1 %.not108, label %._crit_edge, label %.lr.ph139
 
@@ -1161,14 +1161,14 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 
 sort_object.exit112:                              ; preds = %16
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !17
+  %66 = load ptr, ptr %65, align 8, !tbaa !19
   %67 = tail call fastcc ptr @sort_list(ptr noundef %66, i32 noundef range(i32 0, 2) %4)
-  store ptr %67, ptr %65, align 8, !tbaa !17
+  store ptr %67, ptr %65, align 8, !tbaa !19
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !17
+  %69 = load ptr, ptr %68, align 8, !tbaa !19
   %70 = tail call fastcc ptr @sort_list(ptr noundef %69, i32 noundef range(i32 0, 2) %4)
-  store ptr %70, ptr %68, align 8, !tbaa !17
-  %71 = load ptr, ptr %65, align 8, !tbaa !17
+  store ptr %70, ptr %68, align 8, !tbaa !19
+  %71 = load ptr, ptr %65, align 8, !tbaa !19
   %72 = icmp ne ptr %71, null
   %73 = icmp ne ptr %70, null
   %74 = select i1 %72, i1 true, i1 %73
@@ -1329,8 +1329,8 @@ encode_string_as_pointer.exit:                    ; preds = %130
   store i8 0, ptr %.014.i, align 1, !tbaa !13
   tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %126, ptr noundef nonnull %.0102126, ptr noundef nonnull %.0100127, i32 noundef %4)
   tail call void @cJSON_free(ptr noundef nonnull %126) #13
-  %139 = load ptr, ptr %.0102126, align 8, !tbaa !18
-  %140 = load ptr, ptr %.0100127, align 8, !tbaa !18
+  %139 = load ptr, ptr %.0102126, align 8, !tbaa !20
+  %140 = load ptr, ptr %.0100127, align 8, !tbaa !20
   br label %145
 
 compare_strings.exit.thread:                      ; preds = %compare_strings.exit
@@ -1339,13 +1339,13 @@ compare_strings.exit.thread:                      ; preds = %compare_strings.exi
 
 compare_strings.exit.thread.thread122:            ; preds = %77, %compare_strings.exit.thread
   tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %.pre, ptr noundef null)
-  %142 = load ptr, ptr %.0102126, align 8, !tbaa !18
+  %142 = load ptr, ptr %.0102126, align 8, !tbaa !20
   br label %145
 
 compare_strings.exit.thread.thread:               ; preds = %.compare_strings.exit.thread.thread_crit_edge, %79, %compare_strings.exit.thread
   %143 = phi ptr [ %.pre145, %.compare_strings.exit.thread.thread_crit_edge ], [ %81, %79 ], [ %81, %compare_strings.exit.thread ]
   tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %143, ptr noundef %.0100127)
-  %144 = load ptr, ptr %.0100127, align 8, !tbaa !18
+  %144 = load ptr, ptr %.0100127, align 8, !tbaa !20
   br label %145
 
 145:                                              ; preds = %compare_strings.exit.thread.thread122, %compare_strings.exit.thread.thread, %encode_string_as_pointer.exit
@@ -1384,9 +1384,9 @@ define void @cJSONUtils_SortObject(ptr noundef captures(address_is_null) %0) loc
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 0)
-  store ptr %6, ptr %4, align 8, !tbaa !17
+  store ptr %6, ptr %4, align 8, !tbaa !19
   br label %sort_object.exit
 
 sort_object.exit:                                 ; preds = %1, %3
@@ -1400,9 +1400,9 @@ define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef captures(address_is_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 1)
-  store ptr %6, ptr %4, align 8, !tbaa !17
+  store ptr %6, ptr %4, align 8, !tbaa !19
   br label %sort_object.exit
 
 sort_object.exit:                                 ; preds = %1, %3
@@ -1444,36 +1444,36 @@ define internal fastcc ptr @merge_patch(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not3642, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %.not38 = icmp eq i32 %2, 0
-  br i1 %.not38, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  %.not40 = icmp eq i32 %2, 0
+  br i1 %.not40, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %22
-  %.03043.us.us = phi ptr [ %.030.us.us, %22 ], [ %.03041, %.lr.ph ]
-  %13 = tail call i32 @cJSON_IsNull(ptr noundef nonnull %.03043.us.us) #13
-  %.not37.us.us = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %.03043.us.us, i64 56
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
+  %.03043.us = phi ptr [ %.030.us, %22 ], [ %.03041, %.lr.ph ]
+  %13 = tail call i32 @cJSON_IsNull(ptr noundef nonnull %.03043.us) #13
+  %.not37.us = icmp eq i32 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %.03043.us, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !8
-  br i1 %.not37.us.us, label %.split34.us.us, label %16
+  br i1 %.not37.us, label %.split34.us, label %16
 
-16:                                               ; preds = %.lr.ph.split.us.split.us
+16:                                               ; preds = %.lr.ph.split.us
   tail call void @cJSON_DeleteItemFromObject(ptr noundef %.032, ptr noundef %15) #13
   br label %22
 
-.split34.us.us:                                   ; preds = %.lr.ph.split.us.split.us
+.split34.us:                                      ; preds = %.lr.ph.split.us
   %17 = tail call ptr @cJSON_DetachItemFromObject(ptr noundef %.032, ptr noundef %15) #13
-  %18 = tail call fastcc ptr @merge_patch(ptr noundef %17, ptr noundef nonnull %.03043.us.us, i32 noundef 0)
-  %.not39.us.us = icmp eq ptr %18, null
-  br i1 %.not39.us.us, label %.thread, label %19
+  %18 = tail call fastcc ptr @merge_patch(ptr noundef %17, ptr noundef nonnull %.03043.us, i32 noundef 0)
+  %.not39.us = icmp eq ptr %18, null
+  br i1 %.not39.us, label %.thread, label %19
 
-19:                                               ; preds = %.split34.us.us
+19:                                               ; preds = %.split34.us
   %20 = load ptr, ptr %14, align 8, !tbaa !8
   %21 = tail call i32 @cJSON_AddItemToObject(ptr noundef %.032, ptr noundef %20, ptr noundef nonnull %18) #13
   br label %22
 
 22:                                               ; preds = %19, %16
-  %.030.us.us = load ptr, ptr %.03043.us.us, align 8, !tbaa !3
-  %.not36.us.us = icmp eq ptr %.030.us.us, null
-  br i1 %.not36.us.us, label %.loopexit, label %.lr.ph.split.us.split.us
+  %.030.us = load ptr, ptr %.03043.us, align 8, !tbaa !3
+  %.not36.us = icmp eq ptr %.030.us, null
+  br i1 %.not36.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %32
   %.03043 = phi ptr [ %.030, %32 ], [ %.03041, %.lr.ph ]
@@ -1493,7 +1493,7 @@ define internal fastcc ptr @merge_patch(ptr noundef %0, ptr noundef %1, i32 noun
   %.not39 = icmp eq ptr %28, null
   br i1 %.not39, label %.thread, label %29
 
-.thread:                                          ; preds = %.split, %.split34.us.us
+.thread:                                          ; preds = %.split, %.split34.us
   tail call void @cJSON_Delete(ptr noundef %.032) #13
   br label %.loopexit
 
@@ -1553,18 +1553,18 @@ define internal fastcc ptr @generate_merge_patch(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = tail call fastcc ptr @sort_list(ptr noundef %17, i32 noundef range(i32 0, 2) %2)
-  store ptr %18, ptr %16, align 8, !tbaa !17
+  store ptr %18, ptr %16, align 8, !tbaa !19
   br label %sort_object.exit48
 
 sort_object.exit48:                               ; preds = %13, %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = tail call fastcc ptr @sort_list(ptr noundef %20, i32 noundef range(i32 0, 2) %2)
-  store ptr %21, ptr %19, align 8, !tbaa !17
+  store ptr %21, ptr %19, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
   %24 = tail call ptr @cJSON_CreateObject() #13
   %25 = icmp eq ptr %24, null
   br i1 %25, label %71, label %.preheader
@@ -1602,7 +1602,7 @@ sort_object.exit48:                               ; preds = %13, %15
   %42 = load ptr, ptr %41, align 8, !tbaa !8
   %43 = tail call ptr @cJSON_CreateNull() #13
   %44 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %24, ptr noundef %42, ptr noundef %43) #13
-  %45 = load ptr, ptr %.03949, align 8, !tbaa !18
+  %45 = load ptr, ptr %.03949, align 8, !tbaa !20
   br label %63
 
 46:                                               ; preds = %38
@@ -1614,7 +1614,7 @@ sort_object.exit48:                               ; preds = %13, %15
   %49 = load ptr, ptr %48, align 8, !tbaa !8
   %50 = tail call ptr @cJSON_Duplicate(ptr noundef %.03850, i32 noundef 1) #13
   %51 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %24, ptr noundef %49, ptr noundef %50) #13
-  %52 = load ptr, ptr %.03850, align 8, !tbaa !18
+  %52 = load ptr, ptr %.03850, align 8, !tbaa !20
   br label %63
 
 53:                                               ; preds = %46
@@ -1630,8 +1630,8 @@ sort_object.exit48:                               ; preds = %13, %15
   br label %60
 
 60:                                               ; preds = %55, %53
-  %61 = load ptr, ptr %.03949, align 8, !tbaa !18
-  %62 = load ptr, ptr %.03850, align 8, !tbaa !18
+  %61 = load ptr, ptr %.03949, align 8, !tbaa !20
+  %62 = load ptr, ptr %.03850, align 8, !tbaa !20
   br label %63
 
 63:                                               ; preds = %47, %60, %40
@@ -1644,7 +1644,7 @@ sort_object.exit48:                               ; preds = %13, %15
 
 ._crit_edge:                                      ; preds = %63, %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !17
+  %68 = load ptr, ptr %67, align 8, !tbaa !19
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %71
 
@@ -1713,7 +1713,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr 
   ]
 
 20:                                               ; preds = %.critedge, %.critedge
-  store i64 %.016.lcssa, ptr %1, align 8, !tbaa !20
+  store i64 %.016.lcssa, ptr %1, align 8, !tbaa !22
   br label %21
 
 21:                                               ; preds = %.critedge, %5, %20
@@ -1753,10 +1753,10 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(ad
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !22
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = and i32 %8, 255
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !22
+  %11 = load i32, ptr %10, align 8, !tbaa !24
   %12 = and i32 %11, 255
   %.not = icmp eq i32 %9, %12
   br i1 %.not, label %13, label %.thread
@@ -1773,17 +1773,17 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(ad
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !23
+  %18 = load i32, ptr %17, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !23
+  %20 = load i32, ptr %19, align 8, !tbaa !25
   %.not62 = icmp eq i32 %18, %20
   br i1 %.not62, label %21, label %.thread
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load double, ptr %22, align 8, !tbaa !24
+  %23 = load double, ptr %22, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load double, ptr %24, align 8, !tbaa !24
+  %25 = load double, ptr %24, align 8, !tbaa !26
   %26 = tail call double @llvm.fabs.f64(double %23)
   %27 = tail call double @llvm.fabs.f64(double %25)
   %28 = fcmp ogt double %26, %27
@@ -1796,9 +1796,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(ad
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !19
+  %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %37) #14
   %.not61 = icmp eq i32 %38, 0
   br label %.thread
@@ -1830,13 +1830,13 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(ad
 
 sort_object.exit68:                               ; preds = %13
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !17
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
   %51 = tail call fastcc ptr @sort_list(ptr noundef %50, i32 noundef range(i32 0, 2) %2)
-  store ptr %51, ptr %49, align 8, !tbaa !17
+  store ptr %51, ptr %49, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !17
+  %53 = load ptr, ptr %52, align 8, !tbaa !19
   %54 = tail call fastcc ptr @sort_list(ptr noundef %53, i32 noundef range(i32 0, 2) %2)
-  store ptr %54, ptr %52, align 8, !tbaa !17
+  store ptr %54, ptr %52, align 8, !tbaa !19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %sort_object.exit68.split.us, label %sort_object.exit68.split
 
@@ -1902,7 +1902,7 @@ sort_object.exit68.split.us:                      ; preds = %sort_object.exit68,
 compare_strings.exit.thread.us:                   ; preds = %.lr.ph.i.us, %65
   %92 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.152.us, ptr noundef nonnull %.154.us, i32 noundef 0)
   %.not59.not.us = icmp eq i32 %92, 0
-  br i1 %.not59.not.us, label %.thread, label %sort_object.exit68.split.us
+  br i1 %.not59.not.us, label %.thread, label %sort_object.exit68.split.us, !llvm.loop !28
 
 sort_object.exit68.split:                         ; preds = %sort_object.exit68, %compare_strings.exit.thread
   %.154.in = phi ptr [ %.154, %compare_strings.exit.thread ], [ %52, %sort_object.exit68 ]
@@ -1968,7 +1968,7 @@ define internal fastcc void @overwrite_item(ptr noundef captures(address_is_null
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %12, label %11
 
@@ -1978,7 +1978,7 @@ define internal fastcc void @overwrite_item(ptr noundef captures(address_is_null
 
 12:                                               ; preds = %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %16, label %15
 
@@ -2120,9 +2120,9 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %46, label %51, label %detach_item_from_array.exit.thread34
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr %44, align 8, !tbaa !17
+  %52 = load ptr, ptr %44, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.0.i28, %52
-  %53 = load ptr, ptr %.0.i28, align 8, !tbaa !18
+  %53 = load ptr, ptr %.0.i28, align 8, !tbaa !20
   br i1 %.not.i, label %54, label %.thread29.i
 
 54:                                               ; preds = %51
@@ -2131,30 +2131,30 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
 
 .thread29.i:                                      ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !25
-  store ptr %53, ptr %56, align 8, !tbaa !18
+  %56 = load ptr, ptr %55, align 8, !tbaa !29
+  store ptr %53, ptr %56, align 8, !tbaa !20
   %.not2730.i = icmp eq ptr %53, null
   br i1 %.not2730.i, label %62, label %.thread28.i
 
 .thread.i:                                        ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !25
+  %58 = load ptr, ptr %57, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %58, ptr %59, align 8, !tbaa !25
+  store ptr %58, ptr %59, align 8, !tbaa !29
   br label %61
 
 .thread28.i:                                      ; preds = %.thread29.i
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %56, ptr %60, align 8, !tbaa !25
+  store ptr %56, ptr %60, align 8, !tbaa !29
   br label %64
 
 61:                                               ; preds = %.thread.i, %54
-  store ptr %53, ptr %44, align 8, !tbaa !17
+  store ptr %53, ptr %44, align 8, !tbaa !19
   br label %64
 
 62:                                               ; preds = %.thread29.i
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %56, ptr %63, align 8, !tbaa !25
+  store ptr %56, ptr %63, align 8, !tbaa !29
   br label %64
 
 64:                                               ; preds = %62, %61, %.thread28.i
@@ -2217,23 +2217,23 @@ define internal fastcc range(i32 0, 2) i32 @insert_item_in_array(ptr noundef non
   br label %24
 
 15:                                               ; preds = %11
-  store ptr %.0, ptr %2, align 8, !tbaa !18
+  store ptr %.0, ptr %2, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !25
-  store ptr %2, ptr %16, align 8, !tbaa !25
-  %19 = load ptr, ptr %4, align 8, !tbaa !17
+  store ptr %17, ptr %18, align 8, !tbaa !29
+  store ptr %2, ptr %16, align 8, !tbaa !29
+  %19 = load ptr, ptr %4, align 8, !tbaa !19
   %20 = icmp eq ptr %.0, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  store ptr %2, ptr %4, align 8, !tbaa !17
+  store ptr %2, ptr %4, align 8, !tbaa !19
   br label %24
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %18, align 8, !tbaa !25
-  store ptr %2, ptr %23, align 8, !tbaa !18
+  %23 = load ptr, ptr %18, align 8, !tbaa !29
+  store ptr %2, ptr %23, align 8, !tbaa !20
   br label %24
 
 24:                                               ; preds = %21, %22, %10, %13
@@ -2266,7 +2266,7 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2
   br i1 %3, label %.critedge.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8, !tbaa !18
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.critedge.thread, label %.preheader
 
@@ -2275,7 +2275,7 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2
   br i1 %.not.i, label %.preheader.split.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.usthread-pre-split:              ; preds = %._crit_edge.i.us
-  %.pr = load ptr, ptr %7, align 8, !tbaa !18
+  %.pr = load ptr, ptr %7, align 8, !tbaa !20
   %.not79.us = icmp eq ptr %.pr, null
   br i1 %.not79.us, label %.critedge.thread, label %.preheader.split.us.preheader
 
@@ -2332,10 +2332,10 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2
   %.lcssa30.i.us = phi i32 [ %20, %.preheader.i.us ], [ %34, %28 ]
   %.lcssa.i.us = phi i32 [ %24, %.preheader.i.us ], [ %38, %28 ]
   %40 = icmp slt i32 %.lcssa30.i.us, %.lcssa.i.us
-  br i1 %40, label %.preheader.split.usthread-pre-split, label %.critedge.preheader
+  br i1 %40, label %.preheader.split.usthread-pre-split, label %.critedge.preheader, !llvm.loop !30
 
 .preheader.splitthread-pre-split:                 ; preds = %compare_strings.exit
-  %.pr128 = load ptr, ptr %41, align 8, !tbaa !18
+  %.pr128 = load ptr, ptr %41, align 8, !tbaa !20
   %.not79 = icmp eq ptr %.pr128, null
   br i1 %.not79, label %.critedge.thread, label %.preheader.split.preheader
 
@@ -2364,13 +2364,13 @@ compare_strings.exit:                             ; preds = %.preheader.split.pr
 .critedge:                                        ; preds = %.critedge.preheader, %53
   %.168106 = phi ptr [ %54, %53 ], [ %0, %.critedge.preheader ]
   %.069105 = phi ptr [ %51, %53 ], [ %0, %.critedge.preheader ]
-  %51 = load ptr, ptr %.069105, align 8, !tbaa !18
-  %52 = load ptr, ptr %.168106, align 8, !tbaa !18
+  %51 = load ptr, ptr %.069105, align 8, !tbaa !20
+  %52 = load ptr, ptr %.168106, align 8, !tbaa !20
   %.not83 = icmp eq ptr %52, null
   br i1 %.not83, label %.thread, label %53
 
 53:                                               ; preds = %.critedge
-  %54 = load ptr, ptr %52, align 8, !tbaa !18
+  %54 = load ptr, ptr %52, align 8, !tbaa !20
   %.not80 = icmp eq ptr %54, null
   br i1 %.not80, label %.thread, label %.critedge
 
@@ -2380,13 +2380,13 @@ compare_strings.exit:                             ; preds = %.preheader.split.pr
 
 55:                                               ; preds = %.thread
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %57 = load ptr, ptr %56, align 8, !tbaa !29
   %.not82 = icmp eq ptr %57, null
   br i1 %.not82, label %59, label %58
 
 58:                                               ; preds = %55
-  store ptr null, ptr %57, align 8, !tbaa !18
-  store ptr null, ptr %56, align 8, !tbaa !25
+  store ptr null, ptr %57, align 8, !tbaa !20
+  store ptr null, ptr %56, align 8, !tbaa !29
   br label %59
 
 59:                                               ; preds = %58, %55, %.thread
@@ -2474,9 +2474,9 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   br i1 %103, label %106, label %104
 
 104:                                              ; preds = %compare_strings.exit94.thread
-  store ptr %102, ptr %.064112, align 8, !tbaa !18
+  store ptr %102, ptr %.064112, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %.064112, ptr %105, align 8, !tbaa !25
+  store ptr %.064112, ptr %105, align 8, !tbaa !29
   br label %106
 
 106:                                              ; preds = %compare_strings.exit94.thread, %104
@@ -2485,11 +2485,11 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = load ptr, ptr %.072107, align 8, !tbaa !18
+  %109 = load ptr, ptr %.072107, align 8, !tbaa !20
   br label %112
 
 110:                                              ; preds = %106
-  %111 = load ptr, ptr %.170108, align 8, !tbaa !18
+  %111 = load ptr, ptr %.170108, align 8, !tbaa !20
   br label %112
 
 112:                                              ; preds = %110, %108
@@ -2511,9 +2511,9 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   br i1 %117, label %.critedge.thread, label %118
 
 118:                                              ; preds = %116
-  store ptr %.173, ptr %102, align 8, !tbaa !18
+  store ptr %.173, ptr %102, align 8, !tbaa !20
   %119 = getelementptr inbounds nuw i8, ptr %.173, i64 8
-  store ptr %102, ptr %119, align 8, !tbaa !25
+  store ptr %102, ptr %119, align 8, !tbaa !29
   br i1 %114, label %.thread155, label %.critedge.thread
 
 120:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -2531,9 +2531,9 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   %.064.lcssa142152161 = phi ptr [ %.064.lcssa142, %121 ], [ %102, %118 ]
   %.065.lcssa140153160 = phi ptr [ %.065.lcssa140, %121 ], [ %.166, %118 ]
   %.170.lcssa138154159 = phi ptr [ %.170.lcssa138, %121 ], [ %.271, %118 ]
-  store ptr %.170.lcssa138154159, ptr %.064.lcssa142152161, align 8, !tbaa !18
+  store ptr %.170.lcssa138154159, ptr %.064.lcssa142152161, align 8, !tbaa !20
   %123 = getelementptr inbounds nuw i8, ptr %.170.lcssa138154159, i64 8
-  store ptr %.064.lcssa142152161, ptr %123, align 8, !tbaa !25
+  store ptr %.064.lcssa142152161, ptr %123, align 8, !tbaa !29
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader.splitthread-pre-split, %.preheader.split.usthread-pre-split, %._crit_edge.thread, %118, %120, %.thread155, %121, %116, %2, %4
@@ -2589,12 +2589,17 @@ attributes #15 = { nounwind willreturn memory(none) }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 int", !5, i64 0}
 !16 = !{!10, !10, i64 0}
-!17 = !{!9, !4, i64 16}
-!18 = !{!9, !4, i64 0}
-!19 = !{!9, !11, i64 32}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !6, i64 0}
-!22 = !{!9, !10, i64 24}
-!23 = !{!9, !10, i64 40}
-!24 = !{!9, !12, i64 48}
-!25 = !{!9, !4, i64 8}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!9, !4, i64 16}
+!20 = !{!9, !4, i64 0}
+!21 = !{!9, !11, i64 32}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = !{!9, !10, i64 24}
+!25 = !{!9, !10, i64 40}
+!26 = !{!9, !12, i64 48}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = !{!9, !4, i64 8}
+!30 = distinct !{!30, !18}

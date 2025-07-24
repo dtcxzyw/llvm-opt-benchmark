@@ -1260,7 +1260,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 .thread:                                          ; preds = %.preheader.split
   %78 = getelementptr inbounds nuw i8, ptr %.066111, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !59
-  %80 = load i8, ptr %61, align 1, !tbaa !62
+  %80 = load i8, ptr %61, align 1, !tbaa !63
   %81 = lshr i8 %80, 1
   %82 = and i8 %81, 2
   %83 = or disjoint i8 %82, 4
@@ -1284,7 +1284,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %94 = getelementptr inbounds nuw i8, ptr %.066111, i64 48
   %95 = zext i32 %93 to i64
   %96 = icmp ugt i64 %33, %95
-  br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !61
+  br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %92, %70, %37, %.loopexit98
   %.071 = phi i64 [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %70 ], [ 0, %92 ]
@@ -1292,25 +1292,25 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %.068 = phi i32 [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
   %97 = add i64 %.071, %58
   %98 = add i64 %97, %.069
-  store i32 %.074109, ptr %4, align 8, !tbaa !63
+  store i32 %.074109, ptr %4, align 8, !tbaa !65
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %1, ptr %99, align 4, !tbaa !65
+  store i32 %1, ptr %99, align 4, !tbaa !67
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %39, ptr %100, align 8, !tbaa !66
+  store i32 %39, ptr %100, align 8, !tbaa !68
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.071, ptr %101, align 8, !tbaa !67
+  store i64 %.071, ptr %101, align 8, !tbaa !69
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.069, ptr %102, align 8, !tbaa !68
+  store i64 %.069, ptr %102, align 8, !tbaa !70
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %98, ptr %103, align 8, !tbaa !69
+  store i64 %98, ptr %103, align 8, !tbaa !71
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %.068, ptr %104, align 8, !tbaa !70
+  store i32 %.068, ptr %104, align 8, !tbaa !72
   %105 = load ptr, ptr %13, align 8, !tbaa !28
   br i1 %51, label %113, label %106
 
 106:                                              ; preds = %.loopexit
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 289
-  %108 = load i8, ptr %107, align 1, !tbaa !62
+  %108 = load i8, ptr %107, align 1, !tbaa !63
   %109 = lshr i8 %108, 1
   %110 = and i8 %109, 2
   %111 = or disjoint i8 %110, 4
@@ -1341,7 +1341,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %125 = getelementptr inbounds nuw i8, ptr %.073110, i64 48
   %126 = zext i32 %124 to i64
   %127 = icmp ugt i64 %33, %126
-  br i1 %127, label %.lr.ph, label %.loopexit99, !llvm.loop !71
+  br i1 %127, label %.lr.ph, label %.loopexit99, !llvm.loop !73
 
 .loopexit99:                                      ; preds = %123, %29, %122
   %.176 = phi i32 [ %.2, %122 ], [ 0, %29 ], [ 0, %123 ]
@@ -1450,14 +1450,16 @@ attributes #4 = { nounwind }
 !58 = !{!48, !11, i64 16}
 !59 = !{!37, !39, i64 32}
 !60 = !{!37, !11, i64 40}
-!61 = distinct !{!61, !43}
-!62 = !{!16, !5, i64 289}
-!63 = !{!64, !14, i64 0}
-!64 = !{!"H5O_msg_alloc_info_t", !14, i64 0, !14, i64 4, !14, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !14, i64 40}
-!65 = !{!64, !14, i64 4}
-!66 = !{!64, !14, i64 8}
-!67 = !{!64, !11, i64 16}
-!68 = !{!64, !11, i64 24}
-!69 = !{!64, !11, i64 32}
-!70 = !{!64, !14, i64 40}
-!71 = distinct !{!71, !43}
+!61 = distinct !{!61, !43, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = !{!16, !5, i64 289}
+!64 = distinct !{!64, !43}
+!65 = !{!66, !14, i64 0}
+!66 = !{!"H5O_msg_alloc_info_t", !14, i64 0, !14, i64 4, !14, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !14, i64 40}
+!67 = !{!66, !14, i64 4}
+!68 = !{!66, !14, i64 8}
+!69 = !{!66, !11, i64 16}
+!70 = !{!66, !11, i64 24}
+!71 = !{!66, !11, i64 32}
+!72 = !{!66, !14, i64 40}
+!73 = distinct !{!73, !43}

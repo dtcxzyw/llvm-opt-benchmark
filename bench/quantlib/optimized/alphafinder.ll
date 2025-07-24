@@ -857,13 +857,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %1 = load ptr, ptr %__x, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !42
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !43
   %3 = load ptr, ptr %this, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
@@ -899,12 +899,12 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !23
   %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
-  store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !42
+  store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !43
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
   %_M_finish.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %4 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !41
+  %4 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
   %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
@@ -925,9 +925,9 @@ if.else49:                                        ; preds = %if.else
 if.then.i.i.i.i.i35:                              ; preds = %if.else49
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %sub.ptr.sub.i22, i1 false)
   %.pre = load ptr, ptr %__x, align 8, !tbaa !23
-  %.pre42 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !41
+  %.pre42 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !42
   %.pre43 = load ptr, ptr %this, align 8, !tbaa !23
-  %.pre44 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %.pre44 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
   %.pre47 = sub i64 %.pre45, %.pre46
@@ -953,7 +953,7 @@ if.end69:                                         ; preds = %if.then.i.i.i.i.i.i
   %8 = load ptr, ptr %this, align 8, !tbaa !23
   %add.ptr72 = getelementptr inbounds nuw i8, ptr %8, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !41
+  store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !42
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end69, %entry
@@ -971,14 +971,14 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols_, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols)
   %putativevols_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %1 = load ptr, ptr %ratetwohomogeneousvols_, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
   %3 = load ptr, ptr %putativevols_, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -1002,7 +1002,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !41
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !42
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
@@ -1043,7 +1043,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIdSaIdE
   store double %10, ptr %totalVar_, align 8, !tbaa !31
   %inc = add nuw i64 %i.0149, 1
   %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %for.cond.cleanup, label %for.body, !llvm.loop !43
+  br i1 %exitcond, label %for.cond.cleanup, label %for.body, !llvm.loop !44
 
 for.cond.cleanup13:                               ; preds = %for.body14, %for.cond.cleanup
   %11 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %14, %for.body14 ]
@@ -1066,7 +1066,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   store double %14, ptr %constantPart_, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond173.not, label %for.cond.cleanup13, label %for.body14, !llvm.loop !44
+  br i1 %exitcond173.not, label %for.cond.cleanup13, label %for.body14, !llvm.loop !45
 
 if.then:                                          ; preds = %for.cond.cleanup13
   br i1 %call28, label %if.end41, label %if.then35
@@ -1093,7 +1093,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %sub.i64 = fsub double %x.0.high.addr.0.i, %low.addr.0.x.0.i
   %15 = tail call double @llvm.fabs.f64(double %sub.i64)
   %cmp.i65 = fcmp ogt double %15, %tolerance
-  br i1 %cmp.i65, label %do.body.i, label %if.end41, !llvm.loop !45
+  br i1 %cmp.i65, label %do.body.i, label %if.end41, !llvm.loop !46
 
 if.else:                                          ; preds = %if.then35
   %add.i66 = fadd double %alpha0, %alphaMax
@@ -1114,7 +1114,7 @@ do.body.i69:                                      ; preds = %do.body.i69, %if.el
   %sub.i79 = fsub double %x.0.high.addr.0.i74, %low.addr.0.x.0.i75
   %16 = tail call double @llvm.fabs.f64(double %sub.i79)
   %cmp.i80 = fcmp ogt double %16, %tolerance
-  br i1 %cmp.i80, label %do.body.i69, label %if.end41, !llvm.loop !45
+  br i1 %cmp.i80, label %do.body.i69, label %if.end41, !llvm.loop !46
 
 if.end41:                                         ; preds = %do.body.i69, %do.body.i, %if.then
   %alpha1.0 = phi double [ %alphaMin, %if.then ], [ %mul3.i, %do.body.i ], [ %mul3.i77, %do.body.i69 ]
@@ -1139,7 +1139,7 @@ do.body.i85:                                      ; preds = %do.body.i85, %if.th
   %sub.i93 = fsub double %high.addr.0.x.0.i, %x.0.low.addr.0.i
   %17 = tail call double @llvm.fabs.f64(double %sub.i93)
   %cmp.i94 = fcmp ogt double %17, %tolerance
-  br i1 %cmp.i94, label %do.body.i85, label %if.end88, !llvm.loop !46
+  br i1 %cmp.i94, label %do.body.i85, label %if.end88, !llvm.loop !47
 
 if.else48:                                        ; preds = %for.cond.cleanup13
   %sub = fsub double %alphaMax, %alpha0
@@ -1165,7 +1165,7 @@ for.body56:                                       ; preds = %if.else48, %for.bod
   %cmp52 = icmp uge i64 %inc66, %conv51
   %or.cond1 = or i1 %cmp52, %call59
   %.demorgan = or i1 %call63, %or.cond1
-  br i1 %.demorgan, label %for.cond.cleanup55, label %for.body56, !llvm.loop !47
+  br i1 %.demorgan, label %for.cond.cleanup55, label %for.body56, !llvm.loop !48
 
 if.end75:                                         ; preds = %for.cond.cleanup55
   br i1 %call59, label %if.then77, label %if.else80
@@ -1189,7 +1189,7 @@ do.body.i98:                                      ; preds = %do.body.i98, %if.th
   %sub.i108 = fsub double %high.addr.0.x.0.i103, %x.0.low.addr.0.i104
   %21 = tail call double @llvm.fabs.f64(double %sub.i108)
   %cmp.i109 = fcmp ogt double %21, %tolerance
-  br i1 %cmp.i109, label %do.body.i98, label %if.end88, !llvm.loop !46
+  br i1 %cmp.i109, label %do.body.i98, label %if.end88, !llvm.loop !47
 
 if.else80:                                        ; preds = %if.end75
   %add.i111 = fadd double %alphaMin, %20
@@ -1210,7 +1210,7 @@ do.body.i114:                                     ; preds = %do.body.i114, %if.e
   %sub.i124 = fsub double %x.0.high.addr.0.i119, %low.addr.0.x.0.i120
   %22 = tail call double @llvm.fabs.f64(double %sub.i124)
   %cmp.i125 = fcmp ogt double %22, %tolerance
-  br i1 %cmp.i125, label %do.body.i114, label %if.end88, !llvm.loop !45
+  br i1 %cmp.i125, label %do.body.i114, label %if.end88, !llvm.loop !46
 
 if.end88:                                         ; preds = %do.body.i114, %do.body.i98, %do.body.i85, %if.end41
   %alpha2.0 = phi double [ %alphaMax, %if.end41 ], [ %mul3.i91, %do.body.i85 ], [ %mul3.i106, %do.body.i98 ], [ %20, %do.body.i114 ]
@@ -1297,7 +1297,7 @@ if.end130.i:                                      ; preds = %cleanup125.i, %clea
   %low.addr.3.i = phi double [ %low.addr.0..i, %cleanup.i ], [ %x.0.low.addr.0.i128, %cleanup125.i ]
   %sub27.i = fsub double %high.addr.3.i, %low.addr.3.i
   %cmp.i129 = fcmp ogt double %sub27.i, %tolerance
-  br i1 %cmp.i129, label %while.body.i, label %_ZN8QuantLib12_GLOBAL__N_18MinimizeINS_11AlphaFinderEEEddddRT_MS3_FddEMS3_FbdERb.exit, !llvm.loop !48
+  br i1 %cmp.i129, label %while.body.i, label %_ZN8QuantLib12_GLOBAL__N_18MinimizeINS_11AlphaFinderEEEddddRT_MS3_FddEMS3_FbdERb.exit, !llvm.loop !49
 
 _ZN8QuantLib12_GLOBAL__N_18MinimizeINS_11AlphaFinderEEEddddRT_MS3_FddEMS3_FbdERb.exit: ; preds = %if.end130.i, %if.end88, %memptr.end63.i, %if.else.i131, %memptr.end113.i, %if.else116.i
   %retval.2.i = phi double [ %low.addr.0.high.addr.0.i, %if.else.i131 ], [ %x.0142.i, %memptr.end63.i ], [ %low.addr.0.high.addr.0113.i, %if.else116.i ], [ %x.0142.i, %memptr.end113.i ], [ %23, %if.end88 ], [ %x.3.i, %if.end130.i ]
@@ -1394,14 +1394,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %1 = load ptr, ptr %this, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !42
+  %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !43
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
@@ -1430,7 +1430,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8, !tbaa !41
+  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8, !tbaa !42
   br label %if.end44
 
 if.else:                                          ; preds = %if.then
@@ -1479,9 +1479,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !23
   %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !41
+  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !42
   %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %5
-  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !42
+  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !43
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37, %entry
@@ -1567,12 +1567,13 @@ attributes #17 = { builtin nounwind }
 !37 = distinct !{!37, !26}
 !38 = distinct !{!38, !26}
 !39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = !{!19, !5, i64 8}
-!42 = !{!19, !5, i64 16}
-!43 = distinct !{!43, !26}
+!40 = distinct !{!40, !26, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{!19, !5, i64 8}
+!43 = !{!19, !5, i64 16}
 !44 = distinct !{!44, !26}
 !45 = distinct !{!45, !26}
 !46 = distinct !{!46, !26}
 !47 = distinct !{!47, !26}
 !48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}

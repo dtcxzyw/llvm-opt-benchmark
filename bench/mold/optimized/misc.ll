@@ -95,7 +95,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i: ; preds = %_ZN3tbb6detail
 _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i, %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i
   %32 = load atomic i32, ptr @_ZN3tbb6detail2r1L15assertion_stateE acquire, align 4
   %.not.i = icmp eq i32 %32, 2
-  br i1 %.not.i, label %"_ZN3tbb6detail2d014atomic_do_onceIZNS0_2r117assertion_failureEPKciS5_S5_E3$_0EEvRKT_RSt6atomicINS1_13do_once_stateEE.exit", label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %"_ZN3tbb6detail2d014atomic_do_onceIZNS0_2r117assertion_failureEPKciS5_S5_E3$_0EEvRKT_RSt6atomicINS1_13do_once_stateEE.exit", label %.lr.ph.i, !llvm.loop !19
 
 "_ZN3tbb6detail2d014atomic_do_onceIZNS0_2r117assertion_failureEPKciS5_S5_E3$_0EEvRKT_RSt6atomicINS1_13do_once_stateEE.exit": ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
@@ -128,7 +128,7 @@ define void @_ZN3tbb6detail2r115runtime_warningEPKcz(ptr noundef %0, ...) local_
 
 vsnprintf.inline.exit:                            ; preds = %1
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !20
   %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
@@ -156,7 +156,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: cold mustprogress nofree nounwind sspstrong uwtable
 define void @_ZN3tbb6detail2r112PrintVersionEv() local_unnamed_addr #5 {
   store i1 true, ptr @_ZN3tbb6detail2r1L16PrintVersionFlagE, align 1
-  %1 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %1 = load ptr, ptr @stderr, align 8, !tbaa !20
   %2 = tail call i64 @fwrite(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L13VersionStringE, i64 1), i64 141, i64 1, ptr %1) #19
   ret void
 }
@@ -185,7 +185,7 @@ define void @_ZN3tbb6detail2r121PrintExtraVersionInfoEPKcS3_z(ptr noundef %0, pt
 
 vsnprintf.inline.exit:                            ; preds = %5
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !20
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
@@ -197,7 +197,7 @@ vsnprintf.inline.exit:                            ; preds = %5
 
 ; Function Attrs: mustprogress nounwind sspstrong memory(argmem: write) uwtable
 define void @_ZN3tbb6detail2r111check_cpuidEiiPi(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #6 {
-  %4 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %1) #20, !srcloc !21
+  %4 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %1) #20, !srcloc !22
   %5 = extractvalue { i32, i32, i32, i32 } %4, 0
   %6 = extractvalue { i32, i32, i32, i32 } %4, 1
   %7 = extractvalue { i32, i32, i32, i32 } %4, 2
@@ -214,24 +214,24 @@ define void @_ZN3tbb6detail2r111check_cpuidEiiPi(i32 noundef %0, i32 noundef %1,
 
 ; Function Attrs: mustprogress sspstrong memory(argmem: write) uwtable
 define void @_ZN3tbb6detail2r119detect_cpu_featuresERNS1_17cpu_features_typeE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0) local_unnamed_addr #7 {
-  %2 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !21
+  %2 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !22
   %3 = extractvalue { i32, i32, i32, i32 } %2, 1
   %4 = extractvalue { i32, i32, i32, i32 } %2, 2
   %5 = extractvalue { i32, i32, i32, i32 } %2, 3
   %6 = lshr i32 %3, 11
   %7 = trunc i32 %6 to i8
   %8 = and i8 %7, 1
-  store i8 %8, ptr %0, align 1, !tbaa !22
+  store i8 %8, ptr %0, align 1, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = trunc i32 %4 to i8
   %11 = lshr i8 %10, 5
   %12 = and i8 %11, 1
-  store i8 %12, ptr %9, align 1, !tbaa !25
+  store i8 %12, ptr %9, align 1, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = lshr i32 %5, 15
   %15 = trunc i32 %14 to i8
   %16 = and i8 %15, 1
-  store i8 %16, ptr %13, align 1, !tbaa !26
+  store i8 %16, ptr %13, align 1, !tbaa !27
   ret void
 }
 
@@ -257,16 +257,16 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: cold inlinehint mustprogress nofree noreturn nounwind sspstrong uwtable
 define internal fastcc void @"_ZZN3tbb6detail2r117assertion_failureEPKciS3_S3_ENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #12 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !27
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   tail call fastcc void @_ZN3tbb6detail2r1L22assertion_failure_implEPKciS3_S3_(ptr noundef %3, i32 noundef %6, ptr noundef %9, ptr noundef %12)
   unreachable
@@ -274,18 +274,18 @@ define internal fastcc void @"_ZZN3tbb6detail2r117assertion_failureEPKciS3_S3_EN
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind sspstrong uwtable
 define internal fastcc void @_ZN3tbb6detail2r1L22assertion_failure_implEPKciS3_S3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #13 {
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !20
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %0, i32 noundef %1) #18
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !20
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #18
   br label %10
 
 10:                                               ; preds = %7, %4
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !20
   %12 = tail call i32 @fflush(ptr noundef %11)
   tail call void @abort() #17
   unreachable
@@ -347,18 +347,19 @@ attributes #20 = { nounwind memory(none) }
 !14 = !{!"p1 int", !5, i64 0}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!21 = !{i64 3444}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN3tbb6detail2r117cpu_features_typeE", !24, i64 0, !24, i64 1, !24, i64 2}
-!24 = !{!"bool", !6, i64 0}
-!25 = !{!23, !24, i64 1}
-!26 = !{!23, !24, i64 2}
-!27 = !{!28, !11, i64 0}
-!28 = !{!"_ZTSZN3tbb6detail2r117assertion_failureEPKciS3_S3_E3$_0", !11, i64 0, !14, i64 8, !11, i64 16, !11, i64 24}
-!29 = !{!28, !14, i64 8}
-!30 = !{!28, !11, i64 16}
-!31 = !{!28, !11, i64 24}
+!17 = distinct !{!17, !16, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !16}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!22 = !{i64 3444}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSN3tbb6detail2r117cpu_features_typeE", !25, i64 0, !25, i64 1, !25, i64 2}
+!25 = !{!"bool", !6, i64 0}
+!26 = !{!24, !25, i64 1}
+!27 = !{!24, !25, i64 2}
+!28 = !{!29, !11, i64 0}
+!29 = !{!"_ZTSZN3tbb6detail2r117assertion_failureEPKciS3_S3_E3$_0", !11, i64 0, !14, i64 8, !11, i64 16, !11, i64 24}
+!30 = !{!29, !14, i64 8}
+!31 = !{!29, !11, i64 16}
+!32 = !{!29, !11, i64 24}

@@ -1973,7 +1973,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %39 = add nuw nsw i32 %.15670, 1
   %40 = load i32, ptr %7, align 4, !tbaa !25
   %41 = icmp slt i32 %39, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !62
+  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 4, !tbaa !28
@@ -1984,7 +1984,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %43 = phi i32 [ %40, %._crit_edge.loopexit ], [ %35, %.preheader62 ]
   %44 = add nuw nsw i32 %.15471, 1
   %45 = icmp slt i32 %44, %42
-  br i1 %45, label %.preheader62, label %.preheader61, !llvm.loop !63
+  br i1 %45, label %.preheader62, label %.preheader61, !llvm.loop !64
 
 .preheader60:                                     ; preds = %.preheader61, %._crit_edge74
   %46 = phi i32 [ %52, %._crit_edge74 ], [ %42, %.preheader61 ]
@@ -1999,7 +1999,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %49 = add nuw nsw i32 %.25772, 1
   %50 = load i32, ptr %7, align 4, !tbaa !25
   %51 = icmp slt i32 %49, %50
-  br i1 %51, label %.lr.ph73, label %._crit_edge74.loopexit, !llvm.loop !65
+  br i1 %51, label %.lr.ph73, label %._crit_edge74.loopexit, !llvm.loop !66
 
 ._crit_edge74.loopexit:                           ; preds = %.lr.ph73
   %.pre89 = load i32, ptr %9, align 4, !tbaa !28
@@ -2010,7 +2010,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %53 = phi i32 [ %50, %._crit_edge74.loopexit ], [ %47, %.preheader60 ]
   %54 = add nuw nsw i32 %.275, 1
   %55 = icmp slt i32 %54, %52
-  br i1 %55, label %.preheader60, label %._crit_edge76, !llvm.loop !66
+  br i1 %55, label %.preheader60, label %._crit_edge76, !llvm.loop !67
 
 ._crit_edge76:                                    ; preds = %._crit_edge74, %.preheader63, %.preheader61
   tail call void @stbcc__build_connected_components_for_clumps(ptr noundef nonnull %0)
@@ -2315,9 +2315,10 @@ attributes #10 = { nounwind }
 !58 = !{!26, !27, i64 4}
 !59 = distinct !{!59, !11}
 !60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11, !64}
-!64 = !{!"llvm.loop.unswitch.partial.disable"}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11, !64}
+!61 = distinct !{!61, !11, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !11}
+!64 = distinct !{!64, !11, !65}
+!65 = !{!"llvm.loop.unswitch.partial.disable"}
+!66 = distinct !{!66, !11}
+!67 = distinct !{!67, !11, !65}

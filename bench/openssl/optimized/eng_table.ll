@@ -206,7 +206,7 @@ define range(i32 0, 2) i32 @engine_table_register(ptr noundef captures(none) %0,
   %86 = getelementptr inbounds nuw i8, ptr %.04265, i64 4
   %87 = add nsw i32 %50, -1
   %.not50 = icmp eq i32 %50, 0
-  br i1 %.not50, label %int_table_check.exit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not50, label %int_table_check.exit, label %.lr.ph.split, !llvm.loop !21
 
 int_table_check.exit:                             ; preds = %54, %70, %85, %26, %40, %46, %20, %12, %79, %.split72.us, %.split.us, %18
   %.039 = phi i32 [ 0, %79 ], [ 0, %.split72.us ], [ 0, %.split.us ], [ 0, %18 ], [ 0, %12 ], [ 1, %20 ], [ 0, %26 ], [ 0, %40 ], [ 1, %46 ], [ 0, %54 ], [ 0, %70 ], [ 1, %85 ]
@@ -291,7 +291,7 @@ define internal void @int_unregister_cb(ptr noundef captures(none) %0, ptr nound
   %12 = load ptr, ptr %3, align 8, !tbaa !16
   %13 = tail call i32 @OPENSSL_sk_find(ptr noundef %12, ptr noundef %1) #7
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %8, label %._crit_edge, !llvm.loop !20
+  br i1 %14, label %8, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %8, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -425,7 +425,7 @@ int_table_check.exit:                             ; preds = %11
   %30 = phi ptr [ %43, %.critedge.backedge ], [ %27, %.critedge.preheader ]
   %31 = phi i32 [ %42, %.critedge.backedge ], [ 1, %.critedge.preheader ]
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 160
-  %33 = load i32, ptr %32, align 8, !tbaa !21
+  %33 = load i32, ptr %32, align 8, !tbaa !23
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %38, label %35
 
@@ -499,9 +499,9 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #4
 define void @engine_table_doall(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.st_engine_pile_doall, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  store ptr %1, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %5, align 8, !tbaa !36
+  store ptr %2, ptr %5, align 8, !tbaa !38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %6
 
@@ -516,14 +516,14 @@ define void @engine_table_doall(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @int_dall(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !34
+  %3 = load ptr, ptr %1, align 8, !tbaa !36
   %4 = load i32, ptr %0, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   tail call void %3(i32 noundef %4, ptr noundef %6, ptr noundef %8, ptr noundef %10) #7
   ret void
 }
@@ -636,22 +636,24 @@ attributes #7 = { nounwind }
 !15 = !{!12, !4, i64 24}
 !16 = !{!12, !13, i64 8}
 !17 = !{!12, !14, i64 16}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!22, !4, i64 160}
-!22 = !{!"engine_st", !23, i64 0, !23, i64 8, !24, i64 16, !25, i64 24, !26, i64 32, !27, i64 40, !28, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !29, i64 144, !4, i64 152, !30, i64 156, !4, i64 160, !31, i64 168, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !8, i64 216}
-!23 = !{!"p1 omnipotent char", !8, i64 0}
-!24 = !{!"p1 _ZTS11rsa_meth_st", !8, i64 0}
-!25 = !{!"p1 _ZTS10dsa_method", !8, i64 0}
-!26 = !{!"p1 _ZTS9dh_method", !8, i64 0}
-!27 = !{!"p1 _ZTS16ec_key_method_st", !8, i64 0}
-!28 = !{!"p1 _ZTS12rand_meth_st", !8, i64 0}
-!29 = !{!"p1 _ZTS18ENGINE_CMD_DEFN_st", !8, i64 0}
-!30 = !{!"", !5, i64 0}
-!31 = !{!"crypto_ex_data_st", !32, i64 0, !33, i64 8}
-!32 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!33 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
-!34 = !{!35, !8, i64 0}
-!35 = !{!"st_engine_pile_doall", !8, i64 0, !8, i64 8}
-!36 = !{!35, !8, i64 8}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = !{!24, !4, i64 160}
+!24 = !{!"engine_st", !25, i64 0, !25, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40, !30, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !31, i64 144, !4, i64 152, !32, i64 156, !4, i64 160, !33, i64 168, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !8, i64 216}
+!25 = !{!"p1 omnipotent char", !8, i64 0}
+!26 = !{!"p1 _ZTS11rsa_meth_st", !8, i64 0}
+!27 = !{!"p1 _ZTS10dsa_method", !8, i64 0}
+!28 = !{!"p1 _ZTS9dh_method", !8, i64 0}
+!29 = !{!"p1 _ZTS16ec_key_method_st", !8, i64 0}
+!30 = !{!"p1 _ZTS12rand_meth_st", !8, i64 0}
+!31 = !{!"p1 _ZTS18ENGINE_CMD_DEFN_st", !8, i64 0}
+!32 = !{!"", !5, i64 0}
+!33 = !{!"crypto_ex_data_st", !34, i64 0, !35, i64 8}
+!34 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
+!35 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!36 = !{!37, !8, i64 0}
+!37 = !{!"st_engine_pile_doall", !8, i64 0, !8, i64 8}
+!38 = !{!37, !8, i64 8}

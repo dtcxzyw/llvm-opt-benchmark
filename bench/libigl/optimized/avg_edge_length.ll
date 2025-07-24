@@ -119,7 +119,7 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   %59 = add i32 %.032, 1
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ugt i64 %5, %60
-  br i1 %61, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !29
+  br i1 %61, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -148,9 +148,9 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = load ptr, ptr %0, align 8, !tbaa !30, !noalias !32
+  %7 = load ptr, ptr %0, align 8, !tbaa !32, !noalias !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !35
+  %9 = load i64, ptr %8, align 8, !tbaa !37
   %.idx.i.i.i.i.i.i.i.i = shl i64 %9, 4
   br label %15
 
@@ -205,7 +205,7 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   %44 = add i32 %.029, 1
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ugt i64 %5, %45
-  br i1 %46, label %15, label %._crit_edge, !llvm.loop !36
+  br i1 %46, label %15, label %._crit_edge, !llvm.loop !38
 }
 
 declare void @_ZN3igl5edgesIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi2ELi0ELin1ELi2EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
@@ -258,11 +258,13 @@ attributes #6 = { nounwind }
 !26 = !{!"double", !8, i64 0}
 !27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = !{!31, !14, i64 0}
-!31 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !14, i64 0, !10, i64 8}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE3rowEl: argument 0"}
-!34 = distinct !{!34, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE3rowEl"}
-!35 = !{!31, !10, i64 8}
-!36 = distinct !{!36, !28}
+!29 = distinct !{!29, !28, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !14, i64 0}
+!33 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !14, i64 0, !10, i64 8}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE3rowEl: argument 0"}
+!36 = distinct !{!36, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE3rowEl"}
+!37 = !{!33, !10, i64 8}
+!38 = distinct !{!38, !28}

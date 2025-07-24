@@ -2441,7 +2441,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !214
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !216
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2454,134 +2454,6 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit
   %10 = udiv i64 %9, %8
   %11 = add i64 %10, %1
   %12 = or disjoint i64 %9, 31
-  %13 = udiv i64 %12, %8
-  %14 = add i64 %13, %1
-  %.not16 = icmp ugt i64 %11, %14
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
-  store i8 1, ptr %16, align 1, !tbaa !36
-  %17 = add i64 %.017.us, 1
-  %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !215
-
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = load i64, ptr %6, align 8, !tbaa !39
-  %21 = lshr i64 %20, 3
-  %22 = mul i64 %21, %1
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  ret ptr %24
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %35
-  %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
-  store i8 1, ptr %25, align 1, !tbaa !36
-  %26 = load ptr, ptr %0, align 8, !tbaa !22
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
-  %28 = load i8, ptr %27, align 1, !tbaa !203, !range !204, !noundef !205
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %35, !prof !38
-
-30:                                               ; preds = %.lr.ph.split
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %32 = shl i64 %.017, 4
-  %33 = or disjoint i64 %32, 2
-  store i64 %33, ptr %5, align 8, !tbaa !74
-  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  br label %35
-
-35:                                               ; preds = %.lr.ph.split, %30
-  %36 = add i64 %.017, 1
-  %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !215
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 {
-  %5 = alloca i64, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %7 = load i64, ptr %6, align 8, !tbaa !39
-  %8 = lshr i64 %7, 3
-  %9 = shl i64 %2, 5
-  %10 = udiv i64 %9, %8
-  %11 = add i64 %10, %1
-  %12 = or disjoint i64 %9, 31
-  %13 = udiv i64 %12, %8
-  %14 = add i64 %13, %1
-  %.not16 = icmp ugt i64 %11, %14
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
-  store i8 1, ptr %16, align 1, !tbaa !36
-  %17 = add i64 %.017.us, 1
-  %.not.us = icmp ugt i64 %17, %14
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !216
-
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = load i64, ptr %6, align 8, !tbaa !39
-  %21 = lshr i64 %20, 3
-  %22 = mul i64 %21, %1
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  ret ptr %24
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %35
-  %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
-  store i8 1, ptr %25, align 1, !tbaa !36
-  %26 = load ptr, ptr %0, align 8, !tbaa !22
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
-  %28 = load i8, ptr %27, align 1, !tbaa !203, !range !204, !noundef !205
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %35, !prof !38
-
-30:                                               ; preds = %.lr.ph.split
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %32 = shl i64 %.017, 4
-  %33 = or disjoint i64 %32, 2
-  store i64 %33, ptr %5, align 8, !tbaa !74
-  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  br label %35
-
-35:                                               ; preds = %.lr.ph.split, %30
-  %36 = add i64 %.017, 1
-  %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !216
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 {
-  %5 = alloca i64, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %7 = load i64, ptr %6, align 8, !tbaa !39
-  %8 = lshr i64 %7, 3
-  %9 = shl i64 %2, 4
-  %10 = udiv i64 %9, %8
-  %11 = add i64 %10, %1
-  %12 = or disjoint i64 %9, 15
   %13 = udiv i64 %12, %8
   %14 = add i64 %13, %1
   %.not16 = icmp ugt i64 %11, %14
@@ -2633,7 +2505,135 @@ define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit
 35:                                               ; preds = %.lr.ph.split, %30
   %36 = add i64 %.017, 1
   %.not = icmp ugt i64 %36, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !217
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !218
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 {
+  %5 = alloca i64, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %8 = lshr i64 %7, 3
+  %9 = shl i64 %2, 5
+  %10 = udiv i64 %9, %8
+  %11 = add i64 %10, %1
+  %12 = or disjoint i64 %9, 31
+  %13 = udiv i64 %12, %8
+  %14 = add i64 %13, %1
+  %.not16 = icmp ugt i64 %11, %14
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  store i8 1, ptr %16, align 1, !tbaa !36
+  %17 = add i64 %.017.us, 1
+  %.not.us = icmp ugt i64 %17, %14
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !219
+
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !3
+  %20 = load i64, ptr %6, align 8, !tbaa !39
+  %21 = lshr i64 %20, 3
+  %22 = mul i64 %21, %1
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
+  ret ptr %24
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %35
+  %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  store i8 1, ptr %25, align 1, !tbaa !36
+  %26 = load ptr, ptr %0, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
+  %28 = load i8, ptr %27, align 1, !tbaa !203, !range !204, !noundef !205
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %35, !prof !38
+
+30:                                               ; preds = %.lr.ph.split
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 3840
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  %32 = shl i64 %.017, 4
+  %33 = or disjoint i64 %32, 2
+  store i64 %33, ptr %5, align 8, !tbaa !74
+  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  br label %35
+
+35:                                               ; preds = %.lr.ph.split, %30
+  %36 = add i64 %.017, 1
+  %.not = icmp ugt i64 %36, %14
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !220
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 {
+  %5 = alloca i64, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %8 = lshr i64 %7, 3
+  %9 = shl i64 %2, 4
+  %10 = udiv i64 %9, %8
+  %11 = add i64 %10, %1
+  %12 = or disjoint i64 %9, 15
+  %13 = udiv i64 %12, %8
+  %14 = add i64 %13, %1
+  %.not16 = icmp ugt i64 %11, %14
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  store i8 1, ptr %16, align 1, !tbaa !36
+  %17 = add i64 %.017.us, 1
+  %.not.us = icmp ugt i64 %17, %14
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !221
+
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %35, %4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !3
+  %20 = load i64, ptr %6, align 8, !tbaa !39
+  %21 = lshr i64 %20, 3
+  %22 = mul i64 %21, %1
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
+  ret ptr %24
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %35
+  %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  store i8 1, ptr %25, align 1, !tbaa !36
+  %26 = load ptr, ptr %0, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
+  %28 = load i8, ptr %27, align 1, !tbaa !203, !range !204, !noundef !205
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %35, !prof !38
+
+30:                                               ; preds = %.lr.ph.split
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 3840
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  %32 = shl i64 %.017, 4
+  %33 = or disjoint i64 %32, 2
+  store i64 %33, ptr %5, align 8, !tbaa !74
+  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  br label %35
+
+35:                                               ; preds = %.lr.ph.split, %30
+  %36 = add i64 %.017, 1
+  %.not = icmp ugt i64 %36, %14
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !222
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
@@ -2707,7 +2707,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI11vxsat_csr_tSaI
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !218
+  %7 = load ptr, ptr %6, align 8, !tbaa !223
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -2824,7 +2824,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI12vector_csr_tSa
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !218
+  %7 = load ptr, ptr %6, align 8, !tbaa !223
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -2940,7 +2940,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI15composite_csr_
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !218
+  %7 = load ptr, ptr %6, align 8, !tbaa !223
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3177,7 +3177,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !207
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !220
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !225
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3185,7 +3185,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !221
+  %24 = load ptr, ptr %23, align 8, !tbaa !226
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
@@ -3228,7 +3228,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !222
+  %48 = load ptr, ptr %47, align 8, !tbaa !227
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -3249,7 +3249,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !207
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !220
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !225
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3293,7 +3293,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !222
+  %74 = load ptr, ptr %73, align 8, !tbaa !227
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -3314,7 +3314,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !207
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !220
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !225
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3322,7 +3322,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !221
+  %82 = load ptr, ptr %81, align 8, !tbaa !226
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
@@ -3610,12 +3610,17 @@ attributes #20 = { nounwind willreturn memory(read) }
 !211 = !{!"_ZTSSt4pairIKm10float128_tE", !10, i64 0, !212, i64 8}
 !212 = !{!"_ZTS10float128_t", !7, i64 0}
 !213 = !{!106, !10, i64 32}
-!214 = distinct !{!214, !209}
-!215 = distinct !{!215, !209}
+!214 = distinct !{!214, !209, !215}
+!215 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !216 = distinct !{!216, !209}
-!217 = distinct !{!217, !209}
-!218 = !{!219, !100, i64 8}
-!219 = !{!"_ZTSSt9type_info", !100, i64 8}
+!217 = distinct !{!217, !209, !215}
+!218 = distinct !{!218, !209}
+!219 = distinct !{!219, !209, !215}
 !220 = distinct !{!220, !209}
-!221 = !{!106, !109, i64 16}
-!222 = !{!107, !109, i64 24}
+!221 = distinct !{!221, !209, !215}
+!222 = distinct !{!222, !209}
+!223 = !{!224, !100, i64 8}
+!224 = !{!"_ZTSSt9type_info", !100, i64 8}
+!225 = distinct !{!225, !209}
+!226 = !{!106, !109, i64 16}
+!227 = !{!107, !109, i64 24}

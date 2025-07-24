@@ -1479,7 +1479,7 @@ thread-pre-split.backedge.us:                     ; preds = %67
 
 thread-pre-split.backedge.us41:                   ; preds = %.lr.ph.split.split.us
   %92 = icmp eq i32 %90, 2
-  br i1 %92, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !86
+  br i1 %92, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !88
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %thread-pre-split.backedge
   %.0.ph37 = phi i64 [ %104, %thread-pre-split.backedge ], [ %17, %.lr.ph.split ]
@@ -1509,14 +1509,14 @@ thread-pre-split.backedge.us41:                   ; preds = %.lr.ph.split.split.
 
 thread-pre-split.backedge:                        ; preds = %94
   %107 = icmp eq i32 %105, 2
-  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !86
+  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !89
 
 .loopexit.sink.split.sink.split:                  ; preds = %94, %.lr.ph.split.split.us, %67
   %108 = load ptr, ptr %20, align 8, !tbaa !25
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 88
-  %110 = load i64, ptr %109, align 8, !tbaa !87
+  %110 = load i64, ptr %109, align 8, !tbaa !90
   %111 = add i64 %110, 1
-  store i64 %111, ptr %109, align 8, !tbaa !87
+  store i64 %111, ptr %109, align 8, !tbaa !90
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split, %65, %.loopexit.sink.split.sink.split
@@ -1537,25 +1537,25 @@ thread-pre-split.backedge:                        ; preds = %94
   %118 = add i64 %117, %114
   %119 = load ptr, ptr %20, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %121 = load i64, ptr %120, align 8, !tbaa !100
+  %121 = load i64, ptr %120, align 8, !tbaa !103
   %122 = add i64 %121, 1
-  store i64 %122, ptr %120, align 8, !tbaa !100
+  store i64 %122, ptr %120, align 8, !tbaa !103
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 64
-  %124 = load i64, ptr %123, align 8, !tbaa !101
+  %124 = load i64, ptr %123, align 8, !tbaa !104
   %125 = add i64 %124, %118
-  store i64 %125, ptr %123, align 8, !tbaa !101
+  store i64 %125, ptr %123, align 8, !tbaa !104
   %126 = icmp ugt i64 %118, 999999
   br i1 %126, label %127, label %134
 
 127:                                              ; preds = %.loopexit
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 72
-  %129 = load i64, ptr %128, align 8, !tbaa !102
+  %129 = load i64, ptr %128, align 8, !tbaa !105
   %130 = add i64 %129, 1
-  store i64 %130, ptr %128, align 8, !tbaa !102
+  store i64 %130, ptr %128, align 8, !tbaa !105
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 80
-  %132 = load i64, ptr %131, align 8, !tbaa !103
+  %132 = load i64, ptr %131, align 8, !tbaa !106
   %133 = add i64 %132, %118
-  store i64 %133, ptr %131, align 8, !tbaa !103
+  store i64 %133, ptr %131, align 8, !tbaa !106
   br label %134
 
 134:                                              ; preds = %127, %.loopexit
@@ -1610,7 +1610,7 @@ define noundef i32 @_ZN4toku12lock_request5retryEPSt6vectorINS_14lock_wait_infoE
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 3, ptr %25, align 4, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %27 = load ptr, ptr %26, align 8, !tbaa !104
+  %27 = load ptr, ptr %26, align 8, !tbaa !107
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %29, label %28
 
@@ -1792,7 +1792,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %41, %39
   br label %45
 
 45:                                               ; preds = %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %29, %22
-  %46 = load i8, ptr %4, align 8, !tbaa !105
+  %46 = load i8, ptr %4, align 8, !tbaa !108
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !70
   %.not.i.i9 = icmp eq ptr %48, null
@@ -1856,14 +1856,14 @@ define void @_ZN4toku12lock_request22add_conflicts_to_waitsEPNS_9txnid_setEPSt6v
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !41
-  store ptr %6, ptr %4, align 8, !tbaa !116
+  store ptr %6, ptr %4, align 8, !tbaa !119
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %0, align 8, !tbaa !42
-  store i64 %8, ptr %7, align 8, !tbaa !121
+  store i64 %8, ptr %7, align 8, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8, !tbaa !46
-  store ptr %11, ptr %9, align 8, !tbaa !122
+  store ptr %11, ptr %9, align 8, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
@@ -1931,11 +1931,11 @@ _ZN4toku14lock_wait_infoD2Ev.exit11:              ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %_ZN4toku14lock_wait_infoD2Ev.exit, %_ZNSt6vectorImSaImEE9push_backEOm.exit
   %.015 = phi i32 [ %66, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ 0, %_ZN4toku14lock_wait_infoD2Ev.exit ]
-  %37 = load ptr, ptr %13, align 8, !tbaa !123
+  %37 = load ptr, ptr %13, align 8, !tbaa !126
   %38 = getelementptr inbounds i8, ptr %37, i64 -24
   %39 = call noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.015)
   %40 = getelementptr inbounds i8, ptr %37, i64 -16
-  %41 = load ptr, ptr %40, align 8, !tbaa !124
+  %41 = load ptr, ptr %40, align 8, !tbaa !127
   %42 = getelementptr inbounds i8, ptr %37, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !83
   %.not.i.i12 = icmp eq ptr %41, %43
@@ -1944,7 +1944,7 @@ _ZN4toku14lock_wait_infoD2Ev.exit11:              ; preds = %28, %31
 44:                                               ; preds = %.lr.ph
   store i64 %39, ptr %41, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %45, ptr %40, align 8, !tbaa !124
+  store ptr %45, ptr %40, align 8, !tbaa !127
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 46:                                               ; preds = %.lr.ph
@@ -1990,7 +1990,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %62, %_ZN
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %59, ptr %38, align 8, !tbaa !80
-  store ptr %63, ptr %40, align 8, !tbaa !124
+  store ptr %63, ptr %40, align 8, !tbaa !127
   %65 = getelementptr inbounds nuw i64, ptr %59, i64 %57
   store ptr %65, ptr %42, align 8, !tbaa !83
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -1998,7 +1998,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %44, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
   %66 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %66, %27
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2015,13 +2015,13 @@ define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPv
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #22
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %15 = load i64, ptr %14, align 8, !tbaa !126
+  %15 = load i64, ptr %14, align 8, !tbaa !129
   %16 = icmp eq i64 %11, %15
   br i1 %16, label %.preheader, label %32
 
 .preheader:                                       ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %18 = load i8, ptr %17, align 8, !tbaa !127, !range !50, !noundef !51
+  %18 = load i8, ptr %17, align 8, !tbaa !130, !range !50, !noundef !51
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -2030,9 +2030,9 @@ define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPv
   br label %28
 
 ._crit_edge:                                      ; preds = %28, %.preheader
-  store i8 1, ptr %17, align 8, !tbaa !127
+  store i8 1, ptr %17, align 8, !tbaa !130
   %21 = load atomic i64, ptr %10 seq_cst, align 8
-  store i64 %21, ptr %14, align 8, !tbaa !126
+  store i64 %21, ptr %14, align 8, !tbaa !129
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #22
   tail call void @_ZN4toku12lock_request28retry_all_lock_requests_infoEPNS_20lt_lock_request_infoEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %3, null
@@ -2044,16 +2044,16 @@ define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPv
 
 24:                                               ; preds = %23, %._crit_edge
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #22
-  store i8 0, ptr %17, align 8, !tbaa !127
+  store i8 0, ptr %17, align 8, !tbaa !130
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %27 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %26) #22
   br label %32
 
 28:                                               ; preds = %.lr.ph, %28
   %29 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %20, ptr noundef nonnull %12)
-  %30 = load i8, ptr %17, align 8, !tbaa !127, !range !50, !noundef !51
+  %30 = load i8, ptr %17, align 8, !tbaa !130, !range !50, !noundef !51
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %28, label %._crit_edge, !llvm.loop !128
+  br i1 %31, label %28, label %._crit_edge, !llvm.loop !131
 
 32:                                               ; preds = %24, %9
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #22
@@ -2107,7 +2107,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit: ; preds = %19
   %22 = load ptr, ptr %14, align 8, !tbaa !30
   %23 = zext i32 %20 to i64
   %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i64 %23, i32 1
-  %25 = load i32, ptr %24, align 8, !tbaa !129
+  %25 = load i32, ptr %24, align 8, !tbaa !132
   %26 = icmp ult i32 %.015, %25
   br i1 %26, label %tailrecurse.outer.i.i, label %.critedge
 
@@ -2153,7 +2153,7 @@ tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtIPNS_1
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i: ; preds = %tailrecurse.i.i
   %41 = zext i32 %39 to i64
   %42 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i64 %41, i32 1
-  %43 = load i32, ptr %42, align 8, !tbaa !129
+  %43 = load i32, ptr %42, align 8, !tbaa !132
   %44 = icmp ult i32 %.tr21.ph.i.i, %43
   br i1 %44, label %tailrecurse.i.i, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread.i.i
 
@@ -2179,7 +2179,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE5fetchEjPS2_.exit: ; preds = %_ZNK4toku
   %.not = icmp ne i32 %50, 0
   %52 = zext i1 %.not to i32
   %spec.select = add i32 %.015, %52
-  br label %16, !llvm.loop !131
+  br label %16, !llvm.loop !134
 
 53:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE5fetchEjPS2_.exit
   %54 = landingpad { ptr, i32 }
@@ -2204,7 +2204,7 @@ _ZN4toku12lock_request12report_waitsEPSt6vectorINS_14lock_wait_infoESaIS2_EEPFvP
   %63 = load ptr, ptr %14, align 8, !tbaa !30
   %64 = zext i32 %60 to i64
   %65 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %63, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 8, !tbaa !129
+  %66 = load i32, ptr %65, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit22
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit22: ; preds = %62, %59, %57
@@ -2212,7 +2212,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit22: ; preds = %62, %59, %57
   %67 = icmp ne i32 %.0.i21, 0
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %69 = zext i1 %67 to i8
-  store i8 %69, ptr %68, align 8, !tbaa !132
+  store i8 %69, ptr %68, align 8, !tbaa !135
   %70 = load ptr, ptr %6, align 8, !tbaa !67
   %71 = load ptr, ptr %70, align 8, !tbaa !32
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -2362,7 +2362,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us: ; preds = %_Z24toku_
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE5fetchEjPS2_.exit.thread.us: ; preds = %18, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us
   %27 = add nuw i32 %.0.us26, 1
   %exitcond31.not = icmp eq i32 %27, %17
-  br i1 %exitcond31.not, label %.critedge18, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us, !llvm.loop !133
+  br i1 %exitcond31.not, label %.critedge18, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us, !llvm.loop !136
 
 _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split: ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   %28 = load i32, ptr %15, align 4, !tbaa !74
@@ -2373,7 +2373,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.lr.ph: ; preds = %_Z24toku
   %30 = load ptr, ptr %14, align 8, !tbaa !30
   %31 = zext i32 %28 to i64
   %32 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %30, i64 %31, i32 1
-  %33 = load i32, ptr %32, align 8, !tbaa !129
+  %33 = load i32, ptr %32, align 8, !tbaa !132
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.critedge18, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread10.i
 
@@ -2399,7 +2399,7 @@ tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtIPNS_1
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i: ; preds = %tailrecurse.i.i
   %40 = zext i32 %38 to i64
   %41 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %30, i64 %40, i32 1
-  %42 = load i32, ptr %41, align 8, !tbaa !129
+  %42 = load i32, ptr %41, align 8, !tbaa !132
   %43 = icmp ult i32 %.tr21.ph.i.i, %42
   br i1 %43, label %tailrecurse.i.i, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread.i.i
 
@@ -2473,7 +2473,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread18: ; preds = %7
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = zext i32 %9 to i64
   %14 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %13, i32 1
-  %15 = load i32, ptr %14, align 8, !tbaa !129
+  %15 = load i32, ptr %14, align 8, !tbaa !132
   %16 = icmp ugt i32 %2, %15
   br i1 %16, label %70, label %20
 
@@ -2488,7 +2488,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread: ; preds = %3
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = zext i32 %9 to i64
   %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i64 %23, i32 1
-  %25 = load i32, ptr %24, align 8, !tbaa !129
+  %25 = load i32, ptr %24, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit16
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit16: ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread, %20
@@ -2527,7 +2527,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit16: ; preds = %_ZNK4toku3om
   store i8 0, ptr %0, align 8, !tbaa !48
   store ptr %41, ptr %42, align 8, !tbaa !30
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %38, ptr %47, align 4, !tbaa !134
+  store i32 %38, ptr %47, align 4, !tbaa !137
   store i32 0, ptr %31, align 4, !tbaa !30
   store i32 -1, ptr %30, align 8, !tbaa !74
   tail call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS2_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %30, ptr noundef %46, i32 noundef %32)
@@ -2568,10 +2568,10 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit16: ; preds = %_ZNK4toku3om
 
 .thread22:                                        ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit16, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store ptr null, ptr %4, align 8, !tbaa !135
+  store ptr null, ptr %4, align 8, !tbaa !138
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS2_jPS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr noundef %4)
-  %67 = load ptr, ptr %4, align 8, !tbaa !135
+  %67 = load ptr, ptr %4, align 8, !tbaa !138
   %.not13 = icmp eq ptr %67, null
   br i1 %.not13, label %69, label %68
 
@@ -2612,7 +2612,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread16: ; preds = %6
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = zext i32 %8 to i64
   %15 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !129
+  %16 = load i32, ptr %15, align 8, !tbaa !132
   %.not18 = icmp ult i32 %1, %16
   br i1 %.not18, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit13, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread
 
@@ -2648,7 +2648,7 @@ _ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15convert_to_treeEv.exit: ; preds = %21
   store i8 0, ptr %0, align 8, !tbaa !48
   store ptr %29, ptr %31, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %26, ptr %36, align 4, !tbaa !134
+  store i32 %26, ptr %36, align 4, !tbaa !137
   store i32 0, ptr %22, align 4, !tbaa !30
   store i32 -1, ptr %30, align 8, !tbaa !74
   tail call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS2_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %30, ptr noundef %35, i32 noundef %23)
@@ -2681,10 +2681,10 @@ _ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15convert_to_treeEv.exit: ; preds = %21
 
 48:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
-  store ptr null, ptr %3, align 8, !tbaa !135
+  store ptr null, ptr %3, align 8, !tbaa !138
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15delete_internalEPNS_12omt_internal17subtree_templatedILb0EEEjPNS4_18omt_node_templatedIS2_Lb0EEEPS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %49, i32 noundef %1, ptr noundef null, ptr noundef nonnull %3)
-  %50 = load ptr, ptr %3, align 8, !tbaa !135
+  %50 = load ptr, ptr %3, align 8, !tbaa !138
   %.not10 = icmp eq ptr %50, null
   br i1 %.not10, label %52, label %51
 
@@ -2727,7 +2727,7 @@ define void @_ZN4toku12lock_request38set_start_before_pending_test_callbackEPFvv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4toku12lock_request23set_retry_test_callbackEPFvvE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((184, 192)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %1, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %3, align 8, !tbaa !107
   ret void
 }
 
@@ -2864,7 +2864,7 @@ define internal void @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadl
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  %.val = load ptr, ptr %0, align 8, !tbaa !137
+  %.val = load ptr, ptr %0, align 8, !tbaa !140
   %.val2 = load i64, ptr %1, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %.val2, ptr %9, align 8, !tbaa !47
@@ -2957,9 +2957,9 @@ _ZN4toku12lock_request17find_lock_requestERKm.exit.i.i.i: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %39, ptr %3, align 8, !tbaa !47
   %47 = zext i1 %42 to i8
-  store i8 %47, ptr %4, align 1, !tbaa !139
-  store ptr %44, ptr %5, align 8, !tbaa !140
-  store ptr %46, ptr %6, align 8, !tbaa !140
+  store i8 %47, ptr %4, align 1, !tbaa !142
+  store ptr %44, ptr %5, align 8, !tbaa !143
+  store ptr %46, ptr %6, align 8, !tbaa !143
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   %49 = load ptr, ptr %48, align 8, !tbaa !57
   %.not.i.i.i.i.i = icmp eq ptr %49, null
@@ -2972,7 +2972,7 @@ _ZN4toku12lock_request17find_lock_requestERKm.exit.i.i.i: ; preds = %2
 _ZNKSt8functionIFvmbPK10__toku_dbtS2_EEclEmbS2_S2_.exit.i.i.i: ; preds = %38
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %52 = getelementptr inbounds nuw i8, ptr %.val, i64 216
-  %53 = load ptr, ptr %52, align 8, !tbaa !141
+  %53 = load ptr, ptr %52, align 8, !tbaa !144
   call void %53(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -2998,7 +2998,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_
   br label %"_ZNSt14_Function_base13_Base_managerIZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !142
+  store ptr null, ptr %0, align 8, !tbaa !145
   br label %"_ZNSt14_Function_base13_Base_managerIZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3052,8 +3052,8 @@ _ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
   store ptr %24, ptr %22, align 8, !tbaa !80
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !124
-  store ptr %27, ptr %25, align 8, !tbaa !124
+  %27 = load ptr, ptr %26, align 8, !tbaa !127
+  store ptr %27, ptr %25, align 8, !tbaa !127
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !83
@@ -3065,26 +3065,26 @@ _ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i, i64 24, i1 false), !alias.scope !149
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i, i64 24, i1 false), !alias.scope !152
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !80, !alias.scope !147, !noalias !144
-  store ptr %33, ptr %31, align 8, !tbaa !80, !alias.scope !144, !noalias !147
+  %33 = load ptr, ptr %32, align 8, !tbaa !80, !alias.scope !150, !noalias !147
+  store ptr %33, ptr %31, align 8, !tbaa !80, !alias.scope !147, !noalias !150
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !124, !alias.scope !147, !noalias !144
-  store ptr %36, ptr %34, align 8, !tbaa !124, !alias.scope !144, !noalias !147
+  %36 = load ptr, ptr %35, align 8, !tbaa !127, !alias.scope !150, !noalias !147
+  store ptr %36, ptr %34, align 8, !tbaa !127, !alias.scope !147, !noalias !150
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !83, !alias.scope !147, !noalias !144
-  store ptr %39, ptr %37, align 8, !tbaa !83, !alias.scope !144, !noalias !147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !147, !noalias !144
+  %39 = load ptr, ptr %38, align 8, !tbaa !83, !alias.scope !150, !noalias !147
+  store ptr %39, ptr %37, align 8, !tbaa !83, !alias.scope !147, !noalias !150
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !150, !noalias !147
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !150
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !153
 
 _ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -3095,26 +3095,26 @@ _ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %53, %.lr.ph.i.i.i17 ], [ %42, %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %52, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i19, i64 24, i1 false), !alias.scope !156
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i19, i64 24, i1 false), !alias.scope !159
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !80, !alias.scope !154, !noalias !151
-  store ptr %45, ptr %43, align 8, !tbaa !80, !alias.scope !151, !noalias !154
+  %45 = load ptr, ptr %44, align 8, !tbaa !80, !alias.scope !157, !noalias !154
+  store ptr %45, ptr %43, align 8, !tbaa !80, !alias.scope !154, !noalias !157
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !124, !alias.scope !154, !noalias !151
-  store ptr %48, ptr %46, align 8, !tbaa !124, !alias.scope !151, !noalias !154
+  %48 = load ptr, ptr %47, align 8, !tbaa !127, !alias.scope !157, !noalias !154
+  store ptr %48, ptr %46, align 8, !tbaa !127, !alias.scope !154, !noalias !157
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !83, !alias.scope !154, !noalias !151
-  store ptr %51, ptr %49, align 8, !tbaa !83, !alias.scope !151, !noalias !154
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !154, !noalias !151
+  %51 = load ptr, ptr %50, align 8, !tbaa !83, !alias.scope !157, !noalias !154
+  store ptr %51, ptr %49, align 8, !tbaa !83, !alias.scope !154, !noalias !157
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !157, !noalias !154
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
   %.not.i.i.i20 = icmp eq ptr %52, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !150
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !153
 
 _ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %42, %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %53, %.lr.ph.i.i.i17 ]
@@ -3183,7 +3183,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %25 = load ptr, ptr %8, align 8, !tbaa !30
   %26 = zext i32 %22 to i64
   %27 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %25, i64 %26, i32 1
-  %28 = load i32, ptr %27, align 8, !tbaa !129
+  %28 = load i32, ptr %27, align 8, !tbaa !132
   %29 = add i32 %28, 1
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
@@ -3218,7 +3218,7 @@ tailrecurse:                                      ; preds = %32
   %43 = load ptr, ptr %8, align 8, !tbaa !30
   %44 = zext i32 %40 to i64
   %45 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %43, i64 %44, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !129
+  %46 = load i32, ptr %45, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37: ; preds = %39, %42
@@ -3228,7 +3228,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   br i1 %.not34, label %49, label %47
 
 47:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37
-  %48 = load ptr, ptr %14, align 8, !tbaa !157
+  %48 = load ptr, ptr %14, align 8, !tbaa !160
   store ptr %48, ptr %3, align 8, !tbaa !52
   br label %49
 
@@ -3247,7 +3247,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE23maybe_resize
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !134
+  %9 = load i32, ptr %8, align 4, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !30
   %12 = sub i32 %9, %11
@@ -3279,7 +3279,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE23maybe_resize
 
 29:                                               ; preds = %21, %15
   store i32 0, ptr %10, align 8, !tbaa !30
-  store i32 %6, ptr %8, align 4, !tbaa !134
+  store i32 %6, ptr %8, align 4, !tbaa !137
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !30
   tail call void @_Z9toku_freePv(ptr noundef %31)
@@ -3297,13 +3297,13 @@ define linkonce_odr void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE23maybe_resize
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %39 = zext i32 %34 to i64
   %40 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %38, i64 %39, i32 1
-  %41 = load i32, ptr %40, align 8, !tbaa !129
+  %41 = load i32, ptr %40, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %32, %36
   %.0.i = phi i32 [ %41, %36 ], [ 0, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !134
+  %43 = load i32, ptr %42, align 4, !tbaa !137
   %44 = lshr i32 %43, 1
   %.not = icmp ult i32 %44, %6
   br i1 %.not, label %45, label %50
@@ -3326,7 +3326,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   %53 = load ptr, ptr %52, align 8, !tbaa !30
   %54 = zext i32 %34 to i64
   %55 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %53, i64 %54, i32 1
-  %56 = load i32, ptr %55, align 8, !tbaa !129
+  %56 = load i32, ptr %55, align 8, !tbaa !132
   br label %_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE16convert_to_arrayEv.exit
 
 _ZN4toku3omtIPNS_12lock_requestES2_Lb0EE16convert_to_arrayEv.exit: ; preds = %50, %51
@@ -3341,7 +3341,7 @@ _ZN4toku3omtIPNS_12lock_requestES2_Lb0EE16convert_to_arrayEv.exit: ; preds = %50
   %63 = load ptr, ptr %62, align 8, !tbaa !30
   tail call void @_Z9toku_freePv(ptr noundef %63)
   store i8 1, ptr %0, align 8, !tbaa !48
-  store i32 %58, ptr %42, align 4, !tbaa !134
+  store i32 %58, ptr %42, align 4, !tbaa !137
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.0.i.i, ptr %64, align 4, !tbaa !30
   store ptr %61, ptr %62, align 8, !tbaa !30
@@ -3379,13 +3379,13 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_1
   %15 = zext i32 %11 to i64
   %16 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 1, ptr %17, align 8, !tbaa !129
+  store i32 1, ptr %17, align 8, !tbaa !132
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 -1, ptr %18, align 4, !tbaa !74
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 -1, ptr %19, align 4, !tbaa !74
   %20 = load ptr, ptr %2, align 8, !tbaa !52
-  store ptr %20, ptr %16, align 8, !tbaa !157
+  store ptr %20, ptr %16, align 8, !tbaa !160
   store i32 %11, ptr %.tr40.lcssa, align 4, !tbaa !74
   ret void
 
@@ -3396,9 +3396,9 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_1
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !129
+  %27 = load i32, ptr %26, align 8, !tbaa !132
   %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !129
+  store i32 %28, ptr %26, align 8, !tbaa !132
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !74
   %31 = icmp eq i32 %30, -1
@@ -3408,13 +3408,13 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_1
   %33 = load ptr, ptr %8, align 8, !tbaa !30
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %33, i64 %34, i32 1
-  %36 = load i32, ptr %35, align 8, !tbaa !129
+  %36 = load i32, ptr %35, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %21, %32
   %.0.i = phi i32 [ %36, %32 ], [ 0, %21 ]
   %.not = icmp ugt i32 %.tr42.ph52, %.0.i
-  %37 = load ptr, ptr %4, align 8, !tbaa !135
+  %37 = load ptr, ptr %4, align 8, !tbaa !138
   %38 = icmp eq ptr %37, null
   br i1 %.not, label %68, label %39
 
@@ -3432,7 +3432,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 46:                                               ; preds = %40
   %47 = zext i32 %44 to i64
   %48 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %41, i64 %47, i32 1
-  %49 = load i32, ptr %48, align 8, !tbaa !129
+  %49 = load i32, ptr %48, align 8, !tbaa !132
   %50 = add i32 %49, 1
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
 
@@ -3446,7 +3446,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 54:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
   %55 = zext i32 %52 to i64
   %56 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %41, i64 %55, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !129
+  %57 = load i32, ptr %56, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit: ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i, %54
@@ -3463,7 +3463,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   br i1 %66, label %67, label %tailrecurse
 
 67:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
-  store ptr %.tr4049, ptr %4, align 8, !tbaa !135
+  store ptr %.tr4049, ptr %4, align 8, !tbaa !138
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %67, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit, %39
@@ -3483,7 +3483,7 @@ tailrecurse:                                      ; preds = %67, %_ZNK4toku3omtI
 75:                                               ; preds = %69
   %76 = zext i32 %73 to i64
   %77 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %70, i64 %76, i32 1
-  %78 = load i32, ptr %77, align 8, !tbaa !129
+  %78 = load i32, ptr %77, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32: ; preds = %75, %69
@@ -3496,7 +3496,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 82:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32
   %83 = zext i32 %80 to i64
   %84 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %70, i64 %83, i32 1
-  %85 = load i32, ptr %84, align 8, !tbaa !129
+  %85 = load i32, ptr %84, align 8, !tbaa !132
   %86 = add i32 %85, 1
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37
 
@@ -3514,7 +3514,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37
-  store ptr %.tr4049, ptr %4, align 8, !tbaa !135
+  store ptr %.tr4049, ptr %4, align 8, !tbaa !138
   br label %97
 
 97:                                               ; preds = %96, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37, %68
@@ -3524,7 +3524,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   %99 = load ptr, ptr %8, align 8, !tbaa !30
   %100 = zext i32 %30 to i64
   %101 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %99, i64 %100, i32 1
-  %102 = load i32, ptr %101, align 8, !tbaa !129
+  %102 = load i32, ptr %101, align 8, !tbaa !132
   %103 = xor i32 %102, -1
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39
 
@@ -3559,7 +3559,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE9rebalanceEPNS
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = zext i32 %3 to i64
   %16 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 8, !tbaa !129
+  %17 = load i32, ptr %16, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
@@ -3575,7 +3575,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
   tail call void @_Z9toku_freePv(ptr noundef %24)
   store i8 1, ptr %0, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %19, ptr %25, align 4, !tbaa !134
+  store i32 %19, ptr %25, align 4, !tbaa !137
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.0.i.i, ptr %26, align 4, !tbaa !30
   store ptr %22, ptr %23, align 8, !tbaa !30
@@ -3587,11 +3587,11 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = zext i32 %3 to i64
   %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %29, i64 %30, i32 1
-  %32 = load i32, ptr %31, align 8, !tbaa !129
+  %32 = load i32, ptr %31, align 8, !tbaa !132
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !134
+  %36 = load i32, ptr %35, align 4, !tbaa !137
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = sub i32 %36, %38
@@ -3612,7 +3612,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
 47:                                               ; preds = %45, %42
   %.014 = phi ptr [ %44, %42 ], [ %46, %45 ]
   tail call void @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.014, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %48 = load i32, ptr %31, align 8, !tbaa !129
+  %48 = load i32, ptr %31, align 8, !tbaa !132
   tail call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %.014, i32 noundef %48)
   br i1 %.not, label %49, label %_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE16convert_to_arrayEv.exit
 
@@ -3646,7 +3646,7 @@ define linkonce_odr void @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE30fill_array_
   %11 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   tail call void @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE30fill_array_with_subtree_valuesEPS2_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.tr1416, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  %13 = load ptr, ptr %11, align 8, !tbaa !157
+  %13 = load ptr, ptr %11, align 8, !tbaa !160
   %14 = load i32, ptr %12, align 4, !tbaa !74
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread, label %16
@@ -3659,13 +3659,13 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   %17 = load ptr, ptr %6, align 8, !tbaa !30
   %18 = zext i32 %14 to i64
   %19 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %17, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 8, !tbaa !129
+  %20 = load i32, ptr %19, align 8, !tbaa !132
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw ptr, ptr %.tr1416, i64 %21
   store ptr %13, ptr %22, align 8, !tbaa !52
   %23 = load ptr, ptr %6, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %18, i32 1
-  %25 = load i32, ptr %24, align 8, !tbaa !129
+  %25 = load i32, ptr %24, align 8, !tbaa !132
   %26 = add i32 %25, 1
   %27 = zext i32 %26 to i64
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit12
@@ -3709,11 +3709,11 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %12 = zext i32 %9 to i64
   %13 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %.tr2124, ptr %14, align 8, !tbaa !129
+  store i32 %.tr2124, ptr %14, align 8, !tbaa !132
   %15 = zext nneg i32 %8 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %.tr2023, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !52
-  store ptr %17, ptr %13, align 8, !tbaa !157
+  store ptr %17, ptr %13, align 8, !tbaa !160
   store i32 %9, ptr %.tr1922, align 4, !tbaa !74
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
   tail call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS2_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %18, ptr noundef %.tr2023, i32 noundef %8)
@@ -3754,7 +3754,7 @@ define linkonce_odr void @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE28fill_array_
   %17 = load ptr, ptr %6, align 8, !tbaa !30
   %18 = zext i32 %14 to i64
   %19 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %17, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 8, !tbaa !129
+  %20 = load i32, ptr %19, align 8, !tbaa !132
   %21 = zext i32 %20 to i64
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
@@ -3770,7 +3770,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   %26 = load ptr, ptr %6, align 8, !tbaa !30
   %27 = zext i32 %23 to i64
   %28 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %26, i64 %27, i32 1
-  %29 = load i32, ptr %28, align 8, !tbaa !129
+  %29 = load i32, ptr %28, align 8, !tbaa !132
   %30 = add i32 %29, 1
   %31 = zext i32 %30 to i64
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit12
@@ -3814,7 +3814,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %12 = zext i32 %10 to i64
   %13 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %.tr1922, ptr %14, align 8, !tbaa !129
+  store i32 %.tr1922, ptr %14, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   tail call void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef %.tr1821, i32 noundef %7)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3859,16 +3859,16 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   %.tr7695 = phi ptr [ %15, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread ], [ %.tr76.ph, %tailrecurse.outer ]
   %20 = zext i32 %14 to i64
   %21 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %19, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 8, !tbaa !129
+  %22 = load i32, ptr %21, align 8, !tbaa !132
   %23 = icmp ult i32 %.tr77.ph, %22
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !129
+  %26 = load i32, ptr %25, align 8, !tbaa !132
   %27 = add i32 %26, -1
-  store i32 %27, ptr %25, align 8, !tbaa !129
-  %28 = load ptr, ptr %4, align 8, !tbaa !135
+  store i32 %27, ptr %25, align 8, !tbaa !132
+  %28 = load ptr, ptr %4, align 8, !tbaa !138
   %29 = icmp ne ptr %28, null
   %30 = icmp eq i32 %18, -1
   %or.cond = or i1 %30, %29
@@ -3885,7 +3885,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 36:                                               ; preds = %31
   %37 = zext i32 %34 to i64
   %38 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %.pre118, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 8, !tbaa !129
+  %39 = load i32, ptr %38, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i: ; preds = %36, %31
@@ -3898,7 +3898,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 43:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %.pre118, i64 %44, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !129
+  %46 = load i32, ptr %45, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit: ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i, %43
@@ -3914,7 +3914,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   br i1 %54, label %55, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread
 
 55:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
-  store ptr %.tr7695, ptr %4, align 8, !tbaa !135
+  store ptr %.tr7695, ptr %4, align 8, !tbaa !138
   %.pre = load ptr, ptr %6, align 8, !tbaa !30
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread
 
@@ -3957,7 +3957,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
   br i1 %.not, label %129, label %.sink.split
 
 70:                                               ; preds = %.thread71
-  %71 = load ptr, ptr %4, align 8, !tbaa !135
+  %71 = load ptr, ptr %4, align 8, !tbaa !138
   %72 = icmp ne ptr %71, null
   %73 = icmp eq i32 %18, -1
   %or.cond74 = or i1 %73, %72
@@ -3966,7 +3966,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59: ; preds = %70
   %74 = zext i32 %67 to i64
   %75 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %19, i64 %74, i32 1
-  %76 = load i32, ptr %75, align 8, !tbaa !129
+  %76 = load i32, ptr %75, align 8, !tbaa !132
   %77 = add i32 %.tr77.ph, 1
   %78 = add i32 %76, 1
   %79 = lshr i32 %78, 1
@@ -3978,14 +3978,14 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   br i1 %84, label %85, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread
 
 85:                                               ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59
-  store ptr %.tr7695, ptr %4, align 8, !tbaa !135
+  store ptr %.tr7695, ptr %4, align 8, !tbaa !138
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread: ; preds = %85, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59, %70
   %86 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %87 = load i32, ptr %86, align 8, !tbaa !129
+  %87 = load i32, ptr %86, align 8, !tbaa !132
   %88 = add i32 %87, -1
-  store i32 %88, ptr %86, align 8, !tbaa !129
+  store i32 %88, ptr %86, align 8, !tbaa !132
   br label %tailrecurse.outer.outer
 
 89:                                               ; preds = %.thread, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread
@@ -3995,10 +3995,10 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   %92 = phi ptr [ %16, %.thread ], [ %.lcssa81, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread ]
   %.0.i6770 = phi i32 [ %22, %.thread ], [ 0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !129
+  %94 = load i32, ptr %93, align 8, !tbaa !132
   %95 = add i32 %94, -1
-  store i32 %95, ptr %93, align 8, !tbaa !129
-  %96 = load ptr, ptr %4, align 8, !tbaa !135
+  store i32 %95, ptr %93, align 8, !tbaa !132
+  %96 = load ptr, ptr %4, align 8, !tbaa !138
   %97 = icmp ne ptr %96, null
   %98 = icmp eq i32 %90, -1
   %or.cond75 = or i1 %98, %97
@@ -4015,7 +4015,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
 105:                                              ; preds = %99
   %106 = zext i32 %103 to i64
   %107 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %100, i64 %106, i32 1
-  %108 = load i32, ptr %107, align 8, !tbaa !129
+  %108 = load i32, ptr %107, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60: ; preds = %105, %99
@@ -4028,7 +4028,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_t
 112:                                              ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60
   %113 = zext i32 %110 to i64
   %114 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %100, i64 %113, i32 1
-  %115 = load i32, ptr %114, align 8, !tbaa !129
+  %115 = load i32, ptr %114, align 8, !tbaa !132
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65: ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60, %112
@@ -4044,7 +4044,7 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
   br i1 %123, label %124, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread
 
 124:                                              ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65
-  store ptr %.tr7692, ptr %4, align 8, !tbaa !135
+  store ptr %.tr7692, ptr %4, align 8, !tbaa !138
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread: ; preds = %124, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65, %89
@@ -4055,8 +4055,8 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE19will_need_rebalanceERKNS_12omt_intern
 
 .sink.split:                                      ; preds = %69, %63
   %.lcssa129.lcssa.lcssa.sink = phi ptr [ %.lcssa81, %63 ], [ %16, %69 ]
-  %128 = load ptr, ptr %.lcssa129.lcssa.lcssa.sink, align 8, !tbaa !157
-  store ptr %128, ptr %.tr78.ph.ph, align 8, !tbaa !157
+  %128 = load ptr, ptr %.lcssa129.lcssa.lcssa.sink, align 8, !tbaa !160
+  store ptr %128, ptr %.tr78.ph.ph, align 8, !tbaa !160
   br label %129
 
 129:                                              ; preds = %.sink.split, %69, %63
@@ -4197,75 +4197,78 @@ attributes #26 = { builtin allocsize(0) }
 !83 = !{!81, !82, i64 16}
 !84 = distinct !{!84, !55}
 !85 = !{!77, !78, i64 16}
-!86 = distinct !{!86, !55}
-!87 = !{!88, !6, i64 88}
-!88 = !{!"_ZTSN4toku20lt_lock_request_infoE", !49, i64 0, !89, i64 24, !91, i64 32, !21, i64 48, !92, i64 56, !93, i64 96, !95, i64 104, !96, i64 112, !98, i64 160, !21, i64 216}
-!89 = !{!"_ZTSSt6atomicIbE", !90, i64 0}
-!90 = !{!"_ZTSSt13__atomic_baseIbE", !21, i64 0}
-!91 = !{!"_ZTSSt10shared_ptrIN7rocksdb18TransactionDBMutexEE", !68, i64 0}
-!92 = !{!"_ZTSN4toku11lt_countersE", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
-!93 = !{!"_ZTSSt6atomicIyE", !94, i64 0}
-!94 = !{!"_ZTSSt13__atomic_baseIyE", !95, i64 0}
-!95 = !{!"long long", !7, i64 0}
-!96 = !{!"_ZTS12toku_mutex_t", !7, i64 0, !97, i64 40}
-!97 = !{!"p1 _ZTS9PSI_mutex", !10, i64 0}
-!98 = !{!"_ZTS11toku_cond_t", !7, i64 0, !99, i64 48}
-!99 = !{!"p1 _ZTS8PSI_cond", !10, i64 0}
-!100 = !{!88, !6, i64 56}
-!101 = !{!88, !6, i64 64}
-!102 = !{!88, !6, i64 72}
-!103 = !{!88, !6, i64 80}
-!104 = !{!5, !10, i64 184}
-!105 = !{!106, !107, i64 0}
-!106 = !{!"_ZTSN7rocksdb6StatusE", !107, i64 0, !108, i64 1, !109, i64 2, !21, i64 3, !21, i64 4, !7, i64 5, !110, i64 8}
-!107 = !{!"_ZTSN7rocksdb6Status4CodeE", !7, i64 0}
-!108 = !{!"_ZTSN7rocksdb6Status7SubCodeE", !7, i64 0}
-!109 = !{!"_ZTSN7rocksdb6Status8SeverityE", !7, i64 0}
-!110 = !{!"_ZTSSt10unique_ptrIA_KcSt14default_deleteIS1_EE", !111, i64 0}
-!111 = !{!"_ZTSSt15__uniq_ptr_dataIKcSt14default_deleteIA_S0_ELb1ELb1EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_implIKcSt14default_deleteIA_S0_EE", !113, i64 0}
-!113 = !{!"_ZTSSt5tupleIJPKcSt14default_deleteIA_S0_EEE", !114, i64 0}
-!114 = !{!"_ZTSSt11_Tuple_implILm0EJPKcSt14default_deleteIA_S0_EEE", !115, i64 0}
-!115 = !{!"_ZTSSt10_Head_baseILm0EPKcLb0EE", !71, i64 0}
-!116 = !{!117, !14, i64 0}
-!117 = !{!"_ZTSN4toku14lock_wait_infoE", !14, i64 0, !6, i64 8, !10, i64 16, !118, i64 24}
-!118 = !{!"_ZTSSt6vectorImSaImEE", !119, i64 0}
-!119 = !{!"_ZTSSt12_Vector_baseImSaImEE", !120, i64 0}
-!120 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !81, i64 0}
-!121 = !{!117, !6, i64 8}
-!122 = !{!117, !10, i64 16}
-!123 = !{!78, !78, i64 0}
-!124 = !{!81, !82, i64 8}
-!125 = distinct !{!125, !55}
-!126 = !{!88, !95, i64 104}
-!127 = !{!88, !21, i64 216}
+!86 = distinct !{!86, !55, !87}
+!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = distinct !{!88, !55, !87}
+!89 = distinct !{!89, !55}
+!90 = !{!91, !6, i64 88}
+!91 = !{!"_ZTSN4toku20lt_lock_request_infoE", !49, i64 0, !92, i64 24, !94, i64 32, !21, i64 48, !95, i64 56, !96, i64 96, !98, i64 104, !99, i64 112, !101, i64 160, !21, i64 216}
+!92 = !{!"_ZTSSt6atomicIbE", !93, i64 0}
+!93 = !{!"_ZTSSt13__atomic_baseIbE", !21, i64 0}
+!94 = !{!"_ZTSSt10shared_ptrIN7rocksdb18TransactionDBMutexEE", !68, i64 0}
+!95 = !{!"_ZTSN4toku11lt_countersE", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
+!96 = !{!"_ZTSSt6atomicIyE", !97, i64 0}
+!97 = !{!"_ZTSSt13__atomic_baseIyE", !98, i64 0}
+!98 = !{!"long long", !7, i64 0}
+!99 = !{!"_ZTS12toku_mutex_t", !7, i64 0, !100, i64 40}
+!100 = !{!"p1 _ZTS9PSI_mutex", !10, i64 0}
+!101 = !{!"_ZTS11toku_cond_t", !7, i64 0, !102, i64 48}
+!102 = !{!"p1 _ZTS8PSI_cond", !10, i64 0}
+!103 = !{!91, !6, i64 56}
+!104 = !{!91, !6, i64 64}
+!105 = !{!91, !6, i64 72}
+!106 = !{!91, !6, i64 80}
+!107 = !{!5, !10, i64 184}
+!108 = !{!109, !110, i64 0}
+!109 = !{!"_ZTSN7rocksdb6StatusE", !110, i64 0, !111, i64 1, !112, i64 2, !21, i64 3, !21, i64 4, !7, i64 5, !113, i64 8}
+!110 = !{!"_ZTSN7rocksdb6Status4CodeE", !7, i64 0}
+!111 = !{!"_ZTSN7rocksdb6Status7SubCodeE", !7, i64 0}
+!112 = !{!"_ZTSN7rocksdb6Status8SeverityE", !7, i64 0}
+!113 = !{!"_ZTSSt10unique_ptrIA_KcSt14default_deleteIS1_EE", !114, i64 0}
+!114 = !{!"_ZTSSt15__uniq_ptr_dataIKcSt14default_deleteIA_S0_ELb1ELb1EE", !115, i64 0}
+!115 = !{!"_ZTSSt15__uniq_ptr_implIKcSt14default_deleteIA_S0_EE", !116, i64 0}
+!116 = !{!"_ZTSSt5tupleIJPKcSt14default_deleteIA_S0_EEE", !117, i64 0}
+!117 = !{!"_ZTSSt11_Tuple_implILm0EJPKcSt14default_deleteIA_S0_EEE", !118, i64 0}
+!118 = !{!"_ZTSSt10_Head_baseILm0EPKcLb0EE", !71, i64 0}
+!119 = !{!120, !14, i64 0}
+!120 = !{!"_ZTSN4toku14lock_wait_infoE", !14, i64 0, !6, i64 8, !10, i64 16, !121, i64 24}
+!121 = !{!"_ZTSSt6vectorImSaImEE", !122, i64 0}
+!122 = !{!"_ZTSSt12_Vector_baseImSaImEE", !123, i64 0}
+!123 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !81, i64 0}
+!124 = !{!120, !6, i64 8}
+!125 = !{!120, !10, i64 16}
+!126 = !{!78, !78, i64 0}
+!127 = !{!81, !82, i64 8}
 !128 = distinct !{!128, !55}
-!129 = !{!130, !12, i64 8}
-!130 = !{!"_ZTSN4toku12omt_internal18omt_node_templatedIPNS_12lock_requestELb0EEE", !53, i64 0, !12, i64 8, !75, i64 12, !75, i64 16}
+!129 = !{!91, !98, i64 104}
+!130 = !{!91, !21, i64 216}
 !131 = distinct !{!131, !55}
-!132 = !{!88, !21, i64 48}
-!133 = distinct !{!133, !55}
-!134 = !{!49, !12, i64 4}
-!135 = !{!136, !136, i64 0}
-!136 = !{!"p1 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !10, i64 0}
-!137 = !{!138, !53, i64 0}
-!138 = !{!"_ZTSZN4toku12lock_request15deadlock_existsERKNS_9txnid_setEE3$_0", !53, i64 0}
-!139 = !{!21, !21, i64 0}
-!140 = !{!9, !9, i64 0}
-!141 = !{!23, !10, i64 24}
-!142 = !{!143, !143, i64 0}
-!143 = !{!"p1 _ZTSSt9type_info", !10, i64 0}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!146 = distinct !{!146, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_"}
+!132 = !{!133, !12, i64 8}
+!133 = !{!"_ZTSN4toku12omt_internal18omt_node_templatedIPNS_12lock_requestELb0EEE", !53, i64 0, !12, i64 8, !75, i64 12, !75, i64 16}
+!134 = distinct !{!134, !55}
+!135 = !{!91, !21, i64 48}
+!136 = distinct !{!136, !55, !87}
+!137 = !{!49, !12, i64 4}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !10, i64 0}
+!140 = !{!141, !53, i64 0}
+!141 = !{!"_ZTSZN4toku12lock_request15deadlock_existsERKNS_9txnid_setEE3$_0", !53, i64 0}
+!142 = !{!21, !21, i64 0}
+!143 = !{!9, !9, i64 0}
+!144 = !{!23, !10, i64 24}
+!145 = !{!146, !146, i64 0}
+!146 = !{!"p1 _ZTSSt9type_info", !10, i64 0}
 !147 = !{!148}
-!148 = distinct !{!148, !146, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!149 = !{!145, !148}
-!150 = distinct !{!150, !55}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!153 = distinct !{!153, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_"}
+!148 = distinct !{!148, !149, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!149 = distinct !{!149, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_"}
+!150 = !{!151}
+!151 = distinct !{!151, !149, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!152 = !{!148, !151}
+!153 = distinct !{!153, !55}
 !154 = !{!155}
-!155 = distinct !{!155, !153, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!156 = !{!152, !155}
-!157 = !{!130, !53, i64 0}
+!155 = distinct !{!155, !156, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!156 = distinct !{!156, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_"}
+!157 = !{!158}
+!158 = distinct !{!158, !156, !"_ZSt19__relocate_object_aIN4toku14lock_wait_infoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!159 = !{!155, !158}
+!160 = !{!133, !53, i64 0}

@@ -471,7 +471,7 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   %44 = add nsw i32 %31, -1
   %.not28.us = icmp eq i32 %31, 0
-  br i1 %.not28.us, label %.split40.us, label %.split.us
+  br i1 %.not28.us, label %.split40.us, label %.split.us, !llvm.loop !55
 
 .split:                                           ; preds = %16, %48
   %45 = phi double [ %54, %48 ], [ %25, %16 ]
@@ -684,3 +684,5 @@ attributes #9 = { nounwind }
 !52 = !{!4, !15, i64 384}
 !53 = !{!"branch_weights", i32 1, i32 1048575}
 !54 = !{!14, !14, i64 0}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}

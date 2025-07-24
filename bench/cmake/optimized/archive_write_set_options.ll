@@ -115,7 +115,7 @@ define internal i32 @archive_set_filter_option(ptr noundef readonly captures(non
   %25 = getelementptr inbounds nuw i8, ptr %.02130, i64 16
   %.021 = load ptr, ptr %25, align 8, !tbaa !18
   %.not = icmp eq ptr %.021, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %14, %24, %4
   %.0.lcssa = phi i32 [ -20, %4 ], [ %.1, %24 ], [ -20, %14 ]
@@ -186,5 +186,7 @@ attributes #4 = { nounwind willreturn memory(read) }
 !20 = !{!"archive_write_filter", !14, i64 0, !21, i64 8, !16, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !12, i64 80, !7, i64 88, !7, i64 92, !7, i64 96, !7, i64 100}
 !21 = !{!"p1 _ZTS7archive", !11, i64 0}
 !22 = !{!20, !12, i64 80}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !24}

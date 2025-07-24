@@ -1704,7 +1704,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
   %40 = load i64, ptr %28, align 8, !tbaa !36
   %41 = call ptr @sdscatlen(ptr noundef %38, ptr noundef %39, i64 noundef %40) #9
   %42 = call ptr @sdscatlen(ptr noundef %41, ptr noundef nonnull @.str.12, i64 noundef 2) #9
-  br label %.outer.us, !llvm.loop !113
+  br label %.outer.us, !llvm.loop !114
 
 43:                                               ; preds = %.outer.us, %30
   %44 = call i32 @raxNext(ptr noundef nonnull %3) #9
@@ -1910,7 +1910,7 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
 78:                                               ; preds = %34, %sdslen.exit, %sdslen.exit23
   %79 = call i32 @raxNext(ptr noundef nonnull %2) #9
   %.not19 = icmp eq i32 %79, 0
-  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !114
+  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %78, %17
   call void @raxStop(ptr noundef nonnull %2) #9
@@ -1924,7 +1924,7 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
   store ptr %82, ptr %14, align 8, !tbaa !41
   %83 = call i32 @raxNext(ptr noundef nonnull %1) #9
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge28, label %13, !llvm.loop !115
+  br i1 %.not, label %._crit_edge28, label %13, !llvm.loop !117
 
 ._crit_edge28:                                    ; preds = %80, %7
   call void @raxStop(ptr noundef nonnull %1) #9
@@ -2107,5 +2107,7 @@ attributes #11 = { nounwind allocsize(0) }
 !111 = distinct !{!111, !43}
 !112 = distinct !{!112, !43}
 !113 = distinct !{!113, !43}
-!114 = distinct !{!114, !43}
-!115 = distinct !{!115, !43}
+!114 = distinct !{!114, !43, !115}
+!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!116 = distinct !{!116, !43}
+!117 = distinct !{!117, !43}

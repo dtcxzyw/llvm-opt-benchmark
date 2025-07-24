@@ -12533,340 +12533,180 @@ define linkonce_odr void @_ZSt13__find_if_notIN4llvm16SmallSetIteratorISt4pairIN
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.us
   %.not14.i.i.i.i.i.i.us = icmp eq i32 %22, 0
   %25 = getelementptr inbounds nuw %"struct.std::pair.325", ptr %21, i64 %23
-  br i1 %.not14.i.i.i.i.i.i.us, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.lr.ph.i.split.us.split
+  br label %26
 
-.lr.ph.i.split.us.split:                          ; preds = %.lr.ph.i.split.us
-  br i1 %18, label %.lr.ph.i.split.us.split.split.us, label %.lr.ph.i.split.us.split.split
+26:                                               ; preds = %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us, %.lr.ph.i.split.us
+  %.sroa.05.0.us = phi ptr [ %14, %.lr.ph.i.split.us ], [ %storemerge.i.i.us, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us ]
+  %.pre2125.i.us = phi i64 [ %7, %.lr.ph.i.split.us ], [ %59, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us ]
+  br i1 %.not14.i.i.i.i.i.i.us, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.lr.ph.i.i.i.i.i.i.us
 
-.lr.ph.i.split.us.split.split.us:                 ; preds = %.lr.ph.i.split.us.split
-  br i1 %.not.i.i12.i, label %.lr.ph.i.i.i.i.i.i.us.us.us, label %.lr.ph.i.i.i.i.i.i.us.us
+.lr.ph.i.i.i.i.i.i.us:                            ; preds = %26
+  %27 = inttoptr i64 %.pre2125.i.us to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
+  %29 = load i32, ptr %28, align 4, !tbaa !569, !noalias !566
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %31 = load i64, ptr %30, align 4, !noalias !566
+  %32 = trunc i64 %31 to i32
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %34 = load i64, ptr %33, align 4, !noalias !566
+  br label %35
 
-.lr.ph.i.i.i.i.i.i.us.us.us:                      ; preds = %.lr.ph.i.split.us.split.split.us, %.thread2._crit_edge.i.us.us.us
-  %.sroa.05.0.us.us9.us = phi ptr [ %53, %.thread2._crit_edge.i.us.us.us ], [ %14, %.lr.ph.i.split.us.split.split.us ]
-  %.pre2125.i.us.us10.us = phi i64 [ %54, %.thread2._crit_edge.i.us.us.us ], [ %7, %.lr.ph.i.split.us.split.split.us ]
-  %26 = inttoptr i64 %.pre2125.i.us.us10.us to ptr
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i
-  %28 = load i32, ptr %27, align 4, !tbaa !569, !noalias !566
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %30 = load i64, ptr %29, align 4, !noalias !566
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %33 = load i64, ptr %32, align 4, !noalias !566
-  br label %34
+35:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us, %.lr.ph.i.i.i.i.i.i.us
+  %.0915.i.i.i.i.i.i.us = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.us ], [ %52, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us ]
+  %36 = load i32, ptr %.0915.i.i.i.i.i.i.us, align 4, !tbaa !569, !noalias !566
+  %37 = icmp eq i32 %36, %29
+  br i1 %37, label %38, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
 
-34:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us, %.lr.ph.i.i.i.i.i.i.us.us.us
-  %.0915.i.i.i.i.i.i.us.us.us = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.us.us.us ], [ %51, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us ]
-  %35 = load i32, ptr %.0915.i.i.i.i.i.i.us.us.us, align 4, !tbaa !569, !noalias !566
-  %36 = icmp eq i32 %35, %28
-  br i1 %36, label %37, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 4
+  %40 = load i64, ptr %39, align 4, !noalias !566
+  %41 = trunc i64 %40 to i32
+  %42 = icmp eq i32 %41, %32
+  br i1 %42, label %43, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us.us, i64 4
-  %39 = load i64, ptr %38, align 4, !noalias !566
-  %40 = trunc i64 %39 to i32
-  %41 = icmp eq i32 %40, %31
-  br i1 %41, label %42, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us
+43:                                               ; preds = %38
+  %44 = xor i64 %40, %31
+  %45 = and i64 %44, 9223372032559808512
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
 
-42:                                               ; preds = %37
-  %43 = xor i64 %39, %30
-  %44 = and i64 %43, 9223372032559808512
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 12
+  %49 = load i64, ptr %48, align 4, !noalias !566
+  %50 = xor i64 %49, %34
+  %51 = and i64 %50, 9223372034707292159
+  %or.cond.i.i.i.i.i.i.us = icmp eq i64 %51, 0
+  br i1 %or.cond.i.i.i.i.i.i.us, label %53, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us.us, i64 12
-  %48 = load i64, ptr %47, align 4, !noalias !566
-  %49 = xor i64 %48, %33
-  %50 = and i64 %49, 9223372034707292159
-  %or.cond.i.i.i.i.i.i.us.us.us = icmp eq i64 %50, 0
-  br i1 %or.cond.i.i.i.i.i.i.us.us.us, label %52, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us
+_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us: ; preds = %47, %43, %38, %35
+  %52 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 20
+  %.not.i.i.i.i.i.i.us = icmp eq ptr %52, %24
+  br i1 %.not.i.i.i.i.i.i.us, label %53, label %35, !llvm.loop !571
 
-_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us: ; preds = %46, %42, %37, %34
-  %51 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us.us, i64 20
-  %.not.i.i.i.i.i.i.us.us.us = icmp eq ptr %51, %24
-  br i1 %.not.i.i.i.i.i.i.us.us.us, label %52, label %34, !llvm.loop !571
-
-52:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us, %46
-  %.1.i.i.i.i.i.i.us.us.us = phi ptr [ %.0915.i.i.i.i.i.i.us.us.us, %46 ], [ %24, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us.us ]
-  %.not10.i.us.us.us = icmp eq ptr %.1.i.i.i.i.i.i.us.us.us, %25
-  br i1 %.not10.i.us.us.us, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.thread2._crit_edge.i.us.us.us
-
-.thread2._crit_edge.i.us.us.us:                   ; preds = %52
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.us.us9.us, i64 20
-  %54 = ptrtoint ptr %53 to i64
-  br label %.lr.ph.i.i.i.i.i.i.us.us.us
-
-.lr.ph.i.i.i.i.i.i.us.us:                         ; preds = %.lr.ph.i.split.us.split.split.us, %.thread2._crit_edge.i.us.us
-  %.sroa.05.0.us.us9 = phi ptr [ %82, %.thread2._crit_edge.i.us.us ], [ %14, %.lr.ph.i.split.us.split.split.us ]
-  %.pre2125.i.us.us10 = phi i64 [ %83, %.thread2._crit_edge.i.us.us ], [ %7, %.lr.ph.i.split.us.split.split.us ]
-  %55 = inttoptr i64 %.pre2125.i.us.us10 to ptr
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i
-  %57 = load i32, ptr %56, align 4, !tbaa !569, !noalias !566
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %59 = load i64, ptr %58, align 4, !noalias !566
-  %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %62 = load i64, ptr %61, align 4, !noalias !566
-  br label %63
-
-63:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us, %.lr.ph.i.i.i.i.i.i.us.us
-  %.0915.i.i.i.i.i.i.us.us = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.us.us ], [ %80, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us ]
-  %64 = load i32, ptr %.0915.i.i.i.i.i.i.us.us, align 4, !tbaa !569, !noalias !566
-  %65 = icmp eq i32 %64, %57
-  br i1 %65, label %66, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us
-
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us, i64 4
-  %68 = load i64, ptr %67, align 4, !noalias !566
-  %69 = trunc i64 %68 to i32
-  %70 = icmp eq i32 %69, %60
-  br i1 %70, label %71, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us
-
-71:                                               ; preds = %66
-  %72 = xor i64 %68, %59
-  %73 = and i64 %72, 9223372032559808512
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us
-
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us, i64 12
-  %77 = load i64, ptr %76, align 4, !noalias !566
-  %78 = xor i64 %77, %62
-  %79 = and i64 %78, 9223372034707292159
-  %or.cond.i.i.i.i.i.i.us.us = icmp eq i64 %79, 0
-  br i1 %or.cond.i.i.i.i.i.i.us.us, label %81, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us
-
-_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us: ; preds = %75, %71, %66, %63
-  %80 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us, i64 20
-  %.not.i.i.i.i.i.i.us.us = icmp eq ptr %80, %24
-  br i1 %.not.i.i.i.i.i.i.us.us, label %81, label %63, !llvm.loop !571
-
-81:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us, %75
-  %.1.i.i.i.i.i.i.us.us = phi ptr [ %.0915.i.i.i.i.i.i.us.us, %75 ], [ %24, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us ]
-  %.not10.i.us.us = icmp eq ptr %.1.i.i.i.i.i.i.us.us, %25
-  br i1 %.not10.i.us.us, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.thread2._crit_edge.i.us.us
-
-.thread2._crit_edge.i.us.us:                      ; preds = %81
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.us.us9, i64 20
-  %.not27 = icmp eq ptr %82, %11
-  %83 = ptrtoint ptr %82 to i64
-  br i1 %.not27, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.lr.ph.i.i.i.i.i.i.us.us, !llvm.loop !572
-
-.lr.ph.i.split.us.split.split:                    ; preds = %.lr.ph.i.split.us.split
-  br i1 %.not.i.i12.i, label %.lr.ph.i.i.i.i.i.i.us.us13, label %.lr.ph.i.i.i.i.i.i.us
-
-.lr.ph.i.i.i.i.i.i.us.us13:                       ; preds = %.lr.ph.i.split.us.split.split, %.thread2._crit_edge.i.us.us22
-  %.sroa.05.0.us.us14 = phi ptr [ %111, %.thread2._crit_edge.i.us.us22 ], [ %14, %.lr.ph.i.split.us.split.split ]
-  %.pre2125.i.us.us15 = phi i64 [ %112, %.thread2._crit_edge.i.us.us22 ], [ %7, %.lr.ph.i.split.us.split.split ]
-  %84 = inttoptr i64 %.pre2125.i.us.us15 to ptr
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i.i.i
-  %86 = load i32, ptr %85, align 4, !tbaa !569, !noalias !566
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %88 = load i64, ptr %87, align 4, !noalias !566
-  %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %91 = load i64, ptr %90, align 4, !noalias !566
-  br label %92
-
-92:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18, %.lr.ph.i.i.i.i.i.i.us.us13
-  %.0915.i.i.i.i.i.i.us.us16 = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.us.us13 ], [ %109, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18 ]
-  %93 = load i32, ptr %.0915.i.i.i.i.i.i.us.us16, align 4, !tbaa !569, !noalias !566
-  %94 = icmp eq i32 %93, %86
-  br i1 %94, label %95, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18
-
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us16, i64 4
-  %97 = load i64, ptr %96, align 4, !noalias !566
-  %98 = trunc i64 %97 to i32
-  %99 = icmp eq i32 %98, %89
-  br i1 %99, label %100, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18
-
-100:                                              ; preds = %95
-  %101 = xor i64 %97, %88
-  %102 = and i64 %101, 9223372032559808512
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %104, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18
-
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us16, i64 12
-  %106 = load i64, ptr %105, align 4, !noalias !566
-  %107 = xor i64 %106, %91
-  %108 = and i64 %107, 9223372034707292159
-  %or.cond.i.i.i.i.i.i.us.us17 = icmp eq i64 %108, 0
-  br i1 %or.cond.i.i.i.i.i.i.us.us17, label %110, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18
-
-_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18: ; preds = %104, %100, %95, %92
-  %109 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us.us16, i64 20
-  %.not.i.i.i.i.i.i.us.us19 = icmp eq ptr %109, %24
-  br i1 %.not.i.i.i.i.i.i.us.us19, label %110, label %92, !llvm.loop !571
-
-110:                                              ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18, %104
-  %.1.i.i.i.i.i.i.us.us20 = phi ptr [ %.0915.i.i.i.i.i.i.us.us16, %104 ], [ %24, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us.us18 ]
-  %.not10.i.us.us21 = icmp eq ptr %.1.i.i.i.i.i.i.us.us20, %25
-  br i1 %.not10.i.us.us21, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.thread2._crit_edge.i.us.us22
-
-.thread2._crit_edge.i.us.us22:                    ; preds = %110
-  %111 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.0.us.us14) #25, !noalias !566
-  %112 = ptrtoint ptr %111 to i64
-  br label %.lr.ph.i.i.i.i.i.i.us.us13
-
-.lr.ph.i.i.i.i.i.i.us:                            ; preds = %.lr.ph.i.split.us.split.split, %.thread2._crit_edge.i.us
-  %.sroa.05.0.us = phi ptr [ %140, %.thread2._crit_edge.i.us ], [ %14, %.lr.ph.i.split.us.split.split ]
-  %.pre2125.i.us = phi i64 [ %141, %.thread2._crit_edge.i.us ], [ %7, %.lr.ph.i.split.us.split.split ]
-  %113 = inttoptr i64 %.pre2125.i.us to ptr
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i
-  %115 = load i32, ptr %114, align 4, !tbaa !569, !noalias !566
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %117 = load i64, ptr %116, align 4, !noalias !566
-  %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  %120 = load i64, ptr %119, align 4, !noalias !566
-  br label %121
-
-121:                                              ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us, %.lr.ph.i.i.i.i.i.i.us
-  %.0915.i.i.i.i.i.i.us = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.us ], [ %138, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us ]
-  %122 = load i32, ptr %.0915.i.i.i.i.i.i.us, align 4, !tbaa !569, !noalias !566
-  %123 = icmp eq i32 %122, %115
-  br i1 %123, label %124, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
-
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 4
-  %126 = load i64, ptr %125, align 4, !noalias !566
-  %127 = trunc i64 %126 to i32
-  %128 = icmp eq i32 %127, %118
-  br i1 %128, label %129, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
-
-129:                                              ; preds = %124
-  %130 = xor i64 %126, %117
-  %131 = and i64 %130, 9223372032559808512
-  %132 = icmp eq i64 %131, 0
-  br i1 %132, label %133, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
-
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 12
-  %135 = load i64, ptr %134, align 4, !noalias !566
-  %136 = xor i64 %135, %120
-  %137 = and i64 %136, 9223372034707292159
-  %or.cond.i.i.i.i.i.i.us = icmp eq i64 %137, 0
-  br i1 %or.cond.i.i.i.i.i.i.us, label %139, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us
-
-_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us: ; preds = %133, %129, %124, %121
-  %138 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i.us, i64 20
-  %.not.i.i.i.i.i.i.us = icmp eq ptr %138, %24
-  br i1 %.not.i.i.i.i.i.i.us, label %139, label %121, !llvm.loop !571
-
-139:                                              ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us, %133
-  %.1.i.i.i.i.i.i.us = phi ptr [ %.0915.i.i.i.i.i.i.us, %133 ], [ %24, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us ]
+53:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us, %47
+  %.1.i.i.i.i.i.i.us = phi ptr [ %.0915.i.i.i.i.i.i.us, %47 ], [ %24, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i.us ]
   %.not10.i.us = icmp eq ptr %.1.i.i.i.i.i.i.us, %25
   br i1 %.not10.i.us, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.thread2._crit_edge.i.us
 
-.thread2._crit_edge.i.us:                         ; preds = %139
-  %140 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.0.us) #25, !noalias !566
-  %.not = icmp eq ptr %140, %11
-  %141 = ptrtoint ptr %140 to i64
-  br i1 %.not, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.lr.ph.i.i.i.i.i.i.us, !llvm.loop !572
+.thread2._crit_edge.i.us:                         ; preds = %53
+  br i1 %18, label %56, label %54
+
+54:                                               ; preds = %.thread2._crit_edge.i.us
+  %55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.0.us) #25, !noalias !566
+  br label %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us
+
+56:                                               ; preds = %.thread2._crit_edge.i.us
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.us, i64 20
+  br label %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us
+
+_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us: ; preds = %56, %54
+  %storemerge.i.i.us = phi ptr [ %55, %54 ], [ %57, %56 ]
+  %58 = icmp ne ptr %storemerge.i.i.us, %11
+  %.0.i.not.i.i.us = select i1 %.not.i.i12.i, i1 true, i1 %58
+  %59 = ptrtoint ptr %storemerge.i.i.us to i64
+  br i1 %.0.i.not.i.i.us, label %26, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, !llvm.loop !572
 
 .lr.ph.i.splitthread-pre-split:                   ; preds = %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i
   %.pr = load i64, ptr %15, align 8, !tbaa !415, !noalias !566
   br label %.lr.ph.i.split
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %.lr.ph.i.splitthread-pre-split
-  %142 = phi i64 [ %.pr, %.lr.ph.i.splitthread-pre-split ], [ 1, %.lr.ph.i ]
+  %60 = phi i64 [ %.pr, %.lr.ph.i.splitthread-pre-split ], [ 1, %.lr.ph.i ]
   %.sroa.05.0 = phi ptr [ %storemerge.i.i, %.lr.ph.i.splitthread-pre-split ], [ %14, %.lr.ph.i ]
-  %.pre2125.i = phi i64 [ %184, %.lr.ph.i.splitthread-pre-split ], [ %7, %.lr.ph.i ]
-  %143 = inttoptr i64 %.pre2125.i to ptr
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i.i.i
-  %145 = icmp eq i64 %142, 0
-  br i1 %145, label %146, label %.thread2.i
+  %.pre2125.i = phi i64 [ %102, %.lr.ph.i.splitthread-pre-split ], [ %7, %.lr.ph.i ]
+  %61 = inttoptr i64 %.pre2125.i to ptr
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i
+  %63 = icmp eq i64 %60, 0
+  br i1 %63, label %64, label %.thread2.i
 
-146:                                              ; preds = %.lr.ph.i.split
-  %147 = load ptr, ptr %3, align 8, !tbaa !142, !noalias !566
-  %148 = load i32, ptr %17, align 8, !tbaa !137, !noalias !566
-  %149 = zext i32 %148 to i64
-  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %149, 20
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx.i.i.i.i.i.i
-  %.not14.i.i.i.i.i.i = icmp eq i32 %148, 0
+64:                                               ; preds = %.lr.ph.i.split
+  %65 = load ptr, ptr %3, align 8, !tbaa !142, !noalias !566
+  %66 = load i32, ptr %17, align 8, !tbaa !137, !noalias !566
+  %67 = zext i32 %66 to i64
+  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %67, 20
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i.i.i.i.i
+  %.not14.i.i.i.i.i.i = icmp eq i32 %66, 0
   br i1 %.not14.i.i.i.i.i.i, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %146
-  %151 = load i32, ptr %144, align 4, !tbaa !569, !noalias !566
-  %152 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  %153 = load i64, ptr %152, align 4, !noalias !566
-  %154 = trunc i64 %153 to i32
-  %155 = getelementptr inbounds nuw i8, ptr %144, i64 12
-  %156 = load i64, ptr %155, align 4, !noalias !566
-  br label %157
+.lr.ph.i.i.i.i.i.i:                               ; preds = %64
+  %69 = load i32, ptr %62, align 4, !tbaa !569, !noalias !566
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %71 = load i64, ptr %70, align 4, !noalias !566
+  %72 = trunc i64 %71 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %74 = load i64, ptr %73, align 4, !noalias !566
+  br label %75
 
-157:                                              ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.0915.i.i.i.i.i.i = phi ptr [ %147, %.lr.ph.i.i.i.i.i.i ], [ %174, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i ]
-  %158 = load i32, ptr %.0915.i.i.i.i.i.i, align 4, !tbaa !569, !noalias !566
-  %159 = icmp eq i32 %158, %151
-  br i1 %159, label %160, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
+75:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.0915.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i ], [ %92, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i ]
+  %76 = load i32, ptr %.0915.i.i.i.i.i.i, align 4, !tbaa !569, !noalias !566
+  %77 = icmp eq i32 %76, %69
+  br i1 %77, label %78, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 4
-  %162 = load i64, ptr %161, align 4, !noalias !566
-  %163 = trunc i64 %162 to i32
-  %164 = icmp eq i32 %163, %154
-  br i1 %164, label %165, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 4
+  %80 = load i64, ptr %79, align 4, !noalias !566
+  %81 = trunc i64 %80 to i32
+  %82 = icmp eq i32 %81, %72
+  br i1 %82, label %83, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
 
-165:                                              ; preds = %160
-  %166 = xor i64 %162, %153
-  %167 = and i64 %166, 9223372032559808512
-  %168 = icmp eq i64 %167, 0
-  br i1 %168, label %169, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
+83:                                               ; preds = %78
+  %84 = xor i64 %80, %71
+  %85 = and i64 %84, 9223372032559808512
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
 
-169:                                              ; preds = %165
-  %170 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 12
-  %171 = load i64, ptr %170, align 4, !noalias !566
-  %172 = xor i64 %171, %156
-  %173 = and i64 %172, 9223372034707292159
-  %or.cond.i.i.i.i.i.i = icmp eq i64 %173, 0
-  br i1 %or.cond.i.i.i.i.i.i, label %177, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 12
+  %89 = load i64, ptr %88, align 4, !noalias !566
+  %90 = xor i64 %89, %74
+  %91 = and i64 %90, 9223372034707292159
+  %or.cond.i.i.i.i.i.i = icmp eq i64 %91, 0
+  br i1 %or.cond.i.i.i.i.i.i, label %95, label %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i
 
-_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i: ; preds = %169, %165, %160, %157
-  %174 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 20
-  %.not.i.i.i.i.i.i = icmp eq ptr %174, %150
-  br i1 %.not.i.i.i.i.i.i, label %177, label %157, !llvm.loop !571
+_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i: ; preds = %87, %83, %78, %75
+  %92 = getelementptr inbounds nuw i8, ptr %.0915.i.i.i.i.i.i, i64 20
+  %.not.i.i.i.i.i.i = icmp eq ptr %92, %68
+  br i1 %.not.i.i.i.i.i.i, label %95, label %75, !llvm.loop !571
 
 .thread2.i:                                       ; preds = %.lr.ph.i.split
-  %175 = tail call ptr @_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(20) %144), !noalias !566
-  %.not.i = icmp eq ptr %175, %16
+  %93 = tail call ptr @_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(20) %62), !noalias !566
+  %.not.i = icmp eq ptr %93, %16
   br i1 %.not.i, label %.thread2..thread9.loopexit_crit_edge.i, label %.thread2._crit_edge.i
 
 .thread2..thread9.loopexit_crit_edge.i:           ; preds = %.thread2.i
-  %176 = ptrtoint ptr %.sroa.05.0 to i64
+  %94 = ptrtoint ptr %.sroa.05.0 to i64
   br label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit
 
-177:                                              ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i, %169
-  %.1.i.i.i.i.i.i = phi ptr [ %.0915.i.i.i.i.i.i, %169 ], [ %150, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i ]
-  %178 = getelementptr inbounds nuw %"struct.std::pair.325", ptr %147, i64 %149
-  %.not10.i = icmp eq ptr %.1.i.i.i.i.i.i, %178
+95:                                               ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i, %87
+  %.1.i.i.i.i.i.i = phi ptr [ %.0915.i.i.i.i.i.i, %87 ], [ %68, %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i.i.i.i ]
+  %96 = getelementptr inbounds nuw %"struct.std::pair.325", ptr %65, i64 %67
+  %.not10.i = icmp eq ptr %.1.i.i.i.i.i.i, %96
   br i1 %.not10.i, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, label %.thread2._crit_edge.i
 
-.thread2._crit_edge.i:                            ; preds = %.thread2.i, %177
-  br i1 %18, label %179, label %181
+.thread2._crit_edge.i:                            ; preds = %.thread2.i, %95
+  br i1 %18, label %97, label %99
 
-179:                                              ; preds = %.thread2._crit_edge.i
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 20
+97:                                               ; preds = %.thread2._crit_edge.i
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 20
   br label %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i
 
-181:                                              ; preds = %.thread2._crit_edge.i
-  %182 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.0) #25, !noalias !566
+99:                                               ; preds = %.thread2._crit_edge.i
+  %100 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.0) #25, !noalias !566
   br label %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i
 
-_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i: ; preds = %181, %179
-  %storemerge.i.i = phi ptr [ %182, %181 ], [ %180, %179 ]
-  %183 = icmp ne ptr %storemerge.i.i, %11
-  %.0.i.not.i.i = select i1 %.not.i.i12.i, i1 true, i1 %183
-  %184 = ptrtoint ptr %storemerge.i.i to i64
-  br i1 %.0.i.not.i.i, label %.lr.ph.i.splitthread-pre-split, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, !llvm.loop !573
+_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i: ; preds = %99, %97
+  %storemerge.i.i = phi ptr [ %100, %99 ], [ %98, %97 ]
+  %101 = icmp ne ptr %storemerge.i.i, %11
+  %.0.i.not.i.i = select i1 %.not.i.i12.i, i1 true, i1 %101
+  %102 = ptrtoint ptr %storemerge.i.i to i64
+  br i1 %.0.i.not.i.i, label %.lr.ph.i.splitthread-pre-split, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit, !llvm.loop !574
 
-_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit: ; preds = %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i, %177, %146, %139, %.thread2._crit_edge.i.us, %110, %81, %.thread2._crit_edge.i.us.us, %52, %.lr.ph.i.split.us, %4, %.thread2..thread9.loopexit_crit_edge.i
-  %185 = phi i64 [ %7, %4 ], [ %176, %.thread2..thread9.loopexit_crit_edge.i ], [ %7, %.lr.ph.i.split.us ], [ %.pre2125.i.us.us10.us, %52 ], [ %.pre2125.i.us.us10, %81 ], [ %83, %.thread2._crit_edge.i.us.us ], [ %.pre2125.i.us.us15, %110 ], [ %.pre2125.i.us, %139 ], [ %141, %.thread2._crit_edge.i.us ], [ %.pre2125.i, %177 ], [ %184, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i ], [ %.pre2125.i, %146 ]
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %186, align 8, !tbaa !435, !alias.scope !566
-  store i64 %185, ptr %0, align 8, !tbaa !73, !alias.scope !566
+_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit: ; preds = %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i, %95, %64, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us, %53, %26, %4, %.thread2..thread9.loopexit_crit_edge.i
+  %103 = phi i64 [ %7, %4 ], [ %94, %.thread2..thread9.loopexit_crit_edge.i ], [ %.pre2125.i.us, %53 ], [ %59, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i.us ], [ %7, %26 ], [ %.pre2125.i, %95 ], [ %102, %_ZN4llvm16SmallSetIteratorISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EEppEv.exit.i ], [ %.pre2125.i, %64 ]
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %6, ptr %104, align 8, !tbaa !435, !alias.scope !566
+  store i64 %103, ptr %0, align 8, !tbaa !73, !alias.scope !566
   ret void
 }
 
@@ -12955,7 +12795,7 @@ _ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.
   %51 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %.sink.i
   %.1.i = load ptr, ptr %51, align 8, !tbaa !555
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit, label %20, !llvm.loop !575
+  br i1 %.not.i, label %_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit, label %20, !llvm.loop !576
 
 _ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit: ; preds = %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread11.i
   %52 = icmp eq ptr %.19.i, %5
@@ -13073,7 +12913,7 @@ define linkonce_odr void @_ZSt9__find_ifIN4llvm16SmallSetIteratorINS0_5MachO12Pl
   %.1.in.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.us, i64 %.1.in.v.i.i.i.i.i.i.i.us
   %.1.i.i.i.i.i.i.i.us = load ptr, ptr %.1.in.i.i.i.i.i.i.i.us, align 8, !tbaa !555
   %.not.i.i.i.i.i.i.i.us = icmp eq ptr %.1.i.i.i.i.i.i.i.us, null
-  br i1 %.not.i.i.i.i.i.i.i.us, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us, label %27, !llvm.loop !576
+  br i1 %.not.i.i.i.i.i.i.i.us, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us, label %27, !llvm.loop !577
 
 _ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us: ; preds = %27
   %31 = icmp eq ptr %.19.i.i.i.i.i.i.i.us, %16
@@ -13107,7 +12947,7 @@ _ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i.us, i64 4
   %.not.i.i.i.i.i.us = icmp eq ptr %44, %38
-  br i1 %.not.i.i.i.i.i.us, label %45, label %40, !llvm.loop !577
+  br i1 %.not.i.i.i.i.i.us, label %45, label %40, !llvm.loop !578
 
 45:                                               ; preds = %43, %40
   %.1.i.i.i.i.i.us = phi ptr [ %.0914.i.i.i.i.i.us, %40 ], [ %38, %43 ]
@@ -13124,7 +12964,7 @@ _ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
   %50 = icmp ne ptr %47, %49
   %.0.i.not.i.us = select i1 %.not.i.i.us, i1 true, i1 %50
   %51 = ptrtoint ptr %47 to i64
-  br i1 %.0.i.not.i.us, label %.lr.ph.split.us, label %.thread9, !llvm.loop !578
+  br i1 %.0.i.not.i.us, label %.lr.ph.split.us, label %.thread9, !llvm.loop !579
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
   %52 = phi i64 [ %85, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %13, %.lr.ph ]
@@ -13157,7 +12997,7 @@ _ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %68, %62
-  br i1 %.not.i.i.i.i.i, label %79, label %64, !llvm.loop !577
+  br i1 %.not.i.i.i.i.i, label %79, label %64, !llvm.loop !578
 
 69:                                               ; preds = %.lr.ph.split
   %70 = load ptr, ptr %5, align 8, !tbaa !466
@@ -13179,7 +13019,7 @@ _ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
   %.1.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i.i
   %.1.i.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i.i, align 8, !tbaa !555
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, label %72, !llvm.loop !576
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, label %72, !llvm.loop !577
 
 _ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i: ; preds = %72
   %76 = icmp eq ptr %.19.i.i.i.i.i.i.i, %16
@@ -13206,7 +13046,7 @@ _ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit: ;
   %84 = icmp ne ptr %81, %83
   %.0.i.not.i = select i1 %.not.i.i, i1 true, i1 %84
   %85 = ptrtoint ptr %81 to i64
-  br i1 %.0.i.not.i, label %.lr.ph.split, label %.thread9, !llvm.loop !578
+  br i1 %.0.i.not.i, label %.lr.ph.split, label %.thread9, !llvm.loop !580
 
 .thread9:                                         ; preds = %79, %.thread2, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit, %69, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, %58, %45, %.thread2.us, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us, %24, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us, %34, %4
   %86 = phi i64 [ %13, %4 ], [ %18, %45 ], [ %18, %.thread2.us ], [ %51, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %18, %24 ], [ %18, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us ], [ %18, %34 ], [ %52, %79 ], [ %52, %.thread2 ], [ %85, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %52, %69 ], [ %52, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i ], [ %52, %58 ]
@@ -13844,10 +13684,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !569 = !{!570, !52, i64 0}
 !570 = !{!"_ZTSSt4pairIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEE", !52, i64 0, !53, i64 4}
 !571 = distinct !{!571, !145}
-!572 = distinct !{!572, !145}
-!573 = distinct !{!573, !145, !574}
-!574 = !{!"llvm.loop.unswitch.partial.disable"}
-!575 = distinct !{!575, !145}
+!572 = distinct !{!572, !145, !573}
+!573 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!574 = distinct !{!574, !145, !575}
+!575 = !{!"llvm.loop.unswitch.partial.disable"}
 !576 = distinct !{!576, !145}
 !577 = distinct !{!577, !145}
 !578 = distinct !{!578, !145}
+!579 = distinct !{!579, !145, !573}
+!580 = distinct !{!580, !145}

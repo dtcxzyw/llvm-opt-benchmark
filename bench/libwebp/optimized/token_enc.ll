@@ -1547,7 +1547,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %.sink = phi i32 [ %31, %26 ], [ %25, %24 ]
   %33 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %22, i32 noundef %.sink) #5
   %34 = icmp sgt i64 %indvars.iv.next37, %18
-  br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !38
+  br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !39
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %._crit_edge
   %.029 = phi ptr [ %35, %._crit_edge ], [ %5, %.lr.ph31 ]
@@ -1598,11 +1598,11 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %.sink40 = phi i32 [ %58, %53 ], [ %52, %51 ]
   %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink40) #5
   %61 = icmp sgt i64 %indvars.iv.next, %45
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %59, %39
   tail call void @WebPSafeFree(ptr noundef nonnull %.029) #5
-  br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !37
+  br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !40
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %._crit_edge.us, %4
   %.not25 = icmp eq i32 %3, 0
@@ -1633,7 +1633,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 
 .loopexit:                                        ; preds = %31, %13
   %.1.lcssa = phi i64 [ %.033, %13 ], [ %.2, %31 ]
-  br i1 %10, label %._crit_edge, label %8, !llvm.loop !39
+  br i1 %10, label %._crit_edge, label %8, !llvm.loop !41
 
 8:                                                ; preds = %.lr.ph34, %.loopexit
   %.033 = phi i64 [ 0, %.lr.ph34 ], [ %.1.lcssa, %.loopexit ]
@@ -1693,7 +1693,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
   %.pn = zext i16 %.pn.in.in to i64
   %.2 = add i64 %.130, %.pn
   %32 = icmp sgt i64 %indvars.iv.next, %17
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.1.lcssa, %.loopexit ]
@@ -1754,7 +1754,9 @@ attributes #5 = { nounwind }
 !34 = !{!7, !7, i64 0}
 !35 = distinct !{!35, !20}
 !36 = distinct !{!36, !20}
-!37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20}
+!37 = distinct !{!37, !20, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !39 = distinct !{!39, !20}
 !40 = distinct !{!40, !20}
+!41 = distinct !{!41, !20}
+!42 = distinct !{!42, !20}

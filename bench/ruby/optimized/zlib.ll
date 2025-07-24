@@ -1831,8 +1831,8 @@ define internal i64 @rb_deflate_flush(i32 noundef %0, ptr noundef readonly captu
   br i1 %11, label %14, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %10
-  %.not16 = icmp eq i32 %0, 0
-  br i1 %.not16, label %.thread, label %.split.us
+  %.not14 = icmp eq i32 %0, 0
+  br i1 %.not14, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %12 = load i64, ptr %1, align 8, !tbaa !6
@@ -2163,8 +2163,8 @@ define internal noundef i64 @rb_inflate_initialize(i32 noundef %0, ptr noundef r
   br i1 %4, label %8, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not15 = icmp eq i32 %0, 0
-  br i1 %.not15, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not13 = icmp eq i32 %0, 0
+  br i1 %.not13, label %rb_scan_args_set.exit.thread, label %.split.us
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @zstream_data_type) #18
@@ -3644,8 +3644,8 @@ define internal noundef i64 @rb_gzwriter_flush(i32 noundef %0, ptr noundef reado
   br i1 %11, label %14, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %10
-  %.not21 = icmp eq i32 %0, 0
-  br i1 %.not21, label %.thread, label %.split.us
+  %.not19 = icmp eq i32 %0, 0
+  br i1 %.not19, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %12 = load i64, ptr %1, align 8, !tbaa !6

@@ -1903,7 +1903,7 @@ define dso_local range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr nou
 25:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !27
 
 .loopexit:                                        ; preds = %25, %14, %.preheader, %11, %3
   %.017 = phi i32 [ 2168, %3 ], [ 2169, %11 ], [ 2169, %.preheader ], [ %24, %14 ], [ 2169, %25 ]
@@ -2057,7 +2057,7 @@ define dso_local void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 
   %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %12, label %19, !llvm.loop !27
+  br i1 %.not, label %12, label %19, !llvm.loop !28
 
 19:                                               ; preds = %15
   %20 = trunc i64 %16 to i32
@@ -2477,7 +2477,7 @@ next_node.exit:                                   ; preds = %.preheader.i
   %12 = add nsw i32 %11, 1
   %13 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %next_node.exit, %.lr.ph, %10, %0
   %14 = load ptr, ptr @config_list, align 8
@@ -2615,7 +2615,7 @@ next_node.exit:                                   ; preds = %.preheader.i
 32:                                               ; preds = %30
   %33 = call i32 @xstrcmp(ptr noundef nonnull %31, ptr noundef %1) #15
   %.not19 = icmp eq i32 %33, 0
-  br i1 %.not19, label %34, label %30, !llvm.loop !29
+  br i1 %.not19, label %34, label %30, !llvm.loop !30
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 208
@@ -2637,7 +2637,7 @@ next_node.exit:                                   ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   %41 = add nsw i32 %25, 1
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.loopexit26, label %.lr.ph, !llvm.loop !30
+  br i1 %.not.i, label %.loopexit26, label %.lr.ph, !llvm.loop !31
 
 .loopexit26:                                      ; preds = %.lr.ph, %38, %24, %.preheader, %13, %12, %9
   ret void
@@ -2747,7 +2747,7 @@ next_node_bitmap.exit:                            ; preds = %.lr.ph.i
   %36 = load ptr, ptr %2, align 8
   %37 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 thread-pre-split:                                 ; preds = %.lr.ph, %.preheader.i, %26, %8
   %.1.ph = phi i32 [ -1, %8 ], [ %.032, %26 ], [ %.032, %.preheader.i ], [ %.032, %.lr.ph ]
@@ -2778,7 +2778,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.preheader
   %44 = load ptr, ptr %0, align 8
   %45 = call ptr @hostlist_shift(ptr noundef %44) #15
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %43, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.2, %43 ]
@@ -3052,7 +3052,7 @@ define dso_local void @cr_init_global_core_data(ptr noundef readonly captures(no
   %.1 = phi i32 [ %26, %16 ], [ %.021, %27 ], [ %.021, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %28
   %.pre = load ptr, ptr @cr_node_cores_offset, align 8
@@ -3228,7 +3228,7 @@ next_node.exit.i:                                 ; preds = %.preheader.i.i
   %16 = add nsw i32 %14, 1
   %17 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %node_conf_set_all_active_bits.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i.i, label %node_conf_set_all_active_bits.exit, label %.lr.ph.i, !llvm.loop !35
 
 node_conf_set_all_active_bits.exit:               ; preds = %.lr.ph.i, %next_node.exit.i, %13, %0
   ret ptr %3
@@ -3279,7 +3279,7 @@ next_node.exit:                                   ; preds = %.preheader.i
   %14 = add nsw i32 %12, 1
   %15 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not.i, label %.loopexit, label %.lr.ph, !llvm.loop !35
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3325,7 +3325,7 @@ define dso_local noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nou
 .critedge2:                                       ; preds = %.preheader..critedge2_crit_edge, %10
   %.pr = phi i8 [ %.pr.pre, %.preheader..critedge2_crit_edge ], [ %14, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !36
 
 .critedge:                                        ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -5153,8 +5153,8 @@ attributes #18 = { nounwind willreturn memory(none) }
 !22 = !{i8 0, i8 2}
 !23 = !{}
 !24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
+!25 = distinct !{!25, !9, !10, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !27 = distinct !{!27, !9, !10}
 !28 = distinct !{!28, !9, !10}
 !29 = distinct !{!29, !9, !10}
@@ -5164,3 +5164,4 @@ attributes #18 = { nounwind willreturn memory(none) }
 !33 = distinct !{!33, !9, !10}
 !34 = distinct !{!34, !9, !10}
 !35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}

@@ -911,7 +911,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
 15:                                               ; preds = %.thread, %.lr.ph.split
   %16 = add nuw i64 %.01626, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %.thread23, label %.lr.ph.split, !llvm.loop !57
+  br i1 %exitcond.not, label %.thread23, label %.lr.ph.split, !llvm.loop !59
 
 .thread23:                                        ; preds = %15, %.thread, %10, %.lr.ph.split.us, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %10 ], [ %7, %.lr.ph.split.us ], [ null, %15 ], [ %12, %.thread ]
@@ -1003,4 +1003,6 @@ attributes #12 = { nounwind }
 !54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
 !56 = !{!47, !32, i64 16}
-!57 = distinct !{!57, !55}
+!57 = distinct !{!57, !55, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !55}

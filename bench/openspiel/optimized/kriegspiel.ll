@@ -12672,7 +12672,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5_
   store i64 %43, ptr %68, align 8
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1
-  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !83
+  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !85
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -12734,7 +12734,7 @@ _ZNSt16allocator_traitsISaISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23Kr
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %22, %21
-  br i1 %.not.i.i.i.i.i, label %.loopexit29, label %.lr.ph.i.i.i.i.i, !llvm.loop !84
+  br i1 %.not.i.i.i.i.i, label %.loopexit29, label %.lr.ph.i.i.i.i.i, !llvm.loop !86
 
 .loopexit29:                                      ; preds = %.lr.ph.i.i.i.i.i, %.noexc15
   %.0.lcssa.i.i.i.i.i = phi ptr [ %16, %.noexc15 ], [ %23, %.lr.ph.i.i.i.i.i ]
@@ -12802,7 +12802,7 @@ _ZNSt16allocator_traitsISaIN10open_spiel5chess4MoveEEE8allocateERS3_m.exit.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i20, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i19, i64 12
   %.not.i.i.i.i.i21 = icmp eq ptr %49, %48
-  br i1 %.not.i.i.i.i.i21, label %.loopexit, label %.lr.ph.i.i.i.i.i18, !llvm.loop !85
+  br i1 %.not.i.i.i.i.i21, label %.loopexit, label %.lr.ph.i.i.i.i.i18, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i18, %.noexc25
   %.0.lcssa.i.i.i.i.i22 = phi ptr [ %43, %.noexc25 ], [ %50, %.lr.ph.i.i.i.i.i18 ]
@@ -13057,7 +13057,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1
           to label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel10kriegspiel15KriegspielState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE7reserveEm.exit unwind label %96
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel10kriegspiel15KriegspielState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE7reserveEm.exit: ; preds = %3, %11
-  %14 = load ptr, ptr %1, align 8, !nonnull !86, !noundef !86
+  %14 = load ptr, ptr %1, align 8, !nonnull !88, !noundef !88
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %14, align 1
@@ -13078,7 +13078,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN
   %29 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %27
   %30 = load i8, ptr %28, align 1
   %31 = icmp slt i8 %30, -1
-  br i1 %31, label %.lr.ph.i.i.i, label %.loopexit26, !llvm.loop !87
+  br i1 %31, label %.lr.ph.i.i.i, label %.loopexit26, !llvm.loop !89
 
 .loopexit26:                                      ; preds = %.lr.ph.i.i.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel10kriegspiel15KriegspielState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE7reserveEm.exit
   %.sroa.5.0.i.i = phi ptr [ %16, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel10kriegspiel15KriegspielState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE7reserveEm.exit ], [ %29, %.lr.ph.i.i.i ]
@@ -13184,7 +13184,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i: ; preds = %.loop
   %92 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %82, i64 %90
   %93 = load i8, ptr %91, align 1
   %94 = icmp slt i8 %93, -1
-  br i1 %94, label %.lr.ph.i.i.i20, label %._crit_edge.i.i.i, !llvm.loop !87
+  br i1 %94, label %.lr.ph.i.i.i20, label %._crit_edge.i.i.i, !llvm.loop !89
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i20, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i
   %.sroa.022.1 = phi ptr [ %78, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i ], [ %91, %.lr.ph.i.i.i20 ]
@@ -13592,7 +13592,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 35:                                               ; preds = %19, %16
   %36 = landingpad { ptr, i32 }
@@ -13651,7 +13651,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %16 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !89
+  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !91
 
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
@@ -14081,26 +14081,26 @@ define linkonce_odr void @_ZNK10open_spiel10kriegspiel18KriegspielObserver11Writ
   %18 = alloca %"class.std::allocator", align 1
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !noalias !90
+  %21 = load ptr, ptr %20, align 8, !noalias !92
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !noalias !90
+  %23 = load ptr, ptr %22, align 8, !noalias !92
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit, label %24
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !90
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !92
   %.not.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i.i, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %25, align 4, !noalias !90
+  %28 = load i32, ptr %25, align 4, !noalias !92
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %25, align 4, !noalias !90
+  store i32 %29, ptr %25, align 4, !noalias !92
   br label %32
 
 30:                                               ; preds = %24
-  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !90
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !92
   br label %32
 
 32:                                               ; preds = %27, %30
@@ -14362,7 +14362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
 
 119:                                              ; preds = %.preheader
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #27
-  br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !93
+  br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !95
 
 120:                                              ; preds = %.preheader
   %121 = landingpad { ptr, i32 }
@@ -14393,26 +14393,26 @@ define linkonce_odr void @_ZNK10open_spiel10kriegspiel18KriegspielObserver10Stri
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator", align 1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !94
+  %18 = load ptr, ptr %17, align 8, !noalias !96
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load ptr, ptr %19, align 8, !noalias !94
+  %20 = load ptr, ptr %19, align 8, !noalias !96
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit, label %21
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !94
+  %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !96
   %.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %22, align 4, !noalias !94
+  %25 = load i32, ptr %22, align 4, !noalias !96
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %22, align 4, !noalias !94
+  store i32 %26, ptr %22, align 4, !noalias !96
   br label %29
 
 27:                                               ; preds = %21
-  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4, !noalias !94
+  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4, !noalias !96
   br label %29
 
 29:                                               ; preds = %24, %27
@@ -15174,9 +15174,9 @@ define linkonce_odr void @_ZNK10open_spiel10kriegspiel18KriegspielObserver22Writ
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = tail call noundef signext i8 @_ZN10open_spiel5chess13PlayerToColorEi(i32 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %13 = load i32, ptr %12, align 8, !noalias !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false), !alias.scope !97
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
+  %13 = load i32, ptr %12, align 8, !noalias !99
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false), !alias.scope !99
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader.lr.ph.i, label %_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE.exit.preheader
 
@@ -15198,7 +15198,7 @@ define linkonce_odr void @_ZNK10open_spiel10kriegspiel18KriegspielObserver22Writ
   %22 = add nsw i32 %18, %21
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %15, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 2, !noalias !97
+  %25 = load i8, ptr %24, align 2, !noalias !99
   %26 = icmp eq i8 %25, %11
   br i1 %26, label %27, label %31
 
@@ -15206,20 +15206,20 @@ define linkonce_odr void @_ZNK10open_spiel10kriegspiel18KriegspielObserver22Writ
   %28 = add i8 %.01418.us.i, %19
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %29
-  store i8 1, ptr %30, align 1, !alias.scope !97
+  store i8 1, ptr %30, align 1, !alias.scope !99
   br label %31
 
 31:                                               ; preds = %27, %20
   %32 = add i8 %.01418.us.i, 1
   %33 = sext i8 %32 to i32
   %34 = icmp sgt i32 %13, %33
-  br i1 %34, label %20, label %._crit_edge.us.i, !llvm.loop !100
+  br i1 %34, label %20, label %._crit_edge.us.i, !llvm.loop !102
 
 ._crit_edge.us.i:                                 ; preds = %31
   %35 = add i8 %.019.us.i, 1
   %36 = sext i8 %35 to i32
   %37 = icmp sgt i32 %13, %36
-  br i1 %37, label %.preheader.us.i, label %_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE.exit.preheader, !llvm.loop !101
+  br i1 %37, label %.preheader.us.i, label %_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE.exit.preheader, !llvm.loop !103
 
 _ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE.exit.preheader: ; preds = %._crit_edge.us.i, %5
   br label %_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE.exit
@@ -15290,8 +15290,8 @@ _ZNK10open_spiel10kriegspiel18KriegspielObserver11WriteBinaryEbRKNSt7__cxx1112ba
   store i32 2, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %58 = load ptr, ptr %57, align 8, !noalias !102
-  %59 = load ptr, ptr %56, align 8, !noalias !105
+  %58 = load ptr, ptr %57, align 8, !noalias !104
+  %59 = load ptr, ptr %56, align 8, !noalias !107
   br label %60
 
 60:                                               ; preds = %61, %_ZNK10open_spiel10kriegspiel18KriegspielObserver11WriteBinaryEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9AllocatorE.exit41
@@ -15304,7 +15304,7 @@ _ZNK10open_spiel10kriegspiel18KriegspielObserver11WriteBinaryEbRKNSt7__cxx1112ba
   %63 = getelementptr inbounds i8, ptr %.sroa.043.0, i64 -36
   %64 = load i8, ptr %63, align 4
   %65 = icmp eq i8 %64, %11
-  br i1 %65, label %66, label %60, !llvm.loop !108
+  br i1 %65, label %66, label %60, !llvm.loop !110
 
 66:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %62, i64 12, i1 false)
@@ -16002,13 +16002,13 @@ _ZNK4absl7debian213InlinedVectorIiLm4ESaIiEEixEm.exit.i.us: ; preds = %76
   %91 = add i8 %.03764.us, 1
   %92 = sext i8 %91 to i32
   %93 = icmp sgt i32 %22, %92
-  br i1 %93, label %55, label %._crit_edge.us, !llvm.loop !109
+  br i1 %93, label %55, label %._crit_edge.us, !llvm.loop !111
 
 ._crit_edge.us:                                   ; preds = %88
   %94 = add i8 %.03865.us, 1
   %95 = sext i8 %94 to i32
   %96 = icmp sgt i32 %22, %95
-  br i1 %96, label %.preheader.us, label %._crit_edge66, !llvm.loop !110
+  br i1 %96, label %.preheader.us, label %._crit_edge66, !llvm.loop !112
 
 .split.us:                                        ; preds = %76
   call void @llvm.trap()
@@ -16213,13 +16213,13 @@ _ZNK4absl7debian213InlinedVectorIiLm4ESaIiEEixEm.exit.i.us: ; preds = %36
   %57 = add i8 %.01935.us, 1
   %58 = sext i8 %57 to i32
   %59 = icmp sgt i32 %9, %58
-  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !111
+  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !113
 
 ._crit_edge.us:                                   ; preds = %52
   %60 = add i8 %.02036.us, 1
   %61 = sext i8 %60 to i32
   %62 = icmp sgt i32 %9, %61
-  br i1 %62, label %.preheader.us, label %._crit_edge37, !llvm.loop !112
+  br i1 %62, label %.preheader.us, label %._crit_edge37, !llvm.loop !114
 
 .split.us:                                        ; preds = %36
   call void @llvm.trap()
@@ -16878,7 +16878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i: 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i: ; preds = %45, %.noexc.i.i
   %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 144
   %.not.i.i.i = icmp eq i64 %.07.i.i.add.i, 576
-  br i1 %.not.i.i.i, label %49, label %.lr.ph.i.i.i, !llvm.loop !113
+  br i1 %.not.i.i.i, label %49, label %.lr.ph.i.i.i, !llvm.loop !115
 
 .body38.i:                                        ; preds = %45, %.lr.ph.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -17284,34 +17284,36 @@ attributes #32 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !8}
 !81 = distinct !{!81, !8}
 !82 = distinct !{!82, !8}
-!83 = distinct !{!83, !8}
-!84 = distinct !{!84, !8}
+!83 = distinct !{!83, !8, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !85 = distinct !{!85, !8}
-!86 = !{}
+!86 = distinct !{!86, !8}
 !87 = distinct !{!87, !8}
-!88 = distinct !{!88, !8}
+!88 = !{}
 !89 = distinct !{!89, !8}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZNK10open_spiel5State7GetGameEv: argument 0"}
-!92 = distinct !{!92, !"_ZNK10open_spiel5State7GetGameEv"}
-!93 = distinct !{!93, !8}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZNK10open_spiel5State7GetGameEv: argument 0"}
-!96 = distinct !{!96, !"_ZNK10open_spiel5State7GetGameEv"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE: argument 0"}
-!99 = distinct !{!99, !"_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE"}
-!100 = distinct !{!100, !8}
-!101 = distinct !{!101, !8}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE6rbeginEv: argument 0"}
-!104 = distinct !{!104, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE6rbeginEv"}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE4rendEv: argument 0"}
-!107 = distinct !{!107, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE4rendEv"}
-!108 = distinct !{!108, !8}
-!109 = distinct !{!109, !8}
+!90 = distinct !{!90, !8}
+!91 = distinct !{!91, !8}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZNK10open_spiel5State7GetGameEv: argument 0"}
+!94 = distinct !{!94, !"_ZNK10open_spiel5State7GetGameEv"}
+!95 = distinct !{!95, !8}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZNK10open_spiel5State7GetGameEv: argument 0"}
+!98 = distinct !{!98, !"_ZNK10open_spiel5State7GetGameEv"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE: argument 0"}
+!101 = distinct !{!101, !"_ZN10open_spiel10kriegspiel12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorE"}
+!102 = distinct !{!102, !8}
+!103 = distinct !{!103, !8, !84}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE6rbeginEv: argument 0"}
+!106 = distinct !{!106, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE6rbeginEv"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE4rendEv: argument 0"}
+!109 = distinct !{!109, !"_ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE4rendEv"}
 !110 = distinct !{!110, !8}
 !111 = distinct !{!111, !8}
-!112 = distinct !{!112, !8}
+!112 = distinct !{!112, !8, !84}
 !113 = distinct !{!113, !8}
+!114 = distinct !{!114, !8, !84}
+!115 = distinct !{!115, !8}

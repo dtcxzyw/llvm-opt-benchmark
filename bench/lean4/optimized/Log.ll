@@ -15046,7 +15046,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_Log_any___spe
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !20
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -42254,3 +42254,5 @@ attributes #10 = { noreturn nounwind }
 !17 = !{!"long", !7, i64 0}
 !18 = !{!7, !7, i64 0}
 !19 = !{!"branch_weights", i32 4001, i32 4000000}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}

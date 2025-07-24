@@ -2442,13 +2442,13 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %78 = fadd double %32, %.186104.us
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge.us109, label %74, !llvm.loop !109
+  br i1 %exitcond131.not, label %._crit_edge.us109, label %74, !llvm.loop !110
 
 ._crit_edge.us109:                                ; preds = %74
   %79 = add nuw nsw i32 %.077108.us, 1
   %80 = getelementptr inbounds i32, ptr %.183107.us, i64 %.084
   %exitcond132.not = icmp eq i32 %79, %.088
-  br i1 %exitcond132.not, label %.loopexit, label %.preheader95.us, !llvm.loop !110
+  br i1 %exitcond132.not, label %.loopexit, label %.preheader95.us, !llvm.loop !111
 
 81:                                               ; preds = %47
   %82 = icmp sgt i32 %.088, 0
@@ -2473,17 +2473,17 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
   %.399.us = phi double [ %.2101.us, %.preheader97.us ], [ %89, %86 ]
   %87 = fptrunc double %.399.us to float
   %88 = getelementptr inbounds nuw float, ptr %.075102.us, i64 %indvars.iv
-  store float %87, ptr %88, align 4, !tbaa !111
+  store float %87, ptr %88, align 4, !tbaa !112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = fadd double %32, %.399.us
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %86, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge.us, label %86, !llvm.loop !114
 
 ._crit_edge.us:                                   ; preds = %86
   %90 = add nuw nsw i32 %.074103.us, 1
   %91 = getelementptr inbounds float, ptr %.075102.us, i64 %.084
   %exitcond126.not = icmp eq i32 %90, %.088
-  br i1 %exitcond126.not, label %.loopexit, label %.preheader97.us, !llvm.loop !114
+  br i1 %exitcond126.not, label %.loopexit, label %.preheader97.us, !llvm.loop !115
 
 92:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
@@ -3589,10 +3589,11 @@ attributes #16 = { builtin allocsize(0) }
 !105 = distinct !{!105, !106, !"_ZL8cvScalarRKN2cv7Scalar_IdEE: argument 0"}
 !106 = distinct !{!106, !"_ZL8cvScalarRKN2cv7Scalar_IdEE"}
 !107 = distinct !{!107, !25}
-!108 = distinct !{!108, !25}
-!109 = distinct !{!109, !25}
+!108 = distinct !{!108, !25, !109}
+!109 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !110 = distinct !{!110, !25}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"float", !6, i64 0}
-!113 = distinct !{!113, !25}
+!111 = distinct !{!111, !25, !109}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"float", !6, i64 0}
 !114 = distinct !{!114, !25}
+!115 = distinct !{!115, !25, !109}

@@ -2759,7 +2759,7 @@ ff_cbs_delete_unit.exit:                          ; preds = %55, %45, %.lr.ph.sp
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %62 = icmp sgt i64 %indvars.iv, 0
   %63 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !121
+  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !123
 
 .loopexit:                                        ; preds = %ff_cbs_delete_unit.exit, %ff_cbs_delete_unit.exit.us, %9, %ff_cbs_fragment_reset.exit, %4
   ret void
@@ -2802,7 +2802,7 @@ define internal void @cbs_default_free_unit_content(ptr readonly captures(none) 
   %10 = load i32, ptr %3, align 8, !tbaa !91
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %7, label %._crit_edge, !llvm.loop !122
+  br i1 %12, label %7, label %._crit_edge, !llvm.loop !124
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2957,5 +2957,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !118 = distinct !{!118, !5}
 !119 = distinct !{!119, !5}
 !120 = !{!12, !8, i64 56}
-!121 = distinct !{!121, !5}
-!122 = distinct !{!122, !5}
+!121 = distinct !{!121, !5, !122}
+!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!123 = distinct !{!123, !5}
+!124 = distinct !{!124, !5}

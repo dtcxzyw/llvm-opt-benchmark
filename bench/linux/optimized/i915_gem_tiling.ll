@@ -533,7 +533,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 267:                                              ; preds = %265, %.loopexit
   %268 = load ptr, ptr %227, align 8
   %269 = icmp eq ptr %268, %199
-  br i1 %269, label %.loopexit29, label %.split, !llvm.loop !15
+  br i1 %269, label %.loopexit29, label %.split, !llvm.loop !17
 
 .loopexit29:                                      ; preds = %.split, %267, %224, %.split.us, %197
   call void @_raw_spin_unlock(ptr noundef nonnull %198) #7
@@ -640,7 +640,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 .preheader:                                       ; preds = %17, %25
   %20 = phi i32 [ %26, %25 ], [ %18, %17 ]
   %21 = add i32 %20, 1
-  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %21, ptr nonnull elementtype(i32) %15, i32 %20) #7, !srcloc !16
+  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %21, ptr nonnull elementtype(i32) %15, i32 %20) #7, !srcloc !18
   %23 = extractvalue { i8, i32 } %22, 0
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
@@ -650,7 +650,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 25:                                               ; preds = %.preheader
   %26 = extractvalue { i8, i32 } %22, 1
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %.preheader, !llvm.loop !17
+  br i1 %27, label %.thread, label %.preheader, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader, %25, %17
   %28 = phi i32 [ 0, %17 ], [ %20, %.preheader ], [ 0, %25 ]
@@ -714,7 +714,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 
 61:                                               ; preds = %57
   %62 = icmp ult i32 %45, 8193
-  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !18
+  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !20
   %64 = icmp eq i32 %63, 1
   %65 = select i1 %62, i1 %64, i1 false
   br i1 %65, label %66, label %112
@@ -811,7 +811,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 
 112:                                              ; preds = %.thread19, %.thread16, %.thread11, %103, %75, %61, %59, %55, %49, %35
   %113 = phi i32 [ %106, %103 ], [ -6, %35 ], [ -22, %75 ], [ -22, %61 ], [ -22, %59 ], [ -22, %55 ], [ -22, %49 ], [ -22, %.thread11 ], [ -22, %.thread16 ], [ -22, %.thread19 ]
-  %114 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !19
+  %114 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !21
   %115 = icmp eq i32 %114, 1
   br i1 %115, label %119, label %116
 
@@ -824,7 +824,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
   br label %.thread15
 
 119:                                              ; preds = %112
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   tail call void @drm_gem_object_free(ptr noundef nonnull %15) #7
   br label %.thread15
 
@@ -983,9 +983,11 @@ attributes #7 = { nounwind }
 !12 = distinct !{!12, !6, !7}
 !13 = !{i64 2147818547, i64 2147818586, i64 2147818607, i64 2147818644, i64 2147818667, i64 2147818537}
 !14 = !{i64 2147817251, i64 2147817290, i64 2147817311, i64 2147817348, i64 2147817371, i64 2147817241}
-!15 = distinct !{!15, !6, !7}
-!16 = !{i64 2148833679, i64 2148833718, i64 2148833739, i64 2148833776, i64 2148833799, i64 2148833808, i64 2148834106}
+!15 = distinct !{!15, !6, !7, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !6, !7}
-!18 = !{i32 0, i32 15}
-!19 = !{i64 2148827972, i64 2148828011, i64 2148828032, i64 2148828069, i64 2148828092, i64 2148828101}
-!20 = !{i64 2151305368}
+!18 = !{i64 2148833679, i64 2148833718, i64 2148833739, i64 2148833776, i64 2148833799, i64 2148833808, i64 2148834106}
+!19 = distinct !{!19, !6, !7}
+!20 = !{i32 0, i32 15}
+!21 = !{i64 2148827972, i64 2148828011, i64 2148828032, i64 2148828069, i64 2148828092, i64 2148828101}
+!22 = !{i64 2151305368}

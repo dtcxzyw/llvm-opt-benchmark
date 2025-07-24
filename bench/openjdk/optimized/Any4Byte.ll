@@ -174,7 +174,7 @@ define hidden void @Any4ByteSetSpans(ptr noundef readonly captures(none) %0, ptr
   %56 = load ptr, ptr %19, align 8
   %57 = call zeroext i8 %56(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.split37.us, %6
   ret void
@@ -226,7 +226,7 @@ define hidden void @Any4ByteSetParallelogram(ptr noundef readonly captures(none)
   store i32 %9, ptr %32, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %33 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph56
   %34 = add nsw i64 %.040.in53, %15
@@ -234,7 +234,7 @@ define hidden void @Any4ByteSetParallelogram(ptr noundef readonly captures(none)
   %36 = add nsw i64 %.04350, %8
   %37 = add nsw i32 %.04152, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !14
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %12
   ret void
@@ -316,7 +316,7 @@ define hidden void @Any4ByteSetLine(ptr noundef readonly captures(none) %0, i32 
   %52 = inttoptr i64 %51 to ptr
   %53 = add nsw i32 %.0, -1
   %54 = icmp sgt i32 %.0, 1
-  br i1 %54, label %49, label %.loopexit, !llvm.loop !14
+  br i1 %54, label %49, label %.loopexit, !llvm.loop !15
 
 55:                                               ; preds = %.preheader62, %55
   %.053 = phi i32 [ %.154, %55 ], [ %5, %.preheader62 ]
@@ -334,7 +334,7 @@ define hidden void @Any4ByteSetLine(ptr noundef readonly captures(none) %0, i32 
   %.2 = inttoptr i64 %.2.in to ptr
   %59 = add nsw i32 %.1, -1
   %60 = icmp sgt i32 %.1, 1
-  br i1 %60, label %55, label %.loopexit, !llvm.loop !15
+  br i1 %60, label %55, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %55, %49
   ret void
@@ -409,13 +409,13 @@ define hidden void @Any4ByteXorRect(ptr noundef readonly captures(none) %0, i32 
   store i8 %59, ptr %57, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %60, label %38, !llvm.loop !16
+  br i1 %exitcond.not, label %60, label %38, !llvm.loop !17
 
 60:                                               ; preds = %38
   %61 = add nsw i64 %.047.in, %21
   %62 = add i32 %.048, -1
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %63, label %37, !llvm.loop !17
+  br i1 %.not, label %63, label %37, !llvm.loop !18
 
 63:                                               ; preds = %60
   ret void
@@ -511,19 +511,19 @@ define hidden void @Any4ByteXorSpans(ptr noundef readonly captures(none) %0, ptr
   store i8 %68, ptr %66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %47
   %69 = add nsw i64 %.049.in.us, %23
   %70 = add i32 %.050.us, -1
   %.not52.us = icmp eq i32 %70, 0
-  br i1 %.not52.us, label %.split55.us, label %.lr.ph.us, !llvm.loop !19
+  br i1 %.not52.us, label %.split55.us, label %.lr.ph.us, !llvm.loop !20
 
 .split55.us:                                      ; preds = %._crit_edge.us, %34
   %71 = load ptr, ptr %16, align 8
   %72 = call zeroext i8 %71(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not = icmp eq i8 %72, 0
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.split55.us, %6
   ret void
@@ -642,7 +642,7 @@ define hidden void @Any4ByteXorLine(ptr noundef readonly captures(none) %0, i32 
   %86 = inttoptr i64 %85 to ptr
   %87 = add nsw i32 %.0, -1
   %88 = icmp sgt i32 %.0, 1
-  br i1 %88, label %72, label %.loopexit, !llvm.loop !21
+  br i1 %88, label %72, label %.loopexit, !llvm.loop !22
 
 89:                                               ; preds = %.preheader88, %89
   %.079 = phi i32 [ %.180, %89 ], [ %5, %.preheader88 ]
@@ -674,7 +674,7 @@ define hidden void @Any4ByteXorLine(ptr noundef readonly captures(none) %0, i32 
   %.2 = inttoptr i64 %.2.in to ptr
   %104 = add nsw i32 %.1, -1
   %105 = icmp sgt i32 %.1, 1
-  br i1 %105, label %89, label %.loopexit, !llvm.loop !22
+  br i1 %105, label %89, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %89, %72
   ret void
@@ -773,19 +773,19 @@ define hidden void @Any4ByteDrawGlyphList(ptr noundef readonly captures(none) %0
 58:                                               ; preds = %52, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %59, label %52, !llvm.loop !23
+  br i1 %exitcond.not, label %59, label %52, !llvm.loop !24
 
 59:                                               ; preds = %58
   %60 = add nsw i64 %.083.in, %16
   %61 = getelementptr inbounds i8, ptr %.2, i64 %50
   %62 = add nsw i32 %.078, -1
   %63 = icmp sgt i32 %.078, 1
-  br i1 %63, label %51, label %.loopexit, !llvm.loop !24
+  br i1 %63, label %51, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %59, %21, %17
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge, label %17, !llvm.loop !25
+  br i1 %exitcond107.not, label %._crit_edge, label %17, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -912,19 +912,19 @@ define hidden void @Any4ByteDrawGlyphListXor(ptr noundef readonly captures(none)
 83:                                               ; preds = %66, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %84, label %66, !llvm.loop !26
+  br i1 %exitcond.not, label %84, label %66, !llvm.loop !27
 
 84:                                               ; preds = %83
   %85 = add nsw i64 %.0101.in, %20
   %86 = getelementptr inbounds i8, ptr %.2, i64 %64
   %87 = add nsw i32 %.096, -1
   %88 = icmp sgt i32 %.096, 1
-  br i1 %88, label %65, label %.loopexit, !llvm.loop !27
+  br i1 %88, label %65, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %84, %35, %31
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge, label %31, !llvm.loop !28
+  br i1 %exitcond125.not, label %._crit_edge, label %31, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -963,7 +963,7 @@ define hidden void @Any4ByteIsomorphicCopy(ptr noundef %0, ptr noundef %1, i32 n
   %23 = inttoptr i64 %22 to ptr
   %24 = add i32 %.0, -1
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %17, !llvm.loop !29
+  br i1 %.not, label %25, label %17, !llvm.loop !30
 
 25:                                               ; preds = %17
   ret void
@@ -1024,7 +1024,7 @@ define hidden void @Any4ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
   %47 = add nsw i32 %.033, %6
   %48 = add i32 %.034, -1
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %49, label %29, !llvm.loop !30
+  br i1 %.not, label %49, label %29, !llvm.loop !31
 
 49:                                               ; preds = %29
   %50 = add nsw i64 %45, %20
@@ -1032,7 +1032,7 @@ define hidden void @Any4ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
   %52 = add nsw i32 %.035, %7
   %53 = add i32 %.0, -1
   %.not38 = icmp eq i32 %53, 0
-  br i1 %.not38, label %54, label %23, !llvm.loop !31
+  br i1 %.not38, label %54, label %23, !llvm.loop !32
 
 54:                                               ; preds = %49
   ret void
@@ -1104,7 +1104,7 @@ define hidden void @Any4ByteIsomorphicXorCopy(ptr noundef %0, ptr noundef %1, i3
   %56 = inttoptr i64 %55 to ptr
   %57 = add i32 %.0, -1
   %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %58, label %28, !llvm.loop !32
+  br i1 %.not, label %58, label %28, !llvm.loop !33
 
 58:                                               ; preds = %28
   %59 = add nsw i64 %52, %21
@@ -1113,7 +1113,7 @@ define hidden void @Any4ByteIsomorphicXorCopy(ptr noundef %0, ptr noundef %1, i3
   %62 = inttoptr i64 %61 to ptr
   %63 = add i32 %.036, -1
   %.not38 = icmp eq i32 %63, 0
-  br i1 %.not38, label %64, label %27, !llvm.loop !33
+  br i1 %.not38, label %64, label %27, !llvm.loop !34
 
 64:                                               ; preds = %58
   ret void
@@ -1151,8 +1151,8 @@ attributes #6 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -1161,7 +1161,7 @@ attributes #6 = { nounwind }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!20 = distinct !{!20, !7, !11}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
@@ -1175,3 +1175,4 @@ attributes #6 = { nounwind }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}

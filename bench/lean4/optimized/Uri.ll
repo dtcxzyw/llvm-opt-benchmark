@@ -2558,7 +2558,7 @@ lean_dec.exit22.us:                               ; preds = %18, %17, %16, %10
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %29, %28, %27, %lean_dec.exit22.us
-  br label %.split.us
+  br label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %4, %.split.backedge
   %.019 = phi ptr [ %51, %.split.backedge ], [ %3, %4 ]
@@ -5054,9 +5054,9 @@ _init_l_System_Uri_pathToUri___closed__1.exit:    ; preds = %_init_l_System_Uri_
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store ptr @l_System_Uri_pathToUri___lambda__1___boxed, ptr %232, align 8, !tbaa !9
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  store i16 2, ptr %233, align 8, !tbaa !17
+  store i16 2, ptr %233, align 8, !tbaa !19
   %234 = getelementptr inbounds nuw i8, ptr %228, i64 18
-  store i16 0, ptr %234, align 2, !tbaa !17
+  store i16 0, ptr %234, align 2, !tbaa !19
   store ptr %228, ptr @l_System_Uri_pathToUri___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %228) #3
   %235 = load ptr, ptr @l_System_Uri_pathToUri___lambda__1___closed__6, align 8, !tbaa !9
@@ -5114,9 +5114,9 @@ _init_l_System_Uri_fileUriToPath_x3f___closed__4.exit: ; preds = %_init_l_System
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store ptr @l_System_Uri_fileUriToPath_x3f___lambda__1___boxed, ptr %258, align 8, !tbaa !9
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  store i16 2, ptr %259, align 8, !tbaa !17
+  store i16 2, ptr %259, align 8, !tbaa !19
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 18
-  store i16 0, ptr %260, align 2, !tbaa !17
+  store i16 0, ptr %260, align 2, !tbaa !19
   store ptr %254, ptr @l_System_Uri_fileUriToPath_x3f___closed__4, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %254) #3
   tail call void @lean_inc_heartbeat() #3
@@ -5135,9 +5135,9 @@ _init_l_System_Uri_fileUriToPath_x3f___closed__5.exit: ; preds = %_init_l_System
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store ptr @l_Char_toUpper___boxed, ptr %265, align 8, !tbaa !9
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  store i16 1, ptr %266, align 8, !tbaa !17
+  store i16 1, ptr %266, align 8, !tbaa !19
   %267 = getelementptr inbounds nuw i8, ptr %261, i64 18
-  store i16 0, ptr %267, align 2, !tbaa !17
+  store i16 0, ptr %267, align 2, !tbaa !19
   store ptr %261, ptr @l_System_Uri_fileUriToPath_x3f___closed__5, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %261) #3
   tail call void @lean_inc_heartbeat() #3
@@ -5221,5 +5221,7 @@ attributes #4 = { noreturn nounwind }
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !7, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !7, i64 0}

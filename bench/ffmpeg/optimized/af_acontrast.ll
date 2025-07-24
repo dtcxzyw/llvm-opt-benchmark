@@ -193,24 +193,24 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw double, ptr %.024.us, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !52
+  %13 = load double, ptr %12, align 8, !tbaa !53
   %14 = fmul nsz double %13, 0x3FF921FB54442D18
   %15 = fmul nsz double %14, 4.000000e+00
   %16 = tail call nsz double @llvm.sin.f64(double %15)
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %14)
   %18 = tail call nsz double @llvm.sin.f64(double %17)
   %19 = getelementptr inbounds nuw double, ptr %.02022.us, i64 %indvars.iv
-  store double %18, ptr %19, align 8, !tbaa !52
+  store double %18, ptr %19, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !55
 
 ._crit_edge.us:                                   ; preds = %11
   %20 = getelementptr inbounds nuw double, ptr %.02022.us, i64 %wide.trip.count
   %21 = getelementptr inbounds nuw double, ptr %.024.us, i64 %wide.trip.count
   %22 = add nuw nsw i32 %.01923.us, 1
   %exitcond28.not = icmp eq i32 %22, %2
-  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !55
+  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !56
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -251,12 +251,12 @@ define internal void @filter_fltp(ptr noundef readonly captures(none) %0, ptr no
   store float %21, ptr %22, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %12
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
-  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !57
+  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !58
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -288,22 +288,22 @@ define internal void @filter_dblp(ptr noundef readonly captures(none) %0, ptr no
 13:                                               ; preds = %.lr.ph.us, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
-  %15 = load double, ptr %14, align 8, !tbaa !52
+  %15 = load double, ptr %14, align 8, !tbaa !53
   %16 = fmul nsz double %15, 0x3FF921FB54442D18
   %17 = fmul nsz double %16, 4.000000e+00
   %18 = tail call nsz double @llvm.sin.f64(double %17)
   %19 = tail call nsz double @llvm.fmuladd.f64(double %8, double %18, double %16)
   %20 = tail call nsz double @llvm.sin.f64(double %19)
   %21 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
-  store double %20, ptr %21, align 8, !tbaa !52
+  store double %20, ptr %21, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %13
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
-  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !59
+  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !60
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %.lr.ph20, %5
   ret void
@@ -383,12 +383,13 @@ attributes #5 = { nounwind }
 !48 = !{!42, !42, i64 0}
 !49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"double", !7, i64 0}
-!54 = distinct !{!54, !50}
+!51 = distinct !{!51, !50, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"double", !7, i64 0}
 !55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50}
+!56 = distinct !{!56, !50, !52}
 !57 = distinct !{!57, !50}
-!58 = distinct !{!58, !50}
+!58 = distinct !{!58, !50, !52}
 !59 = distinct !{!59, !50}
+!60 = distinct !{!60, !50, !52}

@@ -490,7 +490,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 56:                                               ; preds = %84
   %57 = add nuw nsw i32 %59, 1
   %58 = icmp eq i32 %57, 100
-  br i1 %58, label %.loopexit, label %.split, !llvm.loop !22
+  br i1 %58, label %.loopexit, label %.split, !llvm.loop !25
 
 .split:                                           ; preds = %16, %56
   %59 = phi i32 [ %57, %56 ], [ 0, %16 ]
@@ -796,5 +796,7 @@ attributes #16 = { noreturn nounwind }
 !19 = !{!20, !4, i64 0}
 !20 = !{!"_ZTSN6asmjit9_abi_1_107VirtMem11DualMappingE", !4, i64 0, !4, i64 8}
 !21 = !{!20, !4, i64 8}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !23}

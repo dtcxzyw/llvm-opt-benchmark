@@ -1484,8 +1484,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr no
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !54, !noalias !57, !nonnull !3, !align !50, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %0, align 8, !range !18
-  %.fr20 = freeze i64 %8
-  %9 = trunc i64 %.fr20 to i1
+  %.fr19 = freeze i64 %8
+  %9 = trunc i64 %.fr19 to i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !50
@@ -1500,32 +1500,32 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr no
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8b7d0c71538f587eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.914b41a498dd01229c97f10d279cfb3c.24), !noalias !54
   %18 = add i64 %.promoted, %2
   store i64 %18, ptr %7, align 8, !alias.scope !54, !noalias !57
-  br i1 %9, label %._crit_edge.i.us.us, label %._crit_edge.i.us13
+  br i1 %9, label %._crit_edge.i.us.preheader, label %._crit_edge.i.us13
 
-._crit_edge.i.us.us:                              ; preds = %.lr.ph
+._crit_edge.i.us.preheader:                       ; preds = %.lr.ph
   %19 = sub i64 %.promoted12, %2
   store i64 %19, ptr %10, align 8, !alias.scope !54, !noalias !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %20 = load ptr, ptr %12, align 8, !alias.scope !59, !noalias !54, !align !32, !noundef !3
-  %.not.i.i.us.us = icmp eq ptr %20, null
-  br i1 %.not.i.i.us.us, label %._crit_edge, label %21
+  %.not.i.i.us = icmp eq ptr %20, null
+  br i1 %.not.i.i.us, label %._crit_edge, label %21
 
-21:                                               ; preds = %._crit_edge.i.us.us
+21:                                               ; preds = %._crit_edge.i.us.preheader
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !62
   store i64 %18, ptr %13, align 8, !noalias !62
-  store i64 %.fr20, ptr %4, align 8, !noalias !62
+  store i64 %.fr19, ptr %4, align 8, !noalias !62
   store i64 %19, ptr %14, align 8, !noalias !62
   store i64 -9223372036854775808, ptr %15, align 8, !noalias !62
   %22 = load ptr, ptr %16, align 8, !alias.scope !59, !noalias !54, !nonnull !3, !align !50, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !invariant.load !3, !noalias !63, !nonnull !3
   invoke void %24(ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4)
-          to label %._crit_edge.sink.split unwind label %.split.us.split.us, !noalias !63
+          to label %._crit_edge.sink.split unwind label %.split.us, !noalias !63
 
-.split.us.split.us:                               ; preds = %21
+.split.us:                                        ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %.split.us
+  br label %.split
 
 ._crit_edge.i.us13:                               ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -1536,7 +1536,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr no
 27:                                               ; preds = %._crit_edge.i.us13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !62
   store i64 %18, ptr %13, align 8, !noalias !62
-  store i64 %.fr20, ptr %4, align 8, !noalias !62
+  store i64 %.fr19, ptr %4, align 8, !noalias !62
   store i64 %.promoted12, ptr %14, align 8, !noalias !62
   store i64 -9223372036854775808, ptr %15, align 8, !noalias !62
   %28 = load ptr, ptr %16, align 8, !alias.scope !59, !noalias !54, !nonnull !3, !align !50, !noundef !3
@@ -1548,20 +1548,20 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc7ce91998c38c9deE(ptr no
 .split.split.us:                                  ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %.split.us
+  br label %.split
 
-.split.us:                                        ; preds = %.split.split.us, %.split.us.split.us
-  %.us-phi = phi { ptr, i32 } [ %25, %.split.us.split.us ], [ %31, %.split.split.us ]
+.split:                                           ; preds = %.split.split.us, %.split.us
+  %.us-phi = phi { ptr, i32 } [ %25, %.split.us ], [ %31, %.split.split.us ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$elfshaker..progress..Checkpoint$GT$17h994c20b710bbabadE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #26
           to label %common.resume unwind label %32, !noalias !63
 
-32:                                               ; preds = %.split.us
+32:                                               ; preds = %.split
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25, !noalias !63
   unreachable
 
-common.resume:                                    ; preds = %.split.us
+common.resume:                                    ; preds = %.split
   resume { ptr, i32 } %.us-phi
 
 ._crit_edge.sink.split:                           ; preds = %27, %21
@@ -1569,7 +1569,7 @@ common.resume:                                    ; preds = %.split.us
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !62
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.sink.split, %._crit_edge.i.us13, %._crit_edge.i.us.us, %3
+._crit_edge:                                      ; preds = %._crit_edge.sink.split, %._crit_edge.i.us13, %._crit_edge.i.us.preheader, %3
   ret ptr null
 }
 

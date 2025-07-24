@@ -45770,7 +45770,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %36 = tail call ptr @lean_task_bind_core(ptr noundef %.02439.us, ptr noundef nonnull %24, i32 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false) #6
   %37 = add i64 %.02240.us, 1
   %.not.us = icmp eq i64 %37, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02240 = phi i64 [ %68, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -49217,7 +49217,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %36 = tail call ptr @lean_task_bind_core(ptr noundef %.02439.us, ptr noundef nonnull %24, i32 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false) #6
   %37 = add i64 %.02240.us, 1
   %.not.us = icmp eq i64 %37, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02240 = phi i64 [ %68, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -71052,7 +71052,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %36 = tail call ptr @lean_task_bind_core(ptr noundef %.02439.us, ptr noundef nonnull %24, i32 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false) #6
   %37 = add i64 %.02240.us, 1
   %.not.us = icmp eq i64 %37, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02240 = phi i64 [ %68, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -72617,7 +72617,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %36 = tail call ptr @lean_task_bind_core(ptr noundef %.02439.us, ptr noundef nonnull %24, i32 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false) #6
   %37 = add i64 %.02240.us, 1
   %.not.us = icmp eq i64 %37, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02240 = phi i64 [ %68, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -368064,3 +368064,8 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !17 = !{!7, !7, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}

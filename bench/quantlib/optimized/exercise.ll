@@ -1900,7 +1900,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   store i64 %__value.sroa.0.0.copyload, ptr %add.ptr.i9.i.i, align 8, !tbaa !13
   %cmp10.not = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1
-  br i1 %cmp10.not, label %return, label %while.cond, !llvm.loop !48
+  br i1 %cmp10.not, label %return, label %while.cond, !llvm.loop !50
 
 return:                                           ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %entry
   ret void
@@ -1988,4 +1988,6 @@ attributes #21 = { builtin allocsize(0) }
 !45 = distinct !{!45, !34}
 !46 = distinct !{!46, !34}
 !47 = distinct !{!47, !34}
-!48 = distinct !{!48, !34}
+!48 = distinct !{!48, !34, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !34}

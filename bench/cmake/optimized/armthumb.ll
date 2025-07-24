@@ -147,7 +147,7 @@ define internal range(i64 -3, -4) i64 @armthumb_code(ptr readnone captures(none)
   %95 = add i64 %.1, 2
   %96 = add i64 %.1, 6
   %.not = icmp ugt i64 %96, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %94, %49, %5
   %.037.lcssa = phi i64 [ 0, %5 ], [ %50, %49 ], [ %95, %94 ]
@@ -168,5 +168,7 @@ attributes #3 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}

@@ -387,7 +387,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split
   %.sroa.03.0.i = load ptr, ptr %.sroa.03.013.i, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.sroa.03.0.i, %0
-  br i1 %.not.i, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !39
+  br i1 %.not.i, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !41
 
 _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split.us
   %.us-phi = phi ptr [ %.sroa.03.013.i.us, %.lr.ph.i.split.us ], [ %.sroa.03.013.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ]
@@ -396,9 +396,9 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
 
 20:                                               ; preds = %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !40
+  %22 = load i64, ptr %21, align 8, !tbaa !42
   %23 = add i64 %22, -1
-  store i64 %23, ptr %21, align 8, !tbaa !40
+  store i64 %23, ptr %21, align 8, !tbaa !42
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi) #18
   %24 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !22
@@ -485,9 +485,9 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
 _ZNSt7__cxx114listISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %56, %59
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load i64, ptr %61, align 8, !tbaa !40
+  %62 = load i64, ptr %61, align 8, !tbaa !42
   %63 = add i64 %62, 1
-  store i64 %63, ptr %61, align 8, !tbaa !40
+  store i64 %63, ptr %61, align 8, !tbaa !42
   ret void
 }
 
@@ -529,7 +529,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %7, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.sroa.03.0 = load ptr, ptr %.sroa.03.013, align 8, !tbaa !19
   %.not = icmp eq ptr %.sroa.03.0, %0
-  br i1 %.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8, label %7, !llvm.loop !39
+  br i1 %.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8, label %7, !llvm.loop !41
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %14, %2
   %.sroa.03.1 = phi ptr [ %0, %2 ], [ %.sroa.03.013, %14 ], [ %0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.03.013, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
@@ -567,7 +567,7 @@ define void @_ZN3g2o28OptimizationAlgorithmFactory16unregisterSolverERKSt10share
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.us: ; preds = %.lr.ph.i.split.us
   %.sroa.03.0.i.us = load ptr, ptr %.sroa.03.013.i.us, align 8, !tbaa !19
   %.not.i.us = icmp eq ptr %.sroa.03.0.i.us, %0
-  br i1 %.not.i.us, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !39
+  br i1 %.not.i.us, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !45
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
   %.sroa.03.013.i = phi ptr [ %.sroa.03.0.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ %.sroa.03.011.i, %.lr.ph.i ]
@@ -588,7 +588,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split
   %.sroa.03.0.i = load ptr, ptr %.sroa.03.013.i, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.sroa.03.0.i, %0
-  br i1 %.not.i, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !39
+  br i1 %.not.i, label %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !41
 
 _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split.us
   %.us-phi = phi ptr [ %.sroa.03.013.i.us, %.lr.ph.i.split.us ], [ %.sroa.03.013.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ]
@@ -597,9 +597,9 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
 
 21:                                               ; preds = %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !42
   %24 = add i64 %23, -1
-  store i64 %24, ptr %22, align 8, !tbaa !40
+  store i64 %24, ptr %22, align 8, !tbaa !42
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi) #18
   %25 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !22
@@ -684,7 +684,7 @@ define noundef ptr @_ZNK3g2o28OptimizationAlgorithmFactory9constructERKNSt7__cxx
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.us: ; preds = %.lr.ph.i.split.us
   %.sroa.03.0.i.us = load ptr, ptr %.sroa.03.013.i.us, align 8, !tbaa !19
   %.not.i.us = icmp eq ptr %.sroa.03.0.i.us, %0
-  br i1 %.not.i.us, label %_ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !43
+  br i1 %.not.i.us, label %_ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !46
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
   %.sroa.03.013.i = phi ptr [ %.sroa.03.0.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ %.sroa.03.011.i, %.lr.ph.i ]
@@ -705,7 +705,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split
   %.sroa.03.0.i = load ptr, ptr %.sroa.03.013.i, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.sroa.03.0.i, %0
-  br i1 %.not.i, label %_ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !43
+  br i1 %.not.i, label %_ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.split, !llvm.loop !47
 
 _ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split.us
   %20 = phi ptr [ %9, %.lr.ph.i.split.us ], [ %14, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ]
@@ -773,7 +773,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %7, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.sroa.03.0 = load ptr, ptr %.sroa.03.013, align 8, !tbaa !19
   %.not = icmp eq ptr %.sroa.03.0, %0
-  br i1 %.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8, label %7, !llvm.loop !43
+  br i1 %.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8, label %7, !llvm.loop !47
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %14, %2
   %.sroa.03.1 = phi ptr [ %0, %2 ], [ %.sroa.03.013, %14 ], [ %0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.03.013, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
@@ -879,7 +879,7 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.02125, i64 %9)
   %10 = load ptr, ptr %.sroa.014.024, align 8, !tbaa !19
   %.not = icmp eq ptr %10, %0
-  br i1 %.not, label %.lr.ph33, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.lr.ph33, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge34:                                    ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %2
   ret void
@@ -914,7 +914,7 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 240
-  %37 = load ptr, ptr %36, align 8, !tbaa !45
+  %37 = load ptr, ptr %36, align 8, !tbaa !49
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %38, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -924,7 +924,7 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %._crit_edge29
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %40 = load i8, ptr %39, align 8, !tbaa !61
+  %40 = load i8, ptr %39, align 8, !tbaa !65
   %.not.i1.i.i = icmp eq i8 %40, 0
   br i1 %.not.i1.i.i, label %44, label %41
 
@@ -947,7 +947,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %41, 
   %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
   %51 = load ptr, ptr %.sroa.09.031, align 8, !tbaa !19
   %.not22 = icmp eq ptr %51, %0
-  br i1 %.not22, label %._crit_edge34, label %11, !llvm.loop !67
+  br i1 %.not22, label %._crit_edge34, label %11, !llvm.loop !71
 
 .lr.ph28:                                         ; preds = %11, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %.026 = phi i64 [ %60, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %19, %11 ]
@@ -957,7 +957,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %41, 
   %53 = getelementptr i8, ptr %52, i64 -24
   %54 = load i64, ptr %53, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %54
-  %55 = load i64, ptr %gep, align 8, !tbaa !68
+  %55 = load i64, ptr %gep, align 8, !tbaa !72
   %.not.i = icmp eq i64 %55, 0
   br i1 %.not.i, label %58, label %56
 
@@ -973,7 +973,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %56, %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %60 = add i64 %.026, 1
   %exitcond.not = icmp eq i64 %60, %5
-  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1201,34 +1201,38 @@ attributes #22 = { noreturn nounwind }
 !36 = !{!37, !38, i64 0}
 !37 = !{!"_ZTSSt12__shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorELN9__gnu_cxx12_Lock_policyE2EE", !38, i64 0, !23, i64 8}
 !38 = !{!"p1 _ZTSN3g2o36AbstractOptimizationAlgorithmCreatorE", !9, i64 0}
-!39 = distinct !{!39, !32}
-!40 = !{!41, !13, i64 16}
-!41 = !{!"_ZTSNSt7__cxx1110_List_baseISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EEE", !42, i64 0}
-!42 = !{!"_ZTSNSt7__cxx1110_List_baseISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE10_List_implE", !35, i64 0}
-!43 = distinct !{!43, !32}
-!44 = distinct !{!44, !32}
-!45 = !{!46, !58, i64 240}
-!46 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !47, i64 0, !55, i64 216, !10, i64 224, !56, i64 225, !57, i64 232, !58, i64 240, !59, i64 248, !60, i64 256}
-!47 = !{!"_ZTSSt8ios_base", !13, i64 8, !13, i64 16, !48, i64 24, !49, i64 28, !49, i64 32, !50, i64 40, !51, i64 48, !10, i64 64, !27, i64 192, !52, i64 200, !53, i64 208}
-!48 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!49 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!50 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
-!51 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !13, i64 8}
-!52 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
-!53 = !{!"_ZTSSt6locale", !54, i64 0}
-!54 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!55 = !{!"p1 _ZTSSo", !9, i64 0}
-!56 = !{!"bool", !10, i64 0}
-!57 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !9, i64 0}
-!58 = !{!"p1 _ZTSSt5ctypeIcE", !9, i64 0}
-!59 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !9, i64 0}
-!60 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !9, i64 0}
-!61 = !{!62, !10, i64 56}
-!62 = !{!"_ZTSSt5ctypeIcE", !63, i64 0, !64, i64 16, !56, i64 24, !65, i64 32, !65, i64 40, !66, i64 48, !10, i64 56, !10, i64 57, !10, i64 313, !10, i64 569}
-!63 = !{!"_ZTSNSt6locale5facetE", !27, i64 8}
-!64 = !{!"p1 _ZTS15__locale_struct", !9, i64 0}
-!65 = !{!"p1 int", !9, i64 0}
-!66 = !{!"p1 short", !9, i64 0}
-!67 = distinct !{!67, !32}
-!68 = !{!47, !13, i64 16}
-!69 = distinct !{!69, !32}
+!39 = distinct !{!39, !32, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !32}
+!42 = !{!43, !13, i64 16}
+!43 = !{!"_ZTSNSt7__cxx1110_List_baseISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EEE", !44, i64 0}
+!44 = !{!"_ZTSNSt7__cxx1110_List_baseISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE10_List_implE", !35, i64 0}
+!45 = distinct !{!45, !32, !40}
+!46 = distinct !{!46, !32, !40}
+!47 = distinct !{!47, !32}
+!48 = distinct !{!48, !32}
+!49 = !{!50, !62, i64 240}
+!50 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !51, i64 0, !59, i64 216, !10, i64 224, !60, i64 225, !61, i64 232, !62, i64 240, !63, i64 248, !64, i64 256}
+!51 = !{!"_ZTSSt8ios_base", !13, i64 8, !13, i64 16, !52, i64 24, !53, i64 28, !53, i64 32, !54, i64 40, !55, i64 48, !10, i64 64, !27, i64 192, !56, i64 200, !57, i64 208}
+!52 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!53 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!54 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
+!55 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !13, i64 8}
+!56 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
+!57 = !{!"_ZTSSt6locale", !58, i64 0}
+!58 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!59 = !{!"p1 _ZTSSo", !9, i64 0}
+!60 = !{!"bool", !10, i64 0}
+!61 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !9, i64 0}
+!62 = !{!"p1 _ZTSSt5ctypeIcE", !9, i64 0}
+!63 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !9, i64 0}
+!64 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !9, i64 0}
+!65 = !{!66, !10, i64 56}
+!66 = !{!"_ZTSSt5ctypeIcE", !67, i64 0, !68, i64 16, !60, i64 24, !69, i64 32, !69, i64 40, !70, i64 48, !10, i64 56, !10, i64 57, !10, i64 313, !10, i64 569}
+!67 = !{!"_ZTSNSt6locale5facetE", !27, i64 8}
+!68 = !{!"p1 _ZTS15__locale_struct", !9, i64 0}
+!69 = !{!"p1 int", !9, i64 0}
+!70 = !{!"p1 short", !9, i64 0}
+!71 = distinct !{!71, !32}
+!72 = !{!51, !13, i64 16}
+!73 = distinct !{!73, !32}

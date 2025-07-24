@@ -310,7 +310,7 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone ca
   %72 = load volatile i64, ptr %69, align 8
   %73 = and i64 %72, 131072
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %.critedge, !prof !13
+  br i1 %74, label %75, label %.critedge, !prof !14
 
 75:                                               ; preds = %67
   %76 = load volatile i64, ptr %69, align 8
@@ -326,7 +326,7 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone ca
 79:                                               ; preds = %75
   call void @schedule() #14
   call void @remove_wait_queue(ptr noundef nonnull @vga_wait_queue, ptr noundef nonnull %4) #14
-  br label %.split, !llvm.loop !12
+  br label %.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %64, %44, %.critedge, %.thread, %23
   %80 = phi i32 [ 0, %23 ], [ -19, %.thread ], [ -512, %.critedge ], [ 0, %44 ], [ 0, %64 ]
@@ -414,7 +414,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull captures(address) %
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 52
-  %56 = load i8, ptr %55, align 4, !range !14, !noundef !15
+  %56 = load i8, ptr %55, align 4, !range !16, !noundef !17
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %58, label %64
 
@@ -452,11 +452,11 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull captures(address) %
 81:                                               ; preds = %.preheader, %49, %79, %64
   %82 = load ptr, ptr %33, align 8
   %83 = icmp eq ptr %82, @vga_list
-  br i1 %83, label %.loopexit5, label %.preheader, !llvm.loop !16
+  br i1 %83, label %.loopexit5, label %.preheader, !llvm.loop !18
 
 .loopexit5:                                       ; preds = %81, %27
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %85 = load i8, ptr %84, align 4, !range !14, !noundef !15
+  %85 = load i8, ptr %84, align 4, !range !16, !noundef !17
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %87, label %95
 
@@ -835,7 +835,7 @@ define internal i32 @vga_arb_device_init() #6 section ".init.text" align 16 {
 15:                                               ; preds = %13, %.preheader
   %16 = tail call ptr @pci_get_subsys(i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %9) #14
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %15, %5
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #15
@@ -1028,8 +1028,8 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #14, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 781, i32 0, i64 12) #14, !srcloc !19
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #14, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 781, i32 0, i64 12) #14, !srcloc !21
   unreachable
 
 .thread:                                          ; preds = %13, %21
@@ -1102,7 +1102,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit26, label %.preheader25, !llvm.loop !20
+  br i1 %62, label %.loopexit26, label %.preheader25, !llvm.loop !22
 
 .loopexit26:                                      ; preds = %59, %56, %43
   %63 = load ptr, ptr @vga_default, align 8
@@ -1137,7 +1137,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 53
-  %76 = load i8, ptr %75, align 1, !range !14, !noundef !15
+  %76 = load i8, ptr %75, align 1, !range !16, !noundef !17
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %167
 
@@ -1191,7 +1191,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 115:                                              ; preds = %107, %104, %99
   %116 = add nuw nsw i64 %96, 1
   %117 = icmp eq i64 %116, 11
-  br i1 %117, label %120, label %95, !llvm.loop !21
+  br i1 %117, label %120, label %95, !llvm.loop !23
 
 118:                                              ; preds = %107
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 53
@@ -1306,7 +1306,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %179 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.loopexit24, label %.preheader23, !llvm.loop !22
+  br i1 %181, label %.loopexit24, label %.preheader23, !llvm.loop !24
 
 .preheader23:                                     ; preds = %174, %178
   %182 = phi i8 [ %186, %178 ], [ 1, %174 ]
@@ -1319,7 +1319,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %186 = phi i8 [ %190, %201 ], [ %215, %214 ]
   %187 = load ptr, ptr %191, align 8
   %188 = icmp eq ptr %187, @vga_list
-  br i1 %188, label %178, label %189, !llvm.loop !23
+  br i1 %188, label %178, label %189, !llvm.loop !25
 
 189:                                              ; preds = %.loopexit, %.preheader23
   %190 = phi i8 [ %186, %.loopexit ], [ %182, %.preheader23 ]
@@ -1366,7 +1366,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %216 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %218, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit24:                                      ; preds = %178
   %219 = icmp eq i8 %186, 0
@@ -1588,7 +1588,7 @@ default.unreachable9:                             ; preds = %49, %41, %33
   %66 = phi i64 [ 7, %15 ], [ 7, %.thread ], [ %64, %57 ]
   %67 = tail call i64 @llvm.umin.i64(i64 %66, i64 %2)
   %68 = icmp ugt i64 %67, 1024
-  br i1 %68, label %69, label %70, !prof !25
+  br i1 %68, label %69, label %70, !prof !27
 
 69:                                               ; preds = %65
   tail call void @__copy_overflow(i32 noundef 1024, i64 noundef %67) #14
@@ -1666,14 +1666,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %33
-  %38 = call noundef i32 @vga_get(ptr noundef nonnull %35, i32 noundef 3, i32 noundef 0), !range !26
+  %38 = call noundef i32 @vga_get(ptr noundef nonnull %35, i32 noundef 3, i32 noundef 0), !range !28
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %43
 
 40:                                               ; preds = %43
   %41 = add nuw nsw i64 %44, 1
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %.loopexit, label %43, !llvm.loop !27
+  br i1 %42, label %.loopexit, label %43, !llvm.loop !29
 
 43:                                               ; preds = %40, %37
   %44 = phi i64 [ 0, %37 ], [ %41, %40 ]
@@ -1745,7 +1745,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   %88 = select i1 %87, ptr %85, ptr %84
   %89 = add nuw nsw i64 %83, 1
   %90 = icmp eq i64 %89, 16
-  br i1 %90, label %91, label %82, !llvm.loop !28
+  br i1 %90, label %91, label %82, !llvm.loop !30
 
 91:                                               ; preds = %82
   %92 = icmp eq ptr %88, null
@@ -1824,7 +1824,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   br i1 %135, label %.loopexit, label %136
 
 136:                                              ; preds = %131
-  %137 = call fastcc i32 @vga_tryget(ptr noundef nonnull %134, i32 noundef %132), !range !29
+  %137 = call fastcc i32 @vga_tryget(ptr noundef nonnull %134, i32 noundef %132), !range !31
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %.loopexit, label %139
 
@@ -1835,7 +1835,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
 141:                                              ; preds = %144
   %142 = add nuw nsw i64 %145, 1
   %143 = icmp eq i64 %142, 16
-  br i1 %143, label %.loopexit, label %144, !llvm.loop !30
+  br i1 %143, label %.loopexit, label %144, !llvm.loop !32
 
 144:                                              ; preds = %141, %139
   %145 = phi i64 [ 0, %139 ], [ %142, %141 ]
@@ -1957,7 +1957,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
 207:                                              ; preds = %202
   %208 = add nuw nsw i64 %198, 1
   %209 = icmp eq i64 %208, 16
-  br i1 %209, label %.thread15, label %197, !llvm.loop !31
+  br i1 %209, label %.thread15, label %197, !llvm.loop !33
 
 .thread15:                                        ; preds = %207
   call void @pci_dev_put(ptr noundef %181) #14
@@ -2191,7 +2191,7 @@ define internal noundef i32 @vga_arb_release(ptr readnone captures(none) %0, ptr
   %68 = add i32 %66, -1
   store i32 %68, ptr %17, align 4
   %69 = icmp eq i32 %66, 0
-  br i1 %69, label %.loopexit12, label %.preheader11, !llvm.loop !32
+  br i1 %69, label %.loopexit12, label %.preheader11, !llvm.loop !34
 
 .preheader:                                       ; preds = %.preheader.preheader, %111
   %70 = phi i32 [ %23, %.preheader.preheader ], [ %114, %111 ]
@@ -2272,12 +2272,12 @@ define internal noundef i32 @vga_arb_release(ptr readnone captures(none) %0, ptr
   %114 = add i32 %112, -1
   store i32 %114, ptr %21, align 8
   %115 = icmp eq i32 %112, 0
-  br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %111, %.loopexit12, %11
   %116 = add nuw nsw i64 %12, 1
   %117 = icmp eq i64 %116, 16
-  br i1 %117, label %118, label %11, !llvm.loop !34
+  br i1 %117, label %118, label %11, !llvm.loop !36
 
 118:                                              ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %5) #14
@@ -2638,26 +2638,28 @@ attributes #17 = { nounwind allocsize(2) }
 !9 = distinct !{!9, !7, !8}
 !10 = !{i64 2148386573}
 !11 = !{i64 2155952632}
-!12 = distinct !{!12, !8}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i64 2155973198, i64 2155973007, i64 2155973059, i64 2155973105, i64 2155973133}
-!19 = !{i64 2155973272, i64 2155973301, i64 2155973347, i64 2155973405, i64 2155973459, i64 2155973513, i64 2155973568, i64 2155973599}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!12 = distinct !{!12, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = distinct !{!15, !8}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = !{i64 2155973198, i64 2155973007, i64 2155973059, i64 2155973105, i64 2155973133}
+!21 = !{i64 2155973272, i64 2155973301, i64 2155973347, i64 2155973405, i64 2155973459, i64 2155973513, i64 2155973568, i64 2155973599}
 !22 = distinct !{!22, !7, !8}
 !23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7, !8}
-!25 = !{!"branch_weights", i32 1, i32 2000}
-!26 = !{i32 -512, i32 1}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = !{i32 -19, i32 1}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{!"branch_weights", i32 1, i32 2000}
+!28 = !{i32 -512, i32 1}
+!29 = distinct !{!29, !7, !8}
 !30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
+!31 = !{i32 -19, i32 1}
 !32 = distinct !{!32, !7, !8}
 !33 = distinct !{!33, !7, !8}
 !34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}

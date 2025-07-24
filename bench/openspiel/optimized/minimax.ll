@@ -1018,7 +1018,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us: ; preds = %77, %75
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0223.us, i64 8
   %.not190.us = icmp eq ptr %88, %55
   %or.cond = select i1 %87, i1 true, i1 %.not190.us
-  br i1 %or.cond, label %._crit_edge227thread-pre-split, label %.lr.ph226.split.us
+  br i1 %or.cond, label %._crit_edge227thread-pre-split, label %.lr.ph226.split.us, !llvm.loop !7
 
 .split233.us:                                     ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us, %.lr.ph226.split.us
   %89 = landingpad { ptr, i32 }
@@ -1051,10 +1051,10 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us: ; preds = %77, %75
   %.sroa.0163.0223 = phi ptr [ %165, %162 ], [ %53, %.lr.ph226 ]
   %.0186222 = phi double [ %.2188, %162 ], [ 0xFFF0000000000000, %.lr.ph226 ]
   %96 = load i64, ptr %.sroa.0163.0223, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %97 = load ptr, ptr %0, align 8, !noalias !7
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  %97 = load ptr, ptr %0, align 8, !noalias !9
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 192
-  %99 = load ptr, ptr %98, align 8, !noalias !7
+  %99 = load ptr, ptr %98, align 8, !noalias !9
   invoke void %99(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %.noexc unwind label %.split233
 
@@ -1086,7 +1086,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us: ; preds = %77, %75
   unreachable
 
 .noexc:                                           ; preds = %.lr.ph226.split
-  %111 = load ptr, ptr %13, align 8, !alias.scope !7
+  %111 = load ptr, ptr %13, align 8, !alias.scope !9
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
@@ -1096,7 +1096,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us: ; preds = %77, %75
 115:                                              ; preds = %.noexc
   %116 = landingpad { ptr, i32 }
           cleanup
-  %117 = load ptr, ptr %13, align 8, !alias.scope !7
+  %117 = load ptr, ptr %13, align 8, !alias.scope !9
   %.not.i.i95 = icmp eq ptr %117, null
   br i1 %.not.i.i95, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i
 
@@ -1108,7 +1108,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i: ; preds = %115
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i, %115
-  store ptr null, ptr %13, align 8, !alias.scope !7
+  store ptr null, ptr %13, align 8, !alias.scope !9
   br label %.body
 
 _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc
@@ -1355,7 +1355,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us: ; preds = %205, %203
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0205.us, i64 8
   %.not189.us = icmp eq ptr %216, %183
   %or.cond255 = select i1 %215, i1 true, i1 %.not189.us
-  br i1 %or.cond255, label %._crit_edgethread-pre-split, label %.lr.ph.split.us
+  br i1 %or.cond255, label %._crit_edgethread-pre-split, label %.lr.ph.split.us, !llvm.loop !12
 
 .split.us:                                        ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us, %.lr.ph.split.us
   %217 = landingpad { ptr, i32 }
@@ -1388,10 +1388,10 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us: ; preds = %205, %203
   %.0184204 = phi double [ %.2, %290 ], [ 0x7FF0000000000000, %.lr.ph ]
   %.0185203 = phi double [ %.sroa.speculated, %290 ], [ %3, %.lr.ph ]
   %224 = load i64, ptr %.sroa.0157.0205, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %225 = load ptr, ptr %0, align 8, !noalias !10
+  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  %225 = load ptr, ptr %0, align 8, !noalias !13
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 192
-  %227 = load ptr, ptr %226, align 8, !noalias !10
+  %227 = load ptr, ptr %226, align 8, !noalias !13
   invoke void %227(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %.noexc130 unwind label %.split
 
@@ -1423,7 +1423,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us: ; preds = %205, %203
   unreachable
 
 .noexc130:                                        ; preds = %.lr.ph.split
-  %239 = load ptr, ptr %17, align 8, !alias.scope !10
+  %239 = load ptr, ptr %17, align 8, !alias.scope !13
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = load ptr, ptr %241, align 8
@@ -1433,7 +1433,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us: ; preds = %205, %203
 243:                                              ; preds = %.noexc130
   %244 = landingpad { ptr, i32 }
           cleanup
-  %245 = load ptr, ptr %17, align 8, !alias.scope !10
+  %245 = load ptr, ptr %17, align 8, !alias.scope !13
   %.not.i.i127 = icmp eq ptr %245, null
   br i1 %.not.i.i127, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i128
 
@@ -1445,7 +1445,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i128: ; preds = %243
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i128, %243
-  store ptr null, ptr %17, align 8, !alias.scope !10
+  store ptr null, ptr %17, align 8, !alias.scope !13
   br label %.body118
 
 _ZNK10open_spiel5State5ChildEl.exit133:           ; preds = %.noexc130
@@ -2323,15 +2323,15 @@ _ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit: ; preds = %28
   %.062205 = phi double [ 0.000000e+00, %.lr.ph207 ], [ %108, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
   %.sroa.0164.0204 = phi ptr [ %54, %.lr.ph207 ], [ %113, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
   %69 = load i64, ptr %.sroa.0164.0204, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %70 = load ptr, ptr %0, align 8, !noalias !13
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %70 = load ptr, ptr %0, align 8, !noalias !16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 192
-  %72 = load ptr, ptr %71, align 8, !noalias !13
+  %72 = load ptr, ptr %71, align 8, !noalias !16
   invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %.noexc unwind label %114
 
 .noexc:                                           ; preds = %68
-  %73 = load ptr, ptr %9, align 8, !alias.scope !13
+  %73 = load ptr, ptr %9, align 8, !alias.scope !16
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -2341,7 +2341,7 @@ _ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit: ; preds = %28
 77:                                               ; preds = %.noexc
   %78 = landingpad { ptr, i32 }
           cleanup
-  %79 = load ptr, ptr %9, align 8, !alias.scope !13
+  %79 = load ptr, ptr %9, align 8, !alias.scope !16
   %.not.i.i85 = icmp eq ptr %79, null
   br i1 %.not.i.i85, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i
 
@@ -2353,7 +2353,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i: ; preds = %77
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i, %77
-  store ptr null, ptr %9, align 8, !alias.scope !13
+  store ptr null, ptr %9, align 8, !alias.scope !16
   br label %.body
 
 _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc
@@ -2535,15 +2535,15 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit96: ; pre
   %.063198 = phi double [ 0xFFF0000000000000, %.lr.ph200 ], [ %.164, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit121 ]
   %.sroa.0160.0197 = phi ptr [ %141, %.lr.ph200 ], [ %211, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit121 ]
   %157 = load i64, ptr %.sroa.0160.0197, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %158 = load ptr, ptr %0, align 8, !noalias !16
+  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %158 = load ptr, ptr %0, align 8, !noalias !19
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 192
-  %160 = load ptr, ptr %159, align 8, !noalias !16
+  %160 = load ptr, ptr %159, align 8, !noalias !19
   invoke void %160(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %.noexc103 unwind label %196
 
 .noexc103:                                        ; preds = %156
-  %161 = load ptr, ptr %12, align 8, !alias.scope !16
+  %161 = load ptr, ptr %12, align 8, !alias.scope !19
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
@@ -2553,7 +2553,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit96: ; pre
 165:                                              ; preds = %.noexc103
   %166 = landingpad { ptr, i32 }
           cleanup
-  %167 = load ptr, ptr %12, align 8, !alias.scope !16
+  %167 = load ptr, ptr %12, align 8, !alias.scope !19
   %.not.i.i100 = icmp eq ptr %167, null
   br i1 %.not.i.i100, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i102, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i101
 
@@ -2565,7 +2565,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i101: ; preds = %165
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i102
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i102: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i101, %165
-  store ptr null, ptr %12, align 8, !alias.scope !16
+  store ptr null, ptr %12, align 8, !alias.scope !19
   br label %.body104
 
 _ZNK10open_spiel5State5ChildEl.exit106:           ; preds = %.noexc103
@@ -2748,15 +2748,15 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit124: ; pr
   %.060195 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.161, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit150 ]
   %.sroa.0156.0194 = phi ptr [ %224, %.lr.ph ], [ %294, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit150 ]
   %240 = load i64, ptr %.sroa.0156.0194, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %241 = load ptr, ptr %0, align 8, !noalias !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %241 = load ptr, ptr %0, align 8, !noalias !22
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 192
-  %243 = load ptr, ptr %242, align 8, !noalias !19
+  %243 = load ptr, ptr %242, align 8, !noalias !22
   invoke void %243(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %15, ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %.noexc132 unwind label %279
 
 .noexc132:                                        ; preds = %239
-  %244 = load ptr, ptr %15, align 8, !alias.scope !19
+  %244 = load ptr, ptr %15, align 8, !alias.scope !22
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %247 = load ptr, ptr %246, align 8
@@ -2766,7 +2766,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit124: ; pr
 248:                                              ; preds = %.noexc132
   %249 = landingpad { ptr, i32 }
           cleanup
-  %250 = load ptr, ptr %15, align 8, !alias.scope !19
+  %250 = load ptr, ptr %15, align 8, !alias.scope !22
   %.not.i.i129 = icmp eq ptr %250, null
   br i1 %.not.i.i129, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i131, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i130
 
@@ -2778,7 +2778,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i130: ; preds = %248
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i131
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i131: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i130, %248
-  store ptr null, ptr %15, align 8, !alias.scope !19
+  store ptr null, ptr %15, align 8, !alias.scope !22
   br label %.body133
 
 _ZNK10open_spiel5State5ChildEl.exit135:           ; preds = %.noexc132
@@ -3039,7 +3039,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 37:                                               ; preds = %20, %17
   %38 = landingpad { ptr, i32 }
@@ -3096,7 +3096,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 176) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EED2Ev.exit, %2
   ret void
@@ -3450,12 +3450,12 @@ attributes #21 = { builtin allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
-!9 = distinct !{!9, !"_ZNK10open_spiel5State5ChildEl"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
-!12 = distinct !{!12, !"_ZNK10open_spiel5State5ChildEl"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
+!11 = distinct !{!11, !"_ZNK10open_spiel5State5ChildEl"}
+!12 = distinct !{!12, !8}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
 !15 = distinct !{!15, !"_ZNK10open_spiel5State5ChildEl"}
@@ -3465,5 +3465,8 @@ attributes #21 = { builtin allocsize(0) }
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
 !21 = distinct !{!21, !"_ZNK10open_spiel5State5ChildEl"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK10open_spiel5State5ChildEl: argument 0"}
+!24 = distinct !{!24, !"_ZNK10open_spiel5State5ChildEl"}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}

@@ -41497,7 +41497,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
 .loopexit.i:                                      ; preds = %111, %.split.i
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
-  br i1 %exitcond60.not.i, label %.preheader50.i.preheader, label %.split.i, !llvm.loop !864
+  br i1 %exitcond60.not.i, label %.preheader50.i.preheader, label %.split.i, !llvm.loop !866
 
 .preheader.i:                                     ; preds = %.preheader50.i
   %.idx.i = mul i64 %42, 132
@@ -41514,7 +41514,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store float %127, ptr %123, align 4, !tbaa !773
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next71.i, 3
-  br i1 %exitcond73.not.i, label %.preheader.i, label %.preheader50.i, !llvm.loop !865
+  br i1 %exitcond73.not.i, label %.preheader.i, label %.preheader50.i, !llvm.loop !867
 
 128:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #26
@@ -41537,7 +41537,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store float %139, ptr %134, align 4, !tbaa !773
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next75.i, 33
-  br i1 %exitcond77.not.i, label %128, label %129, !llvm.loop !866
+  br i1 %exitcond77.not.i, label %128, label %129, !llvm.loop !868
 
 "_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE0_clEl.exit": ; preds = %51, %128
   %140 = add i64 %.015, 1
@@ -41920,7 +41920,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store double %189, ptr %gep22, align 8, !tbaa !783
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit", label %64, !llvm.loop !867
+  br i1 %exitcond.not.i, label %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit", label %64, !llvm.loop !869
 
 "_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit": ; preds = %.noexc, %52
   %190 = add i64 %.024, 1
@@ -42090,12 +42090,12 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store double %92, ptr %90, align 8, !tbaa !783
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, 33
-  br i1 %exitcond65.not.i, label %.loopexit.us.i, label %82, !llvm.loop !868
+  br i1 %exitcond65.not.i, label %.loopexit.us.i, label %82, !llvm.loop !870
 
 .loopexit.us.i:                                   ; preds = %82, %65
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count69.i
-  br i1 %exitcond70.not.i, label %.preheader51.i.preheader, label %65, !llvm.loop !869
+  br i1 %exitcond70.not.i, label %.preheader51.i.preheader, label %65, !llvm.loop !871
 
 .preheader51.i.preheader:                         ; preds = %.loopexit.i, %.loopexit.us.i
   br label %.preheader51.i
@@ -42147,12 +42147,12 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store double %121, ptr %119, align 8, !tbaa !783
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 33
-  br i1 %exitcond.not.i, label %.loopexit.i, label %111, !llvm.loop !868
+  br i1 %exitcond.not.i, label %.loopexit.i, label %111, !llvm.loop !870
 
 .loopexit.i:                                      ; preds = %111, %.split.i
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count.i
-  br i1 %exitcond61.not.i, label %.preheader51.i.preheader, label %.split.i, !llvm.loop !869
+  br i1 %exitcond61.not.i, label %.preheader51.i.preheader, label %.split.i, !llvm.loop !872
 
 .preheader.i:                                     ; preds = %.preheader51.i
   %.idx.i = mul i64 %42, 264
@@ -42169,7 +42169,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store double %127, ptr %123, align 8, !tbaa !783
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 3
-  br i1 %exitcond74.not.i, label %.preheader.i, label %.preheader51.i, !llvm.loop !870
+  br i1 %exitcond74.not.i, label %.preheader.i, label %.preheader51.i, !llvm.loop !873
 
 128:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
@@ -42192,7 +42192,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   store double %139, ptr %134, align 8, !tbaa !783
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next76.i, 33
-  br i1 %exitcond78.not.i, label %128, label %129, !llvm.loop !871
+  br i1 %exitcond78.not.i, label %128, label %129, !llvm.loop !874
 
 "_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE0_clEl.exit": ; preds = %51, %128
   %140 = add i64 %.015, 1
@@ -43183,11 +43183,14 @@ attributes #36 = { nounwind willreturn memory(read) }
 !861 = !{!862}
 !862 = !{i64 2, i64 -1, i64 -1, i1 true}
 !863 = distinct !{!863, !68}
-!864 = distinct !{!864, !68}
-!865 = distinct !{!865, !68}
+!864 = distinct !{!864, !68, !865}
+!865 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !866 = distinct !{!866, !68}
 !867 = distinct !{!867, !68}
 !868 = distinct !{!868, !68}
 !869 = distinct !{!869, !68}
 !870 = distinct !{!870, !68}
-!871 = distinct !{!871, !68}
+!871 = distinct !{!871, !68, !865}
+!872 = distinct !{!872, !68}
+!873 = distinct !{!873, !68}
+!874 = distinct !{!874, !68}

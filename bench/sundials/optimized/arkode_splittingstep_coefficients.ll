@@ -388,7 +388,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 ._crit_edge.us.i.i:                               ; preds = %28
   %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
   %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 3
-  br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
+  br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i, !llvm.loop !23
 
 33:                                               ; preds = %1
   %34 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 2, i32 noundef 2)
@@ -610,7 +610,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Strang(i32 noundef %0) loc
 ._crit_edge.us.i:                                 ; preds = %17
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
-  br i1 %exitcond69.not.i, label %SplittingStepCoefficients_TripleJump.exit, label %.preheader.us.i
+  br i1 %exitcond69.not.i, label %SplittingStepCoefficients_TripleJump.exit, label %.preheader.us.i, !llvm.loop !23
 
 SplittingStepCoefficients_TripleJump.exit:        ; preds = %._crit_edge.us.i, %8, %1
   ret ptr %6
@@ -667,7 +667,7 @@ define noalias noundef ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 nound
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %13
-  br i1 %exitcond45.not, label %.preheader, label %.preheader36.us
+  br i1 %exitcond45.not, label %.preheader, label %.preheader36.us, !llvm.loop !25
 
 .preheader:                                       ; preds = %._crit_edge.us, %6
   %25 = icmp sgt i32 %0, 0
@@ -810,7 +810,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
 ._crit_edge.us.i.i:                               ; preds = %36
   %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
   %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 3
-  br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
+  br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i, !llvm.loop !23
 
 41:                                               ; preds = %20
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #16
@@ -1281,7 +1281,7 @@ define internal fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 no
 ._crit_edge.us:                                   ; preds = %15
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge62, label %.preheader.us
+  br i1 %exitcond69.not, label %._crit_edge62, label %.preheader.us, !llvm.loop !23
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %9
   %21 = sext i32 %0 to i64
@@ -1389,3 +1389,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !20 = !{!"p1 _ZTS28SplittingStepCoefficientsMem", !6, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !7, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !24}

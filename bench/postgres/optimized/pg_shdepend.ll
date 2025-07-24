@@ -327,228 +327,147 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %.not28 = icmp eq i32 %7, 0
   br i1 %.not24, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %40
+  %24 = phi ptr [ %41, %40 ], [ %23, %.lr.ph ]
+  %25 = getelementptr i8, ptr %24, i64 16
+  %.val.us = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val.us, i64 22
+  %27 = load i8, ptr %26, align 2
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %.val.us, i64 %28
+  br i1 %.not26, label %33, label %30
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  br i1 %.not28, label %.lr.ph.split.us.split.us.split.us, label %.lr.ph.split.us.split.us.split
+30:                                               ; preds = %.lr.ph.split.us
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %32 = load i32, ptr %31, align 4
+  %.not27.us = icmp eq i32 %32, %6
+  br i1 %.not27.us, label %33, label %40, !llvm.loop !6
 
-.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
-  %24 = phi ptr [ %26, %.lr.ph.split.us.split.us.split.us ], [ %23, %.lr.ph.split.us.split.us ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %25) #8
-  %26 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us.us.us = icmp eq ptr %26, null
-  br i1 %.not.us.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us
+33:                                               ; preds = %30, %.lr.ph.split.us
+  br i1 %.not28, label %38, label %34
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %38
-  %27 = phi ptr [ %39, %38 ], [ %23, %.lr.ph.split.us.split.us ]
-  %28 = getelementptr i8, ptr %27, i64 16
-  %.val.us.us = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.val.us.us, i64 22
-  %30 = load i8, ptr %29, align 2
-  %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %.val.us.us, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load i8, ptr %33, align 4
-  %35 = sext i8 %34 to i32
-  %.not29.us.us = icmp eq i32 %7, %35
-  br i1 %.not29.us.us, label %36, label %38, !llvm.loop !6
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %36 = load i8, ptr %35, align 4
+  %37 = sext i8 %36 to i32
+  %.not29.us = icmp eq i32 %7, %37
+  br i1 %.not29.us, label %38, label %40, !llvm.loop !6
 
-36:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %37) #8
-  br label %38
+38:                                               ; preds = %34, %33
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %39) #8
+  br label %40
 
-38:                                               ; preds = %36, %.lr.ph.split.us.split.us.split
-  %39 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us.us = icmp eq ptr %39, null
-  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %.not28, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
-
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %50
-  %40 = phi ptr [ %51, %50 ], [ %23, %.lr.ph.split.us.split ]
-  %41 = getelementptr i8, ptr %40, i64 16
-  %.val.us.us38 = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.val.us.us38, i64 22
-  %43 = load i8, ptr %42, align 2
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %.val.us.us38, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  %47 = load i32, ptr %46, align 4
-  %.not27.us.us = icmp eq i32 %47, %6
-  br i1 %.not27.us.us, label %48, label %50, !llvm.loop !6
-
-48:                                               ; preds = %.lr.ph.split.us.split.split.us
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %49) #8
-  br label %50
-
-50:                                               ; preds = %48, %.lr.ph.split.us.split.split.us
-  %51 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us.us39 = icmp eq ptr %51, null
-  br i1 %.not.us.us39, label %._crit_edge, label %.lr.ph.split.us.split.split.us
-
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %66
-  %52 = phi ptr [ %67, %66 ], [ %23, %.lr.ph.split.us.split ]
-  %53 = getelementptr i8, ptr %52, i64 16
-  %.val.us = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.val.us, i64 22
-  %55 = load i8, ptr %54, align 2
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %.val.us, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
-  %59 = load i32, ptr %58, align 4
-  %.not27.us = icmp eq i32 %59, %6
-  br i1 %.not27.us, label %60, label %66, !llvm.loop !6
-
-60:                                               ; preds = %.lr.ph.split.us.split.split
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %62 = load i8, ptr %61, align 4
-  %63 = sext i8 %62 to i32
-  %.not29.us = icmp eq i32 %7, %63
-  br i1 %.not29.us, label %64, label %66, !llvm.loop !6
-
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %65) #8
-  br label %66
-
-66:                                               ; preds = %64, %60, %.lr.ph.split.us.split.split
-  %67 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us = icmp eq ptr %67, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split.split
+40:                                               ; preds = %38, %34, %30
+  %41 = call ptr @systable_getnext(ptr noundef %22) #8
+  %.not.us = icmp eq ptr %41, null
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %.not28, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %57
+  %42 = phi ptr [ %58, %57 ], [ %23, %.lr.ph.split ]
+  %43 = getelementptr i8, ptr %42, i64 16
+  %.val.us31 = load ptr, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.val.us31, i64 22
+  %45 = load i8, ptr %44, align 2
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %.val.us31, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load i32, ptr %48, align 4
+  %.not25.us = icmp eq i32 %49, %5
+  br i1 %.not25.us, label %50, label %57, !llvm.loop !6
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %78
-  %68 = phi ptr [ %79, %78 ], [ %23, %.lr.ph.split.split.us ]
-  %69 = getelementptr i8, ptr %68, i64 16
-  %.val.us31.us = load ptr, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.val.us31.us, i64 22
-  %71 = load i8, ptr %70, align 2
-  %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %.val.us31.us, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load i32, ptr %74, align 4
-  %.not25.us.us = icmp eq i32 %75, %5
-  br i1 %.not25.us.us, label %76, label %78, !llvm.loop !6
+50:                                               ; preds = %.lr.ph.split.split.us
+  br i1 %.not28, label %55, label %51
 
-76:                                               ; preds = %.lr.ph.split.split.us.split.us
-  %77 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %77) #8
-  br label %78
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %53 = load i8, ptr %52, align 4
+  %54 = sext i8 %53 to i32
+  %.not29.us32 = icmp eq i32 %7, %54
+  br i1 %.not29.us32, label %55, label %57, !llvm.loop !6
 
-78:                                               ; preds = %76, %.lr.ph.split.split.us.split.us
-  %79 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us33.us = icmp eq ptr %79, null
-  br i1 %.not.us33.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us
+55:                                               ; preds = %51, %50
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %56) #8
+  br label %57
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %94
-  %80 = phi ptr [ %95, %94 ], [ %23, %.lr.ph.split.split.us ]
-  %81 = getelementptr i8, ptr %80, i64 16
-  %.val.us31 = load ptr, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.val.us31, i64 22
-  %83 = load i8, ptr %82, align 2
-  %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %.val.us31, i64 %84
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load i32, ptr %86, align 4
-  %.not25.us = icmp eq i32 %87, %5
-  br i1 %.not25.us, label %88, label %94, !llvm.loop !6
-
-88:                                               ; preds = %.lr.ph.split.split.us.split
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %90 = load i8, ptr %89, align 4
-  %91 = sext i8 %90 to i32
-  %.not29.us32 = icmp eq i32 %7, %91
-  br i1 %.not29.us32, label %92, label %94, !llvm.loop !6
-
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %93) #8
-  br label %94
-
-94:                                               ; preds = %92, %88, %.lr.ph.split.split.us.split
-  %95 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us33 = icmp eq ptr %95, null
-  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.us.split
+57:                                               ; preds = %55, %51, %.lr.ph.split.split.us
+  %58 = call ptr @systable_getnext(ptr noundef %22) #8
+  %.not.us33 = icmp eq ptr %58, null
+  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not28, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %109
-  %96 = phi ptr [ %110, %109 ], [ %23, %.lr.ph.split.split ]
-  %97 = getelementptr i8, ptr %96, i64 16
-  %.val.us34 = load ptr, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.val.us34, i64 22
-  %99 = load i8, ptr %98, align 2
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.val.us34, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load i32, ptr %102, align 4
-  %.not25.us35 = icmp eq i32 %103, %5
-  br i1 %.not25.us35, label %104, label %109, !llvm.loop !6
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %72
+  %59 = phi ptr [ %73, %72 ], [ %23, %.lr.ph.split.split ]
+  %60 = getelementptr i8, ptr %59, i64 16
+  %.val.us34 = load ptr, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %.val.us34, i64 22
+  %62 = load i8, ptr %61, align 2
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %.val.us34, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load i32, ptr %65, align 4
+  %.not25.us35 = icmp eq i32 %66, %5
+  br i1 %.not25.us35, label %67, label %72, !llvm.loop !6
 
-104:                                              ; preds = %.lr.ph.split.split.split.us
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 20
-  %106 = load i32, ptr %105, align 4
-  %.not27.us36 = icmp eq i32 %106, %6
-  br i1 %.not27.us36, label %107, label %109, !llvm.loop !6
+67:                                               ; preds = %.lr.ph.split.split.split.us
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 20
+  %69 = load i32, ptr %68, align 4
+  %.not27.us36 = icmp eq i32 %69, %6
+  br i1 %.not27.us36, label %70, label %72, !llvm.loop !6
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %108) #8
-  br label %109
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %71) #8
+  br label %72
 
-109:                                              ; preds = %107, %104, %.lr.ph.split.split.split.us
-  %110 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not.us37 = icmp eq ptr %110, null
-  br i1 %.not.us37, label %._crit_edge, label %.lr.ph.split.split.split.us
+72:                                               ; preds = %70, %67, %.lr.ph.split.split.split.us
+  %73 = call ptr @systable_getnext(ptr noundef %22) #8
+  %.not.us37 = icmp eq ptr %73, null
+  br i1 %.not.us37, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !10
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %128
-  %111 = phi ptr [ %129, %128 ], [ %23, %.lr.ph.split.split ]
-  %112 = getelementptr i8, ptr %111, i64 16
-  %.val = load ptr, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %114 = load i8, ptr %113, align 2
-  %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %.val, i64 %115
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load i32, ptr %117, align 4
-  %.not25 = icmp eq i32 %118, %5
-  br i1 %.not25, label %119, label %128, !llvm.loop !6
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %91
+  %74 = phi ptr [ %92, %91 ], [ %23, %.lr.ph.split.split ]
+  %75 = getelementptr i8, ptr %74, i64 16
+  %.val = load ptr, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %77 = load i8, ptr %76, align 2
+  %78 = zext i8 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %.val, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load i32, ptr %80, align 4
+  %.not25 = icmp eq i32 %81, %5
+  br i1 %.not25, label %82, label %91, !llvm.loop !6
 
-119:                                              ; preds = %.lr.ph.split.split.split
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 20
-  %121 = load i32, ptr %120, align 4
-  %.not27 = icmp eq i32 %121, %6
-  br i1 %.not27, label %122, label %128, !llvm.loop !6
+82:                                               ; preds = %.lr.ph.split.split.split
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 20
+  %84 = load i32, ptr %83, align 4
+  %.not27 = icmp eq i32 %84, %6
+  br i1 %.not27, label %85, label %91, !llvm.loop !6
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %124 = load i8, ptr %123, align 4
-  %125 = sext i8 %124 to i32
-  %.not29 = icmp eq i32 %7, %125
-  br i1 %.not29, label %126, label %128, !llvm.loop !6
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %87 = load i8, ptr %86, align 4
+  %88 = sext i8 %87 to i32
+  %.not29 = icmp eq i32 %7, %88
+  br i1 %.not29, label %89, label %91, !llvm.loop !6
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %127) #8
-  br label %128
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  call void @CatalogTupleDelete(ptr noundef %0, ptr noundef nonnull %90) #8
+  br label %91
 
-128:                                              ; preds = %122, %119, %.lr.ph.split.split.split, %126
-  %129 = call ptr @systable_getnext(ptr noundef %22) #8
-  %.not = icmp eq ptr %129, null
+91:                                               ; preds = %85, %82, %.lr.ph.split.split.split, %89
+  %92 = call ptr @systable_getnext(ptr noundef %22) #8
+  %.not = icmp eq ptr %92, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split
 
-._crit_edge:                                      ; preds = %128, %109, %94, %78, %66, %50, %38, %.lr.ph.split.us.split.us.split.us, %21
+._crit_edge:                                      ; preds = %91, %72, %57, %40, %21
   call void @systable_endscan(ptr noundef %22) #8
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %9) #8
   ret void
@@ -659,7 +578,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %.138.i = phi i32 [ %.03750.i, %22 ], [ %29, %27 ], [ %.03750.i, %32 ]
   %.1.i = phi i32 [ %.051.i, %22 ], [ %.051.i, %27 ], [ %34, %32 ]
   %38 = icmp slt i32 %.144.i, %5
-  br i1 %38, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
+  br i1 %38, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %37, %.lr.ph.i
   %.043.lcssa.ph.i = phi i32 [ %.04348.i, %.lr.ph.i ], [ %.144.i, %37 ]
@@ -697,7 +616,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %49 = getelementptr inbounds i32, ptr %6, i64 %48
   store i32 %46, ptr %49, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %41
-  br i1 %exitcond.not, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !12
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv70.i = phi i64 [ %43, %.lr.ph66.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph66.i ]
@@ -710,7 +629,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %54 = getelementptr inbounds i32, ptr %8, i64 %53
   store i32 %51, ptr %54, align 4
   %exitcond58.not = icmp eq i64 %indvars.iv.next71.i, %44
-  br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !9
+  br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !13
 
 getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.0.lcssa78.i, %.preheader.i ], [ %52, %.lr.ph66.i ]
@@ -761,7 +680,7 @@ getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.prehe
 76:                                               ; preds = %75, %.lr.ph53.split.us
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count69
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph53.split.us, !llvm.loop !10
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph53.split.us, !llvm.loop !14
 
 77:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
@@ -815,7 +734,7 @@ shdepLockAndCheckObject.exit:                     ; preds = %83
 96:                                               ; preds = %81, %77, %shdepLockAndCheckObject.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond60.not, label %.preheader, label %77, !llvm.loop !11
+  br i1 %exitcond60.not, label %.preheader, label %77, !llvm.loop !15
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %103
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %103 ], [ 0, %.lr.ph53 ]
@@ -835,7 +754,7 @@ shdepLockAndCheckObject.exit:                     ; preds = %83
 103:                                              ; preds = %100, %.lr.ph53.split, %102
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph53.split, !llvm.loop !10
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph53.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %76, %103, %.preheader
   call void @table_close(ptr noundef %58, i32 noundef 3) #8
@@ -1024,7 +943,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %.1101 = phi ptr [ %.0100144, %55 ], [ %79, %.critedge ], [ %.0100144, %.split ]
   %81 = call ptr @systable_getnext(ptr noundef %23) #8
   %.not = icmp eq ptr %81, null
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %80, %17
   %.0111.lcssa = phi ptr [ %18, %17 ], [ %.2113, %80 ]
@@ -1099,7 +1018,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   call fastcc void @storeObjectDescription(ptr noundef %8, i32 noundef %108, ptr noundef %106, i32 noundef %111, i32 noundef 0)
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.preheader, label %.lr.ph154, !llvm.loop !13
+  br i1 %exitcond171.not, label %.preheader, label %.lr.ph154, !llvm.loop !18
 
 ._crit_edge161:                                   ; preds = %storeObjectDescription.exit122, %.lr.ph160, %.preheader
   %.098.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph160 ], [ %.199, %storeObjectDescription.exit122 ]
@@ -1533,7 +1452,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   %.164 = phi i32 [ 0, %89 ], [ %87, %21 ]
   %91 = call ptr @systable_getnext(ptr noundef %10) #8
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %90
   %92 = icmp sgt i32 %.164, 0
@@ -1567,7 +1486,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   call void @ExecDropSingleTupleTableSlot(ptr noundef %96) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !20
 }
 
 declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #2
@@ -1600,7 +1519,7 @@ define dso_local void @dropDatabaseDependencies(i32 noundef %0) local_unnamed_ad
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %8) #8
   %9 = call ptr @systable_getnext(ptr noundef %5) #8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @systable_endscan(ptr noundef %5) #8
@@ -1769,7 +1688,7 @@ define dso_local void @shdepDropOwned(ptr noundef readonly captures(address_is_n
   %.not51 = icmp eq i32 %36, %37
   %.not52 = icmp eq i32 %36, 0
   %or.cond = or i1 %.not52, %.not51
-  br i1 %or.cond, label %38, label %82, !llvm.loop !17
+  br i1 %or.cond, label %38, label %82, !llvm.loop !22
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -1973,7 +1892,7 @@ define dso_local void @shdepReassignOwned(ptr noundef readonly captures(address_
   %.not30 = icmp eq i32 %32, %33
   %.not31 = icmp eq i32 %32, 0
   %or.cond = or i1 %.not31, %.not30
-  br i1 %or.cond, label %34, label %88, !llvm.loop !18
+  br i1 %or.cond, label %34, label %88, !llvm.loop !23
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2187,15 +2106,20 @@ attributes #9 = { cold nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!14 = distinct !{!14, !5, !8}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

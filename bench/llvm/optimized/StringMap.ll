@@ -278,7 +278,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48:       ; preds = %52, %48, %46, %_ZN4
   %56 = add i32 %.033, %.037
   %57 = and i32 %18, %56
   %58 = add i32 %.037, 1
-  br label %.split, !llvm.loop !22
+  br label %.split, !llvm.loop !25
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %36, %.split63.us
   %.1.ph = phi i32 [ %.1.ph.ph, %.split63.us ], [ %.033.us, %36 ], [ %.033, %_ZN4llvmeqENS_9StringRefES0_.exit ]
@@ -332,7 +332,7 @@ define dso_local noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(p
 _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us:    ; preds = %25, %21, %.split.us
   %27 = add i32 %.022.us, %.026.us
   %28 = add i32 %.026.us, 1
-  br label %.split.us, !llvm.loop !24
+  br label %.split.us, !llvm.loop !26
 
 .split:                                           ; preds = %8, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32
   %.026 = phi i32 [ %41, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32 ], [ 1, %8 ]
@@ -367,7 +367,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %36
 _ZN4llvmeqENS_9StringRefES0_.exit.thread32:       ; preds = %.split, %36, %32, %_ZN4llvmeqENS_9StringRefES0_.exit
   %40 = add i32 %.022, %.026
   %41 = add i32 %.026, 1
-  br label %.split, !llvm.loop !24
+  br label %.split, !llvm.loop !27
 
 .thread36:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split, %.split.us, %25, %4
   %.0 = phi i32 [ -1, %4 ], [ %.022.us, %25 ], [ -1, %.split.us ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ -1, %.split ]
@@ -434,7 +434,7 @@ define dso_local noundef ptr @_ZN4llvm13StringMapImpl9RemoveKeyENS_9StringRefE(p
 _ZN4llvmeqENS_9StringRefES0_.exit.thread32.us.i.i: ; preds = %26, %22, %.split.us.i.i
   %28 = add i32 %.022.us.i.i, %.026.us.i.i
   %29 = add i32 %.026.us.i.i, 1
-  br label %.split.us.i.i, !llvm.loop !24
+  br label %.split.us.i.i, !llvm.loop !26
 
 .split.i.i:                                       ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i
   %.026.i.i = phi i32 [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i ], [ 1, %9 ]
@@ -469,7 +469,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %37
 _ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %37, %33, %.split.i.i
   %41 = add i32 %.022.i.i, %.026.i.i
   %42 = add i32 %.026.i.i, 1
-  br label %.split.i.i, !llvm.loop !24
+  br label %.split.i.i, !llvm.loop !27
 
 _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %26
   %.0.i.i = phi i32 [ %.022.us.i.i, %26 ], [ %.022.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
@@ -505,7 +505,7 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = mul i32 %7, 3
   %9 = icmp ugt i32 %5, %8
-  br i1 %9, label %10, label %12, !prof !25
+  br i1 %9, label %10, label %12, !prof !28
 
 10:                                               ; preds = %2
   %11 = shl i32 %7, 1
@@ -579,7 +579,7 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   %45 = getelementptr inbounds nuw ptr, ptr %19, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %.not46 = icmp eq ptr %46, null
-  br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %34
   %.pre-phi = phi i64 [ %38, %34 ], [ %44, %.preheader ]
@@ -596,7 +596,7 @@ define dso_local noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef
   %.140 = phi i32 [ %spec.select, %.loopexit ], [ %.03950, %31 ], [ %.03950, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not42 = icmp eq i64 %indvars.iv.next, %25
-  br i1 %.not42, label %._crit_edge, label %31, !llvm.loop !27
+  br i1 %.not42, label %._crit_edge, label %31, !llvm.loop !30
 
 51:                                               ; preds = %12, %._crit_edge
   %.036 = phi i32 [ %.039.lcssa, %._crit_edge ], [ %1, %12 ]
@@ -662,9 +662,12 @@ attributes #13 = { nounwind allocsize(0) }
 !19 = !{!20, !21, i64 0}
 !20 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !21, i64 0}
 !21 = !{!"long", !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!26 = distinct !{!26, !23}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23, !24}
 !27 = distinct !{!27, !23}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !23}

@@ -1161,7 +1161,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %43 = load ptr, ptr %21, align 8
   %44 = icmp eq ptr %43, %20
-  br i1 %44, label %.split, label %.split14.us, !llvm.loop !9
+  br i1 %44, label %.split, label %.split14.us, !llvm.loop !13
 
 .split14.us:                                      ; preds = %42, %26
   %45 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 5) #9
@@ -1382,7 +1382,7 @@ define dso_local void @driver_detach(ptr noundef readonly captures(address) %0) 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %42
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !14
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1432,7 +1432,7 @@ define internal void @deferred_probe_work_func(ptr readnone captures(none) %0) #
   tail call void @put_device(ptr noundef %6) #9
   %18 = load volatile ptr, ptr @deferred_probe_active_list, align 8
   %19 = icmp eq ptr %18, @deferred_probe_active_list
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1498,7 +1498,7 @@ define internal void @deferred_probe_timeout_work_func(ptr readnone captures(non
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #10
   %24 = load ptr, ptr %17, align 8
   %25 = icmp eq ptr %24, @deferred_probe_pending_list
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %13
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1575,7 +1575,7 @@ define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr readnone cap
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %14, ptr noundef nonnull %20) #9
   %21 = load ptr, ptr %5, align 8
   %22 = icmp eq ptr %21, @deferred_probe_pending_list
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %13, %2
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1867,7 +1867,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   br label %37
 
 37:                                               ; preds = %34, %25, %23, %20, %2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !18
   %38 = tail call i32 @__wake_up(ptr noundef nonnull @probe_waitqueue, i32 noundef 3, i32 noundef 0, ptr noundef null) #9
   ret i32 %4
 }
@@ -2437,11 +2437,13 @@ attributes #10 = { cold nounwind }
 !6 = !{!"auto-init"}
 !7 = !{i8 0, i8 2}
 !8 = !{}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
+!14 = distinct !{!14, !11}
 !15 = distinct !{!15, !10, !11}
-!16 = !{i64 2149076857, i64 2149076896, i64 2149076917, i64 2149076954, i64 2149076977, i64 2149076847}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = !{i64 2149076857, i64 2149076896, i64 2149076917, i64 2149076954, i64 2149076977, i64 2149076847}

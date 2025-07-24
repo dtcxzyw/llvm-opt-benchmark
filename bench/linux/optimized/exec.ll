@@ -3884,10 +3884,10 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   tail call void @llvm.write_register.i64(metadata !0, i64 %37)
   %39 = and i64 %38, 4294967295
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.lr.ph14, label %.thread6
+  br i1 %40, label %.lr.ph14, label %.thread6, !llvm.loop !89
 
 .split:                                           ; preds = %4
-  %41 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, i64 4, i64 %6) #15, !srcloc !89
+  %41 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, i64 4, i64 %6) #15, !srcloc !91
   %42 = extractvalue { ptr, i32, i64 } %41, 0
   %43 = extractvalue { ptr, i32, i64 } %41, 2
   %44 = ptrtoint ptr %42 to i64
@@ -3927,7 +3927,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   %64 = tail call i32 @__SCT__cond_resched() #15
   %65 = tail call i64 @llvm.read_register.i64(metadata !0)
   %66 = getelementptr i32, ptr %1, i64 %indvars.iv.next
-  %67 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %66, i64 4, i64 %65) #15, !srcloc !89
+  %67 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %66, i64 4, i64 %65) #15, !srcloc !91
   %68 = extractvalue { ptr, i32, i64 } %67, 0
   %69 = extractvalue { ptr, i32, i64 } %67, 2
   %70 = ptrtoint ptr %68 to i64
@@ -3978,7 +3978,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr i32, ptr %2, i64 %17
-  %20 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %19, i64 4, i64 %15) #15, !srcloc !89
+  %20 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %19, i64 4, i64 %15) #15, !srcloc !91
   %21 = extractvalue { ptr, i32, i64 } %20, 0
   %22 = extractvalue { ptr, i32, i64 } %20, 2
   %23 = ptrtoint ptr %21 to i64
@@ -4155,7 +4155,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %138 = getelementptr i8, ptr %135, i64 %137
   %139 = tail call i64 @_copy_from_user(ptr noundef %138, ptr noundef %83, i64 noundef %80) #15
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %54, label %.thread23.thread, !llvm.loop !90
+  br i1 %140, label %54, label %.thread23.thread, !llvm.loop !92
 
 .thread23:                                        ; preds = %.loopexit, %38, %43, %47, %18, %28, %89, %68
   %141 = phi ptr [ %55, %68 ], [ %55, %89 ], [ %55, %.loopexit ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %18 ], [ %13, %28 ]
@@ -4383,5 +4383,7 @@ attributes #19 = { nounwind allocsize(2) }
 !86 = !{i64 2153229326}
 !87 = !{i64 2153229508}
 !88 = !{i64 2158884701}
-!89 = !{i64 2158882532}
-!90 = distinct !{!90, !10, !11}
+!89 = distinct !{!89, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = !{i64 2158882532}
+!92 = distinct !{!92, !10, !11}

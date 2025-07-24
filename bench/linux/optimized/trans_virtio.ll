@@ -121,7 +121,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.p9_virtio_probe) #15
-  br label %134
+  br label %130
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
@@ -131,7 +131,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
 
 16:                                               ; preds = %12
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #15
-  br label %134
+  br label %130
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -162,7 +162,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
 31:                                               ; preds = %18
   %32 = ptrtoint ptr %28 to i64
   %33 = trunc i64 %32 to i32
-  br label %132
+  br label %128
 
 34:                                               ; preds = %18
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -179,7 +179,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 1
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %127, label %44
+  br i1 %43, label %123, label %44
 
 44:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
@@ -194,7 +194,7 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   %50 = add nuw nsw i64 %49, 1
   %51 = call noalias align 8 ptr @__kmalloc(i64 noundef %50, i32 noundef 3520) #17
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %127, label %53
+  br i1 %52, label %123, label %53
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %6, align 8
@@ -213,143 +213,136 @@ define internal i32 @p9_virtio_probe(ptr noundef %0) #2 align 16 {
   %63 = icmp eq i16 %48, 0
   br i1 %63, label %.split.us, label %.preheader
 
-.split.us:                                        ; preds = %60
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.split9.us, label %.split.us.split
+.split.us:                                        ; preds = %60, %71
+  %64 = phi i32 [ %72, %71 ], [ %61, %60 ]
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %71, label %69
 
-.split.us.split:                                  ; preds = %.split.us, %75
-  %68 = phi i32 [ %76, %75 ], [ %61, %.split.us ]
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %75, label %73
+69:                                               ; preds = %.split.us
+  %70 = call i32 %67(ptr noundef %0) #14
+  br label %71
 
-73:                                               ; preds = %.split.us.split
-  %74 = call i32 %71(ptr noundef %0) #14
+71:                                               ; preds = %69, %.split.us
+  %72 = phi i32 [ %70, %69 ], [ 0, %.split.us ]
+  %73 = icmp eq i32 %72, %64
+  br i1 %73, label %.split9.us, label %.split.us, !llvm.loop !6
+
+.preheader:                                       ; preds = %60, %87
+  %74 = phi i32 [ %88, %87 ], [ %61, %60 ]
   br label %75
 
-75:                                               ; preds = %73, %.split.us.split
-  %76 = phi i32 [ %74, %73 ], [ 0, %.split.us.split ]
-  %77 = icmp eq i32 %76, %68
-  br i1 %77, label %.split9.us, label %.split.us.split, !llvm.loop !6
-
-.preheader:                                       ; preds = %60, %91
-  %78 = phi i32 [ %92, %91 ], [ %61, %60 ]
-  br label %79
-
-79:                                               ; preds = %.preheader, %79
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %79 ]
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr i8, ptr %51, i64 %indvars.iv
-  %83 = trunc i64 %indvars.iv to i32
-  %84 = add i32 %83, 2
-  call void %81(ptr noundef %0, i32 noundef %84, ptr noundef %82, i32 noundef 1) #14
+75:                                               ; preds = %.preheader, %75
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %75 ]
+  %76 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr i8, ptr %51, i64 %indvars.iv
+  %79 = trunc i64 %indvars.iv to i32
+  %80 = add i32 %79, 2
+  call void %77(ptr noundef %0, i32 noundef %80, ptr noundef %78, i32 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %49
-  br i1 %exitcond.not, label %.loopexit, label %79, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %75, !llvm.loop !10
 
-.loopexit:                                        ; preds = %79
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %91, label %89
+.loopexit:                                        ; preds = %75
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %87, label %85
 
-89:                                               ; preds = %.loopexit
-  %90 = call i32 %87(ptr noundef %0) #14
-  br label %91
+85:                                               ; preds = %.loopexit
+  %86 = call i32 %83(ptr noundef %0) #14
+  br label %87
 
-91:                                               ; preds = %89, %.loopexit
-  %92 = phi i32 [ %90, %89 ], [ 0, %.loopexit ]
-  %93 = icmp eq i32 %92, %78
-  br i1 %93, label %.split9.us, label %.preheader, !llvm.loop !11
+87:                                               ; preds = %85, %.loopexit
+  %88 = phi i32 [ %86, %85 ], [ 0, %.loopexit ]
+  %89 = icmp eq i32 %88, %74
+  br i1 %89, label %.split9.us, label %.preheader, !llvm.loop !11
 
-.split9.us:                                       ; preds = %91, %75, %.split.us
-  %94 = getelementptr inbounds nuw i8, ptr %14, i64 4152
-  store ptr %51, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %96 = call i32 @sysfs_create_file_ns(ptr noundef nonnull %95, ptr noundef nonnull @dev_attr_mount_tag, ptr noundef null) #14
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %125
+.split9.us:                                       ; preds = %87, %71
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 4152
+  store ptr %51, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = call i32 @sysfs_create_file_ns(ptr noundef nonnull %91, ptr noundef nonnull @dev_attr_mount_tag, ptr noundef null) #14
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %121
 
-98:                                               ; preds = %.split9.us
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
-  %100 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %99, i32 noundef 3264, i64 noundef 24) #16
-  %101 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %100, ptr %101, align 8
-  %102 = icmp eq ptr %100, null
-  br i1 %102, label %103, label %104
+94:                                               ; preds = %.split9.us
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
+  %96 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %95, i32 noundef 3264, i64 noundef 24) #16
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store ptr %96, ptr %97, align 8
+  %98 = icmp eq ptr %96, null
+  br i1 %98, label %99, label %100
 
-103:                                              ; preds = %98
-  call void @sysfs_remove_file_ns(ptr noundef nonnull %95, ptr noundef nonnull @dev_attr_mount_tag, ptr noundef null) #14
-  br label %125
+99:                                               ; preds = %94
+  call void @sysfs_remove_file_ns(ptr noundef nonnull %91, ptr noundef nonnull @dev_attr_mount_tag, ptr noundef null) #14
+  br label %121
 
-104:                                              ; preds = %98
-  call void @__init_waitqueue_head(ptr noundef nonnull %100, ptr noundef nonnull @.str.4, ptr noundef nonnull @p9_virtio_probe.__key) #14
-  %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 1, ptr %105, align 8
-  %106 = call i64 @nr_free_buffer_pages() #14
-  %107 = lshr i64 %106, 2
-  %108 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i64 %107, ptr %108, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load ptr, ptr %110, align 8
-  %112 = call zeroext i8 %111(ptr noundef %0) #14
-  %113 = and i8 %112, 4
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %116, label %115, !prof !12
+100:                                              ; preds = %94
+  call void @__init_waitqueue_head(ptr noundef nonnull %96, ptr noundef nonnull @.str.4, ptr noundef nonnull @p9_virtio_probe.__key) #14
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i32 1, ptr %101, align 8
+  %102 = call i64 @nr_free_buffer_pages() #14
+  %103 = lshr i64 %102, 2
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i64 %103, ptr %104, align 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %107 = load ptr, ptr %106, align 8
+  %108 = call zeroext i8 %107(ptr noundef %0) #14
+  %109 = and i8 %108, 4
+  %110 = icmp eq i8 %109, 0
+  br i1 %110, label %112, label %111, !prof !12
 
-115:                                              ; preds = %104
+111:                                              ; preds = %100
   call void asm sideeffect "709: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 709b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 709) #14, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 278, i32 2305, i64 12) #14, !srcloc !14
   call void asm sideeffect "710: nop\0A\09.pushsection .discard.instr_end\0A\09.long 710b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 710) #14, !srcloc !15
-  br label %116
+  br label %112
 
-116:                                              ; preds = %115, %104
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %119 = load ptr, ptr %118, align 8
-  %120 = or i8 %112, 4
-  call void %119(ptr noundef %0, i8 noundef zeroext %120) #14
+112:                                              ; preds = %111, %100
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %115 = load ptr, ptr %114, align 8
+  %116 = or i8 %108, 4
+  call void %115(ptr noundef %0, i8 noundef zeroext %116) #14
   call void @mutex_lock(ptr noundef nonnull @virtio_9p_lock) #14
-  %121 = getelementptr inbounds nuw i8, ptr %14, i64 4160
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @virtio_chan_list, i64 8), align 8
-  store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @virtio_chan_list, i64 8), align 8
-  store ptr @virtio_chan_list, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %14, i64 4168
-  store ptr %122, ptr %123, align 8
-  store volatile ptr %121, ptr %122, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %14, i64 4160
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @virtio_chan_list, i64 8), align 8
+  store ptr %117, ptr getelementptr inbounds nuw (i8, ptr @virtio_chan_list, i64 8), align 8
+  store ptr @virtio_chan_list, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %14, i64 4168
+  store ptr %118, ptr %119, align 8
+  store volatile ptr %117, ptr %118, align 8
   call void @mutex_unlock(ptr noundef nonnull @virtio_9p_lock) #14
-  %124 = call i32 @kobject_uevent(ptr noundef nonnull %95, i32 noundef 2) #14
-  br label %134
+  %120 = call i32 @kobject_uevent(ptr noundef nonnull %91, i32 noundef 2) #14
+  br label %130
 
-125:                                              ; preds = %103, %.split9.us
-  %126 = phi i32 [ %96, %.split9.us ], [ -12, %103 ]
+121:                                              ; preds = %99, %.split9.us
+  %122 = phi i32 [ %92, %.split9.us ], [ -12, %99 ]
   call void @kfree(ptr noundef nonnull %51) #14
-  br label %127
+  br label %123
 
-127:                                              ; preds = %125, %44, %34
-  %128 = phi i32 [ %126, %125 ], [ -22, %34 ], [ -12, %44 ]
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
-  %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef %0) #14
-  br label %132
+123:                                              ; preds = %121, %44, %34
+  %124 = phi i32 [ %122, %121 ], [ -22, %34 ], [ -12, %44 ]
+  %125 = load ptr, ptr %6, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
+  %127 = load ptr, ptr %126, align 8
+  call void %127(ptr noundef %0) #14
+  br label %128
 
-132:                                              ; preds = %127, %31
-  %133 = phi i32 [ %33, %31 ], [ %128, %127 ]
+128:                                              ; preds = %123, %31
+  %129 = phi i32 [ %33, %31 ], [ %124, %123 ]
   call void @kfree(ptr noundef nonnull %14) #14
-  br label %134
+  br label %130
 
-134:                                              ; preds = %132, %116, %16, %10
-  %135 = phi i32 [ 0, %116 ], [ -22, %10 ], [ %133, %132 ], [ -12, %16 ]
-  ret i32 %135
+130:                                              ; preds = %128, %112, %16, %10
+  %131 = phi i32 [ 0, %112 ], [ -22, %10 ], [ %129, %128 ], [ -12, %16 ]
+  ret i32 %131
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1891,7 +1884,7 @@ attributes #17 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
 !12 = !{!"branch_weights", i32 2000, i32 1}

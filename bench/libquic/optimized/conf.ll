@@ -1122,7 +1122,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
 27:                                               ; preds = %25
   %28 = icmp eq ptr %8, null
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  br i1 %28, label %.loopexit44, label %.critedge.us
+  br i1 %28, label %.loopexit44, label %.critedge.us, !llvm.loop !33
 
 30:                                               ; preds = %5
   tail call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 744) #12
@@ -1136,7 +1136,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
 
 .lr.ph:                                           ; preds = %.preheader42
   %32 = tail call ptr @__ctype_b_loc() #14
-  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
   br label %34
 
 34:                                               ; preds = %.lr.ph, %40
@@ -1153,7 +1153,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
   %41 = getelementptr inbounds nuw i8, ptr %.23246, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !21
   %.not37 = icmp eq i8 %42, 0
-  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !35
+  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !37
 
 .critedge.loopexit:                               ; preds = %34, %40
   %.232.lcssa = phi ptr [ %.23246, %34 ], [ %41, %40 ]
@@ -1183,7 +1183,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
 .preheader:                                       ; preds = %48, %49
   %.pn = phi ptr [ %51, %49 ], [ %43, %48 ]
   %52 = tail call ptr @__ctype_b_loc() #14
-  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %53 = load ptr, ptr %52, align 8, !tbaa !35
   br label %54
 
 54:                                               ; preds = %54, %.preheader
@@ -1195,7 +1195,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
   %58 = load i16, ptr %57, align 2, !tbaa !24
   %59 = and i16 %58, 8192
   %.not41 = icmp eq i16 %59, 0
-  br i1 %.not41, label %.loopexit, label %54, !llvm.loop !36
+  br i1 %.not41, label %.loopexit, label %54, !llvm.loop !38
 
 .loopexit:                                        ; preds = %54
   %60 = ptrtoint ptr %.2 to i64
@@ -1446,7 +1446,7 @@ define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef readonly captur
   %.not152 = icmp ne i32 %45, 0
   %.not153 = icmp eq i8 %40, %17
   %or.cond = or i1 %.not153, %.not152
-  br i1 %or.cond, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %or.cond, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !39
 
 .critedge.loopexit:                               ; preds = %36, %33
   %46 = phi i8 [ 0, %33 ], [ %40, %36 ]
@@ -1505,7 +1505,7 @@ define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef readonly captur
   %.5 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %64 = load i8, ptr %.5, align 1, !tbaa !21
   %.not151.not = icmp eq i8 %64, 0
-  br i1 %.not151.not, label %._crit_edge, label %.lr.ph184, !llvm.loop !38
+  br i1 %.not151.not, label %._crit_edge, label %.lr.ph184, !llvm.loop !40
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %55
   %65 = trunc nsw i64 %indvars.iv206 to i32
@@ -1602,7 +1602,7 @@ define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef readonly captur
   %99 = and i16 %98, 263
   %.not144 = icmp eq i16 %99, 0
   %100 = getelementptr inbounds nuw i8, ptr %.0115, i64 1
-  br i1 %.not144, label %101, label %94, !llvm.loop !39
+  br i1 %.not144, label %101, label %94, !llvm.loop !41
 
 101:                                              ; preds = %94
   %102 = icmp eq i8 %95, 58
@@ -1627,7 +1627,7 @@ define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef readonly captur
   %113 = and i16 %112, 263
   %.not145 = icmp eq i16 %113, 0
   %114 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
-  br i1 %.not145, label %.loopexit, label %108, !llvm.loop !40
+  br i1 %.not145, label %.loopexit, label %108, !llvm.loop !42
 
 .loopexit:                                        ; preds = %108, %103, %101
   %115 = phi i8 [ 58, %103 ], [ %95, %101 ], [ %109, %108 ]
@@ -1689,7 +1689,7 @@ NCONF_get_string.exit:                            ; preds = %121, %125
 
 132:                                              ; preds = %129
   %133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #13
-  %134 = load i64, ptr %6, align 8, !tbaa !41
+  %134 = load i64, ptr %6, align 8, !tbaa !43
   %135 = ptrtoint ptr %.3118 to i64
   %136 = ptrtoint ptr %.0114 to i64
   %.neg = sub i64 %136, %135
@@ -1715,7 +1715,7 @@ NCONF_get_string.exit:                            ; preds = %121, %125
   store i8 %142, ptr %145, align 1, !tbaa !21
   %146 = load i8, ptr %143, align 1, !tbaa !21
   %.not148 = icmp eq i8 %146, 0
-  br i1 %.not148, label %._crit_edge199.loopexit, label %.lr.ph198, !llvm.loop !42
+  br i1 %.not148, label %._crit_edge199.loopexit, label %.lr.ph198, !llvm.loop !44
 
 ._crit_edge199.loopexit:                          ; preds = %.lr.ph198
   %147 = trunc nsw i64 %indvars.iv.next209 to i32
@@ -1832,13 +1832,15 @@ attributes #14 = { nounwind willreturn memory(none) }
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTS13conf_value_st", !9, i64 0}
 !32 = !{!20, !20, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 short", !9, i64 0}
-!35 = distinct !{!35, !23}
-!36 = distinct !{!36, !23}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 short", !9, i64 0}
 !37 = distinct !{!37, !23}
 !38 = distinct !{!38, !23}
 !39 = distinct !{!39, !23}
 !40 = distinct !{!40, !23}
-!41 = !{!19, !20, i64 0}
+!41 = distinct !{!41, !23}
 !42 = distinct !{!42, !23}
+!43 = !{!19, !20, i64 0}
+!44 = distinct !{!44, !23}

@@ -305,7 +305,7 @@ ff_sqrt.exit.i:                                   ; preds = %129, %121
   %.reass.us.i = sub i32 %invariant.op.i, %145
   %or.cond.us.i = icmp ult i32 %.reass.us.i, -65536
   %146 = add nsw i32 %.1.us.i, -1
-  br i1 %or.cond.us.i, label %.split.us.i, label %.split31.us.loopexit.i
+  br i1 %or.cond.us.i, label %.split.us.i, label %.split31.us.loopexit.i, !llvm.loop !48
 
 .split.i:                                         ; preds = %144, %.split.i
   %.1.i = phi i32 [ %148, %.split.i ], [ %.027.i, %144 ]
@@ -333,7 +333,7 @@ dpcm_predict.exit:                                ; preds = %.split.i, %.split31
   store i8 %155, ptr %.18791, align 1, !tbaa !47
   %157 = add nuw nsw i32 %.06493, 1
   %exitcond.not = icmp eq i32 %157, %.066
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %dpcm_predict.exit, %104
   %.1.lcssa = phi ptr [ %.06598, %104 ], [ %110, %dpcm_predict.exit ]
@@ -342,12 +342,12 @@ dpcm_predict.exit:                                ; preds = %.split.i, %.split31
   %160 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %.in = select i1 %159, ptr %160, ptr %161
-  %162 = load i64, ptr %.in, align 8, !tbaa !50
+  %162 = load i64, ptr %.in, align 8, !tbaa !52
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %162, ptr %163, align 8, !tbaa !51
+  store i64 %162, ptr %163, align 8, !tbaa !53
   %164 = sext i32 %.pn to i64
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %164, ptr %165, align 8, !tbaa !52
+  store i64 %164, ptr %165, align 8, !tbaa !54
   %166 = add nsw i32 %158, 1
   %.not73 = icmp eq ptr %.1.lcssa, null
   %spec.select = tail call i32 @llvm.smax.i32(i32 %166, i32 8)
@@ -445,7 +445,9 @@ attributes #5 = { nounwind }
 !46 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !47 = !{!8, !8, i64 0}
 !48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!13, !13, i64 0}
-!51 = !{!46, !13, i64 8}
-!52 = !{!46, !13, i64 64}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.mustprogress"}
+!52 = !{!13, !13, i64 0}
+!53 = !{!46, !13, i64 8}
+!54 = !{!46, !13, i64 64}

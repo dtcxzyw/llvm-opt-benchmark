@@ -3401,7 +3401,7 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
 30:                                               ; preds = %.preheader.i
   %31 = load i8, ptr %.0.i, align 1, !tbaa !16
   %32 = icmp eq i8 %31, 34
-  br i1 %32, label %33, label %.preheader.i, !llvm.loop !57
+  br i1 %32, label %33, label %.preheader.i, !llvm.loop !58
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
@@ -3426,7 +3426,7 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
 36:                                               ; preds = %.lr.ph.i168
   %37 = getelementptr inbounds nuw i8, ptr %.230.i, i64 1
   %exitcond.not.i = icmp eq ptr %37, %2
-  br i1 %exitcond.not.i, label %Amap_LibertySkipEntry.exit, label %.lr.ph.i168, !llvm.loop !58
+  br i1 %exitcond.not.i, label %Amap_LibertySkipEntry.exit, label %.lr.ph.i168, !llvm.loop !59
 
 Amap_LibertySkipEntry.exit:                       ; preds = %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %36, %.preheader.i, %.preheader26.i, %33
   %.1.i = phi ptr [ %34, %33 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ]
@@ -3531,10 +3531,10 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !19
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load i32, ptr %80, align 8, !tbaa !59
+  %81 = load i32, ptr %80, align 8, !tbaa !60
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds %struct.Amap_Item_t_, ptr %79, i64 %82, i32 1
-  store i32 %77, ptr %83, align 4, !tbaa !60
+  store i32 %77, ptr %83, align 4, !tbaa !61
   %84 = getelementptr inbounds %struct.Amap_Item_t_, ptr %79, i64 %82
   store i32 2, ptr %84, align 4, !tbaa !3
   %85 = getelementptr inbounds %struct.Amap_Item_t_, ptr %79, i64 %82, i32 6
@@ -3542,11 +3542,11 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %86 = getelementptr inbounds %struct.Amap_Item_t_, ptr %79, i64 %82, i32 5
   store i32 -1, ptr %86, align 4, !tbaa !20
   %87 = add nsw i32 %81, 1
-  store i32 %87, ptr %80, align 8, !tbaa !59
+  store i32 %87, ptr %80, align 8, !tbaa !60
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i32 %23, ptr %88, align 4, !tbaa !61
+  store i32 %23, ptr %88, align 4, !tbaa !62
   %.sroa.855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 12
-  store i32 %43, ptr %.sroa.855.0..sroa_idx, align 4, !tbaa !61
+  store i32 %43, ptr %.sroa.855.0..sroa_idx, align 4, !tbaa !62
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.sroa.8.0.insert.ext = shl i64 %70, 32
   %.sroa.023.0.insert.ext = and i64 %63, 4294967295
@@ -3589,10 +3589,10 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !19
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %117 = load i32, ptr %116, align 8, !tbaa !59
+  %117 = load i32, ptr %116, align 8, !tbaa !60
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds %struct.Amap_Item_t_, ptr %115, i64 %118, i32 1
-  store i32 %113, ptr %119, align 4, !tbaa !60
+  store i32 %113, ptr %119, align 4, !tbaa !61
   %120 = getelementptr inbounds %struct.Amap_Item_t_, ptr %115, i64 %118
   store i32 3, ptr %120, align 4, !tbaa !3
   %121 = getelementptr inbounds %struct.Amap_Item_t_, ptr %115, i64 %118, i32 6
@@ -3600,11 +3600,11 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %122 = getelementptr inbounds %struct.Amap_Item_t_, ptr %115, i64 %118, i32 5
   store i32 -1, ptr %122, align 4, !tbaa !20
   %123 = add nsw i32 %117, 1
-  store i32 %123, ptr %116, align 8, !tbaa !59
+  store i32 %123, ptr %116, align 8, !tbaa !60
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i32 %23, ptr %124, align 4, !tbaa !61
+  store i32 %23, ptr %124, align 4, !tbaa !62
   %.sroa.855.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %43, ptr %.sroa.855.0..sroa_idx56, align 4, !tbaa !61
+  store i32 %43, ptr %.sroa.855.0..sroa_idx56, align 4, !tbaa !62
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %.sroa.8.0.insert.ext37 = shl i64 %109, 32
   %.sroa.023.0.insert.ext25 = zext i32 %107 to i64
@@ -3642,10 +3642,10 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %148 = load ptr, ptr %147, align 8, !tbaa !19
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %150 = load i32, ptr %149, align 8, !tbaa !59
+  %150 = load i32, ptr %149, align 8, !tbaa !60
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %struct.Amap_Item_t_, ptr %148, i64 %151, i32 1
-  store i32 %146, ptr %152, align 4, !tbaa !60
+  store i32 %146, ptr %152, align 4, !tbaa !61
   %153 = getelementptr inbounds %struct.Amap_Item_t_, ptr %148, i64 %151
   store i32 1, ptr %153, align 4, !tbaa !3
   %154 = getelementptr inbounds %struct.Amap_Item_t_, ptr %148, i64 %151, i32 6
@@ -3653,11 +3653,11 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %155 = getelementptr inbounds %struct.Amap_Item_t_, ptr %148, i64 %151, i32 5
   store i32 -1, ptr %155, align 4, !tbaa !20
   %156 = add nsw i32 %150, 1
-  store i32 %156, ptr %149, align 8, !tbaa !59
+  store i32 %156, ptr %149, align 8, !tbaa !60
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i32 %23, ptr %157, align 4, !tbaa !61
+  store i32 %23, ptr %157, align 4, !tbaa !62
   %.sroa.855.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %153, i64 12
-  store i32 %43, ptr %.sroa.855.0..sroa_idx58, align 4, !tbaa !61
+  store i32 %43, ptr %.sroa.855.0..sroa_idx58, align 4, !tbaa !62
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %.sroa.8.0.insert.ext42 = shl i64 %109, 32
   %.sroa.023.0.insert.ext29 = zext i32 %107 to i64
@@ -3665,9 +3665,9 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %159 = tail call fastcc i64 @Amap_LibertyUpdateHead(ptr noundef nonnull %0, i64 %.sroa.023.0.insert.insert31)
   store i64 %159, ptr %158, align 4
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  store i32 %142, ptr %160, align 4, !tbaa !61
+  store i32 %142, ptr %160, align 4, !tbaa !62
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 28
-  store i32 %145, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !61
+  store i32 %145, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !62
   %161 = getelementptr inbounds nuw i8, ptr %133, i64 1
   store ptr %161, ptr %1, align 8, !tbaa !54
   %162 = tail call i32 @Amap_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %136)
@@ -3704,10 +3704,10 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %181 = load ptr, ptr %180, align 8, !tbaa !19
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %183 = load i32, ptr %182, align 8, !tbaa !59
+  %183 = load i32, ptr %182, align 8, !tbaa !60
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds %struct.Amap_Item_t_, ptr %181, i64 %184, i32 1
-  store i32 %179, ptr %185, align 4, !tbaa !60
+  store i32 %179, ptr %185, align 4, !tbaa !61
   %186 = getelementptr inbounds %struct.Amap_Item_t_, ptr %181, i64 %184
   store i32 3, ptr %186, align 4, !tbaa !3
   %187 = getelementptr inbounds %struct.Amap_Item_t_, ptr %181, i64 %184, i32 6
@@ -3715,11 +3715,11 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %188 = getelementptr inbounds %struct.Amap_Item_t_, ptr %181, i64 %184, i32 5
   store i32 -1, ptr %188, align 4, !tbaa !20
   %189 = add nsw i32 %183, 1
-  store i32 %189, ptr %182, align 8, !tbaa !59
+  store i32 %189, ptr %182, align 8, !tbaa !60
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  store i32 %23, ptr %190, align 4, !tbaa !61
+  store i32 %23, ptr %190, align 4, !tbaa !62
   %.sroa.855.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  store i32 %43, ptr %.sroa.855.0..sroa_idx60, align 4, !tbaa !61
+  store i32 %43, ptr %.sroa.855.0..sroa_idx60, align 4, !tbaa !62
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %.sroa.8.0.insert.ext47 = shl i64 %109, 32
   %.sroa.023.0.insert.ext33 = zext i32 %107 to i64
@@ -3744,13 +3744,13 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
 202:                                              ; preds = %53, %72, %178, %165, %135, %75, %65, %58, %55, %Amap_LibertySkipSpaces.exit178, %Amap_LibertySkipEntry.exit
   %.sroa.855.0 = phi i64 [ 0, %Amap_LibertySkipEntry.exit ], [ %42, %Amap_LibertySkipSpaces.exit178 ], [ %42, %55 ], [ %42, %58 ], [ %42, %65 ], [ %42, %75 ], [ %42, %135 ], [ %42, %165 ], [ %42, %178 ], [ %42, %72 ], [ %42, %53 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %204 = load ptr, ptr %203, align 8, !tbaa !62
+  %204 = load ptr, ptr %203, align 8, !tbaa !63
   %205 = icmp eq ptr %204, null
   br i1 %205, label %206, label %217
 
 206:                                              ; preds = %202
   %207 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #26
-  store ptr %207, ptr %203, align 8, !tbaa !62
+  store ptr %207, ptr %203, align 8, !tbaa !63
   %208 = load ptr, ptr %0, align 8, !tbaa !35
   %209 = load i32, ptr %5, align 4, !tbaa !55
   %.sroa.855.0.insert.ext = shl i64 %.sroa.855.0, 32
@@ -3836,7 +3836,7 @@ Amap_LibertyCharIsSpace.exit.thread.us:           ; preds = %15, %15, %15, %15, 
 Amap_LibertyCharIsSpace.exit.thread:              ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %exitcond.not = icmp eq ptr %21, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit.thread, %.lr.ph.split, %Amap_LibertyCharIsSpace.exit.thread.us, %15, %._crit_edge15, %4
   %.0.lcssa = phi ptr [ %.014, %._crit_edge15 ], [ %5, %4 ], [ %.014.us, %15 ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread.us ], [ %.014, %.lr.ph.split ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread ]
@@ -3873,7 +3873,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr noundef ca
 11:                                               ; preds = %.preheader
   %12 = load i8, ptr %.0, align 1, !tbaa !16
   %13 = icmp eq i8 %12, 34
-  br i1 %13, label %14, label %.preheader, !llvm.loop !57
+  br i1 %13, label %14, label %.preheader, !llvm.loop !58
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
@@ -3898,7 +3898,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr noundef ca
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.230, i64 1
   %exitcond.not = icmp eq ptr %18, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.preheader, %.preheader26, %14
   %.1 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
@@ -3959,7 +3959,7 @@ Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, 
   %22 = phi ptr [ %.028, %19 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %24 = icmp ult ptr %23, %7
-  br i1 %24, label %11, label %._crit_edge, !llvm.loop !63
+  br i1 %24, label %11, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit, %2
   %.023.lcssa = phi ptr [ null, %2 ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
@@ -4024,7 +4024,7 @@ define internal fastcc noundef ptr @Amap_LibertyFindMatch(ptr noundef readonly c
 16:                                               ; preds = %.lr.ph29
   %17 = getelementptr inbounds nuw i8, ptr %.01727, i64 1
   %exitcond36.not = icmp eq ptr %17, %1
-  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph29, !llvm.loop !64
+  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph29, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.324 = phi i32 [ %.5, %24 ], [ 0, %.lr.ph.preheader ]
@@ -4042,7 +4042,7 @@ define internal fastcc noundef ptr @Amap_LibertyFindMatch(ptr noundef readonly c
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.21923, i64 1
   %exitcond.not = icmp eq ptr %25, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %.lr.ph29, %16, %.preheader21, %.preheader
   %.118 = phi ptr [ %0, %.preheader ], [ %0, %.preheader21 ], [ %.01727, %.lr.ph29 ], [ %scevgep35, %16 ], [ %.21923, %.lr.ph ], [ %scevgep, %24 ]
@@ -4088,7 +4088,7 @@ Amap_LibertyFileSize.exit:                        ; preds = %Amap_LibertyFixFile
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @fclose(ptr noundef nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store i32 %11, ptr %13, align 8, !tbaa !66
+  store i32 %11, ptr %13, align 8, !tbaa !68
   %14 = icmp eq i32 %11, 0
   br i1 %14, label %15, label %16
 
@@ -4145,13 +4145,13 @@ Amap_LibertyCountItems.exit.loopexit:             ; preds = %.lr.ph.i
 Amap_LibertyCountItems.exit:                      ; preds = %Amap_LibertyCountItems.exit.loopexit, %Abc_UtilStrsav.exit
   %.0.lcssa.i = phi i32 [ 10, %Abc_UtilStrsav.exit ], [ %39, %Amap_LibertyCountItems.exit.loopexit ]
   %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
-  store i32 %.0.lcssa.i, ptr %40, align 4, !tbaa !67
+  store i32 %.0.lcssa.i, ptr %40, align 4, !tbaa !69
   %41 = sext i32 %.0.lcssa.i to i64
   %42 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 40) #28
   %43 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %42, ptr %43, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 0, ptr %44, align 8, !tbaa !59
+  store i32 0, ptr %44, align 8, !tbaa !60
   %45 = getelementptr inbounds nuw i8, ptr %calloc, i64 20
   store i32 1, ptr %45, align 4, !tbaa !55
   br label %46
@@ -4205,7 +4205,7 @@ define void @Amap_LibertyStop(ptr noundef captures(none) %0) local_unnamed_addr 
 
 12:                                               ; preds = %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !62
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %16, label %15
 
@@ -4230,10 +4230,10 @@ define range(i32 0, 2) i32 @Amap_LibertyParse(ptr noundef %0, i32 noundef %1) lo
   br i1 %7, label %Abc_Clock.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr %4, align 8, !tbaa !68
+  %9 = load i64, ptr %4, align 8, !tbaa !70
   %.neg38 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !71
+  %11 = load i64, ptr %10, align 8, !tbaa !73
   %.neg = sdiv i64 %11, -1000
   %.neg39 = add i64 %.neg, %.neg38
   br label %Abc_Clock.exit
@@ -4250,7 +4250,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   store ptr %16, ptr %5, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !66
+  %18 = load i32, ptr %17, align 8, !tbaa !68
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   %21 = ptrtoint ptr %20 to i64
@@ -4326,7 +4326,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 
 Amap_LibertyWipeOutComments.exit.loopexit:        ; preds = %.loopexit.i
   %.pre = load ptr, ptr %15, align 8, !tbaa !11
-  %.pre46 = load i32, ptr %17, align 8, !tbaa !66
+  %.pre46 = load i32, ptr %17, align 8, !tbaa !68
   %.pre47 = sext i32 %.pre46 to i64
   br label %Amap_LibertyWipeOutComments.exit
 
@@ -4355,7 +4355,7 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
 
 56:                                               ; preds = %Amap_LibertyWipeOutComments.exit
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !62
+  %58 = load ptr, ptr %57, align 8, !tbaa !63
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %61, label %59
 
@@ -4373,10 +4373,10 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
 
 63:                                               ; preds = %.split24, %62
   %.0 = phi i32 [ 1, %.split24 ], [ 0, %62 ]
-  %64 = load i32, ptr %17, align 8, !tbaa !66
+  %64 = load i32, ptr %17, align 8, !tbaa !68
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %67 = load i32, ptr %66, align 4, !tbaa !67
+  %67 = load i32, ptr %66, align 4, !tbaa !69
   %68 = sext i32 %67 to i64
   %69 = mul nsw i64 %68, 40
   %70 = add nsw i64 %69, %65
@@ -4390,10 +4390,10 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
   br i1 %75, label %Abc_Clock.exit33, label %76
 
 76:                                               ; preds = %63
-  %77 = load i64, ptr %3, align 8, !tbaa !68
+  %77 = load i64, ptr %3, align 8, !tbaa !70
   %78 = mul nsw i64 %77, 1000000
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !71
+  %80 = load i64, ptr %79, align 8, !tbaa !73
   %81 = sdiv i64 %80, 1000
   %82 = add nsw i64 %81, %78
   br label %Abc_Clock.exit33
@@ -4441,7 +4441,7 @@ Abc_Clock.exit33:                                 ; preds = %63, %76
 
 95:                                               ; preds = %94, %91
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %97 = load ptr, ptr %96, align 8, !tbaa !62
+  %97 = load ptr, ptr %96, align 8, !tbaa !63
   %.not19.i = icmp eq ptr %97, null
   br i1 %.not19.i, label %Amap_LibertyStop.exit, label %98
 
@@ -4465,7 +4465,7 @@ declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #18 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !61
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !62
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -4486,7 +4486,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #18 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !21, !noalias !72
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !21, !noalias !74
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #24
   br label %17
 
@@ -4511,10 +4511,10 @@ define noundef ptr @Amap_LibertyParseStr(ptr noundef captures(address_is_null) %
   br i1 %7, label %Abc_Clock.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr %4, align 8, !tbaa !68
+  %9 = load i64, ptr %4, align 8, !tbaa !70
   %.neg37 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !71
+  %11 = load i64, ptr %10, align 8, !tbaa !73
   %.neg = sdiv i64 %11, -1000
   %.neg38 = add i64 %.neg, %.neg37
   br label %Abc_Clock.exit
@@ -4531,7 +4531,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   store ptr %16, ptr %5, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !66
+  %18 = load i32, ptr %17, align 8, !tbaa !68
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   %21 = ptrtoint ptr %20 to i64
@@ -4607,7 +4607,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 
 Amap_LibertyWipeOutComments.exit.loopexit:        ; preds = %.loopexit.i
   %.pre = load ptr, ptr %15, align 8, !tbaa !11
-  %.pre45 = load i32, ptr %17, align 8, !tbaa !66
+  %.pre45 = load i32, ptr %17, align 8, !tbaa !68
   %.pre46 = sext i32 %.pre45 to i64
   br label %Amap_LibertyWipeOutComments.exit
 
@@ -4634,7 +4634,7 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
 
 54:                                               ; preds = %Amap_LibertyWipeOutComments.exit
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !62
+  %56 = load ptr, ptr %55, align 8, !tbaa !63
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %59, label %57
 
@@ -4652,10 +4652,10 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
 
 61:                                               ; preds = %.split23, %60
   %.021 = phi ptr [ %53, %.split23 ], [ null, %60 ]
-  %62 = load i32, ptr %17, align 8, !tbaa !66
+  %62 = load i32, ptr %17, align 8, !tbaa !68
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %65 = load i32, ptr %64, align 4, !tbaa !67
+  %65 = load i32, ptr %64, align 4, !tbaa !69
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %66, 40
   %68 = add nsw i64 %67, %63
@@ -4669,10 +4669,10 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
   br i1 %73, label %Abc_Clock.exit32, label %74
 
 74:                                               ; preds = %61
-  %75 = load i64, ptr %3, align 8, !tbaa !68
+  %75 = load i64, ptr %3, align 8, !tbaa !70
   %76 = mul nsw i64 %75, 1000000
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !71
+  %78 = load i64, ptr %77, align 8, !tbaa !73
   %79 = sdiv i64 %78, 1000
   %80 = add nsw i64 %79, %76
   br label %Abc_Clock.exit32
@@ -4720,7 +4720,7 @@ Abc_Clock.exit32:                                 ; preds = %61, %74
 
 93:                                               ; preds = %92, %89
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !62
+  %95 = load ptr, ptr %94, align 8, !tbaa !63
   %.not19.i = icmp eq ptr %95, null
   br i1 %.not19.i, label %Amap_LibertyStop.exit, label %96
 
@@ -4865,22 +4865,24 @@ attributes #28 = { nounwind allocsize(0,1) }
 !53 = distinct !{!53, !10}
 !54 = !{!13, !13, i64 0}
 !55 = !{!12, !5, i64 20}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10}
+!56 = distinct !{!56, !10, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !58 = distinct !{!58, !10}
-!59 = !{!12, !5, i64 24}
-!60 = !{!4, !5, i64 4}
-!61 = !{!5, !5, i64 0}
-!62 = !{!12, !13, i64 40}
-!63 = distinct !{!63, !10}
+!59 = distinct !{!59, !10}
+!60 = !{!12, !5, i64 24}
+!61 = !{!4, !5, i64 4}
+!62 = !{!5, !5, i64 0}
+!63 = !{!12, !13, i64 40}
 !64 = distinct !{!64, !10}
 !65 = distinct !{!65, !10}
-!66 = !{!12, !5, i64 16}
-!67 = !{!12, !5, i64 28}
-!68 = !{!69, !70, i64 0}
-!69 = !{!"timespec", !70, i64 0, !70, i64 8}
-!70 = !{!"long", !6, i64 0}
-!71 = !{!69, !70, i64 8}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"vprintf: argument 0"}
-!74 = distinct !{!74, !"vprintf"}
+!66 = distinct !{!66, !10}
+!67 = distinct !{!67, !10}
+!68 = !{!12, !5, i64 16}
+!69 = !{!12, !5, i64 28}
+!70 = !{!71, !72, i64 0}
+!71 = !{!"timespec", !72, i64 0, !72, i64 8}
+!72 = !{!"long", !6, i64 0}
+!73 = !{!71, !72, i64 8}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"vprintf: argument 0"}
+!76 = distinct !{!76, !"vprintf"}

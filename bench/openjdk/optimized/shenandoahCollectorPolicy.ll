@@ -403,7 +403,7 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %_Z14is_implicit_gcN
   %.2 = phi i64 [ %.1, %_Z14is_implicit_gcN7GCCause5CauseE.exit.thread ], [ %.087, %.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 34
-  br i1 %exitcond.not, label %.split89.us, label %.split, !llvm.loop !8
+  br i1 %exitcond.not, label %.split89.us, label %.split, !llvm.loop !11
 
 .split89.us:                                      ; preds = %34, %21
   %.us-phi = phi i64 [ %.267.us, %21 ], [ %.267, %34 ]
@@ -508,7 +508,7 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %_Z14is_implicit_gcN
 101:                                              ; preds = %94, %97
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 5
-  br i1 %exitcond101.not, label %102, label %94, !llvm.loop !10
+  br i1 %exitcond101.not, label %102, label %94, !llvm.loop !12
 
 102:                                              ; preds = %101
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
@@ -699,6 +699,8 @@ attributes #9 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145414681}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

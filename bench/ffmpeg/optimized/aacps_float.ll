@@ -1872,7 +1872,7 @@ define internal fastcc void @hybrid_synthesis(ptr noundef readonly captures(none
   store float %29, ptr %18, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader131, label %21, !llvm.loop !52
+  br i1 %exitcond.not, label %.preheader131, label %21, !llvm.loop !53
 
 .preheader130:                                    ; preds = %36
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1897,7 +1897,7 @@ define internal fastcc void @hybrid_synthesis(ptr noundef readonly captures(none
   store float %43, ptr %20, align 4, !tbaa !13
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 8
-  br i1 %exitcond153.not, label %.preheader130, label %36, !llvm.loop !53
+  br i1 %exitcond153.not, label %.preheader130, label %36, !llvm.loop !54
 
 44:                                               ; preds = %.preheader130, %44
   %indvars.iv154 = phi i64 [ 0, %.preheader130 ], [ %indvars.iv.next155, %44 ]
@@ -1937,16 +1937,16 @@ define internal fastcc void @hybrid_synthesis(ptr noundef readonly captures(none
   store float %72, ptr %35, align 4, !tbaa !13
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 4
-  br i1 %exitcond157.not, label %73, label %44, !llvm.loop !54
+  br i1 %exitcond157.not, label %73, label %44, !llvm.loop !55
 
 73:                                               ; preds = %44
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 32
-  br i1 %exitcond161.not, label %74, label %16, !llvm.loop !55
+  br i1 %exitcond161.not, label %74, label %16, !llvm.loop !56
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !56
+  %76 = load ptr, ptr %75, align 8, !tbaa !57
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 6912
   tail call void %76(ptr noundef nonnull %1, ptr noundef nonnull %77, i32 noundef 5, i32 noundef 32) #12
   br label %142
@@ -2021,11 +2021,11 @@ define internal fastcc void @hybrid_synthesis(ptr noundef readonly captures(none
   store float %137, ptr %138, align 4, !tbaa !13
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 32
-  br i1 %exitcond165.not, label %139, label %78, !llvm.loop !57
+  br i1 %exitcond165.not, label %139, label %78, !llvm.loop !58
 
 139:                                              ; preds = %78
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !56
+  %141 = load ptr, ptr %140, align 8, !tbaa !57
   tail call void %141(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 3, i32 noundef 32) #12
   br label %142
 
@@ -2091,17 +2091,17 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %33, ptr %34, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %18, !llvm.loop !58
+  br i1 %exitcond.not, label %35, label %18, !llvm.loop !59
 
 35:                                               ; preds = %18
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 8
-  br i1 %exitcond168.not, label %36, label %7, !llvm.loop !59
+  br i1 %exitcond168.not, label %36, label %7, !llvm.loop !60
 
 36:                                               ; preds = %35
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 8
-  br i1 %exitcond172.not, label %.preheader154, label %1, !llvm.loop !60
+  br i1 %exitcond172.not, label %.preheader154, label %1, !llvm.loop !61
 
 .preheader154:                                    ; preds = %36, %115
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %115 ], [ 0, %36 ]
@@ -2201,12 +2201,12 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %113, ptr %114, align 4, !tbaa !13
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 8
-  br i1 %exitcond176.not, label %115, label %49, !llvm.loop !61
+  br i1 %exitcond176.not, label %115, label %49, !llvm.loop !62
 
 115:                                              ; preds = %73
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 46
-  br i1 %exitcond180.not, label %.preheader153, label %.preheader154, !llvm.loop !62
+  br i1 %exitcond180.not, label %.preheader153, label %.preheader154, !llvm.loop !63
 
 .preheader153:                                    ; preds = %115, %140
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %140 ], [ 0, %115 ]
@@ -2248,7 +2248,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %138, ptr %139, align 4, !tbaa !13
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 3
-  br i1 %exitcond184.not, label %140, label %128, !llvm.loop !63
+  br i1 %exitcond184.not, label %140, label %128, !llvm.loop !64
 
 140:                                              ; preds = %128
   %141 = fmul nsz double %.0138, 0xBFF39A816DFBE7FA
@@ -2262,7 +2262,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %146, ptr %147, align 4, !tbaa !13
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next186, 30
-  br i1 %exitcond188.not, label %.preheader, label %.preheader153, !llvm.loop !64
+  br i1 %exitcond188.not, label %.preheader, label %.preheader153, !llvm.loop !65
 
 .preheader:                                       ; preds = %140, %172
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %172 ], [ 0, %140 ]
@@ -2304,7 +2304,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %170, ptr %171, align 4, !tbaa !13
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, 3
-  br i1 %exitcond192.not, label %172, label %160, !llvm.loop !65
+  br i1 %exitcond192.not, label %172, label %160, !llvm.loop !66
 
 172:                                              ; preds = %160
   %173 = fmul nsz double %.0, 0xBFF39A816DFBE7FA
@@ -2318,7 +2318,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #4 {
   store float %178, ptr %179, align 4, !tbaa !13
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 50
-  br i1 %exitcond196.not, label %180, label %.preheader, !llvm.loop !66
+  br i1 %exitcond196.not, label %180, label %.preheader, !llvm.loop !67
 
 180:                                              ; preds = %172
   tail call fastcc void @make_filters_from_proto(ptr noundef nonnull @f20_0_8, ptr noundef nonnull @g0_Q8, i32 noundef 8) #13
@@ -2425,7 +2425,7 @@ map_idx_20_to_34.exit.us:                         ; preds = %.lr.ph30, %map_idx_
   store i8 %57, ptr %9, align 1, !tbaa !26
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.loopexit, label %map_idx_20_to_34.exit.us, !llvm.loop !67
+  br i1 %exitcond49.not, label %.loopexit, label %map_idx_20_to_34.exit.us, !llvm.loop !68
 
 map_idx_20_to_34.exit:                            ; preds = %.lr.ph30, %map_idx_20_to_34.exit
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %map_idx_20_to_34.exit ], [ 0, %.lr.ph30 ]
@@ -2552,7 +2552,7 @@ map_idx_20_to_34.exit:                            ; preds = %.lr.ph30, %map_idx_
   store i8 %142, ptr %58, align 1, !tbaa !26
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count48
-  br i1 %exitcond44.not, label %.loopexit, label %map_idx_20_to_34.exit, !llvm.loop !67
+  br i1 %exitcond44.not, label %.loopexit, label %map_idx_20_to_34.exit, !llvm.loop !69
 
 143:                                              ; preds = %5, %5
   %144 = icmp sgt i32 %3, 0
@@ -2615,7 +2615,7 @@ map_idx_10_to_34.exit.us:                         ; preds = %.lr.ph, %map_idx_10
   store i8 %175, ptr %145, align 1, !tbaa !26
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %.loopexit, label %map_idx_10_to_34.exit.us, !llvm.loop !68
+  br i1 %exitcond39.not, label %.loopexit, label %map_idx_10_to_34.exit.us, !llvm.loop !70
 
 map_idx_10_to_34.exit:                            ; preds = %.lr.ph, %map_idx_10_to_34.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %map_idx_10_to_34.exit ], [ 0, %.lr.ph ]
@@ -2717,7 +2717,7 @@ map_idx_10_to_34.exit:                            ; preds = %.lr.ph, %map_idx_10
   store i8 %237, ptr %176, align 1, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
-  br i1 %exitcond.not, label %.loopexit, label %map_idx_10_to_34.exit, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %map_idx_10_to_34.exit, !llvm.loop !71
 
 238:                                              ; preds = %5
   store ptr %1, ptr %0, align 8, !tbaa !37
@@ -2944,7 +2944,7 @@ define internal fastcc void @remap20(ptr noundef nonnull captures(none) %0, ptr 
 map_idx_34_to_20.exit:                            ; preds = %9, %93
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.loopexit, label %9, !llvm.loop !69
+  br i1 %exitcond43.not, label %.loopexit, label %9, !llvm.loop !72
 
 165:                                              ; preds = %5, %5
   %166 = icmp sgt i32 %3, 0
@@ -2974,12 +2974,12 @@ map_idx_34_to_20.exit:                            ; preds = %9, %93
   store i8 %172, ptr %175, align 1, !tbaa !26
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
   %.not11.i.us = icmp eq i64 %indvars.iv.i.us, 0
-  br i1 %.not11.i.us, label %map_idx_10_to_20.exit.us, label %170, !llvm.loop !70
+  br i1 %.not11.i.us, label %map_idx_10_to_20.exit.us, label %170, !llvm.loop !73
 
 map_idx_10_to_20.exit.us:                         ; preds = %170
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !71
+  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !74
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %map_idx_10_to_20.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %map_idx_10_to_20.exit ], [ 0, %.lr.ph ]
@@ -2998,12 +2998,12 @@ map_idx_10_to_20.exit.us:                         ; preds = %170
   store i8 %180, ptr %183, align 1, !tbaa !26
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not11.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not11.i, label %map_idx_10_to_20.exit, label %178, !llvm.loop !70
+  br i1 %.not11.i, label %map_idx_10_to_20.exit, label %178, !llvm.loop !73
 
 map_idx_10_to_20.exit:                            ; preds = %178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !75
 
 184:                                              ; preds = %5
   store ptr %1, ptr %0, align 8, !tbaa !37
@@ -3198,12 +3198,12 @@ define internal fastcc void @make_filters_from_proto(ptr noundef writeonly captu
   store float %27, ptr %28, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %29, label %9, !llvm.loop !72
+  br i1 %exitcond.not, label %29, label %9, !llvm.loop !76
 
 29:                                               ; preds = %9
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond27.not, label %30, label %.preheader, !llvm.loop !73
+  br i1 %exitcond27.not, label %30, label %.preheader, !llvm.loop !77
 
 30:                                               ; preds = %29
   ret void
@@ -3281,13 +3281,13 @@ attributes #14 = { nounwind willreturn memory(none) }
 !48 = distinct !{!48, !16}
 !49 = !{!11, !11, i64 0}
 !50 = distinct !{!50, !16}
-!51 = distinct !{!51, !16}
-!52 = distinct !{!52, !16}
+!51 = distinct !{!51, !16, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !53 = distinct !{!53, !16}
 !54 = distinct !{!54, !16}
 !55 = distinct !{!55, !16}
-!56 = !{!10, !11, i64 32}
-!57 = distinct !{!57, !16}
+!56 = distinct !{!56, !16}
+!57 = !{!10, !11, i64 32}
 !58 = distinct !{!58, !16}
 !59 = distinct !{!59, !16}
 !60 = distinct !{!60, !16}
@@ -3298,9 +3298,13 @@ attributes #14 = { nounwind willreturn memory(none) }
 !65 = distinct !{!65, !16}
 !66 = distinct !{!66, !16}
 !67 = distinct !{!67, !16}
-!68 = distinct !{!68, !16}
+!68 = distinct !{!68, !16, !52}
 !69 = distinct !{!69, !16}
-!70 = distinct !{!70, !16}
+!70 = distinct !{!70, !16, !52}
 !71 = distinct !{!71, !16}
 !72 = distinct !{!72, !16}
 !73 = distinct !{!73, !16}
+!74 = distinct !{!74, !16, !52}
+!75 = distinct !{!75, !16}
+!76 = distinct !{!76, !16}
+!77 = distinct !{!77, !16}

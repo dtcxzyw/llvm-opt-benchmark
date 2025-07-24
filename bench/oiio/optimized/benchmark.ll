@@ -28250,7 +28250,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   store double %45, ptr %70, align 8, !tbaa !26
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !555
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !557
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -28386,9 +28386,9 @@ define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tuple
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %2, align 8, !tbaa !68
-  %5 = load ptr, ptr %3, align 8, !tbaa !556
+  %5 = load ptr, ptr %3, align 8, !tbaa !558
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !558
+  %7 = load i64, ptr %6, align 8, !tbaa !560
   tail call void %5(i64 noundef %7, i32 noundef %4)
   ret void
 }
@@ -29053,7 +29053,9 @@ attributes #34 = { nounwind willreturn memory(none) }
 !552 = distinct !{!552, !25}
 !553 = distinct !{!553, !25}
 !554 = distinct !{!554, !25}
-!555 = distinct !{!555, !25}
-!556 = !{!557, !5, i64 0}
-!557 = !{!"_ZTSN11OpenImageIO6v3_1_013function_viewIFviEEE", !5, i64 0, !17, i64 8}
-!558 = !{!557, !17, i64 8}
+!555 = distinct !{!555, !25, !556}
+!556 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!557 = distinct !{!557, !25}
+!558 = !{!559, !5, i64 0}
+!559 = !{!"_ZTSN11OpenImageIO6v3_1_013function_viewIFviEEE", !5, i64 0, !17, i64 8}
+!560 = !{!559, !17, i64 8}

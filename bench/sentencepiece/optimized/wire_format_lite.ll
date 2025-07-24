@@ -1527,7 +1527,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit.us: ; preds = %52, %48
   store i32 %.pre-phi.i.us, ptr %4, align 8, !tbaa !41
   %57 = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %58 = icmp slt i32 %57, 1
-  br i1 %58, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %58, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129
   %59 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3688,7 +3688,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %52, 
   %74 = load i64, ptr %36, align 8, !tbaa !33
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 57
-  %77 = load i8, ptr %76, align 1, !tbaa !45, !range !46, !noundef !47
+  %77 = load i8, ptr %76, align 1, !tbaa !47, !range !48, !noundef !49
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %81
 
@@ -4094,7 +4094,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %52, 
   %74 = load i64, ptr %36, align 8, !tbaa !33
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 57
-  %77 = load i8, ptr %76, align 1, !tbaa !45, !range !46, !noundef !47
+  %77 = load i8, ptr %76, align 1, !tbaa !47, !range !48, !noundef !49
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %81
 
@@ -4207,7 +4207,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %31
   %.021.i.i.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.021.i.i.i.i, ptr %5, align 8, !tbaa !20
-  %34 = load ptr, ptr %1, align 8, !tbaa !48
+  %34 = load ptr, ptr %1, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.021.i.i.i.i, ptr noundef nonnull %2)
@@ -4334,7 +4334,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %31
   %.021.i.i.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.021.i.i.i.i, ptr %5, align 8, !tbaa !20
-  %34 = load ptr, ptr %1, align 8, !tbaa !48
+  %34 = load ptr, ptr %1, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -4396,7 +4396,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %4
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %44, %50, %62
   %.021.i.i.i = phi ptr [ %45, %44 ], [ %53, %50 ], [ %64, %62 ]
   store ptr %.021.i.i.i, ptr %5, align 8, !tbaa !20
-  %65 = load ptr, ptr %1, align 8, !tbaa !48
+  %65 = load ptr, ptr %1, align 8, !tbaa !50
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.021.i.i.i, ptr noundef nonnull %2)
@@ -4408,7 +4408,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %44, 
 define void @_ZN6google8protobuf8internal14WireFormatLite27WriteSubMessageMaybeToArrayEiRKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !20
-  %6 = load ptr, ptr %1, align 8, !tbaa !48
+  %6 = load ptr, ptr %1, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %5, ptr noundef %2)
@@ -4479,12 +4479,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %31
   %.021.i.i.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.021.i.i.i.i, ptr %5, align 8, !tbaa !20
-  %34 = load ptr, ptr %1, align 8, !tbaa !48
+  %34 = load ptr, ptr %1, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %38 = load ptr, ptr %5, align 8, !tbaa !20
-  %39 = load ptr, ptr %1, align 8, !tbaa !48
+  %39 = load ptr, ptr %1, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %38, ptr noundef nonnull %2)
@@ -4611,7 +4611,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %31
   %.021.i.i.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.021.i.i.i.i, ptr %5, align 8, !tbaa !20
-  %34 = load ptr, ptr %1, align 8, !tbaa !48
+  %34 = load ptr, ptr %1, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -4673,7 +4673,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %4
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %44, %50, %62
   %.021.i.i.i = phi ptr [ %45, %44 ], [ %53, %50 ], [ %64, %62 ]
   store ptr %.021.i.i.i, ptr %5, align 8, !tbaa !20
-  %65 = load ptr, ptr %1, align 8, !tbaa !48
+  %65 = load ptr, ptr %1, align 8, !tbaa !50
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.021.i.i.i, ptr noundef nonnull %2)
@@ -4719,7 +4719,7 @@ _ZN6google8protobuf8internalL17ReadBytesToStringEPNS0_2io16CodedInputStreamEPNSt
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !50
+  %3 = load ptr, ptr %1, align 8, !tbaa !52
   %4 = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringE
   br i1 %4, label %5, label %9
 
@@ -4730,7 +4730,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadByte
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !33
   store i8 0, ptr %7, align 1, !tbaa !16
-  store ptr %6, ptr %1, align 8, !tbaa !50
+  store ptr %6, ptr %1, align 8, !tbaa !52
   br label %9
 
 9:                                                ; preds = %5, %2
@@ -5127,7 +5127,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   %.4.i = add i32 %.3.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !54
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1, %._crit_edge.loopexit.i
   %.019.lcssa.i = phi i32 [ 0, %1 ], [ %6, %._crit_edge.loopexit.i ]
@@ -5140,8 +5140,8 @@ _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt32SizeERKNS0_13RepeatedFieldIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
-  %4 = load i32, ptr %0, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %4 = load i32, ptr %0, align 8, !tbaa !57
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit
 
@@ -5168,7 +5168,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   %.4.i = add i32 %.3.i, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %.lr.ph.i, !llvm.loop !58
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit: ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ %4, %1 ], [ %.4.i, %.lr.ph.i ]
@@ -5210,7 +5210,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   %.4.i = add i32 %.3.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %.lr.ph.i, !llvm.loop !59
 
 _ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit: ; preds = %.lr.ph.i, %1
   %.015.lcssa.i = phi i32 [ %4, %1 ], [ %.4.i, %.lr.ph.i ]
@@ -5256,7 +5256,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   %.4.i = add i32 %.3.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !54
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1, %._crit_edge.loopexit.i
   %.019.lcssa.i = phi i32 [ 0, %1 ], [ %6, %._crit_edge.loopexit.i ]
@@ -5268,13 +5268,13 @@ _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int64SizeERKNS0_13RepeatedFieldIlEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !58
+  %2 = load i32, ptr %0, align 8, !tbaa !60
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
@@ -5296,18 +5296,18 @@ define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int64SizeERKNS0
   %15 = add i64 %14, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeERKNS0_13RepeatedFieldImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !62
+  %2 = load i32, ptr %0, align 8, !tbaa !64
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
@@ -5329,18 +5329,18 @@ define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeERKN
   %15 = add i64 %14, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt64SizeERKNS0_13RepeatedFieldIlEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !58
+  %2 = load i32, ptr %0, align 8, !tbaa !60
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
@@ -5365,7 +5365,7 @@ define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt64SizeERKN
   %18 = add i64 %17, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5489,25 +5489,27 @@ attributes #16 = { builtin allocsize(0) }
 !42 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiEE", !10, i64 0, !10, i64 4, !6, i64 8}
 !43 = !{!42, !10, i64 4}
 !44 = !{!42, !6, i64 8}
-!45 = !{!22, !11, i64 57}
-!46 = !{i8 0, i8 2}
-!47 = !{}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"vtable pointer", !8, i64 0}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = !{!22, !11, i64 57}
+!48 = !{i8 0, i8 2}
+!49 = !{}
 !50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
-!52 = distinct !{!52, !28}
-!53 = !{!54, !6, i64 8}
-!54 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjEE", !10, i64 0, !10, i64 4, !6, i64 8}
-!55 = !{!54, !10, i64 0}
-!56 = distinct !{!56, !28}
-!57 = distinct !{!57, !28}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlEE", !10, i64 0, !10, i64 4, !6, i64 8}
-!60 = !{!59, !6, i64 8}
-!61 = distinct !{!61, !28}
-!62 = !{!63, !10, i64 0}
-!63 = !{!"_ZTSN6google8protobuf13RepeatedFieldImEE", !10, i64 0, !10, i64 4, !6, i64 8}
-!64 = !{!63, !6, i64 8}
-!65 = distinct !{!65, !28}
-!66 = distinct !{!66, !28}
+!51 = !{!"vtable pointer", !8, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!54 = distinct !{!54, !28}
+!55 = !{!56, !6, i64 8}
+!56 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjEE", !10, i64 0, !10, i64 4, !6, i64 8}
+!57 = !{!56, !10, i64 0}
+!58 = distinct !{!58, !28}
+!59 = distinct !{!59, !28}
+!60 = !{!61, !10, i64 0}
+!61 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlEE", !10, i64 0, !10, i64 4, !6, i64 8}
+!62 = !{!61, !6, i64 8}
+!63 = distinct !{!63, !28}
+!64 = !{!65, !10, i64 0}
+!65 = !{!"_ZTSN6google8protobuf13RepeatedFieldImEE", !10, i64 0, !10, i64 4, !6, i64 8}
+!66 = !{!65, !6, i64 8}
+!67 = distinct !{!67, !28}
+!68 = distinct !{!68, !28}

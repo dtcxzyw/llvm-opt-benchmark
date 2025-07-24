@@ -1889,7 +1889,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %105, %100, %99, %94
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next85 to i32
   %exitcond87.not = icmp eq i32 %50, %lftr.wideiv
-  br i1 %exitcond87.not, label %._crit_edge74, label %.lr.ph68.us
+  br i1 %exitcond87.not, label %._crit_edge74, label %.lr.ph68.us, !llvm.loop !64
 
 ._crit_edge74:                                    ; preds = %._crit_edge69.us, %.lr.ph73, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
@@ -1916,7 +1916,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #10
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare !callback !64 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
+declare !callback !66 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiiiiS2_RKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %11, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %12, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %13, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %15) #9 personality ptr @__gxx_personality_v0 {
@@ -1937,19 +1937,19 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   %28 = mul nuw nsw i64 %23, %27
   %29 = add nsw i64 %28, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
-  store i64 0, ptr %17, align 8, !tbaa !66
+  store i64 0, ptr %17, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
-  store i64 %29, ptr %18, align 8, !tbaa !66
+  store i64 %29, ptr %18, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #10
-  store i64 1, ptr %19, align 8, !tbaa !66
+  store i64 1, ptr %19, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #10
   store i32 0, ptr %20, align 4, !tbaa !58
   %30 = load i32, ptr %0, align 4, !tbaa !58
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %30, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i64 1, i64 1)
-  %31 = load i64, ptr %18, align 8, !tbaa !66
+  %31 = load i64, ptr %18, align 8, !tbaa !68
   %32 = call i64 @llvm.smin.i64(i64 %31, i64 %29)
-  store i64 %32, ptr %18, align 8, !tbaa !66
-  %33 = load i64, ptr %17, align 8, !tbaa !66
+  store i64 %32, ptr %18, align 8, !tbaa !68
+  %33 = load i64, ptr %17, align 8, !tbaa !68
   %.not96 = icmp sgt i64 %33, %32
   br i1 %.not96, label %._crit_edge100, label %.lr.ph99
 
@@ -2108,7 +2108,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %123, %118, %117, %1
   store float %.184.us, ptr %125, align 4, !tbaa !60
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge.us108, label %81, !llvm.loop !67
+  br i1 %exitcond121.not, label %._crit_edge.us108, label %81, !llvm.loop !69
 
 .lr.ph92.us:                                      ; preds = %84
   %126 = mul nsw i64 %indvars.iv117, %80
@@ -2138,18 +2138,18 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %123, %118, %117, %1
   %136 = getelementptr inbounds float, ptr %.06586.us.us, i64 %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %130, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %130, !llvm.loop !70
 
 ._crit_edge.us.us:                                ; preds = %130
   %137 = getelementptr inbounds nuw float, ptr %.06789.us.us, i64 %53
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge93.us, label %.lr.ph.us.us, !llvm.loop !69
+  br i1 %exitcond116.not, label %._crit_edge93.us, label %.lr.ph.us.us, !llvm.loop !71
 
 ._crit_edge.us108:                                ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
   %138 = add i64 %.097.us, 1
   %exitcond122.not = icmp eq i64 %.097.us, %32
-  br i1 %exitcond122.not, label %._crit_edge100, label %.lr.ph.us107
+  br i1 %exitcond122.not, label %._crit_edge100, label %.lr.ph.us107, !llvm.loop !72
 
 ._crit_edge100:                                   ; preds = %._crit_edge.us108, %.lr.ph99, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %30)
@@ -2295,9 +2295,9 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %5, %_ZN4ncnn3Mat7re
 
 _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !73
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !73
+  %70 = load ptr, ptr %69, align 8, !tbaa !76
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %70, ptr %71, align 8, !tbaa !55
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2323,9 +2323,9 @@ _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0
 
 84:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !73
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !73
+  %86 = load ptr, ptr %85, align 8, !tbaa !76
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !55
   %88 = lshr i32 %82, 1
@@ -2353,9 +2353,9 @@ _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0
 
 102:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !73
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !73
+  %104 = load ptr, ptr %103, align 8, !tbaa !76
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %104, ptr %105, align 8, !tbaa !55
   %106 = lshr i32 %100, 1
@@ -2472,13 +2472,16 @@ attributes #17 = { builtin nounwind }
 !61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
 !63 = distinct !{!63, !62}
-!64 = !{!65}
-!65 = !{i64 2, i64 -1, i64 -1, i1 true}
-!66 = !{!12, !12, i64 0}
-!67 = distinct !{!67, !62}
-!68 = distinct !{!68, !62}
+!64 = distinct !{!64, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = !{!67}
+!67 = !{i64 2, i64 -1, i64 -1, i1 true}
+!68 = !{!12, !12, i64 0}
 !69 = distinct !{!69, !62}
-!70 = !{i64 0, i64 1, !71, i64 4, i64 4, !58, i64 8, i64 8, !72, i64 16, i64 8, !72, i64 24, i64 4, !58, i64 28, i64 1, !71, i64 29, i64 1, !71, i64 30, i64 1, !71, i64 31, i64 1, !71, i64 32, i64 1, !71, i64 33, i64 1, !71, i64 34, i64 1, !71, i64 35, i64 1, !71, i64 36, i64 1, !71, i64 37, i64 1, !71, i64 38, i64 1, !71, i64 39, i64 1, !71, i64 40, i64 1, !71, i64 41, i64 1, !71, i64 42, i64 1, !71, i64 43, i64 1, !71, i64 44, i64 1, !71, i64 45, i64 1, !71, i64 46, i64 1, !71, i64 47, i64 1, !71, i64 48, i64 4, !58, i64 52, i64 1, !71, i64 53, i64 1, !71, i64 54, i64 1, !71, i64 55, i64 1, !71, i64 56, i64 1, !71, i64 57, i64 1, !71, i64 58, i64 1, !71, i64 59, i64 1, !71, i64 60, i64 1, !71, i64 61, i64 1, !71, i64 62, i64 1, !71, i64 63, i64 1, !71}
-!71 = !{!21, !21, i64 0}
-!72 = !{!14, !14, i64 0}
-!73 = !{!56, !14, i64 16}
+!70 = distinct !{!70, !62}
+!71 = distinct !{!71, !62, !65}
+!72 = distinct !{!72, !65}
+!73 = !{i64 0, i64 1, !74, i64 4, i64 4, !58, i64 8, i64 8, !75, i64 16, i64 8, !75, i64 24, i64 4, !58, i64 28, i64 1, !74, i64 29, i64 1, !74, i64 30, i64 1, !74, i64 31, i64 1, !74, i64 32, i64 1, !74, i64 33, i64 1, !74, i64 34, i64 1, !74, i64 35, i64 1, !74, i64 36, i64 1, !74, i64 37, i64 1, !74, i64 38, i64 1, !74, i64 39, i64 1, !74, i64 40, i64 1, !74, i64 41, i64 1, !74, i64 42, i64 1, !74, i64 43, i64 1, !74, i64 44, i64 1, !74, i64 45, i64 1, !74, i64 46, i64 1, !74, i64 47, i64 1, !74, i64 48, i64 4, !58, i64 52, i64 1, !74, i64 53, i64 1, !74, i64 54, i64 1, !74, i64 55, i64 1, !74, i64 56, i64 1, !74, i64 57, i64 1, !74, i64 58, i64 1, !74, i64 59, i64 1, !74, i64 60, i64 1, !74, i64 61, i64 1, !74, i64 62, i64 1, !74, i64 63, i64 1, !74}
+!74 = !{!21, !21, i64 0}
+!75 = !{!14, !14, i64 0}
+!76 = !{!56, !14, i64 16}

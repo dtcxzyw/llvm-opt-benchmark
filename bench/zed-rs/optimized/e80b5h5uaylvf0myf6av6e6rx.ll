@@ -1997,8 +1997,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   %74 = add i64 %73, %.sroa.4.0.i26.i.i.i.i
   %.not13.i.i.i.i = icmp ugt i64 %74, %.sroa.4.0.i
   %75 = add i64 %.sroa.4.0.i26.i.i.i.i, %61
-  %or.cond.i.i.i.i.not = icmp ult i64 %75, %.sroa.4.0.i
-  br i1 %or.cond.i.i.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i", label %76
+  %or.cond93.i.i.i.i.not = icmp ult i64 %75, %.sroa.4.0.i
+  br i1 %or.cond93.i.i.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i", label %76
 
 76:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i
   br i1 %.not13.i.i.i.i, label %select.unfold.i, label %.lr.ph.split.split.i.i.i.i

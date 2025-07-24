@@ -7266,7 +7266,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind13DwarfFDECacheINS_17LocalA
 35:                                               ; preds = %.lr.ph.split, %29, %26
   %36 = getelementptr inbounds nuw i8, ptr %.01316, i64 32
   %37 = icmp ult ptr %36, %12
-  br i1 %37, label %.lr.ph.split, label %.loopexit, !llvm.loop !131
+  br i1 %37, label %.lr.ph.split, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %35, %21, %10, %.split.us
   %.0 = phi i64 [ %34, %.split.us ], [ 0, %10 ], [ 0, %21 ], [ 0, %35 ]
@@ -7334,7 +7334,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
   %30 = inttoptr i64 %27 to ptr
   %.0.copyload.i33 = load i8, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 %.0.copyload.i33, ptr %31, align 8, !tbaa !132
+  store i8 %.0.copyload.i33, ptr %31, align 8, !tbaa !134
   %32 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %2, i8 noundef zeroext %.0.copyload.i31, i64 noundef %1)
   store i64 %32, ptr %3, align 8, !tbaa !90
   %33 = icmp eq i8 %.0.copyload.i32, -1
@@ -7347,10 +7347,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 36:                                               ; preds = %23, %34
   %37 = phi i64 [ %35, %34 ], [ 0, %23 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %37, ptr %38, align 8, !tbaa !133
+  store i64 %37, ptr %38, align 8, !tbaa !135
   %39 = load i64, ptr %5, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %39, ptr %40, align 8, !tbaa !134
+  store i64 %39, ptr %40, align 8, !tbaa !136
   br label %41
 
 41:                                               ; preds = %17, %36, %8, %10
@@ -7365,40 +7365,40 @@ declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #10
 define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsByPhdrEP12dl_phdr_infomPv(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %"struct.libunwind::EHHeaderParser<libunwind::LocalAddressSpace>::EHHeaderInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i16, ptr %5, align 8, !tbaa !135
+  %6 = load i16, ptr %5, align 8, !tbaa !137
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !98
-  %11 = load i64, ptr %0, align 8, !tbaa !138
+  %11 = load i64, ptr %0, align 8, !tbaa !140
   %12 = icmp ult i64 %10, %11
   br i1 %12, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !139
+  %14 = load ptr, ptr %13, align 8, !tbaa !141
   %wide.trip.count = zext i16 %6 to i64
   br label %15
 
 15:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
   %16 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %14, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8, !tbaa !140
+  %17 = load i32, ptr %16, align 8, !tbaa !142
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !142
+  %21 = load i64, ptr %20, align 8, !tbaa !144
   %22 = add i64 %21, %11
   %.not.i = icmp ult i64 %10, %22
   br i1 %.not.i, label %28, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !143
+  %25 = load i64, ptr %24, align 8, !tbaa !145
   %26 = add i64 %25, %22
   %27 = icmp ult i64 %10, %26
   br i1 %27, label %29, label %28
@@ -7406,7 +7406,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
 28:                                               ; preds = %15, %23, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !144
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !146
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7418,24 +7418,24 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
 
 33:                                               ; preds = %29, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
   %indvars.iv48 = phi i64 [ %wide.trip.count, %29 ], [ %indvars.iv.next49, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread ]
-  %34 = load ptr, ptr %13, align 8, !tbaa !139
+  %34 = load ptr, ptr %13, align 8, !tbaa !141
   %35 = add nuw nsw i64 %indvars.iv48, 4294967295
   %36 = and i64 %35, 4294967295
   %37 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %34, i64 %36
-  %38 = load i32, ptr %37, align 8, !tbaa !140
+  %38 = load i32, ptr %37, align 8, !tbaa !142
   %39 = icmp eq i32 %38, 1685382480
   br i1 %39, label %40, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
 
 40:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !142
+  %42 = load i64, ptr %41, align 8, !tbaa !144
   %43 = add i64 %42, %11
   %44 = load ptr, ptr %30, align 8, !tbaa !97
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i64 %43, ptr %45, align 8, !tbaa !88
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %47 = load i64, ptr %46, align 8, !tbaa !143
+  %47 = load i64, ptr %46, align 8, !tbaa !145
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i64 %47, ptr %48, align 8, !tbaa !89
   %49 = load ptr, ptr %2, align 8, !tbaa !94
@@ -7461,7 +7461,7 @@ _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dat
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %57 = and i64 %indvars.iv.next49, 65535
   %.not.not.not = icmp eq i64 %57, 0
-  br i1 %.not.not.not, label %.critedge, label %33, !llvm.loop !145
+  br i1 %.not.not.not, label %.critedge, label %33, !llvm.loop !147
 
 .critedge:                                        ; preds = %28, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread, %52, %3, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %52 ], [ 0, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread ], [ 0, %28 ]
@@ -7639,7 +7639,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %76
 .thread:                                          ; preds = %27, %35, %31, %38
   store i64 %30, ptr %8, align 8, !tbaa !18
   %97 = icmp ult i64 %30, %12
-  br i1 %97, label %15, label %.thread89, !llvm.loop !146
+  br i1 %97, label %15, label %.thread89, !llvm.loop !148
 
 .thread89:                                        ; preds = %.thread, %24, %7, %90
   %.7 = phi i1 [ true, %90 ], [ false, %7 ], [ false, %24 ], [ false, %.thread ]
@@ -7659,16 +7659,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !133
+  %14 = load i64, ptr %13, align 8, !tbaa !135
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %53, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %18 = load i8, ptr %17, align 8, !tbaa !132
+  %18 = load i8, ptr %17, align 8, !tbaa !134
   %19 = call noundef i64 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE17getTableEntrySizeEh(i8 noundef zeroext %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  %20 = load i64, ptr %13, align 8, !tbaa !133
+  %20 = load i64, ptr %13, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %22
 
@@ -7685,25 +7685,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 24:                                               ; preds = %22
   %25 = lshr i64 %.035, 1
   %26 = add i64 %25, %.037
-  %27 = load i64, ptr %21, align 8, !tbaa !134
+  %27 = load i64, ptr %21, align 8, !tbaa !136
   %28 = mul i64 %26, %19
   %29 = add i64 %27, %28
   store i64 %29, ptr %8, align 8, !tbaa !18
-  %30 = load i8, ptr %17, align 8, !tbaa !132
+  %30 = load i8, ptr %17, align 8, !tbaa !134
   %31 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %30, i64 noundef %2)
   %.not = icmp eq i64 %31, %1
   %32 = icmp ult i64 %31, %1
   %33 = sub i64 %.035, %25
   %.3 = select i1 %32, i64 %26, i64 %.037
   %.2 = select i1 %32, i64 %33, i64 %25
-  br i1 %.not, label %split, label %22, !llvm.loop !147
+  br i1 %.not, label %split, label %22, !llvm.loop !149
 
 split:                                            ; preds = %24, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %28, %24 ]
-  %34 = load i64, ptr %21, align 8, !tbaa !134
+  %34 = load i64, ptr %21, align 8, !tbaa !136
   %35 = add i64 %34, %.pre-phi
   store i64 %35, ptr %8, align 8, !tbaa !18
-  %36 = load i8, ptr %17, align 8, !tbaa !132
+  %36 = load i8, ptr %17, align 8, !tbaa !134
   %37 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %36, i64 noundef %2)
   %38 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %36, i64 noundef %2)
   %39 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %38, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false)
@@ -7957,20 +7957,22 @@ attributes #19 = { cold }
 !128 = !{!104, !19, i64 8}
 !129 = distinct !{!129, !34}
 !130 = distinct !{!130, !34}
-!131 = distinct !{!131, !34}
-!132 = !{!91, !8, i64 24}
-!133 = !{!91, !19, i64 8}
-!134 = !{!91, !19, i64 16}
-!135 = !{!136, !137, i64 24}
-!136 = !{!"_ZTS12dl_phdr_info", !19, i64 0, !77, i64 8, !13, i64 16, !137, i64 24, !81, i64 32, !81, i64 40, !19, i64 48, !13, i64 56}
-!137 = !{!"short", !8, i64 0}
-!138 = !{!136, !19, i64 0}
-!139 = !{!136, !13, i64 16}
-!140 = !{!141, !22, i64 0}
-!141 = !{!"_ZTS10Elf64_Phdr", !22, i64 0, !22, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
-!142 = !{!141, !19, i64 16}
-!143 = !{!141, !19, i64 40}
-!144 = distinct !{!144, !34}
-!145 = distinct !{!145, !34}
+!131 = distinct !{!131, !34, !132}
+!132 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!133 = distinct !{!133, !34}
+!134 = !{!91, !8, i64 24}
+!135 = !{!91, !19, i64 8}
+!136 = !{!91, !19, i64 16}
+!137 = !{!138, !139, i64 24}
+!138 = !{!"_ZTS12dl_phdr_info", !19, i64 0, !77, i64 8, !13, i64 16, !139, i64 24, !81, i64 32, !81, i64 40, !19, i64 48, !13, i64 56}
+!139 = !{!"short", !8, i64 0}
+!140 = !{!138, !19, i64 0}
+!141 = !{!138, !13, i64 16}
+!142 = !{!143, !22, i64 0}
+!143 = !{!"_ZTS10Elf64_Phdr", !22, i64 0, !22, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
+!144 = !{!143, !19, i64 16}
+!145 = !{!143, !19, i64 40}
 !146 = distinct !{!146, !34}
 !147 = distinct !{!147, !34}
+!148 = distinct !{!148, !34}
+!149 = distinct !{!149, !34}

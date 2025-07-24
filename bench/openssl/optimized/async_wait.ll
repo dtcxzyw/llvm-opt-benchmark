@@ -421,7 +421,7 @@ define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes(
   tail call void @CRYPTO_free(ptr noundef nonnull %.01824, ptr noundef nonnull @.str, i32 noundef 234) #8
   %.018 = load ptr, ptr %4, align 8, !tbaa !22
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.01824.us, %.lr.ph.split.us ], [ %.01824, %.lr.ph.split ]
@@ -438,7 +438,7 @@ define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes(
   %18 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
   %.01822 = load ptr, ptr %18, align 8, !tbaa !22
   %.not23 = icmp eq ptr %.01822, null
-  br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.outer, %12, %7, %1
   ret void
@@ -493,4 +493,6 @@ attributes #8 = { nounwind }
 !31 = !{!4, !6, i64 24}
 !32 = !{!4, !6, i64 32}
 !33 = !{!4, !10, i64 40}
-!34 = distinct !{!34, !19}
+!34 = distinct !{!34, !19, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !19}

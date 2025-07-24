@@ -29429,7 +29429,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr noundef captures(
   %43 = add i32 %42, %5
   store i32 %43, ptr %1, align 4
   %exitcond.not = icmp eq i64 %41, 8
-  br i1 %exitcond.not, label %.split36.us, label %.split, !llvm.loop !34
+  br i1 %exitcond.not, label %.split36.us, label %.split, !llvm.loop !36
 
 .split36.us:                                      ; preds = %.split, %._crit_edge.us
   ret void
@@ -29606,7 +29606,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %44 = getelementptr ptr, ptr %26, i64 %indvars.iv.next243.i
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %keycode2keysymString.exit, label %.lr.ph.split.us185.i, !llvm.loop !35
+  br i1 %46, label %keycode2keysymString.exit, label %.lr.ph.split.us185.i, !llvm.loop !37
 
 47:                                               ; preds = %.lr.ph.split.us185.i, %54
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us185.i ], [ %indvars.iv.next.i, %54 ]
@@ -29642,11 +29642,11 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.297.us.i = phi i32 [ %.196153.us180.i, %47 ], [ %.196153.us180.i, %53 ], [ %.196153.us180.i, %52 ], [ %.196153.us180.i, %51 ], [ %56, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !38
 
 ._crit_edge.us.i:                                 ; preds = %54
   %exitcond245.not.i = icmp eq i64 %indvars.iv242.i, 255
-  br i1 %exitcond245.not.i, label %._crit_edge174.i, label %.preheader137.us.i, !llvm.loop !35
+  br i1 %exitcond245.not.i, label %._crit_edge174.i, label %.preheader137.us.i, !llvm.loop !37
 
 .lr.ph.split.us185.i:                             ; preds = %.preheader137.us.i, %.lr.ph.split.us185.preheader.i
   %indvars.iv242.i = phi i64 [ %40, %.lr.ph.split.us185.preheader.i ], [ %indvars.iv.next243.i, %.preheader137.us.i ]
@@ -29698,14 +29698,14 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.2104.us.i = select i1 %67, i32 %.1103205.us.i, i32 %spec.select.us.i
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count249.i
-  br i1 %exitcond250.not.i, label %._crit_edge.us211.i, label %64, !llvm.loop !37
+  br i1 %exitcond250.not.i, label %._crit_edge.us211.i, label %64, !llvm.loop !39
 
 ._crit_edge.us211.i:                              ; preds = %64
   %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
   %69 = icmp samesign ult i64 %indvars.iv251.i, 7
   %70 = icmp eq i32 %.2107.us.i, -1
   %71 = select i1 %69, i1 %70, i1 false
-  br i1 %71, label %.preheader135.us.i, label %.preheader.i, !llvm.loop !38
+  br i1 %71, label %.preheader135.us.i, label %.preheader.i, !llvm.loop !40
 
 .preheader.i:                                     ; preds = %._crit_edge.us211.i
   %72 = getelementptr i8, ptr %4, i64 12408
@@ -29715,7 +29715,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 74:                                               ; preds = %79
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count249.i
-  br i1 %exitcond258.not.i, label %._crit_edge.i, label %75, !llvm.loop !39
+  br i1 %exitcond258.not.i, label %._crit_edge.i, label %75, !llvm.loop !41
 
 75:                                               ; preds = %74, %.preheader.i
   %indvars.iv254.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next255.i, %74 ]
@@ -29752,7 +29752,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 88:                                               ; preds = %.lr.ph228.i
   %89 = add nsw i32 %.0116226.i, -1
   %90 = icmp sgt i32 %.0116226.i, 3
-  br i1 %90, label %.lr.ph228.i, label %.critedge.thread.i, !llvm.loop !40
+  br i1 %90, label %.lr.ph228.i, label %.critedge.thread.i, !llvm.loop !42
 
 .critedge.i:                                      ; preds = %.lr.ph228.i
   %91 = icmp sgt i32 %.us-phi213264.i, -1
@@ -31094,12 +31094,12 @@ atom.exit965:                                     ; preds = %900, %904, %905, %9
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 8
   %965 = load ptr, ptr %964, align 8
   %.not57.i = icmp eq ptr %965, null
-  br i1 %.not57.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not57.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !43
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %966 = load i16, ptr %963, align 8
   %967 = icmp eq i16 %966, %956
-  br i1 %967, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %967, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !43
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %958, %.lr.ph.i.preheader ], [ %965, %.lr.ph.i ]
@@ -31670,7 +31670,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 46:                                               ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !44
 
 47:                                               ; preds = %40, %46
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %46 ]
@@ -34331,7 +34331,7 @@ define internal fastcc void @listOfCard16(ptr noundef %0, ptr noundef captures(n
   %17 = add i32 %16, 2
   store i32 %17, ptr %1, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -34360,7 +34360,7 @@ define internal fastcc void @listOfCard32(ptr noundef %0, ptr noundef captures(n
   %17 = add i32 %16, 4
   store i32 %17, ptr %1, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -34390,7 +34390,7 @@ define internal fastcc void @string16(ptr noundef %0, ptr noundef captures(none)
   %12 = add i32 %.059.i, 2
   %13 = add i32 %.010.i, -1
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !47
 
 .loopexit.loopexit:                               ; preds = %11
   %.pre = load i32, ptr %1, align 4
@@ -34424,7 +34424,7 @@ define internal fastcc void @string16(ptr noundef %0, ptr noundef captures(none)
 25:                                               ; preds = %24, %23
   %26 = add i32 %.012.i, 2
   %.not.i22 = icmp eq i32 %19, 0
-  br i1 %.not.i22, label %tvb_get_ascii_string16.exit, label %.lr.ph.i21, !llvm.loop !46
+  br i1 %.not.i22, label %tvb_get_ascii_string16.exit, label %.lr.ph.i21, !llvm.loop !48
 
 tvb_get_ascii_string16.exit:                      ; preds = %25, %.loopexit
   %27 = tail call ptr @wmem_strbuf_finalize(ptr noundef %18)
@@ -34459,7 +34459,7 @@ define internal fastcc void @listOfString8(ptr noundef %0, ptr noundef captures(
   %12 = add i32 %11, %10
   %13 = add nsw i32 %.03134, -1
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %1, align 4
@@ -34495,7 +34495,7 @@ define internal fastcc void @listOfString8(ptr noundef %0, ptr noundef captures(
   %31 = add i32 %30, %28
   store i32 %31, ptr %1, align 4
   %.not32 = icmp eq i32 %20, 0
-  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !48
+  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !50
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   ret void
@@ -34975,7 +34975,7 @@ define internal fastcc void @listOfRectangle(ptr noundef %0, ptr noundef capture
   %49 = add i32 %48, 2
   store i32 %49, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -35022,7 +35022,7 @@ define internal fastcc void @listOfPoint(ptr noundef %0, ptr noundef captures(no
   %33 = add i32 %32, 2
   store i32 %33, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -35087,7 +35087,7 @@ define internal fastcc void @listOfSegment(ptr noundef %0, ptr noundef captures(
   %49 = add i32 %48, 2
   store i32 %49, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -35174,7 +35174,7 @@ define internal fastcc void @listOfArc(ptr noundef %0, ptr noundef captures(none
   %69 = add i32 %68, 2
   store i32 %69, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -35206,7 +35206,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   %17 = select i1 %15, i32 4, i32 %16
   %18 = add i32 %17, %11
   %19 = icmp slt i32 %18, %5
-  br i1 %19, label %.lr.ph.split.us, label %.thread
+  br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %.0120 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
@@ -35293,7 +35293,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   store i32 %73, ptr %1, align 4
   %74 = add i32 %37, -1
   %.not107.us = icmp eq i32 %37, 0
-  br i1 %.not107.us, label %._crit_edge, label %.lr.ph129.split.us, !llvm.loop !53
+  br i1 %.not107.us, label %._crit_edge, label %.lr.ph129.split.us, !llvm.loop !56
 
 .lr.ph129.split:                                  ; preds = %.lr.ph129, %147
   %75 = phi i32 [ %storemerge110, %147 ], [ %.pre135, %.lr.ph129 ]
@@ -35331,7 +35331,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
 93:                                               ; preds = %.lr.ph.i
   %94 = add nsw i32 %.010.i, -1
   %.not.i = icmp eq i32 %94, 0
-  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !47
 
 .loopexit.loopexit:                               ; preds = %93
   %.pre134 = load i32, ptr %1, align 4
@@ -35365,7 +35365,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
 
 106:                                              ; preds = %105, %104
   %.not.i112 = icmp eq i32 %100, 0
-  br i1 %.not.i112, label %tvb_get_ascii_string16.exit, label %.lr.ph.i111, !llvm.loop !46
+  br i1 %.not.i112, label %tvb_get_ascii_string16.exit, label %.lr.ph.i111, !llvm.loop !48
 
 tvb_get_ascii_string16.exit:                      ; preds = %106, %.loopexit
   %107 = tail call ptr @wmem_strbuf_finalize(ptr noundef %99)
@@ -35421,7 +35421,7 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
   store i32 %storemerge110, ptr %1, align 4
   %148 = add i32 %76, -1
   %.not107 = icmp eq i32 %76, 0
-  br i1 %.not107, label %._crit_edge, label %.lr.ph129.split, !llvm.loop !53
+  br i1 %.not107, label %._crit_edge, label %.lr.ph129.split, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %147, %71, %.thread
   ret void
@@ -35523,7 +35523,7 @@ define internal fastcc void @listOfColorItem(ptr noundef %0, ptr noundef capture
   %67 = add i32 %66, 1
   store i32 %67, ptr %1, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %39, %6
   ret void
@@ -36311,7 +36311,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %82, ptr %2, align 4
   %83 = add nuw nsw i32 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %83, %59
-  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i, !llvm.loop !55
+  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i, !llvm.loop !59
 
 84:                                               ; preds = %requestLength.exit
   %85 = load i32, ptr %2, align 4
@@ -36344,7 +36344,7 @@ requestLength.exit:                               ; preds = %5, %16
   %102 = add i32 %101, 4
   store i32 %102, ptr %2, align 4
   %.not.i.i = icmp eq i32 %99, 0
-  br i1 %.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i58, !llvm.loop !44
+  br i1 %.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i58, !llvm.loop !46
 
 103:                                              ; preds = %requestLength.exit
   %104 = load i32, ptr @hf_x11_dbe_GetBackBufferAttributes_buffer, align 4
@@ -36499,13 +36499,13 @@ define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr noundef readonl
   store i32 %74, ptr %2, align 4
   %75 = add nuw nsw i32 %.025.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %75, %46
-  br i1 %exitcond.not.i.i, label %struct_dbe_VisualInfo.exit.i, label %.lr.ph.i.i, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %struct_dbe_VisualInfo.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 struct_dbe_VisualInfo.exit.i:                     ; preds = %.lr.ph.i.i, %.lr.ph.i
   %76 = phi i32 [ %51, %.lr.ph.i ], [ %74, %.lr.ph.i.i ]
   %77 = add nuw nsw i32 %.022.i, 1
   %exitcond.not.i = icmp eq i32 %77, %26
-  br i1 %exitcond.not.i, label %struct_dbe_VisualInfos.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %struct_dbe_VisualInfos.exit, label %.lr.ph.i, !llvm.loop !61
 
 struct_dbe_VisualInfos.exit:                      ; preds = %struct_dbe_VisualInfo.exit.i, %5
   ret void
@@ -36962,7 +36962,7 @@ requestLength.exit:                               ; preds = %5, %16
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
   %.not.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i, !llvm.loop !46
 
 89:                                               ; preds = %requestLength.exit
   %90 = load i32, ptr @hf_x11_dri2_CopyRegion_drawable, align 4
@@ -37022,7 +37022,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %131, ptr %2, align 4
   %132 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %132, %118
-  br i1 %exitcond.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i94, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i94, !llvm.loop !62
 
 133:                                              ; preds = %requestLength.exit
   %134 = load i32, ptr @hf_x11_dri2_SwapBuffers_drawable, align 4
@@ -37752,7 +37752,7 @@ define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr noundef 
   store i32 %30, ptr %1, align 4
   %31 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %31, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -38306,7 +38306,7 @@ define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr nounde
   %52 = add i32 %51, 8
   store i32 %52, ptr %2, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %listOfCard64.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %.not.i, label %listOfCard64.exit, label %.lr.ph.i, !llvm.loop !64
 
 listOfCard64.exit:                                ; preds = %.lr.ph.i, %5
   %53 = phi i32 [ %.pre, %5 ], [ %52, %.lr.ph.i ]
@@ -38332,7 +38332,7 @@ listOfCard64.exit:                                ; preds = %.lr.ph.i, %5
   %64 = add i32 %63, 8
   store i32 %64, ptr %2, align 4
   %.not.i57 = icmp eq i32 %61, 0
-  br i1 %.not.i57, label %listOfCard64.exit58, label %.lr.ph.i55, !llvm.loop !60
+  br i1 %.not.i57, label %listOfCard64.exit58, label %.lr.ph.i55, !llvm.loop !64
 
 listOfCard64.exit58:                              ; preds = %.lr.ph.i55, %listOfCard64.exit
   ret void
@@ -38421,7 +38421,7 @@ define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr noundef re
   %67 = add i32 %66, 4
   store i32 %67, ptr %2, align 4
   %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %68 = phi i32 [ %.pre, %5 ], [ %67, %.lr.ph.i ]
@@ -38445,7 +38445,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
   %.not.i73 = icmp eq i32 %75, 0
-  br i1 %.not.i73, label %listOfCard32.exit74, label %.lr.ph.i71, !llvm.loop !44
+  br i1 %.not.i73, label %listOfCard32.exit74, label %.lr.ph.i71, !llvm.loop !46
 
 listOfCard32.exit74:                              ; preds = %.lr.ph.i71, %listOfCard32.exit
   ret void
@@ -39544,7 +39544,7 @@ define internal fastcc void @glxCreatePixmap(ptr noundef %0, ptr noundef capture
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39665,7 +39665,7 @@ define internal fastcc void @glxCreatePbuffer(ptr noundef %0, ptr noundef captur
   %35 = add i32 %34, 4
   store i32 %35, ptr %1, align 4
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39709,7 +39709,7 @@ define internal fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr nou
   %27 = add i32 %26, 4
   store i32 %27, ptr %1, align 4
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39768,7 +39768,7 @@ define internal fastcc void @glxCreateWindow(ptr noundef %0, ptr noundef capture
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39828,7 +39828,7 @@ define internal fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr noundef cap
   %43 = add i32 %42, 4
   store i32 %43, ptr %1, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %44 = phi i32 [ %.pre, %4 ], [ %43, %.lr.ph.i ]
@@ -39927,7 +39927,7 @@ define internal fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr noun
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39990,7 +39990,7 @@ define internal fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr noundef ca
   %43 = add i32 %42, 4
   store i32 %43, ptr %1, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %44 = phi i32 [ %.pre, %4 ], [ %43, %.lr.ph.i ]
@@ -40841,7 +40841,7 @@ define internal fastcc void @glxAreTexturesResident(ptr noundef %0, ptr noundef 
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -40884,7 +40884,7 @@ define internal fastcc void @glxDeleteTextures(ptr noundef %0, ptr noundef captu
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -41313,7 +41313,7 @@ define internal fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr noundef cap
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -41903,7 +41903,7 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
   %82 = add i32 %81, 2
   store i32 %82, ptr %2, align 4
   %.not.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i, label %listOfInt16.exit.i, label %.lr.ph.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %listOfInt16.exit.i, label %.lr.ph.i.i, !llvm.loop !65
 
 listOfInt16.exit.i:                               ; preds = %.lr.ph.i.i, %71
   %83 = phi i32 [ %.pre184.i, %71 ], [ %82, %.lr.ph.i.i ]
@@ -41933,7 +41933,7 @@ listOfInt16.exit.i:                               ; preds = %.lr.ph.i.i, %71
   %99 = add i32 %98, 2
   store i32 %99, ptr %2, align 4
   %.not.i139.i = icmp eq i32 %96, 0
-  br i1 %.not.i139.i, label %listOfCard16.exit.i, label %.lr.ph.i137.i, !llvm.loop !43
+  br i1 %.not.i139.i, label %listOfCard16.exit.i, label %.lr.ph.i137.i, !llvm.loop !45
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %100 = phi i32 [ %.pre183.i, %88 ], [ %99, %.lr.ph.i137.i ]
@@ -41966,7 +41966,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %116 = add i32 %115, 4
   store i32 %116, ptr %2, align 4
   %.not.i145.i = icmp eq i32 %113, 0
-  br i1 %.not.i145.i, label %mesa_CallLists.exit, label %.lr.ph.i143.i, !llvm.loop !62
+  br i1 %.not.i145.i, label %mesa_CallLists.exit, label %.lr.ph.i143.i, !llvm.loop !66
 
 117:                                              ; preds = %40
   %118 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -41991,7 +41991,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %128 = add i32 %127, 4
   store i32 %128, ptr %2, align 4
   %.not.i151.i = icmp eq i32 %125, 0
-  br i1 %.not.i151.i, label %mesa_CallLists.exit, label %.lr.ph.i149.i, !llvm.loop !44
+  br i1 %.not.i151.i, label %mesa_CallLists.exit, label %.lr.ph.i149.i, !llvm.loop !46
 
 129:                                              ; preds = %40
   %130 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -42016,7 +42016,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %140 = add i32 %139, 4
   store i32 %140, ptr %2, align 4
   %.not.i157.i = icmp eq i32 %137, 0
-  br i1 %.not.i157.i, label %mesa_CallLists.exit, label %.lr.ph.i155.i, !llvm.loop !63
+  br i1 %.not.i157.i, label %mesa_CallLists.exit, label %.lr.ph.i155.i, !llvm.loop !67
 
 141:                                              ; preds = %40
   %142 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -42038,7 +42038,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %152 = add i32 %151, 2
   store i32 %152, ptr %2, align 4
   %.not.i163.i = icmp eq i32 %149, 0
-  br i1 %.not.i163.i, label %listOfCard16.exit164.i, label %.lr.ph.i161.i, !llvm.loop !43
+  br i1 %.not.i163.i, label %listOfCard16.exit164.i, label %.lr.ph.i161.i, !llvm.loop !45
 
 listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %153 = phi i32 [ %.pre.i, %141 ], [ %152, %.lr.ph.i161.i ]
@@ -42084,7 +42084,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %179 = add i32 %178, 4
   store i32 %179, ptr %2, align 4
   %.not.i170.i = icmp eq i32 %176, 0
-  br i1 %.not.i170.i, label %mesa_CallLists.exit, label %.lr.ph.i168.i, !llvm.loop !44
+  br i1 %.not.i170.i, label %mesa_CallLists.exit, label %.lr.ph.i168.i, !llvm.loop !46
 
 180:                                              ; preds = %40
   %181 = load i32, ptr @hf_x11_undecoded, align 4
@@ -42210,7 +42210,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %269 = add i32 %268, 8
   store i32 %269, ptr %2, align 4
   %.not.i.i1850 = icmp eq i32 %266, 0
-  br i1 %.not.i.i1850, label %mesa_CallLists.exit, label %.lr.ph.i.i1848, !llvm.loop !64
+  br i1 %.not.i.i1850, label %mesa_CallLists.exit, label %.lr.ph.i.i1848, !llvm.loop !68
 
 270:                                              ; preds = %34
   %271 = load i32, ptr @hf_x11_glx_render_Color3fv_v, align 4
@@ -42230,7 +42230,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %280 = add i32 %279, 4
   store i32 %280, ptr %2, align 4
   %.not.i.i1854 = icmp eq i32 %277, 0
-  br i1 %.not.i.i1854, label %mesa_CallLists.exit, label %.lr.ph.i.i1852, !llvm.loop !63
+  br i1 %.not.i.i1854, label %mesa_CallLists.exit, label %.lr.ph.i.i1852, !llvm.loop !67
 
 281:                                              ; preds = %34
   %282 = load i32, ptr @hf_x11_glx_render_Color3iv_v, align 4
@@ -42250,7 +42250,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %291 = add i32 %290, 4
   store i32 %291, ptr %2, align 4
   %.not.i.i1858 = icmp eq i32 %288, 0
-  br i1 %.not.i.i1858, label %mesa_CallLists.exit, label %.lr.ph.i.i1856, !llvm.loop !62
+  br i1 %.not.i.i1858, label %mesa_CallLists.exit, label %.lr.ph.i.i1856, !llvm.loop !66
 
 292:                                              ; preds = %34
   %293 = load i32, ptr @hf_x11_glx_render_Color3sv_v, align 4
@@ -42270,7 +42270,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %302 = add i32 %301, 2
   store i32 %302, ptr %2, align 4
   %.not.i.i1862 = icmp eq i32 %299, 0
-  br i1 %.not.i.i1862, label %mesa_CallLists.exit, label %.lr.ph.i.i1860, !llvm.loop !61
+  br i1 %.not.i.i1862, label %mesa_CallLists.exit, label %.lr.ph.i.i1860, !llvm.loop !65
 
 303:                                              ; preds = %34
   %304 = load i32, ptr @hf_x11_glx_render_Color3ubv_v, align 4
@@ -42295,7 +42295,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %316 = add i32 %315, 4
   store i32 %316, ptr %2, align 4
   %.not.i.i1867 = icmp eq i32 %313, 0
-  br i1 %.not.i.i1867, label %mesa_CallLists.exit, label %.lr.ph.i.i1865, !llvm.loop !44
+  br i1 %.not.i.i1867, label %mesa_CallLists.exit, label %.lr.ph.i.i1865, !llvm.loop !46
 
 317:                                              ; preds = %34
   %318 = load i32, ptr @hf_x11_glx_render_Color3usv_v, align 4
@@ -42315,7 +42315,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %327 = add i32 %326, 2
   store i32 %327, ptr %2, align 4
   %.not.i.i1871 = icmp eq i32 %324, 0
-  br i1 %.not.i.i1871, label %mesa_CallLists.exit, label %.lr.ph.i.i1869, !llvm.loop !43
+  br i1 %.not.i.i1871, label %mesa_CallLists.exit, label %.lr.ph.i.i1869, !llvm.loop !45
 
 328:                                              ; preds = %34
   %329 = load i32, ptr @hf_x11_glx_render_Color4bv_v, align 4
@@ -42340,7 +42340,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %341 = add i32 %340, 8
   store i32 %341, ptr %2, align 4
   %.not.i.i1876 = icmp eq i32 %338, 0
-  br i1 %.not.i.i1876, label %mesa_CallLists.exit, label %.lr.ph.i.i1874, !llvm.loop !64
+  br i1 %.not.i.i1876, label %mesa_CallLists.exit, label %.lr.ph.i.i1874, !llvm.loop !68
 
 342:                                              ; preds = %34
   %343 = load i32, ptr @hf_x11_glx_render_Color4fv_v, align 4
@@ -42360,7 +42360,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %352 = add i32 %351, 4
   store i32 %352, ptr %2, align 4
   %.not.i.i1880 = icmp eq i32 %349, 0
-  br i1 %.not.i.i1880, label %mesa_CallLists.exit, label %.lr.ph.i.i1878, !llvm.loop !63
+  br i1 %.not.i.i1880, label %mesa_CallLists.exit, label %.lr.ph.i.i1878, !llvm.loop !67
 
 353:                                              ; preds = %34
   %354 = load i32, ptr @hf_x11_glx_render_Color4iv_v, align 4
@@ -42380,7 +42380,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %363 = add i32 %362, 4
   store i32 %363, ptr %2, align 4
   %.not.i.i1884 = icmp eq i32 %360, 0
-  br i1 %.not.i.i1884, label %mesa_CallLists.exit, label %.lr.ph.i.i1882, !llvm.loop !62
+  br i1 %.not.i.i1884, label %mesa_CallLists.exit, label %.lr.ph.i.i1882, !llvm.loop !66
 
 364:                                              ; preds = %34
   %365 = load i32, ptr @hf_x11_glx_render_Color4sv_v, align 4
@@ -42400,7 +42400,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %374 = add i32 %373, 2
   store i32 %374, ptr %2, align 4
   %.not.i.i1888 = icmp eq i32 %371, 0
-  br i1 %.not.i.i1888, label %mesa_CallLists.exit, label %.lr.ph.i.i1886, !llvm.loop !61
+  br i1 %.not.i.i1888, label %mesa_CallLists.exit, label %.lr.ph.i.i1886, !llvm.loop !65
 
 375:                                              ; preds = %34
   %376 = load i32, ptr @hf_x11_glx_render_Color4ubv_v, align 4
@@ -42425,7 +42425,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %388 = add i32 %387, 4
   store i32 %388, ptr %2, align 4
   %.not.i.i1893 = icmp eq i32 %385, 0
-  br i1 %.not.i.i1893, label %mesa_CallLists.exit, label %.lr.ph.i.i1891, !llvm.loop !44
+  br i1 %.not.i.i1893, label %mesa_CallLists.exit, label %.lr.ph.i.i1891, !llvm.loop !46
 
 389:                                              ; preds = %34
   %390 = load i32, ptr @hf_x11_glx_render_Color4usv_v, align 4
@@ -42445,7 +42445,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %399 = add i32 %398, 2
   store i32 %399, ptr %2, align 4
   %.not.i.i1897 = icmp eq i32 %396, 0
-  br i1 %.not.i.i1897, label %mesa_CallLists.exit, label %.lr.ph.i.i1895, !llvm.loop !43
+  br i1 %.not.i.i1897, label %mesa_CallLists.exit, label %.lr.ph.i.i1895, !llvm.loop !45
 
 400:                                              ; preds = %34
   %401 = load i32, ptr @hf_x11_glx_render_EdgeFlagv_flag, align 4
@@ -42515,7 +42515,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %444 = add i32 %443, 8
   store i32 %444, ptr %2, align 4
   %.not.i.i1910 = icmp eq i32 %441, 0
-  br i1 %.not.i.i1910, label %mesa_CallLists.exit, label %.lr.ph.i.i1908, !llvm.loop !64
+  br i1 %.not.i.i1910, label %mesa_CallLists.exit, label %.lr.ph.i.i1908, !llvm.loop !68
 
 445:                                              ; preds = %34
   %446 = load i32, ptr @hf_x11_glx_render_Normal3fv_v, align 4
@@ -42535,7 +42535,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %455 = add i32 %454, 4
   store i32 %455, ptr %2, align 4
   %.not.i.i1914 = icmp eq i32 %452, 0
-  br i1 %.not.i.i1914, label %mesa_CallLists.exit, label %.lr.ph.i.i1912, !llvm.loop !63
+  br i1 %.not.i.i1914, label %mesa_CallLists.exit, label %.lr.ph.i.i1912, !llvm.loop !67
 
 456:                                              ; preds = %34
   %457 = load i32, ptr @hf_x11_glx_render_Normal3iv_v, align 4
@@ -42555,7 +42555,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %466 = add i32 %465, 4
   store i32 %466, ptr %2, align 4
   %.not.i.i1918 = icmp eq i32 %463, 0
-  br i1 %.not.i.i1918, label %mesa_CallLists.exit, label %.lr.ph.i.i1916, !llvm.loop !62
+  br i1 %.not.i.i1918, label %mesa_CallLists.exit, label %.lr.ph.i.i1916, !llvm.loop !66
 
 467:                                              ; preds = %34
   %468 = load i32, ptr @hf_x11_glx_render_Normal3sv_v, align 4
@@ -42575,7 +42575,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %477 = add i32 %476, 2
   store i32 %477, ptr %2, align 4
   %.not.i.i1922 = icmp eq i32 %474, 0
-  br i1 %.not.i.i1922, label %mesa_CallLists.exit, label %.lr.ph.i.i1920, !llvm.loop !61
+  br i1 %.not.i.i1922, label %mesa_CallLists.exit, label %.lr.ph.i.i1920, !llvm.loop !65
 
 478:                                              ; preds = %34
   %479 = load i32, ptr @hf_x11_glx_render_RasterPos2dv_v, align 4
@@ -42595,7 +42595,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %488 = add i32 %487, 8
   store i32 %488, ptr %2, align 4
   %.not.i.i1927 = icmp eq i32 %485, 0
-  br i1 %.not.i.i1927, label %mesa_CallLists.exit, label %.lr.ph.i.i1925, !llvm.loop !64
+  br i1 %.not.i.i1927, label %mesa_CallLists.exit, label %.lr.ph.i.i1925, !llvm.loop !68
 
 489:                                              ; preds = %34
   %490 = load i32, ptr @hf_x11_glx_render_RasterPos2fv_v, align 4
@@ -42615,7 +42615,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %499 = add i32 %498, 4
   store i32 %499, ptr %2, align 4
   %.not.i.i1931 = icmp eq i32 %496, 0
-  br i1 %.not.i.i1931, label %mesa_CallLists.exit, label %.lr.ph.i.i1929, !llvm.loop !63
+  br i1 %.not.i.i1931, label %mesa_CallLists.exit, label %.lr.ph.i.i1929, !llvm.loop !67
 
 500:                                              ; preds = %34
   %501 = load i32, ptr @hf_x11_glx_render_RasterPos2iv_v, align 4
@@ -42635,7 +42635,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %510 = add i32 %509, 4
   store i32 %510, ptr %2, align 4
   %.not.i.i1935 = icmp eq i32 %507, 0
-  br i1 %.not.i.i1935, label %mesa_CallLists.exit, label %.lr.ph.i.i1933, !llvm.loop !62
+  br i1 %.not.i.i1935, label %mesa_CallLists.exit, label %.lr.ph.i.i1933, !llvm.loop !66
 
 511:                                              ; preds = %34
   %512 = load i32, ptr @hf_x11_glx_render_RasterPos2sv_v, align 4
@@ -42655,7 +42655,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %521 = add i32 %520, 2
   store i32 %521, ptr %2, align 4
   %.not.i.i1939 = icmp eq i32 %518, 0
-  br i1 %.not.i.i1939, label %mesa_CallLists.exit, label %.lr.ph.i.i1937, !llvm.loop !61
+  br i1 %.not.i.i1939, label %mesa_CallLists.exit, label %.lr.ph.i.i1937, !llvm.loop !65
 
 522:                                              ; preds = %34
   %523 = load i32, ptr @hf_x11_glx_render_RasterPos3dv_v, align 4
@@ -42675,7 +42675,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %532 = add i32 %531, 8
   store i32 %532, ptr %2, align 4
   %.not.i.i1944 = icmp eq i32 %529, 0
-  br i1 %.not.i.i1944, label %mesa_CallLists.exit, label %.lr.ph.i.i1942, !llvm.loop !64
+  br i1 %.not.i.i1944, label %mesa_CallLists.exit, label %.lr.ph.i.i1942, !llvm.loop !68
 
 533:                                              ; preds = %34
   %534 = load i32, ptr @hf_x11_glx_render_RasterPos3fv_v, align 4
@@ -42695,7 +42695,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %543 = add i32 %542, 4
   store i32 %543, ptr %2, align 4
   %.not.i.i1948 = icmp eq i32 %540, 0
-  br i1 %.not.i.i1948, label %mesa_CallLists.exit, label %.lr.ph.i.i1946, !llvm.loop !63
+  br i1 %.not.i.i1948, label %mesa_CallLists.exit, label %.lr.ph.i.i1946, !llvm.loop !67
 
 544:                                              ; preds = %34
   %545 = load i32, ptr @hf_x11_glx_render_RasterPos3iv_v, align 4
@@ -42715,7 +42715,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %554 = add i32 %553, 4
   store i32 %554, ptr %2, align 4
   %.not.i.i1952 = icmp eq i32 %551, 0
-  br i1 %.not.i.i1952, label %mesa_CallLists.exit, label %.lr.ph.i.i1950, !llvm.loop !62
+  br i1 %.not.i.i1952, label %mesa_CallLists.exit, label %.lr.ph.i.i1950, !llvm.loop !66
 
 555:                                              ; preds = %34
   %556 = load i32, ptr @hf_x11_glx_render_RasterPos3sv_v, align 4
@@ -42735,7 +42735,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %565 = add i32 %564, 2
   store i32 %565, ptr %2, align 4
   %.not.i.i1956 = icmp eq i32 %562, 0
-  br i1 %.not.i.i1956, label %mesa_CallLists.exit, label %.lr.ph.i.i1954, !llvm.loop !61
+  br i1 %.not.i.i1956, label %mesa_CallLists.exit, label %.lr.ph.i.i1954, !llvm.loop !65
 
 566:                                              ; preds = %34
   %567 = load i32, ptr @hf_x11_glx_render_RasterPos4dv_v, align 4
@@ -42755,7 +42755,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %576 = add i32 %575, 8
   store i32 %576, ptr %2, align 4
   %.not.i.i1961 = icmp eq i32 %573, 0
-  br i1 %.not.i.i1961, label %mesa_CallLists.exit, label %.lr.ph.i.i1959, !llvm.loop !64
+  br i1 %.not.i.i1961, label %mesa_CallLists.exit, label %.lr.ph.i.i1959, !llvm.loop !68
 
 577:                                              ; preds = %34
   %578 = load i32, ptr @hf_x11_glx_render_RasterPos4fv_v, align 4
@@ -42775,7 +42775,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %587 = add i32 %586, 4
   store i32 %587, ptr %2, align 4
   %.not.i.i1965 = icmp eq i32 %584, 0
-  br i1 %.not.i.i1965, label %mesa_CallLists.exit, label %.lr.ph.i.i1963, !llvm.loop !63
+  br i1 %.not.i.i1965, label %mesa_CallLists.exit, label %.lr.ph.i.i1963, !llvm.loop !67
 
 588:                                              ; preds = %34
   %589 = load i32, ptr @hf_x11_glx_render_RasterPos4iv_v, align 4
@@ -42795,7 +42795,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %598 = add i32 %597, 4
   store i32 %598, ptr %2, align 4
   %.not.i.i1969 = icmp eq i32 %595, 0
-  br i1 %.not.i.i1969, label %mesa_CallLists.exit, label %.lr.ph.i.i1967, !llvm.loop !62
+  br i1 %.not.i.i1969, label %mesa_CallLists.exit, label %.lr.ph.i.i1967, !llvm.loop !66
 
 599:                                              ; preds = %34
   %600 = load i32, ptr @hf_x11_glx_render_RasterPos4sv_v, align 4
@@ -42815,7 +42815,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %609 = add i32 %608, 2
   store i32 %609, ptr %2, align 4
   %.not.i.i1973 = icmp eq i32 %606, 0
-  br i1 %.not.i.i1973, label %mesa_CallLists.exit, label %.lr.ph.i.i1971, !llvm.loop !61
+  br i1 %.not.i.i1973, label %mesa_CallLists.exit, label %.lr.ph.i.i1971, !llvm.loop !65
 
 610:                                              ; preds = %34
   %611 = load i32, ptr @hf_x11_glx_render_Rectdv_v1, align 4
@@ -42835,7 +42835,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %620 = add i32 %619, 8
   store i32 %620, ptr %2, align 4
   %.not.i.i1978 = icmp eq i32 %617, 0
-  br i1 %.not.i.i1978, label %listOfDouble.exit.i, label %.lr.ph.i.i1976, !llvm.loop !64
+  br i1 %.not.i.i1978, label %listOfDouble.exit.i, label %.lr.ph.i.i1976, !llvm.loop !68
 
 listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %621 = load i32, ptr @hf_x11_glx_render_Rectdv_v2, align 4
@@ -42855,7 +42855,7 @@ listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %630 = add i32 %629, 8
   store i32 %630, ptr %2, align 4
   %.not.i10.i = icmp eq i32 %627, 0
-  br i1 %.not.i10.i, label %mesa_CallLists.exit, label %.lr.ph.i8.i, !llvm.loop !64
+  br i1 %.not.i10.i, label %mesa_CallLists.exit, label %.lr.ph.i8.i, !llvm.loop !68
 
 631:                                              ; preds = %34
   %632 = load i32, ptr @hf_x11_glx_render_Rectfv_v1, align 4
@@ -42875,7 +42875,7 @@ listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %641 = add i32 %640, 4
   store i32 %641, ptr %2, align 4
   %.not.i.i1982 = icmp eq i32 %638, 0
-  br i1 %.not.i.i1982, label %listOfFloat.exit.i, label %.lr.ph.i.i1980, !llvm.loop !63
+  br i1 %.not.i.i1982, label %listOfFloat.exit.i, label %.lr.ph.i.i1980, !llvm.loop !67
 
 listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %642 = load i32, ptr @hf_x11_glx_render_Rectfv_v2, align 4
@@ -42895,7 +42895,7 @@ listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %651 = add i32 %650, 4
   store i32 %651, ptr %2, align 4
   %.not.i10.i1986 = icmp eq i32 %648, 0
-  br i1 %.not.i10.i1986, label %mesa_CallLists.exit, label %.lr.ph.i8.i1984, !llvm.loop !63
+  br i1 %.not.i10.i1986, label %mesa_CallLists.exit, label %.lr.ph.i8.i1984, !llvm.loop !67
 
 652:                                              ; preds = %34
   %653 = load i32, ptr @hf_x11_glx_render_Rectiv_v1, align 4
@@ -42915,7 +42915,7 @@ listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %662 = add i32 %661, 4
   store i32 %662, ptr %2, align 4
   %.not.i.i1990 = icmp eq i32 %659, 0
-  br i1 %.not.i.i1990, label %listOfInt32.exit.i, label %.lr.ph.i.i1988, !llvm.loop !62
+  br i1 %.not.i.i1990, label %listOfInt32.exit.i, label %.lr.ph.i.i1988, !llvm.loop !66
 
 listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %663 = load i32, ptr @hf_x11_glx_render_Rectiv_v2, align 4
@@ -42935,7 +42935,7 @@ listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %672 = add i32 %671, 4
   store i32 %672, ptr %2, align 4
   %.not.i10.i1994 = icmp eq i32 %669, 0
-  br i1 %.not.i10.i1994, label %mesa_CallLists.exit, label %.lr.ph.i8.i1992, !llvm.loop !62
+  br i1 %.not.i10.i1994, label %mesa_CallLists.exit, label %.lr.ph.i8.i1992, !llvm.loop !66
 
 673:                                              ; preds = %34
   %674 = load i32, ptr @hf_x11_glx_render_Rectsv_v1, align 4
@@ -42955,7 +42955,7 @@ listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %683 = add i32 %682, 2
   store i32 %683, ptr %2, align 4
   %.not.i.i1998 = icmp eq i32 %680, 0
-  br i1 %.not.i.i1998, label %listOfInt16.exit.i1999, label %.lr.ph.i.i1996, !llvm.loop !61
+  br i1 %.not.i.i1998, label %listOfInt16.exit.i1999, label %.lr.ph.i.i1996, !llvm.loop !65
 
 listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %684 = load i32, ptr @hf_x11_glx_render_Rectsv_v2, align 4
@@ -42975,7 +42975,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %693 = add i32 %692, 2
   store i32 %693, ptr %2, align 4
   %.not.i10.i2003 = icmp eq i32 %690, 0
-  br i1 %.not.i10.i2003, label %mesa_CallLists.exit, label %.lr.ph.i8.i2001, !llvm.loop !61
+  br i1 %.not.i10.i2003, label %mesa_CallLists.exit, label %.lr.ph.i8.i2001, !llvm.loop !65
 
 694:                                              ; preds = %34
   %695 = load i32, ptr @hf_x11_glx_render_TexCoord1dv_v, align 4
@@ -43035,7 +43035,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %732 = add i32 %731, 8
   store i32 %732, ptr %2, align 4
   %.not.i.i2015 = icmp eq i32 %729, 0
-  br i1 %.not.i.i2015, label %mesa_CallLists.exit, label %.lr.ph.i.i2013, !llvm.loop !64
+  br i1 %.not.i.i2015, label %mesa_CallLists.exit, label %.lr.ph.i.i2013, !llvm.loop !68
 
 733:                                              ; preds = %34
   %734 = load i32, ptr @hf_x11_glx_render_TexCoord2fv_v, align 4
@@ -43055,7 +43055,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %743 = add i32 %742, 4
   store i32 %743, ptr %2, align 4
   %.not.i.i2020 = icmp eq i32 %740, 0
-  br i1 %.not.i.i2020, label %mesa_CallLists.exit, label %.lr.ph.i.i2018, !llvm.loop !63
+  br i1 %.not.i.i2020, label %mesa_CallLists.exit, label %.lr.ph.i.i2018, !llvm.loop !67
 
 744:                                              ; preds = %34
   %745 = load i32, ptr @hf_x11_glx_render_TexCoord2iv_v, align 4
@@ -43075,7 +43075,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %754 = add i32 %753, 4
   store i32 %754, ptr %2, align 4
   %.not.i.i2025 = icmp eq i32 %751, 0
-  br i1 %.not.i.i2025, label %mesa_CallLists.exit, label %.lr.ph.i.i2023, !llvm.loop !62
+  br i1 %.not.i.i2025, label %mesa_CallLists.exit, label %.lr.ph.i.i2023, !llvm.loop !66
 
 755:                                              ; preds = %34
   %756 = load i32, ptr @hf_x11_glx_render_TexCoord2sv_v, align 4
@@ -43095,7 +43095,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %765 = add i32 %764, 2
   store i32 %765, ptr %2, align 4
   %.not.i.i2030 = icmp eq i32 %762, 0
-  br i1 %.not.i.i2030, label %mesa_CallLists.exit, label %.lr.ph.i.i2028, !llvm.loop !61
+  br i1 %.not.i.i2030, label %mesa_CallLists.exit, label %.lr.ph.i.i2028, !llvm.loop !65
 
 766:                                              ; preds = %34
   %767 = load i32, ptr @hf_x11_glx_render_TexCoord3dv_v, align 4
@@ -43115,7 +43115,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %776 = add i32 %775, 8
   store i32 %776, ptr %2, align 4
   %.not.i.i2035 = icmp eq i32 %773, 0
-  br i1 %.not.i.i2035, label %mesa_CallLists.exit, label %.lr.ph.i.i2033, !llvm.loop !64
+  br i1 %.not.i.i2035, label %mesa_CallLists.exit, label %.lr.ph.i.i2033, !llvm.loop !68
 
 777:                                              ; preds = %34
   %778 = load i32, ptr @hf_x11_glx_render_TexCoord3fv_v, align 4
@@ -43135,7 +43135,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %787 = add i32 %786, 4
   store i32 %787, ptr %2, align 4
   %.not.i.i2040 = icmp eq i32 %784, 0
-  br i1 %.not.i.i2040, label %mesa_CallLists.exit, label %.lr.ph.i.i2038, !llvm.loop !63
+  br i1 %.not.i.i2040, label %mesa_CallLists.exit, label %.lr.ph.i.i2038, !llvm.loop !67
 
 788:                                              ; preds = %34
   %789 = load i32, ptr @hf_x11_glx_render_TexCoord3iv_v, align 4
@@ -43155,7 +43155,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %798 = add i32 %797, 4
   store i32 %798, ptr %2, align 4
   %.not.i.i2045 = icmp eq i32 %795, 0
-  br i1 %.not.i.i2045, label %mesa_CallLists.exit, label %.lr.ph.i.i2043, !llvm.loop !62
+  br i1 %.not.i.i2045, label %mesa_CallLists.exit, label %.lr.ph.i.i2043, !llvm.loop !66
 
 799:                                              ; preds = %34
   %800 = load i32, ptr @hf_x11_glx_render_TexCoord3sv_v, align 4
@@ -43175,7 +43175,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %809 = add i32 %808, 2
   store i32 %809, ptr %2, align 4
   %.not.i.i2050 = icmp eq i32 %806, 0
-  br i1 %.not.i.i2050, label %mesa_CallLists.exit, label %.lr.ph.i.i2048, !llvm.loop !61
+  br i1 %.not.i.i2050, label %mesa_CallLists.exit, label %.lr.ph.i.i2048, !llvm.loop !65
 
 810:                                              ; preds = %34
   %811 = load i32, ptr @hf_x11_glx_render_TexCoord4dv_v, align 4
@@ -43195,7 +43195,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %820 = add i32 %819, 8
   store i32 %820, ptr %2, align 4
   %.not.i.i2055 = icmp eq i32 %817, 0
-  br i1 %.not.i.i2055, label %mesa_CallLists.exit, label %.lr.ph.i.i2053, !llvm.loop !64
+  br i1 %.not.i.i2055, label %mesa_CallLists.exit, label %.lr.ph.i.i2053, !llvm.loop !68
 
 821:                                              ; preds = %34
   %822 = load i32, ptr @hf_x11_glx_render_TexCoord4fv_v, align 4
@@ -43215,7 +43215,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %831 = add i32 %830, 4
   store i32 %831, ptr %2, align 4
   %.not.i.i2060 = icmp eq i32 %828, 0
-  br i1 %.not.i.i2060, label %mesa_CallLists.exit, label %.lr.ph.i.i2058, !llvm.loop !63
+  br i1 %.not.i.i2060, label %mesa_CallLists.exit, label %.lr.ph.i.i2058, !llvm.loop !67
 
 832:                                              ; preds = %34
   %833 = load i32, ptr @hf_x11_glx_render_TexCoord4iv_v, align 4
@@ -43235,7 +43235,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %842 = add i32 %841, 4
   store i32 %842, ptr %2, align 4
   %.not.i.i2065 = icmp eq i32 %839, 0
-  br i1 %.not.i.i2065, label %mesa_CallLists.exit, label %.lr.ph.i.i2063, !llvm.loop !62
+  br i1 %.not.i.i2065, label %mesa_CallLists.exit, label %.lr.ph.i.i2063, !llvm.loop !66
 
 843:                                              ; preds = %34
   %844 = load i32, ptr @hf_x11_glx_render_TexCoord4sv_v, align 4
@@ -43255,7 +43255,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %853 = add i32 %852, 2
   store i32 %853, ptr %2, align 4
   %.not.i.i2070 = icmp eq i32 %850, 0
-  br i1 %.not.i.i2070, label %mesa_CallLists.exit, label %.lr.ph.i.i2068, !llvm.loop !61
+  br i1 %.not.i.i2070, label %mesa_CallLists.exit, label %.lr.ph.i.i2068, !llvm.loop !65
 
 854:                                              ; preds = %34
   %855 = load i32, ptr @hf_x11_glx_render_Vertex2dv_v, align 4
@@ -43275,7 +43275,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %864 = add i32 %863, 8
   store i32 %864, ptr %2, align 4
   %.not.i.i2075 = icmp eq i32 %861, 0
-  br i1 %.not.i.i2075, label %mesa_CallLists.exit, label %.lr.ph.i.i2073, !llvm.loop !64
+  br i1 %.not.i.i2075, label %mesa_CallLists.exit, label %.lr.ph.i.i2073, !llvm.loop !68
 
 865:                                              ; preds = %34
   %866 = load i32, ptr @hf_x11_glx_render_Vertex2fv_v, align 4
@@ -43295,7 +43295,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %875 = add i32 %874, 4
   store i32 %875, ptr %2, align 4
   %.not.i.i2080 = icmp eq i32 %872, 0
-  br i1 %.not.i.i2080, label %mesa_CallLists.exit, label %.lr.ph.i.i2078, !llvm.loop !63
+  br i1 %.not.i.i2080, label %mesa_CallLists.exit, label %.lr.ph.i.i2078, !llvm.loop !67
 
 876:                                              ; preds = %34
   %877 = load i32, ptr @hf_x11_glx_render_Vertex2iv_v, align 4
@@ -43315,7 +43315,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %886 = add i32 %885, 4
   store i32 %886, ptr %2, align 4
   %.not.i.i2085 = icmp eq i32 %883, 0
-  br i1 %.not.i.i2085, label %mesa_CallLists.exit, label %.lr.ph.i.i2083, !llvm.loop !62
+  br i1 %.not.i.i2085, label %mesa_CallLists.exit, label %.lr.ph.i.i2083, !llvm.loop !66
 
 887:                                              ; preds = %34
   %888 = load i32, ptr @hf_x11_glx_render_Vertex2sv_v, align 4
@@ -43335,7 +43335,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %897 = add i32 %896, 2
   store i32 %897, ptr %2, align 4
   %.not.i.i2090 = icmp eq i32 %894, 0
-  br i1 %.not.i.i2090, label %mesa_CallLists.exit, label %.lr.ph.i.i2088, !llvm.loop !61
+  br i1 %.not.i.i2090, label %mesa_CallLists.exit, label %.lr.ph.i.i2088, !llvm.loop !65
 
 898:                                              ; preds = %34
   %899 = load i32, ptr @hf_x11_glx_render_Vertex3dv_v, align 4
@@ -43355,7 +43355,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %908 = add i32 %907, 8
   store i32 %908, ptr %2, align 4
   %.not.i.i2095 = icmp eq i32 %905, 0
-  br i1 %.not.i.i2095, label %mesa_CallLists.exit, label %.lr.ph.i.i2093, !llvm.loop !64
+  br i1 %.not.i.i2095, label %mesa_CallLists.exit, label %.lr.ph.i.i2093, !llvm.loop !68
 
 909:                                              ; preds = %34
   %910 = load i32, ptr @hf_x11_glx_render_Vertex3fv_v, align 4
@@ -43375,7 +43375,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %919 = add i32 %918, 4
   store i32 %919, ptr %2, align 4
   %.not.i.i2100 = icmp eq i32 %916, 0
-  br i1 %.not.i.i2100, label %mesa_CallLists.exit, label %.lr.ph.i.i2098, !llvm.loop !63
+  br i1 %.not.i.i2100, label %mesa_CallLists.exit, label %.lr.ph.i.i2098, !llvm.loop !67
 
 920:                                              ; preds = %34
   %921 = load i32, ptr @hf_x11_glx_render_Vertex3iv_v, align 4
@@ -43395,7 +43395,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %930 = add i32 %929, 4
   store i32 %930, ptr %2, align 4
   %.not.i.i2105 = icmp eq i32 %927, 0
-  br i1 %.not.i.i2105, label %mesa_CallLists.exit, label %.lr.ph.i.i2103, !llvm.loop !62
+  br i1 %.not.i.i2105, label %mesa_CallLists.exit, label %.lr.ph.i.i2103, !llvm.loop !66
 
 931:                                              ; preds = %34
   %932 = load i32, ptr @hf_x11_glx_render_Vertex3sv_v, align 4
@@ -43415,7 +43415,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %941 = add i32 %940, 2
   store i32 %941, ptr %2, align 4
   %.not.i.i2110 = icmp eq i32 %938, 0
-  br i1 %.not.i.i2110, label %mesa_CallLists.exit, label %.lr.ph.i.i2108, !llvm.loop !61
+  br i1 %.not.i.i2110, label %mesa_CallLists.exit, label %.lr.ph.i.i2108, !llvm.loop !65
 
 942:                                              ; preds = %34
   %943 = load i32, ptr @hf_x11_glx_render_Vertex4dv_v, align 4
@@ -43435,7 +43435,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %952 = add i32 %951, 8
   store i32 %952, ptr %2, align 4
   %.not.i.i2115 = icmp eq i32 %949, 0
-  br i1 %.not.i.i2115, label %mesa_CallLists.exit, label %.lr.ph.i.i2113, !llvm.loop !64
+  br i1 %.not.i.i2115, label %mesa_CallLists.exit, label %.lr.ph.i.i2113, !llvm.loop !68
 
 953:                                              ; preds = %34
   %954 = load i32, ptr @hf_x11_glx_render_Vertex4fv_v, align 4
@@ -43455,7 +43455,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %963 = add i32 %962, 4
   store i32 %963, ptr %2, align 4
   %.not.i.i2120 = icmp eq i32 %960, 0
-  br i1 %.not.i.i2120, label %mesa_CallLists.exit, label %.lr.ph.i.i2118, !llvm.loop !63
+  br i1 %.not.i.i2120, label %mesa_CallLists.exit, label %.lr.ph.i.i2118, !llvm.loop !67
 
 964:                                              ; preds = %34
   %965 = load i32, ptr @hf_x11_glx_render_Vertex4iv_v, align 4
@@ -43475,7 +43475,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %974 = add i32 %973, 4
   store i32 %974, ptr %2, align 4
   %.not.i.i2125 = icmp eq i32 %971, 0
-  br i1 %.not.i.i2125, label %mesa_CallLists.exit, label %.lr.ph.i.i2123, !llvm.loop !62
+  br i1 %.not.i.i2125, label %mesa_CallLists.exit, label %.lr.ph.i.i2123, !llvm.loop !66
 
 975:                                              ; preds = %34
   %976 = load i32, ptr @hf_x11_glx_render_Vertex4sv_v, align 4
@@ -43495,7 +43495,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %985 = add i32 %984, 2
   store i32 %985, ptr %2, align 4
   %.not.i.i2130 = icmp eq i32 %982, 0
-  br i1 %.not.i.i2130, label %mesa_CallLists.exit, label %.lr.ph.i.i2128, !llvm.loop !61
+  br i1 %.not.i.i2130, label %mesa_CallLists.exit, label %.lr.ph.i.i2128, !llvm.loop !65
 
 986:                                              ; preds = %34
   %987 = load i32, ptr @hf_x11_glx_render_ClipPlane_plane, align 4
@@ -43520,7 +43520,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1000 = add i32 %999, 8
   store i32 %1000, ptr %2, align 4
   %.not.i.i2135 = icmp eq i32 %997, 0
-  br i1 %.not.i.i2135, label %mesa_CallLists.exit, label %.lr.ph.i.i2133, !llvm.loop !64
+  br i1 %.not.i.i2135, label %mesa_CallLists.exit, label %.lr.ph.i.i2133, !llvm.loop !68
 
 1001:                                             ; preds = %34
   %1002 = load i32, ptr @hf_x11_glx_render_ColorMaterial_face, align 4
@@ -43578,7 +43578,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1036 = add i32 %1035, 4
   store i32 %1036, ptr %2, align 4
   %.not.i.i2141 = icmp eq i32 %1033, 0
-  br i1 %.not.i.i2141, label %mesa_CallLists.exit, label %.lr.ph.i.i2139, !llvm.loop !63
+  br i1 %.not.i.i2141, label %mesa_CallLists.exit, label %.lr.ph.i.i2139, !llvm.loop !67
 
 1037:                                             ; preds = %34
   %1038 = load i32, ptr @hf_x11_glx_render_Fogi_pname, align 4
@@ -43621,7 +43621,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1062 = add i32 %1061, 4
   store i32 %1062, ptr %2, align 4
   %.not.i.i2149 = icmp eq i32 %1059, 0
-  br i1 %.not.i.i2149, label %mesa_CallLists.exit, label %.lr.ph.i.i2147, !llvm.loop !62
+  br i1 %.not.i.i2149, label %mesa_CallLists.exit, label %.lr.ph.i.i2147, !llvm.loop !66
 
 1063:                                             ; preds = %34
   %1064 = load i32, ptr @hf_x11_glx_render_FrontFace_mode, align 4
@@ -43689,7 +43689,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1106 = add i32 %1105, 4
   store i32 %1106, ptr %2, align 4
   %.not.i.i2157 = icmp eq i32 %1103, 0
-  br i1 %.not.i.i2157, label %mesa_CallLists.exit, label %.lr.ph.i.i2155, !llvm.loop !63
+  br i1 %.not.i.i2157, label %mesa_CallLists.exit, label %.lr.ph.i.i2155, !llvm.loop !67
 
 1107:                                             ; preds = %34
   %1108 = load i32, ptr @hf_x11_glx_render_Lighti_light, align 4
@@ -43742,7 +43742,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1140 = add i32 %1139, 4
   store i32 %1140, ptr %2, align 4
   %.not.i.i2165 = icmp eq i32 %1137, 0
-  br i1 %.not.i.i2165, label %mesa_CallLists.exit, label %.lr.ph.i.i2163, !llvm.loop !62
+  br i1 %.not.i.i2165, label %mesa_CallLists.exit, label %.lr.ph.i.i2163, !llvm.loop !66
 
 1141:                                             ; preds = %34
   %1142 = load i32, ptr @hf_x11_glx_render_LightModelf_pname, align 4
@@ -43785,7 +43785,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1166 = add i32 %1165, 4
   store i32 %1166, ptr %2, align 4
   %.not.i.i2173 = icmp eq i32 %1163, 0
-  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !63
+  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !67
 
 1167:                                             ; preds = %34
   %1168 = load i32, ptr @hf_x11_glx_render_LightModeli_pname, align 4
@@ -43828,7 +43828,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1192 = add i32 %1191, 4
   store i32 %1192, ptr %2, align 4
   %.not.i.i2181 = icmp eq i32 %1189, 0
-  br i1 %.not.i.i2181, label %mesa_CallLists.exit, label %.lr.ph.i.i2179, !llvm.loop !62
+  br i1 %.not.i.i2181, label %mesa_CallLists.exit, label %.lr.ph.i.i2179, !llvm.loop !66
 
 1193:                                             ; preds = %34
   %1194 = load i32, ptr @hf_x11_glx_render_LineStipple_factor, align 4
@@ -43896,7 +43896,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1236 = add i32 %1235, 4
   store i32 %1236, ptr %2, align 4
   %.not.i.i2189 = icmp eq i32 %1233, 0
-  br i1 %.not.i.i2189, label %mesa_CallLists.exit, label %.lr.ph.i.i2187, !llvm.loop !63
+  br i1 %.not.i.i2189, label %mesa_CallLists.exit, label %.lr.ph.i.i2187, !llvm.loop !67
 
 1237:                                             ; preds = %34
   %1238 = load i32, ptr @hf_x11_glx_render_Materiali_face, align 4
@@ -43949,7 +43949,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1270 = add i32 %1269, 4
   store i32 %1270, ptr %2, align 4
   %.not.i.i2197 = icmp eq i32 %1267, 0
-  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !62
+  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !66
 
 1271:                                             ; preds = %34
   %1272 = load i32, ptr @hf_x11_glx_render_PointSize_size, align 4
@@ -44084,7 +44084,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1364 = add i32 %1363, 4
   store i32 %1364, ptr %2, align 4
   %.not.i.i2206 = icmp eq i32 %1361, 0
-  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !63
+  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !67
 
 1365:                                             ; preds = %34
   %1366 = load i32, ptr @hf_x11_glx_render_TexParameteri_target, align 4
@@ -44137,7 +44137,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1398 = add i32 %1397, 4
   store i32 %1398, ptr %2, align 4
   %.not.i.i2214 = icmp eq i32 %1395, 0
-  br i1 %.not.i.i2214, label %mesa_CallLists.exit, label %.lr.ph.i.i2212, !llvm.loop !62
+  br i1 %.not.i.i2214, label %mesa_CallLists.exit, label %.lr.ph.i.i2212, !llvm.loop !66
 
 1399:                                             ; preds = %34
   %1400 = load i32, ptr @hf_x11_glx_render_TexImage1D_swapbytes, align 4
@@ -44349,7 +44349,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1556 = add i32 %1555, 4
   store i32 %1556, ptr %2, align 4
   %.not.i.i2224 = icmp eq i32 %1553, 0
-  br i1 %.not.i.i2224, label %mesa_CallLists.exit, label %.lr.ph.i.i2222, !llvm.loop !63
+  br i1 %.not.i.i2224, label %mesa_CallLists.exit, label %.lr.ph.i.i2222, !llvm.loop !67
 
 1557:                                             ; preds = %34
   %1558 = load i32, ptr @hf_x11_glx_render_TexEnvi_target, align 4
@@ -44402,7 +44402,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1590 = add i32 %1589, 4
   store i32 %1590, ptr %2, align 4
   %.not.i.i2232 = icmp eq i32 %1587, 0
-  br i1 %.not.i.i2232, label %mesa_CallLists.exit, label %.lr.ph.i.i2230, !llvm.loop !62
+  br i1 %.not.i.i2232, label %mesa_CallLists.exit, label %.lr.ph.i.i2230, !llvm.loop !66
 
 1591:                                             ; preds = %34
   %1592 = load i32, ptr @hf_x11_glx_render_TexGend_coord, align 4
@@ -44455,7 +44455,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1624 = add i32 %1623, 8
   store i32 %1624, ptr %2, align 4
   %.not.i.i2240 = icmp eq i32 %1621, 0
-  br i1 %.not.i.i2240, label %mesa_CallLists.exit, label %.lr.ph.i.i2238, !llvm.loop !64
+  br i1 %.not.i.i2240, label %mesa_CallLists.exit, label %.lr.ph.i.i2238, !llvm.loop !68
 
 1625:                                             ; preds = %34
   %1626 = load i32, ptr @hf_x11_glx_render_TexGenf_coord, align 4
@@ -44508,7 +44508,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1658 = add i32 %1657, 4
   store i32 %1658, ptr %2, align 4
   %.not.i.i2248 = icmp eq i32 %1655, 0
-  br i1 %.not.i.i2248, label %mesa_CallLists.exit, label %.lr.ph.i.i2246, !llvm.loop !63
+  br i1 %.not.i.i2248, label %mesa_CallLists.exit, label %.lr.ph.i.i2246, !llvm.loop !67
 
 1659:                                             ; preds = %34
   %1660 = load i32, ptr @hf_x11_glx_render_TexGeni_coord, align 4
@@ -44561,7 +44561,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1692 = add i32 %1691, 4
   store i32 %1692, ptr %2, align 4
   %.not.i.i2256 = icmp eq i32 %1689, 0
-  br i1 %.not.i.i2256, label %mesa_CallLists.exit, label %.lr.ph.i.i2254, !llvm.loop !62
+  br i1 %.not.i.i2256, label %mesa_CallLists.exit, label %.lr.ph.i.i2254, !llvm.loop !66
 
 1693:                                             ; preds = %34
   %1694 = load i32, ptr @hf_x11_glx_render_LoadName_name, align 4
@@ -44754,7 +44754,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1821 = add i32 %1820, 8
   store i32 %1821, ptr %2, align 4
   %.not.i.i2264 = icmp eq i32 %1818, 0
-  br i1 %.not.i.i2264, label %mesa_CallLists.exit, label %.lr.ph.i.i2262, !llvm.loop !64
+  br i1 %.not.i.i2264, label %mesa_CallLists.exit, label %.lr.ph.i.i2262, !llvm.loop !68
 
 1822:                                             ; preds = %34
   %1823 = load i32, ptr @hf_x11_glx_render_Map1f_target, align 4
@@ -44807,7 +44807,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1856 = add i32 %1855, 4
   store i32 %1856, ptr %2, align 4
   %.not.i.i2272 = icmp eq i32 %1853, 0
-  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !63
+  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !67
 
 1857:                                             ; preds = %34
   %1858 = load i32, ptr @hf_x11_glx_render_Map2d_target, align 4
@@ -44880,7 +44880,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1907 = add i32 %1906, 8
   store i32 %1907, ptr %2, align 4
   %.not.i.i2280 = icmp eq i32 %1904, 0
-  br i1 %.not.i.i2280, label %mesa_CallLists.exit, label %.lr.ph.i.i2278, !llvm.loop !64
+  br i1 %.not.i.i2280, label %mesa_CallLists.exit, label %.lr.ph.i.i2278, !llvm.loop !68
 
 1908:                                             ; preds = %34
   %1909 = load i32, ptr @hf_x11_glx_render_Map2f_target, align 4
@@ -44953,7 +44953,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1958 = add i32 %1957, 4
   store i32 %1958, ptr %2, align 4
   %.not.i.i2288 = icmp eq i32 %1955, 0
-  br i1 %.not.i.i2288, label %mesa_CallLists.exit, label %.lr.ph.i.i2286, !llvm.loop !63
+  br i1 %.not.i.i2288, label %mesa_CallLists.exit, label %.lr.ph.i.i2286, !llvm.loop !67
 
 1959:                                             ; preds = %34
   %1960 = load i32, ptr @hf_x11_glx_render_MapGrid1d_un, align 4
@@ -45083,7 +45083,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2051 = add i32 %2050, 8
   store i32 %2051, ptr %2, align 4
   %.not.i.i2297 = icmp eq i32 %2048, 0
-  br i1 %.not.i.i2297, label %mesa_CallLists.exit, label %.lr.ph.i.i2295, !llvm.loop !64
+  br i1 %.not.i.i2297, label %mesa_CallLists.exit, label %.lr.ph.i.i2295, !llvm.loop !68
 
 2052:                                             ; preds = %34
   %2053 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u, align 4
@@ -45103,7 +45103,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2062 = add i32 %2061, 4
   store i32 %2062, ptr %2, align 4
   %.not.i.i2302 = icmp eq i32 %2059, 0
-  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !63
+  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !67
 
 2063:                                             ; preds = %34
   %2064 = load i32, ptr @hf_x11_glx_render_EvalMesh1_mode, align 4
@@ -45285,7 +45285,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2187 = add i32 %2186, 4
   store i32 %2187, ptr %2, align 4
   %.not.i.i2309 = icmp eq i32 %2184, 0
-  br i1 %.not.i.i2309, label %mesa_CallLists.exit, label %.lr.ph.i.i2307, !llvm.loop !63
+  br i1 %.not.i.i2309, label %mesa_CallLists.exit, label %.lr.ph.i.i2307, !llvm.loop !67
 
 2188:                                             ; preds = %34
   %2189 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_map, align 4
@@ -45322,7 +45322,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2209 = add i32 %2208, 4
   store i32 %2209, ptr %2, align 4
   %.not.i.i2316 = icmp eq i32 %2206, 0
-  br i1 %.not.i.i2316, label %mesa_CallLists.exit, label %.lr.ph.i.i2314, !llvm.loop !44
+  br i1 %.not.i.i2316, label %mesa_CallLists.exit, label %.lr.ph.i.i2314, !llvm.loop !46
 
 2210:                                             ; preds = %34
   %2211 = load i32, ptr @hf_x11_glx_render_PixelMapusv_map, align 4
@@ -45359,7 +45359,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2231 = add i32 %2230, 2
   store i32 %2231, ptr %2, align 4
   %.not.i.i2322 = icmp eq i32 %2228, 0
-  br i1 %.not.i.i2322, label %mesa_CallLists.exit, label %.lr.ph.i.i2320, !llvm.loop !43
+  br i1 %.not.i.i2322, label %mesa_CallLists.exit, label %.lr.ph.i.i2320, !llvm.loop !45
 
 2232:                                             ; preds = %34
   %2233 = load i32, ptr @hf_x11_glx_render_ReadBuffer_mode, align 4
@@ -45511,7 +45511,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2342 = add i32 %2341, 4
   store i32 %2342, ptr %2, align 4
   %.not.i.i2328 = icmp eq i32 %2339, 0
-  br i1 %.not.i.i2328, label %mesa_CallLists.exit, label %.lr.ph.i.i2326, !llvm.loop !63
+  br i1 %.not.i.i2328, label %mesa_CallLists.exit, label %.lr.ph.i.i2326, !llvm.loop !67
 
 2343:                                             ; preds = %34
   %2344 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m, align 4
@@ -45531,7 +45531,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2353 = add i32 %2352, 8
   store i32 %2353, ptr %2, align 4
   %.not.i.i2333 = icmp eq i32 %2350, 0
-  br i1 %.not.i.i2333, label %mesa_CallLists.exit, label %.lr.ph.i.i2331, !llvm.loop !64
+  br i1 %.not.i.i2333, label %mesa_CallLists.exit, label %.lr.ph.i.i2331, !llvm.loop !68
 
 2354:                                             ; preds = %34
   %2355 = load i32, ptr @hf_x11_glx_render_MatrixMode_mode, align 4
@@ -45556,7 +45556,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2367 = add i32 %2366, 4
   store i32 %2367, ptr %2, align 4
   %.not.i.i2338 = icmp eq i32 %2364, 0
-  br i1 %.not.i.i2338, label %mesa_CallLists.exit, label %.lr.ph.i.i2336, !llvm.loop !63
+  br i1 %.not.i.i2338, label %mesa_CallLists.exit, label %.lr.ph.i.i2336, !llvm.loop !67
 
 2368:                                             ; preds = %34
   %2369 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m, align 4
@@ -45576,7 +45576,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2378 = add i32 %2377, 8
   store i32 %2378, ptr %2, align 4
   %.not.i.i2343 = icmp eq i32 %2375, 0
-  br i1 %.not.i.i2343, label %mesa_CallLists.exit, label %.lr.ph.i.i2341, !llvm.loop !64
+  br i1 %.not.i.i2343, label %mesa_CallLists.exit, label %.lr.ph.i.i2341, !llvm.loop !68
 
 2379:                                             ; preds = %34
   %2380 = load i32, ptr @hf_x11_glx_render_Ortho_left, align 4
@@ -45938,7 +45938,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2644 = add i32 %2643, 8
   store i32 %2644, ptr %2, align 4
   %.not.i.i2357 = icmp eq i32 %2641, 0
-  br i1 %.not.i.i2357, label %mesa_CallLists.exit, label %.lr.ph.i.i2355, !llvm.loop !64
+  br i1 %.not.i.i2357, label %mesa_CallLists.exit, label %.lr.ph.i.i2355, !llvm.loop !68
 
 2645:                                             ; preds = %34
   %2646 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_target, align 4
@@ -45963,7 +45963,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2659 = add i32 %2658, 4
   store i32 %2659, ptr %2, align 4
   %.not.i.i2362 = icmp eq i32 %2656, 0
-  br i1 %.not.i.i2362, label %mesa_CallLists.exit, label %.lr.ph.i.i2360, !llvm.loop !63
+  br i1 %.not.i.i2362, label %mesa_CallLists.exit, label %.lr.ph.i.i2360, !llvm.loop !67
 
 2660:                                             ; preds = %34
   %2661 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_target, align 4
@@ -45988,7 +45988,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2674 = add i32 %2673, 4
   store i32 %2674, ptr %2, align 4
   %.not.i.i2367 = icmp eq i32 %2671, 0
-  br i1 %.not.i.i2367, label %mesa_CallLists.exit, label %.lr.ph.i.i2365, !llvm.loop !62
+  br i1 %.not.i.i2367, label %mesa_CallLists.exit, label %.lr.ph.i.i2365, !llvm.loop !66
 
 2675:                                             ; preds = %34
   %2676 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_target, align 4
@@ -46013,7 +46013,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2689 = add i32 %2688, 2
   store i32 %2689, ptr %2, align 4
   %.not.i.i2372 = icmp eq i32 %2686, 0
-  br i1 %.not.i.i2372, label %mesa_CallLists.exit, label %.lr.ph.i.i2370, !llvm.loop !61
+  br i1 %.not.i.i2372, label %mesa_CallLists.exit, label %.lr.ph.i.i2370, !llvm.loop !65
 
 2690:                                             ; preds = %34
   %2691 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_target, align 4
@@ -46038,7 +46038,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2704 = add i32 %2703, 8
   store i32 %2704, ptr %2, align 4
   %.not.i.i2377 = icmp eq i32 %2701, 0
-  br i1 %.not.i.i2377, label %mesa_CallLists.exit, label %.lr.ph.i.i2375, !llvm.loop !64
+  br i1 %.not.i.i2377, label %mesa_CallLists.exit, label %.lr.ph.i.i2375, !llvm.loop !68
 
 2705:                                             ; preds = %34
   %2706 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_target, align 4
@@ -46063,7 +46063,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2719 = add i32 %2718, 4
   store i32 %2719, ptr %2, align 4
   %.not.i.i2382 = icmp eq i32 %2716, 0
-  br i1 %.not.i.i2382, label %mesa_CallLists.exit, label %.lr.ph.i.i2380, !llvm.loop !63
+  br i1 %.not.i.i2382, label %mesa_CallLists.exit, label %.lr.ph.i.i2380, !llvm.loop !67
 
 2720:                                             ; preds = %34
   %2721 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_target, align 4
@@ -46088,7 +46088,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2734 = add i32 %2733, 4
   store i32 %2734, ptr %2, align 4
   %.not.i.i2387 = icmp eq i32 %2731, 0
-  br i1 %.not.i.i2387, label %mesa_CallLists.exit, label %.lr.ph.i.i2385, !llvm.loop !62
+  br i1 %.not.i.i2387, label %mesa_CallLists.exit, label %.lr.ph.i.i2385, !llvm.loop !66
 
 2735:                                             ; preds = %34
   %2736 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_target, align 4
@@ -46113,7 +46113,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2749 = add i32 %2748, 2
   store i32 %2749, ptr %2, align 4
   %.not.i.i2392 = icmp eq i32 %2746, 0
-  br i1 %.not.i.i2392, label %mesa_CallLists.exit, label %.lr.ph.i.i2390, !llvm.loop !61
+  br i1 %.not.i.i2392, label %mesa_CallLists.exit, label %.lr.ph.i.i2390, !llvm.loop !65
 
 2750:                                             ; preds = %34
   %2751 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_target, align 4
@@ -46138,7 +46138,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2764 = add i32 %2763, 8
   store i32 %2764, ptr %2, align 4
   %.not.i.i2397 = icmp eq i32 %2761, 0
-  br i1 %.not.i.i2397, label %mesa_CallLists.exit, label %.lr.ph.i.i2395, !llvm.loop !64
+  br i1 %.not.i.i2397, label %mesa_CallLists.exit, label %.lr.ph.i.i2395, !llvm.loop !68
 
 2765:                                             ; preds = %34
   %2766 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_target, align 4
@@ -46163,7 +46163,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2779 = add i32 %2778, 4
   store i32 %2779, ptr %2, align 4
   %.not.i.i2402 = icmp eq i32 %2776, 0
-  br i1 %.not.i.i2402, label %mesa_CallLists.exit, label %.lr.ph.i.i2400, !llvm.loop !63
+  br i1 %.not.i.i2402, label %mesa_CallLists.exit, label %.lr.ph.i.i2400, !llvm.loop !67
 
 2780:                                             ; preds = %34
   %2781 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_target, align 4
@@ -46188,7 +46188,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2794 = add i32 %2793, 4
   store i32 %2794, ptr %2, align 4
   %.not.i.i2407 = icmp eq i32 %2791, 0
-  br i1 %.not.i.i2407, label %mesa_CallLists.exit, label %.lr.ph.i.i2405, !llvm.loop !62
+  br i1 %.not.i.i2407, label %mesa_CallLists.exit, label %.lr.ph.i.i2405, !llvm.loop !66
 
 2795:                                             ; preds = %34
   %2796 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_target, align 4
@@ -46213,7 +46213,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2809 = add i32 %2808, 2
   store i32 %2809, ptr %2, align 4
   %.not.i.i2412 = icmp eq i32 %2806, 0
-  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !61
+  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !65
 
 2810:                                             ; preds = %34
   %2811 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_target, align 4
@@ -46516,7 +46516,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3037 = add i32 %3036, 4
   store i32 %3037, ptr %2, align 4
   %.not.i.i2423 = icmp eq i32 %3034, 0
-  br i1 %.not.i.i2423, label %mesa_CallLists.exit, label %.lr.ph.i.i2421, !llvm.loop !63
+  br i1 %.not.i.i2423, label %mesa_CallLists.exit, label %.lr.ph.i.i2421, !llvm.loop !67
 
 3038:                                             ; preds = %34
   %3039 = load i32, ptr @hf_x11_glx_render_BeginQuery_target, align 4
@@ -46563,7 +46563,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3065 = add i32 %3064, 4
   store i32 %3065, ptr %2, align 4
   %.not.i.i2430 = icmp eq i32 %3062, 0
-  br i1 %.not.i.i2430, label %mesa_CallLists.exit, label %.lr.ph.i.i2428, !llvm.loop !44
+  br i1 %.not.i.i2430, label %mesa_CallLists.exit, label %.lr.ph.i.i2428, !llvm.loop !46
 
 3066:                                             ; preds = %34
   %3067 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_value, align 4
@@ -46615,7 +46615,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3097 = add i32 %3096, 4
   store i32 %3097, ptr %2, align 4
   %.not.i.i2436 = icmp eq i32 %3094, 0
-  br i1 %.not.i.i2436, label %mesa_CallLists.exit, label %.lr.ph.i.i2434, !llvm.loop !63
+  br i1 %.not.i.i2436, label %mesa_CallLists.exit, label %.lr.ph.i.i2434, !llvm.loop !67
 
 3098:                                             ; preds = %34
   %3099 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_target, align 4
@@ -46652,7 +46652,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3119 = add i32 %3118, 4
   store i32 %3119, ptr %2, align 4
   %.not.i.i2443 = icmp eq i32 %3116, 0
-  br i1 %.not.i.i2443, label %mesa_CallLists.exit, label %.lr.ph.i.i2441, !llvm.loop !63
+  br i1 %.not.i.i2443, label %mesa_CallLists.exit, label %.lr.ph.i.i2441, !llvm.loop !67
 
 3120:                                             ; preds = %34
   %3121 = load i32, ptr @hf_x11_glx_render_ColorTable_swapbytes, align 4
@@ -46757,7 +46757,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3194 = add i32 %3193, 4
   store i32 %3194, ptr %2, align 4
   %.not.i.i2452 = icmp eq i32 %3191, 0
-  br i1 %.not.i.i2452, label %mesa_CallLists.exit, label %.lr.ph.i.i2450, !llvm.loop !63
+  br i1 %.not.i.i2452, label %mesa_CallLists.exit, label %.lr.ph.i.i2450, !llvm.loop !67
 
 3195:                                             ; preds = %34
   %3196 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_target, align 4
@@ -46795,7 +46795,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3217 = add i32 %3216, 4
   store i32 %3217, ptr %2, align 4
   %.not.i.i2460 = icmp eq i32 %3214, 0
-  br i1 %.not.i.i2460, label %mesa_CallLists.exit, label %.lr.ph.i.i2458, !llvm.loop !62
+  br i1 %.not.i.i2460, label %mesa_CallLists.exit, label %.lr.ph.i.i2458, !llvm.loop !66
 
 3218:                                             ; preds = %34
   %3219 = load i32, ptr @hf_x11_glx_render_CopyColorTable_target, align 4
@@ -47066,7 +47066,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3421 = add i32 %3420, 4
   store i32 %3421, ptr %2, align 4
   %.not.i.i2469 = icmp eq i32 %3418, 0
-  br i1 %.not.i.i2469, label %mesa_CallLists.exit, label %.lr.ph.i.i2467, !llvm.loop !63
+  br i1 %.not.i.i2469, label %mesa_CallLists.exit, label %.lr.ph.i.i2467, !llvm.loop !67
 
 3422:                                             ; preds = %34
   %3423 = load i32, ptr @hf_x11_glx_render_PointParameterf_pname, align 4
@@ -47109,7 +47109,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3447 = add i32 %3446, 4
   store i32 %3447, ptr %2, align 4
   %.not.i.i2477 = icmp eq i32 %3444, 0
-  br i1 %.not.i.i2477, label %mesa_CallLists.exit, label %.lr.ph.i.i2475, !llvm.loop !63
+  br i1 %.not.i.i2477, label %mesa_CallLists.exit, label %.lr.ph.i.i2475, !llvm.loop !67
 
 3448:                                             ; preds = %34
   %3449 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %28, i32 noundef %4)
@@ -47141,7 +47141,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3465 = add i32 %3464, 4
   store i32 %3465, ptr %2, align 4
   %.not.i.i2484 = icmp eq i32 %3462, 0
-  br i1 %.not.i.i2484, label %mesa_CallLists.exit, label %.lr.ph.i.i2482, !llvm.loop !63
+  br i1 %.not.i.i2484, label %mesa_CallLists.exit, label %.lr.ph.i.i2482, !llvm.loop !67
 
 3466:                                             ; preds = %34
   %3467 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation, align 4
@@ -47161,7 +47161,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3476 = add i32 %3475, 8
   store i32 %3476, ptr %2, align 4
   %.not.i.i2489 = icmp eq i32 %3473, 0
-  br i1 %.not.i.i2489, label %mesa_CallLists.exit, label %.lr.ph.i.i2487, !llvm.loop !64
+  br i1 %.not.i.i2489, label %mesa_CallLists.exit, label %.lr.ph.i.i2487, !llvm.loop !68
 
 3477:                                             ; preds = %34
   %3478 = load i32, ptr @hf_x11_glx_render_FrameZoomSGIX_factor, align 4
@@ -47567,7 +47567,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3782 = add i32 %3781, 4
   store i32 %3782, ptr %2, align 4
   %.not.i.i2501 = icmp eq i32 %3779, 0
-  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !63
+  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !67
 
 3783:                                             ; preds = %34
   %3784 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_target, align 4
@@ -47620,7 +47620,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3816 = add i32 %3815, 4
   store i32 %3816, ptr %2, align 4
   %.not.i.i2509 = icmp eq i32 %3813, 0
-  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !62
+  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !66
 
 3817:                                             ; preds = %34
   %3818 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_target, align 4
@@ -47985,7 +47985,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %4091 = add i32 %4090, 4
   store i32 %4091, ptr %2, align 4
   %.not.i.i2518 = icmp eq i32 %4088, 0
-  br i1 %.not.i.i2518, label %listOfCard32.exit.i, label %.lr.ph.i.i2516, !llvm.loop !44
+  br i1 %.not.i.i2518, label %listOfCard32.exit.i, label %.lr.ph.i.i2516, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %4074
   %4092 = phi i32 [ %.pre.i2515, %4074 ], [ %4091, %.lr.ph.i.i2516 ]
@@ -48009,7 +48009,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4102 = add i32 %4101, 4
   store i32 %4102, ptr %2, align 4
   %.not.i22.i = icmp eq i32 %4099, 0
-  br i1 %.not.i22.i, label %mesa_CallLists.exit, label %.lr.ph.i20.i, !llvm.loop !63
+  br i1 %.not.i22.i, label %mesa_CallLists.exit, label %.lr.ph.i20.i, !llvm.loop !67
 
 4103:                                             ; preds = %34
   %4104 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_target, align 4
@@ -48244,7 +48244,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4277 = add i32 %4276, 2
   store i32 %4277, ptr %2, align 4
   %.not.i.i2527 = icmp eq i32 %4274, 0
-  br i1 %.not.i.i2527, label %mesa_CallLists.exit, label %.lr.ph.i.i2525, !llvm.loop !61
+  br i1 %.not.i.i2527, label %mesa_CallLists.exit, label %.lr.ph.i.i2525, !llvm.loop !65
 
 4278:                                             ; preds = %34
   %4279 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v, align 4
@@ -48264,7 +48264,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4288 = add i32 %4287, 4
   store i32 %4288, ptr %2, align 4
   %.not.i.i2532 = icmp eq i32 %4285, 0
-  br i1 %.not.i.i2532, label %mesa_CallLists.exit, label %.lr.ph.i.i2530, !llvm.loop !62
+  br i1 %.not.i.i2532, label %mesa_CallLists.exit, label %.lr.ph.i.i2530, !llvm.loop !66
 
 4289:                                             ; preds = %34
   %4290 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v, align 4
@@ -48284,7 +48284,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4299 = add i32 %4298, 4
   store i32 %4299, ptr %2, align 4
   %.not.i.i2537 = icmp eq i32 %4296, 0
-  br i1 %.not.i.i2537, label %mesa_CallLists.exit, label %.lr.ph.i.i2535, !llvm.loop !63
+  br i1 %.not.i.i2537, label %mesa_CallLists.exit, label %.lr.ph.i.i2535, !llvm.loop !67
 
 4300:                                             ; preds = %34
   %4301 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v, align 4
@@ -48304,7 +48304,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4310 = add i32 %4309, 8
   store i32 %4310, ptr %2, align 4
   %.not.i.i2542 = icmp eq i32 %4307, 0
-  br i1 %.not.i.i2542, label %mesa_CallLists.exit, label %.lr.ph.i.i2540, !llvm.loop !64
+  br i1 %.not.i.i2542, label %mesa_CallLists.exit, label %.lr.ph.i.i2540, !llvm.loop !68
 
 4311:                                             ; preds = %34
   %4312 = load i32, ptr @hf_x11_glx_render_SecondaryColor3ubv_v, align 4
@@ -48329,7 +48329,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4324 = add i32 %4323, 2
   store i32 %4324, ptr %2, align 4
   %.not.i.i2547 = icmp eq i32 %4321, 0
-  br i1 %.not.i.i2547, label %mesa_CallLists.exit, label %.lr.ph.i.i2545, !llvm.loop !43
+  br i1 %.not.i.i2547, label %mesa_CallLists.exit, label %.lr.ph.i.i2545, !llvm.loop !45
 
 4325:                                             ; preds = %34
   %4326 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v, align 4
@@ -48349,7 +48349,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4335 = add i32 %4334, 4
   store i32 %4335, ptr %2, align 4
   %.not.i.i2552 = icmp eq i32 %4332, 0
-  br i1 %.not.i.i2552, label %mesa_CallLists.exit, label %.lr.ph.i.i2550, !llvm.loop !44
+  br i1 %.not.i.i2552, label %mesa_CallLists.exit, label %.lr.ph.i.i2550, !llvm.loop !46
 
 4336:                                             ; preds = %34
   %4337 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorRGB, align 4
@@ -48422,7 +48422,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4383 = add i32 %4382, 4
   store i32 %4383, ptr %2, align 4
   %.not.i.i2562 = icmp eq i32 %4380, 0
-  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !63
+  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !67
 
 4384:                                             ; preds = %34
   %4385 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_pname, align 4
@@ -48465,7 +48465,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4409 = add i32 %4408, 4
   store i32 %4409, ptr %2, align 4
   %.not.i.i2570 = icmp eq i32 %4406, 0
-  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !62
+  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !66
 
 4410:                                             ; preds = %34
   %4411 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_stage, align 4
@@ -48605,7 +48605,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4512 = add i32 %4511, 4
   store i32 %4512, ptr %2, align 4
   %.not.i.i2575 = icmp eq i32 %4509, 0
-  br i1 %.not.i.i2575, label %mesa_CallLists.exit, label %.lr.ph.i.i2573, !llvm.loop !63
+  br i1 %.not.i.i2575, label %mesa_CallLists.exit, label %.lr.ph.i.i2573, !llvm.loop !67
 
 4513:                                             ; preds = %34
   %4514 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %28, i32 noundef %4)
@@ -48637,7 +48637,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4530 = add i32 %4529, 4
   store i32 %4530, ptr %2, align 4
   %.not.i.i2582 = icmp eq i32 %4527, 0
-  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !44
+  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !46
 
 4531:                                             ; preds = %34
   %4532 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_target, align 4
@@ -48690,7 +48690,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4566 = add i32 %4565, 4
   store i32 %4566, ptr %2, align 4
   %.not.i.i2588 = icmp eq i32 %4563, 0
-  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !63
+  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !67
 
 4567:                                             ; preds = %34
   %4568 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_target, align 4
@@ -48720,7 +48720,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4585 = add i32 %4584, 8
   store i32 %4585, ptr %2, align 4
   %.not.i.i2593 = icmp eq i32 %4582, 0
-  br i1 %.not.i.i2593, label %mesa_CallLists.exit, label %.lr.ph.i.i2591, !llvm.loop !64
+  br i1 %.not.i.i2593, label %mesa_CallLists.exit, label %.lr.ph.i.i2591, !llvm.loop !68
 
 4586:                                             ; preds = %34
   %4587 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_target, align 4
@@ -48762,7 +48762,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4611 = add i32 %4610, 4
   store i32 %4611, ptr %2, align 4
   %.not.i.i2600 = icmp eq i32 %4608, 0
-  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !63
+  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !67
 
 4612:                                             ; preds = %34
   %4613 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_target, align 4
@@ -48804,7 +48804,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4637 = add i32 %4636, 8
   store i32 %4637, ptr %2, align 4
   %.not.i.i2607 = icmp eq i32 %4634, 0
-  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !64
+  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !68
 
 4638:                                             ; preds = %34
   %4639 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_target, align 4
@@ -48864,7 +48864,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4678 = add i32 %4677, 2
   store i32 %4678, ptr %2, align 4
   %.not.i.i2614 = icmp eq i32 %4675, 0
-  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !61
+  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !65
 
 4679:                                             ; preds = %34
   %4680 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_index, align 4
@@ -48889,7 +48889,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4693 = add i32 %4692, 2
   store i32 %4693, ptr %2, align 4
   %.not.i.i2619 = icmp eq i32 %4690, 0
-  br i1 %.not.i.i2619, label %mesa_CallLists.exit, label %.lr.ph.i.i2617, !llvm.loop !61
+  br i1 %.not.i.i2619, label %mesa_CallLists.exit, label %.lr.ph.i.i2617, !llvm.loop !65
 
 4694:                                             ; preds = %34
   %4695 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_index, align 4
@@ -48914,7 +48914,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4708 = add i32 %4707, 2
   store i32 %4708, ptr %2, align 4
   %.not.i.i2624 = icmp eq i32 %4705, 0
-  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !61
+  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !65
 
 4709:                                             ; preds = %34
   %4710 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_index, align 4
@@ -48954,7 +48954,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4734 = add i32 %4733, 4
   store i32 %4734, ptr %2, align 4
   %.not.i.i2631 = icmp eq i32 %4731, 0
-  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !63
+  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !67
 
 4735:                                             ; preds = %34
   %4736 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_index, align 4
@@ -48979,7 +48979,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4749 = add i32 %4748, 4
   store i32 %4749, ptr %2, align 4
   %.not.i.i2636 = icmp eq i32 %4746, 0
-  br i1 %.not.i.i2636, label %mesa_CallLists.exit, label %.lr.ph.i.i2634, !llvm.loop !63
+  br i1 %.not.i.i2636, label %mesa_CallLists.exit, label %.lr.ph.i.i2634, !llvm.loop !67
 
 4750:                                             ; preds = %34
   %4751 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_index, align 4
@@ -49004,7 +49004,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4764 = add i32 %4763, 4
   store i32 %4764, ptr %2, align 4
   %.not.i.i2641 = icmp eq i32 %4761, 0
-  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !63
+  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !67
 
 4765:                                             ; preds = %34
   %4766 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_index, align 4
@@ -49044,7 +49044,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4790 = add i32 %4789, 8
   store i32 %4790, ptr %2, align 4
   %.not.i.i2648 = icmp eq i32 %4787, 0
-  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !64
+  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !68
 
 4791:                                             ; preds = %34
   %4792 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_index, align 4
@@ -49069,7 +49069,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4805 = add i32 %4804, 8
   store i32 %4805, ptr %2, align 4
   %.not.i.i2653 = icmp eq i32 %4802, 0
-  br i1 %.not.i.i2653, label %mesa_CallLists.exit, label %.lr.ph.i.i2651, !llvm.loop !64
+  br i1 %.not.i.i2653, label %mesa_CallLists.exit, label %.lr.ph.i.i2651, !llvm.loop !68
 
 4806:                                             ; preds = %34
   %4807 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_index, align 4
@@ -49094,7 +49094,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4820 = add i32 %4819, 8
   store i32 %4820, ptr %2, align 4
   %.not.i.i2658 = icmp eq i32 %4817, 0
-  br i1 %.not.i.i2658, label %mesa_CallLists.exit, label %.lr.ph.i.i2656, !llvm.loop !64
+  br i1 %.not.i.i2658, label %mesa_CallLists.exit, label %.lr.ph.i.i2656, !llvm.loop !68
 
 4821:                                             ; preds = %34
   %4822 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_index, align 4
@@ -49141,7 +49141,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4849 = add i32 %4848, 2
   store i32 %4849, ptr %2, align 4
   %.not.i.i2665 = icmp eq i32 %4846, 0
-  br i1 %.not.i.i2665, label %mesa_CallLists.exit, label %.lr.ph.i.i2663, !llvm.loop !61
+  br i1 %.not.i.i2665, label %mesa_CallLists.exit, label %.lr.ph.i.i2663, !llvm.loop !65
 
 4850:                                             ; preds = %34
   %4851 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_index, align 4
@@ -49178,7 +49178,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4871 = add i32 %4870, 2
   store i32 %4871, ptr %2, align 4
   %.not.i.i2672 = icmp eq i32 %4868, 0
-  br i1 %.not.i.i2672, label %mesa_CallLists.exit, label %.lr.ph.i.i2670, !llvm.loop !61
+  br i1 %.not.i.i2672, label %mesa_CallLists.exit, label %.lr.ph.i.i2670, !llvm.loop !65
 
 4872:                                             ; preds = %34
   %4873 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_index, align 4
@@ -49215,7 +49215,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4893 = add i32 %4892, 2
   store i32 %4893, ptr %2, align 4
   %.not.i.i2679 = icmp eq i32 %4890, 0
-  br i1 %.not.i.i2679, label %mesa_CallLists.exit, label %.lr.ph.i.i2677, !llvm.loop !61
+  br i1 %.not.i.i2679, label %mesa_CallLists.exit, label %.lr.ph.i.i2677, !llvm.loop !65
 
 4894:                                             ; preds = %34
   %4895 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_index, align 4
@@ -49252,7 +49252,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4915 = add i32 %4914, 2
   store i32 %4915, ptr %2, align 4
   %.not.i.i2686 = icmp eq i32 %4912, 0
-  br i1 %.not.i.i2686, label %mesa_CallLists.exit, label %.lr.ph.i.i2684, !llvm.loop !61
+  br i1 %.not.i.i2686, label %mesa_CallLists.exit, label %.lr.ph.i.i2684, !llvm.loop !65
 
 4916:                                             ; preds = %34
   %4917 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_index, align 4
@@ -49289,7 +49289,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4937 = add i32 %4936, 4
   store i32 %4937, ptr %2, align 4
   %.not.i.i2693 = icmp eq i32 %4934, 0
-  br i1 %.not.i.i2693, label %mesa_CallLists.exit, label %.lr.ph.i.i2691, !llvm.loop !63
+  br i1 %.not.i.i2693, label %mesa_CallLists.exit, label %.lr.ph.i.i2691, !llvm.loop !67
 
 4938:                                             ; preds = %34
   %4939 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_index, align 4
@@ -49326,7 +49326,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4959 = add i32 %4958, 4
   store i32 %4959, ptr %2, align 4
   %.not.i.i2700 = icmp eq i32 %4956, 0
-  br i1 %.not.i.i2700, label %mesa_CallLists.exit, label %.lr.ph.i.i2698, !llvm.loop !63
+  br i1 %.not.i.i2700, label %mesa_CallLists.exit, label %.lr.ph.i.i2698, !llvm.loop !67
 
 4960:                                             ; preds = %34
   %4961 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_index, align 4
@@ -49363,7 +49363,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4981 = add i32 %4980, 4
   store i32 %4981, ptr %2, align 4
   %.not.i.i2707 = icmp eq i32 %4978, 0
-  br i1 %.not.i.i2707, label %mesa_CallLists.exit, label %.lr.ph.i.i2705, !llvm.loop !63
+  br i1 %.not.i.i2707, label %mesa_CallLists.exit, label %.lr.ph.i.i2705, !llvm.loop !67
 
 4982:                                             ; preds = %34
   %4983 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_index, align 4
@@ -49400,7 +49400,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5003 = add i32 %5002, 4
   store i32 %5003, ptr %2, align 4
   %.not.i.i2714 = icmp eq i32 %5000, 0
-  br i1 %.not.i.i2714, label %mesa_CallLists.exit, label %.lr.ph.i.i2712, !llvm.loop !63
+  br i1 %.not.i.i2714, label %mesa_CallLists.exit, label %.lr.ph.i.i2712, !llvm.loop !67
 
 5004:                                             ; preds = %34
   %5005 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_index, align 4
@@ -49437,7 +49437,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5025 = add i32 %5024, 8
   store i32 %5025, ptr %2, align 4
   %.not.i.i2721 = icmp eq i32 %5022, 0
-  br i1 %.not.i.i2721, label %mesa_CallLists.exit, label %.lr.ph.i.i2719, !llvm.loop !64
+  br i1 %.not.i.i2721, label %mesa_CallLists.exit, label %.lr.ph.i.i2719, !llvm.loop !68
 
 5026:                                             ; preds = %34
   %5027 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_index, align 4
@@ -49474,7 +49474,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5047 = add i32 %5046, 8
   store i32 %5047, ptr %2, align 4
   %.not.i.i2728 = icmp eq i32 %5044, 0
-  br i1 %.not.i.i2728, label %mesa_CallLists.exit, label %.lr.ph.i.i2726, !llvm.loop !64
+  br i1 %.not.i.i2728, label %mesa_CallLists.exit, label %.lr.ph.i.i2726, !llvm.loop !68
 
 5048:                                             ; preds = %34
   %5049 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_index, align 4
@@ -49511,7 +49511,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5069 = add i32 %5068, 8
   store i32 %5069, ptr %2, align 4
   %.not.i.i2735 = icmp eq i32 %5066, 0
-  br i1 %.not.i.i2735, label %mesa_CallLists.exit, label %.lr.ph.i.i2733, !llvm.loop !64
+  br i1 %.not.i.i2735, label %mesa_CallLists.exit, label %.lr.ph.i.i2733, !llvm.loop !68
 
 5070:                                             ; preds = %34
   %5071 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_index, align 4
@@ -49548,7 +49548,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5091 = add i32 %5090, 8
   store i32 %5091, ptr %2, align 4
   %.not.i.i2742 = icmp eq i32 %5088, 0
-  br i1 %.not.i.i2742, label %mesa_CallLists.exit, label %.lr.ph.i.i2740, !llvm.loop !64
+  br i1 %.not.i.i2742, label %mesa_CallLists.exit, label %.lr.ph.i.i2740, !llvm.loop !68
 
 5092:                                             ; preds = %34
   %5093 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_index, align 4
@@ -49596,7 +49596,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5123 = add i32 %5122, 4
   store i32 %5123, ptr %2, align 4
   %.not.i.i2748 = icmp eq i32 %5120, 0
-  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !63
+  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !67
 
 5124:                                             ; preds = %34
   %5125 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_target, align 4
@@ -49626,7 +49626,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5142 = add i32 %5141, 8
   store i32 %5142, ptr %2, align 4
   %.not.i.i2753 = icmp eq i32 %5139, 0
-  br i1 %.not.i.i2753, label %mesa_CallLists.exit, label %.lr.ph.i.i2751, !llvm.loop !64
+  br i1 %.not.i.i2753, label %mesa_CallLists.exit, label %.lr.ph.i.i2751, !llvm.loop !68
 
 5143:                                             ; preds = %34
   %5144 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_target, align 4
@@ -49687,7 +49687,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5184 = add i32 %5183, 4
   store i32 %5184, ptr %2, align 4
   %.not.i.i2760 = icmp eq i32 %5181, 0
-  br i1 %.not.i.i2760, label %mesa_CallLists.exit, label %.lr.ph.i.i2758, !llvm.loop !63
+  br i1 %.not.i.i2760, label %mesa_CallLists.exit, label %.lr.ph.i.i2758, !llvm.loop !67
 
 5185:                                             ; preds = %34
   %5186 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_id, align 4
@@ -49725,7 +49725,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5209 = add i32 %5208, 8
   store i32 %5209, ptr %2, align 4
   %.not.i.i2766 = icmp eq i32 %5206, 0
-  br i1 %.not.i.i2766, label %mesa_CallLists.exit, label %.lr.ph.i.i2764, !llvm.loop !64
+  br i1 %.not.i.i2766, label %mesa_CallLists.exit, label %.lr.ph.i.i2764, !llvm.loop !68
 
 5210:                                             ; preds = %34
   %5211 = load i32, ptr @hf_x11_glx_render_ActiveStencilFaceEXT_face, align 4
@@ -49773,7 +49773,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5238 = add i32 %5237, 4
   store i32 %5238, ptr %2, align 4
   %.not.i.i2774 = icmp eq i32 %5235, 0
-  br i1 %.not.i.i2774, label %mesa_CallLists.exit, label %.lr.ph.i.i2772, !llvm.loop !62
+  br i1 %.not.i.i2774, label %mesa_CallLists.exit, label %.lr.ph.i.i2772, !llvm.loop !66
 
 5239:                                             ; preds = %34
   %5240 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeRGB, align 4
@@ -49828,7 +49828,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5274 = add i32 %5273, 4
   store i32 %5274, ptr %2, align 4
   %.not.i.i2779 = icmp eq i32 %5271, 0
-  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !62
+  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !66
 
 5275:                                             ; preds = %34
   %5276 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_index, align 4
@@ -49863,7 +49863,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5296 = add i32 %5295, 2
   store i32 %5296, ptr %2, align 4
   %.not.i.i2784 = icmp eq i32 %5293, 0
-  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !43
+  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !45
 
 5297:                                             ; preds = %34
   %5298 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_index, align 4
@@ -49888,7 +49888,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5311 = add i32 %5310, 4
   store i32 %5311, ptr %2, align 4
   %.not.i.i2789 = icmp eq i32 %5308, 0
-  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !44
+  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !46
 
 5312:                                             ; preds = %34
   %5313 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_index, align 4
@@ -49923,7 +49923,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5333 = add i32 %5332, 2
   store i32 %5333, ptr %2, align 4
   %.not.i.i2794 = icmp eq i32 %5330, 0
-  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !61
+  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !65
 
 5334:                                             ; preds = %34
   %5335 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_index, align 4
@@ -49948,7 +49948,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5348 = add i32 %5347, 4
   store i32 %5348, ptr %2, align 4
   %.not.i.i2799 = icmp eq i32 %5345, 0
-  br i1 %.not.i.i2799, label %mesa_CallLists.exit, label %.lr.ph.i.i2797, !llvm.loop !62
+  br i1 %.not.i.i2799, label %mesa_CallLists.exit, label %.lr.ph.i.i2797, !llvm.loop !66
 
 5349:                                             ; preds = %34
   %5350 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_index, align 4
@@ -49973,7 +49973,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5363 = add i32 %5362, 2
   store i32 %5363, ptr %2, align 4
   %.not.i.i2804 = icmp eq i32 %5360, 0
-  br i1 %.not.i.i2804, label %mesa_CallLists.exit, label %.lr.ph.i.i2802, !llvm.loop !43
+  br i1 %.not.i.i2804, label %mesa_CallLists.exit, label %.lr.ph.i.i2802, !llvm.loop !45
 
 5364:                                             ; preds = %34
   %5365 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_index, align 4
@@ -49998,7 +49998,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5378 = add i32 %5377, 4
   store i32 %5378, ptr %2, align 4
   %.not.i.i2809 = icmp eq i32 %5375, 0
-  br i1 %.not.i.i2809, label %mesa_CallLists.exit, label %.lr.ph.i.i2807, !llvm.loop !44
+  br i1 %.not.i.i2809, label %mesa_CallLists.exit, label %.lr.ph.i.i2807, !llvm.loop !46
 
 5379:                                             ; preds = %34
   %5380 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_index, align 4
@@ -50038,7 +50038,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5404 = add i32 %5403, 2
   store i32 %5404, ptr %2, align 4
   %.not.i.i2816 = icmp eq i32 %5401, 0
-  br i1 %.not.i.i2816, label %mesa_CallLists.exit, label %.lr.ph.i.i2814, !llvm.loop !61
+  br i1 %.not.i.i2816, label %mesa_CallLists.exit, label %.lr.ph.i.i2814, !llvm.loop !65
 
 5405:                                             ; preds = %34
   %5406 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_index, align 4
@@ -50063,7 +50063,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5419 = add i32 %5418, 2
   store i32 %5419, ptr %2, align 4
   %.not.i.i2821 = icmp eq i32 %5416, 0
-  br i1 %.not.i.i2821, label %mesa_CallLists.exit, label %.lr.ph.i.i2819, !llvm.loop !61
+  br i1 %.not.i.i2821, label %mesa_CallLists.exit, label %.lr.ph.i.i2819, !llvm.loop !65
 
 5420:                                             ; preds = %34
   %5421 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_index, align 4
@@ -50088,7 +50088,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5434 = add i32 %5433, 2
   store i32 %5434, ptr %2, align 4
   %.not.i.i2826 = icmp eq i32 %5431, 0
-  br i1 %.not.i.i2826, label %mesa_CallLists.exit, label %.lr.ph.i.i2824, !llvm.loop !61
+  br i1 %.not.i.i2826, label %mesa_CallLists.exit, label %.lr.ph.i.i2824, !llvm.loop !65
 
 5435:                                             ; preds = %34
   %5436 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_index, align 4
@@ -50128,7 +50128,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5460 = add i32 %5459, 4
   store i32 %5460, ptr %2, align 4
   %.not.i.i2833 = icmp eq i32 %5457, 0
-  br i1 %.not.i.i2833, label %mesa_CallLists.exit, label %.lr.ph.i.i2831, !llvm.loop !63
+  br i1 %.not.i.i2833, label %mesa_CallLists.exit, label %.lr.ph.i.i2831, !llvm.loop !67
 
 5461:                                             ; preds = %34
   %5462 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_index, align 4
@@ -50153,7 +50153,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5475 = add i32 %5474, 4
   store i32 %5475, ptr %2, align 4
   %.not.i.i2838 = icmp eq i32 %5472, 0
-  br i1 %.not.i.i2838, label %mesa_CallLists.exit, label %.lr.ph.i.i2836, !llvm.loop !63
+  br i1 %.not.i.i2838, label %mesa_CallLists.exit, label %.lr.ph.i.i2836, !llvm.loop !67
 
 5476:                                             ; preds = %34
   %5477 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_index, align 4
@@ -50178,7 +50178,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5490 = add i32 %5489, 4
   store i32 %5490, ptr %2, align 4
   %.not.i.i2843 = icmp eq i32 %5487, 0
-  br i1 %.not.i.i2843, label %mesa_CallLists.exit, label %.lr.ph.i.i2841, !llvm.loop !63
+  br i1 %.not.i.i2843, label %mesa_CallLists.exit, label %.lr.ph.i.i2841, !llvm.loop !67
 
 5491:                                             ; preds = %34
   %5492 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_index, align 4
@@ -50218,7 +50218,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5516 = add i32 %5515, 8
   store i32 %5516, ptr %2, align 4
   %.not.i.i2850 = icmp eq i32 %5513, 0
-  br i1 %.not.i.i2850, label %mesa_CallLists.exit, label %.lr.ph.i.i2848, !llvm.loop !64
+  br i1 %.not.i.i2850, label %mesa_CallLists.exit, label %.lr.ph.i.i2848, !llvm.loop !68
 
 5517:                                             ; preds = %34
   %5518 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_index, align 4
@@ -50243,7 +50243,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5531 = add i32 %5530, 8
   store i32 %5531, ptr %2, align 4
   %.not.i.i2855 = icmp eq i32 %5528, 0
-  br i1 %.not.i.i2855, label %mesa_CallLists.exit, label %.lr.ph.i.i2853, !llvm.loop !64
+  br i1 %.not.i.i2855, label %mesa_CallLists.exit, label %.lr.ph.i.i2853, !llvm.loop !68
 
 5532:                                             ; preds = %34
   %5533 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_index, align 4
@@ -50268,7 +50268,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5546 = add i32 %5545, 8
   store i32 %5546, ptr %2, align 4
   %.not.i.i2860 = icmp eq i32 %5543, 0
-  br i1 %.not.i.i2860, label %mesa_CallLists.exit, label %.lr.ph.i.i2858, !llvm.loop !64
+  br i1 %.not.i.i2860, label %mesa_CallLists.exit, label %.lr.ph.i.i2858, !llvm.loop !68
 
 5547:                                             ; preds = %34
   %5548 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_index, align 4
@@ -50323,7 +50323,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5580 = add i32 %5579, 2
   store i32 %5580, ptr %2, align 4
   %.not.i.i2868 = icmp eq i32 %5577, 0
-  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !43
+  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !45
 
 5581:                                             ; preds = %34
   %5582 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %28, i32 noundef %4)
@@ -50355,7 +50355,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5598 = add i32 %5597, 4
   store i32 %5598, ptr %2, align 4
   %.not.i.i2875 = icmp eq i32 %5595, 0
-  br i1 %.not.i.i2875, label %mesa_CallLists.exit, label %.lr.ph.i.i2873, !llvm.loop !44
+  br i1 %.not.i.i2875, label %mesa_CallLists.exit, label %.lr.ph.i.i2873, !llvm.loop !46
 
 5599:                                             ; preds = %34
   %5600 = load i32, ptr @hf_x11_glx_render_CurrentPaletteMatrixARB_index, align 4
@@ -50398,7 +50398,7 @@ mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.l
   %5618 = phi i32 [ %5610, %5613 ], [ %5611, %mesa_CallLists.exit ]
   %5619 = sub nsw i32 %.03064, %.018432879
   %5620 = icmp sgt i32 %5619, 3
-  br i1 %5620, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %5620, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %5617, %6
   ret void
@@ -50645,7 +50645,7 @@ define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr noundef read
   %50 = add i32 %49, 4
   store i32 %50, ptr %2, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50860,7 +50860,7 @@ define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr noundef readonly
   %50 = add i32 %49, 4
   store i32 %50, ptr %2, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50927,7 +50927,7 @@ define internal void @glxQueryContext_Reply(ptr noundef %0, ptr noundef readonly
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51033,7 +51033,7 @@ define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr noundef
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51143,7 +51143,7 @@ define internal void @glxRenderMode_Reply(ptr noundef %0, ptr noundef readonly c
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51335,7 +51335,7 @@ define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr noundef readonly
   %43 = add i32 %42, 8
   store i32 %43, ptr %2, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !68
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51411,7 +51411,7 @@ define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr noundef readonly c
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !68
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51521,7 +51521,7 @@ define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr noundef readonly ca
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51597,7 +51597,7 @@ define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51673,7 +51673,7 @@ define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr noundef readonly c
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51749,7 +51749,7 @@ define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr noundef readonly c
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51825,7 +51825,7 @@ define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr noundef readonly cap
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !68
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51901,7 +51901,7 @@ define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr noundef readonly cap
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51977,7 +51977,7 @@ define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr noundef readonly cap
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52053,7 +52053,7 @@ define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr noundef readonl
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52129,7 +52129,7 @@ define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr noundef readonl
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52205,7 +52205,7 @@ define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr noundef readonl
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52281,7 +52281,7 @@ define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr noundef readon
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52357,7 +52357,7 @@ define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr noundef readon
   %54 = add i32 %53, 2
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52528,7 +52528,7 @@ define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52604,7 +52604,7 @@ define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52680,7 +52680,7 @@ define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !68
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52756,7 +52756,7 @@ define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52832,7 +52832,7 @@ define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr noundef readonly 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52971,7 +52971,7 @@ define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr noundef rea
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53047,7 +53047,7 @@ define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr noundef rea
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53123,7 +53123,7 @@ define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr nounde
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53199,7 +53199,7 @@ define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr nounde
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53376,7 +53376,7 @@ define internal void @glxGenTextures_Reply(ptr noundef %0, ptr noundef readonly 
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -53539,7 +53539,7 @@ define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr noun
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53615,7 +53615,7 @@ define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr noun
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53749,7 +53749,7 @@ define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr nou
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53825,7 +53825,7 @@ define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr nou
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54012,7 +54012,7 @@ define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54088,7 +54088,7 @@ define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54207,7 +54207,7 @@ define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !67
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54283,7 +54283,7 @@ define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54397,7 +54397,7 @@ define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr noundef readonl
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -54507,7 +54507,7 @@ define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr noundef readonl
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54583,7 +54583,7 @@ define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr noundef r
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54659,7 +54659,7 @@ define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -54994,7 +54994,7 @@ define internal fastcc void @struct_present_Notify(ptr noundef %0, ptr noundef c
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -55226,7 +55226,7 @@ define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -55607,7 +55607,7 @@ requestLength.exit:                               ; preds = %5, %16
   %182 = add i32 %181, 4
   store i32 %182, ptr %2, align 4
   %.not.i.i = icmp eq i32 %179, 0
-  br i1 %.not.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i, !llvm.loop !66
 
 183:                                              ; preds = %requestLength.exit
   %184 = load i32, ptr @hf_x11_randr_ChangeOutputProperty_output, align 4
@@ -55851,7 +55851,7 @@ requestLength.exit:                               ; preds = %5, %16
   %360 = add i32 %359, 4
   store i32 %360, ptr %2, align 4
   %.not.i.i287 = icmp eq i32 %357, 0
-  br i1 %.not.i.i287, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i285, !llvm.loop !44
+  br i1 %.not.i.i287, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i285, !llvm.loop !46
 
 361:                                              ; preds = %requestLength.exit
   %362 = load i32, ptr @hf_x11_randr_GetCrtcGammaSize_crtc, align 4
@@ -55910,7 +55910,7 @@ requestLength.exit:                               ; preds = %5, %16
   %400 = add i32 %399, 2
   store i32 %400, ptr %2, align 4
   %.not.i.i292 = icmp eq i32 %397, 0
-  br i1 %.not.i.i292, label %listOfCard16.exit.i, label %.lr.ph.i.i290, !llvm.loop !43
+  br i1 %.not.i.i292, label %listOfCard16.exit.i, label %.lr.ph.i.i290, !llvm.loop !45
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i290, %373
   %401 = phi i32 [ %.pre.i289, %373 ], [ %400, %.lr.ph.i.i290 ]
@@ -55931,7 +55931,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i290, %373
   %411 = add i32 %410, 2
   store i32 %411, ptr %2, align 4
   %.not.i42.i = icmp eq i32 %408, 0
-  br i1 %.not.i42.i, label %listOfCard16.exit43.i, label %.lr.ph.i40.i, !llvm.loop !43
+  br i1 %.not.i42.i, label %listOfCard16.exit43.i, label %.lr.ph.i40.i, !llvm.loop !45
 
 listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %listOfCard16.exit.i
   %412 = phi i32 [ %.pre1.i, %listOfCard16.exit.i ], [ %411, %.lr.ph.i40.i ]
@@ -55955,7 +55955,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %422 = add i32 %421, 2
   store i32 %422, ptr %2, align 4
   %.not.i49.i = icmp eq i32 %419, 0
-  br i1 %.not.i49.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i47.i, !llvm.loop !43
+  br i1 %.not.i49.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i47.i, !llvm.loop !45
 
 423:                                              ; preds = %requestLength.exit
   %424 = load i32, ptr @hf_x11_randr_GetScreenResourcesCurrent_window, align 4
@@ -56036,7 +56036,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %475 = add i32 %474, 4
   store i32 %475, ptr %2, align 4
   %.not.i.i298 = icmp eq i32 %472, 0
-  br i1 %.not.i.i298, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i296, !llvm.loop !62
+  br i1 %.not.i.i298, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i296, !llvm.loop !66
 
 476:                                              ; preds = %requestLength.exit
   %477 = load i32, ptr @hf_x11_randr_GetCrtcTransform_crtc, align 4
@@ -56288,7 +56288,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %655 = add i32 %654, 4
   store i32 %655, ptr %2, align 4
   %.not.i.i305 = icmp eq i32 %652, 0
-  br i1 %.not.i.i305, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i303, !llvm.loop !62
+  br i1 %.not.i.i305, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i303, !llvm.loop !66
 
 656:                                              ; preds = %requestLength.exit
   %657 = load i32, ptr @hf_x11_randr_ChangeProviderProperty_provider, align 4
@@ -56485,7 +56485,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %801 = add i32 %800, 4
   store i32 %801, ptr %2, align 4
   %.not.i.i311 = icmp eq i32 %798, 0
-  br i1 %.not.i.i311, label %listOfCard32.exit.i, label %.lr.ph.i.i309, !llvm.loop !44
+  br i1 %.not.i.i311, label %listOfCard32.exit.i, label %.lr.ph.i.i309, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %802 = phi i32 [ %.pre.i308, %767 ], [ %801, %.lr.ph.i.i309 ]
@@ -56511,7 +56511,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %813 = add i32 %812, 4
   store i32 %813, ptr %2, align 4
   %.not.i44.i = icmp eq i32 %810, 0
-  br i1 %.not.i44.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i42.i, !llvm.loop !44
+  br i1 %.not.i44.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i42.i, !llvm.loop !46
 
 814:                                              ; preds = %requestLength.exit
   %815 = load i32, ptr @hf_x11_randr_FreeLease_lid, align 4
@@ -56616,7 +56616,7 @@ define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr noundef c
   store i32 %64, ptr %1, align 4
   %65 = add nuw nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %65, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -56772,12 +56772,12 @@ define internal fastcc void @struct_randr_MonitorInfo(ptr noundef %0, ptr nounde
   %71 = add i32 %70, 4
   store i32 %71, ptr %1, align 4
   %.not.i = icmp eq i32 %68, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %72 = add nuw nsw i32 %.067, 1
   %exitcond.not = icmp eq i32 %72, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -57237,7 +57237,7 @@ define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr noundef reado
   store i32 %91, ptr %2, align 4
   %92 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %92, %40
-  br i1 %exitcond.not.i, label %struct_randr_ScreenSize.exit, label %.lr.ph.i, !llvm.loop !70
+  br i1 %exitcond.not.i, label %struct_randr_ScreenSize.exit, label %.lr.ph.i, !llvm.loop !74
 
 struct_randr_ScreenSize.exit:                     ; preds = %.lr.ph.i, %5
   %93 = sub nsw i32 %60, %40
@@ -57286,12 +57286,12 @@ struct_randr_ScreenSize.exit:                     ; preds = %.lr.ph.i, %5
   %122 = add i32 %121, 2
   store i32 %122, ptr %2, align 4
   %.not.i.i = icmp eq i32 %119, 0
-  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !45
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i84
   %123 = add nuw nsw i32 %.022.i, 1
   %exitcond.not.i85 = icmp eq i32 %123, %93
-  br i1 %exitcond.not.i85, label %struct_randr_RefreshRates.exit, label %.lr.ph.i84, !llvm.loop !71
+  br i1 %exitcond.not.i85, label %struct_randr_RefreshRates.exit, label %.lr.ph.i84, !llvm.loop !75
 
 struct_randr_RefreshRates.exit:                   ; preds = %listOfCard16.exit.i, %struct_randr_ScreenSize.exit
   ret void
@@ -57441,7 +57441,7 @@ define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr noundef 
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %75 = phi i32 [ %.pre, %5 ], [ %74, %.lr.ph.i ]
@@ -57467,7 +57467,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i93 = icmp eq i32 %83, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !46
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   %87 = zext i16 %48 to i32
@@ -57586,7 +57586,7 @@ define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr noundef reado
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %87 = phi i32 [ %.pre, %5 ], [ %86, %.lr.ph.i ]
@@ -57609,7 +57609,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %98 = add i32 %97, 4
   store i32 %98, ptr %2, align 4
   %.not.i112 = icmp eq i32 %95, 0
-  br i1 %.not.i112, label %listOfCard32.exit113, label %.lr.ph.i110, !llvm.loop !44
+  br i1 %.not.i112, label %listOfCard32.exit113, label %.lr.ph.i110, !llvm.loop !46
 
 listOfCard32.exit113:                             ; preds = %.lr.ph.i110, %listOfCard32.exit
   %99 = phi i32 [ %.pre121, %listOfCard32.exit ], [ %98, %.lr.ph.i110 ]
@@ -57632,7 +57632,7 @@ listOfCard32.exit113:                             ; preds = %.lr.ph.i110, %listO
   %110 = add i32 %109, 4
   store i32 %110, ptr %2, align 4
   %.not.i119 = icmp eq i32 %107, 0
-  br i1 %.not.i119, label %listOfCard32.exit120, label %.lr.ph.i117, !llvm.loop !44
+  br i1 %.not.i119, label %listOfCard32.exit120, label %.lr.ph.i117, !llvm.loop !46
 
 listOfCard32.exit120:                             ; preds = %.lr.ph.i117, %listOfCard32.exit113
   %111 = phi i32 [ %.pre122, %listOfCard32.exit113 ], [ %110, %.lr.ph.i117 ]
@@ -57707,7 +57707,7 @@ define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr nounde
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -57783,7 +57783,7 @@ define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -57988,7 +57988,7 @@ define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr noundef readonl
   %82 = add i32 %81, 4
   store i32 %82, ptr %2, align 4
   %.not.i = icmp eq i32 %79, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %83 = phi i32 [ %.pre, %5 ], [ %82, %.lr.ph.i ]
@@ -58014,7 +58014,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %94 = add i32 %93, 4
   store i32 %94, ptr %2, align 4
   %.not.i93 = icmp eq i32 %91, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !46
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   ret void
@@ -58153,7 +58153,7 @@ define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr noundef readon
   %47 = add i32 %46, 2
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %48 = phi i32 [ %.pre, %5 ], [ %47, %.lr.ph.i ]
@@ -58174,7 +58174,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %58 = add i32 %57, 2
   store i32 %58, ptr %2, align 4
   %.not.i54 = icmp eq i32 %55, 0
-  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !43
+  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !45
 
 listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOfCard16.exit
   %59 = phi i32 [ %.pre63, %listOfCard16.exit ], [ %58, %.lr.ph.i52 ]
@@ -58198,7 +58198,7 @@ listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOf
   %69 = add i32 %68, 2
   store i32 %69, ptr %2, align 4
   %.not.i61 = icmp eq i32 %66, 0
-  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !43
+  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !45
 
 listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOfCard16.exit55
   ret void
@@ -58294,7 +58294,7 @@ define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr n
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %75 = phi i32 [ %.pre, %5 ], [ %74, %.lr.ph.i ]
@@ -58320,7 +58320,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i93 = icmp eq i32 %83, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !46
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   %87 = zext i16 %48 to i32
@@ -58453,7 +58453,7 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr noundef re
   %91 = add i32 %90, 4
   store i32 %91, ptr %2, align 4
   %.not.i = icmp eq i32 %88, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %79
   %92 = phi i32 [ %.pre, %79 ], [ %91, %.lr.ph.i ]
@@ -58504,7 +58504,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %79
   %120 = add i32 %119, 4
   store i32 %120, ptr %2, align 4
   %.not.i118 = icmp eq i32 %117, 0
-  br i1 %.not.i118, label %listOfInt32.exit119, label %.lr.ph.i116, !llvm.loop !62
+  br i1 %.not.i118, label %listOfInt32.exit119, label %.lr.ph.i116, !llvm.loop !66
 
 listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %107
   ret void
@@ -58732,7 +58732,7 @@ define internal void @randrGetProviders_Reply(ptr noundef %0, ptr noundef readon
   %51 = add i32 %50, 4
   store i32 %51, ptr %2, align 4
   %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -58830,7 +58830,7 @@ define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr noundef rea
   %76 = add i32 %75, 4
   store i32 %76, ptr %2, align 4
   %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %77 = phi i32 [ %.pre, %5 ], [ %76, %.lr.ph.i ]
@@ -58853,7 +58853,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
   %.not.i99 = icmp eq i32 %85, 0
-  br i1 %.not.i99, label %listOfCard32.exit100, label %.lr.ph.i97, !llvm.loop !44
+  br i1 %.not.i99, label %listOfCard32.exit100, label %.lr.ph.i97, !llvm.loop !46
 
 listOfCard32.exit100:                             ; preds = %.lr.ph.i97, %listOfCard32.exit
   %89 = phi i32 [ %.pre115, %listOfCard32.exit ], [ %88, %.lr.ph.i97 ]
@@ -58876,7 +58876,7 @@ listOfCard32.exit100:                             ; preds = %.lr.ph.i97, %listOf
   %100 = add i32 %99, 4
   store i32 %100, ptr %2, align 4
   %.not.i106 = icmp eq i32 %97, 0
-  br i1 %.not.i106, label %listOfCard32.exit107, label %.lr.ph.i104, !llvm.loop !44
+  br i1 %.not.i106, label %listOfCard32.exit107, label %.lr.ph.i104, !llvm.loop !46
 
 listOfCard32.exit107:                             ; preds = %.lr.ph.i104, %listOfCard32.exit100
   %101 = phi i32 [ %.pre116, %listOfCard32.exit100 ], [ %100, %.lr.ph.i104 ]
@@ -58897,7 +58897,7 @@ listOfCard32.exit107:                             ; preds = %.lr.ph.i104, %listO
   %111 = add i32 %110, 4
   store i32 %111, ptr %2, align 4
   %.not.i113 = icmp eq i32 %108, 0
-  br i1 %.not.i113, label %listOfCard32.exit114, label %.lr.ph.i111, !llvm.loop !44
+  br i1 %.not.i113, label %listOfCard32.exit114, label %.lr.ph.i111, !llvm.loop !46
 
 listOfCard32.exit114:                             ; preds = %.lr.ph.i111, %listOfCard32.exit107
   %112 = phi i32 [ %.pre117, %listOfCard32.exit107 ], [ %111, %.lr.ph.i111 ]
@@ -58972,7 +58972,7 @@ define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr noun
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -59048,7 +59048,7 @@ define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -59313,7 +59313,7 @@ requestLength.exit:                               ; preds = %5, %16
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
   %.not.i.i = icmp eq i32 %68, 0
-  br i1 %.not.i.i, label %recordCreateContext.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %recordCreateContext.exit, label %.lr.ph.i.i, !llvm.loop !46
 
 recordCreateContext.exit:                         ; preds = %.lr.ph.i.i, %35
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %55)
@@ -59372,7 +59372,7 @@ recordCreateContext.exit:                         ; preds = %.lr.ph.i.i, %35
   %108 = add i32 %107, 4
   store i32 %108, ptr %2, align 4
   %.not.i.i63 = icmp eq i32 %105, 0
-  br i1 %.not.i.i63, label %recordRegisterClients.exit, label %.lr.ph.i.i61, !llvm.loop !44
+  br i1 %.not.i.i63, label %recordRegisterClients.exit, label %.lr.ph.i.i61, !llvm.loop !46
 
 recordRegisterClients.exit:                       ; preds = %.lr.ph.i.i61, %72
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %92)
@@ -59414,7 +59414,7 @@ recordRegisterClients.exit:                       ; preds = %.lr.ph.i.i61, %72
   %131 = add i32 %130, 4
   store i32 %131, ptr %2, align 4
   %.not.i.i69 = icmp eq i32 %128, 0
-  br i1 %.not.i.i69, label %recordUnregisterClients.exit, label %.lr.ph.i.i67, !llvm.loop !44
+  br i1 %.not.i.i69, label %recordUnregisterClients.exit, label %.lr.ph.i.i67, !llvm.loop !46
 
 132:                                              ; preds = %requestLength.exit
   %133 = load i32, ptr @hf_x11_record_GetContext_context, align 4
@@ -59563,7 +59563,7 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr noundef cap
   store i32 %86, ptr %1, align 4
   %87 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %87, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -59728,7 +59728,7 @@ define internal void @recordGetContext_Reply(ptr noundef %0, ptr noundef readonl
   tail call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef %2, ptr noundef %53, i32 noundef %4, i32 noundef %59)
   %65 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %65, %34
-  br i1 %exitcond.not.i, label %struct_record_ClientInfo.exit, label %.lr.ph.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %struct_record_ClientInfo.exit, label %.lr.ph.i, !llvm.loop !77
 
 struct_record_ClientInfo.exit:                    ; preds = %.lr.ph.i, %5
   ret void
@@ -60425,7 +60425,7 @@ requestLength.exit:                               ; preds = %5, %16
   call fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef %2, ptr noundef %367, i32 noundef %4)
   %377 = add nuw nsw i32 %.024.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %377, %361
-  br i1 %exitcond.not.i.i, label %renderCreatePicture.exit, label %.lr.ph.i.i, !llvm.loop !74
+  br i1 %exitcond.not.i.i, label %renderCreatePicture.exit, label %.lr.ph.i.i, !llvm.loop !78
 
 378:                                              ; preds = %requestLength.exit
   %379 = load i32, ptr @hf_x11_render_Triangles_op, align 4
@@ -60521,7 +60521,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %452, ptr %2, align 4
   %453 = add nuw nsw i32 %.029.i.i, 1
   %exitcond.not.i.i200 = icmp eq i32 %453, %407
-  br i1 %exitcond.not.i.i200, label %renderCreatePicture.exit, label %.lr.ph.i.i199, !llvm.loop !75
+  br i1 %exitcond.not.i.i200, label %renderCreatePicture.exit, label %.lr.ph.i.i199, !llvm.loop !79
 
 454:                                              ; preds = %requestLength.exit
   %455 = load i32, ptr @hf_x11_render_TriStrip_op, align 4
@@ -60671,7 +60671,7 @@ requestLength.exit:                               ; preds = %5, %16
   %562 = add i32 %561, 4
   store i32 %562, ptr %2, align 4
   %.not.i.i = icmp eq i32 %559, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i202, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i202, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   %563 = icmp sgt i32 %546, 0
@@ -60717,7 +60717,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   store i32 %593, ptr %2, align 4
   %594 = add nuw nsw i32 %.036.i.i, 1
   %exitcond.not.i.i203 = icmp eq i32 %594, %546
-  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.exit, label %.lr.ph.i33.i, !llvm.loop !76
+  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.exit, label %.lr.ph.i33.i, !llvm.loop !80
 
 renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540, %listOfCard32.exit.i
   %595 = phi i32 [ %.pre.i201, %540 ], [ %562, %listOfCard32.exit.i ], [ %593, %.lr.ph.i33.i ]
@@ -60764,7 +60764,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %620 = add i32 %619, 4
   store i32 %620, ptr %2, align 4
   %.not.i.i207 = icmp eq i32 %617, 0
-  br i1 %.not.i.i207, label %renderCreatePicture.exit, label %.lr.ph.i.i205, !llvm.loop !44
+  br i1 %.not.i.i207, label %renderCreatePicture.exit, label %.lr.ph.i.i205, !llvm.loop !46
 
 621:                                              ; preds = %requestLength.exit
   %622 = load i32, ptr @hf_x11_render_CompositeGlyphs8_op, align 4
@@ -61041,7 +61041,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %821 = add i32 %820, 4
   store i32 %821, ptr %2, align 4
   %.not.i.i218 = icmp eq i32 %818, 0
-  br i1 %.not.i.i218, label %renderCreatePicture.exit, label %.lr.ph.i.i216, !llvm.loop !62
+  br i1 %.not.i.i218, label %renderCreatePicture.exit, label %.lr.ph.i.i216, !llvm.loop !66
 
 822:                                              ; preds = %requestLength.exit
   %823 = load i32, ptr @hf_x11_render_CreateAnimCursor_cid, align 4
@@ -61075,7 +61075,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   store i32 %844, ptr %2, align 4
   %845 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i220 = icmp eq i32 %845, %829
-  br i1 %exitcond.not.i.i220, label %renderCreatePicture.exit, label %.lr.ph.i.i219, !llvm.loop !77
+  br i1 %exitcond.not.i.i220, label %renderCreatePicture.exit, label %.lr.ph.i.i219, !llvm.loop !81
 
 846:                                              ; preds = %requestLength.exit
   %847 = load i32, ptr @hf_x11_render_AddTraps_picture, align 4
@@ -61149,7 +61149,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   store i32 %902, ptr %2, align 4
   %903 = add nuw nsw i32 %.014.i.i222, 1
   %exitcond.not.i.i223 = icmp eq i32 %903, %861
-  br i1 %exitcond.not.i.i223, label %renderCreatePicture.exit, label %.lr.ph.i.i221, !llvm.loop !78
+  br i1 %exitcond.not.i.i223, label %renderCreatePicture.exit, label %.lr.ph.i.i221, !llvm.loop !82
 
 904:                                              ; preds = %requestLength.exit
   %905 = load i32, ptr @hf_x11_render_CreateSolidFill_picture, align 4
@@ -61227,7 +61227,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %958 = add i32 %957, 4
   store i32 %958, ptr %2, align 4
   %.not.i.i228 = icmp eq i32 %955, 0
-  br i1 %.not.i.i228, label %renderCreateLinearGradient.exit, label %.lr.ph.i40.i, !llvm.loop !62
+  br i1 %.not.i.i228, label %renderCreateLinearGradient.exit, label %.lr.ph.i40.i, !llvm.loop !66
 
 renderCreateLinearGradient.exit:                  ; preds = %.lr.ph.i40.i, %910
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %942)
@@ -61309,7 +61309,7 @@ renderCreateLinearGradient.exit:                  ; preds = %.lr.ph.i40.i, %910
   %1015 = add i32 %1014, 4
   store i32 %1015, ptr %2, align 4
   %.not.i.i233 = icmp eq i32 %1012, 0
-  br i1 %.not.i.i233, label %renderCreateRadialGradient.exit, label %.lr.ph.i50.i, !llvm.loop !62
+  br i1 %.not.i.i233, label %renderCreateRadialGradient.exit, label %.lr.ph.i50.i, !llvm.loop !66
 
 renderCreateRadialGradient.exit:                  ; preds = %.lr.ph.i50.i, %959
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %999)
@@ -61371,7 +61371,7 @@ renderCreateRadialGradient.exit:                  ; preds = %.lr.ph.i50.i, %959
   %1055 = add i32 %1054, 4
   store i32 %1055, ptr %2, align 4
   %.not.i.i238 = icmp eq i32 %1052, 0
-  br i1 %.not.i.i238, label %renderCreateConicalGradient.exit, label %.lr.ph.i36.i, !llvm.loop !62
+  br i1 %.not.i.i238, label %renderCreateConicalGradient.exit, label %.lr.ph.i36.i, !llvm.loop !66
 
 renderCreateConicalGradient.exit:                 ; preds = %.lr.ph.i36.i, %1016
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1039)
@@ -61452,7 +61452,7 @@ define internal fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr noundef 
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61497,7 +61497,7 @@ define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef cap
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61690,7 +61690,7 @@ define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr noundef r
   store i32 %118, ptr %2, align 4
   %119 = add nuw nsw i32 %.033.i, 1
   %exitcond.not.i = icmp eq i32 %119, %26
-  br i1 %exitcond.not.i, label %struct_render_PICTFORMINFO.exit, label %.lr.ph.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %struct_render_PICTFORMINFO.exit, label %.lr.ph.i, !llvm.loop !85
 
 struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   %.pre.i76 = phi i32 [ %55, %5 ], [ %118, %.lr.ph.i ]
@@ -61718,7 +61718,7 @@ struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   %132 = add i32 %131, %130
   %133 = add nuw nsw i32 %.01213.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %133, %123
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !82
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %134 = add i32 %132, 8
@@ -61804,19 +61804,19 @@ struct_size_render_PICTSCREEN.exit.i:             ; preds = %._crit_edge.loopexi
   store i32 %193, ptr %2, align 4
   %194 = add nuw nsw i32 %.016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %194, %170
-  br i1 %exitcond.not.i.i.i, label %struct_render_PICTVISUAL.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !83
+  br i1 %exitcond.not.i.i.i, label %struct_render_PICTVISUAL.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !87
 
 struct_render_PICTVISUAL.exit.i.i:                ; preds = %.lr.ph.i.i.i, %.lr.ph.i27.i
   %195 = phi i32 [ %179, %.lr.ph.i27.i ], [ %193, %.lr.ph.i.i.i ]
   %196 = add nuw nsw i32 %.035.i.i, 1
   %exitcond.not.i28.i = icmp eq i32 %196, %139
-  br i1 %exitcond.not.i28.i, label %struct_render_PICTDEPTH.exit.i, label %.lr.ph.i27.i, !llvm.loop !84
+  br i1 %exitcond.not.i28.i, label %struct_render_PICTDEPTH.exit.i, label %.lr.ph.i27.i, !llvm.loop !88
 
 struct_render_PICTDEPTH.exit.i:                   ; preds = %struct_render_PICTVISUAL.exit.i.i, %struct_size_render_PICTSCREEN.exit.i
   %197 = phi i32 [ %148, %struct_size_render_PICTSCREEN.exit.i ], [ %195, %struct_render_PICTVISUAL.exit.i.i ]
   %198 = add nuw nsw i32 %.030.i, 1
   %exitcond.not.i78 = icmp eq i32 %198, %32
-  br i1 %exitcond.not.i78, label %struct_render_PICTSCREEN.exit, label %.lr.ph.i77, !llvm.loop !85
+  br i1 %exitcond.not.i78, label %struct_render_PICTSCREEN.exit, label %.lr.ph.i77, !llvm.loop !89
 
 struct_render_PICTSCREEN.exit:                    ; preds = %struct_render_PICTDEPTH.exit.i, %struct_render_PICTFORMINFO.exit
   %199 = phi i32 [ %.pre.i76, %struct_render_PICTFORMINFO.exit ], [ %197, %struct_render_PICTDEPTH.exit.i ]
@@ -61842,7 +61842,7 @@ struct_render_PICTSCREEN.exit:                    ; preds = %struct_render_PICTD
   %210 = add i32 %209, 4
   store i32 %210, ptr %2, align 4
   %.not.i = icmp eq i32 %207, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i81, %struct_render_PICTSCREEN.exit
   ret void
@@ -61924,7 +61924,7 @@ define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr nound
   store i32 %62, ptr %2, align 4
   %63 = add nuw nsw i32 %.031.i, 1
   %exitcond.not.i = icmp eq i32 %63, %26
-  br i1 %exitcond.not.i, label %struct_render_INDEXVALUE.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %exitcond.not.i, label %struct_render_INDEXVALUE.exit, label %.lr.ph.i, !llvm.loop !90
 
 struct_render_INDEXVALUE.exit:                    ; preds = %.lr.ph.i, %5
   ret void
@@ -61997,7 +61997,7 @@ define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr noundef reado
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   tail call fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %32)
@@ -62040,7 +62040,7 @@ define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef captu
   store i32 %27, ptr %1, align 4
   %28 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -62168,7 +62168,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %81, ptr %2, align 4
   %82 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %82, %61
-  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.exit, label %.lr.ph.i.i, !llvm.loop !88
+  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.exit, label %.lr.ph.i.i, !llvm.loop !92
 
 resQueryResourceBytes.exit:                       ; preds = %.lr.ph.i.i, %55, %47, %41, %35, %25, %requestLength.exit
   ret void
@@ -62204,7 +62204,7 @@ define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr noundef
   store i32 %21, ptr %1, align 4
   %22 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -62310,7 +62310,7 @@ define internal void @resQueryClients_Reply(ptr noundef %0, ptr noundef readonly
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %51, %26
-  br i1 %exitcond.not.i, label %struct_res_Client.exit, label %.lr.ph.i, !llvm.loop !90
+  br i1 %exitcond.not.i, label %struct_res_Client.exit, label %.lr.ph.i, !llvm.loop !94
 
 struct_res_Client.exit:                           ; preds = %.lr.ph.i, %5
   ret void
@@ -62377,7 +62377,7 @@ define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr noundef 
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %51, %26
-  br i1 %exitcond.not.i, label %struct_res_Type.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %struct_res_Type.exit, label %.lr.ph.i, !llvm.loop !95
 
 struct_res_Type.exit:                             ; preds = %.lr.ph.i, %5
   ret void
@@ -62508,12 +62508,12 @@ define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr noundef readon
   %65 = add i32 %64, 4
   store i32 %65, ptr %2, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i
   %66 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %66, %26
-  br i1 %exitcond.not.i, label %struct_res_ClientIdValue.exit, label %.lr.ph.i, !llvm.loop !92
+  br i1 %exitcond.not.i, label %struct_res_ClientIdValue.exit, label %.lr.ph.i, !llvm.loop !96
 
 struct_res_ClientIdValue.exit:                    ; preds = %listOfCard32.exit.i, %5
   ret void
@@ -62583,7 +62583,7 @@ define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr noundef re
   tail call fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noundef %2, ptr noundef %45, i32 noundef %4, i32 noundef %47)
   %53 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %53, %26
-  br i1 %exitcond.not.i, label %struct_res_ResourceSizeValue.exit, label %.lr.ph.i, !llvm.loop !93
+  br i1 %exitcond.not.i, label %struct_res_ResourceSizeValue.exit, label %.lr.ph.i, !llvm.loop !97
 
 struct_res_ResourceSizeValue.exit:                ; preds = %.lr.ph.i, %5
   ret void
@@ -62638,7 +62638,7 @@ define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr nou
   store i32 %36, ptr %1, align 4
   %37 = add nuw nsw i32 %.025, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -64111,7 +64111,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %116, ptr %2, align 4
   %117 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %117, %96
-  br i1 %exitcond.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i, !llvm.loop !95
+  br i1 %exitcond.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i, !llvm.loop !99
 
 118:                                              ; preds = %requestLength.exit
   %119 = load i32, ptr @hf_x11_sync_CreateAlarm_id, align 4
@@ -64420,7 +64420,7 @@ requestLength.exit:                               ; preds = %5, %16
   %317 = add i32 %316, 4
   store i32 %317, ptr %2, align 4
   %.not.i.i = icmp eq i32 %314, 0
-  br i1 %.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i138, !llvm.loop !44
+  br i1 %.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i138, !llvm.loop !46
 
 syncAwait.exit.sink.split:                        ; preds = %27, %35, %52, %69, %86, %90, %256, %260, %264, %272, %276, %288, %292, %296, %300, %183, %252
   %.sink144 = phi i32 [ 4, %252 ], [ 4, %183 ], [ 4, %300 ], [ 4, %296 ], [ 4, %292 ], [ 4, %288 ], [ 1, %276 ], [ 4, %272 ], [ 4, %264 ], [ 4, %260 ], [ 4, %256 ], [ 4, %90 ], [ 4, %86 ], [ 4, %69 ], [ 4, %52 ], [ 4, %35 ], [ 1, %27 ]
@@ -64684,7 +64684,7 @@ define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr noundef r
   %87 = phi i32 [ %85, %79 ], [ %77, %.lr.ph.i ]
   %88 = add nuw nsw i32 %.039.i, 1
   %exitcond.not.i = icmp eq i32 %88, %26
-  br i1 %exitcond.not.i, label %struct_sync_SYSTEMCOUNTER.exit, label %.lr.ph.i, !llvm.loop !96
+  br i1 %exitcond.not.i, label %struct_sync_SYSTEMCOUNTER.exit, label %.lr.ph.i, !llvm.loop !100
 
 struct_sync_SYSTEMCOUNTER.exit:                   ; preds = %86, %5
   ret void
@@ -65070,7 +65070,7 @@ define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr noundef readon
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -65946,7 +65946,7 @@ define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr noundef rea
   %62 = add i32 %61, 4
   store i32 %62, ptr %2, align 4
   %.not.i = icmp eq i32 %59, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -66025,7 +66025,7 @@ define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr noun
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -66771,7 +66771,7 @@ requestLength.exit:                               ; preds = %5, %16
   %554 = add i32 %553, 2
   store i32 %554, ptr %2, align 4
   %.not.i.i = icmp eq i32 %551, 0
-  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !45
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %529
   %555 = phi i32 [ %.pre.i140, %529 ], [ %554, %.lr.ph.i.i ]
@@ -66792,7 +66792,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %529
   %565 = add i32 %564, 2
   store i32 %565, ptr %2, align 4
   %.not.i38.i = icmp eq i32 %562, 0
-  br i1 %.not.i38.i, label %listOfCard16.exit39.i, label %.lr.ph.i36.i, !llvm.loop !43
+  br i1 %.not.i38.i, label %listOfCard16.exit39.i, label %.lr.ph.i36.i, !llvm.loop !45
 
 listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %listOfCard16.exit.i
   %566 = phi i32 [ %.pre1.i, %listOfCard16.exit.i ], [ %565, %.lr.ph.i36.i ]
@@ -66816,7 +66816,7 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   %576 = add i32 %575, 2
   store i32 %576, ptr %2, align 4
   %.not.i45.i = icmp eq i32 %573, 0
-  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.i43.i, !llvm.loop !43
+  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.i43.i, !llvm.loop !45
 
 577:                                              ; preds = %requestLength.exit
   %578 = load i32, ptr @hf_x11_xf86vidmode_GetGammaRampSize_screen, align 4
@@ -67078,7 +67078,7 @@ define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr noundef re
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %.not.i = icmp eq i32 %63, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %67 = phi i32 [ %.pre, %5 ], [ %66, %.lr.ph.i ]
@@ -67101,7 +67101,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
   %.not.i85 = icmp eq i32 %75, 0
-  br i1 %.not.i85, label %listOfCard32.exit86, label %.lr.ph.i83, !llvm.loop !44
+  br i1 %.not.i85, label %listOfCard32.exit86, label %.lr.ph.i83, !llvm.loop !46
 
 listOfCard32.exit86:                              ; preds = %.lr.ph.i83, %listOfCard32.exit
   %79 = phi i32 [ %.pre89, %listOfCard32.exit ], [ %78, %.lr.ph.i83 ]
@@ -67253,7 +67253,7 @@ define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr nound
   store i32 %99, ptr %2, align 4
   %100 = add nuw nsw i32 %.074.i, 1
   %exitcond.not.i = icmp eq i32 %100, %26
-  br i1 %exitcond.not.i, label %struct_xf86vidmode_ModeInfo.exit, label %.lr.ph.i, !llvm.loop !98
+  br i1 %exitcond.not.i, label %struct_xf86vidmode_ModeInfo.exit, label %.lr.ph.i, !llvm.loop !102
 
 struct_xf86vidmode_ModeInfo.exit:                 ; preds = %.lr.ph.i, %5
   ret void
@@ -67418,7 +67418,7 @@ define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr noundef 
   %60 = add i32 %59, 4
   store i32 %60, ptr %2, align 4
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -67533,7 +67533,7 @@ define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr noundef 
   %49 = add i32 %48, 2
   store i32 %49, ptr %2, align 4
   %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %50 = phi i32 [ %.pre, %5 ], [ %49, %.lr.ph.i ]
@@ -67554,7 +67554,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %60 = add i32 %59, 2
   store i32 %60, ptr %2, align 4
   %.not.i54 = icmp eq i32 %57, 0
-  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !43
+  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !45
 
 listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOfCard16.exit
   %61 = phi i32 [ %.pre63, %listOfCard16.exit ], [ %60, %.lr.ph.i52 ]
@@ -67578,7 +67578,7 @@ listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOf
   %71 = add i32 %70, 2
   store i32 %71, ptr %2, align 4
   %.not.i61 = icmp eq i32 %68, 0
-  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !43
+  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !45
 
 listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOfCard16.exit55
   ret void
@@ -68306,7 +68306,7 @@ requestLength.exit:                               ; preds = %5, %16
   %448 = add i32 %447, 2
   store i32 %448, ptr %2, align 4
   %.not.i.i = icmp eq i32 %445, 0
-  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.i.i, !llvm.loop !45
 
 449:                                              ; preds = %requestLength.exit
   %450 = load i32, ptr @hf_x11_xfixes_DeletePointerBarrier_barrier, align 4
@@ -68503,7 +68503,7 @@ define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr noundef rea
   %75 = add i32 %74, 4
   store i32 %75, ptr %2, align 4
   %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -68702,7 +68702,7 @@ define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr noun
   %84 = add i32 %83, 4
   store i32 %84, ptr %2, align 4
   %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %85 = phi i32 [ %.pre, %5 ], [ %84, %.lr.ph.i ]
@@ -69102,7 +69102,7 @@ define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr noundef rea
   store i32 %58, ptr %2, align 4
   %59 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %59, %26
-  br i1 %exitcond.not.i, label %struct_xinerama_ScreenInfo.exit, label %.lr.ph.i, !llvm.loop !99
+  br i1 %exitcond.not.i, label %struct_xinerama_ScreenInfo.exit, label %.lr.ph.i, !llvm.loop !103
 
 struct_xinerama_ScreenInfo.exit:                  ; preds = %.lr.ph.i, %5
   ret void
@@ -69587,7 +69587,7 @@ define internal fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr noun
   %31 = add i32 %30, 4
   store i32 %31, ptr %1, align 4
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69639,7 +69639,7 @@ define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0,
   %34 = add i32 %33, 4
   store i32 %34, ptr %1, align 4
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69772,7 +69772,7 @@ define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr noundef captur
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69865,7 +69865,7 @@ define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr noundef cap
   %54 = add i32 %53, 4
   store i32 %54, ptr %1, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69967,7 +69967,7 @@ define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %1, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -70226,7 +70226,7 @@ define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr nou
   %106 = add i32 %105, 4
   store i32 %106, ptr %1, align 4
   %.not.i.i = icmp eq i32 %103, 0
-  br i1 %.not.i.i, label %struct_xinput_FeedbackCtl.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %struct_xinput_FeedbackCtl.exit, label %.lr.ph.i.i, !llvm.loop !46
 
 107:                                              ; preds = %4
   %108 = load i32, ptr @hf_x11_struct_xinput_FeedbackCtl_Integer_int_to_display, align 4
@@ -70352,7 +70352,7 @@ define internal fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr no
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -70527,7 +70527,7 @@ define internal fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr nounde
   %45 = add i32 %44, 4
   store i32 %45, ptr %1, align 4
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -70607,7 +70607,7 @@ define internal fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr nounde
   %35 = add i32 %34, 4
   store i32 %35, ptr %1, align 4
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !66
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %4
   ret void
@@ -70708,7 +70708,7 @@ define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nound
   %53 = add i32 %52, 4
   store i32 %53, ptr %1, align 4
   %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %struct_xinput_DeviceCtl.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %struct_xinput_DeviceCtl.exit, label %.lr.ph.i.i, !llvm.loop !46
 
 54:                                               ; preds = %4
   %55 = load i32, ptr @hf_x11_struct_xinput_DeviceCtl_abs_calib_min_x, align 4
@@ -70900,7 +70900,7 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noun
   %50 = add i32 %49, 2
   store i32 %50, ptr %1, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
   %51 = phi i32 [ %.pre, %39 ], [ %50, %.lr.ph.i ]
@@ -70931,7 +70931,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
   %64 = add i32 %63, 4
   store i32 %64, ptr %1, align 4
   %.not.i83 = icmp eq i32 %61, 0
-  br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !44
+  br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !46
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %33
   %.sink6 = phi i32 [ %38, %33 ], [ %52, %listOfCard16.exit ]
@@ -71229,7 +71229,7 @@ define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr noundef
 85:                                               ; preds = %77, %72, %58, %51, %29, %.lr.ph.i
   %86 = add nuw nsw i32 %.089.i, 1
   %exitcond.not.i = icmp eq i32 %86, %7
-  br i1 %exitcond.not.i, label %struct_xinput_HierarchyChange.exit, label %.lr.ph.i, !llvm.loop !100
+  br i1 %exitcond.not.i, label %struct_xinput_HierarchyChange.exit, label %.lr.ph.i, !llvm.loop !104
 
 struct_xinput_HierarchyChange.exit:               ; preds = %85, %4
   ret void
@@ -71402,7 +71402,7 @@ define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr noundef capt
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -71522,7 +71522,7 @@ define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nound
   %60 = add i32 %59, 4
   store i32 %60, ptr %1, align 4
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %61 = phi i32 [ %.pre, %4 ], [ %60, %.lr.ph.i ]
@@ -71548,7 +71548,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %72 = add i32 %71, 4
   store i32 %72, ptr %1, align 4
   %.not.i77 = icmp eq i32 %69, 0
-  br i1 %.not.i77, label %listOfCard32.exit78, label %.lr.ph.i75, !llvm.loop !44
+  br i1 %.not.i77, label %listOfCard32.exit78, label %.lr.ph.i75, !llvm.loop !46
 
 listOfCard32.exit78:                              ; preds = %.lr.ph.i75, %listOfCard32.exit
   ret void
@@ -71608,7 +71608,7 @@ define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr nou
   %41 = add i32 %40, 4
   store i32 %41, ptr %1, align 4
   %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -71691,7 +71691,7 @@ define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr noundef 
   %43 = add i32 %42, 2
   store i32 %43, ptr %1, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %32
   %44 = phi i32 [ %.pre, %32 ], [ %43, %.lr.ph.i ]
@@ -71722,7 +71722,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %32
   %57 = add i32 %56, 4
   store i32 %57, ptr %1, align 4
   %.not.i78 = icmp eq i32 %54, 0
-  br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !44
+  br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !46
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %26
   %.sink6 = phi i32 [ %31, %26 ], [ %45, %listOfCard16.exit ]
@@ -71840,7 +71840,7 @@ define internal fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr n
   store i32 %34, ptr %1, align 4
   %35 = add nuw nsw i32 %.025.i, 1
   %exitcond.not.i = icmp eq i32 %35, %6
-  br i1 %exitcond.not.i, label %struct_xinput_BarrierReleasePointerInfo.exit, label %.lr.ph.i, !llvm.loop !101
+  br i1 %exitcond.not.i, label %struct_xinput_BarrierReleasePointerInfo.exit, label %.lr.ph.i, !llvm.loop !105
 
 struct_xinput_BarrierReleasePointerInfo.exit:     ; preds = %.lr.ph.i, %4
   ret void
@@ -71896,12 +71896,12 @@ define internal fastcc void @struct_xinput_EventMask(ptr noundef %0, ptr noundef
   %36 = add i32 %35, 4
   store i32 %36, ptr %1, align 4
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %37 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -72072,7 +72072,7 @@ define internal void @xinputDeviceStateNotify(ptr noundef %0, ptr noundef captur
   %51 = add i32 %50, 4
   store i32 %51, ptr %1, align 4
   %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i
   ret void
@@ -72388,7 +72388,7 @@ define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr noundef capture
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -72404,7 +72404,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -72430,7 +72430,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !46
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -72542,7 +72542,7 @@ define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr noundef capt
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -72558,7 +72558,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -72584,7 +72584,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !46
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -72685,7 +72685,7 @@ define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr noundef captures(n
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -72755,7 +72755,7 @@ define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr noundef captur
   store i32 %54, ptr %2, align 4
   %55 = add nuw nsw i32 %.032.i, 1
   %exitcond.not.i = icmp eq i32 %55, %20
-  br i1 %exitcond.not.i, label %struct_xinput_HierarchyInfo.exit, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %struct_xinput_HierarchyInfo.exit, label %.lr.ph.i, !llvm.loop !109
 
 struct_xinput_HierarchyInfo.exit:                 ; preds = %.lr.ph.i, %5
   ret void
@@ -72839,7 +72839,7 @@ define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr noundef capt
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -72869,7 +72869,7 @@ define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr noundef capt
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -72929,7 +72929,7 @@ define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr noundef c
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !111
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -72959,7 +72959,7 @@ define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr noundef c
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -73072,7 +73072,7 @@ define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr noundef captu
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -73088,7 +73088,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -73114,7 +73114,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !46
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -73222,7 +73222,7 @@ define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr noundef ca
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -73252,7 +73252,7 @@ define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr noundef ca
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -73609,7 +73609,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
   %40 = add i32 %39, 4
   store i32 %40, ptr %1, align 4
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 41:                                               ; preds = %.lr.ph
   %42 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %21, i32 noundef %3)
@@ -73641,7 +73641,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
   %61 = add i32 %60, 4
   store i32 %61, ptr %1, align 4
   %.not.i140 = icmp eq i32 %58, 0
-  br i1 %.not.i140, label %listOfCard32.exit141, label %.lr.ph.i138, !llvm.loop !44
+  br i1 %.not.i140, label %listOfCard32.exit141, label %.lr.ph.i138, !llvm.loop !46
 
 listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %41
   %62 = phi i32 [ %.pre, %41 ], [ %61, %.lr.ph.i138 ]
@@ -73666,7 +73666,7 @@ listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %41
   %73 = add i32 %72, 4
   store i32 %73, ptr %1, align 4
   %.not.i147 = icmp eq i32 %70, 0
-  br i1 %.not.i147, label %listOfCard32.exit, label %.lr.ph.i145, !llvm.loop !44
+  br i1 %.not.i147, label %listOfCard32.exit, label %.lr.ph.i145, !llvm.loop !46
 
 .lr.ph.i151:                                      ; preds = %.lr.ph
   %74 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_number, align 4
@@ -73798,7 +73798,7 @@ listOfCard32.exit.sink.split:                     ; preds = %163, %.lr.ph.i151, 
 listOfCard32.exit:                                ; preds = %.lr.ph.i145, %.lr.ph.i, %listOfCard32.exit.sink.split, %listOfCard32.exit141, %22, %.lr.ph
   %172 = add nuw nsw i32 %.0174, 1
   %exitcond.not = icmp eq i32 %172, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -73833,7 +73833,7 @@ define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef ca
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -74027,7 +74027,7 @@ define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr noundef r
   store i32 %61, ptr %2, align 4
   %62 = add nuw nsw i32 %.029.i, 1
   %exitcond.not.i = icmp eq i32 %62, %27
-  br i1 %exitcond.not.i, label %struct_xinput_DeviceInfo.exit, label %.lr.ph.i, !llvm.loop !112
+  br i1 %exitcond.not.i, label %struct_xinput_DeviceInfo.exit, label %.lr.ph.i, !llvm.loop !116
 
 struct_xinput_DeviceInfo.exit:                    ; preds = %.lr.ph.i, %5
   tail call fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %27)
@@ -74110,7 +74110,7 @@ define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr noundef readonl
   store i32 %48, ptr %2, align 4
   %49 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %49, %27
-  br i1 %exitcond.not.i, label %struct_xinput_InputClassInfo.exit, label %.lr.ph.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %struct_xinput_InputClassInfo.exit, label %.lr.ph.i, !llvm.loop !117
 
 struct_xinput_InputClassInfo.exit:                ; preds = %.lr.ph.i, %5
   %50 = phi i32 [ %36, %5 ], [ %48, %.lr.ph.i ]
@@ -74236,7 +74236,7 @@ define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %55 = phi i32 [ %.pre, %5 ], [ %54, %.lr.ph.i ]
@@ -74262,7 +74262,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %.not.i58 = icmp eq i32 %63, 0
-  br i1 %.not.i58, label %listOfCard32.exit59, label %.lr.ph.i56, !llvm.loop !44
+  br i1 %.not.i58, label %listOfCard32.exit59, label %.lr.ph.i56, !llvm.loop !46
 
 listOfCard32.exit59:                              ; preds = %.lr.ph.i56, %listOfCard32.exit
   ret void
@@ -74329,7 +74329,7 @@ define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -74412,7 +74412,7 @@ listOfInt32.exit.us.i:                            ; preds = %.lr.ph.i, %listOfIn
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61)
   %63 = add nuw nsw i32 %.020.us.i, 1
   %exitcond22.not.i = icmp eq i32 %63, %26
-  br i1 %exitcond22.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %listOfInt32.exit.us.i, !llvm.loop !114
+  br i1 %exitcond22.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %listOfInt32.exit.us.i, !llvm.loop !118
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i, %listOfInt32.exit.loopexit.i
   %64 = phi i32 [ %83, %listOfInt32.exit.loopexit.i ], [ %45, %.lr.ph.i ]
@@ -74444,12 +74444,12 @@ listOfInt32.exit.us.i:                            ; preds = %.lr.ph.i, %listOfIn
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i, label %listOfInt32.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i.i, label %listOfInt32.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !66
 
 listOfInt32.exit.loopexit.i:                      ; preds = %.lr.ph.i.i
   %84 = add nuw nsw i32 %.020.i, 1
   %exitcond.not.i = icmp eq i32 %84, %26
-  br i1 %exitcond.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %.lr.ph.preheader.i.i, !llvm.loop !114
+  br i1 %exitcond.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %.lr.ph.preheader.i.i, !llvm.loop !119
 
 struct_xinput_DeviceTimeCoord.exit:               ; preds = %listOfInt32.exit.loopexit.i, %listOfInt32.exit.us.i, %5
   ret void
@@ -74774,7 +74774,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr noundef
   %117 = add i32 %116, 4
   store i32 %117, ptr %2, align 4
   %.not.i.i = icmp eq i32 %114, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 118:                                              ; preds = %.lr.ph.i
   %119 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_resolution, align 4
@@ -74823,7 +74823,7 @@ listOfCard32.exit.sink.split.i:                   ; preds = %128, %125, %118, %8
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %listOfCard32.exit.sink.split.i, %95, %.lr.ph.i
   %145 = add nuw nsw i32 %.0153.i, 1
   %exitcond.not.i = icmp eq i32 %145, %27
-  br i1 %exitcond.not.i, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i, !llvm.loop !115
+  br i1 %exitcond.not.i, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i, !llvm.loop !120
 
 struct_xinput_FeedbackState.exit:                 ; preds = %listOfCard32.exit.i, %5
   ret void
@@ -74889,7 +74889,7 @@ define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr nounde
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -75186,7 +75186,7 @@ define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr noundef r
   %73 = add i32 %72, 4
   store i32 %73, ptr %2, align 4
   %.not.i.i = icmp eq i32 %70, 0
-  br i1 %.not.i.i, label %listOfInt32.exit.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i.i, label %listOfInt32.exit.i, label %.lr.ph.i.i, !llvm.loop !66
 
 listOfInt32.exit.sink.split.i:                    ; preds = %49, %.lr.ph.i
   %hf_x11_struct_xinput_InputState_Button_num_buttons.sink.i = phi ptr [ @hf_x11_struct_xinput_InputState_Button_num_buttons, %49 ], [ @hf_x11_struct_xinput_InputState_Key_num_keys, %.lr.ph.i ]
@@ -75211,7 +75211,7 @@ listOfInt32.exit.sink.split.i:                    ; preds = %49, %.lr.ph.i
 listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i, %listOfInt32.exit.sink.split.i, %50, %.lr.ph.i
   %86 = add nuw nsw i32 %.064.i, 1
   %exitcond.not.i = icmp eq i32 %86, %27
-  br i1 %exitcond.not.i, label %struct_xinput_InputState.exit, label %.lr.ph.i, !llvm.loop !116
+  br i1 %exitcond.not.i, label %struct_xinput_InputState.exit, label %.lr.ph.i, !llvm.loop !121
 
 struct_xinput_InputState.exit:                    ; preds = %listOfInt32.exit.i, %5
   ret void
@@ -75336,7 +75336,7 @@ define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr noundef r
   %61 = add i32 %60, 4
   store i32 %61, ptr %2, align 4
   %.not.i.i = icmp eq i32 %58, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %44
   %62 = phi i32 [ %.pre.i, %44 ], [ %61, %.lr.ph.i.i ]
@@ -75357,7 +75357,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %44
   %72 = add i32 %71, 4
   store i32 %72, ptr %2, align 4
   %.not.i144.i = icmp eq i32 %69, 0
-  br i1 %.not.i144.i, label %listOfCard32.exit145.i, label %.lr.ph.i142.i, !llvm.loop !44
+  br i1 %.not.i144.i, label %listOfCard32.exit145.i, label %.lr.ph.i142.i, !llvm.loop !46
 
 listOfCard32.exit145.i:                           ; preds = %.lr.ph.i142.i, %listOfCard32.exit.i
   %73 = phi i32 [ %.pre153.i, %listOfCard32.exit.i ], [ %72, %.lr.ph.i142.i ]
@@ -75381,7 +75381,7 @@ listOfCard32.exit145.i:                           ; preds = %.lr.ph.i142.i, %lis
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i151.i = icmp eq i32 %80, 0
-  br i1 %.not.i151.i, label %struct_xinput_DeviceState.exit, label %.lr.ph.i149.i, !llvm.loop !44
+  br i1 %.not.i151.i, label %struct_xinput_DeviceState.exit, label %.lr.ph.i149.i, !llvm.loop !46
 
 84:                                               ; preds = %5
   %85 = load i32, ptr @hf_x11_struct_xinput_DeviceState_abs_calib_min_x, align 4
@@ -75587,7 +75587,7 @@ define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr nound
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -75687,7 +75687,7 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr noundef 
   %68 = add i32 %67, 2
   store i32 %68, ptr %2, align 4
   %.not.i = icmp eq i32 %65, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %57
   %69 = phi i32 [ %.pre, %57 ], [ %68, %.lr.ph.i ]
@@ -75718,7 +75718,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %57
   %82 = add i32 %81, 4
   store i32 %82, ptr %2, align 4
   %.not.i94 = icmp eq i32 %79, 0
-  br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !44
+  br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !46
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %51
   %.sink100 = phi i32 [ %56, %51 ], [ %70, %listOfCard16.exit ]
@@ -75836,7 +75836,7 @@ define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr noundef rea
   %76 = add i32 %75, 4
   store i32 %76, ptr %2, align 4
   %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -76052,7 +76052,7 @@ define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr noundef read
   tail call fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr noundef %2, ptr noundef %53, i32 noundef %4, i32 noundef %62)
   %97 = add nuw nsw i32 %.064.i, 1
   %exitcond.not.i = icmp eq i32 %97, %27
-  br i1 %exitcond.not.i, label %struct_xinput_XIDeviceInfo.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %struct_xinput_XIDeviceInfo.exit, label %.lr.ph.i, !llvm.loop !122
 
 struct_xinput_XIDeviceInfo.exit:                  ; preds = %96, %5
   ret void
@@ -76195,7 +76195,7 @@ define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nounde
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %51, %27
-  br i1 %exitcond.not.i, label %struct_xinput_GrabModifierInfo.exit, label %.lr.ph.i, !llvm.loop !118
+  br i1 %exitcond.not.i, label %struct_xinput_GrabModifierInfo.exit, label %.lr.ph.i, !llvm.loop !123
 
 struct_xinput_GrabModifierInfo.exit:              ; preds = %.lr.ph.i, %5
   ret void
@@ -76262,7 +76262,7 @@ define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr noundef r
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -76357,7 +76357,7 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr noundef read
   %64 = add i32 %63, 2
   store i32 %64, ptr %2, align 4
   %.not.i = icmp eq i32 %61, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !45
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %53
   %65 = phi i32 [ %.pre, %53 ], [ %64, %.lr.ph.i ]
@@ -76388,7 +76388,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %53
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
   %.not.i88 = icmp eq i32 %75, 0
-  br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !44
+  br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !46
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %47
   %.sink94 = phi i32 [ %52, %47 ], [ %66, %listOfCard16.exit ]
@@ -77456,7 +77456,7 @@ requestLength.exit:                               ; preds = %5, %16
   call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef %2, ptr noundef %710, i32 noundef %4, i32 noundef %749)
   %750 = add nuw nsw i32 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %750, %694
-  br i1 %exitcond.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i, !llvm.loop !119
+  br i1 %exitcond.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i, !llvm.loop !124
 
 struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %693, %556
   %751 = and i32 %563, 2
@@ -78054,7 +78054,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %693, %
   %1164 = add i32 %1163, 4
   store i32 %1164, ptr %2, align 4
   %.not.i.i157 = icmp eq i32 %1161, 0
-  br i1 %.not.i.i157, label %listOfCard32.exit.i, label %.lr.ph.i.i156, !llvm.loop !44
+  br i1 %.not.i.i157, label %listOfCard32.exit.i, label %.lr.ph.i.i156, !llvm.loop !46
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i156, %1150
   %1165 = and i32 %1032, 128
@@ -78080,7 +78080,7 @@ listOfCard32.exit.thread.i:                       ; preds = %1153
   %1171 = add i32 %.02141.i, %1170
   %1172 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %1172, %1044
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !120
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !125
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i, %listOfCard32.exit.thread.i
   %.0214.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %listOfCard32.exit.thread.i ], [ %1171, %.lr.ph.i ]
@@ -78130,7 +78130,7 @@ listOfCard32.exit.thread.i:                       ; preds = %1153
   %1199 = add i32 %1198, 4
   store i32 %1199, ptr %2, align 4
   %.not.i237.i = icmp eq i32 %1196, 0
-  br i1 %.not.i237.i, label %listOfCard32.exit238.i, label %.lr.ph.i235.i, !llvm.loop !44
+  br i1 %.not.i237.i, label %listOfCard32.exit238.i, label %.lr.ph.i235.i, !llvm.loop !46
 
 listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %1187, %listOfCard32.exit.thread.i, %listOfCard32.exit.i
   %1200 = and i32 %1032, 256
@@ -78164,7 +78164,7 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
   %1216 = add i32 %1215, 4
   store i32 %1216, ptr %2, align 4
   %.not.i244.i = icmp eq i32 %1213, 0
-  br i1 %.not.i244.i, label %listOfCard32.exit245.i, label %.lr.ph.i242.i, !llvm.loop !44
+  br i1 %.not.i244.i, label %listOfCard32.exit245.i, label %.lr.ph.i242.i, !llvm.loop !46
 
 listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %1201, %listOfCard32.exit238.i
   %1217 = and i32 %1032, 2048
@@ -78197,7 +78197,7 @@ listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %120
   %1232 = add i32 %1231, 4
   store i32 %1232, ptr %2, align 4
   %.not.i251.i = icmp eq i32 %1229, 0
-  br i1 %.not.i251.i, label %listOfCard32.exit252.i, label %.lr.ph.i249.i, !llvm.loop !44
+  br i1 %.not.i251.i, label %listOfCard32.exit252.i, label %.lr.ph.i249.i, !llvm.loop !46
 
 listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %1218, %listOfCard32.exit245.i
   %1233 = and i32 %1032, 4096
@@ -78230,7 +78230,7 @@ listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %121
   %1248 = add i32 %1247, 4
   store i32 %1248, ptr %2, align 4
   %.not.i258.i = icmp eq i32 %1245, 0
-  br i1 %.not.i258.i, label %listOfCard32.exit259.i, label %.lr.ph.i256.i, !llvm.loop !44
+  br i1 %.not.i258.i, label %listOfCard32.exit259.i, label %.lr.ph.i256.i, !llvm.loop !46
 
 listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %1234, %listOfCard32.exit252.i
   %1249 = and i32 %1032, 512
@@ -78258,7 +78258,7 @@ listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %123
   store i32 %1259, ptr %2, align 4
   %1260 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i159 = icmp eq i32 %1260, %1083
-  br i1 %exitcond.not.i.i159, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i263.i, !llvm.loop !121
+  br i1 %exitcond.not.i.i159, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i263.i, !llvm.loop !126
 
 struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %listOfCard32.exit259.i
   %1261 = and i32 %1032, 1024
@@ -78298,7 +78298,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1277 = add i32 %1276, 4
   store i32 %1277, ptr %2, align 4
   %.not.i269.i = icmp eq i32 %1274, 0
-  br i1 %.not.i269.i, label %xkbSelectEvents.exit, label %.lr.ph.i267.i, !llvm.loop !44
+  br i1 %.not.i269.i, label %xkbSelectEvents.exit, label %.lr.ph.i267.i, !llvm.loop !46
 
 1278:                                             ; preds = %requestLength.exit
   %1279 = load i32, ptr @hf_x11_xkb_PerClientFlags_deviceSpec, align 4
@@ -78576,12 +78576,12 @@ define internal fastcc void @struct_xkb_KeySymMap(ptr noundef %0, ptr noundef ca
   %46 = add i32 %45, 4
   store i32 %46, ptr %1, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %47 = add nuw nsw i32 %.036, 1
   %exitcond.not = icmp eq i32 %47, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -78980,7 +78980,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %317 = add i32 %.0142143, 8
   %318 = add nuw nsw i32 %.0144, 1
   %exitcond.not = icmp eq i32 %318, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0142.lcssa = phi i32 [ %6, %5 ], [ %317, %.lr.ph ]
@@ -79156,7 +79156,7 @@ define internal fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr noundef 
   store i32 %136, ptr %1, align 4
   %137 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %137, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79192,7 +79192,7 @@ define internal fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr noundef 
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79228,7 +79228,7 @@ define internal fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr noundef ca
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79269,7 +79269,7 @@ define internal fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr noundef c
   store i32 %24, ptr %1, align 4
   %25 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %25, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79311,7 +79311,7 @@ define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nounde
   store i32 %25, ptr %1, align 4
   %26 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %26, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79488,7 +79488,7 @@ define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef
   store i32 %43, ptr %1, align 4
   %44 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %44, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79531,7 +79531,7 @@ define internal fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef captu
   store i32 %26, ptr %1, align 4
   %27 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %27, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79588,7 +79588,7 @@ define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef
   store i32 %39, ptr %1, align 4
   %40 = add nuw nsw i32 %.042, 1
   %exitcond.not = icmp eq i32 %40, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79623,7 +79623,7 @@ define internal fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef cap
   store i32 %19, ptr %1, align 4
   %20 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %20, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79710,7 +79710,7 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nounde
   %64 = add i32 %63, 4
   store i32 %64, ptr %1, align 4
   %.not.i = icmp eq i32 %61, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %65 = sext i32 %37 to i64
@@ -79719,7 +79719,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   tail call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %3, i32 noundef %67)
   %68 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %68, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -81727,7 +81727,7 @@ define internal void @xkbGetNames_Reply(ptr noundef %0, ptr noundef readonly cap
   %161 = add i32 %160, 4
   store i32 %161, ptr %2, align 4
   %.not.i = icmp eq i32 %158, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %147
   %162 = and i32 %26, 128
@@ -81753,7 +81753,7 @@ listOfCard32.exit.thread:                         ; preds = %150
   %168 = add i32 %.0209265, %167
   %169 = add nuw nsw i32 %.0266, 1
   %exitcond.not = icmp eq i32 %169, %42
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0209.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %168, %.lr.ph ]
@@ -81803,7 +81803,7 @@ listOfCard32.exit.thread:                         ; preds = %150
   %196 = add i32 %195, 4
   store i32 %196, ptr %2, align 4
   %.not.i231 = icmp eq i32 %193, 0
-  br i1 %.not.i231, label %listOfCard32.exit232, label %.lr.ph.i229, !llvm.loop !44
+  br i1 %.not.i231, label %listOfCard32.exit232, label %.lr.ph.i229, !llvm.loop !46
 
 listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listOfCard32.exit.thread, %184, %listOfCard32.exit
   %197 = and i32 %26, 256
@@ -81837,7 +81837,7 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
   %213 = add i32 %212, 4
   store i32 %213, ptr %2, align 4
   %.not.i238 = icmp eq i32 %210, 0
-  br i1 %.not.i238, label %listOfCard32.exit239, label %.lr.ph.i236, !llvm.loop !44
+  br i1 %.not.i238, label %listOfCard32.exit239, label %.lr.ph.i236, !llvm.loop !46
 
 listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %198, %listOfCard32.exit232
   %214 = and i32 %26, 2048
@@ -81870,7 +81870,7 @@ listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %198, 
   %229 = add i32 %228, 4
   store i32 %229, ptr %2, align 4
   %.not.i245 = icmp eq i32 %226, 0
-  br i1 %.not.i245, label %listOfCard32.exit246, label %.lr.ph.i243, !llvm.loop !44
+  br i1 %.not.i245, label %listOfCard32.exit246, label %.lr.ph.i243, !llvm.loop !46
 
 listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %215, %listOfCard32.exit239
   %230 = and i32 %26, 4096
@@ -81903,7 +81903,7 @@ listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %215, 
   %245 = add i32 %244, 4
   store i32 %245, ptr %2, align 4
   %.not.i252 = icmp eq i32 %242, 0
-  br i1 %.not.i252, label %listOfCard32.exit253, label %.lr.ph.i250, !llvm.loop !44
+  br i1 %.not.i252, label %listOfCard32.exit253, label %.lr.ph.i250, !llvm.loop !46
 
 listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %231, %listOfCard32.exit246
   %246 = and i32 %26, 512
@@ -81931,7 +81931,7 @@ listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %231, 
   store i32 %256, ptr %2, align 4
   %257 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %257, %67
-  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i257, !llvm.loop !121
+  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i257, !llvm.loop !126
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i257, %listOfCard32.exit253
   %258 = and i32 %26, 1024
@@ -81971,7 +81971,7 @@ struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i257, %listO
   %274 = add i32 %273, 4
   store i32 %274, ptr %2, align 4
   %.not.i263 = icmp eq i32 %271, 0
-  br i1 %.not.i263, label %listOfCard32.exit264, label %.lr.ph.i261, !llvm.loop !44
+  br i1 %.not.i263, label %listOfCard32.exit264, label %.lr.ph.i261, !llvm.loop !46
 
 listOfCard32.exit264:                             ; preds = %.lr.ph.i261, %262, %260
   ret void
@@ -82876,7 +82876,7 @@ define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr noundef readonly
   %534 = add i32 %533, 4
   store i32 %534, ptr %2, align 4
   %.not.i = icmp eq i32 %531, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %520
   %535 = and i32 %399, 128
@@ -82902,7 +82902,7 @@ listOfCard32.exit.thread:                         ; preds = %523
   %541 = add i32 %.0728821, %540
   %542 = add nuw nsw i32 %.0822, 1
   %exitcond.not = icmp eq i32 %542, %415
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0728.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %541, %.lr.ph ]
@@ -82952,7 +82952,7 @@ listOfCard32.exit.thread:                         ; preds = %523
   %569 = add i32 %568, 4
   store i32 %569, ptr %2, align 4
   %.not.i782 = icmp eq i32 %566, 0
-  br i1 %.not.i782, label %listOfCard32.exit783, label %.lr.ph.i780, !llvm.loop !44
+  br i1 %.not.i782, label %listOfCard32.exit783, label %.lr.ph.i780, !llvm.loop !46
 
 listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listOfCard32.exit.thread, %557, %listOfCard32.exit
   %570 = and i32 %399, 256
@@ -82986,7 +82986,7 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
   %586 = add i32 %585, 4
   store i32 %586, ptr %2, align 4
   %.not.i789 = icmp eq i32 %583, 0
-  br i1 %.not.i789, label %listOfCard32.exit790, label %.lr.ph.i787, !llvm.loop !44
+  br i1 %.not.i789, label %listOfCard32.exit790, label %.lr.ph.i787, !llvm.loop !46
 
 listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %571, %listOfCard32.exit783
   %587 = and i32 %399, 2048
@@ -83019,7 +83019,7 @@ listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %571, 
   %602 = add i32 %601, 4
   store i32 %602, ptr %2, align 4
   %.not.i796 = icmp eq i32 %599, 0
-  br i1 %.not.i796, label %listOfCard32.exit797, label %.lr.ph.i794, !llvm.loop !44
+  br i1 %.not.i796, label %listOfCard32.exit797, label %.lr.ph.i794, !llvm.loop !46
 
 listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %588, %listOfCard32.exit790
   %603 = and i32 %399, 4096
@@ -83052,7 +83052,7 @@ listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %588, 
   %618 = add i32 %617, 4
   store i32 %618, ptr %2, align 4
   %.not.i803 = icmp eq i32 %615, 0
-  br i1 %.not.i803, label %listOfCard32.exit804, label %.lr.ph.i801, !llvm.loop !44
+  br i1 %.not.i803, label %listOfCard32.exit804, label %.lr.ph.i801, !llvm.loop !46
 
 listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %604, %listOfCard32.exit797
   %619 = and i32 %399, 512
@@ -83080,7 +83080,7 @@ listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %604, 
   store i32 %629, ptr %2, align 4
   %630 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %630, %440
-  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i808, !llvm.loop !121
+  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i808, !llvm.loop !126
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i808, %listOfCard32.exit804
   %631 = and i32 %399, 1024
@@ -83120,7 +83120,7 @@ struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i808, %listO
   %647 = add i32 %646, 4
   store i32 %647, ptr %2, align 4
   %.not.i814 = icmp eq i32 %644, 0
-  br i1 %.not.i814, label %listOfCard32.exit815, label %.lr.ph.i812, !llvm.loop !44
+  br i1 %.not.i814, label %listOfCard32.exit815, label %.lr.ph.i812, !llvm.loop !46
 
 listOfCard32.exit815:                             ; preds = %.lr.ph.i812, %635, %633, %379
   %648 = and i32 %48, 64
@@ -83556,14 +83556,14 @@ define internal fastcc void @struct_xkb_KeyType(ptr noundef %0, ptr noundef capt
   store i32 %90, ptr %1, align 4
   %91 = add nuw nsw i32 %.035.i, 1
   %exitcond.not.i = icmp eq i32 %91, %41
-  br i1 %exitcond.not.i, label %struct_xkb_KTMapEntry.exit, label %.lr.ph.i, !llvm.loop !136
+  br i1 %exitcond.not.i, label %struct_xkb_KTMapEntry.exit, label %.lr.ph.i, !llvm.loop !141
 
 struct_xkb_KTMapEntry.exit:                       ; preds = %.lr.ph.i, %.lr.ph
   %92 = mul nuw nsw i32 %48, %41
   tail call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %3, i32 noundef %92)
   %93 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %93, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %struct_xkb_KTMapEntry.exit, %5
   ret void
@@ -83630,7 +83630,7 @@ define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr noundef capt
   %43 = phi i32 [ %41, %35 ], [ %33, %.lr.ph ]
   %44 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %44, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %42, %5
   ret void
@@ -84242,7 +84242,7 @@ define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr nounde
   %93 = phi i32 [ %91, %85 ], [ %83, %72 ]
   %94 = add nuw nsw i32 %.055.i, 1
   %exitcond.not.i = icmp eq i32 %94, %26
-  br i1 %exitcond.not.i, label %struct_xprint_PRINTER.exit, label %.lr.ph.i, !llvm.loop !139
+  br i1 %exitcond.not.i, label %struct_xprint_PRINTER.exit, label %.lr.ph.i, !llvm.loop !144
 
 struct_xprint_PRINTER.exit:                       ; preds = %92, %5
   ret void
@@ -84625,7 +84625,7 @@ define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr noundef 
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -85763,7 +85763,7 @@ define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr nounde
   %67 = phi i32 [ %65, %59 ], [ %57, %52 ]
   %68 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %68, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %66, %5
   ret void
@@ -86874,13 +86874,13 @@ define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr noundef readonly
   store i32 %117, ptr %2, align 4
   %118 = add nuw nsw i32 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %118, %70
-  br i1 %exitcond.not.i.i, label %struct_xv_Format.exit.i, label %.lr.ph.i.i, !llvm.loop !141
+  br i1 %exitcond.not.i.i, label %struct_xv_Format.exit.i, label %.lr.ph.i.i, !llvm.loop !146
 
 struct_xv_Format.exit.i:                          ; preds = %.lr.ph.i.i, %99
   %119 = phi i32 [ %.pre.i.i, %99 ], [ %117, %.lr.ph.i.i ]
   %120 = add nuw nsw i32 %.062.i, 1
   %exitcond.not.i = icmp eq i32 %120, %27
-  br i1 %exitcond.not.i, label %struct_xv_AdaptorInfo.exit, label %.lr.ph.i, !llvm.loop !142
+  br i1 %exitcond.not.i, label %struct_xv_AdaptorInfo.exit, label %.lr.ph.i, !llvm.loop !147
 
 struct_xv_AdaptorInfo.exit:                       ; preds = %struct_xv_Format.exit.i, %5
   ret void
@@ -87010,7 +87010,7 @@ define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr noundef readonl
   %99 = phi i32 [ %97, %91 ], [ %89, %.lr.ph.i ]
   %100 = add nuw nsw i32 %.053.i, 1
   %exitcond.not.i = icmp eq i32 %100, %27
-  br i1 %exitcond.not.i, label %struct_xv_EncodingInfo.exit, label %.lr.ph.i, !llvm.loop !143
+  br i1 %exitcond.not.i, label %struct_xv_EncodingInfo.exit, label %.lr.ph.i, !llvm.loop !148
 
 struct_xv_EncodingInfo.exit:                      ; preds = %98, %5
   ret void
@@ -87222,7 +87222,7 @@ define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr noundef re
   %84 = phi i32 [ %82, %76 ], [ %74, %.lr.ph.i ]
   %85 = add nuw nsw i32 %.045.i, 1
   %exitcond.not.i = icmp eq i32 %85, %26
-  br i1 %exitcond.not.i, label %struct_xv_AttributeInfo.exit, label %.lr.ph.i, !llvm.loop !144
+  br i1 %exitcond.not.i, label %struct_xv_AttributeInfo.exit, label %.lr.ph.i, !llvm.loop !149
 
 struct_xv_AttributeInfo.exit:                     ; preds = %83, %5
   ret void
@@ -87342,7 +87342,7 @@ define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr noundef r
   %58 = add i32 %57, 4
   store i32 %58, ptr %2, align 4
   %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %59 = phi i32 [ %.pre, %5 ], [ %58, %.lr.ph.i ]
@@ -87366,7 +87366,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %69 = add i32 %68, 4
   store i32 %69, ptr %2, align 4
   %.not.i64 = icmp eq i32 %66, 0
-  br i1 %.not.i64, label %listOfCard32.exit65, label %.lr.ph.i62, !llvm.loop !44
+  br i1 %.not.i64, label %listOfCard32.exit65, label %.lr.ph.i62, !llvm.loop !46
 
 listOfCard32.exit65:                              ; preds = %.lr.ph.i62, %listOfCard32.exit
   ret void
@@ -87517,7 +87517,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nound
   store i32 %115, ptr %1, align 4
   %116 = add nuw nsw i32 %.0130, 1
   %exitcond.not = icmp eq i32 %116, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !145
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -87816,7 +87816,7 @@ define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr noundef rea
   store i32 %78, ptr %2, align 4
   %79 = add nuw nsw i32 %.051.i, 1
   %exitcond.not.i = icmp eq i32 %79, %26
-  br i1 %exitcond.not.i, label %struct_xvmc_SurfaceInfo.exit, label %.lr.ph.i, !llvm.loop !146
+  br i1 %exitcond.not.i, label %struct_xvmc_SurfaceInfo.exit, label %.lr.ph.i, !llvm.loop !151
 
 struct_xvmc_SurfaceInfo.exit:                     ; preds = %.lr.ph.i, %5
   ret void
@@ -87892,7 +87892,7 @@ define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr noundef readon
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -87953,7 +87953,7 @@ define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr noundef readon
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -88039,7 +88039,7 @@ define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr noundef rea
   %62 = add i32 %61, 4
   store i32 %62, ptr %2, align 4
   %.not.i = icmp eq i32 %59, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !46
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -88164,13 +88164,13 @@ attributes #15 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !9}
 !32 = distinct !{!32, !9}
 !33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
+!34 = distinct !{!34, !9, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
+!37 = distinct !{!37, !9, !35}
 !38 = distinct !{!38, !9}
 !39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
+!40 = distinct !{!40, !9, !35}
 !41 = distinct !{!41, !9}
 !42 = distinct !{!42, !9}
 !43 = distinct !{!43, !9}
@@ -88185,8 +88185,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !52 = distinct !{!52, !9}
 !53 = distinct !{!53, !9}
 !54 = distinct !{!54, !9}
-!55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
+!55 = distinct !{!55, !35}
+!56 = distinct !{!56, !9, !35}
 !57 = distinct !{!57, !9}
 !58 = distinct !{!58, !9}
 !59 = distinct !{!59, !9}
@@ -88248,7 +88248,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !115 = distinct !{!115, !9}
 !116 = distinct !{!116, !9}
 !117 = distinct !{!117, !9}
-!118 = distinct !{!118, !9}
+!118 = distinct !{!118, !9, !35}
 !119 = distinct !{!119, !9}
 !120 = distinct !{!120, !9}
 !121 = distinct !{!121, !9}
@@ -88277,3 +88277,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !144 = distinct !{!144, !9}
 !145 = distinct !{!145, !9}
 !146 = distinct !{!146, !9}
+!147 = distinct !{!147, !9}
+!148 = distinct !{!148, !9}
+!149 = distinct !{!149, !9}
+!150 = distinct !{!150, !9}
+!151 = distinct !{!151, !9}

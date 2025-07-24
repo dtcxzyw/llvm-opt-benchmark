@@ -1185,121 +1185,123 @@ define i32 @lv_text_get_width_with_flags(ptr noundef readonly captures(address_i
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %54, label %9
+  br i1 %or.cond, label %58, label %9
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %0, align 1, !tbaa !3
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %54, label %12
+  br i1 %11, label %58, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !tbaa !6
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %53, label %.lr.ph
+  br i1 %.not, label %57, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %13 = and i32 %4, 8
   %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %.not22, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %lv_text_is_cmd.exit.us.us
-  %.139.us.us = phi i32 [ %.3.us.us, %lv_text_is_cmd.exit.us.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %lv_text_is_cmd.exit.thread.us
+  %.139.us = phi i32 [ %.3.us, %lv_text_is_cmd.exit.thread.us ], [ 0, %.lr.ph ]
   %14 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %6)
-  %.not.i.us.us = icmp eq i32 %14, 0
-  %.pre = load i32, ptr %6, align 4, !tbaa !6
-  %.pre59 = zext i32 %.pre to i64
-  br i1 %.not.i.us.us, label %lv_text_is_cmd.exit.us.us, label %lv_text_encoded_letter_next_2.exit.us.us
+  %.not.i.us = icmp eq i32 %14, 0
+  br i1 %.not.i.us, label %lv_text_is_cmd.exit.thread.us, label %lv_text_encoded_letter_next_2.exit.us
 
-lv_text_encoded_letter_next_2.exit.us.us:         ; preds = %.lr.ph.split.us.split.us
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre59
-  %16 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %15, ptr noundef null)
-  br label %lv_text_is_cmd.exit.us.us
+lv_text_encoded_letter_next_2.exit.us:            ; preds = %.lr.ph.split.us
+  %15 = load i32, ptr %6, align 4, !tbaa !6
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %18 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %17, ptr noundef null)
+  br label %lv_text_is_cmd.exit.thread.us
 
-lv_text_is_cmd.exit.us.us:                        ; preds = %.lr.ph.split.us.split.us, %lv_text_encoded_letter_next_2.exit.us.us
-  %17 = phi i32 [ %16, %lv_text_encoded_letter_next_2.exit.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %18 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef nonnull %2, i32 noundef %14, i32 noundef %17) #11
-  %.not23.us.us = icmp eq i16 %18, 0
-  %19 = zext i16 %18 to i32
-  %20 = add i32 %.139.us.us, %3
-  %21 = add i32 %20, %19
-  %.3.us.us = select i1 %.not23.us.us, i32 %.139.us.us, i32 %21
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre59
-  %23 = load i8, ptr %22, align 1, !tbaa !3
-  %24 = icmp ne i8 %23, 0
-  %25 = icmp ult i32 %.pre, %1
-  %26 = and i1 %25, %24
-  br i1 %26, label %.lr.ph.split.us.split.us, label %._crit_edge
+lv_text_is_cmd.exit.thread.us:                    ; preds = %lv_text_encoded_letter_next_2.exit.us, %.lr.ph.split.us
+  %19 = phi i32 [ %18, %lv_text_encoded_letter_next_2.exit.us ], [ 0, %.lr.ph.split.us ]
+  %20 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef nonnull %2, i32 noundef %14, i32 noundef %19) #11
+  %.not23.us = icmp eq i16 %20, 0
+  %21 = zext i16 %20 to i32
+  %22 = add i32 %.139.us, %3
+  %23 = add i32 %22, %21
+  %.3.us = select i1 %.not23.us, i32 %.139.us, i32 %23
+  %24 = load i32, ptr %6, align 4, !tbaa !6
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !3
+  %28 = icmp ne i8 %27, 0
+  %29 = icmp ult i32 %24, %1
+  %30 = and i1 %29, %28
+  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %lv_text_is_cmd.exit.thread
   %.139 = phi i32 [ %.2, %lv_text_is_cmd.exit.thread ], [ 0, %.lr.ph ]
   %.02738 = phi i32 [ %.229, %lv_text_is_cmd.exit.thread ], [ 0, %.lr.ph ]
-  %27 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %6)
-  %.not.i = icmp eq i32 %27, 0
+  %31 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %6)
+  %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %lv_text_encoded_letter_next_2.exit.thread, label %lv_text_encoded_letter_next_2.exit
 
 lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph.split.split
-  %28 = load i32, ptr %6, align 4, !tbaa !6
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  %31 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %30, ptr noundef null)
-  %32 = icmp eq i32 %27, 35
-  br i1 %32, label %34, label %35
+  %32 = load i32, ptr %6, align 4, !tbaa !6
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
+  %35 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %34, ptr noundef null)
+  %36 = icmp eq i32 %31, 35
+  br i1 %36, label %38, label %39
 
 lv_text_encoded_letter_next_2.exit.thread:        ; preds = %.lr.ph.split.split
-  %33 = icmp eq i32 %.02738, 1
-  br i1 %33, label %lv_text_is_cmd.exit.thread, label %lv_text_is_cmd.exit, !llvm.loop !22
+  %37 = icmp eq i32 %.02738, 1
+  br i1 %37, label %lv_text_is_cmd.exit.thread, label %lv_text_is_cmd.exit, !llvm.loop !24
 
-34:                                               ; preds = %lv_text_encoded_letter_next_2.exit
+38:                                               ; preds = %lv_text_encoded_letter_next_2.exit
   %switch = icmp ult i32 %.02738, 2
-  %spec.select61 = zext i1 %switch to i32
+  %spec.select57 = zext i1 %switch to i32
   br label %lv_text_is_cmd.exit.thread
 
-35:                                               ; preds = %lv_text_encoded_letter_next_2.exit
-  %36 = icmp eq i32 %.02738, 1
-  br i1 %36, label %37, label %lv_text_is_cmd.exit, !llvm.loop !22
+39:                                               ; preds = %lv_text_encoded_letter_next_2.exit
+  %40 = icmp eq i32 %.02738, 1
+  br i1 %40, label %41, label %lv_text_is_cmd.exit, !llvm.loop !24
 
-37:                                               ; preds = %35
-  %38 = icmp eq i32 %27, 32
-  %spec.select37 = select i1 %38, i32 2, i32 1
+41:                                               ; preds = %39
+  %42 = icmp eq i32 %31, 32
+  %spec.select37 = select i1 %42, i32 2, i32 1
   br label %lv_text_is_cmd.exit.thread
 
-lv_text_is_cmd.exit:                              ; preds = %35, %lv_text_encoded_letter_next_2.exit.thread
-  %39 = phi i32 [ 0, %lv_text_encoded_letter_next_2.exit.thread ], [ %31, %35 ]
-  %40 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef nonnull %2, i32 noundef %27, i32 noundef %39) #11
-  %.not23 = icmp eq i16 %40, 0
-  %41 = zext i16 %40 to i32
-  %42 = add i32 %.139, %3
-  %43 = add i32 %42, %41
-  %.3 = select i1 %.not23, i32 %.139, i32 %43
+lv_text_is_cmd.exit:                              ; preds = %39, %lv_text_encoded_letter_next_2.exit.thread
+  %43 = phi i32 [ 0, %lv_text_encoded_letter_next_2.exit.thread ], [ %35, %39 ]
+  %44 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef nonnull %2, i32 noundef %31, i32 noundef %43) #11
+  %.not23 = icmp eq i16 %44, 0
+  %45 = zext i16 %44 to i32
+  %46 = add i32 %.139, %3
+  %47 = add i32 %46, %45
+  %.3 = select i1 %.not23, i32 %.139, i32 %47
   br label %lv_text_is_cmd.exit.thread
 
-lv_text_is_cmd.exit.thread:                       ; preds = %34, %37, %lv_text_encoded_letter_next_2.exit.thread, %lv_text_is_cmd.exit
-  %.229 = phi i32 [ %.02738, %lv_text_is_cmd.exit ], [ 1, %lv_text_encoded_letter_next_2.exit.thread ], [ %spec.select37, %37 ], [ %spec.select61, %34 ]
-  %.2 = phi i32 [ %.3, %lv_text_is_cmd.exit ], [ %.139, %lv_text_encoded_letter_next_2.exit.thread ], [ %.139, %37 ], [ %.139, %34 ]
-  %44 = load i32, ptr %6, align 4, !tbaa !6
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !3
-  %48 = icmp ne i8 %47, 0
-  %49 = icmp ult i32 %44, %1
-  %50 = and i1 %49, %48
-  br i1 %50, label %.lr.ph.split.split, label %._crit_edge
+lv_text_is_cmd.exit.thread:                       ; preds = %38, %41, %lv_text_encoded_letter_next_2.exit.thread, %lv_text_is_cmd.exit
+  %.229 = phi i32 [ %.02738, %lv_text_is_cmd.exit ], [ 1, %lv_text_encoded_letter_next_2.exit.thread ], [ %spec.select37, %41 ], [ %spec.select57, %38 ]
+  %.2 = phi i32 [ %.3, %lv_text_is_cmd.exit ], [ %.139, %lv_text_encoded_letter_next_2.exit.thread ], [ %.139, %41 ], [ %.139, %38 ]
+  %48 = load i32, ptr %6, align 4, !tbaa !6
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !3
+  %52 = icmp ne i8 %51, 0
+  %53 = icmp ult i32 %48, %1
+  %54 = and i1 %53, %52
+  br i1 %54, label %.lr.ph.split.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %lv_text_is_cmd.exit.thread, %lv_text_is_cmd.exit.us.us
-  %.1.lcssa = phi i32 [ %.3.us.us, %lv_text_is_cmd.exit.us.us ], [ %.2, %lv_text_is_cmd.exit.thread ]
-  %51 = icmp sgt i32 %.1.lcssa, 0
-  %52 = select i1 %51, i32 %3, i32 0
-  %spec.select = sub nsw i32 %.1.lcssa, %52
-  br label %53
+._crit_edge:                                      ; preds = %lv_text_is_cmd.exit.thread, %lv_text_is_cmd.exit.thread.us
+  %.1.lcssa = phi i32 [ %.3.us, %lv_text_is_cmd.exit.thread.us ], [ %.2, %lv_text_is_cmd.exit.thread ]
+  %55 = icmp sgt i32 %.1.lcssa, 0
+  %56 = select i1 %55, i32 %3, i32 0
+  %spec.select = sub nsw i32 %.1.lcssa, %56
+  br label %57
 
-53:                                               ; preds = %._crit_edge, %12
+57:                                               ; preds = %._crit_edge, %12
   %.018 = phi i32 [ 0, %12 ], [ %spec.select, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  br label %54
+  br label %58
 
-54:                                               ; preds = %9, %5, %53
-  %.0 = phi i32 [ %.018, %53 ], [ 0, %5 ], [ 0, %9 ]
+58:                                               ; preds = %9, %5, %57
+  %.0 = phi i32 [ %.018, %57 ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1380,7 +1382,7 @@ lv_text_utf8_get_byte_id.exit:                    ; preds = %lv_text_utf8_get_by
   store i8 %34, ptr %35, align 1, !tbaa !3
   %36 = add i64 %.027, -1
   %.not = icmp ult i64 %36, %31
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.lcssa.i
@@ -1509,7 +1511,7 @@ lv_text_utf8_get_byte_id.exit29:                  ; preds = %.lr.ph.i19, %lv_tex
   %53 = add i32 %.031, 1
   %54 = zext i32 %53 to i64
   %.not = icmp ult i64 %46, %54
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit29, %3
   ret void
@@ -1590,6 +1592,8 @@ attributes #11 = { nounwind }
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}

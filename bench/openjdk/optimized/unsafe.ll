@@ -15506,7 +15506,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit: ; preds = %110, %11
 _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit, %117
   %.0.i22 = phi ptr [ %.0.i.i.i.i21, %117 ], [ null, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit ]
   %123 = icmp eq ptr %.0.i, %.0.i22
-  br i1 %123, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split, label %.critedge, !llvm.loop !28
+  br i1 %123, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split
   %.us-phi = phi ptr [ %109, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split ], [ %109, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %71, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us ], [ %71, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ]
@@ -15842,7 +15842,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit: ; preds = %50, %51
 _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit, %57
   %.0.i22 = phi ptr [ %.0.i.i.i.i21, %57 ], [ null, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit ]
   %63 = icmp eq ptr %.0.i, %.0.i22
-  br i1 %63, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %.critedge, !llvm.loop !29
+  br i1 %63, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23
   %64 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %0, i64 noundef %1, ptr noundef %49, ptr noundef null)
@@ -16232,7 +16232,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !30
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !32
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #13
@@ -17510,6 +17510,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !13}
 !26 = distinct !{!26, !13}
 !27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13}
-!29 = distinct !{!29, !13}
-!30 = !{!"branch_weights", i32 1, i32 1048575}
+!28 = distinct !{!28, !13, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !13}
+!31 = distinct !{!31, !13}
+!32 = !{!"branch_weights", i32 1, i32 1048575}

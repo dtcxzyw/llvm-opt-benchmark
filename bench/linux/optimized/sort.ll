@@ -164,7 +164,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %91 = add i64 %90, %2
   %92 = add i64 %91, %2
   %93 = icmp ult i64 %92, %65
-  br i1 %93, label %.preheader26.split, label %.loopexit27, !llvm.loop !10
+  br i1 %93, label %.preheader26.split, label %.loopexit27, !llvm.loop !12
 
 .loopexit27:                                      ; preds = %.preheader26.split, %.preheader26.split.us, %.loopexit29
   %94 = phi i64 [ %66, %.loopexit29 ], [ %78, %.preheader26.split.us ], [ %89, %.preheader26.split ]
@@ -209,7 +209,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %118 = sub i64 %114, %117
   %119 = lshr i64 %118, 1
   %120 = icmp eq i64 %119, %66
-  br i1 %120, label %.loopexit24.backedge, label %102, !llvm.loop !11
+  br i1 %120, label %.loopexit24.backedge, label %102, !llvm.loop !13
 
 .loopexit25:                                      ; preds = %110
   %121 = icmp eq i64 %103, %66
@@ -282,7 +282,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
 
 .loopexit:                                        ; preds = %.preheader22, %.preheader20, %.preheader, %156, %133
   %157 = icmp eq i64 %131, %66
-  br i1 %157, label %.loopexit24.backedge, label %124, !llvm.loop !12
+  br i1 %157, label %.loopexit24.backedge, label %124, !llvm.loop !14
 
 .thread19:                                        ; preds = %36, %6
   ret void
@@ -322,6 +322,8 @@ attributes #2 = { nounwind }
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !6, !7}
 !9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!10 = distinct !{!10, !6, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

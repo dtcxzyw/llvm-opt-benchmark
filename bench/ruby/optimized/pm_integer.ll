@@ -1188,7 +1188,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
 65:                                               ; preds = %.lr.ph277
   %66 = add i64 %.0170276, -1
   %67 = icmp ugt i64 %66, 1
-  br i1 %67, label %.lr.ph277, label %.critedge, !llvm.loop !49
+  br i1 %67, label %.lr.ph277, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %.lr.ph277, %65, %.preheader
   %.0170.lcssa = phi i64 [ %38, %.preheader ], [ 1, %65 ], [ %.0170276, %.lr.ph277 ]
@@ -1272,7 +1272,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
   %96 = udiv i64 %93, %3
   %97 = add nuw i64 %.0182242, 1
   %exitcond.not = icmp eq i64 %97, %82
-  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !51
 
 98:                                               ; preds = %._crit_edge
   %99 = trunc nuw nsw i64 %96 to i32
@@ -1297,7 +1297,7 @@ pm_integer_free.exit:                             ; preds = %._crit_edge.thread,
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
   %106 = icmp ult i64 %79, %.1167
-  br i1 %106, label %78, label %._crit_edge248, !llvm.loop !51
+  br i1 %106, label %78, label %._crit_edge248, !llvm.loop !52
 
 107:                                              ; preds = %68
   %108 = lshr i64 %.1, 1
@@ -1580,7 +1580,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
   store i32 %.sink.i, ptr %236, align 4, !tbaa !13
   %237 = add nuw i64 %.04861.i, 1
   %exitcond.not.i212 = icmp eq i64 %237, %.0.i209
-  br i1 %exitcond.not.i212, label %.preheader.i213, label %209, !llvm.loop !52
+  br i1 %exitcond.not.i212, label %.preheader.i213, label %209, !llvm.loop !53
 
 .lr.ph63.i:                                       ; preds = %.preheader.i213, %240
   %.162.i = phi i64 [ %241, %240 ], [ %195, %.preheader.i213 ]
@@ -1592,7 +1592,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
 240:                                              ; preds = %.lr.ph63.i
   %241 = add i64 %.162.i, -1
   %242 = icmp ugt i64 %241, 1
-  br i1 %242, label %.lr.ph63.i, label %big_sub2.exit, !llvm.loop !53
+  br i1 %242, label %.lr.ph63.i, label %big_sub2.exit, !llvm.loop !54
 
 big_sub2.exit:                                    ; preds = %.lr.ph63.i, %240, %big_add.exit208, %.preheader.i213
   %.1.lcssa.i = phi i64 [ 1, %.preheader.i213 ], [ 0, %big_add.exit208 ], [ %.162.i, %.lr.ph63.i ], [ 1, %240 ]
@@ -1633,7 +1633,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %240, %
   %259 = udiv i64 %256, %3
   %260 = add nuw i64 %.0172250, 1
   %exitcond293.not = icmp eq i64 %260, %.1.lcssa.i
-  br i1 %exitcond293.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !54
+  br i1 %exitcond293.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !55
 
 .preheader237:                                    ; preds = %.lr.ph258, %big_sub2.exit, %._crit_edge252
   %invariant.gep259 = getelementptr i8, ptr %244, i64 -4
@@ -1654,7 +1654,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %240, %
   %269 = udiv i64 %266, %3
   %270 = add i64 %.0171256, 1
   %.not189 = icmp samesign ugt i64 %3, %266
-  br i1 %.not189, label %.preheader237, label %.lr.ph258, !llvm.loop !55
+  br i1 %.not189, label %.preheader237, label %.lr.ph258, !llvm.loop !56
 
 .lr.ph262:                                        ; preds = %.preheader237, %273
   %.0176261 = phi i64 [ %274, %273 ], [ %243, %.preheader237 ]
@@ -1666,7 +1666,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %240, %
 273:                                              ; preds = %.lr.ph262
   %274 = add i64 %.0176261, -1
   %275 = icmp ugt i64 %274, 1
-  br i1 %275, label %.lr.ph262, label %pm_integer_free.exit217, !llvm.loop !56
+  br i1 %275, label %.lr.ph262, label %pm_integer_free.exit217, !llvm.loop !57
 
 pm_integer_free.exit217:                          ; preds = %.lr.ph262, %273, %.preheader237
   %.0176.lcssa = phi i64 [ %243, %.preheader237 ], [ 1, %273 ], [ %.0176261, %.lr.ph262 ]
@@ -1799,8 +1799,8 @@ attributes #14 = { nounwind }
 !45 = distinct !{!45, !11}
 !46 = distinct !{!46, !11}
 !47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11}
+!48 = distinct !{!48, !11, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !50 = distinct !{!50, !11}
 !51 = distinct !{!51, !11}
 !52 = distinct !{!52, !11}
@@ -1808,3 +1808,4 @@ attributes #14 = { nounwind }
 !54 = distinct !{!54, !11}
 !55 = distinct !{!55, !11}
 !56 = distinct !{!56, !11}
+!57 = distinct !{!57, !11}

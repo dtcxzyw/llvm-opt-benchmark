@@ -6299,7 +6299,7 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   %.165 = phi i32 [ %.064102, %51 ], [ 1, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split106.us, label %51, !llvm.loop !197
+  br i1 %exitcond.not, label %.split106.us, label %51, !llvm.loop !199
 
 .split106.us:                                     ; preds = %65, %50
   %.us-phi107 = phi i64 [ %.4.us, %50 ], [ %.4, %65 ]
@@ -6349,7 +6349,7 @@ define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr 
   %fputc = tail call i32 @fputc(i32 10, ptr %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %13, label %6, !llvm.loop !198
+  br i1 %exitcond.not, label %13, label %6, !llvm.loop !200
 
 13:                                               ; preds = %6
   ret void
@@ -6415,7 +6415,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
   %4 = alloca [100 x i8], align 16
   %5 = alloca [150 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #30
-  %6 = load i64, ptr %1, align 8, !tbaa !199
+  %6 = load i64, ptr %1, align 8, !tbaa !201
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.426, i64 noundef %6) #30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 8, !tbaa !71
@@ -6423,25 +6423,25 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %1, align 8, !tbaa !199
+  %11 = load i64, ptr %1, align 8, !tbaa !201
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.427, i64 noundef %11, ptr noundef nonnull %8) #30
   br label %13
 
 13:                                               ; preds = %10, %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1112
-  %15 = load i32, ptr %14, align 8, !tbaa !202
+  %15 = load i32, ptr %14, align 8, !tbaa !204
   %.not27 = icmp eq i32 %15, 0
   br i1 %.not27, label %19, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1096
-  %18 = load ptr, ptr %17, align 8, !tbaa !203
+  %18 = load ptr, ptr %17, align 8, !tbaa !205
   call fastcc void @insert_misc(ptr noundef %0, ptr noundef %18, ptr noundef nonnull @.str.428, ptr noundef %4)
   br label %19
 
 19:                                               ; preds = %16, %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 1116
-  %21 = load i32, ptr %20, align 4, !tbaa !204
+  %21 = load i32, ptr %20, align 4, !tbaa !206
   %.not28 = icmp eq i32 %21, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
@@ -6453,14 +6453,14 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
 24:                                               ; preds = %.lr.ph, %45
   %25 = phi i32 [ %21, %.lr.ph ], [ %46, %45 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %26 = load ptr, ptr %22, align 8, !tbaa !205
+  %26 = load ptr, ptr %22, align 8, !tbaa !207
   %27 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %26, i64 %indvars.iv, i32 1
-  %28 = load ptr, ptr %27, align 8, !tbaa !206
+  %28 = load ptr, ptr %27, align 8, !tbaa !208
   %.not29 = icmp eq ptr %28, null
   br i1 %.not29, label %45, label %29
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %23, align 8, !tbaa !203
+  %30 = load ptr, ptr %23, align 8, !tbaa !205
   %31 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %28, ptr noundef %30) #32
   %.not30 = icmp eq i32 %31, 0
   br i1 %.not30, label %32, label %45
@@ -6471,7 +6471,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i8, ptr %34, align 4, !tbaa !71
   %.not31 = icmp eq i8 %35, 0
-  %36 = load i64, ptr %33, align 8, !tbaa !208
+  %36 = load i64, ptr %33, align 8, !tbaa !210
   br i1 %.not31, label %39, label %37
 
 37:                                               ; preds = %32
@@ -6483,12 +6483,12 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
   br label %41
 
 41:                                               ; preds = %39, %37
-  %42 = load ptr, ptr %22, align 8, !tbaa !205
+  %42 = load ptr, ptr %22, align 8, !tbaa !207
   %43 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %42, i64 %indvars.iv, i32 1
-  %44 = load ptr, ptr %43, align 8, !tbaa !206
+  %44 = load ptr, ptr %43, align 8, !tbaa !208
   call fastcc void @insert_misc(ptr noundef %0, ptr noundef %44, ptr noundef nonnull @.str.431, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 150, ptr nonnull %5) #30
-  %.pre = load i32, ptr %20, align 4, !tbaa !204
+  %.pre = load i32, ptr %20, align 4, !tbaa !206
   br label %45
 
 45:                                               ; preds = %24, %29, %41
@@ -6496,7 +6496,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %24, label %.loopexit, !llvm.loop !209
+  br i1 %48, label %24, label %.loopexit, !llvm.loop !211
 
 .loopexit:                                        ; preds = %45, %19
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #30
@@ -6568,7 +6568,7 @@ define internal fastcc void @insert_misc(ptr noundef %0, ptr noundef %1, ptr nou
 37:                                               ; preds = %36
   %38 = call noalias ptr @strdup(ptr noundef nonnull %2) #30
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !210
+  store ptr %38, ptr %39, align 8, !tbaa !212
   br label %40
 
 40:                                               ; preds = %33, %37, %36, %10, %4
@@ -6641,7 +6641,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit:    ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %.03.i, i64 88
   %.0.i = load ptr, ptr %16, align 8, !tbaa !163
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i, !llvm.loop !211
+  br i1 %.not11.i, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i, !llvm.loop !213
 
 hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %2, %4
   %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %.01226, %15 ], [ %.03.i, %hwloc_get_child_covering_cpuset.exit.loopexit ]
@@ -6929,18 +6929,20 @@ attributes #38 = { nounwind allocsize(0) }
 !194 = !{!195, !19, i64 8}
 !195 = !{!"hwloc_utils_parsing_flag", !15, i64 0, !19, i64 8}
 !196 = !{!195, !15, i64 0}
-!197 = distinct !{!197, !42}
-!198 = distinct !{!198, !42}
-!199 = !{!200, !15, i64 0}
-!200 = !{!"hwloc_ps_process", !15, i64 0, !7, i64 8, !7, i64 72, !14, i64 1096, !15, i64 1104, !10, i64 1112, !10, i64 1116, !10, i64 1120, !201, i64 1128}
-!201 = !{!"p1 _ZTS15hwloc_ps_thread", !6, i64 0}
-!202 = !{!200, !10, i64 1112}
-!203 = !{!200, !14, i64 1096}
-!204 = !{!200, !10, i64 1116}
-!205 = !{!200, !201, i64 1128}
-!206 = !{!207, !14, i64 8}
-!207 = !{!"hwloc_ps_thread", !15, i64 0, !14, i64 8, !10, i64 16, !7, i64 20}
-!208 = !{!207, !15, i64 0}
-!209 = distinct !{!209, !42}
-!210 = !{!103, !19, i64 8}
+!197 = distinct !{!197, !42, !198}
+!198 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!199 = distinct !{!199, !42}
+!200 = distinct !{!200, !42}
+!201 = !{!202, !15, i64 0}
+!202 = !{!"hwloc_ps_process", !15, i64 0, !7, i64 8, !7, i64 72, !14, i64 1096, !15, i64 1104, !10, i64 1112, !10, i64 1116, !10, i64 1120, !203, i64 1128}
+!203 = !{!"p1 _ZTS15hwloc_ps_thread", !6, i64 0}
+!204 = !{!202, !10, i64 1112}
+!205 = !{!202, !14, i64 1096}
+!206 = !{!202, !10, i64 1116}
+!207 = !{!202, !203, i64 1128}
+!208 = !{!209, !14, i64 8}
+!209 = !{!"hwloc_ps_thread", !15, i64 0, !14, i64 8, !10, i64 16, !7, i64 20}
+!210 = !{!209, !15, i64 0}
 !211 = distinct !{!211, !42}
+!212 = !{!103, !19, i64 8}
+!213 = distinct !{!213, !42}

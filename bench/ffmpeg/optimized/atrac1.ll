@@ -585,7 +585,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   %280 = add i32 %.26477.i, %.06896.i
   %281 = add nuw nsw i32 %.06079.i, 1
   %exitcond.not.i47 = icmp eq i32 %281, %smax86.i
-  br i1 %exitcond.not.i47, label %._crit_edge.i, label %at1_imdct.exit.i, !llvm.loop !63
+  br i1 %exitcond.not.i47, label %._crit_edge.i, label %at1_imdct.exit.i, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %at1_imdct.exit.i, %at1_imdct.exit.loopexit.us.i
   %282 = phi ptr [ %256, %at1_imdct.exit.loopexit.us.i ], [ %276, %at1_imdct.exit.i ]
@@ -605,16 +605,16 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   %288 = phi i32 [ %220, %283 ], [ %220, %._crit_edge.i ], [ %219, %218 ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next.i48, 3
-  br i1 %exitcond89.not.i, label %289, label %203, !llvm.loop !64
+  br i1 %exitcond89.not.i, label %289, label %203, !llvm.loop !66
 
 289:                                              ; preds = %._crit_edge.thread.i
   %290 = load ptr, ptr %202, align 8, !tbaa !36
   %291 = load ptr, ptr %201, align 16, !tbaa !36
   store ptr %291, ptr %202, align 8, !tbaa !36
   store ptr %290, ptr %201, align 16, !tbaa !36
-  %292 = load ptr, ptr %31, align 8, !tbaa !65
+  %292 = load ptr, ptr %31, align 8, !tbaa !67
   %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv
-  %294 = load ptr, ptr %293, align 8, !tbaa !66
+  %294 = load ptr, ptr %293, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 2232, ptr nonnull %6) #7
   %295 = load ptr, ptr %30, align 16, !tbaa !36
@@ -633,7 +633,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %289, %.preheader
   store i32 1, ptr %2, align 4, !tbaa !47
@@ -778,8 +778,10 @@ attributes #7 = { nounwind }
 !60 = !{!"p1 _ZTS11AVTXContext", !7, i64 0}
 !61 = !{!7, !7, i64 0}
 !62 = distinct !{!62, !49}
-!63 = distinct !{!63, !49}
-!64 = distinct !{!64, !49}
-!65 = !{!42, !43, i64 96}
-!66 = !{!14, !14, i64 0}
-!67 = distinct !{!67, !49}
+!63 = distinct !{!63, !49, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !49}
+!66 = distinct !{!66, !49}
+!67 = !{!42, !43, i64 96}
+!68 = !{!14, !14, i64 0}
+!69 = distinct !{!69, !49}

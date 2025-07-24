@@ -263,7 +263,7 @@ define internal fastcc i32 @nal_parse_units(ptr noundef %0, ptr noundef %1, ptr 
   %37 = sub i64 %36, %29
   %38 = trunc i64 %37 to i32
   %39 = add i32 %.040.us, %38
-  br label %.split.us
+  br label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %4, %.critedge54
   %.042 = phi ptr [ %46, %.critedge54 ], [ %7, %4 ]
@@ -370,7 +370,7 @@ define i32 @ff_nal_units_create_list(ptr noundef initializes((12, 16)) %0, ptr n
   %36 = sub i64 %35, %28
   %37 = trunc i64 %36 to i32
   %38 = add i32 %.040.us.i, %37
-  br label %.split.us.i
+  br label %.split.us.i, !llvm.loop !19
 
 nal_parse_units.exit:                             ; preds = %.critedge.us.i, %16
   %.us-phi.i = phi i32 [ %.040.us.i, %.critedge.us.i ], [ -12, %16 ]
@@ -391,21 +391,21 @@ define void @ff_nal_units_write_list(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw %struct.NALU, ptr %6, i64 %indvars.iv, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !19
+  %8 = load i32, ptr %7, align 4, !tbaa !21
   tail call void @avio_wb32(ptr noundef %1, i32 noundef %8) #8
   %9 = load ptr, ptr %0, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw %struct.NALU, ptr %9, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %2, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !19
+  %15 = load i32, ptr %14, align 4, !tbaa !21
   tail call void @avio_write(ptr noundef %1, ptr noundef %13, i32 noundef %15) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4, !tbaa !12
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 }
 
 declare void @avio_wb32(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -421,10 +421,10 @@ define range(i32 -2147483648, 1) i32 @ff_nal_parse_units_buf(ptr noundef %0, ptr
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = load ptr, ptr %4, align 8, !tbaa !25
   %9 = load i32, ptr %2, align 4, !tbaa !18
   %10 = call fastcc i32 @nal_parse_units(ptr noundef %8, ptr noundef null, ptr noundef %0, i32 noundef %9)
-  %11 = load ptr, ptr %4, align 8, !tbaa !23
+  %11 = load ptr, ptr %4, align 8, !tbaa !25
   %12 = call i32 @avio_close_dyn_buf(ptr noundef %11, ptr noundef %1) #8
   store i32 %12, ptr %2, align 4, !tbaa !18
   br label %13
@@ -463,7 +463,7 @@ define ptr @ff_nal_mp4_find_startcode(ptr noundef %0, ptr noundef %1, i32 nounde
   %13 = zext i8 %12 to i32
   %14 = or disjoint i32 %10, %13
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = zext i32 %2 to i64
@@ -571,7 +571,7 @@ define noalias ptr @ff_nal_unit_extract_rbsp(ptr noundef readonly captures(none)
   %.2 = phi i32 [ %35, %.lr.ph59._crit_edge ], [ %31, %27 ]
   %39 = add i32 %.244, 2
   %40 = icmp ult i32 %39, %1
-  br i1 %40, label %.lr.ph59, label %.preheader, !llvm.loop !26
+  br i1 %40, label %.lr.ph59, label %.preheader, !llvm.loop !28
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
   %indvars.iv = phi i64 [ %12, %.lr.ph64.preheader ], [ %indvars.iv.next, %.lr.ph64 ]
@@ -584,7 +584,7 @@ define noalias ptr @ff_nal_unit_extract_rbsp(ptr noundef readonly captures(none)
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 %44
   store i8 %42, ptr %45, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph64, %.preheader
   %.3.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %43, %.lr.ph64 ]
@@ -642,12 +642,14 @@ attributes #8 = { nounwind }
 !16 = !{!"int", !5, i64 0}
 !17 = !{!13, !14, i64 0}
 !18 = !{!16, !16, i64 0}
-!19 = !{!20, !16, i64 4}
-!20 = !{!"NALU", !16, i64 0, !16, i64 4}
-!21 = !{!20, !16, i64 0}
-!22 = distinct !{!22, !8}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS11AVIOContext", !15, i64 0}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!22, !16, i64 4}
+!22 = !{!"NALU", !16, i64 0, !16, i64 4}
+!23 = !{!22, !16, i64 0}
+!24 = distinct !{!24, !8}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS11AVIOContext", !15, i64 0}
 !27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}

@@ -464,7 +464,7 @@ define void @Cut_CutPrint(ptr noundef readonly captures(none) %0, i32 noundef %1
   %25 = lshr i32 %24, 28
   %26 = zext nneg i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !41
+  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph.split.us, %2
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
@@ -486,7 +486,7 @@ define void @Cut_CutPrintList(ptr noundef readonly captures(address_is_null) %0,
   %3 = getelementptr inbounds nuw i8, ptr %.05, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -694,5 +694,7 @@ attributes #11 = { nounwind }
 !38 = !{!17, !12, i64 20}
 !39 = !{!4, !12, i64 60}
 !40 = distinct !{!40, !25}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !25}
+!41 = distinct !{!41, !25, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !25}
+!44 = distinct !{!44, !25}

@@ -682,14 +682,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %209 = getelementptr inbounds nuw i8, ptr %.0207256.us, i64 1
   %210 = add nuw nsw i32 %.0205257.us, 1
   %exitcond.not = icmp eq i32 %210, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %203, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %203, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %203
   %211 = getelementptr inbounds i8, ptr %.0204259.us, i64 %193
   %212 = getelementptr inbounds i8, ptr %.0203260.us, i64 %194
   %213 = add nuw nsw i32 %.0206258.us, 1
   %exitcond263.not = icmp eq i32 %213, %5
-  br i1 %exitcond263.not, label %._crit_edge261, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond263.not, label %._crit_edge261, label %.preheader.us, !llvm.loop !11
 
 ._crit_edge261:                                   ; preds = %._crit_edge.us
   %214 = load ptr, ptr %0, align 8
@@ -733,7 +733,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph83:                                         ; preds = %.lr.ph83.outer, %.thread
   %indvars.iv90 = phi i64 [ %indvars.iv.next91103, %.thread ], [ %indvars.iv90.ph, %.lr.ph83.outer ]
@@ -800,7 +800,7 @@ define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull capt
 34:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %findIdx.exit.thread, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %findIdx.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 findIdx.exit.thread:                              ; preds = %34
   %35 = icmp slt i32 %.05681, 256
@@ -827,7 +827,7 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
   %.2 = phi i32 [ %.2.ph, %.loopexit114.sink.split ], [ %.05582, %14 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph83.outer, !llvm.loop !13
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph83.outer, !llvm.loop !14
 
 .lr.ph83.outer:                                   ; preds = %.loopexit114, %.lr.ph83.preheader
   %indvars.iv90.ph = phi i64 [ %indvars.iv.next91, %.loopexit114 ], [ 0, %.lr.ph83.preheader ]
@@ -847,7 +847,7 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
   %41 = add nuw nsw i32 %.05681, 1
   %indvars.iv.next91103 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not104 = icmp eq i64 %indvars.iv.next91103, %wide.trip.count93
-  br i1 %exitcond94.not104, label %._crit_edge.thread108, label %.lr.ph83, !llvm.loop !13
+  br i1 %exitcond94.not104, label %._crit_edge.thread108, label %.lr.ph83, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit114
   %42 = icmp eq i32 %.2, 0
@@ -892,9 +892,10 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!11 = distinct !{!11, !7, !9}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

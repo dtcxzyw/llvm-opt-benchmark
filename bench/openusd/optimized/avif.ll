@@ -1613,37 +1613,34 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   br i1 %10, label %.lr.ph41.split.us, label %.lr.ph41.split
 
 .lr.ph41.split.us:                                ; preds = %.lr.ph41
-  br i1 %.not46, label %.loopexit30, label %.preheader.us.us.preheader
+  %wide.trip.count56 = zext i32 %12 to i64
+  br label %.preheader.us
 
-.preheader.us.us.preheader:                       ; preds = %.lr.ph41.split.us
-  %wide.trip.count57 = zext i32 %12 to i64
-  br label %.preheader.us.us
+.preheader.us:                                    ; preds = %.loopexit.us, %.lr.ph41.split.us
+  %.02440.us = phi i32 [ 0, %.lr.ph41.split.us ], [ %20, %.loopexit.us ]
+  %.02538.us = phi ptr [ %3, %.lr.ph41.split.us ], [ %19, %.loopexit.us ]
+  br i1 %.not46, label %.loopexit.us, label %.lr.ph37.us
 
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %..loopexit_crit_edge.us.us
-  %.02440.us.us = phi i32 [ %21, %..loopexit_crit_edge.us.us ], [ 0, %.preheader.us.us.preheader ]
-  %.02538.us.us = phi ptr [ %20, %..loopexit_crit_edge.us.us ], [ %3, %.preheader.us.us.preheader ]
-  br label %14
+13:                                               ; preds = %.lr.ph37.us
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %.loopexit.us, label %.lr.ph37.us, !llvm.loop !9
 
-13:                                               ; preds = %14
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %..loopexit_crit_edge.us.us, label %14, !llvm.loop !9
+.lr.ph37.us:                                      ; preds = %.preheader.us, %13
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %13 ], [ 0, %.preheader.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.02538.us, i64 %indvars.iv53
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %.not28.us = icmp eq i32 %16, %7
+  br i1 %.not28.us, label %13, label %.loopexit30
 
-14:                                               ; preds = %.preheader.us.us, %13
-  %indvars.iv54 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next55, %13 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02538.us.us, i64 %indvars.iv54
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %.not28.us.us = icmp eq i32 %17, %7
-  br i1 %.not28.us.us, label %13, label %.loopexit30
-
-..loopexit_crit_edge.us.us:                       ; preds = %13
-  %18 = load i32, ptr %11, align 8
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.02538.us.us, i64 %19
-  %21 = add nuw i32 %.02440.us.us, 1
-  %exitcond59.not = icmp eq i32 %21, %9
-  br i1 %exitcond59.not, label %.loopexit30, label %.preheader.us.us, !llvm.loop !10
+.loopexit.us:                                     ; preds = %13, %.preheader.us
+  %17 = load i32, ptr %11, align 8
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %.02538.us, i64 %18
+  %20 = add nuw i32 %.02440.us, 1
+  %exitcond58.not = icmp eq i32 %20, %9
+  br i1 %exitcond58.not, label %.loopexit30, label %.preheader.us, !llvm.loop !10
 
 .lr.ph41.split:                                   ; preds = %.lr.ph41
   br i1 %.not46, label %.loopexit30, label %.preheader31.us.preheader
@@ -1653,33 +1650,33 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   br label %.preheader31.us
 
 .preheader31.us:                                  ; preds = %.preheader31.us.preheader, %..loopexit32_crit_edge.us
-  %.02440.us42 = phi i32 [ %30, %..loopexit32_crit_edge.us ], [ 0, %.preheader31.us.preheader ]
-  %.02538.us43 = phi ptr [ %29, %..loopexit32_crit_edge.us ], [ %3, %.preheader31.us.preheader ]
-  br label %23
+  %.02440.us42 = phi i32 [ %29, %..loopexit32_crit_edge.us ], [ 0, %.preheader31.us.preheader ]
+  %.02538.us43 = phi ptr [ %28, %..loopexit32_crit_edge.us ], [ %3, %.preheader31.us.preheader ]
+  br label %22
 
-22:                                               ; preds = %23
+21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit32_crit_edge.us, label %23, !llvm.loop !11
+  br i1 %exitcond.not, label %..loopexit32_crit_edge.us, label %22, !llvm.loop !12
 
-23:                                               ; preds = %.preheader31.us, %22
-  %indvars.iv = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds nuw i16, ptr %.02538.us43, i64 %indvars.iv
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %.not29.us = icmp eq i32 %26, %7
-  br i1 %.not29.us, label %22, label %.loopexit30
+22:                                               ; preds = %.preheader31.us, %21
+  %indvars.iv = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next, %21 ]
+  %23 = getelementptr inbounds nuw i16, ptr %.02538.us43, i64 %indvars.iv
+  %24 = load i16, ptr %23, align 2
+  %25 = zext i16 %24 to i32
+  %.not29.us = icmp eq i32 %25, %7
+  br i1 %.not29.us, label %21, label %.loopexit30
 
-..loopexit32_crit_edge.us:                        ; preds = %22
-  %27 = load i32, ptr %11, align 8
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %.02538.us43, i64 %28
-  %30 = add nuw i32 %.02440.us42, 1
-  %exitcond53.not = icmp eq i32 %30, %9
-  br i1 %exitcond53.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !10
+..loopexit32_crit_edge.us:                        ; preds = %21
+  %26 = load i32, ptr %11, align 8
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %.02538.us43, i64 %27
+  %29 = add nuw i32 %.02440.us42, 1
+  %exitcond52.not = icmp eq i32 %29, %9
+  br i1 %exitcond52.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !13
 
-.loopexit30:                                      ; preds = %..loopexit32_crit_edge.us, %23, %..loopexit_crit_edge.us.us, %14, %.lr.ph41.split, %.lr.ph41.split.us, %4, %1
-  %.023 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.lr.ph41.split.us ], [ 1, %.lr.ph41.split ], [ 0, %14 ], [ 1, %..loopexit_crit_edge.us.us ], [ 0, %23 ], [ 1, %..loopexit32_crit_edge.us ]
+.loopexit30:                                      ; preds = %..loopexit32_crit_edge.us, %22, %.loopexit.us, %.lr.ph37.us, %.lr.ph41.split, %4, %1
+  %.023 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.lr.ph41.split ], [ 0, %.lr.ph37.us ], [ 1, %.loopexit.us ], [ 0, %22 ], [ 1, %..loopexit32_crit_edge.us ]
   ret i32 %.023
 }
 
@@ -2413,7 +2410,7 @@ define hidden void @avifCodecSpecificOptionsClear(ptr noundef captures(none) %0)
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i32 0, ptr %2, align 4
@@ -2440,7 +2437,7 @@ define hidden void @avifCodecSpecificOptionsDestroy(ptr noundef %0) local_unname
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next.i, %10
-  br i1 %11, label %.lr.ph.i, label %avifCodecSpecificOptionsClear.exit, !llvm.loop !12
+  br i1 %11, label %.lr.ph.i, label %avifCodecSpecificOptionsClear.exit, !llvm.loop !14
 
 avifCodecSpecificOptionsClear.exit:               ; preds = %.lr.ph.i, %1
   store i32 0, ptr %2, align 4
@@ -2524,7 +2521,7 @@ avifStrdup.exit:                                  ; preds = %13
 36:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %36, %3
   %.not = icmp eq ptr %2, null
@@ -2685,7 +2682,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!13 = distinct !{!13, !5, !11}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

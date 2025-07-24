@@ -84,141 +84,130 @@ define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr no
 
 .lr.ph16:                                         ; preds = %.critedge
   %16 = load i8, ptr %5, align 4
-  %.fr24 = freeze i8 %16
-  %17 = trunc i8 %.fr24 to i1
+  %.fr23 = freeze i8 %16
+  %17 = trunc i8 %.fr23 to i1
   %.not10.i = icmp eq i64 %.lcssa.fr, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not10.i, label %.lr.ph16.split.us, label %.lr.ph16.split
 
-.lr.ph16.split.us:                                ; preds = %.lr.ph16
-  br i1 %17, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us, label %.lr.ph16.split.us.split
+.lr.ph16.split.us:                                ; preds = %.lr.ph16, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
+  %.015.us = phi ptr [ %.0.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.013, %.lr.ph16 ]
+  %19 = phi i64 [ %23, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.promoted.pre, %.lr.ph16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
+  %21 = load i64, ptr %20, align 8
+  %.not.i.us = icmp eq i64 %21, 0
+  %or.cond.i.us = select i1 %17, i1 true, i1 %.not.i.us
+  br i1 %or.cond.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us: ; preds = %.lr.ph16.split.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us
-  %.015.us.us = phi ptr [ %.0.us.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us ], [ %.013, %.lr.ph16.split.us ]
-  %19 = phi i64 [ %20, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us ], [ %.promoted.pre, %.lr.ph16.split.us ]
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %7, align 8
-  %.0.us.us = load ptr, ptr %.015.us.us, align 8
-  %.not9.us.us = icmp eq ptr %.0.us.us, null
-  br i1 %.not9.us.us, label %._crit_edge, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us, !llvm.loop !8
-
-.lr.ph16.split.us.split:                          ; preds = %.lr.ph16.split.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
-  %.015.us = phi ptr [ %.0.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.013, %.lr.ph16.split.us ]
-  %21 = phi i64 [ %25, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us ], [ %.promoted.pre, %.lr.ph16.split.us ]
-  %22 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
-  %23 = load i64, ptr %22, align 8
-  %.not.i.us = icmp eq i64 %23, 0
-  br i1 %.not.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
-
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.us:  ; preds = %.lr.ph16.split.us.split
-  %24 = add i64 %21, 1
-  store i64 %24, ptr %7, align 8
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.us:  ; preds = %.lr.ph16.split.us
+  %22 = add i64 %19, 1
+  store i64 %22, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us: ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, %.lr.ph16.split.us.split
-  %25 = phi i64 [ %21, %.lr.ph16.split.us.split ], [ %24, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ]
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us: ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, %.lr.ph16.split.us
+  %23 = phi i64 [ %19, %.lr.ph16.split.us ], [ %22, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ]
   %.0.us = load ptr, ptr %.015.us, align 8
   %.not9.us = icmp eq ptr %.0.us, null
-  br i1 %.not9.us, label %._crit_edge, label %.lr.ph16.split.us.split, !llvm.loop !8
+  br i1 %.not9.us, label %._crit_edge, label %.lr.ph16.split.us, !llvm.loop !8
 
 .lr.ph16.split:                                   ; preds = %.lr.ph16
   br i1 %17, label %.lr.ph.i.us, label %.lr.ph16.split.split
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph16.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20
   %.015.us17 = phi ptr [ %.0.us21, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.013, %.lr.ph16.split ]
-  %26 = phi i64 [ %39, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.promoted.pre, %.lr.ph16.split ]
-  %27 = getelementptr inbounds nuw i8, ptr %.015.us17, i64 16
-  br label %28
+  %24 = phi i64 [ %37, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20 ], [ %.promoted.pre, %.lr.ph16.split ]
+  %25 = getelementptr inbounds nuw i8, ptr %.015.us17, i64 16
+  br label %26
 
-28:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, %.lr.ph.i.us
-  %.09.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %38, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us ]
-  %29 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i.us
-  %30 = load i32, ptr %29, align 4
-  br label %31
+26:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, %.lr.ph.i.us
+  %.09.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %36, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us ]
+  %27 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i.us
+  %28 = load i32, ptr %27, align 4
+  br label %29
 
-31:                                               ; preds = %36, %28
-  %.08.i.i.us = phi i64 [ 0, %28 ], [ %37, %36 ]
-  %32 = getelementptr inbounds nuw [5 x i32], ptr %27, i64 0, i64 %.08.i.i.us
-  %33 = load i32, ptr %32, align 4
-  %.not.i.i.us = icmp eq i32 %33, 0
-  br i1 %.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %34
+29:                                               ; preds = %34, %26
+  %.08.i.i.us = phi i64 [ 0, %26 ], [ %35, %34 ]
+  %30 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %.08.i.i.us
+  %31 = load i32, ptr %30, align 4
+  %.not.i.i.us = icmp eq i32 %31, 0
+  br i1 %.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %32
 
-34:                                               ; preds = %31
-  %35 = icmp eq i32 %30, %33
-  br i1 %35, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, label %36
+32:                                               ; preds = %29
+  %33 = icmp eq i32 %28, %31
+  br i1 %33, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, label %34
 
-36:                                               ; preds = %34
-  %37 = add nuw nsw i64 %.08.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i64 %37, 5
-  br i1 %exitcond.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %31, !llvm.loop !9
+34:                                               ; preds = %32
+  %35 = add nuw nsw i64 %.08.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i64 %35, 5
+  br i1 %exitcond.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %29, !llvm.loop !10
 
-_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us: ; preds = %34
-  %38 = add nuw i64 %.09.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %38, %.lcssa.fr
-  br i1 %exitcond.not.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us, label %28, !llvm.loop !10
+_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us: ; preds = %32
+  %36 = add nuw i64 %.09.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %36, %.lcssa.fr
+  br i1 %exitcond.not.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us, label %26, !llvm.loop !11
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20: ; preds = %31, %36, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us
-  %39 = phi i64 [ %40, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us ], [ %26, %36 ], [ %26, %31 ]
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20: ; preds = %29, %34, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us
+  %37 = phi i64 [ %38, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us ], [ %24, %34 ], [ %24, %29 ]
   %.0.us21 = load ptr, ptr %.015.us17, align 8
   %.not9.us22 = icmp eq ptr %.0.us21, null
-  br i1 %.not9.us22, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !8
+  br i1 %.not9.us22, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !12
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us
-  %40 = add i64 %26, 1
-  store i64 %40, ptr %7, align 8
+  %38 = add i64 %24, 1
+  store i64 %38, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20
 
 .lr.ph16.split.split:                             ; preds = %.lr.ph16.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
   %.015 = phi ptr [ %.0, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.013, %.lr.ph16.split ]
-  %41 = phi i64 [ %57, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.promoted.pre, %.lr.ph16.split ]
-  %42 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %43 = load i64, ptr %42, align 8
-  %.not.i = icmp eq i64 %.lcssa.fr, %43
+  %39 = phi i64 [ %55, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread ], [ %.promoted.pre, %.lr.ph16.split ]
+  %40 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %41 = load i64, ptr %40, align 8
+  %.not.i = icmp eq i64 %.lcssa.fr, %41
   br i1 %.not.i, label %.lr.ph.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph16.split.split
-  %44 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  br label %45
+  %42 = getelementptr inbounds nuw i8, ptr %.015, i64 16
+  br label %43
 
-45:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, %.lr.ph.i
-  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i ]
-  %46 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i
-  %47 = load i32, ptr %46, align 4
-  br label %50
+43:                                               ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, %.lr.ph.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %53, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i ]
+  %44 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 %.09.i
+  %45 = load i32, ptr %44, align 4
+  br label %48
 
-48:                                               ; preds = %53
-  %49 = add nuw nsw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %49, 5
-  br i1 %exitcond.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %50, !llvm.loop !9
+46:                                               ; preds = %51
+  %47 = add nuw nsw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %47, 5
+  br i1 %exitcond.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %48, !llvm.loop !10
 
-50:                                               ; preds = %48, %45
-  %.08.i.i = phi i64 [ 0, %45 ], [ %49, %48 ]
-  %51 = getelementptr inbounds nuw [5 x i32], ptr %44, i64 0, i64 %.08.i.i
-  %52 = load i32, ptr %51, align 4
-  %.not.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %53
+48:                                               ; preds = %46, %43
+  %.08.i.i = phi i64 [ 0, %43 ], [ %47, %46 ]
+  %49 = getelementptr inbounds nuw [5 x i32], ptr %42, i64 0, i64 %.08.i.i
+  %50 = load i32, ptr %49, align 4
+  %.not.i.i = icmp eq i32 %50, 0
+  br i1 %.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %51
 
-53:                                               ; preds = %50
-  %54 = icmp eq i32 %47, %52
-  br i1 %54, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, label %48
+51:                                               ; preds = %48
+  %52 = icmp eq i32 %45, %50
+  br i1 %52, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, label %46
 
-_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i:    ; preds = %53
-  %55 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %55, %.lcssa.fr
-  br i1 %exitcond.not.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit, label %45, !llvm.loop !10
+_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i:    ; preds = %51
+  %53 = add nuw i64 %.09.i, 1
+  %exitcond.not.i = icmp eq i64 %53, %.lcssa.fr
+  br i1 %exitcond.not.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit, label %43, !llvm.loop !11
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i
-  %56 = add i64 %41, 1
-  store i64 %56, ptr %7, align 8
+  %54 = add i64 %39, 1
+  store i64 %54, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %50, %48, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
-  %57 = phi i64 [ %41, %.lr.ph16.split.split ], [ %56, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %41, %48 ], [ %41, %50 ]
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %48, %46, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
+  %55 = phi i64 [ %39, %.lr.ph16.split.split ], [ %54, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %39, %46 ], [ %39, %48 ]
   %.0 = load ptr, ptr %.015, align 8
   %.not9 = icmp eq ptr %.0, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph16.split.split, !llvm.loop !8
+  br i1 %.not9, label %._crit_edge, label %.lr.ph16.split.split, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us.us, %.critedge
+._crit_edge:                                      ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us, %.critedge
   ret void
 }
 
@@ -252,7 +241,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr no
 14:                                               ; preds = %19
   %15 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %15, 5
-  br i1 %exitcond.not.i, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %16, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %16, !llvm.loop !10
 
 16:                                               ; preds = %14, %11
   %.08.i = phi i64 [ 0, %11 ], [ %15, %14 ]
@@ -268,7 +257,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr no
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit:      ; preds = %19
   %21 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %21, %.pre
-  br i1 %exitcond.not, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %11, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %11, !llvm.loop !11
 
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit, %16, %14, %2, %8
   %.06 = phi i1 [ true, %8 ], [ false, %2 ], [ false, %14 ], [ false, %16 ], [ true, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit ]
@@ -327,7 +316,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr noundef nonnull 
   %29 = add nuw i64 %.015, 1
   %exitcond.not = icmp ne i64 %29, %3
   %or.cond.not = select i1 %.not14, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %24, label %.loopexit, !llvm.loop !11
+  br i1 %or.cond.not, label %24, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %5, %12, %17
   %.010 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %5 ], [ false, %2 ], [ true, %.preheader ], [ %.not14, %24 ]
@@ -386,7 +375,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelectionneERKS_(ptr noundef nonnull 
   %29 = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %29, %3
   %or.cond = select i1 %.not14.i.not, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZNK12LogSelectioneqERKS_.exit, label %24, !llvm.loop !11
+  br i1 %or.cond, label %_ZNK12LogSelectioneqERKS_.exit, label %24, !llvm.loop !14
 
 _ZNK12LogSelectioneqERKS_.exit:                   ; preds = %24, %2, %5, %12, %17, %.preheader.i
   %30 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %5 ], [ true, %2 ], [ false, %.preheader.i ], [ %.not14.i.not, %24 ]
@@ -398,13 +387,13 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   %4 = alloca [5 x i32], align 16
   %5 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 17) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  %6 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 61) #11, !noalias !12
+  %6 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 61) #11, !noalias !15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %21, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %9 = tail call noundef i32 @_ZN8LogLevel11from_stringEPKc(ptr noundef nonnull %8) #10, !noalias !12
+  %9 = tail call noundef i32 @_ZN8LogLevel11from_stringEPKc(ptr noundef nonnull %8) #10, !noalias !15
   %10 = icmp eq i32 %9, 7
   br i1 %10, label %11, label %20
 
@@ -413,20 +402,20 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not78.i, label %19, label %12
 
 12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #10, !noalias !12
-  %13 = tail call noundef i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr noundef nonnull %8) #10, !noalias !12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #10, !noalias !15
+  %13 = tail call noundef i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr noundef nonnull %8) #10, !noalias !15
   %.not79.i = icmp eq i32 %13, 7
   br i1 %.not79.i, label %18, label %14
 
 14:                                               ; preds = %12
   %15 = zext i32 %13 to i64
   %16 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %15
-  %17 = load ptr, ptr %16, align 8, !noalias !12
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, ptr noundef %17) #10, !noalias !12
+  %17 = load ptr, ptr %16, align 8, !noalias !15
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, ptr noundef %17) #10, !noalias !15
   br label %18
 
 18:                                               ; preds = %14, %12
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10, !noalias !12
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10, !noalias !15
   br label %19
 
 19:                                               ; preds = %18, %11
@@ -434,13 +423,13 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br label %_ZL14parse_internalPcP12outputStream.exit
 
 20:                                               ; preds = %7
-  store i8 0, ptr %6, align 1, !noalias !12
+  store i8 0, ptr %6, align 1, !noalias !15
   br label %21
 
 21:                                               ; preds = %20, %3
   %.057.i = phi i32 [ %9, %20 ], [ 3, %3 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !noalias !12
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.13) #11, !noalias !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !noalias !15
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.13) #11, !noalias !15
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %25
 
@@ -449,18 +438,18 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br label %_ZL14parse_internalPcP12outputStream.exit
 
 25:                                               ; preds = %21
-  %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 42) #11, !noalias !12
+  %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 42) #11, !noalias !15
   %.not71.i = icmp eq ptr %26, null
   br i1 %.not71.i, label %32, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %29 = load i8, ptr %28, align 1, !noalias !12
+  %29 = load i8, ptr %28, align 1, !noalias !15
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %27
-  store i8 0, ptr %26, align 1, !noalias !12
+  store i8 0, ptr %26, align 1, !noalias !15
   br label %32
 
 32:                                               ; preds = %31, %27, %25
@@ -471,16 +460,16 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 1, %32 ]
   %.059.i = phi ptr [ %56, %53 ], [ %5, %32 ]
   %.058.i = phi i64 [ %54, %53 ], [ 0, %32 ]
-  %34 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.059.i, i32 noundef 43) #11, !noalias !12
+  %34 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.059.i, i32 noundef 43) #11, !noalias !15
   %.not72.i = icmp eq ptr %34, null
   br i1 %.not72.i, label %36, label %35
 
 35:                                               ; preds = %33
-  store i8 0, ptr %34, align 1, !noalias !12
+  store i8 0, ptr %34, align 1, !noalias !15
   br label %36
 
 36:                                               ; preds = %35, %33
-  %37 = tail call noundef i32 @_ZN6LogTag11from_stringEPKc(ptr noundef nonnull %.059.i) #10, !noalias !12
+  %37 = tail call noundef i32 @_ZN6LogTag11from_stringEPKc(ptr noundef nonnull %.059.i) #10, !noalias !15
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %48
 
@@ -489,20 +478,20 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not76.i, label %47, label %40
 
 40:                                               ; preds = %39
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, ptr noundef nonnull %.059.i) #10, !noalias !12
-  %41 = tail call noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef nonnull %.059.i) #10, !noalias !12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, ptr noundef nonnull %.059.i) #10, !noalias !15
+  %41 = tail call noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef nonnull %.059.i) #10, !noalias !15
   %.not77.i = icmp eq i32 %41, 0
   br i1 %.not77.i, label %46, label %42
 
 42:                                               ; preds = %40
   %43 = zext i32 %41 to i64
   %44 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !noalias !12
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, ptr noundef %45) #10, !noalias !12
+  %45 = load ptr, ptr %44, align 8, !noalias !15
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, ptr noundef %45) #10, !noalias !15
   br label %46
 
 46:                                               ; preds = %42, %40
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10, !noalias !12
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10, !noalias !15
   br label %47
 
 47:                                               ; preds = %46, %39
@@ -518,7 +507,7 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not75.i, label %52, label %51
 
 51:                                               ; preds = %50
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i64 noundef 5) #10, !noalias !12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i64 noundef 5) #10, !noalias !15
   br label %52
 
 52:                                               ; preds = %51, %50
@@ -528,10 +517,10 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
 53:                                               ; preds = %48
   %54 = add nuw nsw i64 %.058.i, 1
   %55 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %.058.i
-  store i32 %37, ptr %55, align 4, !noalias !12
+  store i32 %37, ptr %55, align 4, !noalias !15
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not72.i, label %.preheader.i, label %33, !llvm.loop !15
+  br i1 %.not72.i, label %.preheader.i, label %33, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %53, %72
   %.05685.i = phi i64 [ %73, %72 ], [ 0, %53 ]
@@ -544,9 +533,9 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not73.i, label %70, label %59
 
 59:                                               ; preds = %58
-  %60 = load i32, ptr %57, align 4, !noalias !12
+  %60 = load i32, ptr %57, align 4, !noalias !15
   %61 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %.084.i
-  %62 = load i32, ptr %61, align 4, !noalias !12
+  %62 = load i32, ptr %61, align 4, !noalias !15
   %63 = icmp eq i32 %60, %62
   br i1 %63, label %64, label %70
 
@@ -557,8 +546,8 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
 65:                                               ; preds = %64
   %66 = zext i32 %60 to i64
   %67 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %66
-  %68 = load ptr, ptr %67, align 8, !noalias !12
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, ptr noundef %68) #10, !noalias !12
+  %68 = load ptr, ptr %67, align 8, !noalias !15
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, ptr noundef %68) #10, !noalias !15
   br label %69
 
 69:                                               ; preds = %65, %64
@@ -568,12 +557,12 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
 70:                                               ; preds = %59, %58
   %71 = add nuw nsw i64 %.084.i, 1
   %exitcond.not.i = icmp eq i64 %71, %indvars.iv.i
-  br i1 %exitcond.not.i, label %72, label %58, !llvm.loop !16
+  br i1 %exitcond.not.i, label %72, label %58, !llvm.loop !19
 
 72:                                               ; preds = %70
   %73 = add nuw nsw i64 %.05685.i, 1
   %exitcond94.not.i = icmp eq i64 %73, %indvars.iv.i
-  br i1 %exitcond94.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond94.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %72
   call void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4, i1 noundef zeroext %.060.i, i32 noundef %.057.i)
@@ -609,7 +598,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelection11consists_ofEPKN6LogTag4typ
 6:                                                ; preds = %.lr.ph.i
   %7 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %7, %.pre
-  br i1 %exitcond.not.i, label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread, label %.lr.ph.i, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %6
   %.07.i = phi i64 [ %7, %6 ], [ 0, %.lr.ph.i.preheader ]
@@ -623,7 +612,7 @@ _ZL8containsN6LogTag4typeEPKS0_m.exit:            ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i32, ptr %1, i64 %11
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZL8containsN6LogTag4typeEPKS0_m.exit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %11, %_ZL8containsN6LogTag4typeEPKS0_m.exit ]
@@ -678,7 +667,7 @@ define hidden void @_ZNK12LogSelection16describe_tags_onEP12outputStream(ptr nou
   %13 = add nuw i64 %.06, 1
   %14 = load i64, ptr %0, align 8
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !20
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %5, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -719,7 +708,7 @@ define hidden void @_ZNK12LogSelection11describe_onEP12outputStream(ptr noundef 
   %13 = add nuw i64 %.06.i, 1
   %14 = load i64, ptr %0, align 8
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %5, label %._crit_edge.i, !llvm.loop !20
+  br i1 %15, label %5, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %5, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -764,7 +753,7 @@ define hidden noundef double @_ZNK12LogSelection10similarityERKS_(ptr noundef no
 8:                                                ; preds = %10
   %9 = add nuw i64 %.014.us, 1
   %exitcond.not = icmp eq i64 %9, %.pre
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !24
 
 10:                                               ; preds = %.preheader.us, %8
   %.014.us = phi i64 [ 0, %.preheader.us ], [ %9, %8 ]
@@ -781,7 +770,7 @@ define hidden noundef double @_ZNK12LogSelection10similarityERKS_(ptr noundef no
   %.1.us = phi i64 [ %15, %14 ], [ %.01215.us, %8 ]
   %16 = add nuw i64 %.01116.us, 1
   %exitcond22.not = icmp eq i64 %16, %3
-  br i1 %exitcond22.not, label %._crit_edge.loopexit21, label %.preheader.us, !llvm.loop !22
+  br i1 %exitcond22.not, label %._crit_edge.loopexit21, label %.preheader.us, !llvm.loop !25
 
 ._crit_edge.loopexit21:                           ; preds = %..loopexit_crit_edge.us
   %17 = uitofp i64 %.1.us to double
@@ -895,7 +884,7 @@ define hidden void @_ZNK12LogSelection24suggest_similar_matchingEP12outputStream
 41:                                               ; preds = %43
   %42 = add nuw i64 %.014.us.i, 1
   %exitcond.not.i = icmp eq i64 %42, %.pre.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %43, !llvm.loop !21
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %43, !llvm.loop !24
 
 43:                                               ; preds = %41, %.preheader.us.i
   %.014.us.i = phi i64 [ 0, %.preheader.us.i ], [ %42, %41 ]
@@ -912,7 +901,7 @@ define hidden void @_ZNK12LogSelection24suggest_similar_matchingEP12outputStream
   %.1.us.i = phi i64 [ %48, %47 ], [ %.01215.us.i, %41 ]
   %49 = add nuw i64 %.01116.us.i, 1
   %exitcond22.not.i = icmp eq i64 %49, %27
-  br i1 %exitcond22.not.i, label %._crit_edge.loopexit21.i, label %.preheader.us.i, !llvm.loop !22
+  br i1 %exitcond22.not.i, label %._crit_edge.loopexit21.i, label %.preheader.us.i, !llvm.loop !25
 
 ._crit_edge.loopexit21.i:                         ; preds = %..loopexit_crit_edge.us.i
   %50 = uitofp i64 %.1.us.i to double
@@ -948,7 +937,7 @@ _ZNK12LogSelection10similarityERKS_.exit60.us:    ; preds = %.preheader, %_ZNK12
   %.136.us = select i1 %62, i64 %.03465.us, i64 %.03564.us
   %63 = add nuw nsw i64 %.03465.us, 1
   %exitcond77.not = icmp eq i64 %63, %57
-  br i1 %exitcond77.not, label %.split.us, label %_ZNK12LogSelection10similarityERKS_.exit60.us, !llvm.loop !23
+  br i1 %exitcond77.not, label %.split.us, label %_ZNK12LogSelection10similarityERKS_.exit60.us, !llvm.loop !26
 
 64:                                               ; preds = %56
   %65 = add nuw nsw i32 %.169, 1
@@ -974,7 +963,7 @@ _ZNK12LogSelection10similarityERKS_.exit60.us:    ; preds = %.preheader, %_ZNK12
 70:                                               ; preds = %72
   %71 = add nuw i64 %.014.us.i53, 1
   %exitcond.not.i54 = icmp eq i64 %71, %.pre.i47
-  br i1 %exitcond.not.i54, label %..loopexit_crit_edge.us.i55, label %72, !llvm.loop !21
+  br i1 %exitcond.not.i54, label %..loopexit_crit_edge.us.i55, label %72, !llvm.loop !24
 
 72:                                               ; preds = %70, %.preheader.us.i50
   %.014.us.i53 = phi i64 [ 0, %.preheader.us.i50 ], [ %71, %70 ]
@@ -991,7 +980,7 @@ _ZNK12LogSelection10similarityERKS_.exit60.us:    ; preds = %.preheader, %_ZNK12
   %.1.us.i56 = phi i64 [ %77, %76 ], [ %.01215.us.i52, %70 ]
   %78 = add nuw i64 %.01116.us.i51, 1
   %exitcond22.not.i57 = icmp eq i64 %78, %27
-  br i1 %exitcond22.not.i57, label %._crit_edge.loopexit21.i58, label %.preheader.us.i50, !llvm.loop !22
+  br i1 %exitcond22.not.i57, label %._crit_edge.loopexit21.i58, label %.preheader.us.i50, !llvm.loop !25
 
 ._crit_edge.loopexit21.i58:                       ; preds = %..loopexit_crit_edge.us.i55
   %79 = uitofp i64 %.1.us.i56 to double
@@ -1008,7 +997,7 @@ _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i4
   %.136 = select i1 %84, i64 %.03465, i64 %.03564
   %85 = add nuw nsw i64 %.03465, 1
   %exitcond.not = icmp eq i64 %85, %57
-  br i1 %exitcond.not, label %.split.us, label %.preheader.lr.ph.i48, !llvm.loop !23
+  br i1 %exitcond.not, label %.split.us, label %.preheader.lr.ph.i48, !llvm.loop !27
 
 .split.us:                                        ; preds = %_ZNK12LogSelection10similarityERKS_.exit60, %_ZNK12LogSelection10similarityERKS_.exit60.us
   %.us-phi = phi double [ %.138.us, %_ZNK12LogSelection10similarityERKS_.exit60.us ], [ %.138, %_ZNK12LogSelection10similarityERKS_.exit60 ]
@@ -1027,7 +1016,7 @@ _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i4
   %.2 = phi i32 [ %.169, %_ZNK12LogSelection10similarityERKS_.exit ], [ %.169, %.split.us ], [ %.2.ph, %.sink.split ]
   %.033 = load ptr, ptr %.03370, align 8
   %.not45 = icmp eq ptr %.033, null
-  br i1 %.not45, label %._crit_edge73, label %30, !llvm.loop !24
+  br i1 %.not45, label %._crit_edge73, label %30, !llvm.loop !28
 
 ._crit_edge73:                                    ; preds = %88, %23
   %.1.lcssa = phi i32 [ %.032, %23 ], [ %.2, %88 ]
@@ -1065,7 +1054,7 @@ _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i4
   %104 = add nuw i64 %.06.i, 1
   %105 = load i64, ptr %93, align 16
   %106 = icmp ult i64 %104, %105
-  br i1 %106, label %96, label %._crit_edge.i, !llvm.loop !20
+  br i1 %106, label %96, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %96, %92
   %107 = getelementptr inbounds nuw i8, ptr %93, i64 28
@@ -1080,7 +1069,7 @@ _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i4
 _ZNK12LogSelection16describe_tags_onEP12outputStream.exit: ; preds = %._crit_edge.i, %110
   %111 = add nuw nsw i64 %.074, 1
   %exitcond78.not = icmp eq i64 %111, %91
-  br i1 %exitcond78.not, label %.loopexit, label %92, !llvm.loop !25
+  br i1 %exitcond78.not, label %.loopexit, label %92, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZNK12LogSelection16describe_tags_onEP12outputStream.exit, %._crit_edge73
   ret void
@@ -1163,7 +1152,7 @@ define linkonce_odr hidden noundef i64 @_ZN9QuickSort10find_pivotI12LogSelection
 14:                                               ; preds = %16
   %15 = add nuw i64 %.014.us.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, %.pre.i.i
-  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %16, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %16, !llvm.loop !24
 
 16:                                               ; preds = %14, %.preheader.us.i.i
   %.014.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %15, %14 ]
@@ -1180,7 +1169,7 @@ define linkonce_odr hidden noundef i64 @_ZN9QuickSort10find_pivotI12LogSelection
   %.1.us.i.i = phi i64 [ %21, %20 ], [ %.01215.us.i.i, %14 ]
   %22 = add nuw i64 %.01116.us.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %22, %9
-  br i1 %exitcond22.not.i.i, label %._crit_edge.loopexit21.i.i, label %.preheader.us.i.i, !llvm.loop !22
+  br i1 %exitcond22.not.i.i, label %._crit_edge.loopexit21.i.i, label %.preheader.us.i.i, !llvm.loop !25
 
 ._crit_edge.loopexit21.i.i:                       ; preds = %..loopexit_crit_edge.us.i.i
   %23 = uitofp i64 %.1.us.i.i to double
@@ -1213,7 +1202,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i:       ; preds = %3
 33:                                               ; preds = %35
   %34 = add nuw i64 %.014.us.i19.i, 1
   %exitcond.not.i20.i = icmp eq i64 %34, %.pre.i1328.i
-  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %35, !llvm.loop !21
+  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %35, !llvm.loop !24
 
 35:                                               ; preds = %33, %.preheader.us.i16.i
   %.014.us.i19.i = phi i64 [ 0, %.preheader.us.i16.i ], [ %34, %33 ]
@@ -1230,7 +1219,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i:       ; preds = %3
   %.1.us.i22.i = phi i64 [ %40, %39 ], [ %.01215.us.i18.i, %33 ]
   %41 = add nuw i64 %.01116.us.i17.i, 1
   %exitcond22.not.i23.i = icmp eq i64 %41, %9
-  br i1 %exitcond22.not.i23.i, label %._crit_edge.loopexit21.i24.i, label %.preheader.us.i16.i, !llvm.loop !22
+  br i1 %exitcond22.not.i23.i, label %._crit_edge.loopexit21.i24.i, label %.preheader.us.i16.i, !llvm.loop !25
 
 ._crit_edge.loopexit21.i24.i:                     ; preds = %..loopexit_crit_edge.us.i21.i
   %42 = uitofp i64 %.1.us.i22.i to double
@@ -1306,7 +1295,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90: ; preds = %51, %
 71:                                               ; preds = %73
   %72 = add nuw i64 %.014.us.i.i26, 1
   %exitcond.not.i.i27 = icmp eq i64 %72, %.pre.i.i20
-  br i1 %exitcond.not.i.i27, label %..loopexit_crit_edge.us.i.i28, label %73, !llvm.loop !21
+  br i1 %exitcond.not.i.i27, label %..loopexit_crit_edge.us.i.i28, label %73, !llvm.loop !24
 
 73:                                               ; preds = %71, %.preheader.us.i.i23
   %.014.us.i.i26 = phi i64 [ 0, %.preheader.us.i.i23 ], [ %72, %71 ]
@@ -1323,7 +1312,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90: ; preds = %51, %
   %.1.us.i.i29 = phi i64 [ %78, %77 ], [ %.01215.us.i.i25, %71 ]
   %79 = add nuw i64 %.01116.us.i.i24, 1
   %exitcond22.not.i.i30 = icmp eq i64 %79, %64
-  br i1 %exitcond22.not.i.i30, label %._crit_edge.loopexit21.i.i31, label %.preheader.us.i.i23, !llvm.loop !22
+  br i1 %exitcond22.not.i.i30, label %._crit_edge.loopexit21.i.i31, label %.preheader.us.i.i23, !llvm.loop !25
 
 ._crit_edge.loopexit21.i.i31:                     ; preds = %..loopexit_crit_edge.us.i.i28
   %80 = uitofp i64 %.1.us.i.i29 to double
@@ -1356,7 +1345,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i50:     ; preds = %_ZNK20SimilarityCom
 90:                                               ; preds = %92
   %91 = add nuw i64 %.014.us.i19.i39, 1
   %exitcond.not.i20.i40 = icmp eq i64 %91, %.pre.i1328.i34
-  br i1 %exitcond.not.i20.i40, label %..loopexit_crit_edge.us.i21.i41, label %92, !llvm.loop !21
+  br i1 %exitcond.not.i20.i40, label %..loopexit_crit_edge.us.i21.i41, label %92, !llvm.loop !24
 
 92:                                               ; preds = %90, %.preheader.us.i16.i36
   %.014.us.i19.i39 = phi i64 [ 0, %.preheader.us.i16.i36 ], [ %91, %90 ]
@@ -1373,7 +1362,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i50:     ; preds = %_ZNK20SimilarityCom
   %.1.us.i22.i42 = phi i64 [ %97, %96 ], [ %.01215.us.i18.i38, %90 ]
   %98 = add nuw i64 %.01116.us.i17.i37, 1
   %exitcond22.not.i23.i43 = icmp eq i64 %98, %64
-  br i1 %exitcond22.not.i23.i43, label %._crit_edge.loopexit21.i24.i44, label %.preheader.us.i16.i36, !llvm.loop !22
+  br i1 %exitcond22.not.i23.i43, label %._crit_edge.loopexit21.i24.i44, label %.preheader.us.i16.i36, !llvm.loop !25
 
 ._crit_edge.loopexit21.i24.i44:                   ; preds = %..loopexit_crit_edge.us.i21.i41
   %99 = uitofp i64 %.1.us.i22.i42 to double
@@ -1448,7 +1437,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94: ; preds = %108
 126:                                              ; preds = %128
   %127 = add nuw i64 %.014.us.i.i60, 1
   %exitcond.not.i.i61 = icmp eq i64 %127, %.pre.i.i54
-  br i1 %exitcond.not.i.i61, label %..loopexit_crit_edge.us.i.i62, label %128, !llvm.loop !21
+  br i1 %exitcond.not.i.i61, label %..loopexit_crit_edge.us.i.i62, label %128, !llvm.loop !24
 
 128:                                              ; preds = %126, %.preheader.us.i.i57
   %.014.us.i.i60 = phi i64 [ 0, %.preheader.us.i.i57 ], [ %127, %126 ]
@@ -1465,7 +1454,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94: ; preds = %108
   %.1.us.i.i63 = phi i64 [ %133, %132 ], [ %.01215.us.i.i59, %126 ]
   %134 = add nuw i64 %.01116.us.i.i58, 1
   %exitcond22.not.i.i64 = icmp eq i64 %134, %121
-  br i1 %exitcond22.not.i.i64, label %._crit_edge.loopexit21.i.i65, label %.preheader.us.i.i57, !llvm.loop !22
+  br i1 %exitcond22.not.i.i64, label %._crit_edge.loopexit21.i.i65, label %.preheader.us.i.i57, !llvm.loop !25
 
 ._crit_edge.loopexit21.i.i65:                     ; preds = %..loopexit_crit_edge.us.i.i62
   %135 = uitofp i64 %.1.us.i.i63 to double
@@ -1498,7 +1487,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i84:     ; preds = %_ZNK20SimilarityCom
 145:                                              ; preds = %147
   %146 = add nuw i64 %.014.us.i19.i73, 1
   %exitcond.not.i20.i74 = icmp eq i64 %146, %.pre.i1328.i68
-  br i1 %exitcond.not.i20.i74, label %..loopexit_crit_edge.us.i21.i75, label %147, !llvm.loop !21
+  br i1 %exitcond.not.i20.i74, label %..loopexit_crit_edge.us.i21.i75, label %147, !llvm.loop !24
 
 147:                                              ; preds = %145, %.preheader.us.i16.i70
   %.014.us.i19.i73 = phi i64 [ 0, %.preheader.us.i16.i70 ], [ %146, %145 ]
@@ -1515,7 +1504,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i84:     ; preds = %_ZNK20SimilarityCom
   %.1.us.i22.i76 = phi i64 [ %152, %151 ], [ %.01215.us.i18.i72, %145 ]
   %153 = add nuw i64 %.01116.us.i17.i71, 1
   %exitcond22.not.i23.i77 = icmp eq i64 %153, %121
-  br i1 %exitcond22.not.i23.i77, label %._crit_edge.loopexit21.i24.i78, label %.preheader.us.i16.i70, !llvm.loop !22
+  br i1 %exitcond22.not.i23.i77, label %._crit_edge.loopexit21.i24.i78, label %.preheader.us.i16.i70, !llvm.loop !25
 
 ._crit_edge.loopexit21.i24.i78:                   ; preds = %..loopexit_crit_edge.us.i21.i75
   %154 = uitofp i64 %.1.us.i22.i76 to double
@@ -1630,7 +1619,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us: ; preds = %27, %24
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us, %32
   %35 = add i64 %.117.us, 1
-  br label %_ZNK12LogSelection10similarityERKS_.exit.i.us, !llvm.loop !26
+  br label %_ZNK12LogSelection10similarityERKS_.exit.i.us, !llvm.loop !30
 
 .preheader.lr.ph.i.i:                             ; preds = %14, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread
   %.117 = phi i64 [ %82, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread ], [ %.016, %14 ]
@@ -1647,7 +1636,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK
 39:                                               ; preds = %41
   %40 = add nuw i64 %.014.us.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %40, %.pre.i.i
-  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %41, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %41, !llvm.loop !24
 
 41:                                               ; preds = %39, %.preheader.us.i.i
   %.014.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %40, %39 ]
@@ -1664,7 +1653,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK
   %.1.us.i.i = phi i64 [ %46, %45 ], [ %.01215.us.i.i, %39 ]
   %47 = add nuw i64 %.01116.us.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %47, %15
-  br i1 %exitcond22.not.i.i, label %._crit_edge.loopexit21.i.i, label %.preheader.us.i.i, !llvm.loop !22
+  br i1 %exitcond22.not.i.i, label %._crit_edge.loopexit21.i.i, label %.preheader.us.i.i, !llvm.loop !25
 
 ._crit_edge.loopexit21.i.i:                       ; preds = %..loopexit_crit_edge.us.i.i
   %48 = uitofp i64 %.1.us.i.i to double
@@ -1689,7 +1678,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK
 54:                                               ; preds = %56
   %55 = add nuw i64 %.014.us.i19.i, 1
   %exitcond.not.i20.i = icmp eq i64 %55, %.pre.i1328.i
-  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %56, !llvm.loop !21
+  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %56, !llvm.loop !24
 
 56:                                               ; preds = %54, %.preheader.us.i16.i
   %.014.us.i19.i = phi i64 [ 0, %.preheader.us.i16.i ], [ %55, %54 ]
@@ -1706,7 +1695,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK
   %.1.us.i22.i = phi i64 [ %61, %60 ], [ %.01215.us.i18.i, %54 ]
   %62 = add nuw i64 %.01116.us.i17.i, 1
   %exitcond22.not.i23.i = icmp eq i64 %62, %15
-  br i1 %exitcond22.not.i23.i, label %._crit_edge.loopexit21.i24.i, label %.preheader.us.i16.i, !llvm.loop !22
+  br i1 %exitcond22.not.i23.i, label %._crit_edge.loopexit21.i24.i, label %.preheader.us.i16.i, !llvm.loop !25
 
 ._crit_edge.loopexit21.i24.i:                     ; preds = %..loopexit_crit_edge.us.i21.i
   %63 = uitofp i64 %.1.us.i22.i to double
@@ -1752,7 +1741,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %73, %76
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %71, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
   %82 = add i64 %.117, 1
-  br label %.preheader.lr.ph.i.i, !llvm.loop !26
+  br label %.preheader.lr.ph.i.i, !llvm.loop !31
 
 83:                                               ; preds = %.preheader, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
   %.1.in = phi i64 [ %.1, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51 ], [ %.0.in, %.preheader ]
@@ -1773,7 +1762,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %71, %_Z
 87:                                               ; preds = %89
   %88 = add nuw i64 %.014.us.i.i25, 1
   %exitcond.not.i.i26 = icmp eq i64 %88, %.pre.i.i
-  br i1 %exitcond.not.i.i26, label %..loopexit_crit_edge.us.i.i27, label %89, !llvm.loop !21
+  br i1 %exitcond.not.i.i26, label %..loopexit_crit_edge.us.i.i27, label %89, !llvm.loop !24
 
 89:                                               ; preds = %87, %.preheader.us.i.i22
   %.014.us.i.i25 = phi i64 [ 0, %.preheader.us.i.i22 ], [ %88, %87 ]
@@ -1790,7 +1779,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %71, %_Z
   %.1.us.i.i28 = phi i64 [ %94, %93 ], [ %.01215.us.i.i24, %87 ]
   %95 = add nuw i64 %.01116.us.i.i23, 1
   %exitcond22.not.i.i29 = icmp eq i64 %95, %15
-  br i1 %exitcond22.not.i.i29, label %._crit_edge.loopexit21.i.i30, label %.preheader.us.i.i22, !llvm.loop !22
+  br i1 %exitcond22.not.i.i29, label %._crit_edge.loopexit21.i.i30, label %.preheader.us.i.i22, !llvm.loop !25
 
 ._crit_edge.loopexit21.i.i30:                     ; preds = %..loopexit_crit_edge.us.i.i27
   %96 = uitofp i64 %.1.us.i.i28 to double
@@ -1819,7 +1808,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %83
 102:                                              ; preds = %104
   %103 = add nuw i64 %.014.us.i19.i38, 1
   %exitcond.not.i20.i39 = icmp eq i64 %103, %.pre.i1328.i33
-  br i1 %exitcond.not.i20.i39, label %..loopexit_crit_edge.us.i21.i40, label %104, !llvm.loop !21
+  br i1 %exitcond.not.i20.i39, label %..loopexit_crit_edge.us.i21.i40, label %104, !llvm.loop !24
 
 104:                                              ; preds = %102, %.preheader.us.i16.i35
   %.014.us.i19.i38 = phi i64 [ 0, %.preheader.us.i16.i35 ], [ %103, %102 ]
@@ -1836,7 +1825,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %83
   %.1.us.i22.i41 = phi i64 [ %109, %108 ], [ %.01215.us.i18.i37, %102 ]
   %110 = add nuw i64 %.01116.us.i17.i36, 1
   %exitcond22.not.i23.i42 = icmp eq i64 %110, %15
-  br i1 %exitcond22.not.i23.i42, label %._crit_edge.loopexit21.i24.i43, label %.preheader.us.i16.i35, !llvm.loop !22
+  br i1 %exitcond22.not.i23.i42, label %._crit_edge.loopexit21.i24.i43, label %.preheader.us.i16.i35, !llvm.loop !25
 
 ._crit_edge.loopexit21.i24.i43:                   ; preds = %..loopexit_crit_edge.us.i21.i40
   %111 = uitofp i64 %.1.us.i22.i41 to double
@@ -1875,7 +1864,7 @@ _ZNK12LogSelection10similarityERKS_.exit26.i44:   ; preds = %._crit_edge.loopexi
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51: ; preds = %120, %122, %125
   %.0.i48 = phi i32 [ 1, %120 ], [ %129, %125 ], [ %124, %122 ]
   %130 = icmp sgt i32 %.0.i48, 0
-  br i1 %130, label %83, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, !llvm.loop !27
+  br i1 %130, label %83, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, !llvm.loop !32
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
   %131 = icmp ult i64 %.us-phi, %.1
@@ -1888,7 +1877,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %133 = add nuw i64 %.us-phi, 1
-  br label %14, !llvm.loop !28
+  br label %14, !llvm.loop !33
 
 134:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
   ret i64 %.1
@@ -1926,16 +1915,16 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZL14parse_internalPcP12outputStream: argument 0"}
-!14 = distinct !{!14, !"_ZL14parse_internalPcP12outputStream"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!12 = distinct !{!12, !7, !9}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZL14parse_internalPcP12outputStream: argument 0"}
+!17 = distinct !{!17, !"_ZL14parse_internalPcP12outputStream"}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
@@ -1943,7 +1932,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!25 = distinct !{!25, !7, !9}
+!26 = distinct !{!26, !7, !9}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7, !9}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}

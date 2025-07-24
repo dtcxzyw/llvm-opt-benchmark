@@ -144,7 +144,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
 59:                                               ; preds = %.thread6.us
   %60 = sub nsw i32 %22, %53
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
-  br label %.split.us
+  br label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %2, %107
   %61 = phi i32 [ %105, %107 ], [ %15, %2 ]
@@ -164,7 +164,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
 
 .critedge:                                        ; preds = %.split, %.split, %.split, %.split, %.split, %.split, %.split
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
-  store i16 0, ptr %3, align 2, !annotation !6
+  store i16 0, ptr %3, align 2, !annotation !8
   %66 = icmp eq i8 %64, 59
   br i1 %66, label %.split33.us, label %68
 
@@ -196,7 +196,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
 78:                                               ; preds = %73
   %79 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %3, i32 noundef 2) #5
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %.thread, label %.thread5, !prof !7
+  br i1 %80, label %.thread, label %.thread5, !prof !9
 
 81:                                               ; preds = %73
   %82 = load ptr, ptr %19, align 8
@@ -368,5 +368,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 2000, i32 1}
-!6 = !{!"auto-init"}
-!7 = !{!"branch_weights", i32 1, i32 2000}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"auto-init"}
+!9 = !{!"branch_weights", i32 1, i32 2000}

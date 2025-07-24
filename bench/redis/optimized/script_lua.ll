@@ -2914,7 +2914,7 @@ define internal void @redisProtocolToLuaType_Array(ptr noundef %0, ptr noundef %
   %13 = tail call i32 @parseReply(ptr noundef %0, ptr noundef nonnull %1) #11
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2948,7 +2948,7 @@ define internal void @redisProtocolToLuaType_Set(ptr noundef %0, ptr noundef %1,
   %9 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %10 = add nuw i64 %.019.us, 1
   %exitcond22.not = icmp eq i64 %10, %2
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !107
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !109
 
 .lr.ph.split:                                     ; preds = %.thread, %14
   %.019 = phi i64 [ %15, %14 ], [ 0, %.thread ]
@@ -2967,7 +2967,7 @@ define internal void @redisProtocolToLuaType_Set(ptr noundef %0, ptr noundef %1,
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %15 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !110
 
 ._crit_edge.thread:                               ; preds = %14, %.thread
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
@@ -3009,7 +3009,7 @@ define internal void @redisProtocolToLuaType_Map(ptr noundef %0, ptr noundef %1,
   %10 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %11 = add nuw i64 %.018.us, 1
   %exitcond21.not = icmp eq i64 %11, %2
-  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !108
+  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.018 = phi i64 [ %14, %.lr.ph.split ], [ 0, %.thread ]
@@ -3018,7 +3018,7 @@ define internal void @redisProtocolToLuaType_Map(ptr noundef %0, ptr noundef %1,
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %14 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %14, %2
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !112
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split, %.thread
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
@@ -3150,7 +3150,7 @@ define internal void @redisProtocolToLuaType_Attribute(ptr noundef %0, ptr nound
   %7 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %8 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3368,7 +3368,11 @@ attributes #14 = { nounwind allocsize(1) }
 !103 = !{!64, !15, i64 104}
 !104 = !{!34, !34, i64 0}
 !105 = distinct !{!105, !23}
-!106 = distinct !{!106, !23}
-!107 = distinct !{!107, !23}
+!106 = distinct !{!106, !23, !107}
+!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !108 = distinct !{!108, !23}
-!109 = distinct !{!109, !23}
+!109 = distinct !{!109, !23, !107}
+!110 = distinct !{!110, !23}
+!111 = distinct !{!111, !23, !107}
+!112 = distinct !{!112, !23}
+!113 = distinct !{!113, !23}

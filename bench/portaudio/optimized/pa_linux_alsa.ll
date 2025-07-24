@@ -6385,7 +6385,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
 .lr.ph201:                                        ; preds = %.backedge.us
   %173 = load i32, ptr %169, align 8, !tbaa !240
   %.not123.us = icmp eq i32 %173, 0
-  br i1 %.not123.us, label %.lr.ph235, label %.loopexit
+  br i1 %.not123.us, label %.lr.ph235, label %.loopexit, !llvm.loop !255
 
 .lr.ph235:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %.079.us200234 = phi i32 [ -9986, %.lr.ph201 ], [ %.079.ph.ph, %.lr.ph201.preheader ]
@@ -6397,7 +6397,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.183) #25
   %175 = load i64, ptr %1, align 8, !tbaa !108
   %.not122.us = icmp eq i64 %175, 0
-  br i1 %.not122.us, label %.loopexit, label %.lr.ph201
+  br i1 %.not122.us, label %.backedge.us..loopexit.loopexit_crit_edge, label %.lr.ph201, !llvm.loop !255
 
 .preheader.split:                                 ; preds = %108, %58, %49, %95, %._crit_edge, %27, %.preheader
   %.079.ph231 = phi i32 [ %.079.ph.ph, %.preheader ], [ 0, %95 ], [ 0, %27 ], [ 0, %._crit_edge ], [ 0, %49 ], [ 0, %58 ], [ 0, %108 ]
@@ -6405,7 +6405,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   %177 = tail call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %177, ptr @paUtilErr_, align 4, !tbaa !3
   %178 = icmp slt i32 %177, 0
-  br i1 %178, label %.backedge, label %._crit_edge196, !prof !255
+  br i1 %178, label %.backedge, label %._crit_edge196, !prof !257
 
 .backedge:                                        ; preds = %.preheader.split, %.backedge
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.182) #25
@@ -6413,16 +6413,19 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   %180 = tail call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %180, ptr @paUtilErr_, align 4, !tbaa !3
   %181 = icmp slt i32 %180, 0
-  br i1 %181, label %.backedge, label %._crit_edge196, !prof !256
+  br i1 %181, label %.backedge, label %._crit_edge196, !prof !258
 
 ._crit_edge196:                                   ; preds = %.backedge, %.preheader.split
   %.079.lcssa = phi i32 [ %.079.ph231, %.preheader.split ], [ %179, %.backedge ]
   store i64 0, ptr %1, align 8, !tbaa !108
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge.us, %.lr.ph201, %.lr.ph235, %.lr.ph201.preheader, %._crit_edge196, %.preheader.split.us
-  %182 = phi i32 [ %176, %._crit_edge196 ], [ 0, %.preheader.split.us ], [ %.pr, %.lr.ph201.preheader ], [ %.pr, %.lr.ph235 ], [ %.pr, %.lr.ph201 ], [ %.pr, %.backedge.us ]
-  %.079183 = phi i32 [ %.079.lcssa, %._crit_edge196 ], [ %.079.ph.ph, %.preheader.split.us ], [ %.079.ph.ph, %.lr.ph201.preheader ], [ -9986, %.backedge.us ], [ -9986, %.lr.ph201 ], [ %.079.us200234, %.lr.ph235 ]
+.backedge.us..loopexit.loopexit_crit_edge:        ; preds = %.backedge.us
+  br label %.loopexit, !llvm.loop !255
+
+.loopexit:                                        ; preds = %.lr.ph201, %.lr.ph235, %.lr.ph201.preheader, %.backedge.us..loopexit.loopexit_crit_edge, %._crit_edge196, %.preheader.split.us
+  %182 = phi i32 [ %176, %._crit_edge196 ], [ 0, %.preheader.split.us ], [ %.pr, %.backedge.us..loopexit.loopexit_crit_edge ], [ %.pr, %.lr.ph201.preheader ], [ %.pr, %.lr.ph235 ], [ %.pr, %.lr.ph201 ]
+  %.079183 = phi i32 [ %.079.lcssa, %._crit_edge196 ], [ %.079.ph.ph, %.preheader.split.us ], [ -9986, %.backedge.us..loopexit.loopexit_crit_edge ], [ %.079.ph.ph, %.lr.ph201.preheader ], [ -9986, %.lr.ph201 ], [ %.079.us200234, %.lr.ph235 ]
   store i32 %182, ptr %2, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
@@ -6444,10 +6447,10 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
   br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %2
-  %10 = call i32 @snd_pcm_status(ptr noundef nonnull %8, ptr noundef nonnull %6) #25, !callees !257
+  %10 = call i32 @snd_pcm_status(ptr noundef nonnull %8, ptr noundef nonnull %6) #25, !callees !259
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
   call void @snd_pcm_status_get_htstamp(ptr noundef nonnull %6, ptr noundef nonnull %4) #25, !callees !131
-  %11 = call i64 @snd_pcm_status_get_delay(ptr noundef nonnull %6) #25, !callees !258
+  %11 = call i64 @snd_pcm_status_get_delay(ptr noundef nonnull %6) #25, !callees !260
   %12 = load i64, ptr %4, align 8, !tbaa !132
   %13 = sitofp i64 %12 to double
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6456,13 +6459,13 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
   %17 = call double @llvm.fmuladd.f64(double %16, double 1.000000e-09, double %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %17, ptr %18, align 8, !tbaa !259
+  store double %17, ptr %18, align 8, !tbaa !261
   %19 = sitofp i64 %11 to double
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load double, ptr %20, align 8, !tbaa !201
   %22 = fdiv double %19, %21
   %23 = fsub double %17, %22
-  store double %23, ptr %1, align 8, !tbaa !261
+  store double %23, ptr %1, align 8, !tbaa !263
   br label %24
 
 24:                                               ; preds = %9, %2
@@ -6472,10 +6475,10 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
   br i1 %.not23, label %47, label %27
 
 27:                                               ; preds = %24
-  %28 = call i32 @snd_pcm_status(ptr noundef nonnull %26, ptr noundef nonnull %6) #25, !callees !257
+  %28 = call i32 @snd_pcm_status(ptr noundef nonnull %26, ptr noundef nonnull %6) #25, !callees !259
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
   call void @snd_pcm_status_get_htstamp(ptr noundef nonnull %6, ptr noundef nonnull %3) #25, !callees !131
-  %29 = call i64 @snd_pcm_status_get_delay(ptr noundef nonnull %6) #25, !callees !258
+  %29 = call i64 @snd_pcm_status_get_delay(ptr noundef nonnull %6) #25, !callees !260
   %30 = load i64, ptr %3, align 8, !tbaa !132
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !134
@@ -6486,7 +6489,7 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
 
 ._crit_edge:                                      ; preds = %27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !259
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !261
   br label %39
 
 34:                                               ; preds = %27
@@ -6494,7 +6497,7 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
   %36 = sitofp i64 %30 to double
   %37 = call double @llvm.fmuladd.f64(double %35, double 1.000000e-09, double %36)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %37, ptr %38, align 8, !tbaa !259
+  store double %37, ptr %38, align 8, !tbaa !261
   br label %39
 
 39:                                               ; preds = %._crit_edge, %34
@@ -6505,7 +6508,7 @@ define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(non
   %44 = fdiv double %41, %43
   %45 = fadd double %40, %44
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %45, ptr %46, align 8, !tbaa !262
+  store double %45, ptr %46, align 8, !tbaa !264
   br label %47
 
 47:                                               ; preds = %39, %24
@@ -6671,7 +6674,7 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nounde
   %67 = call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %67, ptr @paUtilErr_, align 4, !tbaa !3
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %.lr.ph59, label %.split, !prof !255
+  br i1 %68, label %.lr.ph59, label %.split, !prof !257
 
 .lr.ph59:                                         ; preds = %.lr.ph.split, %.lr.ph59
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.198) #25
@@ -6679,7 +6682,7 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nounde
   %70 = call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %70, ptr @paUtilErr_, align 4, !tbaa !3
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.lr.ph59, label %.split, !prof !256
+  br i1 %71, label %.lr.ph59, label %.split, !prof !258
 
 .split:                                           ; preds = %.lr.ph59, %.lr.ph.split
   %.035.lcssa52 = phi i32 [ %.035.ph, %.lr.ph.split ], [ %69, %.lr.ph59 ]
@@ -6749,7 +6752,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %33 = load i32, ptr %32, align 8, !tbaa !214
-  %34 = tail call i64 @snd_pcm_format_size(i32 noundef %33, i64 noundef 1) #25, !callees !263
+  %34 = tail call i64 @snd_pcm_format_size(i32 noundef %33, i64 noundef 1) #25, !callees !265
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %37 = load i32, ptr %36, align 8, !tbaa !219
@@ -6758,15 +6761,15 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %40 = load ptr, ptr %39, align 8, !tbaa !264
+  %40 = load ptr, ptr %39, align 8, !tbaa !266
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %42 = load i64, ptr %41, align 8, !tbaa !265
-  %43 = load ptr, ptr %40, align 8, !tbaa !266
+  %42 = load i64, ptr %41, align 8, !tbaa !267
+  %43 = load ptr, ptr %40, align 8, !tbaa !268
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !268
+  %45 = load i32, ptr %44, align 8, !tbaa !270
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !269
+  %48 = load i32, ptr %47, align 4, !tbaa !271
   %49 = zext i32 %48 to i64
   %50 = mul i64 %42, %49
   %51 = add i64 %50, %46
@@ -6816,7 +6819,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %75 = getelementptr inbounds i8, ptr %.0716.i, i64 %74
   %76 = add nuw nsw i32 %.0677.i, 1
   %exitcond.not.i = icmp eq i32 %76, %22
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !270
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !272
 
 ._crit_edge.i:                                    ; preds = %70, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre12.i, %.._crit_edge_crit_edge.i ], [ %69, %70 ]
@@ -6847,22 +6850,22 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %88 = getelementptr inbounds i8, ptr %.1669.i, i64 %87
   %89 = add nuw nsw i32 %.1688.i, 1
   %exitcond11.not.i = icmp eq i32 %89, %22
-  br i1 %exitcond11.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, label %84, !llvm.loop !271
+  br i1 %exitcond11.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, label %84, !llvm.loop !273
 
 90:                                               ; preds = %21
   br i1 %28, label %91, label %111
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %93 = load ptr, ptr %92, align 8, !tbaa !264
+  %93 = load ptr, ptr %92, align 8, !tbaa !266
   %94 = sext i32 %19 to i64
   %95 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %97 = load i64, ptr %96, align 8, !tbaa !265
+  %97 = load i64, ptr %96, align 8, !tbaa !267
   %98 = getelementptr i8, ptr %95, i64 -16
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %100 = load i32, ptr %99, align 8, !tbaa !214
-  %101 = tail call i32 @snd_pcm_area_copy(ptr noundef %95, i64 noundef %97, ptr noundef %98, i64 noundef %97, i32 noundef %22, i32 noundef %100) #25, !callees !272
+  %101 = tail call i32 @snd_pcm_area_copy(ptr noundef %95, i64 noundef %97, ptr noundef %98, i64 noundef %97, i32 noundef %22, i32 noundef %100) #25, !callees !274
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %109, !prof !9
 
@@ -6889,13 +6892,13 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %115 = load ptr, ptr %114, align 8, !tbaa !264
+  %115 = load ptr, ptr %114, align 8, !tbaa !266
   %116 = load i32, ptr %16, align 4, !tbaa !207
   %117 = sub nsw i32 %116, %.170.i
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %115, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %121 = load i64, ptr %120, align 8, !tbaa !265
+  %121 = load i64, ptr %120, align 8, !tbaa !267
   %sext = shl i64 %1, 32
   %122 = ashr exact i64 %sext, 32
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -6952,7 +6955,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr noundef readonly ca
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @snd_pcm_drop(ptr noundef nonnull %3) #25, !callees !273
+  %5 = tail call i32 @snd_pcm_drop(ptr noundef nonnull %3) #25, !callees !275
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %.thread, !prof !9
 
@@ -6975,7 +6978,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr noundef readonly ca
   br i1 %.not35, label %15, label %23
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @snd_pcm_drop(ptr noundef nonnull %11) #25, !callees !273
+  %16 = tail call i32 @snd_pcm_drop(ptr noundef nonnull %11) #25, !callees !275
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %23, !prof !9
 
@@ -7131,7 +7134,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndPolling
   %7 = load ptr, ptr %6, align 8, !tbaa !147
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4, !tbaa !212
-  %10 = call i32 @snd_pcm_poll_descriptors_revents(ptr noundef %7, ptr noundef %1, i32 noundef %9, ptr noundef nonnull %5) #25, !callees !274
+  %10 = call i32 @snd_pcm_poll_descriptors_revents(ptr noundef %7, ptr noundef %1, i32 noundef %9, ptr noundef nonnull %5) #25, !callees !276
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %19, !prof !9
 
@@ -7152,7 +7155,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndPolling
   br label %36
 
 19:                                               ; preds = %4
-  %20 = load i16, ptr %5, align 2, !tbaa !275
+  %20 = load i16, ptr %5, align 2, !tbaa !277
   %21 = zext i16 %20 to i32
   %.not18 = icmp eq i16 %20, 0
   br i1 %.not18, label %31, label %22
@@ -7212,7 +7215,7 @@ define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr noundef readonl
   %.025 = getelementptr inbounds nuw i8, ptr %0, i64 %.025.v
   %7 = getelementptr inbounds nuw i8, ptr %.025, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !147
-  %9 = call i32 @snd_pcm_delay(ptr noundef %8, ptr noundef nonnull %5) #25, !callees !277
+  %9 = call i32 @snd_pcm_delay(ptr noundef %8, ptr noundef nonnull %5) #25, !callees !279
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %21
 
@@ -7314,7 +7317,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
   %18 = load ptr, ptr %17, align 8, !tbaa !147
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !206
-  %21 = tail call i64 @snd_pcm_writei(ptr noundef %18, ptr noundef %20, i64 noundef %1) #25, !callees !278
+  %21 = tail call i64 @snd_pcm_writei(ptr noundef %18, ptr noundef %20, i64 noundef %1) #25, !callees !280
   %22 = trunc i64 %21 to i32
   br label %47
 
@@ -7329,7 +7332,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i64, ptr %31, align 8, !tbaa !197
   %33 = add i64 %32, 1
-  %34 = tail call i64 @snd_pcm_format_size(i32 noundef %30, i64 noundef %33) #25, !callees !263
+  %34 = tail call i64 @snd_pcm_format_size(i32 noundef %30, i64 noundef %33) #25, !callees !265
   %35 = load i32, ptr %24, align 4, !tbaa !207
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %._crit_edge
@@ -7350,12 +7353,12 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
   %42 = getelementptr inbounds i8, ptr %.03647, i64 %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !279
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %40, %23
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !147
-  %45 = call i64 @snd_pcm_writen(ptr noundef %44, ptr noundef nonnull %28, i64 noundef %1) #25, !callees !280
+  %45 = call i64 @snd_pcm_writen(ptr noundef %44, ptr noundef nonnull %28, i64 noundef %1) #25, !callees !282
   %46 = trunc i64 %45 to i32
   call void @llvm.stackrestore.p0(ptr %27)
   br label %47
@@ -7370,7 +7373,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !147
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %51 = load i64, ptr %50, align 8, !tbaa !265
+  %51 = load i64, ptr %50, align 8, !tbaa !267
   %52 = call i64 @snd_pcm_mmap_commit(ptr noundef %49, i64 noundef %51, i64 noundef %1) #25, !callees !251
   %53 = trunc i64 %52 to i32
   br label %54
@@ -7431,15 +7434,15 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   br i1 %.not, label %30, label %10
 
 10:                                               ; preds = %1
-  %11 = call i32 @snd_pcm_status(ptr noundef nonnull %9, ptr noundef nonnull %7) #25, !callees !257
-  %12 = call i32 @snd_pcm_status_get_state(ptr noundef nonnull %7) #25, !callees !281
+  %11 = call i32 @snd_pcm_status(ptr noundef nonnull %9, ptr noundef nonnull %7) #25, !callees !259
+  %12 = call i32 @snd_pcm_status_get_state(ptr noundef nonnull %7) #25, !callees !283
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %30
 
 14:                                               ; preds = %10
-  call void @snd_pcm_status_get_trigger_tstamp(ptr noundef nonnull %7, ptr noundef nonnull %4) #25, !callees !282
+  call void @snd_pcm_status_get_trigger_tstamp(ptr noundef nonnull %7, ptr noundef nonnull %4) #25, !callees !284
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
-  call void @snd_pcm_status_get_trigger_htstamp(ptr noundef nonnull %7, ptr noundef nonnull %3) #25, !callees !283
+  call void @snd_pcm_status_get_trigger_htstamp(ptr noundef nonnull %7, ptr noundef nonnull %3) #25, !callees !285
   %15 = load i64, ptr %3, align 8, !tbaa !132
   %16 = sitofp i64 %15 to double
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7458,7 +7461,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
 
 26:                                               ; preds = %14
   %27 = load ptr, ptr %8, align 8, !tbaa !130
-  %28 = call i32 @snd_pcm_recover(ptr noundef %27, i32 noundef -32, i32 noundef 0) #25, !callees !284
+  %28 = call i32 @snd_pcm_recover(ptr noundef %27, i32 noundef -32, i32 noundef 0) #25, !callees !286
   %29 = icmp sgt i32 %28, -1
   br label %30
 
@@ -7470,14 +7473,14 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   br i1 %.not32, label %53, label %33
 
 33:                                               ; preds = %30
-  %34 = call i32 @snd_pcm_status(ptr noundef nonnull %32, ptr noundef nonnull %7) #25, !callees !257
-  %35 = call i32 @snd_pcm_status_get_state(ptr noundef nonnull %7) #25, !callees !281
+  %34 = call i32 @snd_pcm_status(ptr noundef nonnull %32, ptr noundef nonnull %7) #25, !callees !259
+  %35 = call i32 @snd_pcm_status_get_state(ptr noundef nonnull %7) #25, !callees !283
   %36 = icmp eq i32 %35, 4
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
-  call void @snd_pcm_status_get_trigger_htstamp(ptr noundef nonnull %7, ptr noundef nonnull %2) #25, !callees !283
+  call void @snd_pcm_status_get_trigger_htstamp(ptr noundef nonnull %7, ptr noundef nonnull %2) #25, !callees !285
   %38 = load i64, ptr %2, align 8, !tbaa !132
   %39 = sitofp i64 %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7490,13 +7493,13 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double %45, ptr %46, align 8, !tbaa !135
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %48 = load i32, ptr %47, align 8, !tbaa !285
+  %48 = load i32, ptr %47, align 8, !tbaa !287
   %.not33 = icmp eq i32 %48, 0
   br i1 %.not33, label %49, label %.thread
 
 49:                                               ; preds = %37
   %50 = load ptr, ptr %31, align 8, !tbaa !129
-  %51 = call i32 @snd_pcm_recover(ptr noundef %50, i32 noundef -32, i32 noundef 0) #25, !callees !284
+  %51 = call i32 @snd_pcm_recover(ptr noundef %50, i32 noundef -32, i32 noundef 0) #25, !callees !286
   %52 = icmp sgt i32 %51, -1
   %or.cond = select i1 %52, i1 %.028, i1 false
   br i1 %or.cond, label %72, label %.thread
@@ -7534,7 +7537,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %64 = call i32 @PaUnixMutex_Unlock(ptr noundef nonnull %54) #25
   store i32 %64, ptr @paUtilErr_, align 4, !tbaa !3
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %.lr.ph.i, label %AlsaRestart.exit, !prof !255
+  br i1 %65, label %.lr.ph.i, label %AlsaRestart.exit, !prof !257
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.194) #25
@@ -7542,7 +7545,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %67 = call i32 @PaUnixMutex_Unlock(ptr noundef nonnull %54) #25
   store i32 %67, ptr @paUtilErr_, align 4, !tbaa !3
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %.lr.ph.i, label %AlsaRestart.exit, !prof !256
+  br i1 %68, label %.lr.ph.i, label %AlsaRestart.exit, !prof !258
 
 AlsaRestart.exit:                                 ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i32 [ %.0.ph.i, %.preheader.i ], [ %66, %.lr.ph.i ]
@@ -7652,7 +7655,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 40:                                               ; preds = %28
   %41 = load ptr, ptr %5, align 8, !tbaa !247
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %41, ptr %42, align 8, !tbaa !264
+  store ptr %41, ptr %42, align 8, !tbaa !266
   br label %.thread121
 
 43:                                               ; preds = %25
@@ -7661,7 +7664,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load i32, ptr %46, align 8, !tbaa !214
   %48 = load i64, ptr %2, align 8, !tbaa !108
-  %49 = tail call i64 @snd_pcm_format_size(i32 noundef %47, i64 noundef %48) #25, !callees !263
+  %49 = tail call i64 @snd_pcm_format_size(i32 noundef %47, i64 noundef %48) #25, !callees !265
   %50 = trunc i64 %49 to i32
   %51 = mul i32 %45, %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7688,7 +7691,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 62:                                               ; preds = %.thread121
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load i32, ptr %63, align 8, !tbaa !214
-  %65 = call i64 @snd_pcm_format_size(i32 noundef %64, i64 noundef 1) #25, !callees !263
+  %65 = call i64 @snd_pcm_format_size(i32 noundef %64, i64 noundef 1) #25, !callees !265
   %66 = load i32, ptr %26, align 8, !tbaa !219
   %.not107 = icmp eq i32 %66, 0
   br i1 %.not107, label %82, label %67
@@ -7696,13 +7699,13 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 67:                                               ; preds = %62
   %68 = load ptr, ptr %5, align 8, !tbaa !247
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %70 = load i64, ptr %69, align 8, !tbaa !265
-  %71 = load ptr, ptr %68, align 8, !tbaa !266
+  %70 = load i64, ptr %69, align 8, !tbaa !267
+  %71 = load ptr, ptr %68, align 8, !tbaa !268
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !268
+  %73 = load i32, ptr %72, align 8, !tbaa !270
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !269
+  %76 = load i32, ptr %75, align 4, !tbaa !271
   %77 = zext i32 %76 to i64
   %78 = mul i64 %70, %77
   %79 = add i64 %78, %74
@@ -7732,12 +7735,12 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %.094128 = phi ptr [ %86, %.lr.ph ], [ %94, %92 ]
   %.095127 = phi i32 [ 0, %.lr.ph ], [ %95, %92 ]
   %93 = load i32, ptr %90, align 4, !tbaa !207
-  call void %9(ptr noundef %1, i32 noundef %.095127, ptr noundef %.094128, i32 noundef %93) #25, !callees !286
+  call void %9(ptr noundef %1, i32 noundef %.095127, ptr noundef %.094128, i32 noundef %93) #25, !callees !288
   %94 = getelementptr inbounds i8, ptr %.094128, i64 %91
   %95 = add nuw nsw i32 %.095127, 1
   %96 = load i32, ptr %87, align 8, !tbaa !217
   %97 = icmp slt i32 %95, %96
-  br i1 %97, label %92, label %.loopexit, !llvm.loop !287
+  br i1 %97, label %92, label %.loopexit, !llvm.loop !289
 
 98:                                               ; preds = %.thread121
   %99 = load i32, ptr %26, align 8, !tbaa !219
@@ -7758,25 +7761,25 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %104 ]
   %105 = load ptr, ptr %5, align 8, !tbaa !247
   %106 = getelementptr inbounds nuw %struct._snd_pcm_channel_area, ptr %105, i64 %indvars.iv
-  %107 = load i64, ptr %103, align 8, !tbaa !265
-  %108 = load ptr, ptr %106, align 8, !tbaa !266
+  %107 = load i64, ptr %103, align 8, !tbaa !267
+  %108 = load ptr, ptr %106, align 8, !tbaa !268
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %110 = load i32, ptr %109, align 8, !tbaa !268
+  %110 = load i32, ptr %109, align 8, !tbaa !270
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !269
+  %113 = load i32, ptr %112, align 4, !tbaa !271
   %114 = zext i32 %113 to i64
   %115 = mul i64 %107, %114
   %116 = add i64 %115, %111
   %117 = lshr i64 %116, 3
   %118 = getelementptr inbounds nuw i8, ptr %108, i64 %117
   %119 = trunc nuw nsw i64 %indvars.iv to i32
-  call void %9(ptr noundef %1, i32 noundef %119, ptr noundef %118, i32 noundef 1) #25, !callees !286
+  call void %9(ptr noundef %1, i32 noundef %119, ptr noundef %118, i32 noundef 1) #25, !callees !288
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %100, align 8, !tbaa !217
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next, %121
-  br i1 %122, label %104, label %.loopexit, !llvm.loop !288
+  br i1 %122, label %104, label %.loopexit, !llvm.loop !290
 
 123:                                              ; preds = %98
   br i1 %102, label %.lr.ph133, label %.loopexit
@@ -7795,12 +7798,12 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 132:                                              ; preds = %.lr.ph133, %132
   %.092132 = phi ptr [ %125, %.lr.ph133 ], [ %133, %132 ]
   %.297131 = phi i32 [ 0, %.lr.ph133 ], [ %134, %132 ]
-  call void %9(ptr noundef %1, i32 noundef %.297131, ptr noundef %.092132, i32 noundef 1) #25, !callees !286
+  call void %9(ptr noundef %1, i32 noundef %.297131, ptr noundef %.092132, i32 noundef 1) #25, !callees !288
   %133 = getelementptr inbounds nuw i8, ptr %.092132, i64 %131
   %134 = add nuw nsw i32 %.297131, 1
   %135 = load i32, ptr %100, align 8, !tbaa !217
   %136 = icmp slt i32 %134, %135
-  br i1 %136, label %132, label %.loopexit, !llvm.loop !289
+  br i1 %136, label %132, label %.loopexit, !llvm.loop !291
 
 .loopexit:                                        ; preds = %92, %104, %132, %85, %.preheader, %123
   %137 = load i32, ptr %26, align 8, !tbaa !219
@@ -7822,7 +7825,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = load ptr, ptr %145, align 8, !tbaa !206
   %147 = load i64, ptr %2, align 8, !tbaa !108
-  %148 = call i64 @snd_pcm_readi(ptr noundef %144, ptr noundef %146, i64 noundef %147) #25, !callees !290
+  %148 = call i64 @snd_pcm_readi(ptr noundef %144, ptr noundef %146, i64 noundef %147) #25, !callees !292
   br label %169
 
 149:                                              ; preds = %141
@@ -7853,12 +7856,12 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %165 = getelementptr inbounds nuw i8, ptr %.089134, i64 %162
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %163, !llvm.loop !291
+  br i1 %exitcond.not, label %._crit_edge, label %163, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %163, %149
   %166 = load ptr, ptr %10, align 8, !tbaa !147
   %167 = load i64, ptr %2, align 8, !tbaa !108
-  %168 = call i64 @snd_pcm_readn(ptr noundef %166, ptr noundef nonnull %154, i64 noundef %167) #25, !callees !292
+  %168 = call i64 @snd_pcm_readn(ptr noundef %166, ptr noundef nonnull %154, i64 noundef %167) #25, !callees !294
   call void @llvm.stackrestore.p0(ptr %153)
   br label %169
 
@@ -8223,41 +8226,43 @@ attributes #31 = { nounwind allocsize(0) }
 !252 = !{ptr @snd_pcm_poll_descriptors}
 !253 = !{!57, !4, i64 88}
 !254 = distinct !{!254, !83}
-!255 = !{!"branch_weights", i32 1, i32 1999}
-!256 = !{!"branch_weights", i32 0, i32 1}
-!257 = !{ptr @snd_pcm_status}
-!258 = !{ptr @snd_pcm_status_get_delay}
-!259 = !{!260, !33, i64 8}
-!260 = !{!"PaStreamCallbackTimeInfo", !33, i64 0, !33, i64 8, !33, i64 16}
-!261 = !{!260, !33, i64 0}
-!262 = !{!260, !33, i64 16}
-!263 = !{ptr @snd_pcm_format_size}
-!264 = !{!57, !59, i64 120}
-!265 = !{!57, !14, i64 104}
-!266 = !{!267, !8, i64 0}
-!267 = !{!"_snd_pcm_channel_area", !8, i64 0, !4, i64 8, !4, i64 12}
-!268 = !{!267, !4, i64 8}
-!269 = !{!267, !4, i64 12}
-!270 = distinct !{!270, !83}
-!271 = distinct !{!271, !83}
-!272 = !{ptr @snd_pcm_area_copy}
-!273 = !{ptr @snd_pcm_drop}
-!274 = !{ptr @snd_pcm_poll_descriptors_revents}
-!275 = !{!276, !276, i64 0}
-!276 = !{!"short", !5, i64 0}
-!277 = !{ptr @snd_pcm_delay}
-!278 = !{ptr @snd_pcm_writei}
-!279 = distinct !{!279, !83}
-!280 = !{ptr @snd_pcm_writen}
-!281 = !{ptr @snd_pcm_status_get_state}
-!282 = !{ptr @snd_pcm_status_get_trigger_tstamp}
-!283 = !{ptr @snd_pcm_status_get_trigger_htstamp}
-!284 = !{ptr @snd_pcm_recover}
-!285 = !{!46, !4, i64 672}
-!286 = !{ptr @PaUtil_SetInputChannel, ptr @PaUtil_SetOutputChannel}
-!287 = distinct !{!287, !83}
-!288 = distinct !{!288, !83}
+!255 = distinct !{!255, !256}
+!256 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!257 = !{!"branch_weights", i32 1, i32 1999}
+!258 = !{!"branch_weights", i32 0, i32 1}
+!259 = !{ptr @snd_pcm_status}
+!260 = !{ptr @snd_pcm_status_get_delay}
+!261 = !{!262, !33, i64 8}
+!262 = !{!"PaStreamCallbackTimeInfo", !33, i64 0, !33, i64 8, !33, i64 16}
+!263 = !{!262, !33, i64 0}
+!264 = !{!262, !33, i64 16}
+!265 = !{ptr @snd_pcm_format_size}
+!266 = !{!57, !59, i64 120}
+!267 = !{!57, !14, i64 104}
+!268 = !{!269, !8, i64 0}
+!269 = !{!"_snd_pcm_channel_area", !8, i64 0, !4, i64 8, !4, i64 12}
+!270 = !{!269, !4, i64 8}
+!271 = !{!269, !4, i64 12}
+!272 = distinct !{!272, !83}
+!273 = distinct !{!273, !83}
+!274 = !{ptr @snd_pcm_area_copy}
+!275 = !{ptr @snd_pcm_drop}
+!276 = !{ptr @snd_pcm_poll_descriptors_revents}
+!277 = !{!278, !278, i64 0}
+!278 = !{!"short", !5, i64 0}
+!279 = !{ptr @snd_pcm_delay}
+!280 = !{ptr @snd_pcm_writei}
+!281 = distinct !{!281, !83}
+!282 = !{ptr @snd_pcm_writen}
+!283 = !{ptr @snd_pcm_status_get_state}
+!284 = !{ptr @snd_pcm_status_get_trigger_tstamp}
+!285 = !{ptr @snd_pcm_status_get_trigger_htstamp}
+!286 = !{ptr @snd_pcm_recover}
+!287 = !{!46, !4, i64 672}
+!288 = !{ptr @PaUtil_SetInputChannel, ptr @PaUtil_SetOutputChannel}
 !289 = distinct !{!289, !83}
-!290 = !{ptr @snd_pcm_readi}
+!290 = distinct !{!290, !83}
 !291 = distinct !{!291, !83}
-!292 = !{ptr @snd_pcm_readn}
+!292 = !{ptr @snd_pcm_readi}
+!293 = distinct !{!293, !83}
+!294 = !{ptr @snd_pcm_readn}

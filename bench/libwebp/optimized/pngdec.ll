@@ -282,14 +282,14 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   %127 = add nuw i32 %.05067, 1
   %128 = load i32, ptr %15, align 4, !tbaa !11
   %129 = icmp ult i32 %127, %128
-  br i1 %129, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %129, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph69.split
   %130 = phi i32 [ 0, %.lr.ph69.split ], [ %128, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
   %131 = add nuw nsw i32 %.04968, 1
   %exitcond.not = icmp eq i32 %131, %98
-  br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph69.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph69.split, !llvm.loop !25
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %.lr.ph69.split.us, %.preheader
   %132 = load volatile ptr, ptr %6, align 8, !tbaa !4
@@ -307,17 +307,17 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   br i1 %.not64, label %139, label %142
 
 139:                                              ; preds = %134
-  %140 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !27
   %141 = call i64 @fwrite(ptr nonnull @.str.1, i64 31, i64 1, ptr %140) #18
   br label %34
 
 142:                                              ; preds = %134, %._crit_edge70
   %143 = load i32, ptr %14, align 4, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %143, ptr %144, align 8, !tbaa !28
+  store i32 %143, ptr %144, align 8, !tbaa !29
   %145 = load i32, ptr %15, align 4, !tbaa !11
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %145, ptr %146, align 4, !tbaa !32
+  store i32 %145, ptr %146, align 4, !tbaa !33
   %147 = icmp eq i8 %103, 4
   %.0..0..0..0.12 = load volatile ptr, ptr %16, align 8, !tbaa !13
   br i1 %147, label %148, label %150
@@ -402,7 +402,7 @@ define internal void @error_function(ptr noundef %0, ptr noundef %1) #4 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !27
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #19
   br label %6
 
@@ -436,7 +436,7 @@ define internal void @ReadFunc(ptr noundef %0, ptr noundef writeonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = sub i64 %6, %8
   %10 = icmp ult i64 %9, %2
   br i1 %10, label %11, label %12
@@ -449,9 +449,9 @@ define internal void @ReadFunc(ptr noundef %0, ptr noundef writeonly captures(no
   %13 = load ptr, ptr %4, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %14, i64 %2, i1 false)
-  %15 = load i64, ptr %7, align 8, !tbaa !33
+  %15 = load i64, ptr %7, align 8, !tbaa !34
   %16 = add i64 %15, %2
-  store i64 %16, ptr %7, align 8, !tbaa !33
+  store i64 %16, ptr %7, align 8, !tbaa !34
   ret void
 }
 
@@ -513,20 +513,20 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %12 = phi i1 [ true, %4 ], [ false, %.critedge47 ]
   %13 = select i1 %12, ptr %1, ptr %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  store ptr null, ptr %5, align 8, !tbaa !34
+  store ptr null, ptr %5, align 8, !tbaa !35
   %14 = call i32 @png_get_text(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5, ptr noundef null) #15
   %.not55 = icmp eq i32 %14, 0
   br i1 %.not55, label %._crit_edge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %11
-  %.pre = load ptr, ptr %5, align 8, !tbaa !34
+  %.pre = load ptr, ptr %5, align 8, !tbaa !35
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %15 = phi ptr [ %43, %.loopexit ], [ %.pre, %.preheader.preheader ]
   %.03553 = phi i32 [ %42, %.loopexit ], [ 0, %.preheader.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !36
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(22) @.str.6) #21
   %.not3963 = icmp eq i32 %18, 0
   br i1 %.not3963, label %._crit_edge65, label %.lr.ph
@@ -535,50 +535,50 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %indvars.iv64 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv64, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.loopexit, label %19, !llvm.loop !38
+  br i1 %exitcond, label %.loopexit, label %19, !llvm.loop !39
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw [5 x %struct.anon], ptr @kPNGMetadataMap, i64 0, i64 %indvars.iv.next
-  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %21) #21
   %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %._crit_edge65, label %.lr.ph, !llvm.loop !38
+  br i1 %.not39, label %._crit_edge65, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge65:                                    ; preds = %19, %.preheader
   %.lcssa = phi ptr [ @kPNGMetadataMap, %.preheader ], [ %20, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !41
+  %24 = load i64, ptr %23, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !42
+  %26 = load ptr, ptr %25, align 8, !tbaa !43
   %.not40 = icmp eq ptr %26, null
   br i1 %.not40, label %30, label %27
 
 27:                                               ; preds = %._crit_edge65
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !27
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.4, ptr noundef nonnull %17) #19
-  %.pre59 = load ptr, ptr %5, align 8, !tbaa !34
+  %.pre59 = load ptr, ptr %5, align 8, !tbaa !35
   br label %.loopexit
 
 30:                                               ; preds = %._crit_edge65
-  %31 = load i32, ptr %15, align 8, !tbaa !44
+  %31 = load i32, ptr %15, align 8, !tbaa !45
   %.off = add i32 %31, -1
   %switch = icmp ult i32 %.off, 2
   %.029.in.v = select i1 %switch, i64 32, i64 24
   %.029.in = getelementptr inbounds nuw i8, ptr %15, i64 %.029.in.v
-  %.029 = load i64, ptr %.029.in, align 8, !tbaa !45
+  %.029 = load i64, ptr %.029.in, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !47
+  %35 = load ptr, ptr %34, align 8, !tbaa !48
   %36 = call i32 %33(ptr noundef %35, i64 noundef %.029, ptr noundef nonnull %25) #15
   %.not41 = icmp eq i32 %36, 0
-  %.pre60 = load ptr, ptr %5, align 8, !tbaa !34
+  %.pre60 = load ptr, ptr %5, align 8, !tbaa !35
   br i1 %.not41, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %30
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %.pre60, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !36
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %39) #19
   br label %.loopexit48.sink.split
 
@@ -586,9 +586,9 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %41 = phi ptr [ %.pre60, %30 ], [ %.pre59, %27 ], [ %15, %.lr.ph ]
   %42 = add nuw i32 %.03553, 1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  store ptr %43, ptr %5, align 8, !tbaa !34
+  store ptr %43, ptr %5, align 8, !tbaa !35
   %exitcond58.not = icmp eq i32 %42, %14
-  br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !48
+  br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
@@ -613,7 +613,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br i1 %12, label %11, label %.loopexit48, !llvm.loop !49
+  br i1 %12, label %11, label %.loopexit48, !llvm.loop !50
 
 51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
@@ -672,13 +672,13 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %or.cond, label %53, label %9
 
 9:                                                ; preds = %3
-  %10 = load i8, ptr %0, align 1, !tbaa !50
+  %10 = load i8, ptr %0, align 1, !tbaa !51
   %.not = icmp eq i8 %10, 10
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = sext i8 %10 to i32
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !27
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %12) #19
   br label %53
 
@@ -688,26 +688,26 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
 
 17:                                               ; preds = %19, %15
   %.015 = phi ptr [ %16, %15 ], [ %20, %19 ]
-  %18 = load i8, ptr %.015, align 1, !tbaa !50
+  %18 = load i8, ptr %.015, align 1, !tbaa !51
   %.not20 = icmp eq i8 %18, 0
   br i1 %.not20, label %.critedge, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %.not21 = icmp eq i8 %18, 10
-  br i1 %.not21, label %.critedge, label %17, !llvm.loop !51
+  br i1 %.not21, label %.critedge, label %17, !llvm.loop !52
 
 .critedge:                                        ; preds = %17, %19
   %.1 = phi ptr [ %20, %19 ], [ %.015, %17 ]
   %21 = call i64 @strtol(ptr noundef nonnull %.1, ptr noundef nonnull %6, i32 noundef 10) #15
   %22 = load ptr, ptr %6, align 8, !tbaa !13
-  %23 = load i8, ptr %22, align 1, !tbaa !50
+  %23 = load i8, ptr %22, align 1, !tbaa !51
   %.not22 = icmp eq i8 %23, 10
   br i1 %.not22, label %28, label %24
 
 24:                                               ; preds = %.critedge
   %25 = sext i8 %23 to i32
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !27
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %25) #19
   br label %53
 
@@ -733,7 +733,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %.01839.i = phi ptr [ %31, %.lr.ph.i ], [ %.136.i, %47 ]
   %.02038.i = phi i64 [ 0, %.lr.ph.i ], [ %.235.i, %47 ]
   %.02237.i = phi ptr [ %29, %.lr.ph.i ], [ %48, %47 ]
-  %36 = load i8, ptr %.02237.i, align 1, !tbaa !50
+  %36 = load i8, ptr %.02237.i, align 1, !tbaa !51
   %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %.critedge.i, label %37
 
@@ -750,14 +750,14 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 1
-  store i8 %36, ptr %5, align 1, !tbaa !50
-  %41 = load i8, ptr %40, align 1, !tbaa !50
-  store i8 %41, ptr %33, align 1, !tbaa !50
-  store i8 0, ptr %34, align 1, !tbaa !50
+  store i8 %36, ptr %5, align 1, !tbaa !51
+  %41 = load i8, ptr %40, align 1, !tbaa !51
+  store i8 %41, ptr %33, align 1, !tbaa !51
+  store i8 0, ptr %34, align 1, !tbaa !51
   %42 = call i64 @strtol(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16) #15
   %43 = trunc i64 %42 to i8
   %44 = getelementptr inbounds nuw i8, ptr %.01839.i, i64 1
-  store i8 %43, ptr %.01839.i, align 1, !tbaa !50
+  store i8 %43, ptr %.01839.i, align 1, !tbaa !51
   %45 = load ptr, ptr %4, align 8, !tbaa !13
   %.not25.i = icmp eq ptr %45, %34
   %46 = zext i1 %.not25.i to i64
@@ -772,7 +772,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %.12334.i = phi ptr [ %.02237.i, %.thread.i ], [ %40, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %.12334.i, i64 1
   %49 = icmp ult i64 %.235.i, %30
-  br i1 %49, label %35, label %.critedge.i, !llvm.loop !52
+  br i1 %49, label %35, label %.critedge.i, !llvm.loop !53
 
 .critedge.i:                                      ; preds = %47, %39, %35
   %.121.ph.i = phi i64 [ %.02038.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
@@ -784,13 +784,13 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %HexStringToBytes.exit.thread
 
 HexStringToBytes.exit.thread:                     ; preds = %51, %28
-  store ptr null, ptr %2, align 8, !tbaa !42
+  store ptr null, ptr %2, align 8, !tbaa !43
   br label %53
 
 HexStringToBytes.exit.thread24:                   ; preds = %.critedge.i, %.preheader.i
-  store ptr %31, ptr %2, align 8, !tbaa !42
+  store ptr %31, ptr %2, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %30, ptr %52, align 8, !tbaa !53
+  store i64 %30, ptr %52, align 8, !tbaa !54
   br label %53
 
 53:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit.thread24, %24, %11
@@ -851,36 +851,37 @@ attributes #21 = { nounwind willreturn memory(read) }
 !18 = !{!16, !17, i64 8}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22, !25}
-!25 = !{!"llvm.loop.unswitch.partial.disable"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!28 = !{!29, !12, i64 8}
-!29 = !{!"WebPPicture", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !12, i64 40, !12, i64 44, !14, i64 48, !12, i64 56, !7, i64 60, !30, i64 72, !12, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !12, i64 112, !14, i64 120, !31, i64 128, !12, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !14, i64 176, !14, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
-!30 = !{!"p1 int", !6, i64 0}
-!31 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
-!32 = !{!29, !12, i64 12}
-!33 = !{!16, !17, i64 16}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS15png_text_struct", !6, i64 0}
-!36 = !{!37, !14, i64 8}
-!37 = !{!"png_text_struct", !12, i64 0, !14, i64 8, !14, i64 16, !17, i64 24, !17, i64 32, !14, i64 40, !14, i64 48}
-!38 = distinct !{!38, !22}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"", !14, i64 0, !6, i64 8, !17, i64 16}
-!41 = !{!40, !17, i64 16}
-!42 = !{!43, !14, i64 0}
-!43 = !{!"MetadataPayload", !14, i64 0, !17, i64 8}
-!44 = !{!37, !12, i64 0}
-!45 = !{!17, !17, i64 0}
-!46 = !{!40, !6, i64 8}
-!47 = !{!37, !14, i64 16}
-!48 = distinct !{!48, !22}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22, !26}
+!26 = !{!"llvm.loop.unswitch.partial.disable"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!29 = !{!30, !12, i64 8}
+!30 = !{!"WebPPicture", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !12, i64 40, !12, i64 44, !14, i64 48, !12, i64 56, !7, i64 60, !31, i64 72, !12, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !12, i64 112, !14, i64 120, !32, i64 128, !12, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !14, i64 176, !14, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
+!31 = !{!"p1 int", !6, i64 0}
+!32 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
+!33 = !{!30, !12, i64 12}
+!34 = !{!16, !17, i64 16}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS15png_text_struct", !6, i64 0}
+!37 = !{!38, !14, i64 8}
+!38 = !{!"png_text_struct", !12, i64 0, !14, i64 8, !14, i64 16, !17, i64 24, !17, i64 32, !14, i64 40, !14, i64 48}
+!39 = distinct !{!39, !22}
+!40 = !{!41, !14, i64 0}
+!41 = !{!"", !14, i64 0, !6, i64 8, !17, i64 16}
+!42 = !{!41, !17, i64 16}
+!43 = !{!44, !14, i64 0}
+!44 = !{!"MetadataPayload", !14, i64 0, !17, i64 8}
+!45 = !{!38, !12, i64 0}
+!46 = !{!17, !17, i64 0}
+!47 = !{!41, !6, i64 8}
+!48 = !{!38, !14, i64 16}
 !49 = distinct !{!49, !22}
-!50 = !{!7, !7, i64 0}
-!51 = distinct !{!51, !22}
+!50 = distinct !{!50, !22}
+!51 = !{!7, !7, i64 0}
 !52 = distinct !{!52, !22}
-!53 = !{!43, !17, i64 8}
+!53 = distinct !{!53, !22}
+!54 = !{!44, !17, i64 8}

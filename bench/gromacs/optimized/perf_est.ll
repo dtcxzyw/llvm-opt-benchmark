@@ -113,14 +113,14 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %55 = fadd double %.2.us, %54
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.063.074.us, i64 56
   %.not69.us = icmp eq ptr %56, %34
-  br i1 %.not69.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not69.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !131
 
 57:                                               ; preds = %95, %.lr.ph.split.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %95 ], [ 0, %.lr.ph.split.us ]
   %.15071.us = phi double [ %.2.us, %95 ], [ %.04976.us, %.lr.ph.split.us ]
   %.15270.us = phi double [ %.253.us, %95 ], [ %.05175.us, %.lr.ph.split.us ]
   %58 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 5
-  %59 = load i32, ptr %58, align 4, !tbaa !131
+  %59 = load i32, ptr %58, align 4, !tbaa !133
   %60 = and i32 %59, 1
   %.not62.us = icmp eq i32 %60, 0
   br i1 %.not62.us, label %95, label %61
@@ -139,7 +139,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 63:                                               ; preds = %61, %61, %61, %61
   %64 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
-  %65 = load i32, ptr %64, align 16, !tbaa !134
+  %65 = load i32, ptr %64, align 16, !tbaa !136
   %66 = add nsw i32 %65, -1
   %67 = sitofp i32 %66 to double
   %68 = fmul double %.1, %67
@@ -151,7 +151,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 71:                                               ; preds = %61
   %72 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
-  %73 = load i32, ptr %72, align 16, !tbaa !134
+  %73 = load i32, ptr %72, align 16, !tbaa !136
   %74 = add nsw i32 %73, -1
   %75 = sitofp i32 %74 to double
   br label %76
@@ -162,8 +162,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %77 = load i32, ptr %41, align 4, !tbaa !113
   %78 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %42, i64 0, i64 %indvars.iv81
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !135
-  %81 = load ptr, ptr %78, align 8, !tbaa !136
+  %80 = load ptr, ptr %79, align 8, !tbaa !137
+  %81 = load ptr, ptr %78, align 8, !tbaa !138
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
@@ -171,7 +171,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %86 = trunc i64 %85 to i32
   %87 = mul nsw i32 %77, %86
   %88 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
-  %89 = load i32, ptr %88, align 16, !tbaa !134
+  %89 = load i32, ptr %88, align 16, !tbaa !136
   %90 = add nsw i32 %89, 1
   %91 = sdiv i32 %87, %90
   %92 = sitofp i32 %91 to double
@@ -184,7 +184,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.2.us = phi double [ %93, %76 ], [ %.15071.us, %57 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 95
-  br i1 %exitcond84.not, label %43, label %57, !llvm.loop !137
+  br i1 %exitcond84.not, label %43, label %57, !llvm.loop !139
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %invariant.gep = getelementptr i8, ptr %36, i64 80
@@ -193,7 +193,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 ._crit_edge:                                      ; preds = %140, %43, %30
   %.051.lcssa = phi double [ 0.000000e+00, %30 ], [ %.253.us, %43 ], [ %.253, %140 ]
   %.049.lcssa = phi double [ 0.000000e+00, %30 ], [ %55, %43 ], [ %.2, %140 ]
-  %96 = load ptr, ptr @debug, align 8, !tbaa !139
+  %96 = load ptr, ptr @debug, align 8, !tbaa !141
   %.not59 = icmp eq ptr %96, null
   br i1 %.not59, label %144, label %142
 
@@ -212,7 +212,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.15071 = phi double [ %.04976, %97 ], [ %.2, %139 ]
   %.15270 = phi double [ %.05175, %97 ], [ %.253, %139 ]
   %102 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
-  %103 = load i32, ptr %102, align 4, !tbaa !131
+  %103 = load i32, ptr %102, align 4, !tbaa !133
   %104 = and i32 %103, 1
   %.not62 = icmp eq i32 %104, 0
   br i1 %.not62, label %139, label %105
@@ -234,7 +234,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 108:                                              ; preds = %105, %105, %105, %105
   %109 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
-  %110 = load i32, ptr %109, align 16, !tbaa !134
+  %110 = load i32, ptr %109, align 16, !tbaa !136
   %111 = add nsw i32 %110, -1
   %112 = sitofp i32 %111 to double
   %113 = fmul double %.1, %112
@@ -243,7 +243,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 115:                                              ; preds = %105
   %116 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
-  %117 = load i32, ptr %116, align 16, !tbaa !134
+  %117 = load i32, ptr %116, align 16, !tbaa !136
   %118 = add nsw i32 %117, -1
   %119 = sitofp i32 %118 to double
   br label %120
@@ -254,8 +254,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %121 = load i32, ptr %100, align 4, !tbaa !113
   %122 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %gep, i64 0, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !135
-  %125 = load ptr, ptr %122, align 8, !tbaa !136
+  %124 = load ptr, ptr %123, align 8, !tbaa !137
+  %125 = load ptr, ptr %122, align 8, !tbaa !138
   %126 = ptrtoint ptr %124 to i64
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
@@ -263,7 +263,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %130 = trunc i64 %129 to i32
   %131 = mul nsw i32 %121, %130
   %132 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
-  %133 = load i32, ptr %132, align 16, !tbaa !134
+  %133 = load i32, ptr %132, align 16, !tbaa !136
   %134 = add nsw i32 %133, 1
   %135 = sdiv i32 %131, %134
   %136 = sitofp i32 %135 to double
@@ -276,7 +276,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.2 = phi double [ %137, %120 ], [ %.15071, %101 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 95
-  br i1 %exitcond.not, label %140, label %101, !llvm.loop !137
+  br i1 %exitcond.not, label %140, label %101, !llvm.loop !139
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 56
@@ -292,7 +292,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br i1 %.not60, label %146, label %145
 
 145:                                              ; preds = %144
-  store double %.049.lcssa, ptr %2, align 8, !tbaa !141
+  store double %.049.lcssa, ptr %2, align 8, !tbaa !143
   br label %146
 
 146:                                              ; preds = %145, %144
@@ -300,7 +300,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br i1 %.not61, label %148, label %147
 
 147:                                              ; preds = %146
-  store double %.051.lcssa, ptr %3, align 8, !tbaa !141
+  store double %.051.lcssa, ptr %3, align 8, !tbaa !143
   br label %148
 
 148:                                              ; preds = %147, %146
@@ -329,8 +329,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   call void @_Z22count_bonded_distancesRK10gmx_mtop_tRK10t_inputrecPdS5_(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(880) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %5 = load double, ptr %3, align 8, !tbaa !141
-  %6 = load double, ptr %4, align 8, !tbaa !141
+  %5 = load double, ptr %3, align 8, !tbaa !143
+  %6 = load double, ptr %4, align 8, !tbaa !143
   %7 = call double @llvm.fmuladd.f64(double %5, double 5.000000e+00, double %6)
   %8 = fmul double %7, 2.500000e+01
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 364
@@ -341,7 +341,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %switch.masked = trunc i17 %switch.downshift to i1
   %11 = select i1 %10, i1 %switch.masked, i1 false
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !142
+  %13 = load ptr, ptr %12, align 8, !tbaa !144
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load ptr, ptr %14, align 8, !tbaa !106
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -351,7 +351,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
 
 .lr.ph112.i:                                      ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !145
+  %19 = load i32, ptr %18, align 8, !tbaa !147
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load ptr, ptr %20, align 8, !tbaa !108
   %22 = add nsw i32 %19, 1
@@ -363,39 +363,39 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.082.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.081.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = load i32, ptr %23, align 8, !tbaa !185
+  %24 = load i32, ptr %23, align 8, !tbaa !187
   %25 = add i32 %.081.lcssa.i, %.082.lcssa.i
   %26 = sub i32 %24, %25
   %27 = add nsw i32 %26, %.081.lcssa.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %29 = load float, ptr %28, align 4, !tbaa !186
+  %29 = load float, ptr %28, align 4, !tbaa !188
   %30 = sitofp i32 %24 to float
-  %31 = load float, ptr %2, align 4, !tbaa !187
+  %31 = load float, ptr %2, align 4, !tbaa !189
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load float, ptr %33, align 4, !tbaa !187
+  %34 = load float, ptr %33, align 4, !tbaa !189
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %37 = load float, ptr %36, align 4, !tbaa !187
+  %37 = load float, ptr %36, align 4, !tbaa !189
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %39 = load float, ptr %38, align 4, !tbaa !187
+  %39 = load float, ptr %38, align 4, !tbaa !189
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %41 = load float, ptr %40, align 4, !tbaa !187
+  %41 = load float, ptr %40, align 4, !tbaa !189
   %42 = fneg float %41
   %43 = fmul float %39, %42
   %44 = call float @llvm.fmuladd.f32(float %34, float %37, float %43)
-  %45 = load float, ptr %32, align 4, !tbaa !187
+  %45 = load float, ptr %32, align 4, !tbaa !189
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %47 = load float, ptr %46, align 4, !tbaa !187
+  %47 = load float, ptr %46, align 4, !tbaa !189
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load float, ptr %48, align 4, !tbaa !187
+  %49 = load float, ptr %48, align 4, !tbaa !189
   %50 = fneg float %49
   %51 = fmul float %39, %50
   %52 = call float @llvm.fmuladd.f32(float %47, float %37, float %51)
   %53 = fneg float %52
   %54 = fmul float %45, %53
   %55 = call float @llvm.fmuladd.f32(float %31, float %44, float %54)
-  %56 = load float, ptr %35, align 4, !tbaa !187
+  %56 = load float, ptr %35, align 4, !tbaa !189
   %57 = fmul float %34, %50
   %58 = call float @llvm.fmuladd.f32(float %47, float %41, float %57)
   %59 = call noundef float @llvm.fmuladd.f32(float %56, float %58, float %55)
@@ -406,33 +406,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %64 = fmul double %63, 0x4000C152382D7365
   %65 = fmul double %64, %63
   %66 = fmul double %65, %63
-  %67 = load i32, ptr %23, align 8, !tbaa !185
+  %67 = load i32, ptr %23, align 8, !tbaa !187
   %68 = sitofp i32 %67 to double
   %69 = fmul double %66, %68
-  %70 = load float, ptr %2, align 4, !tbaa !187
-  %71 = load float, ptr %33, align 4, !tbaa !187
-  %72 = load float, ptr %36, align 4, !tbaa !187
-  %73 = load float, ptr %38, align 4, !tbaa !187
-  %74 = load float, ptr %40, align 4, !tbaa !187
+  %70 = load float, ptr %2, align 4, !tbaa !189
+  %71 = load float, ptr %33, align 4, !tbaa !189
+  %72 = load float, ptr %36, align 4, !tbaa !189
+  %73 = load float, ptr %38, align 4, !tbaa !189
+  %74 = load float, ptr %40, align 4, !tbaa !189
   %75 = fneg float %74
   %76 = fmul float %73, %75
   %77 = call float @llvm.fmuladd.f32(float %71, float %72, float %76)
-  %78 = load float, ptr %32, align 4, !tbaa !187
-  %79 = load float, ptr %46, align 4, !tbaa !187
-  %80 = load float, ptr %48, align 4, !tbaa !187
+  %78 = load float, ptr %32, align 4, !tbaa !189
+  %79 = load float, ptr %46, align 4, !tbaa !189
+  %80 = load float, ptr %48, align 4, !tbaa !189
   %81 = fneg float %80
   %82 = fmul float %73, %81
   %83 = call float @llvm.fmuladd.f32(float %79, float %72, float %82)
   %84 = fneg float %83
   %85 = fmul float %78, %84
   %86 = call float @llvm.fmuladd.f32(float %70, float %77, float %85)
-  %87 = load float, ptr %35, align 4, !tbaa !187
+  %87 = load float, ptr %35, align 4, !tbaa !189
   %88 = fmul float %71, %81
   %89 = call float @llvm.fmuladd.f32(float %79, float %74, float %88)
   %90 = call noundef float @llvm.fmuladd.f32(float %87, float %89, float %86)
   %91 = fpext float %90 to double
   %92 = fdiv double %69, %91
-  %93 = load ptr, ptr @debug, align 8, !tbaa !139
+  %93 = load ptr, ptr @debug, align 8, !tbaa !141
   %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, label %139
 
@@ -447,7 +447,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %97 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %21, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !188
+  %100 = load ptr, ptr %99, align 8, !tbaa !190
   %101 = load i32, ptr %98, align 8, !tbaa !116
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph.i, label %._crit_edge.i
@@ -465,29 +465,29 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.183104.i = phi i32 [ %.082110.i, %.lr.ph.i ], [ %.284.i, %131 ]
   %105 = getelementptr inbounds nuw %struct.t_atom, ptr %100, i64 %indvars.iv.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %107 = load float, ptr %106, align 4, !tbaa !189
+  %107 = load float, ptr %106, align 4, !tbaa !191
   %108 = fcmp une float %107, 0.000000e+00
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %111 = load float, ptr %110, align 4, !tbaa !193
+  %111 = load float, ptr %110, align 4, !tbaa !195
   %112 = fcmp une float %111, 0.000000e+00
   br i1 %112, label %113, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %109
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !194
+  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !196
   br label %131
 
 113:                                              ; preds = %109, %104
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %115 = load i16, ptr %114, align 4, !tbaa !194
+  %115 = load i16, ptr %114, align 4, !tbaa !196
   %116 = zext i16 %115 to i32
   %117 = mul nsw i32 %22, %116
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds %union.t_iparams, ptr %13, i64 %118
-  %120 = load float, ptr %119, align 4, !tbaa !195
+  %120 = load float, ptr %119, align 4, !tbaa !197
   %121 = fcmp une float %120, 0.000000e+00
   br i1 %121, label %._crit_edge117.i, label %122
 
@@ -497,7 +497,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
 
 122:                                              ; preds = %113
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %124 = load float, ptr %123, align 4, !tbaa !195
+  %124 = load float, ptr %123, align 4, !tbaa !197
   %125 = fcmp une float %124, 0.000000e+00
   %.pre118.i = load i32, ptr %103, align 4, !tbaa !113
   br i1 %125, label %126, label %129
@@ -516,16 +516,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.284.i = phi i32 [ %.183104.i, %126 ], [ %130, %129 ], [ %.183104.i, %._crit_edge ]
   %.2.i = phi i32 [ %128, %126 ], [ %.1105.i, %129 ], [ %.1105.i, %._crit_edge ]
   %133 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %134 = load float, ptr %133, align 4, !tbaa !193
+  %134 = load float, ptr %133, align 4, !tbaa !195
   %135 = fcmp une float %107, %134
   %.4 = select i1 %135, i1 true, i1 %.3
   %136 = getelementptr inbounds nuw i8, ptr %105, i64 18
-  %137 = load i16, ptr %136, align 2, !tbaa !196
+  %137 = load i16, ptr %136, align 2, !tbaa !198
   %.not91.i = icmp ne i16 %132, %137
   %.471 = select i1 %.not91.i, i1 true, i1 %.370
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %104, !llvm.loop !197
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %104, !llvm.loop !199
 
 ._crit_edge.i:                                    ; preds = %131, %94
   %.168 = phi i1 [ %.067, %94 ], [ %.471, %131 ]
@@ -537,7 +537,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   br i1 %.not103.i, label %._crit_edge113.i, label %94
 
 139:                                              ; preds = %._crit_edge113.i
-  %140 = load float, ptr %28, align 4, !tbaa !186
+  %140 = load float, ptr %28, align 4, !tbaa !188
   %141 = fpext float %140 to double
   %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %93, ptr noundef nonnull @.str.3, i32 noundef %.081.lcssa.i, i32 noundef %.082.lcssa.i, i32 noundef %26, double noundef %141, double noundef %63, double noundef %92) #6
   br label %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit
@@ -548,7 +548,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %145 = select i1 %144, double 2.900000e+00, double 4.200000e+00
   %146 = select i1 %144, double 2.400000e+00, double 3.800000e+00
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 396
-  %148 = load i32, ptr %147, align 4, !tbaa !198
+  %148 = load i32, ptr %147, align 4, !tbaa !200
   %149 = icmp eq i32 %148, 3
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %.val94.i = load i32, ptr %150, align 8
@@ -575,7 +575,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %164 = call double @llvm.fmuladd.f64(double %163, double %.189.i, double %162)
   %165 = fmul double %92, %164
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %167 = load i32, ptr %166, align 4, !tbaa !199
+  %167 = load i32, ptr %166, align 4, !tbaa !201
   %168 = add nsw i32 %167, 1
   %169 = sdiv i32 %168, 2
   %.val = load i32, ptr %9, align 4, !tbaa !102
@@ -589,14 +589,14 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
 
 170:                                              ; preds = %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %172 = load i32, ptr %171, align 4, !tbaa !200
+  %172 = load i32, ptr %171, align 4, !tbaa !202
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %174 = load i32, ptr %173, align 8, !tbaa !201
+  %174 = load i32, ptr %173, align 8, !tbaa !203
   %175 = mul i32 %172, %169
   %176 = mul i32 %175, %174
   %177 = sitofp i32 %176 to double
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 420
-  %179 = load i32, ptr %178, align 4, !tbaa !202
+  %179 = load i32, ptr %178, align 4, !tbaa !204
   %180 = icmp ne i32 %179, 0
   %181 = select i1 %180, i1 %.2, i1 false
   %182 = sitofp i32 %25 to double
@@ -605,7 +605,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %185 = fmul double %184, 5.000000e+00
   %186 = fmul double %185, %182
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %188 = load i32, ptr %187, align 8, !tbaa !203
+  %188 = load i32, ptr %187, align 8, !tbaa !205
   %189 = mul nsw i32 %188, %188
   %190 = mul nsw i32 %189, %188
   %191 = sitofp i32 %190 to double
@@ -630,14 +630,14 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
 
 202:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %204 = load i32, ptr %203, align 4, !tbaa !200
+  %204 = load i32, ptr %203, align 4, !tbaa !202
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %206 = load i32, ptr %205, align 8, !tbaa !201
+  %206 = load i32, ptr %205, align 8, !tbaa !203
   %207 = mul i32 %204, %169
   %208 = mul i32 %207, %206
   %209 = sitofp i32 %208 to double
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 420
-  %211 = load i32, ptr %210, align 4, !tbaa !202
+  %211 = load i32, ptr %210, align 4, !tbaa !204
   %212 = icmp ne i32 %211, 0
   %213 = select i1 %212, i1 %.269, i1 false
   %214 = select i1 %213, i32 2, i32 1
@@ -650,7 +650,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %220 = uitofp nneg i32 %219 to double
   %221 = fmul double %217, %220
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %223 = load i32, ptr %222, align 8, !tbaa !203
+  %223 = load i32, ptr %222, align 8, !tbaa !205
   %224 = mul nsw i32 %223, %223
   %225 = mul nsw i32 %224, %223
   %226 = sitofp i32 %225 to double
@@ -680,13 +680,13 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %244 = fadd double %243, %242
   %245 = fdiv double %242, %244
   %246 = fptrunc double %245 to float
-  %247 = load ptr, ptr @debug, align 8, !tbaa !139
+  %247 = load ptr, ptr @debug, align 8, !tbaa !141
   %.not = icmp eq ptr %247, null
   br i1 %.not, label %253, label %248
 
 248:                                              ; preds = %239
   %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %247, ptr noundef nonnull @.str.1, double noundef %8, double noundef %165, double noundef %.1, double noundef %.155, double noundef %.157, double noundef %.159) #6
-  %250 = load ptr, ptr @debug, align 8, !tbaa !139
+  %250 = load ptr, ptr @debug, align 8, !tbaa !141
   %251 = fpext float %246 to double
   %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.2, double noundef %251) #6
   br label %253
@@ -846,76 +846,78 @@ attributes #6 = { nounwind }
 !128 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !129, i64 0}
 !129 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !130, i64 0}
 !130 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !92, i64 0, !92, i64 8, !92, i64 16}
-!131 = !{!132, !6, i64 28}
-!132 = !{!"_ZTS22t_interaction_function", !133, i64 0, !133, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
-!133 = !{!"p1 omnipotent char", !20, i64 0}
-!134 = !{!132, !6, i64 16}
-!135 = !{!130, !92, i64 8}
-!136 = !{!130, !92, i64 0}
-!137 = distinct !{!137, !138}
-!138 = !{!"llvm.loop.mustprogress"}
-!139 = !{!140, !140, i64 0}
-!140 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
-!141 = !{!13, !13, i64 0}
-!142 = !{!143, !144, i64 0}
-!143 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE17_Vector_impl_dataE", !144, i64 0, !144, i64 8, !144, i64 16}
-!144 = !{!"p1 _ZTS9t_iparams", !20, i64 0}
-!145 = !{!146, !6, i64 8}
-!146 = !{!"_ZTS10gmx_mtop_t", !118, i64 0, !147, i64 8, !157, i64 112, !160, i64 136, !14, i64 160, !164, i64 168, !6, i64 176, !171, i64 184, !178, i64 688, !14, i64 704, !127, i64 712, !180, i64 736, !6, i64 760, !6, i64 764}
-!147 = !{!"_ZTS14gmx_ffparams_t", !6, i64 0, !127, i64 8, !148, i64 32, !13, i64 56, !21, i64 64, !151, i64 72}
-!148 = !{!"_ZTSSt6vectorI9t_iparamsSaIS0_EE", !149, i64 0}
-!149 = !{!"_ZTSSt12_Vector_baseI9t_iparamsSaIS0_EE", !150, i64 0}
-!150 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE12_Vector_implE", !143, i64 0}
-!151 = !{!"_ZTS10gmx_cmap_t", !6, i64 0, !152, i64 8}
-!152 = !{!"_ZTSSt6vectorI14gmx_cmapdata_tSaIS0_EE", !153, i64 0}
-!153 = !{!"_ZTSSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE", !154, i64 0}
-!154 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE12_Vector_implE", !155, i64 0}
-!155 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE17_Vector_impl_dataE", !156, i64 0, !156, i64 8, !156, i64 16}
-!156 = !{!"p1 _ZTS14gmx_cmapdata_t", !20, i64 0}
-!157 = !{!"_ZTSSt6vectorI13gmx_moltype_tSaIS0_EE", !158, i64 0}
-!158 = !{!"_ZTSSt12_Vector_baseI13gmx_moltype_tSaIS0_EE", !159, i64 0}
-!159 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE12_Vector_implE", !109, i64 0}
-!160 = !{!"_ZTSSt6vectorI14gmx_molblock_tSaIS0_EE", !161, i64 0}
-!161 = !{!"_ZTSSt12_Vector_baseI14gmx_molblock_tSaIS0_EE", !162, i64 0}
-!162 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE12_Vector_implE", !163, i64 0}
-!163 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE17_Vector_impl_dataE", !107, i64 0, !107, i64 8, !107, i64 16}
-!164 = !{!"_ZTSSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !165, i64 0}
-!165 = !{!"_ZTSSt15__uniq_ptr_dataISt5arrayI15InteractionListLm95EESt14default_deleteIS2_ELb1ELb1EE", !166, i64 0}
-!166 = !{!"_ZTSSt15__uniq_ptr_implISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !167, i64 0}
-!167 = !{!"_ZTSSt5tupleIJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !168, i64 0}
-!168 = !{!"_ZTSSt11_Tuple_implILm0EJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !169, i64 0}
-!169 = !{!"_ZTSSt10_Head_baseILm0EPSt5arrayI15InteractionListLm95EELb0EE", !170, i64 0}
-!170 = !{!"p1 _ZTSSt5arrayI15InteractionListLm95EE", !20, i64 0}
-!171 = !{!"_ZTS16SimulationGroups", !172, i64 0, !173, i64 240, !177, i64 264}
-!172 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EEE", !7, i64 0}
-!173 = !{!"_ZTSSt6vectorIPPcSaIS1_EE", !174, i64 0}
-!174 = !{!"_ZTSSt12_Vector_baseIPPcSaIS1_EE", !175, i64 0}
-!175 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE12_Vector_implE", !176, i64 0}
-!176 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE17_Vector_impl_dataE", !121, i64 0, !121, i64 8, !121, i64 16}
-!177 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EEE", !7, i64 0}
-!178 = !{!"_ZTS8t_symtab", !6, i64 0, !179, i64 8}
-!179 = !{!"p1 _ZTS8t_symbuf", !20, i64 0}
-!180 = !{!"_ZTSSt6vectorI20MoleculeBlockIndicesSaIS0_EE", !181, i64 0}
-!181 = !{!"_ZTSSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE", !182, i64 0}
-!182 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE12_Vector_implE", !183, i64 0}
-!183 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE17_Vector_impl_dataE", !184, i64 0, !184, i64 8, !184, i64 16}
-!184 = !{!"p1 _ZTS20MoleculeBlockIndices", !20, i64 0}
-!185 = !{!146, !6, i64 176}
-!186 = !{!5, !21, i64 356}
-!187 = !{!21, !21, i64 0}
-!188 = !{!117, !120, i64 16}
-!189 = !{!190, !21, i64 4}
-!190 = !{!"_ZTS6t_atom", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !191, i64 16, !191, i64 18, !192, i64 20, !6, i64 24, !6, i64 28, !7, i64 32}
-!191 = !{!"short", !7, i64 0}
-!192 = !{!"_ZTS12ParticleType", !7, i64 0}
-!193 = !{!190, !21, i64 12}
-!194 = !{!190, !191, i64 16}
-!195 = !{!7, !7, i64 0}
-!196 = !{!190, !191, i64 18}
-!197 = distinct !{!197, !138}
-!198 = !{!5, !37, i64 396}
-!199 = !{!5, !6, i64 148}
-!200 = !{!5, !6, i64 140}
-!201 = !{!5, !6, i64 144}
-!202 = !{!5, !40, i64 420}
-!203 = !{!5, !6, i64 152}
+!131 = distinct !{!131, !132}
+!132 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!133 = !{!134, !6, i64 28}
+!134 = !{!"_ZTS22t_interaction_function", !135, i64 0, !135, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
+!135 = !{!"p1 omnipotent char", !20, i64 0}
+!136 = !{!134, !6, i64 16}
+!137 = !{!130, !92, i64 8}
+!138 = !{!130, !92, i64 0}
+!139 = distinct !{!139, !140}
+!140 = !{!"llvm.loop.mustprogress"}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
+!143 = !{!13, !13, i64 0}
+!144 = !{!145, !146, i64 0}
+!145 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE17_Vector_impl_dataE", !146, i64 0, !146, i64 8, !146, i64 16}
+!146 = !{!"p1 _ZTS9t_iparams", !20, i64 0}
+!147 = !{!148, !6, i64 8}
+!148 = !{!"_ZTS10gmx_mtop_t", !118, i64 0, !149, i64 8, !159, i64 112, !162, i64 136, !14, i64 160, !166, i64 168, !6, i64 176, !173, i64 184, !180, i64 688, !14, i64 704, !127, i64 712, !182, i64 736, !6, i64 760, !6, i64 764}
+!149 = !{!"_ZTS14gmx_ffparams_t", !6, i64 0, !127, i64 8, !150, i64 32, !13, i64 56, !21, i64 64, !153, i64 72}
+!150 = !{!"_ZTSSt6vectorI9t_iparamsSaIS0_EE", !151, i64 0}
+!151 = !{!"_ZTSSt12_Vector_baseI9t_iparamsSaIS0_EE", !152, i64 0}
+!152 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE12_Vector_implE", !145, i64 0}
+!153 = !{!"_ZTS10gmx_cmap_t", !6, i64 0, !154, i64 8}
+!154 = !{!"_ZTSSt6vectorI14gmx_cmapdata_tSaIS0_EE", !155, i64 0}
+!155 = !{!"_ZTSSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE", !156, i64 0}
+!156 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE12_Vector_implE", !157, i64 0}
+!157 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE17_Vector_impl_dataE", !158, i64 0, !158, i64 8, !158, i64 16}
+!158 = !{!"p1 _ZTS14gmx_cmapdata_t", !20, i64 0}
+!159 = !{!"_ZTSSt6vectorI13gmx_moltype_tSaIS0_EE", !160, i64 0}
+!160 = !{!"_ZTSSt12_Vector_baseI13gmx_moltype_tSaIS0_EE", !161, i64 0}
+!161 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE12_Vector_implE", !109, i64 0}
+!162 = !{!"_ZTSSt6vectorI14gmx_molblock_tSaIS0_EE", !163, i64 0}
+!163 = !{!"_ZTSSt12_Vector_baseI14gmx_molblock_tSaIS0_EE", !164, i64 0}
+!164 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE12_Vector_implE", !165, i64 0}
+!165 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE17_Vector_impl_dataE", !107, i64 0, !107, i64 8, !107, i64 16}
+!166 = !{!"_ZTSSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !167, i64 0}
+!167 = !{!"_ZTSSt15__uniq_ptr_dataISt5arrayI15InteractionListLm95EESt14default_deleteIS2_ELb1ELb1EE", !168, i64 0}
+!168 = !{!"_ZTSSt15__uniq_ptr_implISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !169, i64 0}
+!169 = !{!"_ZTSSt5tupleIJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !170, i64 0}
+!170 = !{!"_ZTSSt11_Tuple_implILm0EJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !171, i64 0}
+!171 = !{!"_ZTSSt10_Head_baseILm0EPSt5arrayI15InteractionListLm95EELb0EE", !172, i64 0}
+!172 = !{!"p1 _ZTSSt5arrayI15InteractionListLm95EE", !20, i64 0}
+!173 = !{!"_ZTS16SimulationGroups", !174, i64 0, !175, i64 240, !179, i64 264}
+!174 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EEE", !7, i64 0}
+!175 = !{!"_ZTSSt6vectorIPPcSaIS1_EE", !176, i64 0}
+!176 = !{!"_ZTSSt12_Vector_baseIPPcSaIS1_EE", !177, i64 0}
+!177 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE12_Vector_implE", !178, i64 0}
+!178 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE17_Vector_impl_dataE", !121, i64 0, !121, i64 8, !121, i64 16}
+!179 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EEE", !7, i64 0}
+!180 = !{!"_ZTS8t_symtab", !6, i64 0, !181, i64 8}
+!181 = !{!"p1 _ZTS8t_symbuf", !20, i64 0}
+!182 = !{!"_ZTSSt6vectorI20MoleculeBlockIndicesSaIS0_EE", !183, i64 0}
+!183 = !{!"_ZTSSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE", !184, i64 0}
+!184 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE12_Vector_implE", !185, i64 0}
+!185 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE17_Vector_impl_dataE", !186, i64 0, !186, i64 8, !186, i64 16}
+!186 = !{!"p1 _ZTS20MoleculeBlockIndices", !20, i64 0}
+!187 = !{!148, !6, i64 176}
+!188 = !{!5, !21, i64 356}
+!189 = !{!21, !21, i64 0}
+!190 = !{!117, !120, i64 16}
+!191 = !{!192, !21, i64 4}
+!192 = !{!"_ZTS6t_atom", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !193, i64 16, !193, i64 18, !194, i64 20, !6, i64 24, !6, i64 28, !7, i64 32}
+!193 = !{!"short", !7, i64 0}
+!194 = !{!"_ZTS12ParticleType", !7, i64 0}
+!195 = !{!192, !21, i64 12}
+!196 = !{!192, !193, i64 16}
+!197 = !{!7, !7, i64 0}
+!198 = !{!192, !193, i64 18}
+!199 = distinct !{!199, !140}
+!200 = !{!5, !37, i64 396}
+!201 = !{!5, !6, i64 148}
+!202 = !{!5, !6, i64 140}
+!203 = !{!5, !6, i64 144}
+!204 = !{!5, !40, i64 420}
+!205 = !{!5, !6, i64 152}

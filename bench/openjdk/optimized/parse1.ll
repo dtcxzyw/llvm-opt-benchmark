@@ -2363,7 +2363,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
 138:                                              ; preds = %.split, %131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !13
+  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !15
 
 .split93.us:                                      ; preds = %138, %121
   %139 = phi ptr [ %104, %121 ], [ %100, %138 ]
@@ -2923,7 +2923,7 @@ _ZN5Parse5BlockC2EPS_i.exit:                      ; preds = %.lr.ph, %32
   %33 = load i32, ptr %6, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.preheader, !llvm.loop !14
+  br i1 %35, label %.lr.ph, label %.preheader, !llvm.loop !16
 
 .lr.ph12:                                         ; preds = %.preheader, %.lr.ph12
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.lr.ph12 ], [ 0, %.preheader ]
@@ -2934,7 +2934,7 @@ _ZN5Parse5BlockC2EPS_i.exit:                      ; preds = %.lr.ph, %32
   %38 = load i32, ptr %6, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next15, %39
-  br i1 %40, label %.lr.ph12, label %._crit_edge, !llvm.loop !15
+  br i1 %40, label %.lr.ph12, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph12, %1, %.preheader
   ret void
@@ -4065,7 +4065,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
 _ZN4Node8init_reqEjPS_.exit:                      ; preds = %192, %200, %211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %217, label %192, !llvm.loop !16
+  br i1 %exitcond.not, label %217, label %192, !llvm.loop !18
 
 217:                                              ; preds = %_ZN4Node8init_reqEjPS_.exit
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4174,7 +4174,7 @@ _ZN8GraphKit12ensure_stackEj.exit:                ; preds = %223, %240
 _ZN4Node8init_reqEjPS_.exit36:                    ; preds = %244, %262, %273
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
-  br i1 %exitcond51.not, label %.preheader, label %244, !llvm.loop !17
+  br i1 %exitcond51.not, label %.preheader, label %244, !llvm.loop !19
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %_ZN4Node8init_reqEjPS_.exit40
   %indvars.iv52 = phi i64 [ %243, %.lr.ph46.preheader ], [ %indvars.iv.next53, %_ZN4Node8init_reqEjPS_.exit40 ]
@@ -4223,7 +4223,7 @@ _ZN4Node8init_reqEjPS_.exit40:                    ; preds = %.lr.ph46, %286, %29
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next53 to i32
   %exitcond55.not = icmp eq i32 %12, %lftr.wideiv
-  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !18
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit40, %.preheader
   %303 = load ptr, ptr %151, align 8
@@ -4657,7 +4657,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i:  ; preds = %_ZN5Parse13set_pars
 73:                                               ; preds = %69
   %74 = load ptr, ptr %.07.i.i, align 8
   %.not.i.i89 = icmp eq ptr %74, null
-  br i1 %.not.i.i89, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i89, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !21
 
 _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %73, %.preheader.i.i
   %75 = load ptr, ptr %60, align 8
@@ -5166,7 +5166,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i: ; preds = %_ZNK8GraphKit15rec
 359:                                              ; preds = %355
   %360 = load ptr, ptr %.07.i.i.i, align 8
   %.not.i.i.i114 = icmp eq ptr %360, null
-  br i1 %.not.i.i.i114, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i, label %.preheader.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i114, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i, label %.preheader.i.i.i, !llvm.loop !21
 
 _ZNK5Parse5Block11is_SEL_headEv.exit.i:           ; preds = %359, %.preheader.i.i.i
   %361 = load ptr, ptr %268, align 8
@@ -5345,7 +5345,7 @@ _ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit:      ; preds = %355, %_ZNK8GraphKit
   %475 = getelementptr inbounds nuw i8, ptr %.0.i.i.i117, i64 24
   %476 = load ptr, ptr %475, align 8
   %.not6.i.i.i = icmp eq ptr %474, %476
-  br i1 %.not6.i.i.i, label %470, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit, !llvm.loop !20
+  br i1 %.not6.i.i.i, label %470, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit, !llvm.loop !22
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit:       ; preds = %470, %472
   %477 = getelementptr inbounds nuw i8, ptr %.0.i.i.i117, i64 48
@@ -5577,7 +5577,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit136:    ; preds = %_ZNK5Parse5Block17c
   %597 = load i32, ptr %382, align 8
   %598 = zext i32 %597 to i64
   %599 = icmp samesign ult i64 %indvars.iv.next, %598
-  br i1 %599, label %387, label %._crit_edge, !llvm.loop !21
+  br i1 %599, label %387, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZNK8GraphKit15record_for_igvnEP4Node.exit136, %_ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit
   br i1 %302, label %600, label %_ZN8GraphKit11set_controlEP4Node.exit144
@@ -5789,7 +5789,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i:  ; preds = %54
 68:                                               ; preds = %64
   %69 = load ptr, ptr %.07.i.i, align 8
   %.not.i.i38 = icmp eq ptr %69, null
-  br i1 %.not.i.i38, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i38, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !21
 
 _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %68, %.preheader.i.i
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -6255,11 +6255,11 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit54:     ; preds = %_ZN9Node_List4pushE
   %328 = load i32, ptr %7, align 8
   %329 = sext i32 %328 to i64
   %330 = icmp slt i64 %indvars.iv.next, %329
-  br i1 %330, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %330, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %327
   %or.cond3 = select i1 %6, i1 %.1, i1 false
-  br i1 %or.cond3, label %.split, label %.loopexit, !llvm.loop !23
+  br i1 %or.cond3, label %.split, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.split, %._crit_edge, %_ZNK8GraphKit15record_for_igvnEP4Node.exit54, %1
   ret void
@@ -6569,12 +6569,12 @@ _ZN8GraphKit7set_i_oEP4Node.exit:                 ; preds = %_ZN4Node7del_outEPS
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %.thread5.i.i, label %.loopexit, !llvm.loop !25
+  br i1 %182, label %.thread5.i.i, label %.loopexit, !llvm.loop !27
 
 .thread5.i.i:                                     ; preds = %.lr.ph.i.i, %.thread.i.i
   %183 = phi i32 [ %176, %.thread.i.i ], [ %168, %.lr.ph.i.i ]
   %exitcond.not.not.i.not.i = icmp eq i32 %183, %167
-  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !25
+  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.thread.i.i, %.lr.ph.i.i
   %.sroa.5.1.ph = phi i32 [ %168, %.lr.ph.i.i ], [ %176, %.thread.i.i ]
@@ -6597,7 +6597,7 @@ _ZN8GraphKit7set_i_oEP4Node.exit:                 ; preds = %_ZN4Node7del_outEPS
 _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %189, %190
   %191 = add nsw i32 %.sroa.5.1.ph, 1
   %192 = icmp slt i32 %191, %165
-  br i1 %192, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !26
+  br i1 %192, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !28
 
 _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.i.i, %157
   %193 = load ptr, ptr %33, align 8
@@ -7088,7 +7088,7 @@ _ZN8JVMState7set_bciEi.exit:                      ; preds = %449, %461
   store ptr %496, ptr %448, align 8
   %500 = load ptr, ptr %440, align 8
   %.not.i37 = icmp eq ptr %500, null
-  br i1 %.not.i37, label %_ZN8GraphKit19pop_exception_stateEv.exit.thread, label %449, !llvm.loop !27
+  br i1 %.not.i37, label %_ZN8GraphKit19pop_exception_stateEv.exit.thread, label %449, !llvm.loop !29
 
 _ZN8GraphKit19pop_exception_stateEv.exit.thread:  ; preds = %495, %437, %427
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7107,7 +7107,7 @@ _ZN8GraphKit19pop_exception_stateEv.exit.thread:  ; preds = %495, %437, %427
   call void @_ZN8GraphKit19add_exception_stateEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(84) %27, ptr noundef nonnull %505) #14
   %507 = load ptr, ptr %503, align 8
   %.not.i39 = icmp eq ptr %507, null
-  br i1 %.not.i39, label %._crit_edge, label %.lr.ph58, !llvm.loop !28
+  br i1 %.not.i39, label %._crit_edge, label %.lr.ph58, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %_ZN8GraphKit19pop_exception_stateEv.exit.thread
   %508 = load ptr, ptr %28, align 8
@@ -7180,19 +7180,19 @@ define hidden void @_ZN5Parse22ensure_phis_everywhereEv(ptr noundef nonnull read
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread5.i.i, label %.loopexit, !llvm.loop !25
+  br i1 %28, label %.thread5.i.i, label %.loopexit, !llvm.loop !27
 
 .thread5.i.i:                                     ; preds = %.lr.ph.i.i, %.thread.i.i
   %29 = phi i32 [ %22, %.thread.i.i ], [ %14, %.lr.ph.i.i ]
   %exitcond.not.not.i.not.i = icmp eq i32 %29, %13
-  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !25
+  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.thread.i.i, %.lr.ph.i.i
   %.sroa.4.1.ph = phi i32 [ %14, %.lr.ph.i.i ], [ %22, %.thread.i.i ]
   %30 = tail call noundef ptr @_ZN5Parse17ensure_memory_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.sroa.4.1.ph, i1 zeroext poison)
   %31 = add nsw i32 %.sroa.4.1.ph, 1
   %32 = icmp slt i32 %31, %11
-  br i1 %32, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !29
+  br i1 %32, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !31
 
 _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %.loopexit, %.thread5.i.i, %1
   %33 = load ptr, ptr %3, align 8
@@ -7243,7 +7243,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i:  ; preds = %_ZN14MergeMemStream
 66:                                               ; preds = %62
   %67 = load ptr, ptr %.07.i.i, align 8
   %.not.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !21
 
 _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %.preheader.i.i, %62, %66, %_ZN14MergeMemStream14next_non_emptyEv.exit, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i
   %.06.i.i = phi i1 [ false, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i ], [ false, %_ZN14MergeMemStream14next_non_emptyEv.exit ], [ true, %.preheader.i.i ], [ true, %66 ], [ false, %62 ]
@@ -7300,7 +7300,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %.preheader.i.i, %62
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 24
   %101 = load ptr, ptr %100, align 8
   %.not6.i.i.i.us = icmp eq ptr %99, %101
-  br i1 %.not6.i.i.i.us, label %95, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us, !llvm.loop !20
+  br i1 %.not6.i.i.i.us, label %95, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us, !llvm.loop !22
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us:    ; preds = %97, %95
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 48
@@ -7320,7 +7320,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us: ; preds = %_ZNK5Parse5Bloc
 110:                                              ; preds = %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us
   %111 = add nuw i32 %.01017.us, 1
   %exitcond23.not = icmp eq i32 %111, %39
-  br i1 %exitcond23.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond23.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !32
 
 .preheader:                                       ; preds = %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, %110, %_ZNK5Parse5Block11is_SEL_headEv.exit
   %.not = icmp ult i32 %49, 2
@@ -7335,7 +7335,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %.lr.ph, %_ZNK5Pars
   %112 = tail call noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.01017, i1 zeroext poison)
   %113 = add nuw i32 %.01017, 1
   %exitcond.not = icmp eq i32 %113, %39
-  br i1 %exitcond.not, label %.preheader, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, !llvm.loop !33
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
   %.019 = phi i32 [ %125, %.lr.ph20 ], [ 0, %.lr.ph20.preheader ]
@@ -7352,7 +7352,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %.lr.ph, %_ZNK5Pars
   %124 = tail call noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %123, i1 zeroext poison)
   %125 = add nuw i32 %.019, 1
   %exitcond24.not = icmp eq i32 %125, %umax
-  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph20, !llvm.loop !31
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph20, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %.preheader
   ret void
@@ -7405,7 +7405,7 @@ define hidden void @_ZN5Parse12do_one_blockEv(ptr noundef nonnull align 8 derefe
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %35 = load volatile i8, ptr %34, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !32
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !35
   %36 = and i8 %35, 2
   %.not14 = icmp eq i8 %36, 0
   br i1 %.not14, label %37, label %67
@@ -7617,7 +7617,7 @@ _ZN5Parse13set_parse_bciEi.exit13:                ; preds = %_ZN16ciBytecodeStre
 152:                                              ; preds = %153
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %153, !llvm.loop !33
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %153, !llvm.loop !36
 
 153:                                              ; preds = %152, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %152 ]
@@ -7698,7 +7698,7 @@ _ZN5Parse5mergeEi.exit:                           ; preds = %153
 
 195:                                              ; preds = %194, %193
   %196 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #14
-  br i1 %196, label %.critedge, label %82, !llvm.loop !34
+  br i1 %196, label %.critedge, label %82, !llvm.loop !37
 
 .critedge:                                        ; preds = %82, %182, %195, %67, %178, %_ZN5Parse5mergeEi.exit, %_ZN5Parse13set_parse_bciEi.exit
   ret void
@@ -8107,7 +8107,7 @@ _ZN9Node_List4pushEP4Node.exit.i.i55:             ; preds = %208, %202
 _ZN7Compile15record_for_igvnEP4Node.exit56:       ; preds = %_ZN9VectorSet8test_setEj.exit.i.i52, %_ZN9Node_List4pushEP4Node.exit.i.i55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %129, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader, label %129, !llvm.loop !38
 
 213:                                              ; preds = %.lr.ph64, %_ZN4Node8init_reqEjPS_.exit60
   %indvars.iv67 = phi i64 [ %128, %.lr.ph64 ], [ %indvars.iv.next68, %_ZN4Node8init_reqEjPS_.exit60 ]
@@ -8153,7 +8153,7 @@ _ZN4Node8init_reqEjPS_.exit60:                    ; preds = %213, %217, %228
   %234 = load i32, ptr %123, align 8
   %235 = zext i32 %234 to i64
   %236 = icmp samesign ult i64 %indvars.iv.next68, %235
-  br i1 %236, label %213, label %._crit_edge, !llvm.loop !36
+  br i1 %236, label %213, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit60, %.preheader
   store ptr %83, ptr %82, align 8
@@ -8348,7 +8348,7 @@ _ZN8GraphKit19pop_exception_stateEv.exit.i:       ; preds = %2
   call void @_ZN8GraphKit24combine_exception_statesEP13SafePointNodeS1_(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull %8, ptr noundef nonnull %5) #14
   %10 = load ptr, ptr %4, align 8
   %.not.i6.i = icmp eq ptr %10, null
-  br i1 %.not.i6.i, label %_ZN8GraphKit36combine_and_pop_all_exception_statesEv.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i6.i, label %_ZN8GraphKit36combine_and_pop_all_exception_statesEv.exit, label %.lr.ph.i, !llvm.loop !40
 
 _ZN8GraphKit36combine_and_pop_all_exception_statesEv.exit: ; preds = %.lr.ph.i, %_ZN8GraphKit19pop_exception_stateEv.exit.i
   %11 = call noundef ptr @_ZN8GraphKit19use_exception_stateEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull %5) #14
@@ -8502,7 +8502,7 @@ _ZN8GraphKit19pop_exception_stateEv.exit:         ; preds = %5, %_ZN8GraphKit19p
   tail call void @_ZN13SafePointNode18set_next_exceptionEPS_(ptr noundef nonnull align 8 dereferenceable(81) %17, ptr noundef null) #14
   %19 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8GraphKit19pop_exception_stateEv.exit.thread, label %_ZN8GraphKit19pop_exception_stateEv.exit, !llvm.loop !38
+  br i1 %.not.i, label %_ZN8GraphKit19pop_exception_stateEv.exit.thread, label %_ZN8GraphKit19pop_exception_stateEv.exit, !llvm.loop !41
 
 20:                                               ; preds = %5
   call void @_ZN16PreserveJVMStateC1EP8GraphKitb(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %0, i1 noundef zeroext false) #14
@@ -8537,7 +8537,7 @@ _ZN8GraphKit19pop_exception_stateEv.exit:         ; preds = %5, %_ZN8GraphKit19p
 32:                                               ; preds = %31, %30
   %33 = load ptr, ptr %3, align 8
   %.not.i4 = icmp eq ptr %33, null
-  br i1 %.not.i4, label %._crit_edge, label %23, !llvm.loop !39
+  br i1 %.not.i4, label %._crit_edge, label %23, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %32, %20
   call void @_ZN16PreserveJVMStateD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #14
@@ -8651,7 +8651,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %38, %26, %17
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS_.exit.i, %43, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %60, label %17, !llvm.loop !40
+  br i1 %exitcond.not, label %60, label %17, !llvm.loop !43
 
 60:                                               ; preds = %_ZN4Node7set_reqEjPS_.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8917,7 +8917,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit:         ; preds = %2, %9
 59:                                               ; preds = %37, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %59, %.thread, %18
   ret void
@@ -8978,7 +8978,7 @@ define hidden noundef ptr @_ZN5Parse5Block17successor_for_bciEi(ptr noundef nonn
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !36
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -9031,7 +9031,7 @@ define hidden void @_ZN5Parse5mergeEi(ptr noundef nonnull align 8 dereferenceabl
 10:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !36
 
 11:                                               ; preds = %10, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %10 ]
@@ -9094,7 +9094,7 @@ define hidden void @_ZN5Parse14merge_new_pathEi(ptr noundef nonnull align 8 dere
 10:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !36
 
 11:                                               ; preds = %10, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %10 ]
@@ -9196,12 +9196,12 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr noundef nonnull r
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread5.i.i, label %.loopexit, !llvm.loop !25
+  br i1 %50, label %.thread5.i.i, label %.loopexit, !llvm.loop !27
 
 .thread5.i.i:                                     ; preds = %.lr.ph.i.i, %.thread.i.i
   %51 = phi i32 [ %44, %.thread.i.i ], [ %36, %.lr.ph.i.i ]
   %exitcond.not.not.i.not.i = icmp eq i32 %51, %35
-  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !25
+  br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.thread.i.i, %.lr.ph.i.i
   %.sroa.4.1.ph = phi i32 [ %36, %.lr.ph.i.i ], [ %44, %.thread.i.i ]
@@ -9226,7 +9226,7 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr noundef nonnull r
 62:                                               ; preds = %61, %56, %.loopexit
   %63 = add nsw i32 %.sroa.4.1.ph, 1
   %64 = icmp slt i32 %63, %33
-  br i1 %64, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !42
+  br i1 %64, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, !llvm.loop !45
 
 65:                                               ; preds = %.lr.ph
   %66 = getelementptr inbounds nuw i8, ptr %28, i64 44
@@ -9251,7 +9251,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %62, %.thread5.i.i, 
   %76 = load i32, ptr %23, align 8
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit27, !llvm.loop !43
+  br i1 %78, label %.lr.ph, label %.loopexit27, !llvm.loop !46
 
 .loopexit27:                                      ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit, %20, %16, %4
   %.0 = phi i32 [ %19, %16 ], [ %7, %4 ], [ %22, %20 ], [ %22, %_ZN14MergeMemStream14next_non_emptyEv.exit ]
@@ -9276,7 +9276,7 @@ define hidden void @_ZN5Parse15merge_exceptionEi(ptr noundef nonnull align 8 der
 10:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.loopexit, label %11, !llvm.loop !36
 
 11:                                               ; preds = %10, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %10 ]
@@ -9368,7 +9368,7 @@ define hidden void @_ZN5Parse18merge_memory_edgesEP12MergeMemNodeib(ptr noundef 
 .thread5.us.i.i:                                  ; preds = %42
   %43 = add nsw i32 %.sroa.7.1, 1
   %exitcond14.not.i.i = icmp eq i32 %43, %17
-  br i1 %exitcond14.not.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, label %.lr.ph.split.us.i.i, !llvm.loop !25
+  br i1 %exitcond14.not.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, label %.lr.ph.split.us.i.i, !llvm.loop !47
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.us.i.i
   br i1 %.not.i.not.i, label %44, label %.loopexit.thread
@@ -9493,7 +9493,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %102, %91, %47
   tail call void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align 8 dereferenceable(52) %.141, i32 noundef %.sroa.7.1, ptr noundef nonnull %36) #14
   %108 = add nsw i32 %.sroa.7.1, 1
   %109 = icmp slt i32 %108, %17
-  br i1 %109, label %.lr.ph.i.i.lr.ph, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !44
+  br i1 %109, label %.lr.ph.i.i.lr.ph, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !48
 
 .loopexit.thread:                                 ; preds = %44, %.split.us.i.i, %.loopexit
   %.sroa.22.1.ph129 = phi ptr [ %36, %.loopexit ], [ %46, %44 ], [ %36, %.split.us.i.i ]
@@ -9676,7 +9676,7 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %111, %116, %197, %1
   %.1 = phi ptr [ %.038105, %121 ], [ %.079, %196 ], [ %.038105, %197 ], [ %.038105, %116 ], [ %.038105, %111 ]
   %198 = add nsw i32 %.sroa.7.1, 1
   %199 = icmp slt i32 %198, %17
-  br i1 %199, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !44
+  br i1 %199, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !48
 
 _ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN4Node7set_reqEjPS_.exit, %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.us.i.i
   %.038103 = phi ptr [ %.038105, %.thread5.us.i.i ], [ %.1, %_ZN14MergeMemStream10set_memoryEP4Node.exit ], [ %.038105, %_ZN4Node7set_reqEjPS_.exit ]
@@ -11429,7 +11429,7 @@ define hidden void @_ZN5Parse14return_currentEP4Node(ptr noundef nonnull align 8
 .thread5.us.i.i:                                  ; preds = %86
   %87 = add nsw i32 %.sroa.7.1, 1
   %exitcond14.not.i.i = icmp eq i32 %87, %65
-  br i1 %exitcond14.not.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, label %.lr.ph.split.us.i.i, !llvm.loop !25
+  br i1 %exitcond14.not.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, label %.lr.ph.split.us.i.i, !llvm.loop !47
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.us.i.i
   br i1 %.not.i.not.i, label %88, label %_ZN14MergeMemStream10set_memoryEP4Node.exit
@@ -11494,7 +11494,7 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %88, %.split.us.i.i,
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.21.1.ph48) #14
   %122 = add nsw i32 %.sroa.7.1, 1
   %123 = icmp slt i32 %122, %65
-  br i1 %123, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !45
+  br i1 %123, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !49
 
 _ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.us.i.i, %33
   %.not = icmp eq ptr %1, null
@@ -12343,8 +12343,8 @@ attributes #15 = { noreturn nounwind }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
@@ -12353,19 +12353,19 @@ attributes #15 = { noreturn nounwind }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7, !26}
+!26 = !{!"llvm.loop.unswitch.partial.disable"}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = !{i64 2145392468}
+!32 = distinct !{!32, !7, !14}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!35 = !{i64 2145392468}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
@@ -12376,3 +12376,7 @@ attributes #15 = { noreturn nounwind }
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7, !14}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}

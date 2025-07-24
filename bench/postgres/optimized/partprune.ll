@@ -3833,7 +3833,7 @@ list_head.exit.i264.i:                            ; preds = %.lr.ph363.i, %list_
   %855 = load i32, ptr %793, align 4
   %856 = sext i32 %855 to i64
   %857 = icmp slt i64 %indvars.iv.next531.i, %856
-  br i1 %857, label %list_head.exit.i264.i, label %gen_prune_steps_from_opexps.exit, !llvm.loop !22
+  br i1 %857, label %list_head.exit.i264.i, label %gen_prune_steps_from_opexps.exit, !llvm.loop !24
 
 858:                                              ; preds = %.thread271.i
   %859 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -3929,7 +3929,7 @@ list_length.exit:                                 ; preds = %881
   %904 = load i32, ptr %882, align 4
   %905 = sext i32 %904 to i64
   %906 = icmp slt i64 %indvars.iv.next751, %905
-  br i1 %906, label %897, label %._crit_edge624, !llvm.loop !23
+  br i1 %906, label %897, label %._crit_edge624, !llvm.loop !25
 
 .thread348:                                       ; preds = %116, %881, %match_clause_to_partition_key.exit.thread295, %503, %507, %491, %65, %._crit_edge.thread, %list_length.exit, %._crit_edge624, %33
   %.0 = phi ptr [ null, %33 ], [ %896, %._crit_edge624 ], [ %.11, %list_length.exit ], [ null, %._crit_edge.thread ], [ null, %65 ], [ null, %491 ], [ null, %507 ], [ null, %503 ], [ null, %match_clause_to_partition_key.exit.thread295 ], [ null, %881 ], [ null, %116 ]
@@ -4022,7 +4022,7 @@ for_each_cell_setup.exit:                         ; preds = %10
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next130 to i32
   %exitcond.not = icmp eq i32 %.val, %lftr.wideiv
-  br i1 %exitcond.not, label %.lr.ph121.preheader, label %.lr.ph117, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph121.preheader, label %.lr.ph117, !llvm.loop !26
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %28
   %indvars.iv129 = phi i64 [ %27, %.lr.ph117.preheader ], [ %indvars.iv.next130, %28 ]
@@ -4069,7 +4069,7 @@ for_each_cell_setup.exit93.split.loop.exit139:    ; preds = %.lr.ph117
   %51 = load i32, ptr %13, align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next133, %52
-  br i1 %53, label %.lr.ph121, label %.thread102, !llvm.loop !25
+  br i1 %53, label %.lr.ph121, label %.thread102, !llvm.loop !27
 
 for_each_cell_setup.exit98:                       ; preds = %10
   br i1 %26, label %.lr.ph, label %.thread102
@@ -4121,7 +4121,7 @@ for_each_cell_setup.exit98:                       ; preds = %10
   %83 = load i32, ptr %13, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %58, label %.thread102, !llvm.loop !26
+  br i1 %85, label %58, label %.thread102, !llvm.loop !28
 
 .thread102:                                       ; preds = %58, %.lr.ph121, %40, %for_each_cell_setup.exit, %for_each_cell_setup.exit98
   %.3 = phi ptr [ null, %for_each_cell_setup.exit98 ], [ null, %for_each_cell_setup.exit ], [ %.0120, %.lr.ph121 ], [ %50, %40 ], [ %82, %58 ]
@@ -4190,8 +4190,10 @@ attributes #7 = { cold nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!22 = distinct !{!22, !5, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}

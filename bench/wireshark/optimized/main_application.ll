@@ -16478,7 +16478,7 @@ _ZSt13__adjust_heapIN5QListIP7QActionE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_com
   store ptr %46, ptr %72, align 8
   %.not = icmp eq i64 %.011, 0
   %73 = add nsw i64 %.011, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !116
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !118
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN5QListIP7QActionE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_T0_SE_T1_T2_.exit.us, %_ZSt13__adjust_heapIN5QListIP7QActionE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_T0_SE_T1_T2_.exit, %3
   ret void
@@ -17013,4 +17013,6 @@ attributes #36 = { cold noreturn }
 !113 = distinct !{!113, !7}
 !114 = distinct !{!114, !7}
 !115 = distinct !{!115, !7}
-!116 = distinct !{!116, !7}
+!116 = distinct !{!116, !7, !117}
+!117 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!118 = distinct !{!118, !7}

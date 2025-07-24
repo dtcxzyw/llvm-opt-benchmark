@@ -421,7 +421,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
 161:                                              ; preds = %165, %.lr.ph.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next.i.i, %165 ]
   %162 = getelementptr inbounds nuw [0 x ptr], ptr %158, i64 0, i64 %indvars.iv.i.i
-  %163 = load ptr, ptr %162, align 8, !tbaa !65
+  %163 = load ptr, ptr %162, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(976) %99, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -433,13 +433,13 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
   %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, i64 noundef 1)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %161, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %161, !llvm.loop !67
 
 ._crit_edge.us.i.i:                               ; preds = %165
   %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %168 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !65
+  %169 = load ptr, ptr %168, align 8, !tbaa !66
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %169, ptr noundef nonnull align 8 dereferenceable(976) %99, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %159 unwind label %.split.us.i.i
@@ -471,7 +471,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
   %180 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !65
+  %182 = load ptr, ptr %181, align 8, !tbaa !66
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %182, ptr noundef nonnull align 8 dereferenceable(976) %99, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %184 unwind label %.split.i.i
@@ -482,7 +482,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
   %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, i64 noundef 1)
   %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
   %exitcond84.not.i.i = icmp eq i64 %indvars.iv.next81.i.i, %wide.trip.count83.i.i
-  br i1 %exitcond84.not.i.i, label %._crit_edge61.i.i, label %.lr.ph60.split.i.i, !llvm.loop !64
+  br i1 %exitcond84.not.i.i, label %._crit_edge61.i.i, label %.lr.ph60.split.i.i, !llvm.loop !68
 
 .split.i.i:                                       ; preds = %.lr.ph60.split.i.i
   %186 = landingpad { ptr, i32 }
@@ -502,7 +502,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
 
 191:                                              ; preds = %._crit_edge61.i.i
   %192 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %193 = load ptr, ptr %192, align 8, !tbaa !67
+  %193 = load ptr, ptr %192, align 8, !tbaa !69
   %194 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %174, i64 noundef %175)
   %.not.i.i = icmp eq ptr %193, null
   br i1 %.not.i.i, label %200, label %195
@@ -537,7 +537,7 @@ _ZL16display_functionRSoRK10model_coreP9func_declb.exit.i: ; preds = %202, %188
   %204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9, i64 noundef 2)
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %wide.trip.count.i6
-  br i1 %exitcond.not.i9, label %_ZL17display_functionsRSoRK10model_coreb.exit, label %95, !llvm.loop !68
+  br i1 %exitcond.not.i9, label %_ZL17display_functionsRSoRK10model_coreb.exit, label %95, !llvm.loop !70
 
 _ZL17display_functionsRSoRK10model_coreb.exit:    ; preds = %_ZL16display_functionRSoRK10model_coreP9func_declb.exit.i, %_ZL17display_constantsRSoRK10model_core.exit, %_ZNK10model_core17get_num_functionsEv.exit.i
   ret void
@@ -665,8 +665,10 @@ attributes #10 = { builtin nounwind }
 !61 = !{!"bool", !7, i64 0}
 !62 = !{!63, !63, i64 0}
 !63 = !{!"p1 _ZTS10func_entry", !6, i64 0}
-!64 = distinct !{!64, !40}
-!65 = !{!38, !38, i64 0}
-!66 = distinct !{!66, !40}
-!67 = !{!59, !38, i64 24}
+!64 = distinct !{!64, !40, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = !{!38, !38, i64 0}
+!67 = distinct !{!67, !40}
 !68 = distinct !{!68, !40}
+!69 = !{!59, !38, i64 24}
+!70 = distinct !{!70, !40}

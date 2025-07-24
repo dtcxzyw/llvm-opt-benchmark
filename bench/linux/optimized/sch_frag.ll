@@ -162,7 +162,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   store i32 0, ptr %4, align 4, !annotation !9
   %reass.sub = sub i32 %invariant.op, %63
   %76 = icmp sgt i32 %reass.sub, 7
-  br i1 %76, label %.lr.ph, label %.thread7, !prof !12
+  br i1 %76, label %.lr.ph, label %.thread7, !prof !12, !llvm.loop !13
 
 .split:                                           ; preds = %56, %102
   %77 = phi i32 [ %.pre, %102 ], [ %14, %56 ]
@@ -174,7 +174,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %81 = add i32 %78, %80
   %82 = sub i32 %77, %81
   %83 = icmp sgt i32 %82, 3
-  br i1 %83, label %84, label %88, !prof !13
+  br i1 %83, label %84, label %88, !prof !15
 
 84:                                               ; preds = %.split
   %85 = load ptr, ptr %31, align 8
@@ -226,7 +226,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %107 = load ptr, ptr %25, align 8
   %108 = load i16, ptr %27, align 4
   %109 = load ptr, ptr %31, align 8
-  %110 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !14
+  %110 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !16
   %111 = inttoptr i64 %110 to ptr
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load i64, ptr %112, align 8
@@ -366,7 +366,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   %reass.sub33 = sub i32 %invariant.op27, %176
   %189 = icmp sgt i32 %reass.sub33, 7
-  br i1 %189, label %174, label %.thread13, !prof !12
+  br i1 %189, label %174, label %.thread13, !prof !12, !llvm.loop !17
 
 .split25:                                         ; preds = %166, %215
   %190 = phi i32 [ %216, %215 ], [ %167, %166 ]
@@ -378,7 +378,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %194 = add i32 %190, %193
   %195 = sub i32 %192, %194
   %196 = icmp sgt i32 %195, 3
-  br i1 %196, label %197, label %201, !prof !13
+  br i1 %196, label %197, label %201, !prof !15
 
 197:                                              ; preds = %.split25
   %198 = load ptr, ptr %31, align 8
@@ -428,7 +428,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %220 = load ptr, ptr %25, align 8
   %221 = load i16, ptr %27, align 4
   %222 = load ptr, ptr %31, align 8
-  %223 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !14
+  %223 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !16
   %224 = inttoptr i64 %223 to ptr
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %226 = load i64, ptr %225, align 8
@@ -632,7 +632,7 @@ define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %reass.sub = sub i32 %invariant.op, %27
   %40 = icmp sgt i32 %reass.sub, 7
-  br i1 %40, label %25, label %.thread4, !prof !12
+  br i1 %40, label %25, label %.thread4, !prof !12, !llvm.loop !18
 
 .split:                                           ; preds = %15, %66
   %41 = phi i32 [ %67, %66 ], [ %16, %15 ]
@@ -644,7 +644,7 @@ define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef
   %45 = add i32 %41, %44
   %46 = sub i32 %43, %45
   %47 = icmp sgt i32 %46, 3
-  br i1 %47, label %48, label %52, !prof !13
+  br i1 %47, label %48, label %52, !prof !15
 
 48:                                               ; preds = %.split
   %49 = load ptr, ptr %20, align 8
@@ -700,7 +700,7 @@ declare dso_local i32 @ip_do_fragment(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sch_frag_xmit(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !15
+  %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !19
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %7 = load i32, ptr %6, align 4
@@ -774,20 +774,20 @@ define internal i32 @sch_frag_xmit(ptr readnone captures(none) %0, ptr readnone 
 57:                                               ; preds = %41
   %58 = inttoptr i64 %42 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %60 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, i32 1, ptr nonnull elementtype(i32) %59) #11, !srcloc !16
+  %60 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, i32 1, ptr nonnull elementtype(i32) %59) #11, !srcloc !20
   %61 = icmp ult i8 %60, 2
   tail call void @llvm.assume(i1 %61)
   %62 = icmp eq i8 %60, 0
-  br i1 %62, label %66, label %63, !prof !13
+  br i1 %62, label %66, label %63, !prof !15
 
 63:                                               ; preds = %57
   %64 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %59) #11
-  br i1 %64, label %66, label %65, !prof !13
+  br i1 %64, label %66, label %65, !prof !15
 
 65:                                               ; preds = %63
-  tail call void asm sideeffect "604: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 604b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 604) #11, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 238, i32 2305, i64 12) #11, !srcloc !18
-  tail call void asm sideeffect "605: nop\0A\09.pushsection .discard.instr_end\0A\09.long 605b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 605) #11, !srcloc !19
+  tail call void asm sideeffect "604: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 604b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 604) #11, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 238, i32 2305, i64 12) #11, !srcloc !22
+  tail call void asm sideeffect "605: nop\0A\09.pushsection .discard.instr_end\0A\09.long 605b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 605) #11, !srcloc !23
   br label %66
 
 66:                                               ; preds = %65, %63, %57, %41
@@ -839,7 +839,7 @@ define internal i32 @sch_frag_xmit(ptr readnone captures(none) %0, ptr readnone 
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %99 = load i32, ptr %98, align 8
   %100 = tail call i32 @csum_partial(ptr noundef %97, i32 noundef %96, i32 noundef 0) #11
-  %101 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %99, i32 %100) #13, !srcloc !20
+  %101 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %99, i32 %100) #13, !srcloc !24
   store i32 %101, ptr %98, align 8
   br label %102
 
@@ -939,11 +939,15 @@ attributes #13 = { nounwind memory(read) }
 !10 = !{!"branch_weights", i32 127, i32 1}
 !11 = !{!"branch_weights", i32 670878, i32 2146812770}
 !12 = !{!"branch_weights", i32 255873, i32 127}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = !{i64 2159320510}
-!15 = !{i64 2159319805}
-!16 = !{i64 2149012719, i64 2149012758, i64 2149012779, i64 2149012816, i64 2149012839, i64 2149012848, i64 2149012947}
-!17 = !{i64 2157155611, i64 2157155420, i64 2157155472, i64 2157155518, i64 2157155546}
-!18 = !{i64 2157155685, i64 2157155714, i64 2157155760, i64 2157155818, i64 2157155872, i64 2157155926, i64 2157155981, i64 2157156012, i64 2157156320, i64 2157156326, i64 2157156373, i64 2157156396, i64 2157156422}
-!19 = !{i64 2157156872, i64 2157156683, i64 2157156733, i64 2157156779, i64 2157156807}
-!20 = !{i64 7220362, i64 7220375}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!"branch_weights", i32 2000, i32 1}
+!16 = !{i64 2159320510}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = !{i64 2159319805}
+!20 = !{i64 2149012719, i64 2149012758, i64 2149012779, i64 2149012816, i64 2149012839, i64 2149012848, i64 2149012947}
+!21 = !{i64 2157155611, i64 2157155420, i64 2157155472, i64 2157155518, i64 2157155546}
+!22 = !{i64 2157155685, i64 2157155714, i64 2157155760, i64 2157155818, i64 2157155872, i64 2157155926, i64 2157155981, i64 2157156012, i64 2157156320, i64 2157156326, i64 2157156373, i64 2157156396, i64 2157156422}
+!23 = !{i64 2157156872, i64 2157156683, i64 2157156733, i64 2157156779, i64 2157156807}
+!24 = !{i64 7220362, i64 7220375}

@@ -175,7 +175,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %104, ptr %gep974, align 1
   %indvars.iv.next877 = add nsw i64 %indvars.iv876, 1
   %105 = icmp slt i64 %indvars.iv.next877, %93
-  br i1 %105, label %94, label %.loopexit682, !llvm.loop !11
+  br i1 %105, label %94, label %.loopexit682, !llvm.loop !12
 
 .loopexit682:                                     ; preds = %94, %35, %49, %23, %17
   %106 = icmp sgt i32 %3, 0
@@ -227,7 +227,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %141, ptr %131, align 1
   %indvars.iv.next898 = add nsw i64 %indvars.iv897, 1
   %142 = icmp slt i64 %indvars.iv.next898, %128
-  br i1 %142, label %129, label %.loopexit679, !llvm.loop !12
+  br i1 %142, label %129, label %.loopexit679, !llvm.loop !13
 
 143:                                              ; preds = %107
   %144 = sub nsw i32 %.val669, %5
@@ -259,7 +259,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %163, ptr %153, align 1
   %indvars.iv.next883 = add nsw i64 %indvars.iv882, 1
   %164 = icmp slt i64 %indvars.iv.next883, %150
-  br i1 %164, label %151, label %._crit_edge770, !llvm.loop !13
+  br i1 %164, label %151, label %._crit_edge770, !llvm.loop !14
 
 ._crit_edge770:                                   ; preds = %151
   %165 = add nuw i32 %115, 7
@@ -296,12 +296,12 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %178, ptr %gep980, align 1
   %indvars.iv.next886 = add nsw i64 %indvars.iv885, 1
   %180 = icmp slt i64 %indvars.iv.next886, %174
-  br i1 %180, label %176, label %._crit_edge774.us, !llvm.loop !14
+  br i1 %180, label %176, label %._crit_edge774.us, !llvm.loop !15
 
 ._crit_edge774.us:                                ; preds = %176
   %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 1
   %exitcond893.not = icmp eq i64 %indvars.iv.next889, %wide.trip.count892
-  br i1 %exitcond893.not, label %.lr.ph781, label %.preheader681.us, !llvm.loop !15
+  br i1 %exitcond893.not, label %.lr.ph781, label %.preheader681.us, !llvm.loop !16
 
 .lr.ph781:                                        ; preds = %._crit_edge774.us, %._crit_edge770
   %invariant.gep778 = getelementptr i8, ptr %113, i64 -1
@@ -334,7 +334,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %198, ptr %gep982, align 1
   %indvars.iv.next895 = add nsw i64 %indvars.iv894, 1
   %199 = icmp slt i64 %indvars.iv.next895, %187
-  br i1 %199, label %188, label %.loopexit679, !llvm.loop !16
+  br i1 %199, label %188, label %.loopexit679, !llvm.loop !17
 
 .loopexit679:                                     ; preds = %188, %129, %143, %118, %.loopexit682
   %.val675 = load i32, ptr %14, align 4
@@ -385,7 +385,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %222, ptr %gep988, align 1
   %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
   %exitcond905.not = icmp eq i64 %indvars.iv.next902, %wide.trip.count904
-  br i1 %exitcond905.not, label %._crit_edge788.loopexit, label %221, !llvm.loop !17
+  br i1 %exitcond905.not, label %._crit_edge788.loopexit, label %221, !llvm.loop !18
 
 ._crit_edge788.loopexit:                          ; preds = %221
   %.pre925 = load i8, ptr %217, align 1
@@ -410,7 +410,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %236, ptr %gep990, align 1
   %indvars.iv.next907 = add nuw nsw i64 %indvars.iv906, 1
   %exitcond910.not = icmp eq i64 %indvars.iv.next907, %wide.trip.count909
-  br i1 %exitcond910.not, label %._crit_edge794, label %215, !llvm.loop !18
+  br i1 %exitcond910.not, label %._crit_edge794, label %215, !llvm.loop !19
 
 ._crit_edge794:                                   ; preds = %._crit_edge788, %.loopexit679
   %237 = add nsw i32 %.val669, -1
@@ -461,7 +461,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %260, ptr %gep994, align 1
   %indvars.iv.next915 = add nuw nsw i64 %indvars.iv914, 1
   %exitcond918.not = icmp eq i64 %indvars.iv.next915, %wide.trip.count917
-  br i1 %exitcond918.not, label %._crit_edge798.loopexit, label %259, !llvm.loop !19
+  br i1 %exitcond918.not, label %._crit_edge798.loopexit, label %259, !llvm.loop !20
 
 ._crit_edge798.loopexit:                          ; preds = %259
   %.pre926 = load i8, ptr %255, align 1
@@ -486,7 +486,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %274, ptr %gep996, align 1
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
   %exitcond923.not = icmp eq i64 %indvars.iv.next920, %wide.trip.count922
-  br i1 %exitcond923.not, label %.loopexit, label %252, !llvm.loop !20
+  br i1 %exitcond923.not, label %.loopexit, label %252, !llvm.loop !21
 
 275:                                              ; preds = %7
   %276 = icmp sle i32 %.val674, %.val673
@@ -545,7 +545,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %314, ptr %308, align 1
   %indvars.iv.next824 = add nsw i64 %indvars.iv823, 1
   %315 = icmp slt i64 %indvars.iv.next824, %295
-  br i1 %315, label %296, label %.loopexit691, !llvm.loop !21
+  br i1 %315, label %296, label %.loopexit691, !llvm.loop !22
 
 316:                                              ; preds = %280
   %317 = sub nsw i32 %.val669, %5
@@ -583,7 +583,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %342, ptr %336, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %343 = icmp slt i64 %indvars.iv.next, %323
-  br i1 %343, label %324, label %._crit_edge, !llvm.loop !22
+  br i1 %343, label %324, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %324
   %344 = add nuw i32 %281, 7
@@ -628,12 +628,12 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %365, ptr %gep945, align 1
   %indvars.iv.next815 = add nsw i64 %indvars.iv814, 1
   %367 = icmp slt i64 %indvars.iv.next815, %353
-  br i1 %367, label %355, label %._crit_edge701.us, !llvm.loop !23
+  br i1 %367, label %355, label %._crit_edge701.us, !llvm.loop !24
 
 ._crit_edge701.us:                                ; preds = %355
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next818, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph704, label %.preheader694.us, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph704, label %.preheader694.us, !llvm.loop !25
 
 .lr.ph704:                                        ; preds = %._crit_edge701.us, %._crit_edge
   %invariant.gep = getelementptr i8, ptr %.val, i64 -1
@@ -671,7 +671,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %391, ptr %gep949, align 1
   %indvars.iv.next821 = add nsw i64 %indvars.iv820, 1
   %392 = icmp slt i64 %indvars.iv.next821, %374
-  br i1 %392, label %375, label %.loopexit691, !llvm.loop !25
+  br i1 %392, label %375, label %.loopexit691, !llvm.loop !26
 
 .loopexit691:                                     ; preds = %375, %296, %316, %284, %275
   %393 = icmp sgt i32 %3, 0
@@ -730,7 +730,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %435, ptr %429, align 1
   %indvars.iv.next842 = add nsw i64 %indvars.iv841, 1
   %436 = icmp slt i64 %indvars.iv.next842, %416
-  br i1 %436, label %417, label %.loopexit687, !llvm.loop !26
+  br i1 %436, label %417, label %.loopexit687, !llvm.loop !27
 
 437:                                              ; preds = %394
   %438 = sub nsw i32 %.val669, %5
@@ -768,7 +768,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %463, ptr %457, align 1
   %indvars.iv.next827 = add nsw i64 %indvars.iv826, 1
   %464 = icmp slt i64 %indvars.iv.next827, %444
-  br i1 %464, label %445, label %._crit_edge711, !llvm.loop !27
+  br i1 %464, label %445, label %._crit_edge711, !llvm.loop !28
 
 ._crit_edge711:                                   ; preds = %445
   %465 = add nuw i32 %403, 7
@@ -813,12 +813,12 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %486, ptr %gep952, align 1
   %indvars.iv.next830 = add nsw i64 %indvars.iv829, 1
   %488 = icmp slt i64 %indvars.iv.next830, %474
-  br i1 %488, label %476, label %._crit_edge715.us, !llvm.loop !28
+  br i1 %488, label %476, label %._crit_edge715.us, !llvm.loop !29
 
 ._crit_edge715.us:                                ; preds = %476
   %indvars.iv.next833 = add nuw nsw i64 %indvars.iv832, 1
   %exitcond837.not = icmp eq i64 %indvars.iv.next833, %wide.trip.count836
-  br i1 %exitcond837.not, label %.lr.ph720, label %.preheader690.us, !llvm.loop !29
+  br i1 %exitcond837.not, label %.lr.ph720, label %.preheader690.us, !llvm.loop !30
 
 .lr.ph720:                                        ; preds = %._crit_edge715.us, %._crit_edge711
   %invariant.gep717 = getelementptr i8, ptr %399, i64 -1
@@ -856,7 +856,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %512, ptr %gep956, align 1
   %indvars.iv.next839 = add nsw i64 %indvars.iv838, 1
   %513 = icmp slt i64 %indvars.iv.next839, %495
-  br i1 %513, label %496, label %.loopexit687, !llvm.loop !30
+  br i1 %513, label %496, label %.loopexit687, !llvm.loop !31
 
 .loopexit687:                                     ; preds = %496, %417, %437, %406, %.loopexit691
   %.val676 = load i32, ptr %14, align 4
@@ -917,7 +917,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %543, ptr %gep960, align 1
   %indvars.iv.next845 = add nuw nsw i64 %indvars.iv844, 1
   %exitcond848.not = icmp eq i64 %indvars.iv.next845, %wide.trip.count847
-  br i1 %exitcond848.not, label %._crit_edge730.loopexit, label %.lr.ph729, !llvm.loop !31
+  br i1 %exitcond848.not, label %._crit_edge730.loopexit, label %.lr.ph729, !llvm.loop !32
 
 ._crit_edge730.loopexit:                          ; preds = %.lr.ph729
   %.pre = load i8, ptr %531, align 1
@@ -942,7 +942,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %557, ptr %gep962, align 1
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
   %exitcond853.not = icmp eq i64 %indvars.iv.next850, %wide.trip.count852
-  br i1 %exitcond853.not, label %._crit_edge736, label %529, !llvm.loop !32
+  br i1 %exitcond853.not, label %._crit_edge736, label %529, !llvm.loop !33
 
 ._crit_edge736:                                   ; preds = %._crit_edge730, %.loopexit687
   %558 = add nsw i32 %.val669, -1
@@ -1004,7 +1004,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %589, ptr %gep966, align 1
   %indvars.iv.next855 = add nuw nsw i64 %indvars.iv854, 1
   %exitcond858.not = icmp eq i64 %indvars.iv.next855, %wide.trip.count857
-  br i1 %exitcond858.not, label %._crit_edge743.loopexit, label %.lr.ph742, !llvm.loop !33
+  br i1 %exitcond858.not, label %._crit_edge743.loopexit, label %.lr.ph742, !llvm.loop !34
 
 ._crit_edge743.loopexit:                          ; preds = %.lr.ph742
   %.pre924 = load i8, ptr %577, align 1
@@ -1029,7 +1029,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   store i8 %603, ptr %gep968, align 1
   %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
   %exitcond863.not = icmp eq i64 %indvars.iv.next860, %wide.trip.count862
-  br i1 %exitcond863.not, label %.loopexit, label %574, !llvm.loop !34
+  br i1 %exitcond863.not, label %.loopexit, label %574, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge743, %._crit_edge798, %._crit_edge736, %._crit_edge794
   ret i32 0
@@ -1053,13 +1053,13 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!16 = distinct !{!16, !7, !11}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
@@ -1068,13 +1068,14 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!25 = distinct !{!25, !7, !11}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!30 = distinct !{!30, !7, !11}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}

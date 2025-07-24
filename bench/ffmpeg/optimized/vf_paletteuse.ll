@@ -1878,7 +1878,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %100 = getelementptr inbounds i8, ptr %.0475.i41.us, i64 %23
   %101 = add nsw i32 %.0476.i40.us, 1
   %.not511.i.us = icmp slt i32 %101, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !123
 
 .split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -2202,7 +2202,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %179 = getelementptr inbounds i8, ptr %.0475.i116.us, i64 %24
   %180 = add nsw i32 %.0476.i115.us, 1
   %.not511.i.us = icmp slt i32 %180, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !124
 
 .thread59:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -2577,7 +2577,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %206 = getelementptr inbounds i8, ptr %.0475.i136.us, i64 %24
   %207 = add nsw i32 %.0476.i135.us, 1
   %.not511.i.us = icmp slt i32 %207, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !125
 
 .thread71:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -3086,7 +3086,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %293 = getelementptr inbounds i8, ptr %.0475.i194.us, i64 %24
   %294 = add nsw i32 %.0476.i193.us, 1
   %.not511.i.us = icmp slt i32 %294, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !126
 
 .thread105:                                       ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -3410,7 +3410,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %180 = getelementptr inbounds i8, ptr %.0475.i114.us, i64 %24
   %181 = add nsw i32 %.0476.i113.us, 1
   %.not511.i.us = icmp slt i32 %181, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !127
 
 .thread57:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -4059,7 +4059,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %376 = getelementptr inbounds i8, ptr %.0475.i259.us, i64 %25
   %377 = add nsw i32 %.0476.i258.us, 1
   %.not511.i.us = icmp slt i32 %377, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !128
 
 .thread141:                                       ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -4562,7 +4562,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %293 = getelementptr inbounds i8, ptr %.0475.i206.us, i64 %24
   %294 = add nsw i32 %.0476.i205.us, 1
   %.not511.i.us = icmp slt i32 %294, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !129
 
 .thread105:                                       ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -4991,7 +4991,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %255 = getelementptr inbounds i8, ptr %.0475.i156.us, i64 %25
   %256 = add nsw i32 %.0476.i155.us, 1
   %.not511.i.us = icmp slt i32 %256, %11
-  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
+  br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !130
 
 .thread93:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -5012,7 +5012,7 @@ define internal fastcc void @colormap_nearest_node(ptr noundef readonly captures
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.pre47 = load i32, ptr %2, align 4, !tbaa !122
+  %.pre47 = load i32, ptr %2, align 4, !tbaa !131
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %66, %5
@@ -5021,7 +5021,7 @@ tailrecurse:                                      ; preds = %66, %5
   %11 = sext i32 %.tr43 to i64
   %12 = getelementptr inbounds %struct.color_node, ptr %0, i64 %11
   %13 = lshr i32 %10, 24
-  %14 = load i32, ptr %12, align 4, !tbaa !122
+  %14 = load i32, ptr %12, align 4, !tbaa !131
   %15 = lshr i32 %14, 24
   %16 = icmp slt i32 %13, %3
   %17 = icmp slt i32 %15, %3
@@ -5058,13 +5058,13 @@ tailrecurse:                                      ; preds = %66, %5
 
 diff.exit:                                        ; preds = %tailrecurse, %18, %19
   %.0.i = phi i64 [ %40, %19 ], [ 0, %tailrecurse ], [ 2147483646, %18 ]
-  %41 = load i64, ptr %6, align 8, !tbaa !123
+  %41 = load i64, ptr %6, align 8, !tbaa !132
   %42 = icmp sgt i64 %41, %.0.i
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %diff.exit
   store i32 %.tr43, ptr %4, align 8, !tbaa !116
-  store i64 %.0.i, ptr %6, align 8, !tbaa !123
+  store i64 %.0.i, ptr %6, align 8, !tbaa !132
   br label %44
 
 44:                                               ; preds = %43, %diff.exit
@@ -5101,7 +5101,7 @@ diff.exit:                                        ; preds = %tailrecurse, %18, %
 
 63:                                               ; preds = %50
   tail call fastcc void @colormap_nearest_node(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  %.pre = load i32, ptr %2, align 4, !tbaa !122
+  %.pre = load i32, ptr %2, align 4, !tbaa !131
   br label %64
 
 64:                                               ; preds = %63, %50
@@ -5111,7 +5111,7 @@ diff.exit:                                        ; preds = %tailrecurse, %18, %
 
 66:                                               ; preds = %64
   %67 = mul nsw i64 %60, %60
-  %68 = load i64, ptr %6, align 8, !tbaa !123
+  %68 = load i64, ptr %6, align 8, !tbaa !132
   %69 = icmp slt i64 %67, %68
   br i1 %69, label %tailrecurse, label %70
 
@@ -5284,6 +5284,15 @@ attributes #14 = { nounwind willreturn memory(none) }
 !118 = !{!115, !8, i64 4}
 !119 = distinct !{!119, !35}
 !120 = !{!111, !112, i64 0}
-!121 = distinct !{!121, !35}
-!122 = !{!91, !15, i64 0}
-!123 = !{!117, !25, i64 8}
+!121 = distinct !{!121, !35, !122}
+!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!123 = distinct !{!123, !35, !122}
+!124 = distinct !{!124, !35, !122}
+!125 = distinct !{!125, !35, !122}
+!126 = distinct !{!126, !35, !122}
+!127 = distinct !{!127, !35, !122}
+!128 = distinct !{!128, !35, !122}
+!129 = distinct !{!129, !35, !122}
+!130 = distinct !{!130, !35, !122}
+!131 = !{!91, !15, i64 0}
+!132 = !{!117, !25, i64 8}

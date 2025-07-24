@@ -99,14 +99,14 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %42 = getelementptr inbounds nuw i8, ptr %.144.i, i64 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %.split47.us.i, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.split47.us.i, label %.split.i, !llvm.loop !11
 
 .split47.us.i:                                    ; preds = %.split.i, %._crit_edge.us.i
   %.us-phi.i = phi ptr [ %37, %._crit_edge.us.i ], [ %42, %.split.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.03649.i, i64 128
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 16
-  br i1 %exitcond67.not.i, label %solve.exit, label %22, !llvm.loop !10
+  br i1 %exitcond67.not.i, label %solve.exit, label %22, !llvm.loop !12
 
 solve.exit:                                       ; preds = %.split47.us.i
   %44 = getelementptr inbounds i8, ptr %.0135253, i64 %.idx159
@@ -114,7 +114,7 @@ solve.exit:                                       ; preds = %.split47.us.i
   %46 = add nsw i64 %.0125255, 16
   %47 = add nsw i64 %.0123256, -1
   %48 = icmp sgt i64 %.0123256, 1
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %solve.exit, %15
   %.0135.lcssa = phi ptr [ %4, %15 ], [ %44, %solve.exit ]
@@ -201,14 +201,14 @@ solve.exit:                                       ; preds = %.split47.us.i
   %78 = getelementptr inbounds nuw i8, ptr %.144.i167, i64 8
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, 2
-  br i1 %exitcond.not.i169, label %.split47.us.i170, label %.split.i165, !llvm.loop !9
+  br i1 %exitcond.not.i169, label %.split47.us.i170, label %.split.i165, !llvm.loop !11
 
 .split47.us.i170:                                 ; preds = %.split.i165, %._crit_edge.us.i182
   %.us-phi.i171 = phi ptr [ %73, %._crit_edge.us.i182 ], [ %78, %.split.i165 ]
   %79 = getelementptr inbounds nuw double, ptr %.03649.i162, i64 %.1124262
   %indvars.iv.next55.i172 = add nuw nsw i64 %indvars.iv54.i161, 1
   %exitcond67.not.i173 = icmp eq i64 %indvars.iv.next65.i164, %.1124262
-  br i1 %exitcond67.not.i173, label %solve.exit185, label %58, !llvm.loop !10
+  br i1 %exitcond67.not.i173, label %solve.exit185, label %58, !llvm.loop !12
 
 solve.exit185:                                    ; preds = %.split47.us.i170
   %80 = mul nsw i64 %.1124262, %2
@@ -223,14 +223,14 @@ solve.exit185:                                    ; preds = %.split47.us.i170
   %.2127 = phi i64 [ %83, %solve.exit185 ], [ %.1126261, %.preheader244 ]
   %85 = lshr i64 %.1124262, 1
   %.not152 = icmp samesign ult i64 %.1124262, 2
-  br i1 %.not152, label %.loopexit245, label %.preheader244, !llvm.loop !12
+  br i1 %.not152, label %.loopexit245, label %.preheader244, !llvm.loop !14
 
 .loopexit245:                                     ; preds = %84, %._crit_edge
   %86 = getelementptr inbounds i8, ptr %.0141264, i64 %.idx153
   %87 = getelementptr inbounds i8, ptr %.0144263, i64 %.idx154
   %88 = add nsw i64 %.0122265, -1
   %89 = icmp sgt i64 %.0122265, 1
-  br i1 %89, label %15, label %._crit_edge268, !llvm.loop !13
+  br i1 %89, label %15, label %._crit_edge268, !llvm.loop !15
 
 ._crit_edge268:                                   ; preds = %.loopexit245, %9
   %.0144.lcssa = phi ptr [ %6, %9 ], [ %87, %.loopexit245 ]
@@ -302,7 +302,7 @@ solve.exit185:                                    ; preds = %.split47.us.i170
   %113 = getelementptr inbounds nuw i8, ptr %.03649.i188, i64 128
   %indvars.iv.next55.i198 = add nuw nsw i64 %indvars.iv54.i187, 1
   %exitcond67.not.i199 = icmp eq i64 %indvars.iv.next65.i190, 16
-  br i1 %exitcond67.not.i199, label %solve.exit211, label %100, !llvm.loop !10
+  br i1 %exitcond67.not.i199, label %solve.exit211, label %100, !llvm.loop !12
 
 solve.exit211:                                    ; preds = %.split47.us.i196
   %114 = getelementptr inbounds i8, ptr %.3138271, i64 %.idx150
@@ -310,7 +310,7 @@ solve.exit211:                                    ; preds = %.split47.us.i196
   %116 = add nsw i64 %.3128273, 16
   %117 = add nsw i64 %.2274, -1
   %118 = icmp sgt i64 %.2274, 1
-  br i1 %118, label %.lr.ph276, label %._crit_edge277, !llvm.loop !14
+  br i1 %118, label %.lr.ph276, label %._crit_edge277, !llvm.loop !16
 
 ._crit_edge277:                                   ; preds = %solve.exit211, %.preheader240
   %.3138.lcssa = phi ptr [ %4, %.preheader240 ], [ %114, %solve.exit211 ]
@@ -378,7 +378,7 @@ solve.exit211:                                    ; preds = %.split47.us.i196
   %141 = getelementptr inbounds nuw double, ptr %.03649.i214, i64 %.3284
   %indvars.iv.next55.i224 = add nuw nsw i64 %indvars.iv54.i213, 1
   %exitcond67.not.i225 = icmp eq i64 %indvars.iv.next65.i216, %.3284
-  br i1 %exitcond67.not.i225, label %solve.exit237, label %128, !llvm.loop !10
+  br i1 %exitcond67.not.i225, label %solve.exit237, label %128, !llvm.loop !12
 
 solve.exit237:                                    ; preds = %.split47.us.i222
   %142 = mul nsw i64 %.3284, %2
@@ -393,7 +393,7 @@ solve.exit237:                                    ; preds = %.split47.us.i222
   %.5 = phi i64 [ %145, %solve.exit237 ], [ %.4283, %.preheader ]
   %147 = lshr i64 %.3284, 1
   %.not148 = icmp samesign ult i64 %.3284, 2
-  br i1 %.not148, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not148, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %146, %._crit_edge277, %._crit_edge268
   ret i32 0
@@ -420,10 +420,12 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

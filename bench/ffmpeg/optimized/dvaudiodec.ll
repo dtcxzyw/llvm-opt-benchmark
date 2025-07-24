@@ -296,7 +296,7 @@ dv_audio_12to16.exit39:                           ; preds = %dv_audio_12to16.exi
   %.1 = getelementptr inbounds nuw i8, ptr %.03240, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %dv_audio_12to16.exit39, %40, %31
   store i32 1, ptr %2, align 4, !tbaa !35
@@ -374,4 +374,6 @@ attributes #4 = { nounwind }
 !48 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
 !49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !50 = !{!14, !14, i64 0}
-!51 = distinct !{!51, !41}
+!51 = distinct !{!51, !41, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !41}

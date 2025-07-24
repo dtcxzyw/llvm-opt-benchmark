@@ -950,7 +950,7 @@ proto_item_set_generated.exit105.i:               ; preds = %225, %222, %proto_i
   %.2141302 = phi i32 [ %259, %255 ], [ %.0139221, %.thread203 ]
   %266 = add nuw nsw i32 %.0225, 1
   %exitcond = icmp eq i32 %266, 3
-  br i1 %exitcond, label %.split232.us, label %.split, !llvm.loop !8
+  br i1 %exitcond, label %.split232.us, label %.split, !llvm.loop !10
 
 .split229.us:                                     ; preds = %.thread203, %.thread203.us
   %.us-phi = phi i32 [ %.2214.us, %.thread203.us ], [ 64, %.thread203 ]
@@ -1492,4 +1492,6 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

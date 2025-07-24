@@ -3724,7 +3724,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18Sortab
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
   %68 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !164
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !166
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_T0_SK_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_T0_SK_T1_T2_.exit, %3
   ret void
@@ -3935,4 +3935,6 @@ attributes #22 = { noreturn }
 !161 = distinct !{!161, !35}
 !162 = distinct !{!162, !35}
 !163 = !{!18, !18, i64 0}
-!164 = distinct !{!164, !35}
+!164 = distinct !{!164, !35, !165}
+!165 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!166 = distinct !{!166, !35}

@@ -791,7 +791,7 @@ define void @OPENSSL_LH_doall(ptr noundef readonly captures(address_is_null) %0,
   %17 = load ptr, ptr %.01621.us.us.i, align 8, !tbaa !36
   tail call void %6(ptr noundef %17, ptr noundef %1) #7
   %.not.us.us.i = icmp eq ptr %16, null
-  br i1 %.not.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !40
+  br i1 %.not.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !41
 
 doall_util_fn.exit:                               ; preds = %.loopexit.us.i, %4, %2
   ret void
@@ -818,7 +818,7 @@ define void @OPENSSL_LH_doall_arg(ptr noundef readonly captures(address_is_null)
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph24.split.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %12 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %12, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !39
+  br i1 %12, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !42
 
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %11, %.lr.ph24.i ]
@@ -835,7 +835,7 @@ define void @OPENSSL_LH_doall_arg(ptr noundef readonly captures(address_is_null)
   %18 = load ptr, ptr %.01621.i, align 8, !tbaa !36
   tail call void %7(ptr noundef %18, ptr noundef %2, ptr noundef %1) #7
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !43
 
 doall_util_fn.exit:                               ; preds = %.loopexit.i, %5, %3
   ret void
@@ -860,7 +860,7 @@ define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly captures(address_is
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph24.split.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %11 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %11, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !39
+  br i1 %11, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !42
 
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %10, %.lr.ph24.i ]
@@ -877,7 +877,7 @@ define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly captures(address_is
   %17 = load ptr, ptr %.01621.i, align 8, !tbaa !36
   tail call void %1(ptr noundef %17, ptr noundef %3, ptr noundef %2) #7
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !43
 
 doall_util_fn.exit:                               ; preds = %.loopexit.i, %4, %6
   ret void
@@ -915,7 +915,7 @@ define i64 @ossl_lh_strcasehash(ptr noundef readonly captures(address_is_null) %
   %21 = add nuw nsw i64 %.02224, 256
   %.pr = load i8, ptr %20, align 1, !tbaa !22
   %.not = icmp eq i8 %.pr, 0
-  br i1 %.not, label %22, label %.preheader, !llvm.loop !41
+  br i1 %.not, label %22, label %.preheader, !llvm.loop !44
 
 22:                                               ; preds = %.preheader
   %23 = lshr i64 %19, 16
@@ -1018,6 +1018,9 @@ attributes #7 = { nounwind }
 !36 = !{!28, !6, i64 0}
 !37 = distinct !{!37, !24}
 !38 = distinct !{!38, !24}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = distinct !{!41, !24}
+!39 = distinct !{!39, !24, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !24, !40}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = distinct !{!44, !24}

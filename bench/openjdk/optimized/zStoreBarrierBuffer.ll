@@ -1082,7 +1082,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
 45:                                               ; preds = %96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit.loopexit31, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.loopexit31, label %.lr.ph.split, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ %40, %.lr.ph ]
@@ -1336,7 +1336,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = load volatile i32, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %31 = icmp eq i8 %26, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1352,7 +1352,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %38 = lshr i64 %36, 6
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %41 = and i64 %36, 63
   %42 = shl nuw i64 1, %41
   %43 = and i64 %40, %42
@@ -1472,7 +1472,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %7 = lshr i64 %5, 6
   %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %10 = and i64 %5, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %9
@@ -1524,7 +1524,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !16
+  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !18
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
   %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
@@ -1554,7 +1554,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %52 = lshr i64 %51, 6
   %53 = getelementptr inbounds nuw i64, ptr %6, i64 %52
   %54 = load volatile i64, ptr %53, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %55 = and i64 %51, 63
   %56 = shl nuw i64 1, %55
   %57 = and i64 %54, %56
@@ -1605,7 +1605,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
-  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !16
+  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !18
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
   %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
@@ -1621,7 +1621,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 
 _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread: ; preds = %80, %.loopexit45.i.i.i23, %58, %50
   %.not17 = icmp eq i64 %51, 0
-  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !17
+  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !19
 
 .loopexit.split.loop.exit48:                      ; preds = %.loopexit45.i.i.i23
   %91 = and i64 %89, -2
@@ -1803,7 +1803,9 @@ attributes #14 = { noreturn nounwind }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i64 2145392468}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!17 = !{i64 2145392468}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

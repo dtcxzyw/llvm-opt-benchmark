@@ -884,7 +884,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   store i32 -100, ptr %25, align 4, !tbaa !20
   %26 = add nuw nsw i64 %.097, 1
   %exitcond.not = icmp eq i64 %26, %8
-  br i1 %exitcond.not, label %.preheader94.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader94.thread, label %.lr.ph, !llvm.loop !25
 
 .loopexit95:                                      ; preds = %6
   %.not117 = icmp eq i64 %1, 0
@@ -923,7 +923,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %40 = tail call i32 @llvm.smax.i32(i32 %.083107, i32 %39)
   %41 = add nuw nsw i64 %.084106, 1
   %exitcond129.not = icmp eq i64 %41, %8
-  br i1 %exitcond129.not, label %.lr.ph110.preheader, label %.lr.ph108, !llvm.loop !25
+  br i1 %exitcond129.not, label %.lr.ph110.preheader, label %.lr.ph108, !llvm.loop !26
 
 42:                                               ; preds = %28
   switch i32 %5, label %.loopexit [
@@ -952,7 +952,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   store i32 %51, ptr %52, align 4, !tbaa !20
   %53 = add nuw nsw i64 %.082104, 1
   %exitcond128.not = icmp eq i64 %53, %8
-  br i1 %exitcond128.not, label %.lr.ph110.preheader, label %.lr.ph105, !llvm.loop !26
+  br i1 %exitcond128.not, label %.lr.ph110.preheader, label %.lr.ph105, !llvm.loop !27
 
 .lr.ph103:                                        ; preds = %.preheader92, %.lr.ph103
   %.080102 = phi i64 [ %63, %.lr.ph103 ], [ 0, %.preheader92 ]
@@ -968,7 +968,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   store i32 %61, ptr %62, align 4, !tbaa !20
   %63 = add nuw nsw i64 %.080102, 1
   %exitcond127.not = icmp eq i64 %63, %8
-  br i1 %exitcond127.not, label %.lr.ph110.preheader, label %.lr.ph103, !llvm.loop !27
+  br i1 %exitcond127.not, label %.lr.ph110.preheader, label %.lr.ph103, !llvm.loop !28
 
 .loopexit:                                        ; preds = %42
   br i1 %.not118, label %._crit_edge, label %.lr.ph110.preheader
@@ -980,7 +980,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 ._crit_edge:                                      ; preds = %68, %.preheader, %.preheader90, %.preheader92, %.loopexit
   %64 = add nuw i64 %.081111, 1
   %exitcond131.not = icmp eq i64 %64, %1
-  br i1 %exitcond131.not, label %._crit_edge114, label %28, !llvm.loop !28
+  br i1 %exitcond131.not, label %._crit_edge114, label %28, !llvm.loop !29
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %68
   %.078109 = phi i64 [ %84, %68 ], [ 0, %.lr.ph110.preheader ]
@@ -1011,7 +1011,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   store i32 %82, ptr %83, align 4, !tbaa !20
   %84 = add nuw nsw i64 %.078109, 1
   %exitcond130.not = icmp eq i64 %84, %8
-  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !29
+  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1088,10 +1088,11 @@ attributes #8 = { nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"int", !5, i64 0}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!23 = distinct !{!23, !8, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}

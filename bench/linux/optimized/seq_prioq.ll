@@ -252,13 +252,13 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %58 = icmp eq i32 %48, %56
   %59 = select i1 %58, i1 %15, i1 false
   %60 = select i1 %57, i1 true, i1 %59
-  br i1 %60, label %.thread13, label %.lr.ph70
+  br i1 %60, label %.thread13, label %.lr.ph70, !llvm.loop !8
 
 61:                                               ; preds = %.lr.ph70
   %62 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread13.thread, label %.lr.ph.split.us
+  br i1 %64, label %.thread13.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph70:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %65 = phi i32 [ %67, %.lr.ph.split.us ], [ 10000, %.lr.ph.split.us.preheader ]
@@ -454,7 +454,7 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   %44 = phi ptr [ %12, %36 ], [ %14, %40 ], [ %14, %22 ]
   %45 = phi ptr [ %12, %36 ], [ %12, %40 ], [ %13, %22 ]
   %46 = icmp eq ptr %17, null
-  br i1 %46, label %.split6.us, label %.split.us, !llvm.loop !8
+  br i1 %46, label %.split6.us, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %8, %91
   %47 = phi ptr [ %52, %91 ], [ %6, %8 ]
@@ -531,7 +531,7 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   %93 = phi ptr [ %47, %85 ], [ %49, %89 ], [ %49, %72 ], [ %49, %70 ]
   %94 = phi ptr [ %47, %85 ], [ %47, %89 ], [ %48, %72 ], [ %48, %70 ]
   %95 = icmp eq ptr %52, null
-  br i1 %95, label %.split6.us, label %.split, !llvm.loop !8
+  br i1 %95, label %.split6.us, label %.split, !llvm.loop !11
 
 .split6.us:                                       ; preds = %91, %42
   %.us-phi = phi ptr [ %44, %42 ], [ %93, %91 ]
@@ -545,7 +545,7 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   %99 = load ptr, ptr %98, align 8
   tail call void @snd_seq_cell_free(ptr noundef nonnull %97) #7
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %.split6.us
   ret void
@@ -757,7 +757,7 @@ define dso_local void @snd_seq_prioq_remove_events(ptr noundef %0, i32 noundef %
   %134 = phi ptr [ %19, %126 ], [ %21, %130 ], [ %21, %18 ], [ %21, %33 ], [ %21, %38 ], [ %21, %46 ], [ %21, %50 ], [ %21, %64 ], [ %21, %68 ], [ %21, %70 ], [ %21, %84 ], [ %21, %86 ], [ %21, %90 ], [ %21, %98 ], [ %21, %106 ], [ %21, %112 ]
   %135 = phi ptr [ %19, %126 ], [ %19, %130 ], [ %20, %18 ], [ %20, %33 ], [ %20, %38 ], [ %20, %46 ], [ %20, %50 ], [ %20, %64 ], [ %20, %68 ], [ %20, %70 ], [ %20, %84 ], [ %20, %86 ], [ %20, %90 ], [ %20, %98 ], [ %20, %106 ], [ %20, %112 ]
   %136 = icmp eq ptr %24, null
-  br i1 %136, label %137, label %18, !llvm.loop !10
+  br i1 %136, label %137, label %18, !llvm.loop !13
 
 137:                                              ; preds = %132
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #7
@@ -770,7 +770,7 @@ define dso_local void @snd_seq_prioq_remove_events(ptr noundef %0, i32 noundef %
   %141 = load ptr, ptr %140, align 8
   tail call void @snd_seq_cell_free(ptr noundef nonnull %139) #7
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %142, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %137
   ret void
@@ -805,7 +805,10 @@ attributes #8 = { cold nounwind }
 !5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6, !7, !9}
 !11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

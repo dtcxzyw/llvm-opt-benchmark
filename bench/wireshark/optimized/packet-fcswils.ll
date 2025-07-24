@@ -1337,7 +1337,7 @@ define internal void @dissect_swils_rdi(ptr noundef %0, ptr readnone captures(no
   %23 = add nuw nsw i32 %.024, 4
   %24 = add nuw nsw i32 %.02023, 1
   %exitcond.not = icmp eq i32 %24, %smax26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %5, %4
   ret void
@@ -1451,13 +1451,13 @@ define internal void @dissect_swils_lsupdate(ptr noundef %0, ptr readnone captur
   %59 = add i32 %.139.i, 16
   %60 = add nuw nsw i32 %.03538.i, 1
   %exitcond.not.i = icmp eq i32 %60, %26
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph43.i
   %.1.lcssa.i = phi i32 [ %38, %.lr.ph43.i ], [ %59, %.lr.ph.i ]
   %61 = add nuw nsw i32 %.03640.i, 1
   %exitcond45.not.i = icmp eq i32 %61, %20
-  br i1 %exitcond45.not.i, label %dissect_swils_fspf_lsrec.exit, label %.lr.ph43.i, !llvm.loop !10
+  br i1 %exitcond45.not.i, label %dissect_swils_fspf_lsrec.exit, label %.lr.ph43.i, !llvm.loop !12
 
 dissect_swils_fspf_lsrec.exit:                    ; preds = %._crit_edge.i, %5, %4
   ret void
@@ -1501,7 +1501,7 @@ define internal void @dissect_swils_lsack(ptr noundef %0, ptr readnone captures(
   %29 = add i32 %.026, 24
   %30 = add nuw nsw i32 %.02325, 1
   %exitcond.not = icmp eq i32 %30, %20
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %4
   ret void
@@ -1558,7 +1558,7 @@ define internal void @dissect_swils_rscn(ptr noundef %0, ptr readnone captures(n
   %34 = add i32 %.04144, 20
   %35 = add nuw nsw i32 %.045, 1
   %exitcond.not = icmp eq i32 %35, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %4, %5
   ret void
@@ -1620,7 +1620,7 @@ define internal void @dissect_swils_mergereq(ptr noundef %0, ptr noundef %1, ptr
   %38 = add i32 %34, %.0100
   %39 = add nuw nsw i32 %.09199, 1
   %exitcond.not = icmp eq i32 %39, %27
-  br i1 %exitcond.not, label %.loopexit98, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit98, label %.lr.ph, !llvm.loop !15
 
 .loopexit98:                                      ; preds = %.lr.ph, %9, %5
   %.1 = phi i32 [ 4, %5 ], [ %32, %9 ], [ %38, %.lr.ph ]
@@ -1654,7 +1654,7 @@ define internal void @dissect_swils_mergereq(ptr noundef %0, ptr noundef %1, ptr
   %55 = add i32 %52, %.2102
   %56 = add nuw nsw i32 %.192101, 1
   %exitcond104.not = icmp eq i32 %56, %45
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph103, !llvm.loop !14
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph103, !llvm.loop !16
 
 57:                                               ; preds = %4
   %58 = load i32, ptr @hf_swils_zone_status, align 4
@@ -1700,7 +1700,7 @@ define internal void @dissect_swils_aca(ptr noundef %0, ptr readnone captures(no
   %19 = add nuw nsw i32 %.02831, 4
   %20 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %20, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 21:                                               ; preds = %5
   %22 = load i32, ptr @hf_swils_zone_status, align 4
@@ -1787,7 +1787,7 @@ define internal void @dissect_swils_sfc(ptr noundef %0, ptr noundef %1, ptr noun
   %39 = add i32 %36, %.0103
   %40 = add nuw nsw i32 %.094102, 1
   %exitcond.not = icmp eq i32 %40, %29
-  br i1 %exitcond.not, label %.loopexit101, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit101, label %.lr.ph, !llvm.loop !18
 
 .loopexit101:                                     ; preds = %.lr.ph, %11, %5
   %.1 = phi i32 [ 4, %5 ], [ %34, %11 ], [ %39, %.lr.ph ]
@@ -1821,7 +1821,7 @@ define internal void @dissect_swils_sfc(ptr noundef %0, ptr noundef %1, ptr noun
   %56 = add i32 %53, %.2105
   %57 = add nuw nsw i32 %.195104, 1
   %exitcond107.not = icmp eq i32 %57, %46
-  br i1 %exitcond107.not, label %.loopexit, label %.lr.ph106, !llvm.loop !17
+  br i1 %exitcond107.not, label %.loopexit, label %.lr.ph106, !llvm.loop !19
 
 58:                                               ; preds = %4
   %59 = load i32, ptr @hf_swils_zone_status, align 4
@@ -1893,7 +1893,7 @@ define internal void @dissect_swils_esc(ptr noundef %0, ptr readnone captures(no
   %21 = add nuw nsw i32 %.040, 12
   %22 = add nuw nsw i32 %.03639, 1
   %exitcond.not = icmp eq i32 %22, %.zext
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 23:                                               ; preds = %5
   %24 = load i32, ptr @hf_swils_esc_swvendorid, align 4
@@ -1959,7 +1959,7 @@ define internal void @dissect_swils_ess(ptr noundef %0, ptr readnone captures(no
   %35 = add i32 %32, %.04450.i
   %36 = sub i32 %.051.i, %32
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph.i, label %dissect_swils_interconnect_element_info.exit, !llvm.loop !19
+  br i1 %37, label %.lr.ph.i, label %dissect_swils_interconnect_element_info.exit, !llvm.loop !21
 
 dissect_swils_interconnect_element_info.exit:     ; preds = %.lr.ph.i, %5, %13
   %38 = load i32, ptr @hf_swils_ess_numobj, align 4
@@ -2044,7 +2044,7 @@ dissect_swils_ess_capability.exit.us.i:           ; preds = %.lr.ph.split.us.i
   %84 = add i32 %.07083.us.i, 8
   %85 = add nuw nsw i32 %.17681.us.i, 8
   %86 = icmp sgt i32 %.17482.us.i, 1
-  br i1 %86, label %.lr.ph.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %86, label %.lr.ph.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !22
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i37
   switch i8 %.fr.i, label %.lr.ph.split.split.i [
@@ -2080,7 +2080,7 @@ dissect_swils_ess_capability.exit.us90.i:         ; preds = %.lr.ph.split.split.
   %103 = add i32 %.07083.us87.i, 8
   %104 = add nuw nsw i32 %.17681.us89.i, 8
   %105 = icmp sgt i32 %.17482.us88.i, 1
-  br i1 %105, label %.lr.ph.split.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %105, label %.lr.ph.split.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !23
 
 .lr.ph.split.split.us95.i:                        ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us99.i
   %.07083.us96.i = phi i32 [ %114, %dissect_swils_ess_capability.exit.us99.i ], [ %79, %.lr.ph.split.i ]
@@ -2100,7 +2100,7 @@ dissect_swils_ess_capability.exit.us99.i:         ; preds = %.lr.ph.split.split.
   %114 = add i32 %.07083.us96.i, 8
   %115 = add nuw nsw i32 %.17681.us98.i, 8
   %116 = icmp sgt i32 %.17482.us97.i, 1
-  br i1 %116, label %.lr.ph.split.split.us95.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %116, label %.lr.ph.split.split.us95.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !24
 
 .lr.ph.split.split.us104.i:                       ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us108.i
   %.07083.us105.i = phi i32 [ %128, %dissect_swils_ess_capability.exit.us108.i ], [ %79, %.lr.ph.split.i ]
@@ -2123,7 +2123,7 @@ dissect_swils_ess_capability.exit.us108.i:        ; preds = %.lr.ph.split.split.
   %128 = add i32 %.07083.us105.i, 8
   %129 = add nuw nsw i32 %.17681.us107.i, 8
   %130 = icmp sgt i32 %.17482.us106.i, 1
-  br i1 %130, label %.lr.ph.split.split.us104.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %130, label %.lr.ph.split.split.us104.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !25
 
 .lr.ph.split.split.us113.i:                       ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us117.i
   %.07083.us114.i = phi i32 [ %150, %dissect_swils_ess_capability.exit.us117.i ], [ %79, %.lr.ph.split.i ]
@@ -2154,7 +2154,7 @@ dissect_swils_ess_capability.exit.us117.i:        ; preds = %.lr.ph.split.split.
   %150 = add i32 %.07083.us114.i, 8
   %151 = add nuw nsw i32 %.17681.us116.i, 8
   %152 = icmp sgt i32 %.17482.us115.i, 1
-  br i1 %152, label %.lr.ph.split.split.us113.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %152, label %.lr.ph.split.split.us113.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !26
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.i
   %.07083.i = phi i32 [ %155, %dissect_swils_ess_capability.exit.i ], [ %79, %.lr.ph.split.i ]
@@ -2168,7 +2168,7 @@ dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.
   %155 = add i32 %.07083.i, 8
   %156 = add nuw nsw i32 %.17681.i, 8
   %157 = icmp sgt i32 %.17482.i, 1
-  br i1 %157, label %.lr.ph.split.split.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !20
+  br i1 %157, label %.lr.ph.split.split.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !27
 
 158:                                              ; preds = %64
   %159 = load i32, ptr @hf_swils_ess_cap_len, align 4
@@ -2198,7 +2198,7 @@ dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.
   %172 = add i32 %.1124.i, 8
   %173 = add nuw nsw i32 %.2122.i, 12
   %174 = icmp sgt i32 %.172123.i, 8
-  br i1 %174, label %.lr.ph125.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !21
+  br i1 %174, label %.lr.ph125.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !28
 
 dissect_swils_ess_capability_obj.exit:            ; preds = %.lr.ph.split.split.us113.i, %dissect_swils_ess_capability.exit.us117.i, %.lr.ph.split.split.us104.i, %dissect_swils_ess_capability.exit.us108.i, %.lr.ph.split.split.us95.i, %dissect_swils_ess_capability.exit.us99.i, %.lr.ph.split.split.us.i, %dissect_swils_ess_capability.exit.us90.i, %.lr.ph.split.split.i, %dissect_swils_ess_capability.exit.i, %.lr.ph.split.us.i, %dissect_swils_ess_capability.exit.us.i, %.lr.ph125.i, %168, %71, %158
   %.075.i = phi i32 [ 12, %158 ], [ 4, %71 ], [ %173, %168 ], [ %.2122.i, %.lr.ph125.i ], [ %81, %dissect_swils_ess_capability.exit.us.i ], [ %.17681.us.i, %.lr.ph.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.i ], [ %.17681.i, %.lr.ph.split.split.i ], [ %81, %dissect_swils_ess_capability.exit.us90.i ], [ %.17681.us89.i, %.lr.ph.split.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.us99.i ], [ %.17681.us98.i, %.lr.ph.split.split.us95.i ], [ %81, %dissect_swils_ess_capability.exit.us108.i ], [ %.17681.us107.i, %.lr.ph.split.split.us104.i ], [ %81, %dissect_swils_ess_capability.exit.us117.i ], [ %.17681.us116.i, %.lr.ph.split.split.us113.i ]
@@ -2208,7 +2208,7 @@ dissect_swils_ess_capability_obj.exit:            ; preds = %.lr.ph.split.split.
   %178 = icmp sgt i32 %176, 0
   %179 = icmp sgt i16 %.03454, 1
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %180, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %dissect_swils_ess_capability_obj.exit, %dissect_swils_interconnect_element_info.exit, %4
   ret void
@@ -2364,13 +2364,13 @@ define internal fastcc i32 @get_zoneobj_len(ptr noundef %0, i32 noundef %1) unna
   %27 = add i32 %26, %25
   %28 = add nuw nsw i32 %.03133.us, 1
   %exitcond41.not = icmp eq i32 %28, %20
-  br i1 %exitcond41.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !23
+  br i1 %exitcond41.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !30
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %.lr.ph37.split.us
   %.1.lcssa.us = phi i32 [ %21, %.lr.ph37.split.us ], [ %27, %.lr.ph.us ]
   %29 = add nuw nsw i32 %.03235.us, 1
   %exitcond42.not = icmp eq i32 %29, %9
-  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph37.split.us, !llvm.loop !24
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph37.split.us, !llvm.loop !31
 
 .lr.ph37.split:                                   ; preds = %.lr.ph37, %.lr.ph37.split
   %.036 = phi i32 [ %34, %.lr.ph37.split ], [ %10, %.lr.ph37 ]
@@ -2382,7 +2382,7 @@ define internal fastcc i32 @get_zoneobj_len(ptr noundef %0, i32 noundef %1) unna
   %34 = add i32 %33, %32
   %35 = add nuw nsw i32 %.03235, 1
   %exitcond.not = icmp eq i32 %35, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph37.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph37.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph37.split, %.loopexit.us, %2
   %.0.lcssa = phi i32 [ %10, %2 ], [ %.1.lcssa.us, %.loopexit.us ], [ %34, %.lr.ph37.split ]
@@ -2437,7 +2437,7 @@ dissect_swils_zone_mbr.exit.us:                   ; preds = %.lr.ph, %dissect_sw
   %.1.us = add i32 %38, %.054.us
   %39 = add nuw nsw i32 %.05253.us, 1
   %exitcond56.not = icmp eq i32 %39, %26
-  br i1 %exitcond56.not, label %._crit_edge, label %dissect_swils_zone_mbr.exit.us, !llvm.loop !25
+  br i1 %exitcond56.not, label %._crit_edge, label %dissect_swils_zone_mbr.exit.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_swils_zone_mbr.exit
   %.054 = phi i32 [ %.1, %dissect_swils_zone_mbr.exit ], [ %36, %.lr.ph ]
@@ -2533,7 +2533,7 @@ dissect_swils_zone_mbr.exit:                      ; preds = %99, %92, %85, %78, 
   %.1 = add i32 %43, %.054
   %101 = add nuw nsw i32 %.05253, 1
   %exitcond.not = icmp eq i32 %101, %26
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %dissect_swils_zone_mbr.exit, %dissect_swils_zone_mbr.exit.us, %4
   ret void
@@ -2582,8 +2582,8 @@ attributes #10 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -2596,7 +2596,16 @@ attributes #10 = { allocsize(1) }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!22 = distinct !{!22, !7, !9}
+!23 = distinct !{!23, !7, !9}
+!24 = distinct !{!24, !7, !9}
+!25 = distinct !{!25, !7, !9}
+!26 = distinct !{!26, !7, !9}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7, !9}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7, !9}
+!34 = distinct !{!34, !7}

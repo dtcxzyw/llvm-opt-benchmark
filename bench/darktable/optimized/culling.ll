@@ -2280,7 +2280,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %313 = getelementptr inbounds nuw i8, ptr %.0394479.us.i, i64 8
   %314 = load ptr, ptr %313, align 8, !tbaa !164
   %.not426.us.i = icmp eq ptr %314, null
-  br i1 %.not426.us.i, label %._crit_edge483.i, label %.lr.ph482.split.us.i
+  br i1 %.not426.us.i, label %._crit_edge483.i, label %.lr.ph482.split.us.i, !llvm.loop !167
 
 .lr.ph474.i:                                      ; preds = %295, %.lr.ph474.i
   %.0391472.i = phi i32 [ %319, %.lr.ph474.i ], [ 0, %295 ]
@@ -2549,7 +2549,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.0356539.i = phi ptr [ %469, %._crit_edge533.i ], [ %463, %.lr.ph563.i ]
   %.0357538.i = phi i32 [ %467, %._crit_edge533.i ], [ 0, %.lr.ph563.i ]
   %.0358537.i = phi i32 [ %.1359.lcssa.i, %._crit_edge533.i ], [ 0, %.lr.ph563.i ]
-  %.0353527.i = load ptr, ptr %.0356539.i, align 8, !tbaa !167
+  %.0353527.i = load ptr, ptr %.0356539.i, align 8, !tbaa !169
   %.not420528.i = icmp eq ptr %.0353527.i, null
   br i1 %.not420528.i, label %._crit_edge533.i, label %.lr.ph532.i
 
@@ -2585,7 +2585,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %479 = add i32 %478, %.0354530.i
   %480 = add i32 %479, 1
   %481 = getelementptr inbounds nuw i8, ptr %.0353531.i, i64 8
-  %.0353.i = load ptr, ptr %481, align 8, !tbaa !167
+  %.0353.i = load ptr, ptr %481, align 8, !tbaa !169
   %.not420.i = icmp eq ptr %.0353.i, null
   br i1 %.not420.i, label %._crit_edge533.i, label %.lr.ph532.i
 
@@ -2730,7 +2730,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 340
   store i32 %553, ptr %554, align 4, !tbaa !117
   %555 = getelementptr inbounds nuw i8, ptr %552, i64 112
-  %556 = load ptr, ptr %555, align 8, !tbaa !168
+  %556 = load ptr, ptr %555, align 8, !tbaa !170
   %557 = call ptr @gtk_widget_get_parent(ptr noundef %556) #14
   %.not102 = icmp eq ptr %557, null
   br i1 %.not102, label %558, label %577
@@ -2750,7 +2750,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   %567 = load ptr, ptr %9, align 8, !tbaa !17
   %568 = tail call i64 @gtk_layout_get_type() #15
   %569 = call ptr @g_type_check_instance_cast(ptr noundef %567, i64 noundef %568) #14
-  %570 = load ptr, ptr %555, align 8, !tbaa !168
+  %570 = load ptr, ptr %555, align 8, !tbaa !170
   %571 = getelementptr inbounds nuw i8, ptr %552, i64 16
   %572 = load i32, ptr %571, align 8, !tbaa !165
   %573 = getelementptr inbounds nuw i8, ptr %552, i64 20
@@ -2766,7 +2766,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   %578 = load ptr, ptr %9, align 8, !tbaa !17
   %579 = tail call i64 @gtk_layout_get_type() #15
   %580 = call ptr @g_type_check_instance_cast(ptr noundef %578, i64 noundef %579) #14
-  %581 = load ptr, ptr %555, align 8, !tbaa !168
+  %581 = load ptr, ptr %555, align 8, !tbaa !170
   %582 = getelementptr inbounds nuw i8, ptr %552, i64 16
   %583 = load i32, ptr %582, align 8, !tbaa !165
   %584 = getelementptr inbounds nuw i8, ptr %552, i64 20
@@ -2828,7 +2828,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
 
 618:                                              ; preds = %614
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %619, align 4, !tbaa !169
+  store i32 1, ptr %619, align 4, !tbaa !171
   %620 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !57
   %621 = and i32 %620, 256
   %.not93 = icmp eq i32 %621, 0
@@ -2861,10 +2861,10 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
 ._crit_edge148:                                   ; preds = %.lr.ph147, %633
   %.083.lcssa = phi ptr [ null, %633 ], [ %640, %.lr.ph147 ]
   %634 = call ptr @g_list_reverse(ptr noundef %.083.lcssa) #14
-  %635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !170
+  %635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !172
   call void @dt_selection_select_list(ptr noundef %635, ptr noundef %634) #14
   call void @g_list_free(ptr noundef %634) #14
-  store i32 0, ptr %619, align 4, !tbaa !169
+  store i32 0, ptr %619, align 4, !tbaa !171
   br label %642
 
 .lr.ph147:                                        ; preds = %633, %.lr.ph147
@@ -2886,7 +2886,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   br i1 %.not.i117, label %_thumbs_prefetch.exit, label %.preheader.i118
 
 644:                                              ; preds = %.preheader.i118
-  %645 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !171
+  %645 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   %646 = call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %645, i32 noundef %.0..i, i32 noundef %661) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %647 = load ptr, ptr %76, align 8, !tbaa !153
@@ -2951,7 +2951,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   br i1 %682, label %683, label %685
 
 683:                                              ; preds = %679
-  %684 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !171
+  %684 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %684, ptr noundef null, i32 noundef %681, i32 noundef %646, i32 noundef 1, i8 noundef signext 114, ptr noundef nonnull @.str.15, i32 noundef 1170) #14
   br label %685
 
@@ -3004,7 +3004,7 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   br i1 %714, label %715, label %717
 
 715:                                              ; preds = %711
-  %716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !171
+  %716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %716, ptr noundef null, i32 noundef %713, i32 noundef %646, i32 noundef 1, i8 noundef signext 114, ptr noundef nonnull @.str.15, i32 noundef 1207) #14
   br label %717
 
@@ -3071,7 +3071,7 @@ _thumbs_prefetch.exit:                            ; preds = %642, %717
   br i1 %.not101, label %744, label %742
 
 742:                                              ; preds = %739
-  %743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !171
+  %743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   call void @dt_mipmap_cache_print(ptr noundef %743) #14
   br label %744
 
@@ -3877,7 +3877,7 @@ _zoom_to_center.exit.thread.us:                   ; preds = %_zoom_to_center.exi
   %138 = getelementptr inbounds nuw i8, ptr %.059101.us, i64 8
   %.059.us = load ptr, ptr %138, align 8, !tbaa !88
   %.not70.us = icmp eq ptr %.059.us, null
-  br i1 %.not70.us, label %._crit_edge104, label %.lr.ph103.split.us
+  br i1 %.not70.us, label %._crit_edge104, label %.lr.ph103.split.us, !llvm.loop !174
 
 ._crit_edge104:                                   ; preds = %_zoom_to_center.exit.thread.us, %_zoom_to_center.exit.thread, %65, %.loopexit.thread113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
@@ -4045,7 +4045,7 @@ _thumbs_get_overlays_class.exit46:                ; preds = %_thumbs_get_overlay
   tail call void @dt_thumbnail_set_overlay(ptr noundef %28, i32 noundef %1, i32 noundef %20) #14
   %29 = load i32, ptr %24, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 348
-  store i32 %29, ptr %30, align 4, !tbaa !172
+  store i32 %29, ptr %30, align 4, !tbaa !175
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 384
   %32 = load float, ptr %31, align 8, !tbaa !95
   %33 = fcmp reassoc nsz arcp contract afn ogt float %32, 1.000000e+00
@@ -4318,11 +4318,11 @@ declare i32 @g_int_equal(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal void @_list_remove_thumb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !168
+  %3 = load ptr, ptr %2, align 8, !tbaa !170
   %4 = tail call ptr @gtk_widget_get_parent(ptr noundef %3) #14
   %5 = tail call i64 @gtk_container_get_type() #15
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #14
-  %7 = load ptr, ptr %2, align 8, !tbaa !168
+  %7 = load ptr, ptr %2, align 8, !tbaa !170
   tail call void @gtk_container_remove(ptr noundef %6, ptr noundef %7) #14
   tail call void @dt_thumbnail_destroy(ptr noundef %0) #14
   ret void
@@ -4566,9 +4566,12 @@ attributes #17 = { cold nounwind }
 !164 = !{!90, !13, i64 8}
 !165 = !{!92, !8, i64 16}
 !166 = !{!92, !8, i64 20}
-!167 = !{!12, !12, i64 0}
-!168 = !{!92, !11, i64 112}
-!169 = !{!7, !8, i64 68}
-!170 = !{!22, !39, i64 168}
-!171 = !{!22, !32, i64 112}
-!172 = !{!92, !8, i64 348}
+!167 = distinct !{!167, !168}
+!168 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!169 = !{!12, !12, i64 0}
+!170 = !{!92, !11, i64 112}
+!171 = !{!7, !8, i64 68}
+!172 = !{!22, !39, i64 168}
+!173 = !{!22, !32, i64 112}
+!174 = distinct !{!174, !168}
+!175 = !{!92, !8, i64 348}

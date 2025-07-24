@@ -2314,7 +2314,7 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
   %37 = phi i32 [ %25, %.lr.ph.split ], [ %29, %28 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %38 = icmp sgt i64 %indvars.iv, 0
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !34
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %36, %23, %2
   ret void
@@ -2430,4 +2430,6 @@ attributes #20 = { noreturn }
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
+!34 = distinct !{!34, !6, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !6}

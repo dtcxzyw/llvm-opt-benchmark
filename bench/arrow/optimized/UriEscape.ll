@@ -14,7 +14,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, %2
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %194, label %8
+  br i1 %or.cond, label %133, label %8
 
 8:                                                ; preds = %5
   %9 = icmp eq ptr %0, null
@@ -31,13 +31,10 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   %.not71 = icmp eq i32 %3, 0
   br i1 %.not68, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %36
-  %.06177.us.us = phi ptr [ %.2.us.us, %36 ], [ %2, %.lr.ph.split.us ]
-  %.06376.us.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph.split.us ]
-  %10 = load i8, ptr %.06376.us.us, align 1, !tbaa !3
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %36
+  %.06177.us = phi ptr [ %.2.us, %36 ], [ %2, %.lr.ph ]
+  %.06376.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph ]
+  %10 = load i8, ptr %.06376.us, align 1, !tbaa !3
   switch i8 %10, label %27 [
     i8 0, label %.sink.split
     i8 32, label %21
@@ -111,793 +108,511 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
     i8 13, label %11
   ]
 
-11:                                               ; preds = %.lr.ph.split.us.split.us
-  store i8 37, ptr %.06177.us.us, align 1, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 1
+11:                                               ; preds = %.lr.ph.split.us
+  store i8 37, ptr %.06177.us, align 1, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
   store i8 48, ptr %12, align 1, !tbaa !3
-  %13 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
   store i8 68, ptr %13, align 1, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
   br label %36
 
-15:                                               ; preds = %.lr.ph.split.us.split.us
-  store i8 37, ptr %.06177.us.us, align 1, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 1
+15:                                               ; preds = %.lr.ph.split.us
+  store i8 37, ptr %.06177.us, align 1, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
   store i8 48, ptr %16, align 1, !tbaa !3
-  %17 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
   store i8 65, ptr %17, align 1, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
   br label %36
 
-19:                                               ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us
-  store i8 %10, ptr %.06177.us.us, align 1, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 1
+19:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+  store i8 %10, ptr %.06177.us, align 1, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
   br label %36
 
-21:                                               ; preds = %.lr.ph.split.us.split.us
-  %22 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 1
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
   br i1 %.not71, label %24, label %23
 
 23:                                               ; preds = %21
-  store i8 43, ptr %.06177.us.us, align 1, !tbaa !3
+  store i8 43, ptr %.06177.us, align 1, !tbaa !3
   br label %36
 
 24:                                               ; preds = %21
-  store i8 37, ptr %.06177.us.us, align 1, !tbaa !3
+  store i8 37, ptr %.06177.us, align 1, !tbaa !3
   store i8 50, ptr %22, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
   store i8 48, ptr %25, align 1, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
   br label %36
 
-27:                                               ; preds = %.lr.ph.split.us.split.us
-  store i8 37, ptr %.06177.us.us, align 1, !tbaa !3
+27:                                               ; preds = %.lr.ph.split.us
+  store i8 37, ptr %.06177.us, align 1, !tbaa !3
   %28 = zext i8 %10 to i32
   %29 = lshr i32 %28, 4
   %30 = tail call signext i8 @uriHexToLetterA(i32 noundef %29) #2
-  %31 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
   store i8 %30, ptr %31, align 1, !tbaa !3
   %32 = and i32 %28, 15
   %33 = tail call signext i8 @uriHexToLetterA(i32 noundef %32) #2
-  %34 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
   store i8 %33, ptr %34, align 1, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
   br label %36
 
 36:                                               ; preds = %27, %24, %23, %19, %15, %11
-  %.2.us.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.06376.us.us, i64 1
-  br label %.lr.ph.split.us.split.us
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %64
-  %.06177.us = phi ptr [ %.2.us, %64 ], [ %2, %.lr.ph.split.us ]
-  %.06376.us = phi ptr [ %65, %64 ], [ %0, %.lr.ph.split.us ]
-  %38 = load i8, ptr %.06376.us, align 1, !tbaa !3
-  switch i8 %38, label %55 [
-    i8 0, label %.sink.split
-    i8 32, label %49
-    i8 97, label %47
-    i8 65, label %47
-    i8 98, label %47
-    i8 66, label %47
-    i8 99, label %47
-    i8 67, label %47
-    i8 100, label %47
-    i8 68, label %47
-    i8 101, label %47
-    i8 69, label %47
-    i8 102, label %47
-    i8 70, label %47
-    i8 103, label %47
-    i8 71, label %47
-    i8 104, label %47
-    i8 72, label %47
-    i8 105, label %47
-    i8 73, label %47
-    i8 106, label %47
-    i8 74, label %47
-    i8 107, label %47
-    i8 75, label %47
-    i8 108, label %47
-    i8 76, label %47
-    i8 109, label %47
-    i8 77, label %47
-    i8 110, label %47
-    i8 78, label %47
-    i8 111, label %47
-    i8 79, label %47
-    i8 112, label %47
-    i8 80, label %47
-    i8 113, label %47
-    i8 81, label %47
-    i8 114, label %47
-    i8 82, label %47
-    i8 115, label %47
-    i8 83, label %47
-    i8 116, label %47
-    i8 84, label %47
-    i8 117, label %47
-    i8 85, label %47
-    i8 118, label %47
-    i8 86, label %47
-    i8 119, label %47
-    i8 87, label %47
-    i8 120, label %47
-    i8 88, label %47
-    i8 121, label %47
-    i8 89, label %47
-    i8 122, label %47
-    i8 90, label %47
-    i8 48, label %47
-    i8 49, label %47
-    i8 50, label %47
-    i8 51, label %47
-    i8 52, label %47
-    i8 53, label %47
-    i8 54, label %47
-    i8 55, label %47
-    i8 56, label %47
-    i8 57, label %47
-    i8 45, label %47
-    i8 46, label %47
-    i8 95, label %47
-    i8 126, label %47
-    i8 10, label %43
-    i8 13, label %39
-  ]
-
-39:                                               ; preds = %.lr.ph.split.us.split
-  store i8 37, ptr %.06177.us, align 1, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
-  store i8 48, ptr %40, align 1, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
-  store i8 68, ptr %41, align 1, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
-  br label %64
-
-43:                                               ; preds = %.lr.ph.split.us.split
-  store i8 37, ptr %.06177.us, align 1, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
-  store i8 48, ptr %44, align 1, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
-  store i8 65, ptr %45, align 1, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
-  br label %64
-
-47:                                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
-  store i8 %38, ptr %.06177.us, align 1, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
-  br label %64
-
-49:                                               ; preds = %.lr.ph.split.us.split
-  %50 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
-  br i1 %.not71, label %52, label %51
-
-51:                                               ; preds = %49
-  store i8 43, ptr %.06177.us, align 1, !tbaa !3
-  br label %64
-
-52:                                               ; preds = %49
-  store i8 37, ptr %.06177.us, align 1, !tbaa !3
-  store i8 50, ptr %50, align 1, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
-  store i8 48, ptr %53, align 1, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
-  br label %64
-
-55:                                               ; preds = %.lr.ph.split.us.split
-  store i8 37, ptr %.06177.us, align 1, !tbaa !3
-  %56 = zext i8 %38 to i32
-  %57 = lshr i32 %56, 4
-  %58 = tail call signext i8 @uriHexToLetterA(i32 noundef %57) #2
-  %59 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 1
-  store i8 %58, ptr %59, align 1, !tbaa !3
-  %60 = and i32 %56, 15
-  %61 = tail call signext i8 @uriHexToLetterA(i32 noundef %60) #2
-  %62 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 2
-  store i8 %61, ptr %62, align 1, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 3
-  br label %64
-
-64:                                               ; preds = %55, %52, %51, %47, %43, %39
-  %.2.us = phi ptr [ %63, %55 ], [ %48, %47 ], [ %50, %51 ], [ %54, %52 ], [ %46, %43 ], [ %42, %39 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 1
-  %.not67.us = icmp ult ptr %65, %1
-  br i1 %.not67.us, label %.lr.ph.split.us.split, label %.sink.split
+  %.2.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 1
+  %.not67.us = icmp ult ptr %37, %1
+  %or.cond72.us = select i1 %.not, i1 true, i1 %.not67.us
+  br i1 %or.cond72.us, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !6
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %.not71, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  br i1 %.not, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.us.split
-
-.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us, %97
-  %.06078.us91.us = phi i32 [ %.1.us96.us, %97 ], [ 0, %.lr.ph.split.split.split.us ]
-  %.06177.us92.us = phi ptr [ %.2.us95.us, %97 ], [ %2, %.lr.ph.split.split.split.us ]
-  %.06376.us93.us = phi ptr [ %98, %97 ], [ %0, %.lr.ph.split.split.split.us ]
-  %66 = load i8, ptr %.06376.us93.us, align 1, !tbaa !3
-  switch i8 %66, label %88 [
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %69
+  %.06078.us91 = phi i32 [ %.1.us96, %69 ], [ 0, %.lr.ph.split.split ]
+  %.06177.us92 = phi ptr [ %.2.us95, %69 ], [ %2, %.lr.ph.split.split ]
+  %.06376.us93 = phi ptr [ %70, %69 ], [ %0, %.lr.ph.split.split ]
+  %38 = load i8, ptr %.06376.us93, align 1, !tbaa !3
+  switch i8 %38, label %60 [
     i8 0, label %.sink.split
-    i8 32, label %84
-    i8 97, label %82
-    i8 65, label %82
-    i8 98, label %82
-    i8 66, label %82
-    i8 99, label %82
-    i8 67, label %82
-    i8 100, label %82
-    i8 68, label %82
-    i8 101, label %82
-    i8 69, label %82
-    i8 102, label %82
-    i8 70, label %82
-    i8 103, label %82
-    i8 71, label %82
-    i8 104, label %82
-    i8 72, label %82
-    i8 105, label %82
-    i8 73, label %82
-    i8 106, label %82
-    i8 74, label %82
-    i8 107, label %82
-    i8 75, label %82
-    i8 108, label %82
-    i8 76, label %82
-    i8 109, label %82
-    i8 77, label %82
-    i8 110, label %82
-    i8 78, label %82
-    i8 111, label %82
-    i8 79, label %82
-    i8 112, label %82
-    i8 80, label %82
-    i8 113, label %82
-    i8 81, label %82
-    i8 114, label %82
-    i8 82, label %82
-    i8 115, label %82
-    i8 83, label %82
-    i8 116, label %82
-    i8 84, label %82
-    i8 117, label %82
-    i8 85, label %82
-    i8 118, label %82
-    i8 86, label %82
-    i8 119, label %82
-    i8 87, label %82
-    i8 120, label %82
-    i8 88, label %82
-    i8 121, label %82
-    i8 89, label %82
-    i8 122, label %82
-    i8 90, label %82
-    i8 48, label %82
-    i8 49, label %82
-    i8 50, label %82
-    i8 51, label %82
-    i8 52, label %82
-    i8 53, label %82
-    i8 54, label %82
-    i8 55, label %82
-    i8 56, label %82
-    i8 57, label %82
-    i8 45, label %82
-    i8 46, label %82
-    i8 95, label %82
-    i8 126, label %82
-    i8 10, label %74
-    i8 13, label %67
+    i8 32, label %56
+    i8 97, label %54
+    i8 65, label %54
+    i8 98, label %54
+    i8 66, label %54
+    i8 99, label %54
+    i8 67, label %54
+    i8 100, label %54
+    i8 68, label %54
+    i8 101, label %54
+    i8 69, label %54
+    i8 102, label %54
+    i8 70, label %54
+    i8 103, label %54
+    i8 71, label %54
+    i8 104, label %54
+    i8 72, label %54
+    i8 105, label %54
+    i8 73, label %54
+    i8 106, label %54
+    i8 74, label %54
+    i8 107, label %54
+    i8 75, label %54
+    i8 108, label %54
+    i8 76, label %54
+    i8 109, label %54
+    i8 77, label %54
+    i8 110, label %54
+    i8 78, label %54
+    i8 111, label %54
+    i8 79, label %54
+    i8 112, label %54
+    i8 80, label %54
+    i8 113, label %54
+    i8 81, label %54
+    i8 114, label %54
+    i8 82, label %54
+    i8 115, label %54
+    i8 83, label %54
+    i8 116, label %54
+    i8 84, label %54
+    i8 117, label %54
+    i8 85, label %54
+    i8 118, label %54
+    i8 86, label %54
+    i8 119, label %54
+    i8 87, label %54
+    i8 120, label %54
+    i8 88, label %54
+    i8 121, label %54
+    i8 89, label %54
+    i8 122, label %54
+    i8 90, label %54
+    i8 48, label %54
+    i8 49, label %54
+    i8 50, label %54
+    i8 51, label %54
+    i8 52, label %54
+    i8 53, label %54
+    i8 54, label %54
+    i8 55, label %54
+    i8 56, label %54
+    i8 57, label %54
+    i8 45, label %54
+    i8 46, label %54
+    i8 95, label %54
+    i8 126, label %54
+    i8 10, label %46
+    i8 13, label %39
   ]
 
-67:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i8 37, ptr %.06177.us92.us, align 1, !tbaa !3
-  %68 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 1
-  store i8 48, ptr %68, align 1, !tbaa !3
-  %69 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 2
-  store i8 68, ptr %69, align 1, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 3
-  store i8 37, ptr %70, align 1, !tbaa !3
-  %71 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i8 48, ptr %71, align 1, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 5
-  store i8 65, ptr %72, align 1, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 6
-  br label %97
-
-74:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  %.not70.us94.us = icmp eq i32 %.06078.us91.us, 0
-  br i1 %.not70.us94.us, label %75, label %97
-
-75:                                               ; preds = %74
-  store i8 37, ptr %.06177.us92.us, align 1, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 1
-  store i8 48, ptr %76, align 1, !tbaa !3
-  %77 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 2
-  store i8 68, ptr %77, align 1, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 3
-  store i8 37, ptr %78, align 1, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i8 48, ptr %79, align 1, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 5
-  store i8 65, ptr %80, align 1, !tbaa !3
-  %81 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 6
-  br label %97
-
-82:                                               ; preds = %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us
-  store i8 %66, ptr %.06177.us92.us, align 1, !tbaa !3
-  %83 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 1
-  br label %97
-
-84:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i8 37, ptr %.06177.us92.us, align 1, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 1
-  store i8 50, ptr %85, align 1, !tbaa !3
-  %86 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 2
-  store i8 48, ptr %86, align 1, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 3
-  br label %97
-
-88:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i8 37, ptr %.06177.us92.us, align 1, !tbaa !3
-  %89 = zext i8 %66 to i32
-  %90 = lshr i32 %89, 4
-  %91 = tail call signext i8 @uriHexToLetterA(i32 noundef %90) #2
-  %92 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 1
-  store i8 %91, ptr %92, align 1, !tbaa !3
-  %93 = and i32 %89, 15
-  %94 = tail call signext i8 @uriHexToLetterA(i32 noundef %93) #2
-  %95 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 2
-  store i8 %94, ptr %95, align 1, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 3
-  br label %97
-
-97:                                               ; preds = %88, %84, %82, %75, %74, %67
-  %.2.us95.us = phi ptr [ %96, %88 ], [ %83, %82 ], [ %87, %84 ], [ %.06177.us92.us, %74 ], [ %81, %75 ], [ %73, %67 ]
-  %.1.us96.us = phi i32 [ 0, %88 ], [ 0, %82 ], [ 0, %84 ], [ 0, %74 ], [ 0, %75 ], [ 1, %67 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.06376.us93.us, i64 1
-  br label %.lr.ph.split.split.split.us.split.us
-
-.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %130
-  %.06078.us91 = phi i32 [ %.1.us96, %130 ], [ 0, %.lr.ph.split.split.split.us ]
-  %.06177.us92 = phi ptr [ %.2.us95, %130 ], [ %2, %.lr.ph.split.split.split.us ]
-  %.06376.us93 = phi ptr [ %131, %130 ], [ %0, %.lr.ph.split.split.split.us ]
-  %99 = load i8, ptr %.06376.us93, align 1, !tbaa !3
-  switch i8 %99, label %121 [
-    i8 0, label %.sink.split
-    i8 32, label %117
-    i8 97, label %115
-    i8 65, label %115
-    i8 98, label %115
-    i8 66, label %115
-    i8 99, label %115
-    i8 67, label %115
-    i8 100, label %115
-    i8 68, label %115
-    i8 101, label %115
-    i8 69, label %115
-    i8 102, label %115
-    i8 70, label %115
-    i8 103, label %115
-    i8 71, label %115
-    i8 104, label %115
-    i8 72, label %115
-    i8 105, label %115
-    i8 73, label %115
-    i8 106, label %115
-    i8 74, label %115
-    i8 107, label %115
-    i8 75, label %115
-    i8 108, label %115
-    i8 76, label %115
-    i8 109, label %115
-    i8 77, label %115
-    i8 110, label %115
-    i8 78, label %115
-    i8 111, label %115
-    i8 79, label %115
-    i8 112, label %115
-    i8 80, label %115
-    i8 113, label %115
-    i8 81, label %115
-    i8 114, label %115
-    i8 82, label %115
-    i8 115, label %115
-    i8 83, label %115
-    i8 116, label %115
-    i8 84, label %115
-    i8 117, label %115
-    i8 85, label %115
-    i8 118, label %115
-    i8 86, label %115
-    i8 119, label %115
-    i8 87, label %115
-    i8 120, label %115
-    i8 88, label %115
-    i8 121, label %115
-    i8 89, label %115
-    i8 122, label %115
-    i8 90, label %115
-    i8 48, label %115
-    i8 49, label %115
-    i8 50, label %115
-    i8 51, label %115
-    i8 52, label %115
-    i8 53, label %115
-    i8 54, label %115
-    i8 55, label %115
-    i8 56, label %115
-    i8 57, label %115
-    i8 45, label %115
-    i8 46, label %115
-    i8 95, label %115
-    i8 126, label %115
-    i8 10, label %107
-    i8 13, label %100
-  ]
-
-100:                                              ; preds = %.lr.ph.split.split.split.us.split
+39:                                               ; preds = %.lr.ph.split.split.split.us
   store i8 37, ptr %.06177.us92, align 1, !tbaa !3
-  %101 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
-  store i8 48, ptr %101, align 1, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
-  store i8 68, ptr %102, align 1, !tbaa !3
-  %103 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
-  store i8 37, ptr %103, align 1, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i8 48, ptr %104, align 1, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 5
-  store i8 65, ptr %105, align 1, !tbaa !3
-  %106 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 6
-  br label %130
+  %40 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
+  store i8 48, ptr %40, align 1, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
+  store i8 68, ptr %41, align 1, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
+  store i8 37, ptr %42, align 1, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i8 48, ptr %43, align 1, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 5
+  store i8 65, ptr %44, align 1, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 6
+  br label %69
 
-107:                                              ; preds = %.lr.ph.split.split.split.us.split
+46:                                               ; preds = %.lr.ph.split.split.split.us
   %.not70.us94 = icmp eq i32 %.06078.us91, 0
-  br i1 %.not70.us94, label %108, label %130
+  br i1 %.not70.us94, label %47, label %69
 
-108:                                              ; preds = %107
+47:                                               ; preds = %46
   store i8 37, ptr %.06177.us92, align 1, !tbaa !3
-  %109 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
-  store i8 48, ptr %109, align 1, !tbaa !3
-  %110 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
-  store i8 68, ptr %110, align 1, !tbaa !3
-  %111 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
-  store i8 37, ptr %111, align 1, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i8 48, ptr %112, align 1, !tbaa !3
-  %113 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 5
-  store i8 65, ptr %113, align 1, !tbaa !3
-  %114 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 6
-  br label %130
+  %48 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
+  store i8 48, ptr %48, align 1, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
+  store i8 68, ptr %49, align 1, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
+  store i8 37, ptr %50, align 1, !tbaa !3
+  %51 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i8 48, ptr %51, align 1, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 5
+  store i8 65, ptr %52, align 1, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 6
+  br label %69
 
-115:                                              ; preds = %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split
-  store i8 %99, ptr %.06177.us92, align 1, !tbaa !3
-  %116 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
-  br label %130
+54:                                               ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
+  store i8 %38, ptr %.06177.us92, align 1, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
+  br label %69
 
-117:                                              ; preds = %.lr.ph.split.split.split.us.split
+56:                                               ; preds = %.lr.ph.split.split.split.us
   store i8 37, ptr %.06177.us92, align 1, !tbaa !3
-  %118 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
-  store i8 50, ptr %118, align 1, !tbaa !3
-  %119 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
-  store i8 48, ptr %119, align 1, !tbaa !3
-  %120 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
-  br label %130
+  %57 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
+  store i8 50, ptr %57, align 1, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
+  store i8 48, ptr %58, align 1, !tbaa !3
+  %59 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
+  br label %69
 
-121:                                              ; preds = %.lr.ph.split.split.split.us.split
+60:                                               ; preds = %.lr.ph.split.split.split.us
   store i8 37, ptr %.06177.us92, align 1, !tbaa !3
-  %122 = zext i8 %99 to i32
-  %123 = lshr i32 %122, 4
-  %124 = tail call signext i8 @uriHexToLetterA(i32 noundef %123) #2
-  %125 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
-  store i8 %124, ptr %125, align 1, !tbaa !3
-  %126 = and i32 %122, 15
-  %127 = tail call signext i8 @uriHexToLetterA(i32 noundef %126) #2
-  %128 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
-  store i8 %127, ptr %128, align 1, !tbaa !3
-  %129 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
-  br label %130
+  %61 = zext i8 %38 to i32
+  %62 = lshr i32 %61, 4
+  %63 = tail call signext i8 @uriHexToLetterA(i32 noundef %62) #2
+  %64 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 1
+  store i8 %63, ptr %64, align 1, !tbaa !3
+  %65 = and i32 %61, 15
+  %66 = tail call signext i8 @uriHexToLetterA(i32 noundef %65) #2
+  %67 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 2
+  store i8 %66, ptr %67, align 1, !tbaa !3
+  %68 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 3
+  br label %69
 
-130:                                              ; preds = %121, %117, %115, %108, %107, %100
-  %.2.us95 = phi ptr [ %129, %121 ], [ %116, %115 ], [ %120, %117 ], [ %.06177.us92, %107 ], [ %114, %108 ], [ %106, %100 ]
-  %.1.us96 = phi i32 [ 0, %121 ], [ 0, %115 ], [ 0, %117 ], [ 0, %107 ], [ 0, %108 ], [ 1, %100 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 1
-  %.not67.us97 = icmp ult ptr %131, %1
-  br i1 %.not67.us97, label %.lr.ph.split.split.split.us.split, label %.sink.split
+69:                                               ; preds = %60, %56, %54, %47, %46, %39
+  %.2.us95 = phi ptr [ %68, %60 ], [ %55, %54 ], [ %59, %56 ], [ %.06177.us92, %46 ], [ %53, %47 ], [ %45, %39 ]
+  %.1.us96 = phi i32 [ 0, %60 ], [ 0, %54 ], [ 0, %56 ], [ 0, %46 ], [ 0, %47 ], [ 1, %39 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 1
+  %.not67.us97 = icmp ult ptr %70, %1
+  %or.cond72.us98 = select i1 %.not, i1 true, i1 %.not67.us97
+  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !8
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
-.lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %161
-  %.06078.us103 = phi i32 [ %.1.us108, %161 ], [ 0, %.lr.ph.split.split.split ]
-  %.06177.us104 = phi ptr [ %.2.us107, %161 ], [ %2, %.lr.ph.split.split.split ]
-  %.06376.us105 = phi ptr [ %162, %161 ], [ %0, %.lr.ph.split.split.split ]
-  %132 = load i8, ptr %.06376.us105, align 1, !tbaa !3
-  switch i8 %132, label %152 [
+.lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %100
+  %.06078.us103 = phi i32 [ %.1.us108, %100 ], [ 0, %.lr.ph.split.split.split ]
+  %.06177.us104 = phi ptr [ %.2.us107, %100 ], [ %2, %.lr.ph.split.split.split ]
+  %.06376.us105 = phi ptr [ %101, %100 ], [ %0, %.lr.ph.split.split.split ]
+  %71 = load i8, ptr %.06376.us105, align 1, !tbaa !3
+  switch i8 %71, label %91 [
     i8 0, label %.sink.split
-    i8 32, label %150
-    i8 97, label %148
-    i8 65, label %148
-    i8 98, label %148
-    i8 66, label %148
-    i8 99, label %148
-    i8 67, label %148
-    i8 100, label %148
-    i8 68, label %148
-    i8 101, label %148
-    i8 69, label %148
-    i8 102, label %148
-    i8 70, label %148
-    i8 103, label %148
-    i8 71, label %148
-    i8 104, label %148
-    i8 72, label %148
-    i8 105, label %148
-    i8 73, label %148
-    i8 106, label %148
-    i8 74, label %148
-    i8 107, label %148
-    i8 75, label %148
-    i8 108, label %148
-    i8 76, label %148
-    i8 109, label %148
-    i8 77, label %148
-    i8 110, label %148
-    i8 78, label %148
-    i8 111, label %148
-    i8 79, label %148
-    i8 112, label %148
-    i8 80, label %148
-    i8 113, label %148
-    i8 81, label %148
-    i8 114, label %148
-    i8 82, label %148
-    i8 115, label %148
-    i8 83, label %148
-    i8 116, label %148
-    i8 84, label %148
-    i8 117, label %148
-    i8 85, label %148
-    i8 118, label %148
-    i8 86, label %148
-    i8 119, label %148
-    i8 87, label %148
-    i8 120, label %148
-    i8 88, label %148
-    i8 121, label %148
-    i8 89, label %148
-    i8 122, label %148
-    i8 90, label %148
-    i8 48, label %148
-    i8 49, label %148
-    i8 50, label %148
-    i8 51, label %148
-    i8 52, label %148
-    i8 53, label %148
-    i8 54, label %148
-    i8 55, label %148
-    i8 56, label %148
-    i8 57, label %148
-    i8 45, label %148
-    i8 46, label %148
-    i8 95, label %148
-    i8 126, label %148
-    i8 10, label %140
-    i8 13, label %133
+    i8 32, label %89
+    i8 97, label %87
+    i8 65, label %87
+    i8 98, label %87
+    i8 66, label %87
+    i8 99, label %87
+    i8 67, label %87
+    i8 100, label %87
+    i8 68, label %87
+    i8 101, label %87
+    i8 69, label %87
+    i8 102, label %87
+    i8 70, label %87
+    i8 103, label %87
+    i8 71, label %87
+    i8 104, label %87
+    i8 72, label %87
+    i8 105, label %87
+    i8 73, label %87
+    i8 106, label %87
+    i8 74, label %87
+    i8 107, label %87
+    i8 75, label %87
+    i8 108, label %87
+    i8 76, label %87
+    i8 109, label %87
+    i8 77, label %87
+    i8 110, label %87
+    i8 78, label %87
+    i8 111, label %87
+    i8 79, label %87
+    i8 112, label %87
+    i8 80, label %87
+    i8 113, label %87
+    i8 81, label %87
+    i8 114, label %87
+    i8 82, label %87
+    i8 115, label %87
+    i8 83, label %87
+    i8 116, label %87
+    i8 84, label %87
+    i8 117, label %87
+    i8 85, label %87
+    i8 118, label %87
+    i8 86, label %87
+    i8 119, label %87
+    i8 87, label %87
+    i8 120, label %87
+    i8 88, label %87
+    i8 121, label %87
+    i8 89, label %87
+    i8 122, label %87
+    i8 90, label %87
+    i8 48, label %87
+    i8 49, label %87
+    i8 50, label %87
+    i8 51, label %87
+    i8 52, label %87
+    i8 53, label %87
+    i8 54, label %87
+    i8 55, label %87
+    i8 56, label %87
+    i8 57, label %87
+    i8 45, label %87
+    i8 46, label %87
+    i8 95, label %87
+    i8 126, label %87
+    i8 10, label %79
+    i8 13, label %72
   ]
 
-133:                                              ; preds = %.lr.ph.split.split.split.split.us
+72:                                               ; preds = %.lr.ph.split.split.split.split.us
   store i8 37, ptr %.06177.us104, align 1, !tbaa !3
-  %134 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
-  store i8 48, ptr %134, align 1, !tbaa !3
-  %135 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
-  store i8 68, ptr %135, align 1, !tbaa !3
-  %136 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
-  store i8 37, ptr %136, align 1, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i8 48, ptr %137, align 1, !tbaa !3
-  %138 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 5
-  store i8 65, ptr %138, align 1, !tbaa !3
-  %139 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 6
-  br label %161
+  %73 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
+  store i8 48, ptr %73, align 1, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
+  store i8 68, ptr %74, align 1, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
+  store i8 37, ptr %75, align 1, !tbaa !3
+  %76 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  store i8 48, ptr %76, align 1, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 5
+  store i8 65, ptr %77, align 1, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 6
+  br label %100
 
-140:                                              ; preds = %.lr.ph.split.split.split.split.us
+79:                                               ; preds = %.lr.ph.split.split.split.split.us
   %.not70.us106 = icmp eq i32 %.06078.us103, 0
-  br i1 %.not70.us106, label %141, label %161
+  br i1 %.not70.us106, label %80, label %100
 
-141:                                              ; preds = %140
+80:                                               ; preds = %79
   store i8 37, ptr %.06177.us104, align 1, !tbaa !3
-  %142 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
-  store i8 48, ptr %142, align 1, !tbaa !3
-  %143 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
-  store i8 68, ptr %143, align 1, !tbaa !3
-  %144 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
-  store i8 37, ptr %144, align 1, !tbaa !3
-  %145 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i8 48, ptr %145, align 1, !tbaa !3
-  %146 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 5
-  store i8 65, ptr %146, align 1, !tbaa !3
-  %147 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 6
-  br label %161
+  %81 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
+  store i8 48, ptr %81, align 1, !tbaa !3
+  %82 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
+  store i8 68, ptr %82, align 1, !tbaa !3
+  %83 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
+  store i8 37, ptr %83, align 1, !tbaa !3
+  %84 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  store i8 48, ptr %84, align 1, !tbaa !3
+  %85 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 5
+  store i8 65, ptr %85, align 1, !tbaa !3
+  %86 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 6
+  br label %100
 
-148:                                              ; preds = %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us
-  store i8 %132, ptr %.06177.us104, align 1, !tbaa !3
-  %149 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
-  br label %161
+87:                                               ; preds = %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us
+  store i8 %71, ptr %.06177.us104, align 1, !tbaa !3
+  %88 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
+  br label %100
 
-150:                                              ; preds = %.lr.ph.split.split.split.split.us
+89:                                               ; preds = %.lr.ph.split.split.split.split.us
   store i8 43, ptr %.06177.us104, align 1, !tbaa !3
-  %151 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
-  br label %161
+  %90 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
+  br label %100
 
-152:                                              ; preds = %.lr.ph.split.split.split.split.us
+91:                                               ; preds = %.lr.ph.split.split.split.split.us
   store i8 37, ptr %.06177.us104, align 1, !tbaa !3
-  %153 = zext i8 %132 to i32
-  %154 = lshr i32 %153, 4
-  %155 = tail call signext i8 @uriHexToLetterA(i32 noundef %154) #2
-  %156 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
-  store i8 %155, ptr %156, align 1, !tbaa !3
-  %157 = and i32 %153, 15
-  %158 = tail call signext i8 @uriHexToLetterA(i32 noundef %157) #2
-  %159 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
-  store i8 %158, ptr %159, align 1, !tbaa !3
-  %160 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
-  br label %161
+  %92 = zext i8 %71 to i32
+  %93 = lshr i32 %92, 4
+  %94 = tail call signext i8 @uriHexToLetterA(i32 noundef %93) #2
+  %95 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 1
+  store i8 %94, ptr %95, align 1, !tbaa !3
+  %96 = and i32 %92, 15
+  %97 = tail call signext i8 @uriHexToLetterA(i32 noundef %96) #2
+  %98 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 2
+  store i8 %97, ptr %98, align 1, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 3
+  br label %100
 
-161:                                              ; preds = %152, %150, %148, %141, %140, %133
-  %.2.us107 = phi ptr [ %160, %152 ], [ %149, %148 ], [ %151, %150 ], [ %.06177.us104, %140 ], [ %147, %141 ], [ %139, %133 ]
-  %.1.us108 = phi i32 [ 0, %152 ], [ 0, %148 ], [ 0, %150 ], [ 0, %140 ], [ 0, %141 ], [ 1, %133 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 1
-  br label %.lr.ph.split.split.split.split.us
+100:                                              ; preds = %91, %89, %87, %80, %79, %72
+  %.2.us107 = phi ptr [ %99, %91 ], [ %88, %87 ], [ %90, %89 ], [ %.06177.us104, %79 ], [ %86, %80 ], [ %78, %72 ]
+  %.1.us108 = phi i32 [ 0, %91 ], [ 0, %87 ], [ 0, %89 ], [ 0, %79 ], [ 0, %80 ], [ 1, %72 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 1
+  br label %.lr.ph.split.split.split.split.us, !llvm.loop !9
 
-.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %192
-  %.06078 = phi i32 [ %.1, %192 ], [ 0, %.lr.ph.split.split.split ]
-  %.06177 = phi ptr [ %.2, %192 ], [ %2, %.lr.ph.split.split.split ]
-  %.06376 = phi ptr [ %193, %192 ], [ %0, %.lr.ph.split.split.split ]
-  %163 = load i8, ptr %.06376, align 1, !tbaa !3
-  switch i8 %163, label %183 [
+.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %131
+  %.06078 = phi i32 [ %.1, %131 ], [ 0, %.lr.ph.split.split.split ]
+  %.06177 = phi ptr [ %.2, %131 ], [ %2, %.lr.ph.split.split.split ]
+  %.06376 = phi ptr [ %132, %131 ], [ %0, %.lr.ph.split.split.split ]
+  %102 = load i8, ptr %.06376, align 1, !tbaa !3
+  switch i8 %102, label %122 [
     i8 0, label %.sink.split
-    i8 32, label %164
-    i8 97, label %166
-    i8 65, label %166
-    i8 98, label %166
-    i8 66, label %166
-    i8 99, label %166
-    i8 67, label %166
-    i8 100, label %166
-    i8 68, label %166
-    i8 101, label %166
-    i8 69, label %166
-    i8 102, label %166
-    i8 70, label %166
-    i8 103, label %166
-    i8 71, label %166
-    i8 104, label %166
-    i8 72, label %166
-    i8 105, label %166
-    i8 73, label %166
-    i8 106, label %166
-    i8 74, label %166
-    i8 107, label %166
-    i8 75, label %166
-    i8 108, label %166
-    i8 76, label %166
-    i8 109, label %166
-    i8 77, label %166
-    i8 110, label %166
-    i8 78, label %166
-    i8 111, label %166
-    i8 79, label %166
-    i8 112, label %166
-    i8 80, label %166
-    i8 113, label %166
-    i8 81, label %166
-    i8 114, label %166
-    i8 82, label %166
-    i8 115, label %166
-    i8 83, label %166
-    i8 116, label %166
-    i8 84, label %166
-    i8 117, label %166
-    i8 85, label %166
-    i8 118, label %166
-    i8 86, label %166
-    i8 119, label %166
-    i8 87, label %166
-    i8 120, label %166
-    i8 88, label %166
-    i8 121, label %166
-    i8 89, label %166
-    i8 122, label %166
-    i8 90, label %166
-    i8 48, label %166
-    i8 49, label %166
-    i8 50, label %166
-    i8 51, label %166
-    i8 52, label %166
-    i8 53, label %166
-    i8 54, label %166
-    i8 55, label %166
-    i8 56, label %166
-    i8 57, label %166
-    i8 45, label %166
-    i8 46, label %166
-    i8 95, label %166
-    i8 126, label %166
-    i8 10, label %168
-    i8 13, label %176
+    i8 32, label %103
+    i8 97, label %105
+    i8 65, label %105
+    i8 98, label %105
+    i8 66, label %105
+    i8 99, label %105
+    i8 67, label %105
+    i8 100, label %105
+    i8 68, label %105
+    i8 101, label %105
+    i8 69, label %105
+    i8 102, label %105
+    i8 70, label %105
+    i8 103, label %105
+    i8 71, label %105
+    i8 104, label %105
+    i8 72, label %105
+    i8 105, label %105
+    i8 73, label %105
+    i8 106, label %105
+    i8 74, label %105
+    i8 107, label %105
+    i8 75, label %105
+    i8 108, label %105
+    i8 76, label %105
+    i8 109, label %105
+    i8 77, label %105
+    i8 110, label %105
+    i8 78, label %105
+    i8 111, label %105
+    i8 79, label %105
+    i8 112, label %105
+    i8 80, label %105
+    i8 113, label %105
+    i8 81, label %105
+    i8 114, label %105
+    i8 82, label %105
+    i8 115, label %105
+    i8 83, label %105
+    i8 116, label %105
+    i8 84, label %105
+    i8 117, label %105
+    i8 85, label %105
+    i8 118, label %105
+    i8 86, label %105
+    i8 119, label %105
+    i8 87, label %105
+    i8 120, label %105
+    i8 88, label %105
+    i8 121, label %105
+    i8 89, label %105
+    i8 122, label %105
+    i8 90, label %105
+    i8 48, label %105
+    i8 49, label %105
+    i8 50, label %105
+    i8 51, label %105
+    i8 52, label %105
+    i8 53, label %105
+    i8 54, label %105
+    i8 55, label %105
+    i8 56, label %105
+    i8 57, label %105
+    i8 45, label %105
+    i8 46, label %105
+    i8 95, label %105
+    i8 126, label %105
+    i8 10, label %107
+    i8 13, label %115
   ]
 
-164:                                              ; preds = %.lr.ph.split.split.split.split
+103:                                              ; preds = %.lr.ph.split.split.split.split
   store i8 43, ptr %.06177, align 1, !tbaa !3
-  %165 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
-  br label %192
+  %104 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
+  br label %131
 
-166:                                              ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split
-  store i8 %163, ptr %.06177, align 1, !tbaa !3
-  %167 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
-  br label %192
+105:                                              ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split
+  store i8 %102, ptr %.06177, align 1, !tbaa !3
+  %106 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
+  br label %131
 
-168:                                              ; preds = %.lr.ph.split.split.split.split
+107:                                              ; preds = %.lr.ph.split.split.split.split
   %.not70 = icmp eq i32 %.06078, 0
-  br i1 %.not70, label %169, label %192
+  br i1 %.not70, label %108, label %131
 
-169:                                              ; preds = %168
+108:                                              ; preds = %107
   store i8 37, ptr %.06177, align 1, !tbaa !3
-  %170 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
-  store i8 48, ptr %170, align 1, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
-  store i8 68, ptr %171, align 1, !tbaa !3
-  %172 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
-  store i8 37, ptr %172, align 1, !tbaa !3
-  %173 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i8 48, ptr %173, align 1, !tbaa !3
-  %174 = getelementptr inbounds nuw i8, ptr %.06177, i64 5
-  store i8 65, ptr %174, align 1, !tbaa !3
-  %175 = getelementptr inbounds nuw i8, ptr %.06177, i64 6
-  br label %192
+  %109 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
+  store i8 48, ptr %109, align 1, !tbaa !3
+  %110 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
+  store i8 68, ptr %110, align 1, !tbaa !3
+  %111 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
+  store i8 37, ptr %111, align 1, !tbaa !3
+  %112 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  store i8 48, ptr %112, align 1, !tbaa !3
+  %113 = getelementptr inbounds nuw i8, ptr %.06177, i64 5
+  store i8 65, ptr %113, align 1, !tbaa !3
+  %114 = getelementptr inbounds nuw i8, ptr %.06177, i64 6
+  br label %131
 
-176:                                              ; preds = %.lr.ph.split.split.split.split
+115:                                              ; preds = %.lr.ph.split.split.split.split
   store i8 37, ptr %.06177, align 1, !tbaa !3
-  %177 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
-  store i8 48, ptr %177, align 1, !tbaa !3
-  %178 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
-  store i8 68, ptr %178, align 1, !tbaa !3
-  %179 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
-  store i8 37, ptr %179, align 1, !tbaa !3
-  %180 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i8 48, ptr %180, align 1, !tbaa !3
-  %181 = getelementptr inbounds nuw i8, ptr %.06177, i64 5
-  store i8 65, ptr %181, align 1, !tbaa !3
-  %182 = getelementptr inbounds nuw i8, ptr %.06177, i64 6
-  br label %192
+  %116 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
+  store i8 48, ptr %116, align 1, !tbaa !3
+  %117 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
+  store i8 68, ptr %117, align 1, !tbaa !3
+  %118 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
+  store i8 37, ptr %118, align 1, !tbaa !3
+  %119 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  store i8 48, ptr %119, align 1, !tbaa !3
+  %120 = getelementptr inbounds nuw i8, ptr %.06177, i64 5
+  store i8 65, ptr %120, align 1, !tbaa !3
+  %121 = getelementptr inbounds nuw i8, ptr %.06177, i64 6
+  br label %131
 
-183:                                              ; preds = %.lr.ph.split.split.split.split
+122:                                              ; preds = %.lr.ph.split.split.split.split
   store i8 37, ptr %.06177, align 1, !tbaa !3
-  %184 = zext i8 %163 to i32
-  %185 = lshr i32 %184, 4
-  %186 = tail call signext i8 @uriHexToLetterA(i32 noundef %185) #2
-  %187 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
-  store i8 %186, ptr %187, align 1, !tbaa !3
-  %188 = and i32 %184, 15
-  %189 = tail call signext i8 @uriHexToLetterA(i32 noundef %188) #2
-  %190 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
-  store i8 %189, ptr %190, align 1, !tbaa !3
-  %191 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
-  br label %192
+  %123 = zext i8 %102 to i32
+  %124 = lshr i32 %123, 4
+  %125 = tail call signext i8 @uriHexToLetterA(i32 noundef %124) #2
+  %126 = getelementptr inbounds nuw i8, ptr %.06177, i64 1
+  store i8 %125, ptr %126, align 1, !tbaa !3
+  %127 = and i32 %123, 15
+  %128 = tail call signext i8 @uriHexToLetterA(i32 noundef %127) #2
+  %129 = getelementptr inbounds nuw i8, ptr %.06177, i64 2
+  store i8 %128, ptr %129, align 1, !tbaa !3
+  %130 = getelementptr inbounds nuw i8, ptr %.06177, i64 3
+  br label %131
 
-192:                                              ; preds = %176, %169, %168, %164, %183, %166
-  %.2 = phi ptr [ %191, %183 ], [ %167, %166 ], [ %165, %164 ], [ %.06177, %168 ], [ %175, %169 ], [ %182, %176 ]
-  %.1 = phi i32 [ 0, %183 ], [ 0, %166 ], [ 0, %164 ], [ 0, %168 ], [ 0, %169 ], [ 1, %176 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.06376, i64 1
-  %.not67 = icmp ult ptr %193, %1
+131:                                              ; preds = %115, %108, %107, %103, %122, %105
+  %.2 = phi ptr [ %130, %122 ], [ %106, %105 ], [ %104, %103 ], [ %.06177, %107 ], [ %114, %108 ], [ %121, %115 ]
+  %.1 = phi i32 [ 0, %122 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %108 ], [ 1, %115 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.06376, i64 1
+  %.not67 = icmp ult ptr %132, %1
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.2.us, %64 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.2.us95, %130 ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %192 ], [ %.06177, %.lr.ph.split.split.split.split ]
+.sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %131, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us, %69, %.lr.ph.split.us, %36, %.preheader, %8
+  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.2.us, %36 ], [ %.06177.us, %.lr.ph.split.us ], [ %.2.us95, %69 ], [ %.06177.us92, %.lr.ph.split.split.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %131 ], [ %.06177, %.lr.ph.split.split.split.split ]
   store i8 0, ptr %.us-phi.sink, align 1, !tbaa !3
-  br label %194
+  br label %133
 
-194:                                              ; preds = %.sink.split, %5
+133:                                              ; preds = %.sink.split, %5
   %.0 = phi ptr [ null, %5 ], [ %.us-phi.sink, %.sink.split ]
   ret ptr %.0
 }
@@ -1167,7 +882,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, %2
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %194, label %8
+  br i1 %or.cond, label %133, label %8
 
 8:                                                ; preds = %5
   %9 = icmp eq ptr %0, null
@@ -1184,13 +899,10 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %.not71 = icmp eq i32 %3, 0
   br i1 %.not68, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %36
-  %.06177.us.us = phi ptr [ %.2.us.us, %36 ], [ %2, %.lr.ph.split.us ]
-  %.06376.us.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph.split.us ]
-  %10 = load i32, ptr %.06376.us.us, align 4, !tbaa !6
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %36
+  %.06177.us = phi ptr [ %.2.us, %36 ], [ %2, %.lr.ph ]
+  %.06376.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph ]
+  %10 = load i32, ptr %.06376.us, align 4, !tbaa !10
   switch i32 %10, label %27 [
     i32 0, label %.sink.split
     i32 32, label %21
@@ -1264,793 +976,511 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
     i32 13, label %11
   ]
 
-11:                                               ; preds = %.lr.ph.split.us.split.us
-  store i32 37, ptr %.06177.us.us, align 4, !tbaa !6
-  %12 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 4
-  store i32 48, ptr %12, align 4, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 8
-  store i32 68, ptr %13, align 4, !tbaa !6
-  %14 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 12
+11:                                               ; preds = %.lr.ph.split.us
+  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
+  store i32 48, ptr %12, align 4, !tbaa !10
+  %13 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
+  store i32 68, ptr %13, align 4, !tbaa !10
+  %14 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
-15:                                               ; preds = %.lr.ph.split.us.split.us
-  store i32 37, ptr %.06177.us.us, align 4, !tbaa !6
-  %16 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 4
-  store i32 48, ptr %16, align 4, !tbaa !6
-  %17 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 8
-  store i32 65, ptr %17, align 4, !tbaa !6
-  %18 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 12
+15:                                               ; preds = %.lr.ph.split.us
+  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
+  store i32 48, ptr %16, align 4, !tbaa !10
+  %17 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
+  store i32 65, ptr %17, align 4, !tbaa !10
+  %18 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
-19:                                               ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us
-  store i32 %10, ptr %.06177.us.us, align 4, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 4
+19:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+  store i32 %10, ptr %.06177.us, align 4, !tbaa !10
+  %20 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
   br label %36
 
-21:                                               ; preds = %.lr.ph.split.us.split.us
-  %22 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 4
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
   br i1 %.not71, label %24, label %23
 
 23:                                               ; preds = %21
-  store i32 43, ptr %.06177.us.us, align 4, !tbaa !6
+  store i32 43, ptr %.06177.us, align 4, !tbaa !10
   br label %36
 
 24:                                               ; preds = %21
-  store i32 37, ptr %.06177.us.us, align 4, !tbaa !6
-  store i32 50, ptr %22, align 4, !tbaa !6
-  %25 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 8
-  store i32 48, ptr %25, align 4, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 12
+  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  store i32 50, ptr %22, align 4, !tbaa !10
+  %25 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
+  store i32 48, ptr %25, align 4, !tbaa !10
+  %26 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
-27:                                               ; preds = %.lr.ph.split.us.split.us
-  store i32 37, ptr %.06177.us.us, align 4, !tbaa !6
+27:                                               ; preds = %.lr.ph.split.us
+  store i32 37, ptr %.06177.us, align 4, !tbaa !10
   %28 = lshr i32 %10, 4
   %29 = and i32 %28, 15
   %30 = tail call i32 @uriHexToLetterW(i32 noundef %29) #2
-  %31 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !6
+  %31 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
+  store i32 %30, ptr %31, align 4, !tbaa !10
   %32 = and i32 %10, 15
   %33 = tail call i32 @uriHexToLetterW(i32 noundef %32) #2
-  %34 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 8
-  store i32 %33, ptr %34, align 4, !tbaa !6
-  %35 = getelementptr inbounds nuw i8, ptr %.06177.us.us, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
+  store i32 %33, ptr %34, align 4, !tbaa !10
+  %35 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
 36:                                               ; preds = %27, %24, %23, %19, %15, %11
-  %.2.us.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.06376.us.us, i64 4
-  br label %.lr.ph.split.us.split.us
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %64
-  %.06177.us = phi ptr [ %.2.us, %64 ], [ %2, %.lr.ph.split.us ]
-  %.06376.us = phi ptr [ %65, %64 ], [ %0, %.lr.ph.split.us ]
-  %38 = load i32, ptr %.06376.us, align 4, !tbaa !6
-  switch i32 %38, label %55 [
-    i32 0, label %.sink.split
-    i32 32, label %49
-    i32 97, label %47
-    i32 65, label %47
-    i32 98, label %47
-    i32 66, label %47
-    i32 99, label %47
-    i32 67, label %47
-    i32 100, label %47
-    i32 68, label %47
-    i32 101, label %47
-    i32 69, label %47
-    i32 102, label %47
-    i32 70, label %47
-    i32 103, label %47
-    i32 71, label %47
-    i32 104, label %47
-    i32 72, label %47
-    i32 105, label %47
-    i32 73, label %47
-    i32 106, label %47
-    i32 74, label %47
-    i32 107, label %47
-    i32 75, label %47
-    i32 108, label %47
-    i32 76, label %47
-    i32 109, label %47
-    i32 77, label %47
-    i32 110, label %47
-    i32 78, label %47
-    i32 111, label %47
-    i32 79, label %47
-    i32 112, label %47
-    i32 80, label %47
-    i32 113, label %47
-    i32 81, label %47
-    i32 114, label %47
-    i32 82, label %47
-    i32 115, label %47
-    i32 83, label %47
-    i32 116, label %47
-    i32 84, label %47
-    i32 117, label %47
-    i32 85, label %47
-    i32 118, label %47
-    i32 86, label %47
-    i32 119, label %47
-    i32 87, label %47
-    i32 120, label %47
-    i32 88, label %47
-    i32 121, label %47
-    i32 89, label %47
-    i32 122, label %47
-    i32 90, label %47
-    i32 48, label %47
-    i32 49, label %47
-    i32 50, label %47
-    i32 51, label %47
-    i32 52, label %47
-    i32 53, label %47
-    i32 54, label %47
-    i32 55, label %47
-    i32 56, label %47
-    i32 57, label %47
-    i32 45, label %47
-    i32 46, label %47
-    i32 95, label %47
-    i32 126, label %47
-    i32 10, label %43
-    i32 13, label %39
-  ]
-
-39:                                               ; preds = %.lr.ph.split.us.split
-  store i32 37, ptr %.06177.us, align 4, !tbaa !6
-  %40 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 48, ptr %40, align 4, !tbaa !6
-  %41 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 68, ptr %41, align 4, !tbaa !6
-  %42 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
-  br label %64
-
-43:                                               ; preds = %.lr.ph.split.us.split
-  store i32 37, ptr %.06177.us, align 4, !tbaa !6
-  %44 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 48, ptr %44, align 4, !tbaa !6
-  %45 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 65, ptr %45, align 4, !tbaa !6
-  %46 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
-  br label %64
-
-47:                                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
-  store i32 %38, ptr %.06177.us, align 4, !tbaa !6
-  %48 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  br label %64
-
-49:                                               ; preds = %.lr.ph.split.us.split
-  %50 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  br i1 %.not71, label %52, label %51
-
-51:                                               ; preds = %49
-  store i32 43, ptr %.06177.us, align 4, !tbaa !6
-  br label %64
-
-52:                                               ; preds = %49
-  store i32 37, ptr %.06177.us, align 4, !tbaa !6
-  store i32 50, ptr %50, align 4, !tbaa !6
-  %53 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 48, ptr %53, align 4, !tbaa !6
-  %54 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
-  br label %64
-
-55:                                               ; preds = %.lr.ph.split.us.split
-  store i32 37, ptr %.06177.us, align 4, !tbaa !6
-  %56 = lshr i32 %38, 4
-  %57 = and i32 %56, 15
-  %58 = tail call i32 @uriHexToLetterW(i32 noundef %57) #2
-  %59 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !6
-  %60 = and i32 %38, 15
-  %61 = tail call i32 @uriHexToLetterW(i32 noundef %60) #2
-  %62 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 %61, ptr %62, align 4, !tbaa !6
-  %63 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
-  br label %64
-
-64:                                               ; preds = %55, %52, %51, %47, %43, %39
-  %.2.us = phi ptr [ %63, %55 ], [ %48, %47 ], [ %50, %51 ], [ %54, %52 ], [ %46, %43 ], [ %42, %39 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 4
-  %.not67.us = icmp ult ptr %65, %1
-  br i1 %.not67.us, label %.lr.ph.split.us.split, label %.sink.split
+  %.2.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 4
+  %.not67.us = icmp ult ptr %37, %1
+  %or.cond72.us = select i1 %.not, i1 true, i1 %.not67.us
+  br i1 %or.cond72.us, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !12
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %.not71, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  br i1 %.not, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.us.split
-
-.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us, %97
-  %.06078.us91.us = phi i32 [ %.1.us96.us, %97 ], [ 0, %.lr.ph.split.split.split.us ]
-  %.06177.us92.us = phi ptr [ %.2.us95.us, %97 ], [ %2, %.lr.ph.split.split.split.us ]
-  %.06376.us93.us = phi ptr [ %98, %97 ], [ %0, %.lr.ph.split.split.split.us ]
-  %66 = load i32, ptr %.06376.us93.us, align 4, !tbaa !6
-  switch i32 %66, label %88 [
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %69
+  %.06078.us91 = phi i32 [ %.1.us96, %69 ], [ 0, %.lr.ph.split.split ]
+  %.06177.us92 = phi ptr [ %.2.us95, %69 ], [ %2, %.lr.ph.split.split ]
+  %.06376.us93 = phi ptr [ %70, %69 ], [ %0, %.lr.ph.split.split ]
+  %38 = load i32, ptr %.06376.us93, align 4, !tbaa !10
+  switch i32 %38, label %60 [
     i32 0, label %.sink.split
-    i32 32, label %84
-    i32 97, label %82
-    i32 65, label %82
-    i32 98, label %82
-    i32 66, label %82
-    i32 99, label %82
-    i32 67, label %82
-    i32 100, label %82
-    i32 68, label %82
-    i32 101, label %82
-    i32 69, label %82
-    i32 102, label %82
-    i32 70, label %82
-    i32 103, label %82
-    i32 71, label %82
-    i32 104, label %82
-    i32 72, label %82
-    i32 105, label %82
-    i32 73, label %82
-    i32 106, label %82
-    i32 74, label %82
-    i32 107, label %82
-    i32 75, label %82
-    i32 108, label %82
-    i32 76, label %82
-    i32 109, label %82
-    i32 77, label %82
-    i32 110, label %82
-    i32 78, label %82
-    i32 111, label %82
-    i32 79, label %82
-    i32 112, label %82
-    i32 80, label %82
-    i32 113, label %82
-    i32 81, label %82
-    i32 114, label %82
-    i32 82, label %82
-    i32 115, label %82
-    i32 83, label %82
-    i32 116, label %82
-    i32 84, label %82
-    i32 117, label %82
-    i32 85, label %82
-    i32 118, label %82
-    i32 86, label %82
-    i32 119, label %82
-    i32 87, label %82
-    i32 120, label %82
-    i32 88, label %82
-    i32 121, label %82
-    i32 89, label %82
-    i32 122, label %82
-    i32 90, label %82
-    i32 48, label %82
-    i32 49, label %82
-    i32 50, label %82
-    i32 51, label %82
-    i32 52, label %82
-    i32 53, label %82
-    i32 54, label %82
-    i32 55, label %82
-    i32 56, label %82
-    i32 57, label %82
-    i32 45, label %82
-    i32 46, label %82
-    i32 95, label %82
-    i32 126, label %82
-    i32 10, label %74
-    i32 13, label %67
+    i32 32, label %56
+    i32 97, label %54
+    i32 65, label %54
+    i32 98, label %54
+    i32 66, label %54
+    i32 99, label %54
+    i32 67, label %54
+    i32 100, label %54
+    i32 68, label %54
+    i32 101, label %54
+    i32 69, label %54
+    i32 102, label %54
+    i32 70, label %54
+    i32 103, label %54
+    i32 71, label %54
+    i32 104, label %54
+    i32 72, label %54
+    i32 105, label %54
+    i32 73, label %54
+    i32 106, label %54
+    i32 74, label %54
+    i32 107, label %54
+    i32 75, label %54
+    i32 108, label %54
+    i32 76, label %54
+    i32 109, label %54
+    i32 77, label %54
+    i32 110, label %54
+    i32 78, label %54
+    i32 111, label %54
+    i32 79, label %54
+    i32 112, label %54
+    i32 80, label %54
+    i32 113, label %54
+    i32 81, label %54
+    i32 114, label %54
+    i32 82, label %54
+    i32 115, label %54
+    i32 83, label %54
+    i32 116, label %54
+    i32 84, label %54
+    i32 117, label %54
+    i32 85, label %54
+    i32 118, label %54
+    i32 86, label %54
+    i32 119, label %54
+    i32 87, label %54
+    i32 120, label %54
+    i32 88, label %54
+    i32 121, label %54
+    i32 89, label %54
+    i32 122, label %54
+    i32 90, label %54
+    i32 48, label %54
+    i32 49, label %54
+    i32 50, label %54
+    i32 51, label %54
+    i32 52, label %54
+    i32 53, label %54
+    i32 54, label %54
+    i32 55, label %54
+    i32 56, label %54
+    i32 57, label %54
+    i32 45, label %54
+    i32 46, label %54
+    i32 95, label %54
+    i32 126, label %54
+    i32 10, label %46
+    i32 13, label %39
   ]
 
-67:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i32 37, ptr %.06177.us92.us, align 4, !tbaa !6
-  %68 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i32 48, ptr %68, align 4, !tbaa !6
-  %69 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 8
-  store i32 68, ptr %69, align 4, !tbaa !6
-  %70 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 12
-  store i32 37, ptr %70, align 4, !tbaa !6
-  %71 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 16
-  store i32 48, ptr %71, align 4, !tbaa !6
-  %72 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 20
-  store i32 65, ptr %72, align 4, !tbaa !6
-  %73 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 24
-  br label %97
+39:                                               ; preds = %.lr.ph.split.split.split.us
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  %40 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i32 48, ptr %40, align 4, !tbaa !10
+  %41 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
+  store i32 68, ptr %41, align 4, !tbaa !10
+  %42 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
+  store i32 37, ptr %42, align 4, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
+  store i32 48, ptr %43, align 4, !tbaa !10
+  %44 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
+  store i32 65, ptr %44, align 4, !tbaa !10
+  %45 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
+  br label %69
 
-74:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  %.not70.us94.us = icmp eq i32 %.06078.us91.us, 0
-  br i1 %.not70.us94.us, label %75, label %97
-
-75:                                               ; preds = %74
-  store i32 37, ptr %.06177.us92.us, align 4, !tbaa !6
-  %76 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i32 48, ptr %76, align 4, !tbaa !6
-  %77 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 8
-  store i32 68, ptr %77, align 4, !tbaa !6
-  %78 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 12
-  store i32 37, ptr %78, align 4, !tbaa !6
-  %79 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 16
-  store i32 48, ptr %79, align 4, !tbaa !6
-  %80 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 20
-  store i32 65, ptr %80, align 4, !tbaa !6
-  %81 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 24
-  br label %97
-
-82:                                               ; preds = %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.split.us.split.us
-  store i32 %66, ptr %.06177.us92.us, align 4, !tbaa !6
-  %83 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  br label %97
-
-84:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i32 37, ptr %.06177.us92.us, align 4, !tbaa !6
-  %85 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i32 50, ptr %85, align 4, !tbaa !6
-  %86 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 8
-  store i32 48, ptr %86, align 4, !tbaa !6
-  %87 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 12
-  br label %97
-
-88:                                               ; preds = %.lr.ph.split.split.split.us.split.us
-  store i32 37, ptr %.06177.us92.us, align 4, !tbaa !6
-  %89 = lshr i32 %66, 4
-  %90 = and i32 %89, 15
-  %91 = tail call i32 @uriHexToLetterW(i32 noundef %90) #2
-  %92 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 4
-  store i32 %91, ptr %92, align 4, !tbaa !6
-  %93 = and i32 %66, 15
-  %94 = tail call i32 @uriHexToLetterW(i32 noundef %93) #2
-  %95 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 8
-  store i32 %94, ptr %95, align 4, !tbaa !6
-  %96 = getelementptr inbounds nuw i8, ptr %.06177.us92.us, i64 12
-  br label %97
-
-97:                                               ; preds = %88, %84, %82, %75, %74, %67
-  %.2.us95.us = phi ptr [ %96, %88 ], [ %83, %82 ], [ %87, %84 ], [ %.06177.us92.us, %74 ], [ %81, %75 ], [ %73, %67 ]
-  %.1.us96.us = phi i32 [ 0, %88 ], [ 0, %82 ], [ 0, %84 ], [ 0, %74 ], [ 0, %75 ], [ 1, %67 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.06376.us93.us, i64 4
-  br label %.lr.ph.split.split.split.us.split.us
-
-.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %130
-  %.06078.us91 = phi i32 [ %.1.us96, %130 ], [ 0, %.lr.ph.split.split.split.us ]
-  %.06177.us92 = phi ptr [ %.2.us95, %130 ], [ %2, %.lr.ph.split.split.split.us ]
-  %.06376.us93 = phi ptr [ %131, %130 ], [ %0, %.lr.ph.split.split.split.us ]
-  %99 = load i32, ptr %.06376.us93, align 4, !tbaa !6
-  switch i32 %99, label %121 [
-    i32 0, label %.sink.split
-    i32 32, label %117
-    i32 97, label %115
-    i32 65, label %115
-    i32 98, label %115
-    i32 66, label %115
-    i32 99, label %115
-    i32 67, label %115
-    i32 100, label %115
-    i32 68, label %115
-    i32 101, label %115
-    i32 69, label %115
-    i32 102, label %115
-    i32 70, label %115
-    i32 103, label %115
-    i32 71, label %115
-    i32 104, label %115
-    i32 72, label %115
-    i32 105, label %115
-    i32 73, label %115
-    i32 106, label %115
-    i32 74, label %115
-    i32 107, label %115
-    i32 75, label %115
-    i32 108, label %115
-    i32 76, label %115
-    i32 109, label %115
-    i32 77, label %115
-    i32 110, label %115
-    i32 78, label %115
-    i32 111, label %115
-    i32 79, label %115
-    i32 112, label %115
-    i32 80, label %115
-    i32 113, label %115
-    i32 81, label %115
-    i32 114, label %115
-    i32 82, label %115
-    i32 115, label %115
-    i32 83, label %115
-    i32 116, label %115
-    i32 84, label %115
-    i32 117, label %115
-    i32 85, label %115
-    i32 118, label %115
-    i32 86, label %115
-    i32 119, label %115
-    i32 87, label %115
-    i32 120, label %115
-    i32 88, label %115
-    i32 121, label %115
-    i32 89, label %115
-    i32 122, label %115
-    i32 90, label %115
-    i32 48, label %115
-    i32 49, label %115
-    i32 50, label %115
-    i32 51, label %115
-    i32 52, label %115
-    i32 53, label %115
-    i32 54, label %115
-    i32 55, label %115
-    i32 56, label %115
-    i32 57, label %115
-    i32 45, label %115
-    i32 46, label %115
-    i32 95, label %115
-    i32 126, label %115
-    i32 10, label %107
-    i32 13, label %100
-  ]
-
-100:                                              ; preds = %.lr.ph.split.split.split.us.split
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !6
-  %101 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 48, ptr %101, align 4, !tbaa !6
-  %102 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 68, ptr %102, align 4, !tbaa !6
-  %103 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  store i32 37, ptr %103, align 4, !tbaa !6
-  %104 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
-  store i32 48, ptr %104, align 4, !tbaa !6
-  %105 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
-  store i32 65, ptr %105, align 4, !tbaa !6
-  %106 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
-  br label %130
-
-107:                                              ; preds = %.lr.ph.split.split.split.us.split
+46:                                               ; preds = %.lr.ph.split.split.split.us
   %.not70.us94 = icmp eq i32 %.06078.us91, 0
-  br i1 %.not70.us94, label %108, label %130
+  br i1 %.not70.us94, label %47, label %69
 
-108:                                              ; preds = %107
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !6
-  %109 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 48, ptr %109, align 4, !tbaa !6
-  %110 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 68, ptr %110, align 4, !tbaa !6
-  %111 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  store i32 37, ptr %111, align 4, !tbaa !6
-  %112 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
-  store i32 48, ptr %112, align 4, !tbaa !6
-  %113 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
-  store i32 65, ptr %113, align 4, !tbaa !6
-  %114 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
-  br label %130
+47:                                               ; preds = %46
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i32 48, ptr %48, align 4, !tbaa !10
+  %49 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
+  store i32 68, ptr %49, align 4, !tbaa !10
+  %50 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
+  store i32 37, ptr %50, align 4, !tbaa !10
+  %51 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
+  store i32 48, ptr %51, align 4, !tbaa !10
+  %52 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
+  store i32 65, ptr %52, align 4, !tbaa !10
+  %53 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
+  br label %69
 
-115:                                              ; preds = %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split
-  store i32 %99, ptr %.06177.us92, align 4, !tbaa !6
-  %116 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  br label %130
+54:                                               ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
+  store i32 %38, ptr %.06177.us92, align 4, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  br label %69
 
-117:                                              ; preds = %.lr.ph.split.split.split.us.split
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !6
-  %118 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 50, ptr %118, align 4, !tbaa !6
-  %119 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 48, ptr %119, align 4, !tbaa !6
-  %120 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  br label %130
+56:                                               ; preds = %.lr.ph.split.split.split.us
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  %57 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i32 50, ptr %57, align 4, !tbaa !10
+  %58 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
+  store i32 48, ptr %58, align 4, !tbaa !10
+  %59 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
+  br label %69
 
-121:                                              ; preds = %.lr.ph.split.split.split.us.split
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !6
-  %122 = lshr i32 %99, 4
-  %123 = and i32 %122, 15
-  %124 = tail call i32 @uriHexToLetterW(i32 noundef %123) #2
-  %125 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 %124, ptr %125, align 4, !tbaa !6
-  %126 = and i32 %99, 15
-  %127 = tail call i32 @uriHexToLetterW(i32 noundef %126) #2
-  %128 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 %127, ptr %128, align 4, !tbaa !6
-  %129 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  br label %130
+60:                                               ; preds = %.lr.ph.split.split.split.us
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  %61 = lshr i32 %38, 4
+  %62 = and i32 %61, 15
+  %63 = tail call i32 @uriHexToLetterW(i32 noundef %62) #2
+  %64 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
+  store i32 %63, ptr %64, align 4, !tbaa !10
+  %65 = and i32 %38, 15
+  %66 = tail call i32 @uriHexToLetterW(i32 noundef %65) #2
+  %67 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
+  store i32 %66, ptr %67, align 4, !tbaa !10
+  %68 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
+  br label %69
 
-130:                                              ; preds = %121, %117, %115, %108, %107, %100
-  %.2.us95 = phi ptr [ %129, %121 ], [ %116, %115 ], [ %120, %117 ], [ %.06177.us92, %107 ], [ %114, %108 ], [ %106, %100 ]
-  %.1.us96 = phi i32 [ 0, %121 ], [ 0, %115 ], [ 0, %117 ], [ 0, %107 ], [ 0, %108 ], [ 1, %100 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 4
-  %.not67.us97 = icmp ult ptr %131, %1
-  br i1 %.not67.us97, label %.lr.ph.split.split.split.us.split, label %.sink.split
+69:                                               ; preds = %60, %56, %54, %47, %46, %39
+  %.2.us95 = phi ptr [ %68, %60 ], [ %55, %54 ], [ %59, %56 ], [ %.06177.us92, %46 ], [ %53, %47 ], [ %45, %39 ]
+  %.1.us96 = phi i32 [ 0, %60 ], [ 0, %54 ], [ 0, %56 ], [ 0, %46 ], [ 0, %47 ], [ 1, %39 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 4
+  %.not67.us97 = icmp ult ptr %70, %1
+  %or.cond72.us98 = select i1 %.not, i1 true, i1 %.not67.us97
+  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !13
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
-.lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %161
-  %.06078.us103 = phi i32 [ %.1.us108, %161 ], [ 0, %.lr.ph.split.split.split ]
-  %.06177.us104 = phi ptr [ %.2.us107, %161 ], [ %2, %.lr.ph.split.split.split ]
-  %.06376.us105 = phi ptr [ %162, %161 ], [ %0, %.lr.ph.split.split.split ]
-  %132 = load i32, ptr %.06376.us105, align 4, !tbaa !6
-  switch i32 %132, label %152 [
+.lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %100
+  %.06078.us103 = phi i32 [ %.1.us108, %100 ], [ 0, %.lr.ph.split.split.split ]
+  %.06177.us104 = phi ptr [ %.2.us107, %100 ], [ %2, %.lr.ph.split.split.split ]
+  %.06376.us105 = phi ptr [ %101, %100 ], [ %0, %.lr.ph.split.split.split ]
+  %71 = load i32, ptr %.06376.us105, align 4, !tbaa !10
+  switch i32 %71, label %91 [
     i32 0, label %.sink.split
-    i32 32, label %150
-    i32 97, label %148
-    i32 65, label %148
-    i32 98, label %148
-    i32 66, label %148
-    i32 99, label %148
-    i32 67, label %148
-    i32 100, label %148
-    i32 68, label %148
-    i32 101, label %148
-    i32 69, label %148
-    i32 102, label %148
-    i32 70, label %148
-    i32 103, label %148
-    i32 71, label %148
-    i32 104, label %148
-    i32 72, label %148
-    i32 105, label %148
-    i32 73, label %148
-    i32 106, label %148
-    i32 74, label %148
-    i32 107, label %148
-    i32 75, label %148
-    i32 108, label %148
-    i32 76, label %148
-    i32 109, label %148
-    i32 77, label %148
-    i32 110, label %148
-    i32 78, label %148
-    i32 111, label %148
-    i32 79, label %148
-    i32 112, label %148
-    i32 80, label %148
-    i32 113, label %148
-    i32 81, label %148
-    i32 114, label %148
-    i32 82, label %148
-    i32 115, label %148
-    i32 83, label %148
-    i32 116, label %148
-    i32 84, label %148
-    i32 117, label %148
-    i32 85, label %148
-    i32 118, label %148
-    i32 86, label %148
-    i32 119, label %148
-    i32 87, label %148
-    i32 120, label %148
-    i32 88, label %148
-    i32 121, label %148
-    i32 89, label %148
-    i32 122, label %148
-    i32 90, label %148
-    i32 48, label %148
-    i32 49, label %148
-    i32 50, label %148
-    i32 51, label %148
-    i32 52, label %148
-    i32 53, label %148
-    i32 54, label %148
-    i32 55, label %148
-    i32 56, label %148
-    i32 57, label %148
-    i32 45, label %148
-    i32 46, label %148
-    i32 95, label %148
-    i32 126, label %148
-    i32 10, label %140
-    i32 13, label %133
+    i32 32, label %89
+    i32 97, label %87
+    i32 65, label %87
+    i32 98, label %87
+    i32 66, label %87
+    i32 99, label %87
+    i32 67, label %87
+    i32 100, label %87
+    i32 68, label %87
+    i32 101, label %87
+    i32 69, label %87
+    i32 102, label %87
+    i32 70, label %87
+    i32 103, label %87
+    i32 71, label %87
+    i32 104, label %87
+    i32 72, label %87
+    i32 105, label %87
+    i32 73, label %87
+    i32 106, label %87
+    i32 74, label %87
+    i32 107, label %87
+    i32 75, label %87
+    i32 108, label %87
+    i32 76, label %87
+    i32 109, label %87
+    i32 77, label %87
+    i32 110, label %87
+    i32 78, label %87
+    i32 111, label %87
+    i32 79, label %87
+    i32 112, label %87
+    i32 80, label %87
+    i32 113, label %87
+    i32 81, label %87
+    i32 114, label %87
+    i32 82, label %87
+    i32 115, label %87
+    i32 83, label %87
+    i32 116, label %87
+    i32 84, label %87
+    i32 117, label %87
+    i32 85, label %87
+    i32 118, label %87
+    i32 86, label %87
+    i32 119, label %87
+    i32 87, label %87
+    i32 120, label %87
+    i32 88, label %87
+    i32 121, label %87
+    i32 89, label %87
+    i32 122, label %87
+    i32 90, label %87
+    i32 48, label %87
+    i32 49, label %87
+    i32 50, label %87
+    i32 51, label %87
+    i32 52, label %87
+    i32 53, label %87
+    i32 54, label %87
+    i32 55, label %87
+    i32 56, label %87
+    i32 57, label %87
+    i32 45, label %87
+    i32 46, label %87
+    i32 95, label %87
+    i32 126, label %87
+    i32 10, label %79
+    i32 13, label %72
   ]
 
-133:                                              ; preds = %.lr.ph.split.split.split.split.us
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !6
-  %134 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 48, ptr %134, align 4, !tbaa !6
-  %135 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 68, ptr %135, align 4, !tbaa !6
-  %136 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
-  store i32 37, ptr %136, align 4, !tbaa !6
-  %137 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
-  store i32 48, ptr %137, align 4, !tbaa !6
-  %138 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
-  store i32 65, ptr %138, align 4, !tbaa !6
-  %139 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
-  br label %161
+72:                                               ; preds = %.lr.ph.split.split.split.split.us
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  %73 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  store i32 48, ptr %73, align 4, !tbaa !10
+  %74 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
+  store i32 68, ptr %74, align 4, !tbaa !10
+  %75 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
+  store i32 37, ptr %75, align 4, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
+  store i32 48, ptr %76, align 4, !tbaa !10
+  %77 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
+  store i32 65, ptr %77, align 4, !tbaa !10
+  %78 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
+  br label %100
 
-140:                                              ; preds = %.lr.ph.split.split.split.split.us
+79:                                               ; preds = %.lr.ph.split.split.split.split.us
   %.not70.us106 = icmp eq i32 %.06078.us103, 0
-  br i1 %.not70.us106, label %141, label %161
+  br i1 %.not70.us106, label %80, label %100
 
-141:                                              ; preds = %140
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !6
-  %142 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 48, ptr %142, align 4, !tbaa !6
-  %143 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 68, ptr %143, align 4, !tbaa !6
-  %144 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
-  store i32 37, ptr %144, align 4, !tbaa !6
-  %145 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
-  store i32 48, ptr %145, align 4, !tbaa !6
-  %146 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
-  store i32 65, ptr %146, align 4, !tbaa !6
-  %147 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
-  br label %161
+80:                                               ; preds = %79
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  %81 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  store i32 48, ptr %81, align 4, !tbaa !10
+  %82 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
+  store i32 68, ptr %82, align 4, !tbaa !10
+  %83 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
+  store i32 37, ptr %83, align 4, !tbaa !10
+  %84 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
+  store i32 48, ptr %84, align 4, !tbaa !10
+  %85 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
+  store i32 65, ptr %85, align 4, !tbaa !10
+  %86 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
+  br label %100
 
-148:                                              ; preds = %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us
-  store i32 %132, ptr %.06177.us104, align 4, !tbaa !6
-  %149 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  br label %161
+87:                                               ; preds = %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us
+  store i32 %71, ptr %.06177.us104, align 4, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  br label %100
 
-150:                                              ; preds = %.lr.ph.split.split.split.split.us
-  store i32 43, ptr %.06177.us104, align 4, !tbaa !6
-  %151 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  br label %161
+89:                                               ; preds = %.lr.ph.split.split.split.split.us
+  store i32 43, ptr %.06177.us104, align 4, !tbaa !10
+  %90 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  br label %100
 
-152:                                              ; preds = %.lr.ph.split.split.split.split.us
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !6
-  %153 = lshr i32 %132, 4
-  %154 = and i32 %153, 15
-  %155 = tail call i32 @uriHexToLetterW(i32 noundef %154) #2
-  %156 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 %155, ptr %156, align 4, !tbaa !6
-  %157 = and i32 %132, 15
-  %158 = tail call i32 @uriHexToLetterW(i32 noundef %157) #2
-  %159 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 %158, ptr %159, align 4, !tbaa !6
-  %160 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
-  br label %161
+91:                                               ; preds = %.lr.ph.split.split.split.split.us
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  %92 = lshr i32 %71, 4
+  %93 = and i32 %92, 15
+  %94 = tail call i32 @uriHexToLetterW(i32 noundef %93) #2
+  %95 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
+  store i32 %94, ptr %95, align 4, !tbaa !10
+  %96 = and i32 %71, 15
+  %97 = tail call i32 @uriHexToLetterW(i32 noundef %96) #2
+  %98 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
+  store i32 %97, ptr %98, align 4, !tbaa !10
+  %99 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
+  br label %100
 
-161:                                              ; preds = %152, %150, %148, %141, %140, %133
-  %.2.us107 = phi ptr [ %160, %152 ], [ %149, %148 ], [ %151, %150 ], [ %.06177.us104, %140 ], [ %147, %141 ], [ %139, %133 ]
-  %.1.us108 = phi i32 [ 0, %152 ], [ 0, %148 ], [ 0, %150 ], [ 0, %140 ], [ 0, %141 ], [ 1, %133 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 4
-  br label %.lr.ph.split.split.split.split.us
+100:                                              ; preds = %91, %89, %87, %80, %79, %72
+  %.2.us107 = phi ptr [ %99, %91 ], [ %88, %87 ], [ %90, %89 ], [ %.06177.us104, %79 ], [ %86, %80 ], [ %78, %72 ]
+  %.1.us108 = phi i32 [ 0, %91 ], [ 0, %87 ], [ 0, %89 ], [ 0, %79 ], [ 0, %80 ], [ 1, %72 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 4
+  br label %.lr.ph.split.split.split.split.us, !llvm.loop !14
 
-.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %192
-  %.06078 = phi i32 [ %.1, %192 ], [ 0, %.lr.ph.split.split.split ]
-  %.06177 = phi ptr [ %.2, %192 ], [ %2, %.lr.ph.split.split.split ]
-  %.06376 = phi ptr [ %193, %192 ], [ %0, %.lr.ph.split.split.split ]
-  %163 = load i32, ptr %.06376, align 4, !tbaa !6
-  switch i32 %163, label %183 [
+.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %131
+  %.06078 = phi i32 [ %.1, %131 ], [ 0, %.lr.ph.split.split.split ]
+  %.06177 = phi ptr [ %.2, %131 ], [ %2, %.lr.ph.split.split.split ]
+  %.06376 = phi ptr [ %132, %131 ], [ %0, %.lr.ph.split.split.split ]
+  %102 = load i32, ptr %.06376, align 4, !tbaa !10
+  switch i32 %102, label %122 [
     i32 0, label %.sink.split
-    i32 32, label %164
-    i32 97, label %166
-    i32 65, label %166
-    i32 98, label %166
-    i32 66, label %166
-    i32 99, label %166
-    i32 67, label %166
-    i32 100, label %166
-    i32 68, label %166
-    i32 101, label %166
-    i32 69, label %166
-    i32 102, label %166
-    i32 70, label %166
-    i32 103, label %166
-    i32 71, label %166
-    i32 104, label %166
-    i32 72, label %166
-    i32 105, label %166
-    i32 73, label %166
-    i32 106, label %166
-    i32 74, label %166
-    i32 107, label %166
-    i32 75, label %166
-    i32 108, label %166
-    i32 76, label %166
-    i32 109, label %166
-    i32 77, label %166
-    i32 110, label %166
-    i32 78, label %166
-    i32 111, label %166
-    i32 79, label %166
-    i32 112, label %166
-    i32 80, label %166
-    i32 113, label %166
-    i32 81, label %166
-    i32 114, label %166
-    i32 82, label %166
-    i32 115, label %166
-    i32 83, label %166
-    i32 116, label %166
-    i32 84, label %166
-    i32 117, label %166
-    i32 85, label %166
-    i32 118, label %166
-    i32 86, label %166
-    i32 119, label %166
-    i32 87, label %166
-    i32 120, label %166
-    i32 88, label %166
-    i32 121, label %166
-    i32 89, label %166
-    i32 122, label %166
-    i32 90, label %166
-    i32 48, label %166
-    i32 49, label %166
-    i32 50, label %166
-    i32 51, label %166
-    i32 52, label %166
-    i32 53, label %166
-    i32 54, label %166
-    i32 55, label %166
-    i32 56, label %166
-    i32 57, label %166
-    i32 45, label %166
-    i32 46, label %166
-    i32 95, label %166
-    i32 126, label %166
-    i32 10, label %168
-    i32 13, label %176
+    i32 32, label %103
+    i32 97, label %105
+    i32 65, label %105
+    i32 98, label %105
+    i32 66, label %105
+    i32 99, label %105
+    i32 67, label %105
+    i32 100, label %105
+    i32 68, label %105
+    i32 101, label %105
+    i32 69, label %105
+    i32 102, label %105
+    i32 70, label %105
+    i32 103, label %105
+    i32 71, label %105
+    i32 104, label %105
+    i32 72, label %105
+    i32 105, label %105
+    i32 73, label %105
+    i32 106, label %105
+    i32 74, label %105
+    i32 107, label %105
+    i32 75, label %105
+    i32 108, label %105
+    i32 76, label %105
+    i32 109, label %105
+    i32 77, label %105
+    i32 110, label %105
+    i32 78, label %105
+    i32 111, label %105
+    i32 79, label %105
+    i32 112, label %105
+    i32 80, label %105
+    i32 113, label %105
+    i32 81, label %105
+    i32 114, label %105
+    i32 82, label %105
+    i32 115, label %105
+    i32 83, label %105
+    i32 116, label %105
+    i32 84, label %105
+    i32 117, label %105
+    i32 85, label %105
+    i32 118, label %105
+    i32 86, label %105
+    i32 119, label %105
+    i32 87, label %105
+    i32 120, label %105
+    i32 88, label %105
+    i32 121, label %105
+    i32 89, label %105
+    i32 122, label %105
+    i32 90, label %105
+    i32 48, label %105
+    i32 49, label %105
+    i32 50, label %105
+    i32 51, label %105
+    i32 52, label %105
+    i32 53, label %105
+    i32 54, label %105
+    i32 55, label %105
+    i32 56, label %105
+    i32 57, label %105
+    i32 45, label %105
+    i32 46, label %105
+    i32 95, label %105
+    i32 126, label %105
+    i32 10, label %107
+    i32 13, label %115
   ]
 
-164:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 43, ptr %.06177, align 4, !tbaa !6
-  %165 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  br label %192
+103:                                              ; preds = %.lr.ph.split.split.split.split
+  store i32 43, ptr %.06177, align 4, !tbaa !10
+  %104 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  br label %131
 
-166:                                              ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split
-  store i32 %163, ptr %.06177, align 4, !tbaa !6
-  %167 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  br label %192
+105:                                              ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split
+  store i32 %102, ptr %.06177, align 4, !tbaa !10
+  %106 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  br label %131
 
-168:                                              ; preds = %.lr.ph.split.split.split.split
+107:                                              ; preds = %.lr.ph.split.split.split.split
   %.not70 = icmp eq i32 %.06078, 0
-  br i1 %.not70, label %169, label %192
+  br i1 %.not70, label %108, label %131
 
-169:                                              ; preds = %168
-  store i32 37, ptr %.06177, align 4, !tbaa !6
-  %170 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 48, ptr %170, align 4, !tbaa !6
-  %171 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 68, ptr %171, align 4, !tbaa !6
-  %172 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
-  store i32 37, ptr %172, align 4, !tbaa !6
-  %173 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
-  store i32 48, ptr %173, align 4, !tbaa !6
-  %174 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
-  store i32 65, ptr %174, align 4, !tbaa !6
-  %175 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
-  br label %192
+108:                                              ; preds = %107
+  store i32 37, ptr %.06177, align 4, !tbaa !10
+  %109 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  store i32 48, ptr %109, align 4, !tbaa !10
+  %110 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
+  store i32 68, ptr %110, align 4, !tbaa !10
+  %111 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
+  store i32 37, ptr %111, align 4, !tbaa !10
+  %112 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
+  store i32 48, ptr %112, align 4, !tbaa !10
+  %113 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
+  store i32 65, ptr %113, align 4, !tbaa !10
+  %114 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
+  br label %131
 
-176:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 37, ptr %.06177, align 4, !tbaa !6
-  %177 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 48, ptr %177, align 4, !tbaa !6
-  %178 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 68, ptr %178, align 4, !tbaa !6
-  %179 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
-  store i32 37, ptr %179, align 4, !tbaa !6
-  %180 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
-  store i32 48, ptr %180, align 4, !tbaa !6
-  %181 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
-  store i32 65, ptr %181, align 4, !tbaa !6
-  %182 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
-  br label %192
+115:                                              ; preds = %.lr.ph.split.split.split.split
+  store i32 37, ptr %.06177, align 4, !tbaa !10
+  %116 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  store i32 48, ptr %116, align 4, !tbaa !10
+  %117 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
+  store i32 68, ptr %117, align 4, !tbaa !10
+  %118 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
+  store i32 37, ptr %118, align 4, !tbaa !10
+  %119 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
+  store i32 48, ptr %119, align 4, !tbaa !10
+  %120 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
+  store i32 65, ptr %120, align 4, !tbaa !10
+  %121 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
+  br label %131
 
-183:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 37, ptr %.06177, align 4, !tbaa !6
-  %184 = lshr i32 %163, 4
-  %185 = and i32 %184, 15
-  %186 = tail call i32 @uriHexToLetterW(i32 noundef %185) #2
-  %187 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 %186, ptr %187, align 4, !tbaa !6
-  %188 = and i32 %163, 15
-  %189 = tail call i32 @uriHexToLetterW(i32 noundef %188) #2
-  %190 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 %189, ptr %190, align 4, !tbaa !6
-  %191 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
-  br label %192
+122:                                              ; preds = %.lr.ph.split.split.split.split
+  store i32 37, ptr %.06177, align 4, !tbaa !10
+  %123 = lshr i32 %102, 4
+  %124 = and i32 %123, 15
+  %125 = tail call i32 @uriHexToLetterW(i32 noundef %124) #2
+  %126 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
+  store i32 %125, ptr %126, align 4, !tbaa !10
+  %127 = and i32 %102, 15
+  %128 = tail call i32 @uriHexToLetterW(i32 noundef %127) #2
+  %129 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
+  store i32 %128, ptr %129, align 4, !tbaa !10
+  %130 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
+  br label %131
 
-192:                                              ; preds = %176, %169, %168, %164, %183, %166
-  %.2 = phi ptr [ %191, %183 ], [ %167, %166 ], [ %165, %164 ], [ %.06177, %168 ], [ %175, %169 ], [ %182, %176 ]
-  %.1 = phi i32 [ 0, %183 ], [ 0, %166 ], [ 0, %164 ], [ 0, %168 ], [ 0, %169 ], [ 1, %176 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.06376, i64 4
-  %.not67 = icmp ult ptr %193, %1
+131:                                              ; preds = %115, %108, %107, %103, %122, %105
+  %.2 = phi ptr [ %130, %122 ], [ %106, %105 ], [ %104, %103 ], [ %.06177, %107 ], [ %114, %108 ], [ %121, %115 ]
+  %.1 = phi i32 [ 0, %122 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %108 ], [ 1, %115 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.06376, i64 4
+  %.not67 = icmp ult ptr %132, %1
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.2.us, %64 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.2.us95, %130 ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %192 ], [ %.06177, %.lr.ph.split.split.split.split ]
-  store i32 0, ptr %.us-phi.sink, align 4, !tbaa !6
-  br label %194
+.sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %131, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us, %69, %.lr.ph.split.us, %36, %.preheader, %8
+  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.2.us, %36 ], [ %.06177.us, %.lr.ph.split.us ], [ %.2.us95, %69 ], [ %.06177.us92, %.lr.ph.split.split.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %131 ], [ %.06177, %.lr.ph.split.split.split.split ]
+  store i32 0, ptr %.us-phi.sink, align 4, !tbaa !10
+  br label %133
 
-194:                                              ; preds = %.sink.split, %5
+133:                                              ; preds = %.sink.split, %5
   %.0 = phi ptr [ null, %5 ], [ %.us-phi.sink, %.sink.split ]
   ret ptr %.0
 }
@@ -2076,7 +1506,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   %.073 = phi i32 [ 0, %.preheader ], [ %.073.be, %.backedge ]
   %.071 = phi ptr [ %0, %.preheader ], [ %.071.be, %.backedge ]
   %.070 = phi ptr [ %0, %.preheader ], [ %.070.be, %.backedge ]
-  %6 = load i32, ptr %.070, align 4, !tbaa !6
+  %6 = load i32, ptr %.070, align 4, !tbaa !10
   switch i32 %6, label %66 [
     i32 0, label %7
     i32 37, label %10
@@ -2088,12 +1518,12 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %8, label %9, label %72
 
 9:                                                ; preds = %7
-  store i32 0, ptr %.071, align 4, !tbaa !6
+  store i32 0, ptr %.071, align 4, !tbaa !10
   br label %72
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !6
+  %12 = load i32, ptr %11, align 4, !tbaa !10
   switch i32 %12, label %55 [
     i32 48, label %13
     i32 49, label %13
@@ -2121,7 +1551,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 13:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %14 = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !6
+  %15 = load i32, ptr %14, align 4, !tbaa !10
   switch i32 %15, label %48 [
     i32 48, label %16
     i32 49, label %16
@@ -2149,7 +1579,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 16:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
   %17 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %12) #2
-  %18 = load i32, ptr %14, align 4, !tbaa !6
+  %18 = load i32, ptr %14, align 4, !tbaa !10
   %19 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %18) #2
   %20 = zext i8 %17 to i32
   %21 = shl nuw nsw i32 %20, 4
@@ -2172,7 +1602,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not81, label %26, label %46
 
 26:                                               ; preds = %25
-  store i32 10, ptr %.071, align 4, !tbaa !6
+  store i32 10, ptr %.071, align 4, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -2181,9 +1611,9 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not80, label %29, label %46
 
 29:                                               ; preds = %28
-  store i32 13, ptr %.071, align 4, !tbaa !6
+  store i32 13, ptr %.071, align 4, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %.071, i64 4
-  store i32 10, ptr %30, align 4, !tbaa !6
+  store i32 10, ptr %30, align 4, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   br label %46
 
@@ -2192,12 +1622,12 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not79, label %33, label %46
 
 33:                                               ; preds = %32
-  store i32 13, ptr %.071, align 4, !tbaa !6
+  store i32 13, ptr %.071, align 4, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
 35:                                               ; preds = %24
-  store i32 10, ptr %.071, align 4, !tbaa !6
+  store i32 10, ptr %.071, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -2210,25 +1640,25 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   ]
 
 39:                                               ; preds = %37
-  store i32 10, ptr %.071, align 4, !tbaa !6
+  store i32 10, ptr %.071, align 4, !tbaa !10
   br label %46
 
 40:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !6
-  store i32 10, ptr %38, align 4, !tbaa !6
+  store i32 13, ptr %.071, align 4, !tbaa !10
+  store i32 10, ptr %38, align 4, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   br label %46
 
 42:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !6
+  store i32 13, ptr %.071, align 4, !tbaa !10
   br label %46
 
 43:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !6
+  store i32 13, ptr %.071, align 4, !tbaa !10
   br label %46
 
 44:                                               ; preds = %16
-  store i32 %23, ptr %.071, align 4, !tbaa !6
+  store i32 %23, ptr %.071, align 4, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -2243,10 +1673,10 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  store i32 37, ptr %.071, align 4, !tbaa !6
-  %51 = load i32, ptr %11, align 4, !tbaa !6
+  store i32 37, ptr %.071, align 4, !tbaa !10
+  %51 = load i32, ptr %11, align 4, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %.071, i64 4
-  store i32 %51, ptr %52, align 4, !tbaa !6
+  store i32 %51, ptr %52, align 4, !tbaa !10
   br label %53
 
 53:                                               ; preds = %50, %48
@@ -2258,7 +1688,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  store i32 37, ptr %.071, align 4, !tbaa !6
+  store i32 37, ptr %.071, align 4, !tbaa !10
   br label %58
 
 58:                                               ; preds = %57, %55
@@ -2280,7 +1710,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 .sink.split:                                      ; preds = %61, %60
   %.sink = phi i32 [ 32, %60 ], [ 43, %61 ]
-  store i32 %.sink, ptr %.071, align 4, !tbaa !6
+  store i32 %.sink, ptr %.071, align 4, !tbaa !10
   br label %63
 
 63:                                               ; preds = %.sink.split, %61
@@ -2293,7 +1723,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
-  store i32 %6, ptr %.071, align 4, !tbaa !6
+  store i32 %6, ptr %.071, align 4, !tbaa !10
   br label %69
 
 69:                                               ; preds = %68, %66
@@ -2320,5 +1750,12 @@ attributes #2 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !4, i64 0}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !4, i64 0}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

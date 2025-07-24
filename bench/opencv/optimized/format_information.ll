@@ -359,7 +359,7 @@ define hidden void @_ZN5zxing6qrcode17FormatInformation25doDecodeFormatInformati
   %136 = add i32 %135, 1
   store i32 %136, ptr %121, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %138 = load i32, ptr %137, align 4, !tbaa !24
+  %138 = load i32, ptr %137, align 4, !tbaa !25
   %.not56 = icmp eq i32 %138, 0
   br i1 %.not56, label %_ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit, label %145
 
@@ -513,7 +513,7 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %134
   %.241.ph = phi i32 [ %.3, %203 ], [ %249, %251 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count112
-  br i1 %exitcond.not, label %_ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %_ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65, label %.lr.ph.split, !llvm.loop !31
 
 _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65: ; preds = %254, %111
   %.042.lcssa = phi i32 [ %.345.us, %111 ], [ %.244.ph, %254 ]
@@ -554,7 +554,7 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65: ; preds = %254, %111
   %274 = add i32 %273, 1
   store i32 %274, ptr %259, align 8, !tbaa !3
   %275 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %276 = load i32, ptr %275, align 4, !tbaa !24
+  %276 = load i32, ptr %275, align 4, !tbaa !25
   %.not59 = icmp eq i32 %276, 0
   br i1 %.not59, label %_ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit73, label %283
 
@@ -598,14 +598,14 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65.thread: ; preds = %3, %
 _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit75: ; preds = %148, %145, %286, %283, %_ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit65.thread
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !8
   %290 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %291 = load ptr, ptr %290, align 8, !tbaa !30
+  %291 = load ptr, ptr %290, align 8, !tbaa !32
   %292 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %293 = icmp eq ptr %291, %292
   br i1 %293, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit75
   %294 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %295 = load i64, ptr %294, align 8, !tbaa !31
+  %295 = load i64, ptr %294, align 8, !tbaa !33
   %296 = icmp ult i64 %295, 16
   call void @llvm.assume(i1 %296)
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit
@@ -622,14 +622,14 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
   %.pn60.pn = phi { ptr, i32 } [ %140, %139 ], [ %142, %141 ], [ %278, %277 ], [ %280, %279 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !8
   %298 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %299 = load ptr, ptr %298, align 8, !tbaa !30
+  %299 = load ptr, ptr %298, align 8, !tbaa !32
   %300 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %301 = icmp eq ptr %299, %300
   br i1 %301, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i76
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i77: ; preds = %297
   %302 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %303 = load i64, ptr %302, align 8, !tbaa !31
+  %303 = load i64, ptr %302, align 8, !tbaa !33
   %304 = icmp ult i64 %303, 16
   call void @llvm.assume(i1 %304)
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit78
@@ -726,13 +726,15 @@ attributes #13 = { builtin nounwind }
 !19 = !{!20, !21, i64 0}
 !20 = !{!"_ZTSN5zxing3RefINS_6qrcode17FormatInformationEEE", !21, i64 0}
 !21 = !{!"p1 _ZTSN5zxing6qrcode17FormatInformationE", !12, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !5, i64 12}
-!25 = !{!"_ZTSN5zxing12ErrorHandlerE", !5, i64 8, !5, i64 12, !26, i64 16}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !29, i64 8, !6, i64 16}
-!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
-!28 = !{!"p1 omnipotent char", !12, i64 0}
-!29 = !{!"long", !6, i64 0}
-!30 = !{!26, !28, i64 0}
-!31 = !{!26, !29, i64 8}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{!26, !5, i64 12}
+!26 = !{!"_ZTSN5zxing12ErrorHandlerE", !5, i64 8, !5, i64 12, !27, i64 16}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !28, i64 0, !30, i64 8, !6, i64 16}
+!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !29, i64 0}
+!29 = !{!"p1 omnipotent char", !12, i64 0}
+!30 = !{!"long", !6, i64 0}
+!31 = distinct !{!31, !23}
+!32 = !{!27, !29, i64 0}
+!33 = !{!27, !30, i64 8}

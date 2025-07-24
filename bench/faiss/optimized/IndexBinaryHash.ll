@@ -11167,7 +11167,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i.i.i: ; preds = %_ZN
   %332 = phi i32 [ %328, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.us.i.i.i ], [ %321, %320 ]
   %333 = load ptr, ptr %.sroa.01.06.i.us.i.i.i, align 8, !tbaa !29
   %.not.i.us.i.i.i = icmp eq ptr %333, null
-  br i1 %.not.i.us.i.i.i, label %.lr.ph.i.i.i.i49.i.i.preheader, label %320
+  br i1 %.not.i.us.i.i.i, label %.lr.ph.i.i.i.i49.i.i.preheader, label %320, !llvm.loop !196
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i.i.i
   %.sroa.01.06.i.i.i.i = phi ptr [ %381, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i.i.i ], [ %.val27.i.i, %.lr.ph.i.i.i.i ]
@@ -11348,7 +11348,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i74.i.i: ; preds = %_
   %412 = phi i32 [ %408, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.us.i76.i.i ], [ %400, %399 ]
   %413 = load ptr, ptr %.sroa.01.06.i.us.i73.i.i, align 8, !tbaa !29
   %.not.i.us.i75.i.i = icmp eq ptr %413, null
-  br i1 %.not.i.us.i75.i.i, label %.lr.ph.i.i.i.i78.i.i.preheader, label %399
+  br i1 %.not.i.us.i75.i.i, label %.lr.ph.i.i.i.i78.i.i.preheader, label %399, !llvm.loop !198
 
 .lr.ph.i.split.i54.i.i:                           ; preds = %.lr.ph.i.i51.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i56.i.i
   %.sroa.01.06.i.i55.i.i = phi ptr [ %462, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i56.i.i ], [ %.val31.i.i, %.lr.ph.i.i51.i.i ]
@@ -12236,7 +12236,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.us.
 _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i201.i.i: ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.us.i203.i.i, %.lr.ph.i.split.us.i200.i.i
   %870 = load ptr, ptr %.sroa.01.05.i.us.i.i.i, align 8, !tbaa !29
   %.not.i.us.i202.i.i = icmp eq ptr %870, null
-  br i1 %.not.i.us.i202.i.i, label %.loopexit.i.i, label %.lr.ph.i.split.us.i200.i.i
+  br i1 %.not.i.us.i202.i.i, label %.loopexit.i.i, label %.lr.ph.i.split.us.i200.i.i, !llvm.loop !199
 
 .lr.ph.i.split.i184.i.i:                          ; preds = %.lr.ph.i.i181.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i185.i.i
   %.sroa.01.05.i.i.i.i = phi ptr [ %917, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i185.i.i ], [ %.val48.i.i, %.lr.ph.i.i181.i.i ]
@@ -13109,3 +13109,7 @@ attributes #30 = { noreturn nounwind }
 !193 = distinct !{!193, !31}
 !194 = distinct !{!194, !31}
 !195 = distinct !{!195, !31}
+!196 = distinct !{!196, !197}
+!197 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!198 = distinct !{!198, !197}
+!199 = distinct !{!199, !197}

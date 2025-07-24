@@ -100,7 +100,7 @@ IsWalSummaryFilename.exit.thread.us:              ; preds = %35, %20, %IsWalSumm
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #12
   %41 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
   %.not.us = icmp eq ptr %41, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %IsWalSummaryFilename.exit.thread
   %42 = phi ptr [ %71, %IsWalSummaryFilename.exit.thread ], [ %6, %.lr.ph ]
@@ -198,255 +198,159 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %8 = icmp eq i64 %3, 0
   %9 = load i32, ptr %5, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %.not23, label %.lr.ph.split.us.split, label %.lr.ph.split
+  br i1 %.not23, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph78, label %._crit_edge
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  br i1 %10, label %.lr.ph89, label %._crit_edge
 
-.lr.ph78:                                         ; preds = %.lr.ph.split.us.split
-  br i1 %7, label %.lr.ph78.split.us, label %.lr.ph78.split
-
-.lr.ph78.split.us:                                ; preds = %.lr.ph78
-  br i1 %8, label %.lr.ph78.split.us.split.us, label %.lr.ph78.split.us.split
-
-.lr.ph78.split.us.split.us:                       ; preds = %.lr.ph78.split.us, %.lr.ph78.split.us.split.us
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph78.split.us.split.us ], [ 0, %.lr.ph78.split.us ]
-  %.028.us76.us.us = phi ptr [ %14, %.lr.ph78.split.us.split.us ], [ null, %.lr.ph78.split.us ]
+.lr.ph89:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %.028.us88 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %indvars.iv7187 = phi i64 [ %indvars.iv.next72, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv114
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv7187
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @lappend(ptr noundef %.028.us76.us.us, ptr noundef %13) #12
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %15 = load i32, ptr %5, align 4
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next115, %16
-  br i1 %17, label %.lr.ph78.split.us.split.us, label %._crit_edge
+  br i1 %7, label %18, label %14
 
-.lr.ph78.split.us.split:                          ; preds = %.lr.ph78.split.us, %26
-  %18 = phi i32 [ %27, %26 ], [ %9, %.lr.ph78.split.us ]
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %26 ], [ 0, %.lr.ph78.split.us ]
-  %.028.us76.us = phi ptr [ %.1.us.us80, %26 ], [ null, %.lr.ph78.split.us ]
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv111
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i64, ptr %21, align 8
-  %23 = icmp ult i64 %3, %22
-  br i1 %23, label %26, label %24
+14:                                               ; preds = %.lr.ph89
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ugt i64 %2, %16
+  br i1 %17, label %.lr.ph.split.us, label %18
 
-24:                                               ; preds = %.lr.ph78.split.us.split
-  %25 = tail call ptr @lappend(ptr noundef %.028.us76.us, ptr noundef nonnull %21) #12
-  %.pre122 = load i32, ptr %5, align 4
-  br label %26
+18:                                               ; preds = %14, %.lr.ph89
+  br i1 %8, label %22, label %19
 
-26:                                               ; preds = %24, %.lr.ph78.split.us.split
-  %27 = phi i32 [ %.pre122, %24 ], [ %18, %.lr.ph78.split.us.split ]
-  %.1.us.us80 = phi ptr [ %25, %24 ], [ %.028.us76.us, %.lr.ph78.split.us.split ]
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next112, %28
-  br i1 %29, label %.lr.ph78.split.us.split, label %._crit_edge
+19:                                               ; preds = %18
+  %20 = load i64, ptr %13, align 8
+  %21 = icmp ult i64 %3, %20
+  br i1 %21, label %.lr.ph.split.us, label %22
 
-.lr.ph78.split:                                   ; preds = %.lr.ph78
-  br i1 %8, label %.lr.ph78.split.split.us, label %.lr.ph78.split.split
+22:                                               ; preds = %19, %18
+  %23 = tail call ptr @lappend(ptr noundef %.028.us88, ptr noundef %13) #12
+  br label %.lr.ph.split.us
 
-.lr.ph78.split.split.us:                          ; preds = %.lr.ph78.split, %39
-  %30 = phi i32 [ %40, %39 ], [ %9, %.lr.ph78.split ]
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %39 ], [ 0, %.lr.ph78.split ]
-  %.028.us76.us83 = phi ptr [ %.1.us.us84, %39 ], [ null, %.lr.ph78.split ]
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv108
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp ugt i64 %2, %35
-  br i1 %36, label %39, label %37
-
-37:                                               ; preds = %.lr.ph78.split.split.us
-  %38 = tail call ptr @lappend(ptr noundef %.028.us76.us83, ptr noundef nonnull %33) #12
-  %.pre121 = load i32, ptr %5, align 4
-  br label %39
-
-39:                                               ; preds = %37, %.lr.ph78.split.split.us
-  %40 = phi i32 [ %.pre121, %37 ], [ %30, %.lr.ph78.split.split.us ]
-  %.1.us.us84 = phi ptr [ %38, %37 ], [ %.028.us76.us83, %.lr.ph78.split.split.us ]
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next109, %41
-  br i1 %42, label %.lr.ph78.split.split.us, label %._crit_edge
-
-.lr.ph78.split.split:                             ; preds = %.lr.ph78.split, %55
-  %43 = phi i32 [ %56, %55 ], [ %9, %.lr.ph78.split ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %55 ], [ 0, %.lr.ph78.split ]
-  %.028.us76 = phi ptr [ %.1.us, %55 ], [ null, %.lr.ph78.split ]
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv105
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp ugt i64 %2, %48
-  br i1 %49, label %55, label %50
-
-50:                                               ; preds = %.lr.ph78.split.split
-  %51 = load i64, ptr %46, align 8
-  %52 = icmp ult i64 %3, %51
-  br i1 %52, label %55, label %53
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @lappend(ptr noundef %.028.us76, ptr noundef nonnull %46) #12
-  %.pre120 = load i32, ptr %5, align 4
-  br label %55
-
-55:                                               ; preds = %53, %50, %.lr.ph78.split.split
-  %56 = phi i32 [ %.pre120, %53 ], [ %43, %.lr.ph78.split.split ], [ %43, %50 ]
-  %.1.us = phi ptr [ %54, %53 ], [ %.028.us76, %.lr.ph78.split.split ], [ %.028.us76, %50 ]
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next106, %57
-  br i1 %58, label %.lr.ph78.split.split, label %._crit_edge
+.lr.ph.split.us:                                  ; preds = %22, %19, %14
+  %.1.us = phi ptr [ %23, %22 ], [ %.028.us88, %14 ], [ %.028.us88, %19 ]
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv7187, 1
+  %24 = load i32, ptr %5, align 4
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next72, %25
+  br i1 %26, label %.lr.ph89, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph.split.split.us.split, label %.lr.ph.split.split
+  br i1 %7, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split
-  br i1 %10, label %.lr.ph69, label %._crit_edge
+.lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
+  br i1 %10, label %.lr.ph85, label %._crit_edge
 
-.lr.ph69:                                         ; preds = %.lr.ph.split.split.us.split
-  br i1 %8, label %.lr.ph69.split.us, label %.lr.ph69.split
+.lr.ph85:                                         ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
+  %.028.us3284 = phi ptr [ %.1.us34, %.lr.ph.split.split.us ], [ null, %.lr.ph.split.split.us.preheader ]
+  %indvars.iv6883 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us.preheader ]
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv6883
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i32, ptr %30, align 8
+  %.not24.us = icmp eq i32 %1, %31
+  br i1 %.not24.us, label %32, label %.lr.ph.split.split.us
 
-.lr.ph69.split.us:                                ; preds = %.lr.ph69, %67
-  %59 = phi i32 [ %68, %67 ], [ %9, %.lr.ph69 ]
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %67 ], [ 0, %.lr.ph69 ]
-  %.028.us3267.us = phi ptr [ %.1.us34.us72, %67 ], [ null, %.lr.ph69 ]
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv102
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load i32, ptr %63, align 8
-  %.not24.us.us71 = icmp eq i32 %1, %64
-  br i1 %.not24.us.us71, label %65, label %67
+32:                                               ; preds = %.lr.ph85
+  br i1 %8, label %36, label %33
 
-65:                                               ; preds = %.lr.ph69.split.us
-  %66 = tail call ptr @lappend(ptr noundef %.028.us3267.us, ptr noundef nonnull %62) #12
-  %.pre119 = load i32, ptr %5, align 4
-  br label %67
+33:                                               ; preds = %32
+  %34 = load i64, ptr %29, align 8
+  %35 = icmp ult i64 %3, %34
+  br i1 %35, label %.lr.ph.split.split.us, label %36
 
-67:                                               ; preds = %65, %.lr.ph69.split.us
-  %68 = phi i32 [ %.pre119, %65 ], [ %59, %.lr.ph69.split.us ]
-  %.1.us34.us72 = phi ptr [ %66, %65 ], [ %.028.us3267.us, %.lr.ph69.split.us ]
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next103, %69
-  br i1 %70, label %.lr.ph69.split.us, label %._crit_edge
+36:                                               ; preds = %33, %32
+  %37 = tail call ptr @lappend(ptr noundef %.028.us3284, ptr noundef nonnull %29) #12
+  br label %.lr.ph.split.split.us
 
-.lr.ph69.split:                                   ; preds = %.lr.ph69, %82
-  %71 = phi i32 [ %83, %82 ], [ %9, %.lr.ph69 ]
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %82 ], [ 0, %.lr.ph69 ]
-  %.028.us3267 = phi ptr [ %.1.us34, %82 ], [ null, %.lr.ph69 ]
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv99
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i32, ptr %75, align 8
-  %.not24.us = icmp eq i32 %1, %76
-  br i1 %.not24.us, label %77, label %82
-
-77:                                               ; preds = %.lr.ph69.split
-  %78 = load i64, ptr %74, align 8
-  %79 = icmp ult i64 %3, %78
-  br i1 %79, label %82, label %80
-
-80:                                               ; preds = %77
-  %81 = tail call ptr @lappend(ptr noundef %.028.us3267, ptr noundef nonnull %74) #12
-  %.pre118 = load i32, ptr %5, align 4
-  br label %82
-
-82:                                               ; preds = %80, %77, %.lr.ph69.split
-  %83 = phi i32 [ %.pre118, %80 ], [ %71, %.lr.ph69.split ], [ %71, %77 ]
-  %.1.us34 = phi ptr [ %81, %80 ], [ %.028.us3267, %.lr.ph69.split ], [ %.028.us3267, %77 ]
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %84 = sext i32 %83 to i64
-  %85 = icmp slt i64 %indvars.iv.next100, %84
-  br i1 %85, label %.lr.ph69.split, label %._crit_edge
+.lr.ph.split.split.us:                            ; preds = %36, %33, %.lr.ph85
+  %.1.us34 = phi ptr [ %37, %36 ], [ %.028.us3284, %.lr.ph85 ], [ %.028.us3284, %33 ]
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv6883, 1
+  %38 = load i32, ptr %5, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next69, %39
+  br i1 %40, label %.lr.ph85, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %8, label %.lr.ph.split.split.split.us.split, label %.lr.ph.split.split.split.split
+  br i1 %8, label %.lr.ph.split.split.split.us.preheader, label %.lr.ph.split.split.split.split
 
-.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split
-  br i1 %10, label %.lr.ph63, label %._crit_edge
+.lr.ph.split.split.split.us.preheader:            ; preds = %.lr.ph.split.split
+  br i1 %10, label %.lr.ph82, label %._crit_edge
 
-.lr.ph63:                                         ; preds = %.lr.ph.split.split.split.us.split, %98
-  %86 = phi i32 [ %99, %98 ], [ %9, %.lr.ph.split.split.split.us.split ]
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %98 ], [ 0, %.lr.ph.split.split.split.us.split ]
-  %.028.us3961 = phi ptr [ %.1.us42, %98 ], [ null, %.lr.ph.split.split.split.us.split ]
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds nuw %union.ListCell, ptr %87, i64 %indvars.iv96
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i32, ptr %90, align 8
-  %.not24.us41 = icmp eq i32 %1, %91
-  br i1 %.not24.us41, label %92, label %98
+.lr.ph82:                                         ; preds = %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.split.us
+  %.028.us3981 = phi ptr [ %.1.us42, %.lr.ph.split.split.split.us ], [ null, %.lr.ph.split.split.split.us.preheader ]
+  %indvars.iv6580 = phi i64 [ %indvars.iv.next66, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us.preheader ]
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv6580
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i32, ptr %44, align 8
+  %.not24.us41 = icmp eq i32 %1, %45
+  br i1 %.not24.us41, label %46, label %.lr.ph.split.split.split.us
 
-92:                                               ; preds = %.lr.ph63
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %94 = load i64, ptr %93, align 8
-  %95 = icmp ugt i64 %2, %94
-  br i1 %95, label %98, label %96
+46:                                               ; preds = %.lr.ph82
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp ugt i64 %2, %48
+  br i1 %49, label %.lr.ph.split.split.split.us, label %50
 
-96:                                               ; preds = %92
-  %97 = tail call ptr @lappend(ptr noundef %.028.us3961, ptr noundef nonnull %89) #12
-  %.pre117 = load i32, ptr %5, align 4
-  br label %98
+50:                                               ; preds = %46
+  %51 = tail call ptr @lappend(ptr noundef %.028.us3981, ptr noundef nonnull %43) #12
+  br label %.lr.ph.split.split.split.us
 
-98:                                               ; preds = %96, %92, %.lr.ph63
-  %99 = phi i32 [ %.pre117, %96 ], [ %86, %.lr.ph63 ], [ %86, %92 ]
-  %.1.us42 = phi ptr [ %97, %96 ], [ %.028.us3961, %.lr.ph63 ], [ %.028.us3961, %92 ]
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next97, %100
-  br i1 %101, label %.lr.ph63, label %._crit_edge
+.lr.ph.split.split.split.us:                      ; preds = %50, %46, %.lr.ph82
+  %.1.us42 = phi ptr [ %51, %50 ], [ %.028.us3981, %.lr.ph82 ], [ %.028.us3981, %46 ]
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv6580, 1
+  %52 = load i32, ptr %5, align 4
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next66, %53
+  br i1 %54, label %.lr.ph82, label %._crit_edge
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split
   br i1 %10, label %.lr.ph57, label %._crit_edge
 
-._crit_edge:                                      ; preds = %117, %98, %82, %67, %55, %39, %26, %.lr.ph78.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.us.split, %4
-  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split.us.split ], [ null, %.lr.ph.split.split.split.us.split ], [ null, %.lr.ph.split.split.split.split ], [ %14, %.lr.ph78.split.us.split.us ], [ %.1.us.us80, %26 ], [ %.1.us.us84, %39 ], [ %.1.us, %55 ], [ %.1.us34.us72, %67 ], [ %.1.us34, %82 ], [ %.1.us42, %98 ], [ %.1, %117 ]
+._crit_edge:                                      ; preds = %70, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.us.preheader, %.lr.ph.split.us.preheader, %.lr.ph.split.split.split.split, %4
+  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.us.preheader ], [ null, %.lr.ph.split.split.us.preheader ], [ null, %.lr.ph.split.split.split.us.preheader ], [ %.1.us, %.lr.ph.split.us ], [ %.1.us34, %.lr.ph.split.split.us ], [ %.1.us42, %.lr.ph.split.split.split.us ], [ %.1, %70 ]
   ret ptr %.0.lcssa
 
-.lr.ph57:                                         ; preds = %.lr.ph.split.split.split.split, %117
-  %102 = phi i32 [ %118, %117 ], [ %9, %.lr.ph.split.split.split.split ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %117 ], [ 0, %.lr.ph.split.split.split.split ]
-  %.02855 = phi ptr [ %.1, %117 ], [ null, %.lr.ph.split.split.split.split ]
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds nuw %union.ListCell, ptr %103, i64 %indvars.iv
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i32, ptr %106, align 8
-  %.not24 = icmp eq i32 %1, %107
-  br i1 %.not24, label %108, label %117
+.lr.ph57:                                         ; preds = %.lr.ph.split.split.split.split, %70
+  %55 = phi i32 [ %71, %70 ], [ %9, %.lr.ph.split.split.split.split ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph.split.split.split.split ]
+  %.02855 = phi ptr [ %.1, %70 ], [ null, %.lr.ph.split.split.split.split ]
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load i32, ptr %59, align 8
+  %.not24 = icmp eq i32 %1, %60
+  br i1 %.not24, label %61, label %70
 
-108:                                              ; preds = %.lr.ph57
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %110 = load i64, ptr %109, align 8
-  %111 = icmp ugt i64 %2, %110
-  br i1 %111, label %117, label %112
+61:                                               ; preds = %.lr.ph57
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp ugt i64 %2, %63
+  br i1 %64, label %70, label %65
 
-112:                                              ; preds = %108
-  %113 = load i64, ptr %105, align 8
-  %114 = icmp ult i64 %3, %113
-  br i1 %114, label %117, label %115
+65:                                               ; preds = %61
+  %66 = load i64, ptr %58, align 8
+  %67 = icmp ult i64 %3, %66
+  br i1 %67, label %70, label %68
 
-115:                                              ; preds = %112
-  %116 = tail call ptr @lappend(ptr noundef %.02855, ptr noundef nonnull %105) #12
+68:                                               ; preds = %65
+  %69 = tail call ptr @lappend(ptr noundef %.02855, ptr noundef nonnull %58) #12
   %.pre = load i32, ptr %5, align 4
-  br label %117
+  br label %70
 
-117:                                              ; preds = %112, %108, %.lr.ph57, %115
-  %118 = phi i32 [ %.pre, %115 ], [ %102, %.lr.ph57 ], [ %102, %108 ], [ %102, %112 ]
-  %.1 = phi ptr [ %116, %115 ], [ %.02855, %.lr.ph57 ], [ %.02855, %108 ], [ %.02855, %112 ]
+70:                                               ; preds = %65, %61, %.lr.ph57, %68
+  %71 = phi i32 [ %.pre, %68 ], [ %55, %.lr.ph57 ], [ %55, %61 ], [ %55, %65 ]
+  %.1 = phi ptr [ %69, %68 ], [ %.02855, %.lr.ph57 ], [ %.02855, %61 ], [ %.02855, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = sext i32 %118 to i64
-  %120 = icmp slt i64 %indvars.iv.next, %119
-  br i1 %120, label %.lr.ph57, label %._crit_edge
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %.lr.ph57, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -835,3 +739,5 @@ attributes #15 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}

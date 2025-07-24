@@ -842,7 +842,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit671:      ; preds = %150, %.sink.split.i
   %269 = add i32 %.13727, 1
   %270 = add nuw nsw i32 %.0579728, 1
   %exitcond.not = icmp eq i32 %270, %.0580742
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader, %258, %263
   %.12 = phi i32 [ %266, %263 ], [ %.11, %258 ], [ %.11, %.preheader ], [ %261, %.lr.ph.split.us ], [ %269, %.lr.ph.split ]
@@ -1788,5 +1788,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

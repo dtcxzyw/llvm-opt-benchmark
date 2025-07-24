@@ -147,7 +147,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %61 = getelementptr inbounds nuw i8, ptr %.189129.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond144.not.i, label %.lr.ph.i28, label %16, !llvm.loop !14
+  br i1 %exitcond144.not.i, label %.lr.ph.i28, label %16, !llvm.loop !15
 
 .lr.ph.i28:                                       ; preds = %._crit_edge126.split.us.i, %.preheader.i
   %.pre-phi = phi i64 [ 1, %.preheader.i ], [ %13, %._crit_edge126.split.us.i ]
@@ -195,7 +195,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %79 = tail call float @llvm.fmuladd.f32(float %76, float %78, float %.05968.i.i)
   %80 = add nuw i32 %.06167.i.i, 1
   %exitcond.i.i = icmp eq i32 %80, %indvars.iv.i.i
-  br i1 %exitcond.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.059.lcssa.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %79, %.lr.ph.i.i ]
@@ -211,7 +211,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %89 = add nuw i32 %.05871.i.i, 1
   %indvars.iv.next.i.i = add i32 %indvars.iv.i.i, 1
   %exitcond100.not.i.i = icmp eq i32 %89, %2
-  br i1 %exitcond100.not.i.i, label %.lr.ph95.i.i, label %.preheader.i.i, !llvm.loop !16
+  br i1 %exitcond100.not.i.i, label %.lr.ph95.i.i, label %.preheader.i.i, !llvm.loop !17
 
 .lr.ph95.i.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge82.i.i
   %.pn.i.i = phi ptr [ %.04892.i.i, %._crit_edge82.i.i ], [ %68, %._crit_edge.i.i ]
@@ -237,7 +237,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %95 = tail call float @llvm.fmuladd.f32(float %92, float %94, float %.16077.i.i)
   %96 = add nuw i32 %.16276.i.i, 1
   %exitcond101.not.i.i = icmp eq i32 %96, %2
-  br i1 %exitcond101.not.i.i, label %._crit_edge82.i.i, label %.lr.ph81.i.i, !llvm.loop !17
+  br i1 %exitcond101.not.i.i, label %._crit_edge82.i.i, label %.lr.ph81.i.i, !llvm.loop !18
 
 ._crit_edge82.i.i:                                ; preds = %.lr.ph81.i.i, %.lr.ph95.i.i
   %.160.lcssa.i.i = phi float [ 0.000000e+00, %.lr.ph95.i.i ], [ %95, %.lr.ph81.i.i ]
@@ -247,7 +247,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   store float %99, ptr %.04991.i.i, align 4, !tbaa !9
   %100 = getelementptr inbounds float, ptr %.190.i.i, i64 %72
   %.not.i.i = icmp eq i32 %.05793.i.i, 0
-  br i1 %.not.i.i, label %opj_lupSolve.exit.i, label %.lr.ph95.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %opj_lupSolve.exit.i, label %.lr.ph95.i.i, !llvm.loop !19
 
 opj_lupSolve.exit.i:                              ; preds = %._crit_edge82.i.i, %opj_lupSolve.exit.i
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %opj_lupSolve.exit.i ], [ 0, %._crit_edge82.i.i ]
@@ -258,13 +258,13 @@ opj_lupSolve.exit.i:                              ; preds = %._crit_edge82.i.i, 
   %103 = getelementptr inbounds nuw float, ptr %.02429.i, i64 %.pre-phi
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %.pre-phi
-  br i1 %exitcond.not.i31, label %104, label %opj_lupSolve.exit.i, !llvm.loop !19
+  br i1 %exitcond.not.i31, label %104, label %opj_lupSolve.exit.i, !llvm.loop !20
 
 104:                                              ; preds = %opj_lupSolve.exit.i
   %105 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %.pre-phi
-  br i1 %exitcond38.not.i, label %.sink.split, label %73, !llvm.loop !20
+  br i1 %exitcond38.not.i, label %.sink.split, label %73, !llvm.loop !21
 
 .sink.split:                                      ; preds = %._crit_edge.i, %16, %104
   %.0.ph = phi i32 [ 1, %104 ], [ 0, %16 ], [ 0, %._crit_edge.i ]
@@ -311,11 +311,12 @@ attributes #5 = { nounwind }
 !10 = !{!"float", !5, i64 0}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

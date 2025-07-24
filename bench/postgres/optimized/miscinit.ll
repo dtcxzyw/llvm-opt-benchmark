@@ -1827,12 +1827,12 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %51, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %51, label %9
+  br i1 %8, label %50, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @pstrdup(ptr noundef nonnull %0) #22
@@ -1844,13 +1844,13 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   call void @list_free_deep(ptr noundef %12) #22
   call void @pfree(ptr noundef %10) #22
   %14 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
-  br i1 %14, label %15, label %51
+  br i1 %14, label %15, label %50
 
 15:                                               ; preds = %13
   %16 = call i32 @errcode(i32 noundef 16801924) #22
   %17 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.86, ptr noundef %1) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1868, ptr noundef nonnull @__func__.load_libraries) #22
-  br label %51
+  br label %50
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1861,27 +1861,27 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %2, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %22, label %.lr.ph34, label %._crit_edge
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  br i1 %22, label %.lr.ph41, label %._crit_edge
 
-.lr.ph34:                                         ; preds = %.lr.ph.split.us.split, %36
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %36 ], [ 0, %.lr.ph.split.us.split ]
+.lr.ph41:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv3540 = phi i64 [ %indvars.iv.next36, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv37
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv3540
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @first_dir_separator(ptr noundef %25) #22
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
-28:                                               ; preds = %.lr.ph34
+28:                                               ; preds = %.lr.ph41
   %29 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.87, ptr noundef %25) #22
   br label %30
 
-30:                                               ; preds = %28, %.lr.ph34
-  %.020.us = phi ptr [ %29, %28 ], [ %25, %.lr.ph34 ]
-  %.0.us = phi ptr [ %29, %28 ], [ null, %.lr.ph34 ]
+30:                                               ; preds = %28, %.lr.ph41
+  %.020.us = phi ptr [ %29, %28 ], [ %25, %.lr.ph41 ]
+  %.0.us = phi ptr [ %29, %28 ], [ null, %.lr.ph41 ]
   call void @load_file(ptr noundef %.020.us, i1 noundef zeroext true) #22
   %31 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %31, label %32, label %34
@@ -1893,50 +1893,50 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
 
 34:                                               ; preds = %32, %30
   %.not25.us = icmp eq ptr %.0.us, null
-  br i1 %.not25.us, label %36, label %35
+  br i1 %.not25.us, label %.lr.ph.split.us, label %35
 
 35:                                               ; preds = %34
   call void @pfree(ptr noundef nonnull %.0.us) #22
-  br label %36
+  br label %.lr.ph.split.us
 
-36:                                               ; preds = %35, %34
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %37 = load i32, ptr %19, align 4
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next38, %38
-  br i1 %39, label %.lr.ph34, label %._crit_edge
+.lr.ph.split.us:                                  ; preds = %35, %34
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv3540, 1
+  %36 = load i32, ptr %19, align 4
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %indvars.iv.next36, %37
+  br i1 %38, label %.lr.ph41, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %22, label %.lr.ph32, label %._crit_edge
 
-._crit_edge:                                      ; preds = %47, %36, %.lr.ph.split.us.split, %.lr.ph.split.split, %18
-  %40 = load ptr, ptr %4, align 8
-  call void @list_free_deep(ptr noundef %40) #22
+._crit_edge:                                      ; preds = %46, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %18
+  %39 = load ptr, ptr %4, align 8
+  call void @list_free_deep(ptr noundef %39) #22
   call void @pfree(ptr noundef %10) #22
-  br label %51
+  br label %50
 
-.lr.ph32:                                         ; preds = %.lr.ph.split.split, %47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph.split.split ]
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8
-  call void @load_file(ptr noundef %43, i1 noundef zeroext false) #22
-  %44 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
-  br i1 %44, label %45, label %47
+.lr.ph32:                                         ; preds = %.lr.ph.split.split, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph.split.split ]
+  %40 = load ptr, ptr %20, align 8
+  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8
+  call void @load_file(ptr noundef %42, i1 noundef zeroext false) #22
+  %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %.lr.ph32
-  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88, ptr noundef %43) #22
+44:                                               ; preds = %.lr.ph32
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88, ptr noundef %42) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1886, ptr noundef nonnull @__func__.load_libraries) #22
-  br label %47
+  br label %46
 
-47:                                               ; preds = %45, %.lr.ph32
+46:                                               ; preds = %44, %.lr.ph32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %19, align 4
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph32, label %._crit_edge
+  %47 = load i32, ptr %19, align 4
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph32, label %._crit_edge
 
-51:                                               ; preds = %13, %15, %3, %6, %._crit_edge
+50:                                               ; preds = %13, %15, %3, %6, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   ret void
 }

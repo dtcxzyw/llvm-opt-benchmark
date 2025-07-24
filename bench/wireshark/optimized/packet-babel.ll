@@ -348,7 +348,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %.1.us = select i1 %50, i32 %62, i32 %64
   %65 = sub i32 %.1.us, %3
   %66 = icmp slt i32 %65, %22
-  br i1 %66, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %66, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %345
   %.0328 = phi i32 [ %.1, %345 ], [ %3, %.lr.ph ]
@@ -382,7 +382,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
 
 85:                                               ; preds = %.thread
   %86 = add i32 %.0328, 1
-  br label %345, !llvm.loop !6
+  br label %345, !llvm.loop !8
 
 87:                                               ; preds = %.thread
   %88 = load i32, ptr @hf_babel_message_length, align 4
@@ -1030,7 +1030,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 
 24:                                               ; preds = %14
   %25 = add nuw i16 %.079, 1
-  br label %72, !llvm.loop !8
+  br label %72, !llvm.loop !10
 
 26:                                               ; preds = %14
   %27 = load i32, ptr @hf_babel_subtlv_len, align 4
@@ -1065,7 +1065,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 1, i32 noundef 0)
   %42 = add nuw nsw i32 %.07178, 1
   %exitcond.not = icmp eq i32 %42, %.070
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 43:                                               ; preds = %34
   %44 = add nuw nsw i32 %7, 2
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %2, 12
   %28 = zext nneg i32 %27 to i64
-  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !10
+  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !12
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -1200,7 +1200,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 
 44:                                               ; preds = %42
   %45 = zext nneg i32 %2 to i64
-  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !14
+  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !16
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -1298,14 +1298,16 @@ attributes #8 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
+!14 = distinct !{!14, !"memcpy.inline"}
+!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}

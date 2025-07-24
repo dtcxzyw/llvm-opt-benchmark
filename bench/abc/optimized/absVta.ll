@@ -597,37 +597,37 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Vga_ManDeriveCex(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !30
+  %2 = load ptr, ptr %0, align 8, !tbaa !31
   %3 = getelementptr i8, ptr %2, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !40
+  %.val = load i32, ptr %3, align 8, !tbaa !41
   %4 = getelementptr i8, ptr %2, i64 64
-  %.val29 = load ptr, ptr %4, align 8, !tbaa !54
+  %.val29 = load ptr, ptr %4, align 8, !tbaa !55
   %5 = getelementptr i8, ptr %.val29, i64 4
   %.val29.val = load i32, ptr %5, align 4, !tbaa !15
   %6 = sub nsw i32 %.val29.val, %.val
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  %10 = load i32, ptr %9, align 8, !tbaa !56
+  %10 = load i32, ptr %9, align 8, !tbaa !57
   %11 = add nsw i32 %10, 1
   %12 = tail call ptr @Abc_CexAlloc(i32 noundef %.val, i32 noundef %6, i32 noundef %11) #28
-  store i32 0, ptr %12, align 4, !tbaa !58
-  %13 = load ptr, ptr %7, align 8, !tbaa !55
+  store i32 0, ptr %12, align 4, !tbaa !59
+  %13 = load ptr, ptr %7, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !60
+  store i32 %15, ptr %16, align 4, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !61
+  %18 = load i32, ptr %17, align 8, !tbaa !62
   %19 = icmp sgt i32 %18, 1
   br i1 %19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !62
-  %22 = load ptr, ptr %0, align 8, !tbaa !30
+  %21 = load ptr, ptr %20, align 8, !tbaa !63
+  %22 = load ptr, ptr %0, align 8, !tbaa !31
   %23 = getelementptr i8, ptr %22, i64 32
-  %.val30 = load ptr, ptr %23, align 8, !tbaa !63
+  %.val30 = load ptr, ptr %23, align 8, !tbaa !64
   %.not25 = icmp eq ptr %.val30, null
   %24 = getelementptr i8, ptr %22, i64 16
   %25 = getelementptr i8, ptr %22, i64 64
@@ -641,7 +641,7 @@ define noundef ptr @Vga_ManDeriveCex(ptr noundef readonly captures(none) %0) loc
   %30 = phi i32 [ %61, %Gia_ObjIsPi.exit.thread ], [ %18, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ObjIsPi.exit.thread ], [ 1, %.lr.ph ]
   %31 = getelementptr inbounds nuw %struct.Vta_Obj_t_, ptr %21, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4, !tbaa !64
+  %32 = load i32, ptr %31, align 4, !tbaa !65
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val30, i64 %33
   %.val32 = load i64, ptr %34, align 4
@@ -653,8 +653,8 @@ Gia_ObjIsPi.exit:                                 ; preds = %.lr.ph.split
   %36 = lshr i64 %.val32, 32
   %37 = trunc nuw i64 %36 to i32
   %38 = and i32 %37, 536870911
-  %.val.i = load i32, ptr %24, align 8, !tbaa !40
-  %.val3.i = load ptr, ptr %25, align 8, !tbaa !54
+  %.val.i = load i32, ptr %24, align 8, !tbaa !41
+  %.val3.i = load ptr, ptr %25, align 8, !tbaa !55
   %39 = getelementptr i8, ptr %.val3.i, i64 4
   %.val3.val.i = load i32, ptr %39, align 4, !tbaa !15
   %40 = sub nsw i32 %.val3.val.i, %.val.i
@@ -662,19 +662,19 @@ Gia_ObjIsPi.exit:                                 ; preds = %.lr.ph.split
   br i1 %.not, label %41, label %Gia_ObjIsPi.exit.thread
 
 41:                                               ; preds = %Gia_ObjIsPi.exit
-  %42 = load ptr, ptr %26, align 8, !tbaa !66
+  %42 = load ptr, ptr %26, align 8, !tbaa !67
   %43 = getelementptr i8, ptr %42, i64 288
-  %.val34 = load ptr, ptr %43, align 8, !tbaa !67
+  %.val34 = load ptr, ptr %43, align 8, !tbaa !68
   %44 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !10
   %.not36 = icmp eq i32 %45, 1
   br i1 %.not36, label %46, label %Gia_ObjIsPi.exit.thread
 
 46:                                               ; preds = %41
-  %47 = load i32, ptr %28, align 4, !tbaa !79
+  %47 = load i32, ptr %28, align 4, !tbaa !80
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !80
-  %50 = load i32, ptr %29, align 4, !tbaa !81
+  %49 = load i32, ptr %48, align 4, !tbaa !81
+  %50 = load i32, ptr %29, align 4, !tbaa !82
   %51 = mul nsw i32 %50, %49
   %52 = add i32 %47, %38
   %53 = add i32 %52, %51
@@ -686,7 +686,7 @@ Gia_ObjIsPi.exit:                                 ; preds = %.lr.ph.split
   %59 = load i32, ptr %58, align 4, !tbaa !10
   %60 = or i32 %55, %59
   store i32 %60, ptr %58, align 4, !tbaa !10
-  %.pre = load i32, ptr %17, align 8, !tbaa !61
+  %.pre = load i32, ptr %17, align 8, !tbaa !62
   br label %Gia_ObjIsPi.exit.thread
 
 Gia_ObjIsPi.exit.thread:                          ; preds = %.lr.ph.split, %Gia_ObjIsPi.exit, %41, %46
@@ -694,7 +694,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %.lr.ph.split, %Gia_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph.split, label %.critedge, !llvm.loop !82
+  br i1 %63, label %.lr.ph.split, label %.critedge, !llvm.loop !83
 
 .critedge:                                        ; preds = %Gia_ObjIsPi.exit.thread, %.lr.ph, %1
   ret ptr %12
@@ -713,7 +713,7 @@ Vta_ManObj.exit.lr.ph:                            ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %Vta_ManObj.exit
 
@@ -726,17 +726,17 @@ Vta_ManObj.exit:                                  ; preds = %Vta_ManObj.exit.lr.
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !80
-  %15 = load i32, ptr %8, align 8, !tbaa !83
+  %14 = load i32, ptr %13, align 4, !tbaa !81
+  %15 = load i32, ptr %8, align 8, !tbaa !84
   %16 = shl i32 %14, %15
-  %17 = load i32, ptr %12, align 4, !tbaa !64
+  %17 = load i32, ptr %12, align 4, !tbaa !65
   %18 = or i32 %16, %17
   store i32 %18, ptr %9, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val12 = load i32, ptr %3, align 4, !tbaa !15
   %19 = sext i32 %.val12 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %Vta_ManObj.exit, label %.critedge, !llvm.loop !84
+  br i1 %20, label %Vta_ManObj.exit, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %Vta_ManObj.exit, %2
   ret void
@@ -744,11 +744,11 @@ Vta_ManObj.exit:                                  ; preds = %Vta_ManObj.exit.lr.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Vta_ManComputeDepthIncrease(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !85
+  %3 = load ptr, ptr %0, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 268435455
-  %7 = load ptr, ptr %1, align 8, !tbaa !85
+  %7 = load ptr, ptr %1, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 268435455
@@ -781,9 +781,9 @@ define range(i32 -1, 2) i32 @Vta_ManComputeDepthIncrease(ptr noundef readonly ca
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Vta_ManObjIsUsed(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !86
+  %4 = load ptr, ptr %3, align 8, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load i32, ptr %5, align 8, !tbaa !87
+  %6 = load i32, ptr %5, align 8, !tbaa !88
   %7 = mul nsw i32 %6, %1
   %8 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !3
@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @Vta_ManObjIsUsed(ptr noundef readonly captures(none)
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
@@ -831,14 +831,14 @@ define void @Vta_ManCollectNodes_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not16, label %21, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %0, align 8, !tbaa !30
+  %11 = load ptr, ptr %0, align 8, !tbaa !31
   %12 = getelementptr i8, ptr %11, i64 32
-  %.val = load ptr, ptr %12, align 8, !tbaa !63
-  %13 = load i32, ptr %1, align 4, !tbaa !64
+  %.val = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load i32, ptr %1, align 4, !tbaa !65
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %14
   call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %4, ptr noundef %5)
-  %16 = load ptr, ptr %4, align 8, !tbaa !85
+  %16 = load ptr, ptr %4, align 8, !tbaa !86
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %18, label %17
 
@@ -847,7 +847,7 @@ define void @Vta_ManCollectNodes_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %18
 
 18:                                               ; preds = %17, %10
-  %19 = load ptr, ptr %5, align 8, !tbaa !85
+  %19 = load ptr, ptr %5, align 8, !tbaa !86
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %21, label %20
 
@@ -857,7 +857,7 @@ define void @Vta_ManCollectNodes_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 
 21:                                               ; preds = %18, %20, %8
   %22 = getelementptr i8, ptr %0, i64 40
-  %.val19 = load ptr, ptr %22, align 8, !tbaa !62
+  %.val19 = load ptr, ptr %22, align 8, !tbaa !63
   %23 = ptrtoint ptr %1 to i64
   %24 = ptrtoint ptr %.val19 to i64
   %25 = sub i64 %23, %24
@@ -939,8 +939,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @Vta_ObjPreds(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #8 {
-  store ptr null, ptr %3, align 8, !tbaa !85
-  store ptr null, ptr %4, align 8, !tbaa !85
+  store ptr null, ptr %3, align 8, !tbaa !86
+  store ptr null, ptr %4, align 8, !tbaa !86
   %.val25 = load i64, ptr %2, align 4
   %6 = and i64 %.val25, 2305843005455597567
   %narrow.i.not = icmp eq i64 %6, 2305843005455597567
@@ -953,7 +953,7 @@ define internal fastcc void @Vta_ObjPreds(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !80
+  %11 = load i32, ptr %10, align 4, !tbaa !81
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %122, label %13
 
@@ -963,12 +963,12 @@ define internal fastcc void @Vta_ObjPreds(ptr noundef readonly captures(none) %0
   %15 = and i64 %.val25, 536870911
   %16 = icmp eq i64 %15, 536870911
   %narrow.i32.not = or i1 %.not.i, %16
-  %17 = load ptr, ptr %0, align 8, !tbaa !30
+  %17 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %narrow.i32.not, label %76, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr i8, ptr %17, i64 32
-  %.val27 = load ptr, ptr %19, align 8, !tbaa !63
+  %.val27 = load ptr, ptr %19, align 8, !tbaa !64
   %20 = ptrtoint ptr %2 to i64
   %21 = ptrtoint ptr %.val27 to i64
   %22 = sub i64 %20, %21
@@ -978,11 +978,11 @@ define internal fastcc void @Vta_ObjPreds(ptr noundef readonly captures(none) %0
   %26 = and i32 %25, 536870911
   %27 = sub nsw i32 %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !80
+  %29 = load i32, ptr %28, align 4, !tbaa !81
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !89
+  %31 = load ptr, ptr %30, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !90
+  %33 = load i32, ptr %32, align 8, !tbaa !91
   %34 = add nsw i32 %27, %29
   %35 = add nsw i32 %34, 1
   %36 = mul nsw i32 %35, %34
@@ -995,20 +995,20 @@ define internal fastcc void @Vta_ObjPreds(ptr noundef readonly captures(none) %0
 
 Vta_ManObj.exit.i.i:                              ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !62
+  %42 = load ptr, ptr %41, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i
 
 Vta_ManObj.exit16.i.i:                            ; preds = %49, %Vta_ManObj.exit.i.i
   %.pr.i = phi i32 [ %40, %Vta_ManObj.exit.i.i ], [ %51, %49 ]
   %.pn.i = sext i32 %.pr.i to i64
   %.01418.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %42, i64 %.pn.i
-  %43 = load i32, ptr %.01418.i.i, align 4, !tbaa !64
+  %43 = load i32, ptr %.01418.i.i, align 4, !tbaa !65
   %44 = icmp eq i32 %43, %27
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %Vta_ManObj.exit16.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !80
+  %47 = load i32, ptr %46, align 4, !tbaa !81
   %48 = icmp eq i32 %47, %29
   br i1 %48, label %Vga_ManFind.exit, label %49
 
@@ -1020,7 +1020,7 @@ Vta_ManObj.exit16.i.i:                            ; preds = %49, %Vta_ManObj.exi
 
 Vga_ManFind.exit:                                 ; preds = %45, %49, %18
   %52 = phi ptr [ null, %18 ], [ %.01418.i.i, %45 ], [ null, %49 ]
-  store ptr %52, ptr %3, align 8, !tbaa !85
+  store ptr %52, ptr %3, align 8, !tbaa !86
   %.val3.i33 = load i64, ptr %2, align 4
   %53 = lshr i64 %.val3.i33, 32
   %54 = trunc nuw i64 %53 to i32
@@ -1038,20 +1038,20 @@ Vga_ManFind.exit:                                 ; preds = %45, %49, %18
 
 Vta_ManObj.exit.i.i35:                            ; preds = %Vga_ManFind.exit
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !62
+  %65 = load ptr, ptr %64, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i36
 
 Vta_ManObj.exit16.i.i36:                          ; preds = %72, %Vta_ManObj.exit.i.i35
   %.pr.i37 = phi i32 [ %63, %Vta_ManObj.exit.i.i35 ], [ %74, %72 ]
   %.pn.i38 = sext i32 %.pr.i37 to i64
   %.01418.i.i39 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %65, i64 %.pn.i38
-  %66 = load i32, ptr %.01418.i.i39, align 4, !tbaa !64
+  %66 = load i32, ptr %.01418.i.i39, align 4, !tbaa !65
   %67 = icmp eq i32 %66, %56
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %Vta_ManObj.exit16.i.i36
   %69 = getelementptr inbounds nuw i8, ptr %.01418.i.i39, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !80
+  %70 = load i32, ptr %69, align 4, !tbaa !81
   %71 = icmp eq i32 %70, %29
   br i1 %71, label %Vga_ManFind.exit41, label %72
 
@@ -1063,16 +1063,16 @@ Vta_ManObj.exit16.i.i36:                          ; preds = %72, %Vta_ManObj.exi
 
 Vga_ManFind.exit41:                               ; preds = %68, %72, %Vga_ManFind.exit
   %75 = phi ptr [ null, %Vga_ManFind.exit ], [ %.01418.i.i39, %68 ], [ null, %72 ]
-  store ptr %75, ptr %4, align 8, !tbaa !85
+  store ptr %75, ptr %4, align 8, !tbaa !86
   br label %122
 
 76:                                               ; preds = %13
   %77 = getelementptr i8, ptr %17, i64 72
-  %.val4.i = load ptr, ptr %77, align 8, !tbaa !91
+  %.val4.i = load ptr, ptr %77, align 8, !tbaa !92
   %78 = getelementptr i8, ptr %.val4.i, i64 4
   %.val4.val.i = load i32, ptr %78, align 4, !tbaa !15
   %79 = getelementptr i8, ptr %17, i64 64
-  %.val5.i = load ptr, ptr %79, align 8, !tbaa !54
+  %.val5.i = load ptr, ptr %79, align 8, !tbaa !55
   %80 = getelementptr i8, ptr %.val5.i, i64 4
   %.val5.val.i = load i32, ptr %80, align 4, !tbaa !15
   %81 = lshr i64 %.val25, 32
@@ -1081,7 +1081,7 @@ Vga_ManFind.exit41:                               ; preds = %68, %72, %Vga_ManFi
   %84 = add i32 %.val4.val.i, %83
   %85 = sub i32 %84, %.val5.val.i
   %86 = getelementptr i8, ptr %17, i64 32
-  %.val6.i = load ptr, ptr %86, align 8, !tbaa !63
+  %.val6.i = load ptr, ptr %86, align 8, !tbaa !64
   %87 = getelementptr i8, ptr %.val4.i, i64 8
   %.val7.val.i = load ptr, ptr %87, align 8, !tbaa !3
   %88 = sext i32 %85 to i64
@@ -1094,12 +1094,12 @@ Vga_ManFind.exit41:                               ; preds = %68, %72, %Vga_ManFi
   %94 = and i32 %93, 536870911
   %95 = sub nsw i32 %90, %94
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !80
+  %97 = load i32, ptr %96, align 4, !tbaa !81
   %98 = add nsw i32 %97, -1
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %100 = load ptr, ptr %99, align 8, !tbaa !89
+  %100 = load ptr, ptr %99, align 8, !tbaa !90
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %102 = load i32, ptr %101, align 8, !tbaa !90
+  %102 = load i32, ptr %101, align 8, !tbaa !91
   %103 = add nsw i32 %95, %98
   %104 = add i32 %95, %97
   %105 = mul nsw i32 %104, %103
@@ -1112,20 +1112,20 @@ Vga_ManFind.exit41:                               ; preds = %68, %72, %Vga_ManFi
 
 Vta_ManObj.exit.i.i44:                            ; preds = %76
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %111 = load ptr, ptr %110, align 8, !tbaa !62
+  %111 = load ptr, ptr %110, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i45
 
 Vta_ManObj.exit16.i.i45:                          ; preds = %118, %Vta_ManObj.exit.i.i44
   %.pr.i46 = phi i32 [ %109, %Vta_ManObj.exit.i.i44 ], [ %120, %118 ]
   %.pn.i47 = sext i32 %.pr.i46 to i64
   %.01418.i.i48 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %111, i64 %.pn.i47
-  %112 = load i32, ptr %.01418.i.i48, align 4, !tbaa !64
+  %112 = load i32, ptr %.01418.i.i48, align 4, !tbaa !65
   %113 = icmp eq i32 %112, %95
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %Vta_ManObj.exit16.i.i45
   %115 = getelementptr inbounds nuw i8, ptr %.01418.i.i48, i64 4
-  %116 = load i32, ptr %115, align 4, !tbaa !80
+  %116 = load i32, ptr %115, align 4, !tbaa !81
   %117 = icmp eq i32 %116, %98
   br i1 %117, label %Vga_ManFind.exit50, label %118
 
@@ -1137,7 +1137,7 @@ Vta_ManObj.exit16.i.i45:                          ; preds = %118, %Vta_ManObj.ex
 
 Vga_ManFind.exit50:                               ; preds = %114, %118, %76
   %121 = phi ptr [ null, %76 ], [ %.01418.i.i48, %114 ], [ null, %118 ]
-  store ptr %121, ptr %3, align 8, !tbaa !85
+  store ptr %121, ptr %3, align 8, !tbaa !86
   br label %122
 
 122:                                              ; preds = %5, %9, %Vga_ManFind.exit50, %Vga_ManFind.exit41
@@ -1147,14 +1147,14 @@ Vga_ManFind.exit50:                               ; preds = %114, %118, %76
 ; Function Attrs: nounwind uwtable
 define ptr @Vta_ManCollectNodes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !92
+  %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !15
-  %6 = load ptr, ptr %0, align 8, !tbaa !30
+  %6 = load ptr, ptr %0, align 8, !tbaa !31
   %7 = getelementptr i8, ptr %6, i64 32
-  %.val9 = load ptr, ptr %7, align 8, !tbaa !63
+  %.val9 = load ptr, ptr %7, align 8, !tbaa !64
   %8 = getelementptr i8, ptr %6, i64 72
-  %.val10 = load ptr, ptr %8, align 8, !tbaa !91
+  %.val10 = load ptr, ptr %8, align 8, !tbaa !92
   %9 = getelementptr i8, ptr %.val10, i64 8
   %.val10.val = load ptr, ptr %9, align 8, !tbaa !3
   %.val10.val.val = load i32, ptr %.val10.val, align 4, !tbaa !10
@@ -1165,9 +1165,9 @@ define ptr @Vta_ManCollectNodes(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %13 = and i32 %12, 536870911
   %14 = sub nsw i32 %.val10.val.val, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !89
+  %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !90
+  %18 = load i32, ptr %17, align 8, !tbaa !91
   %19 = add nsw i32 %14, %1
   %20 = add nsw i32 %19, 1
   %21 = mul nsw i32 %20, %19
@@ -1180,20 +1180,20 @@ define ptr @Vta_ManCollectNodes(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 Vta_ManObj.exit.i.i:                              ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  %27 = load ptr, ptr %26, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i
 
 Vta_ManObj.exit16.i.i:                            ; preds = %34, %Vta_ManObj.exit.i.i
   %.pr.i = phi i32 [ %25, %Vta_ManObj.exit.i.i ], [ %36, %34 ]
   %.pn.i = sext i32 %.pr.i to i64
   %.01418.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %27, i64 %.pn.i
-  %28 = load i32, ptr %.01418.i.i, align 4, !tbaa !64
+  %28 = load i32, ptr %.01418.i.i, align 4, !tbaa !65
   %29 = icmp eq i32 %28, %14
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %Vta_ManObj.exit16.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !80
+  %32 = load i32, ptr %31, align 4, !tbaa !81
   %33 = icmp eq i32 %32, %1
   br i1 %33, label %Vga_ManFind.exit, label %34
 
@@ -1206,7 +1206,7 @@ Vta_ManObj.exit16.i.i:                            ; preds = %34, %Vta_ManObj.exi
 Vga_ManFind.exit:                                 ; preds = %30, %34, %2
   %37 = phi ptr [ null, %2 ], [ %.01418.i.i, %30 ], [ null, %34 ]
   tail call void @Vta_ManCollectNodes_rec(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %4)
-  %38 = load ptr, ptr %3, align 8, !tbaa !92
+  %38 = load ptr, ptr %3, align 8, !tbaa !93
   ret ptr %38
 }
 
@@ -1217,7 +1217,7 @@ define void @Vta_ManSatVerify(ptr noundef readonly captures(none) %0) local_unna
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !61
+  %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %.lr.ph, label %.critedge2
 
@@ -1233,10 +1233,10 @@ define void @Vta_ManSatVerify(ptr noundef readonly captures(none) %0) local_unna
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = load ptr, ptr %7, align 8, !tbaa !62
-  %13 = load ptr, ptr %8, align 8, !tbaa !66
+  %12 = load ptr, ptr %7, align 8, !tbaa !63
+  %13 = load ptr, ptr %8, align 8, !tbaa !67
   %14 = getelementptr i8, ptr %13, i64 288
-  %.val37 = load ptr, ptr %14, align 8, !tbaa !67
+  %.val37 = load ptr, ptr %14, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %.not42 = icmp eq i32 %16, 1
@@ -1247,20 +1247,20 @@ define void @Vta_ManSatVerify(ptr noundef readonly captures(none) %0) local_unna
   %21 = or disjoint i32 %20, %17
   store i32 %21, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr %4, align 8, !tbaa !61
+  %22 = load i32, ptr %4, align 8, !tbaa !62
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %11, label %.critedge.preheader, !llvm.loop !93
+  br i1 %24, label %11, label %.critedge.preheader, !llvm.loop !94
 
 .lr.ph45:                                         ; preds = %.critedge.preheader, %Gia_ObjIsRo.exit.thread
   %25 = phi i32 [ %38, %Gia_ObjIsRo.exit.thread ], [ %22, %.critedge.preheader ]
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %Gia_ObjIsRo.exit.thread ], [ 1, %.critedge.preheader ]
-  %26 = load ptr, ptr %9, align 8, !tbaa !62
+  %26 = load ptr, ptr %9, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw %struct.Vta_Obj_t_, ptr %26, i64 %indvars.iv47
-  %28 = load ptr, ptr %0, align 8, !tbaa !30
-  %29 = load i32, ptr %27, align 4, !tbaa !64
+  %28 = load ptr, ptr %0, align 8, !tbaa !31
+  %29 = load i32, ptr %27, align 4, !tbaa !65
   %30 = getelementptr i8, ptr %28, i64 32
-  %.val = load ptr, ptr %30, align 8, !tbaa !63
+  %.val = load ptr, ptr %30, align 8, !tbaa !64
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %31
   %.not32 = icmp eq ptr %.val, null
@@ -1275,7 +1275,7 @@ define void @Vta_ManSatVerify(ptr noundef readonly captures(none) %0) local_unna
 
 37:                                               ; preds = %33
   call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %32, ptr noundef %2, ptr noundef %3)
-  %.pre = load i32, ptr %4, align 8, !tbaa !61
+  %.pre = load i32, ptr %4, align 8, !tbaa !62
   br label %Gia_ObjIsRo.exit.thread
 
 Gia_ObjIsRo.exit.thread:                          ; preds = %37, %33
@@ -1283,7 +1283,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %37, %33
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next48, %39
-  br i1 %40, label %.lr.ph45, label %.critedge2, !llvm.loop !94
+  br i1 %40, label %.lr.ph45, label %.critedge2, !llvm.loop !95
 
 .critedge2:                                       ; preds = %.lr.ph45, %Gia_ObjIsRo.exit.thread, %1, %.critedge.preheader
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
@@ -1294,9 +1294,9 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %37, %33
 ; Function Attrs: nounwind uwtable
 define void @Vta_ManProfileAddition(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %6 = load i32, ptr %5, align 8, !tbaa !56
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = add nsw i32 %6, 1
   %8 = sext i32 %7 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 4) #27
@@ -1320,17 +1320,17 @@ define void @Vta_ManProfileAddition(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not.i, label %.critedge, label %Vta_ManObj.exit
 
 Vta_ManObj.exit:                                  ; preds = %14
-  %17 = load ptr, ptr %0, align 8, !tbaa !30
+  %17 = load ptr, ptr %0, align 8, !tbaa !31
   %18 = getelementptr i8, ptr %17, i64 32
-  %.val19 = load ptr, ptr %18, align 8, !tbaa !63
+  %.val19 = load ptr, ptr %18, align 8, !tbaa !64
   %.not16 = icmp eq ptr %.val19, null
   br i1 %.not16, label %.critedge, label %19
 
 19:                                               ; preds = %Vta_ManObj.exit
   %20 = sext i32 %16 to i64
-  %21 = load ptr, ptr %10, align 8, !tbaa !62
+  %21 = load ptr, ptr %10, align 8, !tbaa !63
   %22 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %21, i64 %20, i32 1
-  %23 = load i32, ptr %22, align 4, !tbaa !80
+  %23 = load i32, ptr %22, align 4, !tbaa !81
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %9, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !10
@@ -1338,7 +1338,7 @@ Vta_ManObj.exit:                                  ; preds = %14
   store i32 %27, ptr %25, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !95
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !96
 
 .critedge:                                        ; preds = %Vta_ManObj.exit, %19, %14, %2
   %.not1723 = icmp slt i32 %6, 0
@@ -1350,12 +1350,12 @@ Vta_ManObj.exit:                                  ; preds = %14
   %29 = load i32, ptr %28, align 4, !tbaa !10
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %29)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %30 = load ptr, ptr %3, align 8, !tbaa !55
+  %30 = load ptr, ptr %3, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  %32 = load i32, ptr %31, align 8, !tbaa !56
+  %32 = load i32, ptr %31, align 8, !tbaa !57
   %33 = sext i32 %32 to i64
   %.not17.not = icmp slt i64 %indvars.iv27, %33
-  br i1 %.not17.not, label %.lr.ph25, label %._crit_edge, !llvm.loop !96
+  br i1 %.not17.not, label %.lr.ph25, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph25, %.critedge
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1)
@@ -1379,7 +1379,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #28
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !98
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #29
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #28
@@ -1387,7 +1387,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !97, !noalias !99
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !98, !noalias !100
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #28
   br label %17
 
@@ -1407,14 +1407,14 @@ define noundef ptr @Vta_ManRefineAbstraction(ptr noundef %0, i32 noundef %1) loc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !92
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !15
-  %8 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load ptr, ptr %0, align 8, !tbaa !31
   %9 = getelementptr i8, ptr %8, i64 32
-  %.val9.i = load ptr, ptr %9, align 8, !tbaa !63
+  %.val9.i = load ptr, ptr %9, align 8, !tbaa !64
   %10 = getelementptr i8, ptr %8, i64 72
-  %.val10.i = load ptr, ptr %10, align 8, !tbaa !91
+  %.val10.i = load ptr, ptr %10, align 8, !tbaa !92
   %11 = getelementptr i8, ptr %.val10.i, i64 8
   %.val10.val.i = load ptr, ptr %11, align 8, !tbaa !3
   %.val10.val.val.i = load i32, ptr %.val10.val.i, align 4, !tbaa !10
@@ -1425,9 +1425,9 @@ define noundef ptr @Vta_ManRefineAbstraction(ptr noundef %0, i32 noundef %1) loc
   %15 = and i32 %14, 536870911
   %16 = sub nsw i32 %.val10.val.val.i, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !89
+  %18 = load ptr, ptr %17, align 8, !tbaa !90
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !90
+  %20 = load i32, ptr %19, align 8, !tbaa !91
   %21 = add nsw i32 %16, %1
   %22 = add nsw i32 %21, 1
   %23 = mul nsw i32 %22, %21
@@ -1440,20 +1440,20 @@ define noundef ptr @Vta_ManRefineAbstraction(ptr noundef %0, i32 noundef %1) loc
 
 Vta_ManObj.exit.i.i.i:                            ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
+  %29 = load ptr, ptr %28, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i.i
 
 Vta_ManObj.exit16.i.i.i:                          ; preds = %36, %Vta_ManObj.exit.i.i.i
   %.pr.i.i = phi i32 [ %27, %Vta_ManObj.exit.i.i.i ], [ %38, %36 ]
   %.pn.i.i = sext i32 %.pr.i.i to i64
   %.01418.i.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %29, i64 %.pn.i.i
-  %30 = load i32, ptr %.01418.i.i.i, align 4, !tbaa !64
+  %30 = load i32, ptr %.01418.i.i.i, align 4, !tbaa !65
   %31 = icmp eq i32 %30, %16
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %Vta_ManObj.exit16.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !80
+  %34 = load i32, ptr %33, align 4, !tbaa !81
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %Vta_ManCollectNodes.exit, label %36
 
@@ -1466,7 +1466,7 @@ Vta_ManObj.exit16.i.i.i:                          ; preds = %36, %Vta_ManObj.exi
 Vta_ManCollectNodes.exit:                         ; preds = %32, %36, %2
   %39 = phi ptr [ null, %2 ], [ null, %36 ], [ %.01418.i.i.i, %32 ]
   tail call void @Vta_ManCollectNodes_rec(ptr noundef nonnull %0, ptr noundef %39, ptr noundef %6)
-  %40 = load ptr, ptr %5, align 8, !tbaa !92
+  %40 = load ptr, ptr %5, align 8, !tbaa !93
   %41 = getelementptr i8, ptr %40, i64 8
   %42 = getelementptr i8, ptr %0, i64 40
   %43 = getelementptr i8, ptr %40, i64 4
@@ -1486,33 +1486,33 @@ Vta_ManCollectNodes.exit:                         ; preds = %32, %36, %2
   %48 = getelementptr inbounds nuw i32, ptr %.val389, i64 %indvars.iv.next
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %.critedge2, label %Vta_ManObj.exit, !llvm.loop !102
+  br i1 %.not.i, label %.critedge2, label %Vta_ManObj.exit, !llvm.loop !103
 
 Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %50 = phi i32 [ %49, %47 ], [ %46, %.lr.ph ]
   %.val398643789 = phi i32 [ %.val398, %47 ], [ %.val398641, %.lr.ph ]
   %indvars.iv788 = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
-  %51 = load ptr, ptr %0, align 8, !tbaa !30
+  %51 = load ptr, ptr %0, align 8, !tbaa !31
   %52 = getelementptr i8, ptr %51, i64 32
-  %.val403 = load ptr, ptr %52, align 8, !tbaa !63
+  %.val403 = load ptr, ptr %52, align 8, !tbaa !64
   %.not344 = icmp eq ptr %.val403, null
   br i1 %.not344, label %.critedge2, label %53
 
 53:                                               ; preds = %Vta_ManObj.exit
-  %54 = load ptr, ptr %42, align 8, !tbaa !62
+  %54 = load ptr, ptr %42, align 8, !tbaa !63
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 268435455
   store i32 %59, ptr %57, align 4
-  %60 = load ptr, ptr %45, align 8, !tbaa !66
-  %.val408 = load ptr, ptr %42, align 8, !tbaa !62
+  %60 = load ptr, ptr %45, align 8, !tbaa !67
+  %.val408 = load ptr, ptr %42, align 8, !tbaa !63
   %61 = ptrtoint ptr %56 to i64
   %62 = ptrtoint ptr %.val408 to i64
   %63 = sub i64 %61, %62
   %64 = getelementptr i8, ptr %60, i64 288
-  %.val409 = load ptr, ptr %64, align 8, !tbaa !67
+  %.val409 = load ptr, ptr %64, align 8, !tbaa !68
   %sext = shl i64 %63, 28
   %65 = ashr i64 %sext, 32
   %66 = getelementptr inbounds i32, ptr %.val409, i64 %65
@@ -1526,10 +1526,10 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %.val398 = load i32, ptr %43, align 4, !tbaa !15
   %71 = sext i32 %.val398 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %47, label %..critedge2.loopexit_crit_edge791, !llvm.loop !102
+  br i1 %72, label %47, label %..critedge2.loopexit_crit_edge791, !llvm.loop !103
 
 ..critedge2.loopexit_crit_edge791:                ; preds = %53
-  br label %.critedge2, !llvm.loop !102
+  br label %.critedge2, !llvm.loop !103
 
 .critedge2:                                       ; preds = %47, %Vta_ManObj.exit, %.lr.ph, %..critedge2.loopexit_crit_edge791, %Vta_ManCollectNodes.exit
   %.val398.lcssa = phi i32 [ %.val398641, %Vta_ManCollectNodes.exit ], [ %.val398, %..critedge2.loopexit_crit_edge791 ], [ %.val398641, %.lr.ph ], [ %.val398643789, %Vta_ManObj.exit ], [ %.val398, %47 ]
@@ -1540,7 +1540,7 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %76 = load i32, ptr %75, align 4, !tbaa !10
   %.not.i459 = icmp ne i32 %76, 0
   tail call void @llvm.assume(i1 %.not.i459)
-  %77 = load ptr, ptr %42, align 8, !tbaa !62
+  %77 = load ptr, ptr %42, align 8, !tbaa !63
   %78 = sext i32 %76 to i64
   %79 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %77, i64 %78, i32 3
   %80 = load i32, ptr %79, align 4
@@ -1585,13 +1585,13 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   br i1 %.not.i461, label %.critedge4, label %Vta_ManObj.exit462
 
 Vta_ManObj.exit462:                               ; preds = %95
-  %102 = load ptr, ptr %42, align 8, !tbaa !62
+  %102 = load ptr, ptr %42, align 8, !tbaa !63
   %103 = sext i32 %101 to i64
   %104 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %102, i64 %103
-  %105 = load ptr, ptr %0, align 8, !tbaa !30
-  %106 = load i32, ptr %104, align 4, !tbaa !64
+  %105 = load ptr, ptr %0, align 8, !tbaa !31
+  %106 = load i32, ptr %104, align 4, !tbaa !65
   %107 = getelementptr i8, ptr %105, i64 32
-  %.val402 = load ptr, ptr %107, align 8, !tbaa !63
+  %.val402 = load ptr, ptr %107, align 8, !tbaa !64
   %108 = sext i32 %106 to i64
   %109 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val402, i64 %108
   %.not346 = icmp eq ptr %.val402, null
@@ -1613,9 +1613,9 @@ Gia_ObjIsPi.exit:                                 ; preds = %112
   %115 = trunc nuw i64 %114 to i32
   %116 = and i32 %115, 536870911
   %117 = getelementptr i8, ptr %105, i64 16
-  %.val.i = load i32, ptr %117, align 8, !tbaa !40
+  %.val.i = load i32, ptr %117, align 8, !tbaa !41
   %118 = getelementptr i8, ptr %105, i64 64
-  %.val3.i = load ptr, ptr %118, align 8, !tbaa !54
+  %.val3.i = load ptr, ptr %118, align 8, !tbaa !55
   %119 = getelementptr i8, ptr %.val3.i, i64 4
   %.val3.val.i = load i32, ptr %119, align 4, !tbaa !15
   %120 = sub nsw i32 %.val3.val.i, %.val.i
@@ -1637,8 +1637,8 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %112, %Gia_ObjIsPi.e
   br i1 %.not379, label %128, label %191
 
 128:                                              ; preds = %Gia_ObjIsPi.exit.thread
-  %129 = load ptr, ptr %92, align 8, !tbaa !86
-  %130 = load i32, ptr %93, align 8, !tbaa !87
+  %129 = load ptr, ptr %92, align 8, !tbaa !87
+  %130 = load i32, ptr %93, align 8, !tbaa !88
   %131 = mul nsw i32 %130, %106
   %132 = getelementptr i8, ptr %129, i64 8
   %.val.i463 = load ptr, ptr %132, align 8, !tbaa !3
@@ -1654,7 +1654,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %112, %Gia_ObjIsPi.e
 136:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !88
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !89
 
 .lr.ph.i:                                         ; preds = %136, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %136 ]
@@ -1791,7 +1791,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
 
 191:                                              ; preds = %Gia_ObjIsPi.exit.thread
   call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %104, ptr noundef nonnull %109, ptr noundef %3, ptr noundef %4)
-  %192 = load ptr, ptr %3, align 8, !tbaa !85
+  %192 = load ptr, ptr %3, align 8, !tbaa !86
   %.not381 = icmp eq ptr %192, null
   br i1 %.not381, label %203, label %193
 
@@ -1809,7 +1809,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   br label %203
 
 203:                                              ; preds = %193, %191
-  %204 = load ptr, ptr %4, align 8, !tbaa !85
+  %204 = load ptr, ptr %4, align 8, !tbaa !86
   %.not382 = icmp eq ptr %204, null
   br i1 %.not382, label %215, label %205
 
@@ -1832,7 +1832,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   %218 = phi i32 [ %98, %203 ], [ %98, %205 ], [ %160, %Vec_PtrPush.exit ], [ %98, %Vec_PtrPush.exit471 ], [ %98, %121 ]
   %219 = phi i32 [ %99, %203 ], [ %99, %205 ], [ %162, %Vec_PtrPush.exit ], [ %99, %Vec_PtrPush.exit471 ], [ %99, %121 ]
   %220 = icmp sgt i64 %indvars.iv693, 1
-  br i1 %220, label %95, label %.critedge4, !llvm.loop !103
+  br i1 %220, label %95, label %.critedge4, !llvm.loop !104
 
 .critedge4:                                       ; preds = %Vta_ManObj.exit462, %215, %95
   %.val430 = phi i32 [ %97, %95 ], [ %217, %215 ], [ %97, %Vta_ManObj.exit462 ]
@@ -1858,7 +1858,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv696 = phi i64 [ 0, %.lr.ph652 ], [ %indvars.iv.next697, %223 ]
   %224 = getelementptr inbounds nuw ptr, ptr %.val435, i64 %indvars.iv696
   %225 = load ptr, ptr %224, align 8, !tbaa !19
-  %226 = load i32, ptr %225, align 4, !tbaa !64
+  %226 = load i32, ptr %225, align 4, !tbaa !65
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 12
   %228 = load i32, ptr %227, align 4
   %229 = and i32 %226, 268435455
@@ -1867,13 +1867,13 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %231, ptr %227, align 4
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next697, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge6.preheader, label %223, !llvm.loop !104
+  br i1 %exitcond.not, label %.critedge6.preheader, label %223, !llvm.loop !105
 
 .critedge6:                                       ; preds = %.lr.ph655, %.critedge6
   %indvars.iv699 = phi i64 [ 0, %.lr.ph655 ], [ %indvars.iv.next700, %.critedge6 ]
   %232 = getelementptr inbounds nuw ptr, ptr %.val436, i64 %indvars.iv699
   %233 = load ptr, ptr %232, align 8, !tbaa !19
-  %234 = load i32, ptr %233, align 4, !tbaa !64
+  %234 = load i32, ptr %233, align 4, !tbaa !65
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %236 = load i32, ptr %235, align 4
   %237 = and i32 %234, 268435455
@@ -1882,7 +1882,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %239, ptr %235, align 4
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next700, %wide.trip.count702
-  br i1 %exitcond703.not, label %.critedge8, label %.critedge6, !llvm.loop !105
+  br i1 %exitcond703.not, label %.critedge8, label %.critedge6, !llvm.loop !106
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %240 = icmp slt i32 %.val429, 2
@@ -1911,12 +1911,12 @@ Vec_PtrSort.exit472:                              ; preds = %Vec_PtrSort.exit, %
 249:                                              ; preds = %Vec_PtrSort.exit472
   %.val437 = load ptr, ptr %86, align 8, !tbaa !14
   %250 = load ptr, ptr %.val437, align 8, !tbaa !19
-  store ptr %250, ptr %3, align 8, !tbaa !85
+  store ptr %250, ptr %3, align 8, !tbaa !86
   %251 = zext nneg i32 %.val429 to i64
   %252 = getelementptr ptr, ptr %.val437, i64 %251
   %253 = getelementptr i8, ptr %252, i64 -8
   %254 = load ptr, ptr %253, align 8, !tbaa !19
-  store ptr %254, ptr %4, align 8, !tbaa !85
+  store ptr %254, ptr %4, align 8, !tbaa !86
   br label %.lr.ph659
 
 255:                                              ; preds = %Vec_PtrSort.exit472
@@ -1950,7 +1950,7 @@ Vec_PtrSort.exit472:                              ; preds = %Vec_PtrSort.exit, %
   store i32 %264, ptr %260, align 4
   %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next705, %wide.trip.count707
-  br i1 %exitcond708.not, label %.critedge10.preheader, label %256, !llvm.loop !106
+  br i1 %exitcond708.not, label %.critedge10.preheader, label %256, !llvm.loop !107
 
 .critedge12.preheader:                            ; preds = %.critedge10, %.critedge10.preheader
   %.val396664.pr = load i32, ptr %43, align 4, !tbaa !15
@@ -1977,26 +1977,26 @@ Vec_PtrSort.exit472:                              ; preds = %Vec_PtrSort.exit, %
   store i32 %274, ptr %270, align 4
   %indvars.iv.next710 = add nuw nsw i64 %indvars.iv709, 1
   %exitcond713.not = icmp eq i64 %indvars.iv.next710, %wide.trip.count712
-  br i1 %exitcond713.not, label %.critedge12.preheader, label %.critedge10, !llvm.loop !107
+  br i1 %exitcond713.not, label %.critedge12.preheader, label %.critedge10, !llvm.loop !108
 
 .lr.ph667:                                        ; preds = %.critedge12
   %.val387 = load ptr, ptr %41, align 8, !tbaa !3
   %275 = getelementptr inbounds nuw i32, ptr %.val387, i64 %indvars.iv.next715
   %276 = load i32, ptr %275, align 4, !tbaa !10
   %.not.i473 = icmp eq i32 %276, 0
-  br i1 %.not.i473, label %.critedge14, label %Vta_ManObj.exit474, !llvm.loop !108
+  br i1 %.not.i473, label %.critedge14, label %Vta_ManObj.exit474, !llvm.loop !109
 
 Vta_ManObj.exit474:                               ; preds = %.lr.ph667.preheader, %.lr.ph667
   %277 = phi i32 [ %276, %.lr.ph667 ], [ %266, %.lr.ph667.preheader ]
   %.val396666796 = phi i32 [ %.val396, %.lr.ph667 ], [ %.val396664.pr, %.lr.ph667.preheader ]
   %indvars.iv714795 = phi i64 [ %indvars.iv.next715, %.lr.ph667 ], [ 0, %.lr.ph667.preheader ]
-  %278 = load ptr, ptr %42, align 8, !tbaa !62
+  %278 = load ptr, ptr %42, align 8, !tbaa !63
   %279 = sext i32 %277 to i64
   %280 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %278, i64 %279
-  %281 = load ptr, ptr %0, align 8, !tbaa !30
-  %282 = load i32, ptr %280, align 4, !tbaa !64
+  %281 = load ptr, ptr %0, align 8, !tbaa !31
+  %282 = load i32, ptr %280, align 4, !tbaa !65
   %283 = getelementptr i8, ptr %281, i64 32
-  %.val401 = load ptr, ptr %283, align 8, !tbaa !63
+  %.val401 = load ptr, ptr %283, align 8, !tbaa !64
   %284 = sext i32 %282 to i64
   %285 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val401, i64 %284
   %.not348 = icmp eq ptr %.val401, null
@@ -2023,9 +2023,9 @@ Vta_ManObj.exit474:                               ; preds = %.lr.ph667.preheader
   %296 = and i32 %295, 536870911
   %297 = sub nsw i32 %282, %296
   %298 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %299 = load i32, ptr %298, align 4, !tbaa !80
-  %300 = load ptr, ptr %17, align 8, !tbaa !89
-  %301 = load i32, ptr %19, align 8, !tbaa !90
+  %299 = load i32, ptr %298, align 4, !tbaa !81
+  %300 = load ptr, ptr %17, align 8, !tbaa !90
+  %301 = load i32, ptr %19, align 8, !tbaa !91
   %302 = add nsw i32 %299, %297
   %303 = add nsw i32 %302, 1
   %304 = mul nsw i32 %303, %302
@@ -2040,13 +2040,13 @@ Vta_ManObj.exit16.i.i:                            ; preds = %294, %315
   %.pr.i = phi i32 [ %317, %315 ], [ %308, %294 ]
   %.pn.i = sext i32 %.pr.i to i64
   %.01418.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %278, i64 %.pn.i
-  %309 = load i32, ptr %.01418.i.i, align 4, !tbaa !64
+  %309 = load i32, ptr %.01418.i.i, align 4, !tbaa !65
   %310 = icmp eq i32 %309, %297
   br i1 %310, label %311, label %315
 
 311:                                              ; preds = %Vta_ManObj.exit16.i.i
   %312 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 4
-  %313 = load i32, ptr %312, align 4, !tbaa !80
+  %313 = load i32, ptr %312, align 4, !tbaa !81
   %314 = icmp eq i32 %313, %299
   br i1 %314, label %Vga_ManFind.exit, label %315
 
@@ -2058,7 +2058,7 @@ Vta_ManObj.exit16.i.i:                            ; preds = %294, %315
 
 Vga_ManFind.exit:                                 ; preds = %311, %315, %294
   %318 = phi ptr [ null, %294 ], [ %.01418.i.i, %311 ], [ null, %315 ]
-  store ptr %318, ptr %3, align 8, !tbaa !85
+  store ptr %318, ptr %3, align 8, !tbaa !86
   %319 = lshr i64 %.val414, 32
   %320 = trunc nuw i64 %319 to i32
   %321 = and i32 %320, 536870911
@@ -2077,13 +2077,13 @@ Vta_ManObj.exit16.i.i481:                         ; preds = %Vga_ManFind.exit, %
   %.pr.i482 = phi i32 [ %338, %336 ], [ %329, %Vga_ManFind.exit ]
   %.pn.i483 = sext i32 %.pr.i482 to i64
   %.01418.i.i484 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %278, i64 %.pn.i483
-  %330 = load i32, ptr %.01418.i.i484, align 4, !tbaa !64
+  %330 = load i32, ptr %.01418.i.i484, align 4, !tbaa !65
   %331 = icmp eq i32 %330, %322
   br i1 %331, label %332, label %336
 
 332:                                              ; preds = %Vta_ManObj.exit16.i.i481
   %333 = getelementptr inbounds nuw i8, ptr %.01418.i.i484, i64 4
-  %334 = load i32, ptr %333, align 4, !tbaa !80
+  %334 = load i32, ptr %333, align 4, !tbaa !81
   %335 = icmp eq i32 %334, %299
   br i1 %335, label %Vga_ManFind.exit486, label %336
 
@@ -2095,7 +2095,7 @@ Vta_ManObj.exit16.i.i481:                         ; preds = %Vga_ManFind.exit, %
 
 Vga_ManFind.exit486:                              ; preds = %332, %336, %Vga_ManFind.exit
   %339 = phi ptr [ null, %Vga_ManFind.exit ], [ %.01418.i.i484, %332 ], [ null, %336 ]
-  store ptr %339, ptr %4, align 8, !tbaa !85
+  store ptr %339, ptr %4, align 8, !tbaa !86
   %340 = lshr i32 %288, 28
   %341 = and i32 %340, 3
   switch i32 %341, label %.critedge12 [
@@ -2169,9 +2169,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %376
   %379 = trunc nuw i64 %378 to i32
   %380 = and i32 %379, 536870911
   %381 = getelementptr i8, ptr %281, i64 16
-  %.val.i505 = load i32, ptr %381, align 8, !tbaa !40
+  %.val.i505 = load i32, ptr %381, align 8, !tbaa !41
   %382 = getelementptr i8, ptr %281, i64 64
-  %.val3.i506 = load ptr, ptr %382, align 8, !tbaa !54
+  %.val3.i506 = load ptr, ptr %382, align 8, !tbaa !55
   %383 = getelementptr i8, ptr %.val3.i506, i64 4
   %.val3.val.i507 = load i32, ptr %383, align 4, !tbaa !15
   %384 = sub nsw i32 %.val3.val.i507, %.val.i505
@@ -2180,13 +2180,13 @@ Gia_ObjIsRo.exit:                                 ; preds = %376
 
 385:                                              ; preds = %Gia_ObjIsRo.exit
   %386 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %387 = load i32, ptr %386, align 4, !tbaa !80
+  %387 = load i32, ptr %386, align 4, !tbaa !81
   %388 = icmp sgt i32 %387, 0
   br i1 %388, label %389, label %428
 
 389:                                              ; preds = %385
   %390 = getelementptr i8, ptr %281, i64 72
-  %.val4.i = load ptr, ptr %390, align 8, !tbaa !91
+  %.val4.i = load ptr, ptr %390, align 8, !tbaa !92
   %391 = getelementptr i8, ptr %.val4.i, i64 4
   %.val4.val.i = load i32, ptr %391, align 4, !tbaa !15
   %392 = add i32 %.val4.val.i, %380
@@ -2203,8 +2203,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %376
   %401 = and i32 %400, 536870911
   %402 = sub nsw i32 %397, %401
   %403 = add nsw i32 %387, -1
-  %404 = load ptr, ptr %17, align 8, !tbaa !89
-  %405 = load i32, ptr %19, align 8, !tbaa !90
+  %404 = load ptr, ptr %17, align 8, !tbaa !90
+  %405 = load i32, ptr %19, align 8, !tbaa !91
   %406 = add nsw i32 %402, %403
   %407 = add i32 %402, %387
   %408 = mul nsw i32 %407, %406
@@ -2219,13 +2219,13 @@ Vta_ManObj.exit16.i.i511:                         ; preds = %389, %419
   %.pr.i512 = phi i32 [ %421, %419 ], [ %412, %389 ]
   %.pn.i513 = sext i32 %.pr.i512 to i64
   %.01418.i.i514 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %278, i64 %.pn.i513
-  %413 = load i32, ptr %.01418.i.i514, align 4, !tbaa !64
+  %413 = load i32, ptr %.01418.i.i514, align 4, !tbaa !65
   %414 = icmp eq i32 %413, %402
   br i1 %414, label %415, label %419
 
 415:                                              ; preds = %Vta_ManObj.exit16.i.i511
   %416 = getelementptr inbounds nuw i8, ptr %.01418.i.i514, i64 4
-  %417 = load i32, ptr %416, align 4, !tbaa !80
+  %417 = load i32, ptr %416, align 4, !tbaa !81
   %418 = icmp eq i32 %417, %403
   br i1 %418, label %Vga_ManFind.exit516, label %419
 
@@ -2237,7 +2237,7 @@ Vta_ManObj.exit16.i.i511:                         ; preds = %389, %419
 
 Vga_ManFind.exit516:                              ; preds = %415, %419, %389
   %422 = phi ptr [ null, %389 ], [ %.01418.i.i514, %415 ], [ null, %419 ]
-  store ptr %422, ptr %3, align 8, !tbaa !85
+  store ptr %422, ptr %3, align 8, !tbaa !86
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 12
   %424 = load i32, ptr %423, align 4
   %425 = and i32 %424, 268435455
@@ -2268,10 +2268,10 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   %.val396 = load i32, ptr %43, align 4, !tbaa !15
   %433 = sext i32 %.val396 to i64
   %434 = icmp slt i64 %indvars.iv.next715, %433
-  br i1 %434, label %.lr.ph667, label %.critedge12..critedge14.loopexit_crit_edge, !llvm.loop !108
+  br i1 %434, label %.lr.ph667, label %.critedge12..critedge14.loopexit_crit_edge, !llvm.loop !109
 
 .critedge12..critedge14.loopexit_crit_edge:       ; preds = %.critedge12
-  br label %.critedge14, !llvm.loop !108
+  br label %.critedge14, !llvm.loop !109
 
 .critedge14:                                      ; preds = %.lr.ph667, %Vta_ManObj.exit474, %.lr.ph667.preheader, %.critedge12..critedge14.loopexit_crit_edge, %.critedge2, %.critedge12.preheader
   %.val396.lcssa = phi i32 [ %.val396664.pr, %.critedge12.preheader ], [ %.val397, %.critedge2 ], [ %.val396, %.critedge12..critedge14.loopexit_crit_edge ], [ %.val396664.pr, %.lr.ph667.preheader ], [ %.val396666796, %Vta_ManObj.exit474 ], [ %.val396, %.lr.ph667 ]
@@ -2282,7 +2282,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   %438 = load i32, ptr %437, align 4, !tbaa !10
   %.not.i518 = icmp ne i32 %438, 0
   tail call void @llvm.assume(i1 %.not.i518)
-  %439 = load ptr, ptr %42, align 8, !tbaa !62
+  %439 = load ptr, ptr %42, align 8, !tbaa !63
   %440 = sext i32 %438 to i64
   %441 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %439, i64 %440, i32 3
   %442 = load i32, ptr %441, align 4
@@ -2313,13 +2313,13 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   br i1 %.not.i520, label %.critedge16, label %Vta_ManObj.exit521
 
 Vta_ManObj.exit521:                               ; preds = %450
-  %453 = load ptr, ptr %42, align 8, !tbaa !62
+  %453 = load ptr, ptr %42, align 8, !tbaa !63
   %454 = sext i32 %452 to i64
   %455 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %453, i64 %454
-  %456 = load ptr, ptr %0, align 8, !tbaa !30
-  %457 = load i32, ptr %455, align 4, !tbaa !64
+  %456 = load ptr, ptr %0, align 8, !tbaa !31
+  %457 = load i32, ptr %455, align 4, !tbaa !65
   %458 = getelementptr i8, ptr %456, i64 32
-  %.val400 = load ptr, ptr %458, align 8, !tbaa !63
+  %.val400 = load ptr, ptr %458, align 8, !tbaa !64
   %459 = sext i32 %457 to i64
   %460 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val400, i64 %459
   %.not350 = icmp eq ptr %.val400, null
@@ -2338,7 +2338,7 @@ Vta_ManObj.exit521:                               ; preds = %450
   br i1 %.not359, label %466, label %499
 
 466:                                              ; preds = %464
-  %.val407 = load ptr, ptr %42, align 8, !tbaa !62
+  %.val407 = load ptr, ptr %42, align 8, !tbaa !63
   %467 = ptrtoint ptr %455 to i64
   %468 = ptrtoint ptr %.val407 to i64
   %469 = sub i64 %467, %468
@@ -2414,12 +2414,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %501 = and i64 %.val413, 536870911
   %502 = icmp eq i64 %501, 536870911
   %narrow.i526.not = or i1 %.not.i525, %502
-  %503 = load ptr, ptr %0, align 8, !tbaa !30
+  %503 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %narrow.i526.not, label %591, label %504
 
 504:                                              ; preds = %499
   %505 = getelementptr i8, ptr %503, i64 32
-  %.val416 = load ptr, ptr %505, align 8, !tbaa !63
+  %.val416 = load ptr, ptr %505, align 8, !tbaa !64
   %506 = ptrtoint ptr %460 to i64
   %507 = ptrtoint ptr %.val416 to i64
   %508 = sub i64 %506, %507
@@ -2429,9 +2429,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %512 = and i32 %511, 536870911
   %513 = sub nsw i32 %510, %512
   %514 = getelementptr inbounds nuw i8, ptr %455, i64 4
-  %515 = load i32, ptr %514, align 4, !tbaa !80
-  %516 = load ptr, ptr %17, align 8, !tbaa !89
-  %517 = load i32, ptr %19, align 8, !tbaa !90
+  %515 = load i32, ptr %514, align 4, !tbaa !81
+  %516 = load ptr, ptr %17, align 8, !tbaa !90
+  %517 = load i32, ptr %19, align 8, !tbaa !91
   %518 = add nsw i32 %513, %515
   %519 = add nsw i32 %518, 1
   %520 = mul nsw i32 %519, %518
@@ -2443,20 +2443,20 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i.i.i528, label %Vga_ManFind.exit535, label %Vta_ManObj.exit.i.i529
 
 Vta_ManObj.exit.i.i529:                           ; preds = %504
-  %525 = load ptr, ptr %42, align 8, !tbaa !62
+  %525 = load ptr, ptr %42, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i530
 
 Vta_ManObj.exit16.i.i530:                         ; preds = %532, %Vta_ManObj.exit.i.i529
   %.pr.i531 = phi i32 [ %524, %Vta_ManObj.exit.i.i529 ], [ %534, %532 ]
   %.pn.i532 = sext i32 %.pr.i531 to i64
   %.01418.i.i533 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %525, i64 %.pn.i532
-  %526 = load i32, ptr %.01418.i.i533, align 4, !tbaa !64
+  %526 = load i32, ptr %.01418.i.i533, align 4, !tbaa !65
   %527 = icmp eq i32 %526, %513
   br i1 %527, label %528, label %532
 
 528:                                              ; preds = %Vta_ManObj.exit16.i.i530
   %529 = getelementptr inbounds nuw i8, ptr %.01418.i.i533, i64 4
-  %530 = load i32, ptr %529, align 4, !tbaa !80
+  %530 = load i32, ptr %529, align 4, !tbaa !81
   %531 = icmp eq i32 %530, %515
   br i1 %531, label %Vga_ManFind.exit535, label %532
 
@@ -2468,7 +2468,7 @@ Vta_ManObj.exit16.i.i530:                         ; preds = %532, %Vta_ManObj.ex
 
 Vga_ManFind.exit535:                              ; preds = %528, %532, %504
   %535 = phi ptr [ null, %504 ], [ %.01418.i.i533, %528 ], [ null, %532 ]
-  store ptr %535, ptr %3, align 8, !tbaa !85
+  store ptr %535, ptr %3, align 8, !tbaa !86
   %536 = lshr i64 %.val413, 32
   %537 = trunc nuw i64 %536 to i32
   %538 = and i32 %537, 536870911
@@ -2484,20 +2484,20 @@ Vga_ManFind.exit535:                              ; preds = %528, %532, %504
   br i1 %.not.i.i.i537, label %Vga_ManFind.exit544, label %Vta_ManObj.exit.i.i538
 
 Vta_ManObj.exit.i.i538:                           ; preds = %Vga_ManFind.exit535
-  %547 = load ptr, ptr %42, align 8, !tbaa !62
+  %547 = load ptr, ptr %42, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i539
 
 Vta_ManObj.exit16.i.i539:                         ; preds = %554, %Vta_ManObj.exit.i.i538
   %.pr.i540 = phi i32 [ %546, %Vta_ManObj.exit.i.i538 ], [ %556, %554 ]
   %.pn.i541 = sext i32 %.pr.i540 to i64
   %.01418.i.i542 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %547, i64 %.pn.i541
-  %548 = load i32, ptr %.01418.i.i542, align 4, !tbaa !64
+  %548 = load i32, ptr %.01418.i.i542, align 4, !tbaa !65
   %549 = icmp eq i32 %548, %539
   br i1 %549, label %550, label %554
 
 550:                                              ; preds = %Vta_ManObj.exit16.i.i539
   %551 = getelementptr inbounds nuw i8, ptr %.01418.i.i542, i64 4
-  %552 = load i32, ptr %551, align 4, !tbaa !80
+  %552 = load i32, ptr %551, align 4, !tbaa !81
   %553 = icmp eq i32 %552, %515
   br i1 %553, label %Vga_ManFind.exit544, label %554
 
@@ -2509,7 +2509,7 @@ Vta_ManObj.exit16.i.i539:                         ; preds = %554, %Vta_ManObj.ex
 
 Vga_ManFind.exit544:                              ; preds = %550, %554, %Vga_ManFind.exit535
   %557 = phi ptr [ null, %Vga_ManFind.exit535 ], [ %.01418.i.i542, %550 ], [ null, %554 ]
-  store ptr %557, ptr %4, align 8, !tbaa !85
+  store ptr %557, ptr %4, align 8, !tbaa !86
   %558 = lshr i32 %463, 28
   %559 = and i32 %558, 3
   switch i32 %559, label %Gia_ObjIsRo.exit569.thread [
@@ -2594,9 +2594,9 @@ Gia_ObjIsRo.exit569:                              ; preds = %591
   %594 = trunc nuw i64 %593 to i32
   %595 = and i32 %594, 536870911
   %596 = getelementptr i8, ptr %503, i64 16
-  %.val.i566 = load i32, ptr %596, align 8, !tbaa !40
+  %.val.i566 = load i32, ptr %596, align 8, !tbaa !41
   %597 = getelementptr i8, ptr %503, i64 64
-  %.val3.i567 = load ptr, ptr %597, align 8, !tbaa !54
+  %.val3.i567 = load ptr, ptr %597, align 8, !tbaa !55
   %598 = getelementptr i8, ptr %.val3.i567, i64 4
   %.val3.val.i568 = load i32, ptr %598, align 4, !tbaa !15
   %599 = sub nsw i32 %.val3.val.i568, %.val.i566
@@ -2605,19 +2605,19 @@ Gia_ObjIsRo.exit569:                              ; preds = %591
 
 600:                                              ; preds = %Gia_ObjIsRo.exit569
   %601 = getelementptr inbounds nuw i8, ptr %455, i64 4
-  %602 = load i32, ptr %601, align 4, !tbaa !80
+  %602 = load i32, ptr %601, align 4, !tbaa !81
   %603 = icmp sgt i32 %602, 0
   br i1 %603, label %604, label %Gia_ObjIsRo.exit569.thread
 
 604:                                              ; preds = %600
   %605 = getelementptr i8, ptr %503, i64 72
-  %.val4.i570 = load ptr, ptr %605, align 8, !tbaa !91
+  %.val4.i570 = load ptr, ptr %605, align 8, !tbaa !92
   %606 = getelementptr i8, ptr %.val4.i570, i64 4
   %.val4.val.i571 = load i32, ptr %606, align 4, !tbaa !15
   %607 = add i32 %.val4.val.i571, %595
   %608 = sub i32 %607, %.val3.val.i568
   %609 = getelementptr i8, ptr %503, i64 32
-  %.val6.i574 = load ptr, ptr %609, align 8, !tbaa !63
+  %.val6.i574 = load ptr, ptr %609, align 8, !tbaa !64
   %610 = getelementptr i8, ptr %.val4.i570, i64 8
   %.val7.val.i575 = load ptr, ptr %610, align 8, !tbaa !3
   %611 = sext i32 %608 to i64
@@ -2630,8 +2630,8 @@ Gia_ObjIsRo.exit569:                              ; preds = %591
   %617 = and i32 %616, 536870911
   %618 = sub nsw i32 %613, %617
   %619 = add nsw i32 %602, -1
-  %620 = load ptr, ptr %17, align 8, !tbaa !89
-  %621 = load i32, ptr %19, align 8, !tbaa !90
+  %620 = load ptr, ptr %17, align 8, !tbaa !90
+  %621 = load i32, ptr %19, align 8, !tbaa !91
   %622 = add nsw i32 %618, %619
   %623 = add i32 %618, %602
   %624 = mul nsw i32 %623, %622
@@ -2643,20 +2643,20 @@ Gia_ObjIsRo.exit569:                              ; preds = %591
   br i1 %.not.i.i.i577, label %Vga_ManFind.exit584, label %Vta_ManObj.exit.i.i578
 
 Vta_ManObj.exit.i.i578:                           ; preds = %604
-  %629 = load ptr, ptr %42, align 8, !tbaa !62
+  %629 = load ptr, ptr %42, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i579
 
 Vta_ManObj.exit16.i.i579:                         ; preds = %636, %Vta_ManObj.exit.i.i578
   %.pr.i580 = phi i32 [ %628, %Vta_ManObj.exit.i.i578 ], [ %638, %636 ]
   %.pn.i581 = sext i32 %.pr.i580 to i64
   %.01418.i.i582 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %629, i64 %.pn.i581
-  %630 = load i32, ptr %.01418.i.i582, align 4, !tbaa !64
+  %630 = load i32, ptr %.01418.i.i582, align 4, !tbaa !65
   %631 = icmp eq i32 %630, %618
   br i1 %631, label %632, label %636
 
 632:                                              ; preds = %Vta_ManObj.exit16.i.i579
   %633 = getelementptr inbounds nuw i8, ptr %.01418.i.i582, i64 4
-  %634 = load i32, ptr %633, align 4, !tbaa !80
+  %634 = load i32, ptr %633, align 4, !tbaa !81
   %635 = icmp eq i32 %634, %619
   br i1 %635, label %Vga_ManFind.exit584, label %636
 
@@ -2668,7 +2668,7 @@ Vta_ManObj.exit16.i.i579:                         ; preds = %636, %Vta_ManObj.ex
 
 Vga_ManFind.exit584:                              ; preds = %632, %636, %604
   %639 = phi ptr [ null, %604 ], [ %.01418.i.i582, %632 ], [ null, %636 ]
-  store ptr %639, ptr %3, align 8, !tbaa !85
+  store ptr %639, ptr %3, align 8, !tbaa !86
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 12
   %641 = load i32, ptr %640, align 4
   %642 = or i32 %641, -2147483648
@@ -2677,13 +2677,13 @@ Vga_ManFind.exit584:                              ; preds = %632, %636, %604
 
 Gia_ObjIsRo.exit569.thread:                       ; preds = %Gia_ObjIsRo.exit569, %591, %Vga_ManFind.exit544, %586, %588, %589, %577, %582, %584, %560, %600, %Vga_ManFind.exit584, %461, %Vec_IntPush.exit
   %643 = icmp sgt i64 %indvars.iv717, 1
-  br i1 %643, label %450, label %.critedge16, !llvm.loop !109
+  br i1 %643, label %450, label %.critedge16, !llvm.loop !110
 
 .critedge16:                                      ; preds = %Vta_ManObj.exit521, %Gia_ObjIsRo.exit569.thread, %450, %.critedge14
   %644 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %645 = load ptr, ptr %644, align 8, !tbaa !55
+  %645 = load ptr, ptr %644, align 8, !tbaa !56
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 60
-  %647 = load i32, ptr %646, align 4, !tbaa !110
+  %647 = load i32, ptr %646, align 4, !tbaa !111
   %.not351 = icmp eq i32 %647, 0
   br i1 %.not351, label %.critedge22, label %.preheader634
 
@@ -2705,7 +2705,7 @@ Gia_ObjIsRo.exit569.thread:                       ; preds = %Gia_ObjIsRo.exit569
   br i1 %.not.i586, label %.critedge18, label %Vta_ManObj.exit587
 
 Vta_ManObj.exit587:                               ; preds = %649
-  %652 = load ptr, ptr %42, align 8, !tbaa !62
+  %652 = load ptr, ptr %42, align 8, !tbaa !63
   %653 = sext i32 %651 to i64
   %654 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %652, i64 %653, i32 3
   %655 = load i32, ptr %654, align 4
@@ -2713,7 +2713,7 @@ Vta_ManObj.exit587:                               ; preds = %649
   store i32 %656, ptr %654, align 4
   %indvars.iv.next721 = add nuw nsw i64 %indvars.iv720, 1
   %exitcond724.not = icmp eq i64 %indvars.iv.next721, %wide.trip.count723
-  br i1 %exitcond724.not, label %.critedge18, label %649, !llvm.loop !111
+  br i1 %exitcond724.not, label %.critedge18, label %649, !llvm.loop !112
 
 .critedge18:                                      ; preds = %Vta_ManObj.exit587, %649, %.preheader634
   %.val434678 = load i32, ptr %84, align 4, !tbaa !11
@@ -2749,7 +2749,7 @@ Vta_ManObj.exit587:                               ; preds = %649
   br i1 %.not357, label %664, label %697
 
 664:                                              ; preds = %659
-  %.val406 = load ptr, ptr %42, align 8, !tbaa !62
+  %.val406 = load ptr, ptr %42, align 8, !tbaa !63
   %665 = ptrtoint ptr %661 to i64
   %666 = ptrtoint ptr %.val406 to i64
   %667 = sub i64 %665, %666
@@ -2824,7 +2824,7 @@ Vec_IntPush.exit594:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next726 = add nuw nsw i64 %indvars.iv725, 1
   %698 = sext i32 %.val434 to i64
   %699 = icmp slt i64 %indvars.iv.next726, %698
-  br i1 %699, label %659, label %.critedge20.preheader.loopexit, !llvm.loop !112
+  br i1 %699, label %659, label %.critedge20.preheader.loopexit, !llvm.loop !113
 
 700:                                              ; preds = %.lr.ph682, %Vta_ManObj.exit596
   %indvars.iv728 = phi i64 [ 0, %.lr.ph682 ], [ %indvars.iv.next729, %Vta_ManObj.exit596 ]
@@ -2834,7 +2834,7 @@ Vec_IntPush.exit594:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i595, label %.critedge22, label %Vta_ManObj.exit596
 
 Vta_ManObj.exit596:                               ; preds = %700
-  %703 = load ptr, ptr %42, align 8, !tbaa !62
+  %703 = load ptr, ptr %42, align 8, !tbaa !63
   %704 = sext i32 %702 to i64
   %705 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %703, i64 %704, i32 3
   %706 = load i32, ptr %705, align 4
@@ -2842,7 +2842,7 @@ Vta_ManObj.exit596:                               ; preds = %700
   store i32 %707, ptr %705, align 4
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
   %exitcond732.not = icmp eq i64 %indvars.iv.next729, %wide.trip.count731
-  br i1 %exitcond732.not, label %.critedge22, label %700, !llvm.loop !113
+  br i1 %exitcond732.not, label %.critedge22, label %700, !llvm.loop !114
 
 .critedge22:                                      ; preds = %Vta_ManObj.exit596, %700, %.critedge20.preheader, %.critedge16
   %708 = load ptr, ptr %86, align 8, !tbaa !14
@@ -2893,13 +2893,13 @@ Vec_PtrFree.exit599:                              ; preds = %Vec_PtrFree.exit, %
   br i1 %.not.i600, label %.critedge30, label %Vta_ManObj.exit601
 
 Vta_ManObj.exit601:                               ; preds = %718
-  %721 = load ptr, ptr %42, align 8, !tbaa !62
+  %721 = load ptr, ptr %42, align 8, !tbaa !63
   %722 = sext i32 %720 to i64
   %723 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %721, i64 %722
-  %724 = load ptr, ptr %0, align 8, !tbaa !30
-  %725 = load i32, ptr %723, align 4, !tbaa !64
+  %724 = load ptr, ptr %0, align 8, !tbaa !31
+  %725 = load i32, ptr %723, align 4, !tbaa !65
   %726 = getelementptr i8, ptr %724, i64 32
-  %.val399 = load ptr, ptr %726, align 8, !tbaa !63
+  %.val399 = load ptr, ptr %726, align 8, !tbaa !64
   %.not355 = icmp eq ptr %.val399, null
   br i1 %.not355, label %.critedge30, label %727
 
@@ -2916,9 +2916,9 @@ Gia_ObjIsPi.exit606:                              ; preds = %727
   %732 = trunc nuw i64 %731 to i32
   %733 = and i32 %732, 536870911
   %734 = getelementptr i8, ptr %724, i64 16
-  %.val.i603 = load i32, ptr %734, align 8, !tbaa !40
+  %.val.i603 = load i32, ptr %734, align 8, !tbaa !41
   %735 = getelementptr i8, ptr %724, i64 64
-  %.val3.i604 = load ptr, ptr %735, align 8, !tbaa !54
+  %.val3.i604 = load ptr, ptr %735, align 8, !tbaa !55
   %736 = getelementptr i8, ptr %.val3.i604, i64 4
   %.val3.val.i605 = load i32, ptr %736, align 4, !tbaa !15
   %737 = sub nsw i32 %.val3.val.i605, %.val.i603
@@ -2927,18 +2927,18 @@ Gia_ObjIsPi.exit606:                              ; preds = %727
 
 Gia_ObjIsPi.exit606.thread:                       ; preds = %727, %Gia_ObjIsPi.exit606
   %738 = getelementptr inbounds nuw i8, ptr %723, i64 4
-  %739 = load i32, ptr %738, align 4, !tbaa !80
+  %739 = load i32, ptr %738, align 4, !tbaa !81
   tail call void @Vga_ManAddClausesOne(ptr noundef nonnull %0, i32 noundef %725, i32 noundef %739)
   br label %740
 
 740:                                              ; preds = %Gia_ObjIsPi.exit606, %Gia_ObjIsPi.exit606.thread
   %indvars.iv.next734 = add nuw nsw i64 %indvars.iv733, 1
   %exitcond737.not = icmp eq i64 %indvars.iv.next734, %wide.trip.count736
-  br i1 %exitcond737.not, label %.critedge30, label %718, !llvm.loop !114
+  br i1 %exitcond737.not, label %.critedge30, label %718, !llvm.loop !115
 
 .critedge30:                                      ; preds = %Vta_ManObj.exit601, %740, %718, %.preheader
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %742 = load ptr, ptr %741, align 8, !tbaa !66
+  %742 = load ptr, ptr %741, align 8, !tbaa !67
   %743 = tail call i32 @sat_solver2_simplify(ptr noundef %742) #28
   br label %744
 
@@ -2946,9 +2946,9 @@ Gia_ObjIsPi.exit606.thread:                       ; preds = %727, %Gia_ObjIsPi.e
   %.val390 = phi i32 [ %.val390.pre, %716 ], [ %.val391, %.critedge30 ]
   %.0322 = phi ptr [ %717, %716 ], [ null, %.critedge30 ]
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %746 = load i32, ptr %745, align 8, !tbaa !115
+  %746 = load i32, ptr %745, align 8, !tbaa !116
   %747 = add nsw i32 %746, %.val390
-  store i32 %747, ptr %745, align 8, !tbaa !115
+  store i32 %747, ptr %745, align 8, !tbaa !116
   %748 = load ptr, ptr %447, align 8, !tbaa !3
   %.not.i607 = icmp eq ptr %748, null
   br i1 %.not.i607, label %Vec_IntFree.exit, label %749
@@ -2971,14 +2971,14 @@ define void @Vga_ManAddClausesOne(ptr noundef captures(none) %0, i32 noundef %1,
   %6 = alloca [1 x i32], align 4
   %7 = alloca [2 x i32], align 4
   %8 = alloca [3 x i32], align 4
-  %9 = load ptr, ptr %0, align 8, !tbaa !30
+  %9 = load ptr, ptr %0, align 8, !tbaa !31
   %10 = getelementptr i8, ptr %9, i64 32
-  %.val = load ptr, ptr %10, align 8, !tbaa !63
+  %.val = load ptr, ptr %10, align 8, !tbaa !64
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %11
   %13 = tail call fastcc ptr @Vga_ManFindOrAdd(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
   %14 = getelementptr i8, ptr %0, i64 40
-  %.val67 = load ptr, ptr %14, align 8, !tbaa !62
+  %.val67 = load ptr, ptr %14, align 8, !tbaa !63
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %.val67 to i64
   %17 = sub i64 %15, %16
@@ -2994,7 +2994,7 @@ define void @Vga_ManAddClausesOne(ptr noundef captures(none) %0, i32 noundef %1,
   %24 = or disjoint i32 %21, 1073741824
   store i32 %24, ptr %20, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %26 = load ptr, ptr %25, align 8, !tbaa !116
+  %26 = load ptr, ptr %25, align 8, !tbaa !117
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = load i32, ptr %26, align 8, !tbaa !16
@@ -3067,12 +3067,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = and i64 %.val69, 536870911
   %60 = icmp eq i64 %59, 536870911
   %narrow.i.not = or i1 %.not.i, %60
-  %61 = load ptr, ptr %0, align 8, !tbaa !30
+  %61 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %narrow.i.not, label %112, label %62
 
 62:                                               ; preds = %Vec_IntPush.exit
   %63 = getelementptr i8, ptr %61, i64 32
-  %.val71 = load ptr, ptr %63, align 8, !tbaa !63
+  %.val71 = load ptr, ptr %63, align 8, !tbaa !64
   %64 = ptrtoint ptr %12 to i64
   %65 = ptrtoint ptr %.val71 to i64
   %66 = sub i64 %64, %65
@@ -3082,13 +3082,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %70 = and i32 %69, 536870911
   %71 = sub nsw i32 %68, %70
   %72 = tail call fastcc ptr @Vga_ManFindOrAdd(ptr noundef nonnull %0, i32 noundef %71, i32 noundef %2)
-  %.val66 = load ptr, ptr %14, align 8, !tbaa !62
+  %.val66 = load ptr, ptr %14, align 8, !tbaa !63
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %.val66 to i64
   %75 = sub i64 %73, %74
-  %76 = load ptr, ptr %0, align 8, !tbaa !30
+  %76 = load ptr, ptr %0, align 8, !tbaa !31
   %77 = getelementptr i8, ptr %76, i64 32
-  %.val72 = load ptr, ptr %77, align 8, !tbaa !63
+  %.val72 = load ptr, ptr %77, align 8, !tbaa !64
   %78 = ptrtoint ptr %.val72 to i64
   %79 = sub i64 %64, %78
   %80 = sdiv exact i64 %79, 12
@@ -3100,8 +3100,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = sub nsw i32 %81, %84
   %86 = tail call fastcc ptr @Vga_ManFindOrAdd(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %2)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %88 = load ptr, ptr %87, align 8, !tbaa !66
-  %.val65 = load ptr, ptr %14, align 8, !tbaa !62
+  %88 = load ptr, ptr %87, align 8, !tbaa !67
+  %.val65 = load ptr, ptr %14, align 8, !tbaa !63
   %89 = ptrtoint ptr %86 to i64
   %90 = ptrtoint ptr %.val65 to i64
   %91 = sub i64 %89, %90
@@ -3151,9 +3151,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   %115 = trunc nuw i64 %114 to i32
   %116 = and i32 %115, 536870911
   %117 = getelementptr i8, ptr %61, i64 16
-  %.val.i = load i32, ptr %117, align 8, !tbaa !40
+  %.val.i = load i32, ptr %117, align 8, !tbaa !41
   %118 = getelementptr i8, ptr %61, i64 64
-  %.val3.i79 = load ptr, ptr %118, align 8, !tbaa !54
+  %.val3.i79 = load ptr, ptr %118, align 8, !tbaa !55
   %119 = getelementptr i8, ptr %.val3.i79, i64 4
   %.val3.val.i = load i32, ptr %119, align 4, !tbaa !15
   %120 = sub nsw i32 %.val3.val.i, %.val.i
@@ -3166,17 +3166,17 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %125 = load ptr, ptr %124, align 8, !tbaa !55
+  %125 = load ptr, ptr %124, align 8, !tbaa !56
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  %127 = load i32, ptr %126, align 8, !tbaa !117
+  %127 = load i32, ptr %126, align 8, !tbaa !118
   %.not62 = icmp eq i32 %127, 0
   br i1 %.not62, label %143, label %128
 
 128:                                              ; preds = %123
   %129 = tail call fastcc ptr @Vga_ManFindOrAdd(ptr noundef nonnull %0, i32 noundef %1, i32 noundef -1)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %131 = load ptr, ptr %130, align 8, !tbaa !66
-  %.val64 = load ptr, ptr %14, align 8, !tbaa !62
+  %131 = load ptr, ptr %130, align 8, !tbaa !67
+  %.val64 = load ptr, ptr %14, align 8, !tbaa !63
   %132 = ptrtoint ptr %129 to i64
   %133 = ptrtoint ptr %.val64 to i64
   %134 = sub i64 %132, %133
@@ -3200,7 +3200,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
 
 143:                                              ; preds = %123
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %145 = load ptr, ptr %144, align 8, !tbaa !66
+  %145 = load ptr, ptr %144, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
   %146 = shl nsw i32 %19, 1
   %147 = or disjoint i32 %146, 1
@@ -3212,13 +3212,13 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
 
 150:                                              ; preds = %121
   %151 = getelementptr i8, ptr %61, i64 72
-  %.val4.i = load ptr, ptr %151, align 8, !tbaa !91
+  %.val4.i = load ptr, ptr %151, align 8, !tbaa !92
   %152 = getelementptr i8, ptr %.val4.i, i64 4
   %.val4.val.i = load i32, ptr %152, align 4, !tbaa !15
   %153 = add i32 %.val4.val.i, %116
   %154 = sub i32 %153, %.val3.val.i
   %155 = getelementptr i8, ptr %61, i64 32
-  %.val6.i = load ptr, ptr %155, align 8, !tbaa !63
+  %.val6.i = load ptr, ptr %155, align 8, !tbaa !64
   %156 = getelementptr i8, ptr %.val4.i, i64 8
   %.val7.val.i = load ptr, ptr %156, align 8, !tbaa !3
   %157 = sext i32 %154 to i64
@@ -3233,8 +3233,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   %165 = add nsw i32 %2, -1
   %166 = tail call fastcc ptr @Vga_ManFindOrAdd(ptr noundef nonnull %0, i32 noundef %164, i32 noundef %165)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %168 = load ptr, ptr %167, align 8, !tbaa !66
-  %.val63 = load ptr, ptr %14, align 8, !tbaa !62
+  %168 = load ptr, ptr %167, align 8, !tbaa !67
+  %.val63 = load ptr, ptr %14, align 8, !tbaa !63
   %169 = ptrtoint ptr %166 to i64
   %170 = ptrtoint ptr %.val63 to i64
   %171 = sub i64 %169, %170
@@ -3268,7 +3268,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %112, %Gia_ObjIsRo.e
 
 185:                                              ; preds = %Gia_ObjIsRo.exit.thread
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %187 = load ptr, ptr %186, align 8, !tbaa !66
+  %187 = load ptr, ptr %186, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
   %188 = shl nsw i32 %19, 1
   %189 = or disjoint i32 %188, 1
@@ -3287,16 +3287,16 @@ declare i32 @sat_solver2_simplify(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Vga_ManStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 1, i64 noundef 168) #27
-  store ptr %0, ptr %3, align 8, !tbaa !30
+  store ptr %0, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 262144, ptr %5, align 4, !tbaa !118
+  store i32 262144, ptr %5, align 4, !tbaa !119
   %6 = tail call noalias dereferenceable_or_null(4194304) ptr @calloc(i64 noundef 262144, i64 noundef 16) #27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %6, ptr %7, align 8, !tbaa !62
+  store ptr %6, ptr %7, align 8, !tbaa !63
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1, ptr %8, align 8, !tbaa !61
+  store i32 1, ptr %8, align 8, !tbaa !62
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %2
@@ -3307,7 +3307,7 @@ define noalias noundef ptr @Vga_ManStart(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
-  br label %.loopexit.i, !llvm.loop !119
+  br label %.loopexit.i, !llvm.loop !120
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %9, 9
@@ -3317,21 +3317,21 @@ define noalias noundef ptr @Vga_ManStart(ptr noundef %0, ptr noundef %1) local_u
   %12 = add nuw nsw i32 %.01116.i, 2
   %13 = mul nuw nsw i32 %12, %12
   %.not.i = icmp ugt i32 %13, %9
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !120
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !121
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %11
   %.01116.i = phi i32 [ %12, %11 ], [ 3, %.preheader.i ]
   %14 = urem i32 %9, %.01116.i
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit.i.backedge, label %11, !llvm.loop !119
+  br i1 %15, label %.loopexit.i.backedge, label %11, !llvm.loop !120
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %9, ptr %16, align 8, !tbaa !90
+  store i32 %9, ptr %16, align 8, !tbaa !91
   %17 = sext i32 %9 to i64
   %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 4) #27
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %18, ptr %19, align 8, !tbaa !89
+  store ptr %18, ptr %19, align 8, !tbaa !90
   %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4, !tbaa !15
@@ -3340,22 +3340,22 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %20, ptr %24, align 8, !tbaa !92
+  store ptr %20, ptr %24, align 8, !tbaa !93
   %25 = getelementptr i8, ptr %0, i64 24
-  %.val = load i32, ptr %25, align 8, !tbaa !121
+  %.val = load i32, ptr %25, align 8, !tbaa !122
   %26 = icmp ult i32 %.val, 2
   %27 = add i32 %.val, -1
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %29 = sub nuw nsw i32 32, %28
   %.09.i = select i1 %26, i32 %.val, i32 %29
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %.09.i, ptr %30, align 8, !tbaa !83
+  store i32 %.09.i, ptr %30, align 8, !tbaa !84
   %notmask = shl nsw i32 -1, %.09.i
   %31 = xor i32 %notmask, -1
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i32 %31, ptr %32, align 4, !tbaa !122
+  store i32 %31, ptr %32, align 4, !tbaa !123
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i32 1, ptr %33, align 8, !tbaa !87
+  store i32 1, ptr %33, align 8, !tbaa !88
   %34 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i = icmp ult i32 %27, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val
@@ -3388,7 +3388,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %Abc_PrimeCudd.exit
 
 Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %41
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %34, ptr %44, align 8, !tbaa !86
+  store ptr %34, ptr %44, align 8, !tbaa !87
   %45 = ashr i32 %.val, 5
   %46 = and i32 %.val, 31
   %47 = icmp ne i32 %46, 0
@@ -3396,7 +3396,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %49 = add nsw i32 %45, %48
   %50 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %51 = shl nsw i32 %49, 5
-  store i32 %51, ptr %50, align 8, !tbaa !123
+  store i32 %51, ptr %50, align 8, !tbaa !124
   %.not.i.i44 = icmp eq i32 %49, 0
   br i1 %.not.i.i44, label %Vec_BitStart.exit, label %52
 
@@ -3411,15 +3411,15 @@ Vec_BitStart.exit:                                ; preds = %Vec_IntStart.exit, 
   %56 = phi ptr [ %55, %52 ], [ null, %Vec_IntStart.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %56, ptr %58, align 8, !tbaa !125
-  store i32 %51, ptr %57, align 4, !tbaa !126
+  store ptr %56, ptr %58, align 8, !tbaa !126
+  store i32 %51, ptr %57, align 4, !tbaa !127
   tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %.pre-phi8.i, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %50, ptr %59, align 8, !tbaa !127
+  store ptr %50, ptr %59, align 8, !tbaa !128
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i32 1, ptr %60, align 8, !tbaa !128
+  store i32 1, ptr %60, align 8, !tbaa !129
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  store i32 1, ptr %61, align 4, !tbaa !129
+  store i32 1, ptr %61, align 4, !tbaa !130
   %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 0, ptr %63, align 4, !tbaa !11
@@ -3428,45 +3428,45 @@ Vec_BitStart.exit:                                ; preds = %Vec_IntStart.exit, 
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !14
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr %62, ptr %66, align 8, !tbaa !130
+  store ptr %62, ptr %66, align 8, !tbaa !131
   %67 = tail call ptr @sat_solver2_new() #28
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr %67, ptr %68, align 8, !tbaa !66
+  store ptr %67, ptr %68, align 8, !tbaa !67
   %69 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #27
-  store i32 20, ptr %69, align 8, !tbaa !131
+  store i32 20, ptr %69, align 8, !tbaa !132
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 1048575, ptr %70, align 4, !tbaa !134
+  store i32 1048575, ptr %70, align 4, !tbaa !135
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  store i32 256, ptr %71, align 4, !tbaa !135
+  store i32 256, ptr %71, align 4, !tbaa !136
   %72 = tail call noalias dereferenceable_or_null(2048) ptr @calloc(i64 noundef 256, i64 noundef 8) #27
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !136
+  store ptr %72, ptr %73, align 8, !tbaa !137
   %74 = tail call noalias dereferenceable_or_null(8388608) ptr @malloc(i64 noundef 8388608) #25
-  store ptr %74, ptr %72, align 8, !tbaa !137
+  store ptr %74, ptr %72, align 8, !tbaa !138
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 -1, ptr %75, align 8
-  store i64 2, ptr %74, align 8, !tbaa !139
+  store i64 2, ptr %74, align 8, !tbaa !140
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 456
-  store ptr %69, ptr %76, align 8, !tbaa !140
+  store ptr %69, ptr %76, align 8, !tbaa !141
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !141
+  %78 = load i32, ptr %77, align 4, !tbaa !142
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 84
-  store i32 %78, ptr %79, align 4, !tbaa !142
+  store i32 %78, ptr %79, align 4, !tbaa !143
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %81 = load i32, ptr %80, align 8, !tbaa !143
+  %81 = load i32, ptr %80, align 8, !tbaa !144
   %82 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  store i32 %81, ptr %82, align 8, !tbaa !144
+  store i32 %81, ptr %82, align 8, !tbaa !145
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %84 = load i32, ptr %83, align 4, !tbaa !145
+  %84 = load i32, ptr %83, align 4, !tbaa !146
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 92
-  store i32 %84, ptr %85, align 4, !tbaa !146
+  store i32 %84, ptr %85, align 4, !tbaa !147
   %86 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  store i32 %78, ptr %86, align 8, !tbaa !147
+  store i32 %78, ptr %86, align 8, !tbaa !148
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
+  %88 = load ptr, ptr %87, align 8, !tbaa !149
   %89 = tail call ptr @Gia_VtaAbsToFrames(ptr noundef %88)
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %89, ptr %90, align 8, !tbaa !149
+  store ptr %89, ptr %90, align 8, !tbaa !150
   %91 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 0, ptr %92, align 4, !tbaa !15
@@ -3475,7 +3475,7 @@ Vec_BitStart.exit:                                ; preds = %Vec_IntStart.exit, 
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store ptr %91, ptr %95, align 8, !tbaa !116
+  store ptr %91, ptr %95, align 8, !tbaa !117
   ret ptr %3
 }
 
@@ -3484,35 +3484,35 @@ declare ptr @sat_solver2_new() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @Vga_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load i32, ptr %4, align 8, !tbaa !150
+  %5 = load i32, ptr %4, align 8, !tbaa !151
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !66
-  %.val = load i32, ptr %8, align 8, !tbaa !151
+  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %.val = load i32, ptr %8, align 8, !tbaa !152
   %9 = getelementptr i8, ptr %8, i64 524
-  %.val28 = load i32, ptr %9, align 4, !tbaa !152
+  %.val28 = load i32, ptr %9, align 4, !tbaa !153
   %10 = getelementptr i8, ptr %8, i64 560
-  %.val29 = load i64, ptr %10, align 8, !tbaa !153
+  %.val29 = load i64, ptr %10, align 8, !tbaa !154
   %11 = trunc i64 %.val29 to i32
   %12 = getelementptr i8, ptr %8, i64 528
-  %.val30 = load i32, ptr %12, align 8, !tbaa !154
+  %.val30 = load i32, ptr %12, align 8, !tbaa !155
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %14 = load i32, ptr %13, align 8, !tbaa !155
+  %14 = load i32, ptr %13, align 8, !tbaa !156
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %16 = load i32, ptr %15, align 4, !tbaa !156
+  %16 = load i32, ptr %15, align 4, !tbaa !157
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load i32, ptr %17, align 8, !tbaa !115
+  %18 = load i32, ptr %17, align 8, !tbaa !116
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.val, i32 noundef %.val28, i32 noundef %11, i32 noundef %.val30, i32 noundef %14, i32 noundef %16, i32 noundef %18)
   br label %19
 
 19:                                               ; preds = %6, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !157
+  %21 = load ptr, ptr %20, align 8, !tbaa !158
   %22 = icmp eq ptr %21, null
   br i1 %22, label %Vec_VecFreeP.exit, label %23
 
@@ -3555,7 +3555,7 @@ Vec_PtrFree.exit.i.i:                             ; preds = %33, %30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %35 = sext i32 %.val.i.i to i64
   %36 = icmp slt i64 %indvars.iv.next.i.i, %35
-  br i1 %36, label %27, label %.critedge.i.i, !llvm.loop !158
+  br i1 %36, label %27, label %.critedge.i.i, !llvm.loop !159
 
 .critedge.i.i:                                    ; preds = %34, %23
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -3569,12 +3569,12 @@ Vec_PtrFree.exit.i.i:                             ; preds = %33, %30
 
 Vec_VecFree.exit.i:                               ; preds = %39, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %21) #28
-  store ptr null, ptr %20, align 8, !tbaa !157
+  store ptr null, ptr %20, align 8, !tbaa !158
   br label %Vec_VecFreeP.exit
 
 Vec_VecFreeP.exit:                                ; preds = %19, %Vec_VecFree.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !157
+  %41 = load ptr, ptr %40, align 8, !tbaa !158
   %42 = icmp eq ptr %41, null
   br i1 %42, label %Vec_VecFreeP.exit45, label %43
 
@@ -3617,7 +3617,7 @@ Vec_PtrFree.exit.i.i41:                           ; preds = %53, %50
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i37, 1
   %55 = sext i32 %.val.i.i43 to i64
   %56 = icmp slt i64 %indvars.iv.next.i.i44, %55
-  br i1 %56, label %47, label %.critedge.i.i32, !llvm.loop !158
+  br i1 %56, label %47, label %.critedge.i.i32, !llvm.loop !159
 
 .critedge.i.i32:                                  ; preds = %54, %43
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -3631,37 +3631,37 @@ Vec_PtrFree.exit.i.i41:                           ; preds = %53, %50
 
 Vec_VecFree.exit.i34:                             ; preds = %59, %.critedge.i.i32
   tail call void @free(ptr noundef nonnull %41) #28
-  store ptr null, ptr %40, align 8, !tbaa !157
+  store ptr null, ptr %40, align 8, !tbaa !158
   br label %Vec_VecFreeP.exit45
 
 Vec_VecFreeP.exit45:                              ; preds = %Vec_VecFreeP.exit, %Vec_VecFree.exit.i34
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %61 = load ptr, ptr %60, align 8, !tbaa !159
+  %61 = load ptr, ptr %60, align 8, !tbaa !160
   %62 = icmp eq ptr %61, null
   br i1 %62, label %Vec_BitFreeP.exit, label %63
 
 63:                                               ; preds = %Vec_VecFreeP.exit45
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !125
+  %65 = load ptr, ptr %64, align 8, !tbaa !126
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %68, label %.thread.i
 
 .thread.i:                                        ; preds = %63
   tail call void @free(ptr noundef nonnull %65) #28
-  %66 = load ptr, ptr %60, align 8, !tbaa !159
+  %66 = load ptr, ptr %60, align 8, !tbaa !160
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr null, ptr %67, align 8, !tbaa !125
+  store ptr null, ptr %67, align 8, !tbaa !126
   br label %68
 
 68:                                               ; preds = %.thread.i, %63
   %69 = phi ptr [ %66, %.thread.i ], [ %61, %63 ]
   tail call void @free(ptr noundef nonnull %69) #28
-  store ptr null, ptr %60, align 8, !tbaa !159
+  store ptr null, ptr %60, align 8, !tbaa !160
   br label %Vec_BitFreeP.exit
 
 Vec_BitFreeP.exit:                                ; preds = %Vec_VecFreeP.exit45, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %71 = load ptr, ptr %70, align 8, !tbaa !160
+  %71 = load ptr, ptr %70, align 8, !tbaa !161
   %72 = icmp eq ptr %71, null
   br i1 %72, label %Vec_IntFreeP.exit, label %73
 
@@ -3673,7 +3673,7 @@ Vec_BitFreeP.exit:                                ; preds = %Vec_VecFreeP.exit45
 
 .thread.i47:                                      ; preds = %73
   tail call void @free(ptr noundef nonnull %75) #28
-  %76 = load ptr, ptr %70, align 8, !tbaa !160
+  %76 = load ptr, ptr %70, align 8, !tbaa !161
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr null, ptr %77, align 8, !tbaa !3
   br label %78
@@ -3681,12 +3681,12 @@ Vec_BitFreeP.exit:                                ; preds = %Vec_VecFreeP.exit45
 78:                                               ; preds = %.thread.i47, %73
   %79 = phi ptr [ %76, %.thread.i47 ], [ %71, %73 ]
   tail call void @free(ptr noundef nonnull %79) #28
-  store ptr null, ptr %70, align 8, !tbaa !160
+  store ptr null, ptr %70, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %Vec_BitFreeP.exit, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !160
+  %81 = load ptr, ptr %80, align 8, !tbaa !161
   %82 = icmp eq ptr %81, null
   br i1 %82, label %Vec_IntFreeP.exit50, label %83
 
@@ -3698,7 +3698,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_BitFreeP.exit, 
 
 .thread.i49:                                      ; preds = %83
   tail call void @free(ptr noundef nonnull %85) #28
-  %86 = load ptr, ptr %80, align 8, !tbaa !160
+  %86 = load ptr, ptr %80, align 8, !tbaa !161
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr null, ptr %87, align 8, !tbaa !3
   br label %88
@@ -3706,12 +3706,12 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_BitFreeP.exit, 
 88:                                               ; preds = %.thread.i49, %83
   %89 = phi ptr [ %86, %.thread.i49 ], [ %81, %83 ]
   tail call void @free(ptr noundef nonnull %89) #28
-  store ptr null, ptr %80, align 8, !tbaa !160
+  store ptr null, ptr %80, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit50
 
 Vec_IntFreeP.exit50:                              ; preds = %Vec_IntFreeP.exit, %88
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %91 = load ptr, ptr %90, align 8, !tbaa !160
+  %91 = load ptr, ptr %90, align 8, !tbaa !161
   %92 = icmp eq ptr %91, null
   br i1 %92, label %Vec_IntFreeP.exit53, label %93
 
@@ -3723,7 +3723,7 @@ Vec_IntFreeP.exit50:                              ; preds = %Vec_IntFreeP.exit, 
 
 .thread.i52:                                      ; preds = %93
   tail call void @free(ptr noundef nonnull %95) #28
-  %96 = load ptr, ptr %90, align 8, !tbaa !160
+  %96 = load ptr, ptr %90, align 8, !tbaa !161
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr null, ptr %97, align 8, !tbaa !3
   br label %98
@@ -3731,26 +3731,26 @@ Vec_IntFreeP.exit50:                              ; preds = %Vec_IntFreeP.exit, 
 98:                                               ; preds = %.thread.i52, %93
   %99 = phi ptr [ %96, %.thread.i52 ], [ %91, %93 ]
   tail call void @free(ptr noundef nonnull %99) #28
-  store ptr null, ptr %90, align 8, !tbaa !160
+  store ptr null, ptr %90, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit53
 
 Vec_IntFreeP.exit53:                              ; preds = %Vec_IntFreeP.exit50, %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %101 = load ptr, ptr %100, align 8, !tbaa !66
+  %101 = load ptr, ptr %100, align 8, !tbaa !67
   tail call void @sat_solver2_delete(ptr noundef %101) #28
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !89
+  %103 = load ptr, ptr %102, align 8, !tbaa !90
   %.not25 = icmp eq ptr %103, null
   br i1 %.not25, label %105, label %104
 
 104:                                              ; preds = %Vec_IntFreeP.exit53
   tail call void @free(ptr noundef nonnull %103) #28
-  store ptr null, ptr %102, align 8, !tbaa !89
+  store ptr null, ptr %102, align 8, !tbaa !90
   br label %105
 
 105:                                              ; preds = %Vec_IntFreeP.exit53, %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !62
+  %107 = load ptr, ptr %106, align 8, !tbaa !63
   %.not26 = icmp eq ptr %107, null
   br i1 %.not26, label %109, label %108
 
@@ -3776,7 +3776,7 @@ Abc_Clock.exit:
   %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %11 = load i64, ptr %10, align 8, !tbaa !153
+  %11 = load i64, ptr %10, align 8, !tbaa !154
   %12 = trunc i64 %11 to i32
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %13
@@ -3809,7 +3809,7 @@ Vec_IntPush.exit:                                 ; preds = %14
   br i1 %.not24, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = load i64, ptr %10, align 8, !tbaa !153
+  %26 = load i64, ptr %10, align 8, !tbaa !154
   %27 = trunc i64 %26 to i32
   %28 = sub nsw i32 %27, %12
   store i32 %28, ptr %5, align 4, !tbaa !10
@@ -3874,15 +3874,15 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  %19 = load ptr, ptr %18, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = getelementptr i8, ptr %19, i64 8
   %.val82 = load ptr, ptr %21, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !127
+  %24 = load ptr, ptr %23, align 8, !tbaa !128
   %25 = getelementptr i8, ptr %24, i64 8
-  %.val86 = load ptr, ptr %25, align 8, !tbaa !125
+  %.val86 = load ptr, ptr %25, align 8, !tbaa !126
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %27
 
@@ -3891,11 +3891,11 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %.1123 = phi i32 [ 0, %.lr.ph ], [ %.2, %70 ]
   %28 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !10
-  %30 = load i32, ptr %16, align 4, !tbaa !122
+  %30 = load i32, ptr %16, align 4, !tbaa !123
   %31 = and i32 %30, %29
-  %32 = load i32, ptr %17, align 8, !tbaa !83
+  %32 = load i32, ptr %17, align 8, !tbaa !84
   %33 = ashr i32 %29, %32
-  %34 = load i32, ptr %20, align 8, !tbaa !87
+  %34 = load i32, ptr %20, align 8, !tbaa !88
   %35 = mul nsw i32 %34, %31
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %.val82, i64 %36
@@ -3924,9 +3924,9 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %50 = load i32, ptr %12, align 4, !tbaa !10
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %12, align 4, !tbaa !10
-  %52 = load i32, ptr %22, align 4, !tbaa !129
+  %52 = load i32, ptr %22, align 4, !tbaa !130
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %22, align 4, !tbaa !129
+  store i32 %53, ptr %22, align 4, !tbaa !130
   br label %54
 
 54:                                               ; preds = %._crit_edge, %45
@@ -3951,9 +3951,9 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
 66:                                               ; preds = %54
   %67 = or i32 %62, %64
   store i32 %67, ptr %61, align 4, !tbaa !10
-  %68 = load i32, ptr %26, align 8, !tbaa !128
+  %68 = load i32, ptr %26, align 8, !tbaa !129
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %26, align 8, !tbaa !128
+  store i32 %69, ptr %26, align 8, !tbaa !129
   br label %70
 
 70:                                               ; preds = %54, %66
@@ -3962,7 +3962,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %.val80 = load i32, ptr %13, align 4, !tbaa !15
   %71 = sext i32 %.val80 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %27, label %.critedge, !llvm.loop !161
+  br i1 %72, label %27, label %.critedge, !llvm.loop !162
 
 .critedge:                                        ; preds = %70, %8
   %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %70 ]
@@ -4005,19 +4005,19 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %82 = add nsw i32 %2, -1
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %82)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %84 = load i32, ptr %83, align 8, !tbaa !128
+  %84 = load i32, ptr %83, align 8, !tbaa !129
   %85 = mul nsw i32 %84, 100
-  %86 = load ptr, ptr %0, align 8, !tbaa !30
+  %86 = load ptr, ptr %0, align 8, !tbaa !31
   %87 = getelementptr i8, ptr %86, i64 16
-  %.val81 = load i32, ptr %87, align 8, !tbaa !40
+  %.val81 = load i32, ptr %87, align 8, !tbaa !41
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %89 = load i32, ptr %88, align 8, !tbaa !121
+  %89 = load i32, ptr %88, align 8, !tbaa !122
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %91 = load ptr, ptr %90, align 8, !tbaa !54
+  %91 = load ptr, ptr %90, align 8, !tbaa !55
   %92 = getelementptr i8, ptr %91, i64 4
   %.val3.i = load i32, ptr %92, align 4, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %94 = load ptr, ptr %93, align 8, !tbaa !91
+  %94 = load ptr, ptr %93, align 8, !tbaa !92
   %95 = getelementptr i8, ptr %94, i64 4
   %.val.i = load i32, ptr %95, align 4, !tbaa !15
   %96 = add i32 %.val.i, %.val3.i
@@ -4028,12 +4028,12 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %101 = sdiv i32 %85, %100
   %102 = tail call noundef i32 @llvm.smin.i32(i32 %101, i32 100)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %102)
-  %103 = load i32, ptr %83, align 8, !tbaa !128
+  %103 = load i32, ptr %83, align 8, !tbaa !129
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %103)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %105 = load i32, ptr %104, align 4, !tbaa !129
+  %105 = load i32, ptr %104, align 4, !tbaa !130
   %106 = mul nsw i32 %105, 100
-  %107 = load i32, ptr %83, align 8, !tbaa !128
+  %107 = load i32, ptr %83, align 8, !tbaa !129
   %108 = mul nsw i32 %107, %2
   %109 = sdiv i32 %106, %108
   %110 = tail call noundef i32 @llvm.smin.i32(i32 %109, i32 100)
@@ -4052,16 +4052,16 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
 
 114:                                              ; preds = %113, %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %116 = load ptr, ptr %115, align 8, !tbaa !66
-  %.val83 = load i32, ptr %116, align 8, !tbaa !151
+  %116 = load ptr, ptr %115, align 8, !tbaa !67
+  %.val83 = load i32, ptr %116, align 8, !tbaa !152
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val83)
-  %117 = load ptr, ptr %115, align 8, !tbaa !66
+  %117 = load ptr, ptr %115, align 8, !tbaa !67
   %118 = getelementptr i8, ptr %117, i64 524
-  %.val84 = load i32, ptr %118, align 4, !tbaa !152
+  %.val84 = load i32, ptr %118, align 4, !tbaa !153
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val84)
-  %119 = load ptr, ptr %115, align 8, !tbaa !66
+  %119 = load ptr, ptr %115, align 8, !tbaa !67
   %120 = getelementptr i8, ptr %119, i64 528
-  %.val85 = load i32, ptr %120, align 8, !tbaa !154
+  %.val85 = load i32, ptr %120, align 8, !tbaa !155
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val85)
   br i1 %.not118, label %121, label %132
 
@@ -4070,15 +4070,15 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %122 = sitofp i64 %5 to double
   %123 = fdiv double %122, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %123)
-  %124 = load ptr, ptr %115, align 8, !tbaa !66
+  %124 = load ptr, ptr %115, align 8, !tbaa !67
   %125 = tail call double @sat_solver2_memory_proof(ptr noundef %124) #28
-  %126 = load ptr, ptr %115, align 8, !tbaa !66
+  %126 = load ptr, ptr %115, align 8, !tbaa !67
   %127 = tail call double @sat_solver2_memory(ptr noundef %126, i32 noundef 0) #28
   %128 = fadd double %125, %127
   %129 = fmul double %128, 0x3E10000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %129)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13)
-  %130 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %130 = load ptr, ptr @stdout, align 8, !tbaa !98
   %131 = tail call i32 @fflush(ptr noundef %130)
   br label %.thread105
 
@@ -4088,15 +4088,15 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %134 = sitofp i64 %5 to double
   %135 = fdiv double %134, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %135)
-  %136 = load ptr, ptr %115, align 8, !tbaa !66
+  %136 = load ptr, ptr %115, align 8, !tbaa !67
   %137 = tail call double @sat_solver2_memory_proof(ptr noundef %136) #28
-  %138 = load ptr, ptr %115, align 8, !tbaa !66
+  %138 = load ptr, ptr %115, align 8, !tbaa !67
   %139 = tail call double @sat_solver2_memory(ptr noundef %138, i32 noundef 0) #28
   %140 = fadd double %137, %139
   %141 = fmul double %140, 0x3E10000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %141)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
-  %142 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %142 = load ptr, ptr @stdout, align 8, !tbaa !98
   %143 = tail call i32 @fflush(ptr noundef %142)
   tail call void @free(ptr noundef %.06994115) #28
   %.not77 = icmp eq ptr %.07092116, null
@@ -4191,20 +4191,20 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !61
+  %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !118
+  %7 = load i32, ptr %6, align 4, !tbaa !119
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre81 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !89
+  %.pre81 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !90
   br label %.critedge
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
+  %11 = load ptr, ptr %10, align 8, !tbaa !63
   %.not = icmp eq ptr %11, null
   %12 = shl nsw i32 %5, 1
   %13 = sext i32 %12 to i64
@@ -4213,7 +4213,7 @@ define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) 
 
 15:                                               ; preds = %9
   %16 = tail call ptr @realloc(ptr noundef nonnull %11, i64 noundef %14) #26
-  %.pre = load i32, ptr %6, align 4, !tbaa !118
+  %.pre = load i32, ptr %6, align 4, !tbaa !119
   %.pre84 = shl nsw i32 %.pre, 1
   br label %19
 
@@ -4225,14 +4225,14 @@ define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) 
   %.pre-phi = phi i32 [ %12, %17 ], [ %.pre84, %15 ]
   %20 = phi i32 [ %5, %17 ], [ %.pre, %15 ]
   %21 = phi ptr [ %18, %17 ], [ %16, %15 ]
-  store ptr %21, ptr %10, align 8, !tbaa !62
+  store ptr %21, ptr %10, align 8, !tbaa !63
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %21, i64 %22
   %24 = shl nsw i64 %22, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false)
-  store i32 %.pre-phi, ptr %6, align 4, !tbaa !118
+  store i32 %.pre-phi, ptr %6, align 4, !tbaa !119
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !89
+  %26 = load ptr, ptr %25, align 8, !tbaa !90
   %.not50 = icmp eq ptr %26, null
   br i1 %.not50, label %28, label %27
 
@@ -4242,7 +4242,7 @@ define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) 
 
 28:                                               ; preds = %19, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !90
+  %30 = load i32, ptr %29, align 8, !tbaa !91
   %31 = shl nsw i32 %30, 1
   %32 = add i32 %31, -1
   br label %.loopexit.i
@@ -4255,7 +4255,7 @@ define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) 
   br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
-  br label %.loopexit.i, !llvm.loop !119
+  br label %.loopexit.i, !llvm.loop !120
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %33, 9
@@ -4265,36 +4265,36 @@ define internal fastcc noundef ptr @Vga_ManFindOrAdd(ptr noundef captures(none) 
   %36 = add nuw nsw i32 %.01116.i, 2
   %37 = mul nuw nsw i32 %36, %36
   %.not.i = icmp ugt i32 %37, %33
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !120
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !121
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %35
   %.01116.i = phi i32 [ %36, %35 ], [ 3, %.preheader.i ]
   %38 = urem i32 %33, %.01116.i
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit.i.backedge, label %35, !llvm.loop !119
+  br i1 %39, label %.loopexit.i.backedge, label %35, !llvm.loop !120
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %35
-  store i32 %33, ptr %29, align 8, !tbaa !90
+  store i32 %33, ptr %29, align 8, !tbaa !91
   %40 = sext i32 %33 to i64
   %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #27
-  store ptr %41, ptr %25, align 8, !tbaa !89
-  %42 = load i32, ptr %4, align 8, !tbaa !61
+  store ptr %41, ptr %25, align 8, !tbaa !90
+  %42 = load i32, ptr %4, align 8, !tbaa !62
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_PrimeCudd.exit
-  %44 = load ptr, ptr %10, align 8, !tbaa !62
+  %44 = load ptr, ptr %10, align 8, !tbaa !63
   br label %45
 
 45:                                               ; preds = %.lr.ph, %Vga_ManLookup.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Vga_ManLookup.exit ]
   %46 = getelementptr inbounds nuw %struct.Vta_Obj_t_, ptr %44, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 0, ptr %47, align 4, !tbaa !162
-  %48 = load i32, ptr %46, align 4, !tbaa !64
+  store i32 0, ptr %47, align 4, !tbaa !163
+  %48 = load i32, ptr %46, align 4, !tbaa !65
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !80
-  %51 = load i32, ptr %29, align 8, !tbaa !90
+  %50 = load i32, ptr %49, align 4, !tbaa !81
+  %51 = load i32, ptr %29, align 8, !tbaa !91
   %52 = add nsw i32 %50, %48
   %53 = add nsw i32 %52, 1
   %54 = mul nsw i32 %53, %52
@@ -4310,13 +4310,13 @@ Vta_ManObj.exit.i:                                ; preds = %45, %65
   %.pn70.in = phi i32 [ %67, %65 ], [ %58, %45 ]
   %.pn70 = sext i32 %.pn70.in to i64
   %.01418.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %44, i64 %.pn70
-  %59 = load i32, ptr %.01418.i, align 4, !tbaa !64
+  %59 = load i32, ptr %.01418.i, align 4, !tbaa !65
   %60 = icmp eq i32 %59, %48
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %Vta_ManObj.exit.i
   %62 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !80
+  %63 = load i32, ptr %62, align 4, !tbaa !81
   %64 = icmp eq i32 %63, %50
   br i1 %64, label %Vga_ManLookup.exit, label %65
 
@@ -4331,16 +4331,16 @@ Vga_ManLookup.exit:                               ; preds = %61, %65, %45
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %.0.lcssa.i, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = load i32, ptr %4, align 8, !tbaa !61
+  %69 = load i32, ptr %4, align 8, !tbaa !62
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %45, label %.critedge, !llvm.loop !163
+  br i1 %71, label %45, label %.critedge, !llvm.loop !164
 
 .critedge:                                        ; preds = %Vga_ManLookup.exit, %..critedge_crit_edge, %Abc_PrimeCudd.exit
   %72 = phi i32 [ %5, %..critedge_crit_edge ], [ %42, %Abc_PrimeCudd.exit ], [ %69, %Vga_ManLookup.exit ]
   %73 = phi ptr [ %.pre81, %..critedge_crit_edge ], [ %41, %Abc_PrimeCudd.exit ], [ %41, %Vga_ManLookup.exit ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %75 = load i32, ptr %74, align 8, !tbaa !90
+  %75 = load i32, ptr %74, align 8, !tbaa !91
   %76 = add nsw i32 %2, %1
   %77 = add nsw i32 %76, 1
   %78 = mul nsw i32 %77, %76
@@ -4350,20 +4350,20 @@ Vga_ManLookup.exit:                               ; preds = %61, %65, %45
   %82 = load i32, ptr %81, align 4, !tbaa !10
   %.not.i.i55 = icmp eq i32 %82, 0
   %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8, !tbaa !62
+  %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8, !tbaa !63
   br i1 %.not.i.i55, label %Vga_ManLookup.exit63.thread, label %Vta_ManObj.exit16.i61
 
 Vta_ManObj.exit16.i61:                            ; preds = %.critedge, %89
   %.pr = phi i32 [ %91, %89 ], [ %82, %.critedge ]
   %.pn = sext i32 %.pr to i64
   %.01418.i59 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %.pre83, i64 %.pn
-  %83 = load i32, ptr %.01418.i59, align 4, !tbaa !64
+  %83 = load i32, ptr %.01418.i59, align 4, !tbaa !65
   %84 = icmp eq i32 %83, %1
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %Vta_ManObj.exit16.i61
   %86 = getelementptr inbounds nuw i8, ptr %.01418.i59, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !80
+  %87 = load i32, ptr %86, align 4, !tbaa !81
   %88 = icmp eq i32 %87, %2
   br i1 %88, label %Vta_ManObj.exit, label %89
 
@@ -4380,15 +4380,15 @@ Vga_ManLookup.exit63.thread.loopexit:             ; preds = %89
 Vga_ManLookup.exit63.thread:                      ; preds = %.critedge, %Vga_ManLookup.exit63.thread.loopexit
   %.0.lcssa.i6269 = phi ptr [ %92, %Vga_ManLookup.exit63.thread.loopexit ], [ %81, %.critedge ]
   %93 = add nsw i32 %72, 1
-  store i32 %93, ptr %4, align 8, !tbaa !61
+  store i32 %93, ptr %4, align 8, !tbaa !62
   store i32 %72, ptr %.0.lcssa.i6269, align 4, !tbaa !10
   %.not.i65 = icmp ne i32 %72, 0
   tail call void @llvm.assume(i1 %.not.i65)
   %94 = sext i32 %72 to i64
   %95 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %.pre83, i64 %94
-  store i32 %1, ptr %95, align 4, !tbaa !64
+  store i32 %1, ptr %95, align 4, !tbaa !65
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store i32 %2, ptr %96, align 4, !tbaa !80
+  store i32 %2, ptr %96, align 4, !tbaa !81
   br label %Vta_ManObj.exit
 
 Vta_ManObj.exit:                                  ; preds = %85, %Vga_ManLookup.exit63.thread
@@ -4414,9 +4414,9 @@ define void @Vga_ManLoadSlice(ptr noundef captures(none) %0, ptr noundef readonl
   %.val = load ptr, ptr %6, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !10
-  %12 = load i32, ptr %7, align 4, !tbaa !122
+  %12 = load i32, ptr %7, align 4, !tbaa !123
   %13 = and i32 %12, %11
-  %14 = load i32, ptr %8, align 8, !tbaa !83
+  %14 = load i32, ptr %8, align 8, !tbaa !84
   %15 = ashr i32 %11, %14
   %16 = add nsw i32 %15, %2
   tail call void @Vga_ManAddClausesOne(ptr noundef %0, i32 noundef %13, i32 noundef %16)
@@ -4424,11 +4424,11 @@ define void @Vga_ManLoadSlice(ptr noundef captures(none) %0, ptr noundef readonl
   %.val11 = load i32, ptr %4, align 4, !tbaa !15
   %17 = sext i32 %.val11 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %9, label %.critedge, !llvm.loop !164
+  br i1 %18, label %9, label %.critedge, !llvm.loop !165
 
 .critedge:                                        ; preds = %9, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
   %21 = tail call i32 @sat_solver2_simplify(ptr noundef %20) #28
   ret void
 }
@@ -4451,9 +4451,9 @@ define void @Vga_ManPrintCore(ptr noundef readonly captures(none) %0, ptr nounde
   %.val = load ptr, ptr %6, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !10
-  %12 = load i32, ptr %7, align 4, !tbaa !122
+  %12 = load i32, ptr %7, align 4, !tbaa !123
   %13 = and i32 %12, %11
-  %14 = load i32, ptr %8, align 8, !tbaa !83
+  %14 = load i32, ptr %8, align 8, !tbaa !84
   %15 = ashr i32 %11, %14
   %16 = add nsw i32 %15, %2
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %13, i32 noundef %16)
@@ -4461,7 +4461,7 @@ define void @Vga_ManPrintCore(ptr noundef readonly captures(none) %0, ptr nounde
   %.val11 = load i32, ptr %4, align 4, !tbaa !15
   %17 = sext i32 %.val11 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %9, label %.critedge, !llvm.loop !165
+  br i1 %18, label %9, label %.critedge, !llvm.loop !166
 
 .critedge:                                        ; preds = %9, %3
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
@@ -4471,11 +4471,11 @@ define void @Vga_ManPrintCore(ptr noundef readonly captures(none) %0, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @Vga_ManRollBack(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !61
+  %8 = load i32, ptr %7, align 8, !tbaa !62
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %4, i64 %9
   %11 = icmp slt i32 %1, %8
@@ -4483,16 +4483,16 @@ define void @Vga_ManRollBack(ptr noundef captures(none) %0, i32 noundef %1) loca
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !90
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %15
 
 15:                                               ; preds = %.lr.ph, %Vga_ManDelete.exit
   %.028 = phi ptr [ %6, %.lr.ph ], [ %36, %Vga_ManDelete.exit ]
-  %16 = load i32, ptr %.028, align 4, !tbaa !64
+  %16 = load i32, ptr %.028, align 4, !tbaa !65
   %17 = getelementptr inbounds nuw i8, ptr %.028, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !80
-  %19 = load i32, ptr %14, align 8, !tbaa !90
+  %18 = load i32, ptr %17, align 4, !tbaa !81
+  %19 = load i32, ptr %14, align 8, !tbaa !91
   %20 = add nsw i32 %18, %16
   %21 = add nsw i32 %20, 1
   %22 = mul nsw i32 %21, %20
@@ -4508,13 +4508,13 @@ define void @Vga_ManRollBack(ptr noundef captures(none) %0, i32 noundef %1) loca
   tail call void @llvm.assume(i1 %.not.i15.i.i)
   %.pn.i = sext i32 %.sink to i64
   %.01418.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %4, i64 %.pn.i
-  %27 = load i32, ptr %.01418.i.i, align 4, !tbaa !64
+  %27 = load i32, ptr %.01418.i.i, align 4, !tbaa !65
   %28 = icmp eq i32 %27, %16
   br i1 %28, label %29, label %Vta_ManObj.exit16.i.i
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !80
+  %31 = load i32, ptr %30, align 4, !tbaa !81
   %32 = icmp eq i32 %31, %18
   br i1 %32, label %Vga_ManDelete.exit, label %Vta_ManObj.exit16.i.i
 
@@ -4524,15 +4524,15 @@ Vta_ManObj.exit16.i.i:                            ; preds = %29, %26
 
 Vga_ManDelete.exit:                               ; preds = %29
   %34 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %4, i64 %.pn.i, i32 2
-  %35 = load i32, ptr %34, align 4, !tbaa !162
+  %35 = load i32, ptr %34, align 4, !tbaa !163
   store i32 %35, ptr %.019.i.i, align 4, !tbaa !10
-  store i32 -1, ptr %34, align 4, !tbaa !162
+  store i32 -1, ptr %34, align 4, !tbaa !163
   %36 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %37 = icmp ult ptr %36, %10
-  br i1 %37, label %15, label %._crit_edge.loopexit, !llvm.loop !166
+  br i1 %37, label %15, label %._crit_edge.loopexit, !llvm.loop !167
 
 ._crit_edge.loopexit:                             ; preds = %Vga_ManDelete.exit
-  %.pre = load i32, ptr %7, align 8, !tbaa !61
+  %.pre = load i32, ptr %7, align 8, !tbaa !62
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -4541,9 +4541,9 @@ Vga_ManDelete.exit:                               ; preds = %29
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %41, i1 false)
-  store i32 %1, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %7, align 8, !tbaa !62
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %43 = load ptr, ptr %42, align 8, !tbaa !116
+  %43 = load ptr, ptr %42, align 8, !tbaa !117
   %44 = getelementptr i8, ptr %43, i64 4
   %.val2729 = load i32, ptr %44, align 4, !tbaa !15
   %45 = icmp sgt i32 %.val2729, 0
@@ -4556,20 +4556,20 @@ Vga_ManDelete.exit:                               ; preds = %29
   %.val = load ptr, ptr %47, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !10
-  %50 = load i32, ptr %7, align 8, !tbaa !61
+  %50 = load i32, ptr %7, align 8, !tbaa !62
   %51 = icmp slt i32 %49, %50
   br i1 %51, label %Vta_ManObj.exit, label %57
 
 Vta_ManObj.exit:                                  ; preds = %.lr.ph32
   %.not.i = icmp ne i32 %49, 0
   tail call void @llvm.assume(i1 %.not.i)
-  %52 = load ptr, ptr %3, align 8, !tbaa !62
+  %52 = load ptr, ptr %3, align 8, !tbaa !63
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %52, i64 %53, i32 3
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, -1073741825
   store i32 %56, ptr %54, align 4
-  %.pre34 = load ptr, ptr %42, align 8, !tbaa !116
+  %.pre34 = load ptr, ptr %42, align 8, !tbaa !117
   br label %57
 
 57:                                               ; preds = %.lr.ph32, %Vta_ManObj.exit
@@ -4579,7 +4579,7 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph32
   %.val27 = load i32, ptr %59, align 4, !tbaa !15
   %60 = sext i32 %.val27 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph32, label %.critedge, !llvm.loop !167
+  br i1 %61, label %.lr.ph32, label %.critedge, !llvm.loop !168
 
 .critedge:                                        ; preds = %57, %._crit_edge
   ret void
@@ -4590,9 +4590,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_VtaSendAbsracted(ptr noundef readonly captures(none) %0, i32 %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
-  %5 = load ptr, ptr %4, align 8, !tbaa !160
+  %5 = load ptr, ptr %4, align 8, !tbaa !161
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Vec_IntFreeP.exit, label %7
 
@@ -4604,7 +4604,7 @@ define void @Gia_VtaSendAbsracted(ptr noundef readonly captures(none) %0, i32 %1
 
 .thread.i:                                        ; preds = %7
   tail call void @free(ptr noundef nonnull %9) #28
-  %10 = load ptr, ptr %4, align 8, !tbaa !160
+  %10 = load ptr, ptr %4, align 8, !tbaa !161
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %11, align 8, !tbaa !3
   br label %12
@@ -4612,18 +4612,18 @@ define void @Gia_VtaSendAbsracted(ptr noundef readonly captures(none) %0, i32 %1
 12:                                               ; preds = %.thread.i, %7
   %13 = phi ptr [ %10, %.thread.i ], [ %5, %7 ]
   tail call void @free(ptr noundef nonnull %13) #28
-  store ptr null, ptr %4, align 8, !tbaa !160
+  store ptr null, ptr %4, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !130
+  %15 = load ptr, ptr %14, align 8, !tbaa !131
   %16 = tail call ptr @Gia_VtaFramesToAbs(ptr noundef %15)
-  %17 = load ptr, ptr %0, align 8, !tbaa !30
+  %17 = load ptr, ptr %0, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 456
-  store ptr %16, ptr %18, align 8, !tbaa !148
+  store ptr %16, ptr %18, align 8, !tbaa !149
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 448
-  %20 = load ptr, ptr %19, align 8, !tbaa !160
+  %20 = load ptr, ptr %19, align 8, !tbaa !161
   %21 = icmp eq ptr %20, null
   br i1 %21, label %Vec_IntFreeP.exit15, label %22
 
@@ -4635,7 +4635,7 @@ Vec_IntFreeP.exit:                                ; preds = %2, %12
 
 .thread.i14:                                      ; preds = %22
   tail call void @free(ptr noundef nonnull %24) #28
-  %25 = load ptr, ptr %19, align 8, !tbaa !160
+  %25 = load ptr, ptr %19, align 8, !tbaa !161
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %26, align 8, !tbaa !3
   br label %27
@@ -4643,21 +4643,21 @@ Vec_IntFreeP.exit:                                ; preds = %2, %12
 27:                                               ; preds = %.thread.i14, %22
   %28 = phi ptr [ %25, %.thread.i14 ], [ %20, %22 ]
   tail call void @free(ptr noundef nonnull %28) #28
-  store ptr null, ptr %19, align 8, !tbaa !160
-  %.pre = load ptr, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %19, align 8, !tbaa !161
+  %.pre = load ptr, ptr %0, align 8, !tbaa !31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 456
-  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !148
+  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !149
   br label %Vec_IntFreeP.exit15
 
 Vec_IntFreeP.exit15:                              ; preds = %Vec_IntFreeP.exit, %27
   %29 = phi ptr [ %16, %Vec_IntFreeP.exit ], [ %.pre22, %27 ]
   %30 = phi ptr [ %17, %Vec_IntFreeP.exit ], [ %.pre, %27 ]
   %31 = tail call ptr @Gia_VtaConvertToGla(ptr noundef nonnull %30, ptr noundef %29) #28
-  %32 = load ptr, ptr %0, align 8, !tbaa !30
+  %32 = load ptr, ptr %0, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  store ptr %31, ptr %33, align 8, !tbaa !168
+  store ptr %31, ptr %33, align 8, !tbaa !169
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 456
-  %35 = load ptr, ptr %34, align 8, !tbaa !160
+  %35 = load ptr, ptr %34, align 8, !tbaa !161
   %36 = icmp eq ptr %35, null
   br i1 %36, label %Vec_IntFreeP.exit18, label %37
 
@@ -4669,7 +4669,7 @@ Vec_IntFreeP.exit15:                              ; preds = %Vec_IntFreeP.exit, 
 
 .thread.i17:                                      ; preds = %37
   tail call void @free(ptr noundef nonnull %39) #28
-  %40 = load ptr, ptr %34, align 8, !tbaa !160
+  %40 = load ptr, ptr %34, align 8, !tbaa !161
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %41, align 8, !tbaa !3
   br label %42
@@ -4677,19 +4677,19 @@ Vec_IntFreeP.exit15:                              ; preds = %Vec_IntFreeP.exit, 
 42:                                               ; preds = %.thread.i17, %37
   %43 = phi ptr [ %40, %.thread.i17 ], [ %35, %37 ]
   tail call void @free(ptr noundef nonnull %43) #28
-  store ptr null, ptr %34, align 8, !tbaa !160
-  %.pre23 = load ptr, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %34, align 8, !tbaa !161
+  %.pre23 = load ptr, ptr %0, align 8, !tbaa !31
   %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %.pre23, i64 448
-  %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !tbaa !168
+  %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !tbaa !169
   br label %Vec_IntFreeP.exit18
 
 Vec_IntFreeP.exit18:                              ; preds = %Vec_IntFreeP.exit15, %42
   %44 = phi ptr [ %31, %Vec_IntFreeP.exit15 ], [ %.pre25, %42 ]
   %45 = phi ptr [ %32, %Vec_IntFreeP.exit15 ], [ %.pre23, %42 ]
   %46 = tail call ptr @Gia_ManDupAbsGates(ptr noundef nonnull %45, ptr noundef %44) #28
-  %47 = load ptr, ptr %0, align 8, !tbaa !30
+  %47 = load ptr, ptr %0, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 448
-  %49 = load ptr, ptr %48, align 8, !tbaa !160
+  %49 = load ptr, ptr %48, align 8, !tbaa !161
   %50 = icmp eq ptr %49, null
   br i1 %50, label %Vec_IntFreeP.exit21, label %51
 
@@ -4701,7 +4701,7 @@ Vec_IntFreeP.exit18:                              ; preds = %Vec_IntFreeP.exit15
 
 .thread.i20:                                      ; preds = %51
   tail call void @free(ptr noundef nonnull %53) #28
-  %54 = load ptr, ptr %48, align 8, !tbaa !160
+  %54 = load ptr, ptr %48, align 8, !tbaa !161
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr null, ptr %55, align 8, !tbaa !3
   br label %56
@@ -4709,11 +4709,11 @@ Vec_IntFreeP.exit18:                              ; preds = %Vec_IntFreeP.exit15
 56:                                               ; preds = %.thread.i20, %51
   %57 = phi ptr [ %54, %.thread.i20 ], [ %49, %51 ]
   tail call void @free(ptr noundef nonnull %57) #28
-  store ptr null, ptr %48, align 8, !tbaa !160
+  store ptr null, ptr %48, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit21
 
 Vec_IntFreeP.exit21:                              ; preds = %Vec_IntFreeP.exit18, %56
-  %58 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %58 = load ptr, ptr @stdout, align 8, !tbaa !98
   %59 = tail call i32 @Gia_ManToBridgeAbsNetlist(ptr noundef %58, ptr noundef %46, i32 noundef 107) #28
   tail call void @Gia_ManStop(ptr noundef %46) #28
   ret void
@@ -4729,7 +4729,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_VtaSendCancel(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !98
   %4 = tail call i32 @Gia_ManToBridgeBadAbs(ptr noundef %3) #28
   ret void
 }
@@ -4739,9 +4739,9 @@ declare i32 @Gia_ManToBridgeBadAbs(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @Gia_VtaDumpAbsracted(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
+  %6 = load ptr, ptr %5, align 8, !tbaa !170
   %.not = icmp eq ptr %6, null
   %.str.16. = select i1 %.not, ptr @.str.16, ptr %6
   %.not18 = icmp eq i32 %1, 0
@@ -4752,9 +4752,9 @@ define void @Gia_VtaDumpAbsracted(ptr noundef readonly captures(none) %0, i32 no
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load ptr, ptr %0, align 8, !tbaa !30
+  %9 = load ptr, ptr %0, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 456
-  %11 = load ptr, ptr %10, align 8, !tbaa !160
+  %11 = load ptr, ptr %10, align 8, !tbaa !161
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Vec_IntFreeP.exit, label %13
 
@@ -4766,7 +4766,7 @@ define void @Gia_VtaDumpAbsracted(ptr noundef readonly captures(none) %0, i32 no
 
 .thread.i:                                        ; preds = %13
   tail call void @free(ptr noundef nonnull %15) #28
-  %16 = load ptr, ptr %10, align 8, !tbaa !160
+  %16 = load ptr, ptr %10, align 8, !tbaa !161
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %17, align 8, !tbaa !3
   br label %18
@@ -4774,18 +4774,18 @@ define void @Gia_VtaDumpAbsracted(ptr noundef readonly captures(none) %0, i32 no
 18:                                               ; preds = %.thread.i, %13
   %19 = phi ptr [ %16, %.thread.i ], [ %11, %13 ]
   tail call void @free(ptr noundef nonnull %19) #28
-  store ptr null, ptr %10, align 8, !tbaa !160
+  store ptr null, ptr %10, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !130
+  %21 = load ptr, ptr %20, align 8, !tbaa !131
   %22 = tail call ptr @Gia_VtaFramesToAbs(ptr noundef %21)
-  %23 = load ptr, ptr %0, align 8, !tbaa !30
+  %23 = load ptr, ptr %0, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 456
-  store ptr %22, ptr %24, align 8, !tbaa !148
+  store ptr %22, ptr %24, align 8, !tbaa !149
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 448
-  %26 = load ptr, ptr %25, align 8, !tbaa !160
+  %26 = load ptr, ptr %25, align 8, !tbaa !161
   %27 = icmp eq ptr %26, null
   br i1 %27, label %Vec_IntFreeP.exit21, label %28
 
@@ -4797,7 +4797,7 @@ Vec_IntFreeP.exit:                                ; preds = %8, %18
 
 .thread.i20:                                      ; preds = %28
   tail call void @free(ptr noundef nonnull %30) #28
-  %31 = load ptr, ptr %25, align 8, !tbaa !160
+  %31 = load ptr, ptr %25, align 8, !tbaa !161
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8, !tbaa !3
   br label %33
@@ -4805,21 +4805,21 @@ Vec_IntFreeP.exit:                                ; preds = %8, %18
 33:                                               ; preds = %.thread.i20, %28
   %34 = phi ptr [ %31, %.thread.i20 ], [ %26, %28 ]
   tail call void @free(ptr noundef nonnull %34) #28
-  store ptr null, ptr %25, align 8, !tbaa !160
-  %.pre = load ptr, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %25, align 8, !tbaa !161
+  %.pre = load ptr, ptr %0, align 8, !tbaa !31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 456
-  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !148
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !149
   br label %Vec_IntFreeP.exit21
 
 Vec_IntFreeP.exit21:                              ; preds = %Vec_IntFreeP.exit, %33
   %35 = phi ptr [ %22, %Vec_IntFreeP.exit ], [ %.pre28, %33 ]
   %36 = phi ptr [ %23, %Vec_IntFreeP.exit ], [ %.pre, %33 ]
   %37 = tail call ptr @Gia_VtaConvertToGla(ptr noundef nonnull %36, ptr noundef %35) #28
-  %38 = load ptr, ptr %0, align 8, !tbaa !30
+  %38 = load ptr, ptr %0, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 448
-  store ptr %37, ptr %39, align 8, !tbaa !168
+  store ptr %37, ptr %39, align 8, !tbaa !169
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 456
-  %41 = load ptr, ptr %40, align 8, !tbaa !160
+  %41 = load ptr, ptr %40, align 8, !tbaa !161
   %42 = icmp eq ptr %41, null
   br i1 %42, label %Vec_IntFreeP.exit24, label %43
 
@@ -4831,7 +4831,7 @@ Vec_IntFreeP.exit21:                              ; preds = %Vec_IntFreeP.exit, 
 
 .thread.i23:                                      ; preds = %43
   tail call void @free(ptr noundef nonnull %45) #28
-  %46 = load ptr, ptr %40, align 8, !tbaa !160
+  %46 = load ptr, ptr %40, align 8, !tbaa !161
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr null, ptr %47, align 8, !tbaa !3
   br label %48
@@ -4839,19 +4839,19 @@ Vec_IntFreeP.exit21:                              ; preds = %Vec_IntFreeP.exit, 
 48:                                               ; preds = %.thread.i23, %43
   %49 = phi ptr [ %46, %.thread.i23 ], [ %41, %43 ]
   tail call void @free(ptr noundef nonnull %49) #28
-  store ptr null, ptr %40, align 8, !tbaa !160
-  %.pre29 = load ptr, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %40, align 8, !tbaa !161
+  %.pre29 = load ptr, ptr %0, align 8, !tbaa !31
   %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %.pre29, i64 448
-  %.pre31 = load ptr, ptr %.phi.trans.insert30, align 8, !tbaa !168
+  %.pre31 = load ptr, ptr %.phi.trans.insert30, align 8, !tbaa !169
   br label %Vec_IntFreeP.exit24
 
 Vec_IntFreeP.exit24:                              ; preds = %Vec_IntFreeP.exit21, %48
   %50 = phi ptr [ %37, %Vec_IntFreeP.exit21 ], [ %.pre31, %48 ]
   %51 = phi ptr [ %38, %Vec_IntFreeP.exit21 ], [ %.pre29, %48 ]
   %52 = tail call ptr @Gia_ManDupAbsGates(ptr noundef nonnull %51, ptr noundef %50) #28
-  %53 = load ptr, ptr %0, align 8, !tbaa !30
+  %53 = load ptr, ptr %0, align 8, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 448
-  %55 = load ptr, ptr %54, align 8, !tbaa !160
+  %55 = load ptr, ptr %54, align 8, !tbaa !161
   %56 = icmp eq ptr %55, null
   br i1 %56, label %Vec_IntFreeP.exit27, label %57
 
@@ -4863,7 +4863,7 @@ Vec_IntFreeP.exit24:                              ; preds = %Vec_IntFreeP.exit21
 
 .thread.i26:                                      ; preds = %57
   tail call void @free(ptr noundef nonnull %59) #28
-  %60 = load ptr, ptr %54, align 8, !tbaa !160
+  %60 = load ptr, ptr %54, align 8, !tbaa !161
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr null, ptr %61, align 8, !tbaa !3
   br label %62
@@ -4871,7 +4871,7 @@ Vec_IntFreeP.exit24:                              ; preds = %Vec_IntFreeP.exit21
 62:                                               ; preds = %.thread.i26, %57
   %63 = phi ptr [ %60, %.thread.i26 ], [ %55, %57 ]
   tail call void @free(ptr noundef nonnull %63) #28
-  store ptr null, ptr %54, align 8, !tbaa !160
+  store ptr null, ptr %54, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit27
 
 Vec_IntFreeP.exit27:                              ; preds = %Vec_IntFreeP.exit24, %62
@@ -4884,23 +4884,23 @@ declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_VtaPrintMemory(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !30
+  %2 = load ptr, ptr %0, align 8, !tbaa !31
   %3 = getelementptr i8, ptr %2, i64 24
-  %.val = load i32, ptr %3, align 8, !tbaa !121
+  %.val = load i32, ptr %3, align 8, !tbaa !122
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = tail call double @sat_solver2_memory(ptr noundef %5, i32 noundef 1) #28
-  %7 = load ptr, ptr %4, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !67
   %8 = tail call double @sat_solver2_memory_proof(ptr noundef %7) #28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !118
+  %10 = load i32, ptr %9, align 4, !tbaa !119
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !90
+  %12 = load i32, ptr %11, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !92
+  %14 = load ptr, ptr %13, align 8, !tbaa !93
   %.val44 = load i32, ptr %14, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !149
+  %16 = load ptr, ptr %15, align 8, !tbaa !150
   %17 = icmp eq ptr %16, null
   br i1 %17, label %Vec_VecMemoryInt.exit, label %18
 
@@ -4940,15 +4940,15 @@ Vec_IntMemory.exit.i:                             ; preds = %26
   %.1.i = phi double [ %33, %Vec_IntMemory.exit.i ], [ %.017.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_VecMemoryInt.exit, label %26, !llvm.loop !170
+  br i1 %exitcond.not.i, label %Vec_VecMemoryInt.exit, label %26, !llvm.loop !171
 
 Vec_VecMemoryInt.exit:                            ; preds = %34, %1, %18
   %.012.i = phi double [ 0.000000e+00, %1 ], [ %21, %18 ], [ %.1.i, %34 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !127
-  %.val46 = load i32, ptr %36, align 8, !tbaa !123
+  %36 = load ptr, ptr %35, align 8, !tbaa !128
+  %.val46 = load i32, ptr %36, align 8, !tbaa !124
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load ptr, ptr %37, align 8, !tbaa !130
+  %38 = load ptr, ptr %37, align 8, !tbaa !131
   %39 = icmp eq ptr %38, null
   br i1 %39, label %Vec_VecMemoryInt.exit59, label %40
 
@@ -4988,7 +4988,7 @@ Vec_IntMemory.exit.i55:                           ; preds = %48
   %.1.i56 = phi double [ %55, %Vec_IntMemory.exit.i55 ], [ %.017.i53, %48 ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i51
-  br i1 %exitcond.not.i58, label %Vec_VecMemoryInt.exit59, label %48, !llvm.loop !170
+  br i1 %exitcond.not.i58, label %Vec_VecMemoryInt.exit59, label %48, !llvm.loop !171
 
 Vec_VecMemoryInt.exit59:                          ; preds = %56, %Vec_VecMemoryInt.exit, %40
   %.012.i48 = phi double [ 0.000000e+00, %Vec_VecMemoryInt.exit ], [ %43, %40 ], [ %.1.i56, %56 ]
@@ -5012,7 +5012,7 @@ Vec_VecMemoryInt.exit59:                          ; preds = %56, %Vec_VecMemoryI
   %74 = uitofp i64 %73 to double
   %75 = fadd double %65, %.012.i48
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %77 = load ptr, ptr %76, align 8, !tbaa !116
+  %77 = load ptr, ptr %76, align 8, !tbaa !117
   %.val45 = load i32, ptr %77, align 8, !tbaa !16
   %78 = sext i32 %.val45 to i64
   %79 = shl nsw i64 %78, 2
@@ -5103,10 +5103,10 @@ define range(i32 -1, 2) i32 @Gia_VtaPerformInt(ptr noundef %0, ptr noundef %1) l
   br i1 %35, label %Abc_Clock.exit, label %36
 
 36:                                               ; preds = %2
-  %37 = load i64, ptr %30, align 8, !tbaa !171
+  %37 = load i64, ptr %30, align 8, !tbaa !172
   %38 = mul nsw i64 %37, 1000000
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !173
+  %40 = load i64, ptr %39, align 8, !tbaa !174
   %41 = sdiv i64 %40, 1000
   %42 = add nsw i64 %41, %38
   br label %Abc_Clock.exit
@@ -5115,9 +5115,9 @@ Abc_Clock.exit:                                   ; preds = %2, %36
   %.0.i = phi i64 [ %42, %36 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #28
   %43 = getelementptr i8, ptr %0, i64 32
-  %.val276 = load ptr, ptr %43, align 8, !tbaa !63
+  %.val276 = load ptr, ptr %43, align 8, !tbaa !64
   %44 = getelementptr i8, ptr %0, i64 72
-  %.val277 = load ptr, ptr %44, align 8, !tbaa !91
+  %.val277 = load ptr, ptr %44, align 8, !tbaa !92
   %45 = getelementptr i8, ptr %.val277, i64 8
   %.val277.val = load ptr, ptr %45, align 8, !tbaa !3
   %.val277.val.val = load i32, ptr %.val277.val, align 4, !tbaa !10
@@ -5143,31 +5143,31 @@ Abc_Clock.exit:                                   ; preds = %2, %36
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %58 = load ptr, ptr %57, align 8, !tbaa !174
+  %58 = load ptr, ptr %57, align 8, !tbaa !175
   %.not264 = icmp eq ptr %58, null
   br i1 %.not264, label %60, label %59
 
 59:                                               ; preds = %56
   call void @free(ptr noundef nonnull %58) #28
-  store ptr null, ptr %57, align 8, !tbaa !174
+  store ptr null, ptr %57, align 8, !tbaa !175
   br label %60
 
 60:                                               ; preds = %56, %59
   %61 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %61, align 8, !tbaa !40
+  %.val = load i32, ptr %61, align 8, !tbaa !41
   %62 = getelementptr i8, ptr %0, i64 64
-  %.val269 = load ptr, ptr %62, align 8, !tbaa !54
+  %.val269 = load ptr, ptr %62, align 8, !tbaa !55
   %63 = getelementptr i8, ptr %.val269, i64 4
   %.val269.val = load i32, ptr %63, align 4, !tbaa !15
   %64 = sub nsw i32 %.val269.val, %.val
   %65 = call ptr @Abc_CexMakeTriv(i32 noundef %.val, i32 noundef %64, i32 noundef 1, i32 noundef 0) #28
-  store ptr %65, ptr %57, align 8, !tbaa !174
+  store ptr %65, ptr %57, align 8, !tbaa !175
   %puts265 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %1188
 
 66:                                               ; preds = %Abc_Clock.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %68 = load ptr, ptr %67, align 8, !tbaa !148
+  %68 = load ptr, ptr %67, align 8, !tbaa !149
   %69 = icmp eq ptr %68, null
   br i1 %69, label %Vec_IntPush.exit311, label %82
 
@@ -5178,7 +5178,7 @@ Vec_IntPush.exit311:                              ; preds = %66
   %72 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %72, ptr %73, align 8, !tbaa !3
-  store ptr %70, ptr %67, align 8, !tbaa !148
+  store ptr %70, ptr %67, align 8, !tbaa !149
   store i32 1, ptr %72, align 4, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 3, ptr %74, align 4, !tbaa !10
@@ -5201,15 +5201,15 @@ Vec_IntPush.exit311:                              ; preds = %66
 82:                                               ; preds = %Vec_IntPush.exit311, %66
   %83 = call ptr @Vga_ManStart(ptr noundef nonnull %0, ptr noundef %1)
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !55
+  %85 = load ptr, ptr %84, align 8, !tbaa !56
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %87 = load i32, ptr %86, align 8, !tbaa !175
+  %87 = load i32, ptr %86, align 8, !tbaa !176
   %.not234 = icmp eq i32 %87, 0
   br i1 %.not234, label %104, label %88
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 120
-  %90 = load ptr, ptr %89, align 8, !tbaa !66
+  %90 = load ptr, ptr %89, align 8, !tbaa !67
   %91 = sext i32 %87 to i64
   %92 = mul nsw i64 %91, 1000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #28
@@ -5218,10 +5218,10 @@ Vec_IntPush.exit311:                              ; preds = %66
   br i1 %94, label %Abc_Clock.exit313, label %95
 
 95:                                               ; preds = %88
-  %96 = load i64, ptr %29, align 8, !tbaa !171
+  %96 = load i64, ptr %29, align 8, !tbaa !172
   %97 = mul nsw i64 %96, 1000000
   %98 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !173
+  %99 = load i64, ptr %98, align 8, !tbaa !174
   %100 = sdiv i64 %99, 1000
   %101 = add nsw i64 %100, %97
   br label %Abc_Clock.exit313
@@ -5231,43 +5231,43 @@ Abc_Clock.exit313:                                ; preds = %88, %95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #28
   %102 = add nsw i64 %.0.i312, %92
   %103 = getelementptr inbounds nuw i8, ptr %90, i64 608
-  store i64 %102, ptr %103, align 8, !tbaa !176
-  %.pre = load ptr, ptr %84, align 8, !tbaa !55
+  store i64 %102, ptr %103, align 8, !tbaa !177
+  %.pre = load ptr, ptr %84, align 8, !tbaa !56
   br label %104
 
 104:                                              ; preds = %Abc_Clock.exit313, %82
   %105 = phi ptr [ %.pre, %Abc_Clock.exit313 ], [ %85, %82 ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
-  %107 = load i32, ptr %106, align 8, !tbaa !150
+  %107 = load i32, ptr %106, align 8, !tbaa !151
   %.not235 = icmp eq i32 %107, 0
   br i1 %.not235, label %124, label %108
 
 108:                                              ; preds = %104
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28)
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %110 = load i32, ptr %109, align 8, !tbaa !177
-  %111 = load i32, ptr %1, align 8, !tbaa !178
+  %110 = load i32, ptr %109, align 8, !tbaa !178
+  %111 = load i32, ptr %1, align 8, !tbaa !179
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !179
+  %113 = load i32, ptr %112, align 4, !tbaa !180
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %115 = load i32, ptr %114, align 8, !tbaa !175
+  %115 = load i32, ptr %114, align 8, !tbaa !176
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %117 = load i32, ptr %116, align 4, !tbaa !180
+  %117 = load i32, ptr %116, align 4, !tbaa !181
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.29, i32 noundef %110, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %119 = load i32, ptr %118, align 4, !tbaa !141
+  %119 = load i32, ptr %118, align 4, !tbaa !142
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %121 = load i32, ptr %120, align 8, !tbaa !143
+  %121 = load i32, ptr %120, align 8, !tbaa !144
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %123 = load i32, ptr %122, align 4, !tbaa !145
+  %123 = load i32, ptr %122, align 4, !tbaa !146
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.30, i32 noundef %119, i32 noundef %121, i32 noundef %123)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.31)
-  %.pre623 = load ptr, ptr %84, align 8, !tbaa !55
+  %.pre623 = load ptr, ptr %84, align 8, !tbaa !56
   br label %124
 
 124:                                              ; preds = %108, %104
   %125 = phi ptr [ %.pre623, %108 ], [ %105, %104 ]
-  %126 = load i32, ptr %125, align 8, !tbaa !178
+  %126 = load i32, ptr %125, align 8, !tbaa !179
   %or.cond266584 = icmp sgt i32 %126, -1
   br i1 %or.cond266584, label %.critedge.lr.ph, label %.thread
 
@@ -5311,21 +5311,21 @@ Abc_Clock.exit313:                                ; preds = %88, %95
   %159 = phi ptr [ %125, %.critedge.lr.ph ], [ %868, %Vga_ManRollBack.exit ]
   %.0211587 = phi i32 [ 0, %.critedge.lr.ph ], [ %.2, %Vga_ManRollBack.exit ]
   %.0212586 = phi i32 [ 0, %.critedge.lr.ph ], [ %.2214, %Vga_ManRollBack.exit ]
-  %160 = load ptr, ptr %127, align 8, !tbaa !66
+  %160 = load ptr, ptr %127, align 8, !tbaa !67
   %161 = getelementptr i8, ptr %160, i64 560
-  %.val286 = load i64, ptr %161, align 8, !tbaa !153
+  %.val286 = load i64, ptr %161, align 8, !tbaa !154
   %162 = trunc i64 %.val286 to i32
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 120
   %164 = trunc nuw nsw i64 %indvars.iv619 to i32
-  store i32 %164, ptr %163, align 8, !tbaa !56
-  %165 = load i32, ptr %128, align 8, !tbaa !87
+  store i32 %164, ptr %163, align 8, !tbaa !57
+  %165 = load i32, ptr %128, align 8, !tbaa !88
   %166 = shl nsw i32 %165, 5
   %167 = zext i32 %166 to i64
   %168 = icmp eq i64 %indvars.iv619, %167
   br i1 %168, label %169, label %191
 
 169:                                              ; preds = %.critedge
-  %170 = load ptr, ptr %129, align 8, !tbaa !86
+  %170 = load ptr, ptr %129, align 8, !tbaa !87
   %171 = getelementptr i8, ptr %170, i64 4
   %.val28.i = load i32, ptr %171, align 4, !tbaa !15
   %172 = shl nsw i32 %.val28.i, 1
@@ -5384,7 +5384,7 @@ Abc_Clock.exit313:                                ; preds = %88, %95
   call void @free(ptr noundef nonnull %179) #28
   %.pre.i314 = load i32, ptr %171, align 4, !tbaa !15
   %.pre41.i = shl nsw i32 %.pre.i314, 1
-  %.pre625.pre = load ptr, ptr %127, align 8, !tbaa !66
+  %.pre625.pre = load ptr, ptr %127, align 8, !tbaa !67
   br label %Vec_IntDoubleWidth.exit
 
 Vec_IntDoubleWidth.exit:                          ; preds = %._crit_edge32.i, %188
@@ -5394,39 +5394,39 @@ Vec_IntDoubleWidth.exit:                          ; preds = %._crit_edge32.i, %1
   store ptr %174, ptr %190, align 8, !tbaa !3
   store i32 %.pre-phi.i, ptr %171, align 4, !tbaa !15
   store i32 %.pre-phi.i, ptr %170, align 8, !tbaa !16
-  store i32 %factor.op.mul30.i, ptr %128, align 8, !tbaa !87
+  store i32 %factor.op.mul30.i, ptr %128, align 8, !tbaa !88
   br label %191
 
 191:                                              ; preds = %Vec_IntDoubleWidth.exit, %.critedge
   %192 = phi ptr [ %.pre625, %Vec_IntDoubleWidth.exit ], [ %160, %.critedge ]
-  %193 = load i32, ptr %130, align 8, !tbaa !61
-  %194 = load i32, ptr %192, align 8, !tbaa !151
+  %193 = load i32, ptr %130, align 8, !tbaa !62
+  %194 = load i32, ptr %192, align 8, !tbaa !152
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 216
-  store i32 %194, ptr %195, align 8, !tbaa !181
+  store i32 %194, ptr %195, align 8, !tbaa !182
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %197 = load i32, ptr %196, align 8, !tbaa !182
+  %197 = load i32, ptr %196, align 8, !tbaa !183
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 220
-  store i32 %197, ptr %198, align 4, !tbaa !183
+  store i32 %197, ptr %198, align 4, !tbaa !184
   %199 = getelementptr inbounds nuw i8, ptr %192, i64 456
-  %200 = load ptr, ptr %199, align 8, !tbaa !140
+  %200 = load ptr, ptr %199, align 8, !tbaa !141
   %.not.i315 = icmp eq ptr %200, null
   br i1 %.not.i315, label %214, label %201
 
 201:                                              ; preds = %191
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 12
-  %203 = load i32, ptr %202, align 4, !tbaa !184
-  %204 = load i32, ptr %200, align 8, !tbaa !131
+  %203 = load i32, ptr %202, align 4, !tbaa !185
+  %204 = load i32, ptr %200, align 8, !tbaa !132
   %205 = shl i32 %203, %204
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %207 = load ptr, ptr %206, align 8, !tbaa !136
+  %207 = load ptr, ptr %206, align 8, !tbaa !137
   %208 = sext i32 %203 to i64
   %209 = getelementptr inbounds ptr, ptr %207, i64 %208
-  %210 = load ptr, ptr %209, align 8, !tbaa !137
-  %.val.i.i = load i64, ptr %210, align 8, !tbaa !139
+  %210 = load ptr, ptr %209, align 8, !tbaa !138
+  %.val.i.i = load i64, ptr %210, align 8, !tbaa !140
   %211 = trunc i64 %.val.i.i to i32
   %212 = add nsw i32 %205, %211
   %213 = getelementptr inbounds nuw i8, ptr %192, i64 224
-  store i32 %212, ptr %213, align 8, !tbaa !185
+  store i32 %212, ptr %213, align 8, !tbaa !186
   br label %214
 
 214:                                              ; preds = %201, %191
@@ -5441,13 +5441,13 @@ Vec_IntDoubleWidth.exit:                          ; preds = %._crit_edge32.i, %1
   %221 = getelementptr inbounds nuw i8, ptr %192, i64 144
   %222 = load i32, ptr %221, align 4, !tbaa !10
   %223 = getelementptr inbounds nuw i8, ptr %192, i64 152
-  %224 = load i32, ptr %223, align 8, !tbaa !186
+  %224 = load i32, ptr %223, align 8, !tbaa !187
   %225 = shl i32 %222, %224
   %226 = getelementptr inbounds nuw i8, ptr %192, i64 168
-  %227 = load ptr, ptr %226, align 8, !tbaa !187
+  %227 = load ptr, ptr %226, align 8, !tbaa !188
   %228 = sext i32 %222 to i64
   %229 = getelementptr inbounds ptr, ptr %227, i64 %228
-  %230 = load ptr, ptr %229, align 8, !tbaa !188
+  %230 = load ptr, ptr %229, align 8, !tbaa !189
   %.val.i.i.i = load i32, ptr %230, align 4, !tbaa !10
   %231 = or i32 %.val.i.i.i, %225
   %232 = getelementptr inbounds nuw i8, ptr %192, i64 128
@@ -5457,34 +5457,34 @@ Vec_IntDoubleWidth.exit:                          ; preds = %._crit_edge32.i, %1
   %235 = shl i32 %234, %224
   %236 = sext i32 %234 to i64
   %237 = getelementptr inbounds ptr, ptr %227, i64 %236
-  %238 = load ptr, ptr %237, align 8, !tbaa !188
+  %238 = load ptr, ptr %237, align 8, !tbaa !189
   %.val.i8.i.i = load i32, ptr %238, align 4, !tbaa !10
   %239 = or i32 %.val.i8.i.i, %235
   %240 = getelementptr inbounds nuw i8, ptr %192, i64 132
   store i32 %239, ptr %240, align 4, !tbaa !10
   %241 = getelementptr inbounds nuw i8, ptr %192, i64 64
-  %242 = load ptr, ptr %241, align 8, !tbaa !189
+  %242 = load ptr, ptr %241, align 8, !tbaa !190
   %.not14.i = icmp eq ptr %242, null
   br i1 %.not14.i, label %sat_solver2_bookmark.exit, label %243
 
 243:                                              ; preds = %214
   %244 = getelementptr inbounds nuw i8, ptr %192, i64 44
-  %245 = load i32, ptr %244, align 4, !tbaa !190
+  %245 = load i32, ptr %244, align 4, !tbaa !191
   %246 = getelementptr inbounds nuw i8, ptr %192, i64 48
-  store i32 %245, ptr %246, align 8, !tbaa !191
+  store i32 %245, ptr %246, align 8, !tbaa !192
   %247 = getelementptr inbounds nuw i8, ptr %192, i64 56
-  %248 = load ptr, ptr %247, align 8, !tbaa !192
+  %248 = load ptr, ptr %247, align 8, !tbaa !193
   %249 = sext i32 %194 to i64
   %250 = shl nsw i64 %249, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %242, ptr align 4 %248, i64 %250, i1 false)
   br label %sat_solver2_bookmark.exit
 
 sat_solver2_bookmark.exit:                        ; preds = %214, %243
-  %251 = load ptr, ptr %131, align 8, !tbaa !116
+  %251 = load ptr, ptr %131, align 8, !tbaa !117
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 4
   store i32 0, ptr %252, align 4, !tbaa !15
   call void @Vga_ManAddClausesOne(ptr noundef nonnull %83, i32 noundef 0, i32 noundef %164)
-  %253 = load ptr, ptr %132, align 8, !tbaa !149
+  %253 = load ptr, ptr %132, align 8, !tbaa !150
   %254 = getelementptr i8, ptr %253, i64 4
   %.val279 = load i32, ptr %254, align 4, !tbaa !11
   %255 = sext i32 %.val279 to i64
@@ -5492,9 +5492,9 @@ sat_solver2_bookmark.exit:                        ; preds = %214, %243
   br i1 %256, label %261, label %.preheader
 
 .preheader:                                       ; preds = %sat_solver2_bookmark.exit
-  %257 = load ptr, ptr %84, align 8, !tbaa !55
+  %257 = load ptr, ptr %84, align 8, !tbaa !56
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = load i32, ptr %258, align 8, !tbaa !177
+  %259 = load i32, ptr %258, align 8, !tbaa !178
   %260 = call noundef i32 @llvm.smin.i32(i32 %259, i32 %164)
   %.not237581 = icmp slt i32 %260, 1
   br i1 %.not237581, label %.loopexit, label %.lr.ph
@@ -5518,25 +5518,25 @@ sat_solver2_bookmark.exit:                        ; preds = %214, %243
   %.val.i = load ptr, ptr %267, align 8, !tbaa !3
   %269 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %indvars.iv.i316
   %270 = load i32, ptr %269, align 4, !tbaa !10
-  %271 = load i32, ptr %134, align 4, !tbaa !122
+  %271 = load i32, ptr %134, align 4, !tbaa !123
   %272 = and i32 %271, %270
-  %273 = load i32, ptr %135, align 8, !tbaa !83
+  %273 = load i32, ptr %135, align 8, !tbaa !84
   %274 = ashr i32 %270, %273
   call void @Vga_ManAddClausesOne(ptr noundef nonnull %83, i32 noundef %272, i32 noundef %274)
   %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i316, 1
   %.val11.i = load i32, ptr %265, align 4, !tbaa !15
   %275 = sext i32 %.val11.i to i64
   %276 = icmp slt i64 %indvars.iv.next.i317, %275
-  br i1 %276, label %268, label %Vga_ManLoadSlice.exit, !llvm.loop !164
+  br i1 %276, label %268, label %Vga_ManLoadSlice.exit, !llvm.loop !165
 
 Vga_ManLoadSlice.exit:                            ; preds = %268, %261
-  %277 = load ptr, ptr %127, align 8, !tbaa !66
+  %277 = load ptr, ptr %127, align 8, !tbaa !67
   %278 = call i32 @sat_solver2_simplify(ptr noundef %277) #28
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %Vga_ManLoadSlice.exit324
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vga_ManLoadSlice.exit324 ], [ 1, %.preheader ]
-  %279 = load ptr, ptr %133, align 8, !tbaa !130
+  %279 = load ptr, ptr %133, align 8, !tbaa !131
   %280 = sub nsw i64 %indvars.iv619, %indvars.iv
   %281 = getelementptr i8, ptr %279, i64 8
   %.val280 = load ptr, ptr %281, align 8, !tbaa !14
@@ -5557,9 +5557,9 @@ Vga_ManLoadSlice.exit:                            ; preds = %268, %261
   %.val.i321 = load ptr, ptr %286, align 8, !tbaa !3
   %289 = getelementptr inbounds nuw i32, ptr %.val.i321, i64 %indvars.iv.i320
   %290 = load i32, ptr %289, align 4, !tbaa !10
-  %291 = load i32, ptr %134, align 4, !tbaa !122
+  %291 = load i32, ptr %134, align 4, !tbaa !123
   %292 = and i32 %291, %290
-  %293 = load i32, ptr %135, align 8, !tbaa !83
+  %293 = load i32, ptr %135, align 8, !tbaa !84
   %294 = ashr i32 %290, %293
   %295 = add nsw i32 %294, %287
   call void @Vga_ManAddClausesOne(ptr noundef nonnull %83, i32 noundef %292, i32 noundef %295)
@@ -5567,19 +5567,19 @@ Vga_ManLoadSlice.exit:                            ; preds = %268, %261
   %.val11.i323 = load i32, ptr %284, align 4, !tbaa !15
   %296 = sext i32 %.val11.i323 to i64
   %297 = icmp slt i64 %indvars.iv.next.i322, %296
-  br i1 %297, label %288, label %Vga_ManLoadSlice.exit324, !llvm.loop !164
+  br i1 %297, label %288, label %Vga_ManLoadSlice.exit324, !llvm.loop !165
 
 Vga_ManLoadSlice.exit324:                         ; preds = %288, %.lr.ph
-  %298 = load ptr, ptr %127, align 8, !tbaa !66
+  %298 = load ptr, ptr %127, align 8, !tbaa !67
   %299 = call i32 @sat_solver2_simplify(ptr noundef %298) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %300 = load ptr, ptr %84, align 8, !tbaa !55
+  %300 = load ptr, ptr %84, align 8, !tbaa !56
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %302 = load i32, ptr %301, align 8, !tbaa !177
+  %302 = load i32, ptr %301, align 8, !tbaa !178
   %303 = call noundef i32 @llvm.smin.i32(i32 %302, i32 %164)
   %304 = sext i32 %303 to i64
   %.not237.not = icmp slt i64 %indvars.iv, %304
-  br i1 %.not237.not, label %.lr.ph, label %.loopexit, !llvm.loop !193
+  br i1 %.not237.not, label %.lr.ph, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %Vga_ManLoadSlice.exit324, %.preheader, %Vga_ManLoadSlice.exit
   %indvars.iv.next620 = add nuw i64 %indvars.iv619, 1
@@ -5595,9 +5595,9 @@ Vga_ManLoadSlice.exit324:                         ; preds = %288, %.lr.ph
   br i1 %308, label %Abc_Clock.exit326, label %309
 
 309:                                              ; preds = %306
-  %310 = load i64, ptr %28, align 8, !tbaa !171
+  %310 = load i64, ptr %28, align 8, !tbaa !172
   %.neg590 = mul i64 %310, -1000000
-  %311 = load i64, ptr %136, align 8, !tbaa !173
+  %311 = load i64, ptr %136, align 8, !tbaa !174
   %.neg589 = sdiv i64 %311, -1000
   %.neg591 = add i64 %.neg589, %.neg590
   br label %Abc_Clock.exit326
@@ -5605,11 +5605,11 @@ Vga_ManLoadSlice.exit324:                         ; preds = %288, %.lr.ph
 Abc_Clock.exit326:                                ; preds = %306, %309
   %.0.i325.neg592 = phi i64 [ %.neg591, %309 ], [ 1, %306 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #28
-  %312 = load ptr, ptr %83, align 8, !tbaa !30
+  %312 = load ptr, ptr %83, align 8, !tbaa !31
   %313 = getelementptr i8, ptr %312, i64 32
-  %.val17.i = load ptr, ptr %313, align 8, !tbaa !63
+  %.val17.i = load ptr, ptr %313, align 8, !tbaa !64
   %314 = getelementptr i8, ptr %312, i64 72
-  %.val18.i = load ptr, ptr %314, align 8, !tbaa !91
+  %.val18.i = load ptr, ptr %314, align 8, !tbaa !92
   %315 = getelementptr i8, ptr %.val18.i, i64 8
   %.val18.val.i = load ptr, ptr %315, align 8, !tbaa !3
   %.val18.val.val.i = load i32, ptr %.val18.val.i, align 4, !tbaa !10
@@ -5619,8 +5619,8 @@ Abc_Clock.exit326:                                ; preds = %306, %309
   %318 = trunc i64 %.val3.i.i to i32
   %319 = and i32 %318, 536870911
   %320 = sub nsw i32 %.val18.val.val.i, %319
-  %321 = load ptr, ptr %137, align 8, !tbaa !89
-  %322 = load i32, ptr %138, align 8, !tbaa !90
+  %321 = load ptr, ptr %137, align 8, !tbaa !90
+  %322 = load i32, ptr %138, align 8, !tbaa !91
   %323 = add nsw i32 %320, %164
   %.reass = add i32 %320, %indvars
   %324 = mul nsw i32 %.reass, %323
@@ -5632,20 +5632,20 @@ Abc_Clock.exit326:                                ; preds = %306, %309
   br i1 %.not.i.i.i.i, label %Vga_ManFind.exit.i, label %Vta_ManObj.exit.i.i.i
 
 Vta_ManObj.exit.i.i.i:                            ; preds = %Abc_Clock.exit326
-  %329 = load ptr, ptr %139, align 8, !tbaa !62
+  %329 = load ptr, ptr %139, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i.i
 
 Vta_ManObj.exit16.i.i.i:                          ; preds = %337, %Vta_ManObj.exit.i.i.i
   %.pr.i.i = phi i32 [ %328, %Vta_ManObj.exit.i.i.i ], [ %339, %337 ]
   %.pn.i.i = sext i32 %.pr.i.i to i64
   %.01418.i.i.i = getelementptr inbounds %struct.Vta_Obj_t_, ptr %329, i64 %.pn.i.i
-  %330 = load i32, ptr %.01418.i.i.i, align 4, !tbaa !64
+  %330 = load i32, ptr %.01418.i.i.i, align 4, !tbaa !65
   %331 = icmp eq i32 %330, %320
   br i1 %331, label %332, label %337
 
 332:                                              ; preds = %Vta_ManObj.exit16.i.i.i
   %333 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i, i64 4
-  %334 = load i32, ptr %333, align 4, !tbaa !80
+  %334 = load i32, ptr %333, align 4, !tbaa !81
   %335 = zext i32 %334 to i64
   %336 = icmp eq i64 %indvars.iv619, %335
   br i1 %336, label %Vga_ManFind.exit.loopexit.i, label %337
@@ -5679,9 +5679,9 @@ Gia_ObjIsRo.exit.i:                               ; preds = %342
   %348 = trunc nuw i64 %347 to i32
   %349 = and i32 %348, 536870911
   %350 = getelementptr i8, ptr %312, i64 16
-  %.val.i.i329 = load i32, ptr %350, align 8, !tbaa !40
+  %.val.i.i329 = load i32, ptr %350, align 8, !tbaa !41
   %351 = getelementptr i8, ptr %312, i64 64
-  %.val3.i22.i = load ptr, ptr %351, align 8, !tbaa !54
+  %.val3.i22.i = load ptr, ptr %351, align 8, !tbaa !55
   %352 = getelementptr i8, ptr %.val3.i22.i, i64 4
   %.val3.val.i.i = load i32, ptr %352, align 4, !tbaa !15
   %353 = sub nsw i32 %.val3.val.i.i, %.val.i.i329
@@ -5692,7 +5692,7 @@ Gia_ObjIsRo.exit.i:                               ; preds = %342
   br i1 %or.cond.i331, label %355, label %Gia_ObjIsRo.exit.thread.i
 
 355:                                              ; preds = %Gia_ObjIsRo.exit.i
-  %.val15.i = load ptr, ptr %139, align 8, !tbaa !62
+  %.val15.i = load ptr, ptr %139, align 8, !tbaa !63
   %356 = ptrtoint ptr %.val15.i to i64
   %357 = sub i64 %341, %356
   %358 = lshr exact i64 %357, 4
@@ -5701,7 +5701,7 @@ Gia_ObjIsRo.exit.i:                               ; preds = %342
   br label %Vga_ManGetOutLit.exit
 
 Gia_ObjIsRo.exit.thread.i:                        ; preds = %Gia_ObjIsRo.exit.i, %342, %Vga_ManFind.exit.i
-  %.val.i327 = load ptr, ptr %139, align 8, !tbaa !62
+  %.val.i327 = load ptr, ptr %139, align 8, !tbaa !63
   %361 = ptrtoint ptr %.val.i327 to i64
   %362 = sub i64 %341, %361
   %363 = lshr i32 %318, 29
@@ -5714,33 +5714,33 @@ Gia_ObjIsRo.exit.thread.i:                        ; preds = %Gia_ObjIsRo.exit.i,
 
 Vga_ManGetOutLit.exit:                            ; preds = %355, %Gia_ObjIsRo.exit.thread.i
   %.0.i328 = phi i32 [ %366, %Gia_ObjIsRo.exit.thread.i ], [ %360, %355 ]
-  %367 = load ptr, ptr %127, align 8, !tbaa !66
-  %368 = load i32, ptr %140, align 4, !tbaa !179
+  %367 = load ptr, ptr %127, align 8, !tbaa !67
+  %368 = load i32, ptr %140, align 4, !tbaa !180
   %369 = call ptr @Vta_ManUnsatCore(i32 noundef %.0.i328, ptr noundef %367, i32 noundef %368, i32 poison, ptr noundef nonnull %32, ptr noundef nonnull %31)
   %370 = load i32, ptr %32, align 4, !tbaa !10
   %371 = icmp eq i32 %370, -1
   br i1 %371, label %372, label %427
 
 372:                                              ; preds = %Vga_ManGetOutLit.exit
-  %373 = load ptr, ptr %139, align 8, !tbaa !62
+  %373 = load ptr, ptr %139, align 8, !tbaa !63
   %374 = sext i32 %193 to i64
   %375 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %373, i64 %374
-  %376 = load i32, ptr %130, align 8, !tbaa !61
+  %376 = load i32, ptr %130, align 8, !tbaa !62
   %377 = sext i32 %376 to i64
   %378 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %373, i64 %377
   %379 = icmp slt i32 %193, %376
   br i1 %379, label %.lr.ph.i335, label %._crit_edge.i
 
 .lr.ph.i335:                                      ; preds = %372
-  %380 = load ptr, ptr %137, align 8, !tbaa !89
+  %380 = load ptr, ptr %137, align 8, !tbaa !90
   br label %381
 
 381:                                              ; preds = %Vga_ManDelete.exit.i, %.lr.ph.i335
   %.028.i = phi ptr [ %375, %.lr.ph.i335 ], [ %402, %Vga_ManDelete.exit.i ]
-  %382 = load i32, ptr %.028.i, align 4, !tbaa !64
+  %382 = load i32, ptr %.028.i, align 4, !tbaa !65
   %383 = getelementptr inbounds nuw i8, ptr %.028.i, i64 4
-  %384 = load i32, ptr %383, align 4, !tbaa !80
-  %385 = load i32, ptr %138, align 8, !tbaa !90
+  %384 = load i32, ptr %383, align 4, !tbaa !81
+  %385 = load i32, ptr %138, align 8, !tbaa !91
   %386 = add nsw i32 %384, %382
   %387 = add nsw i32 %386, 1
   %388 = mul nsw i32 %387, %386
@@ -5756,13 +5756,13 @@ Vga_ManGetOutLit.exit:                            ; preds = %355, %Gia_ObjIsRo.e
   call void @llvm.assume(i1 %.not.i15.i.i.i336)
   %.pn.i.i337 = sext i32 %.sink.i to i64
   %.01418.i.i.i338 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %373, i64 %.pn.i.i337
-  %393 = load i32, ptr %.01418.i.i.i338, align 4, !tbaa !64
+  %393 = load i32, ptr %.01418.i.i.i338, align 4, !tbaa !65
   %394 = icmp eq i32 %393, %382
   br i1 %394, label %395, label %Vta_ManObj.exit16.i.i.i339
 
 395:                                              ; preds = %392
   %396 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i338, i64 4
-  %397 = load i32, ptr %396, align 4, !tbaa !80
+  %397 = load i32, ptr %396, align 4, !tbaa !81
   %398 = icmp eq i32 %397, %384
   br i1 %398, label %Vga_ManDelete.exit.i, label %Vta_ManObj.exit16.i.i.i339
 
@@ -5772,15 +5772,15 @@ Vta_ManObj.exit16.i.i.i339:                       ; preds = %395, %392
 
 Vga_ManDelete.exit.i:                             ; preds = %395
   %400 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %373, i64 %.pn.i.i337, i32 2
-  %401 = load i32, ptr %400, align 4, !tbaa !162
+  %401 = load i32, ptr %400, align 4, !tbaa !163
   store i32 %401, ptr %.019.i.i.i, align 4, !tbaa !10
-  store i32 -1, ptr %400, align 4, !tbaa !162
+  store i32 -1, ptr %400, align 4, !tbaa !163
   %402 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
   %403 = icmp ult ptr %402, %378
-  br i1 %403, label %381, label %._crit_edge.loopexit.i, !llvm.loop !166
+  br i1 %403, label %381, label %._crit_edge.loopexit.i, !llvm.loop !167
 
 ._crit_edge.loopexit.i:                           ; preds = %Vga_ManDelete.exit.i
-  %.pre.i340 = load i32, ptr %130, align 8, !tbaa !61
+  %.pre.i340 = load i32, ptr %130, align 8, !tbaa !62
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %372
@@ -5789,8 +5789,8 @@ Vga_ManDelete.exit.i:                             ; preds = %395
   %406 = sext i32 %405 to i64
   %407 = shl nsw i64 %406, 4
   call void @llvm.memset.p0.i64(ptr align 4 %375, i8 0, i64 %407, i1 false)
-  store i32 %193, ptr %130, align 8, !tbaa !61
-  %408 = load ptr, ptr %131, align 8, !tbaa !116
+  store i32 %193, ptr %130, align 8, !tbaa !62
+  %408 = load ptr, ptr %131, align 8, !tbaa !117
   %409 = getelementptr i8, ptr %408, i64 4
   %.val2729.i = load i32, ptr %409, align 4, !tbaa !15
   %410 = icmp sgt i32 %.val2729.i, 0
@@ -5803,20 +5803,20 @@ Vga_ManDelete.exit.i:                             ; preds = %395
   %.val.i333 = load ptr, ptr %412, align 8, !tbaa !3
   %413 = getelementptr inbounds nuw i32, ptr %.val.i333, i64 %indvars.iv.i332
   %414 = load i32, ptr %413, align 4, !tbaa !10
-  %415 = load i32, ptr %130, align 8, !tbaa !61
+  %415 = load i32, ptr %130, align 8, !tbaa !62
   %416 = icmp slt i32 %414, %415
   br i1 %416, label %Vta_ManObj.exit.i, label %422
 
 Vta_ManObj.exit.i:                                ; preds = %.lr.ph32.i
   %.not.i.i = icmp ne i32 %414, 0
   call void @llvm.assume(i1 %.not.i.i)
-  %417 = load ptr, ptr %139, align 8, !tbaa !62
+  %417 = load ptr, ptr %139, align 8, !tbaa !63
   %418 = sext i32 %414 to i64
   %419 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %417, i64 %418, i32 3
   %420 = load i32, ptr %419, align 4
   %421 = and i32 %420, -1073741825
   store i32 %421, ptr %419, align 4
-  %.pre34.i = load ptr, ptr %131, align 8, !tbaa !116
+  %.pre34.i = load ptr, ptr %131, align 8, !tbaa !117
   br label %422
 
 422:                                              ; preds = %Vta_ManObj.exit.i, %.lr.ph32.i
@@ -5826,12 +5826,12 @@ Vta_ManObj.exit.i:                                ; preds = %.lr.ph32.i
   %.val27.i = load i32, ptr %424, align 4, !tbaa !15
   %425 = sext i32 %.val27.i to i64
   %426 = icmp slt i64 %indvars.iv.next.i334, %425
-  br i1 %426, label %.lr.ph32.i, label %.loopexit656, !llvm.loop !167
+  br i1 %426, label %.lr.ph32.i, label %.loopexit656, !llvm.loop !168
 
 427:                                              ; preds = %Vga_ManGetOutLit.exit
-  %428 = load ptr, ptr %127, align 8, !tbaa !66
+  %428 = load ptr, ptr %127, align 8, !tbaa !67
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 608
-  %430 = load i64, ptr %429, align 8, !tbaa !176
+  %430 = load i64, ptr %429, align 8, !tbaa !177
   %.not238 = icmp eq i64 %430, 0
   br i1 %.not238, label %499, label %431
 
@@ -5842,9 +5842,9 @@ Vta_ManObj.exit.i:                                ; preds = %.lr.ph32.i
   br i1 %433, label %Abc_Clock.exit342, label %434
 
 434:                                              ; preds = %431
-  %435 = load i64, ptr %27, align 8, !tbaa !171
+  %435 = load i64, ptr %27, align 8, !tbaa !172
   %436 = mul nsw i64 %435, 1000000
-  %437 = load i64, ptr %142, align 8, !tbaa !173
+  %437 = load i64, ptr %142, align 8, !tbaa !174
   %438 = sdiv i64 %437, 1000
   %439 = add nsw i64 %438, %436
   br label %Abc_Clock.exit342
@@ -5852,32 +5852,32 @@ Vta_ManObj.exit.i:                                ; preds = %.lr.ph32.i
 Abc_Clock.exit342:                                ; preds = %431, %434
   %.0.i341 = phi i64 [ %439, %434 ], [ -1, %431 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #28
-  %440 = load ptr, ptr %127, align 8, !tbaa !66
+  %440 = load ptr, ptr %127, align 8, !tbaa !67
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 608
-  %442 = load i64, ptr %441, align 8, !tbaa !176
+  %442 = load i64, ptr %441, align 8, !tbaa !177
   %443 = icmp sgt i64 %.0.i341, %442
   br i1 %443, label %444, label %499
 
 444:                                              ; preds = %Abc_Clock.exit342
-  %445 = load ptr, ptr %139, align 8, !tbaa !62
+  %445 = load ptr, ptr %139, align 8, !tbaa !63
   %446 = sext i32 %193 to i64
   %447 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %445, i64 %446
-  %448 = load i32, ptr %130, align 8, !tbaa !61
+  %448 = load i32, ptr %130, align 8, !tbaa !62
   %449 = sext i32 %448 to i64
   %450 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %445, i64 %449
   %451 = icmp slt i32 %193, %448
   br i1 %451, label %.lr.ph.i353, label %._crit_edge.i343
 
 .lr.ph.i353:                                      ; preds = %444
-  %452 = load ptr, ptr %137, align 8, !tbaa !89
+  %452 = load ptr, ptr %137, align 8, !tbaa !90
   br label %453
 
 453:                                              ; preds = %Vga_ManDelete.exit.i361, %.lr.ph.i353
   %.028.i354 = phi ptr [ %447, %.lr.ph.i353 ], [ %474, %Vga_ManDelete.exit.i361 ]
-  %454 = load i32, ptr %.028.i354, align 4, !tbaa !64
+  %454 = load i32, ptr %.028.i354, align 4, !tbaa !65
   %455 = getelementptr inbounds nuw i8, ptr %.028.i354, i64 4
-  %456 = load i32, ptr %455, align 4, !tbaa !80
-  %457 = load i32, ptr %138, align 8, !tbaa !90
+  %456 = load i32, ptr %455, align 4, !tbaa !81
+  %457 = load i32, ptr %138, align 8, !tbaa !91
   %458 = add nsw i32 %456, %454
   %459 = add nsw i32 %458, 1
   %460 = mul nsw i32 %459, %458
@@ -5893,13 +5893,13 @@ Abc_Clock.exit342:                                ; preds = %431, %434
   call void @llvm.assume(i1 %.not.i15.i.i.i357)
   %.pn.i.i358 = sext i32 %.sink.i356 to i64
   %.01418.i.i.i359 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %445, i64 %.pn.i.i358
-  %465 = load i32, ptr %.01418.i.i.i359, align 4, !tbaa !64
+  %465 = load i32, ptr %.01418.i.i.i359, align 4, !tbaa !65
   %466 = icmp eq i32 %465, %454
   br i1 %466, label %467, label %Vta_ManObj.exit16.i.i.i360
 
 467:                                              ; preds = %464
   %468 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i359, i64 4
-  %469 = load i32, ptr %468, align 4, !tbaa !80
+  %469 = load i32, ptr %468, align 4, !tbaa !81
   %470 = icmp eq i32 %469, %456
   br i1 %470, label %Vga_ManDelete.exit.i361, label %Vta_ManObj.exit16.i.i.i360
 
@@ -5909,15 +5909,15 @@ Vta_ManObj.exit16.i.i.i360:                       ; preds = %467, %464
 
 Vga_ManDelete.exit.i361:                          ; preds = %467
   %472 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %445, i64 %.pn.i.i358, i32 2
-  %473 = load i32, ptr %472, align 4, !tbaa !162
+  %473 = load i32, ptr %472, align 4, !tbaa !163
   store i32 %473, ptr %.019.i.i.i355, align 4, !tbaa !10
-  store i32 -1, ptr %472, align 4, !tbaa !162
+  store i32 -1, ptr %472, align 4, !tbaa !163
   %474 = getelementptr inbounds nuw i8, ptr %.028.i354, i64 16
   %475 = icmp ult ptr %474, %450
-  br i1 %475, label %453, label %._crit_edge.loopexit.i362, !llvm.loop !166
+  br i1 %475, label %453, label %._crit_edge.loopexit.i362, !llvm.loop !167
 
 ._crit_edge.loopexit.i362:                        ; preds = %Vga_ManDelete.exit.i361
-  %.pre.i363 = load i32, ptr %130, align 8, !tbaa !61
+  %.pre.i363 = load i32, ptr %130, align 8, !tbaa !62
   br label %._crit_edge.i343
 
 ._crit_edge.i343:                                 ; preds = %._crit_edge.loopexit.i362, %444
@@ -5926,8 +5926,8 @@ Vga_ManDelete.exit.i361:                          ; preds = %467
   %478 = sext i32 %477 to i64
   %479 = shl nsw i64 %478, 4
   call void @llvm.memset.p0.i64(ptr align 4 %447, i8 0, i64 %479, i1 false)
-  store i32 %193, ptr %130, align 8, !tbaa !61
-  %480 = load ptr, ptr %131, align 8, !tbaa !116
+  store i32 %193, ptr %130, align 8, !tbaa !62
+  %480 = load ptr, ptr %131, align 8, !tbaa !117
   %481 = getelementptr i8, ptr %480, i64 4
   %.val2729.i344 = load i32, ptr %481, align 4, !tbaa !15
   %482 = icmp sgt i32 %.val2729.i344, 0
@@ -5940,20 +5940,20 @@ Vga_ManDelete.exit.i361:                          ; preds = %467
   %.val.i347 = load ptr, ptr %484, align 8, !tbaa !3
   %485 = getelementptr inbounds nuw i32, ptr %.val.i347, i64 %indvars.iv.i346
   %486 = load i32, ptr %485, align 4, !tbaa !10
-  %487 = load i32, ptr %130, align 8, !tbaa !61
+  %487 = load i32, ptr %130, align 8, !tbaa !62
   %488 = icmp slt i32 %486, %487
   br i1 %488, label %Vta_ManObj.exit.i350, label %494
 
 Vta_ManObj.exit.i350:                             ; preds = %.lr.ph32.i345
   %.not.i.i351 = icmp ne i32 %486, 0
   call void @llvm.assume(i1 %.not.i.i351)
-  %489 = load ptr, ptr %139, align 8, !tbaa !62
+  %489 = load ptr, ptr %139, align 8, !tbaa !63
   %490 = sext i32 %486 to i64
   %491 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %489, i64 %490, i32 3
   %492 = load i32, ptr %491, align 4
   %493 = and i32 %492, -1073741825
   store i32 %493, ptr %491, align 4
-  %.pre34.i352 = load ptr, ptr %131, align 8, !tbaa !116
+  %.pre34.i352 = load ptr, ptr %131, align 8, !tbaa !117
   br label %494
 
 494:                                              ; preds = %Vta_ManObj.exit.i350, %.lr.ph32.i345
@@ -5963,7 +5963,7 @@ Vta_ManObj.exit.i350:                             ; preds = %.lr.ph32.i345
   %.val27.i349 = load i32, ptr %496, align 4, !tbaa !15
   %497 = sext i32 %.val27.i349 to i64
   %498 = icmp slt i64 %indvars.iv.next.i348, %497
-  br i1 %498, label %.lr.ph32.i345, label %.thread, !llvm.loop !167
+  br i1 %498, label %.lr.ph32.i345, label %.thread, !llvm.loop !168
 
 499:                                              ; preds = %Abc_Clock.exit342, %427
   %.not239 = icmp eq ptr %369, null
@@ -5976,9 +5976,9 @@ Vta_ManObj.exit.i350:                             ; preds = %.lr.ph32.i345
   br i1 %502, label %Abc_Clock.exit366, label %503
 
 503:                                              ; preds = %500
-  %504 = load i64, ptr %26, align 8, !tbaa !171
+  %504 = load i64, ptr %26, align 8, !tbaa !172
   %505 = mul nsw i64 %504, 1000000
-  %506 = load i64, ptr %150, align 8, !tbaa !173
+  %506 = load i64, ptr %150, align 8, !tbaa !174
   %507 = sdiv i64 %506, 1000
   %508 = add nsw i64 %507, %505
   br label %Abc_Clock.exit366
@@ -5987,9 +5987,9 @@ Abc_Clock.exit366:                                ; preds = %500, %503
   %.0.i365 = phi i64 [ %508, %503 ], [ -1, %500 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #28
   %509 = add i64 %.0.i365, %.0.i325.neg592
-  %510 = load i64, ptr %151, align 8, !tbaa !194
+  %510 = load i64, ptr %151, align 8, !tbaa !195
   %511 = add nsw i64 %509, %510
-  store i64 %511, ptr %151, align 8, !tbaa !194
+  store i64 %511, ptr %151, align 8, !tbaa !195
   %512 = getelementptr i8, ptr %369, i64 4
   %.val1214.i = load i32, ptr %512, align 4, !tbaa !15
   %513 = icmp sgt i32 %.val1214.i, 0
@@ -6002,7 +6002,7 @@ Abc_Clock.exit366.Vta_ManUnsatCoreRemap.exit_crit_edge: ; preds = %Abc_Clock.exi
   br label %Vta_ManUnsatCoreRemap.exit
 
 Vta_ManObj.exit.lr.ph.i:                          ; preds = %Abc_Clock.exit366
-  %515 = load ptr, ptr %139, align 8, !tbaa !62
+  %515 = load ptr, ptr %139, align 8, !tbaa !63
   br label %Vta_ManObj.exit.i368
 
 Vta_ManObj.exit.i368:                             ; preds = %Vta_ManObj.exit.i368, %Vta_ManObj.exit.lr.ph.i
@@ -6014,43 +6014,43 @@ Vta_ManObj.exit.i368:                             ; preds = %Vta_ManObj.exit.i36
   %518 = sext i32 %517 to i64
   %519 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %515, i64 %518
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 4
-  %521 = load i32, ptr %520, align 4, !tbaa !80
-  %522 = load i32, ptr %135, align 8, !tbaa !83
+  %521 = load i32, ptr %520, align 4, !tbaa !81
+  %522 = load i32, ptr %135, align 8, !tbaa !84
   %523 = shl i32 %521, %522
-  %524 = load i32, ptr %519, align 4, !tbaa !64
+  %524 = load i32, ptr %519, align 4, !tbaa !65
   %525 = or i32 %523, %524
   store i32 %525, ptr %516, align 4, !tbaa !10
   %indvars.iv.next.i371 = add nuw nsw i64 %indvars.iv.i369, 1
   %.val12.i = load i32, ptr %512, align 4, !tbaa !15
   %526 = sext i32 %.val12.i to i64
   %527 = icmp slt i64 %indvars.iv.next.i371, %526
-  br i1 %527, label %Vta_ManObj.exit.i368, label %Vta_ManUnsatCoreRemap.exit, !llvm.loop !84
+  br i1 %527, label %Vta_ManObj.exit.i368, label %Vta_ManUnsatCoreRemap.exit, !llvm.loop !85
 
 Vta_ManUnsatCoreRemap.exit:                       ; preds = %Vta_ManObj.exit.i368, %Abc_Clock.exit366.Vta_ManUnsatCoreRemap.exit_crit_edge
   %.pre-phi = phi i64 [ %.pre636, %Abc_Clock.exit366.Vta_ManUnsatCoreRemap.exit_crit_edge ], [ %526, %Vta_ManObj.exit.i368 ]
   %528 = getelementptr i8, ptr %369, i64 8
   call void @qsort(ptr noundef %.val.i367, i64 noundef %.pre-phi, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare2) #28
-  %529 = load ptr, ptr %127, align 8, !tbaa !66
+  %529 = load ptr, ptr %127, align 8, !tbaa !67
   call void @sat_solver2_rollback(ptr noundef %529) #28
-  %530 = load ptr, ptr %139, align 8, !tbaa !62
+  %530 = load ptr, ptr %139, align 8, !tbaa !63
   %531 = sext i32 %193 to i64
   %532 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %530, i64 %531
-  %533 = load i32, ptr %130, align 8, !tbaa !61
+  %533 = load i32, ptr %130, align 8, !tbaa !62
   %534 = sext i32 %533 to i64
   %535 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %530, i64 %534
   %536 = icmp slt i32 %193, %533
   br i1 %536, label %.lr.ph.i382, label %._crit_edge.i372
 
 .lr.ph.i382:                                      ; preds = %Vta_ManUnsatCoreRemap.exit
-  %537 = load ptr, ptr %137, align 8, !tbaa !89
+  %537 = load ptr, ptr %137, align 8, !tbaa !90
   br label %538
 
 538:                                              ; preds = %Vga_ManDelete.exit.i390, %.lr.ph.i382
   %.028.i383 = phi ptr [ %532, %.lr.ph.i382 ], [ %559, %Vga_ManDelete.exit.i390 ]
-  %539 = load i32, ptr %.028.i383, align 4, !tbaa !64
+  %539 = load i32, ptr %.028.i383, align 4, !tbaa !65
   %540 = getelementptr inbounds nuw i8, ptr %.028.i383, i64 4
-  %541 = load i32, ptr %540, align 4, !tbaa !80
-  %542 = load i32, ptr %138, align 8, !tbaa !90
+  %541 = load i32, ptr %540, align 4, !tbaa !81
+  %542 = load i32, ptr %138, align 8, !tbaa !91
   %543 = add nsw i32 %541, %539
   %544 = add nsw i32 %543, 1
   %545 = mul nsw i32 %544, %543
@@ -6066,13 +6066,13 @@ Vta_ManUnsatCoreRemap.exit:                       ; preds = %Vta_ManObj.exit.i36
   call void @llvm.assume(i1 %.not.i15.i.i.i386)
   %.pn.i.i387 = sext i32 %.sink.i385 to i64
   %.01418.i.i.i388 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %530, i64 %.pn.i.i387
-  %550 = load i32, ptr %.01418.i.i.i388, align 4, !tbaa !64
+  %550 = load i32, ptr %.01418.i.i.i388, align 4, !tbaa !65
   %551 = icmp eq i32 %550, %539
   br i1 %551, label %552, label %Vta_ManObj.exit16.i.i.i389
 
 552:                                              ; preds = %549
   %553 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i388, i64 4
-  %554 = load i32, ptr %553, align 4, !tbaa !80
+  %554 = load i32, ptr %553, align 4, !tbaa !81
   %555 = icmp eq i32 %554, %541
   br i1 %555, label %Vga_ManDelete.exit.i390, label %Vta_ManObj.exit16.i.i.i389
 
@@ -6082,15 +6082,15 @@ Vta_ManObj.exit16.i.i.i389:                       ; preds = %552, %549
 
 Vga_ManDelete.exit.i390:                          ; preds = %552
   %557 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %530, i64 %.pn.i.i387, i32 2
-  %558 = load i32, ptr %557, align 4, !tbaa !162
+  %558 = load i32, ptr %557, align 4, !tbaa !163
   store i32 %558, ptr %.019.i.i.i384, align 4, !tbaa !10
-  store i32 -1, ptr %557, align 4, !tbaa !162
+  store i32 -1, ptr %557, align 4, !tbaa !163
   %559 = getelementptr inbounds nuw i8, ptr %.028.i383, i64 16
   %560 = icmp ult ptr %559, %535
-  br i1 %560, label %538, label %._crit_edge.loopexit.i391, !llvm.loop !166
+  br i1 %560, label %538, label %._crit_edge.loopexit.i391, !llvm.loop !167
 
 ._crit_edge.loopexit.i391:                        ; preds = %Vga_ManDelete.exit.i390
-  %.pre.i392 = load i32, ptr %130, align 8, !tbaa !61
+  %.pre.i392 = load i32, ptr %130, align 8, !tbaa !62
   br label %._crit_edge.i372
 
 ._crit_edge.i372:                                 ; preds = %._crit_edge.loopexit.i391, %Vta_ManUnsatCoreRemap.exit
@@ -6099,8 +6099,8 @@ Vga_ManDelete.exit.i390:                          ; preds = %552
   %563 = sext i32 %562 to i64
   %564 = shl nsw i64 %563, 4
   call void @llvm.memset.p0.i64(ptr align 4 %532, i8 0, i64 %564, i1 false)
-  store i32 %193, ptr %130, align 8, !tbaa !61
-  %565 = load ptr, ptr %131, align 8, !tbaa !116
+  store i32 %193, ptr %130, align 8, !tbaa !62
+  %565 = load ptr, ptr %131, align 8, !tbaa !117
   %566 = getelementptr i8, ptr %565, i64 4
   %.val2729.i373 = load i32, ptr %566, align 4, !tbaa !15
   %567 = icmp sgt i32 %.val2729.i373, 0
@@ -6113,20 +6113,20 @@ Vga_ManDelete.exit.i390:                          ; preds = %552
   %.val.i376 = load ptr, ptr %569, align 8, !tbaa !3
   %570 = getelementptr inbounds nuw i32, ptr %.val.i376, i64 %indvars.iv.i375
   %571 = load i32, ptr %570, align 4, !tbaa !10
-  %572 = load i32, ptr %130, align 8, !tbaa !61
+  %572 = load i32, ptr %130, align 8, !tbaa !62
   %573 = icmp slt i32 %571, %572
   br i1 %573, label %Vta_ManObj.exit.i379, label %579
 
 Vta_ManObj.exit.i379:                             ; preds = %.lr.ph32.i374
   %.not.i.i380 = icmp ne i32 %571, 0
   call void @llvm.assume(i1 %.not.i.i380)
-  %574 = load ptr, ptr %139, align 8, !tbaa !62
+  %574 = load ptr, ptr %139, align 8, !tbaa !63
   %575 = sext i32 %571 to i64
   %576 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %574, i64 %575, i32 3
   %577 = load i32, ptr %576, align 4
   %578 = and i32 %577, -1073741825
   store i32 %578, ptr %576, align 4
-  %.pre34.i381 = load ptr, ptr %131, align 8, !tbaa !116
+  %.pre34.i381 = load ptr, ptr %131, align 8, !tbaa !117
   br label %579
 
 579:                                              ; preds = %Vta_ManObj.exit.i379, %.lr.ph32.i374
@@ -6136,7 +6136,7 @@ Vta_ManObj.exit.i379:                             ; preds = %.lr.ph32.i374
   %.val27.i378 = load i32, ptr %581, align 4, !tbaa !15
   %582 = sext i32 %.val27.i378 to i64
   %583 = icmp slt i64 %indvars.iv.next.i377, %582
-  br i1 %583, label %.lr.ph32.i374, label %Vga_ManRollBack.exit393, !llvm.loop !167
+  br i1 %583, label %.lr.ph32.i374, label %Vga_ManRollBack.exit393, !llvm.loop !168
 
 Vga_ManRollBack.exit393:                          ; preds = %579, %._crit_edge.i372
   %.val1112.i394 = load i32, ptr %512, align 4, !tbaa !15
@@ -6148,19 +6148,19 @@ Vga_ManRollBack.exit393:                          ; preds = %579, %._crit_edge.i
   %.val.i397 = load ptr, ptr %528, align 8, !tbaa !3
   %585 = getelementptr inbounds nuw i32, ptr %.val.i397, i64 %indvars.iv.i396
   %586 = load i32, ptr %585, align 4, !tbaa !10
-  %587 = load i32, ptr %134, align 4, !tbaa !122
+  %587 = load i32, ptr %134, align 4, !tbaa !123
   %588 = and i32 %587, %586
-  %589 = load i32, ptr %135, align 8, !tbaa !83
+  %589 = load i32, ptr %135, align 8, !tbaa !84
   %590 = ashr i32 %586, %589
   call void @Vga_ManAddClausesOne(ptr noundef nonnull %83, i32 noundef %588, i32 noundef %590)
   %indvars.iv.next.i398 = add nuw nsw i64 %indvars.iv.i396, 1
   %.val11.i399 = load i32, ptr %512, align 4, !tbaa !15
   %591 = sext i32 %.val11.i399 to i64
   %592 = icmp slt i64 %indvars.iv.next.i398, %591
-  br i1 %592, label %.lr.ph.i395, label %Vga_ManLoadSlice.exit400, !llvm.loop !164
+  br i1 %592, label %.lr.ph.i395, label %Vga_ManLoadSlice.exit400, !llvm.loop !165
 
 Vga_ManLoadSlice.exit400:                         ; preds = %.lr.ph.i395, %Vga_ManRollBack.exit393
-  %593 = load ptr, ptr %127, align 8, !tbaa !66
+  %593 = load ptr, ptr %127, align 8, !tbaa !67
   %594 = call i32 @sat_solver2_simplify(ptr noundef %593) #28
   %595 = load ptr, ptr %528, align 8, !tbaa !3
   %.not.i401 = icmp eq ptr %595, null
@@ -6178,9 +6178,9 @@ Vec_IntFree.exit:                                 ; preds = %Vga_ManLoadSlice.ex
   br i1 %598, label %Abc_Clock.exit403, label %599
 
 599:                                              ; preds = %Vec_IntFree.exit
-  %600 = load i64, ptr %25, align 8, !tbaa !171
+  %600 = load i64, ptr %25, align 8, !tbaa !172
   %.neg508 = mul i64 %600, -1000000
-  %601 = load i64, ptr %152, align 8, !tbaa !173
+  %601 = load i64, ptr %152, align 8, !tbaa !174
   %.neg = sdiv i64 %601, -1000
   %.neg509 = add i64 %.neg, %.neg508
   br label %Abc_Clock.exit403
@@ -6188,11 +6188,11 @@ Vec_IntFree.exit:                                 ; preds = %Vga_ManLoadSlice.ex
 Abc_Clock.exit403:                                ; preds = %Vec_IntFree.exit, %599
   %.0.i402.neg = phi i64 [ %.neg509, %599 ], [ 1, %Vec_IntFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #28
-  %602 = load ptr, ptr %83, align 8, !tbaa !30
+  %602 = load ptr, ptr %83, align 8, !tbaa !31
   %603 = getelementptr i8, ptr %602, i64 32
-  %.val17.i404 = load ptr, ptr %603, align 8, !tbaa !63
+  %.val17.i404 = load ptr, ptr %603, align 8, !tbaa !64
   %604 = getelementptr i8, ptr %602, i64 72
-  %.val18.i405 = load ptr, ptr %604, align 8, !tbaa !91
+  %.val18.i405 = load ptr, ptr %604, align 8, !tbaa !92
   %605 = getelementptr i8, ptr %.val18.i405, i64 8
   %.val18.val.i406 = load ptr, ptr %605, align 8, !tbaa !3
   %.val18.val.val.i407 = load i32, ptr %.val18.val.i406, align 4, !tbaa !10
@@ -6202,8 +6202,8 @@ Abc_Clock.exit403:                                ; preds = %Vec_IntFree.exit, %
   %608 = trunc i64 %.val3.i.i408 to i32
   %609 = and i32 %608, 536870911
   %610 = sub nsw i32 %.val18.val.val.i407, %609
-  %611 = load ptr, ptr %137, align 8, !tbaa !89
-  %612 = load i32, ptr %138, align 8, !tbaa !90
+  %611 = load ptr, ptr %137, align 8, !tbaa !90
+  %612 = load i32, ptr %138, align 8, !tbaa !91
   %613 = add nsw i32 %610, %164
   %614 = add nsw i32 %613, 1
   %615 = mul nsw i32 %614, %613
@@ -6215,20 +6215,20 @@ Abc_Clock.exit403:                                ; preds = %Vec_IntFree.exit, %
   br i1 %.not.i.i.i.i409, label %Vga_ManFind.exit.i418, label %Vta_ManObj.exit.i.i.i410
 
 Vta_ManObj.exit.i.i.i410:                         ; preds = %Abc_Clock.exit403
-  %620 = load ptr, ptr %139, align 8, !tbaa !62
+  %620 = load ptr, ptr %139, align 8, !tbaa !63
   br label %Vta_ManObj.exit16.i.i.i411
 
 Vta_ManObj.exit16.i.i.i411:                       ; preds = %628, %Vta_ManObj.exit.i.i.i410
   %.pr.i.i412 = phi i32 [ %619, %Vta_ManObj.exit.i.i.i410 ], [ %630, %628 ]
   %.pn.i.i413 = sext i32 %.pr.i.i412 to i64
   %.01418.i.i.i414 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %620, i64 %.pn.i.i413
-  %621 = load i32, ptr %.01418.i.i.i414, align 4, !tbaa !64
+  %621 = load i32, ptr %.01418.i.i.i414, align 4, !tbaa !65
   %622 = icmp eq i32 %621, %610
   br i1 %622, label %623, label %628
 
 623:                                              ; preds = %Vta_ManObj.exit16.i.i.i411
   %624 = getelementptr inbounds nuw i8, ptr %.01418.i.i.i414, i64 4
-  %625 = load i32, ptr %624, align 4, !tbaa !80
+  %625 = load i32, ptr %624, align 4, !tbaa !81
   %626 = zext i32 %625 to i64
   %627 = icmp eq i64 %indvars.iv619, %626
   br i1 %627, label %Vga_ManFind.exit.loopexit.i416, label %628
@@ -6262,9 +6262,9 @@ Gia_ObjIsRo.exit.i426:                            ; preds = %633
   %639 = trunc nuw i64 %638 to i32
   %640 = and i32 %639, 536870911
   %641 = getelementptr i8, ptr %602, i64 16
-  %.val.i.i427 = load i32, ptr %641, align 8, !tbaa !40
+  %.val.i.i427 = load i32, ptr %641, align 8, !tbaa !41
   %642 = getelementptr i8, ptr %602, i64 64
-  %.val3.i22.i428 = load ptr, ptr %642, align 8, !tbaa !54
+  %.val3.i22.i428 = load ptr, ptr %642, align 8, !tbaa !55
   %643 = getelementptr i8, ptr %.val3.i22.i428, i64 4
   %.val3.val.i.i429 = load i32, ptr %643, align 4, !tbaa !15
   %644 = sub nsw i32 %.val3.val.i.i429, %.val.i.i427
@@ -6275,7 +6275,7 @@ Gia_ObjIsRo.exit.i426:                            ; preds = %633
   br i1 %or.cond.i432, label %646, label %Gia_ObjIsRo.exit.thread.i419
 
 646:                                              ; preds = %Gia_ObjIsRo.exit.i426
-  %.val15.i433 = load ptr, ptr %139, align 8, !tbaa !62
+  %.val15.i433 = load ptr, ptr %139, align 8, !tbaa !63
   %647 = ptrtoint ptr %.val15.i433 to i64
   %648 = sub i64 %632, %647
   %649 = lshr exact i64 %648, 4
@@ -6284,7 +6284,7 @@ Gia_ObjIsRo.exit.i426:                            ; preds = %633
   br label %Vga_ManGetOutLit.exit434
 
 Gia_ObjIsRo.exit.thread.i419:                     ; preds = %Gia_ObjIsRo.exit.i426, %633, %Vga_ManFind.exit.i418
-  %.val.i420 = load ptr, ptr %139, align 8, !tbaa !62
+  %.val.i420 = load ptr, ptr %139, align 8, !tbaa !63
   %652 = ptrtoint ptr %.val.i420 to i64
   %653 = sub i64 %632, %652
   %654 = lshr i32 %608, 29
@@ -6297,8 +6297,8 @@ Gia_ObjIsRo.exit.thread.i419:                     ; preds = %Gia_ObjIsRo.exit.i4
 
 Vga_ManGetOutLit.exit434:                         ; preds = %646, %Gia_ObjIsRo.exit.thread.i419
   %.0.i423 = phi i32 [ %657, %Gia_ObjIsRo.exit.thread.i419 ], [ %651, %646 ]
-  %658 = load ptr, ptr %127, align 8, !tbaa !66
-  %659 = load i32, ptr %140, align 4, !tbaa !179
+  %658 = load ptr, ptr %127, align 8, !tbaa !67
+  %659 = load i32, ptr %140, align 4, !tbaa !180
   %660 = call ptr @Vta_ManUnsatCore(i32 noundef %.0.i423, ptr noundef %658, i32 noundef %659, i32 poison, ptr noundef nonnull %32, ptr noundef nonnull %31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #28
   %661 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %24) #28
@@ -6306,9 +6306,9 @@ Vga_ManGetOutLit.exit434:                         ; preds = %646, %Gia_ObjIsRo.e
   br i1 %662, label %Abc_Clock.exit436, label %663
 
 663:                                              ; preds = %Vga_ManGetOutLit.exit434
-  %664 = load i64, ptr %24, align 8, !tbaa !171
+  %664 = load i64, ptr %24, align 8, !tbaa !172
   %665 = mul nsw i64 %664, 1000000
-  %666 = load i64, ptr %153, align 8, !tbaa !173
+  %666 = load i64, ptr %153, align 8, !tbaa !174
   %667 = sdiv i64 %666, 1000
   %668 = add nsw i64 %667, %665
   br label %Abc_Clock.exit436
@@ -6317,9 +6317,9 @@ Abc_Clock.exit436:                                ; preds = %Vga_ManGetOutLit.ex
   %.0.i435 = phi i64 [ %668, %663 ], [ -1, %Vga_ManGetOutLit.exit434 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #28
   %669 = add i64 %.0.i435, %.0.i402.neg
-  %670 = load i64, ptr %151, align 8, !tbaa !194
+  %670 = load i64, ptr %151, align 8, !tbaa !195
   %671 = add nsw i64 %669, %670
-  store i64 %671, ptr %151, align 8, !tbaa !194
+  store i64 %671, ptr %151, align 8, !tbaa !195
   %672 = load i32, ptr %32, align 4, !tbaa !10
   switch i32 %672, label %756 [
     i32 -1, label %Vga_ManRollBack.exit.thread.loopexit594
@@ -6333,9 +6333,9 @@ Abc_Clock.exit436:                                ; preds = %Vga_ManGetOutLit.ex
   br i1 %675, label %Abc_Clock.exit438, label %676
 
 676:                                              ; preds = %673
-  %677 = load i64, ptr %23, align 8, !tbaa !171
+  %677 = load i64, ptr %23, align 8, !tbaa !172
   %678 = mul nsw i64 %677, 1000000
-  %679 = load i64, ptr %143, align 8, !tbaa !173
+  %679 = load i64, ptr %143, align 8, !tbaa !174
   %680 = sdiv i64 %679, 1000
   %681 = add nsw i64 %680, %678
   br label %Abc_Clock.exit438
@@ -6344,21 +6344,21 @@ Abc_Clock.exit438:                                ; preds = %673, %676
   %.0.i437 = phi i64 [ %681, %676 ], [ -1, %673 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #28
   %682 = add i64 %.0.i437, %.0.i325.neg592
-  %683 = load i64, ptr %144, align 8, !tbaa !195
+  %683 = load i64, ptr %144, align 8, !tbaa !196
   %684 = add nsw i64 %682, %683
-  store i64 %684, ptr %144, align 8, !tbaa !195
-  %685 = load i32, ptr %145, align 4, !tbaa !156
+  store i64 %684, ptr %144, align 8, !tbaa !196
+  %685 = load i32, ptr %145, align 4, !tbaa !157
   %686 = add nsw i32 %685, 1
-  store i32 %686, ptr %145, align 4, !tbaa !156
+  store i32 %686, ptr %145, align 4, !tbaa !157
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #28
   %687 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %22) #28
   %688 = icmp slt i32 %687, 0
   br i1 %688, label %Abc_Clock.exit440, label %689
 
 689:                                              ; preds = %Abc_Clock.exit438
-  %690 = load i64, ptr %22, align 8, !tbaa !171
+  %690 = load i64, ptr %22, align 8, !tbaa !172
   %.neg511 = mul i64 %690, -1000000
-  %691 = load i64, ptr %146, align 8, !tbaa !173
+  %691 = load i64, ptr %146, align 8, !tbaa !174
   %.neg510 = sdiv i64 %691, -1000
   %.neg512 = add i64 %.neg510, %.neg511
   br label %Abc_Clock.exit440
@@ -6373,9 +6373,9 @@ Abc_Clock.exit440:                                ; preds = %Abc_Clock.exit438, 
   br i1 %694, label %Abc_Clock.exit442, label %695
 
 695:                                              ; preds = %Abc_Clock.exit440
-  %696 = load i64, ptr %21, align 8, !tbaa !171
+  %696 = load i64, ptr %21, align 8, !tbaa !172
   %697 = mul nsw i64 %696, 1000000
-  %698 = load i64, ptr %147, align 8, !tbaa !173
+  %698 = load i64, ptr %147, align 8, !tbaa !174
   %699 = sdiv i64 %698, 1000
   %700 = add nsw i64 %699, %697
   br label %Abc_Clock.exit442
@@ -6384,16 +6384,16 @@ Abc_Clock.exit442:                                ; preds = %Abc_Clock.exit440, 
   %.0.i441 = phi i64 [ %700, %695 ], [ -1, %Abc_Clock.exit440 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #28
   %701 = add i64 %.0.i441, %.0.i439.neg
-  %702 = load i64, ptr %148, align 8, !tbaa !196
+  %702 = load i64, ptr %148, align 8, !tbaa !197
   %703 = add nsw i64 %701, %702
-  store i64 %703, ptr %148, align 8, !tbaa !196
+  store i64 %703, ptr %148, align 8, !tbaa !197
   %.not240 = icmp eq ptr %692, null
   br i1 %.not240, label %704, label %Vga_ManRollBack.exit.thread.thread
 
 704:                                              ; preds = %Abc_Clock.exit442
-  %705 = load ptr, ptr %127, align 8, !tbaa !66
+  %705 = load ptr, ptr %127, align 8, !tbaa !67
   %706 = getelementptr i8, ptr %705, i64 560
-  %.val285 = load i64, ptr %706, align 8, !tbaa !153
+  %.val285 = load i64, ptr %706, align 8, !tbaa !154
   %707 = trunc i64 %.val285 to i32
   %708 = sub nsw i32 %707, %162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #28
@@ -6402,9 +6402,9 @@ Abc_Clock.exit442:                                ; preds = %Abc_Clock.exit440, 
   br i1 %710, label %Abc_Clock.exit444, label %711
 
 711:                                              ; preds = %704
-  %712 = load i64, ptr %20, align 8, !tbaa !171
+  %712 = load i64, ptr %20, align 8, !tbaa !172
   %713 = mul nsw i64 %712, 1000000
-  %714 = load i64, ptr %149, align 8, !tbaa !173
+  %714 = load i64, ptr %149, align 8, !tbaa !174
   %715 = sdiv i64 %714, 1000
   %716 = add nsw i64 %715, %713
   br label %Abc_Clock.exit444
@@ -6413,9 +6413,9 @@ Abc_Clock.exit444:                                ; preds = %704, %711
   %.0.i443 = phi i64 [ %716, %711 ], [ -1, %704 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #28
   %717 = sub nsw i64 %.0.i443, %.0.i
-  %718 = load ptr, ptr %84, align 8, !tbaa !55
+  %718 = load ptr, ptr %84, align 8, !tbaa !56
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 112
-  %720 = load i32, ptr %719, align 8, !tbaa !150
+  %720 = load i32, ptr %719, align 8, !tbaa !151
   %721 = call i32 @Vta_ManAbsPrintFrame(ptr noundef nonnull %83, ptr noundef null, i32 noundef %indvars, i32 noundef %708, i32 noundef %.1221, i64 noundef %717, i32 noundef %720)
   %722 = add nuw nsw i32 %.1221, 1
   br label %306
@@ -6423,7 +6423,7 @@ Abc_Clock.exit444:                                ; preds = %704, %711
 723:                                              ; preds = %Abc_Clock.exit436
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #28
-  %724 = load i32, ptr %130, align 8, !tbaa !61
+  %724 = load i32, ptr %130, align 8, !tbaa !62
   %725 = icmp sgt i32 %724, 1
   br i1 %725, label %.lr.ph.i445, label %Vga_ManRollBack.exit.thread
 
@@ -6433,10 +6433,10 @@ Abc_Clock.exit444:                                ; preds = %704, %711
 
 .lr.ph.i445:                                      ; preds = %723, %.lr.ph.i445
   %indvars.iv.i446 = phi i64 [ %indvars.iv.next.i447, %.lr.ph.i445 ], [ 1, %723 ]
-  %727 = load ptr, ptr %139, align 8, !tbaa !62
-  %728 = load ptr, ptr %127, align 8, !tbaa !66
+  %727 = load ptr, ptr %139, align 8, !tbaa !63
+  %728 = load ptr, ptr %127, align 8, !tbaa !67
   %729 = getelementptr i8, ptr %728, i64 288
-  %.val37.i = load ptr, ptr %729, align 8, !tbaa !67
+  %.val37.i = load ptr, ptr %729, align 8, !tbaa !68
   %730 = getelementptr inbounds nuw i32, ptr %.val37.i, i64 %indvars.iv.i446
   %731 = load i32, ptr %730, align 4, !tbaa !10
   %.not42.i = icmp eq i32 %731, 1
@@ -6447,20 +6447,20 @@ Abc_Clock.exit444:                                ; preds = %704, %711
   %736 = or disjoint i32 %735, %732
   store i32 %736, ptr %733, align 4
   %indvars.iv.next.i447 = add nuw nsw i64 %indvars.iv.i446, 1
-  %737 = load i32, ptr %130, align 8, !tbaa !61
+  %737 = load i32, ptr %130, align 8, !tbaa !62
   %738 = sext i32 %737 to i64
   %739 = icmp slt i64 %indvars.iv.next.i447, %738
-  br i1 %739, label %.lr.ph.i445, label %.critedge.preheader.i, !llvm.loop !93
+  br i1 %739, label %.lr.ph.i445, label %.critedge.preheader.i, !llvm.loop !94
 
 .lr.ph45.i:                                       ; preds = %.critedge.preheader.i, %Gia_ObjIsRo.exit.thread.i450
   %740 = phi i32 [ %753, %Gia_ObjIsRo.exit.thread.i450 ], [ %737, %.critedge.preheader.i ]
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %Gia_ObjIsRo.exit.thread.i450 ], [ 1, %.critedge.preheader.i ]
-  %741 = load ptr, ptr %139, align 8, !tbaa !62
+  %741 = load ptr, ptr %139, align 8, !tbaa !63
   %742 = getelementptr inbounds nuw %struct.Vta_Obj_t_, ptr %741, i64 %indvars.iv47.i
-  %743 = load ptr, ptr %83, align 8, !tbaa !30
-  %744 = load i32, ptr %742, align 4, !tbaa !64
+  %743 = load ptr, ptr %83, align 8, !tbaa !31
+  %744 = load i32, ptr %742, align 4, !tbaa !65
   %745 = getelementptr i8, ptr %743, i64 32
-  %.val.i448 = load ptr, ptr %745, align 8, !tbaa !63
+  %.val.i448 = load ptr, ptr %745, align 8, !tbaa !64
   %746 = sext i32 %744 to i64
   %747 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i448, i64 %746
   %.not32.i = icmp eq ptr %.val.i448, null
@@ -6475,7 +6475,7 @@ Abc_Clock.exit444:                                ; preds = %704, %711
 
 752:                                              ; preds = %748
   call fastcc void @Vta_ObjPreds(ptr noundef nonnull readonly %83, ptr noundef nonnull %742, ptr noundef nonnull %747, ptr noundef %18, ptr noundef %19)
-  %.pre.i449 = load i32, ptr %130, align 8, !tbaa !61
+  %.pre.i449 = load i32, ptr %130, align 8, !tbaa !62
   br label %Gia_ObjIsRo.exit.thread.i450
 
 Gia_ObjIsRo.exit.thread.i450:                     ; preds = %752, %748
@@ -6483,7 +6483,7 @@ Gia_ObjIsRo.exit.thread.i450:                     ; preds = %752, %748
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %754 = sext i32 %753 to i64
   %755 = icmp slt i64 %indvars.iv.next48.i, %754
-  br i1 %755, label %.lr.ph45.i, label %Vga_ManRollBack.exit.thread, !llvm.loop !94
+  br i1 %755, label %.lr.ph45.i, label %Vga_ManRollBack.exit.thread, !llvm.loop !95
 
 756:                                              ; preds = %Abc_Clock.exit436
   %757 = getelementptr i8, ptr %660, i64 4
@@ -6498,7 +6498,7 @@ Gia_ObjIsRo.exit.thread.i450:                     ; preds = %752, %748
   br label %Vta_ManUnsatCoreRemap.exit459
 
 Vta_ManObj.exit.lr.ph.i452:                       ; preds = %756
-  %760 = load ptr, ptr %139, align 8, !tbaa !62
+  %760 = load ptr, ptr %139, align 8, !tbaa !63
   br label %Vta_ManObj.exit.i454
 
 Vta_ManObj.exit.i454:                             ; preds = %Vta_ManObj.exit.i454, %Vta_ManObj.exit.lr.ph.i452
@@ -6510,22 +6510,22 @@ Vta_ManObj.exit.i454:                             ; preds = %Vta_ManObj.exit.i45
   %763 = sext i32 %762 to i64
   %764 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %760, i64 %763
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 4
-  %766 = load i32, ptr %765, align 4, !tbaa !80
-  %767 = load i32, ptr %135, align 8, !tbaa !83
+  %766 = load i32, ptr %765, align 4, !tbaa !81
+  %767 = load i32, ptr %135, align 8, !tbaa !84
   %768 = shl i32 %766, %767
-  %769 = load i32, ptr %764, align 4, !tbaa !64
+  %769 = load i32, ptr %764, align 4, !tbaa !65
   %770 = or i32 %768, %769
   store i32 %770, ptr %761, align 4, !tbaa !10
   %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i455, 1
   %.val12.i458 = load i32, ptr %757, align 4, !tbaa !15
   %771 = sext i32 %.val12.i458 to i64
   %772 = icmp slt i64 %indvars.iv.next.i457, %771
-  br i1 %772, label %Vta_ManObj.exit.i454, label %Vta_ManUnsatCoreRemap.exit459, !llvm.loop !84
+  br i1 %772, label %Vta_ManObj.exit.i454, label %Vta_ManUnsatCoreRemap.exit459, !llvm.loop !85
 
 Vta_ManUnsatCoreRemap.exit459:                    ; preds = %Vta_ManObj.exit.i454, %.Vta_ManUnsatCoreRemap.exit459_crit_edge
   %.pre-phi638 = phi i64 [ %.pre637, %.Vta_ManUnsatCoreRemap.exit459_crit_edge ], [ %771, %Vta_ManObj.exit.i454 ]
   call void @qsort(ptr noundef %.val.i453, i64 noundef %.pre-phi638, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare2) #28
-  %773 = load ptr, ptr %133, align 8, !tbaa !130
+  %773 = load ptr, ptr %133, align 8, !tbaa !131
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 4
   %775 = load i32, ptr %774, align 4, !tbaa !11
   %776 = load i32, ptr %773, align 8, !tbaa !13
@@ -6592,9 +6592,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %803 = sext i32 %801 to i64
   %804 = getelementptr inbounds ptr, ptr %800, i64 %803
   store ptr %660, ptr %804, align 8, !tbaa !19
-  %805 = load ptr, ptr %127, align 8, !tbaa !66
+  %805 = load ptr, ptr %127, align 8, !tbaa !67
   %806 = getelementptr i8, ptr %805, i64 560
-  %.val284 = load i64, ptr %806, align 8, !tbaa !153
+  %.val284 = load i64, ptr %806, align 8, !tbaa !154
   %807 = trunc i64 %.val284 to i32
   %808 = sub nsw i32 %807, %162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #28
@@ -6603,9 +6603,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %810, label %Abc_Clock.exit464, label %811
 
 811:                                              ; preds = %Vec_PtrPush.exit
-  %812 = load i64, ptr %17, align 8, !tbaa !171
+  %812 = load i64, ptr %17, align 8, !tbaa !172
   %813 = mul nsw i64 %812, 1000000
-  %814 = load i64, ptr %154, align 8, !tbaa !173
+  %814 = load i64, ptr %154, align 8, !tbaa !174
   %815 = sdiv i64 %814, 1000
   %816 = add nsw i64 %815, %813
   br label %Abc_Clock.exit464
@@ -6614,17 +6614,17 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
   %.0.i463 = phi i64 [ %816, %811 ], [ -1, %Vec_PtrPush.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #28
   %817 = sub nsw i64 %.0.i463, %.0.i
-  %818 = load ptr, ptr %84, align 8, !tbaa !55
+  %818 = load ptr, ptr %84, align 8, !tbaa !56
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 112
-  %820 = load i32, ptr %819, align 8, !tbaa !150
+  %820 = load i32, ptr %819, align 8, !tbaa !151
   %821 = call i32 @Vta_ManAbsPrintFrame(ptr noundef nonnull %83, ptr noundef nonnull %660, i32 noundef %indvars, i32 noundef %808, i32 noundef %.1221, i64 noundef %817, i32 noundef %820)
   %.not241 = icmp eq i32 %821, 0
   br i1 %.not241, label %825, label %822
 
 822:                                              ; preds = %Abc_Clock.exit464
-  %823 = load ptr, ptr %84, align 8, !tbaa !55
+  %823 = load ptr, ptr %84, align 8, !tbaa !56
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 128
-  store i32 0, ptr %824, align 8, !tbaa !197
+  store i32 0, ptr %824, align 8, !tbaa !198
   br label %839
 
 825:                                              ; preds = %Abc_Clock.exit464
@@ -6633,11 +6633,11 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
   br i1 %827, label %828, label %839
 
 828:                                              ; preds = %825
-  %829 = load ptr, ptr %84, align 8, !tbaa !55
+  %829 = load ptr, ptr %84, align 8, !tbaa !56
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 128
-  %831 = load i32, ptr %830, align 8, !tbaa !197
+  %831 = load i32, ptr %830, align 8, !tbaa !198
   %832 = add nsw i32 %831, 1
-  store i32 %832, ptr %830, align 8, !tbaa !197
+  store i32 %832, ptr %830, align 8, !tbaa !198
   %833 = call i32 (...) @Abc_FrameIsBridgeMode() #28
   %.not242 = icmp eq i32 %833, 0
   br i1 %.not242, label %839, label %834
@@ -6647,7 +6647,7 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
   br i1 %.not243, label %838, label %835
 
 835:                                              ; preds = %834
-  %836 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %836 = load ptr, ptr @stdout, align 8, !tbaa !98
   %837 = call i32 @Gia_ManToBridgeBadAbs(ptr noundef %836) #28
   br label %838
 
@@ -6658,9 +6658,9 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
 839:                                              ; preds = %825, %838, %828, %822
   %.2214 = phi i32 [ 1, %822 ], [ 2, %838 ], [ 2, %828 ], [ %826, %825 ]
   %.2 = phi i32 [ %.0211587, %822 ], [ 1, %838 ], [ %.0211587, %828 ], [ %.0211587, %825 ]
-  %840 = load ptr, ptr %84, align 8, !tbaa !55
+  %840 = load ptr, ptr %84, align 8, !tbaa !56
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 84
-  %842 = load i32, ptr %841, align 4, !tbaa !198
+  %842 = load i32, ptr %841, align 4, !tbaa !199
   %.not244 = icmp eq i32 %842, 0
   %843 = and i32 %164, 1
   %.not245 = icmp eq i32 %843, 0
@@ -6672,34 +6672,34 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
   call void @Abc_FrameSetStatus(i32 noundef -1) #28
   call void @Abc_FrameSetCex(ptr noundef null) #28
   call void @Abc_FrameSetNFrames(i32 noundef %indvars) #28
-  %845 = load ptr, ptr %84, align 8, !tbaa !55
+  %845 = load ptr, ptr %84, align 8, !tbaa !56
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 104
-  %847 = load ptr, ptr %846, align 8, !tbaa !169
+  %847 = load ptr, ptr %846, align 8, !tbaa !170
   %.not246 = icmp eq ptr %847, null
   %spec.select = select i1 %.not246, ptr @.str.33, ptr %847
   %848 = call ptr @Extra_FileNameGenericAppend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.34) #28
   %849 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %848) #28
   %850 = call ptr (...) @Abc_FrameGetGlobalFrame() #28
   %851 = call i32 @Cmd_CommandExecute(ptr noundef %850, ptr noundef nonnull %33) #28
-  %852 = load i32, ptr %141, align 8, !tbaa !150
+  %852 = load i32, ptr %141, align 8, !tbaa !151
   call void @Gia_VtaDumpAbsracted(ptr noundef nonnull %83, i32 noundef %852)
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %33) #28
   br label %853
 
 853:                                              ; preds = %844, %839
-  %854 = load i32, ptr %155, align 8, !tbaa !128
-  %.val.i465 = load ptr, ptr %156, align 8, !tbaa !54
+  %854 = load i32, ptr %155, align 8, !tbaa !129
+  %.val.i465 = load ptr, ptr %156, align 8, !tbaa !55
   %855 = getelementptr i8, ptr %.val.i465, i64 4
   %.val.val.i = load i32, ptr %855, align 4, !tbaa !15
-  %856 = load i32, ptr %157, align 8, !tbaa !121
-  %857 = load ptr, ptr %44, align 8, !tbaa !91
+  %856 = load i32, ptr %157, align 8, !tbaa !122
+  %857 = load ptr, ptr %44, align 8, !tbaa !92
   %858 = getelementptr i8, ptr %857, i64 4
   %.val.i.i466 = load i32, ptr %858, align 4, !tbaa !15
   %859 = add i32 %.val.i.i466, %.val.val.i
   %860 = xor i32 %859, -1
   %861 = add i32 %856, %.val.val.i
   %862 = add i32 %861, %860
-  %863 = load i32, ptr %158, align 4, !tbaa !180
+  %863 = load i32, ptr %158, align 4, !tbaa !181
   %864 = sub nsw i32 100, %863
   %865 = mul nsw i32 %862, %864
   %866 = sdiv i32 %865, 100
@@ -6711,12 +6711,12 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
   br label %.loopexit656
 
 Vga_ManRollBack.exit:                             ; preds = %853
-  %868 = load ptr, ptr %84, align 8, !tbaa !55
-  %869 = load i32, ptr %868, align 8, !tbaa !178
+  %868 = load ptr, ptr %84, align 8, !tbaa !56
+  %869 = load i32, ptr %868, align 8, !tbaa !179
   %.not236 = icmp eq i32 %869, 0
   %870 = icmp sgt i32 %869, %indvars
   %or.cond266 = select i1 %.not236, i1 true, i1 %870
-  br i1 %or.cond266, label %.critedge, label %Vga_ManRollBack.exit.thread.loopexit594, !llvm.loop !199
+  br i1 %or.cond266, label %.critedge, label %Vga_ManRollBack.exit.thread.loopexit594, !llvm.loop !200
 
 Vga_ManRollBack.exit.thread.loopexit594:          ; preds = %Abc_Clock.exit436, %Vga_ManRollBack.exit
   %.0219560.ph = phi i32 [ %164, %Abc_Clock.exit436 ], [ %indvars, %Vga_ManRollBack.exit ]
@@ -6733,9 +6733,9 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
 .loopexit656:                                     ; preds = %422, %._crit_edge.i, %867, %Vga_ManRollBack.exit.thread.loopexit594
   %.ph = phi i1 [ %871, %Vga_ManRollBack.exit.thread.loopexit594 ], [ true, %867 ], [ true, %._crit_edge.i ], [ true, %422 ]
   %.0219560.ph640 = phi i32 [ %.0219560.ph, %Vga_ManRollBack.exit.thread.loopexit594 ], [ %164, %867 ], [ %164, %._crit_edge.i ], [ %164, %422 ]
-  %.pre633644 = load ptr, ptr %84, align 8, !tbaa !55
+  %.pre633644 = load ptr, ptr %84, align 8, !tbaa !56
   %874 = getelementptr inbounds nuw i8, ptr %.pre633644, i64 112
-  %875 = load i32, ptr %874, align 8, !tbaa !150
+  %875 = load i32, ptr %874, align 8, !tbaa !151
   %876 = icmp ne i32 %875, 0
   %or.cond = and i1 %876, %.ph
   br i1 %or.cond, label %877, label %.thread
@@ -6748,7 +6748,7 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
   %878 = phi i1 [ %.ph, %877 ], [ %.ph, %.loopexit656 ], [ false, %Vga_ManRollBack.exit.thread ], [ false, %._crit_edge.i343 ], [ undef, %124 ], [ false, %494 ]
   %.0219560645650 = phi i32 [ %.0219560.ph640, %877 ], [ %.0219560.ph640, %.loopexit656 ], [ %164, %Vga_ManRollBack.exit.thread ], [ %164, %._crit_edge.i343 ], [ 0, %124 ], [ %164, %494 ]
   %879 = getelementptr inbounds nuw i8, ptr %83, i64 112
-  %880 = load ptr, ptr %879, align 8, !tbaa !130
+  %880 = load ptr, ptr %879, align 8, !tbaa !131
   %881 = getelementptr i8, ptr %880, i64 4
   %.val278 = load i32, ptr %881, align 4, !tbaa !11
   %882 = icmp eq i32 %.val278, 0
@@ -6759,7 +6759,7 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
   br label %Vec_IntFreeP.exit473
 
 884:                                              ; preds = %.thread
-  %885 = load ptr, ptr %67, align 8, !tbaa !160
+  %885 = load ptr, ptr %67, align 8, !tbaa !161
   %886 = icmp eq ptr %885, null
   br i1 %886, label %Vec_IntFreeP.exit, label %887
 
@@ -6771,7 +6771,7 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
 
 .thread.i:                                        ; preds = %887
   call void @free(ptr noundef nonnull %889) #28
-  %890 = load ptr, ptr %67, align 8, !tbaa !160
+  %890 = load ptr, ptr %67, align 8, !tbaa !161
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 8
   store ptr null, ptr %891, align 8, !tbaa !3
   br label %892
@@ -6779,73 +6779,73 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
 892:                                              ; preds = %.thread.i, %887
   %893 = phi ptr [ %890, %.thread.i ], [ %885, %887 ]
   call void @free(ptr noundef nonnull %893) #28
-  store ptr null, ptr %67, align 8, !tbaa !160
-  %.pre634 = load ptr, ptr %879, align 8, !tbaa !130
+  store ptr null, ptr %67, align 8, !tbaa !161
+  %.pre634 = load ptr, ptr %879, align 8, !tbaa !131
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %884, %892
   %894 = phi ptr [ %880, %884 ], [ %.pre634, %892 ]
   %895 = call ptr @Gia_VtaFramesToAbs(ptr noundef %894)
-  store ptr %895, ptr %67, align 8, !tbaa !148
-  %896 = load ptr, ptr %84, align 8, !tbaa !55
+  store ptr %895, ptr %67, align 8, !tbaa !149
+  %896 = load ptr, ptr %84, align 8, !tbaa !56
   br i1 %878, label %897, label %944
 
 897:                                              ; preds = %Vec_IntFreeP.exit
   %898 = getelementptr inbounds nuw i8, ptr %896, i64 32
-  %899 = load i32, ptr %898, align 8, !tbaa !175
+  %899 = load i32, ptr %898, align 8, !tbaa !176
   %.not252 = icmp eq i32 %899, 0
   br i1 %.not252, label %912, label %900
 
 900:                                              ; preds = %897
   %901 = call fastcc i64 @Abc_Clock()
   %902 = getelementptr inbounds nuw i8, ptr %83, i64 120
-  %903 = load ptr, ptr %902, align 8, !tbaa !66
+  %903 = load ptr, ptr %902, align 8, !tbaa !67
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 608
-  %905 = load i64, ptr %904, align 8, !tbaa !176
+  %905 = load i64, ptr %904, align 8, !tbaa !177
   %.not253 = icmp slt i64 %901, %905
   br i1 %.not253, label %912, label %906
 
 906:                                              ; preds = %900
-  %907 = load ptr, ptr %84, align 8, !tbaa !55
+  %907 = load ptr, ptr %84, align 8, !tbaa !56
   %908 = getelementptr inbounds nuw i8, ptr %907, i64 32
-  %909 = load i32, ptr %908, align 8, !tbaa !175
+  %909 = load i32, ptr %908, align 8, !tbaa !176
   %910 = getelementptr inbounds nuw i8, ptr %907, i64 128
-  %911 = load i32, ptr %910, align 8, !tbaa !197
+  %911 = load i32, ptr %910, align 8, !tbaa !198
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.36, i32 noundef %909, i32 noundef %.0219560645650, i32 noundef %911)
   br label %Vec_IntFreeP.exit473
 
 912:                                              ; preds = %900, %897
   %913 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %914 = load i32, ptr %913, align 4, !tbaa !179
+  %914 = load i32, ptr %913, align 4, !tbaa !180
   %.not254 = icmp eq i32 %914, 0
   br i1 %.not254, label %924, label %915
 
 915:                                              ; preds = %912
   %916 = getelementptr inbounds nuw i8, ptr %83, i64 120
-  %917 = load ptr, ptr %916, align 8, !tbaa !66
+  %917 = load ptr, ptr %916, align 8, !tbaa !67
   %918 = getelementptr i8, ptr %917, i64 560
-  %.val283 = load i64, ptr %918, align 8, !tbaa !153
+  %.val283 = load i64, ptr %918, align 8, !tbaa !154
   %919 = trunc i64 %.val283 to i32
   %.not255 = icmp sgt i32 %914, %919
   br i1 %.not255, label %924, label %920
 
 920:                                              ; preds = %915
-  %921 = load ptr, ptr %84, align 8, !tbaa !55
+  %921 = load ptr, ptr %84, align 8, !tbaa !56
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 128
-  %923 = load i32, ptr %922, align 8, !tbaa !197
+  %923 = load i32, ptr %922, align 8, !tbaa !198
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, i32 noundef %914, i32 noundef %.0219560645650, i32 noundef %923)
   br label %Vec_IntFreeP.exit473
 
 924:                                              ; preds = %915, %912
   %925 = getelementptr inbounds nuw i8, ptr %83, i64 104
-  %926 = load i32, ptr %925, align 8, !tbaa !128
+  %926 = load i32, ptr %925, align 8, !tbaa !129
   %927 = getelementptr i8, ptr %0, i64 64
-  %.val.i468 = load ptr, ptr %927, align 8, !tbaa !54
+  %.val.i468 = load ptr, ptr %927, align 8, !tbaa !55
   %928 = getelementptr i8, ptr %.val.i468, i64 4
   %.val.val.i469 = load i32, ptr %928, align 4, !tbaa !15
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %930 = load i32, ptr %929, align 8, !tbaa !121
-  %931 = load ptr, ptr %44, align 8, !tbaa !91
+  %930 = load i32, ptr %929, align 8, !tbaa !122
+  %931 = load ptr, ptr %44, align 8, !tbaa !92
   %932 = getelementptr i8, ptr %931, i64 4
   %.val.i.i470 = load i32, ptr %932, align 4, !tbaa !15
   %933 = add i32 %.val.i.i470, %.val.val.i469
@@ -6853,7 +6853,7 @@ Vec_IntFreeP.exit:                                ; preds = %884, %892
   %935 = add i32 %930, %.val.val.i469
   %936 = add i32 %935, %934
   %937 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %938 = load i32, ptr %937, align 4, !tbaa !180
+  %938 = load i32, ptr %937, align 4, !tbaa !181
   %939 = sub nsw i32 100, %938
   %940 = mul nsw i32 %936, %939
   %941 = sdiv i32 %940, 100
@@ -6870,19 +6870,19 @@ Vec_IntFreeP.exit:                                ; preds = %884, %892
 
 944:                                              ; preds = %Vec_IntFreeP.exit
   %945 = getelementptr inbounds nuw i8, ptr %896, i64 120
-  %946 = load i32, ptr %945, align 8, !tbaa !56
+  %946 = load i32, ptr %945, align 8, !tbaa !57
   %947 = add nsw i32 %946, 1
-  store i32 %947, ptr %945, align 8, !tbaa !56
+  store i32 %947, ptr %945, align 8, !tbaa !57
   %948 = getelementptr inbounds nuw i8, ptr %896, i64 128
-  %949 = load i32, ptr %948, align 8, !tbaa !197
+  %949 = load i32, ptr %948, align 8, !tbaa !198
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.40, i32 noundef %.0219560645650, i32 noundef %949)
   br label %Vec_IntFreeP.exit473
 
 Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, %Vga_ManRollBack.exit.thread
   %.3507 = phi ptr [ %872, %Vga_ManRollBack.exit.thread ], [ %692, %Abc_Clock.exit442 ]
-  %950 = load ptr, ptr %84, align 8, !tbaa !55
+  %950 = load ptr, ptr %84, align 8, !tbaa !56
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 112
-  %952 = load i32, ptr %951, align 8, !tbaa !150
+  %952 = load i32, ptr %951, align 8, !tbaa !151
   %.not248 = icmp eq i32 %952, 0
   br i1 %.not248, label %954, label %953
 
@@ -6891,23 +6891,23 @@ Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, 
   br label %954
 
 954:                                              ; preds = %953, %Vga_ManRollBack.exit.thread.thread
-  %955 = load ptr, ptr %83, align 8, !tbaa !30
+  %955 = load ptr, ptr %83, align 8, !tbaa !31
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 376
-  %957 = load ptr, ptr %956, align 8, !tbaa !174
+  %957 = load ptr, ptr %956, align 8, !tbaa !175
   %.not249 = icmp eq ptr %957, null
   br i1 %.not249, label %961, label %958
 
 958:                                              ; preds = %954
   call void @free(ptr noundef nonnull %957) #28
-  %959 = load ptr, ptr %83, align 8, !tbaa !30
+  %959 = load ptr, ptr %83, align 8, !tbaa !31
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 376
-  store ptr null, ptr %960, align 8, !tbaa !174
+  store ptr null, ptr %960, align 8, !tbaa !175
   br label %961
 
 961:                                              ; preds = %954, %958
   %962 = phi ptr [ %955, %954 ], [ %959, %958 ]
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 376
-  store ptr %.3507, ptr %963, align 8, !tbaa !174
+  store ptr %.3507, ptr %963, align 8, !tbaa !175
   %964 = call i32 @Gia_ManVerifyCex(ptr noundef nonnull %962, ptr noundef nonnull %.3507, i32 noundef 0) #28
   %.not250 = icmp eq i32 %964, 0
   br i1 %.not250, label %965, label %966
@@ -6919,12 +6919,12 @@ Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, 
 966:                                              ; preds = %965, %961
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.42, i32 noundef %164)
   %967 = getelementptr inbounds nuw i8, ptr %.3507, i64 4
-  %968 = load i32, ptr %967, align 4, !tbaa !60
+  %968 = load i32, ptr %967, align 4, !tbaa !61
   %969 = add nsw i32 %968, -1
-  %970 = load ptr, ptr %84, align 8, !tbaa !55
+  %970 = load ptr, ptr %84, align 8, !tbaa !56
   %971 = getelementptr inbounds nuw i8, ptr %970, i64 120
-  store i32 %969, ptr %971, align 8, !tbaa !56
-  %972 = load ptr, ptr %67, align 8, !tbaa !160
+  store i32 %969, ptr %971, align 8, !tbaa !57
+  %972 = load ptr, ptr %67, align 8, !tbaa !161
   %973 = icmp eq ptr %972, null
   br i1 %973, label %Vec_IntFreeP.exit473, label %974
 
@@ -6936,7 +6936,7 @@ Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, 
 
 .thread.i472:                                     ; preds = %974
   call void @free(ptr noundef nonnull %976) #28
-  %977 = load ptr, ptr %67, align 8, !tbaa !160
+  %977 = load ptr, ptr %67, align 8, !tbaa !161
   %978 = getelementptr inbounds nuw i8, ptr %977, i64 8
   store ptr null, ptr %978, align 8, !tbaa !3
   br label %979
@@ -6944,7 +6944,7 @@ Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, 
 979:                                              ; preds = %.thread.i472, %974
   %980 = phi ptr [ %977, %.thread.i472 ], [ %972, %974 ]
   call void @free(ptr noundef nonnull %980) #28
-  store ptr null, ptr %67, align 8, !tbaa !160
+  store ptr null, ptr %67, align 8, !tbaa !161
   br label %Vec_IntFreeP.exit473
 
 Vec_IntFreeP.exit473:                             ; preds = %979, %966, %883, %906, %942, %943, %920, %944
@@ -6955,10 +6955,10 @@ Vec_IntFreeP.exit473:                             ; preds = %979, %966, %883, %9
   br i1 %982, label %Abc_Clock.exit475, label %983
 
 983:                                              ; preds = %Vec_IntFreeP.exit473
-  %984 = load i64, ptr %16, align 8, !tbaa !171
+  %984 = load i64, ptr %16, align 8, !tbaa !172
   %985 = mul nsw i64 %984, 1000000
   %986 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %987 = load i64, ptr %986, align 8, !tbaa !173
+  %987 = load i64, ptr %986, align 8, !tbaa !174
   %988 = sdiv i64 %987, 1000
   %989 = add nsw i64 %988, %985
   br label %Abc_Clock.exit475
@@ -6971,9 +6971,9 @@ Abc_Clock.exit475:                                ; preds = %Vec_IntFreeP.exit47
   %991 = sitofp i64 %990 to double
   %992 = fdiv double %991, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.60, double noundef %992)
-  %993 = load ptr, ptr %84, align 8, !tbaa !55
+  %993 = load ptr, ptr %84, align 8, !tbaa !56
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 112
-  %995 = load i32, ptr %994, align 8, !tbaa !150
+  %995 = load i32, ptr %994, align 8, !tbaa !151
   %.not257 = icmp eq i32 %995, 0
   br i1 %.not257, label %1185, label %996
 
@@ -6984,10 +6984,10 @@ Abc_Clock.exit475:                                ; preds = %Vec_IntFreeP.exit47
   br i1 %998, label %Abc_Clock.exit477, label %999
 
 999:                                              ; preds = %996
-  %1000 = load i64, ptr %15, align 8, !tbaa !171
+  %1000 = load i64, ptr %15, align 8, !tbaa !172
   %1001 = mul nsw i64 %1000, 1000000
   %1002 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %1003 = load i64, ptr %1002, align 8, !tbaa !173
+  %1003 = load i64, ptr %1002, align 8, !tbaa !174
   %1004 = sdiv i64 %1003, 1000
   %1005 = add nsw i64 %1004, %1001
   br label %Abc_Clock.exit477
@@ -6996,19 +6996,19 @@ Abc_Clock.exit477:                                ; preds = %996, %999
   %.0.i476 = phi i64 [ %1005, %999 ], [ -1, %996 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
   %1006 = getelementptr inbounds nuw i8, ptr %83, i64 144
-  %1007 = load i64, ptr %1006, align 8, !tbaa !194
+  %1007 = load i64, ptr %1006, align 8, !tbaa !195
   %1008 = getelementptr inbounds nuw i8, ptr %83, i64 136
-  %1009 = load i64, ptr %1008, align 8, !tbaa !195
+  %1009 = load i64, ptr %1008, align 8, !tbaa !196
   %1010 = getelementptr inbounds nuw i8, ptr %83, i64 152
-  %1011 = load i64, ptr %1010, align 8, !tbaa !196
+  %1011 = load i64, ptr %1010, align 8, !tbaa !197
   %1012 = add i64 %.0.i, %1007
   %1013 = add i64 %1012, %1009
   %1014 = add i64 %1013, %1011
   %1015 = sub i64 %.0.i476, %1014
   %1016 = getelementptr inbounds nuw i8, ptr %83, i64 160
-  store i64 %1015, ptr %1016, align 8, !tbaa !200
+  store i64 %1015, ptr %1016, align 8, !tbaa !201
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.44)
-  %1017 = load i64, ptr %1006, align 8, !tbaa !194
+  %1017 = load i64, ptr %1006, align 8, !tbaa !195
   %1018 = sitofp i64 %1017 to double
   %1019 = fdiv double %1018, 1.000000e+06
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #28
@@ -7017,10 +7017,10 @@ Abc_Clock.exit477:                                ; preds = %996, %999
   br i1 %1021, label %Abc_Clock.exit479, label %1022
 
 1022:                                             ; preds = %Abc_Clock.exit477
-  %1023 = load i64, ptr %14, align 8, !tbaa !171
+  %1023 = load i64, ptr %14, align 8, !tbaa !172
   %1024 = mul nsw i64 %1023, 1000000
   %1025 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1026 = load i64, ptr %1025, align 8, !tbaa !173
+  %1026 = load i64, ptr %1025, align 8, !tbaa !174
   %1027 = sdiv i64 %1026, 1000
   %1028 = add nsw i64 %1027, %1024
   br label %Abc_Clock.exit479
@@ -7032,7 +7032,7 @@ Abc_Clock.exit479:                                ; preds = %Abc_Clock.exit477, 
   br i1 %.not258, label %1045, label %1029
 
 1029:                                             ; preds = %Abc_Clock.exit479
-  %1030 = load i64, ptr %1006, align 8, !tbaa !194
+  %1030 = load i64, ptr %1006, align 8, !tbaa !195
   %1031 = sitofp i64 %1030 to double
   %1032 = fmul double %1031, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #28
@@ -7041,10 +7041,10 @@ Abc_Clock.exit479:                                ; preds = %Abc_Clock.exit477, 
   br i1 %1034, label %Abc_Clock.exit481, label %1035
 
 1035:                                             ; preds = %1029
-  %1036 = load i64, ptr %13, align 8, !tbaa !171
+  %1036 = load i64, ptr %13, align 8, !tbaa !172
   %1037 = mul nsw i64 %1036, 1000000
   %1038 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %1039 = load i64, ptr %1038, align 8, !tbaa !173
+  %1039 = load i64, ptr %1038, align 8, !tbaa !174
   %1040 = sdiv i64 %1039, 1000
   %1041 = add nsw i64 %1040, %1037
   br label %Abc_Clock.exit481
@@ -7061,7 +7061,7 @@ Abc_Clock.exit481:                                ; preds = %1029, %1035
   %1046 = phi double [ %1044, %Abc_Clock.exit481 ], [ 0.000000e+00, %Abc_Clock.exit479 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.45, double noundef %1019, double noundef %1046)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.46)
-  %1047 = load i64, ptr %1008, align 8, !tbaa !195
+  %1047 = load i64, ptr %1008, align 8, !tbaa !196
   %1048 = sitofp i64 %1047 to double
   %1049 = fdiv double %1048, 1.000000e+06
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #28
@@ -7070,10 +7070,10 @@ Abc_Clock.exit481:                                ; preds = %1029, %1035
   br i1 %1051, label %Abc_Clock.exit483, label %1052
 
 1052:                                             ; preds = %1045
-  %1053 = load i64, ptr %12, align 8, !tbaa !171
+  %1053 = load i64, ptr %12, align 8, !tbaa !172
   %1054 = mul nsw i64 %1053, 1000000
   %1055 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %1056 = load i64, ptr %1055, align 8, !tbaa !173
+  %1056 = load i64, ptr %1055, align 8, !tbaa !174
   %1057 = sdiv i64 %1056, 1000
   %1058 = add nsw i64 %1057, %1054
   br label %Abc_Clock.exit483
@@ -7085,7 +7085,7 @@ Abc_Clock.exit483:                                ; preds = %1045, %1052
   br i1 %.not259, label %1075, label %1059
 
 1059:                                             ; preds = %Abc_Clock.exit483
-  %1060 = load i64, ptr %1008, align 8, !tbaa !195
+  %1060 = load i64, ptr %1008, align 8, !tbaa !196
   %1061 = sitofp i64 %1060 to double
   %1062 = fmul double %1061, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #28
@@ -7094,10 +7094,10 @@ Abc_Clock.exit483:                                ; preds = %1045, %1052
   br i1 %1064, label %Abc_Clock.exit485, label %1065
 
 1065:                                             ; preds = %1059
-  %1066 = load i64, ptr %11, align 8, !tbaa !171
+  %1066 = load i64, ptr %11, align 8, !tbaa !172
   %1067 = mul nsw i64 %1066, 1000000
   %1068 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %1069 = load i64, ptr %1068, align 8, !tbaa !173
+  %1069 = load i64, ptr %1068, align 8, !tbaa !174
   %1070 = sdiv i64 %1069, 1000
   %1071 = add nsw i64 %1070, %1067
   br label %Abc_Clock.exit485
@@ -7114,7 +7114,7 @@ Abc_Clock.exit485:                                ; preds = %1059, %1065
   %1076 = phi double [ %1074, %Abc_Clock.exit485 ], [ 0.000000e+00, %Abc_Clock.exit483 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.45, double noundef %1049, double noundef %1076)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.47)
-  %1077 = load i64, ptr %1010, align 8, !tbaa !196
+  %1077 = load i64, ptr %1010, align 8, !tbaa !197
   %1078 = sitofp i64 %1077 to double
   %1079 = fdiv double %1078, 1.000000e+06
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #28
@@ -7123,10 +7123,10 @@ Abc_Clock.exit485:                                ; preds = %1059, %1065
   br i1 %1081, label %Abc_Clock.exit487, label %1082
 
 1082:                                             ; preds = %1075
-  %1083 = load i64, ptr %10, align 8, !tbaa !171
+  %1083 = load i64, ptr %10, align 8, !tbaa !172
   %1084 = mul nsw i64 %1083, 1000000
   %1085 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %1086 = load i64, ptr %1085, align 8, !tbaa !173
+  %1086 = load i64, ptr %1085, align 8, !tbaa !174
   %1087 = sdiv i64 %1086, 1000
   %1088 = add nsw i64 %1087, %1084
   br label %Abc_Clock.exit487
@@ -7138,7 +7138,7 @@ Abc_Clock.exit487:                                ; preds = %1075, %1082
   br i1 %.not260, label %1105, label %1089
 
 1089:                                             ; preds = %Abc_Clock.exit487
-  %1090 = load i64, ptr %1010, align 8, !tbaa !196
+  %1090 = load i64, ptr %1010, align 8, !tbaa !197
   %1091 = sitofp i64 %1090 to double
   %1092 = fmul double %1091, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #28
@@ -7147,10 +7147,10 @@ Abc_Clock.exit487:                                ; preds = %1075, %1082
   br i1 %1094, label %Abc_Clock.exit489, label %1095
 
 1095:                                             ; preds = %1089
-  %1096 = load i64, ptr %9, align 8, !tbaa !171
+  %1096 = load i64, ptr %9, align 8, !tbaa !172
   %1097 = mul nsw i64 %1096, 1000000
   %1098 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %1099 = load i64, ptr %1098, align 8, !tbaa !173
+  %1099 = load i64, ptr %1098, align 8, !tbaa !174
   %1100 = sdiv i64 %1099, 1000
   %1101 = add nsw i64 %1100, %1097
   br label %Abc_Clock.exit489
@@ -7167,7 +7167,7 @@ Abc_Clock.exit489:                                ; preds = %1089, %1095
   %1106 = phi double [ %1104, %Abc_Clock.exit489 ], [ 0.000000e+00, %Abc_Clock.exit487 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.45, double noundef %1079, double noundef %1106)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.48)
-  %1107 = load i64, ptr %1016, align 8, !tbaa !200
+  %1107 = load i64, ptr %1016, align 8, !tbaa !201
   %1108 = sitofp i64 %1107 to double
   %1109 = fdiv double %1108, 1.000000e+06
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #28
@@ -7176,10 +7176,10 @@ Abc_Clock.exit489:                                ; preds = %1089, %1095
   br i1 %1111, label %Abc_Clock.exit491, label %1112
 
 1112:                                             ; preds = %1105
-  %1113 = load i64, ptr %8, align 8, !tbaa !171
+  %1113 = load i64, ptr %8, align 8, !tbaa !172
   %1114 = mul nsw i64 %1113, 1000000
   %1115 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %1116 = load i64, ptr %1115, align 8, !tbaa !173
+  %1116 = load i64, ptr %1115, align 8, !tbaa !174
   %1117 = sdiv i64 %1116, 1000
   %1118 = add nsw i64 %1117, %1114
   br label %Abc_Clock.exit491
@@ -7191,7 +7191,7 @@ Abc_Clock.exit491:                                ; preds = %1105, %1112
   br i1 %.not261, label %1135, label %1119
 
 1119:                                             ; preds = %Abc_Clock.exit491
-  %1120 = load i64, ptr %1016, align 8, !tbaa !200
+  %1120 = load i64, ptr %1016, align 8, !tbaa !201
   %1121 = sitofp i64 %1120 to double
   %1122 = fmul double %1121, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
@@ -7200,10 +7200,10 @@ Abc_Clock.exit491:                                ; preds = %1105, %1112
   br i1 %1124, label %Abc_Clock.exit493, label %1125
 
 1125:                                             ; preds = %1119
-  %1126 = load i64, ptr %7, align 8, !tbaa !171
+  %1126 = load i64, ptr %7, align 8, !tbaa !172
   %1127 = mul nsw i64 %1126, 1000000
   %1128 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %1129 = load i64, ptr %1128, align 8, !tbaa !173
+  %1129 = load i64, ptr %1128, align 8, !tbaa !174
   %1130 = sdiv i64 %1129, 1000
   %1131 = add nsw i64 %1130, %1127
   br label %Abc_Clock.exit493
@@ -7226,10 +7226,10 @@ Abc_Clock.exit493:                                ; preds = %1119, %1125
   br i1 %1138, label %Abc_Clock.exit495, label %1139
 
 1139:                                             ; preds = %1135
-  %1140 = load i64, ptr %6, align 8, !tbaa !171
+  %1140 = load i64, ptr %6, align 8, !tbaa !172
   %1141 = mul nsw i64 %1140, 1000000
   %1142 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %1143 = load i64, ptr %1142, align 8, !tbaa !173
+  %1143 = load i64, ptr %1142, align 8, !tbaa !174
   %1144 = sdiv i64 %1143, 1000
   %1145 = add nsw i64 %1144, %1141
   br label %Abc_Clock.exit495
@@ -7246,10 +7246,10 @@ Abc_Clock.exit495:                                ; preds = %1135, %1139
   br i1 %1150, label %Abc_Clock.exit497, label %1151
 
 1151:                                             ; preds = %Abc_Clock.exit495
-  %1152 = load i64, ptr %5, align 8, !tbaa !171
+  %1152 = load i64, ptr %5, align 8, !tbaa !172
   %1153 = mul nsw i64 %1152, 1000000
   %1154 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1155 = load i64, ptr %1154, align 8, !tbaa !173
+  %1155 = load i64, ptr %1154, align 8, !tbaa !174
   %1156 = sdiv i64 %1155, 1000
   %1157 = add nsw i64 %1156, %1153
   br label %Abc_Clock.exit497
@@ -7267,10 +7267,10 @@ Abc_Clock.exit497:                                ; preds = %Abc_Clock.exit495, 
   br i1 %1160, label %Abc_Clock.exit499, label %1161
 
 1161:                                             ; preds = %1158
-  %1162 = load i64, ptr %4, align 8, !tbaa !171
+  %1162 = load i64, ptr %4, align 8, !tbaa !172
   %1163 = mul nsw i64 %1162, 1000000
   %1164 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1165 = load i64, ptr %1164, align 8, !tbaa !173
+  %1165 = load i64, ptr %1164, align 8, !tbaa !174
   %1166 = sdiv i64 %1165, 1000
   %1167 = add nsw i64 %1166, %1163
   br label %Abc_Clock.exit499
@@ -7287,10 +7287,10 @@ Abc_Clock.exit499:                                ; preds = %1158, %1161
   br i1 %1172, label %Abc_Clock.exit501, label %1173
 
 1173:                                             ; preds = %Abc_Clock.exit499
-  %1174 = load i64, ptr %3, align 8, !tbaa !171
+  %1174 = load i64, ptr %3, align 8, !tbaa !172
   %1175 = mul nsw i64 %1174, 1000000
   %1176 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %1177 = load i64, ptr %1176, align 8, !tbaa !173
+  %1177 = load i64, ptr %1176, align 8, !tbaa !174
   %1178 = sdiv i64 %1177, 1000
   %1179 = add nsw i64 %1178, %1175
   br label %Abc_Clock.exit501
@@ -7311,7 +7311,7 @@ Abc_Clock.exit501:                                ; preds = %Abc_Clock.exit499, 
 
 1185:                                             ; preds = %1183, %Abc_Clock.exit475
   call void @Vga_ManStop(ptr noundef nonnull %83)
-  %1186 = load ptr, ptr @stdout, align 8, !tbaa !97
+  %1186 = load ptr, ptr @stdout, align 8, !tbaa !98
   %1187 = call i32 @fflush(ptr noundef %1186)
   br label %1188
 
@@ -7348,23 +7348,23 @@ declare i32 @Gia_ManVerifyCex(ptr noundef, ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @Gia_VtaPerform(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %4 = load ptr, ptr %3, align 8, !tbaa !148
+  %4 = load ptr, ptr %3, align 8, !tbaa !149
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %8 = load i32, ptr %7, align 4, !tbaa !201
+  %8 = load i32, ptr %7, align 4, !tbaa !202
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %1, align 8, !tbaa !178
+  %10 = load i32, ptr %1, align 8, !tbaa !179
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !202
-  store i32 %12, ptr %1, align 8, !tbaa !178
+  %12 = load i32, ptr %11, align 4, !tbaa !203
+  store i32 %12, ptr %1, align 8, !tbaa !179
   %13 = tail call i32 @Gia_VtaPerformInt(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  store i32 %10, ptr %1, align 8, !tbaa !178
+  store i32 %10, ptr %1, align 8, !tbaa !179
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %.critedge
 
@@ -7411,10 +7411,10 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #10 {
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr %1, align 8, !tbaa !171
+  %5 = load i64, ptr %1, align 8, !tbaa !172
   %6 = mul nsw i64 %5, 1000000
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !173
+  %8 = load i64, ptr %7, align 8, !tbaa !174
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
   br label %11
@@ -7533,80 +7533,80 @@ attributes #29 = { nounwind willreturn memory(read) }
 !26 = distinct !{!26, !18}
 !27 = distinct !{!27, !18}
 !28 = distinct !{!28, !18}
-!29 = distinct !{!29, !18}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"Vta_Man_t_", !32, i64 0, !33, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !8, i64 32, !34, i64 40, !35, i64 48, !5, i64 56, !5, i64 60, !36, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !35, i64 88, !37, i64 96, !5, i64 104, !5, i64 108, !36, i64 112, !38, i64 120, !35, i64 128, !39, i64 136, !39, i64 144, !39, i64 152, !39, i64 160}
-!32 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
-!33 = !{!"p1 _ZTS10Abs_Par_t_", !9, i64 0}
-!34 = !{!"p1 _ZTS10Vta_Obj_t_", !9, i64 0}
-!35 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!36 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!37 = !{!"p1 _ZTS10Vec_Bit_t_", !9, i64 0}
-!38 = !{!"p1 _ZTS13sat_solver2_t", !9, i64 0}
-!39 = !{!"long", !6, i64 0}
-!40 = !{!41, !5, i64 16}
-!41 = !{!"Gia_Man_t_", !42, i64 0, !42, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !43, i64 32, !8, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !35, i64 64, !35, i64 72, !4, i64 80, !4, i64 96, !5, i64 112, !5, i64 116, !5, i64 120, !4, i64 128, !8, i64 144, !8, i64 152, !35, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !8, i64 184, !44, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !5, i64 224, !5, i64 228, !8, i64 232, !5, i64 240, !35, i64 248, !35, i64 256, !35, i64 264, !45, i64 272, !45, i64 280, !35, i64 288, !9, i64 296, !35, i64 304, !35, i64 312, !42, i64 320, !35, i64 328, !35, i64 336, !35, i64 344, !35, i64 352, !35, i64 360, !46, i64 368, !46, i64 376, !36, i64 384, !4, i64 392, !4, i64 408, !35, i64 424, !35, i64 432, !35, i64 440, !35, i64 448, !35, i64 456, !35, i64 464, !35, i64 472, !35, i64 480, !35, i64 488, !35, i64 496, !35, i64 504, !42, i64 512, !47, i64 520, !32, i64 528, !48, i64 536, !48, i64 544, !35, i64 552, !35, i64 560, !35, i64 568, !35, i64 576, !35, i64 584, !5, i64 592, !49, i64 596, !49, i64 600, !35, i64 608, !8, i64 616, !5, i64 624, !36, i64 632, !36, i64 640, !36, i64 648, !35, i64 656, !35, i64 664, !35, i64 672, !35, i64 680, !35, i64 688, !35, i64 696, !35, i64 704, !35, i64 712, !50, i64 720, !48, i64 728, !9, i64 736, !9, i64 744, !39, i64 752, !39, i64 760, !9, i64 768, !8, i64 776, !5, i64 784, !5, i64 788, !5, i64 792, !5, i64 796, !5, i64 800, !5, i64 804, !5, i64 808, !5, i64 812, !5, i64 816, !5, i64 820, !5, i64 824, !5, i64 828, !51, i64 832, !51, i64 840, !51, i64 848, !51, i64 856, !35, i64 864, !35, i64 872, !35, i64 880, !37, i64 888, !5, i64 896, !5, i64 900, !5, i64 904, !35, i64 912, !5, i64 920, !5, i64 924, !35, i64 928, !35, i64 936, !36, i64 944, !51, i64 952, !35, i64 960, !35, i64 968, !5, i64 976, !5, i64 980, !51, i64 984, !4, i64 992, !4, i64 1008, !4, i64 1024, !52, i64 1040, !53, i64 1048, !53, i64 1056, !5, i64 1064, !5, i64 1068, !5, i64 1072, !5, i64 1076, !53, i64 1080, !35, i64 1088, !35, i64 1096, !35, i64 1104, !36, i64 1112}
-!42 = !{!"p1 omnipotent char", !9, i64 0}
-!43 = !{!"p1 _ZTS10Gia_Obj_t_", !9, i64 0}
-!44 = !{!"p1 _ZTS10Gia_Rpr_t_", !9, i64 0}
-!45 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
-!46 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!47 = !{!"p1 _ZTS10Gia_Plc_t_", !9, i64 0}
-!48 = !{!"p1 _ZTS10Vec_Flt_t_", !9, i64 0}
-!49 = !{!"float", !6, i64 0}
-!50 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
-!51 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
-!52 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
-!53 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
-!54 = !{!41, !35, i64 64}
-!55 = !{!31, !33, i64 8}
-!56 = !{!57, !5, i64 120}
-!57 = !{!"Abs_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !42, i64 104, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"Abc_Cex_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20}
-!60 = !{!59, !5, i64 4}
-!61 = !{!31, !5, i64 16}
-!62 = !{!31, !34, i64 40}
-!63 = !{!41, !43, i64 32}
-!64 = !{!65, !5, i64 0}
-!65 = !{!"Vta_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 15, !5, i64 15, !5, i64 15}
-!66 = !{!31, !38, i64 120}
-!67 = !{!68, !8, i64 288}
-!68 = !{!"sat_solver2_t", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !69, i64 24, !69, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !8, i64 56, !8, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !70, i64 120, !72, i64 176, !73, i64 184, !73, i64 200, !5, i64 216, !5, i64 220, !5, i64 224, !74, i64 232, !8, i64 240, !42, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !8, i64 288, !73, i64 296, !73, i64 312, !73, i64 328, !73, i64 344, !73, i64 360, !73, i64 376, !73, i64 392, !73, i64 408, !73, i64 424, !73, i64 440, !75, i64 456, !73, i64 464, !5, i64 480, !5, i64 484, !76, i64 488, !69, i64 496, !77, i64 504, !5, i64 512, !78, i64 520, !39, i64 592, !39, i64 600, !39, i64 608}
-!69 = !{!"double", !6, i64 0}
-!70 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !71, i64 48}
-!71 = !{!"p2 int", !9, i64 0}
-!72 = !{!"p1 _ZTS6veci_t", !9, i64 0}
-!73 = !{!"veci_t", !5, i64 0, !5, i64 4, !8, i64 8}
-!74 = !{!"p1 _ZTS10varinfo2_t", !9, i64 0}
-!75 = !{!"p1 _ZTS10Vec_Set_t_", !9, i64 0}
-!76 = !{!"p1 _ZTS10Prf_Man_t_", !9, i64 0}
-!77 = !{!"p1 _ZTS11Int2_Man_t_", !9, i64 0}
-!78 = !{!"stats_t", !5, i64 0, !5, i64 4, !5, i64 8, !39, i64 16, !39, i64 24, !39, i64 32, !39, i64 40, !39, i64 48, !39, i64 56, !39, i64 64}
-!79 = !{!59, !5, i64 8}
-!80 = !{!65, !5, i64 4}
-!81 = !{!59, !5, i64 12}
-!82 = distinct !{!82, !18}
-!83 = !{!31, !5, i64 56}
-!84 = distinct !{!84, !18}
-!85 = !{!34, !34, i64 0}
-!86 = !{!31, !35, i64 88}
-!87 = !{!31, !5, i64 72}
-!88 = distinct !{!88, !18}
-!89 = !{!31, !8, i64 32}
-!90 = !{!31, !5, i64 24}
-!91 = !{!41, !35, i64 72}
-!92 = !{!31, !35, i64 48}
-!93 = distinct !{!93, !18}
+!29 = distinct !{!29, !18, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"Vta_Man_t_", !33, i64 0, !34, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !8, i64 32, !35, i64 40, !36, i64 48, !5, i64 56, !5, i64 60, !37, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !36, i64 88, !38, i64 96, !5, i64 104, !5, i64 108, !37, i64 112, !39, i64 120, !36, i64 128, !40, i64 136, !40, i64 144, !40, i64 152, !40, i64 160}
+!33 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
+!34 = !{!"p1 _ZTS10Abs_Par_t_", !9, i64 0}
+!35 = !{!"p1 _ZTS10Vta_Obj_t_", !9, i64 0}
+!36 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!37 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!38 = !{!"p1 _ZTS10Vec_Bit_t_", !9, i64 0}
+!39 = !{!"p1 _ZTS13sat_solver2_t", !9, i64 0}
+!40 = !{!"long", !6, i64 0}
+!41 = !{!42, !5, i64 16}
+!42 = !{!"Gia_Man_t_", !43, i64 0, !43, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !44, i64 32, !8, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !36, i64 64, !36, i64 72, !4, i64 80, !4, i64 96, !5, i64 112, !5, i64 116, !5, i64 120, !4, i64 128, !8, i64 144, !8, i64 152, !36, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !8, i64 184, !45, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !5, i64 224, !5, i64 228, !8, i64 232, !5, i64 240, !36, i64 248, !36, i64 256, !36, i64 264, !46, i64 272, !46, i64 280, !36, i64 288, !9, i64 296, !36, i64 304, !36, i64 312, !43, i64 320, !36, i64 328, !36, i64 336, !36, i64 344, !36, i64 352, !36, i64 360, !47, i64 368, !47, i64 376, !37, i64 384, !4, i64 392, !4, i64 408, !36, i64 424, !36, i64 432, !36, i64 440, !36, i64 448, !36, i64 456, !36, i64 464, !36, i64 472, !36, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !43, i64 512, !48, i64 520, !33, i64 528, !49, i64 536, !49, i64 544, !36, i64 552, !36, i64 560, !36, i64 568, !36, i64 576, !36, i64 584, !5, i64 592, !50, i64 596, !50, i64 600, !36, i64 608, !8, i64 616, !5, i64 624, !37, i64 632, !37, i64 640, !37, i64 648, !36, i64 656, !36, i64 664, !36, i64 672, !36, i64 680, !36, i64 688, !36, i64 696, !36, i64 704, !36, i64 712, !51, i64 720, !49, i64 728, !9, i64 736, !9, i64 744, !40, i64 752, !40, i64 760, !9, i64 768, !8, i64 776, !5, i64 784, !5, i64 788, !5, i64 792, !5, i64 796, !5, i64 800, !5, i64 804, !5, i64 808, !5, i64 812, !5, i64 816, !5, i64 820, !5, i64 824, !5, i64 828, !52, i64 832, !52, i64 840, !52, i64 848, !52, i64 856, !36, i64 864, !36, i64 872, !36, i64 880, !38, i64 888, !5, i64 896, !5, i64 900, !5, i64 904, !36, i64 912, !5, i64 920, !5, i64 924, !36, i64 928, !36, i64 936, !37, i64 944, !52, i64 952, !36, i64 960, !36, i64 968, !5, i64 976, !5, i64 980, !52, i64 984, !4, i64 992, !4, i64 1008, !4, i64 1024, !53, i64 1040, !54, i64 1048, !54, i64 1056, !5, i64 1064, !5, i64 1068, !5, i64 1072, !5, i64 1076, !54, i64 1080, !36, i64 1088, !36, i64 1096, !36, i64 1104, !37, i64 1112}
+!43 = !{!"p1 omnipotent char", !9, i64 0}
+!44 = !{!"p1 _ZTS10Gia_Obj_t_", !9, i64 0}
+!45 = !{!"p1 _ZTS10Gia_Rpr_t_", !9, i64 0}
+!46 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
+!47 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!48 = !{!"p1 _ZTS10Gia_Plc_t_", !9, i64 0}
+!49 = !{!"p1 _ZTS10Vec_Flt_t_", !9, i64 0}
+!50 = !{!"float", !6, i64 0}
+!51 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
+!52 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
+!53 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
+!54 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
+!55 = !{!42, !36, i64 64}
+!56 = !{!32, !34, i64 8}
+!57 = !{!58, !5, i64 120}
+!58 = !{!"Abs_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !43, i64 104, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"Abc_Cex_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !6, i64 20}
+!61 = !{!60, !5, i64 4}
+!62 = !{!32, !5, i64 16}
+!63 = !{!32, !35, i64 40}
+!64 = !{!42, !44, i64 32}
+!65 = !{!66, !5, i64 0}
+!66 = !{!"Vta_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 15, !5, i64 15, !5, i64 15}
+!67 = !{!32, !39, i64 120}
+!68 = !{!69, !8, i64 288}
+!69 = !{!"sat_solver2_t", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !70, i64 24, !70, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !8, i64 56, !8, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !71, i64 120, !73, i64 176, !74, i64 184, !74, i64 200, !5, i64 216, !5, i64 220, !5, i64 224, !75, i64 232, !8, i64 240, !43, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !8, i64 288, !74, i64 296, !74, i64 312, !74, i64 328, !74, i64 344, !74, i64 360, !74, i64 376, !74, i64 392, !74, i64 408, !74, i64 424, !74, i64 440, !76, i64 456, !74, i64 464, !5, i64 480, !5, i64 484, !77, i64 488, !70, i64 496, !78, i64 504, !5, i64 512, !79, i64 520, !40, i64 592, !40, i64 600, !40, i64 608}
+!70 = !{!"double", !6, i64 0}
+!71 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !72, i64 48}
+!72 = !{!"p2 int", !9, i64 0}
+!73 = !{!"p1 _ZTS6veci_t", !9, i64 0}
+!74 = !{!"veci_t", !5, i64 0, !5, i64 4, !8, i64 8}
+!75 = !{!"p1 _ZTS10varinfo2_t", !9, i64 0}
+!76 = !{!"p1 _ZTS10Vec_Set_t_", !9, i64 0}
+!77 = !{!"p1 _ZTS10Prf_Man_t_", !9, i64 0}
+!78 = !{!"p1 _ZTS11Int2_Man_t_", !9, i64 0}
+!79 = !{!"stats_t", !5, i64 0, !5, i64 4, !5, i64 8, !40, i64 16, !40, i64 24, !40, i64 32, !40, i64 40, !40, i64 48, !40, i64 56, !40, i64 64}
+!80 = !{!60, !5, i64 8}
+!81 = !{!66, !5, i64 4}
+!82 = !{!60, !5, i64 12}
+!83 = distinct !{!83, !18}
+!84 = !{!32, !5, i64 56}
+!85 = distinct !{!85, !18}
+!86 = !{!35, !35, i64 0}
+!87 = !{!32, !36, i64 88}
+!88 = !{!32, !5, i64 72}
+!89 = distinct !{!89, !18}
+!90 = !{!32, !8, i64 32}
+!91 = !{!32, !5, i64 24}
+!92 = !{!42, !36, i64 72}
+!93 = !{!32, !36, i64 48}
 !94 = distinct !{!94, !18}
 !95 = distinct !{!95, !18}
 !96 = distinct !{!96, !18}
-!97 = !{!98, !98, i64 0}
-!98 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"vprintf: argument 0"}
-!101 = distinct !{!101, !"vprintf"}
-!102 = distinct !{!102, !18}
+!97 = distinct !{!97, !18}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"vprintf: argument 0"}
+!102 = distinct !{!102, !"vprintf"}
 !103 = distinct !{!103, !18}
 !104 = distinct !{!104, !18}
 !105 = distinct !{!105, !18}
@@ -7614,96 +7614,97 @@ attributes #29 = { nounwind willreturn memory(read) }
 !107 = distinct !{!107, !18}
 !108 = distinct !{!108, !18}
 !109 = distinct !{!109, !18}
-!110 = !{!57, !5, i64 60}
-!111 = distinct !{!111, !18}
+!110 = distinct !{!110, !18}
+!111 = !{!58, !5, i64 60}
 !112 = distinct !{!112, !18}
 !113 = distinct !{!113, !18}
 !114 = distinct !{!114, !18}
-!115 = !{!31, !5, i64 80}
-!116 = !{!31, !35, i64 128}
-!117 = !{!57, !5, i64 48}
-!118 = !{!31, !5, i64 20}
-!119 = distinct !{!119, !18}
+!115 = distinct !{!115, !18}
+!116 = !{!32, !5, i64 80}
+!117 = !{!32, !36, i64 128}
+!118 = !{!58, !5, i64 48}
+!119 = !{!32, !5, i64 20}
 !120 = distinct !{!120, !18}
-!121 = !{!41, !5, i64 24}
-!122 = !{!31, !5, i64 60}
-!123 = !{!124, !5, i64 0}
-!124 = !{!"Vec_Bit_t_", !5, i64 0, !5, i64 4, !8, i64 8}
-!125 = !{!124, !8, i64 8}
-!126 = !{!124, !5, i64 4}
-!127 = !{!31, !37, i64 96}
-!128 = !{!31, !5, i64 104}
-!129 = !{!31, !5, i64 108}
-!130 = !{!31, !36, i64 112}
-!131 = !{!132, !5, i64 0}
-!132 = !{!"Vec_Set_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !133, i64 24}
-!133 = !{!"p2 long", !9, i64 0}
-!134 = !{!132, !5, i64 4}
-!135 = !{!132, !5, i64 20}
-!136 = !{!132, !133, i64 24}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"p1 long", !9, i64 0}
-!139 = !{!39, !39, i64 0}
-!140 = !{!68, !75, i64 456}
-!141 = !{!57, !5, i64 20}
-!142 = !{!68, !5, i64 84}
-!143 = !{!57, !5, i64 24}
-!144 = !{!68, !5, i64 88}
-!145 = !{!57, !5, i64 28}
-!146 = !{!68, !5, i64 92}
-!147 = !{!68, !5, i64 80}
-!148 = !{!41, !35, i64 456}
-!149 = !{!31, !36, i64 64}
-!150 = !{!57, !5, i64 112}
-!151 = !{!68, !5, i64 0}
-!152 = !{!68, !5, i64 524}
-!153 = !{!68, !39, i64 560}
-!154 = !{!68, !5, i64 528}
-!155 = !{!68, !5, i64 96}
-!156 = !{!31, !5, i64 76}
-!157 = !{!50, !50, i64 0}
-!158 = distinct !{!158, !18}
-!159 = !{!37, !37, i64 0}
-!160 = !{!35, !35, i64 0}
-!161 = distinct !{!161, !18}
-!162 = !{!65, !5, i64 8}
-!163 = distinct !{!163, !18}
+!121 = distinct !{!121, !18}
+!122 = !{!42, !5, i64 24}
+!123 = !{!32, !5, i64 60}
+!124 = !{!125, !5, i64 0}
+!125 = !{!"Vec_Bit_t_", !5, i64 0, !5, i64 4, !8, i64 8}
+!126 = !{!125, !8, i64 8}
+!127 = !{!125, !5, i64 4}
+!128 = !{!32, !38, i64 96}
+!129 = !{!32, !5, i64 104}
+!130 = !{!32, !5, i64 108}
+!131 = !{!32, !37, i64 112}
+!132 = !{!133, !5, i64 0}
+!133 = !{!"Vec_Set_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !134, i64 24}
+!134 = !{!"p2 long", !9, i64 0}
+!135 = !{!133, !5, i64 4}
+!136 = !{!133, !5, i64 20}
+!137 = !{!133, !134, i64 24}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 long", !9, i64 0}
+!140 = !{!40, !40, i64 0}
+!141 = !{!69, !76, i64 456}
+!142 = !{!58, !5, i64 20}
+!143 = !{!69, !5, i64 84}
+!144 = !{!58, !5, i64 24}
+!145 = !{!69, !5, i64 88}
+!146 = !{!58, !5, i64 28}
+!147 = !{!69, !5, i64 92}
+!148 = !{!69, !5, i64 80}
+!149 = !{!42, !36, i64 456}
+!150 = !{!32, !37, i64 64}
+!151 = !{!58, !5, i64 112}
+!152 = !{!69, !5, i64 0}
+!153 = !{!69, !5, i64 524}
+!154 = !{!69, !40, i64 560}
+!155 = !{!69, !5, i64 528}
+!156 = !{!69, !5, i64 96}
+!157 = !{!32, !5, i64 76}
+!158 = !{!51, !51, i64 0}
+!159 = distinct !{!159, !18}
+!160 = !{!38, !38, i64 0}
+!161 = !{!36, !36, i64 0}
+!162 = distinct !{!162, !18}
+!163 = !{!66, !5, i64 8}
 !164 = distinct !{!164, !18}
 !165 = distinct !{!165, !18}
 !166 = distinct !{!166, !18}
 !167 = distinct !{!167, !18}
-!168 = !{!41, !35, i64 448}
-!169 = !{!57, !42, i64 104}
-!170 = distinct !{!170, !18}
-!171 = !{!172, !39, i64 0}
-!172 = !{!"timespec", !39, i64 0, !39, i64 8}
-!173 = !{!172, !39, i64 8}
-!174 = !{!41, !46, i64 376}
-!175 = !{!57, !5, i64 32}
-!176 = !{!68, !39, i64 608}
-!177 = !{!57, !5, i64 8}
-!178 = !{!57, !5, i64 0}
-!179 = !{!57, !5, i64 12}
-!180 = !{!57, !5, i64 36}
-!181 = !{!68, !5, i64 216}
-!182 = !{!68, !5, i64 8}
-!183 = !{!68, !5, i64 220}
-!184 = !{!132, !5, i64 12}
-!185 = !{!68, !5, i64 224}
-!186 = !{!70, !5, i64 32}
-!187 = !{!70, !71, i64 48}
-!188 = !{!8, !8, i64 0}
-!189 = !{!68, !8, i64 64}
-!190 = !{!68, !5, i64 44}
-!191 = !{!68, !5, i64 48}
-!192 = !{!68, !8, i64 56}
-!193 = distinct !{!193, !18}
-!194 = !{!31, !39, i64 144}
-!195 = !{!31, !39, i64 136}
-!196 = !{!31, !39, i64 152}
-!197 = !{!57, !5, i64 128}
-!198 = !{!57, !5, i64 84}
-!199 = distinct !{!199, !18}
-!200 = !{!31, !39, i64 160}
-!201 = !{!57, !5, i64 52}
-!202 = !{!57, !5, i64 4}
+!168 = distinct !{!168, !18}
+!169 = !{!42, !36, i64 448}
+!170 = !{!58, !43, i64 104}
+!171 = distinct !{!171, !18}
+!172 = !{!173, !40, i64 0}
+!173 = !{!"timespec", !40, i64 0, !40, i64 8}
+!174 = !{!173, !40, i64 8}
+!175 = !{!42, !47, i64 376}
+!176 = !{!58, !5, i64 32}
+!177 = !{!69, !40, i64 608}
+!178 = !{!58, !5, i64 8}
+!179 = !{!58, !5, i64 0}
+!180 = !{!58, !5, i64 12}
+!181 = !{!58, !5, i64 36}
+!182 = !{!69, !5, i64 216}
+!183 = !{!69, !5, i64 8}
+!184 = !{!69, !5, i64 220}
+!185 = !{!133, !5, i64 12}
+!186 = !{!69, !5, i64 224}
+!187 = !{!71, !5, i64 32}
+!188 = !{!71, !72, i64 48}
+!189 = !{!8, !8, i64 0}
+!190 = !{!69, !8, i64 64}
+!191 = !{!69, !5, i64 44}
+!192 = !{!69, !5, i64 48}
+!193 = !{!69, !8, i64 56}
+!194 = distinct !{!194, !18}
+!195 = !{!32, !40, i64 144}
+!196 = !{!32, !40, i64 136}
+!197 = !{!32, !40, i64 152}
+!198 = !{!58, !5, i64 128}
+!199 = !{!58, !5, i64 84}
+!200 = distinct !{!200, !18}
+!201 = !{!32, !40, i64 160}
+!202 = !{!58, !5, i64 52}
+!203 = !{!58, !5, i64 4}

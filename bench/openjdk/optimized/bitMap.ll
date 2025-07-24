@@ -558,7 +558,7 @@ define hidden void @_ZN6BitMap25par_put_range_within_wordEmmb(ptr noundef nonnul
   %25 = and i64 %24, %.0.i
   %26 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 %24, ptr nonnull %8) #10, !srcloc !6
   %27 = icmp eq i64 %26, %24
-  br i1 %27, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
+  br i1 %27, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %5, %4
   ret void
@@ -901,7 +901,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull 
 
 9:                                                ; preds = %3
   %10 = load volatile i64, ptr %6, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %11
 
 11:                                               ; preds = %13, %9
@@ -913,12 +913,12 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull 
 13:                                               ; preds = %11
   %14 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %.017.i, ptr nonnull %6) #10, !srcloc !6
   %15 = icmp eq i64 %14, %.017.i
-  br i1 %15, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %11, !llvm.loop !10
+  br i1 %15, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %11, !llvm.loop !12
 
 16:                                               ; preds = %3
   %17 = xor i64 %8, -1
   %18 = load volatile i64, ptr %6, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %19
 
 19:                                               ; preds = %21, %16
@@ -930,7 +930,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull 
 21:                                               ; preds = %19
   %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %.017.i3, ptr nonnull %6) #10, !srcloc !6
   %23 = icmp eq i64 %22, %.017.i3
-  br i1 %23, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %19, !llvm.loop !11
+  br i1 %23, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %19, !llvm.loop !13
 
 _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %11
   %24 = phi i1 [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
@@ -996,7 +996,7 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull readonl
   %28 = and i64 %27, %17
   %29 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %28, i64 %27, ptr nonnull %14) #10, !srcloc !6
   %30 = icmp eq i64 %29, %27
-  br i1 %30, label %_ZN6BitMap20clear_range_of_wordsEmm.exit, label %.lr.ph.split.i, !llvm.loop !7
+  br i1 %30, label %_ZN6BitMap20clear_range_of_wordsEmm.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %10, %11
   br i1 %3, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %_ZN6BitMap20clear_range_of_wordsEmm.exit
@@ -1052,7 +1052,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %.lr.ph.split.i, %_Z
   %56 = and i64 %55, %.neg.i.i
   %57 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %56, i64 %55, ptr nonnull %43) #10, !srcloc !6
   %58 = icmp eq i64 %57, %55
-  br i1 %58, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i31, !llvm.loop !7
+  br i1 %58, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i31, !llvm.loop !10
 
 59:                                               ; preds = %4
   %60 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
@@ -1095,7 +1095,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %.lr.ph.split.i, %_Z
   %81 = and i64 %80, %.0.i.i38
   %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %81, i64 %80, ptr nonnull %64) #10, !srcloc !6
   %83 = icmp eq i64 %82, %80
-  br i1 %83, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.i40, !llvm.loop !7
+  br i1 %83, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.i40, !llvm.loop !10
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %.lr.ph.split.us.i41, %59, %61
   %.not.i43.not = icmp ugt i64 %2, %9
@@ -1137,7 +1137,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %
   %104 = and i64 %103, %.0.i.i47
   %105 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %104, i64 %103, ptr nonnull %87) #10, !srcloc !6
   %106 = icmp eq i64 %105, %103
-  br i1 %106, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i49, !llvm.loop !7
+  br i1 %106, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i49, !llvm.loop !10
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit33: ; preds = %.lr.ph.split.i49, %.lr.ph.split.us.i50, %.lr.ph.split.i31, %.lr.ph.split.us.i32, %84, %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, %41, %39
   ret void
@@ -1290,7 +1290,7 @@ define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr noundef nonnull r
   %29 = and i64 %28, %18
   %30 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %28, ptr nonnull %15) #10, !srcloc !6
   %31 = icmp eq i64 %30, %28
-  br i1 %31, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28, label %.lr.ph.split.i, !llvm.loop !7
+  br i1 %31, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28, label %.lr.ph.split.i, !llvm.loop !10
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %10, %12
   br i1 %3, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28
@@ -1344,7 +1344,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28: ; preds = %.lr.ph.split
   %57 = and i64 %56, %.neg.i.i
   %58 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %56, ptr nonnull %44) #10, !srcloc !6
   %59 = icmp eq i64 %58, %56
-  br i1 %59, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.i25, !llvm.loop !7
+  br i1 %59, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.i25, !llvm.loop !10
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit27: ; preds = %.lr.ph.split.i25, %.lr.ph.split.us.i26, %42, %40, %9
   ret void
@@ -1363,7 +1363,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.01518, 1
   %exitcond.not = icmp eq i64 %9, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %2, %8
   %.01518 = phi i64 [ %9, %8 ], [ 0, %2 ]
@@ -1411,7 +1411,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnu
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.01519, 1
   %exitcond.not = icmp eq i64 %9, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %2, %8
   %.01519 = phi i64 [ %9, %8 ], [ 0, %2 ]
@@ -1465,7 +1465,7 @@ define hidden void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull readonly align
   store i64 %12, ptr %10, align 8
   %13 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %5, align 8
@@ -1516,7 +1516,7 @@ define hidden void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull readonly
   store i64 %13, ptr %11, align 8
   %14 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %14, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %5, align 8
@@ -1564,7 +1564,7 @@ define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr noundef nonnull readon
   store i64 %12, ptr %10, align 8
   %13 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %5, align 8
@@ -1614,7 +1614,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr nou
   store i64 %12, ptr %8, align 8
   %15 = add nuw nsw i64 %.03033, 1
   %exitcond.not = icmp eq i64 %15, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = zext i1 %14 to i8
@@ -1676,7 +1676,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(pt
   store i64 %13, ptr %8, align 8
   %16 = add nuw nsw i64 %.03033, 1
   %exitcond.not = icmp eq i64 %16, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %17 = zext i1 %15 to i8
@@ -1735,7 +1735,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(
   store i64 %12, ptr %8, align 8
   %15 = add nuw nsw i64 %.03033, 1
   %exitcond.not = icmp eq i64 %15, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = zext i1 %14 to i8
@@ -1884,7 +1884,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull r
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.01518, 1
   %exitcond.not = icmp eq i64 %9, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %2, %8
   %.01518 = phi i64 [ %9, %8 ], [ 0, %2 ]
@@ -1929,7 +1929,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull read
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.01013, 1
   %exitcond.not = icmp eq i64 %7, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %1, %6
   %.01013 = phi i64 [ %7, %6 ], [ 0, %1 ]
@@ -1968,7 +1968,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull rea
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.01013, 1
   %exitcond.not = icmp eq i64 %7, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %1, %6
   %.01013 = phi i64 [ %7, %6 ], [ 0, %1 ]
@@ -2026,7 +2026,7 @@ define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr 
   %10 = add i64 %9, %.010
   %11 = add nuw i64 %.089, 1
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %6, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %10, %6 ]
@@ -2081,7 +2081,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull rea
   %10 = add i64 %9, %.010.i.i
   %11 = add nuw nsw i64 %.089.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %4
-  br i1 %exitcond.not.i.i, label %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i, label %6, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i, label %6, !llvm.loop !25
 
 _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i: ; preds = %6
   %12 = and i64 %3, 63
@@ -2157,7 +2157,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull re
   %21 = add i64 %20, %.010.i
   %22 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %22, %6
-  br i1 %exitcond.not.i, label %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit, label %17, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit, label %17, !llvm.loop !25
 
 _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit: ; preds = %17
   %23 = add i64 %21, %.0.i
@@ -2321,7 +2321,7 @@ _ZNK11ArenaBitMap8allocateEm.exit:                ; preds = %19, %21
   store i64 %29, ptr %31, align 8
   %32 = add i64 %27, -1
   %33 = icmp ugt i64 %27, %4
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %34 = phi i64 [ %43, %.lr.ph.split ], [ %25, %.lr.ph ]
@@ -2337,7 +2337,7 @@ _ZNK11ArenaBitMap8allocateEm.exit:                ; preds = %19, %21
   %42 = shl i64 %41, %26
   %43 = add i64 %34, -1
   %44 = icmp ugt i64 %34, %4
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZNK11ArenaBitMap8allocateEm.exit
   ret ptr %.0.i.i.i
@@ -2546,7 +2546,7 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %21, %19
   store i64 %29, ptr %31, align 8
   %32 = add i64 %27, -1
   %33 = icmp ugt i64 %27, %4
-  br i1 %33, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit, !llvm.loop !24
+  br i1 %33, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit, !llvm.loop !26
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %34 = phi i64 [ %43, %.lr.ph.split.i ], [ %25, %.lr.ph.i ]
@@ -2562,7 +2562,7 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %21, %19
   %42 = shl i64 %41, %26
   %43 = add i64 %34, -1
   %44 = icmp ugt i64 %34, %4
-  br i1 %44, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit, !llvm.loop !24
+  br i1 %44, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit, !llvm.loop !27
 
 _ZN14GrowableBitMapI11ArenaBitMapE13copy_of_rangeEmm.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %_ZNK11ArenaBitMap8allocateEm.exit.i
   %45 = sub i64 %2, %1
@@ -2608,7 +2608,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI14ResourceBitMapE13copy_
   store i64 %17, ptr %19, align 8
   %20 = add i64 %15, -1
   %21 = icmp ugt i64 %15, %4
-  br i1 %21, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
+  br i1 %21, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %22 = phi i64 [ %31, %.lr.ph.split ], [ %13, %.lr.ph ]
@@ -2624,7 +2624,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI14ResourceBitMapE13copy_
   %30 = shl i64 %29, %14
   %31 = add i64 %22, -1
   %32 = icmp ugt i64 %22, %4
-  br i1 %32, label %.lr.ph.split, label %._crit_edge, !llvm.loop !25
+  br i1 %32, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret ptr %10
@@ -2789,7 +2789,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE8truncateEmm(p
   store i64 %17, ptr %19, align 8
   %20 = add i64 %15, -1
   %21 = icmp ugt i64 %15, %4
-  br i1 %21, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit, !llvm.loop !25
+  br i1 %21, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit, !llvm.loop !28
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %22 = phi i64 [ %31, %.lr.ph.split.i ], [ %13, %.lr.ph.i ]
@@ -2805,7 +2805,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE8truncateEmm(p
   %30 = shl i64 %29, %14
   %31 = add i64 %22, -1
   %32 = icmp ugt i64 %22, %4
-  br i1 %32, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit, !llvm.loop !25
+  br i1 %32, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit, !llvm.loop !29
 
 _ZN14GrowableBitMapI14ResourceBitMapE13copy_of_rangeEmm.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %3
   %33 = sub i64 %2, %1
@@ -2853,7 +2853,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_
   store i64 %19, ptr %21, align 8
   %22 = add i64 %17, -1
   %23 = icmp ugt i64 %17, %4
-  br i1 %23, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
+  br i1 %23, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %24 = phi i64 [ %33, %.lr.ph.split ], [ %15, %.lr.ph ]
@@ -2869,7 +2869,7 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_
   %32 = shl i64 %31, %16
   %33 = add i64 %24, -1
   %34 = icmp ugt i64 %24, %4
-  br i1 %34, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
+  br i1 %34, label %.lr.ph.split, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret ptr %12
@@ -2993,7 +2993,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr 
   store i64 %19, ptr %21, align 8
   %22 = add i64 %17, -1
   %23 = icmp ugt i64 %17, %5
-  br i1 %23, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit, !llvm.loop !26
+  br i1 %23, label %.lr.ph.split.us.i, label %_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit, !llvm.loop !30
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %24 = phi i64 [ %33, %.lr.ph.split.i ], [ %15, %.lr.ph.i ]
@@ -3009,7 +3009,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr 
   %32 = shl i64 %31, %16
   %33 = add i64 %24, -1
   %34 = icmp ugt i64 %24, %5
-  br i1 %34, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit, !llvm.loop !26
+  br i1 %34, label %.lr.ph.split.i, label %_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit, !llvm.loop !31
 
 _ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %3
   %35 = sub i64 %2, %1
@@ -3058,11 +3058,11 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412694}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392468}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!11 = !{i64 2145392468}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
@@ -3077,4 +3077,9 @@ attributes #10 = { nounwind }
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8}

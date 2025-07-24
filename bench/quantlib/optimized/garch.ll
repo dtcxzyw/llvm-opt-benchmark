@@ -7092,7 +7092,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %shr.i = lshr i64 %x.addr.06.i, 1
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i
-  br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !122
+  br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !123
 
 _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds %"class.std::complex", ptr %out.coerce, i64 %or.i
@@ -7102,7 +7102,7 @@ _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for
   %inc = add nuw nsw i64 %i.096, 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %inBegin.sroa.0.095, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %inEnd.coerce
-  br i1 %cmp.i.not, label %do.body, label %for.body, !llvm.loop !121
+  br i1 %cmp.i.not, label %do.body, label %for.body, !llvm.loop !124
 
 do.body:                                          ; preds = %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, %for.body.us
   %i.0.lcssa = phi i64 [ %inc.us, %for.body.us ], [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ]
@@ -7306,7 +7306,7 @@ for.cond52.preheader:                             ; preds = %for.cond52.preheade
 for.cond.cleanup50:                               ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, %for.body39
   %inc95 = add i64 %s.0104, 1
   %cmp38.not = icmp ugt i64 %inc95, %sub.ptr.div.i
-  br i1 %cmp38.not, label %for.cond.cleanup, label %for.body39, !llvm.loop !123
+  br i1 %cmp38.not, label %for.cond.cleanup, label %for.body39, !llvm.loop !125
 
 for.cond.cleanup54:                               ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, %for.cond52.preheader
   %mul_ac.i = fmul double %26, %w.sroa.0.0100
@@ -7316,11 +7316,11 @@ for.cond.cleanup54:                               ; preds = %_ZStmlIdESt7complex
   %mul_r.i = fsub double %mul_ac.i, %mul_bd.i
   %mul_i.i = fadd double %mul_ad.i, %mul_bc.i
   %isnan_cmp.i = fcmp uno double %mul_r.i, 0.000000e+00
-  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !124
+  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !126
 
 complex_mul_imag_nan.i:                           ; preds = %for.cond.cleanup54
   %isnan_cmp4.i = fcmp uno double %mul_i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !124
+  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !126
 
 complex_mul_libcall.i:                            ; preds = %complex_mul_imag_nan.i
   %call5.i = tail call noundef { double, double } @__muldc3(double noundef %w.sroa.0.0100, double noundef %w.sroa.6.0101, double noundef %26, double noundef %cond) #28
@@ -7333,7 +7333,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %for.cond.cleanup54,
   %imag_mul_phi.i = phi double [ %mul_i.i, %for.cond.cleanup54 ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %30, %complex_mul_libcall.i ]
   %inc92 = add nuw nsw i64 %j.0102, 1
   %exitcond.not = icmp eq i64 %inc92, %umax
-  br i1 %exitcond.not, label %for.cond.cleanup50, label %for.cond52.preheader, !llvm.loop !125
+  br i1 %exitcond.not, label %for.cond.cleanup50, label %for.cond52.preheader, !llvm.loop !127
 
 for.body55:                                       ; preds = %for.cond52.preheader, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
   %k.098 = phi i64 [ %add, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %j.0102, %for.cond52.preheader ]
@@ -7349,11 +7349,11 @@ for.body55:                                       ; preds = %for.cond52.preheade
   %mul_r.i.i = fsub double %mul_ac.i.i, %mul_bd.i.i
   %mul_i.i.i = fadd double %mul_bc.i.i, %mul_ad.i.i
   %isnan_cmp.i.i = fcmp uno double %mul_r.i.i, 0.000000e+00
-  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !124
+  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !126
 
 complex_mul_imag_nan.i.i:                         ; preds = %for.body55
   %isnan_cmp4.i.i = fcmp uno double %mul_i.i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !124
+  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !126
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
   %call5.i.i = tail call noundef { double, double } @__muldc3(double noundef %w.sroa.0.0100, double noundef %w.sroa.6.0101, double noundef %_M_value.real.i.i.i, double noundef %_M_value.imag.i.i.i) #28
@@ -7377,7 +7377,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body55, %comple
   store double %sub.i.i.i, ptr %_M_value.imagp.i.i.i, align 8, !tbaa !55
   %add = add i64 %k.098, %shl40
   %cmp53 = icmp ult i64 %add, %shl
-  br i1 %cmp53, label %for.body55, label %for.cond.cleanup54, !llvm.loop !126
+  br i1 %cmp53, label %for.body55, label %for.cond.cleanup54, !llvm.loop !128
 
 unreachable:                                      ; preds = %invoke.cont25
   unreachable
@@ -7422,7 +7422,7 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
   %inc.us = add nuw nsw i64 %i.095.us, 1
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %inBegin.addr.096.us, i64 8
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %inEnd
-  br i1 %cmp.not.us, label %do.body, label %for.body.us, !llvm.loop !127
+  br i1 %cmp.not.us, label %do.body, label %for.body.us, !llvm.loop !129
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit
   %inBegin.addr.096 = phi ptr [ %incdec.ptr, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ], [ %inBegin, %for.body.lr.ph ]
@@ -7440,7 +7440,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %shr.i = lshr i64 %x.addr.06.i, 1
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i
-  br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !122
+  br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !123
 
 _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds %"class.std::complex", ptr %out.coerce, i64 %or.i
@@ -7450,7 +7450,7 @@ _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for
   %inc = add nuw nsw i64 %i.095, 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %inBegin.addr.096, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %inEnd
-  br i1 %cmp.not, label %do.body, label %for.body, !llvm.loop !127
+  br i1 %cmp.not, label %do.body, label %for.body, !llvm.loop !130
 
 do.body:                                          ; preds = %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, %for.body.us
   %i.0.lcssa = phi i64 [ %inc.us, %for.body.us ], [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ]
@@ -7654,7 +7654,7 @@ for.cond48.preheader:                             ; preds = %for.cond48.preheade
 for.cond.cleanup46:                               ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, %for.body35
   %inc91 = add i64 %s.0104, 1
   %cmp34.not = icmp ugt i64 %inc91, %sub.ptr.div.i
-  br i1 %cmp34.not, label %for.cond.cleanup, label %for.body35, !llvm.loop !128
+  br i1 %cmp34.not, label %for.cond.cleanup, label %for.body35, !llvm.loop !131
 
 for.cond.cleanup50:                               ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, %for.cond48.preheader
   %mul_ac.i = fmul double %26, %w.sroa.0.0100
@@ -7664,11 +7664,11 @@ for.cond.cleanup50:                               ; preds = %_ZStmlIdESt7complex
   %mul_r.i = fsub double %mul_ac.i, %mul_bd.i
   %mul_i.i = fadd double %mul_ad.i, %mul_bc.i
   %isnan_cmp.i = fcmp uno double %mul_r.i, 0.000000e+00
-  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !124
+  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !126
 
 complex_mul_imag_nan.i:                           ; preds = %for.cond.cleanup50
   %isnan_cmp4.i = fcmp uno double %mul_i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !124
+  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !126
 
 complex_mul_libcall.i:                            ; preds = %complex_mul_imag_nan.i
   %call5.i = tail call noundef { double, double } @__muldc3(double noundef %w.sroa.0.0100, double noundef %w.sroa.6.0101, double noundef %26, double noundef %cond) #28
@@ -7681,7 +7681,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %for.cond.cleanup50,
   %imag_mul_phi.i = phi double [ %mul_i.i, %for.cond.cleanup50 ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %30, %complex_mul_libcall.i ]
   %inc88 = add nuw nsw i64 %j.0102, 1
   %exitcond.not = icmp eq i64 %inc88, %umax
-  br i1 %exitcond.not, label %for.cond.cleanup46, label %for.cond48.preheader, !llvm.loop !129
+  br i1 %exitcond.not, label %for.cond.cleanup46, label %for.cond48.preheader, !llvm.loop !132
 
 for.body51:                                       ; preds = %for.cond48.preheader, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
   %k.098 = phi i64 [ %add, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %j.0102, %for.cond48.preheader ]
@@ -7697,11 +7697,11 @@ for.body51:                                       ; preds = %for.cond48.preheade
   %mul_r.i.i = fsub double %mul_ac.i.i, %mul_bd.i.i
   %mul_i.i.i = fadd double %mul_bc.i.i, %mul_ad.i.i
   %isnan_cmp.i.i = fcmp uno double %mul_r.i.i, 0.000000e+00
-  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !124
+  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !126
 
 complex_mul_imag_nan.i.i:                         ; preds = %for.body51
   %isnan_cmp4.i.i = fcmp uno double %mul_i.i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !124
+  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !126
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
   %call5.i.i = tail call noundef { double, double } @__muldc3(double noundef %w.sroa.0.0100, double noundef %w.sroa.6.0101, double noundef %_M_value.real.i.i.i, double noundef %_M_value.imag.i.i.i) #28
@@ -7725,7 +7725,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body51, %comple
   store double %sub.i.i.i, ptr %_M_value.imagp.i.i.i, align 8, !tbaa !55
   %add = add i64 %k.098, %shl36
   %cmp49 = icmp ult i64 %add, %shl
-  br i1 %cmp49, label %for.body51, label %for.cond.cleanup50, !llvm.loop !130
+  br i1 %cmp49, label %for.body51, label %for.cond.cleanup50, !llvm.loop !133
 
 unreachable:                                      ; preds = %invoke.cont21
   unreachable
@@ -7772,7 +7772,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib7ProblemEEEPT_.exit: ; preds = %entry
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !92
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEEE, i64 16), ptr %call.i, align 8, !tbaa !28
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !131
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !134
   %6 = load ptr, ptr %pn, align 8, !tbaa !73
   store ptr %call.i, ptr %pn, align 8, !tbaa !73
   %cmp.not.i = icmp eq ptr %6, null
@@ -7856,7 +7856,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !131
+  %0 = load ptr, ptr %px_, align 8, !tbaa !134
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib7ProblemEEEvPT_.exit, label %delete.notnull.i
 
@@ -8068,15 +8068,18 @@ attributes #32 = { noreturn }
 !118 = distinct !{!118, !23}
 !119 = distinct !{!119, !23}
 !120 = distinct !{!120, !23}
-!121 = distinct !{!121, !23}
-!122 = distinct !{!122, !23}
+!121 = distinct !{!121, !23, !122}
+!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !123 = distinct !{!123, !23}
-!124 = !{!"branch_weights", i32 1, i32 1048575}
+!124 = distinct !{!124, !23}
 !125 = distinct !{!125, !23}
-!126 = distinct !{!126, !23}
+!126 = !{!"branch_weights", i32 1, i32 1048575}
 !127 = distinct !{!127, !23}
 !128 = distinct !{!128, !23}
-!129 = distinct !{!129, !23}
+!129 = distinct !{!129, !23, !122}
 !130 = distinct !{!130, !23}
-!131 = !{!132, !9, i64 16}
-!132 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEEE", !91, i64 0, !9, i64 16}
+!131 = distinct !{!131, !23}
+!132 = distinct !{!132, !23}
+!133 = distinct !{!133, !23}
+!134 = !{!135, !9, i64 16}
+!135 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEEE", !91, i64 0, !9, i64 16}

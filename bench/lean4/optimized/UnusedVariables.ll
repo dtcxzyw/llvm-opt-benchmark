@@ -96651,7 +96651,7 @@ lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Linter_UnusedVariables_unusedVariables___elambda__1___spec__3(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.02034.us, ptr noundef %11)
   %26 = add i64 %.01835.us, 1
   %.not.us = icmp eq i64 %26, %4
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01835 = phi i64 [ %38, %lean_array_uget.exit ], [ %3, %.lr.ph ]
@@ -110943,3 +110943,5 @@ attributes #8 = { noreturn nounwind }
 !18 = !{!6, !6, i64 0}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

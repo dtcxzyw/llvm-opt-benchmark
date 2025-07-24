@@ -1262,7 +1262,7 @@ sub_0530:                                         ; preds = %464
 524:                                              ; preds = %522
   %525 = call i32 @zfp_stream_set_execution(ptr noundef %309, i32 noundef 0) #16
   %.not454.us = icmp eq i32 %525, 0
-  br i1 %.not454.us, label %.split737.us, label %.split.us
+  br i1 %.not454.us, label %.split737.us, label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %520
   %526 = call i64 @zfp_decompress(ptr noundef %309, ptr noundef %310) #16
@@ -1624,9 +1624,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
 
 23:                                               ; preds = %.lr.ph.split
   %24 = getelementptr inbounds nuw float, ptr %0, i64 %.06591
-  %25 = load float, ptr %24, align 4, !tbaa !24
+  %25 = load float, ptr %24, align 4, !tbaa !26
   %26 = getelementptr inbounds nuw float, ptr %1, i64 %.06591
-  %27 = load float, ptr %26, align 4, !tbaa !24
+  %27 = load float, ptr %26, align 4, !tbaa !26
   %28 = fsub float %25, %27
   %29 = tail call float @llvm.fabs.f32(float %28)
   %30 = fpext float %29 to double
@@ -1763,5 +1763,7 @@ attributes #22 = { cold noreturn nounwind }
 !21 = !{!19, !5, i64 16}
 !22 = !{!19, !5, i64 24}
 !23 = !{!19, !5, i64 32}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"float", !6, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"float", !6, i64 0}

@@ -279,7 +279,7 @@ mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..prehe
   %80 = getelementptr inbounds nuw i8, ptr %.1103, i64 %17
   %81 = add nuw i64 %.059104, 1
   %82 = icmp ult i64 %81, %48
-  br i1 %82, label %.preheader88, label %._crit_edge, !llvm.loop !19
+  br i1 %82, label %.preheader88, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %78, %50, %45
   %.164.lcssa = phi i64 [ %.063, %45 ], [ %51, %50 ], [ %79, %78 ]
@@ -391,7 +391,7 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %11
 37:                                               ; preds = %35, %34, %28
   %38 = add nuw nsw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %38, %19
-  br i1 %exitcond.not.i, label %cmac_pad.exit.preheader, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %cmac_pad.exit.preheader, label %.lr.ph.i, !llvm.loop !22
 
 cmac_pad.exit.preheader:                          ; preds = %37
   %.not.i62 = icmp samesign ult i32 %18, 8
@@ -413,7 +413,7 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i64 %43, ptr %41, align 8
   %44 = add nuw nsw i64 %40, 8
   %.not.i = icmp samesign ugt i64 %44, %19
-  br i1 %.not.i, label %.preheader54, label %cmac_pad.exit, !llvm.loop !21
+  br i1 %.not.i, label %.preheader54, label %cmac_pad.exit, !llvm.loop !23
 
 .lr.ph67:                                         ; preds = %.preheader54, %.lr.ph67
   %.1.i66 = phi i64 [ %50, %.lr.ph67 ], [ %.0.i.lcssa, %.preheader54 ]
@@ -425,7 +425,7 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i8 %49, ptr %45, align 1, !tbaa !17
   %50 = add nuw nsw i64 %.1.i66, 1
   %exitcond78.not = icmp eq i64 %50, %19
-  br i1 %exitcond78.not, label %mbedtls_xor.exit, label %.lr.ph67, !llvm.loop !22
+  br i1 %exitcond78.not, label %mbedtls_xor.exit, label %.lr.ph67, !llvm.loop !24
 
 .preheader55:                                     ; preds = %.lr.ph, %.preheader57
   %.0.i39.lcssa = phi i64 [ 0, %.preheader57 ], [ %52, %.lr.ph ]
@@ -444,7 +444,7 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i64 %54, ptr %.0.i3959.sroa.phi, align 8
   %55 = add nuw nsw i64 %52, 8
   %.not.i40 = icmp samesign ugt i64 %55, %19
-  br i1 %.not.i40, label %.preheader55, label %.lr.ph, !llvm.loop !21
+  br i1 %.not.i40, label %.preheader55, label %.lr.ph, !llvm.loop !23
 
 .lr.ph61:                                         ; preds = %.preheader55, %.lr.ph61
   %.1.i4160 = phi i64 [ %62, %.lr.ph61 ], [ %.0.i39.lcssa, %.preheader55 ]
@@ -457,7 +457,7 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i8 %60, ptr %61, align 1, !tbaa !17
   %62 = add nuw nsw i64 %.1.i4160, 1
   %exitcond.not = icmp eq i64 %62, %19
-  br i1 %exitcond.not, label %mbedtls_xor.exit, label %.lr.ph61, !llvm.loop !22
+  br i1 %exitcond.not, label %mbedtls_xor.exit, label %.lr.ph61, !llvm.loop !24
 
 mbedtls_xor.exit:                                 ; preds = %.lr.ph61, %.lr.ph67, %.preheader55, %.preheader54
   %.not.i4468 = icmp samesign ult i32 %18, 8
@@ -479,7 +479,7 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph61, %.lr.ph67
   store i64 %67, ptr %66, align 1
   %68 = add nuw nsw i64 %64, 8
   %.not.i44 = icmp samesign ugt i64 %68, %19
-  br i1 %.not.i44, label %.preheader, label %.lr.ph70, !llvm.loop !21
+  br i1 %.not.i44, label %.preheader, label %.lr.ph70, !llvm.loop !23
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
   %.1.i4572 = phi i64 [ %74, %.lr.ph73 ], [ %.0.i43.lcssa, %.preheader ]
@@ -491,7 +491,7 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph61, %.lr.ph67
   store i8 %73, ptr %71, align 1, !tbaa !17
   %74 = add nuw nsw i64 %.1.i4572, 1
   %exitcond79.not = icmp eq i64 %74, %19
-  br i1 %exitcond79.not, label %mbedtls_xor.exit46, label %.lr.ph73, !llvm.loop !22
+  br i1 %exitcond79.not, label %mbedtls_xor.exit46, label %.lr.ph73, !llvm.loop !24
 
 mbedtls_xor.exit46:                               ; preds = %.lr.ph73, %.preheader
   %75 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %19, ptr noundef nonnull %13, ptr noundef nonnull %6) #12
@@ -570,13 +570,13 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %22 = call i32 @llvm.bswap.i32(i32 %20)
   store i32 %22, ptr %21, align 1
   %23 = icmp samesign ugt i64 %indvars.iv.i, 7
-  br i1 %23, label %.lr.ph.i, label %24, !llvm.loop !23
+  br i1 %23, label %.lr.ph.i, label %24, !llvm.loop !25
 
 24:                                               ; preds = %.lr.ph.i
   %25 = load i8, ptr %4, align 16, !tbaa !17
   %26 = lshr i8 %25, 7
   %27 = zext nneg i8 %26 to i64
-  %28 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %27) #12, !srcloc !24
+  %28 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %27) #12, !srcloc !26
   %29 = trunc i64 %28 to i8
   %30 = and i8 %.019.i, %29
   %31 = getelementptr i8, ptr %1, i64 %.0.i
@@ -610,13 +610,13 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %42 = call i32 @llvm.bswap.i32(i32 %40)
   store i32 %42, ptr %41, align 1
   %43 = icmp samesign ugt i64 %indvars.iv.i15, 7
-  br i1 %43, label %.lr.ph.i14, label %._crit_edge.i19, !llvm.loop !23
+  br i1 %43, label %.lr.ph.i14, label %._crit_edge.i19, !llvm.loop !25
 
 ._crit_edge.i19:                                  ; preds = %.lr.ph.i14
   %44 = load i8, ptr %1, align 1, !tbaa !17
   %45 = lshr i8 %44, 7
   %46 = zext nneg i8 %45 to i64
-  %47 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %46) #12, !srcloc !24
+  %47 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %46) #12, !srcloc !26
   %48 = trunc i64 %47 to i8
   %49 = and i8 %.019.i13, %48
   %50 = getelementptr i8, ptr %2, i64 %.0.i
@@ -955,7 +955,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   call void @mbedtls_cipher_free(ptr noundef nonnull %8) #12
   %40 = add nuw nsw i32 %.03159, 1
   %exitcond.not = icmp eq i32 %40, 4
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !27
 
 .sink.split80:                                    ; preds = %37, %32, %29, %22
   %str.1.sink = phi ptr [ @str.5, %22 ], [ @str.5, %29 ], [ @str.11, %32 ], [ @str.11, %37 ]
@@ -990,59 +990,35 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %13 = zext nneg i32 %7 to i64
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader
-  switch i32 %6, label %.preheader.split.us.split [
-    i32 36, label %.preheader.split.us.split.us.preheader
-    i32 3, label %.preheader.split.us.split.us.preheader
-  ]
-
-.preheader.split.us.split.us.preheader:           ; preds = %.preheader.split.us, %.preheader.split.us
-  br label %.preheader.split.us.split.us
-
-.preheader.split.us.split.us:                     ; preds = %.preheader.split.us.split.us.preheader, %22
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %22 ], [ 0, %.preheader.split.us.split.us.preheader ]
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv66
-  %15 = load i32, ptr %14, align 4, !tbaa !26
+.preheader.split.us:                              ; preds = %.preheader, %23
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %23 ], [ 0, %.preheader ]
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49
+  %15 = load i32, ptr %14, align 4, !tbaa !28
   %16 = zext i32 %15 to i64
   %17 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %16, ptr noundef nonnull %9)
   switch i32 %17, label %.split.us [
-    i32 0, label %18
-    i32 -114, label %22
-    i32 -24704, label %22
+    i32 0, label %19
+    i32 -114, label %18
+    i32 -24704, label %18
   ]
 
-18:                                               ; preds = %.preheader.split.us.split.us
-  %19 = mul nuw nsw i64 %indvars.iv66, %13
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %19
-  %21 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %20, i64 noundef %13) #14
-  %.not34.us.us = icmp eq i32 %21, 0
-  br i1 %.not34.us.us, label %22, label %.split7.us
+18:                                               ; preds = %.preheader.split.us, %.preheader.split.us
+  switch i32 %6, label %.split.us [
+    i32 36, label %23
+    i32 3, label %23
+  ]
 
-22:                                               ; preds = %18, %.preheader.split.us.split.us, %.preheader.split.us.split.us
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader.split.us.split.us, !llvm.loop !27
+19:                                               ; preds = %.preheader.split.us
+  %20 = mul nuw nsw i64 %indvars.iv49, %13
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
+  %22 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %21, i64 noundef %13) #14
+  %.not34.us = icmp eq i32 %22, 0
+  br i1 %.not34.us, label %23, label %.split7.us
 
-.preheader.split.us.split:                        ; preds = %.preheader.split.us, %31
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %31 ], [ 0, %.preheader.split.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv70
-  %24 = load i32, ptr %23, align 4, !tbaa !26
-  %25 = zext i32 %24 to i64
-  %26 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %25, ptr noundef nonnull %9)
-  %cond = icmp eq i32 %26, 0
-  br i1 %cond, label %27, label %.split.us
-
-27:                                               ; preds = %.preheader.split.us.split
-  %28 = mul nuw nsw i64 %indvars.iv70, %13
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
-  %30 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %29, i64 noundef %13) #14
-  %.not34.us = icmp eq i32 %30, 0
-  br i1 %.not34.us, label %31, label %.split7.us
-
-31:                                               ; preds = %27
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.loopexit, label %.preheader.split.us.split, !llvm.loop !27
+23:                                               ; preds = %19, %18, %18
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next50, 4
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !29
 
 .preheader.split:                                 ; preds = %.preheader
   switch i32 %6, label %.preheader.split.split [
@@ -1053,65 +1029,65 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 .preheader.split.split.us.preheader:              ; preds = %.preheader.split, %.preheader.split
   br label %.preheader.split.split.us
 
-.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader.split.split.us.preheader ]
+.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %34
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader.split.split.us.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %32)
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4, !tbaa !26
-  %36 = zext i32 %35 to i64
-  %37 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %36, ptr noundef nonnull %9)
-  switch i32 %37, label %.split.us [
-    i32 0, label %38
-    i32 -114, label %42
-    i32 -24704, label %42
+  %24 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %24)
+  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4, !tbaa !28
+  %28 = zext i32 %27 to i64
+  %29 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %28, ptr noundef nonnull %9)
+  switch i32 %29, label %.split.us [
+    i32 0, label %30
+    i32 -114, label %34
+    i32 -24704, label %34
   ]
 
-38:                                               ; preds = %.preheader.split.split.us
-  %39 = mul nuw nsw i64 %indvars.iv, %13
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %39
-  %41 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %40, i64 noundef %13) #14
-  %.not34.us12 = icmp eq i32 %41, 0
-  br i1 %.not34.us12, label %42, label %.split7.us
+30:                                               ; preds = %.preheader.split.split.us
+  %31 = mul nuw nsw i64 %indvars.iv, %13
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %31
+  %33 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %32, i64 noundef %13) #14
+  %.not34.us12 = icmp eq i32 %33, 0
+  br i1 %.not34.us12, label %34, label %.split7.us
 
-42:                                               ; preds = %38, %.preheader.split.split.us, %.preheader.split.split.us
-  %str.6.sink = phi ptr [ @str.9, %.preheader.split.split.us ], [ @str.9, %.preheader.split.split.us ], [ @str.10, %38 ]
+34:                                               ; preds = %30, %.preheader.split.split.us, %.preheader.split.split.us
+  %str.6.sink = phi ptr [ @str.9, %.preheader.split.split.us ], [ @str.9, %.preheader.split.split.us ], [ @str.10, %30 ]
   %puts.us13 = call i32 @puts(ptr nonnull dereferenceable(1) %str.6.sink)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !30
 
-.preheader.split.split:                           ; preds = %.preheader.split, %53
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %53 ], [ 0, %.preheader.split ]
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %43 = trunc nuw nsw i64 %indvars.iv.next63 to i32
-  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %43)
-  %45 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv62
-  %46 = load i32, ptr %45, align 4, !tbaa !26
-  %47 = zext i32 %46 to i64
-  %48 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %47, ptr noundef nonnull %9)
-  %cond34 = icmp eq i32 %48, 0
-  br i1 %cond34, label %49, label %.split.us
+.preheader.split.split:                           ; preds = %.preheader.split, %45
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %45 ], [ 0, %.preheader.split ]
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %35 = trunc nuw nsw i64 %indvars.iv.next46 to i32
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %35)
+  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv45
+  %38 = load i32, ptr %37, align 4, !tbaa !28
+  %39 = zext i32 %38 to i64
+  %40 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %39, ptr noundef nonnull %9)
+  %cond = icmp eq i32 %40, 0
+  br i1 %cond, label %41, label %.split.us
 
-.split.us:                                        ; preds = %.preheader.split.split.us, %.preheader.split.split, %.preheader.split.us.split.us, %.preheader.split.us.split
-  %.us-phi = phi i32 [ %26, %.preheader.split.us.split ], [ %17, %.preheader.split.us.split.us ], [ %48, %.preheader.split.split ], [ %37, %.preheader.split.split.us ]
+.split.us:                                        ; preds = %.preheader.split.split.us, %.preheader.split.split, %.preheader.split.us, %18
+  %.us-phi = phi i32 [ %17, %18 ], [ %17, %.preheader.split.us ], [ %40, %.preheader.split.split ], [ %29, %.preheader.split.split.us ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
-49:                                               ; preds = %.preheader.split.split
-  %50 = mul nuw nsw i64 %indvars.iv62, %13
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
-  %52 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %51, i64 noundef %13) #14
-  %.not34 = icmp eq i32 %52, 0
-  br i1 %.not34, label %53, label %.split7.us
+41:                                               ; preds = %.preheader.split.split
+  %42 = mul nuw nsw i64 %indvars.iv45, %13
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
+  %44 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %43, i64 noundef %13) #14
+  %.not34 = icmp eq i32 %44, 0
+  br i1 %.not34, label %45, label %.split7.us
 
-.split7.us:                                       ; preds = %38, %49, %18, %27
-  %.us-phi8 = phi i32 [ %30, %27 ], [ %21, %18 ], [ %52, %49 ], [ %41, %38 ]
+.split7.us:                                       ; preds = %30, %41, %19
+  %.us-phi8 = phi i32 [ %22, %19 ], [ %44, %41 ], [ %33, %30 ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
-53:                                               ; preds = %49
+45:                                               ; preds = %41
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !27
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
+  br i1 %exitcond48.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %.split7.us, %.split.us
   %str.7.sink = phi ptr [ @str.11, %.split.us ], [ @str.11, %.split7.us ]
@@ -1119,8 +1095,8 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %puts35 = call i32 @puts(ptr nonnull dereferenceable(1) %str.7.sink)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %53, %22, %31, %.loopexit.sink.split, %8, %.split7.us, %.split.us
-  %.0 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi8, %.split7.us ], [ -24704, %8 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %31 ], [ 0, %22 ], [ 0, %53 ], [ 0, %42 ]
+.loopexit:                                        ; preds = %34, %45, %23, %.loopexit.sink.split, %8, %.split7.us, %.split.us
+  %.0 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi8, %.split7.us ], [ -24704, %8 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %23 ], [ 0, %45 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   ret i32 %.0
 }
@@ -1139,7 +1115,7 @@ define internal fastcc i32 @test_aes128_cmac_prf(i32 noundef %0) unnamed_addr #0
   %5 = trunc nuw nsw i64 %indvars.iv33 to i32
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %5)
   %7 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv33
-  %8 = load i64, ptr %7, align 8, !tbaa !28
+  %8 = load i64, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %9 = call ptr @mbedtls_cipher_info_from_type(i32 noundef 2) #12
@@ -1177,14 +1153,14 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
 19:                                               ; preds = %17
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %.loopexit, label %.split.us, !llvm.loop !29
+  br i1 %exitcond36.not, label %.loopexit, label %.split.us, !llvm.loop !33
 
 .split:                                           ; preds = %1, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20)
   %22 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !28
+  %23 = load i64, ptr %22, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %24 = call ptr @mbedtls_cipher_info_from_type(i32 noundef 2) #12
@@ -1238,7 +1214,7 @@ mbedtls_aes_cmac_prf_128.exit:                    ; preds = %28, %29
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !34
 
 .loopexit:                                        ; preds = %35, %19, %.loopexit21, %34
   %.012 = phi i32 [ %.018.i20, %34 ], [ %.018.i20, %.loopexit21 ], [ 0, %19 ], [ 0, %35 ]
@@ -1301,14 +1277,19 @@ attributes #14 = { nounwind willreturn memory(read) }
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!7, !7, i64 0}
 !18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
+!19 = distinct !{!19, !16, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = distinct !{!21, !16}
 !22 = distinct !{!22, !16}
 !23 = distinct !{!23, !16}
-!24 = !{i64 1026475, i64 1026525, i64 1026597, i64 1026669, i64 1026741}
+!24 = distinct !{!24, !16}
 !25 = distinct !{!25, !16}
-!26 = !{!9, !9, i64 0}
+!26 = !{i64 1026475, i64 1026525, i64 1026597, i64 1026669, i64 1026741}
 !27 = distinct !{!27, !16}
-!28 = !{!10, !10, i64 0}
-!29 = distinct !{!29, !16}
+!28 = !{!9, !9, i64 0}
+!29 = distinct !{!29, !16, !20}
+!30 = distinct !{!30, !16, !20}
+!31 = distinct !{!31, !16}
+!32 = !{!10, !10, i64 0}
+!33 = distinct !{!33, !16, !20}
+!34 = distinct !{!34, !16}

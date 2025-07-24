@@ -90,7 +90,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %.0270498 = phi ptr [ %28, %.lr.ph499 ], [ %69, %.loopexit479 ]
   %44 = load ptr, ptr %.0270498, align 8, !tbaa !22
   store ptr null, ptr %.0270498, align 8, !tbaa !22
-  %45 = load ptr, ptr %35, align 8, !tbaa !25
+  %45 = load ptr, ptr %35, align 8, !tbaa !26
   %.not341 = icmp eq ptr %45, null
   br i1 %.not341, label %46, label %49
 
@@ -110,14 +110,14 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 .lr.ph497.split.us:                               ; preds = %.lr.ph497, %59
   %.0277495.us = phi ptr [ %50, %59 ], [ %44, %.lr.ph497 ]
-  %50 = load ptr, ptr %.0277495.us, align 8, !tbaa !26
-  %51 = load ptr, ptr %35, align 8, !tbaa !25
+  %50 = load ptr, ptr %.0277495.us, align 8, !tbaa !27
+  %51 = load ptr, ptr %35, align 8, !tbaa !26
   %.not343.us = icmp eq ptr %51, null
   br i1 %.not343.us, label %55, label %52
 
 52:                                               ; preds = %.lr.ph497.split.us
   %53 = getelementptr inbounds nuw i8, ptr %.0277495.us, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %54 = load ptr, ptr %53, align 8, !tbaa !29
   tail call void %51(ptr noundef %54) #7
   br label %55
 
@@ -132,12 +132,12 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 59:                                               ; preds = %58, %55
   %.not342.us = icmp eq ptr %50, null
-  br i1 %.not342.us, label %.loopexit479, label %.lr.ph497.split.us, !llvm.loop !30
+  br i1 %.not342.us, label %.loopexit479, label %.lr.ph497.split.us, !llvm.loop !31
 
 .lr.ph497.split:                                  ; preds = %.lr.ph497, %68
   %.0277495 = phi ptr [ %60, %68 ], [ %44, %.lr.ph497 ]
-  %60 = load ptr, ptr %.0277495, align 8, !tbaa !26
-  %61 = load ptr, ptr %35, align 8, !tbaa !25
+  %60 = load ptr, ptr %.0277495, align 8, !tbaa !27
+  %61 = load ptr, ptr %35, align 8, !tbaa !26
   %.not343 = icmp eq ptr %61, null
   br i1 %.not343, label %64, label %62
 
@@ -157,19 +157,19 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 68:                                               ; preds = %67, %64
   %.not342 = icmp eq ptr %60, null
-  br i1 %.not342, label %.loopexit479, label %.lr.ph497.split, !llvm.loop !30
+  br i1 %.not342, label %.loopexit479, label %.lr.ph497.split, !llvm.loop !32
 
 .loopexit479:                                     ; preds = %68, %59, %49, %46
   %69 = getelementptr inbounds nuw i8, ptr %.0270498, i64 8
   %70 = icmp ult ptr %69, %32
-  br i1 %70, label %43, label %._crit_edge, !llvm.loop !31
+  br i1 %70, label %43, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.loopexit479, %.preheader480
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %71, align 8, !tbaa !32
+  store ptr null, ptr %71, align 8, !tbaa !34
   store i32 0, ptr %22, align 4, !tbaa !19
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %72, align 8, !tbaa !33
+  store i32 0, ptr %72, align 8, !tbaa !35
   br label %dthtab.exit
 
 .lr.ph502.split:                                  ; preds = %.lr.ph502, %.lr.ph502.split
@@ -179,7 +179,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %75 = icmp ult ptr %28, %73
   %.not336 = icmp eq ptr %74, null
   %76 = select i1 %75, i1 %.not336, i1 false
-  br i1 %76, label %.lr.ph502.split, label %._crit_edge503, !llvm.loop !23
+  br i1 %76, label %.lr.ph502.split, label %._crit_edge503, !llvm.loop !36
 
 ._crit_edge503:                                   ; preds = %.lr.ph502.split, %.lr.ph502.split.us
   %.1278.lcssa = phi ptr [ %40, %.lr.ph502.split.us ], [ %74, %.lr.ph502.split ]
@@ -193,33 +193,33 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 .preheader:                                       ; preds = %77, %.preheader
   %.3280 = phi ptr [ %79, %.preheader ], [ %.1278.lcssa, %77 ]
-  %79 = load ptr, ptr %.3280, align 8, !tbaa !26
+  %79 = load ptr, ptr %.3280, align 8, !tbaa !27
   %.not338 = icmp eq ptr %79, null
-  br i1 %.not338, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %.not338, label %.loopexit, label %.preheader, !llvm.loop !37
 
 ._crit_edge503.thread:                            ; preds = %.preheader478, %._crit_edge503
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load i32, ptr %80, align 8, !tbaa !33
+  %81 = load i32, ptr %80, align 8, !tbaa !35
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %80, align 8, !tbaa !33
+  store i32 %82, ptr %80, align 8, !tbaa !35
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %83, align 8, !tbaa !32
+  store ptr null, ptr %83, align 8, !tbaa !34
   br label %dthtab.exit
 
 .loopexit:                                        ; preds = %.preheader, %77
   %.2279.ph = phi ptr [ %.1278.lcssa, %77 ], [ %.3280, %.preheader ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %85 = load i32, ptr %84, align 8, !tbaa !33
+  %85 = load i32, ptr %84, align 8, !tbaa !35
   %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %84, align 8, !tbaa !33
+  store i32 %86, ptr %84, align 8, !tbaa !35
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.2279.ph, ptr %87, align 8, !tbaa !32
+  store ptr %.2279.ph, ptr %87, align 8, !tbaa !34
   %88 = icmp slt i32 %.fr508, 0
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %.loopexit
   %90 = getelementptr inbounds nuw i8, ptr %.2279.ph, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !28
+  %91 = load ptr, ptr %90, align 8, !tbaa !29
   br label %dthtab.exit
 
 92:                                               ; preds = %.loopexit
@@ -245,7 +245,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %101, label %104, label %106
 
 104:                                              ; preds = %100
-  %105 = load ptr, ptr %103, align 8, !tbaa !35
+  %105 = load ptr, ptr %103, align 8, !tbaa !38
   br label %106
 
 106:                                              ; preds = %100, %98, %104
@@ -264,7 +264,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %115 = load ptr, ptr %114, align 8, !tbaa !28
+  %115 = load ptr, ptr %114, align 8, !tbaa !29
   br label %120
 
 116:                                              ; preds = %111
@@ -281,7 +281,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %122, label %125, label %127
 
 125:                                              ; preds = %120
-  %126 = load ptr, ptr %124, align 8, !tbaa !35
+  %126 = load ptr, ptr %124, align 8, !tbaa !38
   br label %127
 
 127:                                              ; preds = %120, %125
@@ -292,7 +292,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 131:                                              ; preds = %109
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !32
+  %133 = load ptr, ptr %132, align 8, !tbaa !34
   %.not346 = icmp eq ptr %133, null
   br i1 %.not346, label %146, label %134
 
@@ -302,7 +302,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !28
+  %138 = load ptr, ptr %137, align 8, !tbaa !29
   br label %143
 
 139:                                              ; preds = %134
@@ -323,7 +323,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %147, label %150, label %152
 
 150:                                              ; preds = %146
-  %151 = load ptr, ptr %149, align 8, !tbaa !35
+  %151 = load ptr, ptr %149, align 8, !tbaa !38
   br label %152
 
 152:                                              ; preds = %146, %150
@@ -376,7 +376,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds nuw i8, ptr %.4281493, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !28
+  %181 = load ptr, ptr %180, align 8, !tbaa !29
   br label %184
 
 182:                                              ; preds = %178
@@ -389,7 +389,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %170, label %187, label %189
 
 187:                                              ; preds = %184
-  %188 = load ptr, ptr %186, align 8, !tbaa !35
+  %188 = load ptr, ptr %186, align 8, !tbaa !38
   br label %189
 
 189:                                              ; preds = %184, %187
@@ -417,9 +417,9 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %200, label %.loopexit487, label %201
 
 201:                                              ; preds = %174, %198
-  %202 = load ptr, ptr %.4281493, align 8, !tbaa !26
+  %202 = load ptr, ptr %.4281493, align 8, !tbaa !27
   %.not348 = icmp eq ptr %202, null
-  br i1 %.not348, label %.thread390, label %174, !llvm.loop !37
+  br i1 %.not348, label %.thread390, label %174, !llvm.loop !40
 
 .loopexit487:                                     ; preds = %198
   %203 = and i32 %2, 1540
@@ -458,27 +458,27 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %221 = load i32, ptr %220, align 8, !tbaa !33
+  %221 = load i32, ptr %220, align 8, !tbaa !35
   %222 = icmp slt i32 %221, 1
   br i1 %222, label %223, label %.thread542
 
 223:                                              ; preds = %219
-  %224 = load ptr, ptr %.4281493, align 8, !tbaa !26
-  store ptr %224, ptr %.0287492, align 8, !tbaa !26
+  %224 = load ptr, ptr %.4281493, align 8, !tbaa !27
+  store ptr %224, ptr %.0287492, align 8, !tbaa !27
   %225 = load ptr, ptr %165, align 8, !tbaa !22
-  store ptr %225, ptr %.4281493, align 8, !tbaa !26
+  store ptr %225, ptr %.4281493, align 8, !tbaa !27
   store ptr %.4281493, ptr %165, align 8, !tbaa !22
   br label %.thread542
 
 .thread542:                                       ; preds = %223, %219, %216, %215
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.4281493, ptr %226, align 8, !tbaa !32
+  store ptr %.4281493, ptr %226, align 8, !tbaa !34
   %227 = icmp slt i32 %.fr508, 0
   br i1 %227, label %228, label %231
 
 228:                                              ; preds = %.thread542
   %229 = getelementptr inbounds nuw i8, ptr %.4281493, i64 16
-  %230 = load ptr, ptr %229, align 8, !tbaa !28
+  %230 = load ptr, ptr %229, align 8, !tbaa !29
   br label %dthtab.exit
 
 231:                                              ; preds = %.thread542
@@ -511,13 +511,13 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 241:                                              ; preds = %238
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.5282537, ptr %242, align 8, !tbaa !32
+  store ptr %.5282537, ptr %242, align 8, !tbaa !34
   %243 = icmp slt i32 %.fr508, 0
   br i1 %243, label %244, label %247
 
 244:                                              ; preds = %241
   %245 = getelementptr inbounds nuw i8, ptr %.5282537, i64 16
-  %246 = load ptr, ptr %245, align 8, !tbaa !28
+  %246 = load ptr, ptr %245, align 8, !tbaa !29
   br label %dthtab.exit
 
 247:                                              ; preds = %241
@@ -531,7 +531,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %.5282403423442 = phi ptr [ %.5282537, %238 ], [ null, %.thread412 ]
   %.1295398428441 = phi i32 [ %.1295533, %238 ], [ %.0294, %.thread412 ]
   %251 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %252 = load ptr, ptr %251, align 8, !tbaa !38
+  %252 = load ptr, ptr %251, align 8, !tbaa !41
   %.not374 = icmp eq ptr %252, null
   br i1 %.not374, label %255, label %253
 
@@ -557,17 +557,17 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 262:                                              ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  store ptr %.2275, ptr %263, align 8, !tbaa !28
+  store ptr %.2275, ptr %263, align 8, !tbaa !29
   br label %270
 
 264:                                              ; preds = %260
-  %265 = load ptr, ptr %251, align 8, !tbaa !38
+  %265 = load ptr, ptr %251, align 8, !tbaa !41
   %.not377 = icmp eq ptr %265, null
   br i1 %.not377, label %dthtab.exit, label %266
 
 266:                                              ; preds = %264
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %268 = load ptr, ptr %267, align 8, !tbaa !25
+  %268 = load ptr, ptr %267, align 8, !tbaa !26
   %.not378 = icmp eq ptr %268, null
   br i1 %.not378, label %dthtab.exit, label %269
 
@@ -599,7 +599,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 279:                                              ; preds = %272
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %281 = load i32, ptr %280, align 8, !tbaa !33
+  %281 = load i32, ptr %280, align 8, !tbaa !35
   %282 = icmp slt i32 %281, 1
   br i1 %282, label %283, label %thread-pre-split
 
@@ -618,7 +618,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %288 = add nsw i32 %287, -1
   store i32 %288, ptr %273, align 4, !tbaa !19
   %289 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %290 = load ptr, ptr %289, align 8, !tbaa !25
+  %290 = load ptr, ptr %289, align 8, !tbaa !26
   %.not381 = icmp eq ptr %290, null
   %brmerge = or i1 %.not351431, %.not381
   br i1 %brmerge, label %292, label %291
@@ -641,9 +641,9 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %.not380, label %299, label %297
 
 297:                                              ; preds = %296
-  %298 = load ptr, ptr %.5282403424, align 8, !tbaa !26
-  store ptr %298, ptr %.3286, align 8, !tbaa !26
-  store ptr %.3286, ptr %.5282403424, align 8, !tbaa !26
+  %298 = load ptr, ptr %.5282403424, align 8, !tbaa !27
+  store ptr %298, ptr %.3286, align 8, !tbaa !27
+  store ptr %.3286, ptr %.5282403424, align 8, !tbaa !27
   br label %307
 
 299:                                              ; preds = %296
@@ -654,13 +654,13 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %304 = zext i32 %303 to i64
   %305 = getelementptr inbounds nuw ptr, ptr %301, i64 %304
   %306 = load ptr, ptr %305, align 8, !tbaa !22
-  store ptr %306, ptr %.3286, align 8, !tbaa !26
+  store ptr %306, ptr %.3286, align 8, !tbaa !27
   store ptr %.3286, ptr %305, align 8, !tbaa !22
   br label %307
 
 307:                                              ; preds = %299, %297
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.3286, ptr %308, align 8, !tbaa !32
+  store ptr %.3286, ptr %308, align 8, !tbaa !34
   br label %dthtab.exit
 
 309:                                              ; preds = %235
@@ -674,7 +674,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %.not352452, label %325, label %.thread463
 
 312:                                              ; preds = %309
-  %313 = load ptr, ptr %.5282537, align 8, !tbaa !26
+  %313 = load ptr, ptr %.5282537, align 8, !tbaa !27
   %.not368 = icmp eq ptr %313, null
   br i1 %.not368, label %314, label %.thread469
 
@@ -696,7 +696,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 323:                                              ; preds = %321
   %324 = load ptr, ptr %.5, align 8, !tbaa !22
   %.not369 = icmp eq ptr %324, null
-  br i1 %.not369, label %321, label %.thread469, !llvm.loop !39
+  br i1 %.not369, label %321, label %.thread469, !llvm.loop !42
 
 325:                                              ; preds = %.thread444, %309
   %.4406420461 = phi ptr [ %.3525, %.thread444 ], [ %.4540, %309 ]
@@ -722,9 +722,9 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 
 .preheader483:                                    ; preds = %330, %.preheader483
   %.4291 = phi ptr [ %332, %.preheader483 ], [ %331, %330 ]
-  %332 = load ptr, ptr %.4291, align 8, !tbaa !26
+  %332 = load ptr, ptr %.4291, align 8, !tbaa !27
   %.not366 = icmp eq ptr %332, %.5282403425458
-  br i1 %.not366, label %.thread469, label %.preheader483, !llvm.loop !40
+  br i1 %.not366, label %.thread469, label %.preheader483, !llvm.loop !43
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -740,38 +740,38 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 337:                                              ; preds = %336
   %338 = load ptr, ptr %.6, align 8, !tbaa !22
   %.not364 = icmp eq ptr %338, null
-  br i1 %.not364, label %336, label %.preheader482, !llvm.loop !41
+  br i1 %.not364, label %336, label %.preheader482, !llvm.loop !44
 
 .preheader482:                                    ; preds = %337, %.preheader482
   %.6293 = phi ptr [ %339, %.preheader482 ], [ %338, %337 ]
-  %339 = load ptr, ptr %.6293, align 8, !tbaa !26
+  %339 = load ptr, ptr %.6293, align 8, !tbaa !27
   %.not365 = icmp eq ptr %339, null
-  br i1 %.not365, label %.thread469, label %.preheader482, !llvm.loop !42
+  br i1 %.not365, label %.thread469, label %.preheader482, !llvm.loop !45
 
 .thread469:                                       ; preds = %323, %.preheader483, %.preheader482, %312
   %.3290.ph = phi ptr [ %313, %312 ], [ %.6293, %.preheader482 ], [ %.4291, %.preheader483 ], [ %324, %323 ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.3290.ph, ptr %340, align 8, !tbaa !32
+  store ptr %.3290.ph, ptr %340, align 8, !tbaa !34
   br label %392
 
 .thread474:                                       ; preds = %321, %336
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %341, align 8, !tbaa !32
+  store ptr null, ptr %341, align 8, !tbaa !34
   br label %343
 
 .thread463:                                       ; preds = %.thread444, %327
   %.3290 = phi ptr [ %.1288400427456, %327 ], [ %.0287.lcssa, %.thread444 ]
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.3290, ptr %342, align 8, !tbaa !32
+  store ptr %.3290, ptr %342, align 8, !tbaa !34
   %.not371 = icmp eq ptr %.3290, null
   br i1 %.not371, label %343, label %392
 
 343:                                              ; preds = %.thread474, %.thread463, %19
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %345 = load i32, ptr %344, align 8, !tbaa !33
+  %345 = load i32, ptr %344, align 8, !tbaa !35
   %346 = tail call i32 @llvm.smax.i32(i32 %345, i32 1)
   %spec.select = add nsw i32 %346, -1
-  store i32 %spec.select, ptr %344, align 8, !tbaa !33
+  store i32 %spec.select, ptr %344, align 8, !tbaa !35
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %348 = load i32, ptr %347, align 4, !tbaa !19
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -791,7 +791,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %.0.i = phi i32 [ %spec.store.select.i, %354 ], [ %357, %356 ]
   %357 = shl i32 %.0.i, 1
   %358 = icmp sgt i32 %348, %357
-  br i1 %358, label %356, label %359, !llvm.loop !43
+  br i1 %358, label %356, label %359, !llvm.loop !46
 
 359:                                              ; preds = %356
   %360 = icmp eq i32 %.0.i, %350
@@ -842,7 +842,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   store ptr null, ptr %.04457.i, align 8, !tbaa !22
   %.044.i = getelementptr inbounds i8, ptr %.04457.i, i64 -8
   %.not52.i = icmp ult ptr %.044.i, %373
-  br i1 %.not52.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not52.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !47
 
 378:                                              ; preds = %._crit_edge.i, %.lr.ph63.i
   %.162.i = phi ptr [ %369, %.lr.ph63.i ], [ %390, %._crit_edge.i ]
@@ -853,7 +853,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 .lr.ph61.i:                                       ; preds = %378, %389
   %.04360.i = phi ptr [ %380, %389 ], [ %379, %378 ]
   %.04559.i = phi ptr [ %.146.i, %389 ], [ null, %378 ]
-  %380 = load ptr, ptr %.04360.i, align 8, !tbaa !26
+  %380 = load ptr, ptr %.04360.i, align 8, !tbaa !27
   %381 = getelementptr inbounds nuw i8, ptr %.04360.i, i64 8
   %382 = load i32, ptr %381, align 8, !tbaa !20
   %383 = and i32 %382, %377
@@ -867,19 +867,19 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %.162..04559.i = select i1 %.not54.i, ptr %.162.i, ptr %.04559.i
   store ptr %380, ptr %.162..04559.i, align 8, !tbaa !22
   %388 = load ptr, ptr %385, align 8, !tbaa !22
-  store ptr %388, ptr %.04360.i, align 8, !tbaa !26
+  store ptr %388, ptr %.04360.i, align 8, !tbaa !27
   store ptr %.04360.i, ptr %385, align 8, !tbaa !22
   br label %389
 
 389:                                              ; preds = %387, %.lr.ph61.i
   %.146.i = phi ptr [ %.04559.i, %387 ], [ %.04360.i, %.lr.ph61.i ]
   %.not53.i = icmp eq ptr %380, null
-  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph61.i, !llvm.loop !45
+  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph61.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %389, %378
   %390 = getelementptr inbounds nuw i8, ptr %.162.i, i64 8
   %391 = icmp ult ptr %390, %373
-  br i1 %391, label %378, label %dthtab.exit, !llvm.loop !46
+  br i1 %391, label %378, label %dthtab.exit, !llvm.loop !49
 
 392:                                              ; preds = %.thread469, %.thread463
   %.3290472 = phi ptr [ %.3290.ph, %.thread469 ], [ %.3290, %.thread463 ]
@@ -891,7 +891,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 
 396:                                              ; preds = %392
   %397 = getelementptr inbounds nuw i8, ptr %.3290472, i64 16
-  %398 = load ptr, ptr %397, align 8, !tbaa !28
+  %398 = load ptr, ptr %397, align 8, !tbaa !29
   br label %dthtab.exit
 
 399:                                              ; preds = %392
@@ -911,7 +911,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 
 406:                                              ; preds = %405
   %407 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %408 = load ptr, ptr %407, align 8, !tbaa !25
+  %408 = load ptr, ptr %407, align 8, !tbaa !26
   %.not361 = icmp eq ptr %408, null
   br i1 %.not361, label %410, label %409
 
@@ -934,7 +934,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 
 416:                                              ; preds = %414
   %417 = getelementptr inbounds nuw i8, ptr %.5282403425458, i64 16
-  %418 = load ptr, ptr %417, align 8, !tbaa !28
+  %418 = load ptr, ptr %417, align 8, !tbaa !29
   br label %dthtab.exit
 
 419:                                              ; preds = %414
@@ -951,8 +951,8 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %.not356, label %427, label %425
 
 425:                                              ; preds = %424
-  %426 = load ptr, ptr %.5282403425458, align 8, !tbaa !26
-  store ptr %426, ptr %.1288400427456, align 8, !tbaa !26
+  %426 = load ptr, ptr %.5282403425458, align 8, !tbaa !27
+  store ptr %426, ptr %.1288400427456, align 8, !tbaa !27
   br label %435
 
 427:                                              ; preds = %424
@@ -961,19 +961,19 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   br i1 %429, label %430, label %.preheader481
 
 430:                                              ; preds = %427
-  %431 = load ptr, ptr %.5282403425458, align 8, !tbaa !26
+  %431 = load ptr, ptr %.5282403425458, align 8, !tbaa !27
   store ptr %431, ptr %.4406420461, align 8, !tbaa !22
   br label %435
 
 .preheader481:                                    ; preds = %427, %.preheader481
   %.7 = phi ptr [ %432, %.preheader481 ], [ %428, %427 ]
-  %432 = load ptr, ptr %.7, align 8, !tbaa !26
+  %432 = load ptr, ptr %.7, align 8, !tbaa !27
   %.not357 = icmp eq ptr %432, %.5282403425458
-  br i1 %.not357, label %433, label %.preheader481, !llvm.loop !47
+  br i1 %.not357, label %433, label %.preheader481, !llvm.loop !50
 
 433:                                              ; preds = %.preheader481
-  %434 = load ptr, ptr %.5282403425458, align 8, !tbaa !26
-  store ptr %434, ptr %.7, align 8, !tbaa !26
+  %434 = load ptr, ptr %.5282403425458, align 8, !tbaa !27
+  store ptr %434, ptr %.7, align 8, !tbaa !27
   br label %435
 
 435:                                              ; preds = %425, %433, %430
@@ -983,7 +983,7 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 
 437:                                              ; preds = %435
   %438 = getelementptr inbounds nuw i8, ptr %.5282403425458, i64 16
-  %439 = load ptr, ptr %438, align 8, !tbaa !28
+  %439 = load ptr, ptr %438, align 8, !tbaa !29
   br label %444
 
 440:                                              ; preds = %435
@@ -999,9 +999,9 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %448 = add nsw i32 %447, -1
   store i32 %448, ptr %446, align 4, !tbaa !19
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.8, ptr %449, align 8, !tbaa !32
+  store ptr %.8, ptr %449, align 8, !tbaa !34
   %450 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %451 = load ptr, ptr %450, align 8, !tbaa !25
+  %451 = load ptr, ptr %450, align 8, !tbaa !26
   %.not358 = icmp eq ptr %451, null
   %452 = and i32 %2, 2
   %.not359 = icmp eq i32 %452, 0
@@ -1056,7 +1056,7 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   %.0 = phi i32 [ %spec.store.select, %1 ], [ %8, %7 ]
   %8 = shl i32 %.0, 1
   %9 = icmp sgt i32 %6, %8
-  br i1 %9, label %7, label %10, !llvm.loop !43
+  br i1 %9, label %7, label %10, !llvm.loop !46
 
 10:                                               ; preds = %7
   %11 = icmp eq i32 %.0, %3
@@ -1107,7 +1107,7 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   store ptr null, ptr %.04457, align 8, !tbaa !22
   %.044 = getelementptr inbounds i8, ptr %.04457, i64 -8
   %.not52 = icmp ult ptr %.044, %24
-  br i1 %.not52, label %.preheader, label %.lr.ph, !llvm.loop !44
+  br i1 %.not52, label %.preheader, label %.lr.ph, !llvm.loop !47
 
 29:                                               ; preds = %.lr.ph63, %._crit_edge
   %.162 = phi ptr [ %20, %.lr.ph63 ], [ %41, %._crit_edge ]
@@ -1118,7 +1118,7 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
 .lr.ph61:                                         ; preds = %29, %40
   %.04360 = phi ptr [ %31, %40 ], [ %30, %29 ]
   %.04559 = phi ptr [ %.146, %40 ], [ null, %29 ]
-  %31 = load ptr, ptr %.04360, align 8, !tbaa !26
+  %31 = load ptr, ptr %.04360, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %.04360, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !20
   %34 = and i32 %33, %28
@@ -1132,19 +1132,19 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   %.162..04559 = select i1 %.not54, ptr %.162, ptr %.04559
   store ptr %31, ptr %.162..04559, align 8, !tbaa !22
   %39 = load ptr, ptr %36, align 8, !tbaa !22
-  store ptr %39, ptr %.04360, align 8, !tbaa !26
+  store ptr %39, ptr %.04360, align 8, !tbaa !27
   store ptr %.04360, ptr %36, align 8, !tbaa !22
   br label %40
 
 40:                                               ; preds = %.lr.ph61, %38
   %.146 = phi ptr [ %.04559, %38 ], [ %.04360, %.lr.ph61 ]
   %.not53 = icmp eq ptr %31, null
-  br i1 %.not53, label %._crit_edge, label %.lr.ph61, !llvm.loop !45
+  br i1 %.not53, label %._crit_edge, label %.lr.ph61, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %40, %29
   %41 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %42 = icmp ult ptr %41, %24
-  br i1 %42, label %29, label %.loopexit, !llvm.loop !46
+  br i1 %42, label %29, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %16, %10
   ret void
@@ -1193,28 +1193,31 @@ attributes #10 = { nounwind allocsize(1) }
 !20 = !{!6, !6, i64 0}
 !21 = !{!4, !10, i64 40}
 !22 = !{!11, !11, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!15, !5, i64 24}
-!26 = !{!27, !11, i64 0}
-!27 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
-!28 = !{!29, !5, i64 16}
-!29 = !{!"", !27, i64 0, !5, i64 16}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = !{!4, !11, i64 24}
-!33 = !{!4, !10, i64 48}
-!34 = distinct !{!34, !24}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 omnipotent char", !5, i64 0}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = !{!15, !5, i64 24}
+!27 = !{!28, !11, i64 0}
+!28 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
+!29 = !{!30, !5, i64 16}
+!30 = !{!"", !28, i64 0, !5, i64 16}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24}
+!34 = !{!4, !11, i64 24}
+!35 = !{!4, !10, i64 48}
+!36 = distinct !{!36, !24}
 !37 = distinct !{!37, !24}
-!38 = !{!15, !5, i64 16}
-!39 = distinct !{!39, !24}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 omnipotent char", !5, i64 0}
 !40 = distinct !{!40, !24}
-!41 = distinct !{!41, !24}
+!41 = !{!15, !5, i64 16}
 !42 = distinct !{!42, !24}
 !43 = distinct !{!43, !24}
 !44 = distinct !{!44, !24}
 !45 = distinct !{!45, !24}
 !46 = distinct !{!46, !24}
 !47 = distinct !{!47, !24}
+!48 = distinct !{!48, !24}
+!49 = distinct !{!49, !24}
+!50 = distinct !{!50, !24}

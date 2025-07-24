@@ -220,7 +220,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   %68 = add nsw i32 %.265, 1
   %69 = select i1 %66, i32 0, i32 %68
   %70 = icmp slt i32 %69, %21
-  br i1 %70, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !28
+  br i1 %70, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !29
 
 .lr.ph70.preheader:                               ; preds = %.lr.ph68
   %smax91 = call i32 @llvm.smax.i32(i32 %21, i32 1)
@@ -235,16 +235,16 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   store atomic i8 1, ptr %72 release, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count86
-  br i1 %exitcond87.not, label %.lr.ph70.preheader, label %.lr.ph68, !llvm.loop !29
+  br i1 %exitcond87.not, label %.lr.ph70.preheader, label %.lr.ph68, !llvm.loop !30
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv88 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next89, %.lr.ph70 ]
   %73 = getelementptr inbounds nuw [100 x i64], ptr %7, i64 0, i64 %indvars.iv88
-  %74 = load i64, ptr %73, align 8, !tbaa !30
+  %74 = load i64, ptr %73, align 8, !tbaa !31
   %75 = call i32 @pthread_join(i64 noundef %74, ptr noundef null) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !31
+  br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !32
 
 ._crit_edge71:                                    ; preds = %.lr.ph70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
@@ -323,8 +323,9 @@ attributes #13 = { nounwind allocsize(0) }
 !24 = !{!12, !14, i64 20}
 !25 = distinct !{!25, !10}
 !26 = !{!19, !14, i64 0}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
+!27 = distinct !{!27, !10, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !29 = distinct !{!29, !10}
-!30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !10}
+!30 = distinct !{!30, !10}
+!31 = !{!5, !5, i64 0}
+!32 = distinct !{!32, !10}

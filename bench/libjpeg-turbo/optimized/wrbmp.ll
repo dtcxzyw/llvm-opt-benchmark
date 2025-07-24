@@ -313,10 +313,10 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %32 = load i32, ptr %15, align 4, !tbaa !58
   %33 = sub i32 %32, %.041
   %34 = zext i32 %33 to i64
-  store i64 %34, ptr %17, align 8, !tbaa !75
+  store i64 %34, ptr %17, align 8, !tbaa !76
   %35 = zext i32 %32 to i64
-  store i64 %35, ptr %18, align 8, !tbaa !76
-  %36 = load ptr, ptr %6, align 8, !tbaa !77
+  store i64 %35, ptr %18, align 8, !tbaa !77
+  %36 = load ptr, ptr %6, align 8, !tbaa !78
   tail call void %36(ptr noundef nonnull %0) #7
   %37 = load ptr, ptr %19, align 8, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -329,16 +329,16 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %45 = zext i32 %44 to i64
   %46 = tail call i64 @fwrite(ptr noundef %43, i64 noundef 1, i64 noundef %45, ptr noundef %4)
   %.not36 = icmp eq i32 %41, 0
-  br i1 %.not36, label %._crit_edge.thread44, label %.lr.ph.split, !llvm.loop !73
+  br i1 %.not36, label %._crit_edge.thread44, label %.lr.ph.split, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %14
   br i1 %.not37, label %._crit_edge.thread, label %._crit_edge.thread44
 
 ._crit_edge.thread44:                             ; preds = %.lr.ph.split, %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !78
+  %48 = load i32, ptr %47, align 8, !tbaa !80
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !78
+  store i32 %49, ptr %47, align 8, !tbaa !80
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge, %._crit_edge.thread44, %2
@@ -490,17 +490,17 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   %.2100 = phi ptr [ %51, %.lr.ph101 ], [ %.078, %35 ]
   %.08099 = phi i32 [ %53, %.lr.ph101 ], [ %37, %35 ]
   %.08498 = phi ptr [ %52, %.lr.ph101 ], [ %23, %35 ]
-  %38 = load i16, ptr %.08498, align 2, !tbaa !79
+  %38 = load i16, ptr %.08498, align 2, !tbaa !81
   %39 = trunc i16 %38 to i8
   %40 = shl i8 %39, 3
   store i8 %40, ptr %.2100, align 1, !tbaa !35
-  %41 = load i16, ptr %.08498, align 2, !tbaa !79
+  %41 = load i16, ptr %.08498, align 2, !tbaa !81
   %42 = lshr i16 %41, 3
   %43 = trunc i16 %42 to i8
   %44 = and i8 %43, -4
   %45 = getelementptr inbounds nuw i8, ptr %.2100, i64 1
   store i8 %44, ptr %45, align 1, !tbaa !35
-  %46 = load i16, ptr %.08498, align 2, !tbaa !79
+  %46 = load i16, ptr %.08498, align 2, !tbaa !81
   %47 = lshr i16 %46, 8
   %48 = trunc nuw i16 %47 to i8
   %49 = and i8 %48, -8
@@ -510,7 +510,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   %52 = getelementptr inbounds nuw i8, ptr %.08498, i64 2
   %53 = add i32 %.08099, -1
   %.not89 = icmp eq i32 %53, 0
-  br i1 %.not89, label %.loopexit, label %.lr.ph101, !llvm.loop !80
+  br i1 %.not89, label %.loopexit, label %.lr.ph101, !llvm.loop !82
 
 54:                                               ; preds = %20
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -554,7 +554,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   %83 = getelementptr inbounds nuw i8, ptr %.395, i64 3
   %84 = add i32 %.18194, -1
   %.not88 = icmp eq i32 %84, 0
-  br i1 %.not88, label %.loopexit, label %.lr.ph, !llvm.loop !81
+  br i1 %.not88, label %.loopexit, label %.lr.ph, !llvm.loop !83
 
 85:                                               ; preds = %20
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -565,13 +565,13 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
 .lr.ph107:                                        ; preds = %85
   %88 = zext i32 %25 to i64
   %89 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !82
+  %90 = load i32, ptr %89, align 4, !tbaa !84
   %91 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %88
-  %92 = load i32, ptr %91, align 4, !tbaa !82
+  %92 = load i32, ptr %91, align 4, !tbaa !84
   %93 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %88
-  %94 = load i32, ptr %93, align 4, !tbaa !82
+  %94 = load i32, ptr %93, align 4, !tbaa !84
   %95 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %88
-  %96 = load i32, ptr %95, align 4, !tbaa !82
+  %96 = load i32, ptr %95, align 4, !tbaa !84
   %97 = sext i32 %92 to i64
   %98 = sext i32 %94 to i64
   %99 = sext i32 %96 to i64
@@ -597,7 +597,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   %111 = getelementptr inbounds i8, ptr %.1106, i64 %100
   %112 = add i32 %.282104, -1
   %.not87 = icmp eq i32 %112, 0
-  br i1 %.not87, label %.loopexit, label %101, !llvm.loop !83
+  br i1 %.not87, label %.loopexit, label %101, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph101, %101, %54, %35, %85, %26
   %.179 = phi ptr [ %34, %26 ], [ %.078, %85 ], [ %.078, %35 ], [ %.078, %54 ], [ %110, %101 ], [ %51, %.lr.ph101 ], [ %83, %.lr.ph ]
@@ -832,13 +832,13 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 %.050, ptr %38, align 2, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 378
-  %40 = load i8, ptr %39, align 2, !tbaa !84
+  %40 = load i8, ptr %39, align 2, !tbaa !86
   %41 = icmp eq i8 %40, 2
   br i1 %41, label %42, label %71
 
 42:                                               ; preds = %14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %44 = load i16, ptr %43, align 4, !tbaa !85
+  %44 = load i16, ptr %43, align 4, !tbaa !87
   %45 = trunc i16 %44 to i8
   %46 = mul i8 %45, 100
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -855,7 +855,7 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 26
   store i8 %55, ptr %56, align 2, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 382
-  %58 = load i16, ptr %57, align 2, !tbaa !86
+  %58 = load i16, ptr %57, align 2, !tbaa !88
   %59 = trunc i16 %58 to i8
   %60 = mul i8 %59, 100
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -931,9 +931,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %.32.val, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %7 = load i32, ptr %6, align 4, !tbaa !88
+  %7 = load i32, ptr %6, align 4, !tbaa !90
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.preheader, label %14
 
@@ -949,11 +949,11 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %12 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %13 = add nuw nsw i32 %.310.us, 1
   %exitcond42.not = icmp eq i32 %13, 256
-  br i1 %exitcond42.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !89
+  br i1 %exitcond42.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !91
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %16 = load i32, ptr %15, align 8, !tbaa !90
+  %16 = load i32, ptr %15, align 8, !tbaa !92
   %17 = icmp eq i32 %16, 3
   %18 = icmp sgt i32 %7, 0
   br i1 %17, label %.preheader1, label %.preheader3
@@ -986,7 +986,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %35 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !91
+  br i1 %exitcond30.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !93
 
 .preheader1:                                      ; preds = %14
   br i1 %18, label %.lr.ph7, label %.lr.ph13
@@ -1018,7 +1018,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %54 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph7.split.us, !llvm.loop !92
+  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph7.split.us, !llvm.loop !94
 
 .lr.ph7.split:                                    ; preds = %.lr.ph7, %.lr.ph7.split
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph7.split ], [ 0, %.lr.ph7 ]
@@ -1039,7 +1039,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %69 = tail call i32 @putc(i32 noundef %68, ptr noundef %.32.val)
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count39
-  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph7.split, !llvm.loop !92
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph7.split, !llvm.loop !95
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1060,7 +1060,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %84 = tail call i32 @putc(i32 noundef %83, ptr noundef %.32.val)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !96
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %.310 = phi i32 [ %88, %.preheader.split ], [ 0, %.preheader ]
@@ -1069,7 +1069,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %87 = tail call i32 @putc(i32 noundef %.310, ptr noundef %.32.val)
   %88 = add nuw nsw i32 %.310, 1
   %exitcond41.not = icmp eq i32 %88, 256
-  br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !89
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
   %.2 = phi i32 [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
@@ -1104,7 +1104,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %102 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %103 = add nuw i32 %.412.us, 1
   %exitcond44.not = icmp eq i32 %103, %1
-  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph13.split.us, !llvm.loop !93
+  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph13.split.us, !llvm.loop !98
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13, %.lr.ph13.split
   %.412 = phi i32 [ %107, %.lr.ph13.split ], [ %.24648, %.lr.ph13 ]
@@ -1113,7 +1113,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   %106 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %107 = add nuw i32 %.412, 1
   %exitcond43.not = icmp eq i32 %107, %1
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph13.split, !llvm.loop !93
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph13.split, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph13.split, %.lr.ph13.split.us, %96
   ret void
@@ -1215,24 +1215,30 @@ attributes #7 = { nounwind }
 !70 = !{!41, !43, i64 32}
 !71 = !{!39, !7, i64 56}
 !72 = !{!19, !19, i64 0}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!63, !34, i64 8}
-!76 = !{!63, !34, i64 16}
-!77 = !{!63, !7, i64 0}
-!78 = !{!63, !12, i64 32}
-!79 = !{!17, !17, i64 0}
-!80 = distinct !{!80, !74}
-!81 = distinct !{!81, !74}
-!82 = !{!12, !12, i64 0}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = !{!63, !34, i64 8}
+!77 = !{!63, !34, i64 16}
+!78 = !{!63, !7, i64 0}
+!79 = distinct !{!79, !74}
+!80 = !{!63, !12, i64 32}
+!81 = !{!17, !17, i64 0}
+!82 = distinct !{!82, !74}
 !83 = distinct !{!83, !74}
-!84 = !{!5, !8, i64 378}
-!85 = !{!5, !17, i64 380}
-!86 = !{!5, !17, i64 382}
-!87 = !{!5, !15, i64 160}
-!88 = !{!5, !12, i64 156}
-!89 = distinct !{!89, !74}
-!90 = !{!5, !12, i64 144}
-!91 = distinct !{!91, !74}
-!92 = distinct !{!92, !74}
-!93 = distinct !{!93, !74}
+!84 = !{!12, !12, i64 0}
+!85 = distinct !{!85, !74}
+!86 = !{!5, !8, i64 378}
+!87 = !{!5, !17, i64 380}
+!88 = !{!5, !17, i64 382}
+!89 = !{!5, !15, i64 160}
+!90 = !{!5, !12, i64 156}
+!91 = distinct !{!91, !74, !75}
+!92 = !{!5, !12, i64 144}
+!93 = distinct !{!93, !74, !75}
+!94 = distinct !{!94, !74, !75}
+!95 = distinct !{!95, !74}
+!96 = distinct !{!96, !74}
+!97 = distinct !{!97, !74}
+!98 = distinct !{!98, !74, !75}
+!99 = distinct !{!99, !74}

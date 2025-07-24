@@ -1321,7 +1321,7 @@ b2GetShapeRadius.exit123:                         ; preds = %b2GetShapeRadius.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not, label %._crit_edge, label %.loopexit, !llvm.loop !169
+  br i1 %exitcond.not, label %._crit_edge, label %.loopexit, !llvm.loop !171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1550,4 +1550,6 @@ attributes #9 = { nounwind }
 !166 = !{!"llvm.loop.mustprogress"}
 !167 = !{!156, !21, i64 28}
 !168 = !{!156, !21, i64 32}
-!169 = distinct !{!169, !166}
+!169 = distinct !{!169, !166, !170}
+!170 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!171 = distinct !{!171, !166}

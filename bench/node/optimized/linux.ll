@@ -5930,7 +5930,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %5 = getelementptr inbounds nuw i8, ptr %p.031.us, i64 %conv.us
   %add.ptr31.us = getelementptr inbounds nuw i8, ptr %5, i64 16
   %cmp7.us = icmp ult ptr %add.ptr31.us, %add.ptr
-  br i1 %cmp7.us, label %for.body.us, label %do.body.backedge
+  br i1 %cmp7.us, label %for.body.us, label %do.body.backedge, !llvm.loop !5
 
 land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #20
@@ -6064,7 +6064,7 @@ for.inc:                                          ; preds = %if.end6.i.i, %for.b
   %23 = getelementptr inbounds nuw i8, ptr %p.031, i64 %conv
   %add.ptr31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %cmp7 = icmp ult ptr %add.ptr31, %add.ptr
-  br i1 %cmp7, label %for.body, label %do.body.backedge, !llvm.loop !5
+  br i1 %cmp7, label %for.body, label %do.body.backedge, !llvm.loop !7
 
 for.end32:                                        ; preds = %land.rhs
   ret void
@@ -6134,4 +6134,6 @@ attributes #22 = { cold }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}

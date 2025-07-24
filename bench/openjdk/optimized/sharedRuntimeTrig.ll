@@ -585,7 +585,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %153 = add nsw i32 %.023630.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader18.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader18.i, label %.lr.ph.i, !llvm.loop !12
 
 .preheader16.i:                                   ; preds = %._crit_edge.us.i, %.preheader17.preheader.i
   %wide.trip.count130.i.pre-phi = phi i64 [ %.pre152, %.preheader17.preheader.i ], [ %wide.trip.count101.i, %._crit_edge.us.i ]
@@ -604,7 +604,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %.lr.ph39.preheader.i
 
 .loopexit13.loopexit.i:                           ; preds = %._crit_edge52.i
-  br label %.lr.ph39.preheader.i, !llvm.loop !12
+  br label %.lr.ph39.preheader.i, !llvm.loop !13
 
 .lr.ph39.preheader.i:                             ; preds = %.loopexit13.loopexit.i, %.preheader16.i
   %.0231.i = phi i32 [ 4, %.preheader16.i ], [ %279, %.loopexit13.loopexit.i ]
@@ -633,7 +633,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %175 = fadd double %174, %168
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count114.i
-  br i1 %exitcond115.not.i, label %._crit_edge.i, label %.lr.ph39.i, !llvm.loop !13
+  br i1 %exitcond115.not.i, label %._crit_edge.i, label %.lr.ph39.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph39.i
   %176 = bitcast double %175 to i64
@@ -792,7 +792,7 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
   %.1252.i = phi i32 [ 0, %249 ], [ 1, %.sink.split.i ]
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %162
-  br i1 %exitcond120.not.i, label %252, label %245, !llvm.loop !14
+  br i1 %exitcond120.not.i, label %252, label %245, !llvm.loop !15
 
 252:                                              ; preds = %251
   %253 = add nsw i32 %.02493.i, 1
@@ -851,7 +851,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %269 = load i32, ptr %268, align 4
   %270 = or i32 %269, %.323943.i
   %271 = icmp sgt i64 %indvars.iv121.i, 5
-  br i1 %271, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !15
+  br i1 %271, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !16
 
 ._crit_edge45.i:                                  ; preds = %.lr.ph44.i
   %272 = icmp eq i32 %270, 0
@@ -868,7 +868,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %276 = load i32, ptr %275, align 4
   %277 = icmp eq i32 %276, 0
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
-  br i1 %277, label %.preheader14.i, label %.preheader12.i, !llvm.loop !16
+  br i1 %277, label %.preheader14.i, label %.preheader12.i, !llvm.loop !17
 
 .preheader12.i:                                   ; preds = %.preheader14.i
   %278 = trunc nuw nsw i64 %indvars.iv124.i to i32
@@ -902,14 +902,14 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %294 = fadd double %.149.i, %293
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count130.i.pre-phi
-  br i1 %exitcond131.not.i, label %._crit_edge52.i, label %.lr.ph51.i, !llvm.loop !17
+  br i1 %exitcond131.not.i, label %._crit_edge52.i, label %.lr.ph51.i, !llvm.loop !18
 
 ._crit_edge52.i:                                  ; preds = %.lr.ph51.i, %282
   %.1.lcssa.i = phi double [ 0.000000e+00, %282 ], [ %294, %.lr.ph51.i ]
   %295 = getelementptr inbounds nuw [20 x double], ptr %6, i64 0, i64 %indvars.iv.next133.i
   store double %.1.lcssa.i, ptr %295, align 8
   %.not266.not.i = icmp samesign ult i64 %indvars.iv.next133.i, %281
-  br i1 %.not266.not.i, label %282, label %.loopexit13.loopexit.i, !llvm.loop !12
+  br i1 %.not266.not.i, label %282, label %.loopexit13.loopexit.i, !llvm.loop !13
 
 296:                                              ; preds = %296, %.preheader11.i
   %indvars.iv137.i = phi i64 [ %273, %.preheader11.i ], [ %indvars.iv.next138.i, %296 ]
@@ -919,7 +919,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %297 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %indvars.iv.next138.i
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 0
-  br i1 %299, label %296, label %.loopexit.loopexit.i, !llvm.loop !18
+  br i1 %299, label %296, label %.loopexit.loopexit.i, !llvm.loop !19
 
 .critedge271.i:                                   ; preds = %.thread6.i
   %300 = bitcast double %.1227.i to i64
@@ -1093,7 +1093,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %380 = fmul double %.258.i, 0x3E70000000000000
   %indvars.iv.next141.i = add nsw i64 %indvars.iv140.i, -1
   %.not.i = icmp eq i64 %indvars.iv140.i, 0
-  br i1 %.not.i, label %.lr.ph63.preheader.i, label %.lr.ph59.i, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph63.preheader.i, label %.lr.ph59.i, !llvm.loop !20
 
 .lr.ph63.preheader.i:                             ; preds = %.lr.ph59.i, %.critedge.i
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.critedge.i ], [ %374, %.lr.ph59.i ]
@@ -1115,7 +1115,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %388 = fadd double %.362.i, %387
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond149.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count148.i
-  br i1 %exitcond149.i, label %.critedge.i, label %.lr.ph63.i, !llvm.loop !20
+  br i1 %exitcond149.i, label %.critedge.i, label %.lr.ph63.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %.lr.ph63.i
   %389 = sub nuw nsw i64 %374, %indvars.iv150.i
@@ -1124,7 +1124,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %indvars.iv.next151.i = add nsw i64 %indvars.iv150.i, -1
   %indvars.iv.next147.i = add nuw i32 %indvars.iv146.i, 1
   %exitcond153.not.i = icmp eq i32 %indvars.iv146.i, %.2233.i
-  br i1 %exitcond153.not.i, label %.lr.ph69.i, label %.lr.ph63.preheader.i, !llvm.loop !21
+  br i1 %exitcond153.not.i, label %.lr.ph69.i, label %.lr.ph63.preheader.i, !llvm.loop !22
 
 .lr.ph69.i:                                       ; preds = %.critedge.i, %.lr.ph69.i
   %indvars.iv154.i = phi i64 [ %indvars.iv.next155.i, %.lr.ph69.i ], [ %374, %.critedge.i ]
@@ -1134,7 +1134,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %393 = fadd double %.568.i, %392
   %indvars.iv.next155.i = add nsw i64 %indvars.iv154.i, -1
   %.not186.i = icmp eq i64 %indvars.iv154.i, 0
-  br i1 %.not186.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !22
+  br i1 %.not186.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !23
 
 ._crit_edge70.i:                                  ; preds = %.lr.ph69.i
   %.pre = load double, ptr %5, align 16
@@ -1159,7 +1159,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %401 = fadd double %.674.i, %400
   %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 1
   %exitcond161.not.i = icmp eq i64 %indvars.iv.next158.i, %wide.trip.count160.i
-  br i1 %exitcond161.not.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, label %.lr.ph76.i, !llvm.loop !23
+  br i1 %exitcond161.not.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, label %.lr.ph76.i, !llvm.loop !24
 
 _ZL17__kernel_rem_pio2PdS_iiiPKi.exit:            ; preds = %.lr.ph76.i, %._crit_edge70.i.thread, %._crit_edge70.i
   %402 = phi double [ %396, %._crit_edge70.i ], [ %373, %._crit_edge70.i.thread ], [ %396, %.lr.ph76.i ]
@@ -1775,8 +1775,8 @@ attributes #9 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -1789,3 +1789,4 @@ attributes #9 = { nounwind }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

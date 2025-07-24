@@ -3662,7 +3662,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %422 = add i32 %.050612.us, 1
   %423 = load i32, ptr %31, align 4
   %.not544.us = icmp ugt i32 %422, %423
-  br i1 %.not544.us, label %.loopexit8, label %.lr.ph13.split.us, !llvm.loop !19
+  br i1 %.not544.us, label %.loopexit8, label %.lr.ph13.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %445
   %.050510 = phi i32 [ %446, %445 ], [ 1, %.lr.ph ]
@@ -3709,7 +3709,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %446 = add i32 %.050510, 1
   %447 = load i32, ptr %30, align 4
   %.not543 = icmp ugt i32 %446, %447
-  br i1 %.not543, label %.preheader7, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not543, label %.preheader7, label %.lr.ph.split, !llvm.loop !21
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13, %471
   %.050612 = phi i32 [ %472, %471 ], [ 1, %.lr.ph13 ]
@@ -3758,7 +3758,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %472 = add i32 %.050612, 1
   %473 = load i32, ptr %31, align 4
   %.not544 = icmp ugt i32 %472, %473
-  br i1 %.not544, label %.loopexit8, label %.lr.ph13.split, !llvm.loop !19
+  br i1 %.not544, label %.loopexit8, label %.lr.ph13.split, !llvm.loop !22
 
 474:                                              ; preds = %277
   %475 = load i32, ptr @hf_oran_num_sinr_per_prb, align 4
@@ -4073,7 +4073,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
 635:                                              ; preds = %637
   %636 = add nuw nsw i32 %.050819, 1
   %exitcond42.not = icmp eq i32 %636, 14
-  br i1 %exitcond42.not, label %.loopexit6, label %637, !llvm.loop !20
+  br i1 %exitcond42.not, label %.loopexit6, label %637, !llvm.loop !23
 
 637:                                              ; preds = %627, %635
   %.050819 = phi i32 [ 0, %627 ], [ %636, %635 ]
@@ -4281,7 +4281,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   call void @proto_item_set_len(ptr noundef %694, i32 noundef %756)
   %757 = add nuw i32 %.051120, 1
   %exitcond43.not = icmp eq i32 %757, %690
-  br i1 %exitcond43.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !21
+  br i1 %exitcond43.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !24
 
 758:                                              ; preds = %._crit_edge24, %.lr.ph26
   %759 = phi i32 [ %.pre-phi61, %._crit_edge24 ], [ %684, %.lr.ph26 ]
@@ -4290,7 +4290,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   %761 = load i32, ptr %36, align 4
   %762 = shl i32 %761, 2
   %763 = icmp ult i32 %760, %762
-  br i1 %763, label %.lr.ph26, label %.loopexit, !llvm.loop !22
+  br i1 %763, label %.lr.ph26, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %758, %.preheader, %.loopexit6
   %764 = phi i32 [ %670, %.preheader ], [ %670, %.loopexit6 ], [ %759, %758 ]
@@ -4459,7 +4459,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
 855:                                              ; preds = %857
   %856 = add nuw i32 %.051217, 1
   %exitcond41.not = icmp eq i32 %856, %.sink74
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !23
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !26
 
 857:                                              ; preds = %.lr.ph18, %857
   %.051015 = phi i32 [ 0, %.lr.ph18 ], [ %860, %857 ]
@@ -4469,7 +4469,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   %spec.select = add i32 %859, %.151414
   %860 = add nuw nsw i32 %.051015, 1
   %exitcond.not = icmp eq i32 %860, 8
-  br i1 %exitcond.not, label %855, label %857, !llvm.loop !24
+  br i1 %exitcond.not, label %855, label %857, !llvm.loop !27
 
 861:                                              ; preds = %625
   %862 = load i32, ptr @hf_oran_reserved_6bits, align 4
@@ -4648,7 +4648,7 @@ show_link_to_acknack_response.exit:               ; preds = %960, %957, %proto_i
   %964 = add nuw i32 %.050727, 1
   %965 = load i32, ptr %35, align 4
   %966 = icmp ult i32 %964, %965
-  br i1 %966, label %553, label %._crit_edge30, !llvm.loop !25
+  br i1 %966, label %553, label %._crit_edge30, !llvm.loop !28
 
 967:                                              ; preds = %532
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #13
@@ -4900,7 +4900,7 @@ show_link_to_acknack_response.exit:               ; preds = %960, %957, %proto_i
   %1140 = add nuw i32 %.050231, 1
   %1141 = load i32, ptr %25, align 4
   %1142 = icmp ult i32 %1140, %1141
-  br i1 %1142, label %1130, label %._crit_edge34, !llvm.loop !26
+  br i1 %1142, label %1130, label %._crit_edge34, !llvm.loop !29
 
 1143:                                             ; preds = %._crit_edge34
   %1144 = load i32, ptr %11, align 4
@@ -5330,7 +5330,7 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   %spec.select = add i32 %63, %.0843
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 12
-  br i1 %exitcond9.not, label %53, label %60, !llvm.loop !27
+  br i1 %exitcond9.not, label %53, label %60, !llvm.loop !30
 
 64:                                               ; preds = %proto_item_set_generated.exit
   %65 = load i32, ptr @hf_oran_sReSMask, align 4
@@ -5364,7 +5364,7 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   %spec.select89 = add i32 %82, %.0811
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %73, label %79, !llvm.loop !28
+  br i1 %exitcond.not, label %73, label %79, !llvm.loop !31
 
 83:                                               ; preds = %proto_item_set_generated.exit, %73, %53, %38, %34, %27
   %.086 = phi i32 [ %2, %proto_item_set_generated.exit ], [ %33, %27 ], [ %37, %34 ], [ %43, %38 ], [ %59, %53 ], [ %78, %73 ]
@@ -6189,7 +6189,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %274 = load i32, ptr @pref_sample_bit_width_uplink, align 4
   %275 = add i32 %274, %.114231717.us
   %exitcond1927.not = icmp eq i32 %271, %12
-  br i1 %exitcond1927.not, label %._crit_edge1720.us, label %236, !llvm.loop !29
+  br i1 %exitcond1927.not, label %._crit_edge1720.us, label %236, !llvm.loop !32
 
 ._crit_edge1720.us:                               ; preds = %decompress_value.exit.us
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %38) #13
@@ -6197,7 +6197,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %276 = add nuw i32 %.014251722.us, 1
   %277 = load i32, ptr %27, align 4
   %278 = icmp ult i32 %276, %277
-  br i1 %278, label %.lr.ph1719.us, label %._crit_edge1725, !llvm.loop !30
+  br i1 %278, label %.lr.ph1719.us, label %._crit_edge1725, !llvm.loop !33
 
 ._crit_edge1725:                                  ; preds = %._crit_edge1720.us, %.lr.ph1724.split, %proto_item_set_hidden.exit
   %.01422.lcssa = phi i32 [ %.11956, %proto_item_set_hidden.exit ], [ %284, %.lr.ph1724.split ], [ %275, %._crit_edge1720.us ]
@@ -6219,7 +6219,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %285 = add nuw i32 %.014251722, 1
   %286 = load i32, ptr %27, align 4
   %287 = icmp ult i32 %285, %286
-  br i1 %287, label %.lr.ph1724.split, label %._crit_edge1725, !llvm.loop !30
+  br i1 %287, label %.lr.ph1724.split, label %._crit_edge1725, !llvm.loop !34
 
 288:                                              ; preds = %192
   %289 = load i32, ptr @hf_oran_reserved_15bits, align 4
@@ -6463,7 +6463,7 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %385, ptr noundef nonnull @.str.1282, i32 noundef %.014291708, double noundef %414)
   %417 = add nuw i32 %.014291708, 1
   %exitcond.not = icmp eq i32 %417, %322
-  br i1 %exitcond.not, label %._crit_edge, label %378, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %378, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %decompress_value.exit1579, %dissect_ciCompParam.exit
   %.21433.lcssa = phi i32 [ %.11432, %dissect_ciCompParam.exit ], [ %416, %decompress_value.exit1579 ]
@@ -6476,7 +6476,7 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
   %422 = load i32, ptr %26, align 4
   %423 = add i32 %422, %421
   %424 = icmp ult i32 %420, %423
-  br i1 %424, label %347, label %._crit_edge1714, !llvm.loop !32
+  br i1 %424, label %347, label %._crit_edge1714, !llvm.loop !36
 
 ._crit_edge1714:                                  ; preds = %._crit_edge, %write_channel_section_info.exit
   %.01431.lcssa = phi i32 [ 56, %write_channel_section_info.exit ], [ %.21433.lcssa, %._crit_edge ]
@@ -6844,7 +6844,7 @@ decompress_value.exit1593:                        ; preds = %decompress_value.ex
   call void @proto_item_set_len(ptr noundef %556, i32 noundef %618)
   %619 = add nuw i32 %.014481847, 1
   %620 = icmp ult i32 %619, %552
-  br i1 %620, label %.lr.ph1850, label %._crit_edge1851, !llvm.loop !33
+  br i1 %620, label %.lr.ph1850, label %._crit_edge1851, !llvm.loop !37
 
 ._crit_edge1851:                                  ; preds = %decompress_value.exit1593, %.._crit_edge1851_crit_edge, %proto_item_set_hidden.exit1583
   %.7 = phi i32 [ %543, %proto_item_set_hidden.exit1583 ], [ %.pre1946, %.._crit_edge1851_crit_edge ], [ %617, %decompress_value.exit1593 ]
@@ -7157,7 +7157,7 @@ dissect_csf.exit1602:                             ; preds = %769, %781
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #13
   %807 = add nuw nsw i32 %.014571845, 1
   %exitcond1937.not = icmp eq i32 %807, %.01453
-  br i1 %exitcond1937.not, label %768, label %769, !llvm.loop !34
+  br i1 %exitcond1937.not, label %768, label %769, !llvm.loop !38
 
 808:                                              ; preds = %768
   %809 = load i32, ptr @hf_oran_reserved, align 4
@@ -7300,7 +7300,7 @@ switch.lookup:                                    ; preds = %830
   %879 = icmp samesign ult i32 %.014681833, 27
   %880 = icmp ult i8 %877, 28
   %881 = select i1 %879, i1 %880, i1 false
-  br i1 %881, label %866, label %._crit_edge1839, !llvm.loop !35
+  br i1 %881, label %866, label %._crit_edge1839, !llvm.loop !39
 
 882:                                              ; preds = %._crit_edge1839
   %883 = add nuw i32 %.11467, 1
@@ -7388,7 +7388,7 @@ switch.lookup:                                    ; preds = %830
   %926 = add nuw i32 %.014691825, 1
   %927 = load i32, ptr %40, align 4
   %928 = icmp ult i32 %926, %927
-  br i1 %928, label %.lr.ph1828, label %._crit_edge1829, !llvm.loop !36
+  br i1 %928, label %.lr.ph1828, label %._crit_edge1829, !llvm.loop !40
 
 ._crit_edge1829:                                  ; preds = %.lr.ph1828, %917
   %.12.lcssa = phi i32 [ %911, %917 ], [ %924, %.lr.ph1828 ]
@@ -7432,7 +7432,7 @@ switch.lookup:                                    ; preds = %830
   %948 = load i32, ptr %40, align 4
   %949 = add i32 %948, -1
   %950 = icmp ult i32 %947, %949
-  br i1 %950, label %.lr.ph1822, label %._crit_edge1823, !llvm.loop !37
+  br i1 %950, label %.lr.ph1822, label %._crit_edge1823, !llvm.loop !41
 
 ._crit_edge1823:                                  ; preds = %.lr.ph1822, %931
   %.14.lcssa = phi i32 [ %934, %931 ], [ %944, %.lr.ph1822 ]
@@ -7772,7 +7772,7 @@ decompress_value.exit108.i:                       ; preds = %1115, %1111, %decom
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1092, ptr noundef nonnull @.str.1318, i32 noundef %.095109.i, double noundef %1123)
   %1126 = add nuw i32 %.095109.i, 1
   %exitcond.not.i = icmp eq i32 %1126, %1015
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %1085, !llvm.loop !38
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %1085, !llvm.loop !42
 
 dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidden.exit.i, %._crit_edge.i
   %.0.i1608 = phi i32 [ %1083, %._crit_edge.i ], [ %1052, %proto_item_set_hidden.exit.i ]
@@ -7783,7 +7783,7 @@ dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidd
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1931.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond2013 = select i1 %.not1539, i1 true, i1 %exitcond1931.not
-  br i1 %or.cond2013, label %dissect_bfw_bundle.exit._crit_edge, label %1011, !llvm.loop !39
+  br i1 %or.cond2013, label %dissect_bfw_bundle.exit._crit_edge, label %1011, !llvm.loop !43
 
 dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.exit
   %1127 = add i32 %1008, -1
@@ -7845,7 +7845,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   %1149 = add i32 %.201814, 2
   %indvars.iv.next1933 = add nuw nsw i64 %indvars.iv1932, 1
   %exitcond1935.not = icmp eq i64 %indvars.iv.next1933, %wide.trip.count1934
-  br i1 %exitcond1935.not, label %.loopexit1689, label %.lr.ph1816, !llvm.loop !40
+  br i1 %exitcond1935.not, label %.loopexit1689, label %.lr.ph1816, !llvm.loop !44
 
 .loopexit1689:                                    ; preds = %1148, %dissect_bfw_bundle.exit._crit_edge.thread
   %.21480 = phi i8 [ %.01478, %dissect_bfw_bundle.exit._crit_edge.thread ], [ %.41482, %1148 ]
@@ -7948,7 +7948,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #13
   %1191 = add i8 %.014861796, 1
   %.21 = add i32 %.211799, 2
-  br i1 %1173, label %..loopexit1690_crit_edge, label %1161, !llvm.loop !41
+  br i1 %1173, label %..loopexit1690_crit_edge, label %1161, !llvm.loop !45
 
 1192:                                             ; preds = %514
   store i8 1, ptr %444, align 4
@@ -8016,7 +8016,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   %1226 = add i8 %.014901790, 1
   %.01488 = add i32 %.014881792, -2
   %.not1537 = icmp eq i32 %.01488, 0
-  br i1 %.not1537, label %.loopexit1691, label %1194, !llvm.loop !42
+  br i1 %.not1537, label %.loopexit1691, label %1194, !llvm.loop !46
 
 1227:                                             ; preds = %514
   %1228 = load i32, ptr @hf_oran_bf, align 4
@@ -8064,7 +8064,7 @@ proto_item_set_hidden.exit1611:                   ; preds = %1227, %1230, %1233
   %1249 = load i32, ptr %40, align 4
   %1250 = add i32 %1249, 1
   %1251 = icmp ult i32 %1248, %1250
-  br i1 %1251, label %.lr.ph1785, label %.loopexit1690, !llvm.loop !43
+  br i1 %1251, label %.lr.ph1785, label %.loopexit1690, !llvm.loop !47
 
 1252:                                             ; preds = %514
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
@@ -8140,7 +8140,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1287, ptr noundef nonnull @.str.1313, i32 noundef %1288)
   %1289 = add i32 %.241779, 8
   %exitcond1929.not = icmp eq i32 %1288, %1285
-  br i1 %exitcond1929.not, label %.loopexit1690, label %.lr.ph1781, !llvm.loop !44
+  br i1 %exitcond1929.not, label %.loopexit1690, label %.lr.ph1781, !llvm.loop !48
 
 1290:                                             ; preds = %514
   %1291 = shl i32 %511, 5
@@ -8159,7 +8159,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   %1298 = add nuw i32 %.014951775, 4
   %1299 = add nuw nsw i32 %.014961774, 1
   %1300 = icmp ult i32 %1298, %1294
-  br i1 %1300, label %.lr.ph1777, label %.loopexit1690, !llvm.loop !45
+  br i1 %1300, label %.lr.ph1777, label %.loopexit1690, !llvm.loop !49
 
 1301:                                             ; preds = %514
   %1302 = load i32, ptr @hf_oran_transmissionWindowOffset, align 4
@@ -8392,7 +8392,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   %1451 = add nuw i32 %.014871765, 1
   %1452 = load i32, ptr @pref_num_bf_antennas, align 4
   %1453 = icmp ult i32 %1451, %1452
-  br i1 %1453, label %.lr.ph1767, label %._crit_edge1768, !llvm.loop !46
+  br i1 %1453, label %.lr.ph1767, label %._crit_edge1768, !llvm.loop !50
 
 1454:                                             ; preds = %.lr.ph1772
   %1455 = load i32, ptr @hf_oran_reserved_1bit, align 4
@@ -8411,7 +8411,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   %1463 = add nuw i32 %.014931770, 1
   %1464 = load i32, ptr %40, align 4
   %1465 = icmp ult i32 %1463, %1464
-  br i1 %1465, label %.lr.ph1772, label %.loopexit1697, !llvm.loop !47
+  br i1 %1465, label %.lr.ph1772, label %.loopexit1697, !llvm.loop !51
 
 .loopexit1697:                                    ; preds = %1461, %1324
   %.25 = phi i32 [ %1347, %1324 ], [ %.27, %1461 ]
@@ -8488,7 +8488,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %76) #13
   %1510 = load i32, ptr %75, align 4
   %1511 = icmp ult i32 %1472, %1510
-  br i1 %1511, label %.lr.ph1761, label %._crit_edge1762, !llvm.loop !48
+  br i1 %1511, label %.lr.ph1761, label %._crit_edge1762, !llvm.loop !52
 
 1512:                                             ; preds = %514
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #13
@@ -8735,7 +8735,7 @@ dissect_csf.exit1631:                             ; preds = %1628, %1642
   %1648 = add nuw i32 %.014581752, 1
   %1649 = load i32, ptr %79, align 4
   %1650 = icmp ult i32 %1648, %1649
-  br i1 %1650, label %.lr.ph1755, label %._crit_edge1756, !llvm.loop !49
+  br i1 %1650, label %.lr.ph1755, label %._crit_edge1756, !llvm.loop !53
 
 1651:                                             ; preds = %514
   %1652 = load i32, ptr @hf_oran_bf, align 4
@@ -8878,7 +8878,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %1735 = shl i32 %1734, 2
   %1736 = add i32 %1735, %.41856
   %1737 = icmp ult i32 %.33, %1736
-  br i1 %1737, label %.lr.ph1749, label %._crit_edge1750, !llvm.loop !50
+  br i1 %1737, label %.lr.ph1749, label %._crit_edge1750, !llvm.loop !54
 
 ._crit_edge1750:                                  ; preds = %1731, %1673
   %.32.lcssa = phi i32 [ %1677, %1673 ], [ %.33, %1731 ]
@@ -8903,7 +8903,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %1746 = shl i32 %1745, 2
   %1747 = add i32 %1746, %.41856
   %.not1531 = icmp ugt i32 %1744, %1747
-  br i1 %.not1531, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !51
+  br i1 %.not1531, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !55
 
 1748:                                             ; preds = %.lr.ph1742, %1748
   %.351738 = phi i32 [ %.341741, %.lr.ph1742 ], [ %spec.select1560, %1748 ]
@@ -8923,7 +8923,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87) #13
   %1756 = add nuw nsw i32 %.014401737, 1
   %exitcond1928.not = icmp eq i32 %1756, 14
-  br i1 %exitcond1928.not, label %1742, label %1748, !llvm.loop !52
+  br i1 %exitcond1928.not, label %1742, label %1748, !llvm.loop !56
 
 ._crit_edge1743:                                  ; preds = %1742
   %1757 = icmp eq i32 %.014461740, 0
@@ -8969,7 +8969,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %.37 = add i32 %.371733, 2
   %1776 = load i32, ptr %88, align 4
   %1777 = icmp ult i32 %1775, %1776
-  br i1 %1777, label %.lr.ph1735, label %.loopexit1690, !llvm.loop !53
+  br i1 %1777, label %.lr.ph1735, label %.loopexit1690, !llvm.loop !57
 
 1778:                                             ; preds = %514
   %1779 = load i32, ptr @hf_oran_bf, align 4
@@ -9203,7 +9203,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   %1885 = add i32 %1884, -4
   %1886 = lshr i32 %1885, 1
   %1887 = icmp samesign ult i32 %1883, %1886
-  br i1 %1887, label %.lr.ph1871, label %.loopexit, !llvm.loop !54
+  br i1 %1887, label %.lr.ph1871, label %.loopexit, !llvm.loop !58
 
 1888:                                             ; preds = %1848
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %98) #13
@@ -9262,7 +9262,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   %1917 = add nuw i32 %.014191864, 1
   %1918 = load i32, ptr %26, align 4
   %1919 = icmp ult i32 %1917, %1918
-  br i1 %1919, label %.lr.ph1867, label %.loopexit, !llvm.loop !55
+  br i1 %1919, label %.lr.ph1867, label %.loopexit, !llvm.loop !59
 
 .lr.ph1862:                                       ; preds = %.preheader1687, %1927
   %.441861 = phi i32 [ %1928, %1927 ], [ %1854, %.preheader1687 ]
@@ -9287,7 +9287,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100) #13
   %1929 = load i32, ptr %94, align 4
   %1930 = icmp ult i32 %1922, %1929
-  br i1 %1930, label %.lr.ph1862, label %.loopexit, !llvm.loop !56
+  br i1 %1930, label %.lr.ph1862, label %.loopexit, !llvm.loop !60
 
 1931:                                             ; preds = %1848
   %1932 = call ptr @val_to_str_const(i32 noundef %1859, ptr noundef nonnull @meas_type_id_vals, ptr noundef nonnull @.str.201)
@@ -9308,7 +9308,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #13
   %1937 = load i8, ptr %92, align 1, !range !8, !noundef !9
   %1938 = trunc nuw i8 %1937 to i1
-  br i1 %1938, label %1830, label %1939, !llvm.loop !57
+  br i1 %1938, label %1830, label %1939, !llvm.loop !61
 
 1939:                                             ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %92) #13
@@ -9370,7 +9370,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %102) #13
   %1975 = load i8, ptr %101, align 1, !range !8, !noundef !9
   %1976 = trunc nuw i8 %1975 to i1
-  br i1 %1976, label %1941, label %1977, !llvm.loop !58
+  br i1 %1976, label %1941, label %1977, !llvm.loop !62
 
 1977:                                             ; preds = %1972
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101) #13
@@ -9488,14 +9488,14 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 53:                                               ; preds = %51, %45
   %54 = add i32 %.2, 1
   %55 = icmp eq i32 %54, 512
-  br i1 %55, label %.thread263, label %38, !llvm.loop !59
+  br i1 %55, label %.thread263, label %38, !llvm.loop !63
 
 56:                                               ; preds = %38, %39
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %57 = icmp samesign uge i64 %indvars.iv.next337, %zext
   %58 = icmp samesign ugt i64 %indvars.iv336, 26
   %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %._crit_edge299, label %32, !llvm.loop !60
+  br i1 %or.cond, label %._crit_edge299, label %32, !llvm.loop !64
 
 ._crit_edge299:                                   ; preds = %56, %21
   %.0227.lcssa = phi i32 [ 0, %21 ], [ %.2, %56 ]
@@ -9554,7 +9554,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 82:                                               ; preds = %73, %80
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count326
-  br i1 %exitcond327.not, label %._crit_edge, label %73, !llvm.loop !61
+  br i1 %exitcond327.not, label %._crit_edge, label %73, !llvm.loop !65
 
 83:                                               ; preds = %._crit_edge
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -9593,7 +9593,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 99:                                               ; preds = %114
   %100 = add nuw i32 %.0229283, 1
   %exitcond329.not = icmp eq i32 %100, %umax328
-  br i1 %exitcond329.not, label %._crit_edge286.loopexit, label %101, !llvm.loop !62
+  br i1 %exitcond329.not, label %._crit_edge286.loopexit, label %101, !llvm.loop !66
 
 101:                                              ; preds = %.lr.ph285, %99
   %102 = phi i32 [ %.pre, %.lr.ph285 ], [ %115, %99 ]
@@ -9634,7 +9634,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %116 = add i32 %93, %.pre-phi
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %.thread263, label %89, !llvm.loop !63
+  br i1 %exitcond334.not, label %.thread263, label %89, !llvm.loop !67
 
 117:                                              ; preds = %60
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 292
@@ -9706,12 +9706,12 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 152:                                              ; preds = %150, %138
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count315
-  br i1 %exitcond316.not, label %..critedge254_crit_edge.us, label %135, !llvm.loop !64
+  br i1 %exitcond316.not, label %..critedge254_crit_edge.us, label %135, !llvm.loop !68
 
 ..critedge254_crit_edge.us:                       ; preds = %152
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond321.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count320
-  br i1 %exitcond321.not, label %.thread263, label %.lr.ph275.us, !llvm.loop !65
+  br i1 %exitcond321.not, label %.thread263, label %.lr.ph275.us, !llvm.loop !69
 
 153:                                              ; preds = %117
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 816
@@ -9751,7 +9751,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 167:                                              ; preds = %158, %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread263, label %158, !llvm.loop !66
+  br i1 %exitcond.not, label %.thread263, label %158, !llvm.loop !70
 
 .thread263:                                       ; preds = %167, %..critedge254_crit_edge.us, %135, %._crit_edge286, %114, %53, %.lr.ph277, %153, %124, %83, %._crit_edge299, %._crit_edge
   ret void
@@ -9810,9 +9810,9 @@ attributes #13 = { nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !19}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
@@ -9825,7 +9825,7 @@ attributes #13 = { nounwind }
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!33 = distinct !{!33, !7, !19}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
@@ -9859,3 +9859,7 @@ attributes #13 = { nounwind }
 !64 = distinct !{!64, !7}
 !65 = distinct !{!65, !7}
 !66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7, !19}
+!70 = distinct !{!70, !7}

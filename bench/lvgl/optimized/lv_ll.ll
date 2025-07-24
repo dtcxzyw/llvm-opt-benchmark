@@ -406,7 +406,7 @@ lv_ll_remove.exit.us:                             ; preds = %node_set_prev.exit.
   %40 = load ptr, ptr %39, align 8, !tbaa !10
   tail call void %1(ptr noundef nonnull %.013) #8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %lv_ll_remove.exit.us, %2, %lv_ll_remove.exit.us.thread, %lv_ll_get_head.exit
   ret void
@@ -606,7 +606,7 @@ lv_ll_get_head.exit:                              ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %7, %1, %lv_ll_get_head.exit
   %.05.lcssa = phi i32 [ 0, %lv_ll_get_head.exit ], [ 0, %1 ], [ %8, %7 ]
@@ -924,6 +924,8 @@ attributes #8 = { nounwind }
 !10 = !{!8, !8, i64 0}
 !11 = !{!4, !8, i64 8}
 !12 = !{!4, !8, i64 16}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}

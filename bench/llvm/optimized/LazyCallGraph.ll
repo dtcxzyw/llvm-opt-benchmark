@@ -6983,7 +6983,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
   store i32 0, ptr %105, align 8, !tbaa !126
   %106 = getelementptr inbounds nuw i8, ptr %.0303.us, i64 8
   %.not.us = icmp eq ptr %106, %93
-  br i1 %.not.us, label %._crit_edge, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5eraseERKS4_.exit.us
+  br i1 %.not.us, label %._crit_edge, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5eraseERKS4_.exit.us, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5eraseERKS4_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5eraseERKS4_.exit.us, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -7072,7 +7072,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %153 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.333", ptr %96, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !7
   %155 = icmp eq ptr %135, %154
-  br i1 %155, label %.loopexit.i, label %.lr.ph.i.i, !prof !23, !llvm.loop !260
+  br i1 %155, label %.loopexit.i, label %.lr.ph.i.i, !prof !23, !llvm.loop !262
 
 .loopexit.i:                                      ; preds = %149, %.lr.ph.split
   %.0.i.ph.i = phi ptr [ %144, %.lr.ph.split ], [ %153, %149 ]
@@ -7168,14 +7168,14 @@ _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit: ; preds = %_ZNK4llvm13
 
 196:                                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit
   %197 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEELb1EE18growAndEmplaceBackIJRS4_S6_EEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %.pre.pre = load i32, ptr %78, align 8, !tbaa !10, !noalias !261
+  %.pre.pre = load i32, ptr %78, align 8, !tbaa !10, !noalias !263
   br label %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit
 
 198:                                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit
   %199 = zext i32 %194 to i64
   %200 = load ptr, ptr %5, align 8, !tbaa !17
   %201 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %200, i64 %199
-  store ptr %177, ptr %201, align 8, !tbaa !264
+  store ptr %177, ptr %201, align 8, !tbaa !266
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %203 = load i32, ptr %78, align 8, !tbaa !10
@@ -7191,7 +7191,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
 205:                                              ; preds = %683, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit
   %206 = phi i32 [ %.pre, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit ], [ %684, %683 ]
   %.089 = phi i32 [ 2, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit ], [ %.190.lcssa376, %683 ]
-  %207 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !261
+  %207 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !263
   %208 = zext i32 %206 to i64
   %209 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %207, i64 %208
   %210 = getelementptr inbounds i8, ptr %209, i64 -24
@@ -7201,7 +7201,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %209, i64 -8
   %.sroa.24.0.copyload = load ptr, ptr %.sroa.24.0..sroa_idx, align 8
   %211 = add i32 %206, -1
-  store i32 %211, ptr %78, align 8, !tbaa !10, !noalias !261
+  store i32 %211, ptr %78, align 8, !tbaa !10, !noalias !263
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0.copyload, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !17
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0.copyload, i64 32
@@ -7235,7 +7235,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
 
 225:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %.sroa.0239.0306, ptr %4, align 8, !tbaa !264
+  store ptr %.sroa.0239.0306, ptr %4, align 8, !tbaa !266
   store ptr %.sroa.13.0307, ptr %132, align 8
   store ptr %.sroa.24.0308, ptr %.sroa.24.8..sroa_idx251, align 8
   %226 = zext i32 %218 to i64
@@ -7245,7 +7245,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   %229 = icmp uge ptr %4, %.pre3.i.i
   %230 = icmp ult ptr %4, %228
   %spec.select.i.i.i.i.i.i = and i1 %229, %230
-  br i1 %spec.select.i.i.i.i.i.i, label %232, label %231, !prof !269
+  br i1 %spec.select.i.i.i.i.i.i, label %232, label %231, !prof !271
 
 231:                                              ; preds = %225
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %77, i64 noundef %227, i64 noundef 24) #18
@@ -7277,7 +7277,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSeq
   %244 = zext i32 %218 to i64
   %245 = load ptr, ptr %5, align 8, !tbaa !17
   %246 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %245, i64 %244
-  store ptr %.sroa.0239.0306, ptr %246, align 8, !tbaa !264
+  store ptr %.sroa.0239.0306, ptr %246, align 8, !tbaa !266
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store ptr %.sroa.13.0307, ptr %247, align 8
   %.sroa.24.8..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 16
@@ -7327,7 +7327,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i114: ; preds = %.lr.ph.i.i.i110
 _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit122: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i114, %.critedge2.i.i.i117, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit
   %.sroa.0.1.i119 = phi ptr [ %254, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit ], [ %258, %.critedge2.i.i.i117 ], [ %.sroa.0.0.i111, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i114 ]
   %265 = getelementptr inbounds nuw %"class.llvm::LazyCallGraph::Edge", ptr %254, i64 %257
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit159, !llvm.loop !270
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit159, !llvm.loop !272
 
 266:                                              ; preds = %.lr.ph311
   %267 = load ptr, ptr %0, align 8, !tbaa !174
@@ -7443,13 +7443,13 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit: 
 .lr.ph327:                                        ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139
   %326 = phi i32 [ %343, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139 ], [ %324, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit ]
   %327 = phi i32 [ %344, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139 ], [ %325, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit ]
-  %328 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !271
+  %328 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !273
   %329 = zext i32 %327 to i64
   %330 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %328, i64 %329
   %331 = getelementptr inbounds i8, ptr %330, i64 -24
   %.sroa.0235.0.copyload = load ptr, ptr %331, align 8
   %332 = add i32 %327, -1
-  store i32 %332, ptr %78, align 8, !tbaa !10, !noalias !271
+  store i32 %332, ptr %78, align 8, !tbaa !10, !noalias !273
   %333 = load i32, ptr %111, align 4, !tbaa !15
   %.not.i.i.not.i137 = icmp ult i32 %326, %333
   br i1 %.not.i.i.not.i137, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139, label %334, !prof !16
@@ -7473,7 +7473,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   store i32 %343, ptr %109, align 8, !tbaa !10
   %344 = load i32, ptr %78, align 8, !tbaa !10
   %.not.i136 = icmp eq i32 %344, 0
-  br i1 %.not.i136, label %._crit_edge328, label %.lr.ph327, !llvm.loop !274
+  br i1 %.not.i136, label %._crit_edge328, label %.lr.ph327, !llvm.loop !276
 
 ._crit_edge328:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit
   %345 = phi i32 [ %324, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPS3_vEEvT_S7_.exit ], [ %343, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit139 ]
@@ -7682,7 +7682,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i:      ; preds = %.lr.ph.i.i146
 
 _ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %.critedge2.i.i, %437
   %.sroa.13.3 = phi ptr [ %438, %437 ], [ %.sroa.13.2, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ], [ %444, %.critedge2.i.i ]
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit159, !llvm.loop !270
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit159, !llvm.loop !272
 
 445:                                              ; preds = %.lr.ph311
   %446 = getelementptr inbounds nuw i8, ptr %220, i64 20
@@ -7769,7 +7769,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   br i1 %.not99, label %477, label %683
 
 477:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit162
-  %478 = load ptr, ptr %6, align 8, !tbaa !17, !noalias !275
+  %478 = load ptr, ptr %6, align 8, !tbaa !17, !noalias !277
   %479 = zext i32 %472 to i64
   %480 = getelementptr inbounds nuw ptr, ptr %478, i64 %479
   %481 = ptrtoint ptr %480 to i64
@@ -7786,40 +7786,40 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %484 = phi ptr [ %497, %500 ], [ %480, %.lr.ph.i.preheader.i.i.i ]
   %.040.i.i.i.i = phi i64 [ %501, %500 ], [ %482, %.lr.ph.i.preheader.i.i.i ]
   %485 = getelementptr i8, ptr %484, i64 -8
-  %.val2.val.i.i.i.i = load ptr, ptr %485, align 8, !tbaa !7, !noalias !278
+  %.val2.val.i.i.i.i = load ptr, ptr %485, align 8, !tbaa !7, !noalias !280
   %486 = getelementptr i8, ptr %.val2.val.i.i.i.i, i64 16
-  %.val2.val.val.i.i.i.i = load i32, ptr %486, align 8, !tbaa !126, !noalias !278
+  %.val2.val.val.i.i.i.i = load i32, ptr %486, align 8, !tbaa !126, !noalias !280
   %487 = icmp slt i32 %.val2.val.val.i.i.i.i, %474
   br i1 %487, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit", label %488
 
 488:                                              ; preds = %.lr.ph.i.i.i.i164
   %489 = getelementptr i8, ptr %484, i64 -16
-  %.val4.val.i.i.i.i = load ptr, ptr %489, align 8, !tbaa !7, !noalias !278
+  %.val4.val.i.i.i.i = load ptr, ptr %489, align 8, !tbaa !7, !noalias !280
   %490 = getelementptr i8, ptr %.val4.val.i.i.i.i, i64 16
-  %.val4.val.val.i.i.i.i = load i32, ptr %490, align 8, !tbaa !126, !noalias !278
+  %.val4.val.val.i.i.i.i = load i32, ptr %490, align 8, !tbaa !126, !noalias !280
   %491 = icmp slt i32 %.val4.val.val.i.i.i.i, %474
   br i1 %491, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit402", label %492
 
 492:                                              ; preds = %488
   %493 = getelementptr i8, ptr %484, i64 -24
-  %.val6.val.i.i.i.i = load ptr, ptr %493, align 8, !tbaa !7, !noalias !278
+  %.val6.val.i.i.i.i = load ptr, ptr %493, align 8, !tbaa !7, !noalias !280
   %494 = getelementptr i8, ptr %.val6.val.i.i.i.i, i64 16
-  %.val6.val.val.i.i.i.i = load i32, ptr %494, align 8, !tbaa !126, !noalias !278
+  %.val6.val.val.i.i.i.i = load i32, ptr %494, align 8, !tbaa !126, !noalias !280
   %495 = icmp slt i32 %.val6.val.val.i.i.i.i, %474
   br i1 %495, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit400", label %496
 
 496:                                              ; preds = %492
   %497 = getelementptr i8, ptr %484, i64 -32
-  %.val8.val.i.i.i.i = load ptr, ptr %497, align 8, !tbaa !7, !noalias !278
+  %.val8.val.i.i.i.i = load ptr, ptr %497, align 8, !tbaa !7, !noalias !280
   %498 = getelementptr i8, ptr %.val8.val.i.i.i.i, i64 16
-  %.val8.val.val.i.i.i.i = load i32, ptr %498, align 8, !tbaa !126, !noalias !278
+  %.val8.val.val.i.i.i.i = load i32, ptr %498, align 8, !tbaa !126, !noalias !280
   %499 = icmp slt i32 %.val8.val.val.i.i.i.i, %474
   br i1 %499, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", label %500
 
 500:                                              ; preds = %496
   %501 = add nsw i64 %.040.i.i.i.i, -1
   %502 = icmp sgt i64 %.040.i.i.i.i, 1
-  br i1 %502, label %.lr.ph.i.i.i.i164, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !287
+  br i1 %502, label %.lr.ph.i.i.i.i164, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !289
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %500
   %.idx275 = shl nuw nsw i64 %479, 3
@@ -7838,27 +7838,27 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 505:                                              ; preds = %._crit_edge.i.i.i.i
   %506 = getelementptr i8, ptr %504, i64 -8
-  %.val10.val.i.i.i.i = load ptr, ptr %506, align 8, !tbaa !7, !noalias !278
+  %.val10.val.i.i.i.i = load ptr, ptr %506, align 8, !tbaa !7, !noalias !280
   %507 = getelementptr i8, ptr %.val10.val.i.i.i.i, i64 16
-  %.val10.val.val.i.i.i.i = load i32, ptr %507, align 8, !tbaa !126, !noalias !278
+  %.val10.val.val.i.i.i.i = load i32, ptr %507, align 8, !tbaa !126, !noalias !280
   %508 = icmp slt i32 %.val10.val.val.i.i.i.i, %474
   br i1 %508, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit", label %509
 
 509:                                              ; preds = %505, %._crit_edge.i.i.i.i
   %510 = phi ptr [ %504, %._crit_edge.i.i.i.i ], [ %506, %505 ]
   %511 = getelementptr i8, ptr %510, i64 -8
-  %.val12.val.i.i.i.i = load ptr, ptr %511, align 8, !tbaa !7, !noalias !278
+  %.val12.val.i.i.i.i = load ptr, ptr %511, align 8, !tbaa !7, !noalias !280
   %512 = getelementptr i8, ptr %.val12.val.i.i.i.i, i64 16
-  %.val12.val.val.i.i.i.i = load i32, ptr %512, align 8, !tbaa !126, !noalias !278
+  %.val12.val.val.i.i.i.i = load i32, ptr %512, align 8, !tbaa !126, !noalias !280
   %513 = icmp slt i32 %.val12.val.val.i.i.i.i, %474
   br i1 %513, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit", label %514
 
 514:                                              ; preds = %509, %._crit_edge.i.i.i.i
   %515 = phi ptr [ %504, %._crit_edge.i.i.i.i ], [ %511, %509 ]
   %516 = getelementptr i8, ptr %515, i64 -8
-  %.val14.val.i.i.i.i = load ptr, ptr %516, align 8, !tbaa !7, !noalias !278
+  %.val14.val.i.i.i.i = load ptr, ptr %516, align 8, !tbaa !7, !noalias !280
   %517 = getelementptr i8, ptr %.val14.val.i.i.i.i, i64 16
-  %.val14.val.val.i.i.i.i = load i32, ptr %517, align 8, !tbaa !126, !noalias !278
+  %.val14.val.val.i.i.i.i = load i32, ptr %517, align 8, !tbaa !126, !noalias !280
   %518 = icmp slt i32 %.val14.val.val.i.i.i.i, %474
   %spec.select.i.i.i = select i1 %518, ptr %515, ptr %478
   br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_.exit"
@@ -7949,7 +7949,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i.i.i: ; p
   %558 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %559 = add nsw i64 %.06.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %560 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %560, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit, !llvm.loop !288
+  br i1 %560, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit, !llvm.loop !290
 
 _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i.i.i
   %561 = trunc i64 %548 to i32
@@ -8176,7 +8176,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
 683:                                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit162
   %684 = load i32, ptr %78, align 8, !tbaa !10
   %.not.i193 = icmp eq i32 %684, 0
-  br i1 %.not.i193, label %.thread268, label %205, !llvm.loop !289
+  br i1 %.not.i193, label %.thread268, label %205, !llvm.loop !291
 
 .thread268:                                       ; preds = %._crit_edge312, %683, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixEOS4_.exit, %._crit_edge328, %176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
@@ -8244,7 +8244,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %174, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge339, label %.lr.ph338, !llvm.loop !290
+  br i1 %exitcond.not, label %._crit_edge339, label %.lr.ph338, !llvm.loop !292
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8338,7 +8338,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit40: ; preds =
   store ptr %47, ptr %46, align 8, !tbaa !7
   %49 = add nuw nsw i64 %.03649, 1
   %.not = icmp eq i64 %49, %spec.select
-  br i1 %.not, label %._crit_edge, label %44, !llvm.loop !291
+  br i1 %.not, label %._crit_edge, label %44, !llvm.loop !293
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE18uninitialized_copyIS3_S3_EEvPT_S7_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS6_E4typeES8_EE5valueEvE4typeE.exit: ; preds = %._crit_edge
   %50 = sub nuw i32 %37, %39
@@ -8669,7 +8669,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = 
   %82 = getelementptr inbounds nuw i8, ptr %.04256, i64 8
   %83 = add i64 %.04057, -1
   %.not44 = icmp eq i64 %83, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !292
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !294
 
 _ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %77, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE6appendIPS3_vEEvT_S7_.exit
   %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE6appendIPS3_vEEvT_S7_.exit ], [ %45, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ], [ %45, %69 ], [ %45, %._crit_edge ], [ %45, %77 ]
@@ -9003,8 +9003,8 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit: ; preds = %.lr.ph.i.i.i
   store i32 0, ptr %71, align 8, !tbaa !42
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 1, ptr %72, align 4, !tbaa !43
-  store i32 1, ptr %70, align 4, !tbaa !41, !noalias !293
-  store ptr %50, ptr %68, align 8, !tbaa !99, !noalias !293
+  store i32 1, ptr %70, align 4, !tbaa !41, !noalias !295
+  store ptr %50, ptr %68, align 8, !tbaa !99, !noalias !295
   %73 = load ptr, ptr %1, align 8, !tbaa !174
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 408
   %75 = load ptr, ptr %74, align 8, !tbaa !17
@@ -9206,13 +9206,13 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i.i: ; preds = %_ZNK4l
   br i1 %.not24.not.i.i.i, label %"_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i", label %.lr.ph42.i.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.i.i.i
-  %.pre69.i.i = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !296
+  %.pre69.i.i = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !298
   %158 = trunc nuw i8 %.pre69.i.i to i1
   br i1 %158, label %.loopexit.i..loopexit.thread.i_crit_edge.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i
 
 .loopexit.i..loopexit.thread.i_crit_edge.i:       ; preds = %.loopexit.i.i
-  %.pre.i = load ptr, ptr %12, align 8, !tbaa !38, !noalias !296
-  %.pre267.i = load i32, ptr %70, align 4, !tbaa !41, !noalias !296
+  %.pre.i = load ptr, ptr %12, align 8, !tbaa !38, !noalias !298
+  %.pre267.i = load i32, ptr %70, align 4, !tbaa !41, !noalias !298
   %.pre270.i = zext i32 %.pre267.i to i64
   %.pre272.i = shl nuw nsw i64 %.pre270.i, 3
   br label %.loopexit.thread.i.i
@@ -9227,7 +9227,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i.i: ; preds = %_ZNK4l
 
 .lr.ph.i.i37.i.i:                                 ; preds = %.loopexit.thread.i.i, %.critedge.i.i40.i.i
   %.02937.i.i38.i.i = phi ptr [ %163, %.critedge.i.i40.i.i ], [ %160, %.loopexit.thread.i.i ]
-  %162 = load ptr, ptr %.02937.i.i38.i.i, align 8, !tbaa !99, !noalias !296
+  %162 = load ptr, ptr %.02937.i.i38.i.i, align 8, !tbaa !99, !noalias !298
   %.not17.i.i39.i.i = icmp eq ptr %162, %81
   br i1 %.not17.i.i39.i.i, label %"_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i", label %.critedge.i.i40.i.i
 
@@ -9237,18 +9237,18 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i.i: ; preds = %_ZNK4l
   br i1 %.not.i.i41.i.i, label %._crit_edge.i.i42.i.i, label %.lr.ph.i.i37.i.i, !llvm.loop !100
 
 ._crit_edge.i.i42.i.i:                            ; preds = %.critedge.i.i40.i.i, %.loopexit.thread.i.i
-  %164 = load i32, ptr %69, align 8, !tbaa !40, !noalias !296
+  %164 = load i32, ptr %69, align 8, !tbaa !40, !noalias !298
   %165 = icmp ult i32 %159, %164
   br i1 %165, label %166, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i
 
 166:                                              ; preds = %._crit_edge.i.i42.i.i
   %167 = add nuw i32 %159, 1
-  store i32 %167, ptr %70, align 4, !tbaa !41, !noalias !296
-  store ptr %81, ptr %161, align 8, !tbaa !99, !noalias !296
+  store i32 %167, ptr %70, align 4, !tbaa !41, !noalias !298
+  store ptr %81, ptr %161, align 8, !tbaa !99, !noalias !298
   br label %"_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i"
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i: ; preds = %._crit_edge.i.i42.i.i, %.loopexit.i.i
-  %168 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %81) #18, !noalias !296
+  %168 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %81) #18, !noalias !298
   br label %"_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i"
 
 "_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i": ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i37.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i, %166, %80
@@ -9442,7 +9442,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i: ; preds = %._crit_ed
   %225 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i.i, i64 32
   %226 = add nsw i64 %.0145.i.i.i.i.i, -1
   %227 = icmp sgt i64 %.0145.i.i.i.i.i, 1
-  br i1 %227, label %.lr.ph.i.i.i.i55.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !299
+  br i1 %227, label %.lr.ph.i.i.i.i55.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !301
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit66.thread.i.i.i.i.i"
   %.pre160.i.i.i.i.i = ptrtoint ptr %225 to i64
@@ -9585,7 +9585,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i15.i.i.i
   %275 = add nuw nsw i64 %.010.i.i.i.i.i, 1
   %276 = lshr i64 %275, 1
   %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.i.i.i, 2
-  br i1 %.not14.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i15.i.i.i, !llvm.loop !300
+  br i1 %.not14.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i15.i.i.i, !llvm.loop !302
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i15.i.i.i, %268
   %.sroa.8.0.i.i.i = phi ptr [ null, %268 ], [ null, %select.unfold.i.i.i.i.i ], [ %274, %.lr.ph.i.i15.i.i.i ]
@@ -9602,9 +9602,9 @@ _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i: 
 
 .lr.ph.i:                                         ; preds = %"_ZSt16stable_partitionIPPN4llvm13LazyCallGraph6RefSCCEZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESG_E3$_0ZNS2_21insertIncomingRefEdgeESG_SG_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SO_RSK_RT1_T2_T3_EUlS3_E_ESN_SN_SN_SK_.exit.i"
   %279 = load ptr, ptr %62, align 8, !tbaa !17
-  %280 = load ptr, ptr %63, align 8, !tbaa !301
+  %280 = load ptr, ptr %63, align 8, !tbaa !303
   %281 = getelementptr inbounds nuw i8, ptr %61, i64 568
-  %282 = load i32, ptr %281, align 8, !tbaa !304
+  %282 = load i32, ptr %281, align 8, !tbaa !306
   %283 = icmp eq i32 %282, 0
   %284 = add i32 %282, -1
   %285 = zext i32 %282 to i64
@@ -9676,17 +9676,17 @@ _ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.i: ; pr
   %319 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %280, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !172
   %321 = icmp eq ptr %302, %320
-  br i1 %321, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i, label %.lr.ph.i.i59.i, !prof !23, !llvm.loop !305
+  br i1 %321, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i, label %.lr.ph.i.i59.i, !prof !23, !llvm.loop !307
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i: ; preds = %315, %.lr.ph.i.i59.i, %303, %300
   %.sroa.0.1.i.i = phi ptr [ %310, %303 ], [ %286, %300 ], [ %319, %315 ], [ %286, %.lr.ph.i.i59.i ]
   %322 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %323 = trunc nsw i64 %indvars.iv.i to i32
-  store i32 %323, ptr %322, align 8, !tbaa !306
+  store i32 %323, ptr %322, align 8, !tbaa !308
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %287, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %300, !llvm.loop !308
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %300, !llvm.loop !310
 
 _ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.thread.i: ; preds = %295, %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.i, %290
   %324 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -8
@@ -9741,13 +9741,13 @@ _ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.thread1
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %349, %344
-  %350 = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !309, !noundef !98
+  %350 = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !311, !noundef !98
   %351 = trunc nuw i8 %350 to i1
   br i1 %351, label %352, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i63.i
 
 352:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
-  %353 = load ptr, ptr %12, align 8, !tbaa !38, !noalias !309
-  %354 = load i32, ptr %70, align 4, !tbaa !41, !noalias !309
+  %353 = load ptr, ptr %12, align 8, !tbaa !38, !noalias !311
+  %354 = load i32, ptr %70, align 4, !tbaa !41, !noalias !311
   %355 = zext i32 %354 to i64
   %.idx.i.i.i75.i = shl nuw nsw i64 %355, 3
   %356 = getelementptr inbounds nuw i8, ptr %353, i64 %.idx.i.i.i75.i
@@ -9756,7 +9756,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %349, %344
 
 .lr.ph.i.i.i77.i:                                 ; preds = %352, %.critedge.i.i.i80.i
   %.02937.i.i.i78.i = phi ptr [ %358, %.critedge.i.i.i80.i ], [ %353, %352 ]
-  %357 = load ptr, ptr %.02937.i.i.i78.i, align 8, !tbaa !99, !noalias !309
+  %357 = load ptr, ptr %.02937.i.i.i78.i, align 8, !tbaa !99, !noalias !311
   %.not17.i.i.i79.i = icmp eq ptr %357, %1
   br i1 %.not17.i.i.i79.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit.i.i, label %.critedge.i.i.i80.i
 
@@ -9766,18 +9766,18 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %349, %344
   br i1 %.not.i.i.i81.i, label %._crit_edge.i.i.i82.i, label %.lr.ph.i.i.i77.i, !llvm.loop !100
 
 ._crit_edge.i.i.i82.i:                            ; preds = %.critedge.i.i.i80.i, %352
-  %359 = load i32, ptr %69, align 8, !tbaa !40, !noalias !309
+  %359 = load i32, ptr %69, align 8, !tbaa !40, !noalias !311
   %360 = icmp ult i32 %354, %359
   br i1 %360, label %361, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i63.i
 
 361:                                              ; preds = %._crit_edge.i.i.i82.i
   %362 = add nuw i32 %354, 1
-  store i32 %362, ptr %70, align 4, !tbaa !41, !noalias !309
-  store ptr %1, ptr %356, align 8, !tbaa !99, !noalias !309
+  store i32 %362, ptr %70, align 4, !tbaa !41, !noalias !311
+  store ptr %1, ptr %356, align 8, !tbaa !99, !noalias !311
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i63.i: ; preds = %._crit_edge.i.i.i82.i, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
-  %363 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %1) #18, !noalias !309
+  %363 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %1) #18, !noalias !311
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit.i.i: ; preds = %.lr.ph.i.i.i77.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i63.i, %361
@@ -9817,7 +9817,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_
 ._crit_edge34.i.i:                                ; preds = %._crit_edge34.loopexit.i.i, %368
   %382 = phi i32 [ %.pre40.i.i, %._crit_edge34.loopexit.i.i ], [ %375, %368 ]
   %.not.i.i.i = icmp eq i32 %382, 0
-  br i1 %.not.i.i.i, label %501, label %368, !llvm.loop !312
+  br i1 %.not.i.i.i, label %501, label %368, !llvm.loop !314
 
 .lr.ph33.i.i:                                     ; preds = %368, %._crit_edge29.i.i
   %.sroa.010.031.i.i = phi ptr [ %390, %._crit_edge29.i.i ], [ %377, %368 ]
@@ -9936,9 +9936,9 @@ _ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i.i.i: ; preds = %424, %412
 _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %434, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i.i.i, %.lr.ph.i68.i
   %436 = phi ptr [ %435, %434 ], [ null, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i.i.i ], [ null, %.lr.ph.i68.i ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %437 = getelementptr inbounds nuw i8, ptr %404, i64 552
-  %438 = load ptr, ptr %437, align 8, !tbaa !301
+  %438 = load ptr, ptr %437, align 8, !tbaa !303
   %439 = getelementptr inbounds nuw i8, ptr %404, i64 568
-  %440 = load i32, ptr %439, align 8, !tbaa !304
+  %440 = load i32, ptr %439, align 8, !tbaa !306
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %.loopexit.i.i.i.i, label %442
 
@@ -9971,7 +9971,7 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit.i.i: ; preds = %.lr.ph.i
   %459 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %438, i64 %458
   %460 = load ptr, ptr %459, align 8, !tbaa !172
   %461 = icmp eq ptr %436, %460
-  br i1 %461, label %_ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i, label %.lr.ph.i.i.i.i70.i, !prof !23, !llvm.loop !305
+  br i1 %461, label %_ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i, label %.lr.ph.i.i.i.i70.i, !prof !23, !llvm.loop !307
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i70.i, %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit.i.i
   %462 = zext i32 %440 to i64
@@ -9981,18 +9981,18 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit.i.i: ; preds = %.lr.ph.i
 _ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i: ; preds = %455, %.loopexit.i.i.i.i, %442
   %.sroa.0.1.i.i.i71.i = phi ptr [ %463, %.loopexit.i.i.i.i ], [ %450, %442 ], [ %459, %455 ]
   %464 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i71.i, i64 8
-  %465 = load i32, ptr %464, align 8, !tbaa !306
+  %465 = load i32, ptr %464, align 8, !tbaa !308
   %.not.i72.i = icmp sgt i32 %465, %56
   br i1 %.not.i72.i, label %466, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.thread173.i
 
 466:                                              ; preds = %_ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i
-  %467 = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !313, !noundef !98
+  %467 = load i8, ptr %72, align 4, !tbaa !43, !range !94, !noalias !315, !noundef !98
   %468 = trunc nuw i8 %467 to i1
   br i1 %468, label %469, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.i
 
 469:                                              ; preds = %466
-  %470 = load ptr, ptr %12, align 8, !tbaa !38, !noalias !313
-  %471 = load i32, ptr %70, align 4, !tbaa !41, !noalias !313
+  %470 = load ptr, ptr %12, align 8, !tbaa !38, !noalias !315
+  %471 = load i32, ptr %70, align 4, !tbaa !41, !noalias !315
   %472 = zext i32 %471 to i64
   %.idx.i.i38.i.i = shl nuw nsw i64 %472, 3
   %473 = getelementptr inbounds nuw i8, ptr %470, i64 %.idx.i.i38.i.i
@@ -10001,7 +10001,7 @@ _ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i: ; preds = %455, 
 
 .lr.ph.i.i40.i.i:                                 ; preds = %469, %.critedge.i.i43.i.i
   %.02937.i.i41.i.i = phi ptr [ %475, %.critedge.i.i43.i.i ], [ %470, %469 ]
-  %474 = load ptr, ptr %.02937.i.i41.i.i, align 8, !tbaa !99, !noalias !313
+  %474 = load ptr, ptr %.02937.i.i41.i.i, align 8, !tbaa !99, !noalias !315
   %.not17.i.i42.i.i = icmp eq ptr %474, %436
   br i1 %.not17.i.i42.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.thread173.i, label %.critedge.i.i43.i.i
 
@@ -10011,18 +10011,18 @@ _ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i: ; preds = %455, 
   br i1 %.not.i.i44.i.i, label %._crit_edge.i.i45.i.i, label %.lr.ph.i.i40.i.i, !llvm.loop !100
 
 ._crit_edge.i.i45.i.i:                            ; preds = %.critedge.i.i43.i.i, %469
-  %476 = load i32, ptr %69, align 8, !tbaa !40, !noalias !313
+  %476 = load i32, ptr %69, align 8, !tbaa !40, !noalias !315
   %477 = icmp ult i32 %471, %476
   br i1 %477, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.thread.i, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.thread.i: ; preds = %._crit_edge.i.i45.i.i
   %478 = add nuw i32 %471, 1
-  store i32 %478, ptr %70, align 4, !tbaa !41, !noalias !313
-  store ptr %436, ptr %473, align 8, !tbaa !99, !noalias !313
+  store i32 %478, ptr %70, align 4, !tbaa !41, !noalias !315
+  store ptr %436, ptr %473, align 8, !tbaa !99, !noalias !315
   br label %482
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.i: ; preds = %._crit_edge.i.i45.i.i, %466
-  %479 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %436) #18, !noalias !313
+  %479 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull %436) #18, !noalias !315
   %480 = extractvalue { ptr, i8 } %479, 1
   %481 = trunc nuw i8 %480 to i1
   br i1 %481, label %482, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit50.i.thread173.i
@@ -10278,7 +10278,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i: ; preds = %_ZNK4llv
   %566 = getelementptr inbounds nuw i8, ptr %.029155.i.i.i.i.i, i64 32
   %567 = add nsw i64 %.0156.i.i.i.i.i, -1
   %568 = icmp sgt i64 %.0156.i.i.i.i.i, 1
-  br i1 %568, label %.lr.ph.i.i.i.i115.i, label %._crit_edge.loopexit.i.i.i.i122.i, !llvm.loop !316
+  br i1 %568, label %.lr.ph.i.i.i.i115.i, label %._crit_edge.loopexit.i.i.i.i122.i, !llvm.loop !318
 
 ._crit_edge.loopexit.i.i.i.i122.i:                ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit66.thread104.i.i.i.i.i"
   %.pre174.i.i.i.i.i = ptrtoint ptr %566 to i64
@@ -10421,7 +10421,7 @@ select.unfold.i.i.i.i95.i:                        ; preds = %.lr.ph.i.i15.i.i92.
   %616 = add nuw nsw i64 %.010.i.i.i.i93.i, 1
   %617 = lshr i64 %616, 1
   %.not14.i.i.i.i96.i = icmp samesign ult i64 %.010.i.i.i.i93.i, 2
-  br i1 %.not14.i.i.i.i96.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i, label %.lr.ph.i.i15.i.i92.i, !llvm.loop !300
+  br i1 %.not14.i.i.i.i96.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i, label %.lr.ph.i.i15.i.i92.i, !llvm.loop !302
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i: ; preds = %select.unfold.i.i.i.i95.i, %.lr.ph.i.i15.i.i92.i, %609
   %.sroa.8.0.i.i90.i = phi ptr [ null, %609 ], [ null, %select.unfold.i.i.i.i95.i ], [ %615, %.lr.ph.i.i15.i.i92.i ]
@@ -10434,9 +10434,9 @@ _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i
 "_ZSt16stable_partitionIPPN4llvm13LazyCallGraph6RefSCCEZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESG_E3$_0ZNS2_21insertIncomingRefEdgeESG_SG_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SO_RSK_RT1_T2_T3_EUlS3_E0_ESN_SN_SN_SK_.exit.i": ; preds = %.lr.ph.i.i.i.i89.i.i.i.i99.i, %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i, %"_ZSt13__find_if_notIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EEESQ_SQ_SQ_SN_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit93.i.i.i.i.i", %._crit_edge.i.i.i.i83.i
   %.0.i.i87.i = phi ptr [ %618, %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i ], [ %.028.i.i.i.i88.i, %"_ZSt13__find_if_notIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EEESQ_SQ_SQ_SN_.exit.i.i.i" ], [ %510, %._crit_edge.i.i.i.i83.i ], [ %510, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit93.i.i.i.i.i" ], [ %510, %.lr.ph.i.i.i.i89.i.i.i.i99.i ]
   %.pre268.i = load ptr, ptr %62, align 8, !tbaa !17
-  %620 = load ptr, ptr %63, align 8, !tbaa !301
+  %620 = load ptr, ptr %63, align 8, !tbaa !303
   %621 = getelementptr inbounds nuw i8, ptr %61, i64 568
-  %622 = load i32, ptr %621, align 8, !tbaa !304
+  %622 = load i32, ptr %621, align 8, !tbaa !306
   %623 = icmp eq i32 %622, 0
   %624 = add i32 %622, -1
   %625 = zext i32 %622 to i64
@@ -10489,17 +10489,17 @@ _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i89.i
   %653 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %620, i64 %652
   %654 = load ptr, ptr %653, align 8, !tbaa !172
   %655 = icmp eq ptr %636, %654
-  br i1 %655, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit161.i, label %.lr.ph.i.i150.i, !prof !23, !llvm.loop !305
+  br i1 %655, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit161.i, label %.lr.ph.i.i150.i, !prof !23, !llvm.loop !307
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit161.i: ; preds = %649, %.lr.ph.i.i150.i, %637, %634
   %.sroa.0.1.i156.i = phi ptr [ %644, %637 ], [ %626, %634 ], [ %653, %649 ], [ %626, %.lr.ph.i.i150.i ]
   %656 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i156.i, i64 8
   %657 = trunc nsw i64 %indvars.iv262.i to i32
-  store i32 %657, ptr %656, align 8, !tbaa !306
+  store i32 %657, ptr %656, align 8, !tbaa !308
   %indvars.iv.next263.i = add nsw i64 %indvars.iv262.i, 1
   %lftr.wideiv265.i = trunc i64 %indvars.iv.next263.i to i32
   %exitcond266.not.i = icmp eq i32 %629, %lftr.wideiv265.i
-  br i1 %exitcond266.not.i, label %._crit_edge225.i, label %634, !llvm.loop !317
+  br i1 %exitcond266.not.i, label %._crit_edge225.i, label %634, !llvm.loop !319
 
 658:                                              ; preds = %._crit_edge225.i, %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.thread169._crit_edge.i
   %.pre-phi = phi i64 [ %627, %._crit_edge225.i ], [ %.pre321, %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.thread169._crit_edge.i ]
@@ -10546,8 +10546,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   br i1 %675, label %676, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 676:                                              ; preds = %.lr.ph.i.i60
-  %677 = load ptr, ptr %15, align 8, !tbaa !38, !noalias !318
-  %678 = load i32, ptr %669, align 4, !tbaa !41, !noalias !318
+  %677 = load ptr, ptr %15, align 8, !tbaa !38, !noalias !320
+  %678 = load i32, ptr %669, align 4, !tbaa !41, !noalias !320
   %679 = zext i32 %678 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %679, 3
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 %.idx.i.i.i.i
@@ -10556,7 +10556,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 
 .lr.ph.i.i.i.i:                                   ; preds = %676, %.critedge.i.i.i.i
   %.02937.i.i.i.i = phi ptr [ %682, %.critedge.i.i.i.i ], [ %677, %676 ]
-  %681 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !99, !noalias !318
+  %681 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !99, !noalias !320
   %.not17.i.i.i.i = icmp eq ptr %681, %674
   br i1 %.not17.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit.i.i, label %.critedge.i.i.i.i
 
@@ -10566,19 +10566,19 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !100
 
 ._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i.i.i, %676
-  %683 = load i32, ptr %668, align 8, !tbaa !40, !noalias !318
+  %683 = load i32, ptr %668, align 8, !tbaa !40, !noalias !320
   %684 = icmp ult i32 %678, %683
   br i1 %684, label %685, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 685:                                              ; preds = %._crit_edge.i.i.i.i
   %686 = add nuw i32 %678, 1
-  store i32 %686, ptr %669, align 4, !tbaa !41, !noalias !318
-  store ptr %674, ptr %680, align 8, !tbaa !99, !noalias !318
+  store i32 %686, ptr %669, align 4, !tbaa !41, !noalias !320
+  store ptr %674, ptr %680, align 8, !tbaa !99, !noalias !320
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i60
-  %687 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef %674) #18, !noalias !318
-  %.pre.i.i.i = load i8, ptr %671, align 4, !tbaa !43, !range !94, !noalias !318
+  %687 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef %674) #18, !noalias !320
+  %.pre.i.i.i = load i8, ptr %671, align 4, !tbaa !43, !range !94, !noalias !320
   %.pre.fr.i.i.i = freeze i8 %.pre.i.i.i
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit.i.i
 
@@ -10587,15 +10587,15 @@ _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit.i.i: ; pr
   %689 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ 1, %685 ], [ 1, %.lr.ph.i.i.i.i ]
   %690 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %.not.i.i61 = icmp eq ptr %690, %.pn180.i
-  br i1 %.not.i.i61, label %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit, label %.lr.ph.i.i60, !llvm.loop !321
+  br i1 %.not.i.i61, label %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit, label %.lr.ph.i.i60, !llvm.loop !323
 
 _ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit: ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit.i.i
   %691 = trunc nuw i8 %688 to i1
   br i1 %691, label %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.thread, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.thread: ; preds = %"_ZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPS2_Lj16EEENS0_8DenseMapIS4_iNS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESE_E3$_0ZNS2_21insertIncomingRefEdgeESE_SE_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SM_RSI_RT1_T2_T3_.exit", %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit
-  %692 = load ptr, ptr %15, align 8, !tbaa !38, !noalias !322
-  %693 = load i32, ptr %669, align 4, !tbaa !41, !noalias !322
+  %692 = load ptr, ptr %15, align 8, !tbaa !38, !noalias !324
+  %693 = load i32, ptr %669, align 4, !tbaa !41, !noalias !324
   %694 = zext i32 %693 to i64
   %.idx.i.i63 = shl nuw nsw i64 %694, 3
   %695 = getelementptr inbounds nuw i8, ptr %692, i64 %.idx.i.i63
@@ -10604,7 +10604,7 @@ _ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.threa
 
 .lr.ph.i.i64:                                     ; preds = %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.thread, %.critedge.i.i
   %.02937.i.i = phi ptr [ %697, %.critedge.i.i ], [ %692, %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.thread ]
-  %696 = load ptr, ptr %.02937.i.i, align 8, !tbaa !99, !noalias !322
+  %696 = load ptr, ptr %.02937.i.i, align 8, !tbaa !99, !noalias !324
   %.not17.i.i65 = icmp eq ptr %696, %1
   br i1 %.not17.i.i65, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit, label %.critedge.i.i
 
@@ -10614,18 +10614,18 @@ _ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.threa
   br i1 %.not.i.i66, label %._crit_edge.i.i67, label %.lr.ph.i.i64, !llvm.loop !100
 
 ._crit_edge.i.i67:                                ; preds = %.critedge.i.i, %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit.thread
-  %698 = load i32, ptr %668, align 8, !tbaa !40, !noalias !322
+  %698 = load i32, ptr %668, align 8, !tbaa !40, !noalias !324
   %699 = icmp ult i32 %693, %698
   br i1 %699, label %700, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 700:                                              ; preds = %._crit_edge.i.i67
   %701 = add nuw i32 %693, 1
-  store i32 %701, ptr %669, align 4, !tbaa !41, !noalias !322
-  store ptr %1, ptr %695, align 8, !tbaa !99, !noalias !322
+  store i32 %701, ptr %669, align 4, !tbaa !41, !noalias !324
+  store ptr %1, ptr %695, align 8, !tbaa !99, !noalias !324
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i67, %_ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit
-  %702 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull %1) #18, !noalias !322
+  %702 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull %1) #18, !noalias !324
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit: ; preds = %.lr.ph.i.i64, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %700
@@ -11236,9 +11236,9 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_.exit: ; preds = %_ZN4
 
 .lr.ph248:                                        ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_.exit
   %989 = getelementptr inbounds nuw i8, ptr %.pre318, i64 552
-  %990 = load ptr, ptr %989, align 8, !tbaa !301
+  %990 = load ptr, ptr %989, align 8, !tbaa !303
   %991 = getelementptr inbounds nuw i8, ptr %.pre318, i64 568
-  %992 = load i32, ptr %991, align 8, !tbaa !304
+  %992 = load i32, ptr %991, align 8, !tbaa !306
   %993 = icmp eq i32 %992, 0
   %994 = add i32 %992, -1
   %995 = getelementptr inbounds nuw i8, ptr %.pre318, i64 560
@@ -11332,17 +11332,17 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE5eraseEPKS3_S6_.exit: ; pr
   %1045 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %990, i64 %1044
   %1046 = load ptr, ptr %1045, align 8, !tbaa !172
   %1047 = icmp eq ptr %1029, %1046
-  br i1 %1047, label %.loopexit.i, label %.lr.ph.i.i103, !prof !23, !llvm.loop !325
+  br i1 %1047, label %.loopexit.i, label %.lr.ph.i.i103, !prof !23, !llvm.loop !327
 
 .loopexit.i:                                      ; preds = %1041, %.lr.ph248.split
   %.0.i.ph.i = phi ptr [ %1036, %.lr.ph248.split ], [ %1045, %1041 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8, !tbaa !172
-  %1048 = load i32, ptr %995, align 8, !tbaa !326
+  %1048 = load i32, ptr %995, align 8, !tbaa !328
   %1049 = add i32 %1048, -1
-  store i32 %1049, ptr %995, align 8, !tbaa !326
-  %1050 = load i32, ptr %996, align 4, !tbaa !327
+  store i32 %1049, ptr %995, align 8, !tbaa !328
+  %1050 = load i32, ptr %996, align 4, !tbaa !329
   %1051 = add i32 %1050, 1
-  store i32 %1051, ptr %996, align 4, !tbaa !327
+  store i32 %1051, ptr %996, align 4, !tbaa !329
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5eraseERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5eraseERKS4_.exit: ; preds = %.lr.ph.i.i103, %.loopexit.i
@@ -11433,9 +11433,9 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !301
+  %4 = load ptr, ptr %0, align 8, !tbaa !303
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !304
+  %6 = load i32, ptr %5, align 8, !tbaa !306
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %8
 
@@ -11480,14 +11480,14 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !172
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !328
+  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !330
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !329
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !331
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !326
+  %35 = load i32, ptr %34, align 8, !tbaa !328
   %36 = shl i32 %35, 2
   %37 = add i32 %36, 4
   %38 = mul i32 %6, 3
@@ -11500,7 +11500,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 
 41:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !327
+  %43 = load i32, ptr %42, align 4, !tbaa !329
   %.neg.i.i = xor i32 %35, -1
   %.neg12.i.i = add i32 %6, %.neg.i.i
   %44 = sub i32 %.neg12.i.i, %43
@@ -11512,24 +11512,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %.sink.i.i = phi i32 [ %40, %39 ], [ %6, %41 ]
   tail call void @_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %.sink.i.i)
   %46 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i = load i32, ptr %34, align 8, !tbaa !326
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !329
+  %.pre.i = load i32, ptr %34, align 8, !tbaa !328
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !331
   br label %47
 
 47:                                               ; preds = %.sink.split.i.i, %41
   %48 = phi ptr [ %.pre7.i, %.sink.split.i.i ], [ %.sink.i, %41 ]
   %49 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %35, %41 ]
   %50 = add i32 %49, 1
-  store i32 %50, ptr %34, align 8, !tbaa !326
+  store i32 %50, ptr %34, align 8, !tbaa !328
   %51 = load ptr, ptr %48, align 8, !tbaa !172
   %52 = icmp eq ptr %51, inttoptr (i64 -4096 to ptr)
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !327
+  %55 = load i32, ptr %54, align 4, !tbaa !329
   %56 = add i32 %55, -1
-  store i32 %56, ptr %54, align 4, !tbaa !327
+  store i32 %56, ptr %54, align 4, !tbaa !329
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIS4_JEEEPS9_SD_OT_DpOT0_.exit: ; preds = %47, %53
@@ -11549,9 +11549,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !301
+  %4 = load ptr, ptr %0, align 8, !tbaa !303
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !304
+  %6 = load i32, ptr %5, align 8, !tbaa !306
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %8
 
@@ -11596,14 +11596,14 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !172
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !328
+  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !330
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !329
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !331
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !326
+  %35 = load i32, ptr %34, align 8, !tbaa !328
   %36 = shl i32 %35, 2
   %37 = add i32 %36, 4
   %38 = mul i32 %6, 3
@@ -11616,7 +11616,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 
 41:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !327
+  %43 = load i32, ptr %42, align 4, !tbaa !329
   %.neg.i.i = xor i32 %35, -1
   %.neg12.i.i = add i32 %6, %.neg.i.i
   %44 = sub i32 %.neg12.i.i, %43
@@ -11628,24 +11628,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %.sink.i.i = phi i32 [ %40, %39 ], [ %6, %41 ]
   tail call void @_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %.sink.i.i)
   %46 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i = load i32, ptr %34, align 8, !tbaa !326
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !329
+  %.pre.i = load i32, ptr %34, align 8, !tbaa !328
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !331
   br label %47
 
 47:                                               ; preds = %.sink.split.i.i, %41
   %48 = phi ptr [ %.pre7.i, %.sink.split.i.i ], [ %.sink.i, %41 ]
   %49 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %35, %41 ]
   %50 = add i32 %49, 1
-  store i32 %50, ptr %34, align 8, !tbaa !326
+  store i32 %50, ptr %34, align 8, !tbaa !328
   %51 = load ptr, ptr %48, align 8, !tbaa !172
   %52 = icmp eq ptr %51, inttoptr (i64 -4096 to ptr)
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !327
+  %55 = load i32, ptr %54, align 4, !tbaa !329
   %56 = add i32 %55, -1
-  store i32 %56, ptr %54, align 4, !tbaa !327
+  store i32 %56, ptr %54, align 4, !tbaa !329
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E16InsertIntoBucketIRKS4_JEEEPS9_SF_OT_DpOT0_.exit: ; preds = %47, %53
@@ -12147,7 +12147,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Den
   %231 = getelementptr inbounds nuw i8, ptr %.029173.i.i.i.i.i, i64 64
   %232 = add nsw i64 %.0174.i.i.i.i.i, -1
   %233 = icmp sgt i64 %.0174.i.i.i.i.i, 1
-  br i1 %233, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !330
+  br i1 %233, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !332
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13LazyCallGraph6RefSCC22removeInternalRefEdgesENS2_8ArrayRefISt4pairIPNS3_4NodeES8_EEEE3$_1EclIPKS9_EEbT_.exit91.thread.i.i.i.i.i"
   %234 = and i64 %3, 3
@@ -12709,16 +12709,16 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCa
   store ptr %512, ptr %466, align 8
   %517 = load i32, ptr %462, align 4, !tbaa !15
   %.not.i119.not = icmp eq i32 %517, 0
-  br i1 %.not.i119.not, label %518, label %520, !prof !269
+  br i1 %.not.i119.not, label %518, label %520, !prof !271
 
 518:                                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit
   %519 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEELb1EE18growAndEmplaceBackIJRS4_S6_EEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %.pre.pre = load i32, ptr %461, align 8, !tbaa !10, !noalias !331
+  %.pre.pre = load i32, ptr %461, align 8, !tbaa !10, !noalias !333
   br label %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit
 
 520:                                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit
   %521 = load ptr, ptr %7, align 8, !tbaa !17
-  store ptr %501, ptr %521, align 8, !tbaa !334
+  store ptr %501, ptr %521, align 8, !tbaa !336
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %522, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %523 = load i32, ptr %461, align 8, !tbaa !10
@@ -12735,7 +12735,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   %526 = phi i32 [ %.pre, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit ], [ %698, %697 ]
   %.098 = phi i32 [ 2, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit ], [ %.199.lcssa, %697 ]
   %.295 = phi i32 [ %.093, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit ], [ %.396.ph, %697 ]
-  %527 = load ptr, ptr %7, align 8, !tbaa !17, !noalias !331
+  %527 = load ptr, ptr %7, align 8, !tbaa !17, !noalias !333
   %528 = zext i32 %526 to i64
   %529 = getelementptr inbounds nuw %"struct.std::pair.273", ptr %527, i64 %528
   %530 = getelementptr inbounds i8, ptr %529, i64 -24
@@ -12745,7 +12745,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %529, i64 -8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %531 = add i32 %526, -1
-  store i32 %531, ptr %461, align 8, !tbaa !10, !noalias !331
+  store i32 %531, ptr %461, align 8, !tbaa !10, !noalias !333
   %532 = getelementptr inbounds nuw i8, ptr %.sroa.0204.0.copyload, i64 24
   %533 = load ptr, ptr %532, align 8, !tbaa !17
   %534 = getelementptr inbounds nuw i8, ptr %.sroa.0204.0.copyload, i64 32
@@ -12779,7 +12779,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
 
 545:                                              ; preds = %543
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
-  store ptr %.sroa.0204.0291, ptr %5, align 8, !tbaa !334
+  store ptr %.sroa.0204.0291, ptr %5, align 8, !tbaa !336
   store ptr %.sroa.11.0292, ptr %467, align 8
   store ptr %.sroa.22.0293, ptr %.sroa.22.8..sroa_idx213, align 8
   %546 = zext i32 %538 to i64
@@ -12789,7 +12789,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   %549 = icmp uge ptr %5, %.pre3.i.i
   %550 = icmp ult ptr %5, %548
   %spec.select.i.i.i.i.i.i = and i1 %549, %550
-  br i1 %spec.select.i.i.i.i.i.i, label %552, label %551, !prof !269
+  br i1 %spec.select.i.i.i.i.i.i, label %552, label %551, !prof !271
 
 551:                                              ; preds = %545
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %460, i64 noundef %547, i64 noundef 24) #18
@@ -12821,7 +12821,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSeq
   %564 = zext i32 %538 to i64
   %565 = load ptr, ptr %7, align 8, !tbaa !17
   %566 = getelementptr inbounds nuw %"struct.std::pair.273", ptr %565, i64 %564
-  store ptr %.sroa.0204.0291, ptr %566, align 8, !tbaa !334
+  store ptr %.sroa.0204.0291, ptr %566, align 8, !tbaa !336
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store ptr %.sroa.11.0292, ptr %567, align 8
   %.sroa.22.8..sroa_idx = getelementptr inbounds nuw i8, ptr %566, i64 16
@@ -12868,7 +12868,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i135: ; preds = %_ZNK4llvm13Laz
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit137: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i130, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i135, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit
   %.sroa.0.1.i132 = phi ptr [ %574, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit ], [ %578, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i135 ], [ %.sroa.0.0.i127, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i130 ]
   %583 = getelementptr inbounds nuw %"class.llvm::LazyCallGraph::Edge", ptr %574, i64 %577
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit150, !llvm.loop !338
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit150, !llvm.loop !340
 
 584:                                              ; preds = %.lr.ph296
   %585 = getelementptr inbounds nuw i8, ptr %.sroa.11.0292, i64 8
@@ -12895,7 +12895,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i: ; preds = %587, %.lr.ph.i
 
 _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %587, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i, %584
   %.sroa.11.3 = phi ptr [ %585, %584 ], [ %.sroa.11.2, %587 ], [ %590, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i ]
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit150, !llvm.loop !338
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit150, !llvm.loop !340
 
 591:                                              ; preds = %.lr.ph296
   %592 = getelementptr inbounds nuw i8, ptr %540, i64 20
@@ -12980,7 +12980,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 624:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit
   %625 = add nsw i32 %.295, 1
-  %626 = load ptr, ptr %8, align 8, !tbaa !17, !noalias !339
+  %626 = load ptr, ptr %8, align 8, !tbaa !17, !noalias !341
   %627 = zext i32 %619 to i64
   %628 = getelementptr inbounds nuw ptr, ptr %626, i64 %627
   %629 = ptrtoint ptr %628 to i64
@@ -12996,52 +12996,52 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %632 = phi ptr [ %651, %655 ], [ %628, %.lr.ph.i.i.i.i.preheader ]
   %.047.i.i.i.i = phi i64 [ %657, %655 ], [ %631, %.lr.ph.i.i.i.i.preheader ]
   %633 = getelementptr i8, ptr %632, i64 -8
-  %.val3.val.i.i.i.i = load ptr, ptr %633, align 8, !tbaa !7, !noalias !350
+  %.val3.val.i.i.i.i = load ptr, ptr %633, align 8, !tbaa !7, !noalias !352
   %634 = getelementptr inbounds nuw i8, ptr %.val3.val.i.i.i.i, i64 16
-  %635 = load i32, ptr %634, align 8, !tbaa !126, !noalias !350
+  %635 = load i32, ptr %634, align 8, !tbaa !126, !noalias !352
   %636 = icmp slt i32 %635, %621
   br i1 %636, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit", label %637
 
 637:                                              ; preds = %.lr.ph.i.i.i.i
-  store i32 -1, ptr %634, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %634, align 8, !tbaa !126, !noalias !352
   %638 = getelementptr inbounds nuw i8, ptr %.val3.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %638, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %638, align 4, !tbaa !127, !noalias !352
   %639 = getelementptr i8, ptr %632, i64 -16
-  %.val6.val.i.i.i.i = load ptr, ptr %639, align 8, !tbaa !7, !noalias !350
+  %.val6.val.i.i.i.i = load ptr, ptr %639, align 8, !tbaa !7, !noalias !352
   %640 = getelementptr inbounds nuw i8, ptr %.val6.val.i.i.i.i, i64 16
-  %641 = load i32, ptr %640, align 8, !tbaa !126, !noalias !350
+  %641 = load i32, ptr %640, align 8, !tbaa !126, !noalias !352
   %642 = icmp slt i32 %641, %621
   br i1 %642, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit398", label %643
 
 643:                                              ; preds = %637
-  store i32 -1, ptr %640, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %640, align 8, !tbaa !126, !noalias !352
   %644 = getelementptr inbounds nuw i8, ptr %.val6.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %644, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %644, align 4, !tbaa !127, !noalias !352
   %645 = getelementptr i8, ptr %632, i64 -24
-  %.val9.val.i.i.i.i = load ptr, ptr %645, align 8, !tbaa !7, !noalias !350
+  %.val9.val.i.i.i.i = load ptr, ptr %645, align 8, !tbaa !7, !noalias !352
   %646 = getelementptr inbounds nuw i8, ptr %.val9.val.i.i.i.i, i64 16
-  %647 = load i32, ptr %646, align 8, !tbaa !126, !noalias !350
+  %647 = load i32, ptr %646, align 8, !tbaa !126, !noalias !352
   %648 = icmp slt i32 %647, %621
   br i1 %648, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit396", label %649
 
 649:                                              ; preds = %643
-  store i32 -1, ptr %646, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %646, align 8, !tbaa !126, !noalias !352
   %650 = getelementptr inbounds nuw i8, ptr %.val9.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %650, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %650, align 4, !tbaa !127, !noalias !352
   %651 = getelementptr i8, ptr %632, i64 -32
-  %.val12.val.i.i.i.i = load ptr, ptr %651, align 8, !tbaa !7, !noalias !350
+  %.val12.val.i.i.i.i = load ptr, ptr %651, align 8, !tbaa !7, !noalias !352
   %652 = getelementptr inbounds nuw i8, ptr %.val12.val.i.i.i.i, i64 16
-  %653 = load i32, ptr %652, align 8, !tbaa !126, !noalias !350
+  %653 = load i32, ptr %652, align 8, !tbaa !126, !noalias !352
   %654 = icmp slt i32 %653, %621
   br i1 %654, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", label %655
 
 655:                                              ; preds = %649
-  store i32 -1, ptr %652, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %652, align 8, !tbaa !126, !noalias !352
   %656 = getelementptr inbounds nuw i8, ptr %.val12.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %656, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %656, align 4, !tbaa !127, !noalias !352
   %657 = add nsw i64 %.047.i.i.i.i, -1
   %658 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %658, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !359
+  br i1 %658, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !361
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %655
   %.pre65.i.i.i.i = ptrtoint ptr %651 to i64
@@ -13060,46 +13060,46 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 661:                                              ; preds = %._crit_edge.i.i.i.i
   %662 = getelementptr i8, ptr %660, i64 -8
-  %.val15.val.i.i.i.i = load ptr, ptr %662, align 8, !tbaa !7, !noalias !350
+  %.val15.val.i.i.i.i = load ptr, ptr %662, align 8, !tbaa !7, !noalias !352
   %663 = getelementptr inbounds nuw i8, ptr %.val15.val.i.i.i.i, i64 16
-  %664 = load i32, ptr %663, align 8, !tbaa !126, !noalias !350
+  %664 = load i32, ptr %663, align 8, !tbaa !126, !noalias !352
   %665 = icmp slt i32 %664, %621
   br i1 %665, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit", label %666
 
 666:                                              ; preds = %661
-  store i32 -1, ptr %663, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %663, align 8, !tbaa !126, !noalias !352
   %667 = getelementptr inbounds nuw i8, ptr %.val15.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %667, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %667, align 4, !tbaa !127, !noalias !352
   br label %668
 
 668:                                              ; preds = %666, %._crit_edge.i.i.i.i
   %669 = phi ptr [ %662, %666 ], [ %660, %._crit_edge.i.i.i.i ]
   %670 = getelementptr i8, ptr %669, i64 -8
-  %.val18.val.i.i.i.i = load ptr, ptr %670, align 8, !tbaa !7, !noalias !350
+  %.val18.val.i.i.i.i = load ptr, ptr %670, align 8, !tbaa !7, !noalias !352
   %671 = getelementptr inbounds nuw i8, ptr %.val18.val.i.i.i.i, i64 16
-  %672 = load i32, ptr %671, align 8, !tbaa !126, !noalias !350
+  %672 = load i32, ptr %671, align 8, !tbaa !126, !noalias !352
   %673 = icmp slt i32 %672, %621
   br i1 %673, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit", label %674
 
 674:                                              ; preds = %668
-  store i32 -1, ptr %671, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %671, align 8, !tbaa !126, !noalias !352
   %675 = getelementptr inbounds nuw i8, ptr %.val18.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %675, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %675, align 4, !tbaa !127, !noalias !352
   br label %676
 
 676:                                              ; preds = %674, %._crit_edge.i.i.i.i
   %677 = phi ptr [ %670, %674 ], [ %660, %._crit_edge.i.i.i.i ]
   %678 = getelementptr i8, ptr %677, i64 -8
-  %.val21.val.i.i.i.i = load ptr, ptr %678, align 8, !tbaa !7, !noalias !350
+  %.val21.val.i.i.i.i = load ptr, ptr %678, align 8, !tbaa !7, !noalias !352
   %679 = getelementptr inbounds nuw i8, ptr %.val21.val.i.i.i.i, i64 16
-  %680 = load i32, ptr %679, align 8, !tbaa !126, !noalias !350
+  %680 = load i32, ptr %679, align 8, !tbaa !126, !noalias !352
   %681 = icmp slt i32 %680, %621
   br i1 %681, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit", label %682
 
 682:                                              ; preds = %676
-  store i32 -1, ptr %679, align 8, !tbaa !126, !noalias !350
+  store i32 -1, ptr %679, align 8, !tbaa !126, !noalias !352
   %683 = getelementptr inbounds nuw i8, ptr %.val21.val.i.i.i.i, i64 20
-  store i32 %.295, ptr %683, align 4, !tbaa !127, !noalias !350
+  store i32 %.295, ptr %683, align 4, !tbaa !127, !noalias !352
   br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit": ; preds = %649
@@ -13146,7 +13146,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit: ; pred
   %.396.ph = phi i32 [ %625, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit ], [ %.295, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit ]
   %698 = load i32, ptr %461, align 8, !tbaa !10
   %.not.i156 = icmp eq i32 %698, 0
-  br i1 %.not.i156, label %thread-pre-split, label %525, !llvm.loop !360
+  br i1 %.not.i156, label %thread-pre-split, label %525, !llvm.loop !362
 
 thread-pre-split:                                 ; preds = %697
   %.pr = load i32, ptr %451, align 8, !tbaa !10
@@ -13157,7 +13157,7 @@ thread-pre-split:                                 ; preds = %697
   %.194.ph = phi i32 [ %.396.ph, %thread-pre-split ], [ %.093, %495 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
   %.not.i157 = icmp eq i32 %700, 0
-  br i1 %.not.i157, label %.preheader251, label %495, !llvm.loop !361
+  br i1 %.not.i157, label %.preheader251, label %495, !llvm.loop !363
 
 .preheader251:                                    ; preds = %699
   %701 = icmp sgt i32 %.194.ph, 0
@@ -13166,9 +13166,9 @@ thread-pre-split:                                 ; preds = %697
 ._crit_edge310:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit, %.preheader251
   %702 = load ptr, ptr %1, align 8, !tbaa !174
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 552
-  %704 = load ptr, ptr %703, align 8, !tbaa !301
+  %704 = load ptr, ptr %703, align 8, !tbaa !303
   %705 = getelementptr inbounds nuw i8, ptr %702, i64 568
-  %706 = load i32, ptr %705, align 8, !tbaa !304
+  %706 = load i32, ptr %705, align 8, !tbaa !306
   %707 = icmp eq i32 %706, 0
   br i1 %707, label %.loopexit.i.i164, label %708
 
@@ -13201,7 +13201,7 @@ thread-pre-split:                                 ; preds = %697
   %725 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %704, i64 %724
   %726 = load ptr, ptr %725, align 8, !tbaa !172
   %727 = icmp eq ptr %1, %726
-  br i1 %727, label %_ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit, label %.lr.ph.i.i.i159, !prof !23, !llvm.loop !305
+  br i1 %727, label %_ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit, label %.lr.ph.i.i.i159, !prof !23, !llvm.loop !307
 
 .loopexit.i.i164:                                 ; preds = %.lr.ph.i.i.i159, %._crit_edge310
   %728 = zext i32 %706 to i64
@@ -13211,7 +13211,7 @@ thread-pre-split:                                 ; preds = %697
 _ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit: ; preds = %721, %708, %.loopexit.i.i164
   %.sroa.0.1.i.i163 = phi ptr [ %729, %.loopexit.i.i164 ], [ %716, %708 ], [ %725, %721 ]
   %730 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i163, i64 8
-  %731 = load i32, ptr %730, align 8, !tbaa !306
+  %731 = load i32, ptr %730, align 8, !tbaa !308
   %732 = sext i32 %731 to i64
   %.idx248 = shl nsw i64 %732, 3
   %733 = getelementptr inbounds nuw i8, ptr %702, i64 416
@@ -13312,7 +13312,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_
   store i32 %788, ptr %13, align 8, !tbaa !10
   %789 = add nuw nsw i32 %.0103308, 1
   %exitcond.not = icmp eq i32 %789, %.194.ph
-  br i1 %exitcond.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !362
+  br i1 %exitcond.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !364
 
 ._crit_edge314:                                   ; preds = %.lr.ph313, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE5eraseEPKS3_.exit
   %790 = load ptr, ptr %453, align 8, !tbaa !17
@@ -13394,7 +13394,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_
   store ptr inttoptr (i64 -4096 to ptr), ptr %.08.i, align 8, !tbaa !196
   %825 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %.not.i176 = icmp eq ptr %825, %824
-  br i1 %.not.i176, label %._crit_edge.loopexit.i, label %.lr.ph.i175, !llvm.loop !363
+  br i1 %.not.i176, label %._crit_edge.loopexit.i, label %.lr.ph.i175, !llvm.loop !365
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit: ; preds = %.critedge.critedge, %818, %._crit_edge.i
   %826 = load ptr, ptr %8, align 8, !tbaa !17
@@ -13700,7 +13700,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds
   %82 = getelementptr inbounds nuw i8, ptr %.04256, i64 8
   %83 = add i64 %.04057, -1
   %.not44 = icmp eq i64 %83, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !364
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !366
 
 _ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %77, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6appendIPS3_vEEvT_S7_.exit
   %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6appendIPS3_vEEvT_S7_.exit ], [ %45, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ], [ %45, %69 ], [ %45, %._crit_edge ], [ %45, %77 ]
@@ -13885,7 +13885,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph6RefSCC19replaceNodeFunctionERNS0_
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.278", ptr %12, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !108
   %35 = icmp eq ptr %9, %34
-  br i1 %35, label %.loopexit.i, label %.lr.ph.i.i, !prof !23, !llvm.loop !365
+  br i1 %35, label %.loopexit.i, label %.lr.ph.i.i, !prof !23, !llvm.loop !367
 
 .loopexit.i:                                      ; preds = %29, %16
   %.0.i.ph.i = phi ptr [ %24, %16 ], [ %33, %29 ]
@@ -14236,7 +14236,7 @@ _ZN4llvm15SmallVectorImplIPNS_8FunctionEE5eraseEPKS2_.exit: ; preds = %57, %59
   %88 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %66, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !108
   %90 = icmp eq ptr %71, %89
-  br i1 %90, label %.loopexit, label %.lr.ph.i.i.i, !prof !23, !llvm.loop !366
+  br i1 %90, label %.loopexit, label %.lr.ph.i.i.i, !prof !23, !llvm.loop !368
 
 .loopexit:                                        ; preds = %84, %70
   %.lcssa.i.i.i = phi i64 [ %78, %70 ], [ %87, %84 ]
@@ -14245,9 +14245,9 @@ _ZN4llvm15SmallVectorImplIPNS_8FunctionEE5eraseEPKS2_.exit: ; preds = %57, %59
   %92 = add i32 %4, -1
   store i32 %92, ptr %3, align 8, !tbaa !153
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %94 = load i32, ptr %93, align 4, !tbaa !367
+  %94 = load i32, ptr %93, align 4, !tbaa !369
   %95 = add i32 %94, 1
-  store i32 %95, ptr %93, align 4, !tbaa !367
+  store i32 %95, ptr %93, align 4, !tbaa !369
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !17
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -14554,7 +14554,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph16markDeadFunctionERNS_8FunctionE(
   %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.278", ptr %4, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !108
   %27 = icmp eq ptr %1, %26
-  br i1 %27, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i, !prof !23, !llvm.loop !365
+  br i1 %27, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i, !prof !23, !llvm.loop !367
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %2
   %28 = zext i32 %6 to i64
@@ -14720,11 +14720,11 @@ define dso_local void @_ZN4llvm13LazyCallGraph19removeDeadFunctionsENS_8ArrayRef
   br label %35
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit
-  %.pre189 = load ptr, ptr %4, align 8, !tbaa !368
+  %.pre189 = load ptr, ptr %4, align 8, !tbaa !370
   %.phi.trans.insert190 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.pre191 = load i32, ptr %.phi.trans.insert190, align 8, !tbaa !371
+  %.pre191 = load i32, ptr %.phi.trans.insert190, align 8, !tbaa !373
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !372
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !374
   %15 = icmp eq i32 %.pre, 0
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = zext i32 %.pre191 to i64
@@ -14752,7 +14752,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph19removeDeadFunctionsENS_8ArrayRef
 .critedge2.i8.i14.i6.i:                           ; preds = %.lr.ph.i6.i12.i3.i, %.lr.ph.i6.i12.i3.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 32
   %.not.i9.i15.i7.i = icmp eq ptr %23, %21
-  br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !373
+  br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !375
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %18, %20
   %.pn14.i = phi ptr [ %19, %18 ], [ %.pre189, %20 ], [ %21, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
@@ -14811,7 +14811,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.278", ptr %37, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !108
   %59 = icmp eq ptr %36, %58
-  br i1 %59, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !23, !llvm.loop !365
+  br i1 %59, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !23, !llvm.loop !367
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i: ; preds = %53, %40
   %60 = phi i64 [ %47, %40 ], [ %56, %53 ]
@@ -14922,8 +14922,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 123:                                              ; preds = %.lr.ph173, %_ZN4llvm16DenseMapIteratorIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EELb0EEppEv.exit
   %.sroa.0135.0172 = phi ptr [ %.pn14.i, %.lr.ph173 ], [ %.sroa.0135.2, %_ZN4llvm16DenseMapIteratorIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EELb0EEppEv.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
-  %124 = load ptr, ptr %.sroa.0135.0172, align 8, !tbaa !374
-  store ptr %124, ptr %6, align 8, !tbaa !374
+  %124 = load ptr, ptr %.sroa.0135.0172, align 8, !tbaa !376
+  store ptr %124, ptr %6, align 8, !tbaa !376
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.0135.0172, i64 8
   store ptr %26, ptr %25, align 8, !tbaa !17
   store i32 0, ptr %27, align 8, !tbaa !10
@@ -14987,7 +14987,7 @@ _ZSt4copyIPKPN4llvm13LazyCallGraph4NodeEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: 
 ._crit_edge166:                                   ; preds = %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit.thread, %._crit_edge166.loopexit
   %139 = phi i64 [ %138, %._crit_edge166.loopexit ], [ 0, %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit.thread ]
   %140 = phi ptr [ %.pre193, %._crit_edge166.loopexit ], [ %29, %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit.thread ]
-  %141 = load ptr, ptr %6, align 8, !tbaa !374
+  %141 = load ptr, ptr %6, align 8, !tbaa !376
   call void @_ZN4llvm13LazyCallGraph6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIPNS0_4NodeES5_EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.246") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %141, ptr %140, i64 %139)
   %142 = load ptr, ptr %8, align 8, !tbaa !17
   %143 = icmp eq ptr %142, %34
@@ -15108,7 +15108,7 @@ _ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i62: ; preds = %184, %172
 
 _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit64: ; preds = %.lr.ph.i.i.i.i.i58, %166, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i62, %194
   %196 = phi ptr [ %195, %194 ], [ null, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i62 ], [ null, %166 ], [ null, %.lr.ph.i.i.i.i.i58 ]
-  %197 = load ptr, ptr %6, align 8, !tbaa !374
+  %197 = load ptr, ptr %6, align 8, !tbaa !376
   %198 = icmp eq ptr %196, %197
   br i1 %198, label %199, label %211
 
@@ -15267,7 +15267,7 @@ _ZNSt4pairIPN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPNS1_4NodeELj1EEEED2E
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.0135.1, i64 32
   %.not.i7.i = icmp eq ptr %262, %.pn12.i
-  br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !373
+  br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !375
 
 _ZN4llvm16DenseMapIteratorIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZNSt4pairIPN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPNS1_4NodeELj1EEEED2Ev.exit
   %.sroa.0135.2 = phi ptr [ %260, %_ZNSt4pairIPN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPNS1_4NodeELj1EEEED2Ev.exit ], [ %262, %.critedge2.i6.i ], [ %.sroa.0135.1, %.lr.ph.i4.i ]
@@ -15398,7 +15398,7 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit84: ; preds = %.lr.ph.i.i
 
 329:                                              ; preds = %321
   %330 = getelementptr inbounds nuw i8, ptr %292, i64 64
-  %331 = load ptr, ptr %330, align 8, !tbaa !376
+  %331 = load ptr, ptr %330, align 8, !tbaa !378
   %332 = zext i32 %305 to i64
   %333 = shl nuw nsw i64 %332, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %331, i64 noundef %333, i64 noundef 8) #18
@@ -15477,7 +15477,7 @@ _ZN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS3_vEENS_
   store ptr inttoptr (i64 -4096 to ptr), ptr %.08.i.i, align 8, !tbaa !196
   %359 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
   %.not.i.i87 = icmp eq ptr %359, %358
-  br i1 %.not.i.i87, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i86, !llvm.loop !363
+  br i1 %.not.i.i87, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i86, !llvm.loop !365
 
 _ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit:      ; preds = %.lr.ph.i.i.i118, %.lr.ph.i.i123, %343, %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit84, %._crit_edge.i.i
   store ptr null, ptr %292, align 8, !tbaa !174
@@ -15486,9 +15486,9 @@ _ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit:      ; preds = %.lr.ph.i.i.i118, %.
   br i1 %.not53, label %._crit_edge170, label %.lr.ph169
 
 ._crit_edge177:                                   ; preds = %_ZN4llvm13LazyCallGraph4Node5clearEv.exit
-  %361 = load i32, ptr %16, align 8, !tbaa !371
+  %361 = load i32, ptr %16, align 8, !tbaa !373
   %362 = icmp eq i32 %361, 0
-  %.pre1.i = load ptr, ptr %4, align 8, !tbaa !368
+  %.pre1.i = load ptr, ptr %4, align 8, !tbaa !370
   br i1 %362, label %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge177
@@ -15520,11 +15520,11 @@ _ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit:      ; preds = %.lr.ph.i.i.i118, %.
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit.i.i: ; preds = %371, %366, %.lr.ph.i.i90, %.lr.ph.i.i90
   %372 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 32
   %.not.i.i91 = icmp eq ptr %372, %364
-  br i1 %.not.i.i91, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i90, !llvm.loop !378
+  br i1 %.not.i.i91, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i90, !llvm.loop !380
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit.i.i
-  %.pre.i92 = load ptr, ptr %4, align 8, !tbaa !368
-  %.pre2.i = load i32, ptr %16, align 8, !tbaa !371
+  %.pre.i92 = load ptr, ptr %4, align 8, !tbaa !370
+  %.pre2.i = load i32, ptr %16, align 8, !tbaa !373
   %373 = zext i32 %.pre2.i to i64
   %374 = shl nuw nsw i64 %373, 5
   br label %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit
@@ -15573,7 +15573,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEEN
   %399 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.278", ptr %379, i64 %398
   %400 = load ptr, ptr %399, align 8, !tbaa !108
   %401 = icmp eq ptr %378, %400
-  br i1 %401, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i98, label %.lr.ph.i.i.i.i94, !prof !23, !llvm.loop !365
+  br i1 %401, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i98, label %.lr.ph.i.i.i.i94, !prof !23, !llvm.loop !367
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i98: ; preds = %395, %382
   %402 = phi i64 [ %389, %382 ], [ %398, %395 ]
@@ -15732,7 +15732,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
   %492 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.278", ptr %472, i64 %491
   %493 = load ptr, ptr %492, align 8, !tbaa !108
   %494 = icmp eq ptr %378, %493
-  br i1 %494, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i105, !prof !23, !llvm.loop !365
+  br i1 %494, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i105, !prof !23, !llvm.loop !367
 
 .loopexit.i114:                                   ; preds = %.lr.ph.i.i105, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findEPKS3_.exit
   %495 = zext i32 %473 to i64
@@ -15785,9 +15785,9 @@ _ZN4llvm13LazyCallGraph4Node5clearEv.exit:        ; preds = %_ZN4llvm12DenseMapB
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !368
+  %4 = load ptr, ptr %0, align 8, !tbaa !370
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !371
+  %6 = load i32, ptr %5, align 8, !tbaa !373
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit, label %8
 
@@ -15832,14 +15832,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.286", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !172
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !379
+  br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !381
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !380
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !382
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !372
+  %35 = load i32, ptr %34, align 8, !tbaa !374
   %36 = shl i32 %35, 2
   %37 = add i32 %36, 4
   %38 = mul i32 %6, 3
@@ -15852,7 +15852,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
 
 41:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !381
+  %43 = load i32, ptr %42, align 4, !tbaa !383
   %.neg.i.i = xor i32 %35, -1
   %.neg12.i.i = add i32 %6, %.neg.i.i
   %44 = sub i32 %.neg12.i.i, %43
@@ -15864,24 +15864,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   %.sink.i.i = phi i32 [ %40, %39 ], [ %6, %41 ]
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %.sink.i.i)
   %46 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i = load i32, ptr %34, align 8, !tbaa !372
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !380
+  %.pre.i = load i32, ptr %34, align 8, !tbaa !374
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !382
   br label %47
 
 47:                                               ; preds = %.sink.split.i.i, %41
   %48 = phi ptr [ %.pre7.i, %.sink.split.i.i ], [ %.sink.i, %41 ]
   %49 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %35, %41 ]
   %50 = add i32 %49, 1
-  store i32 %50, ptr %34, align 8, !tbaa !372
+  store i32 %50, ptr %34, align 8, !tbaa !374
   %51 = load ptr, ptr %48, align 8, !tbaa !172
   %52 = icmp eq ptr %51, inttoptr (i64 -4096 to ptr)
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E16InsertIntoBucketIRKS4_JEEEPSD_SJ_OT_DpOT0_.exit, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !381
+  %55 = load i32, ptr %54, align 4, !tbaa !383
   %56 = add i32 %55, -1
-  store i32 %56, ptr %54, align 4, !tbaa !381
+  store i32 %56, ptr %54, align 4, !tbaa !383
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E16InsertIntoBucketIRKS4_JEEEPSD_SJ_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E16InsertIntoBucketIRKS4_JEEEPSD_SJ_OT_DpOT0_.exit: ; preds = %47, %53
@@ -16055,39 +16055,39 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit: ; preds = %.lr.ph.i.i.i
   %84 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm13LazyCallGraph8initNodeERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(136) %2)
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %87 = load ptr, ptr %86, align 8, !tbaa !53, !noalias !382
+  %87 = load ptr, ptr %86, align 8, !tbaa !53, !noalias !384
   %.not.i.i.i.i = icmp eq ptr %87, %85
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %88
 
 88:                                               ; preds = %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %90 = load ptr, ptr %89, align 8, !tbaa !59, !noalias !382
+  %90 = load ptr, ptr %89, align 8, !tbaa !59, !noalias !384
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %92 = icmp eq ptr %90, %91
   br i1 %92, label %.lr.ph.i.i.preheader.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !53, !noalias !382
+  %94 = load ptr, ptr %93, align 8, !tbaa !53, !noalias !384
   %95 = icmp eq ptr %94, %85
   br i1 %95, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i.i.i70:                               ; preds = %.lr.ph.i.i.i
   %96 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !53, !noalias !382
+  %97 = load ptr, ptr %96, align 8, !tbaa !53, !noalias !384
   %98 = icmp eq ptr %97, %85
-  br i1 %98, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %.lr.ph.i.i.i, !llvm.loop !387
+  br i1 %98, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %.lr.ph.i.i.i, !llvm.loop !389
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.preheader.i.i.i, %.lr.ph.i.i.i.i.i70
   %99 = phi ptr [ %97, %.lr.ph.i.i.i.i.i70 ], [ %94, %.lr.ph.i.i.preheader.i.i.i ]
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !59, !noalias !382
+  %101 = load ptr, ptr %100, align 8, !tbaa !59, !noalias !384
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %103 = icmp eq ptr %101, %102
-  br i1 %103, label %.lr.ph.i.i.i.i.i70, label %..sink.split.i.i_crit_edge.i.i.i, !llvm.loop !387
+  br i1 %103, label %.lr.ph.i.i.i.i.i70, label %..sink.split.i.i_crit_edge.i.i.i, !llvm.loop !389
 
 ..sink.split.i.i_crit_edge.i.i.i:                 ; preds = %.lr.ph.i.i.i
-  br label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, !llvm.loop !387
+  br label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, !llvm.loop !389
 
 _ZN4llvm12instructionsERNS_8FunctionE.exit.i:     ; preds = %.lr.ph.i.i.i.i.i70, %..sink.split.i.i_crit_edge.i.i.i, %.lr.ph.i.i.preheader.i.i.i, %88, %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit
   %.sroa.23.0.i.i = phi ptr [ %87, %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit ], [ %87, %88 ], [ %99, %..sink.split.i.i_crit_edge.i.i.i ], [ %94, %.lr.ph.i.i.preheader.i.i.i ], [ %97, %.lr.ph.i.i.i.i.i70 ]
@@ -16144,7 +16144,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %108
   %125 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !53
   %127 = icmp eq ptr %126, %85
-  br i1 %127, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.i, label %.lr.ph.i, !llvm.loop !387
+  br i1 %127, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.i, label %.lr.ph.i, !llvm.loop !389
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i24.preheader.i, %.lr.ph.i.i24.i
   %128 = phi ptr [ %126, %.lr.ph.i.i24.i ], [ %123, %.lr.ph.i.i24.preheader.i ]
@@ -16152,10 +16152,10 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %108
   %130 = load ptr, ptr %129, align 8, !tbaa !59
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %132 = icmp eq ptr %130, %131
-  br i1 %132, label %.lr.ph.i.i24.i, label %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge.i, !llvm.loop !387
+  br i1 %132, label %.lr.ph.i.i24.i, label %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge.i, !llvm.loop !389
 
 ._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
-  br label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.i, !llvm.loop !387
+  br label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.i, !llvm.loop !389
 
 _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.i: ; preds = %.lr.ph.i.i24.i, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge.i, %.lr.ph.i.i24.preheader.i, %.critedge.i
   %.sroa.527.1.i = phi ptr [ %.sroa.527.045.i, %.critedge.i ], [ %128, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge.i ], [ %123, %.lr.ph.i.i24.preheader.i ], [ %126, %.lr.ph.i.i24.i ]
@@ -16799,7 +16799,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %326, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %332, !llvm.loop !388
+  br i1 %exitcond.not, label %.loopexit, label %332, !llvm.loop !390
 
 .critedge68:                                      ; preds = %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit110
   %424 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0234, i64 8
@@ -17004,9 +17004,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.ex
   %505 = add i32 %504, 1
   store i32 %505, ptr %491, align 8, !tbaa !10
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %507 = load ptr, ptr %506, align 8, !tbaa !301
+  %507 = load ptr, ptr %506, align 8, !tbaa !303
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %509 = load i32, ptr %508, align 8, !tbaa !304
+  %509 = load i32, ptr %508, align 8, !tbaa !306
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %.loopexit.i, label %511
 
@@ -17039,7 +17039,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.ex
   %528 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %507, i64 %527
   %529 = load ptr, ptr %528, align 8, !tbaa !172
   %530 = icmp eq ptr %83, %529
-  br i1 %530, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit, label %.lr.ph.i.i142, !prof !23, !llvm.loop !305
+  br i1 %530, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit, label %.lr.ph.i.i142, !prof !23, !llvm.loop !307
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i142, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.exit
   %531 = zext i32 %509 to i64
@@ -17049,7 +17049,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.ex
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit: ; preds = %524, %511, %.loopexit.i
   %.sroa.0.1.i143 = phi ptr [ %532, %.loopexit.i ], [ %519, %511 ], [ %528, %524 ]
   %533 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i143, i64 8
-  %534 = load i32, ptr %533, align 8, !tbaa !306
+  %534 = load i32, ptr %533, align 8, !tbaa !308
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %536 = load ptr, ptr %535, align 8, !tbaa !17
   %537 = sext i32 %534 to i64
@@ -17147,7 +17147,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6insertEPS3_RKS3_.exit: ; 
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
   %lftr.wideiv267 = trunc i64 %indvars.iv.next265 to i32
   %exitcond268.not = icmp eq i32 %572, %lftr.wideiv267
-  br i1 %exitcond268.not, label %.thread, label %.lr.ph239, !llvm.loop !389
+  br i1 %exitcond268.not, label %.thread, label %.lr.ph239, !llvm.loop !391
 
 .thread:                                          ; preds = %.lr.ph239, %.loopexit207, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6insertEPS3_RKS3_.exit, %.loopexit
   %578 = load ptr, ptr %10, align 8, !tbaa !196
@@ -17626,9 +17626,9 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit: ; preds =
   %.0.i.i.i.i.i.i = phi ptr [ %156, %154 ], [ %158, %157 ]
   call void @_ZN4llvm13LazyCallGraph6RefSCCC1ERS0_(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(648) %0) #18
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %160 = load ptr, ptr %159, align 8, !tbaa !301
+  %160 = load ptr, ptr %159, align 8, !tbaa !303
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %162 = load i32, ptr %161, align 8, !tbaa !304
+  %162 = load i32, ptr %161, align 8, !tbaa !306
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %.loopexit.i, label %164
 
@@ -17661,7 +17661,7 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit: ; preds =
   %181 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %160, i64 %180
   %182 = load ptr, ptr %181, align 8, !tbaa !172
   %183 = icmp eq ptr %70, %182
-  br i1 %183, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit, label %.lr.ph.i.i56, !prof !23, !llvm.loop !305
+  br i1 %183, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit, label %.lr.ph.i.i56, !prof !23, !llvm.loop !307
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i56, %_ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit
   %184 = zext i32 %162 to i64
@@ -17671,7 +17671,7 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit: ; preds =
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit: ; preds = %177, %164, %.loopexit.i
   %.sroa.0.1.i57 = phi ptr [ %185, %.loopexit.i ], [ %172, %164 ], [ %181, %177 ]
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i57, i64 8
-  %187 = load i32, ptr %186, align 8, !tbaa !306
+  %187 = load i32, ptr %186, align 8, !tbaa !308
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %189 = load ptr, ptr %188, align 8, !tbaa !17
   %190 = sext i32 %187 to i64
@@ -17769,7 +17769,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6insertEPS3_RKS3_.exit: ; 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %225, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph106, !llvm.loop !390
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph106, !llvm.loop !392
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %.lr.ph106, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6insertEPS3_RKS3_.exit, %._crit_edge103
   %.090 = phi ptr [ %70, %._crit_edge103 ], [ %.0.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6insertEPS3_RKS3_.exit ], [ %.0.i.i.i.i.i.i, %.lr.ph106 ], [ null, %._crit_edge.thread ]
@@ -18038,9 +18038,9 @@ define dso_local void @_ZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14itera
   %6 = alloca %"class.llvm::SmallVector.239", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::LazyCallGraph::EdgeSequence::call_iterator", align 8
-  %9 = load ptr, ptr %2, align 8, !tbaa !391, !noalias !394
+  %9 = load ptr, ptr %2, align 8, !tbaa !393, !noalias !396
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !391, !noalias !397
+  %11 = load ptr, ptr %10, align 8, !tbaa !393, !noalias !399
   %.not30 = icmp eq ptr %9, %11
   br i1 %.not30, label %._crit_edge.thread, label %.lr.ph
 
@@ -18160,16 +18160,16 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store ptr %51, ptr %21, align 8
   %58 = load i32, ptr %17, align 4, !tbaa !15
   %.not.i.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i.not.i, label %59, label %61, !prof !269
+  br i1 %.not.i.not.i, label %59, label %61, !prof !271
 
 59:                                               ; preds = %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit.i"
   %60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEELb1EE18growAndEmplaceBackIJRS4_S6_EEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %.pre.pre.i = load i32, ptr %16, align 8, !tbaa !10, !noalias !400
+  %.pre.pre.i = load i32, ptr %16, align 8, !tbaa !10, !noalias !402
   br label %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i
 
 61:                                               ; preds = %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit.i"
   %62 = load ptr, ptr %5, align 8, !tbaa !17
-  store ptr %43, ptr %62, align 8, !tbaa !264
+  store ptr %43, ptr %62, align 8, !tbaa !266
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %64 = load i32, ptr %16, align 8, !tbaa !10
@@ -18185,7 +18185,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
 66:                                               ; preds = %363, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i
   %67 = phi i32 [ %.pre.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i ], [ %364, %363 ]
   %.0.i = phi i32 [ 2, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i ], [ %.1.lcssa.i, %363 ]
-  %68 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !400
+  %68 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !402
   %69 = zext i32 %67 to i64
   %70 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %68, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 -24
@@ -18195,7 +18195,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 -8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %72 = add i32 %67, -1
-  store i32 %72, ptr %16, align 8, !tbaa !10, !noalias !400
+  store i32 %72, ptr %16, align 8, !tbaa !10, !noalias !402
   %73 = getelementptr i8, ptr %.sroa.013.0.copyload.i, i64 24
   %.val45.i = load ptr, ptr %73, align 8, !tbaa !17
   %74 = getelementptr i8, ptr %.sroa.013.0.copyload.i, i64 32
@@ -18229,7 +18229,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
 
 84:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %.sroa.013.045.i, ptr %4, align 8, !tbaa !264
+  store ptr %.sroa.013.045.i, ptr %4, align 8, !tbaa !266
   store ptr %.sroa.11.046.i, ptr %22, align 8
   store ptr %.sroa.22.047.i, ptr %.sroa.22.8..sroa_idx23.i, align 8
   %85 = zext i32 %77 to i64
@@ -18239,7 +18239,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   %88 = icmp uge ptr %4, %.pre3.i.i.i
   %89 = icmp ult ptr %4, %87
   %spec.select.i.i.i.i.i.i.i = and i1 %88, %89
-  br i1 %spec.select.i.i.i.i.i.i.i, label %91, label %90, !prof !269
+  br i1 %spec.select.i.i.i.i.i.i.i, label %91, label %90, !prof !271
 
 90:                                               ; preds = %84
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %15, i64 noundef %86, i64 noundef 24) #18
@@ -18271,7 +18271,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSeq
   %103 = zext i32 %77 to i64
   %104 = load ptr, ptr %5, align 8, !tbaa !17
   %105 = getelementptr inbounds nuw %"struct.std::pair.241", ptr %104, i64 %103
-  store ptr %.sroa.013.045.i, ptr %105, align 8, !tbaa !264
+  store ptr %.sroa.013.045.i, ptr %105, align 8, !tbaa !266
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %.sroa.11.046.i, ptr %106, align 8
   %.sroa.22.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -18321,7 +18321,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i61.i: ; preds = %.lr.ph.i.i.i.i57
 "_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit69.i": ; preds = %.critedge2.i.i.i.i64.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i61.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit.i
   %.sroa.0.1.i.i66.i = phi ptr [ %.val43.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit.i ], [ %115, %.critedge2.i.i.i.i64.i ], [ %.sroa.0.0.i.i58.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i61.i ]
   %122 = getelementptr inbounds nuw %"class.llvm::LazyCallGraph::Edge", ptr %.val43.i, i64 %114
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit82.i, !llvm.loop !403
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit82.i, !llvm.loop !405
 
 123:                                              ; preds = %.lr.ph.i
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.11.046.i, i64 8
@@ -18351,7 +18351,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i:    ; preds = %.lr.ph.i.i.i
 
 _ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit.i: ; preds = %.critedge2.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i, %123
   %.sroa.11.2.i = phi ptr [ %124, %123 ], [ %130, %.critedge2.i.i.i ], [ %.sroa.11.1.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i ]
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit82.i, !llvm.loop !403
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit82.i, !llvm.loop !405
 
 131:                                              ; preds = %.lr.ph.i
   %132 = getelementptr inbounds nuw i8, ptr %79, i64 20
@@ -18434,7 +18434,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   br i1 %.not41.i, label %163, label %363
 
 163:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit.i
-  %164 = load ptr, ptr %6, align 8, !tbaa !17, !noalias !404
+  %164 = load ptr, ptr %6, align 8, !tbaa !17, !noalias !406
   %165 = zext i32 %158 to i64
   %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %165
   %167 = ptrtoint ptr %166 to i64
@@ -18451,40 +18451,40 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %170 = phi ptr [ %183, %186 ], [ %166, %.lr.ph.i.preheader.i.i.i.i ]
   %.040.i.i.i.i.i = phi i64 [ %187, %186 ], [ %168, %.lr.ph.i.preheader.i.i.i.i ]
   %171 = getelementptr i8, ptr %170, i64 -8
-  %.val2.val.i.i.i.i.i = load ptr, ptr %171, align 8, !tbaa !7, !noalias !407
+  %.val2.val.i.i.i.i.i = load ptr, ptr %171, align 8, !tbaa !7, !noalias !409
   %172 = getelementptr i8, ptr %.val2.val.i.i.i.i.i, i64 16
-  %.val2.val.val.i.i.i.i.i = load i32, ptr %172, align 8, !tbaa !126, !noalias !407
+  %.val2.val.val.i.i.i.i.i = load i32, ptr %172, align 8, !tbaa !126, !noalias !409
   %173 = icmp slt i32 %.val2.val.val.i.i.i.i.i, %160
   br i1 %173, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %174
 
 174:                                              ; preds = %.lr.ph.i.i.i.i83.i
   %175 = getelementptr i8, ptr %170, i64 -16
-  %.val4.val.i.i.i.i.i = load ptr, ptr %175, align 8, !tbaa !7, !noalias !407
+  %.val4.val.i.i.i.i.i = load ptr, ptr %175, align 8, !tbaa !7, !noalias !409
   %176 = getelementptr i8, ptr %.val4.val.i.i.i.i.i, i64 16
-  %.val4.val.val.i.i.i.i.i = load i32, ptr %176, align 8, !tbaa !126, !noalias !407
+  %.val4.val.val.i.i.i.i.i = load i32, ptr %176, align 8, !tbaa !126, !noalias !409
   %177 = icmp slt i32 %.val4.val.val.i.i.i.i.i, %160
   br i1 %177, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit66", label %178
 
 178:                                              ; preds = %174
   %179 = getelementptr i8, ptr %170, i64 -24
-  %.val6.val.i.i.i.i.i = load ptr, ptr %179, align 8, !tbaa !7, !noalias !407
+  %.val6.val.i.i.i.i.i = load ptr, ptr %179, align 8, !tbaa !7, !noalias !409
   %180 = getelementptr i8, ptr %.val6.val.i.i.i.i.i, i64 16
-  %.val6.val.val.i.i.i.i.i = load i32, ptr %180, align 8, !tbaa !126, !noalias !407
+  %.val6.val.val.i.i.i.i.i = load i32, ptr %180, align 8, !tbaa !126, !noalias !409
   %181 = icmp slt i32 %.val6.val.val.i.i.i.i.i, %160
   br i1 %181, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit64", label %182
 
 182:                                              ; preds = %178
   %183 = getelementptr i8, ptr %170, i64 -32
-  %.val8.val.i.i.i.i.i = load ptr, ptr %183, align 8, !tbaa !7, !noalias !407
+  %.val8.val.i.i.i.i.i = load ptr, ptr %183, align 8, !tbaa !7, !noalias !409
   %184 = getelementptr i8, ptr %.val8.val.i.i.i.i.i, i64 16
-  %.val8.val.val.i.i.i.i.i = load i32, ptr %184, align 8, !tbaa !126, !noalias !407
+  %.val8.val.val.i.i.i.i.i = load i32, ptr %184, align 8, !tbaa !126, !noalias !409
   %185 = icmp slt i32 %.val8.val.val.i.i.i.i.i, %160
   br i1 %185, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit", label %186
 
 186:                                              ; preds = %182
   %187 = add nsw i64 %.040.i.i.i.i.i, -1
   %188 = icmp sgt i64 %.040.i.i.i.i.i, 1
-  br i1 %188, label %.lr.ph.i.i.i.i83.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !416
+  br i1 %188, label %.lr.ph.i.i.i.i83.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !418
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %186
   %.idx35.i = shl nuw nsw i64 %165, 3
@@ -18503,27 +18503,27 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 191:                                              ; preds = %._crit_edge.i.i.i.i.i
   %192 = getelementptr i8, ptr %190, i64 -8
-  %.val10.val.i.i.i.i.i = load ptr, ptr %192, align 8, !tbaa !7, !noalias !407
+  %.val10.val.i.i.i.i.i = load ptr, ptr %192, align 8, !tbaa !7, !noalias !409
   %193 = getelementptr i8, ptr %.val10.val.i.i.i.i.i, i64 16
-  %.val10.val.val.i.i.i.i.i = load i32, ptr %193, align 8, !tbaa !126, !noalias !407
+  %.val10.val.val.i.i.i.i.i = load i32, ptr %193, align 8, !tbaa !126, !noalias !409
   %194 = icmp slt i32 %.val10.val.val.i.i.i.i.i, %160
   br i1 %194, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %195
 
 195:                                              ; preds = %191, %._crit_edge.i.i.i.i.i
   %196 = phi ptr [ %190, %._crit_edge.i.i.i.i.i ], [ %192, %191 ]
   %197 = getelementptr i8, ptr %196, i64 -8
-  %.val12.val.i.i.i.i.i = load ptr, ptr %197, align 8, !tbaa !7, !noalias !407
+  %.val12.val.i.i.i.i.i = load ptr, ptr %197, align 8, !tbaa !7, !noalias !409
   %198 = getelementptr i8, ptr %.val12.val.i.i.i.i.i, i64 16
-  %.val12.val.val.i.i.i.i.i = load i32, ptr %198, align 8, !tbaa !126, !noalias !407
+  %.val12.val.val.i.i.i.i.i = load i32, ptr %198, align 8, !tbaa !126, !noalias !409
   %199 = icmp slt i32 %.val12.val.val.i.i.i.i.i, %160
   br i1 %199, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %200
 
 200:                                              ; preds = %195, %._crit_edge.i.i.i.i.i
   %201 = phi ptr [ %190, %._crit_edge.i.i.i.i.i ], [ %197, %195 ]
   %202 = getelementptr i8, ptr %201, i64 -8
-  %.val14.val.i.i.i.i.i = load ptr, ptr %202, align 8, !tbaa !7, !noalias !407
+  %.val14.val.i.i.i.i.i = load ptr, ptr %202, align 8, !tbaa !7, !noalias !409
   %203 = getelementptr i8, ptr %.val14.val.i.i.i.i.i, i64 16
-  %.val14.val.val.i.i.i.i.i = load i32, ptr %203, align 8, !tbaa !126, !noalias !407
+  %.val14.val.val.i.i.i.i.i = load i32, ptr %203, align 8, !tbaa !126, !noalias !409
   %204 = icmp slt i32 %.val14.val.val.i.i.i.i.i, %160
   %spec.select.i.i.i.i = select i1 %204, ptr %201, ptr %164
   br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i"
@@ -18610,7 +18610,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i.i.i.i.i:
   %240 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %241 = add nsw i64 %.06.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %242 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %242, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit.i.i, !llvm.loop !288
+  br i1 %242, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit.i.i, !llvm.loop !290
 
 _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i.i.i.i.i
   %243 = trunc i64 %230 to i32
@@ -18840,7 +18840,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
 363:                                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit.i
   %364 = load i32, ptr %16, align 8, !tbaa !10
   %.not.i87.i = icmp eq i32 %364, 0
-  br i1 %.not.i87.i, label %.loopexit.i, label %66, !llvm.loop !417
+  br i1 %.not.i87.i, label %.loopexit.i, label %66, !llvm.loop !419
 
 .loopexit.i:                                      ; preds = %363, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
@@ -18883,7 +18883,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   store i32 %378, ptr %377, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge43, label %374, !llvm.loop !418
+  br i1 %exitcond.not, label %._crit_edge43, label %374, !llvm.loop !420
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19091,7 +19091,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm13La
 
 79:                                               ; preds = %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit.i"
   %80 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEELb1EE18growAndEmplaceBackIJRS4_S6_EEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %.pre.pre.i = load i32, ptr %31, align 8, !tbaa !10, !noalias !419
+  %.pre.pre.i = load i32, ptr %31, align 8, !tbaa !10, !noalias !421
   br label %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i
 
 81:                                               ; preds = %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit.i"
@@ -19099,7 +19099,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm13La
   %83 = load ptr, ptr %4, align 8, !tbaa !17
   %84 = getelementptr inbounds nuw %"struct.std::pair.273", ptr %83, i64 %82
   %85 = load ptr, ptr %6, align 8, !tbaa !7
-  store ptr %85, ptr %84, align 8, !tbaa !334
+  store ptr %85, ptr %84, align 8, !tbaa !336
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %87 = load i32, ptr %31, align 8, !tbaa !10
@@ -19115,7 +19115,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
 89:                                               ; preds = %343, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i
   %90 = phi i32 [ %.pre.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i ], [ %344, %343 ]
   %.042.i = phi i32 [ 2, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_S6_EEERS7_DpOT_.exit.i ], [ %.1.lcssa.i, %343 ]
-  %91 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !419
+  %91 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !421
   %92 = zext i32 %90 to i64
   %93 = getelementptr inbounds nuw %"struct.std::pair.273", ptr %91, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 -24
@@ -19125,7 +19125,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 -8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %95 = add i32 %90, -1
-  store i32 %95, ptr %31, align 8, !tbaa !10, !noalias !419
+  store i32 %95, ptr %31, align 8, !tbaa !10, !noalias !421
   %96 = getelementptr i8, ptr %.sroa.011.0.copyload.i, i64 24
   %.val.i = load ptr, ptr %96, align 8, !tbaa !17
   %97 = getelementptr i8, ptr %.sroa.011.0.copyload.i, i64 32
@@ -19159,7 +19159,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
 
 107:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #18
-  store ptr %.sroa.011.039.i, ptr %2, align 8, !tbaa !334
+  store ptr %.sroa.011.039.i, ptr %2, align 8, !tbaa !336
   store ptr %.sroa.11.040.i, ptr %39, align 8
   store ptr %.sroa.22.041.i, ptr %.sroa.22.8..sroa_idx19.i, align 8
   %108 = zext i32 %105 to i64
@@ -19169,7 +19169,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   %111 = icmp uge ptr %2, %.pre3.i.i.i
   %112 = icmp ult ptr %2, %110
   %spec.select.i.i.i.i.i.i.i = and i1 %111, %112
-  br i1 %spec.select.i.i.i.i.i.i.i, label %114, label %113, !prof !269
+  br i1 %spec.select.i.i.i.i.i.i.i, label %114, label %113, !prof !271
 
 113:                                              ; preds = %107
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %30, i64 noundef %109, i64 noundef 24) #18
@@ -19201,7 +19201,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSeq
   %126 = zext i32 %105 to i64
   %127 = load ptr, ptr %4, align 8, !tbaa !17
   %128 = getelementptr inbounds nuw %"struct.std::pair.273", ptr %127, i64 %126
-  store ptr %.sroa.011.039.i, ptr %128, align 8, !tbaa !334
+  store ptr %.sroa.011.039.i, ptr %128, align 8, !tbaa !336
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %.sroa.11.040.i, ptr %129, align 8
   %.sroa.22.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -19257,7 +19257,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i70.i: ; preds = %_ZNK4llvm13
 "_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit72.i": ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i70.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i65.i, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i58.i
   %.sroa.0.1.i.i67.i = phi ptr [ %140, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i58.i ], [ %144, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i70.i ], [ %.sroa.0.0.i.i62.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i65.i ]
   %149 = getelementptr inbounds nuw %"class.llvm::LazyCallGraph::Edge", ptr %140, i64 %143
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit85.i, !llvm.loop !422
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit85.i, !llvm.loop !424
 
 150:                                              ; preds = %.lr.ph.i12
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.11.040.i, i64 8
@@ -19284,7 +19284,7 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i.i: ; preds = %153, %.lr.ph.i.
 
 _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i.i, %153, %150
   %.sroa.11.2.i = phi ptr [ %151, %150 ], [ %156, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.backedge.i.i ], [ %.sroa.11.1.i, %153 ]
-  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit85.i, !llvm.loop !422
+  br label %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit85.i, !llvm.loop !424
 
 157:                                              ; preds = %.lr.ph.i12
   %158 = getelementptr inbounds nuw i8, ptr %101, i64 20
@@ -19363,7 +19363,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   br i1 %.not47.i, label %187, label %343
 
 187:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit.i
-  %188 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !423
+  %188 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !425
   %189 = zext i32 %182 to i64
   %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %189
   %.not29.i = icmp ult i32 %182, 4
@@ -19379,40 +19379,40 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %193 = phi ptr [ %206, %209 ], [ %190, %.lr.ph.i.preheader.i.i.i.i ]
   %.040.i.i.i.i.i = phi i64 [ %210, %209 ], [ %191, %.lr.ph.i.preheader.i.i.i.i ]
   %194 = getelementptr i8, ptr %193, i64 -8
-  %.val2.val.i.i.i.i.i = load ptr, ptr %194, align 8, !tbaa !7, !noalias !426
+  %.val2.val.i.i.i.i.i = load ptr, ptr %194, align 8, !tbaa !7, !noalias !428
   %195 = getelementptr i8, ptr %.val2.val.i.i.i.i.i, i64 16
-  %.val2.val.val.i.i.i.i.i = load i32, ptr %195, align 8, !tbaa !126, !noalias !426
+  %.val2.val.val.i.i.i.i.i = load i32, ptr %195, align 8, !tbaa !126, !noalias !428
   %196 = icmp slt i32 %.val2.val.val.i.i.i.i.i, %184
   br i1 %196, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %197
 
 197:                                              ; preds = %.lr.ph.i.i.i.i.i
   %198 = getelementptr i8, ptr %193, i64 -16
-  %.val4.val.i.i.i.i.i = load ptr, ptr %198, align 8, !tbaa !7, !noalias !426
+  %.val4.val.i.i.i.i.i = load ptr, ptr %198, align 8, !tbaa !7, !noalias !428
   %199 = getelementptr i8, ptr %.val4.val.i.i.i.i.i, i64 16
-  %.val4.val.val.i.i.i.i.i = load i32, ptr %199, align 8, !tbaa !126, !noalias !426
+  %.val4.val.val.i.i.i.i.i = load i32, ptr %199, align 8, !tbaa !126, !noalias !428
   %200 = icmp slt i32 %.val4.val.val.i.i.i.i.i, %184
   br i1 %200, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit70", label %201
 
 201:                                              ; preds = %197
   %202 = getelementptr i8, ptr %193, i64 -24
-  %.val6.val.i.i.i.i.i = load ptr, ptr %202, align 8, !tbaa !7, !noalias !426
+  %.val6.val.i.i.i.i.i = load ptr, ptr %202, align 8, !tbaa !7, !noalias !428
   %203 = getelementptr i8, ptr %.val6.val.i.i.i.i.i, i64 16
-  %.val6.val.val.i.i.i.i.i = load i32, ptr %203, align 8, !tbaa !126, !noalias !426
+  %.val6.val.val.i.i.i.i.i = load i32, ptr %203, align 8, !tbaa !126, !noalias !428
   %204 = icmp slt i32 %.val6.val.val.i.i.i.i.i, %184
   br i1 %204, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit68", label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr i8, ptr %193, i64 -32
-  %.val8.val.i.i.i.i.i = load ptr, ptr %206, align 8, !tbaa !7, !noalias !426
+  %.val8.val.i.i.i.i.i = load ptr, ptr %206, align 8, !tbaa !7, !noalias !428
   %207 = getelementptr i8, ptr %.val8.val.i.i.i.i.i, i64 16
-  %.val8.val.val.i.i.i.i.i = load i32, ptr %207, align 8, !tbaa !126, !noalias !426
+  %.val8.val.val.i.i.i.i.i = load i32, ptr %207, align 8, !tbaa !126, !noalias !428
   %208 = icmp slt i32 %.val8.val.val.i.i.i.i.i, %184
   br i1 %208, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i.loopexit.split.loop.exit", label %209
 
 209:                                              ; preds = %205
   %210 = add nsw i64 %.040.i.i.i.i.i, -1
   %211 = icmp sgt i64 %.040.i.i.i.i.i, 1
-  br i1 %211, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !435
+  br i1 %211, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !437
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %209
   %.idx30.i = shl nuw nsw i64 %189, 3
@@ -19431,27 +19431,27 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 214:                                              ; preds = %._crit_edge.i.i.i.i.i
   %215 = getelementptr i8, ptr %213, i64 -8
-  %.val10.val.i.i.i.i.i = load ptr, ptr %215, align 8, !tbaa !7, !noalias !426
+  %.val10.val.i.i.i.i.i = load ptr, ptr %215, align 8, !tbaa !7, !noalias !428
   %216 = getelementptr i8, ptr %.val10.val.i.i.i.i.i, i64 16
-  %.val10.val.val.i.i.i.i.i = load i32, ptr %216, align 8, !tbaa !126, !noalias !426
+  %.val10.val.val.i.i.i.i.i = load i32, ptr %216, align 8, !tbaa !126, !noalias !428
   %217 = icmp slt i32 %.val10.val.val.i.i.i.i.i, %184
   br i1 %217, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %218
 
 218:                                              ; preds = %214, %._crit_edge.i.i.i.i.i
   %219 = phi ptr [ %213, %._crit_edge.i.i.i.i.i ], [ %215, %214 ]
   %220 = getelementptr i8, ptr %219, i64 -8
-  %.val12.val.i.i.i.i.i = load ptr, ptr %220, align 8, !tbaa !7, !noalias !426
+  %.val12.val.i.i.i.i.i = load ptr, ptr %220, align 8, !tbaa !7, !noalias !428
   %221 = getelementptr i8, ptr %.val12.val.i.i.i.i.i, i64 16
-  %.val12.val.val.i.i.i.i.i = load i32, ptr %221, align 8, !tbaa !126, !noalias !426
+  %.val12.val.val.i.i.i.i.i = load i32, ptr %221, align 8, !tbaa !126, !noalias !428
   %222 = icmp slt i32 %.val12.val.val.i.i.i.i.i, %184
   br i1 %222, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i", label %223
 
 223:                                              ; preds = %218, %._crit_edge.i.i.i.i.i
   %224 = phi ptr [ %213, %._crit_edge.i.i.i.i.i ], [ %220, %218 ]
   %225 = getelementptr i8, ptr %224, i64 -8
-  %.val14.val.i.i.i.i.i = load ptr, ptr %225, align 8, !tbaa !7, !noalias !426
+  %.val14.val.i.i.i.i.i = load ptr, ptr %225, align 8, !tbaa !7, !noalias !428
   %226 = getelementptr i8, ptr %.val14.val.i.i.i.i.i, i64 16
-  %.val14.val.val.i.i.i.i.i = load i32, ptr %226, align 8, !tbaa !126, !noalias !426
+  %.val14.val.val.i.i.i.i.i = load i32, ptr %226, align 8, !tbaa !126, !noalias !428
   %227 = icmp slt i32 %.val14.val.val.i.i.i.i.i, %184
   %spec.select.i.i.i.i = select i1 %227, ptr %224, ptr %188
   br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_.exit.i"
@@ -19499,12 +19499,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit.i.i: ; preds = %245, %242
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %244, %242 ], [ %246, %245 ]
   call void @_ZN4llvm13LazyCallGraph6RefSCCC1ERS0_(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(648) %0) #18
-  store ptr %190, ptr %3, align 8, !tbaa !391, !alias.scope !436
-  store ptr %.sink.i.i.i.i.i, ptr %44, align 8, !tbaa !391, !alias.scope !445
+  store ptr %190, ptr %3, align 8, !tbaa !393, !alias.scope !438
+  store ptr %.sink.i.i.i.i.i, ptr %44, align 8, !tbaa !393, !alias.scope !447
   call void @_ZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i.i.i.i, ptr noundef nonnull %3)
   %247 = load i32, ptr %20, align 8, !tbaa !10
-  %248 = load ptr, ptr %45, align 8, !tbaa !301, !noalias !454
-  %249 = load i32, ptr %46, align 8, !tbaa !304, !noalias !454
+  %248 = load ptr, ptr %45, align 8, !tbaa !303, !noalias !456
+  %249 = load i32, ptr %46, align 8, !tbaa !306, !noalias !456
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %251
 
@@ -19518,7 +19518,7 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit.i.i: ; pre
   %.02944.i.i.i = and i32 %257, %256
   %258 = zext nneg i32 %.02944.i.i.i to i64
   %259 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %248, i64 %258
-  %260 = load ptr, ptr %259, align 8, !tbaa !172, !noalias !454
+  %260 = load ptr, ptr %259, align 8, !tbaa !172, !noalias !456
   %261 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, %260
   br i1 %261, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_.exit.i, label %.lr.ph.i.i.i14, !prof !22
 
@@ -19546,13 +19546,13 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit.i.i: ; pre
   %.029.i.i.i = and i32 %271, %257
   %272 = zext i32 %.029.i.i.i to i64
   %273 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %248, i64 %272
-  %274 = load ptr, ptr %273, align 8, !tbaa !172, !noalias !454
+  %274 = load ptr, ptr %273, align 8, !tbaa !172, !noalias !456
   %275 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, %274
-  br i1 %275, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_.exit.i, label %.lr.ph.i.i.i14, !prof !23, !llvm.loop !328
+  br i1 %275, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_.exit.i, label %.lr.ph.i.i.i14, !prof !23, !llvm.loop !330
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i: ; preds = %265, %_ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit.i.i
   %.sink.i.i.i = phi ptr [ %266, %265 ], [ null, %_ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit.i.i ]
-  %276 = load i32, ptr %47, align 8, !tbaa !326, !noalias !454
+  %276 = load i32, ptr %47, align 8, !tbaa !328, !noalias !456
   %277 = shl i32 %276, 2
   %278 = add i32 %277, 4
   %279 = mul i32 %249, 3
@@ -19564,7 +19564,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   br label %.sink.split.i.i.i.i
 
 282:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i
-  %283 = load i32, ptr %48, align 4, !tbaa !327, !noalias !454
+  %283 = load i32, ptr %48, align 4, !tbaa !329, !noalias !456
   %.neg.i.i.i.i = xor i32 %276, -1
   %.neg12.i.i.i.i = add i32 %249, %.neg.i.i.i.i
   %284 = sub i32 %.neg12.i.i.i.i, %283
@@ -19574,9 +19574,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 
 .sink.split.i.i.i.i:                              ; preds = %282, %280
   %.sink.i.i.i.i = phi i32 [ %281, %280 ], [ %249, %282 ]
-  call void @_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %45, i32 noundef %.sink.i.i.i.i), !noalias !454
-  %286 = load ptr, ptr %45, align 8, !tbaa !301, !noalias !454
-  %287 = load i32, ptr %46, align 8, !tbaa !304, !noalias !454
+  call void @_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %45, i32 noundef %.sink.i.i.i.i), !noalias !456
+  %286 = load ptr, ptr %45, align 8, !tbaa !303, !noalias !456
+  %287 = load i32, ptr %46, align 8, !tbaa !306, !noalias !456
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %289
 
@@ -19590,7 +19590,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %.02944.i.i = and i32 %295, %294
   %296 = zext nneg i32 %.02944.i.i to i64
   %297 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %286, i64 %296
-  %298 = load ptr, ptr %297, align 8, !tbaa !172, !noalias !454
+  %298 = load ptr, ptr %297, align 8, !tbaa !172, !noalias !456
   %299 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, %298
   br i1 %299, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i94.i, !prof !22
 
@@ -19618,34 +19618,34 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %.029.i.i = and i32 %309, %295
   %310 = zext i32 %.029.i.i to i64
   %311 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %286, i64 %310
-  %312 = load ptr, ptr %311, align 8, !tbaa !172, !noalias !454
+  %312 = load ptr, ptr %311, align 8, !tbaa !172, !noalias !456
   %313 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, %312
-  br i1 %313, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i94.i, !prof !23, !llvm.loop !328
+  br i1 %313, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i94.i, !prof !23, !llvm.loop !330
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %305, %303, %289, %.sink.split.i.i.i.i
   %.sink.i95.i = phi ptr [ %304, %303 ], [ null, %.sink.split.i.i.i.i ], [ %297, %289 ], [ %311, %305 ]
-  %.pre.i.i93.i = load i32, ptr %47, align 8, !tbaa !326, !noalias !454
+  %.pre.i.i93.i = load i32, ptr %47, align 8, !tbaa !328, !noalias !456
   br label %314
 
 314:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %282
   %315 = phi ptr [ %.sink.i95.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i ], [ %.sink.i.i.i, %282 ]
   %316 = phi i32 [ %.pre.i.i93.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i ], [ %276, %282 ]
   %317 = add i32 %316, 1
-  store i32 %317, ptr %47, align 8, !tbaa !326, !noalias !454
-  %318 = load ptr, ptr %315, align 8, !tbaa !172, !noalias !454
+  store i32 %317, ptr %47, align 8, !tbaa !328, !noalias !456
+  %318 = load ptr, ptr %315, align 8, !tbaa !172, !noalias !456
   %319 = icmp eq ptr %318, inttoptr (i64 -4096 to ptr)
   br i1 %319, label %323, label %320
 
 320:                                              ; preds = %314
-  %321 = load i32, ptr %48, align 4, !tbaa !327, !noalias !454
+  %321 = load i32, ptr %48, align 4, !tbaa !329, !noalias !456
   %322 = add i32 %321, -1
-  store i32 %322, ptr %48, align 4, !tbaa !327, !noalias !454
+  store i32 %322, ptr %48, align 4, !tbaa !329, !noalias !456
   br label %323
 
 323:                                              ; preds = %320, %314
-  store ptr %.0.i.i.i.i.i.i.i.i, ptr %315, align 8, !tbaa !172, !noalias !454
+  store ptr %.0.i.i.i.i.i.i.i.i, ptr %315, align 8, !tbaa !172, !noalias !456
   %324 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store i32 %247, ptr %324, align 4, !tbaa !29, !noalias !454
+  store i32 %247, ptr %324, align 4, !tbaa !29, !noalias !456
   %.pre69.i = load i32, ptr %20, align 8, !tbaa !10
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_.exit.i
 
@@ -19685,7 +19685,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
 343:                                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit.i
   %344 = load i32, ptr %31, align 8, !tbaa !10
   %.not.i88.i = icmp eq i32 %344, 0
-  br i1 %.not.i88.i, label %.loopexit.i, label %89, !llvm.loop !457
+  br i1 %.not.i88.i, label %.loopexit.i, label %89, !llvm.loop !459
 
 .loopexit.i:                                      ; preds = %343, %56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -19765,7 +19765,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5emptyEv.exit.thread: ; preds = %_ZNK4llvm1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm24LazyCallGraphPrinterPassC2ERNS_11raw_ostreamE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !458
+  store ptr %1, ptr %0, align 8, !tbaa !460
   ret void
 }
 
@@ -19775,11 +19775,11 @@ define dso_local void @_ZN4llvm24LazyCallGraphPrinterPass3runERNS_6ModuleERNS_15
   %6 = alloca %"class.llvm::LazyCallGraph::postorder_ref_scc_iterator", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21LazyCallGraphAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(841) %2) #18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %1, align 8, !tbaa !460
+  %9 = load ptr, ptr %1, align 8, !tbaa !462
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !462
+  %11 = load ptr, ptr %10, align 8, !tbaa !464
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
+  %13 = load ptr, ptr %12, align 8, !tbaa !468
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -19792,22 +19792,22 @@ define dso_local void @_ZN4llvm24LazyCallGraphPrinterPass3runERNS_6ModuleERNS_15
 
 20:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %13, ptr noundef nonnull align 1 dereferenceable(36) @.str, i64 36, i1 false)
-  %21 = load ptr, ptr %12, align 8, !tbaa !466
+  %21 = load ptr, ptr %12, align 8, !tbaa !468
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  store ptr %22, ptr %12, align 8, !tbaa !466
+  store ptr %22, ptr %12, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
   %.0.i.i = phi ptr [ %19, %18 ], [ %9, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %24 = load ptr, ptr %23, align 8, !tbaa !467
+  %24 = load ptr, ptr %23, align 8, !tbaa !469
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %26 = load i64, ptr %25, align 8, !tbaa !470
+  %26 = load i64, ptr %25, align 8, !tbaa !472
   %27 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %24, i64 noundef %26) #18
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !462
+  %29 = load ptr, ptr %28, align 8, !tbaa !464
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !466
+  %31 = load ptr, ptr %30, align 8, !tbaa !468
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -19820,9 +19820,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 
 38:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i16 2570, ptr %31, align 1
-  %39 = load ptr, ptr %30, align 8, !tbaa !466
+  %39 = load ptr, ptr %30, align 8, !tbaa !468
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  store ptr %40, ptr %30, align 8, !tbaa !466
+  store ptr %40, ptr %30, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
 _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %36, %38
@@ -19841,22 +19841,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %36, %38
 ._crit_edge:                                      ; preds = %_ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit16
   call void @_ZN4llvm13LazyCallGraph12buildRefSCCsEv(ptr noundef nonnull align 8 dereferenceable(648) %8)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 424
-  %47 = load i32, ptr %46, align 8, !tbaa !10, !noalias !471
+  %47 = load i32, ptr %46, align 8, !tbaa !10, !noalias !473
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i
 
 _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i: ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 416
-  %50 = load ptr, ptr %49, align 8, !tbaa !17, !noalias !471
-  %51 = load ptr, ptr %50, align 8, !tbaa !172, !noalias !471
+  %50 = load ptr, ptr %49, align 8, !tbaa !17, !noalias !473
+  %51 = load ptr, ptr %50, align 8, !tbaa !172, !noalias !473
   %.not2.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not2.i.i.i.i, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 576
-  %54 = load ptr, ptr %52, align 8, !noalias !471
-  %55 = load i32, ptr %53, align 8, !noalias !471
+  %54 = load ptr, ptr %52, align 8, !noalias !473
+  %55 = load i32, ptr %53, align 8, !noalias !473
   %.fr5.i.i.i = freeze i32 %55
   %56 = icmp eq i32 %.fr5.i.i.i, 0
   %57 = add i32 %.fr5.i.i.i, -1
@@ -19871,12 +19871,12 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i: ; pr
 61:                                               ; preds = %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i, %.lr.ph.i.split.us.i.i.i
   %.sroa.2.1.i.i = phi ptr [ %51, %.lr.ph.i.split.us.i.i.i ], [ %70, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.2.1.i.i, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !10, !noalias !471
+  %63 = load i32, ptr %62, align 8, !tbaa !10, !noalias !473
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.loopexit.i.i.i.us.i.i.i, label %.lr.ph46.preheader
 
 .loopexit.i.i.i.us.i.i.i:                         ; preds = %61
-  %65 = load i32, ptr %60, align 8, !tbaa !306, !noalias !471
+  %65 = load i32, ptr %60, align 8, !tbaa !308, !noalias !473
   %66 = add nsw i32 %65, 1
   %67 = icmp eq i32 %66, %47
   br i1 %67, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i
@@ -19884,14 +19884,14 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i: ; pr
 _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i: ; preds = %.loopexit.i.i.i.us.i.i.i
   %68 = sext i32 %66 to i64
   %69 = getelementptr inbounds nuw ptr, ptr %50, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !172, !noalias !471
+  %70 = load ptr, ptr %69, align 8, !tbaa !172, !noalias !473
   %.not.i.us.i.i.i = icmp eq ptr %70, null
-  br i1 %.not.i.us.i.i.i, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %61, !llvm.loop !474
+  br i1 %.not.i.us.i.i.i, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %61, !llvm.loop !476
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.i.i.i
   %.sroa.2.0.i.i = phi ptr [ %99, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 16
-  %72 = load i32, ptr %71, align 8, !tbaa !10, !noalias !471
+  %72 = load i32, ptr %71, align 8, !tbaa !10, !noalias !473
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.lr.ph46.preheader
 
@@ -19904,7 +19904,7 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i:
   %.01826.i.i.i.i.i.i.i = and i32 %79, %57
   %80 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
   %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %54, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !172, !noalias !471
+  %82 = load ptr, ptr %81, align 8, !tbaa !172, !noalias !473
   %83 = icmp eq ptr %.sroa.2.0.i.i, %82
   br i1 %83, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !22
 
@@ -19921,14 +19921,14 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i:
   %.018.i.i.i.i.i.i.i = and i32 %88, %57
   %89 = zext i32 %.018.i.i.i.i.i.i.i to i64
   %90 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %54, i64 %89
-  %91 = load ptr, ptr %90, align 8, !tbaa !172, !noalias !471
+  %91 = load ptr, ptr %90, align 8, !tbaa !172, !noalias !473
   %92 = icmp eq ptr %.sroa.2.0.i.i, %91
-  br i1 %92, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !23, !llvm.loop !305
+  br i1 %92, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !23, !llvm.loop !307
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i: ; preds = %86, %.lr.ph.i.i.i.i.i.i.i, %74
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %81, %74 ], [ %90, %86 ], [ %59, %.lr.ph.i.i.i.i.i.i.i ]
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !306, !noalias !471
+  %94 = load i32, ptr %93, align 8, !tbaa !308, !noalias !473
   %95 = add nsw i32 %94, 1
   %96 = icmp eq i32 %95, %47
   br i1 %96, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.i.i.i
@@ -19936,9 +19936,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.i.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i
   %97 = sext i32 %95 to i64
   %98 = getelementptr inbounds nuw ptr, ptr %50, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !172, !noalias !471
+  %99 = load ptr, ptr %98, align 8, !tbaa !172, !noalias !473
   %.not.i.i1.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i1.i.i, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %.lr.ph.i.split.i.i.i, !llvm.loop !474
+  br i1 %.not.i.i1.i.i, label %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread, label %.lr.ph.i.split.i.i.i, !llvm.loop !477
 
 _ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread: ; preds = %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i.i.i.i, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us.i.i.i, %.loopexit.i.i.i.us.i.i.i, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator5getRCERS0_i.exit.i.i.i, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
@@ -19955,7 +19955,7 @@ _ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread: ; preds = %_ZN4llvm13
 101:                                              ; preds = %.lr.ph, %_ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit
   %.sroa.037.044 = phi ptr [ %.sroa.037.042, %.lr.ph ], [ %.sroa.037.0, %_ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit ]
   %102 = getelementptr inbounds i8, ptr %.sroa.037.044, i64 -56
-  %103 = load ptr, ptr %1, align 8, !tbaa !460
+  %103 = load ptr, ptr %1, align 8, !tbaa !462
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store ptr %102, ptr %5, align 8, !tbaa !108
   %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -20007,9 +20007,9 @@ _ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE.exit.i: ; preds =
 _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %101, %_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE.exit.i
   %.0.i = phi ptr [ %.0.i.i.i.i.i.i.i, %_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE.exit.i ], [ %105, %101 ]
   %127 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !462
+  %128 = load ptr, ptr %127, align 8, !tbaa !464
   %129 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %130 = load ptr, ptr %129, align 8, !tbaa !466
+  %130 = load ptr, ptr %129, align 8, !tbaa !468
   %131 = ptrtoint ptr %128 to i64
   %132 = ptrtoint ptr %130 to i64
   %133 = sub i64 %131, %132
@@ -20022,9 +20022,9 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %101, %_ZN4llvm13Laz
 
 137:                                              ; preds = %_ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %130, ptr noundef nonnull align 1 dereferenceable(21) @.str.5, i64 21, i1 false)
-  %138 = load ptr, ptr %129, align 8, !tbaa !466
+  %138 = load ptr, ptr %129, align 8, !tbaa !468
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 21
-  store ptr %139, ptr %129, align 8, !tbaa !466
+  store ptr %139, ptr %129, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %137, %135
@@ -20035,9 +20035,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %137, %135
   %143 = extractvalue { ptr, i64 } %142, 0
   %144 = extractvalue { ptr, i64 } %142, 1
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %146 = load ptr, ptr %145, align 8, !tbaa !462
+  %146 = load ptr, ptr %145, align 8, !tbaa !464
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  %148 = load ptr, ptr %147, align 8, !tbaa !466
+  %148 = load ptr, ptr %147, align 8, !tbaa !468
   %149 = ptrtoint ptr %146 to i64
   %150 = ptrtoint ptr %148 to i64
   %151 = sub i64 %149, %150
@@ -20047,7 +20047,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %137, %135
 153:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %154 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i, ptr noundef %143, i64 noundef %144) #18
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %154, i64 32
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !466
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 155:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
@@ -20056,16 +20056,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %137, %135
 
 156:                                              ; preds = %155
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr align 1 %143, i64 %144, i1 false)
-  %157 = load ptr, ptr %147, align 8, !tbaa !466
+  %157 = load ptr, ptr %147, align 8, !tbaa !468
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 %144
-  store ptr %158, ptr %147, align 8, !tbaa !466
+  store ptr %158, ptr %147, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %156, %155, %153
   %159 = phi ptr [ %.pre.i, %153 ], [ %158, %156 ], [ %148, %155 ]
   %.0.i.i22 = phi ptr [ %154, %153 ], [ %.0.i.i.i, %156 ], [ %.0.i.i.i, %155 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 24
-  %161 = load ptr, ptr %160, align 8, !tbaa !462
+  %161 = load ptr, ptr %160, align 8, !tbaa !464
   %162 = icmp eq ptr %161, %159
   br i1 %162, label %163, label %165
 
@@ -20076,9 +20076,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %156, %155, %153
 165:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 32
   store i8 10, ptr %159, align 1
-  %167 = load ptr, ptr %166, align 8, !tbaa !466
+  %167 = load ptr, ptr %166, align 8, !tbaa !468
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
-  store ptr %168, ptr %166, align 8, !tbaa !466
+  store ptr %168, ptr %166, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit13.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit13.i:             ; preds = %165, %163
@@ -20128,8 +20128,8 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13Lazy
   br i1 %.not43.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i, %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i
-  %185 = load ptr, ptr %127, align 8, !tbaa !462
-  %186 = load ptr, ptr %129, align 8, !tbaa !466
+  %185 = load ptr, ptr %127, align 8, !tbaa !464
+  %186 = load ptr, ptr %129, align 8, !tbaa !468
   %187 = icmp eq ptr %185, %186
   br i1 %187, label %188, label %190
 
@@ -20139,15 +20139,15 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13Lazy
 
 190:                                              ; preds = %._crit_edge.i
   store i8 10, ptr %186, align 1
-  %191 = load ptr, ptr %129, align 8, !tbaa !466
+  %191 = load ptr, ptr %129, align 8, !tbaa !468
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 1
-  store ptr %192, ptr %129, align 8, !tbaa !466
+  store ptr %192, ptr %129, align 8, !tbaa !468
   br label %_ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i, %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i
   %.sroa.040.044.i = phi ptr [ %.sroa.040.2.i, %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i ], [ %.sroa.0.1.i.i, %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i ]
-  %193 = load ptr, ptr %127, align 8, !tbaa !462
-  %194 = load ptr, ptr %129, align 8, !tbaa !466
+  %193 = load ptr, ptr %127, align 8, !tbaa !464
+  %194 = load ptr, ptr %129, align 8, !tbaa !468
   %195 = ptrtoint ptr %193 to i64
   %196 = ptrtoint ptr %194 to i64
   %197 = sub i64 %195, %196
@@ -20157,14 +20157,14 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13Lazy
 199:                                              ; preds = %.lr.ph.i
   %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull @.str.7, i64 noundef 4) #18
   %.phi.trans.insert45.i = getelementptr inbounds nuw i8, ptr %200, i64 32
-  %.pre46.i = load ptr, ptr %.phi.trans.insert45.i, align 8, !tbaa !466
+  %.pre46.i = load ptr, ptr %.phi.trans.insert45.i, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22.i
 
 201:                                              ; preds = %.lr.ph.i
   store i32 538976288, ptr %194, align 1
-  %202 = load ptr, ptr %129, align 8, !tbaa !466
+  %202 = load ptr, ptr %129, align 8, !tbaa !468
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store ptr %203, ptr %129, align 8, !tbaa !466
+  store ptr %203, ptr %129, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit22.i:             ; preds = %201, %199
@@ -20175,7 +20175,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22.i:             ; preds = %201, %199
   %.not42.i = icmp eq i64 %205, 0
   %.str.8..str.9.i = select i1 %.not42.i, ptr @.str.9, ptr @.str.8
   %206 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 24
-  %207 = load ptr, ptr %206, align 8, !tbaa !462
+  %207 = load ptr, ptr %206, align 8, !tbaa !464
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
   %210 = sub i64 %208, %209
@@ -20185,23 +20185,23 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22.i:             ; preds = %201, %199
 212:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22.i
   %213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i21.i, ptr noundef nonnull %.str.8..str.9.i, i64 noundef 4) #18
   %.phi.trans.insert47.i = getelementptr inbounds nuw i8, ptr %213, i64 32
-  %.pre48.i = load ptr, ptr %.phi.trans.insert47.i, align 8, !tbaa !466
+  %.pre48.i = load ptr, ptr %.phi.trans.insert47.i, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit26.i
 
 214:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22.i
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 32
   %216 = load i32, ptr %.str.8..str.9.i, align 1
   store i32 %216, ptr %204, align 1
-  %217 = load ptr, ptr %215, align 8, !tbaa !466
+  %217 = load ptr, ptr %215, align 8, !tbaa !468
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store ptr %218, ptr %215, align 8, !tbaa !466
+  store ptr %218, ptr %215, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit26.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit26.i:             ; preds = %214, %212
   %219 = phi ptr [ %.pre48.i, %212 ], [ %218, %214 ]
   %.0.i.i25.i = phi ptr [ %213, %212 ], [ %.0.i.i21.i, %214 ]
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.i25.i, i64 24
-  %221 = load ptr, ptr %220, align 8, !tbaa !462
+  %221 = load ptr, ptr %220, align 8, !tbaa !464
   %222 = ptrtoint ptr %221 to i64
   %223 = ptrtoint ptr %219 to i64
   %224 = sub i64 %222, %223
@@ -20215,9 +20215,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26.i:             ; preds = %214, %212
 228:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit26.i
   %229 = getelementptr inbounds nuw i8, ptr %.0.i.i25.i, i64 32
   store i32 540945696, ptr %219, align 1
-  %230 = load ptr, ptr %229, align 8, !tbaa !466
+  %230 = load ptr, ptr %229, align 8, !tbaa !468
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  store ptr %231, ptr %229, align 8, !tbaa !466
+  store ptr %231, ptr %229, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit29.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %228, %226
@@ -20231,9 +20231,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %228, %226
   %237 = extractvalue { ptr, i64 } %236, 0
   %238 = extractvalue { ptr, i64 } %236, 1
   %239 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 24
-  %240 = load ptr, ptr %239, align 8, !tbaa !462
+  %240 = load ptr, ptr %239, align 8, !tbaa !464
   %241 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 32
-  %242 = load ptr, ptr %241, align 8, !tbaa !466
+  %242 = load ptr, ptr %241, align 8, !tbaa !468
   %243 = ptrtoint ptr %240 to i64
   %244 = ptrtoint ptr %242 to i64
   %245 = sub i64 %243, %244
@@ -20243,7 +20243,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %228, %226
 247:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i
   %248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i28.i, ptr noundef %237, i64 noundef %238) #18
   %.phi.trans.insert49.i = getelementptr inbounds nuw i8, ptr %248, i64 32
-  %.pre50.i = load ptr, ptr %.phi.trans.insert49.i, align 8, !tbaa !466
+  %.pre50.i = load ptr, ptr %.phi.trans.insert49.i, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit33.i
 
 249:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i
@@ -20252,16 +20252,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %228, %226
 
 250:                                              ; preds = %249
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %242, ptr align 1 %237, i64 %238, i1 false)
-  %251 = load ptr, ptr %241, align 8, !tbaa !466
+  %251 = load ptr, ptr %241, align 8, !tbaa !468
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 %238
-  store ptr %252, ptr %241, align 8, !tbaa !466
+  store ptr %252, ptr %241, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit33.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit33.i:  ; preds = %250, %249, %247
   %253 = phi ptr [ %.pre50.i, %247 ], [ %252, %250 ], [ %242, %249 ]
   %.0.i32.i = phi ptr [ %248, %247 ], [ %.0.i.i28.i, %250 ], [ %.0.i.i28.i, %249 ]
   %254 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 24
-  %255 = load ptr, ptr %254, align 8, !tbaa !462
+  %255 = load ptr, ptr %254, align 8, !tbaa !464
   %256 = icmp eq ptr %255, %253
   br i1 %256, label %257, label %259
 
@@ -20272,9 +20272,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit33.i:  ; preds = %250, %249, %247
 259:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit33.i
   %260 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 32
   store i8 10, ptr %253, align 1
-  %261 = load ptr, ptr %260, align 8, !tbaa !466
+  %261 = load ptr, ptr %260, align 8, !tbaa !468
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 1
-  store ptr %262, ptr %260, align 8, !tbaa !466
+  store ptr %262, ptr %260, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit36.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit36.i:             ; preds = %259, %257
@@ -20314,36 +20314,36 @@ _ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit: ; preds = %188
 ._crit_edge47:                                    ; preds = %_ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit, %_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !38, !alias.scope !475
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !38, !alias.scope !478
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %270, align 8, !tbaa !40, !alias.scope !475
+  store i32 2, ptr %270, align 8, !tbaa !40, !alias.scope !478
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %272, align 8, !tbaa !42, !alias.scope !475
+  store i32 0, ptr %272, align 8, !tbaa !42, !alias.scope !478
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %273, align 4, !tbaa !43, !alias.scope !475
+  store i8 1, ptr %273, align 4, !tbaa !43, !alias.scope !478
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %275, ptr %274, align 8, !tbaa !38, !alias.scope !475
+  store ptr %275, ptr %274, align 8, !tbaa !38, !alias.scope !478
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %276, align 8, !tbaa !40, !alias.scope !475
+  store i32 2, ptr %276, align 8, !tbaa !40, !alias.scope !478
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %277, align 4, !tbaa !41, !alias.scope !475
+  store i32 0, ptr %277, align 4, !tbaa !41, !alias.scope !478
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %278, align 8, !tbaa !42, !alias.scope !475
+  store i32 0, ptr %278, align 8, !tbaa !42, !alias.scope !478
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %279, align 4, !tbaa !43, !alias.scope !475
-  store i32 1, ptr %271, align 4, !tbaa !41, !alias.scope !475, !noalias !478
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !99, !alias.scope !475, !noalias !478
+  store i8 1, ptr %279, align 4, !tbaa !43, !alias.scope !478
+  store i32 1, ptr %271, align 4, !tbaa !41, !alias.scope !478, !noalias !481
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !99, !alias.scope !478, !noalias !481
   ret void
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %_ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit
   %280 = phi ptr [ %405, %_ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit ], [ %.sroa.2.2.i.i, %.lr.ph46.preheader ]
-  %281 = load ptr, ptr %1, align 8, !tbaa !460
+  %281 = load ptr, ptr %1, align 8, !tbaa !462
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 24
-  %283 = load ptr, ptr %282, align 8, !tbaa !462
+  %283 = load ptr, ptr %282, align 8, !tbaa !464
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 32
-  %285 = load ptr, ptr %284, align 8, !tbaa !466
+  %285 = load ptr, ptr %284, align 8, !tbaa !468
   %286 = ptrtoint ptr %283 to i64
   %287 = ptrtoint ptr %285 to i64
   %288 = sub i64 %286, %287
@@ -20356,9 +20356,9 @@ _ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit: ; preds = %188
 
 292:                                              ; preds = %.lr.ph46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %285, ptr noundef nonnull align 1 dereferenceable(14) @.str.11, i64 14, i1 false)
-  %293 = load ptr, ptr %284, align 8, !tbaa !466
+  %293 = load ptr, ptr %284, align 8, !tbaa !468
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 14
-  store ptr %294, ptr %284, align 8, !tbaa !466
+  store ptr %294, ptr %284, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i24
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i24:             ; preds = %292, %290
@@ -20368,9 +20368,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i24:             ; preds = %292, %290
   %297 = zext i32 %296 to i64
   %298 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25, i64 noundef %297) #18
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
-  %300 = load ptr, ptr %299, align 8, !tbaa !462
+  %300 = load ptr, ptr %299, align 8, !tbaa !464
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 32
-  %302 = load ptr, ptr %301, align 8, !tbaa !466
+  %302 = load ptr, ptr %301, align 8, !tbaa !468
   %303 = ptrtoint ptr %300 to i64
   %304 = ptrtoint ptr %302 to i64
   %305 = sub i64 %303, %304
@@ -20383,9 +20383,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i24:             ; preds = %292, %290
 
 309:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %302, ptr noundef nonnull align 1 dereferenceable(12) @.str.12, i64 12, i1 false)
-  %310 = load ptr, ptr %301, align 8, !tbaa !466
+  %310 = load ptr, ptr %301, align 8, !tbaa !468
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 12
-  store ptr %311, ptr %301, align 8, !tbaa !466
+  store ptr %311, ptr %301, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %309, %307
@@ -20399,8 +20399,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %309, %307
   br i1 %.not18.i, label %._crit_edge.i32, label %.lr.ph.i26
 
 ._crit_edge.i32:                                  ; preds = %_ZL8printSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph3SCCE.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit10.i
-  %317 = load ptr, ptr %282, align 8, !tbaa !462
-  %318 = load ptr, ptr %284, align 8, !tbaa !466
+  %317 = load ptr, ptr %282, align 8, !tbaa !464
+  %318 = load ptr, ptr %284, align 8, !tbaa !468
   %319 = icmp eq ptr %317, %318
   br i1 %319, label %320, label %322
 
@@ -20410,16 +20410,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %309, %307
 
 322:                                              ; preds = %._crit_edge.i32
   store i8 10, ptr %318, align 1
-  %323 = load ptr, ptr %284, align 8, !tbaa !466
+  %323 = load ptr, ptr %284, align 8, !tbaa !468
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 1
-  store ptr %324, ptr %284, align 8, !tbaa !466
+  store ptr %324, ptr %284, align 8, !tbaa !468
   br label %_ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit
 
 .lr.ph.i26:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10.i, %_ZL8printSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph3SCCE.exit.i
   %.sroa.015.019.i = phi ptr [ %401, %_ZL8printSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph3SCCE.exit.i ], [ %313, %_ZN4llvm11raw_ostreamlsEPKc.exit10.i ]
   %325 = load ptr, ptr %.sroa.015.019.i, align 8, !tbaa !196
-  %326 = load ptr, ptr %282, align 8, !tbaa !462
-  %327 = load ptr, ptr %284, align 8, !tbaa !466
+  %326 = load ptr, ptr %282, align 8, !tbaa !464
+  %327 = load ptr, ptr %284, align 8, !tbaa !468
   %328 = ptrtoint ptr %326 to i64
   %329 = ptrtoint ptr %327 to i64
   %330 = sub i64 %328, %329
@@ -20432,9 +20432,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %309, %307
 
 334:                                              ; preds = %.lr.ph.i26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %327, ptr noundef nonnull align 1 dereferenceable(13) @.str.13, i64 13, i1 false)
-  %335 = load ptr, ptr %284, align 8, !tbaa !466
+  %335 = load ptr, ptr %284, align 8, !tbaa !468
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 13
-  store ptr %336, ptr %284, align 8, !tbaa !466
+  store ptr %336, ptr %284, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %334, %332
@@ -20444,9 +20444,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %334, %332
   %339 = sext i32 %338 to i64
   %340 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, i64 noundef %339) #18
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
-  %342 = load ptr, ptr %341, align 8, !tbaa !462
+  %342 = load ptr, ptr %341, align 8, !tbaa !464
   %343 = getelementptr inbounds nuw i8, ptr %340, i64 32
-  %344 = load ptr, ptr %343, align 8, !tbaa !466
+  %344 = load ptr, ptr %343, align 8, !tbaa !468
   %345 = ptrtoint ptr %342 to i64
   %346 = ptrtoint ptr %344 to i64
   %347 = sub i64 %345, %346
@@ -20459,9 +20459,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %334, %332
 
 351:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %344, ptr noundef nonnull align 1 dereferenceable(12) @.str.14, i64 12, i1 false)
-  %352 = load ptr, ptr %343, align 8, !tbaa !466
+  %352 = load ptr, ptr %343, align 8, !tbaa !468
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 12
-  store ptr %353, ptr %343, align 8, !tbaa !466
+  store ptr %353, ptr %343, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit9.i.i:            ; preds = %351, %349
@@ -20477,8 +20477,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9.i.i:            ; preds = %351, %349
 .lr.ph.i.i28:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit15.i.i
   %.sroa.016.020.i.i = phi ptr [ %400, %_ZN4llvm11raw_ostreamlsEPKc.exit15.i.i ], [ %355, %_ZN4llvm11raw_ostreamlsEPKc.exit9.i.i ]
   %359 = load ptr, ptr %.sroa.016.020.i.i, align 8, !tbaa !7
-  %360 = load ptr, ptr %282, align 8, !tbaa !462
-  %361 = load ptr, ptr %284, align 8, !tbaa !466
+  %360 = load ptr, ptr %282, align 8, !tbaa !464
+  %361 = load ptr, ptr %284, align 8, !tbaa !468
   %362 = ptrtoint ptr %360 to i64
   %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
@@ -20491,9 +20491,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9.i.i:            ; preds = %351, %349
 
 368:                                              ; preds = %.lr.ph.i.i28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %361, ptr noundef nonnull align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
-  %369 = load ptr, ptr %284, align 8, !tbaa !466
+  %369 = load ptr, ptr %284, align 8, !tbaa !468
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 6
-  store ptr %370, ptr %284, align 8, !tbaa !466
+  store ptr %370, ptr %284, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %368, %366
@@ -20504,9 +20504,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %368, %366
   %374 = extractvalue { ptr, i64 } %373, 0
   %375 = extractvalue { ptr, i64 } %373, 1
   %376 = getelementptr inbounds nuw i8, ptr %.0.i.i11.i.i, i64 24
-  %377 = load ptr, ptr %376, align 8, !tbaa !462
+  %377 = load ptr, ptr %376, align 8, !tbaa !464
   %378 = getelementptr inbounds nuw i8, ptr %.0.i.i11.i.i, i64 32
-  %379 = load ptr, ptr %378, align 8, !tbaa !466
+  %379 = load ptr, ptr %378, align 8, !tbaa !468
   %380 = ptrtoint ptr %377 to i64
   %381 = ptrtoint ptr %379 to i64
   %382 = sub i64 %380, %381
@@ -20516,7 +20516,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %368, %366
 384:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
   %385 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i11.i.i, ptr noundef %374, i64 noundef %375) #18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %385, i64 32
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !466
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
 
 386:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
@@ -20525,16 +20525,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %368, %366
 
 387:                                              ; preds = %386
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %379, ptr align 1 %374, i64 %375, i1 false)
-  %388 = load ptr, ptr %378, align 8, !tbaa !466
+  %388 = load ptr, ptr %378, align 8, !tbaa !468
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 %375
-  store ptr %389, ptr %378, align 8, !tbaa !466
+  store ptr %389, ptr %378, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %387, %386, %384
   %390 = phi ptr [ %.pre.i.i, %384 ], [ %389, %387 ], [ %379, %386 ]
   %.0.i.i14.i = phi ptr [ %385, %384 ], [ %.0.i.i11.i.i, %387 ], [ %.0.i.i11.i.i, %386 ]
   %391 = getelementptr inbounds nuw i8, ptr %.0.i.i14.i, i64 24
-  %392 = load ptr, ptr %391, align 8, !tbaa !462
+  %392 = load ptr, ptr %391, align 8, !tbaa !464
   %393 = icmp eq ptr %392, %390
   br i1 %393, label %394, label %396
 
@@ -20545,9 +20545,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %387, %386, %384
 396:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
   %397 = getelementptr inbounds nuw i8, ptr %.0.i.i14.i, i64 32
   store i8 10, ptr %390, align 1
-  %398 = load ptr, ptr %397, align 8, !tbaa !466
+  %398 = load ptr, ptr %397, align 8, !tbaa !468
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 1
-  store ptr %399, ptr %397, align 8, !tbaa !466
+  store ptr %399, ptr %397, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15.i.i:           ; preds = %396, %394
@@ -20562,7 +20562,7 @@ _ZL8printSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph3SCCE.exit.i: ; preds = %_ZN
 
 _ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit: ; preds = %320, %322
   %402 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm13LazyCallGraph26postorder_ref_scc_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %403 = load ptr, ptr %6, align 8, !tbaa !481
+  %403 = load ptr, ptr %6, align 8, !tbaa !484
   %404 = icmp ne ptr %403, %8
   %405 = load ptr, ptr %100, align 8
   %406 = icmp ne ptr %405, null
@@ -20572,13 +20572,13 @@ _ZL11printRefSCCRN4llvm11raw_ostreamERNS_13LazyCallGraph6RefSCCE.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm13LazyCallGraph26postorder_ref_scc_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !481
+  %2 = load ptr, ptr %0, align 8, !tbaa !484
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !483
-  %6 = load ptr, ptr %3, align 8, !tbaa !301
+  %5 = load ptr, ptr %4, align 8, !tbaa !486
+  %6 = load ptr, ptr %3, align 8, !tbaa !303
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  %8 = load i32, ptr %7, align 8, !tbaa !304
+  %8 = load i32, ptr %7, align 8, !tbaa !306
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit.i.i, label %10
 
@@ -20611,7 +20611,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !172
   %29 = icmp eq ptr %5, %28
-  br i1 %29, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i, label %.lr.ph.i.i.i, !prof !23, !llvm.loop !305
+  br i1 %29, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i, label %.lr.ph.i.i.i, !prof !23, !llvm.loop !307
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %1
   %30 = zext i32 %8 to i64
@@ -20621,7 +20621,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i: ; preds = %23, %.loopexit.i.i, %10
   %.sroa.0.1.i.i = phi ptr [ %31, %.loopexit.i.i ], [ %18, %10 ], [ %27, %23 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !306
+  %33 = load i32, ptr %32, align 8, !tbaa !308
   %34 = add nsw i32 %33, 1
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %36 = load i32, ptr %35, align 8, !tbaa !10
@@ -20634,7 +20634,7 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit: ; preds = 
   %40 = load ptr, ptr %38, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8, !tbaa !172
-  store ptr %42, ptr %4, align 8, !tbaa !483
+  store ptr %42, ptr %4, align 8, !tbaa !486
   %.not2.i = icmp eq ptr %42, null
   br i1 %.not2.i, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit, label %.lr.ph.i
 
@@ -20656,7 +20656,7 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit: ; preds = 
   br i1 %50, label %.loopexit.i.i.i.us, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit
 
 .loopexit.i.i.i.us:                               ; preds = %47
-  %51 = load i32, ptr %46, align 8, !tbaa !306
+  %51 = load i32, ptr %46, align 8, !tbaa !308
   %52 = add nsw i32 %51, 1
   %53 = icmp eq i32 %52, %36
   br i1 %53, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit.sink.split, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us
@@ -20665,9 +20665,9 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us: ; pre
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %40, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !172
-  store ptr %56, ptr %4, align 8, !tbaa !483
+  store ptr %56, ptr %4, align 8, !tbaa !486
   %.not.i.us = icmp eq ptr %56, null
-  br i1 %.not.i.us, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit, label %47, !llvm.loop !474
+  br i1 %.not.i.us, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit, label %47, !llvm.loop !487
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i
   %.0.i.i13.i = phi ptr [ %85, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i ], [ %42, %.lr.ph.i ]
@@ -20704,12 +20704,12 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us: ; pre
   %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %6, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !172
   %78 = icmp eq ptr %.0.i.i13.i, %77
-  br i1 %78, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !23, !llvm.loop !305
+  br i1 %78, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !23, !llvm.loop !307
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i: ; preds = %72, %.lr.ph.i.i.i.i, %60
   %.sroa.0.1.i.i.i = phi ptr [ %67, %60 ], [ %45, %.lr.ph.i.i.i.i ], [ %76, %72 ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !306
+  %80 = load i32, ptr %79, align 8, !tbaa !308
   %81 = add nsw i32 %80, 1
   %82 = icmp eq i32 %81, %36
   br i1 %82, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit.sink.split, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i
@@ -20718,12 +20718,12 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i: ; preds 
   %83 = sext i32 %81 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %40, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !172
-  store ptr %85, ptr %4, align 8, !tbaa !483
+  store ptr %85, ptr %4, align 8, !tbaa !486
   %.not.i = icmp eq ptr %85, null
-  br i1 %.not.i, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit, label %.lr.ph.i.split, !llvm.loop !474
+  br i1 %.not.i, label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit, label %.lr.ph.i.split, !llvm.loop !477
 
 _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit.sink.split: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i.i, %.loopexit.i.i.i.us, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findEPKS3_.exit.i
-  store ptr null, ptr %4, align 8, !tbaa !483
+  store ptr null, ptr %4, align 8, !tbaa !486
   br label %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit
 
 _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit: ; preds = %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i, %.lr.ph.i.split, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit.i.us, %47, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSCCEv.exit.sink.split, %_ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator9incrementEv.exit
@@ -20732,7 +20732,7 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSC
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm27LazyCallGraphDOTPrinterPassC2ERNS_11raw_ostreamE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !458
+  store ptr %1, ptr %0, align 8, !tbaa !460
   ret void
 }
 
@@ -20750,11 +20750,11 @@ define dso_local void @_ZN4llvm27LazyCallGraphDOTPrinterPass3runERNS_6ModuleERNS
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21LazyCallGraphAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(841) %2) #18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %1, align 8, !tbaa !484
+  %17 = load ptr, ptr %1, align 8, !tbaa !488
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !462
+  %19 = load ptr, ptr %18, align 8, !tbaa !464
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !466
+  %21 = load ptr, ptr %20, align 8, !tbaa !468
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
@@ -20767,9 +20767,9 @@ define dso_local void @_ZN4llvm27LazyCallGraphDOTPrinterPass3runERNS_6ModuleERNS
 
 28:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false)
-  %29 = load ptr, ptr %20, align 8, !tbaa !466
+  %29 = load ptr, ptr %20, align 8, !tbaa !468
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  store ptr %30, ptr %20, align 8, !tbaa !466
+  store ptr %30, ptr %20, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
@@ -20777,14 +20777,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #18
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 168
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %31) #18
-  %32 = load ptr, ptr %14, align 8, !tbaa !467
+  %32 = load ptr, ptr %14, align 8, !tbaa !469
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !470
+  %34 = load i64, ptr %33, align 8, !tbaa !472
   %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %32, i64 noundef %34) #18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !462
+  %37 = load ptr, ptr %36, align 8, !tbaa !464
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !466
+  %39 = load ptr, ptr %38, align 8, !tbaa !468
   %40 = ptrtoint ptr %37 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
@@ -20797,19 +20797,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i32 175841314, ptr %39, align 1
-  %47 = load ptr, ptr %38, align 8, !tbaa !466
+  %47 = load ptr, ptr %38, align 8, !tbaa !468
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store ptr %48, ptr %38, align 8, !tbaa !466
+  store ptr %48, ptr %38, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
 _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %44, %46
-  %49 = load ptr, ptr %14, align 8, !tbaa !467
+  %49 = load ptr, ptr %14, align 8, !tbaa !469
   %50 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
-  %52 = load i64, ptr %33, align 8, !tbaa !470
+  %52 = load i64, ptr %33, align 8, !tbaa !472
   %53 = icmp ult i64 %52, 16
   call void @llvm.assume(i1 %53)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -20847,11 +20847,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %97
 
 ._crit_edge:                                      ; preds = %_ZL12printNodeDOTRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %73 = load ptr, ptr %1, align 8, !tbaa !484
+  %73 = load ptr, ptr %1, align 8, !tbaa !488
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !462
+  %75 = load ptr, ptr %74, align 8, !tbaa !464
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !466
+  %77 = load ptr, ptr %76, align 8, !tbaa !468
   %78 = ptrtoint ptr %75 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
@@ -20864,40 +20864,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 84:                                               ; preds = %._crit_edge
   store i16 2685, ptr %77, align 1
-  %85 = load ptr, ptr %76, align 8, !tbaa !466
+  %85 = load ptr, ptr %76, align 8, !tbaa !468
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
-  store ptr %86, ptr %76, align 8, !tbaa !466
+  store ptr %86, ptr %76, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit14
 
 _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %82, %84
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !38, !alias.scope !486
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !38, !alias.scope !490
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %87, align 8, !tbaa !40, !alias.scope !486
+  store i32 2, ptr %87, align 8, !tbaa !40, !alias.scope !490
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %89, align 8, !tbaa !42, !alias.scope !486
+  store i32 0, ptr %89, align 8, !tbaa !42, !alias.scope !490
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %90, align 4, !tbaa !43, !alias.scope !486
+  store i8 1, ptr %90, align 4, !tbaa !43, !alias.scope !490
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %92, ptr %91, align 8, !tbaa !38, !alias.scope !486
+  store ptr %92, ptr %91, align 8, !tbaa !38, !alias.scope !490
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %93, align 8, !tbaa !40, !alias.scope !486
+  store i32 2, ptr %93, align 8, !tbaa !40, !alias.scope !490
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %94, align 4, !tbaa !41, !alias.scope !486
+  store i32 0, ptr %94, align 4, !tbaa !41, !alias.scope !490
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %95, align 8, !tbaa !42, !alias.scope !486
+  store i32 0, ptr %95, align 8, !tbaa !42, !alias.scope !490
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %96, align 4, !tbaa !43, !alias.scope !486
-  store i32 1, ptr %88, align 4, !tbaa !41, !alias.scope !486, !noalias !489
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !99, !alias.scope !486, !noalias !489
+  store i8 1, ptr %96, align 4, !tbaa !43, !alias.scope !490
+  store i32 1, ptr %88, align 4, !tbaa !41, !alias.scope !490, !noalias !493
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !99, !alias.scope !490, !noalias !493
   ret void
 
 97:                                               ; preds = %.lr.ph, %_ZL12printNodeDOTRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit
   %.sroa.017.022 = phi ptr [ %.sroa.017.020, %.lr.ph ], [ %.sroa.017.0, %_ZL12printNodeDOTRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit ]
   %98 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 -56
-  %99 = load ptr, ptr %1, align 8, !tbaa !484
+  %99 = load ptr, ptr %1, align 8, !tbaa !488
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #18
   store ptr %98, ptr %13, align 8, !tbaa !108
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -20961,7 +20961,7 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %._ZN4llvm13LazyCall
   %124 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %123) #18
   %125 = extractvalue { ptr, i64 } %124, 0
   %126 = extractvalue { ptr, i64 } %124, 1
-  store ptr %61, ptr %10, align 8, !tbaa !492
+  store ptr %61, ptr %10, align 8, !tbaa !496
   %127 = icmp eq ptr %125, null
   %128 = icmp ne i64 %126, 0
   %or.cond.i.i.i.i = and i1 %127, %128
@@ -20979,7 +20979,7 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %._ZN4llvm13LazyCall
 
 132:                                              ; preds = %130
   %133 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #18
-  store ptr %133, ptr %10, align 8, !tbaa !467
+  store ptr %133, ptr %10, align 8, !tbaa !469
   %134 = load i64, ptr %6, align 8, !tbaa !13
   store i64 %134, ptr %61, align 8, !tbaa !37
   br label %._crit_edge.i.i.i.i.i
@@ -21002,23 +21002,23 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %._ZN4llvm13LazyCall
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i: ; preds = %138, %136, %._crit_edge.i.i.i.i.i
   %139 = load i64, ptr %6, align 8, !tbaa !13
-  store i64 %139, ptr %62, align 8, !tbaa !470
-  %140 = load ptr, ptr %10, align 8, !tbaa !467
+  store i64 %139, ptr %62, align 8, !tbaa !472
+  %140 = load ptr, ptr %10, align 8, !tbaa !469
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %139
   store i8 0, ptr %141, align 1, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !493)
-  %142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.16, i64 noundef 1) #18, !noalias !493
-  store ptr %63, ptr %8, align 8, !tbaa !492, !alias.scope !493
-  %143 = load ptr, ptr %142, align 8, !tbaa !467
+  call void @llvm.experimental.noalias.scope.decl(metadata !497)
+  %142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.16, i64 noundef 1) #18, !noalias !497
+  store ptr %63, ptr %8, align 8, !tbaa !496, !alias.scope !497
+  %143 = load ptr, ptr %142, align 8, !tbaa !469
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %145 = icmp eq ptr %143, %144
   br i1 %145, label %146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %148 = load i64, ptr %147, align 8, !tbaa !470
+  %148 = load i64, ptr %147, align 8, !tbaa !472
   %149 = icmp ult i64 %148, 16
   call void @llvm.assume(i1 %149)
   %150 = add nuw nsw i64 %148, 1
@@ -21026,40 +21026,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i
-  store ptr %143, ptr %8, align 8, !tbaa !467, !alias.scope !493
+  store ptr %143, ptr %8, align 8, !tbaa !469, !alias.scope !497
   %151 = load i64, ptr %144, align 8, !tbaa !37
-  store i64 %151, ptr %63, align 8, !tbaa !37, !alias.scope !493
+  store i64 %151, ptr %63, align 8, !tbaa !37, !alias.scope !497
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !470
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !472
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %146
   %152 = phi i64 [ %148, %146 ], [ %.pre.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   %153 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i64 %152, ptr %64, align 8, !tbaa !470, !alias.scope !493
-  store ptr %144, ptr %142, align 8, !tbaa !467
-  store i64 0, ptr %153, align 8, !tbaa !470
+  store i64 %152, ptr %64, align 8, !tbaa !472, !alias.scope !497
+  store ptr %144, ptr %142, align 8, !tbaa !469
+  store i64 0, ptr %153, align 8, !tbaa !472
   store i8 0, ptr %144, align 8, !tbaa !37
-  call void @llvm.experimental.noalias.scope.decl(metadata !496)
-  %154 = load i64, ptr %64, align 8, !tbaa !470, !noalias !496
+  call void @llvm.experimental.noalias.scope.decl(metadata !500)
+  %154 = load i64, ptr %64, align 8, !tbaa !472, !noalias !500
   %155 = icmp eq i64 %154, 4611686018427387903
   br i1 %155, label %156, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
 
 156:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #21, !noalias !496
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #21, !noalias !500
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit.i
-  %157 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.16, i64 noundef 1) #18, !noalias !496
-  store ptr %65, ptr %7, align 8, !tbaa !492, !alias.scope !496
-  %158 = load ptr, ptr %157, align 8, !tbaa !467
+  %157 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.16, i64 noundef 1) #18, !noalias !500
+  store ptr %65, ptr %7, align 8, !tbaa !496, !alias.scope !500
+  %158 = load ptr, ptr %157, align 8, !tbaa !469
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %160 = icmp eq ptr %158, %159
   br i1 %160, label %161, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %163 = load i64, ptr %162, align 8, !tbaa !470
+  %163 = load i64, ptr %162, align 8, !tbaa !472
   %164 = icmp ult i64 %163, 16
   call void @llvm.assume(i1 %164)
   %165 = add nuw nsw i64 %163, 1
@@ -21067,26 +21067,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i: ; pre
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
-  store ptr %158, ptr %7, align 8, !tbaa !467, !alias.scope !496
+  store ptr %158, ptr %7, align 8, !tbaa !469, !alias.scope !500
   %166 = load i64, ptr %159, align 8, !tbaa !37
-  store i64 %166, ptr %65, align 8, !tbaa !37, !alias.scope !496
+  store i64 %166, ptr %65, align 8, !tbaa !37, !alias.scope !500
   %.phi.trans.insert.i11.i = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %.pre.i12.i = load i64, ptr %.phi.trans.insert.i11.i, align 8, !tbaa !470
+  %.pre.i12.i = load i64, ptr %.phi.trans.insert.i11.i, align 8, !tbaa !472
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i, %161
   %167 = phi i64 [ %163, %161 ], [ %.pre.i12.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i ]
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i64 %167, ptr %66, align 8, !tbaa !470, !alias.scope !496
-  store ptr %159, ptr %157, align 8, !tbaa !467
-  store i64 0, ptr %168, align 8, !tbaa !470
+  store i64 %167, ptr %66, align 8, !tbaa !472, !alias.scope !500
+  store ptr %159, ptr %157, align 8, !tbaa !469
+  store i64 0, ptr %168, align 8, !tbaa !472
   store i8 0, ptr %159, align 8, !tbaa !37
-  %169 = load ptr, ptr %8, align 8, !tbaa !467
+  %169 = load ptr, ptr %8, align 8, !tbaa !469
   %170 = icmp eq ptr %169, %63
   br i1 %170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i
-  %171 = load i64, ptr %64, align 8, !tbaa !470
+  %171 = load i64, ptr %64, align 8, !tbaa !472
   %172 = icmp ult i64 %171, 16
   call void @llvm.assume(i1 %172)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -21098,12 +21098,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %175 = load ptr, ptr %9, align 8, !tbaa !467
+  %175 = load ptr, ptr %9, align 8, !tbaa !469
   %176 = icmp eq ptr %175, %67
   br i1 %176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %177 = load i64, ptr %68, align 8, !tbaa !470
+  %177 = load i64, ptr %68, align 8, !tbaa !472
   %178 = icmp ult i64 %177, 16
   call void @llvm.assume(i1 %178)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
@@ -21115,12 +21115,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i
-  %181 = load ptr, ptr %10, align 8, !tbaa !467
+  %181 = load ptr, ptr %10, align 8, !tbaa !469
   %182 = icmp eq ptr %181, %61
   br i1 %182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
-  %183 = load i64, ptr %62, align 8, !tbaa !470
+  %183 = load i64, ptr %62, align 8, !tbaa !472
   %184 = icmp ult i64 %183, 16
   call void @llvm.assume(i1 %184)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i
@@ -21187,9 +21187,9 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13Lazy
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i, %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i
   %205 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %206 = load ptr, ptr %205, align 8, !tbaa !462
+  %206 = load ptr, ptr %205, align 8, !tbaa !464
   %207 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %208 = load ptr, ptr %207, align 8, !tbaa !466
+  %208 = load ptr, ptr %207, align 8, !tbaa !468
   %209 = icmp eq ptr %206, %208
   br i1 %209, label %210, label %212
 
@@ -21199,18 +21199,18 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13Lazy
 
 212:                                              ; preds = %._crit_edge.i
   store i8 10, ptr %208, align 1
-  %213 = load ptr, ptr %207, align 8, !tbaa !466
+  %213 = load ptr, ptr %207, align 8, !tbaa !468
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 1
-  store ptr %214, ptr %207, align 8, !tbaa !466
+  store ptr %214, ptr %207, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %212, %210
-  %215 = load ptr, ptr %7, align 8, !tbaa !467
+  %215 = load ptr, ptr %7, align 8, !tbaa !469
   %216 = icmp eq ptr %215, %65
   br i1 %216, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
-  %217 = load i64, ptr %66, align 8, !tbaa !470
+  %217 = load i64, ptr %66, align 8, !tbaa !472
   %218 = icmp ult i64 %217, 16
   call void @llvm.assume(i1 %218)
   br label %_ZL12printNodeDOTRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit
@@ -21223,8 +21223,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 221:                                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i, %.lr.ph.i
   %.sroa.055.062.i = phi ptr [ %.sroa.0.1.i.i, %.lr.ph.i ], [ %.sroa.055.2.i, %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i ]
-  %222 = load ptr, ptr %203, align 8, !tbaa !462
-  %223 = load ptr, ptr %204, align 8, !tbaa !466
+  %222 = load ptr, ptr %203, align 8, !tbaa !464
+  %223 = load ptr, ptr %204, align 8, !tbaa !468
   %224 = ptrtoint ptr %222 to i64
   %225 = ptrtoint ptr %223 to i64
   %226 = sub i64 %224, %225
@@ -21237,20 +21237,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 230:                                              ; preds = %221
   store i16 8224, ptr %223, align 1
-  %231 = load ptr, ptr %204, align 8, !tbaa !466
+  %231 = load ptr, ptr %204, align 8, !tbaa !468
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 2
-  store ptr %232, ptr %204, align 8, !tbaa !466
+  store ptr %232, ptr %204, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %230, %228
   %.0.i.i26.i = phi ptr [ %229, %228 ], [ %99, %230 ]
-  %233 = load ptr, ptr %7, align 8, !tbaa !467
-  %234 = load i64, ptr %66, align 8, !tbaa !470
+  %233 = load ptr, ptr %7, align 8, !tbaa !469
+  %234 = load i64, ptr %66, align 8, !tbaa !472
   %235 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i26.i, ptr noundef %233, i64 noundef %234) #18
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  %237 = load ptr, ptr %236, align 8, !tbaa !462
+  %237 = load ptr, ptr %236, align 8, !tbaa !464
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 32
-  %239 = load ptr, ptr %238, align 8, !tbaa !466
+  %239 = load ptr, ptr %238, align 8, !tbaa !468
   %240 = ptrtoint ptr %237 to i64
   %241 = ptrtoint ptr %239 to i64
   %242 = sub i64 %240, %241
@@ -21263,9 +21263,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %230, %228
 
 246:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit27.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %239, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
-  %247 = load ptr, ptr %238, align 8, !tbaa !466
+  %247 = load ptr, ptr %238, align 8, !tbaa !468
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 5
-  store ptr %248, ptr %238, align 8, !tbaa !466
+  store ptr %248, ptr %238, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %246, %244
@@ -21280,7 +21280,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %246, %244
   %253 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %252) #18
   %254 = extractvalue { ptr, i64 } %253, 0
   %255 = extractvalue { ptr, i64 } %253, 1
-  store ptr %69, ptr %12, align 8, !tbaa !492
+  store ptr %69, ptr %12, align 8, !tbaa !496
   %256 = icmp eq ptr %254, null
   %257 = icmp ne i64 %255, 0
   %or.cond.i.i.i31.i = and i1 %256, %257
@@ -21298,7 +21298,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %246, %244
 
 261:                                              ; preds = %259
   %262 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #18
-  store ptr %262, ptr %12, align 8, !tbaa !467
+  store ptr %262, ptr %12, align 8, !tbaa !469
   %263 = load i64, ptr %5, align 8, !tbaa !13
   store i64 %263, ptr %69, align 8, !tbaa !37
   br label %._crit_edge.i.i.i.i32.i
@@ -21321,19 +21321,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %246, %244
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit33.i: ; preds = %267, %265, %._crit_edge.i.i.i.i32.i
   %268 = load i64, ptr %5, align 8, !tbaa !13
-  store i64 %268, ptr %70, align 8, !tbaa !470
-  %269 = load ptr, ptr %12, align 8, !tbaa !467
+  store i64 %268, ptr %70, align 8, !tbaa !472
+  %269 = load ptr, ptr %12, align 8, !tbaa !469
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 %268
   store i8 0, ptr %270, align 1, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  %271 = load ptr, ptr %11, align 8, !tbaa !467
-  %272 = load i64, ptr %71, align 8, !tbaa !470
+  %271 = load ptr, ptr %11, align 8, !tbaa !469
+  %272 = load i64, ptr %71, align 8, !tbaa !472
   %273 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i29.i, ptr noundef %271, i64 noundef %272) #18
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
-  %275 = load ptr, ptr %274, align 8, !tbaa !462
+  %275 = load ptr, ptr %274, align 8, !tbaa !464
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 32
-  %277 = load ptr, ptr %276, align 8, !tbaa !466
+  %277 = load ptr, ptr %276, align 8, !tbaa !468
   %278 = icmp eq ptr %275, %277
   br i1 %278, label %279, label %281
 
@@ -21343,18 +21343,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 
 281:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit33.i
   store i8 34, ptr %277, align 1
-  %282 = load ptr, ptr %276, align 8, !tbaa !466
+  %282 = load ptr, ptr %276, align 8, !tbaa !468
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  store ptr %283, ptr %276, align 8, !tbaa !466
+  store ptr %283, ptr %276, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit36.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit36.i:             ; preds = %281, %279
-  %284 = load ptr, ptr %11, align 8, !tbaa !467
+  %284 = load ptr, ptr %11, align 8, !tbaa !469
   %285 = icmp eq ptr %284, %72
   br i1 %285, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit36.i
-  %286 = load i64, ptr %71, align 8, !tbaa !470
+  %286 = load i64, ptr %71, align 8, !tbaa !472
   %287 = icmp ult i64 %286, 16
   call void @llvm.assume(i1 %287)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i
@@ -21366,12 +21366,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.i
-  %290 = load ptr, ptr %12, align 8, !tbaa !467
+  %290 = load ptr, ptr %12, align 8, !tbaa !469
   %291 = icmp eq ptr %290, %69
   br i1 %291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i
-  %292 = load i64, ptr %70, align 8, !tbaa !470
+  %292 = load i64, ptr %70, align 8, !tbaa !472
   %293 = icmp ult i64 %292, 16
   call void @llvm.assume(i1 %293)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i
@@ -21388,11 +21388,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i: ; preds = %_
   %.0.copyload.i.i.i.i.i43.i = load i64, ptr %.sroa.055.062.i, align 8
   %296 = and i64 %.0.copyload.i.i.i.i.i43.i, 4
   %.not60.i = icmp eq i64 %296, 0
-  %.pre63.i = load ptr, ptr %204, align 8, !tbaa !466
+  %.pre63.i = load ptr, ptr %204, align 8, !tbaa !468
   br i1 %.not60.i, label %297, label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
 297:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i
-  %298 = load ptr, ptr %203, align 8, !tbaa !462
+  %298 = load ptr, ptr %203, align 8, !tbaa !464
   %299 = ptrtoint ptr %298 to i64
   %300 = ptrtoint ptr %.pre63.i to i64
   %301 = sub i64 %299, %300
@@ -21401,19 +21401,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i: ; preds = %_
 
 303:                                              ; preds = %297
   %304 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef nonnull @.str.19, i64 noundef 27) #18
-  %.pre.i = load ptr, ptr %204, align 8, !tbaa !466
+  %.pre.i = load ptr, ptr %204, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
 305:                                              ; preds = %297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %.pre63.i, ptr noundef nonnull align 1 dereferenceable(27) @.str.19, i64 27, i1 false)
-  %306 = load ptr, ptr %204, align 8, !tbaa !466
+  %306 = load ptr, ptr %204, align 8, !tbaa !468
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 27
-  store ptr %307, ptr %204, align 8, !tbaa !466
+  store ptr %307, ptr %204, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit46.i:             ; preds = %305, %303, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i
   %308 = phi ptr [ %307, %305 ], [ %.pre.i, %303 ], [ %.pre63.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.i ]
-  %309 = load ptr, ptr %203, align 8, !tbaa !462
+  %309 = load ptr, ptr %203, align 8, !tbaa !464
   %310 = ptrtoint ptr %309 to i64
   %311 = ptrtoint ptr %308 to i64
   %312 = sub i64 %310, %311
@@ -21426,9 +21426,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46.i:             ; preds = %305, %303, %_ZNSt7_
 
 316:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
   store i16 2619, ptr %308, align 1
-  %317 = load ptr, ptr %204, align 8, !tbaa !466
+  %317 = load ptr, ptr %204, align 8, !tbaa !468
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 2
-  store ptr %318, ptr %204, align 8, !tbaa !466
+  store ptr %318, ptr %204, align 8, !tbaa !468
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit49.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit49.i:             ; preds = %316, %314
@@ -21801,7 +21801,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm9SetVectorIPNS_8FunctionENS_11S
   %32 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %33 = add nsw i64 %.047.i.i.i.i, -1
   %34 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %34, label %16, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !499
+  br i1 %34, label %16, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !503
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %31
   %35 = and i32 %10, 3
@@ -21914,7 +21914,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exi
   %81 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %60, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !108
   %83 = icmp eq ptr %59, %82
-  br i1 %83, label %_ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit, label %.lr.ph.i.i.i.i.i, !prof !23, !llvm.loop !500
+  br i1 %83, label %_ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit, label %.lr.ph.i.i.i.i.i, !prof !23, !llvm.loop !504
 
 _ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit: ; preds = %77, %.lr.ph.i.i.i.i.i, %64, %58, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit
   %.0 = phi i64 [ %57, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit ], [ 0, %58 ], [ 1, %64 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 1, %77 ]
@@ -21977,7 +21977,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCC
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !501
+  %17 = load i32, ptr %16, align 8, !tbaa !505
   %18 = icmp eq i32 %.0, %17
   br i1 %18, label %19, label %29
 
@@ -22006,7 +22006,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCC
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !376
+  %31 = load ptr, ptr %30, align 8, !tbaa !378
   %32 = zext i32 %17 to i64
   %33 = shl nuw nsw i64 %32, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %31, i64 noundef %33, i64 noundef 8) #18
@@ -22173,7 +22173,7 @@ _ZN4llvm8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS3_v
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !108
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !502
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !506
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
@@ -22195,7 +22195,7 @@ _ZN4llvm8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS3_v
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !108
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !502
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !506
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -22271,7 +22271,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_1
   %70 = phi i32 [ %40, %39 ], [ %40, %39 ], [ %68, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i8 = icmp eq ptr %71, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %39, !llvm.loop !503
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %39, !llvm.loop !507
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit: ; preds = %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
@@ -22385,7 +22385,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS3_vEENS_6detail12
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !504
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !508
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
@@ -22407,7 +22407,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS3_vEENS_6detail12
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !504
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !508
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -22482,7 +22482,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoI
   %71 = phi i32 [ %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i ], [ %38, %.lr.ph.i7 ], [ %38, %.lr.ph.i7 ]
   %72 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %.lr.ph.i7, !llvm.loop !505
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %.lr.ph.i7, !llvm.loop !509
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
@@ -22694,7 +22694,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8Functi
   %33 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !108
   %35 = icmp eq ptr %11, %34
-  br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !506
+  br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !23, !llvm.loop !510
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit: ; preds = %25, %4
   %.sink.i = phi ptr [ %26, %25 ], [ null, %4 ]
@@ -22714,7 +22714,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
 
 43:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !367
+  %45 = load i32, ptr %44, align 4, !tbaa !369
   %.neg.i.i = xor i32 %37, -1
   %.neg12.i.i = add i32 %8, %.neg.i.i
   %46 = sub i32 %.neg12.i.i, %45
@@ -22741,9 +22741,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %57 = load i32, ptr %56, align 4, !tbaa !367
+  %57 = load i32, ptr %56, align 4, !tbaa !369
   %58 = add i32 %57, -1
-  store i32 %58, ptr %56, align 4, !tbaa !367
+  store i32 %58, ptr %56, align 4, !tbaa !369
   br label %59
 
 59:                                               ; preds = %49, %55
@@ -22765,7 +22765,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %65, align 8, !tbaa !507
+  store i8 %.sink, ptr %65, align 8, !tbaa !511
   ret void
 }
 
@@ -22818,7 +22818,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !108
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !506
+  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !510
 
 .thread:                                          ; preds = %25, %8, %3, %23
   %.sink = phi ptr [ %24, %23 ], [ null, %3 ], [ %17, %8 ], [ %31, %25 ]
@@ -22860,7 +22860,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_v
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %23, align 8, !tbaa !153
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !367
+  store i32 0, ptr %24, align 4, !tbaa !369
   %25 = load i32, ptr %2, align 8, !tbaa !190
   %26 = zext i32 %25 to i64
   %.idx.i = shl nuw nsw i64 %26, 3
@@ -22873,7 +22873,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_v
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !108
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !510
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !514
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
@@ -22882,7 +22882,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_v
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !153
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !367
+  store i32 0, ptr %33, align 4, !tbaa !369
   %34 = load i32, ptr %2, align 8, !tbaa !190
   %35 = zext i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %35, 3
@@ -22895,7 +22895,7 @@ _ZN4llvm8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_v
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !108
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !510
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !514
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -22954,7 +22954,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
   %62 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !108
   %64 = icmp eq ptr %41, %63
-  br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !23, !llvm.loop !506
+  br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !23, !llvm.loop !510
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i: ; preds = %56, %54, %42
   %.sink.i.i = phi ptr [ %55, %54 ], [ %48, %42 ], [ %62, %56 ]
@@ -22967,7 +22967,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
   %67 = phi i32 [ %40, %39 ], [ %40, %39 ], [ %65, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %.not.i8 = icmp eq ptr %68, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %39, !llvm.loop !511
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %39, !llvm.loop !515
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E18moveFromOldBucketsEPS9_SC_.exit: ; preds = %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
@@ -23263,16 +23263,16 @@ _ZN4llvm15SmallVectorImplISt4pairIPvmEE12assignRemoteEOS4_.exit: ; preds = %8, %
   %.0811.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %29, %28 ]
   %.0910.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %5, %28 ]
   %30 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !99
-  store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !512
+  store ptr %30, ptr %.0811.i.i.i.i.i, align 8, !tbaa !516
   %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i64 %32, ptr %33, align 8, !tbaa !514
+  store i64 %32, ptr %33, align 8, !tbaa !518
   %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
   %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit, !llvm.loop !515
+  br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit, !llvm.loop !519
 
 _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit:      ; preds = %.lr.ph.i.i.i.i.i, %27
   store i32 %22, ptr %24, align 8, !tbaa !10
@@ -23306,16 +23306,16 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit:      ; preds = %.lr.ph.i.i.i.i.i, %
   %.0811.i.i.i.i.i37 = phi ptr [ %52, %.lr.ph.i.i.i.i.i35 ], [ %46, %45 ]
   %.0910.i.i.i.i.i38 = phi ptr [ %51, %.lr.ph.i.i.i.i.i35 ], [ %5, %45 ]
   %47 = load ptr, ptr %.0910.i.i.i.i.i38, align 8, !tbaa !99
-  store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !512
+  store ptr %47, ptr %.0811.i.i.i.i.i37, align 8, !tbaa !516
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 8
-  store i64 %49, ptr %50, align 8, !tbaa !514
+  store i64 %49, ptr %50, align 8, !tbaa !518
   %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 16
   %53 = add nsw i64 %.012.i.i.i.i.i36, -1
   %54 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39, !llvm.loop !515
+  br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39, !llvm.loop !519
 
 _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35, %44, %42
   %.pre-phi = phi i64 [ %23, %44 ], [ %.pre42, %42 ], [ %23, %.lr.ph.i.i.i.i.i35 ]
@@ -23371,7 +23371,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %17, i64 noundef %16, i64 noundef 16) #18
   %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %18, %8
-  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !516
+  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !520
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit: ; preds = %.lr.ph.i, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -23386,9 +23386,9 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 .lr.ph.i13:                                       ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, %.lr.ph.i13
   %.011.i = phi ptr [ %28, %.lr.ph.i13 ], [ %20, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit ]
-  %25 = load ptr, ptr %.011.i, align 8, !tbaa !512
+  %25 = load ptr, ptr %.011.i, align 8, !tbaa !516
   %26 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !514
+  %27 = load i64, ptr %26, align 8, !tbaa !518
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %25, i64 noundef %27, i64 noundef 16) #18
   %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i14 = icmp eq ptr %28, %24
@@ -23586,7 +23586,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCC
   %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 64
-  br i1 %.not31, label %25, label %27, !llvm.loop !517
+  br i1 %.not31, label %25, label %27, !llvm.loop !521
 
 35:                                               ; preds = %25
   %36 = load i32, ptr %0, align 8
@@ -23749,258 +23749,247 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
 56:                                               ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
   %57 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %.not = icmp eq ptr %57, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !518
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !522
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
-  %7 = ptrtoint ptr %0 to i64
-  %8 = ptrtoint ptr %1 to i64
-  %9 = icmp eq i64 %3, 1
-  br i1 %9, label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %10
+  %7 = icmp eq i64 %3, 1
+  br i1 %7, label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %8
 
-10:                                               ; preds = %6
+8:                                                ; preds = %6
   %.not = icmp sgt i64 %3, %5
-  br i1 %.not, label %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, label %11
+  br i1 %.not, label %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, label %9
 
-11:                                               ; preds = %10
-  %12 = load ptr, ptr %0, align 8, !tbaa !196
-  store ptr %12, ptr %4, align 8, !tbaa !196
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %0, align 8, !tbaa !196
+  store ptr %10, ptr %4, align 8, !tbaa !196
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.04073 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not4974 = icmp eq ptr %.04073, %1
   br i1 %.not4974, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %16 = load i8, ptr %14, align 4, !tbaa !43, !range !94, !noundef !98
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %14 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %18 = load ptr, ptr %2, align 8, !tbaa !38
-  %19 = load i32, ptr %15, align 4, !tbaa !41
-  %20 = zext i32 %19 to i64
-  %.idx.i.i.i.i.us = shl nuw nsw i64 %20, 3
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.us
-  %.not.not9.i.i.i.i.us = icmp eq i32 %19, 0
-  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.us.preheader", label %.lr.ph.i.i.i.i.preheader.us
+  %16 = load ptr, ptr %2, align 8, !tbaa !38
+  %17 = load i32, ptr %13, align 4, !tbaa !41
+  %18 = zext i32 %17 to i64
+  %.idx.i.i.i.i.us = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.us
+  %.not.not9.i.i.i.i.us = icmp eq i32 %17, 0
+  br label %20
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.us.preheader": ; preds = %.lr.ph.split.us
-  %22 = add i64 %8, -16
-  %23 = sub i64 %22, %7
-  %24 = and i64 %23, -8
-  %25 = add i64 %24, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %.04073, i64 %25, i1 false), !tbaa !196
-  %scevgep = getelementptr i8, ptr %0, i64 %25
-  br label %._crit_edge.thread
-
-.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us, %29
-  %.04077.us = phi ptr [ %.040.us, %29 ], [ %.04073, %.lr.ph.split.us ]
-  %.04276.us = phi ptr [ %.1.us, %29 ], [ %0, %.lr.ph.split.us ]
-  %.04375.us = phi ptr [ %.144.us, %29 ], [ %13, %.lr.ph.split.us ]
+20:                                               ; preds = %25, %.lr.ph.split.us
+  %.04077.us = phi ptr [ %.04073, %.lr.ph.split.us ], [ %.040.us, %25 ]
+  %.04276.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %25 ]
+  %.04375.us = phi ptr [ %11, %.lr.ph.split.us ], [ %.144.us, %25 ]
   %.040.val.us = load ptr, ptr %.04077.us, align 8, !tbaa !196
-  br label %.lr.ph.i.i.i.i.us
+  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us", label %.lr.ph.i.i.i.i.us
 
-.lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %27
-  %.0810.i.i.i.i.us = phi ptr [ %28, %27 ], [ %18, %.lr.ph.i.i.i.i.preheader.us ]
-  %26 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
-  %.not1.i.not.i.us = icmp eq ptr %26, %.040.val.us
-  br i1 %.not1.i.not.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us", label %27
+.lr.ph.i.i.i.i.us:                                ; preds = %20, %22
+  %.0810.i.i.i.i.us = phi ptr [ %23, %22 ], [ %16, %20 ]
+  %21 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
+  %.not1.i.not.i.us = icmp eq ptr %21, %.040.val.us
+  br i1 %.not1.i.not.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us", label %22
 
-27:                                               ; preds = %.lr.ph.i.i.i.i.us
-  %28 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
-  %.not.not.i.i.i.i.us = icmp eq ptr %28, %21
-  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
+22:                                               ; preds = %.lr.ph.i.i.i.i.us
+  %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
+  %.not.not.i.i.i.i.us = icmp eq ptr %23, %19
+  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us"
-  %.144.us = phi ptr [ %.04375.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us" ], [ %30, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ]
-  %.1.us = phi ptr [ %31, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us" ], [ %.04276.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us": ; preds = %22, %20
+  store ptr %.040.val.us, ptr %.04276.us, align 8, !tbaa !196
+  %24 = getelementptr inbounds nuw i8, ptr %.04276.us, i64 8
+  br label %25
+
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us"
+  %.144.us = phi ptr [ %.04375.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us" ], [ %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ]
+  %.1.us = phi ptr [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us" ], [ %.04276.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ]
   %.040.us = getelementptr inbounds nuw i8, ptr %.04077.us, i64 8
   %.not49.us = icmp eq ptr %.040.us, %1
-  br i1 %.not49.us, label %._crit_edge, label %.lr.ph.i.i.i.i.preheader.us, !llvm.loop !519
+  br i1 %.not49.us, label %._crit_edge, label %20, !llvm.loop !523
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59.loopexit.us": ; preds = %.lr.ph.i.i.i.i.us
   store ptr %.040.val.us, ptr %.04375.us, align 8, !tbaa !196
-  %30 = getelementptr inbounds nuw i8, ptr %.04375.us, i64 8
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %.04375.us, i64 8
+  br label %25
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us": ; preds = %27
-  store ptr %.040.val.us, ptr %.04276.us, align 8, !tbaa !196
-  %31 = getelementptr inbounds nuw i8, ptr %.04276.us, i64 8
-  br label %29
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %47
-  %.04077 = phi ptr [ %.040, %47 ], [ %.04073, %.lr.ph ]
-  %.04276 = phi ptr [ %.1, %47 ], [ %0, %.lr.ph ]
-  %.04375 = phi ptr [ %.144, %47 ], [ %13, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %42
+  %.04077 = phi ptr [ %.040, %42 ], [ %.04073, %.lr.ph ]
+  %.04276 = phi ptr [ %.1, %42 ], [ %0, %.lr.ph ]
+  %.04375 = phi ptr [ %.144, %42 ], [ %11, %.lr.ph ]
   %.040.val = load ptr, ptr %.04077, align 8, !tbaa !196
-  %32 = load i8, ptr %14, align 4, !tbaa !43, !range !94, !noundef !98
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit"
+  %27 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit"
 
-34:                                               ; preds = %.lr.ph.split
-  %35 = load ptr, ptr %2, align 8, !tbaa !38
-  %36 = load i32, ptr %15, align 4, !tbaa !41
-  %37 = zext i32 %36 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %36, 0
+29:                                               ; preds = %.lr.ph.split
+  %30 = load ptr, ptr %2, align 8, !tbaa !38
+  %31 = load i32, ptr %13, align 4, !tbaa !41
+  %32 = zext i32 %31 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.not9.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread", label %.lr.ph.i.i.i.i
 
-39:                                               ; preds = %.lr.ph.i.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %40, %38
+34:                                               ; preds = %.lr.ph.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %35, %33
   br i1 %.not.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread", label %.lr.ph.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i:                                   ; preds = %34, %39
-  %.0810.i.i.i.i = phi ptr [ %40, %39 ], [ %35, %34 ]
-  %41 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
-  %.not1.i.not.i = icmp eq ptr %41, %.040.val
-  br i1 %.not1.i.not.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59", label %39
+.lr.ph.i.i.i.i:                                   ; preds = %29, %34
+  %.0810.i.i.i.i = phi ptr [ %35, %34 ], [ %30, %29 ]
+  %36 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
+  %.not1.i.not.i = icmp eq ptr %36, %.040.val
+  br i1 %.not1.i.not.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59", label %34
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit": ; preds = %.lr.ph.split
-  %42 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
-  %.not.i.i = icmp eq ptr %42, null
-  %.pre94 = load ptr, ptr %.04077, align 8, !tbaa !196
+  %37 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
+  %.not.i.i = icmp eq ptr %37, null
+  %.pre90 = load ptr, ptr %.04077, align 8, !tbaa !196
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread": ; preds = %39, %34, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit"
-  %43 = phi ptr [ %.040.val, %34 ], [ %.pre94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit" ], [ %.040.val, %39 ]
-  store ptr %43, ptr %.04276, align 8, !tbaa !196
-  %44 = getelementptr inbounds nuw i8, ptr %.04276, i64 8
-  br label %47
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread": ; preds = %34, %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit"
+  %38 = phi ptr [ %.040.val, %29 ], [ %.pre90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit" ], [ %.040.val, %34 ]
+  store ptr %38, ptr %.04276, align 8, !tbaa !196
+  %39 = getelementptr inbounds nuw i8, ptr %.04276, i64 8
+  br label %42
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit"
-  %45 = phi ptr [ %.pre94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
-  store ptr %45, ptr %.04375, align 8, !tbaa !196
-  %46 = getelementptr inbounds nuw i8, ptr %.04375, i64 8
-  br label %47
+  %40 = phi ptr [ %.pre90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
+  store ptr %40, ptr %.04375, align 8, !tbaa !196
+  %41 = getelementptr inbounds nuw i8, ptr %.04375, i64 8
+  br label %42
 
-47:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59"
-  %.144 = phi ptr [ %.04375, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread" ], [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59" ]
-  %.1 = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread" ], [ %.04276, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59" ]
+42:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59"
+  %.144 = phi ptr [ %.04375, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread" ], [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59" ]
+  %.1 = phi ptr [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread" ], [ %.04276, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread59" ]
   %.040 = getelementptr inbounds nuw i8, ptr %.04077, i64 8
   %.not49 = icmp eq ptr %.040, %1
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !520
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !524
 
-._crit_edge:                                      ; preds = %47, %29
-  %.043.lcssa = phi ptr [ %.144.us, %29 ], [ %.144, %47 ]
-  %.042.lcssa = phi ptr [ %.1.us, %29 ], [ %.1, %47 ]
+._crit_edge:                                      ; preds = %42, %25
+  %.043.lcssa = phi ptr [ %.144.us, %25 ], [ %.144, %42 ]
+  %.042.lcssa = phi ptr [ %.1.us, %25 ], [ %.1, %42 ]
   %.not.i.i.i.i.i = icmp eq ptr %.043.lcssa, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.us.preheader", %11, %._crit_edge
-  %.042.lcssa99 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %scevgep, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.us.preheader" ], [ %0, %11 ]
-  %.043.lcssa98 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.us.preheader" ], [ %13, %11 ]
-  %48 = ptrtoint ptr %.043.lcssa98 to i64
-  %49 = ptrtoint ptr %4 to i64
-  %50 = sub i64 %48, %49
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa99, ptr nonnull align 8 %4, i64 %50, i1 false)
+._crit_edge.thread:                               ; preds = %9, %._crit_edge
+  %.042.lcssa95 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ]
+  %.043.lcssa94 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ]
+  %43 = ptrtoint ptr %.043.lcssa94 to i64
+  %44 = ptrtoint ptr %4 to i64
+  %45 = sub i64 %43, %44
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa95, ptr nonnull align 8 %4, i64 %45, i1 false)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
-_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit: ; preds = %10
-  %51 = sdiv i64 %3, 2
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %51
-  %53 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef %52, ptr %2, i64 noundef %51, ptr noundef %4, i64 noundef %5)
-  %54 = sub nsw i64 %3, %51
-  %.not11.i = icmp eq i64 %54, 0
+_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit: ; preds = %8
+  %46 = sdiv i64 %3, 2
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %46
+  %48 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef %47, ptr %2, i64 noundef %46, ptr noundef %4, i64 noundef %5)
+  %49 = sub nsw i64 %3, %46
+  %.not11.i = icmp eq i64 %49, 0
   br i1 %.not11.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %57 = load i8, ptr %55, align 4, !tbaa !43, !range !94, !noundef !98
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %52 = load i8, ptr %50, align 4, !tbaa !43, !range !94, !noundef !98
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %59 = load ptr, ptr %2, align 8, !tbaa !38
-  %60 = load i32, ptr %56, align 4, !tbaa !41
-  %61 = zext i32 %60 to i64
-  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %61, 3
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.us.i
-  %.not.not9.i.i.i.i.us.i = icmp eq i32 %60, 0
-  %63 = shl i64 %54, 3
-  %scevgep23.i = getelementptr i8, ptr %52, i64 %63
-  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i
+  %54 = load ptr, ptr %2, align 8, !tbaa !38
+  %55 = load i32, ptr %51, align 4, !tbaa !41
+  %56 = zext i32 %55 to i64
+  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %56, 3
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i.i.us.i
+  %.not.not9.i.i.i.i.us.i = icmp eq i32 %55, 0
+  %58 = shl i64 %49, 3
+  %scevgep.i = getelementptr i8, ptr %47, i64 %58
+  br label %59
 
-.lr.ph.i.i.i.i.preheader.us.i:                    ; preds = %.lr.ph.split.us.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i"
-  %.157 = phi i64 [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i" ], [ %54, %.lr.ph.split.us.i ]
-  %.012.us.i = phi ptr [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i" ], [ %52, %.lr.ph.split.us.i ]
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i", %.lr.ph.split.us.i
+  %.157 = phi i64 [ %49, %.lr.ph.split.us.i ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i" ]
+  %.012.us.i = phi ptr [ %47, %.lr.ph.split.us.i ], [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i" ]
   %.0.val.us.i = load ptr, ptr %.012.us.i, align 8, !tbaa !196
-  br label %.lr.ph.i.i.i.i.us.i
+  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i", label %.lr.ph.i.i.i.i.us.i
 
-.lr.ph.i.i.i.i.us.i:                              ; preds = %65, %.lr.ph.i.i.i.i.preheader.us.i
-  %.0810.i.i.i.i.us.i = phi ptr [ %66, %65 ], [ %59, %.lr.ph.i.i.i.i.preheader.us.i ]
-  %64 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
-  %.not1.i.not.i.us.i = icmp eq ptr %64, %.0.val.us.i
-  br i1 %.not1.i.not.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit", label %65
+.lr.ph.i.i.i.i.us.i:                              ; preds = %59, %61
+  %.0810.i.i.i.i.us.i = phi ptr [ %62, %61 ], [ %54, %59 ]
+  %60 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
+  %.not1.i.not.i.us.i = icmp eq ptr %60, %.0.val.us.i
+  br i1 %.not1.i.not.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit", label %61
 
-65:                                               ; preds = %.lr.ph.i.i.i.i.us.i
-  %66 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
-  %.not.not.i.i.i.i.us.i = icmp eq ptr %66, %62
-  br i1 %.not.not.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
+61:                                               ; preds = %.lr.ph.i.i.i.i.us.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
+  %.not.not.i.i.i.i.us.i = icmp eq ptr %62, %57
+  br i1 %.not.not.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i": ; preds = %65
-  %67 = add nsw i64 %.157, -1
-  %68 = getelementptr inbounds nuw i8, ptr %.012.us.i, i64 8
-  %.not.us.i = icmp eq i64 %67, 0
-  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i, !llvm.loop !521
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i": ; preds = %61, %59
+  %63 = add nsw i64 %.157, -1
+  %64 = getelementptr inbounds nuw i8, ptr %.012.us.i, i64 8
+  %.not.us.i = icmp eq i64 %63, 0
+  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %59, !llvm.loop !525
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i"
-  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ], [ %54, %.lr.ph.i ]
-  %.012.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ], [ %52, %.lr.ph.i ]
+  %.056 = phi i64 [ %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ], [ %49, %.lr.ph.i ]
+  %.012.i = phi ptr [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ], [ %47, %.lr.ph.i ]
   %.0.val.i = load ptr, ptr %.012.i, align 8, !tbaa !196
-  %69 = load i8, ptr %55, align 4, !tbaa !43, !range !94, !noundef !98
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i"
+  %65 = load i8, ptr %50, align 4, !tbaa !43, !range !94, !noundef !98
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i"
 
-71:                                               ; preds = %.lr.ph.split.i
-  %72 = load ptr, ptr %2, align 8, !tbaa !38
-  %73 = load i32, ptr %56, align 4, !tbaa !41
-  %74 = zext i32 %73 to i64
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %74, 3
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i
-  %.not.not9.i.i.i.i.i = icmp eq i32 %73, 0
+67:                                               ; preds = %.lr.ph.split.i
+  %68 = load ptr, ptr %2, align 8, !tbaa !38
+  %69 = load i32, ptr %51, align 4, !tbaa !41
+  %70 = zext i32 %69 to i64
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %70, 3
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i
+  %.not.not9.i.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not.not9.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i", label %.lr.ph.i.i.i.i.i
 
-76:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i = icmp eq ptr %77, %75
+72:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i = icmp eq ptr %73, %71
   br i1 %.not.not.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %71, %76
-  %.0810.i.i.i.i.i = phi ptr [ %77, %76 ], [ %72, %71 ]
-  %78 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !99
-  %.not1.i.not.i.i = icmp eq ptr %78, %.0.val.i
-  br i1 %.not1.i.not.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit", label %76
+.lr.ph.i.i.i.i.i:                                 ; preds = %67, %72
+  %.0810.i.i.i.i.i = phi ptr [ %73, %72 ], [ %68, %67 ]
+  %74 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !99
+  %.not1.i.not.i.i = icmp eq ptr %74, %.0.val.i
+  br i1 %.not1.i.not.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit", label %72
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i": ; preds = %.lr.ph.split.i
-  %79 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
-  %.not.i.i.i = icmp eq ptr %79, null
+  %75 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
+  %.not.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i", label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i": ; preds = %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i", %71
-  %80 = add nsw i64 %.056, -1
-  %81 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %.not.i = icmp eq i64 %80, 0
-  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.split.i, !llvm.loop !522
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i": ; preds = %72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i", %67
+  %76 = add nsw i64 %.056, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %.not.i = icmp eq i64 %76, 0
+  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.split.i, !llvm.loop !526
 
 "_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i", %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.us.i
   %.2 = phi i64 [ %.157, %.lr.ph.i.i.i.i.us.i ], [ %.056, %.lr.ph.i.i.i.i.i ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i" ]
   %.010.i = phi ptr [ %.012.us.i, %.lr.ph.i.i.i.i.us.i ], [ %.012.i, %.lr.ph.i.i.i.i.i ], [ %.012.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.i" ]
-  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef nonnull %.010.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
+  %78 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef nonnull %.010.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
   br label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread"
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i", %.lr.ph.split.us.i, %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit"
-  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit" ], [ %scevgep23.i, %.lr.ph.split.us.i ], [ %52, %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit ], [ %scevgep23.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ]
-  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph3SCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %53, ptr noundef %52, ptr noundef %.041)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit"
+  %.041 = phi ptr [ %78, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit" ], [ %47, %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.us.i" ], [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSU_.exit.thread.i" ]
+  %79 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph3SCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %48, ptr noundef %47, ptr noundef %.041)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge.thread, %._crit_edge, %6, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread"
-  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa99, %._crit_edge.thread ]
+  %.0 = phi ptr [ %79, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_S10_ST_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa95, %._crit_edge.thread ]
   ret ptr %.0
 }
 
@@ -24038,7 +24027,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph3SCCE
   %19 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %19, %1
-  br i1 %.not.i, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !523
+  br i1 %.not.i, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !527
 
 21:                                               ; preds = %7
   %22 = sub i64 %8, %12
@@ -24101,7 +24090,7 @@ _ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   %42 = getelementptr inbounds nuw i8, ptr %.055107, i64 8
   %43 = add nuw nsw i64 %.054108, 1
   %exitcond119.not = icmp eq i64 %43, %25
-  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !524
+  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !528
 
 44:                                               ; preds = %._crit_edge111
   %45 = sub nsw i64 %.083, %38
@@ -24148,7 +24137,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = 
   %.086.be = phi i64 [ %.083, %44 ], [ %25, %._crit_edge ]
   %.083.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %44 ], [ %.361.lcssa, %._crit_edge ]
-  br label %24, !llvm.loop !525
+  br label %24, !llvm.loop !529
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %.0105 = phi i64 [ %67, %.lr.ph ], [ 0, %57 ]
@@ -24162,7 +24151,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = 
   store ptr %65, ptr %64, align 8, !tbaa !196
   %67 = add nuw nsw i64 %.0105, 1
   %exitcond.not = icmp eq i64 %67, %.083
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !526
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !530
 
 _ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %5, %3
   %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
@@ -24184,9 +24173,9 @@ define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm1
   %10 = load ptr, ptr %0, align 8, !tbaa !196
   store ptr %10, ptr %4, align 8, !tbaa !196
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.04080 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not4981 = icmp eq ptr %.04080, %1
-  br i1 %.not4981, label %._crit_edge.thread, label %.lr.ph
+  %.04077 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not4978 = icmp eq ptr %.04077, %1
+  br i1 %.not4978, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -24202,195 +24191,182 @@ define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm1
   %.idx.i.i.i.i.us = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.us
   %.not.not9.i.i.i.i.us = icmp eq i32 %17, 0
-  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us", label %.lr.ph.i.i.i.i.preheader.us
+  br label %20
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us": ; preds = %.lr.ph.split.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us"
-  %.04084.us.us = phi ptr [ %.040.us.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us" ], [ %.04080, %.lr.ph.split.us ]
-  %.04382.us.us = phi ptr [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us" ], [ %11, %.lr.ph.split.us ]
-  %20 = load ptr, ptr %.04084.us.us, align 8, !tbaa !196
-  store ptr %20, ptr %.04382.us.us, align 8, !tbaa !196
-  %21 = getelementptr inbounds nuw i8, ptr %.04382.us.us, i64 8
-  %.040.us.us = getelementptr inbounds nuw i8, ptr %.04084.us.us, i64 8
-  %.not49.us.us = icmp eq ptr %.040.us.us, %1
-  br i1 %.not49.us.us, label %._crit_edge.thread, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us", !llvm.loop !527
+20:                                               ; preds = %26, %.lr.ph.split.us
+  %.04081.us = phi ptr [ %.04077, %.lr.ph.split.us ], [ %.040.us, %26 ]
+  %.04280.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %26 ]
+  %.04379.us = phi ptr [ %11, %.lr.ph.split.us ], [ %.144.us, %26 ]
+  %.040.val.us = load ptr, ptr %.04081.us, align 8, !tbaa !196
+  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us", label %.lr.ph.i.i.i.i.us
 
-.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us, %26
-  %.04084.us = phi ptr [ %.040.us, %26 ], [ %.04080, %.lr.ph.split.us ]
-  %.04283.us = phi ptr [ %.1.us, %26 ], [ %0, %.lr.ph.split.us ]
-  %.04382.us = phi ptr [ %.144.us, %26 ], [ %11, %.lr.ph.split.us ]
-  %.040.val.us = load ptr, ptr %.04084.us, align 8, !tbaa !196
-  br label %.lr.ph.i.i.i.i.us
+.lr.ph.i.i.i.i.us:                                ; preds = %20, %23
+  %.0810.i.i.i.i.us = phi ptr [ %24, %23 ], [ %16, %20 ]
+  %21 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
+  %22 = icmp eq ptr %21, %.040.val.us
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us", label %23
 
-.lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %24
-  %.0810.i.i.i.i.us = phi ptr [ %25, %24 ], [ %16, %.lr.ph.i.i.i.i.preheader.us ]
-  %22 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
-  %23 = icmp eq ptr %22, %.040.val.us
-  br i1 %23, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us", label %24
+23:                                               ; preds = %.lr.ph.i.i.i.i.us
+  %24 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
+  %.not.not.i.i.i.i.us = icmp eq ptr %24, %19
+  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
 
-24:                                               ; preds = %.lr.ph.i.i.i.i.us
-  %25 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
-  %.not.not.i.i.i.i.us = icmp eq ptr %25, %19
-  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.loopexit.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us": ; preds = %23, %20
+  store ptr %.040.val.us, ptr %.04379.us, align 8, !tbaa !196
+  %25 = getelementptr inbounds nuw i8, ptr %.04379.us, i64 8
+  br label %26
 
-26:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.loopexit.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us"
-  %.144.us = phi ptr [ %.04382.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ], [ %28, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.loopexit.us" ]
-  %.1.us = phi ptr [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ], [ %.04283.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.loopexit.us" ]
-  %.040.us = getelementptr inbounds nuw i8, ptr %.04084.us, i64 8
+26:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us"
+  %.144.us = phi ptr [ %.04379.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ], [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us" ]
+  %.1.us = phi ptr [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us" ], [ %.04280.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us" ]
+  %.040.us = getelementptr inbounds nuw i8, ptr %.04081.us, i64 8
   %.not49.us = icmp eq ptr %.040.us, %1
-  br i1 %.not49.us, label %._crit_edge, label %.lr.ph.i.i.i.i.preheader.us, !llvm.loop !527
+  br i1 %.not49.us, label %._crit_edge, label %20, !llvm.loop !531
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59.loopexit.us": ; preds = %.lr.ph.i.i.i.i.us
-  store ptr %.040.val.us, ptr %.04283.us, align 8, !tbaa !196
-  %27 = getelementptr inbounds nuw i8, ptr %.04283.us, i64 8
+  store ptr %.040.val.us, ptr %.04280.us, align 8, !tbaa !196
+  %27 = getelementptr inbounds nuw i8, ptr %.04280.us, i64 8
   br label %26
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.loopexit.us": ; preds = %24
-  store ptr %.040.val.us, ptr %.04382.us, align 8, !tbaa !196
-  %28 = getelementptr inbounds nuw i8, ptr %.04382.us, i64 8
-  br label %26
+.lr.ph.split:                                     ; preds = %.lr.ph, %44
+  %.04081 = phi ptr [ %.040, %44 ], [ %.04077, %.lr.ph ]
+  %.04280 = phi ptr [ %.1, %44 ], [ %0, %.lr.ph ]
+  %.04379 = phi ptr [ %.144, %44 ], [ %11, %.lr.ph ]
+  %.040.val = load ptr, ptr %.04081, align 8, !tbaa !196
+  %28 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit"
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %45
-  %.04084 = phi ptr [ %.040, %45 ], [ %.04080, %.lr.ph ]
-  %.04283 = phi ptr [ %.1, %45 ], [ %0, %.lr.ph ]
-  %.04382 = phi ptr [ %.144, %45 ], [ %11, %.lr.ph ]
-  %.040.val = load ptr, ptr %.04084, align 8, !tbaa !196
-  %29 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit"
-
-31:                                               ; preds = %.lr.ph.split
-  %32 = load ptr, ptr %2, align 8, !tbaa !38
-  %33 = load i32, ptr %13, align 4, !tbaa !41
-  %34 = zext i32 %33 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %33, 0
+30:                                               ; preds = %.lr.ph.split
+  %31 = load ptr, ptr %2, align 8, !tbaa !38
+  %32 = load i32, ptr %13, align 4, !tbaa !41
+  %33 = zext i32 %32 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not.not9.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread", label %.lr.ph.i.i.i.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %37, %35
+35:                                               ; preds = %.lr.ph.i.i.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %36, %34
   br i1 %.not.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread", label %.lr.ph.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i:                                   ; preds = %31, %36
-  %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
-  %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
-  %39 = icmp eq ptr %38, %.040.val
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59", label %36
+.lr.ph.i.i.i.i:                                   ; preds = %30, %35
+  %.0810.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ]
+  %37 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
+  %38 = icmp eq ptr %37, %.040.val
+  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59", label %35
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit": ; preds = %.lr.ph.split
-  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
-  %.not70 = icmp eq ptr %40, null
-  %.pre101 = load ptr, ptr %.04084, align 8, !tbaa !196
-  br i1 %.not70, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59"
+  %39 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
+  %.not64 = icmp eq ptr %39, null
+  %.pre97 = load ptr, ptr %.04081, align 8, !tbaa !196
+  br i1 %.not64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit"
-  %41 = phi ptr [ %.pre101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
-  store ptr %41, ptr %.04283, align 8, !tbaa !196
-  %42 = getelementptr inbounds nuw i8, ptr %.04283, i64 8
-  br label %45
+  %40 = phi ptr [ %.pre97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
+  store ptr %40, ptr %.04280, align 8, !tbaa !196
+  %41 = getelementptr inbounds nuw i8, ptr %.04280, i64 8
+  br label %44
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread": ; preds = %36, %31, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit"
-  %43 = phi ptr [ %.040.val, %31 ], [ %.pre101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit" ], [ %.040.val, %36 ]
-  store ptr %43, ptr %.04382, align 8, !tbaa !196
-  %44 = getelementptr inbounds nuw i8, ptr %.04382, i64 8
-  br label %45
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread": ; preds = %35, %30, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit"
+  %42 = phi ptr [ %.040.val, %30 ], [ %.pre97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit" ], [ %.040.val, %35 ]
+  store ptr %42, ptr %.04379, align 8, !tbaa !196
+  %43 = getelementptr inbounds nuw i8, ptr %.04379, i64 8
+  br label %44
 
-45:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread"
-  %.144 = phi ptr [ %.04382, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread" ]
-  %.1 = phi ptr [ %42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59" ], [ %.04283, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread" ]
-  %.040 = getelementptr inbounds nuw i8, ptr %.04084, i64 8
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread"
+  %.144 = phi ptr [ %.04379, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59" ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread" ]
+  %.1 = phi ptr [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread59" ], [ %.04280, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread" ]
+  %.040 = getelementptr inbounds nuw i8, ptr %.04081, i64 8
   %.not49 = icmp eq ptr %.040, %1
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !528
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !532
 
-._crit_edge:                                      ; preds = %45, %26
-  %.043.lcssa = phi ptr [ %.144.us, %26 ], [ %.144, %45 ]
-  %.042.lcssa = phi ptr [ %.1.us, %26 ], [ %.1, %45 ]
+._crit_edge:                                      ; preds = %44, %26
+  %.043.lcssa = phi ptr [ %.144.us, %26 ], [ %.144, %44 ]
+  %.042.lcssa = phi ptr [ %.1.us, %26 ], [ %.1, %44 ]
   %.not.i.i.i.i.i = icmp eq ptr %.043.lcssa, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us", %9, %._crit_edge
-  %.042.lcssa106 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ], [ %0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us" ]
-  %.043.lcssa105 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ], [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread.us.us" ]
-  %46 = ptrtoint ptr %.043.lcssa105 to i64
-  %47 = ptrtoint ptr %4 to i64
-  %48 = sub i64 %46, %47
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa106, ptr nonnull align 8 %4, i64 %48, i1 false)
+._crit_edge.thread:                               ; preds = %9, %._crit_edge
+  %.042.lcssa102 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ]
+  %.043.lcssa101 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ]
+  %45 = ptrtoint ptr %.043.lcssa101 to i64
+  %46 = ptrtoint ptr %4 to i64
+  %47 = sub i64 %45, %46
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa102, ptr nonnull align 8 %4, i64 %47, i1 false)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit: ; preds = %8
-  %49 = sdiv i64 %3, 2
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %49
-  %51 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef %50, ptr %2, i64 noundef %49, ptr noundef %4, i64 noundef %5)
-  %52 = sub nsw i64 %3, %49
-  %.not12.i = icmp eq i64 %52, 0
+  %48 = sdiv i64 %3, 2
+  %49 = getelementptr inbounds ptr, ptr %0, i64 %48
+  %50 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef %49, ptr %2, i64 noundef %48, ptr noundef %4, i64 noundef %5)
+  %51 = sub nsw i64 %3, %48
+  %.not12.i = icmp eq i64 %51, 0
   br i1 %.not12.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %55 = load i8, ptr %53, align 4, !tbaa !43, !range !94, !noundef !98
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %54 = load i8, ptr %52, align 4, !tbaa !43, !range !94, !noundef !98
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %57 = load ptr, ptr %2, align 8, !tbaa !38
-  %58 = load i32, ptr %54, align 4, !tbaa !41
-  %59 = zext i32 %58 to i64
-  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i.i.i.us.i
-  %.not.not9.i.i.i.i.us.i = icmp eq i32 %58, 0
-  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64", label %.lr.ph.i.i.i.i.preheader.us.preheader.i
+  %56 = load ptr, ptr %2, align 8, !tbaa !38
+  %57 = load i32, ptr %53, align 4, !tbaa !41
+  %58 = zext i32 %57 to i64
+  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i.us.i
+  %.not.not9.i.i.i.i.us.i = icmp eq i32 %57, 0
+  %60 = shl i64 %51, 3
+  %scevgep.i = getelementptr i8, ptr %49, i64 %60
+  br label %61
 
-.lr.ph.i.i.i.i.preheader.us.preheader.i:          ; preds = %.lr.ph.split.us.i
-  %61 = shl i64 %52, 3
-  %scevgep.i = getelementptr i8, ptr %50, i64 %61
-  br label %.lr.ph.i.i.i.i.preheader.us.i
-
-.lr.ph.i.i.i.i.preheader.us.i:                    ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i", %.lr.ph.i.i.i.i.preheader.us.preheader.i
-  %.157 = phi i64 [ %52, %.lr.ph.i.i.i.i.preheader.us.preheader.i ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ]
-  %.013.us.i = phi ptr [ %50, %.lr.ph.i.i.i.i.preheader.us.preheader.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ]
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i", %.lr.ph.split.us.i
+  %.157 = phi i64 [ %51, %.lr.ph.split.us.i ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ]
+  %.013.us.i = phi ptr [ %49, %.lr.ph.split.us.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ]
   %.0.val.us.i = load ptr, ptr %.013.us.i, align 8, !tbaa !196
-  br label %.lr.ph.i.i.i.i.us.i
+  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit", label %.lr.ph.i.i.i.i.us.i
 
-.lr.ph.i.i.i.i.us.i:                              ; preds = %64, %.lr.ph.i.i.i.i.preheader.us.i
-  %.0810.i.i.i.i.us.i = phi ptr [ %65, %64 ], [ %57, %.lr.ph.i.i.i.i.preheader.us.i ]
+.lr.ph.i.i.i.i.us.i:                              ; preds = %61, %64
+  %.0810.i.i.i.i.us.i = phi ptr [ %65, %64 ], [ %56, %61 ]
   %62 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
   %63 = icmp eq ptr %62, %.0.val.us.i
   br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i", label %64
 
 64:                                               ; preds = %.lr.ph.i.i.i.i.us.i
   %65 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
-  %.not.not.i.i.i.i.us.i = icmp eq ptr %65, %60
-  br i1 %.not.not.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
+  %.not.not.i.i.i.i.us.i = icmp eq ptr %65, %59
+  br i1 %.not.not.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i": ; preds = %.lr.ph.i.i.i.i.us.i
   %66 = add nsw i64 %.157, -1
   %67 = getelementptr inbounds nuw i8, ptr %.013.us.i, i64 8
   %.not.us.i = icmp eq i64 %66, 0
-  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i, !llvm.loop !529
+  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread", label %61, !llvm.loop !533
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i"
-  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ], [ %52, %.lr.ph.i ]
-  %.013.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ], [ %50, %.lr.ph.i ]
+  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ], [ %51, %.lr.ph.i ]
+  %.013.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ], [ %49, %.lr.ph.i ]
   %.0.val.i = load ptr, ptr %.013.i, align 8, !tbaa !196
-  %68 = load i8, ptr %53, align 4, !tbaa !43, !range !94, !noundef !98
+  %68 = load i8, ptr %52, align 4, !tbaa !43, !range !94, !noundef !98
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i"
 
 70:                                               ; preds = %.lr.ph.split.i
   %71 = load ptr, ptr %2, align 8, !tbaa !38
-  %72 = load i32, ptr %54, align 4, !tbaa !41
+  %72 = load i32, ptr %53, align 4, !tbaa !41
   %73 = zext i32 %72 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %73, 3
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i.i.i
   %.not.not9.i.i.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.not9.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64", label %.lr.ph.i.i.i.i.i
+  br i1 %.not.not9.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit", label %.lr.ph.i.i.i.i.i
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %.not.not.i.i.i.i.i = icmp eq ptr %76, %74
-  br i1 %.not.not.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
+  br i1 %.not.not.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %70, %75
   %.0810.i.i.i.i.i = phi ptr [ %76, %75 ], [ %71, %70 ]
@@ -24401,27 +24377,27 @@ _ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit: ; preds = %8
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i": ; preds = %.lr.ph.split.i
   %79 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
   %.not8.i = icmp eq ptr %79, null
-  br i1 %.not8.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i"
+  br i1 %.not8.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i"
   %80 = add nsw i64 %.056, -1
   %81 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.not.i = icmp eq i64 %80, 0
-  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.split.i, !llvm.loop !530
+  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread", label %.lr.ph.split.i, !llvm.loop !534
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i", %70, %75, %64, %.lr.ph.split.us.i
-  %.011.i69 = phi ptr [ %50, %.lr.ph.split.us.i ], [ %.013.us.i, %64 ], [ %.013.i, %75 ], [ %.013.i, %70 ], [ %.013.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i" ]
-  %.268 = phi i64 [ %52, %.lr.ph.split.us.i ], [ %.157, %64 ], [ %.056, %75 ], [ %.056, %70 ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i" ]
-  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %.011.i69, ptr noundef %1, ptr %2, i64 noundef %.268, ptr noundef %4, i64 noundef %5)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i", %70, %75, %61, %64
+  %.2 = phi i64 [ %.157, %64 ], [ %51, %61 ], [ %.056, %75 ], [ %.056, %70 ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i" ]
+  %.011.i = phi ptr [ %.013.us.i, %64 ], [ %49, %61 ], [ %.013.i, %75 ], [ %.013.i, %70 ], [ %.013.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.i" ]
+  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %.011.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
   br label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread"
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64"
-  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread64" ], [ %50, %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ]
-  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph3SCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %51, ptr noundef %50, ptr noundef %.041)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit"
+  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit" ], [ %49, %_ZSt7advanceIPPN4llvm13LazyCallGraph3SCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph3SCCENS3_11SmallVectorIPS5_Lj4EEENS3_13SmallDenseMapIS7_iLj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS4_6RefSCC24switchInternalEdgeToCallERNS4_4NodeESI_NS3_12function_refIFvNS3_8ArrayRefIS7_EEEEEE3$_0ZNSG_24switchInternalEdgeToCallESI_SI_SN_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SV_RSR_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSU_.exit.thread6.i" ]
+  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph3SCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %50, ptr noundef %49, ptr noundef %.041)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge.thread, %._crit_edge, %6, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread"
-  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa106, %._crit_edge.thread ]
+  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph3SCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_S10_ST_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa102, %._crit_edge.thread ]
   ret ptr %.0
 }
 
@@ -24529,7 +24505,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEPNS1_3SCCENS_12DenseMapInfoIS3_vEENS_
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !531
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !535
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEPNS1_3SCCENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
@@ -24551,7 +24527,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph4NodeEPNS1_3SCCENS_12DenseMapInfoIS3_vEENS_
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !531
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !535
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -24627,7 +24603,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
   %70 = phi i32 [ %40, %39 ], [ %40, %39 ], [ %68, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i8 = icmp eq ptr %71, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit, label %39, !llvm.loop !532
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit, label %39, !llvm.loop !536
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit: ; preds = %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
@@ -24642,7 +24618,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %4 = alloca %"struct.std::pair.241", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   %5 = load ptr, ptr %1, align 8, !tbaa !7
-  store ptr %5, ptr %4, align 8, !tbaa !264
+  store ptr %5, ptr %4, align 8, !tbaa !266
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24660,7 +24636,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %15 = icmp uge ptr %4, %.pre3.i
   %16 = icmp ult ptr %4, %14
   %spec.select.i.i.i.i.i = and i1 %15, %16
-  br i1 %spec.select.i.i.i.i.i, label %19, label %17, !prof !269
+  br i1 %spec.select.i.i.i.i.i, label %19, label %17, !prof !271
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24792,9 +24768,9 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !301
+  %4 = load ptr, ptr %0, align 8, !tbaa !303
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !304
+  %6 = load i32, ptr %5, align 8, !tbaa !306
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.thread, label %8
 
@@ -24839,12 +24815,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !172
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !328
+  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !330
 
 .thread:                                          ; preds = %25, %8, %3, %23
   %.sink = phi ptr [ %24, %23 ], [ null, %3 ], [ %17, %8 ], [ %31, %25 ]
   %.0 = phi i1 [ false, %23 ], [ false, %3 ], [ true, %8 ], [ true, %25 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !329
+  store ptr %.sink, ptr %2, align 8, !tbaa !331
   ret i1 %.0
 }
 
@@ -24852,8 +24828,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE15allocateBucketsEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !304
-  %4 = load ptr, ptr %0, align 8, !tbaa !301
+  %3 = load i32, ptr %2, align 8, !tbaa !306
+  %4 = load ptr, ptr %0, align 8, !tbaa !303
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
   %7 = lshr i64 %6, 1
@@ -24869,20 +24845,20 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail
   %17 = trunc nuw i64 %16 to i32
   %18 = add i32 %17, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %18, i32 64)
-  store i32 %.sroa.speculated, ptr %2, align 8, !tbaa !304
+  store i32 %.sroa.speculated, ptr %2, align 8, !tbaa !306
   %19 = zext i32 %.sroa.speculated to i64
   %20 = shl nuw nsw i64 %19, 4
   %21 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %20, i64 noundef 8) #18
-  store ptr %21, ptr %0, align 8, !tbaa !301
+  store ptr %21, ptr %0, align 8, !tbaa !303
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %29
 
 22:                                               ; preds = %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE15allocateBucketsEj.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %23, align 8, !tbaa !326
+  store i32 0, ptr %23, align 8, !tbaa !328
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !327
-  %25 = load i32, ptr %2, align 8, !tbaa !304
+  store i32 0, ptr %24, align 4, !tbaa !329
+  %25 = load i32, ptr %2, align 8, !tbaa !306
   %26 = zext i32 %25 to i64
   %.idx.i = shl nuw nsw i64 %26, 4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
@@ -24894,17 +24870,17 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !172
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !533
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !537
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
   %.idx = shl nuw nsw i64 %30, 4
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %32, align 8, !tbaa !326
+  store i32 0, ptr %32, align 8, !tbaa !328
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !327
-  %34 = load i32, ptr %2, align 8, !tbaa !304
+  store i32 0, ptr %33, align 4, !tbaa !329
+  %34 = load i32, ptr %2, align 8, !tbaa !306
   %35 = zext i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %35, 4
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
@@ -24916,7 +24892,7 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !172
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !533
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !537
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -24933,7 +24909,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   ]
 
 40:                                               ; preds = %.lr.ph.i7
-  %41 = load i32, ptr %2, align 8, !tbaa !304
+  %41 = load i32, ptr %2, align 8, !tbaa !306
   %42 = icmp ne i32 %41, 0
   tail call void @llvm.assume(i1 %42)
   %43 = trunc i64 %magicptr.i to i32
@@ -24974,7 +24950,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.297", ptr %21, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !172
   %65 = icmp eq ptr %39, %64
-  br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !23, !llvm.loop !328
+  br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !23, !llvm.loop !330
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %57, %55, %40
   %.sink.i.i = phi ptr [ %56, %55 ], [ %49, %40 ], [ %63, %57 ]
@@ -24984,14 +24960,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %68 = load i32, ptr %67, align 4, !tbaa !29
   store i32 %68, ptr %66, align 4, !tbaa !29
   %69 = add i32 %38, 1
-  store i32 %69, ptr %32, align 8, !tbaa !326
+  store i32 %69, ptr %32, align 8, !tbaa !328
   br label %70
 
 70:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %.lr.ph.i7, %.lr.ph.i7
   %71 = phi i32 [ %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i ], [ %38, %.lr.ph.i7 ], [ %38, %.lr.ph.i7 ]
   %72 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %.lr.ph.i7, !llvm.loop !534
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %.lr.ph.i7, !llvm.loop !538
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E18moveFromOldBucketsEPS9_SC_.exit: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
@@ -25003,253 +24979,242 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
-  %7 = ptrtoint ptr %0 to i64
-  %8 = ptrtoint ptr %1 to i64
-  %9 = icmp eq i64 %3, 1
-  br i1 %9, label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %10
+  %7 = icmp eq i64 %3, 1
+  br i1 %7, label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %8
 
-10:                                               ; preds = %6
+8:                                                ; preds = %6
   %.not = icmp sgt i64 %3, %5
-  br i1 %.not, label %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, label %11
+  br i1 %.not, label %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, label %9
 
-11:                                               ; preds = %10
-  %12 = load ptr, ptr %0, align 8, !tbaa !172
-  store ptr %12, ptr %4, align 8, !tbaa !172
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %0, align 8, !tbaa !172
+  store ptr %10, ptr %4, align 8, !tbaa !172
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.04073 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not4974 = icmp eq ptr %.04073, %1
   br i1 %.not4974, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %16 = load i8, ptr %14, align 4, !tbaa !43, !range !94, !noundef !98
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %14 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %18 = load ptr, ptr %2, align 8, !tbaa !38
-  %19 = load i32, ptr %15, align 4, !tbaa !41
-  %20 = zext i32 %19 to i64
-  %.idx.i.i.i.i.us = shl nuw nsw i64 %20, 3
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.us
-  %.not.not9.i.i.i.i.us = icmp eq i32 %19, 0
-  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.us.preheader", label %.lr.ph.i.i.i.i.preheader.us
+  %16 = load ptr, ptr %2, align 8, !tbaa !38
+  %17 = load i32, ptr %13, align 4, !tbaa !41
+  %18 = zext i32 %17 to i64
+  %.idx.i.i.i.i.us = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.us
+  %.not.not9.i.i.i.i.us = icmp eq i32 %17, 0
+  br label %20
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.us.preheader": ; preds = %.lr.ph.split.us
-  %22 = add i64 %8, -16
-  %23 = sub i64 %22, %7
-  %24 = and i64 %23, -8
-  %25 = add i64 %24, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %.04073, i64 %25, i1 false), !tbaa !172
-  %scevgep = getelementptr i8, ptr %0, i64 %25
-  br label %._crit_edge.thread
-
-.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us, %29
-  %.04077.us = phi ptr [ %.040.us, %29 ], [ %.04073, %.lr.ph.split.us ]
-  %.04276.us = phi ptr [ %.1.us, %29 ], [ %0, %.lr.ph.split.us ]
-  %.04375.us = phi ptr [ %.144.us, %29 ], [ %13, %.lr.ph.split.us ]
+20:                                               ; preds = %25, %.lr.ph.split.us
+  %.04077.us = phi ptr [ %.04073, %.lr.ph.split.us ], [ %.040.us, %25 ]
+  %.04276.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %25 ]
+  %.04375.us = phi ptr [ %11, %.lr.ph.split.us ], [ %.144.us, %25 ]
   %.040.val.us = load ptr, ptr %.04077.us, align 8, !tbaa !172
-  br label %.lr.ph.i.i.i.i.us
+  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us", label %.lr.ph.i.i.i.i.us
 
-.lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %27
-  %.0810.i.i.i.i.us = phi ptr [ %28, %27 ], [ %18, %.lr.ph.i.i.i.i.preheader.us ]
-  %26 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
-  %.not1.i.not.i.us = icmp eq ptr %26, %.040.val.us
-  br i1 %.not1.i.not.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us", label %27
+.lr.ph.i.i.i.i.us:                                ; preds = %20, %22
+  %.0810.i.i.i.i.us = phi ptr [ %23, %22 ], [ %16, %20 ]
+  %21 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
+  %.not1.i.not.i.us = icmp eq ptr %21, %.040.val.us
+  br i1 %.not1.i.not.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us", label %22
 
-27:                                               ; preds = %.lr.ph.i.i.i.i.us
-  %28 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
-  %.not.not.i.i.i.i.us = icmp eq ptr %28, %21
-  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
+22:                                               ; preds = %.lr.ph.i.i.i.i.us
+  %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
+  %.not.not.i.i.i.i.us = icmp eq ptr %23, %19
+  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us"
-  %.144.us = phi ptr [ %.04375.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us" ], [ %30, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ]
-  %.1.us = phi ptr [ %31, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us" ], [ %.04276.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us": ; preds = %22, %20
+  store ptr %.040.val.us, ptr %.04276.us, align 8, !tbaa !172
+  %24 = getelementptr inbounds nuw i8, ptr %.04276.us, i64 8
+  br label %25
+
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us"
+  %.144.us = phi ptr [ %.04375.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us" ], [ %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ]
+  %.1.us = phi ptr [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us" ], [ %.04276.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ]
   %.040.us = getelementptr inbounds nuw i8, ptr %.04077.us, i64 8
   %.not49.us = icmp eq ptr %.040.us, %1
-  br i1 %.not49.us, label %._crit_edge, label %.lr.ph.i.i.i.i.preheader.us, !llvm.loop !535
+  br i1 %.not49.us, label %._crit_edge, label %20, !llvm.loop !539
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59.loopexit.us": ; preds = %.lr.ph.i.i.i.i.us
   store ptr %.040.val.us, ptr %.04375.us, align 8, !tbaa !172
-  %30 = getelementptr inbounds nuw i8, ptr %.04375.us, i64 8
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %.04375.us, i64 8
+  br label %25
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us": ; preds = %27
-  store ptr %.040.val.us, ptr %.04276.us, align 8, !tbaa !172
-  %31 = getelementptr inbounds nuw i8, ptr %.04276.us, i64 8
-  br label %29
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %47
-  %.04077 = phi ptr [ %.040, %47 ], [ %.04073, %.lr.ph ]
-  %.04276 = phi ptr [ %.1, %47 ], [ %0, %.lr.ph ]
-  %.04375 = phi ptr [ %.144, %47 ], [ %13, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %42
+  %.04077 = phi ptr [ %.040, %42 ], [ %.04073, %.lr.ph ]
+  %.04276 = phi ptr [ %.1, %42 ], [ %0, %.lr.ph ]
+  %.04375 = phi ptr [ %.144, %42 ], [ %11, %.lr.ph ]
   %.040.val = load ptr, ptr %.04077, align 8, !tbaa !172
-  %32 = load i8, ptr %14, align 4, !tbaa !43, !range !94, !noundef !98
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit"
+  %27 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit"
 
-34:                                               ; preds = %.lr.ph.split
-  %35 = load ptr, ptr %2, align 8, !tbaa !38
-  %36 = load i32, ptr %15, align 4, !tbaa !41
-  %37 = zext i32 %36 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %36, 0
+29:                                               ; preds = %.lr.ph.split
+  %30 = load ptr, ptr %2, align 8, !tbaa !38
+  %31 = load i32, ptr %13, align 4, !tbaa !41
+  %32 = zext i32 %31 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.not9.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread", label %.lr.ph.i.i.i.i
 
-39:                                               ; preds = %.lr.ph.i.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %40, %38
+34:                                               ; preds = %.lr.ph.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %35, %33
   br i1 %.not.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread", label %.lr.ph.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i:                                   ; preds = %34, %39
-  %.0810.i.i.i.i = phi ptr [ %40, %39 ], [ %35, %34 ]
-  %41 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
-  %.not1.i.not.i = icmp eq ptr %41, %.040.val
-  br i1 %.not1.i.not.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59", label %39
+.lr.ph.i.i.i.i:                                   ; preds = %29, %34
+  %.0810.i.i.i.i = phi ptr [ %35, %34 ], [ %30, %29 ]
+  %36 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
+  %.not1.i.not.i = icmp eq ptr %36, %.040.val
+  br i1 %.not1.i.not.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59", label %34
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit": ; preds = %.lr.ph.split
-  %42 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
-  %.not.i.i = icmp eq ptr %42, null
-  %.pre94 = load ptr, ptr %.04077, align 8, !tbaa !172
+  %37 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
+  %.not.i.i = icmp eq ptr %37, null
+  %.pre90 = load ptr, ptr %.04077, align 8, !tbaa !172
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread": ; preds = %39, %34, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit"
-  %43 = phi ptr [ %.040.val, %34 ], [ %.pre94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit" ], [ %.040.val, %39 ]
-  store ptr %43, ptr %.04276, align 8, !tbaa !172
-  %44 = getelementptr inbounds nuw i8, ptr %.04276, i64 8
-  br label %47
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread": ; preds = %34, %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit"
+  %38 = phi ptr [ %.040.val, %29 ], [ %.pre90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit" ], [ %.040.val, %34 ]
+  store ptr %38, ptr %.04276, align 8, !tbaa !172
+  %39 = getelementptr inbounds nuw i8, ptr %.04276, i64 8
+  br label %42
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit"
-  %45 = phi ptr [ %.pre94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
-  store ptr %45, ptr %.04375, align 8, !tbaa !172
-  %46 = getelementptr inbounds nuw i8, ptr %.04375, i64 8
-  br label %47
+  %40 = phi ptr [ %.pre90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
+  store ptr %40, ptr %.04375, align 8, !tbaa !172
+  %41 = getelementptr inbounds nuw i8, ptr %.04375, i64 8
+  br label %42
 
-47:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59"
-  %.144 = phi ptr [ %.04375, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread" ], [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59" ]
-  %.1 = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread" ], [ %.04276, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59" ]
+42:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59"
+  %.144 = phi ptr [ %.04375, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread" ], [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59" ]
+  %.1 = phi ptr [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread" ], [ %.04276, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread59" ]
   %.040 = getelementptr inbounds nuw i8, ptr %.04077, i64 8
   %.not49 = icmp eq ptr %.040, %1
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !536
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !540
 
-._crit_edge:                                      ; preds = %47, %29
-  %.043.lcssa = phi ptr [ %.144.us, %29 ], [ %.144, %47 ]
-  %.042.lcssa = phi ptr [ %.1.us, %29 ], [ %.1, %47 ]
+._crit_edge:                                      ; preds = %42, %25
+  %.043.lcssa = phi ptr [ %.144.us, %25 ], [ %.144, %42 ]
+  %.042.lcssa = phi ptr [ %.1.us, %25 ], [ %.1, %42 ]
   %.not.i.i.i.i.i = icmp eq ptr %.043.lcssa, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.us.preheader", %11, %._crit_edge
-  %.042.lcssa99 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %scevgep, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.us.preheader" ], [ %0, %11 ]
-  %.043.lcssa98 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.us.preheader" ], [ %13, %11 ]
-  %48 = ptrtoint ptr %.043.lcssa98 to i64
-  %49 = ptrtoint ptr %4 to i64
-  %50 = sub i64 %48, %49
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa99, ptr nonnull align 8 %4, i64 %50, i1 false)
+._crit_edge.thread:                               ; preds = %9, %._crit_edge
+  %.042.lcssa95 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ]
+  %.043.lcssa94 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ]
+  %43 = ptrtoint ptr %.043.lcssa94 to i64
+  %44 = ptrtoint ptr %4 to i64
+  %45 = sub i64 %43, %44
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa95, ptr nonnull align 8 %4, i64 %45, i1 false)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
-_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit: ; preds = %10
-  %51 = sdiv i64 %3, 2
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %51
-  %53 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef %52, ptr %2, i64 noundef %51, ptr noundef %4, i64 noundef %5)
-  %54 = sub nsw i64 %3, %51
-  %.not11.i = icmp eq i64 %54, 0
+_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit: ; preds = %8
+  %46 = sdiv i64 %3, 2
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %46
+  %48 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef %47, ptr %2, i64 noundef %46, ptr noundef %4, i64 noundef %5)
+  %49 = sub nsw i64 %3, %46
+  %.not11.i = icmp eq i64 %49, 0
   br i1 %.not11.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %57 = load i8, ptr %55, align 4, !tbaa !43, !range !94, !noundef !98
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %52 = load i8, ptr %50, align 4, !tbaa !43, !range !94, !noundef !98
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %59 = load ptr, ptr %2, align 8, !tbaa !38
-  %60 = load i32, ptr %56, align 4, !tbaa !41
-  %61 = zext i32 %60 to i64
-  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %61, 3
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.us.i
-  %.not.not9.i.i.i.i.us.i = icmp eq i32 %60, 0
-  %63 = shl i64 %54, 3
-  %scevgep23.i = getelementptr i8, ptr %52, i64 %63
-  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i
+  %54 = load ptr, ptr %2, align 8, !tbaa !38
+  %55 = load i32, ptr %51, align 4, !tbaa !41
+  %56 = zext i32 %55 to i64
+  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %56, 3
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i.i.us.i
+  %.not.not9.i.i.i.i.us.i = icmp eq i32 %55, 0
+  %58 = shl i64 %49, 3
+  %scevgep.i = getelementptr i8, ptr %47, i64 %58
+  br label %59
 
-.lr.ph.i.i.i.i.preheader.us.i:                    ; preds = %.lr.ph.split.us.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i"
-  %.157 = phi i64 [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i" ], [ %54, %.lr.ph.split.us.i ]
-  %.012.us.i = phi ptr [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i" ], [ %52, %.lr.ph.split.us.i ]
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i", %.lr.ph.split.us.i
+  %.157 = phi i64 [ %49, %.lr.ph.split.us.i ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i" ]
+  %.012.us.i = phi ptr [ %47, %.lr.ph.split.us.i ], [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i" ]
   %.0.val.us.i = load ptr, ptr %.012.us.i, align 8, !tbaa !172
-  br label %.lr.ph.i.i.i.i.us.i
+  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i", label %.lr.ph.i.i.i.i.us.i
 
-.lr.ph.i.i.i.i.us.i:                              ; preds = %65, %.lr.ph.i.i.i.i.preheader.us.i
-  %.0810.i.i.i.i.us.i = phi ptr [ %66, %65 ], [ %59, %.lr.ph.i.i.i.i.preheader.us.i ]
-  %64 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
-  %.not1.i.not.i.us.i = icmp eq ptr %64, %.0.val.us.i
-  br i1 %.not1.i.not.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit", label %65
+.lr.ph.i.i.i.i.us.i:                              ; preds = %59, %61
+  %.0810.i.i.i.i.us.i = phi ptr [ %62, %61 ], [ %54, %59 ]
+  %60 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
+  %.not1.i.not.i.us.i = icmp eq ptr %60, %.0.val.us.i
+  br i1 %.not1.i.not.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit", label %61
 
-65:                                               ; preds = %.lr.ph.i.i.i.i.us.i
-  %66 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
-  %.not.not.i.i.i.i.us.i = icmp eq ptr %66, %62
-  br i1 %.not.not.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
+61:                                               ; preds = %.lr.ph.i.i.i.i.us.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
+  %.not.not.i.i.i.i.us.i = icmp eq ptr %62, %57
+  br i1 %.not.not.i.i.i.i.us.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i": ; preds = %65
-  %67 = add nsw i64 %.157, -1
-  %68 = getelementptr inbounds nuw i8, ptr %.012.us.i, i64 8
-  %.not.us.i = icmp eq i64 %67, 0
-  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i, !llvm.loop !537
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i": ; preds = %61, %59
+  %63 = add nsw i64 %.157, -1
+  %64 = getelementptr inbounds nuw i8, ptr %.012.us.i, i64 8
+  %.not.us.i = icmp eq i64 %63, 0
+  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %59, !llvm.loop !541
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i"
-  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ], [ %54, %.lr.ph.i ]
-  %.012.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ], [ %52, %.lr.ph.i ]
+  %.056 = phi i64 [ %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ], [ %49, %.lr.ph.i ]
+  %.012.i = phi ptr [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ], [ %47, %.lr.ph.i ]
   %.0.val.i = load ptr, ptr %.012.i, align 8, !tbaa !172
-  %69 = load i8, ptr %55, align 4, !tbaa !43, !range !94, !noundef !98
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i"
+  %65 = load i8, ptr %50, align 4, !tbaa !43, !range !94, !noundef !98
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i"
 
-71:                                               ; preds = %.lr.ph.split.i
-  %72 = load ptr, ptr %2, align 8, !tbaa !38
-  %73 = load i32, ptr %56, align 4, !tbaa !41
-  %74 = zext i32 %73 to i64
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %74, 3
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i
-  %.not.not9.i.i.i.i.i = icmp eq i32 %73, 0
+67:                                               ; preds = %.lr.ph.split.i
+  %68 = load ptr, ptr %2, align 8, !tbaa !38
+  %69 = load i32, ptr %51, align 4, !tbaa !41
+  %70 = zext i32 %69 to i64
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %70, 3
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i
+  %.not.not9.i.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not.not9.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i", label %.lr.ph.i.i.i.i.i
 
-76:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i = icmp eq ptr %77, %75
+72:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i = icmp eq ptr %73, %71
   br i1 %.not.not.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %71, %76
-  %.0810.i.i.i.i.i = phi ptr [ %77, %76 ], [ %72, %71 ]
-  %78 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !99
-  %.not1.i.not.i.i = icmp eq ptr %78, %.0.val.i
-  br i1 %.not1.i.not.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit", label %76
+.lr.ph.i.i.i.i.i:                                 ; preds = %67, %72
+  %.0810.i.i.i.i.i = phi ptr [ %73, %72 ], [ %68, %67 ]
+  %74 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !99
+  %.not1.i.not.i.i = icmp eq ptr %74, %.0.val.i
+  br i1 %.not1.i.not.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit", label %72
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i": ; preds = %.lr.ph.split.i
-  %79 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
-  %.not.i.i.i = icmp eq ptr %79, null
+  %75 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
+  %.not.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i", label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i": ; preds = %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i", %71
-  %80 = add nsw i64 %.056, -1
-  %81 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %.not.i = icmp eq i64 %80, 0
-  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.split.i, !llvm.loop !538
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i": ; preds = %72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i", %67
+  %76 = add nsw i64 %.056, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %.not.i = icmp eq i64 %76, 0
+  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.split.i, !llvm.loop !542
 
 "_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i", %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.us.i
   %.2 = phi i64 [ %.157, %.lr.ph.i.i.i.i.us.i ], [ %.056, %.lr.ph.i.i.i.i.i ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i" ]
   %.010.i = phi ptr [ %.012.us.i, %.lr.ph.i.i.i.i.us.i ], [ %.012.i, %.lr.ph.i.i.i.i.i ], [ %.012.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.i" ]
-  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef nonnull %.010.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
+  %78 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef nonnull %.010.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
   br label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread"
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i", %.lr.ph.split.us.i, %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit"
-  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit" ], [ %scevgep23.i, %.lr.ph.split.us.i ], [ %52, %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit ], [ %scevgep23.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ]
-  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph6RefSCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %53, ptr noundef %52, ptr noundef %.041)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit"
+  %.041 = phi ptr [ %78, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit" ], [ %47, %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.us.i" ], [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E_EclIPS7_EEbSO_.exit.thread.i" ]
+  %79 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph6RefSCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %48, ptr noundef %47, ptr noundef %.041)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge.thread, %._crit_edge, %6, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread"
-  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa99, %._crit_edge.thread ]
+  %.0 = phi ptr [ %79, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SU_SN_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa95, %._crit_edge.thread ]
   ret ptr %.0
 }
 
@@ -25284,7 +25249,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph6RefS
   %19 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %19, %1
-  br i1 %.not.i, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !539
+  br i1 %.not.i, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !543
 
 21:                                               ; preds = %7
   %22 = sub i64 %8, %12
@@ -25347,7 +25312,7 @@ _ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %3
   %42 = getelementptr inbounds nuw i8, ptr %.055107, i64 8
   %43 = add nuw nsw i64 %.054108, 1
   %exitcond119.not = icmp eq i64 %43, %25
-  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !540
+  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !544
 
 44:                                               ; preds = %._crit_edge111
   %45 = sub nsw i64 %.083, %38
@@ -25394,7 +25359,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds
   %.086.be = phi i64 [ %.083, %44 ], [ %25, %._crit_edge ]
   %.083.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %44 ], [ %.361.lcssa, %._crit_edge ]
-  br label %24, !llvm.loop !541
+  br label %24, !llvm.loop !545
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %.0105 = phi i64 [ %67, %.lr.ph ], [ 0, %57 ]
@@ -25408,7 +25373,7 @@ _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds
   store ptr %65, ptr %64, align 8, !tbaa !172
   %67 = add nuw nsw i64 %.0105, 1
   %exitcond.not = icmp eq i64 %67, %.083
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !542
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !546
 
 _ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %5, %3
   %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
@@ -25428,9 +25393,9 @@ define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm1
   %10 = load ptr, ptr %0, align 8, !tbaa !172
   store ptr %10, ptr %4, align 8, !tbaa !172
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.04080 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not4981 = icmp eq ptr %.04080, %1
-  br i1 %.not4981, label %._crit_edge.thread, label %.lr.ph
+  %.04077 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not4978 = icmp eq ptr %.04077, %1
+  br i1 %.not4978, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -25446,195 +25411,182 @@ define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm1
   %.idx.i.i.i.i.us = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.us
   %.not.not9.i.i.i.i.us = icmp eq i32 %17, 0
-  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us", label %.lr.ph.i.i.i.i.preheader.us
+  br label %20
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us": ; preds = %.lr.ph.split.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us"
-  %.04084.us.us = phi ptr [ %.040.us.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us" ], [ %.04080, %.lr.ph.split.us ]
-  %.04382.us.us = phi ptr [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us" ], [ %11, %.lr.ph.split.us ]
-  %20 = load ptr, ptr %.04084.us.us, align 8, !tbaa !172
-  store ptr %20, ptr %.04382.us.us, align 8, !tbaa !172
-  %21 = getelementptr inbounds nuw i8, ptr %.04382.us.us, i64 8
-  %.040.us.us = getelementptr inbounds nuw i8, ptr %.04084.us.us, i64 8
-  %.not49.us.us = icmp eq ptr %.040.us.us, %1
-  br i1 %.not49.us.us, label %._crit_edge.thread, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us", !llvm.loop !543
+20:                                               ; preds = %26, %.lr.ph.split.us
+  %.04081.us = phi ptr [ %.04077, %.lr.ph.split.us ], [ %.040.us, %26 ]
+  %.04280.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %26 ]
+  %.04379.us = phi ptr [ %11, %.lr.ph.split.us ], [ %.144.us, %26 ]
+  %.040.val.us = load ptr, ptr %.04081.us, align 8, !tbaa !172
+  br i1 %.not.not9.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us", label %.lr.ph.i.i.i.i.us
 
-.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us, %26
-  %.04084.us = phi ptr [ %.040.us, %26 ], [ %.04080, %.lr.ph.split.us ]
-  %.04283.us = phi ptr [ %.1.us, %26 ], [ %0, %.lr.ph.split.us ]
-  %.04382.us = phi ptr [ %.144.us, %26 ], [ %11, %.lr.ph.split.us ]
-  %.040.val.us = load ptr, ptr %.04084.us, align 8, !tbaa !172
-  br label %.lr.ph.i.i.i.i.us
+.lr.ph.i.i.i.i.us:                                ; preds = %20, %23
+  %.0810.i.i.i.i.us = phi ptr [ %24, %23 ], [ %16, %20 ]
+  %21 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
+  %22 = icmp eq ptr %21, %.040.val.us
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us", label %23
 
-.lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %24
-  %.0810.i.i.i.i.us = phi ptr [ %25, %24 ], [ %16, %.lr.ph.i.i.i.i.preheader.us ]
-  %22 = load ptr, ptr %.0810.i.i.i.i.us, align 8, !tbaa !99
-  %23 = icmp eq ptr %22, %.040.val.us
-  br i1 %23, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us", label %24
+23:                                               ; preds = %.lr.ph.i.i.i.i.us
+  %24 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
+  %.not.not.i.i.i.i.us = icmp eq ptr %24, %19
+  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
 
-24:                                               ; preds = %.lr.ph.i.i.i.i.us
-  %25 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us, i64 8
-  %.not.not.i.i.i.i.us = icmp eq ptr %25, %19
-  br i1 %.not.not.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.loopexit.us", label %.lr.ph.i.i.i.i.us, !llvm.loop !136
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us": ; preds = %23, %20
+  store ptr %.040.val.us, ptr %.04379.us, align 8, !tbaa !172
+  %25 = getelementptr inbounds nuw i8, ptr %.04379.us, i64 8
+  br label %26
 
-26:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.loopexit.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us"
-  %.144.us = phi ptr [ %.04382.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ], [ %28, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.loopexit.us" ]
-  %.1.us = phi ptr [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ], [ %.04283.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.loopexit.us" ]
-  %.040.us = getelementptr inbounds nuw i8, ptr %.04084.us, i64 8
+26:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us"
+  %.144.us = phi ptr [ %.04379.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ], [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us" ]
+  %.1.us = phi ptr [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us" ], [ %.04280.us, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us" ]
+  %.040.us = getelementptr inbounds nuw i8, ptr %.04081.us, i64 8
   %.not49.us = icmp eq ptr %.040.us, %1
-  br i1 %.not49.us, label %._crit_edge, label %.lr.ph.i.i.i.i.preheader.us, !llvm.loop !543
+  br i1 %.not49.us, label %._crit_edge, label %20, !llvm.loop !547
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59.loopexit.us": ; preds = %.lr.ph.i.i.i.i.us
-  store ptr %.040.val.us, ptr %.04283.us, align 8, !tbaa !172
-  %27 = getelementptr inbounds nuw i8, ptr %.04283.us, i64 8
+  store ptr %.040.val.us, ptr %.04280.us, align 8, !tbaa !172
+  %27 = getelementptr inbounds nuw i8, ptr %.04280.us, i64 8
   br label %26
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.loopexit.us": ; preds = %24
-  store ptr %.040.val.us, ptr %.04382.us, align 8, !tbaa !172
-  %28 = getelementptr inbounds nuw i8, ptr %.04382.us, i64 8
-  br label %26
+.lr.ph.split:                                     ; preds = %.lr.ph, %44
+  %.04081 = phi ptr [ %.040, %44 ], [ %.04077, %.lr.ph ]
+  %.04280 = phi ptr [ %.1, %44 ], [ %0, %.lr.ph ]
+  %.04379 = phi ptr [ %.144, %44 ], [ %11, %.lr.ph ]
+  %.040.val = load ptr, ptr %.04081, align 8, !tbaa !172
+  %28 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit"
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %45
-  %.04084 = phi ptr [ %.040, %45 ], [ %.04080, %.lr.ph ]
-  %.04283 = phi ptr [ %.1, %45 ], [ %0, %.lr.ph ]
-  %.04382 = phi ptr [ %.144, %45 ], [ %11, %.lr.ph ]
-  %.040.val = load ptr, ptr %.04084, align 8, !tbaa !172
-  %29 = load i8, ptr %12, align 4, !tbaa !43, !range !94, !noundef !98
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit"
-
-31:                                               ; preds = %.lr.ph.split
-  %32 = load ptr, ptr %2, align 8, !tbaa !38
-  %33 = load i32, ptr %13, align 4, !tbaa !41
-  %34 = zext i32 %33 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %33, 0
+30:                                               ; preds = %.lr.ph.split
+  %31 = load ptr, ptr %2, align 8, !tbaa !38
+  %32 = load i32, ptr %13, align 4, !tbaa !41
+  %33 = zext i32 %32 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not.not9.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread", label %.lr.ph.i.i.i.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %37, %35
+35:                                               ; preds = %.lr.ph.i.i.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %36, %34
   br i1 %.not.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread", label %.lr.ph.i.i.i.i, !llvm.loop !136
 
-.lr.ph.i.i.i.i:                                   ; preds = %31, %36
-  %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
-  %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
-  %39 = icmp eq ptr %38, %.040.val
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59", label %36
+.lr.ph.i.i.i.i:                                   ; preds = %30, %35
+  %.0810.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ]
+  %37 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !99
+  %38 = icmp eq ptr %37, %.040.val
+  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59", label %35
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit": ; preds = %.lr.ph.split
-  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
-  %.not70 = icmp eq ptr %40, null
-  %.pre101 = load ptr, ptr %.04084, align 8, !tbaa !172
-  br i1 %.not70, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59"
+  %39 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.040.val) #18
+  %.not64 = icmp eq ptr %39, null
+  %.pre97 = load ptr, ptr %.04081, align 8, !tbaa !172
+  br i1 %.not64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit"
-  %41 = phi ptr [ %.pre101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
-  store ptr %41, ptr %.04283, align 8, !tbaa !172
-  %42 = getelementptr inbounds nuw i8, ptr %.04283, i64 8
-  br label %45
+  %40 = phi ptr [ %.pre97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit" ], [ %.040.val, %.lr.ph.i.i.i.i ]
+  store ptr %40, ptr %.04280, align 8, !tbaa !172
+  %41 = getelementptr inbounds nuw i8, ptr %.04280, i64 8
+  br label %44
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread": ; preds = %36, %31, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit"
-  %43 = phi ptr [ %.040.val, %31 ], [ %.pre101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit" ], [ %.040.val, %36 ]
-  store ptr %43, ptr %.04382, align 8, !tbaa !172
-  %44 = getelementptr inbounds nuw i8, ptr %.04382, i64 8
-  br label %45
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread": ; preds = %35, %30, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit"
+  %42 = phi ptr [ %.040.val, %30 ], [ %.pre97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit" ], [ %.040.val, %35 ]
+  store ptr %42, ptr %.04379, align 8, !tbaa !172
+  %43 = getelementptr inbounds nuw i8, ptr %.04379, i64 8
+  br label %44
 
-45:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread"
-  %.144 = phi ptr [ %.04382, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread" ]
-  %.1 = phi ptr [ %42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59" ], [ %.04283, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread" ]
-  %.040 = getelementptr inbounds nuw i8, ptr %.04084, i64 8
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread"
+  %.144 = phi ptr [ %.04379, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59" ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread" ]
+  %.1 = phi ptr [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread59" ], [ %.04280, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread" ]
+  %.040 = getelementptr inbounds nuw i8, ptr %.04081, i64 8
   %.not49 = icmp eq ptr %.040, %1
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !544
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.split, !llvm.loop !548
 
-._crit_edge:                                      ; preds = %45, %26
-  %.043.lcssa = phi ptr [ %.144.us, %26 ], [ %.144, %45 ]
-  %.042.lcssa = phi ptr [ %.1.us, %26 ], [ %.1, %45 ]
+._crit_edge:                                      ; preds = %44, %26
+  %.043.lcssa = phi ptr [ %.144.us, %26 ], [ %.144, %44 ]
+  %.042.lcssa = phi ptr [ %.1.us, %26 ], [ %.1, %44 ]
   %.not.i.i.i.i.i = icmp eq ptr %.043.lcssa, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us", %9, %._crit_edge
-  %.042.lcssa106 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ], [ %0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us" ]
-  %.043.lcssa105 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ], [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread.us.us" ]
-  %46 = ptrtoint ptr %.043.lcssa105 to i64
-  %47 = ptrtoint ptr %4 to i64
-  %48 = sub i64 %46, %47
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa106, ptr nonnull align 8 %4, i64 %48, i1 false)
+._crit_edge.thread:                               ; preds = %9, %._crit_edge
+  %.042.lcssa102 = phi ptr [ %.042.lcssa, %._crit_edge ], [ %0, %9 ]
+  %.043.lcssa101 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %11, %9 ]
+  %45 = ptrtoint ptr %.043.lcssa101 to i64
+  %46 = ptrtoint ptr %4 to i64
+  %47 = sub i64 %45, %46
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.042.lcssa102, ptr nonnull align 8 %4, i64 %47, i1 false)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit: ; preds = %8
-  %49 = sdiv i64 %3, 2
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %49
-  %51 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef %50, ptr %2, i64 noundef %49, ptr noundef %4, i64 noundef %5)
-  %52 = sub nsw i64 %3, %49
-  %.not12.i = icmp eq i64 %52, 0
+  %48 = sdiv i64 %3, 2
+  %49 = getelementptr inbounds ptr, ptr %0, i64 %48
+  %50 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef %49, ptr %2, i64 noundef %48, ptr noundef %4, i64 noundef %5)
+  %51 = sub nsw i64 %3, %48
+  %.not12.i = icmp eq i64 %51, 0
   br i1 %.not12.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %55 = load i8, ptr %53, align 4, !tbaa !43, !range !94, !noundef !98
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %54 = load i8, ptr %52, align 4, !tbaa !43, !range !94, !noundef !98
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %57 = load ptr, ptr %2, align 8, !tbaa !38
-  %58 = load i32, ptr %54, align 4, !tbaa !41
-  %59 = zext i32 %58 to i64
-  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i.i.i.us.i
-  %.not.not9.i.i.i.i.us.i = icmp eq i32 %58, 0
-  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64", label %.lr.ph.i.i.i.i.preheader.us.preheader.i
+  %56 = load ptr, ptr %2, align 8, !tbaa !38
+  %57 = load i32, ptr %53, align 4, !tbaa !41
+  %58 = zext i32 %57 to i64
+  %.idx.i.i.i.i.us.i = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i.us.i
+  %.not.not9.i.i.i.i.us.i = icmp eq i32 %57, 0
+  %60 = shl i64 %51, 3
+  %scevgep.i = getelementptr i8, ptr %49, i64 %60
+  br label %61
 
-.lr.ph.i.i.i.i.preheader.us.preheader.i:          ; preds = %.lr.ph.split.us.i
-  %61 = shl i64 %52, 3
-  %scevgep.i = getelementptr i8, ptr %50, i64 %61
-  br label %.lr.ph.i.i.i.i.preheader.us.i
-
-.lr.ph.i.i.i.i.preheader.us.i:                    ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i", %.lr.ph.i.i.i.i.preheader.us.preheader.i
-  %.157 = phi i64 [ %52, %.lr.ph.i.i.i.i.preheader.us.preheader.i ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ]
-  %.013.us.i = phi ptr [ %50, %.lr.ph.i.i.i.i.preheader.us.preheader.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ]
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i", %.lr.ph.split.us.i
+  %.157 = phi i64 [ %51, %.lr.ph.split.us.i ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ]
+  %.013.us.i = phi ptr [ %49, %.lr.ph.split.us.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ]
   %.0.val.us.i = load ptr, ptr %.013.us.i, align 8, !tbaa !172
-  br label %.lr.ph.i.i.i.i.us.i
+  br i1 %.not.not9.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit", label %.lr.ph.i.i.i.i.us.i
 
-.lr.ph.i.i.i.i.us.i:                              ; preds = %64, %.lr.ph.i.i.i.i.preheader.us.i
-  %.0810.i.i.i.i.us.i = phi ptr [ %65, %64 ], [ %57, %.lr.ph.i.i.i.i.preheader.us.i ]
+.lr.ph.i.i.i.i.us.i:                              ; preds = %61, %64
+  %.0810.i.i.i.i.us.i = phi ptr [ %65, %64 ], [ %56, %61 ]
   %62 = load ptr, ptr %.0810.i.i.i.i.us.i, align 8, !tbaa !99
   %63 = icmp eq ptr %62, %.0.val.us.i
   br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i", label %64
 
 64:                                               ; preds = %.lr.ph.i.i.i.i.us.i
   %65 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.i, i64 8
-  %.not.not.i.i.i.i.us.i = icmp eq ptr %65, %60
-  br i1 %.not.not.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
+  %.not.not.i.i.i.i.us.i = icmp eq ptr %65, %59
+  br i1 %.not.not.i.i.i.i.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit", label %.lr.ph.i.i.i.i.us.i, !llvm.loop !136
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i": ; preds = %.lr.ph.i.i.i.i.us.i
   %66 = add nsw i64 %.157, -1
   %67 = getelementptr inbounds nuw i8, ptr %.013.us.i, i64 8
   %.not.us.i = icmp eq i64 %66, 0
-  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i, !llvm.loop !545
+  br i1 %.not.us.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread", label %61, !llvm.loop !549
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i"
-  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ], [ %52, %.lr.ph.i ]
-  %.013.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ], [ %50, %.lr.ph.i ]
+  %.056 = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ], [ %51, %.lr.ph.i ]
+  %.013.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ], [ %49, %.lr.ph.i ]
   %.0.val.i = load ptr, ptr %.013.i, align 8, !tbaa !172
-  %68 = load i8, ptr %53, align 4, !tbaa !43, !range !94, !noundef !98
+  %68 = load i8, ptr %52, align 4, !tbaa !43, !range !94, !noundef !98
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i"
 
 70:                                               ; preds = %.lr.ph.split.i
   %71 = load ptr, ptr %2, align 8, !tbaa !38
-  %72 = load i32, ptr %54, align 4, !tbaa !41
+  %72 = load i32, ptr %53, align 4, !tbaa !41
   %73 = zext i32 %72 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %73, 3
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i.i.i
   %.not.not9.i.i.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.not9.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64", label %.lr.ph.i.i.i.i.i
+  br i1 %.not.not9.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit", label %.lr.ph.i.i.i.i.i
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %.not.not.i.i.i.i.i = icmp eq ptr %76, %74
-  br i1 %.not.not.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
+  br i1 %.not.not.i.i.i.i.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !136
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %70, %75
   %.0810.i.i.i.i.i = phi ptr [ %76, %75 ], [ %71, %70 ]
@@ -25645,27 +25597,27 @@ _ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit: ; preds = %8
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i": ; preds = %.lr.ph.split.i
   %79 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %.0.val.i) #18
   %.not8.i = icmp eq ptr %79, null
-  br i1 %.not8.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i"
+  br i1 %.not8.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i"
   %80 = add nsw i64 %.056, -1
   %81 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.not.i = icmp eq i64 %80, 0
-  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.split.i, !llvm.loop !546
+  br i1 %.not.i, label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread", label %.lr.ph.split.i, !llvm.loop !550
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i", %70, %75, %64, %.lr.ph.split.us.i
-  %.011.i69 = phi ptr [ %50, %.lr.ph.split.us.i ], [ %.013.us.i, %64 ], [ %.013.i, %75 ], [ %.013.i, %70 ], [ %.013.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i" ]
-  %.268 = phi i64 [ %52, %.lr.ph.split.us.i ], [ %.157, %64 ], [ %.056, %75 ], [ %.056, %70 ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i" ]
-  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %.011.i69, ptr noundef %1, ptr %2, i64 noundef %.268, ptr noundef %4, i64 noundef %5)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i", %70, %75, %61, %64
+  %.2 = phi i64 [ %.157, %64 ], [ %51, %61 ], [ %.056, %75 ], [ %.056, %70 ], [ %.056, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i" ]
+  %.011.i = phi ptr [ %.013.us.i, %64 ], [ %49, %61 ], [ %.013.i, %75 ], [ %.013.i, %70 ], [ %.013.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.i" ]
+  %82 = tail call fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %.011.i, ptr noundef %1, ptr %2, i64 noundef %.2, ptr noundef %4, i64 noundef %5)
   br label %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread"
 
-"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64"
-  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread64" ], [ %50, %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ]
-  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph6RefSCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %51, ptr noundef %50, ptr noundef %.041)
+"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i", %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit"
+  %.041 = phi ptr [ %82, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit" ], [ %49, %_ZSt7advanceIPPN4llvm13LazyCallGraph6RefSCCElEvRT_T0_.exit ], [ %scevgep.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.loopexit.us.i" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIN4llvm13LazyCallGraph6RefSCCENS3_11SmallVectorIPS5_Lj16EEENS3_8DenseMapIS7_iNS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_iEEEEZNS5_21insertIncomingRefEdgeERNS4_4NodeESH_E3$_0ZNS5_21insertIncomingRefEdgeESH_SH_E3$_1ENS3_14iterator_rangeINT0_8iteratorEEERT_SP_RSL_RT1_T2_T3_EUlS7_E0_EclIPS7_EEbSO_.exit.thread6.i" ]
+  %83 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm13LazyCallGraph6RefSCCEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %50, ptr noundef %49, ptr noundef %.041)
   br label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge.thread, %._crit_edge, %6, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread"
-  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa106, %._crit_edge.thread ]
+  %.0 = phi ptr [ %83, %"_ZSt15__find_if_not_nIPPN4llvm13LazyCallGraph6RefSCCEN9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SU_SN_.exit.thread" ], [ %0, %6 ], [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa102, %._crit_edge.thread ]
   ret ptr %.0
 }
 
@@ -25786,7 +25738,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %4 = alloca %"struct.std::pair.273", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   %5 = load ptr, ptr %1, align 8, !tbaa !7
-  store ptr %5, ptr %4, align 8, !tbaa !334
+  store ptr %5, ptr %4, align 8, !tbaa !336
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25804,7 +25756,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %15 = icmp uge ptr %4, %.pre3.i
   %16 = icmp ult ptr %4, %14
   %spec.select.i.i.i.i.i = and i1 %15, %16
-  br i1 %spec.select.i.i.i.i.i, label %19, label %17, !prof !269
+  br i1 %spec.select.i.i.i.i.i, label %19, label %17, !prof !271
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25880,9 +25832,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13LazyCallGraph4EdgeELb1EE9push_backES2_.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !368
+  %4 = load ptr, ptr %0, align 8, !tbaa !370
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !371
+  %6 = load i32, ptr %5, align 8, !tbaa !373
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.thread, label %8
 
@@ -25927,20 +25879,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.286", ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !172
   %33 = icmp eq ptr %9, %32
-  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !379
+  br i1 %33, label %.thread, label %.lr.ph, !prof !23, !llvm.loop !381
 
 .thread:                                          ; preds = %25, %8, %3, %23
   %.sink = phi ptr [ %24, %23 ], [ null, %3 ], [ %17, %8 ], [ %31, %25 ]
   %.0 = phi i1 [ false, %23 ], [ false, %3 ], [ true, %8 ], [ true, %25 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !380
+  store ptr %.sink, ptr %2, align 8, !tbaa !382
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !371
-  %5 = load ptr, ptr %0, align 8, !tbaa !368
+  %4 = load i32, ptr %3, align 8, !tbaa !373
+  %5 = load ptr, ptr %0, align 8, !tbaa !370
   %6 = add i32 %1, -1
   %7 = zext i32 %6 to i64
   %8 = lshr i64 %7, 1
@@ -25956,20 +25908,20 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyC
   %18 = trunc nuw i64 %17 to i32
   %19 = add i32 %18, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %19, i32 64)
-  store i32 %.sroa.speculated.i, ptr %3, align 8, !tbaa !371
+  store i32 %.sroa.speculated.i, ptr %3, align 8, !tbaa !373
   %20 = zext i32 %.sroa.speculated.i to i64
   %21 = shl nuw nsw i64 %20, 5
   %22 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %21, i64 noundef 8) #18
-  store ptr %22, ptr %0, align 8, !tbaa !368
+  store ptr %22, ptr %0, align 8, !tbaa !370
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %23, label %30
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %24, align 8, !tbaa !372
+  store i32 0, ptr %24, align 8, !tbaa !374
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %25, align 4, !tbaa !381
-  %26 = load i32, ptr %3, align 8, !tbaa !371
+  store i32 0, ptr %25, align 4, !tbaa !383
+  %26 = load i32, ptr %3, align 8, !tbaa !373
   %27 = zext i32 %26 to i64
   %.idx.i.i = shl nuw nsw i64 %27, 5
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
@@ -25981,7 +25933,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyC
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !172
   %29 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 32
   %.not.i.i = icmp eq ptr %29, %28
-  br i1 %.not.i.i, label %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEE4growEj.exit, label %.lr.ph.i.i, !llvm.loop !547
+  br i1 %.not.i.i, label %_ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEE4growEj.exit, label %.lr.ph.i.i, !llvm.loop !551
 
 30:                                               ; preds = %2
   %31 = zext i32 %4 to i64
@@ -25998,12 +25950,12 @@ _ZN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEEN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %4, align 8, !tbaa !372
+  store i32 0, ptr %4, align 8, !tbaa !374
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %5, align 4, !tbaa !381
-  %6 = load ptr, ptr %0, align 8, !tbaa !368
+  store i32 0, ptr %5, align 4, !tbaa !383
+  %6 = load ptr, ptr %0, align 8, !tbaa !370
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !371
+  %8 = load i32, ptr %7, align 8, !tbaa !373
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
@@ -26015,7 +25967,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyC
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !172
   %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 32
   %.not.i = icmp eq ptr %11, %10
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !547
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !551
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %3
   %.not21 = icmp eq ptr %1, %2
@@ -26034,8 +25986,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   ]
 
 13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr %0, align 8, !tbaa !368
-  %15 = load i32, ptr %7, align 8, !tbaa !371
+  %14 = load ptr, ptr %0, align 8, !tbaa !370
+  %15 = load i32, ptr %7, align 8, !tbaa !373
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %magicptr to i32
@@ -26076,7 +26028,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.286", ptr %14, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !172
   %39 = icmp eq ptr %12, %38
-  br i1 %39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit, label %.lr.ph.i15, !prof !23, !llvm.loop !379
+  br i1 %39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit, label %.lr.ph.i15, !prof !23, !llvm.loop !381
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit: ; preds = %31, %13, %29
   %.sink.i = phi ptr [ %30, %29 ], [ %23, %13 ], [ %37, %31 ]
@@ -26099,9 +26051,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit, %47
-  %49 = load i32, ptr %4, align 8, !tbaa !372
+  %49 = load i32, ptr %4, align 8, !tbaa !374
   %50 = add i32 %49, 1
-  store i32 %50, ptr %4, align 8, !tbaa !372
+  store i32 %50, ptr %4, align 8, !tbaa !374
   %51 = load ptr, ptr %41, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %53 = icmp eq ptr %51, %52
@@ -26114,7 +26066,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit: ; preds = %_ZN
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit: ; preds = %.lr.ph, %.lr.ph, %54, %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit
   %55 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %.not = icmp eq ptr %55, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !548
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !552
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26528,292 +26480,296 @@ attributes #21 = { noreturn nounwind }
 !257 = distinct !{!257, !25}
 !258 = !{!259, !259, i64 0}
 !259 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph3SCCEiEE", !9, i64 0}
-!260 = distinct !{!260, !25}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
-!263 = distinct !{!263, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
-!264 = !{!265, !8, i64 0}
-!265 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph4NodeENS1_12EdgeSequence13call_iteratorEE", !8, i64 0, !266, i64 8}
-!266 = !{!"_ZTSN4llvm13LazyCallGraph12EdgeSequence13call_iteratorE", !267, i64 0, !268, i64 8}
-!267 = !{!"_ZTSN4llvm21iterator_adaptor_baseINS_13LazyCallGraph12EdgeSequence13call_iteratorEPNS1_4EdgeESt20forward_iterator_tagS4_lS5_RS4_EE", !268, i64 0}
-!268 = !{!"p1 _ZTSN4llvm13LazyCallGraph4EdgeE", !9, i64 0}
-!269 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!270 = distinct !{!270, !25}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
-!273 = distinct !{!273, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
-!274 = distinct !{!274, !25}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
-!277 = distinct !{!277, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
-!278 = !{!279, !281, !283, !285}
-!279 = distinct !{!279, !280, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_St26random_access_iterator_tag: argument 0"}
-!280 = distinct !{!280, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_St26random_access_iterator_tag"}
-!281 = distinct !{!281, !282, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_: argument 0"}
-!282 = distinct !{!282, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_"}
-!283 = distinct !{!283, !284, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC23switchInternalEdgeToRefERS3_S8_E3$_0ET_SA_SA_T0_: argument 0"}
-!284 = distinct !{!284, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC23switchInternalEdgeToRefERS3_S8_E3$_0ET_SA_SA_T0_"}
-!285 = distinct !{!285, !286, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_: argument 0"}
-!286 = distinct !{!286, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_"}
-!287 = distinct !{!287, !25}
-!288 = distinct !{!288, !25}
+!260 = distinct !{!260, !261}
+!261 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!262 = distinct !{!262, !25}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
+!265 = distinct !{!265, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
+!266 = !{!267, !8, i64 0}
+!267 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph4NodeENS1_12EdgeSequence13call_iteratorEE", !8, i64 0, !268, i64 8}
+!268 = !{!"_ZTSN4llvm13LazyCallGraph12EdgeSequence13call_iteratorE", !269, i64 0, !270, i64 8}
+!269 = !{!"_ZTSN4llvm21iterator_adaptor_baseINS_13LazyCallGraph12EdgeSequence13call_iteratorEPNS1_4EdgeESt20forward_iterator_tagS4_lS5_RS4_EE", !270, i64 0}
+!270 = !{!"p1 _ZTSN4llvm13LazyCallGraph4EdgeE", !9, i64 0}
+!271 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!272 = distinct !{!272, !25}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
+!275 = distinct !{!275, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
+!276 = distinct !{!276, !25}
+!277 = !{!278}
+!278 = distinct !{!278, !279, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
+!279 = distinct !{!279, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
+!280 = !{!281, !283, !285, !287}
+!281 = distinct !{!281, !282, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_St26random_access_iterator_tag: argument 0"}
+!282 = distinct !{!282, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_St26random_access_iterator_tag"}
+!283 = distinct !{!283, !284, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_: argument 0"}
+!284 = distinct !{!284, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC23switchInternalEdgeToRefERS3_SB_E3$_0EEET_SE_SE_T0_"}
+!285 = distinct !{!285, !286, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC23switchInternalEdgeToRefERS3_S8_E3$_0ET_SA_SA_T0_: argument 0"}
+!286 = distinct !{!286, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC23switchInternalEdgeToRefERS3_S8_E3$_0ET_SA_SA_T0_"}
+!287 = distinct !{!287, !288, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_: argument 0"}
+!288 = distinct !{!288, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC23switchInternalEdgeToRefERS4_SA_E3$_0EEDaOT_T0_"}
 !289 = distinct !{!289, !25}
 !290 = distinct !{!290, !25}
 !291 = distinct !{!291, !25}
 !292 = distinct !{!292, !25}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!295 = distinct !{!295, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!298 = distinct !{!298, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!299 = distinct !{!299, !25}
-!300 = distinct !{!300, !25}
-!301 = !{!302, !303, i64 0}
-!302 = !{!"_ZTSN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEE", !303, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!303 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCEiEE", !9, i64 0}
-!304 = !{!302, !12, i64 16}
-!305 = distinct !{!305, !25}
-!306 = !{!307, !12, i64 8}
-!307 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph6RefSCCEiE", !173, i64 0, !12, i64 8}
-!308 = distinct !{!308, !25}
-!309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!311 = distinct !{!311, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!312 = distinct !{!312, !25}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!315 = distinct !{!315, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!316 = distinct !{!316, !25}
-!317 = distinct !{!317, !25}
-!318 = !{!319}
-!319 = distinct !{!319, !320, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!320 = distinct !{!320, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!321 = distinct !{!321, !25}
-!322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
-!324 = distinct !{!324, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
-!325 = distinct !{!325, !25}
-!326 = !{!302, !12, i64 8}
-!327 = !{!302, !12, i64 12}
-!328 = distinct !{!328, !25}
-!329 = !{!303, !303, i64 0}
+!293 = distinct !{!293, !25}
+!294 = distinct !{!294, !25}
+!295 = !{!296}
+!296 = distinct !{!296, !297, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!297 = distinct !{!297, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!300 = distinct !{!300, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!301 = distinct !{!301, !25}
+!302 = distinct !{!302, !25}
+!303 = !{!304, !305, i64 0}
+!304 = !{!"_ZTSN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEE", !305, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!305 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCEiEE", !9, i64 0}
+!306 = !{!304, !12, i64 16}
+!307 = distinct !{!307, !25}
+!308 = !{!309, !12, i64 8}
+!309 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph6RefSCCEiE", !173, i64 0, !12, i64 8}
+!310 = distinct !{!310, !25}
+!311 = !{!312}
+!312 = distinct !{!312, !313, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!313 = distinct !{!313, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!314 = distinct !{!314, !25}
+!315 = !{!316}
+!316 = distinct !{!316, !317, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!317 = distinct !{!317, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!318 = distinct !{!318, !25}
+!319 = distinct !{!319, !25}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!322 = distinct !{!322, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!323 = distinct !{!323, !25}
+!324 = !{!325}
+!325 = distinct !{!325, !326, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_: argument 0"}
+!326 = distinct !{!326, !"_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_"}
+!327 = distinct !{!327, !25}
+!328 = !{!304, !12, i64 8}
+!329 = !{!304, !12, i64 12}
 !330 = distinct !{!330, !25}
-!331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv: argument 0"}
-!333 = distinct !{!333, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv"}
-!334 = !{!335, !8, i64 0}
-!335 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph4NodeENS1_12EdgeSequence8iteratorEE", !8, i64 0, !336, i64 8}
-!336 = !{!"_ZTSN4llvm13LazyCallGraph12EdgeSequence8iteratorE", !337, i64 0, !268, i64 8}
-!337 = !{!"_ZTSN4llvm21iterator_adaptor_baseINS_13LazyCallGraph12EdgeSequence8iteratorEPNS1_4EdgeESt20forward_iterator_tagS4_lS5_RS4_EE", !268, i64 0}
-!338 = distinct !{!338, !25}
-!339 = !{!340, !342, !344, !346, !348}
-!340 = distinct !{!340, !341, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
-!341 = distinct !{!341, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
-!342 = distinct !{!342, !343, !"_ZSt6rbeginIN4llvm11SmallVectorIPNS0_13LazyCallGraph4NodeELj4EEEEDTcldtfp_6rbeginEERT_: argument 0"}
-!343 = distinct !{!343, !"_ZSt6rbeginIN4llvm11SmallVectorIPNS0_13LazyCallGraph4NodeELj4EEEEDTcldtfp_6rbeginEERT_"}
-!344 = distinct !{!344, !345, !"_ZN4llvm10adl_detail11rbegin_implIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS8_: argument 0"}
-!345 = distinct !{!345, !"_ZN4llvm10adl_detail11rbegin_implIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS8_"}
-!346 = distinct !{!346, !347, !"_ZN4llvm10adl_rbeginIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS7_: argument 0"}
-!347 = distinct !{!347, !"_ZN4llvm10adl_rbeginIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS7_"}
-!348 = distinct !{!348, !349, !"_ZN4llvm7reverseIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDaOT_: argument 0"}
-!349 = distinct !{!349, !"_ZN4llvm7reverseIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDaOT_"}
-!350 = !{!351, !353, !355, !357}
-!351 = distinct !{!351, !352, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_St26random_access_iterator_tag: argument 0"}
-!352 = distinct !{!352, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_St26random_access_iterator_tag"}
-!353 = distinct !{!353, !354, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_: argument 0"}
-!354 = distinct !{!354, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_"}
-!355 = distinct !{!355, !356, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0ET_SD_SD_T0_: argument 0"}
-!356 = distinct !{!356, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0ET_SD_SD_T0_"}
-!357 = distinct !{!357, !358, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_: argument 0"}
-!358 = distinct !{!358, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_"}
-!359 = distinct !{!359, !25}
-!360 = distinct !{!360, !25}
+!331 = !{!305, !305, i64 0}
+!332 = distinct !{!332, !25}
+!333 = !{!334}
+!334 = distinct !{!334, !335, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv: argument 0"}
+!335 = distinct !{!335, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv"}
+!336 = !{!337, !8, i64 0}
+!337 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph4NodeENS1_12EdgeSequence8iteratorEE", !8, i64 0, !338, i64 8}
+!338 = !{!"_ZTSN4llvm13LazyCallGraph12EdgeSequence8iteratorE", !339, i64 0, !270, i64 8}
+!339 = !{!"_ZTSN4llvm21iterator_adaptor_baseINS_13LazyCallGraph12EdgeSequence8iteratorEPNS1_4EdgeESt20forward_iterator_tagS4_lS5_RS4_EE", !270, i64 0}
+!340 = distinct !{!340, !25}
+!341 = !{!342, !344, !346, !348, !350}
+!342 = distinct !{!342, !343, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
+!343 = distinct !{!343, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
+!344 = distinct !{!344, !345, !"_ZSt6rbeginIN4llvm11SmallVectorIPNS0_13LazyCallGraph4NodeELj4EEEEDTcldtfp_6rbeginEERT_: argument 0"}
+!345 = distinct !{!345, !"_ZSt6rbeginIN4llvm11SmallVectorIPNS0_13LazyCallGraph4NodeELj4EEEEDTcldtfp_6rbeginEERT_"}
+!346 = distinct !{!346, !347, !"_ZN4llvm10adl_detail11rbegin_implIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS8_: argument 0"}
+!347 = distinct !{!347, !"_ZN4llvm10adl_detail11rbegin_implIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS8_"}
+!348 = distinct !{!348, !349, !"_ZN4llvm10adl_rbeginIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS7_: argument 0"}
+!349 = distinct !{!349, !"_ZN4llvm10adl_rbeginIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS7_"}
+!350 = distinct !{!350, !351, !"_ZN4llvm7reverseIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDaOT_: argument 0"}
+!351 = distinct !{!351, !"_ZN4llvm7reverseIRNS_11SmallVectorIPNS_13LazyCallGraph4NodeELj4EEEEEDaOT_"}
+!352 = !{!353, !355, !357, !359}
+!353 = distinct !{!353, !354, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_St26random_access_iterator_tag: argument 0"}
+!354 = distinct !{!354, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_St26random_access_iterator_tag"}
+!355 = distinct !{!355, !356, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_: argument 0"}
+!356 = distinct !{!356, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0EEET_SH_SH_T0_"}
+!357 = distinct !{!357, !358, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0ET_SD_SD_T0_: argument 0"}
+!358 = distinct !{!358, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_6RefSCC22removeInternalRefEdgesENS1_8ArrayRefISt4pairIS4_S4_EEEE3$_0ET_SD_SD_T0_"}
+!359 = distinct !{!359, !360, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_: argument 0"}
+!360 = distinct !{!360, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIS5_S5_EEEE3$_0EEDaOT_T0_"}
 !361 = distinct !{!361, !25}
 !362 = distinct !{!362, !25}
 !363 = distinct !{!363, !25}
 !364 = distinct !{!364, !25}
 !365 = distinct !{!365, !25}
 !366 = distinct !{!366, !25}
-!367 = !{!154, !12, i64 12}
-!368 = !{!369, !370, i64 0}
-!369 = !{!"_ZTSN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEE", !370, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!370 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEE", !9, i64 0}
-!371 = !{!369, !12, i64 16}
-!372 = !{!369, !12, i64 8}
-!373 = distinct !{!373, !25}
-!374 = !{!375, !173, i64 0}
-!375 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPNS1_4NodeELj1EEEE", !173, i64 0, !200, i64 8}
-!376 = !{!377, !259, i64 0}
-!377 = !{!"_ZTSN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE8LargeRepE", !259, i64 0, !12, i64 8}
-!378 = distinct !{!378, !25}
-!379 = distinct !{!379, !25}
-!380 = !{!370, !370, i64 0}
-!381 = !{!369, !12, i64 12}
-!382 = !{!383, !385}
-!383 = distinct !{!383, !384, !"_ZN4llvm10inst_beginERNS_8FunctionE: argument 0"}
-!384 = distinct !{!384, !"_ZN4llvm10inst_beginERNS_8FunctionE"}
-!385 = distinct !{!385, !386, !"_ZN4llvm12instructionsERNS_8FunctionE: argument 0"}
-!386 = distinct !{!386, !"_ZN4llvm12instructionsERNS_8FunctionE"}
-!387 = distinct !{!387, !25}
-!388 = distinct !{!388, !25}
+!367 = distinct !{!367, !25}
+!368 = distinct !{!368, !25}
+!369 = !{!154, !12, i64 12}
+!370 = !{!371, !372, i64 0}
+!371 = !{!"_ZTSN4llvm8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS1_4NodeELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEE", !372, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!372 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEE", !9, i64 0}
+!373 = !{!371, !12, i64 16}
+!374 = !{!371, !12, i64 8}
+!375 = distinct !{!375, !25}
+!376 = !{!377, !173, i64 0}
+!377 = !{!"_ZTSSt4pairIPN4llvm13LazyCallGraph6RefSCCENS0_11SmallVectorIPNS1_4NodeELj1EEEE", !173, i64 0, !200, i64 8}
+!378 = !{!379, !259, i64 0}
+!379 = !{!"_ZTSN4llvm13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEE8LargeRepE", !259, i64 0, !12, i64 8}
+!380 = distinct !{!380, !25}
+!381 = distinct !{!381, !25}
+!382 = !{!372, !372, i64 0}
+!383 = !{!371, !12, i64 12}
+!384 = !{!385, !387}
+!385 = distinct !{!385, !386, !"_ZN4llvm10inst_beginERNS_8FunctionE: argument 0"}
+!386 = distinct !{!386, !"_ZN4llvm10inst_beginERNS_8FunctionE"}
+!387 = distinct !{!387, !388, !"_ZN4llvm12instructionsERNS_8FunctionE: argument 0"}
+!388 = distinct !{!388, !"_ZN4llvm12instructionsERNS_8FunctionE"}
 !389 = distinct !{!389, !25}
 !390 = distinct !{!390, !25}
-!391 = !{!392, !393, i64 0}
-!392 = !{!"_ZTSSt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEE", !393, i64 0}
-!393 = !{!"p2 _ZTSN4llvm13LazyCallGraph4NodeE", !9, i64 0}
-!394 = !{!395}
-!395 = distinct !{!395, !396, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv: argument 0"}
-!396 = distinct !{!396, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv"}
-!397 = !{!398}
-!398 = distinct !{!398, !399, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv: argument 0"}
-!399 = distinct !{!399, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv"}
-!400 = !{!401}
-!401 = distinct !{!401, !402, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
-!402 = distinct !{!402, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
-!403 = distinct !{!403, !25}
-!404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
-!406 = distinct !{!406, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
-!407 = !{!408, !410, !412, !414}
-!408 = distinct !{!408, !409, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_St26random_access_iterator_tag: argument 0"}
-!409 = distinct !{!409, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_St26random_access_iterator_tag"}
-!410 = distinct !{!410, !411, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_: argument 0"}
-!411 = distinct !{!411, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_"}
-!412 = distinct !{!412, !413, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCES9_E3$_0ZNS2_9buildSCCsESC_S9_E3$_1ZNS2_9buildSCCsESC_S9_E3$_2ZNS2_9buildSCCsESC_S9_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESH_SH_SH_SJ_: argument 0"}
-!413 = distinct !{!413, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCES9_E3$_0ZNS2_9buildSCCsESC_S9_E3$_1ZNS2_9buildSCCsESC_S9_E3$_2ZNS2_9buildSCCsESC_S9_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESH_SH_SH_SJ_"}
-!414 = distinct !{!414, !415, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_: argument 0"}
-!415 = distinct !{!415, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_"}
-!416 = distinct !{!416, !25}
-!417 = distinct !{!417, !25}
+!391 = distinct !{!391, !25}
+!392 = distinct !{!392, !25}
+!393 = !{!394, !395, i64 0}
+!394 = !{!"_ZTSSt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEE", !395, i64 0}
+!395 = !{!"p2 _ZTSN4llvm13LazyCallGraph4NodeE", !9, i64 0}
+!396 = !{!397}
+!397 = distinct !{!397, !398, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv: argument 0"}
+!398 = distinct !{!398, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv"}
+!399 = !{!400}
+!400 = distinct !{!400, !401, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv: argument 0"}
+!401 = distinct !{!401, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv"}
+!402 = !{!403}
+!403 = distinct !{!403, !404, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv: argument 0"}
+!404 = distinct !{!404, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12pop_back_valEv"}
+!405 = distinct !{!405, !25}
+!406 = !{!407}
+!407 = distinct !{!407, !408, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
+!408 = distinct !{!408, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
+!409 = !{!410, !412, !414, !416}
+!410 = distinct !{!410, !411, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_St26random_access_iterator_tag: argument 0"}
+!411 = distinct !{!411, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_St26random_access_iterator_tag"}
+!412 = distinct !{!412, !413, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_: argument 0"}
+!413 = distinct !{!413, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCESC_E3$_0ZNS2_9buildSCCsESF_SC_E3$_1ZNS2_9buildSCCsESF_SC_E3$_2ZNS2_9buildSCCsESF_SC_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESK_SK_SK_SM_"}
+!414 = distinct !{!414, !415, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCES9_E3$_0ZNS2_9buildSCCsESC_S9_E3$_1ZNS2_9buildSCCsESC_S9_E3$_2ZNS2_9buildSCCsESC_S9_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESH_SH_SH_SJ_: argument 0"}
+!415 = distinct !{!415, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_14iterator_rangeIS6_EEZNS2_9buildSCCsERNS2_6RefSCCES9_E3$_0ZNS2_9buildSCCsESC_S9_E3$_1ZNS2_9buildSCCsESC_S9_E3$_2ZNS2_9buildSCCsESC_S9_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESH_SH_SH_SJ_"}
+!416 = distinct !{!416, !417, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_: argument 0"}
+!417 = distinct !{!417, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRS8_ZNS3_9buildSCCsERNS3_6RefSCCES8_E3$_0ZNS3_9buildSCCsESC_S8_E3$_1ZNS3_9buildSCCsESC_S8_E3$_2ZNS3_9buildSCCsESC_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_"}
 !418 = distinct !{!418, !25}
-!419 = !{!420}
-!420 = distinct !{!420, !421, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv: argument 0"}
-!421 = distinct !{!421, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv"}
-!422 = distinct !{!422, !25}
-!423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
-!425 = distinct !{!425, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
-!426 = !{!427, !429, !431, !433}
-!427 = distinct !{!427, !428, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_St26random_access_iterator_tag: argument 0"}
-!428 = distinct !{!428, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_St26random_access_iterator_tag"}
-!429 = distinct !{!429, !430, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_: argument 0"}
-!430 = distinct !{!430, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_"}
-!431 = distinct !{!431, !432, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESF_SF_SF_SH_: argument 0"}
-!432 = distinct !{!432, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESF_SF_SF_SH_"}
-!433 = distinct !{!433, !434, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_: argument 0"}
-!434 = distinct !{!434, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_"}
-!435 = distinct !{!435, !25}
-!436 = !{!437, !439, !441, !443}
-!437 = distinct !{!437, !438, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv: argument 0"}
-!438 = distinct !{!438, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv"}
-!439 = distinct !{!439, !440, !"_ZSt5beginIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_5beginEERT_: argument 0"}
-!440 = distinct !{!440, !"_ZSt5beginIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_5beginEERT_"}
-!441 = distinct !{!441, !442, !"_ZN4llvm10adl_detail10begin_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_: argument 0"}
-!442 = distinct !{!442, !"_ZN4llvm10adl_detail10begin_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_"}
-!443 = distinct !{!443, !444, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
-!444 = distinct !{!444, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_"}
-!445 = !{!446, !448, !450, !452}
-!446 = distinct !{!446, !447, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv: argument 0"}
-!447 = distinct !{!447, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv"}
-!448 = distinct !{!448, !449, !"_ZSt3endIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_3endEERT_: argument 0"}
-!449 = distinct !{!449, !"_ZSt3endIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_3endEERT_"}
-!450 = distinct !{!450, !451, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_: argument 0"}
-!451 = distinct !{!451, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_"}
-!452 = distinct !{!452, !453, !"_ZN4llvm7adl_endIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
-!453 = distinct !{!453, !"_ZN4llvm7adl_endIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_"}
-!454 = !{!455}
-!455 = distinct !{!455, !456, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_: argument 0"}
-!456 = distinct !{!456, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_"}
-!457 = distinct !{!457, !25}
-!458 = !{!459, !459, i64 0}
-!459 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !9, i64 0}
-!460 = !{!461, !459, i64 0}
-!461 = !{!"_ZTSN4llvm24LazyCallGraphPrinterPassE", !459, i64 0}
-!462 = !{!463, !114, i64 24}
-!463 = !{!"_ZTSN4llvm11raw_ostreamE", !464, i64 8, !114, i64 16, !114, i64 24, !114, i64 32, !33, i64 40, !465, i64 44}
-!464 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !5, i64 0}
-!465 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !5, i64 0}
-!466 = !{!463, !114, i64 32}
-!467 = !{!468, !114, i64 0}
-!468 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !469, i64 0, !14, i64 8, !5, i64 16}
-!469 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !114, i64 0}
-!470 = !{!468, !14, i64 8}
-!471 = !{!472}
-!472 = distinct !{!472, !473, !"_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv: argument 0"}
-!473 = distinct !{!473, !"_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv"}
-!474 = distinct !{!474, !25}
-!475 = !{!476}
-!476 = distinct !{!476, !477, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!477 = distinct !{!477, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!419 = distinct !{!419, !25}
+!420 = distinct !{!420, !25}
+!421 = !{!422}
+!422 = distinct !{!422, !423, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv: argument 0"}
+!423 = distinct !{!423, !"_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12pop_back_valEv"}
+!424 = distinct !{!424, !25}
+!425 = !{!426}
+!426 = distinct !{!426, !427, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv: argument 0"}
+!427 = distinct !{!427, !"_ZN4llvm25SmallVectorTemplateCommonIPNS_13LazyCallGraph4NodeEvE6rbeginEv"}
+!428 = !{!429, !431, !433, !435}
+!429 = distinct !{!429, !430, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_St26random_access_iterator_tag: argument 0"}
+!430 = distinct !{!430, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_St26random_access_iterator_tag"}
+!431 = distinct !{!431, !432, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_: argument 0"}
+!432 = distinct !{!432, !"_ZSt9__find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEN9__gnu_cxx5__ops10_Iter_predIZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_EEESI_SI_SI_SK_"}
+!433 = distinct !{!433, !434, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESF_SF_SF_SH_: argument 0"}
+!434 = distinct !{!434, !"_ZSt7find_ifISt16reverse_iteratorIPPN4llvm13LazyCallGraph4NodeEEZNS2_16buildGenericSCCsIRNS1_11SmallVectorIS4_Lj16EEEZNS2_12buildRefSCCsEvE3$_0ZNS2_12buildRefSCCsEvE3$_1ZNS2_12buildRefSCCsEvE3$_2ZNS2_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS3_E_ESF_SF_SF_SH_"}
+!435 = distinct !{!435, !436, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_: argument 0"}
+!436 = distinct !{!436, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEZNS3_16buildGenericSCCsIRNS_11SmallVectorIS5_Lj16EEEZNS3_12buildRefSCCsEvE3$_0ZNS3_12buildRefSCCsEvE3$_1ZNS3_12buildRefSCCsEvE3$_2ZNS3_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_EUlPKS4_E_EEDaSI_SJ_"}
+!437 = distinct !{!437, !25}
+!438 = !{!439, !441, !443, !445}
+!439 = distinct !{!439, !440, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv: argument 0"}
+!440 = distinct !{!440, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE5beginEv"}
+!441 = distinct !{!441, !442, !"_ZSt5beginIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_5beginEERT_: argument 0"}
+!442 = distinct !{!442, !"_ZSt5beginIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_5beginEERT_"}
+!443 = distinct !{!443, !444, !"_ZN4llvm10adl_detail10begin_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_: argument 0"}
+!444 = distinct !{!444, !"_ZN4llvm10adl_detail10begin_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_"}
+!445 = distinct !{!445, !446, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
+!446 = distinct !{!446, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_"}
+!447 = !{!448, !450, !452, !454}
+!448 = distinct !{!448, !449, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv: argument 0"}
+!449 = distinct !{!449, !"_ZNK4llvm14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEE3endEv"}
+!450 = distinct !{!450, !451, !"_ZSt3endIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_3endEERT_: argument 0"}
+!451 = distinct !{!451, !"_ZSt3endIN4llvm14iterator_rangeISt16reverse_iteratorIPPNS0_13LazyCallGraph4NodeEEEEEDTcldtfp_3endEERT_"}
+!452 = distinct !{!452, !453, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_: argument 0"}
+!453 = distinct !{!453, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_"}
+!454 = distinct !{!454, !455, !"_ZN4llvm7adl_endIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
+!455 = distinct !{!455, !"_ZN4llvm7adl_endIRNS_14iterator_rangeISt16reverse_iteratorIPPNS_13LazyCallGraph4NodeEEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_"}
+!456 = !{!457}
+!457 = distinct !{!457, !458, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_: argument 0"}
+!458 = distinct !{!458, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E11try_emplaceIJmEEESt4pairINS_16DenseMapIteratorIS4_iS6_S9_Lb0EEEbERKS4_DpOT_"}
+!459 = distinct !{!459, !25}
+!460 = !{!461, !461, i64 0}
+!461 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !9, i64 0}
+!462 = !{!463, !461, i64 0}
+!463 = !{!"_ZTSN4llvm24LazyCallGraphPrinterPassE", !461, i64 0}
+!464 = !{!465, !114, i64 24}
+!465 = !{!"_ZTSN4llvm11raw_ostreamE", !466, i64 8, !114, i64 16, !114, i64 24, !114, i64 32, !33, i64 40, !467, i64 44}
+!466 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !5, i64 0}
+!467 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !5, i64 0}
+!468 = !{!465, !114, i64 32}
+!469 = !{!470, !114, i64 0}
+!470 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !471, i64 0, !14, i64 8, !5, i64 16}
+!471 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !114, i64 0}
+!472 = !{!470, !14, i64 8}
+!473 = !{!474}
+!474 = distinct !{!474, !475, !"_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv: argument 0"}
+!475 = distinct !{!475, !"_ZN4llvm13LazyCallGraph18postorder_ref_sccsEv"}
+!476 = distinct !{!476, !25, !261}
+!477 = distinct !{!477, !25}
 !478 = !{!479}
-!479 = distinct !{!479, !480, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!480 = distinct !{!480, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!481 = !{!482, !46, i64 0}
-!482 = !{!"_ZTSN4llvm13LazyCallGraph26postorder_ref_scc_iteratorE", !46, i64 0, !173, i64 8}
-!483 = !{!482, !173, i64 8}
-!484 = !{!485, !459, i64 0}
-!485 = !{!"_ZTSN4llvm27LazyCallGraphDOTPrinterPassE", !459, i64 0}
-!486 = !{!487}
-!487 = distinct !{!487, !488, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!488 = distinct !{!488, !"_ZN4llvm17PreservedAnalyses3allEv"}
-!489 = !{!490}
-!490 = distinct !{!490, !491, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!491 = distinct !{!491, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!492 = !{!469, !114, i64 0}
+!479 = distinct !{!479, !480, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!480 = distinct !{!480, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!481 = !{!482}
+!482 = distinct !{!482, !483, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!483 = distinct !{!483, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!484 = !{!485, !46, i64 0}
+!485 = !{!"_ZTSN4llvm13LazyCallGraph26postorder_ref_scc_iteratorE", !46, i64 0, !173, i64 8}
+!486 = !{!485, !173, i64 8}
+!487 = distinct !{!487, !25, !261}
+!488 = !{!489, !461, i64 0}
+!489 = !{!"_ZTSN4llvm27LazyCallGraphDOTPrinterPassE", !461, i64 0}
+!490 = !{!491}
+!491 = distinct !{!491, !492, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!492 = distinct !{!492, !"_ZN4llvm17PreservedAnalyses3allEv"}
 !493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
-!495 = distinct !{!495, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
-!496 = !{!497}
-!497 = distinct !{!497, !498, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!498 = distinct !{!498, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!499 = distinct !{!499, !25}
-!500 = distinct !{!500, !25}
-!501 = !{!377, !12, i64 8}
-!502 = distinct !{!502, !25}
+!494 = distinct !{!494, !495, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!495 = distinct !{!495, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!496 = !{!471, !114, i64 0}
+!497 = !{!498}
+!498 = distinct !{!498, !499, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
+!499 = distinct !{!499, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
+!500 = !{!501}
+!501 = distinct !{!501, !502, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!502 = distinct !{!502, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !503 = distinct !{!503, !25}
 !504 = distinct !{!504, !25}
-!505 = distinct !{!505, !25}
+!505 = !{!379, !12, i64 8}
 !506 = distinct !{!506, !25}
-!507 = !{!508, !33, i64 16}
-!508 = !{!"_ZTSSt4pairIN4llvm16DenseMapIteratorIPNS0_8FunctionENS0_6detail13DenseSetEmptyENS0_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EELb0EEEbE", !509, i64 0, !33, i64 16}
-!509 = !{!"_ZTSN4llvm16DenseMapIteratorIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EELb0EEE", !155, i64 0, !155, i64 8}
+!507 = distinct !{!507, !25}
+!508 = distinct !{!508, !25}
+!509 = distinct !{!509, !25}
 !510 = distinct !{!510, !25}
-!511 = distinct !{!511, !25}
-!512 = !{!513, !9, i64 0}
-!513 = !{!"_ZTSSt4pairIPvmE", !9, i64 0, !14, i64 8}
-!514 = !{!513, !14, i64 8}
+!511 = !{!512, !33, i64 16}
+!512 = !{!"_ZTSSt4pairIN4llvm16DenseMapIteratorIPNS0_8FunctionENS0_6detail13DenseSetEmptyENS0_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EELb0EEEbE", !513, i64 0, !33, i64 16}
+!513 = !{!"_ZTSN4llvm16DenseMapIteratorIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EELb0EEE", !155, i64 0, !155, i64 8}
+!514 = distinct !{!514, !25}
 !515 = distinct !{!515, !25}
-!516 = distinct !{!516, !25}
-!517 = distinct !{!517, !25}
-!518 = distinct !{!518, !25}
+!516 = !{!517, !9, i64 0}
+!517 = !{!"_ZTSSt4pairIPvmE", !9, i64 0, !14, i64 8}
+!518 = !{!517, !14, i64 8}
 !519 = distinct !{!519, !25}
-!520 = distinct !{!520, !25, !215}
+!520 = distinct !{!520, !25}
 !521 = distinct !{!521, !25}
-!522 = distinct !{!522, !25, !215}
-!523 = distinct !{!523, !25}
-!524 = distinct !{!524, !25}
-!525 = distinct !{!525, !25}
-!526 = distinct !{!526, !25}
+!522 = distinct !{!522, !25}
+!523 = distinct !{!523, !25, !261}
+!524 = distinct !{!524, !25, !215}
+!525 = distinct !{!525, !25, !261}
+!526 = distinct !{!526, !25, !215}
 !527 = distinct !{!527, !25}
-!528 = distinct !{!528, !25, !215}
+!528 = distinct !{!528, !25}
 !529 = distinct !{!529, !25}
-!530 = distinct !{!530, !25, !215}
-!531 = distinct !{!531, !25}
-!532 = distinct !{!532, !25}
-!533 = distinct !{!533, !25}
-!534 = distinct !{!534, !25}
+!530 = distinct !{!530, !25}
+!531 = distinct !{!531, !25, !261}
+!532 = distinct !{!532, !25, !215}
+!533 = distinct !{!533, !25, !261}
+!534 = distinct !{!534, !25, !215}
 !535 = distinct !{!535, !25}
-!536 = distinct !{!536, !25, !215}
+!536 = distinct !{!536, !25}
 !537 = distinct !{!537, !25}
-!538 = distinct !{!538, !25, !215}
-!539 = distinct !{!539, !25}
-!540 = distinct !{!540, !25}
-!541 = distinct !{!541, !25}
-!542 = distinct !{!542, !25}
+!538 = distinct !{!538, !25}
+!539 = distinct !{!539, !25, !261}
+!540 = distinct !{!540, !25, !215}
+!541 = distinct !{!541, !25, !261}
+!542 = distinct !{!542, !25, !215}
 !543 = distinct !{!543, !25}
-!544 = distinct !{!544, !25, !215}
+!544 = distinct !{!544, !25}
 !545 = distinct !{!545, !25}
-!546 = distinct !{!546, !25, !215}
-!547 = distinct !{!547, !25}
-!548 = distinct !{!548, !25}
+!546 = distinct !{!546, !25}
+!547 = distinct !{!547, !25, !261}
+!548 = distinct !{!548, !25, !215}
+!549 = distinct !{!549, !25, !261}
+!550 = distinct !{!550, !25, !215}
+!551 = distinct !{!551, !25}
+!552 = distinct !{!552, !25}

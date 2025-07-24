@@ -2141,7 +2141,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   store i32 %45, ptr %70, align 4, !tbaa !15
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !77
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !79
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -2280,7 +2280,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   %.sroa.013.2.us = phi ptr [ %.sroa.013.128.us, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.us ], [ %53, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.thread.us ]
   %.sroa.07.0.us = getelementptr inbounds nuw i8, ptr %.sroa.07.029.us, i64 8
   %.not.us = icmp eq ptr %.sroa.07.0.us, %1
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.i.i.i.i.i.us, !llvm.loop !78
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.i.i.i.i.i.us, !llvm.loop !80
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %55 = ashr exact i64 %13, 2
@@ -2339,7 +2339,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   %.sroa.013.2.us40 = phi ptr [ %.sroa.013.128.us32, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.us36 ], [ %73, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.thread.us39 ]
   %.sroa.07.0.us41 = getelementptr inbounds nuw i8, ptr %.sroa.07.029.us31, i64 8
   %.not.us42 = icmp eq ptr %.sroa.07.0.us41, %1
-  br i1 %.not.us42, label %.loopexit, label %._crit_edge.i.i.i.i.i.us30, !llvm.loop !78
+  br i1 %.not.us42, label %.loopexit, label %._crit_edge.i.i.i.i.i.us30, !llvm.loop !81
 
 .lr.ph.split.split.us45:                          ; preds = %.lr.ph.split
   %75 = load i32, ptr %8, align 4, !tbaa !15
@@ -2374,7 +2374,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   %.sroa.013.2.us58 = phi ptr [ %.sroa.013.128.us48, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.us54 ], [ %82, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.thread.us57 ]
   %.sroa.07.0.us59 = getelementptr inbounds nuw i8, ptr %.sroa.07.029.us47, i64 8
   %.not.us60 = icmp eq ptr %.sroa.07.0.us59, %1
-  br i1 %.not.us60, label %.loopexit, label %._crit_edge.i.i.i.i.i.us46, !llvm.loop !78
+  br i1 %.not.us60, label %.loopexit, label %._crit_edge.i.i.i.i.i.us46, !llvm.loop !82
 
 .lr.ph.split.split.us63:                          ; preds = %.lr.ph.split
   %84 = load i32, ptr %8, align 4, !tbaa !15
@@ -2400,7 +2400,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   %.sroa.013.2.us76 = phi ptr [ %.sroa.013.128.us66, %._crit_edge.i.i.i.i.i.us64 ], [ %88, %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit.thread.us75 ]
   %.sroa.07.0.us77 = getelementptr inbounds nuw i8, ptr %.sroa.07.029.us65, i64 8
   %.not.us78 = icmp eq ptr %.sroa.07.0.us77, %1
-  br i1 %.not.us78, label %.loopexit, label %._crit_edge.i.i.i.i.i.us64, !llvm.loop !78
+  br i1 %.not.us78, label %.loopexit, label %._crit_edge.i.i.i.i.i.us64, !llvm.loop !83
 
 .loopexit:                                        ; preds = %89, %83, %74, %54, %._crit_edge.i.i.i.i.i.preheader, %.preheader, %3
   %.sroa.013.0 = phi ptr [ %5, %3 ], [ %5, %.preheader ], [ %scevgep, %._crit_edge.i.i.i.i.i.preheader ], [ %.sroa.013.2.us, %54 ], [ %.sroa.013.2.us40, %74 ], [ %.sroa.013.2.us58, %83 ], [ %.sroa.013.2.us76, %89 ]
@@ -2858,7 +2858,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0221, i64 32
   %192 = add nsw i64 %.0222, -1
   %193 = icmp sgt i64 %.0222, 1
-  br i1 %193, label %19, label %._crit_edge.loopexit, !llvm.loop !79
+  br i1 %193, label %19, label %._crit_edge.loopexit, !llvm.loop !84
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit81.thread
   %.pre284 = ptrtoint ptr %scevgep to i64
@@ -3384,6 +3384,11 @@ attributes #16 = { nounwind memory(none) }
 !74 = distinct !{!74, !21}
 !75 = distinct !{!75, !21}
 !76 = distinct !{!76, !21}
-!77 = distinct !{!77, !21}
-!78 = distinct !{!78, !21}
+!77 = distinct !{!77, !21, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !79 = distinct !{!79, !21}
+!80 = distinct !{!80, !21, !78}
+!81 = distinct !{!81, !21, !78}
+!82 = distinct !{!82, !21, !78}
+!83 = distinct !{!83, !21, !78}
+!84 = distinct !{!84, !21}

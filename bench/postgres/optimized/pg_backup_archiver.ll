@@ -1352,7 +1352,7 @@ getTocEntryByDumpId.exit:                         ; preds = %152
   %167 = load i32, ptr %115, align 8
   %168 = sext i32 %167 to i64
   %169 = icmp slt i64 %indvars.iv.next176, %168
-  br i1 %169, label %.lr.ph.splitthread-pre-split, label %_tocEntryIsACL.exit.thread, !llvm.loop !10
+  br i1 %169, label %.lr.ph.splitthread-pre-split, label %_tocEntryIsACL.exit.thread, !llvm.loop !11
 
 170:                                              ; preds = %95
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 200
@@ -1897,7 +1897,7 @@ define dso_local void @RestoreArchive(ptr noundef initializes((668, 672)) %0) lo
   %.0195.in = getelementptr inbounds nuw i8, ptr %.0195292, i64 8
   %.0195 = load ptr, ptr %.0195.in, align 8
   %.not207 = icmp eq ptr %.0195, %37
-  br i1 %.not207, label %.loopexit274, label %.lr.ph, !llvm.loop !12
+  br i1 %.not207, label %.loopexit274, label %.lr.ph, !llvm.loop !13
 
 .loopexit274:                                     ; preds = %49, %35, %45, %.thread
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -1961,7 +1961,7 @@ define dso_local void @RestoreArchive(ptr noundef initializes((668, 672)) %0) lo
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 1
   %.not212 = icmp eq i32 %78, 0
-  br i1 %.not212, label %74, label %.loopexit273, !llvm.loop !13
+  br i1 %.not212, label %74, label %.loopexit273, !llvm.loop !14
 
 .critedge:                                        ; preds = %74
   store i8 0, ptr %68, align 4
@@ -2362,7 +2362,7 @@ sub_0:                                            ; preds = %187
   %.2 = load ptr, ptr %.2295, align 8
   %258 = load ptr, ptr %123, align 8
   %.not222 = icmp eq ptr %.2, %258
-  br i1 %.not222, label %._crit_edge, label %130, !llvm.loop !14
+  br i1 %.not222, label %._crit_edge, label %130, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %257, %122
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -2422,7 +2422,7 @@ sub_0:                                            ; preds = %187
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %281 = load ptr, ptr %273, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %281
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.0.in37.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %281, i64 8
@@ -2502,7 +2502,7 @@ sub_0:                                            ; preds = %187
   %317 = load i32, ptr %288, align 8
   %318 = sext i32 %317 to i64
   %319 = icmp slt i64 %indvars.iv.next.i.i.i, %318
-  br i1 %319, label %294, label %.loopexit.loopexit.i.i.i, !llvm.loop !16
+  br i1 %319, label %294, label %.loopexit.loopexit.i.i.i, !llvm.loop !17
 
 .loopexit.loopexit.i.i.i:                         ; preds = %316
   %.pre.i.i.i = load ptr, ptr %273, align 8
@@ -2513,7 +2513,7 @@ sub_0:                                            ; preds = %187
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.040.i.i.i, i64 8
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %320
-  br i1 %.not.i.i.i, label %repoint_table_dependencies.exit.i.i, label %284, !llvm.loop !17
+  br i1 %.not.i.i.i, label %repoint_table_dependencies.exit.i.i, label %284, !llvm.loop !18
 
 repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %._crit_edge.i.i
   %321 = phi ptr [ %.lcssa123.i.i, %._crit_edge.i.i ], [ %320, %.loopexit.i.i.i ]
@@ -2558,7 +2558,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %337 = load ptr, ptr %336, align 8
   %338 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %337, ptr noundef nonnull dereferenceable(6) @.str.87) #25
   %339 = icmp eq i32 %338, 0
-  br i1 %339, label %340, label %.preheader115.i.i, !llvm.loop !18
+  br i1 %339, label %340, label %.preheader115.i.i, !llvm.loop !19
 
 340:                                              ; preds = %335
   %341 = call ptr @pg_malloc(i64 noundef 4) #23
@@ -2581,7 +2581,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.1131.i.i, i64 8
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
   %.not89.i.i = icmp eq ptr %.1.i.i, %321
-  br i1 %.not89.i.i, label %.loopexit116.i.i, label %.lr.ph133.i.i, !llvm.loop !19
+  br i1 %.not89.i.i, label %.loopexit116.i.i, label %.lr.ph133.i.i, !llvm.loop !20
 
 .loopexit116.i.i:                                 ; preds = %350, %.preheader115.i.i, %340, %325, %repoint_table_dependencies.exit.i.i
   %351 = phi ptr [ %321, %325 ], [ %.pre.i.i, %340 ], [ %321, %repoint_table_dependencies.exit.i.i ], [ %321, %.preheader115.i.i ], [ %321, %350 ]
@@ -2603,7 +2603,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %.2.in.i.i = getelementptr inbounds nuw i8, ptr %.2139.i.i, i64 8
   %.2.i.i = load ptr, ptr %.2.in.i.i, align 8
   %.not92.i.i = icmp eq ptr %.2.i.i, %353
-  br i1 %.not92.i.i, label %.preheader112.loopexit.i.i, label %.preheader113.i.i, !llvm.loop !20
+  br i1 %.not92.i.i, label %.preheader112.loopexit.i.i, label %.preheader113.i.i, !llvm.loop !21
 
 .preheader113.i.i:                                ; preds = %.loopexit114.i.i, %.preheader113.lr.ph.i.i
   %354 = phi ptr [ %351, %.preheader113.lr.ph.i.i ], [ %353, %.loopexit114.i.i ]
@@ -2666,7 +2666,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %381 = sext i32 %380 to i64
   %382 = icmp slt i64 %indvars.iv.next.i.i, %381
-  br i1 %382, label %361, label %.loopexit114.loopexit.i.i, !llvm.loop !21
+  br i1 %382, label %361, label %.loopexit114.loopexit.i.i, !llvm.loop !22
 
 .preheader111.loopexit.i.i:                       ; preds = %393
   %.4.in149.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %394, i64 8
@@ -2704,7 +2704,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %.3.i.i = load ptr, ptr %.3.in.i.i, align 8
   %394 = load ptr, ptr %273, align 8
   %.not93.i.i = icmp eq ptr %.3.i.i, %394
-  br i1 %.not93.i.i, label %.preheader111.loopexit.i.i, label %.lr.ph145.i.i, !llvm.loop !22
+  br i1 %.not93.i.i, label %.preheader111.loopexit.i.i, label %.lr.ph145.i.i, !llvm.loop !23
 
 .loopexit.loopexit.i.i:                           ; preds = %423
   %.pre178.i.i = load ptr, ptr %273, align 8
@@ -2715,7 +2715,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %.4.in.i.i = getelementptr inbounds nuw i8, ptr %.4152.i.i, i64 8
   %.4.i.i = load ptr, ptr %.4.in.i.i, align 8
   %.not94.i.i = icmp eq ptr %.4.i.i, %395
-  br i1 %.not94.i.i, label %.preheader.i.i, label %.preheader110.i.i, !llvm.loop !23
+  br i1 %.not94.i.i, label %.preheader.i.i, label %.preheader110.i.i, !llvm.loop !24
 
 .preheader110.i.i:                                ; preds = %.loopexit.i.i, %.preheader110.lr.ph.i.i
   %396 = phi ptr [ %383, %.preheader110.lr.ph.i.i ], [ %395, %.loopexit.i.i ]
@@ -2773,7 +2773,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %indvars.iv.next170.i.i = add nuw nsw i64 %indvars.iv169.i.i, 1
   %425 = sext i32 %424 to i64
   %426 = icmp slt i64 %indvars.iv.next170.i.i, %425
-  br i1 %426, label %403, label %.loopexit.loopexit.i.i, !llvm.loop !24
+  br i1 %426, label %403, label %.loopexit.loopexit.i.i, !llvm.loop !25
 
 .lr.ph159.i.i:                                    ; preds = %.preheader.i.i, %identify_locking_dependencies.exit.i.i
   %.5157.i.i = phi ptr [ %.5.i.i, %identify_locking_dependencies.exit.i.i ], [ %.5155.pre.i.i, %.preheader.i.i ]
@@ -2856,7 +2856,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   %indvars.iv.next.i108.i.i = add nuw nsw i64 %indvars.iv.i107.i.i, 1
   %472 = sext i32 %471 to i64
   %473 = icmp slt i64 %indvars.iv.next.i108.i.i, %472
-  br i1 %473, label %447, label %._crit_edge.i.i.i, !llvm.loop !25
+  br i1 %473, label %447, label %._crit_edge.i.i.i, !llvm.loop !26
 
 ._crit_edge.i.i.i:                                ; preds = %470
   %474 = icmp eq i32 %.1.i.i.i, 0
@@ -2879,7 +2879,7 @@ identify_locking_dependencies.exit.i.i:           ; preds = %475, %._crit_edge.t
   %.5.i.i = load ptr, ptr %.5.in.i.i, align 8
   %479 = load ptr, ptr %273, align 8
   %.not95.i.i = icmp eq ptr %.5.i.i, %479
-  br i1 %.not95.i.i, label %fix_dependencies.exit.i, label %.lr.ph159.i.i, !llvm.loop !26
+  br i1 %.not95.i.i, label %fix_dependencies.exit.i, label %.lr.ph159.i.i, !llvm.loop !27
 
 fix_dependencies.exit.i:                          ; preds = %identify_locking_dependencies.exit.i.i, %.preheader.i.i, %.preheader111.i.i
   %480 = phi ptr [ %383, %.preheader111.i.i ], [ %395, %.preheader.i.i ], [ %479, %identify_locking_dependencies.exit.i.i ]
@@ -2957,7 +2957,7 @@ fix_dependencies.exit.i:                          ; preds = %identify_locking_de
   %514 = load i32, ptr %500, align 8
   %515 = sext i32 %514 to i64
   %516 = icmp slt i64 %indvars.iv.next22.i.i, %515
-  br i1 %516, label %.lr.ph.split.us.i.i, label %reduce_dependencies.exit.i, !llvm.loop !27
+  br i1 %516, label %.lr.ph.split.us.i.i, label %reduce_dependencies.exit.i, !llvm.loop !28
 
 .thread.i:                                        ; preds = %485, %.lr.ph.i, %.lr.ph.i
   %.13345.i = phi i1 [ %.03258.i, %485 ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i ]
@@ -2977,7 +2977,7 @@ reduce_dependencies.exit.i:                       ; preds = %.lr.ph.split.us.i.i
   %.031.i = load ptr, ptr %.031.in.i, align 8
   %521 = load ptr, ptr %273, align 8
   %.not.i251 = icmp eq ptr %.031.i, %521
-  br i1 %.not.i251, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i251, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %reduce_dependencies.exit.i, %fix_dependencies.exit.i
   %522 = load ptr, ptr %8, align 8
@@ -3054,7 +3054,7 @@ restore_toc_entries_prefork.exit:                 ; preds = %._crit_edge.i, %526
 
 558:                                              ; preds = %552, %549, %.lr.ph.i.i252
   %.not.i.i253 = icmp eq ptr %545, %7
-  br i1 %.not.i.i253, label %move_to_ready_heap.exit.i, label %.lr.ph.i.i252, !llvm.loop !29
+  br i1 %.not.i.i253, label %move_to_ready_heap.exit.i, label %.lr.ph.i.i252, !llvm.loop !30
 
 move_to_ready_heap.exit.i:                        ; preds = %558, %539
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.273) #23
@@ -3130,12 +3130,12 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 592:                                              ; preds = %588
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, %wide.trip.count.i.us.i.i
-  br i1 %exitcond.not.i.us.i.i, label %._crit_edge.us.i.us.i.i, label %588, !llvm.loop !30
+  br i1 %exitcond.not.i.us.i.i, label %._crit_edge.us.i.us.i.i, label %588, !llvm.loop !31
 
 ._crit_edge.us.i.us.i.i:                          ; preds = %592
   %indvars.iv.next.i.i258 = add nuw nsw i64 %indvars.iv.i.i257, 1
   %exitcond20.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.i258, %585
-  br i1 %exitcond20.not.i.us.i.i, label %.loopexit61.us.i.i, label %.preheader.us.i.us.i.i, !llvm.loop !31
+  br i1 %exitcond20.not.i.us.i.i, label %.loopexit61.us.i.i, label %.preheader.us.i.us.i.i, !llvm.loop !32
 
 .loopexit61.us.i.i:                               ; preds = %._crit_edge.us.i.us.i.i, %.preheader.lr.ph.i.us.i.i, %576
   %593 = getelementptr inbounds nuw i8, ptr %574, i64 224
@@ -3172,22 +3172,22 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 608:                                              ; preds = %604
   %indvars.iv.next.i38.us.i.i = add nuw nsw i64 %indvars.iv.i37.us.i.i, 1
   %exitcond.not.i39.us.i.i = icmp eq i64 %indvars.iv.next.i38.us.i.i, %wide.trip.count.i34.us.i.i
-  br i1 %exitcond.not.i39.us.i.i, label %._crit_edge.us.i40.us.i.i, label %604, !llvm.loop !30
+  br i1 %exitcond.not.i39.us.i.i, label %._crit_edge.us.i40.us.i.i, label %604, !llvm.loop !31
 
 ._crit_edge.us.i40.us.i.i:                        ; preds = %608
   %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
   %exitcond20.not.i41.us.i.i = icmp eq i64 %indvars.iv.next77.i.i, %601
-  br i1 %exitcond20.not.i41.us.i.i, label %.loopexit.us.i.i, label %.preheader.us.i35.us.i.i, !llvm.loop !31
+  br i1 %exitcond20.not.i41.us.i.i, label %.loopexit.us.i.i, label %.preheader.us.i35.us.i.i, !llvm.loop !32
 
 has_lock_conflicts.exit.thread50.us.i.i:          ; preds = %588, %604
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond86.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count85.i.i
-  br i1 %exitcond86.not.i.i, label %._crit_edge.i.i254, label %.lr.ph.us.i.i, !llvm.loop !32
+  br i1 %exitcond86.not.i.i, label %._crit_edge.i.i254, label %.lr.ph.us.i.i, !llvm.loop !33
 
 .loopexit.us.i.i:                                 ; preds = %._crit_edge.us.i40.us.i.i, %.preheader.lr.ph.i32.us.i.i, %.loopexit61.us.i.i, %572
   %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next80.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %has_lock_conflicts.exit.loopexit.i.i, label %572, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %has_lock_conflicts.exit.loopexit.i.i, label %572, !llvm.loop !34
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.i.i
   %609 = load ptr, ptr %559, align 8
@@ -3295,7 +3295,7 @@ pop_next_work_item.exit.i:                        ; preds = %has_lock_conflicts.
   %660 = load i32, ptr %631, align 8
   %661 = sext i32 %660 to i64
   %662 = icmp slt i64 %indvars.iv.next.i, %661
-  br i1 %662, label %.lr.ph.split.i, label %.backedge.i.backedge, !llvm.loop !27
+  br i1 %662, label %.lr.ph.split.i, label %.backedge.i.backedge, !llvm.loop !35
 
 663:                                              ; preds = %614
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.275, i32 noundef %620, ptr noundef %622, ptr noundef %624) #23
@@ -3388,7 +3388,7 @@ _tocEntryRestorePass.exit.i:                      ; preds = %701, %696, %690, %6
 
 709:                                              ; preds = %703, %_tocEntryRestorePass.exit.i, %.lr.ph.i34.i
   %.not.i36.i = icmp eq ptr %672, %7
-  br i1 %.not.i36.i, label %.backedge.i.backedge, label %.lr.ph.i34.i, !llvm.loop !29
+  br i1 %.not.i36.i, label %.backedge.i.backedge, label %.lr.ph.i34.i, !llvm.loop !30
 
 710:                                              ; preds = %pop_next_work_item.exit.thread.i, %663
   %711 = phi i32 [ 1, %pop_next_work_item.exit.thread.i ], [ 2, %663 ]
@@ -3429,7 +3429,7 @@ restore_toc_entries_parallel.exit:                ; preds = %665
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.016.i, i64 184
   %.0.i260 = load ptr, ptr %.0.in.i, align 8
   %.not.i261 = icmp eq ptr %.0.i260, %7
-  br i1 %.not.i261, label %restore_toc_entries_postfork.exit, label %.lr.ph.i259, !llvm.loop !34
+  br i1 %.not.i261, label %restore_toc_entries_postfork.exit, label %.lr.ph.i259, !llvm.loop !36
 
 restore_toc_entries_postfork.exit:                ; preds = %.lr.ph.i259, %716
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7) #23
@@ -3480,7 +3480,7 @@ default.unreachable336:                           ; preds = %733
   %.3.in = getelementptr inbounds nuw i8, ptr %.3302, i64 8
   %.3 = load ptr, ptr %.3.in, align 8
   %.not223 = icmp eq ptr %.3, %739
-  br i1 %.not223, label %._crit_edge305, label %.lr.ph304, !llvm.loop !35
+  br i1 %.not223, label %._crit_edge305, label %.lr.ph304, !llvm.loop !37
 
 ._crit_edge305:                                   ; preds = %738
   br i1 %.1194, label %.preheader, label %.loopexit272
@@ -3515,7 +3515,7 @@ default.unreachable336:                           ; preds = %733
   %.4.in = getelementptr inbounds nuw i8, ptr %.4311, i64 8
   %.4 = load ptr, ptr %.4.in, align 8
   %.not224 = icmp eq ptr %.4, %750
-  br i1 %.not224, label %.loopexit272, label %.lr.ph312, !llvm.loop !36
+  br i1 %.not224, label %.loopexit272, label %.lr.ph312, !llvm.loop !38
 
 .loopexit272:                                     ; preds = %749, %.preheader, %._crit_edge305
   %751 = phi ptr [ %739, %.preheader ], [ %739, %._crit_edge305 ], [ %750, %749 ]
@@ -3551,7 +3551,7 @@ default.unreachable336:                           ; preds = %733
   %.5.in = getelementptr inbounds nuw i8, ptr %.5316, i64 8
   %.5 = load ptr, ptr %.5.in, align 8
   %.not225 = icmp eq ptr %.5, %763
-  br i1 %.not225, label %.loopexit, label %.lr.ph318, !llvm.loop !37
+  br i1 %.not225, label %.loopexit, label %.lr.ph318, !llvm.loop !39
 
 .loopexit:                                        ; preds = %762, %725, %752, %.loopexit272, %restore_toc_entries_postfork.exit
   %764 = load i8, ptr %110, align 4, !range !4, !noundef !5
@@ -3725,7 +3725,7 @@ define internal fastcc void @buildTocEntryArrays(ptr noundef captures(none) init
   %.0 = load ptr, ptr %.0.in, align 8
   %44 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, %44
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %43, %1
   ret void
@@ -4936,7 +4936,7 @@ define dso_local void @PrintTOCSummary(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %26, %24
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %24, !llvm.loop !39
+  br label %24, !llvm.loop !41
 
 sanitize_line.exit:                               ; preds = %24, %20
   %.010.i = phi ptr [ %21, %20 ], [ %23, %24 ]
@@ -5055,7 +5055,7 @@ switch.lookup:                                    ; preds = %sanitize_line.exit
 
 88:                                               ; preds = %87, %85
   %89 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 1
-  br label %85, !llvm.loop !39
+  br label %85, !llvm.loop !41
 
 sanitize_line.exit89:                             ; preds = %85, %81
   %.010.i88 = phi ptr [ %82, %81 ], [ %84, %85 ]
@@ -5087,7 +5087,7 @@ sanitize_line.exit89:                             ; preds = %85, %81
 
 99:                                               ; preds = %98, %96
   %100 = getelementptr inbounds nuw i8, ptr %.0.i91, i64 1
-  br label %96, !llvm.loop !39
+  br label %96, !llvm.loop !41
 
 sanitize_line.exit93:                             ; preds = %96, %92
   %.010.i92 = phi ptr [ %93, %92 ], [ %95, %96 ]
@@ -5119,7 +5119,7 @@ sanitize_line.exit93:                             ; preds = %96, %92
 
 110:                                              ; preds = %109, %107
   %111 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 1
-  br label %107, !llvm.loop !39
+  br label %107, !llvm.loop !41
 
 .loopexit:                                        ; preds = %107, %103
   %.010.i96 = phi ptr [ %104, %103 ], [ %106, %107 ]
@@ -5165,7 +5165,7 @@ sanitize_line.exit93:                             ; preds = %96, %92
   %135 = load i32, ptr %122, align 8
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %130, label %._crit_edge, !llvm.loop !40
+  br i1 %137, label %130, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %130, %125
   %138 = call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
@@ -5176,7 +5176,7 @@ sanitize_line.exit93:                             ; preds = %96, %92
   %.070 = load ptr, ptr %.070.in, align 8
   %139 = load ptr, ptr %68, align 8
   %.not79 = icmp eq ptr %.070, %139
-  br i1 %.not79, label %._crit_edge107, label %71, !llvm.loop !41
+  br i1 %.not79, label %._crit_edge107, label %71, !llvm.loop !43
 
 ._crit_edge107:                                   ; preds = %.thread, %66
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 76
@@ -5580,7 +5580,7 @@ define dso_local void @SortTocFromFile(ptr noundef captures(none) %0) local_unna
   %33 = call i64 @strspn(ptr noundef %32, ptr noundef nonnull @.str.73) #25
   %34 = sext i32 %31 to i64
   %35 = icmp eq i64 %33, %34
-  br i1 %35, label %76, label %36, !llvm.loop !42
+  br i1 %35, label %76, label %36, !llvm.loop !44
 
 36:                                               ; preds = %30
   %37 = call i64 @strtol(ptr noundef %32, ptr noundef nonnull %3, i32 noundef 10) #23
@@ -5608,7 +5608,7 @@ define dso_local void @SortTocFromFile(ptr noundef captures(none) %0) local_unna
 
 53:                                               ; preds = %46, %43, %36
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.74, ptr noundef %40) #23
-  br label %76, !llvm.loop !42
+  br label %76, !llvm.loop !44
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %19, align 8
@@ -5852,7 +5852,7 @@ define dso_local void @ahwrite(ptr noundef %0, i64 noundef %1, i64 noundef %2, p
   %28 = add i64 %27, %24
   %29 = load i64, ptr %11, align 8
   %30 = icmp ugt i64 %28, %29
-  br i1 %30, label %17, label %._crit_edge, !llvm.loop !43
+  br i1 %30, label %17, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %17, %8
   %.049.lcssa = phi i64 [ %9, %8 ], [ %24, %17 ]
@@ -6088,7 +6088,7 @@ define dso_local noundef i64 @WriteOffset(ptr noundef %0, i64 noundef %1, i32 no
   %12 = ashr i64 %.089, 8
   %13 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %13, 8
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !44
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !46
 
 14:                                               ; preds = %7
   ret i64 9
@@ -6140,7 +6140,7 @@ define dso_local range(i32 0, 256) i32 @ReadOffset(ptr noundef %0, ptr noundef c
   %25 = sext i32 %24 to i64
   %26 = load i64, ptr %14, align 8
   %27 = icmp ugt i64 %26, %25
-  br i1 %27, label %17, label %ReadInt.exit, !llvm.loop !45
+  br i1 %27, label %17, label %ReadInt.exit, !llvm.loop !47
 
 ReadInt.exit:                                     ; preds = %17, %13
   %.017.lcssa.i = phi i32 [ 0, %13 ], [ %.1.i, %17 ]
@@ -6210,7 +6210,7 @@ ReadInt.exit:                                     ; preds = %17, %13
   %56 = sext i32 %55 to i64
   %57 = load i64, ptr %39, align 8
   %58 = icmp ugt i64 %57, %56
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !46
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %54, %.preheader, %30, %ReadInt.exit, %32
   %.0 = phi i32 [ 2, %32 ], [ 1, %ReadInt.exit ], [ 3, %30 ], [ %38, %.preheader ], [ %38, %54 ]
@@ -6258,7 +6258,7 @@ define dso_local i32 @ReadInt(ptr noundef %0) local_unnamed_addr #0 {
   %22 = sext i32 %21 to i64
   %23 = load i64, ptr %11, align 8
   %24 = icmp ugt i64 %23, %22
-  br i1 %24, label %14, label %._crit_edge, !llvm.loop !45
+  br i1 %24, label %14, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %14, %10
   %.017.lcssa = phi i32 [ 0, %10 ], [ %.1, %14 ]
@@ -6305,7 +6305,7 @@ define dso_local i64 @WriteInt(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %21 = sext i32 %20 to i64
   %22 = load i64, ptr %12, align 8
   %23 = icmp ugt i64 %22, %21
-  br i1 %23, label %15, label %._crit_edge.loopexit, !llvm.loop !47
+  br i1 %23, label %15, label %._crit_edge.loopexit, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %15
   %24 = add i64 %22, 1
@@ -6356,7 +6356,7 @@ define dso_local i64 @WriteStr(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %22 = sext i32 %21 to i64
   %23 = load i64, ptr %15, align 8
   %24 = icmp ugt i64 %23, %22
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !47
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !49
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %25 = add i64 %23, 1
@@ -6390,7 +6390,7 @@ WriteInt.exit:                                    ; preds = %14, %._crit_edge.lo
   %39 = sext i32 %38 to i64
   %40 = load i64, ptr %34, align 8
   %41 = icmp ugt i64 %40, %39
-  br i1 %41, label %.lr.ph.i14, label %._crit_edge.loopexit.i17, !llvm.loop !47
+  br i1 %41, label %.lr.ph.i14, label %._crit_edge.loopexit.i17, !llvm.loop !49
 
 ._crit_edge.loopexit.i17:                         ; preds = %.lr.ph.i14
   %42 = add i64 %40, 1
@@ -6442,7 +6442,7 @@ define dso_local noundef ptr @ReadStr(ptr noundef %0) local_unnamed_addr #0 {
   %22 = sext i32 %21 to i64
   %23 = load i64, ptr %11, align 8
   %24 = icmp ugt i64 %23, %22
-  br i1 %24, label %14, label %ReadInt.exit, !llvm.loop !45
+  br i1 %24, label %14, label %ReadInt.exit, !llvm.loop !47
 
 ReadInt.exit:                                     ; preds = %14, %10
   %.017.lcssa.i = phi i32 [ 0, %10 ], [ %.1.i, %14 ]
@@ -6521,7 +6521,7 @@ define dso_local void @WriteDataChunks(ptr noundef %0, ptr noundef %1) local_unn
   %.033.in = getelementptr inbounds nuw i8, ptr %.03345, i64 8
   %.033 = load ptr, ptr %.033.in, align 8
   %.not38 = icmp eq ptr %.033, %27
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %26
   %28 = icmp sgt i32 %.1, 1
@@ -6553,7 +6553,7 @@ define dso_local void @WriteDataChunks(ptr noundef %0, ptr noundef %1) local_unn
   tail call void @DispatchJobForTocEntry(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %34, i32 noundef 0, ptr noundef nonnull @mark_dump_job_done, ptr noundef null) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.032.lcssa5961
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !51
 
 35:                                               ; preds = %3, %2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -6623,7 +6623,7 @@ WriteDataChunksForTocEntry.exit:                  ; preds = %54, %59
   %.134.in = getelementptr inbounds nuw i8, ptr %.13453, i64 8
   %.134 = load ptr, ptr %.134.in, align 8
   %.not36 = icmp eq ptr %.134, %61
-  br i1 %.not36, label %.loopexit, label %39, !llvm.loop !50
+  br i1 %.not36, label %.loopexit, label %39, !llvm.loop !52
 
 .loopexit:                                        ; preds = %60, %35, %._crit_edge49
   ret void
@@ -6756,7 +6756,7 @@ define dso_local void @WriteToc(ptr noundef %0) local_unnamed_addr #0 {
   %.055.in = getelementptr inbounds nuw i8, ptr %.055130, i64 8
   %.055 = load ptr, ptr %.055.in, align 8
   %.not = icmp eq ptr %.055, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = icmp slt i32 %spec.select, 0
@@ -6795,7 +6795,7 @@ define dso_local void @WriteToc(ptr noundef %0) local_unnamed_addr #0 {
   %30 = sext i32 %29 to i64
   %31 = load i64, ptr %23, align 8
   %32 = icmp ugt i64 %31, %30
-  br i1 %32, label %.lr.ph.i, label %WriteInt.exit, !llvm.loop !47
+  br i1 %32, label %.lr.ph.i, label %WriteInt.exit, !llvm.loop !49
 
 WriteInt.exit:                                    ; preds = %.lr.ph.i, %21
   %33 = load ptr, ptr %3, align 8
@@ -6850,7 +6850,7 @@ WriteInt.exit:                                    ; preds = %.lr.ph.i, %21
   %58 = sext i32 %57 to i64
   %59 = load i64, ptr %23, align 8
   %60 = icmp ugt i64 %59, %58
-  br i1 %60, label %.lr.ph.i65, label %WriteInt.exit70, !llvm.loop !47
+  br i1 %60, label %.lr.ph.i65, label %WriteInt.exit70, !llvm.loop !49
 
 WriteInt.exit70:                                  ; preds = %.lr.ph.i65, %51
   %61 = getelementptr inbounds nuw i8, ptr %.156137, i64 136
@@ -6875,7 +6875,7 @@ WriteInt.exit70:                                  ; preds = %.lr.ph.i65, %51
   %70 = sext i32 %69 to i64
   %71 = load i64, ptr %23, align 8
   %72 = icmp ugt i64 %71, %70
-  br i1 %72, label %.lr.ph.i73, label %WriteInt.exit78, !llvm.loop !47
+  br i1 %72, label %.lr.ph.i73, label %WriteInt.exit78, !llvm.loop !49
 
 WriteInt.exit78:                                  ; preds = %.lr.ph.i73, %WriteInt.exit70
   %73 = getelementptr inbounds nuw i8, ptr %.156137, i64 16
@@ -6913,7 +6913,7 @@ WriteInt.exit78:                                  ; preds = %.lr.ph.i73, %WriteI
   %92 = sext i32 %91 to i64
   %93 = load i64, ptr %23, align 8
   %94 = icmp ugt i64 %93, %92
-  br i1 %94, label %.lr.ph.i.i, label %WriteStr.exit, !llvm.loop !47
+  br i1 %94, label %.lr.ph.i.i, label %WriteStr.exit, !llvm.loop !49
 
 WriteStr.exit:                                    ; preds = %.lr.ph.i.i, %85
   %95 = load ptr, ptr %34, align 8
@@ -6955,7 +6955,7 @@ WriteStr.exit:                                    ; preds = %.lr.ph.i.i, %85
   %116 = sext i32 %115 to i64
   %117 = load i64, ptr %23, align 8
   %118 = icmp ugt i64 %117, %116
-  br i1 %118, label %.lr.ph.i.i83, label %WriteStr.exit89, !llvm.loop !47
+  br i1 %118, label %.lr.ph.i.i83, label %WriteStr.exit89, !llvm.loop !49
 
 WriteStr.exit89:                                  ; preds = %.lr.ph.i.i83, %109
   %119 = load ptr, ptr %34, align 8
@@ -7000,7 +7000,7 @@ WriteStr.exit89:                                  ; preds = %.lr.ph.i.i83, %109
   %143 = sext i32 %142 to i64
   %144 = load i64, ptr %23, align 8
   %145 = icmp ugt i64 %144, %143
-  br i1 %145, label %.lr.ph.i92, label %WriteInt.exit97, !llvm.loop !47
+  br i1 %145, label %.lr.ph.i92, label %WriteInt.exit97, !llvm.loop !49
 
 WriteInt.exit97:                                  ; preds = %.lr.ph.i92, %136
   %146 = getelementptr inbounds nuw i8, ptr %.156137, i64 96
@@ -7054,7 +7054,7 @@ WriteInt.exit97:                                  ; preds = %.lr.ph.i92, %136
   %181 = sext i32 %180 to i64
   %182 = load i64, ptr %23, align 8
   %183 = icmp ugt i64 %182, %181
-  br i1 %183, label %.lr.ph.i100, label %WriteInt.exit105, !llvm.loop !47
+  br i1 %183, label %.lr.ph.i100, label %WriteInt.exit105, !llvm.loop !49
 
 WriteInt.exit105:                                 ; preds = %.lr.ph.i100, %174
   %184 = getelementptr inbounds nuw i8, ptr %.156137, i64 80
@@ -7075,7 +7075,7 @@ WriteInt.exit105:                                 ; preds = %.lr.ph.i100, %174
   %193 = sext i32 %192 to i64
   %194 = load i64, ptr %23, align 8
   %195 = icmp ugt i64 %194, %193
-  br i1 %195, label %.lr.ph.i.i108, label %WriteStr.exit114, !llvm.loop !47
+  br i1 %195, label %.lr.ph.i.i108, label %WriteStr.exit114, !llvm.loop !49
 
 WriteStr.exit114:                                 ; preds = %.lr.ph.i.i108, %WriteInt.exit105
   %196 = load ptr, ptr %34, align 8
@@ -7127,7 +7127,7 @@ WriteStr.exit114:                                 ; preds = %.lr.ph.i.i108, %Wri
   %222 = sext i32 %221 to i64
   %223 = load i64, ptr %23, align 8
   %224 = icmp ugt i64 %223, %222
-  br i1 %224, label %.lr.ph.i.i118, label %WriteStr.exit124, !llvm.loop !47
+  br i1 %224, label %.lr.ph.i.i118, label %WriteStr.exit124, !llvm.loop !49
 
 WriteStr.exit124:                                 ; preds = %.lr.ph.i.i118, %215
   %225 = load ptr, ptr %34, align 8
@@ -7138,7 +7138,7 @@ WriteStr.exit124:                                 ; preds = %.lr.ph.i.i118, %215
   %227 = load i32, ptr %197, align 8
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next, %228
-  br i1 %229, label %201, label %._crit_edge133, !llvm.loop !52
+  br i1 %229, label %201, label %._crit_edge133, !llvm.loop !54
 
 ._crit_edge133:                                   ; preds = %WriteStr.exit124, %WriteStr.exit114
   %230 = load ptr, ptr %22, align 8
@@ -7156,7 +7156,7 @@ WriteStr.exit124:                                 ; preds = %.lr.ph.i.i118, %215
   %236 = sext i32 %235 to i64
   %237 = load i64, ptr %23, align 8
   %238 = icmp ugt i64 %237, %236
-  br i1 %238, label %.lr.ph.i14.i, label %WriteStr.exit125, !llvm.loop !47
+  br i1 %238, label %.lr.ph.i14.i, label %WriteStr.exit125, !llvm.loop !49
 
 WriteStr.exit125:                                 ; preds = %.lr.ph.i14.i, %._crit_edge133
   %239 = load ptr, ptr %35, align 8
@@ -7172,7 +7172,7 @@ WriteStr.exit125:                                 ; preds = %.lr.ph.i14.i, %._cr
   %.156 = load ptr, ptr %.156.in, align 8
   %242 = load ptr, ptr %3, align 8
   %.not58 = icmp eq ptr %.156, %242
-  br i1 %.not58, label %._crit_edge139, label %36, !llvm.loop !53
+  br i1 %.not58, label %._crit_edge139, label %36, !llvm.loop !55
 
 ._crit_edge139:                                   ; preds = %241, %WriteInt.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
@@ -7222,7 +7222,7 @@ define dso_local void @ReadToc(ptr noundef %0) local_unnamed_addr #0 {
   %22 = sext i32 %21 to i64
   %23 = load i64, ptr %11, align 8
   %24 = icmp ugt i64 %23, %22
-  br i1 %24, label %14, label %ReadInt.exit, !llvm.loop !45
+  br i1 %24, label %14, label %ReadInt.exit, !llvm.loop !47
 
 ReadInt.exit:                                     ; preds = %14, %10
   %.017.lcssa.i = phi i32 [ 0, %10 ], [ %.1.i, %14 ]
@@ -7280,7 +7280,7 @@ ReadInt.exit:                                     ; preds = %14, %10
   %53 = sext i32 %52 to i64
   %54 = load i64, ptr %11, align 8
   %55 = icmp ugt i64 %54, %53
-  br i1 %55, label %.lr.ph.i141, label %ReadInt.exit149, !llvm.loop !45
+  br i1 %55, label %.lr.ph.i141, label %ReadInt.exit149, !llvm.loop !47
 
 ReadInt.exit149:                                  ; preds = %.lr.ph.i141, %44
   %.017.lcssa.i147 = phi i32 [ 0, %44 ], [ %.1.i146, %.lr.ph.i141 ]
@@ -7338,7 +7338,7 @@ ReadInt.exit149:                                  ; preds = %.lr.ph.i141, %44
   %80 = sext i32 %79 to i64
   %81 = load i64, ptr %11, align 8
   %82 = icmp ugt i64 %81, %80
-  br i1 %82, label %.lr.ph.i152, label %ReadInt.exit160.loopexit, !llvm.loop !45
+  br i1 %82, label %.lr.ph.i152, label %ReadInt.exit160.loopexit, !llvm.loop !47
 
 ReadInt.exit160.loopexit:                         ; preds = %.lr.ph.i152
   %83 = icmp ne i32 %.1.i157, 0
@@ -7377,7 +7377,7 @@ ReadInt.exit160:                                  ; preds = %ReadInt.exit160.loo
   %100 = sext i32 %99 to i64
   %101 = load i64, ptr %11, align 8
   %102 = icmp ugt i64 %101, %100
-  br i1 %102, label %.lr.ph.i.i, label %ReadInt.exit.i, !llvm.loop !45
+  br i1 %102, label %.lr.ph.i.i, label %ReadInt.exit.i, !llvm.loop !47
 
 ReadInt.exit.i:                                   ; preds = %.lr.ph.i.i, %88
   %.017.lcssa.i.i = phi i32 [ 0, %88 ], [ %.1.i.i, %.lr.ph.i.i ]
@@ -7442,7 +7442,7 @@ ReadStr.exit:                                     ; preds = %ReadInt.exit.i, %10
   %132 = sext i32 %131 to i64
   %133 = load i64, ptr %11, align 8
   %134 = icmp ugt i64 %133, %132
-  br i1 %134, label %.lr.ph.i.i163, label %ReadInt.exit.i169, !llvm.loop !45
+  br i1 %134, label %.lr.ph.i.i163, label %ReadInt.exit.i169, !llvm.loop !47
 
 ReadInt.exit.i169:                                ; preds = %.lr.ph.i.i163, %123
   %.017.lcssa.i.i170 = phi i32 [ 0, %123 ], [ %.1.i.i168, %.lr.ph.i.i163 ]
@@ -7499,7 +7499,7 @@ ReadStr.exit173:                                  ; preds = %ReadInt.exit.i169, 
   %161 = sext i32 %160 to i64
   %162 = load i64, ptr %11, align 8
   %163 = icmp ugt i64 %162, %161
-  br i1 %163, label %.lr.ph.i.i176, label %ReadInt.exit.i182, !llvm.loop !45
+  br i1 %163, label %.lr.ph.i.i176, label %ReadInt.exit.i182, !llvm.loop !47
 
 ReadInt.exit.i182:                                ; preds = %.lr.ph.i.i176, %152
   %.017.lcssa.i.i183 = phi i32 [ 0, %152 ], [ %.1.i.i181, %.lr.ph.i.i176 ]
@@ -7555,7 +7555,7 @@ ReadStr.exit186:                                  ; preds = %ReadInt.exit.i182, 
   %189 = sext i32 %188 to i64
   %190 = load i64, ptr %11, align 8
   %191 = icmp ugt i64 %190, %189
-  br i1 %191, label %.lr.ph.i.i189, label %ReadInt.exit.i195, !llvm.loop !45
+  br i1 %191, label %.lr.ph.i.i189, label %ReadInt.exit.i195, !llvm.loop !47
 
 ReadInt.exit.i195:                                ; preds = %.lr.ph.i.i189, %180
   %.017.lcssa.i.i196 = phi i32 [ 0, %180 ], [ %.1.i.i194, %.lr.ph.i.i189 ]
@@ -7607,7 +7607,7 @@ ReadStr.exit199:                                  ; preds = %ReadInt.exit.i195, 
   %216 = sext i32 %215 to i64
   %217 = load i64, ptr %11, align 8
   %218 = icmp ugt i64 %217, %216
-  br i1 %218, label %.lr.ph.i202, label %ReadInt.exit210, !llvm.loop !45
+  br i1 %218, label %.lr.ph.i202, label %ReadInt.exit210, !llvm.loop !47
 
 ReadInt.exit210:                                  ; preds = %.lr.ph.i202, %204
   %.017.lcssa.i208 = phi i32 [ 0, %204 ], [ %.1.i207, %.lr.ph.i202 ]
@@ -7712,7 +7712,7 @@ ReadInt.exit210:                                  ; preds = %.lr.ph.i202, %204
   %273 = sext i32 %272 to i64
   %274 = load i64, ptr %11, align 8
   %275 = icmp ugt i64 %274, %273
-  br i1 %275, label %.lr.ph.i.i213, label %ReadInt.exit.i219, !llvm.loop !45
+  br i1 %275, label %.lr.ph.i.i213, label %ReadInt.exit.i219, !llvm.loop !47
 
 ReadInt.exit.i219:                                ; preds = %.lr.ph.i.i213, %264
   %.017.lcssa.i.i220 = phi i32 [ 0, %264 ], [ %.1.i.i218, %.lr.ph.i.i213 ]
@@ -7768,7 +7768,7 @@ ReadStr.exit223:                                  ; preds = %ReadInt.exit.i219, 
   %301 = sext i32 %300 to i64
   %302 = load i64, ptr %11, align 8
   %303 = icmp ugt i64 %302, %301
-  br i1 %303, label %.lr.ph.i.i226, label %ReadInt.exit.i232, !llvm.loop !45
+  br i1 %303, label %.lr.ph.i.i226, label %ReadInt.exit.i232, !llvm.loop !47
 
 ReadInt.exit.i232:                                ; preds = %.lr.ph.i.i226, %292
   %.017.lcssa.i.i233 = phi i32 [ 0, %292 ], [ %.1.i.i231, %.lr.ph.i.i226 ]
@@ -7820,7 +7820,7 @@ ReadStr.exit236:                                  ; preds = %ReadInt.exit.i232, 
   %328 = sext i32 %327 to i64
   %329 = load i64, ptr %11, align 8
   %330 = icmp ugt i64 %329, %328
-  br i1 %330, label %.lr.ph.i.i239, label %ReadInt.exit.i245, !llvm.loop !45
+  br i1 %330, label %.lr.ph.i.i239, label %ReadInt.exit.i245, !llvm.loop !47
 
 ReadInt.exit.i245:                                ; preds = %.lr.ph.i.i239, %316
   %.017.lcssa.i.i246 = phi i32 [ 0, %316 ], [ %.1.i.i244, %.lr.ph.i.i239 ]
@@ -7872,7 +7872,7 @@ ReadInt.exit.i245:                                ; preds = %.lr.ph.i.i239, %316
   %355 = sext i32 %354 to i64
   %356 = load i64, ptr %11, align 8
   %357 = icmp ugt i64 %356, %355
-  br i1 %357, label %.lr.ph.i.i252, label %ReadInt.exit.i258, !llvm.loop !45
+  br i1 %357, label %.lr.ph.i.i252, label %ReadInt.exit.i258, !llvm.loop !47
 
 ReadInt.exit.i258:                                ; preds = %.lr.ph.i.i252, %343
   %.017.lcssa.i.i259 = phi i32 [ 0, %343 ], [ %.1.i.i257, %.lr.ph.i.i252 ]
@@ -7924,7 +7924,7 @@ ReadInt.exit.i258:                                ; preds = %.lr.ph.i.i252, %343
   %382 = sext i32 %381 to i64
   %383 = load i64, ptr %11, align 8
   %384 = icmp ugt i64 %383, %382
-  br i1 %384, label %.lr.ph.i.i265, label %ReadInt.exit.i271, !llvm.loop !45
+  br i1 %384, label %.lr.ph.i.i265, label %ReadInt.exit.i271, !llvm.loop !47
 
 ReadInt.exit.i271:                                ; preds = %.lr.ph.i.i265, %370
   %.017.lcssa.i.i272 = phi i32 [ 0, %370 ], [ %.1.i.i270, %.lr.ph.i.i265 ]
@@ -7976,7 +7976,7 @@ ReadInt.exit.i271:                                ; preds = %.lr.ph.i.i265, %370
   %408 = sext i32 %407 to i64
   %409 = load i64, ptr %11, align 8
   %410 = icmp ugt i64 %409, %408
-  br i1 %410, label %.lr.ph.i.i278, label %ReadInt.exit.i284, !llvm.loop !45
+  br i1 %410, label %.lr.ph.i.i278, label %ReadInt.exit.i284, !llvm.loop !47
 
 ReadInt.exit.i284:                                ; preds = %.lr.ph.i.i278, %396
   %.017.lcssa.i.i285 = phi i32 [ 0, %396 ], [ %.1.i.i283, %.lr.ph.i.i278 ]
@@ -8028,7 +8028,7 @@ ReadInt.exit.i284:                                ; preds = %.lr.ph.i.i278, %396
   %435 = sext i32 %434 to i64
   %436 = load i64, ptr %11, align 8
   %437 = icmp ugt i64 %436, %435
-  br i1 %437, label %.lr.ph.i291, label %ReadInt.exit299, !llvm.loop !45
+  br i1 %437, label %.lr.ph.i291, label %ReadInt.exit299, !llvm.loop !47
 
 ReadInt.exit299:                                  ; preds = %.lr.ph.i291, %423
   %.017.lcssa.i297 = phi i32 [ 0, %423 ], [ %.1.i296, %.lr.ph.i291 ]
@@ -8073,7 +8073,7 @@ thread-pre-split349:                              ; preds = %ReadInt.exit299, %.
   %456 = sext i32 %455 to i64
   %457 = load i64, ptr %11, align 8
   %458 = icmp ugt i64 %457, %456
-  br i1 %458, label %.lr.ph.i.i302, label %ReadInt.exit.i308, !llvm.loop !45
+  br i1 %458, label %.lr.ph.i.i302, label %ReadInt.exit.i308, !llvm.loop !47
 
 ReadInt.exit.i308:                                ; preds = %.lr.ph.i.i302, %447
   %.017.lcssa.i.i309 = phi i32 [ 0, %447 ], [ %.1.i.i307, %.lr.ph.i.i302 ]
@@ -8125,7 +8125,7 @@ ReadStr.exit312:                                  ; preds = %ReadInt.exit.i308, 
   %483 = sext i32 %482 to i64
   %484 = load i64, ptr %11, align 8
   %485 = icmp ugt i64 %484, %483
-  br i1 %485, label %.lr.ph.i.i315, label %ReadInt.exit.i321, !llvm.loop !45
+  br i1 %485, label %.lr.ph.i.i315, label %ReadInt.exit.i321, !llvm.loop !47
 
 ReadInt.exit.i321:                                ; preds = %.lr.ph.i.i315, %471
   %.017.lcssa.i.i322 = phi i32 [ 0, %471 ], [ %.1.i.i320, %.lr.ph.i.i315 ]
@@ -8195,7 +8195,7 @@ ReadInt.exit.i321:                                ; preds = %.lr.ph.i.i315, %471
   %516 = sext i32 %515 to i64
   %517 = load i64, ptr %11, align 8
   %518 = icmp ugt i64 %517, %516
-  br i1 %518, label %.lr.ph.i.i328, label %ReadInt.exit.i334, !llvm.loop !45
+  br i1 %518, label %.lr.ph.i.i328, label %ReadInt.exit.i334, !llvm.loop !47
 
 ReadInt.exit.i334:                                ; preds = %.lr.ph.i.i328, %507
   %.017.lcssa.i.i335 = phi i32 [ 0, %507 ], [ %.1.i.i333, %.lr.ph.i.i328 ]
@@ -8376,7 +8376,7 @@ processStdStringsEntry.exit:                      ; preds = %587, %590
   %599 = add nuw nsw i32 %.0126361, 1
   %600 = load i32, ptr %26, align 8
   %601 = icmp slt i32 %599, %600
-  br i1 %601, label %36, label %._crit_edge, !llvm.loop !54
+  br i1 %601, label %36, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %598, %ReadInt.exit
   ret void
@@ -8471,7 +8471,7 @@ define dso_local void @WriteHead(ptr noundef %0) local_unnamed_addr #0 {
   %54 = sext i32 %53 to i64
   %55 = load i64, ptr %21, align 8
   %56 = icmp ugt i64 %55, %54
-  br i1 %56, label %.lr.ph.i, label %WriteInt.exit, !llvm.loop !47
+  br i1 %56, label %.lr.ph.i, label %WriteInt.exit, !llvm.loop !49
 
 WriteInt.exit:                                    ; preds = %.lr.ph.i, %47
   %57 = icmp slt i32 %.sroa.4.0.copyload, 0
@@ -8504,7 +8504,7 @@ WriteInt.exit:                                    ; preds = %.lr.ph.i, %47
   %71 = sext i32 %70 to i64
   %72 = load i64, ptr %21, align 8
   %73 = icmp ugt i64 %72, %71
-  br i1 %73, label %.lr.ph.i39, label %WriteInt.exit44, !llvm.loop !47
+  br i1 %73, label %.lr.ph.i39, label %WriteInt.exit44, !llvm.loop !49
 
 WriteInt.exit44:                                  ; preds = %.lr.ph.i39, %64
   %74 = icmp slt i32 %.sroa.5.0.copyload, 0
@@ -8537,7 +8537,7 @@ WriteInt.exit44:                                  ; preds = %.lr.ph.i39, %64
   %88 = sext i32 %87 to i64
   %89 = load i64, ptr %21, align 8
   %90 = icmp ugt i64 %89, %88
-  br i1 %90, label %.lr.ph.i47, label %WriteInt.exit52, !llvm.loop !47
+  br i1 %90, label %.lr.ph.i47, label %WriteInt.exit52, !llvm.loop !49
 
 WriteInt.exit52:                                  ; preds = %.lr.ph.i47, %81
   %91 = icmp slt i32 %.sroa.6.0.copyload, 0
@@ -8570,7 +8570,7 @@ WriteInt.exit52:                                  ; preds = %.lr.ph.i47, %81
   %105 = sext i32 %104 to i64
   %106 = load i64, ptr %21, align 8
   %107 = icmp ugt i64 %106, %105
-  br i1 %107, label %.lr.ph.i55, label %WriteInt.exit60, !llvm.loop !47
+  br i1 %107, label %.lr.ph.i55, label %WriteInt.exit60, !llvm.loop !49
 
 WriteInt.exit60:                                  ; preds = %.lr.ph.i55, %98
   %108 = icmp slt i32 %.sroa.7.0.copyload, 0
@@ -8603,7 +8603,7 @@ WriteInt.exit60:                                  ; preds = %.lr.ph.i55, %98
   %122 = sext i32 %121 to i64
   %123 = load i64, ptr %21, align 8
   %124 = icmp ugt i64 %123, %122
-  br i1 %124, label %.lr.ph.i63, label %WriteInt.exit68, !llvm.loop !47
+  br i1 %124, label %.lr.ph.i63, label %WriteInt.exit68, !llvm.loop !49
 
 WriteInt.exit68:                                  ; preds = %.lr.ph.i63, %115
   %125 = icmp slt i32 %.sroa.8.0.copyload, 0
@@ -8636,7 +8636,7 @@ WriteInt.exit68:                                  ; preds = %.lr.ph.i63, %115
   %139 = sext i32 %138 to i64
   %140 = load i64, ptr %21, align 8
   %141 = icmp ugt i64 %140, %139
-  br i1 %141, label %.lr.ph.i71, label %WriteInt.exit76, !llvm.loop !47
+  br i1 %141, label %.lr.ph.i71, label %WriteInt.exit76, !llvm.loop !49
 
 WriteInt.exit76:                                  ; preds = %.lr.ph.i71, %132
   %142 = icmp slt i32 %.sroa.91.0.copyload, 0
@@ -8669,7 +8669,7 @@ WriteInt.exit76:                                  ; preds = %.lr.ph.i71, %132
   %156 = sext i32 %155 to i64
   %157 = load i64, ptr %21, align 8
   %158 = icmp ugt i64 %157, %156
-  br i1 %158, label %.lr.ph.i79, label %WriteInt.exit84, !llvm.loop !47
+  br i1 %158, label %.lr.ph.i79, label %WriteInt.exit84, !llvm.loop !49
 
 WriteInt.exit84:                                  ; preds = %.lr.ph.i79, %149
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -8694,7 +8694,7 @@ WriteInt.exit84:                                  ; preds = %.lr.ph.i79, %149
   %172 = sext i32 %171 to i64
   %173 = load i64, ptr %21, align 8
   %174 = icmp ugt i64 %173, %172
-  br i1 %174, label %.lr.ph.i.i, label %WriteStr.exit, !llvm.loop !47
+  br i1 %174, label %.lr.ph.i.i, label %WriteStr.exit, !llvm.loop !49
 
 WriteStr.exit:                                    ; preds = %.lr.ph.i.i, %WriteInt.exit84
   %175 = load ptr, ptr %2, align 8
@@ -8870,7 +8870,7 @@ define dso_local void @ReadHead(ptr noundef %0) local_unnamed_addr #0 {
   %84 = sext i32 %83 to i64
   %85 = load i64, ptr %40, align 8
   %86 = icmp ugt i64 %85, %84
-  br i1 %86, label %.lr.ph.i, label %ReadInt.exit, !llvm.loop !45
+  br i1 %86, label %.lr.ph.i, label %ReadInt.exit, !llvm.loop !47
 
 ReadInt.exit:                                     ; preds = %.lr.ph.i, %74
   %.017.lcssa.i = phi i32 [ 0, %74 ], [ %.1.i, %.lr.ph.i ]
@@ -8932,7 +8932,7 @@ ReadInt.exit:                                     ; preds = %.lr.ph.i, %74
   %110 = sext i32 %109 to i64
   %111 = load i64, ptr %40, align 8
   %112 = icmp ugt i64 %111, %110
-  br i1 %112, label %.lr.ph.i94, label %ReadInt.exit102, !llvm.loop !45
+  br i1 %112, label %.lr.ph.i94, label %ReadInt.exit102, !llvm.loop !47
 
 ReadInt.exit102:                                  ; preds = %.lr.ph.i94, %98
   %113 = phi i64 [ 0, %98 ], [ %111, %.lr.ph.i94 ]
@@ -8973,7 +8973,7 @@ ReadInt.exit102:                                  ; preds = %.lr.ph.i94, %98
   %130 = sext i32 %129 to i64
   %131 = load i64, ptr %40, align 8
   %132 = icmp ugt i64 %131, %130
-  br i1 %132, label %.lr.ph.i105, label %ReadInt.exit113, !llvm.loop !45
+  br i1 %132, label %.lr.ph.i105, label %ReadInt.exit113, !llvm.loop !47
 
 ReadInt.exit113:                                  ; preds = %.lr.ph.i105, %121
   %133 = phi i64 [ 0, %121 ], [ %131, %.lr.ph.i105 ]
@@ -9015,7 +9015,7 @@ ReadInt.exit113:                                  ; preds = %.lr.ph.i105, %121
   %151 = sext i32 %150 to i64
   %152 = load i64, ptr %40, align 8
   %153 = icmp ugt i64 %152, %151
-  br i1 %153, label %.lr.ph.i116, label %ReadInt.exit124, !llvm.loop !45
+  br i1 %153, label %.lr.ph.i116, label %ReadInt.exit124, !llvm.loop !47
 
 ReadInt.exit124:                                  ; preds = %.lr.ph.i116, %142
   %154 = phi i64 [ 0, %142 ], [ %152, %.lr.ph.i116 ]
@@ -9057,7 +9057,7 @@ ReadInt.exit124:                                  ; preds = %.lr.ph.i116, %142
   %172 = sext i32 %171 to i64
   %173 = load i64, ptr %40, align 8
   %174 = icmp ugt i64 %173, %172
-  br i1 %174, label %.lr.ph.i127, label %ReadInt.exit135, !llvm.loop !45
+  br i1 %174, label %.lr.ph.i127, label %ReadInt.exit135, !llvm.loop !47
 
 ReadInt.exit135:                                  ; preds = %.lr.ph.i127, %163
   %175 = phi i64 [ 0, %163 ], [ %173, %.lr.ph.i127 ]
@@ -9099,7 +9099,7 @@ ReadInt.exit135:                                  ; preds = %.lr.ph.i127, %163
   %193 = sext i32 %192 to i64
   %194 = load i64, ptr %40, align 8
   %195 = icmp ugt i64 %194, %193
-  br i1 %195, label %.lr.ph.i138, label %ReadInt.exit146, !llvm.loop !45
+  br i1 %195, label %.lr.ph.i138, label %ReadInt.exit146, !llvm.loop !47
 
 ReadInt.exit146:                                  ; preds = %.lr.ph.i138, %184
   %196 = phi i64 [ 0, %184 ], [ %194, %.lr.ph.i138 ]
@@ -9141,7 +9141,7 @@ ReadInt.exit146:                                  ; preds = %.lr.ph.i138, %184
   %214 = sext i32 %213 to i64
   %215 = load i64, ptr %40, align 8
   %216 = icmp ugt i64 %215, %214
-  br i1 %216, label %.lr.ph.i149, label %ReadInt.exit157, !llvm.loop !45
+  br i1 %216, label %.lr.ph.i149, label %ReadInt.exit157, !llvm.loop !47
 
 ReadInt.exit157:                                  ; preds = %.lr.ph.i149, %205
   %217 = phi i64 [ 0, %205 ], [ %215, %.lr.ph.i149 ]
@@ -9183,7 +9183,7 @@ ReadInt.exit157:                                  ; preds = %.lr.ph.i149, %205
   %235 = sext i32 %234 to i64
   %236 = load i64, ptr %40, align 8
   %237 = icmp ugt i64 %236, %235
-  br i1 %237, label %.lr.ph.i160, label %ReadInt.exit168, !llvm.loop !45
+  br i1 %237, label %.lr.ph.i160, label %ReadInt.exit168, !llvm.loop !47
 
 ReadInt.exit168:                                  ; preds = %.lr.ph.i160, %226
   %.017.lcssa.i166 = phi i32 [ 0, %226 ], [ %.1.i165, %.lr.ph.i160 ]
@@ -9238,7 +9238,7 @@ ReadInt.exit168:                                  ; preds = %.lr.ph.i160, %226
   %261 = sext i32 %260 to i64
   %262 = load i64, ptr %40, align 8
   %263 = icmp ugt i64 %262, %261
-  br i1 %263, label %.lr.ph.i.i, label %ReadInt.exit.i, !llvm.loop !45
+  br i1 %263, label %.lr.ph.i.i, label %ReadInt.exit.i, !llvm.loop !47
 
 ReadInt.exit.i:                                   ; preds = %.lr.ph.i.i, %249
   %.017.lcssa.i.i = phi i32 [ 0, %249 ], [ %.1.i.i, %.lr.ph.i.i ]
@@ -9291,7 +9291,7 @@ ReadInt.exit.i:                                   ; preds = %.lr.ph.i.i, %249
   %289 = sext i32 %288 to i64
   %290 = load i64, ptr %40, align 8
   %291 = icmp ugt i64 %290, %289
-  br i1 %291, label %.lr.ph.i.i171, label %ReadInt.exit.i177, !llvm.loop !45
+  br i1 %291, label %.lr.ph.i.i171, label %ReadInt.exit.i177, !llvm.loop !47
 
 ReadInt.exit.i177:                                ; preds = %.lr.ph.i.i171, %277
   %.017.lcssa.i.i178 = phi i32 [ 0, %277 ], [ %.1.i.i176, %.lr.ph.i.i171 ]
@@ -9348,7 +9348,7 @@ ReadStr.exit181:                                  ; preds = %ReadInt.exit.i177, 
   %318 = sext i32 %317 to i64
   %319 = load i64, ptr %40, align 8
   %320 = icmp ugt i64 %319, %318
-  br i1 %320, label %.lr.ph.i.i184, label %ReadInt.exit.i190, !llvm.loop !45
+  br i1 %320, label %.lr.ph.i.i184, label %ReadInt.exit.i190, !llvm.loop !47
 
 ReadInt.exit.i190:                                ; preds = %.lr.ph.i.i184, %309
   %.017.lcssa.i.i191 = phi i32 [ 0, %309 ], [ %.1.i.i189, %.lr.ph.i.i184 ]
@@ -9752,7 +9752,7 @@ _selectTableAccessMethod.exit:                    ; preds = %93, %70, %66, %60, 
   %123 = load i32, ptr %110, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %118, label %._crit_edge, !llvm.loop !55
+  br i1 %125, label %118, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %118, %113
   %126 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
@@ -9787,7 +9787,7 @@ _selectTableAccessMethod.exit:                    ; preds = %93, %70, %66, %60, 
 
 137:                                              ; preds = %136, %134
   %138 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %134, !llvm.loop !39
+  br label %134, !llvm.loop !41
 
 sanitize_line.exit:                               ; preds = %134, %130
   %.010.i = phi ptr [ %131, %130 ], [ %133, %134 ]
@@ -9818,7 +9818,7 @@ sanitize_line.exit:                               ; preds = %134, %130
 
 147:                                              ; preds = %146, %144
   %148 = getelementptr inbounds nuw i8, ptr %.0.i145, i64 1
-  br label %144, !llvm.loop !39
+  br label %144, !llvm.loop !41
 
 sanitize_line.exit147:                            ; preds = %144, %140
   %.010.i146 = phi ptr [ %141, %140 ], [ %143, %144 ]
@@ -9856,7 +9856,7 @@ sanitize_line.exit147:                            ; preds = %144, %140
 
 160:                                              ; preds = %159, %157
   %161 = getelementptr inbounds nuw i8, ptr %.0.i149, i64 1
-  br label %157, !llvm.loop !39
+  br label %157, !llvm.loop !41
 
 sanitize_line.exit151:                            ; preds = %157, %.thread
   %.010.i150 = phi ptr [ %154, %.thread ], [ %156, %157 ]
@@ -9900,7 +9900,7 @@ sanitize_line.exit151:                            ; preds = %157, %.thread
 
 175:                                              ; preds = %174, %172
   %176 = getelementptr inbounds nuw i8, ptr %.0.i153, i64 1
-  br label %172, !llvm.loop !39
+  br label %172, !llvm.loop !41
 
 sanitize_line.exit155:                            ; preds = %172
   %177 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, ptr noundef %171)
@@ -10023,7 +10023,7 @@ sub_0:                                            ; preds = %188
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 1
   %234 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %233, i32 noundef 59) #25
   %.not124 = icmp eq ptr %234, null
-  br i1 %.not124, label %._crit_edge174, label %.lr.ph173, !llvm.loop !56
+  br i1 %.not124, label %._crit_edge174, label %.lr.ph173, !llvm.loop !58
 
 ._crit_edge174:                                   ; preds = %.lr.ph173
   %235 = icmp sgt i32 %232, 1
@@ -10474,7 +10474,7 @@ define internal fastcc void @_getObjectDescription(ptr noundef nonnull %0, ptr n
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   %.0 = getelementptr inbounds i8, ptr %.072, i64 -1
   %.not = icmp ult ptr %.0, %103
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !59
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %99
   %.pn.lcssa = phi ptr [ %105, %99 ], [ %.pn71, %.lr.ph ], [ %.072, %.critedge2 ]
@@ -10743,7 +10743,7 @@ define internal fastcc void @reduce_dependencies(ptr noundef readonly captures(n
   %26 = load i32, ptr %10, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next22, %27
-  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !27
+  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
@@ -10790,7 +10790,7 @@ define internal fastcc void @reduce_dependencies(ptr noundef readonly captures(n
   %54 = load i32, ptr %10, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
+  br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph.split.us, %9
   ret void
@@ -10967,10 +10967,10 @@ attributes #26 = { nounwind willreturn memory(none) }
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = distinct !{!12, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
@@ -10986,12 +10986,12 @@ attributes #26 = { nounwind willreturn memory(none) }
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
+!28 = distinct !{!28, !8, !10}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
+!32 = distinct !{!32, !8, !10}
+!33 = distinct !{!33, !8, !10}
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
@@ -11016,3 +11016,5 @@ attributes #26 = { nounwind willreturn memory(none) }
 !55 = distinct !{!55, !8}
 !56 = distinct !{!56, !8}
 !57 = distinct !{!57, !8}
+!58 = distinct !{!58, !8}
+!59 = distinct !{!59, !8}

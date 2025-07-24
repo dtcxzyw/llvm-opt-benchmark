@@ -867,7 +867,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %488 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %485) #11, !srcloc !11
   %489 = trunc i64 %488 to i32
   %490 = icmp ult i32 %489, 64
-  br i1 %490, label %.split, label %.thread31, !llvm.loop !28
+  br i1 %490, label %.split, label %.thread31, !llvm.loop !30
 
 .thread31:                                        ; preds = %487, %478, %480, %462, %455, %.split.us, %.loopexit34, %445
   %491 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 152), align 8
@@ -900,7 +900,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %510 = phi i64 [ %503, %502 ], [ %496, %.preheader ]
   %511 = call ptr @next_zone(ptr noundef nonnull %498) #8
   %512 = icmp eq ptr %511, null
-  br i1 %512, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %512, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %508, %.thread31
   %513 = phi i64 [ 0, %.thread31 ], [ %509, %508 ]
@@ -984,5 +984,7 @@ attributes #11 = { nounwind memory(read) }
 !25 = distinct !{!25, !6, !7}
 !26 = distinct !{!26, !6, !7}
 !27 = !{!"branch_weights", i32 1, i32 2000}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
+!28 = distinct !{!28, !6, !7, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}

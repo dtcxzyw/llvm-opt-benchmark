@@ -619,7 +619,7 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   store i32 %277, ptr %278, align 4, !tbaa !42
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !49
+  br i1 %exitcond339.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !50
 
 .lr.ph.split.us297.us:                            ; preds = %.lr.ph.us, %.lr.ph.split.us297.us
   %indvars.iv330 = phi i64 [ %indvars.iv.next331, %.lr.ph.split.us297.us ], [ 0, %.lr.ph.us ]
@@ -647,20 +647,20 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   store i8 %293, ptr %294, align 1, !tbaa !34
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %._crit_edge.us, label %.lr.ph.split.us297.us, !llvm.loop !49
+  br i1 %exitcond334.not, label %._crit_edge.us, label %.lr.ph.split.us297.us, !llvm.loop !51
 
 .lr.ph.split.us299.us:                            ; preds = %.lr.ph.split.us299.us.preheader, %.lr.ph.split.us299.us
   %indvars.iv325 = phi i64 [ 0, %.lr.ph.split.us299.us.preheader ], [ %indvars.iv.next326, %.lr.ph.split.us299.us ]
   %296 = xor i64 %indvars.iv325, -1
   %297 = getelementptr i16, ptr %272, i64 %296
-  %298 = load i16, ptr %297, align 2, !tbaa !50
+  %298 = load i16, ptr %297, align 2, !tbaa !52
   %299 = getelementptr inbounds nuw i16, ptr %270, i64 %indvars.iv325
-  %300 = load i16, ptr %299, align 2, !tbaa !50
-  store i16 %300, ptr %297, align 2, !tbaa !50
-  store i16 %298, ptr %299, align 2, !tbaa !50
+  %300 = load i16, ptr %299, align 2, !tbaa !52
+  store i16 %300, ptr %297, align 2, !tbaa !52
+  store i16 %298, ptr %299, align 2, !tbaa !52
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %._crit_edge.us, label %.lr.ph.split.us299.us, !llvm.loop !49
+  br i1 %exitcond329.not, label %._crit_edge.us, label %.lr.ph.split.us299.us, !llvm.loop !54
 
 .lr.ph.split.us301.us:                            ; preds = %.lr.ph.split.us301.us.preheader, %.lr.ph.split.us301.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us301.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us301.us ]
@@ -673,7 +673,7 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   store i8 %303, ptr %304, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond324.not, label %._crit_edge.us, label %.lr.ph.split.us301.us, !llvm.loop !49
+  br i1 %exitcond324.not, label %._crit_edge.us, label %.lr.ph.split.us301.us, !llvm.loop !55
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph304, %advance_line.exit.thread
   store i32 1, ptr %2, align 4, !tbaa !42
@@ -796,7 +796,7 @@ advance_line.exit:                                ; preds = %56, %50, %.preheade
   %60 = icmp ne ptr %.2, null
   %61 = icmp sgt i32 %42, 0
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %.preheader, label %advance_line.exit.thread, !llvm.loop !52
+  br i1 %62, label %.preheader, label %advance_line.exit.thread, !llvm.loop !56
 
 63:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
@@ -826,7 +826,7 @@ advance_line.exit:                                ; preds = %56, %50, %.preheade
   %73 = getelementptr inbounds nuw i8, ptr %.5, i64 %12
   %74 = add nsw i32 %.0, -1
   %.not88 = icmp eq i32 %74, 0
-  br i1 %.not88, label %75, label %72, !llvm.loop !53
+  br i1 %.not88, label %75, label %72, !llvm.loop !57
 
 75:                                               ; preds = %72
   %76 = sub nsw i32 %.375, %71
@@ -865,7 +865,7 @@ advance_line.exit92:                              ; preds = %88, %82, %75
   %92 = icmp ne ptr %.6, null
   %93 = icmp sgt i32 %76, 0
   %94 = select i1 %92, i1 %93, i1 false
-  br i1 %94, label %69, label %advance_line.exit92.thread, !llvm.loop !54
+  br i1 %94, label %69, label %advance_line.exit92.thread, !llvm.loop !58
 
 advance_line.exit92.thread:                       ; preds = %84, %advance_line.exit92
   %.6112 = phi ptr [ %.6, %advance_line.exit92 ], [ null, %84 ]
@@ -882,7 +882,7 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   %.369 = phi ptr [ %.571111, %advance_line.exit92.thread ], [ %.268, %advance_line.exit ]
   %.3 = phi ptr [ %.6112, %advance_line.exit92.thread ], [ %.2, %advance_line.exit ]
   %.not = icmp eq ptr %.3, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %advance_line.exit.thread, %52
   %.274129 = phi i32 [ %42, %52 ], [ %.274, %advance_line.exit.thread ]
@@ -973,11 +973,15 @@ attributes #7 = { noreturn nounwind }
 !45 = distinct !{!45, !44}
 !46 = distinct !{!46, !44}
 !47 = distinct !{!47, !44}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"short", !8, i64 0}
-!52 = distinct !{!52, !44}
-!53 = distinct !{!53, !44}
-!54 = distinct !{!54, !44}
-!55 = distinct !{!55, !44}
+!48 = distinct !{!48, !44, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !44, !49}
+!51 = distinct !{!51, !44, !49}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"short", !8, i64 0}
+!54 = distinct !{!54, !44, !49}
+!55 = distinct !{!55, !44, !49}
+!56 = distinct !{!56, !44}
+!57 = distinct !{!57, !44}
+!58 = distinct !{!58, !44}
+!59 = distinct !{!59, !44}

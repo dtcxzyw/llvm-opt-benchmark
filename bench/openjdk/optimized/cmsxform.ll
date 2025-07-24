@@ -1820,7 +1820,7 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store float -1.000000e+00, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !17
 
 .loopexit.us.sink.split:                          ; preds = %21, %26
   %30 = load ptr, ptr %13, align 8
@@ -1833,7 +1833,7 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %33 = call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.03843.us, i32 noundef %32) #11
   %34 = add nuw i32 %.03644.us, 1
   %exitcond54.not = icmp eq i32 %34, %3
-  br i1 %exitcond54.not, label %._crit_edge.us, label %21, !llvm.loop !17
+  br i1 %exitcond54.not, label %._crit_edge.us, label %21, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %35 = load i32, ptr %5, align 4
@@ -1842,7 +1842,7 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %38 = add i32 %37, %.047.us
   %39 = add nuw i32 %.03745.us, 1
   %exitcond55.not = icmp eq i32 %39, %4
-  br i1 %exitcond55.not, label %._crit_edge50, label %.lr.ph.us, !llvm.loop !18
+  br i1 %exitcond55.not, label %._crit_edge50, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge50:                                    ; preds = %._crit_edge.us, %.lr.ph49, %6
   ret void
@@ -1897,7 +1897,7 @@ define internal void @NullXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %23 = call ptr %21(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %.03033.us, i32 noundef %22) #11
   %24 = add nuw i32 %.02834.us, 1
   %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %17
   %25 = load i32, ptr %5, align 4
@@ -1906,7 +1906,7 @@ define internal void @NullXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %28 = add i32 %27, %.037.us
   %29 = add nuw i32 %.02935.us, 1
   %exitcond43.not = icmp eq i32 %29, %4
-  br i1 %exitcond43.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !20
+  br i1 %exitcond43.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !21
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.lr.ph39, %6
   ret void
@@ -2000,7 +2000,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %44, %
   %52 = call ptr %50(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.03134.us, i32 noundef %51) #11
   %53 = add nuw i32 %.02935.us, 1
   %exitcond.not = icmp eq i32 %53, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %TransformOnePixelWithGamutCheck.exit.us
   %54 = load i32, ptr %5, align 4
@@ -2009,7 +2009,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %44, %
   %57 = add i32 %56, %.038.us
   %58 = add nuw i32 %.03036.us, 1
   %exitcond44.not = icmp eq i32 %58, %4
-  br i1 %exitcond44.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !22
+  br i1 %exitcond44.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !23
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %6
   ret void
@@ -2063,7 +2063,7 @@ define internal void @PrecalculatedXFORM(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = call ptr %28(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %.03235.us, i32 noundef %29) #11
   %31 = add nuw i32 %.03036.us, 1
   %exitcond.not = icmp eq i32 %31, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %19
   %32 = load i32, ptr %5, align 4
@@ -2072,7 +2072,7 @@ define internal void @PrecalculatedXFORM(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = add i32 %34, %.039.us
   %36 = add nuw i32 %.03137.us, 1
   %exitcond45.not = icmp eq i32 %36, %4
-  br i1 %exitcond45.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !24
+  br i1 %exitcond45.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !25
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us, %.lr.ph41, %6
   ret void
@@ -2184,7 +2184,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %49, %
   %59 = call ptr %57(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.03235.us, i32 noundef %58) #11
   %60 = add nuw i32 %.03036.us, 1
   %exitcond.not = icmp eq i32 %60, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %56
   %61 = load i32, ptr %5, align 4
@@ -2193,7 +2193,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %49, %
   %64 = add i32 %63, %.039.us
   %65 = add nuw i32 %.03137.us, 1
   %exitcond45.not = icmp eq i32 %65, %4
-  br i1 %exitcond45.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond45.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !27
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us, %.lr.ph41, %6
   ret void
@@ -2265,7 +2265,7 @@ define internal void @CachedXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.03336.us, i32 noundef %36) #11
   %38 = add nuw i32 %.03137.us, 1
   %exitcond.not = icmp eq i32 %38, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %34
   %39 = load i32, ptr %5, align 4
@@ -2274,7 +2274,7 @@ define internal void @CachedXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %42 = add i32 %41, %.040.us
   %43 = add nuw i32 %.03238.us, 1
   %exitcond46.not = icmp eq i32 %43, %4
-  br i1 %exitcond46.not, label %._crit_edge43, label %.lr.ph.us, !llvm.loop !28
+  br i1 %exitcond46.not, label %._crit_edge43, label %.lr.ph.us, !llvm.loop !29
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.lr.ph42, %6
   ret void
@@ -2329,17 +2329,18 @@ attributes #11 = { nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!15 = distinct !{!15, !7, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = distinct !{!19, !7, !16}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !7, !16}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!23 = distinct !{!23, !7, !16}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!25 = distinct !{!25, !7, !16}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!27 = distinct !{!27, !7, !16}
 !28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7, !16}

@@ -308,9 +308,9 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %15 = call noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.eab39818d4b18baaa8ef384a74ffd2e4.35.llvm.4786290445112235611), !noalias !109
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !93
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !93
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bdfe59bb1fa9fb7E.exit, label %.critedge.backedge.us.i
+  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bdfe59bb1fa9fb7E.exit, label %.critedge.backedge.us.lr.ph.i
 
-.critedge.backedge.us.i:                          ; preds = %.lr.ph.split.us.i
+.critedge.backedge.us.lr.ph.i:                    ; preds = %.lr.ph.split.us.i
   store ptr null, ptr %9, align 8, !alias.scope !88, !noalias !91
   br label %19
 
@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %.not5 = icmp eq ptr %18, null
   br i1 %.not5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bdfe59bb1fa9fb7E.exit, label %20
 
-19:                                               ; preds = %8, %.critedge.backedge.us.i
+19:                                               ; preds = %8, %.critedge.backedge.us.lr.ph.i
   store i64 0, ptr %0, align 8
   br label %16
 

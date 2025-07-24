@@ -2782,7 +2782,7 @@ dissect_spice_link_common_header.exit:            ; preds = %5, %10
   %.1.i = add i32 %.027.i, 4
   %42 = add nuw i32 %.02326.i, 1
   %exitcond.not.i = icmp eq i32 %42, %29
-  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.split.i, !llvm.loop !16
 
 dissect_spice_common_capabilities.exit:           ; preds = %41
   %43 = add i32 %32, 194
@@ -3057,7 +3057,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %152 = add i32 %.167.i, 2
   %153 = add nuw i8 %.06566.i, 1
   %exitcond.not.i = icmp eq i8 %153, %142
-  br i1 %exitcond.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph.i, !llvm.loop !17
 
 154:                                              ; preds = %110
   %155 = load i32, ptr @hf_audio_mute, align 4
@@ -3103,7 +3103,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %177 = add i32 %.126.i, 2
   %178 = add nuw i8 %.02425.i, 1
   %exitcond.not.i139 = icmp eq i8 %178, %167
-  br i1 %exitcond.not.i139, label %dissect_spice_playback_server.exit, label %.lr.ph.i138, !llvm.loop !16
+  br i1 %exitcond.not.i139, label %dissect_spice_playback_server.exit, label %.lr.ph.i138, !llvm.loop !18
 
 179:                                              ; preds = %165
   %180 = load i32, ptr @hf_audio_mute, align 4
@@ -3224,7 +3224,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %258 = add i32 %.1160.i, 2
   %259 = add nuw i32 %.0156159.i, 1
   %exitcond.not.i143 = icmp eq i32 %259, %241
-  br i1 %exitcond.not.i143, label %dissect_spice_playback_server.exit, label %.lr.ph.i142, !llvm.loop !17
+  br i1 %exitcond.not.i143, label %dissect_spice_playback_server.exit, label %.lr.ph.i142, !llvm.loop !19
 
 260:                                              ; preds = %186
   %hf_supported_mouse_modes_flags.val.i157.i = load i32, ptr @hf_supported_mouse_modes_flags, align 4
@@ -3435,7 +3435,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %375 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %0, i32 noundef %.1455.i, i32 noundef 8, i32 noundef -2147483648)
   %376 = add i32 %.1455.i, 9
   %exitcond466.not.i = icmp eq i32 %indvars.iv.next463.i, %wide.trip.count465.i
-  br i1 %exitcond466.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph456.i, !llvm.loop !18
+  br i1 %exitcond466.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph456.i, !llvm.loop !20
 
 377:                                              ; preds = %348
   %378 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %55)
@@ -3797,7 +3797,7 @@ dissect_Clip.exit447.i:                           ; preds = %559, %528
   %658 = add i32 %.3453.i, 28
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i148 = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !19
+  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !21
 
 659:                                              ; preds = %348
   %660 = load i32, ptr @hf_display_stream_id, align 4
@@ -4022,7 +4022,7 @@ define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr
   %27 = add i32 %.03035, 4
   %28 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !22
 
 .loopexit:                                        ; preds = %26, %22, %14, %12, %10, %24
   ret void
@@ -4275,7 +4275,7 @@ define internal fastcc noundef i32 @dissect_spice_agent_message(ptr noundef %0, 
   %51 = add i32 %.1116, 20
   %52 = add nuw i32 %.0117, 1
   %exitcond.not = icmp eq i32 %52, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 53:                                               ; preds = %7
   %54 = load i32, ptr @hf_vd_agent_reply_type, align 4
@@ -4555,7 +4555,7 @@ dissect_Clip.exit:                                ; preds = %3, %16
   %32 = add i32 %.023.i, 16
   %33 = add nuw i32 %.02022.i, 1
   %exitcond.not.i = icmp eq i32 %33, %24
-  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !24
 
 dissect_RectList.exit:                            ; preds = %.lr.ph.i, %22, %25
   %34 = load ptr, ptr %4, align 8
@@ -5017,7 +5017,7 @@ define internal fastcc range(i32 4, -8) i32 @dissect_RectList(ptr noundef %0, pt
   %12 = add i32 %.023, 16
   %13 = add nuw i32 %.02022, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %5
   ret i32 %.pre25
@@ -5179,8 +5179,8 @@ attributes #5 = { nounwind }
 !11 = !{i8 0, i8 2}
 !12 = !{}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
@@ -5188,3 +5188,5 @@ attributes #5 = { nounwind }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

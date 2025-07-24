@@ -239,7 +239,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 167:                                              ; preds = %.lr.ph.split.us
   %168 = add nuw nsw i32 %.0105137.us, 1
   %169 = icmp ugt ptr %150, %2
-  br i1 %169, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %169, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .preheader:                                       ; preds = %.loopexit.thread, %275
   %.2138 = phi ptr [ %.3, %275 ], [ %.1, %.loopexit.thread ]
@@ -433,3 +433,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !10 = !{!"int", !6, i64 0}
 !11 = !{!6, !6, i64 0}
 !12 = !{!10, !10, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -473,7 +473,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %208 = call i32 @Curl_speedcheck(ptr noundef %0, i64 %206, i32 %207) #8
   %.fr.us = freeze i32 %208
   %.not162.us = icmp eq i32 %.fr.us, 0
-  br i1 %.not162.us, label %.preheader206.split.us.preheader, label %.thread193
+  br i1 %.not162.us, label %.preheader206.split.us.preheader, label %.thread193, !llvm.loop !106
 
 .preheader206.split.preheader:                    ; preds = %.preheader206, %221
   %209 = load i64, ptr %10, align 8, !tbaa !89
@@ -538,7 +538,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 238:                                              ; preds = %236, %.lr.ph
   %239 = call ptr @readdir64(ptr noundef nonnull %228) #8
   %.not164 = icmp eq ptr %239, null
-  br i1 %.not164, label %.thread202, label %.lr.ph, !llvm.loop !106
+  br i1 %.not164, label %.thread202, label %.lr.ph, !llvm.loop !108
 
 .thread202:                                       ; preds = %236, %233, %238, %.preheader
   %.8 = phi i32 [ 0, %.preheader ], [ 0, %238 ], [ %235, %233 ], [ %237, %236 ]
@@ -576,7 +576,7 @@ define internal noundef i32 @file_done(ptr noundef readonly captures(none) %0, i
 6:                                                ; preds = %3
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !108
+  %9 = load ptr, ptr %8, align 8, !tbaa !110
   tail call void %7(ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -614,7 +614,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4464
-  %11 = load ptr, ptr %10, align 8, !tbaa !109
+  %11 = load ptr, ptr %10, align 8, !tbaa !111
   %12 = call i32 @Curl_urldecode(ptr noundef %11, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4) #8
   %.not20 = icmp eq i32 %12, 0
   br i1 %.not20, label %13, label %file_done.exit
@@ -637,10 +637,10 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   store ptr %21, ptr %6, align 8, !tbaa !11
   %22 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !108
+  %24 = load ptr, ptr %23, align 8, !tbaa !110
   call void %22(ptr noundef %24) #8
   %25 = load ptr, ptr %3, align 8, !tbaa !88
-  store ptr %25, ptr %23, align 8, !tbaa !108
+  store ptr %25, ptr %23, align 8, !tbaa !110
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %20, ptr %26, align 8, !tbaa !91
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4876
@@ -652,7 +652,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   br i1 %or.cond, label %32, label %44
 
 32:                                               ; preds = %19
-  %33 = load ptr, ptr %10, align 8, !tbaa !109
+  %33 = load ptr, ptr %10, align 8, !tbaa !111
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef %33) #8
   %34 = load ptr, ptr %5, align 8, !tbaa !8
   %.not.i = icmp eq ptr %34, null
@@ -661,7 +661,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
 35:                                               ; preds = %32
   %36 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !108
+  %38 = load ptr, ptr %37, align 8, !tbaa !110
   call void %36(ptr noundef %38) #8
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
@@ -698,7 +698,7 @@ define internal noundef i32 @file_disconnect(ptr noundef readonly captures(none)
 6:                                                ; preds = %3
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !108
+  %9 = load ptr, ptr %8, align 8, !tbaa !110
   tail call void %7(ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -919,6 +919,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !104 = !{!98, !14, i64 0}
 !105 = !{!16, !17, i64 240}
 !106 = distinct !{!106, !107}
-!107 = !{!"llvm.loop.mustprogress"}
-!108 = !{!12, !13, i64 8}
-!109 = !{!16, !13, i64 4464}
+!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!108 = distinct !{!108, !109}
+!109 = !{!"llvm.loop.mustprogress"}
+!110 = !{!12, !13, i64 8}
+!111 = !{!16, !13, i64 4464}

@@ -777,7 +777,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   %.2 = phi i64 [ %.053, %25 ], [ %.053, %27 ], [ %41, %37 ], [ %.053, %30 ]
   %43 = add nuw i64 %.04151, 1
   %exitcond.not = icmp eq i64 %43, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -851,4 +851,6 @@ attributes #13 = { noreturn nounwind }
 !18 = !{!19, !20, i64 192}
 !19 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !20, i64 192}
 !20 = !{!"long", !6, i64 0}
-!21 = distinct !{!21, !12}
+!21 = distinct !{!21, !12, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !12}

@@ -162,7 +162,7 @@ _ZL12asciiCaseMapca.exit224.us:                   ; preds = %51
 75:                                               ; preds = %74
   %76 = trunc nuw nsw i16 %64 to i8
   %77 = getelementptr inbounds i8, ptr %4, i64 %65
-  %78 = load i8, ptr %77, align 1, !tbaa !13
+  %78 = load i8, ptr %77, align 1, !tbaa !14
   %.not.i = icmp eq i8 %78, 0
   br i1 %.not.i, label %82, label %79
 
@@ -196,7 +196,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %4, i64 %65
-  %93 = load i8, ptr %92, align 1, !tbaa !13
+  %93 = load i8, ptr %92, align 1, !tbaa !14
   %.not212 = icmp eq i8 %93, 0
   %94 = select i1 %.not212, i32 0, i32 -2147483648
   br label %95
@@ -249,7 +249,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
   %120 = getelementptr inbounds i16, ptr %0, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !7
   %122 = icmp eq i16 %121, 0
-  br i1 %122, label %.loopexit, label %63, !llvm.loop !14
+  br i1 %122, label %.loopexit, label %63, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %171
   %indvars.iv = phi i64 [ %indvars.iv.next, %171 ], [ 0, %.lr.ph ]
@@ -271,7 +271,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
 131:                                              ; preds = %128
   %132 = trunc nuw nsw i16 %125 to i8
   %133 = getelementptr inbounds i8, ptr %4, i64 %123
-  %134 = load i8, ptr %133, align 1, !tbaa !13
+  %134 = load i8, ptr %133, align 1, !tbaa !14
   %.not.i218 = icmp eq i8 %134, 0
   br i1 %.not.i218, label %138, label %135
 
@@ -302,7 +302,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
 
 146:                                              ; preds = %.lr.ph.split
   %147 = getelementptr inbounds i8, ptr %4, i64 %123
-  %148 = load i8, ptr %147, align 1, !tbaa !13
+  %148 = load i8, ptr %147, align 1, !tbaa !14
   %.not209 = icmp eq i8 %148, 0
   %149 = select i1 %.not209, i32 0, i32 -2147483648
   %150 = and i32 %126, 63488
@@ -352,7 +352,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %172 = add nsw i32 %.5, 1
   %173 = icmp slt i32 %172, %1
-  br i1 %173, label %.lr.ph.split, label %.loopexit, !llvm.loop !11
+  br i1 %173, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %117, %171, %58
   %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv.next299, %58 ], [ %indvars.iv.next, %171 ], [ %indvars.iv.next302, %117 ]
@@ -405,7 +405,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %.1166 = select i1 %.not216.not, i32 %.0165256, i32 %189
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph257, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph257, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph257
   %190 = sub nsw i32 %.1166, %.2192282
@@ -492,7 +492,7 @@ _ZL12digitToBasicia.exit:                         ; preds = %.lr.ph266
   %spec.select = select i1 %.not215, i32 %223, i32 26
   %.0162 = select i1 %224, i32 1, i32 %spec.select
   %226 = icmp slt i32 %215, %.0162
-  br i1 %226, label %._crit_edge267.loopexit, label %.lr.ph266, !llvm.loop !16
+  br i1 %226, label %._crit_edge267.loopexit, label %.lr.ph266, !llvm.loop !18
 
 ._crit_edge267.loopexit:                          ; preds = %.lr.ph266._crit_edge
   %227 = trunc nsw i64 %indvars.iv.next307 to i32
@@ -561,7 +561,7 @@ _ZL12digitToBasicia.exit228:                      ; preds = %233, %235, %237
   %254 = udiv i32 %.113.i, 35
   %255 = add nuw nsw i32 %.014.i, 36
   %256 = icmp samesign ugt i32 %.113.i, 15959
-  br i1 %256, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !17
+  br i1 %256, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !19
 
 _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %250
   %.1.lcssa.i = phi i32 [ %252, %250 ], [ %254, %.lr.ph.i ]
@@ -579,13 +579,13 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %250
   %.2174 = phi i32 [ %.1173273, %204 ], [ %260, %_ZL9adaptBiasiia.exit ], [ %.1173273, %206 ]
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count312
-  br i1 %exitcond313.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !18
+  br i1 %exitcond313.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !20
 
 ._crit_edge277:                                   ; preds = %261
   %262 = add nsw i32 %.2189, 1
   %263 = add nuw nsw i32 %.1166, 1
   %264 = icmp slt i32 %.2186, %174
-  br i1 %264, label %.preheader232, label %._crit_edge287, !llvm.loop !19
+  br i1 %264, label %.preheader232, label %._crit_edge287, !llvm.loop !21
 
 ._crit_edge287:                                   ; preds = %._crit_edge277, %23, %.preheader233, %183
   %.6181.lcssa = phi i32 [ %.5180, %183 ], [ 0, %.preheader233 ], [ %1, %23 ], [ %.9, %._crit_edge277 ]
@@ -665,7 +665,7 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %29 = icmp ne i16 %28, 45
   %30 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond7 = and i1 %30, %29
-  br i1 %or.cond7, label %.preheader219, label %.loopexit, !llvm.loop !20
+  br i1 %or.cond7, label %.preheader219, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader219
   %31 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -697,7 +697,7 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 41:                                               ; preds = %39, %38
   %42 = icmp samesign ugt i64 %indvars.iv282, 1
-  br i1 %42, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+  br i1 %42, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %53 ], [ %33, %.lr.ph ]
@@ -722,12 +722,12 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %50 = icmp ult i16 %49, 26
   %51 = zext i1 %50 to i8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next280
-  store i8 %51, ptr %52, align 1, !tbaa !13
+  store i8 %51, ptr %52, align 1, !tbaa !14
   br label %53
 
 53:                                               ; preds = %47, %46
   %54 = icmp samesign ugt i64 %indvars.iv279, 1
-  br i1 %54, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %54, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %53, %41
   %55 = add nsw i32 %31, 1
@@ -835,7 +835,7 @@ _ZL11decodeDigiti.exit.thread216:                 ; preds = %69, %_ZL11decodeDig
   %94 = mul nsw i32 %89, %.0170241
   %95 = add nuw nsw i32 %.0169242, 36
   %.not197 = icmp slt i64 %indvars.iv.next286, %58
-  br i1 %.not197, label %62, label %61, !llvm.loop !22
+  br i1 %.not197, label %62, label %61, !llvm.loop !25
 
 96:                                               ; preds = %82
   %97 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv285
@@ -866,7 +866,7 @@ _ZL11decodeDigiti.exit.thread216:                 ; preds = %69, %_ZL11decodeDig
   %109 = udiv i32 %.113.i, 35
   %110 = add nuw nsw i32 %.014.i, 36
   %111 = icmp samesign ugt i32 %.113.i, 15959
-  br i1 %111, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !17
+  br i1 %111, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !19
 
 _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %.1.lcssa.i = phi i32 [ %107, %105 ], [ %109, %.lr.ph.i ]
@@ -968,7 +968,7 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %.2 = phi i32 [ %146, %.critedge5 ], [ %spec.select212, %149 ]
   %157 = add nsw i32 %.0244, -1
   %158 = icmp sgt i32 %.0244, 1
-  br i1 %158, label %138, label %.critedge, !llvm.loop !23
+  br i1 %158, label %138, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %156, %140, %141, %134, %132
   %.2165 = phi i32 [ %spec.select213, %132 ], [ %.0163258, %134 ], [ %.0163258, %141 ], [ %.0163258, %140 ], [ %.0163258, %156 ]
@@ -1042,7 +1042,7 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %193 = zext i1 %narrow294 to i8
   %194 = sext i32 %.0160 to i64
   %195 = getelementptr inbounds i8, ptr %4, i64 %194
-  store i8 %193, ptr %195, align 1, !tbaa !13
+  store i8 %193, ptr %195, align 1, !tbaa !14
   br label %204
 
 196:                                              ; preds = %178
@@ -1052,19 +1052,19 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %199 = zext i1 %narrow to i8
   %200 = sext i32 %.0160 to i64
   %201 = getelementptr inbounds i8, ptr %4, i64 %200
-  store i8 %199, ptr %201, align 1, !tbaa !13
+  store i8 %199, ptr %201, align 1, !tbaa !14
   br i1 %128, label %202, label %204
 
 202:                                              ; preds = %196
   %203 = getelementptr i8, ptr %201, i64 1
-  store i8 0, ptr %203, align 1, !tbaa !13
+  store i8 0, ptr %203, align 1, !tbaa !14
   br label %204
 
 204:                                              ; preds = %.thread.thread297, %.thread293, %.thread, %178, %202, %196, %127
   %.1164 = phi i32 [ %.0163258, %127 ], [ %.2165, %196 ], [ %.2165, %202 ], [ %.2165, %178 ], [ %.2165, %.thread ], [ %.2165, %.thread293 ], [ %.2165, %.thread.thread297 ]
   %205 = add nsw i32 %117, 1
   %206 = icmp sgt i32 %.0162, %98
-  br i1 %206, label %.preheader, label %._crit_edge259, !llvm.loop !24
+  br i1 %206, label %.preheader, label %._crit_edge259, !llvm.loop !27
 
 ._crit_edge259:                                   ; preds = %204, %._crit_edge.thread
   %.0171.lcssa = phi i32 [ %.1175290292, %._crit_edge.thread ], [ %130, %204 ]
@@ -1104,10 +1104,10 @@ attributes #5 = { nounwind }
 !8 = !{!"char16_t", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !12}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{!5, !5, i64 0}
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
@@ -1116,5 +1116,8 @@ attributes #5 = { nounwind }
 !20 = distinct !{!20, !12}
 !21 = distinct !{!21, !12}
 !22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
+!23 = distinct !{!23, !12, !13}
 !24 = distinct !{!24, !12}
+!25 = distinct !{!25, !12}
+!26 = distinct !{!26, !12}
+!27 = distinct !{!27, !12}

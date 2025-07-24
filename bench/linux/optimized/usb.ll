@@ -345,7 +345,7 @@ match_endpoint.exit.thread.us10:                  ; preds = %69, %match_endpoint
   %98 = load i8, ptr %18, align 4
   %99 = zext i8 %98 to i64
   %100 = icmp samesign ult i64 %97, %99
-  br i1 %100, label %.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !7
+  br i1 %100, label %.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !11
 
 .split.split:                                     ; preds = %.split
   br i1 %15, label %.split.split.split.us, label %.split.split.split
@@ -425,14 +425,14 @@ match_endpoint.exit.thread.us18:                  ; preds = %107, %133, %130, %1
   %137 = load i8, ptr %18, align 4
   %138 = zext i8 %137 to i64
   %139 = icmp samesign ult i64 %136, %138
-  br i1 %139, label %.split.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !7
+  br i1 %139, label %.split.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !12
 
 match_endpoint.exit.thread:                       ; preds = %172, %176, %179, %.split.split.split, %165, %168, %154, %158, %157, %match_endpoint.exit
   %140 = add nuw nsw i64 %144, 1
   %141 = load i8, ptr %18, align 4
   %142 = zext i8 %141 to i64
   %143 = icmp samesign ult i64 %140, %142
-  br i1 %143, label %.split.split.split, label %match_endpoint.exit.thread5, !llvm.loop !7
+  br i1 %143, label %.split.split.split, label %match_endpoint.exit.thread5, !llvm.loop !13
 
 .split.split.split:                               ; preds = %.split.split, %match_endpoint.exit.thread
   %144 = phi i64 [ %140, %match_endpoint.exit.thread ], [ 0, %.split.split ]
@@ -652,7 +652,7 @@ thread-pre-split:                                 ; preds = %48
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %33, %34, %37, %38, %45, %50, %54, %41, %58
   %60 = icmp samesign ugt i64 %22, 1
-  br i1 %60, label %.lr.ph.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
+  br i1 %60, label %.lr.ph.split.us, label %match_endpoint.exit.thread, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %12, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -734,7 +734,7 @@ thread-pre-split.i.us11:                          ; preds = %83, %72
 
 .backedge.us15:                                   ; preds = %.lr.ph.split.split.us, %72, %79, %82, %83, %87, %91, %68, %95
   %97 = icmp samesign ugt i64 %61, 1
-  br i1 %97, label %.lr.ph.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
+  br i1 %97, label %.lr.ph.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !15
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %15, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -812,7 +812,7 @@ thread-pre-split.i.us23:                          ; preds = %120, %109
 
 .backedge.us27:                                   ; preds = %.lr.ph.split.split.split.us, %109, %116, %119, %120, %124, %128, %131, %105
   %134 = icmp samesign ugt i64 %98, 1
-  br i1 %134, label %.lr.ph.split.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
+  br i1 %134, label %.lr.ph.split.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !16
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %.backedge
   %135 = phi i64 [ %136, %.backedge ], [ %21, %.lr.ph.split.split ]
@@ -897,7 +897,7 @@ thread-pre-split.i:                               ; preds = %160, %157, %150
 
 .backedge:                                        ; preds = %171, %168, %164, %160, %157, %150, %149, %146, %.lr.ph.split.split.split.split, %174
   %176 = icmp samesign ugt i64 %135, 1
-  br i1 %176, label %.lr.ph.split.split.split.split, label %match_endpoint.exit.thread, !llvm.loop !10
+  br i1 %176, label %.lr.ph.split.split.split.split, label %match_endpoint.exit.thread, !llvm.loop !17
 
 match_endpoint.exit.thread:                       ; preds = %.backedge, %174, %.backedge.us27, %131, %.backedge.us15, %95, %94, %.backedge.us, %58, %57, %17
   %177 = phi i32 [ -6, %17 ], [ 0, %57 ], [ 0, %58 ], [ -6, %.backedge.us ], [ 0, %94 ], [ 0, %95 ], [ -6, %.backedge.us15 ], [ 0, %131 ], [ -6, %.backedge.us27 ], [ 0, %174 ], [ -6, %.backedge ]
@@ -928,7 +928,7 @@ define dso_local noundef zeroext i1 @usb_check_bulk_endpoints(ptr noundef readon
   %15 = getelementptr i8, ptr %20, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread, label %18, !llvm.loop !11
+  br i1 %17, label %.thread, label %18, !llvm.loop !18
 
 18:                                               ; preds = %14, %.split
   %19 = phi i8 [ %3, %.split ], [ %16, %14 ]
@@ -947,7 +947,7 @@ define dso_local noundef zeroext i1 @usb_check_bulk_endpoints(ptr noundef readon
   %28 = add nsw i32 %23, -1
   %29 = getelementptr i8, ptr %22, i64 80
   %30 = icmp sgt i32 %23, 1
-  br i1 %30, label %21, label %.thread, !llvm.loop !12
+  br i1 %30, label %21, label %.thread, !llvm.loop !19
 
 31:                                               ; preds = %21
   %32 = icmp eq ptr %22, null
@@ -989,7 +989,7 @@ define dso_local noundef zeroext i1 @usb_check_int_endpoints(ptr noundef readonl
   %15 = getelementptr i8, ptr %20, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread, label %18, !llvm.loop !13
+  br i1 %17, label %.thread, label %18, !llvm.loop !20
 
 18:                                               ; preds = %14, %.split
   %19 = phi i8 [ %3, %.split ], [ %16, %14 ]
@@ -1008,7 +1008,7 @@ define dso_local noundef zeroext i1 @usb_check_int_endpoints(ptr noundef readonl
   %28 = add nsw i32 %23, -1
   %29 = getelementptr i8, ptr %22, i64 80
   %30 = icmp sgt i32 %23, 1
-  br i1 %30, label %21, label %.thread, !llvm.loop !12
+  br i1 %30, label %21, label %.thread, !llvm.loop !19
 
 31:                                               ; preds = %21
   %32 = icmp eq ptr %22, null
@@ -1045,7 +1045,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly captures(address
 12:                                               ; preds = %15
   %13 = add nuw nsw i64 %16, 1
   %14 = icmp eq i64 %13, %11
-  br i1 %14, label %.thread, label %15, !llvm.loop !14
+  br i1 %14, label %.thread, label %15, !llvm.loop !21
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ 0, %10 ], [ %13, %12 ]
@@ -1073,7 +1073,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly captures(address
 30:                                               ; preds = %33
   %31 = add nuw i32 %34, 1
   %32 = icmp eq i32 %31, %26
-  br i1 %32, label %.loopexit, label %33, !llvm.loop !15
+  br i1 %32, label %.loopexit, label %33, !llvm.loop !22
 
 33:                                               ; preds = %30, %28
   %34 = phi i32 [ 0, %28 ], [ %31, %30 ]
@@ -1121,7 +1121,7 @@ define dso_local noundef ptr @usb_ifnum_to_if(ptr noundef readonly captures(none
 13:                                               ; preds = %16
   %14 = add nuw nsw i64 %17, 1
   %15 = icmp eq i64 %14, %12
-  br i1 %15, label %.loopexit, label %16, !llvm.loop !16
+  br i1 %15, label %.loopexit, label %16, !llvm.loop !23
 
 16:                                               ; preds = %13, %11
   %17 = phi i64 [ 0, %11 ], [ %14, %13 ]
@@ -1153,7 +1153,7 @@ define dso_local ptr @usb_altnum_to_altsetting(ptr noundef readonly captures(non
 8:                                                ; preds = %11
   %9 = add nuw i32 %12, 1
   %10 = icmp eq i32 %9, %4
-  br i1 %10, label %.loopexit, label %11, !llvm.loop !17
+  br i1 %10, label %.loopexit, label %11, !llvm.loop !24
 
 11:                                               ; preds = %8, %6
   %12 = phi i32 [ 0, %6 ], [ %9, %8 ]
@@ -1174,7 +1174,7 @@ define dso_local ptr @usb_altnum_to_altsetting(ptr noundef readonly captures(non
 define dso_local noundef ptr @usb_find_interface(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = alloca %struct.find_interface_arg, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  store i64 0, ptr %3, align 8, !annotation !18
+  store i64 0, ptr %3, align 8, !annotation !25
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1383,7 +1383,7 @@ define dso_local noundef ptr @usb_alloc_dev(ptr noundef %0, ptr noundef %1, i32 
   %41 = load i16, ptr %40, align 1
   %42 = or i16 %41, 1
   store i16 %42, ptr %40, align 1
-  br i1 %17, label %52, label %43, !prof !19
+  br i1 %17, label %52, label %43, !prof !26
 
 43:                                               ; preds = %23
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1703,7 +1703,7 @@ define dso_local noundef range(i32 -113, 1) i32 @usb_lock_device_for_reset(ptr n
 26:                                               ; preds = %24
   %27 = tail call i32 @mutex_trylock(ptr noundef nonnull %14) #13
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.split.us, label %.split2.us, !llvm.loop !20
+  br i1 %28, label %.split.us, label %.split2.us, !llvm.loop !27
 
 .split:                                           ; preds = %.split.preheader, %36
   %29 = load volatile i64, ptr @jiffies, align 64
@@ -1729,7 +1729,7 @@ define dso_local noundef range(i32 -113, 1) i32 @usb_lock_device_for_reset(ptr n
 36:                                               ; preds = %34
   %37 = tail call i32 @mutex_trylock(ptr noundef nonnull %17) #13
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.split, label %.split2.us, !llvm.loop !20
+  br i1 %38, label %.split, label %.split2.us, !llvm.loop !28
 
 .split2.us.loopexit12:                            ; preds = %24
   br label %.split2.us
@@ -1794,7 +1794,7 @@ define dso_local noundef range(i32 -1, 1) i32 @__usb_get_extra_descriptor(ptr no
   %29 = getelementptr i8, ptr %7, i64 %24
   %30 = sub i32 %8, %11
   %31 = icmp ugt i32 %30, 1
-  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %28, %27, %14, %5
   %32 = phi i32 [ -1, %14 ], [ 0, %27 ], [ -1, %5 ], [ -1, %28 ]
@@ -2218,18 +2218,26 @@ attributes #14 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
 !13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
 !17 = distinct !{!17, !8, !9}
-!18 = !{!"auto-init"}
-!19 = !{!"branch_weights", i32 2000, i32 1}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
 !20 = distinct !{!20, !8, !9}
 !21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = !{!"auto-init"}
+!26 = !{!"branch_weights", i32 2000, i32 1}
+!27 = distinct !{!27, !8, !9, !10}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}

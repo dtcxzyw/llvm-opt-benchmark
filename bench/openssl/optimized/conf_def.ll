@@ -1909,7 +1909,7 @@ is_keytype.exit223:                               ; preds = %is_keytype.exit223.
   %115 = getelementptr inbounds nuw i8, ptr %.0145294, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !23
   %117 = icmp slt i8 %116, 0
-  br i1 %117, label %.critedge8, label %is_keytype.exit223, !llvm.loop !41
+  br i1 %117, label %.critedge8, label %is_keytype.exit223, !llvm.loop !43
 
 .critedge4:                                       ; preds = %is_keytype.exit223, %is_keytype.exit223.us
   %.us-phi = phi ptr [ %.0145294.us, %is_keytype.exit223.us ], [ %.0145294, %is_keytype.exit223 ]
@@ -1956,7 +1956,7 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
   %134 = getelementptr inbounds nuw i8, ptr %.2147300, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !23
   %136 = icmp slt i8 %135, 0
-  br i1 %136, label %.critedge8, label %is_keytype.exit229, !llvm.loop !42
+  br i1 %136, label %.critedge8, label %is_keytype.exit229, !llvm.loop !44
 
 .critedge8:                                       ; preds = %.critedge2, %.critedge2.us, %.thread270, %.critedge6, %98, %122, %118, %.critedge4
   %137 = phi i8 [ 58, %118 ], [ %.us-phi295, %.critedge4 ], [ %124, %122 ], [ %99, %98 ], [ %135, %.critedge6 ], [ %127, %.thread270 ], [ %108, %.critedge2.us ], [ %116, %.critedge2 ]
@@ -1994,7 +1994,7 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
 
 147:                                              ; preds = %145
   %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %143) #16
-  %149 = load i64, ptr %5, align 8, !tbaa !43
+  %149 = load i64, ptr %5, align 8, !tbaa !45
   %150 = ptrtoint ptr %.3148 to i64
   %151 = ptrtoint ptr %.0138 to i64
   %.neg = sub i64 %151, %150
@@ -2028,7 +2028,7 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
   store i8 %159, ptr %162, align 1, !tbaa !23
   %163 = load i8, ptr %160, align 1, !tbaa !23
   %.not186 = icmp eq i8 %163, 0
-  br i1 %.not186, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %.not186, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %164 = trunc nsw i64 %indvars.iv.next329 to i32
@@ -2104,7 +2104,7 @@ is_keytype.exit:                                  ; preds = %4
 
 is_keytype.exit.thread:                           ; preds = %4, %is_keytype.exit
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %4, !llvm.loop !45
+  br label %4, !llvm.loop !47
 
 .preheader:                                       ; preds = %is_keytype.exit, %is_keytype.exit16
   %.0.pn = phi ptr [ %.1, %is_keytype.exit16 ], [ %.0, %is_keytype.exit ]
@@ -2123,7 +2123,7 @@ is_keytype.exit16:                                ; preds = %13
   %18 = load i16, ptr %17, align 2, !tbaa !26
   %19 = and i16 %18, 16
   %.not13 = icmp eq i16 %19, 0
-  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !46
+  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !48
 
 .critedge:                                        ; preds = %13, %.preheader, %is_keytype.exit16
   store i8 0, ptr %.0.pn, align 1, !tbaa !23
@@ -2165,7 +2165,7 @@ define internal fastcc range(i32 0, 2) i32 @parsebool(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8, %11, %2, %5
   %storemerge = phi i32 [ 1, %5 ], [ 1, %2 ], [ 0, %11 ], [ 0, %8 ]
-  store i32 %storemerge, ptr %1, align 4, !tbaa !47
+  store i32 %storemerge, ptr %1, align 4, !tbaa !49
   br label %16
 
 16:                                               ; preds = %15, %14
@@ -2191,13 +2191,13 @@ define internal fastcc ptr @process_include(ptr noundef %0, ptr noundef nonnull 
   tail call void @ERR_new() #15
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 813, ptr noundef nonnull @__func__.process_include) #15
   %8 = tail call ptr @__errno_location() #17
-  %9 = load i32, ptr %8, align 4, !tbaa !47
+  %9 = load i32, ptr %8, align 4, !tbaa !49
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %9, ptr noundef nonnull @.str.20, ptr noundef %0) #15
   br label %23
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !48
+  %12 = load i32, ptr %11, align 8, !tbaa !50
   %13 = and i32 %12, 61440
   %14 = icmp eq i32 %13, 16384
   br i1 %14, label %15, label %21
@@ -2277,7 +2277,7 @@ define internal void @dump_value_doall_arg(ptr noundef readonly captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %.not = icmp eq ptr %4, null
-  %5 = load ptr, ptr %0, align 8, !tbaa !51
+  %5 = load ptr, ptr %0, align 8, !tbaa !53
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
@@ -2389,14 +2389,16 @@ attributes #17 = { nounwind willreturn memory(none) }
 !38 = !{!22, !22, i64 0}
 !39 = distinct !{!39, !25}
 !40 = distinct !{!40, !25}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !25}
-!43 = !{!21, !22, i64 0}
+!41 = distinct !{!41, !25, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !25}
 !44 = distinct !{!44, !25}
-!45 = distinct !{!45, !25}
+!45 = !{!21, !22, i64 0}
 !46 = distinct !{!46, !25}
-!47 = !{!13, !13, i64 0}
-!48 = !{!49, !13, i64 24}
-!49 = !{!"stat", !22, i64 0, !22, i64 8, !22, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !50, i64 72, !50, i64 88, !50, i64 104, !7, i64 120}
-!50 = !{!"timespec", !22, i64 0, !22, i64 8}
-!51 = !{!35, !5, i64 0}
+!47 = distinct !{!47, !25}
+!48 = distinct !{!48, !25}
+!49 = !{!13, !13, i64 0}
+!50 = !{!51, !13, i64 24}
+!51 = !{!"stat", !22, i64 0, !22, i64 8, !22, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !52, i64 72, !52, i64 88, !52, i64 104, !7, i64 120}
+!52 = !{!"timespec", !22, i64 0, !22, i64 8}
+!53 = !{!35, !5, i64 0}

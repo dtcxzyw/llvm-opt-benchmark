@@ -335,7 +335,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
 
 .critedge.preheader:                              ; preds = %47, %._crit_edge.us, %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !37
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
   %43 = getelementptr i8, ptr %42, i64 4
   %.val100129 = load i32, ptr %43, align 4, !tbaa !34
   %44 = icmp sgt i32 %.val100129, 0
@@ -367,7 +367,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %.val99 = load i32, ptr %21, align 4, !tbaa !34
   %56 = sext i32 %.val99 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %47, label %.critedge.preheader, !llvm.loop !36
+  br i1 %57, label %47, label %.critedge.preheader, !llvm.loop !39
 
 58:                                               ; preds = %.lr.ph131, %.critedge
   %indvars.iv163 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next164, %.critedge ]
@@ -387,7 +387,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
 
 67:                                               ; preds = %62
   %68 = getelementptr i8, ptr %60, i64 8
-  %.val102 = load ptr, ptr %68, align 8, !tbaa !38
+  %.val102 = load ptr, ptr %68, align 8, !tbaa !40
   %69 = ptrtoint ptr %.val102 to i64
   %70 = and i64 %69, -2
   %71 = inttoptr i64 %70 to ptr
@@ -398,7 +398,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %74 = getelementptr inbounds ptr, ptr %.val92, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = getelementptr i8, ptr %60, i64 16
-  %.val103 = load ptr, ptr %76, align 8, !tbaa !39
+  %.val103 = load ptr, ptr %76, align 8, !tbaa !41
   %77 = ptrtoint ptr %.val103 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
@@ -439,7 +439,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %95, ptr %96, align 4, !tbaa !13
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.critedge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond147.not, label %.critedge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph124:                                        ; preds = %.preheader113, %.lr.ph124
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph124 ], [ 0, %.preheader113 ]
@@ -453,7 +453,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %102, ptr %103, align 4, !tbaa !13
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph124, !llvm.loop !41
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph124, !llvm.loop !43
 
 104:                                              ; preds = %67
   br i1 %.not84, label %.preheader, label %.preheader111
@@ -476,7 +476,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %110, ptr %111, align 4, !tbaa !13
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %.critedge, label %.lr.ph126, !llvm.loop !42
+  br i1 %exitcond157.not, label %.critedge, label %.lr.ph126, !llvm.loop !44
 
 .lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph128 ], [ 0, %.preheader ]
@@ -489,14 +489,14 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %116, ptr %117, align 4, !tbaa !13
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
-  br i1 %exitcond162.not, label %.critedge, label %.lr.ph128, !llvm.loop !43
+  br i1 %exitcond162.not, label %.critedge, label %.lr.ph128, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph124, %.lr.ph126, %.lr.ph128, %.preheader115, %.preheader113, %.preheader111, %.preheader, %62, %58
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %.val100 = load i32, ptr %43, align 4, !tbaa !34
   %118 = sext i32 %.val100 to i64
   %119 = icmp slt i64 %indvars.iv.next164, %118
-  br i1 %119, label %58, label %.critedge2, !llvm.loop !44
+  br i1 %119, label %58, label %.critedge2, !llvm.loop !46
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   ret void
@@ -508,7 +508,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %4, align 8, !tbaa !37
+  %.val = load ptr, ptr %4, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %5, align 4, !tbaa !34
   %6 = sext i32 %1 to i64
@@ -533,13 +533,13 @@ define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i
   store ptr %15, ptr %16, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !47
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %.val.val, ptr %18, align 4, !tbaa !34
-  store i32 %.val.val, ptr %17, align 8, !tbaa !46
+  store i32 %.val.val, ptr %17, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %11, ptr %19, align 8, !tbaa !3
   tail call void @Dch_PerformRandomSimulation(ptr noundef nonnull %0, ptr noundef nonnull %17)
@@ -554,7 +554,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   %22 = tail call i32 @Dch_ClassesRefine(ptr noundef %20) #7
   %23 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %23, 7
-  br i1 %exitcond.not, label %24, label %21, !llvm.loop !47
+  br i1 %exitcond.not, label %24, label %21, !llvm.loop !49
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %19, align 8, !tbaa !3
@@ -635,15 +635,17 @@ attributes #8 = { nounwind allocsize(0) }
 !33 = !{!22, !24, i64 16}
 !34 = !{!4, !5, i64 4}
 !35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = !{!22, !24, i64 32}
-!38 = !{!11, !12, i64 8}
-!39 = !{!11, !12, i64 16}
-!40 = distinct !{!40, !15}
-!41 = distinct !{!41, !15}
+!36 = distinct !{!36, !15, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!22, !24, i64 32}
+!39 = distinct !{!39, !15}
+!40 = !{!11, !12, i64 8}
+!41 = !{!11, !12, i64 16}
 !42 = distinct !{!42, !15}
 !43 = distinct !{!43, !15}
 !44 = distinct !{!44, !15}
 !45 = distinct !{!45, !15}
-!46 = !{!4, !5, i64 0}
+!46 = distinct !{!46, !15}
 !47 = distinct !{!47, !15}
+!48 = !{!4, !5, i64 0}
+!49 = distinct !{!49, !15}

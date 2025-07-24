@@ -143,7 +143,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %13, %.lr.ph.split
   %17 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.03446) #3
   %cond = icmp eq ptr %17, null
-  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !21
 
 .split.us:                                        ; preds = %13, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.03446.us, %.lr.ph.split.us ], [ %.03446, %13 ]
@@ -246,7 +246,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #3
   %51 = add i64 %.049, -1
   %.not39 = icmp eq i64 %51, 0
-  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !20
+  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !22
 
 .critedge:                                        ; preds = %16, %9, %.lr.ph50, %3, %49, %20, %1
   ret void
@@ -298,6 +298,8 @@ attributes #3 = { nounwind }
 !15 = !{!"any pointer", !5, i64 0}
 !16 = !{!5, !5, i64 0}
 !17 = !{!11, !13, i64 8}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

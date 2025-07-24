@@ -894,7 +894,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
   %58 = load i32, ptr %57, align 4, !tbaa !88
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %52, label %._crit_edge, !llvm.loop !146
+  br i1 %60, label %52, label %._crit_edge, !llvm.loop !147
 
 ._crit_edge90:                                    ; preds = %._crit_edge88.us, %._crit_edge
   ret void
@@ -912,16 +912,16 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %5 = alloca %"struct.std::array", align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 560
-  %8 = load ptr, ptr %7, align 8, !tbaa !135, !noalias !147, !nonnull !107, !noundef !107
+  %8 = load ptr, ptr %7, align 8, !tbaa !135, !noalias !148, !nonnull !107, !noundef !107
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %10 = load i32, ptr %9, align 8, !tbaa !18, !noalias !147
+  %10 = load i32, ptr %9, align 8, !tbaa !18, !noalias !148
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 600
-  %12 = load i32, ptr %11, align 8, !tbaa !139, !noalias !147
+  %12 = load i32, ptr %11, align 8, !tbaa !139, !noalias !148
   %13 = mul nsw i32 %12, %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 604
-  %15 = load i32, ptr %14, align 4, !tbaa !140, !noalias !147
+  %15 = load i32, ptr %14, align 4, !tbaa !140, !noalias !148
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !141, !noalias !147
+  %17 = load i32, ptr %16, align 8, !tbaa !141, !noalias !148
   %18 = ashr i32 %17, 1
   %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
@@ -1111,7 +1111,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.59215.2566571 = phi i32 [ %.sroa.59215.9, %.thread567 ], [ %.sroa.59215.1514, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %107, label %.preheader485, !llvm.loop !150
+  br i1 %exitcond.not, label %107, label %.preheader485, !llvm.loop !151
 
 107:                                              ; preds = %106
   br i1 %.not94, label %257, label %158
@@ -1350,7 +1350,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit: ; pre
   store i16 %206, ptr %207, align 2, !tbaa !142
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 2
   %208 = icmp samesign ult i64 %indvars.iv545, 14
-  br i1 %208, label %.preheader484, label %.preheader, !llvm.loop !151
+  br i1 %208, label %.preheader484, label %.preheader, !llvm.loop !152
 
 .preheader:                                       ; preds = %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit138
   %indvars.iv548 = phi i64 [ %indvars.iv.next549, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit138 ], [ 1, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit ]
@@ -1453,7 +1453,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit138: ; 
   store i16 %254, ptr %255, align 2, !tbaa !142
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 2
   %256 = icmp samesign ult i64 %indvars.iv548, 14
-  br i1 %256, label %.preheader, label %.loopexit, !llvm.loop !152
+  br i1 %256, label %.preheader, label %.loopexit, !llvm.loop !153
 
 257:                                              ; preds = %107
   %.not96 = icmp eq i64 %indvars.iv557, 0
@@ -1580,7 +1580,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit158: ; 
 311:                                              ; preds = %308, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit158
   %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 2
   %312 = icmp samesign ult i64 %indvars.iv551, 14
-  br i1 %312, label %266, label %265, !llvm.loop !153
+  br i1 %312, label %266, label %265, !llvm.loop !154
 
 313:                                              ; preds = %265
   tail call void @llvm.assume(i1 %68)
@@ -1699,7 +1699,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit176: ; 
 364:                                              ; preds = %361, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit176
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 2
   %365 = icmp samesign ult i64 %indvars.iv554, 14
-  br i1 %365, label %317, label %.loopexit.loopexit, !llvm.loop !154
+  br i1 %365, label %317, label %.loopexit.loopexit, !llvm.loop !155
 
 .loopexit.loopexit:                               ; preds = %364
   %.pre560 = add nuw nsw i64 %indvars.iv557, 16
@@ -1712,7 +1712,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit176: ; 
   %.sroa.59215.5 = phi i32 [ %.sroa.59215.17, %.loopexit.loopexit ], [ %.sroa.59215.13, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit138 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
   %366 = icmp samesign ult i64 %indvars.iv.next558.pre-phi, %69
-  br i1 %366, label %73, label %72, !llvm.loop !155
+  br i1 %366, label %73, label %72, !llvm.loop !156
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1723,17 +1723,17 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !156
+  %5 = load i32, ptr %4, align 8, !tbaa !157
   %6 = icmp samesign ult i32 %5, 65
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !158, !nonnull !107, !noundef !107
+  %8 = load ptr, ptr %7, align 8, !tbaa !159, !nonnull !107, !noundef !107
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !160
+  %10 = load i32, ptr %9, align 8, !tbaa !161
   %11 = icmp sgt i32 %10, 3
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !161
+  %13 = load i32, ptr %12, align 8, !tbaa !162
   %14 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %14)
   %15 = and i32 %13, 3
@@ -1745,7 +1745,7 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
   br i1 %.not.i.i, label %18, label %._ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit_crit_edge.i
 
 ._ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit_crit_edge.i: ; preds = %3
-  %.pre.i = load i64, ptr %0, align 8, !tbaa !163
+  %.pre.i = load i64, ptr %0, align 8, !tbaa !164
   br label %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit
 
 18:                                               ; preds = %3
@@ -1791,9 +1791,9 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8ge
   %36 = sub nuw nsw i32 32, %5
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 %34, %37
-  %39 = load i64, ptr %0, align 8, !tbaa !163
+  %39 = load i64, ptr %0, align 8, !tbaa !164
   %40 = or i64 %39, %38
-  store i32 %19, ptr %12, align 8, !tbaa !161
+  store i32 %19, ptr %12, align 8, !tbaa !162
   br label %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit
 
 _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit: ; preds = %._ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit_crit_edge.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8getInputEv.exit.i.i
@@ -1802,10 +1802,10 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %43 = sub nuw nsw i32 64, %1
   %44 = zext nneg i32 %43 to i64
   %45 = sub nsw i32 %42, %1
-  store i32 %45, ptr %4, align 8, !tbaa !156
+  store i32 %45, ptr %4, align 8, !tbaa !157
   %46 = zext nneg i32 %1 to i64
   %47 = shl i64 %41, %46
-  store i64 %47, ptr %0, align 8, !tbaa !163
+  store i64 %47, ptr %0, align 8, !tbaa !164
   %48 = ashr i64 %41, %44
   %49 = trunc nsw i64 %48 to i32
   br label %50
@@ -2145,22 +2145,23 @@ attributes #25 = { cold }
 !142 = !{!143, !143, i64 0}
 !143 = !{!"short", !10, i64 0}
 !144 = distinct !{!144, !114}
-!145 = distinct !{!145, !114}
-!146 = distinct !{!146, !114}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!149 = distinct !{!149, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!150 = distinct !{!150, !114}
+!145 = distinct !{!145, !114, !146}
+!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!147 = distinct !{!147, !114}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!150 = distinct !{!150, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
 !151 = distinct !{!151, !114}
 !152 = distinct !{!152, !114}
 !153 = distinct !{!153, !114}
 !154 = distinct !{!154, !114}
 !155 = distinct !{!155, !114}
-!156 = !{!157, !17, i64 8}
-!157 = !{!"_ZTSN8rawspeed18BitStreamCacheBaseE", !70, i64 0, !17, i64 8}
-!158 = !{!159, !9, i64 0}
-!159 = !{!"_ZTSN8rawspeed10Array1DRefIKSt4byteEE", !9, i64 0, !17, i64 8}
-!160 = !{!159, !17, i64 8}
-!161 = !{!162, !17, i64 16}
-!162 = !{!"_ZTSN8rawspeed26BitStreamerReplenisherBaseINS_16BitStreamerMSB32EEE", !159, i64 0, !17, i64 16}
-!163 = !{!157, !70, i64 0}
+!156 = distinct !{!156, !114}
+!157 = !{!158, !17, i64 8}
+!158 = !{!"_ZTSN8rawspeed18BitStreamCacheBaseE", !70, i64 0, !17, i64 8}
+!159 = !{!160, !9, i64 0}
+!160 = !{!"_ZTSN8rawspeed10Array1DRefIKSt4byteEE", !9, i64 0, !17, i64 8}
+!161 = !{!160, !17, i64 8}
+!162 = !{!163, !17, i64 16}
+!163 = !{!"_ZTSN8rawspeed26BitStreamerReplenisherBaseINS_16BitStreamerMSB32EEE", !160, i64 0, !17, i64 16}
+!164 = !{!158, !70, i64 0}

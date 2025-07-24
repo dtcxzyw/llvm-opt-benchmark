@@ -1427,7 +1427,7 @@ select.unfold:                                    ; preds = %39, %42, %49
   %58 = load i32, ptr %57, align 4, !tbaa !73
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %55, %59
-  br i1 %60, label %.lr.ph.split, label %.loopexit, !llvm.loop !77
+  br i1 %60, label %.lr.ph.split, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %select.unfold, %39, %select.unfold.us, %25, %3, %.split.us
   ret void
@@ -1461,7 +1461,7 @@ define internal fastcc void @remove_subtree() unnamed_addr #0 {
 10:                                               ; preds = %.lr.ph, %strbuf_setlen.exit
   %11 = phi ptr [ %5, %.lr.ph ], [ %45, %strbuf_setlen.exit ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #16
-  %12 = load i64, ptr @checkout_entry_ca.path, align 8, !tbaa !78
+  %12 = load i64, ptr @checkout_entry_ca.path, align 8, !tbaa !80
   %.not.i.i = icmp eq i64 %12, 0
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %.neg.i = add i64 %13, 1
@@ -1521,7 +1521,7 @@ strbuf_addch.exit:                                ; preds = %10, %14
   unreachable
 
 37:                                               ; preds = %32, %31
-  %38 = load i64, ptr @checkout_entry_ca.path, align 8, !tbaa !78
+  %38 = load i64, ptr @checkout_entry_ca.path, align 8, !tbaa !80
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %38, i64 1)
   %39 = icmp ugt i64 %7, %spec.select.i
   br i1 %39, label %40, label %41
@@ -1545,7 +1545,7 @@ strbuf_setlen.exit:                               ; preds = %41, %43
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #16
   %45 = tail call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %3) #16
   %.not17 = icmp eq ptr %45, null
-  br i1 %.not17, label %._crit_edge, label %10, !llvm.loop !79
+  br i1 %.not17, label %._crit_edge, label %10, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %strbuf_setlen.exit, %.preheader
   %46 = tail call i32 @closedir(ptr noundef nonnull %3)
@@ -1774,6 +1774,8 @@ attributes #20 = { cold nounwind }
 !74 = !{!46, !47, i64 0}
 !75 = !{!76, !76, i64 0}
 !76 = !{!"p1 _ZTS11cache_entry", !6, i64 0}
-!77 = distinct !{!77, !40}
-!78 = !{!62, !10, i64 0}
+!77 = distinct !{!77, !40, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !79 = distinct !{!79, !40}
+!80 = !{!62, !10, i64 0}
+!81 = distinct !{!81, !40}

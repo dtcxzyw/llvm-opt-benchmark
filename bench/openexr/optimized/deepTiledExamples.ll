@@ -803,7 +803,7 @@ define dso_local void @_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IP
   tail call void @_Z18getPixelSampleDataiiRN7Imf_3_47Array2DIPfEERNS0_IPN9Imath_3_24halfEEE(i32 noundef %22, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.us, label %.preheader.us, !llvm.loop !61
+  br i1 %exitcond.not, label %.critedge.us, label %.preheader.us, !llvm.loop !62
 
 .critedge46:                                      ; preds = %.critedge.us, %.lr.ph50.split.us, %.lr.ph50, %7
   ret void
@@ -840,9 +840,9 @@ define dso_local void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES
   %28 = add i32 %27, 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  store float 0.000000e+00, ptr %7, align 4, !tbaa !62
+  store float 0.000000e+00, ptr %7, align 4, !tbaa !63
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !65
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !66
   call void @_ZN7Imf_3_46HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %7, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   %30 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %6)
@@ -881,15 +881,15 @@ define dso_local void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES
           to label %40 unwind label %155
 
 40:                                               ; preds = %38
-  store i32 2, ptr %39, align 4, !tbaa !66
+  store i32 2, ptr %39, align 4, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
-  store i32 %3, ptr %10, align 4, !tbaa !68
+  store i32 %3, ptr %10, align 4, !tbaa !69
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %4, ptr %41, align 4, !tbaa !72
+  store i32 %4, ptr %41, align 4, !tbaa !73
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %42, align 4, !tbaa !73
+  store i32 0, ptr %42, align 4, !tbaa !74
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %43, align 4, !tbaa !74
+  store i32 0, ptr %43, align 4, !tbaa !75
   invoke void @_ZN7Imf_3_46Header18setTileDescriptionERKNS_15TileDescriptionE(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 4 dereferenceable(16) %10)
           to label %44 unwind label %161
 
@@ -1115,7 +1115,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
 .noexc64.us.us:                                   ; preds = %.noexc63.us.us
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.us, label %.critedge.us.i.us.us, label %.preheader.us.i.us.us, !llvm.loop !61
+  br i1 %exitcond.not.i.us.us, label %.critedge.us.i.us.us, label %.preheader.us.i.us.us, !llvm.loop !62
 
 .critedge.us.i.us.us:                             ; preds = %.noexc64.us.us, %.preheader.us.i.us.us
   %indvars.iv.next57.i.us.us = add nuw nsw i64 %indvars.iv56.i.us.us, 1
@@ -1124,7 +1124,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
 
 149:                                              ; preds = %_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24halfEEE.exit.loopexit.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %119, !llvm.loop !75
+  br label %119, !llvm.loop !76
 
 _Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24halfEEE.exit.loopexit.us.us: ; preds = %.critedge.us.i.us.us, %.lr.ph50.split.us.i.us.us
   %150 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1133,7 +1133,7 @@ _Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24h
 
 .split.us.us:                                     ; preds = %121
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  br label %.preheader81.split.us, !llvm.loop !76
+  br label %.preheader81.split.us, !llvm.loop !77
 
 .split84.us:                                      ; preds = %.preheader81.split.us
   %151 = landingpad { ptr, i32 }
@@ -1253,7 +1253,7 @@ _ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111:      ; preds = %56
 
 .split:                                           ; preds = %178
   %180 = add nuw nsw i32 %.038, 1
-  br label %.preheader81.split, !llvm.loop !76
+  br label %.preheader81.split, !llvm.loop !78
 
 .loopexit.split-lp.split:                         ; preds = %.preheader80, %_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24halfEEE.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -1266,7 +1266,7 @@ _Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24h
 
 181:                                              ; preds = %_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24halfEEE.exit
   %182 = add nuw nsw i32 %.037, 1
-  br label %.preheader80, !llvm.loop !75
+  br label %.preheader80, !llvm.loop !79
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv102 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next103, %._crit_edge ]
@@ -1316,7 +1316,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
 ._crit_edge:                                      ; preds = %211
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge92, label %.preheader, !llvm.loop !77
+  br i1 %exitcond106.not, label %._crit_edge92, label %.preheader, !llvm.loop !80
 
 193:                                              ; preds = %.preheader, %211
   %indvars.iv99 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next100, %211 ]
@@ -1350,7 +1350,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
 211:                                              ; preds = %202, %210
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %193, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %193, !llvm.loop !81
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split.us.split.us, %.loopexit.split-lp.split.us.split.us, %.loopexit.split-lp.split, %.split84, %.split84.us, %174, %172, %170, %168
   %.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %176, %.split84 ], [ %151, %.split84.us ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp.us.us, %.loopexit.split-lp.split.us.split.us ]
@@ -1444,10 +1444,10 @@ define dso_local void @_Z17deepTiledExamplesv() local_unnamed_addr #5 personalit
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %1, align 4, !tbaa !79
-  store i32 0, ptr %7, align 4, !tbaa !80
-  store i32 799, ptr %8, align 4, !tbaa !79
-  store i32 599, ptr %9, align 4, !tbaa !80
+  store i32 0, ptr %1, align 4, !tbaa !82
+  store i32 0, ptr %7, align 4, !tbaa !83
+  store i32 799, ptr %8, align 4, !tbaa !82
+  store i32 599, ptr %9, align 4, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   %10 = tail call noalias noundef nonnull dereferenceable(3840000) ptr @_Znam(i64 noundef 3840000) #16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1480,7 +1480,7 @@ define dso_local void @_Z17deepTiledExamplesv() local_unnamed_addr #5 personalit
           to label %.noexc23 unwind label %50
 
 .noexc23:                                         ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 16), align 8, !tbaa !81
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 16), align 8, !tbaa !84
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -1489,14 +1489,14 @@ define dso_local void @_Z17deepTiledExamplesv() local_unnamed_addr #5 personalit
   br label %25
 
 25:                                               ; preds = %24, %.noexc23
-  store i64 600, ptr @testDataA, align 8, !tbaa !83
-  store i64 800, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 8), align 8, !tbaa !84
-  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 16), align 8, !tbaa !81
+  store i64 600, ptr @testDataA, align 8, !tbaa !86
+  store i64 800, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 8), align 8, !tbaa !87
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @testDataA, i64 16), align 8, !tbaa !84
   %26 = invoke noalias noundef nonnull dereferenceable(1920000) ptr @_Znam(i64 noundef 1920000) #16
           to label %.noexc24 unwind label %50
 
 .noexc24:                                         ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 16), align 8, !tbaa !85
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 16), align 8, !tbaa !88
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
 
@@ -1505,27 +1505,27 @@ define dso_local void @_Z17deepTiledExamplesv() local_unnamed_addr #5 personalit
   br label %30
 
 30:                                               ; preds = %29, %.noexc24
-  store i64 600, ptr @testDataZ, align 8, !tbaa !87
-  store i64 800, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 8), align 8, !tbaa !88
-  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 16), align 8, !tbaa !85
+  store i64 600, ptr @testDataZ, align 8, !tbaa !90
+  store i64 800, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 8), align 8, !tbaa !91
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @testDataZ, i64 16), align 8, !tbaa !88
   invoke void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_IfEEii(ptr noundef nonnull align 8 dereferenceable(24) @testDataA, ptr noundef nonnull align 8 dereferenceable(24) @testDataZ, i32 noundef 800, i32 noundef 600)
           to label %31 unwind label %50
 
 31:                                               ; preds = %30
-  store i32 0, ptr %5, align 4, !tbaa !79
+  store i32 0, ptr %5, align 4, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %32, align 4, !tbaa !80
+  store i32 0, ptr %32, align 4, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 799, ptr %33, align 4, !tbaa !79
+  store i32 799, ptr %33, align 4, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 599, ptr %34, align 4, !tbaa !80
-  store i32 0, ptr %6, align 4, !tbaa !79
+  store i32 599, ptr %34, align 4, !tbaa !83
+  store i32 0, ptr %6, align 4, !tbaa !82
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %35, align 4, !tbaa !80
+  store i32 0, ptr %35, align 4, !tbaa !83
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 799, ptr %36, align 4, !tbaa !79
+  store i32 799, ptr %36, align 4, !tbaa !82
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 599, ptr %37, align 4, !tbaa !80
+  store i32 599, ptr %37, align 4, !tbaa !83
   invoke void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES5_ii(ptr noundef nonnull @.str.10, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 64, i32 noundef 64)
           to label %38 unwind label %50
 
@@ -1654,13 +1654,13 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 344) #17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1713,24 +1713,24 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal void @_GLOBAL__sub_I_deepTiledExamples.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, align 8, !tbaa !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, align 8, !tbaa !95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
-  store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 8), align 8, !tbaa !95
+  store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 8), align 8, !tbaa !98
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 29), align 1, !tbaa !56
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, ptr nonnull @__dso_handle) #15
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, align 8, !tbaa !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, align 8, !tbaa !95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.3, i64 10, i1 false)
-  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 8), align 8, !tbaa !95
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 8), align 8, !tbaa !98
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 26), align 2, !tbaa !56
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, ptr nonnull @__dso_handle) #15
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, align 8, !tbaa !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, align 8, !tbaa !95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.5, i64 12, i1 false)
-  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 8), align 8, !tbaa !95
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 8), align 8, !tbaa !98
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 28), align 4, !tbaa !56
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, ptr nonnull @__dso_handle) #15
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, align 8, !tbaa !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, align 8, !tbaa !95
   store i64 7308332244138288484, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), align 8
-  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 8), align 8, !tbaa !95
+  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 8), align 8, !tbaa !98
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 24), align 8, !tbaa !56
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, ptr nonnull @__dso_handle) #15
   ret void
@@ -1821,40 +1821,43 @@ attributes #18 = { noreturn nounwind }
 !57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !58 = distinct !{!58, !41}
 !59 = distinct !{!59, !41}
-!60 = distinct !{!60, !41}
-!61 = distinct !{!61, !41}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !64, i64 0, !64, i64 4}
-!64 = !{!"float", !8, i64 0}
-!65 = !{!63, !64, i64 4}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"_ZTSN7Imf_3_411CompressionE", !8, i64 0}
-!68 = !{!69, !7, i64 0}
-!69 = !{!"_ZTSN7Imf_3_415TileDescriptionE", !7, i64 0, !7, i64 4, !70, i64 8, !71, i64 12}
-!70 = !{!"_ZTSN7Imf_3_49LevelModeE", !8, i64 0}
-!71 = !{!"_ZTSN7Imf_3_417LevelRoundingModeE", !8, i64 0}
-!72 = !{!69, !7, i64 4}
-!73 = !{!69, !70, i64 8}
-!74 = !{!69, !71, i64 12}
-!75 = distinct !{!75, !41}
-!76 = distinct !{!76, !41}
-!77 = distinct !{!77, !41}
+!60 = distinct !{!60, !41, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !41}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !65, i64 0, !65, i64 4}
+!65 = !{!"float", !8, i64 0}
+!66 = !{!64, !65, i64 4}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"_ZTSN7Imf_3_411CompressionE", !8, i64 0}
+!69 = !{!70, !7, i64 0}
+!70 = !{!"_ZTSN7Imf_3_415TileDescriptionE", !7, i64 0, !7, i64 4, !71, i64 8, !72, i64 12}
+!71 = !{!"_ZTSN7Imf_3_49LevelModeE", !8, i64 0}
+!72 = !{!"_ZTSN7Imf_3_417LevelRoundingModeE", !8, i64 0}
+!73 = !{!70, !7, i64 4}
+!74 = !{!70, !71, i64 8}
+!75 = !{!70, !72, i64 12}
+!76 = distinct !{!76, !41, !61}
+!77 = distinct !{!77, !41, !61}
 !78 = distinct !{!78, !41}
-!79 = !{!6, !7, i64 0}
-!80 = !{!6, !7, i64 4}
-!81 = !{!82, !46, i64 16}
-!82 = !{!"_ZTSN7Imf_3_47Array2DIN9Imath_3_24halfEEE", !15, i64 0, !15, i64 8, !46, i64 16}
-!83 = !{!82, !15, i64 0}
-!84 = !{!82, !15, i64 8}
-!85 = !{!86, !44, i64 16}
-!86 = !{!"_ZTSN7Imf_3_47Array2DIfEE", !15, i64 0, !15, i64 8, !44, i64 16}
-!87 = !{!86, !15, i64 0}
-!88 = !{!86, !15, i64 8}
-!89 = !{!33, !35, i64 24}
-!90 = !{!33, !35, i64 16}
-!91 = distinct !{!91, !41}
-!92 = !{!93, !94, i64 0}
-!93 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !94, i64 0}
-!94 = !{!"p1 omnipotent char", !17, i64 0}
-!95 = !{!96, !15, i64 8}
-!96 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !93, i64 0, !15, i64 8, !8, i64 16}
+!79 = distinct !{!79, !41}
+!80 = distinct !{!80, !41}
+!81 = distinct !{!81, !41}
+!82 = !{!6, !7, i64 0}
+!83 = !{!6, !7, i64 4}
+!84 = !{!85, !46, i64 16}
+!85 = !{!"_ZTSN7Imf_3_47Array2DIN9Imath_3_24halfEEE", !15, i64 0, !15, i64 8, !46, i64 16}
+!86 = !{!85, !15, i64 0}
+!87 = !{!85, !15, i64 8}
+!88 = !{!89, !44, i64 16}
+!89 = !{!"_ZTSN7Imf_3_47Array2DIfEE", !15, i64 0, !15, i64 8, !44, i64 16}
+!90 = !{!89, !15, i64 0}
+!91 = !{!89, !15, i64 8}
+!92 = !{!33, !35, i64 24}
+!93 = !{!33, !35, i64 16}
+!94 = distinct !{!94, !41}
+!95 = !{!96, !97, i64 0}
+!96 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !97, i64 0}
+!97 = !{!"p1 omnipotent char", !17, i64 0}
+!98 = !{!99, !15, i64 8}
+!99 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !96, i64 0, !15, i64 8, !8, i64 16}

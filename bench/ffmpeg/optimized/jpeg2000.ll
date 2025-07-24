@@ -1294,7 +1294,7 @@ ff_tag_tree_zero.exit43.us:                       ; preds = %67, %tag_tree_size.
 ._crit_edge54:                                    ; preds = %._crit_edge50.us, %.lr.ph53, %6
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge, label %6, !llvm.loop !103
+  br i1 %exitcond76.not, label %._crit_edge, label %6, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %._crit_edge54, %2
   ret void
@@ -1402,7 +1402,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   tail call void @av_freep(ptr noundef nonnull %45) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @av_freep(ptr noundef nonnull %36) #8
@@ -1415,7 +1415,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   %49 = mul nsw i32 %48, %47
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next69, %50
-  br i1 %51, label %.lr.ph53.splitthread-pre-split, label %._crit_edge54, !llvm.loop !105
+  br i1 %51, label %.lr.ph53.splitthread-pre-split, label %._crit_edge54, !llvm.loop !106
 
 ._crit_edge54:                                    ; preds = %46, %.lr.ph53, %18
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -1428,7 +1428,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %55 = zext i8 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next72, %55
-  br i1 %56, label %.lr.ph57.splitthread-pre-split, label %._crit_edge58, !llvm.loop !107
+  br i1 %56, label %.lr.ph57.splitthread-pre-split, label %._crit_edge58, !llvm.loop !108
 
 ._crit_edge58:                                    ; preds = %53, %.lr.ph57, %8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1436,7 +1436,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %58 = load ptr, ptr %0, align 8, !tbaa !39
   %.not = icmp eq ptr %58, null
-  br i1 %.not, label %.critedge, label %.lr.ph62, !llvm.loop !108
+  br i1 %.not, label %.critedge, label %.lr.ph62, !llvm.loop !109
 
 .critedge:                                        ; preds = %.lr.ph62, %._crit_edge58, %2
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1512,7 +1512,7 @@ tag_tree_size.exit.thread:                        ; preds = %2
   %24 = icmp sgt i32 %28, 1
   %25 = icmp sgt i32 %30, 1
   %26 = select i1 %24, i1 true, i1 %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !109
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 .lr.ph:                                           ; preds = %tag_tree_size.exit, %.loopexit
   %.03444 = phi i32 [ %28, %.loopexit ], [ %0, %tag_tree_size.exit ]
@@ -1552,21 +1552,21 @@ tag_tree_size.exit.thread:                        ; preds = %2
   %46 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %33, i64 %45
   %47 = add nuw nsw i64 %indvars.iv, %40
   %48 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %.03543, i64 %47, i32 3
-  store ptr %46, ptr %48, align 8, !tbaa !110
+  store ptr %46, ptr %48, align 8, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %41
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.loopexit, label %.preheader.us, !llvm.loop !112
+  br i1 %exitcond53.not, label %.loopexit, label %.preheader.us, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.loopexit, %tag_tree_size.exit.thread
   %49 = phi ptr [ %23, %tag_tree_size.exit.thread ], [ %22, %.loopexit ]
   %.035.lcssa = phi ptr [ %23, %tag_tree_size.exit.thread ], [ %33, %.loopexit ]
   %50 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
-  store ptr null, ptr %50, align 8, !tbaa !110
+  store ptr null, ptr %50, align 8, !tbaa !111
   br label %51
 
 51:                                               ; preds = %tag_tree_size.exit.thread, %tag_tree_size.exit, %._crit_edge
@@ -1700,14 +1700,15 @@ attributes #9 = { noreturn nounwind }
 !99 = distinct !{!99, !5}
 !100 = distinct !{!100, !5}
 !101 = distinct !{!101, !5}
-!102 = distinct !{!102, !5}
-!103 = distinct !{!103, !5}
+!102 = distinct !{!102, !5, !103}
+!103 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !104 = distinct !{!104, !5}
-!105 = distinct !{!105, !5, !106}
-!106 = !{!"llvm.loop.unswitch.partial.disable"}
-!107 = distinct !{!107, !5, !106}
-!108 = distinct !{!108, !5}
+!105 = distinct !{!105, !5}
+!106 = distinct !{!106, !5, !107}
+!107 = !{!"llvm.loop.unswitch.partial.disable"}
+!108 = distinct !{!108, !5, !107}
 !109 = distinct !{!109, !5}
-!110 = !{!7, !10, i64 8}
-!111 = distinct !{!111, !5}
+!110 = distinct !{!110, !5}
+!111 = !{!7, !10, i64 8}
 !112 = distinct !{!112, !5}
+!113 = distinct !{!113, !5, !103}

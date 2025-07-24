@@ -433,7 +433,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %188 = add nuw i64 %.04350, 1
   %189 = load i64, ptr %5, align 8, !tbaa !40
   %190 = icmp ult i64 %188, %189
-  br i1 %190, label %.lr.ph.split, label %._crit_edge, !llvm.loop !64
+  br i1 %190, label %.lr.ph.split, label %._crit_edge, !llvm.loop !66
 
 191:                                              ; preds = %._crit_edge, %172
   %192 = load i64, ptr %5, align 8, !tbaa !40
@@ -454,7 +454,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %196 = add nuw i64 %.051, 1
   %197 = load i64, ptr %5, align 8, !tbaa !40
   %198 = icmp ult i64 %196, %197
-  br i1 %198, label %.lr.ph53, label %._crit_edge54, !llvm.loop !65
+  br i1 %198, label %.lr.ph53, label %._crit_edge54, !llvm.loop !67
 
 199:                                              ; preds = %._crit_edge54, %sfdp_init_graph.exit
   call void @dotneato_postprocess(ptr noundef %0) #12
@@ -490,9 +490,9 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  store i32 0, ptr %6, align 4, !tbaa !66
+  store i32 0, ptr %6, align 4, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  store ptr null, ptr %7, align 8, !tbaa !67
+  store ptr null, ptr %7, align 8, !tbaa !69
   %8 = tail call ptr @makeMatrix(ptr noundef %0) #12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !53
@@ -524,7 +524,7 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
   br i1 %mul.ov.i.i, label %26, label %29
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !68
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !70
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.28, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef 8) #14
   call fastcc void @graphviz_exit() #15
   unreachable
@@ -537,7 +537,7 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
   br i1 %or.cond3.i.i, label %33, label %gv_calloc.exit.i
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !68
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !70
   %35 = shl nuw nsw i64 %25, 3
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.29, i64 noundef %35) #14
   call fastcc void @graphviz_exit() #15
@@ -558,9 +558,9 @@ gv_calloc.exit.i:                                 ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 164
-  %44 = load i32, ptr %43, align 4, !tbaa !70
+  %44 = load i32, ptr %43, align 4, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 163
-  %46 = load i8, ptr %45, align 1, !tbaa !77
+  %46 = load i8, ptr %45, align 1, !tbaa !79
   %.not19.i = icmp eq i8 %46, 0
   br i1 %.not19.i, label %.loopexit.i, label %.preheader.i
 
@@ -572,7 +572,7 @@ gv_calloc.exit.i:                                 ; preds = %29
 .lr.ph.i:                                         ; preds = %.preheader.i
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 176
-  %50 = load ptr, ptr %49, align 8, !tbaa !78
+  %50 = load ptr, ptr %49, align 8, !tbaa !80
   %51 = mul nsw i32 %44, %48
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
@@ -585,13 +585,13 @@ gv_calloc.exit.i:                                 ; preds = %29
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %.lr.ph24.i
   %56 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01823.i) #12
   %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %getPos.exit, label %.lr.ph24.i, !llvm.loop !79
+  br i1 %.not.i, label %getPos.exit, label %.lr.ph24.i, !llvm.loop !81
 
 getPos.exit:                                      ; preds = %.loopexit.i, %gv_calloc.exit.i, %39
   %57 = load i16, ptr @Ndim, align 2, !tbaa !32
   %58 = zext i16 %57 to i32
-  %59 = load i32, ptr %6, align 4, !tbaa !66
-  %60 = load ptr, ptr %7, align 8, !tbaa !67
+  %59 = load i32, ptr %6, align 4, !tbaa !68
+  %60 = load ptr, ptr %7, align 8, !tbaa !69
   call void @multilevel_spring_electrical_embedding(i32 noundef %58, ptr noundef %8, ptr noundef %1, ptr noundef %.0, ptr noundef %31, i32 noundef %59, ptr noundef %60, ptr noundef nonnull %5) #12
   %61 = call ptr @agfstnode(ptr noundef %0) #12
   %.not29 = icmp eq ptr %61, null
@@ -604,7 +604,7 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
   %64 = getelementptr inbounds nuw i8, ptr %.02630, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 164
-  %67 = load i32, ptr %66, align 4, !tbaa !70
+  %67 = load i32, ptr %66, align 4, !tbaa !72
   %68 = mul nsw i32 %67, %63
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds double, ptr %31, i64 %69
@@ -613,7 +613,7 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
 
 .lr.ph:                                           ; preds = %.lr.ph31
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 176
-  %72 = load ptr, ptr %71, align 8, !tbaa !78
+  %72 = load ptr, ptr %71, align 8, !tbaa !80
   %wide.trip.count = zext i16 %62 to i64
   br label %73
 
@@ -625,18 +625,18 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
   store double %75, ptr %76, align 8, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %73, %.lr.ph31
   %77 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02630) #12
   %.not = icmp eq ptr %77, null
-  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !81
+  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !83
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %getPos.exit
   call void @free(ptr noundef %.0) #12
   call void @free(ptr noundef %31) #12
   call void @SparseMatrix_delete(ptr noundef %8) #12
-  %78 = load ptr, ptr %7, align 8, !tbaa !67
+  %78 = load ptr, ptr %7, align 8, !tbaa !69
   call void @free(ptr noundef %78) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
@@ -682,13 +682,13 @@ define void @sfdp_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @gv_cleanup_edge(ptr noundef nonnull %.014) #12
   %4 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.014) #12
   %.not12 = icmp eq ptr %4, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph18
   tail call void @gv_cleanup_node(ptr noundef nonnull %.01116) #12
   %5 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01116) #12
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !83
+  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !85
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %1
   ret void
@@ -849,23 +849,25 @@ attributes #17 = { cold noreturn nounwind }
 !61 = !{!"p1 _Bool", !11, i64 0}
 !62 = !{!"p1 int", !11, i64 0}
 !63 = !{!28, !28, i64 0}
-!64 = distinct !{!64, !35}
-!65 = distinct !{!65, !35}
-!66 = !{!6, !6, i64 0}
-!67 = !{!62, !62, i64 0}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!70 = !{!71, !6, i64 164}
-!71 = !{!"Agnodeinfo_t", !14, i64 0, !72, i64 16, !11, i64 24, !19, i64 32, !20, i64 48, !20, i64 56, !18, i64 64, !20, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !17, i64 136, !17, i64 144, !11, i64 152, !7, i64 160, !7, i64 161, !21, i64 162, !7, i64 163, !6, i64 164, !6, i64 168, !6, i64 172, !73, i64 176, !20, i64 184, !7, i64 192, !21, i64 193, !29, i64 200, !29, i64 208, !7, i64 216, !9, i64 224, !7, i64 232, !7, i64 233, !7, i64 234, !29, i64 240, !29, i64 248, !74, i64 256, !74, i64 272, !74, i64 288, !74, i64 304, !74, i64 320, !28, i64 336, !6, i64 344, !29, i64 352, !6, i64 360, !6, i64 364, !20, i64 368, !74, i64 376, !74, i64 392, !74, i64 408, !74, i64 424, !76, i64 440, !6, i64 448, !6, i64 452, !6, i64 456, !7, i64 464}
-!72 = !{!"p1 _ZTS10shape_desc", !11, i64 0}
-!73 = !{!"p1 double", !11, i64 0}
-!74 = !{!"elist", !75, i64 0, !9, i64 8}
-!75 = !{!"p2 _ZTS8Agedge_s", !11, i64 0}
-!76 = !{!"p1 _ZTS8Agedge_s", !11, i64 0}
-!77 = !{!71, !7, i64 163}
-!78 = !{!71, !73, i64 176}
-!79 = distinct !{!79, !35}
-!80 = distinct !{!80, !35}
+!64 = distinct !{!64, !35, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !35}
+!67 = distinct !{!67, !35}
+!68 = !{!6, !6, i64 0}
+!69 = !{!62, !62, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!72 = !{!73, !6, i64 164}
+!73 = !{!"Agnodeinfo_t", !14, i64 0, !74, i64 16, !11, i64 24, !19, i64 32, !20, i64 48, !20, i64 56, !18, i64 64, !20, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !17, i64 136, !17, i64 144, !11, i64 152, !7, i64 160, !7, i64 161, !21, i64 162, !7, i64 163, !6, i64 164, !6, i64 168, !6, i64 172, !75, i64 176, !20, i64 184, !7, i64 192, !21, i64 193, !29, i64 200, !29, i64 208, !7, i64 216, !9, i64 224, !7, i64 232, !7, i64 233, !7, i64 234, !29, i64 240, !29, i64 248, !76, i64 256, !76, i64 272, !76, i64 288, !76, i64 304, !76, i64 320, !28, i64 336, !6, i64 344, !29, i64 352, !6, i64 360, !6, i64 364, !20, i64 368, !76, i64 376, !76, i64 392, !76, i64 408, !76, i64 424, !78, i64 440, !6, i64 448, !6, i64 452, !6, i64 456, !7, i64 464}
+!74 = !{!"p1 _ZTS10shape_desc", !11, i64 0}
+!75 = !{!"p1 double", !11, i64 0}
+!76 = !{!"elist", !77, i64 0, !9, i64 8}
+!77 = !{!"p2 _ZTS8Agedge_s", !11, i64 0}
+!78 = !{!"p1 _ZTS8Agedge_s", !11, i64 0}
+!79 = !{!73, !7, i64 163}
+!80 = !{!73, !75, i64 176}
 !81 = distinct !{!81, !35}
 !82 = distinct !{!82, !35}
 !83 = distinct !{!83, !35}
+!84 = distinct !{!84, !35}
+!85 = distinct !{!85, !35}

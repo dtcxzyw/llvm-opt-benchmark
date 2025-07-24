@@ -2657,7 +2657,7 @@ tone_map_apply.exit:                              ; preds = %.lr.ph, %tone_map_a
   store i16 %.0.i25, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count32
-  br i1 %exitcond.not, label %._crit_edge, label %tone_map_apply.exit, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge, label %tone_map_apply.exit, !llvm.loop !101
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2878,7 +2878,7 @@ define internal fastcc { <2 x float>, float } @saturate(float noundef %0, ptr no
   %.sroa.022.4.vec.insert37.i = insertelement <2 x float> %.sroa.022.1.i, float %22, i64 1
   %23 = fsub nsz float %.038..sroa.022.4.vec.extract.i, %.sroa.022.4.vec.extract..0.i
   %24 = fcmp nsz ogt float %23, %14
-  br i1 %24, label %17, label %desat_bounded.exit, !llvm.loop !100
+  br i1 %24, label %17, label %desat_bounded.exit, !llvm.loop !102
 
 desat_bounded.exit:                               ; preds = %17, %11, %2
   %.sroa.022.0.i = phi nsz <2 x float> [ %.sroa.062.4.vec.insert, %2 ], [ %.sroa.059.4.vec.insert, %11 ], [ %.sroa.022.4.vec.insert37.i, %17 ]
@@ -2912,7 +2912,7 @@ desat_bounded.exit:                               ; preds = %17, %11, %2
   %.sroa.022.4.vec.insert37.i94 = insertelement <2 x float> %.sroa.022.1.i89, float %37, i64 1
   %38 = fsub nsz float %.038..sroa.022.4.vec.extract.i92, %.sroa.022.4.vec.extract..0.i93
   %39 = fcmp nsz ogt float %38, %29
-  br i1 %39, label %32, label %desat_bounded.exit95, !llvm.loop !100
+  br i1 %39, label %32, label %desat_bounded.exit95, !llvm.loop !102
 
 desat_bounded.exit95:                             ; preds = %32, %26, %desat_bounded.exit
   %.sroa.022.0.i81 = phi nsz <2 x float> [ %.sroa.062.4.vec.insert, %desat_bounded.exit ], [ %.sroa.059.4.vec.insert, %26 ], [ %.sroa.022.4.vec.insert37.i94, %32 ]
@@ -3100,7 +3100,7 @@ ingamut.exit:                                     ; preds = %91
   %.sroa.022.4.vec.insert37.i110 = insertelement <2 x float> %.sroa.022.1.i105, float %172, i64 1
   %173 = fsub nsz float %169, %170
   %174 = fcmp nsz ogt float %173, %78
-  br i1 %174, label %81, label %desat_bounded.exit111, !llvm.loop !100
+  br i1 %174, label %81, label %desat_bounded.exit111, !llvm.loop !102
 
 175:                                              ; preds = %67
   %.sroa.062.0.vec.extract71 = extractelement <2 x float> %.sroa.040.0160, i64 0
@@ -3243,7 +3243,7 @@ ingamut.exit141:                                  ; preds = %195
   %.sroa.022.4.vec.insert37.i126 = insertelement <2 x float> %.sroa.022.1.i121, float %276, i64 1
   %277 = fsub nsz float %273, %274
   %278 = fcmp nsz ogt float %277, %182
-  br i1 %278, label %185, label %desat_bounded.exit111, !llvm.loop !100
+  br i1 %278, label %185, label %desat_bounded.exit111, !llvm.loop !102
 
 desat_bounded.exit111:                            ; preds = %.thread154, %.thread, %175, %179, %71, %75
   %.sroa.022.1 = phi nsz <2 x float> [ %.sroa.040.0160, %75 ], [ %.sroa.040.0160, %71 ], [ %.sroa.062.4.vec.insert, %175 ], [ %.sroa.059.4.vec.insert, %179 ], [ %.sroa.040.0160, %.thread ], [ %.sroa.022.4.vec.insert37.i126, %.thread154 ]
@@ -3251,7 +3251,7 @@ desat_bounded.exit111:                            ; preds = %.thread154, %.threa
   %.sroa.059.1 = phi nsz <2 x float> [ %.sroa.022.0159, %75 ], [ %.sroa.022.0159, %71 ], [ %.sroa.059.0162, %175 ], [ %.sroa.059.0162, %179 ], [ %.sroa.022.0159, %.thread ], [ %.sroa.059.0162, %.thread154 ]
   %.sroa.062.1 = phi nsz <2 x float> [ %.sroa.062.0163, %75 ], [ %.sroa.062.0163, %71 ], [ %.sroa.040.0160, %175 ], [ %.sroa.040.0160, %179 ], [ %.sroa.062.0163, %.thread ], [ %.sroa.040.0160, %.thread154 ]
   %279 = fcmp nsz ogt float %68, 0x3F0A36E2E0000000
-  br i1 %279, label %67, label %._crit_edge, !llvm.loop !101
+  br i1 %279, label %67, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %desat_bounded.exit111, %desat_bounded.exit95
   %.sroa.022.0.lcssa = phi <2 x float> [ %.sroa.022.0.i81, %desat_bounded.exit95 ], [ %.sroa.022.1, %desat_bounded.exit111 ]
@@ -3385,6 +3385,8 @@ attributes #15 = { noreturn nounwind }
 !96 = distinct !{!96, !69, !81}
 !97 = distinct !{!97, !69}
 !98 = distinct !{!98, !69}
-!99 = distinct !{!99, !69}
-!100 = distinct !{!100, !69}
+!99 = distinct !{!99, !69, !100}
+!100 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !101 = distinct !{!101, !69}
+!102 = distinct !{!102, !69}
+!103 = distinct !{!103, !69}

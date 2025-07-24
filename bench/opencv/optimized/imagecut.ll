@@ -207,11 +207,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutENS_3RefINS_10ByteMatrixEEEfRNS_15_ImageCutResultE(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !26
+  %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !29
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !32
+  %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = sitofp i32 %6 to float
   %10 = fsub float 1.000000e+00, %1
   %11 = fmul float %10, %9
@@ -344,21 +344,21 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %46, %50, %55
 ._crit_edge:                                      ; preds = %69
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond68.not, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %exitcond68.not, label %.loopexit, label %.preheader, !llvm.loop !34
 
 69:                                               ; preds = %.preheader, %69
   %indvars.iv = phi i64 [ %66, %.preheader ], [ %indvars.iv.next, %69 ]
   %.059 = phi i32 [ 0, %.preheader ], [ %87, %69 ]
-  %70 = load ptr, ptr %0, align 8, !tbaa !26
+  %70 = load ptr, ptr %0, align 8, !tbaa !27
   %71 = add nuw nsw i32 %.059, %13
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !34
+  %73 = load ptr, ptr %72, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv65
   %75 = getelementptr inbounds nuw i32, ptr %74, i64 %63
-  %76 = load i32, ptr %75, align 4, !tbaa !35
+  %76 = load i32, ptr %75, align 4, !tbaa !36
   %77 = add nsw i32 %71, %76
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !36
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
   %80 = sext i32 %77 to i64
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !22
@@ -370,7 +370,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %46, %50, %55
   store i8 %82, ptr %86, align 1, !tbaa !22
   %87 = add nuw i32 %.059, 1
   %exitcond.not = icmp eq i32 %87, %62
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !38
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit, %29, %3
   %.045 = phi i32 [ -1, %3 ], [ -1, %29 ], [ 0, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit ], [ 0, %._crit_edge ]
@@ -455,16 +455,17 @@ attributes #10 = { builtin nounwind }
 !22 = !{!6, !6, i64 0}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !28, i64 0}
-!28 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
-!29 = !{!30, !5, i64 24}
-!30 = !{!"_ZTSN5zxing10ByteMatrixE", !4, i64 0, !12, i64 16, !5, i64 24, !5, i64 28, !31, i64 32}
-!31 = !{!"p1 int", !13, i64 0}
-!32 = !{!30, !5, i64 28}
-!33 = distinct !{!33, !24}
-!34 = !{!30, !31, i64 32}
-!35 = !{!5, !5, i64 0}
-!36 = !{!30, !12, i64 16}
-!37 = distinct !{!37, !24}
+!25 = distinct !{!25, !24, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !29, i64 0}
+!29 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
+!30 = !{!31, !5, i64 24}
+!31 = !{!"_ZTSN5zxing10ByteMatrixE", !4, i64 0, !12, i64 16, !5, i64 24, !5, i64 28, !32, i64 32}
+!32 = !{!"p1 int", !13, i64 0}
+!33 = !{!31, !5, i64 28}
+!34 = distinct !{!34, !24}
+!35 = !{!31, !32, i64 32}
+!36 = !{!5, !5, i64 0}
+!37 = !{!31, !12, i64 16}
+!38 = distinct !{!38, !24}

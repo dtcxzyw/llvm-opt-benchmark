@@ -34355,7 +34355,7 @@ define linkonce_odr hidden void @_ZZN2cv4usac6Ransac21getIndependentInliersERKNS
 278:                                              ; preds = %267
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !869
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !871
 
 .critedge.sink.split.sink.split:                  ; preds = %158, %140, %148, %118, %130
   %.sink.ph = phi ptr [ %46, %130 ], [ %46, %118 ], [ %46, %148 ], [ %46, %140 ], [ %54, %158 ]
@@ -34378,7 +34378,7 @@ define linkonce_odr hidden void @_ZZN2cv4usac6Ransac21getIndependentInliersERKNS
   %284 = sext i32 %283 to i64
   %285 = icmp slt i64 %indvars.iv.next77, %284
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %285, label %57, label %._crit_edge, !llvm.loop !870
+  br i1 %285, label %57, label %._crit_edge, !llvm.loop !872
 }
 
 declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #0
@@ -34479,15 +34479,15 @@ define linkonce_odr hidden void @_ZN2cv4usac16RansacOutputImplC2ERKNS_3MatERKSt6
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i32 %3, ptr %24, align 8, !tbaa !871
+  store i32 %3, ptr %24, align 8, !tbaa !873
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  store i32 %4, ptr %25, align 4, !tbaa !885
+  store i32 %4, ptr %25, align 4, !tbaa !887
   %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %27 unwind label %31
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 %5, ptr %28, align 8, !tbaa !886
+  store i32 %5, ptr %28, align 8, !tbaa !888
   ret void
 
 29:                                               ; preds = %7
@@ -34659,7 +34659,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %9 = load i32, ptr %8, align 8, !tbaa !871
+  %9 = load i32, ptr %8, align 8, !tbaa !873
   %10 = sext i32 %9 to i64
   %11 = icmp slt i32 %9, 0
   br i1 %11, label %12, label %13
@@ -34809,7 +34809,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16RansacOutputImpl18getNumberOfInliersEv(ptr noundef nonnull align 8 dereferenceable(396) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %3 = load i32, ptr %2, align 8, !tbaa !871
+  %3 = load i32, ptr %2, align 8, !tbaa !873
   ret i32 %3
 }
 
@@ -34822,14 +34822,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16RansacOutputImpl16getNumberOfItersEv(ptr noundef nonnull align 8 dereferenceable(396) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %3 = load i32, ptr %2, align 4, !tbaa !885
+  %3 = load i32, ptr %2, align 4, !tbaa !887
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16RansacOutputImpl13getConfidenceEv(ptr noundef nonnull align 8 dereferenceable(396) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %3 = load i32, ptr %2, align 8, !tbaa !886
+  %3 = load i32, ptr %2, align 8, !tbaa !888
   ret i32 %3
 }
 
@@ -34896,7 +34896,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %34 = getelementptr inbounds i32, ptr %0, i64 %.035.i.i.i.i
   store i32 %33, ptr %34, align 4, !tbaa !46
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !887
+  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !889
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -34940,14 +34940,14 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %52 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
   store i32 %49, ptr %52, align 4, !tbaa !46
   %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
-  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !888
+  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !890
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
   %53 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %16, ptr %53, align 4, !tbaa !46
   %54 = icmp sgt i64 %19, 4
-  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !889
+  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !891
 
 55:                                               ; preds = %11
   %56 = add nsw i64 %.018, -1
@@ -35024,14 +35024,14 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
   %84 = load i32, ptr %.sroa.010.1.i.i, align 4, !tbaa !46
   %85 = icmp slt i32 %84, %82
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 4
-  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !890
+  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !892
 
 .preheader.i.i:                                   ; preds = %83, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %83 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
   %87 = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !46
   %88 = icmp slt i32 %82, %87
-  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !891
+  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !893
 
 89:                                               ; preds = %.preheader.i.i
   %90 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
@@ -35040,7 +35040,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
 91:                                               ; preds = %89
   store i32 %87, ptr %.sroa.010.1.i.i, align 4, !tbaa !46
   store i32 %84, ptr %.sroa.0.1.i.i, align 4, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_.exit.i, !llvm.loop !892
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_.exit.i, !llvm.loop !894
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit: ; preds = %89
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge17, i64 noundef %56)
@@ -35048,7 +35048,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSa
   %93 = sub i64 %92, %5
   %94 = ashr exact i64 %93, 2
   %95 = icmp sgt i64 %94, 16
-  br i1 %95, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !893
+  br i1 %95, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !895
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, %3
   ret void
@@ -35103,7 +35103,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %33 = getelementptr inbounds i32, ptr %0, i64 %.035.i.us
   store i32 %32, ptr %33, align 4, !tbaa !46
   %34 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !887
+  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !889
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %35 = icmp sgt i64 %spec.select.i.us, %.08.us
@@ -35122,7 +35122,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %40 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4, !tbaa !46
   %41 = icmp sgt i64 %.0920.i.i.us, %.08.us
-  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !888
+  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !890
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
@@ -35130,7 +35130,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   store i32 %21, ptr %42, align 4, !tbaa !46
   %.not.us = icmp eq i64 %.08.us, 0
   %43 = add nsw i64 %.08.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !894
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !896
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
   %.08 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -35155,7 +35155,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %57 = getelementptr inbounds i32, ptr %0, i64 %.035.i
   store i32 %56, ptr %57, align 4, !tbaa !46
   %58 = icmp slt i64 %spec.select.i, %13
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !887
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !889
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.08, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -35185,7 +35185,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %68 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4, !tbaa !46
   %69 = icmp sgt i64 %.0920.i.i, %.08
-  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !888
+  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !890
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
@@ -35193,7 +35193,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   store i32 %45, ptr %70, align 4, !tbaa !46
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !894
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !897
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -35269,59 +35269,59 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethod
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 576) (i8, ptr @_ZTVN2cv4usac9ModelImplE, i64 16), ptr %0, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %1, ptr %10, align 8, !tbaa !895
+  store double %1, ptr %10, align 8, !tbaa !898
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %11, align 8, !tbaa !902
+  store i32 %2, ptr %11, align 8, !tbaa !905
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %12, align 4, !tbaa !903
+  store i32 %3, ptr %12, align 4, !tbaa !906
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %4, ptr %13, align 8, !tbaa !904
+  store double %4, ptr %13, align 8, !tbaa !907
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %5, ptr %14, align 8, !tbaa !905
+  store i32 %5, ptr %14, align 8, !tbaa !908
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %6, ptr %15, align 4, !tbaa !906
+  store i32 %6, ptr %15, align 4, !tbaa !909
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 1, ptr %16, align 4, !tbaa !907
+  store i8 1, ptr %16, align 4, !tbaa !910
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 10, ptr %17, align 8, !tbaa !908
+  store i32 10, ptr %17, align 8, !tbaa !911
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 15, ptr %18, align 4, !tbaa !909
+  store i32 15, ptr %18, align 4, !tbaa !912
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %19, align 8, !tbaa !910
+  store i32 0, ptr %19, align 8, !tbaa !913
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 200000, ptr %20, align 4, !tbaa !911
+  store i32 200000, ptr %20, align 4, !tbaa !914
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 8, ptr %21, align 8, !tbaa !912
+  store i32 8, ptr %21, align 8, !tbaa !915
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 50, ptr %22, align 4, !tbaa !913
+  store i32 50, ptr %22, align 4, !tbaa !916
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 30, ptr %23, align 8, !tbaa !914
+  store i32 30, ptr %23, align 8, !tbaa !917
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 1, ptr %24, align 4, !tbaa !915
+  store i32 1, ptr %24, align 4, !tbaa !918
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 1, ptr %25, align 8, !tbaa !916
+  store i32 1, ptr %25, align 8, !tbaa !919
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 12, ptr %26, align 4, !tbaa !917
+  store i32 12, ptr %26, align 4, !tbaa !920
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 20, ptr %27, align 8, !tbaa !918
+  store i32 20, ptr %27, align 8, !tbaa !921
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 8, ptr %28, align 4, !tbaa !919
+  store i32 8, ptr %28, align 4, !tbaa !922
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 10, ptr %29, align 8, !tbaa !920
+  store i32 10, ptr %29, align 8, !tbaa !923
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 30, ptr %30, align 4, !tbaa !921
+  store i32 30, ptr %30, align 4, !tbaa !924
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double 0x3FEF333333333333, ptr %31, align 8, !tbaa !922
+  store double 0x3FEF333333333333, ptr %31, align 8, !tbaa !925
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 3, ptr %32, align 8, !tbaa !923
+  store i32 3, ptr %32, align 8, !tbaa !926
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 2, ptr %33, align 4, !tbaa !924
+  store i32 2, ptr %33, align 4, !tbaa !927
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store double 2.000000e-02, ptr %34, align 8, !tbaa !925
+  store double 2.000000e-02, ptr %34, align 8, !tbaa !928
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store double 8.000000e-03, ptr %35, align 8, !tbaa !926
+  store double 8.000000e-03, ptr %35, align 8, !tbaa !929
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 1.000000e-01, ptr %36, align 8, !tbaa !927
+  store double 1.000000e-01, ptr %36, align 8, !tbaa !930
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #25
@@ -35340,31 +35340,31 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethod
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %40, ptr %42, align 8, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 7, ptr %43, align 8, !tbaa !928
+  store i32 7, ptr %43, align 8, !tbaa !931
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i8 1, ptr %44, align 4, !tbaa !929
+  store i8 1, ptr %44, align 4, !tbaa !932
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 197
-  store i8 0, ptr %45, align 1, !tbaa !930
+  store i8 0, ptr %45, align 1, !tbaa !933
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 198
-  store i8 0, ptr %46, align 2, !tbaa !931
+  store i8 0, ptr %46, align 2, !tbaa !934
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 0, ptr %47, align 8, !tbaa !932
+  store i32 0, ptr %47, align 8, !tbaa !935
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  store i32 300, ptr %48, align 4, !tbaa !933
+  store i32 300, ptr %48, align 4, !tbaa !936
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i32 2, ptr %49, align 8, !tbaa !934
+  store i32 2, ptr %49, align 8, !tbaa !937
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 3.040000e+00, ptr %50, align 8, !tbaa !935
+  store double 3.040000e+00, ptr %50, align 8, !tbaa !938
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store double 4.190000e-03, ptr %51, align 8, !tbaa !936
+  store double 4.190000e-03, ptr %51, align 8, !tbaa !939
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store double 8.629000e-01, ptr %52, align 8, !tbaa !937
+  store double 8.629000e-01, ptr %52, align 8, !tbaa !940
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store double 5.000000e-01, ptr %53, align 8, !tbaa !938
+  store double 5.000000e-01, ptr %53, align 8, !tbaa !941
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store double 7.500000e+00, ptr %54, align 8, !tbaa !939
+  store double 7.500000e+00, ptr %54, align 8, !tbaa !942
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store double 2.250000e+00, ptr %55, align 8, !tbaa !940
+  store double 2.250000e+00, ptr %55, align 8, !tbaa !943
   switch i32 %2, label %79 [
     i32 4, label %58
     i32 0, label %61
@@ -35382,64 +35382,64 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImplC2EdNS0_16EstimationMethod
 
 58:                                               ; preds = %39
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 1.000000e+00, ptr %59, align 8, !tbaa !941
+  store double 1.000000e+00, ptr %59, align 8, !tbaa !944
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 5.000000e+01, ptr %60, align 8, !tbaa !942
+  store double 5.000000e+01, ptr %60, align 8, !tbaa !945
   br label %94
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 8.000000e-01, ptr %62, align 8, !tbaa !941
+  store double 8.000000e-01, ptr %62, align 8, !tbaa !944
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 2.000000e+02, ptr %63, align 8, !tbaa !942
+  store double 2.000000e+02, ptr %63, align 8, !tbaa !945
   br label %94
 
 64:                                               ; preds = %39
-  store i32 4, ptr %49, align 8, !tbaa !934
-  store double 2.500000e-01, ptr %53, align 8, !tbaa !938
-  store double 3.640000e+00, ptr %50, align 8, !tbaa !935
-  store double 3.657000e-03, ptr %51, align 8, !tbaa !936
-  store double 1.301200e+00, ptr %52, align 8, !tbaa !937
-  store double 2.500000e+00, ptr %54, align 8, !tbaa !939
+  store i32 4, ptr %49, align 8, !tbaa !937
+  store double 2.500000e-01, ptr %53, align 8, !tbaa !941
+  store double 3.640000e+00, ptr %50, align 8, !tbaa !938
+  store double 3.657000e-03, ptr %51, align 8, !tbaa !939
+  store double 1.301200e+00, ptr %52, align 8, !tbaa !940
+  store double 2.500000e+00, ptr %54, align 8, !tbaa !942
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 1.500000e+00, ptr %65, align 8, !tbaa !941
+  store double 1.500000e+00, ptr %65, align 8, !tbaa !944
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 2.000000e+02, ptr %66, align 8, !tbaa !942
+  store double 2.000000e+02, ptr %66, align 8, !tbaa !945
   br label %94
 
 67:                                               ; preds = %39
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 1.000000e+00, ptr %68, align 8, !tbaa !941
+  store double 1.000000e+00, ptr %68, align 8, !tbaa !944
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 1.000000e+02, ptr %69, align 8, !tbaa !942
-  store double 2.500000e+00, ptr %54, align 8, !tbaa !939
+  store double 1.000000e+02, ptr %69, align 8, !tbaa !945
+  store double 2.500000e+00, ptr %54, align 8, !tbaa !942
   br label %94
 
 70:                                               ; preds = %39
-  store i32 4, ptr %49, align 8, !tbaa !934
-  store double 2.500000e-01, ptr %53, align 8, !tbaa !938
-  store double 3.640000e+00, ptr %50, align 8, !tbaa !935
-  store double 3.657000e-03, ptr %51, align 8, !tbaa !936
-  store double 1.301200e+00, ptr %52, align 8, !tbaa !937
+  store i32 4, ptr %49, align 8, !tbaa !937
+  store double 2.500000e-01, ptr %53, align 8, !tbaa !941
+  store double 3.640000e+00, ptr %50, align 8, !tbaa !938
+  store double 3.657000e-03, ptr %51, align 8, !tbaa !939
+  store double 1.301200e+00, ptr %52, align 8, !tbaa !940
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 3.930000e+00, ptr %71, align 8, !tbaa !941
+  store double 3.930000e+00, ptr %71, align 8, !tbaa !944
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 1.000000e+03, ptr %72, align 8, !tbaa !942
-  store double 2.000000e+00, ptr %54, align 8, !tbaa !939
+  store double 1.000000e+03, ptr %72, align 8, !tbaa !945
+  store double 2.000000e+00, ptr %54, align 8, !tbaa !942
   br label %94
 
 73:                                               ; preds = %39
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 1.380000e+00, ptr %74, align 8, !tbaa !941
+  store double 1.380000e+00, ptr %74, align 8, !tbaa !944
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 8.000000e+02, ptr %75, align 8, !tbaa !942
+  store double 8.000000e+02, ptr %75, align 8, !tbaa !945
   br label %94
 
 76:                                               ; preds = %39
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double 1.000000e+00, ptr %77, align 8, !tbaa !941
+  store double 1.000000e+00, ptr %77, align 8, !tbaa !944
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double 3.000000e+02, ptr %78, align 8, !tbaa !942
+  store double 3.000000e+02, ptr %78, align 8, !tbaa !945
   br label %94
 
 79:                                               ; preds = %39
@@ -35495,14 +35495,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sink19 = phi i32 [ 6, %76 ], [ 3, %73 ], [ 5, %70 ], [ 8, %67 ], [ 7, %64 ], [ 4, %61 ], [ 3, %58 ]
   %.sink = phi i32 [ 5, %76 ], [ 5, %73 ], [ 1, %70 ], [ 1, %67 ], [ 1, %64 ], [ 4, %61 ], [ 4, %58 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink19, ptr %95, align 8, !tbaa !943
+  store i32 %.sink19, ptr %95, align 8, !tbaa !946
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %.sink, ptr %96, align 8, !tbaa !944
+  store i32 %.sink, ptr %96, align 8, !tbaa !947
   %97 = icmp eq i32 %6, 2
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %94
-  store i32 2, ptr %32, align 8, !tbaa !923
+  store i32 2, ptr %32, align 8, !tbaa !926
   br label %99
 
 99:                                               ; preds = %98, %94
@@ -35511,9 +35511,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %or.cond, label %101, label %102
 
 101:                                              ; preds = %99
-  store i32 1, ptr %32, align 8, !tbaa !923
-  store i32 0, ptr %24, align 4, !tbaa !915
-  store i32 2, ptr %21, align 8, !tbaa !912
+  store i32 1, ptr %32, align 8, !tbaa !926
+  store i32 0, ptr %24, align 4, !tbaa !918
+  store i32 2, ptr %21, align 8, !tbaa !915
   br label %102
 
 102:                                              ; preds = %99, %101
@@ -35563,7 +35563,7 @@ _ZN2cv4usac9ModelImplD2Ev.exit:                   ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl13isFundamentalEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !902
+  %3 = load i32, ptr %2, align 8, !tbaa !905
   %4 = add i32 %3, -1
   %spec.select = icmp ult i32 %4, 2
   ret i1 %spec.select
@@ -35572,7 +35572,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl13isFundame
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl12isHomographyEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !902
+  %3 = load i32, ptr %2, align 8, !tbaa !905
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -35580,7 +35580,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl12isHomogra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl11isEssentialEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !902
+  %3 = load i32, ptr %2, align 8, !tbaa !905
   %4 = icmp eq i32 %3, 3
   ret i1 %4
 }
@@ -35588,7 +35588,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl11isEssenti
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl5isPnPEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !902
+  %3 = load i32, ptr %2, align 8, !tbaa !905
   %4 = add i32 %3, -5
   %spec.select = icmp ult i32 %4, 2
   ret i1 %spec.select
@@ -35597,14 +35597,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl5isPnPEv(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl13getSampleSizeEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !943
+  %3 = load i32, ptr %2, align 8, !tbaa !946
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl10isParallelEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 197
-  %3 = load i8, ptr %2, align 1, !tbaa !930, !range !101, !noundef !102
+  %3 = load i8, ptr %2, align 1, !tbaa !933, !range !101, !noundef !102
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -35612,140 +35612,140 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl10isParalle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl16getFinalPolisherEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i32, ptr %2, align 8, !tbaa !923
+  %3 = load i32, ptr %2, align 8, !tbaa !926
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl5getLOEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load i32, ptr %2, align 8, !tbaa !916
+  %3 = load i32, ptr %2, align 8, !tbaa !919
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl8getErrorEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i32, ptr %2, align 8, !tbaa !944
+  %3 = load i32, ptr %2, align 8, !tbaa !947
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl12getEstimatorEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !902
+  %3 = load i32, ptr %2, align 8, !tbaa !905
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl8getScoreEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %3 = load i32, ptr %2, align 4, !tbaa !906
+  %3 = load i32, ptr %2, align 4, !tbaa !909
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl11getMaxItersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !905
+  %3 = load i32, ptr %2, align 8, !tbaa !908
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl13getConfidenceEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load double, ptr %2, align 8, !tbaa !904
+  %3 = load double, ptr %2, align 8, !tbaa !907
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl12getThresholdEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load double, ptr %2, align 8, !tbaa !895
+  %3 = load double, ptr %2, align 8, !tbaa !898
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl11getVerifierEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %3 = load i32, ptr %2, align 4, !tbaa !924
+  %3 = load i32, ptr %2, align 4, !tbaa !927
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl10getSamplerEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !903
+  %3 = load i32, ptr %2, align 4, !tbaa !906
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl25getTimeForModelEstimationEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %3 = load double, ptr %2, align 8, !tbaa !942
+  %3 = load double, ptr %2, align 8, !tbaa !945
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl12getSPRTdeltaEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load double, ptr %2, align 8, !tbaa !926
+  %3 = load double, ptr %2, align 8, !tbaa !929
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl14getSPRTepsilonEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load double, ptr %2, align 8, !tbaa !925
+  %3 = load double, ptr %2, align 8, !tbaa !928
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl19getSPRTavgNumModelsEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load double, ptr %2, align 8, !tbaa !941
+  %3 = load double, ptr %2, align 8, !tbaa !944
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl18getNeighborsSearchEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %3 = load i32, ptr %2, align 4, !tbaa !915
+  %3 = load i32, ptr %2, align 4, !tbaa !918
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl6getKNNEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i32, ptr %2, align 8, !tbaa !912
+  %3 = load i32, ptr %2, align 8, !tbaa !915
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl11getCellSizeEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %3 = load i32, ptr %2, align 4, !tbaa !913
+  %3 = load i32, ptr %2, align 4, !tbaa !916
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl14getGraphRadiusEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i32, ptr %2, align 8, !tbaa !914
+  %3 = load i32, ptr %2, align 8, !tbaa !917
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl12getRelaxCoefEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load double, ptr %2, align 8, !tbaa !927
+  %3 = load double, ptr %2, align 8, !tbaa !930
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl19isNonRandomnessTestEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 198
-  %3 = load i8, ptr %2, align 2, !tbaa !931, !range !101, !noundef !102
+  %3 = load i8, ptr %2, align 2, !tbaa !934, !range !101, !noundef !102
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -35753,98 +35753,98 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl19isNonRand
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl21getFinalLSQIterationsEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i32, ptr %2, align 8, !tbaa !928
+  %3 = load i32, ptr %2, align 8, !tbaa !931
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl19getDegreesOfFreedomEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %3 = load i32, ptr %2, align 8, !tbaa !934
+  %3 = load i32, ptr %2, align 8, !tbaa !937
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl16getSigmaQuantileEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load double, ptr %2, align 8, !tbaa !935
+  %3 = load double, ptr %2, align 8, !tbaa !938
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl33getUpperIncompleteOfSigmaQuantileEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load double, ptr %2, align 8, !tbaa !936
+  %3 = load double, ptr %2, align 8, !tbaa !939
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl33getLowerIncompleteOfSigmaQuantileEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %3 = load double, ptr %2, align 8, !tbaa !937
+  %3 = load double, ptr %2, align 8, !tbaa !940
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl4getCEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = load double, ptr %2, align 8, !tbaa !938
+  %3 = load double, ptr %2, align 8, !tbaa !941
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl19getMaximumThresholdEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load double, ptr %2, align 8, !tbaa !939
+  %3 = load double, ptr %2, align 8, !tbaa !942
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl31getGraphCutSpatialCoherenceTermEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load double, ptr %2, align 8, !tbaa !922
+  %3 = load double, ptr %2, align 8, !tbaa !925
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv4usac9ModelImpl10getKmlesacEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load double, ptr %2, align 8, !tbaa !940
+  %3 = load double, ptr %2, align 8, !tbaa !943
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl15getLOSampleSizeEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %3 = load i32, ptr %2, align 4, !tbaa !917
+  %3 = load i32, ptr %2, align 4, !tbaa !920
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl24getLOThresholdMultiplierEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8, !tbaa !920
+  %3 = load i32, ptr %2, align 8, !tbaa !923
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl24getLOIterativeSampleSizeEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %3 = load i32, ptr %2, align 4, !tbaa !921
+  %3 = load i32, ptr %2, align 4, !tbaa !924
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl22getLOIterativeMaxItersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %3 = load i32, ptr %2, align 4, !tbaa !919
+  %3 = load i32, ptr %2, align 4, !tbaa !922
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl18getLOInnerMaxItersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !918
+  %3 = load i32, ptr %2, align 8, !tbaa !921
   ret i32 %3
 }
 
@@ -35857,42 +35857,42 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl23getRandomGeneratorStateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load i32, ptr %2, align 8, !tbaa !932
+  %3 = load i32, ptr %2, align 8, !tbaa !935
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl15getRansacSolverEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i32, ptr %2, align 8, !tbaa !910
+  %3 = load i32, ptr %2, align 8, !tbaa !913
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl24getPlaneAndParallaxItersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %3 = load i32, ptr %2, align 4, !tbaa !933
+  %3 = load i32, ptr %2, align 4, !tbaa !936
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl15getLevMarqItersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !909
+  %3 = load i32, ptr %2, align 4, !tbaa !912
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl17getLevMarqItersLOEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i32, ptr %2, align 8, !tbaa !908
+  %3 = load i32, ptr %2, align 8, !tbaa !911
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl21isLarssonOptimizationEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %3 = load i8, ptr %2, align 4, !tbaa !907, !range !101, !noundef !102
+  %3 = load i8, ptr %2, align 4, !tbaa !910, !range !101, !noundef !102
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -35900,7 +35900,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl21isLarsson
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl19getProsacMaxSamplesEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %3 = load i32, ptr %2, align 4, !tbaa !911
+  %3 = load i32, ptr %2, align 4, !tbaa !914
   ret i32 %3
 }
 
@@ -35908,35 +35908,35 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac9ModelImpl19getProsacMaxSamp
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl20setNonRandomnessTestEb(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1) unnamed_addr #9 comdat align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 198
-  store i8 %3, ptr %4, align 2, !tbaa !931
+  store i8 %3, ptr %4, align 2, !tbaa !934
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl20setLocalOptimizationENS_16LocalOptimMethodE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %1, ptr %3, align 8, !tbaa !916
+  store i32 %1, ptr %3, align 8, !tbaa !919
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl21setKNearestNeighhborsEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %1, ptr %3, align 8, !tbaa !912
+  store i32 %1, ptr %3, align 8, !tbaa !915
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl16setNeighborsTypeENS_20NeighborSearchMethodE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %1, ptr %3, align 4, !tbaa !915
+  store i32 %1, ptr %3, align 4, !tbaa !918
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setCellSizeEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %1, ptr %3, align 4, !tbaa !913
+  store i32 %1, ptr %3, align 4, !tbaa !916
   ret void
 }
 
@@ -35944,63 +35944,63 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setCellSizeEi(ptr nounde
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setParallelEb(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1) unnamed_addr #9 comdat align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 197
-  store i8 %3, ptr %4, align 1, !tbaa !930
+  store i8 %3, ptr %4, align 1, !tbaa !933
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setVerifierENS0_18VerificationMethodE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %1, ptr %3, align 4, !tbaa !924
+  store i32 %1, ptr %3, align 4, !tbaa !927
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setPolisherENS_15PolishingMethodE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %1, ptr %3, align 8, !tbaa !923
+  store i32 %1, ptr %3, align 8, !tbaa !926
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl8setErrorENS0_11ErrorMetricE(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %1, ptr %3, align 8, !tbaa !944
+  store i32 %1, ptr %3, align 8, !tbaa !947
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl15setLOIterationsEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %1, ptr %3, align 8, !tbaa !918
+  store i32 %1, ptr %3, align 8, !tbaa !921
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl19setLOIterativeItersEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %1, ptr %3, align 4, !tbaa !919
+  store i32 %1, ptr %3, align 4, !tbaa !922
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl15setLOSampleSizeEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %1, ptr %3, align 4, !tbaa !917
+  store i32 %1, ptr %3, align 4, !tbaa !920
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl23setRandomGeneratorStateEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %1, ptr %3, align 8, !tbaa !932
+  store i32 %1, ptr %3, align 8, !tbaa !935
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setFinalLSQEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %1, ptr %3, align 8, !tbaa !928
+  store i32 %1, ptr %3, align 8, !tbaa !931
   ret void
 }
 
@@ -36008,14 +36008,14 @@ define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl11setFinalLSQEi(ptr nounde
 define linkonce_odr hidden void @_ZN2cv4usac9ModelImpl12maskRequiredEb(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1) unnamed_addr #9 comdat align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i8 %3, ptr %4, align 4, !tbaa !929
+  store i8 %3, ptr %4, align 4, !tbaa !932
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac9ModelImpl14isMaskRequiredEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %3 = load i8, ptr %2, align 4, !tbaa !929, !range !101, !noundef !102
+  %3 = load i8, ptr %2, align 4, !tbaa !932, !range !101, !noundef !102
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -36953,79 +36953,82 @@ attributes #29 = { noreturn nounwind }
 !866 = !{!865, !402, i64 8}
 !867 = !{!865, !765, i64 16}
 !868 = !{!865, !418, i64 24}
-!869 = distinct !{!869, !48}
-!870 = distinct !{!870, !48}
-!871 = !{!872, !9, i64 384}
-!872 = !{!"_ZTSN2cv4usac16RansacOutputImplE", !873, i64 0, !875, i64 8, !67, i64 32, !67, i64 128, !67, i64 224, !878, i64 320, !881, i64 360, !9, i64 384, !9, i64 388, !884, i64 392}
-!873 = !{!"_ZTSN2cv4usac12RansacOutputE", !874, i64 0}
-!874 = !{!"_ZTSN2cv9AlgorithmE"}
-!875 = !{!"_ZTSSt6vectorIiSaIiEE", !876, i64 0}
-!876 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !877, i64 0}
-!877 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !52, i64 0}
-!878 = !{!"_ZTSSt6vectorIbSaIbEE", !879, i64 0}
-!879 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !880, i64 0}
-!880 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !283, i64 0}
-!881 = !{!"_ZTSSt6vectorIfSaIfEE", !882, i64 0}
-!882 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !883, i64 0}
-!883 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !494, i64 0}
-!884 = !{!"_ZTSN2cv4usac15ModelConfidenceE", !6, i64 0}
-!885 = !{!872, !9, i64 388}
-!886 = !{!872, !884, i64 392}
-!887 = distinct !{!887, !48}
-!888 = distinct !{!888, !48}
+!869 = distinct !{!869, !48, !870}
+!870 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!871 = distinct !{!871, !48}
+!872 = distinct !{!872, !48}
+!873 = !{!874, !9, i64 384}
+!874 = !{!"_ZTSN2cv4usac16RansacOutputImplE", !875, i64 0, !877, i64 8, !67, i64 32, !67, i64 128, !67, i64 224, !880, i64 320, !883, i64 360, !9, i64 384, !9, i64 388, !886, i64 392}
+!875 = !{!"_ZTSN2cv4usac12RansacOutputE", !876, i64 0}
+!876 = !{!"_ZTSN2cv9AlgorithmE"}
+!877 = !{!"_ZTSSt6vectorIiSaIiEE", !878, i64 0}
+!878 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !879, i64 0}
+!879 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !52, i64 0}
+!880 = !{!"_ZTSSt6vectorIbSaIbEE", !881, i64 0}
+!881 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !882, i64 0}
+!882 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !283, i64 0}
+!883 = !{!"_ZTSSt6vectorIfSaIfEE", !884, i64 0}
+!884 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !885, i64 0}
+!885 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !494, i64 0}
+!886 = !{!"_ZTSN2cv4usac15ModelConfidenceE", !6, i64 0}
+!887 = !{!874, !9, i64 388}
+!888 = !{!874, !886, i64 392}
 !889 = distinct !{!889, !48}
 !890 = distinct !{!890, !48}
 !891 = distinct !{!891, !48}
 !892 = distinct !{!892, !48}
 !893 = distinct !{!893, !48}
 !894 = distinct !{!894, !48}
-!895 = !{!896, !5, i64 8}
-!896 = !{!"_ZTSN2cv4usac9ModelImplE", !897, i64 0, !5, i64 8, !898, i64 16, !12, i64 20, !5, i64 24, !9, i64 32, !13, i64 36, !9, i64 40, !8, i64 44, !9, i64 48, !9, i64 52, !899, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !9, i64 72, !11, i64 76, !10, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !9, i64 100, !5, i64 104, !14, i64 112, !900, i64 116, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !901, i64 152, !5, i64 160, !875, i64 168, !9, i64 192, !8, i64 196, !8, i64 197, !8, i64 198, !9, i64 200, !9, i64 204, !9, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256}
-!897 = !{!"_ZTSN2cv4usac5ModelE", !874, i64 0}
-!898 = !{!"_ZTSN2cv4usac16EstimationMethodE", !6, i64 0}
-!899 = !{!"_ZTSN2cv4usac12MethodSolverE", !6, i64 0}
-!900 = !{!"_ZTSN2cv4usac18VerificationMethodE", !6, i64 0}
-!901 = !{!"_ZTSN2cv4usac11ErrorMetricE", !6, i64 0}
-!902 = !{!896, !898, i64 16}
-!903 = !{!896, !12, i64 20}
-!904 = !{!896, !5, i64 24}
-!905 = !{!896, !9, i64 32}
-!906 = !{!896, !13, i64 36}
-!907 = !{!896, !8, i64 44}
-!908 = !{!896, !9, i64 48}
-!909 = !{!896, !9, i64 52}
-!910 = !{!896, !899, i64 56}
-!911 = !{!896, !9, i64 60}
-!912 = !{!896, !9, i64 64}
-!913 = !{!896, !9, i64 68}
-!914 = !{!896, !9, i64 72}
-!915 = !{!896, !11, i64 76}
-!916 = !{!896, !10, i64 80}
-!917 = !{!896, !9, i64 84}
-!918 = !{!896, !9, i64 88}
-!919 = !{!896, !9, i64 92}
-!920 = !{!896, !9, i64 96}
-!921 = !{!896, !9, i64 100}
-!922 = !{!896, !5, i64 104}
-!923 = !{!896, !14, i64 112}
-!924 = !{!896, !900, i64 116}
-!925 = !{!896, !5, i64 120}
-!926 = !{!896, !5, i64 128}
-!927 = !{!896, !5, i64 160}
-!928 = !{!896, !9, i64 192}
-!929 = !{!896, !8, i64 196}
-!930 = !{!896, !8, i64 197}
-!931 = !{!896, !8, i64 198}
-!932 = !{!896, !9, i64 200}
-!933 = !{!896, !9, i64 204}
-!934 = !{!896, !9, i64 208}
-!935 = !{!896, !5, i64 216}
-!936 = !{!896, !5, i64 224}
-!937 = !{!896, !5, i64 232}
-!938 = !{!896, !5, i64 240}
-!939 = !{!896, !5, i64 248}
-!940 = !{!896, !5, i64 256}
-!941 = !{!896, !5, i64 136}
-!942 = !{!896, !5, i64 144}
-!943 = !{!896, !9, i64 40}
-!944 = !{!896, !901, i64 152}
+!895 = distinct !{!895, !48}
+!896 = distinct !{!896, !48, !870}
+!897 = distinct !{!897, !48}
+!898 = !{!899, !5, i64 8}
+!899 = !{!"_ZTSN2cv4usac9ModelImplE", !900, i64 0, !5, i64 8, !901, i64 16, !12, i64 20, !5, i64 24, !9, i64 32, !13, i64 36, !9, i64 40, !8, i64 44, !9, i64 48, !9, i64 52, !902, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !9, i64 72, !11, i64 76, !10, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !9, i64 100, !5, i64 104, !14, i64 112, !903, i64 116, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !904, i64 152, !5, i64 160, !877, i64 168, !9, i64 192, !8, i64 196, !8, i64 197, !8, i64 198, !9, i64 200, !9, i64 204, !9, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256}
+!900 = !{!"_ZTSN2cv4usac5ModelE", !876, i64 0}
+!901 = !{!"_ZTSN2cv4usac16EstimationMethodE", !6, i64 0}
+!902 = !{!"_ZTSN2cv4usac12MethodSolverE", !6, i64 0}
+!903 = !{!"_ZTSN2cv4usac18VerificationMethodE", !6, i64 0}
+!904 = !{!"_ZTSN2cv4usac11ErrorMetricE", !6, i64 0}
+!905 = !{!899, !901, i64 16}
+!906 = !{!899, !12, i64 20}
+!907 = !{!899, !5, i64 24}
+!908 = !{!899, !9, i64 32}
+!909 = !{!899, !13, i64 36}
+!910 = !{!899, !8, i64 44}
+!911 = !{!899, !9, i64 48}
+!912 = !{!899, !9, i64 52}
+!913 = !{!899, !902, i64 56}
+!914 = !{!899, !9, i64 60}
+!915 = !{!899, !9, i64 64}
+!916 = !{!899, !9, i64 68}
+!917 = !{!899, !9, i64 72}
+!918 = !{!899, !11, i64 76}
+!919 = !{!899, !10, i64 80}
+!920 = !{!899, !9, i64 84}
+!921 = !{!899, !9, i64 88}
+!922 = !{!899, !9, i64 92}
+!923 = !{!899, !9, i64 96}
+!924 = !{!899, !9, i64 100}
+!925 = !{!899, !5, i64 104}
+!926 = !{!899, !14, i64 112}
+!927 = !{!899, !903, i64 116}
+!928 = !{!899, !5, i64 120}
+!929 = !{!899, !5, i64 128}
+!930 = !{!899, !5, i64 160}
+!931 = !{!899, !9, i64 192}
+!932 = !{!899, !8, i64 196}
+!933 = !{!899, !8, i64 197}
+!934 = !{!899, !8, i64 198}
+!935 = !{!899, !9, i64 200}
+!936 = !{!899, !9, i64 204}
+!937 = !{!899, !9, i64 208}
+!938 = !{!899, !5, i64 216}
+!939 = !{!899, !5, i64 224}
+!940 = !{!899, !5, i64 232}
+!941 = !{!899, !5, i64 240}
+!942 = !{!899, !5, i64 248}
+!943 = !{!899, !5, i64 256}
+!944 = !{!899, !5, i64 136}
+!945 = !{!899, !5, i64 144}
+!946 = !{!899, !9, i64 40}
+!947 = !{!899, !904, i64 152}

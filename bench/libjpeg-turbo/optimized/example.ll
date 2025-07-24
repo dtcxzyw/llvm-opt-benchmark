@@ -562,7 +562,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   %71 = load i32, ptr %50, align 8, !tbaa !84
   %72 = load i32, ptr %51, align 4, !tbaa !85
   %73 = icmp ult i32 %71, %72
-  br i1 %73, label %.lr.ph64.split, label %.loopexit, !llvm.loop !87
+  br i1 %73, label %.lr.ph64.split, label %.loopexit, !llvm.loop !89
 
 74:                                               ; preds = %.lr.ph, %74
   %75 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.71, i32 noundef 1) #11
@@ -571,7 +571,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   %78 = load i32, ptr %50, align 8, !tbaa !84
   %79 = load i32, ptr %51, align 4, !tbaa !85
   %80 = icmp ult i32 %78, %79
-  br i1 %80, label %74, label %.loopexit, !llvm.loop !88
+  br i1 %80, label %74, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %74, %.lr.ph64.split, %._crit_edge.us, %.preheader60, %.preheader
   %81 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %0) #11
@@ -587,9 +587,9 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !89
+  %2 = load ptr, ptr %0, align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 8, !tbaa !93
   tail call void %4(ptr noundef nonnull %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #17
@@ -732,8 +732,10 @@ attributes #17 = { noreturn nounwind }
 !84 = !{!61, !5, i64 168}
 !85 = !{!61, !5, i64 140}
 !86 = distinct !{!86, !13}
-!87 = distinct !{!87, !13}
-!88 = distinct !{!88, !13}
-!89 = !{!90, !16, i64 0}
-!90 = !{!"jpeg_common_struct", !16, i64 0, !17, i64 8, !18, i64 16, !10, i64 24, !5, i64 32, !5, i64 36}
-!91 = !{!32, !10, i64 16}
+!87 = distinct !{!87, !13, !88}
+!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!89 = distinct !{!89, !13}
+!90 = distinct !{!90, !13}
+!91 = !{!92, !16, i64 0}
+!92 = !{!"jpeg_common_struct", !16, i64 0, !17, i64 8, !18, i64 16, !10, i64 24, !5, i64 32, !5, i64 36}
+!93 = !{!32, !10, i64 16}

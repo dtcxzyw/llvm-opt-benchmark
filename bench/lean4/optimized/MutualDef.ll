@@ -239649,7 +239649,7 @@ lean_array_uget.exit.us:                          ; preds = %26, %25, %24, %.lr.
   %34 = tail call ptr @l_Lean_RBNode_insert___at_Lean_FVarIdMap_insert___spec__1___rarg(ptr noundef %.02237.us, ptr noundef %19, ptr noundef nonnull %1) #6
   %35 = add nuw i64 %.02038.us, 1
   %exitcond41.not = icmp eq i64 %35, %4
-  br i1 %exitcond41.not, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %exitcond41.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %14
   %.pre = ptrtoint ptr %1 to i64
@@ -458744,9 +458744,9 @@ lean_mk_thunk.exit:                               ; preds = %lean_alloc_closure.
   store i32 1, ptr %25, align 4, !tbaa !4
   store i32 -83886056, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store atomic ptr null, ptr %29 seq_cst, align 8, !tbaa !23
+  store atomic ptr null, ptr %29 seq_cst, align 8, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store atomic ptr %17, ptr %30 seq_cst, align 8, !tbaa !25
+  store atomic ptr %17, ptr %30 seq_cst, align 8, !tbaa !27
   tail call void @lean_inc_heartbeat() #6
   %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %32 = icmp eq ptr %31, null
@@ -467829,6 +467829,8 @@ attributes #7 = { noreturn nounwind }
 !20 = !{!"double", !7, i64 0}
 !21 = !{!"branch_weights", i32 4000000, i32 4001}
 !22 = !{!"branch_weights", i32 4001, i32 4000000}
-!23 = !{!24, !7, i64 8}
-!24 = !{!"", !5, i64 0, !7, i64 8, !7, i64 16}
-!25 = !{!24, !7, i64 16}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{!26, !7, i64 8}
+!26 = !{!"", !5, i64 0, !7, i64 8, !7, i64 16}
+!27 = !{!26, !7, i64 16}

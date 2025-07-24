@@ -1123,7 +1123,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   store i8 %92, ptr %93, align 1, !tbaa !27
   %94 = add nuw i64 %.295140, 1
   %exitcond159.not = icmp eq i64 %94, %.fr
-  br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !49
+  br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !50
 
 ._crit_edge147:                                   ; preds = %._crit_edge145.us, %.preheader129
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #12
@@ -1646,7 +1646,7 @@ define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %0, 
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @malloc(i64 noundef %2) #14
-  store ptr %6, ptr %4, align 8, !tbaa !50
+  store ptr %6, ptr %4, align 8, !tbaa !51
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %7, label %8
 
@@ -1658,25 +1658,25 @@ define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %0, 
   %9 = load ptr, ptr %1, align 8, !tbaa !6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %9, i64 %2, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %10, align 8, !tbaa !52
+  store i64 %2, ptr %10, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %2
   store ptr %11, ptr %1, align 8, !tbaa !6
   %.not21 = icmp eq ptr %0, null
   br i1 %.not21, label %17, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = icmp eq ptr %13, null
   br i1 %14, label %PKCS12_free.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %13, align 8, !tbaa !50
+  %16 = load ptr, ptr %13, align 8, !tbaa !51
   tail call void @free(ptr noundef %16) #12
   tail call void @free(ptr noundef nonnull %13) #12
   br label %PKCS12_free.exit
 
 PKCS12_free.exit:                                 ; preds = %12, %15
-  store ptr %4, ptr %0, align 8, !tbaa !53
+  store ptr %4, ptr %0, align 8, !tbaa !54
   br label %17
 
 17:                                               ; preds = %8, %PKCS12_free.exit, %3, %7
@@ -1696,7 +1696,7 @@ define hidden void @PKCS12_free(ptr noundef captures(address_is_null) %0) local_
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !50
+  %4 = load ptr, ptr %0, align 8, !tbaa !51
   tail call void @free(ptr noundef %4) #12
   tail call void @free(ptr noundef nonnull %0) #12
   br label %5
@@ -1718,8 +1718,8 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i64, ptr %3, align 8, !tbaa !57
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %10 = load i64, ptr %3, align 8, !tbaa !58
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @BIO_read(ptr noundef %0, ptr noundef %9, i32 noundef %11) #12
   %13 = icmp slt i32 %12, 0
@@ -1738,7 +1738,7 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 17:                                               ; preds = %.lr.ph
   %18 = zext nneg i32 %15 to i64
   %19 = add i64 %.02646, %18
-  %20 = load i64, ptr %3, align 8, !tbaa !57
+  %20 = load i64, ptr %3, align 8, !tbaa !58
   %21 = icmp ult i64 %19, %20
   br i1 %21, label %28, label %22
 
@@ -1753,12 +1753,12 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
   br i1 %27, label %d2i_PKCS12.exit, label %._crit_edge50
 
 ._crit_edge50:                                    ; preds = %24
-  %.pre = load i64, ptr %3, align 8, !tbaa !57
+  %.pre = load i64, ptr %3, align 8, !tbaa !58
   br label %28
 
 28:                                               ; preds = %._crit_edge50, %17
   %29 = phi i64 [ %.pre, %._crit_edge50 ], [ %20, %17 ]
-  %30 = load ptr, ptr %8, align 8, !tbaa !55
+  %30 = load ptr, ptr %8, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %19
   %32 = sub i64 %29, %19
   %33 = trunc i64 %32 to i32
@@ -1768,14 +1768,14 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
   %.02645 = phi i64 [ %19, %._crit_edge ], [ %.02646, %.lr.ph ]
-  %36 = load ptr, ptr %8, align 8, !tbaa !55
+  %36 = load ptr, ptr %8, align 8, !tbaa !56
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %d2i_PKCS12.exit, label %38
 
 38:                                               ; preds = %.thread
   %39 = tail call noalias ptr @malloc(i64 noundef %.02645) #14
-  store ptr %39, ptr %37, align 8, !tbaa !50
+  store ptr %39, ptr %37, align 8, !tbaa !51
   %.not20.i = icmp eq ptr %39, null
   br i1 %.not20.i, label %40, label %41
 
@@ -1786,23 +1786,23 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %36, i64 %.02645, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %.02645, ptr %42, align 8, !tbaa !52
+  store i64 %.02645, ptr %42, align 8, !tbaa !53
   %.not21.i = icmp eq ptr %1, null
   br i1 %.not21.i, label %d2i_PKCS12.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %1, align 8, !tbaa !53
+  %44 = load ptr, ptr %1, align 8, !tbaa !54
   %45 = icmp eq ptr %44, null
   br i1 %45, label %PKCS12_free.exit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %44, align 8, !tbaa !50
+  %47 = load ptr, ptr %44, align 8, !tbaa !51
   tail call void @free(ptr noundef %47) #12
   tail call void @free(ptr noundef nonnull %44) #12
   br label %PKCS12_free.exit.i
 
 PKCS12_free.exit.i:                               ; preds = %46, %43
-  store ptr %37, ptr %1, align 8, !tbaa !53
+  store ptr %37, ptr %1, align 8, !tbaa !54
   br label %d2i_PKCS12.exit
 
 d2i_PKCS12.exit:                                  ; preds = %24, %22, %.preheader, %._crit_edge, %PKCS12_free.exit.i, %41, %40, %.thread, %5
@@ -1851,7 +1851,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %4, align 8, !tbaa !58
+  %8 = load ptr, ptr %4, align 8, !tbaa !59
   %.not27.not = icmp eq ptr %8, null
   br i1 %.not27.not, label %.thread, label %12
 
@@ -1867,9 +1867,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
 12:                                               ; preds = %.thread, %7
   %.not27.not33 = phi i1 [ false, %7 ], [ true, %.thread ]
   %.1 = phi ptr [ %8, %7 ], [ %9, %.thread ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !50
+  %13 = load ptr, ptr %0, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !52
+  %15 = load i64, ptr %14, align 8, !tbaa !53
   call void @CBS_init(ptr noundef nonnull %6, ptr noundef %13, i64 noundef %15) #12
   %16 = call i32 @PKCS12_get_key_and_certs(ptr noundef %2, ptr noundef nonnull %.1, ptr noundef nonnull %6, ptr noundef %1)
   %.not28 = icmp eq i32 %16, 0
@@ -1883,21 +1883,21 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
   br label %26
 
 19:                                               ; preds = %12
-  store ptr null, ptr %3, align 8, !tbaa !59
+  store ptr null, ptr %3, align 8, !tbaa !60
   %20 = call i64 @sk_num(ptr noundef nonnull %.1) #12
   %.not30 = icmp eq i64 %20, 0
   br i1 %.not30, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = call ptr @sk_shift(ptr noundef nonnull %.1) #12
-  store ptr %22, ptr %3, align 8, !tbaa !59
+  store ptr %22, ptr %3, align 8, !tbaa !60
   br label %23
 
 23:                                               ; preds = %21, %19
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %23
-  store ptr %.1, ptr %4, align 8, !tbaa !58
+  store ptr %.1, ptr %4, align 8, !tbaa !59
   br label %26
 
 25:                                               ; preds = %23
@@ -1949,7 +1949,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr null, ptr %5, align 8, !tbaa !59
+  store ptr null, ptr %5, align 8, !tbaa !60
   %16 = call i32 @PKCS12_parse(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null)
   %.not14 = icmp eq i32 %16, 0
   br i1 %.not14, label %17, label %18
@@ -1961,7 +1961,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
 18:                                               ; preds = %15
   %19 = load ptr, ptr %4, align 8, !tbaa !33
   call void @EVP_PKEY_free(ptr noundef %19) #12
-  %20 = load ptr, ptr %5, align 8, !tbaa !59
+  %20 = load ptr, ptr %5, align 8, !tbaa !60
   call void @X509_free(ptr noundef %20) #12
   br label %21
 
@@ -1999,7 +1999,7 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %3, align 8, !tbaa !61
+  %13 = load i32, ptr %3, align 8, !tbaa !62
   %.not = icmp eq i32 %13, 16
   br i1 %.not, label %14, label %18
 
@@ -2029,7 +2029,7 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !63
+  %29 = load ptr, ptr %28, align 8, !tbaa !64
   %.not36 = icmp eq ptr %29, null
   br i1 %.not36, label %33, label %30
 
@@ -2040,7 +2040,7 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
 
 33:                                               ; preds = %27, %30
   %.031 = phi i32 [ %32, %30 ], [ 1, %27 ]
-  %34 = load ptr, ptr %24, align 8, !tbaa !65
+  %34 = load ptr, ptr %24, align 8, !tbaa !66
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !32
   %37 = load i32, ptr %34, align 8, !tbaa !30
@@ -2111,7 +2111,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %11) #12
   %12 = load ptr, ptr %0, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = call i32 @OBJ_obj2nid(ptr noundef %12) #12
   br label %17
 
@@ -2148,7 +2148,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
 
 get_pbe_suite.exit.i:                             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !67
+  %27 = load ptr, ptr %26, align 8, !tbaa !68
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
 
@@ -2164,7 +2164,7 @@ get_pbe_suite.exit.i:                             ; preds = %17
 32:                                               ; preds = %29, %get_pbe_suite.exit.i
   %.019.i = phi ptr [ %30, %29 ], [ null, %get_pbe_suite.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !68
+  %34 = load ptr, ptr %33, align 8, !tbaa !69
   %35 = icmp eq ptr %34, null
   br i1 %35, label %39, label %36
 
@@ -2180,7 +2180,7 @@ get_pbe_suite.exit.i:                             ; preds = %17
 39:                                               ; preds = %36, %32
   %.018.i = phi ptr [ %37, %36 ], [ null, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !69
+  %41 = load ptr, ptr %40, align 8, !tbaa !70
   %42 = call i32 %41(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef %14, ptr noundef %.019.i, ptr noundef %.018.i, i32 noundef range(i32 0, 2) %7) #12
   %.not27.i = icmp eq i32 %42, 0
   br i1 %.not27.i, label %43, label %pbe_cipher_init.exit
@@ -2375,25 +2375,26 @@ attributes #14 = { nounwind allocsize(0) }
 !45 = distinct !{!45, !22}
 !46 = distinct !{!46, !22}
 !47 = distinct !{!47, !22}
-!48 = distinct !{!48, !22}
-!49 = distinct !{!49, !22}
-!50 = !{!51, !7, i64 0}
-!51 = !{!"pkcs12_st", !7, i64 0, !12, i64 8}
-!52 = !{!51, !12, i64 8}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS9pkcs12_st", !8, i64 0}
-!55 = !{!56, !7, i64 8}
-!56 = !{!"buf_mem_st", !12, i64 0, !7, i64 8, !12, i64 16}
-!57 = !{!56, !12, i64 0}
-!58 = !{!38, !38, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS7x509_st", !8, i64 0}
-!61 = !{!62, !25, i64 0}
-!62 = !{!"asn1_type_st", !25, i64 0, !9, i64 8}
-!63 = !{!64, !16, i64 8}
-!64 = !{!"PBEPARAM_st", !16, i64 0, !16, i64 8}
-!65 = !{!64, !16, i64 0}
-!66 = !{!18, !20, i64 8}
-!67 = !{!24, !8, i64 8}
-!68 = !{!24, !8, i64 16}
-!69 = !{!24, !8, i64 24}
+!48 = distinct !{!48, !22, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !22}
+!51 = !{!52, !7, i64 0}
+!52 = !{!"pkcs12_st", !7, i64 0, !12, i64 8}
+!53 = !{!52, !12, i64 8}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS9pkcs12_st", !8, i64 0}
+!56 = !{!57, !7, i64 8}
+!57 = !{!"buf_mem_st", !12, i64 0, !7, i64 8, !12, i64 16}
+!58 = !{!57, !12, i64 0}
+!59 = !{!38, !38, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!62 = !{!63, !25, i64 0}
+!63 = !{!"asn1_type_st", !25, i64 0, !9, i64 8}
+!64 = !{!65, !16, i64 8}
+!65 = !{!"PBEPARAM_st", !16, i64 0, !16, i64 8}
+!66 = !{!65, !16, i64 0}
+!67 = !{!18, !20, i64 8}
+!68 = !{!24, !8, i64 8}
+!69 = !{!24, !8, i64 16}
+!70 = !{!24, !8, i64 24}

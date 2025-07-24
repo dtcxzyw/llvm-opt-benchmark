@@ -1898,7 +1898,7 @@ for.body71.us:                                    ; preds = %for.body71.us.prehe
   %Next.i.i.i82.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.096.us, i64 8
   %__begin2.sroa.0.0.us = load ptr, ptr %Next.i.i.i82.us, align 8
   %cmp.i79.not.us = icmp eq ptr %__begin2.sroa.0.0.us, %_specifiers105113
-  br i1 %cmp.i79.not.us, label %for.end104, label %for.body71.us
+  br i1 %cmp.i79.not.us, label %for.end104, label %for.body71.us, !llvm.loop !6
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.body71
   %__begin2.sroa.0.096 = phi ptr [ %__begin2.sroa.0.0, %for.body71 ], [ %__begin2.sroa.0.094, %for.body71.lr.ph ]
@@ -2353,13 +2353,13 @@ if.else:                                          ; preds = %for.body
   %11 = load ptr, ptr %caseLiterals, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %13 = load ptr, ptr %CurArray.i.i.i, align 8, !noalias !6
-  %14 = load ptr, ptr %valueSet, align 8, !noalias !6
+  %13 = load ptr, ptr %CurArray.i.i.i, align 8, !noalias !8
+  %14 = load ptr, ptr %valueSet, align 8, !noalias !8
   %cmp.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end31.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %15 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !6
+  %15 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !8
   %idx.ext.i.i = zext i32 %15 to i64
   %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i.i, 3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %add.ptr.idx.i.i
@@ -2369,7 +2369,7 @@ if.then.i.i:                                      ; preds = %if.else
 for.body.i.i:                                     ; preds = %if.then.i.i, %if.end.i.i
   %LastTombstone.028.i.i = phi ptr [ %spec.select.i.i, %if.end.i.i ], [ null, %if.then.i.i ]
   %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %14, %if.then.i.i ]
-  %16 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !6
+  %16 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !8
   %cmp3.i.i = icmp eq ptr %16, %12
   br i1 %cmp3.i.i, label %if.end29, label %if.end.i.i
 
@@ -2378,32 +2378,32 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %spec.select.i.i = select i1 %cmp8.i.i, ptr %APtr.027.i.i, ptr %LastTombstone.028.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %APtr.027.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %cmp11.not.i.i = icmp eq ptr %spec.select.i.i, null
   br i1 %cmp11.not.i.i, label %if.end16.i.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %for.end.i.i
-  store ptr %12, ptr %spec.select.i.i, align 8, !noalias !6
-  %17 = load i32, ptr %NumTombstones.i.i.i, align 8, !noalias !6
+  store ptr %12, ptr %spec.select.i.i, align 8, !noalias !8
+  %17 = load i32, ptr %NumTombstones.i.i.i, align 8, !noalias !8
   %dec.i.i = add i32 %17, -1
-  store i32 %dec.i.i, ptr %NumTombstones.i.i.i, align 8, !noalias !6
+  store i32 %dec.i.i, ptr %NumTombstones.i.i.i, align 8, !noalias !8
   br label %if.then27
 
 if.end16.i.i:                                     ; preds = %for.end.i.i, %if.then.i.i
-  %18 = load i32, ptr %CurArraySize.i.i.i, align 8, !noalias !6
+  %18 = load i32, ptr %CurArraySize.i.i.i, align 8, !noalias !8
   %cmp18.i.i = icmp ult i32 %15, %18
   br i1 %cmp18.i.i, label %if.then19.i.i, label %if.end31.i.i
 
 if.then19.i.i:                                    ; preds = %if.end16.i.i
   %inc.i.i = add nuw i32 %15, 1
-  store i32 %inc.i.i, ptr %NumNonEmpty.i.i.i, align 4, !noalias !6
-  store ptr %12, ptr %add.ptr.i.i, align 8, !noalias !6
+  store i32 %inc.i.i, ptr %NumNonEmpty.i.i.i, align 4, !noalias !8
+  store ptr %12, ptr %add.ptr.i.i, align 8, !noalias !8
   br label %if.then27
 
 if.end31.i.i:                                     ; preds = %if.end16.i.i, %if.else
-  %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %valueSet, ptr noundef %12) #8, !noalias !6
+  %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %valueSet, ptr noundef %12) #8, !noalias !8
   %19 = extractvalue { ptr, i8 } %call32.i.i, 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %if.then27, label %if.end29
@@ -2674,7 +2674,9 @@ attributes #10 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_: %agg.result"}
-!8 = distinct !{!8, !"_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_"}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_: %agg.result"}
+!10 = distinct !{!10, !"_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_"}
+!11 = distinct !{!11, !5}

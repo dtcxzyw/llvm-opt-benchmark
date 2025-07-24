@@ -1495,7 +1495,7 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %71
   %133 = load i32, ptr %101, align 4, !tbaa !98
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %132, %134
-  br i1 %135, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !106
+  br i1 %135, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !108
 
 do_barray_io.exit80:                              ; preds = %123, %.lr.ph.split.us.i, %94, %25
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1567,7 +1567,7 @@ do_barray_io.exit80:                              ; preds = %123, %.lr.ph.split.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %160, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !110
 
 .loopexit.thread:                                 ; preds = %.thread90, %146
   %166 = load ptr, ptr %0, align 8, !tbaa !14
@@ -1634,7 +1634,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %14, align 4, !tbaa !75
   %17 = getelementptr inbounds nuw i8, ptr %.05765, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %.05765, i64 72
-  %19 = load ptr, ptr %18, align 8, !tbaa !109
+  %19 = load ptr, ptr %18, align 8, !tbaa !111
   tail call void %19(ptr noundef %0, ptr noundef nonnull %17) #9
   br label %20
 
@@ -1642,7 +1642,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %21 = getelementptr inbounds nuw i8, ptr %.05765, i64 48
   %.057 = load ptr, ptr %21, align 8, !tbaa !88
   %.not = icmp eq ptr %.057, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %20, %12
   store ptr null, ptr %13, align 8, !tbaa !76
@@ -1662,7 +1662,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %23, align 4, !tbaa !85
   %26 = getelementptr inbounds nuw i8, ptr %.05668, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.05668, i64 72
-  %28 = load ptr, ptr %27, align 8, !tbaa !111
+  %28 = load ptr, ptr %27, align 8, !tbaa !113
   tail call void %28(ptr noundef %0, ptr noundef nonnull %26) #9
   br label %29
 
@@ -1670,7 +1670,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %.05668, i64 48
   %.056 = load ptr, ptr %30, align 8, !tbaa !90
   %.not58 = icmp eq ptr %.056, null
-  br i1 %.not58, label %._crit_edge71, label %.lr.ph70, !llvm.loop !112
+  br i1 %.not58, label %._crit_edge71, label %.lr.ph70, !llvm.loop !114
 
 ._crit_edge71:                                    ; preds = %29, %._crit_edge
   store ptr null, ptr %22, align 8, !tbaa !86
@@ -1703,7 +1703,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %46 = sub i64 %45, %44
   store i64 %46, ptr %36, align 8, !tbaa !37
   %.not59 = icmp eq ptr %38, null
-  br i1 %.not59, label %._crit_edge76, label %37, !llvm.loop !113
+  br i1 %.not59, label %._crit_edge76, label %37, !llvm.loop !115
 
 ._crit_edge76:                                    ; preds = %37, %31
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -1731,7 +1731,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
   %60 = sub i64 %59, %58
   store i64 %60, ptr %50, align 8, !tbaa !37
   %.not60 = icmp eq ptr %52, null
-  br i1 %.not60, label %._crit_edge81, label %51, !llvm.loop !114
+  br i1 %.not60, label %._crit_edge81, label %51, !llvm.loop !116
 
 ._crit_edge81:                                    ; preds = %51, %._crit_edge76
   ret void
@@ -1746,7 +1746,7 @@ define internal void @self_destruct(ptr noundef %0) #0 {
   tail call void @free_pool(ptr noundef %0, i32 noundef %.07)
   %3 = add nsw i32 %.07, -1
   %.not = icmp eq i32 %.07, 0
-  br i1 %.not, label %4, label %2, !llvm.loop !115
+  br i1 %.not, label %4, label %2, !llvm.loop !117
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1842,7 +1842,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %44 = load ptr, ptr %1, align 8, !tbaa !67
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.08699.us
   %46 = load ptr, ptr %45, align 8, !tbaa !56
-  %.sink = load ptr, ptr %.124, align 8, !tbaa !116
+  %.sink = load ptr, ptr %.124, align 8, !tbaa !118
   tail call void %.sink(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %46, i64 noundef %.0100.us, i64 noundef %43) #9
   %47 = add nuw nsw i64 %43, %.0100.us
   %48 = load i32, ptr %17, align 8, !tbaa !93
@@ -1851,7 +1851,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %51 = load i32, ptr %18, align 4, !tbaa !92
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !117
+  br i1 %53, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !119
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %54 = icmp samesign ult i32 %.fr110, 13
@@ -1889,7 +1889,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %73 = load ptr, ptr %1, align 8, !tbaa !67
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.08699.us103
   %75 = load ptr, ptr %74, align 8, !tbaa !60
-  %.sink120 = load ptr, ptr %.125, align 8, !tbaa !116
+  %.sink120 = load ptr, ptr %.125, align 8, !tbaa !118
   tail call void %.sink120(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %75, i64 noundef %.0100.us102, i64 noundef %72) #9
   %76 = add nuw nsw i64 %72, %.0100.us102
   %77 = load i32, ptr %17, align 8, !tbaa !93
@@ -1898,7 +1898,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %80 = load i32, ptr %18, align 4, !tbaa !92
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ult i64 %79, %81
-  br i1 %82, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !117
+  br i1 %82, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !120
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not96, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -1928,7 +1928,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
 99:                                               ; preds = %.lr.ph.split.split.split.us
   %100 = mul nuw nsw i64 %97, %12
   %101 = load ptr, ptr %1, align 8, !tbaa !67
-  %102 = load ptr, ptr %24, align 8, !tbaa !118
+  %102 = load ptr, ptr %24, align 8, !tbaa !121
   %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %.08699.us107
   %104 = load ptr, ptr %103, align 8, !tbaa !60
   tail call void %102(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %104, i64 noundef %.0100.us106, i64 noundef %100) #9
@@ -1939,7 +1939,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %109 = load i32, ptr %18, align 4, !tbaa !92
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %108, %110
-  br i1 %111, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !117
+  br i1 %111, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !122
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %128
   %112 = phi i32 [ %135, %128 ], [ %.pre115, %.lr.ph.split.split ]
@@ -1966,7 +1966,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
 128:                                              ; preds = %.lr.ph.split.split.split
   %129 = mul nuw nsw i64 %126, %12
   %130 = load ptr, ptr %1, align 8, !tbaa !67
-  %131 = load ptr, ptr %25, align 8, !tbaa !119
+  %131 = load ptr, ptr %25, align 8, !tbaa !123
   %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %.08699
   %133 = load ptr, ptr %132, align 8, !tbaa !60
   tail call void %131(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %133, i64 noundef %.0100, i64 noundef %129) #9
@@ -1977,7 +1977,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %138 = load i32, ptr %18, align 4, !tbaa !92
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %137, %139
-  br i1 %140, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !117
+  br i1 %140, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %128, %.lr.ph.split.split.split, %99, %.lr.ph.split.split.split.us, %71, %.lr.ph.split.split.us, %42, %.lr.ph.split.us, %3
   ret void
@@ -2129,15 +2129,20 @@ attributes #10 = { nounwind willreturn memory(read) }
 !105 = !{!79, !6, i64 64}
 !106 = distinct !{!106, !41}
 !107 = !{!79, !6, i64 56}
-!108 = distinct !{!108, !41}
-!109 = !{!68, !6, i64 72}
+!108 = distinct !{!108, !41, !109}
+!109 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !110 = distinct !{!110, !41}
-!111 = !{!79, !6, i64 72}
+!111 = !{!68, !6, i64 72}
 !112 = distinct !{!112, !41}
-!113 = distinct !{!113, !41}
+!113 = !{!79, !6, i64 72}
 !114 = distinct !{!114, !41}
 !115 = distinct !{!115, !41}
-!116 = !{!6, !6, i64 0}
+!116 = distinct !{!116, !41}
 !117 = distinct !{!117, !41}
-!118 = !{!68, !6, i64 56}
-!119 = !{!68, !6, i64 64}
+!118 = !{!6, !6, i64 0}
+!119 = distinct !{!119, !41, !109}
+!120 = distinct !{!120, !41, !109}
+!121 = !{!68, !6, i64 56}
+!122 = distinct !{!122, !41, !109}
+!123 = !{!68, !6, i64 64}
+!124 = distinct !{!124, !41}

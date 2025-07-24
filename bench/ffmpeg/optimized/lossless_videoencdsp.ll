@@ -279,4 +279,5 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !17 = !{!"int", !7, i64 0}
 !18 = distinct !{!18, !13}
 !19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
+!20 = distinct !{!20, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}

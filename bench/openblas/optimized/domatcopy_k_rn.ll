@@ -46,14 +46,14 @@ define noundef i32 @domatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
   store double %20, ptr %21, align 8, !tbaa !3
   %22 = add nuw nsw i64 %.24964.us, 1
   %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %17
   %23 = getelementptr inbounds double, ptr %.14666.us, i64 %4
   %24 = getelementptr inbounds double, ptr %.267.us, i64 %6
   %25 = add nuw nsw i64 %.25265.us, 1
   %exitcond82.not = icmp eq i64 %25, %0
-  br i1 %exitcond82.not, label %.loopexit, label %.preheader61.us, !llvm.loop !10
+  br i1 %exitcond82.not, label %.loopexit, label %.preheader61.us, !llvm.loop !11
 
 .preheader58.us:                                  ; preds = %15, %._crit_edge.us72
   %.171.us = phi ptr [ %32, %._crit_edge.us72 ], [ %5, %15 ]
@@ -69,14 +69,14 @@ define noundef i32 @domatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
   store double %28, ptr %29, align 8, !tbaa !3
   %30 = add nuw nsw i64 %.14868.us, 1
   %exitcond83.not = icmp eq i64 %30, %1
-  br i1 %exitcond83.not, label %._crit_edge.us72, label %26, !llvm.loop !11
+  br i1 %exitcond83.not, label %._crit_edge.us72, label %26, !llvm.loop !12
 
 ._crit_edge.us72:                                 ; preds = %26
   %31 = getelementptr inbounds double, ptr %.04570.us, i64 %4
   %32 = getelementptr inbounds double, ptr %.171.us, i64 %6
   %33 = add nuw nsw i64 %.15169.us, 1
   %exitcond84.not = icmp eq i64 %33, %0
-  br i1 %exitcond84.not, label %.loopexit, label %.preheader58.us, !llvm.loop !12
+  br i1 %exitcond84.not, label %.loopexit, label %.preheader58.us, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us72, %.preheader.us, %7
   ret i32 0
@@ -97,9 +97,10 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!11 = distinct !{!11, !8, !9}
 !12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8, !9}

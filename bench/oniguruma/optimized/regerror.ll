@@ -675,7 +675,7 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
 to_ascii.exit.split.backedge:                     ; preds = %119, %116
   %.030.be = phi ptr [ %118, %116 ], [ %121, %119 ]
   %.029.be = phi ptr [ %117, %116 ], [ %122, %119 ]
-  br label %to_ascii.exit.split, !llvm.loop !22
+  br label %to_ascii.exit.split, !llvm.loop !24
 
 .split.us:                                        ; preds = %to_ascii.exit.split.us, %to_ascii.exit.split
   %.us-phi = phi ptr [ %.029, %to_ascii.exit.split ], [ %.029.us, %to_ascii.exit.split.us ]
@@ -783,12 +783,12 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %.15280, i64 1
   store i8 %37, ptr %.15280, align 1, !tbaa !18
   %39 = icmp samesign ugt i32 %.05878, 1
-  br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !23
+  br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph75
   %.3.lcssa = phi ptr [ %.274, %.lr.ph75 ], [ %51, %.lr.ph ]
   %40 = icmp samesign ugt i32 %.in, 1
-  br i1 %40, label %.lr.ph75, label %.loopexit65, !llvm.loop !24
+  br i1 %40, label %.lr.ph75, label %.loopexit65, !llvm.loop !26
 
 .lr.ph75:                                         ; preds = %.preheader68, %.loopexit
   %.in = phi i32 [ %41, %.loopexit ], [ %31, %.preheader68 ]
@@ -816,7 +816,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %51 = getelementptr inbounds nuw i8, ptr %.370, i64 1
   store i8 %50, ptr %.370, align 1, !tbaa !18
   %exitcond.not = icmp eq ptr %.05071, %gep
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 52:                                               ; preds = %26
   %53 = load i8, ptr %.05396, align 1, !tbaa !18
@@ -844,7 +844,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   store i8 %61, ptr %.587, align 1, !tbaa !18
   %.5 = getelementptr inbounds nuw i8, ptr %.587, i64 1
   %62 = icmp samesign ugt i32 %.26085, 1
-  br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !26
+  br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !28
 
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
@@ -857,13 +857,13 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
 
 68:                                               ; preds = %52
   %69 = zext i8 %53 to i32
-  %70 = load ptr, ptr %25, align 8, !tbaa !27
+  %70 = load ptr, ptr %25, align 8, !tbaa !29
   %71 = call i32 %70(i32 noundef %69, i32 noundef 7) #9
   %.not63 = icmp eq i32 %71, 0
   br i1 %.not63, label %72, label %88
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr %25, align 8, !tbaa !27
+  %73 = load ptr, ptr %25, align 8, !tbaa !29
   %74 = load i8, ptr %.05396, align 1, !tbaa !18
   %75 = zext i8 %74 to i32
   %76 = call i32 %73(i32 noundef %75, i32 noundef 9) #9
@@ -892,7 +892,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %87 = getelementptr inbounds nuw i8, ptr %.692, i64 1
   store i8 %86, ptr %.692, align 1, !tbaa !18
   %exitcond109.not = icmp eq ptr %.193, %gep140
-  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
+  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !30
 
 88:                                               ; preds = %72, %68
   %89 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
@@ -905,7 +905,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %.356 = phi ptr [ %65, %63 ], [ %89, %88 ], [ %78, %77 ], [ %55, %54 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %78, %.lr.ph94 ], [ %60, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %42, %.loopexit ]
   %.4 = phi ptr [ %67, %63 ], [ %91, %88 ], [ %.05197, %77 ], [ %.584, %54 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %87, %.lr.ph94 ], [ %.5, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
   %92 = icmp ult ptr %.356, %4
-  br i1 %92, label %26, label %._crit_edge, !llvm.loop !29
+  br i1 %92, label %26, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit65, %19
   %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit65 ]
@@ -967,11 +967,13 @@ attributes #9 = { nounwind }
 !19 = !{!15, !5, i64 0}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
+!22 = distinct !{!22, !21, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !21}
 !25 = distinct !{!25, !21}
 !26 = distinct !{!26, !21}
-!27 = !{!15, !5, i64 88}
+!27 = distinct !{!27, !21}
 !28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
+!29 = !{!15, !5, i64 88}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}

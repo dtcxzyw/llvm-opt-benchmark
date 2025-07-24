@@ -920,7 +920,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %49 = load i32, ptr %0, align 8, !tbaa !10
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next.i, %50
-  br i1 %51, label %.lr.ph96.split.i, label %._crit_edge.i, !llvm.loop !22
+  br i1 %51, label %.lr.ph96.split.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %48, %36, %.preheader87.i
   %.048.lcssa.i = phi i32 [ -1, %.preheader87.i ], [ -1, %36 ], [ %.2.i, %48 ]
@@ -968,7 +968,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds ptr, ptr %66, i64 %68
   %70 = icmp ult ptr %65, %69
-  br i1 %70, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !23
+  br i1 %70, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %.cont66.i, %.lr.ph.i, %53
   %71 = icmp eq ptr %56, null
@@ -1187,7 +1187,7 @@ define void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %7, label %OPENSSL_sk_free.exit, !llvm.loop !24
+  br i1 %16, label %7, label %OPENSSL_sk_free.exit, !llvm.loop !26
 
 OPENSSL_sk_free.exit:                             ; preds = %13, %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1398,6 +1398,8 @@ attributes #16 = { nounwind }
 !19 = distinct !{!19, !17}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
+!22 = distinct !{!22, !17, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}

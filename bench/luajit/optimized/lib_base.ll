@@ -1509,7 +1509,7 @@ define internal noundef i32 @lj_cf_print(ptr noundef %0) #2 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   %112 = add nuw nsw i64 %.03847, 1
   %exitcond.not = icmp eq i64 %112, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %108, %86, %60
   %113 = load ptr, ptr @stdout, align 8, !tbaa !64
@@ -1705,7 +1705,7 @@ define internal noundef i32 @lj_cf_coroutine_status(ptr noundef %0) #2 {
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 11
-  %17 = load i8, ptr %16, align 1, !tbaa !67
+  %17 = load i8, ptr %16, align 1, !tbaa !69
   switch i8 %17, label %18 [
     i8 1, label %31
     i8 0, label %19
@@ -1718,7 +1718,7 @@ define internal noundef i32 @lj_cf_coroutine_status(ptr noundef %0) #2 {
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %23 = load i64, ptr %22, align 8, !tbaa !68
+  %23 = load i64, ptr %22, align 8, !tbaa !70
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = icmp ugt ptr %21, %25
@@ -1758,7 +1758,7 @@ define internal noundef i32 @lj_cf_coroutine_running(ptr noundef %0) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @lj_cf_coroutine_isyieldable(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = ptrtoint ptr %3 to i64
   %5 = shl i64 %4, 47
   %6 = and i64 %5, 140737488355328
@@ -1833,13 +1833,13 @@ define internal range(i32 0, 4) i32 @lj_ffh_coroutine_resume(ptr noundef %0) #2 
   %12 = and i64 %8, 140737488355327
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !69
+  %15 = load ptr, ptr %14, align 8, !tbaa !71
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %28
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 11
-  %18 = load i8, ptr %17, align 1, !tbaa !67
+  %18 = load i8, ptr %17, align 1, !tbaa !69
   %19 = icmp ugt i8 %18, 1
   br i1 %19, label %28, label %20
 
@@ -1958,13 +1958,13 @@ define internal noundef range(i32 0, 4) i32 @lj_ffh_coroutine_wrap_aux(ptr nound
   %10 = and i64 %9, 140737488355327
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  %13 = load ptr, ptr %12, align 8, !tbaa !71
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %26
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 11
-  %16 = load i8, ptr %15, align 1, !tbaa !67
+  %16 = load i8, ptr %15, align 1, !tbaa !69
   %17 = icmp ugt i8 %16, 1
   br i1 %17, label %26, label %18
 
@@ -2097,7 +2097,9 @@ attributes #11 = { nounwind }
 !63 = !{!7, !7, i64 0}
 !64 = !{!65, !65, i64 0}
 !65 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!66 = distinct !{!66, !37}
-!67 = !{!5, !8, i64 11}
-!68 = !{!5, !7, i64 56}
-!69 = !{!5, !12, i64 80}
+!66 = distinct !{!66, !37, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !37}
+!69 = !{!5, !8, i64 11}
+!70 = !{!5, !7, i64 56}
+!71 = !{!5, !12, i64 80}

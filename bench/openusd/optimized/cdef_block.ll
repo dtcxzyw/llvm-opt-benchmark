@@ -623,7 +623,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   store i32 %66, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   br i1 %24, label %68, label %.thread
@@ -660,7 +660,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   store i32 %82, ptr %78, align 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.thread.thread, label %71, !llvm.loop !19
+  br i1 %exitcond194.not, label %.thread.thread, label %71, !llvm.loop !20
 
 .thread.thread:                                   ; preds = %71
   %.not155217 = icmp eq i32 %5, 0
@@ -754,7 +754,7 @@ adjust_strength.exit166.us:                       ; preds = %118, %113
   tail call void @cdef_filter_block_c(ptr noundef null, ptr noundef %107, i32 noundef %93, ptr noundef %112, i32 noundef %130, i32 noundef %18, i32 noundef %137, i32 noundef %21, i32 noundef %21, i32 noundef %90, i32 noundef %15)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph176.split.us, !llvm.loop !20
+  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph176.split.us, !llvm.loop !21
 
 .lr.ph176.split:                                  ; preds = %.lr.ph176, %178
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %178 ], [ 0, %.lr.ph176 ]
@@ -819,7 +819,7 @@ adjust_strength.exit:                             ; preds = %155, %160
   tail call void @cdef_filter_block_c(ptr noundef nonnull %149, ptr noundef null, i32 noundef %2, ptr noundef %154, i32 noundef %172, i32 noundef %18, i32 noundef %179, i32 noundef %21, i32 noundef %21, i32 noundef %90, i32 noundef %15)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count203
-  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph176.split, !llvm.loop !20
+  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph176.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %178, %136, %._crit_edge180.us, %.lr.ph182, %.thread, %.preheader
   ret void
@@ -866,7 +866,9 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!17 = distinct !{!17, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5, !18}
+!22 = distinct !{!22, !5}

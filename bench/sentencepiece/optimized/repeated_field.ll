@@ -13319,7 +13319,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -13356,7 +13356,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !161
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !164
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -13872,5 +13872,7 @@ attributes #23 = { builtin allocsize(0) }
 !158 = distinct !{!158, !36}
 !159 = !{!160, !8, i64 0}
 !160 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !8, i64 0}
-!161 = distinct !{!161, !36}
-!162 = distinct !{!162, !36}
+!161 = distinct !{!161, !36, !162}
+!162 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!163 = distinct !{!163, !36}
+!164 = distinct !{!164, !36}

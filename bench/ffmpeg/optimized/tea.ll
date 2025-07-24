@@ -123,7 +123,7 @@ tea_crypt_ecb.exit59.us:                          ; preds = %.lr.ph77.i53.us, %.
   %50 = getelementptr inbounds nuw i8, ptr %.03168, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.03069, i64 8
   %.not38 = icmp eq i32 %49, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph74, %tea_crypt_ecb.exit
   %52 = phi i32 [ %95, %tea_crypt_ecb.exit ], [ %7, %.lr.ph74 ]
@@ -142,7 +142,7 @@ tea_crypt_ecb.exit59.us:                          ; preds = %.lr.ph77.i53.us, %.
   store i8 %58, ptr %59, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.i, label %53, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader.i, label %53, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %53
   %60 = load i32, ptr %8, align 4, !tbaa !11
@@ -198,7 +198,7 @@ tea_crypt_ecb.exit:                               ; preds = %.lr.ph77.i, %.prehe
   %94 = getelementptr inbounds nuw i8, ptr %.173, i64 8
   %95 = add nsw i32 %52, -1
   %.not36 = icmp eq i32 %52, 0
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %tea_crypt_ecb.exit, %tea_crypt_ecb.exit59.us, %.preheader61, %.preheader60
   ret void
@@ -259,7 +259,7 @@ define internal fastcc void @tea_crypt_ecb(ptr noundef readonly captures(none) %
   %40 = add i32 %.06070, 1640531527
   %41 = add nuw nsw i32 %.06568, 1
   %exitcond.not = icmp eq i32 %41, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.061.lcssa = phi i32 [ %19, %22 ], [ %31, %.lr.ph ]
@@ -341,7 +341,9 @@ attributes #4 = { nounwind }
 !11 = !{!12, !8, i64 64}
 !12 = !{!"AVTEA", !5, i64 0, !8, i64 64}
 !13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!14 = distinct !{!14, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !16 = distinct !{!16, !10}
 !17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}

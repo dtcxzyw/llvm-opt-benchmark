@@ -2020,7 +2020,7 @@ define dso_local range(i32 -1, 1) i32 @named_datatype_free(ptr noundef captures(
   tail call void @free(ptr noundef %33) #10
   store ptr %32, ptr %0, align 8, !tbaa !71
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !84
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !86
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %30, %2, %22, %26, %14
   %.0 = phi i32 [ -1, %14 ], [ -1, %26 ], [ -1, %22 ], [ 0, %2 ], [ 0, %30 ], [ 0, %.lr.ph.split.us ]
@@ -2050,7 +2050,7 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 
 .preheader258:                                    ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %17 = load i64, ptr %16, align 8, !tbaa !85
+  %17 = load i64, ptr %16, align 8, !tbaa !87
   %18 = and i64 %17, 4294967295
   %.not388 = icmp eq i64 %18, 0
   br i1 %.not388, label %.thread, label %.lr.ph385
@@ -2090,10 +2090,10 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 
 39:                                               ; preds = %499
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
-  %40 = load i64, ptr %16, align 8, !tbaa !85
+  %40 = load i64, ptr %16, align 8, !tbaa !87
   %41 = and i64 %40, 4294967295
   %42 = icmp samesign ult i64 %indvars.iv.next501, %41
-  br i1 %42, label %43, label %.thread, !llvm.loop !87
+  br i1 %42, label %43, label %.thread, !llvm.loop !89
 
 43:                                               ; preds = %.lr.ph385, %39
   %indvars.iv500 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next501, %39 ]
@@ -2412,7 +2412,7 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   %225 = mul i64 %224, %.0157371
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0157.lcssa = phi i64 [ 1, %.preheader ], [ %225, %.lr.ph ]
@@ -2477,8 +2477,8 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   %262 = load i64, ptr @H5E_tools_g, align 8, !tbaa !22
   %263 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !22
   %264 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %257, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.copy_attr, i32 noundef 460, i64 noundef %259, i64 noundef %262, i64 noundef %263, ptr noundef nonnull @.str.22) #10
-  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !89
-  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !91
+  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !91
   br i1 %250, label %431, label %299
 
 265:                                              ; preds = %256
@@ -2486,8 +2486,8 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   %267 = call i64 @fwrite(ptr nonnull @.str.22, i64 25, i64 1, ptr %266) #11
   %268 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc228 = call i32 @fputc(i32 10, ptr %268)
-  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !89
-  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !91
+  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !91
   br i1 %250, label %431, label %299
 
 269:                                              ; preds = %244
@@ -2503,7 +2503,7 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 275:                                              ; preds = %297
   %276 = add nuw nsw i32 %.1152373, 1
   %exitcond499.not = icmp eq i32 %276, %273
-  br i1 %exitcond499.not, label %.thread255.thread, label %.lr.ph376, !llvm.loop !91
+  br i1 %exitcond499.not, label %.thread255.thread, label %.lr.ph376, !llvm.loop !93
 
 .lr.ph376:                                        ; preds = %272, %275
   %.7374 = phi i32 [ %.9, %275 ], [ %.1143383, %272 ]
@@ -2546,21 +2546,21 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   br i1 %298, label %.thread255.thread507, label %275
 
 .thread255.thread507:                             ; preds = %297
-  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !89
-  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !91
+  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !91
   br label %431
 
 .thread255.thread:                                ; preds = %275, %272
   %.6.ph = phi i32 [ %.1143383, %272 ], [ %.9, %275 ]
-  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !89
-  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !91
+  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !91
   br label %299
 
 .thread255:                                       ; preds = %253, %247, %269
   %.1146.shrunk = phi i1 [ %270, %269 ], [ %250, %247 ], [ %250, %253 ]
   %.6 = phi i32 [ %.1143383, %269 ], [ %.1143383, %247 ], [ -1, %253 ]
-  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !89
-  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double 0.000000e+00, ptr @copy_attr.read_time, align 8, !tbaa !91
+  store double 0.000000e+00, ptr @copy_attr.write_time, align 8, !tbaa !91
   br i1 %.1146.shrunk, label %431, label %299
 
 299:                                              ; preds = %265, %261, %.thread255.thread, %.thread255
@@ -2645,10 +2645,10 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 347:                                              ; preds = %344
   %348 = call i32 @H5_timer_stop(ptr noundef nonnull %7) #10
   %349 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %7, ptr noundef nonnull %8) #10
-  %350 = load double, ptr %22, align 8, !tbaa !92
-  %351 = load double, ptr @copy_attr.read_time, align 8, !tbaa !89
+  %350 = load double, ptr %22, align 8, !tbaa !94
+  %351 = load double, ptr @copy_attr.read_time, align 8, !tbaa !91
   %352 = fadd double %350, %351
-  store double %352, ptr @copy_attr.read_time, align 8, !tbaa !89
+  store double %352, ptr @copy_attr.read_time, align 8, !tbaa !91
   br label %353
 
 353:                                              ; preds = %347, %344
@@ -2731,10 +2731,10 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 400:                                              ; preds = %397
   %401 = call i32 @H5_timer_stop(ptr noundef nonnull %7) #10
   %402 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %7, ptr noundef nonnull %8) #10
-  %403 = load double, ptr %22, align 8, !tbaa !92
-  %404 = load double, ptr @copy_attr.write_time, align 8, !tbaa !89
+  %403 = load double, ptr %22, align 8, !tbaa !94
+  %404 = load double, ptr @copy_attr.write_time, align 8, !tbaa !91
   %405 = fadd double %403, %404
-  store double %405, ptr @copy_attr.write_time, align 8, !tbaa !89
+  store double %405, ptr @copy_attr.write_time, align 8, !tbaa !91
   br label %406
 
 406:                                              ; preds = %400, %397
@@ -2793,8 +2793,8 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   br i1 %435, label %436, label %440
 
 436:                                              ; preds = %434
-  %437 = load double, ptr @copy_attr.read_time, align 8, !tbaa !89
-  %438 = load double, ptr @copy_attr.write_time, align 8, !tbaa !89
+  %437 = load double, ptr @copy_attr.read_time, align 8, !tbaa !91
+  %438 = load double, ptr @copy_attr.write_time, align 8, !tbaa !91
   %439 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @.str.30, double noundef %437, double noundef %438, ptr noundef nonnull %9)
   br label %442
 
@@ -3199,13 +3199,15 @@ attributes #14 = { nounwind allocsize(0,1) }
 !81 = !{!74, !12, i64 16}
 !82 = distinct !{!82, !27}
 !83 = !{!5, !9, i64 888}
-!84 = distinct !{!84, !27}
-!85 = !{!86, !12, i64 64}
-!86 = !{!"H5O_info2_t", !12, i64 0, !75, i64 8, !9, i64 24, !9, i64 28, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
-!87 = distinct !{!87, !27}
-!88 = distinct !{!88, !27}
-!89 = !{!90, !90, i64 0}
-!90 = !{!"double", !7, i64 0}
-!91 = distinct !{!91, !27}
-!92 = !{!93, !90, i64 16}
-!93 = !{!"", !90, i64 0, !90, i64 8, !90, i64 16}
+!84 = distinct !{!84, !27, !85}
+!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!86 = distinct !{!86, !27}
+!87 = !{!88, !12, i64 64}
+!88 = !{!"H5O_info2_t", !12, i64 0, !75, i64 8, !9, i64 24, !9, i64 28, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
+!89 = distinct !{!89, !27}
+!90 = distinct !{!90, !27}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"double", !7, i64 0}
+!93 = distinct !{!93, !27}
+!94 = !{!95, !92, i64 16}
+!95 = !{!"", !92, i64 0, !92, i64 8, !92, i64 16}

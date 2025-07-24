@@ -9385,7 +9385,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %24 = getelementptr inbounds [24 x i8], ptr %4, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !47
   %.not60.us.us = icmp eq i8 %25, 0
-  br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !83
+  br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !84
 
 .lr.ph81.us:                                      ; preds = %.lr.ph.us.us, %22
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %22 ], [ %19, %.lr.ph.us.us ]
@@ -9397,7 +9397,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %28 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv105, i64 %indvars.iv102, i64 %indvars.iv.next101
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %.not59.us.us = icmp eq i32 %29, -1
-  br i1 %.not59.us.us, label %._crit_edge.us.us, label %22, !llvm.loop !83
+  br i1 %.not59.us.us, label %._crit_edge.us.us, label %22, !llvm.loop !84
 
 ._crit_edge.us.us:                                ; preds = %22, %.lr.ph81.us, %.lr.ph.us.us, %.lr.ph75.us
   %.042.lcssa.us.us = phi i32 [ 0, %.lr.ph75.us ], [ 0, %.lr.ph.us.us ], [ %spec.select.us.us, %.lr.ph81.us ], [ %spec.select.us.us, %22 ]
@@ -9412,7 +9412,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %32 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv105, i64 %indvars.iv.next103
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %.not.us.us = icmp eq i32 %33, -1
-  br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !84
+  br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !85
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph75.us
   %34 = sext i32 %21 to i64
@@ -9440,7 +9440,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %41 = icmp ne i32 %40, -1
   %42 = icmp eq i32 %.1.lcssa, 24
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.preheader, label %._crit_edge85, !llvm.loop !82
+  br i1 %43, label %.preheader, label %._crit_edge85, !llvm.loop !86
 
 .lr.ph75:                                         ; preds = %.preheader, %._crit_edge.thread
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %._crit_edge.thread ], [ 0, %.preheader ]
@@ -9471,7 +9471,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %55 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv97, i64 %indvars.iv94, i64 %indvars.iv.next
   %56 = load i32, ptr %55, align 4, !tbaa !12
   %.not59 = icmp eq i32 %56, -1
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph75
   %.042.lcssa = phi i32 [ 0, %.lr.ph75 ], [ %spec.select, %53 ]
@@ -9495,7 +9495,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %61 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv97, i64 %indvars.iv.next95
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %.not = icmp eq i32 %62, -1
-  br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !84
+  br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !87
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11434,7 +11434,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83: ; preds = %_
 
 154:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83
   %.not68 = icmp eq i32 %122, %3
-  br i1 %.not68, label %.loopexit, label %.preheader, !llvm.loop !85
+  br i1 %.not68, label %.loopexit, label %.preheader, !llvm.loop !88
 
 .loopexit:                                        ; preds = %131, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i74, %144, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i81, %.preheader, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83, %154, %98, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %110, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %.0 = phi i32 [ %2, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %2, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit ], [ %2, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ %2, %110 ], [ %2, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %2, %98 ], [ %.1, %131 ], [ %.1, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i74 ], [ %.1, %144 ], [ %.1, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i81 ], [ %.1, %.preheader ], [ %3, %154 ], [ %.1, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83 ]
@@ -12526,7 +12526,7 @@ define linkonce_odr void @_ZNK6icu_7720BasicCalendarFactory16updateVisibleIDsERN
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #25
   call void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %4, i16 noundef zeroext 64)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #25
-  store ptr @.str.47, ptr %6, align 8, !tbaa !86
+  store ptr @.str.47, ptr %6, align 8, !tbaa !89
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
           to label %16 unwind label %43
 
@@ -12542,8 +12542,8 @@ define linkonce_odr void @_ZNK6icu_7720BasicCalendarFactory16updateVisibleIDsERN
 
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
-  %24 = load ptr, ptr %6, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #25, !srcloc !89
+  %24 = load ptr, ptr %6, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #25
   %25 = load ptr, ptr %15, align 8, !tbaa !58
@@ -12563,7 +12563,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %16
 _ZN6icu_7713UnicodeString6appendERKS0_.exit18:    ; preds = %26
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
-  %34 = load ptr, ptr %1, align 8, !tbaa !90
+  %34 = load ptr, ptr %1, align 8, !tbaa !93
   %35 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #25
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -12588,7 +12588,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = getelementptr inbounds nuw [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %indvars.iv.next
   %.not12 = icmp eq i64 %indvars.iv.next, 18
-  br i1 %.not12, label %.loopexit, label %14, !llvm.loop !96
+  br i1 %.not12, label %.loopexit, label %14, !llvm.loop !99
 
 43:                                               ; preds = %14
   %44 = landingpad { ptr, i32 }
@@ -12603,8 +12603,8 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
 
 47:                                               ; preds = %45, %43
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
-  %48 = load ptr, ptr %6, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #25, !srcloc !89
+  %48 = load ptr, ptr %6, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #25
   br label %.body
 
@@ -12689,14 +12689,14 @@ define linkonce_odr noundef ptr @_ZNK6icu_7722DefaultCalendarFactory6createERKNS
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i16 2, ptr %25, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  store i16 64, ptr %5, align 2, !tbaa !97
+  store i16 64, ptr %5, align 2, !tbaa !100
   %26 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
           to label %27 unwind label %56
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #25
-  store ptr @.str.47, ptr %8, align 8, !tbaa !86
+  store ptr @.str.47, ptr %8, align 8, !tbaa !89
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 1, ptr noundef nonnull %8, i32 noundef 9)
           to label %28 unwind label %58
 
@@ -12714,8 +12714,8 @@ define linkonce_odr noundef ptr @_ZNK6icu_7722DefaultCalendarFactory6createERKNS
 
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %28
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
-  %38 = load ptr, ptr %8, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #25, !srcloc !89
+  %38 = load ptr, ptr %8, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #25
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -12765,8 +12765,8 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit25:    ; preds = %46
 
 62:                                               ; preds = %60, %58
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %63 = load ptr, ptr %8, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #25, !srcloc !89
+  %63 = load ptr, ptr %8, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
   br label %70
 
@@ -12971,7 +12971,7 @@ define linkonce_odr void @_ZN6icu_7715CalendarServiceC2Ev(ptr noundef nonnull al
   %3 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #25
-  store ptr @.str.16, ptr %3, align 8, !tbaa !86
+  store ptr @.str.16, ptr %3, align 8, !tbaa !89
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %5 unwind label %17
 
@@ -12981,8 +12981,8 @@ define linkonce_odr void @_ZN6icu_7715CalendarServiceC2Ev(ptr noundef nonnull al
 
 6:                                                ; preds = %5
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #25
-  %7 = load ptr, ptr %3, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #25, !srcloc !89
+  %7 = load ptr, ptr %3, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #25
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN6icu_7715CalendarServiceE, i64 16), ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
@@ -13023,8 +13023,8 @@ _ZN6icu_7722DefaultCalendarFactoryC2Ev.exit:      ; preds = %10
 
 21:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
-  %22 = load ptr, ptr %3, align 8, !tbaa !86
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #25, !srcloc !89
+  %22 = load ptr, ptr %3, align 8, !tbaa !89
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #25, !srcloc !92
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #25
   br label %28
 
@@ -13177,9 +13177,9 @@ define linkonce_odr void @_ZNK6icu_7712UnifiedCache3getINS_14SharedCalendarEEEvR
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
   store i32 0, ptr %5, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
-  store ptr null, ptr %6, align 8, !tbaa !99
+  store ptr null, ptr %6, align 8, !tbaa !102
   call void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedObjectEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %10 = load ptr, ptr %6, align 8, !tbaa !99
+  %10 = load ptr, ptr %6, align 8, !tbaa !102
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %_ZN6icu_7712SharedObject7copyPtrINS_14SharedCalendarEEEvPKT_RS5_.exit.i, label %13
@@ -13490,22 +13490,25 @@ attributes #28 = { nounwind willreturn memory(read) }
 !79 = distinct !{!79, !60}
 !80 = distinct !{!80, !60}
 !81 = distinct !{!81, !60}
-!82 = distinct !{!82, !60}
-!83 = distinct !{!83, !60}
+!82 = distinct !{!82, !60, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !84 = distinct !{!84, !60}
-!85 = distinct !{!85, !60}
-!86 = !{!87, !88, i64 0}
-!87 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !88, i64 0}
-!88 = !{!"p1 char16_t", !6, i64 0}
-!89 = !{i64 2150464769}
-!90 = !{!91, !92, i64 0}
-!91 = !{!"_ZTSN6icu_779HashtableE", !92, i64 0, !93, i64 8}
-!92 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!93 = !{!"_ZTS10UHashtable", !94, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !95, i64 64, !95, i64 68, !7, i64 72, !7, i64 73}
-!94 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
-!95 = !{!"float", !7, i64 0}
-!96 = distinct !{!96, !60}
-!97 = !{!98, !98, i64 0}
-!98 = !{!"char16_t", !7, i64 0}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}
+!85 = distinct !{!85, !60, !83}
+!86 = distinct !{!86, !60}
+!87 = distinct !{!87, !60}
+!88 = distinct !{!88, !60}
+!89 = !{!90, !91, i64 0}
+!90 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !91, i64 0}
+!91 = !{!"p1 char16_t", !6, i64 0}
+!92 = !{i64 2150464769}
+!93 = !{!94, !95, i64 0}
+!94 = !{!"_ZTSN6icu_779HashtableE", !95, i64 0, !96, i64 8}
+!95 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!96 = !{!"_ZTS10UHashtable", !97, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !98, i64 64, !98, i64 68, !7, i64 72, !7, i64 73}
+!97 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
+!98 = !{!"float", !7, i64 0}
+!99 = distinct !{!99, !60}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"char16_t", !7, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}

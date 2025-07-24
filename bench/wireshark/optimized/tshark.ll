@@ -4081,7 +4081,7 @@ process_cap_file_first_pass.exit:                 ; preds = %.loopexit.i, %217
 232:                                              ; preds = %230, %.lr.ph.split.i.i
   %233 = call ptr @wtap_get_next_interface_description(ptr noundef %224)
   %.not.i.i81 = icmp eq ptr %233, null
-  br i1 %.not.i.i81, label %.loopexit4.i, label %.lr.ph.split.i.i, !llvm.loop !24
+  br i1 %.not.i.i81, label %.loopexit4.i, label %.lr.ph.split.i.i, !llvm.loop !26
 
 process_new_idbs.exit.i:                          ; preds = %230
   store volatile i32 0, ptr %19, align 4
@@ -4330,7 +4330,7 @@ process_packet_second_pass.exit.thread.i:         ; preds = %.thread15.i.i, %326
   %335 = add i32 %.04411.i, 1
   %336 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not59.i = icmp sgt i32 %335, %336
-  br i1 %.not59.i, label %.loopexit.i83, label %259, !llvm.loop !25
+  br i1 %.not59.i, label %.loopexit.i83, label %259, !llvm.loop !27
 
 .loopexit.i83:                                    ; preds = %334, %260, %259, %333, %254
   %.045.i = phi i32 [ 2, %333 ], [ 0, %254 ], [ 1, %260 ], [ 3, %259 ], [ 0, %334 ]
@@ -4458,7 +4458,7 @@ process_cap_file_second_pass.exit:                ; preds = %process_new_idbs.ex
 383:                                              ; preds = %381, %.lr.ph.split.i.i96
   %384 = call ptr @wtap_get_next_interface_description(ptr noundef %375)
   %.not.i.i98 = icmp eq ptr %384, null
-  br i1 %.not.i.i98, label %.loopexit.i99, label %.lr.ph.split.i.i96, !llvm.loop !24
+  br i1 %.not.i.i98, label %.loopexit.i99, label %.lr.ph.split.i.i96, !llvm.loop !26
 
 .loopexit.i99:                                    ; preds = %383, %.lr.ph.split.us.i.i108, %373
   %.b9.i.i = load i1, ptr @epan_auto_reset, align 1
@@ -4664,7 +4664,7 @@ process_packet_single_pass.exit.thread.i:         ; preds = %process_packet_sing
   call void @wtap_rec_reset(ptr noundef nonnull %6)
   %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
   %461 = call zeroext i1 @wtap_read(ptr noundef %460, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %7)
-  br i1 %461, label %372, label %._crit_edge.i, !llvm.loop !26
+  br i1 %461, label %372, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %459, %364
   %.062.lcssa.i = phi i32 [ 0, %364 ], [ %374, %459 ]
@@ -4702,7 +4702,7 @@ process_packet_single_pass.exit.thread.i:         ; preds = %process_packet_sing
 471:                                              ; preds = %469, %.lr.ph.split.i94.i
   %472 = call ptr @wtap_get_next_interface_description(ptr noundef %463)
   %.not.i97.i = icmp eq ptr %472, null
-  br i1 %.not.i97.i, label %.thread.i, label %.lr.ph.split.i94.i, !llvm.loop !24
+  br i1 %.not.i97.i, label %.thread.i, label %.lr.ph.split.i94.i, !llvm.loop !26
 
 .thread.sink.split.i:                             ; preds = %455, %381, %469
   %.lcssa.sink.i = phi i32 [ %.1639.i, %469 ], [ %374, %381 ], [ %374, %455 ]
@@ -5375,7 +5375,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %26 = getelementptr ptr, ptr %18, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not32 = icmp eq ptr %27, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @g_strfreev(ptr noundef %18)
@@ -5396,7 +5396,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %37 = getelementptr ptr, ptr %29, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not33 = icmp eq ptr %38, null
-  br i1 %.not33, label %._crit_edge41, label %.lr.ph40, !llvm.loop !28
+  br i1 %.not33, label %._crit_edge41, label %.lr.ph40, !llvm.loop !30
 
 ._crit_edge41:                                    ; preds = %.lr.ph40, %._crit_edge
   tail call void @g_strfreev(ptr noundef %29)
@@ -5417,7 +5417,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %48 = getelementptr ptr, ptr %40, i64 %47
   %49 = load ptr, ptr %48, align 8
   %.not34 = icmp eq ptr %49, null
-  br i1 %.not34, label %._crit_edge46, label %.lr.ph45, !llvm.loop !29
+  br i1 %.not34, label %._crit_edge46, label %.lr.ph45, !llvm.loop !31
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %._crit_edge41
   tail call void @g_strfreev(ptr noundef %40)
@@ -5851,7 +5851,7 @@ define internal fastcc void @print_packet(ptr noundef %0) unnamed_addr #0 {
   %.0.i.i = phi i64 [ %11, %10 ], [ %14, %12 ]
   %13 = icmp ult i64 %.0.i.i, 256
   %14 = shl nuw nsw i64 %.0.i.i, 1
-  br i1 %13, label %12, label %15, !llvm.loop !30
+  br i1 %13, label %12, label %15, !llvm.loop !32
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -5953,7 +5953,7 @@ get_line_buf.exit.i:                              ; preds = %.sink.split.i.i, %2
   %.0.i130.i = phi i64 [ %45, %42 ], [ %48, %46 ]
   %47 = icmp ugt i64 %44, %.0.i130.i
   %48 = shl i64 %.0.i130.i, 1
-  br i1 %47, label %46, label %49, !llvm.loop !30
+  br i1 %47, label %46, label %49, !llvm.loop !32
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -6011,7 +6011,7 @@ put_spaces_string.exit.i:                         ; preds = %.lr.ph.preheader.i.
   %.0.i134.i = phi i64 [ %68, %65 ], [ %71, %69 ]
   %70 = icmp ugt i64 %67, %.0.i134.i
   %71 = shl i64 %.0.i134.i, 1
-  br i1 %70, label %69, label %72, !llvm.loop !30
+  br i1 %70, label %69, label %72, !llvm.loop !32
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -6069,7 +6069,7 @@ put_spaces_string.exit141.i:                      ; preds = %.lr.ph.preheader.i1
   %.0.i142.i = phi i64 [ %91, %88 ], [ %94, %92 ]
   %93 = icmp ugt i64 %90, %.0.i142.i
   %94 = shl i64 %.0.i142.i, 1
-  br i1 %93, label %92, label %95, !llvm.loop !30
+  br i1 %93, label %92, label %95, !llvm.loop !32
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -6127,7 +6127,7 @@ put_spaces_string.exit149.i:                      ; preds = %.lr.ph.preheader.i1
   %.0.i150.i = phi i64 [ %114, %111 ], [ %117, %115 ]
   %116 = icmp ugt i64 %113, %.0.i150.i
   %117 = shl i64 %.0.i150.i, 1
-  br i1 %116, label %115, label %118, !llvm.loop !30
+  br i1 %116, label %115, label %118, !llvm.loop !32
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -6183,7 +6183,7 @@ put_string_spaces.exit.i:                         ; preds = %.lr.ph.preheader.i1
   %.0.i156.i = phi i64 [ %137, %134 ], [ %140, %138 ]
   %139 = icmp ugt i64 %136, %.0.i156.i
   %140 = shl i64 %.0.i156.i, 1
-  br i1 %139, label %138, label %141, !llvm.loop !30
+  br i1 %139, label %138, label %141, !llvm.loop !32
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr @get_line_buf.line_bufp, align 8
@@ -6237,7 +6237,7 @@ get_line_buf.exit159.i:                           ; preds = %.sink.split.i157.i,
   %.0.i160.i = phi i64 [ %162, %160 ], [ %165, %163 ]
   %164 = icmp ugt i64 %161, %.0.i160.i
   %165 = shl i64 %.0.i160.i, 1
-  br i1 %164, label %163, label %166, !llvm.loop !30
+  br i1 %164, label %163, label %166, !llvm.loop !32
 
 166:                                              ; preds = %163
   %167 = icmp eq ptr %156, null
@@ -6485,7 +6485,7 @@ get_line_buf.exit163.i:                           ; preds = %.sink.split.i161.i,
   %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 288), align 8
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next.i, %282
-  br i1 %283, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !31
+  br i1 %283, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %280
   %.b129.pre.i = load i1, ptr @dissect_color, align 1
@@ -6803,11 +6803,13 @@ attributes #27 = { allocsize(0) }
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
 !23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
+!24 = distinct !{!24, !8, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}

@@ -50,27 +50,27 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias noundef read
   %.165.us = phi i32 [ %23, %.lr.ph66.us ], [ %.05270.us, %..preheader_crit_edge.us ]
   %18 = shl nsw i64 %indvars.iv104, 2
   %19 = getelementptr inbounds nuw i8, ptr %.072.us, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !9
+  %20 = load i8, ptr %19, align 1, !tbaa !10
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %.05171.us, i64 %indvars.iv104
-  store i8 %20, ptr %22, align 1, !tbaa !9
+  store i8 %20, ptr %22, align 1, !tbaa !10
   %23 = and i32 %.165.us, %21
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %24 = icmp samesign ult i64 %indvars.iv.next105, %14
-  br i1 %24, label %.lr.ph66.us, label %._crit_edge.us, !llvm.loop !10
+  br i1 %24, label %.lr.ph66.us, label %._crit_edge.us, !llvm.loop !11
 
 25:                                               ; preds = %.preheader59.us, %25
   %indvars.iv102 = phi i64 [ 16, %.preheader59.us ], [ %indvars.iv.next103, %25 ]
   %indvars.iv99 = phi i64 [ 0, %.preheader59.us ], [ %indvars.iv.next100, %25 ]
   %.15761.us = phi <2 x i64> [ %.05668.us, %.preheader59.us ], [ %42, %25 ]
   %.05860.us = phi ptr [ %.072.us, %.preheader59.us ], [ %43, %25 ]
-  %26 = load <16 x i8>, ptr %.05860.us, align 1, !tbaa !9
+  %26 = load <16 x i8>, ptr %.05860.us, align 1, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %.05860.us, i64 16
-  %28 = load <16 x i8>, ptr %27, align 1, !tbaa !9
+  %28 = load <16 x i8>, ptr %27, align 1, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %.05860.us, i64 32
-  %30 = load <16 x i8>, ptr %29, align 1, !tbaa !9
+  %30 = load <16 x i8>, ptr %29, align 1, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %.05860.us, i64 48
-  %32 = load <16 x i8>, ptr %31, align 1, !tbaa !9
+  %32 = load <16 x i8>, ptr %31, align 1, !tbaa !10
   %33 = shufflevector <16 x i8> %26, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %34 = shufflevector <16 x i8> %28, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 0, i32 4, i32 8, i32 12, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %35 = shufflevector <16 x i8> %30, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 4, i32 8, i32 12, i32 16, i32 16, i32 16, i32 16>
@@ -80,13 +80,13 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias noundef read
   %39 = or <16 x i8> %38, %36
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = getelementptr inbounds nuw i8, ptr %.05171.us, i64 %indvars.iv99
-  store <16 x i8> %39, ptr %41, align 1, !tbaa !9
+  store <16 x i8> %39, ptr %41, align 1, !tbaa !10
   %42 = and <2 x i64> %.15761.us, %40
   %43 = getelementptr inbounds nuw i8, ptr %.05860.us, i64 64
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 16
   %44 = icmp slt i64 %indvars.iv.next100, %13
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 16
-  br i1 %44, label %25, label %..preheader_crit_edge.us, !llvm.loop !11
+  br i1 %44, label %25, label %..preheader_crit_edge.us, !llvm.loop !12
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %45 = trunc nuw nsw i64 %indvars.iv.next100 to i32
@@ -113,21 +113,21 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias noundef read
   %.165.us83 = phi i32 [ %.05270.us80, %.preheader59.us77 ], [ %54, %48 ]
   %49 = shl nsw i64 %indvars.iv, 2
   %50 = getelementptr inbounds nuw i8, ptr %.072.us78, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !9
+  %51 = load i8, ptr %50, align 1, !tbaa !10
   %52 = zext i8 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %.05171.us79, i64 %indvars.iv
-  store i8 %51, ptr %53, align 1, !tbaa !9
+  store i8 %51, ptr %53, align 1, !tbaa !10
   %54 = and i32 %.165.us83, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us86, label %48, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us86, label %48, !llvm.loop !11
 
 ._crit_edge.us86:                                 ; preds = %48
   %55 = getelementptr inbounds i8, ptr %.072.us78, i64 %11
   %56 = getelementptr inbounds i8, ptr %.05171.us79, i64 %12
   %57 = add nuw nsw i32 %.05569.us81, 1
   %exitcond98.not = icmp eq i32 %57, %3
-  br i1 %exitcond98.not, label %._crit_edge73, label %.preheader59.us77, !llvm.loop !7
+  br i1 %exitcond98.not, label %._crit_edge73, label %.preheader59.us77, !llvm.loop !13
 
 ._crit_edge73.loopexit:                           ; preds = %._crit_edge.us
   %58 = bitcast <2 x i64> %42 to <16 x i8>
@@ -158,8 +158,10 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"any pointer", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!5, !5, i64 0}
 !11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8, !9}

@@ -466,19 +466,16 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %44 = icmp sgt i32 %43, 0
   %wide.trip.count.i55.us = zext nneg i32 %43 to i64
   %45 = sext i32 %15 to i64
-  %wide.trip.count86 = sext i32 %18 to i64
+  %wide.trip.count80 = sext i32 %18 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %44, label %.lr.ph.preheader.i54.us.us, label %._crit_edge
-
-.lr.ph.preheader.i54.us.us:                       ; preds = %.lr.ph.split.us, %biquad_process.exit62.loopexit.us.us
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %biquad_process.exit62.loopexit.us.us ], [ %45, %.lr.ph.split.us ]
-  %46 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv83
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %biquad_process.exit62.us
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %biquad_process.exit62.us ], [ %45, %.lr.ph ]
+  %46 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv77
   %47 = load ptr, ptr %46, align 8, !tbaa !68
-  %48 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv83
+  %48 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv77
   %49 = load ptr, ptr %48, align 8, !tbaa !68
-  %50 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv83
+  %50 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv77
   %51 = load ptr, ptr %50, align 8, !tbaa !68
   %52 = load double, ptr %30, align 8, !tbaa !55
   %53 = load double, ptr %38, align 8, !tbaa !56
@@ -488,46 +485,48 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %57 = load double, ptr %49, align 8, !tbaa !69
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !69
-  br label %.lr.ph.i56.us.us
+  br i1 %44, label %.lr.ph.i56.us, label %biquad_process.exit62.us
 
-.lr.ph.i56.us.us:                                 ; preds = %.lr.ph.i56.us.us, %.lr.ph.preheader.i54.us.us
-  %indvars.iv.i57.us.us = phi i64 [ 0, %.lr.ph.preheader.i54.us.us ], [ %indvars.iv.next.i60.us.us, %.lr.ph.i56.us.us ]
-  %.037.i58.us.us = phi double [ %57, %.lr.ph.preheader.i54.us.us ], [ %66, %.lr.ph.i56.us.us ]
-  %.03336.i59.us.us = phi double [ %59, %.lr.ph.preheader.i54.us.us ], [ %.037.i58.us.us, %.lr.ph.i56.us.us ]
-  %60 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv.i57.us.us
+.lr.ph.i56.us:                                    ; preds = %.lr.ph.split.us, %.lr.ph.i56.us
+  %indvars.iv.i57.us = phi i64 [ %indvars.iv.next.i60.us, %.lr.ph.i56.us ], [ 0, %.lr.ph.split.us ]
+  %.037.i58.us = phi double [ %66, %.lr.ph.i56.us ], [ %57, %.lr.ph.split.us ]
+  %.03336.i59.us = phi double [ %.037.i58.us, %.lr.ph.i56.us ], [ %59, %.lr.ph.split.us ]
+  %60 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv.i57.us
   %61 = load double, ptr %60, align 8, !tbaa !69
   %62 = fmul nsz double %10, %61
-  %63 = fneg nsz double %.037.i58.us.us
+  %63 = fneg nsz double %.037.i58.us
   %64 = tail call nsz double @llvm.fmuladd.f64(double %63, double %55, double %62)
-  %65 = fneg nsz double %.03336.i59.us.us
+  %65 = fneg nsz double %.03336.i59.us
   %66 = tail call nsz double @llvm.fmuladd.f64(double %65, double %56, double %64)
-  %67 = fmul nsz double %53, %.037.i58.us.us
+  %67 = fmul nsz double %53, %.037.i58.us
   %68 = tail call nsz double @llvm.fmuladd.f64(double %66, double %52, double %67)
-  %69 = tail call nsz double @llvm.fmuladd.f64(double %.03336.i59.us.us, double %54, double %68)
+  %69 = tail call nsz double @llvm.fmuladd.f64(double %.03336.i59.us, double %54, double %68)
   %70 = fmul nsz double %8, %69
-  %71 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i57.us.us
+  %71 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i57.us
   store double %70, ptr %71, align 8, !tbaa !69
-  %indvars.iv.next.i60.us.us = add nuw nsw i64 %indvars.iv.i57.us.us, 1
-  %exitcond.not.i61.us.us = icmp eq i64 %indvars.iv.next.i60.us.us, %wide.trip.count.i55.us
-  br i1 %exitcond.not.i61.us.us, label %biquad_process.exit62.loopexit.us.us, label %.lr.ph.i56.us.us, !llvm.loop !70
+  %indvars.iv.next.i60.us = add nuw nsw i64 %indvars.iv.i57.us, 1
+  %exitcond.not.i61.us = icmp eq i64 %indvars.iv.next.i60.us, %wide.trip.count.i55.us
+  br i1 %exitcond.not.i61.us, label %biquad_process.exit62.us, label %.lr.ph.i56.us, !llvm.loop !70
 
-biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
-  store double %66, ptr %49, align 8, !tbaa !69
-  store double %.037.i58.us.us, ptr %58, align 8, !tbaa !69
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.preheader.i54.us.us, !llvm.loop !72
+biquad_process.exit62.us:                         ; preds = %.lr.ph.i56.us, %.lr.ph.split.us
+  %.033.lcssa.i52.us = phi double [ %59, %.lr.ph.split.us ], [ %.037.i58.us, %.lr.ph.i56.us ]
+  %.0.lcssa.i53.us = phi double [ %57, %.lr.ph.split.us ], [ %66, %.lr.ph.i56.us ]
+  store double %.0.lcssa.i53.us, ptr %49, align 8, !tbaa !69
+  store double %.033.lcssa.i52.us, ptr %58, align 8, !tbaa !69
+  %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !72
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %44, label %.lr.ph.preheader.i.us, label %._crit_edge
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.split, %biquad_process.exit51.loopexit.us
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %biquad_process.exit51.loopexit.us ], [ %45, %.lr.ph.split ]
-  %72 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv73
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %biquad_process.exit51.loopexit.us ], [ %45, %.lr.ph.split ]
+  %72 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv72
   %73 = load ptr, ptr %72, align 8, !tbaa !68
-  %74 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv73
+  %74 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv72
   %75 = load ptr, ptr %74, align 8, !tbaa !68
-  %76 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv73
+  %76 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv72
   %77 = load ptr, ptr %76, align 8, !tbaa !68
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load double, ptr %33, align 8, !tbaa !55
@@ -582,9 +581,9 @@ biquad_process.exit62.loopexit.us.us:             ; preds = %.lr.ph.i56.us.us
 biquad_process.exit51.loopexit.us:                ; preds = %.lr.ph.i45.us
   store double %103, ptr %75, align 8, !tbaa !69
   store double %.037.i47.us, ptr %114, align 8, !tbaa !69
-  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count86
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !72
+  %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count80
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !74
 
 biquad_process.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   store double %93, ptr %78, align 8, !tbaa !69
@@ -599,7 +598,7 @@ biquad_process.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   %115 = load double, ptr %114, align 8, !tbaa !69
   br label %.lr.ph.i45.us
 
-._crit_edge:                                      ; preds = %biquad_process.exit51.loopexit.us, %biquad_process.exit62.loopexit.us.us, %.lr.ph.split, %.lr.ph.split.us, %4
+._crit_edge:                                      ; preds = %biquad_process.exit51.loopexit.us, %biquad_process.exit62.us, %.lr.ph.split, %4
   ret i32 0
 }
 
@@ -723,4 +722,6 @@ attributes #11 = { nounwind willreturn memory(none) }
 !69 = !{!48, !48, i64 0}
 !70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = distinct !{!72, !71}
+!72 = distinct !{!72, !71, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = distinct !{!74, !71, !73}

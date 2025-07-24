@@ -554,7 +554,7 @@ define internal noundef i32 @convert_frame_partial(ptr readnone captures(none) %
   store i8 %81, ptr %83, align 1, !tbaa !48
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 3
-  br i1 %exitcond107.not, label %.split93.us, label %.split.us, !llvm.loop !73
+  br i1 %exitcond107.not, label %.split93.us, label %.split.us, !llvm.loop !74
 
 .split:                                           ; preds = %67, %.split
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.split ], [ 0, %67 ]
@@ -568,12 +568,12 @@ define internal noundef i32 @convert_frame_partial(ptr readnone captures(none) %
   store i8 %87, ptr %89, align 1, !tbaa !48
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next102, 3
-  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !73
+  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !75
 
 .split93.us:                                      ; preds = %.split, %.split.us
   %90 = add nsw i32 %.094, 1
   %exitcond108.not = icmp eq i32 %90, %9
-  br i1 %exitcond108.not, label %._crit_edge, label %.preheader, !llvm.loop !74
+  br i1 %exitcond108.not, label %._crit_edge, label %.preheader, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.split93.us, %4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #11
@@ -645,12 +645,12 @@ define internal noundef i32 @blend_frame_partial(ptr readnone captures(none) %0,
   %46 = getelementptr inbounds nuw i8, ptr %.03132.us, i64 1
   %47 = add nuw nsw i32 %.034.us, 1
   %exitcond.not = icmp eq i32 %47, %17
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %35
   %48 = add nsw i32 %.02935.us, 1
   %exitcond40.not = icmp eq i32 %48, %15
-  br i1 %exitcond40.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !76
+  br i1 %exitcond40.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !78
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %4
   ret i32 0
@@ -749,8 +749,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !69 = !{!35, !36, i64 16}
 !70 = !{!11, !11, i64 0}
 !71 = distinct !{!71, !41}
-!72 = distinct !{!72, !41}
-!73 = distinct !{!73, !41}
-!74 = distinct !{!74, !41}
+!72 = distinct !{!72, !41, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = distinct !{!74, !41, !73}
 !75 = distinct !{!75, !41}
 !76 = distinct !{!76, !41}
+!77 = distinct !{!77, !41}
+!78 = distinct !{!78, !41, !73}

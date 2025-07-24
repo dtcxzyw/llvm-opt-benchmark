@@ -2181,11 +2181,11 @@ define internal fastcc range(i64 0, 137438953505) i64 @propagatemark(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !23
   store i64 %11, ptr %2, align 8, !tbaa !75
-  switch i8 %6, label %198 [
+  switch i8 %6, label %179 [
     i8 11, label %12
-    i8 8, label %172
-    i8 7, label %184
-    i8 6, label %188
+    i8 8, label %153
+    i8 7, label %165
+    i8 6, label %169
   ], !prof !111
 
 12:                                               ; preds = %1
@@ -2347,18 +2347,15 @@ define internal fastcc range(i64 0, 137438953505) i64 @propagatemark(ptr noundef
   %.not79.i = icmp eq i32 %84, 0
   br i1 %.not79.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %80
-  br i1 %.not7591.i, label %.split.us.split.us.i, label %.split.us.split.i
-
-.split.us.split.us.i:                             ; preds = %.split.us.i, %116
-  %.06195.us.us.i = phi i32 [ %117, %116 ], [ 0, %.split.us.i ]
-  %85 = zext i32 %.06195.us.us.i to i64
+.split.us.i:                                      ; preds = %80, %117
+  %.06195.us.i = phi i32 [ %118, %117 ], [ 0, %80 ]
+  %85 = zext i32 %.06195.us.i to i64
   %86 = getelementptr inbounds nuw %struct.Node, ptr %83, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !23
   %88 = icmp eq i64 %87, -1
-  br i1 %88, label %116, label %89
+  br i1 %88, label %117, label %89
 
-89:                                               ; preds = %.split.us.split.us.i
+89:                                               ; preds = %.split.us.i
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !23
   %92 = ashr i64 %91, 47
@@ -2373,203 +2370,170 @@ define internal fastcc range(i64 0, 137438953505) i64 @propagatemark(ptr noundef
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i8, ptr %99, align 8, !tbaa !23
   %101 = and i8 %100, 3
-  %.not80.us.us.i = icmp eq i8 %101, 0
-  br i1 %.not80.us.us.i, label %103, label %102
+  %.not80.us.i = icmp eq i8 %101, 0
+  br i1 %.not80.us.i, label %103, label %102
 
 102:                                              ; preds = %96
   tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %98)
-  %.pre.i = load i64, ptr %86, align 8, !tbaa !23
   br label %103
 
 103:                                              ; preds = %102, %96, %89
-  %104 = phi i64 [ %.pre.i, %102 ], [ %87, %96 ], [ %87, %89 ]
-  %105 = ashr i64 %104, 47
-  %106 = trunc nsw i64 %105 to i32
-  %107 = add nsw i32 %106, 13
-  %108 = icmp ult i32 %107, 9
-  br i1 %108, label %109, label %116
+  br i1 %.not7591.i, label %104, label %117
 
-109:                                              ; preds = %103
-  %110 = and i64 %104, 140737488355327
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load i8, ptr %112, align 8, !tbaa !23
-  %114 = and i8 %113, 3
-  %.not81.us.us.i = icmp eq i8 %114, 0
-  br i1 %.not81.us.us.i, label %116, label %115
+104:                                              ; preds = %103
+  %105 = load i64, ptr %86, align 8, !tbaa !23
+  %106 = ashr i64 %105, 47
+  %107 = trunc nsw i64 %106 to i32
+  %108 = add nsw i32 %107, 13
+  %109 = icmp ult i32 %108, 9
+  br i1 %109, label %110, label %117
 
-115:                                              ; preds = %109
-  tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %111)
-  br label %116
+110:                                              ; preds = %104
+  %111 = and i64 %105, 140737488355327
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load i8, ptr %113, align 8, !tbaa !23
+  %115 = and i8 %114, 3
+  %.not81.us.i = icmp eq i8 %115, 0
+  br i1 %.not81.us.i, label %117, label %116
 
-116:                                              ; preds = %115, %109, %103, %.split.us.split.us.i
-  %117 = add i32 %.06195.us.us.i, 1
-  %.not78.us.us.i = icmp ugt i32 %117, %79
-  br i1 %.not78.us.us.i, label %gc_traverse_tab.exit, label %.split.us.split.us.i, !llvm.loop !114
+116:                                              ; preds = %110
+  tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %112)
+  br label %117
 
-.split.us.split.i:                                ; preds = %.split.us.i, %136
-  %.06195.us.i = phi i32 [ %137, %136 ], [ 0, %.split.us.i ]
-  %118 = zext i32 %.06195.us.i to i64
-  %119 = getelementptr inbounds nuw %struct.Node, ptr %83, i64 %118
-  %120 = load i64, ptr %119, align 8, !tbaa !23
-  %121 = icmp eq i64 %120, -1
-  br i1 %121, label %136, label %122
-
-122:                                              ; preds = %.split.us.split.i
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %124 = load i64, ptr %123, align 8, !tbaa !23
-  %125 = ashr i64 %124, 47
-  %126 = trunc nsw i64 %125 to i32
-  %127 = add nsw i32 %126, 13
-  %128 = icmp ult i32 %127, 9
-  br i1 %128, label %129, label %136
-
-129:                                              ; preds = %122
-  %130 = and i64 %124, 140737488355327
-  %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load i8, ptr %132, align 8, !tbaa !23
-  %134 = and i8 %133, 3
-  %.not80.us.i = icmp eq i8 %134, 0
-  br i1 %.not80.us.i, label %136, label %135
-
-135:                                              ; preds = %129
-  tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %131)
-  br label %136
-
-136:                                              ; preds = %135, %129, %122, %.split.us.split.i
-  %137 = add i32 %.06195.us.i, 1
-  %.not78.us.i = icmp ugt i32 %137, %79
-  br i1 %.not78.us.i, label %gc_traverse_tab.exit, label %.split.us.split.i, !llvm.loop !114
+117:                                              ; preds = %116, %110, %104, %103, %.split.us.i
+  %118 = add i32 %.06195.us.i, 1
+  %.not78.us.i = icmp ugt i32 %118, %79
+  br i1 %.not78.us.i, label %gc_traverse_tab.exit, label %.split.us.i, !llvm.loop !114
 
 .split.i:                                         ; preds = %80
   br i1 %.not7591.i, label %.split.split.us.i, label %gc_traverse_tab.exit
 
-.split.split.us.i:                                ; preds = %.split.i, %154
-  %.06195.us96.i = phi i32 [ %155, %154 ], [ 0, %.split.i ]
-  %138 = zext i32 %.06195.us96.i to i64
-  %139 = getelementptr inbounds nuw %struct.Node, ptr %83, i64 %138
-  %140 = load i64, ptr %139, align 8, !tbaa !23
-  %141 = icmp eq i64 %140, -1
-  br i1 %141, label %154, label %142
+.split.split.us.i:                                ; preds = %.split.i, %135
+  %.06195.us96.i = phi i32 [ %136, %135 ], [ 0, %.split.i ]
+  %119 = zext i32 %.06195.us96.i to i64
+  %120 = getelementptr inbounds nuw %struct.Node, ptr %83, i64 %119
+  %121 = load i64, ptr %120, align 8, !tbaa !23
+  %122 = icmp eq i64 %121, -1
+  br i1 %122, label %135, label %123
 
-142:                                              ; preds = %.split.split.us.i
-  %143 = ashr i64 %140, 47
-  %144 = trunc nsw i64 %143 to i32
-  %145 = add nsw i32 %144, 13
-  %146 = icmp ult i32 %145, 9
-  br i1 %146, label %147, label %154
+123:                                              ; preds = %.split.split.us.i
+  %124 = ashr i64 %121, 47
+  %125 = trunc nsw i64 %124 to i32
+  %126 = add nsw i32 %125, 13
+  %127 = icmp ult i32 %126, 9
+  br i1 %127, label %128, label %135
 
-147:                                              ; preds = %142
-  %148 = and i64 %140, 140737488355327
-  %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load i8, ptr %150, align 8, !tbaa !23
-  %152 = and i8 %151, 3
-  %.not81.us97.i = icmp eq i8 %152, 0
-  br i1 %.not81.us97.i, label %154, label %153
+128:                                              ; preds = %123
+  %129 = and i64 %121, 140737488355327
+  %130 = inttoptr i64 %129 to ptr
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load i8, ptr %131, align 8, !tbaa !23
+  %133 = and i8 %132, 3
+  %.not81.us97.i = icmp eq i8 %133, 0
+  br i1 %.not81.us97.i, label %135, label %134
 
-153:                                              ; preds = %147
-  tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %149)
-  br label %154
+134:                                              ; preds = %128
+  tail call fastcc void @gc_mark(ptr noundef %0, ptr noundef nonnull %130)
+  br label %135
 
-154:                                              ; preds = %153, %147, %142, %.split.split.us.i
-  %155 = add i32 %.06195.us96.i, 1
-  %.not78.us98.i = icmp ugt i32 %155, %79
-  br i1 %.not78.us98.i, label %gc_traverse_tab.exit, label %.split.split.us.i, !llvm.loop !114
+135:                                              ; preds = %134, %128, %123, %.split.split.us.i
+  %136 = add i32 %.06195.us96.i, 1
+  %.not78.us98.i = icmp ugt i32 %136, %79
+  br i1 %.not78.us98.i, label %gc_traverse_tab.exit, label %.split.split.us.i, !llvm.loop !116
 
-gc_traverse_tab.exit:                             ; preds = %154, %136, %116, %.loopexit93.i, %.split.i
-  %156 = icmp sgt i32 %.0608689.fr.i, 0
-  br i1 %156, label %gc_traverse_tab.exit.thread, label %159
+gc_traverse_tab.exit:                             ; preds = %135, %117, %.loopexit93.i, %.split.i
+  %137 = icmp sgt i32 %.0608689.fr.i, 0
+  br i1 %137, label %gc_traverse_tab.exit.thread, label %140
 
 gc_traverse_tab.exit.thread:                      ; preds = %49, %gc_traverse_tab.exit
-  %157 = load i8, ptr %7, align 8, !tbaa !23
-  %158 = and i8 %157, -5
-  store i8 %158, ptr %7, align 8, !tbaa !23
-  br label %159
+  %138 = load i8, ptr %7, align 8, !tbaa !23
+  %139 = and i8 %138, -5
+  store i8 %139, ptr %7, align 8, !tbaa !23
+  br label %140
 
-159:                                              ; preds = %gc_traverse_tab.exit.thread, %gc_traverse_tab.exit
-  %160 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %161 = load i32, ptr %160, align 8, !tbaa !84
-  %162 = zext i32 %161 to i64
-  %163 = shl nuw nsw i64 %162, 3
-  %164 = add nuw nsw i64 %163, 64
-  %165 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %166 = load i32, ptr %165, align 4, !tbaa !38
-  %.not = icmp eq i32 %166, 0
-  %167 = add i32 %166, 1
-  %168 = zext i32 %167 to i64
-  %169 = mul nuw nsw i64 %168, 24
-  %170 = select i1 %.not, i64 0, i64 %169
-  %171 = add nuw nsw i64 %164, %170
-  br label %217
+140:                                              ; preds = %gc_traverse_tab.exit.thread, %gc_traverse_tab.exit
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %142 = load i32, ptr %141, align 8, !tbaa !84
+  %143 = zext i32 %142 to i64
+  %144 = shl nuw nsw i64 %143, 3
+  %145 = add nuw nsw i64 %144, 64
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %147 = load i32, ptr %146, align 4, !tbaa !38
+  %.not = icmp eq i32 %147, 0
+  %148 = add i32 %147, 1
+  %149 = zext i32 %148 to i64
+  %150 = mul nuw nsw i64 %149, 24
+  %151 = select i1 %.not, i64 0, i64 %150
+  %152 = add nuw nsw i64 %145, %151
+  br label %198
 
-172:                                              ; preds = %1
+153:                                              ; preds = %1
   tail call fastcc void @gc_traverse_func(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %173 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %174 = load i8, ptr %173, align 2, !tbaa !23
-  %175 = icmp eq i8 %174, 0
-  %176 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  %177 = load i8, ptr %176, align 1, !tbaa !23
-  %178 = zext i8 %177 to i64
-  %179 = shl nuw nsw i64 %178, 3
-  br i1 %175, label %180, label %182
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %155 = load i8, ptr %154, align 2, !tbaa !23
+  %156 = icmp eq i8 %155, 0
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %158 = load i8, ptr %157, align 1, !tbaa !23
+  %159 = zext i8 %158 to i64
+  %160 = shl nuw nsw i64 %159, 3
+  br i1 %156, label %161, label %163
 
-180:                                              ; preds = %172
-  %181 = add nuw nsw i64 %179, 40
-  br label %217
+161:                                              ; preds = %153
+  %162 = add nuw nsw i64 %160, 40
+  br label %198
 
-182:                                              ; preds = %172
-  %183 = add nuw nsw i64 %179, 48
-  br label %217
+163:                                              ; preds = %153
+  %164 = add nuw nsw i64 %160, 48
+  br label %198
 
-184:                                              ; preds = %1
+165:                                              ; preds = %1
   tail call fastcc void @gc_traverse_proto(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %185 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %186 = load i32, ptr %185, align 8, !tbaa !115
-  %187 = zext i32 %186 to i64
-  br label %217
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %167 = load i32, ptr %166, align 8, !tbaa !117
+  %168 = zext i32 %167 to i64
+  br label %198
 
-188:                                              ; preds = %1
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %190 = load i64, ptr %189, align 8, !tbaa !81
-  store i64 %190, ptr %10, align 8, !tbaa !116
-  store i64 %3, ptr %189, align 8, !tbaa !81
-  %191 = load i8, ptr %7, align 8, !tbaa !23
-  %192 = and i8 %191, -5
-  store i8 %192, ptr %7, align 8, !tbaa !23
+169:                                              ; preds = %1
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %171 = load i64, ptr %170, align 8, !tbaa !81
+  store i64 %171, ptr %10, align 8, !tbaa !118
+  store i64 %3, ptr %170, align 8, !tbaa !81
+  %172 = load i8, ptr %7, align 8, !tbaa !23
+  %173 = and i8 %172, -5
+  store i8 %173, ptr %7, align 8, !tbaa !23
   tail call fastcc void @gc_traverse_thread(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %193 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %194 = load i32, ptr %193, align 8, !tbaa !117
-  %195 = zext i32 %194 to i64
-  %196 = shl nuw nsw i64 %195, 3
-  %197 = add nuw nsw i64 %196, 96
-  br label %217
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %175 = load i32, ptr %174, align 8, !tbaa !119
+  %176 = zext i32 %175 to i64
+  %177 = shl nuw nsw i64 %176, 3
+  %178 = add nuw nsw i64 %177, 96
+  br label %198
 
-198:                                              ; preds = %1
+179:                                              ; preds = %1
   tail call fastcc void @gc_traverse_trace(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %199 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %200 = load i32, ptr %199, align 4, !tbaa !118
-  %201 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %202 = load i32, ptr %201, align 8, !tbaa !119
-  %203 = sub i32 %200, %202
-  %204 = zext i32 %203 to i64
-  %205 = shl nuw nsw i64 %204, 3
-  %206 = add nuw nsw i64 %205, 120
-  %207 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %208 = load i16, ptr %207, align 2, !tbaa !120
-  %209 = zext i16 %208 to i64
-  %210 = mul nuw nsw i64 %209, 12
-  %211 = add nuw nsw i64 %206, %210
-  %212 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %213 = load i32, ptr %212, align 4, !tbaa !121
-  %214 = zext i32 %213 to i64
-  %215 = shl nuw nsw i64 %214, 2
-  %216 = add nuw nsw i64 %211, %215
-  br label %217
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %181 = load i32, ptr %180, align 4, !tbaa !120
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %183 = load i32, ptr %182, align 8, !tbaa !121
+  %184 = sub i32 %181, %183
+  %185 = zext i32 %184 to i64
+  %186 = shl nuw nsw i64 %185, 3
+  %187 = add nuw nsw i64 %186, 120
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %189 = load i16, ptr %188, align 2, !tbaa !122
+  %190 = zext i16 %189 to i64
+  %191 = mul nuw nsw i64 %190, 12
+  %192 = add nuw nsw i64 %187, %191
+  %193 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %194 = load i32, ptr %193, align 4, !tbaa !123
+  %195 = zext i32 %194 to i64
+  %196 = shl nuw nsw i64 %195, 2
+  %197 = add nuw nsw i64 %192, %196
+  br label %198
 
-217:                                              ; preds = %180, %182, %198, %188, %184, %159
-  %.0 = phi i64 [ %171, %159 ], [ %187, %184 ], [ %197, %188 ], [ %216, %198 ], [ %181, %180 ], [ %183, %182 ]
+198:                                              ; preds = %161, %163, %179, %169, %165, %140
+  %.0 = phi i64 [ %152, %140 ], [ %168, %165 ], [ %178, %169 ], [ %197, %179 ], [ %162, %161 ], [ %164, %163 ]
   ret i64 %.0
 }
 
@@ -2653,7 +2617,7 @@ define internal fastcc void @gc_traverse_func(ptr noundef %0, ptr noundef readon
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %41 = zext i8 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next37, %41
-  br i1 %42, label %30, label %.loopexit, !llvm.loop !122
+  br i1 %42, label %30, label %.loopexit, !llvm.loop !124
 
 43:                                               ; preds = %.lr.ph, %58
   %44 = phi i8 [ %15, %.lr.ph ], [ %59, %58 ]
@@ -2685,7 +2649,7 @@ define internal fastcc void @gc_traverse_func(ptr noundef %0, ptr noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = zext i8 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %43, label %.loopexit, !llvm.loop !123
+  br i1 %61, label %43, label %.loopexit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %58, %39, %.preheader, %26
   ret void
@@ -2694,14 +2658,14 @@ define internal fastcc void @gc_traverse_func(ptr noundef %0, ptr noundef readon
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @gc_traverse_proto(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = load i64, ptr %3, align 8, !tbaa !124
+  %4 = load i64, ptr %3, align 8, !tbaa !126
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !23
   %8 = and i8 %7, -4
   store i8 %8, ptr %6, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !125
+  %10 = load i32, ptr %9, align 8, !tbaa !127
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -2713,7 +2677,7 @@ define internal fastcc void @gc_traverse_proto(ptr noundef %0, ptr noundef reado
 
 14:                                               ; preds = %.lr.ph, %24
   %.013 = phi i64 [ %12, %.lr.ph ], [ %25, %24 ]
-  %15 = load i64, ptr %13, align 8, !tbaa !126
+  %15 = load i64, ptr %13, align 8, !tbaa !128
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds %struct.GCRef, ptr %16, i64 %.013
   %18 = load i64, ptr %17, align 8, !tbaa !22
@@ -2731,11 +2695,11 @@ define internal fastcc void @gc_traverse_proto(ptr noundef %0, ptr noundef reado
 24:                                               ; preds = %14, %23
   %25 = add nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %25, 0
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %24, %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 62
-  %27 = load i16, ptr %26, align 2, !tbaa !128
+  %27 = load i16, ptr %26, align 2, !tbaa !130
   %.not = icmp eq i16 %27, 0
   br i1 %.not, label %gc_marktrace.exit, label %28
 
@@ -2802,7 +2766,7 @@ define internal fastcc void @gc_traverse_thread(ptr noundef %0, ptr noundef %1) 
 22:                                               ; preds = %.lr.ph, %15, %21
   %23 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %24 = icmp ult ptr %23, %4
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !129
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %22, %2
   %.0.lcssa = phi ptr [ %8, %2 ], [ %23, %22 ]
@@ -2816,7 +2780,7 @@ define internal fastcc void @gc_traverse_thread(ptr noundef %0, ptr noundef %1) 
   %29 = load i64, ptr %5, align 8, !tbaa !58
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %32 = load i32, ptr %31, align 8, !tbaa !117
+  %32 = load i32, ptr %31, align 8, !tbaa !119
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw %union.TValue, ptr %30, i64 %33
   %35 = icmp ult ptr %.0.lcssa, %34
@@ -2836,7 +2800,7 @@ define internal fastcc void @gc_traverse_thread(ptr noundef %0, ptr noundef %1) 
 
 .loopexit:                                        ; preds = %.lr.ph26.preheader, %28, %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %44 = load i64, ptr %43, align 8, !tbaa !130
+  %44 = load i64, ptr %43, align 8, !tbaa !132
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8, !tbaa !23
@@ -2912,13 +2876,13 @@ define internal fastcc void @gc_traverse_thread(ptr noundef %0, ptr noundef %1) 
 94:                                               ; preds = %90, %80
   %95 = phi ptr [ %89, %80 ], [ %93, %90 ]
   %96 = icmp ugt ptr %95, %58
-  br i1 %96, label %.lr.ph.i, label %gc_traverse_frames.exit, !llvm.loop !131
+  br i1 %96, label %.lr.ph.i, label %gc_traverse_frames.exit, !llvm.loop !133
 
 gc_traverse_frames.exit:                          ; preds = %94, %50
   %.025.lcssa.i = phi ptr [ %52, %50 ], [ %spec.select.i, %94 ]
   %97 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %99 = load i64, ptr %98, align 8, !tbaa !132
+  %99 = load i64, ptr %98, align 8, !tbaa !134
   %100 = inttoptr i64 %99 to ptr
   %101 = icmp ugt ptr %97, %100
   %spec.select28.i = select i1 %101, ptr %100, ptr %97
@@ -2933,13 +2897,13 @@ gc_traverse_frames.exit:                          ; preds = %94, %50
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @gc_traverse_trace(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %4 = load i16, ptr %3, align 8, !tbaa !133
+  %4 = load i16, ptr %3, align 8, !tbaa !135
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %97, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !119
+  %8 = load i32, ptr %7, align 8, !tbaa !121
   %9 = icmp ult i32 %8, 32765
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -2949,7 +2913,7 @@ define internal fastcc void @gc_traverse_trace(ptr noundef %0, ptr noundef reado
 
 11:                                               ; preds = %.lr.ph, %36
   %.037 = phi i32 [ %8, %.lr.ph ], [ %37, %36 ]
-  %12 = load ptr, ptr %10, align 8, !tbaa !134
+  %12 = load ptr, ptr %10, align 8, !tbaa !136
   %13 = zext nneg i32 %.037 to i64
   %14 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 5
@@ -2992,11 +2956,11 @@ define internal fastcc void @gc_traverse_trace(ptr noundef %0, ptr noundef reado
   %.1 = phi i32 [ %.037, %26 ], [ %spec.select, %33 ]
   %37 = add nuw nsw i32 %.1, 1
   %38 = icmp ult i32 %.1, 32764
-  br i1 %38, label %11, label %._crit_edge, !llvm.loop !135
+  br i1 %38, label %11, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %36, %6
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 106
-  %40 = load i16, ptr %39, align 2, !tbaa !136
+  %40 = load i16, ptr %39, align 2, !tbaa !138
   %.not = icmp eq i16 %40, 0
   br i1 %.not, label %gc_marktrace.exit, label %41
 
@@ -3025,7 +2989,7 @@ define internal fastcc void @gc_traverse_trace(ptr noundef %0, ptr noundef reado
 
 gc_marktrace.exit:                                ; preds = %51, %41, %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 110
-  %57 = load i16, ptr %56, align 2, !tbaa !137
+  %57 = load i16, ptr %56, align 2, !tbaa !139
   %.not27 = icmp eq i16 %57, 0
   br i1 %.not27, label %gc_marktrace.exit34, label %58
 
@@ -3054,7 +3018,7 @@ gc_marktrace.exit:                                ; preds = %51, %41, %._crit_ed
 
 gc_marktrace.exit34:                              ; preds = %68, %58, %gc_marktrace.exit
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %74 = load i16, ptr %73, align 8, !tbaa !138
+  %74 = load i16, ptr %73, align 8, !tbaa !140
   %.not28 = icmp eq i16 %74, 0
   br i1 %.not28, label %gc_marktrace.exit36, label %75
 
@@ -3083,7 +3047,7 @@ gc_marktrace.exit34:                              ; preds = %68, %58, %gc_marktr
 
 gc_marktrace.exit36:                              ; preds = %85, %75, %gc_marktrace.exit34
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %91 = load i64, ptr %90, align 8, !tbaa !139
+  %91 = load i64, ptr %90, align 8, !tbaa !141
   %92 = inttoptr i64 %91 to ptr
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i8, ptr %93, align 8, !tbaa !23
@@ -3242,29 +3206,31 @@ attributes #9 = { noreturn nounwind }
 !111 = !{!"branch_weights", i32 0, i32 -382854991, i32 1955078, i32 977, i32 0}
 !112 = distinct !{!112, !29}
 !113 = distinct !{!113, !29}
-!114 = distinct !{!114, !29}
-!115 = !{!96, !11, i64 56}
-!116 = !{!31, !10, i64 24}
-!117 = !{!31, !11, i64 88}
-!118 = !{!45, !11, i64 12}
-!119 = !{!45, !11, i64 40}
-!120 = !{!45, !46, i64 10}
-!121 = !{!45, !11, i64 44}
-!122 = distinct !{!122, !29}
-!123 = distinct !{!123, !29}
-!124 = !{!96, !10, i64 64}
-!125 = !{!96, !11, i64 48}
-!126 = !{!96, !10, i64 32}
-!127 = distinct !{!127, !29}
-!128 = !{!96, !46, i64 62}
+!114 = distinct !{!114, !29, !115}
+!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!116 = distinct !{!116, !29, !115}
+!117 = !{!96, !11, i64 56}
+!118 = !{!31, !10, i64 24}
+!119 = !{!31, !11, i64 88}
+!120 = !{!45, !11, i64 12}
+!121 = !{!45, !11, i64 40}
+!122 = !{!45, !46, i64 10}
+!123 = !{!45, !11, i64 44}
+!124 = distinct !{!124, !29}
+!125 = distinct !{!125, !29}
+!126 = !{!96, !10, i64 64}
+!127 = !{!96, !11, i64 48}
+!128 = !{!96, !10, i64 32}
 !129 = distinct !{!129, !29}
-!130 = !{!31, !10, i64 72}
+!130 = !{!96, !46, i64 62}
 !131 = distinct !{!131, !29}
-!132 = !{!31, !10, i64 48}
-!133 = !{!45, !46, i64 104}
-!134 = !{!45, !47, i64 32}
-!135 = distinct !{!135, !29}
-!136 = !{!45, !46, i64 106}
-!137 = !{!45, !46, i64 110}
-!138 = !{!45, !46, i64 112}
-!139 = !{!45, !10, i64 64}
+!132 = !{!31, !10, i64 72}
+!133 = distinct !{!133, !29}
+!134 = !{!31, !10, i64 48}
+!135 = !{!45, !46, i64 104}
+!136 = !{!45, !47, i64 32}
+!137 = distinct !{!137, !29}
+!138 = !{!45, !46, i64 106}
+!139 = !{!45, !46, i64 110}
+!140 = !{!45, !46, i64 112}
+!141 = !{!45, !10, i64 64}

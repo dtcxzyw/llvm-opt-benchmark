@@ -711,7 +711,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   %.2.us = phi ptr [ %.3.us, %28 ], [ %.031.us56, %.lr.ph ]
   %34 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #8
   %.not42.us = icmp eq ptr %34, null
-  br i1 %.not42.us, label %.split50.us, label %.lr.ph
+  br i1 %.not42.us, label %.split50.us, label %.lr.ph, !llvm.loop !6
 
 .split:                                           ; preds = %3, %57
   %.037 = phi i32 [ %.138, %57 ], [ 64, %3 ]
@@ -855,3 +855,5 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}

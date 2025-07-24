@@ -3234,7 +3234,7 @@ TLSX_Find.exit.us184:                             ; preds = %.lr.ph.split.split.
   %.0110.us195 = load ptr, ptr %.0110.in.us194, align 8, !tbaa !108
   %77 = icmp eq ptr %.0110.us195, null
   %.not216 = select i1 %77, i1 true, i1 %.183.shrunk.us191
-  br i1 %.not216, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !136
+  br i1 %.not216, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !138
 
 78:                                               ; preds = %.lr.ph.i
   %79 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
@@ -3317,7 +3317,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.split.split,
   %.0110.in = getelementptr inbounds nuw i8, ptr %.0110143, i64 8
   %.0110 = load ptr, ptr %.0110.in, align 8, !tbaa !108
   %.not214 = icmp eq ptr %.0110, null
-  br i1 %.not214, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split, !llvm.loop !136
+  br i1 %.not214, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split, !llvm.loop !139
 
 TLSX_Find.exit._crit_edge:                        ; preds = %TLSX_Find.exit, %TLSX_Find.exit.us184, %TLSX_Find.exit.us
   %.0103.lcssa = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ %.1104.us185, %TLSX_Find.exit.us184 ], [ %.1104, %TLSX_Find.exit ]
@@ -3417,7 +3417,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %8
   %9 = load i16, ptr %.010, align 8, !tbaa !110
   %10 = tail call i32 @TLSX_UseSupportedCurve(ptr noundef %1, i16 noundef zeroext %9, ptr poison)
   %.not14 = icmp eq i32 %10, 1
-  br i1 %.not14, label %TLSX_Find.exit, label %.critedge, !llvm.loop !137
+  br i1 %.not14, label %TLSX_Find.exit, label %.critedge, !llvm.loop !140
 
 .critedge:                                        ; preds = %5, %TLSX_Find.exit, %8, %3
   %.1 = phi i32 [ 0, %3 ], [ 0, %TLSX_Find.exit ], [ -125, %8 ], [ 0, %5 ]
@@ -3452,7 +3452,7 @@ define range(i32 -173, 2) i32 @TLSX_UsePointFormat(ptr noundef captures(address_
   br i1 %12, label %TLSX_PointFormat_New.exit, label %13
 
 13:                                               ; preds = %.loopexit
-  store i8 %1, ptr %11, align 8, !tbaa !138
+  store i8 %1, ptr %11, align 8, !tbaa !141
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %14, align 8, !tbaa !94
   %15 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #17
@@ -3508,7 +3508,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   br i1 %.not.i30, label %TLSX_PointFormat_New.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = load i8, ptr %.08.i, align 8, !tbaa !138
+  %35 = load i8, ptr %.08.i, align 8, !tbaa !141
   %36 = icmp eq i8 %35, %1
   br i1 %36, label %TLSX_PointFormat_New.exit, label %37
 
@@ -3516,17 +3516,17 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !94
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %33, !llvm.loop !139
+  br i1 %40, label %41, label %33, !llvm.loop !142
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %43 = tail call ptr @wolfSSL_Malloc(i64 noundef 16) #17
-  store ptr %43, ptr %42, align 8, !tbaa !140
+  store ptr %43, ptr %42, align 8, !tbaa !143
   %44 = icmp eq ptr %43, null
   br i1 %44, label %TLSX_PointFormat_New.exit, label %45
 
 45:                                               ; preds = %41
-  store i8 %1, ptr %43, align 8, !tbaa !138
+  store i8 %1, ptr %43, align 8, !tbaa !141
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr null, ptr %46, align 8, !tbaa !94
   br label %TLSX_PointFormat_New.exit
@@ -3615,7 +3615,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = load ptr, ptr %0, align 16, !tbaa !102
   %32 = load ptr, ptr %31, align 8, !tbaa !53
-  %33 = load i8, ptr %32, align 1, !tbaa !141
+  %33 = load i8, ptr %32, align 1, !tbaa !144
   %.not105.us = icmp eq i8 %26, %33
   br i1 %.not105.us, label %34, label %37
 
@@ -3633,7 +3633,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   %.1.us = phi i32 [ %.079127.us, %.lr.ph.split.us ], [ %.079127.us, %30 ], [ %.079127.us, %34 ], [ 1, %36 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 2
   %38 = icmp samesign ult i64 %indvars.iv.next135, %24
-  br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !143
+  br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !146
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
@@ -3649,7 +3649,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 44:                                               ; preds = %.lr.ph.split
   %45 = load ptr, ptr %0, align 16, !tbaa !102
   %46 = load ptr, ptr %45, align 8, !tbaa !53
-  %47 = load i8, ptr %46, align 1, !tbaa !141
+  %47 = load i8, ptr %46, align 1, !tbaa !144
   %.not105 = icmp eq i8 %40, %47
   br i1 %.not105, label %48, label %54
 
@@ -3663,7 +3663,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   br i1 %.not121, label %51, label %53
 
 51:                                               ; preds = %50
-  %52 = load i8, ptr %23, align 1, !tbaa !144
+  %52 = load i8, ptr %23, align 1, !tbaa !147
   %.not122 = icmp ult i8 %42, %52
   br i1 %.not122, label %54, label %53
 
@@ -3676,7 +3676,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   %.1 = phi i32 [ %.079127, %.lr.ph.split ], [ %.079127, %44 ], [ %.079127, %48 ], [ %.079127, %51 ], [ 1, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %55 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !143
+  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %54, %37
   %.083.lcssa = phi i8 [ %.184.us, %37 ], [ %.184, %54 ]
@@ -3690,7 +3690,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 
 57:                                               ; preds = %._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %.083.lcssa, ptr %58, align 1, !tbaa !145
+  store i8 %.083.lcssa, ptr %58, align 1, !tbaa !149
   %59 = icmp ult i8 %.083.lcssa, 4
   br i1 %59, label %TLSX_Find.exit, label %60
 
@@ -3752,7 +3752,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   %82 = load i8, ptr %81, align 1, !tbaa !51
   %83 = load ptr, ptr %0, align 16, !tbaa !102
   %84 = load ptr, ptr %83, align 8, !tbaa !53
-  %85 = load i8, ptr %84, align 1, !tbaa !141
+  %85 = load i8, ptr %84, align 1, !tbaa !144
   %.not91 = icmp eq i8 %80, %85
   %86 = icmp ugt i8 %82, 3
   %or.cond124 = select i1 %.not91, i1 %86, i1 false
@@ -3771,9 +3771,9 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %95 = load i8, ptr %94, align 1, !tbaa !146
+  %95 = load i8, ptr %94, align 1, !tbaa !150
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %95, ptr %96, align 1, !tbaa !145
+  store i8 %95, ptr %96, align 1, !tbaa !149
   br label %97
 
 97:                                               ; preds = %93, %89, %87
@@ -3794,13 +3794,13 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1047
-  %106 = load i8, ptr %105, align 1, !tbaa !144
+  %106 = load i8, ptr %105, align 1, !tbaa !147
   %.not119 = icmp ult i8 %82, %106
   br i1 %.not119, label %TLSX_Find.exit, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %82, ptr %108, align 1, !tbaa !145
+  store i8 %82, ptr %108, align 1, !tbaa !149
   br label %TLSX_Find.exit
 
 TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %57, %73, %65, %100, %107, %._crit_edge.thread, %11, %15, %.loopexit, %76, %104, %101, %97, %79, %78
@@ -3818,7 +3818,7 @@ define ptr @TLSX_SignatureAlgorithms_New(ptr noundef %0, i16 noundef zeroext %1,
 
 7:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, i8 0, i64 %5, i1 false)
-  store ptr %0, ptr %6, align 8, !tbaa !147
+  store ptr %0, ptr %6, align 8, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %1, ptr %8, align 8, !tbaa !64
   br label %9
@@ -3844,14 +3844,14 @@ define void @TLSX_SignatureAlgorithms_FreeAll(ptr noundef %0, ptr noundef readno
 
 ; Function Attrs: nounwind uwtable
 define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i16, ptr %1, align 8, !tbaa !148
+  %3 = load i16, ptr %1, align 8, !tbaa !152
   %4 = and i16 %3, -256
   %or.cond = icmp eq i16 %4, 256
   br i1 %or.cond, label %5, label %107
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !151
+  %7 = load ptr, ptr %6, align 8, !tbaa !155
   %cond.i = icmp eq i16 %3, 256
   br i1 %cond.i, label %8, label %TLSX_KeyShare_GenDhKey.exit
 
@@ -3864,24 +3864,24 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !123
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !152
+  %15 = load ptr, ptr %14, align 8, !tbaa !156
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !153
+  %19 = load ptr, ptr %18, align 8, !tbaa !157
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %.thread127.i
 
 21:                                               ; preds = %17, %11
-  %22 = load ptr, ptr %6, align 8, !tbaa !151
+  %22 = load ptr, ptr %6, align 8, !tbaa !155
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %.thread103.i
 
 24:                                               ; preds = %21
   %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 3136) #17
-  store ptr %25, ptr %6, align 8, !tbaa !151
+  store ptr %25, ptr %6, align 8, !tbaa !155
   %26 = icmp eq ptr %25, null
   br i1 %26, label %TLSX_KeyShare_GenDhKey.exit, label %27
 
@@ -3895,7 +3895,7 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %33, label %34, label %.thread122.i
 
 34:                                               ; preds = %27
-  %35 = load ptr, ptr %6, align 8, !tbaa !151
+  %35 = load ptr, ptr %6, align 8, !tbaa !155
   %36 = load ptr, ptr %9, align 8, !tbaa !127
   %37 = load i32, ptr %12, align 8, !tbaa !123
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3907,7 +3907,7 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %43, label %..thread103_crit_edge.i, label %.thread122.i
 
 ..thread103_crit_edge.i:                          ; preds = %34
-  %.pre.i = load ptr, ptr %14, align 8, !tbaa !152
+  %.pre.i = load ptr, ptr %14, align 8, !tbaa !156
   br label %.thread103.i
 
 .thread103.i:                                     ; preds = %..thread103_crit_edge.i, %21
@@ -3919,34 +3919,34 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
 46:                                               ; preds = %.thread103.i
   %47 = zext i32 %13 to i64
   %48 = tail call ptr @wolfSSL_Malloc(i64 noundef %47) #17
-  store ptr %48, ptr %14, align 8, !tbaa !152
+  store ptr %48, ptr %14, align 8, !tbaa !156
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread122.i, label %50
 
 50:                                               ; preds = %46, %.thread103.i
   %51 = phi ptr [ %44, %.thread103.i ], [ %48, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %53 = load ptr, ptr %52, align 8, !tbaa !153
+  %53 = load ptr, ptr %52, align 8, !tbaa !157
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
   %56 = tail call ptr @wolfSSL_Malloc(i64 noundef 29) #17
-  store ptr %56, ptr %52, align 8, !tbaa !153
+  store ptr %56, ptr %52, align 8, !tbaa !157
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread122.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %55
-  %.pre132.i = load ptr, ptr %14, align 8, !tbaa !152
+  %.pre132.i = load ptr, ptr %14, align 8, !tbaa !156
   br label %58
 
 58:                                               ; preds = %._crit_edge.i, %50
   %59 = phi ptr [ %.pre132.i, %._crit_edge.i ], [ %51, %50 ]
   %60 = phi ptr [ %56, %._crit_edge.i ], [ %53, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %13, ptr %61, align 8, !tbaa !154
+  store i32 %13, ptr %61, align 8, !tbaa !158
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 29, ptr %62, align 8, !tbaa !155
+  store i32 29, ptr %62, align 8, !tbaa !159
   %63 = tail call i32 @DhGenKeyPair(ptr noundef %0, ptr noundef %.184107.i, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef %59, ptr noundef nonnull %61) #17
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread127.i, label %.thread122.i
@@ -3954,46 +3954,46 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
 .thread127.i:                                     ; preds = %58, %17
   %.083130.i = phi ptr [ %.184107.i, %58 ], [ %7, %17 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %66 = load i32, ptr %65, align 8, !tbaa !154
+  %66 = load i32, ptr %65, align 8, !tbaa !158
   %.not.i = icmp eq i32 %13, %66
   br i1 %.not.i, label %78, label %67
 
 67:                                               ; preds = %.thread127.i
-  %68 = load ptr, ptr %14, align 8, !tbaa !152
+  %68 = load ptr, ptr %14, align 8, !tbaa !156
   %69 = zext i32 %13 to i64
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
   %71 = zext i32 %66 to i64
   %72 = sub nsw i64 0, %71
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %68, i64 %71, i1 false)
-  %74 = load ptr, ptr %14, align 8, !tbaa !152
-  %75 = load i32, ptr %65, align 8, !tbaa !154
+  %74 = load ptr, ptr %14, align 8, !tbaa !156
+  %75 = load i32, ptr %65, align 8, !tbaa !158
   %76 = sub i32 %13, %75
   %77 = zext i32 %76 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %74, i8 0, i64 %77, i1 false)
-  store i32 %13, ptr %65, align 8, !tbaa !154
+  store i32 %13, ptr %65, align 8, !tbaa !158
   br label %78
 
 78:                                               ; preds = %67, %.thread127.i
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %80 = load i32, ptr %79, align 8, !tbaa !155
+  %80 = load i32, ptr %79, align 8, !tbaa !159
   %.not94.i = icmp eq i32 %80, 29
   br i1 %.not94.i, label %.thread122.i, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %83 = load ptr, ptr %82, align 8, !tbaa !153
+  %83 = load ptr, ptr %82, align 8, !tbaa !157
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 29
   %85 = zext i32 %80 to i64
   %86 = sub nsw i64 0, %85
   %87 = getelementptr inbounds i8, ptr %84, i64 %86
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %83, i64 %85, i1 false)
-  %88 = load ptr, ptr %82, align 8, !tbaa !153
-  %89 = load i32, ptr %79, align 8, !tbaa !155
+  %88 = load ptr, ptr %82, align 8, !tbaa !157
+  %89 = load i32, ptr %79, align 8, !tbaa !159
   %90 = sub i32 29, %89
   %91 = zext i32 %90 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %88, i8 0, i64 %91, i1 false)
-  store i32 29, ptr %79, align 8, !tbaa !155
+  store i32 29, ptr %79, align 8, !tbaa !159
   br label %.thread122.i
 
 .thread122.i:                                     ; preds = %81, %78, %58, %55, %46, %34, %27
@@ -4008,7 +4008,7 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %95
 
 95:                                               ; preds = %93, %.thread122.i
-  %96 = load ptr, ptr %6, align 8, !tbaa !151
+  %96 = load ptr, ptr %6, align 8, !tbaa !155
   %.not96.i = icmp eq ptr %96, null
   br i1 %.not96.i, label %98, label %97
 
@@ -4017,12 +4017,12 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %98
 
 98:                                               ; preds = %97, %95
-  store ptr null, ptr %6, align 8, !tbaa !151
+  store ptr null, ptr %6, align 8, !tbaa !155
   br i1 %92, label %TLSX_KeyShare_GenDhKey.exit, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %101 = load ptr, ptr %100, align 8, !tbaa !153
+  %101 = load ptr, ptr %100, align 8, !tbaa !157
   %.not98.i = icmp eq ptr %101, null
   br i1 %.not98.i, label %103, label %102
 
@@ -4031,8 +4031,8 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %103
 
 103:                                              ; preds = %102, %99
-  store ptr null, ptr %100, align 8, !tbaa !153
-  %104 = load ptr, ptr %14, align 8, !tbaa !152
+  store ptr null, ptr %100, align 8, !tbaa !157
+  %104 = load ptr, ptr %14, align 8, !tbaa !156
   %.not99.i = icmp eq ptr %104, null
   br i1 %.not99.i, label %106, label %105
 
@@ -4041,7 +4041,7 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %106
 
 106:                                              ; preds = %105, %103
-  store ptr null, ptr %14, align 8, !tbaa !152
+  store ptr null, ptr %14, align 8, !tbaa !156
   br label %TLSX_KeyShare_GenDhKey.exit
 
 107:                                              ; preds = %2
@@ -4056,7 +4056,7 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %110, label %switch.lookup, label %TLSX_KeyShare_GenDhKey.exit
 
 switch.lookup:                                    ; preds = %108
-  %111 = load ptr, ptr %109, align 8, !tbaa !151
+  %111 = load ptr, ptr %109, align 8, !tbaa !155
   %112 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.TLSX_KeyShare_GenKey, i64 0, i64 %112
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -4068,7 +4068,7 @@ switch.lookup:                                    ; preds = %108
 
 115:                                              ; preds = %switch.lookup
   %116 = tail call ptr @wolfSSL_Malloc(i64 noundef 4208) #17
-  store ptr %116, ptr %109, align 8, !tbaa !151
+  store ptr %116, ptr %109, align 8, !tbaa !155
   %117 = icmp eq ptr %116, null
   br i1 %117, label %TLSX_KeyShare_GenDhKey.exit, label %118
 
@@ -4083,12 +4083,12 @@ switch.lookup:                                    ; preds = %108
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %switch.load, ptr %126, align 8, !tbaa !155
+  store i32 %switch.load, ptr %126, align 8, !tbaa !159
   %127 = shl nuw nsw i32 %switch.load, 1
   %128 = or disjoint i32 %127, 1
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %128, ptr %129, align 8, !tbaa !154
-  %130 = load ptr, ptr %109, align 8, !tbaa !151
+  store i32 %128, ptr %129, align 8, !tbaa !158
+  %130 = load ptr, ptr %109, align 8, !tbaa !155
   %131 = tail call i32 @wc_ecc_set_curve(ptr noundef %130, i32 noundef %switch.load, i32 noundef %switch.load17) #17
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %.thread66.i
@@ -4101,26 +4101,26 @@ switch.lookup:                                    ; preds = %108
 .thread61.i:                                      ; preds = %133, %switch.lookup
   %.04564.i = phi ptr [ %130, %133 ], [ %111, %switch.lookup ]
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %137 = load ptr, ptr %136, align 8, !tbaa !152
+  %137 = load ptr, ptr %136, align 8, !tbaa !156
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %.thread61.i
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %141 = load i32, ptr %140, align 8, !tbaa !154
+  %141 = load i32, ptr %140, align 8, !tbaa !158
   %142 = zext i32 %141 to i64
   %143 = tail call ptr @wolfSSL_Malloc(i64 noundef %142) #17
-  store ptr %143, ptr %136, align 8, !tbaa !152
+  store ptr %143, ptr %136, align 8, !tbaa !156
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.thread66.i, label %145
 
 145:                                              ; preds = %139, %.thread61.i
   %146 = phi ptr [ %137, %.thread61.i ], [ %143, %139 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %148 = load i32, ptr %147, align 8, !tbaa !154
+  %148 = load i32, ptr %147, align 8, !tbaa !158
   %149 = zext i32 %148 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %146, i8 0, i64 %149, i1 false)
-  %150 = load ptr, ptr %136, align 8, !tbaa !152
+  %150 = load ptr, ptr %136, align 8, !tbaa !156
   %151 = tail call i32 @wc_ecc_export_x963(ptr noundef %.04564.i, ptr noundef %150, ptr noundef nonnull %147) #17
   %.not.i14 = icmp eq i32 %151, 0
   br i1 %.not.i14, label %TLSX_KeyShare_GenDhKey.exit, label %.thread66.i
@@ -4129,7 +4129,7 @@ switch.lookup:                                    ; preds = %108
   %.0456069.ph.i = phi ptr [ %.04564.i, %145 ], [ %130, %133 ], [ null, %118 ], [ %130, %125 ], [ %.04564.i, %139 ]
   %.2.ph.i = phi i32 [ -354, %145 ], [ %134, %133 ], [ %123, %118 ], [ %131, %125 ], [ -125, %139 ]
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %153 = load ptr, ptr %152, align 8, !tbaa !152
+  %153 = load ptr, ptr %152, align 8, !tbaa !156
   %.not54.i = icmp eq ptr %153, null
   br i1 %.not54.i, label %155, label %154
 
@@ -4138,7 +4138,7 @@ switch.lookup:                                    ; preds = %108
   br label %155
 
 155:                                              ; preds = %154, %.thread66.i
-  store ptr null, ptr %152, align 8, !tbaa !152
+  store ptr null, ptr %152, align 8, !tbaa !156
   %.not55.i = icmp eq ptr %.0456069.ph.i, null
   br i1 %.not55.i, label %158, label %156
 
@@ -4147,7 +4147,7 @@ switch.lookup:                                    ; preds = %108
   br label %158
 
 158:                                              ; preds = %156, %155
-  %159 = load ptr, ptr %109, align 8, !tbaa !151
+  %159 = load ptr, ptr %109, align 8, !tbaa !155
   %.not56.i = icmp eq ptr %159, null
   br i1 %.not56.i, label %161, label %160
 
@@ -4156,7 +4156,7 @@ switch.lookup:                                    ; preds = %108
   br label %161
 
 161:                                              ; preds = %160, %158
-  store ptr null, ptr %109, align 8, !tbaa !151
+  store ptr null, ptr %109, align 8, !tbaa !155
   br label %TLSX_KeyShare_GenDhKey.exit
 
 TLSX_KeyShare_GenDhKey.exit:                      ; preds = %108, %107, %161, %145, %115, %106, %98, %24, %8, %5
@@ -4310,7 +4310,7 @@ TLSX_KeyShareEntry_Parse.exit:                    ; preds = %65, %66
   %.0.i3037 = phi i32 [ %67, %TLSX_KeyShareEntry_Parse.exit.thread35 ], [ %64, %TLSX_KeyShareEntry_Parse.exit ]
   %70 = add nuw nsw i32 %.0.i3037, %.02242
   %71 = icmp slt i32 %70, %26
-  br i1 %71, label %.lr.ph, label %TLSX_Push.exit, !llvm.loop !156
+  br i1 %71, label %.lr.ph, label %TLSX_Push.exit, !llvm.loop !160
 
 TLSX_Push.exit:                                   ; preds = %TLSX_KeyShareEntry_Parse.exit, %69, %.lr.ph, %41, %54, %58, %.preheader, %.loopexit, %28, %TLSX_Find.exit
   %.0 = phi i32 [ -328, %TLSX_Find.exit ], [ -328, %28 ], [ -125, %.loopexit ], [ 0, %.preheader ], [ %64, %TLSX_KeyShareEntry_Parse.exit ], [ 0, %69 ], [ -328, %.lr.ph ], [ -425, %41 ], [ -328, %54 ], [ -125, %58 ]
@@ -4321,7 +4321,7 @@ TLSX_Push.exit:                                   ; preds = %TLSX_KeyShareEntry_
 define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  store ptr null, ptr %5, align 8, !tbaa !157
+  store ptr null, ptr %5, align 8, !tbaa !161
   switch i8 %3, label %TLSX_KeyShare_Find.exit105 [
     i8 1, label %6
     i8 2, label %9
@@ -4396,7 +4396,7 @@ TLSX_Find.exit.i:                                 ; preds = %TLSX_Find.exit.i.pr
 31:                                               ; preds = %TLSX_Find.exit.i
   %32 = load i16, ptr %.0.i, align 8, !tbaa !110
   %33 = icmp eq i16 %32, %17
-  br i1 %33, label %TLSX_SupportedGroups_Find.exit, label %TLSX_Find.exit.i, !llvm.loop !158
+  br i1 %33, label %TLSX_SupportedGroups_Find.exit, label %TLSX_Find.exit.i, !llvm.loop !162
 
 TLSX_SupportedGroups_Find.exit:                   ; preds = %31
   br i1 %.not6.i.i, label %.loopexit.i60, label %.lr.ph.i.i56
@@ -4443,11 +4443,11 @@ TLSX_Find.exit.i61:                               ; preds = %.lr.ph.i.i56, %.lr.
   %47 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
   %.0.i62 = load ptr, ptr %47, align 8, !tbaa !108
   %.not.i63 = icmp eq ptr %.0.i62, null
-  br i1 %.not.i63, label %TLSX_KeyShare_Find.exit105, label %.lr.ph.i, !llvm.loop !159
+  br i1 %.not.i63, label %TLSX_KeyShare_Find.exit105, label %.lr.ph.i, !llvm.loop !163
 
 .lr.ph.i:                                         ; preds = %TLSX_Find.exit.i61, %46
   %.028.i = phi ptr [ %.0.i62, %46 ], [ %.026.i, %TLSX_Find.exit.i61 ]
-  %48 = load i16, ptr %.028.i, align 8, !tbaa !148
+  %48 = load i16, ptr %.028.i, align 8, !tbaa !152
   %49 = icmp eq i16 %48, %17
   br i1 %49, label %TLSX_KeyShare_Find.exit, label %46
 
@@ -4504,19 +4504,19 @@ TLSX_KeyShareEntry_Parse.exit:                    ; preds = %70, %71, %72
   br i1 %.not51, label %74, label %TLSX_KeyShare_Find.exit105
 
 74:                                               ; preds = %TLSX_KeyShareEntry_Parse.exit
-  %75 = load ptr, ptr %5, align 8, !tbaa !157
+  %75 = load ptr, ptr %5, align 8, !tbaa !161
   %76 = icmp eq ptr %75, null
   br i1 %76, label %TLSX_KeyShare_Find.exit105, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !151
+  %79 = load ptr, ptr %78, align 8, !tbaa !155
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %83 = load ptr, ptr %82, align 8, !tbaa !153
+  %83 = load ptr, ptr %82, align 8, !tbaa !157
   %84 = icmp eq ptr %83, null
   br i1 %84, label %TLSX_KeyShare_Find.exit105, label %85
 
@@ -4529,9 +4529,9 @@ TLSX_KeyShareEntry_Parse.exit:                    ; preds = %70, %71, %72
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   store i16 %17, ptr %89, align 2, !tbaa !132
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %91 = load ptr, ptr %90, align 16, !tbaa !160
+  %91 = load ptr, ptr %90, align 16, !tbaa !164
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 224
-  store i16 %17, ptr %92, align 8, !tbaa !161
+  store i16 %17, ptr %92, align 8, !tbaa !165
   br label %TLSX_KeyShare_Find.exit105
 
 93:                                               ; preds = %4
@@ -4596,7 +4596,7 @@ TLSX_Find.exit.i78:                               ; preds = %TLSX_Find.exit.i78.
 113:                                              ; preds = %TLSX_Find.exit.i78
   %114 = load i16, ptr %.0.i82, align 8, !tbaa !110
   %115 = icmp eq i16 %114, %99
-  br i1 %115, label %TLSX_SupportedGroups_Find.exit84, label %TLSX_Find.exit.i78, !llvm.loop !158
+  br i1 %115, label %TLSX_SupportedGroups_Find.exit84, label %TLSX_Find.exit.i78, !llvm.loop !162
 
 TLSX_SupportedGroups_Find.exit84:                 ; preds = %113
   br i1 %.not6.i.i66, label %.loopexit.i90, label %.lr.ph.i.i86
@@ -4643,11 +4643,11 @@ TLSX_Find.exit.i97:                               ; preds = %.lr.ph.i.i86, %.lr.
   %129 = getelementptr inbounds nuw i8, ptr %.028.i102, i64 72
   %.0.i103 = load ptr, ptr %129, align 8, !tbaa !108
   %.not.i104 = icmp eq ptr %.0.i103, null
-  br i1 %.not.i104, label %.loopexit142, label %.lr.ph.i101, !llvm.loop !159
+  br i1 %.not.i104, label %.loopexit142, label %.lr.ph.i101, !llvm.loop !163
 
 .lr.ph.i101:                                      ; preds = %TLSX_Find.exit.i97, %128
   %.028.i102 = phi ptr [ %.0.i103, %128 ], [ %.026.i99, %TLSX_Find.exit.i97 ]
-  %130 = load i16, ptr %.028.i102, align 8, !tbaa !148
+  %130 = load i16, ptr %.028.i102, align 8, !tbaa !152
   %131 = icmp eq i16 %130, %99
   br i1 %131, label %TLSX_KeyShare_Find.exit105, label %128
 
@@ -4725,9 +4725,9 @@ TLSX_Find.exit.i113:                              ; preds = %.lr.ph.i.i107
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   store i16 %99, ptr %158, align 2, !tbaa !132
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %160 = load ptr, ptr %159, align 16, !tbaa !160
+  %160 = load ptr, ptr %159, align 16, !tbaa !164
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 224
-  store i16 %99, ptr %161, align 8, !tbaa !161
+  store i16 %99, ptr %161, align 8, !tbaa !165
   br label %TLSX_KeyShare_Find.exit105
 
 TLSX_KeyShare_Find.exit105:                       ; preds = %110, %TLSX_Find.exit.i78, %.lr.ph.i101, %28, %TLSX_Find.exit.i, %42, %46, %.loopexit.i71, %63, %59, %51, %TLSX_KeyShare_Find.exit, %TLSX_Find.exit.i61, %.loopexit.i60, %.loopexit.i, %74, %81, %TLSX_KeyShareEntry_Parse.exit, %9, %.loopexit.i111, %88, %85, %6, %157, %.loopexit, %4, %93
@@ -4750,14 +4750,14 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %9
 
 9:                                                ; preds = %8, %2
-  %10 = load i16, ptr %1, align 8, !tbaa !148
+  %10 = load i16, ptr %1, align 8, !tbaa !152
   %11 = and i16 %10, -256
   %or.cond = icmp eq i16 %11, 256
   br i1 %or.cond, label %12, label %98
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !151
+  %14 = load ptr, ptr %13, align 8, !tbaa !155
   %cond.i = icmp eq i16 %10, 256
   br i1 %cond.i, label %15, label %TLSX_KeyShare_ProcessDh.exit
 
@@ -4769,13 +4769,13 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !123
-  %21 = load ptr, ptr %13, align 8, !tbaa !151
+  %21 = load ptr, ptr %13, align 8, !tbaa !155
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread76.i
 
 23:                                               ; preds = %18
   %24 = tail call ptr @wolfSSL_Malloc(i64 noundef 3136) #17
-  store ptr %24, ptr %13, align 8, !tbaa !151
+  store ptr %24, ptr %13, align 8, !tbaa !155
   %25 = icmp eq ptr %24, null
   br i1 %25, label %TLSX_KeyShare_ProcessDh.exit, label %26
 
@@ -4789,7 +4789,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br i1 %32, label %33, label %.thread84.i
 
 33:                                               ; preds = %26
-  %34 = load ptr, ptr %13, align 8, !tbaa !151
+  %34 = load ptr, ptr %13, align 8, !tbaa !155
   %35 = load ptr, ptr %16, align 8, !tbaa !127
   %36 = load i32, ptr %19, align 8, !tbaa !123
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4804,15 +4804,15 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   %.06179.i = phi ptr [ %34, %33 ], [ %14, %18 ]
   %43 = trunc i32 %20 to i16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1058
-  store i16 %43, ptr %44, align 2, !tbaa !163
+  store i16 %43, ptr %44, align 2, !tbaa !167
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !153
+  %46 = load ptr, ptr %45, align 8, !tbaa !157
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !155
+  %48 = load i32, ptr %47, align 8, !tbaa !159
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !164
+  %50 = load ptr, ptr %49, align 8, !tbaa !168
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !165
+  %52 = load i32, ptr %51, align 8, !tbaa !169
   %53 = load ptr, ptr %3, align 8, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !71
@@ -4822,7 +4822,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br i1 %58, label %59, label %.thread84.i
 
 59:                                               ; preds = %.thread76.i
-  %60 = load i16, ptr %44, align 2, !tbaa !163
+  %60 = load i16, ptr %44, align 2, !tbaa !167
   %61 = zext i16 %60 to i32
   %62 = load ptr, ptr %3, align 8, !tbaa !45
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -4842,7 +4842,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !71
   tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %70, i1 false)
-  %76 = load i16, ptr %44, align 2, !tbaa !163
+  %76 = load i16, ptr %44, align 2, !tbaa !167
   %77 = zext i16 %76 to i32
   %78 = load ptr, ptr %3, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -4860,7 +4860,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %82
 
 82:                                               ; preds = %80, %.thread84.i
-  %83 = load ptr, ptr %13, align 8, !tbaa !151
+  %83 = load ptr, ptr %13, align 8, !tbaa !155
   %.not71.i = icmp eq ptr %83, null
   br i1 %.not71.i, label %85, label %84
 
@@ -4869,9 +4869,9 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %85
 
 85:                                               ; preds = %84, %82
-  store ptr null, ptr %13, align 8, !tbaa !151
+  store ptr null, ptr %13, align 8, !tbaa !155
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %87 = load ptr, ptr %86, align 8, !tbaa !153
+  %87 = load ptr, ptr %86, align 8, !tbaa !157
   %.not72.i = icmp eq ptr %87, null
   br i1 %.not72.i, label %89, label %88
 
@@ -4880,9 +4880,9 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %89
 
 89:                                               ; preds = %88, %85
-  store ptr null, ptr %86, align 8, !tbaa !153
+  store ptr null, ptr %86, align 8, !tbaa !157
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !152
+  %91 = load ptr, ptr %90, align 8, !tbaa !156
   %.not73.i = icmp eq ptr %91, null
   br i1 %.not73.i, label %93, label %92
 
@@ -4891,9 +4891,9 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %93
 
 93:                                               ; preds = %92, %89
-  store ptr null, ptr %90, align 8, !tbaa !152
+  store ptr null, ptr %90, align 8, !tbaa !156
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !164
+  %95 = load ptr, ptr %94, align 8, !tbaa !168
   %.not74.i = icmp eq ptr %95, null
   br i1 %.not74.i, label %97, label %96
 
@@ -4902,7 +4902,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
   br label %97
 
 97:                                               ; preds = %96, %93
-  store ptr null, ptr %94, align 8, !tbaa !164
+  store ptr null, ptr %94, align 8, !tbaa !168
   br label %TLSX_KeyShare_ProcessDh.exit
 
 98:                                               ; preds = %9
@@ -4912,7 +4912,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !151
+  %101 = load ptr, ptr %100, align 8, !tbaa !155
   %switch.tableidx = add i16 %10, -23
   %102 = icmp ult i16 %switch.tableidx, 3
   br i1 %102, label %switch.lookup, label %TLSX_KeyShare_ProcessDh.exit
@@ -4922,13 +4922,13 @@ switch.lookup:                                    ; preds = %99
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.TLSX_KeyShare_Process, i64 0, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %105 = load ptr, ptr %104, align 8, !tbaa !166
+  %105 = load ptr, ptr %104, align 8, !tbaa !170
   %.not.i16 = icmp eq ptr %105, null
   br i1 %.not.i16, label %112, label %106
 
 106:                                              ; preds = %switch.lookup
   %107 = tail call i32 @wc_ecc_free(ptr noundef nonnull %105) #17
-  %108 = load ptr, ptr %104, align 8, !tbaa !166
+  %108 = load ptr, ptr %104, align 8, !tbaa !170
   %.not64.i = icmp eq ptr %108, null
   br i1 %.not64.i, label %110, label %109
 
@@ -4938,12 +4938,12 @@ switch.lookup:                                    ; preds = %99
 
 110:                                              ; preds = %109, %106
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1169
-  store i8 0, ptr %111, align 1, !tbaa !167
+  store i8 0, ptr %111, align 1, !tbaa !171
   br label %112
 
 112:                                              ; preds = %110, %switch.lookup
   %113 = tail call ptr @wolfSSL_Malloc(i64 noundef 4208) #17
-  store ptr %113, ptr %104, align 8, !tbaa !166
+  store ptr %113, ptr %104, align 8, !tbaa !170
   %.not65.i = icmp eq ptr %113, null
   br i1 %.not65.i, label %.thread.i, label %114
 
@@ -4953,29 +4953,29 @@ switch.lookup:                                    ; preds = %99
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %118 = load i32, ptr %117, align 4, !tbaa !47
   %119 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %113, ptr noundef %116, i32 noundef %118) #17
-  %.pre74.pre.pre.i = load ptr, ptr %104, align 8, !tbaa !166
+  %.pre74.pre.pre.i = load ptr, ptr %104, align 8, !tbaa !170
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %.thread.i
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !164
+  %123 = load ptr, ptr %122, align 8, !tbaa !168
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %125 = load i32, ptr %124, align 8, !tbaa !165
+  %125 = load i32, ptr %124, align 8, !tbaa !169
   %126 = tail call i32 @wc_ecc_import_x963_ex(ptr noundef %123, i32 noundef %125, ptr noundef %.pre74.pre.pre.i, i32 noundef %switch.load) #17
   %.not66.i = icmp eq i32 %126, 0
-  %.pre74.pre75.i = load ptr, ptr %104, align 8, !tbaa !166
+  %.pre74.pre75.i = load ptr, ptr %104, align 8, !tbaa !170
   br i1 %.not66.i, label %127, label %.thread.i
 
 127:                                              ; preds = %121
   %128 = getelementptr inbounds nuw i8, ptr %.pre74.pre75.i, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !168
+  %129 = load ptr, ptr %128, align 8, !tbaa !172
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 76
-  %131 = load i32, ptr %130, align 4, !tbaa !172
+  %131 = load i32, ptr %130, align 4, !tbaa !176
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 %131, ptr %132, align 16, !tbaa !134
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1169
-  store i8 1, ptr %133, align 1, !tbaa !167
+  store i8 1, ptr %133, align 1, !tbaa !171
   br label %.thread.i
 
 .thread.i:                                        ; preds = %127, %121, %114, %112
@@ -4990,7 +4990,7 @@ switch.lookup:                                    ; preds = %99
 
 137:                                              ; preds = %.thread.i
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !164
+  %139 = load ptr, ptr %138, align 8, !tbaa !168
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %141 = load ptr, ptr %3, align 8, !tbaa !45
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -5002,7 +5002,7 @@ switch.lookup:                                    ; preds = %99
   %148 = lshr i32 %147, 4
   %149 = and i32 %148, 3
   %150 = tail call i32 @EccSharedSecret(ptr noundef nonnull %0, ptr noundef %101, ptr noundef %.pre74.i, ptr noundef %139, ptr noundef nonnull %140, ptr noundef %143, ptr noundef nonnull %144, i32 noundef %149) #17
-  %.pre.i = load ptr, ptr %104, align 8, !tbaa !166
+  %.pre.i = load ptr, ptr %104, align 8, !tbaa !170
   br label %151
 
 151:                                              ; preds = %137, %.thread.i
@@ -5013,7 +5013,7 @@ switch.lookup:                                    ; preds = %99
 
 153:                                              ; preds = %151
   %154 = tail call i32 @wc_ecc_free(ptr noundef nonnull %152) #17
-  %155 = load ptr, ptr %104, align 8, !tbaa !166
+  %155 = load ptr, ptr %104, align 8, !tbaa !170
   %.not68.i = icmp eq ptr %155, null
   br i1 %.not68.i, label %157, label %156
 
@@ -5022,19 +5022,19 @@ switch.lookup:                                    ; preds = %99
   br label %157
 
 157:                                              ; preds = %156, %153
-  store ptr null, ptr %104, align 8, !tbaa !166
+  store ptr null, ptr %104, align 8, !tbaa !170
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 1169
-  store i8 0, ptr %158, align 1, !tbaa !167
+  store i8 0, ptr %158, align 1, !tbaa !171
   br label %159
 
 159:                                              ; preds = %157, %151
-  %160 = load ptr, ptr %100, align 8, !tbaa !151
+  %160 = load ptr, ptr %100, align 8, !tbaa !155
   %.not69.i = icmp eq ptr %160, null
   br i1 %.not69.i, label %166, label %161
 
 161:                                              ; preds = %159
   %162 = tail call i32 @wc_ecc_free(ptr noundef nonnull %160) #17
-  %163 = load ptr, ptr %100, align 8, !tbaa !151
+  %163 = load ptr, ptr %100, align 8, !tbaa !155
   %.not70.i = icmp eq ptr %163, null
   br i1 %.not70.i, label %165, label %164
 
@@ -5043,12 +5043,12 @@ switch.lookup:                                    ; preds = %99
   br label %165
 
 165:                                              ; preds = %164, %161
-  store ptr null, ptr %100, align 8, !tbaa !151
+  store ptr null, ptr %100, align 8, !tbaa !155
   br label %166
 
 166:                                              ; preds = %165, %159
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !164
+  %168 = load ptr, ptr %167, align 8, !tbaa !168
   %.not71.i17 = icmp eq ptr %168, null
   br i1 %.not71.i17, label %170, label %169
 
@@ -5057,7 +5057,7 @@ switch.lookup:                                    ; preds = %99
   br label %170
 
 170:                                              ; preds = %169, %166
-  store ptr null, ptr %167, align 8, !tbaa !164
+  store ptr null, ptr %167, align 8, !tbaa !168
   br label %TLSX_KeyShare_ProcessDh.exit
 
 TLSX_KeyShare_ProcessDh.exit:                     ; preds = %99, %98, %170, %97, %23, %15, %12
@@ -5225,7 +5225,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %.lr.ph.i
 
 .lr.ph:                                           ; preds = %TLSX_Find.exit, %37
   %storemerge75 = phi ptr [ %storemerge, %37 ], [ %storemerge73, %TLSX_Find.exit ]
-  %35 = load i16, ptr %storemerge75, align 8, !tbaa !148
+  %35 = load i16, ptr %storemerge75, align 8, !tbaa !152
   %36 = icmp eq i16 %35, %1
   br i1 %36, label %.loopexit, label %37
 
@@ -5233,7 +5233,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %storemerge75, i64 72
   %storemerge = load ptr, ptr %38, align 8, !tbaa !108
   %.not36 = icmp eq ptr %storemerge, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !174
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %37, %TLSX_Find.exit
   %39 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #17
@@ -5242,18 +5242,18 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %.lr.ph.i
 
 41:                                               ; preds = %._crit_edge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, i8 0, i64 80, i1 false)
-  store i16 %1, ptr %39, align 8, !tbaa !148
+  store i16 %1, ptr %39, align 8, !tbaa !152
   br label %42
 
 42:                                               ; preds = %42, %41
   %.011.i = phi ptr [ %34, %41 ], [ %44, %42 ]
-  %43 = load ptr, ptr %.011.i, align 8, !tbaa !157
+  %43 = load ptr, ptr %.011.i, align 8, !tbaa !161
   %.not.i50 = icmp eq ptr %43, null
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  br i1 %.not.i50, label %TLSX_KeyShare_New.exit.thread, label %42, !llvm.loop !175
+  br i1 %.not.i50, label %TLSX_KeyShare_New.exit.thread, label %42, !llvm.loop !179
 
 TLSX_KeyShare_New.exit.thread:                    ; preds = %42
-  store ptr %39, ptr %.011.i, align 8, !tbaa !157
+  store ptr %39, ptr %.011.i, align 8, !tbaa !161
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %TLSX_KeyShare_New.exit.thread
@@ -5263,7 +5263,7 @@ TLSX_KeyShare_New.exit.thread:                    ; preds = %42
 
 45:                                               ; preds = %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %.056, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !164
+  %47 = load ptr, ptr %46, align 8, !tbaa !168
   %.not40 = icmp eq ptr %47, null
   br i1 %.not40, label %49, label %48
 
@@ -5272,10 +5272,10 @@ TLSX_KeyShare_New.exit.thread:                    ; preds = %42
   br label %49
 
 49:                                               ; preds = %48, %45
-  store ptr %3, ptr %46, align 8, !tbaa !164
+  store ptr %3, ptr %46, align 8, !tbaa !168
   %50 = zext i16 %2 to i32
   %51 = getelementptr inbounds nuw i8, ptr %.056, i64 16
-  store i32 %50, ptr %51, align 8, !tbaa !165
+  store i32 %50, ptr %51, align 8, !tbaa !169
   br label %54
 
 52:                                               ; preds = %.loopexit
@@ -5288,7 +5288,7 @@ TLSX_KeyShare_New.exit.thread:                    ; preds = %42
   br i1 %.not41, label %TLSX_Push.exit, label %55
 
 55:                                               ; preds = %54
-  store ptr %.056, ptr %4, align 8, !tbaa !157
+  store ptr %.056, ptr %4, align 8, !tbaa !161
   br label %TLSX_Push.exit
 
 TLSX_Push.exit:                                   ; preds = %30, %.loopexit64, %._crit_edge, %.loopexit66, %54, %55, %52
@@ -5304,15 +5304,15 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 .lr.ph:                                           ; preds = %1, %31
   %.02 = phi ptr [ %3, %31 ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.02, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !176
-  %4 = load i16, ptr %.02, align 8, !tbaa !148
+  %3 = load ptr, ptr %2, align 8, !tbaa !180
+  %4 = load i16, ptr %.02, align 8, !tbaa !152
   %5 = and i16 %4, -256
   %or.cond = icmp eq i16 %5, 256
   br i1 %or.cond, label %6, label %10
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !151
+  %8 = load ptr, ptr %7, align 8, !tbaa !155
   %9 = tail call i32 @wc_FreeDhKey(ptr noundef %8) #17
   br label %15
 
@@ -5323,13 +5323,13 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !151
+  %13 = load ptr, ptr %12, align 8, !tbaa !155
   %14 = tail call i32 @wc_ecc_free(ptr noundef %13) #17
   br label %15
 
 15:                                               ; preds = %10, %6, %11
   %16 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !151
+  %17 = load ptr, ptr %16, align 8, !tbaa !155
   %.not29 = icmp eq ptr %17, null
   br i1 %.not29, label %19, label %18
 
@@ -5339,7 +5339,7 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 
 19:                                               ; preds = %18, %15
   %20 = getelementptr inbounds nuw i8, ptr %.02, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !153
+  %21 = load ptr, ptr %20, align 8, !tbaa !157
   %.not30 = icmp eq ptr %21, null
   br i1 %.not30, label %23, label %22
 
@@ -5349,7 +5349,7 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 
 23:                                               ; preds = %22, %19
   %24 = getelementptr inbounds nuw i8, ptr %.02, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !152
+  %25 = load ptr, ptr %24, align 8, !tbaa !156
   %.not31 = icmp eq ptr %25, null
   br i1 %.not31, label %27, label %26
 
@@ -5359,7 +5359,7 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 
 27:                                               ; preds = %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %.02, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !164
+  %29 = load ptr, ptr %28, align 8, !tbaa !168
   %.not32 = icmp eq ptr %29, null
   br i1 %.not32, label %31, label %30
 
@@ -5370,7 +5370,7 @@ define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %0) unnamed_addr 
 31:                                               ; preds = %27, %30
   tail call void @wolfSSL_Free(ptr noundef nonnull %.02) #17
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !177
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %31, %1
   ret void
@@ -5436,7 +5436,7 @@ TLSX_KeyShare_IsSupported.exit:                   ; preds = %12, %12, %12, %12, 
 21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %17, !llvm.loop !178
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %17, !llvm.loop !182
 
 .split.loop.exit14.i:                             ; preds = %17
   %22 = trunc i64 %indvars.iv to i32
@@ -5458,7 +5458,7 @@ TLSX_KeyShare_IsSupported.exit.thread:            ; preds = %12, %TLSX_KeyShare_
   %26 = getelementptr inbounds nuw i8, ptr %.13362, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !90
   %.not39 = icmp eq ptr %27, null
-  br i1 %.not39, label %._crit_edge, label %12, !llvm.loop !179
+  br i1 %.not39, label %._crit_edge, label %12, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %TLSX_KeyShare_IsSupported.exit.thread
   %28 = icmp eq ptr %.131, null
@@ -5514,18 +5514,18 @@ TLSX_KeyShare_IsSupported.exit.thread:            ; preds = %12, %TLSX_KeyShare_
 50:                                               ; preds = %.loopexit
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, i8 0, i64 80, i1 false)
-  store i16 %47, ptr %48, align 8, !tbaa !148
+  store i16 %47, ptr %48, align 8, !tbaa !152
   br label %52
 
 52:                                               ; preds = %52, %50
   %.011.i = phi ptr [ %51, %50 ], [ %54, %52 ]
-  %53 = load ptr, ptr %.011.i, align 8, !tbaa !157
+  %53 = load ptr, ptr %.011.i, align 8, !tbaa !161
   %.not.i46 = icmp eq ptr %53, null
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  br i1 %.not.i46, label %55, label %52, !llvm.loop !175
+  br i1 %.not.i46, label %55, label %52, !llvm.loop !179
 
 55:                                               ; preds = %52
-  store ptr %48, ptr %.011.i, align 8, !tbaa !157
+  store ptr %48, ptr %.011.i, align 8, !tbaa !161
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i8 1, ptr %56, align 4, !tbaa !83
   br label %TLSX_Push.exit
@@ -5586,12 +5586,12 @@ define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly capture
   %.03372 = phi i32 [ 10, %.lr.ph ], [ %.1, %TLSX_SupportedGroups_Find.exit.thread ]
   %.03471 = phi ptr [ null, %.lr.ph ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %.03273, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !164
+  %27 = load ptr, ptr %26, align 8, !tbaa !168
   %28 = icmp eq ptr %27, null
   br i1 %28, label %TLSX_SupportedGroups_Find.exit.thread, label %29
 
 29:                                               ; preds = %25
-  %30 = load i16, ptr %.03273, align 8, !tbaa !148
+  %30 = load i16, ptr %.03273, align 8, !tbaa !152
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %32
@@ -5639,7 +5639,7 @@ TLSX_Find.exit.i:                                 ; preds = %TLSX_Find.exit.i.pr
 42:                                               ; preds = %TLSX_Find.exit.i
   %43 = load i16, ptr %.0.i, align 8, !tbaa !110
   %44 = icmp eq i16 %43, %30
-  br i1 %44, label %TLSX_SupportedGroups_Find.exit, label %TLSX_Find.exit.i, !llvm.loop !158
+  br i1 %44, label %TLSX_SupportedGroups_Find.exit, label %TLSX_Find.exit.i, !llvm.loop !162
 
 TLSX_SupportedGroups_Find.exit:                   ; preds = %42
   %45 = and i16 %30, -256
@@ -5675,7 +5675,7 @@ TLSX_KeyShare_IsSupported.exit:                   ; preds = %47, %47, %47, %47, 
 55:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %50
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %51, !llvm.loop !178
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %51, !llvm.loop !182
 
 .split.loop.exit14.i:                             ; preds = %51
   %56 = trunc i64 %indvars.iv to i32
@@ -5695,13 +5695,13 @@ TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit
   %.135 = phi ptr [ %.03471, %25 ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %.03471, %.loopexit.i ], [ %.03471, %47 ], [ %.03471, %TLSX_SupportedGroups_Find.exit ], [ %.03471, %TLSX_Find.exit.i ], [ %.03471, %39 ]
   %.1 = phi i32 [ %.03372, %25 ], [ %spec.select47, %TLSX_KeyShare_GroupRank.exit ], [ %.03372, %.loopexit.i ], [ %.03372, %47 ], [ %.03372, %TLSX_SupportedGroups_Find.exit ], [ %.03372, %TLSX_Find.exit.i ], [ %.03372, %39 ]
   %60 = getelementptr inbounds nuw i8, ptr %.03273, i64 72
-  %61 = load ptr, ptr %60, align 8, !tbaa !176
+  %61 = load ptr, ptr %60, align 8, !tbaa !180
   %.not43 = icmp eq ptr %61, null
-  br i1 %.not43, label %._crit_edge, label %25, !llvm.loop !180
+  br i1 %.not43, label %._crit_edge, label %25, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %14, %TLSX_SupportedGroups_Find.exit.thread, %12, %.thread
   %.034.lcssa = phi ptr [ null, %.thread ], [ null, %12 ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ], [ null, %14 ]
-  store ptr %.034.lcssa, ptr %4, align 8, !tbaa !157
+  store ptr %.034.lcssa, ptr %4, align 8, !tbaa !161
   store i8 1, ptr %5, align 1, !tbaa !51
   br label %62
 
@@ -5714,7 +5714,7 @@ TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit
 define i32 @TLSX_KeyShare_Setup(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !157
+  store ptr null, ptr %3, align 8, !tbaa !161
   %4 = icmp eq ptr %0, null
   br i1 %4, label %TLSX_KeyShare_New.exit, label %5
 
@@ -5748,27 +5748,27 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   br i1 %16, label %TLSX_KeyShare_New.exit, label %17
 
 17:                                               ; preds = %TLSX_Find.exit
-  %18 = load i16, ptr %1, align 8, !tbaa !148
+  %18 = load i16, ptr %1, align 8, !tbaa !152
   %19 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #17
   %20 = icmp eq ptr %19, null
   br i1 %20, label %TLSX_KeyShare_New.exit, label %21
 
 21:                                               ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 80, i1 false)
-  store i16 %18, ptr %19, align 8, !tbaa !148
+  store i16 %18, ptr %19, align 8, !tbaa !152
   br label %22
 
 22:                                               ; preds = %22, %21
   %.011.i = phi ptr [ %3, %21 ], [ %24, %22 ]
-  %23 = load ptr, ptr %.011.i, align 8, !tbaa !157
+  %23 = load ptr, ptr %.011.i, align 8, !tbaa !161
   %.not.i42 = icmp eq ptr %23, null
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  br i1 %.not.i42, label %25, label %22, !llvm.loop !175
+  br i1 %.not.i42, label %25, label %22, !llvm.loop !179
 
 25:                                               ; preds = %22
-  store ptr %19, ptr %.011.i, align 8, !tbaa !157
+  store ptr %19, ptr %.011.i, align 8, !tbaa !161
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !151
+  %27 = load ptr, ptr %26, align 8, !tbaa !155
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %32
 
@@ -5778,50 +5778,50 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   br i1 %.not41, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %29
-  %.pre = load i16, ptr %19, align 8, !tbaa !148
+  %.pre = load i16, ptr %19, align 8, !tbaa !152
   br label %46
 
 31:                                               ; preds = %29
-  %.0..0..0. = load ptr, ptr %3, align 8, !tbaa !157
+  %.0..0..0. = load ptr, ptr %3, align 8, !tbaa !161
   tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %.0..0..0.)
   br label %TLSX_KeyShare_New.exit
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %27, ptr %33, align 8, !tbaa !151
-  store ptr null, ptr %26, align 8, !tbaa !151
+  store ptr %27, ptr %33, align 8, !tbaa !155
+  store ptr null, ptr %26, align 8, !tbaa !155
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !155
+  %35 = load i32, ptr %34, align 8, !tbaa !159
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 %35, ptr %36, align 8, !tbaa !155
+  store i32 %35, ptr %36, align 8, !tbaa !159
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !152
+  %38 = load ptr, ptr %37, align 8, !tbaa !156
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr %38, ptr %39, align 8, !tbaa !152
-  store ptr null, ptr %37, align 8, !tbaa !152
+  store ptr %38, ptr %39, align 8, !tbaa !156
+  store ptr null, ptr %37, align 8, !tbaa !156
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !154
+  %41 = load i32, ptr %40, align 8, !tbaa !158
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 %41, ptr %42, align 8, !tbaa !154
+  store i32 %41, ptr %42, align 8, !tbaa !158
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %44 = load ptr, ptr %43, align 8, !tbaa !153
+  %44 = load ptr, ptr %43, align 8, !tbaa !157
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store ptr %44, ptr %45, align 8, !tbaa !153
-  store ptr null, ptr %43, align 8, !tbaa !153
+  store ptr %44, ptr %45, align 8, !tbaa !157
+  store ptr null, ptr %43, align 8, !tbaa !157
   br label %46
 
 46:                                               ; preds = %._crit_edge, %32
   %47 = phi i16 [ %.pre, %._crit_edge ], [ %18, %32 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !164
+  %49 = load ptr, ptr %48, align 8, !tbaa !168
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %49, ptr %50, align 8, !tbaa !164
+  store ptr %49, ptr %50, align 8, !tbaa !168
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !165
+  %52 = load i32, ptr %51, align 8, !tbaa !169
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %52, ptr %53, align 8, !tbaa !165
-  store ptr null, ptr %48, align 8, !tbaa !164
-  store i32 0, ptr %51, align 8, !tbaa !165
+  store i32 %52, ptr %53, align 8, !tbaa !169
+  store ptr null, ptr %48, align 8, !tbaa !168
+  store i32 0, ptr %51, align 8, !tbaa !169
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   store i16 %47, ptr %54, align 2, !tbaa !132
   %55 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
@@ -5843,7 +5843,7 @@ define i32 @TLSX_KeyShare_Establish(ptr noundef %0, ptr noundef writeonly captur
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  store ptr null, ptr %3, align 8, !tbaa !157
+  store ptr null, ptr %3, align 8, !tbaa !161
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !tbaa !51
   store i32 0, ptr %1, align 4, !tbaa !3
@@ -5857,7 +5857,7 @@ define i32 @TLSX_KeyShare_Establish(ptr noundef %0, ptr noundef writeonly captur
   br i1 %or.cond, label %11, label %18
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8, !tbaa !157
+  %12 = load ptr, ptr %3, align 8, !tbaa !161
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
@@ -6013,7 +6013,7 @@ TLSX_EncryptThenMac_Use.exit.thread:              ; preds = %.lr.ph.i.i, %20, %2
 32:                                               ; preds = %TLSX_EncryptThenMac_Use.exit.thread
   %33 = load ptr, ptr %0, align 16, !tbaa !102
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 296
-  %35 = load i8, ptr %34, align 8, !tbaa !181
+  %35 = load i8, ptr %34, align 8, !tbaa !185
   %.not84 = icmp eq i8 %35, 0
   br i1 %.not84, label %36, label %TLSX_Find.exit
 
@@ -6123,7 +6123,7 @@ TLSX_Find.exit106:                                ; preds = %.lr.ph.i101, %.lr.p
 74:                                               ; preds = %.loopexit.i119
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 0, ptr %75, align 8
-  store ptr %0, ptr %73, align 8, !tbaa !147
+  store ptr %0, ptr %73, align 8, !tbaa !151
   %76 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #17
   %.not.i.i.i120 = icmp eq ptr %76, null
   br i1 %.not.i.i.i120, label %TLSX_SignatureAlgorithms_FreeAll.exit.i, label %77
@@ -6217,7 +6217,7 @@ TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %74
 
 .loopexit151:                                     ; preds = %103, %109
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  %114 = load i16, ptr %113, align 4, !tbaa !182
+  %114 = load i16, ptr %113, align 4, !tbaa !186
   %.not92 = icmp eq i16 %114, 0
   br i1 %.not92, label %118, label %115
 
@@ -6264,7 +6264,7 @@ TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %74
 130:                                              ; preds = %131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not99 = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not99, label %134, label %131, !llvm.loop !183
+  br i1 %.not99, label %134, label %131, !llvm.loop !187
 
 131:                                              ; preds = %.preheader, %130
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %130 ]
@@ -6276,7 +6276,7 @@ TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %74
 134:                                              ; preds = %130
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %135 = icmp samesign ult i64 %indvars.iv.next185, %127
-  br i1 %135, label %.preheader, label %.thread, !llvm.loop !184
+  br i1 %135, label %.preheader, label %.thread, !llvm.loop !188
 
 TLSX_Find.exit133:                                ; preds = %.lr.ph.i128
   %136 = getelementptr inbounds nuw i8, ptr %.07.i129, i64 8
@@ -6285,7 +6285,7 @@ TLSX_Find.exit133:                                ; preds = %.lr.ph.i128
   br i1 %.not94, label %.thread, label %138
 
 138:                                              ; preds = %TLSX_Find.exit133
-  %139 = load i16, ptr %137, align 8, !tbaa !148
+  %139 = load i16, ptr %137, align 8, !tbaa !152
   br label %.loopexit192
 
 .loopexit192:                                     ; preds = %131, %138
@@ -6386,20 +6386,20 @@ TLSX_SupportExtensions.exit.thread51:             ; preds = %6, %TLSX_SupportExt
 
 11:                                               ; preds = %TLSX_SupportExtensions.exit.thread51
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !185
+  %13 = load ptr, ptr %12, align 8, !tbaa !189
   %.not38 = icmp eq ptr %13, null
   br i1 %.not38, label %14, label %18
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 16, !tbaa !102
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  %17 = load ptr, ptr %16, align 8, !tbaa !186
+  %17 = load ptr, ptr %16, align 8, !tbaa !190
   br label %18
 
 18:                                               ; preds = %11, %14
   %19 = phi ptr [ %17, %14 ], [ %13, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %21 = load i16, ptr %20, align 2, !tbaa !187
+  %21 = load i16, ptr %20, align 2, !tbaa !191
   %22 = icmp eq i16 %21, 0
   br i1 %22, label %23, label %25
 
@@ -6554,7 +6554,7 @@ define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly
 
 .backedge:                                        ; preds = %11, %14
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.outer._crit_edge, label %8, !llvm.loop !189
+  br i1 %.not, label %.outer._crit_edge, label %8, !llvm.loop !193
 
 14:                                               ; preds = %8, %8, %11
   %15 = load i32, ptr %.077, align 8, !tbaa !60
@@ -6619,7 +6619,7 @@ define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly
 42:                                               ; preds = %36, %.lr.ph.i
   %.1.i = phi i16 [ %41, %36 ], [ %34, %.lr.ph.i ]
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %TLSX_SNI_GetSize.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %TLSX_SNI_GetSize.exit, label %.lr.ph.i, !llvm.loop !194
 
 TLSX_SNI_GetSize.exit:                            ; preds = %42, %29
   %.0.lcssa.i = phi i16 [ 2, %29 ], [ %.1.i, %42 ]
@@ -6639,7 +6639,7 @@ TLSX_SNI_GetSize.exit:                            ; preds = %42, %29
   %48 = load ptr, ptr %47, align 8, !tbaa !90
   %49 = add i16 %.06.i, 2
   %.not.i33 = icmp eq ptr %48, null
-  br i1 %.not.i33, label %TLSX_SupportedCurve_GetSize.exit, label %.lr.ph.i32, !llvm.loop !191
+  br i1 %.not.i33, label %TLSX_SupportedCurve_GetSize.exit, label %.lr.ph.i32, !llvm.loop !195
 
 TLSX_SupportedCurve_GetSize.exit:                 ; preds = %.lr.ph.i32, %44
   %.0.lcssa.i34 = phi i16 [ 2, %44 ], [ %49, %.lr.ph.i32 ]
@@ -6659,7 +6659,7 @@ TLSX_SupportedCurve_GetSize.exit:                 ; preds = %.lr.ph.i32, %44
   %55 = load ptr, ptr %54, align 8, !tbaa !94
   %56 = add i16 %.06.i37, 1
   %.not.i39 = icmp eq ptr %55, null
-  br i1 %.not.i39, label %TLSX_PointFormat_GetSize.exit, label %.lr.ph.i36, !llvm.loop !192
+  br i1 %.not.i39, label %TLSX_PointFormat_GetSize.exit, label %.lr.ph.i36, !llvm.loop !196
 
 TLSX_PointFormat_GetSize.exit:                    ; preds = %.lr.ph.i36, %51
   %.0.lcssa.i40 = phi i16 [ 1, %51 ], [ %56, %.lr.ph.i36 ]
@@ -6675,22 +6675,22 @@ TLSX_PointFormat_GetSize.exit:                    ; preds = %.lr.ph.i36, %51
   br i1 %63, label %64, label %TLSX_SignatureAlgorithms_GetSize.exit
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr %60, align 8, !tbaa !147
+  %65 = load ptr, ptr %60, align 8, !tbaa !151
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !185
+  %67 = load ptr, ptr %66, align 8, !tbaa !189
   %.not.i41 = icmp eq ptr %67, null
   br i1 %.not.i41, label %68, label %72
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %65, align 16, !tbaa !102
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 152
-  %71 = load ptr, ptr %70, align 8, !tbaa !186
+  %71 = load ptr, ptr %70, align 8, !tbaa !190
   br label %72
 
 72:                                               ; preds = %68, %64
   %73 = phi ptr [ %71, %68 ], [ %67, %64 ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
-  %75 = load i16, ptr %74, align 2, !tbaa !187
+  %75 = load i16, ptr %74, align 2, !tbaa !191
   br label %TLSX_SignatureAlgorithms_GetSize.exit
 
 TLSX_SignatureAlgorithms_GetSize.exit:            ; preds = %58, %72
@@ -6718,14 +6718,14 @@ TLSX_SignatureAlgorithms_GetSize.exit:            ; preds = %58, %72
   %.011.ph.us20.i = phi ptr [ %82, %.split.us.us.i ], [ %80, %.split16.us.i ]
   %.1.ph.us19.i = phi i16 [ %87, %.split.us.us.i ], [ 2, %.split16.us.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.011.ph.us20.i, i64 72
-  %82 = load ptr, ptr %81, align 8, !tbaa !176
+  %82 = load ptr, ptr %81, align 8, !tbaa !180
   %83 = getelementptr inbounds nuw i8, ptr %.011.ph.us20.i, i64 48
-  %84 = load i32, ptr %83, align 8, !tbaa !154
+  %84 = load i32, ptr %83, align 8, !tbaa !158
   %85 = trunc i32 %84 to i16
   %86 = add i16 %.1.ph.us19.i, 4
   %87 = add i16 %86, %85
   %.not.us.us.i = icmp eq ptr %82, null
-  br i1 %.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %.split.us.us.i, !llvm.loop !193
+  br i1 %.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %.split.us.us.i, !llvm.loop !197
 
 .outer.i:                                         ; preds = %78, %.split.i
   %.1.ph.i = phi i16 [ %99, %.split.i ], [ 0, %78 ]
@@ -6739,19 +6739,19 @@ TLSX_SignatureAlgorithms_GetSize.exit:            ; preds = %58, %72
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %.011.i, i64 72
-  %91 = load ptr, ptr %90, align 8, !tbaa !176
+  %91 = load ptr, ptr %90, align 8, !tbaa !180
   %92 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
-  %93 = load ptr, ptr %92, align 8, !tbaa !152
+  %93 = load ptr, ptr %92, align 8, !tbaa !156
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %88, label %.split.i, !llvm.loop !193
+  br i1 %94, label %88, label %.split.i, !llvm.loop !198
 
 .split.i:                                         ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %.011.i, i64 48
-  %96 = load i32, ptr %95, align 8, !tbaa !154
+  %96 = load i32, ptr %95, align 8, !tbaa !158
   %97 = trunc i32 %96 to i16
   %98 = add i16 %.1.ph.i, 4
   %99 = add i16 %98, %97
-  br label %.outer.i, !llvm.loop !193
+  br label %.outer.i, !llvm.loop !198
 
 TLSX_KeyShare_GetSize.exit:                       ; preds = %.split.us.us.i, %88, %78, %.split16.us.i
   %.0.i43 = phi i16 [ 2, %78 ], [ 2, %.split16.us.i ], [ %.1.ph.i, %88 ], [ %87, %.split.us.us.i ]
@@ -6771,7 +6771,7 @@ TLSX_KeyShare_GetSize.exit:                       ; preds = %.split.us.us.i, %88
 108:                                              ; preds = %101
   %109 = select i1 %.not.i45, i8 -4, i8 4
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 1047
-  %111 = load i8, ptr %110, align 1, !tbaa !144
+  %111 = load i8, ptr %110, align 1, !tbaa !147
   %.not34.i = icmp ule i8 %111, %109
   %spec.select.i = zext i1 %.not34.i to i16
   %112 = and i64 %105, 1024
@@ -6804,7 +6804,7 @@ TLSX_KeyShare_GetSize.exit:                       ; preds = %.split.us.us.i, %88
   %124 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !82
   %126 = getelementptr i8, ptr %125, i64 1108
-  %.val = load i16, ptr %126, align 4, !tbaa !182
+  %.val = load i16, ptr %126, align 4, !tbaa !186
   %127 = add i16 %.061.ph82, 6
   %128 = add i16 %127, %.val
   br label %TLSX_SupportedVersions_GetSize.exit
@@ -6815,7 +6815,7 @@ TLSX_SupportedVersions_GetSize.exit:              ; preds = %121, %117, %28, %25
   %129 = or i8 %23, %20
   store i8 %129, ptr %26, align 1, !tbaa !51
   %.not76 = icmp eq ptr %10, null
-  br i1 %.not76, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !189
+  br i1 %.not76, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !193
 
 .outer._crit_edge:                                ; preds = %TLSX_SupportedVersions_GetSize.exit, %.backedge, %4
   %.061.ph.lcssa = phi i16 [ 0, %4 ], [ %.061.ph82, %.backedge ], [ %.162, %TLSX_SupportedVersions_GetSize.exit ]
@@ -6862,20 +6862,20 @@ TLSX_SupportExtensions.exit:                      ; preds = %7, %9
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !185
+  %19 = load ptr, ptr %18, align 8, !tbaa !189
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %24
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 16, !tbaa !102
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
-  %23 = load ptr, ptr %22, align 8, !tbaa !186
+  %23 = load ptr, ptr %22, align 8, !tbaa !190
   br label %24
 
 24:                                               ; preds = %17, %20
   %25 = phi ptr [ %23, %20 ], [ %19, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !187
+  %27 = load i16, ptr %26, align 2, !tbaa !191
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %29, label %31
 
@@ -7057,7 +7057,7 @@ define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly c
 
 .backedge:                                        ; preds = %11, %14
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !194
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !199
 
 14:                                               ; preds = %.lr.ph, %.lr.ph, %11
   %15 = load i32, ptr %.094, align 8, !tbaa !60
@@ -7149,7 +7149,7 @@ define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly c
 63:                                               ; preds = %46, %.lr.ph.i
   %.1.i = phi i16 [ %62, %46 ], [ %43, %.lr.ph.i ]
   %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %TLSX_SNI_Write.exit, label %.lr.ph.i, !llvm.loop !195
+  br i1 %.not.i, label %TLSX_SNI_Write.exit, label %.lr.ph.i, !llvm.loop !200
 
 TLSX_SNI_Write.exit:                              ; preds = %63, %35
   %.0.lcssa.i = phi i16 [ 2, %35 ], [ %.1.i, %63 ]
@@ -7187,7 +7187,7 @@ TLSX_SNI_Write.exit:                              ; preds = %63, %35
   %83 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !90
   %.not.i53 = icmp eq ptr %84, null
-  br i1 %.not.i53, label %TLSX_SupportedCurve_Write.exit, label %.lr.ph.i52, !llvm.loop !196
+  br i1 %.not.i53, label %TLSX_SupportedCurve_Write.exit, label %.lr.ph.i52, !llvm.loop !201
 
 TLSX_SupportedCurve_Write.exit:                   ; preds = %.lr.ph.i52, %70
   %.0.lcssa.i54 = phi i16 [ 2, %70 ], [ %82, %.lr.ph.i52 ]
@@ -7212,7 +7212,7 @@ TLSX_SupportedCurve_Write.exit:                   ; preds = %.lr.ph.i52, %70
 .lr.ph.i55:                                       ; preds = %91, %.lr.ph.i55
   %.010.i = phi i16 [ %97, %.lr.ph.i55 ], [ 1, %91 ]
   %.079.i = phi ptr [ %101, %.lr.ph.i55 ], [ %93, %91 ]
-  %96 = load i8, ptr %.079.i, align 8, !tbaa !138
+  %96 = load i8, ptr %.079.i, align 8, !tbaa !141
   %97 = add i16 %.010.i, 1
   %98 = zext i16 %.010.i to i64
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
@@ -7220,7 +7220,7 @@ TLSX_SupportedCurve_Write.exit:                   ; preds = %.lr.ph.i52, %70
   %100 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !94
   %.not.i56 = icmp eq ptr %101, null
-  br i1 %.not.i56, label %TLSX_PointFormat_Write.exit, label %.lr.ph.i55, !llvm.loop !197
+  br i1 %.not.i56, label %TLSX_PointFormat_Write.exit, label %.lr.ph.i55, !llvm.loop !202
 
 TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   %.0.lcssa.i57 = phi i16 [ 1, %91 ], [ %97, %.lr.ph.i55 ]
@@ -7235,16 +7235,16 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   %107 = load ptr, ptr %106, align 8, !tbaa !82
   %108 = zext i16 %32 to i64
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 %108
-  %110 = load ptr, ptr %107, align 8, !tbaa !147
+  %110 = load ptr, ptr %107, align 8, !tbaa !151
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !185
+  %112 = load ptr, ptr %111, align 8, !tbaa !189
   %.not.i58 = icmp eq ptr %112, null
   br i1 %.not.i58, label %113, label %117
 
 113:                                              ; preds = %105
   %114 = load ptr, ptr %110, align 16, !tbaa !102
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 152
-  %116 = load ptr, ptr %115, align 8, !tbaa !186
+  %116 = load ptr, ptr %115, align 8, !tbaa !190
   br label %117
 
 117:                                              ; preds = %113, %105
@@ -7256,7 +7256,7 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
 
 122:                                              ; preds = %117
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  %124 = load i16, ptr %123, align 2, !tbaa !187
+  %124 = load i16, ptr %123, align 2, !tbaa !191
   %125 = lshr i16 %124, 8
   %126 = trunc nuw i16 %125 to i8
   store i8 %126, ptr %109, align 1, !tbaa !51
@@ -7265,7 +7265,7 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   store i8 %127, ptr %128, align 1, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %130 = getelementptr inbounds nuw i8, ptr %118, i64 304
-  %131 = load i16, ptr %123, align 2, !tbaa !187
+  %131 = load i16, ptr %123, align 2, !tbaa !191
   %132 = zext i16 %131 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 2 %130, i64 %132, i1 false)
   br label %142
@@ -7293,9 +7293,9 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   br i1 %.not.i.i, label %145, label %TLSX_SignatureAlgorithms_Write.exit
 
 145:                                              ; preds = %142
-  %146 = load ptr, ptr %107, align 8, !tbaa !147
+  %146 = load ptr, ptr %107, align 8, !tbaa !151
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1106
-  store i16 0, ptr %147, align 2, !tbaa !198
+  store i16 0, ptr %147, align 2, !tbaa !203
   %.not26.i.i = icmp eq i16 %.0.i, 0
   br i1 %.not26.i.i, label %TLSX_SignatureAlgorithms_Write.exit, label %.lr.ph.preheader.i.i
 
@@ -7322,7 +7322,7 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   %159 = shl nuw nsw i32 1, %158
   %160 = trunc nuw nsw i32 %159 to i16
   %161 = or i16 %149, %160
-  store i16 %161, ptr %147, align 2, !tbaa !198
+  store i16 %161, ptr %147, align 2, !tbaa !203
   %.pr.pre.i.i = load i8, ptr %150, align 1, !tbaa !51
   %162 = icmp eq i8 %.pr.pre.i.i, 8
   br i1 %162, label %..thread29.i_crit_edge.i, label %.thread.i.i
@@ -7343,14 +7343,14 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
   %168 = shl nuw nsw i32 1, %167
   %169 = trunc nuw nsw i32 %168 to i16
   %170 = or i16 %164, %169
-  store i16 %170, ptr %147, align 2, !tbaa !198
+  store i16 %170, ptr %147, align 2, !tbaa !203
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %166, %.thread29.i.i, %157, %.lr.ph.i.i
   %171 = phi i16 [ %149, %.lr.ph.i.i ], [ %161, %157 ], [ %164, %.thread29.i.i ], [ %170, %166 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %172 = icmp samesign ult i64 %indvars.iv.next.i.i, %148
-  br i1 %172, label %.lr.ph.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !199
+  br i1 %172, label %.lr.ph.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !204
 
 TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, %145
   %173 = add i16 %.080.ph, 6
@@ -7371,7 +7371,7 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   ]
 
 181:                                              ; preds = %176
-  %182 = load i16, ptr %178, align 8, !tbaa !148
+  %182 = load i16, ptr %178, align 8, !tbaa !152
   br label %.sink.split.i
 
 .split35.us.i:                                    ; preds = %176
@@ -7382,8 +7382,8 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   %.028.ph.us39.i = phi ptr [ %184, %.split32.us.us.i ], [ %178, %.split35.us.i ]
   %.1.ph.us38.i = phi i16 [ %210, %.split32.us.us.i ], [ 2, %.split35.us.i ]
   %183 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 72
-  %184 = load ptr, ptr %183, align 8, !tbaa !176
-  %185 = load i16, ptr %.028.ph.us39.i, align 8, !tbaa !148
+  %184 = load ptr, ptr %183, align 8, !tbaa !180
+  %185 = load i16, ptr %.028.ph.us39.i, align 8, !tbaa !152
   %186 = zext i16 %.1.ph.us38.i to i64
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 %186
   %188 = lshr i16 %185, 8
@@ -7394,7 +7394,7 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   store i8 %190, ptr %191, align 1, !tbaa !51
   %192 = add i16 %.1.ph.us38.i, 2
   %193 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 48
-  %194 = load i32, ptr %193, align 8, !tbaa !154
+  %194 = load i32, ptr %193, align 8, !tbaa !158
   %195 = zext i16 %192 to i64
   %196 = getelementptr inbounds nuw i8, ptr %180, i64 %195
   %197 = lshr i32 %194, 8
@@ -7407,15 +7407,15 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   %202 = zext i16 %201 to i64
   %203 = getelementptr inbounds nuw i8, ptr %180, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 40
-  %205 = load ptr, ptr %204, align 8, !tbaa !152
-  %206 = load i32, ptr %193, align 8, !tbaa !154
+  %205 = load ptr, ptr %204, align 8, !tbaa !156
+  %206 = load i32, ptr %193, align 8, !tbaa !158
   %207 = zext i32 %206 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr align 1 %205, i64 %207, i1 false)
-  %208 = load i32, ptr %193, align 8, !tbaa !154
+  %208 = load i32, ptr %193, align 8, !tbaa !158
   %209 = trunc i32 %208 to i16
   %210 = add i16 %201, %209
   %.not.us.us.i = icmp eq ptr %184, null
-  br i1 %.not.us.us.i, label %.split.us.thread.i, label %.split32.us.us.i, !llvm.loop !200
+  br i1 %.not.us.us.i, label %.split.us.thread.i, label %.split32.us.us.i, !llvm.loop !205
 
 .outer.i:                                         ; preds = %176, %.split32.i
   %.1.ph.i = phi i16 [ %243, %.split32.i ], [ 0, %176 ]
@@ -7429,15 +7429,15 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
 
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
-  %214 = load ptr, ptr %213, align 8, !tbaa !176
+  %214 = load ptr, ptr %213, align 8, !tbaa !180
   %215 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
-  %216 = load ptr, ptr %215, align 8, !tbaa !152
+  %216 = load ptr, ptr %215, align 8, !tbaa !156
   %217 = icmp eq ptr %216, null
-  br i1 %217, label %211, label %.split32.i, !llvm.loop !200
+  br i1 %217, label %211, label %.split32.i, !llvm.loop !206
 
 .split32.i:                                       ; preds = %212
   %218 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
-  %219 = load i16, ptr %.028.i, align 8, !tbaa !148
+  %219 = load i16, ptr %.028.i, align 8, !tbaa !152
   %220 = zext i16 %.1.ph.i to i64
   %221 = getelementptr inbounds nuw i8, ptr %180, i64 %220
   %222 = lshr i16 %219, 8
@@ -7448,7 +7448,7 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   store i8 %224, ptr %225, align 1, !tbaa !51
   %226 = add i16 %.1.ph.i, 2
   %227 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
-  %228 = load i32, ptr %227, align 8, !tbaa !154
+  %228 = load i32, ptr %227, align 8, !tbaa !158
   %229 = zext i16 %226 to i64
   %230 = getelementptr inbounds nuw i8, ptr %180, i64 %229
   %231 = lshr i32 %228, 8
@@ -7460,14 +7460,14 @@ TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, 
   %235 = add i16 %.1.ph.i, 4
   %236 = zext i16 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %180, i64 %236
-  %238 = load ptr, ptr %218, align 8, !tbaa !152
-  %239 = load i32, ptr %227, align 8, !tbaa !154
+  %238 = load ptr, ptr %218, align 8, !tbaa !156
+  %239 = load i32, ptr %227, align 8, !tbaa !158
   %240 = zext i32 %239 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %237, ptr align 1 %238, i64 %240, i1 false)
-  %241 = load i32, ptr %227, align 8, !tbaa !154
+  %241 = load i32, ptr %227, align 8, !tbaa !158
   %242 = trunc i32 %241 to i16
   %243 = add i16 %235, %242
-  br label %.outer.i, !llvm.loop !200
+  br label %.outer.i, !llvm.loop !206
 
 .split.us.thread.i:                               ; preds = %.split32.us.us.i, %.split35.us.i
   %.us-phi44.i = phi i16 [ 2, %.split35.us.i ], [ %210, %.split32.us.us.i ]
@@ -7500,11 +7500,11 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
 255:                                              ; preds = %250
   %256 = load ptr, ptr %252, align 16, !tbaa !102
   %257 = load ptr, ptr %256, align 8, !tbaa !53
-  %258 = load i8, ptr %257, align 1, !tbaa !141
+  %258 = load i8, ptr %257, align 1, !tbaa !144
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 1
   store i8 0, ptr %254, align 1, !tbaa !51
   %260 = getelementptr inbounds nuw i8, ptr %252, i64 1047
-  %261 = load i8, ptr %260, align 1, !tbaa !144
+  %261 = load i8, ptr %260, align 1, !tbaa !147
   %262 = icmp ugt i8 %261, 4
   br i1 %262, label %266, label %263
 
@@ -7526,7 +7526,7 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
   br i1 %.not43.i, label %.thread.i, label %271
 
 271:                                              ; preds = %266
-  %272 = load i8, ptr %260, align 1, !tbaa !144
+  %272 = load i8, ptr %260, align 1, !tbaa !147
   %273 = icmp ugt i8 %272, 3
   br i1 %273, label %.thread.i, label %274
 
@@ -7536,7 +7536,7 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
   %276 = getelementptr inbounds nuw i8, ptr %.041.i, i64 1
   store i8 %258, ptr %.041.i, align 1, !tbaa !51
   store i8 3, ptr %276, align 1, !tbaa !51
-  %.pre.i64 = load i8, ptr %260, align 1, !tbaa !144
+  %.pre.i64 = load i8, ptr %260, align 1, !tbaa !147
   %.pre47.pre.i = load i8, ptr %254, align 1, !tbaa !51
   %277 = icmp ugt i8 %.pre.i64, 2
   br i1 %277, label %.thread.i, label %278
@@ -7578,7 +7578,7 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
   %297 = zext i16 %32 to i64
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 1108
-  %300 = load i16, ptr %299, align 4, !tbaa !182
+  %300 = load i16, ptr %299, align 4, !tbaa !186
   %301 = lshr i16 %300, 8
   %302 = trunc nuw i16 %301 to i8
   store i8 %302, ptr %298, align 1, !tbaa !51
@@ -7587,10 +7587,10 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
   store i8 %303, ptr %304, align 1, !tbaa !51
   %305 = getelementptr inbounds nuw i8, ptr %298, i64 2
   %306 = getelementptr inbounds nuw i8, ptr %296, i64 1110
-  %307 = load i16, ptr %299, align 4, !tbaa !182
+  %307 = load i16, ptr %299, align 4, !tbaa !186
   %308 = zext i16 %307 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %305, ptr nonnull readonly align 2 %306, i64 %308, i1 false)
-  %309 = load i16, ptr %299, align 4, !tbaa !182
+  %309 = load i16, ptr %299, align 4, !tbaa !186
   %310 = add i16 %.080.ph, 6
   %311 = add i16 %310, %309
   br label %TLSX_SupportedVersions_Write.exit
@@ -7622,7 +7622,7 @@ TLSX_SupportedVersions_Write.exit:                ; preds = %175, %286, %287, %.
   %329 = or i8 %324, %328
   store i8 %329, ptr %327, align 1, !tbaa !51
   %.not48 = icmp eq i32 %.2, 0
-  br i1 %.not48, label %.outer, label %.loopexit, !llvm.loop !194
+  br i1 %.not48, label %.outer, label %.loopexit, !llvm.loop !199
 
 .loopexit:                                        ; preds = %TLSX_SupportedVersions_Write.exit, %.outer, %.backedge
   %.181 = phi i16 [ %.080.ph, %.backedge ], [ %.080.ph, %.outer ], [ %.282, %TLSX_SupportedVersions_Write.exit ]
@@ -7650,7 +7650,7 @@ define range(i32 -394, 1) i32 @TLSX_GetResponseSize(ptr noundef %0, i8 noundef z
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 1037
-  %.val = load i8, ptr %7, align 1, !tbaa !201
+  %.val = load i8, ptr %7, align 1, !tbaa !207
   switch i8 %.val, label %8 [
     i8 19, label %TLSX_PointFormat_ValidateResponse.exit
     i8 -64, label %TLSX_PointFormat_ValidateResponse.exit
@@ -7815,7 +7815,7 @@ TLSX_SupportExtensions.exit:                      ; preds = %7, %9
 
 16:                                               ; preds = %15
   %17 = getelementptr i8, ptr %0, i64 1037
-  %.val = load i8, ptr %17, align 1, !tbaa !201
+  %.val = load i8, ptr %17, align 1, !tbaa !207
   switch i8 %.val, label %18 [
     i8 19, label %TLSX_PointFormat_ValidateResponse.exit
     i8 -64, label %TLSX_PointFormat_ValidateResponse.exit
@@ -8344,7 +8344,7 @@ TLSX_SNI_Find.exit.i.i:                           ; preds = %.lr.ph.i9.i.i
 110:                                              ; preds = %107, %106
   %111 = load ptr, ptr %0, align 16, !tbaa !102
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 264
-  %113 = load ptr, ptr %112, align 8, !tbaa !202
+  %113 = load ptr, ptr %112, align 8, !tbaa !208
   %.not77.i = icmp eq ptr %113, null
   br i1 %.not77.i, label %.loopexit, label %114
 
@@ -8689,7 +8689,7 @@ TLSX_Find.exit.i.i:                               ; preds = %.lr.ph.i.i108.i
   %259 = icmp eq i32 %.2212, 0
   %260 = icmp ult i16 %258, %2
   %261 = select i1 %259, i1 %260, i1 false
-  br i1 %261, label %20, label %._crit_edge.loopexit, !llvm.loop !203
+  br i1 %261, label %20, label %._crit_edge.loopexit, !llvm.loop !209
 
 ._crit_edge.loopexit.sink.split:                  ; preds = %174, %89, %90
   %.sink = phi i32 [ 110, %90 ], [ 110, %89 ], [ 112, %174 ]
@@ -8839,7 +8839,7 @@ TLSX_Find.exit43.i:                               ; preds = %290, %.lr.ph.i38.i,
   %307 = getelementptr inbounds nuw i8, ptr %.02357.us.i, i64 16
   %308 = load ptr, ptr %307, align 8, !tbaa !85
   %.not30.us.i = icmp eq ptr %308, null
-  br i1 %.not30.us.i, label %TLSX_SNI_VerifyParse.exit, label %.lr.ph.split.us.i, !llvm.loop !204
+  br i1 %.not30.us.i, label %TLSX_SNI_VerifyParse.exit, label %.lr.ph.split.us.i, !llvm.loop !210
 
 .preheader.i:                                     ; preds = %324, %299, %.thread77.i
   %.fr69.i = phi ptr [ %302, %299 ], [ %298, %.thread77.i ], [ %302, %324 ]
@@ -8887,7 +8887,7 @@ TLSX_SNI_Find.exit.i261:                          ; preds = %.lr.ph.i45.i
   %325 = getelementptr inbounds nuw i8, ptr %.02357.i, i64 16
   %326 = load ptr, ptr %325, align 8, !tbaa !85
   %.not30.i = icmp eq ptr %326, null
-  br i1 %.not30.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !204
+  br i1 %.not30.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !211
 
 .lr.ph61.i:                                       ; preds = %.preheader.i, %333
   %.02260.i = phi ptr [ %335, %333 ], [ %.fr69.i, %.preheader.i ]
@@ -8907,7 +8907,7 @@ TLSX_SNI_Find.exit.i261:                          ; preds = %.lr.ph.i45.i
   %334 = getelementptr inbounds nuw i8, ptr %.02260.i, i64 16
   %335 = load ptr, ptr %334, align 8, !tbaa !85
   %.not31.i = icmp eq ptr %335, null
-  br i1 %.not31.i, label %TLSX_SNI_VerifyParse.exit, label %.lr.ph61.i, !llvm.loop !205
+  br i1 %.not31.i, label %TLSX_SNI_VerifyParse.exit, label %.lr.ph61.i, !llvm.loop !212
 
 .thread.sink.split.i:                             ; preds = %319, %314, %.lr.ph.split.us.i, %330
   %336 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 40) #17
@@ -8998,14 +8998,14 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %21 = load i16, ptr %20, align 2, !tbaa !187
+  %21 = load i16, ptr %20, align 2, !tbaa !191
   %22 = and i16 %21, 1
   %.not18 = icmp eq i16 %22, 0
   br i1 %.not18, label %23, label %TLSX_SignatureAlgorithms_MapPss.exit
 
 23:                                               ; preds = %19
   %spec.select = tail call i16 @llvm.umin.i16(i16 %15, i16 38)
-  store i16 %spec.select, ptr %20, align 2, !tbaa !187
+  store i16 %spec.select, ptr %20, align 2, !tbaa !191
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %25 = zext nneg i16 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %24, ptr nonnull align 1 %16, i64 %25, i1 false)
@@ -9015,7 +9015,7 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
 
 .lr.ph.preheader.i:                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1106
-  store i16 0, ptr %27, align 2, !tbaa !198
+  store i16 0, ptr %27, align 2, !tbaa !203
   %28 = zext i16 %15 to i64
   br label %.lr.ph.i
 
@@ -9038,7 +9038,7 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
   %39 = shl nuw nsw i32 1, %38
   %40 = trunc nuw nsw i32 %39 to i16
   %41 = or i16 %29, %40
-  store i16 %41, ptr %27, align 2, !tbaa !198
+  store i16 %41, ptr %27, align 2, !tbaa !203
   %.pr.pre.i = load i8, ptr %30, align 1, !tbaa !51
   %42 = icmp eq i8 %.pr.pre.i, 8
   br i1 %42, label %..thread29.i_crit_edge, label %.thread.i
@@ -9059,14 +9059,14 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
   %48 = shl nuw nsw i32 1, %47
   %49 = trunc nuw nsw i32 %48 to i16
   %50 = or i16 %44, %49
-  store i16 %50, ptr %27, align 2, !tbaa !198
+  store i16 %50, ptr %27, align 2, !tbaa !203
   br label %.thread.i
 
 .thread.i:                                        ; preds = %46, %.thread29.i, %37, %.lr.ph.i
   %51 = phi i16 [ %29, %.lr.ph.i ], [ %41, %37 ], [ %44, %.thread29.i ], [ %50, %46 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %52 = icmp samesign ult i64 %indvars.iv.next.i, %28
-  br i1 %52, label %.lr.ph.i, label %TLSX_SignatureAlgorithms_MapPss.exit, !llvm.loop !199
+  br i1 %52, label %.lr.ph.i, label %TLSX_SignatureAlgorithms_MapPss.exit, !llvm.loop !204
 
 TLSX_SignatureAlgorithms_MapPss.exit:             ; preds = %.thread.i, %23, %19, %10, %6, %5
   %.0 = phi i32 [ -328, %5 ], [ -328, %6 ], [ -328, %10 ], [ -328, %19 ], [ -328, %23 ], [ 0, %.thread.i ]
@@ -9196,7 +9196,7 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithmsCert_Pars
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %spec.select = tail call i16 @llvm.umin.i16(i16 %14, i16 38)
-  store i16 %spec.select, ptr %19, align 4, !tbaa !182
+  store i16 %spec.select, ptr %19, align 4, !tbaa !186
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1110
   %21 = zext nneg i16 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %20, ptr nonnull align 1 %18, i64 %21, i1 false)
@@ -9216,9 +9216,9 @@ define ptr @wolfTLS_client_method() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 1027) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 1, ptr %3, align 1, !tbaa !206
+  store i8 1, ptr %3, align 1, !tbaa !213
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 1, ptr %4, align 1, !tbaa !207
+  store i8 1, ptr %4, align 1, !tbaa !214
   br label %wolfTLS_client_method_ex.exit
 
 wolfTLS_client_method_ex.exit:                    ; preds = %0, %2
@@ -9234,9 +9234,9 @@ define ptr @wolfTLS_client_method_ex(ptr noundef readnone captures(none) %0) loc
 3:                                                ; preds = %1
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 1027) #17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 1, ptr %4, align 1, !tbaa !206
+  store i8 1, ptr %4, align 1, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 1, ptr %5, align 1, !tbaa !207
+  store i8 1, ptr %5, align 1, !tbaa !214
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -9338,9 +9338,9 @@ define ptr @wolfTLS_server_method() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 1027) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 1, ptr %3, align 1, !tbaa !206
+  store i8 1, ptr %3, align 1, !tbaa !213
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %4, align 1, !tbaa !207
+  store i8 0, ptr %4, align 1, !tbaa !214
   br label %wolfTLS_server_method_ex.exit
 
 wolfTLS_server_method_ex.exit:                    ; preds = %0, %2
@@ -9356,9 +9356,9 @@ define ptr @wolfTLS_server_method_ex(ptr noundef readnone captures(none) %0) loc
 3:                                                ; preds = %1
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 1027) #17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 1, ptr %4, align 1, !tbaa !206
+  store i8 1, ptr %4, align 1, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %5, align 1, !tbaa !207
+  store i8 0, ptr %5, align 1, !tbaa !214
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -9374,7 +9374,7 @@ define ptr @wolfTLSv1_1_server_method() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 515) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %3, align 1, !tbaa !207
+  store i8 0, ptr %3, align 1, !tbaa !214
   br label %wolfTLSv1_1_server_method_ex.exit
 
 wolfTLSv1_1_server_method_ex.exit:                ; preds = %0, %2
@@ -9390,7 +9390,7 @@ define ptr @wolfTLSv1_1_server_method_ex(ptr noundef readnone captures(none) %0)
 3:                                                ; preds = %1
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 515) #17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %4, align 1, !tbaa !207
+  store i8 0, ptr %4, align 1, !tbaa !214
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -9406,7 +9406,7 @@ define ptr @wolfTLSv1_2_server_method() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 771) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %3, align 1, !tbaa !207
+  store i8 0, ptr %3, align 1, !tbaa !214
   br label %wolfTLSv1_2_server_method_ex.exit
 
 wolfTLSv1_2_server_method_ex.exit:                ; preds = %0, %2
@@ -9422,7 +9422,7 @@ define ptr @wolfTLSv1_2_server_method_ex(ptr noundef readnone captures(none) %0)
 3:                                                ; preds = %1
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 771) #17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %4, align 1, !tbaa !207
+  store i8 0, ptr %4, align 1, !tbaa !214
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -9438,7 +9438,7 @@ define ptr @wolfTLSv1_3_server_method() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 1027) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %3, align 1, !tbaa !207
+  store i8 0, ptr %3, align 1, !tbaa !214
   br label %wolfTLSv1_3_server_method_ex.exit
 
 wolfTLSv1_3_server_method_ex.exit:                ; preds = %0, %2
@@ -9454,7 +9454,7 @@ define ptr @wolfTLSv1_3_server_method_ex(ptr noundef readnone captures(none) %0)
 3:                                                ; preds = %1
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 1027) #17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %4, align 1, !tbaa !207
+  store i8 0, ptr %4, align 1, !tbaa !214
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -9732,75 +9732,82 @@ attributes #18 = { nounwind willreturn memory(read) }
 !133 = distinct !{!133, !50}
 !134 = !{!8, !4, i64 1152}
 !135 = !{!8, !31, i64 1192}
-!136 = distinct !{!136, !50}
-!137 = distinct !{!137, !50}
-!138 = !{!95, !5, i64 0}
+!136 = distinct !{!136, !50, !137}
+!137 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!138 = distinct !{!138, !50, !137}
 !139 = distinct !{!139, !50}
-!140 = !{!96, !96, i64 0}
-!141 = !{!142, !5, i64 0}
-!142 = !{!"WOLFSSL_METHOD", !34, i64 0, !5, i64 2, !5, i64 3}
-!143 = distinct !{!143, !50}
-!144 = !{!8, !5, i64 1047}
-!145 = !{!34, !5, i64 1}
-!146 = !{!142, !5, i64 1}
-!147 = !{!17, !17, i64 0}
-!148 = !{!149, !31, i64 0}
-!149 = !{!"KeyShareEntry", !31, i64 0, !20, i64 8, !4, i64 16, !10, i64 24, !4, i64 32, !20, i64 40, !4, i64 48, !20, i64 56, !4, i64 64, !150, i64 72}
-!150 = !{!"p1 _ZTS13KeyShareEntry", !10, i64 0}
-!151 = !{!149, !10, i64 24}
-!152 = !{!149, !20, i64 40}
-!153 = !{!149, !20, i64 56}
-!154 = !{!149, !4, i64 48}
-!155 = !{!149, !4, i64 32}
-!156 = distinct !{!156, !50}
-!157 = !{!150, !150, i64 0}
-!158 = distinct !{!158, !50}
-!159 = distinct !{!159, !50}
-!160 = !{!8, !27, i64 624}
-!161 = !{!162, !31, i64 224}
-!162 = !{!"WOLFSSL_SESSION", !4, i64 0, !4, i64 4, !56, i64 8, !5, i64 56, !5, i64 88, !10, i64 96, !5, i64 104, !4, i64 108, !4, i64 112, !5, i64 116, !5, i64 148, !5, i64 149, !31, i64 198, !5, i64 200, !5, i64 201, !31, i64 202, !5, i64 204, !31, i64 224, !5, i64 226}
-!163 = !{!8, !31, i64 1058}
-!164 = !{!149, !20, i64 8}
-!165 = !{!149, !4, i64 16}
-!166 = !{!8, !40, i64 1176}
-!167 = !{!8, !5, i64 1169}
-!168 = !{!169, !170, i64 16}
-!169 = !{!"ecc_key", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !170, i64 16, !10, i64 24, !171, i64 32, !5, i64 3160, !14, i64 4200}
-!170 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
-!171 = !{!"ecc_point", !5, i64 0, !5, i64 1040, !5, i64 2080, !5, i64 3120}
-!172 = !{!173, !4, i64 76}
-!173 = !{!"ecc_set_type", !4, i64 0, !4, i64 4, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !4, i64 72, !4, i64 76, !4, i64 80}
-!174 = distinct !{!174, !50}
-!175 = distinct !{!175, !50}
-!176 = !{!149, !150, i64 72}
-!177 = distinct !{!177, !50}
+!140 = distinct !{!140, !50}
+!141 = !{!95, !5, i64 0}
+!142 = distinct !{!142, !50}
+!143 = !{!96, !96, i64 0}
+!144 = !{!145, !5, i64 0}
+!145 = !{!"WOLFSSL_METHOD", !34, i64 0, !5, i64 2, !5, i64 3}
+!146 = distinct !{!146, !50, !137}
+!147 = !{!8, !5, i64 1047}
+!148 = distinct !{!148, !50}
+!149 = !{!34, !5, i64 1}
+!150 = !{!145, !5, i64 1}
+!151 = !{!17, !17, i64 0}
+!152 = !{!153, !31, i64 0}
+!153 = !{!"KeyShareEntry", !31, i64 0, !20, i64 8, !4, i64 16, !10, i64 24, !4, i64 32, !20, i64 40, !4, i64 48, !20, i64 56, !4, i64 64, !154, i64 72}
+!154 = !{!"p1 _ZTS13KeyShareEntry", !10, i64 0}
+!155 = !{!153, !10, i64 24}
+!156 = !{!153, !20, i64 40}
+!157 = !{!153, !20, i64 56}
+!158 = !{!153, !4, i64 48}
+!159 = !{!153, !4, i64 32}
+!160 = distinct !{!160, !50}
+!161 = !{!154, !154, i64 0}
+!162 = distinct !{!162, !50}
+!163 = distinct !{!163, !50}
+!164 = !{!8, !27, i64 624}
+!165 = !{!166, !31, i64 224}
+!166 = !{!"WOLFSSL_SESSION", !4, i64 0, !4, i64 4, !56, i64 8, !5, i64 56, !5, i64 88, !10, i64 96, !5, i64 104, !4, i64 108, !4, i64 112, !5, i64 116, !5, i64 148, !5, i64 149, !31, i64 198, !5, i64 200, !5, i64 201, !31, i64 202, !5, i64 204, !31, i64 224, !5, i64 226}
+!167 = !{!8, !31, i64 1058}
+!168 = !{!153, !20, i64 8}
+!169 = !{!153, !4, i64 16}
+!170 = !{!8, !40, i64 1176}
+!171 = !{!8, !5, i64 1169}
+!172 = !{!173, !174, i64 16}
+!173 = !{!"ecc_key", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !174, i64 16, !10, i64 24, !175, i64 32, !5, i64 3160, !14, i64 4200}
+!174 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
+!175 = !{!"ecc_point", !5, i64 0, !5, i64 1040, !5, i64 2080, !5, i64 3120}
+!176 = !{!177, !4, i64 76}
+!177 = !{!"ecc_set_type", !4, i64 0, !4, i64 4, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !4, i64 72, !4, i64 76, !4, i64 80}
 !178 = distinct !{!178, !50}
 !179 = distinct !{!179, !50}
-!180 = distinct !{!180, !50}
-!181 = !{!54, !5, i64 296}
-!182 = !{!8, !31, i64 1108}
+!180 = !{!153, !154, i64 72}
+!181 = distinct !{!181, !50}
+!182 = distinct !{!182, !50}
 !183 = distinct !{!183, !50}
 !184 = distinct !{!184, !50}
-!185 = !{!8, !11, i64 8}
-!186 = !{!54, !11, i64 152}
-!187 = !{!188, !31, i64 2}
-!188 = !{!"Suites", !31, i64 0, !31, i64 2, !5, i64 4, !5, i64 304, !5, i64 342}
-!189 = distinct !{!189, !50}
-!190 = distinct !{!190, !50}
-!191 = distinct !{!191, !50}
-!192 = distinct !{!192, !50}
+!185 = !{!54, !5, i64 296}
+!186 = !{!8, !31, i64 1108}
+!187 = distinct !{!187, !50}
+!188 = distinct !{!188, !50}
+!189 = !{!8, !11, i64 8}
+!190 = !{!54, !11, i64 152}
+!191 = !{!192, !31, i64 2}
+!192 = !{!"Suites", !31, i64 0, !31, i64 2, !5, i64 4, !5, i64 304, !5, i64 342}
 !193 = distinct !{!193, !50}
 !194 = distinct !{!194, !50}
 !195 = distinct !{!195, !50}
 !196 = distinct !{!196, !50}
-!197 = distinct !{!197, !50}
-!198 = !{!8, !31, i64 1106}
+!197 = distinct !{!197, !50, !137}
+!198 = distinct !{!198, !50}
 !199 = distinct !{!199, !50}
 !200 = distinct !{!200, !50}
-!201 = !{!8, !5, i64 1037}
-!202 = !{!54, !10, i64 264}
-!203 = distinct !{!203, !50}
+!201 = distinct !{!201, !50}
+!202 = distinct !{!202, !50}
+!203 = !{!8, !31, i64 1106}
 !204 = distinct !{!204, !50}
-!205 = distinct !{!205, !50}
-!206 = !{!142, !5, i64 3}
-!207 = !{!142, !5, i64 2}
+!205 = distinct !{!205, !50, !137}
+!206 = distinct !{!206, !50}
+!207 = !{!8, !5, i64 1037}
+!208 = !{!54, !10, i64 264}
+!209 = distinct !{!209, !50}
+!210 = distinct !{!210, !50, !137}
+!211 = distinct !{!211, !50}
+!212 = distinct !{!212, !50}
+!213 = !{!145, !5, i64 3}
+!214 = !{!145, !5, i64 2}

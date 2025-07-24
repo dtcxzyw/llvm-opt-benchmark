@@ -313,7 +313,7 @@ invoke.cont40.us:                                 ; preds = %invoke.cont31.us, %
   %33 = tail call double @llvm.fmuladd.f64(double %neg.us, double %32, double %sum.0145.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond155.not, label %for.cond33.for.cond.cleanup_crit_edge.us, label %invoke.cont40.us, !llvm.loop !26
+  br i1 %exitcond155.not, label %for.cond33.for.cond.cleanup_crit_edge.us, label %invoke.cont40.us, !llvm.loop !27
 
 for.cond33.for.cond.cleanup_crit_edge.us:         ; preds = %invoke.cont40.us
   %cmp45.us = icmp eq i64 %i.0149, %j.0147.us
@@ -523,12 +523,12 @@ invoke.cont99:                                    ; preds = %invoke.cont31
 for.inc111:                                       ; preds = %invoke.cont95, %invoke.cont99
   %inc112 = add nuw i64 %j.0147, 1
   %exitcond.not = icmp eq i64 %inc112, %0
-  br i1 %exitcond.not, label %for.inc114, label %invoke.cont31, !llvm.loop !24
+  br i1 %exitcond.not, label %for.inc114, label %invoke.cont31, !llvm.loop !28
 
 for.inc114:                                       ; preds = %for.inc111, %for.inc111.us
   %inc115 = add nuw i64 %i.0149, 1
   %exitcond158.not = icmp eq i64 %inc115, %0
-  br i1 %exitcond158.not, label %for.end116, label %for.cond27.preheader, !llvm.loop !27
+  br i1 %exitcond158.not, label %for.end116, label %for.cond27.preheader, !llvm.loop !29
 
 for.end116:                                       ; preds = %for.inc114, %_ZN8QuantLib6MatrixC2Emmd.exit
   ret void
@@ -564,7 +564,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !28
+  store ptr %0, ptr %this, align 8, !tbaa !30
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -575,14 +575,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #18
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !29
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !31
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !16
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !29
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !31
   store i64 %1, ptr %0, align 8, !tbaa !20
   br label %if.end.i
 
@@ -603,7 +603,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !29
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !31
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !19
   %5 = load ptr, ptr %this, align 8, !tbaa !16
@@ -621,9 +621,9 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !32
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !32
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !34
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -634,7 +634,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !32
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -647,7 +647,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !32
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -778,13 +778,15 @@ attributes #22 = { noreturn nounwind }
 !21 = !{!11, !11, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"double", !12, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !27 = distinct !{!27, !25}
-!28 = !{!18, !11, i64 0}
-!29 = !{!14, !14, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"vtable pointer", !13, i64 0}
-!32 = !{!33, !11, i64 0}
-!33 = !{!"_ZTSN5boost6detail12shared_countE", !11, i64 0}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}
+!30 = !{!18, !11, i64 0}
+!31 = !{!14, !14, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"vtable pointer", !13, i64 0}
+!34 = !{!35, !11, i64 0}
+!35 = !{!"_ZTSN5boost6detail12shared_countE", !11, i64 0}

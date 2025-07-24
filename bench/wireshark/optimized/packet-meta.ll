@@ -613,7 +613,7 @@ evaluate_meta_item_dxt.exit.us.i:                 ; preds = %198, %181, %173, %1
 evaluate_meta_item_dxt.exit.us34.i:               ; preds = %256, %239, %231, %226, %222, %218
   %259 = add i32 %217, %.031.us33.i
   %260 = icmp slt i32 %259, %.pre-phi
-  br i1 %260, label %.lr.ph.split.us32.i, label %evaluate_meta_items.exit, !llvm.loop !6
+  br i1 %260, label %.lr.ph.split.us32.i, label %evaluate_meta_items.exit, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %evaluate_meta_item_dxt.exit.i
   %.031.i = phi i32 [ %294, %evaluate_meta_item_dxt.exit.i ], [ 0, %.lr.ph.i ]
@@ -658,7 +658,7 @@ evaluate_meta_item_dxt.exit.us34.i:               ; preds = %256, %239, %231, %2
 evaluate_meta_item_dxt.exit.i:                    ; preds = %291, %.lr.ph.split.i
   %294 = add i32 %274, %.031.i
   %295 = icmp slt i32 %294, %.pre-phi
-  br i1 %295, label %.lr.ph.split.i, label %evaluate_meta_items.exit, !llvm.loop !6
+  br i1 %295, label %.lr.ph.split.i, label %evaluate_meta_items.exit, !llvm.loop !10
 
 evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_dxt.exit.us34.i, %evaluate_meta_item_dxt.exit.us.i, %evaluate_meta_item_dxt.exit.i, %31
   %.0.lcssa.i = phi i32 [ 0, %31 ], [ %294, %evaluate_meta_item_dxt.exit.i ], [ %201, %evaluate_meta_item_dxt.exit.us.i ], [ %259, %evaluate_meta_item_dxt.exit.us34.i ]
@@ -939,5 +939,8 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7}

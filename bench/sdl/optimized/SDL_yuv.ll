@@ -1061,7 +1061,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %157, ptr %93, align 1
   %indvars.iv.next1614 = add nuw nsw i64 %indvars.iv1613, 1
   %exitcond1617.not = icmp eq i64 %indvars.iv.next1614, %wide.trip.count1616
-  br i1 %exitcond1617.not, label %._crit_edge1508, label %91, !llvm.loop !6
+  br i1 %exitcond1617.not, label %._crit_edge1508, label %91, !llvm.loop !7
 
 ._crit_edge1508:                                  ; preds = %156, %.preheader1438
   %.lcssa1505 = phi ptr [ %.lcssa150515151517, %.preheader1438 ], [ %158, %156 ]
@@ -1148,7 +1148,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %217 = getelementptr inbounds i8, ptr %.013171519, i64 %82
   %218 = add nuw nsw i32 %.113071521, 1
   %exitcond1618.not = icmp eq i32 %218, %15
-  br i1 %exitcond1618.not, label %._crit_edge1522, label %.preheader1438, !llvm.loop !7
+  br i1 %exitcond1618.not, label %._crit_edge1522, label %.preheader1438, !llvm.loop !8
 
 ._crit_edge1522:                                  ; preds = %213, %69
   %.promoted1527 = phi ptr [ %.promoted, %69 ], [ %215, %213 ]
@@ -1249,7 +1249,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %280, ptr %234, align 1
   %indvars.iv.next1620 = add nuw nsw i64 %indvars.iv1619, 1
   %exitcond1623.not = icmp eq i64 %indvars.iv.next1620, %wide.trip.count1622
-  br i1 %exitcond1623.not, label %._crit_edge1530.loopexit, label %232, !llvm.loop !8
+  br i1 %exitcond1623.not, label %._crit_edge1530.loopexit, label %232, !llvm.loop !9
 
 ._crit_edge1530.loopexit:                         ; preds = %279
   %282 = shl nuw nsw i32 %17, 1
@@ -1453,7 +1453,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %421, ptr %408, align 1
   %indvars.iv.next1603 = add nuw nsw i64 %indvars.iv1602, 1
   %exitcond1606.not = icmp eq i64 %indvars.iv.next1603, %wide.trip.count1605
-  br i1 %exitcond1606.not, label %._crit_edge1488, label %357, !llvm.loop !9
+  br i1 %exitcond1606.not, label %._crit_edge1488, label %357, !llvm.loop !10
 
 ._crit_edge1488:                                  ; preds = %420, %.preheader1440
   %.11321.lcssa = phi ptr [ %.013201491, %.preheader1440 ], [ %422, %420 ]
@@ -1537,7 +1537,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %480 = getelementptr inbounds i8, ptr %.113181492, i64 %348
   %481 = add nuw nsw i32 %.213081494, 1
   %exitcond1607.not = icmp eq i32 %481, %15
-  br i1 %exitcond1607.not, label %._crit_edge1495, label %.preheader1440, !llvm.loop !10
+  br i1 %exitcond1607.not, label %._crit_edge1495, label %.preheader1440, !llvm.loop !11
 
 ._crit_edge1495:                                  ; preds = %477, %335
   %.01320.lcssa = phi ptr [ %28, %335 ], [ %478, %477 ]
@@ -1632,7 +1632,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %541, ptr %528, align 1
   %indvars.iv.next1609 = add nuw nsw i64 %indvars.iv1608, 1
   %exitcond1612.not = icmp eq i64 %indvars.iv.next1609, %wide.trip.count1611
-  br i1 %exitcond1612.not, label %._crit_edge1501.loopexit, label %495, !llvm.loop !11
+  br i1 %exitcond1612.not, label %._crit_edge1501.loopexit, label %495, !llvm.loop !12
 
 ._crit_edge1501.loopexit:                         ; preds = %540
   %543 = shl nuw nsw i32 %17, 1
@@ -1836,7 +1836,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %681, ptr %668, align 1
   %indvars.iv.next1625 = add nuw nsw i64 %indvars.iv1624, 1
   %exitcond1628.not = icmp eq i64 %indvars.iv.next1625, %wide.trip.count1627
-  br i1 %exitcond1628.not, label %._crit_edge1535, label %617, !llvm.loop !12
+  br i1 %exitcond1628.not, label %._crit_edge1535, label %617, !llvm.loop !13
 
 ._crit_edge1535:                                  ; preds = %680, %.preheader1436
   %.51325.lcssa = phi ptr [ %.413241538, %.preheader1436 ], [ %682, %680 ]
@@ -1920,7 +1920,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %740 = getelementptr inbounds i8, ptr %.213191539, i64 %608
   %741 = add nuw nsw i32 %.313091541, 1
   %exitcond1629.not = icmp eq i32 %741, %15
-  br i1 %exitcond1629.not, label %._crit_edge1542, label %.preheader1436, !llvm.loop !13
+  br i1 %exitcond1629.not, label %._crit_edge1542, label %.preheader1436, !llvm.loop !14
 
 ._crit_edge1542:                                  ; preds = %737, %595
   %.41324.lcssa = phi ptr [ %28, %595 ], [ %738, %737 ]
@@ -2015,7 +2015,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %801, ptr %788, align 1
   %indvars.iv.next1631 = add nuw nsw i64 %indvars.iv1630, 1
   %exitcond1634.not = icmp eq i64 %indvars.iv.next1631, %wide.trip.count1633
-  br i1 %exitcond1634.not, label %._crit_edge1548.loopexit, label %755, !llvm.loop !14
+  br i1 %exitcond1634.not, label %._crit_edge1548.loopexit, label %755, !llvm.loop !15
 
 ._crit_edge1548.loopexit:                         ; preds = %800
   %803 = shl nuw nsw i32 %17, 1
@@ -2308,7 +2308,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %993, ptr %980, align 1
   %indvars.iv.next1591 = add nuw nsw i64 %indvars.iv1590, 1
   %exitcond1594.not = icmp eq i64 %indvars.iv.next1591, %wide.trip.count1593
-  br i1 %exitcond1594.not, label %._crit_edge1468, label %917, !llvm.loop !15
+  br i1 %exitcond1594.not, label %._crit_edge1468, label %917, !llvm.loop !16
 
 ._crit_edge1468:                                  ; preds = %992, %.preheader1442
   %.11334.lcssa = phi ptr [ %.013331471, %.preheader1442 ], [ %994, %992 ]
@@ -2399,7 +2399,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %1057 = getelementptr inbounds i8, ptr %.013301472, i64 %904
   %1058 = add nuw nsw i32 %.413101473, 1
   %exitcond1595.not = icmp eq i32 %1058, %1
-  br i1 %exitcond1595.not, label %.thread1424, label %.preheader1442, !llvm.loop !16
+  br i1 %exitcond1595.not, label %.thread1424, label %.preheader1442, !llvm.loop !17
 
 .preheader1444:                                   ; preds = %.preheader1444.lr.ph, %1207
   %.513111464 = phi i32 [ 0, %.preheader1444.lr.ph ], [ %1210, %1207 ]
@@ -2519,7 +2519,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %1145, ptr %1133, align 1
   %indvars.iv.next1585 = add nuw nsw i64 %indvars.iv1584, 1
   %exitcond1588.not = icmp eq i64 %indvars.iv.next1585, %wide.trip.count1587
-  br i1 %exitcond1588.not, label %._crit_edge1459, label %1069, !llvm.loop !17
+  br i1 %exitcond1588.not, label %._crit_edge1459, label %1069, !llvm.loop !18
 
 ._crit_edge1459:                                  ; preds = %1131, %.preheader1444
   %.41337.lcssa = phi ptr [ %.313361462, %.preheader1444 ], [ %1146, %1131 ]
@@ -2610,7 +2610,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %1209 = getelementptr inbounds i8, ptr %.113311463, i64 %889
   %1210 = add nuw nsw i32 %.513111464, 1
   %exitcond1589.not = icmp eq i32 %1210, %1
-  br i1 %exitcond1589.not, label %.thread1424, label %.preheader1444, !llvm.loop !18
+  br i1 %exitcond1589.not, label %.thread1424, label %.preheader1444, !llvm.loop !19
 
 .preheader1447:                                   ; preds = %.preheader1447.lr.ph, %1359
   %.613121455 = phi i32 [ 0, %.preheader1447.lr.ph ], [ %1362, %1359 ]
@@ -2730,7 +2730,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   store i8 %1297, ptr %1284, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %1221, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %1221, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %1296, %.preheader1447
   %.71340.lcssa = phi ptr [ %.613391453, %.preheader1447 ], [ %1298, %1296 ]
@@ -2821,7 +2821,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %1361 = getelementptr inbounds i8, ptr %.213321454, i64 %874
   %1362 = add nuw nsw i32 %.613121455, 1
   %exitcond1583.not = icmp eq i32 %1362, %1
-  br i1 %exitcond1583.not, label %.thread1424, label %.preheader1447, !llvm.loop !20
+  br i1 %exitcond1583.not, label %.thread1424, label %.preheader1447, !llvm.loop !21
 
 1363:                                             ; preds = %8
   %1364 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %4) #7
@@ -2911,14 +2911,14 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   store i16 %53, ptr %.1183186.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %36
   %55 = getelementptr inbounds nuw i16, ptr %54, i64 %27
   %56 = getelementptr inbounds i8, ptr %.0162189.us, i64 %28
   %57 = add nuw nsw i32 %.0160190.us, 1
   %exitcond216.not = icmp eq i32 %57, %1
-  br i1 %exitcond216.not, label %._crit_edge191, label %.preheader185.us, !llvm.loop !22
+  br i1 %exitcond216.not, label %._crit_edge191, label %.preheader185.us, !llvm.loop !23
 
 ._crit_edge191:                                   ; preds = %._crit_edge.us, %.preheader185.lr.ph
   %.not232 = icmp eq i32 %1, 1
@@ -3023,7 +3023,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   store i16 %130, ptr %123, align 2
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
-  br i1 %exitcond221.not, label %._crit_edge, label %78, !llvm.loop !23
+  br i1 %exitcond221.not, label %._crit_edge, label %78, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %78, %.preheader184
   %.1166.lcssa = phi ptr [ %.0165195, %.preheader184 ], [ %131, %78 ]
@@ -3085,7 +3085,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   %177 = getelementptr inbounds i8, ptr %.0164196, i64 %69
   %178 = add nuw nsw i32 %.1161198, 1
   %exitcond222.not = icmp eq i32 %178, %9
-  br i1 %exitcond222.not, label %._crit_edge199, label %.preheader184, !llvm.loop !24
+  br i1 %exitcond222.not, label %._crit_edge199, label %.preheader184, !llvm.loop !25
 
 ._crit_edge199:                                   ; preds = %174, %7, %._crit_edge191
   %.0165.lcssa = phi ptr [ %23, %._crit_edge191 ], [ %23, %7 ], [ %175, %174 ]
@@ -3158,7 +3158,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   store i16 %226, ptr %219, align 2
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
-  br i1 %exitcond227.not, label %._crit_edge205.loopexit, label %192, !llvm.loop !25
+  br i1 %exitcond227.not, label %._crit_edge205.loopexit, label %192, !llvm.loop !26
 
 ._crit_edge205.loopexit:                          ; preds = %192
   %228 = shl nuw nsw i32 %11, 1
@@ -3287,7 +3287,7 @@ IsPlanar2x2Format.exit.i:                         ; preds = %39, %39, %39, %39, 
   %45 = getelementptr inbounds i8, ptr %.07493.i, i64 %41
   %46 = getelementptr inbounds i8, ptr %.06994.i, i64 %42
   %.not81.i = icmp eq i32 %44, 0
-  br i1 %.not81.i, label %._crit_edge.i, label %43, !llvm.loop !26
+  br i1 %.not81.i, label %._crit_edge.i, label %43, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %43, %IsPlanar2x2Format.exit.i
   %.074.lcssa.i = phi ptr [ %5, %IsPlanar2x2Format.exit.i ], [ %45, %43 ]
@@ -3329,7 +3329,7 @@ IsPlanar2x2Format.exit.i:                         ; preds = %39, %39, %39, %39, 
   %62 = getelementptr inbounds i8, ptr %.175111.i, i64 %58
   %63 = getelementptr inbounds i8, ptr %.170112.i, i64 %59
   %.not84.i = icmp eq i32 %61, 0
-  br i1 %.not84.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %60, !llvm.loop !27
+  br i1 %.not84.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %60, !llvm.loop !28
 
 64:                                               ; preds = %._crit_edge.i, %._crit_edge.i
   %.off116.i = add i32 %1, 2
@@ -3362,7 +3362,7 @@ IsPlanar2x2Format.exit.i:                         ; preds = %39, %39, %39, %39, 
   %81 = getelementptr inbounds i8, ptr %.276105.i, i64 %77
   %82 = getelementptr inbounds i8, ptr %.271106.i, i64 %78
   %.not83.i = icmp eq i32 %80, 0
-  br i1 %.not83.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %79, !llvm.loop !28
+  br i1 %.not83.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %79, !llvm.loop !29
 
 83:                                               ; preds = %._crit_edge.i
   %.off.i = add i32 %1, 2
@@ -3396,7 +3396,7 @@ IsPlanar2x2Format.exit.i:                         ; preds = %39, %39, %39, %39, 
   %101 = getelementptr inbounds i8, ptr %.37799.i, i64 %97
   %102 = getelementptr inbounds i8, ptr %.372100.i, i64 %98
   %.not82.i = icmp eq i32 %100, 0
-  br i1 %.not82.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %99, !llvm.loop !29
+  br i1 %.not82.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %99, !llvm.loop !30
 
 103:                                              ; preds = %39, %39, %39
   %.not88.i = icmp eq i32 %1, 0
@@ -3420,7 +3420,7 @@ IsPlanar2x2Format.exit.i:                         ; preds = %39, %39, %39, %39, 
   %112 = getelementptr inbounds i8, ptr %.47889.i, i64 %108
   %113 = getelementptr inbounds i8, ptr %.47390.i, i64 %109
   %.not.i = icmp eq i32 %111, 0
-  br i1 %.not.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %110, !llvm.loop !30
+  br i1 %.not.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %110, !llvm.loop !31
 
 IsPacked4Format.exit.i:                           ; preds = %39
   %114 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %2) #7
@@ -3469,7 +3469,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %124 = getelementptr inbounds i8, ptr %.092337.i, i64 %120
   %125 = getelementptr inbounds i8, ptr %.0338.i, i64 %121
   %.not97.i = icmp eq i32 %123, 0
-  br i1 %.not97.i, label %.loopexit.i, label %122, !llvm.loop !31
+  br i1 %.not97.i, label %.loopexit.i, label %122, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %122, %118
   switch i32 %2, label %606 [
@@ -3566,7 +3566,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %168 = getelementptr inbounds nuw i8, ptr %.170.i.i.i, i64 2
   store i8 %167, ptr %165, align 1
   %.not65.i.i.i = icmp eq i32 %162, 0
-  br i1 %.not65.i.i.i, label %._crit_edge.i.i.i, label %161, !llvm.loop !32
+  br i1 %.not65.i.i.i, label %._crit_edge.i.i.i, label %161, !llvm.loop !33
 
 ._crit_edge.i.i.i:                                ; preds = %161
   %169 = add nsw i32 %.in.i.i.i, -1
@@ -3574,7 +3574,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %171 = getelementptr inbounds i8, ptr %166, i64 %156
   %172 = getelementptr inbounds i8, ptr %168, i64 %157
   %.not63.i.i.i = icmp eq i32 %169, 0
-  br i1 %.not63.i.i.i, label %._crit_edge77.i.i.i, label %.preheader.i.i.i, !llvm.loop !33
+  br i1 %.not63.i.i.i, label %._crit_edge77.i.i.i, label %.preheader.i.i.i, !llvm.loop !34
 
 ._crit_edge77.i.i.i:                              ; preds = %._crit_edge.i.i.i, %.preheader.lr.ph.i.i.i, %155
   %.not64.i.i.i = icmp eq ptr %.0.i.i.i, null
@@ -3660,7 +3660,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %213 = getelementptr inbounds nuw i8, ptr %.170.i.i111.i, i64 2
   store i8 %212, ptr %210, align 1
   %.not65.i.i115.i = icmp eq i32 %207, 0
-  br i1 %.not65.i.i115.i, label %._crit_edge.i.i116.i, label %206, !llvm.loop !32
+  br i1 %.not65.i.i115.i, label %._crit_edge.i.i116.i, label %206, !llvm.loop !33
 
 ._crit_edge.i.i116.i:                             ; preds = %206
   %214 = add nsw i32 %.in.i.i107.i, -1
@@ -3668,7 +3668,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %216 = getelementptr inbounds i8, ptr %211, i64 %201
   %217 = getelementptr inbounds i8, ptr %213, i64 %202
   %.not63.i.i117.i = icmp eq i32 %214, 0
-  br i1 %.not63.i.i117.i, label %._crit_edge77.i.i118.i, label %.preheader.i.i106.i, !llvm.loop !33
+  br i1 %.not63.i.i117.i, label %._crit_edge77.i.i118.i, label %.preheader.i.i106.i, !llvm.loop !34
 
 ._crit_edge77.i.i118.i:                           ; preds = %._crit_edge.i.i116.i, %.preheader.lr.ph.i.i102.i, %200
   %.not64.i.i119.i = icmp eq ptr %.0.i.i99.i, null
@@ -3765,7 +3765,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %261 = getelementptr inbounds nuw i8, ptr %.170.i.i136.i, i64 2
   store i8 %260, ptr %258, align 1
   %.not65.i.i140.i = icmp eq i32 %255, 0
-  br i1 %.not65.i.i140.i, label %._crit_edge.i.i141.i, label %254, !llvm.loop !32
+  br i1 %.not65.i.i140.i, label %._crit_edge.i.i141.i, label %254, !llvm.loop !33
 
 ._crit_edge.i.i141.i:                             ; preds = %254
   %262 = add nsw i32 %.in.i.i132.i, -1
@@ -3773,7 +3773,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %264 = getelementptr inbounds i8, ptr %259, i64 %249
   %265 = getelementptr inbounds i8, ptr %261, i64 %250
   %.not63.i.i142.i = icmp eq i32 %262, 0
-  br i1 %.not63.i.i142.i, label %._crit_edge77.i.i143.i, label %.preheader.i.i131.i, !llvm.loop !33
+  br i1 %.not63.i.i142.i, label %._crit_edge77.i.i143.i, label %.preheader.i.i131.i, !llvm.loop !34
 
 ._crit_edge77.i.i143.i:                           ; preds = %._crit_edge.i.i141.i, %.preheader.lr.ph.i.i127.i, %248
   %.not64.i.i144.i = icmp eq ptr %.0.i.i124.i, null
@@ -3859,7 +3859,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %306 = getelementptr inbounds nuw i8, ptr %.170.i.i161.i, i64 2
   store i8 %305, ptr %303, align 1
   %.not65.i.i165.i = icmp eq i32 %300, 0
-  br i1 %.not65.i.i165.i, label %._crit_edge.i.i166.i, label %299, !llvm.loop !32
+  br i1 %.not65.i.i165.i, label %._crit_edge.i.i166.i, label %299, !llvm.loop !33
 
 ._crit_edge.i.i166.i:                             ; preds = %299
   %307 = add nsw i32 %.in.i.i157.i, -1
@@ -3867,7 +3867,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %309 = getelementptr inbounds i8, ptr %304, i64 %294
   %310 = getelementptr inbounds i8, ptr %306, i64 %295
   %.not63.i.i167.i = icmp eq i32 %307, 0
-  br i1 %.not63.i.i167.i, label %._crit_edge77.i.i168.i, label %.preheader.i.i156.i, !llvm.loop !33
+  br i1 %.not63.i.i167.i, label %._crit_edge77.i.i168.i, label %.preheader.i.i156.i, !llvm.loop !34
 
 ._crit_edge77.i.i168.i:                           ; preds = %._crit_edge.i.i166.i, %.preheader.lr.ph.i.i152.i, %293
   %.not64.i.i169.i = icmp eq ptr %.0.i.i149.i, null
@@ -3960,7 +3960,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %352 = getelementptr inbounds nuw i8, ptr %.270.i.i.i, i64 1
   store i8 %351, ptr %.270.i.i.i, align 1
   %.not65.i.i185.i = icmp eq i32 %346, 0
-  br i1 %.not65.i.i185.i, label %._crit_edge.i.i186.i, label %345, !llvm.loop !34
+  br i1 %.not65.i.i185.i, label %._crit_edge.i.i186.i, label %345, !llvm.loop !35
 
 ._crit_edge.i.i186.i:                             ; preds = %345
   %353 = add nsw i32 %.in.i.i182.i, -1
@@ -3968,7 +3968,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %355 = getelementptr inbounds i8, ptr %349, i64 %341
   %356 = getelementptr inbounds i8, ptr %352, i64 %341
   %.not63.i.i187.i = icmp eq i32 %353, 0
-  br i1 %.not63.i.i187.i, label %._crit_edge77.i.i188.i, label %.preheader.i.i181.i, !llvm.loop !35
+  br i1 %.not63.i.i187.i, label %._crit_edge77.i.i188.i, label %.preheader.i.i181.i, !llvm.loop !36
 
 ._crit_edge77.i.i188.i:                           ; preds = %._crit_edge.i.i186.i, %.preheader.lr.ph.i.i177.i, %339
   %.not64.i.i189.i = icmp eq ptr %.0.i.i174.i, null
@@ -4054,7 +4054,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %397 = getelementptr inbounds nuw i8, ptr %.270.i.i205.i, i64 1
   store i8 %396, ptr %.270.i.i205.i, align 1
   %.not65.i.i209.i = icmp eq i32 %391, 0
-  br i1 %.not65.i.i209.i, label %._crit_edge.i.i210.i, label %390, !llvm.loop !34
+  br i1 %.not65.i.i209.i, label %._crit_edge.i.i210.i, label %390, !llvm.loop !35
 
 ._crit_edge.i.i210.i:                             ; preds = %390
   %398 = add nsw i32 %.in.i.i201.i, -1
@@ -4062,7 +4062,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %400 = getelementptr inbounds i8, ptr %394, i64 %386
   %401 = getelementptr inbounds i8, ptr %397, i64 %386
   %.not63.i.i211.i = icmp eq i32 %398, 0
-  br i1 %.not63.i.i211.i, label %._crit_edge77.i.i212.i, label %.preheader.i.i200.i, !llvm.loop !35
+  br i1 %.not63.i.i211.i, label %._crit_edge77.i.i212.i, label %.preheader.i.i200.i, !llvm.loop !36
 
 ._crit_edge77.i.i212.i:                           ; preds = %._crit_edge.i.i210.i, %.preheader.lr.ph.i.i196.i, %384
   %.not64.i.i213.i = icmp eq ptr %.0.i.i193.i, null
@@ -4130,14 +4130,14 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %438 = getelementptr inbounds nuw i8, ptr %.15573.i.i.i, i64 2
   store i16 %437, ptr %.15573.i.i.i, align 2
   %.not60.i.i.i = icmp eq i32 %434, 0
-  br i1 %.not60.i.i.i, label %._crit_edge75.i.i.i, label %433, !llvm.loop !36
+  br i1 %.not60.i.i.i, label %._crit_edge75.i.i.i, label %433, !llvm.loop !37
 
 ._crit_edge75.i.i.i:                              ; preds = %433
   %439 = add nsw i32 %.in90.i.i.i, -1
   %440 = getelementptr inbounds i16, ptr %435, i64 %431
   %441 = getelementptr inbounds i16, ptr %438, i64 %432
   %.not59.i.i.i = icmp eq i32 %439, 0
-  br i1 %.not59.i.i.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i221.i, !llvm.loop !37
+  br i1 %.not59.i.i.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i221.i, !llvm.loop !38
 
 442:                                              ; preds = %403
   br i1 %.not5978.i.i.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.lr.ph.i.i.i
@@ -4172,14 +4172,14 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %455 = getelementptr inbounds nuw i8, ptr %.166.i.i.i, i64 2
   store i8 %451, ptr %454, align 1
   %.not58.i.i.i = icmp eq i32 %449, 0
-  br i1 %.not58.i.i.i, label %._crit_edge.i.i218.i, label %448, !llvm.loop !38
+  br i1 %.not58.i.i.i, label %._crit_edge.i.i218.i, label %448, !llvm.loop !39
 
 ._crit_edge.i.i218.i:                             ; preds = %448
   %456 = add nsw i32 %.in.i.i217.i, -1
   %457 = getelementptr inbounds i8, ptr %452, i64 %446
   %458 = getelementptr inbounds i8, ptr %455, i64 %447
   %.not.i.i219.i = icmp eq i32 %456, 0
-  br i1 %.not.i.i219.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i219.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.i.i.i, !llvm.loop !40
 
 459:                                              ; preds = %.loopexit.i
   switch i32 %7, label %606 [
@@ -4264,7 +4264,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %499 = getelementptr inbounds nuw i8, ptr %.270.i.i235.i, i64 1
   store i8 %498, ptr %.270.i.i235.i, align 1
   %.not65.i.i239.i = icmp eq i32 %493, 0
-  br i1 %.not65.i.i239.i, label %._crit_edge.i.i240.i, label %492, !llvm.loop !34
+  br i1 %.not65.i.i239.i, label %._crit_edge.i.i240.i, label %492, !llvm.loop !35
 
 ._crit_edge.i.i240.i:                             ; preds = %492
   %500 = add nsw i32 %.in.i.i231.i, -1
@@ -4272,7 +4272,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %502 = getelementptr inbounds i8, ptr %496, i64 %488
   %503 = getelementptr inbounds i8, ptr %499, i64 %488
   %.not63.i.i241.i = icmp eq i32 %500, 0
-  br i1 %.not63.i.i241.i, label %._crit_edge77.i.i242.i, label %.preheader.i.i230.i, !llvm.loop !35
+  br i1 %.not63.i.i241.i, label %._crit_edge77.i.i242.i, label %.preheader.i.i230.i, !llvm.loop !36
 
 ._crit_edge77.i.i242.i:                           ; preds = %._crit_edge.i.i240.i, %.preheader.lr.ph.i.i226.i, %486
   %.not64.i.i243.i = icmp eq ptr %.0.i.i223.i, null
@@ -4358,7 +4358,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %544 = getelementptr inbounds nuw i8, ptr %.270.i.i260.i, i64 1
   store i8 %543, ptr %.270.i.i260.i, align 1
   %.not65.i.i264.i = icmp eq i32 %538, 0
-  br i1 %.not65.i.i264.i, label %._crit_edge.i.i265.i, label %537, !llvm.loop !34
+  br i1 %.not65.i.i264.i, label %._crit_edge.i.i265.i, label %537, !llvm.loop !35
 
 ._crit_edge.i.i265.i:                             ; preds = %537
   %545 = add nsw i32 %.in.i.i256.i, -1
@@ -4366,7 +4366,7 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %547 = getelementptr inbounds i8, ptr %541, i64 %533
   %548 = getelementptr inbounds i8, ptr %544, i64 %533
   %.not63.i.i266.i = icmp eq i32 %545, 0
-  br i1 %.not63.i.i266.i, label %._crit_edge77.i.i267.i, label %.preheader.i.i255.i, !llvm.loop !35
+  br i1 %.not63.i.i266.i, label %._crit_edge77.i.i267.i, label %.preheader.i.i255.i, !llvm.loop !36
 
 ._crit_edge77.i.i267.i:                           ; preds = %._crit_edge.i.i265.i, %.preheader.lr.ph.i.i251.i, %531
   %.not64.i.i268.i = icmp eq ptr %.0.i.i248.i, null
@@ -4434,14 +4434,14 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %585 = getelementptr inbounds nuw i8, ptr %.15573.i.i295.i, i64 2
   store i16 %584, ptr %.15573.i.i295.i, align 2
   %.not60.i.i297.i = icmp eq i32 %581, 0
-  br i1 %.not60.i.i297.i, label %._crit_edge75.i.i298.i, label %580, !llvm.loop !36
+  br i1 %.not60.i.i297.i, label %._crit_edge75.i.i298.i, label %580, !llvm.loop !37
 
 ._crit_edge75.i.i298.i:                           ; preds = %580
   %586 = add nsw i32 %.in90.i.i291.i, -1
   %587 = getelementptr inbounds i16, ptr %582, i64 %578
   %588 = getelementptr inbounds i16, ptr %585, i64 %579
   %.not59.i.i299.i = icmp eq i32 %586, 0
-  br i1 %.not59.i.i299.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i290.i, !llvm.loop !37
+  br i1 %.not59.i.i299.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i290.i, !llvm.loop !38
 
 589:                                              ; preds = %550
   br i1 %.not5978.i.i273.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.lr.ph.i.i274.i
@@ -4476,14 +4476,14 @@ IsPacked4Format.exit.i:                           ; preds = %39
   %602 = getelementptr inbounds nuw i8, ptr %.166.i.i281.i, i64 2
   store i8 %598, ptr %601, align 1
   %.not58.i.i284.i = icmp eq i32 %596, 0
-  br i1 %.not58.i.i284.i, label %._crit_edge.i.i285.i, label %595, !llvm.loop !38
+  br i1 %.not58.i.i284.i, label %._crit_edge.i.i285.i, label %595, !llvm.loop !39
 
 ._crit_edge.i.i285.i:                             ; preds = %595
   %603 = add nsw i32 %.in.i.i278.i, -1
   %604 = getelementptr inbounds i8, ptr %599, i64 %593
   %605 = getelementptr inbounds i8, ptr %602, i64 %594
   %.not.i.i286.i = icmp eq i32 %603, 0
-  br i1 %.not.i.i286.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.i.i277.i, !llvm.loop !39
+  br i1 %.not.i.i286.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader61.i.i277.i, !llvm.loop !40
 
 606:                                              ; preds = %459, %312, %219, %126, %.loopexit.i
   %607 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %2) #7
@@ -4566,14 +4566,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %627, ptr %633, align 1
   %634 = getelementptr inbounds nuw i8, ptr %.13134.i.i.i, i64 4
   %.not32.i.i.i = icmp eq i32 %622, 0
-  br i1 %.not32.i.i.i, label %._crit_edge.i.i.i68, label %621, !llvm.loop !40
+  br i1 %.not32.i.i.i, label %._crit_edge.i.i.i68, label %621, !llvm.loop !41
 
 ._crit_edge.i.i.i68:                              ; preds = %621
   %635 = add nsw i32 %.in.i.i.i67, -1
   %636 = getelementptr inbounds i8, ptr %630, i64 %619
   %637 = getelementptr inbounds i8, ptr %634, i64 %620
   %.not.i.i.i69 = icmp eq i32 %635, 0
-  br i1 %.not.i.i.i69, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i.i66, !llvm.loop !41
+  br i1 %.not.i.i.i69, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i.i66, !llvm.loop !42
 
 638:                                              ; preds = %612
   %639 = add nsw i32 %0, 1
@@ -4619,14 +4619,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %650, ptr %658, align 1
   %659 = getelementptr inbounds nuw i8, ptr %.13134.i.i52.i, i64 4
   %.not32.i.i53.i = icmp eq i32 %647, 0
-  br i1 %.not32.i.i53.i, label %._crit_edge.i.i54.i, label %646, !llvm.loop !42
+  br i1 %.not32.i.i53.i, label %._crit_edge.i.i54.i, label %646, !llvm.loop !43
 
 ._crit_edge.i.i54.i:                              ; preds = %646
   %660 = add nsw i32 %.in.i.i47.i, -1
   %661 = getelementptr inbounds i8, ptr %655, i64 %644
   %662 = getelementptr inbounds i8, ptr %659, i64 %645
   %.not.i.i55.i = icmp eq i32 %660, 0
-  br i1 %.not.i.i55.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i46.i, !llvm.loop !43
+  br i1 %.not.i.i55.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i46.i, !llvm.loop !44
 
 663:                                              ; preds = %611
   switch i32 %7, label %765 [
@@ -4678,14 +4678,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %678, ptr %684, align 1
   %685 = getelementptr inbounds nuw i8, ptr %.13134.i.i66.i, i64 4
   %.not32.i.i67.i = icmp eq i32 %673, 0
-  br i1 %.not32.i.i67.i, label %._crit_edge.i.i68.i, label %672, !llvm.loop !44
+  br i1 %.not32.i.i67.i, label %._crit_edge.i.i68.i, label %672, !llvm.loop !45
 
 ._crit_edge.i.i68.i:                              ; preds = %672
   %686 = add nsw i32 %.in.i.i61.i, -1
   %687 = getelementptr inbounds i8, ptr %681, i64 %670
   %688 = getelementptr inbounds i8, ptr %685, i64 %671
   %.not.i.i69.i = icmp eq i32 %686, 0
-  br i1 %.not.i.i69.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i60.i, !llvm.loop !45
+  br i1 %.not.i.i69.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i60.i, !llvm.loop !46
 
 689:                                              ; preds = %663
   %690 = add nsw i32 %0, 1
@@ -4731,14 +4731,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %699, ptr %709, align 1
   %710 = getelementptr inbounds nuw i8, ptr %.13134.i.i80.i, i64 4
   %.not32.i.i81.i = icmp eq i32 %698, 0
-  br i1 %.not32.i.i81.i, label %._crit_edge.i.i82.i, label %697, !llvm.loop !46
+  br i1 %.not32.i.i81.i, label %._crit_edge.i.i82.i, label %697, !llvm.loop !47
 
 ._crit_edge.i.i82.i:                              ; preds = %697
   %711 = add nsw i32 %.in.i.i75.i, -1
   %712 = getelementptr inbounds i8, ptr %706, i64 %695
   %713 = getelementptr inbounds i8, ptr %710, i64 %696
   %.not.i.i83.i = icmp eq i32 %711, 0
-  br i1 %.not.i.i83.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i74.i, !llvm.loop !47
+  br i1 %.not.i.i83.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i74.i, !llvm.loop !48
 
 714:                                              ; preds = %611
   switch i32 %7, label %765 [
@@ -4790,14 +4790,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %727, ptr %735, align 1
   %736 = getelementptr inbounds nuw i8, ptr %.13134.i.i94.i, i64 4
   %.not32.i.i95.i = icmp eq i32 %724, 0
-  br i1 %.not32.i.i95.i, label %._crit_edge.i.i96.i, label %723, !llvm.loop !48
+  br i1 %.not32.i.i95.i, label %._crit_edge.i.i96.i, label %723, !llvm.loop !49
 
 ._crit_edge.i.i96.i:                              ; preds = %723
   %737 = add nsw i32 %.in.i.i89.i, -1
   %738 = getelementptr inbounds i8, ptr %732, i64 %721
   %739 = getelementptr inbounds i8, ptr %736, i64 %722
   %.not.i.i97.i = icmp eq i32 %737, 0
-  br i1 %.not.i.i97.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i88.i, !llvm.loop !49
+  br i1 %.not.i.i97.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i88.i, !llvm.loop !50
 
 740:                                              ; preds = %714
   %741 = add nsw i32 %0, 1
@@ -4843,14 +4843,14 @@ IsPlanar2x2Format.exit:                           ; preds = %117
   store i8 %754, ptr %760, align 1
   %761 = getelementptr inbounds nuw i8, ptr %.13134.i.i108.i, i64 4
   %.not32.i.i109.i = icmp eq i32 %749, 0
-  br i1 %.not32.i.i109.i, label %._crit_edge.i.i110.i, label %748, !llvm.loop !50
+  br i1 %.not32.i.i109.i, label %._crit_edge.i.i110.i, label %748, !llvm.loop !51
 
 ._crit_edge.i.i110.i:                             ; preds = %748
   %762 = add nsw i32 %.in.i.i103.i, -1
   %763 = getelementptr inbounds i8, ptr %757, i64 %746
   %764 = getelementptr inbounds i8, ptr %761, i64 %747
   %.not.i.i111.i = icmp eq i32 %762, 0
-  br i1 %.not.i.i111.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i102.i, !llvm.loop !51
+  br i1 %.not.i.i111.i, label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit, label %.preheader.i.i102.i, !llvm.loop !52
 
 765:                                              ; preds = %714, %663, %612, %611
   %766 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %2) #7
@@ -5022,7 +5022,7 @@ IsPacked4Format.exit:                             ; preds = %610
   %846 = getelementptr inbounds nuw i8, ptr %.1108.i, i64 4
   %847 = add nuw nsw i32 %.085105.i, 2
   %848 = icmp slt i32 %847, %807
-  br i1 %848, label %.lr.ph.i74, label %._crit_edge.loopexit.i, !llvm.loop !52
+  br i1 %848, label %.lr.ph.i74, label %._crit_edge.loopexit.i, !llvm.loop !53
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i74
   %849 = getelementptr inbounds nuw i8, ptr %844, i64 4
@@ -5125,7 +5125,7 @@ IsPacked4Format.exit:                             ; preds = %610
   %906 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %902
   %907 = add nuw nsw i32 %.090114.i, 2
   %908 = icmp slt i32 %907, %796
-  br i1 %908, label %.preheader101.i, label %._crit_edge119.loopexit.i, !llvm.loop !53
+  br i1 %908, label %.preheader101.i, label %._crit_edge119.loopexit.i, !llvm.loop !54
 
 ._crit_edge119.loopexit.i:                        ; preds = %881
   %909 = and i32 %1, 2147483646
@@ -5173,7 +5173,7 @@ IsPacked4Format.exit:                             ; preds = %610
   %930 = getelementptr inbounds nuw i8, ptr %918, i64 4
   %931 = add nuw nsw i32 %.186133.i, 2
   %932 = icmp slt i32 %931, %911
-  br i1 %932, label %.lr.ph134.i, label %._crit_edge135.loopexit.i, !llvm.loop !54
+  br i1 %932, label %.lr.ph134.i, label %._crit_edge135.loopexit.i, !llvm.loop !55
 
 ._crit_edge135.loopexit.i:                        ; preds = %.lr.ph134.i
   %933 = and i32 %0, 2147483646
@@ -5390,7 +5390,7 @@ IsPlanar2x2Format.exit70:                         ; preds = %769
   store ptr %1030, ptr %20, align 8
   %1031 = add nuw nsw i32 %.077100.i, 2
   %1032 = icmp slt i32 %1031, %987
-  br i1 %1032, label %.lr.ph.i86, label %._crit_edge.loopexit.i87, !llvm.loop !55
+  br i1 %1032, label %.lr.ph.i86, label %._crit_edge.loopexit.i87, !llvm.loop !56
 
 ._crit_edge.loopexit.i87:                         ; preds = %.lr.ph.i86
   %1033 = getelementptr inbounds nuw i8, ptr %1007, i64 4
@@ -5503,7 +5503,7 @@ IsPlanar2x2Format.exit70:                         ; preds = %769
   store ptr %1098, ptr %20, align 8
   %1099 = add nuw nsw i32 %.088107.i, 2
   %1100 = icmp slt i32 %1099, %985
-  br i1 %1100, label %.preheader94.i, label %._crit_edge112.loopexit.i, !llvm.loop !56
+  br i1 %1100, label %.preheader94.i, label %._crit_edge112.loopexit.i, !llvm.loop !57
 
 ._crit_edge112.loopexit.i:                        ; preds = %1073
   %1101 = and i32 %1, 2147483646
@@ -5551,7 +5551,7 @@ IsPlanar2x2Format.exit70:                         ; preds = %769
   %1122 = getelementptr inbounds nuw i8, ptr %1110, i64 %.0.i77
   %1123 = add nuw nsw i32 %.178126.i, 2
   %1124 = icmp slt i32 %1123, %1103
-  br i1 %1124, label %.lr.ph127.i, label %._crit_edge128.loopexit.i, !llvm.loop !57
+  br i1 %1124, label %.lr.ph127.i, label %._crit_edge128.loopexit.i, !llvm.loop !58
 
 ._crit_edge128.loopexit.i:                        ; preds = %.lr.ph127.i
   %1125 = and i32 %0, 2147483646
@@ -5710,7 +5710,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_SwapUVPlanes(i32 no
   %31 = getelementptr inbounds i8, ptr %.06784, i64 %28
   %32 = add nuw nsw i32 %.06982, 1
   %exitcond89.not = icmp eq i32 %32, %smax88
-  br i1 %exitcond89.not, label %._crit_edge, label %29, !llvm.loop !58
+  br i1 %exitcond89.not, label %._crit_edge, label %29, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %29, %23
   tail call void @SDL_free_REAL(ptr noundef nonnull %22) #7
@@ -5750,7 +5750,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_SwapUVPlanes(i32 no
   %50 = getelementptr inbounds i8, ptr %.06277, i64 %44
   %51 = add nuw nsw i32 %.17075, 1
   %exitcond.not = icmp eq i32 %51, %smax
-  br i1 %exitcond.not, label %.lr.ph81, label %48, !llvm.loop !59
+  br i1 %exitcond.not, label %.lr.ph81, label %48, !llvm.loop !60
 
 52:                                               ; preds = %.lr.ph81, %52
   %.16380 = phi ptr [ %16, %.lr.ph81 ], [ %54, %52 ]
@@ -5761,7 +5761,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_SwapUVPlanes(i32 no
   %54 = getelementptr inbounds i8, ptr %.16380, i64 %47
   %55 = add nuw nsw i32 %.278, 1
   %exitcond87.not = icmp eq i32 %55, %smax86
-  br i1 %exitcond87.not, label %.critedge, label %52, !llvm.loop !60
+  br i1 %exitcond87.not, label %.critedge, label %52, !llvm.loop !61
 
 .critedge:                                        ; preds = %52, %33, %._crit_edge, %18
   %.1 = phi i1 [ false, %18 ], [ true, %._crit_edge ], [ true, %33 ], [ true, %52 ]
@@ -5793,8 +5793,8 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
@@ -5811,7 +5811,7 @@ attributes #7 = { nounwind }
 !20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
 !22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
+!23 = distinct !{!23, !4, !6}
 !24 = distinct !{!24, !4}
 !25 = distinct !{!25, !4}
 !26 = distinct !{!26, !4}
@@ -5849,3 +5849,4 @@ attributes #7 = { nounwind }
 !58 = distinct !{!58, !4}
 !59 = distinct !{!59, !4}
 !60 = distinct !{!60, !4}
+!61 = distinct !{!61, !4}

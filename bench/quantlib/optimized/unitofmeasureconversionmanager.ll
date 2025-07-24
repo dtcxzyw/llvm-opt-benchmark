@@ -5982,7 +5982,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i
 while.body.i.i:                                   ; preds = %land.rhs.i.i.i.i, %land.rhs.i.i
   %7 = load ptr, ptr %__first.sroa.0.04.i.i, align 8, !tbaa !8
   %cmp.i.not.i.i = icmp eq ptr %7, %__last.coerce
-  br i1 %cmp.i.not.i.i, label %_ZSt9__find_ifISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops16_Iter_equals_valIKS6_EEET_SD_SD_T0_.exit, label %land.rhs.i.i, !llvm.loop !45
+  br i1 %cmp.i.not.i.i, label %_ZSt9__find_ifISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops16_Iter_equals_valIKS6_EEET_SD_SD_T0_.exit, label %land.rhs.i.i, !llvm.loop !47
 
 _ZSt9__find_ifISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops16_Iter_equals_valIKS6_EEET_SD_SD_T0_.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i, %land.rhs.i.us.i, %while.body.i.us.i, %entry
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %__first.coerce, %entry ], [ %3, %while.body.i.us.i ], [ %__first.sroa.0.04.i.us.i, %land.rhs.i.us.i ], [ %7, %while.body.i.i ], [ %__first.sroa.0.04.i.i, %land.rhs.i.i.i.i ]
@@ -6167,12 +6167,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib13UnitOfMeasure4DataEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !46
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !48
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !48
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !50
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE, i64 16), ptr %call.i, align 8, !tbaa !14
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !49
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !51
   %5 = load ptr, ptr %pn, align 8, !tbaa !12
   store ptr %call.i, ptr %pn, align 8, !tbaa !12
   %cmp.not.i = icmp eq ptr %5, null
@@ -6326,7 +6326,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !49
+  %0 = load ptr, ptr %px_, align 8, !tbaa !51
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib13UnitOfMeasure4DataEEEvPT_.exit, label %delete.notnull.i
 
@@ -6524,9 +6524,9 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_crea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i.i) #20
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i, ptr noundef %__position.coerce) #20
   %_M_size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %9 = load i64, ptr %_M_size.i, align 8, !tbaa !51
+  %9 = load i64, ptr %_M_size.i, align 8, !tbaa !53
   %add.i = add i64 %9, 1
-  store i64 %add.i, ptr %_M_size.i, align 8, !tbaa !51
+  store i64 %add.i, ptr %_M_size.i, align 8, !tbaa !53
   ret void
 }
 
@@ -6609,12 +6609,14 @@ attributes #24 = { noreturn }
 !42 = !{!38, !39, i64 8}
 !43 = !{!5, !5, i64 0}
 !44 = !{!11, !11, i64 0}
-!45 = distinct !{!45, !17}
-!46 = !{!47, !39, i64 8}
-!47 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !39, i64 8, !39, i64 12}
-!48 = !{!47, !39, i64 12}
-!49 = !{!50, !5, i64 16}
-!50 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE", !47, i64 0, !5, i64 16}
-!51 = !{!52, !11, i64 16}
-!52 = !{!"_ZTSNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE", !53, i64 0}
-!53 = !{!"_ZTSNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE10_List_implE", !10, i64 0}
+!45 = distinct !{!45, !17, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !17}
+!48 = !{!49, !39, i64 8}
+!49 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !39, i64 8, !39, i64 12}
+!50 = !{!49, !39, i64 12}
+!51 = !{!52, !5, i64 16}
+!52 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE", !49, i64 0, !5, i64 16}
+!53 = !{!54, !11, i64 16}
+!54 = !{!"_ZTSNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE", !55, i64 0}
+!55 = !{!"_ZTSNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE10_List_implE", !10, i64 0}

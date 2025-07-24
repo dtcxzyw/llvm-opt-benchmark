@@ -2147,10 +2147,10 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  store double -1.800000e+02, ptr %4, align 16, !tbaa !110
-  store double 1.800000e+02, ptr %22, align 8, !tbaa !112
-  store double -9.000000e+01, ptr %23, align 16, !tbaa !110
-  store double 9.000000e+01, ptr %24, align 8, !tbaa !112
+  store double -1.800000e+02, ptr %4, align 16, !tbaa !111
+  store double 1.800000e+02, ptr %22, align 8, !tbaa !113
+  store double -9.000000e+01, ptr %23, align 16, !tbaa !111
+  store double 9.000000e+01, ptr %24, align 8, !tbaa !113
   %44 = load double, ptr %3, align 16, !tbaa !14
   %45 = load double, ptr %25, align 8, !tbaa !14
   %46 = call i32 @geohashEncode(ptr noundef nonnull %4, ptr noundef nonnull %23, double noundef %44, double noundef %45, i8 noundef zeroext 26, ptr noundef nonnull %5) #14
@@ -2172,7 +2172,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %55, ptr %56, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %57, label %48, !llvm.loop !113
+  br i1 %exitcond.not, label %57, label %48, !llvm.loop !114
 
 57:                                               ; preds = %48
   store i8 0, ptr %26, align 1, !tbaa !33
@@ -2192,7 +2192,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %60 = load i32, ptr %16, align 8, !tbaa !57
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next36, %61
-  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !109
+  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %59, %.lr.ph.split.us, %15, %1
   ret void
@@ -2240,7 +2240,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %20 = add nuw nsw i32 %.01822.us, 1
   %21 = load i32, ptr %13, align 8, !tbaa !57
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !114
+  br i1 %22, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !116
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 2, %.lr.ph ]
@@ -2288,7 +2288,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %41 = load i32, ptr %13, align 8, !tbaa !57
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph.split, label %.loopexit, !llvm.loop !114
+  br i1 %43, label %.lr.ph.split, label %.loopexit, !llvm.loop !117
 
 .loopexit:                                        ; preds = %40, %.lr.ph.split.us, %12, %1
   ret void
@@ -2357,7 +2357,7 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %31 = load i32, ptr %30, align 4, !tbaa !115
+  %31 = load i32, ptr %30, align 4, !tbaa !118
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !26
@@ -2583,10 +2583,13 @@ attributes #16 = { noreturn nounwind }
 !106 = !{!45, !46, i64 0}
 !107 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !108 = distinct !{!108, !24}
-!109 = distinct !{!109, !24}
-!110 = !{!111, !15, i64 0}
-!111 = !{!"", !15, i64 0, !15, i64 8}
-!112 = !{!111, !15, i64 8}
-!113 = distinct !{!113, !24}
+!109 = distinct !{!109, !24, !110}
+!110 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!111 = !{!112, !15, i64 0}
+!112 = !{!"", !15, i64 0, !15, i64 8}
+!113 = !{!112, !15, i64 8}
 !114 = distinct !{!114, !24}
-!115 = !{!58, !30, i64 28}
+!115 = distinct !{!115, !24}
+!116 = distinct !{!116, !24, !110}
+!117 = distinct !{!117, !24}
+!118 = !{!58, !30, i64 28}

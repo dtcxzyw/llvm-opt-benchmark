@@ -630,7 +630,7 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 22:                                               ; preds = %.split.us
   %23 = icmp sgt i32 %18, 0
-  br i1 %23, label %.split28.us, label %.split.us
+  br i1 %23, label %.split28.us, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %.split.preheader, %32
   %.017 = phi i64 [ %28, %32 ], [ %8, %.split.preheader ]
@@ -703,3 +703,5 @@ attributes #17 = { nounwind allocsize(0) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -35,15 +35,15 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br i1 %11, label %.lr.ph, label %.outer._crit_edge
 
 .lr.ph:                                           ; preds = %7, %.outer
-  %.0.ph1813 = phi i8 [ %.1, %.outer ], [ 0, %7 ]
-  %.0446.ph1812 = phi ptr [ %.1447, %.outer ], [ %8, %7 ]
+  %.0.ph1633 = phi i8 [ %.1, %.outer ], [ 0, %7 ]
+  %.0446.ph1632 = phi ptr [ %.1447, %.outer ], [ %8, %7 ]
   %12 = load ptr, ptr @oglc, align 8
-  %.fr1955 = freeze ptr %12
-  %13 = icmp eq ptr %.fr1955, null
+  %.fr1774 = freeze ptr %12
+  %13 = icmp eq ptr %.fr1774, null
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %.0446631.us = phi ptr [ %.0446.be.us, %.backedge.us ], [ %.0446.ph1812, %.lr.ph ]
+  %.0446631.us = phi ptr [ %.0446.be.us, %.backedge.us ], [ %.0446.ph1632, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 4
   %15 = load i32, ptr %.0446631.us, align 4
   switch i32 %15, label %.split.us [
@@ -82,7 +82,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
     i32 75, label %.split741.us
     i32 76, label %.outer
     i32 80, label %.split747.us
-    i32 90, label %.outer.loopexit3101
+    i32 90, label %.outer.loopexit2728
     i32 100, label %.split752.us
     i32 101, label %.split755.us
     i32 102, label %.split759.us
@@ -123,7 +123,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br i1 %26, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !6
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph
-  %27 = load i32, ptr %.0446.ph1812, align 4
+  %27 = load i32, ptr %.0446.ph1632, align 4
   switch i32 %27, label %.split.us [
     i32 10, label %.split634.split.split
     i32 11, label %.split638.split.split
@@ -176,12 +176,12 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   ]
 
 .split634.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %28 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split634.us
 
 .split634.us:                                     ; preds = %.lr.ph.split.us, %.split634.split.split
   %.us-phi635 = phi ptr [ %28, %.split634.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi636 = phi ptr [ %.0446.ph1812, %.split634.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi636 = phi ptr [ %.0446.ph1632, %.split634.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %29 = load i32, ptr %.us-phi635, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 8
   %31 = load i32, ptr %30, align 4
@@ -190,16 +190,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %34 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 20
   %35 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 16
   %36 = load i32, ptr %35, align 4
-  tail call void @OGLRenderer_DrawLine(ptr noundef %.fr1955, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %36) #4
+  tail call void @OGLRenderer_DrawLine(ptr noundef %.fr1774, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %36) #4
   br label %.outer
 
 .split638.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %37 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split638.us
 
 .split638.us:                                     ; preds = %.lr.ph.split.us, %.split638.split.split
   %.us-phi639 = phi ptr [ %37, %.split638.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi640 = phi ptr [ %.0446.ph1812, %.split638.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi640 = phi ptr [ %.0446.ph1632, %.split638.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %38 = load i32, ptr %.us-phi639, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 8
   %40 = load i32, ptr %39, align 4
@@ -208,16 +208,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %43 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 20
   %44 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 16
   %45 = load i32, ptr %44, align 4
-  tail call void @OGLRenderer_DrawRect(ptr noundef %.fr1955, i32 noundef %38, i32 noundef %40, i32 noundef %42, i32 noundef %45) #4
+  tail call void @OGLRenderer_DrawRect(ptr noundef %.fr1774, i32 noundef %38, i32 noundef %40, i32 noundef %42, i32 noundef %45) #4
   br label %.outer
 
 .split642.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %46 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split642.us
 
 .split642.us:                                     ; preds = %.lr.ph.split.us, %.split642.split.split
   %.us-phi643 = phi ptr [ %46, %.split642.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi644 = phi ptr [ %.0446.ph1812, %.split642.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi644 = phi ptr [ %.0446.ph1632, %.split642.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %47 = load i32, ptr %.us-phi643, align 4
   %48 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 8
   %49 = load i32, ptr %48, align 4
@@ -229,15 +229,15 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %55 = sext i32 %47 to i64
   %56 = getelementptr inbounds i32, ptr %52, i64 %55
   %57 = and i32 %49, 255
-  tail call void @OGLRenderer_DrawPoly(ptr noundef %.fr1955, i32 noundef %47, i32 noundef %57, i32 noundef %51, i32 noundef %54, ptr noundef nonnull %52, ptr noundef nonnull %56) #4
+  tail call void @OGLRenderer_DrawPoly(ptr noundef %.fr1774, i32 noundef %47, i32 noundef %57, i32 noundef %51, i32 noundef %54, ptr noundef nonnull %52, ptr noundef nonnull %56) #4
   %58 = shl nsw i64 %55, 3
   %59 = getelementptr inbounds i8, ptr %52, i64 %58
   br label %.outer
 
 .split806.us:                                     ; preds = %.lr.ph.split.split.split.split
-  %60 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %61 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
-  %62 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 8
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %60, align 4
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 1)
@@ -250,27 +250,27 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split646.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %69 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split646.us
 
 .split646.us:                                     ; preds = %.lr.ph.split.us, %.split646.split.split
   %.us-phi647 = phi ptr [ %69, %.split646.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi648 = phi ptr [ %.0446.ph1812, %.split646.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi648 = phi ptr [ %.0446.ph1632, %.split646.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %70 = getelementptr inbounds nuw i8, ptr %.us-phi648, i64 8
   %71 = load i32, ptr %.us-phi647, align 4
-  tail call void @OGLRenderer_DrawScanlines(ptr noundef %.fr1955, i32 noundef %71, ptr noundef nonnull %70) #4
+  tail call void @OGLRenderer_DrawScanlines(ptr noundef %.fr1774, i32 noundef %71, ptr noundef nonnull %70) #4
   %72 = sext i32 %71 to i64
   %73 = mul nsw i64 %72, 12
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
   br label %.outer
 
 .split650.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %75 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split650.us
 
 .split650.us:                                     ; preds = %.lr.ph.split.us, %.split650.split.split
   %.us-phi651 = phi ptr [ %75, %.split650.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi652 = phi ptr [ %.0446.ph1812, %.split650.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi652 = phi ptr [ %.0446.ph1632, %.split650.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %76 = load float, ptr %.us-phi651, align 4
   %77 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 8
   %78 = load float, ptr %77, align 4
@@ -287,16 +287,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %89 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 36
   %90 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 32
   %91 = load float, ptr %90, align 4
-  tail call void @OGLRenderer_DrawParallelogram(ptr noundef %.fr1955, float noundef %76, float noundef %78, float noundef %80, float noundef %82, float noundef %84, float noundef %86, float noundef %88, float noundef %91) #4
+  tail call void @OGLRenderer_DrawParallelogram(ptr noundef %.fr1774, float noundef %76, float noundef %78, float noundef %80, float noundef %82, float noundef %84, float noundef %86, float noundef %88, float noundef %91) #4
   br label %.outer
 
 .split654.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %92 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split654.us
 
 .split654.us:                                     ; preds = %.lr.ph.split.us, %.split654.split.split
   %.us-phi655 = phi ptr [ %92, %.split654.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi656 = phi ptr [ %.0446.ph1812, %.split654.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi656 = phi ptr [ %.0446.ph1632, %.split654.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %93 = load float, ptr %.us-phi655, align 4
   %94 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 8
   %95 = load float, ptr %94, align 4
@@ -314,16 +314,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %107 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 32
   %108 = load float, ptr %107, align 4
   %109 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLRenderer_DrawAAParallelogram(ptr noundef %.fr1955, ptr noundef %109, float noundef %93, float noundef %95, float noundef %97, float noundef %99, float noundef %101, float noundef %103, float noundef %105, float noundef %108) #4
+  tail call void @OGLRenderer_DrawAAParallelogram(ptr noundef %.fr1774, ptr noundef %109, float noundef %93, float noundef %95, float noundef %97, float noundef %99, float noundef %101, float noundef %103, float noundef %105, float noundef %108) #4
   br label %.outer
 
 .split658.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %110 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split658.us
 
 .split658.us:                                     ; preds = %.lr.ph.split.us, %.split658.split.split
   %.us-phi659 = phi ptr [ %110, %.split658.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi660 = phi ptr [ %.0446.ph1812, %.split658.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi660 = phi ptr [ %.0446.ph1632, %.split658.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %111 = load i32, ptr %.us-phi659, align 4
   %112 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 8
   %113 = load i32, ptr %112, align 4
@@ -332,31 +332,31 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %116 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 20
   %117 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 16
   %118 = load i32, ptr %117, align 4
-  tail call void @OGLRenderer_FillRect(ptr noundef %.fr1955, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %118) #4
+  tail call void @OGLRenderer_FillRect(ptr noundef %.fr1774, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %118) #4
   br label %.outer
 
 .split662.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %119 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split662.us
 
 .split662.us:                                     ; preds = %.lr.ph.split.us, %.split662.split.split
   %.us-phi663 = phi ptr [ %119, %.split662.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi664 = phi ptr [ %.0446.ph1812, %.split662.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi664 = phi ptr [ %.0446.ph1632, %.split662.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %120 = getelementptr inbounds nuw i8, ptr %.us-phi664, i64 8
   %121 = load i32, ptr %.us-phi663, align 4
-  tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1955, i32 noundef %121, ptr noundef nonnull %120) #4
+  tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1774, i32 noundef %121, ptr noundef nonnull %120) #4
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 4
   %124 = getelementptr inbounds i8, ptr %120, i64 %123
   br label %.outer
 
 .split666.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %125 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split666.us
 
 .split666.us:                                     ; preds = %.lr.ph.split.us, %.split666.split.split
   %.us-phi667 = phi ptr [ %125, %.split666.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi668 = phi ptr [ %.0446.ph1812, %.split666.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi668 = phi ptr [ %.0446.ph1632, %.split666.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %126 = load float, ptr %.us-phi667, align 4
   %127 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 8
   %128 = load float, ptr %127, align 4
@@ -369,16 +369,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %135 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 28
   %136 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 24
   %137 = load float, ptr %136, align 4
-  tail call void @OGLRenderer_FillParallelogram(ptr noundef %.fr1955, float noundef %126, float noundef %128, float noundef %130, float noundef %132, float noundef %134, float noundef %137) #4
+  tail call void @OGLRenderer_FillParallelogram(ptr noundef %.fr1774, float noundef %126, float noundef %128, float noundef %130, float noundef %132, float noundef %134, float noundef %137) #4
   br label %.outer
 
 .split670.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %138 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split670.us
 
 .split670.us:                                     ; preds = %.lr.ph.split.us, %.split670.split.split
   %.us-phi671 = phi ptr [ %138, %.split670.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi672 = phi ptr [ %.0446.ph1812, %.split670.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi672 = phi ptr [ %.0446.ph1632, %.split670.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %139 = load float, ptr %.us-phi671, align 4
   %140 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 8
   %141 = load float, ptr %140, align 4
@@ -392,16 +392,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %149 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 24
   %150 = load float, ptr %149, align 4
   %151 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLRenderer_FillAAParallelogram(ptr noundef %.fr1955, ptr noundef %151, float noundef %139, float noundef %141, float noundef %143, float noundef %145, float noundef %147, float noundef %150) #4
+  tail call void @OGLRenderer_FillAAParallelogram(ptr noundef %.fr1774, ptr noundef %151, float noundef %139, float noundef %141, float noundef %143, float noundef %145, float noundef %147, float noundef %150) #4
   br label %.outer
 
 .split674.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %152 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split674.us
 
 .split674.us:                                     ; preds = %.lr.ph.split.us, %.split674.split.split
   %.us-phi675 = phi ptr [ %152, %.split674.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi676 = phi ptr [ %.0446.ph1812, %.split674.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi676 = phi ptr [ %.0446.ph1632, %.split674.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %153 = load i32, ptr %.us-phi675, align 4
   %154 = getelementptr inbounds nuw i8, ptr %.us-phi676, i64 8
   %155 = load i32, ptr %154, align 4
@@ -424,7 +424,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %171 = getelementptr inbounds i8, ptr %158, i64 %170
   %.0448 = select i1 %.not464, ptr null, ptr %171
   %172 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLTR_DrawGlyphList(ptr noundef %0, ptr noundef %.fr1955, ptr noundef %172, i32 noundef %153, i8 noundef zeroext %162, i8 noundef zeroext %164, i8 noundef zeroext %166, i32 noundef %168, float noundef %157, float noundef %160, ptr noundef nonnull %158, ptr noundef %.0448) #4
+  tail call void @OGLTR_DrawGlyphList(ptr noundef %0, ptr noundef %.fr1774, ptr noundef %172, i32 noundef %153, i8 noundef zeroext %162, i8 noundef zeroext %164, i8 noundef zeroext %166, i32 noundef %168, float noundef %157, float noundef %160, ptr noundef nonnull %158, ptr noundef %.0448) #4
   %173 = select i1 %.not464, i32 3, i32 4
   %174 = shl i32 %153, %173
   %175 = sext i32 %174 to i64
@@ -432,12 +432,12 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split678.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %177 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split678.us
 
 .split678.us:                                     ; preds = %.lr.ph.split.us, %.split678.split.split
   %.us-phi679 = phi ptr [ %177, %.split678.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi680 = phi ptr [ %.0446.ph1812, %.split678.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi680 = phi ptr [ %.0446.ph1632, %.split678.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %178 = load i32, ptr %.us-phi679, align 4
   %179 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 8
   %180 = load i32, ptr %179, align 4
@@ -451,16 +451,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %188 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLBlitLoops_CopyArea(ptr noundef %0, ptr noundef %.fr1955, ptr noundef %190, i32 noundef %178, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %189) #4
+  tail call void @OGLBlitLoops_CopyArea(ptr noundef %0, ptr noundef %.fr1774, ptr noundef %190, i32 noundef %178, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %189) #4
   br label %.outer
 
 .split682.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %191 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split682.us
 
 .split682.us:                                     ; preds = %.lr.ph.split.us, %.split682.split.split
   %.us-phi683 = phi ptr [ %191, %.split682.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi684 = phi ptr [ %.0446.ph1812, %.split682.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi684 = phi ptr [ %.0446.ph1632, %.split682.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %192 = load i32, ptr %.us-phi683, align 4
   %193 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 8
   %194 = load i32, ptr %193, align 4
@@ -497,22 +497,22 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
 222:                                              ; preds = %.split682.us
   %223 = lshr i8 %216, 2
   %224 = and i8 %223, 1
-  tail call void @OGLBlitLoops_IsoBlit(ptr noundef %0, ptr noundef %.fr1955, i64 noundef %210, i64 noundef %213, i8 noundef zeroext %220, i32 noundef %215, i8 noundef zeroext %218, i8 noundef zeroext %224, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, double noundef %202, double noundef %204, double noundef %206, double noundef %208) #4
+  tail call void @OGLBlitLoops_IsoBlit(ptr noundef %0, ptr noundef %.fr1774, i64 noundef %210, i64 noundef %213, i8 noundef zeroext %220, i32 noundef %215, i8 noundef zeroext %218, i8 noundef zeroext %224, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, double noundef %202, double noundef %204, double noundef %206, double noundef %208) #4
   br label %.outer
 
 225:                                              ; preds = %.split682.us
   %226 = lshr i32 %192, 16
   %227 = and i32 %226, 255
-  tail call void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %.fr1955, i64 noundef %210, i64 noundef %213, i8 noundef zeroext %220, i32 noundef %215, i32 noundef %227, i8 noundef zeroext %218, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, double noundef %202, double noundef %204, double noundef %206, double noundef %208) #4
+  tail call void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %.fr1774, i64 noundef %210, i64 noundef %213, i8 noundef zeroext %220, i32 noundef %215, i32 noundef %227, i8 noundef zeroext %218, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, double noundef %202, double noundef %204, double noundef %206, double noundef %208) #4
   br label %.outer
 
 .split686.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %228 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split686.us
 
 .split686.us:                                     ; preds = %.lr.ph.split.us, %.split686.split.split
   %.us-phi687 = phi ptr [ %228, %.split686.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi688 = phi ptr [ %.0446.ph1812, %.split686.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi688 = phi ptr [ %.0446.ph1632, %.split686.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %229 = load i32, ptr %.us-phi687, align 4
   %230 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 8
   %231 = load i32, ptr %230, align 4
@@ -531,16 +531,16 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %244 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 48
   %245 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 40
   %246 = load i64, ptr %245, align 8
-  tail call void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef %.fr1955, i64 noundef %243, i64 noundef %246, i32 noundef %241, i32 noundef %229, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239) #4
+  tail call void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef %.fr1774, i64 noundef %243, i64 noundef %246, i32 noundef %241, i32 noundef %229, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239) #4
   br label %.outer
 
 .split690.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %247 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split690.us
 
 .split690.us:                                     ; preds = %.lr.ph.split.us, %.split690.split.split
   %.us-phi691 = phi ptr [ %247, %.split690.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi692 = phi ptr [ %.0446.ph1812, %.split690.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi692 = phi ptr [ %.0446.ph1632, %.split690.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %248 = load i32, ptr %.us-phi691, align 4
   %249 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 8
   %250 = load i32, ptr %249, align 4
@@ -557,18 +557,18 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %261 = load i32, ptr %260, align 4
   %262 = icmp sgt i32 %261, 0
   %263 = select i1 %262, ptr %259, ptr null
-  tail call void @OGLMaskFill_MaskFill(ptr noundef %.fr1955, i32 noundef %248, i32 noundef %250, i32 noundef %252, i32 noundef %254, i32 noundef %256, i32 noundef %258, i32 noundef %261, ptr noundef %263) #4
+  tail call void @OGLMaskFill_MaskFill(ptr noundef %.fr1774, i32 noundef %248, i32 noundef %250, i32 noundef %252, i32 noundef %254, i32 noundef %256, i32 noundef %258, i32 noundef %261, ptr noundef %263) #4
   %264 = sext i32 %261 to i64
   %265 = getelementptr inbounds i8, ptr %259, i64 %264
   br label %.outer
 
 .split694.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %266 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %266 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split694.us
 
 .split694.us:                                     ; preds = %.lr.ph.split.us, %.split694.split.split
   %.us-phi695 = phi ptr [ %266, %.split694.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi696 = phi ptr [ %.0446.ph1812, %.split694.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi696 = phi ptr [ %.0446.ph1632, %.split694.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %267 = load i32, ptr %.us-phi695, align 4
   %268 = getelementptr inbounds nuw i8, ptr %.us-phi696, i64 8
   %269 = load i32, ptr %268, align 4
@@ -579,18 +579,18 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %274 = load i32, ptr %273, align 4
   %275 = shl i32 %271, 2
   %276 = mul i32 %275, %274
-  tail call void @OGLMaskBlit_MaskBlit(ptr noundef %0, ptr noundef %.fr1955, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %274, ptr noundef nonnull %272) #4
+  tail call void @OGLMaskBlit_MaskBlit(ptr noundef %0, ptr noundef %.fr1774, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %274, ptr noundef nonnull %272) #4
   %277 = sext i32 %276 to i64
   %278 = getelementptr inbounds i8, ptr %272, i64 %277
   br label %.outer
 
 .split698.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %279 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split698.us
 
 .split698.us:                                     ; preds = %.lr.ph.split.us, %.split698.split.split
   %.us-phi699 = phi ptr [ %279, %.split698.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi700 = phi ptr [ %.0446.ph1812, %.split698.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi700 = phi ptr [ %.0446.ph1632, %.split698.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %280 = load i32, ptr %.us-phi699, align 4
   %281 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 8
   %282 = load i32, ptr %281, align 4
@@ -600,96 +600,96 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %286 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 16
   %287 = load i32, ptr %286, align 4
   %288 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLContext_SetRectClip(ptr noundef %.fr1955, ptr noundef %288, i32 noundef %280, i32 noundef %282, i32 noundef %284, i32 noundef %287) #4
+  tail call void @OGLContext_SetRectClip(ptr noundef %.fr1774, ptr noundef %288, i32 noundef %280, i32 noundef %282, i32 noundef %284, i32 noundef %287) #4
   br label %.outer
 
 .split702.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %289 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %289 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split702.us
 
 .split702.us:                                     ; preds = %.lr.ph.split.us, %.split702.split.split
   %.us-phi703 = phi ptr [ %289, %.split702.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLContext_BeginShapeClip(ptr noundef %.fr1955) #4
+  tail call void @OGLContext_BeginShapeClip(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split705.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %290 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split705.us
 
 .split705.us:                                     ; preds = %.lr.ph.split.us, %.split705.split.split
   %.us-phi706 = phi ptr [ %290, %.split705.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi707 = phi ptr [ %.0446.ph1812, %.split705.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi707 = phi ptr [ %.0446.ph1632, %.split705.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %291 = getelementptr inbounds nuw i8, ptr %.us-phi707, i64 8
   %292 = load i32, ptr %.us-phi706, align 4
-  tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1955, i32 noundef %292, ptr noundef nonnull %291) #4
+  tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1774, i32 noundef %292, ptr noundef nonnull %291) #4
   %293 = sext i32 %292 to i64
   %294 = shl nsw i64 %293, 4
   %295 = getelementptr inbounds i8, ptr %291, i64 %294
   br label %.outer
 
 .split709.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %296 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split709.us
 
 .split709.us:                                     ; preds = %.lr.ph.split.us, %.split709.split.split
   %.us-phi710 = phi ptr [ %296, %.split709.split.split ], [ %14, %.lr.ph.split.us ]
   %297 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLContext_EndShapeClip(ptr noundef %.fr1955, ptr noundef %297) #4
+  tail call void @OGLContext_EndShapeClip(ptr noundef %.fr1774, ptr noundef %297) #4
   br label %.outer
 
 .split712.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %298 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split712.us
 
 .split712.us:                                     ; preds = %.lr.ph.split.us, %.split712.split.split
   %.us-phi713 = phi ptr [ %298, %.split712.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLContext_ResetClip(ptr noundef %.fr1955) #4
+  tail call void @OGLContext_ResetClip(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split715.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %299 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split715.us
 
 .split715.us:                                     ; preds = %.lr.ph.split.us, %.split715.split.split
   %.us-phi716 = phi ptr [ %299, %.split715.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi717 = phi ptr [ %.0446.ph1812, %.split715.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi717 = phi ptr [ %.0446.ph1632, %.split715.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %300 = load i32, ptr %.us-phi716, align 4
   %301 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 8
   %302 = load float, ptr %301, align 4
   %303 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 16
   %304 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 12
   %305 = load i32, ptr %304, align 4
-  tail call void @OGLContext_SetAlphaComposite(ptr noundef %.fr1955, i32 noundef %300, float noundef %302, i32 noundef %305) #4
+  tail call void @OGLContext_SetAlphaComposite(ptr noundef %.fr1774, i32 noundef %300, float noundef %302, i32 noundef %305) #4
   br label %.outer
 
 .split719.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %306 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split719.us
 
 .split719.us:                                     ; preds = %.lr.ph.split.us, %.split719.split.split
   %.us-phi720 = phi ptr [ %306, %.split719.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi721 = phi ptr [ %.0446.ph1812, %.split719.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi721 = phi ptr [ %.0446.ph1632, %.split719.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %307 = getelementptr inbounds nuw i8, ptr %.us-phi721, i64 8
   %308 = load i32, ptr %.us-phi720, align 4
-  tail call void @OGLContext_SetXorComposite(ptr noundef %.fr1955, i32 noundef %308) #4
+  tail call void @OGLContext_SetXorComposite(ptr noundef %.fr1774, i32 noundef %308) #4
   br label %.outer
 
 .split723.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %309 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split723.us
 
 .split723.us:                                     ; preds = %.lr.ph.split.us, %.split723.split.split
   %.us-phi724 = phi ptr [ %309, %.split723.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLContext_ResetComposite(ptr noundef %.fr1955) #4
+  tail call void @OGLContext_ResetComposite(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split726.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %310 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split726.us
 
 .split726.us:                                     ; preds = %.lr.ph.split.us, %.split726.split.split
   %.us-phi727 = phi ptr [ %310, %.split726.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi728 = phi ptr [ %.0446.ph1812, %.split726.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi728 = phi ptr [ %.0446.ph1632, %.split726.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %311 = load double, ptr %.us-phi727, align 8
   %312 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 12
   %313 = load double, ptr %312, align 8
@@ -702,23 +702,23 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %320 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 52
   %321 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 44
   %322 = load double, ptr %321, align 8
-  tail call void @OGLContext_SetTransform(ptr noundef %.fr1955, double noundef %311, double noundef %313, double noundef %315, double noundef %317, double noundef %319, double noundef %322) #4
+  tail call void @OGLContext_SetTransform(ptr noundef %.fr1774, double noundef %311, double noundef %313, double noundef %315, double noundef %317, double noundef %319, double noundef %322) #4
   br label %.outer
 
 .split730.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %323 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split730.us
 
 .split730.us:                                     ; preds = %.lr.ph.split.us, %.split730.split.split
   %.us-phi731 = phi ptr [ %323, %.split730.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLContext_ResetTransform(ptr noundef %.fr1955) #4
+  tail call void @OGLContext_ResetTransform(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split733.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %324 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   %325 = load i64, ptr %324, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 20
-  %327 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %326 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 20
+  %327 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %328 = load i64, ptr %327, align 8
   br label %333
 
@@ -727,7 +727,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %330 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 20
   %331 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %332 = load i64, ptr %331, align 8
-  %.not462 = icmp eq ptr %.fr1955, null
+  %.not462 = icmp eq ptr %.fr1774, null
   br i1 %.not462, label %OGLRenderQueue_CheckPreviousOp.exit, label %333
 
 333:                                              ; preds = %.split733.us.thread, %.split733.us
@@ -754,11 +754,11 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %347
 
 342:                                              ; preds = %333
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %347
 
 343:                                              ; preds = %333
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %347
 
 344:                                              ; preds = %333
@@ -785,15 +785,15 @@ OGLRenderQueue_CheckPreviousOp.exit:              ; preds = %333, %347, %.split7
   br label %.outer
 
 .split737.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %353 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %354 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %353 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %355 = load i64, ptr %353, align 8
   br label %358
 
 .split737.us:                                     ; preds = %.lr.ph.split.us
   %356 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %357 = load i64, ptr %14, align 8
-  %.not461 = icmp eq ptr %.fr1955, null
+  %.not461 = icmp eq ptr %.fr1774, null
   br i1 %.not461, label %OGLRenderQueue_CheckPreviousOp.exit466, label %358
 
 358:                                              ; preds = %.split737.us.thread, %.split737.us
@@ -819,11 +819,11 @@ OGLRenderQueue_CheckPreviousOp.exit:              ; preds = %333, %347, %.split7
   br label %371
 
 366:                                              ; preds = %358
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %371
 
 367:                                              ; preds = %358
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %371
 
 368:                                              ; preds = %358
@@ -848,8 +848,8 @@ OGLRenderQueue_CheckPreviousOp.exit466:           ; preds = %358, %371, %.split7
   br label %.outer
 
 .split1586.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %375 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %376 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %375 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %377 = load i64, ptr %375, align 8
   %.not460 = icmp eq i64 %377, 0
   br i1 %.not460, label %.outer, label %.split801.us
@@ -876,11 +876,11 @@ OGLRenderQueue_CheckPreviousOp.exit466:           ; preds = %358, %371, %.split7
   br label %389
 
 384:                                              ; preds = %.split801.us
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %389
 
 385:                                              ; preds = %.split801.us
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %389
 
 386:                                              ; preds = %.split801.us
@@ -901,8 +901,8 @@ OGLRenderQueue_CheckPreviousOp.exit467:           ; preds = %.split801.us, %389
   br label %.outer
 
 .split1296.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %390 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %391 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %390 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %392 = load i64, ptr %390, align 8
   %.not458 = icmp eq i64 %392, 0
   br i1 %.not458, label %.outer, label %.split796.us
@@ -929,11 +929,11 @@ OGLRenderQueue_CheckPreviousOp.exit467:           ; preds = %.split801.us, %389
   br label %404
 
 399:                                              ; preds = %.split796.us
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %404
 
 400:                                              ; preds = %.split796.us
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %404
 
 401:                                              ; preds = %.split796.us
@@ -961,8 +961,8 @@ OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %404
   br label %.outer
 
 .split1020.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %408 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %409 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %408 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %409 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %410 = load i64, ptr %408, align 8
   %411 = load i32, ptr @previousOp, align 4
   switch i32 %411, label %419 [
@@ -984,11 +984,11 @@ OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %404
   br label %421
 
 416:                                              ; preds = %.split1020.us
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %421
 
 417:                                              ; preds = %.split1020.us
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %421
 
 418:                                              ; preds = %.split1020.us
@@ -1011,15 +1011,15 @@ OGLRenderQueue_CheckPreviousOp.exit469:           ; preds = %.split1020.us, %421
   br label %.outer
 
 .split741.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %422 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %423
 
 .split741.us:                                     ; preds = %.lr.ph.split.us
-  %.not457 = icmp eq ptr %.fr1955, null
+  %.not457 = icmp eq ptr %.fr1774, null
   br i1 %.not457, label %436, label %423
 
 423:                                              ; preds = %.split741.us.thread, %.split741.us
-  %.us-phi7422811 = phi ptr [ %422, %.split741.us.thread ], [ %14, %.split741.us ]
+  %.us-phi7422438 = phi ptr [ %422, %.split741.us.thread ], [ %14, %.split741.us ]
   %424 = load i32, ptr @previousOp, align 4
   switch i32 %424, label %432 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit470
@@ -1040,11 +1040,11 @@ OGLRenderQueue_CheckPreviousOp.exit469:           ; preds = %.split1020.us, %421
   br label %434
 
 429:                                              ; preds = %423
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %434
 
 430:                                              ; preds = %423
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %434
 
 431:                                              ; preds = %423
@@ -1066,25 +1066,25 @@ OGLRenderQueue_CheckPreviousOp.exit470:           ; preds = %423, %434
   br label %436
 
 436:                                              ; preds = %OGLRenderQueue_CheckPreviousOp.exit470, %.split741.us
-  %.us-phi7422812 = phi ptr [ %.us-phi7422811, %OGLRenderQueue_CheckPreviousOp.exit470 ], [ %14, %.split741.us ]
+  %.us-phi7422439 = phi ptr [ %.us-phi7422438, %OGLRenderQueue_CheckPreviousOp.exit470 ], [ %14, %.split741.us ]
   store ptr null, ptr @oglc, align 8
   store ptr null, ptr @dstOps, align 8
   br label %.outer
 
 .split744.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %437 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %437 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.outer
 
 .split747.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %438 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
-  %439 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %438 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
+  %439 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 12
   %440 = load i64, ptr %438, align 8
   br label %443
 
 .split747.us:                                     ; preds = %.lr.ph.split.us
   %441 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %442 = load i64, ptr %14, align 8
-  %.not456 = icmp eq ptr %.fr1955, null
+  %.not456 = icmp eq ptr %.fr1774, null
   br i1 %.not456, label %OGLRenderQueue_CheckPreviousOp.exit471, label %443
 
 443:                                              ; preds = %.split747.us.thread, %.split747.us
@@ -1110,11 +1110,11 @@ OGLRenderQueue_CheckPreviousOp.exit470:           ; preds = %423, %434
   br label %456
 
 451:                                              ; preds = %443
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1774) #4
   br label %456
 
 452:                                              ; preds = %443
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1774) #4
   br label %456
 
 453:                                              ; preds = %443
@@ -1137,33 +1137,33 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split752.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %459 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %459 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split752.us
 
 .split752.us:                                     ; preds = %.lr.ph.split.us, %.split752.split.split
   %.us-phi753 = phi ptr [ %459, %.split752.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLPaints_ResetPaint(ptr noundef %.fr1955) #4
+  tail call void @OGLPaints_ResetPaint(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split755.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %460 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split755.us
 
 .split755.us:                                     ; preds = %.lr.ph.split.us, %.split755.split.split
   %.us-phi756 = phi ptr [ %460, %.split755.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi757 = phi ptr [ %.0446.ph1812, %.split755.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi757 = phi ptr [ %.0446.ph1632, %.split755.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %461 = getelementptr inbounds nuw i8, ptr %.us-phi757, i64 8
   %462 = load i32, ptr %.us-phi756, align 4
-  tail call void @OGLPaints_SetColor(ptr noundef %.fr1955, i32 noundef %462) #4
+  tail call void @OGLPaints_SetColor(ptr noundef %.fr1774, i32 noundef %462) #4
   br label %.outer
 
 .split759.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %463 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %463 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split759.us
 
 .split759.us:                                     ; preds = %.lr.ph.split.us, %.split759.split.split
   %.us-phi760 = phi ptr [ %463, %.split759.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi761 = phi ptr [ %.0446.ph1812, %.split759.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi761 = phi ptr [ %.0446.ph1632, %.split759.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %464 = load i32, ptr %.us-phi760, align 4
   %465 = trunc i32 %464 to i8
   %466 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 8
@@ -1180,16 +1180,16 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %477 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 44
   %478 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 40
   %479 = load i32, ptr %478, align 4
-  tail call void @OGLPaints_SetGradientPaint(ptr noundef %.fr1955, i8 noundef zeroext %465, i8 noundef zeroext %468, double noundef %470, double noundef %472, double noundef %474, i32 noundef %476, i32 noundef %479) #4
+  tail call void @OGLPaints_SetGradientPaint(ptr noundef %.fr1774, i8 noundef zeroext %465, i8 noundef zeroext %468, double noundef %470, double noundef %472, double noundef %474, i32 noundef %476, i32 noundef %479) #4
   br label %.outer
 
 .split763.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %480 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %480 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split763.us
 
 .split763.us:                                     ; preds = %.lr.ph.split.us, %.split763.split.split
   %.us-phi764 = phi ptr [ %480, %.split763.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi765 = phi ptr [ %.0446.ph1812, %.split763.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi765 = phi ptr [ %.0446.ph1632, %.split763.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %481 = load i32, ptr %.us-phi764, align 4
   %482 = trunc i32 %481 to i8
   %483 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 8
@@ -1211,16 +1211,16 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %499 = getelementptr inbounds i8, ptr %494, i64 %498
   %500 = getelementptr inbounds i8, ptr %499, i64 %498
   %501 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLPaints_SetLinearGradientPaint(ptr noundef %.fr1955, ptr noundef %501, i8 noundef zeroext %482, i8 noundef zeroext %485, i32 noundef %487, i32 noundef %489, float noundef %491, float noundef %493, float noundef %496, ptr noundef nonnull %494, ptr noundef nonnull %499) #4
+  tail call void @OGLPaints_SetLinearGradientPaint(ptr noundef %.fr1774, ptr noundef %501, i8 noundef zeroext %482, i8 noundef zeroext %485, i32 noundef %487, i32 noundef %489, float noundef %491, float noundef %493, float noundef %496, ptr noundef nonnull %494, ptr noundef nonnull %499) #4
   br label %.outer
 
 .split767.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %502 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %502 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split767.us
 
 .split767.us:                                     ; preds = %.lr.ph.split.us, %.split767.split.split
   %.us-phi768 = phi ptr [ %502, %.split767.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi769 = phi ptr [ %.0446.ph1812, %.split767.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi769 = phi ptr [ %.0446.ph1632, %.split767.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %503 = load i32, ptr %.us-phi768, align 4
   %504 = trunc i32 %503 to i8
   %505 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 8
@@ -1250,16 +1250,16 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %529 = getelementptr inbounds i8, ptr %524, i64 %528
   %530 = getelementptr inbounds i8, ptr %529, i64 %528
   %531 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLPaints_SetRadialGradientPaint(ptr noundef %.fr1955, ptr noundef %531, i8 noundef zeroext %504, i8 noundef zeroext %507, i32 noundef %511, i32 noundef %509, float noundef %513, float noundef %515, float noundef %517, float noundef %519, float noundef %521, float noundef %523, float noundef %526, ptr noundef nonnull %524, ptr noundef nonnull %529) #4
+  tail call void @OGLPaints_SetRadialGradientPaint(ptr noundef %.fr1774, ptr noundef %531, i8 noundef zeroext %504, i8 noundef zeroext %507, i32 noundef %511, i32 noundef %509, float noundef %513, float noundef %515, float noundef %517, float noundef %519, float noundef %521, float noundef %523, float noundef %526, ptr noundef nonnull %524, ptr noundef nonnull %529) #4
   br label %.outer
 
 .split771.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %532 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %532 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split771.us
 
 .split771.us:                                     ; preds = %.lr.ph.split.us, %.split771.split.split
   %.us-phi772 = phi ptr [ %532, %.split771.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi773 = phi ptr [ %.0446.ph1812, %.split771.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi773 = phi ptr [ %.0446.ph1632, %.split771.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %533 = load i32, ptr %.us-phi772, align 4
   %534 = trunc i32 %533 to i8
   %535 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 8
@@ -1280,16 +1280,16 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %550 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 68
   %551 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 60
   %552 = load double, ptr %551, align 8
-  tail call void @OGLPaints_SetTexturePaint(ptr noundef %.fr1955, i8 noundef zeroext %534, i64 noundef %539, i8 noundef zeroext %537, double noundef %541, double noundef %543, double noundef %545, double noundef %547, double noundef %549, double noundef %552) #4
+  tail call void @OGLPaints_SetTexturePaint(ptr noundef %.fr1774, i8 noundef zeroext %534, i64 noundef %539, i8 noundef zeroext %537, double noundef %541, double noundef %543, double noundef %545, double noundef %547, double noundef %549, double noundef %552) #4
   br label %.outer
 
 .split775.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %553 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split775.us
 
 .split775.us:                                     ; preds = %.lr.ph.split.us, %.split775.split.split
   %.us-phi776 = phi ptr [ %553, %.split775.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi777 = phi ptr [ %.0446.ph1812, %.split775.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi777 = phi ptr [ %.0446.ph1632, %.split775.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %554 = load i64, ptr %.us-phi776, align 8
   %555 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 12
   %556 = load i32, ptr %555, align 4
@@ -1299,7 +1299,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %560 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 24
   %561 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 20
   %562 = load i32, ptr %561, align 4
-  tail call void @OGLBufImgOps_EnableConvolveOp(ptr noundef %.fr1955, i64 noundef %554, i8 noundef zeroext %557, i32 noundef %559, i32 noundef %562, ptr noundef nonnull %560) #4
+  tail call void @OGLBufImgOps_EnableConvolveOp(ptr noundef %.fr1774, i64 noundef %554, i8 noundef zeroext %557, i32 noundef %559, i32 noundef %562, ptr noundef nonnull %560) #4
   %563 = mul nsw i32 %562, %559
   %564 = sext i32 %563 to i64
   %565 = shl nsw i64 %564, 2
@@ -1307,47 +1307,47 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split779.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %567 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %567 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split779.us
 
 .split779.us:                                     ; preds = %.lr.ph.split.us, %.split779.split.split
   %.us-phi780 = phi ptr [ %567, %.split779.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLBufImgOps_DisableConvolveOp(ptr noundef %.fr1955) #4
+  tail call void @OGLBufImgOps_DisableConvolveOp(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split782.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %568 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split782.us
 
 .split782.us:                                     ; preds = %.lr.ph.split.us, %.split782.split.split
   %.us-phi783 = phi ptr [ %568, %.split782.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi784 = phi ptr [ %.0446.ph1812, %.split782.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi784 = phi ptr [ %.0446.ph1632, %.split782.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %569 = load i64, ptr %.us-phi783, align 8
   %570 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 16
   %571 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 12
   %572 = load i32, ptr %571, align 4
   %573 = trunc i32 %572 to i8
   %574 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 32
-  tail call void @OGLBufImgOps_EnableRescaleOp(ptr noundef %.fr1955, i64 noundef %569, i8 noundef zeroext %573, ptr noundef nonnull %570, ptr noundef nonnull %574) #4
+  tail call void @OGLBufImgOps_EnableRescaleOp(ptr noundef %.fr1774, i64 noundef %569, i8 noundef zeroext %573, ptr noundef nonnull %570, ptr noundef nonnull %574) #4
   %575 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 48
   br label %.outer
 
 .split786.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %576 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %576 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split786.us
 
 .split786.us:                                     ; preds = %.lr.ph.split.us, %.split786.split.split
   %.us-phi787 = phi ptr [ %576, %.split786.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLBufImgOps_DisableRescaleOp(ptr noundef %.fr1955) #4
+  tail call void @OGLBufImgOps_DisableRescaleOp(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split789.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %577 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split789.us
 
 .split789.us:                                     ; preds = %.lr.ph.split.us, %.split789.split.split
   %.us-phi790 = phi ptr [ %577, %.split789.split.split ], [ %14, %.lr.ph.split.us ]
-  %.us-phi791 = phi ptr [ %.0446.ph1812, %.split789.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
+  %.us-phi791 = phi ptr [ %.0446.ph1632, %.split789.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %578 = load i64, ptr %.us-phi790, align 8
   %579 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 12
   %580 = load i32, ptr %579, align 4
@@ -1364,7 +1364,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %591 = load i32, ptr %590, align 4
   %592 = and i32 %583, 255
   %.not455 = icmp ne i32 %592, 0
-  tail call void @OGLBufImgOps_EnableLookupOp(ptr noundef %.fr1955, i64 noundef %578, i8 noundef zeroext %581, i8 noundef zeroext %584, i32 noundef %586, i32 noundef %588, i32 noundef %591, ptr noundef nonnull %589) #4
+  tail call void @OGLBufImgOps_EnableLookupOp(ptr noundef %.fr1774, i64 noundef %578, i8 noundef zeroext %581, i8 noundef zeroext %584, i32 noundef %586, i32 noundef %588, i32 noundef %591, ptr noundef nonnull %589) #4
   %593 = mul nsw i32 %588, %586
   %594 = zext i1 %.not455 to i32
   %595 = shl i32 %593, %594
@@ -1373,12 +1373,12 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split793.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %598 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %598 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.split793.us
 
 .split793.us:                                     ; preds = %.lr.ph.split.us, %.split793.split.split
   %.us-phi794 = phi ptr [ %598, %.split793.split.split ], [ %14, %.lr.ph.split.us ]
-  tail call void @OGLBufImgOps_DisableLookupOp(ptr noundef %.fr1955) #4
+  tail call void @OGLBufImgOps_DisableLookupOp(ptr noundef %.fr1774) #4
   br label %.outer
 
 .split.us:                                        ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.us
@@ -1393,20 +1393,20 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %617
 
 .loopexit.split.split.loopexit.split.loopexit:    ; preds = %.lr.ph.split.split.split.split
-  %601 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %.0446.ph1632, i64 4
   br label %.outer
 
-.outer.loopexit3101:                              ; preds = %.lr.ph.split.us
+.outer.loopexit2728:                              ; preds = %.lr.ph.split.us
   br label %.outer
 
-.outer:                                           ; preds = %21, %18, %.lr.ph.split.us, %.outer.loopexit3101, %.split1296.us, %.split1586.us, %.loopexit.split.split.loopexit.split.loopexit, %.split744.split.split, %407, %OGLRenderQueue_CheckPreviousOp.exit468, %OGLRenderQueue_CheckPreviousOp.exit467, %222, %225, %.split793.us, %.split789.us, %.split786.us, %.split782.us, %.split779.us, %.split775.us, %.split771.us, %.split767.us, %.split763.us, %.split759.us, %.split755.us, %.split752.us, %OGLRenderQueue_CheckPreviousOp.exit471, %436, %OGLRenderQueue_CheckPreviousOp.exit469, %OGLRenderQueue_CheckPreviousOp.exit466, %OGLRenderQueue_CheckPreviousOp.exit, %.split730.us, %.split726.us, %.split723.us, %.split719.us, %.split715.us, %.split712.us, %.split709.us, %.split705.us, %.split702.us, %.split698.us, %.split694.us, %.split690.us, %.split686.us, %.split678.us, %.split674.us, %.split670.us, %.split666.us, %.split662.us, %.split658.us, %.split654.us, %.split650.us, %.split646.us, %.split806.us, %.split642.us, %.split638.us, %.split634.us
-  %.1447 = phi ptr [ %34, %.split634.us ], [ %43, %.split638.us ], [ %59, %.split642.us ], [ %61, %.split806.us ], [ %74, %.split646.us ], [ %89, %.split650.us ], [ %106, %.split654.us ], [ %116, %.split658.us ], [ %124, %.split662.us ], [ %135, %.split666.us ], [ %148, %.split670.us ], [ %176, %.split674.us ], [ %187, %.split678.us ], [ %211, %222 ], [ %211, %225 ], [ %244, %.split686.us ], [ %265, %.split690.us ], [ %278, %.split694.us ], [ %285, %.split698.us ], [ %.us-phi703, %.split702.us ], [ %295, %.split705.us ], [ %.us-phi710, %.split709.us ], [ %.us-phi713, %.split712.us ], [ %303, %.split715.us ], [ %307, %.split719.us ], [ %.us-phi724, %.split723.us ], [ %320, %.split726.us ], [ %.us-phi731, %.split730.us ], [ %349, %OGLRenderQueue_CheckPreviousOp.exit ], [ %373, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %376, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %391, %407 ], [ %391, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %409, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.us-phi7422812, %436 ], [ %458, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.us-phi753, %.split752.us ], [ %461, %.split755.us ], [ %477, %.split759.us ], [ %500, %.split763.us ], [ %530, %.split767.us ], [ %550, %.split771.us ], [ %566, %.split775.us ], [ %.us-phi780, %.split779.us ], [ %575, %.split782.us ], [ %.us-phi787, %.split786.us ], [ %597, %.split789.us ], [ %.us-phi794, %.split793.us ], [ %437, %.split744.split.split ], [ %391, %.split1296.us ], [ %376, %.split1586.us ], [ %601, %.loopexit.split.split.loopexit.split.loopexit ], [ %14, %.lr.ph.split.us ], [ %19, %18 ], [ %22, %21 ], [ %14, %.outer.loopexit3101 ]
-  %.1 = phi i8 [ %.0.ph1813, %.split634.us ], [ %.0.ph1813, %.split638.us ], [ %.0.ph1813, %.split642.us ], [ %.0.ph1813, %.split806.us ], [ %.0.ph1813, %.split646.us ], [ %.0.ph1813, %.split650.us ], [ %.0.ph1813, %.split654.us ], [ %.0.ph1813, %.split658.us ], [ %.0.ph1813, %.split662.us ], [ %.0.ph1813, %.split666.us ], [ %.0.ph1813, %.split670.us ], [ %.0.ph1813, %.split674.us ], [ %.0.ph1813, %.split678.us ], [ %.0.ph1813, %222 ], [ %.0.ph1813, %225 ], [ %.0.ph1813, %.split686.us ], [ %.0.ph1813, %.split690.us ], [ %.0.ph1813, %.split694.us ], [ %.0.ph1813, %.split698.us ], [ %.0.ph1813, %.split702.us ], [ %.0.ph1813, %.split705.us ], [ %.0.ph1813, %.split709.us ], [ %.0.ph1813, %.split712.us ], [ %.0.ph1813, %.split715.us ], [ %.0.ph1813, %.split719.us ], [ %.0.ph1813, %.split723.us ], [ %.0.ph1813, %.split726.us ], [ %.0.ph1813, %.split730.us ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %.0.ph1813, %407 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.0.ph1813, %436 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.0.ph1813, %.split752.us ], [ %.0.ph1813, %.split755.us ], [ %.0.ph1813, %.split759.us ], [ %.0.ph1813, %.split763.us ], [ %.0.ph1813, %.split767.us ], [ %.0.ph1813, %.split771.us ], [ %.0.ph1813, %.split775.us ], [ %.0.ph1813, %.split779.us ], [ %.0.ph1813, %.split782.us ], [ %.0.ph1813, %.split786.us ], [ %.0.ph1813, %.split789.us ], [ %.0.ph1813, %.split793.us ], [ 1, %.split744.split.split ], [ %.0.ph1813, %.split1296.us ], [ %.0.ph1813, %.split1586.us ], [ %.0.ph1813, %.loopexit.split.split.loopexit.split.loopexit ], [ 1, %.lr.ph.split.us ], [ %.0.ph1813, %18 ], [ %.0.ph1813, %21 ], [ %.0.ph1813, %.outer.loopexit3101 ]
+.outer:                                           ; preds = %21, %18, %.lr.ph.split.us, %.outer.loopexit2728, %.split1296.us, %.split1586.us, %.loopexit.split.split.loopexit.split.loopexit, %.split744.split.split, %407, %OGLRenderQueue_CheckPreviousOp.exit468, %OGLRenderQueue_CheckPreviousOp.exit467, %222, %225, %.split793.us, %.split789.us, %.split786.us, %.split782.us, %.split779.us, %.split775.us, %.split771.us, %.split767.us, %.split763.us, %.split759.us, %.split755.us, %.split752.us, %OGLRenderQueue_CheckPreviousOp.exit471, %436, %OGLRenderQueue_CheckPreviousOp.exit469, %OGLRenderQueue_CheckPreviousOp.exit466, %OGLRenderQueue_CheckPreviousOp.exit, %.split730.us, %.split726.us, %.split723.us, %.split719.us, %.split715.us, %.split712.us, %.split709.us, %.split705.us, %.split702.us, %.split698.us, %.split694.us, %.split690.us, %.split686.us, %.split678.us, %.split674.us, %.split670.us, %.split666.us, %.split662.us, %.split658.us, %.split654.us, %.split650.us, %.split646.us, %.split806.us, %.split642.us, %.split638.us, %.split634.us
+  %.1447 = phi ptr [ %34, %.split634.us ], [ %43, %.split638.us ], [ %59, %.split642.us ], [ %61, %.split806.us ], [ %74, %.split646.us ], [ %89, %.split650.us ], [ %106, %.split654.us ], [ %116, %.split658.us ], [ %124, %.split662.us ], [ %135, %.split666.us ], [ %148, %.split670.us ], [ %176, %.split674.us ], [ %187, %.split678.us ], [ %211, %222 ], [ %211, %225 ], [ %244, %.split686.us ], [ %265, %.split690.us ], [ %278, %.split694.us ], [ %285, %.split698.us ], [ %.us-phi703, %.split702.us ], [ %295, %.split705.us ], [ %.us-phi710, %.split709.us ], [ %.us-phi713, %.split712.us ], [ %303, %.split715.us ], [ %307, %.split719.us ], [ %.us-phi724, %.split723.us ], [ %320, %.split726.us ], [ %.us-phi731, %.split730.us ], [ %349, %OGLRenderQueue_CheckPreviousOp.exit ], [ %373, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %376, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %391, %407 ], [ %391, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %409, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.us-phi7422439, %436 ], [ %458, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.us-phi753, %.split752.us ], [ %461, %.split755.us ], [ %477, %.split759.us ], [ %500, %.split763.us ], [ %530, %.split767.us ], [ %550, %.split771.us ], [ %566, %.split775.us ], [ %.us-phi780, %.split779.us ], [ %575, %.split782.us ], [ %.us-phi787, %.split786.us ], [ %597, %.split789.us ], [ %.us-phi794, %.split793.us ], [ %437, %.split744.split.split ], [ %391, %.split1296.us ], [ %376, %.split1586.us ], [ %601, %.loopexit.split.split.loopexit.split.loopexit ], [ %14, %.lr.ph.split.us ], [ %19, %18 ], [ %22, %21 ], [ %14, %.outer.loopexit2728 ]
+  %.1 = phi i8 [ %.0.ph1633, %.split634.us ], [ %.0.ph1633, %.split638.us ], [ %.0.ph1633, %.split642.us ], [ %.0.ph1633, %.split806.us ], [ %.0.ph1633, %.split646.us ], [ %.0.ph1633, %.split650.us ], [ %.0.ph1633, %.split654.us ], [ %.0.ph1633, %.split658.us ], [ %.0.ph1633, %.split662.us ], [ %.0.ph1633, %.split666.us ], [ %.0.ph1633, %.split670.us ], [ %.0.ph1633, %.split674.us ], [ %.0.ph1633, %.split678.us ], [ %.0.ph1633, %222 ], [ %.0.ph1633, %225 ], [ %.0.ph1633, %.split686.us ], [ %.0.ph1633, %.split690.us ], [ %.0.ph1633, %.split694.us ], [ %.0.ph1633, %.split698.us ], [ %.0.ph1633, %.split702.us ], [ %.0.ph1633, %.split705.us ], [ %.0.ph1633, %.split709.us ], [ %.0.ph1633, %.split712.us ], [ %.0.ph1633, %.split715.us ], [ %.0.ph1633, %.split719.us ], [ %.0.ph1633, %.split723.us ], [ %.0.ph1633, %.split726.us ], [ %.0.ph1633, %.split730.us ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %.0.ph1633, %407 ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.0.ph1633, %436 ], [ %.0.ph1633, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.0.ph1633, %.split752.us ], [ %.0.ph1633, %.split755.us ], [ %.0.ph1633, %.split759.us ], [ %.0.ph1633, %.split763.us ], [ %.0.ph1633, %.split767.us ], [ %.0.ph1633, %.split771.us ], [ %.0.ph1633, %.split775.us ], [ %.0.ph1633, %.split779.us ], [ %.0.ph1633, %.split782.us ], [ %.0.ph1633, %.split786.us ], [ %.0.ph1633, %.split789.us ], [ %.0.ph1633, %.split793.us ], [ 1, %.split744.split.split ], [ %.0.ph1633, %.split1296.us ], [ %.0.ph1633, %.split1586.us ], [ %.0.ph1633, %.loopexit.split.split.loopexit.split.loopexit ], [ 1, %.lr.ph.split.us ], [ %.0.ph1633, %18 ], [ %.0.ph1633, %21 ], [ %.0.ph1633, %.outer.loopexit2728 ]
   %602 = icmp ult ptr %.1447, %10
-  br i1 %602, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !6
+  br i1 %602, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge.us, %7
-  %.0.ph.lcssa628 = phi i8 [ 0, %7 ], [ %.0.ph1813, %.backedge.us ], [ %.1, %.outer ]
+  %.0.ph.lcssa628 = phi i8 [ 0, %7 ], [ %.0.ph1633, %.backedge.us ], [ %.1, %.outer ]
   %603 = load ptr, ptr @oglc, align 8
   %.not = icmp eq ptr %603, null
   br i1 %.not, label %617, label %604
@@ -1687,5 +1687,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

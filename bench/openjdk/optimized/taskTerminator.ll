@@ -370,7 +370,7 @@ _ZN14TaskTerminator12DelayContext7do_stepEv.exit.us.us: ; preds = %51, %._crit_e
 
 63:                                               ; preds = %_ZN14TaskTerminator12DelayContext7do_stepEv.exit.us.us
   %.not.i16.us.us.not = icmp eq i32 %59, 0
-  br i1 %.not.i16.us.us.not, label %36, label %.split51.us, !llvm.loop !10
+  br i1 %.not.i16.us.us.not, label %36, label %.split51.us, !llvm.loop !11
 
 .split47.us.us:                                   ; preds = %36
   store ptr null, ptr %17, align 8
@@ -490,7 +490,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20: ; preds = %.split49.us
   br label %_ZN13MonitorLockerD2Ev.exit
 
 111:                                              ; preds = %_ZN13MutexUnlockerD2Ev.exit
-  br i1 %103, label %.split51.us, label %75, !llvm.loop !10
+  br i1 %103, label %.split51.us, label %75, !llvm.loop !12
 
 .split51.us:                                      ; preds = %111, %63
   %.us-phi52 = phi i32 [ %59, %63 ], [ %98, %111 ]
@@ -585,7 +585,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27: ; preds = %134, %136
   %145 = load ptr, ptr %1, align 8
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
-  br i1 %147, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30, !llvm.loop !9
+  br i1 %147, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30, !llvm.loop !13
 
 _ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread: ; preds = %144, %139, %31
   %.us-phi61 = phi i32 [ %35, %31 ], [ 0, %144 ], [ %143, %139 ]
@@ -644,5 +644,8 @@ attributes #8 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !10}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

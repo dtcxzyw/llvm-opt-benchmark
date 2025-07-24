@@ -308,7 +308,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
   br i1 %25, label %.preheader.split.backedge, label %.critedge.thread
 
 .preheader.split.backedge:                        ; preds = %22, %37
-  br label %.preheader.split, !llvm.loop !8
+  br label %.preheader.split, !llvm.loop !10
 
 .critedge:                                        ; preds = %.preheader.split
   %26 = icmp slt i64 %20, 0
@@ -379,7 +379,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
   br i1 %47, label %.split45.us.backedge, label %.critedge2.thread
 
 .split45.us.backedge:                             ; preds = %44, %43
-  br label %.split45.us, !llvm.loop !9
+  br label %.split45.us, !llvm.loop !11
 
 .split45:                                         ; preds = %.split44.us.thread66, %.split45.backedge
   %48 = tail call i64 @sendfile64(i32 noundef %2, i32 noundef %3, ptr noundef null, i64 noundef %7) #5
@@ -393,7 +393,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
   br i1 %53, label %.split45.backedge, label %.critedge2.thread
 
 .split45.backedge:                                ; preds = %50, %74
-  br label %.split45, !llvm.loop !9
+  br label %.split45, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.split45
   %54 = icmp slt i64 %48, 0
@@ -475,5 +475,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !9}
+!12 = distinct !{!12, !7}

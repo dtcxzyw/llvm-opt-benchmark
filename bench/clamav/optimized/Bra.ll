@@ -49,7 +49,7 @@ define range(i64 4, 1) i64 @ARM_Convert(ptr noundef captures(none) %0, i64 nound
 31:                                               ; preds = %13, %.split.us
   %32 = add nuw i64 %.03337.us, 4
   %.not.us = icmp ugt i64 %32, %7
-  br i1 %.not.us, label %.loopexit, label %.split.us
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %6, %55
   %.03337 = phi i64 [ %56, %55 ], [ 0, %6 ]
@@ -162,7 +162,7 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
   %.1.us = phi i64 [ %31, %21 ], [ %.04145.us, %15 ], [ %.04145.us, %.split.us ]
   %51 = add i64 %.1.us, 2
   %.not.us = icmp ugt i64 %51, %7
-  br i1 %.not.us, label %.loopexit, label %.split.us
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %6, %93
   %.04145 = phi i64 [ %94, %93 ], [ 0, %6 ]
@@ -294,7 +294,7 @@ define range(i64 4, 1) i64 @PPC_Convert(ptr noundef captures(none) %0, i64 nound
 46:                                               ; preds = %18, %12, %.split.us
   %47 = add nuw i64 %.04043.us, 4
   %.not.us = icmp ugt i64 %47, %7
-  br i1 %.not.us, label %.loopexit, label %.split.us
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %6, %86
   %.04043 = phi i64 [ %87, %86 ], [ 0, %6 ]
@@ -443,7 +443,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr noundef captures(none) %0
   %60 = add i32 %.04550.us, 4
   %61 = zext i32 %60 to i64
   %.not.us = icmp ult i64 %7, %61
-  br i1 %.not.us, label %.loopexit, label %.split.us
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %6, %.thread
   %62 = phi i64 [ %115, %.thread ], [ 0, %6 ]
@@ -537,3 +537,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

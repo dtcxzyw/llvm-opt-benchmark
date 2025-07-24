@@ -98,211 +98,211 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 43:                                               ; preds = %42
   %44 = load ptr, ptr %9, align 8
   %45 = call i32 %1(i32 noundef 0, ptr noundef %44, ptr noundef %.036, ptr noundef %2) #12, !callees !6
-  %46 = freeze i32 %45
   br label %.thread
 
 .thread:                                          ; preds = %3, %42, %43, %19, %17
   %.028 = phi i32 [ 0, %17 ], [ 0, %19 ], [ 1, %43 ], [ 1, %42 ], [ 0, %3 ]
-  %.0 = phi i32 [ 1, %17 ], [ 1, %19 ], [ %46, %43 ], [ 1, %42 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %19 ], [ %45, %43 ], [ 1, %42 ], [ 1, %3 ]
   store i32 -1, ptr %4, align 4
-  %47 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
-  %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.preheader54, label %.loopexit55
+  %46 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %.preheader54, label %.loopexit55
 
 .preheader54:                                     ; preds = %.thread
   %.not50 = icmp eq ptr %1, null
   br i1 %.not50, label %.preheader54.split.us, label %.preheader54.split
 
 .preheader54.split.us:                            ; preds = %.preheader54
-  %.not70 = icmp eq i32 %.0, 0
-  br i1 %.not70, label %.loopexit55, label %.preheader54.split.us.split
+  %48 = icmp ne i32 %.0, 0
+  br label %49
 
-.preheader54.split.us.split:                      ; preds = %.preheader54.split.us, %66
-  %.129.us = phi i32 [ %.230.us, %66 ], [ %.028, %.preheader54.split.us ]
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %51, label %.loopexit55
+49:                                               ; preds = %68, %.preheader54.split.us
+  %.129.us = phi i32 [ %.230.us, %68 ], [ %.028, %.preheader54.split.us ]
+  %50 = load i32, ptr %4, align 4
+  %51 = icmp sgt i32 %50, -1
+  %52 = select i1 %48, i1 %51, i1 false
+  br i1 %52, label %53, label %.loopexit55
 
-51:                                               ; preds = %.preheader54.split.us.split
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %49) #12
-  %53 = call i32 @snd_ctl_open(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #12
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %66, label %55
+53:                                               ; preds = %49
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %50) #12
+  %55 = call i32 @snd_ctl_open(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #12
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %68, label %57
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %7, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = call i32 @snd_ctl_card_info(ptr noundef %56, ptr noundef %57) #12
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.loopexit53.split.us.us, label %.split.us.us
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %7, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = call i32 @snd_ctl_card_info(ptr noundef %58, ptr noundef %59) #12
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %.loopexit53.split.us.us, label %.split.us.us
 
-.split.us.us:                                     ; preds = %55
+.split.us.us:                                     ; preds = %57
   store i32 -1, ptr %5, align 4
-  %60 = load ptr, ptr %7, align 8
-  %61 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %60, ptr noundef nonnull %5) #12
-  %62 = load i32, ptr %5, align 4
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.loopexit53.split.us.us, label %.lr.ph66.us
+  %62 = load ptr, ptr %7, align 8
+  %63 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %62, ptr noundef nonnull %5) #12
+  %64 = load i32, ptr %5, align 4
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %.loopexit53.split.us.us, label %.lr.ph66.us
 
-.loopexit53.split.us.us:                          ; preds = %85, %.split.us.us, %55
-  %.331.us = phi i32 [ %.129.us, %55 ], [ %.129.us, %.split.us.us ], [ %.533.us.us, %85 ]
-  %64 = load ptr, ptr %7, align 8
-  %65 = call i32 @snd_ctl_close(ptr noundef %64) #12
-  br label %66
+.loopexit53.split.us.us:                          ; preds = %87, %.split.us.us, %57
+  %.331.us = phi i32 [ %.129.us, %57 ], [ %.129.us, %.split.us.us ], [ %.533.us.us, %87 ]
+  %66 = load ptr, ptr %7, align 8
+  %67 = call i32 @snd_ctl_close(ptr noundef %66) #12
+  br label %68
 
-66:                                               ; preds = %.loopexit53.split.us.us, %51
-  %.230.us = phi i32 [ %.129.us, %51 ], [ %.331.us, %.loopexit53.split.us.us ]
-  %67 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %.loopexit55, label %.preheader54.split.us.split, !llvm.loop !7
+68:                                               ; preds = %.loopexit53.split.us.us, %53
+  %.230.us = phi i32 [ %.129.us, %53 ], [ %.331.us, %.loopexit53.split.us.us ]
+  %69 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.loopexit55, label %49, !llvm.loop !7
 
-.lr.ph66.us:                                      ; preds = %.split.us.us, %85
-  %69 = phi i32 [ %88, %85 ], [ %62, %.split.us.us ]
-  %.43262.us65.us = phi i32 [ %.533.us.us, %85 ], [ %.129.us, %.split.us.us ]
-  %70 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_device(ptr noundef %70, i32 noundef %69) #12
-  %71 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_subdevice(ptr noundef %71, i32 noundef 0) #12
+.lr.ph66.us:                                      ; preds = %.split.us.us, %87
+  %71 = phi i32 [ %90, %87 ], [ %64, %.split.us.us ]
+  %.43262.us65.us = phi i32 [ %.533.us.us, %87 ], [ %.129.us, %.split.us.us ]
   %72 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_stream(ptr noundef %72, i32 noundef %0) #12
-  %73 = load ptr, ptr %7, align 8
+  call void @snd_rawmidi_info_set_device(ptr noundef %72, i32 noundef %71) #12
+  %73 = load ptr, ptr %9, align 8
+  call void @snd_rawmidi_info_set_subdevice(ptr noundef %73, i32 noundef 0) #12
   %74 = load ptr, ptr %9, align 8
-  %75 = call i32 @snd_ctl_rawmidi_info(ptr noundef %73, ptr noundef %74) #12
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %85, label %77
+  call void @snd_rawmidi_info_set_stream(ptr noundef %74, i32 noundef %0) #12
+  %75 = load ptr, ptr %7, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = call i32 @snd_ctl_rawmidi_info(ptr noundef %75, ptr noundef %76) #12
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %87, label %79
 
-77:                                               ; preds = %.lr.ph66.us
-  %78 = call i32 @needEnumerateSubdevices(i32 noundef 1) #12
-  %.not49.us.us = icmp eq i32 %78, 0
-  br i1 %.not49.us.us, label %82, label %79
+79:                                               ; preds = %.lr.ph66.us
+  %80 = call i32 @needEnumerateSubdevices(i32 noundef 1) #12
+  %.not49.us.us = icmp eq i32 %80, 0
+  br i1 %.not49.us.us, label %84, label %81
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %9, align 8
-  %81 = call i32 @snd_rawmidi_info_get_subdevices_count(ptr noundef %80) #12
-  br label %82
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %9, align 8
+  %83 = call i32 @snd_rawmidi_info_get_subdevices_count(ptr noundef %82) #12
+  br label %84
 
-82:                                               ; preds = %79, %77
-  %83 = phi i32 [ %81, %79 ], [ 1, %77 ]
-  %84 = add nsw i32 %83, %.43262.us65.us
-  br label %85
+84:                                               ; preds = %81, %79
+  %85 = phi i32 [ %83, %81 ], [ 1, %79 ]
+  %86 = add nsw i32 %85, %.43262.us65.us
+  br label %87
 
-85:                                               ; preds = %82, %.lr.ph66.us
-  %.533.us.us = phi i32 [ %84, %82 ], [ %.43262.us65.us, %.lr.ph66.us ]
-  %86 = load ptr, ptr %7, align 8
-  %87 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %86, ptr noundef nonnull %5) #12
-  %88 = load i32, ptr %5, align 4
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %.loopexit53.split.us.us, label %.lr.ph66.us
+87:                                               ; preds = %84, %.lr.ph66.us
+  %.533.us.us = phi i32 [ %86, %84 ], [ %.43262.us65.us, %.lr.ph66.us ]
+  %88 = load ptr, ptr %7, align 8
+  %89 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %88, ptr noundef nonnull %5) #12
+  %90 = load i32, ptr %5, align 4
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %.loopexit53.split.us.us, label %.lr.ph66.us
 
-.preheader54.split:                               ; preds = %.preheader54, %137
-  %.129 = phi i32 [ %.230, %137 ], [ %.028, %.preheader54 ]
-  %.2 = phi i32 [ %.3, %137 ], [ %.0, %.preheader54 ]
-  %90 = icmp ne i32 %.2, 0
-  %91 = load i32, ptr %4, align 4
-  %92 = icmp sgt i32 %91, -1
-  %93 = select i1 %90, i1 %92, i1 false
-  br i1 %93, label %94, label %.loopexit55
+.preheader54.split:                               ; preds = %.preheader54, %139
+  %.129 = phi i32 [ %.230, %139 ], [ %.028, %.preheader54 ]
+  %.2 = phi i32 [ %.3, %139 ], [ %.0, %.preheader54 ]
+  %92 = icmp ne i32 %.2, 0
+  %93 = load i32, ptr %4, align 4
+  %94 = icmp sgt i32 %93, -1
+  %95 = select i1 %92, i1 %94, i1 false
+  br i1 %95, label %96, label %.loopexit55
 
-94:                                               ; preds = %.preheader54.split
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %91) #12
-  %96 = call i32 @snd_ctl_open(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #12
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %137, label %98
+96:                                               ; preds = %.preheader54.split
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %93) #12
+  %98 = call i32 @snd_ctl_open(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #12
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %139, label %100
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %7, align 8
-  %100 = load ptr, ptr %10, align 8
-  %101 = call i32 @snd_ctl_card_info(ptr noundef %99, ptr noundef %100) #12
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %.loopexit53.split, label %.split
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %7, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = call i32 @snd_ctl_card_info(ptr noundef %101, ptr noundef %102) #12
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %.loopexit53.split, label %.split
 
-.split:                                           ; preds = %98
+.split:                                           ; preds = %100
   store i32 -1, ptr %5, align 4
-  %103 = load ptr, ptr %7, align 8
-  %104 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %103, ptr noundef nonnull %5) #12
-  %105 = load i32, ptr %5, align 4
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %.loopexit53.split, label %.lr.ph94
+  %105 = load ptr, ptr %7, align 8
+  %106 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %105, ptr noundef nonnull %5) #12
+  %107 = load i32, ptr %5, align 4
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %.loopexit53.split, label %.lr.ph93
 
-.lr.ph94:                                         ; preds = %.split, %.loopexit
-  %107 = phi i32 [ %133, %.loopexit ], [ %105, %.split ]
-  %.4326293 = phi i32 [ %.533, %.loopexit ], [ %.129, %.split ]
-  %.56392 = phi i32 [ %.6, %.loopexit ], [ %.2, %.split ]
-  %108 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_device(ptr noundef %108, i32 noundef %107) #12
-  %109 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_subdevice(ptr noundef %109, i32 noundef 0) #12
+.lr.ph93:                                         ; preds = %.split, %.loopexit
+  %109 = phi i32 [ %135, %.loopexit ], [ %107, %.split ]
+  %.4326292 = phi i32 [ %.533, %.loopexit ], [ %.129, %.split ]
+  %.56391 = phi i32 [ %.6, %.loopexit ], [ %.2, %.split ]
   %110 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_set_stream(ptr noundef %110, i32 noundef %0) #12
-  %111 = load ptr, ptr %7, align 8
+  call void @snd_rawmidi_info_set_device(ptr noundef %110, i32 noundef %109) #12
+  %111 = load ptr, ptr %9, align 8
+  call void @snd_rawmidi_info_set_subdevice(ptr noundef %111, i32 noundef 0) #12
   %112 = load ptr, ptr %9, align 8
-  %113 = call i32 @snd_ctl_rawmidi_info(ptr noundef %111, ptr noundef %112) #12
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %.loopexit, label %115
+  call void @snd_rawmidi_info_set_stream(ptr noundef %112, i32 noundef %0) #12
+  %113 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %9, align 8
+  %115 = call i32 @snd_ctl_rawmidi_info(ptr noundef %113, ptr noundef %114) #12
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %.loopexit, label %117
 
-115:                                              ; preds = %.lr.ph94
-  %116 = call i32 @needEnumerateSubdevices(i32 noundef 1) #12
-  %.not49 = icmp eq i32 %116, 0
+117:                                              ; preds = %.lr.ph93
+  %118 = call i32 @needEnumerateSubdevices(i32 noundef 1) #12
+  %.not49 = icmp eq i32 %118, 0
   br i1 %.not49, label %.lr.ph.preheader, label %.preheader
 
-.preheader:                                       ; preds = %115
-  %117 = load ptr, ptr %9, align 8
-  %118 = call i32 @snd_rawmidi_info_get_subdevices_count(ptr noundef %117) #12
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph.preheader, label %.loopexit
+.preheader:                                       ; preds = %117
+  %119 = load ptr, ptr %9, align 8
+  %120 = call i32 @snd_rawmidi_info_get_subdevices_count(ptr noundef %119) #12
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %115, %.preheader
-  %120 = phi i32 [ %118, %.preheader ], [ 1, %115 ]
-  %121 = add i32 %120, %.4326293
+.lr.ph.preheader:                                 ; preds = %117, %.preheader
+  %122 = phi i32 [ %120, %.preheader ], [ 1, %117 ]
+  %123 = add i32 %122, %.4326292
   br label %.lr.ph
 
-122:                                              ; preds = %.lr.ph
-  %123 = add nuw nsw i32 %.03956, 1
-  %exitcond.not = icmp eq i32 %123, %120
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+124:                                              ; preds = %.lr.ph
+  %125 = add nuw nsw i32 %.03956, 1
+  %exitcond.not = icmp eq i32 %125, %122
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %122
-  %.63457 = phi i32 [ %130, %122 ], [ %.4326293, %.lr.ph.preheader ]
-  %.03956 = phi i32 [ %123, %122 ], [ 0, %.lr.ph.preheader ]
-  %124 = load i32, ptr %4, align 4
-  %125 = load i32, ptr %5, align 4
-  %126 = call i32 @encodeDeviceID(i32 noundef %124, i32 noundef %125, i32 noundef %.03956) #12
-  %127 = load ptr, ptr %9, align 8
-  %128 = load ptr, ptr %10, align 8
-  %129 = call i32 %1(i32 noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %2) #12, !callees !6
-  %130 = add nsw i32 %.63457, 1
-  %.not51 = icmp eq i32 %129, 0
-  br i1 %.not51, label %.loopexit53.split, label %122
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %124
+  %.63457 = phi i32 [ %132, %124 ], [ %.4326292, %.lr.ph.preheader ]
+  %.03956 = phi i32 [ %125, %124 ], [ 0, %.lr.ph.preheader ]
+  %126 = load i32, ptr %4, align 4
+  %127 = load i32, ptr %5, align 4
+  %128 = call i32 @encodeDeviceID(i32 noundef %126, i32 noundef %127, i32 noundef %.03956) #12
+  %129 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %10, align 8
+  %131 = call i32 %1(i32 noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %2) #12, !callees !6
+  %132 = add nsw i32 %.63457, 1
+  %.not51 = icmp eq i32 %131, 0
+  br i1 %.not51, label %.loopexit53.split, label %124
 
-.loopexit:                                        ; preds = %122, %.preheader, %.lr.ph94
-  %.533 = phi i32 [ %.4326293, %.lr.ph94 ], [ %.4326293, %.preheader ], [ %121, %122 ]
-  %.6 = phi i32 [ %.56392, %.lr.ph94 ], [ %.56392, %.preheader ], [ %129, %122 ]
-  %131 = load ptr, ptr %7, align 8
-  %132 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %131, ptr noundef nonnull %5) #12
-  %133 = load i32, ptr %5, align 4
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %.loopexit53.split, label %.lr.ph94, !llvm.loop !10
+.loopexit:                                        ; preds = %124, %.preheader, %.lr.ph93
+  %.533 = phi i32 [ %.4326292, %.lr.ph93 ], [ %.4326292, %.preheader ], [ %123, %124 ]
+  %.6 = phi i32 [ %.56391, %.lr.ph93 ], [ %.56391, %.preheader ], [ %131, %124 ]
+  %133 = load ptr, ptr %7, align 8
+  %134 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %133, ptr noundef nonnull %5) #12
+  %135 = load i32, ptr %5, align 4
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %.loopexit53.split, label %.lr.ph93, !llvm.loop !11
 
-.loopexit53.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %98
-  %.331 = phi i32 [ %.129, %98 ], [ %.129, %.split ], [ %130, %.lr.ph ], [ %.533, %.loopexit ]
-  %.4 = phi i32 [ %.2, %98 ], [ %.2, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
-  %135 = load ptr, ptr %7, align 8
-  %136 = call i32 @snd_ctl_close(ptr noundef %135) #12
-  br label %137
+.loopexit53.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %100
+  %.331 = phi i32 [ %.129, %100 ], [ %.129, %.split ], [ %132, %.lr.ph ], [ %.533, %.loopexit ]
+  %.4 = phi i32 [ %.2, %100 ], [ %.2, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
+  %137 = load ptr, ptr %7, align 8
+  %138 = call i32 @snd_ctl_close(ptr noundef %137) #12
+  br label %139
 
-137:                                              ; preds = %94, %.loopexit53.split
-  %.230 = phi i32 [ %.129, %94 ], [ %.331, %.loopexit53.split ]
-  %.3 = phi i32 [ %.2, %94 ], [ %.4, %.loopexit53.split ]
-  %138 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %.loopexit55, label %.preheader54.split, !llvm.loop !7
+139:                                              ; preds = %96, %.loopexit53.split
+  %.230 = phi i32 [ %.129, %96 ], [ %.331, %.loopexit53.split ]
+  %.3 = phi i32 [ %.2, %96 ], [ %.4, %.loopexit53.split ]
+  %140 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %.loopexit55, label %.preheader54.split, !llvm.loop !12
 
-.loopexit55:                                      ; preds = %137, %.preheader54.split, %.preheader54.split.us.split, %66, %.preheader54.split.us, %.thread
-  %.735 = phi i32 [ %.028, %.thread ], [ %.028, %.preheader54.split.us ], [ %.129.us, %.preheader54.split.us.split ], [ %.230.us, %66 ], [ %.129, %.preheader54.split ], [ %.230, %137 ]
-  %140 = load ptr, ptr %10, align 8
-  call void @snd_ctl_card_info_free(ptr noundef %140) #12
-  %141 = load ptr, ptr %9, align 8
-  call void @snd_rawmidi_info_free(ptr noundef %141) #12
+.loopexit55:                                      ; preds = %139, %.preheader54.split, %68, %49, %.thread
+  %.735 = phi i32 [ %.028, %.thread ], [ %.129.us, %49 ], [ %.230.us, %68 ], [ %.129, %.preheader54.split ], [ %.230, %139 ]
+  %142 = load ptr, ptr %10, align 8
+  call void @snd_ctl_card_info_free(ptr noundef %142) #12
+  %143 = load ptr, ptr %9, align 8
+  call void @snd_rawmidi_info_free(ptr noundef %143) #12
   ret i32 %.735
 }
 
@@ -881,7 +881,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{ptr @deviceInfoIterator}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

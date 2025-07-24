@@ -873,7 +873,7 @@ stbds_is_key_equal.exit71.us:                     ; preds = %.lr.ph.split.us
 122:                                              ; preds = %stbds_is_key_equal.exit71.us, %115
   %123 = add nuw nsw i64 %.186.us, 1
   %exitcond118.not = icmp eq i64 %123, %98
-  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !45
+  br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !46
 
 .split:                                           ; preds = %95, %134
   %.05980 = phi i64 [ %135, %134 ], [ %98, %95 ]
@@ -904,7 +904,7 @@ stbds_is_key_equal.exit:                          ; preds = %.split
 134:                                              ; preds = %stbds_is_key_equal.exit, %132
   %135 = add nuw nsw i64 %.05980, 1
   %exitcond.not = icmp eq i64 %135, 8
-  br i1 %exitcond.not, label %.preheader, label %.split, !llvm.loop !44
+  br i1 %exitcond.not, label %.preheader, label %.split, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %146
   %.186 = phi i64 [ %147, %146 ], [ 0, %.lr.ph ]
@@ -935,7 +935,7 @@ stbds_is_key_equal.exit71:                        ; preds = %.lr.ph.split
 146:                                              ; preds = %stbds_is_key_equal.exit71, %144
   %147 = add nuw nsw i64 %.186, 1
   %exitcond117.not = icmp eq i64 %147, %98
-  br i1 %exitcond117.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !45
+  br i1 %exitcond117.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %146, %122, %.preheader
   %148 = add i64 %.058, %.061
@@ -1048,7 +1048,7 @@ stbds_hmget_key_ts.exit:                          ; preds = %14, %20, %23, %7
   %.0.i = phi ptr [ %0, %14 ], [ %0, %20 ], [ %0, %23 ], [ %13, %7 ]
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
-  store i64 %.0, ptr %31, align 8, !tbaa !46
+  store i64 %.0, ptr %31, align 8, !tbaa !49
   ret ptr %.0.i
 }
 
@@ -1386,7 +1386,7 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
   %.3.us = phi i64 [ %.1162251.us, %stbds_is_key_equal.exit.us ], [ %.1162251.us, %150 ], [ %spec.select266, %152 ]
   %164 = add nuw nsw i64 %.0157252.us, 1
   %exitcond299.not = icmp eq i64 %164, 8
-  br i1 %exitcond299.not, label %.preheader, label %.split.us, !llvm.loop !47
+  br i1 %exitcond299.not, label %.preheader, label %.split.us, !llvm.loop !50
 
 .preheader:                                       ; preds = %189, %163
   %.us-phi263 = phi i64 [ %.3.us, %163 ], [ %.3, %189 ]
@@ -1412,13 +1412,13 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
 
 .thread:                                          ; preds = %stbds_is_key_equal.exit.thread
   %172 = getelementptr inbounds i8, ptr %16, i64 -8
-  store i64 %169, ptr %172, align 8, !tbaa !46
+  store i64 %169, ptr %172, align 8, !tbaa !49
   br label %.thread203
 
 .split259.us:                                     ; preds = %stbds_is_key_equal.exit.us
   %173 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252.us
   %174 = getelementptr inbounds i8, ptr %16, i64 -8
-  store i64 %158, ptr %174, align 8, !tbaa !46
+  store i64 %158, ptr %174, align 8, !tbaa !49
   %175 = load i64, ptr %173, align 8, !tbaa !10
   %176 = mul i64 %175, %1
   %177 = getelementptr inbounds nuw i8, ptr %.0159, i64 %176
@@ -1452,7 +1452,7 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
   %.3 = phi i64 [ %.1162251, %182 ], [ %.1162251, %stbds_is_key_equal.exit.thread ], [ %spec.select267, %184 ]
   %190 = add nuw nsw i64 %.0157252, 1
   %exitcond.not = icmp eq i64 %190, 8
-  br i1 %exitcond.not, label %.preheader, label %.split, !llvm.loop !47
+  br i1 %exitcond.not, label %.preheader, label %.split, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %.preheader, %217
   %.1158265 = phi i64 [ %218, %217 ], [ 0, %.preheader ]
@@ -1485,7 +1485,7 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
 
 204:                                              ; preds = %stbds_is_key_equal.exit189
   %205 = getelementptr inbounds i8, ptr %16, i64 -8
-  store i64 %196, ptr %205, align 8, !tbaa !46
+  store i64 %196, ptr %205, align 8, !tbaa !49
   br label %.thread203
 
 206:                                              ; preds = %.lr.ph
@@ -1512,7 +1512,7 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
   %.5 = phi i64 [ %.4264, %stbds_is_key_equal.exit189 ], [ %.4264, %210 ], [ %spec.select268, %212 ]
   %218 = add nuw nsw i64 %.1158265, 1
   %exitcond300.not = icmp eq i64 %218, %142
-  br i1 %exitcond300.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond300.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %217, %.preheader
   %.4.lcssa = phi i64 [ %.us-phi263, %.preheader ], [ %.5, %217 ]
@@ -1598,7 +1598,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
   %263 = getelementptr inbounds nuw [8 x i64], ptr %262, i64 0, i64 %259
   store i64 %261, ptr %263, align 8, !tbaa !10
   %264 = getelementptr inbounds i8, ptr %.1160, i64 -8
-  store i64 %261, ptr %264, align 8, !tbaa !46
+  store i64 %261, ptr %264, align 8, !tbaa !49
   %265 = getelementptr inbounds nuw i8, ptr %54, i64 89
   %266 = load i8, ptr %265, align 1, !tbaa !38
   switch i8 %266, label %318 [
@@ -1625,7 +1625,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
   %276 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #22
   %277 = add i64 %276, 1
   %278 = getelementptr inbounds nuw i8, ptr %54, i64 80
-  %279 = load i64, ptr %278, align 8, !tbaa !49
+  %279 = load i64, ptr %278, align 8, !tbaa !53
   %280 = icmp ugt i64 %277, %279
   br i1 %280, label %281, label %._crit_edge.i
 
@@ -1635,7 +1635,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
 
 281:                                              ; preds = %274
   %282 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %283 = load i8, ptr %282, align 8, !tbaa !50
+  %283 = load i8, ptr %282, align 8, !tbaa !54
   %284 = lshr i8 %283, 1
   %285 = zext nneg i8 %284 to i64
   %286 = shl i64 512, %285
@@ -1644,7 +1644,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
 
 288:                                              ; preds = %281
   %289 = add i8 %283, 1
-  store i8 %289, ptr %282, align 8, !tbaa !50
+  store i8 %289, ptr %282, align 8, !tbaa !54
   br label %290
 
 290:                                              ; preds = %288, %281
@@ -1669,7 +1669,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
 297:                                              ; preds = %291
   store ptr null, ptr %malloc44.i, align 8, !tbaa !41
   store ptr %malloc44.i, ptr %275, align 8, !tbaa !40
-  store i64 0, ptr %278, align 8, !tbaa !49
+  store i64 0, ptr %278, align 8, !tbaa !53
   br label %stbds_stralloc.exit
 
 298:                                              ; preds = %290
@@ -1688,7 +1688,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
   %306 = xor i64 %276, -1
   %307 = getelementptr inbounds i8, ptr %305, i64 %306
   %308 = sub i64 %302, %277
-  store i64 %308, ptr %278, align 8, !tbaa !49
+  store i64 %308, ptr %278, align 8, !tbaa !53
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull readonly align 1 %2, i64 %277, i1 false)
   br label %stbds_stralloc.exit
 
@@ -1740,7 +1740,7 @@ define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef re
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !49
+  %6 = load i64, ptr %5, align 8, !tbaa !53
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %._crit_edge
 
@@ -1750,7 +1750,7 @@ define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef re
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i8, ptr %9, align 8, !tbaa !50
+  %10 = load i8, ptr %9, align 8, !tbaa !54
   %11 = lshr i8 %10, 1
   %12 = zext nneg i8 %11 to i64
   %13 = shl i64 512, %12
@@ -1759,7 +1759,7 @@ define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef re
 
 15:                                               ; preds = %8
   %16 = add i8 %10, 1
-  store i8 %16, ptr %9, align 8, !tbaa !50
+  store i8 %16, ptr %9, align 8, !tbaa !54
   br label %17
 
 17:                                               ; preds = %15, %8
@@ -1784,7 +1784,7 @@ define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef re
 24:                                               ; preds = %18
   store ptr null, ptr %malloc44, align 8, !tbaa !41
   store ptr %malloc44, ptr %0, align 8, !tbaa !40
-  store i64 0, ptr %5, align 8, !tbaa !49
+  store i64 0, ptr %5, align 8, !tbaa !53
   br label %.thread
 
 25:                                               ; preds = %17
@@ -1803,7 +1803,7 @@ define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef re
   %33 = xor i64 %3, -1
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   %35 = sub i64 %29, %4
-  store i64 %35, ptr %5, align 8, !tbaa !49
+  store i64 %35, ptr %5, align 8, !tbaa !53
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %1, i64 %4, i1 false)
   br label %.thread
 
@@ -1879,7 +1879,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %12 = getelementptr inbounds i8, ptr %10, i64 -16
   %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = getelementptr inbounds i8, ptr %10, i64 -8
-  store i64 0, ptr %14, align 8, !tbaa !46
+  store i64 0, ptr %14, align 8, !tbaa !49
   %15 = icmp eq ptr %13, null
   br i1 %15, label %88, label %16
 
@@ -1907,7 +1907,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %34 = load i64, ptr %33, align 8, !tbaa !20
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8, !tbaa !20
-  store i64 1, ptr %14, align 8, !tbaa !46
+  store i64 1, ptr %14, align 8, !tbaa !49
   %36 = getelementptr inbounds nuw [8 x i64], ptr %23, i64 0, i64 %24
   store i64 1, ptr %36, align 8, !tbaa !10
   store i64 -2, ptr %26, align 8, !tbaa !10
@@ -2096,10 +2096,14 @@ attributes #22 = { nounwind willreturn memory(read) }
 !41 = !{!42, !17, i64 0}
 !42 = !{!"stbds_string_block", !17, i64 0, !6, i64 8}
 !43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12}
-!45 = distinct !{!45, !12}
-!46 = !{!4, !5, i64 24}
+!44 = distinct !{!44, !12, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !12, !45}
 !47 = distinct !{!47, !12}
 !48 = distinct !{!48, !12}
-!49 = !{!16, !5, i64 8}
-!50 = !{!16, !6, i64 16}
+!49 = !{!4, !5, i64 24}
+!50 = distinct !{!50, !12, !45}
+!51 = distinct !{!51, !12}
+!52 = distinct !{!52, !12}
+!53 = !{!16, !5, i64 8}
+!54 = !{!16, !6, i64 16}

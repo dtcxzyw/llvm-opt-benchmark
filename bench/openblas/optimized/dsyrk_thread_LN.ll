@@ -542,10 +542,10 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   br i1 %172, label %.preheader319.us, label %.loopexit322, !llvm.loop !52
 
 .lr.ph339.us:                                     ; preds = %.preheader319.us, %.lr.ph339.us
-  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !53
+  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !54
   %173 = load atomic i64, ptr %156 seq_cst, align 8, !tbaa !34
   %174 = icmp eq i64 %173, 0
-  br i1 %174, label %.lr.ph339.us, label %._crit_edge340.us, !llvm.loop !54
+  br i1 %174, label %.lr.ph339.us, label %._crit_edge340.us, !llvm.loop !55
 
 .preheader319:                                    ; preds = %.preheader319.lr.ph, %._crit_edge340
   %.1281342 = phi i64 [ %191, %._crit_edge340 ], [ 0, %.preheader319.lr.ph ]
@@ -557,10 +557,10 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   br i1 %178, label %.lr.ph339, label %._crit_edge340
 
 .lr.ph339:                                        ; preds = %.preheader319, %.lr.ph339
-  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !53
+  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !54
   %179 = load atomic i64, ptr %176 seq_cst, align 8, !tbaa !34
   %180 = icmp eq i64 %179, 0
-  br i1 %180, label %.lr.ph339, label %._crit_edge340, !llvm.loop !54
+  br i1 %180, label %.lr.ph339, label %._crit_edge340, !llvm.loop !55
 
 ._crit_edge340:                                   ; preds = %.lr.ph339, %.preheader319
   %181 = load i64, ptr %143, align 8, !tbaa !22
@@ -577,7 +577,7 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   %191 = add nuw nsw i64 %.1281342, 1
   %192 = load i64, ptr %143, align 8, !tbaa !22
   %193 = icmp slt i64 %190, %192
-  br i1 %193, label %.preheader319, label %.loopexit322, !llvm.loop !52
+  br i1 %193, label %.preheader319, label %.loopexit322, !llvm.loop !56
 
 .lr.ph357:                                        ; preds = %.preheader326, %.split353.us
   %.0275356 = phi i64 [ %206, %.split353.us ], [ %.0276, %.preheader326 ]
@@ -624,7 +624,7 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
 ._crit_edge351.split.us.us:                       ; preds = %221, %.split.us
   %218 = add nsw i64 %.1.us, -1
   %219 = icmp sgt i64 %.1.us, 0
-  br i1 %219, label %.split.us, label %.split353.us, !llvm.loop !55
+  br i1 %219, label %.split.us, label %.split353.us, !llvm.loop !57
 
 .lr.ph350.us:                                     ; preds = %.split.us
   %220 = getelementptr inbounds %struct.job_t, ptr %9, i64 %.1.us
@@ -649,7 +649,7 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   %234 = add nuw nsw i64 %.2282348.us.us, 1
   %235 = load i64, ptr %208, align 8, !tbaa !22
   %236 = icmp slt i64 %233, %235
-  br i1 %236, label %221, label %._crit_edge351.split.us.us, !llvm.loop !56
+  br i1 %236, label %221, label %._crit_edge351.split.us.us, !llvm.loop !58
 
 .split:                                           ; preds = %203, %._crit_edge351.split
   %.1 = phi i64 [ %266, %._crit_edge351.split ], [ %5, %203 ]
@@ -686,25 +686,25 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   %259 = sub nsw i64 %.0275356, %.2285347
   %260 = tail call i32 @dsyrk_kernel_L(i64 noundef %.2274, i64 noundef %.312, i64 noundef %.0278, double noundef %252, ptr noundef %3, ptr noundef %256, ptr noundef %258, i64 noundef %18, i64 noundef %259) #7
   %261 = atomicrmw xchg ptr %254, i64 0 seq_cst, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !57
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !59
   %262 = add nsw i64 %.2285347, %246
   %263 = add nuw nsw i64 %.2282348, 1
   %264 = load i64, ptr %238, align 8, !tbaa !22
   %265 = icmp slt i64 %262, %264
-  br i1 %265, label %249, label %._crit_edge351.split, !llvm.loop !56
+  br i1 %265, label %249, label %._crit_edge351.split, !llvm.loop !60
 
 ._crit_edge351.split:                             ; preds = %249, %.split
   %266 = add nsw i64 %.1, -1
   %267 = icmp sgt i64 %.1, 0
-  br i1 %267, label %.split, label %.split353.us, !llvm.loop !55
+  br i1 %267, label %.split, label %.split353.us, !llvm.loop !61
 
 .split353.us:                                     ; preds = %._crit_edge351.split, %._crit_edge351.split.us.us
-  br i1 %.not310.fr, label %.lr.ph357, label %._crit_edge358, !llvm.loop !58
+  br i1 %.not310.fr, label %.lr.ph357, label %._crit_edge358, !llvm.loop !62
 
 ._crit_edge358:                                   ; preds = %.split353.us, %.preheader326
   %268 = add nsw i64 %.0278, %.0279359
   %269 = icmp slt i64 %268, %11
-  br i1 %269, label %91, label %.preheader317, !llvm.loop !59
+  br i1 %269, label %91, label %.preheader317, !llvm.loop !63
 
 270:                                              ; preds = %.lr.ph366, %.loopexit
   %271 = phi i64 [ %88, %.lr.ph366 ], [ %276, %.loopexit ]
@@ -721,13 +721,13 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   br i1 %.not308361, label %._crit_edge363, label %.lr.ph362
 
 .lr.ph362:                                        ; preds = %.preheader, %.lr.ph362
-  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !60
+  tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !64
   %275 = load atomic i64, ptr %273 seq_cst, align 8, !tbaa !34
   %.not308 = icmp eq i64 %275, 0
-  br i1 %.not308, label %._crit_edge363, label %.lr.ph362, !llvm.loop !61
+  br i1 %.not308, label %._crit_edge363, label %.lr.ph362, !llvm.loop !65
 
 ._crit_edge363:                                   ; preds = %.lr.ph362, %.preheader
-  br i1 %272, label %.preheader, label %.loopexit.loopexit, !llvm.loop !62
+  br i1 %272, label %.preheader, label %.loopexit.loopexit, !llvm.loop !66
 
 .loopexit.loopexit:                               ; preds = %._crit_edge363
   %.pre371 = load i64, ptr %87, align 8, !tbaa !3
@@ -737,7 +737,7 @@ syrk_beta.exit:                                   ; preds = %47, %39, %36, %35
   %276 = phi i64 [ %.pre371, %.loopexit.loopexit ], [ %271, %270 ]
   %277 = add nuw nsw i64 %.3365, 1
   %278 = icmp slt i64 %277, %276
-  br i1 %278, label %270, label %.loopexit318, !llvm.loop !63
+  br i1 %278, label %270, label %.loopexit318, !llvm.loop !67
 
 .loopexit318:                                     ; preds = %.loopexit, %.preheader317, %57, %syrk_beta.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
@@ -829,15 +829,19 @@ attributes #7 = { nounwind }
 !49 = !{i64 2149547350}
 !50 = distinct !{!50, !33}
 !51 = distinct !{!51, !33}
-!52 = distinct !{!52, !33}
-!53 = !{i64 2149547537}
-!54 = distinct !{!54, !33}
+!52 = distinct !{!52, !33, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = !{i64 2149547537}
 !55 = distinct !{!55, !33}
 !56 = distinct !{!56, !33}
-!57 = !{i64 2149548953}
-!58 = distinct !{!58, !33}
-!59 = distinct !{!59, !33}
-!60 = !{i64 2149549009}
+!57 = distinct !{!57, !33, !53}
+!58 = distinct !{!58, !33, !53}
+!59 = !{i64 2149548953}
+!60 = distinct !{!60, !33}
 !61 = distinct !{!61, !33}
 !62 = distinct !{!62, !33}
 !63 = distinct !{!63, !33}
+!64 = !{i64 2149549009}
+!65 = distinct !{!65, !33}
+!66 = distinct !{!66, !33}
+!67 = distinct !{!67, !33}

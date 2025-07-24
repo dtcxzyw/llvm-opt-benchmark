@@ -1332,14 +1332,14 @@ select.unfold:                                    ; preds = %.critedge
 
 436:                                              ; preds = %434
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
-  store i64 %387, ptr %6, align 16, !tbaa !17
-  store i64 %388, ptr %350, align 8, !tbaa !17
-  store i64 %389, ptr %352, align 16, !tbaa !17
-  store i64 %390, ptr %353, align 8, !tbaa !17
-  store i64 %391, ptr %355, align 16, !tbaa !17
-  store i64 %392, ptr %358, align 8, !tbaa !17
-  store i64 %393, ptr %360, align 16, !tbaa !17
-  store i64 %394, ptr %361, align 8, !tbaa !17
+  store i64 %387, ptr %6, align 16, !tbaa !18
+  store i64 %388, ptr %350, align 8, !tbaa !18
+  store i64 %389, ptr %352, align 16, !tbaa !18
+  store i64 %390, ptr %353, align 8, !tbaa !18
+  store i64 %391, ptr %355, align 16, !tbaa !18
+  store i64 %392, ptr %358, align 8, !tbaa !18
+  store i64 %393, ptr %360, align 16, !tbaa !18
+  store i64 %394, ptr %361, align 8, !tbaa !18
   br label %437
 
 437:                                              ; preds = %437, %436
@@ -1356,7 +1356,7 @@ select.unfold:                                    ; preds = %.critedge
   %445 = add nuw nsw i64 %.038.i, 1
   %exitcond.not.i = icmp eq i64 %445, 8
   %or.cond.i = select i1 %444, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %446, label %437, !prof !19, !llvm.loop !20
+  br i1 %or.cond.i, label %446, label %437, !prof !20, !llvm.loop !21
 
 446:                                              ; preds = %437
   %.lobit.i = ashr i32 %443, 31
@@ -1386,7 +1386,7 @@ select.unfold:                                    ; preds = %.critedge
   %.4 = phi i32 [ %.1463493, %431 ], [ %.1463493, %434 ], [ %.sink.i, %.sink.split.i ], [ %.1463493, %447 ], [ %.1463493, %449 ], [ %.1463493, %451 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  store i64 4, ptr %8, align 8, !tbaa !17
+  store i64 4, ptr %8, align 8, !tbaa !18
   %454 = call i32 @zmq_getsockopt(ptr noundef nonnull %3, i32 noundef 16, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %455 = load i32, ptr %7, align 4, !tbaa !3
   %456 = icmp eq i32 %455, 4
@@ -1396,7 +1396,7 @@ select.unfold:                                    ; preds = %.critedge
   %458 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 0)
   %459 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %3, ptr noundef nonnull %5, i32 noundef 0)
   %460 = icmp slt i32 %459, 0
-  br i1 %460, label %462, label %461, !prof !21
+  br i1 %460, label %462, label %461, !prof !22
 
 461:                                              ; preds = %457, %453
   br label %462
@@ -1494,7 +1494,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %489 = zext nneg i32 %.3379 to i64
   %.not446 = icmp samesign ult i64 %indvars.iv.next, %489
-  br i1 %.not446, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %.not446, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %488, %410, %383, %select.unfold
   %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %383 ], [ %.0462508, %410 ], [ %.3465, %488 ]
@@ -1702,7 +1702,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   %.3389 = phi i8 [ %.4390527, %535 ], [ %.4390527, %.thread475 ], [ %.1387.lcssa, %547 ], [ %.1387.lcssa, %._crit_edge ], [ %.4390527, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ], [ %.4390527, %538 ]
   %.1 = phi ptr [ %.2, %535 ], [ %.0371513, %.thread475 ], [ %.3, %547 ], [ %.0371513, %._crit_edge ], [ %22, %536 ], [ %.0383, %548 ], [ %.0384, %550 ], [ %spec.select453, %552 ], [ %spec.select455, %538 ]
   %.not445 = icmp eq i32 %.1463.lcssa, 2
-  br i1 %.not445, label %555, label %363, !llvm.loop !22
+  br i1 %.not445, label %555, label %363, !llvm.loop !24
 
 555:                                              ; preds = %554
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
@@ -1849,16 +1849,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_b
 
 15:                                               ; preds = %12
   %16 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %17 = load i64, ptr %4, align 8, !tbaa !23
+  %17 = load i64, ptr %4, align 8, !tbaa !25
   %18 = add i64 %17, 1
-  store i64 %18, ptr %4, align 8, !tbaa !23
-  %19 = load i64, ptr %10, align 8, !tbaa !25
+  store i64 %18, ptr %4, align 8, !tbaa !25
+  %19 = load i64, ptr %10, align 8, !tbaa !27
   %20 = add i64 %19, %16
-  store i64 %20, ptr %10, align 8, !tbaa !25
-  store i64 4, ptr %9, align 8, !tbaa !17
+  store i64 %20, ptr %10, align 8, !tbaa !27
+  store i64 4, ptr %9, align 8, !tbaa !18
   %21 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %0, i32 noundef 13, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, !prof !21
+  br i1 %22, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, !prof !22
 
 _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us: ; preds = %15
   %23 = load i32, ptr %8, align 4, !tbaa !3
@@ -1866,25 +1866,25 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us: ; preds = %15
   %24 = select i1 %.not.us.us, i32 0, i32 2
   %25 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %1, ptr noundef nonnull %3, i32 noundef %24)
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %27, !prof !21
+  br i1 %26, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %27, !prof !22
 
 27:                                               ; preds = %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us
-  %28 = load i64, ptr %5, align 8, !tbaa !23
+  %28 = load i64, ptr %5, align 8, !tbaa !25
   %29 = add i64 %28, 1
-  store i64 %29, ptr %5, align 8, !tbaa !23
-  %30 = load i64, ptr %11, align 8, !tbaa !25
+  store i64 %29, ptr %5, align 8, !tbaa !25
+  %30 = load i64, ptr %11, align 8, !tbaa !27
   %31 = add i64 %30, %16
-  store i64 %31, ptr %11, align 8, !tbaa !25
+  store i64 %31, ptr %11, align 8, !tbaa !27
   %32 = load i32, ptr %8, align 4, !tbaa !3
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.split52.us.us, label %12
+  br i1 %33, label %.split52.us.us, label %12, !llvm.loop !28
 
 .split52.us.us:                                   ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   %34 = add nuw nsw i32 %.02853.us, 1
   %exitcond64 = icmp eq i32 %34, 1000
-  br i1 %exitcond64, label %.loopexit, label %.split.us.us, !llvm.loop !26
+  br i1 %exitcond64, label %.loopexit, label %.split.us.us, !llvm.loop !29
 
 .split:                                           ; preds = %6, %.split52
   %.02853 = phi i32 [ %72, %.split52 ], [ 0, %6 ]
@@ -1909,28 +1909,28 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us: ; preds = %15
 
 42:                                               ; preds = %35
   %43 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %44 = load i64, ptr %4, align 8, !tbaa !23
+  %44 = load i64, ptr %4, align 8, !tbaa !25
   %45 = add i64 %44, 1
-  store i64 %45, ptr %4, align 8, !tbaa !23
-  %46 = load i64, ptr %10, align 8, !tbaa !25
+  store i64 %45, ptr %4, align 8, !tbaa !25
+  %46 = load i64, ptr %10, align 8, !tbaa !27
   %47 = add i64 %46, %43
-  store i64 %47, ptr %10, align 8, !tbaa !25
-  store i64 4, ptr %9, align 8, !tbaa !17
+  store i64 %47, ptr %10, align 8, !tbaa !27
+  store i64 4, ptr %9, align 8, !tbaa !18
   %48 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %0, i32 noundef 13, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %50, !prof !21
+  br i1 %49, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %50, !prof !22
 
 50:                                               ; preds = %42
   %51 = load i32, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
   %52 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %.thread.i, label %54, !prof !21
+  br i1 %53, label %.thread.i, label %54, !prof !22
 
 54:                                               ; preds = %50
   %55 = call noundef i32 @_ZN3zmq5msg_t4copyERS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.thread.i, label %57, !prof !21
+  br i1 %56, label %.thread.i, label %57, !prof !22
 
 .thread.i:                                        ; preds = %54, %50
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
@@ -1950,15 +1950,15 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit: ; preds = %57
   %62 = select i1 %.not, i32 0, i32 2
   %63 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %1, ptr noundef nonnull %3, i32 noundef %62)
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %65, !prof !21
+  br i1 %64, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %65, !prof !22
 
 65:                                               ; preds = %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit
-  %66 = load i64, ptr %5, align 8, !tbaa !23
+  %66 = load i64, ptr %5, align 8, !tbaa !25
   %67 = add i64 %66, 1
-  store i64 %67, ptr %5, align 8, !tbaa !23
-  %68 = load i64, ptr %11, align 8, !tbaa !25
+  store i64 %67, ptr %5, align 8, !tbaa !25
+  %68 = load i64, ptr %11, align 8, !tbaa !27
   %69 = add i64 %68, %43
-  store i64 %69, ptr %11, align 8, !tbaa !25
+  store i64 %69, ptr %11, align 8, !tbaa !27
   %70 = load i32, ptr %8, align 4, !tbaa !3
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.split52, label %35
@@ -1974,7 +1974,7 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %_ZL7captur
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   %72 = add nuw nsw i32 %.02853, 1
   %exitcond = icmp eq i32 %72, 1000
-  br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !26
+  br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.split52, %.split52.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread
   %spec.select = phi i32 [ %.3.ph, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ 0, %.split52.us.us ], [ 0, %.split52 ]
@@ -2047,15 +2047,19 @@ attributes #15 = { cold nounwind }
 !12 = !{!"_ZTS18zmq_poller_event_t", !10, i64 0, !4, i64 8, !10, i64 16, !13, i64 24}
 !13 = !{!"short", !5, i64 0}
 !14 = !{!12, !13, i64 24}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"branch_weights", i32 2002, i32 2000}
-!20 = distinct !{!20, !16}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = distinct !{!22, !16}
-!23 = !{!24, !18, i64 0}
-!24 = !{!"_ZTS12stats_socket", !18, i64 0, !18, i64 8}
-!25 = !{!24, !18, i64 8}
-!26 = distinct !{!26, !16}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !5, i64 0}
+!20 = !{!"branch_weights", i32 2002, i32 2000}
+!21 = distinct !{!21, !16}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = !{!26, !19, i64 0}
+!26 = !{!"_ZTS12stats_socket", !19, i64 0, !19, i64 8}
+!27 = !{!26, !19, i64 8}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16}

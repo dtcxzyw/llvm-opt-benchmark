@@ -193,7 +193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
   %52 = add i64 %.039116, -1
   %.not52 = icmp eq i64 %52, 0
-  br i1 %.not52, label %._crit_edge, label %._crit_edge.i.i, !llvm.loop !19
+  br i1 %.not52, label %._crit_edge, label %._crit_edge.i.i, !llvm.loop !21
 
 .split120:                                        ; preds = %44
   %53 = landingpad { ptr, i32 }
@@ -230,7 +230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   br i1 %.not.i, label %65, label %64
 
 64:                                               ; preds = %61
-  store i32 %63, ptr %.sroa.17.0129, align 4, !tbaa !20
+  store i32 %63, ptr %.sroa.17.0129, align 4, !tbaa !22
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 65:                                               ; preds = %61
@@ -262,7 +262,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %65
 
 .noexc62:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %78 = getelementptr inbounds i8, ptr %77, i64 %68
-  store i32 %63, ptr %78, align 4, !tbaa !20
+  store i32 %63, ptr %78, align 4, !tbaa !22
   %79 = icmp sgt i64 %68, 0
   br i1 %79, label %80, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
@@ -289,7 +289,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %64, %_ZNSt6vectorIi
   %.sroa.17.2 = getelementptr inbounds nuw i8, ptr %.pn88, i64 4
   %83 = add nuw nsw i32 %.047131, 1
   %exitcond.not = icmp eq i32 %83, 100
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !24
 
 .loopexit:                                        ; preds = %12, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %.sroa.22.0128.lcssa147 = phi ptr [ %.sroa.22.0128, %12 ], [ %.sroa.17.0129, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
@@ -306,7 +306,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %64, %_ZNSt6vectorIi
   %.sroa.22.0.lcssa = phi ptr [ %.sroa.22.0128, %9 ], [ %.sroa.22.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.17.0.lcssa = phi ptr [ %.sroa.17.0129, %9 ], [ %.sroa.17.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.067.0.lcssa = phi ptr [ %.sroa.067.0130, %9 ], [ %.sroa.067.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %84 = load i32, ptr %.sroa.067.0.lcssa, align 4, !tbaa !20
+  %84 = load i32, ptr %.sroa.067.0.lcssa, align 4, !tbaa !22
   %85 = ptrtoint ptr %.sroa.17.0.lcssa to i64
   %86 = ptrtoint ptr %.sroa.067.0.lcssa to i64
   %87 = sub i64 %85, %86
@@ -333,7 +333,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph136, %.crited
   %.036133 = phi i32 [ %.1, %.lr.ph136 ], [ %84, %.critedge ]
   %.037132 = phi i32 [ %.138, %.lr.ph136 ], [ %84, %.critedge ]
   %95 = getelementptr inbounds nuw i32, ptr %.sroa.067.0.lcssa, i64 %.0135
-  %96 = load i32, ptr %95, align 4, !tbaa !20
+  %96 = load i32, ptr %95, align 4, !tbaa !22
   %97 = sitofp i32 %96 to float
   %98 = fadd float %.035134, %97
   %99 = icmp slt i32 %96, %.037132
@@ -342,7 +342,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph136, %.crited
   %.1 = select i1 %99, i32 %.036133, i32 %spec.select
   %100 = add nuw i64 %.0135, 1
   %exitcond161.not = icmp eq i64 %100, %88
-  br i1 %exitcond161.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph136, !llvm.loop !23
+  br i1 %exitcond161.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph136, !llvm.loop !25
 
 101:                                              ; preds = %.loopexit, %.loopexit.split-lp, %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60
   %.sroa.22.0128149 = phi ptr [ %.sroa.22.0128, %10 ], [ %.sroa.22.0128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ], [ %.sroa.22.0128.lcssa147, %.loopexit ], [ %.sroa.17.0129, %.loopexit.split-lp ]
@@ -449,8 +449,10 @@ attributes #15 = { builtin allocsize(0) }
 !16 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !12, i64 0, !14, i64 8, !9, i64 16}
 !17 = !{!9, !9, i64 0}
 !18 = !{!16, !14, i64 8}
-!19 = distinct !{!19, !5}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !9, i64 0}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!19 = distinct !{!19, !5, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !5}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !9, i64 0}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}

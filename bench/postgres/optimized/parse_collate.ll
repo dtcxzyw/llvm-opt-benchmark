@@ -768,8 +768,8 @@ list_length.exit:                                 ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @get_func_variadictype(i32 noundef %11) #5
-  %.fr25 = freeze i32 %12
-  %13 = icmp eq i32 %.fr25, 0
+  %.fr23 = freeze i32 %12
+  %13 = icmp eq i32 %.fr23, 0
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %2, %9, %list_length.exit
@@ -789,27 +789,27 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i32, ptr %18, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %.fr, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %.fr, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph24, label %._crit_edge
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  br i1 %24, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph24:                                         ; preds = %.lr.ph.split.us.split, %.lr.ph24
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph24 ], [ 0, %.lr.ph.split.us.split ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv2631 = phi i64 [ %indvars.iv.next27, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv28
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv2631
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @assign_collations_walker(ptr noundef %27, ptr noundef nonnull %1)
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv2631, 1
   %29 = load i32, ptr %18, align 4
   %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next29, %30
-  br i1 %31, label %.lr.ph24, label %._crit_edge
+  %31 = icmp slt i64 %indvars.iv.next27, %30
+  br i1 %31, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %24, label %.lr.ph22, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %.lr.ph24, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_length.exit.thread
+._crit_edge:                                      ; preds = %.lr.ph22, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %list_length.exit.thread
   ret void
 
 .lr.ph22:                                         ; preds = %.lr.ph.split.split, %.lr.ph22

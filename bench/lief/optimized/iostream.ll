@@ -429,7 +429,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %65, %70
   store i64 %75, ptr %6, align 8, !tbaa !31
   %76 = trunc i64 %50 to i8
   %77 = icmp samesign ugt i64 %.in, 8191
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us, %.split, %.split.us
   %.sroa.0.0.copyload.i.i9 = phi i64 [ %.sroa.0.0.copyload.i.i9.pre22, %.split.us ], [ %.sroa.0.0.copyload.i.i9.pre, %.split ], [ %41, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us ], [ %75, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit ]
@@ -520,7 +520,7 @@ define hidden noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !38
+  %15 = load i64, ptr %14, align 8, !tbaa !40
   %16 = add i64 %15, %4
   %17 = add i64 %16, %.sroa.0.0.copyload.i
   %18 = icmp ult i64 %13, %17
@@ -530,7 +530,7 @@ define hidden noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_
   %20 = shl i64 %16, 1
   %21 = add i64 %20, %.sroa.0.0.copyload.i
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %21)
-  %.pre = load i64, ptr %14, align 8, !tbaa !38
+  %.pre = load i64, ptr %14, align 8, !tbaa !40
   %.pre15.pre = load i64, ptr %5, align 8, !tbaa !31
   br label %22
 
@@ -541,13 +541,13 @@ define hidden noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKDsPDsET0_T_S4_S3_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %1, align 8, !tbaa !42
+  %25 = load ptr, ptr %1, align 8, !tbaa !44
   %.idx = shl nuw nsw i64 %23, 1
   %26 = load ptr, ptr %6, align 8, !tbaa !6
   %27 = load ptr, ptr %26, align 8, !tbaa !28
   %28 = getelementptr inbounds i8, ptr %27, i64 %.pre15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %28, ptr align 2 %25, i64 %.idx, i1 false)
-  %.pre13 = load i64, ptr %14, align 8, !tbaa !38
+  %.pre13 = load i64, ptr %14, align 8, !tbaa !40
   %.pre14 = load i64, ptr %5, align 8, !tbaa !31
   br label %_ZSt4copyIPKDsPDsET0_T_S4_S3_.exit
 
@@ -631,7 +631,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %26, %31
   %43 = sub i64 %41, %42
   %44 = urem i64 %43, %1
   %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %.loopexit, label %17, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !45
 
 .loopexit:                                        ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit, %3
   ret ptr %0
@@ -719,10 +719,12 @@ attributes #15 = { nounwind }
 !34 = !{i8 0, i8 2}
 !35 = !{}
 !36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
-!38 = !{!39, !17, i64 8}
-!39 = !{!"_ZTSNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE", !40, i64 0, !17, i64 8, !14, i64 16}
-!40 = !{!"_ZTSNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE12_Alloc_hiderE", !41, i64 0}
-!41 = !{!"p1 char16_t", !13, i64 0}
-!42 = !{!39, !41, i64 0}
-!43 = distinct !{!43, !4}
+!37 = distinct !{!37, !4, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !4}
+!40 = !{!41, !17, i64 8}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE", !42, i64 0, !17, i64 8, !14, i64 16}
+!42 = !{!"_ZTSNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE12_Alloc_hiderE", !43, i64 0}
+!43 = !{!"p1 char16_t", !13, i64 0}
+!44 = !{!41, !43, i64 0}
+!45 = distinct !{!45, !4}

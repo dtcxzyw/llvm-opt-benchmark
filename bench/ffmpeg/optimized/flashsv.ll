@@ -903,7 +903,7 @@ decode_hybrid.exit.thread.i.us:                   ; preds = %433, %decode_hybrid
   %496 = add nuw nsw i32 %.07395.i.us, 1
   %497 = load i32, ptr %475, align 8, !tbaa !54
   %.not84.not.i.us = icmp slt i32 %.07395.i.us, %497
-  br i1 %.not84.not.i.us, label %483, label %flashsv_decode_block.exit.us, !llvm.loop !76
+  br i1 %.not84.not.i.us, label %483, label %flashsv_decode_block.exit.us, !llvm.loop !77
 
 flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.us, %decode_hybrid.exit.i.us
   %498 = shl nuw nsw i32 %.0224337.us, 3
@@ -919,7 +919,7 @@ flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.
   %.sroa.19.3.us = phi i32 [ %.sroa.19.4336.us, %.thread332.us ], [ %502, %flashsv_decode_block.exit.us ], [ %.sroa.19.4336.us, %474 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next, %198
-  br i1 %exitcond462.not, label %._crit_edge.us, label %206, !llvm.loop !77
+  br i1 %exitcond462.not, label %._crit_edge.us, label %206, !llvm.loop !78
 
 .lr.ph.us:                                        ; preds = %312
   %504 = load ptr, ptr %177, align 8, !tbaa !36
@@ -937,7 +937,7 @@ flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.
 ._crit_edge.us:                                   ; preds = %503
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
-  br i1 %exitcond467.not, label %._crit_edge406, label %.lr.ph402.us, !llvm.loop !78
+  br i1 %exitcond467.not, label %._crit_edge406, label %.lr.ph402.us, !llvm.loop !79
 
 .split.us:                                        ; preds = %206
   %514 = load ptr, ptr %177, align 8, !tbaa !36
@@ -1259,7 +1259,8 @@ attributes #8 = { cold }
 !72 = distinct !{!72, !63}
 !73 = !{!28, !24, i64 48}
 !74 = distinct !{!74, !63}
-!75 = distinct !{!75, !63}
-!76 = distinct !{!76, !63}
+!75 = distinct !{!75, !63, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !77 = distinct !{!77, !63}
 !78 = distinct !{!78, !63}
+!79 = distinct !{!79, !63, !76}

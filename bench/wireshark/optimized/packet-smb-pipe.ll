@@ -3187,7 +3187,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %.2 = phi i32 [ %79, %.lr.ph96.split ], [ %85, %.lr.ph92 ]
   %90 = add nuw nsw i32 %.06495, 1
   %exitcond.not = icmp eq i32 %90, %41
-  br i1 %exitcond.not, label %.loopexit85, label %.lr.ph96.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit85, label %.lr.ph96.split, !llvm.loop !20
 
 .loopexit85:                                      ; preds = %.loopexit, %67, %.preheader84, %76
   %.071 = phi i32 [ %77, %76 ], [ 0, %.preheader84 ], [ %.2.us, %67 ], [ %.2, %.loopexit ]
@@ -3804,4 +3804,6 @@ attributes #11 = { noreturn }
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!18 = distinct !{!18, !9, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !9}

@@ -1229,7 +1229,7 @@ _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us: ; preds =
   %add6.i.us = add i64 %add.i.us, %cond.i8
   %15 = ptrtoint ptr %add.ptr.i.i.i.us to i64
   %cmp.i15.us = icmp ugt i64 %add6.i.us, %15
-  br i1 %cmp.i15.us, label %tailrecurse.us, label %if.end.i
+  br i1 %cmp.i15.us, label %tailrecurse.us, label %if.end.i, !llvm.loop !10
 
 entry.split:                                      ; preds = %entry
   %add.i40 = add i64 %align, -8
@@ -1336,7 +1336,7 @@ for.body.i92:                                     ; preds = %if.then4.i88, %for.
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.069) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.069, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated59
-  br i1 %cmp10.i, label %for.body.i92, label %for.end.i91.loopexit, !llvm.loop !10
+  br i1 %cmp10.i, label %for.body.i92, label %for.end.i91.loopexit, !llvm.loop !12
 
 for.end.i91.loopexit:                             ; preds = %for.body.i92
   %.pre.pre = load ptr, ptr %limit_.i43, align 8
@@ -1498,7 +1498,7 @@ for.body.i:                                       ; preds = %if.then4.i, %for.bo
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.028) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.028, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !10
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !12
 
 for.end.i.loopexit:                               ; preds = %for.body.i
   %.pre.pre = load ptr, ptr %limit_.i.i, align 8
@@ -1607,7 +1607,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029) #27
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.029, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr2.i.i
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.body
   %bf.load.i.pre = load i32, ptr %allocated_size_.i.i, align 8
@@ -1671,7 +1671,7 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27: ; preds = %for.end
   %retval.0.i23 = phi i64 [ %conv.i.i26, %if.end.i24 ], [ 0, %for.end14 ]
   %add = add i64 %retval.0.i23, %deallocated.033
   %cmp4.not = icmp eq ptr %2, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit
   %deallocated.0.lcssa = phi i64 [ %retval.0.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ], [ %add, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ]
@@ -1760,12 +1760,12 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit: ; preds = %if.then.i
   %retval.i.0 = phi i64 [ 8, %sw.bb.i ], [ 16, %sw.default.i ], [ 8, %sw.bb1.i ], [ 8, %if.then.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %it.015, i64 %retval.i.0
   %cmp = icmp ult ptr %add.ptr, %add.ptr.i.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit, %do.body
   %13 = load ptr, ptr %b.0, align 8
   %tobool.not = icmp eq ptr %13, null
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !16
 
 do.end:                                           ; preds = %while.end, %entry
   ret void
@@ -2711,22 +2711,22 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.
   %retval.i.0.i.i.i = phi i64 [ 8, %sw.bb.i.i.i.i ], [ 16, %sw.default.i.i.i.i ], [ 8, %sw.bb1.i.i.i.i ], [ 8, %if.then.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.015.i.i.i, i64 %retval.i.0.i.i.i
   %cmp.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i.i2.i.i
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !13
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !15
 
 while.end.i.i.i:                                  ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, %do.body.i.i.i
   %20 = load ptr, ptr %b.0.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !14
+  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !16
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %while.end.i.i.i, %for.body.i.i
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !15
+  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !17
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
   %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %21, 0
-  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !16
+  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !18
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %entry
   %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -2802,12 +2802,12 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.defa
   %retval.i.0.i = phi i64 [ 8, %sw.bb.i.i ], [ 16, %sw.default.i.i ], [ 8, %sw.bb1.i.i ], [ 8, %if.then.i.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.015.i, i64 %retval.i.0.i
   %cmp.i = icmp ult ptr %add.ptr.i, %add.ptr.i.i.i3
-  br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !13
+  br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, %do.body.i
   %35 = load ptr, ptr %b.0.i, align 8
   %tobool.not.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !14
+  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !16
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit: ; preds = %while.end.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
   ret void
@@ -2907,7 +2907,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i.i.i) #27
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %s.029.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr2.i.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !13
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
   %bf.load.i.pre.i.i.i = load i32, ptr %allocated_size_.i.i.i.i.i, align 8
@@ -2971,7 +2971,7 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i: ; preds = %i
   %retval.0.i23.i.i.i = phi i64 [ %conv.i.i26.i.i.i, %if.end.i24.i.i.i ], [ 0, %for.end14.i.i.i ]
   %add.i.i6.i = add i64 %retval.0.i23.i.i.i, %deallocated.033.i.i.i
   %cmp4.not.i.i.i = icmp eq ptr %14, null
-  br i1 %cmp4.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i, !llvm.loop !12
+  br i1 %cmp4.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i: ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i, %for.body.i.i
   %retval.0.i.i = phi i64 [ 0, %for.body.i.i ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ], [ %add.i.i6.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ]
@@ -3002,7 +3002,7 @@ while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.
   %retval.sroa.4.0.us.i.i.i = load i64, ptr %retval.sroa.4.0.in.us.i.i.i, align 8
   %20 = load ptr, ptr %18, align 8
   %tobool.not.us.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.us.i.i.i, label %if.else.i.i.i, label %while.body.us.i.i.i, !llvm.loop !17
+  br i1 %tobool.not.us.i.i.i, label %if.else.i.i.i, label %while.body.us.i.i.i, !llvm.loop !19
 
 while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.i.i, %while.body.i.i.i
   %21 = phi ptr [ %23, %while.body.i.i.i ], [ %17, %while.body.lr.ph.i.i.i ]
@@ -3016,7 +3016,7 @@ while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.
   %retval.sroa.4.0.i.i.i = load i64, ptr %retval.sroa.4.0.in.i.i.i, align 8
   %23 = load ptr, ptr %21, align 8
   %tobool.not.i.i.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i, !llvm.loop !20
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i: ; preds = %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -3039,14 +3039,14 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds
   %add.i.i.i = add i64 %24, %retval.sroa.4.0.lcssa.i.i.i13
   store i64 %add.i.i.i, ptr %space_allocated, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !18
+  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !21
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i, %while.body.i
   tail call void @_ZdlPv(ptr noundef nonnull %chunk.012.i) #27
   %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %25, 0
-  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !19
+  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !22
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
   %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3079,7 +3079,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i2
   %retval.sroa.4.0.us.i = load i64, ptr %retval.sroa.4.0.in.us.i, align 8
   %31 = load ptr, ptr %29, align 8
   %tobool.not.us.i = icmp eq ptr %31, null
-  br i1 %tobool.not.us.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.us.i, !llvm.loop !17
+  br i1 %tobool.not.us.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.us.i, !llvm.loop !19
 
 while.body.i4:                                    ; preds = %while.body.lr.ph.i2, %while.body.i4
   %32 = phi ptr [ %34, %while.body.i4 ], [ %28, %while.body.lr.ph.i2 ]
@@ -3093,7 +3093,7 @@ while.body.i4:                                    ; preds = %while.body.lr.ph.i2
   %retval.sroa.4.0.i = load i64, ptr %retval.sroa.4.0.in.i, align 8
   %34 = load ptr, ptr %32, align 8
   %tobool.not.i6 = icmp eq ptr %34, null
-  br i1 %tobool.not.i6, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.i4, !llvm.loop !17
+  br i1 %tobool.not.i6, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.i4, !llvm.loop !20
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit: ; preds = %while.body.i4, %while.body.us.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit"
   %retval.sroa.0.0.lcssa.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit" ], [ %29, %while.body.us.i ], [ %32, %while.body.i4 ]
@@ -3134,7 +3134,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i) #27
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.029.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i.i.i
-  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %bf.load.i.pre.i = load i32, ptr %allocated_size_.i.i.i, align 8
@@ -3198,7 +3198,7 @@ _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i: ; preds = %if.en
   %retval.0.i23.i = phi i64 [ %conv.i.i26.i, %if.end.i24.i ], [ 0, %for.end14.i ]
   %add.i = add i64 %retval.0.i23.i, %deallocated.033.i
   %cmp4.not.i = icmp eq ptr %4, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !12
+  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !14
 
 return:                                           ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i, %entry
   %retval.0 = phi i64 [ 0, %entry ], [ %retval.0.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ], [ %add.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ]
@@ -3384,7 +3384,7 @@ for.body.i67:                                     ; preds = %if.then4.i63, %for.
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.052) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.052, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated46
-  br i1 %cmp10.i, label %for.body.i67, label %for.end.i66.loopexit, !llvm.loop !10
+  br i1 %cmp10.i, label %for.body.i67, label %for.end.i66.loopexit, !llvm.loop !12
 
 for.end.i66.loopexit:                             ; preds = %for.body.i67
   %.pre.pre = load ptr, ptr %limit_.i, align 8
@@ -3532,7 +3532,7 @@ for.body.i59:                                     ; preds = %if.then4.i55, %for.
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.049) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.049, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated43
-  br i1 %cmp10.i, label %for.body.i59, label %for.end.i58.loopexit, !llvm.loop !10
+  br i1 %cmp10.i, label %for.body.i59, label %for.end.i58.loopexit, !llvm.loop !12
 
 for.end.i58.loopexit:                             ; preds = %for.body.i59
   %.pre.pre = load ptr, ptr %limit_.i, align 8
@@ -3689,7 +3689,7 @@ for.body.i:                                       ; preds = %if.then4.i, %for.bo
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.037) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.037, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !10
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !12
 
 for.end.i.loopexit:                               ; preds = %for.body.i
   %.pre.pre = load ptr, ptr %limit_.i34, align 8
@@ -3827,7 +3827,7 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %for.
   %capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !20
+  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !23
 
 "_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit": ; preds = %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", %entry
   %space_allocated.4 = phi i64 [ %0, %entry ], [ %space_allocated.3, %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i" ]
@@ -3970,7 +3970,7 @@ for.inc.i.i.i:                                    ; preds = %"_ZZNK6google8proto
   %capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load i32, ptr %capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %19, 0
-  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !21
+  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !24
 
 "_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit": ; preds = %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", %_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit
   %space_used.4 = phi i64 [ %retval.0.i, %_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit ], [ %space_used.3, %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i" ]
@@ -4044,15 +4044,15 @@ define void @_ZN6google8protobuf5Arena25PeekCleanupListForTestingEv(ptr noalias 
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %last_lifecycle_id_seen.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load i64, ptr %last_lifecycle_id_seen.i.i.i, align 8, !noalias !22
-  %2 = load i64, ptr %this, align 8, !noalias !22
+  %1 = load i64, ptr %last_lifecycle_id_seen.i.i.i, align 8, !noalias !25
+  %2 = load i64, ptr %this, align 8, !noalias !25
   %cmp.i.not.i.i = icmp eq i64 %1, %2
   %last_serial_arena.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %last_serial_arena.i.i.i, align 16, !noalias !22
+  %3 = load ptr, ptr %last_serial_arena.i.i.i, align 16, !noalias !25
   br i1 %cmp.i.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16), !noalias !22
+  %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16), !noalias !25
   br label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit: ; preds = %entry, %if.then.i.i
@@ -4204,8 +4204,8 @@ attributes #33 = { builtin allocsize(0) }
 !7 = !{i64 5932476}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -4213,9 +4213,12 @@ attributes #33 = { builtin allocsize(0) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!19 = distinct !{!19, !5, !11}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv: %agg.result"}
-!24 = distinct !{!24, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv"}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv: %agg.result"}
+!27 = distinct !{!27, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv"}

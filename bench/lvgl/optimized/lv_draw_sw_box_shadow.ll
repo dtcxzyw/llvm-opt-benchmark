@@ -676,7 +676,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %346 = add nsw i32 %.2368458, 1
   %347 = load i32, ptr %323, align 4, !tbaa !20
   %.not404.not = icmp slt i32 %.2368458, %347
-  br i1 %.not404.not, label %.lr.ph461.split, label %.loopexit446, !llvm.loop !48
+  br i1 %.not404.not, label %.lr.ph461.split, label %.loopexit446, !llvm.loop !50
 
 .loopexit446:                                     ; preds = %.lr.ph461.split, %336, %318, %316, %301, %.loopexit447
   %348 = load i8, ptr %51, align 8, !tbaa !22
@@ -781,7 +781,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %402 = add nsw i32 %.3369463, -1
   %403 = load i32, ptr %378, align 4, !tbaa !18
   %.not407.not = icmp sgt i32 %.3369463, %403
-  br i1 %.not407.not, label %383, label %.loopexit445, !llvm.loop !49
+  br i1 %.not407.not, label %383, label %.loopexit445, !llvm.loop !51
 
 .loopexit445:                                     ; preds = %400, %372, %360, %358, %.loopexit446
   %404 = load i8, ptr %51, align 8, !tbaa !22
@@ -876,7 +876,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %452 = add nsw i32 %.4370468, 1
   %453 = load i32, ptr %442, align 4, !tbaa !20
   %.not410.not = icmp slt i32 %.4370468, %453
-  br i1 %.not410.not, label %445, label %.loopexit444, !llvm.loop !50
+  br i1 %.not410.not, label %445, label %.loopexit444, !llvm.loop !52
 
 .loopexit444:                                     ; preds = %451, %435, %.thread427, %416, %.loopexit445
   %454 = icmp sgt i32 %88, 0
@@ -909,12 +909,12 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %461 = getelementptr inbounds nuw i8, ptr %.0363471.us, i64 1
   %462 = add nuw nsw i32 %.0364470.us, 1
   %exitcond.not = icmp eq i32 %462, %456
-  br i1 %exitcond.not, label %._crit_edge.us, label %458, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge.us, label %458, !llvm.loop !53
 
 ._crit_edge.us:                                   ; preds = %458
   %463 = add nuw nsw i32 %.5371474.us, 1
   %exitcond497.not = icmp eq i32 %463, %88
-  br i1 %exitcond497.not, label %._crit_edge478, label %.lr.ph473.us, !llvm.loop !52
+  br i1 %exitcond497.not, label %._crit_edge478, label %.lr.ph473.us, !llvm.loop !54
 
 ._crit_edge478:                                   ; preds = %._crit_edge.us, %.lr.ph477, %.loopexit444
   %464 = load i32, ptr %7, align 4, !tbaa !3
@@ -1005,7 +1005,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %510 = add nsw i32 %.6372480, 1
   %511 = load i32, ptr %500, align 4, !tbaa !20
   %.not411.not = icmp slt i32 %.6372480, %511
-  br i1 %.not411.not, label %503, label %.loopexit443, !llvm.loop !53
+  br i1 %.not411.not, label %503, label %.loopexit443, !llvm.loop !55
 
 .loopexit443:                                     ; preds = %509, %493, %.thread433, %475, %._crit_edge478
   %512 = load i32, ptr %7, align 4, !tbaa !3
@@ -1099,7 +1099,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %559 = add nsw i32 %.7483, 1
   %560 = load i32, ptr %547, align 4, !tbaa !20
   %.not412.not = icmp slt i32 %.7483, %560
-  br i1 %.not412.not, label %550, label %.loopexit442, !llvm.loop !54
+  br i1 %.not412.not, label %550, label %.loopexit442, !llvm.loop !56
 
 .loopexit442:                                     ; preds = %557, %541, %539, %519, %.loopexit443
   %561 = load i32, ptr %7, align 4, !tbaa !3
@@ -1194,7 +1194,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %609 = add nsw i32 %.8487, -1
   %610 = load i32, ptr %597, align 4, !tbaa !18
   %.not413.not = icmp sgt i32 %.8487, %610
-  br i1 %.not413.not, label %600, label %.loopexit441, !llvm.loop !55
+  br i1 %.not413.not, label %600, label %.loopexit441, !llvm.loop !57
 
 .loopexit441:                                     ; preds = %607, %591, %589, %569, %.loopexit442
   %611 = load i32, ptr %7, align 4, !tbaa !3
@@ -1254,7 +1254,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %640 = add nsw i32 %.9491, 1
   %641 = load i32, ptr %633, align 4, !tbaa !20
   %.not414.not = icmp slt i32 %.9491, %641
-  br i1 %.not414.not, label %637, label %.loopexit, !llvm.loop !56
+  br i1 %.not414.not, label %637, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %637, %627, %624, %622, %.loopexit441
   br i1 %.not399, label %642, label %643
@@ -1376,14 +1376,14 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %.0113.us = zext i16 %.0113.in.us to i32
   %31 = add i32 %28, %.0113.us
   %32 = icmp sgt i64 %indvars.iv.in, 1
-  br i1 %32, label %18, label %._crit_edge.us, !llvm.loop !57
+  br i1 %32, label %18, label %._crit_edge.us, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %27
   %33 = tail call ptr @lv_memcpy(ptr noundef nonnull %.0116134.us, ptr noundef nonnull %8, i64 noundef %7) #6
   %34 = getelementptr inbounds nuw i16, ptr %.0116134.us, i64 %6
   %35 = add nuw nsw i32 %.0118133.us, 1
   %exitcond.not = icmp eq i32 %35, %0
-  br i1 %exitcond.not, label %._crit_edge137, label %.lr.ph.us, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge137, label %.lr.ph.us, !llvm.loop !60
 
 ._crit_edge137:                                   ; preds = %._crit_edge.us, %3
   %36 = mul i32 %0, %0
@@ -1418,7 +1418,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 ._crit_edge.us149:                                ; preds = %.lr.ph145.us
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count176
-  br i1 %exitcond177.not, label %._crit_edge148, label %.lr.ph142.us, !llvm.loop !59
+  br i1 %exitcond177.not, label %._crit_edge148, label %.lr.ph142.us, !llvm.loop !61
 
 .lr.ph145.us:                                     ; preds = %49, %.lr.ph145.us
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %.lr.ph145.us ], [ 0, %49 ]
@@ -1429,7 +1429,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %48 = getelementptr inbounds nuw i16, ptr %.2144.us, i64 %6
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count176
-  br i1 %exitcond171.not, label %._crit_edge.us149, label %.lr.ph145.us, !llvm.loop !60
+  br i1 %exitcond171.not, label %._crit_edge.us149, label %.lr.ph145.us, !llvm.loop !62
 
 49:                                               ; preds = %.lr.ph142.us, %49
   %indvars.iv162 = phi i64 [ 0, %.lr.ph142.us ], [ %indvars.iv.next163, %49 ]
@@ -1460,7 +1460,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %62 = getelementptr inbounds nuw i16, ptr %.1117140.us, i64 %6
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count176
-  br i1 %exitcond166.not, label %.lr.ph145.us, label %49, !llvm.loop !61
+  br i1 %exitcond166.not, label %.lr.ph145.us, label %49, !llvm.loop !63
 
 63:                                               ; preds = %.lr.ph, %69
   %indvars.iv158 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next159, %69 ]
@@ -1485,7 +1485,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 69:                                               ; preds = %.sink.split, %63
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
-  br i1 %exitcond161.not, label %.preheader130, label %63, !llvm.loop !62
+  br i1 %exitcond161.not, label %.preheader130, label %63, !llvm.loop !64
 
 ._crit_edge148:                                   ; preds = %._crit_edge.us149, %.preheader130
   tail call void @lv_free(ptr noundef %8) #6
@@ -1559,18 +1559,20 @@ attributes #6 = { nounwind }
 !45 = !{!39, !5, i64 48}
 !46 = distinct !{!46, !32}
 !47 = distinct !{!47, !32}
-!48 = distinct !{!48, !32}
-!49 = distinct !{!49, !32}
+!48 = distinct !{!48, !32, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !50 = distinct !{!50, !32}
 !51 = distinct !{!51, !32}
 !52 = distinct !{!52, !32}
 !53 = distinct !{!53, !32}
-!54 = distinct !{!54, !32}
+!54 = distinct !{!54, !32, !49}
 !55 = distinct !{!55, !32}
 !56 = distinct !{!56, !32}
 !57 = distinct !{!57, !32}
 !58 = distinct !{!58, !32}
 !59 = distinct !{!59, !32}
-!60 = distinct !{!60, !32}
-!61 = distinct !{!61, !32}
+!60 = distinct !{!60, !32, !49}
+!61 = distinct !{!61, !32, !49}
 !62 = distinct !{!62, !32}
+!63 = distinct !{!63, !32}
+!64 = distinct !{!64, !32}

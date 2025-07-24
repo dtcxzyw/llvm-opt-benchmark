@@ -1257,7 +1257,7 @@ ClearOrSaveResult.exit174:                        ; preds = %274, %285, %287
   %289 = call ptr @PQgetResult(ptr noundef %288) #16
   %290 = call i32 @PQresultStatus(ptr noundef %289) #16
   %291 = icmp eq i32 %290, 12
-  br i1 %291, label %.split, label %.split294.us.loopexit, !llvm.loop !8
+  br i1 %291, label %.split, label %.split294.us.loopexit, !llvm.loop !10
 
 .split294.us.loopexit:                            ; preds = %ClearOrSaveResult.exit174
   %292 = icmp eq i32 %.1, 0
@@ -1796,7 +1796,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 1024
   %.not.i = icmp eq i16 %69, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   switch i32 %61, label %command_no_begin.exit.thread115 [
@@ -1869,7 +1869,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %108 = load i16, ptr %107, align 2
   %109 = and i16 %108, 1024
   %.not153.i = icmp eq i16 %109, 0
-  br i1 %.not153.i, label %._crit_edge236.i, label %.lr.ph235.i, !llvm.loop !10
+  br i1 %.not153.i, label %._crit_edge236.i, label %.lr.ph235.i, !llvm.loop !12
 
 ._crit_edge236.i:                                 ; preds = %.lr.ph235.i
   %110 = icmp eq i32 %101, 11
@@ -1921,7 +1921,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %139 = load i16, ptr %138, align 2
   %140 = and i16 %139, 1024
   %.not149.i = icmp eq i16 %140, 0
-  br i1 %.not149.i, label %._crit_edge242.i, label %.lr.ph241.i, !llvm.loop !11
+  br i1 %.not149.i, label %._crit_edge242.i, label %.lr.ph241.i, !llvm.loop !13
 
 ._crit_edge242.i:                                 ; preds = %.lr.ph241.i
   switch i32 %132, label %.loopexit.i [
@@ -1971,7 +1971,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %168 = load i16, ptr %167, align 2
   %169 = and i16 %168, 1024
   %.not150.i = icmp eq i16 %169, 0
-  br i1 %.not150.i, label %.loopexit.i, label %.lr.ph248.i, !llvm.loop !12
+  br i1 %.not150.i, label %.loopexit.i, label %.lr.ph248.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph248.i, %._crit_edge242.i
   %.0141.i = phi ptr [ %122, %._crit_edge242.i ], [ %151, %.lr.ph248.i ]
@@ -2011,7 +2011,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 1024
   %.not151.i = icmp eq i16 %194, 0
-  br i1 %.not151.i, label %._crit_edge254.i, label %.lr.ph253.i, !llvm.loop !13
+  br i1 %.not151.i, label %._crit_edge254.i, label %.lr.ph253.i, !llvm.loop !15
 
 ._crit_edge254.i:                                 ; preds = %.lr.ph253.i
   %195 = icmp eq i32 %186, 12
@@ -2053,7 +2053,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %220 = load i16, ptr %219, align 2
   %221 = and i16 %220, 1024
   %.not148.i = icmp eq i16 %221, 0
-  br i1 %.not148.i, label %._crit_edge260.i, label %.lr.ph259.i, !llvm.loop !14
+  br i1 %.not148.i, label %._crit_edge260.i, label %.lr.ph259.i, !llvm.loop !16
 
 ._crit_edge260.i:                                 ; preds = %.lr.ph259.i
   %222 = icmp eq i32 %213, 6
@@ -2100,7 +2100,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %249 = load i16, ptr %248, align 2
   %250 = and i16 %249, 1024
   %.not145.i = icmp eq i16 %250, 0
-  br i1 %.not145.i, label %._crit_edge217.i, label %.lr.ph216.i, !llvm.loop !15
+  br i1 %.not145.i, label %._crit_edge217.i, label %.lr.ph216.i, !llvm.loop !17
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i
   switch i32 %242, label %command_no_begin.exit.thread115 [
@@ -2161,7 +2161,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %284 = load i16, ptr %283, align 2
   %285 = and i16 %284, 1024
   %.not146.i = icmp eq i16 %285, 0
-  br i1 %.not146.i, label %._crit_edge224.i, label %.lr.ph223.i, !llvm.loop !16
+  br i1 %.not146.i, label %._crit_edge224.i, label %.lr.ph223.i, !llvm.loop !18
 
 ._crit_edge224.i:                                 ; preds = %.lr.ph223.i
   switch i32 %277, label %command_no_begin.exit.thread115 [
@@ -2207,7 +2207,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %310 = load i16, ptr %309, align 2
   %311 = and i16 %310, 1024
   %.not147.i = icmp eq i16 %311, 0
-  br i1 %.not147.i, label %._crit_edge230.i, label %.lr.ph229.i, !llvm.loop !17
+  br i1 %.not147.i, label %._crit_edge230.i, label %.lr.ph229.i, !llvm.loop !19
 
 ._crit_edge230.i:                                 ; preds = %.lr.ph229.i
   %312 = icmp eq i32 %303, 12
@@ -2249,7 +2249,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %337 = load i16, ptr %336, align 2
   %338 = and i16 %337, 1024
   %.not144.i = icmp eq i16 %338, 0
-  br i1 %.not144.i, label %._crit_edge211.i, label %.lr.ph210.i, !llvm.loop !18
+  br i1 %.not144.i, label %._crit_edge211.i, label %.lr.ph210.i, !llvm.loop !20
 
 ._crit_edge211.i:                                 ; preds = %.lr.ph210.i
   %339 = icmp eq i32 %330, 3
@@ -2554,7 +2554,7 @@ ClearOrSaveResult.exit:                           ; preds = %368, %366, %362
   %467 = add nuw nsw i32 %.054.i173, 1
   %468 = call i32 @PQnfields(ptr noundef nonnull %438) #16
   %.not61.i = icmp slt i32 %467, %468
-  br i1 %.not61.i, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %.not61.i, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %464, %454
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.42) #16
@@ -2778,7 +2778,7 @@ select.unfold152:                                 ; preds = %.thread146
   %566 = load ptr, ptr @pset, align 8
   %567 = call ptr @PQnotifies(ptr noundef %566) #16
   %.not.i102 = icmp eq ptr %567, null
-  br i1 %.not.i102, label %ClearOrSaveResult.exit93, label %.lr.ph.i101, !llvm.loop !20
+  br i1 %.not.i102, label %ClearOrSaveResult.exit93, label %.lr.ph.i101, !llvm.loop !22
 
 ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %527, %361, %359, %353, %544, %383, %389, %391, %.thread, %11
   %.049.shrunk = phi i1 [ false, %11 ], [ false, %.thread ], [ false, %391 ], [ false, %389 ], [ false, %383 ], [ %.2.shrunk, %544 ], [ false, %353 ], [ false, %359 ], [ false, %361 ], [ false, %527 ], [ false, %525 ], [ false, %519 ], [ %.2.shrunk, %561 ]
@@ -2827,7 +2827,7 @@ ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %5
   store ptr null, ptr %578, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %580, label %577, !llvm.loop !21
+  br i1 %exitcond.not, label %580, label %577, !llvm.loop !23
 
 580:                                              ; preds = %577
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
@@ -2888,7 +2888,7 @@ define dso_local void @clean_extended_state() local_unnamed_addr #0 {
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 248), align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
@@ -3038,7 +3038,7 @@ define dso_local void @expand_tilde(ptr noundef captures(address_is_null) %0) lo
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %10, !llvm.loop !23
+  br label %10, !llvm.loop !25
 
 .critedge:                                        ; preds = %10, %10
   store i8 0, ptr %.0, align 1
@@ -3335,7 +3335,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   %32 = add nuw nsw i32 %.02127.i, 1
   %33 = tail call i32 @PQnfields(ptr noundef nonnull %0) #16
   %34 = icmp slt i32 %32, %33
-  br i1 %34, label %.lr.ph.i, label %StoreQueryTuple.exit, !llvm.loop !24
+  br i1 %34, label %.lr.ph.i, label %StoreQueryTuple.exit, !llvm.loop !26
 
 .loopexit.sink.split.i:                           ; preds = %14, %11
   %.str.52.sink.i = phi ptr [ @.str.51, %11 ], [ @.str.52, %14 ]
@@ -3468,12 +3468,12 @@ define internal fastcc zeroext i1 @ExecQueryTuples(ptr noundef nonnull %0) unnam
   %.5.us = phi i1 [ %.131.us, %6 ], [ false, %22 ], [ %.131.us, %20 ]
   %25 = add nuw nsw i32 %.02032.us, 1
   %exitcond.not = icmp eq i32 %25, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %6, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %6, !llvm.loop !27
 
 ._crit_edge.us:                                   ; preds = %.thread.us
   %26 = add nuw nsw i32 %.02134.us, 1
   %exitcond39.not = icmp eq i32 %26, %2
-  br i1 %exitcond39.not, label %select.unfold, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond39.not, label %select.unfold, label %.preheader.us, !llvm.loop !28
 
 select.unfold:                                    ; preds = %._crit_edge.us, %22, %8, %1
   %.4 = phi i1 [ true, %1 ], [ false, %22 ], [ %.131.us, %8 ], [ %.5.us, %._crit_edge.us ]
@@ -3729,7 +3729,7 @@ define internal fastcc noundef ptr @skip_white_space(ptr noundef %0) unnamed_add
   %51 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3, i32 noundef %50) #16
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %.3, i64 %52
-  br label %45, !llvm.loop !27
+  br label %45, !llvm.loop !29
 
 .thread34:                                        ; preds = %.thread, %27, %29
   %54 = sext i32 %4 to i64
@@ -3790,8 +3790,8 @@ attributes #20 = { cold noreturn nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -3810,3 +3810,5 @@ attributes #20 = { cold noreturn nounwind }
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7, !9}
+!29 = distinct !{!29, !7}

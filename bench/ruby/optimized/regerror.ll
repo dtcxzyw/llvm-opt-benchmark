@@ -594,7 +594,7 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
 to_ascii.exit.split.backedge:                     ; preds = %132, %129
   %.032.be = phi ptr [ %131, %129 ], [ %134, %132 ]
   %.030.be = phi ptr [ %130, %129 ], [ %135, %132 ]
-  br label %to_ascii.exit.split, !llvm.loop !29
+  br label %to_ascii.exit.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %to_ascii.exit.split, %to_ascii.exit.split.us
   %.us-phi = phi ptr [ %.030.us, %to_ascii.exit.split.us ], [ %.030, %to_ascii.exit.split ]
@@ -712,12 +712,12 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   %44 = getelementptr i8, ptr %.172104, i64 1
   store i8 %43, ptr %.172104, align 1, !tbaa !21
   %45 = icmp samesign ugt i32 %.078102, 1
-  br i1 %45, label %.lr.ph105, label %.loopexit89, !llvm.loop !30
+  br i1 %45, label %.lr.ph105, label %.loopexit89, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99
   %.3.lcssa = phi ptr [ %.298, %.lr.ph99 ], [ %57, %.lr.ph ]
   %46 = icmp samesign ugt i32 %.in, 1
-  br i1 %46, label %.lr.ph99, label %.loopexit89, !llvm.loop !31
+  br i1 %46, label %.lr.ph99, label %.loopexit89, !llvm.loop !33
 
 .lr.ph99:                                         ; preds = %.preheader92, %.loopexit
   %.in = phi i32 [ %47, %.loopexit ], [ %38, %.preheader92 ]
@@ -745,7 +745,7 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   %57 = getelementptr i8, ptr %.394, i64 1
   store i8 %56, ptr %.394, align 1, !tbaa !21
   %exitcond.not = icmp eq ptr %.07095, %gep
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 58:                                               ; preds = %28
   %59 = load i8, ptr %.073120, align 1, !tbaa !21
@@ -790,7 +790,7 @@ select.unfold:                                    ; preds = %65, %67
   store i8 %73, ptr %.5111, align 1, !tbaa !21
   %.5 = getelementptr i8, ptr %.5111, i64 1
   %74 = icmp samesign ugt i32 %.280109, 1
-  br i1 %74, label %.lr.ph112, label %.loopexit89, !llvm.loop !33
+  br i1 %74, label %.lr.ph112, label %.loopexit89, !llvm.loop !35
 
 75:                                               ; preds = %58
   %76 = getelementptr i8, ptr %.071121, i64 1
@@ -803,13 +803,13 @@ select.unfold:                                    ; preds = %65, %67
 
 80:                                               ; preds = %58
   %81 = zext i8 %59 to i32
-  %82 = load ptr, ptr %27, align 8, !tbaa !34
+  %82 = load ptr, ptr %27, align 8, !tbaa !36
   %83 = call i32 %82(i32 noundef %81, i32 noundef 7, ptr noundef %2) #8
   %.not86 = icmp eq i32 %83, 0
   br i1 %.not86, label %84, label %105
 
 84:                                               ; preds = %80
-  %85 = load ptr, ptr %27, align 8, !tbaa !34
+  %85 = load ptr, ptr %27, align 8, !tbaa !36
   %86 = load i8, ptr %.073120, align 1, !tbaa !21
   %87 = zext i8 %86 to i32
   %88 = call i32 %85(i32 noundef %87, i32 noundef 9, ptr noundef nonnull %2) #8
@@ -817,7 +817,7 @@ select.unfold:                                    ; preds = %65, %67
   br i1 %.not87, label %94, label %89
 
 89:                                               ; preds = %84
-  %90 = load ptr, ptr %27, align 8, !tbaa !34
+  %90 = load ptr, ptr %27, align 8, !tbaa !36
   %91 = load i8, ptr %.073120, align 1, !tbaa !21
   %92 = zext i8 %91 to i32
   %93 = call i32 %90(i32 noundef %92, i32 noundef 3, ptr noundef nonnull %2) #8
@@ -846,7 +846,7 @@ select.unfold:                                    ; preds = %65, %67
   %104 = getelementptr i8, ptr %.6116, i64 1
   store i8 %103, ptr %.6116, align 1, !tbaa !21
   %exitcond133.not = icmp eq ptr %.1117, %gep165
-  br i1 %exitcond133.not, label %.loopexit89, label %.lr.ph118, !llvm.loop !35
+  br i1 %exitcond133.not, label %.loopexit89, label %.lr.ph118, !llvm.loop !37
 
 105:                                              ; preds = %89, %80
   %106 = getelementptr i8, ptr %.073120, i64 1
@@ -859,7 +859,7 @@ select.unfold:                                    ; preds = %65, %67
   %.376 = phi ptr [ %77, %75 ], [ %106, %105 ], [ %95, %94 ], [ %61, %select.unfold ], [ %.073120, %.preheader ], [ %.073120, %.preheader92 ], [ %61, %.thread ], [ %95, %.lr.ph118 ], [ %72, %.lr.ph112 ], [ %42, %.lr.ph105 ], [ %48, %.loopexit ]
   %.4 = phi ptr [ %79, %75 ], [ %108, %105 ], [ %.071121, %94 ], [ %.5108, %select.unfold ], [ %.071121, %.preheader ], [ %.071121, %.preheader92 ], [ %.5108134, %.thread ], [ %104, %.lr.ph118 ], [ %.5, %.lr.ph112 ], [ %44, %.lr.ph105 ], [ %.3.lcssa, %.loopexit ]
   %109 = icmp ult ptr %.376, %4
-  br i1 %109, label %28, label %._crit_edge, !llvm.loop !36
+  br i1 %109, label %28, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.loopexit89, %19
   %.071.lcssa = phi ptr [ %23, %19 ], [ %.4, %.loopexit89 ]
@@ -929,11 +929,13 @@ attributes #8 = { nounwind }
 !26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
 !27 = distinct !{!27, !"memcpy.inline"}
 !28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
+!29 = distinct !{!29, !24, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !31 = distinct !{!31, !24}
 !32 = distinct !{!32, !24}
 !33 = distinct !{!33, !24}
-!34 = !{!18, !8, i64 88}
+!34 = distinct !{!34, !24}
 !35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}
+!36 = !{!18, !8, i64 88}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}

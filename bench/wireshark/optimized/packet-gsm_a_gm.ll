@@ -9728,7 +9728,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %171 = sub i32 %.3336.lcssa, %.0333398
   tail call void @proto_item_set_len(ptr noundef %43, i32 noundef %171)
   %172 = icmp samesign ult i32 %indvars.iv.next, %23
-  br i1 %172, label %.lr.ph399.split, label %._crit_edge, !llvm.loop !12
+  br i1 %172, label %.lr.ph399.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit373, %25, %7
   %.0339.lcssa = phi i32 [ %18, %7 ], [ %40, %25 ], [ %.3342.lcssa, %.loopexit373 ]
@@ -9789,7 +9789,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %182, i32 noundef %200, ptr noundef %0, i32 noundef %197, i32 noundef 1, i32 noundef %202, ptr noundef nonnull @.str.156, i32 noundef %.0356405, i32 noundef %202, i32 noundef %201)
   %204 = add nuw nsw i32 %.0356405, 1
   %exitcond.not = icmp eq i32 %204, %178
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph406, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph406, !llvm.loop !15
 
 205:                                              ; preds = %.preheader371
   %206 = load i32, ptr @hf_gsm_a_sm_tft_parameter_content, align 4
@@ -9801,7 +9801,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %209 = sub i32 %187, %178
   %210 = add i8 %.4352407, 1
   %.not = icmp eq i32 %209, 0
-  br i1 %.not, label %.loopexit372, label %.preheader371, !llvm.loop !14
+  br i1 %.not, label %.loopexit372, label %.preheader371, !llvm.loop !16
 
 .loopexit372:                                     ; preds = %.loopexit, %._crit_edge
   %.6 = phi i32 [ %.0333.lcssa, %._crit_edge ], [ %208, %.loopexit ]
@@ -10078,7 +10078,7 @@ define internal zeroext i16 @de_gmm_rec_npdu_lst(ptr noundef %0, ptr noundef %1,
   %.151 = phi i32 [ %34, %25 ], [ %23, %.preheader ]
   %.1 = phi i32 [ %29, %25 ], [ %14, %.preheader ]
   %36 = icmp ugt i32 %.1, 1
-  br i1 %36, label %.preheader, label %37, !llvm.loop !15
+  br i1 %36, label %.preheader, label %37, !llvm.loop !17
 
 37:                                               ; preds = %35
   %38 = sub i32 %.151, %3
@@ -10727,7 +10727,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
   %22 = lshr i8 %.135, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !16
+  br i1 %exitcond.not, label %23, label %9, !llvm.loop !18
 
 23:                                               ; preds = %14
   %24 = add i32 %.1, 1
@@ -10836,13 +10836,13 @@ define internal noundef zeroext i16 @de_gc_mbms_context_stat(ptr noundef %0, ptr
   %20 = lshr i8 %.01823, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %21, label %11, !llvm.loop !19
 
 21:                                               ; preds = %11
   %22 = add i32 %.02025, 1
   %23 = add nuw i32 %.01926, 1
   %exitcond28.not = icmp eq i32 %23, %4
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %21, %7
   %24 = trunc i32 %4 to i16
@@ -10992,7 +10992,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.preheader21, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader21, label %8, !llvm.loop !21
 
 .preheader21:                                     ; preds = %8, %.preheader21
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader21 ], [ 31, %8 ]
@@ -11003,7 +11003,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next35, 30
-  br i1 %exitcond41.not, label %.preheader, label %.preheader21, !llvm.loop !20
+  br i1 %exitcond41.not, label %.preheader, label %.preheader21, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader21, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 61, %.preheader21 ]
@@ -11014,7 +11014,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next43, 77
-  br i1 %exitcond49.not, label %15, label %.preheader, !llvm.loop !21
+  br i1 %exitcond49.not, label %15, label %.preheader, !llvm.loop !23
 
 15:                                               ; preds = %.preheader
   %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.872, ptr noundef nonnull @.str.873)
@@ -15414,8 +15414,8 @@ attributes #6 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
@@ -15424,3 +15424,5 @@ attributes #6 = { nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

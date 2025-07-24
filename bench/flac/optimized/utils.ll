@@ -1269,7 +1269,7 @@ define dso_local void @write_vc_fields(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %.lr.ph.split, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph.split.us, %.thread, %7
   ret void
@@ -1333,4 +1333,6 @@ attributes #17 = { nounwind willreturn memory(none) }
 !21 = !{!22, !10, i64 8}
 !22 = !{!"", !20, i64 0, !10, i64 8}
 !23 = !{!22, !20, i64 0}
-!24 = distinct !{!24, !17}
+!24 = distinct !{!24, !17, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !17}

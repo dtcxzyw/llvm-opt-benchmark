@@ -544,7 +544,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %71 = load volatile i8, ptr %70, align 1, !tbaa !3
   store volatile i8 %68, ptr %67, align 1, !tbaa !3
   %exitcond34.not.i = icmp eq i64 %69, %54
-  br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !23
+  br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !26
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %.028.i = phi i64 [ %76, %.preheader.split.i ], [ 0, %.preheader.i ]
@@ -555,7 +555,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   store volatile i8 %75, ptr %55, align 1, !tbaa !3
   %76 = add nuw i64 %.028.i, 1
   %exitcond36.not.i = icmp eq i64 %76, %7
-  br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !24
+  br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !27
 
 _ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i, %._crit_edge70
   %.not = icmp eq i64 %3, 0
@@ -618,4 +618,7 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!24 = distinct !{!24, !7, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !7, !25}
+!27 = distinct !{!27, !7}

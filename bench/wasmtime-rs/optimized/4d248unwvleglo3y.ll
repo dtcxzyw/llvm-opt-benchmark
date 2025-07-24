@@ -2780,8 +2780,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   %103 = add i64 %102, %.sroa.6.0.i.i.i
   %104 = icmp ugt i64 %103, %83
   %105 = add i64 %.sroa.6.0.i.i.i, %87
-  %or.cond.i.i.not.i = icmp ult i64 %105, %83
-  br i1 %or.cond.i.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE.exit.i.i.i", label %106
+  %or.cond83.i.i.not.i = icmp ult i64 %105, %83
+  br i1 %or.cond83.i.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE.exit.i.i.i", label %106
 
 106:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE.exit.i.i.i", %101
   br i1 %104, label %.split.us.i.i.i.loopexit, label %.lr.ph.split.split.i.i.i

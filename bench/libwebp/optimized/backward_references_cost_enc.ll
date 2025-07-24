@@ -1060,7 +1060,7 @@ UpdateCostAtIndex.exit140.i:                      ; preds = %UpdateCost.exit.us.
 
 486:                                              ; preds = %480
   %487 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 24
-  %488 = load ptr, ptr %487, align 8, !tbaa !59
+  %488 = load ptr, ptr %487, align 8, !tbaa !60
   %.not.i.i.i.i = icmp eq ptr %488, null
   br i1 %.not.i.i.i.i, label %491, label %489
 
@@ -1079,7 +1079,7 @@ UpdateCostAtIndex.exit140.i:                      ; preds = %UpdateCost.exit.us.
 
 493:                                              ; preds = %492
   %494 = getelementptr inbounds nuw i8, ptr %482, i64 24
-  store ptr %488, ptr %494, align 8, !tbaa !59
+  store ptr %488, ptr %494, align 8, !tbaa !60
   br label %PopInterval.exit.i.i
 
 PopInterval.exit.i.i:                             ; preds = %493, %492
@@ -1088,8 +1088,8 @@ PopInterval.exit.i.i:                             ; preds = %493, %492
   %.not15.i.i.i = select i1 %495, i1 true, i1 %496
   %..i.i.i = select i1 %.not15.i.i.i, i64 33216, i64 33208
   %497 = getelementptr inbounds nuw i8, ptr %24, i64 %..i.i.i
-  %498 = load ptr, ptr %497, align 8, !tbaa !60
-  store ptr %.019.i.i, ptr %497, align 8, !tbaa !60
+  %498 = load ptr, ptr %497, align 8, !tbaa !61
+  store ptr %.019.i.i, ptr %497, align 8, !tbaa !61
   store ptr %498, ptr %481, align 8, !tbaa !34
   %499 = load i32, ptr %204, align 8, !tbaa !32
   %500 = add nsw i32 %499, -1
@@ -1118,16 +1118,16 @@ PopInterval.exit.i.i:                             ; preds = %493, %492
 
 UpdateCost.exit.i.i:                              ; preds = %507, %501, %PopInterval.exit.i.i
   %.not.i143.i = icmp eq ptr %482, null
-  br i1 %.not.i143.i, label %UpdateCostAtIndex.exit144.i, label %.lr.ph.split.i.i, !llvm.loop !58
+  br i1 %.not.i143.i, label %UpdateCostAtIndex.exit144.i, label %.lr.ph.split.i.i, !llvm.loop !62
 
 UpdateCostAtIndex.exit144.i:                      ; preds = %UpdateCost.exit.i.i, %.lr.ph.split.i.i, %475
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %322, !llvm.loop !61
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %322, !llvm.loop !63
 
 ._crit_edge.i:                                    ; preds = %UpdateCostAtIndex.exit144.i, %AddSingleLiteralWithCostModel.exit.i
   %515 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %516 = load i32, ptr %515, align 4, !tbaa !62
+  %516 = load i32, ptr %515, align 4, !tbaa !64
   %.not100.i = icmp eq i32 %516, 0
   %517 = zext i1 %.not100.i to i32
   br label %518
@@ -1169,7 +1169,7 @@ BackwardReferencesHashChainDistanceOnly.exit:     ; preds = %15, %30, %518, %519
   %526 = sub nsw i64 0, %525
   %527 = getelementptr inbounds i16, ptr %.01719.i, i64 %526
   %.not.i22 = icmp ult ptr %527, %13
-  br i1 %.not.i22, label %TraceBackwards.exit, label %.lr.ph.i21, !llvm.loop !65
+  br i1 %.not.i22, label %TraceBackwards.exit, label %.lr.ph.i21, !llvm.loop !67
 
 TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.0.lcssa.i = phi ptr [ %521, %520 ], [ %524, %.lr.ph.i21 ]
@@ -1193,7 +1193,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
 
 ._crit_edge.i33.thread:                           ; preds = %535
   %537 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %538 = load i32, ptr %537, align 4, !tbaa !62
+  %538 = load i32, ptr %537, align 4, !tbaa !64
   %.not52.i36 = icmp eq i32 %538, 0
   br label %BackwardReferencesHashChainFollowChosenPath.exit
 
@@ -1204,7 +1204,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
 
 ._crit_edge.thread.i:                             ; preds = %.thread.i
   %540 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %541 = load i32, ptr %540, align 4, !tbaa !62
+  %541 = load i32, ptr %540, align 4, !tbaa !64
   %.not5290.i = icmp eq i32 %541, 0
   br label %583
 
@@ -1255,7 +1255,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.1.us.i = add nuw nsw i32 %.04273.us.i, %545
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count88.i
-  br i1 %exitcond89.not.i, label %._crit_edge.i33, label %.lr.ph76.split.us.i, !llvm.loop !66
+  br i1 %exitcond89.not.i, label %._crit_edge.i33, label %.lr.ph76.split.us.i, !llvm.loop !68
 
 .lr.ph76.split.i:                                 ; preds = %.loopexit.i31, %.lr.ph76.split.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph76.split.preheader.i ], [ %indvars.iv.next81.i, %.loopexit.i31 ]
@@ -1283,7 +1283,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   br i1 %.not77.i, label %.loopexit.i31, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.preheader.i25
-  %.val56.i = load ptr, ptr %8, align 8, !tbaa !67
+  %.val56.i = load ptr, ptr %8, align 8, !tbaa !69
   %invariant.gep.i = getelementptr inbounds nuw i32, ptr %2, i64 %558
   br label %562
 
@@ -1291,7 +1291,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %562 ]
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i28
   %563 = load i32, ptr %gep.i, align 4, !tbaa !20
-  %.val57.i = load i32, ptr %542, align 8, !tbaa !69
+  %.val57.i = load i32, ptr %542, align 8, !tbaa !71
   %564 = mul i32 %563, 506832829
   %565 = lshr i32 %564, %.val57.i
   %566 = sext i32 %565 to i64
@@ -1299,14 +1299,14 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   store i32 %563, ptr %567, align 4, !tbaa !20
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %.sroa.22.0.insert.ext.i.i
-  br i1 %exitcond.not.i30, label %.loopexit.i31, label %562, !llvm.loop !70
+  br i1 %exitcond.not.i30, label %.loopexit.i31, label %562, !llvm.loop !72
 
 568:                                              ; preds = %.lr.ph76.split.i
   %569 = zext nneg i32 %.04273.i to i64
   %570 = getelementptr inbounds nuw i32, ptr %2, i64 %569
   %571 = load i32, ptr %570, align 4, !tbaa !20
-  %.val.i34 = load ptr, ptr %8, align 8, !tbaa !67
-  %.val55.i = load i32, ptr %542, align 8, !tbaa !69
+  %.val.i34 = load ptr, ptr %8, align 8, !tbaa !69
+  %.val55.i = load i32, ptr %542, align 8, !tbaa !71
   %572 = mul i32 %571, 506832829
   %573 = lshr i32 %572, %.val55.i
   %574 = sext i32 %573 to i64
@@ -1335,11 +1335,11 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %520
   %.1.i32 = add nuw nsw i32 %.04273.i, %557
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
-  br i1 %exitcond84.not.i, label %._crit_edge.i33, label %.lr.ph76.split.i, !llvm.loop !66
+  br i1 %exitcond84.not.i, label %._crit_edge.i33, label %.lr.ph76.split.i, !llvm.loop !73
 
 ._crit_edge.i33:                                  ; preds = %.loopexit.i31, %554
   %581 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %582 = load i32, ptr %581, align 4, !tbaa !62
+  %582 = load i32, ptr %581, align 4, !tbaa !64
   %.not52.i = icmp eq i32 %582, 0
   br i1 %16, label %BackwardReferencesHashChainFollowChosenPath.exit, label %583
 
@@ -1420,7 +1420,7 @@ define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) 
 29:                                               ; preds = %24, %16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %30 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %30, label %16, label %.critedge, !llvm.loop !71
+  br i1 %30, label %16, label %.critedge, !llvm.loop !74
 
 31:                                               ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1491,7 +1491,7 @@ define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) 
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %.1127, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %66 = load ptr, ptr %65, align 8, !tbaa !60
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %69, label %67
 
@@ -1510,7 +1510,7 @@ define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) 
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %66, ptr %72, align 8, !tbaa !59
+  store ptr %66, ptr %72, align 8, !tbaa !60
   br label %PopInterval.exit
 
 PopInterval.exit:                                 ; preds = %70, %71
@@ -1519,8 +1519,8 @@ PopInterval.exit:                                 ; preds = %70, %71
   %.not15.i = select i1 %73, i1 true, i1 %74
   %..i = select i1 %.not15.i, i64 33216, i64 33208
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
-  %76 = load ptr, ptr %75, align 8, !tbaa !60
-  store ptr %.1127, ptr %75, align 8, !tbaa !60
+  %76 = load ptr, ptr %75, align 8, !tbaa !61
+  store ptr %.1127, ptr %75, align 8, !tbaa !61
   store ptr %76, ptr %54, align 8, !tbaa !34
   %77 = load i32, ptr %37, align 8, !tbaa !32
   %78 = add nsw i32 %77, -1
@@ -1546,7 +1546,7 @@ PopInterval.exit:                                 ; preds = %70, %71
 86:                                               ; preds = %81, %60, %PopInterval.exit, %53
   %.295 = phi i32 [ %.093126, %53 ], [ %57, %60 ], [ %.093126, %PopInterval.exit ], [ %.093126, %81 ]
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !72
+  br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !75
 
 .critedge2:                                       ; preds = %.lr.ph, %86, %60, %43, %82, %79
   %.194 = phi i32 [ %.093126, %79 ], [ %.093126, %82 ], [ %44, %43 ], [ %.093126, %.lr.ph ], [ %.295, %86 ], [ %57, %60 ]
@@ -1555,7 +1555,7 @@ PopInterval.exit:                                 ; preds = %70, %71
   %87 = add nuw i64 %.0136, 1
   %88 = load i64, ptr %32, align 8, !tbaa !38
   %89 = icmp ult i64 %87, %88
-  br i1 %89, label %38, label %.critedge, !llvm.loop !73
+  br i1 %89, label %38, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %.critedge2, %38, %29, %31, %.preheader
   ret void
@@ -1599,7 +1599,7 @@ define internal fastcc void @CostManagerClear(ptr noundef %0) unnamed_addr #0 {
 
 17:                                               ; preds = %16, %11
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %DeleteIntervalList.exit, label %11, !llvm.loop !74
+  br i1 %.not.i, label %DeleteIntervalList.exit, label %11, !llvm.loop !77
 
 DeleteIntervalList.exit:                          ; preds = %17, %3
   store ptr null, ptr %0, align 8, !tbaa !30
@@ -1628,7 +1628,7 @@ DeleteIntervalList.exit:                          ; preds = %17, %3
 
 28:                                               ; preds = %27, %22
   %.not.i15 = icmp eq ptr %24, null
-  br i1 %.not.i15, label %DeleteIntervalList.exit16, label %22, !llvm.loop !74
+  br i1 %.not.i15, label %DeleteIntervalList.exit16, label %22, !llvm.loop !77
 
 DeleteIntervalList.exit16:                        ; preds = %28, %DeleteIntervalList.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32808
@@ -1712,7 +1712,7 @@ define internal fastcc void @InsertInterval(ptr noundef nonnull captures(none) %
 UpdateCost.exit.i:                                ; preds = %19, %15
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %UpdateCostPerInterval.exit, label %15, !llvm.loop !75
+  br i1 %exitcond.not.i, label %UpdateCostPerInterval.exit, label %15, !llvm.loop !78
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 33208
@@ -1772,7 +1772,7 @@ UpdateCost.exit.i:                                ; preds = %19, %15
 UpdateCost.exit.i43:                              ; preds = %49, %45
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i41
-  br i1 %exitcond.not.i45, label %UpdateCostPerInterval.exit, label %45, !llvm.loop !75
+  br i1 %exitcond.not.i45, label %UpdateCostPerInterval.exit, label %45, !llvm.loop !78
 
 56:                                               ; preds = %35, %38, %29
   %.0 = phi ptr [ %28, %29 ], [ %34, %35 ], [ %39, %38 ]
@@ -1804,9 +1804,9 @@ UpdateCost.exit.i43:                              ; preds = %49, %45
 
 66:                                               ; preds = %.lr.ph.i47
   %67 = getelementptr inbounds nuw i8, ptr %.143.i, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !59
+  %68 = load ptr, ptr %67, align 8, !tbaa !60
   %.not.i = icmp eq ptr %68, null
-  br i1 %.not.i, label %.critedge.i.preheader, label %.lr.ph.i47, !llvm.loop !76
+  br i1 %.not.i, label %.critedge.i.preheader, label %.lr.ph.i47, !llvm.loop !79
 
 .critedge.i.preheader:                            ; preds = %66, %.lr.ph.i47, %61
   %.2.i.ph = phi ptr [ null, %61 ], [ null, %66 ], [ %.143.i, %.lr.ph.i47 ]
@@ -1833,14 +1833,14 @@ UpdateCost.exit.i43:                              ; preds = %49, %45
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !54
   %77 = icmp slt i32 %76, %4
-  br i1 %77, label %.critedge.i, label %78, !llvm.loop !77
+  br i1 %77, label %.critedge.i, label %78, !llvm.loop !80
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %.2.i, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %71, ptr %80, align 8, !tbaa !34
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr %.0, ptr %81, align 8, !tbaa !59
+  store ptr %.0, ptr %81, align 8, !tbaa !60
   br label %PositionOrphanInterval.exit
 
 .critedge29.i:                                    ; preds = %.critedge.i
@@ -1852,14 +1852,14 @@ UpdateCost.exit.i43:                              ; preds = %49, %45
 
 84:                                               ; preds = %.critedge29.i
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr %.0, ptr %85, align 8, !tbaa !59
+  store ptr %.0, ptr %85, align 8, !tbaa !60
   br label %PositionOrphanInterval.exit
 
 PositionOrphanInterval.exit:                      ; preds = %.split.thread.i, %78, %.critedge29.i, %84
   %.sink62.i = phi ptr [ %72, %.split.thread.i ], [ %79, %78 ], [ %0, %.critedge29.i ], [ %0, %84 ]
-  store ptr %.0, ptr %.sink62.i, align 8, !tbaa !60
+  store ptr %.0, ptr %.sink62.i, align 8, !tbaa !61
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %.2.i, ptr %86, align 8, !tbaa !59
+  store ptr %.2.i, ptr %86, align 8, !tbaa !60
   %87 = load i32, ptr %8, align 8, !tbaa !32
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %8, align 8, !tbaa !32
@@ -1945,23 +1945,26 @@ attributes #7 = { nounwind }
 !55 = !{!35, !17, i64 12}
 !56 = !{!35, !18, i64 0}
 !57 = !{!35, !17, i64 16}
-!58 = distinct !{!58, !14}
-!59 = !{!35, !26, i64 24}
-!60 = !{!26, !26, i64 0}
-!61 = distinct !{!61, !14}
-!62 = !{!63, !17, i64 4}
-!63 = !{!"VP8LBackwardRefs", !17, i64 0, !17, i64 4, !11, i64 8, !64, i64 16, !11, i64 24, !11, i64 32}
-!64 = !{!"p2 _ZTS14PixOrCopyBlock", !8, i64 0}
-!65 = distinct !{!65, !14}
-!66 = distinct !{!66, !14}
-!67 = !{!68, !7, i64 0}
-!68 = !{!"", !7, i64 0, !17, i64 8, !17, i64 12}
-!69 = !{!68, !17, i64 8}
-!70 = distinct !{!70, !14}
-!71 = distinct !{!71, !14}
+!58 = distinct !{!58, !14, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = !{!35, !26, i64 24}
+!61 = !{!26, !26, i64 0}
+!62 = distinct !{!62, !14}
+!63 = distinct !{!63, !14}
+!64 = !{!65, !17, i64 4}
+!65 = !{!"VP8LBackwardRefs", !17, i64 0, !17, i64 4, !11, i64 8, !66, i64 16, !11, i64 24, !11, i64 32}
+!66 = !{!"p2 _ZTS14PixOrCopyBlock", !8, i64 0}
+!67 = distinct !{!67, !14}
+!68 = distinct !{!68, !14, !59}
+!69 = !{!70, !7, i64 0}
+!70 = !{!"", !7, i64 0, !17, i64 8, !17, i64 12}
+!71 = !{!70, !17, i64 8}
 !72 = distinct !{!72, !14}
 !73 = distinct !{!73, !14}
 !74 = distinct !{!74, !14}
 !75 = distinct !{!75, !14}
 !76 = distinct !{!76, !14}
 !77 = distinct !{!77, !14}
+!78 = distinct !{!78, !14}
+!79 = distinct !{!79, !14}
+!80 = distinct !{!80, !14}

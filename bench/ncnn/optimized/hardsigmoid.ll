@@ -190,7 +190,7 @@ define internal void @_ZNK4ncnn11HardSigmoid15forward_inplaceERNS_3MatERKNS_6Opt
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next45 to i32
   %exitcond47.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond47.not, label %._crit_edge41, label %.noexc.us
+  br i1 %exitcond47.not, label %._crit_edge41, label %.noexc.us, !llvm.loop !51
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.noexc.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -222,7 +222,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !51 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !53 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -295,5 +295,7 @@ attributes #10 = { builtin nounwind }
 !48 = !{!26, !26, i64 0}
 !49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!52}
-!52 = !{i64 2, i64 -1, i64 -1, i1 true}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!54}
+!54 = !{i64 2, i64 -1, i64 -1, i1 true}

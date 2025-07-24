@@ -14378,7 +14378,7 @@ switch.lookup:                                    ; preds = %7
   %.1.us = phi ptr [ @.str.15, %.lr.ph.split.us ], [ @.str.17, %17 ], [ @.str.19, %19 ], [ @.str.21, %21 ]
   %24 = tail call ptr @mystrnstr(ptr noundef %0, ptr noundef nonnull %.1116.us, i32 noundef %11) #23
   %.not91.us = icmp eq ptr %24, null
-  br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge
+  br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !203
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %26
   %.0115128 = phi ptr [ @.str.12, %26 ], [ %switch.load, %.lr.ph ]
@@ -14417,7 +14417,7 @@ switch.lookup:                                    ; preds = %7
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %exitcond.not.i = icmp eq ptr %35, %10
-  br i1 %exitcond.not.i, label %SkipEndOfLineChars.exit, label %.lr.ph.i, !llvm.loop !203
+  br i1 %exitcond.not.i, label %SkipEndOfLineChars.exit, label %.lr.ph.i, !llvm.loop !205
 
 SkipEndOfLineChars.exit:                          ; preds = %.lr.ph.i, %.critedge2.i, %.critedge
   %.0.lcssa.i = phi ptr [ %29, %.critedge ], [ %scevgep.i, %.critedge2.i ], [ %.09.i, %.lr.ph.i ]
@@ -14453,7 +14453,7 @@ condstore.split:                                  ; preds = %SkipEndOfLineChars.
   br i1 %.not93, label %wc_PemGetHeaderFooter.exit.thread, label %49
 
 49:                                               ; preds = %48
-  store i64 %1, ptr %5, align 8, !tbaa !204
+  store i64 %1, ptr %5, align 8, !tbaa !206
   br label %wc_PemGetHeaderFooter.exit.thread
 
 50:                                               ; preds = %40
@@ -14480,7 +14480,7 @@ condstore.split:                                  ; preds = %SkipEndOfLineChars.
 .critedge2.i103:                                  ; preds = %.lr.ph.i101, %.lr.ph.i101
   %58 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 1
   %exitcond.not.i104 = icmp eq ptr %58, %10
-  br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !203
+  br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !205
 
 SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.critedge2.i103
   %.0.lcssa.i98 = phi ptr [ %.09.i102, %.lr.ph.i101 ], [ %scevgep.i100, %.critedge2.i103 ]
@@ -14503,7 +14503,7 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   %65 = ptrtoint ptr %.074 to i64
   %66 = ptrtoint ptr %0 to i64
   %67 = sub i64 %65, %66
-  store i64 %67, ptr %5, align 8, !tbaa !204
+  store i64 %67, ptr %5, align 8, !tbaa !206
   br label %68
 
 68:                                               ; preds = %64, %63
@@ -14983,7 +14983,7 @@ define range(i32 -132, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef %0, ptr noundef 
   %16 = add i32 %.02125, -1
   %17 = getelementptr inbounds nuw i8, ptr %.02224, i64 1
   %18 = icmp ugt i32 %16, 1
-  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !206
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !208
 
 .critedge:                                        ; preds = %.lr.ph, %15, %6
   %.022.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %15 ], [ %.02224, %.lr.ph ]
@@ -15009,7 +15009,7 @@ define range(i32 -132, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef %0, ptr noundef 
   %26 = add i32 %.01931, -1
   %27 = getelementptr inbounds nuw i8, ptr %.02030, i64 1
   %28 = icmp ugt i32 %26, 1
-  br i1 %28, label %.lr.ph32, label %.critedge2, !llvm.loop !207
+  br i1 %28, label %.lr.ph32, label %.critedge2, !llvm.loop !209
 
 .critedge2:                                       ; preds = %25, %.lr.ph32, %.critedge
   %.020.lcssa = phi ptr [ %4, %.critedge ], [ %.02030, %.lr.ph32 ], [ %scevgep38, %25 ]
@@ -15251,7 +15251,7 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
 ._crit_edge:                                      ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %17, align 8, !tbaa !208
+  %20 = load i32, ptr %17, align 8, !tbaa !210
   store i32 %20, ptr %7, align 4, !tbaa !22
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread89, label %21
@@ -16003,9 +16003,9 @@ GetASN_Sequence.exit.i:                           ; preds = %72
   %87 = and i8 %23, 31
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i8 %87, ptr %88, align 4, !tbaa !177
-  %89 = load ptr, ptr %2, align 8, !tbaa !209
+  %89 = load ptr, ptr %2, align 8, !tbaa !211
   store ptr %89, ptr %73, align 8, !tbaa !89
-  store ptr %73, ptr %2, align 8, !tbaa !209
+  store ptr %73, ptr %2, align 8, !tbaa !211
   br label %DecodeSubtreeGeneralName.exit
 
 DecodeSubtreeGeneralName.exit:                    ; preds = %81, %22
@@ -16201,7 +16201,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %26 = icmp ne i8 %25, 64
   %27 = icmp slt i32 %23, %4
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !210
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !212
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %27, label %.lr.ph105, label %.critedge
@@ -16219,7 +16219,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %32 = icmp ne i8 %31, 64
   %33 = icmp slt i32 %29, %4
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %.lr.ph95, label %._crit_edge96.loopexit, !llvm.loop !211
+  br i1 %34, label %.lr.ph95, label %._crit_edge96.loopexit, !llvm.loop !213
 
 ._crit_edge96.loopexit:                           ; preds = %.lr.ph95
   %35 = sub nuw nsw i32 -2, %.17593
@@ -16253,7 +16253,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %.2121 = phi ptr [ %.065, %43 ], [ %42, %.thread ], [ %1, %._crit_edge ], [ %1, %.preheader ]
   %.268120 = phi i32 [ %.066, %43 ], [ %4, %.thread ], [ %2, %._crit_edge ], [ %2, %.preheader ]
   %45 = tail call ptr @__ctype_tolower_loc() #25
-  %46 = load ptr, ptr %45, align 8, !tbaa !212
+  %46 = load ptr, ptr %45, align 8, !tbaa !214
   br label %47
 
 47:                                               ; preds = %.lr.ph105, %56
@@ -16276,7 +16276,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %58 = getelementptr inbounds nuw i8, ptr %.070101, i64 1
   %59 = add nsw i32 %.369102, -1
   %60 = icmp sgt i32 %.369102, 1
-  br i1 %60, label %47, label %.loopexit, !llvm.loop !214
+  br i1 %60, label %47, label %.loopexit, !llvm.loop !216
 
 .loopexit:                                        ; preds = %47, %56, %43, %14, %5, %10, %15
   %.0 = phi i32 [ %18, %15 ], [ 0, %14 ], [ 0, %10 ], [ 0, %5 ], [ 1, %43 ], [ 0, %47 ], [ 1, %56 ]
@@ -16536,15 +16536,17 @@ attributes #25 = { nounwind willreturn memory(none) }
 !200 = !{!198, !51, i64 8}
 !201 = !{!198, !50, i64 0}
 !202 = !{!198, !11, i64 16}
-!203 = distinct !{!203, !7}
-!204 = !{!205, !53, i64 0}
-!205 = !{!"EncryptedInfo", !53, i64 0}
-!206 = distinct !{!206, !7}
-!207 = distinct !{!207, !7}
-!208 = !{!75, !11, i64 0}
-!209 = !{!65, !65, i64 0}
-!210 = distinct !{!210, !7}
-!211 = distinct !{!211, !7}
-!212 = !{!213, !213, i64 0}
-!213 = !{!"p1 int", !51, i64 0}
-!214 = distinct !{!214, !7}
+!203 = distinct !{!203, !204}
+!204 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!205 = distinct !{!205, !7}
+!206 = !{!207, !53, i64 0}
+!207 = !{!"EncryptedInfo", !53, i64 0}
+!208 = distinct !{!208, !7}
+!209 = distinct !{!209, !7}
+!210 = !{!75, !11, i64 0}
+!211 = !{!65, !65, i64 0}
+!212 = distinct !{!212, !7}
+!213 = distinct !{!213, !7}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p1 int", !51, i64 0}
+!216 = distinct !{!216, !7}

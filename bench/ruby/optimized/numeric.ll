@@ -4907,7 +4907,7 @@ rb_float_new_inline.exit50:                       ; preds = %180, %184, %186
   %193 = add i64 %.03372, 1
   %194 = sitofp i64 %193 to double
   %195 = fcmp ogt double %97, %194
-  br i1 %195, label %.lr.ph.split, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !33
+  br i1 %195, label %.lr.ph.split, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !35
 
 RB_FLOAT_TYPE_P.exit40.thread58:                  ; preds = %rb_float_new_inline.exit50, %rb_float_new_inline.exit50.us, %64, %82, %.preheader, %30, %RB_FLOAT_TYPE_P.exit40, %rb_float_new_inline.exit, %126
   %.032 = phi i32 [ 1, %126 ], [ 1, %rb_float_new_inline.exit ], [ 0, %RB_FLOAT_TYPE_P.exit40 ], [ 0, %30 ], [ 1, %.preheader ], [ 1, %82 ], [ 1, %64 ], [ 1, %rb_float_new_inline.exit50.us ], [ 1, %rb_float_new_inline.exit50 ]
@@ -6189,7 +6189,7 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
 4:                                                ; preds = %2
   %5 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %6, align 8, !tbaa !34
+  %.val = load ptr, ptr %6, align 8, !tbaa !36
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.18, i32 noundef %0, ptr noundef %.val) #25
   unreachable
 
@@ -6200,9 +6200,9 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
 
 9:                                                ; preds = %2
   %10 = sext i32 %3 to i64
-  %11 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %10, ptr noundef %1) #26, !callees !37
+  %11 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %10, ptr noundef %1) #26, !callees !39
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i64, ptr %12, align 8, !tbaa !11, !noalias !38
+  %13 = load i64, ptr %12, align 8, !tbaa !11, !noalias !40
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -6215,9 +6215,9 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
 RSTRING_PTR.exit:                                 ; preds = %9, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = tail call i32 %18(i32 noundef %0, ptr noundef %.sroa.2.0.i, ptr noundef %1) #26
-  %20 = load i64, ptr %12, align 8, !tbaa !11, !noalias !42
+  %20 = load i64, ptr %12, align 8, !tbaa !11, !noalias !44
   %21 = and i64 %20, 8192
   %.not.i.i18 = icmp eq i64 %21, 0
   br i1 %.not.i.i18, label %RSTRING_END.exit, label %22
@@ -6238,7 +6238,7 @@ RSTRING_END.exit:                                 ; preds = %RSTRING_PTR.exit, %
 25:                                               ; preds = %RSTRING_END.exit
   %26 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
   %27 = getelementptr i8, ptr %1, i64 8
-  %.val17 = load ptr, ptr %27, align 8, !tbaa !34
+  %.val17 = load ptr, ptr %27, align 8, !tbaa !36
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.18, i32 noundef %0, ptr noundef %.val17) #25
   unreachable
 
@@ -6323,7 +6323,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   store i8 %18, ptr %19, align 1, !tbaa !20
   %20 = udiv i64 %.1, %14
   %.not = icmp samesign ult i64 %.1, %14
-  br i1 %.not, label %21, label %15, !llvm.loop !45
+  br i1 %.not, label %21, label %15, !llvm.loop !47
 
 21:                                               ; preds = %15
   %22 = icmp sgt i64 %5, -1
@@ -6388,7 +6388,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   store i8 %16, ptr %17, align 1, !tbaa !20
   %18 = udiv i64 %.1.i, 10
   %.not.i = icmp samesign ult i64 %.1.i, 10
-  br i1 %.not.i, label %19, label %13, !llvm.loop !45
+  br i1 %.not.i, label %19, label %13, !llvm.loop !47
 
 19:                                               ; preds = %13
   %20 = icmp sgt i64 %3, -1
@@ -6510,7 +6510,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   store i8 %20, ptr %21, align 1, !tbaa !20
   %22 = udiv i64 %.1.i, %16
   %.not.i = icmp samesign ult i64 %.1.i, %16
-  br i1 %.not.i, label %23, label %17, !llvm.loop !45
+  br i1 %.not.i, label %23, label %17, !llvm.loop !47
 
 23:                                               ; preds = %17
   %24 = icmp sgt i64 %7, -1
@@ -7070,7 +7070,7 @@ rb_integer_type_p.exit.thread25:                  ; preds = %16, %16, %6, %18, %
   %34 = sitofp i64 %28 to double
   %35 = sitofp i64 %25 to double
   %.not31.i = icmp ult i64 %.017, 2
-  br i1 %.not31.i, label %38, label %36, !prof !46
+  br i1 %.not31.i, label %38, label %36, !prof !48
 
 36:                                               ; preds = %33
   %37 = fdiv double %34, %35
@@ -9081,7 +9081,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #15 {
   %19 = lshr i64 %18, 1
   %20 = udiv i64 %0, %19
   %21 = icmp ult i64 %20, %19
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !47
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 22:                                               ; preds = %1
   %23 = uitofp nneg i64 %0 to double
@@ -9321,9 +9321,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %118, ptr @rb_fix_to_s_static, align 16, !tbaa !7
   tail call void @rb_vm_register_global_object(i64 noundef %118) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  store ptr %1, ptr %2, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %2) #26, !srcloc !50
-  %119 = load ptr, ptr %2, align 8, !tbaa !48
+  store ptr %1, ptr %2, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %2) #26, !srcloc !52
+  %119 = load ptr, ptr %2, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
   %120 = load volatile i64, ptr %119, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
@@ -9333,9 +9333,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %121, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 8), align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %121) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store ptr %3, ptr %4, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #26, !srcloc !51
-  %122 = load ptr, ptr %4, align 8, !tbaa !48
+  store ptr %3, ptr %4, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #26, !srcloc !53
+  %122 = load ptr, ptr %4, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   %123 = load volatile i64, ptr %122, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
@@ -9345,9 +9345,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %124, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 16), align 16, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %124) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
-  store ptr %5, ptr %6, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !52
-  %125 = load ptr, ptr %6, align 8, !tbaa !48
+  store ptr %5, ptr %6, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !54
+  %125 = load ptr, ptr %6, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   %126 = load volatile i64, ptr %125, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
@@ -9357,9 +9357,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %127, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 24), align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %127) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
-  store ptr %7, ptr %8, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !53
-  %128 = load ptr, ptr %8, align 8, !tbaa !48
+  store ptr %7, ptr %8, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !55
+  %128 = load ptr, ptr %8, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
   %129 = load volatile i64, ptr %128, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
@@ -9369,9 +9369,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %130, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 32), align 16, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %130) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
-  store ptr %9, ptr %10, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #26, !srcloc !54
-  %131 = load ptr, ptr %10, align 8, !tbaa !48
+  store ptr %9, ptr %10, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #26, !srcloc !56
+  %131 = load ptr, ptr %10, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
   %132 = load volatile i64, ptr %131, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
@@ -9381,9 +9381,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %133, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 40), align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %133) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
-  store ptr %11, ptr %12, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %12) #26, !srcloc !55
-  %134 = load ptr, ptr %12, align 8, !tbaa !48
+  store ptr %11, ptr %12, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %12) #26, !srcloc !57
+  %134 = load ptr, ptr %12, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
   %135 = load volatile i64, ptr %134, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
@@ -9393,9 +9393,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %136, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 48), align 16, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %136) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #26
-  store ptr %13, ptr %14, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !56
-  %137 = load ptr, ptr %14, align 8, !tbaa !48
+  store ptr %13, ptr %14, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !58
+  %137 = load ptr, ptr %14, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
   %138 = load volatile i64, ptr %137, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
@@ -9405,9 +9405,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %139, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 56), align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %139) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #26
-  store ptr %15, ptr %16, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %16) #26, !srcloc !57
-  %140 = load ptr, ptr %16, align 8, !tbaa !48
+  store ptr %15, ptr %16, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %16) #26, !srcloc !59
+  %140 = load ptr, ptr %16, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #26
   %141 = load volatile i64, ptr %140, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #26
@@ -9417,9 +9417,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %142, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 64), align 16, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %142) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #26
-  store ptr %17, ptr %18, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %18) #26, !srcloc !58
-  %143 = load ptr, ptr %18, align 8, !tbaa !48
+  store ptr %17, ptr %18, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %18) #26, !srcloc !60
+  %143 = load ptr, ptr %18, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #26
   %144 = load volatile i64, ptr %143, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #26
@@ -9429,9 +9429,9 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
   store i64 %145, ptr getelementptr inbounds nuw (i8, ptr @rb_fix_to_s_static, i64 72), align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %145) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #26
-  store ptr %19, ptr %20, align 8, !tbaa !48
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %20) #26, !srcloc !59
-  %146 = load ptr, ptr %20, align 8, !tbaa !48
+  store ptr %19, ptr %20, align 8, !tbaa !50
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %20) #26, !srcloc !61
+  %146 = load ptr, ptr %20, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #26
   %147 = load volatile i64, ptr %146, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #26
@@ -10672,7 +10672,7 @@ RB_FLOAT_TYPE_P.exit.thread62:                    ; preds = %54, %RB_FLOAT_TYPE_
   %101 = call i64 @rb_yield(i64 noundef %100) #26
   %102 = add i64 %.14682, %96
   %.not59 = icmp slt i64 %102, %98
-  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !60
+  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
 .lr.ph85:                                         ; preds = %.preheader76, %.lr.ph85
   %.284 = phi i64 [ %106, %.lr.ph85 ], [ %95, %.preheader76 ]
@@ -10681,7 +10681,7 @@ RB_FLOAT_TYPE_P.exit.thread62:                    ; preds = %54, %RB_FLOAT_TYPE_
   %105 = call i64 @rb_yield(i64 noundef %104) #26
   %106 = add i64 %.284, %96
   %.not58 = icmp sgt i64 %106, %98
-  br i1 %.not58, label %.loopexit, label %.lr.ph85, !llvm.loop !61
+  br i1 %.not58, label %.loopexit, label %.lr.ph85, !llvm.loop !63
 
 107:                                              ; preds = %.thread68.thread, %.thread64, %.thread68, %82, %RB_FLOAT_TYPE_P.exit.thread62
   %.04467 = phi i1 [ false, %.thread64 ], [ false, %.thread68 ], [ true, %82 ], [ %.044, %RB_FLOAT_TYPE_P.exit.thread62 ], [ true, %.thread68.thread ]
@@ -10719,7 +10719,7 @@ RB_FLOAT_TYPE_P.exit.thread62:                    ; preds = %54, %RB_FLOAT_TYPE_
   %124 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %122, i64 noundef %116, i32 noundef 1, i64 noundef %123) #26
   %125 = and i64 %124, -5
   %.not75 = icmp eq i64 %125, 0
-  br i1 %.not75, label %.lr.ph88, label %.loopexit, !llvm.loop !62
+  br i1 %.not75, label %.lr.ph88, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph85, %.lr.ph88, %.preheader78, %.preheader76, %115, %107, %45
   %.1 = phi i64 [ %.0, %45 ], [ %2, %107 ], [ %2, %115 ], [ %2, %.preheader76 ], [ %2, %.preheader78 ], [ %2, %.lr.ph88 ], [ %2, %.lr.ph85 ], [ %2, %.lr.ph ]
@@ -10916,7 +10916,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   %28 = lshr i64 %27, 1
   %29 = udiv i64 %10, %28
   %30 = icmp samesign ult i64 %29, %28
-  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !47
+  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !49
 
 31:                                               ; preds = %9
   %32 = uitofp nneg i64 %10 to double
@@ -11098,7 +11098,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #26
   %18 = add nsw i64 %.01624, 1
   %.not18.not = icmp slt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !63
+  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !65
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -11111,7 +11111,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #26
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 43, i32 noundef 1, i64 noundef 3) #26
-  br label %.preheader, !llvm.loop !64
+  br label %.preheader, !llvm.loop !66
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #28
@@ -11155,7 +11155,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #26
   %18 = add nsw i64 %.01624, -1
   %.not18.not = icmp sgt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !65
+  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -11168,7 +11168,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #26
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 45, i32 noundef 1, i64 noundef 3) #26
-  br label %.preheader, !llvm.loop !66
+  br label %.preheader, !llvm.loop !68
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #28
@@ -11318,7 +11318,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
 34:                                               ; preds = %32
   %35 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
   %36 = getelementptr i8, ptr %.0, i64 8
-  %.val.i = load ptr, ptr %36, align 8, !tbaa !34
+  %.val.i = load ptr, ptr %36, align 8, !tbaa !36
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef nonnull @.str.18, i32 noundef %12, ptr noundef %.val.i) #25
   unreachable
 
@@ -11329,9 +11329,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
 
 39:                                               ; preds = %32
   %40 = sext i32 %33 to i64
-  %41 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %40, ptr noundef nonnull %.0) #26, !callees !37
+  %41 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %40, ptr noundef nonnull %.0) #26, !callees !39
   %42 = inttoptr i64 %41 to ptr
-  %43 = load i64, ptr %42, align 8, !tbaa !11, !noalias !67
+  %43 = load i64, ptr %42, align 8, !tbaa !11, !noalias !69
   %44 = and i64 %43, 8192
   %.not.i.i.i = icmp eq i64 %44, 0
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -11344,9 +11344,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
 RSTRING_PTR.exit.i:                               ; preds = %46, %39
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %46 ], [ %45, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  %48 = load ptr, ptr %47, align 8, !tbaa !43
   %49 = tail call i32 %48(i32 noundef %12, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %.0) #26
-  %50 = load i64, ptr %42, align 8, !tbaa !11, !noalias !70
+  %50 = load i64, ptr %42, align 8, !tbaa !11, !noalias !72
   %51 = and i64 %50, 8192
   %.not.i.i18.i = icmp eq i64 %51, 0
   br i1 %.not.i.i18.i, label %RSTRING_END.exit.i, label %52
@@ -11367,7 +11367,7 @@ RSTRING_END.exit.i:                               ; preds = %52, %RSTRING_PTR.ex
 55:                                               ; preds = %RSTRING_END.exit.i
   %56 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
   %57 = getelementptr i8, ptr %.0, i64 8
-  %.val17.i = load ptr, ptr %57, align 8, !tbaa !34
+  %.val17.i = load ptr, ptr %57, align 8, !tbaa !36
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.18, i32 noundef %12, ptr noundef %.val17.i) #25
   unreachable
 
@@ -12645,7 +12645,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %15
 
 38:                                               ; preds = %36, %34
   %39 = phi i64 [ %35, %34 ], [ %37, %36 ]
-  %40 = load ptr, ptr %3, align 8, !tbaa !73
+  %40 = load ptr, ptr %3, align 8, !tbaa !75
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %32 to i64
   %43 = sub i64 %41, %42
@@ -12656,7 +12656,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %15
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %46
 
 46:                                               ; preds = %38
-  %47 = call ptr @__memcpy_chk(ptr noundef nonnull %2, ptr noundef nonnull readonly %32, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 31) #26, !alias.scope !74
+  %47 = call ptr @__memcpy_chk(ptr noundef nonnull %2, ptr noundef nonnull readonly %32, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 31) #26, !alias.scope !76
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %38, %46
@@ -12700,7 +12700,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %38, %46
   %73 = add i64 %reass.sub, 2
   %74 = add i64 %73, %72
   %75 = call i64 @rb_str_resize(i64 noundef %39, i64 noundef %74) #26
-  %76 = load i64, ptr %68, align 8, !tbaa !11, !noalias !78
+  %76 = load i64, ptr %68, align 8, !tbaa !11, !noalias !80
   %77 = and i64 %76, 8192
   %.not.i.i50 = icmp eq i64 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -12746,7 +12746,7 @@ RSTRING_PTR.exit:                                 ; preds = %66, %79
   %100 = add i64 %97, %45
   %101 = sub i64 %100, %99
   %102 = call i64 @rb_str_resize(i64 noundef %39, i64 noundef %101) #26
-  %103 = load i64, ptr %95, align 8, !tbaa !11, !noalias !81
+  %103 = load i64, ptr %95, align 8, !tbaa !11, !noalias !83
   %104 = and i64 %103, 8192
   %.not.i.i52 = icmp eq i64 %104, 0
   %105 = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -14755,9 +14755,9 @@ define internal range(i64 0, 21) i64 @rb_builtin_basic_definition_p(ptr readnone
 define internal i64 @builtin_inline_class_335(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !84
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = getelementptr i8, ptr %7, i64 -32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %9 = load i64, ptr %8, align 8, !tbaa !7
@@ -15526,11 +15526,11 @@ rb_scan_args_n_opt.exit:
   %7 = alloca [2 x i64], align 16
   %8 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store ptr %2, ptr %6, align 8, !tbaa !48
+  store ptr %2, ptr %6, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %9, align 8, !tbaa !48
+  store ptr %3, ptr %9, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %10, align 8, !tbaa !48
+  store ptr %5, ptr %10, align 8, !tbaa !50
   %11 = icmp sgt i32 %0, 0
   br i1 %11, label %12, label %21
 
@@ -15562,7 +15562,7 @@ rb_scan_args_n_opt.exit:
   %.185.i10 = phi i32 [ 0, %.preheader.preheader ], [ %.286.i, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr ptr, ptr %6, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = icmp slt i32 %.185.i10, %.0.i18
   %.not108.i = icmp eq ptr %24, null
   br i1 %25, label %26, label %33
@@ -15591,7 +15591,7 @@ rb_scan_args_n_opt.exit:
 35:                                               ; preds = %34, %33, %31
   %.286.i = phi i32 [ %32, %31 ], [ %.185.i10, %34 ], [ %.185.i10, %33 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !96
+  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !98
 
 36:                                               ; preds = %35
   store i64 %.087.i17, ptr %5, align 8, !tbaa !7
@@ -16580,7 +16580,7 @@ RARRAY_AREF.exit79:                               ; preds = %105, %107
   %112 = icmp eq i64 %111, 0
   %113 = icmp sgt i64 %110, 1
   %or.cond109 = or i1 %113, %112
-  br i1 %or.cond109, label %.critedge, label %.loopexit, !llvm.loop !97
+  br i1 %or.cond109, label %.critedge, label %.loopexit, !llvm.loop !99
 
 int_lt.exit.thread102:                            ; preds = %78, %int_lt.exit
   %114 = tail call i64 @rb_ary_new() #26
@@ -16603,10 +16603,10 @@ int_lt.exit.thread102:                            ; preds = %78, %int_lt.exit
   %124 = tail call i64 @rb_int_mul(i64 noundef %.058114, i64 noundef %.058114)
   %125 = tail call i64 @int_lt(i64 noundef %124, i64 noundef %0)
   %126 = icmp eq i64 %125, 20
-  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !98
+  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 .loopexit112:                                     ; preds = %RARRAY_AREF.exit93._crit_edge, %rb_array_len.exit84
-  br label %127, !llvm.loop !99
+  br label %127, !llvm.loop !101
 
 127:                                              ; preds = %.loopexit112, %._crit_edge
   %128 = load i64, ptr %118, align 8, !tbaa !11
@@ -16701,7 +16701,7 @@ RARRAY_AREF.exit93._crit_edge:                    ; preds = %RARRAY_AREF.exit93,
   tail call void @rb_ary_store(i64 noundef %117, i64 noundef %166, i64 noundef %163) #26
   %169 = add nsw i64 %.057115, -1
   %170 = icmp sgt i64 %.057115, 0
-  br i1 %170, label %.lr.ph116, label %.loopexit112, !llvm.loop !100
+  br i1 %170, label %.lr.ph116, label %.loopexit112, !llvm.loop !102
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %RARRAY_AREF.exit79, %35, %31
   %.0 = phi i64 [ %33, %31 ], [ %36, %35 ], [ %90, %RARRAY_AREF.exit79 ], [ %117, %rb_array_len.exit ]
@@ -16753,7 +16753,7 @@ rb_long2num_inline.exit:                          ; preds = %16, %19
   %.0.i = phi i64 [ %18, %16 ], [ %20, %19 ]
   %21 = tail call i64 @rb_ary_push(i64 noundef %12, i64 noundef %.0.i) #26
   %.not = icmp slt i64 %14, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %rb_long2num_inline.exit, %11
   %.016.lcssa = phi i64 [ %3, %11 ], [ %14, %rb_long2num_inline.exit ]
@@ -17021,72 +17021,74 @@ attributes #31 = { memory(none) }
 !30 = !{!"llvm.loop.mustprogress"}
 !31 = distinct !{!31, !30}
 !32 = distinct !{!32, !30}
-!33 = distinct !{!33, !30}
-!34 = !{!35, !36, i64 8}
-!35 = !{!"OnigEncodingTypeST", !23, i64 0, !36, i64 8, !19, i64 16, !19, i64 20, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !23, i64 80, !23, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !23, i64 120, !19, i64 128, !19, i64 132}
-!36 = !{!"p1 omnipotent char", !23, i64 0}
-!37 = distinct !{ptr @rb_enc_str_new, null}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"rbimpl_rstring_getmem: argument 0"}
-!40 = distinct !{!40, !"rbimpl_rstring_getmem"}
-!41 = !{!35, !23, i64 48}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"rbimpl_rstring_getmem: argument 0"}
-!44 = distinct !{!44, !"rbimpl_rstring_getmem"}
-!45 = distinct !{!45, !30}
-!46 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!33 = distinct !{!33, !30, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !30}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"OnigEncodingTypeST", !23, i64 0, !38, i64 8, !19, i64 16, !19, i64 20, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !23, i64 80, !23, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !23, i64 120, !19, i64 128, !19, i64 132}
+!38 = !{!"p1 omnipotent char", !23, i64 0}
+!39 = distinct !{ptr @rb_enc_str_new, null}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
+!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
+!43 = !{!37, !23, i64 48}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
+!46 = distinct !{!46, !"rbimpl_rstring_getmem"}
 !47 = distinct !{!47, !30}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 long", !23, i64 0}
-!50 = !{i64 2160279727}
-!51 = !{i64 2160280203}
-!52 = !{i64 2160280679}
-!53 = !{i64 2160281155}
-!54 = !{i64 2160281631}
-!55 = !{i64 2160282107}
-!56 = !{i64 2160282583}
-!57 = !{i64 2160283059}
-!58 = !{i64 2160283535}
-!59 = !{i64 2160284011}
-!60 = distinct !{!60, !30}
-!61 = distinct !{!61, !30}
+!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!49 = distinct !{!49, !30}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 long", !23, i64 0}
+!52 = !{i64 2160279727}
+!53 = !{i64 2160280203}
+!54 = !{i64 2160280679}
+!55 = !{i64 2160281155}
+!56 = !{i64 2160281631}
+!57 = !{i64 2160282107}
+!58 = !{i64 2160282583}
+!59 = !{i64 2160283059}
+!60 = !{i64 2160283535}
+!61 = !{i64 2160284011}
 !62 = distinct !{!62, !30}
 !63 = distinct !{!63, !30}
 !64 = distinct !{!64, !30}
 !65 = distinct !{!65, !30}
 !66 = distinct !{!66, !30}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"rbimpl_rstring_getmem: argument 0"}
-!69 = distinct !{!69, !"rbimpl_rstring_getmem"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"rbimpl_rstring_getmem: argument 0"}
-!72 = distinct !{!72, !"rbimpl_rstring_getmem"}
-!73 = !{!36, !36, i64 0}
-!74 = !{!75, !77}
-!75 = distinct !{!75, !76, !"memcpy.inline: argument 0"}
-!76 = distinct !{!76, !"memcpy.inline"}
-!77 = distinct !{!77, !76, !"memcpy.inline: argument 1"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"rbimpl_rstring_getmem: argument 0"}
-!80 = distinct !{!80, !"rbimpl_rstring_getmem"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"rbimpl_rstring_getmem: argument 0"}
-!83 = distinct !{!83, !"rbimpl_rstring_getmem"}
-!84 = !{!85, !86, i64 16}
-!85 = !{!"rb_execution_context_struct", !49, i64 0, !8, i64 8, !86, i64 16, !87, i64 24, !19, i64 32, !19, i64 36, !88, i64 40, !89, i64 48, !90, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !49, i64 88, !8, i64 96, !91, i64 104, !8, i64 112, !8, i64 120, !9, i64 128, !19, i64 129, !8, i64 136, !92, i64 144}
-!86 = !{!"p1 _ZTS23rb_control_frame_struct", !23, i64 0}
-!87 = !{!"p1 _ZTS9rb_vm_tag", !23, i64 0}
-!88 = !{!"p1 _ZTS15rb_fiber_struct", !23, i64 0}
-!89 = !{!"p1 _ZTS16rb_thread_struct", !23, i64 0}
-!90 = !{!"p1 _ZTS11rb_id_table", !23, i64 0}
-!91 = !{!"p1 _ZTS19rb_trace_arg_struct", !23, i64 0}
-!92 = !{!"", !49, i64 0, !49, i64 8, !8, i64 16, !9, i64 24}
-!93 = !{!94, !49, i64 32}
-!94 = !{!"rb_control_frame_struct", !49, i64 0, !49, i64 8, !95, i64 16, !8, i64 24, !49, i64 32, !23, i64 40, !23, i64 48}
-!95 = !{!"p1 _ZTS14rb_iseq_struct", !23, i64 0}
-!96 = distinct !{!96, !30}
-!97 = distinct !{!97, !30}
+!67 = distinct !{!67, !30}
+!68 = distinct !{!68, !30}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"rbimpl_rstring_getmem: argument 0"}
+!71 = distinct !{!71, !"rbimpl_rstring_getmem"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"rbimpl_rstring_getmem: argument 0"}
+!74 = distinct !{!74, !"rbimpl_rstring_getmem"}
+!75 = !{!38, !38, i64 0}
+!76 = !{!77, !79}
+!77 = distinct !{!77, !78, !"memcpy.inline: argument 0"}
+!78 = distinct !{!78, !"memcpy.inline"}
+!79 = distinct !{!79, !78, !"memcpy.inline: argument 1"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"rbimpl_rstring_getmem: argument 0"}
+!82 = distinct !{!82, !"rbimpl_rstring_getmem"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"rbimpl_rstring_getmem: argument 0"}
+!85 = distinct !{!85, !"rbimpl_rstring_getmem"}
+!86 = !{!87, !88, i64 16}
+!87 = !{!"rb_execution_context_struct", !51, i64 0, !8, i64 8, !88, i64 16, !89, i64 24, !19, i64 32, !19, i64 36, !90, i64 40, !91, i64 48, !92, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !51, i64 88, !8, i64 96, !93, i64 104, !8, i64 112, !8, i64 120, !9, i64 128, !19, i64 129, !8, i64 136, !94, i64 144}
+!88 = !{!"p1 _ZTS23rb_control_frame_struct", !23, i64 0}
+!89 = !{!"p1 _ZTS9rb_vm_tag", !23, i64 0}
+!90 = !{!"p1 _ZTS15rb_fiber_struct", !23, i64 0}
+!91 = !{!"p1 _ZTS16rb_thread_struct", !23, i64 0}
+!92 = !{!"p1 _ZTS11rb_id_table", !23, i64 0}
+!93 = !{!"p1 _ZTS19rb_trace_arg_struct", !23, i64 0}
+!94 = !{!"", !51, i64 0, !51, i64 8, !8, i64 16, !9, i64 24}
+!95 = !{!96, !51, i64 32}
+!96 = !{!"rb_control_frame_struct", !51, i64 0, !51, i64 8, !97, i64 16, !8, i64 24, !51, i64 32, !23, i64 40, !23, i64 48}
+!97 = !{!"p1 _ZTS14rb_iseq_struct", !23, i64 0}
 !98 = distinct !{!98, !30}
 !99 = distinct !{!99, !30}
 !100 = distinct !{!100, !30}
 !101 = distinct !{!101, !30}
+!102 = distinct !{!102, !30}
+!103 = distinct !{!103, !30}

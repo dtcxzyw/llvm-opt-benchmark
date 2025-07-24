@@ -24020,7 +24020,7 @@ _ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_
   %35 = getelementptr inbounds nuw i8, ptr %.03762, i64 %.sink
   %.037 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i.i.preheader, !llvm.loop !134
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i.i.preheader, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %34, %._crit_edge.i.i.i.us
   %.036.lcssa = phi ptr [ %.03762.us, %._crit_edge.i.i.i.us ], [ %.03762, %34 ]
@@ -24178,7 +24178,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %.01215.i.i.i.i.i.add.i = add nuw nsw i64 %.01215.i.i.i.i.i.idx.i, 32
   %18 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %.01215.i.i.i.i.i.add.i, 64
-  br i1 %.not.i.i.i.i.i.i, label %32, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !135
+  br i1 %.not.i.i.i.i.i.i, label %32, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !137
 
 19:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
@@ -24614,5 +24614,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !131 = distinct !{!131, !5}
 !132 = distinct !{!132, !5}
 !133 = distinct !{!133, !5}
-!134 = distinct !{!134, !5}
-!135 = distinct !{!135, !5}
+!134 = distinct !{!134, !5, !135}
+!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!136 = distinct !{!136, !5}
+!137 = distinct !{!137, !5}

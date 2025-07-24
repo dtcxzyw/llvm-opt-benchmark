@@ -3533,7 +3533,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef %0, i32 noundef
 64:                                               ; preds = %59
   %65 = load i32, ptr %11, align 8
   %.not44.us56 = icmp eq i32 %60, %65
-  br i1 %.not44.us56, label %.split52.us, label %.split.split.us, !llvm.loop !41
+  br i1 %.not44.us56, label %.split52.us, label %.split.split.us, !llvm.loop !43
 
 .split.split:                                     ; preds = %.split.split.preheader, %100
   %66 = phi i32 [ %101, %100 ], [ %.pre, %.split.split.preheader ]
@@ -3617,7 +3617,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef %0, i32 noundef
 100:                                              ; preds = %94
   %101 = load i32, ptr %11, align 8
   %.not44 = icmp eq i32 %95, %101
-  br i1 %.not44, label %.split52.us, label %.split.split, !llvm.loop !41
+  br i1 %.not44, label %.split52.us, label %.split.split, !llvm.loop !44
 
 .split52.us:                                      ; preds = %100, %40, %64
   %102 = icmp eq i32 %1, 4
@@ -3958,7 +3958,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   store i64 %88, ptr %59, align 8
   %89 = sub i64 %.028, %.028.
   %.not33 = icmp eq i64 %89, 0
-  br i1 %.not33, label %lz4_init.exit.thread, label %60, !llvm.loop !42
+  br i1 %.not33, label %lz4_init.exit.thread, label %60, !llvm.loop !45
 
 lz4_init.exit.thread:                             ; preds = %86, %82, %77, %67, %48, %43, %33, %24, %15, %3
   %.0 = phi i64 [ 0, %3 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ 0, %67 ], [ 0, %77 ], [ 0, %82 ], [ %2, %86 ]
@@ -4618,7 +4618,7 @@ fill_in_buffer.exit:                              ; preds = %58
   %64 = load i32, ptr %3, align 8
   %65 = add i32 %64, %63
   store i32 %65, ptr %3, align 8
-  br i1 %60, label %fill_in_buffer.exit.thread83, label %31, !llvm.loop !43
+  br i1 %60, label %fill_in_buffer.exit.thread83, label %31, !llvm.loop !46
 
 fill_in_buffer.exit.thread83:                     ; preds = %36, %fill_in_buffer.exit, %fill_in_buffer.exit.thread84
   store i32 -12, ptr %26, align 4
@@ -4714,7 +4714,7 @@ fill_in_buffer.exit53:                            ; preds = %102
   %108 = load i32, ptr %3, align 8
   %109 = add i32 %108, %107
   store i32 %109, ptr %3, align 8
-  br i1 %104, label %fill_in_buffer.exit53.thread, label %75, !llvm.loop !44
+  br i1 %104, label %fill_in_buffer.exit53.thread, label %75, !llvm.loop !47
 
 fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer.exit53, %fill_in_buffer.exit53.thread86
   store i32 -12, ptr %26, align 4
@@ -4980,7 +4980,7 @@ fill_in_buffer.exit.thread13:                     ; preds = %10, %fill_in_buffer
   store ptr %46, ptr %8, align 8
   %47 = add nsw i64 %.016, -1
   %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !45
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !48
 
 .critedge:                                        ; preds = %fill_in_buffer.exit..critedge.loopexit_crit_edge, %buf_read.exit.thread.i
   %48 = phi i32 [ %32, %buf_read.exit.thread.i ], [ %.pre17.pre, %fill_in_buffer.exit..critedge.loopexit_crit_edge ]
@@ -5292,7 +5292,7 @@ fill_in_buffer.exit.thread12:                     ; preds = %9, %fill_in_buffer.
   store ptr %45, ptr %7, align 8
   %46 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !46
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !49
 
 fill_in_buffer.exit.thread:                       ; preds = %fill_in_buffer.exit.fill_in_buffer.exit.thread.loopexit_crit_edge, %buf_read.exit.thread.i
   %47 = phi i32 [ %31, %buf_read.exit.thread.i ], [ %.pre15.pre, %fill_in_buffer.exit.fill_in_buffer.exit.thread.loopexit_crit_edge ]
@@ -5831,9 +5831,12 @@ attributes #24 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
+!41 = distinct !{!41, !7, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !7, !42}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}

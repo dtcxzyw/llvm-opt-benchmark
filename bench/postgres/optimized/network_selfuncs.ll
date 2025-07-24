@@ -890,7 +890,7 @@ inet_mcv_join_sel.exit.i:                         ; preds = %inet_mcv_join_sel.e
   %132 = call double @llvm.fmuladd.f64(double %128, double %131, double %.01213.i.i)
   %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
   %exitcond.not.i94.i = icmp eq i64 %indvars.iv.next.i93.i, %wide.trip.count.i90.i
-  br i1 %exitcond.not.i94.i, label %inet_mcv_hist_sel.exit.i, label %.lr.ph.i91.i, !llvm.loop !11
+  br i1 %exitcond.not.i94.i, label %inet_mcv_hist_sel.exit.i, label %.lr.ph.i91.i, !llvm.loop !12
 
 inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i91.i, %113
   %.012.lcssa.i.i = phi double [ 0.000000e+00, %113 ], [ %132, %.lr.ph.i91.i ]
@@ -932,7 +932,7 @@ inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i91.i, %113
   %153 = call double @llvm.fmuladd.f64(double %149, double %152, double %.01213.i100.i)
   %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i99.i, 1
   %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, %wide.trip.count.i97.i
-  br i1 %exitcond.not.i102.i, label %inet_mcv_hist_sel.exit103.i, label %.lr.ph.i98.i, !llvm.loop !11
+  br i1 %exitcond.not.i102.i, label %inet_mcv_hist_sel.exit103.i, label %.lr.ph.i98.i, !llvm.loop !12
 
 inet_mcv_hist_sel.exit103.i:                      ; preds = %.lr.ph.i98.i, %135
   %.012.lcssa.i95.i = phi double [ 0.000000e+00, %135 ], [ %153, %.lr.ph.i98.i ]
@@ -980,7 +980,7 @@ inet_mcv_hist_sel.exit103.i:                      ; preds = %.lr.ph.i98.i, %135
   %180 = add i32 %.021.i.i, 1
   %181 = add i32 %173, %.01620.i.i
   %182 = icmp slt i32 %181, %174
-  br i1 %182, label %.lr.ph.i105.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %182, label %.lr.ph.i105.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i105.i
   %183 = sitofp i32 %180 to double
@@ -1299,7 +1299,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
 99:                                               ; preds = %.lr.ph.i107
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i106
-  br i1 %exitcond.not.i110, label %.thread.i, label %.lr.ph.i107, !llvm.loop !13
+  br i1 %exitcond.not.i110, label %.thread.i, label %.lr.ph.i107, !llvm.loop !14
 
 .lr.ph.i107:                                      ; preds = %88, %99
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %99 ], [ 0, %88 ]
@@ -1328,7 +1328,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   %110 = call double @llvm.fmuladd.f64(double %92, double %.2.i, double %.176124)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !15
 
 .loopexit:                                        ; preds = %inet_semi_join_sel.exit, %78
   %.075 = phi double [ 0.000000e+00, %78 ], [ %110, %inet_semi_join_sel.exit ]
@@ -1371,7 +1371,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
 132:                                              ; preds = %.lr.ph.i117
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i116
-  br i1 %exitcond.not.i121, label %.thread.i112, label %.lr.ph.i117, !llvm.loop !13
+  br i1 %exitcond.not.i121, label %.thread.i112, label %.lr.ph.i117, !llvm.loop !14
 
 .lr.ph.i117:                                      ; preds = %124, %132
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i120, %132 ], [ 0, %124 ]
@@ -1403,7 +1403,7 @@ inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thre
   %146 = load i32, ptr %111, align 8
   %147 = add i32 %146, -1
   %148 = icmp slt i32 %145, %147
-  br i1 %148, label %124, label %._crit_edge, !llvm.loop !15
+  br i1 %148, label %124, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %inet_semi_join_sel.exit122
   %149 = sitofp i32 %144 to double
@@ -1502,9 +1502,10 @@ attributes #10 = { cold nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

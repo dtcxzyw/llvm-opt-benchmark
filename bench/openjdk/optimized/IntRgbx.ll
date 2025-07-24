@@ -3447,19 +3447,19 @@ define hidden void @IntRgbxDrawGlyphListLCD(ptr noundef readonly captures(none) 
 167:                                              ; preds = %101, %165, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit176, label %89, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit176, label %89, !llvm.loop !67
 
 .loopexit176:                                     ; preds = %167
   %168 = add nsw i64 %.0142.in, %33
   %169 = getelementptr inbounds i8, ptr %.3, i64 %77
   %170 = add nsw i32 %.0152, -1
   %171 = icmp sgt i32 %.0152, 1
-  br i1 %171, label %.preheader175, label %.loopexit177, !llvm.loop !65
+  br i1 %171, label %.preheader175, label %.loopexit177, !llvm.loop !68
 
 .loopexit177:                                     ; preds = %.loopexit176, %.loopexit.us, %46, %37
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge, label %37, !llvm.loop !67
+  br i1 %exitcond191.not, label %._crit_edge, label %37, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.loopexit177, %14
   ret void
@@ -3526,7 +3526,7 @@ define hidden void @IntRgbxNrstNbrTransformHelper(ptr noundef readonly captures(
   %37 = add nsw i64 %.02023, %4
   %38 = add nsw i64 %.02122, %6
   %39 = icmp ult ptr %36, %9
-  br i1 %39, label %26, label %._crit_edge, !llvm.loop !68
+  br i1 %39, label %26, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %26, %7
   ret void
@@ -3621,7 +3621,7 @@ define hidden void @IntRgbxBilinearTransformHelper(ptr noundef readonly captures
   %76 = add nsw i64 %.05764, %4
   %77 = add nsw i64 %.05863, %6
   %78 = icmp ult ptr %75, %12
-  br i1 %78, label %27, label %._crit_edge, !llvm.loop !69
+  br i1 %78, label %27, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %27, %7
   ret void
@@ -3813,7 +3813,7 @@ define hidden void @IntRgbxBicubicTransformHelper(ptr noundef readonly captures(
   %162 = add nsw i64 %.0119122, %4
   %163 = add nsw i64 %.0120121, %6
   %164 = icmp ult ptr %161, %12
-  br i1 %164, label %28, label %._crit_edge, !llvm.loop !70
+  br i1 %164, label %28, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %28, %7
   ret void
@@ -3901,9 +3901,11 @@ attributes #7 = { nounwind }
 !62 = distinct !{!62, !7}
 !63 = distinct !{!63, !7}
 !64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
+!65 = distinct !{!65, !7, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !67 = distinct !{!67, !7}
 !68 = distinct !{!68, !7}
 !69 = distinct !{!69, !7}
 !70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}

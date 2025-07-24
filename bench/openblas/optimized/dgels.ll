@@ -391,7 +391,7 @@ thread-pre-split395.thread:                       ; preds = %thread-pre-split395
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep419, i8 0, i64 %172, i1 false), !tbaa !7
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %exitcond427.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count426
-  br i1 %exitcond427.not, label %._crit_edge410, label %.lr.ph.us411, !llvm.loop !11
+  br i1 %exitcond427.not, label %._crit_edge410, label %.lr.ph.us411, !llvm.loop !12
 
 ._crit_edge410:                                   ; preds = %.lr.ph.us411, %.lr.ph409, %161
   %178 = load i32, ptr %9, align 4, !tbaa !3
@@ -514,6 +514,7 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10, !11}

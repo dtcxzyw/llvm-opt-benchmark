@@ -2344,7 +2344,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((10
 .backedge.us:                                     ; preds = %15, %11
   %18 = tail call fastcc i32 @getCopyDataMessage(ptr noundef %0)
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.loopexit, label %.lr.ph.split.us
+  br i1 %19, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %20 = phi i32 [ %40, %.backedge ], [ %4, %.lr.ph ]
@@ -2597,7 +2597,7 @@ define range(i32 -1, 2) i32 @pqGetline3(ptr noundef %0, ptr noundef %1, i32 noun
 20:                                               ; preds = %18
   %21 = tail call i32 @pqReadData(ptr noundef %0) #16
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %15, !llvm.loop !17
+  br i1 %22, label %23, label %15, !llvm.loop !19
 
 23:                                               ; preds = %20, %18
   store i8 0, ptr %1, align 1
@@ -2909,7 +2909,7 @@ define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 42:                                               ; preds = %36, %39, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %42, %.preheader130
   %43 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef %0) #16
@@ -3464,7 +3464,7 @@ define internal fastcc i32 @build_startup_packet(ptr noundef readonly captures(n
   %156 = getelementptr inbounds nuw i8, ptr %.0102143.us, i64 16
   %157 = load ptr, ptr %156, align 8
   %.not133.us = icmp eq ptr %157, null
-  br i1 %.not133.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not133.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %180
   %158 = phi ptr [ %182, %180 ], [ %139, %.lr.ph ]
@@ -3504,7 +3504,7 @@ define internal fastcc i32 @build_startup_packet(ptr noundef readonly captures(n
   %181 = getelementptr inbounds nuw i8, ptr %.0102143, i64 16
   %182 = load ptr, ptr %181, align 8
   %.not133 = icmp eq ptr %182, null
-  br i1 %.not133, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not133, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %180, %155, %138
   %.6.lcssa = phi i32 [ %.5, %138 ], [ %.7.us, %155 ], [ %.7, %180 ]
@@ -3609,6 +3609,9 @@ attributes #19 = { nounwind allocsize(0) }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6, !18}
+!22 = distinct !{!22, !6}

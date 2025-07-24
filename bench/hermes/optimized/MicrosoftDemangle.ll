@@ -9181,7 +9181,7 @@ land.rhs.i:                                       ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.rhs.i
   %inc = add nuw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader
   %Arena = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9451,7 +9451,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %add, ptr %incdec.ptr.ptr, align 1
   %div = udiv i64 %N.addr.020, 10
   %tobool.not = icmp ult i64 %N.addr.020, 10
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !24
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !26
 
 while.end:                                        ; preds = %while.body
   br i1 %isNeg, label %if.then6, label %if.end8
@@ -9975,7 +9975,7 @@ while.cond.backedge:                              ; preds = %_ZN4llvh11ms_demang
   %Current.0.be = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %25 = load i8, ptr %Error, align 8
   %tobool = trunc i8 %25 to i1
-  br i1 %tobool, label %return, label %land.lhs.true, !llvm.loop !25
+  br i1 %tobool, label %return, label %land.lhs.true, !llvm.loop !27
 
 if.end17:                                         ; preds = %_ZL15startsWithDigit10StringView.exit.thread, %_ZL15startsWithDigit10StringView.exit
   %inc8789 = phi i64 [ %inc86, %_ZL15startsWithDigit10StringView.exit.thread ], [ %inc, %_ZL15startsWithDigit10StringView.exit ]
@@ -11417,6 +11417,8 @@ attributes #27 = { builtin nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!23 = distinct !{!23, !5, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}

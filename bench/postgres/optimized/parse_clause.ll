@@ -2813,8 +2813,8 @@ define internal fastcc ptr @transformGroupingSet(ptr noundef nonnull captures(no
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph6, label %._crit_edge
 
-._crit_edge:                                      ; preds = %109, %.lr.ph
-  %.04467.lcssa = phi ptr [ null, %.lr.ph ], [ %110, %109 ]
+._crit_edge:                                      ; preds = %108, %.lr.ph
+  %.04467.lcssa = phi ptr [ null, %.lr.ph ], [ %109, %108 ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %19, 3
@@ -2822,16 +2822,16 @@ define internal fastcc ptr @transformGroupingSet(ptr noundef nonnull captures(no
   %or.cond = select i1 %20, i1 true, i1 %.not.i48
   br i1 %or.cond, label %list_length.exit.thread, label %list_length.exit
 
-.lr.ph6:                                          ; preds = %.lr.ph, %109
-  %.044675 = phi ptr [ %110, %109 ], [ null, %.lr.ph ]
-  %indvars.iv4 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.lr.ph ]
+.lr.ph6:                                          ; preds = %.lr.ph, %108
+  %.044675 = phi ptr [ %109, %108 ], [ null, %.lr.ph ]
+  %indvars.iv4 = phi i64 [ %indvars.iv.next, %108 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv4
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
-  switch i32 %24, label %103 [
+  switch i32 %24, label %102 [
     i32 1, label %.lr.ph.i
-    i32 107, label %101
+    i32 107, label %100
   ]
 
 .lr.ph.i:                                         ; preds = %.lr.ph6
@@ -2918,148 +2918,149 @@ findTargetlistEntrySQL99.exit:                    ; preds = %.lr.ph38.i56, %._cr
 .lr.ph.i.i:                                       ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.critedge.us.lr.ph.i.i, label %targetIsInSortList.exit.i
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %exitcond.not.not.i66.i = icmp slt i32 %64, 1
+  br i1 %exitcond.not.not.i66.i, label %targetIsInSortList.exit.i, label %.critedge.us.i.lr.ph.i
 
-.critedge.us.lr.ph.i.i:                           ; preds = %.lr.ph.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %wide.trip.count.i.i = zext nneg i32 %64 to i64
+.critedge.us.i.lr.ph.i:                           ; preds = %.lr.ph.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %66 = load ptr, ptr %65, align 8
   br label %.critedge.us.i.i
 
-68:                                               ; preds = %.critedge.us.i.i
-  %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next62.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %targetIsInSortList.exit.i, label %.critedge.us.i.i
+67:                                               ; preds = %.critedge.us.i.i
+  %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i67.i, 1
+  %exitcond.not.not.i.i = icmp eq i64 %indvars.iv.next58.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.not.i.i, label %targetIsInSortList.exit.i, label %.critedge.us.i.i
 
-.critedge.us.i.i:                                 ; preds = %68, %.critedge.us.lr.ph.i.i
-  %indvars.iv61.i.i = phi i64 [ 0, %.critedge.us.lr.ph.i.i ], [ %indvars.iv.next62.i.i, %68 ]
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv61.i.i
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, %61
-  br i1 %73, label %transformGroupClauseExpr.exit, label %68
+.critedge.us.i.i:                                 ; preds = %67, %.critedge.us.i.lr.ph.i
+  %indvars.iv57.i67.i = phi i64 [ 0, %.critedge.us.i.lr.ph.i ], [ %indvars.iv.next58.i.i, %67 ]
+  %68 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv57.i67.i
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, %61
+  br i1 %72, label %transformGroupClauseExpr.exit, label %67
 
-targetIsInSortList.exit.i:                        ; preds = %68, %.lr.ph.i.i, %59
+targetIsInSortList.exit.i:                        ; preds = %67, %.lr.ph.i.i, %59
   br i1 %.not49.i, label %.thread62.i, label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %targetIsInSortList.exit.i
-  %74 = load i32, ptr %14, align 4
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph69.i, label %.thread62.i
+  %73 = load i32, ptr %14, align 4
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %.lr.ph71.i, label %.thread62.i
 
-.lr.ph69.i:                                       ; preds = %.lr.ph.i50
-  %76 = load ptr, ptr %15, align 8
-  %wide.trip.count.i = zext nneg i32 %74 to i64
-  br label %78
+.lr.ph71.i:                                       ; preds = %.lr.ph.i50
+  %75 = load ptr, ptr %15, align 8
+  %wide.trip.count.i = zext nneg i32 %73 to i64
+  br label %77
 
-77:                                               ; preds = %78
+76:                                               ; preds = %77
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread62.i, label %78
+  br i1 %exitcond.not.i, label %.thread62.i, label %77
 
-78:                                               ; preds = %77, %.lr.ph69.i
-  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph69.i ], [ %indvars.iv.next.i53, %77 ]
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv.i52
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %82 = load i32, ptr %81, align 4
-  %.not51.i = icmp eq i32 %82, %61
-  br i1 %.not51.i, label %.split.i, label %77
+77:                                               ; preds = %76, %.lr.ph71.i
+  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph71.i ], [ %indvars.iv.next.i53, %76 ]
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %75, i64 %indvars.iv.i52
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %81 = load i32, ptr %80, align 4
+  %.not51.i = icmp eq i32 %81, %61
+  br i1 %.not51.i, label %.split.i, label %76
 
-.split.i:                                         ; preds = %78
-  %83 = tail call ptr @copyObjectImpl(ptr noundef nonnull %80) #9
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 17
-  store i8 0, ptr %84, align 1
-  %85 = load ptr, ptr %0, align 8
-  %86 = tail call ptr @lappend(ptr noundef %85, ptr noundef %83) #9
-  br label %91
+.split.i:                                         ; preds = %77
+  %82 = tail call ptr @copyObjectImpl(ptr noundef nonnull %79) #9
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 17
+  store i8 0, ptr %83, align 1
+  %84 = load ptr, ptr %0, align 8
+  %85 = tail call ptr @lappend(ptr noundef %84, ptr noundef %82) #9
+  br label %90
 
-.thread62.i:                                      ; preds = %77, %.lr.ph.i50, %targetIsInSortList.exit.i, %..thread62_crit_edge.i
-  %87 = phi ptr [ %.pre.i, %..thread62_crit_edge.i ], [ %60, %targetIsInSortList.exit.i ], [ %60, %.lr.ph.i50 ], [ %60, %77 ]
-  %88 = load ptr, ptr %3, align 8
-  %89 = tail call i32 @exprLocation(ptr noundef %31) #9
-  %90 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %1, ptr noundef %.041.i, ptr noundef %87, ptr noundef %88, i32 noundef %89)
-  br label %91
+.thread62.i:                                      ; preds = %76, %.lr.ph.i50, %targetIsInSortList.exit.i, %..thread62_crit_edge.i
+  %86 = phi ptr [ %.pre.i, %..thread62_crit_edge.i ], [ %60, %targetIsInSortList.exit.i ], [ %60, %.lr.ph.i50 ], [ %60, %76 ]
+  %87 = load ptr, ptr %3, align 8
+  %88 = tail call i32 @exprLocation(ptr noundef %31) #9
+  %89 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %1, ptr noundef %.041.i, ptr noundef %86, ptr noundef %87, i32 noundef %88)
+  br label %90
 
-91:                                               ; preds = %.thread62.i, %.split.i
-  %storemerge.i = phi ptr [ %86, %.split.i ], [ %90, %.thread62.i ]
+90:                                               ; preds = %.thread62.i, %.split.i
+  %storemerge.i = phi ptr [ %85, %.split.i ], [ %89, %.thread62.i ]
   store ptr %storemerge.i, ptr %0, align 8
-  %92 = load i32, ptr %55, align 8
+  %91 = load i32, ptr %55, align 8
   br label %transformGroupClauseExpr.exit
 
-transformGroupClauseExpr.exit:                    ; preds = %.critedge.us.i.i, %91
-  %.1.i51 = phi i32 [ %92, %91 ], [ %61, %.critedge.us.i.i ]
+transformGroupClauseExpr.exit:                    ; preds = %.critedge.us.i.i, %90
+  %.1.i51 = phi i32 [ %91, %90 ], [ %61, %.critedge.us.i.i ]
   %.not26.i = icmp eq i32 %.1.i51, 0
-  br i1 %.not26.i, label %transformGroupClauseExpr.exit.thread, label %93
+  br i1 %.not26.i, label %transformGroupClauseExpr.exit.thread, label %92
 
-93:                                               ; preds = %transformGroupClauseExpr.exit
-  %94 = tail call ptr @bms_add_member(ptr noundef %.03135.i, i32 noundef %.1.i51) #9
-  %95 = tail call ptr @lappend_int(ptr noundef %.0203036.i, i32 noundef %.1.i51) #9
+92:                                               ; preds = %transformGroupClauseExpr.exit
+  %93 = tail call ptr @bms_add_member(ptr noundef %.03135.i, i32 noundef %.1.i51) #9
+  %94 = tail call ptr @lappend_int(ptr noundef %.0203036.i, i32 noundef %.1.i51) #9
   br label %transformGroupClauseExpr.exit.thread
 
-transformGroupClauseExpr.exit.thread:             ; preds = %57, %93, %transformGroupClauseExpr.exit
-  %.121.i = phi ptr [ %95, %93 ], [ %.0203036.i, %transformGroupClauseExpr.exit ], [ %.0203036.i, %57 ]
-  %.1.i = phi ptr [ %94, %93 ], [ %.03135.i, %transformGroupClauseExpr.exit ], [ %.03135.i, %57 ]
+transformGroupClauseExpr.exit.thread:             ; preds = %57, %92, %transformGroupClauseExpr.exit
+  %.121.i = phi ptr [ %94, %92 ], [ %.0203036.i, %transformGroupClauseExpr.exit ], [ %.0203036.i, %57 ]
+  %.1.i = phi ptr [ %93, %92 ], [ %.03135.i, %transformGroupClauseExpr.exit ], [ %.03135.i, %57 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %96 = load i32, ptr %25, align 4
-  %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next.i, %97
-  br i1 %98, label %.lr.ph38.i, label %transformGroupClauseList.exit
+  %95 = load i32, ptr %25, align 4
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next.i, %96
+  br i1 %97, label %.lr.ph38.i, label %transformGroupClauseList.exit
 
 transformGroupClauseList.exit:                    ; preds = %transformGroupClauseExpr.exit.thread, %.lr.ph.i
   %.020.lcssa.i = phi ptr [ null, %.lr.ph.i ], [ %.121.i, %transformGroupClauseExpr.exit.thread ]
-  %99 = tail call i32 @exprLocation(ptr noundef nonnull %23) #9
-  %100 = tail call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %.020.lcssa.i, i32 noundef %99) #9
-  br label %109
+  %98 = tail call i32 @exprLocation(ptr noundef nonnull %23) #9
+  %99 = tail call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %.020.lcssa.i, i32 noundef %98) #9
+  br label %108
 
-101:                                              ; preds = %.lr.ph6
-  %102 = tail call fastcc ptr @transformGroupingSet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
-  br label %109
+100:                                              ; preds = %.lr.ph6
+  %101 = tail call fastcc ptr @transformGroupingSet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
+  br label %108
 
-103:                                              ; preds = %.lr.ph6
-  %104 = tail call fastcc i32 @transformGroupClauseExpr(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %23, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false)
-  %.sroa.0.0.insert.ext = zext i32 %104 to i64
-  %105 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
-  %106 = tail call ptr @list_make1_impl(i32 noundef 470, ptr %105) #9
-  %107 = tail call i32 @exprLocation(ptr noundef nonnull %23) #9
-  %108 = tail call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %106, i32 noundef %107) #9
-  br label %109
+102:                                              ; preds = %.lr.ph6
+  %103 = tail call fastcc i32 @transformGroupClauseExpr(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %23, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false)
+  %.sroa.0.0.insert.ext = zext i32 %103 to i64
+  %104 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
+  %105 = tail call ptr @list_make1_impl(i32 noundef 470, ptr %104) #9
+  %106 = tail call i32 @exprLocation(ptr noundef nonnull %23) #9
+  %107 = tail call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %105, i32 noundef %106) #9
+  br label %108
 
-109:                                              ; preds = %101, %103, %transformGroupClauseList.exit
-  %.sink = phi ptr [ %102, %101 ], [ %108, %103 ], [ %100, %transformGroupClauseList.exit ]
-  %110 = tail call ptr @lappend(ptr noundef %.044675, ptr noundef %.sink) #9
+108:                                              ; preds = %100, %102, %transformGroupClauseList.exit
+  %.sink = phi ptr [ %101, %100 ], [ %107, %102 ], [ %99, %transformGroupClauseList.exit ]
+  %109 = tail call ptr @lappend(ptr noundef %.044675, ptr noundef %.sink) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv4, 1
-  %111 = load i32, ptr %10, align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph6, label %._crit_edge
+  %110 = load i32, ptr %10, align 4
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next, %111
+  br i1 %112, label %.lr.ph6, label %._crit_edge
 
 list_length.exit:                                 ; preds = %._crit_edge
-  %114 = getelementptr inbounds nuw i8, ptr %.04467.lcssa, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp sgt i32 %115, 12
-  br i1 %116, label %117, label %list_length.exit.thread
+  %113 = getelementptr inbounds nuw i8, ptr %.04467.lcssa, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp sgt i32 %114, 12
+  br i1 %115, label %116, label %list_length.exit.thread
 
-117:                                              ; preds = %list_length.exit
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @errcode(i32 noundef 17039621) #9
-  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #9
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %122 = load i32, ptr %121, align 8
-  %123 = tail call i32 @parser_errposition(ptr noundef %1, i32 noundef %122) #9
+116:                                              ; preds = %list_length.exit
+  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %117)
+  %118 = tail call i32 @errcode(i32 noundef 17039621) #9
+  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #9
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %121 = load i32, ptr %120, align 8
+  %122 = tail call i32 @parser_errposition(ptr noundef %1, i32 noundef %121) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2587, ptr noundef nonnull @__func__.transformGroupingSet) #9
   unreachable
 
 list_length.exit.thread:                          ; preds = %._crit_edge.thread, %list_length.exit, %._crit_edge
-  %124 = phi i32 [ %12, %._crit_edge.thread ], [ 3, %list_length.exit ], [ %19, %._crit_edge ]
+  %123 = phi i32 [ %12, %._crit_edge.thread ], [ 3, %list_length.exit ], [ %19, %._crit_edge ]
   %.044.lcssa77 = phi ptr [ null, %._crit_edge.thread ], [ %.04467.lcssa, %list_length.exit ], [ %.04467.lcssa, %._crit_edge ]
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %126 = load i32, ptr %125, align 8
-  %127 = tail call ptr @makeGroupingSet(i32 noundef %124, ptr noundef %.044.lcssa77, i32 noundef %126) #9
-  ret ptr %127
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %125 = load i32, ptr %124, align 8
+  %126 = tail call ptr @makeGroupingSet(i32 noundef %123, ptr noundef %.044.lcssa77, i32 noundef %125) #9
+  ret ptr %126
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3100,88 +3101,89 @@ define internal fastcc i32 @transformGroupClauseExpr(ptr noundef nonnull capture
 .lr.ph.i:                                         ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.critedge.us.lr.ph.i, label %targetIsInSortList.exit
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %exitcond.not.not.i66 = icmp slt i32 %24, 1
+  br i1 %exitcond.not.not.i66, label %targetIsInSortList.exit, label %.critedge.us.i.lr.ph
 
-.critedge.us.lr.ph.i:                             ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %wide.trip.count.i = zext nneg i32 %24 to i64
+.critedge.us.i.lr.ph:                             ; preds = %.lr.ph.i
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %26 = load ptr, ptr %25, align 8
   br label %.critedge.us.i
 
-28:                                               ; preds = %.critedge.us.i
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %targetIsInSortList.exit, label %.critedge.us.i
+27:                                               ; preds = %.critedge.us.i
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i67, 1
+  %exitcond.not.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
+  br i1 %exitcond.not.not.i, label %targetIsInSortList.exit, label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %28, %.critedge.us.lr.ph.i
-  %indvars.iv61.i = phi i64 [ 0, %.critedge.us.lr.ph.i ], [ %indvars.iv.next62.i, %28 ]
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv61.i
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %21
-  br i1 %33, label %.loopexit, label %28
+.critedge.us.i:                                   ; preds = %.critedge.us.i.lr.ph, %27
+  %indvars.iv57.i67 = phi i64 [ 0, %.critedge.us.i.lr.ph ], [ %indvars.iv.next58.i, %27 ]
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv57.i67
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, %21
+  br i1 %32, label %.loopexit, label %27
 
-targetIsInSortList.exit:                          ; preds = %28, %19, %.lr.ph.i
+targetIsInSortList.exit:                          ; preds = %27, %.lr.ph.i, %19
   %.not49 = icmp eq ptr %5, null
   br i1 %.not49, label %.thread62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %targetIsInSortList.exit
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph69, label %.thread62
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph71, label %.thread62
 
-.lr.ph69:                                         ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %wide.trip.count = zext nneg i32 %35 to i64
-  br label %40
+.lr.ph71:                                         ; preds = %.lr.ph
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %wide.trip.count = zext nneg i32 %34 to i64
+  br label %39
 
-39:                                               ; preds = %40
+38:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread62, label %40
+  br i1 %exitcond.not, label %.thread62, label %39
 
-40:                                               ; preds = %.lr.ph69, %39
-  %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = load i32, ptr %43, align 4
-  %.not51 = icmp eq i32 %44, %21
-  br i1 %.not51, label %.split, label %39
+39:                                               ; preds = %.lr.ph71, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next, %38 ]
+  %40 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i32, ptr %42, align 4
+  %.not51 = icmp eq i32 %43, %21
+  br i1 %.not51, label %.split, label %38
 
-.split:                                           ; preds = %40
-  %45 = tail call ptr @copyObjectImpl(ptr noundef nonnull %42) #9
-  br i1 %8, label %.thread64, label %46
+.split:                                           ; preds = %39
+  %44 = tail call ptr @copyObjectImpl(ptr noundef nonnull %41) #9
+  br i1 %8, label %.thread64, label %45
 
-46:                                               ; preds = %.split
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 17
-  store i8 0, ptr %47, align 1
+45:                                               ; preds = %.split
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 17
+  store i8 0, ptr %46, align 1
   br label %.thread64
 
-.thread64:                                        ; preds = %46, %.split
-  %48 = load ptr, ptr %0, align 8
-  %49 = tail call ptr @lappend(ptr noundef %48, ptr noundef %45) #9
-  br label %54
+.thread64:                                        ; preds = %45, %.split
+  %47 = load ptr, ptr %0, align 8
+  %48 = tail call ptr @lappend(ptr noundef %47, ptr noundef %44) #9
+  br label %53
 
-.thread62:                                        ; preds = %39, %..thread62_crit_edge, %targetIsInSortList.exit, %.lr.ph
-  %50 = phi ptr [ %.pre, %..thread62_crit_edge ], [ %20, %targetIsInSortList.exit ], [ %20, %.lr.ph ], [ %20, %39 ]
-  %51 = load ptr, ptr %4, align 8
-  %52 = tail call i32 @exprLocation(ptr noundef %3) #9
-  %53 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %2, ptr noundef %.041, ptr noundef %50, ptr noundef %51, i32 noundef %52)
-  br label %54
+.thread62:                                        ; preds = %38, %..thread62_crit_edge, %targetIsInSortList.exit, %.lr.ph
+  %49 = phi ptr [ %.pre, %..thread62_crit_edge ], [ %20, %targetIsInSortList.exit ], [ %20, %.lr.ph ], [ %20, %38 ]
+  %50 = load ptr, ptr %4, align 8
+  %51 = tail call i32 @exprLocation(ptr noundef %3) #9
+  %52 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %2, ptr noundef %.041, ptr noundef %49, ptr noundef %50, i32 noundef %51)
+  br label %53
 
-54:                                               ; preds = %.thread64, %.thread62
-  %storemerge = phi ptr [ %49, %.thread64 ], [ %53, %.thread62 ]
+53:                                               ; preds = %.thread64, %.thread62
+  %storemerge = phi ptr [ %48, %.thread64 ], [ %52, %.thread62 ]
   store ptr %storemerge, ptr %0, align 8
-  %55 = load i32, ptr %15, align 8
+  %54 = load i32, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge.us.i, %17, %54
-  %.1 = phi i32 [ %55, %54 ], [ 0, %17 ], [ %21, %.critedge.us.i ]
+.loopexit:                                        ; preds = %.critedge.us.i, %17, %53
+  %.1 = phi i32 [ %54, %53 ], [ 0, %17 ], [ %21, %.critedge.us.i ]
   ret i32 %.1
 }
 
@@ -3197,33 +3199,33 @@ define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %4, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %4, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph45, label %._crit_edge
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  br i1 %9, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph45:                                         ; preds = %.lr.ph.split.us.split, %.lr.ph45
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph45 ], [ 0, %.lr.ph.split.us.split ]
-  %.02027.us43 = phi ptr [ %17, %.lr.ph45 ], [ null, %.lr.ph.split.us.split ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %.02027.us49 = phi ptr [ %17, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %indvars.iv4348 = phi i64 [ %indvars.iv.next44, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv50
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv4348
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc ptr @findTargetlistEntrySQL99(ptr noundef %0, ptr noundef %14, ptr noundef %2, i32 noundef %3)
   %16 = load ptr, ptr %2, align 8
-  %17 = tail call ptr @addTargetToSortList(ptr noundef %0, ptr noundef %15, ptr noundef %.02027.us43, ptr noundef %16, ptr noundef nonnull %12)
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %17 = tail call ptr @addTargetToSortList(ptr noundef %0, ptr noundef %15, ptr noundef %.02027.us49, ptr noundef %16, ptr noundef nonnull %12)
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv4348, 1
   %18 = load i32, ptr %6, align 4
   %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next51, %19
-  br i1 %20, label %.lr.ph45, label %._crit_edge
+  %20 = icmp slt i64 %indvars.iv.next44, %19
+  br i1 %20, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %9, label %.lr.ph39, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph39, %.lr.ph45, %.lr.ph.split.us.split, %.lr.ph.split.split, %5
-  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %17, %.lr.ph45 ], [ %28, %.lr.ph39 ]
+._crit_edge:                                      ; preds = %.lr.ph39, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %5
+  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.preheader ], [ %17, %.lr.ph.split.us ], [ %28, %.lr.ph39 ]
   ret ptr %.020.lcssa
 
 .lr.ph39:                                         ; preds = %.lr.ph.split.split, %.lr.ph39
@@ -3618,33 +3620,35 @@ define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(n
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = icmp eq i32 %58, 0
   %65 = load i32, ptr %62, align 4
-  %66 = icmp sgt i32 %65, 0
-  br i1 %64, label %.lr.ph.split.us.split.i, label %.lr.ph.split.split.i
+  br i1 %64, label %.lr.ph.split.us.i, label %.lr.ph.split.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i
-  br i1 %66, label %.critedge.us.lr.ph.i, label %.loopexit
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
+  %smax.i = call i32 @llvm.smax.i32(i32 %65, i32 0)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %exitcond.not.not.i52 = icmp slt i32 %65, 1
+  br i1 %exitcond.not.not.i52, label %.loopexit, label %.critedge.us.i.lr.ph
 
-.critedge.us.lr.ph.i:                             ; preds = %.lr.ph.split.us.split.i
-  %67 = load ptr, ptr %63, align 8
-  %wide.trip.count.i = zext nneg i32 %65 to i64
+.critedge.us.i.lr.ph:                             ; preds = %.lr.ph.split.us.i
+  %66 = load ptr, ptr %63, align 8
   br label %.critedge.us.i
 
-68:                                               ; preds = %.critedge.us.i
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.critedge.us.i
+67:                                               ; preds = %.critedge.us.i
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i53, 1
+  %exitcond.not.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
+  br i1 %exitcond.not.not.i, label %.loopexit, label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %68, %.critedge.us.lr.ph.i
-  %indvars.iv61.i = phi i64 [ 0, %.critedge.us.lr.ph.i ], [ %indvars.iv.next62.i, %68 ]
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv61.i
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, %60
-  br i1 %73, label %targetIsInSortList.exit, label %68
+.critedge.us.i:                                   ; preds = %.critedge.us.i.lr.ph, %67
+  %indvars.iv57.i53 = phi i64 [ 0, %.critedge.us.i.lr.ph ], [ %indvars.iv.next58.i, %67 ]
+  %68 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv57.i53
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, %60
+  br i1 %72, label %targetIsInSortList.exit, label %67
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i
-  br i1 %66, label %.lr.ph52.i, label %.loopexit
+  %73 = icmp sgt i32 %65, 0
+  br i1 %73, label %.lr.ph52.i, label %.loopexit
 
 .lr.ph52.i:                                       ; preds = %.lr.ph.split.split.i, %.critedge.i
   %74 = phi i32 [ %88, %.critedge.i ], [ %65, %.lr.ph.split.split.i ]
@@ -3679,7 +3683,7 @@ define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(n
   %90 = icmp slt i64 %indvars.iv.next.i, %89
   br i1 %90, label %.lr.ph52.i, label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge.i, %68, %57, %.preheader.i, %.lr.ph.split.us.split.i, %.lr.ph.split.split.i
+.loopexit:                                        ; preds = %.critedge.i, %67, %.lr.ph.split.us.i, %57, %.preheader.i, %.lr.ph.split.split.i
   %91 = call noundef ptr @palloc0(i64 noundef 20) #9
   store i32 106, ptr %91, align 4
   %92 = load i32, ptr %59, align 8
@@ -3720,8 +3724,8 @@ define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(n
   %103 = load i32, ptr %102, align 8
   %spec.select.i = call i32 @llvm.umax.i32(i32 %103, i32 %.0142428.i)
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
-  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
-  br i1 %exitcond.not.i49, label %._crit_edge.loopexit.i, label %99
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %99
 
 assignSortGroupRef.exit:                          ; preds = %.loopexit, %._crit_edge.i
   %.0.i43 = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ %92, %.loopexit ]
@@ -3784,48 +3788,48 @@ define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef rea
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph204
 
-.lr.ph:                                           ; preds = %3
+.lr.ph204:                                        ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph340, label %._crit_edge
+  br i1 %10, label %.lr.ph343, label %._crit_edge
 
-._crit_edge:                                      ; preds = %222, %.lr.ph, %3
-  %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %239, %222 ]
+._crit_edge:                                      ; preds = %222, %.lr.ph204, %3
+  %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph204 ], [ %239, %222 ]
   ret ptr %.0.lcssa
 
-.lr.ph340:                                        ; preds = %.lr.ph, %222
-  %.0202339 = phi ptr [ %239, %222 ], [ null, %.lr.ph ]
-  %indvars.iv338 = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.lr.ph ]
+.lr.ph343:                                        ; preds = %.lr.ph204, %222
+  %.0203342 = phi ptr [ %239, %222 ], [ null, %.lr.ph204 ]
+  %indvars.iv341 = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.lr.ph204 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv338
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv341
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv338, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv341, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not113 = icmp eq ptr %15, null
   br i1 %.not113, label %findWindowClause.exit.thread, label %16
 
-16:                                               ; preds = %.lr.ph340
-  %.not.i = icmp eq ptr %.0202339, null
+16:                                               ; preds = %.lr.ph343
+  %.not.i = icmp eq ptr %.0203342, null
   br i1 %.not.i, label %findWindowClause.exit.thread.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
-  %17 = getelementptr inbounds nuw i8, ptr %.0202339, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.0203342, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph38.i, label %findWindowClause.exit.thread
 
 .lr.ph38.i:                                       ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.0202339, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0203342, i64 16
   %21 = load ptr, ptr %20, align 8
   %wide.trip.count.i = zext nneg i32 %18 to i64
   br label %22
@@ -3861,7 +3865,7 @@ findWindowClause.exit:                            ; preds = %27
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2793, ptr noundef nonnull @__func__.transformWindowDefinitions) #9
   unreachable
 
-findWindowClause.exit.thread:                     ; preds = %30, %.lr.ph.i, %.lr.ph340
+findWindowClause.exit.thread:                     ; preds = %30, %.lr.ph.i, %.lr.ph343
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not115 = icmp eq ptr %39, null
@@ -3874,17 +3878,17 @@ findWindowClause.exit.thread.thread:              ; preds = %16
   br i1 %.not115151, label %findWindowClause.exit135, label %.thread152
 
 42:                                               ; preds = %findWindowClause.exit.thread
-  %.not.i127 = icmp eq ptr %.0202339, null
+  %.not.i127 = icmp eq ptr %.0203342, null
   br i1 %.not.i127, label %.thread152, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %42
-  %43 = getelementptr inbounds nuw i8, ptr %.0202339, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0203342, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph38.i129, label %.thread152
 
 .lr.ph38.i129:                                    ; preds = %.lr.ph.i128
-  %46 = getelementptr inbounds nuw i8, ptr %.0202339, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0203342, i64 16
   %47 = load ptr, ptr %46, align 8
   %wide.trip.count.i130 = zext nneg i32 %44 to i64
   br label %48
@@ -3934,13 +3938,13 @@ findWindowClause.exit135:                         ; preds = %53, %findWindowClau
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load i32, ptr %68, align 4
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph45.i, label %transformSortClause.exit
+  br i1 %71, label %.lr.ph, label %transformSortClause.exit
 
-.lr.ph45.i:                                       ; preds = %.lr.ph.i137, %findTargetlistEntrySQL99.exit
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %findTargetlistEntrySQL99.exit ], [ 0, %.lr.ph.i137 ]
-  %.02027.us43.i = phi ptr [ %98, %findTargetlistEntrySQL99.exit ], [ null, %.lr.ph.i137 ]
+.lr.ph:                                           ; preds = %.lr.ph.i137, %findTargetlistEntrySQL99.exit
+  %.02027.us.i199 = phi ptr [ %98, %findTargetlistEntrySQL99.exit ], [ null, %.lr.ph.i137 ]
+  %indvars.iv43.i198 = phi i64 [ %indvars.iv.next44.i, %findTargetlistEntrySQL99.exit ], [ 0, %.lr.ph.i137 ]
   %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv50.i
+  %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv43.i198
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
@@ -3949,7 +3953,7 @@ findWindowClause.exit135:                         ; preds = %53, %findWindowClau
   %.not.i139 = icmp eq ptr %78, null
   br i1 %.not.i139, label %._crit_edge.i, label %.lr.ph.i140
 
-.lr.ph.i140:                                      ; preds = %.lr.ph45.i
+.lr.ph.i140:                                      ; preds = %.lr.ph
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = load i32, ptr %79, align 4
@@ -3974,7 +3978,7 @@ findWindowClause.exit135:                         ; preds = %53, %findWindowClau
   %93 = call zeroext i1 @equal(ptr noundef %77, ptr noundef %92) #9
   br i1 %93, label %findTargetlistEntrySQL99.exit.loopexit, label %83
 
-._crit_edge.i:                                    ; preds = %83, %.lr.ph.i140, %.lr.ph45.i
+._crit_edge.i:                                    ; preds = %83, %.lr.ph.i140, %.lr.ph
   %94 = call ptr @transformTargetEntry(ptr noundef %0, ptr noundef %76, ptr noundef %77, i32 noundef 10, ptr noundef null, i1 noundef zeroext true) #9
   %95 = load ptr, ptr %2, align 8
   %96 = call ptr @lappend(ptr noundef %95, ptr noundef %94) #9
@@ -3988,14 +3992,14 @@ findTargetlistEntrySQL99.exit.loopexit:           ; preds = %.lr.ph38.i141
 findTargetlistEntrySQL99.exit:                    ; preds = %findTargetlistEntrySQL99.exit.loopexit, %._crit_edge.i
   %97 = phi ptr [ %96, %._crit_edge.i ], [ %.pre, %findTargetlistEntrySQL99.exit.loopexit ]
   %.3.i = phi ptr [ %94, %._crit_edge.i ], [ %89, %findTargetlistEntrySQL99.exit.loopexit ]
-  %98 = call ptr @addTargetToSortList(ptr noundef %0, ptr noundef %.3.i, ptr noundef %.02027.us43.i, ptr noundef %97, ptr noundef nonnull %74)
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %98 = call ptr @addTargetToSortList(ptr noundef %0, ptr noundef %.3.i, ptr noundef %.02027.us.i199, ptr noundef %97, ptr noundef nonnull %74)
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i198, 1
   %99 = load i32, ptr %68, align 4
   %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next51.i, %100
-  br i1 %101, label %.lr.ph45.i, label %transformSortClause.exit
+  %101 = icmp slt i64 %indvars.iv.next44.i, %100
+  br i1 %101, label %.lr.ph, label %transformSortClause.exit
 
-transformSortClause.exit:                         ; preds = %findTargetlistEntrySQL99.exit, %findWindowClause.exit135, %.lr.ph.i137
+transformSortClause.exit:                         ; preds = %findTargetlistEntrySQL99.exit, %.lr.ph.i137, %findWindowClause.exit135
   %.020.lcssa.i = phi ptr [ null, %findWindowClause.exit135 ], [ null, %.lr.ph.i137 ], [ %98, %findTargetlistEntrySQL99.exit ]
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %103 = load ptr, ptr %102, align 8
@@ -4186,11 +4190,11 @@ list_length.exit.thread:                          ; preds = %176, %list_length.e
   %207 = getelementptr inbounds nuw i8, ptr %105, i64 77
   store i8 %206, ptr %207, align 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #9
-  %.pre244 = load i32, ptr %173, align 8
+  %.pre247 = load i32, ptr %173, align 8
   br label %208
 
 208:                                              ; preds = %198, %169
-  %209 = phi i32 [ %.pre244, %198 ], [ %172, %169 ]
+  %209 = phi i32 [ %.pre247, %198 ], [ %172, %169 ]
   %210 = and i32 %209, 8
   %.not124 = icmp eq i32 %210, 0
   br i1 %.not124, label %222, label %211
@@ -4232,13 +4236,13 @@ list_length.exit.thread:                          ; preds = %176, %list_length.e
   store ptr %236, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %105, i64 80
   store i32 %indvars, ptr %238, align 8
-  %239 = call ptr @lappend(ptr noundef %.0202339, ptr noundef nonnull %105) #9
+  %239 = call ptr @lappend(ptr noundef %.0203342, ptr noundef nonnull %105) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %240 = load i32, ptr %7, align 4
   %241 = sext i32 %240 to i64
   %242 = icmp slt i64 %indvars.iv.next, %241
-  br i1 %242, label %.lr.ph340, label %._crit_edge
+  br i1 %242, label %.lr.ph343, label %._crit_edge
 }
 
 declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -4577,32 +4581,33 @@ define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef cap
 .lr.ph.i:                                         ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.critedge.us.lr.ph.i, label %.loopexit
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %exitcond.not.not.i29 = icmp slt i32 %22, 1
+  br i1 %exitcond.not.not.i29, label %.loopexit, label %.critedge.us.i.lr.ph
 
-.critedge.us.lr.ph.i:                             ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %wide.trip.count.i = zext nneg i32 %22 to i64
+.critedge.us.i.lr.ph:                             ; preds = %.lr.ph.i
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load ptr, ptr %23, align 8
   br label %.critedge.us.i
 
-26:                                               ; preds = %.critedge.us.i
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.critedge.us.i
+25:                                               ; preds = %.critedge.us.i
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i30, 1
+  %exitcond.not.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
+  br i1 %exitcond.not.not.i, label %.loopexit, label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %26, %.critedge.us.lr.ph.i
-  %indvars.iv61.i = phi i64 [ 0, %.critedge.us.lr.ph.i ], [ %indvars.iv.next62.i, %26 ]
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv61.i
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, %19
-  br i1 %31, label %targetIsInSortList.exit, label %26
+.critedge.us.i:                                   ; preds = %.critedge.us.i.lr.ph, %25
+  %indvars.iv57.i30 = phi i64 [ 0, %.critedge.us.i.lr.ph ], [ %indvars.iv.next58.i, %25 ]
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv57.i30
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, %19
+  br i1 %30, label %targetIsInSortList.exit, label %25
 
-.loopexit:                                        ; preds = %26, %17, %.lr.ph.i
-  %32 = tail call noundef ptr @palloc0(i64 noundef 20) #9
-  store i32 106, ptr %32, align 4
+.loopexit:                                        ; preds = %25, %.lr.ph.i, %17
+  %31 = tail call noundef ptr @palloc0(i64 noundef 20) #9
+  store i32 106, ptr %31, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
@@ -4610,8 +4615,8 @@ define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef cap
   call void @setup_parser_errposition_callback(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %4) #9
   call void @get_sort_group_operators(i32 noundef %.021, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %8) #9
   call void @cancel_parser_errposition_callback(ptr noundef nonnull %9) #9
-  %33 = load i32, ptr %18, align 8
-  %.not.i23 = icmp eq i32 %33, 0
+  %32 = load i32, ptr %18, align 8
+  %.not.i23 = icmp eq i32 %32, 0
   br i1 %.not.i23, label %.preheader.i25, label %assignSortGroupRef.exit
 
 .preheader.i25:                                   ; preds = %.loopexit
@@ -4619,56 +4624,56 @@ define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef cap
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.preheader.i25
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph30.i, label %._crit_edge.i
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph30.i, label %._crit_edge.i
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i26
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %wide.trip.count.i27 = zext nneg i32 %35 to i64
-  br label %40
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %wide.trip.count.i27 = zext nneg i32 %34 to i64
+  br label %39
 
-._crit_edge.loopexit.i:                           ; preds = %40
-  %39 = add i32 %spec.select.i, 1
+._crit_edge.loopexit.i:                           ; preds = %39
+  %38 = add i32 %spec.select.i, 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i26, %.preheader.i25
-  %.014.lcssa.i = phi i32 [ 1, %.preheader.i25 ], [ 1, %.lr.ph.i26 ], [ %39, %._crit_edge.loopexit.i ]
+  %.014.lcssa.i = phi i32 [ 1, %.preheader.i25 ], [ 1, %.lr.ph.i26 ], [ %38, %._crit_edge.loopexit.i ]
   store i32 %.014.lcssa.i, ptr %18, align 8
   br label %assignSortGroupRef.exit
 
-40:                                               ; preds = %40, %.lr.ph30.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next.i, %40 ]
-  %.0142428.i = phi i32 [ 0, %.lr.ph30.i ], [ %spec.select.i, %40 ]
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv.i
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load i32, ptr %43, align 8
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %44, i32 %.0142428.i)
+39:                                               ; preds = %39, %.lr.ph30.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next.i, %39 ]
+  %.0142428.i = phi i32 [ 0, %.lr.ph30.i ], [ %spec.select.i, %39 ]
+  %40 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv.i
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %43 = load i32, ptr %42, align 8
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %43, i32 %.0142428.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i27
-  br i1 %exitcond.not.i28, label %._crit_edge.loopexit.i, label %40
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i27
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %39
 
 assignSortGroupRef.exit:                          ; preds = %.loopexit, %._crit_edge.i
-  %.0.i24 = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ %33, %.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %.0.i24, ptr %45, align 4
-  %46 = load i32, ptr %7, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %46, ptr %47, align 4
-  %48 = load i32, ptr %6, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i8 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %32, i64 17
-  store i8 0, ptr %51, align 1
-  %52 = load i8, ptr %8, align 1, !range !4, !noundef !5
-  %53 = getelementptr inbounds nuw i8, ptr %32, i64 18
-  store i8 %52, ptr %53, align 2
-  %54 = call ptr @lappend(ptr noundef %2, ptr noundef nonnull %32) #9
+  %.0.i24 = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ %32, %.loopexit ]
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %.0.i24, ptr %44, align 4
+  %45 = load i32, ptr %7, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 %45, ptr %46, align 4
+  %47 = load i32, ptr %6, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i32 %47, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i8 0, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 17
+  store i8 0, ptr %50, align 1
+  %51 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 18
+  store i8 %51, ptr %52, align 2
+  %53 = call ptr @lappend(ptr noundef %2, ptr noundef nonnull %31) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
@@ -4676,7 +4681,7 @@ assignSortGroupRef.exit:                          ; preds = %.loopexit, %._crit_
   br label %targetIsInSortList.exit
 
 targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %assignSortGroupRef.exit
-  %.0 = phi ptr [ %54, %assignSortGroupRef.exit ], [ %2, %.critedge.us.i ]
+  %.0 = phi ptr [ %53, %assignSortGroupRef.exit ], [ %2, %.critedge.us.i ]
   ret ptr %.0
 }
 
@@ -4684,29 +4689,29 @@ targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %as
 define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge95, label %.lr.ph
+  br i1 %.not, label %._crit_edge94, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph103, label %._crit_edge95
+  br i1 %8, label %.lr.ph102, label %._crit_edge94
 
-._crit_edge95:                                    ; preds = %assignSortGroupRef.exit, %.lr.ph, %4
+._crit_edge94:                                    ; preds = %assignSortGroupRef.exit, %.lr.ph, %4
   %.059.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %31, %assignSortGroupRef.exit ]
   %.not70 = icmp eq ptr %3, null
-  br i1 %.not70, label %._crit_edge114, label %.lr.ph110
+  br i1 %.not70, label %._crit_edge113, label %.lr.ph109
 
-.lr.ph110:                                        ; preds = %._crit_edge95
+.lr.ph109:                                        ; preds = %._crit_edge94
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph125, label %._crit_edge114
+  br i1 %12, label %.lr.ph124, label %._crit_edge113
 
-.lr.ph103:                                        ; preds = %.lr.ph, %assignSortGroupRef.exit
+.lr.ph102:                                        ; preds = %.lr.ph, %assignSortGroupRef.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %assignSortGroupRef.exit ], [ 0, %.lr.ph ]
-  %.05993101 = phi ptr [ %31, %assignSortGroupRef.exit ], [ null, %.lr.ph ]
+  %.05992100 = phi ptr [ %31, %assignSortGroupRef.exit ], [ null, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -4717,7 +4722,7 @@ define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef read
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %.preheader.i, label %assignSortGroupRef.exit
 
-.preheader.i:                                     ; preds = %.lr.ph103
+.preheader.i:                                     ; preds = %.lr.ph102
   %.not19.i = icmp eq ptr %17, null
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4754,42 +4759,42 @@ define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef read
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %26
 
-assignSortGroupRef.exit:                          ; preds = %.lr.ph103, %._crit_edge.i
-  %.0.i = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ %19, %.lr.ph103 ]
-  %31 = tail call ptr @lappend_int(ptr noundef %.05993101, i32 noundef %.0.i) #9
+assignSortGroupRef.exit:                          ; preds = %.lr.ph102, %._crit_edge.i
+  %.0.i = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ %19, %.lr.ph102 ]
+  %31 = tail call ptr @lappend_int(ptr noundef %.05992100, i32 noundef %.0.i) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %5, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph103, label %._crit_edge95
+  br i1 %34, label %.lr.ph102, label %._crit_edge94
 
-._crit_edge114.loopexit:                          ; preds = %57
+._crit_edge113.loopexit:                          ; preds = %57
   %35 = trunc nuw i8 %.161 to i1
-  br label %._crit_edge114
+  br label %._crit_edge113
 
-._crit_edge114:                                   ; preds = %._crit_edge114.loopexit, %.lr.ph110, %._crit_edge95
-  %.060.lcssa = phi i1 [ false, %._crit_edge95 ], [ false, %.lr.ph110 ], [ %35, %._crit_edge114.loopexit ]
-  %.0.lcssa = phi ptr [ null, %._crit_edge95 ], [ null, %.lr.ph110 ], [ %.1, %._crit_edge114.loopexit ]
+._crit_edge113:                                   ; preds = %._crit_edge113.loopexit, %.lr.ph109, %._crit_edge94
+  %.060.lcssa = phi i1 [ false, %._crit_edge94 ], [ false, %.lr.ph109 ], [ %35, %._crit_edge113.loopexit ]
+  %.0.lcssa = phi ptr [ null, %._crit_edge94 ], [ null, %.lr.ph109 ], [ %.1, %._crit_edge113.loopexit ]
   %.not72 = icmp eq ptr %.059.lcssa, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %.059.lcssa, i64 4
   %38 = getelementptr inbounds nuw i8, ptr %.059.lcssa, i64 16
-  br i1 %.not72, label %.thread86, label %.split128
+  br i1 %.not72, label %.thread85, label %.split129
 
-.lr.ph125:                                        ; preds = %.lr.ph110, %57
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %57 ], [ 0, %.lr.ph110 ]
-  %.060107123 = phi i8 [ %.161, %57 ], [ 0, %.lr.ph110 ]
-  %.0108122 = phi ptr [ %.1, %57 ], [ null, %.lr.ph110 ]
+.lr.ph124:                                        ; preds = %.lr.ph109, %57
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %57 ], [ 0, %.lr.ph109 ]
+  %.060106122 = phi i8 [ %.161, %57 ], [ 0, %.lr.ph109 ]
+  %.0107121 = phi ptr [ %.1, %57 ], [ null, %.lr.ph109 ]
   %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv135
+  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv136
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = tail call zeroext i1 @list_member_int(ptr noundef %.059.lcssa, i32 noundef %43) #9
   br i1 %44, label %45, label %57
 
-45:                                               ; preds = %.lr.ph125
-  %46 = trunc nuw i8 %.060107123 to i1
+45:                                               ; preds = %.lr.ph124
+  %46 = trunc nuw i8 %.060106122 to i1
   br i1 %46, label %.split, label %54
 
 .split:                                           ; preds = %45
@@ -4806,54 +4811,54 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph103, %._crit_
 
 54:                                               ; preds = %45
   %55 = tail call ptr @copyObjectImpl(ptr noundef nonnull %41) #9
-  %56 = tail call ptr @lappend(ptr noundef %.0108122, ptr noundef %55) #9
+  %56 = tail call ptr @lappend(ptr noundef %.0107121, ptr noundef %55) #9
   br label %57
 
-57:                                               ; preds = %.lr.ph125, %54
-  %.161 = phi i8 [ 0, %54 ], [ 1, %.lr.ph125 ]
-  %.1 = phi ptr [ %56, %54 ], [ %.0108122, %.lr.ph125 ]
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+57:                                               ; preds = %.lr.ph124, %54
+  %.161 = phi i8 [ 0, %54 ], [ 1, %.lr.ph124 ]
+  %.1 = phi ptr [ %56, %54 ], [ %.0107121, %.lr.ph124 ]
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %58 = load i32, ptr %9, align 4
   %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next136, %59
-  br i1 %60, label %.lr.ph125, label %._crit_edge114.loopexit
+  %60 = icmp slt i64 %indvars.iv.next137, %59
+  br i1 %60, label %.lr.ph124, label %._crit_edge113.loopexit
 
-.split128:                                        ; preds = %._crit_edge114, %targetIsInSortList.exit
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %targetIsInSortList.exit ], [ 0, %._crit_edge114 ]
-  %.2 = phi ptr [ %.3, %targetIsInSortList.exit ], [ %.0.lcssa, %._crit_edge114 ]
+.split129:                                        ; preds = %._crit_edge113, %targetIsInSortList.exit
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %targetIsInSortList.exit ], [ 0, %._crit_edge113 ]
+  %.2 = phi ptr [ %.3, %targetIsInSortList.exit ], [ %.0.lcssa, %._crit_edge113 ]
   br i1 %.not, label %68, label %61
 
-61:                                               ; preds = %.split128
+61:                                               ; preds = %.split129
   %62 = load i32, ptr %5, align 4
   %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv137, %63
+  %64 = icmp slt i64 %indvars.iv138, %63
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %36, align 8
-  %67 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv137
+  %67 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv138
   br label %68
 
-68:                                               ; preds = %.split128, %61, %65
-  %69 = phi ptr [ %67, %65 ], [ null, %61 ], [ null, %.split128 ]
+68:                                               ; preds = %.split129, %61, %65
+  %69 = phi ptr [ %67, %65 ], [ null, %61 ], [ null, %.split129 ]
   %70 = load i32, ptr %37, align 4
   %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv137, %71
-  br i1 %72, label %73, label %.thread86
+  %72 = icmp slt i64 %indvars.iv138, %71
+  br i1 %72, label %73, label %.thread85
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %38, align 8
   %75 = icmp ne ptr %69, null
   %76 = icmp ne ptr %74, null
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %78, label %.thread86
+  br i1 %77, label %78, label %.thread85
 
-.thread86:                                        ; preds = %73, %68, %._crit_edge114
-  %.us-phi129 = phi ptr [ %.0.lcssa, %._crit_edge114 ], [ %.2, %68 ], [ %.2, %73 ]
-  ret ptr %.us-phi129
+.thread85:                                        ; preds = %73, %68, %._crit_edge113
+  %.us-phi130 = phi ptr [ %.0.lcssa, %._crit_edge113 ], [ %.2, %68 ], [ %.2, %73 ]
+  ret ptr %.us-phi130
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %74, i64 %indvars.iv137
+  %79 = getelementptr inbounds nuw %union.ListCell, ptr %74, i64 %indvars.iv138
   %80 = load ptr, ptr %69, align 8
   %81 = load i32, ptr %79, align 8
   %82 = load ptr, ptr %2, align 8
@@ -4868,52 +4873,53 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph103, %._crit_
 .lr.ph.i75:                                       ; preds = %78
   %87 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %88 = load i32, ptr %87, align 4
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.critedge.us.lr.ph.i, label %.loopexit
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
+  %wide.trip.count.i76 = zext nneg i32 %smax.i to i64
+  %exitcond.not.not.i127 = icmp slt i32 %88, 1
+  br i1 %exitcond.not.not.i127, label %.loopexit, label %.critedge.us.i.lr.ph
 
-.critedge.us.lr.ph.i:                             ; preds = %.lr.ph.i75
-  %90 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %wide.trip.count.i77 = zext nneg i32 %88 to i64
+.critedge.us.i.lr.ph:                             ; preds = %.lr.ph.i75
+  %89 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %90 = load ptr, ptr %89, align 8
   br label %.critedge.us.i
 
-92:                                               ; preds = %.critedge.us.i
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i77
-  br i1 %exitcond.not.i78, label %.loopexit, label %.critedge.us.i
+91:                                               ; preds = %.critedge.us.i
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i128, 1
+  %exitcond.not.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i76
+  br i1 %exitcond.not.not.i, label %.loopexit, label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %92, %.critedge.us.lr.ph.i
-  %indvars.iv61.i = phi i64 [ 0, %.critedge.us.lr.ph.i ], [ %indvars.iv.next62.i, %92 ]
-  %93 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv61.i
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, %85
-  br i1 %97, label %targetIsInSortList.exit, label %92
+.critedge.us.i:                                   ; preds = %.critedge.us.i.lr.ph, %91
+  %indvars.iv57.i128 = phi i64 [ 0, %.critedge.us.i.lr.ph ], [ %indvars.iv.next58.i, %91 ]
+  %92 = getelementptr inbounds nuw %union.ListCell, ptr %90, i64 %indvars.iv57.i128
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, %85
+  br i1 %96, label %targetIsInSortList.exit, label %91
 
-.loopexit:                                        ; preds = %92, %78, %.lr.ph.i75
-  br i1 %.060.lcssa, label %98, label %104
+.loopexit:                                        ; preds = %91, %.lr.ph.i75, %78
+  br i1 %.060.lcssa, label %97, label %103
 
-98:                                               ; preds = %.loopexit
-  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %99)
-  %100 = tail call i32 @errcode(i32 noundef 393348) #9
-  %101 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #9
-  %102 = tail call i32 @exprLocation(ptr noundef %80) #9
-  %103 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %102) #9
+97:                                               ; preds = %.loopexit
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %98)
+  %99 = tail call i32 @errcode(i32 noundef 393348) #9
+  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #9
+  %101 = tail call i32 @exprLocation(ptr noundef %80) #9
+  %102 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %101) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3149, ptr noundef nonnull @__func__.transformDistinctOnClause) #9
   unreachable
 
-104:                                              ; preds = %.loopexit
-  %105 = load ptr, ptr %2, align 8
-  %106 = tail call i32 @exprLocation(ptr noundef %80) #9
-  %107 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef %83, ptr noundef %.2, ptr noundef %105, i32 noundef %106)
+103:                                              ; preds = %.loopexit
+  %104 = load ptr, ptr %2, align 8
+  %105 = tail call i32 @exprLocation(ptr noundef %80) #9
+  %106 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef %83, ptr noundef %.2, ptr noundef %104, i32 noundef %105)
   br label %targetIsInSortList.exit
 
-targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %104
-  %.3 = phi ptr [ %107, %104 ], [ %.2, %.critedge.us.i ]
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  br label %.split128, !llvm.loop !18
+targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %103
+  %.3 = phi ptr [ %106, %103 ], [ %.2, %.critedge.us.i ]
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  br label %.split129, !llvm.loop !18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -5052,31 +5058,33 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly cap
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = icmp eq i32 %1, 0
   %10 = load i32, ptr %7, align 4
-  %11 = icmp sgt i32 %10, 0
-  br i1 %9, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %11, label %.critedge.us.lr.ph, label %.thread30
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  %exitcond.not.not65 = icmp slt i32 %10, 1
+  br i1 %exitcond.not.not65, label %.thread30, label %.critedge.us.preheader
 
-.critedge.us.lr.ph:                               ; preds = %.lr.ph.split.us.split
-  %12 = load ptr, ptr %8, align 8
-  %wide.trip.count = zext nneg i32 %10 to i64
+.critedge.us.preheader:                           ; preds = %.lr.ph.split.us
+  %11 = load ptr, ptr %8, align 8
   br label %.critedge.us
 
-.critedge.us:                                     ; preds = %.critedge.us, %.critedge.us.lr.ph
-  %indvars.iv61 = phi i64 [ 0, %.critedge.us.lr.ph ], [ %indvars.iv.next62, %.critedge.us ]
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv61
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %5
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  %or.cond = select i1 %17, i1 true, i1 %exitcond.not
+.critedge.us:                                     ; preds = %.critedge.us, %.critedge.us.preheader
+  %indvars.iv5766 = phi i64 [ 0, %.critedge.us.preheader ], [ %indvars.iv.next58, %.critedge.us ]
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv5766
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, %5
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv5766, 1
+  %exitcond.not.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
+  %or.cond = select i1 %16, i1 true, i1 %exitcond.not.not
   br i1 %or.cond, label %.thread30, label %.critedge.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %11, label %.lr.ph52, label %.thread30
+  %17 = icmp sgt i32 %10, 0
+  br i1 %17, label %.lr.ph52, label %.thread30
 
 .lr.ph52:                                         ; preds = %.lr.ph.split.split, %.critedge
   %18 = phi i32 [ %32, %.critedge ], [ %10, %.lr.ph.split.split ]
@@ -5111,8 +5119,8 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly cap
   %34 = icmp slt i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph52, label %.thread30
 
-.thread30:                                        ; preds = %.critedge, %29, %25, %.critedge.us, %.preheader, %.lr.ph.split.split, %.lr.ph.split.us.split, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.preheader ], [ false, %.lr.ph.split.us.split ], [ false, %.lr.ph.split.split ], [ %17, %.critedge.us ], [ false, %.critedge ], [ true, %29 ], [ true, %25 ]
+.thread30:                                        ; preds = %.critedge, %29, %25, %.critedge.us, %.lr.ph.split.us, %.preheader, %.lr.ph.split.split, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %.preheader ], [ false, %.lr.ph.split.split ], [ false, %.lr.ph.split.us ], [ %16, %.critedge.us ], [ false, %.critedge ], [ true, %29 ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -5751,10 +5759,10 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

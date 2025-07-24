@@ -1078,4 +1078,5 @@ attributes #18 = { cold noreturn nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!19 = distinct !{!19, !5, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}

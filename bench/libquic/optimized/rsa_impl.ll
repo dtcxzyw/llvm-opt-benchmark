@@ -1559,7 +1559,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   %179 = add nsw i32 %.4238.ph.us, 1
   %180 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.4238.ph.us) #8
   %.not296.us = icmp eq i32 %180, 0
-  br i1 %.not296.us, label %.thread336, label %.outer.us
+  br i1 %.not296.us, label %.thread336, label %.outer.us, !llvm.loop !52
 
 .lr.ph387.us:                                     ; preds = %.outer.us, %.backedge.us.us
   %181 = load ptr, ptr %67, align 8, !tbaa !26
@@ -1587,7 +1587,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 195:                                              ; preds = %.preheader360.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next, %indvars.iv431
-  br i1 %exitcond430.not, label %._crit_edge383.us.us, label %.preheader360.us.us, !llvm.loop !52
+  br i1 %exitcond430.not, label %._crit_edge383.us.us, label %.preheader360.us.us, !llvm.loop !54
 
 ._crit_edge383.us.us:                             ; preds = %195, %.preheader360.us.us
   %.0229.lcssa.us.us.in = phi i64 [ %indvars.iv, %.preheader360.us.us ], [ %indvars.iv431, %195 ]
@@ -1617,7 +1617,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   %206 = load ptr, ptr %158, align 8, !tbaa !45
   %207 = tail call i32 @BN_generate_prime_ex(ptr noundef %206, i32 noundef %167, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4) #8
   %.not289.us.us = icmp eq i32 %207, 0
-  br i1 %.not289.us.us, label %.thread336, label %.lr.ph387.us
+  br i1 %.not289.us.us, label %.thread336, label %.lr.ph387.us, !llvm.loop !55
 
 .split.us.us:                                     ; preds = %204
   br i1 %.not294, label %171, label %.split392.us
@@ -1717,7 +1717,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   %252 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 3, i32 noundef 1) #8
   %.not300 = icmp eq i32 %252, 0
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
-  br i1 %.not300, label %.thread336, label %155, !llvm.loop !53
+  br i1 %.not300, label %.thread336, label %155, !llvm.loop !56
 
 253:                                              ; preds = %155
   %254 = load ptr, ptr %67, align 8, !tbaa !26
@@ -1763,7 +1763,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 270:                                              ; preds = %276
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count
-  br i1 %exitcond446.not, label %._crit_edge396, label %.lr.ph395, !llvm.loop !54
+  br i1 %exitcond446.not, label %._crit_edge396, label %.lr.ph395, !llvm.loop !57
 
 .lr.ph395:                                        ; preds = %.lr.ph395.preheader, %270
   %indvars.iv442 = phi i64 [ 2, %.lr.ph395.preheader ], [ %indvars.iv.next443, %270 ]
@@ -1822,7 +1822,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
 293:                                              ; preds = %305
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count451
-  br i1 %exitcond452.not, label %._crit_edge399, label %.lr.ph398, !llvm.loop !55
+  br i1 %exitcond452.not, label %._crit_edge399, label %.lr.ph398, !llvm.loop !58
 
 .lr.ph398:                                        ; preds = %.lr.ph398.preheader, %293
   %indvars.iv447 = phi i64 [ 2, %.lr.ph398.preheader ], [ %indvars.iv.next448, %293 ]
@@ -2022,7 +2022,10 @@ attributes #9 = { nounwind allocsize(0) }
 !49 = distinct !{!49, !36}
 !50 = distinct !{!50, !36}
 !51 = distinct !{!51, !36}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !54 = distinct !{!54, !36}
-!55 = distinct !{!55, !36}
+!55 = distinct !{!55, !53}
+!56 = distinct !{!56, !36}
+!57 = distinct !{!57, !36}
+!58 = distinct !{!58, !36}

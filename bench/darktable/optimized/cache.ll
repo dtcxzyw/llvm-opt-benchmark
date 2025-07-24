@@ -367,7 +367,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %35 = load ptr, ptr %23, align 8, !tbaa !18
   %36 = call i32 @g_hash_table_lookup_extended(ptr noundef %35, ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %.not.us = icmp eq i32 %36, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !67
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %37 = load ptr, ptr %9, align 8, !tbaa !27
@@ -430,31 +430,31 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i64, ptr %68, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %69, ptr %70, align 8, !tbaa !67
+  store i64 %69, ptr %70, align 8, !tbaa !69
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i64 1, ptr %71, align 8, !tbaa !68
+  store i64 1, ptr %71, align 8, !tbaa !70
   %72 = call ptr @g_list_append(ptr noundef null, ptr noundef nonnull %63) #8
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %72, ptr %73, align 8, !tbaa !66
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 92
-  store i32 %1, ptr %74, align 4, !tbaa !69
+  store i32 %1, ptr %74, align 4, !tbaa !71
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 88
-  store i32 0, ptr %75, align 8, !tbaa !70
+  store i32 0, ptr %75, align 8, !tbaa !72
   %76 = load ptr, ptr %23, align 8, !tbaa !18
   %77 = call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef %26, ptr noundef nonnull %63) #8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %79 = load ptr, ptr %78, align 8, !tbaa !73
   %.not73 = icmp eq ptr %79, null
   br i1 %.not73, label %83, label %80
 
 80:                                               ; preds = %67
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %82 = load ptr, ptr %81, align 8, !tbaa !72
+  %82 = load ptr, ptr %81, align 8, !tbaa !74
   call void %79(ptr noundef %82, ptr noundef nonnull %63) #8
   br label %86
 
 83:                                               ; preds = %67
-  %84 = load i64, ptr %70, align 8, !tbaa !67
+  %84 = load i64, ptr %70, align 8, !tbaa !69
   %85 = call ptr @dt_alloc_aligned(i64 noundef %84) #8
   store ptr %85, ptr %63, align 8, !tbaa !24
   br label %86
@@ -464,7 +464,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr %78, align 8, !tbaa !71
+  %89 = load ptr, ptr %78, align 8, !tbaa !73
   %.not78 = icmp eq ptr %89, null
   br i1 %.not78, label %91, label %.critedge
 
@@ -477,7 +477,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br label %93
 
 93:                                               ; preds = %91, %.critedge
-  %94 = load i64, ptr %71, align 8, !tbaa !68
+  %94 = load i64, ptr %71, align 8, !tbaa !70
   %95 = load i64, ptr %53, align 8, !tbaa !6
   %96 = add i64 %95, %94
   store i64 %96, ptr %53, align 8, !tbaa !6
@@ -543,7 +543,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
   %.02635 = phi ptr [ %4, %.lr.ph ], [ %13, %51 ]
   %11 = load ptr, ptr %.02635, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %.02635, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !73
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = load i64, ptr %5, align 8, !tbaa !6
   %15 = uitofp i64 %14 to float
   %16 = load i64, ptr %6, align 8, !tbaa !17
@@ -560,7 +560,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %25 = load i32, ptr %24, align 8, !tbaa !70
+  %25 = load i32, ptr %24, align 8, !tbaa !72
   %.not29 = icmp eq i32 %25, 0
   br i1 %.not29, label %28, label %26
 
@@ -571,7 +571,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
 28:                                               ; preds = %23
   %29 = load ptr, ptr %7, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  %31 = load i32, ptr %30, align 4, !tbaa !69
+  %31 = load i32, ptr %30, align 4, !tbaa !71
   %32 = zext i32 %31 to i64
   %33 = inttoptr i64 %32 to ptr
   %34 = tail call i32 @g_hash_table_remove(ptr noundef %29, ptr noundef %33) #8
@@ -581,7 +581,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
   %38 = tail call ptr @g_list_delete_link(ptr noundef %35, ptr noundef %37) #8
   store ptr %38, ptr %3, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !68
+  %40 = load i64, ptr %39, align 8, !tbaa !70
   %41 = load i64, ptr %5, align 8, !tbaa !6
   %42 = sub i64 %41, %40
   store i64 %42, ptr %5, align 8, !tbaa !6
@@ -655,7 +655,7 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %20 = load i32, ptr %19, align 8, !tbaa !70
+  %20 = load i32, ptr %19, align 8, !tbaa !72
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %23, label %21
 
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
   %39 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #8
   %40 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull %12) #8
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !68
+  %42 = load i64, ptr %41, align 8, !tbaa !70
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i64, ptr %43, align 8, !tbaa !6
   %45 = sub i64 %44, %42
@@ -838,10 +838,12 @@ attributes #9 = { nounwind allocsize(0) }
 !64 = !{!"timeval", !11, i64 0, !11, i64 8}
 !65 = !{!64, !11, i64 8}
 !66 = !{!25, !14, i64 24}
-!67 = !{!25, !11, i64 8}
-!68 = !{!25, !11, i64 16}
-!69 = !{!25, !26, i64 92}
-!70 = !{!25, !26, i64 88}
-!71 = !{!7, !13, i64 80}
-!72 = !{!7, !13, i64 96}
-!73 = !{!21, !14, i64 8}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = !{!25, !11, i64 8}
+!70 = !{!25, !11, i64 16}
+!71 = !{!25, !26, i64 92}
+!72 = !{!25, !26, i64 88}
+!73 = !{!7, !13, i64 80}
+!74 = !{!7, !13, i64 96}
+!75 = !{!21, !14, i64 8}

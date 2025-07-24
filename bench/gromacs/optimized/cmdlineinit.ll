@@ -179,23 +179,23 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %53 = load i32, ptr %0, align 4, !tbaa !17
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next.i, %54
-  br i1 %55, label %.critedge.i, label %_ZN3gmx12_GLOBAL__N_118broadcastArgumentsEPiPPPc.exit, !llvm.loop !24
+  br i1 %55, label %.critedge.i, label %_ZN3gmx12_GLOBAL__N_118broadcastArgumentsEPiPPPc.exit, !llvm.loop !27
 
 _ZN3gmx12_GLOBAL__N_118broadcastArgumentsEPiPPPc.exit: ; preds = %.critedge.i, %.lr.ph.split.us.i, %6, %16, %.thread.i
   %56 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_118broadcastArgumentsEPiPPPc.exit
-  %57 = load i32, ptr %0, align 4, !tbaa !17, !noalias !26
-  %58 = load ptr, ptr %1, align 8, !tbaa !19, !noalias !26
+  %57 = load i32, ptr %0, align 4, !tbaa !17, !noalias !28
+  %58 = load ptr, ptr %1, align 8, !tbaa !19, !noalias !28
   invoke void @_ZN3gmx25CommandLineProgramContextC1EiPKPKc(ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef %57, ptr noundef %58)
-          to label %_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %59, !noalias !26
+          to label %_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %59, !noalias !28
 
 59:                                               ; preds = %.noexc
   %60 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 16) #19, !noalias !26
+  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 16) #19, !noalias !28
   br label %.body
 
 _ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc
@@ -223,13 +223,13 @@ _ZNSt10unique_ptrIN3gmx25CommandLineProgramContextESt14default_deleteIS1_EED2Ev.
 
 .noexc14:                                         ; preds = %66
   invoke void @_ZN3gmx14DataFileFinderC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67)
-          to label %_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %68, !noalias !29
+          to label %_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %68, !noalias !31
 
 68:                                               ; preds = %.noexc14
   %69 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef 8) #19, !noalias !29
+  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef 8) #19, !noalias !31
   br label %.body
 
 _ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc14
@@ -281,7 +281,7 @@ _ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EED2Ev.exit: ; pre
 82:                                               ; preds = %.body
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %83 = call ptr @__cxa_begin_catch(ptr %.0) #17
-  %84 = load ptr, ptr @stderr, align 8, !tbaa !32
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !34
   invoke void @_ZN3gmx22printFatalErrorMessageEP8_IO_FILERKSt9exception(ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(8) %83)
           to label %85 unwind label %88
 
@@ -437,17 +437,17 @@ define noundef i32 @_ZN3gmx20runCommandLineModuleEiPPcPKcS3_St8functionIFSt10uni
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
-  %9 = load ptr, ptr %8, align 8, !tbaa !34
-  store ptr %9, ptr %7, align 8, !tbaa !34
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  store ptr %9, ptr %7, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %.not.i.i.not.i = icmp eq ptr %11, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !38
-  store ptr %11, ptr %13, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !40
+  store ptr %11, ptr %13, align 8, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
 
@@ -457,7 +457,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
 
 15:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !37
+  %17 = load ptr, ptr %16, align 8, !tbaa !39
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %18
 
@@ -479,7 +479,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %15, %18
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
   %.not.i5 = icmp eq ptr %26, null
   br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %27
 
@@ -571,19 +571,21 @@ attributes #22 = { builtin allocsize(0) }
 !21 = !{!"any p2 pointer", !6, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 omnipotent char", !6, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!28 = distinct !{!28, !"_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!31 = distinct !{!31, !"_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!34 = !{!35, !6, i64 24}
-!35 = !{!"_ZTSSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEE", !36, i64 0, !6, i64 24}
-!36 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
-!37 = !{!36, !6, i64 16}
-!38 = !{i64 0, i64 16, !39}
-!39 = !{!7, !7, i64 0}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !25}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!30 = distinct !{!30, !"_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!33 = distinct !{!33, !"_ZSt11make_uniqueIN3gmx14DataFileFinderEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!36 = !{!37, !6, i64 24}
+!37 = !{!"_ZTSSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEE", !38, i64 0, !6, i64 24}
+!38 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
+!39 = !{!38, !6, i64 16}
+!40 = !{i64 0, i64 16, !41}
+!41 = !{!7, !7, i64 0}

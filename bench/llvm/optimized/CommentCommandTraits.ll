@@ -2452,7 +2452,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZN4llvm9StringRefC
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %10
-  br i1 %.not.i, label %_ZNK5clang8comments13CommandTraits24getRegisteredCommandInfoEN4llvm9StringRefE.exit, label %.lr.ph.split.i, !llvm.loop !35
+  br i1 %.not.i, label %_ZNK5clang8comments13CommandTraits24getRegisteredCommandInfoEN4llvm9StringRefE.exit, label %.lr.ph.split.i, !llvm.loop !37
 
 _ZNK5clang8comments13CommandTraits24getRegisteredCommandInfoEN4llvm9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us.i, %_ZN4llvm9StringRefC2EPKc.exit.us.i, %.lr.ph.split.us.i, %5, %3
   %.1 = phi ptr [ %4, %3 ], [ null, %5 ], [ %12, %.lr.ph.split.us.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us.i ], [ %12, %_ZN4llvm9StringRefC2EPKc.exit.us.i ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ]
@@ -2520,7 +2520,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15:       ; preds = %.lr.ph.split, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split, !llvm.loop !35
+  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split, !llvm.loop !37
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm9StringRefC2EPKc.exit.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us, %.lr.ph.split.us, %3
   %spec.select = phi ptr [ null, %3 ], [ %11, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ %11, %.lr.ph.split.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
@@ -2613,7 +2613,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits25getTypoCorrect
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %21, %19
   %23 = phi i64 [ %22, %21 ], [ 0, %19 ]
   %24 = trunc i64 %23 to i32
-  %25 = load i64, ptr %6, align 8, !tbaa !36
+  %25 = load i64, ptr %6, align 8, !tbaa !38
   %26 = trunc i64 %25 to i32
   %27 = sub nsw i32 %24, %26
   %28 = call i32 @llvm.abs.i32(i32 %27, i1 true)
@@ -2642,7 +2642,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %21, %19
   %.341 = phi i32 [ %30, %.thread ], [ %.03945, %._crit_edge50 ]
   %36 = load i32, ptr %11, align 4, !tbaa !20
   %.not.i.i.not.i.i = icmp ult i32 %35, %36
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i, label %37, !prof !38
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i, label %37, !prof !40
 
 37:                                               ; preds = %34
   %38 = zext i32 %35 to i64
@@ -2697,7 +2697,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_bac
 _ZN4llvm9StringRefC2EPKc.exit.i20:                ; preds = %55, %53
   %57 = phi i64 [ %56, %55 ], [ 0, %53 ]
   %58 = trunc i64 %57 to i32
-  %59 = load i64, ptr %6, align 8, !tbaa !36
+  %59 = load i64, ptr %6, align 8, !tbaa !38
   %60 = trunc i64 %59 to i32
   %61 = sub nsw i32 %58, %60
   %62 = call i32 @llvm.abs.i32(i32 %61, i1 true)
@@ -2726,7 +2726,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i20:                ; preds = %55, %53
   %.544 = phi i32 [ %64, %.thread42 ], [ %.148, %._crit_edge51 ]
   %70 = load i32, ptr %11, align 4, !tbaa !20
   %.not.i.i.not.i.i22 = icmp ult i32 %69, %70
-  br i1 %.not.i.i.not.i.i22, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i24, label %71, !prof !38
+  br i1 %.not.i.i.not.i.i22, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i24, label %71, !prof !40
 
 71:                                               ; preds = %68
   %72 = zext i32 %69 to i64
@@ -2778,26 +2778,26 @@ _ZN4llvm11SmallVectorIPKN5clang8comments11CommandInfoELj2EED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang8comments13CommandTraits25createCommandInfoWithNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = add i64 %2, 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %8 = load i64, ptr %7, align 8, !tbaa !42
   %9 = add i64 %8, %6
-  store i64 %9, ptr %7, align 8, !tbaa !40
-  %10 = load ptr, ptr %5, align 8, !tbaa !51
+  store i64 %9, ptr %7, align 8, !tbaa !42
+  %10 = load ptr, ptr %5, align 8, !tbaa !53
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %6, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = ptrtoint ptr %14 to i64
   %.not.i.i.i.i = icmp ule i64 %12, %15
   %16 = icmp ne ptr %10, null
   %17 = and i1 %16, %.not.i.i.i.i
-  br i1 %17, label %18, label %20, !prof !38
+  br i1 %17, label %18, label %20, !prof !40
 
 18:                                               ; preds = %3
   %19 = inttoptr i64 %12 to ptr
-  store ptr %19, ptr %5, align 8, !tbaa !51
+  store ptr %19, ptr %5, align 8, !tbaa !53
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit
 
 20:                                               ; preds = %3
@@ -2809,27 +2809,27 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %1, i64 %2, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %2
   store i8 0, ptr %22, align 1, !tbaa !3
-  %23 = load ptr, ptr %4, align 8, !tbaa !39
+  %23 = load ptr, ptr %4, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %25 = load i64, ptr %24, align 8, !tbaa !40
+  %25 = load i64, ptr %24, align 8, !tbaa !42
   %26 = add i64 %25, 24
-  store i64 %26, ptr %24, align 8, !tbaa !40
-  %27 = load ptr, ptr %23, align 8, !tbaa !51
+  store i64 %26, ptr %24, align 8, !tbaa !42
+  %27 = load ptr, ptr %23, align 8, !tbaa !53
   %28 = ptrtoint ptr %27 to i64
   %29 = add i64 %28, 15
   %30 = and i64 %29, -16
   %31 = add i64 %30, 24
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !52
+  %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = ptrtoint ptr %33 to i64
   %.not.i.i.i = icmp ule i64 %31, %34
   %35 = icmp ne ptr %27, null
   %36 = and i1 %35, %.not.i.i.i
-  br i1 %36, label %37, label %40, !prof !38
+  br i1 %36, label %37, label %40, !prof !40
 
 37:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit
   %38 = inttoptr i64 %31 to ptr
-  store ptr %38, ptr %23, align 8, !tbaa !51
+  store ptr %38, ptr %23, align 8, !tbaa !53
   %39 = inttoptr i64 %30 to ptr
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
 
@@ -2858,7 +2858,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load i32, ptr %54, align 4, !tbaa !20
   %.not.i.i.not.i = icmp ult i32 %53, %55
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments11CommandInfoELb1EE9push_backES4_.exit, label %56, !prof !38
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments11CommandInfoELb1EE9push_backES4_.exit, label %56, !prof !40
 
 56:                                               ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
   %57 = zext i32 %53 to i64
@@ -2924,7 +2924,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %.not.i.i.not.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !38
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !40
 
 17:                                               ; preds = %10
   %18 = zext i32 %14 to i64
@@ -2965,7 +2965,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !20
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !38
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !40
 
 43:                                               ; preds = %32
   %44 = zext i32 %40 to i64
@@ -2987,13 +2987,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !52
+  store ptr %54, ptr %55, align 8, !tbaa !54
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !51
+  store ptr %60, ptr %0, align 8, !tbaa !53
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -3063,21 +3063,23 @@ attributes #15 = { nounwind }
 !32 = !{!"p1 _ZTSN5clang8comments11CommandInfoE", !10, i64 0}
 !33 = !{!34, !26, i64 0}
 !34 = !{!"_ZTSN5clang8comments11CommandInfoE", !26, i64 0, !26, i64 8, !8, i64 16, !8, i64 18, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 19, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 21, !8, i64 21, !8, i64 21}
-!35 = distinct !{!35, !30}
-!36 = !{!37, !27, i64 8}
-!37 = !{!"_ZTSN4llvm9StringRefE", !26, i64 0, !27, i64 8}
-!38 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!39 = !{!7, !9, i64 8}
-!40 = !{!41, !27, i64 80}
-!41 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !26, i64 0, !26, i64 8, !42, i64 16, !47, i64 64, !27, i64 80, !27, i64 88}
-!42 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !43, i64 0, !46, i64 16}
-!43 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !44, i64 0}
-!44 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !45, i64 0}
-!45 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !15, i64 0}
-!46 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !4, i64 0}
-!47 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !48, i64 0}
-!48 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !49, i64 0}
-!49 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !50, i64 0}
-!50 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !15, i64 0}
-!51 = !{!41, !26, i64 0}
-!52 = !{!41, !26, i64 8}
+!35 = distinct !{!35, !30, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !30}
+!38 = !{!39, !27, i64 8}
+!39 = !{!"_ZTSN4llvm9StringRefE", !26, i64 0, !27, i64 8}
+!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!41 = !{!7, !9, i64 8}
+!42 = !{!43, !27, i64 80}
+!43 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !26, i64 0, !26, i64 8, !44, i64 16, !49, i64 64, !27, i64 80, !27, i64 88}
+!44 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !45, i64 0, !48, i64 16}
+!45 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !46, i64 0}
+!46 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !47, i64 0}
+!47 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !15, i64 0}
+!48 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !4, i64 0}
+!49 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !50, i64 0}
+!50 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !51, i64 0}
+!51 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !52, i64 0}
+!52 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !15, i64 0}
+!53 = !{!43, !26, i64 0}
+!54 = !{!43, !26, i64 8}

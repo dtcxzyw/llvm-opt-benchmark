@@ -6148,12 +6148,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %37 = add i32 %.1245114.us, %3
   %exitcond315.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count314
-  br i1 %exitcond315.not, label %._crit_edge117.us, label %31, !llvm.loop !147
+  br i1 %exitcond315.not, label %._crit_edge117.us, label %31, !llvm.loop !148
 
 ._crit_edge117.us:                                ; preds = %31
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count319
-  br i1 %exitcond320.not, label %.loopexit, label %.preheader1.us, !llvm.loop !148
+  br i1 %exitcond320.not, label %.loopexit, label %.preheader1.us, !llvm.loop !149
 
 38:                                               ; preds = %._crit_edge
   %.not293 = icmp eq i32 %2, 0
@@ -6194,12 +6194,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %51 = add i32 %.224689.us, %3
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
-  br i1 %exitcond265.not, label %._crit_edge92.us, label %43, !llvm.loop !149
+  br i1 %exitcond265.not, label %._crit_edge92.us, label %43, !llvm.loop !150
 
 ._crit_edge92.us:                                 ; preds = %43
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
-  br i1 %exitcond270.not, label %.loopexit, label %.preheader15.us, !llvm.loop !150
+  br i1 %exitcond270.not, label %.loopexit, label %.preheader15.us, !llvm.loop !151
 
 .preheader13:                                     ; preds = %39
   br i1 %or.cond351, label %.loopexit, label %.preheader12.us.preheader
@@ -6229,12 +6229,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %62 = add i32 %.324794.us, %3
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
-  br i1 %exitcond275.not, label %._crit_edge97.us, label %55, !llvm.loop !151
+  br i1 %exitcond275.not, label %._crit_edge97.us, label %55, !llvm.loop !152
 
 ._crit_edge97.us:                                 ; preds = %55
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
-  br i1 %exitcond280.not, label %.loopexit, label %.preheader12.us, !llvm.loop !152
+  br i1 %exitcond280.not, label %.loopexit, label %.preheader12.us, !llvm.loop !153
 
 63:                                               ; preds = %38
   br i1 %.not294, label %.preheader7, label %.preheader10
@@ -6267,12 +6267,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %74 = add i32 %.424899.us, %3
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
-  br i1 %exitcond285.not, label %._crit_edge102.us, label %67, !llvm.loop !153
+  br i1 %exitcond285.not, label %._crit_edge102.us, label %67, !llvm.loop !154
 
 ._crit_edge102.us:                                ; preds = %67
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
-  br i1 %exitcond290.not, label %.loopexit, label %.preheader9.us, !llvm.loop !154
+  br i1 %exitcond290.not, label %.loopexit, label %.preheader9.us, !llvm.loop !155
 
 .preheader7:                                      ; preds = %63
   br i1 %or.cond351, label %.loopexit, label %.preheader6.us.preheader
@@ -6301,12 +6301,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %84 = add i32 %.5249104.us, %3
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
-  br i1 %exitcond295.not, label %._crit_edge107.us, label %78, !llvm.loop !155
+  br i1 %exitcond295.not, label %._crit_edge107.us, label %78, !llvm.loop !156
 
 ._crit_edge107.us:                                ; preds = %78
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %.loopexit, label %.preheader6.us, !llvm.loop !156
+  br i1 %exitcond300.not, label %.loopexit, label %.preheader6.us, !llvm.loop !157
 
 85:                                               ; preds = %._crit_edge
   %.not290 = icmp eq i32 %1, 0
@@ -6374,12 +6374,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %115 = add i32 %.027175, %87
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge79, label %94, !llvm.loop !157
+  br i1 %exitcond245.not, label %._crit_edge79, label %94, !llvm.loop !158
 
 ._crit_edge79:                                    ; preds = %94, %89
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %.loopexit, label %89, !llvm.loop !158
+  br i1 %exitcond250.not, label %.loopexit, label %89, !llvm.loop !159
 
 116:                                              ; preds = %.lr.ph88, %._crit_edge86
   %indvars.iv256 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next257, %._crit_edge86 ]
@@ -6418,12 +6418,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %141 = add i32 %.027082, %88
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count254
-  br i1 %exitcond255.not, label %._crit_edge86, label %121, !llvm.loop !159
+  br i1 %exitcond255.not, label %._crit_edge86, label %121, !llvm.loop !160
 
 ._crit_edge86:                                    ; preds = %121, %116
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
-  br i1 %exitcond260.not, label %.loopexit, label %116, !llvm.loop !160
+  br i1 %exitcond260.not, label %.loopexit, label %116, !llvm.loop !161
 
 142:                                              ; preds = %85
   br i1 %.not291, label %.preheader22, label %.preheader24
@@ -6486,12 +6486,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %171 = add i32 %.025461, %143
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
-  br i1 %exitcond225.not, label %._crit_edge65, label %150, !llvm.loop !161
+  br i1 %exitcond225.not, label %._crit_edge65, label %150, !llvm.loop !162
 
 ._crit_edge65:                                    ; preds = %150, %145
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
-  br i1 %exitcond230.not, label %.loopexit, label %145, !llvm.loop !162
+  br i1 %exitcond230.not, label %.loopexit, label %145, !llvm.loop !163
 
 172:                                              ; preds = %.lr.ph74, %._crit_edge72
   %indvars.iv236 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next237, %._crit_edge72 ]
@@ -6530,12 +6530,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %197 = add i32 %.024368, %144
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge72, label %177, !llvm.loop !163
+  br i1 %exitcond235.not, label %._crit_edge72, label %177, !llvm.loop !164
 
 ._crit_edge72:                                    ; preds = %177, %172
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %.loopexit, label %172, !llvm.loop !164
+  br i1 %exitcond240.not, label %.loopexit, label %172, !llvm.loop !165
 
 198:                                              ; preds = %._crit_edge
   %.not = icmp eq i32 %2, 0
@@ -6575,12 +6575,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %210 = add i32 %.625041.us, %3
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge44.us, label %203, !llvm.loop !165
+  br i1 %exitcond185.not, label %._crit_edge44.us, label %203, !llvm.loop !166
 
 ._crit_edge44.us:                                 ; preds = %203
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.loopexit, label %.preheader35.us, !llvm.loop !166
+  br i1 %exitcond190.not, label %.loopexit, label %.preheader35.us, !llvm.loop !167
 
 .preheader33:                                     ; preds = %199
   br i1 %or.cond355, label %.loopexit, label %.preheader32.us.preheader
@@ -6609,12 +6609,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %220 = add i32 %.725146.us, %3
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %._crit_edge49.us, label %214, !llvm.loop !167
+  br i1 %exitcond195.not, label %._crit_edge49.us, label %214, !llvm.loop !168
 
 ._crit_edge49.us:                                 ; preds = %214
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %.loopexit, label %.preheader32.us, !llvm.loop !168
+  br i1 %exitcond200.not, label %.loopexit, label %.preheader32.us, !llvm.loop !169
 
 221:                                              ; preds = %198
   br i1 %.not288, label %.preheader27, label %.preheader30
@@ -6646,12 +6646,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %231 = add i32 %.825251.us, %3
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge54.us, label %225, !llvm.loop !169
+  br i1 %exitcond205.not, label %._crit_edge54.us, label %225, !llvm.loop !170
 
 ._crit_edge54.us:                                 ; preds = %225
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %.loopexit, label %.preheader29.us, !llvm.loop !170
+  br i1 %exitcond210.not, label %.loopexit, label %.preheader29.us, !llvm.loop !171
 
 .preheader27:                                     ; preds = %221
   br i1 %or.cond355, label %.loopexit, label %.preheader26.us.preheader
@@ -6679,12 +6679,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %240 = add i32 %.925356.us, %3
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
-  br i1 %exitcond215.not, label %._crit_edge59.us, label %235, !llvm.loop !171
+  br i1 %exitcond215.not, label %._crit_edge59.us, label %235, !llvm.loop !172
 
 ._crit_edge59.us:                                 ; preds = %235
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %.loopexit, label %.preheader26.us, !llvm.loop !172
+  br i1 %exitcond220.not, label %.loopexit, label %.preheader26.us, !llvm.loop !173
 
 241:                                              ; preds = %._crit_edge
   %242 = load ptr, ptr @stderr, align 8, !tbaa !33
@@ -6732,12 +6732,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   store i32 %255, ptr %247, align 4, !tbaa !52
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
-  br i1 %exitcond325.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !173
+  br i1 %exitcond325.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !174
 
 ._crit_edge121:                                   ; preds = %254, %.preheader
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
-  br i1 %exitcond330.not, label %.critedge, label %.preheader, !llvm.loop !174
+  br i1 %exitcond330.not, label %.critedge, label %.preheader, !llvm.loop !175
 
 .critedge:                                        ; preds = %._crit_edge121, %243, %.loopexit, %250, %241
   %.0 = phi i32 [ 0, %250 ], [ 0, %241 ], [ 1, %.loopexit ], [ 1, %243 ], [ 1, %._crit_edge121 ]
@@ -7062,13 +7062,13 @@ declare i32 @FLAC__stream_decoder_init_ogg_stream(ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 3) i32 @flac_decoder_read_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8400
-  %6 = load i32, ptr %5, align 8, !tbaa !175
+  %6 = load i32, ptr %5, align 8, !tbaa !176
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %9 = load i32, ptr %8, align 8, !tbaa !176
+  %9 = load i32, ptr %8, align 8, !tbaa !177
   %.not33 = icmp eq i32 %9, 0
   br i1 %.not33, label %21, label %10
 
@@ -7077,16 +7077,16 @@ define internal range(i32 0, 3) i32 @flac_decoder_read_callback(ptr readnone cap
   %12 = load i64, ptr %2, align 8, !tbaa !35
   %. = tail call i64 @llvm.umin.i64(i64 %12, i64 %11)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %14 = load ptr, ptr %13, align 8, !tbaa !177
+  %14 = load ptr, ptr %13, align 8, !tbaa !178
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 4294967296) %., i1 noundef false) #20
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.
-  %16 = load ptr, ptr %13, align 8, !tbaa !177
+  %16 = load ptr, ptr %13, align 8, !tbaa !178
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.
-  store ptr %17, ptr %13, align 8, !tbaa !177
-  %18 = load i32, ptr %8, align 8, !tbaa !176
+  store ptr %17, ptr %13, align 8, !tbaa !178
+  %18 = load i32, ptr %8, align 8, !tbaa !177
   %19 = trunc nuw i64 %. to i32
   %20 = sub i32 %18, %19
-  store i32 %20, ptr %8, align 8, !tbaa !176
+  store i32 %20, ptr %8, align 8, !tbaa !177
   br label %21
 
 21:                                               ; preds = %10, %7
@@ -7147,7 +7147,7 @@ define internal range(i32 0, 2) i32 @flac_decoder_tell_callback(ptr readnone cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @flac_decoder_length_callback(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %5 = load i64, ptr %4, align 8, !tbaa !178
+  %5 = load i64, ptr %4, align 8, !tbaa !179
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %8, label %7
 
@@ -7173,12 +7173,12 @@ define internal range(i32 0, 2) i32 @flac_decoder_eof_callback(ptr readnone capt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @flac_decoder_write_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8392
-  %6 = load i64, ptr %5, align 8, !tbaa !179
-  %7 = load i32, ptr %1, align 8, !tbaa !180
+  %6 = load i64, ptr %5, align 8, !tbaa !180
+  %7 = load i32, ptr %1, align 8, !tbaa !181
   %8 = zext i32 %7 to i64
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !184
+  %10 = load i32, ptr %9, align 8, !tbaa !185
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 124
   %12 = load i32, ptr %11, align 4, !tbaa !45
   %.not = icmp eq i32 %10, %12
@@ -7187,12 +7187,12 @@ define internal range(i32 0, 2) i32 @flac_decoder_write_callback(ptr readnone ca
 13:                                               ; preds = %4
   tail call fastcc void @print_error_with_state(ptr noundef nonnull %3, ptr noundef nonnull @.str.83)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8400
-  store i32 1, ptr %14, align 8, !tbaa !175
+  store i32 1, ptr %14, align 8, !tbaa !176
   br label %44
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !185
+  %17 = load i32, ptr %16, align 8, !tbaa !186
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %19 = load i32, ptr %18, align 8, !tbaa !46
   %20 = icmp ugt i32 %17, %19
@@ -7201,7 +7201,7 @@ define internal range(i32 0, 2) i32 @flac_decoder_write_callback(ptr readnone ca
 21:                                               ; preds = %15
   tail call fastcc void @print_error_with_state(ptr noundef nonnull %3, ptr noundef nonnull @.str.84)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8400
-  store i32 1, ptr %22, align 8, !tbaa !175
+  store i32 1, ptr %22, align 8, !tbaa !176
   br label %44
 
 23:                                               ; preds = %15
@@ -7238,13 +7238,13 @@ EncoderSession_process.exit:                      ; preds = %23, %27, %31
 EncoderSession_process.exit.thread:               ; preds = %31, %EncoderSession_process.exit
   tail call fastcc void @print_error_with_state(ptr noundef nonnull %3, ptr noundef nonnull @.str.14)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8400
-  store i32 1, ptr %40, align 8, !tbaa !175
+  store i32 1, ptr %40, align 8, !tbaa !176
   br label %44
 
 41:                                               ; preds = %EncoderSession_process.exit
-  %42 = load i64, ptr %5, align 8, !tbaa !179
+  %42 = load i64, ptr %5, align 8, !tbaa !180
   %43 = sub i64 %42, %.
-  store i64 %43, ptr %5, align 8, !tbaa !179
+  store i64 %43, ptr %5, align 8, !tbaa !180
   br label %44
 
 44:                                               ; preds = %41, %EncoderSession_process.exit.thread, %21, %13
@@ -7255,7 +7255,7 @@ EncoderSession_process.exit.thread:               ; preds = %31, %EncoderSession
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @flac_decoder_metadata_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8400
-  %5 = load i32, ptr %4, align 8, !tbaa !175
+  %5 = load i32, ptr %4, align 8, !tbaa !176
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %19
 
@@ -7275,7 +7275,7 @@ define internal void @flac_decoder_metadata_callback(ptr readnone captures(none)
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %10, %6
-  store i32 1, ptr %4, align 8, !tbaa !175
+  store i32 1, ptr %4, align 8, !tbaa !176
   br label %19
 
 17:                                               ; preds = %10
@@ -7304,7 +7304,7 @@ define internal void @flac_decoder_error_callback(ptr readnone captures(none) %0
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8400
-  store i32 1, ptr %13, align 8, !tbaa !175
+  store i32 1, ptr %13, align 8, !tbaa !176
   br label %14
 
 14:                                               ; preds = %12, %3
@@ -7373,7 +7373,7 @@ define internal fastcc void @EncoderSession_destroy(ptr noundef nonnull captures
   %16 = add nuw i64 %.026, 1
   %17 = load i64, ptr %10, align 8, !tbaa !30
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %13, label %._crit_edge, !llvm.loop !186
+  br i1 %18, label %13, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %13, %9
   store i64 0, ptr %10, align 8, !tbaa !30
@@ -7468,13 +7468,13 @@ define internal fastcc void @print_stats(ptr noundef readonly captures(none) %0)
   %.not = icmp eq i32 %23, 0
   %24 = select i1 %.not, ptr @.str.99, ptr @.str.98
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load i64, ptr %25, align 8, !tbaa !187
+  %26 = load i64, ptr %25, align 8, !tbaa !188
   call void (i32, ptr, ...) @stats_print_info(i32 noundef 2, ptr noundef nonnull @.str.97, ptr noundef nonnull %24, i64 noundef %26, ptr noundef nonnull %2) #20
   br label %33
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8432
-  %29 = load double, ptr %28, align 8, !tbaa !188
+  %29 = load double, ptr %28, align 8, !tbaa !189
   %30 = call double @llvm.fmuladd.f64(double %29, double 1.000000e+02, double 5.000000e-01)
   %31 = call double @llvm.floor.f64(double %30)
   %32 = fptoui double %31 to i32
@@ -7761,7 +7761,7 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i64 %1, ptr %9, align 8, !tbaa !187
+  store i64 %1, ptr %9, align 8, !tbaa !188
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %2, ptr %10, align 8, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -7772,7 +7772,7 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
   %15 = fdiv double %13, %14
   %16 = select i1 %.not, double 0.000000e+00, double %15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8432
-  store double %16, ptr %17, align 8, !tbaa !188
+  store double %16, ptr %17, align 8, !tbaa !189
   %18 = fcmp une double %16, 0.000000e+00
   %19 = icmp ne i64 %8, 0
   %or.cond = select i1 %18, i1 %19, i1 false
@@ -7795,7 +7795,7 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %32 = load i32, ptr %31, align 8, !tbaa !189
+  %32 = load i32, ptr %31, align 8, !tbaa !190
   %33 = zext i32 %32 to i64
   %34 = sub i64 %2, %33
   %35 = icmp ugt i64 %34, 10000
@@ -7804,16 +7804,16 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
 36:                                               ; preds = %30
   %37 = tail call i64 @clock() #20
   %38 = trunc i64 %2 to i32
-  store i32 %38, ptr %31, align 8, !tbaa !189
+  store i32 %38, ptr %31, align 8, !tbaa !190
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %40 = load i64, ptr %39, align 8, !tbaa !190
+  %40 = load i64, ptr %39, align 8, !tbaa !191
   %41 = sub nsw i64 %37, %40
   %42 = icmp sgt i64 %41, 250000
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %36
   tail call fastcc void @print_stats(ptr noundef nonnull %5)
-  store i64 %37, ptr %39, align 8, !tbaa !190
+  store i64 %37, ptr %39, align 8, !tbaa !191
   br label %44
 
 44:                                               ; preds = %36, %43, %30, %27
@@ -8121,18 +8121,18 @@ attributes #23 = { nounwind willreturn memory(read) }
 !143 = !{!38, !15, i64 40}
 !144 = distinct !{!144, !10}
 !145 = distinct !{!145, !10}
-!146 = distinct !{!146, !10}
-!147 = distinct !{!147, !10}
+!146 = distinct !{!146, !10, !147}
+!147 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !148 = distinct !{!148, !10}
-!149 = distinct !{!149, !10}
+!149 = distinct !{!149, !10, !147}
 !150 = distinct !{!150, !10}
-!151 = distinct !{!151, !10}
+!151 = distinct !{!151, !10, !147}
 !152 = distinct !{!152, !10}
-!153 = distinct !{!153, !10}
+!153 = distinct !{!153, !10, !147}
 !154 = distinct !{!154, !10}
-!155 = distinct !{!155, !10}
+!155 = distinct !{!155, !10, !147}
 !156 = distinct !{!156, !10}
-!157 = distinct !{!157, !10}
+!157 = distinct !{!157, !10, !147}
 !158 = distinct !{!158, !10}
 !159 = distinct !{!159, !10}
 !160 = distinct !{!160, !10}
@@ -8142,27 +8142,28 @@ attributes #23 = { nounwind willreturn memory(read) }
 !164 = distinct !{!164, !10}
 !165 = distinct !{!165, !10}
 !166 = distinct !{!166, !10}
-!167 = distinct !{!167, !10}
+!167 = distinct !{!167, !10, !147}
 !168 = distinct !{!168, !10}
-!169 = distinct !{!169, !10}
+!169 = distinct !{!169, !10, !147}
 !170 = distinct !{!170, !10}
-!171 = distinct !{!171, !10}
+!171 = distinct !{!171, !10, !147}
 !172 = distinct !{!172, !10}
-!173 = distinct !{!173, !10}
+!173 = distinct !{!173, !10, !147}
 !174 = distinct !{!174, !10}
-!175 = !{!112, !13, i64 8232}
-!176 = !{!112, !13, i64 16}
-!177 = !{!112, !14, i64 8}
-!178 = !{!112, !15, i64 0}
-!179 = !{!112, !15, i64 8224}
-!180 = !{!181, !13, i64 0}
-!181 = !{!"", !182, i64 0, !7, i64 40, !183, i64 3624}
-!182 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !7, i64 24, !7, i64 32}
-!183 = !{!"", !58, i64 0}
-!184 = !{!181, !13, i64 8}
-!185 = !{!181, !13, i64 16}
-!186 = distinct !{!186, !10}
-!187 = !{!12, !15, i64 72}
-!188 = !{!12, !19, i64 8432}
-!189 = !{!12, !13, i64 88}
-!190 = !{!12, !15, i64 96}
+!175 = distinct !{!175, !10}
+!176 = !{!112, !13, i64 8232}
+!177 = !{!112, !13, i64 16}
+!178 = !{!112, !14, i64 8}
+!179 = !{!112, !15, i64 0}
+!180 = !{!112, !15, i64 8224}
+!181 = !{!182, !13, i64 0}
+!182 = !{!"", !183, i64 0, !7, i64 40, !184, i64 3624}
+!183 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !7, i64 24, !7, i64 32}
+!184 = !{!"", !58, i64 0}
+!185 = !{!182, !13, i64 8}
+!186 = !{!182, !13, i64 16}
+!187 = distinct !{!187, !10}
+!188 = !{!12, !15, i64 72}
+!189 = !{!12, !19, i64 8432}
+!190 = !{!12, !13, i64 88}
+!191 = !{!12, !15, i64 96}

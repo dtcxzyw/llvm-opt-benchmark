@@ -14047,7 +14047,7 @@ _Z9get_depthPK4expr.exit.i.i.i:                   ; preds = %25, %21, %.lr.ph.i
   %39 = icmp ne ptr %.1.i, %17
   %40 = icmp ne ptr %.120.i, %18
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !304
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !305
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EclIPP4exprS9_EEbT_T0_.exit.i"
   %42 = ptrtoint ptr %17 to i64
@@ -14077,7 +14077,7 @@ _ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit.i:          ; preds = %45, %._crit_edge.i.
   %52 = sub i64 %6, %47
   %53 = ashr exact i64 %52, 3
   %.not = icmp slt i64 %53, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !303
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !306
 
 ._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit", %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit.us", %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit.us" ], [ %51, %"_ZSt12__move_mergeIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit" ]
@@ -14150,7 +14150,7 @@ _Z9get_depthPK4expr.exit.i.i.i37:                 ; preds = %64, %60, %.lr.ph.i3
   %78 = icmp ne ptr %.1.i46, %54
   %79 = icmp ne ptr %.120.i44, %1
   %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !304
+  br i1 %80, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !305
 
 ._crit_edge.i23:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EclIPP4exprS9_EEbT_T0_.exit.i40", %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %54, %._crit_edge ], [ %.120.i44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls7context8subtermsEvE3$_0EclIPP4exprS9_EEbT_T0_.exit.i40" ]
@@ -14543,5 +14543,7 @@ attributes #32 = { builtin allocsize(0) }
 !300 = distinct !{!300, !60}
 !301 = distinct !{!301, !60}
 !302 = distinct !{!302, !60}
-!303 = distinct !{!303, !60}
-!304 = distinct !{!304, !60}
+!303 = distinct !{!303, !60, !304}
+!304 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!305 = distinct !{!305, !60}
+!306 = distinct !{!306, !60}

@@ -967,7 +967,7 @@ define internal fastcc void @interp_lines(ptr noundef captures(none) %0, i32 nou
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 %70, ptr %71, align 1, !tbaa !35
   %72 = icmp samesign ult i64 %indvars.iv.next73, %59
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !70
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %73 = and i64 %indvars.iv.next73, 4294967294
@@ -1032,11 +1032,11 @@ define internal fastcc void @interp_pixels(ptr noundef captures(none) %0, i32 no
   store i8 %37, ptr %38, align 1, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
   %39 = icmp sgt i64 %indvars.iv, 1
-  br i1 %39, label %24, label %..loopexit_crit_edge.us, !llvm.loop !71
+  br i1 %39, label %24, label %..loopexit_crit_edge.us, !llvm.loop !72
 
 ..loopexit_crit_edge.us:                          ; preds = %24
   %40 = icmp samesign ugt i64 %indvars.iv38, 3
-  br i1 %40, label %.lr.ph.us, label %.split32.us, !llvm.loop !72
+  br i1 %40, label %.lr.ph.us, label %.split32.us, !llvm.loop !73
 
 .split32.us:                                      ; preds = %..loopexit_crit_edge.us
   ret void
@@ -1119,12 +1119,12 @@ bytestream2_get_byte.exit:                        ; preds = %19, %20
   %45 = zext nneg i8 %narrow to i16
   %46 = lshr i16 %42, %45
   %47 = getelementptr inbounds nuw [256 x i16], ptr %30, i64 0, i64 %indvars.iv
-  store i16 %46, ptr %47, align 2, !tbaa !73
+  store i16 %46, ptr %47, align 2, !tbaa !74
   %48 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 0, i64 %indvars.iv
   store i8 %41, ptr %48, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge41, label %32, !llvm.loop !74
+  br i1 %exitcond.not, label %.critedge41, label %32, !llvm.loop !75
 
 .critedge41:                                      ; preds = %40
   tail call void @ff_vlc_free(ptr noundef %0) #11
@@ -1285,7 +1285,7 @@ bits_skip_be.exit:                                ; preds = %61, %70, %bits_priv
   %77 = add i32 %.sroa.94.10, %.sroa.134.0
   %78 = add i32 %77, %76
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph, label %bits_peek_be.exit._crit_edge, !llvm.loop !75
+  br i1 %79, label %.lr.ph, label %bits_peek_be.exit._crit_edge, !llvm.loop !76
 
 bits_peek_be.exit._crit_edge:                     ; preds = %bits_skip_be.exit, %bits_peek_be.exit, %.preheader
   %.sroa.94.3 = phi i32 [ %.sroa.94.0238, %.preheader ], [ %.sroa.94.8, %bits_peek_be.exit ], [ %.sroa.94.10, %bits_skip_be.exit ]
@@ -1389,7 +1389,7 @@ bits_peek_be.exit88:                              ; preds = %bits_skip_be.exit81
   %.sroa.0.15 = phi i64 [ %120, %113 ], [ %.sroa.0.14, %bits_skip_be.exit81 ]
   %.052.in.mask = and i64 %.sroa.0.15, -1099511627776
   %.not = icmp eq i64 %.052.in.mask, -2199023255552
-  br i1 %.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !76
+  br i1 %.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !77
 
 ._crit_edge224:                                   ; preds = %bits_peek_be.exit88, %bits_peek_be.exit74
   %.sroa.94.4.lcssa = phi i32 [ %.sroa.94.11, %bits_peek_be.exit74 ], [ %.sroa.94.14, %bits_peek_be.exit88 ]
@@ -1581,8 +1581,8 @@ bits_skip_be.exit109:                             ; preds = %168, %180, %bits_pr
   br i1 %211, label %bits_init8_be.exit.thread, label %212
 
 212:                                              ; preds = %205
-  %213 = load ptr, ptr %204, align 8, !tbaa !77
-  %214 = load i32, ptr %203, align 8, !tbaa !80
+  %213 = load ptr, ptr %204, align 8, !tbaa !78
+  %214 = load i32, ptr %203, align 8, !tbaa !81
   %.not.i.i111 = icmp eq i32 %214, 0
   br i1 %.not.i.i111, label %bits_peek_be.exit.i, label %215
 
@@ -1695,7 +1695,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   store i8 %.0.i, ptr %275, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.backedge, label %205, !llvm.loop !81
+  br i1 %exitcond.not, label %.preheader.backedge, label %205, !llvm.loop !82
 
 .thread187:                                       ; preds = %bits_peek_be.exit101
   %.pre = load i32, ptr %8, align 4, !tbaa !57
@@ -1836,16 +1836,17 @@ attributes #12 = { noreturn nounwind }
 !66 = distinct !{!66, !56}
 !67 = distinct !{!67, !56}
 !68 = distinct !{!68, !56}
-!69 = distinct !{!69, !56}
-!70 = distinct !{!70, !56}
+!69 = distinct !{!69, !56, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !71 = distinct !{!71, !56}
 !72 = distinct !{!72, !56}
-!73 = !{!44, !44, i64 0}
-!74 = distinct !{!74, !56}
+!73 = distinct !{!73, !56, !70}
+!74 = !{!44, !44, i64 0}
 !75 = distinct !{!75, !56}
 !76 = distinct !{!76, !56}
-!77 = !{!78, !79, i64 8}
-!78 = !{!"VLC", !10, i64 0, !79, i64 8, !10, i64 16, !10, i64 20}
-!79 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!80 = !{!78, !10, i64 0}
-!81 = distinct !{!81, !56}
+!77 = distinct !{!77, !56}
+!78 = !{!79, !80, i64 8}
+!79 = !{!"VLC", !10, i64 0, !80, i64 8, !10, i64 16, !10, i64 20}
+!80 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!81 = !{!79, !10, i64 0}
+!82 = distinct !{!82, !56}

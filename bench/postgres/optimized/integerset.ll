@@ -499,7 +499,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %spec.select.us.i = select i1 %.not.us.i, i32 %36, i32 %.01722.us.i
   %spec.select19.us.i = select i1 %.not.us.i, i32 %.023.us.i, i32 %40
   %41 = icmp sgt i32 %spec.select.us.i, %spec.select19.us.i
-  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit54, !llvm.loop !9
+  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit54, !llvm.loop !10
 
 intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %.not49 = icmp eq i32 %spec.select19.us.i, 0
@@ -513,7 +513,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %47 = load ptr, ptr %46, align 8
   %.039 = add nsw i32 %.03970, -1
   %48 = icmp sgt i32 %.03970, 1
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %42, %26
   %.037.lcssa = phi ptr [ %25, %26 ], [ %47, %42 ]
@@ -541,7 +541,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %.118.i = select i1 %.not.i56, i32 %55, i32 %.01719.i
   %.1.i = select i1 %.not.i56, i32 %.020.i, i32 %59
   %60 = icmp sgt i32 %.118.i, %.1.i
-  br i1 %60, label %.lr.ph.i55, label %intset_binsrch_leaf.exit, !llvm.loop !11
+  br i1 %60, label %.lr.ph.i55, label %intset_binsrch_leaf.exit, !llvm.loop !13
 
 intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %61 = icmp eq i32 %.1.i, 0
@@ -598,7 +598,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %91 = lshr i64 %.03043.i, %85
   %92 = add nuw nsw i32 %.02845.i, 1
   %exitcond.not.i = icmp eq i32 %92, %75
-  br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !14
 
 .split.loop.exit39.i:                             ; preds = %.lr.ph.i58
   %93 = icmp eq i64 %89, %1
@@ -720,7 +720,7 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %49 = lshr i64 %.02124.i, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %simple8b_decode.exit.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %simple8b_decode.exit.loopexit, label %.lr.ph.i, !llvm.loop !15
 
 simple8b_decode.exit.loopexit:                    ; preds = %.lr.ph.i
   %50 = zext i8 %40 to i32
@@ -803,7 +803,9 @@ attributes #11 = { cold nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

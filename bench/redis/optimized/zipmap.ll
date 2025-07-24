@@ -165,7 +165,7 @@ zipmapDecodeLength.exit.i:                        ; preds = %50, %48
   %77 = add i32 %75, %76
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 %78
-  br label %.split.split.i, !llvm.loop !10
+  br label %.split.split.i, !llvm.loop !13
 
 zipmapLookupRaw.exit:                             ; preds = %.split.split.i
   %80 = ptrtoint ptr %.033.i to i64
@@ -443,7 +443,7 @@ zipmapDecodeLength.exit.i:                        ; preds = %10, %8
   %37 = add i32 %35, %36
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
-  br label %.split.split.i, !llvm.loop !10
+  br label %.split.split.i, !llvm.loop !13
 
 zipmapLookupRaw.exit:                             ; preds = %.split.split.i
   %40 = ptrtoint ptr %.033.i to i64
@@ -561,7 +561,7 @@ define dso_local ptr @zipmapNext(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %8
-  store ptr %0, ptr %1, align 8, !tbaa !12
+  store ptr %0, ptr %1, align 8, !tbaa !14
   %10 = load i8, ptr %0, align 1, !tbaa !5
   %11 = icmp ult i8 %10, -2
   br i1 %11, label %12, label %14
@@ -581,7 +581,7 @@ zipmapDecodeLength.exit:                          ; preds = %12, %14
   %16 = icmp ult i32 %.0.i, 254
   %17 = select i1 %16, i64 1, i64 5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  store ptr %18, ptr %1, align 8, !tbaa !12
+  store ptr %18, ptr %1, align 8, !tbaa !14
   %.pr = load i8, ptr %0, align 1, !tbaa !5
   br label %19
 
@@ -611,7 +611,7 @@ zipmapRawKeyLength.exit:                          ; preds = %22, %24
 
 31:                                               ; preds = %zipmapRawKeyLength.exit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store ptr %32, ptr %3, align 8, !tbaa !12
+  store ptr %32, ptr %3, align 8, !tbaa !14
   %33 = load i8, ptr %30, align 1, !tbaa !5
   %34 = icmp ult i8 %33, -2
   br i1 %34, label %35, label %37
@@ -630,7 +630,7 @@ zipmapDecodeLength.exit26:                        ; preds = %35, %37
   %38 = icmp ult i32 %.0.i25, 254
   %39 = select i1 %38, i64 1, i64 5
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 %39
-  store ptr %40, ptr %3, align 8, !tbaa !12
+  store ptr %40, ptr %3, align 8, !tbaa !14
   br label %41
 
 41:                                               ; preds = %zipmapDecodeLength.exit26, %zipmapRawKeyLength.exit
@@ -736,7 +736,7 @@ define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %0, ptr noundef read
   %37 = add i32 %35, %36
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
-  br label %.split.split.us.i, !llvm.loop !10
+  br label %.split.split.us.i, !llvm.loop !17
 
 zipmapLookupRaw.exit:                             ; preds = %17
   %40 = icmp ult i8 %8, -2
@@ -778,7 +778,7 @@ zipmapDecodeLength.exit:                          ; preds = %52, %54
   %57 = select i1 %56, i64 1, i64 5
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store ptr %59, ptr %3, align 8, !tbaa !12
+  store ptr %59, ptr %3, align 8, !tbaa !14
   br label %zipmapLookupRaw.exit.thread
 
 zipmapLookupRaw.exit.thread:                      ; preds = %.split.split.us.i, %5, %zipmapDecodeLength.exit
@@ -855,7 +855,7 @@ define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures
   %35 = add i32 %33, %34
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 %36
-  br label %.split.split.us.i, !llvm.loop !10
+  br label %.split.split.us.i, !llvm.loop !17
 
 zipmapLookupRaw.exit:                             ; preds = %.split.split.us.i, %15, %3
   %.2.i = phi i32 [ 0, %3 ], [ 0, %.split.split.us.i ], [ 1, %15 ]
@@ -928,7 +928,7 @@ zipmapNext.exit:                                  ; preds = %23, %21
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
   %36 = add i32 %.1, 1
-  br label %8, !llvm.loop !15
+  br label %8, !llvm.loop !18
 
 zipmapNext.exit.thread:                           ; preds = %8
   %37 = icmp ult i32 %.1, 254
@@ -1093,7 +1093,7 @@ zipmapDecodeLength.exit78:                        ; preds = %26, %28
   %.ptr69 = getelementptr inbounds nuw i8, ptr %0, i64 %.add65
   %34 = add i32 %.049, 1
   %35 = icmp ugt ptr %.ptr69, %7
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !19
 
 36:                                               ; preds = %.preheader
   %37 = icmp eq i32 %.049, 0
@@ -1145,10 +1145,13 @@ attributes #12 = { nounwind allocsize(1) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}

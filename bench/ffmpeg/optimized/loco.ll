@@ -624,7 +624,7 @@ loco_predict.exit.us:                             ; preds = %84, %82, %81, %79
   store i8 %94, ptr %.04159, align 1, !tbaa !32
   %95 = add nuw nsw i32 %.058, 1
   %exitcond68.not = icmp eq i32 %95, %3
-  br i1 %exitcond68.not, label %._crit_edge62, label %.lr.ph61.split, !llvm.loop !60
+  br i1 %exitcond68.not, label %._crit_edge62, label %.lr.ph61.split, !llvm.loop !62
 
 ._crit_edge62:                                    ; preds = %90, %._crit_edge56.us, %._crit_edge.thread, %._crit_edge
   %.val = load i32, ptr %22, align 8, !tbaa !49
@@ -682,7 +682,7 @@ define internal fastcc void @rotate_faulty_loco(ptr noundef captures(none) %0, i
 24:                                               ; preds = %._crit_edge28, %20, %12
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge28 ], [ %18, %20 ], [ %18, %12 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %24, %4
   ret void
@@ -740,7 +740,7 @@ define internal fastcc i32 @loco_get_rice(ptr noundef nonnull captures(none) %0)
   %26 = icmp sgt i32 %22, %24
   %27 = icmp samesign ult i32 %.067.i, 8
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %loco_get_rice_param.exit, !llvm.loop !62
+  br i1 %28, label %.lr.ph.i, label %loco_get_rice_param.exit, !llvm.loop !64
 
 loco_get_rice_param.exit:                         ; preds = %.lr.ph.i, %18
   %.06.lcssa.i = phi i32 [ 0, %18 ], [ %25, %.lr.ph.i ]
@@ -851,7 +851,7 @@ loco_update_rice_param.exit39:                    ; preds = %31, %39
   %89 = shl i32 %87, %88
   %90 = add nuw nsw i32 %79, 25
   %91 = icmp ult i32 %89, 128
-  br i1 %91, label %78, label %.preheader.i, !llvm.loop !63
+  br i1 %91, label %78, label %.preheader.i, !llvm.loop !65
 
 .lr.ph136.i:                                      ; preds = %.preheader.i, %.lr.ph136.i
   %.1135.i = phi i32 [ %95, %.lr.ph136.i ], [ %.0.lcssa.i, %.preheader.i ]
@@ -864,7 +864,7 @@ loco_update_rice_param.exit39:                    ; preds = %31, %39
   %96 = icmp ne i32 %95, 2147483647
   %97 = icmp sgt i32 %92, -1
   %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %.lr.ph136.i, label %._crit_edge.i, !llvm.loop !64
+  br i1 %98, label %.lr.ph136.i, label %._crit_edge.i, !llvm.loop !66
 
 ._crit_edge.i:                                    ; preds = %.lr.ph136.i, %.preheader.i
   %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i ], [ %94, %.lr.ph136.i ]
@@ -1041,7 +1041,7 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull captures(no
   %50 = shl i32 %48, %49
   %51 = add nuw nsw i32 %40, 25
   %52 = icmp ult i32 %50, 128
-  br i1 %52, label %39, label %.preheader, !llvm.loop !63
+  br i1 %52, label %39, label %.preheader, !llvm.loop !65
 
 .lr.ph136:                                        ; preds = %.preheader, %.lr.ph136
   %.1135 = phi i32 [ %56, %.lr.ph136 ], [ %.0.lcssa, %.preheader ]
@@ -1054,7 +1054,7 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull captures(no
   %57 = icmp ne i32 %56, 2147483647
   %58 = icmp sgt i32 %53, -1
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph136, label %._crit_edge, !llvm.loop !64
+  br i1 %59, label %.lr.ph136, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph136, %.preheader
   %.1111.lcssa = phi i32 [ %.0110.lcssa, %.preheader ], [ %55, %.lr.ph136 ]
@@ -1215,8 +1215,10 @@ attributes #11 = { noreturn nounwind }
 !57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
 !59 = distinct !{!59, !58}
-!60 = distinct !{!60, !58}
-!61 = distinct !{!61, !58}
+!60 = distinct !{!60, !58, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !62 = distinct !{!62, !58}
 !63 = distinct !{!63, !58}
 !64 = distinct !{!64, !58}
+!65 = distinct !{!65, !58}
+!66 = distinct !{!66, !58}

@@ -1062,7 +1062,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %.5 = phi i32 [ %141, %142 ], [ %.2174, %137 ]
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count207
-  br i1 %exitcond199.not, label %._crit_edge176, label %.lr.ph175.split, !llvm.loop !72
+  br i1 %exitcond199.not, label %._crit_edge176, label %.lr.ph175.split, !llvm.loop !74
 
 ._crit_edge176:                                   ; preds = %149, %115, %.thread152
   %150 = icmp sgt i32 %.0125151, 0
@@ -1275,7 +1275,7 @@ getToUnicodeValue.exit:                           ; preds = %252, %258
 
 272:                                              ; preds = %263, %266, %166
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
-  br i1 %exitcond213.not, label %.loopexit, label %160, !llvm.loop !73
+  br i1 %exitcond213.not, label %.loopexit, label %160, !llvm.loop !75
 
 .loopexit:                                        ; preds = %266, %272, %._crit_edge176, %194, %72
   %.0122 = phi i8 [ 0, %72 ], [ 0, %194 ], [ 1, %._crit_edge176 ], [ 0, %266 ], [ 1, %272 ]
@@ -1498,7 +1498,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %29 = getelementptr inbounds [64448 x i16], ptr %23, i64 0, i64 %indvars.iv.next
   %30 = load i16, ptr %29, align 2, !tbaa !45
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %26, label %.critedge.split.loop.exit99, !llvm.loop !74
+  br i1 %31, label %26, label %.critedge.split.loop.exit99, !llvm.loop !76
 
 .critedge.split.loop.exit99:                      ; preds = %28
   %32 = trunc nsw i64 %indvars.iv to i32
@@ -1551,7 +1551,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %59 = getelementptr inbounds [262144 x i16], ptr %53, i64 0, i64 %indvars.iv.next91
   %60 = load i16, ptr %59, align 2, !tbaa !45
   %61 = icmp eq i16 %60, 0
-  br i1 %61, label %56, label %.critedge2.split.loop.exit101, !llvm.loop !75
+  br i1 %61, label %56, label %.critedge2.split.loop.exit101, !llvm.loop !77
 
 .critedge2.split.loop.exit101:                    ; preds = %58
   %62 = trunc nsw i64 %indvars.iv90 to i32
@@ -1606,7 +1606,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 88:                                               ; preds = %.preheader
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next95, %80
-  br i1 %exitcond.not, label %.critedge4.thread, label %.preheader, !llvm.loop !76
+  br i1 %exitcond.not, label %.critedge4.thread, label %.preheader, !llvm.loop !78
 
 .critedge4:                                       ; preds = %.preheader
   %89 = trunc nuw nsw i64 %indvars.iv94 to i32
@@ -1615,7 +1615,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 
 .critedge4.thread:                                ; preds = %88, %.critedge4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 917600
-  %92 = load i16, ptr %91, align 8, !tbaa !77
+  %92 = load i16, ptr %91, align 8, !tbaa !79
   %.not87 = icmp eq i16 %92, 0
   br i1 %.not87, label %99, label %93
 
@@ -1632,7 +1632,7 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
 
 99:                                               ; preds = %.critedge4.thread
   %100 = load i16, ptr %46, align 2, !tbaa !45
-  store i16 %100, ptr %91, align 8, !tbaa !77
+  store i16 %100, ptr %91, align 8, !tbaa !79
   br label %117
 
 101:                                              ; preds = %72
@@ -1734,7 +1734,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %46, %24
   %.0111.lcssa = phi i32 [ 1, %24 ], [ %spec.select, %46 ]
@@ -1802,7 +1802,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
   %.3 = phi i32 [ %82, %83 ], [ %.2135, %78 ]
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count
-  br i1 %exitcond148.not, label %._crit_edge138, label %65, !llvm.loop !79
+  br i1 %exitcond148.not, label %._crit_edge138, label %65, !llvm.loop !81
 
 ._crit_edge138:                                   ; preds = %89, %._crit_edge
   %90 = load i32, ptr %61, align 4, !tbaa !35
@@ -1890,7 +1890,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr noundef
 
 141:                                              ; preds = %134, %136
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %92
-  br i1 %exitcond153.not, label %.loopexit, label %93, !llvm.loop !80
+  br i1 %exitcond153.not, label %.loopexit, label %93, !llvm.loop !82
 
 .loopexit:                                        ; preds = %141, %136, %121
   %.0107 = phi i8 [ 0, %121 ], [ 1, %141 ], [ 0, %136 ]
@@ -2007,12 +2007,14 @@ attributes #19 = { noreturn nounwind }
 !69 = !{!24, !27, i64 32}
 !70 = distinct !{!70, !39}
 !71 = distinct !{!71, !39}
-!72 = distinct !{!72, !39}
-!73 = distinct !{!73, !39}
+!72 = distinct !{!72, !39, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !74 = distinct !{!74, !39}
 !75 = distinct !{!75, !39}
 !76 = distinct !{!76, !39}
-!77 = !{!5, !13, i64 917600}
+!77 = distinct !{!77, !39}
 !78 = distinct !{!78, !39}
-!79 = distinct !{!79, !39}
+!79 = !{!5, !13, i64 917600}
 !80 = distinct !{!80, !39}
+!81 = distinct !{!81, !39}
+!82 = distinct !{!82, !39}

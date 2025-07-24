@@ -4957,7 +4957,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr nou
 Ivy_NodeCompareSims.exit.split.us:                ; preds = %16
   %23 = load ptr, ptr %0, align 8, !tbaa !85
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !189
+  %25 = load i32, ptr %24, align 8, !tbaa !190
   %.not50 = icmp eq i32 %25, 0
   br i1 %.not50, label %Ivy_FraigAddToPatScores.exit.thread, label %.lr.ph.i58
 
@@ -4997,7 +4997,7 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %16
 45:                                               ; preds = %39, %35
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, 32
-  br i1 %exitcond.not.i62, label %.loopexit.loopexit.i, label %35, !llvm.loop !190
+  br i1 %exitcond.not.i62, label %.loopexit.loopexit.i, label %35, !llvm.loop !191
 
 .loopexit.loopexit.i:                             ; preds = %45
   %.pre.i = load i32, ptr %4, align 8, !tbaa !96
@@ -5008,7 +5008,7 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %16
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next7.i, %47
-  br i1 %48, label %.lr.ph.i58, label %Ivy_FraigAddToPatScores.exit.thread, !llvm.loop !191
+  br i1 %48, label %.lr.ph.i58, label %Ivy_FraigAddToPatScores.exit.thread, !llvm.loop !192
 
 Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_NodeCompareSims.exit.split.us
   %49 = phi i32 [ %11, %Ivy_NodeCompareSims.exit.split.us ], [ %46, %.loopexit.i ]
@@ -5060,7 +5060,7 @@ Ivy_NodeCompareSims.exit72.us:                    ; preds = %55
   %64 = getelementptr i8, ptr %.043126.us, i64 48
   %.043.us = load ptr, ptr %64, align 8, !tbaa !94
   %.not51.us = icmp eq ptr %.043.us, null
-  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.i65.us, !llvm.loop !192
+  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.i65.us, !llvm.loop !193
 
 .loopexit.us:                                     ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.146124.us, i64 48
@@ -5075,7 +5075,7 @@ Ivy_NodeCompareSims.exit72.us:                    ; preds = %55
   %67 = getelementptr i8, ptr %.043126, i64 48
   %.043 = load ptr, ptr %67, align 8, !tbaa !94
   %.not51 = icmp eq ptr %.043, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph127.split, !llvm.loop !192
+  br i1 %.not51, label %._crit_edge, label %.lr.ph127.split, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %.lr.ph127.split, %63, %Ivy_FraigAddToPatScores.exit.thread
   %.146.lcssa = phi ptr [ %.045105.us, %Ivy_FraigAddToPatScores.exit.thread ], [ %.2.us, %63 ], [ %.043126, %.lr.ph127.split ]
@@ -5250,7 +5250,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !195
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5273,7 +5273,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
 18:                                               ; preds = %15
   %19 = add nuw nsw i32 %.02433, 1
   %exitcond39.not = icmp eq i32 %19, 32
-  br i1 %exitcond39.not, label %20, label %15, !llvm.loop !194
+  br i1 %exitcond39.not, label %20, label %15, !llvm.loop !196
 
 20:                                               ; preds = %15, %18
   %.024.lcssa = phi i32 [ %.02433, %15 ], [ 32, %18 ]
@@ -5318,7 +5318,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
   store i32 %47, ptr %48, align 4, !tbaa !38
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %49 = icmp samesign ult i64 %indvars.iv.next41, %38
-  br i1 %49, label %39, label %.critedge, !llvm.loop !195
+  br i1 %49, label %39, label %.critedge, !llvm.loop !197
 
 .critedge:                                        ; preds = %39, %20
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 200
@@ -5379,7 +5379,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 .loopexit.us:                                     ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !196
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !198
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i.us, %25
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i18, %25 ], [ 0, %.lr.ph.i.us ]
@@ -5391,7 +5391,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 25:                                               ; preds = %.lr.ph.i15
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i
-  br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i15, !llvm.loop !193
+  br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i15, !llvm.loop !195
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i15
   %26 = trunc nuw nsw i64 %indvars.iv.i16 to i32
@@ -5415,7 +5415,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 32:                                               ; preds = %29
   %33 = add nuw nsw i32 %.02433.i, 1
   %exitcond39.not.i = icmp eq i32 %33, 32
-  br i1 %exitcond39.not.i, label %34, label %29, !llvm.loop !194
+  br i1 %exitcond39.not.i, label %34, label %29, !llvm.loop !196
 
 34:                                               ; preds = %32, %29
   %.024.lcssa.i = phi i32 [ %.02433.i, %29 ], [ 32, %32 ]
@@ -5458,7 +5458,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
   store i32 %59, ptr %60, align 4, !tbaa !38
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next41.i, %50
-  br i1 %exitcond33.not, label %Ivy_FraigCheckOutputSimsSavePattern.exit, label %51, !llvm.loop !195
+  br i1 %exitcond33.not, label %Ivy_FraigCheckOutputSimsSavePattern.exit, label %51, !llvm.loop !197
 
 Ivy_FraigCheckOutputSimsSavePattern.exit:         ; preds = %51, %34
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 200
@@ -5536,7 +5536,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
 32:                                               ; preds = %.lr.ph, %27
   %.1 = phi i32 [ %.01834, %.lr.ph ], [ %31, %27 ]
   %.not26 = icmp eq ptr %.020.val, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !197
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %32, %Abc_Clock.exit
   %.018.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %32 ]
@@ -5588,7 +5588,7 @@ define void @Ivy_FraigPrintClass(ptr noundef readonly captures(address_is_null) 
   %10 = getelementptr i8, ptr %.08, i64 48
   %.0.val = load ptr, ptr %10, align 8, !tbaa !94
   %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !200
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -5639,7 +5639,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i
   %6 = getelementptr i8, ptr %.06, i64 56
   %.0 = load ptr, ptr %6, align 8, !tbaa !145
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !199
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %Ivy_FraigCountClassNodes.exit, %1
   ret void
@@ -5795,7 +5795,7 @@ define void @Ivy_FraigSavePattern2(ptr noundef readonly captures(none) %0) local
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %17, label %.critedge, !llvm.loop !200
+  br i1 %39, label %17, label %.critedge, !llvm.loop !202
 
 .critedge:                                        ; preds = %37, %1
   ret void
@@ -5847,7 +5847,7 @@ define void @Ivy_FraigSavePattern3(ptr noundef readonly captures(none) %0) local
   %26 = load i32, ptr %2, align 8, !tbaa !108
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %16, label %.preheader, !llvm.loop !201
+  br i1 %28, label %16, label %.preheader, !llvm.loop !203
 
 29:                                               ; preds = %.lr.ph21, %50
   %.val26 = phi i32 [ %.val19, %.lr.ph21 ], [ %.val, %50 ]
@@ -5886,7 +5886,7 @@ define void @Ivy_FraigSavePattern3(ptr noundef readonly captures(none) %0) local
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %51 = sext i32 %.val to i64
   %52 = icmp slt i64 %indvars.iv.next24, %51
-  br i1 %52, label %29, label %.critedge, !llvm.loop !202
+  br i1 %52, label %29, label %.critedge, !llvm.loop !204
 
 .critedge:                                        ; preds = %50, %.preheader
   ret void
@@ -5940,7 +5940,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   %spec.select30 = select i1 %11, i32 %12, i32 %.035
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !203
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %8
   %13 = icmp eq i32 %spec.select, 0
@@ -6004,7 +6004,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %50 = sext i32 %.val to i64
   %51 = icmp slt i64 %indvars.iv.next43, %50
-  br i1 %51, label %31, label %.critedge, !llvm.loop !204
+  br i1 %51, label %31, label %.critedge, !llvm.loop !206
 
 .critedge:                                        ; preds = %49, %1, %14, %._crit_edge
   %.024.lcssa49 = phi i32 [ %spec.select, %14 ], [ 0, %._crit_edge ], [ 0, %1 ], [ %spec.select, %49 ]
@@ -6122,7 +6122,7 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %42, %.critedge.i
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %55 = load ptr, ptr %0, align 8, !tbaa !85
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !189
+  %57 = load i32, ptr %56, align 8, !tbaa !190
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %Ivy_FraigCleanPatScores.exit, label %58
 
@@ -6161,7 +6161,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
 74:                                               ; preds = %73, %71
   %75 = load ptr, ptr %0, align 8, !tbaa !85
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !189
+  %77 = load i32, ptr %76, align 8, !tbaa !190
   %.not18 = icmp eq i32 %77, 0
   br i1 %.not18, label %.loopexit, label %.preheader
 
@@ -6194,7 +6194,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   %spec.select30.i = select i1 %88, i32 %89, i32 %.035.i
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i24
-  br i1 %exitcond.not.i28, label %._crit_edge.i, label %85, !llvm.loop !203
+  br i1 %exitcond.not.i28, label %._crit_edge.i, label %85, !llvm.loop !205
 
 ._crit_edge.i:                                    ; preds = %85
   %90 = icmp eq i32 %spec.select.i26, 0
@@ -6255,7 +6255,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %124 = sext i32 %.val.i30 to i64
   %125 = icmp slt i64 %indvars.iv.next43.i, %124
-  br i1 %125, label %105, label %Ivy_FraigSelectBestPat.exit, !llvm.loop !204
+  br i1 %125, label %105, label %Ivy_FraigSelectBestPat.exit, !llvm.loop !206
 
 Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_edge.i, %91
   %.024.lcssa49.i = phi i32 [ %spec.select.i26, %91 ], [ 0, %._crit_edge.i ], [ 0, %80 ], [ %spec.select.i26, %123 ]
@@ -6391,7 +6391,7 @@ Ivy_FraigCleanPatScores.exit64:                   ; preds = %Ivy_FraigAssignDist
   %.not19 = icmp ne ptr %190, null
   %191 = icmp eq i32 %187, 0
   %or.cond = select i1 %.not19, i1 true, i1 %191
-  br i1 %or.cond, label %.loopexit, label %80, !llvm.loop !205
+  br i1 %or.cond, label %.loopexit, label %80, !llvm.loop !207
 
 .loopexit:                                        ; preds = %Ivy_FraigSelectBestPat.exit, %Ivy_FraigCleanPatScores.exit64, %74, %Ivy_FraigCleanPatScores.exit
   ret void
@@ -6412,9 +6412,9 @@ define void @Ivy_FraigPrintActivity(ptr noundef readonly captures(none) %0) loca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !206
+  %9 = load ptr, ptr %8, align 8, !tbaa !208
   %10 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8, !tbaa !207
+  %11 = load i64, ptr %10, align 8, !tbaa !209
   %12 = trunc i64 %11 to i32
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %13, i32 noundef %12)
@@ -6422,7 +6422,7 @@ define void @Ivy_FraigPrintActivity(ptr noundef readonly captures(none) %0) loca
   %15 = load i32, ptr %2, align 8, !tbaa !131
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %._crit_edge, !llvm.loop !208
+  br i1 %17, label %6, label %._crit_edge, !llvm.loop !210
 
 ._crit_edge:                                      ; preds = %6, %1
   %putchar = tail call i32 @putchar(i32 10)
@@ -6585,7 +6585,7 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
   %.val36 = load i32, ptr %4, align 4, !tbaa !47
   %36 = sext i32 %.val36 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %17, label %.critedge.preheader, !llvm.loop !209
+  br i1 %37, label %17, label %.critedge.preheader, !llvm.loop !211
 
 .critedge:                                        ; preds = %.lr.ph47, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %.critedge ]
@@ -6607,7 +6607,7 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
   store i32 %50, ptr %51, align 4, !tbaa !38
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !210
+  br i1 %exitcond.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !212
 
 .critedge._crit_edge:                             ; preds = %.critedge, %3, %.critedge.preheader
   %52 = getelementptr i8, ptr %1, i64 40
@@ -6656,7 +6656,7 @@ define void @Ivy_FraigCollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nound
 
 11:                                               ; preds = %10
   %12 = getelementptr i8, ptr %.tr.ph49, i64 12
-  %.val18.us = load i32, ptr %12, align 4, !tbaa !211
+  %.val18.us = load i32, ptr %12, align 4, !tbaa !213
   %13 = icmp sgt i32 %.val18.us, 1
   br i1 %13, label %tailrecurse.outer._crit_edge, label %.split.split.us
 
@@ -6685,7 +6685,7 @@ define void @Ivy_FraigCollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nound
 
 21:                                               ; preds = %20
   %22 = getelementptr i8, ptr %.tr29, i64 12
-  %.val18 = load i32, ptr %22, align 4, !tbaa !211
+  %.val18 = load i32, ptr %22, align 4, !tbaa !213
   %23 = icmp sgt i32 %.val18, 1
   br i1 %23, label %tailrecurse.outer._crit_edge, label %24
 
@@ -6721,7 +6721,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %1
 35:                                               ; preds = %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !212
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !214
 
 36:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
@@ -6923,14 +6923,14 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr i8, ptr %6, i64 176
-  %.val38 = load i32, ptr %7, align 8, !tbaa !213
+  %.val38 = load i32, ptr %7, align 8, !tbaa !215
   %8 = getelementptr i8, ptr %1, i64 4
-  %.val39 = load i32, ptr %8, align 4, !tbaa !214
+  %.val39 = load i32, ptr %8, align 4, !tbaa !216
   %.not = icmp eq i32 %.val39, %.val38
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %4
-  store i32 %.val38, ptr %8, align 4, !tbaa !214
+  store i32 %.val38, ptr %8, align 4, !tbaa !216
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 11
@@ -6961,11 +6961,11 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %sext = shl i64 %29, 32
   %31 = ashr exact i64 %sext, 29
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
-  store double %23, ptr %32, align 8, !tbaa !215
+  store double %23, ptr %32, align 8, !tbaa !217
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 520
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 524
-  %35 = load i32, ptr %34, align 4, !tbaa !216
-  %36 = load i32, ptr %33, align 8, !tbaa !217
+  %35 = load i32, ptr %34, align 4, !tbaa !218
+  %36 = load i32, ptr %33, align 8, !tbaa !219
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %veci_push.exit
 
@@ -6976,7 +6976,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %42 = mul nuw nsw i32 %41, 3
   %43 = select i1 %39, i32 %40, i32 %42
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 528
-  %45 = load ptr, ptr %44, align 8, !tbaa !218
+  %45 = load ptr, ptr %44, align 8, !tbaa !220
   %.not.i = icmp eq ptr %45, null
   %46 = sext i32 %43 to i64
   %47 = shl nsw i64 %46, 2
@@ -6992,12 +6992,12 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
 
 52:                                               ; preds = %50, %48
   %53 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  store ptr %53, ptr %44, align 8, !tbaa !218
+  store ptr %53, ptr %44, align 8, !tbaa !220
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %52
-  %56 = load i32, ptr %33, align 8, !tbaa !217
+  %56 = load i32, ptr %33, align 8, !tbaa !219
   %57 = sitofp i32 %56 to double
   %58 = fmul double %57, 0x3EB0000000000000
   %59 = sitofp i32 %43 to double
@@ -7008,16 +7008,16 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   br label %64
 
 64:                                               ; preds = %55, %52
-  store i32 %43, ptr %33, align 8, !tbaa !217
-  %.pre.i = load i32, ptr %34, align 4, !tbaa !216
+  store i32 %43, ptr %33, align 8, !tbaa !219
+  %.pre.i = load i32, ptr %34, align 4, !tbaa !218
   br label %veci_push.exit
 
 veci_push.exit:                                   ; preds = %14, %64
   %65 = phi i32 [ %.pre.i, %64 ], [ %35, %14 ]
   %66 = getelementptr inbounds nuw i8, ptr %25, i64 528
-  %67 = load ptr, ptr %66, align 8, !tbaa !218
+  %67 = load ptr, ptr %66, align 8, !tbaa !220
   %68 = add nsw i32 %65, 1
-  store i32 %68, ptr %34, align 4, !tbaa !216
+  store i32 %68, ptr %34, align 4, !tbaa !218
   %69 = sext i32 %65 to i64
   %70 = getelementptr inbounds i32, ptr %67, i64 %69
   store i32 %30, ptr %70, align 4, !tbaa !38
@@ -7047,7 +7047,7 @@ veci_push.exit:                                   ; preds = %14, %64
   %.val = load i32, ptr %72, align 4, !tbaa !47
   %83 = sext i32 %.val to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %75, label %.critedge.loopexit, !llvm.loop !219
+  br i1 %84, label %75, label %.critedge.loopexit, !llvm.loop !221
 
 .critedge.loopexit:                               ; preds = %75
   %85 = add nsw i32 %82, 1
@@ -7095,7 +7095,7 @@ define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1
   %22 = or i32 %19, 32
   store i32 %22, ptr %18, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %.val106, ptr %23, align 4, !tbaa !214
+  store i32 %.val106, ptr %23, align 4, !tbaa !216
   %24 = icmp eq i32 %.val106, %15
   br i1 %24, label %25, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -7164,7 +7164,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %31, %29
   %55 = or disjoint i32 %51, 32
   store i32 %55, ptr %50, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i32 %.val106, ptr %56, align 4, !tbaa !214
+  store i32 %.val106, ptr %56, align 4, !tbaa !216
   %57 = icmp eq i32 %.val106, %14
   br i1 %57, label %58, label %.Vec_PtrGrow.exit11_crit_edge.i118
 
@@ -7248,7 +7248,7 @@ Vec_PtrPush.exit124:                              ; preds = %.Vec_PtrGrow.exit11
   %97 = or disjoint i32 %93, 32
   store i32 %97, ptr %92, align 8
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  store i32 %.val105, ptr %98, align 4, !tbaa !214
+  store i32 %.val105, ptr %98, align 4, !tbaa !216
   %99 = icmp eq i32 %.val105, %85
   br i1 %99, label %100, label %.Vec_PtrGrow.exit11_crit_edge.i125
 
@@ -7324,13 +7324,13 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %.val108 = load i32, ptr %9, align 4, !tbaa !47
   %127 = sext i32 %.val108 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %12, label %.critedge, !llvm.loop !220
+  br i1 %128, label %12, label %.critedge, !llvm.loop !222
 
 .critedge:                                        ; preds = %123, %4
   %.val102134 = phi i32 [ %.val108132, %4 ], [ %.val108, %123 ]
   %.val104 = phi i32 [ 0, %4 ], [ %.val107161, %123 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %130 = load i32, ptr %129, align 8, !tbaa !221
+  %130 = load i32, ptr %129, align 8, !tbaa !223
   %spec.select = tail call i32 @llvm.smax.i32(i32 %130, i32 %.val104)
   %131 = sext i32 %spec.select to i64
   %132 = shl nsw i64 %131, 3
@@ -7343,7 +7343,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   br label %139
 
 .critedge2.preheader.loopexit:                    ; preds = %175
-  %.pre = load i32, ptr %129, align 8, !tbaa !221
+  %.pre = load i32, ptr %129, align 8, !tbaa !223
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %.critedge
@@ -7369,7 +7369,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 
 145:                                              ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %147 = load i32, ptr %146, align 4, !tbaa !214
+  %147 = load i32, ptr %146, align 4, !tbaa !216
   %148 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %147) #26
   br label %175
 
@@ -7380,7 +7380,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %152 = and i64 %151, -2
   %153 = inttoptr i64 %152 to ptr
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  %155 = load i32, ptr %154, align 4, !tbaa !214
+  %155 = load i32, ptr %154, align 4, !tbaa !216
   %156 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %155) #26
   %157 = ptrtoint ptr %156 to i64
   %.val114 = load ptr, ptr %150, align 8, !tbaa !52
@@ -7394,7 +7394,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %164 = and i64 %163, -2
   %165 = inttoptr i64 %164 to ptr
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %167 = load i32, ptr %166, align 4, !tbaa !214
+  %167 = load i32, ptr %166, align 4, !tbaa !216
   %168 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %167) #26
   %169 = ptrtoint ptr %168 to i64
   %.val117 = load ptr, ptr %162, align 8, !tbaa !91
@@ -7408,26 +7408,26 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 175:                                              ; preds = %149, %145
   %.sink = phi ptr [ %174, %149 ], [ %148, %145 ]
   %176 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv147
-  store ptr %.sink, ptr %176, align 8, !tbaa !232
+  store ptr %.sink, ptr %176, align 8, !tbaa !234
   tail call void @Cudd_Ref(ptr noundef %.sink) #26
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %.val102 = load i32, ptr %9, align 4, !tbaa !47
   %177 = sext i32 %.val102 to i64
   %178 = icmp slt i64 %indvars.iv.next148, %177
-  br i1 %178, label %139, label %.critedge2.preheader.loopexit, !llvm.loop !233
+  br i1 %178, label %139, label %.critedge2.preheader.loopexit, !llvm.loop !235
 
 .critedge2:                                       ; preds = %.critedge2.preheader144, %.critedge2
   %indvars.iv150 = phi i64 [ %138, %.critedge2.preheader144 ], [ %indvars.iv.next151, %.critedge2 ]
   %179 = trunc nsw i64 %indvars.iv150 to i32
   %180 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %179) #26
   %181 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv150
-  store ptr %180, ptr %181, align 8, !tbaa !232
+  store ptr %180, ptr %181, align 8, !tbaa !234
   tail call void @Cudd_Ref(ptr noundef %180) #26
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
-  %182 = load i32, ptr %129, align 8, !tbaa !221
+  %182 = load i32, ptr %129, align 8, !tbaa !223
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next151, %183
-  br i1 %184, label %.critedge2, label %.critedge2._crit_edge, !llvm.loop !234
+  br i1 %184, label %.critedge2, label %.critedge2._crit_edge, !llvm.loop !236
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   %185 = tail call ptr @Cudd_bddVectorCompose(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %133) #26
@@ -7441,7 +7441,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   br label %189
 
 .critedge4.preheader:                             ; preds = %189, %.critedge2._crit_edge
-  %187 = load i32, ptr %129, align 8, !tbaa !221
+  %187 = load i32, ptr %129, align 8, !tbaa !223
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %.critedge4, label %.critedge4._crit_edge
 
@@ -7454,21 +7454,21 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %194 = and i32 %193, -33
   store i32 %194, ptr %192, align 8
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
-  store i32 0, ptr %195, align 4, !tbaa !214
+  store i32 0, ptr %195, align 4, !tbaa !216
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4.preheader, label %189, !llvm.loop !235
+  br i1 %exitcond.not, label %.critedge4.preheader, label %189, !llvm.loop !237
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %196 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv156
-  %197 = load ptr, ptr %196, align 8, !tbaa !232
+  %197 = load ptr, ptr %196, align 8, !tbaa !234
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %197) #26
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %198 = load i32, ptr %129, align 8, !tbaa !221
+  %198 = load i32, ptr %129, align 8, !tbaa !223
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next157, %199
-  br i1 %200, label %.critedge4, label %.critedge4._crit_edge.thread, !llvm.loop !236
+  br i1 %200, label %.critedge4, label %.critedge4._crit_edge.thread, !llvm.loop !238
 
 .critedge4._crit_edge:                            ; preds = %.critedge4.preheader
   %.not = icmp eq ptr %133, null
@@ -7489,7 +7489,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %204, %201
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !239
   tail call void @free(ptr noundef nonnull %5) #26
   tail call void @Cudd_Deref(ptr noundef %185) #26
   ret ptr %185
@@ -7528,14 +7528,14 @@ define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef captures(none)
 11:                                               ; preds = %8
   %12 = load i32, ptr %1, align 8, !tbaa !121
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !238
-  %15 = load i32, ptr %2, align 8, !tbaa !240
+  %14 = load i32, ptr %13, align 4, !tbaa !240
+  %15 = load i32, ptr %2, align 8, !tbaa !242
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %11
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !241
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !243
   br label %Vec_IntPush.exit
 
 17:                                               ; preds = %11
@@ -7544,7 +7544,7 @@ define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef captures(none)
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !241
+  %21 = load ptr, ptr %20, align 8, !tbaa !243
   %.not9.i.i = icmp eq ptr %21, null
   br i1 %.not9.i.i, label %24, label %22
 
@@ -7558,14 +7558,14 @@ define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef captures(none)
 
 Vec_IntGrow.exit.i:                               ; preds = %24, %22
   %26 = phi ptr [ %23, %22 ], [ %25, %24 ]
-  store ptr %26, ptr %20, align 8, !tbaa !241
-  store i32 16, ptr %2, align 8, !tbaa !240
+  store ptr %26, ptr %20, align 8, !tbaa !243
+  store i32 16, ptr %2, align 8, !tbaa !242
   br label %Vec_IntPush.exit
 
 27:                                               ; preds = %17
   %28 = shl nuw nsw i32 %14, 1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !241
+  %30 = load ptr, ptr %29, align 8, !tbaa !243
   %.not9.i9.i = icmp eq ptr %30, null
   %31 = zext nneg i32 %28 to i64
   %32 = shl nuw nsw i64 %31, 2
@@ -7581,15 +7581,15 @@ Vec_IntGrow.exit.i:                               ; preds = %24, %22
 
 37:                                               ; preds = %35, %33
   %38 = phi ptr [ %34, %33 ], [ %36, %35 ]
-  store ptr %38, ptr %29, align 8, !tbaa !241
-  store i32 %28, ptr %2, align 8, !tbaa !240
+  store ptr %38, ptr %29, align 8, !tbaa !243
+  store i32 %28, ptr %2, align 8, !tbaa !242
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %37
   %39 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %38, %37 ], [ %26, %Vec_IntGrow.exit.i ]
-  %40 = load i32, ptr %13, align 4, !tbaa !238
+  %40 = load i32, ptr %13, align 4, !tbaa !240
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %13, align 4, !tbaa !238
+  store i32 %41, ptr %13, align 4, !tbaa !240
   br label %.sink.split
 
 42:                                               ; preds = %8
@@ -7607,14 +7607,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   tail call void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef %50, ptr noundef %2, ptr noundef %3)
   %51 = load i32, ptr %1, align 8, !tbaa !121
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !238
-  %54 = load i32, ptr %3, align 8, !tbaa !240
+  %53 = load i32, ptr %52, align 4, !tbaa !240
+  %54 = load i32, ptr %3, align 8, !tbaa !242
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %.Vec_IntGrow.exit10_crit_edge.i18
 
 .Vec_IntGrow.exit10_crit_edge.i18:                ; preds = %42
   %.phi.trans.insert.i19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre.i20 = load ptr, ptr %.phi.trans.insert.i19, align 8, !tbaa !241
+  %.pre.i20 = load ptr, ptr %.phi.trans.insert.i19, align 8, !tbaa !243
   br label %Vec_IntPush.exit24
 
 56:                                               ; preds = %42
@@ -7623,7 +7623,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !241
+  %60 = load ptr, ptr %59, align 8, !tbaa !243
   %.not9.i.i22 = icmp eq ptr %60, null
   br i1 %.not9.i.i22, label %63, label %61
 
@@ -7637,14 +7637,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 Vec_IntGrow.exit.i23:                             ; preds = %63, %61
   %65 = phi ptr [ %62, %61 ], [ %64, %63 ]
-  store ptr %65, ptr %59, align 8, !tbaa !241
-  store i32 16, ptr %3, align 8, !tbaa !240
+  store ptr %65, ptr %59, align 8, !tbaa !243
+  store i32 16, ptr %3, align 8, !tbaa !242
   br label %Vec_IntPush.exit24
 
 66:                                               ; preds = %56
   %67 = shl nuw nsw i32 %53, 1
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !241
+  %69 = load ptr, ptr %68, align 8, !tbaa !243
   %.not9.i9.i21 = icmp eq ptr %69, null
   %70 = zext nneg i32 %67 to i64
   %71 = shl nuw nsw i64 %70, 2
@@ -7660,15 +7660,15 @@ Vec_IntGrow.exit.i23:                             ; preds = %63, %61
 
 76:                                               ; preds = %74, %72
   %77 = phi ptr [ %73, %72 ], [ %75, %74 ]
-  store ptr %77, ptr %68, align 8, !tbaa !241
-  store i32 %67, ptr %3, align 8, !tbaa !240
+  store ptr %77, ptr %68, align 8, !tbaa !243
+  store i32 %67, ptr %3, align 8, !tbaa !242
   br label %Vec_IntPush.exit24
 
 Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i18, %Vec_IntGrow.exit.i23, %76
   %78 = phi ptr [ %.pre.i20, %.Vec_IntGrow.exit10_crit_edge.i18 ], [ %77, %76 ], [ %65, %Vec_IntGrow.exit.i23 ]
-  %79 = load i32, ptr %52, align 4, !tbaa !238
+  %79 = load i32, ptr %52, align 4, !tbaa !240
   %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %52, align 4, !tbaa !238
+  store i32 %80, ptr %52, align 4, !tbaa !240
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit24
@@ -7688,11 +7688,11 @@ Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10
 define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !238
-  store i32 100, ptr %5, align 8, !tbaa !240
+  store i32 0, ptr %6, align 4, !tbaa !240
+  store i32 100, ptr %5, align 8, !tbaa !242
   %7 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #27
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %8, align 8, !tbaa !241
+  store ptr %7, ptr %8, align 8, !tbaa !243
   %9 = getelementptr i8, ptr %0, i64 32
   %.val51 = load ptr, ptr %9, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %.val51, i64 8
@@ -7708,13 +7708,13 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
   store i32 %15, ptr %13, align 8
   %16 = tail call ptr @Aig_ManStart(i32 noundef 1000) #26
   %17 = getelementptr i8, ptr %16, i64 48
-  %.val52 = load ptr, ptr %17, align 8, !tbaa !242
+  %.val52 = load ptr, ptr %17, align 8, !tbaa !244
   %.val49 = load ptr, ptr %9, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %.val49, i64 72
   store ptr %.val52, ptr %18, align 8, !tbaa !90
   %19 = getelementptr i8, ptr %3, i64 8
   %20 = getelementptr i8, ptr %3, i64 4
-  %.val5361 = load i32, ptr %20, align 4, !tbaa !238
+  %.val5361 = load i32, ptr %20, align 4, !tbaa !240
   %21 = icmp sgt i32 %.val5361, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
@@ -7724,7 +7724,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
 
 23:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.val55 = load ptr, ptr %19, align 8, !tbaa !241
+  %.val55 = load ptr, ptr %19, align 8, !tbaa !243
   %24 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !38
   %.val57 = load ptr, ptr %22, align 8, !tbaa !89
@@ -7745,13 +7745,13 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
   %35 = and i32 %34, -33
   store i32 %35, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val53 = load i32, ptr %20, align 4, !tbaa !238
+  %.val53 = load i32, ptr %20, align 4, !tbaa !240
   %36 = sext i32 %.val53 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %23, label %.critedge, !llvm.loop !251
+  br i1 %37, label %23, label %.critedge, !llvm.loop !253
 
 .critedge:                                        ; preds = %23, %30, %4
-  %.val5464 = load i32, ptr %6, align 4, !tbaa !238
+  %.val5464 = load i32, ptr %6, align 4, !tbaa !240
   %38 = icmp sgt i32 %.val5464, 0
   br i1 %38, label %.lr.ph66, label %.critedge2
 
@@ -7761,7 +7761,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
 
 40:                                               ; preds = %.lr.ph66, %Ivy_ObjChild1Equiv.exit
   %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %Ivy_ObjChild1Equiv.exit ]
-  %.val56 = load ptr, ptr %8, align 8, !tbaa !241
+  %.val56 = load ptr, ptr %8, align 8, !tbaa !243
   %41 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv69
   %42 = load i32, ptr %41, align 4, !tbaa !38
   %.val58 = load ptr, ptr %39, align 8, !tbaa !89
@@ -7820,10 +7820,10 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %76 = and i32 %75, -33
   store i32 %76, ptr %74, align 8
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %.val54 = load i32, ptr %6, align 4, !tbaa !238
+  %.val54 = load i32, ptr %6, align 4, !tbaa !240
   %77 = sext i32 %.val54 to i64
   %78 = icmp slt i64 %indvars.iv.next70, %77
-  br i1 %78, label %40, label %.critedge2, !llvm.loop !252
+  br i1 %78, label %40, label %.critedge2, !llvm.loop !254
 
 .critedge2:                                       ; preds = %40, %Ivy_ObjChild1Equiv.exit, %.critedge
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -7846,7 +7846,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %96 = inttoptr i64 %95 to ptr
   %97 = tail call ptr @Aig_ObjCreateCo(ptr noundef %16, ptr noundef %96) #26
   %98 = tail call i32 @Aig_ManCleanup(ptr noundef %16) #26
-  %99 = load ptr, ptr %8, align 8, !tbaa !241
+  %99 = load ptr, ptr %8, align 8, !tbaa !243
   %.not.i60 = icmp eq ptr %99, null
   br i1 %.not.i60, label %Vec_IntFree.exit, label %100
 
@@ -7908,7 +7908,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #19 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !253
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !255
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #26
   br label %17
 
@@ -8069,7 +8069,7 @@ Vec_PtrPush.exit.i87:                             ; preds = %27
 57:                                               ; preds = %58
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i108
-  br i1 %exitcond.not.i111, label %Vec_PtrPush.exit.i102, label %58, !llvm.loop !212
+  br i1 %exitcond.not.i111, label %Vec_PtrPush.exit.i102, label %58, !llvm.loop !214
 
 58:                                               ; preds = %57, %.lr.ph.i107
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i110, %57 ]
@@ -8103,7 +8103,7 @@ Vec_PtrPush.exit.i102:                            ; preds = %57
 73:                                               ; preds = %74
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i123
-  br i1 %exitcond.not.i126, label %Vec_PtrPush.exit.i117, label %74, !llvm.loop !212
+  br i1 %exitcond.not.i126, label %Vec_PtrPush.exit.i117, label %74, !llvm.loop !214
 
 74:                                               ; preds = %73, %.lr.ph.i122
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i125, %73 ]
@@ -8229,7 +8229,7 @@ Ivy_FraigObjAddToFrontier.exit:                   ; preds = %.lr.ph, %90, %91, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = sext i32 %.val68 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph, label %.critedge2, !llvm.loop !256
+  br i1 %128, label %.lr.ph, label %.critedge2, !llvm.loop !258
 
 .critedge2:                                       ; preds = %Ivy_FraigObjAddToFrontier.exit
   tail call void @Ivy_FraigAddClausesMux(ptr noundef %0, ptr noundef %23)
@@ -8351,7 +8351,7 @@ Ivy_FraigObjAddToFrontier.exit148:                ; preds = %.lr.ph154, %142, %1
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %179 = sext i32 %.val to i64
   %180 = icmp slt i64 %indvars.iv.next164, %179
-  br i1 %180, label %.lr.ph154, label %.critedge4, !llvm.loop !257
+  br i1 %180, label %.lr.ph154, label %.critedge4, !llvm.loop !259
 
 .critedge4:                                       ; preds = %Ivy_FraigObjAddToFrontier.exit148, %129
   %181 = phi i32 [ %21, %129 ], [ %178, %Ivy_FraigObjAddToFrontier.exit148 ]
@@ -8365,7 +8365,7 @@ Ivy_FraigObjAddToFrontier.exit148:                ; preds = %.lr.ph154, %142, %1
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %185 = sext i32 %183 to i64
   %186 = icmp slt i64 %indvars.iv.next167, %185
-  br i1 %186, label %20, label %.critedge, !llvm.loop !258
+  br i1 %186, label %20, label %.critedge, !llvm.loop !260
 
 .critedge:                                        ; preds = %182, %17
   %187 = load ptr, ptr %13, align 8, !tbaa !49
@@ -8411,7 +8411,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 524
-  store i32 0, ptr %14, align 4, !tbaa !216
+  store i32 0, ptr %14, align 4, !tbaa !218
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !69
   call void @Ivy_ManIncrementTravId(ptr noundef %16) #26
@@ -8777,17 +8777,17 @@ attributes #30 = { nounwind willreturn memory(read) }
 !185 = distinct !{!185, !54}
 !186 = distinct !{!186, !54}
 !187 = distinct !{!187, !54}
-!188 = distinct !{!188, !54}
-!189 = !{!4, !5, i64 16}
-!190 = distinct !{!190, !54}
+!188 = distinct !{!188, !54, !189}
+!189 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!190 = !{!4, !5, i64 16}
 !191 = distinct !{!191, !54}
 !192 = distinct !{!192, !54}
-!193 = distinct !{!193, !54}
+!193 = distinct !{!193, !54, !189}
 !194 = distinct !{!194, !54}
 !195 = distinct !{!195, !54}
 !196 = distinct !{!196, !54}
 !197 = distinct !{!197, !54}
-!198 = distinct !{!198, !54}
+!198 = distinct !{!198, !54, !189}
 !199 = distinct !{!199, !54}
 !200 = distinct !{!200, !54}
 !201 = distinct !{!201, !54}
@@ -8795,56 +8795,58 @@ attributes #30 = { nounwind willreturn memory(read) }
 !203 = distinct !{!203, !54}
 !204 = distinct !{!204, !54}
 !205 = distinct !{!205, !54}
-!206 = !{!73, !78, i64 144}
-!207 = !{!22, !22, i64 0}
-!208 = distinct !{!208, !54}
-!209 = distinct !{!209, !54}
+!206 = distinct !{!206, !54}
+!207 = distinct !{!207, !54}
+!208 = !{!73, !78, i64 144}
+!209 = !{!22, !22, i64 0}
 !210 = distinct !{!210, !54}
-!211 = !{!43, !5, i64 12}
+!211 = distinct !{!211, !54}
 !212 = distinct !{!212, !54}
-!213 = !{!40, !5, i64 176}
-!214 = !{!43, !5, i64 4}
-!215 = !{!8, !8, i64 0}
-!216 = !{!79, !5, i64 4}
-!217 = !{!79, !5, i64 0}
-!218 = !{!79, !44, i64 8}
-!219 = distinct !{!219, !54}
-!220 = distinct !{!220, !54}
-!221 = !{!222, !5, i64 136}
-!222 = !{!"DdManager", !223, i64 0, !224, i64 40, !224, i64 48, !224, i64 56, !224, i64 64, !224, i64 72, !225, i64 80, !225, i64 88, !5, i64 96, !5, i64 100, !8, i64 104, !8, i64 112, !8, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !226, i64 152, !226, i64 160, !227, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !8, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !228, i64 280, !22, i64 288, !8, i64 296, !5, i64 304, !44, i64 312, !44, i64 320, !44, i64 328, !44, i64 336, !228, i64 344, !44, i64 352, !228, i64 360, !5, i64 368, !78, i64 376, !78, i64 384, !228, i64 392, !224, i64 400, !63, i64 408, !228, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !8, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !8, i64 464, !8, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !229, i64 520, !229, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !230, i64 560, !63, i64 568, !231, i64 576, !231, i64 584, !231, i64 592, !231, i64 600, !57, i64 608, !57, i64 616, !5, i64 624, !22, i64 632, !22, i64 640, !22, i64 648, !5, i64 656, !22, i64 664, !22, i64 672, !8, i64 680, !8, i64 688, !8, i64 696, !8, i64 704, !8, i64 712, !8, i64 720, !5, i64 728, !224, i64 736, !224, i64 744, !22, i64 752}
-!223 = !{!"DdNode", !5, i64 0, !5, i64 4, !224, i64 8, !6, i64 16, !22, i64 32}
-!224 = !{!"p1 _ZTS6DdNode", !18, i64 0}
-!225 = !{!"p1 _ZTS7DdCache", !18, i64 0}
-!226 = !{!"p1 _ZTS10DdSubtable", !18, i64 0}
-!227 = !{!"DdSubtable", !228, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
-!228 = !{!"p2 _ZTS6DdNode", !18, i64 0}
-!229 = !{!"p1 _ZTS7MtrNode", !18, i64 0}
-!230 = !{!"p1 _ZTS12DdLocalCache", !18, i64 0}
-!231 = !{!"p1 _ZTS6DdHook", !18, i64 0}
-!232 = !{!224, !224, i64 0}
-!233 = distinct !{!233, !54}
-!234 = distinct !{!234, !54}
+!213 = !{!43, !5, i64 12}
+!214 = distinct !{!214, !54}
+!215 = !{!40, !5, i64 176}
+!216 = !{!43, !5, i64 4}
+!217 = !{!8, !8, i64 0}
+!218 = !{!79, !5, i64 4}
+!219 = !{!79, !5, i64 0}
+!220 = !{!79, !44, i64 8}
+!221 = distinct !{!221, !54}
+!222 = distinct !{!222, !54}
+!223 = !{!224, !5, i64 136}
+!224 = !{!"DdManager", !225, i64 0, !226, i64 40, !226, i64 48, !226, i64 56, !226, i64 64, !226, i64 72, !227, i64 80, !227, i64 88, !5, i64 96, !5, i64 100, !8, i64 104, !8, i64 112, !8, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !228, i64 152, !228, i64 160, !229, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !8, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !230, i64 280, !22, i64 288, !8, i64 296, !5, i64 304, !44, i64 312, !44, i64 320, !44, i64 328, !44, i64 336, !230, i64 344, !44, i64 352, !230, i64 360, !5, i64 368, !78, i64 376, !78, i64 384, !230, i64 392, !226, i64 400, !63, i64 408, !230, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !8, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !8, i64 464, !8, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !231, i64 520, !231, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !232, i64 560, !63, i64 568, !233, i64 576, !233, i64 584, !233, i64 592, !233, i64 600, !57, i64 608, !57, i64 616, !5, i64 624, !22, i64 632, !22, i64 640, !22, i64 648, !5, i64 656, !22, i64 664, !22, i64 672, !8, i64 680, !8, i64 688, !8, i64 696, !8, i64 704, !8, i64 712, !8, i64 720, !5, i64 728, !226, i64 736, !226, i64 744, !22, i64 752}
+!225 = !{!"DdNode", !5, i64 0, !5, i64 4, !226, i64 8, !6, i64 16, !22, i64 32}
+!226 = !{!"p1 _ZTS6DdNode", !18, i64 0}
+!227 = !{!"p1 _ZTS7DdCache", !18, i64 0}
+!228 = !{!"p1 _ZTS10DdSubtable", !18, i64 0}
+!229 = !{!"DdSubtable", !230, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
+!230 = !{!"p2 _ZTS6DdNode", !18, i64 0}
+!231 = !{!"p1 _ZTS7MtrNode", !18, i64 0}
+!232 = !{!"p1 _ZTS12DdLocalCache", !18, i64 0}
+!233 = !{!"p1 _ZTS6DdHook", !18, i64 0}
+!234 = !{!226, !226, i64 0}
 !235 = distinct !{!235, !54}
 !236 = distinct !{!236, !54}
-!237 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 8, !51}
-!238 = !{!239, !5, i64 4}
-!239 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !44, i64 8}
-!240 = !{!239, !5, i64 0}
-!241 = !{!239, !44, i64 8}
-!242 = !{!243, !244, i64 48}
-!243 = !{!"Aig_Man_t_", !63, i64 0, !63, i64 8, !41, i64 16, !41, i64 24, !41, i64 32, !41, i64 40, !244, i64 48, !245, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !246, i64 160, !5, i64 168, !44, i64 176, !5, i64 184, !247, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !44, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !246, i64 248, !246, i64 256, !5, i64 264, !248, i64 272, !45, i64 280, !5, i64 288, !18, i64 296, !18, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !246, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !44, i64 368, !44, i64 376, !41, i64 384, !45, i64 392, !45, i64 400, !249, i64 408, !41, i64 416, !250, i64 424, !41, i64 432, !5, i64 440, !45, i64 448, !247, i64 456, !45, i64 464, !45, i64 472, !5, i64 480, !22, i64 488, !22, i64 496, !22, i64 504, !41, i64 512, !41, i64 520}
-!244 = !{!"p1 _ZTS10Aig_Obj_t_", !18, i64 0}
-!245 = !{!"Aig_Obj_t_", !6, i64 0, !244, i64 8, !244, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
-!246 = !{!"p2 _ZTS10Aig_Obj_t_", !18, i64 0}
-!247 = !{!"p1 _ZTS10Vec_Vec_t_", !18, i64 0}
-!248 = !{!"p1 _ZTS14Aig_MmFixed_t_", !18, i64 0}
-!249 = !{!"p1 _ZTS10Abc_Cex_t_", !18, i64 0}
-!250 = !{!"p1 _ZTS10Aig_Man_t_", !18, i64 0}
-!251 = distinct !{!251, !54}
-!252 = distinct !{!252, !54}
-!253 = !{!254}
-!254 = distinct !{!254, !255, !"vprintf: argument 0"}
-!255 = distinct !{!255, !"vprintf"}
-!256 = distinct !{!256, !54}
-!257 = distinct !{!257, !54}
+!237 = distinct !{!237, !54}
+!238 = distinct !{!238, !54}
+!239 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 8, !51}
+!240 = !{!241, !5, i64 4}
+!241 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !44, i64 8}
+!242 = !{!241, !5, i64 0}
+!243 = !{!241, !44, i64 8}
+!244 = !{!245, !246, i64 48}
+!245 = !{!"Aig_Man_t_", !63, i64 0, !63, i64 8, !41, i64 16, !41, i64 24, !41, i64 32, !41, i64 40, !246, i64 48, !247, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !248, i64 160, !5, i64 168, !44, i64 176, !5, i64 184, !249, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !44, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !248, i64 248, !248, i64 256, !5, i64 264, !250, i64 272, !45, i64 280, !5, i64 288, !18, i64 296, !18, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !248, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !44, i64 368, !44, i64 376, !41, i64 384, !45, i64 392, !45, i64 400, !251, i64 408, !41, i64 416, !252, i64 424, !41, i64 432, !5, i64 440, !45, i64 448, !249, i64 456, !45, i64 464, !45, i64 472, !5, i64 480, !22, i64 488, !22, i64 496, !22, i64 504, !41, i64 512, !41, i64 520}
+!246 = !{!"p1 _ZTS10Aig_Obj_t_", !18, i64 0}
+!247 = !{!"Aig_Obj_t_", !6, i64 0, !246, i64 8, !246, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
+!248 = !{!"p2 _ZTS10Aig_Obj_t_", !18, i64 0}
+!249 = !{!"p1 _ZTS10Vec_Vec_t_", !18, i64 0}
+!250 = !{!"p1 _ZTS14Aig_MmFixed_t_", !18, i64 0}
+!251 = !{!"p1 _ZTS10Abc_Cex_t_", !18, i64 0}
+!252 = !{!"p1 _ZTS10Aig_Man_t_", !18, i64 0}
+!253 = distinct !{!253, !54}
+!254 = distinct !{!254, !54}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"vprintf: argument 0"}
+!257 = distinct !{!257, !"vprintf"}
 !258 = distinct !{!258, !54}
+!259 = distinct !{!259, !54}
+!260 = distinct !{!260, !54}

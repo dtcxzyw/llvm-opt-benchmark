@@ -812,7 +812,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   %.val.us = load i64, ptr %21, align 8, !tbaa !23
   %29 = icmp eq i64 %.val.us, 0
-  br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge
+  br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %97, %28, %20
   %.val.lcssa = phi i64 [ %.val58, %20 ], [ %.val.us, %28 ], [ %.val, %97 ]
@@ -875,7 +875,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   store i64 %37, ptr %31, align 8, !tbaa !24
   store i64 0, ptr %43, align 8, !tbaa !25
   %64 = load i64, ptr %21, align 8, !tbaa !23
-  store i64 %64, ptr %30, align 8, !tbaa !47
+  store i64 %64, ptr %30, align 8, !tbaa !49
   br label %RingBuf_Get.exit
 
 RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %39, %61
@@ -998,7 +998,7 @@ define internal fastcc noundef ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !48
+  store ptr %0, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %1, align 8, !tbaa !16
   %7 = icmp slt i32 %6, 0
@@ -1010,15 +1010,15 @@ define internal fastcc noundef ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, 
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %2, %8
-  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %1, ptr %5, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !46, !range !51, !noundef !52
+  %11 = load i8, ptr %10, align 8, !tbaa !46, !range !53, !noundef !54
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %_Py_NewRef.exit
   call void @_PyParkingLot_Unpark(ptr noundef nonnull %10, ptr noundef nonnull @maybe_handoff_item, ptr noundef nonnull %3) #7
-  %.pre = load i8, ptr %3, align 8, !tbaa !53, !range !51
+  %.pre = load i8, ptr %3, align 8, !tbaa !55, !range !53
   %14 = trunc nuw i8 %.pre to i1
   br i1 %14, label %63, label %.thread
 
@@ -1083,7 +1083,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %8
   store i64 %23, ptr %18, align 8, !tbaa !24
   store i64 0, ptr %31, align 8, !tbaa !25
   %52 = load i64, ptr %16, align 8, !tbaa !23
-  store i64 %52, ptr %15, align 8, !tbaa !47
+  store i64 %52, ptr %15, align 8, !tbaa !49
   br label %RingBuf_Put.exit
 
 RingBuf_Put.exit.thread:                          ; preds = %25
@@ -1095,12 +1095,12 @@ RingBuf_Put.exit:                                 ; preds = %.thread, %21, %49
   %55 = phi i64 [ %23, %49 ], [ %17, %21 ], [ %19, %.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !19
-  %58 = load i64, ptr %15, align 8, !tbaa !47
+  %58 = load i64, ptr %15, align 8, !tbaa !49
   %59 = getelementptr ptr, ptr %57, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !17
   %60 = add i64 %58, 1
   %61 = srem i64 %60, %55
-  store i64 %61, ptr %15, align 8, !tbaa !47
+  store i64 %61, ptr %15, align 8, !tbaa !49
   %62 = add i64 %54, 1
   store i64 %62, ptr %16, align 8, !tbaa !23
   br label %63
@@ -1123,16 +1123,16 @@ define internal void @maybe_handoff_item(ptr noundef captures(none) initializes(
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   store ptr %7, ptr %1, align 8, !tbaa !17
   br label %8
 
 8:                                                ; preds = %3, %5
   %storemerge = phi i8 [ 1, %5 ], [ 0, %3 ]
-  store i8 %storemerge, ptr %0, align 8, !tbaa !53
+  store i8 %storemerge, ptr %0, align 8, !tbaa !55
   %9 = icmp ne i32 %2, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !48
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = zext i1 %9 to i8
   store i8 %13, ptr %12, align 8, !tbaa !46
@@ -1213,10 +1213,12 @@ attributes #7 = { nounwind }
 !44 = !{!21, !21, i64 0}
 !45 = !{!30, !30, i64 0}
 !46 = !{!29, !30, i64 16}
-!47 = !{!20, !21, i64 0}
-!48 = !{!49, !9, i64 8}
-!49 = !{!"", !30, i64 0, !9, i64 8, !10, i64 16}
-!50 = !{!49, !10, i64 16}
-!51 = !{i8 0, i8 2}
-!52 = !{}
-!53 = !{!49, !30, i64 0}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = !{!20, !21, i64 0}
+!50 = !{!51, !9, i64 8}
+!51 = !{!"", !30, i64 0, !9, i64 8, !10, i64 16}
+!52 = !{!51, !10, i64 16}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!51, !30, i64 0}

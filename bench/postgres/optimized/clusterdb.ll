@@ -292,7 +292,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %82 = add nuw nsw i32 %.02933.i, 1
   %83 = call i32 @PQntuples(ptr noundef %63) #9
   %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !7
+  br i1 %84, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !9
 
 cluster_all_databases.exit:                       ; preds = %.loopexit.i, %.loopexit.us.i, %59
   call void @PQclear(ptr noundef %63) #9
@@ -330,7 +330,7 @@ cluster_all_databases.exit:                       ; preds = %.loopexit.i, %.loop
   call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef nonnull %96, ptr noundef %8, i1 noundef zeroext %94, i1 noundef zeroext %95)
   %97 = load ptr, ptr %.079, align 8
   %.not66 = icmp eq ptr %97, null
-  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !10
 
 98:                                               ; preds = %92
   call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %94, i1 noundef zeroext %95)
@@ -514,5 +514,7 @@ attributes #11 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

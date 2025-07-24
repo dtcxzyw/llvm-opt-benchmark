@@ -2649,7 +2649,7 @@ recv_fully.exit.thread:                           ; preds = %51, %recv_fully.exi
   %.0.i3447 = phi i32 [ %.01316.i, %recv_fully.exit ], [ %52, %51 ]
   %67 = add nuw nsw i32 %.0.i3447, %.02959
   %68 = icmp slt i32 %67, 14
-  br i1 %68, label %.split, label %.split63.us, !llvm.loop !21
+  br i1 %68, label %.split, label %.split63.us, !llvm.loop !23
 
 .split63.us:                                      ; preds = %recv_fully.exit.thread, %recv_fully.exit.thread.us
   %.us-phi = phi i32 [ %26, %recv_fully.exit.thread.us ], [ %67, %recv_fully.exit.thread ]
@@ -2892,4 +2892,6 @@ attributes #15 = { cold nounwind }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !7, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7}

@@ -367,7 +367,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 ._crit_edge.us:                                   ; preds = %19
   %30 = add nuw nsw i64 %.062.us, 1
   %exitcond81.not = icmp eq i64 %30, %6
-  br i1 %exitcond81.not, label %._crit_edge65, label %.lr.ph.us
+  br i1 %exitcond81.not, label %._crit_edge65, label %.lr.ph.us, !llvm.loop !20
 
 ._crit_edge65:                                    ; preds = %._crit_edge.us, %5
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #9
@@ -421,7 +421,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 ._crit_edge.us.i:                                 ; preds = %41
   %63 = add nuw nsw i64 %.03437.us.i, 1
   %exitcond41.not.i = icmp eq i64 %63, %37
-  br i1 %exitcond41.not.i, label %heatres.exit, label %.lr.ph.us.i
+  br i1 %exitcond41.not.i, label %heatres.exit, label %.lr.ph.us.i, !llvm.loop !22
 
 heatres.exit:                                     ; preds = %._crit_edge.us.i, %._crit_edge65
   tail call void @N_VScale(double noundef -1.000000e+00, ptr noundef %4, ptr noundef %2) #9
@@ -463,7 +463,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 ._crit_edge.us76:                                 ; preds = %73, %.lr.ph.split.split.us.us, %.lr.ph.split.us.us
   %76 = add nuw nsw i64 %.169.us, 1
   %exitcond85.not = icmp eq i64 %76, %6
-  br i1 %exitcond85.not, label %._crit_edge71, label %.lr.ph.us73
+  br i1 %exitcond85.not, label %._crit_edge71, label %.lr.ph.us73, !llvm.loop !23
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us73, %.lr.ph.split.us.us
   %.15666.us.us = phi i64 [ %80, %.lr.ph.split.us.us ], [ 0, %.lr.ph.us73 ]
@@ -475,7 +475,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
   store double 0.000000e+00, ptr %79, align 8, !tbaa !18
   %80 = add nuw nsw i64 %.15666.us.us, 1
   %exitcond84.not = icmp eq i64 %80, %6
-  br i1 %exitcond84.not, label %._crit_edge.us76, label %.lr.ph.split.us.us
+  br i1 %exitcond84.not, label %._crit_edge.us76, label %.lr.ph.split.us.us, !llvm.loop !24
 
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us75, %.lr.ph.split.split.us.us
   %.15666.us68.us = phi i64 [ %85, %.lr.ph.split.split.us.us ], [ 0, %.lr.ph.split.us75 ]
@@ -488,7 +488,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
   store double 0.000000e+00, ptr %84, align 8, !tbaa !18
   %85 = add nuw nsw i64 %.15666.us68.us, 1
   %exitcond83.not = icmp eq i64 %85, %6
-  br i1 %exitcond83.not, label %._crit_edge.us76, label %.lr.ph.split.split.us.us
+  br i1 %exitcond83.not, label %._crit_edge.us76, label %.lr.ph.split.split.us.us, !llvm.loop !25
 
 ._crit_edge71:                                    ; preds = %._crit_edge.us76, %heatres.exit
   ret void
@@ -560,7 +560,7 @@ define dso_local noundef i32 @heatres(double %0, ptr noundef %1, ptr noundef %2,
 ._crit_edge.us:                                   ; preds = %16
   %38 = add nuw nsw i64 %.03437.us, 1
   %exitcond41.not = icmp eq i64 %38, %12
-  br i1 %exitcond41.not, label %._crit_edge40, label %.lr.ph.us
+  br i1 %exitcond41.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %5
   ret i32 0
@@ -682,7 +682,7 @@ check_retval.exit19:                              ; preds = %check_retval.exit17
   br label %check_retval.exit21
 
 check_retval.exit21:                              ; preds = %check_retval.exit19, %44
-  %47 = load i32, ptr %10, align 4, !tbaa !20
+  %47 = load i32, ptr %10, align 4, !tbaa !26
   %48 = load i64, ptr %5, align 8, !tbaa !19
   %49 = load i64, ptr %6, align 8, !tbaa !19
   %50 = load i64, ptr %7, align 8, !tbaa !19
@@ -787,5 +787,11 @@ attributes #11 = { nounwind allocsize(0) }
 !17 = !{!6, !6, i64 0}
 !18 = !{!14, !14, i64 0}
 !19 = !{!13, !13, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !7, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !7, i64 0}

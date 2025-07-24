@@ -245,7 +245,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   %65 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %.0 = load ptr, ptr %65, align 8, !tbaa !15
   %.not26 = icmp eq ptr %.0, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %64, %55, %42, %37, %.preheader
   %.1 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.2.us, %42 ], [ 0, %55 ], [ %.2, %64 ]
@@ -359,7 +359,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br i1 %.not41, label %44, label %.thread
 
 44:                                               ; preds = %40
-  %45 = load i16, ptr %11, align 8, !tbaa !24
+  %45 = load i16, ptr %11, align 8, !tbaa !26
   %46 = zext i16 %45 to i32
   %47 = call i32 @socket(i32 noundef %46, i32 noundef 2, i32 noundef 17) #9
   store i32 %47, ptr %0, align 4, !tbaa !3
@@ -391,12 +391,12 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br i1 %.not44, label %66, label %56
 
 56:                                               ; preds = %55
-  %57 = load i16, ptr %7, align 8, !tbaa !24
+  %57 = load i16, ptr %7, align 8, !tbaa !26
   %58 = icmp eq i16 %57, 2
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
-  store i64 4, ptr %4, align 8, !tbaa !28
+  store i64 4, ptr %4, align 8, !tbaa !30
   %60 = icmp ugt i64 %3, 3
   br i1 %60, label %.thread50, label %66
 
@@ -407,7 +407,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br label %66
 
 63:                                               ; preds = %56
-  store i64 16, ptr %4, align 8, !tbaa !28
+  store i64 16, ptr %4, align 8, !tbaa !30
   %64 = icmp ugt i64 %3, 15
   br i1 %64, label %.thread52, label %66
 
@@ -475,7 +475,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   br i1 %.not, label %.preheader.preheader, label %62
 
 .preheader.preheader:                             ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !30
   %10 = and i32 %1, 1
   %.not43 = icmp eq i32 %10, 0
   br i1 %.not43, label %21, label %11
@@ -488,14 +488,14 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %16 = sdiv i32 %7, 64
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8, !tbaa !28
+  %19 = load i64, ptr %18, align 8, !tbaa !30
   %20 = or i64 %19, %15
-  store i64 %20, ptr %18, align 8, !tbaa !28
+  store i64 %20, ptr %18, align 8, !tbaa !30
   br label %21
 
 21:                                               ; preds = %.preheader.preheader, %11
   %.035 = phi i32 [ %12, %11 ], [ %1, %.preheader.preheader ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !30
   %22 = and i32 %.035, 2
   %.not44 = icmp eq i32 %22, 0
   br i1 %.not44, label %33, label %23
@@ -508,9 +508,9 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %28 = sdiv i32 %7, 64
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %29
-  %31 = load i64, ptr %30, align 8, !tbaa !28
+  %31 = load i64, ptr %30, align 8, !tbaa !30
   %32 = or i64 %31, %27
-  store i64 %32, ptr %30, align 8, !tbaa !28
+  store i64 %32, ptr %30, align 8, !tbaa !30
   br label %33
 
 33:                                               ; preds = %23, %21
@@ -521,12 +521,12 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
 34:                                               ; preds = %33
   %35 = udiv i32 %2, 1000
   %36 = zext nneg i32 %35 to i64
-  store i64 %36, ptr %4, align 8, !tbaa !29
+  store i64 %36, ptr %4, align 8, !tbaa !31
   %37 = urem i32 %2, 1000
   %38 = mul nuw nsw i32 %37, 1000
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %39, ptr %40, align 8, !tbaa !31
+  store i64 %39, ptr %40, align 8, !tbaa !33
   %41 = add nsw i32 %7, 1
   %42 = icmp eq i32 %2, -1
   %. = select i1 %42, ptr null, ptr %4
@@ -535,7 +535,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
 43:                                               ; preds = %43, %34
   %44 = call i32 @select(i32 noundef %41, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef %.) #9
   %45 = icmp eq i32 %44, 4
-  br i1 %45, label %43, label %46, !llvm.loop !32
+  br i1 %45, label %43, label %46, !llvm.loop !34
 
 46:                                               ; preds = %43
   %47 = icmp slt i32 %44, 0
@@ -545,7 +545,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %49 = sdiv i32 %7, 64
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %50
-  %52 = load i64, ptr %51, align 8, !tbaa !28
+  %52 = load i64, ptr %51, align 8, !tbaa !30
   %53 = srem i32 %7, 64
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw i64 1, %54
@@ -553,7 +553,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %57 = trunc i64 %56 to i32
   %spec.select = and i32 %57, 1
   %58 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %50
-  %59 = load i64, ptr %58, align 8, !tbaa !28
+  %59 = load i64, ptr %58, align 8, !tbaa !30
   %60 = and i64 %59, %55
   %.not47 = icmp eq i64 %60, 0
   %61 = or disjoint i32 %spec.select, 2
@@ -575,10 +575,10 @@ define hidden void @mbedtls_net_usleep(i64 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   %3 = udiv i64 %0, 1000000
-  store i64 %3, ptr %2, align 8, !tbaa !29
+  store i64 %3, ptr %2, align 8, !tbaa !31
   %4 = srem i64 %0, 1000000
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %4, ptr %5, align 8, !tbaa !31
+  store i64 %4, ptr %5, align 8, !tbaa !33
   %6 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   ret void
@@ -647,24 +647,24 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
   br i1 %.not, label %.preheader.preheader, label %mbedtls_net_recv.exit
 
 .preheader.preheader:                             ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !30
   %10 = srem i32 %7, 64
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %7, 64
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !28
+  %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %16, %12
-  store i64 %17, ptr %15, align 8, !tbaa !28
+  store i64 %17, ptr %15, align 8, !tbaa !30
   %18 = udiv i32 %3, 1000
   %19 = zext nneg i32 %18 to i64
-  store i64 %19, ptr %5, align 8, !tbaa !29
+  store i64 %19, ptr %5, align 8, !tbaa !31
   %20 = urem i32 %3, 1000
   %21 = mul nuw nsw i32 %20, 1000
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !31
+  store i64 %22, ptr %23, align 8, !tbaa !33
   %24 = add nsw i32 %7, 1
   %25 = icmp eq i32 %3, 0
   %26 = select i1 %25, ptr null, ptr %5
@@ -850,13 +850,15 @@ attributes #10 = { nounwind willreturn memory(none) }
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = !{!9, !5, i64 0}
 !22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !20}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"sockaddr_storage", !26, i64 0, !6, i64 2, !27, i64 120}
-!26 = !{!"short", !6, i64 0}
-!27 = !{!"long", !6, i64 0}
-!28 = !{!27, !27, i64 0}
-!29 = !{!30, !27, i64 0}
-!30 = !{!"timeval", !27, i64 0, !27, i64 8}
-!31 = !{!30, !27, i64 8}
-!32 = distinct !{!32, !20}
+!23 = distinct !{!23, !20, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !20}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"sockaddr_storage", !28, i64 0, !6, i64 2, !29, i64 120}
+!28 = !{!"short", !6, i64 0}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!29, !29, i64 0}
+!31 = !{!32, !29, i64 0}
+!32 = !{!"timeval", !29, i64 0, !29, i64 8}
+!33 = !{!32, !29, i64 8}
+!34 = distinct !{!34, !20}

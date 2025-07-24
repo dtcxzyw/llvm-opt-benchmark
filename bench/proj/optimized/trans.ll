@@ -1790,7 +1790,7 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #18
   store double 0x7FF0000000000000, ptr %16, align 8, !tbaa !121
   %19 = icmp eq ptr %0, null
-  br i1 %19, label %117, label %20
+  br i1 %19, label %113, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1824,7 +1824,7 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   %35 = add i64 %34, %.092
   %36 = sub i64 0, %.087
   %37 = icmp eq i64 %35, %36
-  br i1 %37, label %117, label %38
+  br i1 %37, label %113, label %38
 
 38:                                               ; preds = %25
   %39 = icmp ugt i64 %spec.select, 1
@@ -1856,11 +1856,11 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   %54 = tail call i64 @llvm.umin.i64(i64 %.087, i64 %.2)
   %.3 = select i1 %53, i64 %54, i64 %.2
   %cond = icmp eq i32 %.093, 0
-  br i1 %cond, label %117, label %.preheader
+  br i1 %cond, label %113, label %.preheader
 
 .preheader:                                       ; preds = %46
-  %.not221 = icmp eq i64 %.3, 0
-  br i1 %.not221, label %._crit_edge, label %.lr.ph
+  %.not212 = icmp eq i64 %.3, 0
+  br i1 %.not212, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1922,8 +1922,8 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
 68:                                               ; preds = %66, %65
   %.291.us = phi ptr [ %67, %66 ], [ %.190113.us, %65 ]
   %69 = add nuw i64 %.086114.us, 1
-  %exitcond242.not = icmp eq i64 %69, %.3
-  br i1 %exitcond242.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !122
+  %exitcond228.not = icmp eq i64 %69, %.3
+  br i1 %exitcond228.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !122
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %49, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1969,54 +1969,25 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
 80:                                               ; preds = %78, %77
   %.291.us141 = phi ptr [ %79, %78 ], [ %.190113.us132, %77 ]
   %81 = add nuw i64 %.086114.us131, 1
-  %exitcond241.not = icmp eq i64 %81, %.3
-  br i1 %exitcond241.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !122
+  %exitcond227.not = icmp eq i64 %81, %.3
+  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !124
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %51, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
-  br i1 %53, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.us.split
-
-.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split.us
-  %.086114.us160.us = phi i64 [ %88, %.lr.ph.split.split.split.us.split.us ], [ 0, %.lr.ph.split.split.split.us ]
-  %.190113.us161.us = phi ptr [ %87, %.lr.ph.split.split.split.us.split.us ], [ %.089, %.lr.ph.split.split.split.us ]
-  %.195112.us162.us = phi ptr [ %86, %.lr.ph.split.split.split.us.split.us ], [ %.094, %.lr.ph.split.split.split.us ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %89
+  %.086114.us160 = phi i64 [ %90, %89 ], [ 0, %.lr.ph.split.split ]
+  %.190113.us161 = phi ptr [ %.291.us168, %89 ], [ %.089, %.lr.ph.split.split ]
+  %.195112.us162 = phi ptr [ %86, %89 ], [ %.094, %.lr.ph.split.split ]
   %82 = load double, ptr %.098, align 8, !tbaa !121
   %83 = load double, ptr %.0101, align 8, !tbaa !121
-  %84 = load double, ptr %.195112.us162.us, align 8, !tbaa !121
-  %85 = load double, ptr %.190113.us161.us, align 8, !tbaa !121
+  %84 = load double, ptr %.195112.us162, align 8, !tbaa !121
+  %85 = load double, ptr %.190113.us161, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18
   store double %82, ptr %18, align 8
   store double %83, ptr %.sroa.8.0..sroa_idx, align 8
   store double %84, ptr %.sroa.11.0..sroa_idx, align 8
   store double %85, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
-  call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %17, ptr noundef nonnull %0, i32 noundef %.093, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
-  %.sroa.0.0.copyload10.us163.us = load double, ptr %17, align 8
-  %.sroa.8.0.copyload12.us164.us = load double, ptr %.sroa.8.0..sroa_idx11, align 8
-  %.sroa.11.0.copyload15.us165.us = load double, ptr %.sroa.11.0..sroa_idx14, align 8
-  %.sroa.14.0.copyload18.us166.us = load double, ptr %.sroa.14.0..sroa_idx17, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18
-  store double %.sroa.11.0.copyload15.us165.us, ptr %.195112.us162.us, align 8, !tbaa !121
-  %86 = getelementptr inbounds nuw i8, ptr %.195112.us162.us, i64 %9
-  store double %.sroa.14.0.copyload18.us166.us, ptr %.190113.us161.us, align 8, !tbaa !121
-  %87 = getelementptr inbounds nuw i8, ptr %.190113.us161.us, i64 %12
-  %88 = add nuw i64 %.086114.us160.us, 1
-  %exitcond240.not = icmp eq i64 %88, %54
-  br i1 %exitcond240.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !122
-
-.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split
-  %.086114.us160 = phi i64 [ %94, %.lr.ph.split.split.split.us.split ], [ 0, %.lr.ph.split.split.split.us ]
-  %.195112.us162 = phi ptr [ %93, %.lr.ph.split.split.split.us.split ], [ %.094, %.lr.ph.split.split.split.us ]
-  %89 = load double, ptr %.098, align 8, !tbaa !121
-  %90 = load double, ptr %.0101, align 8, !tbaa !121
-  %91 = load double, ptr %.195112.us162, align 8, !tbaa !121
-  %92 = load double, ptr %.089, align 8, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18
-  store double %89, ptr %18, align 8
-  store double %90, ptr %.sroa.8.0..sroa_idx, align 8
-  store double %91, ptr %.sroa.11.0..sroa_idx, align 8
-  store double %92, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %17, ptr noundef nonnull %0, i32 noundef %.093, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
   %.sroa.0.0.copyload10.us163 = load double, ptr %17, align 8
   %.sroa.8.0.copyload12.us164 = load double, ptr %.sroa.8.0..sroa_idx11, align 8
@@ -2024,26 +1995,35 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   %.sroa.14.0.copyload18.us166 = load double, ptr %.sroa.14.0..sroa_idx17, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18
   store double %.sroa.11.0.copyload15.us165, ptr %.195112.us162, align 8, !tbaa !121
-  %93 = getelementptr inbounds nuw i8, ptr %.195112.us162, i64 %9
-  %94 = add nuw i64 %.086114.us160, 1
-  %exitcond239.not = icmp eq i64 %94, %.2
-  br i1 %exitcond239.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !122
+  %86 = getelementptr inbounds nuw i8, ptr %.195112.us162, i64 %9
+  br i1 %53, label %87, label %89
+
+87:                                               ; preds = %.lr.ph.split.split.split.us
+  store double %.sroa.14.0.copyload18.us166, ptr %.190113.us161, align 8, !tbaa !121
+  %88 = getelementptr inbounds nuw i8, ptr %.190113.us161, i64 %12
+  br label %89
+
+89:                                               ; preds = %87, %.lr.ph.split.split.split.us
+  %.291.us168 = phi ptr [ %88, %87 ], [ %.190113.us161, %.lr.ph.split.split.split.us ]
+  %90 = add nuw i64 %.086114.us160, 1
+  %exitcond226.not = icmp eq i64 %90, %.3
+  br i1 %exitcond226.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !125
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %53, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.086114.us187 = phi i64 [ %100, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
-  %.190113.us188 = phi ptr [ %99, %.lr.ph.split.split.split.split.us ], [ %.089, %.lr.ph.split.split.split ]
-  %95 = load double, ptr %.098, align 8, !tbaa !121
-  %96 = load double, ptr %.0101, align 8, !tbaa !121
-  %97 = load double, ptr %.094, align 8, !tbaa !121
-  %98 = load double, ptr %.190113.us188, align 8, !tbaa !121
+  %.086114.us187 = phi i64 [ %96, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.190113.us188 = phi ptr [ %95, %.lr.ph.split.split.split.split.us ], [ %.089, %.lr.ph.split.split.split ]
+  %91 = load double, ptr %.098, align 8, !tbaa !121
+  %92 = load double, ptr %.0101, align 8, !tbaa !121
+  %93 = load double, ptr %.094, align 8, !tbaa !121
+  %94 = load double, ptr %.190113.us188, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18
-  store double %95, ptr %18, align 8
-  store double %96, ptr %.sroa.8.0..sroa_idx, align 8
-  store double %97, ptr %.sroa.11.0..sroa_idx, align 8
-  store double %98, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
+  store double %91, ptr %18, align 8
+  store double %92, ptr %.sroa.8.0..sroa_idx, align 8
+  store double %93, ptr %.sroa.11.0..sroa_idx, align 8
+  store double %94, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %17, ptr noundef nonnull %0, i32 noundef %.093, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
   %.sroa.0.0.copyload10.us189 = load double, ptr %17, align 8
   %.sroa.8.0.copyload12.us190 = load double, ptr %.sroa.8.0..sroa_idx11, align 8
@@ -2051,75 +2031,75 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   %.sroa.14.0.copyload18.us192 = load double, ptr %.sroa.14.0..sroa_idx17, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18
   store double %.sroa.14.0.copyload18.us192, ptr %.190113.us188, align 8, !tbaa !121
-  %99 = getelementptr inbounds nuw i8, ptr %.190113.us188, i64 %12
-  %100 = add nuw i64 %.086114.us187, 1
-  %exitcond238.not = icmp eq i64 %100, %54
-  br i1 %exitcond238.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !122
+  %95 = getelementptr inbounds nuw i8, ptr %.190113.us188, i64 %12
+  %96 = add nuw i64 %.086114.us187, 1
+  %exitcond225.not = icmp eq i64 %96, %54
+  br i1 %exitcond225.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !126
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.086114 = phi i64 [ %105, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
-  %101 = load double, ptr %.098, align 8, !tbaa !121
-  %102 = load double, ptr %.0101, align 8, !tbaa !121
-  %103 = load double, ptr %.094, align 8, !tbaa !121
-  %104 = load double, ptr %.089, align 8, !tbaa !121
+  %.086114 = phi i64 [ %101, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %97 = load double, ptr %.098, align 8, !tbaa !121
+  %98 = load double, ptr %.0101, align 8, !tbaa !121
+  %99 = load double, ptr %.094, align 8, !tbaa !121
+  %100 = load double, ptr %.089, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18
-  store double %101, ptr %18, align 8
-  store double %102, ptr %.sroa.8.0..sroa_idx, align 8
-  store double %103, ptr %.sroa.11.0..sroa_idx, align 8
-  store double %104, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
+  store double %97, ptr %18, align 8
+  store double %98, ptr %.sroa.8.0..sroa_idx, align 8
+  store double %99, ptr %.sroa.11.0..sroa_idx, align 8
+  store double %100, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %17, ptr noundef nonnull %0, i32 noundef %.093, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
   %.sroa.0.0.copyload10 = load double, ptr %17, align 8
   %.sroa.8.0.copyload12 = load double, ptr %.sroa.8.0..sroa_idx11, align 8
   %.sroa.11.0.copyload15 = load double, ptr %.sroa.11.0..sroa_idx14, align 8
   %.sroa.14.0.copyload18 = load double, ptr %.sroa.14.0..sroa_idx17, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18
-  %105 = add nuw i64 %.086114, 1
-  %exitcond.not = icmp eq i64 %105, %.2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !122
+  %101 = add nuw i64 %.086114, 1
+  %exitcond.not = icmp eq i64 %101, %.2
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !127
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split.us, %80, %68, %.preheader
-  %.1102.lcssa = phi ptr [ %.0101, %.preheader ], [ %.2103.us, %68 ], [ %74, %80 ], [ %.0101, %.lr.ph.split.split.split.us.split.us ], [ %.0101, %.lr.ph.split.split.split.us.split ], [ %.0101, %.lr.ph.split.split.split.split.us ], [ %.0101, %.lr.ph.split.split.split.split ]
-  %.199.lcssa = phi ptr [ %.098, %.preheader ], [ %59, %68 ], [ %.098, %80 ], [ %.098, %.lr.ph.split.split.split.us.split.us ], [ %.098, %.lr.ph.split.split.split.us.split ], [ %.098, %.lr.ph.split.split.split.split.us ], [ %.098, %.lr.ph.split.split.split.split ]
-  %.195.lcssa = phi ptr [ %.094, %.preheader ], [ %.296.us, %68 ], [ %.296.us140, %80 ], [ %86, %.lr.ph.split.split.split.us.split.us ], [ %93, %.lr.ph.split.split.split.us.split ], [ %.094, %.lr.ph.split.split.split.split.us ], [ %.094, %.lr.ph.split.split.split.split ]
-  %.190.lcssa = phi ptr [ %.089, %.preheader ], [ %.291.us, %68 ], [ %.291.us141, %80 ], [ %87, %.lr.ph.split.split.split.us.split.us ], [ %.089, %.lr.ph.split.split.split.us.split ], [ %99, %.lr.ph.split.split.split.split.us ], [ %.089, %.lr.ph.split.split.split.split ]
-  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.0.0.copyload10.us, %68 ], [ %.sroa.0.0.copyload10.us135, %80 ], [ %.sroa.0.0.copyload10.us163.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.0.0.copyload10.us163, %.lr.ph.split.split.split.us.split ], [ %.sroa.0.0.copyload10.us189, %.lr.ph.split.split.split.split.us ], [ %.sroa.0.0.copyload10, %.lr.ph.split.split.split.split ]
-  %.sroa.8.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.8.0.copyload12.us, %68 ], [ %.sroa.8.0.copyload12.us136, %80 ], [ %.sroa.8.0.copyload12.us164.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.8.0.copyload12.us164, %.lr.ph.split.split.split.us.split ], [ %.sroa.8.0.copyload12.us190, %.lr.ph.split.split.split.split.us ], [ %.sroa.8.0.copyload12, %.lr.ph.split.split.split.split ]
-  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.11.0.copyload15.us, %68 ], [ %.sroa.11.0.copyload15.us137, %80 ], [ %.sroa.11.0.copyload15.us165.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.11.0.copyload15.us165, %.lr.ph.split.split.split.us.split ], [ %.sroa.11.0.copyload15.us191, %.lr.ph.split.split.split.split.us ], [ %.sroa.11.0.copyload15, %.lr.ph.split.split.split.split ]
-  %.sroa.14.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.14.0.copyload18.us, %68 ], [ %.sroa.14.0.copyload18.us138, %80 ], [ %.sroa.14.0.copyload18.us166.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.14.0.copyload18.us166, %.lr.ph.split.split.split.us.split ], [ %.sroa.14.0.copyload18.us192, %.lr.ph.split.split.split.split.us ], [ %.sroa.14.0.copyload18, %.lr.ph.split.split.split.split ]
-  %.086.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %68 ], [ %.3, %80 ], [ %54, %.lr.ph.split.split.split.us.split.us ], [ %52, %.lr.ph.split.split.split.us.split ], [ %54, %.lr.ph.split.split.split.split.us ], [ %.1, %.lr.ph.split.split.split.split ]
-  %106 = icmp eq i64 %spec.select, 1
-  br i1 %106, label %107, label %108
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %89, %80, %68, %.preheader
+  %.1102.lcssa = phi ptr [ %.0101, %.preheader ], [ %.2103.us, %68 ], [ %74, %80 ], [ %.0101, %89 ], [ %.0101, %.lr.ph.split.split.split.split.us ], [ %.0101, %.lr.ph.split.split.split.split ]
+  %.199.lcssa = phi ptr [ %.098, %.preheader ], [ %59, %68 ], [ %.098, %80 ], [ %.098, %89 ], [ %.098, %.lr.ph.split.split.split.split.us ], [ %.098, %.lr.ph.split.split.split.split ]
+  %.195.lcssa = phi ptr [ %.094, %.preheader ], [ %.296.us, %68 ], [ %.296.us140, %80 ], [ %86, %89 ], [ %.094, %.lr.ph.split.split.split.split.us ], [ %.094, %.lr.ph.split.split.split.split ]
+  %.190.lcssa = phi ptr [ %.089, %.preheader ], [ %.291.us, %68 ], [ %.291.us141, %80 ], [ %.291.us168, %89 ], [ %95, %.lr.ph.split.split.split.split.us ], [ %.089, %.lr.ph.split.split.split.split ]
+  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.0.0.copyload10.us, %68 ], [ %.sroa.0.0.copyload10.us135, %80 ], [ %.sroa.0.0.copyload10.us163, %89 ], [ %.sroa.0.0.copyload10.us189, %.lr.ph.split.split.split.split.us ], [ %.sroa.0.0.copyload10, %.lr.ph.split.split.split.split ]
+  %.sroa.8.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.8.0.copyload12.us, %68 ], [ %.sroa.8.0.copyload12.us136, %80 ], [ %.sroa.8.0.copyload12.us164, %89 ], [ %.sroa.8.0.copyload12.us190, %.lr.ph.split.split.split.split.us ], [ %.sroa.8.0.copyload12, %.lr.ph.split.split.split.split ]
+  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.11.0.copyload15.us, %68 ], [ %.sroa.11.0.copyload15.us137, %80 ], [ %.sroa.11.0.copyload15.us165, %89 ], [ %.sroa.11.0.copyload15.us191, %.lr.ph.split.split.split.split.us ], [ %.sroa.11.0.copyload15, %.lr.ph.split.split.split.split ]
+  %.sroa.14.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.14.0.copyload18.us, %68 ], [ %.sroa.14.0.copyload18.us138, %80 ], [ %.sroa.14.0.copyload18.us166, %89 ], [ %.sroa.14.0.copyload18.us192, %.lr.ph.split.split.split.split.us ], [ %.sroa.14.0.copyload18, %.lr.ph.split.split.split.split ]
+  %.086.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %68 ], [ %.3, %80 ], [ %.3, %89 ], [ %54, %.lr.ph.split.split.split.split.us ], [ %.1, %.lr.ph.split.split.split.split ]
+  %102 = icmp eq i64 %spec.select, 1
+  br i1 %102, label %103, label %104
 
-107:                                              ; preds = %._crit_edge
+103:                                              ; preds = %._crit_edge
   store double %.sroa.0.0.lcssa, ptr %.199.lcssa, align 8, !tbaa !121
-  br label %108
+  br label %104
 
-108:                                              ; preds = %107, %._crit_edge
-  %109 = icmp eq i64 %.097, 1
-  br i1 %109, label %110, label %111
+104:                                              ; preds = %103, %._crit_edge
+  %105 = icmp eq i64 %.097, 1
+  br i1 %105, label %106, label %107
 
-110:                                              ; preds = %108
+106:                                              ; preds = %104
   store double %.sroa.8.0.lcssa, ptr %.1102.lcssa, align 8, !tbaa !121
-  br label %111
+  br label %107
 
-111:                                              ; preds = %110, %108
-  %112 = icmp eq i64 %.092, 1
-  br i1 %112, label %113, label %114
+107:                                              ; preds = %106, %104
+  %108 = icmp eq i64 %.092, 1
+  br i1 %108, label %109, label %110
 
-113:                                              ; preds = %111
+109:                                              ; preds = %107
   store double %.sroa.11.0.lcssa, ptr %.195.lcssa, align 8, !tbaa !121
-  br label %114
+  br label %110
 
-114:                                              ; preds = %113, %111
-  %115 = icmp eq i64 %.087, 1
-  br i1 %115, label %116, label %117
+110:                                              ; preds = %109, %107
+  %111 = icmp eq i64 %.087, 1
+  br i1 %111, label %112, label %113
 
-116:                                              ; preds = %114
+112:                                              ; preds = %110
   store double %.sroa.14.0.lcssa, ptr %.190.lcssa, align 8, !tbaa !121
-  br label %117
+  br label %113
 
-117:                                              ; preds = %114, %116, %46, %25, %14
-  %.088 = phi i64 [ 0, %14 ], [ 0, %25 ], [ %.3, %46 ], [ %.086.lcssa, %116 ], [ %.086.lcssa, %114 ]
+113:                                              ; preds = %110, %112, %46, %25, %14
+  %.088 = phi i64 [ 0, %14 ], [ 0, %25 ], [ %.3, %46 ], [ %.086.lcssa, %112 ], [ %.086.lcssa, %110 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
   ret i64 %.088
@@ -2207,7 +2187,7 @@ define double @proj_roundtrip(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   %25 = add nuw nsw i32 %.099, 1
   %exitcond.not = icmp eq i32 %.099, %22
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %23, %21
   %.sroa.01.sroa.0.0.lcssa = phi double [ %.sroa.01.sroa.0.0.copyload, %21 ], [ %.sroa.01.sroa.0.0.copyload30, %23 ]
@@ -2316,15 +2296,15 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDesc
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8, !tbaa !129
   tail call void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDescriptionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !130
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 168) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2610,8 +2590,13 @@ attributes #21 = { noreturn nounwind }
 !119 = distinct !{!119, !44}
 !120 = distinct !{!120, !44}
 !121 = !{!14, !14, i64 0}
-!122 = distinct !{!122, !44}
-!123 = distinct !{!123, !44}
-!124 = !{!98, !100, i64 24}
-!125 = !{!98, !100, i64 16}
-!126 = distinct !{!126, !44}
+!122 = distinct !{!122, !44, !123}
+!123 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!124 = distinct !{!124, !44, !123}
+!125 = distinct !{!125, !44, !123}
+!126 = distinct !{!126, !44, !123}
+!127 = distinct !{!127, !44}
+!128 = distinct !{!128, !44}
+!129 = !{!98, !100, i64 24}
+!130 = !{!98, !100, i64 16}
+!131 = distinct !{!131, !44}

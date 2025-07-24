@@ -1151,7 +1151,7 @@ crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_
 crl_revoked_issuer_match.exit.thread:             ; preds = %68, %58, %crl_revoked_issuer_match.exit
   %79 = add i32 %.02339, 1
   %exitcond.not = icmp eq i32 %79, %25
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !81
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph.split, %crl_revoked_issuer_match.exit.thread, %.lr.ph.split.us, %crl_revoked_issuer_match.exit.thread.us, %23, %75, %19, %11, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ %., %75 ], [ 0, %23 ], [ 0, %crl_revoked_issuer_match.exit.thread.us ], [ 0, %.lr.ph.split.us ], [ 0, %crl_revoked_issuer_match.exit.thread ], [ 0, %.lr.ph.split ]
@@ -1287,4 +1287,6 @@ attributes #9 = { nounwind }
 !78 = !{!79, !19, i64 0}
 !79 = !{!"GENERAL_NAME_st", !19, i64 0, !8, i64 8}
 !80 = distinct !{!80, !65}
-!81 = distinct !{!81, !65}
+!81 = distinct !{!81, !65, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = distinct !{!83, !65}

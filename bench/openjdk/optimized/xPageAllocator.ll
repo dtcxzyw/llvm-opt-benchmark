@@ -2366,7 +2366,7 @@ _ZN14XPageAllocator15free_page_innerEP5XPageb.exit: ; preds = %.lr.ph.split, %46
   store i64 %49, ptr %50, align 8
   tail call void @_ZN10XPageCache9free_pageEP5XPage(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull %34) #14
   %.not = icmp eq ptr %35, %10
-  br i1 %.not, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph.split, !llvm.loop !14
 
 _ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit: ; preds = %_ZN14XPageAllocator15free_page_innerEP5XPageb.exit, %_ZN14XPageAllocator15free_page_innerEP5XPageb.exit.us, %3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -2548,7 +2548,7 @@ _ZN14XPageAllocator13uncommit_pageEP5XPage.exit:  ; preds = %40, %58
   %65 = add i64 %64, -120
   %.not.i.i33 = icmp eq i64 %65, 0
   %.not.i.i = select i1 %62, i1 true, i1 %.not.i.i33
-  br i1 %.not.i.i, label %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit, label %40, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit, label %40, !llvm.loop !15
 
 _ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit: ; preds = %_ZN14XPageAllocator13uncommit_pageEP5XPage.exit, %_ZN26SuspendibleThreadSetJoinerD2Ev.exit
   %66 = load i8, ptr @ZVerifyViews, align 1
@@ -2691,7 +2691,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %17, %18
 
 _ZN15XSafeDeleteImplI5XPageE16immediate_deleteEPS0_.exit: ; preds = %.lr.ph, %26
   %.not = icmp eq ptr %24, %22
-  br i1 %.not, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph, !llvm.loop !16
 
 _ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit: ; preds = %_ZN15XSafeDeleteImplI5XPageE16immediate_deleteEPS0_.exit, %_ZN7XLockerI5XLockED2Ev.exit
   %.not.i.i.i = icmp eq ptr %.sroa.9.0, null
@@ -2748,7 +2748,7 @@ define hidden void @_ZNK14XPageAllocator8pages_doEP12XPageClosure(ptr noundef no
 select.unfold.loopexit:                           ; preds = %select.unfold15, %.lr.ph27
   %.not.i.not31 = icmp eq i64 %14, 0
   %.not.i.not = select i1 %12, i1 true, i1 %.not.i.not31
-  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XPageAllocationLb1EE4nextEPPS0_.exit, label %.lr.ph27, !llvm.loop !15
+  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XPageAllocationLb1EE4nextEPPS0_.exit, label %.lr.ph27, !llvm.loop !17
 
 .lr.ph27:                                         ; preds = %2, %select.unfold.loopexit
   %.sroa.27.026.in = phi i64 [ %14, %select.unfold.loopexit ], [ %9, %2 ]
@@ -3053,7 +3053,7 @@ define linkonce_odr hidden void @_ZN13XPreTouchTask4workEv(ptr noundef nonnull a
   %10 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 2097152, ptr nonnull %2) #14, !srcloc !6
   %11 = load i64, ptr %4, align 8
   %.not = icmp ult i64 %10, %11
-  br i1 %.not, label %7, label %._crit_edge, !llvm.loop !16
+  br i1 %.not, label %7, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %7, %1
   ret void
@@ -3074,7 +3074,7 @@ declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) 
 define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   store volatile i32 10, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -3084,11 +3084,11 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   store volatile i32 %7, ptr %6, align 8
   store volatile i32 6, ptr %4, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   %10 = and i64 %9, 1
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %11
@@ -3113,7 +3113,7 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
 
 19:                                               ; preds = %16, %13, %11
   %20 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   %21 = and i64 %20, 1
   %.not.i1.i = icmp eq i64 %21, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %22
@@ -3225,7 +3225,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !19
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !21
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #14
@@ -4006,7 +4006,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   store volatile ptr %31, ptr %34, align 8
   store ptr %31, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -4038,7 +4038,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   store volatile ptr %43, ptr %46, align 8
   store ptr %43, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -4464,7 +4464,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !19
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !21
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #14
@@ -4752,7 +4752,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !20
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !22
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4768,7 +4768,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !21
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !23
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #14
@@ -4858,13 +4858,15 @@ attributes #14 = { nounwind }
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!12 = distinct !{!12, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = !{i64 2145392468}
-!18 = !{i64 2145392998}
-!19 = !{!"branch_weights", i32 1, i32 1048575}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = !{i64 2145392468}
+!20 = !{i64 2145392998}
+!21 = !{!"branch_weights", i32 1, i32 1048575}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}

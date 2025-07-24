@@ -2090,7 +2090,7 @@ mi_malloc.exit.us:                                ; preds = %.lr.ph
 25:                                               ; preds = %mi_malloc.exit
   %26 = tail call ptr @_ZSt15get_new_handlerv()
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.split7.us, label %mi_malloc.exit, !llvm.loop !34
+  br i1 %.not, label %.split7.us, label %mi_malloc.exit, !llvm.loop !37
 
 .split7.us:                                       ; preds = %25, %8, %.split, %.split.us
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.6) #14
@@ -2106,7 +2106,7 @@ mi_malloc.exit:                                   ; preds = %.split, %25
   %29 = load ptr, ptr %3, align 8, !tbaa !18
   %30 = tail call noalias ptr @_mi_malloc_generic(ptr noundef %29, i64 noundef %0) #14
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %25, label %.critedge, !llvm.loop !34
+  br i1 %31, label %25, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %mi_malloc.exit, %mi_malloc.exit.us, %mi_malloc.exit.us.thread, %.split7.us
   %.04 = phi ptr [ null, %.split7.us ], [ %16, %mi_malloc.exit.us.thread ], [ %23, %mi_malloc.exit.us ], [ %30, %mi_malloc.exit ]
@@ -2175,7 +2175,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   tail call void %5() #14
   %7 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #14
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !36
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2
   %.lcssa = phi ptr [ %3, %2 ], [ %7, %mi_try_new_handler.exit ]
@@ -2225,7 +2225,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   tail call void %5() #14
   %6 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #14
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %7, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2, %mi_try_new_handler.exit.thread
   %8 = phi ptr [ null, %mi_try_new_handler.exit.thread ], [ %3, %2 ], [ %6, %mi_try_new_handler.exit ]
@@ -2313,7 +2313,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %9, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !38
+  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2
   %.lcssa = phi ptr [ %5, %2 ], [ %10, %mi_try_new_handler.exit ]
@@ -2359,7 +2359,7 @@ mi_try_new_handler.exit.i:                        ; preds = %.lr.ph.i
   %16 = load ptr, ptr %10, align 8, !tbaa !18
   %17 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %16, ptr noundef %0, i64 noundef %.03.ph, i1 noundef zeroext false)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !38
+  br i1 %18, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !40
 
 mi_new_realloc.exit:                              ; preds = %mi_try_new_handler.exit.i, %9, %8
   %.0 = phi ptr [ null, %8 ], [ %12, %9 ], [ %17, %mi_try_new_handler.exit.i ]
@@ -2379,7 +2379,7 @@ define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) u
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %7 = load i32, ptr %6, align 8, !tbaa !39
+  %7 = load i32, ptr %6, align 8, !tbaa !41
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %10
 
@@ -2408,7 +2408,7 @@ define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) u
 .backedge:                                        ; preds = %17, %.thread
   %.pn = phi { i64, i1 } [ %19, %17 ], [ %23, %.thread ]
   %.048.be = extractvalue { i64, i1 } %.pn, 0
-  br label %14, !llvm.loop !40
+  br label %14, !llvm.loop !42
 
 .thread:                                          ; preds = %14
   %21 = and i64 %.048, -4
@@ -2436,7 +2436,7 @@ define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) u
   %33 = cmpxchg weak ptr %30, i64 %.049.in, i64 %13 release monotonic, align 8
   %34 = extractvalue { i64, i1 } %33, 1
   %35 = extractvalue { i64, i1 } %33, 0
-  br i1 %34, label %.loopexit, label %32, !llvm.loop !41
+  br i1 %34, label %.loopexit, label %32, !llvm.loop !43
 
 .loopexit:                                        ; preds = %32, %25
   %36 = load atomic i64, ptr %11 monotonic, align 8
@@ -2449,7 +2449,7 @@ define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) u
   %40 = cmpxchg weak ptr %11, i64 %.2, i64 %39 release monotonic, align 8
   %41 = extractvalue { i64, i1 } %40, 1
   %42 = extractvalue { i64, i1 } %40, 0
-  br i1 %41, label %.thread55, label %37, !llvm.loop !42
+  br i1 %41, label %.thread55, label %37, !llvm.loop !44
 
 .thread55:                                        ; preds = %.thread, %37, %9
   ret void
@@ -2481,7 +2481,7 @@ _mi_page_ptr_unalign.exit:                        ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   %.pre = load i32, ptr %7, align 4, !tbaa !22
   %16 = icmp sgt i32 %.pre, -1
-  br i1 %16, label %17, label %20, !prof !43
+  br i1 %16, label %17, label %20, !prof !45
 
 17:                                               ; preds = %_mi_page_ptr_unalign.exit.thread, %_mi_page_ptr_unalign.exit
   %.0.i.i10 = phi i64 [ %10, %_mi_page_ptr_unalign.exit.thread ], [ %15, %_mi_page_ptr_unalign.exit ]
@@ -2591,13 +2591,15 @@ attributes #17 = { noreturn nounwind }
 !31 = !{!"p1 _ZTS12mi_segment_s", !10, i64 0}
 !32 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
 !33 = !{!"branch_weights", !"expected", i32 1074010193, i32 1073473455}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !37 = distinct !{!37, !35}
 !38 = distinct !{!38, !35}
-!39 = !{!28, !5, i64 344}
+!39 = distinct !{!39, !35}
 !40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
+!41 = !{!28, !5, i64 344}
 !42 = distinct !{!42, !35}
-!43 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!43 = distinct !{!43, !35}
+!44 = distinct !{!44, !35}
+!45 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

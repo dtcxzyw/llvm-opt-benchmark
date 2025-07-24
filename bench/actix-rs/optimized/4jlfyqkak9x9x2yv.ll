@@ -1673,8 +1673,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %83,
   %91 = add i64 %90, %.sroa.6.0.i.i
   %92 = icmp ugt i64 %91, %2
   %93 = add i64 %.sroa.6.0.i.i, %74
-  %or.cond.i.not.i = icmp ult i64 %93, %2
-  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i", label %94
+  %or.cond83.i.not.i = icmp ult i64 %93, %2
+  br i1 %or.cond83.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i", label %94
 
 94:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i", %89
   %95 = sub nuw i64 %2, %91
@@ -1903,8 +1903,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i242: ; preds = %
   %166 = add i64 %165, %.sroa.6.0.i.i234
   %167 = icmp ugt i64 %166, %.sroa.8.0
   %168 = add i64 %.sroa.6.0.i.i234, %150
-  %or.cond.i.not.i235 = icmp ult i64 %168, %.sroa.8.0
-  br i1 %or.cond.i.not.i235, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i236", label %169
+  %or.cond83.i.not.i235 = icmp ult i64 %168, %.sroa.8.0
+  br i1 %or.cond83.i.not.i235, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i236", label %169
 
 169:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i236", %164
   %170 = sub nuw i64 %.sroa.8.0, %166
@@ -2272,8 +2272,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %3
   %314 = add i64 %313, %.sroa.6.0.i.i.i
   %315 = icmp ugt i64 %314, %295
   %316 = add i64 %.sroa.6.0.i.i.i, %298
-  %or.cond.i.not.i.i = icmp ult i64 %316, %295
-  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i.i", label %317
+  %or.cond83.i.not.i.i = icmp ult i64 %316, %295
+  br i1 %or.cond83.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i.i", label %317
 
 317:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c3d8e1638c67a37E.exit.i.i.i", %312
   %318 = sub nuw i64 %295, %314

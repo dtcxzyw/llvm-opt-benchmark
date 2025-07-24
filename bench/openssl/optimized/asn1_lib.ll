@@ -890,7 +890,7 @@ define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %0, ptr noundef readonly ca
   %17 = add nuw nsw i32 %.04149, 1
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #13
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
+  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.03950 = phi i64 [ %24, %16 ], [ 0, %.lr.ph ]
@@ -935,7 +935,7 @@ define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %0, ptr noundef readonly ca
   %39 = add nuw nsw i32 %.14251.us, 1
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #13
   %41 = icmp slt i32 %39, %40
-  br i1 %41, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !28
+  br i1 %41, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !30
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %48
   %.052 = phi ptr [ %52, %48 ], [ %27, %.lr.ph53 ]
@@ -960,7 +960,7 @@ define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %0, ptr noundef readonly ca
   %53 = add nuw nsw i32 %.14251, 1
   %54 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #13
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %.lr.ph53.split, label %._crit_edge54, !llvm.loop !28
+  br i1 %55, label %.lr.ph53.split, label %._crit_edge54, !llvm.loop !31
 
 ._crit_edge54:                                    ; preds = %48, %.lr.ph53.split.us, %.preheader
   %.0.lcssa = phi ptr [ %27, %.preheader ], [ %38, %.lr.ph53.split.us ], [ %52, %48 ]
@@ -1026,5 +1026,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !24 = !{!23, !12, i64 4}
 !25 = !{!23, !4, i64 8}
 !26 = !{!23, !12, i64 0}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
+!27 = distinct !{!27, !10, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10, !28}
+!31 = distinct !{!31, !10}

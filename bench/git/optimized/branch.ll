@@ -1758,7 +1758,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph ]
   %11 = phi ptr [ %24, %22 ], [ %5, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  %13 = load i32, ptr %12, align 4, !tbaa !99
+  %13 = load i32, ptr %12, align 4, !tbaa !100
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %14, label %22
 
@@ -1784,7 +1784,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
   %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !101
 }
 
 declare ptr @get_worktrees() local_unnamed_addr #3
@@ -1880,12 +1880,12 @@ define internal range(i32 0, 2) i32 @check_tracking_branch(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %4, align 8, !tbaa !102
   %5 = call i32 @remote_find_tracking(ptr noundef %0, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %5, 0
   %6 = zext i1 %.not to i32
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !101
+  %8 = load ptr, ptr %7, align 8, !tbaa !103
   call void @free(ptr noundef %8) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   ret i32 %6
@@ -1914,10 +1914,10 @@ define internal noundef i32 @find_tracked_branch(ptr noundef %0, ptr noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !102
+  %13 = load ptr, ptr %12, align 8, !tbaa !104
   %14 = tail call ptr @string_list_append_nodup(ptr noundef %11, ptr noundef %13) #14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !103
+  %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %16, ptr %17, align 8, !tbaa !55
   br label %32
@@ -1932,10 +1932,10 @@ define internal noundef i32 @find_tracked_branch(ptr noundef %0, ptr noundef %1)
 23:                                               ; preds = %18, %5
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !103
+  %26 = load ptr, ptr %25, align 8, !tbaa !105
   %27 = tail call ptr @string_list_append(ptr noundef nonnull %24, ptr noundef %26) #14
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !102
+  %29 = load ptr, ptr %28, align 8, !tbaa !104
   tail call void @free(ptr noundef %29) #14
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !46
@@ -1944,7 +1944,7 @@ define internal noundef i32 @find_tracked_branch(ptr noundef %0, ptr noundef %1)
 
 32:                                               ; preds = %23, %9
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %33, align 8, !tbaa !102
+  store ptr null, ptr %33, align 8, !tbaa !104
   br label %34
 
 34:                                               ; preds = %32, %2
@@ -2092,12 +2092,14 @@ attributes #17 = { cold }
 !95 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
 !96 = !{!97, !97, i64 0}
 !97 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!98 = distinct !{!98, !19}
-!99 = !{!30, !5, i64 92}
-!100 = !{!44, !16, i64 16}
-!101 = !{!44, !16, i64 8}
-!102 = !{!43, !16, i64 8}
-!103 = !{!104, !16, i64 16}
-!104 = !{!"remote", !49, i64 0, !16, i64 16, !5, i64 24, !5, i64 28, !16, i64 32, !77, i64 40, !77, i64 64, !105, i64 88, !105, i64 112, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !9, i64 192, !5, i64 232, !16, i64 240}
-!105 = !{!"refspec", !106, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!106 = !{!"p1 _ZTS12refspec_item", !11, i64 0}
+!98 = distinct !{!98, !19, !99}
+!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!100 = !{!30, !5, i64 92}
+!101 = distinct !{!101, !19}
+!102 = !{!44, !16, i64 16}
+!103 = !{!44, !16, i64 8}
+!104 = !{!43, !16, i64 8}
+!105 = !{!106, !16, i64 16}
+!106 = !{!"remote", !49, i64 0, !16, i64 16, !5, i64 24, !5, i64 28, !16, i64 32, !77, i64 40, !77, i64 64, !107, i64 88, !107, i64 112, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !9, i64 192, !5, i64 232, !16, i64 240}
+!107 = !{!"refspec", !108, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!108 = !{!"p1 _ZTS12refspec_item", !11, i64 0}

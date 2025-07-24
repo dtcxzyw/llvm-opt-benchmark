@@ -3394,7 +3394,7 @@ ri_CompareWithCast.exit:                          ; preds = %ri_HashCompareOp.ex
   %161 = load i32, ptr %12, align 8
   %162 = sext i32 %161 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %162
-  br i1 %.not.not, label %.lr.ph.split, label %.critedge50, !llvm.loop !18
+  br i1 %.not.not, label %.lr.ph.split, label %.critedge50, !llvm.loop !20
 
 .critedge50:                                      ; preds = %.critedge, %slot_getattr.exit52, %slot_getattr.exit, %ri_CompareWithCast.exit, %.critedge.us, %slot_getattr.exit52.us, %slot_getattr.exit.us, %53, %5
   %.not.lcssa = phi i1 [ true, %5 ], [ false, %53 ], [ false, %slot_getattr.exit.us ], [ false, %slot_getattr.exit52.us ], [ true, %.critedge.us ], [ false, %ri_CompareWithCast.exit ], [ false, %slot_getattr.exit ], [ false, %slot_getattr.exit52 ], [ true, %.critedge ]
@@ -3609,7 +3609,7 @@ list_length.exit141:                              ; preds = %list_length.exit, %
   %77 = load i32, ptr %56, align 8
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %64, label %._crit_edge, !llvm.loop !19
+  br i1 %79, label %64, label %._crit_edge, !llvm.loop !21
 
 80:                                               ; preds = %._crit_edge
   %81 = tail call i32 @GetUserId() #11
@@ -3861,7 +3861,7 @@ quoteOneName.exit:                                ; preds = %177
   %185 = load i32, ptr %56, align 8
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next198, %186
-  br i1 %187, label %172, label %._crit_edge183, !llvm.loop !20
+  br i1 %187, label %172, label %._crit_edge183, !llvm.loop !22
 
 ._crit_edge187:                                   ; preds = %244, %quoteRelationName.exit153
   %188 = getelementptr inbounds nuw i8, ptr %11, i64 172
@@ -4007,7 +4007,7 @@ quoteOneName.exit171:                             ; preds = %233
   %245 = load i32, ptr %56, align 8
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next201, %246
-  br i1 %247, label %204, label %._crit_edge187, !llvm.loop !21
+  br i1 %247, label %204, label %._crit_edge187, !llvm.loop !23
 
 ._crit_edge191:                                   ; preds = %273, %quoteOneName.exit159
   call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #11
@@ -4078,7 +4078,7 @@ quoteOneName.exit177:                             ; preds = %262
   %274 = load i32, ptr %56, align 8
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next204, %275
-  br i1 %276, label %257, label %._crit_edge191, !llvm.loop !22
+  br i1 %276, label %257, label %._crit_edge191, !llvm.loop !24
 
 277:                                              ; preds = %._crit_edge191
   %278 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4147,7 +4147,7 @@ quoteOneName.exit177:                             ; preds = %262
   %313 = getelementptr inbounds nuw [32 x i16], ptr %307, i64 0, i64 %indvars.iv206
   store i16 %312, ptr %313, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge195, label %311, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge195, label %311, !llvm.loop !25
 
 314:                                              ; preds = %._crit_edge195
   %315 = call fastcc i32 @ri_NullCheck(ptr noundef nonnull %298, ptr noundef nonnull %10, i1 noundef zeroext false)
@@ -4408,7 +4408,7 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef read
   %34 = load i32, ptr %31, align 8
   %35 = sext i32 %34 to i64
   %.not83 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %.not83, label %.lr.ph, label %.loopexit84, !llvm.loop !24
+  br i1 %.not83, label %.lr.ph, label %.loopexit84, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
@@ -4494,7 +4494,7 @@ slot_getattr.exit:                                ; preds = %46, %slot_getsomeat
   %74 = load i32, ptr %40, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next93, %75
-  br i1 %76, label %46, label %.loopexit, !llvm.loop !25
+  br i1 %76, label %46, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %73, %.loopexit84
   %.07278 = phi i1 [ true, %.loopexit84 ], [ true, %73 ], [ false, %.lr.ph ]
@@ -4689,7 +4689,7 @@ quoteOneName.exit:                                ; preds = %21
   %29 = load i32, ptr %12, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !26
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %quoteOneName.exit, %3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -4953,7 +4953,7 @@ quoteOneName.exit109:                             ; preds = %125
   %137 = load i32, ptr %12, align 8
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next133, %138
-  br i1 %139, label %96, label %._crit_edge121, !llvm.loop !27
+  br i1 %139, label %96, label %._crit_edge121, !llvm.loop !29
 
 ._crit_edge121:                                   ; preds = %136, %quoteRelationName.exit97
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -5041,7 +5041,7 @@ quoteOneName.exit115:                             ; preds = %157
   %169 = load i32, ptr %12, align 8
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next136, %170
-  br i1 %171, label %152, label %._crit_edge126, !llvm.loop !28
+  br i1 %171, label %152, label %._crit_edge126, !llvm.loop !30
 
 ._crit_edge126:                                   ; preds = %168, %147
   call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #11
@@ -5117,7 +5117,7 @@ quoteOneName.exit115:                             ; preds = %157
   %214 = getelementptr inbounds nuw [32 x i16], ptr %211, i64 0, i64 %indvars.iv138
   store i16 %213, ptr %214, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge130, label %212, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge130, label %212, !llvm.loop !31
 
 ._crit_edge130:                                   ; preds = %212, %196
   call fastcc void @ri_ReportViolation(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %202, ptr noundef %201, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #13
@@ -5227,7 +5227,7 @@ select.unfold.us:                                 ; preds = %.lr.ph, %select.unf
   %.sroa.9.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.9.019.us, i64 8
   %.sroa.9.0.us = load ptr, ptr %.sroa.9.0.in.us, align 8
   %.not13.us = icmp eq ptr %.sroa.9.019.us, @ri_constraint_cache_valid_list
-  br i1 %.not13.us, label %select.unfold._crit_edge, label %select.unfold.us, !llvm.loop !30
+  br i1 %.not13.us, label %select.unfold._crit_edge, label %select.unfold.us, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %.sroa.9.019 = phi ptr [ %.sroa.9.0, %select.unfold ], [ %.sroa.9.016, %.lr.ph ]
@@ -5260,7 +5260,7 @@ select.unfold:                                    ; preds = %21, %17
   %.sroa.9.0.in = getelementptr inbounds nuw i8, ptr %.sroa.9.019, i64 8
   %.sroa.9.0 = load ptr, ptr %.sroa.9.0.in, align 8
   %.not13 = icmp eq ptr %.sroa.9.019, @ri_constraint_cache_valid_list
-  br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !30
+  br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.us, %3
   ret void
@@ -5348,8 +5348,8 @@ attributes #13 = { noreturn }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
@@ -5361,3 +5361,6 @@ attributes #13 = { noreturn }
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7, !19}
+!33 = distinct !{!33, !7}

@@ -89,12 +89,12 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %31 = add nuw i64 %.0122153, 1
   %32 = getelementptr inbounds nuw i8, ptr %.0120154, i64 8
   %exitcond182.not = icmp eq i64 %.0122153, %smin183
-  br i1 %exitcond182.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond182.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph176
   %.0127.lcssa = phi i64 [ %.0126173, %.lr.ph176 ], [ %.1128, %30 ]
   %33 = sub nsw i64 %.0127.lcssa, %.0126173
-  store i64 %.0127.lcssa, ptr %.0115174, align 8, !tbaa !22
+  store i64 %.0127.lcssa, ptr %.0115174, align 8, !tbaa !23
   %34 = getelementptr double, ptr %17, i64 %33
   %35 = getelementptr double, ptr %34, i64 %4
   %36 = load double, ptr %35, align 8, !tbaa !17
@@ -125,7 +125,7 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %45 = add nuw i64 %.1123157, 1
   %46 = getelementptr inbounds nuw i8, ptr %.1121158, i64 8
   %exitcond184.not = icmp eq i64 %.1123157, %smin183
-  br i1 %exitcond184.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !23
+  br i1 %exitcond184.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !24
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %40
   %47 = add nsw i64 %.0126173, %4
@@ -175,23 +175,23 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %68 = getelementptr inbounds nuw i8, ptr %.2164, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.0119165, i64 8
   %.not140.not = icmp slt i64 %.2124163, %.
-  br i1 %.not140.not, label %.lr.ph167, label %.loopexit, !llvm.loop !24
+  br i1 %.not140.not, label %.lr.ph167, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph167, %59
   %70 = add nuw i64 %.0125169, 1
   %exitcond188.not = icmp eq i64 %.0125169, %smin187
-  br i1 %exitcond188.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !25
+  br i1 %exitcond188.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !26
 
 ._crit_edge172:                                   ; preds = %.loopexit, %._crit_edge161
   %71 = getelementptr inbounds nuw i8, ptr %.0115174, i64 8
   %indvars.iv.next = add i64 %indvars.iv, 1
   %indvars.iv.next186 = add i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %23, %14
-  br i1 %exitcond189.not, label %._crit_edge177, label %.lr.ph176, !llvm.loop !26
+  br i1 %exitcond189.not, label %._crit_edge177, label %.lr.ph176, !llvm.loop !27
 
 ._crit_edge177:                                   ; preds = %._crit_edge172, %.loopexit144
   %.0115.lcssa = phi ptr [ %5, %.loopexit144 ], [ %71, %._crit_edge172 ]
-  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !22
+  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !23
   %72 = getelementptr inbounds ptr, ptr %0, i64 %14
   %73 = load ptr, ptr %72, align 8, !tbaa !16
   %74 = getelementptr inbounds double, ptr %73, i64 %4
@@ -222,7 +222,7 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
 .loopexit.i:                                      ; preds = %.lr.ph.i, %22
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   %exitcond75.not.i = icmp eq i64 %27, %12
-  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i, !llvm.loop !27
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.loopexit.i, %3
   %14 = icmp sgt i64 %7, 0
@@ -233,7 +233,7 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.067.i = phi i64 [ %27, %.loopexit.i ], [ 0, %3 ]
   %smin.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 %12)
   %15 = getelementptr inbounds nuw i64, ptr %1, i64 %.067.i
-  %16 = load i64, ptr %15, align 8, !tbaa !22
+  %16 = load i64, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds double, ptr %2, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !17
   %.not.i = icmp eq i64 %16, %.067.i
@@ -267,7 +267,7 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
   store double %33, ptr %31, align 8, !tbaa !17
   %34 = add nuw i64 %.05966.i, 1
   %exitcond.not.i = icmp eq i64 %.05966.i, %smin.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %52, %._crit_edge.i ], [ %12, %.preheader.i ]
@@ -296,12 +296,12 @@ define void @BandGBTRS(ptr noundef readonly captures(none) %0, ptr noundef reado
   store double %50, ptr %48, align 8, !tbaa !17
   %51 = add nuw nsw i64 %.16070.i, 1
   %.not.not.i = icmp slt i64 %51, %.172.i
-  br i1 %.not.not.i, label %.lr.ph71.i, label %._crit_edge.i, !llvm.loop !29
+  br i1 %.not.not.i, label %.lr.ph71.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph71.i, %.lr.ph73.i
   %52 = add nsw i64 %.172.i, -1
   %53 = icmp sgt i64 %.172.i, 0
-  br i1 %53, label %.lr.ph73.i, label %bandGBTRS.exit, !llvm.loop !30
+  br i1 %53, label %.lr.ph73.i, label %bandGBTRS.exit, !llvm.loop !31
 
 bandGBTRS.exit:                                   ; preds = %._crit_edge.i, %.preheader.i
   ret void
@@ -316,7 +316,7 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
 .loopexit:                                        ; preds = %.lr.ph, %17
   %indvars.iv.next = add i64 %indvars.iv, 1
   %exitcond75.not = icmp eq i64 %22, %7
-  br i1 %exitcond75.not, label %.preheader, label %.lr.ph68, !llvm.loop !27
+  br i1 %exitcond75.not, label %.preheader, label %.lr.ph68, !llvm.loop !28
 
 .preheader:                                       ; preds = %.loopexit, %6
   %9 = icmp sgt i64 %1, 0
@@ -327,7 +327,7 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   %.067 = phi i64 [ %22, %.loopexit ], [ 0, %6 ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %7)
   %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
-  %11 = load i64, ptr %10, align 8, !tbaa !22
+  %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds double, ptr %5, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !17
   %.not = icmp eq i64 %11, %.067
@@ -361,7 +361,7 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   store double %28, ptr %26, align 8, !tbaa !17
   %29 = add nuw i64 %.05966, 1
   %exitcond.not = icmp eq i64 %.05966, %smin
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .lr.ph73:                                         ; preds = %.preheader, %._crit_edge
   %.172 = phi i64 [ %47, %._crit_edge ], [ %7, %.preheader ]
@@ -390,12 +390,12 @@ define void @bandGBTRS(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   store double %45, ptr %43, align 8, !tbaa !17
   %46 = add nuw nsw i64 %.16070, 1
   %.not.not = icmp slt i64 %46, %.172
-  br i1 %.not.not, label %.lr.ph71, label %._crit_edge, !llvm.loop !29
+  br i1 %.not.not, label %.lr.ph71, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph71, %.lr.ph73
   %47 = add nsw i64 %.172, -1
   %48 = icmp sgt i64 %.172, 0
-  br i1 %48, label %.lr.ph73, label %._crit_edge74, !llvm.loop !30
+  br i1 %48, label %.lr.ph73, label %._crit_edge74, !llvm.loop !31
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -442,12 +442,12 @@ define void @BandCopy(ptr noundef readonly captures(none) %0, ptr noundef readon
   store double %28, ptr %29, align 8, !tbaa !17
   %30 = add nuw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %.021.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %26
   %31 = add nuw nsw i64 %.01922.i, 1
   %exitcond27.not.i = icmp eq i64 %31, %10
-  br i1 %exitcond27.not.i, label %bandCopy.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond27.not.i, label %bandCopy.exit, label %.lr.ph.i, !llvm.loop !33
 
 bandCopy.exit:                                    ; preds = %._crit_edge.i, %4, %.lr.ph24.i
   ret void
@@ -484,12 +484,12 @@ define void @bandCopy(ptr noundef readonly captures(none) %0, ptr noundef readon
   store double %21, ptr %22, align 8, !tbaa !17
   %23 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %.021, %8
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %19
   %24 = add nuw nsw i64 %.01922, 1
   %exitcond27.not = icmp eq i64 %24, %2
-  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge25:                                    ; preds = %._crit_edge, %.lr.ph24, %7
   ret void
@@ -532,12 +532,12 @@ define void @BandScale(double noundef %0, ptr noundef readonly captures(none) %1
   store double %23, ptr %21, align 8, !tbaa !17
   %24 = add nuw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %.016.i, %13
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %20
   %25 = add nuw nsw i64 %.01417.i, 1
   %exitcond22.not.i = icmp eq i64 %25, %6
-  br i1 %exitcond22.not.i, label %bandScale.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond22.not.i, label %bandScale.exit, label %.lr.ph.i, !llvm.loop !35
 
 bandScale.exit:                                   ; preds = %._crit_edge.i, %2, %.lr.ph19.i
   ret void
@@ -570,12 +570,12 @@ define void @bandScale(double noundef %0, ptr noundef readonly captures(none) %1
   store double %17, ptr %15, align 8, !tbaa !17
   %18 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %7
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %14
   %19 = add nuw nsw i64 %.01417, 1
   %exitcond22.not = icmp eq i64 %19, %2
-  br i1 %exitcond22.not, label %._crit_edge20, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond22.not, label %._crit_edge20, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %.lr.ph19, %6
   ret void
@@ -630,12 +630,12 @@ define void @BandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
   store double %33, ptr %31, align 8, !tbaa !17
   %34 = add nuw nsw i64 %.140.i, 1
   %.not37.not.i = icmp slt i64 %.140.i, %24
-  br i1 %.not37.not.i, label %26, label %._crit_edge.i, !llvm.loop !35
+  br i1 %.not37.not.i, label %26, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %26, %17
   %35 = add nuw nsw i64 %.03342.i, 1
   %exitcond.not.i = icmp eq i64 %35, %7
-  br i1 %exitcond.not.i, label %bandMatvec.exit, label %17, !llvm.loop !36
+  br i1 %exitcond.not.i, label %bandMatvec.exit, label %17, !llvm.loop !37
 
 bandMatvec.exit:                                  ; preds = %._crit_edge.i, %3
   ret void
@@ -680,12 +680,12 @@ define void @bandMatvec(ptr noundef readonly captures(none) %0, ptr noundef read
   store double %27, ptr %25, align 8, !tbaa !17
   %28 = add nuw nsw i64 %.140, 1
   %.not37.not = icmp slt i64 %.140, %18
-  br i1 %.not37.not, label %20, label %._crit_edge, !llvm.loop !35
+  br i1 %.not37.not, label %20, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %20, %11
   %29 = add nuw nsw i64 %.03342, 1
   %exitcond.not = icmp eq i64 %29, %3
-  br i1 %exitcond.not, label %._crit_edge44, label %11, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge44, label %11, !llvm.loop !37
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %7
   ret void
@@ -711,7 +711,7 @@ define void @bandAddIdentity(ptr noundef readonly captures(none) %0, i64 noundef
   store double %9, ptr %7, align 8, !tbaa !17
   %10 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %10, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -756,11 +756,11 @@ attributes #7 = { nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!8, !8, i64 0}
-!23 = distinct !{!23, !20}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !20}
+!23 = !{!8, !8, i64 0}
 !24 = distinct !{!24, !20}
 !25 = distinct !{!25, !20}
 !26 = distinct !{!26, !20}
@@ -775,3 +775,4 @@ attributes #7 = { nounwind }
 !35 = distinct !{!35, !20}
 !36 = distinct !{!36, !20}
 !37 = distinct !{!37, !20}
+!38 = distinct !{!38, !20}

@@ -1622,64 +1622,64 @@ define range(i32 0, 28) i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
-  %.not84 = icmp eq i64 %2, 0
-  br i1 %.not84, label %.loopexit, label %.lr.ph80
+  %.not74 = icmp eq i64 %2, 0
+  br i1 %.not74, label %.loopexit, label %.lr.ph70
 
-.lr.ph80:                                         ; preds = %5, %.split.us
-  %.03578 = phi i64 [ %31, %.split.us ], [ 0, %5 ]
-  %.03877 = phi i64 [ %7, %.split.us ], [ 0, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.03578
-  %7 = add nuw i64 %.03877, 1
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.03877
+.lr.ph70:                                         ; preds = %5, %.split.us
+  %.03568 = phi i64 [ %31, %.split.us ], [ 0, %5 ]
+  %.03867 = phi i64 [ %7, %.split.us ], [ 0, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.03568
+  %7 = add nuw i64 %.03867, 1
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.03867
   store ptr %6, ptr %8, align 8, !tbaa !13
   %9 = load i8, ptr %6, align 1, !tbaa !3
   %.not53 = icmp eq i8 %9, 0
   br i1 %.not53, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph80
-  %.not85 = icmp ult i64 %.03877, %4
-  br i1 %.not85, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %.lr.ph70
+  %.not75 = icmp ult i64 %.03867, %4
+  br i1 %.not75, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not112 = icmp eq i8 %9, %1
-  br i1 %.not112, label %.split.us, label %.lr.ph63.split
+  %.not92 = icmp eq i8 %9, %1
+  br i1 %.not92, label %.split.us, label %.lr.ph63
 
-10:                                               ; preds = %.lr.ph63.split
-  %.not86 = icmp eq i8 %13, %1
-  br i1 %.not86, label %.split.us.loopexit, label %.lr.ph63.split
+10:                                               ; preds = %.lr.ph63
+  %.not93 = icmp eq i8 %13, %1
+  br i1 %.not93, label %.split.us.loopexit, label %.lr.ph63, !llvm.loop !19
 
-.lr.ph63.split:                                   ; preds = %.lr.ph.split.us, %10
-  %.13654.us62 = phi i64 [ %11, %10 ], [ %.03578, %.lr.ph.split.us ]
+.lr.ph63:                                         ; preds = %.lr.ph.split.us, %10
+  %.13654.us62 = phi i64 [ %11, %10 ], [ %.03568, %.lr.ph.split.us ]
   %11 = add i64 %.13654.us62, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %.not.us = icmp eq i8 %13, 0
-  br i1 %.not.us, label %.preheader, label %10
+  br i1 %.not.us, label %.preheader, label %10, !llvm.loop !19
 
-.preheader:                                       ; preds = %.lr.ph80, %26, %.lr.ph63.split
+.preheader:                                       ; preds = %.lr.ph70, %26, %.lr.ph63
   %14 = icmp ult i64 %7, %2
-  br i1 %14, label %.lr.ph83.preheader, label %.loopexit
+  br i1 %14, label %.lr.ph73.preheader, label %.loopexit
 
-.lr.ph83.preheader:                               ; preds = %.preheader
+.lr.ph73.preheader:                               ; preds = %.preheader
   %15 = shl i64 %7, 3
-  %scevgep111 = getelementptr i8, ptr %3, i64 %15
+  %scevgep = getelementptr i8, ptr %3, i64 %15
   %16 = sub nuw i64 %2, %7
   %17 = shl i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep111, i8 0, i64 %17, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %17, i1 false), !tbaa !13
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %26
   %18 = phi i8 [ %29, %26 ], [ %9, %.lr.ph ]
   %19 = phi ptr [ %28, %26 ], [ %6, %.lr.ph ]
   %.155 = phi i1 [ %.2, %26 ], [ false, %.lr.ph ]
-  %.13654 = phi i64 [ %27, %26 ], [ %.03578, %.lr.ph ]
+  %.13654 = phi i64 [ %27, %26 ], [ %.03568, %.lr.ph ]
   %20 = icmp ne i8 %18, %1
   %or.cond45.not = or i1 %.155, %20
   br i1 %or.cond45.not, label %21, label %.split.us
 
 21:                                               ; preds = %.lr.ph.split
-  %.not87 = icmp eq i64 %.13654, 0
-  br i1 %.not87, label %26, label %22
+  %.not76 = icmp eq i64 %.13654, 0
+  br i1 %.not76, label %26, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr i8, ptr %19, i64 -1
@@ -1703,15 +1703,15 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.split.us.loopexit, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %.03578, %.lr.ph.split.us ], [ %11, %.split.us.loopexit ], [ %.13654, %.lr.ph.split ]
+  %.us-phi = phi i64 [ %.03568, %.lr.ph.split.us ], [ %11, %.split.us.loopexit ], [ %.13654, %.lr.ph.split ]
   %.us-phi59 = phi ptr [ %6, %.lr.ph.split.us ], [ %30, %.split.us.loopexit ], [ %19, %.lr.ph.split ]
   store i8 0, ptr %.us-phi59, align 1, !tbaa !3
   %31 = add i64 %.us-phi, 1
   %exitcond.not = icmp eq i64 %7, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph80
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph70
 
-.loopexit:                                        ; preds = %.split.us, %.lr.ph83.preheader, %5, %.preheader
-  %.039 = phi i64 [ %7, %.preheader ], [ 0, %5 ], [ %7, %.lr.ph83.preheader ], [ %2, %.split.us ]
+.loopexit:                                        ; preds = %.split.us, %.lr.ph73.preheader, %5, %.preheader
+  %.039 = phi i64 [ %7, %.preheader ], [ 0, %5 ], [ %7, %.lr.ph73.preheader ], [ %2, %.split.us ]
   ret i64 %.039
 }
 
@@ -2077,11 +2077,11 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !6
-  %69 = load i64, ptr %4, align 8, !tbaa !19
+  %69 = load i64, ptr %4, align 8, !tbaa !21
   %70 = add i64 %69, 4
-  %71 = load i64, ptr %5, align 8, !tbaa !21
+  %71 = load i64, ptr %5, align 8, !tbaa !23
   %72 = icmp ugt i64 %70, %71
-  %.pre = load ptr, ptr %0, align 8, !tbaa !22
+  %.pre = load ptr, ptr %0, align 8, !tbaa !24
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %42
@@ -2093,9 +2093,9 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   br i1 %.not.i, label %textbuffer_ensure_capacity.exit.thread65, label %.thread.i
 
 .thread.i:                                        ; preds = %73
-  store i64 %75, ptr %5, align 8, !tbaa !21
-  store ptr %76, ptr %0, align 8, !tbaa !22
-  %.pre74 = load i64, ptr %4, align 8, !tbaa !19
+  store i64 %75, ptr %5, align 8, !tbaa !23
+  store ptr %76, ptr %0, align 8, !tbaa !24
+  %.pre74 = load i64, ptr %4, align 8, !tbaa !21
   br label %77
 
 77:                                               ; preds = %.thread.i, %42
@@ -2156,9 +2156,9 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
 
 output_utf8.exit:                                 ; preds = %84, %87, %92, %99
   %.0.i = phi i64 [ 1, %87 ], [ 2, %92 ], [ 3, %99 ], [ 1, %84 ]
-  %111 = load i64, ptr %4, align 8, !tbaa !19
+  %111 = load i64, ptr %4, align 8, !tbaa !21
   %112 = add i64 %111, %.0.i
-  store i64 %112, ptr %4, align 8, !tbaa !19
+  store i64 %112, ptr %4, align 8, !tbaa !21
   br label %textbuffer_ensure_capacity.exit
 
 113:                                              ; preds = %13
@@ -2168,11 +2168,11 @@ output_utf8.exit:                                 ; preds = %84, %87, %92, %99
   %.153 = phi i64 [ %11, %113 ], [ %11, %16 ], [ %11, %17 ], [ %11, %18 ], [ %11, %19 ], [ %11, %20 ], [ %11, %21 ], [ %11, %39 ], [ %.05269, %10 ], [ %.05269, %6 ], [ %11, %13 ], [ %23, %25 ], [ %23, %22 ]
   %.050 = phi i8 [ %15, %113 ], [ 8, %16 ], [ 9, %17 ], [ 10, %18 ], [ 11, %19 ], [ 12, %20 ], [ 13, %21 ], [ 92, %39 ], [ 92, %10 ], [ %8, %6 ], [ 0, %13 ], [ %38, %25 ], [ 92, %22 ]
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.050, i8 1)
-  %115 = load i64, ptr %4, align 8, !tbaa !19
+  %115 = load i64, ptr %4, align 8, !tbaa !21
   %116 = add i64 %115, 1
-  %117 = load i64, ptr %5, align 8, !tbaa !21
+  %117 = load i64, ptr %5, align 8, !tbaa !23
   %118 = icmp ugt i64 %116, %117
-  %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !24
   br i1 %118, label %119, label %textbuffer_putc.exit
 
 119:                                              ; preds = %114
@@ -2184,9 +2184,9 @@ output_utf8.exit:                                 ; preds = %84, %87, %92, %99
   br i1 %.not.i.i, label %textbuffer_ensure_capacity.exit.thread65, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %119
-  store i64 %121, ptr %5, align 8, !tbaa !21
-  store ptr %122, ptr %0, align 8, !tbaa !22
-  %.pre5.i = load i64, ptr %4, align 8, !tbaa !19
+  store i64 %121, ptr %5, align 8, !tbaa !23
+  store ptr %122, ptr %0, align 8, !tbaa !24
+  %.pre5.i = load i64, ptr %4, align 8, !tbaa !21
   %.pre6.i = add i64 %.pre5.i, 1
   br label %textbuffer_putc.exit
 
@@ -2194,7 +2194,7 @@ textbuffer_putc.exit:                             ; preds = %114, %.thread.i.i
   %.pre-phi.i = phi i64 [ %.pre6.i, %.thread.i.i ], [ %116, %114 ]
   %123 = phi i64 [ %.pre5.i, %.thread.i.i ], [ %115, %114 ]
   %124 = phi ptr [ %122, %.thread.i.i ], [ %.pre.i, %114 ]
-  store i64 %.pre-phi.i, ptr %4, align 8, !tbaa !19
+  store i64 %.pre-phi.i, ptr %4, align 8, !tbaa !21
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 %123
   store i8 %spec.store.select, ptr %125, align 1, !tbaa !3
   br label %textbuffer_ensure_capacity.exit
@@ -2381,7 +2381,9 @@ attributes #26 = { nounwind allocsize(0) }
 !16 = !{!"p1 short", !12, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"long", !4, i64 0}
-!19 = !{!20, !18, i64 8}
-!20 = !{!"text_buffer", !14, i64 0, !18, i64 8, !18, i64 16}
-!21 = !{!20, !18, i64 16}
-!22 = !{!20, !14, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!22, !18, i64 8}
+!22 = !{!"text_buffer", !14, i64 0, !18, i64 8, !18, i64 16}
+!23 = !{!22, !18, i64 16}
+!24 = !{!22, !14, i64 0}

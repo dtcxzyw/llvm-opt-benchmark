@@ -400,7 +400,7 @@ gv_calloc.exit103:                                ; preds = %18, %gv_calloc.exit
   %108 = phi i8 [ 0, %.split ], [ %.pre120, %88 ]
   %109 = add nuw i64 %.094107, 1
   %exitcond115.not = icmp eq i64 %109, %4
-  br i1 %exitcond115.not, label %.split109.us, label %.split, !llvm.loop !65
+  br i1 %exitcond115.not, label %.split109.us, label %.split, !llvm.loop !66
 
 110:                                              ; preds = %.split109.us, %115
   %.1112.in = phi ptr [ %17, %.split109.us ], [ %116, %115 ]
@@ -419,7 +419,7 @@ gv_calloc.exit103:                                ; preds = %18, %gv_calloc.exit
   %116 = getelementptr inbounds nuw i8, ptr %.1112, i64 56
   %117 = add nuw i64 %.0111, 1
   %exitcond119.not = icmp eq i64 %117, %4
-  br i1 %exitcond119.not, label %.loopexit, label %110, !llvm.loop !67
+  br i1 %exitcond119.not, label %.loopexit, label %110, !llvm.loop !68
 
 .loopexit:                                        ; preds = %115, %1
   ret void
@@ -445,7 +445,7 @@ define internal fastcc void @walkTree(ptr noundef readonly captures(none) %0) un
   %8 = getelementptr inbounds nuw i8, ptr %.037, i64 56
   %.0 = load ptr, ptr %8, align 8, !tbaa !59
   %.not34 = icmp eq ptr %.0, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -495,20 +495,20 @@ define internal fastcc void @walkTree(ptr noundef readonly captures(none) %0) un
   store double %.sroa.4.0.copyload, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !61
   %35 = fdiv double %.sroa.57.0.copyload, 7.200000e+01
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store double %35, ptr %36, align 8, !tbaa !69
+  store double %35, ptr %36, align 8, !tbaa !70
   %37 = fdiv double %.sroa.6.0.copyload, 7.200000e+01
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  store double %37, ptr %38, align 8, !tbaa !70
+  store double %37, ptr %38, align 8, !tbaa !71
   %39 = tail call ptr @agraphof(ptr noundef %31) #14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 132
-  %43 = load i32, ptr %42, align 4, !tbaa !71
+  %43 = load i32, ptr %42, align 4, !tbaa !72
   %44 = and i32 %43, 1
   %45 = icmp ne i32 %44, 0
   tail call void @gv_nodesize(ptr noundef %31, i1 noundef zeroext %45) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  %46 = load ptr, ptr @N_fontsize, align 8, !tbaa !72
+  %46 = load ptr, ptr @N_fontsize, align 8, !tbaa !73
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %finishNode.exit, label %47
 
@@ -521,10 +521,10 @@ define internal fastcc void @walkTree(ptr noundef readonly captures(none) %0) un
 51:                                               ; preds = %47
   %52 = load ptr, ptr %32, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
-  %54 = load double, ptr %53, align 8, !tbaa !74
+  %54 = load double, ptr %53, align 8, !tbaa !75
   %55 = fmul double %54, 0x3FE6666666666666
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.7, double noundef %55) #14
-  %57 = load ptr, ptr @N_fontsize, align 8, !tbaa !72
+  %57 = load ptr, ptr @N_fontsize, align 8, !tbaa !73
   %58 = call i32 @agxset(ptr noundef nonnull %31, ptr noundef %57, ptr noundef nonnull %2) #14
   br label %finishNode.exit
 
@@ -540,15 +540,15 @@ finishNode.exit:                                  ; preds = %28, %47, %51
   %62 = call ptr @agnameof(ptr noundef nonnull %31) #14
   %63 = load ptr, ptr %32, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %65 = load double, ptr %64, align 8, !tbaa !75
+  %65 = load double, ptr %64, align 8, !tbaa !76
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %67 = load double, ptr %66, align 8, !tbaa !76
+  %67 = load double, ptr %66, align 8, !tbaa !77
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 96
-  %69 = load double, ptr %68, align 8, !tbaa !74
+  %69 = load double, ptr %68, align 8, !tbaa !75
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 104
-  %71 = load double, ptr %70, align 8, !tbaa !77
+  %71 = load double, ptr %70, align 8, !tbaa !78
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 112
-  %73 = load double, ptr %72, align 8, !tbaa !78
+  %73 = load double, ptr %72, align 8, !tbaa !79
   %74 = fadd double %71, %73
   %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.6, ptr noundef %62, double noundef %65, double noundef %67, double noundef %69, double noundef %74) #16
   br label %76
@@ -581,7 +581,7 @@ define internal fastcc void @freeTree(ptr noundef captures(none) %0) unnamed_add
   tail call fastcc void @freeTree(ptr noundef %.089)
   %8 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %8, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -736,19 +736,20 @@ attributes #18 = { cold noreturn nounwind }
 !61 = !{!5, !5, i64 0}
 !62 = distinct !{!62, !44}
 !63 = !{i64 0, i64 16, !14, i64 16, i64 16, !14}
-!64 = distinct !{!64, !44}
-!65 = distinct !{!65, !44, !66}
-!66 = !{!"llvm.loop.unswitch.partial.disable"}
-!67 = distinct !{!67, !44}
+!64 = distinct !{!64, !44, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !44, !67}
+!67 = !{!"llvm.loop.unswitch.partial.disable"}
 !68 = distinct !{!68, !44}
-!69 = !{!46, !5, i64 48}
-!70 = !{!46, !5, i64 56}
-!71 = !{!22, !11, i64 132}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS7Agsym_s", !10, i64 0}
-!74 = !{!46, !5, i64 96}
-!75 = !{!46, !5, i64 32}
-!76 = !{!46, !5, i64 40}
-!77 = !{!46, !5, i64 104}
-!78 = !{!46, !5, i64 112}
-!79 = distinct !{!79, !44}
+!69 = distinct !{!69, !44}
+!70 = !{!46, !5, i64 48}
+!71 = !{!46, !5, i64 56}
+!72 = !{!22, !11, i64 132}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS7Agsym_s", !10, i64 0}
+!75 = !{!46, !5, i64 96}
+!76 = !{!46, !5, i64 32}
+!77 = !{!46, !5, i64 40}
+!78 = !{!46, !5, i64 104}
+!79 = !{!46, !5, i64 112}
+!80 = distinct !{!80, !44}

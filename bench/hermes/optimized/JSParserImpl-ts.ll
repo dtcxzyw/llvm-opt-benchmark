@@ -1194,7 +1194,7 @@ if.else143:                                       ; preds = %if.end129
   store ptr %81, ptr %Next2.i7.i.i.i.i127, align 8
   store ptr %81, ptr %params, align 8
   %call146 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call146, label %while.cond, label %if.end149, !llvm.loop !6
+  br i1 %call146, label %while.cond, label %if.end149, !llvm.loop !8
 
 if.end149:                                        ; preds = %if.else143, %while.cond, %if.else143.us, %while.cond.us, %land.lhs.true117.thread, %if.end112, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117, %land.lhs.true117
   %type.0217 = phi ptr [ %type.0218, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0218, %land.lhs.true117 ], [ %type.0, %if.end112 ], [ null, %land.lhs.true117.thread ], [ null, %while.cond.us ], [ null, %if.else143.us ], [ %type.0218, %while.cond ], [ %type.0218, %if.else143 ]
@@ -1438,7 +1438,7 @@ if.end16:                                         ; preds = %while.body
   store ptr %8, ptr %Next2.i7.i.i.i.i7, align 8
   store ptr %8, ptr %types, align 8
   %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #4
-  br i1 %call11, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %call11, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end16, %if.end9
   %prevTokenEndLoc_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -1579,7 +1579,7 @@ if.end16:                                         ; preds = %while.body
   store ptr %8, ptr %Next2.i7.i.i.i.i7, align 8
   store ptr %8, ptr %types, align 8
   %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #4
-  br i1 %call11, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %call11, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end16, %if.end9
   %prevTokenEndLoc_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -1828,7 +1828,7 @@ if.end37:                                         ; preds = %_ZN6hermes6ESTree4N
   store ptr %retval.sroa.0.0.copyload.i, ptr %debugLoc_.i.i30, align 8
   %32 = load i8, ptr %newLineBeforeCurrentToken_.i, align 8
   %tobool.i2 = trunc i8 %32 to i1
-  br i1 %tobool.i2, label %while.end.loopexit, label %land.rhs, !llvm.loop !9
+  br i1 %tobool.i2, label %while.end.loopexit, label %land.rhs, !llvm.loop !11
 
 while.end.loopexit:                               ; preds = %if.end37, %land.rhs
   %storemerge1.lcssa.ph = phi ptr [ %storemerge141, %land.rhs ], [ %retval.0.i.i.i22.sink44, %if.end37 ]
@@ -1882,7 +1882,7 @@ if.end:                                           ; preds = %while.body
   store ptr %5, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %5, ptr %types, align 8
   %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call6, label %while.cond, label %while.end, !llvm.loop !10
+  br i1 %call6, label %while.cond, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %while.cond
   %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr %retval.sroa.0.0.copyload.i.i) #4
@@ -2118,7 +2118,7 @@ while.cond.backedge:                              ; preds = %if.then35, %if.then
   %staticNode.0.be = phi i8 [ %staticNode.0, %if.then35 ], [ %staticNode.0, %if.then44 ], [ %staticNode.0, %if.then53 ], [ 1, %if.then ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then21 ], [ 1, %if.then ], [ 1, %if.then ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then21 ], [ %staticNode.0, %if.then21 ]
   %readonlyNode.0.be = phi i8 [ %readonlyNode.0, %if.then35 ], [ %readonlyNode.0, %if.then44 ], [ %readonlyNode.0, %if.then53 ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then11 ], [ 1, %if.then21 ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then11 ], [ %readonlyNode.0, %if.then11 ], [ 1, %if.then21 ], [ 1, %if.then21 ]
   %accessibilityNode.0.be = phi ptr [ %19, %if.then35 ], [ %26, %if.then44 ], [ %33, %if.then53 ], [ %accessibilityNode.0, %if.then ], [ %accessibilityNode.0, %if.then11 ], [ %accessibilityNode.0, %if.then21 ], [ %accessibilityNode.0, %if.then ], [ %accessibilityNode.0, %if.then ], [ %accessibilityNode.0, %if.then11 ], [ %accessibilityNode.0, %if.then11 ], [ %accessibilityNode.0, %if.then21 ], [ %accessibilityNode.0, %if.then21 ]
-  br label %while.cond, !llvm.loop !11
+  br label %while.cond, !llvm.loop !13
 
 if.end38:                                         ; preds = %if.then31, %if.then29
   %20 = phi i32 [ %18, %if.then31 ], [ %14, %if.then29 ]
@@ -2600,7 +2600,7 @@ if.end:                                           ; preds = %while.body
   store ptr %4, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %4, ptr %params, align 8
   %call7 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call7, label %while.cond, label %while.end, !llvm.loop !12
+  br i1 %call7, label %while.cond, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end, %while.cond
   %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
@@ -2878,7 +2878,7 @@ do.cond:                                          ; preds = %_ZN6hermes6ESTree4N
   %36 = load ptr, ptr %tok_.i, align 8
   %37 = load i32, ptr %36, align 8
   %cmp.i42 = icmp eq i32 %37, 49
-  br i1 %cmp.i42, label %if.end45, label %do.body, !llvm.loop !13
+  br i1 %cmp.i42, label %if.end45, label %do.body, !llvm.loop !15
 
 if.end45:                                         ; preds = %do.cond, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36, %if.end19
   %38 = load ptr, ptr %tok_.i, align 8
@@ -2923,7 +2923,7 @@ if.then64:                                        ; preds = %if.end60
   store ptr %call2.i63, ptr %tok_.i, align 8
   %48 = load i32, ptr %call2.i63, align 8
   %cmp.i46 = icmp eq i32 %48, 51
-  br i1 %cmp.i46, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.i46, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %if.then64, %if.end60, %if.end53
   %call70 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #4
@@ -3314,7 +3314,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 
 while.body:                                       ; preds = %while.cond
   %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22parseStatementListItemENS1_5ParamENS2_17AllowImportExportERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %members) #4
-  br i1 %call14, label %while.cond, label %return, !llvm.loop !15
+  br i1 %call14, label %while.cond, label %return, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
   %call19 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #4
@@ -3519,7 +3519,7 @@ if.end18:                                         ; preds = %while.body
   store ptr %8, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %8, ptr %members, align 8
   %call20 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call20, label %while.cond, label %while.end, !llvm.loop !16
+  br i1 %call20, label %while.cond, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end18, %while.cond
   %call25 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #4
@@ -3757,7 +3757,7 @@ if.end.i:                                         ; preds = %while.body.i
   store ptr %6, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %6, ptr %params, align 8
   %call7.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call7.i, label %while.cond.i, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit, !llvm.loop !12
+  br i1 %call7.i, label %while.cond.i, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit, !llvm.loop !14
 
 _ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit: ; preds = %while.cond.i, %if.end.i
   %call11.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #4
@@ -4096,7 +4096,7 @@ if.end.i98:                                       ; preds = %while.body.i94
   store ptr %71, ptr %Next2.i7.i.i.i.i.i100, align 8
   store ptr %71, ptr %params102, align 8
   %call7.i101 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call7.i101, label %while.cond.i92, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104, !llvm.loop !12
+  br i1 %call7.i101, label %while.cond.i92, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104, !llvm.loop !14
 
 _ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104: ; preds = %while.cond.i92, %if.end.i98
   %call11.i103 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #4
@@ -4539,7 +4539,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57:  ; preds = %if.then.i.i.i55, %i
   %debugLoc_.i.i61 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i54, i64 40
   store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i61, align 8
   %call9 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
-  br i1 %call9, label %while.body, label %while.end, !llvm.loop !17
+  br i1 %call9, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %typeName.0.lcssa = phi ptr [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %retval.0.i.i.i54, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57 ]
@@ -5887,7 +5887,7 @@ if.then7:                                         ; preds = %if.end
   store ptr %call2.i13, ptr %tok_.i, align 8
   %9 = load i32, ptr %call2.i13, align 8
   %cmp.i = icmp eq i32 %9, 51
-  br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %if.then7, %if.end, %entry
   %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #4
@@ -6213,7 +6213,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73:  ; preds = %if.then.i.i.i71, %i
   %debugLoc_.i.i77 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i70, i64 40
   store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i77, align 8
   %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
-  br i1 %call11, label %while.body, label %while.end, !llvm.loop !19
+  br i1 %call11, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %typeName.0.lcssa = phi ptr [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %retval.0.i.i.i70, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73 ]
@@ -6318,11 +6318,11 @@ if.end:                                           ; preds = %while.body
   store ptr %5, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %5, ptr %params, align 8
   %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call6, label %while.cond, label %if.end.while.end_crit_edge, !llvm.loop !20
+  br i1 %call6, label %while.cond, label %if.end.while.end_crit_edge, !llvm.loop !22
 
 if.end.while.end_crit_edge:                       ; preds = %if.end
   %.pre = load ptr, ptr %tok_.i, align 8
-  br label %while.end, !llvm.loop !20
+  br label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %while.cond, %if.end.while.end_crit_edge
   %7 = phi ptr [ %.pre, %if.end.while.end_crit_edge ], [ %1, %while.cond ]
@@ -6456,7 +6456,7 @@ if.end:                                           ; preds = %while.body
   store ptr %4, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %4, ptr %params, align 8
   %call9 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call9, label %while.cond, label %while.end, !llvm.loop !21
+  br i1 %call9, label %while.cond, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end, %while.cond
   %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr %start.coerce) #4
@@ -6652,8 +6652,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -6668,3 +6668,5 @@ attributes #4 = { nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

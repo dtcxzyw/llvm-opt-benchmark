@@ -7111,7 +7111,7 @@ addresses_equal.exit.i.us:                        ; preds = %83, %.lr.ph.i75.spl
 addresses_equal.exit.i:                           ; preds = %96, %92, %.lr.ph.i75.split
   %100 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i)
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.loopexit89, label %.lr.ph.i75.split, !llvm.loop !18
+  br i1 %101, label %.loopexit89, label %.lr.ph.i75.split, !llvm.loop !20
 
 pfcp_ip_exists.exit:                              ; preds = %96, %83
   %.us-phi = phi ptr [ %.068.i.us, %83 ], [ %.068.i, %96 ]
@@ -7183,7 +7183,7 @@ copy_address_wmem.exit:                           ; preds = %.loopexit89, %109
 addresses_equal.exit.i80.us:                      ; preds = %127, %.lr.ph.i78.split.us
   %131 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i79.us)
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.loopexit, label %.lr.ph.i78.split.us, !llvm.loop !18
+  br i1 %132, label %.loopexit, label %.lr.ph.i78.split.us, !llvm.loop !21
 
 .lr.ph.i78.split:                                 ; preds = %.lr.ph.i78, %addresses_equal.exit.i80
   %.068.i79 = phi ptr [ %144, %addresses_equal.exit.i80 ], [ %120, %.lr.ph.i78 ]
@@ -7208,7 +7208,7 @@ addresses_equal.exit.i80.us:                      ; preds = %127, %.lr.ph.i78.sp
 addresses_equal.exit.i80:                         ; preds = %140, %136, %.lr.ph.i78.split
   %144 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i79)
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.loopexit, label %.lr.ph.i78.split, !llvm.loop !18
+  br i1 %145, label %.loopexit, label %.lr.ph.i78.split, !llvm.loop !20
 
 pfcp_ip_exists.exit84:                            ; preds = %140, %127
   %.us-phi93 = phi ptr [ %.068.i79.us, %127 ], [ %.068.i79, %140 ]
@@ -7451,7 +7451,7 @@ define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   %95 = load i32, ptr %9, align 4
   %96 = icmp slt i32 %94, %95
-  br i1 %96, label %.lr.ph, label %.loopexit122, !llvm.loop !19
+  br i1 %96, label %.lr.ph, label %.loopexit122, !llvm.loop !22
 
 .loopexit122:                                     ; preds = %.lr.ph, %77, %74
   %.5 = phi i32 [ %.4, %74 ], [ %80, %77 ], [ %93, %.lr.ph ]
@@ -7487,7 +7487,7 @@ define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
   %117 = load i32, ptr %9, align 4
   %118 = icmp slt i32 %115, %117
-  br i1 %118, label %.lr.ph127, label %.loopexit121, !llvm.loop !20
+  br i1 %118, label %.lr.ph127, label %.loopexit121, !llvm.loop !23
 
 .loopexit121:                                     ; preds = %.lr.ph127, %99, %.loopexit122
   %.7 = phi i32 [ %.5, %.loopexit122 ], [ %102, %99 ], [ %116, %.lr.ph127 ]
@@ -7534,7 +7534,7 @@ define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
   %148 = load i32, ptr %9, align 4
   %149 = icmp slt i32 %146, %148
-  br i1 %149, label %.lr.ph131, label %.loopexit, !llvm.loop !21
+  br i1 %149, label %.lr.ph131, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph131, %121, %.loopexit121
   %.9 = phi i32 [ %.7, %.loopexit121 ], [ %124, %121 ], [ %147, %.lr.ph131 ]
@@ -7665,7 +7665,7 @@ define internal void @dissect_pfcp_fq_csid(ptr noundef %0, ptr noundef %1, ptr n
   %33 = add i32 %32, -1
   store i32 %33, ptr %9, align 4
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.1.lcssa = phi i32 [ %.0, %28 ], [ %31, %.lr.ph ]
@@ -9893,7 +9893,7 @@ define internal void @dissect_pfcp_mac_addresses_detected(ptr noundef %0, ptr no
   %17 = add nuw i32 %.039, 1
   %18 = load i32, ptr %8, align 4
   %19 = icmp ult i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.035.lcssa = phi i32 [ 1, %7 ], [ %16, %.lr.ph ]
@@ -9983,7 +9983,7 @@ define internal void @dissect_pfcp_mac_addresses_removed(ptr noundef %0, ptr nou
   %17 = add nuw i32 %.039, 1
   %18 = load i32, ptr %8, align 4
   %19 = icmp ult i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.035.lcssa = phi i32 [ 1, %7 ], [ %16, %.lr.ph ]
@@ -11350,7 +11350,7 @@ define internal void @dissect_pfcp_pmf_control_information(ptr noundef %0, ptr n
   %21 = add nuw i32 %.024, 1
   %22 = load i32, ptr %9, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %7
   %.021 = phi i32 [ 1, %7 ], [ 2, %12 ], [ %20, %.lr.ph ]
@@ -12949,7 +12949,7 @@ define internal void @dissect_pfcp_dscp_to_ppi_mapping_information(ptr noundef %
   %16 = add nuw nsw i32 %.017, 1
   %17 = add nuw nsw i32 %.0, 1
   %exitcond19 = icmp eq i32 %17, 63
-  br i1 %exitcond19, label %18, label %12, !llvm.loop !26
+  br i1 %exitcond19, label %18, label %12, !llvm.loop !29
 
 18:                                               ; preds = %13, %12
   %.1 = phi i32 [ %16, %13 ], [ %.017, %12 ]
@@ -13644,7 +13644,7 @@ define internal void @dissect_pfcp_ue_level_measurements_configuration(ptr nound
   %17 = add nuw i32 %.028, 1
   %18 = load i32, ptr %8, align 4
   %19 = icmp ult i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.024.lcssa = phi i32 [ 2, %7 ], [ %16, %.lr.ph ]
@@ -14525,7 +14525,7 @@ define internal range(i32 9, 8) i32 @dissect_pfcp_enterprise_bbf_nat_port_forwar
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %33 = icmp ult i32 %26, %8
-  br i1 %33, label %10, label %._crit_edge, !llvm.loop !28
+  br i1 %33, label %10, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %10, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %26, %10 ]
@@ -14986,7 +14986,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
   %56 = lshr i32 %.08096, 2
   %57 = add nuw nsw i32 %.08195, 1
   %.not86 = icmp samesign ult i32 %.08096, 4
-  br i1 %.not86, label %.thread, label %26, !llvm.loop !29
+  br i1 %.not86, label %.thread, label %26, !llvm.loop !32
 
 .thread:                                          ; preds = %55, %47, %37, %20
   %.170 = phi i32 [ %.069103, %20 ], [ %.27197, %37 ], [ %.27197, %47 ], [ %.473, %55 ]
@@ -14994,7 +14994,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
   %58 = shl i64 %.068104, 8
   %59 = add nuw nsw i32 %.076101, 4
   %.not85 = icmp eq i64 %58, 0
-  br i1 %.not85, label %._crit_edge, label %20, !llvm.loop !30
+  br i1 %.not85, label %._crit_edge, label %20, !llvm.loop !33
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %.0.lcssa120 = phi i32 [ %.1, %._crit_edge ], [ 12, %4 ]
@@ -15709,7 +15709,7 @@ define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr no
   %46 = getelementptr ptr, ptr %4, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.thread, %8, %41
   %spec.select = phi i32 [ %43, %41 ], [ 4, %8 ], [ %.243, %.thread ]
@@ -15854,10 +15854,10 @@ attributes #18 = { noreturn }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !7, !19}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
@@ -15868,3 +15868,6 @@ attributes #18 = { noreturn }
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}

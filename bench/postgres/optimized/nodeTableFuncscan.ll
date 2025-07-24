@@ -742,7 +742,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   call void @MemoryContextReset(ptr noundef %250) #8
   %251 = load ptr, ptr %171, align 8
   %252 = call zeroext i1 %251(ptr noundef nonnull %0) #8
-  br i1 %252, label %.lr.ph61.split.i, label %tfuncLoadRows.exit, !llvm.loop !11
+  br i1 %252, label %.lr.ph61.split.i, label %tfuncLoadRows.exit, !llvm.loop !13
 
 .split.us.i:                                      ; preds = %.thread.i33
   %253 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -859,4 +859,6 @@ attributes #11 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!11 = distinct !{!11, !5, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5}

@@ -977,50 +977,50 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4193280
-  %.not43 = icmp eq i32 %6, 0
-  br i1 %.not43, label %._crit_edge.thread, label %.lr.ph
+  %.not42 = icmp eq i32 %6, 0
+  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.not30 = icmp eq ptr %2, null
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  br i1 %.not30, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.split
+  br i1 %.not30, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %10 = lshr i32 %5, 10
   %11 = and i32 %10, 4095
   %12 = zext nneg i32 %11 to i64
-  br label %.lr.ph.split.us.split.us
+  br label %.lr.ph.split.us
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %25
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next48, %25 ]
-  %.034.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %.1.us.us, %25 ]
-  %13 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv47
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %25
+  %indvars.iv46 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next47, %25 ]
+  %.034.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.1.us, %25 ]
+  %13 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv46
   %14 = load i32, ptr %13, align 4, !tbaa !21
-  %15 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv47
+  %15 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv46
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = xor i32 %16, %14
   %18 = icmp eq i32 %14, %16
   br i1 %18, label %25, label %19
 
-19:                                               ; preds = %.lr.ph.split.us.split.us
-  %.not.us.us = icmp eq i32 %.034.us.us, 0
-  br i1 %.not.us.us, label %20, label %.loopexit
+19:                                               ; preds = %.lr.ph.split.us
+  %.not.us = icmp eq i32 %.034.us, 0
+  br i1 %.not.us, label %20, label %.loopexit
 
 20:                                               ; preds = %19
   %21 = lshr i32 %17, 1
   %22 = or i32 %21, %17
   %23 = and i32 %22, 1431655765
   %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
-  %.not29.us.us = icmp samesign ult i32 %24, 2
-  br i1 %.not29.us.us, label %25, label %.loopexit
+  %.not29.us = icmp samesign ult i32 %24, 2
+  br i1 %.not29.us, label %25, label %.loopexit
 
-25:                                               ; preds = %.lr.ph.split.us.split.us, %20
-  %.1.us.us = phi i32 [ 1, %20 ], [ %.034.us.us, %.lr.ph.split.us.split.us ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %26 = icmp samesign ult i64 %indvars.iv.next48, %12
-  br i1 %26, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !39
+25:                                               ; preds = %.lr.ph.split.us, %20
+  %.1.us = phi i32 [ 1, %20 ], [ %.034.us, %.lr.ph.split.us ]
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %26 = icmp samesign ult i64 %indvars.iv.next47, %12
+  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !39
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.lr.ph ]
@@ -1060,10 +1060,10 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %45 = and i32 %44, 4095
   %46 = zext nneg i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !39
+  br i1 %47, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %41, %25
-  %.0.lcssa = phi i32 [ %.1.us.us, %25 ], [ %.1, %41 ]
+  %.0.lcssa = phi i32 [ %.1.us, %25 ], [ %.1, %41 ]
   %48 = icmp eq i32 %.0.lcssa, 0
   br i1 %48, label %._crit_edge.thread, label %.loopexit
 
@@ -1076,8 +1076,8 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %33, %19, %20, %._crit_edge, %._crit_edge.thread
-  %.025 = phi i32 [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 0, %20 ], [ 0, %19 ], [ 0, %33 ], [ 0, %34 ]
+.loopexit:                                        ; preds = %34, %33, %20, %19, %._crit_edge, %._crit_edge.thread
+  %.025 = phi i32 [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 0, %19 ], [ 0, %20 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.025
 }
 
@@ -1158,4 +1158,6 @@ attributes #5 = { nounwind }
 !36 = distinct !{!36, !18}
 !37 = distinct !{!37, !18}
 !38 = distinct !{!38, !18}
-!39 = distinct !{!39, !18}
+!39 = distinct !{!39, !18, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !18}

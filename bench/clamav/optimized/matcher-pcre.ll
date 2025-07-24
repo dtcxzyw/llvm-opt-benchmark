@@ -678,157 +678,131 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   %.not = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %6 = load i32, ptr %5, align 4, !tbaa !47
-  %.not5075 = icmp eq i32 %6, 0
+  %.not4761 = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %4
-  br i1 %.not5075, label %.loopexit, label %.lr.ph
+  br i1 %.not4761, label %.loopexit, label %.lr.ph
 
 .thread:                                          ; preds = %4
-  br i1 %.not5075, label %.loopexit, label %.lr.ph.split.us.split.us.preheader
+  br i1 %.not4761, label %.loopexit, label %.lr.ph.thread
+
+.lr.ph.thread:                                    ; preds = %.thread
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  br label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = load i32, ptr %8, align 4, !tbaa !53
-  %.fr51 = freeze i32 %9
-  %10 = and i32 %.fr51, 1
-  %.not33.not = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br i1 %.not33.not, label %.lr.ph.split.preheader, label %.lr.ph.split.us.split
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %10 = load i32, ptr %9, align 4, !tbaa !53
+  %.fr48 = freeze i32 %10
+  %11 = and i32 %.fr48, 1
+  %.not33.not = icmp eq i32 %11, 0
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  br i1 %.not33.not, label %.lr.ph.split.preheader, label %.lr.ph.split.us.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %.pre = load ptr, ptr %11, align 8, !tbaa !48
+  %.pre = load ptr, ptr %12, align 8, !tbaa !48
   %13 = zext i32 %6 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us.split.us.preheader:               ; preds = %.thread
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  br label %.lr.ph.split.us.split.us
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread, %.lr.ph
+  %14 = phi ptr [ %8, %.lr.ph.thread ], [ %12, %.lr.ph ]
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  br label %.lr.ph.split.us
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %26
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next71, %26 ]
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv70
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
-  %.not34.us.us = icmp eq ptr %17, null
-  br i1 %.not34.us.us, label %.split.us, label %18
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %40
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next57, %40 ]
+  %16 = load ptr, ptr %14, align 8, !tbaa !48
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv56
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
+  %.not34.us = icmp eq ptr %18, null
+  br i1 %.not34.us, label %.split.us, label %19
 
-18:                                               ; preds = %.lr.ph.split.us.split.us
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %20 = load i32, ptr %19, align 8, !tbaa !46
-  %.not36.us.us = icmp sgt i32 %20, -1
-  br i1 %.not36.us.us, label %.critedge.us.us, label %21
+19:                                               ; preds = %.lr.ph.split.us
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %21 = load i32, ptr %20, align 8, !tbaa !46
+  %.not36.us = icmp sgt i32 %21, -1
+  br i1 %.not36.us, label %25, label %22
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !41
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef %23) #13
-  br label %26
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef %24) #13
+  br label %40
 
-.critedge.us.us:                                  ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %25 = tail call i32 @cli_pcre_compile(ptr noundef nonnull %24, i64 noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef 1) #13
-  %.not39.us.us = icmp eq i32 %25, 0
-  br i1 %.not39.us.us, label %26, label %.split44.us.loopexit
+25:                                               ; preds = %19
+  br i1 %.not, label %.critedge.us, label %26
 
-26:                                               ; preds = %.critedge.us.us, %21
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %27 = load i32, ptr %5, align 4, !tbaa !47
-  %28 = zext i32 %27 to i64
-  %29 = icmp samesign ult i64 %indvars.iv.next71, %28
-  br i1 %29, label %.lr.ph.split.us.split.us, label %.loopexit
+26:                                               ; preds = %25
+  %27 = load i32, ptr %15, align 4, !tbaa !53
+  %28 = and i32 %27, 4
+  %.not37.us = icmp eq i32 %28, 0
+  br i1 %.not37.us, label %29, label %34
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %52
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %52 ], [ 0, %.lr.ph ]
-  %30 = load ptr, ptr %11, align 8, !tbaa !48
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv67
-  %32 = load ptr, ptr %31, align 8, !tbaa !49
-  %.not34.us = icmp eq ptr %32, null
-  br i1 %.not34.us, label %.split.us, label %33
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, ptr noundef %31) #13
+  %32 = load i32, ptr %20, align 8, !tbaa !46
+  %33 = and i32 %32, -2
+  store i32 %33, ptr %20, align 8, !tbaa !46
+  %.pre59 = load i32, ptr %15, align 4, !tbaa !53
+  br label %34
 
-33:                                               ; preds = %.lr.ph.split.us.split
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %35 = load i32, ptr %34, align 8, !tbaa !46
-  %.not36.us = icmp sgt i32 %35, -1
-  br i1 %.not36.us, label %39, label %36
+34:                                               ; preds = %29, %26
+  %35 = phi i32 [ %.pre59, %29 ], [ %27, %26 ]
+  %36 = and i32 %35, 2
+  %.not38.us = icmp eq i32 %36, 0
+  br i1 %.not38.us, label %.critedge.us, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !41
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef %38) #13
-  br label %52
+.critedge.us:                                     ; preds = %34, %25
+  br label %37
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %12, align 4, !tbaa !53
-  %41 = and i32 %40, 4
-  %.not37.us = icmp eq i32 %41, 0
-  br i1 %.not37.us, label %42, label %47
+37:                                               ; preds = %34, %.critedge.us
+  %.sink70 = phi i32 [ 1, %.critedge.us ], [ 0, %34 ]
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %39 = tail call i32 @cli_pcre_compile(ptr noundef nonnull %38, i64 noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef %.sink70) #13
+  %.not39.us = icmp eq i32 %39, 0
+  br i1 %.not39.us, label %40, label %.split44.us
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !41
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, ptr noundef %44) #13
-  %45 = load i32, ptr %34, align 8, !tbaa !46
-  %46 = and i32 %45, -2
-  store i32 %46, ptr %34, align 8, !tbaa !46
-  %.pre73 = load i32, ptr %12, align 4, !tbaa !53
-  br label %47
+40:                                               ; preds = %37, %22
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %41 = load i32, ptr %5, align 4, !tbaa !47
+  %42 = zext i32 %41 to i64
+  %43 = icmp samesign ult i64 %indvars.iv.next57, %42
+  br i1 %43, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !55
 
-47:                                               ; preds = %42, %39
-  %48 = phi i32 [ %.pre73, %42 ], [ %40, %39 ]
-  %49 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %50 = lshr i32 %48, 1
-  %.lobit = and i32 %50, 1
-  %. = xor i32 %.lobit, 1
-  %51 = tail call i32 @cli_pcre_compile(ptr noundef nonnull %49, i64 noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef %.) #13
-  %.not39.us = icmp eq i32 %51, 0
-  br i1 %.not39.us, label %52, label %.split44.us
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %46 ]
+  %44 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %45 = load ptr, ptr %44, align 8, !tbaa !49
+  %.not34 = icmp eq ptr %45, null
+  br i1 %.not34, label %.split.us, label %46
 
-52:                                               ; preds = %47, %36
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %53 = load i32, ptr %5, align 4, !tbaa !47
-  %54 = zext i32 %53 to i64
-  %55 = icmp samesign ult i64 %indvars.iv.next68, %54
-  br i1 %55, label %.lr.ph.split.us.split, label %.loopexit
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %58 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
-  %57 = load ptr, ptr %56, align 8, !tbaa !49
-  %.not34 = icmp eq ptr %57, null
-  br i1 %.not34, label %.split.us, label %58
-
-.split.us:                                        ; preds = %.lr.ph.split.us.split, %.lr.ph.split, %.lr.ph.split.us.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv70, %.lr.ph.split.us.split.us ], [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv67, %.lr.ph.split.us.split ]
+.split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi.in = phi i64 [ %indvars.iv56, %.lr.ph.split.us ], [ %indvars.iv, %.lr.ph.split ]
   %.us-phi = trunc nuw i64 %.us-phi.in to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28, i32 noundef %.us-phi) #13
   br label %.loopexit
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  %60 = load i32, ptr %59, align 8, !tbaa !46
-  %61 = or i32 %60, -2147483648
-  store i32 %61, ptr %59, align 8, !tbaa !46
+46:                                               ; preds = %.lr.ph.split
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 88
+  %48 = load i32, ptr %47, align 8, !tbaa !46
+  %49 = or i32 %48, -2147483648
+  store i32 %49, ptr %47, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %62, label %.lr.ph.split, label %.loopexit
+  %50 = icmp samesign ult i64 %indvars.iv.next, %13
+  br i1 %50, label %.lr.ph.split, label %.loopexit
 
-.split44.us.loopexit:                             ; preds = %.critedge.us.us
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  br label %.split44.us
-
-.split44.us:                                      ; preds = %47, %.split44.us.loopexit
-  %.us-phi48 = phi i32 [ %25, %.split44.us.loopexit ], [ %51, %47 ]
-  %.us-phi49 = phi ptr [ %63, %.split44.us.loopexit ], [ %34, %47 ]
+.split44.us:                                      ; preds = %37
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.31) #13
-  %64 = load i32, ptr %.us-phi49, align 8, !tbaa !46
-  %65 = or i32 %64, -2147483648
-  store i32 %65, ptr %.us-phi49, align 8, !tbaa !46
+  %51 = load i32, ptr %20, align 8, !tbaa !46
+  %52 = or i32 %51, -2147483648
+  store i32 %52, ptr %20, align 8, !tbaa !46
   br label %.loopexit
 
-.loopexit:                                        ; preds = %52, %58, %26, %.thread, %7, %.split44.us, %.split.us
-  %.030 = phi i32 [ %.us-phi48, %.split44.us ], [ 2, %.split.us ], [ 0, %7 ], [ 0, %.thread ], [ 0, %26 ], [ 0, %58 ], [ 0, %52 ]
+.loopexit:                                        ; preds = %46, %40, %.thread, %7, %.split44.us, %.split.us
+  %.030 = phi i32 [ %39, %.split44.us ], [ 2, %.split.us ], [ 0, %7 ], [ 0, %.thread ], [ 0, %40 ], [ 0, %46 ]
   ret i32 %.030
 }
 
@@ -859,7 +833,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %15 = load ptr, ptr %14, align 8, !tbaa !55
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %.not74 = icmp eq ptr %15, null
   br i1 %.not74, label %21, label %16
 
@@ -880,7 +854,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   %24 = zext i32 %23 to i64
   %25 = tail call noalias ptr @calloc(i64 noundef %24, i64 noundef 4) #15
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !68
+  store ptr %25, ptr %26, align 8, !tbaa !70
   %.not76 = icmp eq ptr %25, null
   br i1 %.not76, label %27, label %28
 
@@ -890,7 +864,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 28:                                               ; preds = %21
   %29 = tail call noalias ptr @calloc(i64 noundef %24, i64 noundef 4) #15
-  store ptr %29, ptr %1, align 8, !tbaa !70
+  store ptr %29, ptr %1, align 8, !tbaa !72
   %.not77 = icmp eq ptr %29, null
   br i1 %.not77, label %30, label %.preheader
 
@@ -900,7 +874,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 30:                                               ; preds = %28
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.33) #13
-  %31 = load ptr, ptr %26, align 8, !tbaa !68
+  %31 = load ptr, ptr %26, align 8, !tbaa !70
   tail call void @free(ptr noundef %31) #13
   br label %.loopexit
 
@@ -964,27 +938,27 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 64:                                               ; preds = %60
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.34) #13
-  %65 = load ptr, ptr %26, align 8, !tbaa !68
+  %65 = load ptr, ptr %26, align 8, !tbaa !70
   call void @free(ptr noundef %65) #13
-  %66 = load ptr, ptr %1, align 8, !tbaa !70
+  %66 = load ptr, ptr %1, align 8, !tbaa !72
   call void @free(ptr noundef %66) #13
   br label %.loopexit
 
 67:                                               ; preds = %60
-  %68 = load ptr, ptr %1, align 8, !tbaa !70
+  %68 = load ptr, ptr %1, align 8, !tbaa !72
   %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = icmp eq i32 %70, -1
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %67
-  %73 = load ptr, ptr %26, align 8, !tbaa !68
+  %73 = load ptr, ptr %26, align 8, !tbaa !70
   br label %78
 
 74:                                               ; preds = %67
   %75 = load i32, ptr %5, align 4, !tbaa !3
   %76 = sub i32 %75, %70
-  %77 = load ptr, ptr %26, align 8, !tbaa !68
+  %77 = load ptr, ptr %26, align 8, !tbaa !70
   br label %78
 
 78:                                               ; preds = %50, %54, %74, %72, %52, %45
@@ -1023,13 +997,13 @@ define void @cli_pcre_freeoff(ptr noundef captures(address_is_null) %0) local_un
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !70
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   tail call void @free(ptr noundef %3) #13
-  store ptr null, ptr %0, align 8, !tbaa !70
+  store ptr null, ptr %0, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
   tail call void @free(ptr noundef %5) #13
-  store ptr null, ptr %4, align 8, !tbaa !68
+  store ptr null, ptr %4, align 8, !tbaa !70
   br label %6
 
 6:                                                ; preds = %2, %1
@@ -1095,7 +1069,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
   store i32 0, ptr %10, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
-  store i64 0, ptr %11, align 8, !tbaa !71
+  store i64 0, ptr %11, align 8, !tbaa !73
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 332
   %13 = load i32, ptr %12, align 4, !tbaa !47
   %14 = icmp eq i32 %13, 0
@@ -1113,7 +1087,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !57
   %.not135 = icmp eq ptr %21, null
   br i1 %.not135, label %.lr.ph, label %22
 
@@ -1151,7 +1125,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !72
+  %40 = load ptr, ptr %39, align 8, !tbaa !74
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, ptr noundef %40) #13
   br label %cli_pcre_qoff.exit
 
@@ -1159,7 +1133,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not138, label %47, label %42
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8, !tbaa !70
+  %43 = load ptr, ptr %6, align 8, !tbaa !72
   %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = icmp eq i32 %45, -2
@@ -1180,12 +1154,12 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 53:                                               ; preds = %51
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #14
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 %54
-  %56 = load ptr, ptr %26, align 8, !tbaa !73
+  %56 = load ptr, ptr %26, align 8, !tbaa !75
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !79
+  %61 = load ptr, ptr %60, align 8, !tbaa !81
   %62 = call i32 @cli_ac_chklsig(ptr noundef nonnull %50, ptr noundef nonnull %55, ptr noundef %61, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0) #13
   %.not141 = icmp eq i32 %62, 1
   br i1 %.not141, label %64, label %cli_pcre_qoff.exit
@@ -1200,7 +1174,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %67 = and i32 %65, 2
   %68 = and i32 %65, 4
   %69 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %70 = load i32, ptr %69, align 8, !tbaa !80
+  %70 = load i32, ptr %69, align 8, !tbaa !82
   br i1 %.not138, label %71, label %85
 
 71:                                               ; preds = %64
@@ -1232,10 +1206,10 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br label %cli_pcre_qoff.exit.thread
 
 85:                                               ; preds = %64
-  %86 = load ptr, ptr %6, align 8, !tbaa !70
+  %86 = load ptr, ptr %6, align 8, !tbaa !72
   %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !3
-  %89 = load ptr, ptr %27, align 8, !tbaa !68
+  %89 = load ptr, ptr %27, align 8, !tbaa !70
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !3
   br label %cli_pcre_qoff.exit.thread
@@ -1297,9 +1271,9 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br i1 %.not146, label %125, label %121
 
 121:                                              ; preds = %119
-  %122 = load ptr, ptr %30, align 8, !tbaa !81
+  %122 = load ptr, ptr %30, align 8, !tbaa !83
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 60
-  %124 = load i32, ptr %123, align 4, !tbaa !82
+  %124 = load i32, ptr %123, align 4, !tbaa !84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37, i32 noundef %124) #13
   br label %.critedge
 
@@ -1373,18 +1347,18 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br label %.critedge
 
 159:                                              ; preds = %156
-  store ptr @.str.41, ptr %157, align 8, !tbaa !100
+  store ptr @.str.41, ptr %157, align 8, !tbaa !102
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store ptr null, ptr %160, align 8, !tbaa !103
-  %161 = load ptr, ptr %3, align 8, !tbaa !104
+  store ptr null, ptr %160, align 8, !tbaa !105
+  %161 = load ptr, ptr %3, align 8, !tbaa !106
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  store ptr %161, ptr %162, align 8, !tbaa !105
+  store ptr %161, ptr %162, align 8, !tbaa !107
   %163 = load i32, ptr %28, align 4, !tbaa !3
   %164 = add i32 %163, %spec.select212
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store i64 %165, ptr %166, align 8, !tbaa !106
-  store ptr %157, ptr %3, align 8, !tbaa !104
+  store i64 %165, ptr %166, align 8, !tbaa !108
+  store ptr %157, ptr %3, align 8, !tbaa !106
   br label %172
 
 167:                                              ; preds = %155
@@ -1615,55 +1589,57 @@ attributes #15 = { nounwind allocsize(0,1) }
 !52 = !{!36, !4, i64 108}
 !53 = !{!54, !4, i64 40}
 !54 = !{!"cli_dconf", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40}
-!55 = !{!56, !63, i64 120}
-!56 = !{!"cli_ctx_tag", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !57, i64 32, !58, i64 40, !59, i64 48, !13, i64 56, !60, i64 64, !4, i64 72, !4, i64 76, !61, i64 80, !4, i64 88, !4, i64 92, !62, i64 96, !5, i64 104, !63, i64 120, !64, i64 128, !9, i64 136, !8, i64 144, !65, i64 152, !65, i64 160, !66, i64 168, !67, i64 184, !67, i64 185}
-!57 = !{!"p1 long", !9, i64 0}
-!58 = !{!"p1 _ZTS11cli_matcher", !9, i64 0}
-!59 = !{!"p1 _ZTS9cl_engine", !9, i64 0}
-!60 = !{!"p1 _ZTS15cl_scan_options", !9, i64 0}
-!61 = !{!"p1 _ZTS19recursion_level_tag", !9, i64 0}
-!62 = !{!"p1 _ZTS7cl_fmap", !9, i64 0}
-!63 = !{!"p1 _ZTS9cli_dconf", !9, i64 0}
-!64 = !{!"p1 _ZTS10bitset_tag", !9, i64 0}
-!65 = !{!"p1 _ZTS11json_object", !9, i64 0}
-!66 = !{!"timeval", !13, i64 0, !13, i64 8}
-!67 = !{!"_Bool", !5, i64 0}
-!68 = !{!69, !21, i64 8}
-!69 = !{!"cli_pcre_off", !21, i64 0, !21, i64 8}
-!70 = !{!69, !21, i64 0}
-!71 = !{!13, !13, i64 0}
-!72 = !{!37, !12, i64 24}
-!73 = !{!74, !76, i64 24}
-!74 = !{!"cli_ac_data", !75, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !76, i64 24, !76, i64 32, !76, i64 40, !77, i64 48, !12, i64 56, !21, i64 64, !5, i64 72, !78, i64 200, !4, i64 208}
-!75 = !{!"p3 int", !9, i64 0}
-!76 = !{!"p2 int", !9, i64 0}
-!77 = !{!"p2 _ZTS16cli_lsig_matches", !9, i64 0}
-!78 = !{!"p1 _ZTS11cli_hashset", !9, i64 0}
-!79 = !{!21, !21, i64 0}
-!80 = !{!37, !4, i64 32}
-!81 = !{!56, !59, i64 48}
-!82 = !{!83, !4, i64 60}
-!83 = !{!"cl_engine", !4, i64 0, !4, i64 4, !4, i64 8, !5, i64 12, !4, i64 20, !4, i64 24, !4, i64 28, !12, i64 32, !4, i64 40, !13, i64 48, !4, i64 56, !4, i64 60, !13, i64 64, !13, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !84, i64 96, !58, i64 104, !58, i64 112, !58, i64 120, !58, i64 128, !85, i64 136, !86, i64 144, !86, i64 152, !87, i64 160, !63, i64 168, !88, i64 176, !88, i64 184, !89, i64 192, !58, i64 200, !58, i64 208, !12, i64 216, !90, i64 224, !91, i64 232, !92, i64 240, !13, i64 248, !34, i64 256, !93, i64 264, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !95, i64 416, !5, i64 936, !5, i64 992, !4, i64 1020, !4, i64 1024, !4, i64 1028, !4, i64 1032, !13, i64 1040, !13, i64 1048, !13, i64 1056, !13, i64 1064, !13, i64 1072, !9, i64 1080, !9, i64 1088, !9, i64 1096, !9, i64 1104, !9, i64 1112, !9, i64 1120, !9, i64 1128, !9, i64 1136, !9, i64 1144, !4, i64 1152, !4, i64 1156, !4, i64 1160, !13, i64 1168, !13, i64 1176, !13, i64 1184, !99, i64 1192}
-!84 = !{!"p2 _ZTS11cli_matcher", !9, i64 0}
-!85 = !{!"p1 _ZTS7cli_cdb", !9, i64 0}
-!86 = !{!"p1 _ZTS13regex_matcher", !9, i64 0}
-!87 = !{!"p1 _ZTS10phishcheck", !9, i64 0}
-!88 = !{!"p1 _ZTS9cli_ftype", !9, i64 0}
-!89 = !{!"p2 _ZTS8cli_pwdb", !9, i64 0}
-!90 = !{!"p1 _ZTS12icon_matcher", !9, i64 0}
-!91 = !{!"p1 _ZTS5CACHE", !9, i64 0}
-!92 = !{!"p1 _ZTS10cli_dbinfo", !9, i64 0}
-!93 = !{!"", !94, i64 0, !4, i64 8}
-!94 = !{!"p1 _ZTS9cli_crt_t", !9, i64 0}
-!95 = !{!"cli_all_bc", !96, i64 0, !4, i64 8, !97, i64 16, !98, i64 24, !4, i64 516}
-!96 = !{!"p1 _ZTS6cli_bc", !9, i64 0}
-!97 = !{!"p1 _ZTS12cli_bcengine", !9, i64 0}
-!98 = !{!"cli_environment", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !5, i64 28, !5, i64 93, !5, i64 158, !5, i64 223, !5, i64 288, !5, i64 353, !5, i64 418, !5, i64 483, !5, i64 484, !5, i64 485, !5, i64 486, !5, i64 487, !5, i64 488, !5, i64 489, !5, i64 490, !5, i64 491}
-!99 = !{!"p1 _ZTS12_yara_global", !9, i64 0}
-!100 = !{!101, !12, i64 0}
-!101 = !{!"cli_ac_result", !12, i64 0, !9, i64 8, !13, i64 16, !102, i64 24}
-!102 = !{!"p1 _ZTS13cli_ac_result", !9, i64 0}
-!103 = !{!101, !9, i64 8}
-!104 = !{!102, !102, i64 0}
-!105 = !{!101, !102, i64 24}
-!106 = !{!101, !13, i64 16}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = !{!58, !65, i64 120}
+!58 = !{!"cli_ctx_tag", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !59, i64 32, !60, i64 40, !61, i64 48, !13, i64 56, !62, i64 64, !4, i64 72, !4, i64 76, !63, i64 80, !4, i64 88, !4, i64 92, !64, i64 96, !5, i64 104, !65, i64 120, !66, i64 128, !9, i64 136, !8, i64 144, !67, i64 152, !67, i64 160, !68, i64 168, !69, i64 184, !69, i64 185}
+!59 = !{!"p1 long", !9, i64 0}
+!60 = !{!"p1 _ZTS11cli_matcher", !9, i64 0}
+!61 = !{!"p1 _ZTS9cl_engine", !9, i64 0}
+!62 = !{!"p1 _ZTS15cl_scan_options", !9, i64 0}
+!63 = !{!"p1 _ZTS19recursion_level_tag", !9, i64 0}
+!64 = !{!"p1 _ZTS7cl_fmap", !9, i64 0}
+!65 = !{!"p1 _ZTS9cli_dconf", !9, i64 0}
+!66 = !{!"p1 _ZTS10bitset_tag", !9, i64 0}
+!67 = !{!"p1 _ZTS11json_object", !9, i64 0}
+!68 = !{!"timeval", !13, i64 0, !13, i64 8}
+!69 = !{!"_Bool", !5, i64 0}
+!70 = !{!71, !21, i64 8}
+!71 = !{!"cli_pcre_off", !21, i64 0, !21, i64 8}
+!72 = !{!71, !21, i64 0}
+!73 = !{!13, !13, i64 0}
+!74 = !{!37, !12, i64 24}
+!75 = !{!76, !78, i64 24}
+!76 = !{!"cli_ac_data", !77, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !78, i64 24, !78, i64 32, !78, i64 40, !79, i64 48, !12, i64 56, !21, i64 64, !5, i64 72, !80, i64 200, !4, i64 208}
+!77 = !{!"p3 int", !9, i64 0}
+!78 = !{!"p2 int", !9, i64 0}
+!79 = !{!"p2 _ZTS16cli_lsig_matches", !9, i64 0}
+!80 = !{!"p1 _ZTS11cli_hashset", !9, i64 0}
+!81 = !{!21, !21, i64 0}
+!82 = !{!37, !4, i64 32}
+!83 = !{!58, !61, i64 48}
+!84 = !{!85, !4, i64 60}
+!85 = !{!"cl_engine", !4, i64 0, !4, i64 4, !4, i64 8, !5, i64 12, !4, i64 20, !4, i64 24, !4, i64 28, !12, i64 32, !4, i64 40, !13, i64 48, !4, i64 56, !4, i64 60, !13, i64 64, !13, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !86, i64 96, !60, i64 104, !60, i64 112, !60, i64 120, !60, i64 128, !87, i64 136, !88, i64 144, !88, i64 152, !89, i64 160, !65, i64 168, !90, i64 176, !90, i64 184, !91, i64 192, !60, i64 200, !60, i64 208, !12, i64 216, !92, i64 224, !93, i64 232, !94, i64 240, !13, i64 248, !34, i64 256, !95, i64 264, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !97, i64 416, !5, i64 936, !5, i64 992, !4, i64 1020, !4, i64 1024, !4, i64 1028, !4, i64 1032, !13, i64 1040, !13, i64 1048, !13, i64 1056, !13, i64 1064, !13, i64 1072, !9, i64 1080, !9, i64 1088, !9, i64 1096, !9, i64 1104, !9, i64 1112, !9, i64 1120, !9, i64 1128, !9, i64 1136, !9, i64 1144, !4, i64 1152, !4, i64 1156, !4, i64 1160, !13, i64 1168, !13, i64 1176, !13, i64 1184, !101, i64 1192}
+!86 = !{!"p2 _ZTS11cli_matcher", !9, i64 0}
+!87 = !{!"p1 _ZTS7cli_cdb", !9, i64 0}
+!88 = !{!"p1 _ZTS13regex_matcher", !9, i64 0}
+!89 = !{!"p1 _ZTS10phishcheck", !9, i64 0}
+!90 = !{!"p1 _ZTS9cli_ftype", !9, i64 0}
+!91 = !{!"p2 _ZTS8cli_pwdb", !9, i64 0}
+!92 = !{!"p1 _ZTS12icon_matcher", !9, i64 0}
+!93 = !{!"p1 _ZTS5CACHE", !9, i64 0}
+!94 = !{!"p1 _ZTS10cli_dbinfo", !9, i64 0}
+!95 = !{!"", !96, i64 0, !4, i64 8}
+!96 = !{!"p1 _ZTS9cli_crt_t", !9, i64 0}
+!97 = !{!"cli_all_bc", !98, i64 0, !4, i64 8, !99, i64 16, !100, i64 24, !4, i64 516}
+!98 = !{!"p1 _ZTS6cli_bc", !9, i64 0}
+!99 = !{!"p1 _ZTS12cli_bcengine", !9, i64 0}
+!100 = !{!"cli_environment", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !5, i64 28, !5, i64 93, !5, i64 158, !5, i64 223, !5, i64 288, !5, i64 353, !5, i64 418, !5, i64 483, !5, i64 484, !5, i64 485, !5, i64 486, !5, i64 487, !5, i64 488, !5, i64 489, !5, i64 490, !5, i64 491}
+!101 = !{!"p1 _ZTS12_yara_global", !9, i64 0}
+!102 = !{!103, !12, i64 0}
+!103 = !{!"cli_ac_result", !12, i64 0, !9, i64 8, !13, i64 16, !104, i64 24}
+!104 = !{!"p1 _ZTS13cli_ac_result", !9, i64 0}
+!105 = !{!103, !9, i64 8}
+!106 = !{!104, !104, i64 0}
+!107 = !{!103, !104, i64 24}
+!108 = !{!103, !13, i64 16}

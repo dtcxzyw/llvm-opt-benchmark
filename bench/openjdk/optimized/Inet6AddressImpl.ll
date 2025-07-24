@@ -219,7 +219,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.0134.be.in = getelementptr inbounds nuw i8, ptr %.0134190, i64 40
   %.0134.be = load ptr, ptr %.0134.be.in, align 8
   %.not173 = icmp eq ptr %.0134.be, null
-  br i1 %.not173, label %.critedge181, label %.lr.ph.split, !llvm.loop !8
+  br i1 %.not173, label %.critedge181, label %.lr.ph.split, !llvm.loop !10
 
 .critedge181:                                     ; preds = %.backedge.us, %.backedge, %.preheader
   %76 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #13
@@ -268,7 +268,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %90 = getelementptr inbounds nuw i8, ptr %.0127205, i64 40
   %.0127 = load ptr, ptr %90, align 8
   %.not164 = icmp eq ptr %.0127, null
-  br i1 %.not164, label %._crit_edge, label %.preheader, !llvm.loop !9
+  br i1 %.not164, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader183
   %.0147.lcssa = phi i32 [ 0, %.preheader183 ], [ %.1148, %.critedge ]
@@ -410,7 +410,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %165 = getelementptr inbounds nuw i8, ptr %.1128213, i64 40
   %166 = load ptr, ptr %165, align 8
   %.not167 = icmp eq ptr %166, null
-  br i1 %.not167, label %.loopexit, label %.lr.ph215, !llvm.loop !10
+  br i1 %.not167, label %.loopexit, label %.lr.ph215, !llvm.loop !12
 
 .loopexit.thread:                                 ; preds = %22, %97
   %.0123.ph = phi ptr [ %95, %97 ], [ null, %22 ]
@@ -430,7 +430,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %168 = load ptr, ptr %167, align 8
   call void @free(ptr noundef nonnull %.4230) #12
   %.not179 = icmp eq ptr %168, null
-  br i1 %.not179, label %._crit_edge233, label %.lr.ph232, !llvm.loop !11
+  br i1 %.not179, label %._crit_edge233, label %.lr.ph232, !llvm.loop !13
 
 ._crit_edge233:                                   ; preds = %.lr.ph232, %.loopexit.thread, %.loopexit
   %.0123247 = phi ptr [ %.0123.ph, %.loopexit.thread ], [ %.0123, %.loopexit ], [ %.0123, %.lr.ph232 ]
@@ -910,12 +910,12 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
 
 170:                                              ; preds = %168, %162, %156
   %.not65.i = icmp eq i32 %154, 0
-  br i1 %.not65.i, label %.thread.i, label %153, !llvm.loop !12
+  br i1 %.not65.i, label %.thread.i, label %153, !llvm.loop !14
 
 .thread.i:                                        ; preds = %170, %153
   %171 = add nsw i32 %.051.i, -1000
   %172 = icmp sgt i32 %.051.i, 1000
-  br i1 %172, label %141, label %ping6.exit, !llvm.loop !13
+  br i1 %172, label %141, label %ping6.exit, !llvm.loop !15
 
 ping6.exit:                                       ; preds = %147, %147, %.thread.i, %166, %168, %109, %117, %124, %150
   %.0.i35 = phi i8 [ 0, %109 ], [ 0, %117 ], [ 0, %124 ], [ 0, %150 ], [ 1, %168 ], [ 1, %166 ], [ 0, %.thread.i ], [ 0, %147 ], [ 0, %147 ]
@@ -1021,9 +1021,11 @@ attributes #14 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

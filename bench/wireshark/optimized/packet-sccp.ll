@@ -4311,7 +4311,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %84 = load i32, ptr @num_sccp_users, align 4
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph.split.split, label %.critedge, !llvm.loop !17
+  br i1 %86, label %.lr.ph.split.split, label %.critedge, !llvm.loop !19
 
 .split.us:                                        ; preds = %70, %78, %48
   %.us-phi = phi ptr [ %40, %48 ], [ %62, %78 ], [ %62, %70 ]
@@ -4440,7 +4440,7 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
   %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %49)
   %51 = and i8 %50, -17
   %or.cond = icmp eq i8 %51, 0
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.lcssa = phi i32 [ %40, %8 ], [ %49, %.lr.ph ]
@@ -5150,7 +5150,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   %97 = call i64 @g_strlcat(ptr noundef %86, ptr noundef %96, i64 noundef 225)
   %98 = add nuw i32 %.056.us.i, 1
   %exitcond59.not.i = icmp eq i32 %98, %82
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !19
+  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !21
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %110
   %.056.i = phi i32 [ %111, %110 ], [ 0, %.lr.ph.i ]
@@ -5173,7 +5173,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
 110:                                              ; preds = %105, %.lr.ph.split.i
   %111 = add nuw i32 %.056.i, 1
   %exitcond.not.i = icmp eq i32 %111, %82
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %110, %.lr.ph.split.us.i, %81
   %112 = load i8, ptr %6, align 8
@@ -5377,6 +5377,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!17 = distinct !{!17, !9, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9, !18}
+!22 = distinct !{!22, !9}

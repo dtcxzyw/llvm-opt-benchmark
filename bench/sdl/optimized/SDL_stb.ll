@@ -1038,7 +1038,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %341, %336
   %459 = add nuw nsw i32 %.0213299.i.i.i, 1
   %460 = load i32, ptr %420, align 4
   %461 = icmp slt i32 %459, %460
-  br i1 %461, label %.lr.ph300.i.i.i, label %._crit_edge301.loopexit.i.i.i, !llvm.loop !9
+  br i1 %461, label %.lr.ph300.i.i.i, label %._crit_edge301.loopexit.i.i.i, !llvm.loop !10
 
 ._crit_edge301.loopexit.i.i.i:                    ; preds = %444
   %.pre349.i.i.i = load i32, ptr %418, align 8
@@ -1049,7 +1049,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %341, %336
   %463 = phi i32 [ %460, %._crit_edge301.loopexit.i.i.i ], [ %429, %.preheader255.i.i.i ]
   %464 = add nuw nsw i32 %.0214303.i.i.i, 1
   %.not224.i.i.i = icmp slt i32 %464, %462
-  br i1 %.not224.i.i.i, label %.preheader255.i.i.i, label %.critedge230.loopexit.i.i.i, !llvm.loop !10
+  br i1 %.not224.i.i.i, label %.preheader255.i.i.i, label %.critedge230.loopexit.i.i.i, !llvm.loop !11
 
 .critedge230.loopexit.i.i.i:                      ; preds = %._crit_edge301.i.i.i
   %.pre350.i.i.i = load i32, ptr %26, align 4
@@ -1060,7 +1060,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %341, %336
   %indvars.iv.next339.i.i.i = add nuw nsw i64 %indvars.iv338.i.i.i, 1
   %466 = sext i32 %465 to i64
   %467 = icmp slt i64 %indvars.iv.next339.i.i.i, %466
-  br i1 %467, label %.lr.ph305.i.i.i, label %._crit_edge306.loopexit.i.i.i, !llvm.loop !12
+  br i1 %467, label %.lr.ph305.i.i.i, label %._crit_edge306.loopexit.i.i.i, !llvm.loop !13
 
 ._crit_edge306.loopexit.i.i.i:                    ; preds = %.critedge230.i.i.i
   %.pre351.i.i.i = load i32, ptr %41, align 4
@@ -1109,7 +1109,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %341, %336
   %482 = add nuw nsw i32 %.0210307.i.i.i, 1
   %483 = load i32, ptr %44, align 8
   %484 = icmp slt i32 %482, %483
-  br i1 %484, label %.preheader256.i.i.i, label %._crit_edge308.loopexit.i.i.i, !llvm.loop !13
+  br i1 %484, label %.preheader256.i.i.i, label %._crit_edge308.loopexit.i.i.i, !llvm.loop !14
 
 ._crit_edge308.loopexit.i.i.i:                    ; preds = %480
   %.pre352.i.i.i = load i32, ptr %43, align 4
@@ -1121,7 +1121,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %341, %336
   %487 = phi i32 [ %483, %._crit_edge308.loopexit.i.i.i ], [ %408, %.preheader257.i.i.i ]
   %488 = add nuw nsw i32 %.0211309.i.i.i, 1
   %489 = icmp slt i32 %488, %485
-  br i1 %489, label %.preheader257.i.i.i, label %.critedge.i.i.i, !llvm.loop !14
+  br i1 %489, label %.preheader257.i.i.i, label %.critedge.i.i.i, !llvm.loop !15
 
 .critedge.i.i.i:                                  ; preds = %._crit_edge308.i.i.i, %475, %.lr.ph300.i.i.i, %.preheader257.lr.ph.i.i.i, %401
   %.12.i.i.i = phi i32 [ 1, %401 ], [ 1, %.preheader257.lr.ph.i.i.i ], [ 0, %.lr.ph300.i.i.i ], [ 1, %475 ], [ 1, %._crit_edge308.i.i.i ]
@@ -1261,7 +1261,7 @@ stbi__jpeg_get_bit.exit.thread.i.us.i.i.i:        ; preds = %stbi__jpeg_get_bit.
   %561 = load i32, ptr %29, align 8
   %562 = sext i32 %561 to i64
   %.not162.not.i.us.i.i.i = icmp slt i64 %indvars.iv.i.us.i.i.i, %562
-  br i1 %.not162.not.i.us.i.i.i, label %540, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, !llvm.loop !15
+  br i1 %.not162.not.i.us.i.i.i, label %540, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, !llvm.loop !16
 
 .preheader228.i.us.i.i.i:                         ; preds = %532
   %563 = getelementptr inbounds nuw i8, ptr %526, i64 1280
@@ -1533,7 +1533,7 @@ stbi__jpeg_get_bit.exit189.thread.i.us.i.i.i:     ; preds = %679, %675, %673, %6
   %686 = phi i32 [ %.pre269.i.us.i.i.i, %.thread218.i.us.i.i.i ], [ %650, %649 ], [ %681, %.loopexit227.loopexit.i.us.i.i.i ]
   %.7122.ph.i.us.i.i.i = phi i32 [ %684, %.thread218.i.us.i.i.i ], [ %.6121.i.us.i.i.i, %649 ], [ %683, %.loopexit227.loopexit.i.us.i.i.i ]
   %.not161.i.us.i.i.i = icmp sgt i32 %.7122.ph.i.us.i.i.i, %686
-  br i1 %.not161.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %570, !llvm.loop !16
+  br i1 %.not161.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %570, !llvm.loop !17
 
 687:                                              ; preds = %523
   br i1 %.not166.i.us.i.i.i, label %.preheader.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i
@@ -1739,7 +1739,7 @@ stbi__extend_receive.exit.i.us.i.i.i:             ; preds = %780, %777
   %.1116.ph.i.us.i.i.i = phi i32 [ %801, %800 ], [ %771, %stbi__extend_receive.exit.i.us.i.i.i ], [ %713, %707 ]
   %803 = load i32, ptr %29, align 8
   %.not169.i.us.i.i.i = icmp sgt i32 %.1116.ph.i.us.i.i.i, %803
-  br i1 %.not169.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %692, !llvm.loop !17
+  br i1 %.not169.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %692, !llvm.loop !18
 
 804:                                              ; preds = %798
   %805 = shl nuw nsw i32 1, %767
@@ -1836,12 +1836,12 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
 842:                                              ; preds = %840, %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i
   %843 = add nuw nsw i32 %.0216287.us.i.i.i, 1
   %exitcond.not.i53.i.i = icmp eq i32 %843, %502
-  br i1 %exitcond.not.i53.i.i, label %._crit_edge289.us.i.i.i, label %513, !llvm.loop !18
+  br i1 %exitcond.not.i53.i.i, label %._crit_edge289.us.i.i.i, label %513, !llvm.loop !19
 
 ._crit_edge289.us.i.i.i:                          ; preds = %842
   %844 = add nuw nsw i32 %.0215290.us.i.i.i, 1
   %exitcond337.not.i.i.i = icmp eq i32 %844, %506
-  br i1 %exitcond337.not.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i, label %.preheader262.us.i.i.i, !llvm.loop !19
+  br i1 %exitcond337.not.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i, label %.preheader262.us.i.i.i, !llvm.loop !20
 
 .split296.us.i.i.i:                               ; preds = %746
   %845 = add nsw i32 %749, -16
@@ -1900,7 +1900,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
   %871 = add nuw nsw i32 %.0206278.i.i.i, 1
   %872 = load i32, ptr %861, align 4
   %873 = icmp slt i32 %871, %872
-  br i1 %873, label %.lr.ph.i51.i.i, label %._crit_edge.loopexit.i52.i.i, !llvm.loop !20
+  br i1 %873, label %.lr.ph.i51.i.i, label %._crit_edge.loopexit.i52.i.i, !llvm.loop !21
 
 .lr.ph.i51.i.i:                                   ; preds = %.preheader264.i.i.i, %870
   %874 = phi i32 [ %872, %870 ], [ %868, %.preheader264.i.i.i ]
@@ -1933,7 +1933,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
   %892 = phi i32 [ %872, %._crit_edge.loopexit.i52.i.i ], [ %868, %.preheader264.i.i.i ]
   %893 = add nuw nsw i32 %.0205280.i.i.i, 1
   %.not227.i.i.i = icmp slt i32 %893, %891
-  br i1 %.not227.i.i.i, label %.preheader264.i.i.i, label %.critedge234.loopexit.i.i.i, !llvm.loop !21
+  br i1 %.not227.i.i.i, label %.preheader264.i.i.i, label %.critedge234.loopexit.i.i.i, !llvm.loop !22
 
 .critedge234.loopexit.i.i.i:                      ; preds = %._crit_edge.i50.i.i
   %.pre346.i.i.i = load i32, ptr %26, align 4
@@ -1944,7 +1944,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
   %indvars.iv.next.i49.i.i = add nuw nsw i64 %indvars.iv.i48.i.i, 1
   %895 = sext i32 %894 to i64
   %896 = icmp slt i64 %indvars.iv.next.i49.i.i, %895
-  br i1 %896, label %.lr.ph282.i.i.i, label %._crit_edge283.loopexit.i.i.i, !llvm.loop !22
+  br i1 %896, label %.lr.ph282.i.i.i, label %._crit_edge283.loopexit.i.i.i, !llvm.loop !23
 
 ._crit_edge283.loopexit.i.i.i:                    ; preds = %.critedge234.i.i.i
   %.pre347.i.i.i = load i32, ptr %41, align 4
@@ -1993,7 +1993,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
   %911 = add nuw nsw i32 %.0209284.i.i.i, 1
   %912 = load i32, ptr %44, align 8
   %913 = icmp slt i32 %911, %912
-  br i1 %913, label %.preheader266.i.i.i, label %._crit_edge285.loopexit.i.i.i, !llvm.loop !23
+  br i1 %913, label %.preheader266.i.i.i, label %._crit_edge285.loopexit.i.i.i, !llvm.loop !24
 
 ._crit_edge285.loopexit.i.i.i:                    ; preds = %909
   %.pre348.i.i.i = load i32, ptr %43, align 4
@@ -2005,7 +2005,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_
   %916 = phi i32 [ %912, %._crit_edge285.loopexit.i.i.i ], [ %849, %.preheader267.i.i.i ]
   %917 = add nuw nsw i32 %.0208286.i.i.i, 1
   %918 = icmp slt i32 %917, %914
-  br i1 %918, label %.preheader267.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i, !llvm.loop !24
+  br i1 %918, label %.preheader267.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i, !llvm.loop !25
 
 stbi__parse_entropy_coded_data.exit.i.i:          ; preds = %.critedge.i.i.i, %.loopexit.i.i.i
   %.4.i.i.i = phi i32 [ %.3.i.i.i, %.loopexit.i.i.i ], [ %.12.i.i.i, %.critedge.i.i.i ]
@@ -2222,7 +2222,7 @@ stbi__get8.exit25.i.i.i:                          ; preds = %stbi__refill_buffer
   %.0.i24.i.i.i = phi i8 [ %1004, %1002 ], [ %1033, %stbi__refill_buffer.exit.i22.i.i.i ], [ 0, %1005 ]
   %1035 = add i8 %.0.i24.i.i.i, -1
   %or.cond.i62.i.i = icmp ult i8 %1035, -2
-  br i1 %or.cond.i62.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i, label %stbi__get8.exit.i60.i.i, !llvm.loop !25
+  br i1 %or.cond.i62.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i, label %stbi__get8.exit.i60.i.i, !llvm.loop !26
 
 stbi__skip_jpeg_junk_at_end.exit.i.i:             ; preds = %stbi__at_eof.exit.i.i.i, %930, %stbi__get8.exit25.i.i.i, %stbi__at_eof.exit19.i.i.i, %988
   %.2.i.i.i = phi i8 [ %.0.i24.i.i.i, %stbi__get8.exit25.i.i.i ], [ -1, %stbi__at_eof.exit19.i.i.i ], [ -1, %988 ], [ -1, %930 ], [ -1, %stbi__at_eof.exit.i.i.i ]
@@ -2262,7 +2262,7 @@ stbi__skip_jpeg_junk_at_end.exit.i.i:             ; preds = %stbi__at_eof.exit.i
 
 .backedge:                                        ; preds = %.sink.split.i.i, %1036
   %.135.in.i.i.be = phi i8 [ %1037, %1036 ], [ %1050, %.sink.split.i.i ]
-  br label %49, !llvm.loop !26
+  br label %49, !llvm.loop !27
 
 1051:                                             ; preds = %49
   %1052 = load i32, ptr %32, align 8
@@ -2334,7 +2334,7 @@ stbi__skip_jpeg_junk_at_end.exit.i.i:             ; preds = %stbi__at_eof.exit.i
   store i16 %1091, ptr %1089, align 2
   %indvars.iv.next.i.us.i72.i.i = add nuw nsw i64 %indvars.iv.i.us.i71.i.i, 1
   %exitcond.not.i.us.i.i.i = icmp eq i64 %indvars.iv.next.i.us.i72.i.i, 64
-  br i1 %exitcond.not.i.us.i.i.i, label %stbi__jpeg_dequantize.exit.us.i.i.i, label %1086, !llvm.loop !27
+  br i1 %exitcond.not.i.us.i.i.i, label %stbi__jpeg_dequantize.exit.us.i.i.i, label %1086, !llvm.loop !28
 
 stbi__jpeg_dequantize.exit.us.i.i.i:              ; preds = %1086
   %1092 = load ptr, ptr %15, align 8
@@ -2348,12 +2348,12 @@ stbi__jpeg_dequantize.exit.us.i.i.i:              ; preds = %1086
   call void %1092(ptr noundef %1099, i32 noundef %1094, ptr noundef nonnull %1082) #11
   %indvars.iv.next.i73.i.i = add nuw nsw i64 %indvars.iv.i70.i.i, 1
   %exitcond.not.i74.i.i = icmp eq i64 %indvars.iv.next.i73.i.i, %wide.trip.count.i68.i.i
-  br i1 %exitcond.not.i74.i.i, label %._crit_edge.us.i.i.i, label %1074, !llvm.loop !28
+  br i1 %exitcond.not.i74.i.i, label %._crit_edge.us.i.i.i, label %1074, !llvm.loop !29
 
 ._crit_edge.us.i.i.i:                             ; preds = %stbi__jpeg_dequantize.exit.us.i.i.i
   %1100 = add nuw nsw i32 %.03337.us.i.i.i, 1
   %exitcond42.not.i.i.i = icmp eq i32 %1100, %1065
-  br i1 %exitcond42.not.i.i.i, label %._crit_edge38.loopexit.i.i.i, label %.preheader.us.i69.i.i, !llvm.loop !29
+  br i1 %exitcond42.not.i.i.i, label %._crit_edge38.loopexit.i.i.i, label %.preheader.us.i69.i.i, !llvm.loop !30
 
 ._crit_edge38.loopexit.i.i.i:                     ; preds = %._crit_edge.us.i.i.i
   %.pre.i75.i.i = load ptr, ptr %10, align 8
@@ -2366,7 +2366,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i:              ; preds = %1086
   %1103 = load i32, ptr %1102, align 8
   %1104 = sext i32 %1103 to i64
   %1105 = icmp slt i64 %indvars.iv.next44.i.i.i, %1104
-  br i1 %1105, label %.lr.ph.i65.i.i, label %stbi__decode_jpeg_image.exit.i, !llvm.loop !30
+  br i1 %1105, label %.lr.ph.i65.i.i, label %stbi__decode_jpeg_image.exit.i, !llvm.loop !31
 
 stbi__jpeg_finish.exit.sink.split.i.i:            ; preds = %1044, %1039, %340, %339, %336, %332, %330, %99, %94, %stbi__get8.exit.i.i.i, %198, %192, %stbi__jpeg_huff_decode.exit178.i.us.i.i.i, %602, %600, %580, %752, %750, %730, %703, %.split.us.i.i.i, %.split296.us.i.i.i, %stbi__get8.exit.thread.i.i.i
   %.str.6.sink.i.i = phi ptr [ @.str.6, %stbi__get8.exit.thread.i.i.i ], [ @.str.6, %.split296.us.i.i.i ], [ @.str.6, %.split.us.i.i.i ], [ @.str.11, %703 ], [ @.str.6, %752 ], [ @.str.6, %750 ], [ @.str.6, %730 ], [ @.str.6, %580 ], [ @.str.6, %600 ], [ @.str.6, %602 ], [ @.str.6, %stbi__jpeg_huff_decode.exit178.i.us.i.i.i ], [ @.str.6, %192 ], [ @.str.6, %198 ], [ @.str.6, %stbi__get8.exit.i.i.i ], [ @.str.6, %94 ], [ @.str.6, %99 ], [ @.str.6, %330 ], [ @.str.6, %332 ], [ @.str.6, %336 ], [ @.str.6, %339 ], [ @.str.6, %340 ], [ @.str.6, %1039 ], [ @.str.6, %1044 ]
@@ -2425,7 +2425,7 @@ stbi__jpeg_finish.exit.sink.split.i.i:            ; preds = %1044, %1039, %340, 
 1126:                                             ; preds = %1125, %1122
   %indvars.iv.next.i.i306.i = add nuw nsw i64 %indvars.iv.i.i304.i, 1
   %exitcond.not.i.i307.i = icmp eq i64 %indvars.iv.next.i.i306.i, %wide.trip.count.i.i303.i
-  br i1 %exitcond.not.i.i307.i, label %load_jpeg_image.exit, label %1111, !llvm.loop !31
+  br i1 %exitcond.not.i.i307.i, label %load_jpeg_image.exit, label %1111, !llvm.loop !32
 
 stbi__decode_jpeg_image.exit.loopexit468.i:       ; preds = %1048
   %.pre.i = load ptr, ptr %10, align 8
@@ -2534,7 +2534,7 @@ stbi__decode_jpeg_image.exit.i:                   ; preds = %._crit_edge38.i.i.i
 1170:                                             ; preds = %1169, %1166
   %indvars.iv.next.i.i323.i = add nuw nsw i64 %indvars.iv.i.i319.i, 1
   %exitcond.not.i.i324.i = icmp eq i64 %indvars.iv.next.i.i323.i, %wide.trip.count.i.i318.i
-  br i1 %exitcond.not.i.i324.i, label %stbi__cleanup_jpeg.exit325.i, label %1155, !llvm.loop !31
+  br i1 %exitcond.not.i.i324.i, label %stbi__cleanup_jpeg.exit325.i, label %1155, !llvm.loop !32
 
 stbi__cleanup_jpeg.exit325.i:                     ; preds = %1170
   %1171 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #11
@@ -2588,7 +2588,7 @@ stbi__cleanup_jpeg.exit325.i:                     ; preds = %1170
 1188:                                             ; preds = %1187, %1184
   %indvars.iv.next.i.i332.i = add nuw nsw i64 %indvars.iv.i.i328.i, 1
   %exitcond.not.i.i333.i = icmp eq i64 %indvars.iv.next.i.i332.i, %wide.trip.count.i.i327.i
-  br i1 %exitcond.not.i.i333.i, label %stbi__cleanup_jpeg.exit334.i, label %1173, !llvm.loop !31
+  br i1 %exitcond.not.i.i333.i, label %stbi__cleanup_jpeg.exit334.i, label %1173, !llvm.loop !32
 
 stbi__cleanup_jpeg.exit334.i:                     ; preds = %1188
   %1189 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #11
@@ -2642,7 +2642,7 @@ stbi__cleanup_jpeg.exit334.i:                     ; preds = %1188
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 4
   %1219 = load i32, ptr %1218, align 4
   %1220 = icmp ult i32 %1216, %1219
-  br i1 %1220, label %1203, label %.loopexit64.i.i, !llvm.loop !32
+  br i1 %1220, label %1203, label %.loopexit64.i.i, !llvm.loop !33
 
 .loopexit64.i.i:                                  ; preds = %1203, %1196, %.preheader63.i.i
   %1221 = phi i32 [ 0, %.preheader63.i.i ], [ %.pre511.i, %1196 ], [ %1219, %1203 ]
@@ -2742,7 +2742,7 @@ stbi__cleanup_jpeg.exit334.i:                     ; preds = %1188
   %1286 = add i32 %1285, 1
   %1287 = lshr i32 %1286, 1
   %1288 = icmp samesign ult i32 %1283, %1287
-  br i1 %1288, label %.lr.ph72.i.i, label %._crit_edge.i.i, !llvm.loop !33
+  br i1 %1288, label %.lr.ph72.i.i, label %._crit_edge.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph72.i.i, %1256
   %1289 = phi i32 [ %1257, %1256 ], [ %1285, %.lr.ph72.i.i ]
@@ -2753,7 +2753,7 @@ stbi__cleanup_jpeg.exit334.i:                     ; preds = %1188
   %1294 = add i32 %1293, 1
   %1295 = lshr i32 %1294, 1
   %1296 = icmp samesign ult i32 %1291, %1295
-  br i1 %1296, label %1256, label %output_jpeg_nv12.exit.i, !llvm.loop !34
+  br i1 %1296, label %1256, label %output_jpeg_nv12.exit.i, !llvm.loop !35
 
 1297:                                             ; preds = %1297, %.lr.ph67.i.i
   %1298 = phi ptr [ %1222, %.lr.ph67.i.i ], [ %1309, %1297 ]
@@ -2775,7 +2775,7 @@ stbi__cleanup_jpeg.exit334.i:                     ; preds = %1188
   %1312 = add i32 %1311, 1
   %1313 = lshr i32 %1312, 1
   %1314 = icmp samesign ult i32 %1308, %1313
-  br i1 %1314, label %1297, label %output_jpeg_nv12.exit.i, !llvm.loop !35
+  br i1 %1314, label %1297, label %output_jpeg_nv12.exit.i, !llvm.loop !36
 
 output_jpeg_nv12.exit.i:                          ; preds = %1297, %._crit_edge.i.i, %1228, %.preheader.i.i
   %1315 = phi ptr [ %1222, %.preheader.i.i ], [ %1222, %1228 ], [ %1290, %._crit_edge.i.i ], [ %1309, %1297 ]
@@ -2852,7 +2852,7 @@ output_jpeg_nv12.exit.i:                          ; preds = %1297, %._crit_edge.
 1347:                                             ; preds = %1346, %1343
   %indvars.iv.next.i.i342.i = add nuw nsw i64 %indvars.iv.i.i338.i, 1
   %exitcond.not.i.i343.i = icmp eq i64 %indvars.iv.next.i.i342.i, %wide.trip.count.i.i337.i
-  br i1 %exitcond.not.i.i343.i, label %1376, label %1332, !llvm.loop !31
+  br i1 %exitcond.not.i.i343.i, label %1376, label %1332, !llvm.loop !32
 
 1348:                                             ; preds = %1318
   %1349 = load i32, ptr %1145, align 8
@@ -2919,7 +2919,7 @@ output_jpeg_nv12.exit.i:                          ; preds = %1297, %._crit_edge.
   store ptr %stbi__resample_row_v_2.sink.i, ptr %1320, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %1318, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %1318, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.thread372.i
   %1378 = getelementptr inbounds nuw i8, ptr %1361, i64 4
@@ -3015,7 +3015,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
 1413:                                             ; preds = %1412, %1409
   %indvars.iv.next.i.i353.i = add nuw nsw i64 %indvars.iv.i.i349.i, 1
   %exitcond.not.i.i354.i = icmp eq i64 %indvars.iv.next.i.i353.i, %wide.trip.count.i.i348.i
-  br i1 %exitcond.not.i.i354.i, label %stbi__cleanup_jpeg.exit355.i, label %1398, !llvm.loop !31
+  br i1 %exitcond.not.i.i354.i, label %stbi__cleanup_jpeg.exit355.i, label %1398, !llvm.loop !32
 
 stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc_mad3.exit.thread.i
   %1414 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #11
@@ -3082,7 +3082,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
 1451:                                             ; preds = %1446, %1438, %.lr.ph428.i
   %indvars.iv.next494.i = add nuw nsw i64 %indvars.iv493.i, 1
   %exitcond497.not.i = icmp eq i64 %indvars.iv.next494.i, %wide.trip.count.i
-  br i1 %exitcond497.not.i, label %._crit_edge429.i, label %.lr.ph428.i, !llvm.loop !37
+  br i1 %exitcond497.not.i, label %._crit_edge429.i, label %.lr.ph428.i, !llvm.loop !38
 
 ._crit_edge429.i:                                 ; preds = %1451
   %1452 = shl i32 %.0274443.i, 2
@@ -3137,7 +3137,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
   %1474 = load i32, ptr %.pre515.i, align 8
   %1475 = zext i32 %1474 to i64
   %1476 = icmp samesign ult i64 %indvars.iv.next505.i, %1475
-  br i1 %1476, label %1463, label %.loopexit.i, !llvm.loop !38
+  br i1 %1476, label %1463, label %.loopexit.i, !llvm.loop !39
 
 1477:                                             ; preds = %._crit_edge429.i
   %1478 = load i32, ptr %1390, align 4
@@ -3202,7 +3202,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
   %1518 = load i32, ptr %.pre515.i, align 8
   %1519 = zext i32 %1518 to i64
   %1520 = icmp samesign ult i64 %indvars.iv.next502.i, %1519
-  br i1 %1520, label %1483, label %.loopexit.i, !llvm.loop !39
+  br i1 %1520, label %1483, label %.loopexit.i, !llvm.loop !40
 
 1521:                                             ; preds = %1477
   %1522 = load ptr, ptr %16, align 8
@@ -3262,7 +3262,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
   %1563 = load i32, ptr %1526, align 8
   %1564 = zext i32 %1563 to i64
   %1565 = icmp samesign ult i64 %indvars.iv.next499.i, %1564
-  br i1 %1565, label %1529, label %.loopexit.i, !llvm.loop !40
+  br i1 %1565, label %1529, label %.loopexit.i, !llvm.loop !41
 
 .lr.ph442.i:                                      ; preds = %.preheader.i, %.lr.ph442.i
   %indvars.iv507.i = phi i64 [ %indvars.iv.next508.i, %.lr.ph442.i ], [ 0, %.preheader.i ]
@@ -3281,7 +3281,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
   %1572 = load i32, ptr %.pre515.i, align 8
   %1573 = zext i32 %1572 to i64
   %1574 = icmp samesign ult i64 %indvars.iv.next508.i, %1573
-  br i1 %1574, label %.lr.ph442.i, label %.loopexit.i, !llvm.loop !41
+  br i1 %1574, label %.lr.ph442.i, label %.loopexit.i, !llvm.loop !42
 
 .loopexit.sink.split.i:                           ; preds = %1477, %1459
   %1575 = load ptr, ptr %16, align 8
@@ -3298,7 +3298,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
   %1581 = getelementptr inbounds nuw i8, ptr %1579, i64 4
   %1582 = load i32, ptr %1581, align 4
   %1583 = icmp ult i32 %1580, %1582
-  br i1 %1583, label %.lr.ph428.preheader.i, label %.loopexit382.i, !llvm.loop !42
+  br i1 %1583, label %.lr.ph428.preheader.i, label %.loopexit382.i, !llvm.loop !43
 
 .loopexit382.i:                                   ; preds = %.loopexit.i, %.preheader381.i, %output_jpeg_nv12.exit.i
   %1584 = phi ptr [ %1315, %output_jpeg_nv12.exit.i ], [ %.pre517.i, %.preheader381.i ], [ %1579, %.loopexit.i ]
@@ -3353,7 +3353,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1413, %stbi__malloc
 1603:                                             ; preds = %1602, %1599
   %indvars.iv.next.i.i362.i = add nuw nsw i64 %indvars.iv.i.i358.i, 1
   %exitcond.not.i.i363.i = icmp eq i64 %indvars.iv.next.i.i362.i, %wide.trip.count.i.i357.i
-  br i1 %exitcond.not.i.i363.i, label %stbi__cleanup_jpeg.exit364.loopexit.i, label %1588, !llvm.loop !31
+  br i1 %exitcond.not.i.i363.i, label %stbi__cleanup_jpeg.exit364.loopexit.i, label %1588, !llvm.loop !32
 
 stbi__cleanup_jpeg.exit364.loopexit.i:            ; preds = %1603
   %.pre516.i = load ptr, ptr %10, align 8
@@ -3754,7 +3754,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %52 = or disjoint i64 %indvars.iv.next, 7
   %53 = icmp samesign ult i64 %52, %9
-  br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !43
+  br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !44
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3819,7 +3819,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(non
   %96 = getelementptr inbounds i8, ptr %.2106, i64 %56
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %58, %.loopexit
   ret void
@@ -3915,7 +3915,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %72, %75
   %77 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
+  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %78 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3981,7 +3981,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   store i8 %111, ptr %105, align 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !47
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %._crit_edge
   %.191.lcssa = phi i32 [ %.pre-phi116, %._crit_edge ], [ %98, %.lr.ph98 ]
@@ -4042,7 +4042,7 @@ define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeon
   store i8 %17, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret ptr %0
@@ -4107,7 +4107,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %41, ptr %42, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %43 = shl nuw nsw i32 %21, 1
@@ -4167,12 +4167,12 @@ define internal noundef ptr @stbi__resample_row_generic(ptr noundef returned wri
   store i8 %.pre, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %11
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !50
+  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !51
 
 ._crit_edge16:                                    ; preds = %._crit_edge.us, %5
   ret ptr %0
@@ -4261,7 +4261,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr noundef
   %or.cond = icmp ne i32 %15, 192
   %16 = icmp ne i8 %.1.in.lcssa, -62
   %spec.select = and i1 %16, %or.cond
-  br i1 %spec.select, label %.lr.ph40, label %._crit_edge, !llvm.loop !51
+  br i1 %spec.select, label %.lr.ph40, label %._crit_edge, !llvm.loop !52
 
 .lr.ph40:                                         ; preds = %11, %.loopexit
   %.039 = phi i32 [ %.0, %.loopexit ], [ %.036, %11 ]
@@ -4311,7 +4311,7 @@ stbi__at_eof.exit.thread28:                       ; preds = %30, %stbi__at_eof.e
 stbi__at_eof.exit.thread:                         ; preds = %24, %stbi__at_eof.exit
   %39 = tail call fastcc zeroext i8 @stbi__get_marker(ptr noundef %0)
   %40 = icmp eq i8 %39, -1
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !52
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   %.0.in.lcssa = phi i8 [ %12, %11 ], [ %.1.in.lcssa, %.loopexit ]
@@ -4474,7 +4474,7 @@ stbi__refill_buffer.exit.i13:                     ; preds = %79, %77
 stbi__get8.exit16:                                ; preds = %51, %stbi__refill_buffer.exit.i13
   %.0.i15 = phi i8 [ %53, %51 ], [ %82, %stbi__refill_buffer.exit.i13 ]
   %84 = icmp eq i8 %.0.i15, -1
-  br i1 %84, label %.preheader, label %stbi__get8.exit.thread, !llvm.loop !53
+  br i1 %84, label %.preheader, label %stbi__get8.exit.thread, !llvm.loop !54
 
 stbi__get8.exit.thread:                           ; preds = %54, %stbi__get8.exit16, %15, %stbi__get8.exit, %4
   %.09 = phi i8 [ %3, %4 ], [ -1, %stbi__get8.exit ], [ -1, %15 ], [ 0, %54 ], [ %.0.i15, %stbi__get8.exit16 ]
@@ -4762,7 +4762,7 @@ stbi__get8.exit.thread:                           ; preds = %stbi__get8.exit
   store i16 %72, ptr %76, align 2
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next228, 64
-  br i1 %exitcond230.not, label %.split.us, label %.preheader190.split.us, !llvm.loop !54
+  br i1 %exitcond230.not, label %.split.us, label %.preheader190.split.us, !llvm.loop !55
 
 77:                                               ; preds = %stbi__get8.exit.thread
   %78 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #11
@@ -4843,13 +4843,13 @@ stbi__get8.exit146:                               ; preds = %85, %88, %stbi__ref
   store i16 %118, ptr %122, align 2
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next224, 64
-  br i1 %exitcond226.not, label %.split.us, label %.preheader190.split, !llvm.loop !54
+  br i1 %exitcond226.not, label %.split.us, label %.preheader190.split, !llvm.loop !56
 
 .split.us:                                        ; preds = %stbi__get8.exit146, %.preheader190.split.us
   %.neg = phi i32 [ -129, %.preheader190.split.us ], [ -65, %stbi__get8.exit146 ]
   %123 = add nsw i32 %.neg, %.0114205
   %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %21, label %._crit_edge208, !llvm.loop !55
+  br i1 %124, label %21, label %._crit_edge208, !llvm.loop !57
 
 ._crit_edge208:                                   ; preds = %.split.us, %15
   %.0114.lcssa = phi i32 [ %18, %15 ], [ %123, %.split.us ]
@@ -5017,7 +5017,7 @@ stbi__get8.exit158:                               ; preds = %183, %186, %stbi__r
   %218 = add nuw nsw i32 %.0121198, %216
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %219, label %.preheader191, !llvm.loop !56
+  br i1 %exitcond.not, label %219, label %.preheader191, !llvm.loop !58
 
 219:                                              ; preds = %stbi__get8.exit158
   %220 = icmp samesign ugt i32 %218, 256
@@ -5125,7 +5125,7 @@ stbi__get8.exit164:                               ; preds = %241, %244, %stbi__r
   store i8 %.0.i163, ptr %274, align 1
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count
-  br i1 %exitcond222.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond222.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %stbi__get8.exit164, %231
   br i1 %223, label %.loopexit, label %275
@@ -5191,7 +5191,7 @@ stbi__get8.exit164:                               ; preds = %241, %244, %stbi__r
 314:                                              ; preds = %309, %298, %295, %285, %281
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %.loopexit, label %281, !llvm.loop !58
+  br i1 %exitcond.not.i, label %.loopexit, label %281, !llvm.loop !60
 
 .thread186.sink.split:                            ; preds = %219, %stbi__get8.exit152
   %315 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #11
@@ -5205,7 +5205,7 @@ stbi__get8.exit164:                               ; preds = %241, %244, %stbi__r
   %316 = sub i32 %222, %218
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %134, label %._crit_edge203, !llvm.loop !59
+  br i1 %317, label %134, label %._crit_edge203, !llvm.loop !61
 
 ._crit_edge203:                                   ; preds = %.loopexit, %126
   %.2116.lcssa = phi i32 [ %129, %126 ], [ %316, %.loopexit ]
@@ -5309,7 +5309,7 @@ stbi__get8.exit171:                               ; preds = %337, %340, %stbi__r
   %spec.select = select i1 %.not139, i32 %.0110212, i32 0
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next236, 5
-  br i1 %exitcond238.not, label %372, label %.preheader, !llvm.loop !60
+  br i1 %exitcond238.not, label %372, label %.preheader, !llvm.loop !62
 
 372:                                              ; preds = %stbi__get8.exit171
   %373 = add nsw i32 %324, -7
@@ -5402,7 +5402,7 @@ stbi__get8.exit177:                               ; preds = %386, %389, %stbi__r
   %spec.select140 = select i1 %.not137, i32 %.0108210, i32 0
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next232, 6
-  br i1 %exitcond234.not, label %421, label %.preheader189, !llvm.loop !61
+  br i1 %exitcond234.not, label %421, label %.preheader189, !llvm.loop !63
 
 421:                                              ; preds = %stbi__get8.exit177
   %422 = add nsw i32 %324, -8
@@ -5684,7 +5684,7 @@ stbi__get8.exit202.thread:                        ; preds = %70, %stbi__get8.exi
   store ptr null, ptr %107, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %104
   %.pre = load i32, ptr %102, align 8
@@ -5947,7 +5947,7 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   %239 = load i32, ptr %102, align 8
   %240 = sext i32 %239 to i64
   %241 = icmp slt i64 %indvars.iv.next268, %240
-  br i1 %241, label %125, label %._crit_edge244, !llvm.loop !63
+  br i1 %241, label %125, label %._crit_edge244, !llvm.loop !65
 
 ._crit_edge244:                                   ; preds = %238, %112
   %.lcssa = phi i32 [ %114, %112 ], [ %239, %238 ]
@@ -5988,12 +5988,12 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   %.1 = tail call i32 @llvm.smax.i32(i32 %255, i32 %.0175247)
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count273
-  br i1 %exitcond274.not, label %.lr.ph252, label %250, !llvm.loop !64
+  br i1 %exitcond274.not, label %.lr.ph252, label %250, !llvm.loop !66
 
 256:                                              ; preds = %264
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
-  br i1 %exitcond279.not, label %._crit_edge253, label %257, !llvm.loop !65
+  br i1 %exitcond279.not, label %._crit_edge253, label %257, !llvm.loop !67
 
 257:                                              ; preds = %.lr.ph252, %256
   %indvars.iv275 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next276, %256 ]
@@ -6145,7 +6145,7 @@ stbi__get8.exit220:                               ; preds = %208, %stbi__refill_
   %351 = load i32, ptr %102, align 8
   %352 = sext i32 %351 to i64
   %353 = icmp slt i64 %indvars.iv.next281, %352
-  br i1 %353, label %292, label %.loopexit, !llvm.loop !66
+  br i1 %353, label %292, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %350, %._crit_edge253, %341, %321, %268, %262, %247, %236, %202, %.loopexit229, %110, %stbi__get8.exit202.thread, %61, %56, %51, %stbi__get8.exit.thread, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %stbi__get8.exit.thread ], [ 0, %51 ], [ 0, %56 ], [ 0, %61 ], [ 0, %stbi__get8.exit202.thread ], [ 0, %110 ], [ 0, %.loopexit229 ], [ 0, %202 ], [ 0, %236 ], [ 0, %262 ], [ 0, %268 ], [ 0, %321 ], [ 0, %341 ], [ 0, %247 ], [ 1, %._crit_edge253 ], [ 1, %350 ]
@@ -6344,7 +6344,7 @@ define internal fastcc void @stbi__free_jpeg_components(ptr noundef nonnull capt
 20:                                               ; preds = %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %20, %2
   ret void
@@ -6739,7 +6739,7 @@ stbi__extend_receive.exit95:                      ; preds = %198, %201
 221:                                              ; preds = %124, %stbi__extend_receive.exit95, %187
   %.167.ph = phi i32 [ %188, %187 ], [ %192, %stbi__extend_receive.exit95 ], [ %130, %124 ]
   %222 = icmp slt i32 %.167.ph, 64
-  br i1 %222, label %109, label %.thread118, !llvm.loop !67
+  br i1 %222, label %109, label %.thread118, !llvm.loop !69
 
 .thread118.sink.split.sink.split:                 ; preds = %164, %40
   %.lcssa.sink = phi i32 [ %43, %40 ], [ %167, %164 ]
@@ -6947,7 +6947,7 @@ stbi__get8.exit23:                                ; preds = %stbi__get8.exit23.b
 
 stbi__get8.exit23.backedge:                       ; preds = %102, %105, %stbi__refill_buffer.exit.i26
   %.016.in.be = phi i8 [ %104, %102 ], [ %133, %stbi__refill_buffer.exit.i26 ], [ 0, %105 ]
-  br label %stbi__get8.exit23, !llvm.loop !68
+  br label %stbi__get8.exit23, !llvm.loop !70
 
 105:                                              ; preds = %95
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 48
@@ -7016,7 +7016,7 @@ stbi__refill_buffer.exit.i26:                     ; preds = %130, %128
   %143 = add nsw i32 %138, 8
   store i32 %143, ptr %3, align 4
   %144 = icmp slt i32 %138, 17
-  br i1 %144, label %.splitthread-pre-split, label %.loopexit, !llvm.loop !69
+  br i1 %144, label %.splitthread-pre-split, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.thread, %.split.us, %135
   ret void
@@ -7323,7 +7323,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %14 = add nuw nsw i32 %.05572, 1
   %15 = load i32, ptr %4, align 4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %11, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %16, label %11, label %._crit_edge.loopexit, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %13
   %17 = trunc nsw i64 %indvars.iv.next to i32
@@ -7333,7 +7333,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %.161.lcssa = phi i32 [ %.06073, %.preheader66 ], [ %17, %._crit_edge.loopexit ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 16
-  br i1 %exitcond95.not, label %18, label %.preheader66, !llvm.loop !71
+  br i1 %exitcond95.not, label %18, label %.preheader66, !llvm.loop !73
 
 18:                                               ; preds = %._crit_edge
   %19 = sext i32 %.161.lcssa to i64
@@ -7370,7 +7370,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = icmp eq i64 %indvars.iv99, %37
-  br i1 %38, label %.lr.ph77, label %._crit_edge78, !llvm.loop !72
+  br i1 %38, label %.lr.ph77, label %._crit_edge78, !llvm.loop !74
 
 ._crit_edge78:                                    ; preds = %.lr.ph77
   %39 = trunc nsw i64 %indvars.iv.next97 to i32
@@ -7390,7 +7390,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %46 = shl i32 %.158, 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 17
-  br i1 %exitcond102.not, label %47, label %24, !llvm.loop !73
+  br i1 %exitcond102.not, label %47, label %24, !llvm.loop !75
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1608
@@ -7430,12 +7430,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %65 = trunc nuw nsw i64 %indvars.iv.next104 to i32
   %.2.highbits = lshr i32 %65, %58
   %66 = icmp eq i32 %.2.highbits, 0
-  br i1 %66, label %62, label %.loopexit, !llvm.loop !74
+  br i1 %66, label %62, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %62, %50
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond110.not, label %.loopexit65, label %50, !llvm.loop !75
+  br i1 %exitcond110.not, label %.loopexit65, label %50, !llvm.loop !77
 
 .loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
   %67 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #11
@@ -7481,29 +7481,29 @@ attributes #11 = { nounwind }
 !5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = distinct !{!12, !4}
+!8 = distinct !{!8, !4, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !11}
-!15 = distinct !{!15, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4, !12}
 !16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !11}
-!22 = distinct !{!22, !4}
+!20 = distinct !{!20, !4, !9}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4, !12}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4, !11}
-!25 = distinct !{!25, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4, !12}
 !26 = distinct !{!26, !4}
 !27 = distinct !{!27, !4}
 !28 = distinct !{!28, !4}
 !29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
+!30 = distinct !{!30, !4, !9}
 !31 = distinct !{!31, !4}
 !32 = distinct !{!32, !4}
 !33 = distinct !{!33, !4}
@@ -7524,11 +7524,11 @@ attributes #11 = { nounwind }
 !48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
 !50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4}
+!51 = distinct !{!51, !4, !9}
 !52 = distinct !{!52, !4}
 !53 = distinct !{!53, !4}
 !54 = distinct !{!54, !4}
-!55 = distinct !{!55, !4}
+!55 = distinct !{!55, !4, !9}
 !56 = distinct !{!56, !4}
 !57 = distinct !{!57, !4}
 !58 = distinct !{!58, !4}
@@ -7542,10 +7542,12 @@ attributes #11 = { nounwind }
 !66 = distinct !{!66, !4}
 !67 = distinct !{!67, !4}
 !68 = distinct !{!68, !4}
-!69 = distinct !{!69, !4, !11}
+!69 = distinct !{!69, !4}
 !70 = distinct !{!70, !4}
-!71 = distinct !{!71, !4}
+!71 = distinct !{!71, !4, !12}
 !72 = distinct !{!72, !4}
 !73 = distinct !{!73, !4}
 !74 = distinct !{!74, !4}
 !75 = distinct !{!75, !4}
+!76 = distinct !{!76, !4}
+!77 = distinct !{!77, !4}

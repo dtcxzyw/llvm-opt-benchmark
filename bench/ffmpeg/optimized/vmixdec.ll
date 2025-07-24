@@ -1053,7 +1053,7 @@ bits_align_be.exit.i:                             ; preds = %391, %._crit_edge.i
   %.sroa.0.17.i = phi i64 [ %.sroa.0.15.i, %bits_align_be.exit.i ], [ 0, %._crit_edge.i.i41.i ], [ %402, %400 ], [ %398, %.sink.split.i.i36.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.thread135.i, label %43, !llvm.loop !66
+  br i1 %exitcond.i, label %.thread135.i, label %43, !llvm.loop !67
 
 .thread135.i:                                     ; preds = %404
   %405 = ptrtoint ptr %.sroa.36.17.i to i64
@@ -1170,5 +1170,6 @@ attributes #6 = { nounwind }
 !62 = distinct !{!62, !46}
 !63 = !{!36, !7, i64 248}
 !64 = distinct !{!64, !46}
-!65 = distinct !{!65, !46}
-!66 = distinct !{!66, !46}
+!65 = distinct !{!65, !46, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !46}

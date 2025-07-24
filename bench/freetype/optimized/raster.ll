@@ -934,12 +934,12 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %152 = sdiv i64 %151, 2
   %153 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.098.1.us.i.i, i64 noundef %.sroa.11.1.us.i.i, i64 noundef %150, i64 noundef %152)
   %.not201.us.i.i = icmp eq i8 %153, 0
-  br i1 %.not201.us.i.i, label %.split.us.i.i, label %.loopexit
+  br i1 %.not201.us.i.i, label %.split.us.i.i, label %.loopexit, !llvm.loop !113
 
 154:                                              ; preds = %132
   %155 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.098.1.us.i.i, i64 noundef %.sroa.11.1.us.i.i, i64 noundef %143, i64 noundef %147)
   %.not202.us.i.i = icmp eq i8 %155, 0
-  br i1 %.not202.us.i.i, label %.backedge.i.i, label %.loopexit, !llvm.loop !113
+  br i1 %.not202.us.i.i, label %.backedge.i.i, label %.loopexit, !llvm.loop !115
 
 .split.i.i:                                       ; preds = %119, %175
   %.2191.i.i = phi ptr [ %159, %175 ], [ %102, %119 ]
@@ -973,7 +973,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
 173:                                              ; preds = %157
   %174 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.098.1.i.i, i64 noundef %.sroa.11.1.i.i, i64 noundef %172, i64 noundef %168)
   %.not202.i.i = icmp eq i8 %174, 0
-  br i1 %.not202.i.i, label %.backedge.i.i, label %.loopexit, !llvm.loop !113
+  br i1 %.not202.i.i, label %.backedge.i.i, label %.loopexit, !llvm.loop !115
 
 175:                                              ; preds = %157
   %176 = add nsw i64 %172, %.sroa.098.1.i.i
@@ -1091,10 +1091,10 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
 
 237:                                              ; preds = %235
   %238 = getelementptr inbounds nuw i8, ptr %225, i64 28
-  %239 = load i16, ptr %238, align 4, !tbaa !115
-  %240 = load ptr, ptr %13, align 8, !tbaa !117
+  %239 = load i16, ptr %238, align 4, !tbaa !117
+  %240 = load ptr, ptr %13, align 8, !tbaa !119
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 28
-  %242 = load i16, ptr %241, align 4, !tbaa !115
+  %242 = load i16, ptr %241, align 4, !tbaa !117
   %243 = xor i16 %242, %239
   %244 = and i16 %243, 8
   %245 = icmp eq i16 %244, 0
@@ -1112,13 +1112,13 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   br i1 %.not44.i, label %251, label %.loopexit
 
 251:                                              ; preds = %249
-  %252 = load ptr, ptr %12, align 8, !tbaa !118
+  %252 = load ptr, ptr %12, align 8, !tbaa !120
   %.not45.i = icmp eq ptr %252, null
   br i1 %.not45.i, label %253, label %255
 
 253:                                              ; preds = %251
   %254 = load ptr, ptr %22, align 8, !tbaa !106
-  store ptr %254, ptr %12, align 8, !tbaa !118
+  store ptr %254, ptr %12, align 8, !tbaa !120
   br label %255
 
 255:                                              ; preds = %253, %251, %224
@@ -1126,10 +1126,10 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %256 = load i16, ptr %20, align 8, !tbaa !104
   %257 = zext i16 %256 to i64
   %258 = icmp samesign ult i64 %indvars.iv.next.i, %257
-  br i1 %258, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !119
+  br i1 %258, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !121
 
 ._crit_edge.i:                                    ; preds = %255
-  %.pre.i = load ptr, ptr %12, align 8, !tbaa !118
+  %.pre.i = load ptr, ptr %12, align 8, !tbaa !120
   %.not.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i, label %Convert_Glyph.exit.thread45, label %259
 
@@ -1142,22 +1142,22 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
 .lr.ph.i47.i:                                     ; preds = %259, %269
   %261 = phi i16 [ %270, %269 ], [ %260, %259 ]
   %.092.i.i = phi ptr [ %262, %269 ], [ %.pre.i, %259 ]
-  %262 = load ptr, ptr %.092.i.i, align 8, !tbaa !120
+  %262 = load ptr, ptr %.092.i.i, align 8, !tbaa !122
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %264 = load ptr, ptr %263, align 8, !tbaa !121
+  %264 = load ptr, ptr %263, align 8, !tbaa !123
   %265 = getelementptr inbounds nuw i8, ptr %.092.i.i, i64 8
-  %266 = load ptr, ptr %265, align 8, !tbaa !121
+  %266 = load ptr, ptr %265, align 8, !tbaa !123
   %267 = icmp eq ptr %264, %266
   br i1 %267, label %268, label %269
 
 268:                                              ; preds = %.lr.ph.i47.i
-  store ptr %262, ptr %265, align 8, !tbaa !121
+  store ptr %262, ptr %265, align 8, !tbaa !123
   br label %269
 
 269:                                              ; preds = %268, %.lr.ph.i47.i
   %270 = add i16 %261, -1
   %.not.i48.i = icmp eq i16 %270, 0
-  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i, !llvm.loop !122
+  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i, !llvm.loop !124
 
 .loopexit:                                        ; preds = %249, %.split257.us.i.i, %221, %._crit_edge.i.i, %105, %154, %173, %212, %175, %148
   %.pr = load i32, ptr %11, align 8, !tbaa !99
@@ -1180,20 +1180,20 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
 
 Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %.sink = phi ptr [ %.pre.i, %259 ], [ %262, %269 ]
-  store ptr null, ptr %.sink, align 8, !tbaa !120
+  store ptr null, ptr %.sink, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.pre.i, ptr %4, align 8, !tbaa !123
+  store ptr %.pre.i, ptr %4, align 8, !tbaa !125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !123
+  store ptr null, ptr %5, align 8, !tbaa !125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !123
+  store ptr null, ptr %6, align 8, !tbaa !125
   %280 = load ptr, ptr %17, align 8, !tbaa !101
-  %281 = load i64, ptr %280, align 8, !tbaa !124
+  %281 = load i64, ptr %280, align 8, !tbaa !126
   %282 = trunc i64 %281 to i32
   %283 = load i32, ptr %18, align 4, !tbaa !102
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i64, ptr %280, i64 %284
-  %286 = load i64, ptr %285, align 8, !tbaa !124
+  %286 = load i64, ptr %285, align 8, !tbaa !126
   %287 = trunc i64 %286 to i32
   %288 = add nsw i32 %287, -1
   %289 = load ptr, ptr %31, align 8, !tbaa !91
@@ -1204,7 +1204,7 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 .preheader157.i:                                  ; preds = %Convert_Glyph.exit.thread146, %458
   %.0..0102160.pre183.i = phi ptr [ %.0..0102160.pre184.i, %458 ], [ null, %Convert_Glyph.exit.thread146 ]
   %.096176.i = phi i32 [ %456, %458 ], [ %282, %Convert_Glyph.exit.thread146 ]
-  %.0..0..0..0..i = load ptr, ptr %4, align 8, !tbaa !123
+  %.0..0..0..0..i = load ptr, ptr %4, align 8, !tbaa !125
   %.not158.i = icmp eq ptr %.0..0..0..0..i, null
   br i1 %.not158.i, label %._crit_edge.i36, label %.lr.ph.i34
 
@@ -1212,60 +1212,60 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %290 = phi ptr [ %310, %309 ], [ %.0..0..0..0..i, %.preheader157.i ]
   %.0106159.i = phi ptr [ %.1107.i, %309 ], [ %4, %.preheader157.i ]
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %292 = load i32, ptr %291, align 8, !tbaa !125
+  %292 = load i32, ptr %291, align 8, !tbaa !127
   %293 = icmp eq i32 %292, %.096176.i
   br i1 %293, label %294, label %309
 
 294:                                              ; preds = %.lr.ph.i34
-  %295 = load ptr, ptr %290, align 8, !tbaa !120
-  store ptr %295, ptr %.0106159.i, align 8, !tbaa !123
+  %295 = load ptr, ptr %290, align 8, !tbaa !122
+  store ptr %295, ptr %.0106159.i, align 8, !tbaa !125
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 28
-  %297 = load i16, ptr %296, align 4, !tbaa !115
+  %297 = load i16, ptr %296, align 4, !tbaa !117
   %298 = and i16 %297, 8
   %.not127.i = icmp eq i16 %298, 0
   %299 = getelementptr inbounds nuw i8, ptr %290, i64 32
-  %300 = load i64, ptr %299, align 8, !tbaa !126
+  %300 = load i64, ptr %299, align 8, !tbaa !128
   br i1 %.not127.i, label %.preheader, label %.preheader48
 
 .preheader48:                                     ; preds = %294, %301
   %.0.i.i = phi ptr [ %.011.i.i, %301 ], [ %5, %294 ]
-  %.011.i.i = load ptr, ptr %.0.i.i, align 8, !tbaa !123
+  %.011.i.i = load ptr, ptr %.0.i.i, align 8, !tbaa !125
   %.not.i.i40 = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i40, label %.sink.split.i, label %301
 
 301:                                              ; preds = %.preheader48
   %302 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 32
-  %303 = load i64, ptr %302, align 8, !tbaa !126
+  %303 = load i64, ptr %302, align 8, !tbaa !128
   %304 = icmp slt i64 %303, %300
-  br i1 %304, label %.preheader48, label %.sink.split.i, !llvm.loop !127
+  br i1 %304, label %.preheader48, label %.sink.split.i, !llvm.loop !129
 
 .preheader:                                       ; preds = %294, %305
   %.0.i129.i = phi ptr [ %.011.i130.i, %305 ], [ %6, %294 ]
-  %.011.i130.i = load ptr, ptr %.0.i129.i, align 8, !tbaa !123
+  %.011.i130.i = load ptr, ptr %.0.i129.i, align 8, !tbaa !125
   %.not.i131.i = icmp eq ptr %.011.i130.i, null
   br i1 %.not.i131.i, label %.sink.split.i, label %305
 
 305:                                              ; preds = %.preheader
   %306 = getelementptr inbounds nuw i8, ptr %.011.i130.i, i64 32
-  %307 = load i64, ptr %306, align 8, !tbaa !126
+  %307 = load i64, ptr %306, align 8, !tbaa !128
   %308 = icmp slt i64 %307, %300
-  br i1 %308, label %.preheader, label %.sink.split.i, !llvm.loop !127
+  br i1 %308, label %.preheader, label %.sink.split.i, !llvm.loop !129
 
 .sink.split.i:                                    ; preds = %301, %.preheader48, %305, %.preheader
   %.011.i.lcssa.sink.i = phi ptr [ %.011.i130.i, %305 ], [ null, %.preheader ], [ %.011.i.i, %301 ], [ null, %.preheader48 ]
   %.0.i.lcssa.sink.i = phi ptr [ %.0.i129.i, %.preheader ], [ %.0.i129.i, %305 ], [ %.0.i.i, %.preheader48 ], [ %.0.i.i, %301 ]
-  store ptr %.011.i.lcssa.sink.i, ptr %290, align 8, !tbaa !120
-  store ptr %290, ptr %.0.i.lcssa.sink.i, align 8, !tbaa !123
+  store ptr %.011.i.lcssa.sink.i, ptr %290, align 8, !tbaa !122
+  store ptr %290, ptr %.0.i.lcssa.sink.i, align 8, !tbaa !125
   br label %309
 
 309:                                              ; preds = %.sink.split.i, %.lr.ph.i34
   %.1107.i = phi ptr [ %290, %.lr.ph.i34 ], [ %.0106159.i, %.sink.split.i ]
-  %310 = load ptr, ptr %.1107.i, align 8, !tbaa !123
+  %310 = load ptr, ptr %.1107.i, align 8, !tbaa !125
   %.not.i35 = icmp eq ptr %310, null
-  br i1 %.not.i35, label %._crit_edge.loopexit.i, label %.lr.ph.i34, !llvm.loop !128
+  br i1 %.not.i35, label %._crit_edge.loopexit.i, label %.lr.ph.i34, !llvm.loop !130
 
 ._crit_edge.loopexit.i:                           ; preds = %309
-  %.0..0..0..0..0102160.pre.pre.i = load ptr, ptr %6, align 8, !tbaa !123
+  %.0..0..0..0..0102160.pre.pre.i = load ptr, ptr %6, align 8, !tbaa !125
   br label %._crit_edge.i36
 
 ._crit_edge.i36:                                  ; preds = %._crit_edge.loopexit.i, %.preheader157.i
@@ -1273,14 +1273,14 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %311 = load ptr, ptr %17, align 8, !tbaa !101
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   store ptr %312, ptr %17, align 8, !tbaa !101
-  %313 = load i64, ptr %312, align 8, !tbaa !124
+  %313 = load i64, ptr %312, align 8, !tbaa !126
   %314 = trunc i64 %313 to i32
   br label %315
 
 315:                                              ; preds = %Increment.exit153.i, %._crit_edge.i36
   %.0..0102160.i = phi ptr [ %.0..0102160.pre.i, %._crit_edge.i36 ], [ %.0..0102160.pre184.i, %Increment.exit153.i ]
   %.197.i = phi i32 [ %.096176.i, %._crit_edge.i36 ], [ %456, %Increment.exit153.i ]
-  %.0..0..0..0..0104161.i = load ptr, ptr %5, align 8, !tbaa !123
+  %.0..0..0..0..0104161.i = load ptr, ptr %5, align 8, !tbaa !125
   %316 = icmp ne ptr %.0..0..0..0..0104161.i, null
   %317 = icmp ne ptr %.0..0102160.i, null
   %318 = select i1 %316, i1 %317, i1 false
@@ -1295,9 +1295,9 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %.0102163.i = phi ptr [ %.0102.i, %384 ], [ %.0..0102160.i, %315 ]
   %.0162.i = phi i32 [ %.2.i, %384 ], [ 0, %315 ]
   %319 = getelementptr inbounds nuw i8, ptr %.0104164.i, i64 32
-  %320 = load i64, ptr %319, align 8, !tbaa !126
+  %320 = load i64, ptr %319, align 8, !tbaa !128
   %321 = getelementptr inbounds nuw i8, ptr %.0102163.i, i64 32
-  %322 = load i64, ptr %321, align 8, !tbaa !126
+  %322 = load i64, ptr %321, align 8, !tbaa !128
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %320, i64 %322)
   %spec.select128.i = tail call i64 @llvm.smax.i64(i64 %320, i64 %322)
   %323 = load i32, ptr %8, align 4, !tbaa !88
@@ -1318,7 +1318,7 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 
 333:                                              ; preds = %.lr.ph166.i
   %334 = getelementptr inbounds nuw i8, ptr %.0104164.i, i64 28
-  %335 = load i16, ptr %334, align 4, !tbaa !115
+  %335 = load i16, ptr %334, align 4, !tbaa !117
   %336 = zext i16 %335 to i32
   %337 = and i32 %336, 2
   %.not120.i = icmp eq i32 %337, 0
@@ -1331,13 +1331,13 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 
 340:                                              ; preds = %338
   %341 = getelementptr inbounds nuw i8, ptr %.0104164.i, i64 20
-  %342 = load i32, ptr %341, align 4, !tbaa !129
+  %342 = load i32, ptr %341, align 4, !tbaa !131
   %343 = icmp eq i32 %342, 1
   br i1 %343, label %344, label %354
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %.0104164.i, i64 8
-  %346 = load ptr, ptr %345, align 8, !tbaa !121
+  %346 = load ptr, ptr %345, align 8, !tbaa !123
   %347 = icmp eq ptr %346, %.0102163.i
   br i1 %347, label %348, label %354
 
@@ -1355,13 +1355,13 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 
 354:                                              ; preds = %350, %344, %340
   %355 = getelementptr inbounds nuw i8, ptr %.0104164.i, i64 16
-  %356 = load i32, ptr %355, align 8, !tbaa !130
+  %356 = load i32, ptr %355, align 8, !tbaa !132
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %368
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds nuw i8, ptr %.0102163.i, i64 8
-  %360 = load ptr, ptr %359, align 8, !tbaa !121
+  %360 = load ptr, ptr %359, align 8, !tbaa !123
   %361 = icmp eq ptr %360, %.0104164.i
   br i1 %361, label %362, label %368
 
@@ -1399,30 +1399,30 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 381:                                              ; preds = %370, %368
   %.1101.i = phi i64 [ %380, %370 ], [ %329, %368 ]
   %.199.i = phi i64 [ %377, %370 ], [ %330, %368 ]
-  store i64 %.199.i, ptr %319, align 8, !tbaa !126
-  store i64 %.1101.i, ptr %321, align 8, !tbaa !126
+  store i64 %.199.i, ptr %319, align 8, !tbaa !128
+  store i64 %.1101.i, ptr %321, align 8, !tbaa !128
   %382 = or i16 %335, 64
-  store i16 %382, ptr %334, align 4, !tbaa !115
+  store i16 %382, ptr %334, align 4, !tbaa !117
   %383 = add nsw i32 %.0162.i, 1
   br label %384
 
 384:                                              ; preds = %381, %364, %362, %350, %348, %333, %331
   %.2.i = phi i32 [ %.0162.i, %331 ], [ %383, %381 ], [ %.0162.i, %333 ], [ %.0162.i, %350 ], [ %.0162.i, %348 ], [ %.0162.i, %364 ], [ %.0162.i, %362 ]
-  %.0102.i = load ptr, ptr %.0102163.i, align 8, !tbaa !123
-  %.0104.i = load ptr, ptr %.0104164.i, align 8, !tbaa !123
+  %.0102.i = load ptr, ptr %.0102163.i, align 8, !tbaa !125
+  %.0104.i = load ptr, ptr %.0104164.i, align 8, !tbaa !125
   %385 = icmp ne ptr %.0104.i, null
   %386 = icmp ne ptr %.0102.i, null
   %387 = select i1 %385, i1 %386, i1 false
-  br i1 %387, label %.lr.ph166.i, label %.preheader.i, !llvm.loop !131
+  br i1 %387, label %.lr.ph166.i, label %.preheader.i, !llvm.loop !133
 
 .lr.ph173.i:                                      ; preds = %.preheader.i, %400
   %.1105172.in.i = phi ptr [ %.1105172.i, %400 ], [ %5, %.preheader.i ]
   %.1103171.in.i = phi ptr [ %.1103171.i, %400 ], [ %6, %.preheader.i ]
   %.3170.i = phi i32 [ %.4.i, %400 ], [ %.2.i, %.preheader.i ]
-  %.1103171.i = load ptr, ptr %.1103171.in.i, align 8, !tbaa !123
-  %.1105172.i = load ptr, ptr %.1105172.in.i, align 8, !tbaa !123
+  %.1103171.i = load ptr, ptr %.1103171.in.i, align 8, !tbaa !125
+  %.1105172.i = load ptr, ptr %.1105172.in.i, align 8, !tbaa !125
   %388 = getelementptr inbounds nuw i8, ptr %.1105172.i, i64 28
-  %389 = load i16, ptr %388, align 4, !tbaa !115
+  %389 = load i16, ptr %388, align 4, !tbaa !117
   %390 = and i16 %389, 64
   %.not118.i = icmp eq i16 %390, 0
   br i1 %.not118.i, label %400, label %391
@@ -1430,20 +1430,20 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
 391:                                              ; preds = %.lr.ph173.i
   %392 = load ptr, ptr %33, align 8, !tbaa !93
   %393 = getelementptr inbounds nuw i8, ptr %.1105172.i, i64 32
-  %394 = load i64, ptr %393, align 8, !tbaa !126
+  %394 = load i64, ptr %393, align 8, !tbaa !128
   %395 = getelementptr inbounds nuw i8, ptr %.1103171.i, i64 32
-  %396 = load i64, ptr %395, align 8, !tbaa !126
+  %396 = load i64, ptr %395, align 8, !tbaa !128
   tail call void %392(ptr noundef nonnull %0, i32 noundef %.197.i, i64 noundef %394, i64 noundef %396) #10
-  %397 = load i16, ptr %388, align 4, !tbaa !115
+  %397 = load i16, ptr %388, align 4, !tbaa !117
   %398 = and i16 %397, -65
-  store i16 %398, ptr %388, align 4, !tbaa !115
+  store i16 %398, ptr %388, align 4, !tbaa !117
   %399 = add nsw i32 %.3170.i, -1
   br label %400
 
 400:                                              ; preds = %391, %.lr.ph173.i
   %.4.i = phi i32 [ %399, %391 ], [ %.3170.i, %.lr.ph173.i ]
   %.not117.i = icmp eq i32 %.4.i, 0
-  br i1 %.not117.i, label %._crit_edge174.i, label %.lr.ph173.i, !llvm.loop !132
+  br i1 %.not117.i, label %._crit_edge174.i, label %.lr.ph173.i, !llvm.loop !134
 
 ._crit_edge174.i:                                 ; preds = %400, %.preheader.i, %315
   %401 = load ptr, ptr %34, align 8, !tbaa !94
@@ -1455,44 +1455,44 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %402 = phi ptr [ %418, %417 ], [ %.0..0..0..0..0104161.i, %._crit_edge174.i ]
   %.038.i.i = phi ptr [ %.1.i.i, %417 ], [ %5, %._crit_edge174.i ]
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 20
-  %404 = load i32, ptr %403, align 4, !tbaa !129
+  %404 = load i32, ptr %403, align 4, !tbaa !131
   %405 = add nsw i32 %404, -1
-  store i32 %405, ptr %403, align 4, !tbaa !129
+  store i32 %405, ptr %403, align 4, !tbaa !131
   %.not36.i.i = icmp eq i32 %405, 0
   br i1 %.not36.i.i, label %415, label %406
 
 406:                                              ; preds = %.lr.ph.i.i37
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  %408 = load i32, ptr %407, align 8, !tbaa !130
+  %408 = load i32, ptr %407, align 8, !tbaa !132
   %409 = add nsw i32 %408, 1
-  store i32 %409, ptr %407, align 8, !tbaa !130
+  store i32 %409, ptr %407, align 8, !tbaa !132
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %411 = sext i32 %409 to i64
   %412 = getelementptr inbounds [1 x i64], ptr %410, i64 0, i64 %411
-  %413 = load i64, ptr %412, align 8, !tbaa !124
+  %413 = load i64, ptr %412, align 8, !tbaa !126
   %414 = getelementptr inbounds nuw i8, ptr %402, i64 32
-  store i64 %413, ptr %414, align 8, !tbaa !126
-  %.pre.i.i38 = load ptr, ptr %402, align 8, !tbaa !123
+  store i64 %413, ptr %414, align 8, !tbaa !128
+  %.pre.i.i38 = load ptr, ptr %402, align 8, !tbaa !125
   br label %417
 
 415:                                              ; preds = %.lr.ph.i.i37
-  %416 = load ptr, ptr %402, align 8, !tbaa !120
-  store ptr %416, ptr %.038.i.i, align 8, !tbaa !123
+  %416 = load ptr, ptr %402, align 8, !tbaa !122
+  store ptr %416, ptr %.038.i.i, align 8, !tbaa !125
   br label %417
 
 417:                                              ; preds = %415, %406
   %418 = phi ptr [ %.pre.i.i38, %406 ], [ %416, %415 ]
   %.1.i.i = phi ptr [ %402, %406 ], [ %.038.i.i, %415 ]
   %.not.i133.i = icmp eq ptr %418, null
-  br i1 %.not.i133.i, label %._crit_edge.i.i39, label %.lr.ph.i.i37, !llvm.loop !133
+  br i1 %.not.i133.i, label %._crit_edge.i.i39, label %.lr.ph.i.i37, !llvm.loop !135
 
 ._crit_edge.i.i39:                                ; preds = %417
-  %.0..0..0..0..0..pre43.i.i = load ptr, ptr %5, align 8, !tbaa !123
+  %.0..0..0..0..0..pre43.i.i = load ptr, ptr %5, align 8, !tbaa !125
   %.not33.i.i = icmp eq ptr %.0..0..0..0..0..pre43.i.i, null
   br i1 %.not33.i.i, label %Increment.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i39
-  %419 = load ptr, ptr %.0..0..0..0..0..pre43.i.i, align 8, !tbaa !120
+  %419 = load ptr, ptr %.0..0..0..0..0..pre43.i.i, align 8, !tbaa !122
   %.not3439.i.i = icmp eq ptr %419, null
   br i1 %.not3439.i.i, label %Increment.exit.i, label %.lr.ph42.i.i
 
@@ -1501,29 +1501,29 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %.241.i.i = phi ptr [ %.3.i.i, %427 ], [ %5, %.preheader.i.i ]
   %.02840.i.i = phi ptr [ %.129.i.i, %427 ], [ %.0..0..0..0..0..pre43.i.i, %.preheader.i.i ]
   %421 = getelementptr inbounds nuw i8, ptr %.02840.i.i, i64 32
-  %422 = load i64, ptr %421, align 8, !tbaa !126
+  %422 = load i64, ptr %421, align 8, !tbaa !128
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 32
-  %424 = load i64, ptr %423, align 8, !tbaa !126
+  %424 = load i64, ptr %423, align 8, !tbaa !128
   %.not35.i.i = icmp sgt i64 %422, %424
   br i1 %.not35.i.i, label %425, label %427
 
 425:                                              ; preds = %.lr.ph42.i.i
-  store ptr %420, ptr %.241.i.i, align 8, !tbaa !123
-  %426 = load ptr, ptr %420, align 8, !tbaa !120
-  store ptr %426, ptr %.02840.i.i, align 8, !tbaa !120
-  store ptr %.02840.i.i, ptr %420, align 8, !tbaa !120
-  %.0..0..0..0..0.156.i = load ptr, ptr %5, align 8, !tbaa !123
+  store ptr %420, ptr %.241.i.i, align 8, !tbaa !125
+  %426 = load ptr, ptr %420, align 8, !tbaa !122
+  store ptr %426, ptr %.02840.i.i, align 8, !tbaa !122
+  store ptr %.02840.i.i, ptr %420, align 8, !tbaa !122
+  %.0..0..0..0..0.156.i = load ptr, ptr %5, align 8, !tbaa !125
   br label %427
 
 427:                                              ; preds = %425, %.lr.ph42.i.i
   %.129.i.i = phi ptr [ %.0..0..0..0..0.156.i, %425 ], [ %420, %.lr.ph42.i.i ]
   %.3.i.i = phi ptr [ %5, %425 ], [ %.02840.i.i, %.lr.ph42.i.i ]
-  %428 = load ptr, ptr %.129.i.i, align 8, !tbaa !120
+  %428 = load ptr, ptr %.129.i.i, align 8, !tbaa !122
   %.not34.i.i = icmp eq ptr %428, null
-  br i1 %.not34.i.i, label %Increment.exit.i, label %.lr.ph42.i.i, !llvm.loop !134
+  br i1 %.not34.i.i, label %Increment.exit.i, label %.lr.ph42.i.i, !llvm.loop !136
 
 Increment.exit.i:                                 ; preds = %427, %.preheader.i.i, %._crit_edge.i.i39, %._crit_edge174.i
-  %.0..0..0..0..0..i = load ptr, ptr %6, align 8, !tbaa !123
+  %.0..0..0..0..0..i = load ptr, ptr %6, align 8, !tbaa !125
   %.not37.i134.i = icmp eq ptr %.0..0..0..0..0..i, null
   br i1 %.not37.i134.i, label %Increment.exit153.i, label %.lr.ph.i135.i
 
@@ -1531,44 +1531,44 @@ Increment.exit.i:                                 ; preds = %427, %.preheader.i.
   %429 = phi ptr [ %445, %444 ], [ %.0..0..0..0..0..i, %Increment.exit.i ]
   %.038.i136.i = phi ptr [ %.1.i139.i, %444 ], [ %6, %Increment.exit.i ]
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 20
-  %431 = load i32, ptr %430, align 4, !tbaa !129
+  %431 = load i32, ptr %430, align 4, !tbaa !131
   %432 = add nsw i32 %431, -1
-  store i32 %432, ptr %430, align 4, !tbaa !129
+  store i32 %432, ptr %430, align 4, !tbaa !131
   %.not36.i137.i = icmp eq i32 %432, 0
   br i1 %.not36.i137.i, label %442, label %433
 
 433:                                              ; preds = %.lr.ph.i135.i
   %434 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  %435 = load i32, ptr %434, align 8, !tbaa !130
+  %435 = load i32, ptr %434, align 8, !tbaa !132
   %436 = add nsw i32 %435, -1
-  store i32 %436, ptr %434, align 8, !tbaa !130
+  store i32 %436, ptr %434, align 8, !tbaa !132
   %437 = getelementptr inbounds nuw i8, ptr %429, i64 40
   %438 = sext i32 %436 to i64
   %439 = getelementptr inbounds [1 x i64], ptr %437, i64 0, i64 %438
-  %440 = load i64, ptr %439, align 8, !tbaa !124
+  %440 = load i64, ptr %439, align 8, !tbaa !126
   %441 = getelementptr inbounds nuw i8, ptr %429, i64 32
-  store i64 %440, ptr %441, align 8, !tbaa !126
-  %.pre.i138.i = load ptr, ptr %429, align 8, !tbaa !123
+  store i64 %440, ptr %441, align 8, !tbaa !128
+  %.pre.i138.i = load ptr, ptr %429, align 8, !tbaa !125
   br label %444
 
 442:                                              ; preds = %.lr.ph.i135.i
-  %443 = load ptr, ptr %429, align 8, !tbaa !120
-  store ptr %443, ptr %.038.i136.i, align 8, !tbaa !123
+  %443 = load ptr, ptr %429, align 8, !tbaa !122
+  store ptr %443, ptr %.038.i136.i, align 8, !tbaa !125
   br label %444
 
 444:                                              ; preds = %442, %433
   %445 = phi ptr [ %.pre.i138.i, %433 ], [ %443, %442 ]
   %.1.i139.i = phi ptr [ %429, %433 ], [ %.038.i136.i, %442 ]
   %.not.i140.i = icmp eq ptr %445, null
-  br i1 %.not.i140.i, label %._crit_edge.i141.i, label %.lr.ph.i135.i, !llvm.loop !133
+  br i1 %.not.i140.i, label %._crit_edge.i141.i, label %.lr.ph.i135.i, !llvm.loop !135
 
 ._crit_edge.i141.i:                               ; preds = %444
-  %.0..0..0..0..0..pre43.i142.i = load ptr, ptr %6, align 8, !tbaa !123
+  %.0..0..0..0..0..pre43.i142.i = load ptr, ptr %6, align 8, !tbaa !125
   %.not33.i143.i = icmp eq ptr %.0..0..0..0..0..pre43.i142.i, null
   br i1 %.not33.i143.i, label %Increment.exit153.i, label %.preheader.i144.i
 
 .preheader.i144.i:                                ; preds = %._crit_edge.i141.i
-  %446 = load ptr, ptr %.0..0..0..0..0..pre43.i142.i, align 8, !tbaa !120
+  %446 = load ptr, ptr %.0..0..0..0..0..pre43.i142.i, align 8, !tbaa !122
   %.not3439.i145.i = icmp eq ptr %446, null
   br i1 %.not3439.i145.i, label %Increment.exit153.i, label %.lr.ph42.i146.i
 
@@ -1578,37 +1578,37 @@ Increment.exit.i:                                 ; preds = %427, %.preheader.i.
   %.241.i147.i = phi ptr [ %.3.i151.i, %454 ], [ %6, %.preheader.i144.i ]
   %.02840.i148.i = phi ptr [ %.129.i150.i, %454 ], [ %.0..0..0..0..0..pre43.i142.i, %.preheader.i144.i ]
   %448 = getelementptr inbounds nuw i8, ptr %.02840.i148.i, i64 32
-  %449 = load i64, ptr %448, align 8, !tbaa !126
+  %449 = load i64, ptr %448, align 8, !tbaa !128
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 32
-  %451 = load i64, ptr %450, align 8, !tbaa !126
+  %451 = load i64, ptr %450, align 8, !tbaa !128
   %.not35.i149.i = icmp sgt i64 %449, %451
   br i1 %.not35.i149.i, label %452, label %454
 
 452:                                              ; preds = %.lr.ph42.i146.i
-  store ptr %447, ptr %.241.i147.i, align 8, !tbaa !123
-  %453 = load ptr, ptr %447, align 8, !tbaa !120
-  store ptr %453, ptr %.02840.i148.i, align 8, !tbaa !120
-  store ptr %.02840.i148.i, ptr %447, align 8, !tbaa !120
-  %.0..0..0..0..0.154.i = load ptr, ptr %6, align 8, !tbaa !123
+  store ptr %447, ptr %.241.i147.i, align 8, !tbaa !125
+  %453 = load ptr, ptr %447, align 8, !tbaa !122
+  store ptr %453, ptr %.02840.i148.i, align 8, !tbaa !122
+  store ptr %.02840.i148.i, ptr %447, align 8, !tbaa !122
+  %.0..0..0..0..0.154.i = load ptr, ptr %6, align 8, !tbaa !125
   br label %454
 
 454:                                              ; preds = %452, %.lr.ph42.i146.i
   %.0..0102160180.i = phi ptr [ %.0..0..0..0..0.154.i, %452 ], [ %.0..0102160181.i, %.lr.ph42.i146.i ]
   %.129.i150.i = phi ptr [ %.0..0..0..0..0.154.i, %452 ], [ %447, %.lr.ph42.i146.i ]
   %.3.i151.i = phi ptr [ %6, %452 ], [ %.02840.i148.i, %.lr.ph42.i146.i ]
-  %455 = load ptr, ptr %.129.i150.i, align 8, !tbaa !120
+  %455 = load ptr, ptr %.129.i150.i, align 8, !tbaa !122
   %.not34.i152.i = icmp eq ptr %455, null
-  br i1 %.not34.i152.i, label %Increment.exit153.i, label %.lr.ph42.i146.i, !llvm.loop !134
+  br i1 %.not34.i152.i, label %Increment.exit153.i, label %.lr.ph42.i146.i, !llvm.loop !136
 
 Increment.exit153.i:                              ; preds = %454, %.preheader.i144.i, %._crit_edge.i141.i, %Increment.exit.i
   %.0..0102160.pre184.i = phi ptr [ null, %Increment.exit.i ], [ null, %._crit_edge.i141.i ], [ %.0..0..0..0..0..pre43.i142.i, %.preheader.i144.i ], [ %.0..0102160180.i, %454 ]
   %456 = add nsw i32 %.197.i, 1
   %457 = icmp slt i32 %456, %314
-  br i1 %457, label %315, label %458, !llvm.loop !135
+  br i1 %457, label %315, label %458, !llvm.loop !137
 
 458:                                              ; preds = %Increment.exit153.i
   %.not.not.i = icmp slt i32 %456, %287
-  br i1 %.not.not.i, label %.preheader157.i, label %Draw_Sweep.exit, !llvm.loop !136
+  br i1 %.not.not.i, label %.preheader157.i, label %Draw_Sweep.exit, !llvm.loop !138
 
 Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph.exit.thread146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1819,7 +1819,7 @@ define internal void @Horizontal_Sweep_Step(ptr readnone captures(none) %0) #1 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnull captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !117
+  %3 = load ptr, ptr %2, align 8, !tbaa !119
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !100
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1842,9 +1842,9 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %11, ptr %17, align 4, !tbaa !129
+  store i32 %11, ptr %17, align 4, !tbaa !131
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %19 = load i16, ptr %18, align 4, !tbaa !115
+  %19 = load i16, ptr %18, align 4, !tbaa !117
   %20 = and i16 %19, 8
   %.not50 = icmp eq i16 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1865,15 +1865,15 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 31:                                               ; preds = %25
   %32 = or i16 %19, 16
-  store i16 %32, ptr %18, align 4, !tbaa !115
+  store i16 %32, ptr %18, align 4, !tbaa !117
   br label %33
 
 33:                                               ; preds = %31, %25
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !125
+  %35 = load i32, ptr %34, align 8, !tbaa !127
   %36 = add nsw i32 %35, %11
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !130
+  store i32 0, ptr %37, align 8, !tbaa !132
   br label %60
 
 38:                                               ; preds = %16
@@ -1892,18 +1892,18 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 49:                                               ; preds = %38
   %50 = or i16 %19, 32
-  store i16 %50, ptr %18, align 4, !tbaa !115
+  store i16 %50, ptr %18, align 4, !tbaa !117
   br label %51
 
 51:                                               ; preds = %49, %38
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !125
+  %53 = load i32, ptr %52, align 8, !tbaa !127
   %54 = add nsw i32 %53, 1
   %55 = sub nsw i32 %54, %11
-  store i32 %55, ptr %52, align 8, !tbaa !125
+  store i32 %55, ptr %52, align 8, !tbaa !127
   %56 = add nsw i32 %11, -1
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %56, ptr %57, align 8, !tbaa !130
+  store i32 %56, ptr %57, align 8, !tbaa !132
   %58 = zext nneg i32 %56 to i64
   %59 = getelementptr inbounds nuw [1 x i64], ptr %6, i64 0, i64 %58
   br label %60
@@ -1912,9 +1912,9 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   %.sink.in = phi ptr [ %59, %51 ], [ %6, %33 ]
   %.047 = phi i32 [ %55, %51 ], [ %35, %33 ]
   %.0 = phi i32 [ %54, %51 ], [ %36, %33 ]
-  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !124
+  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !126
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sink, ptr %61, align 8, !tbaa !126
+  store i64 %.sink, ptr %61, align 8, !tbaa !128
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %63 = load i32, ptr %62, align 4, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1926,14 +1926,14 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 67:                                               ; preds = %60
   %68 = sext i32 %63 to i64
   %69 = getelementptr inbounds i64, ptr %65, i64 %68
-  %70 = load i64, ptr %69, align 8, !tbaa !124
+  %70 = load i64, ptr %69, align 8, !tbaa !126
   %71 = icmp slt i64 %70, %.pre.i
   br i1 %71, label %._crit_edge.i, label %73
 
 ._crit_edge.i:                                    ; preds = %67, %60
   %.pre-phi44.i = phi i64 [ %68, %67 ], [ 0, %60 ]
   %72 = getelementptr inbounds i64, ptr %65, i64 %.pre-phi44.i
-  store i64 %.pre.i, ptr %72, align 8, !tbaa !124
+  store i64 %.pre.i, ptr %72, align 8, !tbaa !126
   br label %73
 
 73:                                               ; preds = %._crit_edge.i, %67
@@ -1952,9 +1952,9 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 80:                                               ; preds = %78
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %81 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv.next.i
-  %82 = load i64, ptr %81, align 8, !tbaa !124
+  %82 = load i64, ptr %81, align 8, !tbaa !126
   %83 = icmp sgt i64 %82, %74
-  br i1 %83, label %78, label %.critedge.i, !llvm.loop !137
+  br i1 %83, label %78, label %.critedge.i, !llvm.loop !139
 
 .critedge.i:                                      ; preds = %80
   %84 = icmp slt i64 %indvars.iv.i, 1
@@ -1963,7 +1963,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 85:                                               ; preds = %.critedge.i
   %86 = and i64 %indvars.iv.next.i, 4294967295
   %87 = getelementptr inbounds nuw i64, ptr %65, i64 %86
-  %88 = load i64, ptr %87, align 8, !tbaa !124
+  %88 = load i64, ptr %87, align 8, !tbaa !126
   %89 = icmp slt i64 %88, %74
   br i1 %89, label %.critedge.thread.i, label %100
 
@@ -1983,13 +1983,13 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   %indvars.iv39.i = phi i64 [ %91, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
   %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %94, %.preheader.i ]
   %92 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv39.i
-  %93 = load i64, ptr %92, align 8, !tbaa !124
+  %93 = load i64, ptr %92, align 8, !tbaa !126
   %94 = trunc i64 %93 to i32
   %95 = sext i32 %.029.i to i64
-  store i64 %95, ptr %92, align 8, !tbaa !124
+  store i64 %95, ptr %92, align 8, !tbaa !126
   %indvars.iv.next40.i = add nsw i64 %indvars.iv39.i, -1
   %96 = icmp sgt i64 %indvars.iv39.i, -1
-  br i1 %96, label %.preheader.i, label %97, !llvm.loop !138
+  br i1 %96, label %.preheader.i, label %97, !llvm.loop !140
 
 97:                                               ; preds = %.preheader.i
   %98 = add nsw i32 %63, 1
@@ -2014,8 +2014,8 @@ Insert_Y_Turns.exit:                              ; preds = %.critedge.thread.i
 104:                                              ; preds = %103, %100
   %105 = phi ptr [ %3, %103 ], [ %102, %100 ]
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %105, ptr %106, align 8, !tbaa !121
-  store ptr %5, ptr %3, align 8, !tbaa !120
+  store ptr %105, ptr %106, align 8, !tbaa !123
+  store ptr %5, ptr %3, align 8, !tbaa !122
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %108 = load i16, ptr %107, align 8, !tbaa !103
   %109 = add i16 %108, 1
@@ -2098,18 +2098,18 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !111
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %8, ptr %9, align 16, !tbaa !139
+  store i64 %8, ptr %9, align 16, !tbaa !141
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8, !tbaa !112
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %11, ptr %12, align 8, !tbaa !141
+  store i64 %11, ptr %12, align 8, !tbaa !143
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %1, ptr %13, align 16, !tbaa !139
+  store i64 %1, ptr %13, align 16, !tbaa !141
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %2, ptr %14, align 8, !tbaa !141
-  store i64 %3, ptr %6, align 16, !tbaa !139
+  store i64 %2, ptr %14, align 8, !tbaa !143
+  store i64 %3, ptr %6, align 16, !tbaa !141
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %4, ptr %15, align 8, !tbaa !141
+  store i64 %4, ptr %15, align 8, !tbaa !143
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2123,12 +2123,12 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %.0 = phi ptr [ %6, %5 ], [ %.1, %290 ]
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %26 = load i64, ptr %25, align 8, !tbaa !141
+  %26 = load i64, ptr %25, align 8, !tbaa !143
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !141
+  %28 = load i64, ptr %27, align 8, !tbaa !143
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !141
-  %31 = load i64, ptr %.0, align 8, !tbaa !139
+  %30 = load i64, ptr %29, align 8, !tbaa !143
+  %31 = load i64, ptr %.0, align 8, !tbaa !141
   %. = call i64 @llvm.smin.i64(i64 %26, i64 %30)
   %32 = load i32, ptr %16, align 4, !tbaa !88
   %33 = sub nsw i32 0, %32
@@ -2147,33 +2147,33 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %37, %23
-  %44 = load i64, ptr %24, align 8, !tbaa !139
+  %44 = load i64, ptr %24, align 8, !tbaa !141
   %45 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  store i64 %44, ptr %45, align 8, !tbaa !139
+  store i64 %44, ptr %45, align 8, !tbaa !141
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !139
+  %47 = load i64, ptr %46, align 8, !tbaa !141
   %48 = add nsw i64 %47, %31
   %49 = add nsw i64 %47, %44
   %50 = ashr i64 %49, 1
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  store i64 %50, ptr %51, align 8, !tbaa !139
+  store i64 %50, ptr %51, align 8, !tbaa !141
   %52 = add nsw i64 %48, %49
   %53 = ashr i64 %52, 2
-  store i64 %53, ptr %24, align 8, !tbaa !139
+  store i64 %53, ptr %24, align 8, !tbaa !141
   %54 = ashr i64 %48, 1
-  store i64 %54, ptr %46, align 8, !tbaa !139
+  store i64 %54, ptr %46, align 8, !tbaa !141
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  store i64 %26, ptr %55, align 8, !tbaa !141
+  store i64 %26, ptr %55, align 8, !tbaa !143
   %56 = add nsw i64 %30, %28
   %57 = add nsw i64 %28, %26
   %58 = ashr i64 %57, 1
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  store i64 %58, ptr %59, align 8, !tbaa !141
+  store i64 %58, ptr %59, align 8, !tbaa !143
   %60 = add nsw i64 %56, %57
   %61 = ashr i64 %60, 2
-  store i64 %61, ptr %25, align 8, !tbaa !141
+  store i64 %61, ptr %25, align 8, !tbaa !143
   %62 = ashr i64 %56, 1
-  store i64 %62, ptr %27, align 8, !tbaa !141
+  store i64 %62, ptr %27, align 8, !tbaa !143
   br label %290
 
 63:                                               ; preds = %37
@@ -2213,8 +2213,8 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   br i1 %68, label %79, label %180
 
 79:                                               ; preds = %76
-  %80 = load i64, ptr %25, align 8, !tbaa !141
-  %81 = load i64, ptr %29, align 8, !tbaa !141
+  %80 = load i64, ptr %25, align 8, !tbaa !143
+  %81 = load i64, ptr %29, align 8, !tbaa !143
   %82 = icmp slt i64 %81, %77
   %83 = icmp sgt i64 %80, %78
   %or.cond.i = select i1 %82, i1 true, i1 %83
@@ -2279,17 +2279,17 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %.074.i = phi ptr [ %.175.i, %177 ], [ %.0, %111 ]
   %.0.i = phi ptr [ %.2.i, %177 ], [ %112, %111 ]
   %120 = getelementptr inbounds nuw i8, ptr %.074.i, i64 8
-  %121 = load i64, ptr %120, align 8, !tbaa !141
-  %122 = load i64, ptr %.074.i, align 8, !tbaa !139
+  %121 = load i64, ptr %120, align 8, !tbaa !143
+  %122 = load i64, ptr %.074.i, align 8, !tbaa !141
   %123 = icmp sgt i64 %121, %.177.i
   br i1 %123, label %124, label %168
 
 124:                                              ; preds = %.preheader.i
   %125 = getelementptr inbounds nuw i8, ptr %.074.i, i64 32
   %126 = getelementptr inbounds nuw i8, ptr %.074.i, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !141
+  %127 = load i64, ptr %126, align 8, !tbaa !143
   %128 = sub nsw i64 %121, %127
-  %129 = load i64, ptr %125, align 8, !tbaa !139
+  %129 = load i64, ptr %125, align 8, !tbaa !141
   %130 = sub nsw i64 %122, %129
   %131 = load i32, ptr %22, align 8, !tbaa !87
   %132 = sext i32 %131 to i64
@@ -2303,33 +2303,33 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
 
 137:                                              ; preds = %124
   %138 = getelementptr inbounds nuw i8, ptr %.074.i, i64 64
-  store i64 %129, ptr %138, align 8, !tbaa !139
+  store i64 %129, ptr %138, align 8, !tbaa !141
   %139 = getelementptr inbounds nuw i8, ptr %.074.i, i64 16
-  %140 = load i64, ptr %139, align 8, !tbaa !139
+  %140 = load i64, ptr %139, align 8, !tbaa !141
   %141 = add nsw i64 %140, %122
   %142 = add nsw i64 %140, %129
   %143 = ashr i64 %142, 1
   %144 = getelementptr inbounds nuw i8, ptr %.074.i, i64 48
-  store i64 %143, ptr %144, align 8, !tbaa !139
+  store i64 %143, ptr %144, align 8, !tbaa !141
   %145 = add nsw i64 %141, %142
   %146 = ashr i64 %145, 2
-  store i64 %146, ptr %125, align 8, !tbaa !139
+  store i64 %146, ptr %125, align 8, !tbaa !141
   %147 = ashr i64 %141, 1
-  store i64 %147, ptr %139, align 8, !tbaa !139
+  store i64 %147, ptr %139, align 8, !tbaa !141
   %148 = getelementptr inbounds nuw i8, ptr %.074.i, i64 72
-  store i64 %127, ptr %148, align 8, !tbaa !141
+  store i64 %127, ptr %148, align 8, !tbaa !143
   %149 = getelementptr inbounds nuw i8, ptr %.074.i, i64 24
-  %150 = load i64, ptr %149, align 8, !tbaa !141
+  %150 = load i64, ptr %149, align 8, !tbaa !143
   %151 = add nsw i64 %150, %121
   %152 = add nsw i64 %150, %127
   %153 = ashr i64 %152, 1
   %154 = getelementptr inbounds nuw i8, ptr %.074.i, i64 56
-  store i64 %153, ptr %154, align 8, !tbaa !141
+  store i64 %153, ptr %154, align 8, !tbaa !143
   %155 = add nsw i64 %151, %152
   %156 = ashr i64 %155, 2
-  store i64 %156, ptr %126, align 8, !tbaa !141
+  store i64 %156, ptr %126, align 8, !tbaa !143
   %157 = ashr i64 %151, 1
-  store i64 %157, ptr %149, align 8, !tbaa !141
+  store i64 %157, ptr %149, align 8, !tbaa !143
   br label %177
 
 158:                                              ; preds = %124
@@ -2338,7 +2338,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %161 = sdiv i64 %160, %128
   %162 = sub nsw i64 %122, %161
   %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i64 %162, ptr %.0.i, align 8, !tbaa !124
+  store i64 %162, ptr %.0.i, align 8, !tbaa !126
   %164 = load i32, ptr %16, align 4, !tbaa !88
   %165 = sext i32 %164 to i64
   %166 = add nsw i64 %.177.i, %165
@@ -2351,7 +2351,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i64 %122, ptr %.0.i, align 8, !tbaa !124
+  store i64 %122, ptr %.0.i, align 8, !tbaa !126
   %172 = load i32, ptr %16, align 4, !tbaa !88
   %173 = sext i32 %172 to i64
   %174 = add nsw i64 %.177.i, %173
@@ -2368,7 +2368,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %.175.i = phi ptr [ %125, %137 ], [ %167, %158 ], [ %176, %175 ]
   %.2.i = phi ptr [ %.0.i, %137 ], [ %163, %158 ], [ %.1.i, %175 ]
   %.not91.i = icmp sgt i64 %.3.i, %92
-  br i1 %.not91.i, label %178, label %.preheader.i, !llvm.loop !142
+  br i1 %.not91.i, label %178, label %.preheader.i, !llvm.loop !144
 
 178:                                              ; preds = %177
   store ptr %.2.i, ptr %20, align 8, !tbaa !100
@@ -2380,15 +2380,15 @@ Bezier_Up.exit:                                   ; preds = %111
   br label %.loopexit
 
 180:                                              ; preds = %76
-  %181 = load i64, ptr %29, align 8, !tbaa !141
+  %181 = load i64, ptr %29, align 8, !tbaa !143
   %182 = sub nsw i64 0, %181
-  store i64 %182, ptr %29, align 8, !tbaa !141
-  %183 = load i64, ptr %27, align 8, !tbaa !141
+  store i64 %182, ptr %29, align 8, !tbaa !143
+  %183 = load i64, ptr %27, align 8, !tbaa !143
   %184 = sub nsw i64 0, %183
-  store i64 %184, ptr %27, align 8, !tbaa !141
-  %185 = load i64, ptr %25, align 8, !tbaa !141
+  store i64 %184, ptr %27, align 8, !tbaa !143
+  %185 = load i64, ptr %25, align 8, !tbaa !143
   %186 = sub nsw i64 0, %185
-  store i64 %186, ptr %25, align 8, !tbaa !141
+  store i64 %186, ptr %25, align 8, !tbaa !143
   %187 = sub nsw i64 0, %78
   %188 = icmp slt i64 %78, %181
   %189 = icmp sgt i64 %77, %185
@@ -2455,17 +2455,17 @@ Bezier_Up.exit:                                   ; preds = %111
   %.074.i86 = phi ptr [ %.175.i91, %284 ], [ %.0, %218 ]
   %.0.i87 = phi ptr [ %.2.i92, %284 ], [ %219, %218 ]
   %227 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 8
-  %228 = load i64, ptr %227, align 8, !tbaa !141
-  %229 = load i64, ptr %.074.i86, align 8, !tbaa !139
+  %228 = load i64, ptr %227, align 8, !tbaa !143
+  %229 = load i64, ptr %.074.i86, align 8, !tbaa !141
   %230 = icmp sgt i64 %228, %.177.i85
   br i1 %230, label %231, label %275
 
 231:                                              ; preds = %.preheader.i84
   %232 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 32
   %233 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 40
-  %234 = load i64, ptr %233, align 8, !tbaa !141
+  %234 = load i64, ptr %233, align 8, !tbaa !143
   %235 = sub nsw i64 %228, %234
-  %236 = load i64, ptr %232, align 8, !tbaa !139
+  %236 = load i64, ptr %232, align 8, !tbaa !141
   %237 = sub nsw i64 %229, %236
   %238 = load i32, ptr %22, align 8, !tbaa !87
   %239 = sext i32 %238 to i64
@@ -2479,33 +2479,33 @@ Bezier_Up.exit:                                   ; preds = %111
 
 244:                                              ; preds = %231
   %245 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 64
-  store i64 %236, ptr %245, align 8, !tbaa !139
+  store i64 %236, ptr %245, align 8, !tbaa !141
   %246 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 16
-  %247 = load i64, ptr %246, align 8, !tbaa !139
+  %247 = load i64, ptr %246, align 8, !tbaa !141
   %248 = add nsw i64 %247, %229
   %249 = add nsw i64 %247, %236
   %250 = ashr i64 %249, 1
   %251 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 48
-  store i64 %250, ptr %251, align 8, !tbaa !139
+  store i64 %250, ptr %251, align 8, !tbaa !141
   %252 = add nsw i64 %248, %249
   %253 = ashr i64 %252, 2
-  store i64 %253, ptr %232, align 8, !tbaa !139
+  store i64 %253, ptr %232, align 8, !tbaa !141
   %254 = ashr i64 %248, 1
-  store i64 %254, ptr %246, align 8, !tbaa !139
+  store i64 %254, ptr %246, align 8, !tbaa !141
   %255 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 72
-  store i64 %234, ptr %255, align 8, !tbaa !141
+  store i64 %234, ptr %255, align 8, !tbaa !143
   %256 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 24
-  %257 = load i64, ptr %256, align 8, !tbaa !141
+  %257 = load i64, ptr %256, align 8, !tbaa !143
   %258 = add nsw i64 %257, %228
   %259 = add nsw i64 %257, %234
   %260 = ashr i64 %259, 1
   %261 = getelementptr inbounds nuw i8, ptr %.074.i86, i64 56
-  store i64 %260, ptr %261, align 8, !tbaa !141
+  store i64 %260, ptr %261, align 8, !tbaa !143
   %262 = add nsw i64 %258, %259
   %263 = ashr i64 %262, 2
-  store i64 %263, ptr %233, align 8, !tbaa !141
+  store i64 %263, ptr %233, align 8, !tbaa !143
   %264 = ashr i64 %258, 1
-  store i64 %264, ptr %256, align 8, !tbaa !141
+  store i64 %264, ptr %256, align 8, !tbaa !143
   br label %284
 
 265:                                              ; preds = %231
@@ -2514,7 +2514,7 @@ Bezier_Up.exit:                                   ; preds = %111
   %268 = sdiv i64 %267, %235
   %269 = sub nsw i64 %229, %268
   %270 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 8
-  store i64 %269, ptr %.0.i87, align 8, !tbaa !124
+  store i64 %269, ptr %.0.i87, align 8, !tbaa !126
   %271 = load i32, ptr %16, align 4, !tbaa !88
   %272 = sext i32 %271 to i64
   %273 = add nsw i64 %.177.i85, %272
@@ -2527,7 +2527,7 @@ Bezier_Up.exit:                                   ; preds = %111
 
 277:                                              ; preds = %275
   %278 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 8
-  store i64 %229, ptr %.0.i87, align 8, !tbaa !124
+  store i64 %229, ptr %.0.i87, align 8, !tbaa !126
   %279 = load i32, ptr %16, align 4, !tbaa !88
   %280 = sext i32 %279 to i64
   %281 = add nsw i64 %.177.i85, %280
@@ -2544,23 +2544,23 @@ Bezier_Up.exit:                                   ; preds = %111
   %.175.i91 = phi ptr [ %232, %244 ], [ %274, %265 ], [ %283, %282 ]
   %.2.i92 = phi ptr [ %.0.i87, %244 ], [ %270, %265 ], [ %.1.i89, %282 ]
   %.not91.i93 = icmp sgt i64 %.3.i90, %199
-  br i1 %.not91.i93, label %285, label %.preheader.i84, !llvm.loop !142
+  br i1 %.not91.i93, label %285, label %.preheader.i84, !llvm.loop !144
 
 285:                                              ; preds = %284
   store ptr %.2.i92, ptr %20, align 8, !tbaa !100
-  %.pre = load i64, ptr %29, align 8, !tbaa !141
+  %.pre = load i64, ptr %29, align 8, !tbaa !143
   br label %Bezier_Up.exit96.thread
 
 Bezier_Up.exit96.thread:                          ; preds = %285, %180, %216
   %286 = phi i64 [ %.pre, %285 ], [ %182, %180 ], [ %182, %216 ]
   %287 = sub nsw i64 0, %286
-  store i64 %287, ptr %29, align 8, !tbaa !141
+  store i64 %287, ptr %29, align 8, !tbaa !143
   br label %Bezier_Up.exit.thread
 
 Bezier_Up.exit96:                                 ; preds = %218
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 98, ptr %288, align 8, !tbaa !99
-  store i64 %181, ptr %29, align 8, !tbaa !141
+  store i64 %181, ptr %29, align 8, !tbaa !143
   br label %.loopexit
 
 Bezier_Up.exit.thread:                            ; preds = %109, %79, %178, %Bezier_Up.exit96.thread
@@ -2572,7 +2572,7 @@ Bezier_Up.exit.thread:                            ; preds = %109, %79, %178, %Be
 290:                                              ; preds = %43, %Bezier_Up.exit.thread, %65
   %.1 = phi ptr [ %24, %43 ], [ %66, %65 ], [ %289, %Bezier_Up.exit.thread ]
   %.not78 = icmp ult ptr %.1, %6
-  br i1 %.not78, label %.loopexit, label %23, !llvm.loop !143
+  br i1 %.not78, label %.loopexit, label %23, !llvm.loop !145
 
 .loopexit:                                        ; preds = %72, %74, %290, %Bezier_Up.exit96, %Bezier_Up.exit
   %.061 = phi i8 [ 1, %Bezier_Up.exit96 ], [ 1, %Bezier_Up.exit ], [ 1, %72 ], [ 1, %74 ], [ 0, %290 ]
@@ -2587,22 +2587,22 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8, !tbaa !111
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %10, ptr %11, align 16, !tbaa !139
+  store i64 %10, ptr %11, align 16, !tbaa !141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i64, ptr %12, align 8, !tbaa !112
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %13, ptr %14, align 8, !tbaa !141
+  store i64 %13, ptr %14, align 8, !tbaa !143
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 %1, ptr %15, align 16, !tbaa !139
+  store i64 %1, ptr %15, align 16, !tbaa !141
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 %2, ptr %16, align 8, !tbaa !141
+  store i64 %2, ptr %16, align 8, !tbaa !143
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %3, ptr %17, align 16, !tbaa !139
+  store i64 %3, ptr %17, align 16, !tbaa !141
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %4, ptr %18, align 8, !tbaa !141
-  store i64 %5, ptr %8, align 16, !tbaa !139
+  store i64 %4, ptr %18, align 8, !tbaa !143
+  store i64 %5, ptr %8, align 16, !tbaa !141
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %6, ptr %19, align 8, !tbaa !141
+  store i64 %6, ptr %19, align 8, !tbaa !143
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2613,14 +2613,14 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
   %.0 = phi ptr [ %8, %7 ], [ %.1, %114 ]
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !141
+  %27 = load i64, ptr %26, align 8, !tbaa !143
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !141
+  %29 = load i64, ptr %28, align 8, !tbaa !143
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !141
+  %31 = load i64, ptr %30, align 8, !tbaa !143
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !141
-  %34 = load i64, ptr %.0, align 8, !tbaa !139
+  %33 = load i64, ptr %32, align 8, !tbaa !143
+  %34 = load i64, ptr %.0, align 8, !tbaa !141
   %. = call i64 @llvm.smin.i64(i64 %27, i64 %33)
   %.074 = call i64 @llvm.smin.i64(i64 %29, i64 %31)
   %35 = load i32, ptr %21, align 4, !tbaa !88
@@ -2641,51 +2641,51 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
   br i1 %45, label %46, label %80
 
 46:                                               ; preds = %40, %24
-  %47 = load i64, ptr %25, align 8, !tbaa !139
+  %47 = load i64, ptr %25, align 8, !tbaa !141
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  store i64 %47, ptr %48, align 8, !tbaa !139
+  store i64 %47, ptr %48, align 8, !tbaa !141
   %49 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !139
+  %50 = load i64, ptr %49, align 8, !tbaa !141
   %51 = add nsw i64 %50, %34
   %52 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %53 = load i64, ptr %52, align 8, !tbaa !139
+  %53 = load i64, ptr %52, align 8, !tbaa !141
   %54 = add nsw i64 %53, %50
   %55 = add nsw i64 %53, %47
   %56 = ashr i64 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  store i64 %56, ptr %57, align 8, !tbaa !139
+  store i64 %56, ptr %57, align 8, !tbaa !141
   %58 = add nsw i64 %55, %54
   %59 = ashr i64 %58, 2
   %60 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  store i64 %59, ptr %60, align 8, !tbaa !139
+  store i64 %59, ptr %60, align 8, !tbaa !141
   %61 = ashr i64 %51, 1
-  store i64 %61, ptr %49, align 8, !tbaa !139
+  store i64 %61, ptr %49, align 8, !tbaa !141
   %62 = add nsw i64 %54, %51
   %63 = ashr i64 %62, 2
-  store i64 %63, ptr %52, align 8, !tbaa !139
+  store i64 %63, ptr %52, align 8, !tbaa !141
   %64 = add nsw i64 %62, %58
   %65 = ashr i64 %64, 3
-  store i64 %65, ptr %25, align 8, !tbaa !139
+  store i64 %65, ptr %25, align 8, !tbaa !141
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 104
-  store i64 %27, ptr %66, align 8, !tbaa !141
+  store i64 %27, ptr %66, align 8, !tbaa !143
   %67 = add nsw i64 %33, %31
   %68 = add nsw i64 %31, %29
   %69 = add nsw i64 %29, %27
   %70 = ashr i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  store i64 %70, ptr %71, align 8, !tbaa !141
+  store i64 %70, ptr %71, align 8, !tbaa !143
   %72 = add nsw i64 %68, %69
   %73 = ashr i64 %72, 2
   %74 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  store i64 %73, ptr %74, align 8, !tbaa !141
+  store i64 %73, ptr %74, align 8, !tbaa !143
   %75 = ashr i64 %67, 1
-  store i64 %75, ptr %30, align 8, !tbaa !141
+  store i64 %75, ptr %30, align 8, !tbaa !143
   %76 = add nsw i64 %67, %68
   %77 = ashr i64 %76, 2
-  store i64 %77, ptr %28, align 8, !tbaa !141
+  store i64 %77, ptr %28, align 8, !tbaa !143
   %78 = add nsw i64 %76, %72
   %79 = ashr i64 %78, 3
-  store i64 %79, ptr %26, align 8, !tbaa !141
+  store i64 %79, ptr %26, align 8, !tbaa !143
   br label %114
 
 80:                                               ; preds = %40
@@ -2730,24 +2730,24 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
   br i1 %.not94, label %112, label %115
 
 98:                                               ; preds = %93
-  %99 = load i64, ptr %32, align 8, !tbaa !141
+  %99 = load i64, ptr %32, align 8, !tbaa !143
   %100 = sub nsw i64 0, %99
-  store i64 %100, ptr %32, align 8, !tbaa !141
-  %101 = load i64, ptr %30, align 8, !tbaa !141
+  store i64 %100, ptr %32, align 8, !tbaa !143
+  %101 = load i64, ptr %30, align 8, !tbaa !143
   %102 = sub nsw i64 0, %101
-  store i64 %102, ptr %30, align 8, !tbaa !141
-  %103 = load i64, ptr %28, align 8, !tbaa !141
+  store i64 %102, ptr %30, align 8, !tbaa !143
+  %103 = load i64, ptr %28, align 8, !tbaa !143
   %104 = sub nsw i64 0, %103
-  store i64 %104, ptr %28, align 8, !tbaa !141
-  %105 = load i64, ptr %26, align 8, !tbaa !141
+  store i64 %104, ptr %28, align 8, !tbaa !143
+  %105 = load i64, ptr %26, align 8, !tbaa !143
   %106 = sub nsw i64 0, %105
-  store i64 %106, ptr %26, align 8, !tbaa !141
+  store i64 %106, ptr %26, align 8, !tbaa !143
   %107 = sub nsw i64 0, %95
   %108 = sub nsw i64 0, %94
   %109 = call fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %.0, ptr noundef nonnull @Split_Cubic, i64 noundef %107, i64 noundef %108)
-  %110 = load i64, ptr %32, align 8, !tbaa !141
+  %110 = load i64, ptr %32, align 8, !tbaa !143
   %111 = sub nsw i64 0, %110
-  store i64 %111, ptr %32, align 8, !tbaa !141
+  store i64 %111, ptr %32, align 8, !tbaa !143
   %.not93 = icmp eq i8 %109, 0
   br i1 %.not93, label %112, label %115
 
@@ -2760,7 +2760,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
 114:                                              ; preds = %46, %112, %82
   %.1 = phi ptr [ %25, %46 ], [ %83, %82 ], [ %113, %112 ]
   %.not95 = icmp ult ptr %.1, %8
-  br i1 %.not95, label %115, label %24, !llvm.loop !144
+  br i1 %.not95, label %115, label %24, !llvm.loop !146
 
 115:                                              ; preds = %89, %91, %96, %98, %114
   %.072 = phi i8 [ 0, %114 ], [ 1, %98 ], [ 1, %96 ], [ 1, %91 ], [ 1, %89 ]
@@ -2771,20 +2771,20 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr noundef nonnull c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %4 = load ptr, ptr %3, align 8, !tbaa !119
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !129
+  %7 = load i32, ptr %6, align 4, !tbaa !131
   %.not50 = icmp eq i32 %7, 0
   br i1 %.not50, label %16, label %8
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !100
-  store ptr %10, ptr %3, align 8, !tbaa !117
+  store ptr %10, ptr %3, align 8, !tbaa !119
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %11, ptr %9, align 8, !tbaa !100
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2794,7 +2794,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 0, ptr %15, align 4, !tbaa !129
+  store i32 0, ptr %15, align 4, !tbaa !131
   br label %16
 
 16:                                               ; preds = %14, %5
@@ -2803,13 +2803,13 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
   %19 = load i8, ptr %18, align 4, !tbaa !110
   %20 = zext i8 %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i16 %20, ptr %21, align 4, !tbaa !115
+  store i16 %20, ptr %21, align 4, !tbaa !117
   %switch = icmp eq i32 %1, 1
   br i1 %switch, label %22, label %40
 
 22:                                               ; preds = %16
   %23 = or i16 %20, 8
-  store i16 %23, ptr %21, align 4, !tbaa !115
+  store i16 %23, ptr %21, align 4, !tbaa !117
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i64, ptr %24, align 8, !tbaa !112
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2829,7 +2829,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
 
 38:                                               ; preds = %22
   %39 = or i16 %20, 40
-  store i16 %39, ptr %21, align 4, !tbaa !115
+  store i16 %39, ptr %21, align 4, !tbaa !117
   br label %56
 
 40:                                               ; preds = %16
@@ -2848,7 +2848,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
 
 50:                                               ; preds = %40
   %51 = or i16 %20, 16
-  store i16 %51, ptr %21, align 4, !tbaa !115
+  store i16 %51, ptr %21, align 4, !tbaa !117
   br label %52
 
 52:                                               ; preds = %50, %40
@@ -2871,7 +2871,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
   %64 = ashr i64 %.2, %63
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 %65, ptr %66, align 8, !tbaa !125
+  store i32 %65, ptr %66, align 8, !tbaa !127
   %67 = icmp eq i64 %57, %.2
   br i1 %67, label %68, label %74
 
@@ -2882,7 +2882,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
   %72 = load ptr, ptr %71, align 8, !tbaa !100
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %73, ptr %71, align 8, !tbaa !100
-  store i64 %70, ptr %72, align 8, !tbaa !124
+  store i64 %70, ptr %72, align 8, !tbaa !126
   br label %74
 
 74:                                               ; preds = %56, %68, %8
@@ -2977,17 +2977,17 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull ca
   %.078 = phi i32 [ %60, %.preheader ], [ %46, %55 ]
   %.0 = phi ptr [ %59, %.preheader ], [ %48, %55 ]
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %3, ptr %.0, align 8, !tbaa !124
+  store i64 %3, ptr %.0, align 8, !tbaa !126
   %60 = add nsw i32 %.078, -1
   %.not105 = icmp eq i32 %60, 0
-  br i1 %.not105, label %.loopexit, label %.preheader, !llvm.loop !145
+  br i1 %.not105, label %.loopexit, label %.preheader, !llvm.loop !147
 
 61:                                               ; preds = %55
   %62 = sub nsw i64 %.088, %2
   %63 = tail call i64 @FT_MulDiv_No_Round(i64 noundef %62, i64 noundef %56, i64 noundef %57) #10
   %64 = add nsw i64 %63, %1
   %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 %64, ptr %48, align 8, !tbaa !124
+  store i64 %64, ptr %48, align 8, !tbaa !126
   %.not102 = icmp eq i32 %45, 0
   br i1 %.not102, label %.loopexit, label %66
 
@@ -3023,10 +3023,10 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull ca
   %83 = select i1 %.not103, i64 0, i64 %57
   %.282 = sub nsw i64 %81, %83
   %84 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.187, ptr %.2, align 8, !tbaa !124
+  store i64 %.187, ptr %.2, align 8, !tbaa !126
   %85 = add nsw i32 %.179, -1
   %.not104 = icmp eq i32 %85, 0
-  br i1 %.not104, label %.loopexit, label %79, !llvm.loop !146
+  br i1 %.not104, label %.loopexit, label %79, !llvm.loop !148
 
 .loopexit:                                        ; preds = %79, %.preheader, %61
   %.1 = phi ptr [ %65, %61 ], [ %59, %.preheader ], [ %84, %79 ]
@@ -3044,9 +3044,9 @@ declare hidden i64 @FT_MulDiv_No_Round(i64 noundef, i64 noundef, i64 noundef) lo
 define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 2, 4) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.TPoint_, ptr %2, i64 %7, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !141
+  %9 = load i64, ptr %8, align 8, !tbaa !143
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !141
+  %11 = load i64, ptr %10, align 8, !tbaa !143
   %12 = icmp slt i64 %11, %4
   %13 = icmp sgt i64 %9, %5
   %or.cond = select i1 %12, i1 true, i1 %13
@@ -3127,17 +3127,17 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   %.074 = phi ptr [ %.175, %98 ], [ %2, %.preheader ]
   %.0 = phi ptr [ %.2, %98 ], [ %46, %.preheader ]
   %61 = getelementptr inbounds nuw i8, ptr %.074, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !141
-  %63 = load i64, ptr %.074, align 8, !tbaa !139
+  %62 = load i64, ptr %61, align 8, !tbaa !143
+  %63 = load i64, ptr %.074, align 8, !tbaa !141
   %64 = icmp sgt i64 %62, %.177
   br i1 %64, label %65, label %89
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw %struct.TPoint_, ptr %.074, i64 %7
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !141
+  %68 = load i64, ptr %67, align 8, !tbaa !143
   %69 = sub nsw i64 %62, %68
-  %70 = load i64, ptr %66, align 8, !tbaa !139
+  %70 = load i64, ptr %66, align 8, !tbaa !141
   %71 = sub nsw i64 %63, %70
   %72 = load i32, ptr %57, align 8, !tbaa !87
   %73 = sext i32 %72 to i64
@@ -3150,7 +3150,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   br i1 %or.cond94, label %78, label %79
 
 78:                                               ; preds = %65
-  tail call void %3(ptr noundef nonnull %.074) #10, !callees !147
+  tail call void %3(ptr noundef nonnull %.074) #10, !callees !149
   br label %98
 
 79:                                               ; preds = %65
@@ -3159,7 +3159,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   %82 = sdiv i64 %81, %69
   %83 = sub nsw i64 %63, %82
   %84 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %83, ptr %.0, align 8, !tbaa !124
+  store i64 %83, ptr %.0, align 8, !tbaa !126
   %85 = load i32, ptr %55, align 4, !tbaa !88
   %86 = sext i32 %85 to i64
   %87 = add nsw i64 %.177, %86
@@ -3172,7 +3172,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %63, ptr %.0, align 8, !tbaa !124
+  store i64 %63, ptr %.0, align 8, !tbaa !126
   %93 = load i32, ptr %55, align 4, !tbaa !88
   %94 = sext i32 %93 to i64
   %95 = add nsw i64 %.177, %94
@@ -3189,7 +3189,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   %.175 = phi ptr [ %66, %78 ], [ %88, %79 ], [ %97, %96 ]
   %.2 = phi ptr [ %.0, %78 ], [ %84, %79 ], [ %.1, %96 ]
   %.not91 = icmp sgt i64 %.3, %23
-  br i1 %.not91, label %99, label %60, !llvm.loop !142
+  br i1 %.not91, label %99, label %60, !llvm.loop !144
 
 99:                                               ; preds = %98
   store ptr %.2, ptr %45, align 8, !tbaa !100
@@ -3203,60 +3203,60 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @Split_Cubic(ptr noundef captures(none) initializes((64, 112)) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !139
+  %3 = load i64, ptr %2, align 8, !tbaa !141
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %3, ptr %4, align 8, !tbaa !139
-  %5 = load i64, ptr %0, align 8, !tbaa !139
+  store i64 %3, ptr %4, align 8, !tbaa !141
+  %5 = load i64, ptr %0, align 8, !tbaa !141
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !139
+  %7 = load i64, ptr %6, align 8, !tbaa !141
   %8 = add nsw i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !139
+  %10 = load i64, ptr %9, align 8, !tbaa !141
   %11 = add nsw i64 %10, %7
   %12 = add nsw i64 %10, %3
   %13 = ashr i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %13, ptr %14, align 8, !tbaa !139
+  store i64 %13, ptr %14, align 8, !tbaa !141
   %15 = add nsw i64 %12, %11
   %16 = ashr i64 %15, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %16, ptr %17, align 8, !tbaa !139
+  store i64 %16, ptr %17, align 8, !tbaa !141
   %18 = ashr i64 %8, 1
-  store i64 %18, ptr %6, align 8, !tbaa !139
+  store i64 %18, ptr %6, align 8, !tbaa !141
   %19 = add nsw i64 %11, %8
   %20 = ashr i64 %19, 2
-  store i64 %20, ptr %9, align 8, !tbaa !139
+  store i64 %20, ptr %9, align 8, !tbaa !141
   %21 = add nsw i64 %19, %15
   %22 = ashr i64 %21, 3
-  store i64 %22, ptr %2, align 8, !tbaa !139
+  store i64 %22, ptr %2, align 8, !tbaa !141
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load i64, ptr %23, align 8, !tbaa !141
+  %24 = load i64, ptr %23, align 8, !tbaa !143
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %24, ptr %25, align 8, !tbaa !141
+  store i64 %24, ptr %25, align 8, !tbaa !143
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !141
+  %27 = load i64, ptr %26, align 8, !tbaa !143
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !141
+  %29 = load i64, ptr %28, align 8, !tbaa !143
   %30 = add nsw i64 %29, %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load i64, ptr %31, align 8, !tbaa !141
+  %32 = load i64, ptr %31, align 8, !tbaa !143
   %33 = add nsw i64 %32, %29
   %34 = add nsw i64 %32, %24
   %35 = ashr i64 %34, 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %35, ptr %36, align 8, !tbaa !141
+  store i64 %35, ptr %36, align 8, !tbaa !143
   %37 = add nsw i64 %34, %33
   %38 = ashr i64 %37, 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %38, ptr %39, align 8, !tbaa !141
+  store i64 %38, ptr %39, align 8, !tbaa !143
   %40 = ashr i64 %30, 1
-  store i64 %40, ptr %28, align 8, !tbaa !141
+  store i64 %40, ptr %28, align 8, !tbaa !143
   %41 = add nsw i64 %33, %30
   %42 = ashr i64 %41, 2
-  store i64 %42, ptr %31, align 8, !tbaa !141
+  store i64 %42, ptr %31, align 8, !tbaa !143
   %43 = add nsw i64 %41, %37
   %44 = ashr i64 %43, 3
-  store i64 %44, ptr %23, align 8, !tbaa !141
+  store i64 %44, ptr %23, align 8, !tbaa !143
   ret void
 }
 
@@ -3415,37 +3415,39 @@ attributes #10 = { nounwind }
 !111 = !{!38, !16, i64 64}
 !112 = !{!38, !16, i64 72}
 !113 = distinct !{!113, !114}
-!114 = !{!"llvm.loop.mustprogress"}
-!115 = !{!116, !20, i64 28}
-!116 = !{!"TProfile_", !40, i64 0, !40, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !20, i64 28, !16, i64 32, !5, i64 40}
-!117 = !{!38, !40, i64 104}
-!118 = !{!38, !40, i64 112}
-!119 = distinct !{!119, !114}
-!120 = !{!116, !40, i64 0}
-!121 = !{!116, !40, i64 8}
-!122 = distinct !{!122, !114}
-!123 = !{!40, !40, i64 0}
-!124 = !{!16, !16, i64 0}
-!125 = !{!116, !4, i64 24}
-!126 = !{!116, !16, i64 32}
-!127 = distinct !{!127, !114}
-!128 = distinct !{!128, !114}
-!129 = !{!116, !4, i64 20}
-!130 = !{!116, !4, i64 16}
-!131 = distinct !{!131, !114}
-!132 = distinct !{!132, !114}
-!133 = distinct !{!133, !114}
-!134 = distinct !{!134, !114}
-!135 = distinct !{!135, !114}
-!136 = distinct !{!136, !114}
-!137 = distinct !{!137, !114}
-!138 = distinct !{!138, !114}
-!139 = !{!140, !16, i64 0}
-!140 = !{!"TPoint_", !16, i64 0, !16, i64 8}
-!141 = !{!140, !16, i64 8}
-!142 = distinct !{!142, !114}
-!143 = distinct !{!143, !114}
-!144 = distinct !{!144, !114}
-!145 = distinct !{!145, !114}
-!146 = distinct !{!146, !114}
-!147 = distinct !{null, ptr @Split_Cubic}
+!114 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!115 = distinct !{!115, !116}
+!116 = !{!"llvm.loop.mustprogress"}
+!117 = !{!118, !20, i64 28}
+!118 = !{!"TProfile_", !40, i64 0, !40, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !20, i64 28, !16, i64 32, !5, i64 40}
+!119 = !{!38, !40, i64 104}
+!120 = !{!38, !40, i64 112}
+!121 = distinct !{!121, !116}
+!122 = !{!118, !40, i64 0}
+!123 = !{!118, !40, i64 8}
+!124 = distinct !{!124, !116}
+!125 = !{!40, !40, i64 0}
+!126 = !{!16, !16, i64 0}
+!127 = !{!118, !4, i64 24}
+!128 = !{!118, !16, i64 32}
+!129 = distinct !{!129, !116}
+!130 = distinct !{!130, !116}
+!131 = !{!118, !4, i64 20}
+!132 = !{!118, !4, i64 16}
+!133 = distinct !{!133, !116}
+!134 = distinct !{!134, !116}
+!135 = distinct !{!135, !116}
+!136 = distinct !{!136, !116}
+!137 = distinct !{!137, !116}
+!138 = distinct !{!138, !116}
+!139 = distinct !{!139, !116}
+!140 = distinct !{!140, !116}
+!141 = !{!142, !16, i64 0}
+!142 = !{!"TPoint_", !16, i64 0, !16, i64 8}
+!143 = !{!142, !16, i64 8}
+!144 = distinct !{!144, !116}
+!145 = distinct !{!145, !116}
+!146 = distinct !{!146, !116}
+!147 = distinct !{!147, !116}
+!148 = distinct !{!148, !116}
+!149 = distinct !{null, ptr @Split_Cubic}

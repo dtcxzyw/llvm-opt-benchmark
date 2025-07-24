@@ -6436,7 +6436,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
   %inc7 = add nuw nsw i32 %seqIndex.019, 1
   %21 = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %20, %21
-  br i1 %cmp.i.not, label %for.end14, label %for.body, !llvm.loop !134
+  br i1 %cmp.i.not, label %for.end14, label %for.body, !llvm.loop !136
 
 for.end14:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc7.us, %for.inc.us ], [ %inc7, %for.inc ]
@@ -6505,7 +6505,7 @@ vaarg.end42:                                      ; preds = %vaarg.in_mem38, %va
   %vaarg.addr43 = phi ptr [ %29, %vaarg.in_reg36 ], [ %overflow_arg_area4031, %vaarg.in_mem38 ]
   %31 = load i32, ptr %vaarg.addr43, align 4
   %cmp44.not = icmp eq i32 %31, -1
-  br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !135
+  br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !137
 
 do.end:                                           ; preds = %vaarg.end42
   %tobool45.not = icmp eq ptr %pName, null
@@ -6806,7 +6806,7 @@ for.body:                                         ; preds = %entry, %for.body
   %tobool.not = icmp ne ptr %pNode.0, null
   %cmp.i = icmp ne ptr %1, %last.coerce
   %or.cond = select i1 %tobool.not, i1 %cmp.i, i1 false
-  br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !136
+  br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !138
 
 for.end:                                          ; preds = %for.body, %entry
   %2 = phi ptr [ %pNode.010, %entry ], [ %pNode.0, %for.body ]
@@ -6907,7 +6907,7 @@ _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %16 = load ptr, ptr %first.sroa.0.06.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %16, %last.coerce
-  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !137
+  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !139
 
 if.end:                                           ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRKiEEEPNS_9SListNodeIiEEDpOT_.exit.i.i, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoEraseAfterEPNS_13SListNodeBaseES6_.exit
   ret void
@@ -6929,7 +6929,7 @@ land.rhs.preheader:                               ; preds = %entry
 land.rhs:                                         ; preds = %for.body
   %2 = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %7, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !138
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !140
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %pNode.0812 = phi ptr [ %5, %land.rhs ], [ %0, %land.rhs.preheader ]
@@ -6943,10 +6943,10 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %first, align 8
   %tobool.not = icmp eq ptr %5, null
-  br i1 %tobool.not, label %for.body.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !138
+  br i1 %tobool.not, label %for.body.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !140
 
 for.body.for.end.loopexit_crit_edge:              ; preds = %for.body
-  br label %for.end, !llvm.loop !138
+  br label %for.end, !llvm.loop !140
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %for.body.for.end.loopexit_crit_edge, %entry
   %8 = phi ptr [ %.pre10, %entry ], [ %7, %for.body.for.end.loopexit_crit_edge ], [ %.pre10, %land.rhs.preheader ], [ %7, %land.rhs ]
@@ -7048,7 +7048,7 @@ _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %24 = load ptr, ptr %agg.tmp.sroa.0.0.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %24, %9
-  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !139
+  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !141
 
 if.end:                                           ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRiEEEPNS_9SListNodeIiEEDpOT_.exit.i.i, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoEraseAfterEPNS_13SListNodeBaseES6_.exit
   ret void
@@ -7074,7 +7074,7 @@ for.body:                                         ; preds = %entry, %for.body
   %tobool = icmp ne ptr %pNode.0, null
   %cmp = icmp ne ptr %incdec.ptr, %last
   %2 = select i1 %tobool, i1 %cmp, i1 false
-  br i1 %2, label %for.body, label %for.end, !llvm.loop !140
+  br i1 %2, label %for.body, label %for.end, !llvm.loop !142
 
 for.end:                                          ; preds = %for.body, %entry
   %3 = phi ptr [ %pNode.011, %entry ], [ %pNode.0, %for.body ]
@@ -7174,7 +7174,7 @@ _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEE
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i.i, i64 4
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %last
-  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !141
+  br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !143
 
 if.end:                                           ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRKiEEEPNS_9SListNodeIiEEDpOT_.exit.i.i, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE12DoEraseAfterEPNS_13SListNodeBaseES6_.exit
   ret void
@@ -7585,7 +7585,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %cmp = icmp ne i64 %n.addr.0, 0
   %1 = select i1 %tobool, i1 %cmp, i1 false
   %dec = add i64 %n.addr.0, -1
-  br i1 %1, label %for.cond, label %for.end, !llvm.loop !142
+  br i1 %1, label %for.cond, label %for.end, !llvm.loop !144
 
 for.end:                                          ; preds = %for.cond
   br i1 %tobool, label %while.body.lr.ph.i, label %if.else
@@ -7720,7 +7720,7 @@ _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9
   store i64 %inc.i, ptr %mSize.i7, align 8
   %inc3.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc3.i, %n.addr.0
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !143
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !145
 
 if.end:                                           ; preds = %_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRKS1_EEEPNS_9SListNodeIS1_EEDpOT_.exit.i, %if.else, %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE12DoEraseAfterEPNS_13SListNodeBaseES7_.exit
   ret void
@@ -7742,7 +7742,7 @@ land.rhs.preheader:                               ; preds = %entry
 land.rhs:                                         ; preds = %_ZN10TestObjectaSERKS_.exit
   %2 = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %10, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !144
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !146
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %pNode.0913 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
@@ -7775,10 +7775,10 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !144
+  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !146
 
 _ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObjectaSERKS_.exit
-  br label %for.end, !llvm.loop !144
+  br label %for.end, !llvm.loop !146
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
   %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
@@ -7919,7 +7919,7 @@ _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %36 = load ptr, ptr %agg.tmp.sroa.0.0.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %36, %12
-  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !145
+  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !147
 
 if.end:                                           ; preds = %_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRS1_EEEPNS_9SListNodeIS1_EEDpOT_.exit.i.i, %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE12DoEraseAfterEPNS_13SListNodeBaseES7_.exit
   ret void
@@ -7938,7 +7938,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %cmp = icmp ne i64 %n.addr.0, 0
   %1 = select i1 %tobool, i1 %cmp, i1 false
   %dec = add i64 %n.addr.0, -1
-  br i1 %1, label %for.cond, label %for.end, !llvm.loop !146
+  br i1 %1, label %for.cond, label %for.end, !llvm.loop !148
 
 for.end:                                          ; preds = %for.cond
   br i1 %tobool, label %while.body.lr.ph.i, label %if.else
@@ -8077,7 +8077,7 @@ _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15Ma
   store i64 %inc.i, ptr %mSize.i7, align 8
   %inc3.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc3.i, %n.addr.0
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !147
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !149
 
 if.end:                                           ; preds = %_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoCreateNodeIJRKS1_EEEPNS_9SListNodeIS1_EEDpOT_.exit.i, %if.else, %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoEraseAfterEPNS_13SListNodeBaseES7_.exit
   ret void
@@ -8099,7 +8099,7 @@ land.rhs.preheader:                               ; preds = %entry
 land.rhs:                                         ; preds = %_ZN10TestObjectaSERKS_.exit
   %2 = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %10, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !148
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !150
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %pNode.0913 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
@@ -8132,10 +8132,10 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !148
+  br i1 %tobool.not, label %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !150
 
 _ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObjectaSERKS_.exit
-  br label %for.end, !llvm.loop !148
+  br label %for.end, !llvm.loop !150
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
   %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
@@ -8280,7 +8280,7 @@ _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15Ma
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %37 = load ptr, ptr %agg.tmp.sroa.0.0.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %37, %12
-  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !149
+  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !151
 
 if.end:                                           ; preds = %_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoCreateNodeIJRS1_EEEPNS_9SListNodeIS1_EEDpOT_.exit.i.i, %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoEraseAfterEPNS_13SListNodeBaseES7_.exit
   ret void
@@ -8414,7 +8414,7 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.
   %tobool.not = icmp ne ptr %pNode.0, null
   %cmp.i = icmp ne ptr %3, %last.coerce
   %or.cond = select i1 %tobool.not, i1 %cmp.i, i1 false
-  br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !150
+  br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !152
 
 for.end:                                          ; preds = %_ZN10TestObjectaSERKS_.exit, %entry
   %4 = phi ptr [ %pNode.012, %entry ], [ %pNode.0, %_ZN10TestObjectaSERKS_.exit ]
@@ -8558,7 +8558,7 @@ _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15Ma
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %28 = load ptr, ptr %first.sroa.0.06.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %28, %last.coerce
-  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !151
+  br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !153
 
 if.end:                                           ; preds = %_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoCreateNodeIJRKS1_EEEPNS_9SListNodeIS1_EEDpOT_.exit.i.i, %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE12DoEraseAfterEPNS_13SListNodeBaseES7_.exit
   ret void
@@ -8731,8 +8731,8 @@ attributes #12 = { noreturn nounwind }
 !131 = !{!132}
 !132 = distinct !{!132, !133, !"_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv: %agg.result"}
 !133 = distinct !{!133, !"_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5beginEv"}
-!134 = distinct !{!134, !6}
-!135 = distinct !{!135, !6}
+!134 = distinct !{!134, !6, !135}
+!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !136 = distinct !{!136, !6}
 !137 = distinct !{!137, !6}
 !138 = distinct !{!138, !6}
@@ -8749,3 +8749,5 @@ attributes #12 = { noreturn nounwind }
 !149 = distinct !{!149, !6}
 !150 = distinct !{!150, !6}
 !151 = distinct !{!151, !6}
+!152 = distinct !{!152, !6}
+!153 = distinct !{!153, !6}

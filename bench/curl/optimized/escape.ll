@@ -150,28 +150,28 @@ define ptr @curl_unescape(ptr noundef readonly captures(address_is_null) %0, i32
 
 14:                                               ; preds = %9
   %.not6884.i.i = icmp eq i64 %10, 0
-  br i1 %.not6884.i.i, label %.loopexit.i, label %.lr.ph.split.us.split.us.i.i
+  br i1 %.not6884.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i
 
-.lr.ph.split.us.split.us.i.i:                     ; preds = %14, %37
-  %.05187.us.us.i.i = phi ptr [ %40, %37 ], [ %13, %14 ]
-  %.05286.us.us.i.i = phi i64 [ %39, %37 ], [ %10, %14 ]
-  %.05685.us.us.i.i = phi ptr [ %38, %37 ], [ %0, %14 ]
-  %15 = load i8, ptr %.05685.us.us.i.i, align 1, !tbaa !7
+.lr.ph.split.us.i.i:                              ; preds = %14, %37
+  %.05187.us.i.i = phi ptr [ %40, %37 ], [ %13, %14 ]
+  %.05286.us.i.i = phi i64 [ %38, %37 ], [ %10, %14 ]
+  %.05685.us.i.i = phi ptr [ %39, %37 ], [ %0, %14 ]
+  %15 = load i8, ptr %.05685.us.i.i, align 1, !tbaa !7
   %16 = icmp eq i8 %15, 37
-  %17 = icmp ugt i64 %.05286.us.us.i.i, 2
-  %or.cond.us.us.i.i = and i1 %17, %16
-  br i1 %or.cond.us.us.i.i, label %18, label %37
+  %17 = icmp ugt i64 %.05286.us.i.i, 2
+  %or.cond.us.i.i = and i1 %17, %16
+  br i1 %or.cond.us.i.i, label %18, label %37
 
-18:                                               ; preds = %.lr.ph.split.us.split.us.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i.i, i64 1
+18:                                               ; preds = %.lr.ph.split.us.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %.05685.us.i.i, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !7
-  %.fr93.i.i = freeze i8 %20
-  %21 = add i8 %.fr93.i.i, -48
-  %or.cond70.us.us.i.i = icmp ult i8 %21, 10
-  br i1 %or.cond70.us.us.i.i, label %22, label %switch.early.test.us.us.i.i
+  %.fr88.i.i = freeze i8 %20
+  %21 = add i8 %.fr88.i.i, -48
+  %or.cond70.us.i.i = icmp ult i8 %21, 10
+  br i1 %or.cond70.us.i.i, label %22, label %switch.early.test.us.i.i
 
-switch.early.test.us.us.i.i:                      ; preds = %18
-  switch i8 %.fr93.i.i, label %37 [
+switch.early.test.us.i.i:                         ; preds = %18
+  switch i8 %.fr88.i.i, label %37 [
     i8 102, label %22
     i8 101, label %22
     i8 100, label %22
@@ -186,16 +186,16 @@ switch.early.test.us.us.i.i:                      ; preds = %18
     i8 65, label %22
   ]
 
-22:                                               ; preds = %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %switch.early.test.us.us.i.i, %18
-  %23 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i.i, i64 2
+22:                                               ; preds = %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %switch.early.test.us.i.i, %18
+  %23 = getelementptr inbounds nuw i8, ptr %.05685.us.i.i, i64 2
   %24 = load i8, ptr %23, align 1, !tbaa !7
-  %.fr94.i.i = freeze i8 %24
-  %25 = add i8 %.fr94.i.i, -48
-  %or.cond73.us.us.i.i = icmp ult i8 %25, 10
-  br i1 %or.cond73.us.us.i.i, label %26, label %switch.early.test82.us.us.i.i
+  %.fr89.i.i = freeze i8 %24
+  %25 = add i8 %.fr89.i.i, -48
+  %or.cond73.us.i.i = icmp ult i8 %25, 10
+  br i1 %or.cond73.us.i.i, label %26, label %switch.early.test82.us.i.i
 
-switch.early.test82.us.us.i.i:                    ; preds = %22
-  switch i8 %.fr94.i.i, label %37 [
+switch.early.test82.us.i.i:                       ; preds = %22
+  switch i8 %.fr89.i.i, label %37 [
     i8 102, label %26
     i8 101, label %26
     i8 100, label %26
@@ -210,29 +210,29 @@ switch.early.test82.us.us.i.i:                    ; preds = %22
     i8 65, label %26
   ]
 
-26:                                               ; preds = %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %switch.early.test82.us.us.i.i, %22
-  %27 = zext nneg i8 %.fr93.i.i to i64
+26:                                               ; preds = %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %switch.early.test82.us.i.i, %22
+  %27 = zext nneg i8 %.fr88.i.i to i64
   %28 = add nsw i64 %27, -48
   %29 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !7
   %31 = shl i8 %30, 4
-  %32 = zext nneg i8 %.fr94.i.i to i64
+  %32 = zext nneg i8 %.fr89.i.i to i64
   %33 = add nsw i64 %32, -48
   %34 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !7
   %36 = or i8 %31, %35
   br label %37
 
-37:                                               ; preds = %26, %switch.early.test82.us.us.i.i, %switch.early.test.us.us.i.i, %.lr.ph.split.us.split.us.i.i
-  %.sink105.i.i = phi i64 [ 3, %26 ], [ 1, %switch.early.test82.us.us.i.i ], [ 1, %switch.early.test.us.us.i.i ], [ 1, %.lr.ph.split.us.split.us.i.i ]
-  %.sink.i.i = phi i64 [ -3, %26 ], [ -1, %switch.early.test82.us.us.i.i ], [ -1, %switch.early.test.us.us.i.i ], [ -1, %.lr.ph.split.us.split.us.i.i ]
-  %.0.us.us.i.i = phi i8 [ %36, %26 ], [ 37, %switch.early.test82.us.us.i.i ], [ 37, %switch.early.test.us.us.i.i ], [ %15, %.lr.ph.split.us.split.us.i.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i.i, i64 %.sink105.i.i
-  %39 = add i64 %.sink.i.i, %.05286.us.us.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.05187.us.us.i.i, i64 1
-  store i8 %.0.us.us.i.i, ptr %.05187.us.us.i.i, align 1, !tbaa !7
-  %.not68.us.us.i.i = icmp eq i64 %39, 0
-  br i1 %.not68.us.us.i.i, label %.loopexit.i, label %.lr.ph.split.us.split.us.i.i, !llvm.loop !10
+37:                                               ; preds = %26, %switch.early.test82.us.i.i, %switch.early.test.us.i.i, %.lr.ph.split.us.i.i
+  %.sink98.i.i = phi i64 [ 3, %26 ], [ 1, %switch.early.test82.us.i.i ], [ 1, %switch.early.test.us.i.i ], [ 1, %.lr.ph.split.us.i.i ]
+  %.sink.i.i = phi i64 [ -3, %26 ], [ -1, %switch.early.test82.us.i.i ], [ -1, %switch.early.test.us.i.i ], [ -1, %.lr.ph.split.us.i.i ]
+  %.0.us.i.i = phi i8 [ %36, %26 ], [ 37, %switch.early.test82.us.i.i ], [ 37, %switch.early.test.us.i.i ], [ %15, %.lr.ph.split.us.i.i ]
+  %38 = add i64 %.sink.i.i, %.05286.us.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.05685.us.i.i, i64 %.sink98.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.05187.us.i.i, i64 1
+  store i8 %.0.us.i.i, ptr %.05187.us.i.i, align 1, !tbaa !7
+  %.not68.us.i.i = icmp eq i64 %38, 0
+  br i1 %.not68.us.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %37, %14
   %.051.lcssa.i.i = phi ptr [ %13, %14 ], [ %40, %37 ]
@@ -270,28 +270,28 @@ define ptr @curl_easy_unescape(ptr noundef readnone captures(none) %0, ptr nound
 
 16:                                               ; preds = %11
   %.not6884.i = icmp eq i64 %12, 0
-  br i1 %.not6884.i, label %.loopexit, label %.lr.ph.split.us.split.us.i
+  br i1 %.not6884.i, label %.loopexit, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.split.us.i:                       ; preds = %16, %39
-  %.05187.us.us.i = phi ptr [ %42, %39 ], [ %15, %16 ]
-  %.05286.us.us.i = phi i64 [ %41, %39 ], [ %12, %16 ]
-  %.05685.us.us.i = phi ptr [ %40, %39 ], [ %1, %16 ]
-  %17 = load i8, ptr %.05685.us.us.i, align 1, !tbaa !7
+.lr.ph.split.us.i:                                ; preds = %16, %39
+  %.05187.us.i = phi ptr [ %42, %39 ], [ %15, %16 ]
+  %.05286.us.i = phi i64 [ %40, %39 ], [ %12, %16 ]
+  %.05685.us.i = phi ptr [ %41, %39 ], [ %1, %16 ]
+  %17 = load i8, ptr %.05685.us.i, align 1, !tbaa !7
   %18 = icmp eq i8 %17, 37
-  %19 = icmp ugt i64 %.05286.us.us.i, 2
-  %or.cond.us.us.i = and i1 %19, %18
-  br i1 %or.cond.us.us.i, label %20, label %39
+  %19 = icmp ugt i64 %.05286.us.i, 2
+  %or.cond.us.i = and i1 %19, %18
+  br i1 %or.cond.us.i, label %20, label %39
 
-20:                                               ; preds = %.lr.ph.split.us.split.us.i
-  %21 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i, i64 1
+20:                                               ; preds = %.lr.ph.split.us.i
+  %21 = getelementptr inbounds nuw i8, ptr %.05685.us.i, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !7
-  %.fr93.i = freeze i8 %22
-  %23 = add i8 %.fr93.i, -48
-  %or.cond70.us.us.i = icmp ult i8 %23, 10
-  br i1 %or.cond70.us.us.i, label %24, label %switch.early.test.us.us.i
+  %.fr88.i = freeze i8 %22
+  %23 = add i8 %.fr88.i, -48
+  %or.cond70.us.i = icmp ult i8 %23, 10
+  br i1 %or.cond70.us.i, label %24, label %switch.early.test.us.i
 
-switch.early.test.us.us.i:                        ; preds = %20
-  switch i8 %.fr93.i, label %39 [
+switch.early.test.us.i:                           ; preds = %20
+  switch i8 %.fr88.i, label %39 [
     i8 102, label %24
     i8 101, label %24
     i8 100, label %24
@@ -306,16 +306,16 @@ switch.early.test.us.us.i:                        ; preds = %20
     i8 65, label %24
   ]
 
-24:                                               ; preds = %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %20
-  %25 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i, i64 2
+24:                                               ; preds = %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %switch.early.test.us.i, %20
+  %25 = getelementptr inbounds nuw i8, ptr %.05685.us.i, i64 2
   %26 = load i8, ptr %25, align 1, !tbaa !7
-  %.fr94.i = freeze i8 %26
-  %27 = add i8 %.fr94.i, -48
-  %or.cond73.us.us.i = icmp ult i8 %27, 10
-  br i1 %or.cond73.us.us.i, label %28, label %switch.early.test82.us.us.i
+  %.fr89.i = freeze i8 %26
+  %27 = add i8 %.fr89.i, -48
+  %or.cond73.us.i = icmp ult i8 %27, 10
+  br i1 %or.cond73.us.i, label %28, label %switch.early.test82.us.i
 
-switch.early.test82.us.us.i:                      ; preds = %24
-  switch i8 %.fr94.i, label %39 [
+switch.early.test82.us.i:                         ; preds = %24
+  switch i8 %.fr89.i, label %39 [
     i8 102, label %28
     i8 101, label %28
     i8 100, label %28
@@ -330,29 +330,29 @@ switch.early.test82.us.us.i:                      ; preds = %24
     i8 65, label %28
   ]
 
-28:                                               ; preds = %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %switch.early.test82.us.us.i, %24
-  %29 = zext nneg i8 %.fr93.i to i64
+28:                                               ; preds = %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %switch.early.test82.us.i, %24
+  %29 = zext nneg i8 %.fr88.i to i64
   %30 = add nsw i64 %29, -48
   %31 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !7
   %33 = shl i8 %32, 4
-  %34 = zext nneg i8 %.fr94.i to i64
+  %34 = zext nneg i8 %.fr89.i to i64
   %35 = add nsw i64 %34, -48
   %36 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !7
   %38 = or i8 %33, %37
   br label %39
 
-39:                                               ; preds = %28, %switch.early.test82.us.us.i, %switch.early.test.us.us.i, %.lr.ph.split.us.split.us.i
-  %.sink105.i = phi i64 [ 3, %28 ], [ 1, %switch.early.test82.us.us.i ], [ 1, %switch.early.test.us.us.i ], [ 1, %.lr.ph.split.us.split.us.i ]
-  %.sink.i = phi i64 [ -3, %28 ], [ -1, %switch.early.test82.us.us.i ], [ -1, %switch.early.test.us.us.i ], [ -1, %.lr.ph.split.us.split.us.i ]
-  %.0.us.us.i = phi i8 [ %38, %28 ], [ 37, %switch.early.test82.us.us.i ], [ 37, %switch.early.test.us.us.i ], [ %17, %.lr.ph.split.us.split.us.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %.05685.us.us.i, i64 %.sink105.i
-  %41 = add i64 %.sink.i, %.05286.us.us.i
-  %42 = getelementptr inbounds nuw i8, ptr %.05187.us.us.i, i64 1
-  store i8 %.0.us.us.i, ptr %.05187.us.us.i, align 1, !tbaa !7
-  %.not68.us.us.i = icmp eq i64 %41, 0
-  br i1 %.not68.us.us.i, label %.loopexit, label %.lr.ph.split.us.split.us.i, !llvm.loop !10
+39:                                               ; preds = %28, %switch.early.test82.us.i, %switch.early.test.us.i, %.lr.ph.split.us.i
+  %.sink98.i = phi i64 [ 3, %28 ], [ 1, %switch.early.test82.us.i ], [ 1, %switch.early.test.us.i ], [ 1, %.lr.ph.split.us.i ]
+  %.sink.i = phi i64 [ -3, %28 ], [ -1, %switch.early.test82.us.i ], [ -1, %switch.early.test.us.i ], [ -1, %.lr.ph.split.us.i ]
+  %.0.us.i = phi i8 [ %38, %28 ], [ 37, %switch.early.test82.us.i ], [ 37, %switch.early.test.us.i ], [ %17, %.lr.ph.split.us.i ]
+  %40 = add i64 %.sink.i, %.05286.us.i
+  %41 = getelementptr inbounds nuw i8, ptr %.05685.us.i, i64 %.sink98.i
+  %42 = getelementptr inbounds nuw i8, ptr %.05187.us.i, i64 1
+  store i8 %.0.us.i, ptr %.05187.us.i, align 1, !tbaa !7
+  %.not68.us.i = icmp eq i64 %40, 0
+  br i1 %.not68.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .loopexit:                                        ; preds = %39, %16
   %.051.lcssa.i = phi ptr [ %15, %16 ], [ %42, %39 ]
@@ -369,7 +369,7 @@ switch.early.test82.us.us.i:                      ; preds = %24
 
 48:                                               ; preds = %46
   %49 = tail call i32 @curlx_uztosi(i64 noundef %45) #5
-  store i32 %49, ptr %3, align 4, !tbaa !11
+  store i32 %49, ptr %3, align 4, !tbaa !12
   br label %.critedge
 
 50:                                               ; preds = %46
@@ -412,145 +412,125 @@ define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures
   %11 = add i64 %9, 1
   %12 = tail call ptr %10(i64 noundef %11) #5
   %.not67 = icmp eq ptr %12, null
-  br i1 %.not67, label %103, label %13
+  br i1 %.not67, label %79, label %13
 
 13:                                               ; preds = %8
-  store ptr %12, ptr %2, align 8, !tbaa !13
+  store ptr %12, ptr %2, align 8, !tbaa !14
   %.not6884 = icmp eq i64 %9, 0
   br i1 %.not6884, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  switch i32 %4, label %.lr.ph.split.us.split.us [
-    i32 3, label %.lr.ph.split
-    i32 4, label %.lr.ph.split.us.split
+  %14 = icmp eq i32 %4, 3
+  %15 = icmp eq i32 %4, 4
+  br i1 %14, label %.lr.ph.split, label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %40
+  %.05187.us = phi ptr [ %43, %40 ], [ %12, %.lr.ph ]
+  %.05286.us = phi i64 [ %41, %40 ], [ %9, %.lr.ph ]
+  %.05685.us = phi ptr [ %42, %40 ], [ %0, %.lr.ph ]
+  %16 = load i8, ptr %.05685.us, align 1, !tbaa !7
+  %17 = icmp eq i8 %16, 37
+  %18 = icmp ugt i64 %.05286.us, 2
+  %or.cond.us = and i1 %18, %17
+  br i1 %or.cond.us, label %19, label %38
+
+19:                                               ; preds = %.lr.ph.split.us
+  %20 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !7
+  %.fr88 = freeze i8 %21
+  %22 = add i8 %.fr88, -48
+  %or.cond70.us = icmp ult i8 %22, 10
+  br i1 %or.cond70.us, label %23, label %switch.early.test.us
+
+switch.early.test.us:                             ; preds = %19
+  switch i8 %.fr88, label %38 [
+    i8 102, label %23
+    i8 101, label %23
+    i8 100, label %23
+    i8 99, label %23
+    i8 98, label %23
+    i8 97, label %23
+    i8 70, label %23
+    i8 69, label %23
+    i8 68, label %23
+    i8 67, label %23
+    i8 66, label %23
+    i8 65, label %23
   ]
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %36
-  %.05187.us.us = phi ptr [ %39, %36 ], [ %12, %.lr.ph ]
-  %.05286.us.us = phi i64 [ %38, %36 ], [ %9, %.lr.ph ]
-  %.05685.us.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph ]
-  %14 = load i8, ptr %.05685.us.us, align 1, !tbaa !7
-  %15 = icmp eq i8 %14, 37
-  %16 = icmp ugt i64 %.05286.us.us, 2
-  %or.cond.us.us = and i1 %16, %15
-  br i1 %or.cond.us.us, label %17, label %36
+23:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %19
+  %24 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 2
+  %25 = load i8, ptr %24, align 1, !tbaa !7
+  %.fr89 = freeze i8 %25
+  %26 = add i8 %.fr89, -48
+  %or.cond73.us = icmp ult i8 %26, 10
+  br i1 %or.cond73.us, label %27, label %switch.early.test82.us
 
-17:                                               ; preds = %.lr.ph.split.us.split.us
-  %18 = getelementptr inbounds nuw i8, ptr %.05685.us.us, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !7
-  %.fr93 = freeze i8 %19
-  %20 = add i8 %.fr93, -48
-  %or.cond70.us.us = icmp ult i8 %20, 10
-  br i1 %or.cond70.us.us, label %21, label %switch.early.test.us.us
-
-switch.early.test.us.us:                          ; preds = %17
-  switch i8 %.fr93, label %36 [
-    i8 102, label %21
-    i8 101, label %21
-    i8 100, label %21
-    i8 99, label %21
-    i8 98, label %21
-    i8 97, label %21
-    i8 70, label %21
-    i8 69, label %21
-    i8 68, label %21
-    i8 67, label %21
-    i8 66, label %21
-    i8 65, label %21
+switch.early.test82.us:                           ; preds = %23
+  switch i8 %.fr89, label %38 [
+    i8 102, label %27
+    i8 101, label %27
+    i8 100, label %27
+    i8 99, label %27
+    i8 98, label %27
+    i8 97, label %27
+    i8 70, label %27
+    i8 69, label %27
+    i8 68, label %27
+    i8 67, label %27
+    i8 66, label %27
+    i8 65, label %27
   ]
 
-21:                                               ; preds = %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %switch.early.test.us.us, %17
-  %22 = getelementptr inbounds nuw i8, ptr %.05685.us.us, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !7
-  %.fr94 = freeze i8 %23
-  %24 = add i8 %.fr94, -48
-  %or.cond73.us.us = icmp ult i8 %24, 10
-  br i1 %or.cond73.us.us, label %25, label %switch.early.test82.us.us
+27:                                               ; preds = %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %23
+  %28 = zext nneg i8 %.fr88 to i64
+  %29 = add nsw i64 %28, -48
+  %30 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !7
+  %32 = shl i8 %31, 4
+  %33 = zext nneg i8 %.fr89 to i64
+  %34 = add nsw i64 %33, -48
+  %35 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !7
+  %37 = or i8 %32, %36
+  br label %38
 
-switch.early.test82.us.us:                        ; preds = %21
-  switch i8 %.fr94, label %36 [
-    i8 102, label %25
-    i8 101, label %25
-    i8 100, label %25
-    i8 99, label %25
-    i8 98, label %25
-    i8 97, label %25
-    i8 70, label %25
-    i8 69, label %25
-    i8 68, label %25
-    i8 67, label %25
-    i8 66, label %25
-    i8 65, label %25
-  ]
+38:                                               ; preds = %.lr.ph.split.us, %switch.early.test.us, %switch.early.test82.us, %27
+  %.sink98 = phi i64 [ 3, %27 ], [ 1, %switch.early.test82.us ], [ 1, %switch.early.test.us ], [ 1, %.lr.ph.split.us ]
+  %.sink = phi i64 [ -3, %27 ], [ -1, %switch.early.test82.us ], [ -1, %switch.early.test.us ], [ -1, %.lr.ph.split.us ]
+  %.0.us = phi i8 [ %37, %27 ], [ %16, %switch.early.test82.us ], [ %16, %switch.early.test.us ], [ %16, %.lr.ph.split.us ]
+  %39 = icmp eq i8 %.0.us, 0
+  %or.cond7.us = select i1 %15, i1 %39, i1 false
+  br i1 %or.cond7.us, label %.thread, label %40
 
-25:                                               ; preds = %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %switch.early.test82.us.us, %21
-  %26 = zext nneg i8 %.fr93 to i64
-  %27 = add nsw i64 %26, -48
-  %28 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !7
-  %30 = shl i8 %29, 4
-  %31 = zext nneg i8 %.fr94 to i64
-  %32 = add nsw i64 %31, -48
-  %33 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !7
-  %35 = or i8 %30, %34
-  br label %36
+40:                                               ; preds = %38
+  %41 = add i64 %.05286.us, %.sink
+  %42 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 %.sink98
+  %43 = getelementptr inbounds nuw i8, ptr %.05187.us, i64 1
+  store i8 %.0.us, ptr %.05187.us, align 1, !tbaa !7
+  %.not68.us = icmp eq i64 %41, 0
+  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
-36:                                               ; preds = %.lr.ph.split.us.split.us, %switch.early.test.us.us, %switch.early.test82.us.us, %25
-  %.sink105 = phi i64 [ 3, %25 ], [ 1, %switch.early.test82.us.us ], [ 1, %switch.early.test.us.us ], [ 1, %.lr.ph.split.us.split.us ]
-  %.sink = phi i64 [ -3, %25 ], [ -1, %switch.early.test82.us.us ], [ -1, %switch.early.test.us.us ], [ -1, %.lr.ph.split.us.split.us ]
-  %.0.us.us = phi i8 [ %35, %25 ], [ %14, %switch.early.test82.us.us ], [ %14, %switch.early.test.us.us ], [ %14, %.lr.ph.split.us.split.us ]
-  %37 = getelementptr inbounds nuw i8, ptr %.05685.us.us, i64 %.sink105
-  %38 = add i64 %.05286.us.us, %.sink
-  %39 = getelementptr inbounds nuw i8, ptr %.05187.us.us, i64 1
-  store i8 %.0.us.us, ptr %.05187.us.us, align 1, !tbaa !7
-  %.not68.us.us = icmp eq i64 %38, 0
-  br i1 %.not68.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !10
+.lr.ph.split:                                     ; preds = %.lr.ph, %68
+  %.05187 = phi ptr [ %71, %68 ], [ %12, %.lr.ph ]
+  %.05286 = phi i64 [ %69, %68 ], [ %9, %.lr.ph ]
+  %.05685 = phi ptr [ %70, %68 ], [ %0, %.lr.ph ]
+  %44 = load i8, ptr %.05685, align 1, !tbaa !7
+  %45 = icmp eq i8 %44, 37
+  %46 = icmp ugt i64 %.05286, 2
+  %or.cond = and i1 %46, %45
+  br i1 %or.cond, label %47, label %66
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %64
-  %.05187.us = phi ptr [ %67, %64 ], [ %12, %.lr.ph ]
-  %.05286.us = phi i64 [ %65, %64 ], [ %9, %.lr.ph ]
-  %.05685.us = phi ptr [ %66, %64 ], [ %0, %.lr.ph ]
-  %40 = load i8, ptr %.05685.us, align 1, !tbaa !7
-  %41 = icmp eq i8 %40, 37
-  %42 = icmp ugt i64 %.05286.us, 2
-  %or.cond.us = and i1 %42, %41
-  br i1 %or.cond.us, label %43, label %62
-
-43:                                               ; preds = %.lr.ph.split.us.split
-  %44 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !7
-  %.fr89 = freeze i8 %45
-  %46 = add i8 %.fr89, -48
-  %or.cond70.us = icmp ult i8 %46, 10
-  br i1 %or.cond70.us, label %47, label %switch.early.test.us
-
-switch.early.test.us:                             ; preds = %43
-  switch i8 %.fr89, label %62 [
-    i8 102, label %47
-    i8 101, label %47
-    i8 100, label %47
-    i8 99, label %47
-    i8 98, label %47
-    i8 97, label %47
-    i8 70, label %47
-    i8 69, label %47
-    i8 68, label %47
-    i8 67, label %47
-    i8 66, label %47
-    i8 65, label %47
-  ]
-
-47:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %43
-  %48 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 2
+47:                                               ; preds = %.lr.ph.split
+  %48 = getelementptr inbounds nuw i8, ptr %.05685, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !7
   %.fr90 = freeze i8 %49
   %50 = add i8 %.fr90, -48
-  %or.cond73.us = icmp ult i8 %50, 10
-  br i1 %or.cond73.us, label %51, label %switch.early.test82.us
+  %or.cond70 = icmp ult i8 %50, 10
+  br i1 %or.cond70, label %51, label %switch.early.test
 
-switch.early.test82.us:                           ; preds = %47
-  switch i8 %.fr90, label %62 [
+switch.early.test:                                ; preds = %47
+  switch i8 %.fr90, label %66 [
     i8 102, label %51
     i8 101, label %51
     i8 100, label %51
@@ -565,143 +545,81 @@ switch.early.test82.us:                           ; preds = %47
     i8 65, label %51
   ]
 
-51:                                               ; preds = %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %switch.early.test82.us, %47
-  %52 = zext nneg i8 %.fr89 to i64
-  %53 = add nsw i64 %52, -48
-  %54 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !7
-  %56 = shl i8 %55, 4
-  %57 = zext nneg i8 %.fr90 to i64
-  %58 = add nsw i64 %57, -48
-  %59 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !7
-  %61 = or i8 %56, %60
-  br label %62
+51:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %47
+  %52 = getelementptr inbounds nuw i8, ptr %.05685, i64 2
+  %53 = load i8, ptr %52, align 1, !tbaa !7
+  %.fr91 = freeze i8 %53
+  %54 = add i8 %.fr91, -48
+  %or.cond73 = icmp ult i8 %54, 10
+  br i1 %or.cond73, label %55, label %switch.early.test82
 
-62:                                               ; preds = %.lr.ph.split.us.split, %switch.early.test.us, %switch.early.test82.us, %51
-  %.sink107 = phi i64 [ 3, %51 ], [ 1, %switch.early.test82.us ], [ 1, %switch.early.test.us ], [ 1, %.lr.ph.split.us.split ]
-  %.sink106 = phi i64 [ -3, %51 ], [ -1, %switch.early.test82.us ], [ -1, %switch.early.test.us ], [ -1, %.lr.ph.split.us.split ]
-  %.0.us = phi i8 [ %61, %51 ], [ %40, %switch.early.test82.us ], [ %40, %switch.early.test.us ], [ %40, %.lr.ph.split.us.split ]
-  %63 = icmp eq i8 %.0.us, 0
-  br i1 %63, label %.thread, label %64
-
-64:                                               ; preds = %62
-  %65 = add i64 %.05286.us, %.sink106
-  %66 = getelementptr inbounds nuw i8, ptr %.05685.us, i64 %.sink107
-  %67 = getelementptr inbounds nuw i8, ptr %.05187.us, i64 1
-  store i8 %.0.us, ptr %.05187.us, align 1, !tbaa !7
-  %.not68.us = icmp eq i64 %65, 0
-  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !10
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %92
-  %.05187 = phi ptr [ %95, %92 ], [ %12, %.lr.ph ]
-  %.05286 = phi i64 [ %93, %92 ], [ %9, %.lr.ph ]
-  %.05685 = phi ptr [ %94, %92 ], [ %0, %.lr.ph ]
-  %68 = load i8, ptr %.05685, align 1, !tbaa !7
-  %69 = icmp eq i8 %68, 37
-  %70 = icmp ugt i64 %.05286, 2
-  %or.cond = and i1 %70, %69
-  br i1 %or.cond, label %71, label %90
-
-71:                                               ; preds = %.lr.ph.split
-  %72 = getelementptr inbounds nuw i8, ptr %.05685, i64 1
-  %73 = load i8, ptr %72, align 1, !tbaa !7
-  %.fr91 = freeze i8 %73
-  %74 = add i8 %.fr91, -48
-  %or.cond70 = icmp ult i8 %74, 10
-  br i1 %or.cond70, label %75, label %switch.early.test
-
-switch.early.test:                                ; preds = %71
-  switch i8 %.fr91, label %90 [
-    i8 102, label %75
-    i8 101, label %75
-    i8 100, label %75
-    i8 99, label %75
-    i8 98, label %75
-    i8 97, label %75
-    i8 70, label %75
-    i8 69, label %75
-    i8 68, label %75
-    i8 67, label %75
-    i8 66, label %75
-    i8 65, label %75
+switch.early.test82:                              ; preds = %51
+  switch i8 %.fr91, label %66 [
+    i8 102, label %55
+    i8 101, label %55
+    i8 100, label %55
+    i8 99, label %55
+    i8 98, label %55
+    i8 97, label %55
+    i8 70, label %55
+    i8 69, label %55
+    i8 68, label %55
+    i8 67, label %55
+    i8 66, label %55
+    i8 65, label %55
   ]
 
-75:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %71
-  %76 = getelementptr inbounds nuw i8, ptr %.05685, i64 2
-  %77 = load i8, ptr %76, align 1, !tbaa !7
-  %.fr92 = freeze i8 %77
-  %78 = add i8 %.fr92, -48
-  %or.cond73 = icmp ult i8 %78, 10
-  br i1 %or.cond73, label %79, label %switch.early.test82
+55:                                               ; preds = %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %51
+  %56 = zext nneg i8 %.fr90 to i64
+  %57 = add nsw i64 %56, -48
+  %58 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !7
+  %60 = shl i8 %59, 4
+  %61 = zext nneg i8 %.fr91 to i64
+  %62 = add nsw i64 %61, -48
+  %63 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !7
+  %65 = or i8 %60, %64
+  br label %66
 
-switch.early.test82:                              ; preds = %75
-  switch i8 %.fr92, label %90 [
-    i8 102, label %79
-    i8 101, label %79
-    i8 100, label %79
-    i8 99, label %79
-    i8 98, label %79
-    i8 97, label %79
-    i8 70, label %79
-    i8 69, label %79
-    i8 68, label %79
-    i8 67, label %79
-    i8 66, label %79
-    i8 65, label %79
-  ]
+66:                                               ; preds = %.lr.ph.split, %switch.early.test, %switch.early.test82, %55
+  %.sink100 = phi i64 [ 3, %55 ], [ 1, %switch.early.test82 ], [ 1, %switch.early.test ], [ 1, %.lr.ph.split ]
+  %.sink99 = phi i64 [ -3, %55 ], [ -1, %switch.early.test82 ], [ -1, %switch.early.test ], [ -1, %.lr.ph.split ]
+  %.0 = phi i8 [ %65, %55 ], [ %44, %switch.early.test82 ], [ %44, %switch.early.test ], [ %44, %.lr.ph.split ]
+  %67 = icmp ult i8 %.0, 32
+  br i1 %67, label %.thread, label %68
 
-79:                                               ; preds = %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %switch.early.test82, %75
-  %80 = zext nneg i8 %.fr91 to i64
-  %81 = add nsw i64 %80, -48
-  %82 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !7
-  %84 = shl i8 %83, 4
-  %85 = zext nneg i8 %.fr92 to i64
-  %86 = add nsw i64 %85, -48
-  %87 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !7
-  %89 = or i8 %84, %88
-  br label %90
-
-90:                                               ; preds = %.lr.ph.split, %switch.early.test, %switch.early.test82, %79
-  %.sink109 = phi i64 [ 3, %79 ], [ 1, %switch.early.test82 ], [ 1, %switch.early.test ], [ 1, %.lr.ph.split ]
-  %.sink108 = phi i64 [ -3, %79 ], [ -1, %switch.early.test82 ], [ -1, %switch.early.test ], [ -1, %.lr.ph.split ]
-  %.0 = phi i8 [ %89, %79 ], [ %68, %switch.early.test82 ], [ %68, %switch.early.test ], [ %68, %.lr.ph.split ]
-  %91 = icmp ult i8 %.0, 32
-  br i1 %91, label %.thread, label %92
-
-92:                                               ; preds = %90
-  %93 = add i64 %.05286, %.sink108
-  %94 = getelementptr inbounds nuw i8, ptr %.05685, i64 %.sink109
-  %95 = getelementptr inbounds nuw i8, ptr %.05187, i64 1
+68:                                               ; preds = %66
+  %69 = add i64 %.05286, %.sink99
+  %70 = getelementptr inbounds nuw i8, ptr %.05685, i64 %.sink100
+  %71 = getelementptr inbounds nuw i8, ptr %.05187, i64 1
   store i8 %.0, ptr %.05187, align 1, !tbaa !7
-  %.not68 = icmp eq i64 %93, 0
-  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  %.not68 = icmp eq i64 %69, 0
+  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
-.thread:                                          ; preds = %62, %90
-  %96 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %97 = load ptr, ptr %2, align 8, !tbaa !13
-  tail call void %96(ptr noundef %97) #5
-  store ptr null, ptr %2, align 8, !tbaa !13
-  br label %103
+.thread:                                          ; preds = %38, %66
+  %72 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  %73 = load ptr, ptr %2, align 8, !tbaa !14
+  tail call void %72(ptr noundef %73) #5
+  store ptr null, ptr %2, align 8, !tbaa !14
+  br label %79
 
-._crit_edge:                                      ; preds = %64, %92, %36, %13
-  %.051.lcssa = phi ptr [ %12, %13 ], [ %39, %36 ], [ %95, %92 ], [ %67, %64 ]
+._crit_edge:                                      ; preds = %40, %68, %13
+  %.051.lcssa = phi ptr [ %12, %13 ], [ %71, %68 ], [ %43, %40 ]
   store i8 0, ptr %.051.lcssa, align 1, !tbaa !7
   %.not69 = icmp eq ptr %3, null
-  br i1 %.not69, label %103, label %98
+  br i1 %.not69, label %79, label %74
 
-98:                                               ; preds = %._crit_edge
-  %99 = load ptr, ptr %2, align 8, !tbaa !13
-  %100 = ptrtoint ptr %.051.lcssa to i64
-  %101 = ptrtoint ptr %99 to i64
-  %102 = sub i64 %100, %101
-  store i64 %102, ptr %3, align 8, !tbaa !15
-  br label %103
+74:                                               ; preds = %._crit_edge
+  %75 = load ptr, ptr %2, align 8, !tbaa !14
+  %76 = ptrtoint ptr %.051.lcssa to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  store i64 %78, ptr %3, align 8, !tbaa !17
+  br label %79
 
-103:                                              ; preds = %.thread, %._crit_edge, %98, %8
-  %.054 = phi i32 [ 27, %8 ], [ 0, %98 ], [ 0, %._crit_edge ], [ 3, %.thread ]
+79:                                               ; preds = %.thread, %._crit_edge, %74, %8
+  %.054 = phi i32 [ 27, %8 ], [ 0, %74 ], [ 0, %._crit_edge ], [ 3, %.thread ]
   ret i32 %.054
 }
 
@@ -748,7 +666,7 @@ define hidden void @Curl_hexencode(ptr noundef readonly captures(address_is_null
   %23 = icmp ne i64 %8, 0
   %24 = icmp ugt i64 %22, 2
   %25 = select i1 %23, i1 %24, i1 false
-  br i1 %25, label %.preheader, label %.sink.split, !llvm.loop !17
+  br i1 %25, label %.preheader, label %.sink.split, !llvm.loop !19
 
 26:                                               ; preds = %4
   %.not = icmp eq i64 %3, 0
@@ -783,11 +701,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = !{!5, !5, i64 0}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !4, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !5, i64 0}
-!17 = distinct !{!17, !9}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !4, i64 0}
+!16 = distinct !{!16, !9}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = distinct !{!19, !9}

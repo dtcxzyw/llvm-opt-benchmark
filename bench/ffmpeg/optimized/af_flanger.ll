@@ -275,7 +275,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %122 = srem i32 %121, %35
   %123 = add nuw nsw i32 %.08490, 1
   %exitcond.not = icmp eq i32 %123, %21
-  br i1 %exitcond.not, label %._crit_edge93, label %.lr.ph92.split, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge93, label %.lr.ph92.split, !llvm.loop !67
 
 ._crit_edge93:                                    ; preds = %.lr.ph92.split, %._crit_edge.us
   %.us-phi = phi i32 [ %117, %._crit_edge.us ], [ %122, %.lr.ph92.split ]
@@ -316,14 +316,14 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
   %9 = load double, ptr %8, align 8, !tbaa !28
   %10 = fadd nsz double %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !66
+  %12 = load i32, ptr %11, align 8, !tbaa !68
   %13 = sitofp i32 %12 to double
   %14 = tail call nsz double @llvm.fmuladd.f64(double %10, double %13, double 2.500000e+00)
   %15 = fptosi double %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %15, ptr %16, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %18 = load double, ptr %17, align 8, !tbaa !67
+  %18 = load double, ptr %17, align 8, !tbaa !69
   %19 = fdiv nsz double %13, %18
   %20 = fptosi double %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -349,10 +349,10 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %35 = load i32, ptr %34, align 8, !tbaa !68
+  %35 = load i32, ptr %34, align 8, !tbaa !70
   %36 = load i32, ptr %21, align 8, !tbaa !52
   %37 = load double, ptr %6, align 8, !tbaa !27
-  %38 = load i32, ptr %11, align 8, !tbaa !66
+  %38 = load i32, ptr %11, align 8, !tbaa !68
   %39 = sitofp i32 %38 to double
   %40 = fmul nsz double %37, %39
   %41 = tail call nsz double @llvm.rint.f64(double %40)
@@ -364,7 +364,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
   %46 = load i32, ptr %22, align 4, !tbaa !51
   %47 = load i32, ptr %16, align 8, !tbaa !50
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !69
+  %49 = load i32, ptr %48, align 4, !tbaa !71
   %50 = tail call i32 @av_samples_alloc_array_and_samples(ptr noundef nonnull %45, ptr noundef null, i32 noundef %46, i32 noundef %47, i32 noundef %49, i32 noundef 0) #5
   br label %51
 
@@ -479,8 +479,10 @@ attributes #5 = { nounwind }
 !62 = !{!22, !22, i64 0}
 !63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = distinct !{!65, !64}
-!66 = !{!34, !15, i64 64}
-!67 = !{!21, !22, i64 40}
-!68 = !{!21, !15, i64 48}
-!69 = !{!34, !15, i64 36}
+!65 = distinct !{!65, !64, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !64}
+!68 = !{!34, !15, i64 64}
+!69 = !{!21, !22, i64 40}
+!70 = !{!21, !15, i64 48}
+!71 = !{!34, !15, i64 36}

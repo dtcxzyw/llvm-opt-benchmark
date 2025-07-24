@@ -11080,7 +11080,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   %65 = load i32, ptr %64, align 8, !tbaa !131
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next65, %66
-  br i1 %67, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !295
 
 ._crit_edge:                                      ; preds = %74, %.lr.ph.split.us, %.thread, %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
@@ -11217,7 +11217,7 @@ define internal fastcc void @_window_position(i32 noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5 = load i32, ptr %4, align 8, !tbaa !295
+  %5 = load i32, ptr %4, align 8, !tbaa !297
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
 
@@ -11242,7 +11242,7 @@ define internal fastcc void @_window_position(i32 noundef %0) unnamed_addr #0 {
   %18 = load i32, ptr %17, align 8, !tbaa !289
   %19 = add nsw i32 %18, %0
   store i32 %19, ptr %17, align 8, !tbaa !289
-  store i32 0, ptr %4, align 8, !tbaa !295
+  store i32 0, ptr %4, align 8, !tbaa !297
   %20 = load ptr, ptr %3, align 8, !tbaa !88
   %21 = tail call ptr @gtk_widget_get_display(ptr noundef %20) #20
   %22 = tail call i64 @gdk_wayland_display_get_type() #20
@@ -11265,7 +11265,7 @@ define internal fastcc void @_window_position(i32 noundef %0) unnamed_addr #0 {
   br i1 %30, label %.critedge, label %.critedge50
 
 .critedge50:                                      ; preds = %25, %28
-  store i32 1, ptr %4, align 8, !tbaa !295
+  store i32 1, ptr %4, align 8, !tbaa !297
   %31 = load ptr, ptr %3, align 8, !tbaa !88
   tail call void @gtk_widget_set_app_paintable(ptr noundef %31, i32 noundef 1) #20
   %32 = load ptr, ptr %3, align 8, !tbaa !88
@@ -11296,7 +11296,7 @@ define internal fastcc void @_window_position(i32 noundef %0) unnamed_addr #0 {
   %45 = load ptr, ptr %3, align 8, !tbaa !88
   %46 = tail call ptr @gtk_widget_get_window(ptr noundef %45) #20
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !296
+  %48 = load i32, ptr %47, align 8, !tbaa !298
   %49 = load i32, ptr %39, align 4, !tbaa !103
   %50 = sub nsw i32 %.0, %49
   tail call void @gdk_window_resize(ptr noundef %46, i32 noundef %48, i32 noundef %50) #20
@@ -12537,14 +12537,14 @@ define internal float @_action_process_focus_slider(ptr noundef %0, i32 noundef 
   store i32 %1, ptr %5, align 4, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %8 = load ptr, ptr %7, align 16, !tbaa !297
-  store ptr %8, ptr %6, align 8, !tbaa !298
+  %8 = load ptr, ptr %7, align 16, !tbaa !299
+  store ptr %8, ptr %6, align 8, !tbaa !300
   %9 = call fastcc i32 @_find_nth_bauhaus(ptr noundef %6, ptr noundef %5, i32 noundef 1)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %6, align 8, !tbaa !298
+  %11 = load ptr, ptr %6, align 8, !tbaa !300
   %12 = tail call reassoc nsz arcp contract afn float @_action_process_slider(ptr noundef %11, i32 noundef 0, i32 noundef %2, float noundef %3)
   br label %17
 
@@ -12565,13 +12565,13 @@ define internal float @_action_process_focus_slider(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @_find_nth_bauhaus(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !298
+  %4 = load ptr, ptr %0, align 8, !tbaa !300
   %5 = tail call i32 @gtk_widget_get_visible(ptr noundef %4) #20
   %.not121 = icmp eq i32 %5, 0
   br i1 %.not121, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
-  %6 = load ptr, ptr %0, align 8, !tbaa !298
+  %6 = load ptr, ptr %0, align 8, !tbaa !300
   %7 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %8, label %dt_bh_get_type.exit.i
@@ -12607,7 +12607,7 @@ DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %13, %15
   br i1 %.not77, label %DT_IS_BAUHAUS_WIDGET.exit.thread, label %DT_IS_BAUHAUS_WIDGET.exit.thread114
 
 DT_IS_BAUHAUS_WIDGET.exit.thread114:              ; preds = %15, %DT_IS_BAUHAUS_WIDGET.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !298
+  %19 = load ptr, ptr %0, align 8, !tbaa !300
   %20 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
   %.not.i.i109 = icmp eq i64 %20, 0
   br i1 %.not.i.i109, label %21, label %DT_BAUHAUS_WIDGET.exit
@@ -12649,7 +12649,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %DT_IS_BAUHAUS_WIDGE
   br label %.loopexit
 
 DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %dt_bh_get_type.exit.i, %DT_IS_BAUHAUS_WIDGET.exit
-  %39 = load ptr, ptr %0, align 8, !tbaa !298
+  %39 = load ptr, ptr %0, align 8, !tbaa !300
   %40 = tail call i64 @gtk_notebook_get_type() #21
   %.not78 = icmp eq ptr %39, null
   br i1 %.not78, label %.critedge106, label %41
@@ -12702,7 +12702,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %dt_bh_get_type.exit
 
 .critedge104:                                     ; preds = %43, %.critedge96.thread, %59
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %39, i64 noundef %40) #20
-  %63 = load ptr, ptr %0, align 8, !tbaa !298
+  %63 = load ptr, ptr %0, align 8, !tbaa !300
   %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %40) #20
   %65 = tail call i32 @gtk_notebook_get_current_page(ptr noundef %64) #20
   %66 = tail call ptr @gtk_notebook_get_nth_page(ptr noundef %62, i32 noundef %65) #20
@@ -12716,7 +12716,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %dt_bh_get_type.exit
 
 tailrecurse:                                      ; preds = %.critedge102, %.critedge104
   %70 = phi ptr [ %66, %.critedge104 ], [ %69, %.critedge102 ]
-  store ptr %70, ptr %0, align 8, !tbaa !298
+  store ptr %70, ptr %0, align 8, !tbaa !300
   %71 = tail call i32 @gtk_widget_get_visible(ptr noundef %70) #20
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -12753,10 +12753,10 @@ tailrecurse:                                      ; preds = %.critedge102, %.cri
 
 84:                                               ; preds = %.lr.ph124
   %85 = load ptr, ptr %.0123, align 8, !tbaa !214
-  store ptr %85, ptr %0, align 8, !tbaa !298
+  store ptr %85, ptr %0, align 8, !tbaa !300
   %86 = tail call fastcc i32 @_find_nth_bauhaus(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %87 = getelementptr inbounds nuw i8, ptr %.0123, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !299
+  %88 = load ptr, ptr %87, align 8, !tbaa !301
   %.not87 = icmp eq ptr %88, null
   br i1 %.not87, label %.critedge, label %.lr.ph124
 
@@ -12788,14 +12788,14 @@ define internal float @_action_process_focus_combo(ptr noundef %0, i32 noundef %
   store i32 %1, ptr %5, align 4, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %8 = load ptr, ptr %7, align 16, !tbaa !297
-  store ptr %8, ptr %6, align 8, !tbaa !298
+  %8 = load ptr, ptr %7, align 16, !tbaa !299
+  store ptr %8, ptr %6, align 8, !tbaa !300
   %9 = call fastcc i32 @_find_nth_bauhaus(ptr noundef %6, ptr noundef %5, i32 noundef 2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %6, align 8, !tbaa !298
+  %11 = load ptr, ptr %6, align 8, !tbaa !300
   %12 = tail call reassoc nsz arcp contract afn float @_action_process_combo(ptr noundef %11, i32 noundef 0, i32 noundef %2, float noundef %3)
   br label %17
 
@@ -12821,15 +12821,15 @@ define internal float @_action_process_focus_button(ptr noundef %0, i32 noundef 
   store i32 %1, ptr %5, align 4, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %8 = load ptr, ptr %7, align 16, !tbaa !297
-  store ptr %8, ptr %6, align 8, !tbaa !298
+  %8 = load ptr, ptr %7, align 16, !tbaa !299
+  store ptr %8, ptr %6, align 8, !tbaa !300
   %9 = call fastcc i32 @_find_nth_bauhaus(ptr noundef %6, ptr noundef %5, i32 noundef 0)
   %.not = icmp eq i32 %9, 0
   %10 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %4
-  %.pre = load ptr, ptr %6, align 8, !tbaa !298
+  %.pre = load ptr, ptr %6, align 8, !tbaa !300
   br i1 %10, label %12, label %13
 
 12:                                               ; preds = %11
@@ -13210,8 +13210,10 @@ attributes #24 = { nounwind allocsize(0) }
 !292 = !{!71, !24, i64 20}
 !293 = !{!71, !24, i64 18}
 !294 = !{!71, !24, i64 22}
-!295 = !{!71, !18, i64 48}
-!296 = !{!71, !18, i64 32}
-!297 = !{!179, !65, i64 816}
-!298 = !{!65, !65, i64 0}
-!299 = !{!215, !28, i64 8}
+!295 = distinct !{!295, !296}
+!296 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!297 = !{!71, !18, i64 48}
+!298 = !{!71, !18, i64 32}
+!299 = !{!179, !65, i64 816}
+!300 = !{!65, !65, i64 0}
+!301 = !{!215, !28, i64 8}

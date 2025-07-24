@@ -256,7 +256,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   store i32 %141, ptr %82, align 4, !tbaa !25
   %142 = add i32 %.05469.i, 1
   %exitcond.not.i = icmp eq i32 %.05469.i, %101
-  br i1 %exitcond.not.i, label %._crit_edge72.i, label %.lr.ph71.split.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge72.i, label %.lr.ph71.split.i, !llvm.loop !41
 
 ._crit_edge72.i:                                  ; preds = %.lr.ph71.split.i, %._crit_edge.us.i, %99
   call void @lv_free(ptr noundef %109) #6
@@ -387,7 +387,7 @@ draw_line_hor.exit:                               ; preds = %64, %143
   store i32 %206, ptr %166, align 4, !tbaa !25
   %207 = add i32 %.054.i, 1
   %exitcond.not.i81 = icmp eq i32 %.054.i, %185
-  br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %183
   call void @lv_free(ptr noundef %188) #6
@@ -459,9 +459,9 @@ draw_line_ver.exit:                               ; preds = %150, %208
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
-  store ptr %4, ptr %8, align 16, !tbaa !41
+  store ptr %4, ptr %8, align 16, !tbaa !43
   %245 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %5, ptr %245, align 8, !tbaa !41
+  store ptr %5, ptr %245, align 8, !tbaa !43
   %246 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %247 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %246, i8 0, i64 24, i1 false)
@@ -511,8 +511,8 @@ draw_line_ver.exit:                               ; preds = %150, %208
   %271 = sub nsw i32 %.sroa.073.0.i, %214
   %272 = add nsw i32 %213, %.sroa.17.0.i
   call void @lv_draw_sw_mask_line_points_init(ptr noundef nonnull %7, i32 noundef %.sroa.073.0.i, i32 noundef %.sroa.17.0.i, i32 noundef %271, i32 noundef %272, i32 noundef 2) #6
-  store ptr %6, ptr %246, align 16, !tbaa !41
-  store ptr %7, ptr %247, align 8, !tbaa !41
+  store ptr %6, ptr %246, align 16, !tbaa !43
+  store ptr %7, ptr %247, align 8, !tbaa !43
   br label %273
 
 273:                                              ; preds = %268, %264
@@ -599,7 +599,7 @@ draw_line_ver.exit:                               ; preds = %150, %208
   %.1.i = phi i32 [ %306, %305 ], [ 0, %309 ]
   %313 = add i32 %.0144157.i, 1
   %exitcond.not.i86 = icmp eq i32 %.0144157.i, %285
-  br i1 %exitcond.not.i86, label %._crit_edge.loopexit.i, label %296, !llvm.loop !42
+  br i1 %exitcond.not.i86, label %._crit_edge.loopexit.i, label %296, !llvm.loop !44
 
 ._crit_edge.loopexit.i:                           ; preds = %312
   %.pre.i = load i32, ptr %238, align 4, !tbaa !24
@@ -660,10 +660,10 @@ draw_line_skew.exit:                              ; preds = %209, %323
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %329, ptr noundef nonnull align 8 dereferenceable(3) %330, i64 3, i1 false), !tbaa.struct !31
   %331 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i32 32767, ptr %331, align 8, !tbaa !43
+  store i32 32767, ptr %331, align 8, !tbaa !45
   %332 = load i8, ptr %21, align 8, !tbaa !16
   %333 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  store i8 %332, ptr %333, align 4, !tbaa !46
+  store i8 %332, ptr %333, align 4, !tbaa !48
   %334 = load i32, ptr %17, align 4, !tbaa !3
   %335 = ashr i32 %334, 1
   %336 = or i32 %334, -2
@@ -840,11 +840,13 @@ attributes #6 = { nounwind }
 !36 = !{!29, !10, i64 48}
 !37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = distinct !{!40, !38}
-!41 = !{!7, !7, i64 0}
+!39 = distinct !{!39, !38, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !38}
 !42 = distinct !{!42, !38}
-!43 = !{!44, !10, i64 48}
-!44 = !{!"", !5, i64 0, !10, i64 48, !8, i64 52, !15, i64 53, !45, i64 56}
-!45 = !{!"", !8, i64 0, !8, i64 10, !10, i64 11, !10, i64 11}
-!46 = !{!44, !8, i64 52}
+!43 = !{!7, !7, i64 0}
+!44 = distinct !{!44, !38}
+!45 = !{!46, !10, i64 48}
+!46 = !{!"", !5, i64 0, !10, i64 48, !8, i64 52, !15, i64 53, !47, i64 56}
+!47 = !{!"", !8, i64 0, !8, i64 10, !10, i64 11, !10, i64 11}
+!48 = !{!46, !8, i64 52}

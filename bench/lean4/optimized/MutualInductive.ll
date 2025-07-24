@@ -66606,7 +66606,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20, %13, 
 26:                                               ; preds = %lean_dec.exit.us
   %.222.us = add i64 %.02036.us, 1
   %.not.us = icmp eq i64 %.222.us, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %.02036 = phi i64 [ %.222, %46 ], [ %2, %.lr.ph ]
@@ -151739,7 +151739,7 @@ lean_dec.exit172:                                 ; preds = %lean_dec.exit172.ba
   %46 = and i64 %45, 1
   %47 = icmp ne i64 %46, 0
   %or.cond = select i1 %44, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %lean_nat_lt.exit, !prof !20
+  br i1 %or.cond, label %48, label %lean_nat_lt.exit, !prof !22
 
 48:                                               ; preds = %lean_dec.exit172
   %49 = icmp ult ptr %.0137, %41
@@ -175520,7 +175520,7 @@ lean_dec.exit212:                                 ; preds = %lean_dec.exit212.ba
   %48 = and i64 %47, 1
   %49 = icmp ne i64 %48, 0
   %or.cond = select i1 %46, i1 %49, i1 false
-  br i1 %or.cond, label %50, label %lean_nat_lt.exit, !prof !20
+  br i1 %or.cond, label %50, label %lean_nat_lt.exit, !prof !22
 
 50:                                               ; preds = %lean_dec.exit212
   %51 = icmp ult ptr %.0175, %43
@@ -292098,4 +292098,6 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!"branch_weights", i32 4000000, i32 4001}

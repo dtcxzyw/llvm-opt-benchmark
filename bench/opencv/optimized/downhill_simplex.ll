@@ -1647,7 +1647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   store double %132, ptr %130, align 8, !tbaa !40
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %106
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #19
@@ -1776,7 +1776,7 @@ _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit:       ; preds = %.noexc
   store double %40, ptr %52, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !92
 
 53:                                               ; preds = %6
   %54 = landingpad { ptr, i32 }
@@ -1886,12 +1886,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i214: ; preds = %
   store double %94, ptr %92, align 8, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %79
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %89, !llvm.loop !92
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %89, !llvm.loop !93
 
 ._crit_edge.us.i:                                 ; preds = %89
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit, label %.lr.ph34.us.i, !llvm.loop !93
+  br i1 %exitcond45.not.i, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit, label %.lr.ph34.us.i, !llvm.loop !94
 
 _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit: ; preds = %._crit_edge.us.i, %.preheader31.i, %.preheader.i
   %95 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1950,7 +1950,7 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250: ; preds = %_Z
   %.2176 = phi i32 [ %109, %.lr.ph315 ], [ %.1175311, %114 ]
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
-  br i1 %exitcond379.not, label %._crit_edge316, label %.lr.ph315, !llvm.loop !94
+  br i1 %exitcond379.not, label %._crit_edge316, label %.lr.ph315, !llvm.loop !95
 
 ._crit_edge316:                                   ; preds = %119
   %.not188 = icmp eq i32 %.2176, %.2179
@@ -2034,7 +2034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 145:                                              ; preds = %141
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
-  br i1 %exitcond384.not, label %.loopexit271, label %141, !llvm.loop !95
+  br i1 %exitcond384.not, label %.loopexit271, label %141, !llvm.loop !96
 
 .loopexit271.loopexit.split.loop.exit:            ; preds = %141
   %146 = trunc nuw nsw i64 %indvars.iv380 to i32
@@ -2080,7 +2080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.speculated253 = select i1 %162, double %160, double %.0266326
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
-  br i1 %exitcond389.not, label %._crit_edge331, label %158, !llvm.loop !96
+  br i1 %exitcond389.not, label %._crit_edge331, label %158, !llvm.loop !97
 
 ._crit_edge331:                                   ; preds = %158
   %163 = fsub double %.sroa.speculated253, %.sroa.speculated256
@@ -2089,7 +2089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.speculated = select i1 %165, double %164, double %.0264334
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %._crit_edge338, label %.lr.ph330, !llvm.loop !97
+  br i1 %exitcond394.not, label %._crit_edge338, label %.lr.ph330, !llvm.loop !98
 
 ._crit_edge338:                                   ; preds = %._crit_edge331, %.loopexit271
   %.0264.lcssa = phi double [ 0.000000e+00, %.loopexit271 ], [ %.sroa.speculated, %._crit_edge331 ]
@@ -2126,7 +2126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store double %179, ptr %178, align 8, !tbaa !40
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count408
-  br i1 %exitcond409.not, label %._crit_edge350, label %176, !llvm.loop !98
+  br i1 %exitcond409.not, label %._crit_edge350, label %176, !llvm.loop !99
 
 181:                                              ; preds = %._crit_edge338
   %182 = sext i32 %.1178.lcssa420431 to i64
@@ -2232,7 +2232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store double %215, ptr %210, align 8, !tbaa !40
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
-  br i1 %exitcond399.not, label %._crit_edge342, label %209, !llvm.loop !99
+  br i1 %exitcond399.not, label %._crit_edge342, label %209, !llvm.loop !100
 
 ._crit_edge342:                                   ; preds = %209, %.preheader
   %216 = getelementptr inbounds nuw i8, ptr %.pre410, i64 %205
@@ -2293,7 +2293,7 @@ _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229:    ; preds = %.noexc225
 234:                                              ; preds = %.lr.ph345, %_ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
-  br i1 %exitcond404.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !100
+  br i1 %exitcond404.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !101
 
 ._crit_edge346:                                   ; preds = %234, %.preheader269
   %235 = load i32, ptr %4, align 4, !tbaa !24
@@ -2383,12 +2383,12 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge: ; pr
   store double %268, ptr %266, align 8, !tbaa !40
   %indvars.iv.next.i242 = add nuw nsw i64 %indvars.iv.i241, 1
   %exitcond.not.i243 = icmp eq i64 %indvars.iv.next.i242, %255
-  br i1 %exitcond.not.i243, label %._crit_edge.us.i244, label %263, !llvm.loop !92
+  br i1 %exitcond.not.i243, label %._crit_edge.us.i244, label %263, !llvm.loop !93
 
 ._crit_edge.us.i244:                              ; preds = %263
   %indvars.iv.next42.i245 = add nuw nsw i64 %indvars.iv41.i240, 1
   %exitcond45.not.i246 = icmp eq i64 %indvars.iv.next42.i245, %wide.trip.count44.i237
-  br i1 %exitcond45.not.i246, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge, label %.lr.ph34.us.i239, !llvm.loop !93
+  br i1 %exitcond45.not.i246, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge, label %.lr.ph34.us.i239, !llvm.loop !94
 
 ._crit_edge350:                                   ; preds = %176, %169
   %269 = load double, ptr %26, align 8, !tbaa !40
@@ -2500,7 +2500,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl11tryNewPoi
   store double %36, ptr %37, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %30, %7
   %38 = load i32, ptr %6, align 4, !tbaa !24
@@ -2593,7 +2593,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3M
   store double %34, ptr %31, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %28, %7
   %35 = load i32, ptr %3, align 8, !tbaa !32
@@ -2603,7 +2603,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3M
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %39 = load ptr, ptr %38, align 8, !tbaa !103
+  %39 = load ptr, ptr %38, align 8, !tbaa !104
   %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %46
@@ -2726,12 +2726,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   store double %101, ptr %99, align 8, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %91
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %96, !llvm.loop !92
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %96, !llvm.loop !93
 
 ._crit_edge.us.i:                                 ; preds = %96
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit, label %.lr.ph34.us.i, !llvm.loop !93
+  br i1 %exitcond45.not.i, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit, label %.lr.ph34.us.i, !llvm.loop !94
 
 _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit: ; preds = %._crit_edge.us.i, %.preheader31.i, %.preheader.i
   ret void
@@ -2871,12 +2871,12 @@ attributes #20 = { noreturn }
 !86 = !{!47, !47, i64 0}
 !87 = distinct !{!87, !88}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = distinct !{!89, !88}
-!90 = distinct !{!90, !88}
+!89 = distinct !{!89, !88, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !91 = distinct !{!91, !88}
 !92 = distinct !{!92, !88}
 !93 = distinct !{!93, !88}
-!94 = distinct !{!94, !88}
+!94 = distinct !{!94, !88, !90}
 !95 = distinct !{!95, !88}
 !96 = distinct !{!96, !88}
 !97 = distinct !{!97, !88}
@@ -2885,4 +2885,5 @@ attributes #20 = { noreturn }
 !100 = distinct !{!100, !88}
 !101 = distinct !{!101, !88}
 !102 = distinct !{!102, !88}
-!103 = !{!33, !37, i64 64}
+!103 = distinct !{!103, !88}
+!104 = !{!33, !37, i64 64}

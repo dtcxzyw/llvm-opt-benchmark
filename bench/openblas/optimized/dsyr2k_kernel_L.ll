@@ -147,24 +147,24 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %.0130152 = phi i64 [ %.0129155, %.preheader ], [ %95, %84 ]
   %85 = add nuw nsw i64 %.0130152, %81
   %86 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !5
+  %87 = load double, ptr %86, align 8, !tbaa !6
   %88 = mul nuw nsw i64 %.0130152, %74
   %89 = add nuw nsw i64 %88, %.0129155
   %90 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %89
-  %91 = load double, ptr %90, align 8, !tbaa !5
+  %91 = load double, ptr %90, align 8, !tbaa !6
   %92 = fadd double %87, %91
   %gep154 = getelementptr double, ptr %invariant.gep153, i64 %.0130152
-  %93 = load double, ptr %gep154, align 8, !tbaa !5
+  %93 = load double, ptr %gep154, align 8, !tbaa !6
   %94 = fadd double %93, %92
-  store double %94, ptr %gep154, align 8, !tbaa !5
+  store double %94, ptr %gep154, align 8, !tbaa !6
   %95 = add nuw nsw i64 %.0130152, 1
   %96 = icmp slt i64 %95, %74
-  br i1 %96, label %84, label %97, !llvm.loop !9
+  br i1 %96, label %84, label %97, !llvm.loop !10
 
 97:                                               ; preds = %84
   %98 = add nuw nsw i64 %.0129155, 1
   %exitcond.not = icmp eq i64 %98, %71
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %97, %.lr.ph.split
   %sext146 = shl i64 %.0128156, 32
@@ -183,7 +183,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %110 = add nuw nsw i64 %.0128156, 32
   %111 = icmp slt i64 %110, %.1132
   %indvars.iv.next = add i64 %indvars.iv, -32
-  br i1 %111, label %.lr.ph.split, label %.loopexit151, !llvm.loop !3
+  br i1 %111, label %.lr.ph.split, label %.loopexit151, !llvm.loop !12
 
 .loopexit151:                                     ; preds = %.loopexit, %.lr.ph.split.us, %51, %44, %35, %31, %20, %10, %16
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %11) #4
@@ -214,11 +214,13 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"double", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"double", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
 !10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}

@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.3.us.us = select i1 %34, i32 %.261.us.us, i32 0
   %35 = add nuw nsw i32 %.04860.us.us, 1
   %exitcond72.not = icmp eq i32 %35, %30
-  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !11
+  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !12
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %._crit_edge.split ]
@@ -2511,13 +2511,13 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.3 = phi i32 [ %.261, %._crit_edge ], [ 0, %67 ], [ 0, %75 ], [ 0, %61 ], [ %.261, %55 ]
   %82 = add nuw nsw i32 %.04860, 1
   %exitcond.not = icmp eq i32 %82, %45
-  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !13
 
 ._crit_edge.split:                                ; preds = %81, %.preheader
   %.2.lcssa = phi i32 [ %.164, %.preheader ], [ %.3, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, 108
-  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !10
+  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
   %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.2.lcssa.us, %._crit_edge.split.us.us ], [ %.164.us, %23 ], [ %.2.lcssa, %._crit_edge.split ], [ %.164, %.split ]
@@ -2645,5 +2645,8 @@ attributes #5 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !11}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

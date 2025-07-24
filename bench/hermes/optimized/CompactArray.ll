@@ -30,153 +30,128 @@ for.body.lr.ph:                                   ; preds = %entry
   %4 = load ptr, ptr %raw_.i5, align 8
   %switch = icmp ult i32 %3, 3
   tail call void @llvm.assume(i1 %switch)
-  %wide.trip.count143 = zext i32 %2 to i64
+  %wide.trip.count72 = zext i32 %2 to i64
   switch i32 %.fr, label %for.body [
-    i32 -1, label %for.body.lr.ph.split.us
-    i32 0, label %for.body.lr.ph.split.us25
-    i32 1, label %for.body.lr.ph.split.us42
+    i32 -1, label %for.body.us
+    i32 0, label %for.body.us26
+    i32 1, label %for.body.us43
   ]
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  switch i32 %3, label %for.body.us [
-    i32 0, label %for.body.us.us
-    i32 1, label %for.body.us.us60
+for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN6hermes12CompactArray6trySetEjj.exit.us
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ 0, %for.body.lr.ph ]
+  switch i32 %3, label %sw.bb5.i.us [
+    i32 0, label %_ZNK6hermes12CompactArray3getEj.exit.us.thread
+    i32 1, label %sw.bb2.i.us
   ]
 
-for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i.i.us.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv135
-  %5 = load i8, ptr %arrayidx.i.i.us.us, align 1
-  %arrayidx.i.i13.us.us = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv135
-  store i8 %5, ptr %arrayidx.i.i13.us.us, align 1
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count143
-  br i1 %exitcond139.not, label %for.end, label %for.body.us.us, !llvm.loop !4
+sw.bb5.i.us:                                      ; preds = %for.body.us
+  %arrayidx.i7.i.us = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv69
+  %5 = load i32, ptr %arrayidx.i7.i.us, align 4
+  br label %_ZNK6hermes12CompactArray3getEj.exit.us
 
-for.body.us.us60:                                 ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i4.i.us.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv130
-  %6 = load i16, ptr %arrayidx.i4.i.us.us, align 2
-  %cmp.i.i.us.us65 = icmp ult i16 %6, 256
-  br i1 %cmp.i.i.us.us65, label %if.end.i.i.us.us66, label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
+sw.bb2.i.us:                                      ; preds = %for.body.us
+  %arrayidx.i4.i.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv69
+  %6 = load i16, ptr %arrayidx.i4.i.us, align 2
+  %conv.i5.i.us = zext i16 %6 to i32
+  br label %_ZNK6hermes12CompactArray3getEj.exit.us
 
-if.end.i.i.us.us66:                               ; preds = %for.body.us.us60
-  %conv1.i.i.us.us67 = trunc nuw i16 %6 to i8
-  %arrayidx.i.i13.us.us68 = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv130
-  store i8 %conv1.i.i.us.us67, ptr %arrayidx.i.i13.us.us68, align 1
-  br label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
+_ZNK6hermes12CompactArray3getEj.exit.us.thread:   ; preds = %for.body.us
+  %arrayidx.i.i.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv69
+  %7 = load i8, ptr %arrayidx.i.i.us, align 1
+  %conv.i.i.us = zext i8 %7 to i32
+  br label %if.end.i.i.us
 
-_ZN6hermes12CompactArray6trySetEjj.exit.us.us69:  ; preds = %if.end.i.i.us.us66, %for.body.us.us60
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count143
-  br i1 %exitcond134.not, label %for.end, label %for.body.us.us60, !llvm.loop !4
-
-for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i7.i.us = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv140
-  %7 = load i32, ptr %arrayidx.i7.i.us, align 4
-  %cmp.i.i.us = icmp ult i32 %7, 256
+_ZNK6hermes12CompactArray3getEj.exit.us:          ; preds = %sw.bb2.i.us, %sw.bb5.i.us
+  %retval.0.i.us = phi i32 [ %conv.i5.i.us, %sw.bb2.i.us ], [ %5, %sw.bb5.i.us ]
+  %cmp.i.i.us = icmp ult i32 %retval.0.i.us, 256
   br i1 %cmp.i.i.us, label %if.end.i.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us
 
-if.end.i.i.us:                                    ; preds = %for.body.us
-  %conv1.i.i.us = trunc nuw i32 %7 to i8
-  %arrayidx.i.i13.us = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv140
+if.end.i.i.us:                                    ; preds = %_ZNK6hermes12CompactArray3getEj.exit.us.thread, %_ZNK6hermes12CompactArray3getEj.exit.us
+  %retval.0.i.us76 = phi i32 [ %conv.i.i.us, %_ZNK6hermes12CompactArray3getEj.exit.us.thread ], [ %retval.0.i.us, %_ZNK6hermes12CompactArray3getEj.exit.us ]
+  %conv1.i.i.us = trunc nuw i32 %retval.0.i.us76 to i8
+  %arrayidx.i.i13.us = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv69
   store i8 %conv1.i.i.us, ptr %arrayidx.i.i13.us, align 1
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us
 
-_ZN6hermes12CompactArray6trySetEjj.exit.us:       ; preds = %if.end.i.i.us, %for.body.us
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %for.end, label %for.body.us, !llvm.loop !4
+_ZN6hermes12CompactArray6trySetEjj.exit.us:       ; preds = %if.end.i.i.us, %_ZNK6hermes12CompactArray3getEj.exit.us
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
+  br i1 %exitcond73.not, label %for.end, label %for.body.us, !llvm.loop !4
 
-for.body.lr.ph.split.us25:                        ; preds = %for.body.lr.ph
-  switch i32 %3, label %for.body.us26 [
-    i32 0, label %for.body.us26.us
-    i32 1, label %for.body.us26.us73
+for.body.us26:                                    ; preds = %for.body.lr.ph, %_ZN6hermes12CompactArray6trySetEjj.exit.us39
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ 0, %for.body.lr.ph ]
+  switch i32 %3, label %_ZNK6hermes12CompactArray3getEj.exit.us37 [
+    i32 0, label %sw.bb.i.us34
+    i32 1, label %sw.bb2.i.us31
   ]
 
-for.body.us26.us:                                 ; preds = %for.body.lr.ph.split.us25, %for.body.us26.us
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %for.body.us26.us ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i.i.us35.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv120
-  %8 = load i8, ptr %arrayidx.i.i.us35.us, align 1
-  %conv1.i7.i.us.us = zext i8 %8 to i16
-  %arrayidx.i9.i.us.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv120
-  store i16 %conv1.i7.i.us.us, ptr %arrayidx.i9.i.us.us, align 2
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count143
-  br i1 %exitcond124.not, label %for.end, label %for.body.us26.us, !llvm.loop !4
+sw.bb2.i.us31:                                    ; preds = %for.body.us26
+  %arrayidx.i4.i.us32 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv64
+  %8 = load i16, ptr %arrayidx.i4.i.us32, align 2
+  %conv.i5.i.us33 = zext i16 %8 to i32
+  br label %if.end.i6.i.us
 
-for.body.us26.us73:                               ; preds = %for.body.lr.ph.split.us25, %for.body.us26.us73
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %for.body.us26.us73 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i4.i.us32.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv115
-  %9 = load i16, ptr %arrayidx.i4.i.us32.us, align 2
-  %arrayidx.i9.i.us.us81 = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv115
-  store i16 %9, ptr %arrayidx.i9.i.us.us81, align 2
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count143
-  br i1 %exitcond119.not, label %for.end, label %for.body.us26.us73, !llvm.loop !4
+sw.bb.i.us34:                                     ; preds = %for.body.us26
+  %arrayidx.i.i.us35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv64
+  %9 = load i8, ptr %arrayidx.i.i.us35, align 1
+  %conv.i.i.us36 = zext i8 %9 to i32
+  br label %if.end.i6.i.us
 
-for.body.us26:                                    ; preds = %for.body.lr.ph.split.us25, %_ZN6hermes12CompactArray6trySetEjj.exit.us39
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i7.i.us30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv125
+_ZNK6hermes12CompactArray3getEj.exit.us37:        ; preds = %for.body.us26
+  %arrayidx.i7.i.us30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv64
   %10 = load i32, ptr %arrayidx.i7.i.us30, align 4
   %cmp.i5.i.us = icmp ult i32 %10, 65536
   br i1 %cmp.i5.i.us, label %if.end.i6.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
-if.end.i6.i.us:                                   ; preds = %for.body.us26
-  %conv1.i7.i.us = trunc nuw i32 %10 to i16
-  %arrayidx.i9.i.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv125
+if.end.i6.i.us:                                   ; preds = %sw.bb2.i.us31, %sw.bb.i.us34, %_ZNK6hermes12CompactArray3getEj.exit.us37
+  %retval.0.i.us3879 = phi i32 [ %10, %_ZNK6hermes12CompactArray3getEj.exit.us37 ], [ %conv.i5.i.us33, %sw.bb2.i.us31 ], [ %conv.i.i.us36, %sw.bb.i.us34 ]
+  %conv1.i7.i.us = trunc nuw i32 %retval.0.i.us3879 to i16
+  %arrayidx.i9.i.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv64
   store i16 %conv1.i7.i.us, ptr %arrayidx.i9.i.us, align 2
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
-_ZN6hermes12CompactArray6trySetEjj.exit.us39:     ; preds = %if.end.i6.i.us, %for.body.us26
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count143
-  br i1 %exitcond129.not, label %for.end, label %for.body.us26, !llvm.loop !4
+_ZN6hermes12CompactArray6trySetEjj.exit.us39:     ; preds = %if.end.i6.i.us, %_ZNK6hermes12CompactArray3getEj.exit.us37
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count72
+  br i1 %exitcond68.not, label %for.end, label %for.body.us26, !llvm.loop !7
 
-for.body.lr.ph.split.us42:                        ; preds = %for.body.lr.ph
-  switch i32 %3, label %for.body.us43 [
-    i32 0, label %for.body.us43.us
-    i32 1, label %for.body.us43.us86
+for.body.us43:                                    ; preds = %for.body.lr.ph, %_ZNK6hermes12CompactArray3getEj.exit.us54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6hermes12CompactArray3getEj.exit.us54 ], [ 0, %for.body.lr.ph ]
+  switch i32 %3, label %sw.bb5.i.us46 [
+    i32 0, label %sw.bb.i.us51
+    i32 1, label %sw.bb2.i.us48
   ]
 
-for.body.us43.us:                                 ; preds = %for.body.lr.ph.split.us42, %for.body.us43.us
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.body.us43.us ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i.i.us52.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv105
-  %11 = load i8, ptr %arrayidx.i.i.us52.us, align 1
-  %conv.i.i.us53.us = zext i8 %11 to i32
-  %arrayidx.i11.i.us.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv105
-  store i32 %conv.i.i.us53.us, ptr %arrayidx.i11.i.us.us, align 4
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count143
-  br i1 %exitcond109.not, label %for.end, label %for.body.us43.us, !llvm.loop !4
+sw.bb5.i.us46:                                    ; preds = %for.body.us43
+  %arrayidx.i7.i.us47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %11 = load i32, ptr %arrayidx.i7.i.us47, align 4
+  br label %_ZNK6hermes12CompactArray3getEj.exit.us54
 
-for.body.us43.us86:                               ; preds = %for.body.lr.ph.split.us42, %for.body.us43.us86
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us43.us86 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i4.i.us49.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
-  %12 = load i16, ptr %arrayidx.i4.i.us49.us, align 2
-  %conv.i5.i.us50.us = zext i16 %12 to i32
-  %arrayidx.i11.i.us.us91 = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv
-  store i32 %conv.i5.i.us50.us, ptr %arrayidx.i11.i.us.us91, align 4
+sw.bb2.i.us48:                                    ; preds = %for.body.us43
+  %arrayidx.i4.i.us49 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %12 = load i16, ptr %arrayidx.i4.i.us49, align 2
+  %conv.i5.i.us50 = zext i16 %12 to i32
+  br label %_ZNK6hermes12CompactArray3getEj.exit.us54
+
+sw.bb.i.us51:                                     ; preds = %for.body.us43
+  %arrayidx.i.i.us52 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %13 = load i8, ptr %arrayidx.i.i.us52, align 1
+  %conv.i.i.us53 = zext i8 %13 to i32
+  br label %_ZNK6hermes12CompactArray3getEj.exit.us54
+
+_ZNK6hermes12CompactArray3getEj.exit.us54:        ; preds = %sw.bb.i.us51, %sw.bb2.i.us48, %sw.bb5.i.us46
+  %retval.0.i.us55 = phi i32 [ %conv.i.i.us53, %sw.bb.i.us51 ], [ %conv.i5.i.us50, %sw.bb2.i.us48 ], [ %11, %sw.bb5.i.us46 ]
+  %arrayidx.i11.i.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv
+  store i32 %retval.0.i.us55, ptr %arrayidx.i11.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
-  br i1 %exitcond.not, label %for.end, label %for.body.us43.us86, !llvm.loop !4
-
-for.body.us43:                                    ; preds = %for.body.lr.ph.split.us42, %for.body.us43
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %for.body.us43 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i7.i.us47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv110
-  %13 = load i32, ptr %arrayidx.i7.i.us47, align 4
-  %arrayidx.i11.i.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv110
-  store i32 %13, ptr %arrayidx.i11.i.us, align 4
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count143
-  br i1 %exitcond114.not, label %for.end, label %for.body.us43, !llvm.loop !4
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
+  br i1 %exitcond.not, label %for.end, label %for.body.us43, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph
   unreachable
 
-for.end:                                          ; preds = %for.body.us43.us86, %for.body.us43.us, %for.body.us43, %for.body.us26.us73, %for.body.us26.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us39, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69, %for.body.us.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us, %entry.for.end_crit_edge
-  %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %for.body.us.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %for.body.us26.us ], [ %4, %for.body.us26.us73 ], [ %4, %for.body.us43 ], [ %4, %for.body.us43.us ], [ %4, %for.body.us43.us86 ]
+for.end:                                          ; preds = %_ZNK6hermes12CompactArray3getEj.exit.us54, %_ZN6hermes12CompactArray6trySetEjj.exit.us39, %_ZN6hermes12CompactArray6trySetEjj.exit.us, %entry.for.end_crit_edge
+  %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %_ZNK6hermes12CompactArray3getEj.exit.us54 ]
   store i32 %0, ptr %this, align 8
   store i32 %add, ptr %scale_, align 4
   %raw_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -205,5 +180,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

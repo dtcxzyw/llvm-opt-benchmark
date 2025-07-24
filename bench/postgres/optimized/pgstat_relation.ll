@@ -964,7 +964,7 @@ restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restor
   %84 = getelementptr inbounds nuw i8, ptr %.033, i64 80
   %.0 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %restore_truncdrop_counters.exit, %26, %2
   ret void
@@ -1082,7 +1082,7 @@ save_truncdrop_counters.exit.us:                  ; preds = %41, %37
 
 68:                                               ; preds = %63, %60
   %.not.us = icmp eq ptr %8, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %restore_truncdrop_counters.exit
   %.048 = phi ptr [ %70, %restore_truncdrop_counters.exit ], [ %5, %.lr.ph ]
@@ -1144,7 +1144,7 @@ restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restor
   store ptr %106, ptr %107, align 8
   tail call void @pfree(ptr noundef nonnull %.048) #9
   %.not = icmp eq ptr %70, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %restore_truncdrop_counters.exit, %68, %3
   ret void
@@ -1208,7 +1208,7 @@ define dso_local void @AtPrepare_PgStat_Relations(ptr noundef readonly captures(
   %31 = getelementptr inbounds nuw i8, ptr %.015, i64 80
   %.0 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %12, %1
   ret void
@@ -1232,7 +1232,7 @@ define dso_local void @PostPrepare_PgStat_Relations(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %.07, i64 80
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1418,7 +1418,7 @@ define dso_local noundef zeroext i1 @pgstat_relation_flush_cb(ptr noundef %0, i1
   %.4.add.i = add nuw nsw i64 %.4.idx.i, 1
   %22 = load i8, ptr %.4.ptr.i, align 1
   %.not50.i = icmp eq i8 %22, 0
-  br i1 %.not50.i, label %18, label %.loopexit, !llvm.loop !14
+  br i1 %.not50.i, label %18, label %.loopexit, !llvm.loop !17
 
 .preheader51.i:                                   ; preds = %46, %.preheader53.i
   %.5.idx.lcssa.i = phi i64 [ %17, %.preheader53.i ], [ %.5.add.i, %46 ]
@@ -1458,7 +1458,7 @@ define dso_local noundef zeroext i1 @pgstat_relation_flush_cb(ptr noundef %0, i1
   %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
   %.5.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.5.add.i
   %47 = icmp ult ptr %.5.ptr.i, %19
-  br i1 %47, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !15
+  br i1 %47, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !18
 
 .lr.ph66.i:                                       ; preds = %.preheader51.i, %49
   %.6.ptr65.i = phi ptr [ %.6.ptr.i, %49 ], [ %.6.ptr63.i, %.preheader51.i ]
@@ -1471,7 +1471,7 @@ define dso_local noundef zeroext i1 @pgstat_relation_flush_cb(ptr noundef %0, i1
   %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.6.add.i
   %50 = icmp ult ptr %.6.ptr.i, %15
-  br i1 %50, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !16
+  br i1 %50, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !19
 
 .preheader.i.preheader:                           ; preds = %49, %.preheader51.i
   %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %49 ]
@@ -1487,7 +1487,7 @@ define dso_local noundef zeroext i1 @pgstat_relation_flush_cb(ptr noundef %0, i1
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %53 = load i8, ptr %.7.ptr.i, align 1
   %.not47.i = icmp eq i8 %53, 0
-  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !17
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %21, %.lr.ph.i, %.lr.ph66.i, %52
   %54 = tail call zeroext i1 @pgstat_lock_entry(ptr noundef nonnull %0, i1 noundef zeroext %1) #9
@@ -1725,11 +1725,14 @@ attributes #9 = { nounwind }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!13 = distinct !{!13, !8, !11}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}

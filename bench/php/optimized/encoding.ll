@@ -285,7 +285,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %130 = add i64 %.047.us.i, 4
   %131 = or disjoint i64 %130, 3
   %132 = icmp ult i64 %131, %spec.select
-  br i1 %132, label %.lr.ph.split.us.i, label %looks_ucs32.exit
+  br i1 %132, label %.lr.ph.split.us.i, label %looks_ucs32.exit, !llvm.loop !27
 
 .lr.ph.split.i:                                   ; preds = %.thread56.i, %163
   %133 = phi i64 [ %155, %163 ], [ 0, %.thread56.i ]
@@ -640,12 +640,12 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   br i1 %51, label %54, label %._crit_edge
 
 54:                                               ; preds = %50
-  %55 = load i8, ptr %24, align 2, !tbaa !27
+  %55 = load i8, ptr %24, align 2, !tbaa !29
   %56 = icmp ult i8 %53, %55
   br i1 %56, label %.thread, label %57
 
 57:                                               ; preds = %54
-  %58 = load i8, ptr %43, align 1, !tbaa !29
+  %58 = load i8, ptr %43, align 1, !tbaa !31
   %59 = icmp ugt i8 %53, %58
   br i1 %59, label %.thread, label %._crit_edge
 
@@ -802,7 +802,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %49 = add i64 %.04765.us, 2
   %50 = or disjoint i64 %49, 1
   %51 = icmp ult i64 %50, %1
-  br i1 %51, label %.lr.ph.split.us, label %.thread
+  br i1 %51, label %.lr.ph.split.us, label %.thread, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.thread83, %80
   %52 = phi i64 [ %83, %80 ], [ 3, %.thread83 ]
@@ -925,6 +925,9 @@ attributes #9 = { nounwind allocsize(0) }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 long", !12, i64 0}
 !26 = !{!7, !7, i64 0}
-!27 = !{!28, !7, i64 0}
-!28 = !{!"accept_range", !7, i64 0, !7, i64 1}
-!29 = !{!28, !7, i64 1}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = !{!30, !7, i64 0}
+!30 = !{!"accept_range", !7, i64 0, !7, i64 1}
+!31 = !{!30, !7, i64 1}
+!32 = distinct !{!32, !28}

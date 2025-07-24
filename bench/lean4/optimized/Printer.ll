@@ -692,7 +692,7 @@ lean_nat_lt.exit.thread31.us:                     ; preds = %.split.us
 
 lean_dec.exit20.us:                               ; preds = %18, %17, %16, %10
   %20 = tail call ptr @l___private_Lean_Data_Json_Printer_0__Lean_Json_escapeAux(ptr noundef %.017.us, i32 noundef %12)
-  br label %.split.us
+  br label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %4, %lean_dec.exit20
   %.017 = phi ptr [ %40, %lean_dec.exit20 ], [ %3, %4 ]
@@ -14194,9 +14194,9 @@ _init_l_Lean_Json_instToFormat___closed__1.exit:  ; preds = %_init_l_Lean_Json_c
   %1945 = getelementptr inbounds nuw i8, ptr %1941, i64 8
   store ptr @l_Lean_Json_render, ptr %1945, align 8, !tbaa !4
   %1946 = getelementptr inbounds nuw i8, ptr %1941, i64 16
-  store i16 1, ptr %1946, align 8, !tbaa !16
+  store i16 1, ptr %1946, align 8, !tbaa !18
   %1947 = getelementptr inbounds nuw i8, ptr %1941, i64 18
-  store i16 0, ptr %1947, align 2, !tbaa !16
+  store i16 0, ptr %1947, align 2, !tbaa !18
   store ptr %1941, ptr @l_Lean_Json_instToFormat___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1941) #3
   %1948 = load ptr, ptr @l_Lean_Json_instToFormat___closed__1, align 8, !tbaa !4
@@ -14286,5 +14286,7 @@ attributes #4 = { noreturn nounwind }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!6, !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}

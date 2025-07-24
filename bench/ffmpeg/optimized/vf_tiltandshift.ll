@@ -756,12 +756,12 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
   %69 = add nuw nsw i32 %.05064, 1
   %70 = load i32, ptr %14, align 4, !tbaa !50
   %71 = sub nsw i32 0, %70
-  %72 = load i8, ptr %46, align 2, !tbaa !73
+  %72 = load i8, ptr %46, align 2, !tbaa !74
   %73 = zext nneg i8 %72 to i32
   %74 = ashr i32 %71, %73
   %75 = sub nsw i32 0, %74
   %76 = icmp slt i32 %69, %75
-  br i1 %76, label %63, label %.split.us, !llvm.loop !72
+  br i1 %76, label %63, label %.split.us, !llvm.loop !75
 
 .split.us:                                        ; preds = %63, %53, %.preheader.split, %.preheader.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -769,7 +769,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
   %narrow = tail call i8 @llvm.umin.i8(i8 %77, i8 4)
   %78 = zext nneg i8 %narrow to i64
   %79 = icmp samesign ult i64 %indvars.iv.next, %78
-  br i1 %79, label %.preheader, label %._crit_edge, !llvm.loop !74
+  br i1 %79, label %.preheader, label %._crit_edge, !llvm.loop !76
 
 .thread60:                                        ; preds = %28, %38
   %.048.ph = phi i32 [ %42, %38 ], [ -558323010, %28 ]
@@ -894,6 +894,8 @@ attributes #6 = { nounwind }
 !69 = !{!8, !8, i64 0}
 !70 = !{!57, !8, i64 8}
 !71 = !{!15, !15, i64 0}
-!72 = distinct !{!72, !26}
-!73 = !{!57, !8, i64 10}
-!74 = distinct !{!74, !26}
+!72 = distinct !{!72, !26, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = !{!57, !8, i64 10}
+!75 = distinct !{!75, !26}
+!76 = distinct !{!76, !26}

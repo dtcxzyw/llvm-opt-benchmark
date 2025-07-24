@@ -2373,7 +2373,7 @@ list_length.exit212.us:                           ; preds = %105, %.lr.ph325
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 91
   %128 = load i8, ptr %127, align 1, !range !6, !noundef !7
   %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %.preheader.split.us, label %.split289.us, !llvm.loop !17
+  br i1 %129, label %.preheader.split.us, label %.split289.us, !llvm.loop !18
 
 .preheader.split:                                 ; preds = %.preheader, %155
   %130 = phi i8 [ 1, %155 ], [ %.promoted283, %.preheader ]
@@ -2423,7 +2423,7 @@ list_length.exit212.us:                           ; preds = %105, %.lr.ph325
   %158 = tail call ptr @lappend(ptr noundef %131, ptr noundef %157) #11
   %.pre = load i8, ptr %145, align 1, !range !6
   %159 = trunc nuw i8 %.pre to i1
-  br i1 %159, label %.preheader.split, label %.split289.us, !llvm.loop !17
+  br i1 %159, label %.preheader.split, label %.split289.us, !llvm.loop !19
 
 .split289.us:                                     ; preds = %121, %139, %155
   %.us-phi290 = phi i8 [ %130, %139 ], [ 1, %155 ], [ %.promoted283, %121 ]
@@ -2489,7 +2489,7 @@ list_length.exit212.us:                           ; preds = %105, %.lr.ph325
 192:                                              ; preds = %.lr.ph314.split
   %.3 = add i32 %.3312, 1
   %.not201 = icmp sgt i32 %.3, %88
-  br i1 %.not201, label %.thread227.loopexit, label %.lr.ph314.split, !llvm.loop !16
+  br i1 %.not201, label %.thread227.loopexit, label %.lr.ph314.split, !llvm.loop !20
 
 193:                                              ; preds = %74
   %194 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2986,5 +2986,8 @@ attributes #13 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!16 = distinct !{!16, !5, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !5, !17}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

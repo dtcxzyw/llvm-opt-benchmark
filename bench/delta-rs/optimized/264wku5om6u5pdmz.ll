@@ -92792,8 +92792,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %2
   %298 = add i64 %297, %.sroa.6.0.i.i.i
   %299 = icmp ugt i64 %298, %278
   %300 = add i64 %.sroa.6.0.i.i.i, %282
-  %or.cond.i.i.not.i = icmp ult i64 %300, %278
-  br i1 %or.cond.i.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i", label %301
+  %or.cond83.i.i.not.i = icmp ult i64 %300, %278
+  br i1 %or.cond83.i.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i", label %301
 
 301:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i", %296
   br i1 %299, label %.split.us.i.i.i.loopexit, label %.lr.ph.split.split.i.i.i

@@ -2833,7 +2833,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i24: ; preds = %_ZN3tbb6detail
   %.sroa.0.1.us.i25 = phi i32 [ %28, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i26 ], [ %.sroa.0.017.us.i, %22 ]
   %29 = load atomic i64, ptr %18 acquire, align 8
   %30 = icmp eq i64 %29, %6
-  br i1 %30, label %.lr.ph.i23, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !35
+  br i1 %30, label %.lr.ph.i23, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !36
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i24, %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_until_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
   %31 = load atomic i64, ptr %0 acquire, align 8
@@ -3078,7 +3078,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnost
   %17 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %17, %2
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !37
 
 19:                                               ; preds = %.lr.ph.i.i.i.i
   %20 = landingpad { ptr, i32 }
@@ -3200,10 +3200,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalesci
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %33 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !40, !noalias !37
-  store i64 %33, ptr %.012.i.i.i, align 8, !alias.scope !37, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %33 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !41, !noalias !38
+  store i64 %33, ptr %.012.i.i.i, align 8, !alias.scope !38, !noalias !41
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35) #14
@@ -3212,23 +3212,23 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalesci
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37) #14
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
-  %40 = load ptr, ptr %39, align 8, !alias.scope !40, !noalias !37
-  store ptr %40, ptr %38, align 8, !alias.scope !37, !noalias !40
+  %40 = load ptr, ptr %39, align 8, !alias.scope !41, !noalias !38
+  store ptr %40, ptr %38, align 8, !alias.scope !38, !noalias !41
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
-  %43 = load ptr, ptr %42, align 8, !alias.scope !40, !noalias !37
-  store ptr %43, ptr %41, align 8, !alias.scope !37, !noalias !40
+  %43 = load ptr, ptr %42, align 8, !alias.scope !41, !noalias !38
+  store ptr %43, ptr %41, align 8, !alias.scope !38, !noalias !41
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 88
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 88
-  %46 = load ptr, ptr %45, align 8, !alias.scope !40, !noalias !37
-  store ptr %46, ptr %44, align 8, !alias.scope !37, !noalias !40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
+  %46 = load ptr, ptr %45, align 8, !alias.scope !41, !noalias !38
+  store ptr %46, ptr %44, align 8, !alias.scope !38, !noalias !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #14
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 96
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %47, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !42
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %48, %.lr.ph.i.i.i ]
@@ -3239,10 +3239,10 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
   %.012.i.i.i28 = phi ptr [ %65, %.lr.ph.i.i.i27 ], [ %49, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i29 = phi ptr [ %64, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %50 = load i64, ptr %.0911.i.i.i29, align 8, !alias.scope !46, !noalias !43
-  store i64 %50, ptr %.012.i.i.i28, align 8, !alias.scope !43, !noalias !46
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %50 = load i64, ptr %.0911.i.i.i29, align 8, !alias.scope !47, !noalias !44
+  store i64 %50, ptr %.012.i.i.i28, align 8, !alias.scope !44, !noalias !47
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %52) #14
@@ -3251,23 +3251,23 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %54) #14
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
-  %57 = load ptr, ptr %56, align 8, !alias.scope !46, !noalias !43
-  store ptr %57, ptr %55, align 8, !alias.scope !43, !noalias !46
+  %57 = load ptr, ptr %56, align 8, !alias.scope !47, !noalias !44
+  store ptr %57, ptr %55, align 8, !alias.scope !44, !noalias !47
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 80
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 80
-  %60 = load ptr, ptr %59, align 8, !alias.scope !46, !noalias !43
-  store ptr %60, ptr %58, align 8, !alias.scope !43, !noalias !46
+  %60 = load ptr, ptr %59, align 8, !alias.scope !47, !noalias !44
+  store ptr %60, ptr %58, align 8, !alias.scope !44, !noalias !47
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 88
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 88
-  %63 = load ptr, ptr %62, align 8, !alias.scope !46, !noalias !43
-  store ptr %63, ptr %61, align 8, !alias.scope !43, !noalias !46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
+  %63 = load ptr, ptr %62, align 8, !alias.scope !47, !noalias !44
+  store ptr %63, ptr %61, align 8, !alias.scope !44, !noalias !47
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #14
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 96
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 96
   %.not.i.i.i30 = icmp eq ptr %64, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !42
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !43
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %49, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %65, %.lr.ph.i.i.i27 ]
@@ -3373,7 +3373,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnost
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 72
   %23 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %22, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !48
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !49
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
   %25 = landingpad { ptr, i32 }
@@ -3475,7 +3475,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalesci
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i, i64 40, i1 false), !alias.scope !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i, i64 40, i1 false), !alias.scope !50
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25) #14
@@ -3483,7 +3483,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalesci
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %26, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !53
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !54
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %27, %.lr.ph.i.i.i ]
@@ -3494,7 +3494,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDe
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
   %.012.i.i.i28 = phi ptr [ %32, %.lr.ph.i.i.i27 ], [ %28, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i29 = phi ptr [ %31, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i29, i64 40, i1 false), !alias.scope !54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i29, i64 40, i1 false), !alias.scope !55
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #14
@@ -3502,7 +3502,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDe
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
   %.not.i.i.i30 = icmp eq ptr %31, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !53
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !54
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %28, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %32, %.lr.ph.i.i.i27 ]
@@ -3638,27 +3638,28 @@ attributes #23 = { builtin nounwind }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!42 = distinct !{!42, !5}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!48 = distinct !{!48, !5}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_"}
-!52 = distinct !{!52, !51, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!53 = distinct !{!53, !5}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!56 = distinct !{!56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_"}
-!57 = distinct !{!57, !56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!34 = distinct !{!34, !5, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !5, !35}
+!37 = distinct !{!37, !5}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!43 = distinct !{!43, !5}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!49 = distinct !{!49, !5}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_"}
+!53 = distinct !{!53, !52, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!54 = distinct !{!54, !5}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!57 = distinct !{!57, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_"}
+!58 = distinct !{!58, !57, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}

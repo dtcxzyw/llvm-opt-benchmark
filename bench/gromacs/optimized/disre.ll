@@ -1055,7 +1055,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   store float 0.000000e+00, ptr %100, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !165
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %133, %88, %.preheader
   %.not = icmp eq ptr %0, null
@@ -1118,11 +1118,11 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 3
   %143 = trunc nuw i64 %indvars.iv.next126 to i32
   %144 = icmp sgt i32 %2, %143
-  br i1 %144, label %.lr.ph118.split, label %._crit_edge, !llvm.loop !164
+  br i1 %144, label %.lr.ph118.split, label %._crit_edge, !llvm.loop !167
 
 145:                                              ; preds = %._crit_edge
   %146 = getelementptr i8, ptr %0, i64 112
-  %.val = load ptr, ptr %146, align 8, !tbaa !166
+  %.val = load ptr, ptr %146, align 8, !tbaa !168
   %.not113 = icmp eq ptr %.val, null
   br i1 %.not113, label %152, label %147
 
@@ -1157,7 +1157,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %163 = load ptr, ptr %23, align 8, !tbaa !148
   call void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef %162, ptr noundef %163, ptr noundef %1)
   %164 = getelementptr i8, ptr %0, i64 112
-  %.val112 = load ptr, ptr %164, align 8, !tbaa !166
+  %.val112 = load ptr, ptr %164, align 8, !tbaa !168
   %.not114 = icmp eq ptr %.val112, null
   br i1 %.not114, label %179, label %172
 
@@ -1175,7 +1175,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   store float %171, ptr %169, align 4, !tbaa !159
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !183
+  br i1 %exitcond135.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !185
 
 172:                                              ; preds = %._crit_edge122
   %173 = load i32, ptr %36, align 4, !tbaa !4
@@ -1183,15 +1183,15 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %175 = sext i32 %174 to i64
   %176 = load ptr, ptr %23, align 8, !tbaa !148
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %178 = load ptr, ptr %177, align 8, !tbaa !184
+  %178 = load ptr, ptr %177, align 8, !tbaa !186
   call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %175, ptr noundef %176, ptr noundef %178)
   br label %179
 
 179:                                              ; preds = %._crit_edge122, %172, %152
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr %3, ptr %180, align 8, !tbaa !185
+  store ptr %3, ptr %180, align 8, !tbaa !187
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float 0.000000e+00, ptr %181, align 8, !tbaa !186
+  store float 0.000000e+00, ptr %181, align 8, !tbaa !188
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #20
   ret void
 }
@@ -1247,7 +1247,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 .lr.ph:                                           ; preds = %39
   %41 = ptrtoint ptr %1 to i64
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %43 = load ptr, ptr %42, align 8, !tbaa !185
+  %43 = load ptr, ptr %42, align 8, !tbaa !187
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %41, %44
   %46 = lshr exact i64 %45, 2
@@ -1564,7 +1564,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   store float %241, ptr %239, align 4, !tbaa !159
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next265, 3
-  br i1 %exitcond267.not, label %.thread238, label %.split.us, !llvm.loop !187
+  br i1 %exitcond267.not, label %.thread238, label %.split.us, !llvm.loop !189
 
 .split:                                           ; preds = %229, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %229 ]
@@ -1589,7 +1589,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   store float %256, ptr %254, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.thread238, label %.split, !llvm.loop !187
+  br i1 %exitcond.not, label %.thread238, label %.split, !llvm.loop !190
 
 .thread238:                                       ; preds = %.split, %.split.us, %128, %126, %98
   %.1189249 = phi float [ %.0188260, %98 ], [ %.0188260, %126 ], [ %.0188260, %128 ], [ %.1189, %.split.us ], [ %.1189, %.split ]
@@ -1601,7 +1601,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 3
   %257 = trunc nuw i64 %indvars.iv.next269 to i32
   %258 = icmp sgt i32 %0, %257
-  br i1 %258, label %56, label %._crit_edge, !llvm.loop !188
+  br i1 %258, label %56, label %._crit_edge, !llvm.loop !191
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1648,7 +1648,7 @@ define void @_Z21update_disres_historyRK12t_disresdataP9history_t(ptr noundef no
   store float %18, ptr %19, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !189
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !192
 
 .loopexit:                                        ; preds = %16, %6, %2
   ret void
@@ -1873,29 +1873,32 @@ attributes #24 = { nounwind willreturn memory(none) }
 !161 = !{!5, !12, i64 56}
 !162 = !{!5, !12, i64 64}
 !163 = !{!5, !10, i64 24}
-!164 = distinct !{!164, !129}
-!165 = distinct !{!165, !129}
-!166 = !{!167, !175, i64 112}
-!167 = !{!"_ZTS9t_commrec", !9, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !145, i64 24, !145, i64 32, !11, i64 40, !145, i64 48, !11, i64 56, !11, i64 60, !168, i64 64, !169, i64 96, !176, i64 104, !175, i64 112, !182, i64 120, !11, i64 128}
-!168 = !{!"_ZTS14gmx_nodecomm_t", !9, i64 0, !145, i64 8, !11, i64 16, !145, i64 24}
-!169 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !170, i64 0}
-!170 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !171, i64 0}
-!171 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !172, i64 0}
-!172 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !173, i64 0}
-!173 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !174, i64 0}
-!174 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !175, i64 0}
-!175 = !{!"p1 _ZTS12gmx_domdec_t", !13, i64 0}
-!176 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !177, i64 0}
-!177 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !178, i64 0}
-!178 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !179, i64 0}
-!179 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !180, i64 0}
-!180 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !181, i64 0}
-!181 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !182, i64 0}
-!182 = !{!"p1 _ZTS16gmxNvshmemHandle", !13, i64 0}
-!183 = distinct !{!183, !129}
-!184 = !{!167, !145, i64 32}
-!185 = !{!5, !14, i64 96}
-!186 = !{!5, !10, i64 40}
-!187 = distinct !{!187, !129}
-!188 = distinct !{!188, !129}
-!189 = distinct !{!189, !129}
+!164 = distinct !{!164, !129, !165}
+!165 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!166 = distinct !{!166, !129}
+!167 = distinct !{!167, !129}
+!168 = !{!169, !177, i64 112}
+!169 = !{!"_ZTS9t_commrec", !9, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !145, i64 24, !145, i64 32, !11, i64 40, !145, i64 48, !11, i64 56, !11, i64 60, !170, i64 64, !171, i64 96, !178, i64 104, !177, i64 112, !184, i64 120, !11, i64 128}
+!170 = !{!"_ZTS14gmx_nodecomm_t", !9, i64 0, !145, i64 8, !11, i64 16, !145, i64 24}
+!171 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !172, i64 0}
+!172 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !173, i64 0}
+!173 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !174, i64 0}
+!174 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !175, i64 0}
+!175 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !176, i64 0}
+!176 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !177, i64 0}
+!177 = !{!"p1 _ZTS12gmx_domdec_t", !13, i64 0}
+!178 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !179, i64 0}
+!179 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !180, i64 0}
+!180 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !181, i64 0}
+!181 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !182, i64 0}
+!182 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !183, i64 0}
+!183 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !184, i64 0}
+!184 = !{!"p1 _ZTS16gmxNvshmemHandle", !13, i64 0}
+!185 = distinct !{!185, !129}
+!186 = !{!169, !145, i64 32}
+!187 = !{!5, !14, i64 96}
+!188 = !{!5, !10, i64 40}
+!189 = distinct !{!189, !129, !165}
+!190 = distinct !{!190, !129}
+!191 = distinct !{!191, !129}
+!192 = distinct !{!192, !129}

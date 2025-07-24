@@ -1947,7 +1947,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   %.1.us = phi i64 [ %39, %38 ], [ %.03046.us, %.lr.ph.split.us ], [ %.03046.us, %28 ], [ %.03046.us, %34 ]
   %41 = add i32 %.03145.us, -1
   %.not.us = icmp eq i32 %41, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !101
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %.03046 = phi i64 [ %.1, %52 ], [ 0, %.lr.ph ]
@@ -1980,7 +1980,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
 
 54:                                               ; preds = %spl_array_is_object.exit
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %56 = load i32, ptr %55, align 4, !tbaa !101
+  %56 = load i32, ptr %55, align 4, !tbaa !103
   %57 = zext i32 %56 to i64
   br label %.loopexit
 
@@ -2018,9 +2018,9 @@ zend_string_alloc.exit:
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 22, ptr %17, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !102
+  store i64 0, ptr %18, align 8, !tbaa !104
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %3, ptr %19, align 8, !tbaa !104
+  store i64 %3, ptr %19, align 8, !tbaa !106
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 range(i64 5, 12) %3, i1 false)
   %21 = getelementptr inbounds nuw [1 x i8], ptr %20, i64 0, i64 %3
@@ -2263,7 +2263,7 @@ define hidden void @zim_ArrayObject_serialize(ptr noundef readonly captures(none
 
 smart_str_alloc.exit:                             ; preds = %2
   %15 = tail call ptr @php_var_serialize_init() #13
-  store ptr %15, ptr %5, align 8, !tbaa !105
+  store ptr %15, ptr %5, align 8, !tbaa !107
   %16 = getelementptr inbounds i8, ptr %8, i64 -68
   %17 = load i32, ptr %16, align 4, !tbaa !75
   %18 = and i32 %17, 16842751
@@ -2272,15 +2272,15 @@ smart_str_alloc.exit:                             ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %20, align 8, !tbaa !4
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef 2) #13
-  %.pre = load ptr, ptr %6, align 8, !tbaa !107
+  %.pre = load ptr, ptr %6, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !104
+  %23 = load i64, ptr %22, align 8, !tbaa !106
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   store i16 14968, ptr %24, align 1
-  %25 = load ptr, ptr %6, align 8, !tbaa !107
+  %25 = load ptr, ptr %6, align 8, !tbaa !109
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 2, ptr %26, align 8, !tbaa !104
+  store i64 2, ptr %26, align 8, !tbaa !106
   call void @php_var_serialize(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %27 = load i32, ptr %16, align 4, !tbaa !75
   %28 = and i32 %27, 16777216
@@ -2289,23 +2289,23 @@ smart_str_alloc.exit:                             ; preds = %2
 
 29:                                               ; preds = %smart_str_alloc.exit
   call void @php_var_serialize(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %5) #13
-  %30 = load ptr, ptr %6, align 8, !tbaa !107
+  %30 = load ptr, ptr %6, align 8, !tbaa !109
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %37, label %31, !prof !70
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !104
+  %33 = load i64, ptr %32, align 8, !tbaa !106
   %34 = add i64 %33, 1
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !109
+  %36 = load i64, ptr %35, align 8, !tbaa !111
   %.not12.i.i = icmp ult i64 %34, %36
   br i1 %.not12.i.i, label %.thread, label %37, !prof !79
 
 37:                                               ; preds = %31, %29
   %.0.i.i = phi i64 [ 1, %29 ], [ %34, %31 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0.i.i) #13
-  %.pre33 = load ptr, ptr %6, align 8, !tbaa !107
+  %.pre33 = load ptr, ptr %6, align 8, !tbaa !109
   br label %.thread
 
 .thread:                                          ; preds = %37, %31
@@ -2315,19 +2315,19 @@ smart_str_alloc.exit:                             ; preds = %2
   %40 = add i64 %.1.i.i, -1
   %41 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %40
   store i8 59, ptr %41, align 1, !tbaa !4
-  %42 = load ptr, ptr %6, align 8, !tbaa !107
+  %42 = load ptr, ptr %6, align 8, !tbaa !109
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %.1.i.i, ptr %43, align 8, !tbaa !104
+  store i64 %.1.i.i, ptr %43, align 8, !tbaa !106
   br label %45
 
 44:                                               ; preds = %smart_str_alloc.exit
-  %.pr = load ptr, ptr %6, align 8, !tbaa !107
+  %.pr = load ptr, ptr %6, align 8, !tbaa !109
   %.not.i21 = icmp eq ptr %.pr, null
-  br i1 %.not.i21, label %51, label %._crit_edge34, !prof !110
+  br i1 %.not.i21, label %51, label %._crit_edge34, !prof !112
 
 ._crit_edge34:                                    ; preds = %44
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr, i64 16
-  %.pre35 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !104
+  %.pre35 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !106
   br label %45
 
 45:                                               ; preds = %._crit_edge34, %.thread
@@ -2335,16 +2335,16 @@ smart_str_alloc.exit:                             ; preds = %2
   %47 = phi ptr [ %42, %.thread ], [ %.pr, %._crit_edge34 ]
   %48 = add i64 %46, 2
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !109
+  %50 = load i64, ptr %49, align 8, !tbaa !111
   %.not12.i22 = icmp ult i64 %48, %50
   br i1 %.not12.i22, label %smart_str_alloc.exit25, label %51, !prof !79
 
 51:                                               ; preds = %45, %44
   %.0.i23 = phi i64 [ 2, %44 ], [ %48, %45 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0.i23) #13
-  %.pre36 = load ptr, ptr %6, align 8, !tbaa !107
+  %.pre36 = load ptr, ptr %6, align 8, !tbaa !109
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %.pre36, i64 16
-  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !104
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !106
   br label %smart_str_alloc.exit25
 
 smart_str_alloc.exit25:                           ; preds = %45, %51
@@ -2354,11 +2354,11 @@ smart_str_alloc.exit25:                           ; preds = %45, %51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %52
   store i16 14957, ptr %55, align 1
-  %56 = load ptr, ptr %6, align 8, !tbaa !107
+  %56 = load ptr, ptr %6, align 8, !tbaa !109
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i64 %.1.i24, ptr %57, align 8, !tbaa !104
+  store i64 %.1.i24, ptr %57, align 8, !tbaa !106
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %59 = load i32, ptr %58, align 4, !tbaa !111
+  %59 = load i32, ptr %58, align 4, !tbaa !113
   %60 = icmp ugt i32 %59, 1073741823
   br i1 %60, label %61, label %63, !prof !70
 
@@ -2368,7 +2368,7 @@ smart_str_alloc.exit25:                           ; preds = %45, %51
 
 63:                                               ; preds = %smart_str_alloc.exit25
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !112
+  %65 = load ptr, ptr %64, align 8, !tbaa !114
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %66, label %zend_std_get_properties_ex.exit
 
@@ -2382,27 +2382,27 @@ zend_std_get_properties_ex.exit:                  ; preds = %61, %63, %66
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %68, align 8, !tbaa !4
   call void @php_var_serialize(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5) #13
-  %69 = load ptr, ptr %5, align 8, !tbaa !105
+  %69 = load ptr, ptr %5, align 8, !tbaa !107
   call void @php_var_serialize_destroy(ptr noundef %69) #13
-  %70 = load ptr, ptr %6, align 8, !tbaa !107
+  %70 = load ptr, ptr %6, align 8, !tbaa !109
   %.not.i26 = icmp eq ptr %70, null
   br i1 %.not.i26, label %115, label %smart_str_0.exit
 
 smart_str_0.exit:                                 ; preds = %zend_std_get_properties_ex.exit
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %73 = load i64, ptr %72, align 8, !tbaa !104
+  %73 = load i64, ptr %72, align 8, !tbaa !106
   %74 = getelementptr inbounds nuw [1 x i8], ptr %71, i64 0, i64 %73
   store i8 0, ptr %74, align 1, !tbaa !4
-  %75 = load ptr, ptr %6, align 8, !tbaa !107
+  %75 = load ptr, ptr %6, align 8, !tbaa !109
   %.not.i29 = icmp eq ptr %75, null
   br i1 %.not.i29, label %smart_str_trim_to_size_ex.exit, label %76
 
 76:                                               ; preds = %smart_str_0.exit
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !109
+  %78 = load i64, ptr %77, align 8, !tbaa !111
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !104
+  %80 = load i64, ptr %79, align 8, !tbaa !106
   %81 = icmp ugt i64 %78, %80
   br i1 %81, label %82, label %smart_str_trim_to_size_ex.exit
 
@@ -2423,9 +2423,9 @@ smart_str_0.exit:                                 ; preds = %zend_std_get_proper
   %91 = add i64 %90, 32
   %92 = call ptr @_erealloc(ptr noundef nonnull %75, i64 noundef %91) #15
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store i64 %80, ptr %93, align 8, !tbaa !104
+  store i64 %80, ptr %93, align 8, !tbaa !106
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i64 0, ptr %94, align 8, !tbaa !102
+  store i64 0, ptr %94, align 8, !tbaa !104
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !4
   %97 = and i32 %96, -513
@@ -2440,12 +2440,12 @@ zend_string_alloc.exit.i:                         ; preds = %82, %86
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 22, ptr %101, align 4, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 0, ptr %102, align 8, !tbaa !102
+  store i64 0, ptr %102, align 8, !tbaa !104
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i64 %80, ptr %103, align 8, !tbaa !104
+  store i64 %80, ptr %103, align 8, !tbaa !106
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %105 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %106 = load i64, ptr %79, align 8, !tbaa !104
+  %106 = load i64, ptr %79, align 8, !tbaa !106
   %..i = call i64 @llvm.umin.i64(i64 %80, i64 %106)
   %107 = add nuw i64 %..i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %104, ptr noundef nonnull align 8 dereferenceable(1) %105, i64 %107, i1 false)
@@ -2464,12 +2464,12 @@ zend_string_alloc.exit.i:                         ; preds = %82, %86
 
 zend_string_realloc.exit:                         ; preds = %89, %zend_string_alloc.exit.i, %110
   %.0.i31 = phi ptr [ %92, %89 ], [ %100, %110 ], [ %100, %zend_string_alloc.exit.i ]
-  store i64 %80, ptr %77, align 8, !tbaa !109
+  store i64 %80, ptr %77, align 8, !tbaa !111
   br label %smart_str_trim_to_size_ex.exit
 
 smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %76, %zend_string_realloc.exit
   %114 = phi ptr [ null, %smart_str_0.exit ], [ %75, %76 ], [ %.0.i31, %zend_string_realloc.exit ]
-  store ptr null, ptr %6, align 8, !tbaa !107
+  store ptr null, ptr %6, align 8, !tbaa !109
   br label %smart_str_extract_ex.exit
 
 115:                                              ; preds = %zend_std_get_properties_ex.exit
@@ -2549,24 +2549,24 @@ define hidden void @zim_ArrayObject_unserialize(ptr noundef readonly captures(no
   br label %126
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %3, align 8, !tbaa !113
-  store ptr %27, ptr %5, align 8, !tbaa !113
+  %27 = load ptr, ptr %3, align 8, !tbaa !115
+  store ptr %27, ptr %5, align 8, !tbaa !115
   %28 = call ptr @php_var_unserialize_init() #13
-  store ptr %28, ptr %6, align 8, !tbaa !114
+  store ptr %28, ptr %6, align 8, !tbaa !116
   %29 = load i8, ptr %27, align 1, !tbaa !4
   %.not48 = icmp eq i8 %29, 120
   br i1 %.not48, label %30, label %114
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %31, ptr %5, align 8, !tbaa !113
+  store ptr %31, ptr %5, align 8, !tbaa !115
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %.not49 = icmp eq i8 %32, 58
   br i1 %.not49, label %33, label %114
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  store ptr %34, ptr %5, align 8, !tbaa !113
+  store ptr %34, ptr %5, align 8, !tbaa !115
   %35 = call ptr @var_tmp_var(ptr noundef nonnull %6) #13
   %36 = load i64, ptr %4, align 8, !tbaa !80
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 %36
@@ -2581,16 +2581,16 @@ define hidden void @zim_ArrayObject_unserialize(ptr noundef readonly captures(no
   br i1 %.not51, label %42, label %114
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %5, align 8, !tbaa !113
+  %43 = load ptr, ptr %5, align 8, !tbaa !115
   %44 = getelementptr inbounds i8, ptr %43, i64 -1
-  store ptr %44, ptr %5, align 8, !tbaa !113
+  store ptr %44, ptr %5, align 8, !tbaa !115
   %45 = load i64, ptr %35, align 8, !tbaa !4
   %46 = load i8, ptr %44, align 1, !tbaa !4
   %.not52 = icmp eq i8 %46, 59
   br i1 %.not52, label %47, label %114
 
 47:                                               ; preds = %42
-  store ptr %43, ptr %5, align 8, !tbaa !113
+  store ptr %43, ptr %5, align 8, !tbaa !115
   %48 = and i64 %45, 16777216
   %.not53 = icmp eq i64 %48, 0
   br i1 %.not53, label %57, label %49
@@ -2606,7 +2606,7 @@ define hidden void @zim_ArrayObject_unserialize(ptr noundef readonly captures(no
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #13
   %56 = getelementptr inbounds i8, ptr %8, i64 -88
   store i32 0, ptr %56, align 8, !tbaa !4
-  %.pre = load ptr, ptr %5, align 8, !tbaa !113
+  %.pre = load ptr, ptr %5, align 8, !tbaa !115
   br label %96
 
 57:                                               ; preds = %47
@@ -2679,14 +2679,14 @@ define hidden void @zim_ArrayObject_unserialize(ptr noundef readonly captures(no
   br label %zend_gc_try_delref.exit
 
 zend_gc_try_delref.exit:                          ; preds = %88, %83, %76, %91
-  %92 = load ptr, ptr %5, align 8, !tbaa !113
+  %92 = load ptr, ptr %5, align 8, !tbaa !115
   %93 = load i8, ptr %92, align 1, !tbaa !4
   %.not61 = icmp eq i8 %93, 59
   br i1 %.not61, label %94, label %114
 
 94:                                               ; preds = %zend_gc_try_delref.exit
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  store ptr %95, ptr %5, align 8, !tbaa !113
+  store ptr %95, ptr %5, align 8, !tbaa !115
   br label %96
 
 96:                                               ; preds = %94, %49
@@ -2697,14 +2697,14 @@ zend_gc_try_delref.exit:                          ; preds = %88, %83, %76, %91
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  store ptr %100, ptr %5, align 8, !tbaa !113
+  store ptr %100, ptr %5, align 8, !tbaa !115
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %.not63 = icmp eq i8 %101, 58
   br i1 %.not63, label %102, label %114
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  store ptr %103, ptr %5, align 8, !tbaa !113
+  store ptr %103, ptr %5, align 8, !tbaa !115
   %104 = call ptr @var_tmp_var(ptr noundef nonnull %6) #13
   %105 = load i64, ptr %4, align 8, !tbaa !80
   %106 = getelementptr inbounds nuw i8, ptr %27, i64 %105
@@ -2721,16 +2721,16 @@ zend_gc_try_delref.exit:                          ; preds = %88, %83, %76, %91
 111:                                              ; preds = %108
   %112 = load ptr, ptr %104, align 8, !tbaa !4
   call void @object_properties_load(ptr noundef nonnull %8, ptr noundef %112) #13
-  %113 = load ptr, ptr %6, align 8, !tbaa !114
+  %113 = load ptr, ptr %6, align 8, !tbaa !116
   call void @php_var_unserialize_destroy(ptr noundef %113) #13
   br label %126
 
 114:                                              ; preds = %64, %57, %102, %108, %96, %99, %zend_gc_try_delref.exit, %59, %42, %33, %39, %26, %30
-  %115 = load ptr, ptr %6, align 8, !tbaa !114
+  %115 = load ptr, ptr %6, align 8, !tbaa !116
   call void @php_var_unserialize_destroy(ptr noundef %115) #13
   %116 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !81
-  %117 = load ptr, ptr %5, align 8, !tbaa !113
-  %118 = load ptr, ptr %3, align 8, !tbaa !113
+  %117 = load ptr, ptr %5, align 8, !tbaa !115
+  %118 = load ptr, ptr %3, align 8, !tbaa !115
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
@@ -3060,7 +3060,7 @@ define hidden void @zim_ArrayObject___debugInfo(ptr noundef readonly captures(no
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %9, i64 -96
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !111
+  %12 = load i32, ptr %11, align 4, !tbaa !113
   %13 = icmp ugt i32 %12, 1073741823
   br i1 %13, label %14, label %16, !prof !70
 
@@ -3070,7 +3070,7 @@ define hidden void @zim_ArrayObject___debugInfo(ptr noundef readonly captures(no
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !112
+  %18 = load ptr, ptr %17, align 8, !tbaa !114
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %19, label %zend_std_get_properties_ex.exit.i
 
@@ -3092,7 +3092,7 @@ zend_std_get_properties_ex.exit.i:                ; preds = %19, %16, %14
 
 26:                                               ; preds = %zend_std_get_properties_ex.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !101
+  %28 = load i32, ptr %27, align 4, !tbaa !103
   %29 = add i32 %28, 1
   %30 = tail call ptr @_zend_new_array(i32 noundef %29) #13
   tail call void @zend_hash_copy(ptr noundef %30, ptr noundef %.0.i.i, ptr noundef nonnull @zval_add_ref) #13
@@ -3903,7 +3903,7 @@ instanceof_function.exit.thread:                  ; preds = %instanceof_function
   %71 = getelementptr inbounds i8, ptr %69, i64 -56
   store ptr %.1, ptr %71, align 8, !tbaa !83
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 256
-  %73 = load ptr, ptr %72, align 8, !tbaa !116
+  %73 = load ptr, ptr %72, align 8, !tbaa !118
   %74 = load ptr, ptr %1, align 8, !tbaa !4
   call void @zend_call_known_instance_method_with_2_params(ptr noundef %73, ptr noundef %74, ptr noundef null, ptr noundef nonnull %.1, ptr noundef nonnull %3) #13
   br label %75
@@ -3936,12 +3936,12 @@ define hidden noundef i32 @zm_startup_spl_array(i32 noundef %0, i32 noundef %1) 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %11) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %11, i8 0, i64 520, i1 false)
-  %20 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %20 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %21 = tail call ptr %20(ptr noundef nonnull @.str.38, i64 noundef 11, i1 noundef zeroext true) #13
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !53
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 360
-  store ptr @std_object_handlers, ptr %23, align 8, !tbaa !118
+  store ptr @std_object_handlers, ptr %23, align 8, !tbaa !120
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 504
   store ptr @class_ArrayObject_methods, ptr %24, align 8, !tbaa !4
   %25 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0) #13
@@ -3950,11 +3950,11 @@ define hidden noundef i32 @zm_startup_spl_array(i32 noundef %0, i32 noundef %1) 
   store i64 1, ptr %12, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %26, align 8, !tbaa !4
-  %27 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %27 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %28 = call ptr %27(ptr noundef nonnull @.str.39, i64 noundef 13, i1 noundef zeroext true) #13
-  store ptr null, ptr %13, align 8, !tbaa !119
+  store ptr null, ptr %13, align 8, !tbaa !121
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 16, ptr %29, align 8, !tbaa !121
+  store i32 16, ptr %29, align 8, !tbaa !123
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %30, align 4
   %31 = call ptr @zend_declare_typed_class_constant(ptr noundef %25, ptr noundef %28, ptr noundef nonnull %12, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %13) #13
@@ -3991,11 +3991,11 @@ zend_string_release.exit.i:                       ; preds = %43, %42, %35, %2
   store i64 2, ptr %14, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %44, align 8, !tbaa !4
-  %45 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %45 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %46 = call ptr %45(ptr noundef nonnull @.str.40, i64 noundef 14, i1 noundef zeroext true) #13
-  store ptr null, ptr %15, align 8, !tbaa !119
+  store ptr null, ptr %15, align 8, !tbaa !121
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 16, ptr %47, align 8, !tbaa !121
+  store i32 16, ptr %47, align 8, !tbaa !123
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 0, ptr %48, align 4
   %49 = call ptr @zend_declare_typed_class_constant(ptr noundef %25, ptr noundef %46, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %15) #13
@@ -4037,24 +4037,24 @@ register_class_ArrayObject.exit:                  ; preds = %zend_string_release
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 384
   store ptr @spl_array_object_new, ptr %62, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 360
-  store ptr @spl_handler_ArrayObject, ptr %63, align 8, !tbaa !118
+  store ptr @spl_handler_ArrayObject, ptr %63, align 8, !tbaa !120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_ArrayObject, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 184, i1 false)
-  store i32 96, ptr @spl_handler_ArrayObject, align 8, !tbaa !122
-  store ptr @spl_array_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 24), align 8, !tbaa !123
-  store ptr @spl_array_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 48), align 8, !tbaa !124
-  store ptr @spl_array_write_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 56), align 8, !tbaa !125
-  store ptr @spl_array_unset_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 96), align 8, !tbaa !126
-  store ptr @spl_array_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 88), align 8, !tbaa !127
-  store ptr @spl_array_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 144), align 8, !tbaa !128
+  store i32 96, ptr @spl_handler_ArrayObject, align 8, !tbaa !124
+  store ptr @spl_array_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 24), align 8, !tbaa !125
+  store ptr @spl_array_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 48), align 8, !tbaa !126
+  store ptr @spl_array_write_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 56), align 8, !tbaa !127
+  store ptr @spl_array_unset_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 96), align 8, !tbaa !128
+  store ptr @spl_array_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 88), align 8, !tbaa !129
+  store ptr @spl_array_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 144), align 8, !tbaa !130
   store ptr @spl_array_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 192), align 8, !tbaa !87
-  store ptr @spl_array_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 168), align 8, !tbaa !129
-  store ptr @spl_array_read_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 32), align 8, !tbaa !130
-  store ptr @spl_array_write_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 40), align 8, !tbaa !131
-  store ptr @spl_array_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 64), align 8, !tbaa !132
-  store ptr @spl_array_has_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 72), align 8, !tbaa !133
-  store ptr @spl_array_unset_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 80), align 8, !tbaa !134
-  store ptr @spl_array_compare_objects, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 184), align 8, !tbaa !135
-  store ptr @spl_array_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 8), align 8, !tbaa !136
+  store ptr @spl_array_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 168), align 8, !tbaa !131
+  store ptr @spl_array_read_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 32), align 8, !tbaa !132
+  store ptr @spl_array_write_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 40), align 8, !tbaa !133
+  store ptr @spl_array_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 64), align 8, !tbaa !134
+  store ptr @spl_array_has_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 72), align 8, !tbaa !135
+  store ptr @spl_array_unset_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 80), align 8, !tbaa !136
+  store ptr @spl_array_compare_objects, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 184), align 8, !tbaa !137
+  store ptr @spl_array_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 8), align 8, !tbaa !138
   %64 = load ptr, ptr @spl_ce_SeekableIterator, align 8, !tbaa !81
   %65 = load ptr, ptr @zend_ce_arrayaccess, align 8, !tbaa !81
   %66 = load ptr, ptr @zend_ce_serializable, align 8, !tbaa !81
@@ -4063,12 +4063,12 @@ register_class_ArrayObject.exit:                  ; preds = %zend_string_release
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %6, i8 0, i64 520, i1 false)
-  %68 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %68 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %69 = call ptr %68(ptr noundef nonnull @.str.86, i64 noundef 13, i1 noundef zeroext true) #13
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %69, ptr %70, align 8, !tbaa !53
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  store ptr @std_object_handlers, ptr %71, align 8, !tbaa !118
+  store ptr @std_object_handlers, ptr %71, align 8, !tbaa !120
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 504
   store ptr @class_ArrayIterator_methods, ptr %72, align 8, !tbaa !4
   %73 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %6, ptr noundef null, i32 noundef 0) #13
@@ -4077,11 +4077,11 @@ register_class_ArrayObject.exit:                  ; preds = %zend_string_release
   store i64 1, ptr %7, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %74, align 8, !tbaa !4
-  %75 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %75 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %76 = call ptr %75(ptr noundef nonnull @.str.39, i64 noundef 13, i1 noundef zeroext true) #13
-  store ptr null, ptr %8, align 8, !tbaa !119
+  store ptr null, ptr %8, align 8, !tbaa !121
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 16, ptr %77, align 8, !tbaa !121
+  store i32 16, ptr %77, align 8, !tbaa !123
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %78, align 4
   %79 = call ptr @zend_declare_typed_class_constant(ptr noundef %73, ptr noundef %76, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %8) #13
@@ -4118,11 +4118,11 @@ zend_string_release.exit.i2:                      ; preds = %91, %90, %83, %regi
   store i64 2, ptr %9, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 4, ptr %92, align 8, !tbaa !4
-  %93 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %93 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %94 = call ptr %93(ptr noundef nonnull @.str.40, i64 noundef 14, i1 noundef zeroext true) #13
-  store ptr null, ptr %10, align 8, !tbaa !119
+  store ptr null, ptr %10, align 8, !tbaa !121
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 16, ptr %95, align 8, !tbaa !121
+  store i32 16, ptr %95, align 8, !tbaa !123
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 0, ptr %96, align 4
   %97 = call ptr @zend_declare_typed_class_constant(ptr noundef %73, ptr noundef %94, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %10) #13
@@ -4164,19 +4164,19 @@ register_class_ArrayIterator.exit:                ; preds = %zend_string_release
   %110 = getelementptr inbounds nuw i8, ptr %73, i64 384
   store ptr @spl_array_object_new, ptr %110, align 8, !tbaa !4
   %111 = getelementptr inbounds nuw i8, ptr %73, i64 360
-  store ptr @spl_handler_ArrayObject, ptr %111, align 8, !tbaa !118
+  store ptr @spl_handler_ArrayObject, ptr %111, align 8, !tbaa !120
   %112 = getelementptr inbounds nuw i8, ptr %73, i64 392
-  store ptr @spl_array_get_iterator, ptr %112, align 8, !tbaa !137
+  store ptr @spl_array_get_iterator, ptr %112, align 8, !tbaa !139
   %113 = load ptr, ptr @spl_ce_RecursiveIterator, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
-  %114 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %114 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %115 = call ptr %114(ptr noundef nonnull @.str.100, i64 noundef 22, i1 noundef zeroext true) #13
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %115, ptr %116, align 8, !tbaa !53
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  store ptr @std_object_handlers, ptr %117, align 8, !tbaa !118
+  store ptr @std_object_handlers, ptr %117, align 8, !tbaa !120
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr @class_RecursiveArrayIterator_methods, ptr %118, align 8, !tbaa !4
   %119 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef %73, i32 noundef 0) #13
@@ -4185,11 +4185,11 @@ register_class_ArrayIterator.exit:                ; preds = %zend_string_release
   store i64 4, ptr %4, align 8, !tbaa !4
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %120, align 8, !tbaa !4
-  %121 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !117
+  %121 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !119
   %122 = call ptr %121(ptr noundef nonnull @.str.101, i64 noundef 17, i1 noundef zeroext true) #13
-  store ptr null, ptr %5, align 8, !tbaa !119
+  store ptr null, ptr %5, align 8, !tbaa !121
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 16, ptr %123, align 8, !tbaa !121
+  store i32 16, ptr %123, align 8, !tbaa !123
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %124, align 4
   %125 = call ptr @zend_declare_typed_class_constant(ptr noundef %119, ptr noundef %122, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #13
@@ -4229,7 +4229,7 @@ register_class_RecursiveArrayIterator.exit:       ; preds = %register_class_Arra
   %138 = getelementptr inbounds nuw i8, ptr %119, i64 384
   store ptr @spl_array_object_new, ptr %138, align 8, !tbaa !4
   %139 = getelementptr inbounds nuw i8, ptr %119, i64 392
-  store ptr @spl_array_get_iterator, ptr %139, align 8, !tbaa !137
+  store ptr @spl_array_get_iterator, ptr %139, align 8, !tbaa !139
   ret i32 0
 }
 
@@ -4330,7 +4330,7 @@ define internal ptr @spl_array_read_dimension(ptr noundef %0, ptr noundef %1, i3
   %40 = icmp eq i8 %39, 10
   %.not51.i = icmp eq ptr %36, @executor_globals
   %or.cond.i = select i1 %40, i1 true, i1 %.not51.i
-  br i1 %or.cond.i, label %spl_array_read_dimension_ex.exit, label %41, !prof !138
+  br i1 %or.cond.i, label %spl_array_read_dimension_ex.exit, label %41, !prof !140
 
 41:                                               ; preds = %37
   %42 = tail call noalias ptr @_emalloc_32() #13
@@ -4385,7 +4385,7 @@ define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr nounde
   switch i8 %11, label %14 [
     i8 0, label %17
     i8 4, label %12
-  ], !prof !139
+  ], !prof !141
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %3, align 8, !tbaa !4
@@ -4468,7 +4468,7 @@ define internal ptr @spl_array_get_properties_for(ptr noundef %0, i32 noundef %1
 define internal ptr @spl_array_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -96
   store ptr %4, ptr %1, align 8, !tbaa !43
-  store i32 1, ptr %2, align 4, !tbaa !140
+  store i32 1, ptr %2, align 4, !tbaa !142
   %5 = tail call ptr @zend_std_get_properties(ptr noundef %0) #13
   ret ptr %5
 }
@@ -4691,12 +4691,12 @@ define internal i32 @spl_array_compare_objects(ptr noundef %0, ptr noundef %1) #
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  %13 = load ptr, ptr %12, align 8, !tbaa !135
+  %13 = load ptr, ptr %12, align 8, !tbaa !137
   %14 = load ptr, ptr %1, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !84
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
-  %18 = load ptr, ptr %17, align 8, !tbaa !135
+  %18 = load ptr, ptr %17, align 8, !tbaa !137
   %.not23 = icmp eq ptr %13, %18
   br i1 %.not23, label %19, label %.sink.split
 
@@ -4713,13 +4713,13 @@ define internal i32 @spl_array_compare_objects(ptr noundef %0, ptr noundef %1) #
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !141
+  %30 = load ptr, ptr %29, align 8, !tbaa !143
   %31 = icmp eq ptr %23, %30
   br i1 %31, label %32, label %.sink.split
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !141
+  %34 = load ptr, ptr %33, align 8, !tbaa !143
   %35 = icmp eq ptr %25, %34
   br i1 %35, label %37, label %.sink.split
 
@@ -4789,11 +4789,11 @@ define internal noundef ptr @spl_array_get_iterator(ptr readnone captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 776, ptr %9, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @spl_array_it_funcs, ptr %10, align 8, !tbaa !142
+  store ptr @spl_array_it_funcs, ptr %10, align 8, !tbaa !144
   %11 = icmp ne i32 %2, 0
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %13 = zext i1 %11 to i8
-  store i8 %13, ptr %12, align 8, !tbaa !146
+  store i8 %13, ptr %12, align 8, !tbaa !148
   ret ptr %4
 }
 
@@ -4830,7 +4830,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull in
   store ptr %11, ptr %0, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !104
+  %14 = load i64, ptr %13, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i8, ptr %12, align 1, !tbaa !4
   %17 = icmp sgt i8 %16, 57
@@ -4864,7 +4864,7 @@ _zend_handle_numeric_str.exit:                    ; preds = %18, %21
   store ptr null, ptr %0, align 8, !tbaa !63
   %28 = load ptr, ptr %.0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !147
+  %30 = load i64, ptr %29, align 8, !tbaa !149
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8, !tbaa !69
   br label %56
@@ -5308,7 +5308,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %spl_array_is_object
 37:                                               ; preds = %32, %28, %.lr.ph
   %38 = load ptr, ptr %3, align 8, !tbaa !95
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !104
+  %40 = load i64, ptr %39, align 8, !tbaa !106
   %.not16 = icmp eq i64 %40, 0
   br i1 %.not16, label %.loopexit, label %41
 
@@ -5354,7 +5354,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %.tr.lcssa = phi ptr [ %0, %1 ], [ %20, %tailrecurse ]
   %5 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 96
   %6 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 108
-  %7 = load i32, ptr %6, align 4, !tbaa !111
+  %7 = load i32, ptr %6, align 4, !tbaa !113
   %8 = icmp ugt i32 %7, 1073741823
   br i1 %8, label %9, label %11, !prof !70
 
@@ -5364,7 +5364,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
 
 11:                                               ; preds = %tailrecurse._crit_edge
   %12 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 128
-  %13 = load ptr, ptr %12, align 8, !tbaa !112
+  %13 = load ptr, ptr %12, align 8, !tbaa !114
   %.not.i28 = icmp eq ptr %13, null
   br i1 %.not.i28, label %14, label %zend_std_get_properties_ex.exit30
 
@@ -5401,7 +5401,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 28:                                               ; preds = %24
   %29 = load ptr, ptr %.tr33, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !111
+  %31 = load i32, ptr %30, align 4, !tbaa !113
   %32 = icmp ugt i32 %31, 1073741823
   br i1 %32, label %33, label %.thread, !prof !70
 
@@ -5423,7 +5423,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 
 40:                                               ; preds = %33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !111
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !113
   %41 = icmp ugt i32 %.pre, 1073741823
   br i1 %41, label %42, label %.thread, !prof !91
 
@@ -5434,7 +5434,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 .thread:                                          ; preds = %28, %40
   %.037 = phi ptr [ %34, %40 ], [ %29, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !112
+  %45 = load ptr, ptr %44, align 8, !tbaa !114
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %46, label %zend_std_get_properties_ex.exit
 
@@ -5445,7 +5445,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 zend_std_get_properties_ex.exit:                  ; preds = %42, %.thread, %46
   %.036 = phi ptr [ %34, %42 ], [ %.037, %.thread ], [ %.037, %46 ]
   %48 = getelementptr inbounds nuw i8, ptr %.036, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !112
+  %49 = load ptr, ptr %48, align 8, !tbaa !114
   %50 = load i32, ptr %49, align 4, !tbaa !68
   %51 = icmp ugt i32 %50, 1
   br i1 %51, label %52, label %60
@@ -5464,7 +5464,7 @@ zend_std_get_properties_ex.exit:                  ; preds = %42, %.thread, %46
 
 58:                                               ; preds = %56, %52
   %59 = tail call ptr @zend_array_dup(ptr noundef nonnull %49) #13
-  store ptr %59, ptr %48, align 8, !tbaa !112
+  store ptr %59, ptr %48, align 8, !tbaa !114
   br label %60
 
 60:                                               ; preds = %38, %35, %58, %zend_std_get_properties_ex.exit, %24, %zend_std_get_properties_ex.exit30
@@ -5641,7 +5641,7 @@ spl_array_get_pos_ptr.exit50:                     ; preds = %1, %11
 23:                                               ; preds = %21, %17, %spl_array_get_pos_ptr.exit50
   %.041 = phi ptr [ %22, %21 ], [ %16, %17 ], [ null, %spl_array_get_pos_ptr.exit50 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load i8, ptr %24, align 8, !tbaa !146, !range !66, !noundef !67
+  %25 = load i8, ptr %24, align 8, !tbaa !148, !range !66, !noundef !67
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %76
 
@@ -5693,21 +5693,21 @@ spl_array_get_pos_ptr.exit:                       ; preds = %38, %41
 
 53:                                               ; preds = %spl_array_get_pos_ptr.exit
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %55 = load i32, ptr %54, align 8, !tbaa !149
+  %55 = load i32, ptr %54, align 8, !tbaa !151
   %56 = and i32 %55, 33554431
   %.not48 = icmp eq i32 %56, 0
   br i1 %.not48, label %.sink.split, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !153
+  %59 = load i32, ptr %58, align 4, !tbaa !155
   %60 = and i32 %59, 128
   %.not49 = icmp eq i32 %60, 0
   br i1 %.not49, label %68, label %.critedge
 
 .critedge:                                        ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !154
+  %62 = load ptr, ptr %61, align 8, !tbaa !156
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !53
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
@@ -5864,7 +5864,7 @@ spl_array_rewind.exit:                            ; preds = %spl_array_get_pos_p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noalias noundef ptr @spl_array_it_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #11 {
-  store i32 1, ptr %2, align 4, !tbaa !140
+  store i32 1, ptr %2, align 4, !tbaa !142
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %1, align 8, !tbaa !43
   ret ptr null
@@ -6000,57 +6000,59 @@ attributes #15 = { nounwind allocsize(1) }
 !98 = !{!99, !38, i64 24}
 !99 = !{!"_Bucket", !9, i64 0, !15, i64 16, !38, i64 24}
 !100 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!101 = !{!12, !14, i64 28}
-!102 = !{!103, !15, i64 8}
-!103 = !{!"_zend_string", !13, i64 0, !15, i64 8, !15, i64 16, !5, i64 24}
-!104 = !{!103, !15, i64 16}
-!105 = !{!106, !106, i64 0}
-!106 = !{!"p1 _ZTS18php_serialize_data", !11, i64 0}
-!107 = !{!108, !38, i64 0}
-!108 = !{!"", !38, i64 0, !15, i64 8}
-!109 = !{!108, !15, i64 8}
-!110 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
-!111 = !{!48, !14, i64 12}
-!112 = !{!48, !18, i64 32}
-!113 = !{!42, !42, i64 0}
-!114 = !{!115, !115, i64 0}
-!115 = !{!"p1 _ZTS20php_unserialize_data", !11, i64 0}
-!116 = !{!54, !47, i64 256}
-!117 = !{!11, !11, i64 0}
-!118 = !{!54, !49, i64 360}
-!119 = !{!120, !11, i64 0}
-!120 = !{!"", !11, i64 0, !14, i64 8}
-!121 = !{!120, !14, i64 8}
-!122 = !{!86, !14, i64 0}
-!123 = !{!86, !11, i64 24}
-!124 = !{!86, !11, i64 48}
-!125 = !{!86, !11, i64 56}
-!126 = !{!86, !11, i64 96}
-!127 = !{!86, !11, i64 88}
-!128 = !{!86, !11, i64 144}
-!129 = !{!86, !11, i64 168}
-!130 = !{!86, !11, i64 32}
-!131 = !{!86, !11, i64 40}
-!132 = !{!86, !11, i64 64}
-!133 = !{!86, !11, i64 72}
-!134 = !{!86, !11, i64 80}
-!135 = !{!86, !11, i64 184}
-!136 = !{!86, !11, i64 8}
-!137 = !{!54, !11, i64 392}
-!138 = !{!"branch_weights", i32 2002, i32 2000}
-!139 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!140 = !{!14, !14, i64 0}
-!141 = !{!45, !18, i64 128}
-!142 = !{!143, !145, i64 72}
-!143 = !{!"_spl_array_iterator", !144, i64 0, !17, i64 88}
-!144 = !{!"_zend_object_iterator", !48, i64 0, !9, i64 56, !145, i64 72, !15, i64 80}
-!145 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !11, i64 0}
-!146 = !{!143, !17, i64 88}
-!147 = !{!148, !15, i64 8}
-!148 = !{!"_zend_resource", !13, i64 0, !15, i64 8, !14, i64 16, !11, i64 24}
-!149 = !{!150, !14, i64 48}
-!150 = !{!"_zend_property_info", !14, i64 0, !14, i64 4, !38, i64 8, !38, i64 16, !18, i64 24, !22, i64 32, !120, i64 40, !151, i64 56, !152, i64 64}
-!151 = !{!"p1 _ZTS19_zend_property_info", !11, i64 0}
-!152 = !{!"p2 _ZTS14_zend_function", !11, i64 0}
-!153 = !{!150, !14, i64 4}
-!154 = !{!150, !22, i64 32}
+!101 = distinct !{!101, !102}
+!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!103 = !{!12, !14, i64 28}
+!104 = !{!105, !15, i64 8}
+!105 = !{!"_zend_string", !13, i64 0, !15, i64 8, !15, i64 16, !5, i64 24}
+!106 = !{!105, !15, i64 16}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS18php_serialize_data", !11, i64 0}
+!109 = !{!110, !38, i64 0}
+!110 = !{!"", !38, i64 0, !15, i64 8}
+!111 = !{!110, !15, i64 8}
+!112 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
+!113 = !{!48, !14, i64 12}
+!114 = !{!48, !18, i64 32}
+!115 = !{!42, !42, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTS20php_unserialize_data", !11, i64 0}
+!118 = !{!54, !47, i64 256}
+!119 = !{!11, !11, i64 0}
+!120 = !{!54, !49, i64 360}
+!121 = !{!122, !11, i64 0}
+!122 = !{!"", !11, i64 0, !14, i64 8}
+!123 = !{!122, !14, i64 8}
+!124 = !{!86, !14, i64 0}
+!125 = !{!86, !11, i64 24}
+!126 = !{!86, !11, i64 48}
+!127 = !{!86, !11, i64 56}
+!128 = !{!86, !11, i64 96}
+!129 = !{!86, !11, i64 88}
+!130 = !{!86, !11, i64 144}
+!131 = !{!86, !11, i64 168}
+!132 = !{!86, !11, i64 32}
+!133 = !{!86, !11, i64 40}
+!134 = !{!86, !11, i64 64}
+!135 = !{!86, !11, i64 72}
+!136 = !{!86, !11, i64 80}
+!137 = !{!86, !11, i64 184}
+!138 = !{!86, !11, i64 8}
+!139 = !{!54, !11, i64 392}
+!140 = !{!"branch_weights", i32 2002, i32 2000}
+!141 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!142 = !{!14, !14, i64 0}
+!143 = !{!45, !18, i64 128}
+!144 = !{!145, !147, i64 72}
+!145 = !{!"_spl_array_iterator", !146, i64 0, !17, i64 88}
+!146 = !{!"_zend_object_iterator", !48, i64 0, !9, i64 56, !147, i64 72, !15, i64 80}
+!147 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !11, i64 0}
+!148 = !{!145, !17, i64 88}
+!149 = !{!150, !15, i64 8}
+!150 = !{!"_zend_resource", !13, i64 0, !15, i64 8, !14, i64 16, !11, i64 24}
+!151 = !{!152, !14, i64 48}
+!152 = !{!"_zend_property_info", !14, i64 0, !14, i64 4, !38, i64 8, !38, i64 16, !18, i64 24, !22, i64 32, !122, i64 40, !153, i64 56, !154, i64 64}
+!153 = !{!"p1 _ZTS19_zend_property_info", !11, i64 0}
+!154 = !{!"p2 _ZTS14_zend_function", !11, i64 0}
+!155 = !{!152, !14, i64 4}
+!156 = !{!152, !22, i64 32}

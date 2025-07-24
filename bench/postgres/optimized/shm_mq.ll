@@ -1083,7 +1083,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
 
 20:                                               ; preds = %19, %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  br label %.split.us
+  br label %.split.us, !llvm.loop !26
 
 .split:                                           ; preds = %3, %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
@@ -1173,7 +1173,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
 23:                                               ; preds = %33
   %24 = load i8, ptr %19, align 8, !range !13, !noundef !14
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %.lr.ph56, label %._crit_edge57
+  br i1 %25, label %.lr.ph56, label %._crit_edge57, !llvm.loop !28
 
 ._crit_edge57:                                    ; preds = %23, %.lr.ph.split.us
   %.lcssa53 = phi i64 [ %14, %.lr.ph.split.us ], [ %36, %23 ]
@@ -1193,7 +1193,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
 
 .lr.ph56:                                         ; preds = %.lr.ph.split.us, %23
   %31 = phi i64 [ %34, %23 ], [ %12, %.lr.ph.split.us ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
   %32 = load volatile i64, ptr %9, align 8
   %.not40.us = icmp eq i64 %31, %32
   br i1 %.not40.us, label %select.unfold, label %33
@@ -1209,7 +1209,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   %40 = add i64 %38, %39
   %.not37.us = icmp ult i64 %40, %8
   %or.cond.us = and i1 %.not.us, %.not37.us
-  br i1 %or.cond.us, label %23, label %._crit_edge
+  br i1 %or.cond.us, label %23, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %67, %33, %5
   %.lcssa45 = phi i64 [ %16, %5 ], [ %38, %33 ], [ %72, %67 ]
@@ -1224,7 +1224,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   %47 = add i64 %.lcssa, %46
   %48 = getelementptr inbounds nuw [0 x i8], ptr %43, i64 0, i64 %47
   store ptr %48, ptr %4, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !30
   br label %select.unfold
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
@@ -1235,7 +1235,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %.lr.ph.split
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
   %54 = load volatile i64, ptr %9, align 8
   %.not40 = icmp eq i64 %50, %54
   br i1 %.not40, label %select.unfold, label %67
@@ -1473,5 +1473,8 @@ attributes #12 = { cold nounwind }
 !23 = !{i64 2150571637}
 !24 = distinct !{!24, !12}
 !25 = !{i64 2150571313}
-!26 = !{i64 2150570855}
-!27 = !{i64 2150570767}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !27}
+!29 = !{i64 2150570855}
+!30 = !{i64 2150570767}

@@ -3611,7 +3611,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %153 = getelementptr inbounds nuw i8, ptr %.08791.us, i64 4
   %154 = add nuw i32 %.094.us, 2
   %155 = icmp ult i32 %154, %13
-  br i1 %155, label %86, label %._crit_edge.us, !llvm.loop !25
+  br i1 %155, label %86, label %._crit_edge.us, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %86
   br i1 %32, label %48, label %85
@@ -3674,7 +3674,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   store i8 %202, ptr %203, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge103, label %156, !llvm.loop !24
+  br i1 %exitcond116.not, label %._crit_edge103, label %156, !llvm.loop !27
 
 ._crit_edge103:                                   ; preds = %85, %156, %10
   ret void
@@ -3821,7 +3821,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %127 = add nuw i32 %.088, 2
   %128 = icmp ult i32 %127, %13
-  br i1 %128, label %45, label %._crit_edge, !llvm.loop !26
+  br i1 %128, label %45, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %45
   br i1 %20, label %._crit_edge.thread, label %184
@@ -3892,7 +3892,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 184:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge97, label %21, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge97, label %21, !llvm.loop !29
 
 ._crit_edge97:                                    ; preds = %184, %10
   ret void
@@ -4039,7 +4039,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %127 = add nuw i32 %.088, 2
   %128 = icmp ult i32 %127, %13
-  br i1 %128, label %45, label %._crit_edge, !llvm.loop !28
+  br i1 %128, label %45, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %45
   br i1 %20, label %._crit_edge.thread, label %184
@@ -4110,7 +4110,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 184:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge97, label %21, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge97, label %21, !llvm.loop !31
 
 ._crit_edge97:                                    ; preds = %184, %10
   ret void
@@ -4219,7 +4219,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 91:                                               ; preds = %48, %._crit_edge.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge97, label %.lr.ph.us, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge97, label %.lr.ph.us, !llvm.loop !32
 
 92:                                               ; preds = %.lr.ph.us, %92
   %.088.us = phi i32 [ 0, %.lr.ph.us ], [ %172, %92 ]
@@ -4310,7 +4310,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %171 = getelementptr inbounds nuw i8, ptr %.08185.us, i64 4
   %172 = add nuw i32 %.088.us, 2
   %173 = icmp ult i32 %172, %13
-  br i1 %173, label %92, label %._crit_edge.us, !llvm.loop !31
+  br i1 %173, label %92, label %._crit_edge.us, !llvm.loop !33
 
 ._crit_edge.us:                                   ; preds = %92
   br i1 %32, label %48, label %91
@@ -4377,7 +4377,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i32 %227, ptr %185, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge97, label %174, !llvm.loop !30
+  br i1 %exitcond110.not, label %._crit_edge97, label %174, !llvm.loop !34
 
 ._crit_edge97:                                    ; preds = %91, %174, %10
   ret void
@@ -4486,7 +4486,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 91:                                               ; preds = %48, %._crit_edge.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge97, label %.lr.ph.us, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge97, label %.lr.ph.us, !llvm.loop !35
 
 92:                                               ; preds = %.lr.ph.us, %92
   %.088.us = phi i32 [ 0, %.lr.ph.us ], [ %172, %92 ]
@@ -4577,7 +4577,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %171 = getelementptr inbounds nuw i8, ptr %.08185.us, i64 4
   %172 = add nuw i32 %.088.us, 2
   %173 = icmp ult i32 %172, %13
-  br i1 %173, label %92, label %._crit_edge.us, !llvm.loop !33
+  br i1 %173, label %92, label %._crit_edge.us, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %92
   br i1 %32, label %48, label %91
@@ -4644,7 +4644,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i32 %227, ptr %185, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge97, label %174, !llvm.loop !32
+  br i1 %exitcond110.not, label %._crit_edge97, label %174, !llvm.loop !37
 
 ._crit_edge97:                                    ; preds = %91, %174, %10
   ret void
@@ -4877,7 +4877,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %209 = getelementptr inbounds nuw i8, ptr %.0196212, i64 2
   %210 = add nuw i32 %.0215, 2
   %211 = icmp ult i32 %210, %14
-  br i1 %211, label %57, label %._crit_edge, !llvm.loop !34
+  br i1 %211, label %57, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %301
@@ -4985,7 +4985,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
 301:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %302 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %302, label %23, label %._crit_edge226, !llvm.loop !35
+  br i1 %302, label %23, label %._crit_edge226, !llvm.loop !39
 
 ._crit_edge226:                                   ; preds = %301
   %303 = trunc nuw i64 %indvars.iv.next to i32
@@ -5121,7 +5121,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %417 = getelementptr inbounds nuw i8, ptr %.0203229, i64 2
   %418 = add nuw i32 %.1233, 2
   %419 = icmp ult i32 %418, %316
-  br i1 %419, label %334, label %._crit_edge236, !llvm.loop !36
+  br i1 %419, label %334, label %._crit_edge236, !llvm.loop !40
 
 ._crit_edge236:                                   ; preds = %334
   %420 = and i32 %0, -2
@@ -5404,7 +5404,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %177 = getelementptr inbounds nuw i8, ptr %.0214230, i64 2
   %178 = add nuw i32 %.0233, 2
   %179 = icmp ult i32 %178, %14
-  br i1 %179, label %57, label %._crit_edge, !llvm.loop !37
+  br i1 %179, label %57, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %253
@@ -5500,7 +5500,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
 253:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %254 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %254, label %23, label %._crit_edge244, !llvm.loop !38
+  br i1 %254, label %23, label %._crit_edge244, !llvm.loop !42
 
 ._crit_edge244:                                   ; preds = %253
   %255 = trunc nuw i64 %indvars.iv.next to i32
@@ -5624,7 +5624,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %353 = getelementptr inbounds nuw i8, ptr %.0221247, i64 2
   %354 = add nuw i32 %.1251, 2
   %355 = icmp ult i32 %354, %268
-  br i1 %355, label %286, label %._crit_edge254, !llvm.loop !39
+  br i1 %355, label %286, label %._crit_edge254, !llvm.loop !43
 
 ._crit_edge254:                                   ; preds = %286
   %356 = and i32 %0, -2
@@ -5921,7 +5921,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %205 = getelementptr inbounds nuw i8, ptr %.0196212, i64 2
   %206 = add nuw i32 %.0215, 2
   %207 = icmp ult i32 %206, %14
-  br i1 %207, label %57, label %._crit_edge, !llvm.loop !40
+  br i1 %207, label %57, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %295
@@ -6027,7 +6027,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %296 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %296, label %23, label %._crit_edge226, !llvm.loop !41
+  br i1 %296, label %23, label %._crit_edge226, !llvm.loop !45
 
 ._crit_edge226:                                   ; preds = %295
   %297 = trunc nuw i64 %indvars.iv.next to i32
@@ -6161,7 +6161,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %409 = getelementptr inbounds nuw i8, ptr %.0203229, i64 2
   %410 = add nuw i32 %.1233, 2
   %411 = icmp ult i32 %410, %310
-  br i1 %411, label %328, label %._crit_edge236, !llvm.loop !42
+  br i1 %411, label %328, label %._crit_edge236, !llvm.loop !46
 
 ._crit_edge236:                                   ; preds = %328
   %412 = and i32 %0, -2
@@ -6463,7 +6463,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %205 = getelementptr inbounds nuw i8, ptr %.0196212, i64 2
   %206 = add nuw i32 %.0215, 2
   %207 = icmp ult i32 %206, %14
-  br i1 %207, label %57, label %._crit_edge, !llvm.loop !43
+  br i1 %207, label %57, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %295
@@ -6569,7 +6569,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %296 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %296, label %23, label %._crit_edge226, !llvm.loop !44
+  br i1 %296, label %23, label %._crit_edge226, !llvm.loop !48
 
 ._crit_edge226:                                   ; preds = %295
   %297 = trunc nuw i64 %indvars.iv.next to i32
@@ -6703,7 +6703,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %409 = getelementptr inbounds nuw i8, ptr %.0203229, i64 2
   %410 = add nuw i32 %.1233, 2
   %411 = icmp ult i32 %410, %310
-  br i1 %411, label %328, label %._crit_edge236, !llvm.loop !45
+  br i1 %411, label %328, label %._crit_edge236, !llvm.loop !49
 
 ._crit_edge236:                                   ; preds = %328
   %412 = and i32 %0, -2
@@ -7001,7 +7001,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %201 = getelementptr inbounds nuw i8, ptr %.0196212, i64 2
   %202 = add nuw i32 %.0215, 2
   %203 = icmp ult i32 %202, %14
-  br i1 %203, label %57, label %._crit_edge, !llvm.loop !46
+  br i1 %203, label %57, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %289
@@ -7105,7 +7105,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %290 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %290, label %23, label %._crit_edge226, !llvm.loop !47
+  br i1 %290, label %23, label %._crit_edge226, !llvm.loop !51
 
 ._crit_edge226:                                   ; preds = %289
   %291 = trunc nuw i64 %indvars.iv.next to i32
@@ -7237,7 +7237,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %401 = getelementptr inbounds nuw i8, ptr %.0203229, i64 2
   %402 = add nuw i32 %.1233, 2
   %403 = icmp ult i32 %402, %304
-  br i1 %403, label %322, label %._crit_edge236, !llvm.loop !48
+  br i1 %403, label %322, label %._crit_edge236, !llvm.loop !52
 
 ._crit_edge236:                                   ; preds = %322
   %404 = and i32 %0, -2
@@ -7534,7 +7534,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %201 = getelementptr inbounds nuw i8, ptr %.0196212, i64 2
   %202 = add nuw i32 %.0215, 2
   %203 = icmp ult i32 %202, %14
-  br i1 %203, label %57, label %._crit_edge, !llvm.loop !49
+  br i1 %203, label %57, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %57
   br i1 %22, label %._crit_edge.thread, label %289
@@ -7638,7 +7638,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %290 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %290, label %23, label %._crit_edge226, !llvm.loop !50
+  br i1 %290, label %23, label %._crit_edge226, !llvm.loop !54
 
 ._crit_edge226:                                   ; preds = %289
   %291 = trunc nuw i64 %indvars.iv.next to i32
@@ -7770,7 +7770,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %401 = getelementptr inbounds nuw i8, ptr %.0203229, i64 2
   %402 = add nuw i32 %.1233, 2
   %403 = icmp ult i32 %402, %304
-  br i1 %403, label %322, label %._crit_edge236, !llvm.loop !51
+  br i1 %403, label %322, label %._crit_edge236, !llvm.loop !55
 
 ._crit_edge236:                                   ; preds = %322
   %404 = and i32 %0, -2
@@ -8036,7 +8036,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %170 = getelementptr inbounds nuw i8, ptr %.0196290, i64 4
   %171 = add nuw i32 %.0293, 2
   %172 = icmp ult i32 %171, %16
-  br i1 %172, label %59, label %._crit_edge, !llvm.loop !52
+  br i1 %172, label %59, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %59
   br i1 %24, label %._crit_edge.thread, label %242
@@ -8124,7 +8124,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
 242:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %243 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %243, label %25, label %._crit_edge304, !llvm.loop !53
+  br i1 %243, label %25, label %._crit_edge304, !llvm.loop !57
 
 ._crit_edge304:                                   ; preds = %242
   %244 = trunc nuw i64 %indvars.iv.next to i32
@@ -8240,7 +8240,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %338 = getelementptr inbounds nuw i8, ptr %.0203307, i64 4
   %339 = add nuw i32 %.1311, 2
   %340 = icmp ult i32 %339, %257
-  br i1 %340, label %275, label %._crit_edge314, !llvm.loop !54
+  br i1 %340, label %275, label %._crit_edge314, !llvm.loop !58
 
 ._crit_edge314:                                   ; preds = %275
   %341 = and i32 %0, -2
@@ -8519,12 +8519,12 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %172 = getelementptr inbounds nuw i8, ptr %.0126157.us, i64 1
   %173 = add nuw i32 %.0159.us, 2
   %174 = icmp ult i32 %173, %14
-  br i1 %174, label %68, label %._crit_edge.us, !llvm.loop !55
+  br i1 %174, label %68, label %._crit_edge.us, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %175 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %175, label %.lr.ph.us, label %._crit_edge163, !llvm.loop !56
+  br i1 %175, label %.lr.ph.us, label %._crit_edge163, !llvm.loop !60
 
 ._crit_edge163:                                   ; preds = %._crit_edge.us, %.lr.ph162, %10
   ret void
@@ -8565,20 +8565,20 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !21 = distinct !{!21, !4}
 !22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
+!24 = distinct !{!24, !4, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
+!27 = distinct !{!27, !4, !25}
 !28 = distinct !{!28, !4}
 !29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
 !31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
+!32 = distinct !{!32, !4, !25}
 !33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
+!34 = distinct !{!34, !4, !25}
+!35 = distinct !{!35, !4, !25}
 !36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
+!37 = distinct !{!37, !4, !25}
 !38 = distinct !{!38, !4}
 !39 = distinct !{!39, !4}
 !40 = distinct !{!40, !4}
@@ -8598,3 +8598,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !54 = distinct !{!54, !4}
 !55 = distinct !{!55, !4}
 !56 = distinct !{!56, !4}
+!57 = distinct !{!57, !4}
+!58 = distinct !{!58, !4}
+!59 = distinct !{!59, !4}
+!60 = distinct !{!60, !4, !25}

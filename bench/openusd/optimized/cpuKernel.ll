@@ -265,7 +265,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %123 = add nuw nsw i32 %.055116, 1
   %124 = getelementptr inbounds nuw i8, ptr %.1115, i64 4
   %exitcond131.not = icmp eq i32 %123, %94
-  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph118, !llvm.loop !14
+  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph118, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %90, %_ZN10OpenSubdiv6v3_6_03Osd20ComputeStencilKernelILi8EEEvPKfPfPKiS7_S4_ii.exit, %_ZN10OpenSubdiv6v3_6_03Osd20ComputeStencilKernelILi4EEEvPKfPfPKiS7_S4_ii.exit
   ret void
@@ -447,7 +447,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %106 = getelementptr inbounds nuw i8, ptr %.299.us, i64 4
   %107 = add nuw nsw i32 %.0100.us, 1
   %exitcond133.not = icmp eq i32 %107, %64
-  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !15
+  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader, %63
   %.281.lcssa = phi ptr [ %.180107, %63 ], [ %scevgep126, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader ], [ %104, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
@@ -481,7 +481,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %123 = add nuw nsw i32 %.069112, 1
   %124 = getelementptr inbounds nuw i8, ptr %.1111, i64 4
   %exitcond134.not = icmp eq i32 %123, %56
-  br i1 %exitcond134.not, label %._crit_edge115, label %63, !llvm.loop !16
+  br i1 %exitcond134.not, label %._crit_edge115, label %63, !llvm.loop !17
 
 ._crit_edge115:                                   ; preds = %._crit_edge, %28
   ret void
@@ -762,7 +762,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %178 = getelementptr inbounds nuw i8, ptr %.2180.us, i64 4
   %179 = add nuw nsw i32 %.0181.us, 1
   %exitcond238.not = icmp eq i32 %179, %103
-  br i1 %exitcond238.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !17
+  br i1 %exitcond238.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader, %102
   %.2141.lcssa = phi ptr [ %.1140194, %102 ], [ %scevgep226, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %175, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
@@ -823,7 +823,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %210 = add nuw nsw i32 %.0120202, 1
   %211 = getelementptr inbounds nuw i8, ptr %.1201, i64 4
   %exitcond239.not = icmp eq i32 %210, %92
-  br i1 %exitcond239.not, label %._crit_edge205, label %102, !llvm.loop !18
+  br i1 %exitcond239.not, label %._crit_edge205, label %102, !llvm.loop !19
 
 ._crit_edge205:                                   ; preds = %._crit_edge, %40
   ret void
@@ -856,9 +856,10 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!16 = distinct !{!16, !6, !14}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!18 = distinct !{!18, !6, !14}
+!19 = distinct !{!19, !6}

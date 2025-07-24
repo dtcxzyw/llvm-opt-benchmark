@@ -587,7 +587,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
   %.val60 = load i32, ptr %65, align 4, !tbaa !45
   %66 = sext i32 %.val60 to i64
   %67 = icmp slt i64 %indvars.iv.next81, %66
-  br i1 %67, label %.lr.ph76.split, label %.critedge2.thread, !llvm.loop !48
+  br i1 %67, label %.lr.ph76.split, label %.critedge2.thread, !llvm.loop !50
 
 .critedge2.thread:                                ; preds = %.lr.ph76.split, %.thread.thread
   %.043.lcssa90 = phi i32 [ 1, %.thread.thread ], [ %spec.select53, %.lr.ph76.split ]
@@ -624,7 +624,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #13
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !49
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !51
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
@@ -632,7 +632,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !51
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !51, !noalias !53
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #13
   br label %17
 
@@ -650,9 +650,9 @@ declare i32 @Ssw_ManGetSatVarValue(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ssw_ManUniqueAddConstraint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = getelementptr i8, ptr %6, i64 48
-  %.val34 = load ptr, ptr %7, align 8, !tbaa !55
+  %.val34 = load ptr, ptr %7, align 8, !tbaa !57
   %8 = ptrtoint ptr %.val34 to i64
   %9 = xor i64 %8, 1
   %10 = getelementptr i8, ptr %1, i64 4
@@ -686,15 +686,15 @@ define range(i32 0, 2) i32 @Ssw_ManUniqueAddConstraint(ptr noundef captures(none
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %.val31, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !40
-  %29 = load ptr, ptr %5, align 8, !tbaa !54
+  %29 = load ptr, ptr %5, align 8, !tbaa !56
   %30 = tail call ptr @Aig_Exor(ptr noundef %29, ptr noundef %24, ptr noundef %28) #13
-  %31 = load ptr, ptr %5, align 8, !tbaa !54
+  %31 = load ptr, ptr %5, align 8, !tbaa !56
   %32 = tail call ptr @Aig_Or(ptr noundef %31, ptr noundef %.02540, ptr noundef %30) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val33 = load i32, ptr %10, align 4, !tbaa !45
   %33 = sext i32 %.val33 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %16, label %.critedge.loopexit, !llvm.loop !56
+  br i1 %34, label %16, label %.critedge.loopexit, !llvm.loop !58
 
 .critedge.loopexit:                               ; preds = %16
   %35 = ptrtoint ptr %32 to i64
@@ -712,11 +712,11 @@ define range(i32 0, 2) i32 @Ssw_ManUniqueAddConstraint(ptr noundef captures(none
 
 40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %42 = load ptr, ptr %41, align 8, !tbaa !57
+  %42 = load ptr, ptr %41, align 8, !tbaa !59
   tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %42, ptr noundef nonnull %37) #13
-  %43 = load ptr, ptr %41, align 8, !tbaa !57
+  %43 = load ptr, ptr %41, align 8, !tbaa !59
   %44 = getelementptr i8, ptr %43, i64 32
-  %.val36 = load ptr, ptr %44, align 8, !tbaa !58
+  %.val36 = load ptr, ptr %44, align 8, !tbaa !60
   %45 = getelementptr i8, ptr %37, i64 36
   %.val37 = load i32, ptr %45, align 4, !tbaa !39
   %46 = add nsw i32 %.val37, 1
@@ -819,7 +819,7 @@ Ssw_ObjSatNum.exit:                               ; preds = %40, %._crit_edge.i.
   %91 = shl nsw i32 %88, 1
   %92 = or disjoint i32 %91, %90
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %92, ptr %93, align 8, !tbaa !61
+  store i32 %92, ptr %93, align 8, !tbaa !63
   br label %94
 
 94:                                               ; preds = %.critedge, %Ssw_ObjSatNum.exit
@@ -929,17 +929,19 @@ attributes #14 = { nounwind willreturn memory(read) }
 !45 = !{!35, !9, i64 4}
 !46 = !{!7, !7, i64 0}
 !47 = distinct !{!47, !43}
-!48 = distinct !{!48, !43}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"vprintf: argument 0"}
-!53 = distinct !{!53, !"vprintf"}
-!54 = !{!4, !10, i64 24}
-!55 = !{!21, !23, i64 48}
-!56 = distinct !{!56, !43}
-!57 = !{!4, !13, i64 64}
-!58 = !{!59, !15, i64 32}
-!59 = !{!"Ssw_Sat_t_", !10, i64 0, !9, i64 8, !60, i64 16, !9, i64 24, !15, i64 32, !14, i64 40, !14, i64 48, !9, i64 56}
-!60 = !{!"p1 _ZTS12sat_solver_t", !6, i64 0}
-!61 = !{!4, !9, i64 136}
+!48 = distinct !{!48, !43, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !43}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"vprintf: argument 0"}
+!55 = distinct !{!55, !"vprintf"}
+!56 = !{!4, !10, i64 24}
+!57 = !{!21, !23, i64 48}
+!58 = distinct !{!58, !43}
+!59 = !{!4, !13, i64 64}
+!60 = !{!61, !15, i64 32}
+!61 = !{!"Ssw_Sat_t_", !10, i64 0, !9, i64 8, !62, i64 16, !9, i64 24, !15, i64 32, !14, i64 40, !14, i64 48, !9, i64 56}
+!62 = !{!"p1 _ZTS12sat_solver_t", !6, i64 0}
+!63 = !{!4, !9, i64 136}

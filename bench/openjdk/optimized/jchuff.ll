@@ -249,7 +249,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i8 %117, ptr %118, align 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count117
-  br i1 %exitcond113.not, label %._crit_edge101, label %.lr.ph100.split, !llvm.loop !10
+  br i1 %exitcond113.not, label %._crit_edge101, label %.lr.ph100.split, !llvm.loop !12
 
 ._crit_edge101:                                   ; preds = %112, %96, %._crit_edge97
   ret void
@@ -294,7 +294,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %._crit_edge ], [ 0, %.lr.ph124 ]
   %.0118.be = phi i64 [ %.1, %.loopexit ], [ 1000000000, %._crit_edge ], [ 1000000000, %.lr.ph124 ]
   %.091116.be = phi i32 [ %.192, %.loopexit ], [ -1, %._crit_edge ], [ -1, %.lr.ph124 ]
-  br label %.loopexit, !llvm.loop !11
+  br label %.loopexit, !llvm.loop !13
 
 12:                                               ; preds = %.preheader111, %12
   %indvars.iv149 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next150, %12 ]
@@ -312,7 +312,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %.3 = select i1 %or.cond106, i64 %.2121, i64 %14
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 257
-  br i1 %exitcond152.not, label %16, label %12, !llvm.loop !12
+  br i1 %exitcond152.not, label %16, label %12, !llvm.loop !14
 
 16:                                               ; preds = %12
   %17 = icmp slt i32 %.189, 0
@@ -347,7 +347,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %37 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %33
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.lcssa122 = phi i64 [ %22, %18 ], [ %33, %.lr.ph ]
@@ -372,7 +372,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %48
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph124, label %.loopexit.backedge, !llvm.loop !14
+  br i1 %54, label %.lr.ph124, label %.loopexit.backedge, !llvm.loop !16
 
 .preheader110:                                    ; preds = %16, %69
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %69 ], [ 0, %16 ]
@@ -405,7 +405,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
 69:                                               ; preds = %.preheader110, %64
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 257
-  br i1 %exitcond156.not, label %.preheader108, label %.preheader110, !llvm.loop !15
+  br i1 %exitcond156.not, label %.preheader108, label %.preheader110, !llvm.loop !17
 
 .preheader108:                                    ; preds = %69, %._crit_edge135
   %indvars.iv162 = phi i64 [ %indvars.iv.next163.pre-phi, %._crit_edge135 ], [ 32, %69 ]
@@ -451,7 +451,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %87 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv.next160
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %.lr.ph129, label %._crit_edge130, !llvm.loop !16
+  br i1 %89, label %.lr.ph129, label %._crit_edge130, !llvm.loop !18
 
 ._crit_edge130:                                   ; preds = %86, %76
   %.lcssa126 = phi i64 [ %72, %76 ], [ %indvars.iv.next160, %86 ]
@@ -473,13 +473,13 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   store i8 %100, ptr %90, align 1
   %101 = load i8, ptr %70, align 1
   %.not = icmp eq i8 %101, 0
-  br i1 %.not, label %._crit_edge135, label %76, !llvm.loop !17
+  br i1 %.not, label %._crit_edge135, label %76, !llvm.loop !19
 
 ._crit_edge135:                                   ; preds = %._crit_edge130, %.preheader108.._crit_edge135_crit_edge
   %indvars.iv.next163.pre-phi = phi i64 [ %.pre, %.preheader108.._crit_edge135_crit_edge ], [ %74, %._crit_edge130 ]
   %102 = icmp samesign ugt i64 %indvars.iv162, 17
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
-  br i1 %102, label %.preheader108, label %.preheader107, !llvm.loop !18
+  br i1 %102, label %.preheader108, label %.preheader107, !llvm.loop !20
 
 .preheader107:                                    ; preds = %._crit_edge135, %.preheader107
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.preheader107 ], [ 16, %._crit_edge135 ]
@@ -487,7 +487,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 0
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
-  br i1 %105, label %.preheader107, label %106, !llvm.loop !19
+  br i1 %105, label %.preheader107, label %106, !llvm.loop !21
 
 106:                                              ; preds = %.preheader107
   %107 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
@@ -522,12 +522,12 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   %.287 = phi i32 [ %118, %114 ], [ %.186138, %110 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 256
-  br i1 %exitcond171.not, label %120, label %110, !llvm.loop !20
+  br i1 %exitcond171.not, label %120, label %110, !llvm.loop !22
 
 120:                                              ; preds = %119
   %121 = add nuw nsw i32 %.6141, 1
   %exitcond172.not = icmp eq i32 %121, 33
-  br i1 %exitcond172.not, label %122, label %.preheader, !llvm.loop !21
+  br i1 %exitcond172.not, label %122, label %.preheader, !llvm.loop !23
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 276
@@ -564,7 +564,7 @@ define hidden void @jIHEncoder(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %15, label %11, !llvm.loop !22
+  br i1 %exitcond.not, label %15, label %11, !llvm.loop !24
 
 15:                                               ; preds = %11
   ret void
@@ -629,7 +629,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   %33 = load i32, ptr %7, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next65, %34
-  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
+  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %76 ]
@@ -709,7 +709,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   %79 = load i32, ptr %7, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %76, %.lr.ph.split.us, %.thread, %8
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -758,7 +758,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %17 = load i32, ptr %11, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %15, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %19, label %15, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %15
   %.pre = load i32, ptr %5, align 8
@@ -821,7 +821,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %54 = add nuw nsw i32 %.03448.i, 1
   %55 = lshr i32 %.13747.i, 1
   %.not.i = icmp samesign ult i32 %.13747.i, 2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %56 = icmp samesign ugt i32 %.03448.i, 10
@@ -891,7 +891,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %84 = lshr i32 %.354.i, 1
   %85 = add nuw nsw i32 %.13555.i, 1
   %.not44.i = icmp samesign ult i32 %.354.i, 4
-  br i1 %.not44.i, label %._crit_edge58.i, label %.lr.ph57.i, !llvm.loop !26
+  br i1 %.not44.i, label %._crit_edge58.i, label %.lr.ph57.i, !llvm.loop !29
 
 ._crit_edge58.i:                                  ; preds = %.lr.ph57.i
   %86 = icmp samesign ugt i32 %.13555.i, 9
@@ -928,7 +928,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
 .backedge.i.backedge:                             ; preds = %.thread.i, %92
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %92 ], [ %indvars.iv.next71.i, %.thread.i ]
   %.061.i.be = phi i32 [ %93, %92 ], [ 0, %.thread.i ]
-  br label %.backedge.i, !llvm.loop !27
+  br label %.backedge.i, !llvm.loop !30
 
 100:                                              ; preds = %92
   %101 = icmp sgt i32 %.061.i, -1
@@ -949,7 +949,7 @@ htest_one_block.exit:                             ; preds = %.thread.i, %100, %1
   %108 = load i32, ptr %23, align 8
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next42, %109
-  br i1 %110, label %31, label %._crit_edge37, !llvm.loop !28
+  br i1 %110, label %31, label %._crit_edge37, !llvm.loop !31
 
 ._crit_edge37:                                    ; preds = %htest_one_block.exit, %22
   ret i32 1
@@ -1040,7 +1040,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   %49 = load i32, ptr %6, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %14, label %._crit_edge, !llvm.loop !29
+  br i1 %51, label %14, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %48, %1
   ret void
@@ -1162,7 +1162,7 @@ dump_buffer.exit35.i.i.i:                         ; preds = %59
   %70 = shl i32 %.03142.i.i.i, 8
   %71 = add nsw i32 %.03043.i.i.i, -8
   %72 = icmp sgt i32 %.03043.i.i.i, 15
-  br i1 %72, label %32, label %.loopexit.i.loopexit, !llvm.loop !30
+  br i1 %72, label %32, label %.loopexit.i.loopexit, !llvm.loop !33
 
 .loopexit.i.loopexit:                             ; preds = %69
   %.pre = load ptr, ptr %3, align 8
@@ -1253,7 +1253,7 @@ dump_buffer.exit19.i:                             ; preds = %96
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next.i, %115
-  br i1 %116, label %110, label %emit_restart.exit, !llvm.loop !31
+  br i1 %116, label %110, label %emit_restart.exit, !llvm.loop !34
 
 emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1309,7 +1309,7 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %149 = add nuw nsw i32 %.05784.i, 1
   %150 = lshr i32 %.16283.i, 1
   %.not.i = icmp samesign ult i32 %.16283.i, 2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i40, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i40, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i40
   %151 = icmp samesign ugt i32 %.05784.i, 10
@@ -1433,7 +1433,7 @@ dump_buffer.exit35.i110:                          ; preds = %210
   %221 = shl i32 %.03142.i108, 8
   %222 = add nsw i32 %.03043.i107, -8
   %223 = icmp sgt i32 %.03043.i107, 15
-  br i1 %223, label %.lr.ph.i106, label %.loopexit136, !llvm.loop !30
+  br i1 %223, label %.lr.ph.i106, label %.loopexit136, !llvm.loop !33
 
 .loopexit136:                                     ; preds = %220, %175
   %224 = phi i32 [ %182, %175 ], [ %221, %220 ]
@@ -1525,7 +1525,7 @@ dump_buffer.exit35.i97:                           ; preds = %260
   %271 = shl i32 %.03142.i95, 8
   %272 = add nsw i32 %.03043.i94, -8
   %273 = icmp sgt i32 %.03043.i94, 15
-  br i1 %273, label %.lr.ph.i93, label %emit_bits.exit100, !llvm.loop !30
+  br i1 %273, label %.lr.ph.i93, label %emit_bits.exit100, !llvm.loop !33
 
 emit_bits.exit100:                                ; preds = %270, %226
   %.031.lcssa.i90 = phi i32 [ %232, %226 ], [ %271, %270 ]
@@ -1667,7 +1667,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
   %346 = shl i32 %.03142.i82, 8
   %347 = add nsw i32 %.03043.i81, -8
   %348 = icmp samesign ugt i32 %.03043.i81, 15
-  br i1 %348, label %.lr.ph.i80, label %.loopexit, !llvm.loop !30
+  br i1 %348, label %.lr.ph.i80, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %345, %301
   %.031.lcssa.i77 = phi i32 [ %307, %301 ], [ %346, %345 ]
@@ -1676,7 +1676,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
   store i32 %.030.lcssa.i78, ptr %125, align 4
   %349 = add nsw i32 %.185.i, -16
   %350 = icmp sgt i32 %.185.i, 31
-  br i1 %350, label %.lr.ph86.i, label %._crit_edge87.i, !llvm.loop !33
+  br i1 %350, label %.lr.ph86.i, label %._crit_edge87.i, !llvm.loop !36
 
 ._crit_edge87.i:                                  ; preds = %.loopexit, %.preheader.i
   %351 = phi i32 [ %.ph, %.preheader.i ], [ %.031.lcssa.i77, %.loopexit ]
@@ -1812,7 +1812,7 @@ dump_buffer.exit35.i71:                           ; preds = %414
   %425 = shl i32 %.03142.i69, 8
   %426 = add nsw i32 %.03043.i68, -8
   %427 = icmp sgt i32 %.03043.i68, 15
-  br i1 %427, label %.lr.ph.i67, label %.loopexit132, !llvm.loop !30
+  br i1 %427, label %.lr.ph.i67, label %.loopexit132, !llvm.loop !33
 
 .loopexit132:                                     ; preds = %424, %380
   %.031.lcssa.i64 = phi i32 [ %386, %380 ], [ %425, %424 ]
@@ -1900,13 +1900,13 @@ dump_buffer.exit35.i58:                           ; preds = %461
   %472 = shl i32 %.03142.i56, 8
   %473 = add nsw i32 %.03043.i55, -8
   %474 = icmp sgt i32 %.03043.i55, 15
-  br i1 %474, label %.lr.ph.i54, label %.thread.i, !llvm.loop !30
+  br i1 %474, label %.lr.ph.i54, label %.thread.i, !llvm.loop !33
 
 475:                                              ; preds = %.backedge.i
   %476 = add nuw nsw i32 %.05597.i, 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i43, 64
-  br i1 %exitcond.not.i, label %477, label %.backedge.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %477, label %.backedge.i, !llvm.loop !37
 
 .thread.i:                                        ; preds = %471, %.loopexit132
   %.031.lcssa.i51 = phi i32 [ %433, %.loopexit132 ], [ %472, %471 ]
@@ -1915,7 +1915,7 @@ dump_buffer.exit35.i58:                           ; preds = %461
   store i32 %.030.lcssa.i52, ptr %125, align 4
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not108.i = icmp eq i64 %indvars.iv.next107.i, 64
-  br i1 %exitcond.not108.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !34
+  br i1 %exitcond.not108.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !37
 
 477:                                              ; preds = %475
   %478 = load i32, ptr %145, align 4
@@ -2017,7 +2017,7 @@ dump_buffer.exit35.i:                             ; preds = %523
   %534 = shl i32 %.03142.i, 8
   %535 = add nsw i32 %.03043.i, -8
   %536 = icmp sgt i32 %.03043.i, 15
-  br i1 %536, label %.lr.ph.i46, label %emit_bits.exit, !llvm.loop !30
+  br i1 %536, label %.lr.ph.i46, label %emit_bits.exit, !llvm.loop !33
 
 emit_bits.exit:                                   ; preds = %533, %489
   %.031.lcssa.i = phi i32 [ %495, %489 ], [ %534, %533 ]
@@ -2035,7 +2035,7 @@ encode_one_block.exit:                            ; preds = %.thread.i, %emit_bi
   %540 = load i32, ptr %117, align 8
   %541 = sext i32 %540 to i64
   %542 = icmp slt i64 %indvars.iv.next, %541
-  br i1 %542, label %126, label %._crit_edge, !llvm.loop !35
+  br i1 %542, label %126, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %encode_one_block.exit, %emit_restart.exit
   %543 = load ptr, ptr %3, align 8
@@ -2162,7 +2162,7 @@ dump_buffer.exit35.i.i:                           ; preds = %36
   %45 = shl i32 %.03142.i.i, 8
   %46 = add nsw i32 %.03043.i.i, -8
   %47 = icmp sgt i32 %.03043.i.i, 15
-  br i1 %47, label %15, label %flush_bits.exit, !llvm.loop !30
+  br i1 %47, label %15, label %flush_bits.exit, !llvm.loop !33
 
 48:                                               ; preds = %21, %36
   %.sroa.0.4.ph = phi ptr [ %33, %36 ], [ %18, %21 ]
@@ -2223,8 +2223,8 @@ attributes #5 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -2238,7 +2238,7 @@ attributes #5 = { nounwind }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!25 = distinct !{!25, !7, !11}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
@@ -2249,3 +2249,6 @@ attributes #5 = { nounwind }
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}

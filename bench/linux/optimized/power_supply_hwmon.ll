@@ -253,7 +253,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   %38 = add nuw nsw i64 %28, 1
   %39 = icmp samesign ult i64 %28, 4
   %40 = icmp eq i64 %38, 5
-  br i1 %40, label %.split9.us, label %.split, !llvm.loop !10
+  br i1 %40, label %.split9.us, label %.split, !llvm.loop !12
 
 .split9.us:                                       ; preds = %33, %power_supply_hwmon_to_property.exit, %19, %power_supply_hwmon_to_property.exit.us
   %.us-phi = phi i1 [ %11, %19 ], [ %25, %power_supply_hwmon_to_property.exit.us ], [ %27, %33 ], [ %39, %power_supply_hwmon_to_property.exit ]
@@ -470,7 +470,7 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
 
 27:                                               ; preds = %13, %12, %11, %10, %16, %15, %14, %21, %20, %26, %25, %24, %23, %19, %22
   %.ph = phi i32 [ 52, %22 ], [ 57, %19 ], [ 53, %23 ], [ 54, %24 ], [ 55, %25 ], [ 56, %26 ], [ 58, %20 ], [ 59, %21 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 12, %13 ]
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !13
   %28 = call i32 @power_supply_get_property(ptr noundef %9, i32 noundef %.ph, ptr noundef nonnull %6) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %power_supply_hwmon_to_property.exit
@@ -529,7 +529,7 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !13
   switch i32 %1, label %power_supply_hwmon_to_property.exit [
     i32 2, label %10
     i32 3, label %14
@@ -672,5 +672,7 @@ attributes #9 = { nounwind allocsize(1) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
 !9 = !{i64 2147786212, i64 2147786286}
-!10 = distinct !{!10, !7, !8}
-!11 = !{!"auto-init"}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!"auto-init"}

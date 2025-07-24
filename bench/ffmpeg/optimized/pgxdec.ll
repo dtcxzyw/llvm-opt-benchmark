@@ -321,15 +321,15 @@ pgx_get_number.exit.thread.i:                     ; preds = %31, %29, %52, %50, 
   %148 = xor i32 %147, %132
   %149 = trunc i32 %148 to i16
   %150 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv.i32
-  store i16 %149, ptr %150, align 2, !tbaa !37
+  store i16 %149, ptr %150, align 2, !tbaa !38
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30
-  br i1 %exitcond.not.i34, label %._crit_edge.us.i35, label %141, !llvm.loop !39
+  br i1 %exitcond.not.i34, label %._crit_edge.us.i35, label %141, !llvm.loop !40
 
 ._crit_edge.us.i35:                               ; preds = %141
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %write_frame_8.exit, label %.lr.ph.us.i31, !llvm.loop !40
+  br i1 %exitcond28.not.i, label %write_frame_8.exit, label %.lr.ph.us.i31, !llvm.loop !41
 
 write_frame_8.exit:                               ; preds = %._crit_edge.us.i, %._crit_edge.us.i35, %.lr.ph20.i28, %131, %.lr.ph20.i, %112
   store i32 1, ptr %2, align 4, !tbaa !33
@@ -397,8 +397,9 @@ attributes #5 = { noreturn nounwind }
 !33 = !{!12, !12, i64 0}
 !34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"short", !8, i64 0}
-!39 = distinct !{!39, !35}
+!36 = distinct !{!36, !35, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"short", !8, i64 0}
 !40 = distinct !{!40, !35}
+!41 = distinct !{!41, !35, !37}

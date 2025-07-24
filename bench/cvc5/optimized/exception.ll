@@ -1029,7 +1029,7 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_S3_(
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef %15, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef %3, ptr noundef %4) #21
   %.not39 = icmp sgt i32 %17, %12
-  br i1 %.not39, label %.lr.ph37, label %.split36.us
+  br i1 %.not39, label %.lr.ph37, label %.split36.us, !llvm.loop !47
 
 .split:                                           ; preds = %5
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %4) #21
@@ -1164,7 +1164,7 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_(ptr
   %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #23
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef %14, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %3) #21
   %.not37 = icmp sgt i32 %16, %11
-  br i1 %.not37, label %.lr.ph35, label %.split34.us
+  br i1 %.not37, label %.lr.ph35, label %.split34.us, !llvm.loop !49
 
 .split:                                           ; preds = %4
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2) #21
@@ -1457,3 +1457,6 @@ attributes #24 = { noreturn }
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !46 = distinct !{!46, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !48}

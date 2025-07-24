@@ -458,31 +458,31 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
   %.06171.i.i = phi ptr [ %126, %.lr.ph.i.i ], [ %87, %.lr.ph.i.preheader.i ]
   %.06470.i.i = phi i64 [ %125, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %107 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 1
-  %108 = load i8, ptr %.072.i.i, align 1, !tbaa !26
+  %108 = load i8, ptr %.072.i.i, align 1, !tbaa !27
   %109 = zext i8 %108 to i32
-  store i32 %109, ptr %.06171.i.i, align 4, !tbaa !27
+  store i32 %109, ptr %.06171.i.i, align 4, !tbaa !28
   %110 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 2
-  %111 = load i8, ptr %107, align 1, !tbaa !26
+  %111 = load i8, ptr %107, align 1, !tbaa !27
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 8
   %114 = or disjoint i32 %113, %109
-  store i32 %114, ptr %.06171.i.i, align 4, !tbaa !27
+  store i32 %114, ptr %.06171.i.i, align 4, !tbaa !28
   %115 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 3
-  %116 = load i8, ptr %110, align 1, !tbaa !26
+  %116 = load i8, ptr %110, align 1, !tbaa !27
   %117 = zext i8 %116 to i32
   %118 = shl nuw nsw i32 %117, 16
   %119 = or disjoint i32 %118, %114
-  store i32 %119, ptr %.06171.i.i, align 4, !tbaa !27
+  store i32 %119, ptr %.06171.i.i, align 4, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 4
-  %121 = load i8, ptr %115, align 1, !tbaa !26
+  %121 = load i8, ptr %115, align 1, !tbaa !27
   %122 = zext i8 %121 to i32
   %123 = shl nuw i32 %122, 24
   %124 = or disjoint i32 %123, %119
-  store i32 %124, ptr %.06171.i.i, align 4, !tbaa !27
+  store i32 %124, ptr %.06171.i.i, align 4, !tbaa !28
   %125 = add nuw i64 %.06470.i.i, 1
   %126 = getelementptr inbounds nuw i8, ptr %.06171.i.i, i64 4
   %exitcond.not.i.i = icmp eq i64 %125, %69
-  br i1 %exitcond.not.i.i, label %.preheader69.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %.preheader69.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 .preheader69.i.loopexit.i:                        ; preds = %.lr.ph.i.i, %.preheader69.i.loopexit.i
   %.16275.i.i = phi ptr [ %129, %.preheader69.i.loopexit.i ], [ %126, %.lr.ph.i.i ]
@@ -500,7 +500,7 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
 
 .lr.ph78.us.i.i:                                  ; preds = %._crit_edge.us.i.i, %.lr.ph78.us.i.preheader.i
   %.26679.us.i.i = phi i64 [ %143, %._crit_edge.us.i.i ], [ 0, %.lr.ph78.us.i.preheader.i ]
-  %130 = load i32, ptr %100, align 4, !tbaa !27
+  %130 = load i32, ptr %100, align 4, !tbaa !28
   %131 = zext i32 %130 to i64
   %132 = urem i64 %131, %36
   %133 = mul i64 %132, %69
@@ -511,37 +511,37 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
   %.277.us.i.i = phi ptr [ %134, %.lr.ph78.us.i.i ], [ %138, %135 ]
   %.06376.us.i.i = phi i64 [ 0, %.lr.ph78.us.i.i ], [ %142, %135 ]
   %136 = getelementptr inbounds nuw i32, ptr %85, i64 %.06376.us.i.i
-  %137 = load i32, ptr %136, align 4, !tbaa !27
+  %137 = load i32, ptr %136, align 4, !tbaa !28
   %138 = getelementptr inbounds nuw i8, ptr %.277.us.i.i, i64 4
-  %139 = load i32, ptr %.277.us.i.i, align 4, !tbaa !27
+  %139 = load i32, ptr %.277.us.i.i, align 4, !tbaa !28
   %140 = xor i32 %139, %137
   %141 = getelementptr inbounds nuw i32, ptr %86, i64 %.06376.us.i.i
-  store i32 %140, ptr %141, align 4, !tbaa !27
+  store i32 %140, ptr %141, align 4, !tbaa !28
   %142 = add nuw i64 %.06376.us.i.i, 1
   %exitcond87.not.i.i = icmp eq i64 %142, %69
-  br i1 %exitcond87.not.i.i, label %._crit_edge.us.i.i, label %135, !llvm.loop !30
+  br i1 %exitcond87.not.i.i, label %._crit_edge.us.i.i, label %135, !llvm.loop !31
 
 ._crit_edge.us.i.i:                               ; preds = %135
   tail call fastcc void @scryptBlockMix(ptr noundef nonnull %85, ptr noundef nonnull %86, i64 noundef range(i64 1, 0) %38)
   %143 = add nuw i64 %.26679.us.i.i, 1
   %exitcond88.not.i.i = icmp eq i64 %143, %36
-  br i1 %exitcond88.not.i.i, label %.lr.ph82.i.i, label %.lr.ph78.us.i.i, !llvm.loop !24
+  br i1 %exitcond88.not.i.i, label %.lr.ph82.i.i, label %.lr.ph78.us.i.i, !llvm.loop !32
 
 .lr.ph82.i.i:                                     ; preds = %._crit_edge.us.i.i, %.lr.ph82.i.i
   %.181.i.i = phi ptr [ %146, %.lr.ph82.i.i ], [ %106, %._crit_edge.us.i.i ]
   %.380.i.i = phi i64 [ %147, %.lr.ph82.i.i ], [ 0, %._crit_edge.us.i.i ]
   %144 = getelementptr inbounds nuw i32, ptr %85, i64 %.380.i.i
-  %145 = load i32, ptr %144, align 4, !tbaa !27
+  %145 = load i32, ptr %144, align 4, !tbaa !28
   store i32 %145, ptr %.181.i.i, align 1
   %146 = getelementptr inbounds nuw i8, ptr %.181.i.i, i64 4
   %147 = add nuw i64 %.380.i.i, 1
   %exitcond90.not.i.i = icmp eq i64 %147, %69
-  br i1 %exitcond90.not.i.i, label %scryptROMix.exit.loopexit94.i, label %.lr.ph82.i.i, !llvm.loop !31
+  br i1 %exitcond90.not.i.i, label %scryptROMix.exit.loopexit94.i, label %.lr.ph82.i.i, !llvm.loop !33
 
 scryptROMix.exit.loopexit94.i:                    ; preds = %.lr.ph82.i.i
   %148 = add nuw i64 %.07195.i, 1
   %exitcond.not.i = icmp eq i64 %148, %40
-  br i1 %exitcond.not.i, label %.split.us.i, label %.lr.ph.i.preheader.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.split.us.i, label %.lr.ph.i.preheader.i, !llvm.loop !34
 
 .split.us.i:                                      ; preds = %scryptROMix.exit.loopexit94.i, %scryptROMix.exit.loopexit.us.i
   %149 = trunc i64 %2 to i32
@@ -578,7 +578,7 @@ define internal range(i32 0, 2) i32 @kdf_scrypt_set_ctx_params(ptr noundef %0, p
   br i1 %4, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !32
+  %5 = load ptr, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %6
 
@@ -590,24 +590,24 @@ ossl_param_is_empty.exit:                         ; preds = %2
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %9, align 8, !tbaa !34
-  %12 = load i64, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %9, align 8, !tbaa !37
+  %12 = load i64, ptr %10, align 8, !tbaa !38
   tail call void @CRYPTO_clear_free(ptr noundef %11, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 148) #7
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %14 = load i64, ptr %13, align 8, !tbaa !36
+  %14 = load i64, ptr %13, align 8, !tbaa !39
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %8
   %17 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 153) #7
-  store ptr %17, ptr %9, align 8, !tbaa !34
+  store ptr %17, ptr %9, align 8, !tbaa !37
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ossl_param_is_empty.exit.thread, label %scrypt_set_membuf.exit
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %scrypt_set_membuf.exit, label %22
 
@@ -624,24 +624,24 @@ scrypt_set_membuf.exit:                           ; preds = %22, %19, %16, %6
 25:                                               ; preds = %scrypt_set_membuf.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %26, align 8, !tbaa !34
-  %29 = load i64, ptr %27, align 8, !tbaa !35
+  %28 = load ptr, ptr %26, align 8, !tbaa !37
+  %29 = load i64, ptr %27, align 8, !tbaa !38
   tail call void @CRYPTO_clear_free(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 148) #7
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  %31 = load i64, ptr %30, align 8, !tbaa !36
+  %31 = load i64, ptr %30, align 8, !tbaa !39
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %25
   %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 153) #7
-  store ptr %34, ptr %26, align 8, !tbaa !34
+  store ptr %34, ptr %26, align 8, !tbaa !37
   %35 = icmp eq ptr %34, null
   br i1 %35, label %ossl_param_is_empty.exit.thread, label %scrypt_set_membuf.exit62
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !37
+  %38 = load ptr, ptr %37, align 8, !tbaa !40
   %.not.i59 = icmp eq ptr %38, null
   br i1 %.not.i59, label %scrypt_set_membuf.exit62, label %39
 
@@ -732,13 +732,13 @@ scrypt_set_membuf.exit62:                         ; preds = %39, %36, %33, %scry
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !38
+  %82 = load i32, ptr %81, align 8, !tbaa !41
   %.not56 = icmp eq i32 %82, 4
   br i1 %.not56, label %83, label %ossl_param_is_empty.exit.thread
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !37
+  %85 = load ptr, ptr %84, align 8, !tbaa !40
   %86 = call fastcc i32 @set_property_query(ptr noundef %0, ptr noundef %85)
   %.not57 = icmp eq i32 %86, 0
   br i1 %.not57, label %ossl_param_is_empty.exit.thread, label %87
@@ -877,53 +877,53 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   %.132 = phi ptr [ %.034, %.preheader ], [ %25, %24 ]
   %.01331 = phi i64 [ 0, %.preheader ], [ %30, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %.132, i64 4
-  %26 = load i32, ptr %.132, align 4, !tbaa !27
+  %26 = load i32, ptr %.132, align 4, !tbaa !28
   %27 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %.01331
-  %28 = load i32, ptr %27, align 4, !tbaa !27
+  %28 = load i32, ptr %27, align 4, !tbaa !28
   %29 = xor i32 %28, %26
-  store i32 %29, ptr %27, align 4, !tbaa !27
+  store i32 %29, ptr %27, align 4, !tbaa !28
   %30 = add nuw nsw i64 %.01331, 1
   %exitcond.not = icmp eq i64 %30, 16
-  br i1 %exitcond.not, label %31, label %24, !llvm.loop !39
+  br i1 %exitcond.not, label %31, label %24, !llvm.loop !42
 
 31:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
-  %.promoted.i = load i32, ptr %4, align 16, !tbaa !27
-  %.promoted7.i = load i32, ptr %9, align 16, !tbaa !27
-  %.promoted9.i = load i32, ptr %10, align 16, !tbaa !27
-  %.promoted11.i = load i32, ptr %11, align 16, !tbaa !27
-  %.promoted13.i = load i32, ptr %12, align 4, !tbaa !27
-  %.promoted15.i = load i32, ptr %13, align 4, !tbaa !27
-  %.promoted17.i = load i32, ptr %14, align 4, !tbaa !27
-  %.promoted19.i = load i32, ptr %15, align 4, !tbaa !27
-  %.promoted21.i = load i32, ptr %16, align 8, !tbaa !27
-  %.promoted23.i = load i32, ptr %17, align 8, !tbaa !27
-  %.promoted25.i = load i32, ptr %18, align 8, !tbaa !27
-  %.promoted27.i = load i32, ptr %19, align 8, !tbaa !27
-  %.promoted29.i = load i32, ptr %20, align 4, !tbaa !27
-  %.promoted31.i = load i32, ptr %21, align 4, !tbaa !27
-  %.promoted33.i = load i32, ptr %22, align 4, !tbaa !27
-  %.promoted35.i = load i32, ptr %23, align 4, !tbaa !27
+  %.promoted.i = load i32, ptr %4, align 16, !tbaa !28
+  %.promoted7.i = load i32, ptr %9, align 16, !tbaa !28
+  %.promoted9.i = load i32, ptr %10, align 16, !tbaa !28
+  %.promoted11.i = load i32, ptr %11, align 16, !tbaa !28
+  %.promoted13.i = load i32, ptr %12, align 4, !tbaa !28
+  %.promoted15.i = load i32, ptr %13, align 4, !tbaa !28
+  %.promoted17.i = load i32, ptr %14, align 4, !tbaa !28
+  %.promoted19.i = load i32, ptr %15, align 4, !tbaa !28
+  %.promoted21.i = load i32, ptr %16, align 8, !tbaa !28
+  %.promoted23.i = load i32, ptr %17, align 8, !tbaa !28
+  %.promoted25.i = load i32, ptr %18, align 8, !tbaa !28
+  %.promoted27.i = load i32, ptr %19, align 8, !tbaa !28
+  %.promoted29.i = load i32, ptr %20, align 4, !tbaa !28
+  %.promoted31.i = load i32, ptr %21, align 4, !tbaa !28
+  %.promoted33.i = load i32, ptr %22, align 4, !tbaa !28
+  %.promoted35.i = load i32, ptr %23, align 4, !tbaa !28
   br label %32
 
 .preheader.i:                                     ; preds = %32
-  store i32 %108, ptr %4, align 16, !tbaa !27
-  store i32 %135, ptr %9, align 16, !tbaa !27
-  store i32 %117, ptr %10, align 16, !tbaa !27
-  store i32 %126, ptr %11, align 16, !tbaa !27
-  store i32 %120, ptr %12, align 4, !tbaa !27
-  store i32 %99, ptr %13, align 4, !tbaa !27
-  store i32 %129, ptr %14, align 4, !tbaa !27
-  store i32 %138, ptr %15, align 4, !tbaa !27
-  store i32 %132, ptr %16, align 8, !tbaa !27
-  store i32 %111, ptr %17, align 8, !tbaa !27
-  store i32 %141, ptr %18, align 8, !tbaa !27
-  store i32 %102, ptr %19, align 8, !tbaa !27
-  store i32 %144, ptr %20, align 4, !tbaa !27
-  store i32 %123, ptr %21, align 4, !tbaa !27
-  store i32 %105, ptr %22, align 4, !tbaa !27
-  store i32 %114, ptr %23, align 4, !tbaa !27
+  store i32 %108, ptr %4, align 16, !tbaa !28
+  store i32 %135, ptr %9, align 16, !tbaa !28
+  store i32 %117, ptr %10, align 16, !tbaa !28
+  store i32 %126, ptr %11, align 16, !tbaa !28
+  store i32 %120, ptr %12, align 4, !tbaa !28
+  store i32 %99, ptr %13, align 4, !tbaa !28
+  store i32 %129, ptr %14, align 4, !tbaa !28
+  store i32 %138, ptr %15, align 4, !tbaa !28
+  store i32 %132, ptr %16, align 8, !tbaa !28
+  store i32 %111, ptr %17, align 8, !tbaa !28
+  store i32 %141, ptr %18, align 8, !tbaa !28
+  store i32 %102, ptr %19, align 8, !tbaa !28
+  store i32 %144, ptr %20, align 4, !tbaa !28
+  store i32 %123, ptr %21, align 4, !tbaa !28
+  store i32 %105, ptr %22, align 4, !tbaa !28
+  store i32 %114, ptr %23, align 4, !tbaa !28
   br label %147
 
 32:                                               ; preds = %32, %31
@@ -1042,19 +1042,19 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   %144 = xor i32 %143, %96
   %145 = add nsw i32 %.037.i, -2
   %146 = icmp samesign ugt i32 %.037.i, 2
-  br i1 %146, label %32, label %.preheader.i, !llvm.loop !40
+  br i1 %146, label %32, label %.preheader.i, !llvm.loop !43
 
 147:                                              ; preds = %147, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %147 ]
   %148 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i
-  %149 = load i32, ptr %148, align 4, !tbaa !27
+  %149 = load i32, ptr %148, align 4, !tbaa !28
   %150 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
-  %151 = load i32, ptr %150, align 4, !tbaa !27
+  %151 = load i32, ptr %150, align 4, !tbaa !28
   %152 = add i32 %151, %149
-  store i32 %152, ptr %150, align 4, !tbaa !27
+  store i32 %152, ptr %150, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %salsa208_word_specification.exit, label %147, !llvm.loop !41
+  br i1 %exitcond.not.i, label %salsa208_word_specification.exit, label %147, !llvm.loop !44
 
 salsa208_word_specification.exit:                 ; preds = %147
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #7
@@ -1068,7 +1068,7 @@ salsa208_word_specification.exit:                 ; preds = %147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %157, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
   %158 = add nuw i64 %.01433, 1
   %exitcond51.not = icmp eq i64 %158, %6
-  br i1 %exitcond51.not, label %._crit_edge, label %.preheader, !llvm.loop !42
+  br i1 %exitcond51.not, label %._crit_edge, label %.preheader, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %salsa208_word_specification.exit, %3
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #7
@@ -1159,21 +1159,24 @@ attributes #7 = { nounwind }
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
 !24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = !{!7, !7, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"int", !7, i64 0}
-!29 = distinct !{!29, !23}
+!25 = distinct !{!25, !23, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{!7, !7, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"int", !7, i64 0}
 !30 = distinct !{!30, !23}
 !31 = distinct !{!31, !23}
-!32 = !{!33, !9, i64 0}
-!33 = !{!"ossl_param_st", !9, i64 0, !28, i64 8, !6, i64 16, !10, i64 24, !10, i64 32}
-!34 = !{!9, !9, i64 0}
-!35 = !{!10, !10, i64 0}
-!36 = !{!33, !10, i64 24}
-!37 = !{!33, !6, i64 16}
-!38 = !{!33, !28, i64 8}
-!39 = distinct !{!39, !23}
-!40 = distinct !{!40, !23}
-!41 = distinct !{!41, !23}
+!32 = distinct !{!32, !23, !26}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}
+!35 = !{!36, !9, i64 0}
+!36 = !{!"ossl_param_st", !9, i64 0, !29, i64 8, !6, i64 16, !10, i64 24, !10, i64 32}
+!37 = !{!9, !9, i64 0}
+!38 = !{!10, !10, i64 0}
+!39 = !{!36, !10, i64 24}
+!40 = !{!36, !6, i64 16}
+!41 = !{!36, !29, i64 8}
 !42 = distinct !{!42, !23}
+!43 = distinct !{!43, !23}
+!44 = distinct !{!44, !23}
+!45 = distinct !{!45, !23}

@@ -66718,7 +66718,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %19, %18, %17, %12
-  br label %.split.us
+  br label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %4, %.split.backedge
   %.017 = phi ptr [ %33, %.split.backedge ], [ %3, %4 ]
@@ -76026,3 +76026,5 @@ attributes #8 = { noreturn nounwind }
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!"branch_weights", !"expected", i32 1073473456, i32 1074010192}
 !21 = !{!"branch_weights", i32 4001, i32 4000000}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}

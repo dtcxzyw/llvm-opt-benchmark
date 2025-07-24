@@ -1059,7 +1059,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %151 = getelementptr inbounds i8, ptr %.1132, i64 %.0121
   %152 = add i32 %.0118134, -1
   %.not128 = icmp eq i32 %152, 0
-  br i1 %.not128, label %._crit_edge, label %49, !llvm.loop !99
+  br i1 %.not128, label %._crit_edge, label %49, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %112
   %153 = getelementptr i8, ptr %50, i64 2
@@ -1072,7 +1072,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   store i16 %157, ptr %154, align 2, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge149, label %.lr.ph148.split, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge149, label %.lr.ph148.split, !llvm.loop !101
 
 ._crit_edge149:                                   ; preds = %._crit_edge, %._crit_edge149.split.us, %4
   ret void
@@ -1142,12 +1142,12 @@ define internal void @pass2_no_dither(ptr noundef readonly captures(none) %0, pt
   store i8 %41, ptr %.02830, align 1, !tbaa !34
   %43 = add i32 %.02631, -1
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !100
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %4
   ret void
@@ -1222,19 +1222,19 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %32 = getelementptr inbounds nuw i8, ptr %.0172270, i64 2
   %33 = add i32 %.0196269, 1
   %exitcond.not = icmp eq i32 %.0196269, %17
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %31
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond395.not = icmp eq i32 %21, %lftr.wideiv
-  br i1 %exitcond395.not, label %._crit_edge274.split, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond395.not, label %._crit_edge274.split, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge274.split:                             ; preds = %._crit_edge
   %indvars.iv.next397 = add nsw i64 %indvars.iv396, 1
   %lftr.wideiv399 = trunc i64 %indvars.iv.next397 to i32
   %exitcond400.not = icmp eq i32 %23, %lftr.wideiv399
-  br i1 %exitcond400.not, label %.loopexit261, label %.preheader259, !llvm.loop !104
+  br i1 %exitcond400.not, label %.loopexit261, label %.preheader259, !llvm.loop !106
 
 .loopexit261:                                     ; preds = %._crit_edge274.split, %.preheader260, %2, %29
   %.0195 = phi i32 [ %30, %29 ], [ %7, %2 ], [ %7, %.preheader260 ], [ %7, %._crit_edge274.split ]
@@ -1282,18 +1282,18 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %48 = getelementptr inbounds nuw i8, ptr %.1173282, i64 2
   %49 = add i32 %.1197281, 1
   %exitcond401.not = icmp eq i32 %.1197281, %17
-  br i1 %exitcond401.not, label %._crit_edge285, label %43, !llvm.loop !105
+  br i1 %exitcond401.not, label %._crit_edge285, label %43, !llvm.loop !107
 
 ._crit_edge285:                                   ; preds = %47
   %indvars.iv.next403 = add nsw i64 %indvars.iv402, 1
   %lftr.wideiv405 = trunc i64 %indvars.iv.next403 to i32
   %exitcond406.not = icmp eq i32 %37, %lftr.wideiv405
-  br i1 %exitcond406.not, label %._crit_edge289.split, label %.lr.ph284, !llvm.loop !106
+  br i1 %exitcond406.not, label %._crit_edge289.split, label %.lr.ph284, !llvm.loop !108
 
 ._crit_edge289.split:                             ; preds = %._crit_edge285
   %indvars.iv.next408 = add nsw i64 %indvars.iv407, -1
   %.not221.not = icmp sgt i64 %indvars.iv407, %39
-  br i1 %.not221.not, label %.preheader256, label %.loopexit258, !llvm.loop !107
+  br i1 %.not221.not, label %.preheader256, label %.loopexit258, !llvm.loop !109
 
 .loopexit258:                                     ; preds = %._crit_edge289.split, %.preheader257, %.loopexit261, %45
   %.0194 = phi i32 [ %46, %45 ], [ %9, %.loopexit261 ], [ %9, %.preheader257 ], [ %9, %._crit_edge289.split ]
@@ -1342,19 +1342,19 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %64 = getelementptr inbounds nuw i8, ptr %.2174297, i64 2
   %65 = add i32 %.2198296, 1
   %exitcond410.not = icmp eq i32 %.2198296, %17
-  br i1 %exitcond410.not, label %._crit_edge300, label %59, !llvm.loop !108
+  br i1 %exitcond410.not, label %._crit_edge300, label %59, !llvm.loop !110
 
 ._crit_edge300:                                   ; preds = %63
   %indvars.iv.next412 = add nsw i64 %indvars.iv411, 1
   %lftr.wideiv414 = trunc i64 %indvars.iv.next412 to i32
   %exitcond415.not = icmp eq i32 %53, %lftr.wideiv414
-  br i1 %exitcond415.not, label %._crit_edge304.split, label %.lr.ph299, !llvm.loop !109
+  br i1 %exitcond415.not, label %._crit_edge304.split, label %.lr.ph299, !llvm.loop !111
 
 ._crit_edge304.split:                             ; preds = %._crit_edge300
   %indvars.iv.next417 = add nsw i64 %indvars.iv416, 1
   %lftr.wideiv420 = trunc i64 %indvars.iv.next417 to i32
   %exitcond421.not = icmp eq i32 %55, %lftr.wideiv420
-  br i1 %exitcond421.not, label %.loopexit255, label %.preheader253, !llvm.loop !110
+  br i1 %exitcond421.not, label %.loopexit255, label %.preheader253, !llvm.loop !112
 
 .loopexit255:                                     ; preds = %._crit_edge304.split, %.preheader254, %.loopexit258, %61
   %.0193 = phi i32 [ %62, %61 ], [ %11, %.loopexit258 ], [ %11, %.preheader254 ], [ %11, %._crit_edge304.split ]
@@ -1402,18 +1402,18 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %80 = getelementptr inbounds nuw i8, ptr %.3175312, i64 2
   %81 = add i32 %.3199311, 1
   %exitcond422.not = icmp eq i32 %.3199311, %17
-  br i1 %exitcond422.not, label %._crit_edge315, label %75, !llvm.loop !111
+  br i1 %exitcond422.not, label %._crit_edge315, label %75, !llvm.loop !113
 
 ._crit_edge315:                                   ; preds = %79
   %indvars.iv.next424 = add nsw i64 %indvars.iv423, 1
   %lftr.wideiv426 = trunc i64 %indvars.iv.next424 to i32
   %exitcond427.not = icmp eq i32 %69, %lftr.wideiv426
-  br i1 %exitcond427.not, label %._crit_edge319.split, label %.lr.ph314, !llvm.loop !112
+  br i1 %exitcond427.not, label %._crit_edge319.split, label %.lr.ph314, !llvm.loop !114
 
 ._crit_edge319.split:                             ; preds = %._crit_edge315
   %indvars.iv.next429 = add nsw i64 %indvars.iv428, -1
   %.not229.not = icmp sgt i64 %indvars.iv428, %71
-  br i1 %.not229.not, label %.preheader250, label %.loopexit252, !llvm.loop !113
+  br i1 %.not229.not, label %.preheader250, label %.loopexit252, !llvm.loop !115
 
 .loopexit252:                                     ; preds = %._crit_edge319.split, %.preheader251, %.loopexit255, %77
   %.0192 = phi i32 [ %78, %77 ], [ %13, %.loopexit255 ], [ %13, %.preheader251 ], [ %13, %._crit_edge319.split ]
@@ -1462,19 +1462,19 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %96 = add i32 %.4187326, 1
   %97 = getelementptr inbounds nuw i8, ptr %.4327, i64 64
   %exitcond431.not = icmp eq i32 %.4187326, %.0192
-  br i1 %exitcond431.not, label %._crit_edge330, label %91, !llvm.loop !114
+  br i1 %exitcond431.not, label %._crit_edge330, label %91, !llvm.loop !116
 
 ._crit_edge330:                                   ; preds = %95
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, 1
   %lftr.wideiv435 = trunc i64 %indvars.iv.next433 to i32
   %exitcond436.not = icmp eq i32 %85, %lftr.wideiv435
-  br i1 %exitcond436.not, label %._crit_edge334.split, label %.lr.ph329, !llvm.loop !115
+  br i1 %exitcond436.not, label %._crit_edge334.split, label %.lr.ph329, !llvm.loop !117
 
 ._crit_edge334.split:                             ; preds = %._crit_edge330
   %indvars.iv.next438 = add nsw i64 %indvars.iv437, 1
   %lftr.wideiv441 = trunc i64 %indvars.iv.next438 to i32
   %exitcond442.not = icmp eq i32 %87, %lftr.wideiv441
-  br i1 %exitcond442.not, label %.loopexit249, label %.preheader247, !llvm.loop !116
+  br i1 %exitcond442.not, label %.loopexit249, label %.preheader247, !llvm.loop !118
 
 .loopexit249:                                     ; preds = %._crit_edge334.split, %.preheader248, %.loopexit252, %93
   %.0191 = phi i32 [ %94, %93 ], [ %15, %.loopexit252 ], [ %15, %.preheader248 ], [ %15, %._crit_edge334.split ]
@@ -1522,18 +1522,18 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %112 = add i32 %.5188341, 1
   %113 = getelementptr inbounds nuw i8, ptr %.5342, i64 64
   %exitcond443.not = icmp eq i32 %.5188341, %.0192
-  br i1 %exitcond443.not, label %._crit_edge345, label %107, !llvm.loop !117
+  br i1 %exitcond443.not, label %._crit_edge345, label %107, !llvm.loop !119
 
 ._crit_edge345:                                   ; preds = %111
   %indvars.iv.next445 = add nsw i64 %indvars.iv444, 1
   %lftr.wideiv447 = trunc i64 %indvars.iv.next445 to i32
   %exitcond448.not = icmp eq i32 %101, %lftr.wideiv447
-  br i1 %exitcond448.not, label %._crit_edge349.split, label %.lr.ph344, !llvm.loop !118
+  br i1 %exitcond448.not, label %._crit_edge349.split, label %.lr.ph344, !llvm.loop !120
 
 ._crit_edge349.split:                             ; preds = %._crit_edge345
   %indvars.iv.next450 = add nsw i64 %indvars.iv449, -1
   %.not237.not = icmp sgt i64 %indvars.iv449, %103
-  br i1 %.not237.not, label %.preheader245, label %.loopexit, !llvm.loop !119
+  br i1 %.not237.not, label %.preheader245, label %.loopexit, !llvm.loop !121
 
 .loopexit:                                        ; preds = %._crit_edge349.split, %.preheader246, %.loopexit249, %109
   %.0190 = phi i32 [ %110, %109 ], [ %17, %.loopexit249 ], [ %17, %.preheader246 ], [ %17, %._crit_edge349.split ]
@@ -1614,20 +1614,20 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %161 = add i32 %.6202356, 1
   %162 = getelementptr inbounds nuw i8, ptr %.6357, i64 2
   %exitcond452.not = icmp eq i32 %.6202356, %.0190
-  br i1 %exitcond452.not, label %._crit_edge361, label %158, !llvm.loop !120
+  br i1 %exitcond452.not, label %._crit_edge361, label %158, !llvm.loop !122
 
 ._crit_edge361:                                   ; preds = %158
   %indvars.iv.next454 = add nsw i64 %indvars.iv453, 1
   %lftr.wideiv456 = trunc i64 %indvars.iv.next454 to i32
   %exitcond457.not = icmp eq i32 %152, %lftr.wideiv456
-  br i1 %exitcond457.not, label %._crit_edge366, label %.lr.ph360, !llvm.loop !121
+  br i1 %exitcond457.not, label %._crit_edge366, label %.lr.ph360, !llvm.loop !123
 
 ._crit_edge366:                                   ; preds = %._crit_edge361, %.preheader
   %.us-phi = phi i64 [ %.0370, %.preheader ], [ %spec.select, %._crit_edge361 ]
   %indvars.iv.next459 = add nsw i64 %indvars.iv458, 1
   %lftr.wideiv461 = trunc i64 %indvars.iv.next459 to i32
   %exitcond462.not = icmp eq i32 %154, %lftr.wideiv461
-  br i1 %exitcond462.not, label %._crit_edge371, label %.preheader, !llvm.loop !122
+  br i1 %exitcond462.not, label %._crit_edge371, label %.preheader, !llvm.loop !124
 
 ._crit_edge371:                                   ; preds = %._crit_edge366, %.preheader.lr.ph, %.loopexit
   %.0.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %.preheader.lr.ph ], [ %.us-phi, %._crit_edge366 ]
@@ -1819,17 +1819,17 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %129 = mul nsw i64 %128, %128
   %.2.i = add nuw nsw i64 %.1.i, %129
   %130 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv.i
-  store i64 %.2154.i, ptr %130, align 8, !tbaa !123
+  store i64 %.2154.i, ptr %130, align 8, !tbaa !125
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.2.i, i64 %.0155185.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph188.i, label %59, !llvm.loop !124
+  br i1 %exitcond.not.i, label %.lr.ph188.i, label %59, !llvm.loop !126
 
 .lr.ph188.i:                                      ; preds = %125, %138
   %indvars.iv191.i = phi i64 [ %indvars.iv.next192.i, %138 ], [ 0, %125 ]
   %.0157187.i = phi i32 [ %.1158.i, %138 ], [ 0, %125 ]
   %131 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv191.i
-  %132 = load i64, ptr %131, align 8, !tbaa !123
+  %132 = load i64, ptr %131, align 8, !tbaa !125
   %.not.i = icmp sgt i64 %132, %spec.select.i
   br i1 %.not.i, label %138, label %133
 
@@ -1845,7 +1845,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %.1158.i = phi i32 [ %135, %133 ], [ %.0157187.i, %.lr.ph188.i ]
   %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
   %exitcond195.not.i = icmp eq i64 %indvars.iv.next192.i, %wide.trip.count.i
-  br i1 %exitcond195.not.i, label %find_nearby_colors.exit, label %.lr.ph188.i, !llvm.loop !125
+  br i1 %exitcond195.not.i, label %find_nearby_colors.exit, label %.lr.ph188.i, !llvm.loop !127
 
 find_nearby_colors.exit:                          ; preds = %138, %4
   %.0157.lcssa.i = phi i32 [ 0, %4 ], [ %.1158.i, %138 ]
@@ -1874,10 +1874,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %.08191.i = phi ptr [ %5, %find_nearby_colors.exit ], [ %143, %142 ]
   %.08590.i = phi i32 [ 127, %find_nearby_colors.exit ], [ %144, %142 ]
   %143 = getelementptr inbounds nuw i8, ptr %.08191.i, i64 8
-  store i64 2147483647, ptr %.08191.i, align 8, !tbaa !123
+  store i64 2147483647, ptr %.08191.i, align 8, !tbaa !125
   %144 = add nsw i32 %.08590.i, -1
   %.not.i37 = icmp eq i32 %.08590.i, 0
-  br i1 %.not.i37, label %.preheader89.i, label %142, !llvm.loop !126
+  br i1 %.not.i37, label %.preheader89.i, label %142, !llvm.loop !128
 
 145:                                              ; preds = %266, %.lr.ph.i38
   %146 = phi i32 [ %.pre.i, %.lr.ph.i38 ], [ %223, %266 ]
@@ -1977,12 +1977,12 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %.294.i = phi ptr [ %.199.i, %.preheader.i41 ], [ %238, %222 ]
   %.393.i = phi ptr [ %.28398.i, %.preheader.i41 ], [ %237, %222 ]
   %.08792.i = phi i32 [ 3, %.preheader.i41 ], [ %239, %222 ]
-  %219 = load i64, ptr %.393.i, align 8, !tbaa !123
+  %219 = load i64, ptr %.393.i, align 8, !tbaa !125
   %220 = icmp slt i64 %.07795.i, %219
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %215
-  store i64 %.07795.i, ptr %.393.i, align 8, !tbaa !123
+  store i64 %.07795.i, ptr %.393.i, align 8, !tbaa !125
   store i8 %149, ptr %.294.i, align 1, !tbaa !34
   %.pre115.i = load i32, ptr %141, align 8, !tbaa !49
   br label %222
@@ -2006,7 +2006,7 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %238 = getelementptr inbounds nuw i8, ptr %.294.i, i64 1
   %239 = add nsw i32 %.08792.i, -1
   %.not116.i = icmp eq i32 %.08792.i, 0
-  br i1 %.not116.i, label %240, label %215, !llvm.loop !127
+  br i1 %.not116.i, label %240, label %215, !llvm.loop !129
 
 240:                                              ; preds = %222
   %241 = add nsw i64 %.078100.i, %.075101.i
@@ -2022,7 +2022,7 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %251 = add nsw i64 %.075101.i, %250
   %252 = add nsw i32 %.08497.i, -1
   %.not117.i = icmp eq i32 %.08497.i, 0
-  br i1 %.not117.i, label %253, label %.preheader.i41, !llvm.loop !128
+  br i1 %.not117.i, label %253, label %.preheader.i41, !llvm.loop !130
 
 253:                                              ; preds = %240
   %254 = add nsw i64 %.079104.i, %.076105.i
@@ -2038,12 +2038,12 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %264 = add nsw i64 %.076105.i, %263
   %265 = add nsw i32 %.0106.i, -1
   %.not118.i = icmp eq i32 %.0106.i, 0
-  br i1 %.not118.i, label %266, label %.preheader88.i, !llvm.loop !129
+  br i1 %.not118.i, label %266, label %.preheader88.i, !llvm.loop !131
 
 266:                                              ; preds = %253
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i39
-  br i1 %exitcond.not.i43, label %find_best_colors.exit, label %145, !llvm.loop !130
+  br i1 %exitcond.not.i43, label %find_best_colors.exit, label %145, !llvm.loop !132
 
 find_best_colors.exit:                            ; preds = %266, %.preheader89.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #9
@@ -2081,17 +2081,17 @@ find_best_colors.exit:                            ; preds = %266, %.preheader89.
   %282 = getelementptr inbounds nuw i8, ptr %.050, i64 2
   store i16 %281, ptr %.050, align 2, !tbaa !75
   %exitcond.not = icmp eq ptr %.249, %scevgep
-  br i1 %exitcond.not, label %283, label %277, !llvm.loop !131
+  br i1 %exitcond.not, label %283, label %277, !llvm.loop !133
 
 283:                                              ; preds = %277
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond61.not, label %284, label %274, !llvm.loop !132
+  br i1 %exitcond61.not, label %284, label %274, !llvm.loop !134
 
 284:                                              ; preds = %283
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %285, label %.preheader, !llvm.loop !133
+  br i1 %exitcond65.not, label %285, label %.preheader, !llvm.loop !135
 
 285:                                              ; preds = %284
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
@@ -2222,8 +2222,8 @@ attributes #9 = { nounwind }
 !95 = !{!32, !6, i64 8}
 !96 = !{!4, !18, i64 424}
 !97 = !{!41, !11, i64 80}
-!98 = distinct !{!98, !57}
-!99 = distinct !{!99, !57}
+!98 = distinct !{!98, !57, !99}
+!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !100 = distinct !{!100, !57}
 !101 = distinct !{!101, !57}
 !102 = distinct !{!102, !57}
@@ -2247,9 +2247,9 @@ attributes #9 = { nounwind }
 !120 = distinct !{!120, !57}
 !121 = distinct !{!121, !57}
 !122 = distinct !{!122, !57}
-!123 = !{!33, !33, i64 0}
+!123 = distinct !{!123, !57}
 !124 = distinct !{!124, !57}
-!125 = distinct !{!125, !57}
+!125 = !{!33, !33, i64 0}
 !126 = distinct !{!126, !57}
 !127 = distinct !{!127, !57}
 !128 = distinct !{!128, !57}
@@ -2258,3 +2258,5 @@ attributes #9 = { nounwind }
 !131 = distinct !{!131, !57}
 !132 = distinct !{!132, !57}
 !133 = distinct !{!133, !57}
+!134 = distinct !{!134, !57}
+!135 = distinct !{!135, !57}

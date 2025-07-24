@@ -315,7 +315,7 @@ stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
   %.0.lcssa199 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %17, %.lr.ph.split ]
   %.080.lcssa198 = phi i32 [ %.080.lcssa, %._crit_edge ], [ 0, %.lr.ph.split ]
   %.088.lcssa197 = phi i32 [ %.088.lcssa, %._crit_edge ], [ 1073741824, %.lr.ph.split ]
-  %72 = load ptr, ptr %.0.lcssa199, align 8, !tbaa !26
+  %72 = load ptr, ptr %.0.lcssa199, align 8, !tbaa !27
   %73 = load i32, ptr %72, align 8, !tbaa !21
   br label %._crit_edge.thread
 
@@ -339,7 +339,7 @@ stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
   %80 = load ptr, ptr %79, align 8, !tbaa !14
   %81 = load i32, ptr %80, align 8, !tbaa !21
   %82 = icmp slt i32 %81, %9
-  br i1 %82, label %.lr.ph172, label %.preheader.preheader, !llvm.loop !27
+  br i1 %82, label %.lr.ph172, label %.preheader.preheader, !llvm.loop !28
 
 .preheader.preheader:                             ; preds = %.lr.ph172, %.preheader126
   %.173179.ph = phi ptr [ %18, %.preheader126 ], [ %80, %.lr.ph172 ]
@@ -364,7 +364,7 @@ stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
   %87 = load ptr, ptr %86, align 8, !tbaa !14
   %88 = load i32, ptr %87, align 8, !tbaa !21
   %.not100 = icmp sgt i32 %88, %84
-  br i1 %.not100, label %89, label %85, !llvm.loop !28
+  br i1 %.not100, label %89, label %85, !llvm.loop !29
 
 89:                                               ; preds = %85
   %90 = load i32, ptr %.276, align 8, !tbaa !21
@@ -455,7 +455,7 @@ stbrp__skyline_find_min_y.exit121:                ; preds = %117, %89
   %130 = getelementptr inbounds nuw i8, ptr %.173179, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !14
   %.not99 = icmp eq ptr %131, null
-  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %129, %._crit_edge.thread
   %.085 = phi i32 [ %74, %._crit_edge.thread ], [ %.287, %129 ]
@@ -506,7 +506,7 @@ define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   store ptr %20, ptr %14, align 8, !tbaa !18
-  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %21 = load ptr, ptr %6, align 8, !tbaa !27
   %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = icmp slt i32 %22, %.sroa.0.0.extract.trunc
   br i1 %23, label %24, label %27
@@ -518,7 +518,7 @@ define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %
   br label %28
 
 27:                                               ; preds = %17
-  store ptr %15, ptr %6, align 8, !tbaa !26
+  store ptr %15, ptr %6, align 8, !tbaa !27
   br label %28
 
 28:                                               ; preds = %27, %24
@@ -544,7 +544,7 @@ define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph, %34, %28
   %.1.lcssa = phi ptr [ %.0, %28 ], [ %31, %34 ], [ %.146, %.lr.ph ]
@@ -566,9 +566,9 @@ define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4, !tbaa !31
+  %4 = load i32, ptr %3, align 4, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !31
+  %6 = load i32, ptr %5, align 4, !tbaa !32
   %7 = icmp sgt i32 %4, %6
   br i1 %7, label %16, label %8
 
@@ -578,9 +578,9 @@ define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(n
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %12 = load i32, ptr %11, align 4, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %14 = load i32, ptr %13, align 4, !tbaa !34
   %15 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %12)
   br label %16
 
@@ -592,9 +592,9 @@ define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !34
+  %4 = load i32, ptr %3, align 4, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !34
+  %6 = load i32, ptr %5, align 4, !tbaa !35
   %7 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
   ret i32 %7
 }
@@ -612,10 +612,10 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv, i32 5
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %6, ptr %5, align 4, !tbaa !34
+  store i32 %6, ptr %5, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge58.thread:                             ; preds = %3
   %7 = sext i32 %2 to i64
@@ -635,21 +635,21 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv65 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next66, %62 ]
   %12 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv65
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %14 = load i32, ptr %13, align 4, !tbaa !34
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !31
+  %18 = load i32, ptr %17, align 4, !tbaa !32
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16, %11
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %21, align 4, !tbaa !36
+  store i32 0, ptr %21, align 4, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %22, align 4, !tbaa !37
+  store i32 0, ptr %22, align 4, !tbaa !38
   br label %62
 
 23:                                               ; preds = %16
@@ -680,7 +680,7 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   store ptr %38, ptr %10, align 8, !tbaa !18
-  %39 = load ptr, ptr %26, align 8, !tbaa !26
+  %39 = load ptr, ptr %26, align 8, !tbaa !27
   %40 = load i32, ptr %39, align 8, !tbaa !21
   %41 = icmp slt i32 %40, %.sroa.0.0.extract.trunc.i
   br i1 %41, label %42, label %45
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   br label %46
 
 45:                                               ; preds = %35
-  store ptr %33, ptr %26, align 8, !tbaa !26
+  store ptr %33, ptr %26, align 8, !tbaa !27
   br label %46
 
 46:                                               ; preds = %45, %42
@@ -718,7 +718,7 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !14
   %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !31
 
 .critedge.i:                                      ; preds = %52, %.lr.ph.i, %46
   %.1.lcssa.i = phi ptr [ %.0.i, %46 ], [ %.146.i, %.lr.ph.i ], [ %49, %52 ]
@@ -738,15 +738,15 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %58, %.critedge.i
 
 stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %23, %28, %32
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 2147483647, ptr %60, align 4, !tbaa !36
+  store i32 2147483647, ptr %60, align 4, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 2147483647, ptr %61, align 4, !tbaa !37
+  store i32 2147483647, ptr %61, align 4, !tbaa !38
   br label %62
 
 62:                                               ; preds = %stbrp__skyline_pack_rectangle.exit, %stbrp__skyline_pack_rectangle.exit.thread, %20
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge58, label %11, !llvm.loop !38
+  br i1 %exitcond69.not, label %._crit_edge58, label %11, !llvm.loop !39
 
 ._crit_edge58:                                    ; preds = %62
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
@@ -758,23 +758,23 @@ stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %23, %28, %32
   %.04559 = phi i32 [ 1, %._crit_edge58 ], [ %76, %75 ]
   %63 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv70
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !37
+  %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = icmp eq i32 %65, 2147483647
   br i1 %66, label %68, label %.thread
 
 .thread:                                          ; preds = %.lr.ph62
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  store i32 1, ptr %67, align 4, !tbaa !34
+  store i32 1, ptr %67, align 4, !tbaa !35
   br label %74
 
 68:                                               ; preds = %.lr.ph62
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %70 = load i32, ptr %69, align 4, !tbaa !36
+  %70 = load i32, ptr %69, align 4, !tbaa !37
   %.fr = freeze i32 %70
   %71 = icmp ne i32 %.fr, 2147483647
   %72 = zext i1 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  store i32 %72, ptr %73, align 4, !tbaa !34
+  store i32 %72, ptr %73, align 4, !tbaa !35
   br i1 %71, label %74, label %75
 
 74:                                               ; preds = %.thread, %68
@@ -784,7 +784,7 @@ stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %23, %28, %32
   %76 = phi i32 [ %.04559, %74 ], [ 0, %68 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !39
+  br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !40
 
 ._crit_edge63:                                    ; preds = %75, %._crit_edge58.thread
   %.045.lcssa = phi i32 [ 1, %._crit_edge58.thread ], [ %76, %75 ]
@@ -838,18 +838,19 @@ attributes #9 = { nounwind }
 !22 = !{!15, !5, i64 4}
 !23 = distinct !{!23, !17}
 !24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !17}
-!26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !17}
+!25 = distinct !{!25, !17, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{!8, !8, i64 0}
 !28 = distinct !{!28, !17}
 !29 = distinct !{!29, !17}
 !30 = distinct !{!30, !17}
-!31 = !{!32, !5, i64 8}
-!32 = !{!"stbrp_rect", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!33 = !{!32, !5, i64 4}
-!34 = !{!32, !5, i64 20}
-!35 = distinct !{!35, !17}
-!36 = !{!32, !5, i64 16}
-!37 = !{!32, !5, i64 12}
-!38 = distinct !{!38, !17}
+!31 = distinct !{!31, !17}
+!32 = !{!33, !5, i64 8}
+!33 = !{!"stbrp_rect", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!34 = !{!33, !5, i64 4}
+!35 = !{!33, !5, i64 20}
+!36 = distinct !{!36, !17}
+!37 = !{!33, !5, i64 16}
+!38 = !{!33, !5, i64 12}
 !39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}

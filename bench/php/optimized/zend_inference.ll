@@ -33357,7 +33357,7 @@ add_will_overflow.exit273.thread:                 ; preds = %308, %add_will_over
   %366 = phi i8 [ %341, %.lr.ph.split.us ], [ %353, %350 ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
-  br i1 %exitcond283.not, label %.thread274, label %.lr.ph.split.us
+  br i1 %exitcond283.not, label %.thread274, label %.lr.ph.split.us, !llvm.loop !203
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %391
   %367 = phi i8 [ %storemerge, %391 ], [ 0, %.lr.ph ]
@@ -34381,7 +34381,7 @@ get_ssa_var_info.exit546:                         ; preds = %74, %89
 
 96:                                               ; preds = %get_ssa_var_info.exit546
   %97 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !203
+  %98 = load i32, ptr %97, align 8, !tbaa !205
   %99 = and i32 %98, %.0.i545
   %100 = and i32 %99, 960
   %.not316 = icmp eq i32 %100, 0
@@ -34393,7 +34393,7 @@ get_ssa_var_info.exit546:                         ; preds = %74, %89
 
 103:                                              ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !205
+  %105 = load ptr, ptr %104, align 8, !tbaa !207
   %.not318 = icmp eq ptr %105, null
   %.not319 = icmp eq ptr %81, %105
   %or.cond = select i1 %.not318, i1 true, i1 %.not319
@@ -34418,7 +34418,7 @@ safe_instanceof.exit:                             ; preds = %107
   br i1 %111, label %112, label %safe_instanceof.exit.thread
 
 112:                                              ; preds = %safe_instanceof.exit
-  %113 = load ptr, ptr %104, align 8, !tbaa !205
+  %113 = load ptr, ptr %104, align 8, !tbaa !207
   br label %safe_instanceof.exit.thread
 
 safe_instanceof.exit.thread:                      ; preds = %107, %96, %103, %112, %safe_instanceof.exit, %106, %get_ssa_var_info.exit546
@@ -50494,6 +50494,8 @@ attributes #20 = { noreturn nounwind }
 !200 = !{!196, !23, i64 17}
 !201 = !{!196, !7, i64 32}
 !202 = !{!196, !7, i64 36}
-!203 = !{!204, !7, i64 0}
-!204 = !{!"_zend_ssa_type_constraint", !7, i64 0, !37, i64 8}
-!205 = !{!204, !37, i64 8}
+!203 = distinct !{!203, !204}
+!204 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!205 = !{!206, !7, i64 0}
+!206 = !{!"_zend_ssa_type_constraint", !7, i64 0, !37, i64 8}
+!207 = !{!206, !37, i64 8}

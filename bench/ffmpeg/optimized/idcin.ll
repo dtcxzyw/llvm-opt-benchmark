@@ -374,7 +374,7 @@ define internal i32 @idcin_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i32 %71, ptr %70, align 4, !tbaa !64
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 256
-  br i1 %exitcond108.not, label %.loopexit, label %.split, !llvm.loop !65
+  br i1 %exitcond108.not, label %.loopexit, label %.split, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.split, %.split.us, %20
   %72 = load ptr, ptr %7, align 8, !tbaa !13
@@ -428,17 +428,17 @@ define internal i32 @idcin_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 93:                                               ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %92, ptr noundef nonnull align 16 dereferenceable(1024) %4, i64 1024, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %95 = load i32, ptr %94, align 8, !tbaa !66
+  %95 = load i32, ptr %94, align 8, !tbaa !68
   %96 = or i32 %95, 1
-  store i32 %96, ptr %94, align 8, !tbaa !66
+  store i32 %96, ptr %94, align 8, !tbaa !68
   br label %97
 
 97:                                               ; preds = %93, %90
   %98 = load i32, ptr %6, align 8, !tbaa !42
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %98, ptr %99, align 4, !tbaa !67
+  store i32 %98, ptr %99, align 4, !tbaa !69
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 1, ptr %100, align 8, !tbaa !68
+  store i64 1, ptr %100, align 8, !tbaa !70
   br label %117
 
 101:                                              ; preds = %14
@@ -456,13 +456,13 @@ define internal i32 @idcin_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !51
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %108, ptr %109, align 4, !tbaa !67
+  store i32 %108, ptr %109, align 4, !tbaa !69
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %111 = load i32, ptr %110, align 8, !tbaa !55
   %112 = udiv i32 %.078, %111
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %113, ptr %114, align 8, !tbaa !68
+  store i64 %113, ptr %114, align 8, !tbaa !70
   %115 = load i32, ptr %102, align 4, !tbaa !59
   %116 = xor i32 %115, 1
   store i32 %116, ptr %102, align 4, !tbaa !59
@@ -509,11 +509,11 @@ define internal i32 @idcin_read_seek(ptr noundef %0, i32 %1, i64 %2, i32 %3) #1 
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %19 = load ptr, ptr %18, align 8, !tbaa !71
   %20 = load i32, ptr %6, align 8, !tbaa !42
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %19, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !70
+  %23 = load ptr, ptr %22, align 8, !tbaa !72
   tail call void @avpriv_update_cur_dts(ptr noundef nonnull %0, ptr noundef %23, i64 noundef 0) #5
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %24, align 8, !tbaa !60
@@ -637,10 +637,12 @@ attributes #5 = { nounwind }
 !62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
 !64 = !{!10, !10, i64 0}
-!65 = distinct !{!65, !63}
-!66 = !{!38, !10, i64 40}
-!67 = !{!38, !10, i64 36}
-!68 = !{!38, !23, i64 64}
-!69 = !{!14, !19, i64 48}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!65 = distinct !{!65, !63, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !63}
+!68 = !{!38, !10, i64 40}
+!69 = !{!38, !10, i64 36}
+!70 = !{!38, !23, i64 64}
+!71 = !{!14, !19, i64 48}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS8AVStream", !7, i64 0}

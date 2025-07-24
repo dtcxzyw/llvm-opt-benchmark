@@ -3107,48 +3107,40 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
 .lr.ph:                                           ; preds = %52
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %4, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv46
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %67
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %67 ], [ 0, %.lr.ph ]
+  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv42
   %65 = load i32, ptr %64, align 4
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %65) #14
-  tail call void @SubTransSetParent(i32 noundef %65, i32 noundef %0) #14
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %66 = load i32, ptr %61, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next47, %67
-  br i1 %68, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !20
+  br i1 %4, label %66, label %67
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv43
-  %70 = load i32, ptr %69, align 4
-  tail call void @SubTransSetParent(i32 noundef %70, i32 noundef %0) #14
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %71 = load i32, ptr %61, align 4
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next44, %72
-  br i1 %73, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !20
+66:                                               ; preds = %.lr.ph.split.us
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %65) #14
+  br label %67
+
+67:                                               ; preds = %66, %.lr.ph.split.us
+  tail call void @SubTransSetParent(i32 noundef %65, i32 noundef %0) #14
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %68 = load i32, ptr %61, align 4
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next43, %69
+  br i1 %70, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %4, label %.lr.ph.split.split.us, label %.loopexit
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %74 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
-  %75 = load i32, ptr %74, align 4
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %75) #14
+  %71 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %72 = load i32, ptr %71, align 4
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %72) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %61, align 4
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !20
+  %73 = load i32, ptr %61, align 4
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next, %74
+  br i1 %75, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.lr.ph.split, %52, %30, %34, %18, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ]
+.loopexit:                                        ; preds = %.lr.ph.split.split.us, %67, %.lr.ph.split, %52, %30, %34, %18, %22
+  %.0 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %67 ], [ %53, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   ret ptr %.0
 }
@@ -3369,7 +3361,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next55, %32
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
@@ -3434,7 +3426,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %63, %28, %2
   %.032.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.133, %63 ]
@@ -3498,7 +3490,7 @@ define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %21, %0
   %27 = load ptr, ptr @MainLWLockArray, align 8
@@ -3788,7 +3780,7 @@ ProcessRecords.exit:                              ; preds = %147, %GXactLoadSubx
   %174 = load i32, ptr %173, align 8
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next, %175
-  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %171, %0
   %177 = load ptr, ptr @MainLWLockArray, align 8
@@ -3832,7 +3824,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !27
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -3990,7 +3982,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %45, %3, %44
   %51 = phi i1 [ true, %44 ], [ false, %3 ], [ false, %45 ]
@@ -4093,7 +4085,7 @@ IsTwoPhaseTransactionGidForSubid.exit:            ; preds = %23
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %IsTwoPhaseTransactionGidForSubid.exit._crit_edge, !llvm.loop !26
+  br i1 %37, label %.lr.ph, label %IsTwoPhaseTransactionGidForSubid.exit._crit_edge, !llvm.loop !29
 
 IsTwoPhaseTransactionGidForSubid.exit._crit_edge: ; preds = %32, %IsTwoPhaseTransactionGidForSubid.exit, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %IsTwoPhaseTransactionGidForSubid.exit ], [ false, %32 ]
@@ -4215,10 +4207,13 @@ attributes #17 = { nounwind willreturn memory(none) }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!20 = distinct !{!20, !7, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7, !21}
+!23 = distinct !{!23, !7, !21}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

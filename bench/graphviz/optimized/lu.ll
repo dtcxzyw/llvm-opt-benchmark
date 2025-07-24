@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   %45 = tail call double @llvm.maxnum.f64(double %.06693.us, double %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
-  br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %40
   %46 = fcmp ogt double %45, 0.000000e+00
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
 .loopexit:                                        ; preds = %._crit_edge102.us
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count137
-  br i1 %exitcond138.not, label %._crit_edge108, label %.preheader, !llvm.loop !21
+  br i1 %exitcond138.not, label %._crit_edge108, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv124 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next125, %.loopexit ]
@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   %.268 = select i1 %63, double %62, double %.16796
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %65 = fcmp ugt double %.268, 0.000000e+00
@@ -222,12 +222,12 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   store double %95, ptr %93, align 8, !tbaa !14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count134
-  br i1 %exitcond130.not, label %._crit_edge102.us, label %90, !llvm.loop !23
+  br i1 %exitcond130.not, label %._crit_edge102.us, label %90, !llvm.loop !24
 
 ._crit_edge102.us:                                ; preds = %90
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph101.us, !llvm.loop !24
+  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph101.us, !llvm.loop !25
 
 ._crit_edge108:                                   ; preds = %.loopexit, %.preheader87.thread, %.preheader87
   %96 = phi i32 [ -1, %.preheader87.thread ], [ %47, %.preheader87 ], [ %47, %.loopexit ]
@@ -311,7 +311,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %.042)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv55
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %16, %.preheader40.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre71, %.preheader40.._crit_edge_crit_edge ], [ %9, %16 ]
@@ -323,7 +323,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   store double %24, ptr %25, align 8, !tbaa !14
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.preheader.lr.ph, label %.preheader40, !llvm.loop !26
+  br i1 %exitcond59.not, label %.preheader.lr.ph, label %.preheader40, !llvm.loop !27
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge47
   %indvars.iv60 = phi i64 [ %14, %.preheader.lr.ph ], [ %indvars.iv.next61, %._crit_edge47 ]
@@ -347,7 +347,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %37 = trunc nuw i64 %indvars.iv.next63 to i32
   %38 = icmp sgt i32 %2, %37
-  br i1 %38, label %.lr.ph46, label %._crit_edge47, !llvm.loop !27
+  br i1 %38, label %.lr.ph46, label %._crit_edge47, !llvm.loop !28
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   %.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %36, %.lr.ph46 ]
@@ -359,7 +359,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %44 = fdiv double %41, %43
   store double %44, ptr %39, align 8, !tbaa !14
   %45 = icmp samesign ugt i64 %indvars.iv60, 1
-  br i1 %45, label %.preheader, label %._crit_edge52, !llvm.loop !28
+  br i1 %45, label %.preheader, label %._crit_edge52, !llvm.loop !29
 
 ._crit_edge52:                                    ; preds = %._crit_edge47, %3
   ret void
@@ -415,14 +415,15 @@ attributes #13 = { cold noreturn nounwind }
 !15 = !{!"double", !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"int", !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = distinct !{!21, !19}
 !22 = distinct !{!22, !19}
 !23 = distinct !{!23, !19}
 !24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
+!25 = distinct !{!25, !19, !20}
 !26 = distinct !{!26, !19}
 !27 = distinct !{!27, !19}
 !28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}

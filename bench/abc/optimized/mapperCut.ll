@@ -562,7 +562,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %.2157.i.i = phi i32 [ %.1156210.i.i, %191 ], [ %.1156210.i.i, %196 ], [ %.1156210.i.i, %201 ], [ %.1156210.i.i, %204 ], [ %221, %207 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv243.i.i
-  br i1 %exitcond.not.i.i, label %.preheader201.i.i, label %178, !llvm.loop !74
+  br i1 %exitcond.not.i.i, label %.preheader201.i.i, label %178, !llvm.loop !75
 
 224:                                              ; preds = %269, %.lr.ph.i.i37
   %indvars.iv238.i.i = phi i64 [ 0, %.lr.ph.i.i37 ], [ %indvars.iv.next239.i.i, %269 ]
@@ -635,14 +635,14 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %.4.i.i = phi i32 [ %.3212.i.i, %237 ], [ %.3212.i.i, %242 ], [ %.3212.i.i, %247 ], [ %.3212.i.i, %250 ], [ %267, %253 ]
   %indvars.iv.next239.i.i = add nuw nsw i64 %indvars.iv238.i.i, 1
   %exitcond242.not.i.i = icmp eq i64 %indvars.iv.next239.i.i, %indvars.iv245.i.i
-  br i1 %exitcond242.not.i.i, label %._crit_edge.i.i, label %224, !llvm.loop !75
+  br i1 %exitcond242.not.i.i, label %._crit_edge.i.i, label %224, !llvm.loop !76
 
 ._crit_edge.i.i:                                  ; preds = %269, %.preheader201.i.i
   %.3.lcssa.i.i = phi i32 [ %.2157.i.i, %.preheader201.i.i ], [ %.4.i.i, %269 ]
   %indvars.iv.next246.i.i = add nuw nsw i64 %indvars.iv245.i.i, 1
   %indvars.iv.next244.i.i = add nuw nsw i64 %indvars.iv243.i.i, 1
   %exitcond251.not.i.i = icmp eq i64 %indvars.iv.next246.i.i, %wide.trip.count250.i.i
-  br i1 %exitcond251.not.i.i, label %.preheader199.i.i, label %.preheader203.i.i, !llvm.loop !76
+  br i1 %exitcond251.not.i.i, label %.preheader199.i.i, label %.preheader203.i.i, !llvm.loop !77
 
 .loopexit.i.i34:                                  ; preds = %._crit_edge220.us.i.i, %207, %253, %160, %.preheader199.i.i, %Map_CutTableRestart.exit.i.i
   store ptr null, ptr %5, align 8, !tbaa !24
@@ -667,7 +667,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %.0158.i.i = phi ptr [ %.0159.i.i, %.preheader.i.i35 ], [ %273, %.lr.ph228.i.i ]
   %.0159.i.i = load ptr, ptr %.0158.i.i, align 8, !tbaa !64
   %.not185.i.i = icmp eq ptr %.0159.i.i, null
-  br i1 %.not185.i.i, label %275, label %.preheader.i.i35, !llvm.loop !77
+  br i1 %.not185.i.i, label %275, label %.preheader.i.i35, !llvm.loop !78
 
 275:                                              ; preds = %.preheader.i.i35
   store ptr %273, ptr %.0148226.i.i, align 8, !tbaa !24
@@ -677,7 +677,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %.1149.i.i = phi ptr [ %.0148226.i.i, %.lr.ph228.i.i ], [ %.0158.i.i, %275 ]
   %indvars.iv.next260.i.i = add nuw nsw i64 %indvars.iv259.i.i, 1
   %exitcond263.not.i.i = icmp eq i64 %indvars.iv.next260.i.i, %wide.trip.count262.i.i
-  br i1 %exitcond263.not.i.i, label %Map_CutMergeLists.exit.i, label %.lr.ph228.i.i, !llvm.loop !78
+  br i1 %exitcond263.not.i.i, label %Map_CutMergeLists.exit.i, label %.lr.ph228.i.i, !llvm.loop !79
 
 Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i34
   %.0148.lcssa.i.i = phi ptr [ %5, %.loopexit.i.i34 ], [ %.1149.i.i, %276 ]
@@ -688,13 +688,13 @@ Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
   %278 = getelementptr inbounds nuw i8, ptr %66, i64 88
-  %279 = load ptr, ptr %278, align 8, !tbaa !79
+  %279 = load ptr, ptr %278, align 8, !tbaa !80
   %280 = icmp eq ptr %279, null
   br i1 %280, label %.preheader60.i, label %.loopexit61.i
 
 .preheader60.i:                                   ; preds = %Map_CutMergeLists.exit.i
   %.040.in68.i = getelementptr inbounds nuw i8, ptr %66, i64 80
-  %.04069.i = load ptr, ptr %.040.in68.i, align 8, !tbaa !80
+  %.04069.i = load ptr, ptr %.040.in68.i, align 8, !tbaa !81
   %.not4570.i = icmp eq ptr %.04069.i, null
   br i1 %.not4570.i, label %.loopexit61.i, label %.lr.ph.i.preheader
 
@@ -715,7 +715,7 @@ Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i
   %.0911.i.i = phi ptr [ %284, %.lr.ph.i49.i ], [ %.14271.i, %.lr.ph.i ]
   %284 = load ptr, ptr %.0911.i.i, align 8, !tbaa !64
   %.not.i50.i = icmp eq ptr %284, null
-  br i1 %.not.i50.i, label %Map_CutUnionLists.exit.i, label %.lr.ph.i49.i, !llvm.loop !81
+  br i1 %.not.i50.i, label %Map_CutUnionLists.exit.i, label %.lr.ph.i49.i, !llvm.loop !82
 
 Map_CutUnionLists.exit.i:                         ; preds = %.lr.ph.i49.i
   %285 = load ptr, ptr %283, align 8, !tbaa !64
@@ -754,13 +754,13 @@ Map_CutList2Array.exit.i:                         ; preds = %.lr.ph.i.i45
 
 291:                                              ; preds = %291, %.preheader.i51
   %indvars.iv.i53 = phi i64 [ 249, %.preheader.i51 ], [ %indvars.iv.next.i54, %291 ]
-  %292 = load ptr, ptr %61, align 8, !tbaa !82
+  %292 = load ptr, ptr %61, align 8, !tbaa !83
   %293 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i53
   %294 = load ptr, ptr %293, align 8, !tbaa !24
   call void @Extra_MmFixedEntryRecycle(ptr noundef %292, ptr noundef %294) #18
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i52
-  br i1 %exitcond.not.i55, label %.thread.i, label %291, !llvm.loop !83
+  br i1 %exitcond.not.i55, label %.thread.i, label %291, !llvm.loop !84
 
 295:                                              ; preds = %Map_CutList2Array.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -780,7 +780,7 @@ Map_CutList2Array.exit.i:                         ; preds = %.lr.ph.i.i45
   store ptr %298, ptr %.089.i.i, align 8, !tbaa !24
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i.i50 = icmp eq i64 %indvars.iv.next.i17.i, %.01320.i
-  br i1 %exitcond.not.i.i50, label %Map_CutSortCuts.exit, label %.lr.ph.i15.i, !llvm.loop !84
+  br i1 %exitcond.not.i.i50, label %Map_CutSortCuts.exit, label %.lr.ph.i15.i, !llvm.loop !85
 
 Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
   %.08.lcssa.i.i = phi ptr [ %2, %295 ], [ %298, %.lr.ph.i15.i ]
@@ -788,9 +788,9 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
   %.0..0..0..0..0..0..0..0..i.i49 = load ptr, ptr %2, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.040.in.i = getelementptr inbounds nuw i8, ptr %.04072.i, i64 80
-  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !80
+  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !81
   %.not45.i = icmp eq ptr %.040.i, null
-  br i1 %.not45.i, label %.loopexit61.i, label %.lr.ph.i, !llvm.loop !85
+  br i1 %.not45.i, label %.loopexit61.i, label %.lr.ph.i, !llvm.loop !86
 
 .loopexit61.i:                                    ; preds = %Map_CutSortCuts.exit, %.preheader60.i, %Map_CutMergeLists.exit.i
   %.041.i = phi ptr [ %277, %Map_CutMergeLists.exit.i ], [ %277, %.preheader60.i ], [ %.0..0..0..0..0..0..0..0..i.i49, %Map_CutSortCuts.exit ]
@@ -855,7 +855,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 321:                                              ; preds = %317
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i56.i, 1
   %exitcond.not.i58.i = icmp eq i64 %indvars.iv.next.i57.i, %wide.trip.count.i55.i
-  br i1 %exitcond.not.i58.i, label %._crit_edge.us.thread.i.i, label %317, !llvm.loop !86
+  br i1 %exitcond.not.i58.i, label %._crit_edge.us.thread.i.i, label %317, !llvm.loop !87
 
 ._crit_edge.us.thread.i.i:                        ; preds = %321
   %322 = trunc nuw nsw i64 %indvars.iv76.i.i to i32
@@ -864,7 +864,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 ._crit_edge.us.i.i:                               ; preds = %317
   %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
   %exitcond80.not.i.i = icmp eq i64 %indvars.iv.next77.i.i, %wide.trip.count79.i.i
-  br i1 %exitcond80.not.i.i, label %._crit_edge54.thread.i.i, label %.preheader.us.i.i, !llvm.loop !87
+  br i1 %exitcond80.not.i.i, label %._crit_edge54.thread.i.i, label %.preheader.us.i.i, !llvm.loop !88
 
 .preheader.lr.ph.split.i.i:                       ; preds = %.preheader.lr.ph.i.i
   %323 = icmp eq i8 %313, 0
@@ -873,7 +873,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 ._crit_edge54.i.i:                                ; preds = %.preheader.lr.ph.split.i.i, %._crit_edge.us.thread.i.i, %.preheader46.i.i
   %.034.lcssa.i.i = phi i32 [ 0, %.preheader46.i.i ], [ 0, %.preheader.lr.ph.split.i.i ], [ %322, %._crit_edge.us.thread.i.i ]
   %324 = icmp eq i32 %.034.lcssa.i.i, %310
-  br i1 %324, label %._crit_edge54.thread.i.i, label %307, !llvm.loop !88
+  br i1 %324, label %._crit_edge54.thread.i.i, label %307, !llvm.loop !89
 
 ._crit_edge54.thread.i.i:                         ; preds = %._crit_edge54.i.i, %.preheader.lr.ph.split.i.i, %._crit_edge.us.i.i
   store ptr %303, ptr %.03770.i.i, align 8, !tbaa !64
@@ -883,10 +883,10 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 .thread.i.i:                                      ; preds = %307, %._crit_edge54.thread.i.i
   %.138.i.i = phi ptr [ %.03770.i.i, %._crit_edge54.thread.i.i ], [ %.03572.sink.i.i, %307 ]
   %.not43.i.i = icmp eq ptr %303, null
-  br i1 %.not43.i.i, label %Map_CutFilter.exit.i, label %.lr.ph.i53.i, !llvm.loop !89
+  br i1 %.not43.i.i, label %Map_CutFilter.exit.i, label %.lr.ph.i53.i, !llvm.loop !90
 
 Map_CutFilter.exit.i:                             ; preds = %.thread.i.i, %.loopexit61.i
-  %325 = load ptr, ptr %278, align 8, !tbaa !79
+  %325 = load ptr, ptr %278, align 8, !tbaa !80
   %.not46.i = icmp eq ptr %325, null
   br i1 %.not46.i, label %Map_CutCompute.exit, label %326
 
@@ -903,10 +903,10 @@ Map_CutFilter.exit.i:                             ; preds = %.thread.i.i, %.loop
 .lr.ph76.i:                                       ; preds = %.preheader.i, %.lr.ph76.i
   %.175.i = phi ptr [ %.1.i, %.lr.ph76.i ], [ %.173.i, %.preheader.i ]
   %328 = getelementptr inbounds nuw i8, ptr %.175.i, i64 79
-  store i8 1, ptr %328, align 1, !tbaa !90
+  store i8 1, ptr %328, align 1, !tbaa !91
   %.1.i = load ptr, ptr %.175.i, align 8, !tbaa !24
   %.not48.i = icmp eq ptr %.1.i, null
-  br i1 %.not48.i, label %Map_CutCompute.exit, label %.lr.ph76.i, !llvm.loop !91
+  br i1 %.not48.i, label %Map_CutCompute.exit, label %.lr.ph76.i, !llvm.loop !92
 
 Map_CutCompute.exit:                              ; preds = %.lr.ph76.i, %.preheader.i, %326, %Map_CutFilter.exit.i, %80, %68
   br i1 %.not.i38, label %333, label %329
@@ -925,7 +925,7 @@ Map_CutCompute.exit:                              ; preds = %.lr.ph76.i, %.prehe
 Extra_ProgressBarUpdate.exit:                     ; preds = %333, %329, %78
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %62, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge69, label %62, !llvm.loop !93
 
 ._crit_edge69:                                    ; preds = %Extra_ProgressBarUpdate.exit, %Map_CutTableStart.exit
   call void @Extra_ProgressBarStop(ptr noundef %39) #18
@@ -976,7 +976,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %333, %329, %78
 Map_CutTableStop.exit:                            ; preds = %346, %348
   call void @free(ptr noundef nonnull %calloc5.i) #18
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %350 = load i32, ptr %349, align 8, !tbaa !93
+  %350 = load i32, ptr %349, align 8, !tbaa !94
   %.not = icmp eq i32 %350, 0
   br i1 %.not, label %385, label %351
 
@@ -1035,7 +1035,7 @@ Map_CutTableStop.exit:                            ; preds = %346, %348
 Map_MappingCountAllCuts.exit:                     ; preds = %._crit_edge26.i, %351
   %.0.lcssa.i = phi i32 [ 0, %351 ], [ %.1.lcssa.i, %._crit_edge26.i ]
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %365 = load i32, ptr %364, align 4, !tbaa !94
+  %365 = load i32, ptr %364, align 4, !tbaa !95
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %367 = load i32, ptr %366, align 8, !tbaa !69
   %368 = sitofp i32 %.0.lcssa.i to float
@@ -1107,7 +1107,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !95
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !96
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #18
   br label %17
 
@@ -1208,12 +1208,12 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
   %.2 = phi i32 [ %.161, %27 ], [ %.161, %31 ], [ %45, %34 ]
   %48 = load ptr, ptr %.04460, align 8, !tbaa !64
   %.not53 = icmp eq ptr %48, null
-  br i1 %.not53, label %._crit_edge, label %27, !llvm.loop !98
+  br i1 %.not53, label %._crit_edge, label %27, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %47
   %49 = load ptr, ptr %.04563, align 8, !tbaa !64
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %.loopexit, label %.preheader56, !llvm.loop !99
+  br i1 %.not, label %.loopexit, label %.preheader56, !llvm.loop !100
 
 .loopexit:                                        ; preds = %._crit_edge, %34, %.preheader56.lr.ph, %Map_CutTableRestart.exit
   store ptr null, ptr %8, align 8, !tbaa !24
@@ -1239,7 +1239,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
   %.046 = phi ptr [ %.047, %.preheader ], [ %54, %.lr.ph ]
   %.047 = load ptr, ptr %.046, align 8, !tbaa !64
   %.not55 = icmp eq ptr %.047, null
-  br i1 %.not55, label %56, label %.preheader, !llvm.loop !100
+  br i1 %.not55, label %56, label %.preheader, !llvm.loop !101
 
 56:                                               ; preds = %.preheader
   store ptr %54, ptr %.04266, align 8, !tbaa !24
@@ -1249,7 +1249,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
   %.143 = phi ptr [ %.04266, %.lr.ph ], [ %.046, %56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge69, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge69:                                    ; preds = %57, %.loopexit
   %.042.lcssa = phi ptr [ %8, %.loopexit ], [ %.143, %57 ]
@@ -1293,7 +1293,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 17:                                               ; preds = %19
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %.lr.ph168, label %19, !llvm.loop !102
+  br i1 %exitcond234.not, label %.lr.ph168, label %19, !llvm.loop !103
 
 .lr.ph168:                                        ; preds = %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1317,7 +1317,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %26, ptr %27, align 8, !tbaa !23
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %.loopexit, label %24, !llvm.loop !103
+  br i1 %exitcond239.not, label %.loopexit, label %24, !llvm.loop !104
 
 28:                                               ; preds = %9
   %29 = add nsw i32 %3, -1
@@ -1360,7 +1360,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %.1 = phi i32 [ %.0161, %35 ], [ 1, %43 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %.lr.ph164, label %35, !llvm.loop !104
+  br i1 %exitcond224.not, label %.lr.ph164, label %35, !llvm.loop !105
 
 45:                                               ; preds = %.lr.ph164, %45
   %indvars.iv225 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next226, %45 ]
@@ -1370,7 +1370,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %47, ptr %48, align 8, !tbaa !23
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %.loopexit, label %45, !llvm.loop !105
+  br i1 %exitcond229.not, label %.loopexit, label %45, !llvm.loop !106
 
 49:                                               ; preds = %4
   %50 = add nsw i32 %3, -1
@@ -1418,7 +1418,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %.3 = phi i32 [ %.2145, %60 ], [ 1, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph147, label %60, !llvm.loop !106
+  br i1 %exitcond.not, label %.lr.ph147, label %60, !llvm.loop !107
 
 70:                                               ; preds = %.lr.ph147, %70
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %70 ]
@@ -1428,7 +1428,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %72, ptr %73, align 8, !tbaa !23
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %.loopexit, label %70, !llvm.loop !107
+  br i1 %exitcond183.not, label %.loopexit, label %70, !llvm.loop !108
 
 ._crit_edge240:                                   ; preds = %49, %28
   %.pre-phi = phi i32 [ %12, %28 ], [ %54, %49 ]
@@ -1463,7 +1463,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 82:                                               ; preds = %87
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge.us, label %87, !llvm.loop !108
+  br i1 %exitcond197.not, label %._crit_edge.us, label %87, !llvm.loop !109
 
 83:                                               ; preds = %._crit_edge.us
   %84 = add nsw i32 %.0117150.us, 1
@@ -1483,7 +1483,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %.1118.us = phi i32 [ %84, %83 ], [ %.0117150.us, %87 ]
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.preheader136, label %.preheader137.us, !llvm.loop !109
+  br i1 %exitcond202.not, label %.preheader136, label %.preheader137.us, !llvm.loop !110
 
 ._crit_edge.us:                                   ; preds = %82
   %91 = icmp eq i32 %.0117150.us, %3
@@ -1517,7 +1517,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %97, ptr %98, align 8, !tbaa !23
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count191
-  br i1 %exitcond192.not, label %.preheader136.loopexit175, label %.preheader137, !llvm.loop !109
+  br i1 %exitcond192.not, label %.preheader136.loopexit175, label %.preheader137, !llvm.loop !111
 
 .preheader134:                                    ; preds = %101, %.preheader136
   %99 = icmp sgt i32 %.0117.lcssa, 1
@@ -1537,7 +1537,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %103, ptr %104, align 8, !tbaa !23
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
-  br i1 %exitcond207.not, label %.preheader134, label %101, !llvm.loop !110
+  br i1 %exitcond207.not, label %.preheader134, label %101, !llvm.loop !112
 
 .lr.ph156.preheader:                              ; preds = %._crit_edge, %.lr.ph159.preheader
   %indvars.iv215 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next216, %._crit_edge ]
@@ -1552,18 +1552,18 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %106 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv210
   %107 = load ptr, ptr %106, align 8, !tbaa !23
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load i32, ptr %108, align 8, !tbaa !111
+  %109 = load i32, ptr %108, align 8, !tbaa !113
   %110 = sext i32 %.0108155 to i64
   %111 = getelementptr inbounds ptr, ptr %2, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %114 = load i32, ptr %113, align 8, !tbaa !111
+  %114 = load i32, ptr %113, align 8, !tbaa !113
   %115 = icmp slt i32 %109, %114
   %116 = trunc nuw nsw i64 %indvars.iv210 to i32
   %spec.select = select i1 %115, i32 %116, i32 %.0108155
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !112
+  br i1 %exitcond214.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.lr.ph156
   %117 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv215
@@ -1575,7 +1575,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   store ptr %118, ptr %120, align 8, !tbaa !23
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph156.preheader, !llvm.loop !113
+  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph156.preheader, !llvm.loop !115
 
 .loopexit:                                        ; preds = %68, %70, %.preheader137, %._crit_edge.us, %._crit_edge, %43, %45, %19, %24, %.preheader141, %.preheader132, %.preheader128, %.preheader134
   %.0119 = phi i32 [ %.0117.lcssa, %.preheader134 ], [ %3, %.preheader128 ], [ %3, %.preheader132 ], [ %3, %.preheader141 ], [ %3, %24 ], [ 0, %19 ], [ %3, %45 ], [ 0, %43 ], [ %.0117.lcssa, %._crit_edge ], [ 0, %._crit_edge.us ], [ 0, %.preheader137 ], [ %3, %70 ], [ 0, %68 ]
@@ -1599,12 +1599,12 @@ define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr noundef cap
   %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !111
+  %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = mul nsw i32 %11, %7
   %13 = add i32 %12, %.078.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Map_CutTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !114
+  br i1 %exitcond.not.i.i, label %Map_CutTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !116
 
 Map_CutTableHash.exit.i:                          ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1655,12 +1655,12 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %40 = getelementptr inbounds ptr, ptr %17, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !24
   %.not.us.i = icmp eq ptr %41, null
-  br i1 %.not.us.i, label %Map_CutTableLookup.exit, label %.lr.ph33.split.us.i, !llvm.loop !115
+  br i1 %.not.us.i, label %Map_CutTableLookup.exit, label %.lr.ph33.split.us.i, !llvm.loop !117
 
 42:                                               ; preds = %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i, label %Map_CutTableLookup.exit.thread, label %29, !llvm.loop !116
+  br i1 %exitcond.not.i, label %Map_CutTableLookup.exit.thread, label %29, !llvm.loop !118
 
 .preheader.us.i:                                  ; preds = %.lr.ph33.split.us.i
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1674,7 +1674,7 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
   %47 = getelementptr inbounds ptr, ptr %23, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %Map_CutTableLookup.exit.thread45, label %.lr.ph33.split.split.i, !llvm.loop !115
+  br i1 %.not.i, label %Map_CutTableLookup.exit.thread45, label %.lr.ph33.split.split.i, !llvm.loop !119
 
 Map_CutTableLookup.exit:                          ; preds = %36
   %49 = icmp eq i32 %38, -1
@@ -1702,7 +1702,7 @@ Map_CutTableLookup.exit.thread45:                 ; preds = %.lr.ph33.split.spli
   store ptr %57, ptr %58, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !120
 
 ._crit_edge.sink.split:                           ; preds = %Map_CutTableLookup.exit.thread45, %Map_CutTableHash.exit.thread.i
   %.023.i2741.ph = phi i32 [ 0, %Map_CutTableHash.exit.thread.i ], [ %45, %Map_CutTableLookup.exit.thread45 ]
@@ -1782,14 +1782,14 @@ Map_CutList2Array.exit:                           ; preds = %.lr.ph.i
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 249, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr %12, align 8, !tbaa !82
+  %15 = load ptr, ptr %12, align 8, !tbaa !83
   %16 = load ptr, ptr %5, align 8, !tbaa !59
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %15, ptr noundef %18) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %14, !llvm.loop !83
+  br i1 %exitcond.not, label %.thread, label %14, !llvm.loop !84
 
 19:                                               ; preds = %Map_CutList2Array.exit
   %20 = load ptr, ptr %5, align 8, !tbaa !59
@@ -1811,7 +1811,7 @@ Map_CutList2Array.exit:                           ; preds = %.lr.ph.i
   store ptr %24, ptr %.089.i, align 8, !tbaa !24
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i17, %.01320
-  br i1 %exitcond.not.i, label %Map_CutArray2List.exit, label %.lr.ph.i15, !llvm.loop !84
+  br i1 %exitcond.not.i, label %Map_CutArray2List.exit, label %.lr.ph.i15, !llvm.loop !85
 
 Map_CutArray2List.exit:                           ; preds = %.lr.ph.i15, %.thread21, %19
   %.08.lcssa.i = phi ptr [ %4, %19 ], [ %4, %.thread21 ], [ %24, %.lr.ph.i15 ]
@@ -1980,32 +1980,32 @@ attributes #20 = { nounwind willreturn memory(read) }
 !70 = !{!27, !25, i64 8}
 !71 = !{!27, !25, i64 16}
 !72 = distinct !{!72, !29}
-!73 = distinct !{!73, !29}
-!74 = distinct !{!74, !29}
+!73 = distinct !{!73, !29, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !75 = distinct !{!75, !29}
 !76 = distinct !{!76, !29}
 !77 = distinct !{!77, !29}
 !78 = distinct !{!78, !29}
-!79 = !{!33, !10, i64 88}
-!80 = !{!33, !10, i64 80}
-!81 = distinct !{!81, !29}
-!82 = !{!4, !18, i64 1784}
-!83 = distinct !{!83, !29}
+!79 = distinct !{!79, !29}
+!80 = !{!33, !10, i64 88}
+!81 = !{!33, !10, i64 80}
+!82 = distinct !{!82, !29}
+!83 = !{!4, !18, i64 1784}
 !84 = distinct !{!84, !29}
 !85 = distinct !{!85, !29}
 !86 = distinct !{!86, !29}
 !87 = distinct !{!87, !29}
-!88 = distinct !{!88, !29}
+!88 = distinct !{!88, !29, !74}
 !89 = distinct !{!89, !29}
-!90 = !{!27, !7, i64 79}
-!91 = distinct !{!91, !29}
+!90 = distinct !{!90, !29}
+!91 = !{!27, !7, i64 79}
 !92 = distinct !{!92, !29}
-!93 = !{!4, !9, i64 120}
-!94 = !{!4, !9, i64 44}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"vprintf: argument 0"}
-!97 = distinct !{!97, !"vprintf"}
-!98 = distinct !{!98, !29}
+!93 = distinct !{!93, !29}
+!94 = !{!4, !9, i64 120}
+!95 = !{!4, !9, i64 44}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"vprintf: argument 0"}
+!98 = distinct !{!98, !"vprintf"}
 !99 = distinct !{!99, !29}
 !100 = distinct !{!100, !29}
 !101 = distinct !{!101, !29}
@@ -2017,11 +2017,14 @@ attributes #20 = { nounwind willreturn memory(read) }
 !107 = distinct !{!107, !29}
 !108 = distinct !{!108, !29}
 !109 = distinct !{!109, !29}
-!110 = distinct !{!110, !29}
-!111 = !{!33, !9, i64 16}
+!110 = distinct !{!110, !29, !74}
+!111 = distinct !{!111, !29}
 !112 = distinct !{!112, !29}
-!113 = distinct !{!113, !29}
+!113 = !{!33, !9, i64 16}
 !114 = distinct !{!114, !29}
 !115 = distinct !{!115, !29}
 !116 = distinct !{!116, !29}
-!117 = distinct !{!117, !29}
+!117 = distinct !{!117, !29, !74}
+!118 = distinct !{!118, !29}
+!119 = distinct !{!119, !29}
+!120 = distinct !{!120, !29}

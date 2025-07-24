@@ -4351,7 +4351,7 @@ for.body223.us:                                   ; preds = %for.body223.lr.ph, 
 for.inc239.us:                                    ; preds = %for.body223.us
   %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0327.us, i64 4
   %cmp8.i.i.not.us = icmp eq ptr %incdec.ptr.i.us, %add.ptr.i.i.sink.i
-  br i1 %cmp8.i.i.not.us, label %for.end242, label %for.body223.us
+  br i1 %cmp8.i.i.not.us, label %for.end242, label %for.body223.us, !llvm.loop !58
 
 for.body223:                                      ; preds = %for.body223.lr.ph, %for.inc239
   %__begin2.sroa.0.0327 = phi ptr [ %call.i.i225, %for.inc239 ], [ %_M_left.i.i.i.i.i.i.val, %for.body223.lr.ph ]
@@ -4457,7 +4457,7 @@ for.inc282:                                       ; preds = %if.end267, %for.bod
   %inc283 = add i32 %73, 1
   store i32 %inc283, ptr %i257, align 4
   %cmp262 = icmp ult i32 %inc283, %conv.i241
-  br i1 %cmp262, label %for.body263, label %for.end284.loopexit, !llvm.loop !58
+  br i1 %cmp262, label %for.body263, label %for.end284.loopexit, !llvm.loop !60
 
 for.end284.loopexit:                              ; preds = %for.inc282
   %retval.sroa.0.0.copyload.i.i.i256.pre = load i64, ptr %call165, align 8
@@ -4675,7 +4675,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %for.body, %_ZNK6her
   %spec.select = add i32 %count.0128, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
 
 for.end:                                          ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
   %count.0.lcssa = phi i32 [ 0, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ], [ %spec.select, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
@@ -4917,7 +4917,7 @@ for.inc87:                                        ; preds = %if.end74, %lor.lhs.
   %resultIndex.1 = phi i32 [ %inc81, %if.end79 ], [ %resultIndex.0133, %lor.lhs.false ], [ %resultIndex.0133, %if.end74 ], [ %resultIndex.0133, %cond.true ], [ %resultIndex.0133, %cond.false ]
   %inc88 = add nuw i32 %i45.0130, 1
   %exitcond137.not = icmp eq i32 %inc88, %conv.i
-  br i1 %exitcond137.not, label %for.end89.loopexit, label %for.body48, !llvm.loop !60
+  br i1 %exitcond137.not, label %for.end89.loopexit, label %for.body48, !llvm.loop !62
 
 for.end89.loopexit:                               ; preds = %for.inc87
   %.pre = load ptr, ptr %topGCScope_.i.i.i.i, align 8
@@ -5214,12 +5214,12 @@ if.end47:                                         ; preds = %if.end31
 for.inc:                                          ; preds = %if.end47, %if.then23
   %inc = add nuw nsw i64 %elemIdx.067, 1
   %exitcond74.not = icmp eq i64 %inc, %length
-  br i1 %exitcond74.not, label %cleanup, label %for.body, !llvm.loop !61
+  br i1 %exitcond74.not, label %cleanup, label %for.body, !llvm.loop !63
 
 for.cond58:                                       ; preds = %if.end78
   %inc89 = add nuw nsw i64 %elemIdx57.063, 1
   %exitcond.not = icmp eq i64 %inc89, %length
-  br i1 %exitcond.not, label %cleanup, label %for.body60, !llvm.loop !62
+  br i1 %exitcond.not, label %cleanup, label %for.body60, !llvm.loop !64
 
 for.body60:                                       ; preds = %for.cond58.preheader, %for.cond58
   %elemIdx57.063 = phi i64 [ %inc89, %for.cond58 ], [ 0, %for.cond58.preheader ]
@@ -5427,7 +5427,7 @@ while.body.i.i.i:                                 ; preds = %if.then, %while.bod
   %cond.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !63
+  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !65
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end12.i.i.i
@@ -5496,7 +5496,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %I.07.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i14.i
-  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.i, !llvm.loop !64
+  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.i, !llvm.loop !66
 
 _ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %for.body.i, %for.inc.i
   %retval.0.i = phi ptr [ %add.ptr.i14.i, %for.inc.i ], [ %I.07.i, %for.body.i ]
@@ -5559,7 +5559,7 @@ while.body.i.i.i27:                               ; preds = %while.body, %while.
   %cond.in.i.i.i32 = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i28, i64 %cond.in.v.i.i.i31
   %__x.0.i.i.i33 = load ptr, ptr %cond.in.i.i.i32, align 8
   %cmp.not.i.i.i34 = icmp eq ptr %__x.0.i.i.i33, null
-  br i1 %cmp.not.i.i.i34, label %while.end.i.i.i35, label %while.body.i.i.i27, !llvm.loop !63
+  br i1 %cmp.not.i.i.i34, label %while.end.i.i.i35, label %while.body.i.i.i27, !llvm.loop !65
 
 while.end.i.i.i35:                                ; preds = %while.body.i.i.i27
   br i1 %cmp.i.i.i.i30, label %if.then.i.i.i55, label %if.end12.i.i.i36
@@ -5610,7 +5610,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit63:    ; preds = %if.end12.i.i.i36, %
   %sub.i = add i32 %23, -1
   store i32 %sub.i, ptr %Size.i.i, align 8
   %tobool.not.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool.not.i, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %tobool.not.i, label %while.end, label %while.body, !llvm.loop !67
 
 while.end:                                        ; preds = %_ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit63
   %.pre.i.pre.pre.i.i69.pre = load i32, ptr %V, align 4
@@ -5629,7 +5629,7 @@ while.body.i.i.i70:                               ; preds = %while.end, %while.b
   %cond.in.i.i.i75 = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i71, i64 %cond.in.v.i.i.i74
   %__x.0.i.i.i76 = load ptr, ptr %cond.in.i.i.i75, align 8
   %cmp.not.i.i.i77 = icmp eq ptr %__x.0.i.i.i76, null
-  br i1 %cmp.not.i.i.i77, label %while.end.i.i.i78, label %while.body.i.i.i70, !llvm.loop !63
+  br i1 %cmp.not.i.i.i77, label %while.end.i.i.i78, label %while.body.i.i.i70, !llvm.loop !65
 
 while.end.i.i.i78:                                ; preds = %while.body.i.i.i70
   br i1 %cmp.i.i.i.i73, label %if.then.i.i.i98, label %if.end12.i.i.i79
@@ -5860,7 +5860,7 @@ _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZN
   %inc = add nuw i32 %j.05, 1
   %exitcond.not = icmp eq i32 %inc, %conv.i
   %or.cond = select i1 %call11, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %return, label %for.body, !llvm.loop !66
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !68
 
 return:                                           ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
   %cmp.lcssa = phi i1 [ false, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ], [ %call11, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
@@ -5898,7 +5898,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %I.07.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i14.i
-  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.i, !llvm.loop !64
+  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.i, !llvm.loop !66
 
 _ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %for.body.i, %for.inc.i, %if.then
   %retval.0.i = phi ptr [ %add.ptr.i14.i, %if.then ], [ %I.07.i, %for.body.i ], [ %add.ptr.i14.i, %for.inc.i ]
@@ -5928,7 +5928,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i, label %while.body.i.i.i, !llvm.loop !67
+  br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i, label %while.body.i.i.i, !llvm.loop !69
 
 _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i2 = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -5995,7 +5995,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !68
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !70
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -6220,8 +6220,8 @@ attributes #16 = { builtin nounwind }
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE3endEv: %agg.result"}
 !57 = distinct !{!57, !"_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE3endEv"}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
+!58 = distinct !{!58, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
@@ -6231,3 +6231,5 @@ attributes #16 = { builtin nounwind }
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
 !68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}

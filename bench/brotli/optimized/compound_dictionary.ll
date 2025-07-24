@@ -136,7 +136,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
 
 75:                                               ; preds = %66
   %76 = add i32 %storemerge226.us.i, -1
-  br label %.lr.ph222.us.i
+  br label %.lr.ph222.us.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %68, %.preheader217.i
   %storemerge.i = phi i32 [ 32, %.preheader217.i ], [ %storemerge226.us.i, %68 ]
@@ -147,7 +147,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %78 = add i32 %.0168.lcssa.i, %.0176231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %34
-  br i1 %exitcond.not.i, label %79, label %.preheader217.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %79, label %.preheader217.i, !llvm.loop !15
 
 79:                                               ; preds = %._crit_edge.i
   %80 = zext i32 %78 to i64
@@ -162,18 +162,18 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %87 = getelementptr inbounds nuw i32, ptr %86, i64 %34
   %88 = getelementptr inbounds nuw i16, ptr %87, i64 %37
   %89 = getelementptr inbounds nuw i32, ptr %88, i64 %80
-  store i32 -558043677, ptr %85, align 4, !tbaa !14
+  store i32 -558043677, ptr %85, align 4, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 %78, ptr %90, align 4, !tbaa !16
+  store i32 %78, ptr %90, align 4, !tbaa !18
   %91 = trunc nuw i64 %2 to i32
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i32 %91, ptr %92, align 4, !tbaa !17
+  store i32 %91, ptr %92, align 4, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  store i32 40, ptr %93, align 4, !tbaa !18
+  store i32 40, ptr %93, align 4, !tbaa !20
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i32 %.013.lcssa, ptr %94, align 4, !tbaa !19
+  store i32 %.013.lcssa, ptr %94, align 4, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 20
-  store i32 %.014.lcssa, ptr %95, align 4, !tbaa !20
+  store i32 %.014.lcssa, ptr %95, align 4, !tbaa !22
   store ptr %1, ptr %89, align 1
   br label %96
 
@@ -188,7 +188,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   store i32 0, ptr %98, align 4, !tbaa !9
   %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
   %exitcond244.not.i = icmp eq i64 %indvars.iv.next241.i, %34
-  br i1 %exitcond244.not.i, label %.preheader.i, label %96, !llvm.loop !21
+  br i1 %exitcond244.not.i, label %.preheader.i, label %96, !llvm.loop !23
 
 .preheader.i:                                     ; preds = %96, %134
   %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %134 ], [ 0, %96 ]
@@ -238,7 +238,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %129 = getelementptr inbounds nuw i32, ptr %39, i64 %128
   %130 = add nuw nsw i64 %.0163235.i, 1
   %exitcond245.not.i = icmp eq i64 %130, %124
-  br i1 %exitcond245.not.i, label %131, label %125, !llvm.loop !22
+  br i1 %exitcond245.not.i, label %131, label %125, !llvm.loop !24
 
 131:                                              ; preds = %125
   %132 = getelementptr i32, ptr %88, i64 %.0236.i
@@ -249,7 +249,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
 134:                                              ; preds = %131, %110
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %exitcond251.not.i = icmp eq i64 %indvars.iv.next247.i, %37
-  br i1 %exitcond251.not.i, label %135, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond251.not.i, label %135, label %.preheader.i, !llvm.loop !25
 
 135:                                              ; preds = %134
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %33) #6
@@ -277,7 +277,7 @@ declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i64, ptr %0, align 8, !tbaa !24
+  %3 = load i64, ptr %0, align 8, !tbaa !26
   %4 = icmp eq i64 %3, 15
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %4
@@ -285,35 +285,35 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !27
+  %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = add i64 %10, %8
-  store i64 %11, ptr %9, align 8, !tbaa !27
+  store i64 %11, ptr %9, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %3
-  store ptr %1, ptr %13, align 8, !tbaa !28
+  store ptr %1, ptr %13, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = add i64 %3, 1
   %16 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %15
-  store i64 %11, ptr %16, align 8, !tbaa !31
+  store i64 %11, ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !20
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw i64 1, %20
   %22 = getelementptr inbounds nuw i32, ptr %17, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !19
+  %24 = load i32, ptr %23, align 4, !tbaa !21
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw i64 1, %25
   %27 = getelementptr inbounds nuw i16, ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !16
+  %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %32 = load i32, ptr %1, align 4, !tbaa !14
+  %32 = load i32, ptr %1, align 4, !tbaa !16
   %33 = icmp eq i32 %32, -558043680
   br i1 %33, label %35, label %34
 
@@ -325,10 +325,10 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
   %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %34 ], [ %31, %5 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = getelementptr inbounds nuw [16 x ptr], ptr %36, i64 0, i64 %3
-  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !32
-  %38 = load i64, ptr %0, align 8, !tbaa !24
+  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !34
+  %38 = load i64, ptr %0, align 8, !tbaa !26
   %39 = add i64 %38, 1
-  store i64 %39, ptr %0, align 8, !tbaa !24
+  store i64 %39, ptr %0, align 8, !tbaa !26
   br label %40
 
 40:                                               ; preds = %2, %35
@@ -373,24 +373,26 @@ attributes #6 = { nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = !{!15, !10, i64 0}
-!15 = !{!"PreparedDictionary", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
-!16 = !{!15, !10, i64 4}
-!17 = !{!15, !10, i64 8}
-!18 = !{!15, !10, i64 12}
-!19 = !{!15, !10, i64 16}
-!20 = !{!15, !10, i64 20}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !4}
+!16 = !{!17, !10, i64 0}
+!17 = !{!"PreparedDictionary", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
+!18 = !{!17, !10, i64 4}
+!19 = !{!17, !10, i64 8}
+!20 = !{!17, !10, i64 12}
+!21 = !{!17, !10, i64 16}
+!22 = !{!17, !10, i64 20}
 !23 = distinct !{!23, !4}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"CompoundDictionary", !26, i64 0, !26, i64 8, !7, i64 16, !7, i64 144, !7, i64 272, !26, i64 400, !7, i64 408}
-!26 = !{!"long", !7, i64 0}
-!27 = !{!25, !26, i64 8}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS18PreparedDictionary", !30, i64 0}
-!30 = !{!"any pointer", !7, i64 0}
-!31 = !{!26, !26, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 omnipotent char", !30, i64 0}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"CompoundDictionary", !28, i64 0, !28, i64 8, !7, i64 16, !7, i64 144, !7, i64 272, !28, i64 400, !7, i64 408}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!27, !28, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS18PreparedDictionary", !32, i64 0}
+!32 = !{!"any pointer", !7, i64 0}
+!33 = !{!28, !28, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 omnipotent char", !32, i64 0}

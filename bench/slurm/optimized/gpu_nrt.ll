@@ -353,7 +353,7 @@ _get_device_name.exit.i:                          ; preds = %58, %50
   store i32 %85, ptr %86, align 4
   %87 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #7
   %.not23.i.i = icmp eq ptr %87, null
-  br i1 %.not23.i.i, label %.preheader.i18.i, label %.lr.ph.i17.i, !llvm.loop !12
+  br i1 %.not23.i.i, label %.preheader.i18.i, label %.lr.ph.i17.i, !llvm.loop !13
 
 .lr.ph.preheader.i.i.i:                           ; preds = %97, %.lr.ph.preheader.i.preheader.i.i
   %.032.i.i = phi i32 [ %98, %97 ], [ 0, %.lr.ph.preheader.i.preheader.i.i ]
@@ -362,7 +362,7 @@ _get_device_name.exit.i:                          ; preds = %58, %50
 88:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 .lr.ph.i.i.i:                                     ; preds = %88, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %88 ]
@@ -394,7 +394,7 @@ _is_link.exit.i.i:                                ; preds = %.lr.ph.i.i.i
 97:                                               ; preds = %95, %94, %_is_link.exit.i.i
   %98 = add nuw i32 %.032.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %98, %.3.i
-  br i1 %exitcond.not.i.i, label %.loopexit28.i.i, label %.lr.ph.preheader.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit28.i.i, label %.lr.ph.preheader.i.i.i, !llvm.loop !15
 
 .loopexit28.i.i:                                  ; preds = %97, %82, %.preheader.thread.i.i, %.preheader.i18.i, %73, %70
   call void @slurm_xfree(ptr noundef nonnull %2) #7
@@ -479,7 +479,7 @@ _get_connected_devices.exit.i:                    ; preds = %.loopexit28.i.i, %6
   %.1.i = phi ptr [ %.2.i, %126 ], [ %.0925.i, %35 ]
   %128 = call ptr @readdir(ptr noundef nonnull %14) #7
   %.not12.i = icmp eq ptr %128, null
-  br i1 %.not12.i, label %_get_system_gpu_list_neuron.exit, label %35, !llvm.loop !14
+  br i1 %.not12.i, label %_get_system_gpu_list_neuron.exit, label %35, !llvm.loop !16
 
 _get_system_gpu_list_neuron.exit:                 ; preds = %127
   %129 = call i32 @closedir(ptr noundef nonnull %14)
@@ -598,7 +598,9 @@ attributes #7 = { nounwind }
 !8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !9, !10}
 !14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

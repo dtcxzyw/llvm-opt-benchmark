@@ -1222,14 +1222,14 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %54 = select i1 %.not54.us, i8 112, i8 110
   %55 = sext i32 %46 to i64
   %56 = getelementptr inbounds i8, ptr %16, i64 %55
-  store i8 %54, ptr %56, align 1, !tbaa !57
+  store i8 %54, ptr %56, align 1, !tbaa !58
   %57 = add nsw i32 %.14869.us, 1
   br label %62
 
 58:                                               ; preds = %47
   %59 = sext i32 %46 to i64
   %60 = getelementptr inbounds i8, ptr %16, i64 %59
-  store i8 46, ptr %60, align 1, !tbaa !57
+  store i8 46, ptr %60, align 1, !tbaa !58
   %61 = add nsw i32 %.14570.us, 1
   %.pre = add nsw i32 %.171.us, 2
   br label %62
@@ -1239,7 +1239,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.249.us = phi i32 [ %.14869.us, %58 ], [ %57, %._crit_edge101 ]
   %.246.us = phi i32 [ %61, %58 ], [ %.14570.us, %._crit_edge101 ]
   %63 = icmp slt i32 %.pre-phi, %.val5568.us
-  br i1 %63, label %40, label %.critedge.us, !llvm.loop !58
+  br i1 %63, label %40, label %.critedge.us, !llvm.loop !59
 
 .lr.ph74.us:                                      ; preds = %35
   %64 = getelementptr i8, ptr %36, i64 8
@@ -1285,7 +1285,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 82:                                               ; preds = %76
   %83 = sext i32 %75 to i64
   %84 = getelementptr inbounds i8, ptr %16, i64 %83
-  store i8 46, ptr %84, align 1, !tbaa !57
+  store i8 46, ptr %84, align 1, !tbaa !58
   %85 = add nsw i32 %.14570, 1
   %.pre98 = add nsw i32 %.171, 2
   br label %91
@@ -1296,7 +1296,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %87 = select i1 %.not54, i8 112, i8 110
   %88 = sext i32 %75 to i64
   %89 = getelementptr inbounds i8, ptr %16, i64 %88
-  store i8 %87, ptr %89, align 1, !tbaa !57
+  store i8 %87, ptr %89, align 1, !tbaa !58
   %90 = add nsw i32 %.14869, 1
   br label %91
 
@@ -1305,7 +1305,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.249 = phi i32 [ %.14869, %82 ], [ %90, %._crit_edge100 ]
   %.246 = phi i32 [ %85, %82 ], [ %.14570, %._crit_edge100 ]
   %92 = icmp slt i32 %.pre-phi99, %.val5568
-  br i1 %92, label %69, label %.critedge, !llvm.loop !58
+  br i1 %92, label %69, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %91, %.lr.ph82.split
   %.148.lcssa = phi i32 [ %.04779, %.lr.ph82.split ], [ %.249, %91 ]
@@ -1318,7 +1318,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.val59.val = load i32, ptr %95, align 4, !tbaa !3
   %96 = sext i32 %.val59.val to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !56
+  br i1 %97, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !60
 
 ._crit_edge83:                                    ; preds = %.critedge, %.critedge.us, %.thread, %23
   %.val58.val97 = phi i32 [ %.val59.val77, %23 ], [ %.val59.val77107, %.thread ], [ %.val59.val77, %.critedge.us ], [ %.val59.val, %.critedge ]
@@ -1432,7 +1432,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #8 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !59
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !61
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -1440,7 +1440,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #8 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !59, !noalias !61
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !61, !noalias !63
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -1503,7 +1503,7 @@ Abc_Clock.exit:                                   ; preds = %7, %10
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %22)
   %24 = add nuw nsw i32 %.061, 1
   %exitcond.not = icmp eq i32 %24, %.val54.val
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %putchar = call i32 @putchar(i32 10)
@@ -1546,7 +1546,7 @@ Abc_Clock.exit:                                   ; preds = %7, %10
   %.val56.val.us = load i32, ptr %37, align 4, !tbaa !3
   %38 = sext i32 %.val56.val.us to i64
   %39 = icmp slt i64 %indvars.iv.next95, %38
-  br i1 %39, label %.preheader.us, label %._crit_edge73, !llvm.loop !65
+  br i1 %39, label %.preheader.us, label %._crit_edge73, !llvm.loop !67
 
 40:                                               ; preds = %.preheader.us, %71
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %71 ]
@@ -1602,25 +1602,25 @@ Gia_ManCheckUnate.exit.us:                        ; preds = %56, %40
 
 60:                                               ; preds = %Gia_ManCheckUnate.exit.us
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  store i8 46, ptr %61, align 1, !tbaa !57
+  store i8 46, ptr %61, align 1, !tbaa !58
   %62 = add nsw i32 %.14563.us, 1
   br label %71
 
 63:                                               ; preds = %Gia_ManCheckUnate.exit.us
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  store i8 110, ptr %64, align 1, !tbaa !57
+  store i8 110, ptr %64, align 1, !tbaa !58
   %65 = add nsw i32 %.14762.us, 1
   br label %71
 
 66:                                               ; preds = %Gia_ManCheckUnate.exit.us
   %67 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  store i8 112, ptr %67, align 1, !tbaa !57
+  store i8 112, ptr %67, align 1, !tbaa !58
   %68 = add nsw i32 %.14762.us, 1
   br label %71
 
 69:                                               ; preds = %Gia_ManCheckUnate.exit.us
   %70 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  store i8 32, ptr %70, align 1, !tbaa !57
+  store i8 32, ptr %70, align 1, !tbaa !58
   br label %71
 
 71:                                               ; preds = %69, %66, %63, %60, %Gia_ManCheckUnate.exit.us
@@ -1628,7 +1628,7 @@ Gia_ManCheckUnate.exit.us:                        ; preds = %56, %40
   %.2.us = phi i32 [ %.14563.us, %69 ], [ %.14563.us, %66 ], [ %.14563.us, %63 ], [ %62, %60 ], [ %.14563.us, %Gia_ManCheckUnate.exit.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond93.not, label %._crit_edge66.us, label %40, !llvm.loop !66
+  br i1 %exitcond93.not, label %._crit_edge66.us, label %40, !llvm.loop !68
 
 ._crit_edge66.us:                                 ; preds = %71
   br i1 %.not52, label %36, label %33
@@ -1644,7 +1644,7 @@ Gia_ManCheckUnate.exit.us:                        ; preds = %56, %40
   %74 = getelementptr i8, ptr %.val56, i64 4
   %.val56.val = load i32, ptr %74, align 4, !tbaa !3
   %75 = icmp slt i32 %73, %.val56.val
-  br i1 %75, label %.preheader, label %._crit_edge73, !llvm.loop !65
+  br i1 %75, label %.preheader, label %._crit_edge73, !llvm.loop !69
 
 ._crit_edge73:                                    ; preds = %.preheader, %36, %.preheader.lr.ph.split, %25
   %.val55.val98 = phi i32 [ %.val56.val69, %25 ], [ %.val56.val69, %.preheader.lr.ph.split ], [ %.val56.val.us, %36 ], [ %.val56.val, %.preheader ]
@@ -1808,14 +1808,17 @@ attributes #20 = { nounwind willreturn memory(read) }
 !53 = !{!"timespec", !26, i64 0, !26, i64 8}
 !54 = !{!53, !26, i64 8}
 !55 = distinct !{!55, !33}
-!56 = distinct !{!56, !33}
-!57 = !{!6, !6, i64 0}
-!58 = distinct !{!58, !33}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"vprintf: argument 0"}
-!63 = distinct !{!63, !"vprintf"}
-!64 = distinct !{!64, !33}
-!65 = distinct !{!65, !33}
+!56 = distinct !{!56, !33, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = !{!6, !6, i64 0}
+!59 = distinct !{!59, !33}
+!60 = distinct !{!60, !33}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"vprintf: argument 0"}
+!65 = distinct !{!65, !"vprintf"}
 !66 = distinct !{!66, !33}
+!67 = distinct !{!67, !33, !57}
+!68 = distinct !{!68, !33}
+!69 = distinct !{!69, !33}

@@ -14834,12 +14834,12 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr nound
   store float %111, ptr %106, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge65, label %100, !llvm.loop !776
+  br i1 %exitcond73.not, label %._crit_edge65, label %100, !llvm.loop !778
 
 ._crit_edge.thread:                               ; preds = %49, %._crit_edge80, %._crit_edge65, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge80 ], [ %.05358, %._crit_edge65 ], [ %.05358, %._crit_edge ], [ %.05358, %49 ]
   %exitcond79.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond79.not, label %._crit_edge69, label %12, !llvm.loop !777
+  br i1 %exitcond79.not, label %._crit_edge69, label %12, !llvm.loop !779
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -14943,7 +14943,7 @@ define dso_local noundef i32 @_ZN11NetOptimize26fuse_convolution_batchnormEv(ptr
 60:                                               ; preds = %57, %45, %.lr.ph
   %.078 = add nuw i64 %.078201, 1
   %exitcond.not = icmp eq i64 %.078, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !778
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !780
 
 ._crit_edge:                                      ; preds = %57, %30
   %.078.lcssa = phi i64 [ %.078200, %30 ], [ %.078201, %57 ]
@@ -15059,7 +15059,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
   store float %118, ptr %119, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !779
+  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !781
 
 120:                                              ; preds = %._crit_edge206
   store i32 1, ptr %98, align 8, !tbaa !189
@@ -15313,7 +15313,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %240, ptr %234, align 4, !tbaa !86
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !780
+  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !782
 
 241:                                              ; preds = %.lr.ph212, %241
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %241 ]
@@ -15324,12 +15324,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %245, ptr %243, align 4, !tbaa !86
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !781
+  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !783
 
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge244, %_ZNSt6vectorIfSaIfEED2Ev.exit121, %._crit_edge
   %.pre-phi = phi i64 [ %.pre245, %._crit_edge244 ], [ %.078200, %_ZNSt6vectorIfSaIfEED2Ev.exit121 ], [ %.078200, %._crit_edge ], [ %.078200, %60 ]
   %exitcond242.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !782
+  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !784
 
 246:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2252) #26
@@ -15435,7 +15435,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 49:                                               ; preds = %46, %34, %.lr.ph
   %.067 = add nuw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %.067, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !783
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !785
 
 ._crit_edge:                                      ; preds = %46, %19
   %.067.lcssa = phi i64 [ %.06781, %19 ], [ %.06782, %46 ]
@@ -15492,7 +15492,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 83:                                               ; preds = %71, %64
   %84 = add nuw i64 %.06885, 1
   %exitcond108.not = icmp eq i64 %84, %.067.lcssa
-  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !784
+  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !786
 
 ._crit_edge87:                                    ; preds = %71
   %85 = icmp eq i64 %.06885, %.067.lcssa
@@ -15569,7 +15569,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
 128:                                              ; preds = %123, %._crit_edge94.us
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !785
+  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !787
 
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
@@ -15580,7 +15580,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   store float %133, ptr %131, align 4, !tbaa !86
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %119
-  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !786
+  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !788
 
 ._crit_edge94.us:                                 ; preds = %129
   br i1 %.not77, label %128, label %123
@@ -15620,12 +15620,12 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_mulEv(ptr nound
   store float %152, ptr %148, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !785
+  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !789
 
 ._crit_edge.thread:                               ; preds = %49, %83, %._crit_edge122, %._crit_edge, %._crit_edge87, %86, %95, %98, %._crit_edge98, %51, %60
   %.pre-phi = phi i64 [ %.pre, %._crit_edge122 ], [ %.06781, %._crit_edge ], [ %.06781, %._crit_edge87 ], [ %.06781, %86 ], [ %.06781, %95 ], [ %.06781, %98 ], [ %.06781, %._crit_edge98 ], [ %.06781, %51 ], [ %.06781, %60 ], [ %.06781, %83 ], [ %.06781, %49 ]
   %exitcond121.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !787
+  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !790
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15721,7 +15721,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 60:                                               ; preds = %57, %45, %.lr.ph
   %.066 = add nuw i64 %.06694, 1
   %exitcond.not = icmp eq i64 %.066, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !788
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !791
 
 ._crit_edge:                                      ; preds = %57, %30
   %.066.lcssa = phi i64 [ %.06693, %30 ], [ %.06694, %57 ]
@@ -15778,7 +15778,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
 94:                                               ; preds = %82, %75
   %95 = add nuw i64 %.06797, 1
   %exitcond112.not = icmp eq i64 %95, %.066.lcssa
-  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !789
+  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !792
 
 ._crit_edge99:                                    ; preds = %82
   %96 = icmp eq i64 %.06797, %.066.lcssa
@@ -15952,7 +15952,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20fuse_convolution_addEv(ptr nound
   store float %192, ptr %188, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !790
+  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !793
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc, %137
   %193 = getelementptr inbounds nuw i8, ptr %68, i64 136
@@ -16018,7 +16018,7 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %208, %_ZNSt7__cxx11
 ._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
   %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !791
+  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !794
 
 223:                                              ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %224 = landingpad { ptr, i32 }
@@ -16162,7 +16162,7 @@ define dso_local noundef i32 @_ZN11NetOptimize35fuse_convolutiondepthwise_batchn
 60:                                               ; preds = %57, %45, %.lr.ph
   %.078 = add nuw i64 %.078201, 1
   %exitcond.not = icmp eq i64 %.078, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !792
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !795
 
 ._crit_edge:                                      ; preds = %57, %30
   %.078.lcssa = phi i64 [ %.078200, %30 ], [ %.078201, %57 ]
@@ -16278,7 +16278,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
   store float %118, ptr %119, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !793
+  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !796
 
 120:                                              ; preds = %._crit_edge206
   store i32 1, ptr %98, align 8, !tbaa !241
@@ -16532,7 +16532,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %240, ptr %234, align 4, !tbaa !86
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !794
+  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !797
 
 241:                                              ; preds = %.lr.ph212, %241
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %241 ]
@@ -16543,12 +16543,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %245, ptr %243, align 4, !tbaa !86
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !795
+  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !798
 
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge244, %_ZNSt6vectorIfSaIfEED2Ev.exit121, %._crit_edge
   %.pre-phi = phi i64 [ %.pre245, %._crit_edge244 ], [ %.078200, %_ZNSt6vectorIfSaIfEED2Ev.exit121 ], [ %.078200, %._crit_edge ], [ %.078200, %60 ]
   %exitcond242.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !796
+  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !799
 
 246:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2252) #26
@@ -16651,7 +16651,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 49:                                               ; preds = %46, %34, %.lr.ph
   %.067 = add nuw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %.067, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !797
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !800
 
 ._crit_edge:                                      ; preds = %46, %19
   %.067.lcssa = phi i64 [ %.06781, %19 ], [ %.06782, %46 ]
@@ -16708,7 +16708,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 83:                                               ; preds = %71, %64
   %84 = add nuw i64 %.06885, 1
   %exitcond108.not = icmp eq i64 %84, %.067.lcssa
-  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !798
+  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !801
 
 ._crit_edge87:                                    ; preds = %71
   %85 = icmp eq i64 %.06885, %.067.lcssa
@@ -16785,7 +16785,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
 128:                                              ; preds = %123, %._crit_edge94.us
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !799
+  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !802
 
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
@@ -16796,7 +16796,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   store float %133, ptr %131, align 4, !tbaa !86
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %119
-  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !800
+  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !803
 
 ._crit_edge94.us:                                 ; preds = %129
   br i1 %.not77, label %128, label %123
@@ -16836,12 +16836,12 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_mulEv(
   store float %152, ptr %148, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !799
+  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !804
 
 ._crit_edge.thread:                               ; preds = %49, %83, %._crit_edge122, %._crit_edge, %._crit_edge87, %86, %95, %98, %._crit_edge98, %51, %60
   %.pre-phi = phi i64 [ %.pre, %._crit_edge122 ], [ %.06781, %._crit_edge ], [ %.06781, %._crit_edge87 ], [ %.06781, %86 ], [ %.06781, %95 ], [ %.06781, %98 ], [ %.06781, %._crit_edge98 ], [ %.06781, %51 ], [ %.06781, %60 ], [ %.06781, %83 ], [ %.06781, %49 ]
   %exitcond121.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !801
+  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !805
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16937,7 +16937,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 60:                                               ; preds = %57, %45, %.lr.ph
   %.066 = add nuw i64 %.06694, 1
   %exitcond.not = icmp eq i64 %.066, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !802
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !806
 
 ._crit_edge:                                      ; preds = %57, %30
   %.066.lcssa = phi i64 [ %.06693, %30 ], [ %.06694, %57 ]
@@ -16994,7 +16994,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
 94:                                               ; preds = %82, %75
   %95 = add nuw i64 %.06797, 1
   %exitcond112.not = icmp eq i64 %95, %.066.lcssa
-  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !803
+  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !807
 
 ._crit_edge99:                                    ; preds = %82
   %96 = icmp eq i64 %.06797, %.066.lcssa
@@ -17168,7 +17168,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_convolutiondepthwise_addEv(
   store float %192, ptr %188, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !804
+  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !808
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc, %137
   %193 = getelementptr inbounds nuw i8, ptr %68, i64 136
@@ -17234,7 +17234,7 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %208, %_ZNSt7__cxx11
 ._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
   %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !805
+  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !809
 
 223:                                              ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %224 = landingpad { ptr, i32 }
@@ -17378,7 +17378,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_deconvolution_batchnormEv(p
 60:                                               ; preds = %57, %45, %.lr.ph
   %.078 = add nuw i64 %.078201, 1
   %exitcond.not = icmp eq i64 %.078, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !806
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !810
 
 ._crit_edge:                                      ; preds = %57, %30
   %.078.lcssa = phi i64 [ %.078200, %30 ], [ %.078201, %57 ]
@@ -17494,7 +17494,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
   store float %118, ptr %119, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !807
+  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !811
 
 120:                                              ; preds = %._crit_edge206
   store i32 1, ptr %98, align 4, !tbaa !321
@@ -17748,7 +17748,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %240, ptr %234, align 4, !tbaa !86
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !808
+  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !812
 
 241:                                              ; preds = %.lr.ph212, %241
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %241 ]
@@ -17759,12 +17759,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %245, ptr %243, align 4, !tbaa !86
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !809
+  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !813
 
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge244, %_ZNSt6vectorIfSaIfEED2Ev.exit121, %._crit_edge
   %.pre-phi = phi i64 [ %.pre245, %._crit_edge244 ], [ %.078200, %_ZNSt6vectorIfSaIfEED2Ev.exit121 ], [ %.078200, %._crit_edge ], [ %.078200, %60 ]
   %exitcond242.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !810
+  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !814
 
 246:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2252) #26
@@ -17867,7 +17867,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 49:                                               ; preds = %46, %34, %.lr.ph
   %.067 = add nuw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %.067, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !811
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !815
 
 ._crit_edge:                                      ; preds = %46, %19
   %.067.lcssa = phi i64 [ %.06781, %19 ], [ %.06782, %46 ]
@@ -17924,7 +17924,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 83:                                               ; preds = %71, %64
   %84 = add nuw i64 %.06885, 1
   %exitcond108.not = icmp eq i64 %84, %.067.lcssa
-  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !812
+  br i1 %exitcond108.not, label %._crit_edge.thread, label %64, !llvm.loop !816
 
 ._crit_edge87:                                    ; preds = %71
   %85 = icmp eq i64 %.06885, %.067.lcssa
@@ -18001,7 +18001,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
 128:                                              ; preds = %123, %._crit_edge94.us
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !813
+  br i1 %exitcond120.not, label %._crit_edge98, label %.lr.ph93.us, !llvm.loop !817
 
 129:                                              ; preds = %.lr.ph93.us, %129
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.us ], [ %indvars.iv.next112, %129 ]
@@ -18012,7 +18012,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   store float %133, ptr %131, align 4, !tbaa !86
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %119
-  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !814
+  br i1 %exitcond115.not, label %._crit_edge94.us, label %129, !llvm.loop !818
 
 ._crit_edge94.us:                                 ; preds = %129
   br i1 %.not77, label %128, label %123
@@ -18052,12 +18052,12 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_mulEv(ptr nou
   store float %152, ptr %148, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !813
+  br i1 %exitcond110.not, label %._crit_edge98, label %147, !llvm.loop !819
 
 ._crit_edge.thread:                               ; preds = %49, %83, %._crit_edge122, %._crit_edge, %._crit_edge87, %86, %95, %98, %._crit_edge98, %51, %60
   %.pre-phi = phi i64 [ %.pre, %._crit_edge122 ], [ %.06781, %._crit_edge ], [ %.06781, %._crit_edge87 ], [ %.06781, %86 ], [ %.06781, %95 ], [ %.06781, %98 ], [ %.06781, %._crit_edge98 ], [ %.06781, %51 ], [ %.06781, %60 ], [ %.06781, %83 ], [ %.06781, %49 ]
   %exitcond121.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !815
+  br i1 %exitcond121.not, label %._crit_edge103, label %12, !llvm.loop !820
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18153,7 +18153,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 60:                                               ; preds = %57, %45, %.lr.ph
   %.066 = add nuw i64 %.06694, 1
   %exitcond.not = icmp eq i64 %.066, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !816
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !821
 
 ._crit_edge:                                      ; preds = %57, %30
   %.066.lcssa = phi i64 [ %.06693, %30 ], [ %.06694, %57 ]
@@ -18210,7 +18210,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
 94:                                               ; preds = %82, %75
   %95 = add nuw i64 %.06797, 1
   %exitcond112.not = icmp eq i64 %95, %.066.lcssa
-  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !817
+  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !822
 
 ._crit_edge99:                                    ; preds = %82
   %96 = icmp eq i64 %.06797, %.066.lcssa
@@ -18384,7 +18384,7 @@ define dso_local noundef i32 @_ZN11NetOptimize22fuse_deconvolution_addEv(ptr nou
   store float %192, ptr %188, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !818
+  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !823
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc, %137
   %193 = getelementptr inbounds nuw i8, ptr %68, i64 136
@@ -18450,7 +18450,7 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %208, %_ZNSt7__cxx11
 ._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
   %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !819
+  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !824
 
 223:                                              ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %224 = landingpad { ptr, i32 }
@@ -18594,7 +18594,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37fuse_deconvolutiondepthwise_batc
 60:                                               ; preds = %57, %45, %.lr.ph
   %.078 = add nuw i64 %.078201, 1
   %exitcond.not = icmp eq i64 %.078, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !820
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !825
 
 ._crit_edge:                                      ; preds = %57, %30
   %.078.lcssa = phi i64 [ %.078200, %30 ], [ %.078201, %57 ]
@@ -18710,7 +18710,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
   store float %118, ptr %119, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !821
+  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !826
 
 120:                                              ; preds = %._crit_edge206
   store i32 1, ptr %98, align 4, !tbaa !380
@@ -18964,7 +18964,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %240, ptr %234, align 4, !tbaa !86
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !822
+  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !827
 
 241:                                              ; preds = %.lr.ph212, %241
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %241 ]
@@ -18975,12 +18975,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %245, ptr %243, align 4, !tbaa !86
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !823
+  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !828
 
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge244, %_ZNSt6vectorIfSaIfEED2Ev.exit121, %._crit_edge
   %.pre-phi = phi i64 [ %.pre245, %._crit_edge244 ], [ %.078200, %_ZNSt6vectorIfSaIfEED2Ev.exit121 ], [ %.078200, %._crit_edge ], [ %.078200, %60 ]
   %exitcond242.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !824
+  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !829
 
 246:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2252) #26
@@ -19094,7 +19094,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_innerproduct_batchnormEv(pt
 60:                                               ; preds = %57, %45, %.lr.ph
   %.078 = add nuw i64 %.078201, 1
   %exitcond.not = icmp eq i64 %.078, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !825
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !830
 
 ._crit_edge:                                      ; preds = %57, %30
   %.078.lcssa = phi i64 [ %.078200, %30 ], [ %.078201, %57 ]
@@ -19210,7 +19210,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123.thread:          ; preds = %86
   store float %118, ptr %119, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !826
+  br i1 %exitcond230.not, label %._crit_edge206, label %102, !llvm.loop !831
 
 120:                                              ; preds = %._crit_edge206
   store i32 1, ptr %98, align 4, !tbaa !532
@@ -19464,7 +19464,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %240, ptr %234, align 4, !tbaa !86
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !827
+  br i1 %exitcond241.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit121, label %230, !llvm.loop !832
 
 241:                                              ; preds = %.lr.ph212, %241
   %indvars.iv231 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next232, %241 ]
@@ -19475,12 +19475,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit121:                 ; preds = %._crit_edge213
   store float %245, ptr %243, align 4, !tbaa !86
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !828
+  br i1 %exitcond235.not, label %._crit_edge213, label %241, !llvm.loop !833
 
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge244, %_ZNSt6vectorIfSaIfEED2Ev.exit121, %._crit_edge
   %.pre-phi = phi i64 [ %.pre245, %._crit_edge244 ], [ %.078200, %_ZNSt6vectorIfSaIfEED2Ev.exit121 ], [ %.078200, %._crit_edge ], [ %.078200, %60 ]
   %exitcond242.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !829
+  br i1 %exitcond242.not, label %._crit_edge220, label %23, !llvm.loop !834
 
 246:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.2252) #26
@@ -19594,7 +19594,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 60:                                               ; preds = %57, %45, %.lr.ph
   %.066 = add nuw i64 %.06694, 1
   %exitcond.not = icmp eq i64 %.066, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !830
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !835
 
 ._crit_edge:                                      ; preds = %57, %30
   %.066.lcssa = phi i64 [ %.06693, %30 ], [ %.06694, %57 ]
@@ -19651,7 +19651,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
 94:                                               ; preds = %82, %75
   %95 = add nuw i64 %.06797, 1
   %exitcond112.not = icmp eq i64 %95, %.066.lcssa
-  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !831
+  br i1 %exitcond112.not, label %._crit_edge.thread, label %75, !llvm.loop !836
 
 ._crit_edge99:                                    ; preds = %82
   %96 = icmp eq i64 %.06797, %.066.lcssa
@@ -19825,7 +19825,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_innerproduct_addEv(ptr noun
   store float %192, ptr %188, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !832
+  br i1 %exitcond114.not, label %_ZN4ncnn3MataSERKS0_.exit, label %187, !llvm.loop !837
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %187, %182, %.noexc, %137
   %193 = getelementptr inbounds nuw i8, ptr %68, i64 136
@@ -19891,7 +19891,7 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %208, %_ZNSt7__cxx11
 ._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
   %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
-  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !833
+  br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !838
 
 223:                                              ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %224 = landingpad { ptr, i32 }
@@ -20024,7 +20024,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 49:                                               ; preds = %46, %34, %.lr.ph
   %.053 = add nuw i64 %.05362, 1
   %exitcond.not = icmp eq i64 %.053, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !834
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !839
 
 ._crit_edge:                                      ; preds = %46, %19
   %.053.lcssa = phi i64 [ %.05361, %19 ], [ %.05362, %46 ]
@@ -20083,12 +20083,12 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
   store float %83, ptr %81, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next, %77
-  br i1 %exitcond83.not, label %._crit_edge68.us, label %80, !llvm.loop !835
+  br i1 %exitcond83.not, label %._crit_edge68.us, label %80, !llvm.loop !840
 
 ._crit_edge68.us:                                 ; preds = %80
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge72, label %.lr.ph67.us, !llvm.loop !836
+  br i1 %exitcond88.not, label %._crit_edge72, label %.lr.ph67.us, !llvm.loop !841
 
 ._crit_edge72:                                    ; preds = %._crit_edge68.us
   %84 = getelementptr inbounds nuw i8, ptr %55, i64 212
@@ -20116,7 +20116,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
   store float %91, ptr %89, align 4, !tbaa !86
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph75, !llvm.loop !837
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph75, !llvm.loop !842
 
 .loopexit:                                        ; preds = %.lr.ph75, %67, %._crit_edge72.thread98, %._crit_edge72, %51
   %92 = getelementptr inbounds nuw i8, ptr %57, i64 136
@@ -20140,7 +20140,7 @@ define dso_local noundef i32 @_ZN11NetOptimize25fuse_innerproduct_dropoutEv(ptr 
 ._crit_edge.thread:                               ; preds = %49, %._crit_edge95, %.loopexit, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge95 ], [ %.05361, %.loopexit ], [ %.05361, %._crit_edge ], [ %.05361, %49 ]
   %exitcond94.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond94.not, label %._crit_edge79, label %12, !llvm.loop !838
+  br i1 %exitcond94.not, label %._crit_edge79, label %12, !llvm.loop !843
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20321,7 +20321,7 @@ define dso_local noundef i32 @_ZN11NetOptimize27fuse_convolution_activationEv(pt
 133:                                              ; preds = %130, %118, %111
   %.0107 = add nuw i64 %.0107340, 1
   %exitcond.not = icmp eq i64 %.0107, %15
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !839
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !844
 
 ._crit_edge:                                      ; preds = %130, %75
   %.0107.lcssa = phi i64 [ %.0107339, %75 ], [ %.0107340, %130 ]
@@ -20948,7 +20948,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 ._crit_edge.thread:                               ; preds = %133, %._crit_edge367, %417, %._crit_edge
   %.pre-phi371 = phi i64 [ %.pre370, %._crit_edge367 ], [ %.0107339, %417 ], [ %.0107339, %._crit_edge ], [ %.0107339, %133 ]
   %exitcond359.not = icmp eq i64 %.pre-phi371, %15
-  br i1 %exitcond359.not, label %.lr.ph355, label %68, !llvm.loop !840
+  br i1 %exitcond359.not, label %.lr.ph355, label %68, !llvm.loop !845
 
 ._crit_edge356:                                   ; preds = %._crit_edge350.thread, %1
   ret i32 0
@@ -21044,7 +21044,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %402, %399, %408, %4
 489:                                              ; preds = %486, %474, %467
   %.0112 = add nuw i64 %.0112347, 1
   %exitcond360.not = icmp eq i64 %.0112, %15
-  br i1 %exitcond360.not, label %._crit_edge350.thread, label %.lr.ph349, !llvm.loop !841
+  br i1 %exitcond360.not, label %._crit_edge350.thread, label %.lr.ph349, !llvm.loop !846
 
 ._crit_edge350:                                   ; preds = %486, %438
   %.0112.lcssa = phi i64 [ %.0112346, %438 ], [ %.0112347, %486 ]
@@ -21484,7 +21484,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %662, %659, %668, %6
 ._crit_edge350.thread:                            ; preds = %489, %._crit_edge368, %687, %._crit_edge350
   %.pre-phi = phi i64 [ %.pre369, %._crit_edge368 ], [ %.0112346, %687 ], [ %.0112346, %._crit_edge350 ], [ %.0112346, %489 ]
   %exitcond362.not = icmp eq i64 %.pre-phi, %15
-  br i1 %exitcond362.not, label %._crit_edge356, label %431, !llvm.loop !842
+  br i1 %exitcond362.not, label %._crit_edge356, label %431, !llvm.loop !847
 
 701:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit122, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit128, %_ZN4ncnn3MatD2Ev.exit126, %_ZN4ncnn3MatD2Ev.exit124
   %.pn118.pn = phi { ptr, i32 } [ %218, %_ZN4ncnn3MatD2Ev.exit128 ], [ %304, %_ZN4ncnn3MatD2Ev.exit126 ], [ %400, %_ZN4ncnn3MatD2Ev.exit124 ], [ %574, %_ZN4ncnn3MatD2Ev.exit122 ], [ %660, %_ZN4ncnn3MatD2Ev.exit ]
@@ -21646,7 +21646,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36fuse_convolutiondepthwise_activa
 110:                                              ; preds = %107, %95, %88
   %.059 = add nuw i64 %.059192, 1
   %exitcond.not = icmp eq i64 %.059, %13
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !843
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !848
 
 ._crit_edge:                                      ; preds = %107, %52
   %.059.lcssa = phi i64 [ %.059191, %52 ], [ %.059192, %107 ]
@@ -22273,7 +22273,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %379, %376, %385, %3
 ._crit_edge.thread:                               ; preds = %110, %._crit_edge203, %394, %._crit_edge
   %.pre-phi = phi i64 [ %.pre204, %._crit_edge203 ], [ %.059191, %394 ], [ %.059191, %._crit_edge ], [ %.059191, %110 ]
   %exitcond200.not = icmp eq i64 %.pre-phi, %13
-  br i1 %exitcond200.not, label %._crit_edge198, label %45, !llvm.loop !844
+  br i1 %exitcond200.not, label %._crit_edge198, label %45, !llvm.loop !849
 
 408:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit65, %_ZN4ncnn3MatD2Ev.exit67
   %.pn = phi { ptr, i32 } [ %195, %_ZN4ncnn3MatD2Ev.exit67 ], [ %281, %_ZN4ncnn3MatD2Ev.exit65 ], [ %377, %_ZN4ncnn3MatD2Ev.exit ]
@@ -22404,7 +22404,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29fuse_deconvolution_activationEv(
 85:                                               ; preds = %82, %70, %63
   %.049 = add nuw i64 %.049135, 1
   %exitcond.not = icmp eq i64 %.049, %12
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !845
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !850
 
 ._crit_edge:                                      ; preds = %82, %41
   %.049.lcssa = phi i64 [ %.049134, %41 ], [ %.049135, %82 ]
@@ -22834,7 +22834,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %258, %255, %264, %2
 ._crit_edge.thread:                               ; preds = %85, %._crit_edge145, %278, %._crit_edge
   %.pre-phi = phi i64 [ %.pre146, %._crit_edge145 ], [ %.049134, %278 ], [ %.049134, %._crit_edge ], [ %.049134, %85 ]
   %exitcond143.not = icmp eq i64 %.pre-phi, %12
-  br i1 %exitcond143.not, label %._crit_edge141, label %34, !llvm.loop !846
+  br i1 %exitcond143.not, label %._crit_edge141, label %34, !llvm.loop !851
 
 292:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit53
   %.pn = phi { ptr, i32 } [ %170, %_ZN4ncnn3MatD2Ev.exit53 ], [ %256, %_ZN4ncnn3MatD2Ev.exit ]
@@ -22965,7 +22965,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38fuse_deconvolutiondepthwise_acti
 85:                                               ; preds = %82, %70, %63
   %.049 = add nuw i64 %.049135, 1
   %exitcond.not = icmp eq i64 %.049, %12
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !847
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !852
 
 ._crit_edge:                                      ; preds = %82, %41
   %.049.lcssa = phi i64 [ %.049134, %41 ], [ %.049135, %82 ]
@@ -23395,7 +23395,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %258, %255, %264, %2
 ._crit_edge.thread:                               ; preds = %85, %._crit_edge145, %278, %._crit_edge
   %.pre-phi = phi i64 [ %.pre146, %._crit_edge145 ], [ %.049134, %278 ], [ %.049134, %._crit_edge ], [ %.049134, %85 ]
   %exitcond143.not = icmp eq i64 %.pre-phi, %12
-  br i1 %exitcond143.not, label %._crit_edge141, label %34, !llvm.loop !848
+  br i1 %exitcond143.not, label %._crit_edge141, label %34, !llvm.loop !853
 
 292:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit53
   %.pn = phi { ptr, i32 } [ %170, %_ZN4ncnn3MatD2Ev.exit53 ], [ %256, %_ZN4ncnn3MatD2Ev.exit ]
@@ -23557,7 +23557,7 @@ define dso_local noundef i32 @_ZN11NetOptimize28fuse_innerproduct_activationEv(p
 110:                                              ; preds = %107, %95, %88
   %.059 = add nuw i64 %.059192, 1
   %exitcond.not = icmp eq i64 %.059, %13
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !849
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !854
 
 ._crit_edge:                                      ; preds = %107, %52
   %.059.lcssa = phi i64 [ %.059191, %52 ], [ %.059192, %107 ]
@@ -24184,7 +24184,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %379, %376, %385, %3
 ._crit_edge.thread:                               ; preds = %110, %._crit_edge203, %394, %._crit_edge
   %.pre-phi = phi i64 [ %.pre204, %._crit_edge203 ], [ %.059191, %394 ], [ %.059191, %._crit_edge ], [ %.059191, %110 ]
   %exitcond200.not = icmp eq i64 %.pre-phi, %13
-  br i1 %exitcond200.not, label %._crit_edge198, label %45, !llvm.loop !850
+  br i1 %exitcond200.not, label %._crit_edge198, label %45, !llvm.loop !855
 
 408:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit65, %_ZN4ncnn3MatD2Ev.exit67
   %.pn = phi { ptr, i32 } [ %195, %_ZN4ncnn3MatD2Ev.exit67 ], [ %281, %_ZN4ncnn3MatD2Ev.exit65 ], [ %377, %_ZN4ncnn3MatD2Ev.exit ]
@@ -24272,7 +24272,7 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
 51:                                               ; preds = %47, %32, %.lr.ph
   %.0128 = add nuw i64 %.0128193, 1
   %exitcond.not = icmp eq i64 %.0128, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !851
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !856
 
 ._crit_edge:                                      ; preds = %47, %44, %17
   %.0128.lcssa = phi i64 [ %.0128192, %17 ], [ %.0128193, %44 ], [ %.0128193, %47 ]
@@ -24345,11 +24345,11 @@ define dso_local noundef i32 @_ZN11NetOptimize24fuse_memorydata_binaryopEv(ptr n
   %85 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %86 = load ptr, ptr %85, align 8, !tbaa !52
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.180, ptr noundef %84, ptr noundef %86) #27
-  %88 = load ptr, ptr %69, align 8, !tbaa !852
+  %88 = load ptr, ptr %69, align 8, !tbaa !857
   %89 = getelementptr inbounds nuw i32, ptr %88, i64 %.0129
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %59, i64 120
-  %92 = load ptr, ptr %91, align 8, !tbaa !852
+  %92 = load ptr, ptr %91, align 8, !tbaa !857
   %.not.i.i = icmp eq ptr %90, %92
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i
 
@@ -24374,7 +24374,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 ._crit_edge.thread:                               ; preds = %51, %.lr.ph200._crit_edge, %73, %._crit_edge, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit, %53, %62, %65
   %.pre-phi = phi i64 [ %.pre232, %.lr.ph200._crit_edge ], [ %.0128192, %73 ], [ %.0128192, %._crit_edge ], [ %.0128192, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit ], [ %.0128192, %53 ], [ %.0128192, %62 ], [ %.0128192, %65 ], [ %.0128192, %51 ]
   %exitcond227.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond227.not, label %.lr.ph220, label %.lr.ph200, !llvm.loop !853
+  br i1 %exitcond227.not, label %.lr.ph220, label %.lr.ph200, !llvm.loop !858
 
 ._crit_edge221:                                   ; preds = %._crit_edge206.thread, %1
   ret i32 0
@@ -24437,7 +24437,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 138:                                              ; preds = %135, %123, %.lr.ph205
   %.0137 = add nuw i64 %.0137203, 1
   %exitcond228.not = icmp eq i64 %.0137, %10
-  br i1 %exitcond228.not, label %._crit_edge206.thread, label %.lr.ph205, !llvm.loop !854
+  br i1 %exitcond228.not, label %._crit_edge206.thread, label %.lr.ph205, !llvm.loop !859
 
 ._crit_edge206:                                   ; preds = %135, %108
   %.0137.in.lcssa = phi i64 [ %.0134219, %108 ], [ %.0137.in202, %135 ]
@@ -24512,12 +24512,12 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 182:                                              ; preds = %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond230.not, label %.loopexit, label %175, !llvm.loop !855
+  br i1 %exitcond230.not, label %.loopexit, label %175, !llvm.loop !860
 
 .loopexit:                                        ; preds = %182, %.preheader, %149, %.lr.ph217
   %183 = add nuw i64 %.0143214, 1
   %exitcond231.not = icmp eq i64 %183, %10
-  br i1 %exitcond231.not, label %._crit_edge206.thread, label %.lr.ph217, !llvm.loop !856
+  br i1 %exitcond231.not, label %._crit_edge206.thread, label %.lr.ph217, !llvm.loop !861
 
 .thread176.loopexit:                              ; preds = %179, %175
   %sext = shl i64 %indvars.iv, 32
@@ -24602,11 +24602,11 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 80
   %225 = load ptr, ptr %224, align 8, !tbaa !52
   %226 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.180, ptr noundef %223, ptr noundef %225) #27
-  %227 = load ptr, ptr %204, align 8, !tbaa !852
+  %227 = load ptr, ptr %204, align 8, !tbaa !857
   %228 = getelementptr inbounds nuw i32, ptr %227, i64 %.0131
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %230 = getelementptr inbounds nuw i8, ptr %194, i64 120
-  %231 = load ptr, ptr %230, align 8, !tbaa !852
+  %231 = load ptr, ptr %230, align 8, !tbaa !857
   %.not.i.i158 = icmp eq ptr %229, %231
   br i1 %.not.i.i158, label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i159
 
@@ -24622,11 +24622,11 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161: ; pr
   %235 = phi ptr [ %.pre.i.i160, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i159 ], [ %231, %.thread179 ]
   %236 = getelementptr inbounds i8, ptr %235, i64 -4
   store ptr %236, ptr %230, align 8, !tbaa !89
-  %237 = load ptr, ptr %207, align 8, !tbaa !852
+  %237 = load ptr, ptr %207, align 8, !tbaa !857
   %238 = getelementptr inbounds i32, ptr %237, i64 %.1139
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %240 = getelementptr inbounds nuw i8, ptr %192, i64 144
-  %241 = load ptr, ptr %240, align 8, !tbaa !852
+  %241 = load ptr, ptr %240, align 8, !tbaa !857
   %.not.i.i162 = icmp eq ptr %239, %241
   br i1 %.not.i.i162, label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit165, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i163
 
@@ -24636,7 +24636,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %244 = sub i64 %242, %243
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %238, ptr nonnull align 4 %239, i64 %244, i1 false)
   %.pre.i.i164 = load ptr, ptr %240, align 8, !tbaa !89
-  %.pre = load ptr, ptr %207, align 8, !tbaa !852
+  %.pre = load ptr, ptr %207, align 8, !tbaa !857
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit165
 
 _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit165: ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i163
@@ -24662,7 +24662,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit165: ; pr
   %.1135 = phi i64 [ %.0134219, %.lr.ph220 ], [ %.0134219, %._crit_edge206 ], [ %.0134219, %.thread176 ], [ %.0134219, %200 ], [ %.0134219, %197 ], [ %.0134219, %186 ], [ %255, %254 ], [ %.0134219, %212 ], [ %.0134219, %.loopexit ], [ %.0134219, %138 ]
   %256 = add i64 %.1135, 1
   %257 = icmp ult i64 %256, %10
-  br i1 %257, label %.lr.ph220, label %._crit_edge221, !llvm.loop !857
+  br i1 %257, label %.lr.ph220, label %._crit_edge221, !llvm.loop !862
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -24787,7 +24787,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 78:                                               ; preds = %73, %70, %58, %.lr.ph
   %79 = add nuw i64 %.087162, 1
   %exitcond.not = icmp eq i64 %79, %.086172
-  br i1 %exitcond.not, label %.lr.ph167.preheader, label %.lr.ph, !llvm.loop !858
+  br i1 %exitcond.not, label %.lr.ph167.preheader, label %.lr.ph, !llvm.loop !863
 
 .lr.ph167.preheader:                              ; preds = %78, %73
   %.087.lcssa185 = phi i64 [ %.087162, %73 ], [ %.086172, %78 ]
@@ -24835,7 +24835,7 @@ define dso_local noundef i32 @_ZN11NetOptimize21fuse_binaryop_eltwiseEv(ptr noun
 106:                                              ; preds = %101, %98, %86, %.lr.ph167
   %107 = add nuw i64 %.088165, 1
   %exitcond179.not = icmp eq i64 %107, %.086172
-  br i1 %exitcond179.not, label %._crit_edge168, label %.lr.ph167, !llvm.loop !859
+  br i1 %exitcond179.not, label %._crit_edge168, label %.lr.ph167, !llvm.loop !864
 
 ._crit_edge168:                                   ; preds = %106, %101, %48
   %.087.lcssa182 = phi i64 [ 0, %48 ], [ %.087.lcssa185, %101 ], [ %.087.lcssa185, %106 ]
@@ -25163,7 +25163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit127: ; preds = %
 278:                                              ; preds = %42, %45, %._crit_edge168, %271, %30, %23
   %279 = add nuw i64 %.086172, 1
   %exitcond180.not = icmp eq i64 %279, %12
-  br i1 %exitcond180.not, label %._crit_edge175, label %23, !llvm.loop !860
+  br i1 %exitcond180.not, label %._crit_edge175, label %23, !llvm.loop !865
 
 280:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %222
   %.pn100 = phi { ptr, i32 } [ %223, %222 ], [ %.pn, %_ZN4ncnn3MatD2Ev.exit ]
@@ -25187,7 +25187,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !861
+  %11 = load ptr, ptr %10, align 8, !tbaa !866
   %12 = load ptr, ptr %0, align 8, !tbaa !77
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -25197,7 +25197,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 
 17:                                               ; preds = %3
   %18 = icmp ugt i64 %9, 9223372036854775804
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, !prof !862
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, !prof !867
 
 19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
@@ -25223,7 +25223,7 @@ _ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, %22
   store ptr %20, ptr %0, align 8, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !861
+  store ptr %23, ptr %10, align 8, !tbaa !866
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
@@ -25373,7 +25373,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
 56:                                               ; preds = %53, %41, %.lr.ph
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
   %57 = icmp sgt i64 %indvars.iv39, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !863
+  br i1 %57, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !868
 
 ._crit_edge:                                      ; preds = %28
   %58 = icmp eq i32 %32, 0
@@ -25421,7 +25421,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   %83 = add nuw i64 %.032, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %83, %10
-  br i1 %exitcond.not, label %._crit_edge35, label %12, !llvm.loop !864
+  br i1 %exitcond.not, label %._crit_edge35, label %12, !llvm.loop !869
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25566,7 +25566,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
 79:                                               ; preds = %.lr.ph
   %80 = add nuw i64 %.03854, 1
   %exitcond.not = icmp eq i64 %80, %75
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !865
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !870
 
 81:                                               ; preds = %.lr.ph
   %82 = and i64 %.03854, 4294967295
@@ -25577,7 +25577,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   %83 = icmp sgt i64 %indvars.iv72, 0
   %84 = trunc nuw nsw i64 %indvars.iv72 to i32
-  br i1 %83, label %.lr.ph58, label %._crit_edge, !llvm.loop !866
+  br i1 %83, label %.lr.ph58, label %._crit_edge, !llvm.loop !871
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %81
   %85 = trunc nuw nsw i64 %indvars.iv72 to i32
@@ -25624,7 +25624,7 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
   %114 = add nuw i64 %.065, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   %exitcond76.not = icmp eq i64 %114, %10
-  br i1 %exitcond76.not, label %._crit_edge68, label %12, !llvm.loop !867
+  br i1 %exitcond76.not, label %._crit_edge68, label %12, !llvm.loop !872
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25667,9 +25667,9 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.064
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !852
+  %26 = load ptr, ptr %25, align 8, !tbaa !857
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !852
+  %28 = load ptr, ptr %27, align 8, !tbaa !857
   %29 = icmp eq ptr %26, %28
   br i1 %29, label %30, label %51
 
@@ -25703,7 +25703,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   store i32 -1, ptr %49, align 8, !tbaa !127
   %50 = add nuw i64 %.04562, 1
   %exitcond78.not = icmp eq i64 %50, %42
-  br i1 %exitcond78.not, label %.loopexit50.thread.sink.split, label %45, !llvm.loop !868
+  br i1 %exitcond78.not, label %.loopexit50.thread.sink.split, label %45, !llvm.loop !873
 
 51:                                               ; preds = %20
   %52 = load i32, ptr %26, align 4, !tbaa !78
@@ -25753,13 +25753,13 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 78:                                               ; preds = %.lr.ph
   %79 = add nuw i64 %.04456, 1
   %exitcond.not = icmp eq i64 %79, %74
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !869
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !874
 
 .loopexit:                                        ; preds = %78, %62, %.lr.ph60
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %80 = icmp sgt i64 %indvars.iv74, 0
   %81 = trunc nuw nsw i64 %indvars.iv74 to i32
-  br i1 %80, label %.lr.ph60, label %.loopexit50.thread, !llvm.loop !870
+  br i1 %80, label %.lr.ph60, label %.loopexit50.thread, !llvm.loop !875
 
 .loopexit50:                                      ; preds = %.lr.ph
   %82 = icmp eq i32 %.048.in58, 0
@@ -25809,7 +25809,7 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %113 = add nuw i64 %.064, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   %exitcond80.not = icmp eq i64 %113, %10
-  br i1 %exitcond80.not, label %._crit_edge67, label %12, !llvm.loop !871
+  br i1 %exitcond80.not, label %._crit_edge67, label %12, !llvm.loop !876
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25888,7 +25888,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %.144 = add nuw nsw i32 %.04355, %44
   %45 = add nuw i64 %.04753, 1
   %exitcond.not = icmp eq i64 %45, %32
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !872
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !877
 
 ._crit_edge.thread:                               ; preds = %20, %._crit_edge
   %.045.lcssa89 = phi i64 [ %36, %._crit_edge ], [ -1, %20 ]
@@ -25941,7 +25941,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
 73:                                               ; preds = %.lr.ph58
   %74 = add nuw i64 %.04057, 1
   %exitcond81.not = icmp eq i64 %74, %69
-  br i1 %exitcond81.not, label %.thread, label %.lr.ph58, !llvm.loop !873
+  br i1 %exitcond81.not, label %.thread, label %.lr.ph58, !llvm.loop !878
 
 75:                                               ; preds = %.lr.ph58
   %76 = and i64 %.04057, 4294967295
@@ -25952,7 +25952,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
   %77 = icmp sgt i64 %indvars.iv82, 0
   %78 = trunc nuw nsw i64 %indvars.iv82 to i32
-  br i1 %77, label %.lr.ph63, label %._crit_edge64, !llvm.loop !874
+  br i1 %77, label %.lr.ph63, label %._crit_edge64, !llvm.loop !879
 
 ._crit_edge64.loopexit.split.loop.exit:           ; preds = %75
   %79 = trunc nuw nsw i64 %indvars.iv82 to i32
@@ -26001,7 +26001,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %110 = add nuw i64 %.072, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   %exitcond86.not = icmp eq i64 %110, %10
-  br i1 %exitcond86.not, label %._crit_edge75, label %12, !llvm.loop !875
+  br i1 %exitcond86.not, label %._crit_edge75, label %12, !llvm.loop !880
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26081,7 +26081,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 45:                                               ; preds = %.lr.ph
   %46 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %46, %44
-  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !876
+  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !881
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %.031 = phi i64 [ %46, %45 ], [ 0, %.lr.ph.preheader ]
@@ -26093,7 +26093,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 .critedge28:                                      ; preds = %45, %.preheader, %.lr.ph34
   %.023 = add nuw i64 %.02333, 1
   %exitcond38.not = icmp eq i64 %.023, %10
-  br i1 %exitcond38.not, label %.critedge.loopexit, label %.lr.ph34, !llvm.loop !877
+  br i1 %exitcond38.not, label %.critedge.loopexit, label %.lr.ph34, !llvm.loop !882
 
 .critedge.loopexit:                               ; preds = %.critedge28
   %.pre = load ptr, ptr %2, align 8, !tbaa !39
@@ -26121,7 +26121,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29eliminate_orphaned_memorydataEv(
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph36..loopexit_crit_edge, %.critedge
   %.pre-phi = phi i64 [ %.pre43, %.lr.ph36..loopexit_crit_edge ], [ %.02332, %.critedge ], [ %.02332, %.lr.ph ]
   %exitcond40.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !878
+  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !883
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26208,7 +26208,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
 53:                                               ; preds = %50, %38, %.lr.ph
   %.029 = add nuw i64 %.02937, 1
   %exitcond.not = icmp eq i64 %.029, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !879
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !884
 
 ._crit_edge:                                      ; preds = %50, %27
   %.029.lcssa = phi i64 [ %.02936, %27 ], [ %.02937, %50 ]
@@ -26264,7 +26264,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_reshape_after_global_p
 ._crit_edge.thread:                               ; preds = %53, %19, %68, %65, %62, %55, %._crit_edge, %12
   %88 = add nuw i64 %.040, 1
   %exitcond45.not = icmp eq i64 %88, %10
-  br i1 %exitcond45.not, label %._crit_edge43, label %12, !llvm.loop !880
+  br i1 %exitcond45.not, label %._crit_edge43, label %12, !llvm.loop !885
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26351,7 +26351,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
 53:                                               ; preds = %50, %38, %.lr.ph
   %.026 = add nuw i64 %.02631, 1
   %exitcond.not = icmp eq i64 %.026, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !881
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !886
 
 ._crit_edge:                                      ; preds = %50, %27
   %.026.lcssa = phi i64 [ %.02630, %27 ], [ %.02631, %50 ]
@@ -26389,7 +26389,7 @@ define dso_local noundef i32 @_ZN11NetOptimize38eliminate_flatten_after_global_p
 ._crit_edge.thread:                               ; preds = %53, %19, %._crit_edge, %55, %12
   %79 = add nuw i64 %.034, 1
   %exitcond39.not = icmp eq i64 %79, %10
-  br i1 %exitcond39.not, label %._crit_edge37, label %12, !llvm.loop !882
+  br i1 %exitcond39.not, label %._crit_edge37, label %12, !llvm.loop !887
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26474,7 +26474,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
 49:                                               ; preds = %46, %34, %.lr.ph
   %.025 = add nuw i64 %.02530, 1
   %exitcond.not = icmp eq i64 %.025, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !883
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !888
 
 ._crit_edge:                                      ; preds = %46, %19
   %.025.lcssa = phi i64 [ %.02529, %19 ], [ %.02530, %46 ]
@@ -26515,7 +26515,7 @@ define dso_local noundef i32 @_ZN11NetOptimize36eliminate_flatten_after_innerpro
 ._crit_edge.thread:                               ; preds = %49, %._crit_edge39, %51, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge39 ], [ %.02529, %51 ], [ %.02529, %._crit_edge ], [ %.02529, %49 ]
   %exitcond38.not = icmp eq i64 %.pre-phi, %10
-  br i1 %exitcond38.not, label %._crit_edge36, label %12, !llvm.loop !884
+  br i1 %exitcond38.not, label %._crit_edge36, label %12, !llvm.loop !889
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26620,7 +26620,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
 62:                                               ; preds = %58, %43, %.lr.ph
   %.036 = add nuw i64 %.03645, 1
   %exitcond.not = icmp eq i64 %.036, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !885
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !890
 
 ._crit_edge:                                      ; preds = %58, %55, %32
   %.036.lcssa = phi i64 [ %.03644, %32 ], [ %.03645, %55 ], [ %.03645, %58 ]
@@ -26686,7 +26686,7 @@ define dso_local noundef i32 @_ZN11NetOptimize33eliminate_reshape_before_binaryo
 ._crit_edge.thread:                               ; preds = %62, %29, %26, %19, %._crit_edge, %97, %12
   %107 = add nuw i64 %.050, 1
   %exitcond55.not = icmp eq i64 %107, %10
-  br i1 %exitcond55.not, label %._crit_edge53, label %12, !llvm.loop !886
+  br i1 %exitcond55.not, label %._crit_edge53, label %12, !llvm.loop !891
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26746,7 +26746,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 268
-  %36 = load i32, ptr %35, align 4, !tbaa !887
+  %36 = load i32, ptr %35, align 4, !tbaa !892
   %.not60 = icmp eq i32 %36, 1
   br i1 %.not60, label %37, label %._crit_edge.thread
 
@@ -26800,7 +26800,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 68:                                               ; preds = %65, %53, %.lr.ph
   %.055 = add nuw i64 %.05572, 1
   %exitcond.not = icmp eq i64 %.055, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !888
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !893
 
 ._crit_edge:                                      ; preds = %65, %42
   %.055.lcssa = phi i64 [ %.05571, %42 ], [ %.05572, %65 ]
@@ -26831,7 +26831,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 268
-  %86 = load i32, ptr %85, align 4, !tbaa !887
+  %86 = load i32, ptr %85, align 4, !tbaa !892
   %.not66 = icmp eq i32 %86, 1
   br i1 %.not66, label %87, label %._crit_edge.thread
 
@@ -26904,7 +26904,7 @@ define dso_local noundef i32 @_ZN11NetOptimize37replace_reduction_with_global_po
 ._crit_edge.thread:                               ; preds = %68, %37, %30, %27, %20, %34, %._crit_edge, %132, %87, %84, %70, %77, %80, %13
   %133 = add nuw i64 %.075, 1
   %exitcond80.not = icmp eq i64 %133, %11
-  br i1 %exitcond80.not, label %._crit_edge78, label %13, !llvm.loop !889
+  br i1 %exitcond80.not, label %._crit_edge78, label %13, !llvm.loop !894
 
 134:                                              ; preds = %91
   %135 = landingpad { ptr, i32 }
@@ -27012,7 +27012,7 @@ define dso_local noundef i32 @_ZN11NetOptimize29replace_prelu_with_leaky_reluEv(
 57:                                               ; preds = %46, %18, %.lr.ph
   %58 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %58, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !890
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !895
 
 59:                                               ; preds = %25
   %60 = landingpad { ptr, i32 }
@@ -27103,7 +27103,7 @@ define dso_local noundef i32 @_ZN11NetOptimize58replace_convolution_with_innerpr
 52:                                               ; preds = %49, %37, %.lr.ph
   %.053 = add nuw i64 %.05398, 1
   %exitcond.not = icmp eq i64 %.053, %11
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !891
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !896
 
 ._crit_edge:                                      ; preds = %49, %26
   %.053.lcssa = phi i64 [ %.05397, %26 ], [ %.05398, %49 ]
@@ -27653,7 +27653,7 @@ _ZN4ncnn3MataSERKS0_.exit58:                      ; preds = %.noexc57, %_ZN4ncnn
 ._crit_edge.thread:                               ; preds = %52, %18, %._crit_edge, %362, %.lr.ph103
   %369 = add nuw i64 %.0101, 1
   %exitcond106.not = icmp eq i64 %369, %11
-  br i1 %exitcond106.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !892
+  br i1 %exitcond106.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !897
 
 370:                                              ; preds = %327, %271, %218, %165, %112, %54
   %371 = landingpad { ptr, i32 }
@@ -27740,7 +27740,7 @@ define dso_local noundef i32 @_ZN11NetOptimize56replace_convolution_with_innerpr
 48:                                               ; preds = %45, %33, %.lr.ph.us
   %.056.us = add nuw i64 %.056102.us, 1
   %exitcond.not = icmp eq i64 %.056.us, %11
-  br i1 %exitcond.not, label %._crit_edge.us.thread, label %.lr.ph.us, !llvm.loop !893
+  br i1 %exitcond.not, label %._crit_edge.us.thread, label %.lr.ph.us, !llvm.loop !898
 
 ._crit_edge.us:                                   ; preds = %45, %18
   %.056.lcssa.us = phi i64 [ %.056101.us, %18 ], [ %.056102.us, %45 ]
@@ -28296,7 +28296,7 @@ _ZN4ncnn3MataSERKS0_.exit61.us:                   ; preds = %.noexc60.us, %_ZN4n
   %brmerge = select i1 %exitcond115.not, i1 true, i1 %.1.us
   %.1.us.mux = select i1 %exitcond115.not, i1 %.1.us, i1 false
   %.pre-phi.mux = select i1 %exitcond115.not, i64 %.pre-phi, i64 0
-  br i1 %brmerge, label %.lr.ph108.us, label %.split112.us, !llvm.loop !894
+  br i1 %brmerge, label %.lr.ph108.us, label %.split112.us, !llvm.loop !899
 
 .split114.us:                                     ; preds = %325, %269, %216, %163, %110, %50
   %367 = landingpad { ptr, i32 }
@@ -28318,21 +28318,21 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8, !tbaa !5
-  %8 = load ptr, ptr %1, align 8, !tbaa !895
+  %8 = load ptr, ptr %1, align 8, !tbaa !900
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.199, ptr noundef %8) #27
   br label %130
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !895
+  %12 = load ptr, ptr %11, align 8, !tbaa !900
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !895
+  %14 = load ptr, ptr %13, align 8, !tbaa !900
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !895
+  %16 = load ptr, ptr %15, align 8, !tbaa !900
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !895
+  %18 = load ptr, ptr %17, align 8, !tbaa !900
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !895
+  %20 = load ptr, ptr %19, align 8, !tbaa !900
   %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %20, ptr noundef null, i32 noundef 10) #25
   %22 = trunc i64 %21 to i32
   %.not = icmp eq i32 %0, 6
@@ -28340,13 +28340,13 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !895
+  %25 = load ptr, ptr %24, align 8, !tbaa !900
   %26 = icmp samesign ugt i32 %0, 7
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !895
+  %29 = load ptr, ptr %28, align 8, !tbaa !900
   br label %.thread
 
 .thread:                                          ; preds = %10, %27, %23
@@ -29454,8 +29454,8 @@ attributes #32 = { nounwind willreturn memory(read) }
 !773 = !{!54, !55, i64 0}
 !774 = distinct !{!774, !34}
 !775 = distinct !{!775, !34}
-!776 = distinct !{!776, !34}
-!777 = distinct !{!777, !34}
+!776 = distinct !{!776, !34, !777}
+!777 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !778 = distinct !{!778, !34}
 !779 = distinct !{!779, !34}
 !780 = distinct !{!780, !34}
@@ -29465,7 +29465,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !784 = distinct !{!784, !34}
 !785 = distinct !{!785, !34}
 !786 = distinct !{!786, !34}
-!787 = distinct !{!787, !34}
+!787 = distinct !{!787, !34, !777}
 !788 = distinct !{!788, !34}
 !789 = distinct !{!789, !34}
 !790 = distinct !{!790, !34}
@@ -29480,7 +29480,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !799 = distinct !{!799, !34}
 !800 = distinct !{!800, !34}
 !801 = distinct !{!801, !34}
-!802 = distinct !{!802, !34}
+!802 = distinct !{!802, !34, !777}
 !803 = distinct !{!803, !34}
 !804 = distinct !{!804, !34}
 !805 = distinct !{!805, !34}
@@ -29495,7 +29495,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !814 = distinct !{!814, !34}
 !815 = distinct !{!815, !34}
 !816 = distinct !{!816, !34}
-!817 = distinct !{!817, !34}
+!817 = distinct !{!817, !34, !777}
 !818 = distinct !{!818, !34}
 !819 = distinct !{!819, !34}
 !820 = distinct !{!820, !34}
@@ -29519,7 +29519,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !838 = distinct !{!838, !34}
 !839 = distinct !{!839, !34}
 !840 = distinct !{!840, !34}
-!841 = distinct !{!841, !34}
+!841 = distinct !{!841, !34, !777}
 !842 = distinct !{!842, !34}
 !843 = distinct !{!843, !34}
 !844 = distinct !{!844, !34}
@@ -29530,22 +29530,22 @@ attributes #32 = { nounwind willreturn memory(read) }
 !849 = distinct !{!849, !34}
 !850 = distinct !{!850, !34}
 !851 = distinct !{!851, !34}
-!852 = !{!64, !64, i64 0}
+!852 = distinct !{!852, !34}
 !853 = distinct !{!853, !34}
 !854 = distinct !{!854, !34}
 !855 = distinct !{!855, !34}
 !856 = distinct !{!856, !34}
-!857 = distinct !{!857, !34}
+!857 = !{!64, !64, i64 0}
 !858 = distinct !{!858, !34}
 !859 = distinct !{!859, !34}
 !860 = distinct !{!860, !34}
-!861 = !{!63, !64, i64 16}
-!862 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!861 = distinct !{!861, !34}
+!862 = distinct !{!862, !34}
 !863 = distinct !{!863, !34}
 !864 = distinct !{!864, !34}
 !865 = distinct !{!865, !34}
-!866 = distinct !{!866, !34}
-!867 = distinct !{!867, !34}
+!866 = !{!63, !64, i64 16}
+!867 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !868 = distinct !{!868, !34}
 !869 = distinct !{!869, !34}
 !870 = distinct !{!870, !34}
@@ -29565,12 +29565,17 @@ attributes #32 = { nounwind willreturn memory(read) }
 !884 = distinct !{!884, !34}
 !885 = distinct !{!885, !34}
 !886 = distinct !{!886, !34}
-!887 = !{!688, !15, i64 268}
+!887 = distinct !{!887, !34}
 !888 = distinct !{!888, !34}
 !889 = distinct !{!889, !34}
 !890 = distinct !{!890, !34}
 !891 = distinct !{!891, !34}
-!892 = distinct !{!892, !34}
+!892 = !{!688, !15, i64 268}
 !893 = distinct !{!893, !34}
 !894 = distinct !{!894, !34}
-!895 = !{!55, !55, i64 0}
+!895 = distinct !{!895, !34}
+!896 = distinct !{!896, !34}
+!897 = distinct !{!897, !34}
+!898 = distinct !{!898, !34}
+!899 = distinct !{!899, !34}
+!900 = !{!55, !55, i64 0}

@@ -37,7 +37,7 @@ define noundef i32 @Pdr_ManSolve_test(ptr noundef readnone captures(none) %0, pt
   br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %.split.us
-  br label %.split.us
+  br label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %3, %.split.backedge
   %.pre7 = phi ptr [ %.pre7.be, %.split.backedge ], [ %6, %3 ]
@@ -45,7 +45,7 @@ define noundef i32 @Pdr_ManSolve_test(ptr noundef readnone captures(none) %0, pt
   br i1 %.not, label %.split.backedge, label %8
 
 8:                                                ; preds = %.split
-  %9 = load i32, ptr %4, align 4, !tbaa !13
+  %9 = load i32, ptr %4, align 4, !tbaa !15
   %10 = tail call i32 %.pre7(i32 noundef %9) #13
   %.not6 = icmp eq i32 %10, 0
   br i1 %.not6, label %._crit_edge, label %11
@@ -56,7 +56,7 @@ define noundef i32 @Pdr_ManSolve_test(ptr noundef readnone captures(none) %0, pt
 
 .split.backedge:                                  ; preds = %._crit_edge, %.split
   %.pre7.be = phi ptr [ %.pre.pre, %._crit_edge ], [ null, %.split ]
-  br label %.split, !llvm.loop !14
+  br label %.split, !llvm.loop !16
 
 11:                                               ; preds = %8
   ret i32 -1
@@ -77,14 +77,14 @@ define noalias noundef nonnull ptr @Abs_ProverThread(ptr noundef captures(none) 
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #13
   call void @Pdr_ManSetDefaultParams(ptr noundef nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 1, ptr %3, align 8, !tbaa !16
+  store i32 1, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !17
+  %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 148
-  store i32 %5, ptr %6, align 4, !tbaa !13
+  store i32 %5, ptr %6, align 4, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @Abs_CallBackToStop, ptr %7, align 8, !tbaa !7
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !22
   %9 = call i32 @Pdr_ManSolve(ptr noundef %8, ptr noundef nonnull %2) #13
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %.thread
@@ -94,13 +94,13 @@ define noalias noundef nonnull ptr @Abs_ProverThread(ptr noundef captures(none) 
   store volatile i32 1, ptr @g_fAbstractionProved, align 4, !tbaa !3
   %13 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !21
+  %15 = load i32, ptr %14, align 8, !tbaa !23
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %20, label %.sink.split
 
 .thread:                                          ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !21
+  %17 = load i32, ptr %16, align 8, !tbaa !23
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %20, label %.thread19
 
@@ -115,12 +115,12 @@ define noalias noundef nonnull ptr @Abs_ProverThread(ptr noundef captures(none) 
 
 .sink.split:                                      ; preds = %.thread19, %11, %18
   %.str.sink = phi ptr [ @.str.2, %18 ], [ @.str, %11 ], [ @.str.1, %.thread19 ]
-  %19 = load i32, ptr %4, align 4, !tbaa !17
+  %19 = load i32, ptr %4, align 4, !tbaa !19
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.sink, i32 noundef %19)
   br label %20
 
 20:                                               ; preds = %.sink.split, %.thread, %.thread19, %11
-  %21 = load ptr, ptr %0, align 8, !tbaa !20
+  %21 = load ptr, ptr %0, align 8, !tbaa !22
   call void @Aig_ManStop(ptr noundef %21) #13
   call void @free(ptr noundef nonnull %0) #13
   call void @pthread_exit(ptr noundef null) #14
@@ -154,7 +154,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #13
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !24
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
@@ -162,7 +162,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !22, !noalias !24
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !24, !noalias !26
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #13
   br label %17
 
@@ -187,7 +187,7 @@ define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = tail call ptr @Gia_ManDupAbsGates(ptr noundef %0, ptr noundef %7) #13
   tail call void @Gia_ManCleanValue(ptr noundef %0) #13
   %9 = tail call ptr @Gia_ManToAigSimple(ptr noundef %8) #13
@@ -198,7 +198,7 @@ define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %
 10:                                               ; preds = %3
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %4) #13
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 4, ptr %11, align 4, !tbaa !45
+  store i32 4, ptr %11, align 4, !tbaa !47
   %12 = call ptr @Ssw_SignalCorrespondence(ptr noundef %9, ptr noundef nonnull %4) #13
   call void @Aig_ManStop(ptr noundef %9) #13
   br label %13
@@ -209,15 +209,15 @@ define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %
   store volatile i32 0, ptr @g_fAbstractionProved, align 4, !tbaa !3
   %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #13
   %16 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #16
-  store ptr %.0, ptr %16, align 8, !tbaa !20
+  store ptr %.0, ptr %16, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 %2, ptr %17, align 8, !tbaa !21
+  store i32 %2, ptr %17, align 8, !tbaa !23
   %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mutex) #13
   %19 = load volatile i32, ptr @g_nRunIds, align 4, !tbaa !3
   %20 = add nsw i32 %19, 1
   store volatile i32 %20, ptr @g_nRunIds, align 4, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %20, ptr %21, align 4, !tbaa !17
+  store i32 %20, ptr %21, align 4, !tbaa !19
   %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #13
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %24, label %23
@@ -329,37 +329,39 @@ attributes #16 = { nounwind allocsize(0,1) }
 !10 = !{!"long", !5, i64 0}
 !11 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
 !12 = !{!"p1 omnipotent char", !9, i64 0}
-!13 = !{!8, !4, i64 148}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.partial.disable"}
-!16 = !{!8, !4, i64 112}
-!17 = !{!18, !4, i64 12}
-!18 = !{!"Abs_ThData_t_", !19, i64 0, !4, i64 8, !4, i64 12}
-!19 = !{!"p1 _ZTS10Aig_Man_t_", !9, i64 0}
-!20 = !{!18, !19, i64 0}
-!21 = !{!18, !4, i64 8}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"vprintf: argument 0"}
-!26 = distinct !{!26, !"vprintf"}
-!27 = !{!28, !11, i64 448}
-!28 = !{!"Gia_Man_t_", !12, i64 0, !12, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !29, i64 32, !30, i64 40, !4, i64 48, !4, i64 52, !4, i64 56, !11, i64 64, !11, i64 72, !31, i64 80, !31, i64 96, !4, i64 112, !4, i64 116, !4, i64 120, !31, i64 128, !30, i64 144, !30, i64 152, !11, i64 160, !4, i64 168, !4, i64 172, !4, i64 176, !4, i64 180, !30, i64 184, !32, i64 192, !30, i64 200, !30, i64 208, !30, i64 216, !4, i64 224, !4, i64 228, !30, i64 232, !4, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !33, i64 272, !33, i64 280, !11, i64 288, !9, i64 296, !11, i64 304, !11, i64 312, !12, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !34, i64 368, !34, i64 376, !35, i64 384, !31, i64 392, !31, i64 408, !11, i64 424, !11, i64 432, !11, i64 440, !11, i64 448, !11, i64 456, !11, i64 464, !11, i64 472, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !12, i64 512, !36, i64 520, !37, i64 528, !38, i64 536, !38, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !4, i64 592, !39, i64 596, !39, i64 600, !11, i64 608, !30, i64 616, !4, i64 624, !35, i64 632, !35, i64 640, !35, i64 648, !11, i64 656, !11, i64 664, !11, i64 672, !11, i64 680, !11, i64 688, !11, i64 696, !11, i64 704, !11, i64 712, !40, i64 720, !38, i64 728, !9, i64 736, !9, i64 744, !10, i64 752, !10, i64 760, !9, i64 768, !30, i64 776, !4, i64 784, !4, i64 788, !4, i64 792, !4, i64 796, !4, i64 800, !4, i64 804, !4, i64 808, !4, i64 812, !4, i64 816, !4, i64 820, !4, i64 824, !4, i64 828, !41, i64 832, !41, i64 840, !41, i64 848, !41, i64 856, !11, i64 864, !11, i64 872, !11, i64 880, !42, i64 888, !4, i64 896, !4, i64 900, !4, i64 904, !11, i64 912, !4, i64 920, !4, i64 924, !11, i64 928, !11, i64 936, !35, i64 944, !41, i64 952, !11, i64 960, !11, i64 968, !4, i64 976, !4, i64 980, !41, i64 984, !31, i64 992, !31, i64 1008, !31, i64 1024, !43, i64 1040, !44, i64 1048, !44, i64 1056, !4, i64 1064, !4, i64 1068, !4, i64 1072, !4, i64 1076, !44, i64 1080, !11, i64 1088, !11, i64 1096, !11, i64 1104, !35, i64 1112}
-!29 = !{!"p1 _ZTS10Gia_Obj_t_", !9, i64 0}
-!30 = !{!"p1 int", !9, i64 0}
-!31 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !30, i64 8}
-!32 = !{!"p1 _ZTS10Gia_Rpr_t_", !9, i64 0}
-!33 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
-!34 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!35 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!36 = !{!"p1 _ZTS10Gia_Plc_t_", !9, i64 0}
-!37 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
-!38 = !{!"p1 _ZTS10Vec_Flt_t_", !9, i64 0}
-!39 = !{!"float", !5, i64 0}
-!40 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
-!41 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
-!42 = !{!"p1 _ZTS10Vec_Bit_t_", !9, i64 0}
-!43 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
-!44 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
-!45 = !{!46, !4, i64 12}
-!46 = !{!"Ssw_Pars_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !4, i64 52, !4, i64 56, !4, i64 60, !4, i64 64, !4, i64 68, !4, i64 72, !4, i64 76, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !4, i64 140, !4, i64 144, !4, i64 148, !4, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !9, i64 168, !9, i64 176}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!8, !4, i64 148}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = !{!8, !4, i64 112}
+!19 = !{!20, !4, i64 12}
+!20 = !{!"Abs_ThData_t_", !21, i64 0, !4, i64 8, !4, i64 12}
+!21 = !{!"p1 _ZTS10Aig_Man_t_", !9, i64 0}
+!22 = !{!20, !21, i64 0}
+!23 = !{!20, !4, i64 8}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"vprintf: argument 0"}
+!28 = distinct !{!28, !"vprintf"}
+!29 = !{!30, !11, i64 448}
+!30 = !{!"Gia_Man_t_", !12, i64 0, !12, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !31, i64 32, !32, i64 40, !4, i64 48, !4, i64 52, !4, i64 56, !11, i64 64, !11, i64 72, !33, i64 80, !33, i64 96, !4, i64 112, !4, i64 116, !4, i64 120, !33, i64 128, !32, i64 144, !32, i64 152, !11, i64 160, !4, i64 168, !4, i64 172, !4, i64 176, !4, i64 180, !32, i64 184, !34, i64 192, !32, i64 200, !32, i64 208, !32, i64 216, !4, i64 224, !4, i64 228, !32, i64 232, !4, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !35, i64 272, !35, i64 280, !11, i64 288, !9, i64 296, !11, i64 304, !11, i64 312, !12, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !36, i64 368, !36, i64 376, !37, i64 384, !33, i64 392, !33, i64 408, !11, i64 424, !11, i64 432, !11, i64 440, !11, i64 448, !11, i64 456, !11, i64 464, !11, i64 472, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !12, i64 512, !38, i64 520, !39, i64 528, !40, i64 536, !40, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !4, i64 592, !41, i64 596, !41, i64 600, !11, i64 608, !32, i64 616, !4, i64 624, !37, i64 632, !37, i64 640, !37, i64 648, !11, i64 656, !11, i64 664, !11, i64 672, !11, i64 680, !11, i64 688, !11, i64 696, !11, i64 704, !11, i64 712, !42, i64 720, !40, i64 728, !9, i64 736, !9, i64 744, !10, i64 752, !10, i64 760, !9, i64 768, !32, i64 776, !4, i64 784, !4, i64 788, !4, i64 792, !4, i64 796, !4, i64 800, !4, i64 804, !4, i64 808, !4, i64 812, !4, i64 816, !4, i64 820, !4, i64 824, !4, i64 828, !43, i64 832, !43, i64 840, !43, i64 848, !43, i64 856, !11, i64 864, !11, i64 872, !11, i64 880, !44, i64 888, !4, i64 896, !4, i64 900, !4, i64 904, !11, i64 912, !4, i64 920, !4, i64 924, !11, i64 928, !11, i64 936, !37, i64 944, !43, i64 952, !11, i64 960, !11, i64 968, !4, i64 976, !4, i64 980, !43, i64 984, !33, i64 992, !33, i64 1008, !33, i64 1024, !45, i64 1040, !46, i64 1048, !46, i64 1056, !4, i64 1064, !4, i64 1068, !4, i64 1072, !4, i64 1076, !46, i64 1080, !11, i64 1088, !11, i64 1096, !11, i64 1104, !37, i64 1112}
+!31 = !{!"p1 _ZTS10Gia_Obj_t_", !9, i64 0}
+!32 = !{!"p1 int", !9, i64 0}
+!33 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !32, i64 8}
+!34 = !{!"p1 _ZTS10Gia_Rpr_t_", !9, i64 0}
+!35 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
+!36 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!37 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!38 = !{!"p1 _ZTS10Gia_Plc_t_", !9, i64 0}
+!39 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
+!40 = !{!"p1 _ZTS10Vec_Flt_t_", !9, i64 0}
+!41 = !{!"float", !5, i64 0}
+!42 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
+!43 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
+!44 = !{!"p1 _ZTS10Vec_Bit_t_", !9, i64 0}
+!45 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
+!46 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
+!47 = !{!48, !4, i64 12}
+!48 = !{!"Ssw_Pars_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !4, i64 52, !4, i64 56, !4, i64 60, !4, i64 64, !4, i64 68, !4, i64 72, !4, i64 76, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !4, i64 140, !4, i64 144, !4, i64 148, !4, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !9, i64 168, !9, i64 176}

@@ -90,7 +90,7 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
 ..loopexit_crit_edge.us.i:                        ; preds = %43, %.lr.ph88.split.us.i
   %42 = add nuw nsw i64 %.06787.us.i, 1
   %exitcond102.not.i = icmp eq i64 %42, %8
-  br i1 %exitcond102.not.i, label %.loopexit75.i, label %.lr.ph88.split.us.i
+  br i1 %exitcond102.not.i, label %.loopexit75.i, label %.lr.ph88.split.us.i, !llvm.loop !18
 
 43:                                               ; preds = %.preheader.us.i, %43
   %.385.us.i = phi i64 [ %12, %.preheader.us.i ], [ %49, %43 ]
@@ -204,7 +204,7 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
 ..loopexit_crit_edge.us:                          ; preds = %39, %.lr.ph88.split.us
   %38 = add nuw nsw i64 %.06787.us, 1
   %exitcond102.not = icmp eq i64 %38, %2
-  br i1 %exitcond102.not, label %.loopexit75, label %.lr.ph88.split.us
+  br i1 %exitcond102.not, label %.loopexit75, label %.lr.ph88.split.us, !llvm.loop !18
 
 39:                                               ; preds = %.preheader.us, %39
   %.385.us = phi i64 [ %8, %.preheader.us ], [ %45, %39 ]
@@ -489,7 +489,7 @@ define i64 @SUNDlsMat_DensePOTRF(ptr noundef readonly captures(none) %0) local_u
   br label %SUNDlsMat_densePOTRF.exit
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit.i
-  %28 = tail call double @sqrt(double noundef %24) #6, !tbaa !18
+  %28 = tail call double @sqrt(double noundef %24) #6, !tbaa !20
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -562,7 +562,7 @@ define i64 @SUNDlsMat_densePOTRF(ptr noundef readonly captures(none) %0, i64 nou
   br label %.loopexit40
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
-  %25 = tail call double @sqrt(double noundef %21) #6, !tbaa !18
+  %25 = tail call double @sqrt(double noundef %21) #6, !tbaa !20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -831,7 +831,7 @@ define noundef i32 @SUNDlsMat_denseGEQRF(ptr noundef readonly captures(none) %0,
   br i1 %22, label %23, label %.lr.ph105.preheader
 
 23:                                               ; preds = %20
-  %24 = tail call double @sqrt(double noundef %21) #6, !tbaa !18
+  %24 = tail call double @sqrt(double noundef %21) #6, !tbaa !20
   br label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %23, %20
@@ -1171,7 +1171,7 @@ define void @SUNDlsMat_DenseCopy(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge.us.i:                                 ; preds = %17
   %22 = add nuw nsw i64 %.01315.us.i, 1
   %exitcond20.not.i = icmp eq i64 %22, %10
-  br i1 %exitcond20.not.i, label %SUNDlsMat_denseCopy.exit, label %.lr.ph.us.i
+  br i1 %exitcond20.not.i, label %SUNDlsMat_denseCopy.exit, label %.lr.ph.us.i, !llvm.loop !21
 
 SUNDlsMat_denseCopy.exit:                         ; preds = %._crit_edge.us.i, %2
   ret void
@@ -1205,7 +1205,7 @@ define void @SUNDlsMat_denseCopy(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge.us:                                   ; preds = %11
   %16 = add nuw nsw i64 %.01315.us, 1
   %exitcond20.not = icmp eq i64 %16, %3
-  br i1 %exitcond20.not, label %._crit_edge18, label %.lr.ph.us
+  br i1 %exitcond20.not, label %._crit_edge18, label %.lr.ph.us, !llvm.loop !21
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -1243,7 +1243,7 @@ define void @SUNDlsMat_DenseScale(double noundef %0, ptr noundef readonly captur
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i64 %.01012.us.i, 1
   %exitcond17.not.i = icmp eq i64 %18, %8
-  br i1 %exitcond17.not.i, label %SUNDlsMat_denseScale.exit, label %.lr.ph.us.i
+  br i1 %exitcond17.not.i, label %SUNDlsMat_denseScale.exit, label %.lr.ph.us.i, !llvm.loop !22
 
 SUNDlsMat_denseScale.exit:                        ; preds = %._crit_edge.us.i, %2
   ret void
@@ -1275,7 +1275,7 @@ define void @SUNDlsMat_denseScale(double noundef %0, ptr noundef readonly captur
 ._crit_edge.us:                                   ; preds = %9
   %14 = add nuw nsw i64 %.01012.us, 1
   %exitcond17.not = icmp eq i64 %14, %3
-  br i1 %exitcond17.not, label %._crit_edge15, label %.lr.ph.us
+  br i1 %exitcond17.not, label %._crit_edge15, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge15:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -1321,7 +1321,7 @@ define void @SUNDlsMat_DenseMatvec(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge.us.i:                                 ; preds = %16
   %24 = add nuw nsw i64 %.01823.us.i, 1
   %exitcond27.not.i = icmp eq i64 %24, %9
-  br i1 %exitcond27.not.i, label %SUNDlsMat_denseMatvec.exit, label %.lr.ph22.us.i
+  br i1 %exitcond27.not.i, label %SUNDlsMat_denseMatvec.exit, label %.lr.ph22.us.i, !llvm.loop !23
 
 SUNDlsMat_denseMatvec.exit:                       ; preds = %._crit_edge.us.i, %3, %.preheader.i
   ret void
@@ -1361,7 +1361,7 @@ define void @SUNDlsMat_denseMatvec(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge.us:                                   ; preds = %12
   %20 = add nuw nsw i64 %.01823.us, 1
   %exitcond27.not = icmp eq i64 %20, %4
-  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph22.us
+  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph22.us, !llvm.loop !23
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %5, %.preheader
   ret void
@@ -1428,4 +1428,9 @@ attributes #6 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !6, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = !{!5, !5, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = !{!5, !5, i64 0}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}

@@ -99,7 +99,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %18, ptr %19, align 2, !tbaa !3
   %.not43 = icmp ult i64 %.0, %7
-  br i1 %.not43, label %.split46.us, label %.split, !llvm.loop !7
+  br i1 %.not43, label %.split46.us, label %.split, !llvm.loop !10
 
 .split46.us:                                      ; preds = %.split, %.split.us
   %.us-phi.in = phi i64 [ %indvars.iv.next53, %.split.us ], [ %indvars.iv.next, %.split ]
@@ -110,7 +110,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   br i1 %or.cond, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %.split46.us
-  %21 = load i32, ptr %1, align 4, !tbaa !9
+  %21 = load i32, ptr %1, align 4, !tbaa !11
   %22 = and i64 %.us-phi.in, 4294967295
   br label %23
 
@@ -126,7 +126,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv55
   store i16 48, ptr %27, align 2, !tbaa !3
   %28 = icmp sgt i32 %5, %indvars
-  br i1 %28, label %23, label %.critedge, !llvm.loop !11
+  br i1 %28, label %23, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %23, %26, %.split46.us
   %.1 = phi i32 [ %.us-phi, %.split46.us ], [ %indvars, %26 ], [ %24, %23 ]
@@ -150,17 +150,17 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   store i16 %34, ptr %33, align 2, !tbaa !3
   %37 = getelementptr inbounds i8, ptr %33, i64 -2
   %38 = icmp ult ptr %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
-  store i32 %.1, ptr %1, align 4, !tbaa !9
+  store i32 %.1, ptr %1, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #3 {
   %5 = alloca ptr, align 8
-  store ptr %2, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %5, align 8, !tbaa !15
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.split.us, label %.split
 
@@ -168,7 +168,7 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.split.us ], [ 0, %4 ]
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.split.us ], [ 7, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv39
-  %7 = load i8, ptr %6, align 1, !tbaa !15
+  %7 = load i8, ptr %6, align 1, !tbaa !17
   %8 = lshr i8 %7, 4
   %9 = and i8 %7, 15
   %10 = zext nneg i8 %8 to i16
@@ -188,13 +188,13 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
   %.not47 = icmp eq i64 %indvars.iv39, 0
-  br i1 %.not47, label %.split32.us, label %.split.us, !llvm.loop !16
+  br i1 %.not47, label %.split32.us, label %.split.us, !llvm.loop !18
 
 .split:                                           ; preds = %4, %.split
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.split ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 7, %4 ]
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !17
   %24 = lshr i8 %23, 4
   %25 = and i8 %23, 15
   %26 = zext nneg i8 %24 to i16
@@ -214,16 +214,16 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not46 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not46, label %.split32.us, label %.split, !llvm.loop !16
+  br i1 %.not46, label %.split32.us, label %.split, !llvm.loop !19
 
 .split32.us:                                      ; preds = %.split, %.split.us
-  store i32 16, ptr %1, align 4, !tbaa !9
+  store i32 16, ptr %1, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, i8 noundef signext %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr %1, align 4, !tbaa !9
+  %4 = load i32, ptr %1, align 4, !tbaa !11
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i16, ptr %0, i64 %5
   %7 = load i16, ptr %0, align 2, !tbaa !3
@@ -276,12 +276,12 @@ _Z18ufmt_digitvalue_77Ds.exit:                    ; preds = %_Z15ufmt_isdigit_77
   %35 = add i16 %34, -65
   %36 = icmp ult i16 %35, 26
   %or.cond20.i.i = or i1 %or.cond.i.i, %36
-  br i1 %or.cond20.i.i, label %_Z15ufmt_isdigit_77Dsi.exit, label %_Z15ufmt_isdigit_77Dsi.exit.thread, !llvm.loop !17
+  br i1 %or.cond20.i.i, label %_Z15ufmt_isdigit_77Dsi.exit, label %_Z15ufmt_isdigit_77Dsi.exit.thread, !llvm.loop !20
 
 _Z15ufmt_isdigit_77Dsi.exit.thread:               ; preds = %_Z15ufmt_isdigit_77Dsi.exit, %_Z18ufmt_digitvalue_77Ds.exit, %3
   %.013.lcssa = phi i32 [ 0, %3 ], [ %31, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.01319, %_Z15ufmt_isdigit_77Dsi.exit ]
   %.0.lcssa = phi i64 [ 0, %3 ], [ %30, %_Z18ufmt_digitvalue_77Ds.exit ], [ %.020, %_Z15ufmt_isdigit_77Dsi.exit ]
-  store i32 %.013.lcssa, ptr %1, align 4, !tbaa !9
+  store i32 %.013.lcssa, ptr %1, align 4, !tbaa !11
   ret i64 %.0.lcssa
 }
 
@@ -289,7 +289,7 @@ _Z15ufmt_isdigit_77Dsi.exit.thread:               ; preds = %_Z15ufmt_isdigit_77
 define noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %union.anon, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !15
+  store ptr null, ptr %3, align 8, !tbaa !17
   br label %4
 
 4:                                                ; preds = %.critedge, %2
@@ -307,7 +307,7 @@ define noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %8
   %indvars56.le = trunc i64 %indvars.iv to i32
-  %11 = load i32, ptr %1, align 4, !tbaa !9
+  %11 = load i32, ptr %1, align 4, !tbaa !11
   %12 = icmp sgt i32 %11, %indvars56.le
   br i1 %12, label %.lr.ph.preheader, label %.critedge2
 
@@ -317,7 +317,7 @@ define noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef readonly captures(none) %
 
 .critedge:                                        ; preds = %4, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %4, !llvm.loop !18
+  br label %4, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv57 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next58, %25 ]
@@ -345,7 +345,7 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
 25:                                               ; preds = %_Z15ufmt_isdigit_77Dsi.exit
   %indvars.iv.next58 = add nuw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !22
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %.lr.ph
   %26 = trunc nuw nsw i64 %indvars.iv57 to i32
@@ -361,7 +361,7 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
   %29 = icmp sgt i32 %28, 16
   %30 = add nsw i32 %.132.lcssa, -16
   %spec.select = select i1 %29, i32 %30, i32 %indvars56.le
-  store i32 %.132.lcssa, ptr %1, align 4, !tbaa !9
+  store i32 %.132.lcssa, ptr %1, align 4, !tbaa !11
   %.not37.not50 = icmp sgt i32 %.132.lcssa, %spec.select
   br i1 %.not37.not50, label %.lr.ph53, label %._crit_edge
 
@@ -419,13 +419,13 @@ _Z18ufmt_digitvalue_77Ds.exit43:                  ; preds = %_Z18ufmt_digitvalue
   %.3 = phi i32 [ %46, %_Z18ufmt_digitvalue_77Ds.exit43 ], [ %31, %_Z18ufmt_digitvalue_77Ds.exit ]
   %.0.in = phi i8 [ %58, %_Z18ufmt_digitvalue_77Ds.exit43 ], [ %.0.i, %_Z18ufmt_digitvalue_77Ds.exit ]
   %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv60
-  store i8 %.0.in, ptr %60, align 1, !tbaa !15
+  store i8 %.0.in, ptr %60, align 1, !tbaa !17
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %.not37.not = icmp sgt i32 %.3, %spec.select
-  br i1 %.not37.not, label %.lr.ph53, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %.not37.not, label %.lr.ph53, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %59
-  %.pre = load ptr, ptr %3, align 8, !tbaa !15
+  %.pre = load ptr, ptr %3, align 8, !tbaa !17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge2
@@ -441,12 +441,12 @@ define noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef %0, i32 n
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8, !tbaa !21
+  store ptr %0, ptr %5, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  store i32 0, ptr %7, align 4, !tbaa !23
+  store i32 0, ptr %7, align 4, !tbaa !26
   %8 = call ptr @u_getDefaultConverter_77(ptr noundef nonnull %7)
-  %9 = load i32, ptr %7, align 4, !tbaa !23
+  %9 = load i32, ptr %7, align 4, !tbaa !26
   %10 = icmp sgt i32 %9, 0
   %11 = icmp eq ptr %8, null
   %or.cond = select i1 %10, i1 true, i1 %11
@@ -468,14 +468,14 @@ define noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef %0, i32 n
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %18
-  store ptr %2, ptr %6, align 8, !tbaa !25
+  store ptr %2, ptr %6, align 8, !tbaa !28
   %20 = sext i32 %3 to i64
   %21 = getelementptr inbounds i16, ptr %2, i64 %20
   %22 = sext i32 %.010 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
   call void @ucnv_toUnicode_77(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %7)
-  %25 = load ptr, ptr %6, align 8, !tbaa !25
+  %25 = load ptr, ptr %6, align 8, !tbaa !28
   store i16 0, ptr %25, align 2, !tbaa !3
   br label %26
 
@@ -518,23 +518,26 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{!"char16_t", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!5, !5, i64 0}
+!18 = distinct !{!18, !8, !9}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 omnipotent char", !14, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 char16_t", !14, i64 0}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 omnipotent char", !16, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 char16_t", !16, i64 0}

@@ -125,14 +125,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %53, ptr %.376.us.i, align 1, !tbaa !4
   %55 = add nsw i32 %.077.us.i, -1
   %56 = icmp sgt i32 %.077.us.i, 1
-  br i1 %56, label %51, label %._crit_edge.us83.i, !llvm.loop !10
+  br i1 %56, label %51, label %._crit_edge.us83.i, !llvm.loop !11
 
 ._crit_edge.us83.i:                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %52, i64 %49
   %58 = getelementptr inbounds i8, ptr %54, i64 %50
   %59 = add nuw nsw i32 %.181.us.i, 1
   %exitcond.not.i = icmp eq i32 %59, %2
-  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !12
 
 60:                                               ; preds = %9
   %61 = icmp sgt i32 %2, 0
@@ -168,14 +168,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %73 = getelementptr inbounds i8, ptr %.125.us.i, i64 -1
   %74 = add nsw i32 %.026.us.i, -1
   %75 = icmp sgt i32 %.026.us.i, 1
-  br i1 %75, label %70, label %._crit_edge.us.i66, !llvm.loop !12
+  br i1 %75, label %70, label %._crit_edge.us.i66, !llvm.loop !13
 
 ._crit_edge.us.i66:                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %72, i64 %65
   %77 = getelementptr inbounds i8, ptr %73, i64 %66
   %78 = add nuw nsw i32 %.02030.us.i, 1
   %exitcond.not.i67 = icmp eq i32 %78, %2
-  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !13
+  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !14
 
 79:                                               ; preds = %9
   %80 = sub nsw i32 %7, %5
@@ -214,14 +214,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %95 = getelementptr inbounds i8, ptr %.128.us.i, i64 -1
   %96 = add nsw i32 %.029.us.i, -1
   %97 = icmp sgt i32 %.029.us.i, 1
-  br i1 %97, label %92, label %._crit_edge.us.i71, !llvm.loop !14
+  br i1 %97, label %92, label %._crit_edge.us.i71, !llvm.loop !15
 
 ._crit_edge.us.i71:                               ; preds = %92
   %98 = getelementptr inbounds i8, ptr %94, i64 %86
   %99 = getelementptr inbounds i8, ptr %95, i64 %82
   %100 = add nuw nsw i32 %.02333.us.i, 1
   %exitcond.not.i72 = icmp eq i32 %100, %2
-  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !15
+  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !16
 
 101:                                              ; preds = %9
   %102 = sub i32 %3, %1
@@ -289,7 +289,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %135, ptr %.14963.us.i, align 1, !tbaa !4
   %137 = add nsw i32 %.04664.us.i, -1
   %138 = icmp sgt i32 %.04664.us.i, 1
-  br i1 %138, label %130, label %._crit_edge.us.i78, !llvm.loop !16
+  br i1 %138, label %130, label %._crit_edge.us.i78, !llvm.loop !17
 
 ._crit_edge.us.i78:                               ; preds = %130
   %139 = getelementptr inbounds i8, ptr %131, i64 %111
@@ -299,7 +299,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %143 = add nuw nsw i32 %.04772.us.i, 2
   %144 = or disjoint i32 %143, 1
   %145 = icmp slt i32 %144, %2
-  br i1 %145, label %.preheader59.us.i, label %.preheader58.loopexit.i, !llvm.loop !17
+  br i1 %145, label %.preheader59.us.i, label %.preheader58.loopexit.i, !llvm.loop !18
 
 .preheader58.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %146 = and i32 %2, 2147483646
@@ -335,14 +335,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %154, ptr %.379.us.i, align 1, !tbaa !4
   %156 = add nsw i32 %.080.us.i, -1
   %157 = icmp sgt i32 %.080.us.i, 1
-  br i1 %157, label %152, label %._crit_edge.us86.i, !llvm.loop !18
+  br i1 %157, label %152, label %._crit_edge.us86.i, !llvm.loop !19
 
 ._crit_edge.us86.i:                               ; preds = %152
   %158 = getelementptr inbounds i8, ptr %153, i64 %149
   %159 = getelementptr inbounds i8, ptr %155, i64 %151
   %160 = add nuw nsw i32 %.184.us.i, 1
   %exitcond.not.i76 = icmp eq i32 %160, %2
-  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !19
+  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !20
 
 161:                                              ; preds = %9
   %162 = icmp sgt i32 %2, 0
@@ -375,13 +375,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %171 = getelementptr inbounds i8, ptr %.01721.us.i, i64 %165
   %172 = add nuw nsw i32 %.022.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %172, %1
-  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %168, !llvm.loop !20
+  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %168, !llvm.loop !21
 
 ._crit_edge.us.i80:                               ; preds = %168
   %173 = getelementptr inbounds i8, ptr %170, i64 %166
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !21
+  br i1 %exitcond30.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !22
 
 174:                                              ; preds = %9
   %175 = sext i32 %5 to i64
@@ -418,13 +418,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %186 = getelementptr inbounds i8, ptr %.01923.us.i85, i64 %180
   %187 = add nuw nsw i32 %.024.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %187, %1
-  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %183, !llvm.loop !22
+  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %183, !llvm.loop !23
 
 ._crit_edge.us.i87:                               ; preds = %183
   %188 = getelementptr inbounds i8, ptr %185, i64 %181
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i82
-  br i1 %exitcond32.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !23
+  br i1 %exitcond32.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !24
 
 189:                                              ; preds = %9
   %190 = add nsw i32 %6, -1
@@ -466,13 +466,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %206 = getelementptr inbounds i8, ptr %.02125.us.i96, i64 %200
   %207 = add nuw nsw i32 %.026.us.i95, 1
   %exitcond.not.i97 = icmp eq i32 %207, %1
-  br i1 %exitcond.not.i97, label %._crit_edge.us.i98, label %203, !llvm.loop !24
+  br i1 %exitcond.not.i97, label %._crit_edge.us.i98, label %203, !llvm.loop !25
 
 ._crit_edge.us.i98:                               ; preds = %203
   %208 = getelementptr inbounds i8, ptr %205, i64 %201
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next.i99, %wide.trip.count.i91
-  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !25
+  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !26
 
 209:                                              ; preds = %9
   %210 = add nsw i32 %6, -1
@@ -510,13 +510,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %224 = getelementptr inbounds i8, ptr %.02024.us.i, i64 %218
   %225 = add nuw nsw i32 %.025.us.i, 1
   %exitcond.not.i104 = icmp eq i32 %225, %1
-  br i1 %exitcond.not.i104, label %._crit_edge.us.i105, label %221, !llvm.loop !26
+  br i1 %exitcond.not.i104, label %._crit_edge.us.i105, label %221, !llvm.loop !27
 
 ._crit_edge.us.i105:                              ; preds = %221
   %226 = getelementptr inbounds i8, ptr %223, i64 %219
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i101
-  br i1 %exitcond33.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i102, !llvm.loop !27
+  br i1 %exitcond33.not.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit, label %.lr.ph.us.i102, !llvm.loop !28
 
 _ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit:    ; preds = %._crit_edge.us.i105, %._crit_edge.us.i98, %._crit_edge.us.i87, %._crit_edge.us.i80, %._crit_edge.us86.i, %._crit_edge.us.i71, %._crit_edge.us.i66, %._crit_edge.us83.i, %.lr.ph29.i, %209, %.lr.ph30.i, %189, %.lr.ph28.i, %174, %.lr.ph26.i, %161, %.preheader.lr.ph.i74, %.preheader58.i, %.preheader.lr.ph.i68, %79, %.preheader.lr.ph.i64, %60, %.preheader.lr.ph.i, %.preheader55.i, %9
   ret void
@@ -603,7 +603,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %37, ptr %.14761.us.i, align 1, !tbaa !4
   %39 = add nsw i32 %.04462.us.i, -1
   %40 = icmp sgt i32 %.04462.us.i, 1
-  br i1 %40, label %32, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %40, label %32, label %._crit_edge.us.i, !llvm.loop !29
 
 ._crit_edge.us.i:                                 ; preds = %32
   %41 = getelementptr inbounds i8, ptr %33, i64 %18
@@ -613,7 +613,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %45 = add nuw nsw i32 %.04570.us.i, 2
   %46 = or disjoint i32 %45, 1
   %47 = icmp slt i32 %46, %2
-  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !29
+  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !30
 
 .preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %48 = and i32 %2, 2147483646
@@ -648,14 +648,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %55, ptr %.377.us.i, align 1, !tbaa !4
   %57 = add nsw i32 %.078.us.i, -1
   %58 = icmp sgt i32 %.078.us.i, 1
-  br i1 %58, label %53, label %._crit_edge.us84.i, !llvm.loop !30
+  br i1 %58, label %53, label %._crit_edge.us84.i, !llvm.loop !31
 
 ._crit_edge.us84.i:                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %54, i64 %51
   %60 = getelementptr inbounds i8, ptr %56, i64 %52
   %61 = add nuw nsw i32 %.182.us.i, 1
   %exitcond.not.i = icmp eq i32 %61, %2
-  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !32
 
 62:                                               ; preds = %9
   %63 = icmp sgt i32 %2, 0
@@ -697,14 +697,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %80 = getelementptr inbounds i8, ptr %.127.us.i, i64 -2
   %81 = add nsw i32 %.028.us.i, -1
   %82 = icmp sgt i32 %.028.us.i, 1
-  br i1 %82, label %74, label %._crit_edge.us.i66, !llvm.loop !32
+  br i1 %82, label %74, label %._crit_edge.us.i66, !llvm.loop !33
 
 ._crit_edge.us.i66:                               ; preds = %74
   %83 = getelementptr inbounds i8, ptr %79, i64 %69
   %84 = getelementptr inbounds i8, ptr %80, i64 %70
   %85 = add nuw nsw i32 %.02232.us.i, 1
   %exitcond.not.i67 = icmp eq i32 %85, %2
-  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !33
+  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !34
 
 86:                                               ; preds = %9
   %87 = shl nsw i32 %5, 1
@@ -749,14 +749,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %107 = getelementptr inbounds i8, ptr %.130.us.i, i64 -2
   %108 = add nsw i32 %.031.us.i, -1
   %109 = icmp sgt i32 %.031.us.i, 1
-  br i1 %109, label %101, label %._crit_edge.us.i71, !llvm.loop !34
+  br i1 %109, label %101, label %._crit_edge.us.i71, !llvm.loop !35
 
 ._crit_edge.us.i71:                               ; preds = %101
   %110 = getelementptr inbounds i8, ptr %106, i64 %95
   %111 = getelementptr inbounds i8, ptr %107, i64 %90
   %112 = add nuw nsw i32 %.02535.us.i, 1
   %exitcond.not.i72 = icmp eq i32 %112, %2
-  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !35
+  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !36
 
 113:                                              ; preds = %9
   %114 = shl i32 %1, 1
@@ -826,7 +826,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %149, ptr %.15064.us.i, align 1, !tbaa !4
   %151 = add nsw i32 %.04765.us.i, -1
   %152 = icmp sgt i32 %.04765.us.i, 1
-  br i1 %152, label %144, label %._crit_edge.us.i78, !llvm.loop !36
+  br i1 %152, label %144, label %._crit_edge.us.i78, !llvm.loop !37
 
 ._crit_edge.us.i78:                               ; preds = %144
   %153 = getelementptr inbounds i8, ptr %145, i64 %125
@@ -836,7 +836,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %157 = add nuw nsw i32 %.04873.us.i, 2
   %158 = or disjoint i32 %157, 1
   %159 = icmp slt i32 %158, %2
-  br i1 %159, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !37
+  br i1 %159, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !38
 
 .preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %160 = and i32 %2, 2147483646
@@ -872,14 +872,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %168, ptr %.380.us.i, align 1, !tbaa !4
   %170 = add nsw i32 %.081.us.i, -1
   %171 = icmp sgt i32 %.081.us.i, 1
-  br i1 %171, label %166, label %._crit_edge.us87.i, !llvm.loop !38
+  br i1 %171, label %166, label %._crit_edge.us87.i, !llvm.loop !39
 
 ._crit_edge.us87.i:                               ; preds = %166
   %172 = getelementptr inbounds i8, ptr %167, i64 %163
   %173 = getelementptr inbounds i8, ptr %169, i64 %165
   %174 = add nuw nsw i32 %.185.us.i, 1
   %exitcond.not.i76 = icmp eq i32 %174, %2
-  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !39
+  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !40
 
 175:                                              ; preds = %9
   %176 = icmp sgt i32 %2, 0
@@ -918,13 +918,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %190 = getelementptr inbounds i8, ptr %.01923.us.i, i64 %180
   %191 = add nuw nsw i32 %.024.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %191, %1
-  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %184, !llvm.loop !40
+  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %184, !llvm.loop !41
 
 ._crit_edge.us.i80:                               ; preds = %184
   %192 = getelementptr inbounds i8, ptr %189, i64 %181
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond32.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !41
+  br i1 %exitcond32.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !42
 
 193:                                              ; preds = %9
   %194 = shl nsw i32 %5, 1
@@ -967,13 +967,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %209 = getelementptr inbounds i8, ptr %.02125.us.i85, i64 %201
   %210 = add nuw nsw i32 %.026.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %210, %1
-  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %203, !llvm.loop !42
+  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %203, !llvm.loop !43
 
 ._crit_edge.us.i87:                               ; preds = %203
   %211 = getelementptr inbounds i8, ptr %208, i64 %202
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i82
-  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !43
+  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !44
 
 212:                                              ; preds = %9
   %213 = add nsw i32 %6, -1
@@ -1021,13 +1021,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %233 = getelementptr inbounds i8, ptr %.02327.us.i97, i64 %225
   %234 = add nuw nsw i32 %.028.us.i96, 1
   %exitcond.not.i98 = icmp eq i32 %234, %1
-  br i1 %exitcond.not.i98, label %._crit_edge.us.i99, label %227, !llvm.loop !44
+  br i1 %exitcond.not.i98, label %._crit_edge.us.i99, label %227, !llvm.loop !45
 
 ._crit_edge.us.i99:                               ; preds = %227
   %235 = getelementptr inbounds i8, ptr %232, i64 %226
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i91
-  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !45
+  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !46
 
 236:                                              ; preds = %9
   %237 = add nsw i32 %6, -1
@@ -1071,13 +1071,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %256 = getelementptr inbounds i8, ptr %.02226.us.i, i64 %246
   %257 = add nuw nsw i32 %.027.us.i, 1
   %exitcond.not.i105 = icmp eq i32 %257, %1
-  br i1 %exitcond.not.i105, label %._crit_edge.us.i106, label %250, !llvm.loop !46
+  br i1 %exitcond.not.i105, label %._crit_edge.us.i106, label %250, !llvm.loop !47
 
 ._crit_edge.us.i106:                              ; preds = %250
   %258 = getelementptr inbounds i8, ptr %255, i64 %247
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i102
-  br i1 %exitcond35.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i103, !llvm.loop !47
+  br i1 %exitcond35.not.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit, label %.lr.ph.us.i103, !llvm.loop !48
 
 _ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit:    ; preds = %._crit_edge.us.i106, %._crit_edge.us.i99, %._crit_edge.us.i87, %._crit_edge.us.i80, %._crit_edge.us87.i, %._crit_edge.us.i71, %._crit_edge.us.i66, %._crit_edge.us84.i, %.lr.ph31.i, %236, %.lr.ph32.i, %212, %.lr.ph30.i, %193, %.lr.ph28.i, %175, %.preheader.lr.ph.i74, %.preheader59.i, %.preheader.lr.ph.i68, %86, %.preheader.lr.ph.i64, %62, %.preheader.lr.ph.i, %.preheader56.i, %9
   ret void
@@ -1164,7 +1164,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %36, ptr %.14761.us.i, align 1, !tbaa !4
   %38 = add nsw i32 %.04462.us.i, -1
   %39 = icmp sgt i32 %.04462.us.i, 1
-  br i1 %39, label %31, label %._crit_edge.us.i, !llvm.loop !48
+  br i1 %39, label %31, label %._crit_edge.us.i, !llvm.loop !49
 
 ._crit_edge.us.i:                                 ; preds = %31
   %40 = getelementptr inbounds i8, ptr %32, i64 %17
@@ -1174,7 +1174,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %44 = add nuw nsw i32 %.04570.us.i, 2
   %45 = or disjoint i32 %44, 1
   %46 = icmp slt i32 %45, %2
-  br i1 %46, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !49
+  br i1 %46, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !50
 
 .preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %47 = and i32 %2, 2147483646
@@ -1209,14 +1209,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %54, ptr %.377.us.i, align 1, !tbaa !4
   %56 = add nsw i32 %.078.us.i, -1
   %57 = icmp sgt i32 %.078.us.i, 1
-  br i1 %57, label %52, label %._crit_edge.us84.i, !llvm.loop !50
+  br i1 %57, label %52, label %._crit_edge.us84.i, !llvm.loop !51
 
 ._crit_edge.us84.i:                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %53, i64 %50
   %59 = getelementptr inbounds i8, ptr %55, i64 %51
   %60 = add nuw nsw i32 %.182.us.i, 1
   %exitcond.not.i = icmp eq i32 %60, %2
-  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !52
 
 61:                                               ; preds = %9
   %62 = icmp sgt i32 %2, 0
@@ -1262,14 +1262,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %81 = getelementptr inbounds i8, ptr %.129.us.i, i64 -3
   %82 = add nsw i32 %.030.us.i, -1
   %83 = icmp sgt i32 %.030.us.i, 1
-  br i1 %83, label %72, label %._crit_edge.us.i67, !llvm.loop !52
+  br i1 %83, label %72, label %._crit_edge.us.i67, !llvm.loop !53
 
 ._crit_edge.us.i67:                               ; preds = %72
   %84 = getelementptr inbounds i8, ptr %80, i64 %67
   %85 = getelementptr inbounds i8, ptr %81, i64 %68
   %86 = add nuw nsw i32 %.02434.us.i, 1
   %exitcond.not.i68 = icmp eq i32 %86, %2
-  br i1 %exitcond.not.i68, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i66, !llvm.loop !53
+  br i1 %exitcond.not.i68, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i66, !llvm.loop !54
 
 87:                                               ; preds = %9
   %.neg31.i = mul i32 %5, -3
@@ -1318,14 +1318,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %109 = getelementptr inbounds i8, ptr %.133.us.i, i64 -3
   %110 = add nsw i32 %.034.us.i, -1
   %111 = icmp sgt i32 %.034.us.i, 1
-  br i1 %111, label %100, label %._crit_edge.us.i73, !llvm.loop !54
+  br i1 %111, label %100, label %._crit_edge.us.i73, !llvm.loop !55
 
 ._crit_edge.us.i73:                               ; preds = %100
   %112 = getelementptr inbounds i8, ptr %108, i64 %94
   %113 = getelementptr inbounds i8, ptr %109, i64 %90
   %114 = add nuw nsw i32 %.02738.us.i, 1
   %exitcond.not.i74 = icmp eq i32 %114, %2
-  br i1 %exitcond.not.i74, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i72, !llvm.loop !55
+  br i1 %exitcond.not.i74, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i72, !llvm.loop !56
 
 115:                                              ; preds = %9
   %116 = mul i32 %1, 3
@@ -1395,7 +1395,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %151, ptr %.15064.us.i, align 1, !tbaa !4
   %153 = add nsw i32 %.04765.us.i, -1
   %154 = icmp sgt i32 %.04765.us.i, 1
-  br i1 %154, label %146, label %._crit_edge.us.i80, !llvm.loop !56
+  br i1 %154, label %146, label %._crit_edge.us.i80, !llvm.loop !57
 
 ._crit_edge.us.i80:                               ; preds = %146
   %155 = getelementptr inbounds i8, ptr %147, i64 %127
@@ -1405,7 +1405,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %159 = add nuw nsw i32 %.04873.us.i, 2
   %160 = or disjoint i32 %159, 1
   %161 = icmp slt i32 %160, %2
-  br i1 %161, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !57
+  br i1 %161, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !58
 
 .preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i80
   %162 = and i32 %2, 2147483646
@@ -1441,14 +1441,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %170, ptr %.380.us.i, align 1, !tbaa !4
   %172 = add nsw i32 %.081.us.i, -1
   %173 = icmp sgt i32 %.081.us.i, 1
-  br i1 %173, label %168, label %._crit_edge.us87.i, !llvm.loop !58
+  br i1 %173, label %168, label %._crit_edge.us87.i, !llvm.loop !59
 
 ._crit_edge.us87.i:                               ; preds = %168
   %174 = getelementptr inbounds i8, ptr %169, i64 %165
   %175 = getelementptr inbounds i8, ptr %171, i64 %167
   %176 = add nuw nsw i32 %.185.us.i, 1
   %exitcond.not.i78 = icmp eq i32 %176, %2
-  br i1 %exitcond.not.i78, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i77, !llvm.loop !59
+  br i1 %exitcond.not.i78, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.preheader.us.i77, !llvm.loop !60
 
 177:                                              ; preds = %9
   %178 = icmp sgt i32 %2, 0
@@ -1491,13 +1491,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %194 = getelementptr inbounds i8, ptr %.02125.us.i, i64 %181
   %195 = add nuw nsw i32 %.026.us.i, 1
   %exitcond.not.i82 = icmp eq i32 %195, %1
-  br i1 %exitcond.not.i82, label %._crit_edge.us.i83, label %185, !llvm.loop !60
+  br i1 %exitcond.not.i82, label %._crit_edge.us.i83, label %185, !llvm.loop !61
 
 ._crit_edge.us.i83:                               ; preds = %185
   %196 = getelementptr inbounds i8, ptr %193, i64 %182
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !61
+  br i1 %exitcond34.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 197:                                              ; preds = %9
   %198 = mul nsw i32 %5, 3
@@ -1544,13 +1544,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %215 = getelementptr inbounds i8, ptr %.02327.us.i89, i64 %204
   %216 = add nuw nsw i32 %.028.us.i, 1
   %exitcond.not.i90 = icmp eq i32 %216, %1
-  br i1 %exitcond.not.i90, label %._crit_edge.us.i91, label %206, !llvm.loop !62
+  br i1 %exitcond.not.i90, label %._crit_edge.us.i91, label %206, !llvm.loop !63
 
 ._crit_edge.us.i91:                               ; preds = %206
   %217 = getelementptr inbounds i8, ptr %214, i64 %205
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i86
-  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i87, !llvm.loop !63
+  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i87, !llvm.loop !64
 
 218:                                              ; preds = %9
   %219 = add nsw i32 %6, -1
@@ -1602,13 +1602,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %241 = getelementptr inbounds i8, ptr %.02529.us.i101, i64 %230
   %242 = add nuw nsw i32 %.030.us.i100, 1
   %exitcond.not.i102 = icmp eq i32 %242, %1
-  br i1 %exitcond.not.i102, label %._crit_edge.us.i103, label %232, !llvm.loop !64
+  br i1 %exitcond.not.i102, label %._crit_edge.us.i103, label %232, !llvm.loop !65
 
 ._crit_edge.us.i103:                              ; preds = %232
   %243 = getelementptr inbounds i8, ptr %240, i64 %231
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i96
-  br i1 %exitcond38.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i97, !llvm.loop !65
+  br i1 %exitcond38.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i97, !llvm.loop !66
 
 244:                                              ; preds = %9
   %245 = add nsw i32 %6, -1
@@ -1656,13 +1656,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %266 = getelementptr inbounds i8, ptr %.02428.us.i, i64 %253
   %267 = add nuw nsw i32 %.029.us.i, 1
   %exitcond.not.i110 = icmp eq i32 %267, %1
-  br i1 %exitcond.not.i110, label %._crit_edge.us.i111, label %257, !llvm.loop !66
+  br i1 %exitcond.not.i110, label %._crit_edge.us.i111, label %257, !llvm.loop !67
 
 ._crit_edge.us.i111:                              ; preds = %257
   %268 = getelementptr inbounds i8, ptr %265, i64 %254
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i107
-  br i1 %exitcond37.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i108, !llvm.loop !67
+  br i1 %exitcond37.not.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit, label %.lr.ph.us.i108, !llvm.loop !68
 
 _ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit:    ; preds = %._crit_edge.us.i111, %._crit_edge.us.i103, %._crit_edge.us.i91, %._crit_edge.us.i83, %._crit_edge.us87.i, %._crit_edge.us.i73, %._crit_edge.us.i67, %._crit_edge.us84.i, %.lr.ph33.i, %244, %.lr.ph34.i, %218, %.lr.ph32.i, %197, %.lr.ph30.i, %177, %.preheader.lr.ph.i76, %.preheader59.i, %.preheader.lr.ph.i69, %87, %.preheader.lr.ph.i64, %61, %.preheader.lr.ph.i, %.preheader56.i, %9
   ret void
@@ -1749,7 +1749,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %37, ptr %.14761.us.i, align 1, !tbaa !4
   %39 = add nsw i32 %.04462.us.i, -1
   %40 = icmp sgt i32 %.04462.us.i, 1
-  br i1 %40, label %32, label %._crit_edge.us.i, !llvm.loop !68
+  br i1 %40, label %32, label %._crit_edge.us.i, !llvm.loop !69
 
 ._crit_edge.us.i:                                 ; preds = %32
   %41 = getelementptr inbounds i8, ptr %33, i64 %18
@@ -1759,7 +1759,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %45 = add nuw nsw i32 %.04570.us.i, 2
   %46 = or disjoint i32 %45, 1
   %47 = icmp slt i32 %46, %2
-  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !69
+  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !70
 
 .preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %48 = and i32 %2, 2147483646
@@ -1794,14 +1794,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %55, ptr %.377.us.i, align 1, !tbaa !4
   %57 = add nsw i32 %.078.us.i, -1
   %58 = icmp sgt i32 %.078.us.i, 1
-  br i1 %58, label %53, label %._crit_edge.us84.i, !llvm.loop !70
+  br i1 %58, label %53, label %._crit_edge.us84.i, !llvm.loop !71
 
 ._crit_edge.us84.i:                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %54, i64 %51
   %60 = getelementptr inbounds i8, ptr %56, i64 %52
   %61 = add nuw nsw i32 %.182.us.i, 1
   %exitcond.not.i = icmp eq i32 %61, %2
-  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !71
+  br i1 %exitcond.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i, !llvm.loop !72
 
 62:                                               ; preds = %9
   %63 = icmp sgt i32 %2, 0
@@ -1851,14 +1851,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %86 = getelementptr inbounds i8, ptr %.131.us.i, i64 -4
   %87 = add nsw i32 %.032.us.i, -1
   %88 = icmp sgt i32 %.032.us.i, 1
-  br i1 %88, label %74, label %._crit_edge.us.i66, !llvm.loop !72
+  br i1 %88, label %74, label %._crit_edge.us.i66, !llvm.loop !73
 
 ._crit_edge.us.i66:                               ; preds = %74
   %89 = getelementptr inbounds i8, ptr %85, i64 %69
   %90 = getelementptr inbounds i8, ptr %86, i64 %70
   %91 = add nuw nsw i32 %.02636.us.i, 1
   %exitcond.not.i67 = icmp eq i32 %91, %2
-  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !73
+  br i1 %exitcond.not.i67, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i65, !llvm.loop !74
 
 92:                                               ; preds = %9
   %93 = shl nsw i32 %5, 2
@@ -1911,14 +1911,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %119 = getelementptr inbounds i8, ptr %.134.us.i, i64 -4
   %120 = add nsw i32 %.035.us.i, -1
   %121 = icmp sgt i32 %.035.us.i, 1
-  br i1 %121, label %107, label %._crit_edge.us.i71, !llvm.loop !74
+  br i1 %121, label %107, label %._crit_edge.us.i71, !llvm.loop !75
 
 ._crit_edge.us.i71:                               ; preds = %107
   %122 = getelementptr inbounds i8, ptr %118, i64 %101
   %123 = getelementptr inbounds i8, ptr %119, i64 %96
   %124 = add nuw nsw i32 %.02939.us.i, 1
   %exitcond.not.i72 = icmp eq i32 %124, %2
-  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !75
+  br i1 %exitcond.not.i72, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i70, !llvm.loop !76
 
 125:                                              ; preds = %9
   %126 = shl i32 %1, 2
@@ -1988,7 +1988,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %161, ptr %.15064.us.i, align 1, !tbaa !4
   %163 = add nsw i32 %.04765.us.i, -1
   %164 = icmp sgt i32 %.04765.us.i, 1
-  br i1 %164, label %156, label %._crit_edge.us.i78, !llvm.loop !76
+  br i1 %164, label %156, label %._crit_edge.us.i78, !llvm.loop !77
 
 ._crit_edge.us.i78:                               ; preds = %156
   %165 = getelementptr inbounds i8, ptr %157, i64 %137
@@ -1998,7 +1998,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %169 = add nuw nsw i32 %.04873.us.i, 2
   %170 = or disjoint i32 %169, 1
   %171 = icmp slt i32 %170, %2
-  br i1 %171, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !77
+  br i1 %171, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !78
 
 .preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %172 = and i32 %2, 2147483646
@@ -2034,14 +2034,14 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   store i8 %180, ptr %.380.us.i, align 1, !tbaa !4
   %182 = add nsw i32 %.081.us.i, -1
   %183 = icmp sgt i32 %.081.us.i, 1
-  br i1 %183, label %178, label %._crit_edge.us87.i, !llvm.loop !78
+  br i1 %183, label %178, label %._crit_edge.us87.i, !llvm.loop !79
 
 ._crit_edge.us87.i:                               ; preds = %178
   %184 = getelementptr inbounds i8, ptr %179, i64 %175
   %185 = getelementptr inbounds i8, ptr %181, i64 %177
   %186 = add nuw nsw i32 %.185.us.i, 1
   %exitcond.not.i76 = icmp eq i32 %186, %2
-  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !79
+  br i1 %exitcond.not.i76, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.preheader.us.i75, !llvm.loop !80
 
 187:                                              ; preds = %9
   %188 = icmp sgt i32 %2, 0
@@ -2088,13 +2088,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %208 = getelementptr inbounds i8, ptr %.02327.us.i, i64 %192
   %209 = add nuw nsw i32 %.028.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %209, %1
-  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %196, !llvm.loop !80
+  br i1 %exitcond.not.i79, label %._crit_edge.us.i80, label %196, !llvm.loop !81
 
 ._crit_edge.us.i80:                               ; preds = %196
   %210 = getelementptr inbounds i8, ptr %207, i64 %193
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !81
+  br i1 %exitcond36.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i, !llvm.loop !82
 
 211:                                              ; preds = %9
   %212 = shl nsw i32 %5, 2
@@ -2145,13 +2145,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %233 = getelementptr inbounds i8, ptr %.02529.us.i85, i64 %219
   %234 = add nuw nsw i32 %.030.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %234, %1
-  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %221, !llvm.loop !82
+  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %221, !llvm.loop !83
 
 ._crit_edge.us.i87:                               ; preds = %221
   %235 = getelementptr inbounds i8, ptr %232, i64 %220
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i82
-  br i1 %exitcond38.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !83
+  br i1 %exitcond38.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i83, !llvm.loop !84
 
 236:                                              ; preds = %9
   %237 = add nsw i32 %6, -1
@@ -2207,13 +2207,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %263 = getelementptr inbounds i8, ptr %.02731.us.i97, i64 %249
   %264 = add nuw nsw i32 %.032.us.i96, 1
   %exitcond.not.i98 = icmp eq i32 %264, %1
-  br i1 %exitcond.not.i98, label %._crit_edge.us.i99, label %251, !llvm.loop !84
+  br i1 %exitcond.not.i98, label %._crit_edge.us.i99, label %251, !llvm.loop !85
 
 ._crit_edge.us.i99:                               ; preds = %251
   %265 = getelementptr inbounds i8, ptr %262, i64 %250
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i91
-  br i1 %exitcond40.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !85
+  br i1 %exitcond40.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i92, !llvm.loop !86
 
 266:                                              ; preds = %9
   %267 = add nsw i32 %6, -1
@@ -2265,13 +2265,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %292 = getelementptr inbounds i8, ptr %.02630.us.i, i64 %276
   %293 = add nuw nsw i32 %.031.us.i, 1
   %exitcond.not.i105 = icmp eq i32 %293, %1
-  br i1 %exitcond.not.i105, label %._crit_edge.us.i106, label %280, !llvm.loop !86
+  br i1 %exitcond.not.i105, label %._crit_edge.us.i106, label %280, !llvm.loop !87
 
 ._crit_edge.us.i106:                              ; preds = %280
   %294 = getelementptr inbounds i8, ptr %291, i64 %277
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i102
-  br i1 %exitcond39.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i103, !llvm.loop !87
+  br i1 %exitcond39.not.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit, label %.lr.ph.us.i103, !llvm.loop !88
 
 _ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit:    ; preds = %._crit_edge.us.i106, %._crit_edge.us.i99, %._crit_edge.us.i87, %._crit_edge.us.i80, %._crit_edge.us87.i, %._crit_edge.us.i71, %._crit_edge.us.i66, %._crit_edge.us84.i, %.lr.ph35.i, %266, %.lr.ph36.i, %236, %.lr.ph34.i, %211, %.lr.ph32.i, %187, %.preheader.lr.ph.i74, %.preheader59.i, %.preheader.lr.ph.i68, %92, %.preheader.lr.ph.i64, %62, %.preheader.lr.ph.i, %.preheader56.i, %9
   ret void
@@ -2309,82 +2309,83 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !6 = !{!"Simple C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!12 = distinct !{!12, !8, !10}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!14 = distinct !{!14, !8, !10}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!16 = distinct !{!16, !8, !10}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
+!18 = distinct !{!18, !8, !10}
 !19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!20 = distinct !{!20, !8, !10}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!22 = distinct !{!22, !8, !10}
 !23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!24 = distinct !{!24, !8, !10}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!26 = distinct !{!26, !8, !10}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
+!28 = distinct !{!28, !8, !10}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
+!30 = distinct !{!30, !8, !10}
 !31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
+!32 = distinct !{!32, !8, !10}
 !33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!34 = distinct !{!34, !8, !10}
 !35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
+!36 = distinct !{!36, !8, !10}
 !37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
+!38 = distinct !{!38, !8, !10}
 !39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
+!40 = distinct !{!40, !8, !10}
 !41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
+!42 = distinct !{!42, !8, !10}
 !43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
+!44 = distinct !{!44, !8, !10}
 !45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
+!46 = distinct !{!46, !8, !10}
 !47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
+!48 = distinct !{!48, !8, !10}
 !49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
+!50 = distinct !{!50, !8, !10}
 !51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
+!52 = distinct !{!52, !8, !10}
 !53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8}
+!54 = distinct !{!54, !8, !10}
 !55 = distinct !{!55, !8}
-!56 = distinct !{!56, !8}
+!56 = distinct !{!56, !8, !10}
 !57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
+!58 = distinct !{!58, !8, !10}
 !59 = distinct !{!59, !8}
-!60 = distinct !{!60, !8}
+!60 = distinct !{!60, !8, !10}
 !61 = distinct !{!61, !8}
-!62 = distinct !{!62, !8}
+!62 = distinct !{!62, !8, !10}
 !63 = distinct !{!63, !8}
-!64 = distinct !{!64, !8}
+!64 = distinct !{!64, !8, !10}
 !65 = distinct !{!65, !8}
-!66 = distinct !{!66, !8}
+!66 = distinct !{!66, !8, !10}
 !67 = distinct !{!67, !8}
-!68 = distinct !{!68, !8}
+!68 = distinct !{!68, !8, !10}
 !69 = distinct !{!69, !8}
-!70 = distinct !{!70, !8}
+!70 = distinct !{!70, !8, !10}
 !71 = distinct !{!71, !8}
-!72 = distinct !{!72, !8}
+!72 = distinct !{!72, !8, !10}
 !73 = distinct !{!73, !8}
-!74 = distinct !{!74, !8}
+!74 = distinct !{!74, !8, !10}
 !75 = distinct !{!75, !8}
-!76 = distinct !{!76, !8}
+!76 = distinct !{!76, !8, !10}
 !77 = distinct !{!77, !8}
-!78 = distinct !{!78, !8}
+!78 = distinct !{!78, !8, !10}
 !79 = distinct !{!79, !8}
-!80 = distinct !{!80, !8}
+!80 = distinct !{!80, !8, !10}
 !81 = distinct !{!81, !8}
-!82 = distinct !{!82, !8}
+!82 = distinct !{!82, !8, !10}
 !83 = distinct !{!83, !8}
-!84 = distinct !{!84, !8}
+!84 = distinct !{!84, !8, !10}
 !85 = distinct !{!85, !8}
-!86 = distinct !{!86, !8}
+!86 = distinct !{!86, !8, !10}
 !87 = distinct !{!87, !8}
+!88 = distinct !{!88, !8, !10}

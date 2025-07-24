@@ -498,7 +498,7 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
 205:                                              ; preds = %201, %198, %._crit_edge119.i
   %206 = add nuw nsw i64 %.190.us.us.i, 1
   %exitcond118.not.i = icmp eq i64 %206, %spec.store.select.i
-  br i1 %exitcond118.not.i, label %.critedge.us.i, label %179, !llvm.loop !47
+  br i1 %exitcond118.not.i, label %.critedge.us.i, label %179, !llvm.loop !48
 
 .split92.us.us.i:                                 ; preds = %188
   %207 = add i64 %.068101.us.i, -62
@@ -535,7 +535,7 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
   %219 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.26, i32 noundef %218) #5
   %220 = add nuw nsw i64 %.190.us.i, 1
   %exitcond114.not.i = icmp eq i64 %220, %spec.store.select.i
-  br i1 %exitcond114.not.i, label %.critedge.loopexit.split.us.i, label %.loopexit.us106.i, !llvm.loop !47
+  br i1 %exitcond114.not.i, label %.critedge.loopexit.split.us.i, label %.loopexit.us106.i, !llvm.loop !49
 
 221:                                              ; preds = %231, %.preheader.us105.i
   %.086.us104.i = phi i64 [ 0, %.preheader.us105.i ], [ %232, %231 ]
@@ -557,13 +557,13 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
 231:                                              ; preds = %226, %224
   %232 = add nuw nsw i64 %.086.us104.i, 1
   %exitcond113.not.i = icmp eq i64 %232, %spec.store.select.i
-  br i1 %exitcond113.not.i, label %.loopexit.us106.i, label %221, !llvm.loop !48
+  br i1 %exitcond113.not.i, label %.loopexit.us106.i, label %221, !llvm.loop !50
 
 .critedge.loopexit.split.us.i:                    ; preds = %.critedge78.us.i, %.loopexit.us106.i
   %233 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %spec.select)
   %234 = add i64 %.068101.us103.i, %spec.store.select.i
   %235 = icmp ult i64 %234, %3
-  br i1 %235, label %.preheader.us105.i, label %dump.exit, !llvm.loop !46
+  br i1 %235, label %.preheader.us105.i, label %dump.exit, !llvm.loop !51
 
 .split.i:                                         ; preds = %.lr.ph.split.i, %.critedge.loopexit.split.i
   %.068101.i = phi i64 [ %247, %.critedge.loopexit.split.i ], [ 0, %.lr.ph.split.i ]
@@ -586,13 +586,13 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
   %244 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.26, i32 noundef %243) #5
   %245 = add nuw nsw i64 %.190.i, 1
   %exitcond.not.i = icmp eq i64 %245, %spec.store.select.i
-  br i1 %exitcond.not.i, label %.critedge.loopexit.split.i, label %237, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.critedge.loopexit.split.i, label %237, !llvm.loop !49
 
 .critedge.loopexit.split.i:                       ; preds = %.critedge78.i, %237
   %246 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %spec.select)
   %247 = add i64 %.068101.i, %spec.store.select.i
   %248 = icmp ult i64 %247, %3
-  br i1 %248, label %.split.i, label %dump.exit, !llvm.loop !46
+  br i1 %248, label %.split.i, label %dump.exit, !llvm.loop !52
 
 dump.exit:                                        ; preds = %.critedge.loopexit.split.i, %.critedge.loopexit.split.us.i, %.critedge.us.i, %172
   %249 = call i32 @fflush(ptr noundef nonnull %spec.select)
@@ -724,6 +724,10 @@ attributes #5 = { nounwind }
 !43 = !{!"llvm.loop.mustprogress"}
 !44 = !{!9, !9, i64 0}
 !45 = !{!26, !6, i64 3}
-!46 = distinct !{!46, !43}
-!47 = distinct !{!47, !43}
-!48 = distinct !{!48, !43}
+!46 = distinct !{!46, !43, !47}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !43, !47}
+!49 = distinct !{!49, !43}
+!50 = distinct !{!50, !43}
+!51 = distinct !{!51, !43, !47}
+!52 = distinct !{!52, !43}

@@ -157,7 +157,7 @@ define internal range(i32 -2147483648, 1) i32 @xbm_encode_frame(ptr noundef %0, 
   %80 = sub i64 %78, %79
   %81 = trunc i64 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %81, ptr %82, align 8, !tbaa !36
+  store i32 %81, ptr %82, align 8, !tbaa !37
   store i32 1, ptr %3, align 4, !tbaa !34
   br label %83
 
@@ -224,5 +224,6 @@ attributes #5 = { nounwind }
 !32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !33}
-!36 = !{!29, !10, i64 32}
+!35 = distinct !{!35, !33, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!29, !10, i64 32}

@@ -553,7 +553,7 @@ reftable_free.exit:                               ; preds = %10, %11
   %14 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %.not8 = icmp eq ptr %15, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not8, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %reftable_free.exit, %.preheader
   %16 = phi ptr [ %.pre15, %.preheader ], [ %12, %reftable_free.exit ]
@@ -581,7 +581,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @names
   %3 = load ptr, ptr %.0, align 8, !tbaa !18
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br i1 %.not, label %5, label %2, !llvm.loop !22
+  br i1 %.not, label %5, label %2, !llvm.loop !23
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.0 to i64
@@ -780,7 +780,7 @@ reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.ex
 reftable_free.exit70:                             ; preds = %56, %57
   %58 = add nuw i64 %.0112, 1
   %exitcond.not = icmp eq i64 %58, %.3
-  br i1 %exitcond.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !24
 
 reftable_free.exit:                               ; preds = %52, %51, %reftable_alloc_grow.exit67.thread
   %.039 = phi ptr [ %.5, %reftable_alloc_grow.exit67.thread ], [ null, %51 ], [ null, %52 ]
@@ -814,7 +814,7 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %9, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %10, %9 ], [ %.021, %.lr.ph ]
@@ -865,7 +865,7 @@ define dso_local i64 @common_prefix_size(ptr noundef readonly captures(none) %0,
 17:                                               ; preds = %10
   %18 = add nuw i64 %.09, 1
   %exitcond15.not = icmp eq i64 %18, %5
-  br i1 %exitcond15.not, label %.critedge, label %9, !llvm.loop !25
+  br i1 %exitcond15.not, label %.critedge, label %9, !llvm.loop !26
 
 .critedge:                                        ; preds = %9, %10, %17, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %5, %17 ], [ %.09, %10 ], [ %7, %9 ]
@@ -957,10 +957,11 @@ attributes #24 = { noreturn nounwind }
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!11, !11, i64 0}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17, !21}
-!21 = !{!"llvm.loop.unswitch.partial.disable"}
-!22 = distinct !{!22, !17}
+!19 = distinct !{!19, !17, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !17, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}
 !23 = distinct !{!23, !17}
 !24 = distinct !{!24, !17}
 !25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}

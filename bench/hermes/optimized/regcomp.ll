@@ -5541,7 +5541,7 @@ for.body.us32.i:                                  ; preds = %if.else275, %for.in
 for.inc45.us38.i:                                 ; preds = %for.body.us32.i
   %incdec.ptr.us39.i = getelementptr inbounds nuw i8, ptr %cs2.031.us33.i, i64 32
   %cmp.us40.i = icmp ult ptr %incdec.ptr.us39.i, %arrayidx.i264
-  br i1 %cmp.us40.i, label %for.body.us32.i, label %freezeset.exit, !llvm.loop !35
+  br i1 %cmp.us40.i, label %for.body.us32.i, label %freezeset.exit, !llvm.loop !37
 
 if.then49.i:                                      ; preds = %for.end.us.i, %for.inc.us.i, %for.body.us32.i
   %arrayidx.i264401404 = phi ptr [ %arrayidx.i264, %for.body.us32.i ], [ %arrayidx.i264399, %for.inc.us.i ], [ %arrayidx.i264399, %for.end.us.i ]
@@ -6921,4 +6921,6 @@ attributes #21 = { "function-inline-cost-multiplier"="2" }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
+!35 = distinct !{!35, !5, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !5, !36}

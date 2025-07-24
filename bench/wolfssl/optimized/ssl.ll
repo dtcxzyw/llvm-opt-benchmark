@@ -7249,7 +7249,7 @@ ProcessUserCert.exit.thread.i.us:                 ; preds = %ProcessUserCert.exi
   %210 = add nuw nsw i32 %.050118.i.us, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
   %211 = icmp slt i64 %209, %2
-  br i1 %211, label %.lr.ph.i.split.us, label %.loopexit.i
+  br i1 %211, label %.lr.ph.i.split.us, label %.loopexit.i, !llvm.loop !199
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %254
   %.050118.i = phi i32 [ %257, %254 ], [ 0, %.lr.ph.i ]
@@ -7390,7 +7390,7 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 
 264:                                              ; preds = %263
   %265 = getelementptr inbounds nuw i8, ptr %5, i64 489
-  %266 = load i8, ptr %265, align 1, !tbaa !199
+  %266 = load i8, ptr %265, align 1, !tbaa !201
   %.not24.i.i = icmp eq i8 %266, 0
   br i1 %.not24.i.i, label %269, label %267
 
@@ -7404,9 +7404,9 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   %271 = call i32 @AllocCopyDer(ptr noundef nonnull %270, ptr noundef nonnull %.sroa.0.0132.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %272 = icmp eq i32 %271, 0
   %273 = zext i1 %272 to i8
-  store i8 %273, ptr %265, align 1, !tbaa !199
+  store i8 %273, ptr %265, align 1, !tbaa !201
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 608
-  store i32 %.050111.i, ptr %274, align 16, !tbaa !200
+  store i32 %.050111.i, ptr %274, align 16, !tbaa !202
   br label %ProcessUserChainRetain.exit.i
 
 275:                                              ; preds = %263
@@ -7417,7 +7417,7 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   call void @FreeDer(ptr noundef nonnull %277) #22
   %278 = call i32 @AllocCopyDer(ptr noundef nonnull %277, ptr noundef nonnull %.sroa.0.0132.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %.050111.i, ptr %279, align 8, !tbaa !201
+  store i32 %.050111.i, ptr %279, align 8, !tbaa !203
   br label %ProcessUserChainRetain.exit.i
 
 ProcessUserChainRetain.exit.i:                    ; preds = %276, %275, %269, %260
@@ -7458,7 +7458,7 @@ ProcessUserChain.exit:                            ; preds = %ProcessUserChainRet
 
 288:                                              ; preds = %287
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 488
-  %290 = load i8, ptr %289, align 8, !tbaa !202
+  %290 = load i8, ptr %289, align 8, !tbaa !204
   %.not17.i.i88 = icmp eq i8 %290, 0
   br i1 %.not17.i.i88, label %293, label %291
 
@@ -7470,7 +7470,7 @@ ProcessUserChain.exit:                            ; preds = %ProcessUserChainRet
 293:                                              ; preds = %291, %288
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 568
   store ptr %281, ptr %294, align 8, !tbaa !131
-  store i8 1, ptr %289, align 8, !tbaa !202
+  store i8 1, ptr %289, align 8, !tbaa !204
   br label %ProcessBufferCertHandleDer.exit.i
 
 295:                                              ; preds = %287
@@ -7491,7 +7491,7 @@ ProcessBufferCertHandleDer.exit.i:                ; preds = %296, %293, %282
 .thread116:                                       ; preds = %295
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @FreeDer(ptr noundef nonnull %299) #22
-  store ptr %281, ptr %299, align 8, !tbaa !203
+  store ptr %281, ptr %299, align 8, !tbaa !205
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %301 = load ptr, ptr %300, align 8, !tbaa !116
@@ -7571,7 +7571,7 @@ wolfSSL_CTX_GetDevId.exit.i.i96:                  ; preds = %319, %314, %.thread
 
 334:                                              ; preds = %330, %329
   %335 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %336 = load i32, ptr %335, align 4, !tbaa !204
+  %336 = load i32, ptr %335, align 4, !tbaa !206
   switch i32 %336, label %345 [
     i32 520, label %337
     i32 524, label %337
@@ -7604,9 +7604,9 @@ wolfSSL_CTX_GetDevId.exit.i.i96:                  ; preds = %319, %314, %.thread
 
 346:                                              ; preds = %345, %.thread24.i.i.i
   %347 = getelementptr inbounds nuw i8, ptr %12, i64 852
-  %348 = load i32, ptr %347, align 4, !tbaa !205
+  %348 = load i32, ptr %347, align 4, !tbaa !207
   %349 = getelementptr inbounds nuw i8, ptr %5, i64 1196
-  store i32 %348, ptr %349, align 4, !tbaa !206
+  store i32 %348, ptr %349, align 4, !tbaa !208
   br label %.thread26.i.i.i
 
 .thread.i.i.i:                                    ; preds = %345
@@ -7614,9 +7614,9 @@ wolfSSL_CTX_GetDevId.exit.i.i96:                  ; preds = %319, %314, %.thread
 
 350:                                              ; preds = %.thread.i.i.i, %.thread.thread29.i.i.i
   %351 = getelementptr inbounds nuw i8, ptr %12, i64 852
-  %352 = load i32, ptr %351, align 4, !tbaa !205
+  %352 = load i32, ptr %351, align 4, !tbaa !207
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 %352, ptr %353, align 4, !tbaa !207
+  store i32 %352, ptr %353, align 4, !tbaa !209
   br label %.thread26.i.i.i
 
 .thread26.i.i.i:                                  ; preds = %350, %346
@@ -7685,9 +7685,9 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
 
 376:                                              ; preds = %373, %373
   store i32 0, ptr %11, align 4, !tbaa !3
-  %377 = load ptr, ptr %12, align 16, !tbaa !208
+  %377 = load ptr, ptr %12, align 16, !tbaa !210
   %378 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %379 = load i32, ptr %378, align 8, !tbaa !209
+  %379 = load i32, ptr %378, align 8, !tbaa !211
   %380 = call i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %377, ptr noundef nonnull %11, i32 noundef %379, ptr noundef null, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #22
   %381 = icmp eq i32 %380, 0
   %or.cond.i32.i.i = and i1 %.0.in.i.i, %381
@@ -7714,7 +7714,7 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
 
 393:                                              ; preds = %373
   %394 = getelementptr inbounds nuw i8, ptr %12, i64 852
-  %395 = load i32, ptr %394, align 4, !tbaa !205
+  %395 = load i32, ptr %394, align 4, !tbaa !207
   %396 = call i32 @wc_ecc_get_oid(i32 noundef %395, ptr noundef null, ptr noundef null) #22
   %397 = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %396) #22
   store i32 %397, ptr %10, align 4, !tbaa !3
@@ -7743,7 +7743,7 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
 
 408:                                              ; preds = %407
   %409 = getelementptr inbounds nuw i8, ptr %5, i64 584
-  store i8 %.0.i31.i.i, ptr %409, align 8, !tbaa !210
+  store i8 %.0.i31.i.i, ptr %409, align 8, !tbaa !212
   %410 = load i32, ptr %10, align 4, !tbaa !3
   %411 = getelementptr inbounds nuw i8, ptr %5, i64 588
   store i32 %410, ptr %411, align 4, !tbaa !175
@@ -7751,10 +7751,10 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
 
 412:                                              ; preds = %407
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i8 %.0.i31.i.i, ptr %413, align 8, !tbaa !211
+  store i8 %.0.i31.i.i, ptr %413, align 8, !tbaa !213
   %414 = load i32, ptr %10, align 4, !tbaa !3
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %414, ptr %415, align 4, !tbaa !212
+  store i32 %414, ptr %415, align 4, !tbaa !214
   br label %ProcessBufferCertPublicKey.exit.i.i
 
 ProcessBufferCertPublicKey.exit.i.i:              ; preds = %412, %408
@@ -7872,10 +7872,10 @@ ProcessBufferCertTypes.exit.thread122:            ; preds = %427, %ProcessBuffer
 
 475:                                              ; preds = %473
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %477 = load ptr, ptr %476, align 8, !tbaa !213
+  %477 = load ptr, ptr %476, align 8, !tbaa !215
   %478 = load ptr, ptr %0, align 8, !tbaa !127
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %480 = load i32, ptr %479, align 4, !tbaa !212
+  %480 = load i32, ptr %479, align 4, !tbaa !214
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %482 = load i16, ptr %481, align 1
   %483 = lshr i16 %482, 10
@@ -7919,11 +7919,11 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
-  store ptr %10, ptr %11, align 8, !tbaa !214
+  store ptr %10, ptr %11, align 8, !tbaa !216
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 1024, ptr %15, align 8, !tbaa !216
+  store i32 1024, ptr %15, align 8, !tbaa !218
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !217
+  store i32 0, ptr %16, align 4, !tbaa !219
   %17 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %11, ptr noundef %12)
   %18 = icmp eq i32 %17, 0
   %19 = icmp eq i32 %3, 24
@@ -7937,16 +7937,16 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
-  store ptr null, ptr %13, align 8, !tbaa !218
+  store ptr null, ptr %13, align 8, !tbaa !220
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
-  store ptr null, ptr %14, align 8, !tbaa !218
+  store ptr null, ptr %14, align 8, !tbaa !220
   %24 = call i32 @wc_PemGetHeaderFooter(i32 noundef 6, ptr noundef nonnull %13, ptr noundef nonnull %14) #22
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8, !tbaa !214
-  %28 = load ptr, ptr %13, align 8, !tbaa !218
+  %27 = load ptr, ptr %11, align 8, !tbaa !216
+  %28 = load ptr, ptr %13, align 8, !tbaa !220
   %29 = load i64, ptr %12, align 8, !tbaa !27
   %30 = trunc i64 %29 to i32
   %31 = call ptr @mystrnstr(ptr noundef %27, ptr noundef %28, i32 noundef %30) #22
@@ -7959,8 +7959,8 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %11, align 8, !tbaa !214
-  %37 = load ptr, ptr %13, align 8, !tbaa !218
+  %36 = load ptr, ptr %11, align 8, !tbaa !216
+  %37 = load ptr, ptr %13, align 8, !tbaa !220
   %38 = load i64, ptr %12, align 8, !tbaa !27
   %39 = trunc i64 %38 to i32
   %40 = call ptr @mystrnstr(ptr noundef %36, ptr noundef %37, i32 noundef %39) #22
@@ -7993,7 +7993,7 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
   %or.cond7 = or i1 %46, %47
   %48 = icmp eq i32 %2, 1
   %or.cond9 = and i1 %48, %or.cond7
-  %49 = load ptr, ptr %11, align 8, !tbaa !214
+  %49 = load ptr, ptr %11, align 8, !tbaa !216
   %50 = load i64, ptr %12, align 8, !tbaa !27
   br i1 %or.cond9, label %51, label %68
 
@@ -8055,7 +8055,7 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
 ProcessChainBuffer.exit:                          ; preds = %.ProcessChainBuffer.exit_crit_edge, %._crit_edge.loopexit.i, %._crit_edge.loopexit.thread.i, %51, %68
   %.val = phi ptr [ %49, %68 ], [ %.val.pre, %.ProcessChainBuffer.exit_crit_edge ], [ %49, %51 ], [ %49, %._crit_edge.loopexit.thread.i ], [ %49, %._crit_edge.loopexit.i ]
   %.2 = phi i32 [ %69, %68 ], [ %.035, %.ProcessChainBuffer.exit_crit_edge ], [ 0, %51 ], [ -125, %._crit_edge.loopexit.thread.i ], [ %spec.select.i, %._crit_edge.loopexit.i ]
-  %.val43 = load i32, ptr %16, align 4, !tbaa !217
+  %.val43 = load i32, ptr %16, align 4, !tbaa !219
   %.not.i = icmp eq i32 %.val43, 0
   %.not4.i = icmp eq ptr %.val, null
   %or.cond.i44 = select i1 %.not.i, i1 true, i1 %.not4.i
@@ -8109,12 +8109,12 @@ define internal fastcc range(i32 -463, 1) i32 @wolfssl_read_file_static(ptr noun
 wolfssl_file_len.exit:                            ; preds = %15
   %18 = trunc nuw nsw i64 %13 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !216
+  %20 = load i32, ptr %19, align 8, !tbaa !218
   %21 = icmp ult i32 %20, %18
   br i1 %21, label %22, label %wolfssl_file_len.exit._crit_edge
 
 wolfssl_file_len.exit._crit_edge:                 ; preds = %wolfssl_file_len.exit
-  %.pre = load ptr, ptr %1, align 8, !tbaa !214
+  %.pre = load ptr, ptr %1, align 8, !tbaa !216
   br label %27
 
 22:                                               ; preds = %wolfssl_file_len.exit
@@ -8123,10 +8123,10 @@ wolfssl_file_len.exit._crit_edge:                 ; preds = %wolfssl_file_len.ex
   br i1 %24, label %static_buffer_set_size.exit.thread30, label %25
 
 25:                                               ; preds = %22
-  store ptr %23, ptr %1, align 8, !tbaa !214
-  store i32 %18, ptr %19, align 8, !tbaa !216
+  store ptr %23, ptr %1, align 8, !tbaa !216
+  store i32 %18, ptr %19, align 8, !tbaa !218
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 1, ptr %26, align 4, !tbaa !217
+  store i32 1, ptr %26, align 4, !tbaa !219
   br label %27
 
 27:                                               ; preds = %wolfssl_file_len.exit._crit_edge, %25
@@ -8197,7 +8197,7 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %.023, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr null, ptr %6, align 8, !tbaa !218
+  store ptr null, ptr %6, align 8, !tbaa !220
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %8) #22
@@ -8211,89 +8211,71 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef rea
 .lr.ph.i:                                         ; preds = %25
   %31 = and i32 %3, 1
   %.not10.i.i = icmp eq i32 %31, 0
+  %32 = and i32 %3, 4
+  %33 = icmp ne i32 %32, 0
   br i1 %.not10.i.i, label %.lr.ph.split.us.i, label %wolfssl_ctx_load_path_file.exit.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %32 = and i32 %3, 4
-  %.not16.i = icmp eq i32 %32, 0
-  br i1 %.not16.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %wolfssl_ctx_load_path_file.exit.us.i
+  %34 = phi ptr [ %42, %wolfssl_ctx_load_path_file.exit.us.i ], [ %28, %.lr.ph.i ]
+  %35 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %34, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
+  %.not.i.us.i = icmp eq i32 %35, 1
+  br i1 %.not.i.us.i, label %.sink.split.i.us.i, label %36
 
-.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.us.i
-  %33 = phi ptr [ %39, %.lr.ph.split.us.split.us.i ], [ %28, %.lr.ph.split.us.i ]
-  %34 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %33, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
-  %.not.i.us.us.i = icmp eq i32 %34, 1
-  %spec.select.i = select i1 %.not.i.us.us.i, ptr %5, ptr %7
-  %35 = load i32, ptr %spec.select.i, align 4, !tbaa !3
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %spec.select.i, align 4, !tbaa !3
-  %37 = call i32 @wc_ReadDirNext(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %6) #22
-  %38 = icmp eq i32 %37, 0
-  %39 = load ptr, ptr %6, align 8
-  %40 = icmp ne ptr %39, null
-  %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %.lr.ph.split.us.split.us.i, label %._crit_edge.i, !llvm.loop !219
+36:                                               ; preds = %.lr.ph.split.us.i
+  %37 = icmp eq i32 %35, -162
+  %or.cond.i.us.i = and i1 %33, %37
+  br i1 %or.cond.i.us.i, label %wolfssl_ctx_load_path_file.exit.us.i, label %.sink.split.i.us.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %wolfssl_ctx_load_path_file.exit.us.i
-  %42 = phi ptr [ %48, %wolfssl_ctx_load_path_file.exit.us.i ], [ %28, %.lr.ph.split.us.i ]
-  %43 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %42, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
-  switch i32 %43, label %.sink.split.i.us.fold.split.i [
-    i32 1, label %.sink.split.i.us.i
-    i32 -162, label %wolfssl_ctx_load_path_file.exit.us.i
-  ]
-
-.sink.split.i.us.fold.split.i:                    ; preds = %.lr.ph.split.us.split.i
-  br label %.sink.split.i.us.i
-
-.sink.split.i.us.i:                               ; preds = %.sink.split.i.us.fold.split.i, %.lr.ph.split.us.split.i
-  %.sink.i.us.i = phi ptr [ %5, %.lr.ph.split.us.split.i ], [ %7, %.sink.split.i.us.fold.split.i ]
-  %44 = load i32, ptr %.sink.i.us.i, align 4, !tbaa !3
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %.sink.i.us.i, align 4, !tbaa !3
+.sink.split.i.us.i:                               ; preds = %36, %.lr.ph.split.us.i
+  %.sink.i.us.i = phi ptr [ %7, %36 ], [ %5, %.lr.ph.split.us.i ]
+  %38 = load i32, ptr %.sink.i.us.i, align 4, !tbaa !3
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %.sink.i.us.i, align 4, !tbaa !3
   br label %wolfssl_ctx_load_path_file.exit.us.i
 
-wolfssl_ctx_load_path_file.exit.us.i:             ; preds = %.sink.split.i.us.i, %.lr.ph.split.us.split.i
-  %46 = call i32 @wc_ReadDirNext(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %6) #22
-  %47 = icmp eq i32 %46, 0
-  %48 = load ptr, ptr %6, align 8
-  %49 = icmp ne ptr %48, null
-  %50 = select i1 %47, i1 %49, i1 false
-  br i1 %50, label %.lr.ph.split.us.split.i, label %._crit_edge.i, !llvm.loop !219
+wolfssl_ctx_load_path_file.exit.us.i:             ; preds = %.sink.split.i.us.i, %36
+  %40 = call i32 @wc_ReadDirNext(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %6) #22
+  %41 = icmp eq i32 %40, 0
+  %42 = load ptr, ptr %6, align 8
+  %43 = icmp ne ptr %42, null
+  %44 = select i1 %41, i1 %43, i1 false
+  br i1 %44, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !221
 
 wolfssl_ctx_load_path_file.exit.i:                ; preds = %.lr.ph.i, %wolfssl_ctx_load_path_file.exit.i
-  %51 = phi i32 [ %55, %wolfssl_ctx_load_path_file.exit.i ], [ %.023, %.lr.ph.i ]
-  %52 = phi ptr [ %58, %wolfssl_ctx_load_path_file.exit.i ], [ %28, %.lr.ph.i ]
-  %53 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %52, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
-  %.not.i.i = icmp eq i32 %53, 1
-  %54 = zext i1 %.not.i.i to i32
-  %55 = add nuw nsw i32 %51, %54
-  %56 = call i32 @wc_ReadDirNext(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %6) #22
-  %57 = icmp eq i32 %56, 0
-  %58 = load ptr, ptr %6, align 8
-  %59 = icmp ne ptr %58, null
-  %60 = select i1 %57, i1 %59, i1 false
-  br i1 %60, label %wolfssl_ctx_load_path_file.exit.i, label %._crit_edge.split.i, !llvm.loop !219
+  %45 = phi i32 [ %49, %wolfssl_ctx_load_path_file.exit.i ], [ %.023, %.lr.ph.i ]
+  %46 = phi ptr [ %52, %wolfssl_ctx_load_path_file.exit.i ], [ %28, %.lr.ph.i ]
+  %47 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %46, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
+  %.not.i.i = icmp eq i32 %47, 1
+  %48 = zext i1 %.not.i.i to i32
+  %49 = add nuw nsw i32 %45, %48
+  %50 = call i32 @wc_ReadDirNext(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %6) #22
+  %51 = icmp eq i32 %50, 0
+  %52 = load ptr, ptr %6, align 8
+  %53 = icmp ne ptr %52, null
+  %54 = select i1 %51, i1 %53, i1 false
+  br i1 %54, label %wolfssl_ctx_load_path_file.exit.i, label %._crit_edge.split.i, !llvm.loop !222
 
 ._crit_edge.split.i:                              ; preds = %wolfssl_ctx_load_path_file.exit.i
-  store i32 %55, ptr %5, align 4
+  store i32 %49, ptr %5, align 4
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %wolfssl_ctx_load_path_file.exit.us.i, %.lr.ph.split.us.split.us.i, %._crit_edge.split.i, %25
-  %.0.lcssa.i = phi i32 [ %26, %25 ], [ %56, %._crit_edge.split.i ], [ %37, %.lr.ph.split.us.split.us.i ], [ %46, %wolfssl_ctx_load_path_file.exit.us.i ]
+._crit_edge.i:                                    ; preds = %wolfssl_ctx_load_path_file.exit.us.i, %._crit_edge.split.i, %25
+  %.0.lcssa.i = phi i32 [ %26, %25 ], [ %50, %._crit_edge.split.i ], [ %40, %wolfssl_ctx_load_path_file.exit.us.i ]
   call void @wc_ReadDirClose(ptr noundef nonnull %8) #22
   %.not.i = icmp eq i32 %.0.lcssa.i, -1
-  br i1 %.not.i, label %61, label %wolfssl_ctx_load_path.exit
+  br i1 %.not.i, label %55, label %wolfssl_ctx_load_path.exit
 
-61:                                               ; preds = %._crit_edge.i
+55:                                               ; preds = %._crit_edge.i
   %.0..0..0..0..0.12.i = load i32, ptr %5, align 4, !tbaa !3
-  %62 = icmp ne i32 %.0..0..0..0..0.12.i, 0
+  %56 = icmp ne i32 %.0..0..0..0..0.12.i, 0
   %.0..0..0..0..0..i = load i32, ptr %7, align 4
-  %63 = icmp slt i32 %.0..0..0..0..0..i, 1
-  %or.cond.not.i = select i1 %62, i1 %63, i1 false
+  %57 = icmp slt i32 %.0..0..0..0..0..i, 1
+  %or.cond.not.i = select i1 %56, i1 %57, i1 false
   %..i = zext i1 %or.cond.not.i to i32
   br label %wolfssl_ctx_load_path.exit
 
-wolfssl_ctx_load_path.exit:                       ; preds = %._crit_edge.i, %61
-  %.010.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %..i, %61 ]
+wolfssl_ctx_load_path.exit:                       ; preds = %._crit_edge.i, %55
+  %.010.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %..i, %55 ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
@@ -8333,13 +8315,13 @@ define range(i32 -461, 2) i32 @wolfSSL_CTX_load_system_CA_certs(ptr noundef %0) 
 .lr.ph.split.i:                                   ; preds = %1, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw [3 x ptr], ptr @systemCaDirs, i64 0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %3, align 8, !tbaa !218
+  %4 = load ptr, ptr %3, align 8, !tbaa !220
   %5 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef %4, i32 noundef 1)
   %.not.i.not = icmp ne i32 %5, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, 3
   %or.cond.not3 = select i1 %.not.i.not, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not3, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit, !llvm.loop !220
+  br i1 %or.cond.not3, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit, !llvm.loop !223
 
 LoadSystemCaCertsNix.exit:                        ; preds = %.lr.ph.split.i, %1
   %.not = phi i1 [ true, %1 ], [ %.not.i.not, %.lr.ph.split.i ]
@@ -8364,11 +8346,11 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  store ptr %7, ptr %8, align 8, !tbaa !214
+  store ptr %7, ptr %8, align 8, !tbaa !216
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1024, ptr %10, align 8, !tbaa !216
+  store i32 1024, ptr %10, align 8, !tbaa !218
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %11, align 4, !tbaa !217
+  store i32 0, ptr %11, align 4, !tbaa !219
   %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
@@ -8381,7 +8363,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %0, ptr
 
 ProcessChainBuffer.exit.i:                        ; preds = %.split, %15
   %.2.i = phi i32 [ %17, %15 ], [ %12, %.split ]
-  %.val43.i = load i32, ptr %11, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %11, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %14, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8403,11 +8385,11 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %21, align 8, !tbaa !216
+  store i32 1024, ptr %21, align 8, !tbaa !218
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %22, align 4, !tbaa !217
+  store i32 0, ptr %22, align 4, !tbaa !219
   %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
@@ -8420,7 +8402,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   %26 = and i16 %20, 2
   %.not7 = icmp eq i16 %26, 0
   %27 = zext i1 %.not7 to i32
-  %28 = load ptr, ptr %5, align 8, !tbaa !214
+  %28 = load ptr, ptr %5, align 8, !tbaa !216
   %29 = load i64, ptr %6, align 8, !tbaa !27
   %30 = call i32 @ProcessBuffer(ptr noundef nonnull %0, ptr noundef %28, i64 noundef %29, i32 noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef %27)
   br label %ProcessChainBuffer.exit.i10
@@ -8428,7 +8410,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
   %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
   %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
+  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !219
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
   %or.cond.i44.i16 = select i1 %.not.i.i14, i1 true, i1 %.not4.i.i15
@@ -8466,11 +8448,11 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  store ptr %7, ptr %8, align 8, !tbaa !214
+  store ptr %7, ptr %8, align 8, !tbaa !216
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1024, ptr %10, align 8, !tbaa !216
+  store i32 1024, ptr %10, align 8, !tbaa !218
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %11, align 4, !tbaa !217
+  store i32 0, ptr %11, align 4, !tbaa !219
   %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
@@ -8483,7 +8465,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr 
 
 ProcessChainBuffer.exit.i:                        ; preds = %.split, %15
   %.2.i = phi i32 [ %17, %15 ], [ %12, %.split ]
-  %.val43.i = load i32, ptr %11, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %11, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %14, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8505,11 +8487,11 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %21, align 8, !tbaa !216
+  store i32 1024, ptr %21, align 8, !tbaa !218
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %22, align 4, !tbaa !217
+  store i32 0, ptr %22, align 4, !tbaa !219
   %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
@@ -8522,7 +8504,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   %26 = and i16 %20, 2
   %.not7 = icmp eq i16 %26, 0
   %27 = zext i1 %.not7 to i32
-  %28 = load ptr, ptr %5, align 8, !tbaa !214
+  %28 = load ptr, ptr %5, align 8, !tbaa !216
   %29 = load i64, ptr %6, align 8, !tbaa !27
   %30 = call i32 @ProcessBuffer(ptr noundef nonnull %0, ptr noundef %28, i64 noundef %29, i32 noundef %2, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef %27)
   br label %ProcessChainBuffer.exit.i10
@@ -8530,7 +8512,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
   %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
   %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
+  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !219
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
   %or.cond.i44.i16 = select i1 %.not.i.i14, i1 true, i1 %.not4.i.i15
@@ -8568,11 +8550,11 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
-  store ptr %6, ptr %7, align 8, !tbaa !214
+  store ptr %6, ptr %7, align 8, !tbaa !216
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1024, ptr %9, align 8, !tbaa !216
+  store i32 1024, ptr %9, align 8, !tbaa !218
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !217
+  store i32 0, ptr %10, align 4, !tbaa !219
   %11 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %7, ptr noundef %8)
   %12 = icmp eq i32 %11, 0
   %13 = load ptr, ptr %7, align 8
@@ -8585,7 +8567,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %
 
 ProcessChainBuffer.exit.i:                        ; preds = %.split, %14
   %.2.i = phi i32 [ %16, %14 ], [ %11, %.split ]
-  %.val43.i = load i32, ptr %10, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %10, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %13, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8607,11 +8589,11 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr %3, ptr %4, align 8, !tbaa !214
+  store ptr %3, ptr %4, align 8, !tbaa !216
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1024, ptr %20, align 8, !tbaa !216
+  store i32 1024, ptr %20, align 8, !tbaa !218
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %21, align 4, !tbaa !217
+  store i32 0, ptr %21, align 4, !tbaa !219
   %22 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %4, ptr noundef %5)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.ProcessChainBuffer.exit_crit_edge.i7
@@ -8624,7 +8606,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   %25 = and i16 %19, 2
   %.not6 = icmp eq i16 %25, 0
   %26 = zext i1 %.not6 to i32
-  %27 = load ptr, ptr %4, align 8, !tbaa !214
+  %27 = load ptr, ptr %4, align 8, !tbaa !216
   %28 = load i64, ptr %5, align 8, !tbaa !27
   %29 = call i32 @ProcessBuffer(ptr noundef nonnull %0, ptr noundef %27, i64 noundef %28, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef %26)
   br label %ProcessChainBuffer.exit.i9
@@ -8632,7 +8614,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 ProcessChainBuffer.exit.i9:                       ; preds = %24, %.ProcessChainBuffer.exit_crit_edge.i7
   %.val.i10 = phi ptr [ %27, %24 ], [ %.val.pre.i8, %.ProcessChainBuffer.exit_crit_edge.i7 ]
   %.2.i11 = phi i32 [ %29, %24 ], [ %22, %.ProcessChainBuffer.exit_crit_edge.i7 ]
-  %.val43.i12 = load i32, ptr %21, align 4, !tbaa !217
+  %.val43.i12 = load i32, ptr %21, align 4, !tbaa !219
   %.not.i.i13 = icmp eq i32 %.val43.i12, 0
   %.not4.i.i14 = icmp eq ptr %.val.i10, null
   %or.cond.i44.i15 = select i1 %.not.i.i13, i1 true, i1 %.not4.i.i14
@@ -8670,11 +8652,11 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file_format(ptr no
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  store ptr %7, ptr %8, align 8, !tbaa !214
+  store ptr %7, ptr %8, align 8, !tbaa !216
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1024, ptr %10, align 8, !tbaa !216
+  store i32 1024, ptr %10, align 8, !tbaa !218
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %11, align 4, !tbaa !217
+  store i32 0, ptr %11, align 4, !tbaa !219
   %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
@@ -8687,7 +8669,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file_format(ptr no
 
 ProcessChainBuffer.exit.i:                        ; preds = %.split, %15
   %.2.i = phi i32 [ %17, %15 ], [ %12, %.split ]
-  %.val43.i = load i32, ptr %11, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %11, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %14, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8709,11 +8691,11 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %21, align 8, !tbaa !216
+  store i32 1024, ptr %21, align 8, !tbaa !218
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %22, align 4, !tbaa !217
+  store i32 0, ptr %22, align 4, !tbaa !219
   %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
@@ -8726,7 +8708,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   %26 = and i16 %20, 2
   %.not7 = icmp eq i16 %26, 0
   %27 = zext i1 %.not7 to i32
-  %28 = load ptr, ptr %5, align 8, !tbaa !214
+  %28 = load ptr, ptr %5, align 8, !tbaa !216
   %29 = load i64, ptr %6, align 8, !tbaa !27
   %30 = call i32 @ProcessBuffer(ptr noundef nonnull %0, ptr noundef %28, i64 noundef %29, i32 noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef %27)
   br label %ProcessChainBuffer.exit.i10
@@ -8734,7 +8716,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
   %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
   %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
+  %.val43.i13 = load i32, ptr %22, align 4, !tbaa !219
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
   %or.cond.i44.i16 = select i1 %.not.i.i14, i1 true, i1 %.not4.i.i15
@@ -8799,11 +8781,11 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %12, align 8, !tbaa !216
+  store i32 1024, ptr %12, align 8, !tbaa !218
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !217
+  store i32 0, ptr %13, align 4, !tbaa !219
   %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
@@ -8816,7 +8798,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
   %17 = and i64 %11, 128
   %.not = icmp eq i64 %17, 0
   %18 = zext i1 %.not to i32
-  %19 = load ptr, ptr %5, align 8, !tbaa !214
+  %19 = load ptr, ptr %5, align 8, !tbaa !216
   %20 = load i64, ptr %6, align 8, !tbaa !27
   %21 = call i32 @ProcessBuffer(ptr noundef %9, ptr noundef %19, i64 noundef %20, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, i32 noundef %18)
   %22 = icmp eq i32 %21, 1
@@ -8826,7 +8808,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
   %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
   %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.val43.i = load i32, ptr %13, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %13, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8862,11 +8844,11 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %12, align 8, !tbaa !216
+  store i32 1024, ptr %12, align 8, !tbaa !218
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !217
+  store i32 0, ptr %13, align 4, !tbaa !219
   %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
@@ -8879,7 +8861,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
   %17 = and i64 %11, 128
   %.not = icmp eq i64 %17, 0
   %18 = zext i1 %.not to i32
-  %19 = load ptr, ptr %5, align 8, !tbaa !214
+  %19 = load ptr, ptr %5, align 8, !tbaa !216
   %20 = load i64, ptr %6, align 8, !tbaa !27
   %21 = call i32 @ProcessBuffer(ptr noundef %9, ptr noundef %19, i64 noundef %20, i32 noundef %2, i32 noundef 1, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, i32 noundef %18)
   %22 = icmp eq i32 %21, 1
@@ -8889,7 +8871,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
   %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
   %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.val43.i = load i32, ptr %13, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %13, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8925,11 +8907,11 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr %3, ptr %4, align 8, !tbaa !214
+  store ptr %3, ptr %4, align 8, !tbaa !216
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1024, ptr %11, align 8, !tbaa !216
+  store i32 1024, ptr %11, align 8, !tbaa !218
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %12, align 4, !tbaa !217
+  store i32 0, ptr %12, align 4, !tbaa !219
   %13 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %4, ptr noundef %5)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.ProcessChainBuffer.exit_crit_edge.i
@@ -8942,7 +8924,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
   %16 = and i64 %10, 128
   %.not = icmp eq i64 %16, 0
   %17 = zext i1 %.not to i32
-  %18 = load ptr, ptr %4, align 8, !tbaa !214
+  %18 = load ptr, ptr %4, align 8, !tbaa !216
   %19 = load i64, ptr %5, align 8, !tbaa !27
   %20 = call i32 @ProcessBuffer(ptr noundef %8, ptr noundef %18, i64 noundef %19, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %0, ptr noundef null, i32 noundef 1, i32 noundef %17)
   %21 = icmp eq i32 %20, 1
@@ -8952,7 +8934,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
 ProcessChainBuffer.exit.i:                        ; preds = %15, %.ProcessChainBuffer.exit_crit_edge.i
   %.val.i = phi ptr [ %18, %15 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
   %.2.i = phi i32 [ %22, %15 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.val43.i = load i32, ptr %12, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %12, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -8988,11 +8970,11 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %12, align 8, !tbaa !216
+  store i32 1024, ptr %12, align 8, !tbaa !218
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !217
+  store i32 0, ptr %13, align 4, !tbaa !219
   %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
@@ -9005,7 +8987,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
   %17 = and i64 %11, 128
   %.not = icmp eq i64 %17, 0
   %18 = zext i1 %.not to i32
-  %19 = load ptr, ptr %5, align 8, !tbaa !214
+  %19 = load ptr, ptr %5, align 8, !tbaa !216
   %20 = load i64, ptr %6, align 8, !tbaa !27
   %21 = call i32 @ProcessBuffer(ptr noundef %9, ptr noundef %19, i64 noundef %20, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %0, ptr noundef null, i32 noundef 1, i32 noundef %18)
   %22 = icmp eq i32 %21, 1
@@ -9015,7 +8997,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
   %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
   %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.val43.i = load i32, ptr %13, align 4, !tbaa !217
+  %.val43.i = load i32, ptr %13, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
   %or.cond.i44.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -9451,13 +9433,13 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
   %23 = or disjoint i64 %22, 1125899906842624
   store i64 %23, ptr %17, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 491
-  %25 = load i8, ptr %24, align 1, !tbaa !221
+  %25 = load i8, ptr %24, align 1, !tbaa !224
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %34, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %28 = load ptr, ptr %27, align 16, !tbaa !222
+  %28 = load ptr, ptr %27, align 16, !tbaa !225
   %.not43 = icmp eq ptr %28, null
   br i1 %.not43, label %30, label %29
 
@@ -9467,7 +9449,7 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
 
 30:                                               ; preds = %29, %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %32 = load ptr, ptr %31, align 16, !tbaa !223
+  %32 = load ptr, ptr %31, align 16, !tbaa !226
   %.not44 = icmp eq ptr %32, null
   br i1 %.not44, label %34, label %33
 
@@ -9477,14 +9459,14 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
 
 34:                                               ; preds = %21, %33, %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr %1, ptr %35, align 16, !tbaa !222
+  store ptr %1, ptr %35, align 16, !tbaa !225
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr %3, ptr %36, align 16, !tbaa !223
+  store ptr %3, ptr %36, align 16, !tbaa !226
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i32 %2, ptr %37, align 8, !tbaa !224
+  store i32 %2, ptr %37, align 8, !tbaa !227
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 %4, ptr %38, align 8, !tbaa !225
-  store i8 1, ptr %24, align 1, !tbaa !221
+  store i32 %4, ptr %38, align 8, !tbaa !228
+  store i8 1, ptr %24, align 1, !tbaa !224
   %39 = load i64, ptr %17, align 8
   %40 = or i64 %39, 33554432
   store i64 %40, ptr %17, align 8
@@ -9493,8 +9475,8 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
   br i1 %.not45, label %.critedge, label %42
 
 42:                                               ; preds = %34
-  store ptr null, ptr %35, align 16, !tbaa !222
-  store ptr null, ptr %36, align 16, !tbaa !223
+  store ptr null, ptr %35, align 16, !tbaa !225
+  store ptr null, ptr %36, align 16, !tbaa !226
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %34
@@ -9638,7 +9620,7 @@ define internal fastcc range(i32 1, 0) i32 @wolfssl_ctx_set_tmp_dh(ptr noundef c
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !226
+  %38 = load ptr, ptr %37, align 8, !tbaa !229
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %40, label %39
 
@@ -9648,7 +9630,7 @@ define internal fastcc range(i32 1, 0) i32 @wolfssl_ctx_set_tmp_dh(ptr noundef c
 
 40:                                               ; preds = %39, %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %42 = load ptr, ptr %41, align 8, !tbaa !227
+  %42 = load ptr, ptr %41, align 8, !tbaa !230
   %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %44, label %43
 
@@ -9657,12 +9639,12 @@ define internal fastcc range(i32 1, 0) i32 @wolfssl_ctx_set_tmp_dh(ptr noundef c
   br label %44
 
 44:                                               ; preds = %43, %40
-  store ptr %1, ptr %37, align 8, !tbaa !226
-  store ptr %3, ptr %41, align 8, !tbaa !227
+  store ptr %1, ptr %37, align 8, !tbaa !229
+  store ptr %3, ptr %41, align 8, !tbaa !230
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %2, ptr %45, align 8, !tbaa !228
+  store i32 %2, ptr %45, align 8, !tbaa !231
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %4, ptr %46, align 8, !tbaa !229
+  store i32 %4, ptr %46, align 8, !tbaa !232
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %48 = load i16, ptr %47, align 1
   %49 = or i16 %48, 1024
@@ -9850,11 +9832,11 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef captures(addr
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
-  store ptr %5, ptr %6, align 8, !tbaa !214
+  store ptr %5, ptr %6, align 8, !tbaa !216
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1024, ptr %8, align 8, !tbaa !216
+  store i32 1024, ptr %8, align 8, !tbaa !218
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %9, align 4, !tbaa !217
+  store i32 0, ptr %9, align 4, !tbaa !219
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %1, null
   %or.cond.not30 = or i1 %10, %11
@@ -9873,7 +9855,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef captures(addr
 
 .thread:                                          ; preds = %13
   %.not32 = icmp eq ptr %1, null
-  %15 = load ptr, ptr %6, align 8, !tbaa !214
+  %15 = load ptr, ptr %6, align 8, !tbaa !216
   %16 = load i64, ptr %7, align 8, !tbaa !27
   br i1 %.not32, label %19, label %17
 
@@ -9888,7 +9870,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef captures(addr
 .thread36:                                        ; preds = %..thread36_crit_edge, %4, %17, %19
   %.val = phi ptr [ %15, %17 ], [ %15, %19 ], [ %.val.pre, %..thread36_crit_edge ], [ %5, %4 ]
   %.2 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %14, %..thread36_crit_edge ], [ -173, %4 ]
-  %.val34 = load i32, ptr %9, align 4, !tbaa !217
+  %.val34 = load i32, ptr %9, align 4, !tbaa !219
   %.not.i = icmp eq i32 %.val34, 0
   %.not4.i = icmp eq ptr %.val, null
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not4.i
@@ -9913,11 +9895,11 @@ define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, 
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr %4, ptr %5, align 8, !tbaa !214
+  store ptr %4, ptr %5, align 8, !tbaa !216
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1024, ptr %7, align 8, !tbaa !216
+  store i32 1024, ptr %7, align 8, !tbaa !218
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %8, align 4, !tbaa !217
+  store i32 0, ptr %8, align 4, !tbaa !219
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %1, null
   %or.cond3.not.i = and i1 %9, %10
@@ -9937,7 +9919,7 @@ define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, 
 .thread36.i:                                      ; preds = %11, %.thread.i, %3
   %.val.i = phi ptr [ %13, %.thread.i ], [ %4, %3 ], [ %13, %11 ]
   %.2.i = phi i32 [ %15, %.thread.i ], [ -173, %3 ], [ %12, %11 ]
-  %.val34.i = load i32, ptr %8, align 4, !tbaa !217
+  %.val34.i = load i32, ptr %8, align 4, !tbaa !219
   %.not.i.i = icmp eq i32 %.val34.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not4.i.i
@@ -9964,7 +9946,7 @@ define void @wolfSSL_CTX_set_verify_depth(ptr noundef writeonly captures(address
 5:                                                ; preds = %2
   %6 = trunc nuw nsw i32 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 %6, ptr %7, align 8, !tbaa !230
+  store i8 %6, ptr %7, align 8, !tbaa !233
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -9993,7 +9975,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_check_private_key(ptr noundef readonly c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !203
+  %6 = load ptr, ptr %5, align 8, !tbaa !205
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8, !tbaa !196
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -10050,13 +10032,13 @@ define range(i32 -173, 2) i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef captures(
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = load i8, ptr %7, align 8, !tbaa !211
+  %8 = load i8, ptr %7, align 8, !tbaa !213
   %.not = icmp eq i8 %8, 3
   br i1 %.not, label %9, label %19
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %11 = load i32, ptr %10, align 4, !tbaa !212
+  %11 = load i32, ptr %10, align 4, !tbaa !214
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %19, label %13
 
@@ -10072,7 +10054,7 @@ define range(i32 -173, 2) i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef captures(
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i16 %.0, ptr %18, align 8, !tbaa !231
+  store i16 %.0, ptr %18, align 8, !tbaa !234
   br label %19
 
 19:                                               ; preds = %15, %9, %6, %2, %17
@@ -10090,7 +10072,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetTmpEC_DHE_Sz(ptr noundef writeonly cap
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  store i16 %1, ptr %7, align 8, !tbaa !232
+  store i16 %1, ptr %7, align 8, !tbaa !235
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -10146,7 +10128,7 @@ ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split
   %32 = or disjoint i64 %31, %27
   store i64 %32, ptr %15, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %2, ptr %33, align 8, !tbaa !233
+  store ptr %2, ptr %33, align 8, !tbaa !236
   br label %34
 
 34:                                               ; preds = %3, %ModeToVerifyOptions.exit
@@ -10165,7 +10147,7 @@ define void @wolfSSL_SetCertCbCtx(ptr noundef writeonly captures(address_is_null
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %1, ptr %4, align 16, !tbaa !234
+  store ptr %1, ptr %4, align 16, !tbaa !237
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -10179,7 +10161,7 @@ define void @wolfSSL_CTX_SetCertCbCtx(ptr noundef writeonly captures(address_is_
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %1, ptr %4, align 8, !tbaa !235
+  store ptr %1, ptr %4, align 8, !tbaa !238
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -10266,7 +10248,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %0, ptr noun
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %8 = load ptr, ptr %7, align 8, !tbaa !213
+  %8 = load ptr, ptr %7, align 8, !tbaa !215
   %9 = tail call i32 @SetCipherList(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %1) #22
   %.not6 = icmp ne i32 %9, 0
   %10 = zext i1 %.not6 to i32
@@ -10331,7 +10313,7 @@ define ptr @wolfSSLv23_client_method() local_unnamed_addr #0 {
   %3 = tail call i16 @MakeTLSv1_3() #22
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 1, ptr %4, align 1, !tbaa !236
+  store i8 1, ptr %4, align 1, !tbaa !239
   br label %wolfSSLv23_client_method_ex.exit
 
 wolfSSLv23_client_method_ex.exit:                 ; preds = %0, %2
@@ -10348,7 +10330,7 @@ define ptr @wolfSSLv23_client_method_ex(ptr noundef readnone captures(none) %0) 
   %4 = tail call i16 @MakeTLSv1_3() #22
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 1, ptr %5, align 1, !tbaa !236
+  store i8 1, ptr %5, align 1, !tbaa !239
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -10390,7 +10372,7 @@ define ptr @wolfSSLv23_server_method() local_unnamed_addr #0 {
   %3 = tail call i16 @MakeTLSv1_3() #22
   tail call void @InitSSL_Method(ptr noundef nonnull %1, i16 %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 1, ptr %4, align 1, !tbaa !236
+  store i8 1, ptr %4, align 1, !tbaa !239
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %5, align 1, !tbaa !128
   br label %wolfSSLv23_server_method_ex.exit
@@ -10409,7 +10391,7 @@ define ptr @wolfSSLv23_server_method_ex(ptr noundef readnone captures(none) %0) 
   %4 = tail call i16 @MakeTLSv1_3() #22
   tail call void @InitSSL_Method(ptr noundef nonnull %2, i16 %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 1, ptr %5, align 1, !tbaa !236
+  store i8 1, ptr %5, align 1, !tbaa !239
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %6, align 1, !tbaa !128
   br label %7
@@ -10458,7 +10440,7 @@ define range(i32 0, 2) i32 @wolfSSL_check_domain_name(ptr noundef captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %7 = load ptr, ptr %6, align 16, !tbaa !237
+  %7 = load ptr, ptr %6, align 16, !tbaa !240
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -10470,19 +10452,19 @@ define range(i32 0, 2) i32 @wolfSSL_check_domain_name(ptr noundef captures(addre
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 %11, ptr %12, align 8, !tbaa !238
+  store i32 %11, ptr %12, align 8, !tbaa !241
   %13 = add i64 %10, 1
   %14 = and i64 %13, 4294967295
   %15 = tail call ptr @wolfSSL_Malloc(i64 noundef %14) #22
-  store ptr %15, ptr %6, align 16, !tbaa !237
+  store ptr %15, ptr %6, align 16, !tbaa !240
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %22, label %16
 
 16:                                               ; preds = %9
-  %17 = load i32, ptr %12, align 8, !tbaa !238
+  %17 = load i32, ptr %12, align 8, !tbaa !241
   %18 = zext i32 %17 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %1, i64 %18, i1 false)
-  %19 = load i32, ptr %12, align 8, !tbaa !238
+  %19 = load i32, ptr %12, align 8, !tbaa !241
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   store i8 0, ptr %21, align 1, !tbaa !43
@@ -10518,12 +10500,12 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03238 = phi i32 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %6 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
-  %7 = load i64, ptr %6, align 8, !tbaa !239
+  %7 = load i64, ptr %6, align 8, !tbaa !242
   %8 = trunc i64 %7 to i32
   %9 = add i32 %.03238, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !241
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %10 = zext i32 %9 to i64
@@ -10546,16 +10528,16 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   %14 = sext i32 %.03140 to i64
   %15 = getelementptr inbounds i8, ptr %.029.ph, i64 %14
   %16 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv46
-  %17 = load ptr, ptr %16, align 8, !tbaa !242
+  %17 = load ptr, ptr %16, align 8, !tbaa !245
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !239
+  %19 = load i64, ptr %18, align 8, !tbaa !242
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %17, i64 %19, i1 false)
-  %20 = load i64, ptr %18, align 8, !tbaa !239
+  %20 = load i64, ptr %18, align 8, !tbaa !242
   %21 = trunc i64 %20 to i32
   %22 = add nsw i32 %.03140, %21
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !243
+  br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !246
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %3
   %.02954 = phi ptr [ %4, %3 ], [ %.029.ph, %.lr.ph43 ]
@@ -10592,32 +10574,32 @@ define range(i32 -173, 2) i32 @wolfSSL_UnloadCertsKeys(ptr noundef %0) local_unn
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %5 = load i8, ptr %4, align 8, !tbaa !202
+  %5 = load i8, ptr %4, align 8, !tbaa !204
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %8 = load i8, ptr %7, align 16, !tbaa !244
+  %8 = load i8, ptr %7, align 16, !tbaa !247
   %.not14 = icmp eq i8 %8, 0
   br i1 %.not14, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @FreeDer(ptr noundef nonnull %10) #22
-  store i8 0, ptr %4, align 8, !tbaa !202
+  store i8 0, ptr %4, align 8, !tbaa !204
   br label %11
 
 11:                                               ; preds = %9, %6, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 489
-  %13 = load i8, ptr %12, align 1, !tbaa !199
+  %13 = load i8, ptr %12, align 1, !tbaa !201
   %.not15 = icmp eq i8 %13, 0
   br i1 %.not15, label %16, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @FreeDer(ptr noundef nonnull %15) #22
-  store i8 0, ptr %12, align 1, !tbaa !199
+  store i8 0, ptr %12, align 1, !tbaa !201
   br label %16
 
 16:                                               ; preds = %14, %11
@@ -10731,7 +10713,7 @@ define range(i32 -2147483648, 2) i32 @wolfSSL_CTX_UnloadIntermediateCerts(ptr no
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !245
+  %9 = load i32, ptr %8, align 8, !tbaa !248
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %wolfSSL_CertManagerUnloadIntermediateCerts.exit, label %11
 
@@ -10792,7 +10774,7 @@ define i64 @wolfSSL_CTX_get_options(ptr noundef readonly captures(address_is_nul
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %5 = load i64, ptr %4, align 8, !tbaa !246
+  %5 = load i64, ptr %4, align 8, !tbaa !249
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -10807,9 +10789,9 @@ define i64 @wolfSSL_CTX_set_options(ptr noundef captures(address_is_null) %0, i6
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %6 = load i64, ptr %5, align 8, !tbaa !246
+  %6 = load i64, ptr %5, align 8, !tbaa !249
   %7 = or i64 %6, %1
-  store i64 %7, ptr %5, align 8, !tbaa !246
+  store i64 %7, ptr %5, align 8, !tbaa !249
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -10825,9 +10807,9 @@ define i64 @wolfSSL_CTX_clear_options(ptr noundef captures(address_is_null) %0, 
 4:                                                ; preds = %2
   %5 = xor i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %7 = load i64, ptr %6, align 8, !tbaa !246
+  %7 = load i64, ptr %6, align 8, !tbaa !249
   %8 = and i64 %7, %5
-  store i64 %8, ptr %6, align 8, !tbaa !246
+  store i64 %8, ptr %6, align 8, !tbaa !249
   br label %9
 
 9:                                                ; preds = %2, %4
@@ -10882,13 +10864,13 @@ define noundef nonnull ptr @wolfSSL_get_version(ptr noundef readonly captures(ad
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  %5 = load i8, ptr %4, align 1, !tbaa !247
+  %5 = load i8, ptr %4, align 1, !tbaa !250
   %6 = icmp eq i8 %5, 3
   br i1 %6, label %7, label %wolfSSL_internal_get_version.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %9 = load i8, ptr %8, align 1, !tbaa !248
+  %9 = load i8, ptr %8, align 1, !tbaa !251
   %10 = icmp ult i8 %9, 5
   br i1 %10, label %switch.lookup, label %wolfSSL_internal_get_version.exit
 
@@ -10943,11 +10925,11 @@ define noundef ptr @wolfSSL_get_current_cipher(ptr noundef captures(address_is_n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %4 = load i8, ptr %3, align 1, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 %4, ptr %5, align 16, !tbaa !249
+  store i8 %4, ptr %5, align 16, !tbaa !252
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %7 = load i8, ptr %6, align 2, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 241
-  store i8 %7, ptr %8, align 1, !tbaa !250
+  store i8 %7, ptr %8, align 1, !tbaa !253
   br label %9
 
 9:                                                ; preds = %1, %2
@@ -10961,9 +10943,9 @@ define ptr @wolfSSL_CIPHER_get_name(ptr noundef readonly captures(address_is_nul
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr %0, align 8, !tbaa !251
+  %4 = load i8, ptr %0, align 8, !tbaa !254
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %6 = load i8, ptr %5, align 1, !tbaa !252
+  %6 = load i8, ptr %5, align 1, !tbaa !255
   %7 = tail call ptr @GetCipherNameIana(i8 noundef zeroext %4, i8 noundef zeroext %6) #22
   br label %8
 
@@ -10979,19 +10961,19 @@ define noundef ptr @wolfSSL_CIPHER_get_version(ptr noundef readonly captures(add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !253
+  %5 = load ptr, ptr %4, align 8, !tbaa !256
   %6 = icmp eq ptr %5, null
   br i1 %6, label %wolfSSL_get_version.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 710
-  %9 = load i8, ptr %8, align 1, !tbaa !247
+  %9 = load i8, ptr %8, align 1, !tbaa !250
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %wolfSSL_get_version.exit
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 711
-  %13 = load i8, ptr %12, align 1, !tbaa !248
+  %13 = load i8, ptr %12, align 1, !tbaa !251
   %14 = icmp ult i8 %13, 5
   br i1 %14, label %switch.lookup, label %wolfSSL_get_version.exit
 
@@ -11015,11 +10997,11 @@ define ptr @wolfSSL_get_cipher(ptr noundef captures(address_is_null) %0) local_u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %4 = load i8, ptr %3, align 1, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 %4, ptr %5, align 16, !tbaa !249
+  store i8 %4, ptr %5, align 16, !tbaa !252
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %7 = load i8, ptr %6, align 2, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 241
-  store i8 %7, ptr %8, align 1, !tbaa !250
+  store i8 %7, ptr %8, align 1, !tbaa !253
   %9 = tail call ptr @GetCipherNameIana(i8 noundef zeroext %4, i8 noundef zeroext %7) #22
   br label %wolfSSL_CIPHER_get_name.exit
 
@@ -11077,7 +11059,7 @@ define range(i32 0, 65536) i32 @wolfSSL_CIPHER_get_id(ptr noundef readonly captu
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !253
+  %4 = load ptr, ptr %3, align 8, !tbaa !256
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %14, label %5
 
@@ -11109,14 +11091,14 @@ define ptr @wolfSSL_get_curve_name(ptr noundef readonly captures(address_is_null
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1082
-  %5 = load i16, ptr %4, align 2, !tbaa !254
+  %5 = load i16, ptr %4, align 2, !tbaa !257
   %switch.tableidx = add i16 %5, -256
   %6 = icmp ult i16 %switch.tableidx, 5
   br i1 %6, label %switch.lookup, label %wolfssl_ffdhe_name.exit
 
 wolfssl_ffdhe_name.exit:                          ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %8 = load i32, ptr %7, align 16, !tbaa !255
+  %8 = load i32, ptr %7, align 16, !tbaa !258
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %wolfssl_ffdhe_name.exit.thread, label %9
 
@@ -11148,9 +11130,9 @@ define i64 @wolfSSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %7 = load i64, ptr %6, align 8, !tbaa !256
+  %7 = load i64, ptr %6, align 8, !tbaa !259
   %8 = or i64 %7, %1
-  store i64 %8, ptr %6, align 8, !tbaa !256
+  store i64 %8, ptr %6, align 8, !tbaa !259
   %9 = and i64 %8, 536870912
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %15, label %10
@@ -11272,7 +11254,7 @@ define i64 @wolfSSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %81 = load i16, ptr %77, align 2
   call void @InitSuites(ptr noundef nonnull %3, i16 %81, i32 noundef 0, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext 0, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext %76, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 noundef zeroext 1, i32 noundef %80) #22
   %82 = load ptr, ptr %45, align 8, !tbaa !176
-  %83 = load i16, ptr %82, align 2, !tbaa !257
+  %83 = load i16, ptr %82, align 2, !tbaa !260
   %.not100 = icmp eq i16 %83, 0
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
@@ -11314,23 +11296,23 @@ define i64 @wolfSSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %.1 = phi i16 [ %108, %95 ], [ %.07489, %.lr.ph ]
   %110 = add i16 %.07588, 2
   %111 = load ptr, ptr %45, align 8, !tbaa !176
-  %112 = load i16, ptr %111, align 2, !tbaa !257
+  %112 = load i16, ptr %111, align 2, !tbaa !260
   %113 = icmp ult i16 %110, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !259
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %109, %72
   %.074.lcssa = phi i16 [ 0, %72 ], [ %.1, %109 ]
   %114 = phi ptr [ %82, %72 ], [ %111, %109 ]
-  store i16 %.074.lcssa, ptr %114, align 2, !tbaa !257
+  store i16 %.074.lcssa, ptr %114, align 2, !tbaa !260
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
-  %116 = load i16, ptr %115, align 2, !tbaa !260
+  %116 = load i16, ptr %115, align 2, !tbaa !263
   %.not101 = icmp eq i16 %116, 0
   br i1 %.not101, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %._crit_edge
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  %119 = load i16, ptr %117, align 2, !tbaa !260
+  %119 = load i16, ptr %117, align 2, !tbaa !263
   %120 = icmp ult i16 %119, 2
   br i1 %120, label %._crit_edge96, label %.lr.ph95.split
 
@@ -11346,7 +11328,7 @@ define i64 @wolfSSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %127 = zext i16 %126 to i64
   %128 = getelementptr inbounds nuw [38 x i8], ptr %122, i64 0, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !43
-  %130 = load i16, ptr %117, align 2, !tbaa !260
+  %130 = load i16, ptr %117, align 2, !tbaa !263
   %switch = icmp ult i16 %130, 2
   br i1 %switch, label %FindHashSig.exit.thread, label %.lr.ph.i
 
@@ -11374,7 +11356,7 @@ define i64 @wolfSSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %144 = add i16 %.015.i, 2
   %145 = zext i16 %144 to i64
   %146 = icmp ugt i16 %131, %144
-  br i1 %146, label %132, label %FindHashSig.exit.thread, !llvm.loop !261
+  br i1 %146, label %132, label %FindHashSig.exit.thread, !llvm.loop !264
 
 FindHashSig.exit:                                 ; preds = %138
   %147 = zext i16 %.293 to i64
@@ -11396,20 +11378,20 @@ FindHashSig.exit.thread:                          ; preds = %143, %.lr.ph95.spli
   %.3 = phi i16 [ %155, %FindHashSig.exit ], [ %.293, %.lr.ph95.split ], [ %.293, %143 ]
   %157 = add i16 %.17692, 2
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 2
-  %159 = load i16, ptr %158, align 2, !tbaa !260
+  %159 = load i16, ptr %158, align 2, !tbaa !263
   %160 = icmp ult i16 %157, %159
-  br i1 %160, label %.lr.ph95.split, label %._crit_edge96, !llvm.loop !262
+  br i1 %160, label %.lr.ph95.split, label %._crit_edge96, !llvm.loop !265
 
 ._crit_edge96:                                    ; preds = %FindHashSig.exit.thread, %.lr.ph95, %._crit_edge
   %.lcssa91 = phi ptr [ %114, %._crit_edge ], [ %114, %.lr.ph95 ], [ %156, %FindHashSig.exit.thread ]
   %.2.lcssa = phi i16 [ 0, %._crit_edge ], [ 0, %.lr.ph95 ], [ %.3, %FindHashSig.exit.thread ]
   %161 = getelementptr inbounds nuw i8, ptr %.lcssa91, i64 2
-  store i16 %.2.lcssa, ptr %161, align 2, !tbaa !260
+  store i16 %.2.lcssa, ptr %161, align 2, !tbaa !263
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %3) #22
   br label %162
 
 162:                                              ; preds = %50, %._crit_edge96, %36
-  %163 = load i64, ptr %6, align 8, !tbaa !256
+  %163 = load i64, ptr %6, align 8, !tbaa !259
   br label %164
 
 164:                                              ; preds = %42, %2, %162
@@ -11426,7 +11408,7 @@ define i64 @wolfSSL_get_options(ptr noundef readonly captures(address_is_null) %
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %5 = load i64, ptr %4, align 8, !tbaa !256
+  %5 = load i64, ptr %4, align 8, !tbaa !259
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -11451,7 +11433,7 @@ define void @wolfSSL_CTX_set_servername_callback(ptr noundef writeonly captures(
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %1, ptr %4, align 8, !tbaa !264
+  store ptr %1, ptr %4, align 8, !tbaa !267
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -11465,7 +11447,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_set_servername_arg(ptr noundef writeonly
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %1, ptr %4, align 8, !tbaa !265
+  store ptr %1, ptr %4, align 8, !tbaa !268
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -11531,7 +11513,7 @@ define range(i32 0, 2) i32 @wolfSSL_X509_check_host(ptr noundef readonly capture
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %13 = load ptr, ptr %12, align 8, !tbaa !266
+  %13 = load ptr, ptr %12, align 8, !tbaa !269
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !34
@@ -11557,7 +11539,7 @@ define range(i32 0, 2) i32 @wolfSSL_X509_check_host(ptr noundef readonly capture
 24:                                               ; preds = %.lr.ph
   %25 = add nuw i64 %.047, 1
   %exitcond.not = icmp eq i64 %25, %21
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !270
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !273
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.047 = phi i64 [ %25, %24 ], [ 0, %.preheader ]
@@ -11610,7 +11592,7 @@ define range(i32 0, 2) i32 @wolfSSL_X509_check_ip_asc(ptr noundef readonly captu
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %8 = load ptr, ptr %7, align 8, !tbaa !266
+  %8 = load ptr, ptr %7, align 8, !tbaa !269
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %1, null
   %or.cond.not = and i1 %10, %9
@@ -11653,7 +11635,7 @@ define ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %0) local_unnamed_addr #0 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %0, ptr %4, align 8, !tbaa !271
+  store ptr %0, ptr %4, align 8, !tbaa !274
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -11973,78 +11955,81 @@ attributes #24 = { nounwind willreturn memory(none) }
 !196 = !{!18, !21, i64 120}
 !197 = !{!48, !4, i64 592}
 !198 = !{!13, !13, i64 0}
-!199 = !{!48, !5, i64 489}
-!200 = !{!48, !4, i64 608}
-!201 = !{!18, !4, i64 112}
-!202 = !{!48, !5, i64 488}
-!203 = !{!18, !21, i64 96}
-!204 = !{!185, !4, i64 28}
-!205 = !{!185, !4, i64 852}
-!206 = !{!48, !4, i64 1196}
-!207 = !{!18, !4, i64 236}
-!208 = !{!185, !12, i64 0}
-!209 = !{!185, !4, i64 8}
-!210 = !{!48, !5, i64 584}
-!211 = !{!18, !5, i64 128}
-!212 = !{!18, !4, i64 132}
-!213 = !{!18, !23, i64 152}
-!214 = !{!215, !12, i64 0}
-!215 = !{!"", !12, i64 0, !4, i64 8, !4, i64 12}
-!216 = !{!215, !4, i64 8}
-!217 = !{!215, !4, i64 12}
-!218 = !{!12, !12, i64 0}
-!219 = distinct !{!219, !29}
-!220 = distinct !{!220, !29}
-!221 = !{!48, !5, i64 491}
-!222 = !{!48, !12, i64 496}
-!223 = !{!48, !12, i64 512}
-!224 = !{!48, !4, i64 504}
-!225 = !{!48, !4, i64 520}
-!226 = !{!18, !12, i64 64}
-!227 = !{!18, !12, i64 80}
-!228 = !{!18, !4, i64 72}
-!229 = !{!18, !4, i64 88}
-!230 = !{!18, !5, i64 168}
-!231 = !{!18, !13, i64 232}
-!232 = !{!48, !13, i64 1192}
-!233 = !{!48, !9, i64 168}
-!234 = !{!48, !9, i64 160}
-!235 = !{!18, !9, i64 216}
-!236 = !{!129, !5, i64 3}
-!237 = !{!48, !12, i64 416}
-!238 = !{!48, !4, i64 424}
-!239 = !{!240, !24, i64 8}
-!240 = !{!"iovec", !9, i64 0, !24, i64 8}
-!241 = distinct !{!241, !29}
-!242 = !{!240, !9, i64 0}
-!243 = distinct !{!243, !29}
-!244 = !{!48, !5, i64 1200}
-!245 = !{!18, !4, i64 48}
-!246 = !{!18, !24, i64 184}
-!247 = !{!68, !5, i64 0}
-!248 = !{!68, !5, i64 1}
-!249 = !{!48, !5, i64 240}
-!250 = !{!48, !5, i64 241}
-!251 = !{!54, !5, i64 0}
-!252 = !{!54, !5, i64 1}
-!253 = !{!54, !55, i64 8}
-!254 = !{!48, !13, i64 1082}
-!255 = !{!48, !4, i64 1152}
-!256 = !{!48, !24, i64 1016}
-!257 = !{!258, !13, i64 0}
-!258 = !{!"Suites", !13, i64 0, !13, i64 2, !5, i64 4, !5, i64 304, !5, i64 342}
-!259 = distinct !{!259, !29}
-!260 = !{!258, !13, i64 2}
-!261 = distinct !{!261, !29}
-!262 = distinct !{!262, !29, !263}
-!263 = !{!"llvm.loop.unswitch.partial.disable"}
-!264 = !{!18, !9, i64 264}
-!265 = !{!18, !9, i64 272}
-!266 = !{!267, !21, i64 160}
-!267 = !{!"WOLFSSL_X509", !4, i64 0, !4, i64 4, !268, i64 8, !268, i64 48, !20, i64 88, !4, i64 104, !186, i64 112, !20, i64 120, !4, i64 136, !186, i64 144, !4, i64 152, !21, i64 160, !9, i64 168, !5, i64 176, !5, i64 177, !5, i64 178, !5, i64 210, !269, i64 472, !269, i64 752}
-!268 = !{!"WOLFSSL_ASN1_TIME", !5, i64 0, !4, i64 32, !4, i64 36}
-!269 = !{!"WOLFSSL_X509_NAME", !12, i64 0, !4, i64 8, !4, i64 12, !5, i64 16, !9, i64 272}
-!270 = distinct !{!270, !29}
-!271 = !{!272, !9, i64 56}
-!272 = !{!"WOLFSSL_X509_STORE_CTX", !273, i64 0, !12, i64 8, !9, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !39, i64 40, !9, i64 48, !9, i64 56, !4, i64 64}
-!273 = !{!"p1 _ZTS18WOLFSSL_X509_CHAIN", !9, i64 0}
+!199 = distinct !{!199, !200}
+!200 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!201 = !{!48, !5, i64 489}
+!202 = !{!48, !4, i64 608}
+!203 = !{!18, !4, i64 112}
+!204 = !{!48, !5, i64 488}
+!205 = !{!18, !21, i64 96}
+!206 = !{!185, !4, i64 28}
+!207 = !{!185, !4, i64 852}
+!208 = !{!48, !4, i64 1196}
+!209 = !{!18, !4, i64 236}
+!210 = !{!185, !12, i64 0}
+!211 = !{!185, !4, i64 8}
+!212 = !{!48, !5, i64 584}
+!213 = !{!18, !5, i64 128}
+!214 = !{!18, !4, i64 132}
+!215 = !{!18, !23, i64 152}
+!216 = !{!217, !12, i64 0}
+!217 = !{!"", !12, i64 0, !4, i64 8, !4, i64 12}
+!218 = !{!217, !4, i64 8}
+!219 = !{!217, !4, i64 12}
+!220 = !{!12, !12, i64 0}
+!221 = distinct !{!221, !29, !200}
+!222 = distinct !{!222, !29}
+!223 = distinct !{!223, !29}
+!224 = !{!48, !5, i64 491}
+!225 = !{!48, !12, i64 496}
+!226 = !{!48, !12, i64 512}
+!227 = !{!48, !4, i64 504}
+!228 = !{!48, !4, i64 520}
+!229 = !{!18, !12, i64 64}
+!230 = !{!18, !12, i64 80}
+!231 = !{!18, !4, i64 72}
+!232 = !{!18, !4, i64 88}
+!233 = !{!18, !5, i64 168}
+!234 = !{!18, !13, i64 232}
+!235 = !{!48, !13, i64 1192}
+!236 = !{!48, !9, i64 168}
+!237 = !{!48, !9, i64 160}
+!238 = !{!18, !9, i64 216}
+!239 = !{!129, !5, i64 3}
+!240 = !{!48, !12, i64 416}
+!241 = !{!48, !4, i64 424}
+!242 = !{!243, !24, i64 8}
+!243 = !{!"iovec", !9, i64 0, !24, i64 8}
+!244 = distinct !{!244, !29}
+!245 = !{!243, !9, i64 0}
+!246 = distinct !{!246, !29}
+!247 = !{!48, !5, i64 1200}
+!248 = !{!18, !4, i64 48}
+!249 = !{!18, !24, i64 184}
+!250 = !{!68, !5, i64 0}
+!251 = !{!68, !5, i64 1}
+!252 = !{!48, !5, i64 240}
+!253 = !{!48, !5, i64 241}
+!254 = !{!54, !5, i64 0}
+!255 = !{!54, !5, i64 1}
+!256 = !{!54, !55, i64 8}
+!257 = !{!48, !13, i64 1082}
+!258 = !{!48, !4, i64 1152}
+!259 = !{!48, !24, i64 1016}
+!260 = !{!261, !13, i64 0}
+!261 = !{!"Suites", !13, i64 0, !13, i64 2, !5, i64 4, !5, i64 304, !5, i64 342}
+!262 = distinct !{!262, !29}
+!263 = !{!261, !13, i64 2}
+!264 = distinct !{!264, !29}
+!265 = distinct !{!265, !29, !266}
+!266 = !{!"llvm.loop.unswitch.partial.disable"}
+!267 = !{!18, !9, i64 264}
+!268 = !{!18, !9, i64 272}
+!269 = !{!270, !21, i64 160}
+!270 = !{!"WOLFSSL_X509", !4, i64 0, !4, i64 4, !271, i64 8, !271, i64 48, !20, i64 88, !4, i64 104, !186, i64 112, !20, i64 120, !4, i64 136, !186, i64 144, !4, i64 152, !21, i64 160, !9, i64 168, !5, i64 176, !5, i64 177, !5, i64 178, !5, i64 210, !272, i64 472, !272, i64 752}
+!271 = !{!"WOLFSSL_ASN1_TIME", !5, i64 0, !4, i64 32, !4, i64 36}
+!272 = !{!"WOLFSSL_X509_NAME", !12, i64 0, !4, i64 8, !4, i64 12, !5, i64 16, !9, i64 272}
+!273 = distinct !{!273, !29}
+!274 = !{!275, !9, i64 56}
+!275 = !{!"WOLFSSL_X509_STORE_CTX", !276, i64 0, !12, i64 8, !9, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !39, i64 40, !9, i64 48, !9, i64 56, !4, i64 64}
+!276 = !{!"p1 _ZTS18WOLFSSL_X509_CHAIN", !9, i64 0}

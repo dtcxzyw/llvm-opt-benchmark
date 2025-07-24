@@ -173,7 +173,7 @@ _ZN11duckdb_zstdL33ZSTD_estimateSubBlockSize_literalEPKhmPKNS_17ZSTD_hufCTables_
 _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i, %.thread.i.i.i.i
   %.034.i.i.i.i = phi i64 [ %92, %.thread.i.i.i.i ], [ %93, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  %94 = load i32, ptr %74, align 8, !tbaa !71
+  %94 = load i32, ptr %74, align 8, !tbaa !72
   %95 = getelementptr inbounds nuw i8, ptr %29, i64 4288
   %96 = getelementptr inbounds nuw i8, ptr %50, i64 %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
@@ -227,7 +227,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %.2.i.i.i.i = add i64 %.144.i.i.i.i, %.pn.i.i.i.i
   %113 = getelementptr inbounds nuw i8, ptr %.03543.i.i.i.i, i64 1
   %114 = icmp ult ptr %113, %96
-  br i1 %114, label %.lr.ph.split.i.i.i.i, label %._crit_edge.i32.i.i.i, !llvm.loop !69
+  br i1 %114, label %.lr.ph.split.i.i.i.i, label %._crit_edge.i32.i.i.i, !llvm.loop !73
 
 ._crit_edge.i32.i.i.i:                            ; preds = %.lr.ph.split.i.i.i.i
   %115 = lshr i64 %.2.i.i.i.i, 3
@@ -237,7 +237,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %.034.i34.i.i.i = phi i64 [ %109, %.thread.i37.i.i.i ], [ %115, %._crit_edge.i32.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %117 = load i32, ptr %116, align 8, !tbaa !72
+  %117 = load i32, ptr %116, align 8, !tbaa !74
   %118 = getelementptr inbounds nuw i8, ptr %29, i64 2836
   %119 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
@@ -291,7 +291,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %.2.i49.i.i.i = add i64 %.144.i45.i.i.i, %.pn.i48.i.i.i
   %136 = getelementptr inbounds nuw i8, ptr %.03543.i46.i.i.i, i64 1
   %137 = icmp ult ptr %136, %119
-  br i1 %137, label %.lr.ph.split.i44.i.i.i, label %._crit_edge.i50.i.i.i, !llvm.loop !69
+  br i1 %137, label %.lr.ph.split.i44.i.i.i, label %._crit_edge.i50.i.i.i, !llvm.loop !73
 
 ._crit_edge.i50.i.i.i:                            ; preds = %.lr.ph.split.i44.i.i.i
   %138 = lshr i64 %.2.i49.i.i.i, 3
@@ -301,7 +301,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %.034.i52.i.i.i = phi i64 [ %132, %.thread.i55.i.i.i ], [ %138, %._crit_edge.i50.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   %139 = getelementptr inbounds nuw i8, ptr %16, i64 296
-  %140 = load i64, ptr %139, align 8, !tbaa !73
+  %140 = load i64, ptr %139, align 8, !tbaa !75
   %141 = add i64 %.020.i.i.i, 6
   %142 = add i64 %141, %.034.i.i.i.i
   %143 = add i64 %142, %.034.i34.i.i.i
@@ -357,7 +357,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %168 = icmp eq i64 %.0278445.i, 0
   %169 = select i1 %168, i64 30720, i64 0
   %170 = getelementptr inbounds nuw i8, ptr %.1201454.i, i64 4
-  %171 = load i16, ptr %170, align 4, !tbaa !74
+  %171 = load i16, ptr %170, align 4, !tbaa !76
   %172 = zext i16 %171 to i64
   %173 = mul i64 %150, %172
   %174 = add i64 %169, %153
@@ -370,7 +370,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
 .lr.ph.preheader.i.i:                             ; preds = %164
   %178 = add nuw nsw i64 %172, 3
   %179 = getelementptr inbounds nuw i8, ptr %.1201454.i, i64 6
-  %180 = load i16, ptr %179, align 2, !tbaa !77
+  %180 = load i16, ptr %179, align 2, !tbaa !79
   %181 = zext i16 %180 to i64
   %182 = add nuw nsw i64 %178, %181
   br label %.lr.ph.i.i
@@ -381,13 +381,13 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %.03439.i.i = phi i64 [ %189, %199 ], [ %175, %.lr.ph.preheader.i.i ]
   %183 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %.1201454.i, i64 %.03241.i.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %185 = load i16, ptr %184, align 4, !tbaa !74
+  %185 = load i16, ptr %184, align 4, !tbaa !76
   %186 = zext i16 %185 to i64
   %187 = mul i64 %150, %186
   %188 = add i64 %.03439.i.i, %153
   %189 = add i64 %188, %187
   %190 = getelementptr inbounds nuw i8, ptr %183, i64 6
-  %191 = load i16, ptr %190, align 2, !tbaa !77
+  %191 = load i16, ptr %190, align 2, !tbaa !79
   %192 = zext i16 %191 to i64
   %193 = add i64 %.03340.i.i, 3
   %194 = add i64 %193, %186
@@ -401,7 +401,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
 199:                                              ; preds = %.lr.ph.i.i
   %200 = add nuw i64 %.03241.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %200, %167
-  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i, label %.lr.ph.i.i, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i, label %.lr.ph.i.i, !llvm.loop !80
 
 _ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i: ; preds = %199, %.lr.ph.i.i, %164
   %.0.i.i = phi i64 [ 1, %164 ], [ %167, %199 ], [ %.03241.i.i, %.lr.ph.i.i ]
@@ -413,7 +413,7 @@ _ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i: ; preds = %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
   store i32 0, ptr %12, align 4, !tbaa !66
-  %203 = load i32, ptr %161, align 4, !tbaa !79
+  %203 = load i32, ptr %161, align 4, !tbaa !81
   %204 = load ptr, ptr %17, align 8, !tbaa !57
   %205 = ptrtoint ptr %204 to i64
   br label %206
@@ -423,7 +423,7 @@ _ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i: ; preds = %19
   %.078.i.i = phi i64 [ 0, %.lr.ph.i318.i ], [ %220, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i.i ]
   %207 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %.1201454.i, i64 %.09.i.i
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %209 = load i16, ptr %208, align 4, !tbaa !74
+  %209 = load i16, ptr %208, align 4, !tbaa !76
   %210 = zext i16 %209 to i32
   %211 = ptrtoint ptr %207 to i64
   %212 = sub i64 %211, %205
@@ -433,7 +433,7 @@ _ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i: ; preds = %19
   br i1 %215, label %216, label %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i.i
 
 216:                                              ; preds = %206
-  %217 = load i32, ptr %162, align 8, !tbaa !80
+  %217 = load i32, ptr %162, align 8, !tbaa !82
   %218 = icmp eq i32 %217, 1
   %219 = or disjoint i32 %210, 65536
   %spec.select.i.i.i = select i1 %218, i32 %219, i32 %210
@@ -445,14 +445,14 @@ _ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit
   %220 = add i64 %.078.i.i, %.sroa.0.0.insert.ext.i.i.i
   %221 = add nuw i64 %.09.i.i, 1
   %exitcond.not.i319.i = icmp eq i64 %221, %.0.i.i
-  br i1 %exitcond.not.i319.i, label %.lr.ph.i321.i, label %206, !llvm.loop !81
+  br i1 %exitcond.not.i319.i, label %.lr.ph.i321.i, label %206, !llvm.loop !83
 
 .lr.ph.i321.i:                                    ; preds = %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i.i, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i322.i
   %.012.i.i = phi i64 [ %236, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i322.i ], [ 0, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i.i ]
   %.01011.i.i = phi i64 [ %237, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i322.i ], [ 0, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i.i ]
   %222 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %.1201454.i, i64 %.01011.i.i
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 6
-  %224 = load i16, ptr %223, align 2, !tbaa !77
+  %224 = load i16, ptr %223, align 2, !tbaa !79
   %225 = zext i16 %224 to i32
   %226 = add nuw nsw i32 %225, 3
   %227 = ptrtoint ptr %222 to i64
@@ -463,7 +463,7 @@ _ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit
   br i1 %231, label %232, label %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i322.i
 
 232:                                              ; preds = %.lr.ph.i321.i
-  %233 = load i32, ptr %162, align 8, !tbaa !80
+  %233 = load i32, ptr %162, align 8, !tbaa !82
   %234 = icmp eq i32 %233, 2
   %235 = add nuw nsw i32 %225, 65539
   %spec.select8.i.i.i = select i1 %234, i32 %235, i32 %226
@@ -475,7 +475,7 @@ _ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit
   %236 = add i64 %.012.i.i, %.sroa.4.0.insert.ext.i.i.i
   %237 = add nuw i64 %.01011.i.i, 1
   %exitcond.not.i323.i = icmp eq i64 %237, %.0.i.i
-  br i1 %exitcond.not.i323.i, label %_ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit.i, label %.lr.ph.i321.i, !llvm.loop !82
+  br i1 %exitcond.not.i323.i, label %_ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit.i, label %.lr.ph.i321.i, !llvm.loop !84
 
 _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit.i: ; preds = %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i322.i
   %238 = add i64 %236, %220
@@ -525,13 +525,13 @@ _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   %256 = add nuw nsw i64 %.0278445.i, 1
   %exitcond.not.i = icmp eq i64 %256, %160
-  br i1 %exitcond.not.i, label %..thread380.loopexit_crit_edge.i, label %164, !llvm.loop !83
+  br i1 %exitcond.not.i, label %..thread380.loopexit_crit_edge.i, label %164, !llvm.loop !85
 
 ..thread380.loopexit_crit_edge.i:                 ; preds = %255
   %.pre494.i = ptrtoint ptr %.4204.ph.i to i64
   %.pre495.i = sub i64 %36, %.pre494.i
   %.pre496.i = ashr exact i64 %.pre495.i, 3
-  br label %.thread380.loopexit.i, !llvm.loop !83
+  br label %.thread380.loopexit.i, !llvm.loop !85
 
 .thread380.loopexit.i:                            ; preds = %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i, %..thread380.loopexit_crit_edge.i
   %.pre492.pre-phi.i = phi i64 [ %.pre496.i, %..thread380.loopexit_crit_edge.i ], [ %167, %_ZN11duckdb_zstdL18sizeBlockSequencesEPKNS_8seqDef_sEmmmmi.exit.i ]
@@ -570,7 +570,7 @@ _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi
 
 .lr.ph.i325.i:                                    ; preds = %.thread380.i
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 1028
-  %258 = load i32, ptr %257, align 4, !tbaa !79
+  %258 = load i32, ptr %257, align 4, !tbaa !81
   %259 = load ptr, ptr %17, align 8, !tbaa !57
   %260 = ptrtoint ptr %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -581,7 +581,7 @@ _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi
   %.01011.i327.i = phi i64 [ 0, %.lr.ph.i325.i ], [ %278, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i328.i ]
   %263 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %.6206.i, i64 %.01011.i327.i
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 6
-  %265 = load i16, ptr %264, align 2, !tbaa !77
+  %265 = load i16, ptr %264, align 2, !tbaa !79
   %266 = zext i16 %265 to i32
   %267 = add nuw nsw i32 %266, 3
   %268 = ptrtoint ptr %263 to i64
@@ -592,7 +592,7 @@ _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi
   br i1 %272, label %273, label %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i328.i
 
 273:                                              ; preds = %262
-  %274 = load i32, ptr %261, align 8, !tbaa !80
+  %274 = load i32, ptr %261, align 8, !tbaa !82
   %275 = icmp eq i32 %274, 2
   %276 = add nuw nsw i32 %266, 65539
   %spec.select8.i.i333.i = select i1 %275, i32 %276, i32 %267
@@ -604,7 +604,7 @@ _ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit
   %277 = add i64 %.012.i326.i, %.sroa.4.0.insert.ext.i.i330.i
   %278 = add nuw i64 %.01011.i327.i, 1
   %exitcond.not.i331.i = icmp eq i64 %278, %.pre-phi493.i
-  br i1 %exitcond.not.i331.i, label %_ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit334.i, label %262, !llvm.loop !82
+  br i1 %exitcond.not.i331.i, label %_ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit334.i, label %262, !llvm.loop !84
 
 _ZN11duckdb_zstdL24ZSTD_seqDecompressedSizeEPKNS_10seqStore_tEPKNS_8seqDef_sEmmi.exit334.i: ; preds = %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i328.i, %.thread380.i
   %.0.lcssa.i332.i = phi i64 [ 0, %.thread380.i ], [ %277, %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i328.i ]
@@ -667,14 +667,14 @@ select.unfold.i:                                  ; preds = %287, %285
 
 296:                                              ; preds = %295
   %297 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %298 = load i32, ptr %297, align 8, !tbaa !71
+  %298 = load i32, ptr %297, align 8, !tbaa !72
   %.off.i.i = add i32 %298, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 2
   br i1 %switch.i.i, label %_ZN11duckdb_zstdL27ZSTD_compressSubBlock_multiEPKNS_10seqStore_tEPKNS_27ZSTD_compressedBlockState_tEPS3_PKNS_29ZSTD_entropyCTablesMetadata_tEPKNS_18ZSTD_CCtx_params_sEPvmPKvmijSD_m.exit, label %299
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %301 = load i32, ptr %300, align 8, !tbaa !72
+  %301 = load i32, ptr %300, align 8, !tbaa !74
   %.off9.i.i = add i32 %301, -1
   %switch10.i.i = icmp ult i32 %.off9.i.i, 2
   br i1 %switch10.i.i, label %_ZN11duckdb_zstdL27ZSTD_compressSubBlock_multiEPKNS_10seqStore_tEPKNS_27ZSTD_compressedBlockState_tEPS3_PKNS_29ZSTD_entropyCTablesMetadata_tEPKNS_18ZSTD_CCtx_params_sEPvmPKvmijSD_m.exit, label %_ZN11duckdb_zstdL30ZSTD_needSequenceEntropyTablesEPKNS_25ZSTD_fseCTablesMetadata_tE.exit.i
@@ -705,7 +705,7 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i: ; preds = %307
   %315 = shl i32 %.tr.i.i, 3
   %316 = add i32 %315, %5
   %317 = trunc i32 %316 to i16
-  store i16 %317, ptr %.7233.ph413.i, align 1, !tbaa !84
+  store i16 %317, ptr %.7233.ph413.i, align 1, !tbaa !86
   %318 = lshr i32 %316, 16
   %319 = trunc i32 %318 to i8
   %320 = getelementptr inbounds nuw i8, ptr %.7233.ph413.i, i64 2
@@ -730,7 +730,7 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i: ; preds = %307
 .lr.ph473.i:                                      ; preds = %326
   %.promoted.i = load i32, ptr %15, align 4
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 1028
-  %330 = load i32, ptr %329, align 4, !tbaa !79
+  %330 = load i32, ptr %329, align 4, !tbaa !81
   %331 = load ptr, ptr %17, align 8, !tbaa !57
   %332 = ptrtoint ptr %331 to i64
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -745,9 +745,9 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i: ; preds = %307
   %.val476.i = phi i32 [ %.promoted474.i, %.lr.ph473.i ], [ %.val475.i, %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit.i ]
   %.0209472.i = phi ptr [ %33, %.lr.ph473.i ], [ %369, %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit.i ]
   %337 = phi i32 [ %.promoted.i, %.lr.ph473.i ], [ %368, %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit.i ]
-  %338 = load i32, ptr %.0209472.i, align 4, !tbaa !85
+  %338 = load i32, ptr %.0209472.i, align 4, !tbaa !87
   %339 = getelementptr inbounds nuw i8, ptr %.0209472.i, i64 4
-  %340 = load i16, ptr %339, align 4, !tbaa !74
+  %340 = load i16, ptr %339, align 4, !tbaa !76
   %341 = zext i16 %340 to i32
   %342 = ptrtoint ptr %.0209472.i to i64
   %343 = sub i64 %342, %332
@@ -757,7 +757,7 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i: ; preds = %307
   br i1 %346, label %347, label %_ZN11duckdb_zstdL22ZSTD_getSequenceLengthEPKNS_10seqStore_tEPKNS_8seqDef_sE.exit.i
 
 347:                                              ; preds = %336
-  %348 = load i32, ptr %333, align 8, !tbaa !80
+  %348 = load i32, ptr %333, align 8, !tbaa !82
   %349 = icmp eq i32 %348, 1
   %350 = or disjoint i32 %341, 65536
   %spec.select.i337.i = select i1 %349, i32 %350, i32 %341
@@ -814,7 +814,7 @@ _ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit.i:    ; preds = %.sink.split.i.i, %3
   %368 = phi i32 [ %337, %354 ], [ %.sink.i.i, %.sink.split.i.i ]
   %369 = getelementptr inbounds nuw i8, ptr %.0209472.i, i64 8
   %370 = icmp ult ptr %369, %.7207.ph415.i
-  br i1 %370, label %336, label %._crit_edge.i, !llvm.loop !86
+  br i1 %370, label %336, label %._crit_edge.i, !llvm.loop !88
 
 ._crit_edge.i:                                    ; preds = %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit.i, %326
   %371 = getelementptr inbounds nuw i8, ptr %29, i64 5616
@@ -863,7 +863,7 @@ define internal fastcc noundef range(i64 5, 1) i64 @_ZN11duckdb_zstdL21ZSTD_comp
   br i1 %.not.i, label %30, label %32
 
 30:                                               ; preds = %18
-  %31 = load i32, ptr %1, align 8, !tbaa !87
+  %31 = load i32, ptr %1, align 8, !tbaa !89
   br label %32
 
 32:                                               ; preds = %30, %18
@@ -873,7 +873,7 @@ define internal fastcc noundef range(i64 5, 1) i64 @_ZN11duckdb_zstdL21ZSTD_comp
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = load i32, ptr %1, align 8, !tbaa !87
+  %36 = load i32, ptr %1, align 8, !tbaa !89
   switch i32 %36, label %41 [
     i32 0, label %37
     i32 1, label %39
@@ -895,9 +895,9 @@ define internal fastcc noundef range(i64 5, 1) i64 @_ZN11duckdb_zstdL21ZSTD_comp
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %46 = load i64, ptr %45, align 8, !tbaa !88
+  %46 = load i64, ptr %45, align 8, !tbaa !90
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 4 %44, i64 %46, i1 false)
-  %47 = load i64, ptr %45, align 8, !tbaa !88
+  %47 = load i64, ptr %45, align 8, !tbaa !90
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 %47
   br label %49
 
@@ -963,7 +963,7 @@ define internal fastcc noundef range(i64 5, 1) i64 @_ZN11duckdb_zstdL21ZSTD_comp
   %80 = shl i32 %79, 14
   %81 = add i32 %78, %80
   %82 = trunc i32 %81 to i16
-  store i16 %82, ptr %20, align 1, !tbaa !84
+  store i16 %82, ptr %20, align 1, !tbaa !86
   %83 = lshr i32 %81, 16
   %84 = trunc i32 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 5
@@ -1018,7 +1018,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   %112 = ptrtoint ptr %109 to i64
   %gepdiff96 = sub i64 %gepdiff, %.0.i
   %113 = getelementptr i8, ptr %9, i64 4
-  %.val = load i32, ptr %113, align 4, !tbaa !89
+  %.val = load i32, ptr %113, align 4, !tbaa !91
   %114 = icmp ugt i32 %.val, 57
   %115 = zext i1 %114 to i32
   store i32 0, ptr %16, align 4, !tbaa !66
@@ -1049,7 +1049,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   %129 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %130 = trunc i64 %3 to i16
   %131 = add i16 %130, -32512
-  store i16 %131, ptr %129, align 1, !tbaa !84
+  store i16 %131, ptr %129, align 1, !tbaa !86
   %132 = getelementptr inbounds nuw i8, ptr %109, i64 3
   br label %.thread.i
 
@@ -1077,11 +1077,11 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   br i1 %144, label %167, label %.thread70
 
 .thread8.i:                                       ; preds = %.thread.i
-  %145 = load i32, ptr %111, align 8, !tbaa !71
+  %145 = load i32, ptr %111, align 8, !tbaa !72
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %147 = load i32, ptr %146, align 4, !tbaa !67
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %149 = load i32, ptr %148, align 8, !tbaa !72
+  %149 = load i32, ptr %148, align 8, !tbaa !74
   %150 = shl i32 %145, 6
   %151 = shl i32 %147, 4
   %152 = add i32 %151, %150
@@ -1091,9 +1091,9 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
   store i8 %155, ptr %.0692.i, align 1, !tbaa !68
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %158 = load i64, ptr %157, align 8, !tbaa !73
+  %158 = load i64, ptr %157, align 8, !tbaa !75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull readonly align 4 %156, i64 %158, i1 false)
-  %159 = load i64, ptr %157, align 8, !tbaa !73
+  %159 = load i64, ptr %157, align 8, !tbaa !75
   %160 = getelementptr inbounds nuw i8, ptr %137, i64 %159
   %161 = ptrtoint ptr %160 to i64
   %162 = sub i64 %21, %161
@@ -1110,7 +1110,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
 169:                                              ; preds = %.thread8.i
   %170 = getelementptr inbounds nuw i8, ptr %160, i64 %165
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %172 = load i64, ptr %171, align 8, !tbaa !90
+  %172 = load i64, ptr %171, align 8, !tbaa !92
   %.not78.i = icmp ne i64 %172, 0
   %173 = add i64 %172, %165
   %174 = icmp ult i64 %173, 4
@@ -1144,7 +1144,7 @@ _ZN11duckdb_zstdL31ZSTD_compressSubBlock_sequencesEPKNS_17ZSTD_fseCTables_tEPKNS
   %187 = add i32 %17, -20
   %188 = add i32 %187, %186
   %189 = trunc i32 %188 to i16
-  store i16 %189, ptr %10, align 1, !tbaa !84
+  store i16 %189, ptr %10, align 1, !tbaa !86
   %190 = lshr i32 %188, 16
   %191 = trunc i32 %190 to i8
   %192 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -1260,25 +1260,27 @@ attributes #5 = { nounwind }
 !66 = !{!8, !8, i64 0}
 !67 = !{!53, !52, i64 4}
 !68 = !{!6, !6, i64 0}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!53, !52, i64 0}
-!72 = !{!53, !52, i64 8}
-!73 = !{!53, !14, i64 152}
-!74 = !{!75, !76, i64 4}
-!75 = !{!"_ZTSN11duckdb_zstd8seqDef_sE", !8, i64 0, !76, i64 4, !76, i64 6}
-!76 = !{!"short", !6, i64 0}
-!77 = !{!75, !76, i64 6}
-!78 = distinct !{!78, !70}
-!79 = !{!29, !8, i64 76}
-!80 = !{!29, !32, i64 72}
-!81 = distinct !{!81, !70}
-!82 = distinct !{!82, !70}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = !{!53, !52, i64 0}
+!73 = distinct !{!73, !70}
+!74 = !{!53, !52, i64 8}
+!75 = !{!53, !14, i64 152}
+!76 = !{!77, !78, i64 4}
+!77 = !{!"_ZTSN11duckdb_zstd8seqDef_sE", !8, i64 0, !78, i64 4, !78, i64 6}
+!78 = !{!"short", !6, i64 0}
+!79 = !{!77, !78, i64 6}
+!80 = distinct !{!80, !70}
+!81 = !{!29, !8, i64 76}
+!82 = !{!29, !32, i64 72}
 !83 = distinct !{!83, !70}
-!84 = !{!76, !76, i64 0}
-!85 = !{!75, !8, i64 0}
-!86 = distinct !{!86, !70}
-!87 = !{!51, !52, i64 0}
-!88 = !{!51, !14, i64 136}
-!89 = !{!9, !8, i64 4}
-!90 = !{!53, !14, i64 160}
+!84 = distinct !{!84, !70}
+!85 = distinct !{!85, !70}
+!86 = !{!78, !78, i64 0}
+!87 = !{!77, !8, i64 0}
+!88 = distinct !{!88, !70}
+!89 = !{!51, !52, i64 0}
+!90 = !{!51, !14, i64 136}
+!91 = !{!9, !8, i64 4}
+!92 = !{!53, !14, i64 160}

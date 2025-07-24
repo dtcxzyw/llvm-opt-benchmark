@@ -33233,7 +33233,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !269
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !270
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -33263,7 +33263,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !268
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !271
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -33641,5 +33641,7 @@ attributes #26 = { noreturn nounwind }
 !265 = distinct !{!265, !76}
 !266 = distinct !{!266, !76}
 !267 = !{!59, !23, i64 32}
-!268 = distinct !{!268, !76}
-!269 = distinct !{!269, !76}
+!268 = distinct !{!268, !76, !269}
+!269 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!270 = distinct !{!270, !76}
+!271 = distinct !{!271, !76}

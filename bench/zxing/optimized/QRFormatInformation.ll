@@ -101,7 +101,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef
 ._crit_edge.us.i:                                 ; preds = %28
   %.sroa.05.027.us.i.add = add nuw nsw i64 %.sroa.05.027.us.i.idx, 4
   %32 = icmp eq i64 %.sroa.05.027.us.i.add, 12
-  br i1 %32, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i
+  br i1 %32, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i, !llvm.loop !9
 
 _ZNSt6vectorIjSaIjEED2Ev.exit27:                  ; preds = %._crit_edge.us.i
   %33 = zext i8 %.sroa.8.3.us.i to i64
@@ -218,7 +218,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.7.8.insert.ext = and i64 %23, 3
   %30 = and i64 %sum.shift, 7
   %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !9
+  %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = icmp eq i8 %.sroa.8.3.us.i, 1
   %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0
   %34 = or disjoint i64 %.sroa.6.0.insert.shift, %25
@@ -400,4 +400,6 @@ attributes #7 = { builtin nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = !{!5, !5, i64 0}

@@ -2252,7 +2252,7 @@ define internal void @biquad_flt(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %73 = or disjoint i64 %indvars.iv.next, 1
   %74 = icmp samesign ult i64 %73, %32
-  br i1 %74, label %.lr.ph.split, label %._crit_edge.loopexit127, !llvm.loop !80
+  br i1 %74, label %.lr.ph.split, label %._crit_edge.loopexit127, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %75 = trunc nuw nsw i64 %indvars.iv.next139 to i32
@@ -2364,7 +2364,7 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
   %53 = or disjoint i64 %indvars.iv.next139, 1
   %54 = icmp samesign ult i64 %53, %31
-  br i1 %54, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !81
+  br i1 %54, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !83
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2394,7 +2394,7 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %72 = or disjoint i64 %indvars.iv.next, 1
   %73 = icmp samesign ult i64 %72, %31
-  br i1 %73, label %.lr.ph.split, label %._crit_edge.loopexit127, !llvm.loop !81
+  br i1 %73, label %.lr.ph.split, label %._crit_edge.loopexit127, !llvm.loop !84
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %74 = trunc nuw nsw i64 %indvars.iv.next139 to i32
@@ -2514,7 +2514,7 @@ define internal void @biquad_dii_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %.sink, ptr %50, align 2, !tbaa !76
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !82
+  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %49, %7
   %.055.lcssa = phi float [ %22, %7 ], [ %.05458.us, %49 ], [ %.05458, %.lr.ph.split ]
@@ -2536,7 +2536,7 @@ define internal void @biquad_dii_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %52, ptr %56, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count68
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !86
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2610,7 +2610,7 @@ define internal void @biquad_dii_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %.sink, ptr %49, align 4, !tbaa !30
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !83
+  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %48, %7
   %.055.lcssa = phi double [ %22, %7 ], [ %.05458.us, %48 ], [ %.05458, %.lr.ph.split ]
@@ -2632,7 +2632,7 @@ define internal void @biquad_dii_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %51, ptr %55, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count68
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !88
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2681,7 +2681,7 @@ define internal void @biquad_dii_flt(ptr noundef readonly captures(none) %0, ptr
   store float %36, ptr %37, align 4, !tbaa !73
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !84
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.047.lcssa = phi float [ %22, %7 ], [ %.04649.us, %.lr.ph.split.us ], [ %.04649, %.lr.ph.split ]
@@ -2702,7 +2702,7 @@ define internal void @biquad_dii_flt(ptr noundef readonly captures(none) %0, ptr
   store float %39, ptr %42, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2750,7 +2750,7 @@ define internal void @biquad_dii_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %35, ptr %36, align 8, !tbaa !53
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !85
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.047.lcssa = phi double [ %22, %7 ], [ %.04649.us, %.lr.ph.split.us ], [ %.04649, %.lr.ph.split ]
@@ -2771,7 +2771,7 @@ define internal void @biquad_dii_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %38, ptr %41, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !92
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2853,7 +2853,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %.sink, ptr %55, align 2, !tbaa !76
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !86
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
 
 ._crit_edge.split:                                ; preds = %.lr.ph.split
   %56 = tail call nsz float @llvm.fmuladd.f32(float %60, float %17, float %.06771)
@@ -2887,7 +2887,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %64, ptr %65, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !94
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2968,7 +2968,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %.sink, ptr %54, align 4, !tbaa !30
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !87
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
 
 ._crit_edge.split:                                ; preds = %.lr.ph.split
   %55 = tail call nsz double @llvm.fmuladd.f64(double %59, double %17, double %.06771)
@@ -3002,7 +3002,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %63, ptr %64, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3058,7 +3058,7 @@ define internal void @biquad_tdi_flt(ptr noundef readonly captures(none) %0, ptr
   store float %41, ptr %42, align 4, !tbaa !73
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !88
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !97
 
 ._crit_edge.split:                                ; preds = %.lr.ph.split
   %43 = tail call nsz float @llvm.fmuladd.f32(float %46, float %17, float %.05962)
@@ -3090,7 +3090,7 @@ define internal void @biquad_tdi_flt(ptr noundef readonly captures(none) %0, ptr
   store float %46, ptr %50, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !98
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3145,7 +3145,7 @@ define internal void @biquad_tdi_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %40, ptr %41, align 8, !tbaa !53
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !89
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !99
 
 ._crit_edge.split:                                ; preds = %.lr.ph.split
   %42 = tail call nsz double @llvm.fmuladd.f64(double %45, double %17, double %.05962)
@@ -3177,7 +3177,7 @@ define internal void @biquad_tdi_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %45, ptr %49, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !100
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3252,7 +3252,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
   store i16 %.sink, ptr %50, align 2, !tbaa !76
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !90
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %49, %7
   %.054.lcssa = phi float [ %22, %7 ], [ %35, %49 ], [ %58, %.lr.ph.split ]
@@ -3277,7 +3277,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
   store i16 %52, ptr %59, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !102
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3351,7 +3351,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
   store i32 %.sink, ptr %49, align 4, !tbaa !30
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !91
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %48, %7
   %.054.lcssa = phi double [ %22, %7 ], [ %34, %48 ], [ %57, %.lr.ph.split ]
@@ -3376,7 +3376,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
   store i32 %51, ptr %58, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3425,7 +3425,7 @@ define internal void @biquad_tdii_flt(ptr noundef readonly captures(none) %0, pt
   store float %36, ptr %37, align 4, !tbaa !73
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !92
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.046.lcssa = phi float [ %22, %7 ], [ %34, %.lr.ph.split.us ], [ %44, %.lr.ph.split ]
@@ -3449,7 +3449,7 @@ define internal void @biquad_tdii_flt(ptr noundef readonly captures(none) %0, pt
   store float %39, ptr %45, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !106
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3497,7 +3497,7 @@ define internal void @biquad_tdii_dbl(ptr noundef readonly captures(none) %0, pt
   store double %35, ptr %36, align 8, !tbaa !53
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.046.lcssa = phi double [ %22, %7 ], [ %33, %.lr.ph.split.us ], [ %43, %.lr.ph.split ]
@@ -3521,7 +3521,7 @@ define internal void @biquad_tdii_dbl(ptr noundef readonly captures(none) %0, pt
   store double %38, ptr %44, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !108
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3598,7 +3598,7 @@ define internal void @biquad_latt_s16(ptr noundef readonly captures(none) %0, pt
   store i16 %.sink, ptr %52, align 2, !tbaa !76
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !94
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %51, %7
   %.065.lcssa = phi float [ %20, %7 ], [ %34, %51 ], [ %57, %.lr.ph.split ]
@@ -3621,7 +3621,7 @@ define internal void @biquad_latt_s16(ptr noundef readonly captures(none) %0, pt
   store i16 %54, ptr %59, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !110
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3697,7 +3697,7 @@ define internal void @biquad_latt_s32(ptr noundef readonly captures(none) %0, pt
   store i32 %.sink, ptr %51, align 4, !tbaa !30
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %50, %7
   %.065.lcssa = phi double [ %20, %7 ], [ %33, %50 ], [ %56, %.lr.ph.split ]
@@ -3720,7 +3720,7 @@ define internal void @biquad_latt_s32(ptr noundef readonly captures(none) %0, pt
   store i32 %53, ptr %58, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !112
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3771,7 +3771,7 @@ define internal void @biquad_latt_flt(ptr noundef readonly captures(none) %0, pt
   store float %38, ptr %39, align 4, !tbaa !73
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !96
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.057.lcssa = phi float [ %20, %7 ], [ %31, %.lr.ph.split.us ], [ %43, %.lr.ph.split ]
@@ -3793,7 +3793,7 @@ define internal void @biquad_latt_flt(ptr noundef readonly captures(none) %0, pt
   store float %41, ptr %45, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !114
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3843,7 +3843,7 @@ define internal void @biquad_latt_dbl(ptr noundef readonly captures(none) %0, pt
   store double %37, ptr %38, align 8, !tbaa !53
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !97
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.057.lcssa = phi double [ %20, %7 ], [ %30, %.lr.ph.split.us ], [ %42, %.lr.ph.split ]
@@ -3865,7 +3865,7 @@ define internal void @biquad_latt_dbl(ptr noundef readonly captures(none) %0, pt
   store double %40, ptr %44, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !116
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3939,7 +3939,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %.sink, ptr %49, align 2, !tbaa !76
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !98
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %48, %7
   %.056.lcssa = phi float [ %20, %7 ], [ %34, %48 ], [ %57, %.lr.ph.split ]
@@ -3964,7 +3964,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %51, ptr %58, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !118
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4037,7 +4037,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %.sink, ptr %48, align 4, !tbaa !30
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !99
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %47, %7
   %.056.lcssa = phi double [ %20, %7 ], [ %33, %47 ], [ %56, %.lr.ph.split ]
@@ -4062,7 +4062,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %50, ptr %57, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !120
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4110,7 +4110,7 @@ define internal void @biquad_svf_flt(ptr noundef readonly captures(none) %0, ptr
   store float %35, ptr %36, align 4, !tbaa !73
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !100
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.048.lcssa = phi float [ %20, %7 ], [ %32, %.lr.ph.split.us ], [ %43, %.lr.ph.split ]
@@ -4134,7 +4134,7 @@ define internal void @biquad_svf_flt(ptr noundef readonly captures(none) %0, ptr
   store float %38, ptr %44, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !122
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4181,7 +4181,7 @@ define internal void @biquad_svf_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %34, ptr %35, align 8, !tbaa !53
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !101
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.048.lcssa = phi double [ %20, %7 ], [ %31, %.lr.ph.split.us ], [ %42, %.lr.ph.split ]
@@ -4205,7 +4205,7 @@ define internal void @biquad_svf_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %37, ptr %43, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !124
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4287,7 +4287,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %.sink, ptr %57, align 2, !tbaa !76
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !102
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %56, %7
   %.064.lcssa = phi float [ %22, %7 ], [ %39, %56 ], [ %69, %.lr.ph.split ]
@@ -4316,7 +4316,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
   store i16 %59, ptr %70, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !126
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4397,7 +4397,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %.sink, ptr %56, align 4, !tbaa !30
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !103
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %55, %7
   %.064.lcssa = phi double [ %22, %7 ], [ %38, %55 ], [ %68, %.lr.ph.split ]
@@ -4426,7 +4426,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
   store i32 %58, ptr %69, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !128
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4482,7 +4482,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   store float %43, ptr %44, align 4, !tbaa !73
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !104
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.056.lcssa = phi float [ %22, %7 ], [ %38, %.lr.ph.split.us ], [ %55, %.lr.ph.split ]
@@ -4510,7 +4510,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   store float %46, ptr %56, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !130
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4565,7 +4565,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %42, ptr %43, align 8, !tbaa !53
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !105
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   %.056.lcssa = phi double [ %22, %7 ], [ %37, %.lr.ph.split.us ], [ %54, %.lr.ph.split ]
@@ -4593,7 +4593,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   store double %45, ptr %55, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !132
 }
 
 declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #5
@@ -4634,7 +4634,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
   %6 = alloca %struct.ThreadData, align 8
   store ptr %1, ptr %4, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %8 = load ptr, ptr %7, align 8, !tbaa !133
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -4664,7 +4664,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !107
+  %26 = load ptr, ptr %25, align 8, !tbaa !134
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(4) @.str.58) #16
   %.not53 = icmp eq i32 %27, 0
   br i1 %.not53, label %30, label %28
@@ -4723,11 +4723,11 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
   %50 = phi ptr [ %40, %42 ], [ %40, %45 ], [ %1, %.thread ]
   %.not57 = phi i1 [ true, %42 ], [ %48, %45 ], [ true, %.thread ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %1, ptr %6, align 8, !tbaa !108
+  store ptr %1, ptr %6, align 8, !tbaa !135
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %50, ptr %52, align 8, !tbaa !110
+  store ptr %50, ptr %52, align 8, !tbaa !137
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %2, ptr %53, align 8, !tbaa !111
+  store i32 %2, ptr %53, align 8, !tbaa !138
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 76
   %55 = load i32, ptr %54, align 4, !tbaa !59
   %56 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %8) #16
@@ -4764,7 +4764,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
   %71 = load i32, ptr %54, align 4, !tbaa !59
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %61, label %._crit_edge, !llvm.loop !112
+  br i1 %73, label %61, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %68, %49
   %74 = load i32, ptr %51, align 8, !tbaa !37
@@ -4776,17 +4776,17 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
   %77 = getelementptr inbounds nuw i8, ptr %.pre65, i64 112
   %78 = load i32, ptr %77, align 8, !tbaa !65
   %79 = getelementptr inbounds nuw i8, ptr %.pre65, i64 136
-  %80 = load i64, ptr %79, align 8, !tbaa !113
+  %80 = load i64, ptr %79, align 8, !tbaa !140
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 288
   %82 = load i64, ptr %81, align 8, !tbaa !26
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 136
-  store i64 %82, ptr %83, align 8, !tbaa !113
+  store i64 %82, ptr %83, align 8, !tbaa !140
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 296
-  %85 = load i32, ptr %84, align 8, !tbaa !114
+  %85 = load i32, ptr %84, align 8, !tbaa !141
   %86 = getelementptr inbounds nuw i8, ptr %50, i64 112
   store i32 %85, ptr %86, align 8, !tbaa !65
   store i64 %80, ptr %81, align 8, !tbaa !26
-  store i32 %78, ptr %84, align 8, !tbaa !114
+  store i32 %78, ptr %84, align 8, !tbaa !141
   br label %87
 
 87:                                               ; preds = %76, %._crit_edge
@@ -4843,7 +4843,7 @@ declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !108
+  %5 = load ptr, ptr %1, align 8, !tbaa !135
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 388
@@ -4858,7 +4858,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !110
+  %17 = load ptr, ptr %16, align 8, !tbaa !137
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = load ptr, ptr %19, align 8, !tbaa !32
@@ -4897,10 +4897,10 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %25, align 8, !tbaa !60
   %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8, !tbaa !115
+  %48 = load ptr, ptr %47, align 8, !tbaa !142
   %49 = load ptr, ptr %30, align 8, !tbaa !60
   %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8, !tbaa !115
+  %51 = load ptr, ptr %50, align 8, !tbaa !142
   %52 = load i32, ptr %31, align 8, !tbaa !65
   %53 = load i32, ptr %27, align 8, !tbaa !72
   %54 = mul nsw i32 %53, %52
@@ -4917,41 +4917,41 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %59 = load ptr, ptr %32, align 8, !tbaa !71
   %60 = load ptr, ptr %30, align 8, !tbaa !60
   %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !115
+  %62 = load ptr, ptr %61, align 8, !tbaa !142
   %63 = load ptr, ptr %25, align 8, !tbaa !60
   %64 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !tbaa !115
+  %65 = load ptr, ptr %64, align 8, !tbaa !142
   %66 = load i32, ptr %31, align 8, !tbaa !65
   %67 = load ptr, ptr %33, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !60
   %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
-  %71 = load ptr, ptr %70, align 8, !tbaa !115
+  %71 = load ptr, ptr %70, align 8, !tbaa !142
   %72 = load ptr, ptr %34, align 8, !tbaa !58
   %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv
-  %74 = load i32, ptr %35, align 8, !tbaa !116
+  %74 = load i32, ptr %35, align 8, !tbaa !143
   tail call void %59(ptr noundef nonnull %7, ptr noundef %62, ptr noundef %65, i32 noundef %66, ptr noundef %71, ptr noundef %73, i32 noundef %74) #14
   br label %238
 
 75:                                               ; preds = %56
-  %76 = load i32, ptr %24, align 8, !tbaa !111
+  %76 = load i32, ptr %24, align 8, !tbaa !138
   %.not138 = icmp eq i32 %76, 0
   br i1 %.not138, label %93, label %77
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %25, align 8, !tbaa !60
   %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv
-  %80 = load ptr, ptr %79, align 8, !tbaa !115
+  %80 = load ptr, ptr %79, align 8, !tbaa !142
   %81 = load ptr, ptr %26, align 8, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8, !tbaa !60
   %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv
-  %85 = load ptr, ptr %84, align 8, !tbaa !115
+  %85 = load ptr, ptr %84, align 8, !tbaa !142
   %86 = load i32, ptr %27, align 8, !tbaa !72
   %87 = mul nsw i32 %86, %57
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
-  %90 = load i32, ptr %28, align 8, !tbaa !114
+  %90 = load i32, ptr %28, align 8, !tbaa !141
   %91 = mul nsw i32 %90, %86
   %92 = sext i32 %91 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %89, i64 %92, i1 false)
@@ -4962,14 +4962,14 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 96
   %96 = load ptr, ptr %95, align 8, !tbaa !60
   %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv
-  %98 = load ptr, ptr %97, align 8, !tbaa !115
+  %98 = load ptr, ptr %97, align 8, !tbaa !142
   %99 = load i32, ptr %27, align 8, !tbaa !72
   %100 = mul nsw i32 %99, %57
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %98, i64 %101
   %103 = load ptr, ptr %30, align 8, !tbaa !60
   %104 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
-  %105 = load ptr, ptr %104, align 8, !tbaa !115
+  %105 = load ptr, ptr %104, align 8, !tbaa !142
   %106 = load i32, ptr %31, align 8, !tbaa !65
   %107 = mul nsw i32 %106, %99
   %108 = sext i32 %107 to i64
@@ -4978,7 +4978,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %111 = load ptr, ptr %110, align 8, !tbaa !60
   %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv
-  %113 = load ptr, ptr %112, align 8, !tbaa !115
+  %113 = load ptr, ptr %112, align 8, !tbaa !142
   %114 = load i32, ptr %27, align 8, !tbaa !72
   %115 = load i32, ptr %23, align 8, !tbaa !37
   %116 = load i32, ptr %31, align 8, !tbaa !65
@@ -4995,21 +4995,21 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
   %127 = load ptr, ptr %126, align 8, !tbaa !60
   %128 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv
-  %129 = load ptr, ptr %128, align 8, !tbaa !115
+  %129 = load ptr, ptr %128, align 8, !tbaa !142
   %130 = load ptr, ptr %26, align 8, !tbaa !35
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !60
   %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv
-  %134 = load ptr, ptr %133, align 8, !tbaa !115
+  %134 = load ptr, ptr %133, align 8, !tbaa !142
   %135 = load i32, ptr %23, align 8, !tbaa !37
   %136 = load ptr, ptr %33, align 8, !tbaa !35
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %138 = load ptr, ptr %137, align 8, !tbaa !60
   %139 = getelementptr inbounds ptr, ptr %138, i64 %indvars.iv
-  %140 = load ptr, ptr %139, align 8, !tbaa !115
+  %140 = load ptr, ptr %139, align 8, !tbaa !142
   %141 = load ptr, ptr %34, align 8, !tbaa !58
   %142 = getelementptr inbounds i32, ptr %141, i64 %indvars.iv
-  %143 = load i32, ptr %35, align 8, !tbaa !116
+  %143 = load i32, ptr %35, align 8, !tbaa !143
   tail call void %124(ptr noundef nonnull %7, ptr noundef %129, ptr noundef %134, i32 noundef %135, ptr noundef %140, ptr noundef %142, i32 noundef %143) #14
   %144 = load ptr, ptr %36, align 8, !tbaa !35
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 96
@@ -5029,7 +5029,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
   %160 = load ptr, ptr %159, align 8, !tbaa !60
   %161 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv
-  %162 = load ptr, ptr %161, align 8, !tbaa !115
+  %162 = load ptr, ptr %161, align 8, !tbaa !142
   %163 = load i32, ptr %23, align 8, !tbaa !37
   %164 = load i32, ptr %27, align 8, !tbaa !72
   %165 = mul nsw i32 %164, %163
@@ -5039,16 +5039,16 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 96
   %170 = load ptr, ptr %169, align 8, !tbaa !60
   %171 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv
-  %172 = load ptr, ptr %171, align 8, !tbaa !115
+  %172 = load ptr, ptr %171, align 8, !tbaa !142
   %173 = getelementptr inbounds i8, ptr %172, i64 %166
   %174 = load ptr, ptr %36, align 8, !tbaa !35
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 96
   %176 = load ptr, ptr %175, align 8, !tbaa !60
   %177 = getelementptr inbounds ptr, ptr %176, i64 %indvars.iv
-  %178 = load ptr, ptr %177, align 8, !tbaa !115
+  %178 = load ptr, ptr %177, align 8, !tbaa !142
   %179 = load ptr, ptr %34, align 8, !tbaa !58
   %180 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv
-  %181 = load i32, ptr %35, align 8, !tbaa !116
+  %181 = load i32, ptr %35, align 8, !tbaa !143
   tail call void %157(ptr noundef nonnull %7, ptr noundef %167, ptr noundef %173, i32 noundef %163, ptr noundef %178, ptr noundef %180, i32 noundef %181) #14
   %182 = load ptr, ptr %37, align 8, !tbaa !35
   %183 = load ptr, ptr %26, align 8, !tbaa !35
@@ -5070,17 +5070,17 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 96
   %199 = load ptr, ptr %198, align 8, !tbaa !60
   %200 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv
-  %201 = load ptr, ptr %200, align 8, !tbaa !115
+  %201 = load ptr, ptr %200, align 8, !tbaa !142
   %202 = load i32, ptr %23, align 8, !tbaa !37
   %203 = shl nsw i32 %202, 1
   %204 = load ptr, ptr %36, align 8, !tbaa !35
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
   %206 = load ptr, ptr %205, align 8, !tbaa !60
   %207 = getelementptr inbounds ptr, ptr %206, i64 %indvars.iv
-  %208 = load ptr, ptr %207, align 8, !tbaa !115
+  %208 = load ptr, ptr %207, align 8, !tbaa !142
   %209 = load ptr, ptr %34, align 8, !tbaa !58
   %210 = getelementptr inbounds i32, ptr %209, i64 %indvars.iv
-  %211 = load i32, ptr %35, align 8, !tbaa !116
+  %211 = load i32, ptr %35, align 8, !tbaa !143
   tail call void %196(ptr noundef nonnull %7, ptr noundef %201, ptr noundef %201, i32 noundef %203, ptr noundef %208, ptr noundef %210, i32 noundef %211) #14
   %212 = load ptr, ptr %26, align 8, !tbaa !35
   %213 = load ptr, ptr %37, align 8, !tbaa !35
@@ -5089,12 +5089,12 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   tail call fastcc void @reverse_samples(ptr noundef %212, ptr noundef %213, i32 noundef %40, i32 noundef %215)
   %216 = load ptr, ptr %25, align 8, !tbaa !60
   %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv
-  %218 = load ptr, ptr %217, align 8, !tbaa !115
+  %218 = load ptr, ptr %217, align 8, !tbaa !142
   %219 = load ptr, ptr %26, align 8, !tbaa !35
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 96
   %221 = load ptr, ptr %220, align 8, !tbaa !60
   %222 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv
-  %223 = load ptr, ptr %222, align 8, !tbaa !115
+  %223 = load ptr, ptr %222, align 8, !tbaa !142
   %224 = load i32, ptr %23, align 8, !tbaa !37
   %225 = load i32, ptr %27, align 8, !tbaa !72
   %226 = mul nsw i32 %225, %224
@@ -5104,7 +5104,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 96
   %230 = load ptr, ptr %229, align 8, !tbaa !60
   %231 = getelementptr inbounds ptr, ptr %230, i64 %indvars.iv
-  %232 = load ptr, ptr %231, align 8, !tbaa !115
+  %232 = load ptr, ptr %231, align 8, !tbaa !142
   %233 = load i32, ptr %27, align 8, !tbaa !72
   %234 = load i32, ptr %23, align 8, !tbaa !37
   %235 = mul nsw i32 %234, %233
@@ -5117,7 +5117,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %14, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %238, %4
   ret i32 0
@@ -5151,11 +5151,11 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !115
+  %12 = load ptr, ptr %11, align 8, !tbaa !142
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !60
   %15 = getelementptr inbounds ptr, ptr %14, i64 %10
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !142
   %17 = icmp sgt i32 %3, 0
   br i1 %17, label %.lr.ph80.preheader, label %.loopexit
 
@@ -5174,18 +5174,18 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   store i16 %20, ptr %21, align 2, !tbaa !76
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count114
-  br i1 %exitcond115.not, label %.loopexit, label %.lr.ph80, !llvm.loop !118
+  br i1 %exitcond115.not, label %.loopexit, label %.lr.ph80, !llvm.loop !145
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = sext i32 %2 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !115
+  %27 = load ptr, ptr %26, align 8, !tbaa !142
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !60
   %30 = getelementptr inbounds ptr, ptr %29, i64 %25
-  %31 = load ptr, ptr %30, align 8, !tbaa !115
+  %31 = load ptr, ptr %30, align 8, !tbaa !142
   %32 = icmp sgt i32 %3, 0
   br i1 %32, label %.lr.ph77.preheader, label %.loopexit
 
@@ -5204,18 +5204,18 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   store i32 %35, ptr %36, align 4, !tbaa !30
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count105
-  br i1 %exitcond106.not, label %.loopexit, label %.lr.ph77, !llvm.loop !119
+  br i1 %exitcond106.not, label %.loopexit, label %.lr.ph77, !llvm.loop !146
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !60
   %40 = sext i32 %2 to i64
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !115
+  %42 = load ptr, ptr %41, align 8, !tbaa !142
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8, !tbaa !60
   %45 = getelementptr inbounds ptr, ptr %44, i64 %40
-  %46 = load ptr, ptr %45, align 8, !tbaa !115
+  %46 = load ptr, ptr %45, align 8, !tbaa !142
   %47 = icmp sgt i32 %3, 0
   br i1 %47, label %.lr.ph74.preheader, label %.loopexit
 
@@ -5234,18 +5234,18 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   store float %50, ptr %51, align 4, !tbaa !73
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count96
-  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph74, !llvm.loop !120
+  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph74, !llvm.loop !147
 
 52:                                               ; preds = %4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %54 = load ptr, ptr %53, align 8, !tbaa !60
   %55 = sext i32 %2 to i64
   %56 = getelementptr inbounds ptr, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !115
+  %57 = load ptr, ptr %56, align 8, !tbaa !142
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8, !tbaa !60
   %60 = getelementptr inbounds ptr, ptr %59, i64 %55
-  %61 = load ptr, ptr %60, align 8, !tbaa !115
+  %61 = load ptr, ptr %60, align 8, !tbaa !142
   %62 = icmp sgt i32 %3, 0
   br i1 %62, label %.lr.ph.preheader, label %.loopexit
 
@@ -5264,7 +5264,7 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   store double %65, ptr %66, align 8, !tbaa !53
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !148
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %.lr.ph77, %.lr.ph80, %52, %37, %22, %7, %4
   ret void
@@ -5378,45 +5378,72 @@ attributes #16 = { nounwind willreturn memory(read) }
 !77 = !{!"short", !8, i64 0}
 !78 = distinct !{!78, !28}
 !79 = distinct !{!79, !28}
-!80 = distinct !{!80, !28}
-!81 = distinct !{!81, !28}
+!80 = distinct !{!80, !28, !81}
+!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !82 = distinct !{!82, !28}
-!83 = distinct !{!83, !28}
+!83 = distinct !{!83, !28, !81}
 !84 = distinct !{!84, !28}
-!85 = distinct !{!85, !28}
+!85 = distinct !{!85, !28, !81}
 !86 = distinct !{!86, !28}
-!87 = distinct !{!87, !28}
+!87 = distinct !{!87, !28, !81}
 !88 = distinct !{!88, !28}
-!89 = distinct !{!89, !28}
+!89 = distinct !{!89, !28, !81}
 !90 = distinct !{!90, !28}
-!91 = distinct !{!91, !28}
+!91 = distinct !{!91, !28, !81}
 !92 = distinct !{!92, !28}
-!93 = distinct !{!93, !28}
+!93 = distinct !{!93, !28, !81}
 !94 = distinct !{!94, !28}
-!95 = distinct !{!95, !28}
+!95 = distinct !{!95, !28, !81}
 !96 = distinct !{!96, !28}
-!97 = distinct !{!97, !28}
+!97 = distinct !{!97, !28, !81}
 !98 = distinct !{!98, !28}
-!99 = distinct !{!99, !28}
+!99 = distinct !{!99, !28, !81}
 !100 = distinct !{!100, !28}
-!101 = distinct !{!101, !28}
+!101 = distinct !{!101, !28, !81}
 !102 = distinct !{!102, !28}
-!103 = distinct !{!103, !28}
+!103 = distinct !{!103, !28, !81}
 !104 = distinct !{!104, !28}
-!105 = distinct !{!105, !28}
-!106 = !{!40, !41, i64 16}
-!107 = !{!21, !11, i64 72}
-!108 = !{!109, !36, i64 0}
-!109 = !{!"ThreadData", !36, i64 0, !36, i64 8, !15, i64 16}
-!110 = !{!109, !36, i64 8}
-!111 = !{!109, !15, i64 16}
+!105 = distinct !{!105, !28, !81}
+!106 = distinct !{!106, !28}
+!107 = distinct !{!107, !28, !81}
+!108 = distinct !{!108, !28}
+!109 = distinct !{!109, !28, !81}
+!110 = distinct !{!110, !28}
+!111 = distinct !{!111, !28, !81}
 !112 = distinct !{!112, !28}
-!113 = !{!61, !25, i64 136}
-!114 = !{!21, !15, i64 296}
-!115 = !{!11, !11, i64 0}
-!116 = !{!5, !15, i64 128}
-!117 = distinct !{!117, !28}
+!113 = distinct !{!113, !28, !81}
+!114 = distinct !{!114, !28}
+!115 = distinct !{!115, !28, !81}
+!116 = distinct !{!116, !28}
+!117 = distinct !{!117, !28, !81}
 !118 = distinct !{!118, !28}
-!119 = distinct !{!119, !28}
+!119 = distinct !{!119, !28, !81}
 !120 = distinct !{!120, !28}
-!121 = distinct !{!121, !28}
+!121 = distinct !{!121, !28, !81}
+!122 = distinct !{!122, !28}
+!123 = distinct !{!123, !28, !81}
+!124 = distinct !{!124, !28}
+!125 = distinct !{!125, !28, !81}
+!126 = distinct !{!126, !28}
+!127 = distinct !{!127, !28, !81}
+!128 = distinct !{!128, !28}
+!129 = distinct !{!129, !28, !81}
+!130 = distinct !{!130, !28}
+!131 = distinct !{!131, !28, !81}
+!132 = distinct !{!132, !28}
+!133 = !{!40, !41, i64 16}
+!134 = !{!21, !11, i64 72}
+!135 = !{!136, !36, i64 0}
+!136 = !{!"ThreadData", !36, i64 0, !36, i64 8, !15, i64 16}
+!137 = !{!136, !36, i64 8}
+!138 = !{!136, !15, i64 16}
+!139 = distinct !{!139, !28}
+!140 = !{!61, !25, i64 136}
+!141 = !{!21, !15, i64 296}
+!142 = !{!11, !11, i64 0}
+!143 = !{!5, !15, i64 128}
+!144 = distinct !{!144, !28}
+!145 = distinct !{!145, !28}
+!146 = distinct !{!146, !28}
+!147 = distinct !{!147, !28}
+!148 = distinct !{!148, !28}

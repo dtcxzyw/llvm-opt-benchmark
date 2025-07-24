@@ -2869,7 +2869,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %.1 = phi float [ %.0172, %197 ], [ %222, %234 ], [ %230, %228 ], [ %.0172, %224 ]
   %243 = add nuw i32 %.0145168, 1
   %244 = icmp ult i32 %243, %241
-  br i1 %244, label %.lr.ph.split, label %._crit_edge, !llvm.loop !89
+  br i1 %244, label %.lr.ph.split, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %240, %.lr.ph.split, %189, %.lr.ph.split.us, %115
   %.0145.lcssa = phi i32 [ 0, %115 ], [ %.0145168.us, %.lr.ph.split.us ], [ %191, %189 ], [ %.0145168, %.lr.ph.split ], [ %243, %240 ]
@@ -2919,7 +2919,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 266:                                              ; preds = %261, %102
   %267 = call ptr @lv_ll_get_prev(ptr noundef nonnull %63, ptr noundef nonnull %.0146185) #8
   %.not149 = icmp eq ptr %267, null
-  br i1 %.not149, label %._crit_edge188, label %98, !llvm.loop !90
+  br i1 %.not149, label %._crit_edge188, label %98, !llvm.loop !92
 
 ._crit_edge188:                                   ; preds = %266, %61
   store i32 %.sroa.0.0.copyload, ptr %10, align 4, !tbaa !3
@@ -3002,11 +3002,11 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %43 = and i8 %42, -16
   store i8 %43, ptr %41, align 1
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store i8 -1, ptr %44, align 4, !tbaa !91
+  store i8 -1, ptr %44, align 4, !tbaa !93
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %48 = load i32, ptr %47, align 8, !tbaa !92
+  %48 = load i32, ptr %47, align 8, !tbaa !94
   %49 = add nsw i32 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %49, ptr %50, align 4, !tbaa !68
@@ -3146,13 +3146,13 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %.2 = phi i32 [ %.1100, %.lr.ph ], [ %93, %.thread.sink.split ]
   %128 = call ptr @lv_ll_get_next(ptr noundef nonnull %15, ptr noundef nonnull %.08199) #8
   %.not = icmp eq ptr %128, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.thread, %95, %78
   %129 = add nuw i32 %.079102, 1
   %130 = load i32, ptr %22, align 4, !tbaa !20
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %67, label %._crit_edge105, !llvm.loop !94
+  br i1 %131, label %67, label %._crit_edge105, !llvm.loop !96
 
 ._crit_edge105:                                   ; preds = %._crit_edge, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !35
@@ -3499,7 +3499,7 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   %.1 = phi i32 [ %.2, %203 ], [ %.2, %199 ], [ %.2, %195 ], [ %143, %.lr.ph ]
   %214 = add nuw i32 %.0113128, 1
   %215 = icmp ult i32 %214, %213
-  br i1 %215, label %.lr.ph, label %._crit_edge, !llvm.loop !95
+  br i1 %215, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %212, %137
   %216 = load i32, ptr %85, align 4, !tbaa !49
@@ -3514,7 +3514,7 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
 220:                                              ; preds = %87, %._crit_edge
   %221 = call ptr @lv_ll_get_prev(ptr noundef nonnull %56, ptr noundef nonnull %.0114133) #8
   %.not = icmp eq ptr %221, null
-  br i1 %.not, label %._crit_edge136, label %87, !llvm.loop !96
+  br i1 %.not, label %._crit_edge136, label %87, !llvm.loop !98
 
 ._crit_edge136:                                   ; preds = %220, %55
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #8
@@ -3659,11 +3659,13 @@ attributes #8 = { nounwind }
 !86 = distinct !{!86, !29}
 !87 = distinct !{!87, !29}
 !88 = !{!37, !4, i64 68}
-!89 = distinct !{!89, !29}
-!90 = distinct !{!90, !29}
-!91 = !{!54, !5, i64 52}
-!92 = !{!54, !4, i64 48}
-!93 = distinct !{!93, !29}
-!94 = distinct !{!94, !29}
+!89 = distinct !{!89, !29, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !29}
+!92 = distinct !{!92, !29}
+!93 = !{!54, !5, i64 52}
+!94 = !{!54, !4, i64 48}
 !95 = distinct !{!95, !29}
 !96 = distinct !{!96, !29}
+!97 = distinct !{!97, !29}
+!98 = distinct !{!98, !29}

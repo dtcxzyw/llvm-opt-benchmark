@@ -925,13 +925,13 @@ define internal void @_ZN12_GLOBAL__N_112dirToPosCubeERKN9Imath_3_23BoxINS0_4Vec
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   call void @_ZN7Imf_3_47CubeMap20faceAndPixelPositionERKN9Imath_3_24Vec3IfEERKNS1_3BoxINS1_4Vec2IiEEEERNS_11CubeMapFaceERNS7_IfEE(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  %7 = load i32, ptr %4, align 4, !tbaa !70
-  %8 = load float, ptr %5, align 4, !tbaa !72
-  store float %8, ptr %6, align 4, !tbaa !72
+  %7 = load i32, ptr %4, align 4, !tbaa !71
+  %8 = load float, ptr %5, align 4, !tbaa !73
+  store float %8, ptr %6, align 4, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %11 = load float, ptr %10, align 4, !tbaa !74
-  store float %11, ptr %9, align 4, !tbaa !74
+  %11 = load float, ptr %10, align 4, !tbaa !75
+  store float %11, ptr %9, align 4, !tbaa !75
   call void @_ZN7Imf_3_47CubeMap13pixelPositionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEENS4_IfEE(ptr dead_on_unwind writable sret(%"class.Imath_3_2::Vec2.0") align 4 %0, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
@@ -940,7 +940,7 @@ define internal void @_ZN12_GLOBAL__N_112dirToPosCubeERKN9Imath_3_23BoxINS0_4Vec
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @_ZNK11EnvmapImage6sampleERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load float, ptr %1, align 4, !tbaa !72
+  %3 = load float, ptr %1, align 4, !tbaa !73
   %4 = fcmp ult float %3, 0.000000e+00
   br i1 %4, label %7, label %5
 
@@ -976,7 +976,7 @@ _ZN9Imath_3_25floorIfEEiT_.exit:                  ; preds = %5, %7
   %27 = sub i32 %26, %18
   %28 = select i1 %25, i32 0, i32 %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = load float, ptr %29, align 4, !tbaa !74
+  %30 = load float, ptr %29, align 4, !tbaa !75
   %31 = fcmp ult float %30, 0.000000e+00
   br i1 %31, label %34, label %32
 
@@ -1605,9 +1605,10 @@ attributes #19 = { nounwind }
 !66 = !{!"p1 _ZTS14imath_half_uif", !10, i64 0}
 !67 = !{!7, !7, i64 0}
 !68 = distinct !{!68, !25}
-!69 = distinct !{!69, !25}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"_ZTSN7Imf_3_411CubeMapFaceE", !7, i64 0}
-!72 = !{!73, !35, i64 0}
-!73 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !35, i64 0, !35, i64 4}
-!74 = !{!73, !35, i64 4}
+!69 = distinct !{!69, !25, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"_ZTSN7Imf_3_411CubeMapFaceE", !7, i64 0}
+!73 = !{!74, !35, i64 0}
+!74 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !35, i64 0, !35, i64 4}
+!75 = !{!74, !35, i64 4}

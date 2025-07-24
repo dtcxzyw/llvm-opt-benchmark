@@ -798,14 +798,14 @@ define internal range(i32 -1094995529, 1) i32 @ogg_init(ptr noundef %0) #0 {
 
 .loopexit.us:                                     ; preds = %62
   %70 = call i32 @av_get_random_seed() #9
-  br label %.lr.ph.us
+  br label %.lr.ph.us, !llvm.loop !95
 
 .critedge:                                        ; preds = %61, %.preheader, %54
   %.0134 = phi i32 [ %27, %54 ], [ %58, %.preheader ], [ %59, %61 ]
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 65376
   store i32 %.0134, ptr %71, align 8, !tbaa !94
   %72 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %73 = load ptr, ptr %18, align 8, !tbaa !95
+  %73 = load ptr, ptr %18, align 8, !tbaa !97
   %74 = call i32 @av_dict_copy(ptr noundef nonnull %72, ptr noundef %73, i32 noundef 16) #9
   %75 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %53, ptr %75, align 8, !tbaa !27
@@ -865,7 +865,7 @@ define internal range(i32 -1094995529, 1) i32 @ogg_init(ptr noundef %0) #0 {
   %103 = select i1 %.not.i.i, ptr @.str.41, ptr @.str.40
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %6) #9
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
-  %104 = load ptr, ptr %72, align 8, !tbaa !96
+  %104 = load ptr, ptr %72, align 8, !tbaa !98
   %105 = call i64 @ff_vorbiscomment_length(ptr noundef %104, ptr noundef nonnull %103, ptr noundef null, i32 noundef 0) #9
   %106 = add i64 %105, 4
   %107 = icmp sgt i64 %106, 2147483647
@@ -884,7 +884,7 @@ ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = trunc i64 %105 to i32
   call void @ffio_init_write_context(ptr noundef nonnull %6, ptr noundef nonnull %110, i32 noundef %111) #9
-  %112 = load ptr, ptr %72, align 8, !tbaa !96
+  %112 = load ptr, ptr %72, align 8, !tbaa !98
   %113 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %6, ptr noundef %112, ptr noundef nonnull %103, ptr noundef null, i32 noundef 0) #9
   %114 = trunc i64 %106 to i32
   store i32 %114, ptr %102, align 4, !tbaa !35
@@ -939,7 +939,7 @@ ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
   %140 = select i1 %.not.i.i168, ptr @.str.41, ptr @.str.40
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %5) #9
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
-  %141 = load ptr, ptr %72, align 8, !tbaa !96
+  %141 = load ptr, ptr %72, align 8, !tbaa !98
   %142 = call i64 @ff_vorbiscomment_length(ptr noundef %141, ptr noundef nonnull %140, ptr noundef null, i32 noundef 0) #9
   %143 = icmp sgt i64 %142, 2147483647
   br i1 %143, label %ogg_write_vorbiscomment.exit.thread.i171, label %144
@@ -956,7 +956,7 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
 .thread199:                                       ; preds = %144
   %146 = trunc i64 %142 to i32
   call void @ffio_init_write_context(ptr noundef nonnull %5, ptr noundef nonnull %145, i32 noundef %146) #9
-  %147 = load ptr, ptr %72, align 8, !tbaa !96
+  %147 = load ptr, ptr %72, align 8, !tbaa !98
   %148 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %5, ptr noundef %147, ptr noundef nonnull %140, ptr noundef null, i32 noundef 0) #9
   store i32 %146, ptr %139, align 4, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5) #9
@@ -972,8 +972,8 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
 150:                                              ; preds = %.critedge
   %151 = load i32, ptr %17, align 8, !tbaa !92
   %152 = and i32 %151, 1024
-  %153 = load ptr, ptr %19, align 8, !tbaa !97
-  %154 = load i32, ptr %20, align 8, !tbaa !98
+  %153 = load ptr, ptr %19, align 8, !tbaa !99
+  %154 = load i32, ptr %20, align 8, !tbaa !100
   %155 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %156 = load i32, ptr %155, align 8, !tbaa !90
   %157 = icmp slt i32 %156, 19
@@ -1000,7 +1000,7 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
   %169 = select i1 %.not.i.i173, ptr @.str.41, ptr @.str.40
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4) #9
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
-  %170 = load ptr, ptr %72, align 8, !tbaa !96
+  %170 = load ptr, ptr %72, align 8, !tbaa !98
   %171 = call i64 @ff_vorbiscomment_length(ptr noundef %170, ptr noundef nonnull %169, ptr noundef %153, i32 noundef %154) #9
   %172 = add i64 %171, 8
   %173 = icmp sgt i64 %172, 2147483647
@@ -1019,7 +1019,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = trunc i64 %171 to i32
   call void @ffio_init_write_context(ptr noundef nonnull %4, ptr noundef nonnull %176, i32 noundef %177) #9
-  %178 = load ptr, ptr %72, align 8, !tbaa !96
+  %178 = load ptr, ptr %72, align 8, !tbaa !98
   %179 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %4, ptr noundef %178, ptr noundef nonnull %169, ptr noundef %153, i32 noundef %154) #9
   %180 = trunc i64 %172 to i32
   store i32 %180, ptr %168, align 4, !tbaa !35
@@ -1057,19 +1057,19 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   store i8 0, ptr %192, align 1, !tbaa !48
   %193 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %194 = getelementptr inbounds nuw i8, ptr %76, i64 72
-  %195 = load i32, ptr %194, align 8, !tbaa !99
+  %195 = load i32, ptr %194, align 8, !tbaa !101
   %196 = trunc i32 %195 to i16
   %197 = call i16 @llvm.bswap.i16(i16 %196)
   store i16 %197, ptr %193, align 1, !tbaa !48
   %198 = getelementptr inbounds nuw i8, ptr %185, i64 10
   %199 = getelementptr inbounds nuw i8, ptr %76, i64 76
-  %200 = load i32, ptr %199, align 4, !tbaa !100
+  %200 = load i32, ptr %199, align 4, !tbaa !102
   %201 = trunc i32 %200 to i16
   %202 = call i16 @llvm.bswap.i16(i16 %201)
   store i16 %202, ptr %198, align 1, !tbaa !48
   %203 = getelementptr inbounds nuw i8, ptr %185, i64 12
   %204 = getelementptr inbounds nuw i8, ptr %76, i64 80
-  %205 = load i32, ptr %204, align 8, !tbaa !101
+  %205 = load i32, ptr %204, align 8, !tbaa !103
   %206 = trunc i32 %205 to i8
   %207 = getelementptr inbounds nuw i8, ptr %185, i64 14
   store i8 %206, ptr %207, align 1, !tbaa !48
@@ -1082,7 +1082,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   store i8 %212, ptr %203, align 1, !tbaa !48
   %213 = getelementptr inbounds nuw i8, ptr %185, i64 15
   %214 = getelementptr inbounds nuw i8, ptr %76, i64 84
-  %215 = load i32, ptr %214, align 4, !tbaa !102
+  %215 = load i32, ptr %214, align 4, !tbaa !104
   %216 = trunc i32 %215 to i8
   %217 = getelementptr inbounds nuw i8, ptr %185, i64 17
   store i8 %216, ptr %217, align 1, !tbaa !48
@@ -1095,38 +1095,38 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   store i8 %222, ptr %213, align 1, !tbaa !48
   %223 = getelementptr inbounds nuw i8, ptr %185, i64 18
   %224 = getelementptr inbounds nuw i8, ptr %24, i64 204
-  %225 = load i32, ptr %224, align 4, !tbaa !103
+  %225 = load i32, ptr %224, align 4, !tbaa !105
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %227, label %238
 
 227:                                              ; preds = %186
   %228 = getelementptr inbounds nuw i8, ptr %24, i64 208
-  %229 = load i32, ptr %228, align 4, !tbaa !104
+  %229 = load i32, ptr %228, align 4, !tbaa !106
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %231, label %238
 
 231:                                              ; preds = %227
   %232 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %233 = load i32, ptr %232, align 8, !tbaa !105
+  %233 = load i32, ptr %232, align 8, !tbaa !107
   %234 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %235 = load i32, ptr %234, align 4, !tbaa !106
+  %235 = load i32, ptr %234, align 4, !tbaa !108
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %233, i32 noundef %235, i32 noundef %229, i32 noundef %225) #9
-  %236 = load i32, ptr %228, align 4, !tbaa !104
-  %237 = load i32, ptr %224, align 4, !tbaa !103
+  %236 = load i32, ptr %228, align 4, !tbaa !106
+  %237 = load i32, ptr %224, align 4, !tbaa !105
   call void @avpriv_set_pts_info(ptr noundef nonnull %24, i32 noundef 64, i32 noundef %236, i32 noundef %237) #9
   br label %238
 
 238:                                              ; preds = %231, %227, %186
   %239 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %240 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %241 = load i32, ptr %240, align 4, !tbaa !106
+  %241 = load i32, ptr %240, align 4, !tbaa !108
   %242 = call i32 @llvm.bswap.i32(i32 %241)
   store i32 %242, ptr %223, align 1, !tbaa !48
   %243 = getelementptr inbounds nuw i8, ptr %185, i64 22
-  %244 = load i32, ptr %239, align 8, !tbaa !105
+  %244 = load i32, ptr %239, align 8, !tbaa !107
   %245 = call i32 @llvm.bswap.i32(i32 %244)
   store i32 %245, ptr %243, align 1, !tbaa !48
-  %246 = load ptr, ptr %72, align 8, !tbaa !107
+  %246 = load ptr, ptr %72, align 8, !tbaa !109
   %247 = call i32 @av_dict_count(ptr noundef %246) #9
   %.not29.i = icmp eq i32 %247, 0
   br i1 %.not29.i, label %.thread215, label %248
@@ -1137,7 +1137,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   %250 = select i1 %.not.i.i178, ptr @.str.41, ptr @.str.40
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %3) #9
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
-  %251 = load ptr, ptr %72, align 8, !tbaa !96
+  %251 = load ptr, ptr %72, align 8, !tbaa !98
   %252 = call i64 @ff_vorbiscomment_length(ptr noundef %251, ptr noundef nonnull %250, ptr noundef null, i32 noundef 0) #9
   %253 = add i64 %252, 7
   %254 = icmp sgt i64 %253, 2147483647
@@ -1156,7 +1156,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 7
   %259 = trunc i64 %252 to i32
   call void @ffio_init_write_context(ptr noundef nonnull %3, ptr noundef nonnull %258, i32 noundef %259) #9
-  %260 = load ptr, ptr %72, align 8, !tbaa !96
+  %260 = load ptr, ptr %72, align 8, !tbaa !98
   %261 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %3, ptr noundef %260, ptr noundef nonnull %250, ptr noundef null, i32 noundef 0) #9
   %262 = trunc i64 %253 to i32
   store i32 %262, ptr %249, align 4, !tbaa !35
@@ -1209,7 +1209,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   %285 = select i1 %.not.i182, ptr @.str.41, ptr @.str.40
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %2) #9
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
-  %286 = load ptr, ptr %72, align 8, !tbaa !96
+  %286 = load ptr, ptr %72, align 8, !tbaa !98
   %287 = call i64 @ff_vorbiscomment_length(ptr noundef %286, ptr noundef nonnull %285, ptr noundef null, i32 noundef 0) #9
   %288 = select i1 %.not227, i64 8, i64 7
   %289 = add i64 %287, %288
@@ -1226,7 +1226,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   %295 = trunc i64 %289 to i32
   %296 = add i32 %295, -7
   call void @ffio_init_write_context(ptr noundef nonnull %2, ptr noundef nonnull %294, i32 noundef %296) #9
-  %297 = load ptr, ptr %72, align 8, !tbaa !96
+  %297 = load ptr, ptr %72, align 8, !tbaa !98
   %298 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %2, ptr noundef %297, ptr noundef nonnull %285, ptr noundef null, i32 noundef 0) #9
   br i1 %.not227, label %299, label %301
 
@@ -1264,10 +1264,10 @@ ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
   %315 = load i32, ptr %314, align 1, !tbaa !48
   %316 = call i32 @llvm.bswap.i32(i32 %315)
   %317 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %318 = load i32, ptr %317, align 8, !tbaa !105
+  %318 = load i32, ptr %317, align 8, !tbaa !107
   %.not161 = icmp eq i32 %318, %316
   %319 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %320 = load i32, ptr %319, align 4, !tbaa !106
+  %320 = load i32, ptr %319, align 4, !tbaa !108
   %.not162 = icmp eq i32 %320, %313
   %or.cond318 = select i1 %.not161, i1 %.not162, i1 false
   br i1 %or.cond318, label %321, label %._crit_edge
@@ -1304,7 +1304,7 @@ ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
   %337 = load i32, ptr %13, align 4, !tbaa !4
   %338 = zext i32 %337 to i64
   %339 = icmp samesign ult i64 %indvars.iv.next291, %338
-  br i1 %339, label %21, label %.thread224, !llvm.loop !108
+  br i1 %339, label %21, label %.thread224, !llvm.loop !110
 
 .thread224:                                       ; preds = %.thread220, %52, %12, %279, %ogg_write_vorbiscomment.exit.thread, %51, %.loopexit228, %.loopexit229, %.loopexit230, %.loopexit231, %43
   %.8 = phi i32 [ -12, %ogg_write_vorbiscomment.exit.thread ], [ -1094995529, %279 ], [ -1094995529, %51 ], [ -12, %.loopexit228 ], [ %.0.i175.ph, %.loopexit229 ], [ %.0.i170.ph, %.loopexit230 ], [ %.0.i.ph, %.loopexit231 ], [ -22, %43 ], [ 0, %12 ], [ 0, %.thread220 ], [ -12, %52 ]
@@ -1316,7 +1316,7 @@ define internal void @ogg_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !109
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %.not27 = icmp eq i32 %7, 0
@@ -1369,7 +1369,7 @@ define internal void @ogg_free(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %9, label %.preheader, !llvm.loop !110
+  br i1 %28, label %9, label %.preheader, !llvm.loop !112
 
 .lr.ph26:                                         ; preds = %.preheader, %.lr.ph26
   %.025 = phi ptr [ %30, %.lr.ph26 ], [ %5, %.preheader ]
@@ -1377,10 +1377,10 @@ define internal void @ogg_free(ptr noundef readonly captures(none) %0) #0 {
   %30 = load ptr, ptr %29, align 8, !tbaa !66
   tail call void @av_free(ptr noundef nonnull %.025) #9
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !111
+  br i1 %.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph26, %.preheader
-  store ptr null, ptr %4, align 8, !tbaa !109
+  store ptr null, ptr %4, align 8, !tbaa !111
   ret void
 }
 
@@ -1582,7 +1582,7 @@ ogg_key_granule.exit.thread7:                     ; preds = %39, %ogg_granule_to
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %102, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !25
-  %107 = load i64, ptr %52, align 8, !tbaa !112
+  %107 = load i64, ptr %52, align 8, !tbaa !114
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %109 = load i64, ptr %108, align 8
   %110 = tail call i64 @av_rescale_q(i64 noundef %107, i64 %109, i64 4294967296000001) #10
@@ -1625,7 +1625,7 @@ ogg_granule_to_timestamp.exit130:                 ; preds = %112, %119
   br i1 %or.cond20, label %129, label %.sink.split
 
 129:                                              ; preds = %125
-  %130 = load i64, ptr %64, align 8, !tbaa !113
+  %130 = load i64, ptr %64, align 8, !tbaa !115
   %131 = icmp slt i64 %130, 1
   %132 = sub nsw i64 %122, %110
   %.not112 = icmp slt i64 %132, %130
@@ -1833,7 +1833,7 @@ define internal fastcc void @ogg_write_pages(ptr noundef readonly captures(none)
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !109
+  %8 = load ptr, ptr %7, align 8, !tbaa !111
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %72, label %.preheader
 
@@ -1871,9 +1871,9 @@ thread-pre-split:                                 ; preds = %57
   %30 = getelementptr inbounds nuw i8, ptr %66, i64 65376
   %31 = load i32, ptr %30, align 8, !tbaa !94
   store i32 %31, ptr %15, align 2, !tbaa !48
-  %32 = load i32, ptr %66, align 8, !tbaa !114
+  %32 = load i32, ptr %66, align 8, !tbaa !116
   %33 = add i32 %32, 1
-  store i32 %33, ptr %66, align 8, !tbaa !114
+  store i32 %33, ptr %66, align 8, !tbaa !116
   store i32 %32, ptr %16, align 2, !tbaa !48
   store i32 0, ptr %17, align 2, !tbaa !48
   %34 = getelementptr inbounds nuw i8, ptr %58, i64 21
@@ -1891,14 +1891,14 @@ thread-pre-split:                                 ; preds = %57
   %44 = call i32 @av_crc(ptr noundef %23, i32 noundef %39, ptr noundef nonnull %40, i64 noundef %43) #11
   %45 = call i32 @llvm.bswap.i32(i32 %44)
   store i32 %45, ptr %17, align 2, !tbaa !48
-  %46 = load ptr, ptr %20, align 8, !tbaa !115
+  %46 = load ptr, ptr %20, align 8, !tbaa !117
   %47 = trunc nuw nsw i64 %38 to i32
   call void @avio_write(ptr noundef %46, ptr noundef nonnull %3, i32 noundef %47) #9
-  %48 = load ptr, ptr %20, align 8, !tbaa !115
+  %48 = load ptr, ptr %20, align 8, !tbaa !117
   %49 = load i16, ptr %41, align 2, !tbaa !49
   %50 = zext i16 %49 to i32
   call void @avio_write(ptr noundef %48, ptr noundef nonnull %40, i32 noundef %50) #9
-  %51 = load ptr, ptr %20, align 8, !tbaa !115
+  %51 = load ptr, ptr %20, align 8, !tbaa !117
   call void @avio_write_marker(ptr noundef %51, i64 noundef -9223372036854775808, i32 noundef 5) #9
   %52 = load i32, ptr %67, align 4, !tbaa !59
   %53 = add i32 %52, -1
@@ -1916,7 +1916,7 @@ thread-pre-split:                                 ; preds = %57
   %58 = phi ptr [ %8, %.preheader ], [ %56, %thread-pre-split ]
   %59 = load ptr, ptr %9, align 8, !tbaa !24
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !116
+  %61 = load i32, ptr %60, align 8, !tbaa !118
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %59, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !25
@@ -1930,7 +1930,7 @@ thread-pre-split:                                 ; preds = %57
 
 70:                                               ; preds = %57, %thread-pre-split
   %71 = phi ptr [ %58, %57 ], [ null, %thread-pre-split ]
-  store ptr %71, ptr %7, align 8, !tbaa !109
+  store ptr %71, ptr %7, align 8, !tbaa !111
   br label %72
 
 72:                                               ; preds = %2, %70
@@ -2109,25 +2109,27 @@ attributes #11 = { nounwind willreturn memory(read) }
 !92 = !{!5, !13, i64 128}
 !93 = distinct !{!93, !45}
 !94 = !{!41, !13, i64 65376}
-!95 = !{!5, !21, i64 192}
-!96 = !{!21, !21, i64 0}
-!97 = !{!5, !17, i64 80}
-!98 = !{!5, !13, i64 72}
-!99 = !{!38, !13, i64 72}
-!100 = !{!38, !13, i64 76}
-!101 = !{!38, !13, i64 80}
-!102 = !{!38, !13, i64 84}
-!103 = !{!28, !13, i64 204}
-!104 = !{!28, !13, i64 208}
-!105 = !{!28, !13, i64 32}
-!106 = !{!28, !13, i64 36}
-!107 = !{!28, !21, i64 80}
-!108 = distinct !{!108, !45}
-!109 = !{!86, !63, i64 8}
+!95 = distinct !{!95, !96}
+!96 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!97 = !{!5, !21, i64 192}
+!98 = !{!21, !21, i64 0}
+!99 = !{!5, !17, i64 80}
+!100 = !{!5, !13, i64 72}
+!101 = !{!38, !13, i64 72}
+!102 = !{!38, !13, i64 76}
+!103 = !{!38, !13, i64 80}
+!104 = !{!38, !13, i64 84}
+!105 = !{!28, !13, i64 204}
+!106 = !{!28, !13, i64 208}
+!107 = !{!28, !13, i64 32}
+!108 = !{!28, !13, i64 36}
+!109 = !{!28, !21, i64 80}
 !110 = distinct !{!110, !45}
-!111 = distinct !{!111, !45}
-!112 = !{!42, !19, i64 0}
-!113 = !{!86, !19, i64 24}
-!114 = !{!41, !13, i64 0}
-!115 = !{!5, !12, i64 32}
-!116 = !{!67, !13, i64 16}
+!111 = !{!86, !63, i64 8}
+!112 = distinct !{!112, !45}
+!113 = distinct !{!113, !45}
+!114 = !{!42, !19, i64 0}
+!115 = !{!86, !19, i64 24}
+!116 = !{!41, !13, i64 0}
+!117 = !{!5, !12, i64 32}
+!118 = !{!67, !13, i64 16}

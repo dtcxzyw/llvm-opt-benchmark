@@ -193,7 +193,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   tail call void @dt_box_mean_horizontal(ptr noundef nonnull %85, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %62) #6
   %indvars.iv.next347.i.us = add nuw nsw i64 %indvars.iv346.i.us, 1
   %exitcond350.not.i.us = icmp eq i64 %indvars.iv.next347.i.us, %wide.trip.count349.i.us
-  br i1 %exitcond350.not.i.us, label %._crit_edge326.i.us, label %.lr.ph.us.i.us
+  br i1 %exitcond350.not.i.us, label %._crit_edge326.i.us, label %.lr.ph.us.i.us, !llvm.loop !16
 
 ._crit_edge326.i.us:                              ; preds = %.lr.ph325.split.i.us, %._crit_edge.us.i.us, %33
   tail call void @free(ptr noundef %62) #6
@@ -389,7 +389,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
 ._crit_edge333.us.i.us:                           ; preds = %231
   %indvars.iv.next358.i.us = add nsw i64 %indvars.iv357.i.us, 1
   %exitcond361.not.i.us = icmp eq i64 %indvars.iv.next358.i.us, %30
-  br i1 %exitcond361.not.i.us, label %_guided_filter_tiling.exit.us, label %.lr.ph332.us.i.us
+  br i1 %exitcond361.not.i.us, label %_guided_filter_tiling.exit.us, label %.lr.ph332.us.i.us, !llvm.loop !18
 
 _guided_filter_tiling.exit.us:                    ; preds = %._crit_edge333.us.i.us, %.lr.ph336.i.us, %._crit_edge.i.us
   tail call void @free(ptr noundef %55) #6
@@ -398,7 +398,7 @@ _guided_filter_tiling.exit.us:                    ; preds = %._crit_edge333.us.i
 
 ._crit_edge.us:                                   ; preds = %_guided_filter_tiling.exit.us
   %262 = icmp slt i64 %indvars.iv.next61, %27
-  br i1 %262, label %.preheader.us, label %._crit_edge56
+  br i1 %262, label %.preheader.us, label %._crit_edge56, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.04355 = phi i32 [ %263, %.preheader ], [ 0, %.preheader.lr.ph ]
@@ -461,3 +461,7 @@ attributes #6 = { nounwind }
 !13 = !{!"float", !14, i64 0}
 !14 = !{!"omnipotent char", !15, i64 0}
 !15 = !{!"Simple C/C++ TBAA"}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}

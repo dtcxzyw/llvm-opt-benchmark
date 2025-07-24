@@ -28950,7 +28950,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 
 .loopexit.us:                                     ; preds = %81, %53, %52, %51
   %.not204.us = icmp ult ptr %47, %40
-  br i1 %.not204.us, label %.lr.ph.split.us, label %.thread230
+  br i1 %.not204.us, label %.lr.ph.split.us, label %.thread230, !llvm.loop !136
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
   %.0153255 = phi ptr [ %.2155, %.loopexit ], [ %23, %.lr.ph ]
@@ -29410,17 +29410,17 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %31 = lshr i32 %30, 1
   %32 = add nuw i32 %31, 1
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %32, ptr %33, align 8, !tbaa !136
+  store i32 %32, ptr %33, align 8, !tbaa !138
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %35 = load i32, ptr %34, align 4, !tbaa !111
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 %35, ptr %36, align 4, !tbaa !137
+  store i32 %35, ptr %36, align 4, !tbaa !139
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %25, ptr %37, align 8, !tbaa !138
+  store ptr %25, ptr %37, align 8, !tbaa !140
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %39 = load ptr, ptr %38, align 8, !tbaa !102
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %39, ptr %40, align 8, !tbaa !139
+  store ptr %39, ptr %40, align 8, !tbaa !141
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !113
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -29429,7 +29429,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store i64 %47, ptr %48, align 8, !tbaa !140
+  store i64 %47, ptr %48, align 8, !tbaa !142
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !30
   %51 = zext i8 %50 to i64
@@ -29439,7 +29439,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %55 = zext i8 %54 to i64
   %56 = or disjoint i64 %52, %55
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store i64 %56, ptr %57, align 8, !tbaa !141
+  store i64 %56, ptr %57, align 8, !tbaa !143
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i64
@@ -29449,7 +29449,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %64 = zext i8 %63 to i64
   %65 = or disjoint i64 %61, %64
   %66 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store i64 %65, ptr %66, align 8, !tbaa !142
+  store i64 %65, ptr %66, align 8, !tbaa !144
   %67 = load i8, ptr %4, align 1, !tbaa !30
   %68 = icmp eq i8 %67, 119
   br i1 %68, label %69, label %75
@@ -29459,14 +29459,14 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %71 = load i8, ptr %70, align 1, !tbaa !30
   %72 = zext i8 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %72, ptr %73, align 4, !tbaa !143
+  store i32 %72, ptr %73, align 4, !tbaa !145
   %74 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  store i64 0, ptr %74, align 8, !tbaa !144
+  store i64 0, ptr %74, align 8, !tbaa !146
   br label %89
 
 75:                                               ; preds = %24
   %76 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 0, ptr %76, align 4, !tbaa !143
+  store i32 0, ptr %76, align 4, !tbaa !145
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %78 = load i8, ptr %77, align 1, !tbaa !30
   %79 = zext i8 %78 to i64
@@ -29476,7 +29476,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %83 = zext i8 %82 to i64
   %84 = or disjoint i64 %80, %83
   %85 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  store i64 %84, ptr %85, align 8, !tbaa !144
+  store i64 %84, ptr %85, align 8, !tbaa !146
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %87 = load i64, ptr %2, align 8, !tbaa !108
   %88 = add i64 %87, -11
@@ -29486,9 +29486,9 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   %.sink51 = phi ptr [ null, %69 ], [ %86, %75 ]
   %.sink = phi i64 [ 0, %69 ], [ %88, %75 ]
   %90 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  store ptr %.sink51, ptr %90, align 8, !tbaa !145
+  store ptr %.sink51, ptr %90, align 8, !tbaa !147
   %91 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  store i64 %.sink, ptr %91, align 8, !tbaa !146
+  store i64 %.sink, ptr %91, align 8, !tbaa !148
   %92 = load i64, ptr %25, align 8, !tbaa !108
   %93 = load i64, ptr %28, align 8, !tbaa !108
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -29675,14 +29675,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !133 = !{!110, !10, i64 104}
 !134 = !{!18, !12, i64 208}
 !135 = !{!86, !8, i64 3}
-!136 = !{!38, !12, i64 8}
-!137 = !{!38, !12, i64 12}
-!138 = !{!38, !39, i64 16}
-!139 = !{!38, !10, i64 24}
-!140 = !{!38, !11, i64 56}
-!141 = !{!38, !11, i64 64}
-!142 = !{!38, !11, i64 72}
-!143 = !{!38, !12, i64 4}
-!144 = !{!38, !11, i64 80}
-!145 = !{!38, !10, i64 96}
-!146 = !{!38, !11, i64 88}
+!136 = distinct !{!136, !137}
+!137 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!138 = !{!38, !12, i64 8}
+!139 = !{!38, !12, i64 12}
+!140 = !{!38, !39, i64 16}
+!141 = !{!38, !10, i64 24}
+!142 = !{!38, !11, i64 56}
+!143 = !{!38, !11, i64 64}
+!144 = !{!38, !11, i64 72}
+!145 = !{!38, !12, i64 4}
+!146 = !{!38, !11, i64 80}
+!147 = !{!38, !10, i64 96}
+!148 = !{!38, !11, i64 88}

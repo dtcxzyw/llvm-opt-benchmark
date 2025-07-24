@@ -400,12 +400,12 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, ptr noundef %1, 
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %52, i1 false), !tbaa !27
   %57 = add nuw nsw i64 %.15564.us.us, 1
   %exitcond71.not = icmp eq i64 %57, 20
-  br i1 %exitcond71.not, label %.split.us.us, label %.preheader.us.us
+  br i1 %exitcond71.not, label %.split.us.us, label %.preheader.us.us, !llvm.loop !29
 
 .split.us.us:                                     ; preds = %.preheader.us.us
   %58 = add nuw nsw i64 %.15765.us, 1
   %exitcond72.not = icmp eq i64 %58, 20
-  br i1 %exitcond72.not, label %.split68.us, label %.preheader59.us
+  br i1 %exitcond72.not, label %.split68.us, label %.preheader59.us, !llvm.loop !31
 
 .split68.us:                                      ; preds = %.split.us.us, %49
   ret void
@@ -545,14 +545,14 @@ check_retval.exit14:                              ; preds = %check_retval.exit, 
   br label %check_retval.exit16
 
 check_retval.exit16:                              ; preds = %check_retval.exit14, %18
-  %21 = load ptr, ptr %1, align 8, !tbaa !29
+  %21 = load ptr, ptr %1, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6384
   %25 = load double, ptr %23, align 8, !tbaa !27
   %26 = load double, ptr %24, align 8, !tbaa !27
-  %27 = load i64, ptr %4, align 8, !tbaa !35
-  %28 = load i32, ptr %3, align 4, !tbaa !36
+  %27 = load i64, ptr %4, align 8, !tbaa !38
+  %28 = load i32, ptr %3, align 4, !tbaa !39
   %29 = load double, ptr %5, align 8, !tbaa !27
   %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %2, double noundef %25, double noundef %26, i64 noundef %27, i32 noundef %28, double noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -669,21 +669,21 @@ check_retval.exit20:                              ; preds = %check_retval.exit18
 check_retval.exit22:                              ; preds = %check_retval.exit20, %47
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %puts8 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %50 = load i64, ptr %2, align 8, !tbaa !35
+  %50 = load i64, ptr %2, align 8, !tbaa !38
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %50)
-  %52 = load i64, ptr %3, align 8, !tbaa !35
-  %53 = load i64, ptr %4, align 8, !tbaa !35
+  %52 = load i64, ptr %3, align 8, !tbaa !38
+  %53 = load i64, ptr %4, align 8, !tbaa !38
   %54 = add nsw i64 %53, %52
   %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %54)
-  %56 = load i64, ptr %7, align 8, !tbaa !35
+  %56 = load i64, ptr %7, align 8, !tbaa !38
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %56)
-  %58 = load i64, ptr %5, align 8, !tbaa !35
+  %58 = load i64, ptr %5, align 8, !tbaa !38
   %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %58)
-  %60 = load i64, ptr %8, align 8, !tbaa !35
+  %60 = load i64, ptr %8, align 8, !tbaa !38
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %60)
-  %62 = load i64, ptr %6, align 8, !tbaa !35
+  %62 = load i64, ptr %6, align 8, !tbaa !38
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %62)
-  %64 = load i64, ptr %9, align 8, !tbaa !35
+  %64 = load i64, ptr %9, align 8, !tbaa !38
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %64)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -720,17 +720,17 @@ declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @Fweb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %6 = load ptr, ptr %0, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
-  %14 = load ptr, ptr %1, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %14 = load ptr, ptr %1, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -796,9 +796,9 @@ WebRates.exit.critedge:                           ; preds = %dotprod.exit.i
   %52 = fmul double %49, 5.000000e+01
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %26, double 1.000000e+00)
   %54 = fmul double %49, 0x402921FB54442D28
-  %55 = tail call double @sin(double noundef %54) #12, !tbaa !36
+  %55 = tail call double @sin(double noundef %54) #12, !tbaa !39
   %56 = fmul double %55, 1.000000e+03
-  %57 = tail call double @sin(double noundef %29) #12, !tbaa !36
+  %57 = tail call double @sin(double noundef %29) #12, !tbaa !39
   %58 = tail call double @llvm.fmuladd.f64(double %56, double %57, double %53)
   %59 = load double, ptr %34, align 8, !tbaa !27
   %60 = load double, ptr %19, align 8, !tbaa !27
@@ -954,11 +954,14 @@ attributes #14 = { nounwind allocsize(0) }
 !26 = !{!"p1 double", !6, i64 0}
 !27 = !{!14, !14, i64 0}
 !28 = !{!6, !6, i64 0}
-!29 = !{!30, !6, i64 0}
-!30 = !{!"_generic_N_Vector", !6, i64 0, !31, i64 8, !10, i64 16}
-!31 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
-!32 = !{!33, !26, i64 16}
-!33 = !{!"_N_VectorContent_Serial", !13, i64 0, !34, i64 8, !26, i64 16}
-!34 = !{!"int", !7, i64 0}
-!35 = !{!13, !13, i64 0}
-!36 = !{!34, !34, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !30}
+!32 = !{!33, !6, i64 0}
+!33 = !{!"_generic_N_Vector", !6, i64 0, !34, i64 8, !10, i64 16}
+!34 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!35 = !{!36, !26, i64 16}
+!36 = !{!"_N_VectorContent_Serial", !13, i64 0, !37, i64 8, !26, i64 16}
+!37 = !{!"int", !7, i64 0}
+!38 = !{!13, !13, i64 0}
+!39 = !{!37, !37, i64 0}

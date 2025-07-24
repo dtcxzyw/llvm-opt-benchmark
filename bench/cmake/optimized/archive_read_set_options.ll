@@ -97,7 +97,7 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   %.127.ph = phi i32 [ %31, %33 ], [ %.02646, %28 ], [ %.02646, %.split ], [ %.02646, %24 ], [ %31, %30 ]
   %35 = add nuw nsw i64 %.03244, 1
   %exitcond.not = icmp eq i64 %35, 16
-  br i1 %exitcond.not, label %.split48.us.loopexit51, label %.split, !llvm.loop !28
+  br i1 %exitcond.not, label %.split48.us.loopexit51, label %.split, !llvm.loop !31
 
 .split48.us.loopexit51:                           ; preds = %34
   %36 = icmp eq i32 %.127.ph, 0
@@ -191,5 +191,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !25 = !{!"", !26, i64 0, !27, i64 8, !14, i64 16, !6, i64 24, !6, i64 32}
 !26 = !{!"p1 _ZTS23archive_read_passphrase", !6, i64 0}
 !27 = !{!"p2 _ZTS23archive_read_passphrase", !6, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !29}

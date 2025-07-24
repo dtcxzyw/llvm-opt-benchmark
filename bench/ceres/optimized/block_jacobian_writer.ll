@@ -3109,7 +3109,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
   %68 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !205
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !207
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit, %3
   ret void
@@ -3375,4 +3375,6 @@ attributes #27 = { noreturn nounwind }
 !202 = distinct !{!202, !82}
 !203 = distinct !{!203, !82}
 !204 = !{!16, !16, i64 0}
-!205 = distinct !{!205, !82}
+!205 = distinct !{!205, !82, !206}
+!206 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!207 = distinct !{!207, !82}

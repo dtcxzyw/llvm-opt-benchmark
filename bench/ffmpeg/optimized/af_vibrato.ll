@@ -203,7 +203,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %spec.select94 = sub nsw i32 %83, %84
   %85 = add nuw nsw i32 %.07596, 1
   %exitcond.not = icmp eq i32 %85, %35
-  br i1 %exitcond.not, label %._crit_edge101, label %.lr.ph100.split, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge101, label %.lr.ph100.split, !llvm.loop !60
 
 86:                                               ; preds = %._crit_edge101
   call void @av_frame_free(ptr noundef nonnull %3) #4
@@ -225,7 +225,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %7 = load i32, ptr %6, align 4, !tbaa !59
+  %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = sext i32 %7 to i64
   %9 = tail call noalias ptr @av_calloc(i64 noundef %8, i64 noundef 8) #4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -234,11 +234,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %6, align 4, !tbaa !59
+  %12 = load i32, ptr %6, align 4, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %12, ptr %13, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load i32, ptr %14, align 8, !tbaa !60
+  %15 = load i32, ptr %14, align 8, !tbaa !62
   %16 = sitofp i32 %15 to double
   %17 = tail call nsz double @llvm.fmuladd.f64(double %16, double 5.000000e-03, double 5.000000e-01)
   %18 = tail call i64 @llvm.lrint.i64.f64(double %17)
@@ -253,7 +253,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %23 = load i32, ptr %13, align 8, !tbaa !20
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !61
+  br i1 %25, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
 
 .lr.ph:                                           ; preds = %11, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %11 ]
@@ -267,7 +267,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %.not31, label %.loopexit, label %22
 
 ._crit_edge.loopexit:                             ; preds = %22
-  %.pre = load i32, ptr %14, align 8, !tbaa !60
+  %.pre = load i32, ptr %14, align 8, !tbaa !62
   %.pre34 = sitofp i32 %.pre to double
   br label %._crit_edge
 
@@ -276,7 +276,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %31, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load double, ptr %32, align 8, !tbaa !62
+  %33 = load double, ptr %32, align 8, !tbaa !64
   %34 = fdiv nsz double %.pre-phi, %33
   %35 = fadd nsz double %34, 5.000000e-01
   %36 = tail call i64 @llvm.lrint.i64.f64(double %35)
@@ -401,8 +401,10 @@ attributes #4 = { nounwind }
 !55 = !{!11, !11, i64 0}
 !56 = !{!18, !18, i64 0}
 !57 = distinct !{!57, !26}
-!58 = distinct !{!58, !26}
-!59 = !{!30, !15, i64 76}
-!60 = !{!30, !15, i64 64}
-!61 = distinct !{!61, !26}
-!62 = !{!21, !22, i64 8}
+!58 = distinct !{!58, !26, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !26}
+!61 = !{!30, !15, i64 76}
+!62 = !{!30, !15, i64 64}
+!63 = distinct !{!63, !26}
+!64 = !{!21, !22, i64 8}

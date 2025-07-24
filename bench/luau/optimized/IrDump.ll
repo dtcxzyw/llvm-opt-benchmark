@@ -2777,7 +2777,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
 78:                                               ; preds = %.critedge.loopexit.us
   %79 = getelementptr inbounds nuw i8, ptr %.061122.us, i64 4
   %.not70.us = icmp eq ptr %79, %76
-  br i1 %.not70.us, label %._crit_edge125, label %.critedge.loopexit.us
+  br i1 %.not70.us, label %._crit_edge125, label %.critedge.loopexit.us, !llvm.loop !178
 
 .split.us:                                        ; preds = %.critedge.loopexit.us
   %80 = landingpad { ptr, i32 }
@@ -2793,7 +2793,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 2
   %88 = icmp ult i64 %81, %87
-  br i1 %88, label %.lr.ph127, label %._crit_edge128, !llvm.loop !178
+  br i1 %88, label %.lr.ph127, label %._crit_edge128, !llvm.loop !180
 
 89:                                               ; preds = %._crit_edge115
   %90 = landingpad { ptr, i32 }
@@ -3101,4 +3101,6 @@ attributes #18 = { builtin nounwind }
 !175 = !{!"_ZTSN4Luau7CodeGen13BlockOrderingE", !19, i64 0, !19, i64 4, !19, i64 8, !25, i64 12}
 !176 = distinct !{!176, !62}
 !177 = distinct !{!177, !62}
-!178 = distinct !{!178, !62}
+!178 = distinct !{!178, !179}
+!179 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!180 = distinct !{!180, !62}

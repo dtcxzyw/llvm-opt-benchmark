@@ -4011,12 +4011,12 @@ define internal fastcc i32 @decoder_peek_si_internal(ptr noundef %0, i64 noundef
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %40
 
-40:                                               ; preds = %171, %31
-  %.082 = phi i8 [ 0, %31 ], [ %.183, %171 ]
-  %.078 = phi i32 [ 0, %31 ], [ %.179, %171 ]
-  %.076 = phi i32 [ 0, %31 ], [ %.177, %171 ]
-  %.175 = phi i64 [ %.074, %31 ], [ %169, %171 ]
-  %.1 = phi ptr [ %.073, %31 ], [ %172, %171 ]
+40:                                               ; preds = %164, %31
+  %.082 = phi i8 [ 0, %31 ], [ %.183, %164 ]
+  %.078 = phi i32 [ 0, %31 ], [ %.179, %164 ]
+  %.076 = phi i32 [ 0, %31 ], [ %.177, %164 ]
+  %.175 = phi i64 [ %.074, %31 ], [ %162, %164 ]
+  %.1 = phi ptr [ %.073, %31 ], [ %165, %164 ]
   %41 = load i64, ptr %7, align 8
   %42 = getelementptr inbounds i8, ptr %.1, i64 %41
   %43 = sub i64 %.175, %41
@@ -4026,10 +4026,10 @@ define internal fastcc i32 @decoder_peek_si_internal(ptr noundef %0, i64 noundef
 
 46:                                               ; preds = %40
   %47 = load i8, ptr %18, align 8
-  switch i8 %47, label %167 [
+  switch i8 %47, label %160 [
     i8 1, label %48
-    i8 6, label %156
-    i8 3, label %156
+    i8 6, label %149
+    i8 3, label %149
   ]
 
 48:                                               ; preds = %46
@@ -4106,222 +4106,203 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
   %86 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   %87 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
   %88 = and i32 %87, 255
-  %.fr63.i = freeze i32 %86
-  %89 = and i32 %.fr63.i, 255
+  %.fr61.i = freeze i32 %86
+  %89 = and i32 %.fr61.i, 255
   %.not47.i = icmp eq i32 %89, 0
   br i1 %.not45.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %85
-  br i1 %.not47.i, label %.split.us.split.us.i, label %.split.us.split.i
-
-.split.us.split.us.i:                             ; preds = %.split.us.i, %96
-  %.154.us.us.i = phi i32 [ %spec.select.us.us.i, %96 ], [ 0, %.split.us.i ]
-  %.03553.us.us.i = phi i32 [ %97, %96 ], [ 0, %.split.us.i ]
+.split.us.i:                                      ; preds = %85, %102
+  %.154.us.i = phi i32 [ %spec.select.us.i, %102 ], [ 0, %85 ]
+  %.03553.us.i = phi i32 [ %103, %102 ], [ 0, %85 ]
   %90 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
-  %91 = icmp eq i32 %.03553.us.us.i, 0
-  %spec.select.us.us.i = select i1 %91, i32 %90, i32 %.154.us.us.i
+  %91 = icmp eq i32 %.03553.us.i, 0
+  %spec.select.us.i = select i1 %91, i32 %90, i32 %.154.us.i
   %92 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
   %93 = icmp sgt i32 %92, 7
   br i1 %93, label %94, label %96
 
-94:                                               ; preds = %.split.us.split.us.i
+94:                                               ; preds = %.split.us.i
   %95 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   br label %96
 
-96:                                               ; preds = %94, %.split.us.split.us.i
-  %97 = add nuw nsw i32 %.03553.us.us.i, 1
-  %exitcond69.not.i = icmp eq i32 %.03553.us.us.i, %88
-  br i1 %exitcond69.not.i, label %parse_operating_points.exit, label %.split.us.split.us.i, !llvm.loop !15
+96:                                               ; preds = %94, %.split.us.i
+  br i1 %.not47.i, label %102, label %97
 
-.split.us.split.i:                                ; preds = %.split.us.i, %109
-  %.154.us.i = phi i32 [ %spec.select.us.i, %109 ], [ 0, %.split.us.i ]
-  %.03553.us.i = phi i32 [ %110, %109 ], [ 0, %.split.us.i ]
-  %98 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
-  %99 = icmp eq i32 %.03553.us.i, 0
-  %spec.select.us.i = select i1 %99, i32 %98, i32 %.154.us.i
-  %100 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
-  %101 = icmp sgt i32 %100, 7
-  br i1 %101, label %102, label %104
+97:                                               ; preds = %96
+  %98 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
+  %99 = and i32 %98, 255
+  %.not48.us.i = icmp eq i32 %99, 0
+  br i1 %.not48.us.i, label %102, label %100
 
-102:                                              ; preds = %.split.us.split.i
-  %103 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  br label %104
+100:                                              ; preds = %97
+  %101 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
+  br label %102
 
-104:                                              ; preds = %102, %.split.us.split.i
-  %105 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  %106 = and i32 %105, 255
-  %.not48.us.i = icmp eq i32 %106, 0
-  br i1 %.not48.us.i, label %109, label %107
-
-107:                                              ; preds = %104
-  %108 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
-  br label %109
-
-109:                                              ; preds = %107, %104
-  %110 = add nuw nsw i32 %.03553.us.i, 1
-  %exitcond68.not.i = icmp eq i32 %.03553.us.i, %88
-  br i1 %exitcond68.not.i, label %parse_operating_points.exit, label %.split.us.split.i, !llvm.loop !15
+102:                                              ; preds = %100, %97, %96
+  %103 = add nuw nsw i32 %.03553.us.i, 1
+  %exitcond65.not.i = icmp eq i32 %.03553.us.i, %88
+  br i1 %exitcond65.not.i, label %parse_operating_points.exit, label %.split.us.i, !llvm.loop !15
 
 .split.i:                                         ; preds = %85
   br i1 %.not47.i, label %.split.split.us.i, label %.split.split.i
 
-.split.split.us.i:                                ; preds = %.split.i, %124
-  %.154.us55.i = phi i32 [ %spec.select.us57.i, %124 ], [ 0, %.split.i ]
-  %.03553.us56.i = phi i32 [ %125, %124 ], [ 0, %.split.i ]
-  %111 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
-  %112 = icmp eq i32 %.03553.us56.i, 0
-  %spec.select.us57.i = select i1 %112, i32 %111, i32 %.154.us55.i
-  %113 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
-  %114 = icmp sgt i32 %113, 7
-  br i1 %114, label %115, label %117
+.split.split.us.i:                                ; preds = %.split.i, %117
+  %.154.us55.i = phi i32 [ %spec.select.us57.i, %117 ], [ 0, %.split.i ]
+  %.03553.us56.i = phi i32 [ %118, %117 ], [ 0, %.split.i ]
+  %104 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
+  %105 = icmp eq i32 %.03553.us56.i, 0
+  %spec.select.us57.i = select i1 %105, i32 %104, i32 %.154.us55.i
+  %106 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
+  %107 = icmp sgt i32 %106, 7
+  br i1 %107, label %108, label %110
 
-115:                                              ; preds = %.split.split.us.i
+108:                                              ; preds = %.split.split.us.i
+  %109 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
+  br label %110
+
+110:                                              ; preds = %108, %.split.split.us.i
+  %111 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
+  %112 = and i32 %111, 255
+  %.not46.us.i = icmp eq i32 %112, 0
+  br i1 %.not46.us.i, label %117, label %113
+
+113:                                              ; preds = %110
+  %114 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
+  %115 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
   %116 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   br label %117
 
-117:                                              ; preds = %115, %.split.split.us.i
-  %118 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  %119 = and i32 %118, 255
-  %.not46.us.i = icmp eq i32 %119, 0
-  br i1 %.not46.us.i, label %124, label %120
+117:                                              ; preds = %113, %110
+  %118 = add nuw nsw i32 %.03553.us56.i, 1
+  %exitcond64.not.i = icmp eq i32 %.03553.us56.i, %88
+  br i1 %exitcond64.not.i, label %parse_operating_points.exit, label %.split.split.us.i, !llvm.loop !17
 
-120:                                              ; preds = %117
-  %121 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
-  %122 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
-  %123 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  br label %124
+.split.split.i:                                   ; preds = %.split.i, %137
+  %.154.i = phi i32 [ %spec.select.i, %137 ], [ 0, %.split.i ]
+  %.03553.i = phi i32 [ %138, %137 ], [ 0, %.split.i ]
+  %119 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
+  %120 = icmp eq i32 %.03553.i, 0
+  %spec.select.i = select i1 %120, i32 %119, i32 %.154.i
+  %121 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
+  %122 = icmp sgt i32 %121, 7
+  br i1 %122, label %123, label %125
 
-124:                                              ; preds = %120, %117
-  %125 = add nuw nsw i32 %.03553.us56.i, 1
-  %exitcond67.not.i = icmp eq i32 %.03553.us56.i, %88
-  br i1 %exitcond67.not.i, label %parse_operating_points.exit, label %.split.split.us.i, !llvm.loop !15
+123:                                              ; preds = %.split.split.i
+  %124 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
+  br label %125
 
-.split.split.i:                                   ; preds = %.split.i, %144
-  %.154.i = phi i32 [ %spec.select.i, %144 ], [ 0, %.split.i ]
-  %.03553.i = phi i32 [ %145, %144 ], [ 0, %.split.i ]
-  %126 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 12) #12
-  %127 = icmp eq i32 %.03553.i, 0
-  %spec.select.i = select i1 %127, i32 %126, i32 %.154.i
-  %128 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
-  %129 = icmp sgt i32 %128, 7
-  br i1 %129, label %130, label %132
+125:                                              ; preds = %123, %.split.split.i
+  %126 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
+  %127 = and i32 %126, 255
+  %.not46.i = icmp eq i32 %127, 0
+  br i1 %.not46.i, label %132, label %128
 
-130:                                              ; preds = %.split.split.i
+128:                                              ; preds = %125
+  %129 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
+  %130 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
   %131 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   br label %132
 
-132:                                              ; preds = %130, %.split.split.i
+132:                                              ; preds = %128, %125
   %133 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   %134 = and i32 %133, 255
-  %.not46.i = icmp eq i32 %134, 0
-  br i1 %.not46.i, label %139, label %135
+  %.not48.i = icmp eq i32 %134, 0
+  br i1 %.not48.i, label %137, label %135
 
 135:                                              ; preds = %132
-  %136 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
-  %137 = call i32 @aom_rb_read_unsigned_literal(ptr noundef nonnull %8, i32 noundef %.050.i) #12
-  %138 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  br label %139
+  %136 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
+  br label %137
 
-139:                                              ; preds = %135, %132
-  %140 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
-  %141 = and i32 %140, 255
-  %.not48.i = icmp eq i32 %141, 0
-  br i1 %.not48.i, label %144, label %142
-
-142:                                              ; preds = %139
-  %143 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
-  br label %144
-
-144:                                              ; preds = %142, %139
-  %145 = add nuw nsw i32 %.03553.i, 1
+137:                                              ; preds = %135, %132
+  %138 = add nuw nsw i32 %.03553.i, 1
   %exitcond.not.i = icmp eq i32 %.03553.i, %88
-  br i1 %exitcond.not.i, label %parse_operating_points.exit, label %.split.split.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %parse_operating_points.exit, label %.split.split.i, !llvm.loop !18
 
-parse_operating_points.exit:                      ; preds = %144, %124, %109, %96, %61
-  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us.us.i, %96 ], [ %spec.select.us.i, %109 ], [ %spec.select.us57.i, %124 ], [ %spec.select.i, %144 ]
-  %146 = call i32 @aom_get_num_layers_from_operating_point_idc(i32 noundef %.033.i, ptr noundef nonnull %38, ptr noundef nonnull %39) #12
-  %.not49.i.not = icmp eq i32 %146, 0
-  br i1 %.not49.i.not, label %147, label %parse_operating_points.exit.thread
+parse_operating_points.exit:                      ; preds = %137, %117, %102, %61
+  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us.i, %102 ], [ %spec.select.us57.i, %117 ], [ %spec.select.i, %137 ]
+  %139 = call i32 @aom_get_num_layers_from_operating_point_idc(i32 noundef %.033.i, ptr noundef nonnull %38, ptr noundef nonnull %39) #12
+  %.not49.i.not = icmp eq i32 %139, 0
+  br i1 %.not49.i.not, label %140, label %parse_operating_points.exit.thread
 
-147:                                              ; preds = %parse_operating_points.exit
-  %148 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
-  %149 = add nsw i32 %148, 1
-  %150 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
-  %151 = add nsw i32 %150, 1
-  %152 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef %149) #12
-  %153 = add nsw i32 %152, 1
-  %154 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef %151) #12
-  %155 = add nsw i32 %154, 1
-  store i32 %153, ptr %2, align 4
-  store i32 %155, ptr %12, align 4
-  br label %167
+140:                                              ; preds = %parse_operating_points.exit
+  %141 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
+  %142 = add nsw i32 %141, 1
+  %143 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 4) #12
+  %144 = add nsw i32 %143, 1
+  %145 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef %142) #12
+  %146 = add nsw i32 %145, 1
+  %147 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef %144) #12
+  %148 = add nsw i32 %147, 1
+  store i32 %146, ptr %2, align 4
+  store i32 %148, ptr %12, align 4
+  br label %160
 
-156:                                              ; preds = %46, %46
-  %157 = icmp ne i32 %.078, 0
-  %158 = icmp ne i8 %.082, 0
-  %or.cond11 = select i1 %157, i1 %158, i1 false
-  br i1 %or.cond11, label %.thread117, label %159
+149:                                              ; preds = %46, %46
+  %150 = icmp ne i32 %.078, 0
+  %151 = icmp ne i8 %.082, 0
+  %or.cond11 = select i1 %150, i1 %151, i1 false
+  br i1 %or.cond11, label %.thread115, label %152
 
-159:                                              ; preds = %156
-  %160 = icmp eq i64 %.175, %41
-  br i1 %160, label %parse_operating_points.exit.thread, label %161
+152:                                              ; preds = %149
+  %153 = icmp eq i64 %.175, %41
+  br i1 %153, label %parse_operating_points.exit.thread, label %154
 
-161:                                              ; preds = %159
+154:                                              ; preds = %152
   store ptr %42, ptr %9, align 8
-  %162 = getelementptr inbounds i8, ptr %.1, i64 %.175
-  store ptr %162, ptr %32, align 8
+  %155 = getelementptr inbounds i8, ptr %.1, i64 %.175
+  store ptr %155, ptr %32, align 8
   store i32 0, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %163 = call i32 @aom_rb_read_bit(ptr noundef nonnull %9) #12
-  %.not96 = icmp eq i32 %163, 0
-  br i1 %.not96, label %164, label %167
+  %156 = call i32 @aom_rb_read_bit(ptr noundef nonnull %9) #12
+  %.not96 = icmp eq i32 %156, 0
+  br i1 %.not96, label %157, label %160
 
-164:                                              ; preds = %161
-  %165 = call i32 @aom_rb_read_literal(ptr noundef nonnull %9, i32 noundef 2) #12
-  %trunc = trunc i32 %165 to i8
-  switch i8 %trunc, label %167 [
-    i8 0, label %175
-    i8 2, label %166
+157:                                              ; preds = %154
+  %158 = call i32 @aom_rb_read_literal(ptr noundef nonnull %9, i32 noundef 2) #12
+  %trunc = trunc i32 %158 to i8
+  switch i8 %trunc, label %160 [
+    i8 0, label %168
+    i8 2, label %159
   ]
 
-166:                                              ; preds = %164
-  br label %167
+159:                                              ; preds = %157
+  br label %160
 
-167:                                              ; preds = %46, %164, %161, %166, %147
-  %.183 = phi i8 [ %55, %147 ], [ %.082, %161 ], [ %.082, %166 ], [ %.082, %164 ], [ %.082, %46 ]
-  %.179 = phi i32 [ 1, %147 ], [ %.078, %161 ], [ %.078, %166 ], [ %.078, %164 ], [ %.078, %46 ]
-  %.177 = phi i32 [ %.076, %147 ], [ %.076, %161 ], [ 1, %166 ], [ %.076, %164 ], [ %.076, %46 ]
-  %168 = load i64, ptr %6, align 8
-  %169 = sub i64 %43, %168
-  %170 = icmp eq i64 %169, 0
-  br i1 %170, label %.thread, label %171
+160:                                              ; preds = %46, %157, %154, %159, %140
+  %.183 = phi i8 [ %55, %140 ], [ %.082, %154 ], [ %.082, %159 ], [ %.082, %157 ], [ %.082, %46 ]
+  %.179 = phi i32 [ 1, %140 ], [ %.078, %154 ], [ %.078, %159 ], [ %.078, %157 ], [ %.078, %46 ]
+  %.177 = phi i32 [ %.076, %140 ], [ %.076, %154 ], [ 1, %159 ], [ %.076, %157 ], [ %.076, %46 ]
+  %161 = load i64, ptr %6, align 8
+  %162 = sub i64 %43, %161
+  %163 = icmp eq i64 %162, 0
+  br i1 %163, label %.thread, label %164
 
-171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %42, i64 %168
-  %173 = load i32, ptr %14, align 4
-  %174 = call i32 @aom_read_obu_header_and_size(ptr noundef %172, i64 noundef %169, i32 noundef %173, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
-  %.not98 = icmp eq i32 %174, 0
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds i8, ptr %42, i64 %161
+  %166 = load i32, ptr %14, align 4
+  %167 = call i32 @aom_read_obu_header_and_size(ptr noundef %165, i64 noundef %162, i32 noundef %166, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
+  %.not98 = icmp eq i32 %167, 0
   br i1 %.not98, label %40, label %parse_operating_points.exit.thread
 
-175:                                              ; preds = %164
+168:                                              ; preds = %157
   %.not106 = icmp eq i32 %.078, 0
-  br i1 %.not106, label %.thread, label %.thread117
+  br i1 %.not106, label %.thread, label %.thread115
 
-.thread117:                                       ; preds = %156, %175
+.thread115:                                       ; preds = %149, %168
   store i32 1, ptr %13, align 4
   br label %.thread
 
-.thread:                                          ; preds = %167, %.thread117, %175
-  %.2105 = phi i32 [ %.076, %.thread117 ], [ %.076, %175 ], [ %.177, %167 ]
+.thread:                                          ; preds = %160, %.thread115, %168
+  %.2105 = phi i32 [ %.076, %.thread115 ], [ %.076, %168 ], [ %.177, %160 ]
   %.not99 = icmp eq ptr %3, null
-  br i1 %.not99, label %parse_operating_points.exit.thread, label %176
+  br i1 %.not99, label %parse_operating_points.exit.thread, label %169
 
-176:                                              ; preds = %.thread
+169:                                              ; preds = %.thread
   store i32 %.2105, ptr %3, align 4
   br label %parse_operating_points.exit.thread
 
-parse_operating_points.exit.thread:               ; preds = %74, %66, %171, %159, %parse_operating_points.exit, %50, %48, %40, %.thread, %176, %26, %21, %11, %4
-  %.0 = phi i32 [ 8, %4 ], [ %16, %11 ], [ 7, %21 ], [ %30, %26 ], [ 0, %176 ], [ 0, %.thread ], [ 1, %74 ], [ 1, %66 ], [ %174, %171 ], [ 7, %159 ], [ 1, %parse_operating_points.exit ], [ 5, %50 ], [ 7, %48 ], [ 7, %40 ]
+parse_operating_points.exit.thread:               ; preds = %74, %66, %164, %152, %parse_operating_points.exit, %50, %48, %40, %.thread, %169, %26, %21, %11, %4
+  %.0 = phi i32 [ 8, %4 ], [ %16, %11 ], [ 7, %21 ], [ %30, %26 ], [ 0, %169 ], [ 0, %.thread ], [ 1, %74 ], [ 1, %66 ], [ %167, %164 ], [ 7, %152 ], [ 1, %parse_operating_points.exit ], [ 5, %50 ], [ 7, %48 ], [ 7, %40 ]
   ret i32 %.0
 }
 
@@ -4481,4 +4462,7 @@ attributes #12 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5, !16}
+!18 = distinct !{!18, !5}

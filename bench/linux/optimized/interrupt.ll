@@ -345,7 +345,7 @@ select.unfold:                                    ; preds = %21, %7
 .critedge.backedge:                               ; preds = %162, %175, %166, %.thread37
   %177 = load ptr, ptr %158, align 8
   %178 = icmp eq ptr %177, %130
-  br i1 %178, label %.critedge._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %178, label %.critedge._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 .split.us:                                        ; preds = %175, %154
   %.us-phi = phi ptr [ %137, %154 ], [ %158, %175 ]
@@ -491,7 +491,7 @@ select.unfold:                                    ; preds = %21, %7
   %268 = shl nuw nsw i64 %267, 2
   %269 = getelementptr i8, ptr %232, i64 %268
   %270 = icmp ugt ptr %269, %265
-  br i1 %270, label %237, label %271, !llvm.loop !10
+  br i1 %270, label %237, label %271, !llvm.loop !12
 
 271:                                              ; preds = %258
   %272 = icmp ne ptr %260, null
@@ -935,7 +935,7 @@ define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 a
   store ptr %30, ptr %26, align 8
   store volatile ptr %20, ptr %30, align 8
   %31 = icmp eq ptr %21, %14
-  br i1 %31, label %.loopexit26, label %19, !llvm.loop !11
+  br i1 %31, label %.loopexit26, label %19, !llvm.loop !13
 
 .loopexit26:                                      ; preds = %19, %13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1087,13 +1087,13 @@ define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %114, label %.thread19, label %.thread
 
 115:                                              ; preds = %37
-  tail call void asm sideeffect "315: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 315b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 315) #6, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 589, i32 0, i64 12) #6, !srcloc !13
+  tail call void asm sideeffect "315: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 315b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 315) #6, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 589, i32 0, i64 12) #6, !srcloc !15
   unreachable
 
 .thread19:                                        ; preds = %47, %.thread20, %112, %109, %106, %98, %84, %44
   %116 = icmp eq ptr %39, %32
-  br i1 %116, label %.loopexit, label %37, !llvm.loop !14
+  br i1 %116, label %.loopexit, label %37, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread19, %.loopexit26
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1111,7 +1111,7 @@ define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 a
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 @mei_cl_irq_write(ptr noundef %125, ptr noundef %120, ptr noundef %1) #6
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %119, label %.thread, !llvm.loop !15
+  br i1 %127, label %119, label %.thread, !llvm.loop !17
 
 .thread:                                          ; preds = %96, %87, %60, %53, %112, %109, %106, %98, %84, %44, %122, %119, %76, %11, %4, %2
   %128 = phi i32 [ 0, %2 ], [ -75, %4 ], [ -90, %11 ], [ %63, %76 ], [ 0, %119 ], [ %126, %122 ], [ -75, %87 ], [ -90, %96 ], [ -75, %53 ], [ -90, %60 ], [ %113, %112 ], [ %110, %109 ], [ %107, %106 ], [ %99, %98 ], [ %85, %84 ], [ %45, %44 ]
@@ -1213,7 +1213,7 @@ define dso_local void @mei_timer(ptr noundef %0) local_unnamed_addr #0 align 16 
   %35 = phi i8 [ %25, %.preheader ], [ 1, %29 ]
   %36 = load ptr, ptr %24, align 8
   %37 = icmp eq ptr %36, %21
-  br i1 %37, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %37, label %.thread, label %.preheader, !llvm.loop !18
 
 .thread:                                          ; preds = %34, %14, %32
   %38 = phi i8 [ %25, %32 ], [ 1, %14 ], [ %35, %34 ]
@@ -1323,11 +1323,13 @@ attributes #8 = { nounwind allocsize(2) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!9 = distinct !{!9, !6, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !6, !7}
-!12 = !{i64 2154321800, i64 2154321609, i64 2154321661, i64 2154321707, i64 2154321735}
-!13 = !{i64 2154321874, i64 2154321903, i64 2154321949, i64 2154322007, i64 2154322061, i64 2154322115, i64 2154322170, i64 2154322201}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i64 2154321800, i64 2154321609, i64 2154321661, i64 2154321707, i64 2154321735}
+!15 = !{i64 2154321874, i64 2154321903, i64 2154321949, i64 2154322007, i64 2154322061, i64 2154322115, i64 2154322170, i64 2154322201}
 !16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}

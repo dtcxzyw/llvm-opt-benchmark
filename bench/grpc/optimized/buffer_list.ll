@@ -677,7 +677,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62.us:      ; preds = %76, %73
   %88 = getelementptr inbounds nuw i8, ptr %.us-phi82, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !7
   %.not5077 = icmp eq ptr %89, null
-  br i1 %.not5077, label %.outer._crit_edge, label %.lr.ph79, !llvm.loop !73
+  br i1 %.not5077, label %.outer._crit_edge, label %.lr.ph79, !llvm.loop !75
 
 .loopexit.split:                                  ; preds = %90, %.lr.ph79.split, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -730,7 +730,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %96, %99
   call void @_ZdlPvm(ptr noundef nonnull %.278, i64 noundef 1240) #21
   %.3 = load ptr, ptr %60, align 8, !tbaa !56
   %.not50 = icmp eq ptr %.3, null
-  br i1 %.not50, label %.outer._crit_edge, label %.lr.ph79.split, !llvm.loop !73
+  br i1 %.not50, label %.outer._crit_edge, label %.lr.ph79.split, !llvm.loop !75
 
 .split84:                                         ; preds = %94
   %106 = landingpad { ptr, i32 }
@@ -826,7 +826,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCms
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 %.0140
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  %34 = load i16, ptr %33, align 2, !tbaa !74
+  %34 = load i16, ptr %33, align 2, !tbaa !76
   switch i16 %34, label %63 [
     i16 1, label %35
     i16 2, label %36
@@ -1001,13 +1001,13 @@ _ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br label %63
 
 63:                                               ; preds = %62, %61, %60, %59, %58, %57, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit70, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit, %48, %47, %46, %45, %44, %_ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit, %39, %38, %37, %36, %35, %30
-  %64 = load i16, ptr %31, align 2, !tbaa !77
+  %64 = load i16, ptr %31, align 2, !tbaa !79
   %65 = zext i16 %64 to i64
   %66 = add nuw nsw i64 %65, 3
   %67 = and i64 %66, 131068
   %68 = add nuw nsw i64 %67, %.0140
   %69 = icmp slt i64 %68, %7
-  br i1 %69, label %30, label %.loopexit, !llvm.loop !78
+  br i1 %69, label %30, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %63, %4, %2
   ret void
@@ -1098,7 +1098,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18, %21
   call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 1240) #21
   %29 = load ptr, ptr %6, align 8, !tbaa !50
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 30:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %31 = landingpad { ptr, i32 }
@@ -1217,7 +1217,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_125DefaultTimestampsCallbackEPvP
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZN9grpc_core12_GLOBAL__N_125DefaultTimestampsCallbackEPvPNS_10TimestampsEN4absl12lts_202407226StatusEENK3$_0clEvE4site", i64 8) monotonic, align 8
   %6 = icmp slt i32 %5, 2
-  br i1 %6, label %.critedge6, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !80
+  br i1 %6, label %.critedge6, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !82
 
 _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %3
   %7 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN9grpc_core12_GLOBAL__N_125DefaultTimestampsCallbackEPvPNS_10TimestampsEN4absl12lts_202407226StatusEENK3$_0clEvE4site", i32 noundef %5)
@@ -1370,11 +1370,13 @@ attributes #23 = { cold nounwind }
 !70 = distinct !{!70, !"_ZN4absl12lts_202407228OkStatusEv"}
 !71 = distinct !{!71, !72}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = distinct !{!73, !72}
-!74 = !{!75, !76, i64 2}
-!75 = !{!"_ZTS6nlattr", !76, i64 0, !76, i64 2}
-!76 = !{!"short", !5, i64 0}
-!77 = !{!75, !76, i64 0}
-!78 = distinct !{!78, !72}
-!79 = distinct !{!79, !72}
-!80 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!73 = distinct !{!73, !72, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !72}
+!76 = !{!77, !78, i64 2}
+!77 = !{!"_ZTS6nlattr", !78, i64 0, !78, i64 2}
+!78 = !{!"short", !5, i64 0}
+!79 = !{!77, !78, i64 0}
+!80 = distinct !{!80, !72}
+!81 = distinct !{!81, !72}
+!82 = !{!"branch_weights", !"expected", i32 2000, i32 1}

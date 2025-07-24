@@ -333,7 +333,7 @@ cfbr_encrypt_block.exit:                          ; preds = %52
   store i8 %68, ptr %59, align 1, !tbaa !7
   %69 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %69, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %cfbr_encrypt_block.exit, %cfbr_encrypt_block.exit.us, %8
   ret void
@@ -367,7 +367,7 @@ define void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   %14 = add nuw i64 %.010.us, 1
   %exitcond12.not = icmp eq i64 %14, %2
-  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.010 = phi i64 [ %20, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -385,7 +385,7 @@ define void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   %20 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %20, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %8
   ret void
@@ -425,5 +425,8 @@ attributes #4 = { nounwind }
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
+!20 = distinct !{!20, !9, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9, !21}
+!24 = distinct !{!24, !9}

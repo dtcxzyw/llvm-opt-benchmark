@@ -243,8 +243,8 @@ define internal noundef i64 @rb_coverage_setup(i32 noundef %0, ptr noundef reado
   br i1 %8, label %11, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %7
-  %.not83 = icmp eq i32 %0, 0
-  br i1 %.not83, label %.thread, label %.split.us
+  %.not81 = icmp eq i32 %0, 0
+  br i1 %.not81, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %9 = load i64, ptr %1, align 8, !tbaa !10

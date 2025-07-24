@@ -2837,7 +2837,7 @@ lean_dec.exit100.us:                              ; preds = %34, %33, %32, %25
   %.val.i.us = load i32, ptr %8, align 4
   %.mask237 = and i32 %.val.i.us, -16777216
   %36 = icmp eq i32 %.mask237, 117440512
-  br i1 %36, label %.split.us, label %.lr.ph235
+  br i1 %36, label %.split.us, label %.lr.ph235, !llvm.loop !16
 
 .outer.split:                                     ; preds = %.outer
   %37 = and i64 %6, 8589934590
@@ -9459,9 +9459,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_isRflTheoremCore, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 4, ptr %10, align 8, !tbaa !16
+  store i16 4, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 1, ptr %11, align 2, !tbaa !16
+  store i16 1, ptr %11, align 2, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %12, align 8, !tbaa !9
   %13 = tail call ptr @l_Lean_withoutExporting___at_Lean_Meta_isRflTheorem___spec__1(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -9492,10 +9492,10 @@ lean_alloc_small_object.exit:                     ; preds = %3
   store ptr %0, ptr %12, align 8, !tbaa !9
   %13 = trunc nuw nsw i32 %1 to i16
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 %13, ptr %14, align 8, !tbaa !16
+  store i16 %13, ptr %14, align 8, !tbaa !18
   %15 = trunc nuw nsw i32 %2 to i16
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 %15, ptr %16, align 2, !tbaa !16
+  store i16 %15, ptr %16, align 2, !tbaa !18
   ret ptr %7
 }
 
@@ -20705,9 +20705,9 @@ lean_alloc_closure.exit:                          ; preds = %37, %lean_dec.exit
   %42 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   store ptr %l_Lean_Meta_isRflProof___lambda__1.sink, ptr %42, align 8, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
-  store i16 6, ptr %43, align 8, !tbaa !16
+  store i16 6, ptr %43, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %.sink39, i64 18
-  store i16 1, ptr %44, align 2, !tbaa !16
+  store i16 1, ptr %44, align 2, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %.sink39, i64 24
   store ptr %.sink28, ptr %45, align 8, !tbaa !9
   %46 = tail call ptr @l_Lean_withoutExporting___at_Lean_Meta_isRflProof___spec__1(ptr noundef nonnull %.sink39, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -22123,9 +22123,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_ppOrigin___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -22776,9 +22776,9 @@ lean_alloc_closure.exit:                          ; preds = %41, %39
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %l_Lean_Meta_ppSimpTheorem___rarg___lambda__2.sink, ptr %44, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i16 3, ptr %45, align 8, !tbaa !16
+  store i16 3, ptr %45, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 18
-  store i16 2, ptr %46, align 2, !tbaa !16
+  store i16 2, ptr %46, align 2, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %3, ptr %47, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -22807,9 +22807,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_ppSimpTheorem___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -23777,9 +23777,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withSimpGlobalConfig___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !16
+  store i16 6, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -37870,7 +37870,7 @@ lean_array_fget.exit:                             ; preds = %22
   %.val.i = phi i32 [ %32, %31 ], [ %.val.i.pr, %35 ]
   %38 = load ptr, ptr @l___private_Lean_Meta_DiscrTree_0__Lean_Meta_DiscrTree_insertAux___at_Lean_Meta_addSimpTheoremEntry___spec__9___closed__2, align 8, !tbaa !9
   %39 = icmp sgt i32 %.val.i, 0
-  br i1 %39, label %40, label %42, !prof !18
+  br i1 %39, label %40, label %42, !prof !20
 
 40:                                               ; preds = %37
   %41 = add nuw i32 %.val.i, 1
@@ -38071,7 +38071,7 @@ lean_array_fget.exit100:                          ; preds = %98
   %.val.i101 = phi i32 [ %108, %107 ], [ %.val.i101.pr, %111 ]
   %114 = load ptr, ptr @l___private_Lean_Meta_DiscrTree_0__Lean_Meta_DiscrTree_insertAux___at_Lean_Meta_addSimpTheoremEntry___spec__9___closed__2, align 8, !tbaa !9
   %115 = icmp sgt i32 %.val.i101, 0
-  br i1 %115, label %116, label %118, !prof !18
+  br i1 %115, label %116, label %118, !prof !20
 
 116:                                              ; preds = %113
   %117 = add nuw i32 %.val.i101, 1
@@ -42837,9 +42837,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_erase___rarg___lambda__1___boxed, ptr %56, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i16 3, ptr %57, align 8, !tbaa !16
+  store i16 3, ptr %57, align 8, !tbaa !18
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 18
-  store i16 2, ptr %58, align 2, !tbaa !16
+  store i16 2, ptr %58, align 2, !tbaa !18
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %0, ptr %59, align 8, !tbaa !9
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -42970,9 +42970,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit76
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_erase___rarg___lambda__2___boxed, ptr %36, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i16 7, ptr %37, align 8, !tbaa !16
+  store i16 7, ptr %37, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 18
-  store i16 6, ptr %38, align 2, !tbaa !16
+  store i16 6, ptr %38, align 2, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %0, ptr %39, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -43712,9 +43712,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit90
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_erase___rarg___lambda__3___boxed, ptr %35, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i16 7, ptr %36, align 8, !tbaa !16
+  store i16 7, ptr %36, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 18
-  store i16 6, ptr %37, align 2, !tbaa !16
+  store i16 6, ptr %37, align 2, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %0, ptr %38, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -44416,9 +44416,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_erase___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !16
+  store i16 6, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -44836,9 +44836,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLetDecl___at___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_isPerm___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !16
+  store i16 10, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -46877,9 +46877,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit817
   %721 = getelementptr inbounds nuw i8, ptr %717, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_isPerm___lambda__1___boxed, ptr %721, align 8, !tbaa !9
   %722 = getelementptr inbounds nuw i8, ptr %717, i64 16
-  store i16 8, ptr %722, align 8, !tbaa !16
+  store i16 8, ptr %722, align 8, !tbaa !18
   %723 = getelementptr inbounds nuw i8, ptr %717, i64 18
-  store i16 2, ptr %723, align 2, !tbaa !16
+  store i16 2, ptr %723, align 2, !tbaa !18
   %724 = getelementptr inbounds nuw i8, ptr %717, i64 24
   store ptr %505, ptr %724, align 8, !tbaa !9
   %725 = getelementptr inbounds nuw i8, ptr %717, i64 32
@@ -48046,9 +48046,9 @@ lean_alloc_closure.exit1387:                      ; preds = %lean_dec.exit787
   %1138 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_isPerm___lambda__1___boxed, ptr %1138, align 8, !tbaa !9
   %1139 = getelementptr inbounds nuw i8, ptr %1134, i64 16
-  store i16 8, ptr %1139, align 8, !tbaa !16
+  store i16 8, ptr %1139, align 8, !tbaa !18
   %1140 = getelementptr inbounds nuw i8, ptr %1134, i64 18
-  store i16 2, ptr %1140, align 2, !tbaa !16
+  store i16 2, ptr %1140, align 2, !tbaa !18
   %1141 = getelementptr inbounds nuw i8, ptr %1134, i64 24
   store ptr %922, ptr %1141, align 8, !tbaa !9
   %1142 = getelementptr inbounds nuw i8, ptr %1134, i64 32
@@ -68039,9 +68039,9 @@ lean_alloc_closure.exit:                          ; preds = %1042
   %1055 = getelementptr inbounds nuw i8, ptr %1043, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_preprocess_go___lambda__8___boxed, ptr %1055, align 8, !tbaa !9
   %1056 = getelementptr inbounds nuw i8, ptr %1043, i64 16
-  store i16 10, ptr %1056, align 8, !tbaa !16
+  store i16 10, ptr %1056, align 8, !tbaa !18
   %1057 = getelementptr inbounds nuw i8, ptr %1043, i64 18
-  store i16 3, ptr %1057, align 2, !tbaa !16
+  store i16 3, ptr %1057, align 2, !tbaa !18
   %1058 = getelementptr inbounds nuw i8, ptr %1043, i64 24
   store ptr %2, ptr %1058, align 8, !tbaa !9
   %1059 = getelementptr inbounds nuw i8, ptr %1043, i64 32
@@ -69062,7 +69062,7 @@ lean_obj_tag.exit:                                ; preds = %50, %53
 68:                                               ; preds = %67, %64
   %69 = phi i32 [ %.pr, %67 ], [ %65, %64 ]
   %70 = icmp sgt i32 %69, 1
-  br i1 %70, label %71, label %73, !prof !18
+  br i1 %70, label %71, label %73, !prof !20
 
 71:                                               ; preds = %68
   %72 = add nsw i32 %69, -1
@@ -77436,9 +77436,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit118
   %207 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_mkSimpTheoremCore___lambda__2___boxed, ptr %207, align 8, !tbaa !9
   %208 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  store i16 13, ptr %208, align 8, !tbaa !16
+  store i16 13, ptr %208, align 8, !tbaa !18
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 18
-  store i16 8, ptr %209, align 2, !tbaa !16
+  store i16 8, ptr %209, align 2, !tbaa !18
   %210 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store ptr %167, ptr %210, align 8, !tbaa !9
   %211 = getelementptr inbounds nuw i8, ptr %195, i64 32
@@ -99169,7 +99169,7 @@ define ptr @l_Lean_Meta_SimpTheorems_unfoldEvenWithEqns___lambda__2(ptr noundef 
 17:                                               ; preds = %16, %13
   %18 = phi i32 [ %.pr, %16 ], [ %14, %13 ]
   %19 = icmp sgt i32 %18, 1
-  br i1 %19, label %20, label %22, !prof !18
+  br i1 %19, label %20, label %22, !prof !20
 
 20:                                               ; preds = %17
   %21 = add nsw i32 %18, -1
@@ -99978,7 +99978,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
   %or.cond = select i1 %30, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %34, label %lean_nat_lt.exit, !prof !21
 
 34:                                               ; preds = %lean_dec.exit
   %35 = icmp ult ptr %.0170, %27
@@ -101825,7 +101825,7 @@ lean_inc.exit233:                                 ; preds = %16, %15, %13, %8
 28:                                               ; preds = %27, %24
   %29 = phi i32 [ %.pr, %27 ], [ %25, %24 ]
   %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %31, label %33, !prof !18
+  br i1 %30, label %31, label %33, !prof !20
 
 31:                                               ; preds = %28
   %32 = add nsw i32 %29, -1
@@ -109677,9 +109677,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_reprOrigin____x40_Lean_Meta_Tactic_Simp_SimpTheorems___hyg_82____boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !16
+  store i16 2, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -109817,9 +109817,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_instToFormatSimpTheorem___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !16
+  store i16 1, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110012,9 +110012,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Simp_SimpTheorems_0__Lean_Meta_shouldPreprocess___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !16
+  store i16 7, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110036,9 +110036,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_instInhabitedMetaM___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 5, ptr %6, align 8, !tbaa !16
+  store i16 5, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 1, ptr %7, align 2, !tbaa !16
+  store i16 1, ptr %7, align 2, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !9
   ret ptr %1
@@ -110353,9 +110353,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_mkSimpExt___lambda__1, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !16
+  store i16 2, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110377,9 +110377,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_id___rarg___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !16
+  store i16 1, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110432,9 +110432,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_unfoldEvenWithEqns___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 4, ptr %6, align 8, !tbaa !16
+  store i16 4, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110456,9 +110456,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_SimpTheorems_addDeclToUnfold___lambda__1___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !16
+  store i16 7, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !16
+  store i16 0, ptr %7, align 2, !tbaa !18
   ret ptr %1
 }
 
@@ -110513,7 +110513,9 @@ attributes #8 = { "function-inline-cost-multiplier"="2" }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!7, !7, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !7, i64 0}
+!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}

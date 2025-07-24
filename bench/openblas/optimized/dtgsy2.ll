@@ -1184,7 +1184,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit:                                        ; preds = %1105, %675
   %.not1391.not = icmp samesign ult i64 %indvars.iv1662, %674
-  br i1 %.not1391.not, label %675, label %.loopexit1424, !llvm.loop !18
+  br i1 %.not1391.not, label %675, label %.loopexit1424, !llvm.loop !19
 
 675:                                              ; preds = %.lr.ph1609, %.loopexit
   %indvars.iv1662 = phi i64 [ 1, %.lr.ph1609 ], [ %indvars.iv.next1663, %.loopexit ]
@@ -1329,7 +1329,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %770 = load i32, ptr %25, align 4, !tbaa !3
   %771 = sext i32 %770 to i64
   %.not1398.not = icmp slt i64 %indvars.iv1656, %771
-  br i1 %.not1398.not, label %.lr.ph1580, label %._crit_edge1581.loopexit, !llvm.loop !19
+  br i1 %.not1398.not, label %.lr.ph1580, label %._crit_edge1581.loopexit, !llvm.loop !20
 
 ._crit_edge1581.loopexit:                         ; preds = %.lr.ph1580
   %.pre1671 = load double, ptr %34, align 8, !tbaa !7
@@ -1508,7 +1508,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %871 = load i32, ptr %25, align 4, !tbaa !3
   %872 = sext i32 %871 to i64
   %.not1397.not = icmp slt i64 %indvars.iv1653, %872
-  br i1 %.not1397.not, label %.lr.ph1571, label %._crit_edge1572.loopexit, !llvm.loop !20
+  br i1 %.not1397.not, label %.lr.ph1571, label %._crit_edge1572.loopexit, !llvm.loop !21
 
 ._crit_edge1572.loopexit:                         ; preds = %.lr.ph1571
   %.pre1670 = load double, ptr %34, align 8, !tbaa !7
@@ -1666,7 +1666,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %947 = load i32, ptr %25, align 4, !tbaa !3
   %948 = sext i32 %947 to i64
   %.not1396.not = icmp slt i64 %indvars.iv1650, %948
-  br i1 %.not1396.not, label %.lr.ph1562, label %._crit_edge1563.loopexit, !llvm.loop !21
+  br i1 %.not1396.not, label %.lr.ph1562, label %._crit_edge1563.loopexit, !llvm.loop !22
 
 ._crit_edge1563.loopexit:                         ; preds = %.lr.ph1562
   %.pre1669 = load double, ptr %34, align 8, !tbaa !7
@@ -1837,7 +1837,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1037 = load i32, ptr %25, align 4, !tbaa !3
   %1038 = sext i32 %1037 to i64
   %.not1393.not = icmp slt i64 %indvars.iv1641, %1038
-  br i1 %.not1393.not, label %.lr.ph1538, label %._crit_edge1539, !llvm.loop !22
+  br i1 %.not1393.not, label %.lr.ph1538, label %._crit_edge1539, !llvm.loop !23
 
 ._crit_edge1539:                                  ; preds = %.lr.ph1538, %972
   call void @dgetc2_(ptr noundef nonnull %27, ptr noundef nonnull %31, ptr noundef nonnull @c__8, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %26) #3
@@ -1873,7 +1873,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1049 = load i32, ptr %25, align 4, !tbaa !3
   %1050 = sext i32 %1049 to i64
   %.not1394.not = icmp slt i64 %indvars.iv1644, %1050
-  br i1 %.not1394.not, label %.lr.ph1546, label %._crit_edge1547.loopexit, !llvm.loop !23
+  br i1 %.not1394.not, label %.lr.ph1546, label %._crit_edge1547.loopexit, !llvm.loop !24
 
 ._crit_edge1547.loopexit:                         ; preds = %.lr.ph1546
   %.pre1668 = load double, ptr %34, align 8, !tbaa !7
@@ -1924,7 +1924,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1073 = load i32, ptr %25, align 4, !tbaa !3
   %1074 = sext i32 %1073 to i64
   %.not1395.not = icmp slt i64 %indvars.iv1647, %1074
-  br i1 %.not1395.not, label %.lr.ph1553, label %._crit_edge1554, !llvm.loop !24
+  br i1 %.not1395.not, label %.lr.ph1553, label %._crit_edge1554, !llvm.loop !25
 
 ._crit_edge1554:                                  ; preds = %.lr.ph1553, %1054
   %1075 = icmp sgt i64 %indvars.iv1659, %672
@@ -1980,7 +1980,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1106 = load i32, ptr %24, align 4, !tbaa !3
   %1107 = sext i32 %1106 to i64
   %.not1392.not = icmp sgt i64 %indvars.iv1659, %1107
-  br i1 %.not1392.not, label %723, label %.loopexit, !llvm.loop !25
+  br i1 %.not1392.not, label %723, label %.loopexit, !llvm.loop !26
 
 .loopexit1424:                                    ; preds = %..loopexit1425_crit_edge.us, %.loopexit, %.lr.ph1525, %136, %628, %.thread1419
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35) #3
@@ -2053,8 +2053,8 @@ attributes #3 = { nounwind }
 !14 = distinct !{!14, !10}
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
+!17 = distinct !{!17, !10, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !10}
 !20 = distinct !{!20, !10}
 !21 = distinct !{!21, !10}
@@ -2062,3 +2062,4 @@ attributes #3 = { nounwind }
 !23 = distinct !{!23, !10}
 !24 = distinct !{!24, !10}
 !25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}

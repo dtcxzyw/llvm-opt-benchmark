@@ -3255,7 +3255,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   tail call void %45(ptr noundef %46, ptr noundef %51, ptr noundef %52, i64 noundef %28) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %27
-  br i1 %exitcond.not, label %.preheader, label %.preheader58, !llvm.loop !66
+  br i1 %exitcond.not, label %.preheader, label %.preheader58, !llvm.loop !68
 
 .preheader57:                                     ; preds = %._crit_edge.us, %4
   %53 = icmp sgt i32 %7, 0
@@ -3287,7 +3287,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   tail call void %58(ptr noundef nonnull %60, ptr noundef %62, ptr noundef %64, i64 noundef 16) #16
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.preheader, label %57, !llvm.loop !67
+  br i1 %exitcond80.not, label %.preheader, label %57, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -3303,7 +3303,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !29
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !68
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !70
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -3396,7 +3396,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = sext i32 %.2110 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph161, label %.thread142, !llvm.loop !69
+  br i1 %48, label %.lr.ph161, label %.thread142, !llvm.loop !71
 
 .thread147:                                       ; preds = %41, %.lr.ph, %.preheader149
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3457,7 +3457,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   %76 = phi i32 [ %73, %67 ], [ %85, %79 ]
   %77 = add nsw i32 %76, %.096167
   %78 = icmp slt i32 %77, %4
-  br i1 %78, label %67, label %._crit_edge169, !llvm.loop !70
+  br i1 %78, label %67, label %._crit_edge169, !llvm.loop !72
 
 79:                                               ; preds = %.lr.ph164, %79
   %indvars.iv178 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next179, %79 ]
@@ -3472,7 +3472,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   %85 = load i32, ptr %.pre181, align 8, !tbaa !16
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next179, %86
-  br i1 %87, label %79, label %._crit_edge165, !llvm.loop !71
+  br i1 %87, label %79, label %._crit_edge165, !llvm.loop !73
 
 88:                                               ; preds = %._crit_edge169
   %89 = load i32, ptr %.pre181, align 8, !tbaa !16
@@ -3565,7 +3565,7 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
   tail call void %33(ptr noundef %34, ptr noundef %39, ptr noundef %41, i64 noundef %27) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %.preheader47, label %32, !llvm.loop !72
+  br i1 %exitcond.not, label %.preheader47, label %32, !llvm.loop !74
 
 .preheader:                                       ; preds = %43, %.preheader47
   %42 = icmp sgt i32 %10, 0
@@ -3587,7 +3587,7 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
   tail call void %44(ptr noundef nonnull %46, ptr noundef %48, ptr noundef %50, i64 noundef 16) #16
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %.preheader, label %43, !llvm.loop !73
+  br i1 %exitcond58.not, label %.preheader, label %43, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader
   ret void
@@ -3603,14 +3603,14 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !29
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !74
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !76
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #13 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !75
+  %7 = load i32, ptr %6, align 4, !tbaa !77
   %.not = icmp eq i32 %7, 0
   %8 = sitofp i32 %5 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
@@ -3652,7 +3652,7 @@ define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(non
   %31 = fadd nsz double %.sroa.6.135.us, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
-  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %15
   %32 = mul nuw nsw i64 %10, %indvars.iv42
@@ -3662,7 +3662,7 @@ define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(non
   store double %31, ptr %.sroa.6.0..sroa_idx.us, align 8, !tbaa !27
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !77
+  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge39:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -3707,7 +3707,7 @@ define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captur
   %23 = fadd nsz double %.sroa.6.129.us, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %10
   %24 = mul nuw nsw i64 %6, %indvars.iv37
@@ -3717,7 +3717,7 @@ define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captur
   store double %23, ptr %.sroa.6.0..sroa_idx.us, align 8, !tbaa !27
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !79
+  br i1 %exitcond41.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !81
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -3726,7 +3726,7 @@ define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captur
 ; Function Attrs: cold nounwind optsize uwtable
 define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_double_c(ptr noundef captures(none) initializes((16, 24)) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !75
+  %9 = load i32, ptr %8, align 4, !tbaa !77
   %.not = icmp eq i32 %9, 0
   %10 = sitofp i32 %4 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
@@ -3758,7 +3758,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_double_c(ptr n
 ._crit_edge:                                      ; preds = %21
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -3774,7 +3774,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_double_c(ptr n
   store double %28, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !83
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader24, %7
   %.0 = phi i32 [ -12, %7 ], [ 0, %.preheader24 ], [ 0, %._crit_edge ]
@@ -3882,7 +3882,7 @@ define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none
   store double %70, ptr %66, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !84
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge
   ret void
@@ -3936,7 +3936,7 @@ define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none
   store double %111, ptr %91, align 8, !tbaa !27
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !83
+  br i1 %exitcond124.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !85
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -3951,7 +3951,7 @@ define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)
   store double %10, ptr %11, align 8, !tbaa !25
   %12 = fptrunc nsz double %10 to float
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %12, ptr %13, align 4, !tbaa !84
+  store float %12, ptr %13, align 4, !tbaa !86
   %14 = and i64 %2, 6917529027641081854
   %15 = or disjoint i64 %14, 2305843009213693953
   %16 = ashr i32 %4, 1
@@ -4004,7 +4004,7 @@ define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)
   store i32 %37, ptr %36, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit54, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit54, label %.lr.ph, !llvm.loop !87
 
 .loopexit54:                                      ; preds = %.lr.ph, %.preheader53, %33
   %spec.select = select i1 %.not, ptr null, ptr %24
@@ -4033,7 +4033,7 @@ define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)
   %47 = ashr i32 %46, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next60, %48
-  br i1 %49, label %42, label %.loopexit, !llvm.loop !86
+  br i1 %49, label %42, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %42, %.preheader, %.loopexit54, %21, %18
   %.044 = phi i32 [ %20, %18 ], [ -12, %21 ], [ %38, %.loopexit54 ], [ 0, %.preheader ], [ 0, %42 ]
@@ -4108,7 +4108,7 @@ define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none
   store double %48, ptr %49, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge95:                                    ; preds = %.lr.ph94, %._crit_edge
   ret void
@@ -4152,7 +4152,7 @@ define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none
   store double %80, ptr %54, align 8, !tbaa !52
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !88
+  br i1 %exitcond101.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !90
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4246,7 +4246,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   store double %65, ptr %66, align 8, !tbaa !52
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %26
-  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !89
+  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !91
 
 67:                                               ; preds = %.preheader137, %107
   %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %107 ]
@@ -4316,7 +4316,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   store double %120, ptr %117, align 16, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %34, label %67, !llvm.loop !90
+  br i1 %exitcond.not, label %34, label %67, !llvm.loop !92
 
 .preheader:                                       ; preds = %124
   %121 = icmp sgt i32 %14, 0
@@ -4338,7 +4338,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   tail call void %125(ptr noundef %126, ptr noundef %129, ptr noundef %129, i64 noundef 16) #16
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
-  br i1 %exitcond150.not, label %.preheader, label %124, !llvm.loop !91
+  br i1 %exitcond150.not, label %.preheader, label %124, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %130, %.preheader
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
@@ -4399,7 +4399,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   store double %177, ptr %157, align 8, !tbaa !27
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge, label %130, !llvm.loop !92
+  br i1 %exitcond155.not, label %._crit_edge, label %130, !llvm.loop !94
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -4417,7 +4417,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   store double %14, ptr %15, align 8, !tbaa !25
   %16 = fptrunc nsz double %14 to float
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %16, ptr %17, align 4, !tbaa !84
+  store float %16, ptr %17, align 4, !tbaa !86
   %18 = and i64 %2, 6917529027641081854
   %19 = or disjoint i64 %18, 2305843009213693953
   %20 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %13, i32 noundef %5, ptr noundef nonnull %6) #16
@@ -4426,7 +4426,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !75
+  %23 = load i32, ptr %22, align 4, !tbaa !77
   %24 = load i32, ptr %11, align 8, !tbaa !10
   %25 = call i32 @ff_tx_gen_compound_mapping(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %23, i32 noundef %24, i32 noundef %13) #16
   %.not59 = icmp eq i32 %25, 0
@@ -4468,12 +4468,12 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
 37:                                               ; preds = %39
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 15
   %38 = icmp samesign ult i64 %indvars.iv.next76, %33
-  br i1 %38, label %34, label %._crit_edge, !llvm.loop !93
+  br i1 %38, label %34, label %._crit_edge, !llvm.loop !95
 
 39:                                               ; preds = %40
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 5
-  br i1 %exitcond74.not, label %37, label %.preheader63, !llvm.loop !94
+  br i1 %exitcond74.not, label %37, label %.preheader63, !llvm.loop !96
 
 40:                                               ; preds = %.preheader63, %40
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %40 ]
@@ -4488,7 +4488,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   store i32 %47, ptr %48, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %39, label %40, !llvm.loop !95
+  br i1 %exitcond.not, label %39, label %40, !llvm.loop !97
 
 49:                                               ; preds = %._crit_edge, %26
   %.not60 = icmp eq i32 %5, 0
@@ -4532,7 +4532,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   store i32 %66, ptr %64, align 4, !tbaa !10
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond81.not, label %._crit_edge69, label %63, !llvm.loop !96
+  br i1 %exitcond81.not, label %._crit_edge69, label %63, !llvm.loop !98
 
 67:                                               ; preds = %._crit_edge69
   %68 = sdiv i32 %10, %13
@@ -4689,7 +4689,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   store double %112, ptr %113, align 8, !tbaa !52
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %26
-  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !97
+  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !99
 
 114:                                              ; preds = %.preheader137, %154
   %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %154 ]
@@ -4759,7 +4759,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   store double %167, ptr %164, align 16, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %38, label %114, !llvm.loop !98
+  br i1 %exitcond.not, label %38, label %114, !llvm.loop !100
 
 .preheader:                                       ; preds = %171
   %168 = icmp sgt i32 %14, 0
@@ -4781,7 +4781,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   tail call void %172(ptr noundef %173, ptr noundef %176, ptr noundef %176, i64 noundef 16) #16
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 5
-  br i1 %exitcond150.not, label %.preheader, label %171, !llvm.loop !99
+  br i1 %exitcond150.not, label %.preheader, label %171, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %177, %.preheader
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
@@ -4842,7 +4842,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   store double %224, ptr %204, align 8, !tbaa !27
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge, label %177, !llvm.loop !100
+  br i1 %exitcond155.not, label %._crit_edge, label %177, !llvm.loop !102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5045,7 +5045,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   store double %162, ptr %163, align 8, !tbaa !52
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %26
-  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !101
+  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !103
 
 164:                                              ; preds = %.preheader137, %204
   %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %204 ]
@@ -5115,7 +5115,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   store double %217, ptr %214, align 16, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %42, label %164, !llvm.loop !102
+  br i1 %exitcond.not, label %42, label %164, !llvm.loop !104
 
 .preheader:                                       ; preds = %221
   %218 = icmp sgt i32 %14, 0
@@ -5137,7 +5137,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   tail call void %222(ptr noundef %223, ptr noundef %226, ptr noundef %226, i64 noundef 16) #16
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 7
-  br i1 %exitcond150.not, label %.preheader, label %221, !llvm.loop !103
+  br i1 %exitcond150.not, label %.preheader, label %221, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %227, %.preheader
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #16
@@ -5198,7 +5198,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   store double %274, ptr %254, align 8, !tbaa !27
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge, label %227, !llvm.loop !104
+  br i1 %exitcond155.not, label %._crit_edge, label %227, !llvm.loop !106
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5431,7 +5431,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   store double %179, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !27
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %26
-  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !105
+  br i1 %exitcond146.not, label %.preheader136, label %.preheader137, !llvm.loop !107
 
 180:                                              ; preds = %.preheader137, %220
   %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %220 ]
@@ -5501,7 +5501,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   store double %233, ptr %230, align 16, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %46, label %180, !llvm.loop !106
+  br i1 %exitcond.not, label %46, label %180, !llvm.loop !108
 
 .preheader:                                       ; preds = %237
   %234 = icmp sgt i32 %14, 0
@@ -5523,7 +5523,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   tail call void %238(ptr noundef %239, ptr noundef %242, ptr noundef %242, i64 noundef 16) #16
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 9
-  br i1 %exitcond150.not, label %.preheader, label %237, !llvm.loop !107
+  br i1 %exitcond150.not, label %.preheader, label %237, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %243, %.preheader
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #16
@@ -5584,7 +5584,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   store double %290, ptr %270, align 8, !tbaa !27
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge, label %243, !llvm.loop !108
+  br i1 %exitcond155.not, label %._crit_edge, label %243, !llvm.loop !110
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5985,7 +5985,7 @@ fft15.exit:                                       ; preds = %63
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #16
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, %27
-  br i1 %exitcond165.not, label %.preheader150, label %.preheader151, !llvm.loop !109
+  br i1 %exitcond165.not, label %.preheader150, label %.preheader151, !llvm.loop !111
 
 312:                                              ; preds = %.preheader151, %352
   %indvars.iv = phi i64 [ 0, %.preheader151 ], [ %indvars.iv.next, %352 ]
@@ -6055,7 +6055,7 @@ fft15.exit:                                       ; preds = %63
   store double %365, ptr %362, align 16, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %57, label %312, !llvm.loop !110
+  br i1 %exitcond.not, label %57, label %312, !llvm.loop !112
 
 .preheader:                                       ; preds = %369
   %366 = icmp sgt i32 %15, 0
@@ -6077,7 +6077,7 @@ fft15.exit:                                       ; preds = %63
   tail call void %370(ptr noundef %371, ptr noundef %374, ptr noundef %374, i64 noundef 16) #16
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 15
-  br i1 %exitcond169.not, label %.preheader, label %369, !llvm.loop !111
+  br i1 %exitcond169.not, label %.preheader, label %369, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %375, %.preheader
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #16
@@ -6138,7 +6138,7 @@ fft15.exit:                                       ; preds = %63
   store double %422, ptr %402, align 8, !tbaa !27
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %._crit_edge, label %375, !llvm.loop !112
+  br i1 %exitcond174.not, label %._crit_edge, label %375, !llvm.loop !114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6244,7 +6244,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   %71 = getelementptr inbounds nuw i8, ptr %.0105117, i64 12
   %72 = add nuw nsw i32 %.0107115, 3
   %73 = icmp slt i32 %72, %10
-  br i1 %73, label %.preheader113, label %.preheader112, !llvm.loop !113
+  br i1 %73, label %.preheader113, label %.preheader112, !llvm.loop !115
 
 74:                                               ; preds = %.preheader113, %74
   %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %74 ]
@@ -6274,7 +6274,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   store double %95, ptr %96, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %74, !llvm.loop !114
+  br i1 %exitcond.not, label %37, label %74, !llvm.loop !116
 
 .preheader:                                       ; preds = %100
   %97 = icmp sgt i32 %9, 0
@@ -6296,7 +6296,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   tail call void %101(ptr noundef %102, ptr noundef %105, ptr noundef %105, i64 noundef 16) #16
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %.preheader, label %100, !llvm.loop !115
+  br i1 %exitcond125.not, label %.preheader, label %100, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %106, %.preheader
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
@@ -6351,7 +6351,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   store double %146, ptr %147, align 8, !tbaa !52
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %._crit_edge, label %106, !llvm.loop !116
+  br i1 %exitcond129.not, label %._crit_edge, label %106, !llvm.loop !118
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6510,7 +6510,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   %118 = getelementptr inbounds nuw i8, ptr %.0105117, i64 20
   %119 = add nuw nsw i32 %.0107115, 5
   %120 = icmp slt i32 %119, %10
-  br i1 %120, label %.preheader113, label %.preheader112, !llvm.loop !117
+  br i1 %120, label %.preheader113, label %.preheader112, !llvm.loop !119
 
 121:                                              ; preds = %.preheader113, %121
   %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %121 ]
@@ -6540,7 +6540,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   store double %142, ptr %143, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %41, label %121, !llvm.loop !118
+  br i1 %exitcond.not, label %41, label %121, !llvm.loop !120
 
 .preheader:                                       ; preds = %147
   %144 = icmp sgt i32 %9, 0
@@ -6562,7 +6562,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   tail call void %148(ptr noundef %149, ptr noundef %152, ptr noundef %152, i64 noundef 16) #16
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 5
-  br i1 %exitcond125.not, label %.preheader, label %147, !llvm.loop !119
+  br i1 %exitcond125.not, label %.preheader, label %147, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %153, %.preheader
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
@@ -6617,7 +6617,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   store double %193, ptr %194, align 8, !tbaa !52
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %._crit_edge, label %153, !llvm.loop !120
+  br i1 %exitcond129.not, label %._crit_edge, label %153, !llvm.loop !122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6832,7 +6832,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   %168 = getelementptr inbounds nuw i8, ptr %.0105117, i64 28
   %169 = add nuw nsw i32 %.0107115, 7
   %170 = icmp slt i32 %169, %10
-  br i1 %170, label %.preheader113, label %.preheader112, !llvm.loop !121
+  br i1 %170, label %.preheader113, label %.preheader112, !llvm.loop !123
 
 171:                                              ; preds = %.preheader113, %171
   %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %171 ]
@@ -6862,7 +6862,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   store double %192, ptr %193, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %45, label %171, !llvm.loop !122
+  br i1 %exitcond.not, label %45, label %171, !llvm.loop !124
 
 .preheader:                                       ; preds = %197
   %194 = icmp sgt i32 %9, 0
@@ -6884,7 +6884,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   tail call void %198(ptr noundef %199, ptr noundef %202, ptr noundef %202, i64 noundef 16) #16
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 7
-  br i1 %exitcond125.not, label %.preheader, label %197, !llvm.loop !123
+  br i1 %exitcond125.not, label %.preheader, label %197, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %203, %.preheader
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #16
@@ -6939,7 +6939,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   store double %243, ptr %244, align 8, !tbaa !52
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %._crit_edge, label %203, !llvm.loop !124
+  br i1 %exitcond129.not, label %._crit_edge, label %203, !llvm.loop !126
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7184,7 +7184,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   %184 = getelementptr inbounds nuw i8, ptr %.0105117, i64 36
   %185 = add nuw nsw i32 %.0107115, 9
   %186 = icmp slt i32 %185, %10
-  br i1 %186, label %.preheader113, label %.preheader112, !llvm.loop !125
+  br i1 %186, label %.preheader113, label %.preheader112, !llvm.loop !127
 
 187:                                              ; preds = %.preheader113, %187
   %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %187 ]
@@ -7214,7 +7214,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   store double %208, ptr %209, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %49, label %187, !llvm.loop !126
+  br i1 %exitcond.not, label %49, label %187, !llvm.loop !128
 
 .preheader:                                       ; preds = %213
   %210 = icmp sgt i32 %9, 0
@@ -7236,7 +7236,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   tail call void %214(ptr noundef %215, ptr noundef %218, ptr noundef %218, i64 noundef 16) #16
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 9
-  br i1 %exitcond125.not, label %.preheader, label %213, !llvm.loop !127
+  br i1 %exitcond125.not, label %.preheader, label %213, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %219, %.preheader
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #16
@@ -7291,7 +7291,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   store double %259, ptr %260, align 8, !tbaa !52
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %._crit_edge, label %219, !llvm.loop !128
+  br i1 %exitcond129.not, label %._crit_edge, label %219, !llvm.loop !130
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7704,7 +7704,7 @@ fft15.exit:                                       ; preds = %65
   %316 = getelementptr inbounds nuw i8, ptr %.0105132, i64 60
   %317 = add nuw nsw i32 %.0107130, 15
   %318 = icmp slt i32 %317, %11
-  br i1 %318, label %.preheader127, label %.preheader126, !llvm.loop !129
+  br i1 %318, label %.preheader127, label %.preheader126, !llvm.loop !131
 
 319:                                              ; preds = %.preheader127, %319
   %indvars.iv = phi i64 [ 0, %.preheader127 ], [ %indvars.iv.next, %319 ]
@@ -7734,7 +7734,7 @@ fft15.exit:                                       ; preds = %65
   store double %340, ptr %341, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %60, label %319, !llvm.loop !130
+  br i1 %exitcond.not, label %60, label %319, !llvm.loop !132
 
 .preheader:                                       ; preds = %345
   %342 = icmp sgt i32 %10, 0
@@ -7756,7 +7756,7 @@ fft15.exit:                                       ; preds = %65
   tail call void %346(ptr noundef %347, ptr noundef %350, ptr noundef %350, i64 noundef 16) #16
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 15
-  br i1 %exitcond144.not, label %.preheader, label %345, !llvm.loop !131
+  br i1 %exitcond144.not, label %.preheader, label %345, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %351, %.preheader
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #16
@@ -7811,7 +7811,7 @@ fft15.exit:                                       ; preds = %65
   store double %391, ptr %392, align 8, !tbaa !52
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count
-  br i1 %exitcond148.not, label %._crit_edge, label %351, !llvm.loop !132
+  br i1 %exitcond148.not, label %._crit_edge, label %351, !llvm.loop !134
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7855,7 +7855,7 @@ define internal void @ff_tx_mdct_naive_fwd_double_c(ptr noundef readonly capture
   %26 = tail call nsz double @llvm.fmuladd.f64(double %22, double %25, double %.02427.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !135
 
 ._crit_edge.us:                                   ; preds = %17
   %27 = fmul nsz double %6, %26
@@ -7864,7 +7864,7 @@ define internal void @ff_tx_mdct_naive_fwd_double_c(ptr noundef readonly capture
   store double %27, ptr %29, align 8, !tbaa !27
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge30, label %.preheader.us, !llvm.loop !134
+  br i1 %exitcond37.not, label %._crit_edge30, label %.preheader.us, !llvm.loop !136
 
 ._crit_edge30:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -7877,7 +7877,7 @@ define internal noundef i32 @ff_tx_mdct_naive_init_double_c(ptr noundef writeonl
   store double %8, ptr %9, align 8, !tbaa !25
   %10 = fptrunc nsz double %8 to float
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %10, ptr %11, align 4, !tbaa !84
+  store float %10, ptr %11, align 4, !tbaa !86
   ret i32 0
 }
 
@@ -7937,7 +7937,7 @@ define internal void @ff_tx_mdct_naive_inv_double_c(ptr noundef readonly capture
   %40 = tail call nsz double @llvm.fmuladd.f64(double %35, double %38, double %.04345.us)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge.us, label %28, !llvm.loop !135
+  br i1 %exitcond60.not, label %._crit_edge.us, label %28, !llvm.loop !137
 
 ._crit_edge.us:                                   ; preds = %28
   %41 = fmul nsz double %6, %39
@@ -7949,7 +7949,7 @@ define internal void @ff_tx_mdct_naive_inv_double_c(ptr noundef readonly capture
   store double %44, ptr %gep, align 8, !tbaa !27
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next62, %17
-  br i1 %exitcond66.not, label %._crit_edge52, label %.lr.ph.us, !llvm.loop !136
+  br i1 %exitcond66.not, label %._crit_edge52, label %.lr.ph.us, !llvm.loop !138
 
 ._crit_edge52:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -8003,7 +8003,7 @@ define internal void @ff_tx_mdct_inv_full_double_c(ptr noundef readonly captures
   store double %29, ptr %34, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -8013,7 +8013,7 @@ define internal i32 @ff_tx_mdct_inv_full_init_double_c(ptr noundef initializes((
   store double %8, ptr %9, align 8, !tbaa !25
   %10 = fptrunc nsz double %8 to float
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %10, ptr %11, align 4, !tbaa !84
+  store float %10, ptr %11, align 4, !tbaa !86
   %12 = and i64 %2, -5
   %13 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 3, i64 noundef %12, ptr noundef null, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %6) #16
   ret i32 %13
@@ -8128,7 +8128,7 @@ define internal void @ff_tx_rdft_r2c_double_c(ptr noundef readonly captures(none
   store double %80, ptr %58, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !140
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -8141,7 +8141,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   store double %11, ptr %12, align 8, !tbaa !25
   %13 = fptrunc nsz double %11 to float
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %13, ptr %14, align 4, !tbaa !84
+  store float %13, ptr %14, align 4, !tbaa !86
   %15 = and i64 %2, -25
   %16 = ashr i32 %4, 1
   %17 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %15, ptr noundef null, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #16
@@ -8185,7 +8185,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   br i1 %.not68, label %45, label %41
 
 41:                                               ; preds = %25
-  %42 = load float, ptr %14, align 4, !tbaa !84
+  %42 = load float, ptr %14, align 4, !tbaa !86
   %43 = fdiv nsz float 1.000000e+00, %42
   %44 = fpext nsz float %43 to double
   br label %47
@@ -8231,7 +8231,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   store double %63, ptr %.169, align 8, !tbaa !27
   %65 = add nuw nsw i32 %.06070, 1
   %exitcond.not = icmp eq i32 %65, %10
-  br i1 %exitcond.not, label %.lr.ph74, label %.lr.ph, !llvm.loop !139
+  br i1 %exitcond.not, label %.lr.ph74, label %.lr.ph, !llvm.loop !141
 
 66:                                               ; preds = %.lr.ph74, %66
   %.072 = phi i32 [ 0, %.lr.ph74 ], [ %75, %66 ]
@@ -8247,7 +8247,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   store double %73, ptr %.271, align 8, !tbaa !27
   %75 = add nuw nsw i32 %.072, 1
   %exitcond75.not = icmp eq i32 %75, %10
-  br i1 %exitcond75.not, label %.loopexit, label %66, !llvm.loop !140
+  br i1 %exitcond75.not, label %.loopexit, label %66, !llvm.loop !142
 
 .loopexit:                                        ; preds = %66, %47, %18, %7
   %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %47 ], [ 0, %66 ]
@@ -8359,7 +8359,7 @@ define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none
   store double %68, ptr %70, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %46, !llvm.loop !141
+  br i1 %exitcond.not, label %.preheader, label %46, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.lr.ph79, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %45, %.lr.ph79 ]
@@ -8379,7 +8379,7 @@ define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none
   store double %76, ptr %78, align 8, !tbaa !27
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !142
+  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !144
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8493,7 +8493,7 @@ define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures
   store double %71, ptr %73, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !143
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph96, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %49, %.lr.ph96 ]
@@ -8528,7 +8528,7 @@ define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures
   store double %93, ptr %95, align 8, !tbaa !27
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph96, !llvm.loop !144
+  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph96, !llvm.loop !146
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8627,7 +8627,7 @@ define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none
   store double %64, ptr %69, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph77.preheader, label %44, !llvm.loop !145
+  br i1 %exitcond.not, label %.lr.ph77.preheader, label %44, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %4
   ret void
@@ -8642,7 +8642,7 @@ define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none
   store double %72, ptr %74, align 8, !tbaa !27
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !146
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !148
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8748,7 +8748,7 @@ define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures
   store double %66, ptr %71, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !147
+  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %4
   %72 = fsub nsz double %.sroa.423.0.copyload, %.sroa.420.0.copyload
@@ -8774,7 +8774,7 @@ define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures
   store double %84, ptr %86, align 8, !tbaa !27
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !148
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !150
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8876,7 +8876,7 @@ define internal void @ff_tx_rdft_c2r_double_c(ptr noundef readonly captures(none
   store double %78, ptr %56, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !151
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8932,7 +8932,7 @@ define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %
   store double %32, ptr %24, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !152
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge
   %.0.lcssa = phi double [ %16, %._crit_edge ], [ %51, %.lr.ph74 ]
@@ -8966,7 +8966,7 @@ define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %
   store double %.072, ptr %44, align 8, !tbaa !27
   %51 = fadd nsz double %.072, %48
   %52 = icmp sgt i64 %indvars.iv77, 4
-  br i1 %52, label %.lr.ph74, label %._crit_edge75, !llvm.loop !151
+  br i1 %52, label %.lr.ph74, label %._crit_edge75, !llvm.loop !153
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -9050,7 +9050,7 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
   store double %39, ptr %40, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !152
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !154
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
   %indvars.iv57 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next58, %.lr.ph52 ]
@@ -9065,7 +9065,7 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
   store double %46, ptr %gep, align 8, !tbaa !27
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph52, !llvm.loop !153
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph52, !llvm.loop !155
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
   %indvars.iv62 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next63, %.lr.ph54 ]
@@ -9080,7 +9080,7 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
   store double %52, ptr %gep69, align 8, !tbaa !27
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph54, !llvm.loop !154
+  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph54, !llvm.loop !156
 
 .loopexit:                                        ; preds = %.lr.ph52, %.lr.ph54, %.preheader48, %.preheader, %17, %15
   %.042 = phi i32 [ %16, %15 ], [ -12, %17 ], [ 0, %.preheader ], [ 0, %.preheader48 ], [ 0, %.lr.ph54 ], [ 0, %.lr.ph52 ]
@@ -9142,7 +9142,7 @@ define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) 
   %38 = tail call nsz double @llvm.fmuladd.f64(double %35, double %26, double %37)
   store double %38, ptr %20, align 8, !tbaa !27
   %39 = icmp sgt i64 %indvars.iv, 5
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !155
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %._crit_edge
   ret void
@@ -9168,7 +9168,7 @@ define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) 
   store double %53, ptr %46, align 8, !tbaa !27
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !156
+  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !158
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9213,7 +9213,7 @@ define internal void @ff_tx_dctI_double_c(ptr noundef readonly captures(none) %0
   store double %25, ptr %28, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !157
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !159
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -9237,7 +9237,7 @@ define internal i32 @ff_tx_dcstI_init_double_c(ptr noundef %0, ptr noundef reado
 15:                                               ; preds = %10, %7
   %.014 = phi i32 [ %11, %10 ], [ %4, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !158
+  %17 = load i32, ptr %16, align 8, !tbaa !160
   %18 = icmp eq i32 %17, 13
   %19 = select i1 %18, i64 8, i64 16
   %20 = or i64 %19, %2
@@ -9310,7 +9310,7 @@ define internal void @ff_tx_dstI_double_c(ptr noundef readonly captures(none) %0
   store double %22, ptr %26, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !161
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !163
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -9406,8 +9406,8 @@ attributes #17 = { cold }
 !63 = distinct !{!63, !9}
 !64 = !{!19, !19, i64 0}
 !65 = distinct !{!65, !9}
-!66 = distinct !{!66, !9}
-!67 = distinct !{!67, !9}
+!66 = distinct !{!66, !9, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !68 = distinct !{!68, !9}
 !69 = distinct !{!69, !9}
 !70 = distinct !{!70, !9}
@@ -9415,18 +9415,18 @@ attributes #17 = { cold }
 !72 = distinct !{!72, !9}
 !73 = distinct !{!73, !9}
 !74 = distinct !{!74, !9}
-!75 = !{!17, !11, i64 4}
+!75 = distinct !{!75, !9}
 !76 = distinct !{!76, !9}
-!77 = distinct !{!77, !9}
+!77 = !{!17, !11, i64 4}
 !78 = distinct !{!78, !9}
-!79 = distinct !{!79, !9}
+!79 = distinct !{!79, !9, !67}
 !80 = distinct !{!80, !9}
-!81 = distinct !{!81, !9}
+!81 = distinct !{!81, !9, !67}
 !82 = distinct !{!82, !9}
 !83 = distinct !{!83, !9}
-!84 = !{!17, !23, i64 140}
+!84 = distinct !{!84, !9}
 !85 = distinct !{!85, !9}
-!86 = distinct !{!86, !9}
+!86 = !{!17, !23, i64 140}
 !87 = distinct !{!87, !9}
 !88 = distinct !{!88, !9}
 !89 = distinct !{!89, !9}
@@ -9476,9 +9476,9 @@ attributes #17 = { cold }
 !133 = distinct !{!133, !9}
 !134 = distinct !{!134, !9}
 !135 = distinct !{!135, !9}
-!136 = distinct !{!136, !9}
+!136 = distinct !{!136, !9, !67}
 !137 = distinct !{!137, !9}
-!138 = distinct !{!138, !9}
+!138 = distinct !{!138, !9, !67}
 !139 = distinct !{!139, !9}
 !140 = distinct !{!140, !9}
 !141 = distinct !{!141, !9}
@@ -9498,7 +9498,9 @@ attributes #17 = { cold }
 !155 = distinct !{!155, !9}
 !156 = distinct !{!156, !9}
 !157 = distinct !{!157, !9}
-!158 = !{!159, !11, i64 16}
-!159 = !{!"FFTXCodelet", !160, i64 0, !5, i64 8, !11, i64 16, !22, i64 24, !6, i64 32, !11, i64 96, !11, i64 100, !11, i64 104, !5, i64 112, !5, i64 120, !11, i64 128, !11, i64 132}
-!160 = !{!"p1 omnipotent char", !5, i64 0}
-!161 = distinct !{!161, !9}
+!158 = distinct !{!158, !9}
+!159 = distinct !{!159, !9}
+!160 = !{!161, !11, i64 16}
+!161 = !{!"FFTXCodelet", !162, i64 0, !5, i64 8, !11, i64 16, !22, i64 24, !6, i64 32, !11, i64 96, !11, i64 100, !11, i64 104, !5, i64 112, !5, i64 120, !11, i64 128, !11, i64 132}
+!162 = !{!"p1 omnipotent char", !5, i64 0}
+!163 = distinct !{!163, !9}

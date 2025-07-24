@@ -27640,7 +27640,7 @@ _ZN6vectorIiLb0EjE4backEv.exit36:                 ; preds = %.preheader44.split,
   %132 = load i32, ptr %131, align 4, !tbaa !73
   %133 = load i32, ptr %91, align 4, !tbaa !73
   %134 = icmp sgt i32 %132, %133
-  br i1 %134, label %_ZN6vectorIiLb0EjE4backEv.exit36, label %.loopexit, !llvm.loop !944
+  br i1 %134, label %_ZN6vectorIiLb0EjE4backEv.exit36, label %.loopexit, !llvm.loop !946
 
 .loopexit:                                        ; preds = %_ZN6vectorIiLb0EjE4backEv.exit36, %_ZN6vectorIiLb0EjE4backEv.exit36.us, %.preheader44.split.us, %.preheader44.split, %75, %95, %94, %67
   %135 = getelementptr inbounds nuw i8, ptr %.02548, i64 4
@@ -27682,7 +27682,7 @@ _ZN6vectorIiLb0EjE4backEv.exit38:                 ; preds = %._ZN6vectorIiLb0EjE
   store i32 %150, ptr %152, align 4, !tbaa !73
   %153 = add i32 %.0, 1
   %.not28 = icmp eq i32 %145, %1
-  br i1 %.not28, label %154, label %136, !llvm.loop !945
+  br i1 %.not28, label %154, label %136, !llvm.loop !947
 
 154:                                              ; preds = %_ZN6vectorIiLb0EjE4backEv.exit38
   %155 = icmp eq i32 %.0, 0
@@ -27724,9 +27724,9 @@ define linkonce_odr hidden void @_ZN10union_findI22union_find_default_ctxE11merg
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10union_findI22union_find_default_ctxE11merge_trail4undoEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !946
+  %3 = load ptr, ptr %2, align 8, !tbaa !948
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !948
+  %5 = load i32, ptr %4, align 8, !tbaa !950
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !84
   %8 = zext i32 %5 to i64
@@ -27976,7 +27976,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjPN3smt
 22:                                               ; preds = %.lr.ph, %18, %15
   %23 = getelementptr inbounds nuw i8, ptr %.02940, i64 24
   %.not = icmp eq ptr %23, %12
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !949
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !951
 
 .lr.ph43:                                         ; preds = %.preheader, %33
   %.242 = phi ptr [ %34, %33 ], [ %8, %.preheader ]
@@ -28001,7 +28001,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjPN3smt
 33:                                               ; preds = %.lr.ph43, %29, %26
   %34 = getelementptr inbounds nuw i8, ptr %.242, i64 24
   %.not32 = icmp eq ptr %34, %10
-  br i1 %.not32, label %.loopexit, label %.lr.ph43, !llvm.loop !950
+  br i1 %.not32, label %.loopexit, label %.lr.ph43, !llvm.loop !952
 
 .loopexit33:                                      ; preds = %18, %29
   %.1 = phi ptr [ %.242, %29 ], [ %.02940, %18 ]
@@ -28312,7 +28312,7 @@ _ZNK6vectorISt4pairIjbELb1EjE4sizeEv.exit:        ; preds = %49
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   %64 = icmp eq ptr %62, %59
-  br i1 %64, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !951
+  br i1 %64, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !953
 
 _ZSt20uninitialized_move_nIPSt4pairIjbEjS2_ES0_IT_T1_ES3_T0_S4_.exit: ; preds = %49
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -28342,11 +28342,11 @@ _ZN6vectorISt4pairIjbELb1EjE7destroyEv.exit:      ; preds = %_ZSt20uninitialized
 define internal void @_GLOBAL__sub_I_theory_special_relations.cpp() #19 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
-  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !952
+  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !954
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL12true_literalE)
-  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !952
+  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !954
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL13false_literalE)
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !953
+  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !955
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL21null_eq_justificationE)
   store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !706
   %5 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL20null_b_justificationE)
@@ -29344,13 +29344,15 @@ attributes #27 = { builtin allocsize(0) }
 !941 = !{!939, !17, i64 4}
 !942 = distinct !{!942, !90}
 !943 = distinct !{!943, !90}
-!944 = distinct !{!944, !90}
-!945 = distinct !{!945, !90}
-!946 = !{!947, !62, i64 8}
-!947 = !{!"_ZTSN10union_findI22union_find_default_ctxE11merge_trailE", !61, i64 0, !62, i64 8, !17, i64 16}
-!948 = !{!947, !17, i64 16}
-!949 = distinct !{!949, !90}
-!950 = distinct !{!950, !90}
+!944 = distinct !{!944, !90, !945}
+!945 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!946 = distinct !{!946, !90}
+!947 = distinct !{!947, !90}
+!948 = !{!949, !62, i64 8}
+!949 = !{!"_ZTSN10union_findI22union_find_default_ctxE11merge_trailE", !61, i64 0, !62, i64 8, !17, i64 16}
+!950 = !{!949, !17, i64 16}
 !951 = distinct !{!951, !90}
-!952 = !{!570, !17, i64 0}
-!953 = !{!655, !6, i64 0}
+!952 = distinct !{!952, !90}
+!953 = distinct !{!953, !90}
+!954 = !{!570, !17, i64 0}
+!955 = !{!655, !6, i64 0}

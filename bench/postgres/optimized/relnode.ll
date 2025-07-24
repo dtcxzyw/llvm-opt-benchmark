@@ -1905,7 +1905,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %213 = load i32, ptr %204, align 4
   %214 = sext i32 %213 to i64
   %215 = icmp slt i64 %indvars.iv.next263.i, %214
-  br i1 %215, label %.lr.ph238.split.us.i, label %.thread207.i
+  br i1 %215, label %.lr.ph238.split.us.i, label %.thread207.i, !llvm.loop !6
 
 216:                                              ; preds = %.lr.ph238.split.i
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
@@ -1945,7 +1945,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %234 = sext i32 %.pre-phi.i to i64
   %235 = icmp slt i64 %indvars.iv.next272.i, %234
-  br i1 %235, label %163, label %have_partkey_equi_join.exit.thread, !llvm.loop !6
+  br i1 %235, label %163, label %have_partkey_equi_join.exit.thread, !llvm.loop !8
 
 have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %173, %179, %.lr.ph243.i, %.thread207.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
@@ -2108,7 +2108,7 @@ have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %1
   store ptr %.071.i, ptr %316, align 8
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %252, !llvm.loop !8
+  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %252, !llvm.loop !10
 
 set_joinrel_partition_key_exprs.exit:             ; preds = %.thread.i, %.loopexit
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 337
@@ -2479,7 +2479,7 @@ find_base_rel.exit:                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
-  br i1 %28, label %6, label %29, !llvm.loop !9
+  br i1 %28, label %6, label %29, !llvm.loop !11
 
 29:                                               ; preds = %find_base_rel.exit
   ret ptr %15
@@ -3180,7 +3180,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next117, %38
-  br i1 %39, label %.lr.ph88.split.us, label %.thread60, !llvm.loop !10
+  br i1 %39, label %.lr.ph88.split.us, label %.thread60, !llvm.loop !12
 
 .lr.ph73.us:                                      ; preds = %.lr.ph88.split.us
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -3202,7 +3202,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 27
-  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !13
 
 .lr.ph88.split:                                   ; preds = %.lr.ph88, %.thread63
   %52 = phi ptr [ %68, %.thread63 ], [ %7, %.lr.ph88 ]
@@ -3246,7 +3246,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next108, %71
-  br i1 %72, label %.lr.ph88.split, label %.thread60, !llvm.loop !10
+  br i1 %72, label %.lr.ph88.split, label %.thread60, !llvm.loop !14
 
 .thread60.loopexit:                               ; preds = %.lr.ph83.us
   %73 = trunc nuw nsw i64 %indvars.iv116 to i32
@@ -3309,8 +3309,11 @@ attributes #8 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

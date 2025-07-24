@@ -537,7 +537,7 @@ define hidden void @lh_doall(ptr noundef captures(address_is_null) %0, ptr nound
   %23 = load ptr, ptr %.01928.us.us.i, align 8, !tbaa !27
   tail call void %1(ptr noundef %23) #9
   %.not25.us.us.i = icmp eq ptr %22, null
-  br i1 %.not25.us.us.i, label %._crit_edge.split.us.us.loopexit.i, label %.lr.ph.us.i, !llvm.loop !35
+  br i1 %.not25.us.us.i, label %._crit_edge.split.us.us.loopexit.i, label %.lr.ph.us.i, !llvm.loop !36
 
 ._crit_edge32.i.loopexit:                         ; preds = %._crit_edge.split.us.us.i
   %.pre = load i32, ptr %5, align 8, !tbaa !31
@@ -605,7 +605,7 @@ define hidden void @lh_doall_arg(ptr noundef captures(address_is_null) %0, ptr n
   %21 = load ptr, ptr %.01928.i, align 8, !tbaa !27
   tail call void %1(ptr noundef %21, ptr noundef %2) #9
   %.not25.i = icmp eq ptr %20, null
-  br i1 %.not25.i, label %._crit_edge.split.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not25.i, label %._crit_edge.split.loopexit.i, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.split.loopexit.i:                     ; preds = %.lr.ph.i
   %.pre.i = load i64, ptr %12, align 8, !tbaa !6
@@ -615,7 +615,7 @@ define hidden void @lh_doall_arg(ptr noundef captures(address_is_null) %0, ptr n
   %22 = phi i64 [ %.pre.i, %._crit_edge.split.loopexit.i ], [ %15, %.lr.ph31.split.i ]
   %23 = add nuw i64 %.029.i, 1
   %24 = icmp ult i64 %23, %22
-  br i1 %24, label %.lr.ph31.split.i, label %._crit_edge32.i.loopexit4, !llvm.loop !34
+  br i1 %24, label %.lr.ph31.split.i, label %._crit_edge32.i.loopexit4, !llvm.loop !38
 
 ._crit_edge32.i.loopexit4:                        ; preds = %._crit_edge.split.i
   %.pre = load i32, ptr %6, align 8, !tbaa !31
@@ -693,5 +693,8 @@ attributes #10 = { nounwind allocsize(0) }
 !31 = !{!7, !13, i64 24}
 !32 = distinct !{!32, !19}
 !33 = distinct !{!33, !19}
-!34 = distinct !{!34, !19}
-!35 = distinct !{!35, !19}
+!34 = distinct !{!34, !19, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !19, !35}
+!37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}

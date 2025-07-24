@@ -8499,7 +8499,7 @@ define internal fastcc void @ppp_dissect_options(ptr noundef %0, i32 noundef ran
   %61 = add i32 %.086, %42
   %62 = sub i32 %.06284, %42
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %60, %22, %6, %.split95.us, %.split89.us, %.split.us
   ret void
@@ -9118,7 +9118,7 @@ define internal fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr
   %26 = add i32 %19, %17
   %27 = sub nuw nsw i32 %18, %19
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %23, %4, %21
   %29 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -9258,5 +9258,7 @@ attributes #8 = { nounwind }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!21 = distinct !{!21, !7, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

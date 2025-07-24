@@ -843,7 +843,7 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   store double %150, ptr %153, align 8, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %butterworth_bp_filter.exit, label %butterworth_fo_section.exit.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %butterworth_bp_filter.exit, label %butterworth_fo_section.exit.i, !llvm.loop !83
 
 154:                                              ; preds = %2
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -979,7 +979,7 @@ chebyshev1_fo_section.exit.us.i:                  ; preds = %169, %chebyshev1_fo
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
-  br i1 %exitcond72.not.i, label %butterworth_bp_filter.exit, label %chebyshev1_fo_section.exit.us.i, !llvm.loop !82
+  br i1 %exitcond72.not.i, label %butterworth_bp_filter.exit, label %chebyshev1_fo_section.exit.us.i, !llvm.loop !84
 
 chebyshev1_fo_section.exit.i:                     ; preds = %169, %chebyshev1_fo_section.exit.i
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %chebyshev1_fo_section.exit.i ], [ 1, %169 ]
@@ -1060,7 +1060,7 @@ chebyshev1_fo_section.exit.i:                     ; preds = %169, %chebyshev1_fo
   store double %315, ptr %318, align 8, !tbaa !75
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 3
-  br i1 %exitcond.not.i28, label %butterworth_bp_filter.exit, label %chebyshev1_fo_section.exit.i, !llvm.loop !82
+  br i1 %exitcond.not.i28, label %butterworth_bp_filter.exit, label %chebyshev1_fo_section.exit.i, !llvm.loop !85
 
 319:                                              ; preds = %2
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1206,7 +1206,7 @@ chebyshev2_fo_section.exit.us.i:                  ; preds = %331, %chebyshev2_fo
   %indvars.iv.next70.i36 = add nuw nsw i64 %indvars.iv69.i35, 1
   %exitcond72.not.i37 = icmp eq i64 %indvars.iv.next70.i36, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %431, i8 0, i64 16, i1 false)
-  br i1 %exitcond72.not.i37, label %butterworth_bp_filter.exit, label %chebyshev2_fo_section.exit.us.i, !llvm.loop !83
+  br i1 %exitcond72.not.i37, label %butterworth_bp_filter.exit, label %chebyshev2_fo_section.exit.us.i, !llvm.loop !86
 
 chebyshev2_fo_section.exit.i:                     ; preds = %331, %chebyshev2_fo_section.exit.i
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %chebyshev2_fo_section.exit.i ], [ 1, %331 ]
@@ -1289,7 +1289,7 @@ chebyshev2_fo_section.exit.i:                     ; preds = %331, %chebyshev2_fo
   store double %494, ptr %497, align 8, !tbaa !75
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 3
-  br i1 %exitcond.not.i34, label %butterworth_bp_filter.exit, label %chebyshev2_fo_section.exit.i, !llvm.loop !83
+  br i1 %exitcond.not.i34, label %butterworth_bp_filter.exit, label %chebyshev2_fo_section.exit.i, !llvm.loop !87
 
 butterworth_bp_filter.exit.sink.split:            ; preds = %chebyshev2_compute_bw_gain_db.exit, %chebyshev1_compute_bw_gain_db.exit, %butterworth_compute_bw_gain_db.exit
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1336,24 +1336,24 @@ declare i32 @ff_append_outpad(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_video(ptr noundef initializes((40, 48)) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !84
+  %2 = load ptr, ptr %0, align 8, !tbaa !88
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !85
+  %9 = load i32, ptr %8, align 4, !tbaa !89
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %9, ptr %10, align 8, !tbaa !86
+  store i32 %9, ptr %10, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !87
+  %12 = load i32, ptr %11, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %12, ptr %13, align 4, !tbaa !88
+  store i32 %12, ptr %13, align 4, !tbaa !92
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @av_frame_free(ptr noundef nonnull %14) #15
-  %15 = load i32, ptr %10, align 8, !tbaa !86
-  %16 = load i32, ptr %13, align 4, !tbaa !88
+  %15 = load i32, ptr %10, align 8, !tbaa !90
+  %16 = load i32, ptr %13, align 4, !tbaa !92
   %17 = tail call ptr @ff_get_video_buffer(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %16) #15
   store ptr %17, ptr %14, align 8, !tbaa !48
   %.not = icmp eq ptr %17, null
@@ -1385,7 +1385,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = tail call noalias ptr @av_strdup(ptr noundef %9) #15
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %152, label %11
@@ -1393,7 +1393,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !87
+  %14 = load i32, ptr %13, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !21
   %17 = mul nsw i32 %16, %14
@@ -1427,7 +1427,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   br label %33
 
 33:                                               ; preds = %31, %27
-  %34 = load i32, ptr %22, align 4, !tbaa !85
+  %34 = load i32, ptr %22, align 4, !tbaa !89
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph151.preheader, label %._crit_edge152
 
@@ -1440,7 +1440,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   %38 = phi i32 [ %146, %.loopexit139 ], [ %34, %.lr.ph151.preheader ]
   %.0123149 = phi i32 [ %.0.i, %.loopexit139 ], [ -1, %.lr.ph151.preheader ]
   %.0125148 = phi double [ %145, %.loopexit139 ], [ 0.000000e+00, %.lr.ph151.preheader ]
-  %39 = load i32, ptr %23, align 8, !tbaa !90
+  %39 = load i32, ptr %23, align 8, !tbaa !94
   %.not132 = icmp eq i32 %39, 0
   %.pre = add nsw i32 %38, -1
   %.pre164 = sitofp i32 %.pre to double
@@ -1538,22 +1538,22 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   %109 = fmul nsz double %108, %48
   %110 = call nsz double @hypot(double noundef %104, double noundef %109) #17
   %111 = fdiv nsz double %90, %110
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !91
+  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.preheader, %61, %65
   %.1122 = phi nsz double [ %.0121144, %61 ], [ %.0121144, %65 ], [ %111, %.preheader ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph151._crit_edge
   %.0121.lcssa = phi double [ 1.000000e+00, %.lr.ph151._crit_edge ], [ %.1122, %.loopexit ]
   %112 = call nsz double @llvm.log10.f64(double %.0121.lcssa)
   %113 = fmul nsz double %112, 2.000000e+01
-  %114 = load double, ptr %26, align 8, !tbaa !93
+  %114 = load double, ptr %26, align 8, !tbaa !97
   %115 = fdiv nsz double %113, %114
   %116 = fsub nsz double 1.000000e+00, %115
-  %117 = load i32, ptr %13, align 8, !tbaa !87
+  %117 = load i32, ptr %13, align 8, !tbaa !91
   %118 = sitofp i32 %117 to double
   %119 = fmul nsz double %116, %118
   %120 = fmul nsz double %119, 5.000000e-01
@@ -1573,45 +1573,45 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
 
 .preheader140:                                    ; preds = %._crit_edge, %.preheader140
   %.0119146 = phi i32 [ %136, %.preheader140 ], [ %.0.i, %._crit_edge ]
-  %129 = load i32, ptr %5, align 4, !tbaa !94
+  %129 = load i32, ptr %5, align 4, !tbaa !98
   %130 = load ptr, ptr %2, align 8, !tbaa !20
   %131 = load i32, ptr %15, align 8, !tbaa !21
   %132 = mul nsw i32 %131, %.0119146
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i8, ptr %130, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 %128
-  store i32 %129, ptr %135, align 1, !tbaa !94
+  store i32 %129, ptr %135, align 1, !tbaa !98
   %136 = add i32 %.0119146, 1
   %exitcond162.not = icmp eq i32 %.0119146, %spec.select
-  br i1 %exitcond162.not, label %.loopexit139, label %.preheader140, !llvm.loop !95
+  br i1 %exitcond162.not, label %.loopexit139, label %.preheader140, !llvm.loop !99
 
 .preheader138:                                    ; preds = %._crit_edge, %.preheader138
   %.1147 = phi i32 [ %144, %.preheader138 ], [ %spec.select, %._crit_edge ]
-  %137 = load i32, ptr %5, align 4, !tbaa !94
+  %137 = load i32, ptr %5, align 4, !tbaa !98
   %138 = load ptr, ptr %2, align 8, !tbaa !20
   %139 = load i32, ptr %15, align 8, !tbaa !21
   %140 = mul nsw i32 %139, %.1147
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i8, ptr %138, i64 %141
   %143 = getelementptr inbounds i8, ptr %142, i64 %128
-  store i32 %137, ptr %143, align 1, !tbaa !94
+  store i32 %137, ptr %143, align 1, !tbaa !98
   %144 = add i32 %.1147, 1
   %exitcond163.not = icmp eq i32 %.1147, %.0.i
-  br i1 %exitcond163.not, label %.loopexit139, label %.preheader138, !llvm.loop !96
+  br i1 %exitcond163.not, label %.loopexit139, label %.preheader138, !llvm.loop !100
 
 .loopexit139:                                     ; preds = %.preheader140, %.preheader138
   %145 = fadd nsz double %.0125148, 1.000000e+00
-  %146 = load i32, ptr %22, align 4, !tbaa !85
+  %146 = load i32, ptr %22, align 4, !tbaa !89
   %147 = sitofp i32 %146 to double
   %148 = fcmp nsz olt double %145, %147
-  br i1 %148, label %.lr.ph151, label %._crit_edge152, !llvm.loop !97
+  br i1 %148, label %.lr.ph151, label %._crit_edge152, !llvm.loop !101
 
 ._crit_edge152:                                   ; preds = %.loopexit139, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %149 = add nuw nsw i32 %.0153, 1
   %150 = load i32, ptr %19, align 4, !tbaa !52
   %151 = icmp slt i32 %149, %150
-  br i1 %151, label %27, label %._crit_edge156, !llvm.loop !98
+  br i1 %151, label %27, label %._crit_edge156, !llvm.loop !102
 
 ._crit_edge156:                                   ; preds = %._crit_edge152, %11
   call void @av_free(ptr noundef nonnull %10) #15
@@ -1754,21 +1754,25 @@ attributes #17 = { nounwind willreturn memory(none) }
 !78 = distinct !{!78, !77}
 !79 = distinct !{!79, !77}
 !80 = !{!67, !24, i64 0}
-!81 = distinct !{!81, !77}
-!82 = distinct !{!82, !77}
+!81 = distinct !{!81, !77, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !83 = distinct !{!83, !77}
-!84 = !{!35, !36, i64 0}
-!85 = !{!23, !15, i64 28}
-!86 = !{!35, !15, i64 40}
-!87 = !{!23, !15, i64 32}
-!88 = !{!35, !15, i64 44}
-!89 = !{!23, !11, i64 16}
-!90 = !{!23, !15, i64 48}
-!91 = distinct !{!91, !77}
-!92 = distinct !{!92, !77}
-!93 = !{!23, !24, i64 40}
-!94 = !{!8, !8, i64 0}
+!84 = distinct !{!84, !77, !82}
+!85 = distinct !{!85, !77}
+!86 = distinct !{!86, !77, !82}
+!87 = distinct !{!87, !77}
+!88 = !{!35, !36, i64 0}
+!89 = !{!23, !15, i64 28}
+!90 = !{!35, !15, i64 40}
+!91 = !{!23, !15, i64 32}
+!92 = !{!35, !15, i64 44}
+!93 = !{!23, !11, i64 16}
+!94 = !{!23, !15, i64 48}
 !95 = distinct !{!95, !77}
 !96 = distinct !{!96, !77}
-!97 = distinct !{!97, !77}
-!98 = distinct !{!98, !77}
+!97 = !{!23, !24, i64 40}
+!98 = !{!8, !8, i64 0}
+!99 = distinct !{!99, !77}
+!100 = distinct !{!100, !77}
+!101 = distinct !{!101, !77}
+!102 = distinct !{!102, !77}

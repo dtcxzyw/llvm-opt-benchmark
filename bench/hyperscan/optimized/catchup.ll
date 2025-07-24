@@ -99,7 +99,7 @@ mmbit_isset.exit.thread117.loopexit.us:           ; preds = %60
   %61 = getelementptr inbounds nuw i8, ptr %.0.i153.us, i64 4
   %62 = load i32, ptr %61, align 4
   %.not11.i.us = icmp eq i32 %62, -1
-  br i1 %.not11.i.us, label %roseSuffixInfoIsExhausted.exit, label %38
+  br i1 %.not11.i.us, label %roseSuffixInfoIsExhausted.exit, label %38, !llvm.loop !5
 
 mmbit_isset.exit:                                 ; preds = %.lr.ph, %mmbit_isset.exit.thread117
   %63 = phi i32 [ %73, %mmbit_isset.exit.thread117 ], [ %28, %.lr.ph ]
@@ -261,7 +261,7 @@ mmbit_isset.exit.thread:                          ; preds = %mmbit_isset.exit, %
   %151 = load i8, ptr %150, align 1
   %152 = and i8 %151, 1
   %.not.not.i105 = icmp eq i8 %152, 0
-  br i1 %.not.not.i105, label %153, label %.thread123, !prof !5
+  br i1 %.not.not.i105, label %153, label %.thread123, !prof !7
 
 153:                                              ; preds = %144
   %154 = getelementptr inbounds nuw i8, ptr %135, i64 %149
@@ -361,10 +361,10 @@ queue_prev_byte.exit:                             ; preds = %mmbit_set_i.exit.th
   %.0.i101 = phi i8 [ %209, %206 ], [ 0, %mmbit_set_i.exit.thread ]
   %210 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %172, ptr noundef %180, ptr noundef %186, i64 noundef %188, i8 noundef zeroext %.0.i101) #9
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store i32 0, ptr %211, align 8, !alias.scope !6
+  store i32 0, ptr %211, align 8, !alias.scope !8
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  store i32 1, ptr %173, align 4, !alias.scope !6
+  store i32 1, ptr %173, align 4, !alias.scope !8
   br label %ensureQueueActive.exit
 
 ensureQueueActive.exit:                           ; preds = %.thread123, %mmbit_set_i.exit, %queue_prev_byte.exit
@@ -376,7 +376,7 @@ ensureQueueActive.exit:                           ; preds = %.thread123, %mmbit_
   %217 = getelementptr i8, ptr %216, i64 %.idx.i
   %218 = load i64, ptr %217, align 8
   %219 = icmp slt i64 %1, %218
-  br i1 %219, label %fatbit_unset.exit80, label %220, !prof !9
+  br i1 %219, label %fatbit_unset.exit80, label %220, !prof !11
 
 220:                                              ; preds = %ensureQueueActive.exit
   %221 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -393,13 +393,13 @@ ensureQueueActive.exit:                           ; preds = %.thread123, %mmbit_
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %229 = zext i32 %222 to i64
   %230 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %228, i64 0, i64 %229
-  store i32 1, ptr %230, align 8, !alias.scope !10
+  store i32 1, ptr %230, align 8, !alias.scope !12
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store i64 %1, ptr %231, align 8, !alias.scope !10
+  store i64 %1, ptr %231, align 8, !alias.scope !12
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  store i64 0, ptr %232, align 8, !alias.scope !10
+  store i64 0, ptr %232, align 8, !alias.scope !12
   %233 = add i32 %222, 1
-  store i32 %233, ptr %221, align 4, !alias.scope !10
+  store i32 %233, ptr %221, align 4, !alias.scope !12
   br label %ensureEnd.exit
 
 ensureEnd.exit:                                   ; preds = %220, %227
@@ -549,11 +549,11 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph262, %250, %.
 310:                                              ; preds = %306
   store i32 0, ptr %213, align 8
   %311 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store i32 0, ptr %311, align 8, !alias.scope !13
-  store i64 %1, ptr %216, align 8, !alias.scope !13
+  store i32 0, ptr %311, align 8, !alias.scope !15
+  store i64 %1, ptr %216, align 8, !alias.scope !15
   %312 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i64 0, ptr %312, align 8, !alias.scope !13
-  store i32 1, ptr %221, align 4, !alias.scope !13
+  store i64 0, ptr %312, align 8, !alias.scope !15
+  store i32 1, ptr %221, align 4, !alias.scope !15
   br label %fatbit_unset.exit80
 
 fatbit_unset.exit80:                              ; preds = %.lr.ph258, %110, %107, %.thread122, %310, %306, %ensureQueueActive.exit
@@ -676,7 +676,7 @@ mmbit_isset.exit.i.thread14.loopexit.us:          ; preds = %55
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i19.us, i64 4
   %57 = load i32, ptr %56, align 4
   %.not11.i.i.us = icmp eq i32 %57, -1
-  br i1 %.not11.i.i.us, label %roseSuffixIsExhausted.exit, label %33
+  br i1 %.not11.i.i.us, label %roseSuffixIsExhausted.exit, label %33, !llvm.loop !18
 
 mmbit_isset.exit.i:                               ; preds = %.lr.ph, %mmbit_isset.exit.i.thread14
   %58 = phi i32 [ %68, %mmbit_isset.exit.i.thread14 ], [ %23, %.lr.ph ]
@@ -1138,7 +1138,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread163, %59, %.
   %265 = zext i8 %264 to i32
   %266 = and i32 %263, %265
   %.not.not.i140 = icmp eq i32 %266, 0
-  br i1 %.not.not.i140, label %267, label %.thread177, !prof !5
+  br i1 %.not.not.i140, label %267, label %.thread177, !prof !7
 
 267:                                              ; preds = %249
   %268 = getelementptr inbounds nuw i8, ptr %254, i64 %258
@@ -1254,10 +1254,10 @@ queue_prev_byte.exit:                             ; preds = %mmbit_set_i.exit.th
   %.0.i = phi i8 [ %338, %335 ], [ 0, %mmbit_set_i.exit.thread ]
   %339 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %306, ptr noundef %313, ptr noundef %319, i64 noundef %321, i8 noundef zeroext %.0.i) #9
   %340 = getelementptr inbounds nuw i8, ptr %243, i64 104
-  store i32 0, ptr %340, align 8, !alias.scope !16
+  store i32 0, ptr %340, align 8, !alias.scope !19
   %341 = getelementptr inbounds nuw i8, ptr %243, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, i8 0, i64 16, i1 false)
-  store i32 1, ptr %307, align 4, !alias.scope !16
+  store i32 1, ptr %307, align 4, !alias.scope !19
   br label %ensureQueueActive.exit
 
 ensureQueueActive.exit:                           ; preds = %.thread177, %mmbit_set_i.exit, %queue_prev_byte.exit
@@ -1276,13 +1276,13 @@ ensureQueueActive.exit:                           ; preds = %.thread177, %mmbit_
   %350 = getelementptr inbounds nuw i8, ptr %243, i64 104
   %351 = zext i32 %343 to i64
   %352 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %350, i64 0, i64 %351
-  store i32 1, ptr %352, align 8, !alias.scope !19
+  store i32 1, ptr %352, align 8, !alias.scope !22
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
-  store i64 %15, ptr %353, align 8, !alias.scope !19
+  store i64 %15, ptr %353, align 8, !alias.scope !22
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 16
-  store i64 0, ptr %354, align 8, !alias.scope !19
+  store i64 0, ptr %354, align 8, !alias.scope !22
   %355 = add i32 %343, 1
-  store i32 %355, ptr %342, align 4, !alias.scope !19
+  store i32 %355, ptr %342, align 4, !alias.scope !22
   br label %ensureEnd.exit
 
 ensureEnd.exit:                                   ; preds = %ensureQueueActive.exit, %349
@@ -1516,11 +1516,11 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph416, %393, %.
   %497 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i32 0, ptr %497, align 8
   %498 = getelementptr inbounds nuw i8, ptr %243, i64 104
-  store i32 0, ptr %498, align 8, !alias.scope !22
-  store i64 %15, ptr %346, align 8, !alias.scope !22
+  store i32 0, ptr %498, align 8, !alias.scope !25
+  store i64 %15, ptr %346, align 8, !alias.scope !25
   %499 = getelementptr inbounds nuw i8, ptr %243, i64 120
-  store i64 0, ptr %499, align 8, !alias.scope !22
-  store i32 1, ptr %342, align 4, !alias.scope !22
+  store i64 0, ptr %499, align 8, !alias.scope !25
+  store i32 1, ptr %342, align 4, !alias.scope !25
   br label %fatbit_unset.exit
 
 fatbit_unset.exit:                                ; preds = %.lr.ph421, %450, %440, %.thread190, %496, %pq_insert.exit
@@ -1945,7 +1945,7 @@ define hidden void @blockInitSufPQ(ptr noundef %0, ptr noundef captures(none) %1
   %91 = icmp eq <16 x i8> %79, %90
   %92 = bitcast <16 x i1> %91 to i16
   %.not.i108 = icmp eq i16 %92, 0
-  br i1 %.not.i108, label %99, label %.thread, !prof !5
+  br i1 %.not.i108, label %99, label %.thread, !prof !7
 
 .thread:                                          ; preds = %88
   %93 = zext i16 %92 to i32
@@ -1977,7 +1977,7 @@ define hidden void @blockInitSufPQ(ptr noundef %0, ptr noundef captures(none) %1
   %104 = icmp eq <16 x i8> %79, %103
   %105 = bitcast <16 x i1> %104 to i16
   %.not.i116.not = icmp eq i16 %105, 0
-  br i1 %.not.i116.not, label %100, label %rvermSearchAligned.exit, !prof !5
+  br i1 %.not.i116.not, label %100, label %rvermSearchAligned.exit, !prof !7
 
 rvermSearchAligned.exit:                          ; preds = %102
   %.014.i114.ptr.le = getelementptr inbounds nuw i8, ptr %61, i64 %.014.i114.idx
@@ -1994,7 +1994,7 @@ rvermSearchAligned.exit:                          ; preds = %102
   %114 = icmp eq <16 x i8> %79, %113
   %115 = bitcast <16 x i1> %114 to i16
   %.not.i107 = icmp eq i16 %115, 0
-  br i1 %.not.i107, label %rvermUnalign.exit, label %116, !prof !5
+  br i1 %.not.i107, label %rvermUnalign.exit, label %116, !prof !7
 
 116:                                              ; preds = %112
   %117 = zext i16 %115 to i32
@@ -2062,7 +2062,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %82, %r
   %152 = icmp eq <16 x i8> %138, %151
   %153 = bitcast <16 x i1> %152 to i16
   %.not.i104 = icmp eq i16 %153, 0
-  br i1 %.not.i104, label %160, label %.thread163, !prof !5
+  br i1 %.not.i104, label %160, label %.thread163, !prof !7
 
 .thread163:                                       ; preds = %148
   %154 = zext i16 %153 to i32
@@ -2095,7 +2095,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %82, %r
   %166 = icmp eq <16 x i8> %138, %165
   %167 = bitcast <16 x i1> %166 to i16
   %.not.i112 = icmp eq i16 %167, 0
-  br i1 %.not.i112, label %161, label %rvermSearchAlignedNocase.exit, !prof !5
+  br i1 %.not.i112, label %161, label %rvermSearchAlignedNocase.exit, !prof !7
 
 rvermSearchAlignedNocase.exit:                    ; preds = %163
   %.015.i.ptr.le = getelementptr inbounds nuw i8, ptr %61, i64 %.015.i.idx
@@ -2113,7 +2113,7 @@ rvermSearchAlignedNocase.exit:                    ; preds = %163
   %177 = icmp eq <16 x i8> %138, %176
   %178 = bitcast <16 x i1> %177 to i16
   %.not.i103 = icmp eq i16 %178, 0
-  br i1 %.not.i103, label %rvermUnalignNocase.exit, label %179, !prof !5
+  br i1 %.not.i103, label %rvermUnalignNocase.exit, label %179, !prof !7
 
 179:                                              ; preds = %174
   %180 = zext i16 %178 to i32
@@ -2172,7 +2172,7 @@ rvermicelliExec.exit90:                           ; preds = %.preheader241, %141
   %216 = select <16 x i1> %211, <16 x i1> %215, <16 x i1> zeroinitializer
   %217 = bitcast <16 x i1> %216 to i16
   %.not.i121 = icmp eq i16 %217, 0
-  br i1 %.not.i121, label %rdvermPrecondition.exit, label %rdvermPrecondition.exit.thread, !prof !5
+  br i1 %.not.i121, label %rdvermPrecondition.exit, label %rdvermPrecondition.exit.thread, !prof !7
 
 rdvermPrecondition.exit.thread:                   ; preds = %208
   %218 = zext i16 %217 to i32
@@ -2221,7 +2221,7 @@ rdvermPrecondition.exit:                          ; preds = %208
 
 240:                                              ; preds = %226
   %.not.i128.not = icmp eq i16 %234, 0
-  br i1 %.not.i128.not, label %224, label %.thread183, !prof !25
+  br i1 %.not.i128.not, label %224, label %.thread183, !prof !28
 
 .thread183.split.loop.exit279:                    ; preds = %226
   %241 = or i16 %234, 1
@@ -2280,7 +2280,7 @@ rvermicelliDoubleExec.exit:                       ; preds = %224, %.thread183, %
   %277 = select <16 x i1> %272, <16 x i1> %276, <16 x i1> zeroinitializer
   %278 = bitcast <16 x i1> %277 to i16
   %.not.i119 = icmp eq i16 %278, 0
-  br i1 %.not.i119, label %rdvermPreconditionNocase.exit, label %rdvermPreconditionNocase.exit.thread, !prof !5
+  br i1 %.not.i119, label %rdvermPreconditionNocase.exit, label %rdvermPreconditionNocase.exit.thread, !prof !7
 
 rdvermPreconditionNocase.exit.thread:             ; preds = %268
   %279 = zext i16 %278 to i32
@@ -2332,7 +2332,7 @@ rdvermPreconditionNocase.exit:                    ; preds = %268
 
 304:                                              ; preds = %287
   %.not.i124 = icmp eq i16 %296, 0
-  br i1 %.not.i124, label %285, label %.thread200, !prof !25
+  br i1 %.not.i124, label %285, label %.thread200, !prof !28
 
 .thread200.split.loop.exit273:                    ; preds = %287
   %305 = or i16 %296, 1
@@ -2460,7 +2460,7 @@ nfaRevAccelCheck.exit:                            ; preds = %66, %355
   %388 = zext i8 %387 to i32
   %389 = and i32 %386, %388
   %.not.not.i137 = icmp eq i32 %389, 0
-  br i1 %.not.not.i137, label %390, label %.thread206, !prof !5
+  br i1 %.not.not.i137, label %390, label %.thread206, !prof !7
 
 390:                                              ; preds = %372
   %391 = getelementptr inbounds nuw i8, ptr %377, i64 %381
@@ -2542,7 +2542,7 @@ mmbit_set_i.exit136:                              ; preds = %.thread206, %.lr.ph
   %443 = zext i8 %442 to i32
   %444 = and i32 %441, %443
   %.not.not.i141 = icmp eq i32 %444, 0
-  br i1 %.not.not.i141, label %445, label %.thread209, !prof !5
+  br i1 %.not.not.i141, label %445, label %.thread209, !prof !7
 
 445:                                              ; preds = %427
   %446 = getelementptr inbounds nuw i8, ptr %432, i64 %436
@@ -2634,20 +2634,20 @@ mmbit_set_i.exit:                                 ; preds = %.thread209, %.lr.ph
   store i64 %.0.i, ptr %495, align 8
   %503 = tail call signext i8 @nfaQueueInitState(ptr noundef %60, ptr noundef nonnull %468) #9
   %504 = getelementptr inbounds nuw i8, ptr %468, i64 104
-  store i32 0, ptr %504, align 8, !alias.scope !26
+  store i32 0, ptr %504, align 8, !alias.scope !29
   %505 = getelementptr i8, ptr %468, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %505, i8 0, i64 16, i1 false)
   %506 = getelementptr inbounds nuw i8, ptr %468, i64 128
-  store i32 2, ptr %506, align 8, !alias.scope !29
+  store i32 2, ptr %506, align 8, !alias.scope !32
   %507 = getelementptr inbounds nuw i8, ptr %468, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %507, i8 0, i64 16, i1 false)
   %508 = getelementptr inbounds nuw i8, ptr %468, i64 152
-  store i32 1, ptr %508, align 8, !alias.scope !32
+  store i32 1, ptr %508, align 8, !alias.scope !35
   %509 = getelementptr inbounds nuw i8, ptr %468, i64 160
-  store i64 %16, ptr %509, align 8, !alias.scope !32
+  store i64 %16, ptr %509, align 8, !alias.scope !35
   %510 = getelementptr inbounds nuw i8, ptr %468, i64 168
-  store i64 0, ptr %510, align 8, !alias.scope !32
-  store i32 3, ptr %476, align 4, !alias.scope !32
+  store i64 0, ptr %510, align 8, !alias.scope !35
+  store i32 3, ptr %476, align 4, !alias.scope !35
   %511 = load ptr, ptr %468, align 8
   %512 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %511, ptr noundef nonnull %468, i64 noundef %16) #9
   switch i8 %512, label %653 [
@@ -2879,10 +2879,10 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph481, %548, %.
 653:                                              ; preds = %mmbit_set_i.exit
   %654 = getelementptr inbounds nuw i8, ptr %468, i64 120
   store i32 0, ptr %477, align 8
-  store i32 0, ptr %504, align 8, !alias.scope !35
-  store i64 %16, ptr %505, align 8, !alias.scope !35
-  store i64 0, ptr %654, align 8, !alias.scope !35
-  store i32 1, ptr %476, align 4, !alias.scope !35
+  store i32 0, ptr %504, align 8, !alias.scope !38
+  store i64 %16, ptr %505, align 8, !alias.scope !38
+  store i64 0, ptr %654, align 8, !alias.scope !38
+  store i32 1, ptr %476, align 4, !alias.scope !38
   br label %fatbit_unset.exit
 
 fatbit_unset.exit:                                ; preds = %.lr.ph486, %606, %355, %344, %334, %324, %315, %57, %596, %.thread217, %nfaRevAccelCheck.exit, %653, %pq_insert.exit, %54
@@ -3702,7 +3702,7 @@ mmbit_isset.exit.i.thread259.loopexit.us:         ; preds = %454
   %455 = getelementptr inbounds nuw i8, ptr %.0.i.i496.us, i64 4
   %456 = load i32, ptr %455, align 4
   %.not11.i.i.us = icmp eq i32 %456, -1
-  br i1 %.not11.i.i.us, label %roseSuffixInfoIsExhausted.exit.i, label %432
+  br i1 %.not11.i.i.us, label %roseSuffixInfoIsExhausted.exit.i, label %432, !llvm.loop !41
 
 mmbit_isset.exit.i:                               ; preds = %.lr.ph498, %mmbit_isset.exit.i.thread259
   %457 = phi i32 [ %467, %mmbit_isset.exit.i.thread259 ], [ %423, %.lr.ph498 ]
@@ -3941,7 +3941,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
   %618 = zext i8 %617 to i32
   %619 = and i32 %616, %618
   %.not.not.i81.i = icmp eq i32 %619, 0
-  br i1 %.not.not.i81.i, label %620, label %.thread266, !prof !5
+  br i1 %.not.not.i81.i, label %620, label %.thread266, !prof !7
 
 620:                                              ; preds = %602
   %621 = getelementptr inbounds nuw i8, ptr %607, i64 %611
@@ -4057,10 +4057,10 @@ queue_prev_byte.exit.i:                           ; preds = %688, %mmbit_set_i.e
   %.0.i77.i = phi i8 [ %691, %688 ], [ 0, %mmbit_set_i.exit.i.thread ]
   %692 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %659, ptr noundef %666, ptr noundef %672, i64 noundef %674, i8 noundef zeroext %.0.i77.i) #9
   %693 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %693, align 8, !alias.scope !38
+  store i32 0, ptr %693, align 8, !alias.scope !42
   %694 = getelementptr inbounds nuw i8, ptr %413, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %694, i8 0, i64 16, i1 false)
-  store i32 1, ptr %660, align 4, !alias.scope !38
+  store i32 1, ptr %660, align 4, !alias.scope !42
   br label %ensureQueueActive.exit.i
 
 ensureQueueActive.exit.i:                         ; preds = %.thread266, %queue_prev_byte.exit.i, %mmbit_set_i.exit.i
@@ -4072,7 +4072,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread266, %queue_
   %699 = getelementptr i8, ptr %698, i64 %.idx.i.i
   %700 = load i64, ptr %699, align 8
   %701 = icmp slt i64 %0, %700
-  br i1 %701, label %mmbit_iterate_bounded.exit.i.thread, label %702, !prof !9
+  br i1 %701, label %mmbit_iterate_bounded.exit.i.thread, label %702, !prof !11
 
 702:                                              ; preds = %ensureQueueActive.exit.i
   %703 = getelementptr inbounds nuw i8, ptr %413, i64 12
@@ -4089,13 +4089,13 @@ ensureQueueActive.exit.i:                         ; preds = %.thread266, %queue_
   %710 = getelementptr inbounds nuw i8, ptr %413, i64 104
   %711 = zext i32 %704 to i64
   %712 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %710, i64 0, i64 %711
-  store i32 1, ptr %712, align 8, !alias.scope !41
+  store i32 1, ptr %712, align 8, !alias.scope !45
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
-  store i64 %0, ptr %713, align 8, !alias.scope !41
+  store i64 %0, ptr %713, align 8, !alias.scope !45
   %714 = getelementptr inbounds nuw i8, ptr %712, i64 16
-  store i64 0, ptr %714, align 8, !alias.scope !41
+  store i64 0, ptr %714, align 8, !alias.scope !45
   %715 = add i32 %704, 1
-  store i32 %715, ptr %703, align 4, !alias.scope !41
+  store i32 %715, ptr %703, align 4, !alias.scope !45
   br label %ensureEnd.exit.i
 
 ensureEnd.exit.i:                                 ; preds = %709, %702
@@ -4307,11 +4307,11 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1037, %738, %
 852:                                              ; preds = %848
   store i32 0, ptr %695, align 8
   %853 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %853, align 8, !alias.scope !44
-  store i64 %0, ptr %698, align 8, !alias.scope !44
+  store i32 0, ptr %853, align 8, !alias.scope !48
+  store i64 %0, ptr %698, align 8, !alias.scope !48
   %854 = getelementptr inbounds nuw i8, ptr %413, i64 120
-  store i64 0, ptr %854, align 8, !alias.scope !44
-  store i32 1, ptr %703, align 4, !alias.scope !44
+  store i64 0, ptr %854, align 8, !alias.scope !48
+  store i32 1, ptr %703, align 4, !alias.scope !48
   br label %mmbit_iterate_bounded.exit.i.thread
 
 .preheader348:                                    ; preds = %848, %879
@@ -4580,11 +4580,11 @@ mmbit_unset.exit.i123:                            ; preds = %.lr.ph1025, %897, %
 1015:                                             ; preds = %1007
   store i32 0, ptr %695, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %1016, align 8, !alias.scope !47
-  store i64 %0, ptr %698, align 8, !alias.scope !47
+  store i32 0, ptr %1016, align 8, !alias.scope !51
+  store i64 %0, ptr %698, align 8, !alias.scope !51
   %1017 = getelementptr inbounds nuw i8, ptr %413, i64 120
-  store i64 0, ptr %1017, align 8, !alias.scope !47
-  store i32 1, ptr %703, align 4, !alias.scope !47
+  store i64 0, ptr %1017, align 8, !alias.scope !51
+  store i32 1, ptr %703, align 4, !alias.scope !51
   br label %mmbit_iterate_bounded.exit.i.thread
 
 1018:                                             ; preds = %.lr.ph538, %1018
@@ -4680,7 +4680,7 @@ mmbit_isset.exit.i62.thread289.loopexit.us:       ; preds = %1067
   %1068 = getelementptr inbounds nuw i8, ptr %.0.i.i60444.us, i64 4
   %1069 = load i32, ptr %1068, align 4
   %.not11.i.i61.us = icmp eq i32 %1069, -1
-  br i1 %.not11.i.i61.us, label %roseSuffixInfoIsExhausted.exit.i64, label %1045
+  br i1 %.not11.i.i61.us, label %roseSuffixInfoIsExhausted.exit.i64, label %1045, !llvm.loop !54
 
 mmbit_isset.exit.i62:                             ; preds = %.lr.ph446, %mmbit_isset.exit.i62.thread289
   %1070 = phi i32 [ %1080, %mmbit_isset.exit.i62.thread289 ], [ %1036, %.lr.ph446 ]
@@ -4910,7 +4910,7 @@ mmbit_isset.exit.i62.thread:                      ; preds = %mmbit_isset.exit.i6
   %1222 = zext i8 %1221 to i32
   %1223 = and i32 %1220, %1222
   %.not.not.i47.i = icmp eq i32 %1223, 0
-  br i1 %.not.not.i47.i, label %1224, label %.thread296, !prof !5
+  br i1 %.not.not.i47.i, label %1224, label %.thread296, !prof !7
 
 1224:                                             ; preds = %1206
   %1225 = getelementptr inbounds nuw i8, ptr %1211, i64 %1215
@@ -5026,10 +5026,10 @@ queue_prev_byte.exit.i79:                         ; preds = %1292, %mmbit_set_i.
   %.0.i43.i = phi i8 [ %1295, %1292 ], [ 0, %mmbit_set_i.exit.i75.thread ]
   %1296 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %1263, ptr noundef %1270, ptr noundef %1276, i64 noundef %1278, i8 noundef zeroext %.0.i43.i) #9
   %1297 = getelementptr inbounds nuw i8, ptr %1026, i64 104
-  store i32 0, ptr %1297, align 8, !alias.scope !50
+  store i32 0, ptr %1297, align 8, !alias.scope !55
   %1298 = getelementptr inbounds nuw i8, ptr %1026, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1298, i8 0, i64 16, i1 false)
-  store i32 1, ptr %1264, align 4, !alias.scope !50
+  store i32 1, ptr %1264, align 4, !alias.scope !55
   br label %ensureQueueActive.exit.i76
 
 ensureQueueActive.exit.i76:                       ; preds = %.thread296, %queue_prev_byte.exit.i79, %mmbit_set_i.exit.i75
@@ -5041,7 +5041,7 @@ ensureQueueActive.exit.i76:                       ; preds = %.thread296, %queue_
   %1303 = getelementptr i8, ptr %1302, i64 %.idx.i.i77
   %1304 = load i64, ptr %1303, align 8
   %1305 = icmp slt i64 %0, %1304
-  br i1 %1305, label %buildSufPQ_final.exit, label %1306, !prof !9
+  br i1 %1305, label %buildSufPQ_final.exit, label %1306, !prof !11
 
 1306:                                             ; preds = %ensureQueueActive.exit.i76
   %1307 = getelementptr inbounds nuw i8, ptr %1026, i64 12
@@ -5058,13 +5058,13 @@ ensureQueueActive.exit.i76:                       ; preds = %.thread296, %queue_
   %1314 = getelementptr inbounds nuw i8, ptr %1026, i64 104
   %1315 = zext i32 %1308 to i64
   %1316 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1314, i64 0, i64 %1315
-  store i32 1, ptr %1316, align 8, !alias.scope !53
+  store i32 1, ptr %1316, align 8, !alias.scope !58
   %1317 = getelementptr inbounds nuw i8, ptr %1316, i64 8
-  store i64 %0, ptr %1317, align 8, !alias.scope !53
+  store i64 %0, ptr %1317, align 8, !alias.scope !58
   %1318 = getelementptr inbounds nuw i8, ptr %1316, i64 16
-  store i64 0, ptr %1318, align 8, !alias.scope !53
+  store i64 0, ptr %1318, align 8, !alias.scope !58
   %1319 = add i32 %1308, 1
-  store i32 %1319, ptr %1307, align 4, !alias.scope !53
+  store i32 %1319, ptr %1307, align 4, !alias.scope !58
   br label %ensureEnd.exit.i78
 
 ensureEnd.exit.i78:                               ; preds = %1313, %1306
@@ -5330,11 +5330,11 @@ mmbit_unset.exit.i107:                            ; preds = %.lr.ph1001, %1364, 
 1475:                                             ; preds = %1467
   store i32 0, ptr %1299, align 8
   %1476 = getelementptr inbounds nuw i8, ptr %1026, i64 104
-  store i32 0, ptr %1476, align 8, !alias.scope !56
-  store i64 %0, ptr %1302, align 8, !alias.scope !56
+  store i32 0, ptr %1476, align 8, !alias.scope !61
+  store i64 %0, ptr %1302, align 8, !alias.scope !61
   %1477 = getelementptr inbounds nuw i8, ptr %1026, i64 120
-  store i64 0, ptr %1477, align 8, !alias.scope !56
-  store i32 1, ptr %1307, align 4, !alias.scope !56
+  store i64 0, ptr %1477, align 8, !alias.scope !61
+  store i32 1, ptr %1307, align 4, !alias.scope !61
   br label %buildSufPQ_final.exit
 
 1478:                                             ; preds = %.lr.ph485, %1478
@@ -5902,11 +5902,11 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph582, %161, %.
 273:                                              ; preds = %264
   store i32 0, ptr %100, align 8
   %274 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  store i32 0, ptr %274, align 8, !alias.scope !59
-  store i64 %87, ptr %103, align 8, !alias.scope !59
+  store i32 0, ptr %274, align 8, !alias.scope !64
+  store i64 %87, ptr %103, align 8, !alias.scope !64
   %275 = getelementptr inbounds nuw i8, ptr %82, i64 120
-  store i64 0, ptr %275, align 8, !alias.scope !59
-  store i32 1, ptr %266, align 4, !alias.scope !59
+  store i64 0, ptr %275, align 8, !alias.scope !64
+  store i32 1, ptr %266, align 4, !alias.scope !64
   br label %fatbit_unset.exit.i
 
 276:                                              ; preds = %.lr.ph327, %276
@@ -6278,11 +6278,11 @@ pq_pop.exit135:                                   ; preds = %pq_pop.exit135.loop
 477:                                              ; preds = %472
   store i32 0, ptr %100, align 8
   %478 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  store i32 0, ptr %478, align 8, !alias.scope !62
-  store i64 %1, ptr %103, align 8, !alias.scope !62
+  store i32 0, ptr %478, align 8, !alias.scope !67
+  store i64 %1, ptr %103, align 8, !alias.scope !67
   %479 = getelementptr inbounds nuw i8, ptr %82, i64 120
-  store i64 0, ptr %479, align 8, !alias.scope !62
-  store i32 1, ptr %474, align 4, !alias.scope !62
+  store i64 0, ptr %479, align 8, !alias.scope !67
+  store i32 1, ptr %474, align 4, !alias.scope !67
   %480 = load ptr, ptr %13, align 8
   %481 = load i32, ptr %14, align 8
   %482 = add i32 %481, -1
@@ -6703,11 +6703,11 @@ mmbit_unset.exit.i82:                             ; preds = %.lr.ph559, %599, %.
 710:                                              ; preds = %702
   store i32 0, ptr %100, align 8
   %711 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  store i32 0, ptr %711, align 8, !alias.scope !65
-  store i64 %87, ptr %103, align 8, !alias.scope !65
+  store i32 0, ptr %711, align 8, !alias.scope !70
+  store i64 %87, ptr %103, align 8, !alias.scope !70
   %712 = getelementptr inbounds nuw i8, ptr %82, i64 120
-  store i64 0, ptr %712, align 8, !alias.scope !65
-  store i32 1, ptr %474, align 4, !alias.scope !65
+  store i64 0, ptr %712, align 8, !alias.scope !70
+  store i32 1, ptr %474, align 4, !alias.scope !70
   br label %fatbit_unset.exit.i84
 
 713:                                              ; preds = %.lr.ph276, %713
@@ -7637,7 +7637,7 @@ mmbit_isset.exit.i.thread235.loopexit.us:         ; preds = %454
   %455 = getelementptr inbounds nuw i8, ptr %.0.i.i462.us, i64 4
   %456 = load i32, ptr %455, align 4
   %.not11.i.i.us = icmp eq i32 %456, -1
-  br i1 %.not11.i.i.us, label %roseSuffixInfoIsExhausted.exit.i, label %432
+  br i1 %.not11.i.i.us, label %roseSuffixInfoIsExhausted.exit.i, label %432, !llvm.loop !73
 
 mmbit_isset.exit.i:                               ; preds = %.lr.ph464, %mmbit_isset.exit.i.thread235
   %457 = phi i32 [ %467, %mmbit_isset.exit.i.thread235 ], [ %423, %.lr.ph464 ]
@@ -7876,7 +7876,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
   %618 = zext i8 %617 to i32
   %619 = and i32 %616, %618
   %.not.not.i81.i = icmp eq i32 %619, 0
-  br i1 %.not.not.i81.i, label %620, label %.thread242, !prof !5
+  br i1 %.not.not.i81.i, label %620, label %.thread242, !prof !7
 
 620:                                              ; preds = %602
   %621 = getelementptr inbounds nuw i8, ptr %607, i64 %611
@@ -7992,10 +7992,10 @@ queue_prev_byte.exit.i:                           ; preds = %688, %mmbit_set_i.e
   %.0.i77.i = phi i8 [ %691, %688 ], [ 0, %mmbit_set_i.exit.i.thread ]
   %692 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %659, ptr noundef %666, ptr noundef %672, i64 noundef %674, i8 noundef zeroext %.0.i77.i) #9
   %693 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %693, align 8, !alias.scope !68
+  store i32 0, ptr %693, align 8, !alias.scope !74
   %694 = getelementptr inbounds nuw i8, ptr %413, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %694, i8 0, i64 16, i1 false)
-  store i32 1, ptr %660, align 4, !alias.scope !68
+  store i32 1, ptr %660, align 4, !alias.scope !74
   br label %ensureQueueActive.exit.i
 
 ensureQueueActive.exit.i:                         ; preds = %.thread242, %queue_prev_byte.exit.i, %mmbit_set_i.exit.i
@@ -8007,7 +8007,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread242, %queue_
   %699 = getelementptr i8, ptr %698, i64 %.idx.i.i
   %700 = load i64, ptr %699, align 8
   %701 = icmp slt i64 %0, %700
-  br i1 %701, label %mmbit_iterate_bounded.exit.i.thread, label %702, !prof !9
+  br i1 %701, label %mmbit_iterate_bounded.exit.i.thread, label %702, !prof !11
 
 702:                                              ; preds = %ensureQueueActive.exit.i
   %703 = getelementptr inbounds nuw i8, ptr %413, i64 12
@@ -8024,13 +8024,13 @@ ensureQueueActive.exit.i:                         ; preds = %.thread242, %queue_
   %710 = getelementptr inbounds nuw i8, ptr %413, i64 104
   %711 = zext i32 %704 to i64
   %712 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %710, i64 0, i64 %711
-  store i32 1, ptr %712, align 8, !alias.scope !71
+  store i32 1, ptr %712, align 8, !alias.scope !77
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
-  store i64 %0, ptr %713, align 8, !alias.scope !71
+  store i64 %0, ptr %713, align 8, !alias.scope !77
   %714 = getelementptr inbounds nuw i8, ptr %712, i64 16
-  store i64 0, ptr %714, align 8, !alias.scope !71
+  store i64 0, ptr %714, align 8, !alias.scope !77
   %715 = add i32 %704, 1
-  store i32 %715, ptr %703, align 4, !alias.scope !71
+  store i32 %715, ptr %703, align 4, !alias.scope !77
   br label %ensureEnd.exit.i
 
 ensureEnd.exit.i:                                 ; preds = %709, %702
@@ -8242,11 +8242,11 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1003, %738, %
 852:                                              ; preds = %848
   store i32 0, ptr %695, align 8
   %853 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %853, align 8, !alias.scope !74
-  store i64 %0, ptr %698, align 8, !alias.scope !74
+  store i32 0, ptr %853, align 8, !alias.scope !80
+  store i64 %0, ptr %698, align 8, !alias.scope !80
   %854 = getelementptr inbounds nuw i8, ptr %413, i64 120
-  store i64 0, ptr %854, align 8, !alias.scope !74
-  store i32 1, ptr %703, align 4, !alias.scope !74
+  store i64 0, ptr %854, align 8, !alias.scope !80
+  store i32 1, ptr %703, align 4, !alias.scope !80
   br label %mmbit_iterate_bounded.exit.i.thread
 
 .preheader314:                                    ; preds = %848, %879
@@ -8515,11 +8515,11 @@ mmbit_unset.exit.i111:                            ; preds = %.lr.ph991, %897, %.
 1015:                                             ; preds = %1007
   store i32 0, ptr %695, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %413, i64 104
-  store i32 0, ptr %1016, align 8, !alias.scope !77
-  store i64 %0, ptr %698, align 8, !alias.scope !77
+  store i32 0, ptr %1016, align 8, !alias.scope !83
+  store i64 %0, ptr %698, align 8, !alias.scope !83
   %1017 = getelementptr inbounds nuw i8, ptr %413, i64 120
-  store i64 0, ptr %1017, align 8, !alias.scope !77
-  store i32 1, ptr %703, align 4, !alias.scope !77
+  store i64 0, ptr %1017, align 8, !alias.scope !83
+  store i32 1, ptr %703, align 4, !alias.scope !83
   br label %mmbit_iterate_bounded.exit.i.thread
 
 1018:                                             ; preds = %.lr.ph504, %1018
@@ -8615,7 +8615,7 @@ mmbit_isset.exit.i50.thread265.loopexit.us:       ; preds = %1067
   %1068 = getelementptr inbounds nuw i8, ptr %.0.i.i48410.us, i64 4
   %1069 = load i32, ptr %1068, align 4
   %.not11.i.i49.us = icmp eq i32 %1069, -1
-  br i1 %.not11.i.i49.us, label %roseSuffixInfoIsExhausted.exit.i52, label %1045
+  br i1 %.not11.i.i49.us, label %roseSuffixInfoIsExhausted.exit.i52, label %1045, !llvm.loop !86
 
 mmbit_isset.exit.i50:                             ; preds = %.lr.ph412, %mmbit_isset.exit.i50.thread265
   %1070 = phi i32 [ %1080, %mmbit_isset.exit.i50.thread265 ], [ %1036, %.lr.ph412 ]
@@ -8845,7 +8845,7 @@ mmbit_isset.exit.i50.thread:                      ; preds = %mmbit_isset.exit.i5
   %1222 = zext i8 %1221 to i32
   %1223 = and i32 %1220, %1222
   %.not.not.i47.i = icmp eq i32 %1223, 0
-  br i1 %.not.not.i47.i, label %1224, label %.thread272, !prof !5
+  br i1 %.not.not.i47.i, label %1224, label %.thread272, !prof !7
 
 1224:                                             ; preds = %1206
   %1225 = getelementptr inbounds nuw i8, ptr %1211, i64 %1215
@@ -8961,10 +8961,10 @@ queue_prev_byte.exit.i67:                         ; preds = %1292, %mmbit_set_i.
   %.0.i43.i = phi i8 [ %1295, %1292 ], [ 0, %mmbit_set_i.exit.i63.thread ]
   %1296 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %1263, ptr noundef %1270, ptr noundef %1276, i64 noundef %1278, i8 noundef zeroext %.0.i43.i) #9
   %1297 = getelementptr inbounds nuw i8, ptr %1026, i64 104
-  store i32 0, ptr %1297, align 8, !alias.scope !80
+  store i32 0, ptr %1297, align 8, !alias.scope !87
   %1298 = getelementptr inbounds nuw i8, ptr %1026, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1298, i8 0, i64 16, i1 false)
-  store i32 1, ptr %1264, align 4, !alias.scope !80
+  store i32 1, ptr %1264, align 4, !alias.scope !87
   br label %ensureQueueActive.exit.i64
 
 ensureQueueActive.exit.i64:                       ; preds = %.thread272, %queue_prev_byte.exit.i67, %mmbit_set_i.exit.i63
@@ -8976,7 +8976,7 @@ ensureQueueActive.exit.i64:                       ; preds = %.thread272, %queue_
   %1303 = getelementptr i8, ptr %1302, i64 %.idx.i.i65
   %1304 = load i64, ptr %1303, align 8
   %1305 = icmp slt i64 %0, %1304
-  br i1 %1305, label %buildSufPQ_final.exit, label %1306, !prof !9
+  br i1 %1305, label %buildSufPQ_final.exit, label %1306, !prof !11
 
 1306:                                             ; preds = %ensureQueueActive.exit.i64
   %1307 = getelementptr inbounds nuw i8, ptr %1026, i64 12
@@ -8993,13 +8993,13 @@ ensureQueueActive.exit.i64:                       ; preds = %.thread272, %queue_
   %1314 = getelementptr inbounds nuw i8, ptr %1026, i64 104
   %1315 = zext i32 %1308 to i64
   %1316 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1314, i64 0, i64 %1315
-  store i32 1, ptr %1316, align 8, !alias.scope !83
+  store i32 1, ptr %1316, align 8, !alias.scope !90
   %1317 = getelementptr inbounds nuw i8, ptr %1316, i64 8
-  store i64 %0, ptr %1317, align 8, !alias.scope !83
+  store i64 %0, ptr %1317, align 8, !alias.scope !90
   %1318 = getelementptr inbounds nuw i8, ptr %1316, i64 16
-  store i64 0, ptr %1318, align 8, !alias.scope !83
+  store i64 0, ptr %1318, align 8, !alias.scope !90
   %1319 = add i32 %1308, 1
-  store i32 %1319, ptr %1307, align 4, !alias.scope !83
+  store i32 %1319, ptr %1307, align 4, !alias.scope !90
   br label %ensureEnd.exit.i66
 
 ensureEnd.exit.i66:                               ; preds = %1313, %1306
@@ -9265,11 +9265,11 @@ mmbit_unset.exit.i95:                             ; preds = %.lr.ph967, %1364, %
 1475:                                             ; preds = %1467
   store i32 0, ptr %1299, align 8
   %1476 = getelementptr inbounds nuw i8, ptr %1026, i64 104
-  store i32 0, ptr %1476, align 8, !alias.scope !86
-  store i64 %0, ptr %1302, align 8, !alias.scope !86
+  store i32 0, ptr %1476, align 8, !alias.scope !93
+  store i64 %0, ptr %1302, align 8, !alias.scope !93
   %1477 = getelementptr inbounds nuw i8, ptr %1026, i64 120
-  store i64 0, ptr %1477, align 8, !alias.scope !86
-  store i32 1, ptr %1307, align 4, !alias.scope !86
+  store i64 0, ptr %1477, align 8, !alias.scope !93
+  store i32 1, ptr %1307, align 4, !alias.scope !93
   br label %buildSufPQ_final.exit
 
 1478:                                             ; preds = %.lr.ph451, %1478
@@ -9413,7 +9413,7 @@ mmbit_isset.exit.i.thread18.loopexit.us:          ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i23.us, i64 4
   %63 = load i32, ptr %62, align 4
   %.not11.i.i.us = icmp eq i32 %63, -1
-  br i1 %.not11.i.i.us, label %roseSuffixIsExhausted.exit, label %39
+  br i1 %.not11.i.i.us, label %roseSuffixIsExhausted.exit, label %39, !llvm.loop !96
 
 mmbit_isset.exit.i:                               ; preds = %.lr.ph, %mmbit_isset.exit.i.thread18
   %64 = phi i32 [ %74, %mmbit_isset.exit.i.thread18 ], [ %29, %.lr.ph ]
@@ -9478,30 +9478,30 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"pushQueueAt: argument 0"}
-!8 = distinct !{!8, !"pushQueueAt"}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"pushQueueNoMerge: argument 0"}
-!12 = distinct !{!12, !"pushQueueNoMerge"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"pushQueueAt: argument 0"}
-!15 = distinct !{!15, !"pushQueueAt"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pushQueueAt: argument 0"}
-!18 = distinct !{!18, !"pushQueueAt"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"pushQueueAt: argument 0"}
+!10 = distinct !{!10, !"pushQueueAt"}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"pushQueueNoMerge: argument 0"}
+!14 = distinct !{!14, !"pushQueueNoMerge"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"pushQueueAt: argument 0"}
+!17 = distinct !{!17, !"pushQueueAt"}
+!18 = distinct !{!18, !6}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"pushQueueNoMerge: argument 0"}
-!21 = distinct !{!21, !"pushQueueNoMerge"}
+!20 = distinct !{!20, !21, !"pushQueueAt: argument 0"}
+!21 = distinct !{!21, !"pushQueueAt"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"pushQueueAt: argument 0"}
-!24 = distinct !{!24, !"pushQueueAt"}
-!25 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"pushQueueAt: argument 0"}
-!28 = distinct !{!28, !"pushQueueAt"}
+!23 = distinct !{!23, !24, !"pushQueueNoMerge: argument 0"}
+!24 = distinct !{!24, !"pushQueueNoMerge"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"pushQueueAt: argument 0"}
+!27 = distinct !{!27, !"pushQueueAt"}
+!28 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"pushQueueAt: argument 0"}
 !31 = distinct !{!31, !"pushQueueAt"}
@@ -9514,51 +9514,59 @@ attributes #9 = { nounwind }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"pushQueueAt: argument 0"}
 !40 = distinct !{!40, !"pushQueueAt"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"pushQueueNoMerge: argument 0"}
-!43 = distinct !{!43, !"pushQueueNoMerge"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"pushQueueAt: argument 0"}
-!46 = distinct !{!46, !"pushQueueAt"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"pushQueueAt: argument 0"}
-!49 = distinct !{!49, !"pushQueueAt"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"pushQueueAt: argument 0"}
-!52 = distinct !{!52, !"pushQueueAt"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"pushQueueNoMerge: argument 0"}
-!55 = distinct !{!55, !"pushQueueNoMerge"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"pushQueueAt: argument 0"}
-!58 = distinct !{!58, !"pushQueueAt"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"pushQueueAt: argument 0"}
-!61 = distinct !{!61, !"pushQueueAt"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"pushQueueAt: argument 0"}
-!64 = distinct !{!64, !"pushQueueAt"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"pushQueueAt: argument 0"}
-!67 = distinct !{!67, !"pushQueueAt"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"pushQueueAt: argument 0"}
-!70 = distinct !{!70, !"pushQueueAt"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"pushQueueNoMerge: argument 0"}
-!73 = distinct !{!73, !"pushQueueNoMerge"}
+!41 = distinct !{!41, !6}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"pushQueueAt: argument 0"}
+!44 = distinct !{!44, !"pushQueueAt"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"pushQueueNoMerge: argument 0"}
+!47 = distinct !{!47, !"pushQueueNoMerge"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"pushQueueAt: argument 0"}
+!50 = distinct !{!50, !"pushQueueAt"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"pushQueueAt: argument 0"}
+!53 = distinct !{!53, !"pushQueueAt"}
+!54 = distinct !{!54, !6}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"pushQueueAt: argument 0"}
+!57 = distinct !{!57, !"pushQueueAt"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"pushQueueNoMerge: argument 0"}
+!60 = distinct !{!60, !"pushQueueNoMerge"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"pushQueueAt: argument 0"}
+!63 = distinct !{!63, !"pushQueueAt"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"pushQueueAt: argument 0"}
+!66 = distinct !{!66, !"pushQueueAt"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"pushQueueAt: argument 0"}
+!69 = distinct !{!69, !"pushQueueAt"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"pushQueueAt: argument 0"}
+!72 = distinct !{!72, !"pushQueueAt"}
+!73 = distinct !{!73, !6}
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"pushQueueAt: argument 0"}
 !76 = distinct !{!76, !"pushQueueAt"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"pushQueueAt: argument 0"}
-!79 = distinct !{!79, !"pushQueueAt"}
+!78 = distinct !{!78, !79, !"pushQueueNoMerge: argument 0"}
+!79 = distinct !{!79, !"pushQueueNoMerge"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"pushQueueAt: argument 0"}
 !82 = distinct !{!82, !"pushQueueAt"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"pushQueueNoMerge: argument 0"}
-!85 = distinct !{!85, !"pushQueueNoMerge"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"pushQueueAt: argument 0"}
-!88 = distinct !{!88, !"pushQueueAt"}
+!84 = distinct !{!84, !85, !"pushQueueAt: argument 0"}
+!85 = distinct !{!85, !"pushQueueAt"}
+!86 = distinct !{!86, !6}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"pushQueueAt: argument 0"}
+!89 = distinct !{!89, !"pushQueueAt"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"pushQueueNoMerge: argument 0"}
+!92 = distinct !{!92, !"pushQueueNoMerge"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"pushQueueAt: argument 0"}
+!95 = distinct !{!95, !"pushQueueAt"}
+!96 = distinct !{!96, !6}

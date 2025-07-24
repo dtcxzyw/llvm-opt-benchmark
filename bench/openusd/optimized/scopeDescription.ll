@@ -3147,7 +3147,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   br i1 %or.cond62.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i"
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !43
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", %.lr.ph.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", %.lr.ph.split.us.i.i, %.lr.ph.split.i.preheader.i, %169
   %.1.lcssa.i.i = phi ptr [ %.0.i.i, %169 ], [ %.0.i.i, %.lr.ph.split.us.i.i ], [ %184, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i" ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ], [ %184, %.lr.ph.split.i.i ], [ %174, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ]
@@ -3168,7 +3168,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   %.114.val.us.i.i = load ptr, ptr %.114.us.i.i, align 8
   %.114.val.val.us.i.i = load i64, ptr %.114.val.us.i.i, align 8
   %179 = icmp eq i64 %3, %.114.val.val.us.i.i
-  br i1 %179, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", !llvm.loop !42
+  br i1 %179, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", !llvm.loop !44
 
 .lr.ph51.split.i.i:                               ; preds = %.lr.ph51.i.i
   %180 = icmp ne i64 %.114.val.val47.i.i, %3
@@ -3180,7 +3180,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   %182 = icmp eq i64 %.1.val.val.i.i, %3
   %183 = icmp ult i64 %.1.val.val.i.i, %.val17.val.i.i
   %or.cond.i.i = or i1 %182, %183
-  br i1 %or.cond.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
+  br i1 %or.cond.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !43
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i": ; preds = %.lr.ph.split.i.preheader.i, %.lr.ph.split.i.i
   %.126.i17.i = phi ptr [ %184, %.lr.ph.split.i.i ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ]
@@ -3188,13 +3188,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   %.1.val.i.i = load ptr, ptr %184, align 8
   %.1.val.val.i.i = load i64, ptr %.1.val.i.i, align 8
   %185 = icmp eq i64 %.1.val.val.i.i, %.val17.val.i.i
-  br i1 %185, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", label %.lr.ph.split.i.i, !llvm.loop !41
+  br i1 %185, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", label %.lr.ph.split.i.i, !llvm.loop !43
 
 186:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i"
   %187 = icmp ne i64 %.114.val.val.i.i, %3
   %188 = icmp ult i64 %.val17.val.i.i, %.114.val.val.i.i
   %spec.select.i.i18.i.i = and i1 %187, %188
-  br i1 %spec.select.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", !llvm.loop !42
+  br i1 %spec.select.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", !llvm.loop !45
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i": ; preds = %.lr.ph51.split.i.i, %186
   %.1144859.i.i = phi ptr [ %.114.i.i, %186 ], [ %.11445.i.i, %.lr.ph51.split.i.i ]
@@ -3202,7 +3202,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8
   %.114.val.val.i.i = load i64, ptr %.114.val.i.i, align 8
   %189 = icmp eq i64 %.val17.val.i.i, %.114.val.val.i.i
-  br i1 %189, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %186, !llvm.loop !42
+  br i1 %189, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %186, !llvm.loop !45
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", %186, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", %.lr.ph51.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
   %.114.lcssa.i.i = phi ptr [ %.11445.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i" ], [ %.11445.i.i, %.lr.ph51.split.i.i ], [ %.114.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.114.i.i, %186 ], [ %.114.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i" ]
@@ -3214,14 +3214,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   store ptr %.114.val.lcssa.i.i, ptr %.1.lcssa.i.i, align 8
   store ptr %.1.val.lcssa.i.i, ptr %.114.lcssa.i.i, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i.i, i64 8
-  br label %169, !llvm.loop !43
+  br label %169, !llvm.loop !46
 
 "_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
   tail call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.1.lcssa.i.i, ptr noundef %.034, i64 noundef %140, i64 %3)
   %193 = ptrtoint ptr %.1.lcssa.i.i to i64
   %194 = sub i64 %193, %5
   %195 = icmp sgt i64 %194, 128
-  br i1 %195, label %10, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !44
+  br i1 %195, label %10, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !47
 
 "_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i21.i", %4
   ret void
@@ -3325,7 +3325,10 @@ attributes #26 = { builtin nounwind }
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
+!41 = distinct !{!41, !6, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
+!44 = distinct !{!44, !6, !42}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}

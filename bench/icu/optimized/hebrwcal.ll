@@ -696,7 +696,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
 50:                                               ; preds = %.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.critedge.thread, label %.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge.thread, label %.split, !llvm.loop !22
 
 .critedge:                                        ; preds = %.split, %.split.us
   %.us-phi.in = phi i64 [ %indvars.iv87, %.split.us ], [ %indvars.iv, %.split ]
@@ -991,7 +991,7 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
   %35 = select i1 %.not1.i, i32 12, i32 13
   %36 = call signext i8 @uprv_add32_overflow_77(i32 noundef %27, i32 noundef %35, ptr noundef nonnull %7)
   %.not28 = icmp eq i8 %36, 0
-  br i1 %.not28, label %19, label %37, !llvm.loop !21
+  br i1 %.not28, label %19, label %37, !llvm.loop !23
 
 37:                                               ; preds = %26, %23
   store i32 1, ptr %4, align 4, !tbaa !6
@@ -1021,7 +1021,7 @@ thread-pre-split:                                 ; preds = %48
   %49 = load i32, ptr %6, align 4, !tbaa !9
   %50 = call signext i8 @uprv_add32_overflow_77(i32 noundef %49, i32 noundef 1, ptr noundef nonnull %6)
   %.not26 = icmp eq i8 %50, 0
-  br i1 %.not26, label %thread-pre-split, label %51, !llvm.loop !22
+  br i1 %.not26, label %thread-pre-split, label %51, !llvm.loop !24
 
 51:                                               ; preds = %48, %.lr.ph
   store i32 1, ptr %4, align 4, !tbaa !6
@@ -1111,7 +1111,7 @@ define noundef double @_ZNK6icu_7714HebrewCalendar19defaultCenturyStartEv(ptr no
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %1, %4, %6
-  %7 = load double, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !23
+  %7 = load double, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !25
   ret double %7
 }
 
@@ -1164,7 +1164,7 @@ _ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode.exit: ; preds
           to label %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit unwind label %19
 
 _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode.exit
-  store double %15, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !23
+  store double %15, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !25
   %16 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %17 unwind label %19
 
@@ -1254,7 +1254,7 @@ define noundef ptr @_ZNK6icu_7714HebrewCalendar20getTemporalMonthCodeER10UErrorC
 6:                                                ; preds = %2
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds [14 x ptr], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -1278,7 +1278,7 @@ define void @_ZN6icu_7714HebrewCalendar20setTemporalMonthCodeEPKcR10UErrorCode(p
 .preheader:                                       ; preds = %6, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %6 ]
   %10 = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 0, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %16
@@ -1291,7 +1291,7 @@ define void @_ZN6icu_7714HebrewCalendar20setTemporalMonthCodeEPKcR10UErrorCode(p
 16:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not14 = icmp eq i64 %indvars.iv.next, 13
-  br i1 %.not14, label %.critedge, label %.preheader, !llvm.loop !28
+  br i1 %.not14, label %.critedge, label %.preheader, !llvm.loop !30
 
 .critedge:                                        ; preds = %16, %6
   store i32 1, ptr %2, align 4, !tbaa !6
@@ -1450,7 +1450,7 @@ declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef signext i8 @_ZL23calendar_hebrew_cleanupv() #3 {
-  %1 = load ptr, ptr @_ZL6gCache, align 8, !tbaa !29
+  %1 = load ptr, ptr @_ZL6gCache, align 8, !tbaa !31
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3
 
@@ -1462,7 +1462,7 @@ define internal noundef signext i8 @_ZL23calendar_hebrew_cleanupv() #3 {
   br label %7
 
 7:                                                ; preds = %3, %0
-  store ptr null, ptr @_ZL6gCache, align 8, !tbaa !29
+  store ptr null, ptr @_ZL6gCache, align 8, !tbaa !31
   ret i8 1
 }
 
@@ -1520,14 +1520,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !12}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"short", !8, i64 0}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
+!20 = distinct !{!20, !12, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !12}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !8, i64 0}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}
 !25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !27, i64 0}
-!27 = !{!"any pointer", !8, i64 0}
-!28 = distinct !{!28, !12}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !27, i64 0}
+!26 = !{!"double", !8, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !29, i64 0}
+!29 = !{!"any pointer", !8, i64 0}
+!30 = distinct !{!30, !12}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !29, i64 0}

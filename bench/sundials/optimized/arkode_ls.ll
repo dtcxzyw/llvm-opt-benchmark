@@ -5677,7 +5677,7 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   store double %69, ptr %67, align 8, !tbaa !80
   %70 = add nsw i64 %.0139161.us, %52
   %71 = icmp slt i64 %70, %10
-  br i1 %71, label %.lr.ph.split.us, label %._crit_edge
+  br i1 %71, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !158
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %._crit_edge180
   %.0139161 = phi i64 [ %105, %._crit_edge180 ], [ %57, %.lr.ph ]
@@ -6072,3 +6072,5 @@ attributes #14 = { nounwind allocsize(0) }
 !155 = !{!4, !10, i64 128}
 !156 = !{!4, !11, i64 656}
 !157 = !{!4, !9, i64 704}
+!158 = distinct !{!158, !159}
+!159 = !{!"llvm.loop.unswitch.nontrivial.disable"}

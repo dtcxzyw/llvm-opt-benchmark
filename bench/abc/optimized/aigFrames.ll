@@ -334,7 +334,7 @@ Aig_ObjChild0Frames.exit228.us:                   ; preds = %125, %.lr.ph256.spl
 Aig_ObjChild0Frames.exit:                         ; preds = %154, %158
   %170 = phi ptr [ %169, %158 ], [ null, %154 ]
   %171 = getelementptr i8, ptr %147, i64 16
-  %.val215 = load ptr, ptr %171, align 8, !tbaa !42
+  %.val215 = load ptr, ptr %171, align 8, !tbaa !43
   %172 = ptrtoint ptr %.val215 to i64
   %173 = and i64 %172, -2
   %.not.i221 = icmp eq i64 %173, 0
@@ -375,12 +375,12 @@ Aig_ObjChild1Frames.exit:                         ; preds = %Aig_ObjChild0Frames
   %.val178 = load i32, ptr %195, align 4, !tbaa !21
   %196 = sext i32 %.val178 to i64
   %197 = icmp slt i64 %indvars.iv.next286, %196
-  br i1 %197, label %.lr.ph254, label %.critedge6.preheader, !llvm.loop !43
+  br i1 %197, label %.lr.ph254, label %.critedge6.preheader, !llvm.loop !44
 
 .critedge8:                                       ; preds = %Aig_ObjChild0Frames.exit228.us, %.lr.ph256, %.critedge6.preheader..critedge8_crit_edge
   %.pre-phi = phi i32 [ %.pre311, %.critedge6.preheader..critedge8_crit_edge ], [ %114, %.lr.ph256 ], [ %114, %Aig_ObjChild0Frames.exit228.us ]
   %exitcond293.not = icmp eq i32 %.pre-phi, %1
-  br i1 %exitcond293.not, label %._crit_edge261, label %.preheader235, !llvm.loop !44
+  br i1 %exitcond293.not, label %._crit_edge261, label %.preheader235, !llvm.loop !45
 
 ._crit_edge261:                                   ; preds = %.critedge8, %.critedge2
   %.not170 = icmp eq i32 %3, 0
@@ -453,14 +453,14 @@ Aig_ObjChild0Frames.exit231:                      ; preds = %.lr.ph265, %213
   %232 = sub nsw i32 %.val216, %.val200
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next295, %233
-  br i1 %234, label %.lr.ph265, label %.critedge10, !llvm.loop !45
+  br i1 %234, label %.lr.ph265, label %.critedge10, !llvm.loop !46
 
 .critedge10:                                      ; preds = %Aig_ObjChild0Frames.exit231, %.preheader
   %.val200263308 = phi i32 [ %.val200263, %.preheader ], [ %.val200, %Aig_ObjChild0Frames.exit231 ]
   %.val216262306 = phi i32 [ %.val216262, %.preheader ], [ %.val216, %Aig_ObjChild0Frames.exit231 ]
   %235 = add i32 %.3266, 1
   %exitcond297.not = icmp eq i32 %235, %1
-  br i1 %exitcond297.not, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %exitcond297.not, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.critedge10, %198, %._crit_edge261
   %.not172 = icmp eq i32 %4, 0
@@ -533,7 +533,7 @@ Aig_ObjChild0Frames.exit234:                      ; preds = %249, %257
   %.val179 = load i32, ptr %277, align 4, !tbaa !21
   %278 = sext i32 %.val179 to i64
   %279 = icmp slt i64 %indvars.iv.next299, %278
-  br i1 %279, label %249, label %.critedge12.loopexit, !llvm.loop !47
+  br i1 %279, label %249, label %.critedge12.loopexit, !llvm.loop !48
 
 .critedge12.loopexit:                             ; preds = %Aig_ObjChild0Frames.exit234
   %.val202.pre = load i32, ptr %237, align 8, !tbaa !28
@@ -550,7 +550,7 @@ Aig_ObjChild0Frames.exit234:                      ; preds = %249, %257
   br i1 %.not173, label %283, label %282
 
 282:                                              ; preds = %280
-  store ptr %13, ptr %6, align 8, !tbaa !48
+  store ptr %13, ptr %6, align 8, !tbaa !49
   br label %285
 
 283:                                              ; preds = %280
@@ -646,11 +646,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !31}
 !39 = !{!4, !9, i64 24}
 !40 = !{!11, !10, i64 8}
-!41 = distinct !{!41, !31}
-!42 = !{!11, !10, i64 16}
-!43 = distinct !{!43, !31}
+!41 = distinct !{!41, !31, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!11, !10, i64 16}
 !44 = distinct !{!44, !31}
 !45 = distinct !{!45, !31}
 !46 = distinct !{!46, !31}
 !47 = distinct !{!47, !31}
-!48 = !{!13, !13, i64 0}
+!48 = distinct !{!48, !31}
+!49 = !{!13, !13, i64 0}

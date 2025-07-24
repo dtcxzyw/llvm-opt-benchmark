@@ -861,7 +861,7 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   call void @block_free(ptr %102, ptr %104) #11
   %105 = add nuw i64 %.05562, 1
   %exitcond.not = icmp eq i64 %105, %69
-  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !27
 
 106:                                              ; preds = %._crit_edge
   call void @block_free(ptr %96, ptr %97) #11
@@ -1074,7 +1074,7 @@ default_search.exit:                              ; preds = %110, %96, %112
 
 131:                                              ; preds = %130
   tail call void @jv_free(i64 %127, ptr %128) #11
-  br label %179, !llvm.loop !26
+  br label %179, !llvm.loop !28
 
 132:                                              ; preds = %default_search.exit
   br i1 %40, label %134, label %.preheader
@@ -1122,7 +1122,7 @@ default_search.exit:                              ; preds = %110, %96, %112
 154:                                              ; preds = %.lr.ph
   %155 = add nuw i64 %.0156181, 1
   %156 = icmp ult i64 %155, %.pre.pre
-  br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %154, %.lr.ph
   %.0156.lcssa.ph = phi i64 [ %155, %154 ], [ %.0156181, %.lr.ph ]
@@ -1388,14 +1388,14 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   store ptr %83, ptr %86, align 8, !tbaa !22
   %87 = load ptr, ptr %77, align 8, !tbaa !24
   %88 = getelementptr inbounds %struct.block, ptr %87, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !30
   br label %89
 
 89:                                               ; preds = %16, %29, %70
   %.sroa.027.2 = phi i64 [ %.sroa.027.0, %70 ], [ %.sroa.027.0, %16 ], [ %.sroa.027.1, %29 ]
   %.sroa.14.2 = phi ptr [ %.sroa.14.0, %70 ], [ %.sroa.14.0, %16 ], [ %.sroa.14.1, %29 ]
   %.0 = phi i32 [ %.1, %70 ], [ 0, %16 ], [ 1, %29 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !30
   call void @jv_free(i64 %1, ptr %2) #11
   call void @jv_free(i64 %.sroa.027.2, ptr %.sroa.14.2) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
@@ -1462,7 +1462,9 @@ attributes #13 = { nounwind willreturn memory(none) }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 omnipotent char", !15, i64 0}
 !24 = !{!17, !19, i64 8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!25 = distinct !{!25, !8, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !27 = distinct !{!27, !8}
-!28 = !{i64 0, i64 8, !13, i64 8, i64 8, !13}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = !{i64 0, i64 8, !13, i64 8, i64 8, !13}

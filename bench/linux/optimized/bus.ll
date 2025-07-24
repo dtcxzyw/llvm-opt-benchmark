@@ -685,7 +685,7 @@ define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef reado
 65:                                               ; preds = %53, %44
   %66 = add nuw nsw i64 %45, 1
   %67 = icmp eq i64 %66, 4
-  br i1 %67, label %68, label %44, !llvm.loop !9
+  br i1 %67, label %68, label %44, !llvm.loop !10
 
 68:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #15
@@ -697,13 +697,13 @@ define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef reado
 
 70:                                               ; preds = %69, %40
   %71 = getelementptr i8, ptr %29, i64 32
-  br label %28, !llvm.loop !10
+  br label %28, !llvm.loop !11
 
 .loopexit5:                                       ; preds = %32
   %72 = load ptr, ptr %27, align 8
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.11, ptr noundef %72) #15
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.split10.us, label %.split, !llvm.loop !6
+  br i1 %74, label %.split10.us, label %.split, !llvm.loop !12
 
 .split10.us:                                      ; preds = %.loopexit5, %18
   %75 = getelementptr i8, ptr %0, i64 552
@@ -843,13 +843,13 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %49 = getelementptr i8, ptr %44, i64 264
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.loopexit, label %42, !llvm.loop !11
+  br i1 %51, label %.loopexit, label %42, !llvm.loop !13
 
 .loopexit:                                        ; preds = %47
   %52 = add nuw nsw i32 %38, 1
   %53 = getelementptr i8, ptr %39, i64 24
   %54 = icmp eq i32 %52, %33
-  br i1 %54, label %.thread8, label %.thread.split, !llvm.loop !12
+  br i1 %54, label %.thread8, label %.thread.split, !llvm.loop !14
 
 55:                                               ; preds = %42
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 192
@@ -983,13 +983,13 @@ define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readon
   %46 = getelementptr i8, ptr %41, i64 264
   %47 = load i8, ptr %46, align 8
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %.loopexit7, label %39, !llvm.loop !11
+  br i1 %48, label %.loopexit7, label %39, !llvm.loop !13
 
 .loopexit7:                                       ; preds = %44
   %49 = add nuw nsw i32 %35, 1
   %50 = getelementptr i8, ptr %36, i64 24
   %51 = icmp eq i32 %49, %30
-  br i1 %51, label %.loopexit, label %.thread.split, !llvm.loop !12
+  br i1 %51, label %.loopexit, label %.thread.split, !llvm.loop !14
 
 52:                                               ; preds = %2
   br i1 %13, label %53, label %71
@@ -1079,13 +1079,13 @@ define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly cap
   %30 = getelementptr i8, ptr %25, i64 264
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.loopexit1, label %23, !llvm.loop !11
+  br i1 %32, label %.loopexit1, label %23, !llvm.loop !13
 
 .loopexit1:                                       ; preds = %28
   %33 = add nuw nsw i32 %19, 1
   %34 = getelementptr i8, ptr %20, i64 24
   %35 = icmp eq i32 %33, %14
-  br i1 %35, label %.loopexit, label %.thread.split, !llvm.loop !12
+  br i1 %35, label %.loopexit, label %.thread.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.loopexit1, %23, %.thread, %8, %1
   %36 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %.thread ], [ true, %23 ], [ false, %.loopexit1 ]
@@ -1454,7 +1454,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_init() #8 section ".init.tex
   store ptr %7, ptr @acpi_kobj, align 8
   tail call void @init_prmt() #15
   tail call void @acpi_init_pcc() #15
-  %8 = tail call fastcc i32 @acpi_bus_init() #18, !range !13
+  %8 = tail call fastcc i32 @acpi_bus_init() #18, !range !15
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -1661,7 +1661,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store ptr null, ptr %3, align 8, !annotation !5
-  %68 = load i8, ptr @osc_sb_native_usb4_support_confirmed, align 1, !range !14, !noundef !15
+  %68 = load i8, ptr @osc_sb_native_usb4_support_confirmed, align 1, !range !16, !noundef !17
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %119, label %70
 
@@ -1750,7 +1750,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   call void @acpi_ec_dsdt_probe() #15
   %122 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #17
   %123 = call i32 @acpi_sleep_init() #15
-  %124 = call fastcc i32 @acpi_bus_init_irq() #18, !range !13
+  %124 = call fastcc i32 @acpi_bus_init_irq() #18, !range !15
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %136
 
@@ -2032,7 +2032,7 @@ define internal void @sb_notify_work(ptr readnone captures(none) %0) #14 align 1
   %6 = load ptr, ptr %2, align 8
   %7 = call i32 @acpi_evaluate_ost(ptr noundef %6, i32 noundef 256, i32 noundef 129, ptr noundef null) #15
   call void @msleep(i32 noundef 10000) #15
-  br label %4, !llvm.loop !16
+  br label %4, !llvm.loop !18
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2075,14 +2075,16 @@ attributes #18 = { cold }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7, !8}
-!13 = !{i32 -19, i32 1}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i32 -19, i32 1}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !8}

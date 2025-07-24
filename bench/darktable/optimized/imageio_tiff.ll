@@ -432,7 +432,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %27 = load i32, ptr %10, align 4, !tbaa !69
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next79, %28
-  br i1 %29, label %.lr.ph63.split.us, label %.thread49
+  br i1 %29, label %.lr.ph63.split.us, label %.thread49, !llvm.loop !85
 
 .preheader.us:                                    ; preds = %.lr.ph63.split.us
   %30 = load i32, ptr %14, align 8, !tbaa !68
@@ -452,18 +452,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %34 = load i8, ptr %.04453.us.us, align 1, !tbaa !6
   %35 = uitofp i8 %34 to float
   %36 = fmul reassoc nsz arcp contract afn float %35, 0x3FD9191920000000
-  store float %36, ptr %.04254.us.us, align 4, !tbaa !85
+  store float %36, ptr %.04254.us.us, align 4, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 8
-  store float 0.000000e+00, ptr %37, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %37, align 4, !tbaa !87
   %38 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 4
-  store float 0.000000e+00, ptr %38, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %38, align 4, !tbaa !87
   %39 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 12
-  store float 0.000000e+00, ptr %39, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %39, align 4, !tbaa !87
   %40 = add nuw i32 %.055.us.us, 1
   %41 = getelementptr inbounds nuw i8, ptr %.04453.us.us, i64 %33
   %42 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 16
   %exitcond77.not = icmp eq i32 %40, %30
-  br i1 %exitcond77.not, label %._crit_edge.us, label %.lr.ph.split.us.us
+  br i1 %exitcond77.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !88
 
 .lr.ph.split.us65:                                ; preds = %.lr.ph.us, %.lr.ph.split.us65
   %.055.us56.us = phi i32 [ %55, %.lr.ph.split.us65 ], [ 0, %.lr.ph.us ]
@@ -472,24 +472,24 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %43 = load i8, ptr %.04453.us58.us, align 1, !tbaa !6
   %44 = uitofp i8 %43 to float
   %45 = fmul reassoc nsz arcp contract afn float %44, 0x3FD9191920000000
-  store float %45, ptr %.04254.us57.us, align 4, !tbaa !85
+  store float %45, ptr %.04254.us57.us, align 4, !tbaa !87
   %46 = getelementptr inbounds nuw i8, ptr %.04453.us58.us, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !6
   %48 = sitofp i8 %47 to float
   %49 = getelementptr inbounds nuw i8, ptr %.04254.us57.us, i64 4
-  store float %48, ptr %49, align 4, !tbaa !85
+  store float %48, ptr %49, align 4, !tbaa !87
   %50 = getelementptr inbounds nuw i8, ptr %.04453.us58.us, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !6
   %52 = sitofp i8 %51 to float
   %53 = getelementptr inbounds nuw i8, ptr %.04254.us57.us, i64 8
-  store float %52, ptr %53, align 4, !tbaa !85
+  store float %52, ptr %53, align 4, !tbaa !87
   %54 = getelementptr inbounds nuw i8, ptr %.04254.us57.us, i64 12
-  store float 0.000000e+00, ptr %54, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %54, align 4, !tbaa !87
   %55 = add nuw i32 %.055.us56.us, 1
   %56 = getelementptr inbounds nuw i8, ptr %.04453.us58.us, i64 %33
   %57 = getelementptr inbounds nuw i8, ptr %.04254.us57.us, i64 16
   %exitcond76.not = icmp eq i32 %55, %30
-  br i1 %exitcond76.not, label %._crit_edge.us, label %.lr.ph.split.us65
+  br i1 %exitcond76.not, label %._crit_edge.us, label %.lr.ph.split.us65, !llvm.loop !89
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph63 ]
@@ -524,18 +524,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %72 = load i8, ptr %.04453.us, align 1, !tbaa !6
   %73 = uitofp i8 %72 to float
   %74 = fmul reassoc nsz arcp contract afn float %73, 0x3FD9191920000000
-  store float %74, ptr %.04254.us, align 4, !tbaa !85
+  store float %74, ptr %.04254.us, align 4, !tbaa !87
   %75 = getelementptr inbounds nuw i8, ptr %.04254.us, i64 8
-  store float 0.000000e+00, ptr %75, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %75, align 4, !tbaa !87
   %76 = getelementptr inbounds nuw i8, ptr %.04254.us, i64 4
-  store float 0.000000e+00, ptr %76, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %76, align 4, !tbaa !87
   %77 = getelementptr inbounds nuw i8, ptr %.04254.us, i64 12
-  store float 0.000000e+00, ptr %77, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %77, align 4, !tbaa !87
   %78 = add nuw i32 %.055.us, 1
   %79 = getelementptr inbounds nuw i8, ptr %.04453.us, i64 %71
   %80 = getelementptr inbounds nuw i8, ptr %.04254.us, i64 16
   %exitcond74.not = icmp eq i32 %78, %68
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !88
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.055 = phi i32 [ %95, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -544,21 +544,21 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %81 = load i8, ptr %.04453, align 1, !tbaa !6
   %82 = uitofp i8 %81 to float
   %83 = fmul reassoc nsz arcp contract afn float %82, 0x3FD9191920000000
-  store float %83, ptr %.04254, align 4, !tbaa !85
+  store float %83, ptr %.04254, align 4, !tbaa !87
   %84 = getelementptr inbounds nuw i8, ptr %.04453, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !6
   %86 = uitofp i8 %85 to float
   %87 = fadd reassoc nsz arcp contract afn float %86, -1.280000e+02
   %88 = getelementptr inbounds nuw i8, ptr %.04254, i64 4
-  store float %87, ptr %88, align 4, !tbaa !85
+  store float %87, ptr %88, align 4, !tbaa !87
   %89 = getelementptr inbounds nuw i8, ptr %.04453, i64 2
   %90 = load i8, ptr %89, align 1, !tbaa !6
   %91 = uitofp i8 %90 to float
   %92 = fadd reassoc nsz arcp contract afn float %91, -1.280000e+02
   %93 = getelementptr inbounds nuw i8, ptr %.04254, i64 8
-  store float %92, ptr %93, align 4, !tbaa !85
+  store float %92, ptr %93, align 4, !tbaa !87
   %94 = getelementptr inbounds nuw i8, ptr %.04254, i64 12
-  store float 0.000000e+00, ptr %94, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %94, align 4, !tbaa !87
   %95 = add nuw i32 %.055, 1
   %96 = getelementptr inbounds nuw i8, ptr %.04453, i64 %71
   %97 = getelementptr inbounds nuw i8, ptr %.04254, i64 16
@@ -623,7 +623,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %28 = load i32, ptr %10, align 4, !tbaa !69
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next81, %29
-  br i1 %30, label %.lr.ph65.split.us, label %.thread51
+  br i1 %30, label %.lr.ph65.split.us, label %.thread51, !llvm.loop !90
 
 .preheader.us:                                    ; preds = %.lr.ph65.split.us
   %31 = load i32, ptr %15, align 8, !tbaa !68
@@ -643,18 +643,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %35 = load i16, ptr %.04655.us.us, align 2, !tbaa !32
   %36 = uitofp i16 %35 to float
   %37 = fmul reassoc nsz arcp contract afn float %16, %36
-  store float %37, ptr %.04456.us.us, align 4, !tbaa !85
+  store float %37, ptr %.04456.us.us, align 4, !tbaa !87
   %38 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 8
-  store float 0.000000e+00, ptr %38, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %38, align 4, !tbaa !87
   %39 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 4
-  store float 0.000000e+00, ptr %39, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %39, align 4, !tbaa !87
   %40 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 12
-  store float 0.000000e+00, ptr %40, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %40, align 4, !tbaa !87
   %41 = add nuw i32 %.057.us.us, 1
   %42 = getelementptr inbounds nuw i16, ptr %.04655.us.us, i64 %34
   %43 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 16
   %exitcond79.not = icmp eq i32 %41, %31
-  br i1 %exitcond79.not, label %._crit_edge.us, label %.lr.ph.split.us.us
+  br i1 %exitcond79.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !91
 
 .lr.ph.split.us67:                                ; preds = %.lr.ph.us, %.lr.ph.split.us67
   %.057.us58.us = phi i32 [ %58, %.lr.ph.split.us67 ], [ 0, %.lr.ph.us ]
@@ -663,26 +663,26 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %44 = load i16, ptr %.04655.us60.us, align 2, !tbaa !32
   %45 = uitofp i16 %44 to float
   %46 = fmul reassoc nsz arcp contract afn float %16, %45
-  store float %46, ptr %.04456.us59.us, align 4, !tbaa !85
+  store float %46, ptr %.04456.us59.us, align 4, !tbaa !87
   %47 = getelementptr inbounds nuw i8, ptr %.04655.us60.us, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !32
   %49 = sitofp i16 %48 to float
   %50 = fmul reassoc nsz arcp contract afn float %49, 3.906250e-03
   %51 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 4
-  store float %50, ptr %51, align 4, !tbaa !85
+  store float %50, ptr %51, align 4, !tbaa !87
   %52 = getelementptr inbounds nuw i8, ptr %.04655.us60.us, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !32
   %54 = sitofp i16 %53 to float
   %55 = fmul reassoc nsz arcp contract afn float %54, 3.906250e-03
   %56 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 8
-  store float %55, ptr %56, align 4, !tbaa !85
+  store float %55, ptr %56, align 4, !tbaa !87
   %57 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 12
-  store float 0.000000e+00, ptr %57, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %57, align 4, !tbaa !87
   %58 = add nuw i32 %.057.us58.us, 1
   %59 = getelementptr inbounds nuw i16, ptr %.04655.us60.us, i64 %34
   %60 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 16
   %exitcond78.not = icmp eq i32 %58, %31
-  br i1 %exitcond78.not, label %._crit_edge.us, label %.lr.ph.split.us67
+  br i1 %exitcond78.not, label %._crit_edge.us, label %.lr.ph.split.us67, !llvm.loop !92
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph65 ]
@@ -717,18 +717,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %75 = load i16, ptr %.04655.us, align 2, !tbaa !32
   %76 = uitofp i16 %75 to float
   %77 = fmul reassoc nsz arcp contract afn float %16, %76
-  store float %77, ptr %.04456.us, align 4, !tbaa !85
+  store float %77, ptr %.04456.us, align 4, !tbaa !87
   %78 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 8
-  store float 0.000000e+00, ptr %78, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !87
   %79 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 4
-  store float 0.000000e+00, ptr %79, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %79, align 4, !tbaa !87
   %80 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 12
-  store float 0.000000e+00, ptr %80, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %80, align 4, !tbaa !87
   %81 = add nuw i32 %.057.us, 1
   %82 = getelementptr inbounds nuw i16, ptr %.04655.us, i64 %74
   %83 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 16
   %exitcond76.not = icmp eq i32 %81, %71
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !91
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.057 = phi i32 [ %100, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -737,23 +737,23 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %84 = load i16, ptr %.04655, align 2, !tbaa !32
   %85 = uitofp i16 %84 to float
   %86 = fmul reassoc nsz arcp contract afn float %16, %85
-  store float %86, ptr %.04456, align 4, !tbaa !85
+  store float %86, ptr %.04456, align 4, !tbaa !87
   %87 = getelementptr inbounds nuw i8, ptr %.04655, i64 2
   %88 = load i16, ptr %87, align 2, !tbaa !32
   %89 = uitofp i16 %88 to float
   %90 = fmul reassoc nsz arcp contract afn float %89, 3.906250e-03
   %91 = fadd reassoc nsz arcp contract afn float %90, -1.280000e+02
   %92 = getelementptr inbounds nuw i8, ptr %.04456, i64 4
-  store float %91, ptr %92, align 4, !tbaa !85
+  store float %91, ptr %92, align 4, !tbaa !87
   %93 = getelementptr inbounds nuw i8, ptr %.04655, i64 4
   %94 = load i16, ptr %93, align 2, !tbaa !32
   %95 = uitofp i16 %94 to float
   %96 = fmul reassoc nsz arcp contract afn float %95, 3.906250e-03
   %97 = fadd reassoc nsz arcp contract afn float %96, -1.280000e+02
   %98 = getelementptr inbounds nuw i8, ptr %.04456, i64 8
-  store float %97, ptr %98, align 4, !tbaa !85
+  store float %97, ptr %98, align 4, !tbaa !87
   %99 = getelementptr inbounds nuw i8, ptr %.04456, i64 12
-  store float 0.000000e+00, ptr %99, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %99, align 4, !tbaa !87
   %100 = add nuw i32 %.057, 1
   %101 = getelementptr inbounds nuw i16, ptr %.04655, i64 %74
   %102 = getelementptr inbounds nuw i8, ptr %.04456, i64 16
@@ -822,18 +822,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %24 = load i8, ptr %.03036.us, align 1, !tbaa !6
   %25 = uitofp i8 %24 to float
   %26 = fmul reassoc nsz arcp contract afn float %25, 0x3F70101020000000
-  store float %26, ptr %.02937.us, align 4, !tbaa !85
+  store float %26, ptr %.02937.us, align 4, !tbaa !87
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 8
-  store float %26, ptr %27, align 4, !tbaa !85
+  store float %26, ptr %27, align 4, !tbaa !87
   %28 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 4
-  store float %26, ptr %28, align 4, !tbaa !85
+  store float %26, ptr %28, align 4, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 12
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !87
   %30 = add nuw i32 %.038.us, 1
   %31 = getelementptr inbounds nuw i8, ptr %.03036.us, i64 %23
   %32 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 16
   %exitcond47.not = icmp eq i32 %30, %16
-  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.038 = phi i32 [ %47, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -842,21 +842,21 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %33 = load i8, ptr %.03036, align 1, !tbaa !6
   %34 = uitofp i8 %33 to float
   %35 = fmul reassoc nsz arcp contract afn float %34, 0x3F70101020000000
-  store float %35, ptr %.02937, align 4, !tbaa !85
+  store float %35, ptr %.02937, align 4, !tbaa !87
   %36 = getelementptr inbounds nuw i8, ptr %.03036, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !6
   %38 = uitofp i8 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %38, 0x3F70101020000000
   %40 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
-  store float %39, ptr %40, align 4, !tbaa !85
+  store float %39, ptr %40, align 4, !tbaa !87
   %41 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !6
   %43 = uitofp i8 %42 to float
   %44 = fmul reassoc nsz arcp contract afn float %43, 0x3F70101020000000
   %45 = getelementptr inbounds nuw i8, ptr %.02937, i64 8
-  store float %44, ptr %45, align 4, !tbaa !85
+  store float %44, ptr %45, align 4, !tbaa !87
   %46 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
-  store float 0.000000e+00, ptr %46, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !87
   %47 = add nuw i32 %.038, 1
   %48 = getelementptr inbounds nuw i8, ptr %.03036, i64 %23
   %49 = getelementptr inbounds nuw i8, ptr %.02937, i64 16
@@ -923,18 +923,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %24 = load i16, ptr %.03036.us, align 2, !tbaa !32
   %25 = uitofp i16 %24 to float
   %26 = fmul reassoc nsz arcp contract afn float %25, 0x3EF0001000000000
-  store float %26, ptr %.02937.us, align 4, !tbaa !85
+  store float %26, ptr %.02937.us, align 4, !tbaa !87
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 8
-  store float %26, ptr %27, align 4, !tbaa !85
+  store float %26, ptr %27, align 4, !tbaa !87
   %28 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 4
-  store float %26, ptr %28, align 4, !tbaa !85
+  store float %26, ptr %28, align 4, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 12
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !87
   %30 = add nuw i32 %.038.us, 1
   %31 = getelementptr inbounds nuw i16, ptr %.03036.us, i64 %23
   %32 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 16
   %exitcond47.not = icmp eq i32 %30, %16
-  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !94
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.038 = phi i32 [ %47, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -943,21 +943,21 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %33 = load i16, ptr %.03036, align 2, !tbaa !32
   %34 = uitofp i16 %33 to float
   %35 = fmul reassoc nsz arcp contract afn float %34, 0x3EF0001000000000
-  store float %35, ptr %.02937, align 4, !tbaa !85
+  store float %35, ptr %.02937, align 4, !tbaa !87
   %36 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !32
   %38 = uitofp i16 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %38, 0x3EF0001000000000
   %40 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
-  store float %39, ptr %40, align 4, !tbaa !85
+  store float %39, ptr %40, align 4, !tbaa !87
   %41 = getelementptr inbounds nuw i8, ptr %.03036, i64 4
   %42 = load i16, ptr %41, align 2, !tbaa !32
   %43 = uitofp i16 %42 to float
   %44 = fmul reassoc nsz arcp contract afn float %43, 0x3EF0001000000000
   %45 = getelementptr inbounds nuw i8, ptr %.02937, i64 8
-  store float %44, ptr %45, align 4, !tbaa !85
+  store float %44, ptr %45, align 4, !tbaa !87
   %46 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
-  store float 0.000000e+00, ptr %46, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !87
   %47 = add nuw i32 %.038, 1
   %48 = getelementptr inbounds nuw i16, ptr %.03036, i64 %23
   %49 = getelementptr inbounds nuw i8, ptr %.02937, i64 16
@@ -1050,18 +1050,18 @@ _half_to_float.exit.us:                           ; preds = %38, %33, %29
   %.signext.i.us = sext i16 %24 to i32
   %40 = and i32 %.signext.i.us, -2147483648
   %41 = or i32 %.sroa.0.0.i.us, %40
-  store i32 %41, ptr %.02943.us, align 4, !tbaa !85
+  store i32 %41, ptr %.02943.us, align 4, !tbaa !87
   %42 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 8
-  store i32 %41, ptr %42, align 4, !tbaa !85
+  store i32 %41, ptr %42, align 4, !tbaa !87
   %43 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 4
-  store i32 %41, ptr %43, align 4, !tbaa !85
+  store i32 %41, ptr %43, align 4, !tbaa !87
   %44 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 12
-  store float 0.000000e+00, ptr %44, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %44, align 4, !tbaa !87
   %45 = add nuw i32 %.044.us, 1
   %46 = getelementptr inbounds nuw i16, ptr %.03042.us, i64 %23
   %47 = getelementptr inbounds nuw i8, ptr %.02943.us, i64 16
   %exitcond53.not = icmp eq i32 %45, %16
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_half_to_float.exit40
   %.044 = phi i32 [ %107, %_half_to_float.exit40 ], [ 0, %.lr.ph ]
@@ -1096,7 +1096,7 @@ _half_to_float.exit:                              ; preds = %53, %55, %59
   %.signext.i = sext i16 %48 to i32
   %64 = and i32 %.signext.i, -2147483648
   %65 = or i32 %.sroa.0.0.i, %64
-  store i32 %65, ptr %.02943, align 4, !tbaa !85
+  store i32 %65, ptr %.02943, align 4, !tbaa !87
   %66 = getelementptr inbounds nuw i8, ptr %.03042, i64 2
   %67 = load i16, ptr %66, align 2, !tbaa !32
   %68 = zext i16 %67 to i32
@@ -1128,7 +1128,7 @@ _half_to_float.exit37:                            ; preds = %72, %74, %78
   %83 = and i32 %.signext.i36, -2147483648
   %84 = or i32 %.sroa.0.0.i35, %83
   %85 = getelementptr inbounds nuw i8, ptr %.02943, i64 4
-  store i32 %84, ptr %85, align 4, !tbaa !85
+  store i32 %84, ptr %85, align 4, !tbaa !87
   %86 = getelementptr inbounds nuw i8, ptr %.03042, i64 4
   %87 = load i16, ptr %86, align 2, !tbaa !32
   %88 = zext i16 %87 to i32
@@ -1160,9 +1160,9 @@ _half_to_float.exit40:                            ; preds = %92, %94, %98
   %103 = and i32 %.signext.i39, -2147483648
   %104 = or i32 %.sroa.0.0.i38, %103
   %105 = getelementptr inbounds nuw i8, ptr %.02943, i64 8
-  store i32 %104, ptr %105, align 4, !tbaa !85
+  store i32 %104, ptr %105, align 4, !tbaa !87
   %106 = getelementptr inbounds nuw i8, ptr %.02943, i64 12
-  store float 0.000000e+00, ptr %106, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %106, align 4, !tbaa !87
   %107 = add nuw i32 %.044, 1
   %108 = getelementptr inbounds nuw i16, ptr %.03042, i64 %23
   %109 = getelementptr inbounds nuw i8, ptr %.02943, i64 16
@@ -1226,36 +1226,36 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %.038.us = phi i32 [ %28, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.02937.us = phi ptr [ %30, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.03036.us = phi ptr [ %29, %.lr.ph.split.us ], [ %10, %.lr.ph ]
-  %24 = load float, ptr %.03036.us, align 4, !tbaa !85
-  store float %24, ptr %.02937.us, align 4, !tbaa !85
+  %24 = load float, ptr %.03036.us, align 4, !tbaa !87
+  store float %24, ptr %.02937.us, align 4, !tbaa !87
   %25 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 8
-  store float %24, ptr %25, align 4, !tbaa !85
+  store float %24, ptr %25, align 4, !tbaa !87
   %26 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 4
-  store float %24, ptr %26, align 4, !tbaa !85
+  store float %24, ptr %26, align 4, !tbaa !87
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 12
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !87
   %28 = add nuw i32 %.038.us, 1
   %29 = getelementptr inbounds nuw float, ptr %.03036.us, i64 %23
   %30 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 16
   %exitcond47.not = icmp eq i32 %28, %16
-  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !96
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.038 = phi i32 [ %39, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.02937 = phi ptr [ %41, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.03036 = phi ptr [ %40, %.lr.ph.split ], [ %10, %.lr.ph ]
-  %31 = load float, ptr %.03036, align 4, !tbaa !85
-  store float %31, ptr %.02937, align 4, !tbaa !85
+  %31 = load float, ptr %.03036, align 4, !tbaa !87
+  store float %31, ptr %.02937, align 4, !tbaa !87
   %32 = getelementptr inbounds nuw i8, ptr %.03036, i64 4
-  %33 = load float, ptr %32, align 4, !tbaa !85
+  %33 = load float, ptr %32, align 4, !tbaa !87
   %34 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
-  store float %33, ptr %34, align 4, !tbaa !85
+  store float %33, ptr %34, align 4, !tbaa !87
   %35 = getelementptr inbounds nuw i8, ptr %.03036, i64 8
-  %36 = load float, ptr %35, align 4, !tbaa !85
+  %36 = load float, ptr %35, align 4, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %.02937, i64 8
-  store float %36, ptr %37, align 4, !tbaa !85
+  store float %36, ptr %37, align 4, !tbaa !87
   %38 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
-  store float 0.000000e+00, ptr %38, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %38, align 4, !tbaa !87
   %39 = add nuw i32 %.038, 1
   %40 = getelementptr inbounds nuw float, ptr %.03036, i64 %23
   %41 = getelementptr inbounds nuw i8, ptr %.02937, i64 16
@@ -1285,9 +1285,9 @@ define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly c
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  store i32 0, ptr %3, align 4, !tbaa !86
+  store i32 0, ptr %3, align 4, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !87
+  store ptr null, ptr %4, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #11
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %6
@@ -1315,16 +1315,16 @@ define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly c
   %18 = call ptr @dt_colorspaces_get_profile(i32 noundef 4, ptr noundef nonnull @.str.11, i32 noundef 63) #11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1032
   %20 = load ptr, ptr %19, align 8, !tbaa !83
-  store ptr %20, ptr %4, align 8, !tbaa !87
+  store ptr %20, ptr %4, align 8, !tbaa !98
   %21 = call i32 @cmsSaveProfileToMem(ptr noundef %20, ptr noundef null, ptr noundef nonnull %3) #11
-  %22 = load i32, ptr %3, align 4, !tbaa !86
+  %22 = load i32, ptr %3, align 4, !tbaa !97
   %.not28 = icmp eq i32 %22, 0
   br i1 %.not28, label %40, label %23
 
 23:                                               ; preds = %17
   %24 = zext i32 %22 to i64
   %25 = call noalias ptr @g_try_malloc(i64 noundef %24) #13
-  store ptr %25, ptr %1, align 8, !tbaa !87
+  store ptr %25, ptr %1, align 8, !tbaa !98
   %.not29 = icmp eq ptr %25, null
   br i1 %.not29, label %40, label %26
 
@@ -1338,31 +1338,31 @@ define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly c
   br i1 %.not25, label %39, label %30
 
 30:                                               ; preds = %28
-  %31 = load i32, ptr %3, align 4, !tbaa !86
+  %31 = load i32, ptr %3, align 4, !tbaa !97
   %.not26 = icmp eq i32 %31, 0
   br i1 %.not26, label %40, label %32
 
 32:                                               ; preds = %30
   %33 = zext i32 %31 to i64
   %34 = call noalias ptr @g_try_malloc(i64 noundef %33) #13
-  store ptr %34, ptr %1, align 8, !tbaa !87
+  store ptr %34, ptr %1, align 8, !tbaa !98
   %.not27 = icmp eq ptr %34, null
   br i1 %.not27, label %40, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %4, align 8, !tbaa !87
-  %37 = load i32, ptr %3, align 4, !tbaa !86
+  %36 = load ptr, ptr %4, align 8, !tbaa !98
+  %37 = load i32, ptr %3, align 4, !tbaa !97
   %38 = zext i32 %37 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %36, i64 %38, i1 false)
   br label %40
 
 39:                                               ; preds = %28
-  store i32 0, ptr %3, align 4, !tbaa !86
+  store i32 0, ptr %3, align 4, !tbaa !97
   br label %40
 
 40:                                               ; preds = %39, %32, %35, %30, %17, %26, %23
   call void @TIFFClose(ptr noundef nonnull %11) #11
-  %41 = load i32, ptr %3, align 4, !tbaa !86
+  %41 = load i32, ptr %3, align 4, !tbaa !97
   br label %42
 
 42:                                               ; preds = %10, %2, %6, %40
@@ -1385,11 +1385,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @_warning_error_handler(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #3 {
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !99
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef %1) #14
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !99
   %8 = tail call i32 @vfprintf(ptr noundef %7, ptr noundef %2, ptr noundef %3) #14
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !99
   %fputc = tail call i32 @fputc(i32 10, ptr %9)
   ret void
 }
@@ -1514,8 +1514,19 @@ attributes #14 = { cold nounwind }
 !82 = !{!10, !11, i64 1472}
 !83 = !{!84, !19, i64 1032}
 !84 = !{!"dt_colorspaces_color_profile_t", !11, i64 0, !7, i64 4, !7, i64 516, !19, i64 1032, !11, i64 1040, !11, i64 1044, !11, i64 1048, !11, i64 1052, !11, i64 1056, !11, i64 1060}
-!85 = !{!12, !12, i64 0}
-!86 = !{!11, !11, i64 0}
-!87 = !{!18, !18, i64 0}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
+!85 = distinct !{!85, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = !{!12, !12, i64 0}
+!88 = distinct !{!88, !86}
+!89 = distinct !{!89, !86}
+!90 = distinct !{!90, !86}
+!91 = distinct !{!91, !86}
+!92 = distinct !{!92, !86}
+!93 = distinct !{!93, !86}
+!94 = distinct !{!94, !86}
+!95 = distinct !{!95, !86}
+!96 = distinct !{!96, !86}
+!97 = !{!11, !11, i64 0}
+!98 = !{!18, !18, i64 0}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}

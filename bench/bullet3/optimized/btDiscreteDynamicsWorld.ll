@@ -8156,7 +8156,7 @@ _ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us: ;
   %35 = phi i32 [ %34, %30 ], [ %28, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us ]
   %36 = icmp slt i32 %35, %15
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
-  br i1 %36, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !348
+  br i1 %36, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !349
 
 .preheader.split.us.us:                           ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us
   %37 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
@@ -8185,7 +8185,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36.us.us: ; preds = %47, 
   %52 = phi i32 [ %51, %47 ], [ %45, %39 ]
   %53 = icmp slt i32 %15, %52
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  br i1 %53, label %39, label %.split54.us.us, !llvm.loop !349
+  br i1 %53, label %39, label %.split54.us.us, !llvm.loop !350
 
 .split54.us.us:                                   ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36.us.us
   %54 = trunc nsw i64 %indvars.iv81 to i32
@@ -8228,7 +8228,7 @@ _ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit: ; preds
   %73 = phi i32 [ %72, %68 ], [ %66, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i ]
   %74 = icmp slt i32 %73, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %74, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !348
+  br i1 %74, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !351
 
 .preheader.split:                                 ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit
   %75 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
@@ -8257,7 +8257,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36: ; preds = %85, %77
   %90 = phi i32 [ %89, %85 ], [ %83, %77 ]
   %91 = icmp slt i32 %59, %90
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  br i1 %91, label %77, label %.split54, !llvm.loop !349
+  br i1 %91, label %77, label %.split54, !llvm.loop !352
 
 .split54:                                         ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36
   %92 = trunc nsw i64 %indvars.iv to i32
@@ -8277,7 +8277,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36: ; preds = %85, %77
   %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
   %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !347
+  br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !353
 
 .split66.us:                                      ; preds = %98, %22
   %.us-phi67 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
@@ -8681,6 +8681,10 @@ attributes #24 = { builtin nounwind }
 !344 = !{!"_ZTSN16btCollisionWorld17LocalConvexResultE", !117, i64 0, !345, i64 8, !71, i64 16, !71, i64 32, !6, i64 48}
 !345 = !{!"p1 _ZTSN16btCollisionWorld14LocalShapeInfoE", !49, i64 0}
 !346 = !{!344, !6, i64 48}
-!347 = distinct !{!347, !129}
-!348 = distinct !{!348, !129}
-!349 = distinct !{!349, !129}
+!347 = distinct !{!347, !129, !348}
+!348 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!349 = distinct !{!349, !129, !348}
+!350 = distinct !{!350, !129, !348}
+!351 = distinct !{!351, !129}
+!352 = distinct !{!352, !129}
+!353 = distinct !{!353, !129}

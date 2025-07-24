@@ -1836,7 +1836,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %.04355.us.us, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %17 = load ptr, ptr %16, align 8, !tbaa !129
+  %17 = load ptr, ptr %16, align 8, !tbaa !130
   %18 = load double, ptr %17, align 8, !tbaa !52
   %19 = fadd double %10, %18
   store double %19, ptr %17, align 8, !tbaa !52
@@ -1845,27 +1845,27 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
   %22 = fadd double %11, %21
   store double %22, ptr %20, align 8, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %24 = load double, ptr %23, align 8, !tbaa !130
+  %24 = load double, ptr %23, align 8, !tbaa !131
   %25 = fadd double %.sroa.0.0.copyload.us, %24
-  store double %25, ptr %23, align 8, !tbaa !130
+  store double %25, ptr %23, align 8, !tbaa !131
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %27 = load double, ptr %26, align 8, !tbaa !131
+  %27 = load double, ptr %26, align 8, !tbaa !132
   %28 = fadd double %.sroa.4.0.copyload.us, %27
-  store double %28, ptr %26, align 8, !tbaa !131
+  store double %28, ptr %26, align 8, !tbaa !132
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  %30 = load ptr, ptr %29, align 8, !tbaa !132
+  %30 = load ptr, ptr %29, align 8, !tbaa !133
   %.not49.us.us = icmp eq ptr %30, null
   br i1 %.not49.us.us, label %38, label %31
 
 31:                                               ; preds = %.lr.ph56.us
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %33 = load double, ptr %32, align 8, !tbaa !133
+  %33 = load double, ptr %32, align 8, !tbaa !134
   %34 = fadd double %.sroa.0.0.copyload.us, %33
-  store double %34, ptr %32, align 8, !tbaa !133
+  store double %34, ptr %32, align 8, !tbaa !134
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %36 = load double, ptr %35, align 8, !tbaa !135
+  %36 = load double, ptr %35, align 8, !tbaa !136
   %37 = fadd double %.sroa.4.0.copyload.us, %36
-  store double %37, ptr %35, align 8, !tbaa !135
+  store double %37, ptr %35, align 8, !tbaa !136
   br label %38
 
 38:                                               ; preds = %31, %.lr.ph56.us
@@ -1878,92 +1878,92 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
   %40 = getelementptr i8, ptr %.04453.us.us, i64 16
   %.044.val.us.us = load ptr, ptr %40, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %.044.val.us.us, i64 120
-  %42 = load ptr, ptr %41, align 8, !tbaa !136
+  %42 = load ptr, ptr %41, align 8, !tbaa !137
   %.not.i.us.us = icmp eq ptr %42, null
   br i1 %.not.i.us.us, label %50, label %43
 
 43:                                               ; preds = %.lr.ph.us.us
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %45 = load double, ptr %44, align 8, !tbaa !133
+  %45 = load double, ptr %44, align 8, !tbaa !134
   %46 = fadd double %.sroa.0.0.copyload.us, %45
-  store double %46, ptr %44, align 8, !tbaa !133
+  store double %46, ptr %44, align 8, !tbaa !134
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %48 = load double, ptr %47, align 8, !tbaa !135
+  %48 = load double, ptr %47, align 8, !tbaa !136
   %49 = fadd double %.sroa.4.0.copyload.us, %48
-  store double %49, ptr %47, align 8, !tbaa !135
+  store double %49, ptr %47, align 8, !tbaa !136
   br label %50
 
 50:                                               ; preds = %43, %.lr.ph.us.us
   %51 = getelementptr inbounds nuw i8, ptr %.044.val.us.us, i64 144
-  %52 = load ptr, ptr %51, align 8, !tbaa !141
+  %52 = load ptr, ptr %51, align 8, !tbaa !142
   %.not49.i.us.us = icmp eq ptr %52, null
   br i1 %.not49.i.us.us, label %60, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %55 = load double, ptr %54, align 8, !tbaa !133
+  %55 = load double, ptr %54, align 8, !tbaa !134
   %56 = fadd double %.sroa.0.0.copyload.us, %55
-  store double %56, ptr %54, align 8, !tbaa !133
+  store double %56, ptr %54, align 8, !tbaa !134
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 80
-  %58 = load double, ptr %57, align 8, !tbaa !135
+  %58 = load double, ptr %57, align 8, !tbaa !136
   %59 = fadd double %.sroa.4.0.copyload.us, %58
-  store double %59, ptr %57, align 8, !tbaa !135
+  store double %59, ptr %57, align 8, !tbaa !136
   br label %60
 
 60:                                               ; preds = %53, %50
   %61 = getelementptr inbounds nuw i8, ptr %.044.val.us.us, i64 128
-  %62 = load ptr, ptr %61, align 8, !tbaa !142
+  %62 = load ptr, ptr %61, align 8, !tbaa !143
   %.not50.i.us.us = icmp eq ptr %62, null
   br i1 %.not50.i.us.us, label %70, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 72
-  %65 = load double, ptr %64, align 8, !tbaa !133
+  %65 = load double, ptr %64, align 8, !tbaa !134
   %66 = fadd double %.sroa.0.0.copyload.us, %65
-  store double %66, ptr %64, align 8, !tbaa !133
+  store double %66, ptr %64, align 8, !tbaa !134
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  %68 = load double, ptr %67, align 8, !tbaa !135
+  %68 = load double, ptr %67, align 8, !tbaa !136
   %69 = fadd double %.sroa.4.0.copyload.us, %68
-  store double %69, ptr %67, align 8, !tbaa !135
+  store double %69, ptr %67, align 8, !tbaa !136
   br label %70
 
 70:                                               ; preds = %63, %60
   %71 = getelementptr inbounds nuw i8, ptr %.044.val.us.us, i64 136
-  %72 = load ptr, ptr %71, align 8, !tbaa !143
+  %72 = load ptr, ptr %71, align 8, !tbaa !144
   %.not51.i.us.us = icmp eq ptr %72, null
   br i1 %.not51.i.us.us, label %80, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %75 = load double, ptr %74, align 8, !tbaa !133
+  %75 = load double, ptr %74, align 8, !tbaa !134
   %76 = fadd double %.sroa.0.0.copyload.us, %75
-  store double %76, ptr %74, align 8, !tbaa !133
+  store double %76, ptr %74, align 8, !tbaa !134
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  %78 = load double, ptr %77, align 8, !tbaa !135
+  %78 = load double, ptr %77, align 8, !tbaa !136
   %79 = fadd double %.sroa.4.0.copyload.us, %78
-  store double %79, ptr %77, align 8, !tbaa !135
+  store double %79, ptr %77, align 8, !tbaa !136
   br label %80
 
 80:                                               ; preds = %73, %70
   %81 = getelementptr inbounds nuw i8, ptr %.044.val.us.us, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !144
+  %82 = load ptr, ptr %81, align 8, !tbaa !145
   %83 = icmp eq ptr %82, null
   br i1 %83, label %shiftEdge.exit.us.us, label %.preheader.i.us.us
 
 .preheader.i.us.us:                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %85 = load i64, ptr %84, align 8, !tbaa !145
+  %85 = load i64, ptr %84, align 8, !tbaa !146
   %.not4.i.us.us = icmp eq i64 %85, 0
   br i1 %.not4.i.us.us, label %shiftEdge.exit.us.us, label %.lr.ph3.i.us.us
 
 .lr.ph3.i.us.us:                                  ; preds = %.preheader.i.us.us
-  %86 = load ptr, ptr %82, align 8, !tbaa !148
+  %86 = load ptr, ptr %82, align 8, !tbaa !149
   br label %87
 
 87:                                               ; preds = %111, %.lr.ph3.i.us.us
   %.0442.i.us.us = phi i64 [ 0, %.lr.ph3.i.us.us ], [ %112, %111 ]
   %88 = getelementptr inbounds nuw %struct.bezier, ptr %86, i64 %.0442.i.us.us
-  %.sroa.0.0.copyload.i.us.us = load ptr, ptr %88, align 8, !tbaa !149
+  %.sroa.0.0.copyload.i.us.us = load ptr, ptr %88, align 8, !tbaa !150
   %.sroa.5.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.5.0.copyload.i.us.us = load i64, ptr %.sroa.5.0..sroa_idx.i.us.us, align 8, !tbaa !117
   %.sroa.6.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -1985,7 +1985,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
   store double %94, ptr %92, align 8, !tbaa !95
   %95 = add nuw i64 %.01.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %95, %.sroa.5.0.copyload.i.us.us
-  br i1 %exitcond.not.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !150
+  br i1 %exitcond.not.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !151
 
 ._crit_edge.i.us.us:                              ; preds = %.lr.ph.i.us.us, %87
   %.not52.i.us.us = icmp eq i32 %.sroa.6.0.copyload.i.us.us, 0
@@ -1993,13 +1993,13 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
 
 96:                                               ; preds = %._crit_edge.i.us.us
   %97 = getelementptr inbounds nuw %struct.bezier, ptr %86, i64 %.0442.i.us.us, i32 4
-  %98 = load double, ptr %97, align 8, !tbaa !151
+  %98 = load double, ptr %97, align 8, !tbaa !152
   %99 = fadd double %.sroa.0.0.copyload.us, %98
-  store double %99, ptr %97, align 8, !tbaa !151
+  store double %99, ptr %97, align 8, !tbaa !152
   %100 = getelementptr inbounds nuw %struct.bezier, ptr %86, i64 %.0442.i.us.us, i32 4, i32 1
-  %101 = load double, ptr %100, align 8, !tbaa !153
+  %101 = load double, ptr %100, align 8, !tbaa !154
   %102 = fadd double %.sroa.4.0.copyload.us, %101
-  store double %102, ptr %100, align 8, !tbaa !153
+  store double %102, ptr %100, align 8, !tbaa !154
   br label %103
 
 103:                                              ; preds = %96, %._crit_edge.i.us.us
@@ -2008,29 +2008,29 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly captures(no
 
 104:                                              ; preds = %103
   %105 = getelementptr inbounds nuw %struct.bezier, ptr %86, i64 %.0442.i.us.us, i32 5
-  %106 = load double, ptr %105, align 8, !tbaa !154
+  %106 = load double, ptr %105, align 8, !tbaa !155
   %107 = fadd double %.sroa.0.0.copyload.us, %106
-  store double %107, ptr %105, align 8, !tbaa !154
+  store double %107, ptr %105, align 8, !tbaa !155
   %108 = getelementptr inbounds nuw %struct.bezier, ptr %86, i64 %.0442.i.us.us, i32 5, i32 1
-  %109 = load double, ptr %108, align 8, !tbaa !155
+  %109 = load double, ptr %108, align 8, !tbaa !156
   %110 = fadd double %.sroa.4.0.copyload.us, %109
-  store double %110, ptr %108, align 8, !tbaa !155
+  store double %110, ptr %108, align 8, !tbaa !156
   br label %111
 
 111:                                              ; preds = %104, %103
   %112 = add nuw i64 %.0442.i.us.us, 1
   %exitcond6.not.i.us.us = icmp eq i64 %112, %85
-  br i1 %exitcond6.not.i.us.us, label %shiftEdge.exit.us.us, label %87, !llvm.loop !156
+  br i1 %exitcond6.not.i.us.us, label %shiftEdge.exit.us.us, label %87, !llvm.loop !157
 
 shiftEdge.exit.us.us:                             ; preds = %111, %.preheader.i.us.us, %80
   %113 = tail call ptr @agnxtout(ptr noundef %..us, ptr noundef nonnull %.04453.us.us) #19
   %.not50.us.us = icmp eq ptr %113, null
-  br i1 %.not50.us.us, label %.loopexit.us.us, label %.lr.ph.us.us, !llvm.loop !157
+  br i1 %.not50.us.us, label %.loopexit.us.us, label %.lr.ph.us.us, !llvm.loop !158
 
 .loopexit.us.us:                                  ; preds = %shiftEdge.exit.us.us, %38
   %114 = tail call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.04355.us.us) #19
   %.not48.us.us = icmp eq ptr %114, null
-  br i1 %.not48.us.us, label %._crit_edge.split.us.us, label %.lr.ph56.us, !llvm.loop !158
+  br i1 %.not48.us.us, label %._crit_edge.split.us.us, label %.lr.ph56.us, !llvm.loop !159
 
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge.split
   %.04557 = phi i64 [ %147, %._crit_edge.split ], [ 0, %.preheader ]
@@ -2051,7 +2051,7 @@ shiftEdge.exit.us.us:                             ; preds = %111, %.preheader.i.
   %121 = getelementptr inbounds nuw i8, ptr %.04355, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !21
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 176
-  %124 = load ptr, ptr %123, align 8, !tbaa !129
+  %124 = load ptr, ptr %123, align 8, !tbaa !130
   %125 = load double, ptr %124, align 8, !tbaa !52
   %126 = fadd double %118, %125
   store double %126, ptr %124, align 8, !tbaa !52
@@ -2060,39 +2060,39 @@ shiftEdge.exit.us.us:                             ; preds = %111, %.preheader.i.
   %129 = fadd double %119, %128
   store double %129, ptr %127, align 8, !tbaa !52
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %131 = load double, ptr %130, align 8, !tbaa !130
+  %131 = load double, ptr %130, align 8, !tbaa !131
   %132 = fadd double %.sroa.0.0.copyload, %131
-  store double %132, ptr %130, align 8, !tbaa !130
+  store double %132, ptr %130, align 8, !tbaa !131
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %134 = load double, ptr %133, align 8, !tbaa !131
+  %134 = load double, ptr %133, align 8, !tbaa !132
   %135 = fadd double %.sroa.4.0.copyload, %134
-  store double %135, ptr %133, align 8, !tbaa !131
+  store double %135, ptr %133, align 8, !tbaa !132
   %136 = getelementptr inbounds nuw i8, ptr %122, i64 144
-  %137 = load ptr, ptr %136, align 8, !tbaa !132
+  %137 = load ptr, ptr %136, align 8, !tbaa !133
   %.not49 = icmp eq ptr %137, null
   br i1 %.not49, label %145, label %138
 
 138:                                              ; preds = %.lr.ph56
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 72
-  %140 = load double, ptr %139, align 8, !tbaa !133
+  %140 = load double, ptr %139, align 8, !tbaa !134
   %141 = fadd double %.sroa.0.0.copyload, %140
-  store double %141, ptr %139, align 8, !tbaa !133
+  store double %141, ptr %139, align 8, !tbaa !134
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 80
-  %143 = load double, ptr %142, align 8, !tbaa !135
+  %143 = load double, ptr %142, align 8, !tbaa !136
   %144 = fadd double %.sroa.4.0.copyload, %143
-  store double %144, ptr %142, align 8, !tbaa !135
+  store double %144, ptr %142, align 8, !tbaa !136
   br label %145
 
 145:                                              ; preds = %138, %.lr.ph56
   %146 = tail call ptr @agnxtnode(ptr noundef %116, ptr noundef nonnull %.04355) #19
   %.not48 = icmp eq ptr %146, null
-  br i1 %.not48, label %._crit_edge.split, label %.lr.ph56, !llvm.loop !158
+  br i1 %.not48, label %._crit_edge.split, label %.lr.ph56, !llvm.loop !160
 
 ._crit_edge.split:                                ; preds = %145, %.preheader.split
   tail call fastcc void @shiftGraph(ptr noundef %116, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload)
   %147 = add nuw i64 %.04557, 1
   %exitcond.not = icmp eq i64 %147, %0
-  br i1 %exitcond.not, label %.loopexit51, label %.preheader.split, !llvm.loop !128
+  br i1 %exitcond.not, label %.loopexit51, label %.preheader.split, !llvm.loop !161
 
 .loopexit51:                                      ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %5
   ret i32 0
@@ -2127,25 +2127,25 @@ define internal fastcc void @shiftGraph(ptr noundef readonly captures(none) %0, 
   store double %8, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !52
   store double %10, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !159
+  %12 = load ptr, ptr %11, align 8, !tbaa !162
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %24, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 105
-  %15 = load i8, ptr %14, align 1, !tbaa !160, !range !19, !noundef !20
+  %15 = load i8, ptr %14, align 1, !tbaa !163, !range !19, !noundef !20
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %19 = load double, ptr %18, align 8, !tbaa !133
+  %19 = load double, ptr %18, align 8, !tbaa !134
   %20 = fadd double %1, %19
-  store double %20, ptr %18, align 8, !tbaa !133
+  store double %20, ptr %18, align 8, !tbaa !134
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %22 = load double, ptr %21, align 8, !tbaa !135
+  %22 = load double, ptr %21, align 8, !tbaa !136
   %23 = fadd double %2, %22
-  store double %23, ptr %21, align 8, !tbaa !135
+  store double %23, ptr %21, align 8, !tbaa !136
   br label %24
 
 24:                                               ; preds = %17, %13, %3
@@ -2168,7 +2168,7 @@ define internal fastcc void @shiftGraph(ptr noundef readonly captures(none) %0, 
   %34 = load i32, ptr %33, align 4, !tbaa !58
   %35 = sext i32 %34 to i64
   %.not27.not = icmp slt i64 %indvars.iv, %35
-  br i1 %.not27.not, label %.lr.ph, label %._crit_edge, !llvm.loop !161
+  br i1 %.not27.not, label %.lr.ph, label %._crit_edge, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   ret void
@@ -2276,7 +2276,7 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr noundef readonly c
   %32 = tail call double @llvm.maxnum.f64(double %.sroa.10.132, double %.sroa.627.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph46
   %.sroa.10.1.lcssa = phi double [ %.sroa.10.040, %.lr.ph46 ], [ %32, %23 ]
@@ -2285,7 +2285,7 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr noundef readonly c
   %.sroa.0.1.lcssa = phi double [ %.sroa.0.043, %.lr.ph46 ], [ %29, %23 ]
   %33 = add nuw i64 %.044, 1
   %exitcond57.not = icmp eq i64 %33, %0
-  br i1 %exitcond57.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !163
+  br i1 %exitcond57.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !166
 
 packGraphs.exit:                                  ; preds = %4, %._crit_edge47
   %.0.i29 = phi i32 [ 0, %._crit_edge47 ], [ 1, %4 ]
@@ -2458,7 +2458,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly captures(address_is_null) %0,
   %.sink31.i = phi i32 [ 8, %23 ], [ 4, %22 ], [ 32, %21 ], [ 16, %20 ], [ 2, %19 ], [ 64, %18 ], [ 1, %.preheader ]
   %25 = or i32 %16, %.sink31.i
   store i32 %25, ptr %6, align 8, !tbaa !106
-  br label %.preheader, !llvm.loop !164
+  br label %.preheader, !llvm.loop !167
 
 chkFlags.exit:                                    ; preds = %.preheader, %13
   %.021.i = phi ptr [ %14, %13 ], [ %.02227.i, %.preheader ]
@@ -2489,11 +2489,11 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br i1 %or.cond3, label %40, label %41
 
 40:                                               ; preds = %34
-  store float %38, ptr %2, align 8, !tbaa !165
+  store float %38, ptr %2, align 8, !tbaa !168
   br label %54
 
 41:                                               ; preds = %34
-  store float 1.000000e+00, ptr %2, align 8, !tbaa !165
+  store float 1.000000e+00, ptr %2, align 8, !tbaa !168
   br label %54
 
 42:                                               ; preds = %31
@@ -2552,7 +2552,7 @@ mode2Str.exit:                                    ; preds = %56, %switch.lookup
 
 66:                                               ; preds = %mode2Str.exit
   %67 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %68 = load float, ptr %2, align 8, !tbaa !165
+  %68 = load float, ptr %2, align 8, !tbaa !168
   %69 = fpext float %68 to double
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.10, double noundef %69) #20
   br label %71
@@ -2681,7 +2681,7 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %25, double %.04851)
   %30 = add nuw i64 %.04950, 1
   %exitcond.not = icmp eq i64 %30, %0
-  br i1 %exitcond.not, label %6, label %20, !llvm.loop !166
+  br i1 %exitcond.not, label %6, label %20, !llvm.loop !169
 
 31:                                               ; preds = %6
   %32 = fneg double %27
@@ -2712,16 +2712,16 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @genBox(ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3, double %4, double %5, ptr noundef %6) unnamed_addr #0 {
-  %8 = load double, ptr %0, align 8, !tbaa !167
+  %8 = load double, ptr %0, align 8, !tbaa !170
   %9 = tail call double @llvm.round.f64(double %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load double, ptr %10, align 8, !tbaa !168
+  %11 = load double, ptr %10, align 8, !tbaa !171
   %12 = tail call double @llvm.round.f64(double %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load double, ptr %13, align 8, !tbaa !169
+  %14 = load double, ptr %13, align 8, !tbaa !172
   %15 = tail call double @llvm.round.f64(double %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load double, ptr %16, align 8, !tbaa !170
+  %17 = load double, ptr %16, align 8, !tbaa !173
   %18 = tail call double @llvm.round.f64(double %17)
   %19 = tail call ptr @newPS() #19
   %20 = uitofp i32 %3 to double
@@ -2819,12 +2819,12 @@ define internal fastcc void @genBox(ptr noundef readonly byval(%struct.boxf) ali
   tail call void @addPS(ptr noundef %19, double noundef %.06676, double noundef %.06775) #19
   %80 = fadd double %.06775, 1.000000e+00
   %81 = fcmp ugt double %80, %76
-  br i1 %81, label %._crit_edge, label %79, !llvm.loop !171
+  br i1 %81, label %._crit_edge, label %79, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %79
   %82 = fadd double %.06676, 1.000000e+00
   %83 = fcmp ugt double %82, %75
-  br i1 %83, label %._crit_edge77, label %.preheader, !llvm.loop !172
+  br i1 %83, label %._crit_edge77, label %.preheader, !llvm.loop !175
 
 ._crit_edge77:                                    ; preds = %._crit_edge, %73
   %84 = tail call ptr @pointsOf(ptr noundef %19) #19
@@ -2872,7 +2872,7 @@ define internal fastcc void @genBox(ptr noundef readonly byval(%struct.boxf) ali
   %116 = load i32, ptr %87, align 8, !tbaa !92
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !173
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !176
 
 .loopexit:                                        ; preds = %.lr.ph, %104, %._crit_edge77
   tail call void @freePS(ptr noundef %19) #19
@@ -2956,7 +2956,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 40:                                               ; preds = %38
   %41 = add nuw nsw i32 %.0174, 1
   %exitcond.not = icmp eq i32 %41, %.0133
-  br i1 %exitcond.not, label %.lr.ph, label %38, !llvm.loop !174
+  br i1 %exitcond.not, label %.lr.ph, label %38, !llvm.loop !177
 
 .lr.ph:                                           ; preds = %40, %43
   %.0127175 = phi i32 [ %44, %43 ], [ %37, %40 ]
@@ -2967,7 +2967,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 43:                                               ; preds = %.lr.ph
   %44 = add i32 %.0127175, 1
   %exitcond218.not = icmp eq i32 %44, %.0133
-  br i1 %exitcond218.not, label %.lr.ph177, label %.lr.ph, !llvm.loop !175
+  br i1 %exitcond218.not, label %.lr.ph177, label %.lr.ph, !llvm.loop !178
 
 .lr.ph177:                                        ; preds = %43, %46
   %.1176 = phi i32 [ %47, %46 ], [ %.0133, %43 ]
@@ -2978,7 +2978,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 46:                                               ; preds = %.lr.ph177
   %47 = add nsw i32 %.1176, -1
   %48 = icmp sgt i32 %47, %37
-  br i1 %48, label %.lr.ph177, label %.lr.ph180, !llvm.loop !176
+  br i1 %48, label %.lr.ph177, label %.lr.ph180, !llvm.loop !179
 
 .preheader156:                                    ; preds = %51
   %49 = icmp slt i32 %.1176, 1
@@ -2993,12 +2993,12 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 51:                                               ; preds = %.lr.ph180
   %52 = add nsw i32 %.1128179, -1
   %53 = icmp sgt i32 %52, %37
-  br i1 %53, label %.lr.ph180, label %.preheader156, !llvm.loop !177
+  br i1 %53, label %.lr.ph180, label %.preheader156, !llvm.loop !180
 
 54:                                               ; preds = %.lr.ph183
   %55 = add i32 %.2182, 1
   %exitcond219.not = icmp eq i32 %55, 0
-  br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph183, !llvm.loop !178
+  br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph183, !llvm.loop !181
 
 .lr.ph183:                                        ; preds = %.preheader156, %54
   %.2182 = phi i32 [ %55, %54 ], [ %47, %.preheader156 ]
@@ -3024,7 +3024,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 60:                                               ; preds = %.lr.ph186
   %61 = add nsw i32 %.2129184, -1
   %62 = icmp sgt i32 %61, %58
-  br i1 %62, label %.lr.ph186, label %.lr.ph189, !llvm.loop !179
+  br i1 %62, label %.lr.ph186, label %.lr.ph189, !llvm.loop !182
 
 .preheader150:                                    ; preds = %64
   %.not222 = icmp sgt i32 %.2129184, %.1134
@@ -3039,7 +3039,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 64:                                               ; preds = %.lr.ph189
   %65 = add i32 %.3188, 1
   %exitcond220.not = icmp eq i32 %65, %.1134
-  br i1 %exitcond220.not, label %.preheader150, label %.lr.ph189, !llvm.loop !180
+  br i1 %exitcond220.not, label %.preheader150, label %.lr.ph189, !llvm.loop !183
 
 .lr.ph195.preheader:                              ; preds = %67, %.preheader150
   %.3130.lcssa = phi i32 [ %61, %.preheader150 ], [ %.1134, %67 ]
@@ -3054,7 +3054,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 67:                                               ; preds = %.lr.ph192
   %68 = add i32 %.3130191, 1
   %exitcond221.not = icmp eq i32 %68, %.1134
-  br i1 %exitcond221.not, label %.lr.ph195.preheader, label %.lr.ph192, !llvm.loop !181
+  br i1 %exitcond221.not, label %.lr.ph195.preheader, label %.lr.ph192, !llvm.loop !184
 
 .preheader:                                       ; preds = %71
   %69 = icmp sgt i32 %.3130.lcssa, 0
@@ -3069,12 +3069,12 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 71:                                               ; preds = %.lr.ph195
   %72 = add nsw i32 %.4194, -1
   %73 = icmp sgt i32 %72, %58
-  br i1 %73, label %.lr.ph195, label %.preheader, !llvm.loop !182
+  br i1 %73, label %.lr.ph195, label %.preheader, !llvm.loop !185
 
 74:                                               ; preds = %.lr.ph198
   %75 = add nsw i32 %.4131197, -1
   %76 = icmp sgt i32 %.4131197, 1
-  br i1 %76, label %.lr.ph198, label %._crit_edge199, !llvm.loop !183
+  br i1 %76, label %.lr.ph198, label %._crit_edge199, !llvm.loop !186
 
 .lr.ph198:                                        ; preds = %.preheader, %74
   %.4131197 = phi i32 [ %75, %74 ], [ %.3130.lcssa, %.preheader ]
@@ -3119,13 +3119,13 @@ define internal fastcc void @fillEdge(ptr noundef nonnull readonly captures(none
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !144
+  %13 = load ptr, ptr %12, align 8, !tbaa !145
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !145
+  %15 = load i64, ptr %14, align 8, !tbaa !146
   %.not158 = icmp eq i64 %15, 0
   br i1 %.not158, label %.loopexit, label %.lr.ph157
 
@@ -3186,9 +3186,9 @@ define internal fastcc void @fillEdge(ptr noundef nonnull readonly captures(none
 51:                                               ; preds = %.lr.ph157, %162
   %52 = phi ptr [ %13, %.lr.ph157 ], [ %166, %162 ]
   %.0156 = phi i64 [ 0, %.lr.ph157 ], [ %163, %162 ]
-  %53 = load ptr, ptr %52, align 8, !tbaa !148
+  %53 = load ptr, ptr %52, align 8, !tbaa !149
   %54 = getelementptr inbounds nuw %struct.bezier, ptr %53, i64 %.0156
-  %.sroa.078.0.copyload = load ptr, ptr %54, align 8, !tbaa !149
+  %.sroa.078.0.copyload = load ptr, ptr %54, align 8, !tbaa !150
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !117
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -3364,7 +3364,7 @@ define internal fastcc void @fillEdge(ptr noundef nonnull readonly captures(none
 fillLine.exit:                                    ; preds = %.lr.ph.i, %.lr.ph83.i, %122, %134
   %146 = add i64 %.1154, 1
   %exitcond.not = icmp eq i64 %146, %.sroa.7.0.copyload
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %fillLine.exit, %58
   %.sroa.37.1.lcssa = phi double [ %86, %58 ], [ %102, %fillLine.exit ]
@@ -3394,11 +3394,11 @@ fillLine.exit:                                    ; preds = %.lr.ph.i, %.lr.ph83
   %163 = add nuw i64 %.0156, 1
   %164 = load ptr, ptr %10, align 8, !tbaa !21
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %166 = load ptr, ptr %165, align 8, !tbaa !144
+  %166 = load ptr, ptr %165, align 8, !tbaa !145
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load i64, ptr %167, align 8, !tbaa !145
+  %168 = load i64, ptr %167, align 8, !tbaa !146
   %169 = icmp ult i64 %163, %168
-  br i1 %169, label %51, label %.loopexit, !llvm.loop !185
+  br i1 %169, label %51, label %.loopexit, !llvm.loop !188
 
 .loopexit:                                        ; preds = %162, %.preheader, %49
   ret void
@@ -3529,16 +3529,16 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %20 = getelementptr inbounds nuw i8, ptr %.04250, i64 16
   %21 = add nuw nsw i32 %.04549, 1
   %exitcond.not = icmp eq i32 %21, %10
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !186
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !189
 
 ._crit_edge:                                      ; preds = %19, %7
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw %struct.boxf, ptr %6, i64 %23
-  %25 = load double, ptr %24, align 8, !tbaa !167
+  %25 = load double, ptr %24, align 8, !tbaa !170
   %26 = tail call double @llvm.round.f64(double %25)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load double, ptr %27, align 8, !tbaa !168
+  %28 = load double, ptr %27, align 8, !tbaa !171
   %29 = tail call double @llvm.round.f64(double %28)
   %30 = mul nsw i32 %5, %0
   %31 = sitofp i32 %30 to double
@@ -3569,7 +3569,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %43 = getelementptr inbounds nuw i8, ptr %.24452, i64 16
   %44 = add nuw nsw i32 %.14651, 1
   %exitcond56.not = icmp eq i32 %44, %10
-  br i1 %exitcond56.not, label %._crit_edge55, label %40, !llvm.loop !187
+  br i1 %exitcond56.not, label %._crit_edge55, label %40, !llvm.loop !190
 
 ._crit_edge55:                                    ; preds = %40, %._crit_edge
   %45 = load i8, ptr @Verbose, align 1, !tbaa !47
@@ -3831,52 +3831,52 @@ attributes #25 = { cold noreturn nounwind }
 !125 = distinct !{!125, !49}
 !126 = distinct !{!126, !49}
 !127 = distinct !{!127, !49}
-!128 = distinct !{!128, !49}
-!129 = !{!60, !62, i64 176}
-!130 = !{!60, !34, i64 32}
-!131 = !{!60, !34, i64 40}
-!132 = !{!60, !31, i64 144}
-!133 = !{!134, !34, i64 72}
-!134 = !{!"textlabel_t", !29, i64 0, !29, i64 8, !29, i64 16, !8, i64 24, !34, i64 32, !33, i64 40, !33, i64 56, !33, i64 72, !6, i64 88, !6, i64 104, !9, i64 105, !9, i64 106}
-!135 = !{!134, !34, i64 80}
-!136 = !{!137, !31, i64 120}
-!137 = !{!"Agedgeinfo_t", !28, i64 0, !138, i64 16, !139, i64 24, !139, i64 72, !31, i64 120, !31, i64 128, !31, i64 136, !31, i64 144, !6, i64 152, !6, i64 153, !6, i64 154, !6, i64 155, !6, i64 156, !65, i64 160, !11, i64 168, !34, i64 176, !34, i64 184, !140, i64 192, !6, i64 208, !9, i64 209, !35, i64 210, !8, i64 212, !8, i64 216, !8, i64 220, !35, i64 224, !8, i64 228, !65, i64 232}
-!138 = !{!"p1 _ZTS7splines", !11, i64 0}
-!139 = !{!"port", !33, i64 0, !34, i64 16, !11, i64 24, !9, i64 32, !9, i64 33, !9, i64 34, !9, i64 35, !6, i64 36, !6, i64 37, !29, i64 40}
-!140 = !{!"Ppoly_t", !56, i64 0, !24, i64 8}
-!141 = !{!137, !31, i64 144}
-!142 = !{!137, !31, i64 128}
-!143 = !{!137, !31, i64 136}
-!144 = !{!137, !138, i64 16}
-!145 = !{!146, !24, i64 8}
-!146 = !{!"splines", !147, i64 0, !24, i64 8, !32, i64 16}
-!147 = !{!"p1 _ZTS6bezier", !11, i64 0}
-!148 = !{!146, !147, i64 0}
-!149 = !{!56, !56, i64 0}
-!150 = distinct !{!150, !49}
-!151 = !{!152, !34, i64 24}
-!152 = !{!"bezier", !56, i64 0, !24, i64 8, !8, i64 16, !8, i64 20, !33, i64 24, !33, i64 40}
-!153 = !{!152, !34, i64 32}
-!154 = !{!152, !34, i64 40}
-!155 = !{!152, !34, i64 48}
-!156 = distinct !{!156, !49}
+!128 = distinct !{!128, !49, !129}
+!129 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!130 = !{!60, !62, i64 176}
+!131 = !{!60, !34, i64 32}
+!132 = !{!60, !34, i64 40}
+!133 = !{!60, !31, i64 144}
+!134 = !{!135, !34, i64 72}
+!135 = !{!"textlabel_t", !29, i64 0, !29, i64 8, !29, i64 16, !8, i64 24, !34, i64 32, !33, i64 40, !33, i64 56, !33, i64 72, !6, i64 88, !6, i64 104, !9, i64 105, !9, i64 106}
+!136 = !{!135, !34, i64 80}
+!137 = !{!138, !31, i64 120}
+!138 = !{!"Agedgeinfo_t", !28, i64 0, !139, i64 16, !140, i64 24, !140, i64 72, !31, i64 120, !31, i64 128, !31, i64 136, !31, i64 144, !6, i64 152, !6, i64 153, !6, i64 154, !6, i64 155, !6, i64 156, !65, i64 160, !11, i64 168, !34, i64 176, !34, i64 184, !141, i64 192, !6, i64 208, !9, i64 209, !35, i64 210, !8, i64 212, !8, i64 216, !8, i64 220, !35, i64 224, !8, i64 228, !65, i64 232}
+!139 = !{!"p1 _ZTS7splines", !11, i64 0}
+!140 = !{!"port", !33, i64 0, !34, i64 16, !11, i64 24, !9, i64 32, !9, i64 33, !9, i64 34, !9, i64 35, !6, i64 36, !6, i64 37, !29, i64 40}
+!141 = !{!"Ppoly_t", !56, i64 0, !24, i64 8}
+!142 = !{!138, !31, i64 144}
+!143 = !{!138, !31, i64 128}
+!144 = !{!138, !31, i64 136}
+!145 = !{!138, !139, i64 16}
+!146 = !{!147, !24, i64 8}
+!147 = !{!"splines", !148, i64 0, !24, i64 8, !32, i64 16}
+!148 = !{!"p1 _ZTS6bezier", !11, i64 0}
+!149 = !{!147, !148, i64 0}
+!150 = !{!56, !56, i64 0}
+!151 = distinct !{!151, !49}
+!152 = !{!153, !34, i64 24}
+!153 = !{!"bezier", !56, i64 0, !24, i64 8, !8, i64 16, !8, i64 20, !33, i64 24, !33, i64 40}
+!154 = !{!153, !34, i64 32}
+!155 = !{!153, !34, i64 40}
+!156 = !{!153, !34, i64 48}
 !157 = distinct !{!157, !49}
 !158 = distinct !{!158, !49}
-!159 = !{!27, !31, i64 24}
-!160 = !{!134, !9, i64 105}
+!159 = distinct !{!159, !49, !129}
+!160 = distinct !{!160, !49}
 !161 = distinct !{!161, !49}
-!162 = distinct !{!162, !49}
-!163 = distinct !{!163, !49}
+!162 = !{!27, !31, i64 24}
+!163 = !{!135, !9, i64 105}
 !164 = distinct !{!164, !49}
-!165 = !{!4, !5, i64 0}
+!165 = distinct !{!165, !49}
 !166 = distinct !{!166, !49}
-!167 = !{!32, !34, i64 0}
-!168 = !{!32, !34, i64 8}
-!169 = !{!32, !34, i64 16}
-!170 = !{!32, !34, i64 24}
-!171 = distinct !{!171, !49}
-!172 = distinct !{!172, !49}
-!173 = distinct !{!173, !49}
+!167 = distinct !{!167, !49}
+!168 = !{!4, !5, i64 0}
+!169 = distinct !{!169, !49}
+!170 = !{!32, !34, i64 0}
+!171 = !{!32, !34, i64 8}
+!172 = !{!32, !34, i64 16}
+!173 = !{!32, !34, i64 24}
 !174 = distinct !{!174, !49}
 !175 = distinct !{!175, !49}
 !176 = distinct !{!176, !49}
@@ -3891,3 +3891,6 @@ attributes #25 = { cold noreturn nounwind }
 !185 = distinct !{!185, !49}
 !186 = distinct !{!186, !49}
 !187 = distinct !{!187, !49}
+!188 = distinct !{!188, !49}
+!189 = distinct !{!189, !49}
+!190 = distinct !{!190, !49}

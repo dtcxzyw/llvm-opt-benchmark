@@ -284,4 +284,5 @@ attributes #10 = { nounwind allocsize(0) }
 !20 = !{!"vtable pointer", !7, i64 0}
 !21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
+!23 = distinct !{!23, !22, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}

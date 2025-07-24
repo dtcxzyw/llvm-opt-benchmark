@@ -673,10 +673,10 @@ define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr
   tail call void @kfree(ptr noundef nonnull %23) #8
   %37 = load ptr, ptr %6, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.preheader.split, !llvm.loop !30
+  br i1 %38, label %.loopexit, label %.preheader.split, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %3
-  br i1 %4, label %3, label %39, !llvm.loop !31
+  br i1 %4, label %3, label %39, !llvm.loop !33
 
 39:                                               ; preds = %.loopexit
   ret void
@@ -698,7 +698,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit3, label %.preheader, !llvm.loop !32
+  br i1 %12, label %.loopexit3, label %.preheader, !llvm.loop !34
 
 .preheader:                                       ; preds = %3, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %3 ]
@@ -708,7 +708,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
   br i1 %16, label %9, label %.loopexit
 
 .loopexit3:                                       ; preds = %9, %3
-  br i1 %4, label %3, label %.loopexit, !llvm.loop !33
+  br i1 %4, label %3, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.loopexit3, %.preheader
   %17 = phi i32 [ %15, %.preheader ], [ 0, %.loopexit3 ]
@@ -839,7 +839,9 @@ attributes #9 = { nounwind allocsize(0) }
 !27 = !{i64 2159152591}
 !28 = !{i64 2159376133}
 !29 = distinct !{!29, !17, !18}
-!30 = distinct !{!30, !17, !18}
-!31 = distinct !{!31, !17, !18}
+!30 = distinct !{!30, !17, !18, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !32 = distinct !{!32, !17, !18}
 !33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}

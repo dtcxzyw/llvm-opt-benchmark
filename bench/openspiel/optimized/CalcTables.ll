@@ -760,7 +760,7 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %49
   %87 = load i32, ptr %0, align 4
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next165, %88
-  br i1 %89, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !22
+  br i1 %89, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.preheader, %86
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %86 ], [ 0, %.preheader ]
@@ -794,7 +794,7 @@ define i32 @CalcAllTablesPBN(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %12 = load i32, ptr %0, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %15, label %._crit_edge, !llvm.loop !23
+  br i1 %14, label %15, label %._crit_edge, !llvm.loop !24
 
 15:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -887,7 +887,7 @@ define linkonce_odr void @_ZNSt6vectorI12futureTricksSaIS0_EE17_M_default_append
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(216) %5, i64 216, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -925,7 +925,7 @@ _ZNKSt6vectorI12futureTricksSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 4 dereferenceable(216) %33, i64 216, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 216
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !25
 
 _ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorI12futureTricksSaIS0_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -1028,7 +1028,8 @@ attributes #16 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!21 = distinct !{!21, !5, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}

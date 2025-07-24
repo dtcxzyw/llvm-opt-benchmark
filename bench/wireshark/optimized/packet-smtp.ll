@@ -953,7 +953,7 @@ append_pdu.exit282.us:                            ; preds = %317
 347:                                              ; preds = %._crit_edge, %344
   %348 = phi i32 [ %.pre, %._crit_edge ], [ %346, %344 ]
   %349 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %348)
-  br i1 %349, label %.lr.ph318.split, label %.loopexit309, !llvm.loop !11
+  br i1 %349, label %.lr.ph318.split, label %.loopexit309, !llvm.loop !13
 
 .split324.us:                                     ; preds = %302, %305
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.120, i32 noundef 252, ptr noundef nonnull @.str.122) #11
@@ -1100,7 +1100,7 @@ append_pdu.exit282.us:                            ; preds = %317
   %420 = call ptr @proto_tree_add_item(ptr noundef nonnull %356, i32 noundef %417, ptr noundef %382, i32 noundef %.08.i.i, i32 noundef %419, i32 noundef 0)
   %421 = load i32, ptr %8, align 4
   %422 = call zeroext i1 @tvb_offset_exists(ptr noundef %382, i32 noundef %421)
-  br i1 %422, label %.lr.ph.i.i, label %dissect_smtp_data.exit.i, !llvm.loop !12
+  br i1 %422, label %.lr.ph.i.i, label %dissect_smtp_data.exit.i, !llvm.loop !14
 
 dissect_smtp_data.exit.i:                         ; preds = %.lr.ph.i.i, %.preheader.i.i, %414
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
@@ -1579,7 +1579,7 @@ dissect_ntlm_auth.exit.i:                         ; preds = %684, %681, %678, %5
   %.2.i = phi ptr [ %.1.i, %468 ], [ %.3.i, %497 ], [ %537, %535 ], [ %523, %552 ], [ %.0331.i, %561 ], [ %.5.i, %681 ], [ %.5.i, %684 ], [ %.5.i, %678 ], [ %523, %543 ], [ %523, %549 ]
   %688 = load i32, ptr %9, align 4
   %689 = call zeroext i1 @tvb_offset_exists(ptr noundef %382, i32 noundef %688)
-  br i1 %689, label %428, label %.loopexit.i, !llvm.loop !13
+  br i1 %689, label %428, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %dissect_ntlm_auth.exit.i, %423, %dissect_smtp_data.exit.i, %411, %400, %.preheader.i, %380
   %.0300.i = phi ptr [ null, %380 ], [ %408, %411 ], [ %408, %400 ], [ null, %dissect_smtp_data.exit.i ], [ null, %423 ], [ null, %.preheader.i ], [ %.2302.i, %dissect_ntlm_auth.exit.i ]
@@ -1630,7 +1630,7 @@ dissect_ntlm_auth.exit.i:                         ; preds = %684, %681, %678, %5
   %711 = call ptr @proto_tree_add_item(ptr noundef nonnull %356, i32 noundef %708, ptr noundef %382, i32 noundef %.08.i319.i, i32 noundef %710, i32 noundef 0)
   %712 = load i32, ptr %7, align 4
   %713 = call zeroext i1 @tvb_offset_exists(ptr noundef %382, i32 noundef %712)
-  br i1 %713, label %.lr.ph.i318.i, label %dissect_smtp_data.exit320.i, !llvm.loop !12
+  br i1 %713, label %.lr.ph.i318.i, label %dissect_smtp_data.exit320.i, !llvm.loop !14
 
 dissect_smtp_data.exit320.i:                      ; preds = %.lr.ph.i318.i, %.preheader.i317.i, %705
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
@@ -1649,7 +1649,7 @@ dissect_smtp_request.exit:                        ; preds = %.loopexit.i, %695, 
   %716 = getelementptr inbounds nuw i8, ptr %.5329, i64 16
   %717 = load ptr, ptr %716, align 8
   %.not277 = icmp eq ptr %717, null
-  br i1 %.not277, label %.critedge13, label %372, !llvm.loop !14
+  br i1 %.not277, label %.critedge13, label %372, !llvm.loop !16
 
 718:                                              ; preds = %.loopexit309
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
@@ -1966,7 +1966,7 @@ dissect_ntlm_auth.exit.thread.i:                  ; preds = %dissect_ntlm_auth.e
   %.1.i294 = phi ptr [ %.2.i300, %864 ], [ %.0162.i, %734 ]
   %867 = load i32, ptr %5, align 4
   %868 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %867)
-  br i1 %868, label %734, label %dissect_smtp_response.exit, !llvm.loop !15
+  br i1 %868, label %734, label %dissect_smtp_response.exit, !llvm.loop !17
 
 dissect_smtp_response.exit:                       ; preds = %866, %proto_item_set_hidden.exit.i291
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
@@ -2318,8 +2318,10 @@ attributes #11 = { noreturn }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!11 = distinct !{!11, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

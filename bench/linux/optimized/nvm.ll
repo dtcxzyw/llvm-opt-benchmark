@@ -37,7 +37,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_poll_eerd_eewr_done(ptr no
   tail call void @__const_udelay(i64 noundef 21475) #5
   %21 = add nuw nsw i32 %14, 1
   %22 = icmp eq i32 %21, 100000
-  br i1 %22, label %.split2.us, label %.split, !llvm.loop !6
+  br i1 %22, label %.split2.us, label %.split, !llvm.loop !10
 
 .split2.us:                                       ; preds = %.split, %20, %.split.us, %11
   %.us-phi = phi i32 [ 0, %.split.us ], [ -1, %11 ], [ 0, %.split ], [ -1, %20 ]
@@ -79,7 +79,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_acquire_nvm(ptr noundef %0
   %18 = and i32 %15, 128
   %19 = icmp eq i32 %18, 0
   %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %.preheader, label %21, !llvm.loop !9
+  br i1 %20, label %.preheader, label %21, !llvm.loop !11
 
 21:                                               ; preds = %.preheader
   br i1 %17, label %.thread, label %22
@@ -171,7 +171,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef 
   tail call void @__const_udelay(i64 noundef 21475) #5
   %28 = add nuw nsw i32 %21, 1
   %29 = icmp eq i32 %28, 100000
-  br i1 %29, label %.thread, label %20, !llvm.loop !6
+  br i1 %29, label %.thread, label %20, !llvm.loop !10
 
 30:                                               ; preds = %20
   %31 = load ptr, ptr %11, align 8
@@ -183,7 +183,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef 
   store i16 %35, ptr %36, align 2
   %37 = add nuw nsw i64 %15, 1
   %38 = icmp eq i64 %37, %13
-  br i1 %38, label %.thread, label %14, !llvm.loop !10
+  br i1 %38, label %.thread, label %14, !llvm.loop !12
 
 .thread:                                          ; preds = %30, %27, %8, %4
   %39 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %27 ], [ 0, %30 ]
@@ -222,7 +222,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   %22 = load ptr, ptr %20, align 8
   tail call void %22(ptr noundef %0) #5
   %23 = icmp ult i16 %21, %2
-  br i1 %23, label %24, label %.thread10, !llvm.loop !11
+  br i1 %23, label %24, label %.thread10, !llvm.loop !13
 
 24:                                               ; preds = %.loopexit, %12
   %25 = phi i16 [ 0, %12 ], [ %21, %.loopexit ]
@@ -282,7 +282,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   tail call void @__udelay(i64 noundef %64) #5
   %65 = add nuw nsw i32 %48, 1
   %66 = icmp eq i32 %65, 8
-  br i1 %66, label %67, label %47, !llvm.loop !12
+  br i1 %66, label %67, label %47, !llvm.loop !14
 
 67:                                               ; preds = %47
   %68 = and i32 %58, 8
@@ -320,7 +320,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
 89:                                               ; preds = %76, %70
   %90 = add nsw i16 %41, -1
   %91 = icmp eq i16 %90, 0
-  br i1 %91, label %171, label %40, !llvm.loop !13
+  br i1 %91, label %171, label %40, !llvm.loop !15
 
 .loopexit12:                                      ; preds = %67, %29
   %92 = load ptr, ptr %13, align 8
@@ -447,7 +447,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
 171:                                              ; preds = %89
   %172 = load ptr, ptr %20, align 8
   tail call void %172(ptr noundef %0) #5
-  br label %.thread10, !llvm.loop !11
+  br label %.thread10, !llvm.loop !13
 
 .thread10:                                        ; preds = %24, %.loopexit, %171, %10, %4
   %173 = phi i32 [ -1, %10 ], [ -1, %4 ], [ -1, %171 ], [ %27, %24 ], [ 0, %.loopexit ]
@@ -507,7 +507,7 @@ define internal fastcc void @e1000_shift_out_eec_bits(ptr noundef %0, i16 nounde
   tail call void @__udelay(i64 noundef %44) #5
   %45 = lshr i32 %22, 1
   %46 = icmp ult i32 %22, 2
-  br i1 %46, label %47, label %20, !llvm.loop !14
+  br i1 %46, label %47, label %20, !llvm.loop !16
 
 47:                                               ; preds = %20
   %48 = and i32 %21, -6
@@ -527,9 +527,9 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  store i16 0, ptr %4, align 2, !annotation !15
-  store i16 0, ptr %5, align 2, !annotation !15
-  store i16 0, ptr %6, align 2, !annotation !15
+  store i16 0, ptr %4, align 2, !annotation !17
+  store i16 0, ptr %5, align 2, !annotation !17
+  store i16 0, ptr %6, align 2, !annotation !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 %10(ptr noundef %0, i16 noundef zeroext 8, i16 noundef zeroext 1, ptr noundef nonnull %4) #5
@@ -619,7 +619,7 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
 63:                                               ; preds = %61, %57
   %64 = add nuw nsw i64 %51, 1
   %65 = icmp eq i64 %64, 10
-  br i1 %65, label %.loopexit, label %50, !llvm.loop !16
+  br i1 %65, label %.loopexit, label %50, !llvm.loop !18
 
 66:                                               ; preds = %17
   %67 = load i16, ptr %5, align 2
@@ -675,7 +675,7 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   %101 = load i16, ptr %6, align 2
   %102 = zext i16 %101 to i32
   %103 = icmp samesign ult i32 %indvars, %102
-  br i1 %103, label %.preheader, label %104, !llvm.loop !17
+  br i1 %103, label %.preheader, label %104, !llvm.loop !19
 
 104:                                              ; preds = %92
   %105 = shl nuw i64 %100, 1
@@ -718,7 +718,7 @@ define dso_local noundef i32 @e1000_read_mac_addr_generic(ptr noundef captures(n
   store i8 %15, ptr %16, align 1
   %17 = add nuw nsw i64 %11, 1
   %18 = icmp eq i64 %17, 4
-  br i1 %18, label %.critedge, label %10, !llvm.loop !18
+  br i1 %18, label %.critedge, label %10, !llvm.loop !20
 
 .critedge:                                        ; preds = %10
   %19 = trunc i32 %5 to i8
@@ -737,7 +737,7 @@ define dso_local noundef i32 @e1000_read_mac_addr_generic(ptr noundef captures(n
 define dso_local i32 @e1000e_validate_nvm_checksum_generic(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  store i16 0, ptr %2, align 2, !annotation !15
+  store i16 0, ptr %2, align 2, !annotation !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %4
 
@@ -754,7 +754,7 @@ define dso_local i32 @e1000e_validate_nvm_checksum_generic(ptr noundef %0) local
   %12 = add i16 %11, %6
   %13 = add nuw nsw i16 %5, 1
   %14 = icmp eq i16 %13, 64
-  br i1 %14, label %15, label %4, !llvm.loop !19
+  br i1 %14, label %15, label %4, !llvm.loop !21
 
 15:                                               ; preds = %10
   %16 = icmp ne i16 %12, -17734
@@ -773,7 +773,7 @@ define dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) local_u
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
-  store i16 0, ptr %3, align 2, !annotation !15
+  store i16 0, ptr %3, align 2, !annotation !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %5
 
@@ -790,7 +790,7 @@ define dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) local_u
   %13 = add i16 %6, %12
   %14 = add nuw nsw i16 %7, 1
   %15 = icmp eq i16 %14, 63
-  br i1 %15, label %16, label %5, !llvm.loop !20
+  br i1 %15, label %16, label %5, !llvm.loop !22
 
 16:                                               ; preds = %11
   %17 = sub i16 -17734, %13
@@ -849,18 +849,20 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2150068983}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7, !8}
 !13 = distinct !{!13, !7, !8}
 !14 = distinct !{!14, !7, !8}
-!15 = !{!"auto-init"}
+!15 = distinct !{!15, !7, !8}
 !16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!17 = !{!"auto-init"}
 !18 = distinct !{!18, !7, !8}
 !19 = distinct !{!19, !7, !8}
 !20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

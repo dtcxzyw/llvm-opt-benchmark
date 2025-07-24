@@ -80,7 +80,7 @@ build_huffman_codes.exit:                         ; preds = %.lr.ph, %build_huff
   store i16 %spec.select, ptr %32, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit, !llvm.loop !9
+  br i1 %exitcond.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit, !llvm.loop !11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -111,4 +111,6 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}

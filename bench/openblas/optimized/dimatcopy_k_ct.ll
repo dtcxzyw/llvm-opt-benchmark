@@ -55,13 +55,13 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %22, ptr %23, align 8, !tbaa !3
   %25 = add nuw nsw i64 %.17086, 1
   %exitcond103.not = icmp eq i64 %25, %0
-  br i1 %exitcond103.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !10
+  br i1 %exitcond103.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !11
 
 ._crit_edge89:                                    ; preds = %.lr.ph88, %.lr.ph92
   %26 = getelementptr inbounds double, ptr %.091, i64 %4
   %27 = add nuw nsw i64 %.17290, 1
   %exitcond104.not = icmp eq i64 %27, %1
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph92, !llvm.loop !11
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph92, !llvm.loop !12
 
 .lr.ph85:                                         ; preds = %16, %._crit_edge
   %.184 = phi ptr [ %43, %._crit_edge ], [ %3, %16 ]
@@ -89,12 +89,12 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %41, ptr %38, align 8, !tbaa !3
   %42 = add nuw nsw i64 %.282, 1
   %exitcond.not = icmp eq i64 %42, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph85
   %43 = getelementptr inbounds double, ptr %.184, i64 %4
   %exitcond102.not = icmp eq i64 %33, %1
-  br i1 %exitcond102.not, label %.loopexit, label %.lr.ph85, !llvm.loop !13
+  br i1 %exitcond102.not, label %.loopexit, label %.lr.ph85, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge89, %._crit_edge96.us, %5
   ret i32 0
@@ -113,8 +113,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

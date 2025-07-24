@@ -2809,7 +2809,7 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit.us:             ; preds = %.lr.ph.i.us, %39, %
 45:                                               ; preds = %47
   %46 = add nuw i32 %.02741, 1
   %exitcond.not = icmp eq i32 %.02741, %.sroa.speculated
-  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !130
 
 47:                                               ; preds = %.lr.ph, %45
   %.02741 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
@@ -2844,11 +2844,11 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit:                ; preds = %.lr.ph.i, %.thread,
   %.2 = phi i32 [ 0, %50 ], [ %.139, %.thread ], [ %.139, %.lr.ph.i ]
   %59 = load atomic i32, ptr %14 acquire, align 4
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.critedge, label %.lr.ph43.split, !llvm.loop !128
+  br i1 %60, label %.critedge, label %.lr.ph43.split, !llvm.loop !131
 
 .critedge:                                        ; preds = %.lr.ph43.split, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.lr.ph43.split.us, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us, %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %62 = load ptr, ptr %61, align 8, !tbaa !130
+  %62 = load ptr, ptr %61, align 8, !tbaa !132
   %.not.i31 = icmp eq ptr %62, null
   br i1 %.not.i31, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %63
 
@@ -2862,7 +2862,7 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit:                ; preds = %.lr.ph.i, %.thread,
   %65 = add nuw i32 %.046, 1
   %exitcond50.not = icmp eq i32 %.046, %2
   %or.cond = or i1 %64, %exitcond50.not
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph47, !llvm.loop !131
+  br i1 %or.cond, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph47, !llvm.loop !133
 
 _ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32:    ; preds = %.lr.ph47, %.preheader, %13, %63, %.critedge
   %66 = load ptr, ptr %8, align 8, !tbaa !4
@@ -2963,7 +2963,7 @@ _ZN4enki13TaskScheduler10TryRunTaskEjRj.exit:     ; preds = %.noexc
 
 45:                                               ; preds = %39, %31
   %.not48 = icmp eq i32 %32, 0
-  br i1 %.not48, label %_ZN12_GLOBAL__N_18SpinWaitEj.exit, label %31, !llvm.loop !132
+  br i1 %.not48, label %_ZN12_GLOBAL__N_18SpinWaitEj.exit, label %31, !llvm.loop !134
 
 46:                                               ; preds = %39
   call void @_ZN4enki13TaskScheduler16InitDependenciesEPNS_12ICompletableE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull %3)
@@ -3030,7 +3030,7 @@ _ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit: ; preds = %.lr.ph, %61
   %69 = load i32, ptr %15, align 8, !tbaa !72
   %70 = zext i32 %69 to i64
   %.not105 = icmp samesign ult i64 %indvars.iv.next, %70
-  br i1 %.not105, label %.lr.ph, label %.preheader, !llvm.loop !133
+  br i1 %.not105, label %.lr.ph, label %.preheader, !llvm.loop !135
 
 .lr.ph80:                                         ; preds = %.preheader, %_ZN4enki13TaskScheduler9HaveTasksEj.exit
   %71 = phi i32 [ %88, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ %69, %.preheader ]
@@ -3089,7 +3089,7 @@ _ZN4enki13TaskScheduler9HaveTasksEj.exit:         ; preds = %_ZN4enki13TaskSched
   %89 = zext i32 %88 to i64
   %90 = icmp samesign uge i64 %indvars.iv.next87, %89
   %.not52 = or i1 %90, %.5
-  br i1 %.not52, label %.loopexit, label %.lr.ph80, !llvm.loop !134
+  br i1 %.not52, label %.loopexit, label %.lr.ph80, !llvm.loop !136
 
 .loopexit:                                        ; preds = %61, %61, %61, %_ZN4enki13TaskScheduler9HaveTasksEj.exit, %76, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
   %.3 = phi i1 [ false, %.preheader ], [ false, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ true, %.lr.ph.i61 ], [ true, %76 ], [ %.5, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ true, %61 ], [ true, %61 ], [ true, %61 ]
@@ -3097,7 +3097,7 @@ _ZN4enki13TaskScheduler9HaveTasksEj.exit:         ; preds = %_ZN4enki13TaskSched
   %92 = trunc i8 %91 to i1
   %93 = or i1 %22, %.3
   %or.cond57 = and i1 %93, %92
-  br i1 %or.cond57, label %.preheader76, label %.critedge, !llvm.loop !135
+  br i1 %or.cond57, label %.preheader76, label %.critedge, !llvm.loop !137
 
 .critedge:                                        ; preds = %.loopexit, %1
   store atomic i8 0, ptr %4 release, align 2
@@ -3197,7 +3197,7 @@ define dso_local void @_ZN4enki13TaskScheduler21WaitForNewPinnedTasksEv(ptr noun
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !136
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !138
 
 11:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
@@ -3280,17 +3280,17 @@ define dso_local void @_ZN4enki13TaskSchedulerC2Ev(ptr noundef nonnull writeonly
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, i8 0, i64 21, i1 false)
   %6 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #26
   %7 = add i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !137
+  store i32 %7, ptr %5, align 8, !tbaa !139
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %8, i8 0, i64 68, i1 false)
-  store ptr @_ZN4enki16DefaultAllocFuncEmmPvPKci, ptr %9, align 8, !tbaa !138
+  store ptr @_ZN4enki16DefaultAllocFuncEmmPvPKci, ptr %9, align 8, !tbaa !140
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr @_ZN4enki15DefaultFreeFuncEPvmS0_PKci, ptr %10, align 8, !tbaa !139
+  store ptr @_ZN4enki15DefaultFreeFuncEPvmS0_PKci, ptr %10, align 8, !tbaa !141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr null, ptr %11, align 8, !tbaa !140
+  store ptr null, ptr %11, align 8, !tbaa !142
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %12, align 8, !tbaa !141
+  store i32 0, ptr %12, align 8, !tbaa !143
   ret void
 }
 
@@ -3362,7 +3362,7 @@ define dso_local void @_ZN4enki13TaskScheduler10InitializeEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4enki13TaskScheduler18SetCustomAllocatorENS_15CustomAllocatorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(220) initializes((192, 216)) %0, ptr noundef readonly byval(%"struct.enki::CustomAllocator") align 8 captures(none) %1) local_unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !144
   ret void
 }
 
@@ -3370,7 +3370,7 @@ define dso_local void @_ZN4enki13TaskScheduler18SetCustomAllocatorENS_15CustomAl
 define dso_local void @_ZN4enki10DependencyC2EPKNS_12ICompletableEPS1_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #18 align 2 {
   store ptr %2, ptr %0, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !145
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !30
@@ -3389,8 +3389,8 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %6 = load ptr, ptr %5, align 8, !tbaa !143
-  store ptr %6, ptr %3, align 8, !tbaa !143
+  %6 = load ptr, ptr %5, align 8, !tbaa !145
+  store ptr %6, ptr %3, align 8, !tbaa !145
   %7 = load ptr, ptr %1, align 8, !tbaa !35
   store ptr %7, ptr %0, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3414,11 +3414,11 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %.not11 = icmp eq ptr %16, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !144
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !146
 
 .lr.ph:                                           ; preds = %.lr.ph18
   %17 = icmp eq ptr %1, %16
-  br i1 %17, label %.lr.ph._crit_edge.loopexit, label %.lr.ph18, !llvm.loop !144
+  br i1 %17, label %.lr.ph._crit_edge.loopexit, label %.lr.ph18, !llvm.loop !146
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3436,7 +3436,7 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN4enki10Dependency15ClearDependencyEv.exit, label %4
 
@@ -3483,7 +3483,7 @@ _ZN4enki10Dependency15ClearDependencyEv.exit:     ; preds = %.preheader.i, %1, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4enki10Dependency15ClearDependencyEv(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -3530,7 +3530,7 @@ define dso_local void @_ZN4enki10Dependency15ClearDependencyEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4enki10Dependency13SetDependencyEPKNS_12ICompletableEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #25 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !143
+  %5 = load ptr, ptr %4, align 8, !tbaa !145
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN4enki10Dependency15ClearDependencyEv.exit, label %6
 
@@ -3572,7 +3572,7 @@ define dso_local void @_ZN4enki10Dependency13SetDependencyEPKNS_12ICompletableEP
 _ZN4enki10Dependency15ClearDependencyEv.exit:     ; preds = %.preheader.i, %3, %14, %.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %24, align 8
-  store ptr %1, ptr %4, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !145
   store ptr %2, ptr %0, align 8, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !30
@@ -3955,20 +3955,22 @@ attributes #34 = { noreturn nounwind }
 !125 = distinct !{!125, !32}
 !126 = !{!5, !10, i64 160}
 !127 = !{!24, !24, i64 0}
-!128 = distinct !{!128, !32}
-!129 = distinct !{!129, !32}
-!130 = !{!5, !10, i64 168}
+!128 = distinct !{!128, !32, !129}
+!129 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!130 = distinct !{!130, !32}
 !131 = distinct !{!131, !32}
-!132 = distinct !{!132, !32}
+!132 = !{!5, !10, i64 168}
 !133 = distinct !{!133, !32}
 !134 = distinct !{!134, !32}
 !135 = distinct !{!135, !32}
 !136 = distinct !{!136, !32}
-!137 = !{!18, !8, i64 0}
-!138 = !{!20, !10, i64 0}
-!139 = !{!20, !10, i64 8}
-!140 = !{!20, !10, i64 16}
-!141 = !{!16, !8, i64 0}
-!142 = !{i64 0, i64 8, !58, i64 8, i64 8, !58, i64 16, i64 8, !58}
-!143 = !{!36, !37, i64 8}
-!144 = distinct !{!144, !32}
+!137 = distinct !{!137, !32}
+!138 = distinct !{!138, !32}
+!139 = !{!18, !8, i64 0}
+!140 = !{!20, !10, i64 0}
+!141 = !{!20, !10, i64 8}
+!142 = !{!20, !10, i64 16}
+!143 = !{!16, !8, i64 0}
+!144 = !{i64 0, i64 8, !58, i64 8, i64 8, !58, i64 16, i64 8, !58}
+!145 = !{!36, !37, i64 8}
+!146 = distinct !{!146, !32}

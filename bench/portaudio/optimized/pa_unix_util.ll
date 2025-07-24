@@ -363,7 +363,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %80 = icmp ne i32 %79, 0
   %.not47 = icmp eq i32 %78, 0
   %81 = select i1 %80, i1 %.not47, i1 false
-  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
+  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread69, %59
   %.038.lcssa = phi i32 [ 0, %59 ], [ 0, %.thread69 ], [ %78, %.lr.ph.split ], [ %74, %.lr.ph.split.us ]
@@ -533,7 +533,7 @@ define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((
 
 6:                                                ; preds = %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %1, ptr %7, align 4, !tbaa !30
+  store i32 %1, ptr %7, align 4, !tbaa !32
   %.not15 = icmp eq i32 %1, 0
   br i1 %.not15, label %8, label %11
 
@@ -617,7 +617,7 @@ define i32 @PaUnixThread_PrepareNotify(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %6, !prof !31
+  br i1 %4, label %5, label %6, !prof !33
 
 5:                                                ; preds = %1
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.9) #16
@@ -652,7 +652,7 @@ define i32 @PaUnixThread_PrepareNotify(ptr noundef %0) local_unnamed_addr #6 {
 17:                                               ; preds = %6
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %18, align 8, !tbaa !32
+  store i32 1, ptr %18, align 8, !tbaa !34
   br label %19
 
 19:                                               ; preds = %17, %15, %5
@@ -665,7 +665,7 @@ define i32 @PaUnixThread_NotifyParent(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %6, !prof !31
+  br i1 %4, label %5, label %6, !prof !33
 
 5:                                                ; preds = %1
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.11) #16
@@ -673,7 +673,7 @@ define i32 @PaUnixThread_NotifyParent(ptr noundef %0) local_unnamed_addr #6 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !32
+  %8 = load i32, ptr %7, align 8, !tbaa !34
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %21
 
@@ -705,7 +705,7 @@ define i32 @PaUnixThread_NotifyParent(ptr noundef %0) local_unnamed_addr #6 {
 
 20:                                               ; preds = %9
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !11
-  store i32 1, ptr %7, align 8, !tbaa !32
+  store i32 1, ptr %7, align 8, !tbaa !34
   br label %21
 
 21:                                               ; preds = %20, %6
@@ -739,7 +739,7 @@ define i32 @PaUnixThread_NotifyParent(ptr noundef %0) local_unnamed_addr #6 {
 
 34:                                               ; preds = %21
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !11
-  store i32 0, ptr %7, align 8, !tbaa !32
+  store i32 0, ptr %7, align 8, !tbaa !34
   br label %35
 
 35:                                               ; preds = %34, %32, %18, %5
@@ -753,7 +753,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @PaUnixThread_StopRequested(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !30
+  %3 = load i32, ptr %2, align 4, !tbaa !32
   ret i32 %3
 }
 
@@ -828,7 +828,9 @@ attributes #17 = { nounwind willreturn memory(none) }
 !26 = !{!27, !7, i64 0}
 !27 = !{!"timespec", !7, i64 0, !7, i64 8}
 !28 = !{!27, !7, i64 8}
-!29 = distinct !{!29, !4}
-!30 = !{!19, !12, i64 12}
-!31 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!32 = !{!19, !12, i64 16}
+!29 = distinct !{!29, !4, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !4}
+!32 = !{!19, !12, i64 12}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = !{!19, !12, i64 16}

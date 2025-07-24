@@ -196,7 +196,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
   br i1 %or.cond120141, label %86, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %.lr.ph163.split
-  br i1 %or.cond120, label %.lr.ph144.split.split.us, label %.lr.ph144.split.split, !llvm.loop !14
+  br i1 %or.cond120, label %.lr.ph144.split.split.us, label %.lr.ph144.split.split, !llvm.loop !15
 
 .lr.ph144.split.split.us:                         ; preds = %.lr.ph144
   %84 = add i32 %81, -65536
@@ -265,7 +265,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
   %.492 = phi ptr [ %90, %88 ], [ %.391160, %91 ], [ %95, %96 ], [ %.391160, %104 ]
   %.4 = phi i32 [ %.3161, %88 ], [ %92, %91 ], [ %.3161, %96 ], [ %105, %104 ]
   %107 = icmp ult ptr %80, %.196
-  br i1 %107, label %.lr.ph163.split, label %._crit_edge, !llvm.loop !13
+  br i1 %107, label %.lr.ph163.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %45, %106, %76, %.preheader, %.critedge119
   %.391.lcssa = phi ptr [ %.290, %.critedge119 ], [ %0, %.preheader ], [ %.492.us, %76 ], [ %.492, %106 ], [ %.189, %45 ]
@@ -396,7 +396,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   %47 = and i32 %45, 63488
   %48 = icmp ne i32 %47, 55296
   %49 = and i1 %46, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %43, %.preheader104
   %.081.lcssa = phi ptr [ %3, %.preheader104 ], [ %37, %43 ]
@@ -410,7 +410,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   %50 = getelementptr inbounds nuw i8, ptr %.086, i64 2
   %51 = load i16, ptr %50, align 2, !tbaa !9
   %.not99 = icmp eq i16 %51, 0
-  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !18
 
 52:                                               ; preds = %25
   %53 = zext nneg i32 %4 to i64
@@ -481,7 +481,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   %.479.us = phi ptr [ %82, %81 ], [ %.378116.us, %79 ]
   %.4.us = phi i32 [ %.3117.us, %81 ], [ %80, %79 ]
   %84 = icmp ult ptr %.384.us, %.187
-  br i1 %84, label %.lr.ph120.split.us, label %._crit_edge121, !llvm.loop !17
+  br i1 %84, label %.lr.ph120.split.us, label %._crit_edge121, !llvm.loop !19
 
 .lr.ph120.split:                                  ; preds = %.lr.ph120, %112
   %.0118 = phi i32 [ %.1, %112 ], [ 0, %.lr.ph120 ]
@@ -544,7 +544,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   %.479 = phi ptr [ %109, %108 ], [ %.378116, %110 ]
   %.4 = phi i32 [ %.3117, %108 ], [ %111, %110 ]
   %113 = icmp ult ptr %.384, %.187
-  br i1 %113, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !17
+  br i1 %113, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !20
 
 ._crit_edge121:                                   ; preds = %112, %83, %._crit_edge, %.loopexit
   %.378.lcssa = phi ptr [ %.277, %.loopexit ], [ %.075.lcssa, %._crit_edge ], [ %.479.us, %83 ], [ %.479, %112 ]
@@ -637,7 +637,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 
 31:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
-  %32 = load i8, ptr %3, align 1, !tbaa !18
+  %32 = load i8, ptr %3, align 1, !tbaa !21
   %33 = icmp ne i8 %32, 0
   %34 = and i1 %33, %20
   br i1 %34, label %.lr.ph494, label %._crit_edge495
@@ -673,11 +673,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %49 = and i32 %40, 15
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !18
+  %52 = load i8, ptr %51, align 1, !tbaa !21
   %53 = zext i8 %52 to i32
   %54 = sext i32 %41 to i64
   %55 = getelementptr inbounds i8, ptr %3, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %56 = load i8, ptr %55, align 1, !tbaa !21
   %57 = lshr i8 %56, 5
   %58 = zext nneg i8 %57 to i32
   %59 = shl nuw nsw i32 1, %58
@@ -687,7 +687,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 
 61:                                               ; preds = %48
   %62 = getelementptr i8, ptr %38, i64 2
-  %63 = load i8, ptr %62, align 1, !tbaa !18
+  %63 = load i8, ptr %62, align 1, !tbaa !21
   %64 = xor i8 %63, -128
   %65 = icmp ult i8 %64, 64
   br i1 %65, label %66, label %.thread
@@ -715,7 +715,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 79:                                               ; preds = %77
   %80 = sext i32 %41 to i64
   %81 = getelementptr inbounds i8, ptr %3, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !18
+  %82 = load i8, ptr %81, align 1, !tbaa !21
   %83 = xor i8 %82, -128
   %84 = icmp ult i8 %83, 64
   br i1 %84, label %85, label %.thread
@@ -766,7 +766,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %.pre521.pre = load i32, ptr %9, align 4, !tbaa !7
   %.phi.trans.insert.phi.trans.insert = sext i32 %.pre521.pre to i64
   %.phi.trans.insert522.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 %.phi.trans.insert.phi.trans.insert
-  %.pre523.pre = load i8, ptr %.phi.trans.insert522.phi.trans.insert, align 1, !tbaa !18
+  %.pre523.pre = load i8, ptr %.phi.trans.insert522.phi.trans.insert, align 1, !tbaa !21
   br label %._crit_edge495
 
 108:                                              ; preds = %102
@@ -783,11 +783,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %113 = load i32, ptr %9, align 4, !tbaa !7
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %3, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !18
+  %116 = load i8, ptr %115, align 1, !tbaa !21
   %117 = icmp ne i8 %116, 0
   %118 = icmp ult ptr %.2244, %29
   %119 = select i1 %117, i1 %118, i1 false
-  br i1 %119, label %36, label %._crit_edge495, !llvm.loop !19
+  br i1 %119, label %36, label %._crit_edge495, !llvm.loop !22
 
 ._crit_edge495:                                   ; preds = %.thread382, %.._crit_edge495.loopexit_crit_edge, %31
   %120 = phi i8 [ %32, %31 ], [ %.pre523.pre, %.._crit_edge495.loopexit_crit_edge ], [ %116, %.thread382 ]
@@ -829,11 +829,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %136 = and i32 %128, 15
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !18
+  %139 = load i8, ptr %138, align 1, !tbaa !21
   %140 = zext i8 %139 to i32
   %141 = sext i32 %129 to i64
   %142 = getelementptr inbounds i8, ptr %3, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !18
+  %143 = load i8, ptr %142, align 1, !tbaa !21
   %144 = lshr i8 %143, 5
   %145 = zext nneg i8 %144 to i32
   %146 = shl nuw nsw i32 1, %145
@@ -843,7 +843,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 
 148:                                              ; preds = %135
   %gep = getelementptr i8, ptr %invariant.gep, i64 %126
-  %149 = load i8, ptr %gep, align 1, !tbaa !18
+  %149 = load i8, ptr %gep, align 1, !tbaa !21
   %150 = icmp slt i8 %149, -64
   br i1 %150, label %151, label %.thread393
 
@@ -861,7 +861,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 156:                                              ; preds = %154
   %157 = sext i32 %129 to i64
   %158 = getelementptr inbounds i8, ptr %3, i64 %157
-  %159 = load i8, ptr %158, align 1, !tbaa !18
+  %159 = load i8, ptr %158, align 1, !tbaa !21
   %160 = icmp slt i8 %159, -64
   br i1 %160, label %161, label %.thread393
 
@@ -895,9 +895,9 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %.6268 = phi i32 [ %132, %131 ], [ %171, %168 ], [ %162, %161 ], [ %152, %151 ]
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %3, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !18
+  %175 = load i8, ptr %174, align 1, !tbaa !21
   %.not375 = icmp eq i8 %175, 0
-  br i1 %.not375, label %._crit_edge508, label %124, !llvm.loop !20
+  br i1 %.not375, label %._crit_edge508, label %124, !llvm.loop !23
 
 .thread401:                                       ; preds = %95, %166
   store i32 10, ptr %7, align 4, !tbaa !3
@@ -930,7 +930,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %183, ptr %10, align 4, !tbaa !7
   %184 = sext i32 %182 to i64
   %185 = getelementptr inbounds i8, ptr %3, i64 %184
-  %186 = load i8, ptr %185, align 1, !tbaa !18
+  %186 = load i8, ptr %185, align 1, !tbaa !21
   %187 = zext i8 %186 to i32
   %188 = icmp sgt i8 %186, -1
   br i1 %188, label %189, label %192
@@ -955,11 +955,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %198 = and i32 %187, 15
   %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %199
-  %201 = load i8, ptr %200, align 1, !tbaa !18
+  %201 = load i8, ptr %200, align 1, !tbaa !21
   %202 = zext i8 %201 to i32
   %203 = sext i32 %183 to i64
   %204 = getelementptr inbounds i8, ptr %3, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !18
+  %205 = load i8, ptr %204, align 1, !tbaa !21
   %206 = lshr i8 %205, 5
   %207 = zext nneg i8 %206 to i32
   %208 = shl nuw nsw i32 1, %207
@@ -970,7 +970,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 210:                                              ; preds = %197
   %211 = sext i32 %195 to i64
   %212 = getelementptr inbounds i8, ptr %3, i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !18
+  %213 = load i8, ptr %212, align 1, !tbaa !21
   %214 = xor i8 %213, -128
   %215 = icmp ult i8 %214, 64
   br i1 %215, label %216, label %.thread408
@@ -1000,7 +1000,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 229:                                              ; preds = %227
   %230 = sext i32 %183 to i64
   %231 = getelementptr inbounds i8, ptr %3, i64 %230
-  %232 = load i8, ptr %231, align 1, !tbaa !18
+  %232 = load i8, ptr %231, align 1, !tbaa !21
   %233 = xor i8 %232, -128
   %234 = icmp ult i8 %233, 64
   br i1 %234, label %235, label %.thread408
@@ -1074,7 +1074,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %.1319.be = phi i32 [ %266, %.thread411 ], [ %spec.select, %.loopexit ]
   %.15296.be = phi i32 [ %.20301, %.thread411 ], [ %.14295, %.loopexit ]
   %.9251.be = phi ptr [ %.13255, %.thread411 ], [ %.8250, %.loopexit ]
-  br label %.preheader464, !llvm.loop !21
+  br label %.preheader464, !llvm.loop !24
 
 268:                                              ; preds = %244
   store i32 %182, ptr %10, align 4, !tbaa !7
@@ -1111,7 +1111,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %282, ptr %10, align 4, !tbaa !7
   %283 = sext i32 %281 to i64
   %284 = getelementptr inbounds i8, ptr %3, i64 %283
-  %285 = load i8, ptr %284, align 1, !tbaa !18
+  %285 = load i8, ptr %284, align 1, !tbaa !21
   %286 = zext i8 %285 to i32
   %287 = icmp sgt i8 %285, -1
   br i1 %287, label %288, label %291
@@ -1136,11 +1136,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %297 = and i32 %286, 15
   %298 = zext nneg i32 %297 to i64
   %299 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %298
-  %300 = load i8, ptr %299, align 1, !tbaa !18
+  %300 = load i8, ptr %299, align 1, !tbaa !21
   %301 = zext i8 %300 to i32
   %302 = sext i32 %282 to i64
   %303 = getelementptr inbounds i8, ptr %3, i64 %302
-  %304 = load i8, ptr %303, align 1, !tbaa !18
+  %304 = load i8, ptr %303, align 1, !tbaa !21
   %305 = lshr i8 %304, 5
   %306 = zext nneg i8 %305 to i32
   %307 = shl nuw nsw i32 1, %306
@@ -1151,7 +1151,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 309:                                              ; preds = %296
   %310 = sext i32 %294 to i64
   %311 = getelementptr inbounds i8, ptr %3, i64 %310
-  %312 = load i8, ptr %311, align 1, !tbaa !18
+  %312 = load i8, ptr %311, align 1, !tbaa !21
   %313 = xor i8 %312, -128
   %314 = icmp ult i8 %313, 64
   br i1 %314, label %315, label %.thread426
@@ -1181,7 +1181,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 328:                                              ; preds = %326
   %329 = sext i32 %282 to i64
   %330 = getelementptr inbounds i8, ptr %3, i64 %329
-  %331 = load i8, ptr %330, align 1, !tbaa !18
+  %331 = load i8, ptr %330, align 1, !tbaa !21
   %332 = xor i8 %331, -128
   %333 = icmp ult i8 %332, 64
   br i1 %333, label %334, label %.thread426
@@ -1247,7 +1247,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %363 = icmp slt i32 %362, %4
   %364 = icmp ult ptr %.17259, %29
   %365 = select i1 %363, i1 %364, i1 false
-  br i1 %365, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %365, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.thread429, %.._crit_edge.loopexit_crit_edge, %.preheader
   %366 = phi i32 [ %277, %.preheader ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %362, %.thread429 ]
@@ -1271,7 +1271,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %369, ptr %10, align 4, !tbaa !7
   %370 = sext i32 %368 to i64
   %371 = getelementptr inbounds i8, ptr %3, i64 %370
-  %372 = load i8, ptr %371, align 1, !tbaa !18
+  %372 = load i8, ptr %371, align 1, !tbaa !21
   %373 = zext i8 %372 to i32
   %374 = icmp sgt i8 %372, -1
   br i1 %374, label %375, label %377
@@ -1294,11 +1294,11 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %383 = and i32 %373, 15
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %384
-  %386 = load i8, ptr %385, align 1, !tbaa !18
+  %386 = load i8, ptr %385, align 1, !tbaa !21
   %387 = zext i8 %386 to i32
   %388 = sext i32 %369 to i64
   %389 = getelementptr inbounds i8, ptr %3, i64 %388
-  %390 = load i8, ptr %389, align 1, !tbaa !18
+  %390 = load i8, ptr %389, align 1, !tbaa !21
   %391 = lshr i8 %390, 5
   %392 = zext nneg i8 %391 to i32
   %393 = shl nuw nsw i32 1, %392
@@ -1309,7 +1309,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 395:                                              ; preds = %382
   %396 = sext i32 %380 to i64
   %397 = getelementptr inbounds i8, ptr %3, i64 %396
-  %398 = load i8, ptr %397, align 1, !tbaa !18
+  %398 = load i8, ptr %397, align 1, !tbaa !21
   %399 = icmp slt i8 %398, -64
   br i1 %399, label %400, label %.thread440
 
@@ -1329,7 +1329,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 405:                                              ; preds = %403
   %406 = sext i32 %369 to i64
   %407 = getelementptr inbounds i8, ptr %3, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !18
+  %408 = load i8, ptr %407, align 1, !tbaa !21
   %409 = icmp slt i8 %408, -64
   br i1 %409, label %410, label %.thread440
 
@@ -1362,7 +1362,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   %.29 = phi i32 [ %.28485, %375 ], [ %.31, %417 ], [ %.28485, %410 ], [ %.28485, %400 ]
   %.16278 = phi i32 [ %376, %375 ], [ %420, %417 ], [ %411, %410 ], [ %401, %400 ]
   %422 = icmp slt i32 %421, %4
-  br i1 %422, label %.lr.ph488, label %.thread454, !llvm.loop !23
+  br i1 %422, label %.lr.ph488, label %.thread454, !llvm.loop !26
 
 .thread448:                                       ; preds = %250, %344, %415
   store i32 10, ptr %7, align 4, !tbaa !3
@@ -1444,7 +1444,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %21 = zext nneg i32 %1 to i64
   %22 = getelementptr inbounds nuw i16, ptr %0, i64 %21
   %23 = select i1 %15, ptr null, ptr %22
-  %24 = load i8, ptr %3, align 1, !tbaa !18
+  %24 = load i8, ptr %3, align 1, !tbaa !21
   %25 = icmp ne i8 %24, 0
   %26 = icmp ult ptr %0, %23
   %27 = select i1 %25, i1 %26, i1 false
@@ -1468,11 +1468,11 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 .backedge221:                                     ; preds = %31, %44, %61, %94
   %.0167.be = phi ptr [ %34, %31 ], [ %51, %44 ], [ %70, %61 ], [ %81, %94 ]
   %.0164.be = phi ptr [ %33, %31 ], [ %50, %44 ], [ %69, %61 ], [ %98, %94 ]
-  %35 = load i8, ptr %.0167.be, align 1, !tbaa !18
+  %35 = load i8, ptr %.0167.be, align 1, !tbaa !21
   %36 = icmp ne i8 %35, 0
   %37 = icmp ult ptr %.0164.be, %23
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.lr.ph233, label %.loopexit219, !llvm.loop !24
+  br i1 %38, label %.lr.ph233, label %.loopexit219, !llvm.loop !27
 
 39:                                               ; preds = %.lr.ph233
   %40 = icmp samesign ult i8 %28, -32
@@ -1480,7 +1480,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.0167231, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !18
+  %43 = load i8, ptr %42, align 1, !tbaa !21
   %.not208 = icmp eq i8 %43, 0
   br i1 %.not208, label %.loopexit219.loopexit, label %44
 
@@ -1498,7 +1498,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 52:                                               ; preds = %39
   %53 = icmp samesign ult i8 %28, -16
   %54 = getelementptr inbounds nuw i8, ptr %.0167231, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !18
+  %55 = load i8, ptr %54, align 1, !tbaa !21
   %56 = zext i8 %55 to i32
   %.not206 = icmp eq i8 %55, 0
   br i1 %53, label %57, label %71
@@ -1508,7 +1508,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %.0167231, i64 2
-  %60 = load i8, ptr %59, align 1, !tbaa !18
+  %60 = load i8, ptr %59, align 1, !tbaa !21
   %.not207 = icmp eq i8 %60, 0
   br i1 %.not207, label %.loopexit219.loopexit, label %61
 
@@ -1530,14 +1530,14 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %.0167231, i64 2
-  %74 = load i8, ptr %73, align 1, !tbaa !18
+  %74 = load i8, ptr %73, align 1, !tbaa !21
   %75 = zext i8 %74 to i32
   %.not204 = icmp eq i8 %74, 0
   br i1 %.not204, label %.loopexit219.loopexit, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.0167231, i64 3
-  %78 = load i8, ptr %77, align 1, !tbaa !18
+  %78 = load i8, ptr %77, align 1, !tbaa !21
   %.not205 = icmp eq i8 %78, 0
   br i1 %.not205, label %.loopexit219.loopexit, label %79
 
@@ -1580,7 +1580,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.0175.ph = phi i32 [ 0, %.loopexit219.loopexit ], [ 1, %79 ]
   %.1168.ph = phi ptr [ %scevgep254, %.loopexit219.loopexit ], [ %81, %79 ]
   %.1165.ph = phi ptr [ %99, %.loopexit219.loopexit ], [ %92, %79 ]
-  %.pr = load i8, ptr %.1168.ph, align 1, !tbaa !18
+  %.pr = load i8, ptr %.1168.ph, align 1, !tbaa !21
   br label %.loopexit219
 
 .loopexit219:                                     ; preds = %.backedge221, %.loopexit219thread-pre-split, %20
@@ -1603,9 +1603,9 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.sink = phi i64 [ 2, %109 ], [ 3, %117 ], [ 4, %124 ], [ 1, %.lr.ph244 ]
   %104 = add nsw i32 %.1176242, %.sink265
   %105 = getelementptr inbounds nuw i8, ptr %.3170243, i64 %.sink
-  %106 = load i8, ptr %105, align 1, !tbaa !18
+  %106 = load i8, ptr %105, align 1, !tbaa !21
   %.not210 = icmp eq i8 %106, 0
-  br i1 %.not210, label %.loopexit, label %.lr.ph244, !llvm.loop !25
+  br i1 %.not210, label %.loopexit, label %.lr.ph244, !llvm.loop !28
 
 107:                                              ; preds = %.lr.ph244
   %108 = icmp samesign ult i8 %102, -32
@@ -1613,14 +1613,14 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 109:                                              ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %.3170243, i64 1
-  %111 = load i8, ptr %110, align 1, !tbaa !18
+  %111 = load i8, ptr %110, align 1, !tbaa !21
   %.not216 = icmp eq i8 %111, 0
   br i1 %.not216, label %127, label %.backedge
 
 112:                                              ; preds = %107
   %113 = icmp samesign ult i8 %102, -16
   %114 = getelementptr inbounds nuw i8, ptr %.3170243, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !18
+  %115 = load i8, ptr %114, align 1, !tbaa !21
   %.not214 = icmp eq i8 %115, 0
   br i1 %113, label %116, label %120
 
@@ -1629,7 +1629,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %.3170243, i64 2
-  %119 = load i8, ptr %118, align 1, !tbaa !18
+  %119 = load i8, ptr %118, align 1, !tbaa !21
   %.not215 = icmp eq i8 %119, 0
   br i1 %.not215, label %127, label %.backedge
 
@@ -1638,13 +1638,13 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %.3170243, i64 2
-  %123 = load i8, ptr %122, align 1, !tbaa !18
+  %123 = load i8, ptr %122, align 1, !tbaa !21
   %.not212 = icmp eq i8 %123, 0
   br i1 %.not212, label %127, label %124
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %.3170243, i64 3
-  %126 = load i8, ptr %125, align 1, !tbaa !18
+  %126 = load i8, ptr %125, align 1, !tbaa !21
   %.not213 = icmp eq i8 %126, 0
   br i1 %.not213, label %127, label %.backedge
 
@@ -1686,7 +1686,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.5172 = phi ptr [ %3, %140 ], [ %.6173, %196 ]
   %.5 = phi ptr [ %0, %140 ], [ %.6, %196 ]
   %143 = getelementptr inbounds nuw i8, ptr %.5172, i64 1
-  %144 = load i8, ptr %.5172, align 1, !tbaa !18
+  %144 = load i8, ptr %.5172, align 1, !tbaa !21
   %145 = zext i8 %144 to i32
   %146 = icmp ult i8 %144, -64
   br i1 %146, label %147, label %150
@@ -1700,7 +1700,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 150:                                              ; preds = %142
   %151 = icmp samesign ult i8 %144, -32
   %152 = getelementptr inbounds nuw i8, ptr %.5172, i64 2
-  %153 = load i8, ptr %143, align 1, !tbaa !18
+  %153 = load i8, ptr %143, align 1, !tbaa !21
   %154 = zext i8 %153 to i32
   br i1 %151, label %155, label %161
 
@@ -1722,7 +1722,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %165 = shl nuw nsw i32 %154, 6
   %166 = add nuw nsw i32 %165, %164
   %167 = getelementptr inbounds nuw i8, ptr %.5172, i64 3
-  %168 = load i8, ptr %152, align 1, !tbaa !18
+  %168 = load i8, ptr %152, align 1, !tbaa !21
   %169 = zext i8 %168 to i32
   %170 = add nuw nsw i32 %166, %169
   %171 = trunc i32 %170 to i16
@@ -1735,11 +1735,11 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %175 = shl nuw nsw i32 %145, 18
   %176 = shl nuw nsw i32 %154, 12
   %177 = getelementptr inbounds nuw i8, ptr %.5172, i64 3
-  %178 = load i8, ptr %152, align 1, !tbaa !18
+  %178 = load i8, ptr %152, align 1, !tbaa !21
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 6
   %181 = getelementptr inbounds nuw i8, ptr %.5172, i64 4
-  %182 = load i8, ptr %177, align 1, !tbaa !18
+  %182 = load i8, ptr %177, align 1, !tbaa !21
   %183 = zext i8 %182 to i32
   %184 = add nsw i32 %175, -63447168
   %185 = add nsw i32 %184, %176
@@ -1761,7 +1761,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.6173 = phi ptr [ %143, %147 ], [ %152, %155 ], [ %167, %163 ], [ %181, %174 ]
   %.6 = phi ptr [ %149, %147 ], [ %160, %155 ], [ %173, %163 ], [ %195, %174 ]
   %197 = icmp ult ptr %.6173, %141
-  br i1 %197, label %142, label %.loopexit224, !llvm.loop !26
+  br i1 %197, label %142, label %.loopexit224, !llvm.loop !29
 
 .loopexit224:                                     ; preds = %196, %135
   %.4171 = phi ptr [ %3, %135 ], [ %.6173, %196 ]
@@ -1773,7 +1773,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.7230 = phi ptr [ %.7.be, %.backedge223 ], [ %.4, %.loopexit224 ]
   %.7174229 = phi ptr [ %.7174.be, %.backedge223 ], [ %.4171, %.loopexit224 ]
   %199 = getelementptr inbounds nuw i8, ptr %.7174229, i64 1
-  %200 = load i8, ptr %.7174229, align 1, !tbaa !18
+  %200 = load i8, ptr %.7174229, align 1, !tbaa !21
   %201 = zext i8 %200 to i32
   %202 = icmp ult i8 %200, -64
   br i1 %202, label %203, label %207
@@ -1788,7 +1788,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %.7174.be = phi ptr [ %199, %203 ], [ %213, %211 ], [ %239, %226 ], [ %266, %242 ]
   %.7.be = phi ptr [ %205, %203 ], [ %219, %211 ], [ %238, %226 ], [ %265, %242 ]
   %206 = icmp ult ptr %.7174.be, %132
-  br i1 %206, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %206, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 207:                                              ; preds = %.lr.ph
   %208 = icmp samesign ult i8 %200, -32
@@ -1801,7 +1801,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 211:                                              ; preds = %209
   %212 = shl nuw nsw i32 %201, 6
   %213 = getelementptr inbounds nuw i8, ptr %.7174229, i64 2
-  %214 = load i8, ptr %199, align 1, !tbaa !18
+  %214 = load i8, ptr %199, align 1, !tbaa !21
   %215 = zext i8 %214 to i32
   %216 = add nuw nsw i32 %212, %215
   %217 = trunc nuw nsw i32 %216 to i16
@@ -1823,11 +1823,11 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 226:                                              ; preds = %224
   %227 = shl nuw nsw i32 %201, 12
   %228 = getelementptr inbounds nuw i8, ptr %.7174229, i64 2
-  %229 = load i8, ptr %199, align 1, !tbaa !18
+  %229 = load i8, ptr %199, align 1, !tbaa !21
   %230 = zext i8 %229 to i32
   %231 = shl nuw nsw i32 %230, 6
   %232 = add nuw nsw i32 %231, %227
-  %233 = load i8, ptr %228, align 1, !tbaa !18
+  %233 = load i8, ptr %228, align 1, !tbaa !21
   %234 = zext i8 %233 to i32
   %235 = add nuw nsw i32 %232, %234
   %236 = trunc i32 %235 to i16
@@ -1844,14 +1844,14 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 242:                                              ; preds = %240
   %243 = shl nuw nsw i32 %201, 18
   %244 = getelementptr inbounds nuw i8, ptr %.7174229, i64 2
-  %245 = load i8, ptr %199, align 1, !tbaa !18
+  %245 = load i8, ptr %199, align 1, !tbaa !21
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 12
   %248 = getelementptr inbounds nuw i8, ptr %.7174229, i64 3
-  %249 = load i8, ptr %244, align 1, !tbaa !18
+  %249 = load i8, ptr %244, align 1, !tbaa !21
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 6
-  %252 = load i8, ptr %248, align 1, !tbaa !18
+  %252 = load i8, ptr %248, align 1, !tbaa !21
   %253 = zext i8 %252 to i32
   %254 = add nsw i32 %243, -63447168
   %255 = add nsw i32 %254, %247
@@ -1973,7 +1973,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
 39:                                               ; preds = %37
   %40 = trunc nuw nsw i16 %33 to i8
   %41 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
-  store i8 %40, ptr %.0293432, align 1, !tbaa !18
+  store i8 %40, ptr %.0293432, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 42:                                               ; preds = %32
@@ -1991,12 +1991,12 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
   %50 = trunc nuw nsw i16 %49 to i8
   %51 = or disjoint i8 %50, -64
   %52 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
-  store i8 %51, ptr %.0293432, align 1, !tbaa !18
+  store i8 %51, ptr %.0293432, align 1, !tbaa !21
   %53 = trunc i16 %33 to i8
   %54 = and i8 %53, 63
   %55 = or disjoint i8 %54, -128
   %56 = getelementptr inbounds nuw i8, ptr %.0293432, i64 2
-  store i8 %55, ptr %52, align 1, !tbaa !18
+  store i8 %55, ptr %52, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 57:                                               ; preds = %42
@@ -2015,18 +2015,18 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
   %65 = trunc nuw nsw i16 %64 to i8
   %66 = or disjoint i8 %65, -32
   %67 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
-  store i8 %66, ptr %.0293432, align 1, !tbaa !18
+  store i8 %66, ptr %.0293432, align 1, !tbaa !21
   %68 = lshr i16 %33, 6
   %69 = trunc i16 %68 to i8
   %70 = and i8 %69, 63
   %71 = or disjoint i8 %70, -128
   %72 = getelementptr inbounds nuw i8, ptr %.0293432, i64 2
-  store i8 %71, ptr %67, align 1, !tbaa !18
+  store i8 %71, ptr %67, align 1, !tbaa !21
   %73 = trunc i16 %33 to i8
   %74 = and i8 %73, 63
   %75 = or disjoint i8 %74, -128
   %76 = getelementptr inbounds nuw i8, ptr %.0293432, i64 3
-  store i8 %75, ptr %72, align 1, !tbaa !18
+  store i8 %75, ptr %72, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 77:                                               ; preds = %57
@@ -2101,7 +2101,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
 .thread345:                                       ; preds = %.thread
   %113 = trunc nuw nsw i32 %.0307 to i8
   %114 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
-  store i8 %113, ptr %.0293432, align 1, !tbaa !18
+  store i8 %113, ptr %.0293432, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 .thread478:                                       ; preds = %.thread476
@@ -2109,12 +2109,12 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
   %116 = trunc nuw nsw i32 %115 to i8
   %117 = or disjoint i8 %116, -64
   %118 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
-  store i8 %117, ptr %.0293432, align 1, !tbaa !18
+  store i8 %117, ptr %.0293432, align 1, !tbaa !21
   %119 = trunc i32 %.0307 to i8
   %120 = and i8 %119, 63
   %121 = or disjoint i8 %120, -128
   %122 = getelementptr inbounds nuw i8, ptr %.0293432, i64 2
-  store i8 %121, ptr %118, align 1, !tbaa !18
+  store i8 %121, ptr %118, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 123:                                              ; preds = %104
@@ -2127,40 +2127,40 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
   %128 = lshr i32 %.0307, 12
   %129 = trunc nuw nsw i32 %128 to i8
   %130 = or disjoint i8 %129, -32
-  store i8 %130, ptr %.0293432, align 1, !tbaa !18
+  store i8 %130, ptr %.0293432, align 1, !tbaa !21
   %131 = lshr i32 %.0307, 6
   %132 = trunc i32 %131 to i8
   %133 = and i8 %132, 63
   %134 = or disjoint i8 %133, -128
-  store i8 %134, ptr %125, align 1, !tbaa !18
+  store i8 %134, ptr %125, align 1, !tbaa !21
   %135 = trunc i32 %.0307 to i8
   %136 = and i8 %135, 63
   %137 = or disjoint i8 %136, -128
   %138 = getelementptr inbounds nuw i8, ptr %.0293432, i64 3
-  store i8 %137, ptr %126, align 1, !tbaa !18
+  store i8 %137, ptr %126, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 139:                                              ; preds = %123
   %140 = lshr i32 %.0307, 18
   %141 = trunc nuw nsw i32 %140 to i8
   %142 = or disjoint i8 %141, -16
-  store i8 %142, ptr %.0293432, align 1, !tbaa !18
+  store i8 %142, ptr %.0293432, align 1, !tbaa !21
   %143 = lshr i32 %.0307, 12
   %144 = trunc i32 %143 to i8
   %145 = and i8 %144, 63
   %146 = or disjoint i8 %145, -128
-  store i8 %146, ptr %125, align 1, !tbaa !18
+  store i8 %146, ptr %125, align 1, !tbaa !21
   %147 = lshr i32 %.0307, 6
   %148 = trunc i32 %147 to i8
   %149 = and i8 %148, 63
   %150 = or disjoint i8 %149, -128
   %151 = getelementptr inbounds nuw i8, ptr %.0293432, i64 3
-  store i8 %150, ptr %126, align 1, !tbaa !18
+  store i8 %150, ptr %126, align 1, !tbaa !21
   %152 = trunc i32 %.0307 to i8
   %153 = and i8 %152, 63
   %154 = or disjoint i8 %153, -128
   %155 = getelementptr inbounds nuw i8, ptr %.0293432, i64 4
-  store i8 %154, ptr %151, align 1, !tbaa !18
+  store i8 %154, ptr %151, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit.thread
 
 _ZL11_appendUTF8Phi.exit:                         ; preds = %90
@@ -2173,7 +2173,7 @@ _ZL11_appendUTF8Phi.exit.thread:                  ; preds = %139, %127, %.thread
   %.2251 = phi ptr [ %35, %39 ], [ %35, %48 ], [ %35, %63 ], [ %.3252, %139 ], [ %.3252, %127 ], [ %.3252, %.thread478 ], [ %.3252, %.thread345 ]
   %156 = load i16, ptr %.2251, align 2, !tbaa !9
   %.not334 = icmp eq i16 %156, 0
-  br i1 %.not334, label %.loopexit, label %32, !llvm.loop !28
+  br i1 %.not334, label %.loopexit, label %32, !llvm.loop !31
 
 _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104, %.thread, %.thread476
   %.1280.ph.ph = phi i32 [ 2, %.thread476 ], [ 1, %.thread ], [ %105, %104 ], [ 3, %59 ], [ 2, %44 ], [ 1, %37 ]
@@ -2262,7 +2262,7 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   %.6255 = phi ptr [ %168, %171 ], [ %168, %175 ], [ %190, %189 ], [ %168, %193 ], [ %168, %180 ]
   %198 = load i16, ptr %.6255, align 2, !tbaa !9
   %.not336 = icmp eq i16 %198, 0
-  br i1 %.not336, label %.loopexit, label %166, !llvm.loop !29
+  br i1 %.not336, label %.loopexit, label %166, !llvm.loop !32
 
 199:                                              ; preds = %27
   %200 = zext nneg i32 %4 to i64
@@ -2330,7 +2330,7 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
 240:                                              ; preds = %.preheader378
   %241 = trunc nuw nsw i16 %237 to i8
   %242 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
-  store i8 %241, ptr %.6299, align 1, !tbaa !18
+  store i8 %241, ptr %.6299, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 243:                                              ; preds = %.preheader378
@@ -2342,12 +2342,12 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   %247 = trunc nuw nsw i16 %246 to i8
   %248 = or disjoint i8 %247, -64
   %249 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
-  store i8 %248, ptr %.6299, align 1, !tbaa !18
+  store i8 %248, ptr %.6299, align 1, !tbaa !21
   %250 = trunc i16 %237 to i8
   %251 = and i8 %250, 63
   %252 = or disjoint i8 %251, -128
   %253 = getelementptr inbounds nuw i8, ptr %.6299, i64 2
-  store i8 %252, ptr %249, align 1, !tbaa !18
+  store i8 %252, ptr %249, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 254:                                              ; preds = %243
@@ -2360,18 +2360,18 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   %258 = trunc nuw nsw i16 %257 to i8
   %259 = or disjoint i8 %258, -32
   %260 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
-  store i8 %259, ptr %.6299, align 1, !tbaa !18
+  store i8 %259, ptr %.6299, align 1, !tbaa !21
   %261 = lshr i16 %237, 6
   %262 = trunc i16 %261 to i8
   %263 = and i8 %262, 63
   %264 = or disjoint i8 %263, -128
   %265 = getelementptr inbounds nuw i8, ptr %.6299, i64 2
-  store i8 %264, ptr %260, align 1, !tbaa !18
+  store i8 %264, ptr %260, align 1, !tbaa !21
   %266 = trunc i16 %237 to i8
   %267 = and i8 %266, 63
   %268 = or disjoint i8 %267, -128
   %269 = getelementptr inbounds nuw i8, ptr %.6299, i64 3
-  store i8 %268, ptr %265, align 1, !tbaa !18
+  store i8 %268, ptr %265, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 270:                                              ; preds = %254
@@ -2400,24 +2400,24 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   %287 = trunc nuw i32 %286 to i8
   %288 = or i8 %287, -16
   %289 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
-  store i8 %288, ptr %.6299, align 1, !tbaa !18
+  store i8 %288, ptr %.6299, align 1, !tbaa !21
   %290 = lshr i32 %285, 12
   %291 = trunc i32 %290 to i8
   %292 = and i8 %291, 63
   %293 = or disjoint i8 %292, -128
   %294 = getelementptr inbounds nuw i8, ptr %.6299, i64 2
-  store i8 %293, ptr %289, align 1, !tbaa !18
+  store i8 %293, ptr %289, align 1, !tbaa !21
   %295 = lshr i32 %285, 6
   %296 = trunc i32 %295 to i8
   %297 = and i8 %296, 63
   %298 = or disjoint i8 %297, -128
   %299 = getelementptr inbounds nuw i8, ptr %.6299, i64 3
-  store i8 %298, ptr %294, align 1, !tbaa !18
+  store i8 %298, ptr %294, align 1, !tbaa !21
   %300 = trunc i16 %277 to i8
   %301 = and i8 %300, 63
   %302 = or disjoint i8 %301, -128
   %303 = getelementptr inbounds nuw i8, ptr %.6299, i64 4
-  store i8 %302, ptr %299, align 1, !tbaa !18
+  store i8 %302, ptr %299, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 304:                                              ; preds = %276, %273
@@ -2429,16 +2429,16 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   br i1 %215, label %308, label %309
 
 308:                                              ; preds = %305
-  store i8 %229, ptr %.6299, align 1, !tbaa !18
+  store i8 %229, ptr %.6299, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 309:                                              ; preds = %305
   br i1 %216, label %310, label %312
 
 310:                                              ; preds = %309
-  store i8 %233, ptr %.6299, align 1, !tbaa !18
+  store i8 %233, ptr %.6299, align 1, !tbaa !21
   %311 = getelementptr inbounds nuw i8, ptr %.6299, i64 2
-  store i8 %231, ptr %307, align 1, !tbaa !18
+  store i8 %231, ptr %307, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 312:                                              ; preds = %309
@@ -2447,17 +2447,17 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   br i1 %217, label %315, label %316
 
 315:                                              ; preds = %312
-  store i8 %232, ptr %.6299, align 1, !tbaa !18
-  store i8 %228, ptr %307, align 1, !tbaa !18
-  store i8 %231, ptr %313, align 1, !tbaa !18
+  store i8 %232, ptr %.6299, align 1, !tbaa !21
+  store i8 %228, ptr %307, align 1, !tbaa !21
+  store i8 %231, ptr %313, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 316:                                              ; preds = %312
-  store i8 %220, ptr %.6299, align 1, !tbaa !18
-  store i8 %224, ptr %307, align 1, !tbaa !18
-  store i8 %228, ptr %313, align 1, !tbaa !18
+  store i8 %220, ptr %.6299, align 1, !tbaa !21
+  store i8 %224, ptr %307, align 1, !tbaa !21
+  store i8 %228, ptr %313, align 1, !tbaa !21
   %317 = getelementptr inbounds nuw i8, ptr %.6299, i64 4
-  store i8 %231, ptr %314, align 1, !tbaa !18
+  store i8 %231, ptr %314, align 1, !tbaa !21
   br label %_ZL11_appendUTF8Phi.exit343
 
 318:                                              ; preds = %304
@@ -2478,7 +2478,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   %.9270.be = phi i32 [ %.12273, %_ZL11_appendUTF8Phi.exit343 ], [ %.10271, %321 ]
   %.8257.be = phi ptr [ %.10, %_ZL11_appendUTF8Phi.exit343 ], [ %.9, %321 ]
   %.1247.be = phi i32 [ %319, %_ZL11_appendUTF8Phi.exit343 ], [ %spec.select, %321 ]
-  br label %.preheader378, !llvm.loop !30
+  br label %.preheader378, !llvm.loop !33
 
 321:                                              ; preds = %270, %_ZL11_appendUTF8Phi.exit343
   %.7300 = phi ptr [ %.9302, %_ZL11_appendUTF8Phi.exit343 ], [ %.6299, %270 ]
@@ -2513,7 +2513,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
 338:                                              ; preds = %336
   %339 = trunc nuw nsw i16 %333 to i8
   %340 = getelementptr inbounds nuw i8, ptr %.10303397, i64 1
-  store i8 %339, ptr %.10303397, align 1, !tbaa !18
+  store i8 %339, ptr %.10303397, align 1, !tbaa !21
   br label %410
 
 341:                                              ; preds = %331
@@ -2531,12 +2531,12 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   %349 = trunc nuw nsw i16 %348 to i8
   %350 = or disjoint i8 %349, -64
   %351 = getelementptr inbounds nuw i8, ptr %.10303397, i64 1
-  store i8 %350, ptr %.10303397, align 1, !tbaa !18
+  store i8 %350, ptr %.10303397, align 1, !tbaa !21
   %352 = trunc i16 %333 to i8
   %353 = and i8 %352, 63
   %354 = or disjoint i8 %353, -128
   %355 = getelementptr inbounds nuw i8, ptr %.10303397, i64 2
-  store i8 %354, ptr %351, align 1, !tbaa !18
+  store i8 %354, ptr %351, align 1, !tbaa !21
   br label %410
 
 356:                                              ; preds = %341
@@ -2555,18 +2555,18 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   %364 = trunc nuw nsw i16 %363 to i8
   %365 = or disjoint i8 %364, -32
   %366 = getelementptr inbounds nuw i8, ptr %.10303397, i64 1
-  store i8 %365, ptr %.10303397, align 1, !tbaa !18
+  store i8 %365, ptr %.10303397, align 1, !tbaa !21
   %367 = lshr i16 %333, 6
   %368 = trunc i16 %367 to i8
   %369 = and i8 %368, 63
   %370 = or disjoint i8 %369, -128
   %371 = getelementptr inbounds nuw i8, ptr %.10303397, i64 2
-  store i8 %370, ptr %366, align 1, !tbaa !18
+  store i8 %370, ptr %366, align 1, !tbaa !21
   %372 = trunc i16 %333 to i8
   %373 = and i8 %372, 63
   %374 = or disjoint i8 %373, -128
   %375 = getelementptr inbounds nuw i8, ptr %.10303397, i64 3
-  store i8 %374, ptr %371, align 1, !tbaa !18
+  store i8 %374, ptr %371, align 1, !tbaa !21
   br label %410
 
 376:                                              ; preds = %356
@@ -2641,7 +2641,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   %.15276 = phi i32 [ %.13274398, %338 ], [ %.13274398, %347 ], [ %.13274398, %362 ], [ %.16277, %.thread364 ]
   %.13 = phi ptr [ %332, %338 ], [ %332, %347 ], [ %332, %362 ], [ %.14, %.thread364 ]
   %411 = icmp ult ptr %.13, %202
-  br i1 %411, label %331, label %._crit_edge, !llvm.loop !31
+  br i1 %411, label %331, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %410, %336, %343, %358, %404, %.preheader377
   %.10303.lcssa = phi ptr [ %.5298.lcssa, %.preheader377 ], [ %.10303397, %404 ], [ %.10303397, %358 ], [ %.10303397, %343 ], [ %.10303397, %336 ], [ %.12305, %410 ]
@@ -2731,7 +2731,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   %.19 = phi i32 [ %.18425, %427 ], [ %.18425, %431 ], [ %.18425, %446 ], [ %452, %450 ], [ %.18425, %436 ]
   %.17 = phi ptr [ %423, %427 ], [ %423, %431 ], [ %447, %446 ], [ %423, %450 ], [ %423, %436 ]
   %455 = icmp ult ptr %.17, %202
-  br i1 %455, label %422, label %.loopexit, !llvm.loop !32
+  br i1 %455, label %422, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %454, %_ZL11_appendUTF8Phi.exit.thread, %197, %.preheader, %._crit_edge, %_ZL11_appendUTF8Phi.exit.thread352
   %.4297 = phi ptr [ %.0293432, %_ZL11_appendUTF8Phi.exit.thread352 ], [ %.10303.lcssa, %._crit_edge ], [ %0, %.preheader ], [ %.0293432, %197 ], [ %.2295, %_ZL11_appendUTF8Phi.exit.thread ], [ %.10303.lcssa, %454 ]
@@ -2773,7 +2773,7 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %5, ptr %0, align 1, !tbaa !18
+  store i8 %5, ptr %0, align 1, !tbaa !21
   br label %51
 
 7:                                                ; preds = %2
@@ -2785,12 +2785,12 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %12, ptr %0, align 1, !tbaa !18
+  store i8 %12, ptr %0, align 1, !tbaa !21
   %14 = trunc i32 %1 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %16, ptr %13, align 1, !tbaa !18
+  store i8 %16, ptr %13, align 1, !tbaa !21
   br label %51
 
 18:                                               ; preds = %7
@@ -2803,40 +2803,40 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
   %23 = lshr i32 %1, 12
   %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
-  store i8 %25, ptr %0, align 1, !tbaa !18
+  store i8 %25, ptr %0, align 1, !tbaa !21
   %26 = lshr i32 %1, 6
   %27 = trunc i32 %26 to i8
   %28 = and i8 %27, 63
   %29 = or disjoint i8 %28, -128
-  store i8 %29, ptr %20, align 1, !tbaa !18
+  store i8 %29, ptr %20, align 1, !tbaa !21
   %30 = trunc i32 %1 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %32, ptr %21, align 1, !tbaa !18
+  store i8 %32, ptr %21, align 1, !tbaa !21
   br label %51
 
 34:                                               ; preds = %18
   %35 = lshr i32 %1, 18
   %36 = trunc nuw nsw i32 %35 to i8
   %37 = or disjoint i8 %36, -16
-  store i8 %37, ptr %0, align 1, !tbaa !18
+  store i8 %37, ptr %0, align 1, !tbaa !21
   %38 = lshr i32 %1, 12
   %39 = trunc i32 %38 to i8
   %40 = and i8 %39, 63
   %41 = or disjoint i8 %40, -128
-  store i8 %41, ptr %20, align 1, !tbaa !18
+  store i8 %41, ptr %20, align 1, !tbaa !21
   %42 = lshr i32 %1, 6
   %43 = trunc i32 %42 to i8
   %44 = and i8 %43, 63
   %45 = or disjoint i8 %44, -128
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %45, ptr %21, align 1, !tbaa !18
+  store i8 %45, ptr %21, align 1, !tbaa !21
   %47 = trunc i32 %1 to i8
   %48 = and i8 %47, 63
   %49 = or disjoint i8 %48, -128
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %49, ptr %46, align 1, !tbaa !18
+  store i8 %49, ptr %46, align 1, !tbaa !21
   br label %51
 
 51:                                               ; preds = %9, %34, %22, %4
@@ -2900,7 +2900,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br i1 %29, label %.preheader267, label %48
 
 .preheader267:                                    ; preds = %26
-  %30 = load i8, ptr %3, align 1, !tbaa !18
+  %30 = load i8, ptr %3, align 1, !tbaa !21
   %or.cond11283 = icmp sgt i8 %30, 0
   %or.cond249284 = and i1 %or.cond11283, %18
   br i1 %or.cond249284, label %.lr.ph, label %.critedge
@@ -2913,11 +2913,11 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %33 = getelementptr inbounds nuw i8, ptr %.1189285, i64 2
   store i16 %32, ptr %.1189285, align 2, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %.1177286, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !18
+  %35 = load i8, ptr %34, align 1, !tbaa !21
   %or.cond11 = icmp sgt i8 %35, 0
   %36 = icmp ult ptr %33, %28
   %or.cond249 = select i1 %or.cond11, i1 %36, i1 false
-  br i1 %or.cond249, label %.lr.ph, label %.critedge, !llvm.loop !33
+  br i1 %or.cond249, label %.lr.ph, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader267
   %.1189.lcssa = phi ptr [ %0, %.preheader267 ], [ %33, %.lr.ph ]
@@ -2962,7 +2962,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br label %.loopexit265
 
 .loopexit265.loopexit:                            ; preds = %133
-  br label %.loopexit265, !llvm.loop !34
+  br label %.loopexit265, !llvm.loop !37
 
 .loopexit265:                                     ; preds = %.loopexit265.loopexit, %48
   %.0195 = phi i32 [ 0, %48 ], [ %.3198, %.loopexit265.loopexit ]
@@ -2978,7 +2978,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br i1 %or.cond13, label %61, label %77
 
 61:                                               ; preds = %.loopexit265
-  %62 = load i8, ptr %.0176, align 1, !tbaa !18
+  %62 = load i8, ptr %.0176, align 1, !tbaa !21
   %63 = icmp sgt i8 %62, -1
   br i1 %63, label %.preheader266, label %77
 
@@ -2994,7 +2994,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %indvars.iv = phi i64 [ %65, %.lr.ph290.preheader ], [ %indvars.iv.next, %69 ]
   %.4192289 = phi ptr [ %.2190, %.lr.ph290.preheader ], [ %71, %69 ]
   %66 = getelementptr inbounds i8, ptr %.0176, i64 %indvars.iv
-  %67 = load i8, ptr %66, align 1, !tbaa !18
+  %67 = load i8, ptr %66, align 1, !tbaa !21
   %68 = icmp sgt i8 %67, -1
   br i1 %68, label %69, label %.critedge15.loopexit.split.loop.exit381
 
@@ -3006,7 +3006,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %72 = trunc i64 %indvars.iv.next to i32
   store i32 %72, ptr %9, align 4, !tbaa !7
   %exitcond.not = icmp eq i32 %.0178, %72
-  br i1 %exitcond.not, label %.critedge15, label %.lr.ph290, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge15, label %.lr.ph290, !llvm.loop !38
 
 .critedge15.loopexit.split.loop.exit381:          ; preds = %.lr.ph290
   %73 = trunc nsw i64 %indvars.iv to i32
@@ -3041,7 +3041,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   store i32 %82, ptr %9, align 4, !tbaa !7
   %83 = sext i32 %81 to i64
   %84 = getelementptr inbounds i8, ptr %.0176, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !18
+  %85 = load i8, ptr %84, align 1, !tbaa !21
   %86 = zext i8 %85 to i32
   %87 = icmp sgt i8 %85, -1
   br i1 %87, label %88, label %90
@@ -3062,7 +3062,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 94:                                               ; preds = %92
   %95 = sext i32 %82 to i64
   %96 = getelementptr inbounds i8, ptr %.0176, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !18
+  %97 = load i8, ptr %96, align 1, !tbaa !21
   %98 = xor i8 %97, -128
   %99 = zext i8 %98 to i32
   %100 = icmp ult i8 %98, 64
@@ -3070,7 +3070,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 
 101:                                              ; preds = %94
   %102 = getelementptr i8, ptr %84, i64 2
-  %103 = load i8, ptr %102, align 1, !tbaa !18
+  %103 = load i8, ptr %102, align 1, !tbaa !21
   %104 = xor i8 %103, -128
   %105 = icmp ult i8 %104, 64
   br i1 %105, label %106, label %129
@@ -3094,7 +3094,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 116:                                              ; preds = %114
   %117 = sext i32 %82 to i64
   %118 = getelementptr inbounds i8, ptr %.0176, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !18
+  %119 = load i8, ptr %118, align 1, !tbaa !21
   %120 = xor i8 %119, -128
   %121 = icmp ult i8 %120, 64
   br i1 %121, label %122, label %129
@@ -3128,7 +3128,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %.7 = getelementptr inbounds nuw i8, ptr %.6194, i64 2
   %134 = add nsw i32 %.2183, -1
   %135 = icmp sgt i32 %.2183, 1
-  br i1 %135, label %.preheader264, label %.loopexit265.loopexit, !llvm.loop !34
+  br i1 %135, label %.preheader264, label %.loopexit265.loopexit, !llvm.loop !37
 
 .preheader:                                       ; preds = %77, %78
   %.promoted296303 = load i32, ptr %9, align 4, !tbaa !7
@@ -3159,7 +3159,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   store i32 %147, ptr %9, align 4, !tbaa !7
   %148 = sext i32 %146 to i64
   %149 = getelementptr inbounds i8, ptr %.0176, i64 %148
-  %150 = load i8, ptr %149, align 1, !tbaa !18
+  %150 = load i8, ptr %149, align 1, !tbaa !21
   %151 = zext i8 %150 to i32
   %152 = icmp sgt i8 %150, -1
   br i1 %152, label %153, label %156
@@ -3186,7 +3186,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 163:                                              ; preds = %160
   %164 = sext i32 %147 to i64
   %165 = getelementptr inbounds i8, ptr %.0176, i64 %164
-  %166 = load i8, ptr %165, align 1, !tbaa !18
+  %166 = load i8, ptr %165, align 1, !tbaa !21
   %167 = xor i8 %166, -128
   %168 = zext i8 %167 to i32
   %169 = icmp ult i8 %167, 64
@@ -3195,7 +3195,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 170:                                              ; preds = %163
   %171 = sext i32 %161 to i64
   %172 = getelementptr inbounds i8, ptr %.0176, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !18
+  %173 = load i8, ptr %172, align 1, !tbaa !21
   %174 = xor i8 %173, -128
   %175 = icmp ult i8 %174, 64
   br i1 %175, label %176, label %201
@@ -3219,7 +3219,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %184 = icmp slt i32 %183, %.0178
   %185 = icmp ult ptr %.9.be, %28
   %186 = select i1 %184, i1 %185, i1 false
-  br i1 %186, label %145, label %.loopexit261, !llvm.loop !36
+  br i1 %186, label %145, label %.loopexit261, !llvm.loop !39
 
 187:                                              ; preds = %156
   %188 = icmp samesign ugt i8 %150, -65
@@ -3230,7 +3230,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 190:                                              ; preds = %187
   %191 = sext i32 %147 to i64
   %192 = getelementptr inbounds i8, ptr %.0176, i64 %191
-  %193 = load i8, ptr %192, align 1, !tbaa !18
+  %193 = load i8, ptr %192, align 1, !tbaa !21
   %194 = xor i8 %193, -128
   %195 = icmp ult i8 %194, 64
   br i1 %195, label %196, label %201
@@ -3280,7 +3280,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %212 = icmp slt i32 %.promoted296, %.0178
   %213 = icmp ult ptr %.11, %28
   %214 = select i1 %212, i1 %213, i1 false
-  br i1 %214, label %.lr.ph298, label %.loopexit261, !llvm.loop !36
+  br i1 %214, label %.lr.ph298, label %.loopexit261, !llvm.loop !39
 
 .loopexit261:                                     ; preds = %.outer260, %.backedge262, %..loopexit261.loopexit325_crit_edge, %.preheader
   %.promoted310317 = phi i32 [ %.promoted296303, %.preheader ], [ %.promoted310317.pre.pre, %..loopexit261.loopexit325_crit_edge ], [ %183, %.backedge262 ], [ %.promoted296, %.outer260 ]
@@ -3303,7 +3303,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   store i32 %218, ptr %9, align 4, !tbaa !7
   %219 = sext i32 %217 to i64
   %220 = getelementptr inbounds i8, ptr %.0176, i64 %219
-  %221 = load i8, ptr %220, align 1, !tbaa !18
+  %221 = load i8, ptr %220, align 1, !tbaa !21
   %222 = icmp sgt i8 %221, -1
   br i1 %222, label %.outer, label %223
 
@@ -3323,14 +3323,14 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 230:                                              ; preds = %227
   %231 = sext i32 %218 to i64
   %232 = getelementptr inbounds i8, ptr %.0176, i64 %231
-  %233 = load i8, ptr %232, align 1, !tbaa !18
+  %233 = load i8, ptr %232, align 1, !tbaa !21
   %234 = icmp slt i8 %233, -64
   br i1 %234, label %235, label %250
 
 235:                                              ; preds = %230
   %236 = sext i32 %228 to i64
   %237 = getelementptr inbounds i8, ptr %.0176, i64 %236
-  %238 = load i8, ptr %237, align 1, !tbaa !18
+  %238 = load i8, ptr %237, align 1, !tbaa !21
   %239 = icmp slt i8 %238, -64
   br i1 %239, label %.backedge, label %250
 
@@ -3340,7 +3340,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %.3208.be = add nsw i32 %.3208311, 1
   store i32 %240, ptr %9, align 4, !tbaa !7
   %241 = icmp slt i32 %240, %.0178
-  br i1 %241, label %216, label %.outer._crit_edge, !llvm.loop !37
+  br i1 %241, label %216, label %.outer._crit_edge, !llvm.loop !40
 
 242:                                              ; preds = %223
   %243 = icmp samesign ugt i8 %221, -65
@@ -3351,7 +3351,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 245:                                              ; preds = %242
   %246 = sext i32 %218 to i64
   %247 = getelementptr inbounds i8, ptr %.0176, i64 %246
-  %248 = load i8, ptr %247, align 1, !tbaa !18
+  %248 = load i8, ptr %247, align 1, !tbaa !21
   %249 = icmp slt i8 %248, -64
   br i1 %249, label %.backedge, label %250
 
@@ -3374,7 +3374,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %.9204 = phi i32 [ %255, %252 ], [ %.8203.ph319, %216 ]
   %.4209 = add nsw i32 %.3208311, 1
   %256 = icmp slt i32 %.promoted310, %.0178
-  br i1 %256, label %.lr.ph312, label %.outer._crit_edge, !llvm.loop !37
+  br i1 %256, label %.lr.ph312, label %.outer._crit_edge, !llvm.loop !40
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.loopexit261
   %.8203.ph.lcssa272 = phi i32 [ %.6201, %.loopexit261 ], [ %.8203.ph319, %.backedge ], [ %.9204, %.outer ]
@@ -3461,14 +3461,14 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %.1148188 = phi ptr [ %26, %.lr.ph ], [ %0, %.preheader183 ]
   %25 = trunc nuw nsw i16 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.1148188, i64 1
-  store i8 %25, ptr %.1148188, align 1, !tbaa !18
+  store i8 %25, ptr %.1148188, align 1, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %.1144189, i64 2
   %28 = load i16, ptr %27, align 2, !tbaa !9
   %29 = add i16 %28, -1
   %or.cond9 = icmp ult i16 %29, 127
   %30 = icmp ult ptr %26, %20
   %or.cond180 = select i1 %or.cond9, i1 %30, i1 false
-  br i1 %or.cond180, label %.lr.ph, label %.critedge, !llvm.loop !38
+  br i1 %or.cond180, label %.lr.ph, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader183
   %.1148.lcssa = phi ptr [ %0, %.preheader183 ], [ %26, %.lr.ph ]
@@ -3544,10 +3544,10 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
 64:                                               ; preds = %.lr.ph194
   %65 = trunc nuw nsw i16 %62 to i8
   %66 = getelementptr inbounds nuw i8, ptr %.4151192, i64 1
-  store i8 %65, ptr %.4151192, align 1, !tbaa !18
+  store i8 %65, ptr %.4151192, align 1, !tbaa !21
   %67 = getelementptr inbounds nuw i8, ptr %.4193, i64 2
   %68 = icmp ult ptr %67, %45
-  br i1 %68, label %.lr.ph194, label %.critedge13.loopexit, !llvm.loop !39
+  br i1 %68, label %.lr.ph194, label %.critedge13.loopexit, !llvm.loop !42
 
 .critedge13.loopexit:                             ; preds = %.lr.ph194, %64
   %.4151.lcssa.ph = phi ptr [ %66, %64 ], [ %.4151192, %.lr.ph194 ]
@@ -3593,7 +3593,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
 
 82:                                               ; preds = %.preheader181
   %83 = trunc nuw nsw i16 %79 to i8
-  store i8 %83, ptr %.5152, align 1, !tbaa !18
+  store i8 %83, ptr %.5152, align 1, !tbaa !21
   br label %107
 
 84:                                               ; preds = %.preheader181
@@ -3604,40 +3604,40 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %87 = lshr i16 %79, 6
   %88 = trunc nuw nsw i16 %87 to i8
   %89 = or disjoint i8 %88, -64
-  store i8 %89, ptr %.5152, align 1, !tbaa !18
+  store i8 %89, ptr %.5152, align 1, !tbaa !21
   %90 = trunc i16 %79 to i8
   %91 = and i8 %90, 63
   %92 = or disjoint i8 %91, -128
   %93 = getelementptr inbounds nuw i8, ptr %.5152, i64 2
-  store i8 %92, ptr %81, align 1, !tbaa !18
+  store i8 %92, ptr %81, align 1, !tbaa !21
   br label %107
 
 94:                                               ; preds = %84
   %95 = lshr i16 %79, 12
   %96 = trunc nuw nsw i16 %95 to i8
   %97 = or disjoint i8 %96, -32
-  store i8 %97, ptr %.5152, align 1, !tbaa !18
+  store i8 %97, ptr %.5152, align 1, !tbaa !21
   %98 = lshr i16 %79, 6
   %99 = trunc i16 %98 to i8
   %100 = and i8 %99, 63
   %101 = or disjoint i8 %100, -128
   %102 = getelementptr inbounds nuw i8, ptr %.5152, i64 2
-  store i8 %101, ptr %81, align 1, !tbaa !18
+  store i8 %101, ptr %81, align 1, !tbaa !21
   %103 = trunc i16 %79 to i8
   %104 = and i8 %103, 63
   %105 = or disjoint i8 %104, -128
   %106 = getelementptr inbounds nuw i8, ptr %.5152, i64 3
-  store i8 %105, ptr %102, align 1, !tbaa !18
+  store i8 %105, ptr %102, align 1, !tbaa !21
   br label %107
 
 107:                                              ; preds = %82, %94, %86
   %.6153 = phi ptr [ %81, %82 ], [ %93, %86 ], [ %106, %94 ]
   %108 = add nsw i32 %.2158, -1
   %109 = icmp sgt i32 %.2158, 1
-  br i1 %109, label %.preheader181, label %110, !llvm.loop !40
+  br i1 %109, label %.preheader181, label %110, !llvm.loop !43
 
 110:                                              ; preds = %107
-  br label %48, !llvm.loop !41
+  br label %48, !llvm.loop !44
 
 .lr.ph202:                                        ; preds = %.preheader, %150
   %.6201 = phi ptr [ %111, %150 ], [ %.3, %.preheader ]
@@ -3655,7 +3655,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
 116:                                              ; preds = %114
   %117 = trunc nuw nsw i16 %112 to i8
   %118 = getelementptr inbounds nuw i8, ptr %.7154200, i64 1
-  store i8 %117, ptr %.7154200, align 1, !tbaa !18
+  store i8 %117, ptr %.7154200, align 1, !tbaa !21
   br label %150
 
 119:                                              ; preds = %.lr.ph202
@@ -3673,12 +3673,12 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %127 = trunc nuw nsw i16 %126 to i8
   %128 = or disjoint i8 %127, -64
   %129 = getelementptr inbounds nuw i8, ptr %.7154200, i64 1
-  store i8 %128, ptr %.7154200, align 1, !tbaa !18
+  store i8 %128, ptr %.7154200, align 1, !tbaa !21
   %130 = trunc i16 %112 to i8
   %131 = and i8 %130, 63
   %132 = or disjoint i8 %131, -128
   %133 = getelementptr inbounds nuw i8, ptr %.7154200, i64 2
-  store i8 %132, ptr %129, align 1, !tbaa !18
+  store i8 %132, ptr %129, align 1, !tbaa !21
   br label %150
 
 134:                                              ; preds = %119
@@ -3690,24 +3690,24 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %138 = trunc nuw nsw i16 %137 to i8
   %139 = or disjoint i8 %138, -32
   %140 = getelementptr inbounds nuw i8, ptr %.7154200, i64 1
-  store i8 %139, ptr %.7154200, align 1, !tbaa !18
+  store i8 %139, ptr %.7154200, align 1, !tbaa !21
   %141 = lshr i16 %112, 6
   %142 = trunc i16 %141 to i8
   %143 = and i8 %142, 63
   %144 = or disjoint i8 %143, -128
   %145 = getelementptr inbounds nuw i8, ptr %.7154200, i64 2
-  store i8 %144, ptr %140, align 1, !tbaa !18
+  store i8 %144, ptr %140, align 1, !tbaa !21
   %146 = trunc i16 %112 to i8
   %147 = and i8 %146, 63
   %148 = or disjoint i8 %147, -128
   %149 = getelementptr inbounds nuw i8, ptr %.7154200, i64 3
-  store i8 %148, ptr %145, align 1, !tbaa !18
+  store i8 %148, ptr %145, align 1, !tbaa !21
   br label %150
 
 150:                                              ; preds = %125, %136, %116
   %.8155 = phi ptr [ %118, %116 ], [ %133, %125 ], [ %149, %136 ]
   %151 = icmp ult ptr %111, %45
-  br i1 %151, label %.lr.ph202, label %._crit_edge, !llvm.loop !42
+  br i1 %151, label %.lr.ph202, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %150, %114, %123, %134, %.preheader
   %.7154.lcssa = phi ptr [ %.3150, %.preheader ], [ %.7154200, %134 ], [ %.7154200, %123 ], [ %.7154200, %114 ], [ %.8155, %150 ]
@@ -3728,7 +3728,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %.sink = select i1 %or.cond19, i32 1, i32 %.
   %157 = add nuw nsw i32 %.1160218, %.sink
   %158 = icmp ult ptr %153, %45
-  br i1 %158, label %.lr.ph221, label %._crit_edge222, !llvm.loop !43
+  br i1 %158, label %.lr.ph221, label %._crit_edge222, !llvm.loop !46
 
 ._crit_edge222:                                   ; preds = %.lr.ph221, %._crit_edge
   %.1160.lcssa = phi i32 [ %.0159, %._crit_edge ], [ %157, %.lr.ph221 ]
@@ -3786,15 +3786,15 @@ attributes #8 = { nounwind willreturn memory(read) }
 !10 = !{!"char16_t", !5, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
+!13 = distinct !{!13, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12, !14}
 !20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
+!21 = !{!5, !5, i64 0}
 !22 = distinct !{!22, !12}
 !23 = distinct !{!23, !12}
 !24 = distinct !{!24, !12}
@@ -3817,3 +3817,6 @@ attributes #8 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !12}
 !42 = distinct !{!42, !12}
 !43 = distinct !{!43, !12}
+!44 = distinct !{!44, !12}
+!45 = distinct !{!45, !12}
+!46 = distinct !{!46, !12}

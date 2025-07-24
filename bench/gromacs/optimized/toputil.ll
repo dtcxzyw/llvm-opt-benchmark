@@ -1527,14 +1527,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   %fputc78.us.i = call i32 @fputc(i32 10, ptr %0)
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.04.022.us.i, i64 112
   %.not7.us.i = icmp eq ptr %132, %105
-  br i1 %.not7.us.i, label %._crit_edge25.i, label %.lr.ph24.split.us.i
+  br i1 %.not7.us.i, label %._crit_edge25.i, label %.lr.ph24.split.us.i, !llvm.loop !111
 
 133:                                              ; preds = %.lr.ph19.us.i
   %134 = fpext float %130 to double
   %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, double noundef %134) #24
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %.critedge.us.i, label %.lr.ph19.us.i, !llvm.loop !111
+  br i1 %exitcond40.not.i, label %.critedge.us.i, label %.lr.ph19.us.i, !llvm.loop !113
 
 136:                                              ; preds = %_ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.us.i, %.lr.ph15.us.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph15.us.i ], [ %indvars.iv.next32.i, %_ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.us.i ]
@@ -1573,7 +1573,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #24
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %._crit_edge16.us.i, label %136, !llvm.loop !112
+  br i1 %exitcond35.not.i, label %._crit_edge16.us.i, label %136, !llvm.loop !114
 
 ._crit_edge16.us.i:                               ; preds = %_ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.us.i
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.069.us.i) #24
@@ -1591,7 +1591,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
   %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef 99, i32 noundef %.0709.i) #24
   %156 = add nuw nsw i32 %.0709.i, 1
   %exitcond28.not.i = icmp eq i32 %156, %93
-  br i1 %exitcond28.not.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !113
+  br i1 %exitcond28.not.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !115
 
 ._crit_edge25.i:                                  ; preds = %.critedge.i, %.critedge.us.i, %._crit_edge12.i
   %fputc77.i = call i32 @fputc(i32 10, ptr %0)
@@ -1658,7 +1658,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
   %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, double noundef %183) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %.critedge.i, label %.lr.ph19.i, !llvm.loop !111
+  br i1 %exitcond30.not.i, label %.critedge.i, label %.lr.ph19.i, !llvm.loop !113
 
 .critedge.i:                                      ; preds = %182, %.lr.ph19.i, %177, %.noexc38
   %fputc78.i = call i32 @fputc(i32 10, ptr %0)
@@ -1882,6 +1882,8 @@ attributes #25 = { noreturn nounwind }
 !108 = distinct !{!108, !42}
 !109 = !{!6, !6, i64 0}
 !110 = !{!72, !72, i64 0}
-!111 = distinct !{!111, !42}
-!112 = distinct !{!112, !42}
+!111 = distinct !{!111, !112}
+!112 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !113 = distinct !{!113, !42}
+!114 = distinct !{!114, !42}
+!115 = distinct !{!115, !42}

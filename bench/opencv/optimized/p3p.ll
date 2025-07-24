@@ -2337,7 +2337,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29) #22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count216
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !76
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge
   %indvars.iv226 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next227, %.critedge ]
@@ -2356,7 +2356,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
 .critedge:                                        ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, %184
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count232
-  br i1 %exitcond233.not, label %.loopexit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond233.not, label %.loopexit, label %.preheader, !llvm.loop !77
 
 188:                                              ; preds = %184
   %189 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv228
@@ -2378,12 +2378,12 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   store double %193, ptr %192, align 8, !tbaa !32
   %195 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %195, 3
-  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %190, !llvm.loop !76
+  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %190, !llvm.loop !78
 
 _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %190
   %196 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %196, 3
-  br i1 %exitcond.not.i, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !79
 
 _ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
   %.05.i194 = phi i64 [ %201, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
@@ -2395,11 +2395,11 @@ _ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2
   store double %199, ptr %198, align 8, !tbaa !32
   %201 = add nuw nsw i64 %.05.i194, 1
   %exitcond.not.i195 = icmp eq i64 %201, 3
-  br i1 %exitcond.not.i195, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !76
+  br i1 %exitcond.not.i195, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !78
 
 _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
   %202 = icmp sgt i64 %indvars.iv228, 1
-  br i1 %202, label %184, label %.critedge, !llvm.loop !78
+  br i1 %202, label %184, label %.critedge, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.critedge, %24, %._crit_edge
   %.0193.lcssa236 = phi i32 [ 1, %._crit_edge ], [ 0, %24 ], [ %97, %.critedge ], [ %97, %.lr.ph.split ]
@@ -2665,7 +2665,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nonnull rea
   %.1229 = phi i32 [ %.0228240, %180 ], [ %.0228240, %184 ], [ %216, %206 ], [ %.0228240, %199 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %180, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %180, !llvm.loop !81
 
 .loopexit:                                        ; preds = %217, %105, %62
   %.3 = phi i32 [ 0, %62 ], [ 0, %105 ], [ %.1229, %217 ]
@@ -2720,7 +2720,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr noundef 
   store double %41, ptr %42, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %22, label %32, !llvm.loop !80
+  br i1 %exitcond.not, label %22, label %32, !llvm.loop !82
 
 43:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #22
@@ -2828,7 +2828,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr noundef 
   store double %119, ptr %121, align 8, !tbaa !32
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 3
-  br i1 %exitcond130.not, label %43, label %92, !llvm.loop !81
+  br i1 %exitcond130.not, label %43, label %92, !llvm.loop !83
 
 122:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #22
@@ -2847,7 +2847,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr noundef 
   %.1 = select i1 %127, i32 %128, i32 %.0113123
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 4
-  br i1 %exitcond134.not, label %122, label %124, !llvm.loop !82
+  br i1 %exitcond134.not, label %122, label %124, !llvm.loop !84
 
 129:                                              ; preds = %176
   %130 = load double, ptr %19, align 16, !tbaa !32
@@ -2917,7 +2917,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr noundef 
   store double %180, ptr %181, align 8, !tbaa !32
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, 4
-  br i1 %exitcond138.not, label %129, label %176, !llvm.loop !83
+  br i1 %exitcond138.not, label %129, label %176, !llvm.loop !85
 
 182:                                              ; preds = %183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #22
@@ -2946,7 +2946,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr noundef 
   store double %195, ptr %196, align 8, !tbaa !32
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 3
-  br i1 %exitcond142.not, label %182, label %183, !llvm.loop !84
+  br i1 %exitcond142.not, label %182, label %183, !llvm.loop !86
 }
 
 declare noundef i32 @_Z10solve_deg4dddddRdS_S_S_(double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -3027,7 +3027,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
 .loopexit206:                                     ; preds = %.loopexit
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next244, 3
-  br i1 %exitcond246.not, label %.preheader207, label %.lr.ph219, !llvm.loop !85
+  br i1 %exitcond246.not, label %.preheader207, label %.lr.ph219, !llvm.loop !87
 
 .lr.ph219:                                        ; preds = %.loopexit206, %42
   %indvars.iv243 = phi i64 [ 0, %42 ], [ %indvars.iv.next244, %.loopexit206 ]
@@ -3157,7 +3157,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   store double %113, ptr %gep255, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv243
-  br i1 %exitcond.not, label %.preheader205, label %105, !llvm.loop !86
+  br i1 %exitcond.not, label %.preheader205, label %105, !llvm.loop !88
 
 .preheader204:                                    ; preds = %116, %.preheader205
   %114 = icmp samesign ult i64 %indvars.iv231, 3
@@ -3185,7 +3185,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   store double %123, ptr %gep259, align 8, !tbaa !32
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %indvars.iv231
-  br i1 %exitcond230.not, label %.preheader204, label %116, !llvm.loop !87
+  br i1 %exitcond230.not, label %.preheader204, label %116, !llvm.loop !89
 
 .preheader:                                       ; preds = %124, %.preheader204
   %invariant.gep266 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv231
@@ -3206,7 +3206,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   %131 = tail call double @llvm.fmuladd.f64(double %100, double %130, double %126)
   store double %131, ptr %gep263, align 8, !tbaa !32
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 3
-  br i1 %exitcond236.not, label %.preheader, label %124, !llvm.loop !88
+  br i1 %exitcond236.not, label %.preheader, label %124, !llvm.loop !90
 
 132:                                              ; preds = %.preheader, %132
   %indvars.iv237 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next238, %132 ]
@@ -3224,13 +3224,13 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   store double %140, ptr %gep267, align 8, !tbaa !32
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next238, 4
-  br i1 %exitcond240.not, label %.loopexit, label %132, !llvm.loop !89
+  br i1 %exitcond240.not, label %.loopexit, label %132, !llvm.loop !91
 
 .loopexit:                                        ; preds = %132, %67, %66
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %.0196 = getelementptr inbounds nuw i8, ptr %.0196218, i64 8
   %exitcond242.not = icmp eq i64 %indvars.iv.next232, 4
-  br i1 %exitcond242.not, label %.loopexit206, label %51, !llvm.loop !90
+  br i1 %exitcond242.not, label %.loopexit206, label %51, !llvm.loop !92
 
 .preheader207:                                    ; preds = %.loopexit206, %.preheader207
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %.preheader207 ], [ 0, %.loopexit206 ]
@@ -3242,14 +3242,14 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   store double %145, ptr %143, align 8, !tbaa !32
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next248, 4
-  br i1 %exitcond250.not, label %146, label %.preheader207, !llvm.loop !91
+  br i1 %exitcond250.not, label %146, label %.preheader207, !llvm.loop !93
 
 146:                                              ; preds = %.preheader207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %147 = add nuw nsw i32 %.0190222, 1
   %exitcond251.not = icmp eq i32 %147, 50
-  br i1 %exitcond251.not, label %.critedge, label %23, !llvm.loop !92
+  br i1 %exitcond251.not, label %.critedge, label %23, !llvm.loop !94
 
 .critedge:                                        ; preds = %146, %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
@@ -3294,7 +3294,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !93
+  %12 = load ptr, ptr %11, align 8, !tbaa !95
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 3
@@ -3373,7 +3373,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorId
   %41 = getelementptr inbounds nuw double, ptr %33, i64 %1
   store ptr %41, ptr %4, align 8, !tbaa !43
   %42 = getelementptr inbounds nuw double, ptr %32, i64 %30
-  store ptr %42, ptr %11, align 8, !tbaa !93
+  store ptr %42, ptr %11, align 8, !tbaa !95
   br label %43
 
 43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36, %2
@@ -3397,7 +3397,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 define linkonce_odr void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !69
-  %6 = load ptr, ptr %0, align 8, !tbaa !94
+  %6 = load ptr, ptr %0, align 8, !tbaa !96
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -3437,7 +3437,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !97
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %23, %.lr.ph.i.i.i.i ]
@@ -3453,7 +3453,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
   %.not.i.i.i.i30 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !95
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !97
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %24, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %26, %.lr.ph.i.i.i.i27 ]
@@ -3466,7 +3466,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.l
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8, !tbaa !94
+  store ptr %20, ptr %0, align 8, !tbaa !96
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !69
   %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !72
@@ -3632,8 +3632,8 @@ attributes #26 = { builtin allocsize(0) }
 !71 = !{!"p1 _ZTSN2cv3MatE", !19, i64 0}
 !72 = !{!70, !71, i64 16}
 !73 = distinct !{!73, !53}
-!74 = distinct !{!74, !53}
-!75 = distinct !{!75, !53}
+!74 = distinct !{!74, !53, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !76 = distinct !{!76, !53}
 !77 = distinct !{!77, !53}
 !78 = distinct !{!78, !53}
@@ -3651,6 +3651,8 @@ attributes #26 = { builtin allocsize(0) }
 !90 = distinct !{!90, !53}
 !91 = distinct !{!91, !53}
 !92 = distinct !{!92, !53}
-!93 = !{!34, !35, i64 16}
-!94 = !{!70, !71, i64 0}
-!95 = distinct !{!95, !53}
+!93 = distinct !{!93, !53}
+!94 = distinct !{!94, !53}
+!95 = !{!34, !35, i64 16}
+!96 = !{!70, !71, i64 0}
+!97 = distinct !{!97, !53}

@@ -2838,7 +2838,7 @@ match_header.exit.i:                              ; preds = %match_header.exit.t
   %48 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !67
   %.not.i18 = icmp eq ptr %49, null
-  br i1 %.not.i18, label %slist_size.exit20, label %.lr.ph.split.i, !llvm.loop !96
+  br i1 %.not.i18, label %slist_size.exit20, label %.lr.ph.split.i, !llvm.loop !98
 
 slist_size.exit20:                                ; preds = %match_header.exit.i, %slist_size.exit
   %.0.lcssa.i19 = phi i64 [ 0, %slist_size.exit ], [ %.1.i, %match_header.exit.i ]
@@ -2955,7 +2955,7 @@ define internal i64 @encoder_7bit_read(ptr noundef writeonly captures(none) %0, 
   store i64 %21, ptr %5, align 8, !tbaa !68
   %22 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %22, %spec.select
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !99
 
 .loopexit:                                        ; preds = %18, %6, %4, %16
   %.018 = phi i64 [ %17, %16 ], [ -2, %4 ], [ 0, %6 ], [ %spec.select, %18 ]
@@ -2974,7 +2974,7 @@ define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %0
 
 .lr.ph:                                           ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %.pre = load i64, ptr %5, align 8, !tbaa !98
+  %.pre = load i64, ptr %5, align 8, !tbaa !100
   br label %12
 
 12:                                               ; preds = %.lr.ph, %31
@@ -2998,7 +2998,7 @@ define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %0
   store i8 13, ptr %.088, align 1, !tbaa !66
   %20 = getelementptr inbounds nuw i8, ptr %.088, i64 2
   store i8 10, ptr %19, align 1, !tbaa !66
-  store i64 0, ptr %5, align 8, !tbaa !98
+  store i64 0, ptr %5, align 8, !tbaa !100
   %21 = add i64 %.06287, 2
   %22 = add i64 %.06686, -2
   br label %23
@@ -3067,14 +3067,14 @@ define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %0
   %69 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   store i8 %68, ptr %64, align 1, !tbaa !66
   %70 = add i64 %.264, 4
-  %71 = load i64, ptr %5, align 8, !tbaa !98
+  %71 = load i64, ptr %5, align 8, !tbaa !100
   %72 = add i64 %71, 4
-  store i64 %72, ptr %5, align 8, !tbaa !98
+  store i64 %72, ptr %5, align 8, !tbaa !100
   %73 = add i64 %.268, -4
   %74 = load i64, ptr %6, align 8, !tbaa !68
   %75 = load i64, ptr %7, align 8, !tbaa !69
   %76 = icmp ult i64 %74, %75
-  br i1 %76, label %12, label %.loopexit, !llvm.loop !99
+  br i1 %76, label %12, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %31, %26, %4, %25, %17
   %.167 = phi i64 [ %.06686, %17 ], [ %.268, %25 ], [ %1, %4 ], [ %73, %31 ], [ %.268, %26 ]
@@ -3156,9 +3156,9 @@ define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %0
 
 123:                                              ; preds = %115, %95
   %124 = add i64 %.163, 4
-  %125 = load i64, ptr %5, align 8, !tbaa !98
+  %125 = load i64, ptr %5, align 8, !tbaa !100
   %126 = add i64 %125, 4
-  store i64 %126, ptr %5, align 8, !tbaa !98
+  store i64 %126, ptr %5, align 8, !tbaa !100
   br label %127
 
 127:                                              ; preds = %79, %.loopexit, %80, %123, %25, %17
@@ -3317,7 +3317,7 @@ qp_lookahead_eol.exit.thread74:                   ; preds = %qp_lookahead_eol.ex
   br i1 %.not, label %.thread, label %70
 
 70:                                               ; preds = %qp_lookahead_eol.exit.thread74
-  %71 = load i64, ptr %6, align 8, !tbaa !98
+  %71 = load i64, ptr %6, align 8, !tbaa !100
   %72 = add i64 %71, %.051
   %73 = icmp eq i64 %72, 76
   br i1 %73, label %74, label %95
@@ -3379,7 +3379,7 @@ qp_lookahead_eol.exit72:                          ; preds = %77
   %100 = add i64 %.152, %.054102
   %101 = getelementptr inbounds nuw i8, ptr %.057101, i64 %.152
   %102 = sub nuw i64 %.059100, %.152
-  %103 = load i64, ptr %6, align 8, !tbaa !98
+  %103 = load i64, ptr %6, align 8, !tbaa !100
   %104 = add i64 %103, %.152
   %105 = add nsw i64 %.152, -1
   %106 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %105
@@ -3454,7 +3454,7 @@ define internal fastcc noundef i64 @read_part_content(ptr noundef captures(none)
   %.049.i66 = phi i64 [ 0, %16 ], [ %71, %70 ]
   %.051.i64 = phi ptr [ %1, %16 ], [ %72, %70 ]
   %.053.i62 = phi i64 [ %2, %16 ], [ %73, %70 ]
-  %25 = load ptr, ptr %20, align 8, !tbaa !100
+  %25 = load ptr, ptr %20, align 8, !tbaa !102
   %26 = load i32, ptr %19, align 8, !tbaa !56
   switch i32 %26, label %70 [
     i32 0, label %27
@@ -3469,7 +3469,7 @@ define internal fastcc noundef i64 @read_part_content(ptr noundef captures(none)
   %28 = load ptr, ptr %23, align 8, !tbaa !34
   store i32 5, ptr %19, align 8, !tbaa !40
   store ptr %28, ptr %20, align 8, !tbaa !62
-  store i64 2, ptr %21, align 8, !tbaa !101
+  store i64 2, ptr %21, align 8, !tbaa !103
   br label %70
 
 29:                                               ; preds = %24
@@ -3599,7 +3599,7 @@ readback_bytes.exit48.thread:                     ; preds = %29
   %72 = getelementptr inbounds nuw i8, ptr %.051.i64, i64 %.047.i
   %73 = sub i64 %.053.i62, %.047.i
   %.not.i = icmp eq i64 %73, 0
-  br i1 %.not.i, label %mime_subparts_read.exit, label %24, !llvm.loop !102
+  br i1 %.not.i, label %mime_subparts_read.exit, label %24, !llvm.loop !104
 
 74:                                               ; preds = %13
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3626,7 +3626,7 @@ readback_bytes.exit48.thread:                     ; preds = %29
   br i1 %.not35, label %86, label %90
 
 86:                                               ; preds = %82
-  %87 = load i8, ptr %3, align 1, !tbaa !58, !range !103, !noundef !104
+  %87 = load i8, ptr %3, align 1, !tbaa !58, !range !105, !noundef !106
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %98, label %89
 
@@ -3688,7 +3688,7 @@ define internal noundef i32 @cr_mime_init(ptr readnone captures(none) %0, ptr no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 -1, ptr %5, align 8, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 0, ptr %6, align 8, !tbaa !105
+  store i64 0, ptr %6, align 8, !tbaa !107
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @Curl_bufq_init2(ptr noundef nonnull %7, i64 noundef 1024, i64 noundef 1, i32 noundef 2) #18
   ret i32 0
@@ -3723,13 +3723,13 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %24 = load ptr, ptr %23, align 8, !tbaa !106
+  %24 = load ptr, ptr %23, align 8, !tbaa !108
   %.not183 = icmp eq ptr %24, null
   br i1 %.not183, label %31, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !160
+  %27 = load i32, ptr %26, align 8, !tbaa !162
   %28 = icmp sgt i32 %27, 0
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %30 = icmp sgt i32 %29, 0
@@ -3737,13 +3737,13 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   br i1 %or.cond, label %32, label %35
 
 31:                                               ; preds = %22
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old2 = icmp sgt i32 %.old, 0
   br i1 %.old2, label %32, label %35
 
 32:                                               ; preds = %25, %31
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %34 = load i32, ptr %33, align 8, !tbaa !162
+  %34 = load i32, ptr %33, align 8, !tbaa !164
   tail call void (ptr, ptr, ...) @Curl_trc_read(ptr noundef nonnull %0, ptr noundef nonnull @.str.52, i64 noundef %3, i32 noundef %34) #18
   br label %35
 
@@ -3751,7 +3751,7 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   store i64 0, ptr %4, align 8, !tbaa !51
   store i8 0, ptr %5, align 1, !tbaa !58
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %37 = load i32, ptr %36, align 8, !tbaa !162
+  %37 = load i32, ptr %36, align 8, !tbaa !164
   br label %221
 
 38:                                               ; preds = %6
@@ -3772,13 +3772,13 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %47 = load ptr, ptr %46, align 8, !tbaa !106
+  %47 = load ptr, ptr %46, align 8, !tbaa !108
   %.not180 = icmp eq ptr %47, null
   br i1 %.not180, label %54, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !160
+  %50 = load i32, ptr %49, align 8, !tbaa !162
   %51 = icmp sgt i32 %50, 0
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %53 = icmp sgt i32 %52, 0
@@ -3786,7 +3786,7 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   br i1 %or.cond5, label %55, label %56
 
 54:                                               ; preds = %45
-  %.old3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old4 = icmp sgt i32 %.old3, 0
   br i1 %.old4, label %55, label %56
 
@@ -3807,7 +3807,7 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %63 = load i64, ptr %62, align 8, !tbaa !105
+  %63 = load i64, ptr %62, align 8, !tbaa !107
   %64 = sub nsw i64 %59, %63
   %65 = icmp slt i64 %64, 1
   br i1 %65, label %.thread186, label %66
@@ -3831,7 +3831,7 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   %73 = phi ptr [ %70, %.thread186 ], [ %68, %67 ]
   %.0142189 = phi i64 [ 0, %.thread186 ], [ %.0142, %67 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
-  store i32 0, ptr %10, align 4, !tbaa !163
+  store i32 0, ptr %10, align 4, !tbaa !165
   %74 = call i64 @Curl_bufq_read(ptr noundef nonnull %73, ptr noundef %2, i64 noundef %.0142189, ptr noundef nonnull %10) #18
   %75 = icmp sgt i64 %74, -1
   br i1 %75, label %.thread, label %76
@@ -3844,9 +3844,9 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   %77 = load i8, ptr %14, align 8
   %78 = or i8 %77, 2
   store i8 %78, ptr %14, align 8
-  %79 = load i32, ptr %10, align 4, !tbaa !163
+  %79 = load i32, ptr %10, align 4, !tbaa !165
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 %79, ptr %80, align 8, !tbaa !162
+  store i32 %79, ptr %80, align 8, !tbaa !164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
   br label %221
 
@@ -3869,13 +3869,13 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %90 = load ptr, ptr %89, align 8, !tbaa !106
+  %90 = load ptr, ptr %89, align 8, !tbaa !108
   %.not170 = icmp eq ptr %90, null
   br i1 %.not170, label %97, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !160
+  %93 = load i32, ptr %92, align 8, !tbaa !162
   %94 = icmp sgt i32 %93, 0
   %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %96 = icmp sgt i32 %95, 0
@@ -3883,7 +3883,7 @@ define internal i32 @cr_mime_read(ptr noundef %0, ptr noundef readonly captures(
   br i1 %or.cond8, label %98, label %99
 
 97:                                               ; preds = %88
-  %.old6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old7 = icmp sgt i32 %.old6, 0
   br i1 %.old7, label %98, label %99
 
@@ -3910,7 +3910,7 @@ Curl_mime_read.exit:                              ; preds = %102
 
 106:                                              ; preds = %Curl_mime_read.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #18
-  store i32 0, ptr %11, align 4, !tbaa !163
+  store i32 0, ptr %11, align 4, !tbaa !165
   %107 = call i64 @Curl_bufq_write(ptr noundef nonnull %83, ptr noundef nonnull %9, i64 noundef %103, ptr noundef nonnull %11) #18
   %108 = icmp slt i64 %107, 0
   br i1 %108, label %.thread194, label %109
@@ -3924,9 +3924,9 @@ Curl_mime_read.exit:                              ; preds = %102
   %112 = load i8, ptr %14, align 8
   %113 = or i8 %112, 2
   store i8 %113, ptr %14, align 8
-  %114 = load i32, ptr %11, align 4, !tbaa !163
+  %114 = load i32, ptr %11, align 4, !tbaa !165
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 %114, ptr %115, align 8, !tbaa !162
+  store i32 %114, ptr %115, align 8, !tbaa !164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #18
   br label %221
 
@@ -3965,13 +3965,13 @@ Curl_mime_read.exit184:                           ; preds = %120
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %130 = load ptr, ptr %129, align 8, !tbaa !106
+  %130 = load ptr, ptr %129, align 8, !tbaa !108
   %.not173 = icmp eq ptr %130, null
   br i1 %.not173, label %137, label %131
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %133 = load i32, ptr %132, align 8, !tbaa !160
+  %133 = load i32, ptr %132, align 8, !tbaa !162
   %134 = icmp sgt i32 %133, 0
   %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %136 = icmp sgt i32 %135, 0
@@ -3979,7 +3979,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   br i1 %or.cond11, label %138, label %139
 
 137:                                              ; preds = %128
-  %.old9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old10 = icmp sgt i32 %.old9, 0
   br i1 %.old10, label %138, label %139
 
@@ -4003,7 +4003,7 @@ Curl_mime_read.exit184:                           ; preds = %120
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %145 = load i64, ptr %144, align 8, !tbaa !105
+  %145 = load i64, ptr %144, align 8, !tbaa !107
   %146 = icmp slt i64 %145, %141
   br i1 %146, label %147, label %148
 
@@ -4027,7 +4027,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   %153 = or i8 %152, 2
   store i8 %153, ptr %14, align 8
   %154 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 42, ptr %154, align 8, !tbaa !162
+  store i32 42, ptr %154, align 8, !tbaa !164
   br label %221
 
 155:                                              ; preds = %139
@@ -4042,13 +4042,13 @@ Curl_mime_read.exit184:                           ; preds = %120
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %162 = load ptr, ptr %161, align 8, !tbaa !106
+  %162 = load ptr, ptr %161, align 8, !tbaa !108
   %.not175 = icmp eq ptr %162, null
   br i1 %.not175, label %169, label %163
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %165 = load i32, ptr %164, align 8, !tbaa !160
+  %165 = load i32, ptr %164, align 8, !tbaa !162
   %166 = icmp sgt i32 %165, 0
   %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %168 = icmp sgt i32 %167, 0
@@ -4056,7 +4056,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   br i1 %or.cond14, label %170, label %.thread198
 
 169:                                              ; preds = %160
-  %.old12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old13 = icmp sgt i32 %.old12, 0
   br i1 %.old13, label %170, label %.thread198
 
@@ -4066,9 +4066,9 @@ Curl_mime_read.exit184:                           ; preds = %120
 
 .thread198:                                       ; preds = %155, %156, %163, %169, %170
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %172 = load i32, ptr %171, align 4, !tbaa !164
+  %172 = load i32, ptr %171, align 4, !tbaa !166
   %173 = or i32 %172, 32
-  store i32 %173, ptr %171, align 4, !tbaa !164
+  store i32 %173, ptr %171, align 4, !tbaa !166
   store i64 0, ptr %4, align 8, !tbaa !51
   store i8 0, ptr %5, align 1, !tbaa !58
   br label %200
@@ -4081,7 +4081,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   %176 = or i8 %175, 2
   store i8 %176, ptr %14, align 8
   %177 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 26, ptr %177, align 8, !tbaa !162
+  store i32 26, ptr %177, align 8, !tbaa !164
   br label %221
 
 178:                                              ; preds = %139
@@ -4096,14 +4096,14 @@ Curl_mime_read.exit184:                           ; preds = %120
   %182 = or i8 %181, 2
   store i8 %182, ptr %14, align 8
   %183 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 26, ptr %183, align 8, !tbaa !162
+  store i32 26, ptr %183, align 8, !tbaa !164
   br label %221
 
 184:                                              ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %186 = load i64, ptr %185, align 8, !tbaa !105
+  %186 = load i64, ptr %185, align 8, !tbaa !107
   %187 = add i64 %186, %.2148
-  store i64 %187, ptr %185, align 8, !tbaa !105
+  store i64 %187, ptr %185, align 8, !tbaa !107
   %188 = load i64, ptr %58, align 8, !tbaa !93
   %189 = icmp sgt i64 %188, -1
   br i1 %189, label %190, label %196
@@ -4136,13 +4136,13 @@ Curl_mime_read.exit184:                           ; preds = %120
 
 204:                                              ; preds = %200
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %206 = load ptr, ptr %205, align 8, !tbaa !106
+  %206 = load ptr, ptr %205, align 8, !tbaa !108
   %.not177 = icmp eq ptr %206, null
   br i1 %.not177, label %213, label %207
 
 207:                                              ; preds = %204
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %209 = load i32, ptr %208, align 8, !tbaa !160
+  %209 = load i32, ptr %208, align 8, !tbaa !162
   %210 = icmp sgt i32 %209, 0
   %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %212 = icmp sgt i32 %211, 0
@@ -4150,16 +4150,16 @@ Curl_mime_read.exit184:                           ; preds = %120
   br i1 %or.cond17, label %214, label %221
 
 213:                                              ; preds = %204
-  %.old15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !160
+  %.old15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !162
   %.old16 = icmp sgt i32 %.old15, 0
   br i1 %.old16, label %214, label %221
 
 214:                                              ; preds = %207, %213
   %215 = load i64, ptr %58, align 8, !tbaa !93
   %216 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %217 = load i64, ptr %216, align 8, !tbaa !105
+  %217 = load i64, ptr %216, align 8, !tbaa !107
   %218 = load i64, ptr %4, align 8, !tbaa !51
-  %219 = load i8, ptr %5, align 1, !tbaa !58, !range !103, !noundef !104
+  %219 = load i8, ptr %5, align 1, !tbaa !58, !range !105, !noundef !106
   %220 = zext nneg i8 %219 to i32
   call void (ptr, ptr, ...) @Curl_trc_read(ptr noundef nonnull %0, ptr noundef nonnull @.str.61, i64 noundef %.0142188, i64 noundef %215, i64 noundef %217, i32 noundef 0, i64 noundef %218, i32 noundef %220) #18
   br label %221
@@ -4184,7 +4184,7 @@ define internal zeroext i1 @cr_mime_needs_rewind(ptr readnone captures(none) %0,
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !105
+  %6 = load i64, ptr %5, align 8, !tbaa !107
   %7 = icmp sgt i64 %6, 0
   ret i1 %7
 }
@@ -4249,7 +4249,7 @@ Curl_mime_read.exit:                              ; preds = %18
 23:                                               ; preds = %Curl_mime_read.exit
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #18
   %24 = icmp slt i64 %21, %2
-  br i1 %24, label %10, label %25, !llvm.loop !165
+  br i1 %24, label %10, label %25, !llvm.loop !167
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -4406,7 +4406,7 @@ define internal fastcc void @mime_unpause(ptr noundef captures(address_is_null) 
   %.0.in = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !41
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !166
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !168
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11, %7, %1
   ret void
@@ -4537,74 +4537,76 @@ attributes #19 = { nounwind willreturn memory(read) }
 !93 = !{!89, !14, i64 40}
 !94 = distinct !{!94, !37}
 !95 = !{!53, !6, i64 16}
-!96 = distinct !{!96, !37}
-!97 = distinct !{!97, !37}
-!98 = !{!17, !14, i64 0}
+!96 = distinct !{!96, !37, !97}
+!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!98 = distinct !{!98, !37}
 !99 = distinct !{!99, !37}
-!100 = !{!33, !6, i64 80}
-!101 = !{!33, !14, i64 88}
-!102 = distinct !{!102, !37}
-!103 = !{i8 0, i8 2}
-!104 = !{}
-!105 = !{!89, !14, i64 48}
-!106 = !{!107, !151, i64 4864}
-!107 = !{!"Curl_easy", !10, i64 0, !14, i64 8, !14, i64 16, !108, i64 24, !109, i64 32, !109, i64 64, !10, i64 96, !10, i64 100, !112, i64 104, !114, i64 160, !115, i64 192, !117, i64 208, !117, i64 216, !118, i64 224, !119, i64 232, !120, i64 240, !124, i64 464, !132, i64 2672, !133, i64 2680, !134, i64 2688, !135, i64 2696, !138, i64 3128, !154, i64 5040, !155, i64 5048, !159, i64 5296}
-!108 = !{!"p1 _ZTS11connectdata", !6, i64 0}
-!109 = !{!"Curl_llist_node", !110, i64 0, !6, i64 8, !111, i64 16, !111, i64 24}
-!110 = !{!"p1 _ZTS10Curl_llist", !6, i64 0}
-!111 = !{!"p1 _ZTS15Curl_llist_node", !6, i64 0}
-!112 = !{!"Curl_message", !109, i64 0, !113, i64 32}
-!113 = !{!"CURLMsg", !10, i64 0, !6, i64 8, !7, i64 16}
-!114 = !{!"easy_pollset", !7, i64 0, !10, i64 20, !7, i64 24}
-!115 = !{!"Names", !116, i64 0, !10, i64 8}
-!116 = !{!"p1 _ZTS9Curl_hash", !6, i64 0}
-!117 = !{!"p1 _ZTS10Curl_multi", !6, i64 0}
-!118 = !{!"p1 _ZTS10Curl_share", !6, i64 0}
-!119 = !{!"p1 _ZTS8PslCache", !6, i64 0}
-!120 = !{!"SingleRequest", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !121, i64 32, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !14, i64 64, !10, i64 72, !10, i64 76, !7, i64 80, !7, i64 81, !10, i64 84, !122, i64 88, !84, i64 96, !90, i64 104, !14, i64 168, !14, i64 176, !11, i64 184, !11, i64 192, !7, i64 200, !123, i64 208, !7, i64 216, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219}
-!121 = !{!"curltime", !14, i64 0, !10, i64 8}
-!122 = !{!"p1 _ZTS12Curl_cwriter", !6, i64 0}
-!123 = !{!"p1 _ZTS10doh_probes", !6, i64 0}
-!124 = !{!"UserDefined", !12, i64 0, !6, i64 8, !11, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !6, i64 72, !6, i64 80, !14, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !14, i64 344, !13, i64 352, !125, i64 360, !4, i64 368, !13, i64 808, !13, i64 816, !13, i64 824, !14, i64 832, !126, i64 840, !126, i64 1040, !13, i64 1240, !129, i64 1248, !7, i64 1250, !7, i64 1251, !130, i64 1252, !10, i64 1256, !10, i64 1260, !10, i64 1264, !6, i64 1272, !13, i64 1280, !14, i64 1288, !10, i64 1296, !7, i64 1300, !7, i64 1301, !7, i64 1302, !13, i64 1304, !13, i64 1312, !13, i64 1320, !10, i64 1328, !7, i64 1336, !7, i64 1928, !10, i64 1992, !10, i64 1996, !10, i64 2000, !6, i64 2008, !10, i64 2016, !6, i64 2024, !6, i64 2032, !6, i64 2040, !6, i64 2048, !6, i64 2056, !10, i64 2064, !10, i64 2068, !10, i64 2072, !10, i64 2076, !10, i64 2080, !10, i64 2084, !10, i64 2088, !10, i64 2092, !14, i64 2096, !6, i64 2104, !6, i64 2112, !14, i64 2120, !6, i64 2128, !14, i64 2136, !131, i64 2144, !6, i64 2152, !6, i64 2160, !13, i64 2168, !10, i64 2176, !129, i64 2180, !129, i64 2182, !129, i64 2184, !7, i64 2186, !7, i64 2187, !7, i64 2188, !7, i64 2189, !7, i64 2190, !7, i64 2191, !7, i64 2192, !7, i64 2193, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2201}
-!125 = !{!"p1 _ZTS13curl_httppost", !6, i64 0}
-!126 = !{!"ssl_config_data", !127, i64 0, !14, i64 128, !6, i64 136, !6, i64 144, !11, i64 152, !11, i64 160, !128, i64 168, !11, i64 176, !11, i64 184, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 193}
-!127 = !{!"ssl_primary_config", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !128, i64 64, !128, i64 72, !128, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !7, i64 112, !10, i64 116, !7, i64 120, !10, i64 121, !10, i64 121, !10, i64 121, !10, i64 121}
-!128 = !{!"p1 _ZTS9curl_blob", !6, i64 0}
-!129 = !{!"short", !7, i64 0}
-!130 = !{!"ssl_general_config", !10, i64 0}
-!131 = !{!"p1 _ZTS8Curl_URL", !6, i64 0}
-!132 = !{!"p1 _ZTS10CookieInfo", !6, i64 0}
-!133 = !{!"p1 _ZTS4hsts", !6, i64 0}
-!134 = !{!"p1 _ZTS10altsvcinfo", !6, i64 0}
-!135 = !{!"Progress", !14, i64 0, !136, i64 8, !136, i64 56, !14, i64 104, !14, i64 112, !10, i64 120, !10, i64 124, !14, i64 128, !14, i64 136, !14, i64 144, !14, i64 152, !14, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !121, i64 200, !121, i64 216, !121, i64 232, !121, i64 248, !121, i64 264, !7, i64 280, !7, i64 328, !10, i64 424, !10, i64 428, !10, i64 428}
-!136 = !{!"pgrs_dir", !14, i64 0, !14, i64 8, !14, i64 16, !137, i64 24}
-!137 = !{!"pgrs_measure", !121, i64 0, !14, i64 16}
-!138 = !{!"UrlState", !121, i64 0, !14, i64 16, !14, i64 24, !139, i64 32, !13, i64 64, !14, i64 72, !11, i64 80, !10, i64 88, !10, i64 92, !10, i64 96, !140, i64 104, !10, i64 112, !14, i64 120, !10, i64 128, !6, i64 136, !141, i64 144, !141, i64 200, !142, i64 256, !142, i64 288, !143, i64 320, !6, i64 368, !10, i64 376, !10, i64 376, !121, i64 384, !146, i64 400, !148, i64 456, !7, i64 488, !11, i64 1328, !11, i64 1336, !14, i64 1344, !14, i64 1352, !14, i64 1360, !14, i64 1368, !7, i64 1376, !14, i64 1408, !6, i64 1416, !6, i64 1424, !131, i64 1432, !149, i64 1440, !11, i64 1504, !11, i64 1512, !13, i64 1520, !9, i64 1528, !9, i64 1536, !14, i64 1544, !139, i64 1552, !148, i64 1584, !7, i64 1616, !150, i64 1712, !10, i64 1720, !13, i64 1728, !151, i64 1736, !152, i64 1744, !153, i64 1792, !7, i64 1904, !7, i64 1905, !7, i64 1906, !7, i64 1907, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1910, !10, i64 1910, !10, i64 1910, !10, i64 1910, !10, i64 1910}
-!139 = !{!"dynbuf", !11, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
-!140 = !{!"p1 _ZTS15Curl_ssl_scache", !6, i64 0}
-!141 = !{!"digestdata", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !10, i64 48, !7, i64 52, !10, i64 53, !10, i64 53}
-!142 = !{!"auth", !14, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 24, !10, i64 24}
-!143 = !{!"Curl_async", !11, i64 0, !144, i64 8, !145, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
-!144 = !{!"p1 _ZTS14Curl_dns_entry", !6, i64 0}
-!145 = !{!"p1 _ZTS11thread_data", !6, i64 0}
-!146 = !{!"Curl_tree", !147, i64 0, !147, i64 8, !147, i64 16, !147, i64 24, !121, i64 32, !6, i64 48}
-!147 = !{!"p1 _ZTS9Curl_tree", !6, i64 0}
-!148 = !{!"Curl_llist", !111, i64 0, !111, i64 8, !6, i64 16, !14, i64 24}
-!149 = !{!"urlpieces", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
-!150 = !{!"p1 _ZTS17Curl_header_store", !6, i64 0}
-!151 = !{!"p1 _ZTS13curl_trc_feat", !6, i64 0}
-!152 = !{!"store_netrc", !139, i64 0, !11, i64 32, !10, i64 40}
-!153 = !{!"dynamically_allocated_data", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!154 = !{!"p1 _ZTS12WildcardData", !6, i64 0}
-!155 = !{!"PureInfo", !10, i64 0, !10, i64 4, !10, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !11, i64 72, !11, i64 80, !14, i64 88, !10, i64 96, !156, i64 100, !10, i64 200, !11, i64 208, !10, i64 216, !157, i64 224, !10, i64 240, !10, i64 244, !10, i64 244}
-!156 = !{!"ip_quadruple", !7, i64 0, !7, i64 46, !10, i64 92, !10, i64 96}
-!157 = !{!"curl_certinfo", !10, i64 0, !158, i64 8}
-!158 = !{!"p2 _ZTS10curl_slist", !6, i64 0}
-!159 = !{!"curl_tlssessioninfo", !10, i64 0, !6, i64 8}
-!160 = !{!161, !10, i64 8}
-!161 = !{!"curl_trc_feat", !11, i64 0, !10, i64 8}
-!162 = !{!89, !10, i64 56}
-!163 = !{!10, !10, i64 0}
-!164 = !{!107, !10, i64 316}
-!165 = distinct !{!165, !37}
-!166 = distinct !{!166, !37}
+!100 = !{!17, !14, i64 0}
+!101 = distinct !{!101, !37}
+!102 = !{!33, !6, i64 80}
+!103 = !{!33, !14, i64 88}
+!104 = distinct !{!104, !37}
+!105 = !{i8 0, i8 2}
+!106 = !{}
+!107 = !{!89, !14, i64 48}
+!108 = !{!109, !153, i64 4864}
+!109 = !{!"Curl_easy", !10, i64 0, !14, i64 8, !14, i64 16, !110, i64 24, !111, i64 32, !111, i64 64, !10, i64 96, !10, i64 100, !114, i64 104, !116, i64 160, !117, i64 192, !119, i64 208, !119, i64 216, !120, i64 224, !121, i64 232, !122, i64 240, !126, i64 464, !134, i64 2672, !135, i64 2680, !136, i64 2688, !137, i64 2696, !140, i64 3128, !156, i64 5040, !157, i64 5048, !161, i64 5296}
+!110 = !{!"p1 _ZTS11connectdata", !6, i64 0}
+!111 = !{!"Curl_llist_node", !112, i64 0, !6, i64 8, !113, i64 16, !113, i64 24}
+!112 = !{!"p1 _ZTS10Curl_llist", !6, i64 0}
+!113 = !{!"p1 _ZTS15Curl_llist_node", !6, i64 0}
+!114 = !{!"Curl_message", !111, i64 0, !115, i64 32}
+!115 = !{!"CURLMsg", !10, i64 0, !6, i64 8, !7, i64 16}
+!116 = !{!"easy_pollset", !7, i64 0, !10, i64 20, !7, i64 24}
+!117 = !{!"Names", !118, i64 0, !10, i64 8}
+!118 = !{!"p1 _ZTS9Curl_hash", !6, i64 0}
+!119 = !{!"p1 _ZTS10Curl_multi", !6, i64 0}
+!120 = !{!"p1 _ZTS10Curl_share", !6, i64 0}
+!121 = !{!"p1 _ZTS8PslCache", !6, i64 0}
+!122 = !{!"SingleRequest", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !123, i64 32, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !14, i64 64, !10, i64 72, !10, i64 76, !7, i64 80, !7, i64 81, !10, i64 84, !124, i64 88, !84, i64 96, !90, i64 104, !14, i64 168, !14, i64 176, !11, i64 184, !11, i64 192, !7, i64 200, !125, i64 208, !7, i64 216, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 217, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 218, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219, !10, i64 219}
+!123 = !{!"curltime", !14, i64 0, !10, i64 8}
+!124 = !{!"p1 _ZTS12Curl_cwriter", !6, i64 0}
+!125 = !{!"p1 _ZTS10doh_probes", !6, i64 0}
+!126 = !{!"UserDefined", !12, i64 0, !6, i64 8, !11, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !6, i64 72, !6, i64 80, !14, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !14, i64 344, !13, i64 352, !127, i64 360, !4, i64 368, !13, i64 808, !13, i64 816, !13, i64 824, !14, i64 832, !128, i64 840, !128, i64 1040, !13, i64 1240, !131, i64 1248, !7, i64 1250, !7, i64 1251, !132, i64 1252, !10, i64 1256, !10, i64 1260, !10, i64 1264, !6, i64 1272, !13, i64 1280, !14, i64 1288, !10, i64 1296, !7, i64 1300, !7, i64 1301, !7, i64 1302, !13, i64 1304, !13, i64 1312, !13, i64 1320, !10, i64 1328, !7, i64 1336, !7, i64 1928, !10, i64 1992, !10, i64 1996, !10, i64 2000, !6, i64 2008, !10, i64 2016, !6, i64 2024, !6, i64 2032, !6, i64 2040, !6, i64 2048, !6, i64 2056, !10, i64 2064, !10, i64 2068, !10, i64 2072, !10, i64 2076, !10, i64 2080, !10, i64 2084, !10, i64 2088, !10, i64 2092, !14, i64 2096, !6, i64 2104, !6, i64 2112, !14, i64 2120, !6, i64 2128, !14, i64 2136, !133, i64 2144, !6, i64 2152, !6, i64 2160, !13, i64 2168, !10, i64 2176, !131, i64 2180, !131, i64 2182, !131, i64 2184, !7, i64 2186, !7, i64 2187, !7, i64 2188, !7, i64 2189, !7, i64 2190, !7, i64 2191, !7, i64 2192, !7, i64 2193, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2194, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2195, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2196, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2197, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2198, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2199, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2200, !10, i64 2201}
+!127 = !{!"p1 _ZTS13curl_httppost", !6, i64 0}
+!128 = !{!"ssl_config_data", !129, i64 0, !14, i64 128, !6, i64 136, !6, i64 144, !11, i64 152, !11, i64 160, !130, i64 168, !11, i64 176, !11, i64 184, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 192, !10, i64 193}
+!129 = !{!"ssl_primary_config", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !130, i64 64, !130, i64 72, !130, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !7, i64 112, !10, i64 116, !7, i64 120, !10, i64 121, !10, i64 121, !10, i64 121, !10, i64 121}
+!130 = !{!"p1 _ZTS9curl_blob", !6, i64 0}
+!131 = !{!"short", !7, i64 0}
+!132 = !{!"ssl_general_config", !10, i64 0}
+!133 = !{!"p1 _ZTS8Curl_URL", !6, i64 0}
+!134 = !{!"p1 _ZTS10CookieInfo", !6, i64 0}
+!135 = !{!"p1 _ZTS4hsts", !6, i64 0}
+!136 = !{!"p1 _ZTS10altsvcinfo", !6, i64 0}
+!137 = !{!"Progress", !14, i64 0, !138, i64 8, !138, i64 56, !14, i64 104, !14, i64 112, !10, i64 120, !10, i64 124, !14, i64 128, !14, i64 136, !14, i64 144, !14, i64 152, !14, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !123, i64 200, !123, i64 216, !123, i64 232, !123, i64 248, !123, i64 264, !7, i64 280, !7, i64 328, !10, i64 424, !10, i64 428, !10, i64 428}
+!138 = !{!"pgrs_dir", !14, i64 0, !14, i64 8, !14, i64 16, !139, i64 24}
+!139 = !{!"pgrs_measure", !123, i64 0, !14, i64 16}
+!140 = !{!"UrlState", !123, i64 0, !14, i64 16, !14, i64 24, !141, i64 32, !13, i64 64, !14, i64 72, !11, i64 80, !10, i64 88, !10, i64 92, !10, i64 96, !142, i64 104, !10, i64 112, !14, i64 120, !10, i64 128, !6, i64 136, !143, i64 144, !143, i64 200, !144, i64 256, !144, i64 288, !145, i64 320, !6, i64 368, !10, i64 376, !10, i64 376, !123, i64 384, !148, i64 400, !150, i64 456, !7, i64 488, !11, i64 1328, !11, i64 1336, !14, i64 1344, !14, i64 1352, !14, i64 1360, !14, i64 1368, !7, i64 1376, !14, i64 1408, !6, i64 1416, !6, i64 1424, !133, i64 1432, !151, i64 1440, !11, i64 1504, !11, i64 1512, !13, i64 1520, !9, i64 1528, !9, i64 1536, !14, i64 1544, !141, i64 1552, !150, i64 1584, !7, i64 1616, !152, i64 1712, !10, i64 1720, !13, i64 1728, !153, i64 1736, !154, i64 1744, !155, i64 1792, !7, i64 1904, !7, i64 1905, !7, i64 1906, !7, i64 1907, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1908, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1909, !10, i64 1910, !10, i64 1910, !10, i64 1910, !10, i64 1910, !10, i64 1910}
+!141 = !{!"dynbuf", !11, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
+!142 = !{!"p1 _ZTS15Curl_ssl_scache", !6, i64 0}
+!143 = !{!"digestdata", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !10, i64 48, !7, i64 52, !10, i64 53, !10, i64 53}
+!144 = !{!"auth", !14, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 24, !10, i64 24}
+!145 = !{!"Curl_async", !11, i64 0, !146, i64 8, !147, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
+!146 = !{!"p1 _ZTS14Curl_dns_entry", !6, i64 0}
+!147 = !{!"p1 _ZTS11thread_data", !6, i64 0}
+!148 = !{!"Curl_tree", !149, i64 0, !149, i64 8, !149, i64 16, !149, i64 24, !123, i64 32, !6, i64 48}
+!149 = !{!"p1 _ZTS9Curl_tree", !6, i64 0}
+!150 = !{!"Curl_llist", !113, i64 0, !113, i64 8, !6, i64 16, !14, i64 24}
+!151 = !{!"urlpieces", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
+!152 = !{!"p1 _ZTS17Curl_header_store", !6, i64 0}
+!153 = !{!"p1 _ZTS13curl_trc_feat", !6, i64 0}
+!154 = !{!"store_netrc", !141, i64 0, !11, i64 32, !10, i64 40}
+!155 = !{!"dynamically_allocated_data", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!156 = !{!"p1 _ZTS12WildcardData", !6, i64 0}
+!157 = !{!"PureInfo", !10, i64 0, !10, i64 4, !10, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !11, i64 72, !11, i64 80, !14, i64 88, !10, i64 96, !158, i64 100, !10, i64 200, !11, i64 208, !10, i64 216, !159, i64 224, !10, i64 240, !10, i64 244, !10, i64 244}
+!158 = !{!"ip_quadruple", !7, i64 0, !7, i64 46, !10, i64 92, !10, i64 96}
+!159 = !{!"curl_certinfo", !10, i64 0, !160, i64 8}
+!160 = !{!"p2 _ZTS10curl_slist", !6, i64 0}
+!161 = !{!"curl_tlssessioninfo", !10, i64 0, !6, i64 8}
+!162 = !{!163, !10, i64 8}
+!163 = !{!"curl_trc_feat", !11, i64 0, !10, i64 8}
+!164 = !{!89, !10, i64 56}
+!165 = !{!10, !10, i64 0}
+!166 = !{!109, !10, i64 316}
+!167 = distinct !{!167, !37}
+!168 = distinct !{!168, !37}

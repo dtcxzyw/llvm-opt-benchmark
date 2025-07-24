@@ -132,7 +132,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef captures(add
   %.139.i.i = phi i32 [ %.03855.i.i, %55 ], [ %62, %59 ], [ %62, %63 ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 256
-  br i1 %exitcond63.not.i.i, label %CountLevels.exit.i, label %55, !llvm.loop !9
+  br i1 %exitcond63.not.i.i, label %CountLevels.exit.i, label %55, !llvm.loop !10
 
 CountLevels.exit.i:                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %31, i64 %26
@@ -168,19 +168,19 @@ CountLevels.exit.i:                               ; preds = %65
   %86 = lshr i32 %85, 2
   %87 = trunc i32 %86 to i16
   %88 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i52.i
-  store i16 %87, ptr %88, align 2, !tbaa !10
+  store i16 %87, ptr %88, align 2, !tbaa !11
   %89 = sub i16 0, %87
   %90 = sub nsw i64 0, %indvars.iv.i52.i
   %91 = getelementptr inbounds i16, ptr %69, i64 %90
-  store i16 %89, ptr %91, align 2, !tbaa !10
+  store i16 %89, ptr %91, align 2, !tbaa !11
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 1024
-  br i1 %exitcond.not.i55.i, label %92, label %76, !llvm.loop !12
+  br i1 %exitcond.not.i55.i, label %92, label %76, !llvm.loop !13
 
 92:                                               ; preds = %84
   %93 = mul nuw nsw i32 %33, %33
   %94 = udiv i32 262144, %93
-  store i16 0, ptr %69, align 2, !tbaa !10
+  store i16 0, ptr %69, align 2, !tbaa !11
   %95 = icmp sgt i32 %.sroa.49.1, 2
   %96 = icmp sgt i32 %2, %19
   %or.cond99 = select i1 %95, i1 %96, i1 false
@@ -217,17 +217,17 @@ CountLevels.exit.i:                               ; preds = %65
   %106 = zext i8 %105 to i16
   %107 = add i16 %.038.i, %106
   %108 = getelementptr inbounds nuw i16, ptr %.sroa.43.098, i64 %indvars.iv.i
-  %109 = load i16, ptr %108, align 2, !tbaa !10
+  %109 = load i16, ptr %108, align 2, !tbaa !11
   %110 = add i16 %107, %109
   %111 = getelementptr inbounds nuw i16, ptr %.sroa.36.097, i64 %indvars.iv.i
-  %112 = load i16, ptr %111, align 2, !tbaa !10
+  %112 = load i16, ptr %111, align 2, !tbaa !11
   %113 = sub i16 %110, %112
   %114 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
-  store i16 %113, ptr %114, align 2, !tbaa !10
-  store i16 %110, ptr %111, align 2, !tbaa !10
+  store i16 %113, ptr %114, align 2, !tbaa !11
+  store i16 %110, ptr %111, align 2, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %115 = getelementptr inbounds nuw i16, ptr %.sroa.36.097, i64 %27
@@ -247,20 +247,20 @@ CountLevels.exit.i:                               ; preds = %65
 .lr.ph.i35:                                       ; preds = %._crit_edge.i.loopexit, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %.lr.ph.i35 ], [ 0, %._crit_edge.i.loopexit ]
   %gep74.i = getelementptr i16, ptr %invariant.gep73.i, i64 %indvars.iv.i36
-  %119 = load i16, ptr %gep74.i, align 2, !tbaa !10
+  %119 = load i16, ptr %gep74.i, align 2, !tbaa !11
   %120 = sub nsw i64 %97, %indvars.iv.i36
   %121 = getelementptr inbounds nuw i16, ptr %36, i64 %120
-  %122 = load i16, ptr %121, align 2, !tbaa !10
+  %122 = load i16, ptr %121, align 2, !tbaa !11
   %123 = add i16 %122, %119
   %124 = zext i16 %123 to i32
   %125 = mul i32 %94, %124
   %126 = lshr i32 %125, 16
   %127 = trunc nuw i32 %126 to i16
   %128 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i36
-  store i16 %127, ptr %128, align 2, !tbaa !10
+  store i16 %127, ptr %128, align 2, !tbaa !11
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %.preheader53.i, label %.lr.ph.i35, !llvm.loop !14
+  br i1 %exitcond.not.i38, label %.preheader53.i, label %.lr.ph.i35, !llvm.loop !15
 
 .preheader.loopexit.i:                            ; preds = %.lr.ph57.i
   %129 = trunc nuw nsw i64 %indvars.iv.next66.i to i32
@@ -278,37 +278,37 @@ CountLevels.exit.i:                               ; preds = %65
 .lr.ph57.i:                                       ; preds = %.preheader53.i, %.lr.ph57.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %.lr.ph57.i ], [ %wide.trip.count.i34, %.preheader53.i ]
   %gep.i = getelementptr i16, ptr %invariant.gep75.i, i64 %indvars.iv65.i
-  %132 = load i16, ptr %gep.i, align 2, !tbaa !10
+  %132 = load i16, ptr %gep.i, align 2, !tbaa !11
   %133 = trunc nsw i64 %indvars.iv65.i to i32
   %134 = add i32 %133, %101
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i16, ptr %36, i64 %135
-  %137 = load i16, ptr %136, align 2, !tbaa !10
+  %137 = load i16, ptr %136, align 2, !tbaa !11
   %138 = sub i16 %132, %137
   %139 = zext i16 %138 to i32
   %140 = mul i32 %94, %139
   %141 = lshr i32 %140, 16
   %142 = trunc nuw i32 %141 to i16
   %143 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv65.i
-  store i16 %142, ptr %143, align 2, !tbaa !10
+  store i16 %142, ptr %143, align 2, !tbaa !11
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %144 = icmp samesign ult i64 %indvars.iv.next66.i, %102
-  br i1 %144, label %.lr.ph57.i, label %.preheader.loopexit.i, !llvm.loop !15
+  br i1 %144, label %.lr.ph57.i, label %.preheader.loopexit.i, !llvm.loop !16
 
 145:                                              ; preds = %145, %.lr.ph62.i
   %indvars.iv68.i = phi i64 [ %131, %.lr.ph62.i ], [ %indvars.iv.next69.i, %145 ]
-  %146 = load i16, ptr %gep60.i, align 2, !tbaa !10
+  %146 = load i16, ptr %gep60.i, align 2, !tbaa !11
   %147 = shl i16 %146, 1
   %148 = trunc nsw i64 %indvars.iv68.i to i32
   %149 = add i32 %.1, %148
   %150 = sub i32 %103, %149
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i16, ptr %36, i64 %151
-  %153 = load i16, ptr %152, align 2, !tbaa !10
+  %153 = load i16, ptr %152, align 2, !tbaa !11
   %154 = add i32 %148, %101
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds i16, ptr %36, i64 %155
-  %157 = load i16, ptr %156, align 2, !tbaa !10
+  %157 = load i16, ptr %156, align 2, !tbaa !11
   %158 = add i16 %153, %157
   %159 = sub i16 %147, %158
   %160 = zext i16 %159 to i32
@@ -316,10 +316,10 @@ CountLevels.exit.i:                               ; preds = %65
   %162 = lshr i32 %161, 16
   %163 = trunc nuw i32 %162 to i16
   %164 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv68.i
-  store i16 %163, ptr %164, align 2, !tbaa !10
+  store i16 %163, ptr %164, align 2, !tbaa !11
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %27
-  br i1 %exitcond72.not.i, label %.lr.ph.i41.preheader, label %145, !llvm.loop !16
+  br i1 %exitcond72.not.i, label %.lr.ph.i41.preheader, label %145, !llvm.loop !17
 
 .lr.ph.i41.preheader:                             ; preds = %145, %.preheader.i
   br label %.lr.ph.i41
@@ -336,13 +336,13 @@ CountLevels.exit.i:                               ; preds = %65
 
 170:                                              ; preds = %.lr.ph.i41
   %171 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i43
-  %172 = load i16, ptr %171, align 2, !tbaa !10
+  %172 = load i16, ptr %171, align 2, !tbaa !11
   %173 = zext i16 %172 to i32
   %174 = shl nuw nsw i32 %167, 2
   %175 = sub nsw i32 %173, %174
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds i16, ptr %69, i64 %176
-  %178 = load i16, ptr %177, align 2, !tbaa !10
+  %178 = load i16, ptr %177, align 2, !tbaa !11
   %179 = sext i16 %178 to i32
   %180 = add nsw i32 %179, %167
   %181 = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 33023) %180, i32 0)
@@ -354,7 +354,7 @@ CountLevels.exit.i:                               ; preds = %65
 184:                                              ; preds = %170, %.lr.ph.i41
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %27
-  br i1 %exitcond.not.i45, label %ApplyFilter.exit.loopexit, label %.lr.ph.i41, !llvm.loop !17
+  br i1 %exitcond.not.i45, label %ApplyFilter.exit.loopexit, label %.lr.ph.i41, !llvm.loop !18
 
 ApplyFilter.exit.loopexit:                        ; preds = %184
   %185 = getelementptr inbounds i8, ptr %.sroa.23.096, i64 %39
@@ -364,7 +364,7 @@ ApplyFilter.exit.loopexit:                        ; preds = %184
   %.sroa.23.1 = phi ptr [ %.sroa.23.096, %._crit_edge.i.loopexit ], [ %185, %ApplyFilter.exit.loopexit ]
   %187 = add nsw i32 %.sroa.14.094, 1
   %exitcond.not = icmp eq i32 %187, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i, !llvm.loop !19
 
 .loopexit:                                        ; preds = %186, %92
   tail call void @WebPSafeFree(ptr noundef nonnull %31) #5
@@ -414,14 +414,15 @@ attributes #5 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"short", !4, i64 0}
-!12 = distinct !{!12, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"short", !4, i64 0}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

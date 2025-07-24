@@ -1302,7 +1302,7 @@ strview_case_eq.exit.thread:                      ; preds = %.critedge84, %strvi
   %.2 = phi i1 [ %.14270, %._crit_edge ], [ false, %84 ], [ %.14270, %strview_case_eq.exit ], [ %.14270, %.critedge84 ]
   %89 = load ptr, ptr %.03771, align 8, !tbaa !19
   %.not45 = icmp eq ptr %89, null
-  br i1 %.not45, label %._crit_edge73, label %.lr.ph72.split, !llvm.loop !59
+  br i1 %.not45, label %._crit_edge73, label %.lr.ph72.split, !llvm.loop !61
 
 ._crit_edge73:                                    ; preds = %strview_case_eq.exit.thread, %strview_case_eq.exit.thread.us
   %.142.lcssa = phi i1 [ %.2.us, %strview_case_eq.exit.thread.us ], [ %.2, %strview_case_eq.exit.thread ]
@@ -1354,14 +1354,14 @@ strview_case_eq.exit62:                           ; preds = %strview.exit59
 .critedge:                                        ; preds = %strview_case_eq.exit62
   %101 = load ptr, ptr %.179, align 8, !tbaa !19
   %.not46 = icmp eq ptr %101, null
-  br i1 %.not46, label %.critedge._crit_edge, label %.lr.ph80, !llvm.loop !60
+  br i1 %.not46, label %.critedge._crit_edge, label %.lr.ph80, !llvm.loop !62
 
 .critedge.thread:                                 ; preds = %strview.exit59, %strview_case_eq.exit62
   %102 = trunc i64 %.sroa.3.0.i56 to i32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %102, ptr noundef nonnull %91)
   %103 = load ptr, ptr %.179, align 8, !tbaa !19
   %.not4690 = icmp eq ptr %103, null
-  br i1 %.not4690, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
+  br i1 %.not4690, label %.thread, label %.lr.ph80.outer, !llvm.loop !62
 
 .critedge._crit_edge:                             ; preds = %.critedge
   br i1 %.576.ph, label %agxbuse.exit, label %.thread
@@ -1456,7 +1456,7 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
 7:                                                ; preds = %.preheader
   %8 = add nuw nsw i64 %.01951, 1
   %exitcond.not = icmp eq i64 %8, 5
-  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !61
+  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !63
 
 9:                                                ; preds = %7
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #25
@@ -1470,7 +1470,7 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not2353, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.thread
-  store i32 0, ptr %2, align 4, !tbaa !62
+  store i32 0, ptr %2, align 4, !tbaa !64
   br label %strs_detach.exit
 
 .lr.ph:                                           ; preds = %.thread, %57
@@ -1582,11 +1582,11 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
   %.sroa.16.1 = phi i64 [ %.sroa.16.2, %strs_append.exit ], [ %.sroa.16.057, %strview_case_eq.exit ]
   %.020 = load ptr, ptr %.02060, align 8, !tbaa !10
   %.not23 = icmp eq ptr %.020, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %57
   %58 = trunc i64 %.sroa.12.1 to i32
-  store i32 %58, ptr %2, align 4, !tbaa !62
+  store i32 %58, ptr %2, align 4, !tbaa !64
   %.not16.i.i = icmp eq i64 %.sroa.8.1, 0
   %.not1213.i.i = icmp eq i64 %.sroa.16.1, 0
   %or.cond39 = select i1 %.not16.i.i, i1 true, i1 %.not1213.i.i
@@ -1600,7 +1600,7 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
 ._crit_edge.i.i26:                                ; preds = %62
   %61 = add i64 %59, -1
   %.not.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i, label %strs_detach.exit, label %.lr.ph.i.i, !llvm.loop !64
+  br i1 %.not.i.i, label %strs_detach.exit, label %.lr.ph.i.i, !llvm.loop !66
 
 62:                                               ; preds = %62, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %64, %62 ]
@@ -1610,7 +1610,7 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   store ptr %.015.i.i, ptr %63, align 8, !tbaa !3
   %.not12.i.i = icmp eq i64 %.011.i.i, 0
-  br i1 %.not12.i.i, label %._crit_edge.i.i26, label %62, !llvm.loop !65
+  br i1 %.not12.i.i, label %._crit_edge.i.i26, label %62, !llvm.loop !67
 
 strs_detach.exit:                                 ; preds = %._crit_edge.i.i26, %._crit_edge.thread, %._crit_edge, %3, %9
   %.0 = phi ptr [ null, %9 ], [ null, %3 ], [ %.sroa.0.1, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.0.1, %._crit_edge.i.i26 ]
@@ -1627,10 +1627,10 @@ define void @gvplugin_write_status(ptr noundef readonly captures(none) %0) local
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.20, ptr noundef %7) #27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load i8, ptr %9, align 8, !tbaa !67, !range !68, !noundef !69
+  %10 = load i8, ptr %9, align 8, !tbaa !69, !range !70, !noundef !71
   %11 = trunc nuw i8 %10 to i1
   %12 = load ptr, ptr @stderr, align 8, !tbaa !17
   br i1 %11, label %13, label %15
@@ -1664,7 +1664,7 @@ define void @gvplugin_write_status(ptr noundef readonly captures(none) %0) local
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.24, ptr noundef %26, ptr noundef %28) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %30, label %21, !llvm.loop !70
+  br i1 %exitcond.not, label %30, label %21, !llvm.loop !72
 
 30:                                               ; preds = %21
   ret void
@@ -1693,7 +1693,7 @@ define noundef ptr @gvplugin_graph(ptr noundef readonly captures(none) %0) local
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %.03201150 = load ptr, ptr %20, align 8, !tbaa !71
+  %.03201150 = load ptr, ptr %20, align 8, !tbaa !73
   %.not1151 = icmp eq ptr %.03201150, null
   br i1 %.not1151, label %._crit_edge1155, label %.lr.ph1154
 
@@ -2590,7 +2590,7 @@ default.unreachable:                              ; preds = %118
   %.4303 = phi ptr [ %.3302, %329 ], [ %.13001136, %101 ]
   %.0318 = load ptr, ptr %.03181137, align 8, !tbaa !10
   %.not371 = icmp eq ptr %.0318, null
-  br i1 %.not371, label %._crit_edge, label %101, !llvm.loop !72
+  br i1 %.not371, label %._crit_edge, label %101, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %330, %agxbuse.exit395
   %.1337.lcssa = phi ptr [ %.03361142, %agxbuse.exit395 ], [ %.3339, %330 ]
@@ -3138,7 +3138,7 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   %.2308 = phi i32 [ %.03061147, %478 ], [ 1, %agxbuse.exit515 ], [ 1, %agxbuse.exit500 ]
   %529 = add nuw nsw i64 %.03051148, 1
   %exitcond.not = icmp eq i64 %529, 5
-  br i1 %exitcond.not, label %52, label %53, !llvm.loop !73
+  br i1 %exitcond.not, label %52, label %53, !llvm.loop !75
 
 530:                                              ; preds = %.thread, %52
   %.434083012691287 = phi ptr [ %.1337.lcssa, %.thread ], [ %.4340830, %52 ]
@@ -3185,15 +3185,15 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   br label %549
 
 549:                                              ; preds = %544, %545
-  %.0320 = load ptr, ptr %.03201152, align 8, !tbaa !71
+  %.0320 = load ptr, ptr %.03201152, align 8, !tbaa !73
   %.not = icmp eq ptr %.0320, null
-  br i1 %.not, label %._crit_edge1155, label %25, !llvm.loop !74
+  br i1 %.not, label %._crit_edge1155, label %25, !llvm.loop !76
 
 ._crit_edge1155:                                  ; preds = %549, %1
   %550 = call ptr @agsubg(ptr noundef %4, ptr noundef nonnull @.str.64, i32 noundef 1) #25
   %551 = call ptr @agattr(ptr noundef %550, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef null) #25
   %552 = call i32 @agxset(ptr noundef %550, ptr noundef %551, ptr noundef nonnull @.str.41) #25
-  %.13211163 = load ptr, ptr %20, align 8, !tbaa !71
+  %.13211163 = load ptr, ptr %20, align 8, !tbaa !73
   %.not3501164 = icmp eq ptr %.13211163, null
   br i1 %.not3501164, label %._crit_edge1166, label %.preheader.lr.ph
 
@@ -3205,9 +3205,9 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   br label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge1161
-  %.1321 = load ptr, ptr %.13211165, align 8, !tbaa !71
+  %.1321 = load ptr, ptr %.13211165, align 8, !tbaa !73
   %.not350 = icmp eq ptr %.1321, null
-  br i1 %.not350, label %._crit_edge1166, label %.preheader, !llvm.loop !75
+  br i1 %.not350, label %._crit_edge1166, label %.preheader, !llvm.loop !77
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.13211165 = phi ptr [ %.13211163, %.preheader.lr.ph ], [ %.1321, %.loopexit ]
@@ -4145,12 +4145,12 @@ agxbuse.exit606:                                  ; preds = %agxbclear.exit.thre
 882:                                              ; preds = %561, %881
   %.1319 = load ptr, ptr %.13191158, align 8, !tbaa !10
   %.not351 = icmp eq ptr %.1319, null
-  br i1 %.not351, label %._crit_edge1161, label %561, !llvm.loop !76
+  br i1 %.not351, label %._crit_edge1161, label %561, !llvm.loop !78
 
 ._crit_edge1161:                                  ; preds = %882, %558
   %883 = add nuw nsw i64 %.03041162, 1
   %exitcond1215.not = icmp eq i64 %883, 5
-  br i1 %exitcond1215.not, label %.loopexit, label %558, !llvm.loop !77
+  br i1 %exitcond1215.not, label %.loopexit, label %558, !llvm.loop !79
 
 ._crit_edge1166:                                  ; preds = %.loopexit, %._crit_edge1155
   %884 = getelementptr inbounds nuw i8, ptr %2, i64 31
@@ -4400,22 +4400,24 @@ attributes #31 = { cold noreturn nounwind }
 !56 = distinct !{!56, !9}
 !57 = distinct !{!57, !9}
 !58 = distinct !{!58, !9}
-!59 = distinct !{!59, !9}
-!60 = distinct !{!60, !9}
+!59 = distinct !{!59, !9, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !61 = distinct !{!61, !9}
-!62 = !{!14, !14, i64 0}
+!62 = distinct !{!62, !9}
 !63 = distinct !{!63, !9}
-!64 = distinct !{!64, !9}
+!64 = !{!14, !14, i64 0}
 !65 = distinct !{!65, !9}
-!66 = !{!23, !4, i64 72}
-!67 = !{!23, !26, i64 80}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = distinct !{!70, !9}
-!71 = !{!15, !15, i64 0}
+!66 = distinct !{!66, !9}
+!67 = distinct !{!67, !9}
+!68 = !{!23, !4, i64 72}
+!69 = !{!23, !26, i64 80}
+!70 = !{i8 0, i8 2}
+!71 = !{}
 !72 = distinct !{!72, !9}
-!73 = distinct !{!73, !9}
+!73 = !{!15, !15, i64 0}
 !74 = distinct !{!74, !9}
 !75 = distinct !{!75, !9}
 !76 = distinct !{!76, !9}
 !77 = distinct !{!77, !9}
+!78 = distinct !{!78, !9}
+!79 = distinct !{!79, !9}

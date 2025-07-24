@@ -144,7 +144,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
   %22 = load ptr, ptr %7, align 8, !tbaa !41
   %23 = tail call i32 @OPENSSL_sk_num(ptr noundef %22) #6
   %24 = icmp slt i32 %21, %23
-  br i1 %24, label %.lr.ph.split, label %.loopexit, !llvm.loop !45
+  br i1 %24, label %.lr.ph.split, label %.loopexit, !llvm.loop !48
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %20
   %.03151 = phi i32 [ %21, %20 ], [ 0, %.lr.ph ]
@@ -157,7 +157,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
   br i1 %or.cond71, label %trust_compat.exit, label %20
 
 .loopexit:                                        ; preds = %20, %.critedge.us, %.preheader49, %6
-  %29 = load ptr, ptr %5, align 8, !tbaa !47
+  %29 = load ptr, ptr %5, align 8, !tbaa !49
   %.not40 = icmp eq ptr %29, null
   br i1 %.not40, label %.critedge44, label %.preheader
 
@@ -173,7 +173,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %37
   %.13252.us = phi i32 [ %38, %37 ], [ 0, %.lr.ph53 ]
-  %33 = load ptr, ptr %5, align 8, !tbaa !47
+  %33 = load ptr, ptr %5, align 8, !tbaa !49
   %34 = tail call ptr @OPENSSL_sk_value(ptr noundef %33, i32 noundef %.13252.us) #6
   %35 = tail call i32 @OBJ_obj2nid(ptr noundef %34) #6
   %36 = icmp eq i32 %35, %0
@@ -181,21 +181,21 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
 
 37:                                               ; preds = %.lr.ph53.split.us
   %38 = add nuw nsw i32 %.13252.us, 1
-  %39 = load ptr, ptr %5, align 8, !tbaa !47
+  %39 = load ptr, ptr %5, align 8, !tbaa !49
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %39) #6
   %41 = icmp slt i32 %38, %40
-  br i1 %41, label %.lr.ph53.split.us, label %trust_compat.exit, !llvm.loop !48
+  br i1 %41, label %.lr.ph53.split.us, label %trust_compat.exit, !llvm.loop !50
 
 42:                                               ; preds = %.lr.ph53.split
   %43 = add nuw nsw i32 %.13252, 1
-  %44 = load ptr, ptr %5, align 8, !tbaa !47
+  %44 = load ptr, ptr %5, align 8, !tbaa !49
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef %44) #6
   %46 = icmp slt i32 %43, %45
-  br i1 %46, label %.lr.ph53.split, label %trust_compat.exit, !llvm.loop !48
+  br i1 %46, label %.lr.ph53.split, label %trust_compat.exit, !llvm.loop !51
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %42
   %.13252 = phi i32 [ %43, %42 ], [ 0, %.lr.ph53 ]
-  %47 = load ptr, ptr %5, align 8, !tbaa !47
+  %47 = load ptr, ptr %5, align 8, !tbaa !49
   %48 = tail call ptr @OPENSSL_sk_value(ptr noundef %47, i32 noundef %.13252) #6
   %49 = tail call i32 @OBJ_obj2nid(ptr noundef %48) #6
   %50 = icmp eq i32 %49, %0
@@ -220,7 +220,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %60 = load i32, ptr %59, align 8, !tbaa !49
+  %60 = load i32, ptr %59, align 8, !tbaa !52
   %61 = and i32 %60, 8192
   %.not3.i = icmp eq i32 %61, 0
   br i1 %.not3.i, label %62, label %trust_compat.exit
@@ -353,7 +353,7 @@ X509_TRUST_get_by_id.exit:                        ; preds = %8
   br label %14
 
 13:                                               ; preds = %X509_TRUST_get_by_id.exit.thread4, %X509_TRUST_get_by_id.exit
-  store i32 %1, ptr %0, align 4, !tbaa !50
+  store i32 %1, ptr %0, align 4, !tbaa !53
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -406,7 +406,7 @@ X509_TRUST_get_by_id.exit:                        ; preds = %13
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %21, align 4, !tbaa !51
+  store i32 1, ptr %21, align 4, !tbaa !54
   br label %X509_TRUST_get0.exit
 
 22:                                               ; preds = %6
@@ -424,37 +424,37 @@ X509_TRUST_get0.exit:                             ; preds = %25, %22, %20
   %28 = phi i1 [ true, %20 ], [ false, %22 ], [ false, %25 ]
   %.0 = phi ptr [ %18, %20 ], [ %24, %22 ], [ %27, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !51
+  %30 = load i32, ptr %29, align 4, !tbaa !54
   %31 = and i32 %30, 2
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %35, label %32
 
 32:                                               ; preds = %X509_TRUST_get0.exit
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !52
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
   call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 149) #6
   br label %35
 
 35:                                               ; preds = %32, %X509_TRUST_get0.exit
   %36 = call noalias ptr @CRYPTO_strdup(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 151) #6
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %36, ptr %37, align 8, !tbaa !52
+  store ptr %36, ptr %37, align 8, !tbaa !55
   %38 = icmp eq ptr %36, null
   br i1 %38, label %56, label %39
 
 39:                                               ; preds = %35
-  %40 = load i32, ptr %29, align 4, !tbaa !51
+  %40 = load i32, ptr %29, align 4, !tbaa !54
   %41 = and i32 %40, 1
   %42 = or disjoint i32 %8, %41
   %43 = or disjoint i32 %42, 2
-  store i32 %43, ptr %29, align 4, !tbaa !51
+  store i32 %43, ptr %29, align 4, !tbaa !54
   store i32 %0, ptr %.0, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store ptr %2, ptr %44, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store i32 %4, ptr %45, align 8, !tbaa !53
+  store i32 %4, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %5, ptr %46, align 8, !tbaa !54
+  store ptr %5, ptr %46, align 8, !tbaa !57
   br i1 %28, label %47, label %58
 
 47:                                               ; preds = %39
@@ -485,7 +485,7 @@ X509_TRUST_get0.exit:                             ; preds = %25, %22, %20
   br label %.thread37
 
 .thread37:                                        ; preds = %.thread37.sink.split, %56
-  %57 = load ptr, ptr %37, align 8, !tbaa !52
+  %57 = load ptr, ptr %37, align 8, !tbaa !55
   call void @CRYPTO_free(ptr noundef %57, ptr noundef nonnull @.str, i32 noundef 178) #6
   call void @CRYPTO_free(ptr noundef nonnull %.0, ptr noundef nonnull @.str, i32 noundef 179) #6
   br label %58
@@ -505,9 +505,9 @@ declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @tr_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !55
+  %3 = load ptr, ptr %0, align 8, !tbaa !58
   %4 = load i32, ptr %3, align 8, !tbaa !9
-  %5 = load ptr, ptr %1, align 8, !tbaa !55
+  %5 = load ptr, ptr %1, align 8, !tbaa !58
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = sub nsw i32 %4, %6
   ret i32 %7
@@ -532,7 +532,7 @@ define internal void @trtable_free(ptr noundef %0) #2 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !51
+  %5 = load i32, ptr %4, align 4, !tbaa !54
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
@@ -544,7 +544,7 @@ define internal void @trtable_free(ptr noundef %0) #2 {
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 190) #6
   br label %12
 
@@ -559,14 +559,14 @@ define internal void @trtable_free(ptr noundef %0) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_TRUST_get_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !51
+  %3 = load i32, ptr %2, align 4, !tbaa !54
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_TRUST_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
 }
 
@@ -589,7 +589,7 @@ define internal range(i32 1, 4) i32 @trust_compat(ptr readnone captures(none) %0
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %10 = load i32, ptr %9, align 8, !tbaa !49
+  %10 = load i32, ptr %9, align 8, !tbaa !52
   %11 = and i32 %10, 8192
   %.not3 = icmp eq i32 %11, 0
   br i1 %.not3, label %12, label %13
@@ -606,7 +606,7 @@ define internal range(i32 1, 4) i32 @trust_compat(ptr readnone captures(none) %0
 define internal range(i32 1, 4) i32 @trust_1oidany(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = or i32 %2, 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !56
   %7 = tail call i32 @obj_trust(i32 noundef %6, ptr noundef %1, i32 noundef %4)
   ret i32 %7
 }
@@ -615,7 +615,7 @@ define internal range(i32 1, 4) i32 @trust_1oidany(ptr noundef readonly captures
 define internal range(i32 1, 4) i32 @trust_1oid(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = and i32 %2, -25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !56
   %7 = tail call i32 @obj_trust(i32 noundef %6, ptr noundef %1, i32 noundef %4)
   ret i32 %7
 }
@@ -679,15 +679,18 @@ attributes #6 = { nounwind }
 !42 = !{!"x509_cert_aux_st", !43, i64 0, !43, i64 8, !17, i64 16, !17, i64 24, !44, i64 32}
 !43 = !{!"p1 _ZTS20stack_st_ASN1_OBJECT", !4, i64 0}
 !44 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !4, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!42, !43, i64 0}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !48 = distinct !{!48, !46}
-!49 = !{!15, !11, i64 232}
-!50 = !{!11, !11, i64 0}
-!51 = !{!10, !11, i64 4}
-!52 = !{!10, !12, i64 16}
-!53 = !{!10, !11, i64 24}
-!54 = !{!10, !4, i64 32}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS13x509_trust_st", !4, i64 0}
+!49 = !{!42, !43, i64 0}
+!50 = distinct !{!50, !46, !47}
+!51 = distinct !{!51, !46}
+!52 = !{!15, !11, i64 232}
+!53 = !{!11, !11, i64 0}
+!54 = !{!10, !11, i64 4}
+!55 = !{!10, !12, i64 16}
+!56 = !{!10, !11, i64 24}
+!57 = !{!10, !4, i64 32}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS13x509_trust_st", !4, i64 0}

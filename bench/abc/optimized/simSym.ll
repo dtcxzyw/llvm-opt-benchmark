@@ -186,59 +186,59 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
 94:                                               ; preds = %88, %85, %.split
   %95 = add nuw nsw i32 %.0104, 1
   %exitcond108.not = icmp eq i32 %95, 1001
-  br i1 %exitcond108.not, label %.preheader, label %.split, !llvm.loop !29
+  br i1 %exitcond108.not, label %.preheader, label %.split, !llvm.loop !32
 
 96:                                               ; preds = %.lr.ph, %148
   %.1106 = phi i32 [ 1, %.lr.ph ], [ %149, %148 ]
   %97 = load ptr, ptr %75, align 8, !tbaa !27
   %98 = load ptr, ptr %74, align 8, !tbaa !28
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %97, ptr noundef %98) #5
-  %99 = load i32, ptr %78, align 4, !tbaa !31
+  %99 = load i32, ptr %78, align 4, !tbaa !33
   %100 = and i32 %99, 31
   %101 = shl nuw i32 1, %100
   %102 = load ptr, ptr %75, align 8, !tbaa !27
   %103 = ashr i32 %99, 5
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %102, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !32
+  %106 = load i32, ptr %105, align 4, !tbaa !34
   %107 = xor i32 %106, %101
-  store i32 %107, ptr %105, align 4, !tbaa !32
+  store i32 %107, ptr %105, align 4, !tbaa !34
   %108 = load ptr, ptr %74, align 8, !tbaa !28
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %102, ptr noundef %108) #5
-  %109 = load i32, ptr %79, align 8, !tbaa !33
+  %109 = load i32, ptr %79, align 8, !tbaa !35
   %110 = and i32 %109, 31
   %111 = shl nuw i32 1, %110
   %112 = load ptr, ptr %75, align 8, !tbaa !27
   %113 = ashr i32 %109, 5
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i32, ptr %112, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !32
+  %116 = load i32, ptr %115, align 4, !tbaa !34
   %117 = xor i32 %116, %111
-  store i32 %117, ptr %115, align 4, !tbaa !32
+  store i32 %117, ptr %115, align 4, !tbaa !34
   %118 = load ptr, ptr %74, align 8, !tbaa !28
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %112, ptr noundef %118) #5
-  %119 = load i32, ptr %78, align 4, !tbaa !31
+  %119 = load i32, ptr %78, align 4, !tbaa !33
   %120 = and i32 %119, 31
   %121 = shl nuw i32 1, %120
   %122 = load ptr, ptr %75, align 8, !tbaa !27
   %123 = ashr i32 %119, 5
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i32, ptr %122, i64 %124
-  %126 = load i32, ptr %125, align 4, !tbaa !32
+  %126 = load i32, ptr %125, align 4, !tbaa !34
   %127 = xor i32 %126, %121
-  store i32 %127, ptr %125, align 4, !tbaa !32
+  store i32 %127, ptr %125, align 4, !tbaa !34
   %128 = load ptr, ptr %74, align 8, !tbaa !28
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %122, ptr noundef %128) #5
-  %129 = load i32, ptr %79, align 8, !tbaa !33
+  %129 = load i32, ptr %79, align 8, !tbaa !35
   %130 = and i32 %129, 31
   %131 = shl nuw i32 1, %130
   %132 = load ptr, ptr %75, align 8, !tbaa !27
   %133 = ashr i32 %129, 5
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %132, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !32
+  %136 = load i32, ptr %135, align 4, !tbaa !34
   %137 = xor i32 %136, %131
-  store i32 %137, ptr %135, align 4, !tbaa !32
+  store i32 %137, ptr %135, align 4, !tbaa !34
   %138 = urem i32 %.1106, 10
   %.not89 = icmp eq i32 %138, 0
   br i1 %.not89, label %139, label %148
@@ -263,7 +263,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %150 = load ptr, ptr %75, align 8, !tbaa !27
   %151 = call i32 @Sim_SymmsGetPatternUsingSat(ptr noundef nonnull %13, ptr noundef %150) #5
   %.not = icmp eq i32 %151, 0
-  br i1 %.not, label %._crit_edge, label %96, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %96, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %148, %.preheader
   call void @Sim_UtilCountPairsAll(ptr noundef nonnull %13) #5
@@ -298,7 +298,7 @@ Abc_Clock.exit96:                                 ; preds = %158, %162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
   %169 = add i64 %.0.i95, %.0.i.neg
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 240
-  store i64 %169, ptr %170, align 8, !tbaa !35
+  store i64 %169, ptr %170, align 8, !tbaa !37
   call void @Sym_ManStop(ptr noundef nonnull %13) #5
   ret i32 %159
 }
@@ -372,10 +372,12 @@ attributes #5 = { nounwind }
 !26 = !{!10, !14, i64 172}
 !27 = !{!10, !17, i64 96}
 !28 = !{!10, !13, i64 64}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!10, !14, i64 140}
-!32 = !{!14, !14, i64 0}
-!33 = !{!10, !14, i64 144}
-!34 = distinct !{!34, !30}
-!35 = !{!10, !5, i64 240}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !30}
+!33 = !{!10, !14, i64 140}
+!34 = !{!14, !14, i64 0}
+!35 = !{!10, !14, i64 144}
+!36 = distinct !{!36, !30}
+!37 = !{!10, !5, i64 240}

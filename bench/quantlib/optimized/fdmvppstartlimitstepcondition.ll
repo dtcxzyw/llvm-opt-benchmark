@@ -964,7 +964,7 @@ if.end150:                                        ; preds = %invoke.cont76, %if.
   store double %.sroa.speculated78.sink, ptr %arrayidx.i53, align 8, !tbaa !48
   %inc = add nuw i64 %i.082, 1
   %exitcond.not = icmp eq i64 %inc, %11
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !49
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !52
 
 nrvo.skipdtor:                                    ; preds = %if.end150, %if.end150.us, %_ZN8QuantLib5ArrayC2Em.exit
   ret void
@@ -999,7 +999,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i, ptr %__result.010.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr11.i.i, i64 8
   %cmp1.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
-  br i1 %cmp1.not.i.i, label %_ZSt11max_elementIPKdET_S2_S2_.exit, label %while.body.i.i, !llvm.loop !51
+  br i1 %cmp1.not.i.i, label %_ZSt11max_elementIPKdET_S2_S2_.exit, label %while.body.i.i, !llvm.loop !53
 
 _ZSt11max_elementIPKdET_S2_S2_.exit:              ; preds = %while.body.i.i, %entry
   %retval.0.i.i = phi ptr [ %0, %entry ], [ %spec.select.i.i, %while.body.i.i ]
@@ -1012,16 +1012,16 @@ define linkonce_odr void @_ZN8QuantLib19FdmVPPStepConditionD2Ev(ptr noundef nonn
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19FdmVPPStepConditionE, i64 16), ptr %this, align 8, !tbaa !14
   %stateEvolveFcts_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %0 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !52
+  %0 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !54
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !55
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !54
+  %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !56
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
@@ -1039,10 +1039,10 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !56
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !58
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !52
+  %.pr.i = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !54
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
@@ -1052,7 +1052,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !57
+  %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1290,12 +1290,14 @@ attributes #22 = { builtin allocsize(0) }
 !46 = !{!5, !5, i64 0}
 !47 = !{!26, !9, i64 80}
 !48 = !{!20, !20, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = !{!32, !5, i64 0}
-!53 = !{!32, !5, i64 8}
-!54 = !{!55, !5, i64 16}
-!55 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
-!56 = distinct !{!56, !50}
-!57 = !{!32, !5, i64 16}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !50}
+!53 = distinct !{!53, !50}
+!54 = !{!32, !5, i64 0}
+!55 = !{!32, !5, i64 8}
+!56 = !{!57, !5, i64 16}
+!57 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!58 = distinct !{!58, !50}
+!59 = !{!32, !5, i64 16}

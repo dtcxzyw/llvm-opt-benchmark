@@ -1844,7 +1844,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
 
 .split.backedge:                                  ; preds = %82, %73, %68
   %.be = phi i32 [ %15, %82 ], [ %77, %73 ], [ 0, %68 ]
-  br label %.split, !llvm.loop !55
+  br label %.split, !llvm.loop !57
 
 .split9.us:                                       ; preds = %54, %78
   %.us-phi10 = phi i32 [ %64, %78 ], [ %41, %54 ]
@@ -1860,7 +1860,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   %91 = select i1 %90, i32 %88, i32 0
   %92 = add nuw i32 %16, 1
   %93 = icmp ult i32 %92, %89
-  br i1 %93, label %12, label %.loopexit, !llvm.loop !56
+  br i1 %93, label %12, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.split12.us, %.split9.us, %5
   %94 = phi i32 [ %87, %.split9.us ], [ -1, %5 ], [ -1, %.split12.us ]
@@ -1962,5 +1962,7 @@ attributes #12 = { nounwind allocsize(3) }
 !52 = !{i64 2148699308, i64 2148699347, i64 2148699368, i64 2148699405, i64 2148699428, i64 2148699298}
 !53 = !{i64 2148699671, i64 2148699710, i64 2148699731, i64 2148699768, i64 2148699791, i64 2148699661}
 !54 = !{i64 2148331117, i64 2148331156, i64 2148331177, i64 2148331214, i64 2148331237, i64 2148331246, i64 2148331349}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !6, !7}
+!55 = distinct !{!55, !7, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !6, !7}

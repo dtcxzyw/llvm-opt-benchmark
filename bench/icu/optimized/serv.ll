@@ -1701,7 +1701,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit.us: ; pre
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit.us: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit.us
   %35 = load i32, ptr %3, align 4, !tbaa !19
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit.thread, label %.lr.ph.split.us
+  br i1 %36, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit.thread, label %.lr.ph.split.us, !llvm.loop !52
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %37 = landingpad { ptr, i32 }
@@ -1753,7 +1753,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %.lr.ph.split
 
 55:                                               ; preds = %48
   %.not43 = icmp eq i8 %54, 0
-  br i1 %.not43, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, label %58, !llvm.loop !52
+  br i1 %.not43, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, label %58, !llvm.loop !54
 
 56:                                               ; preds = %48
   %57 = landingpad { ptr, i32 }
@@ -1873,7 +1873,7 @@ define noundef ptr @_ZNK6icu_7710ICUService15getVisibleIDMapER10UErrorCode(ptr n
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %51
 
@@ -1904,7 +1904,7 @@ define noundef ptr @_ZNK6icu_7710ICUService15getVisibleIDMapER10UErrorCode(ptr n
           to label %25 unwind label %23
 
 22:                                               ; preds = %9
-  store ptr null, ptr %6, align 8, !tbaa !53
+  store ptr null, ptr %6, align 8, !tbaa !55
   store i32 7, ptr %1, align 4, !tbaa !19
   br label %51
 
@@ -1915,7 +1915,7 @@ define noundef ptr @_ZNK6icu_7710ICUService15getVisibleIDMapER10UErrorCode(ptr n
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %20, %12, %.noexc
-  store ptr %10, ptr %6, align 8, !tbaa !53
+  store ptr %10, ptr %6, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8, !tbaa !34
   %.not20 = icmp eq ptr %27, null
@@ -1928,7 +1928,7 @@ define noundef ptr @_ZNK6icu_7710ICUService15getVisibleIDMapER10UErrorCode(ptr n
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre.pre = load ptr, ptr %6, align 8, !tbaa !53
+  %.pre.pre = load ptr, ptr %6, align 8, !tbaa !55
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
@@ -1942,13 +1942,13 @@ define noundef ptr @_ZNK6icu_7710ICUService15getVisibleIDMapER10UErrorCode(ptr n
   %34 = add nsw i32 %.01523, -1
   %35 = load ptr, ptr %26, align 8, !tbaa !34
   %36 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %35, i32 noundef %34)
-  %37 = load ptr, ptr %6, align 8, !tbaa !53
+  %37 = load ptr, ptr %6, align 8, !tbaa !55
   %38 = load ptr, ptr %36, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %41 = icmp samesign ugt i32 %.01523, 1
-  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
+  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !56
 
 42:                                               ; preds = %._crit_edge
   %43 = icmp eq ptr %.pre, null
@@ -1975,7 +1975,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %44, %46
   br label %50
 
 50:                                               ; preds = %_ZN6icu_779HashtableD2Ev.exit, %42
-  store ptr null, ptr %6, align 8, !tbaa !53
+  store ptr null, ptr %6, align 8, !tbaa !55
   br label %51
 
 51:                                               ; preds = %5, %25, %50, %._crit_edge, %22, %2
@@ -2194,7 +2194,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK6icu_7710ICUService1
 13:                                               ; preds = %5
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN6icu_77L4lockE)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !55
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %.not73 = icmp eq ptr %15, null
   br i1 %.not73, label %.thread, label %16
 
@@ -2204,7 +2204,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK6icu_7710ICUService1
           to label %19 unwind label %31
 
 19:                                               ; preds = %16
-  %.pr = load ptr, ptr %14, align 8, !tbaa !55
+  %.pr = load ptr, ptr %14, align 8, !tbaa !57
   %20 = icmp eq ptr %.pr, null
   br i1 %18, label %33, label %21
 
@@ -2235,7 +2235,7 @@ _ZN6icu_777DNCacheD2Ev.exit:                      ; preds = %22, %26
   br label %30
 
 30:                                               ; preds = %_ZN6icu_777DNCacheD2Ev.exit, %21
-  store ptr null, ptr %14, align 8, !tbaa !55
+  store ptr null, ptr %14, align 8, !tbaa !57
   br label %.thread
 
 31:                                               ; preds = %16
@@ -2297,7 +2297,7 @@ _ZN6icu_779HashtableC2Ev.exit.i:                  ; preds = %49, %.noexc
   br label %.body
 
 54:                                               ; preds = %40
-  store ptr null, ptr %14, align 8, !tbaa !55
+  store ptr null, ptr %14, align 8, !tbaa !57
   store i32 7, ptr %4, align 4, !tbaa !19
   br label %.thread102
 
@@ -2312,7 +2312,7 @@ _ZN6icu_779HashtableC2Ev.exit.i:                  ; preds = %49, %.noexc
   br label %109
 
 57:                                               ; preds = %_ZN6icu_779HashtableC2Ev.exit.i
-  store ptr %41, ptr %14, align 8, !tbaa !55
+  store ptr %41, ptr %14, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 -1, ptr %7, align 4, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2368,7 +2368,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %59
   br label %105
 
 79:                                               ; preds = %71
-  %80 = load ptr, ptr %14, align 8, !tbaa !55
+  %80 = load ptr, ptr %14, align 8, !tbaa !57
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !21
   %83 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #17
@@ -2392,10 +2392,10 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %59
 _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %86
   %90 = load i32, ptr %4, align 4, !tbaa !19
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.loopexit113, label %102, !llvm.loop !56
+  br i1 %91, label %.loopexit113, label %102, !llvm.loop !58
 
 .loopexit113:                                     ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %74
-  %92 = load ptr, ptr %14, align 8, !tbaa !55
+  %92 = load ptr, ptr %14, align 8, !tbaa !57
   %93 = icmp eq ptr %92, null
   br i1 %93, label %103, label %94
 
@@ -2428,7 +2428,7 @@ _ZN6icu_777DNCacheD2Ev.exit94:                    ; preds = %94, %98
   br label %59
 
 103:                                              ; preds = %.loopexit113, %_ZN6icu_777DNCacheD2Ev.exit94
-  store ptr null, ptr %14, align 8, !tbaa !55
+  store ptr null, ptr %14, align 8, !tbaa !57
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
@@ -2482,7 +2482,7 @@ common.resume:                                    ; preds = %109, %179
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
   store i32 -1, ptr %9, align 4, !tbaa !51
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %119 = load ptr, ptr %118, align 8, !tbaa !55
+  %119 = load ptr, ptr %118, align 8, !tbaa !57
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !21
   %122 = call noundef ptr @uhash_nextElement_77(ptr noundef %121, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -2545,12 +2545,12 @@ _ZN6icu_7710StringPair6createERKNS_13UnicodeStringES3_R10UErrorCode.exit.us: ; p
   br i1 %145, label %146, label %.thread109
 
 146:                                              ; preds = %_ZN6icu_7710StringPair6createERKNS_13UnicodeStringES3_R10UErrorCode.exit.us
-  %147 = load ptr, ptr %118, align 8, !tbaa !55
+  %147 = load ptr, ptr %118, align 8, !tbaa !57
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !21
   %150 = call noundef ptr @uhash_nextElement_77(ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %.not82.us = icmp eq ptr %150, null
-  br i1 %.not82.us, label %.loopexit, label %.lr.ph.split.us
+  br i1 %.not82.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !59
 
 .split.us:                                        ; preds = %133
   %151 = landingpad { ptr, i32 }
@@ -2566,7 +2566,7 @@ _ZN6icu_7710StringPair6createERKNS_13UnicodeStringES3_R10UErrorCode.exit.us: ; p
   %157 = load ptr, ptr %156, align 8
   %158 = call noundef signext i8 %157(ptr noundef nonnull align 8 dereferenceable(72) %117, ptr noundef nonnull align 8 dereferenceable(64) %154)
   %.not84 = icmp eq i8 %158, 0
-  br i1 %.not84, label %182, label %159, !llvm.loop !57
+  br i1 %.not84, label %182, label %159, !llvm.loop !60
 
 159:                                              ; preds = %.lr.ph.split
   %160 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -2632,7 +2632,7 @@ _ZN6icu_7710StringPair6createERKNS_13UnicodeStringES3_R10UErrorCode.exit: ; pred
   br label %.loopexit
 
 182:                                              ; preds = %_ZN6icu_7710StringPair6createERKNS_13UnicodeStringES3_R10UErrorCode.exit, %.lr.ph.split
-  %183 = load ptr, ptr %118, align 8, !tbaa !55
+  %183 = load ptr, ptr %118, align 8, !tbaa !57
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !21
   %186 = call noundef ptr @uhash_nextElement_77(ptr noundef %185, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -3197,7 +3197,7 @@ define void @_ZN6icu_7710ICUService11clearCachesEv(ptr noundef nonnull align 8 c
   %4 = add i32 %3, 1
   store i32 %4, ptr %2, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
 
@@ -3225,9 +3225,9 @@ _ZN6icu_777DNCacheD2Ev.exit:                      ; preds = %8, %12
   br label %16
 
 16:                                               ; preds = %_ZN6icu_777DNCacheD2Ev.exit, %1
-  store ptr null, ptr %5, align 8, !tbaa !55
+  store ptr null, ptr %5, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
   %19 = icmp eq ptr %18, null
   br i1 %19, label %26, label %20
 
@@ -3252,7 +3252,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %20, %22
   br label %26
 
 26:                                               ; preds = %_ZN6icu_779HashtableD2Ev.exit, %16
-  store ptr null, ptr %17, align 8, !tbaa !53
+  store ptr null, ptr %17, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load ptr, ptr %27, align 8, !tbaa !39
   %29 = icmp eq ptr %28, null
@@ -3485,9 +3485,12 @@ attributes #18 = { noreturn nounwind }
 !49 = distinct !{!49, !44}
 !50 = distinct !{!50, !44}
 !51 = !{!26, !26, i64 0}
-!52 = distinct !{!52, !44}
-!53 = !{!29, !32, i64 104}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !54 = distinct !{!54, !44}
-!55 = !{!29, !33, i64 112}
+!55 = !{!29, !32, i64 104}
 !56 = distinct !{!56, !44}
-!57 = distinct !{!57, !44}
+!57 = !{!29, !33, i64 112}
+!58 = distinct !{!58, !44}
+!59 = distinct !{!59, !53}
+!60 = distinct !{!60, !44}

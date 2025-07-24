@@ -430,7 +430,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.addr.022, i64 4
   %inc6 = add nuw nsw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
-  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !13
+  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !15
 
 for.end13:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc6.us, %for.inc.us ], [ %inc6, %for.inc ]
@@ -499,7 +499,7 @@ vaarg.end41:                                      ; preds = %vaarg.in_mem37, %va
   %vaarg.addr42 = phi ptr [ %19, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
   %21 = load i32, ptr %vaarg.addr42, align 4
   %cmp43.not = icmp eq i32 %21, -1
-  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !16
 
 do.end:                                           ; preds = %vaarg.end41
   %tobool44.not = icmp eq ptr %pName, null
@@ -554,7 +554,7 @@ _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNo
   %1 = load ptr, ptr %mpNodeLeft, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05) #8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, !llvm.loop !15
+  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, %entry
   ret void
@@ -603,7 +603,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %pCurrent.1.in.i = getelementptr inbounds nuw i8, ptr %pCurrent.017.i, i64 %pCurrent.1.in.idx.i
   %pCurrent.0.i = load ptr, ptr %pCurrent.1.in.i, align 8
   %tobool.not.i = icmp eq ptr %pCurrent.0.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then7.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
@@ -701,7 +701,9 @@ attributes #10 = { noreturn nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

@@ -1136,7 +1136,7 @@ if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
 
 _ZN5eastl8optionalIiEaSEOS1_.exit.i.i:            ; preds = %if.else14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then.i15.i.i
   %cmp3.not.i.i = icmp eq ptr %incdec.ptr4.i.i, %first
-  br i1 %cmp3.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !16
+  br i1 %cmp3.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !18
 
 for.end.i.i:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %land.rhs.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i, %cond.false.i.i.us.i.i, %land.rhs.us.i.i
   %insertValue.sroa.0.143.i.i = phi i32 [ %2, %land.rhs.us.i.i ], [ %2, %cond.false.i.i.us.i.i ], [ %2, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ 0, %land.rhs.i.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
@@ -1171,7 +1171,7 @@ if.else14.i21.i.i:                                ; preds = %if.else.i20.i.i
 _ZN5eastl8optionalIiEaSEOS1_.exit25.i.i:          ; preds = %if.else14.i21.i.i, %if.then12.i22.i.i, %if.then7.i24.i.i, %if.then.i23.i.i
   %i.039.i.i.add = add nuw nsw i64 %i.039.i.i.idx, 8
   %cmp1.not.i.i = icmp eq i64 %i.039.i.i.add, 224
-  br i1 %cmp1.not.i.i, label %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !17
+  br i1 %cmp1.not.i.i, label %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !19
 
 _ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 224
@@ -1236,7 +1236,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.us.i:           ; preds = %if.then12.i.us.i, %
   %engaged.i.i10.us.i = getelementptr inbounds i8, ptr %prev.037.us.pn.i, i64 -12
   %22 = load i8, ptr %engaged.i.i10.us.i, align 4
   %tobool.i.i.us.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i.us.i, label %cond.false.i.us.i, label %for.end.i, !llvm.loop !18
+  br i1 %tobool.i.i.us.i, label %cond.false.i.us.i, label %for.end.i, !llvm.loop !20
 
 cond.false.i.i:                                   ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i
   %prev.037.pn.i = phi ptr [ %prev.037.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ], [ %current.041.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ]
@@ -1273,7 +1273,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.i:              ; preds = %if.else14.i.i, %if.
   %engaged.i.i10.i = getelementptr inbounds i8, ptr %prev.037.pn.i, i64 -12
   %27 = load i8, ptr %engaged.i.i10.i, align 4
   %tobool.i.i.i14 = trunc i8 %27 to i1
-  br i1 %tobool.i.i.i14, label %cond.false.i.i, label %for.end.i, !llvm.loop !18
+  br i1 %tobool.i.i.i14, label %cond.false.i.i, label %for.end.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i, %cond.false.i.us.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i
   %value.sroa.0.147.i = phi i32 [ %16, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ 0, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ %16, %cond.false.i.us.i ], [ %16, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
@@ -1308,7 +1308,7 @@ if.else14.i20.i:                                  ; preds = %if.else.i19.i
 _ZN5eastl8optionalIiEaSEOS1_.exit24.i:            ; preds = %if.else14.i20.i, %if.then12.i21.i, %if.then7.i23.i, %if.then.i22.i
   %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %current.041.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr11.i, %last
-  br i1 %cmp.not.i, label %if.end8, label %for.body.i13, !llvm.loop !19
+  br i1 %cmp.not.i, label %if.end8, label %for.body.i13, !llvm.loop !22
 
 if.else:                                          ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit
   %i.036.i.i15 = getelementptr inbounds nuw i8, ptr %first, i64 8
@@ -1411,7 +1411,7 @@ if.else14.i.i.i50:                                ; preds = %if.else.i.i.i49
 
 _ZN5eastl8optionalIiEaSEOS1_.exit.i.i46:          ; preds = %if.else14.i.i.i50, %if.then12.i.i.i51, %if.then7.i.i.i48, %if.then.i15.i.i45
   %cmp3.not.i.i47 = icmp eq ptr %incdec.ptr4.i.i24, %first
-  br i1 %cmp3.not.i.i47, label %for.end.i.i27, label %land.rhs.i.i22, !llvm.loop !16
+  br i1 %cmp3.not.i.i47, label %for.end.i.i27, label %land.rhs.i.i22, !llvm.loop !18
 
 for.end.i.i27:                                    ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46, %land.rhs.i.i22, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65, %cond.false.i.i.us.i.i58, %land.rhs.us.i.i53
   %insertValue.sroa.0.143.i.i28 = phi i32 [ %32, %land.rhs.us.i.i53 ], [ %32, %cond.false.i.i.us.i.i58 ], [ %32, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65 ], [ 0, %land.rhs.i.i22 ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ]
@@ -1446,7 +1446,7 @@ if.else14.i21.i.i34:                              ; preds = %if.else.i20.i.i33
 _ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35:        ; preds = %if.else14.i21.i.i34, %if.then12.i22.i.i38, %if.then7.i24.i.i40, %if.then.i23.i.i39
   %i.0.i.i36 = getelementptr inbounds nuw i8, ptr %i.039.i.i17, i64 8
   %cmp1.not.i.i37 = icmp eq ptr %i.0.i.i36, %last
-  br i1 %cmp1.not.i.i37, label %if.end8, label %for.body.i.i16, !llvm.loop !17
+  br i1 %cmp1.not.i.i37, label %if.end8, label %for.body.i.i16, !llvm.loop !19
 
 if.end8:                                          ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i, %if.else, %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, %entry
   ret void
@@ -1551,7 +1551,7 @@ _ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit: ; preds = %_ZN5eastlltIiEE
   %cmp = icmp sgt i64 %sub.ptr.div, 28
   %cmp1 = icmp sgt i64 %kRecursionCount.addr.021, 1
   %14 = and i1 %cmp1, %cmp
-  br i1 %14, label %while.body, label %while.end, !llvm.loop !20
+  br i1 %14, label %while.body, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit, %entry
   %kRecursionCount.addr.0.lcssa = phi i64 [ %kRecursionCount, %entry ], [ %dec, %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit ]
@@ -1613,12 +1613,12 @@ while.cond2.backedge.us.i.us:                     ; preds = %cond.false.i14.lr.p
   %engaged.i.i11.us.i.us = getelementptr inbounds i8, ptr %last.addr.131.us45.i.us, i64 -4
   %6 = load i8, ptr %engaged.i.i11.us.i.us, align 4
   %tobool.i.i12.us.i.us = trunc i8 %6 to i1
-  br i1 %tobool.i.i12.us.i.us, label %cond.false.i14.us.i.us, label %while.end6.i.us, !llvm.loop !21
+  br i1 %tobool.i.i12.us.i.us, label %cond.false.i14.us.i.us, label %while.end6.i.us, !llvm.loop !24
 
 cond.false.i14.us.i.us:                           ; preds = %while.cond2.backedge.us.i.us
   %7 = load i32, ptr %last.addr.1.us.i.us, align 4
   %cmp.i18.us.i.us = icmp slt i32 %spec.select, %7
-  br i1 %cmp.i18.us.i.us, label %while.cond2.backedge.us.i.us, label %while.end6.i.us, !llvm.loop !21
+  br i1 %cmp.i18.us.i.us, label %while.cond2.backedge.us.i.us, label %while.end6.i.us, !llvm.loop !24
 
 while.end6.i.us:                                  ; preds = %while.cond2.backedge.us.i.us, %cond.false.i14.us.i.us, %cond.false.i14.lr.ph.i.us, %while.cond2.preheader.i.us
   %last.addr.0.pn.lcssa.i.us = phi ptr [ %last.addr.0.i.us, %while.cond2.preheader.i.us ], [ %last.addr.0.i.us, %cond.false.i14.lr.ph.i.us ], [ %last.addr.131.us45.i.us, %cond.false.i14.us.i.us ], [ %last.addr.131.us45.i.us, %while.cond2.backedge.us.i.us ]
@@ -1649,11 +1649,11 @@ if.then7.i.i.i.i.i.us:                            ; preds = %if.end.i.us
 
 _ZN5eastl9iter_swapIPNS_8optionalIiEES3_EEvT_T0_.exit.i.us: ; preds = %if.then7.i.i.i.i.i.us, %if.end18.i.i.i.i.i.us
   %incdec.ptr7.i.us = getelementptr inbounds nuw i8, ptr %first.addr.122.us.i.us, i64 8
-  br label %for.cond.i.us, !llvm.loop !22
+  br label %for.cond.i.us, !llvm.loop !25
 
 while.body.us.i.us:                               ; preds = %cond.false3.i.us.i.us, %cond.false.i.us.i.us
   %incdec.ptr.us.i.us = getelementptr inbounds nuw i8, ptr %first.addr.122.us.i.us, i64 8
-  br label %cond.false.i.us.i.us
+  br label %cond.false.i.us.i.us, !llvm.loop !26
 
 for.cond.i:                                       ; preds = %entry, %_ZN5eastl9iter_swapIPNS_8optionalIiEES3_EEvT_T0_.exit.i
   %last.addr.0.i = phi ptr [ %last.addr.1.lcssa.i, %_ZN5eastl9iter_swapIPNS_8optionalIiEES3_EEvT_T0_.exit.i ], [ %last, %entry ]
@@ -1670,7 +1670,7 @@ cond.false.i14.i:                                 ; preds = %for.cond.i, %cond.f
   %engaged.i.i11.i = getelementptr inbounds i8, ptr %last.addr.131.i, i64 -4
   %11 = load i8, ptr %engaged.i.i11.i, align 4
   %tobool.i.i12.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i12.i, label %cond.false.i14.i, label %while.end6.i, !llvm.loop !21
+  br i1 %tobool.i.i12.i, label %cond.false.i14.i, label %while.end6.i, !llvm.loop !27
 
 while.end6.i:                                     ; preds = %cond.false.i14.i, %for.cond.i
   %last.addr.0.pn.lcssa.i = phi ptr [ %last.addr.0.i, %for.cond.i ], [ %last.addr.131.i, %cond.false.i14.i ]
@@ -1725,7 +1725,7 @@ if.end18.i.i.i.i.i:                               ; preds = %if.else14.i.i.i.i.i
 
 _ZN5eastl9iter_swapIPNS_8optionalIiEES3_EEvT_T0_.exit.i: ; preds = %if.end18.i.i.i.i.i, %if.then7.i.i.i.i.i, %if.then.i.i.i.i.i
   %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 8
-  br label %for.cond.i, !llvm.loop !22
+  br label %for.cond.i, !llvm.loop !28
 
 _ZN5eastl18get_partition_implIPNS_8optionalIiEERKS2_EET_S6_S6_OT0_.exit: ; preds = %while.end6.i, %while.end6.i.us
   %.us-phi = phi ptr [ %first.addr.122.us.i.us, %while.end6.i.us ], [ %first.addr.0.i, %while.end6.i ]
@@ -1773,7 +1773,7 @@ if.then.i.i:                                      ; preds = %do.body.i
 _ZN5eastl8optionalIiEC2EOS1_.exit.i:              ; preds = %if.then.i.i, %do.body.i
   call void @_ZN5eastl16adjust_heap_implIPNS_8optionalIiEElOS2_S2_EEvT_T0_S6_S6_T1_(ptr noundef nonnull %first, i64 noundef %dec.i, i64 noundef %sub.ptr.div.i, i64 noundef %dec.i, ptr noundef nonnull align 4 dereferenceable(5) %temp.i)
   %cmp2.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp2.not.i, label %_ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit, label %do.body.i, !llvm.loop !23
+  br i1 %cmp2.not.i, label %_ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit, label %do.body.i, !llvm.loop !29
 
 _ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i)
@@ -1828,7 +1828,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %_ZN5eastl8optionalI
 for.inc:                                          ; preds = %for.body, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit, %_ZN5eastl8optionalIiEaSEOS1_.exit
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.031, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %last
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %for.body.lr.ph, %_ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit
   %cmp6.i = icmp sgt i64 %sub.ptr.sub.i, 8
@@ -1889,7 +1889,7 @@ _ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i: ; preds = %if.else14.i.i.i,
   %sub.ptr.lhs.cast.i24 = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i
   %cmp.i26 = icmp sgt i64 %sub.ptr.sub.i25, 8
-  br i1 %cmp.i26, label %for.body.i, label %_ZN5eastl9sort_heapIPNS_8optionalIiEEEEvT_S4_.exit, !llvm.loop !26
+  br i1 %cmp.i26, label %for.body.i, label %_ZN5eastl9sort_heapIPNS_8optionalIiEEEEvT_S4_.exit, !llvm.loop !32
 
 _ZN5eastl9sort_heapIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i, %for.end
   ret void
@@ -1973,7 +1973,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %if.then.i, %if.then
   %childPosition.0.in = shl nsw i64 %5, 1
   %childPosition.0 = add nsw i64 %childPosition.0.in, 2
   %cmp = icmp slt i64 %childPosition.0, %heapSize
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit, %entry
   %position.addr.0.lcssa = phi i64 [ %position, %entry ], [ %5, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
@@ -2080,7 +2080,7 @@ if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
 
 _ZN5eastl8optionalIiEaSEOS1_.exit.i.i:            ; preds = %if.else14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then.i.i.i
   %cmp.i.i = icmp sgt i64 %parentPosition.029.i.i, %topPosition
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %for.end.i.i, !llvm.loop !28
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %for.end.i.i, !llvm.loop !34
 
 for.end.i.i:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i, %land.rhs.i.i, %if.end16
   %position.addr.0.lcssa.i.i = phi i64 [ %position.addr.1, %if.end16 ], [ %position.addr.028.i.i, %land.rhs.i.i ], [ %parentPosition.029.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ], [ %position.addr.028.i.i, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i ]
@@ -2362,16 +2362,22 @@ attributes #8 = { builtin nounwind }
 !13 = distinct !{!13, !12}
 !14 = distinct !{!14, !12}
 !15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
+!16 = distinct !{!16, !12, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !18 = distinct !{!18, !12}
 !19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
+!20 = distinct !{!20, !12, !17}
 !21 = distinct !{!21, !12}
 !22 = distinct !{!22, !12}
 !23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12, !25}
-!25 = !{!"llvm.loop.unswitch.partial.disable"}
-!26 = distinct !{!26, !12}
+!24 = distinct !{!24, !12, !17}
+!25 = distinct !{!25, !12, !17}
+!26 = distinct !{!26, !17}
 !27 = distinct !{!27, !12}
 !28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}
+!30 = distinct !{!30, !12, !31}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = distinct !{!32, !12}
+!33 = distinct !{!33, !12}
+!34 = distinct !{!34, !12}

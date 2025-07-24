@@ -553,7 +553,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %112 = tail call ptr @__errno_location() #11
   %113 = load i32, ptr %112, align 4, !tbaa !23
   %114 = icmp eq i32 %113, 4
-  br i1 %114, label %.split.i.i, label %.critedge.i.i, !llvm.loop !38
+  br i1 %114, label %.split.i.i, label %.critedge.i.i, !llvm.loop !40
 
 .critedge.i.i:                                    ; preds = %111, %.split.i.i, %102, %.split.us.i.i
   %.us-phi.i.i = phi i32 [ %100, %.split.us.i.i ], [ -1, %102 ], [ -1, %111 ], [ %109, %.split.i.i ]
@@ -606,7 +606,7 @@ poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_desc
   %131 = load i8, ptr %7, align 8
   %132 = and i8 %131, 32
   %.not11.i = icmp eq i8 %132, 0
-  br i1 %.not11.i, label %ossl_quic_reactor_leave_blocking_section.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not11.i, label %ossl_quic_reactor_leave_blocking_section.exit, label %.lr.ph.i, !llvm.loop !41
 
 ossl_quic_reactor_leave_blocking_section.exit:    ; preds = %.lr.ph.i, %poll_two_descriptors.exit, %124
   br i1 %.0.i, label %133, label %29
@@ -664,7 +664,7 @@ define void @ossl_quic_reactor_leave_blocking_section(ptr noundef %0) local_unna
   %22 = load i8, ptr %5, align 8
   %23 = and i8 %22, 32
   %.not11 = icmp eq i8 %23, 0
-  br i1 %.not11, label %.loopexit, label %19, !llvm.loop !39
+  br i1 %.not11, label %.loopexit, label %19, !llvm.loop !41
 
 .loopexit:                                        ; preds = %19, %12, %1
   ret void
@@ -745,5 +745,7 @@ attributes #11 = { nounwind willreturn memory(none) }
 !35 = !{!"short", !7, i64 0}
 !36 = !{!34, !35, i64 4}
 !37 = !{!"branch_weights", i32 1, i32 4001}
-!38 = distinct !{!38, !31}
-!39 = distinct !{!39, !31}
+!38 = distinct !{!38, !31, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !31}
+!41 = distinct !{!41, !31}

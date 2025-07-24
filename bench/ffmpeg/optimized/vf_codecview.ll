@@ -165,7 +165,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 69:                                               ; preds = %.sink.split, %2
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %71 = load i32, ptr %70, align 8, !tbaa !51
+  %71 = load i32, ptr %70, align 8, !tbaa !52
   %.not121 = icmp eq i32 %71, 0
   br i1 %.not121, label %.loopexit145, label %72
 
@@ -176,11 +176,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !52
+  %76 = load ptr, ptr %75, align 8, !tbaa !53
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %78 = load i32, ptr %77, align 8, !tbaa !46
   %79 = sext i32 %78 to i64
-  %80 = load i32, ptr %76, align 8, !tbaa !54
+  %80 = load i32, ptr %76, align 8, !tbaa !55
   %.not123 = icmp eq i32 %80, 0
   br i1 %.not123, label %.loopexit145, label %av_video_enc_params_block.exit.lr.ph
 
@@ -191,22 +191,22 @@ av_video_enc_params_block.exit.lr.ph:             ; preds = %74
 
 av_video_enc_params_block.exit:                   ; preds = %av_video_enc_params_block.exit.lr.ph, %draw_block_rectangle.exit
   %indvars.iv160 = phi i64 [ 0, %av_video_enc_params_block.exit.lr.ph ], [ %indvars.iv.next161, %draw_block_rectangle.exit ]
-  %83 = load i64, ptr %81, align 8, !tbaa !56
+  %83 = load i64, ptr %81, align 8, !tbaa !57
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 %83
-  %85 = load i64, ptr %82, align 8, !tbaa !57
+  %85 = load i64, ptr %82, align 8, !tbaa !58
   %86 = mul i64 %85, %indvars.iv160
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   %88 = load ptr, ptr %1, align 8, !tbaa !36
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !58
+  %90 = load i32, ptr %89, align 4, !tbaa !59
   %91 = sext i32 %90 to i64
   %92 = mul nsw i64 %91, %79
   %93 = getelementptr inbounds i8, ptr %88, i64 %92
-  %94 = load i32, ptr %87, align 4, !tbaa !60
+  %94 = load i32, ptr %87, align 4, !tbaa !61
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %96 = load i32, ptr %95, align 4, !tbaa !61
+  %96 = load i32, ptr %95, align 4, !tbaa !62
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  %98 = load i32, ptr %97, align 4, !tbaa !62
+  %98 = load i32, ptr %97, align 4, !tbaa !63
   %99 = add i32 %96, %94
   %100 = icmp sgt i32 %96, 0
   br i1 %100, label %.lr.ph.preheader.i, label %.preheader.i
@@ -244,24 +244,24 @@ av_video_enc_params_block.exit:                   ; preds = %av_video_enc_params
   %115 = getelementptr inbounds i8, ptr %.02225.i, i64 %79
   %116 = add nsw i32 %.026.i, 1
   %117 = icmp slt i32 %116, %107
-  br i1 %117, label %111, label %draw_block_rectangle.exit, !llvm.loop !63
+  br i1 %117, label %111, label %draw_block_rectangle.exit, !llvm.loop !64
 
 draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %118 = load i32, ptr %76, align 8, !tbaa !54
+  %118 = load i32, ptr %76, align 8, !tbaa !55
   %119 = zext i32 %118 to i64
   %120 = icmp samesign ult i64 %indvars.iv.next161, %119
-  br i1 %120, label %av_video_enc_params_block.exit, label %.loopexit145, !llvm.loop !64
+  br i1 %120, label %av_video_enc_params_block.exit, label %.loopexit145, !llvm.loop !65
 
 .loopexit145:                                     ; preds = %draw_block_rectangle.exit, %72, %74, %69
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %122 = load i32, ptr %121, align 8, !tbaa !65
+  %122 = load i32, ptr %121, align 8, !tbaa !66
   %.not124 = icmp eq i32 %122, 0
   br i1 %.not124, label %123, label %126
 
 123:                                              ; preds = %.loopexit145
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %125 = load i32, ptr %124, align 8, !tbaa !66
+  %125 = load i32, ptr %124, align 8, !tbaa !67
   %.not125 = icmp eq i32 %125, 0
   br i1 %.not125, label %.loopexit, label %126
 
@@ -272,16 +272,16 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !52
+  %130 = load ptr, ptr %129, align 8, !tbaa !53
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %132 = load i32, ptr %131, align 4, !tbaa !67
+  %132 = load i32, ptr %131, align 4, !tbaa !68
   %133 = and i32 %132, 1
   %.not127 = icmp eq i32 %133, 0
   br i1 %.not127, label %138, label %134
 
 134:                                              ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %136 = load i32, ptr %135, align 8, !tbaa !68
+  %136 = load i32, ptr %135, align 8, !tbaa !69
   %137 = icmp eq i32 %136, 1
   br label %138
 
@@ -293,7 +293,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %143 = load i32, ptr %142, align 8, !tbaa !68
+  %143 = load i32, ptr %142, align 8, !tbaa !69
   %144 = icmp eq i32 %143, 2
   br label %145
 
@@ -305,14 +305,14 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %150 = load i32, ptr %149, align 8, !tbaa !68
+  %150 = load i32, ptr %149, align 8, !tbaa !69
   %151 = icmp eq i32 %150, 3
   br label %152
 
 152:                                              ; preds = %148, %145
   %153 = phi i1 [ false, %145 ], [ %151, %148 ]
   %154 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %155 = load i64, ptr %154, align 8, !tbaa !69
+  %155 = load i64, ptr %154, align 8, !tbaa !70
   %.not156 = icmp ult i64 %155, 40
   br i1 %.not156, label %.loopexit, label %.lr.ph
 
@@ -332,10 +332,10 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 166:                                              ; preds = %.lr.ph, %232
   %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %232 ]
   %167 = getelementptr inbounds nuw %struct.AVMotionVector, ptr %130, i64 %indvars.iv163
-  %168 = load i32, ptr %167, align 8, !tbaa !70
+  %168 = load i32, ptr %167, align 8, !tbaa !71
   %169 = icmp sgt i32 %168, 0
   %170 = zext i1 %169 to i32
-  %171 = load i32, ptr %156, align 8, !tbaa !66
+  %171 = load i32, ptr %156, align 8, !tbaa !67
   %.not130 = icmp eq i32 %171, 0
   br i1 %.not130, label %198, label %172
 
@@ -347,7 +347,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   %176 = and i32 %171, 2
   %177 = icmp ne i32 %176, 0
   %178 = and i1 %169, %177
-  %179 = load i32, ptr %131, align 4, !tbaa !67
+  %179 = load i32, ptr %131, align 4, !tbaa !68
   %.not135 = icmp eq i32 %179, 0
   %or.cond = or i1 %175, %178
   %or.cond136 = select i1 %.not135, i1 %or.cond, i1 false
@@ -366,16 +366,16 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 180:                                              ; preds = %172
   %181 = load ptr, ptr %1, align 8, !tbaa !36
   %182 = getelementptr inbounds nuw i8, ptr %167, i64 10
-  %183 = load i16, ptr %182, align 2, !tbaa !73
+  %183 = load i16, ptr %182, align 2, !tbaa !74
   %184 = sext i16 %183 to i32
   %185 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %186 = load i16, ptr %185, align 4, !tbaa !74
+  %186 = load i16, ptr %185, align 4, !tbaa !75
   %187 = sext i16 %186 to i32
   %188 = getelementptr inbounds nuw i8, ptr %167, i64 6
-  %189 = load i16, ptr %188, align 2, !tbaa !75
+  %189 = load i16, ptr %188, align 2, !tbaa !76
   %190 = sext i16 %189 to i32
   %191 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %192 = load i16, ptr %191, align 8, !tbaa !76
+  %192 = load i16, ptr %191, align 8, !tbaa !77
   %193 = sext i16 %192 to i32
   %194 = load i32, ptr %157, align 8, !tbaa !37
   %195 = load i32, ptr %158, align 4, !tbaa !44
@@ -385,7 +385,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   br label %232
 
 198:                                              ; preds = %166
-  %199 = load i32, ptr %121, align 8, !tbaa !65
+  %199 = load i32, ptr %121, align 8, !tbaa !66
   %.not131 = icmp eq i32 %199, 0
   br i1 %.not131, label %232, label %200
 
@@ -396,7 +396,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   br i1 %or.cond142, label %205, label %202
 
 202:                                              ; preds = %200
-  %203 = load i32, ptr %160, align 8, !tbaa !68
+  %203 = load i32, ptr %160, align 8, !tbaa !69
   %204 = icmp eq i32 %203, 2
   br i1 %204, label %214, label %.thread144
 
@@ -409,7 +409,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   br i1 %.not133, label %232, label %207
 
 207:                                              ; preds = %.thread144
-  %208 = load i32, ptr %161, align 8, !tbaa !68
+  %208 = load i32, ptr %161, align 8, !tbaa !69
   %209 = icmp eq i32 %208, 3
   br i1 %209, label %214, label %232
 
@@ -419,23 +419,23 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   br i1 %.not134, label %232, label %211
 
 211:                                              ; preds = %.critedge
-  %212 = load i32, ptr %162, align 8, !tbaa !68
+  %212 = load i32, ptr %162, align 8, !tbaa !69
   %213 = icmp eq i32 %212, 3
   br i1 %213, label %214, label %232
 
 214:                                              ; preds = %211, %207, %202
   %215 = load ptr, ptr %1, align 8, !tbaa !36
   %216 = getelementptr inbounds nuw i8, ptr %167, i64 10
-  %217 = load i16, ptr %216, align 2, !tbaa !73
+  %217 = load i16, ptr %216, align 2, !tbaa !74
   %218 = sext i16 %217 to i32
   %219 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %220 = load i16, ptr %219, align 4, !tbaa !74
+  %220 = load i16, ptr %219, align 4, !tbaa !75
   %221 = sext i16 %220 to i32
   %222 = getelementptr inbounds nuw i8, ptr %167, i64 6
-  %223 = load i16, ptr %222, align 2, !tbaa !75
+  %223 = load i16, ptr %222, align 2, !tbaa !76
   %224 = sext i16 %223 to i32
   %225 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %226 = load i16, ptr %225, align 8, !tbaa !76
+  %226 = load i16, ptr %225, align 8, !tbaa !77
   %227 = sext i16 %226 to i32
   %228 = load i32, ptr %163, align 8, !tbaa !37
   %229 = load i32, ptr %164, align 4, !tbaa !44
@@ -446,10 +446,10 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 
 232:                                              ; preds = %.thread144, %207, %180, %172, %198, %214, %211, %.critedge
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %233 = load i64, ptr %154, align 8, !tbaa !69
+  %233 = load i64, ptr %154, align 8, !tbaa !70
   %234 = udiv i64 %233, 40
   %235 = icmp samesign ugt i64 %234, %indvars.iv.next164
-  br i1 %235, label %166, label %.loopexit, !llvm.loop !77
+  br i1 %235, label %166, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %232, %152, %126, %123
   %236 = call i32 @ff_filter_frame(ptr noundef %13, ptr noundef %1) #7
@@ -467,15 +467,15 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !78
+  %7 = load i32, ptr %6, align 4, !tbaa !79
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %10 = load i8, ptr %9, align 1, !tbaa !79
+  %10 = load i8, ptr %9, align 1, !tbaa !80
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %11, ptr %12, align 4, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %14 = load i8, ptr %13, align 2, !tbaa !81
+  %14 = load i8, ptr %13, align 2, !tbaa !82
   %15 = zext i8 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %15, ptr %16, align 8, !tbaa !45
@@ -817,7 +817,7 @@ tailrecurse.i78:                                  ; preds = %tailrecurse.i78, %4
 137:                                              ; preds = %.lr.ph141, %126
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %clip_line.exit, label %.lr.ph141, !llvm.loop !82
+  br i1 %exitcond150.not, label %clip_line.exit, label %.lr.ph141, !llvm.loop !83
 
 138:                                              ; preds = %85
   %139 = icmp sgt i32 %.0.i73, %.0.i
@@ -894,7 +894,7 @@ tailrecurse.i78:                                  ; preds = %tailrecurse.i78, %4
 173:                                              ; preds = %.lr.ph, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %clip_line.exit, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %clip_line.exit, label %.lr.ph, !llvm.loop !84
 
 clip_line.exit:                                   ; preds = %173, %137, %149, %105, %70, %55, %33, %18
   ret void
@@ -977,37 +977,38 @@ attributes #7 = { nounwind }
 !47 = !{!7, !7, i64 0}
 !48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = !{!35, !13, i64 32}
-!52 = !{!53, !25, i64 8}
-!53 = !{!"AVFrameSideData", !13, i64 0, !25, i64 8, !40, i64 16, !42, i64 24, !30, i64 32}
-!54 = !{!55, !13, i64 0}
-!55 = !{!"AVVideoEncParams", !13, i64 0, !40, i64 8, !40, i64 16, !13, i64 24, !13, i64 28, !7, i64 32}
-!56 = !{!55, !40, i64 8}
-!57 = !{!55, !40, i64 16}
-!58 = !{!59, !13, i64 4}
-!59 = !{!"AVVideoBlockParams", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}
-!60 = !{!59, !13, i64 0}
-!61 = !{!59, !13, i64 8}
-!62 = !{!59, !13, i64 12}
-!63 = distinct !{!63, !49}
+!50 = distinct !{!50, !49, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!35, !13, i64 32}
+!53 = !{!54, !25, i64 8}
+!54 = !{!"AVFrameSideData", !13, i64 0, !25, i64 8, !40, i64 16, !42, i64 24, !30, i64 32}
+!55 = !{!56, !13, i64 0}
+!56 = !{!"AVVideoEncParams", !13, i64 0, !40, i64 8, !40, i64 16, !13, i64 24, !13, i64 28, !7, i64 32}
+!57 = !{!56, !40, i64 8}
+!58 = !{!56, !40, i64 16}
+!59 = !{!60, !13, i64 4}
+!60 = !{!"AVVideoBlockParams", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}
+!61 = !{!60, !13, i64 0}
+!62 = !{!60, !13, i64 8}
+!63 = !{!60, !13, i64 12}
 !64 = distinct !{!64, !49}
-!65 = !{!35, !13, i64 8}
-!66 = !{!35, !13, i64 16}
-!67 = !{!35, !13, i64 12}
-!68 = !{!38, !13, i64 120}
-!69 = !{!53, !40, i64 16}
-!70 = !{!71, !13, i64 0}
-!71 = !{!"AVMotionVector", !13, i64 0, !7, i64 4, !7, i64 5, !72, i64 6, !72, i64 8, !72, i64 10, !72, i64 12, !40, i64 16, !13, i64 24, !13, i64 28, !72, i64 32}
-!72 = !{!"short", !7, i64 0}
-!73 = !{!71, !72, i64 10}
-!74 = !{!71, !72, i64 12}
-!75 = !{!71, !72, i64 6}
-!76 = !{!71, !72, i64 8}
-!77 = distinct !{!77, !49}
-!78 = !{!10, !13, i64 36}
-!79 = !{!80, !7, i64 9}
-!80 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !40, i64 16, !7, i64 24, !25, i64 104}
-!81 = !{!80, !7, i64 10}
-!82 = distinct !{!82, !49}
+!65 = distinct !{!65, !49}
+!66 = !{!35, !13, i64 8}
+!67 = !{!35, !13, i64 16}
+!68 = !{!35, !13, i64 12}
+!69 = !{!38, !13, i64 120}
+!70 = !{!54, !40, i64 16}
+!71 = !{!72, !13, i64 0}
+!72 = !{!"AVMotionVector", !13, i64 0, !7, i64 4, !7, i64 5, !73, i64 6, !73, i64 8, !73, i64 10, !73, i64 12, !40, i64 16, !13, i64 24, !13, i64 28, !73, i64 32}
+!73 = !{!"short", !7, i64 0}
+!74 = !{!72, !73, i64 10}
+!75 = !{!72, !73, i64 12}
+!76 = !{!72, !73, i64 6}
+!77 = !{!72, !73, i64 8}
+!78 = distinct !{!78, !49}
+!79 = !{!10, !13, i64 36}
+!80 = !{!81, !7, i64 9}
+!81 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !40, i64 16, !7, i64 24, !25, i64 104}
+!82 = !{!81, !7, i64 10}
 !83 = distinct !{!83, !49}
+!84 = distinct !{!84, !49}

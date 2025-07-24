@@ -7197,212 +7197,168 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   tail call void @SDL_AssertJoysticksLocked() #10
   call void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #10
   call void @SDL_SetJoystickGUIDCRC(ptr noundef nonnull %5, i16 noundef zeroext 0) #10
-  br i1 %2, label %9, label %.thread79
+  br i1 %2, label %9, label %.thread73
 
 9:                                                ; preds = %4
   %.01844 = load ptr, ptr @s_pSupportedGamepads, align 8
   %.not45 = icmp eq ptr %.01844, null
   br i1 %.not45, label %.loopexit, label %.lr.ph.split.us
 
-.thread79:                                        ; preds = %4
+.thread73:                                        ; preds = %4
   call void @SDL_SetJoystickGUIDVersion(ptr noundef nonnull %5, i16 noundef zeroext 0) #10
-  %.0184480 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not4581 = icmp eq ptr %.0184480, null
-  br i1 %.not4581, label %.loopexit, label %.lr.ph.split
+  %.0184474 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not4575 = icmp eq ptr %.0184474, null
+  br i1 %.not4575, label %.loopexit, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %9
-  br i1 %3, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
-  %.01847.us.us = phi ptr [ %.018.us.us, %.thread.us.us ], [ %.01844, %.lr.ph.split.us ]
-  %.02246.us.us = phi ptr [ %.12335.us.us, %.thread.us.us ], [ null, %.lr.ph.split.us ]
+.lr.ph.split.us:                                  ; preds = %9, %.thread.us
+  %.01847.us = phi ptr [ %.018.us, %.thread.us ], [ %.01844, %9 ]
+  %.02246.us = phi ptr [ %.12335.us, %.thread.us ], [ null, %9 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  %10 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us.us, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+  %10 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread.us.us, label %12
+  br i1 %11, label %.thread.us, label %12
 
-12:                                               ; preds = %.lr.ph.split.us.split.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01847.us.us, i64 16, i1 false)
+12:                                               ; preds = %.lr.ph.split.us
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01847.us, i64 16, i1 false)
   %13 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread.us.us
+  br i1 %14, label %15, label %.thread.us
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.01847.us.us, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.01847.us, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @SDL_strstr_REAL(ptr noundef %17, ptr noundef nonnull @.str.82) #10
-  %.not28.us.us = icmp eq ptr %18, null
-  br i1 %.not28.us.us, label %24, label %19
+  %.not28.us = icmp eq ptr %18, null
+  br i1 %.not28.us, label %24, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %20, ptr noundef null, i32 noundef 16) #10
   %22 = load i16, ptr %6, align 2
   %23 = trunc i64 %21 to i16
-  %.not30.us.us = icmp eq i16 %22, %23
-  br i1 %.not30.us.us, label %.thread38, label %.thread.us.us
-
-24:                                               ; preds = %15
-  %.not29.us.us = icmp eq ptr %.02246.us.us, null
-  %spec.select.us.us = select i1 %.not29.us.us, ptr %.01847.us.us, ptr %.02246.us.us
-  br label %.thread.us.us
-
-.thread.us.us:                                    ; preds = %.lr.ph.split.us.split.us, %12, %19, %24
-  %.12335.us.us = phi ptr [ %.02246.us.us, %19 ], [ %spec.select.us.us, %24 ], [ %.02246.us.us, %12 ], [ %.02246.us.us, %.lr.ph.split.us.split.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  %25 = getelementptr inbounds nuw i8, ptr %.01847.us.us, i64 40
-  %.018.us.us = load ptr, ptr %25, align 8
-  %.not.us.us = icmp eq ptr %.018.us.us, null
-  br i1 %.not.us.us, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !63
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
-  %.01847.us = phi ptr [ %.018.us, %.thread.us ], [ %.01844, %.lr.ph.split.us ]
-  %.02246.us = phi ptr [ %.12335.us, %.thread.us ], [ null, %.lr.ph.split.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  %26 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread.us, label %28
-
-28:                                               ; preds = %.lr.ph.split.us.split
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01847.us, i64 16, i1 false)
-  %29 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread.us
-
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %.01847.us, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @SDL_strstr_REAL(ptr noundef %33, ptr noundef nonnull @.str.82) #10
-  %.not28.us = icmp eq ptr %34, null
-  br i1 %.not28.us, label %40, label %35
-
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %37 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %36, ptr noundef null, i32 noundef 16) #10
-  %38 = load i16, ptr %6, align 2
-  %39 = trunc i64 %37 to i16
-  %.not30.us = icmp eq i16 %38, %39
+  %.not30.us = icmp eq i16 %22, %23
   br i1 %.not30.us, label %.thread38, label %.thread.us
 
-40:                                               ; preds = %31
-  %41 = load i16, ptr %6, align 2
-  %.not69 = icmp eq i16 %41, 0
-  br i1 %.not69, label %42, label %.thread38
+24:                                               ; preds = %15
+  %25 = load i16, ptr %6, align 2
+  %26 = icmp ne i16 %25, 0
+  %or.cond.us = and i1 %3, %26
+  br i1 %or.cond.us, label %.thread38, label %27
 
-42:                                               ; preds = %40
+27:                                               ; preds = %24
   %.not29.us = icmp eq ptr %.02246.us, null
   %spec.select.us = select i1 %.not29.us, ptr %.01847.us, ptr %.02246.us
   br label %.thread.us
 
-.thread.us:                                       ; preds = %.lr.ph.split.us.split, %28, %35, %42
-  %.12335.us = phi ptr [ %.02246.us, %35 ], [ %spec.select.us, %42 ], [ %.02246.us, %28 ], [ %.02246.us, %.lr.ph.split.us.split ]
+.thread.us:                                       ; preds = %.lr.ph.split.us, %12, %19, %27
+  %.12335.us = phi ptr [ %.02246.us, %19 ], [ %spec.select.us, %27 ], [ %.02246.us, %12 ], [ %.02246.us, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  %43 = getelementptr inbounds nuw i8, ptr %.01847.us, i64 40
-  %.018.us = load ptr, ptr %43, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.01847.us, i64 40
+  %.018.us = load ptr, ptr %28, align 8
   %.not.us = icmp eq ptr %.018.us, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !63
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !63
 
-.lr.ph.split:                                     ; preds = %.thread79
+.lr.ph.split:                                     ; preds = %.thread73
   br i1 %3, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us58
-  %.01847.us50 = phi ptr [ %.018.us60, %.thread.us58 ], [ %.0184480, %.lr.ph.split ]
+  %.01847.us50 = phi ptr [ %.018.us60, %.thread.us58 ], [ %.0184474, %.lr.ph.split ]
   %.02246.us51 = phi ptr [ %.12335.us59, %.thread.us58 ], [ null, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  %44 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us50, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread.us58, label %46
+  %29 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us50, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.thread.us58, label %31
 
-46:                                               ; preds = %.lr.ph.split.split.us
+31:                                               ; preds = %.lr.ph.split.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01847.us50, i64 16, i1 false)
   call void @SDL_SetJoystickGUIDVersion(ptr noundef nonnull %7, i16 noundef zeroext 0) #10
-  %47 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.thread.us58
+  %32 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %.thread.us58
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %.01847.us50, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @SDL_strstr_REAL(ptr noundef %51, ptr noundef nonnull @.str.82) #10
-  %.not28.us52 = icmp eq ptr %52, null
-  br i1 %.not28.us52, label %58, label %53
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.01847.us50, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr @SDL_strstr_REAL(ptr noundef %36, ptr noundef nonnull @.str.82) #10
+  %.not28.us52 = icmp eq ptr %37, null
+  br i1 %.not28.us52, label %43, label %38
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %55 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %54, ptr noundef null, i32 noundef 16) #10
-  %56 = load i16, ptr %6, align 2
-  %57 = trunc i64 %55 to i16
-  %.not30.us53 = icmp eq i16 %56, %57
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %40 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %39, ptr noundef null, i32 noundef 16) #10
+  %41 = load i16, ptr %6, align 2
+  %42 = trunc i64 %40 to i16
+  %.not30.us53 = icmp eq i16 %41, %42
   br i1 %.not30.us53, label %.thread38, label %.thread.us58
 
-58:                                               ; preds = %49
+43:                                               ; preds = %34
   %.not29.us55 = icmp eq ptr %.02246.us51, null
   %spec.select.us56 = select i1 %.not29.us55, ptr %.01847.us50, ptr %.02246.us51
   br label %.thread.us58
 
-.thread.us58:                                     ; preds = %.lr.ph.split.split.us, %46, %53, %58
-  %.12335.us59 = phi ptr [ %.02246.us51, %53 ], [ %spec.select.us56, %58 ], [ %.02246.us51, %46 ], [ %.02246.us51, %.lr.ph.split.split.us ]
+.thread.us58:                                     ; preds = %.lr.ph.split.split.us, %31, %38, %43
+  %.12335.us59 = phi ptr [ %.02246.us51, %38 ], [ %spec.select.us56, %43 ], [ %.02246.us51, %31 ], [ %.02246.us51, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  %59 = getelementptr inbounds nuw i8, ptr %.01847.us50, i64 40
-  %.018.us60 = load ptr, ptr %59, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.01847.us50, i64 40
+  %.018.us60 = load ptr, ptr %44, align 8
   %.not.us61 = icmp eq ptr %.018.us60, null
-  br i1 %.not.us61, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !63
+  br i1 %.not.us61, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !65
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
-  %.01847 = phi ptr [ %.018, %.thread ], [ %.0184480, %.lr.ph.split ]
+  %.01847 = phi ptr [ %.018, %.thread ], [ %.0184474, %.lr.ph.split ]
   %.02246 = phi ptr [ %.12335, %.thread ], [ null, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  %60 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.thread, label %62
+  %45 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %.thread, label %47
 
-62:                                               ; preds = %.lr.ph.split.split
+47:                                               ; preds = %.lr.ph.split.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01847, i64 16, i1 false)
   call void @SDL_SetJoystickGUIDVersion(ptr noundef nonnull %7, i16 noundef zeroext 0) #10
-  %63 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.thread
+  %48 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 16) #10
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %.thread
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %.01847, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr @SDL_strstr_REAL(ptr noundef %67, ptr noundef nonnull @.str.82) #10
-  %.not28 = icmp eq ptr %68, null
-  br i1 %.not28, label %74, label %69
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %.01847, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @SDL_strstr_REAL(ptr noundef %52, ptr noundef nonnull @.str.82) #10
+  %.not28 = icmp eq ptr %53, null
+  br i1 %.not28, label %59, label %54
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %71 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %70, ptr noundef null, i32 noundef 16) #10
-  %72 = load i16, ptr %6, align 2
-  %73 = trunc i64 %71 to i16
-  %.not30 = icmp eq i16 %72, %73
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %56 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %55, ptr noundef null, i32 noundef 16) #10
+  %57 = load i16, ptr %6, align 2
+  %58 = trunc i64 %56 to i16
+  %.not30 = icmp eq i16 %57, %58
   br i1 %.not30, label %.thread38, label %.thread
 
-74:                                               ; preds = %65
-  %75 = load i16, ptr %6, align 2
-  %.not68 = icmp eq i16 %75, 0
-  br i1 %.not68, label %76, label %.thread38
+59:                                               ; preds = %50
+  %60 = load i16, ptr %6, align 2
+  %.not66 = icmp eq i16 %60, 0
+  br i1 %.not66, label %61, label %.thread38
 
-76:                                               ; preds = %74
+61:                                               ; preds = %59
   %.not29 = icmp eq ptr %.02246, null
   %spec.select = select i1 %.not29, ptr %.01847, ptr %.02246
   br label %.thread
 
-.thread38:                                        ; preds = %53, %74, %69, %19, %40, %35
-  %.us-phi = phi ptr [ null, %40 ], [ %.01847.us, %35 ], [ %.01847.us.us, %19 ], [ null, %74 ], [ %.01847, %69 ], [ %.01847.us50, %53 ]
+.thread38:                                        ; preds = %38, %59, %54, %19, %24
+  %.us-phi = phi ptr [ null, %24 ], [ %.01847.us, %19 ], [ null, %59 ], [ %.01847, %54 ], [ %.01847.us50, %38 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
   br label %.loopexit
 
-.thread:                                          ; preds = %76, %69, %62, %.lr.ph.split.split
-  %.12335 = phi ptr [ %.02246, %.lr.ph.split.split ], [ %.02246, %62 ], [ %.02246, %69 ], [ %spec.select, %76 ]
+.thread:                                          ; preds = %61, %54, %47, %.lr.ph.split.split
+  %.12335 = phi ptr [ %.02246, %.lr.ph.split.split ], [ %.02246, %47 ], [ %.02246, %54 ], [ %spec.select, %61 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  %77 = getelementptr inbounds nuw i8, ptr %.01847, i64 40
-  %.018 = load ptr, ptr %77, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %.01847, i64 40
+  %.018 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !63
+  br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us.us, %.thread.us, %.thread79, %9, %.thread38
-  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread79 ], [ %.12335.us, %.thread.us ], [ %.12335.us.us, %.thread.us.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
+.loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us, %.thread73, %9, %.thread38
+  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread73 ], [ %.12335.us, %.thread.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret ptr %.5
 }
@@ -7923,7 +7879,7 @@ thread-pre-split:                                 ; preds = %72
   %127 = load i32, ptr %122, align 8
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next, %128
-  br i1 %129, label %130, label %._crit_edge, !llvm.loop !64
+  br i1 %129, label %130, label %._crit_edge, !llvm.loop !67
 
 130:                                              ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
@@ -8052,5 +8008,8 @@ attributes #12 = { nounwind allocsize(1) }
 !60 = distinct !{!60, !4}
 !61 = distinct !{!61, !4}
 !62 = distinct !{!62, !4}
-!63 = distinct !{!63, !4}
-!64 = distinct !{!64, !4}
+!63 = distinct !{!63, !4, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !4, !64}
+!66 = distinct !{!66, !4}
+!67 = distinct !{!67, !4}

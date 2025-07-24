@@ -2580,7 +2580,7 @@ sdslen.exit176:                                   ; preds = %327, %335, %338, %3
   %354 = call ptr @lpAppend(ptr noundef %.6241, ptr noundef nonnull %330, i32 noundef %353) #17
   %355 = add nuw nsw i64 %.0117242, 1
   %exitcond255.not = icmp eq i64 %355, %2
-  br i1 %exitcond255.not, label %._crit_edge245, label %327, !llvm.loop !117
+  br i1 %exitcond255.not, label %._crit_edge245, label %327, !llvm.loop !119
 
 356:                                              ; preds = %._crit_edge245
   %357 = load ptr, ptr %0, align 8, !tbaa !5
@@ -2671,14 +2671,14 @@ define dso_local i64 @streamTrim(ptr noundef %0, ptr noundef readonly captures(n
   %22 = alloca %struct.streamID, align 8
   %23 = alloca ptr, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load i64, ptr %24, align 8, !tbaa !118
+  %25 = load i64, ptr %24, align 8, !tbaa !120
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !120
+  %28 = load i32, ptr %27, align 4, !tbaa !122
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !121
+  %30 = load i64, ptr %29, align 8, !tbaa !123
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %32 = load i32, ptr %31, align 4, !tbaa !122
+  %32 = load i32, ptr %31, align 4, !tbaa !124
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %241, label %34
 
@@ -2858,7 +2858,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %88, %94
   %102 = call ptr @lpNext(ptr noundef %50, ptr noundef %101) #17
   %103 = add nuw nsw i64 %.0103226, 1
   %exitcond.not = icmp eq i64 %103, %.0.i127
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph227, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph227, !llvm.loop !125
 
 thread-pre-split:                                 ; preds = %177, %._crit_edge232
   %.pr = phi ptr [ %175, %._crit_edge232 ], [ %186, %177 ]
@@ -3055,7 +3055,7 @@ lpGetIntegerIfValid.exit143:                      ; preds = %159, %165
   %173 = call ptr @lpNext(ptr noundef %.097235, ptr noundef %171) #17
   store ptr %173, ptr %20, align 8, !tbaa !115
   %.not119 = icmp eq i64 %172, 0
-  br i1 %.not119, label %._crit_edge232, label %.lr.ph231, !llvm.loop !124
+  br i1 %.not119, label %._crit_edge232, label %.lr.ph231, !llvm.loop !126
 
 ._crit_edge232:                                   ; preds = %.lr.ph231, %169
   %174 = phi ptr [ %170, %169 ], [ %173, %.lr.ph231 ]
@@ -3231,19 +3231,19 @@ define dso_local i64 @streamTrimByLength(ptr noundef %0, i64 noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
-  store i32 1, ptr %5, align 4, !tbaa !122
+  store i32 1, ptr %5, align 4, !tbaa !124
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %6, align 8, !tbaa !125
+  store i32 0, ptr %6, align 8, !tbaa !127
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %2, ptr %7, align 4, !tbaa !120
+  store i32 %2, ptr %7, align 4, !tbaa !122
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.not = icmp eq i32 %2, 0
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7768), align 8
   %10 = mul nsw i64 %9, 100
   %11 = select i1 %.not, i64 0, i64 %10
-  store i64 %11, ptr %8, align 8, !tbaa !121
+  store i64 %11, ptr %8, align 8, !tbaa !123
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %1, ptr %12, align 8, !tbaa !118
+  store i64 %1, ptr %12, align 8, !tbaa !120
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call i64 @streamTrim(ptr noundef %0, ptr noundef nonnull %4)
@@ -3257,19 +3257,19 @@ define dso_local i64 @streamTrimByID(ptr noundef %0, i64 %1, i64 %2, i32 noundef
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  store i32 2, ptr %6, align 4, !tbaa !122
+  store i32 2, ptr %6, align 4, !tbaa !124
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %7, align 8, !tbaa !125
+  store i32 0, ptr %7, align 8, !tbaa !127
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %3, ptr %8, align 4, !tbaa !120
+  store i32 %3, ptr %8, align 4, !tbaa !122
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.not = icmp eq i32 %3, 0
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7768), align 8
   %11 = mul nsw i64 %10, 100
   %12 = select i1 %.not, i64 0, i64 %11
-  store i64 %12, ptr %9, align 8, !tbaa !121
+  store i64 %12, ptr %9, align 8, !tbaa !123
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 0, ptr %13, align 8, !tbaa !118
+  store i64 0, ptr %13, align 8, !tbaa !120
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %1, ptr %14, align 8, !tbaa !25
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3550,7 +3550,7 @@ define dso_local range(i32 0, 2) i32 @streamEntryExists(ptr noundef %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !22
   %or.cond.not7 = icmp eq i64 %13, %15
-  br i1 %or.cond.not7, label %16, label %streamCompareID.exit.thread, !prof !126
+  br i1 %or.cond.not7, label %16, label %streamCompareID.exit.thread, !prof !128
 
 streamCompareID.exit.thread:                      ; preds = %11, %8
   call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1329) #17
@@ -4237,7 +4237,7 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #3
 define dso_local void @streamPropagateXCLAIM(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [14 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #17
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 544), align 8, !tbaa !127
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 544), align 8, !tbaa !129
   store ptr %8, ptr %7, align 16, !tbaa !109
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !109
@@ -4297,14 +4297,14 @@ sdslen.exit:                                      ; preds = %6, %19, %22, %26, %
   store ptr %39, ptr %40, align 16, !tbaa !109
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %4, ptr %41, align 8, !tbaa !109
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 632), align 8, !tbaa !129
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 632), align 8, !tbaa !131
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %42, ptr %43, align 16, !tbaa !109
   %44 = load i64, ptr %5, align 8, !tbaa !38
   %45 = tail call ptr @createStringObjectFromLongLong(i64 noundef %44) #17
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %45, ptr %46, align 8, !tbaa !109
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 656), align 8, !tbaa !130
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 656), align 8, !tbaa !132
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %47, ptr %48, align 16, !tbaa !109
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4312,13 +4312,13 @@ sdslen.exit:                                      ; preds = %6, %19, %22, %26, %
   %51 = tail call ptr @createStringObjectFromLongLong(i64 noundef %50) #17
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %51, ptr %52, align 8, !tbaa !109
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 664), align 8, !tbaa !131
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 664), align 8, !tbaa !133
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %53, ptr %54, align 16, !tbaa !109
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 672), align 8, !tbaa !132
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 672), align 8, !tbaa !134
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %55, ptr %56, align 8, !tbaa !109
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 688), align 8, !tbaa !133
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 688), align 8, !tbaa !135
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %57, ptr %58, align 16, !tbaa !109
   %59 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
@@ -4367,9 +4367,9 @@ createObjectFromStreamID.exit:                    ; preds = %sdslen.exit, %64, %
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr %77, ptr %78, align 8, !tbaa !109
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %80 = load ptr, ptr %79, align 8, !tbaa !134
+  %80 = load ptr, ptr %79, align 8, !tbaa !136
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !144
+  %82 = load i32, ptr %81, align 8, !tbaa !146
   call void @alsoPropagate(i32 noundef %82, ptr noundef nonnull %7, i32 noundef 14, i32 noundef 3) #17
   %83 = load ptr, ptr %38, align 8, !tbaa !109
   call void @decrRefCount(ptr noundef %83) #17
@@ -4395,9 +4395,9 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #3
 define dso_local void @streamPropagateGroupID(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #17
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !146
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !148
   store ptr %6, ptr %5, align 16, !tbaa !109
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 704), align 8, !tbaa !147
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 704), align 8, !tbaa !149
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !109
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4449,7 +4449,7 @@ createObjectFromStreamID.exit:                    ; preds = %4, %16, %17, %19, %
   %29 = tail call ptr @createObject(i32 noundef 0, ptr noundef %28) #17
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %29, ptr %30, align 16, !tbaa !109
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 680), align 8, !tbaa !148
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 680), align 8, !tbaa !150
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %31, ptr %32, align 8, !tbaa !109
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4458,9 +4458,9 @@ createObjectFromStreamID.exit:                    ; preds = %4, %16, %17, %19, %
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %35, ptr %36, align 16, !tbaa !109
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !134
+  %38 = load ptr, ptr %37, align 8, !tbaa !136
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = load i32, ptr %39, align 8, !tbaa !144
+  %40 = load i32, ptr %39, align 8, !tbaa !146
   call void @alsoPropagate(i32 noundef %40, ptr noundef nonnull %5, i32 noundef 7, i32 noundef 3) #17
   %41 = load ptr, ptr %30, align 16, !tbaa !109
   call void @decrRefCount(ptr noundef %41) #17
@@ -4474,9 +4474,9 @@ createObjectFromStreamID.exit:                    ; preds = %4, %16, %17, %19, %
 define dso_local void @streamPropagateConsumerCreation(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [5 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !146
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !148
   store ptr %6, ptr %5, align 16, !tbaa !109
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 728), align 8, !tbaa !149
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 728), align 8, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !109
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4488,9 +4488,9 @@ define dso_local void @streamPropagateConsumerCreation(ptr noundef readonly capt
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %12, ptr %13, align 16, !tbaa !109
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !134
+  %15 = load ptr, ptr %14, align 8, !tbaa !136
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load i32, ptr %16, align 8, !tbaa !144
+  %17 = load i32, ptr %16, align 8, !tbaa !146
   call void @alsoPropagate(i32 noundef %17, ptr noundef nonnull %5, i32 noundef 5, i32 noundef 3) #17
   %18 = load ptr, ptr %13, align 16, !tbaa !109
   call void @decrRefCount(ptr noundef %18) #17
@@ -4742,7 +4742,7 @@ streamIteratorGetField.exit:                      ; preds = %102, %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   %.not107 = icmp eq i64 %99, 0
-  br i1 %.not107, label %._crit_edge, label %.lr.ph, !llvm.loop !150
+  br i1 %.not107, label %._crit_edge, label %.lr.ph, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %streamIteratorGetField.exit, %addReplyStreamID.exit
   store i64 -1, ptr %13, align 8, !tbaa !25
@@ -4856,8 +4856,8 @@ streamIteratorGetField.exit:                      ; preds = %102, %108
 createObjectFromStreamID.exit:                    ; preds = %154, %160, %161, %163, %165, %167
   %169 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %156, ptr noundef nonnull @.str.15, i64 noundef %94, i64 noundef %95) #17
   %170 = call ptr @createObject(i32 noundef 0, ptr noundef %169) #17
-  %171 = load ptr, ptr %9, align 8, !tbaa !151
-  %172 = load ptr, ptr %46, align 8, !tbaa !153
+  %171 = load ptr, ptr %9, align 8, !tbaa !153
+  %172 = load ptr, ptr %46, align 8, !tbaa !155
   call void @streamPropagateXCLAIM(ptr noundef %0, ptr noundef %171, ptr noundef nonnull %6, ptr noundef %172, ptr noundef %170, ptr noundef nonnull %.089)
   call void @decrRefCount(ptr noundef %170) #17
   br i1 %.not, label %176, label %173
@@ -4876,7 +4876,7 @@ createObjectFromStreamID.exit:                    ; preds = %154, %160, %161, %1
   %178 = add i64 %.086, 1
   %179 = icmp eq i64 %4, %178
   %or.cond113 = select i1 %.not110, i1 %179, i1 false
-  br i1 %or.cond113, label %180, label %47, !llvm.loop !154
+  br i1 %or.cond113, label %180, label %47, !llvm.loop !156
 
 180:                                              ; preds = %177, %47
   %.188 = phi i32 [ %.087, %47 ], [ %.2, %177 ]
@@ -4887,8 +4887,8 @@ createObjectFromStreamID.exit:                    ; preds = %154, %160, %161, %1
   br i1 %or.cond5, label %183, label %189
 
 183:                                              ; preds = %180
-  %184 = load ptr, ptr %9, align 8, !tbaa !151
-  %185 = load ptr, ptr %46, align 8, !tbaa !153
+  %184 = load ptr, ptr %9, align 8, !tbaa !153
+  %185 = load ptr, ptr %46, align 8, !tbaa !155
   call void @streamPropagateGroupID(ptr noundef %0, ptr noundef %184, ptr noundef %6, ptr noundef %185)
   br i1 %.not, label %189, label %186
 
@@ -5048,7 +5048,7 @@ addReplyStreamID.exit:                            ; preds = %42, %48, %49, %51, 
   %.not22 = icmp eq i32 %68, 0
   %.not24 = icmp ult i64 %28, %67
   %or.cond = select i1 %.not22, i1 true, i1 %.not24
-  br i1 %or.cond, label %.critedge, label %32, !llvm.loop !155
+  br i1 %or.cond, label %.critedge, label %32, !llvm.loop !157
 
 .critedge:                                        ; preds = %33, %66, %21
   %.0.lcssa = phi i64 [ 0, %21 ], [ %67, %66 ], [ %.028, %33 ]
@@ -5080,7 +5080,7 @@ declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @streamTypeLookupWriteOrCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !134
+  %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = tail call ptr @lookupKeyWrite(ptr noundef %5, ptr noundef %1) #17
   %7 = tail call i32 @checkType(ptr noundef %0, ptr noundef %6, i32 noundef 6) #17
   %.not = icmp eq i32 %7, 0
@@ -5100,7 +5100,7 @@ define dso_local noundef ptr @streamTypeLookupWriteOrCreate(ptr noundef %0, ptr 
 
 12:                                               ; preds = %10
   %13 = tail call ptr @createStreamObject() #17
-  %14 = load ptr, ptr %4, align 8, !tbaa !134
+  %14 = load ptr, ptr %4, align 8, !tbaa !136
   %15 = tail call ptr @dbAdd(ptr noundef %14, ptr noundef %1, ptr noundef %13) #17
   br label %16
 
@@ -5430,7 +5430,7 @@ sdslen.exit.thread:                               ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @streamRewriteApproxSpecifier(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !156
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !158
   tail call void @rewriteClientCommandArgument(ptr noundef %0, i32 noundef %1, ptr noundef %3) #17
   ret void
 }
@@ -5547,7 +5547,7 @@ define dso_local void @xaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = add nuw nsw i32 %4, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !157
+  %9 = load i32, ptr %8, align 8, !tbaa !159
   %10 = sub nsw i32 %9, %7
   %11 = icmp sgt i32 %10, 1
   %12 = and i32 %10, 1
@@ -5561,7 +5561,7 @@ define dso_local void @xaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !158
+  %16 = load i32, ptr %15, align 8, !tbaa !160
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %19 = load i32, ptr %18, align 4
@@ -5582,13 +5582,13 @@ define dso_local void @xaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !159
+  %29 = load ptr, ptr %28, align 8, !tbaa !161
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !109
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !160
+  %33 = load i32, ptr %32, align 8, !tbaa !162
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !134
+  %35 = load ptr, ptr %34, align 8, !tbaa !136
   %36 = call ptr @lookupKeyWrite(ptr noundef %35, ptr noundef %31) #17
   %37 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef %36, i32 noundef 6) #17
   %.not.i = icmp eq i32 %37, 0
@@ -5608,7 +5608,7 @@ define dso_local void @xaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 streamTypeLookupWriteOrCreate.exit:               ; preds = %40
   %42 = call ptr @createStreamObject() #17
-  %43 = load ptr, ptr %34, align 8, !tbaa !134
+  %43 = load ptr, ptr %34, align 8, !tbaa !136
   %44 = call ptr @dbAdd(ptr noundef %43, ptr noundef %31, ptr noundef %42) #17
   %45 = icmp eq ptr %42, null
   br i1 %45, label %streamTypeLookupWriteOrCreate.exit.thread, label %streamTypeLookupWriteOrCreate.exit.thread66
@@ -5636,17 +5636,17 @@ streamTypeLookupWriteOrCreate.exit.thread66:      ; preds = %38, %streamTypeLook
   %57 = tail call ptr @__errno_location() #20
   store i32 0, ptr %57, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  %58 = load ptr, ptr %28, align 8, !tbaa !159
+  %58 = load ptr, ptr %28, align 8, !tbaa !161
   %59 = zext nneg i32 %7 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
-  %61 = load i32, ptr %8, align 8, !tbaa !157
+  %61 = load i32, ptr %8, align 8, !tbaa !159
   %62 = sub nsw i32 %61, %7
   %63 = sdiv i32 %62, 2
   %64 = sext i32 %63 to i64
-  %65 = load i32, ptr %15, align 8, !tbaa !158
+  %65 = load i32, ptr %15, align 8, !tbaa !160
   %.not59 = icmp eq i32 %65, 0
   %66 = select i1 %.not59, ptr null, ptr %2
-  %67 = load i32, ptr %18, align 4, !tbaa !161
+  %67 = load i32, ptr %18, align 4, !tbaa !163
   %68 = call i32 @streamAppendItem(ptr noundef nonnull %47, ptr noundef nonnull %60, i64 noundef %64, ptr noundef nonnull %3, ptr noundef %66, i32 noundef %67)
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %70, label %75
@@ -5656,7 +5656,7 @@ streamTypeLookupWriteOrCreate.exit.thread66:      ; preds = %38, %streamTypeLook
   switch i32 %71, label %74 [
     i32 0, label %72
     i32 33, label %73
-  ], !prof !162
+  ], !prof !164
 
 72:                                               ; preds = %70
   call void @_serverAssert(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 2040) #17
@@ -5757,18 +5757,18 @@ createStreamIDString.exit:                        ; preds = %75, %81, %82, %84, 
 sdslen.exit:                                      ; preds = %createStreamIDString.exit, %98, %101, %105, %109, %113
   %.0.i = phi i64 [ %100, %98 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %115, %113 ], [ 0, %createStreamIDString.exit ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %93, i64 noundef %.0.i) #17
-  %116 = load ptr, ptr %28, align 8, !tbaa !159
+  %116 = load ptr, ptr %28, align 8, !tbaa !161
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !109
-  %119 = load ptr, ptr %34, align 8, !tbaa !134
+  %119 = load ptr, ptr %34, align 8, !tbaa !136
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %121 = load i32, ptr %120, align 8, !tbaa !144
+  %121 = load i32, ptr %120, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %118, i32 noundef %121) #17
-  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %123 = add nsw i64 %122, 1
-  store i64 %123, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %123, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %125 = load i32, ptr %124, align 4, !tbaa !122
+  %125 = load i32, ptr %124, align 4, !tbaa !124
   %.not60 = icmp eq i32 %125, 0
   br i1 %.not60, label %145, label %126
 
@@ -5778,39 +5778,39 @@ sdslen.exit:                                      ; preds = %createStreamIDStrin
   br i1 %.not61, label %135, label %128
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr %28, align 8, !tbaa !159
+  %129 = load ptr, ptr %28, align 8, !tbaa !161
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !109
-  %132 = load ptr, ptr %34, align 8, !tbaa !134
+  %132 = load ptr, ptr %34, align 8, !tbaa !136
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
-  %134 = load i32, ptr %133, align 8, !tbaa !144
+  %134 = load i32, ptr %133, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.24, ptr noundef %131, i32 noundef %134) #17
   br label %135
 
 135:                                              ; preds = %128, %126
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %137 = load i32, ptr %136, align 4, !tbaa !120
+  %137 = load i32, ptr %136, align 4, !tbaa !122
   %.not62 = icmp eq i32 %137, 0
   br i1 %.not62, label %145, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %140 = load i32, ptr %139, align 8, !tbaa !125
+  %140 = load i32, ptr %139, align 8, !tbaa !127
   %141 = add nsw i32 %140, -1
-  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !156
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !158
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef %141, ptr noundef %142) #17
-  %143 = load i32, ptr %124, align 4, !tbaa !122
-  %144 = load i32, ptr %139, align 8, !tbaa !125
+  %143 = load i32, ptr %124, align 4, !tbaa !124
+  %144 = load i32, ptr %139, align 8, !tbaa !127
   call void @streamRewriteTrimArgument(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef %143, i32 noundef %144)
   br label %145
 
 145:                                              ; preds = %135, %138, %sdslen.exit
-  %146 = load ptr, ptr %34, align 8, !tbaa !134
-  %147 = load ptr, ptr %28, align 8, !tbaa !159
+  %146 = load ptr, ptr %34, align 8, !tbaa !136
+  %147 = load ptr, ptr %28, align 8, !tbaa !161
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !109
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %146, ptr noundef %149) #17
-  %150 = load i32, ptr %15, align 8, !tbaa !158
+  %150 = load i32, ptr %15, align 8, !tbaa !160
   %151 = icmp ne i32 %150, 0
   %152 = load i32, ptr %18, align 4
   %153 = icmp ne i32 %152, 0
@@ -5828,8 +5828,8 @@ sdslen.exit:                                      ; preds = %createStreamIDStrin
   br label %157
 
 157:                                              ; preds = %156, %154
-  %158 = load ptr, ptr %34, align 8, !tbaa !134
-  %159 = load ptr, ptr %28, align 8, !tbaa !159
+  %158 = load ptr, ptr %34, align 8, !tbaa !136
+  %159 = load ptr, ptr %28, align 8, !tbaa !161
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8, !tbaa !109
   call void @signalKeyAsReady(ptr noundef %158, ptr noundef %161, i32 noundef 6) #17
@@ -5848,7 +5848,7 @@ streamTypeLookupWriteOrCreate.exit.thread:        ; preds = %27, %41, %13, %26, 
 define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr noundef nonnull initializes((0, 72)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !157
+  %5 = load i32, ptr %4, align 8, !tbaa !159
   %6 = icmp sgt i32 %5, 2
   br i1 %6, label %.lr.ph, label %.loopexit
 
@@ -5870,7 +5870,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   %.0118184 = phi i32 [ 0, %.lr.ph ], [ %.2120.ph, %121 ]
   %17 = xor i32 %.0109185, -1
   %18 = add i32 %16, %17
-  %19 = load ptr, ptr %7, align 8, !tbaa !159
+  %19 = load ptr, ptr %7, align 8, !tbaa !161
   %20 = sext i32 %.0109185 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !109
@@ -5897,7 +5897,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %or.cond, label %36, label %68
 
 36:                                               ; preds = %32
-  %37 = load i32, ptr %10, align 4, !tbaa !122
+  %37 = load i32, ptr %10, align 4, !tbaa !124
   %.not130 = icmp eq i32 %37, 0
   br i1 %.not130, label %39, label %38
 
@@ -5906,7 +5906,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br label %.thread151
 
 39:                                               ; preds = %36
-  store i32 0, ptr %11, align 4, !tbaa !120
+  store i32 0, ptr %11, align 4, !tbaa !122
   %40 = add nsw i32 %.0109185, 1
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %19, i64 %41
@@ -5930,7 +5930,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
-  store i32 1, ptr %11, align 4, !tbaa !120
+  store i32 1, ptr %11, align 4, !tbaa !122
   br label %.critedge
 
 54:                                               ; preds = %47
@@ -5951,7 +5951,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %.not131, label %63, label %.thread151
 
 63:                                               ; preds = %.critedge
-  %64 = load i64, ptr %14, align 8, !tbaa !118
+  %64 = load i64, ptr %14, align 8, !tbaa !120
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %66, label %67
 
@@ -5960,8 +5960,8 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br label %.thread151
 
 67:                                               ; preds = %63
-  store i32 1, ptr %10, align 4, !tbaa !122
-  store i32 %58, ptr %13, align 8, !tbaa !125
+  store i32 1, ptr %10, align 4, !tbaa !124
+  store i32 %58, ptr %13, align 8, !tbaa !127
   br label %121
 
 68:                                               ; preds = %32
@@ -5971,7 +5971,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %or.cond4, label %71, label %98
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %10, align 4, !tbaa !122
+  %72 = load i32, ptr %10, align 4, !tbaa !124
   %.not128 = icmp eq i32 %72, 0
   br i1 %.not128, label %74, label %73
 
@@ -5980,7 +5980,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br label %.thread151
 
 74:                                               ; preds = %71
-  store i32 0, ptr %11, align 4, !tbaa !120
+  store i32 0, ptr %11, align 4, !tbaa !122
   %75 = add nsw i32 %.0109185, 1
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds ptr, ptr %19, i64 %76
@@ -6004,7 +6004,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %87, label %88, label %.critedge139
 
 88:                                               ; preds = %84
-  store i32 1, ptr %11, align 4, !tbaa !120
+  store i32 1, ptr %11, align 4, !tbaa !122
   br label %.critedge139
 
 89:                                               ; preds = %82
@@ -6025,8 +6025,8 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %.not129, label %.thread148, label %.thread151
 
 .thread148:                                       ; preds = %.critedge139
-  store i32 2, ptr %10, align 4, !tbaa !122
-  store i32 %93, ptr %13, align 8, !tbaa !125
+  store i32 2, ptr %10, align 4, !tbaa !124
+  store i32 %93, ptr %13, align 8, !tbaa !127
   br label %121
 
 98:                                               ; preds = %68
@@ -6045,7 +6045,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %.not127, label %107, label %.thread151
 
 107:                                              ; preds = %101
-  %108 = load i64, ptr %9, align 8, !tbaa !121
+  %108 = load i64, ptr %9, align 8, !tbaa !123
   %109 = icmp slt i64 %108, 0
   br i1 %109, label %110, label %121
 
@@ -6062,7 +6062,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %.not125, label %114, label %115
 
 114:                                              ; preds = %112
-  store i32 1, ptr %8, align 8, !tbaa !160
+  store i32 1, ptr %8, align 8, !tbaa !162
   br label %121
 
 115:                                              ; preds = %112
@@ -6073,11 +6073,11 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %119, align 8, !tbaa !158
+  store i32 1, ptr %119, align 8, !tbaa !160
   br label %.loopexit
 
 .critedge142:                                     ; preds = %111
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %120) #17
   br label %.thread151
 
@@ -6085,21 +6085,21 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   %.2120.ph = phi i32 [ %.0118184, %.thread148 ], [ 1, %107 ], [ %.0118184, %114 ], [ %.0118184, %67 ]
   %.2111.ph = phi i32 [ %93, %.thread148 ], [ %102, %107 ], [ %.0109185, %114 ], [ %58, %67 ]
   %122 = add nsw i32 %.2111.ph, 1
-  %123 = load i32, ptr %4, align 8, !tbaa !157
+  %123 = load i32, ptr %4, align 8, !tbaa !159
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %15, label %.loopexit, !llvm.loop !165
+  br i1 %124, label %15, label %.loopexit, !llvm.loop !167
 
 .loopexit:                                        ; preds = %121, %28, %3, %118
   %.0118177 = phi i32 [ %.0118184, %118 ], [ 0, %3 ], [ %.2120.ph, %121 ], [ %.0118184, %28 ]
   %.0109169 = phi i32 [ %.0109185, %118 ], [ 2, %3 ], [ %122, %121 ], [ %.0109185, %28 ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %126 = load i64, ptr %125, align 8, !tbaa !121
+  %126 = load i64, ptr %125, align 8, !tbaa !123
   %.not132 = icmp eq i64 %126, 0
   br i1 %.not132, label %132, label %127
 
 127:                                              ; preds = %.loopexit
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %129 = load i32, ptr %128, align 4, !tbaa !122
+  %129 = load i32, ptr %128, align 4, !tbaa !124
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %132
 
@@ -6113,7 +6113,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
 
 133:                                              ; preds = %132
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %135 = load i32, ptr %134, align 4, !tbaa !122
+  %135 = load i32, ptr %134, align 4, !tbaa !124
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %138
 
@@ -6127,13 +6127,13 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br i1 %.not134, label %141, label %140
 
 140:                                              ; preds = %138
-  store i64 0, ptr %125, align 8, !tbaa !121
+  store i64 0, ptr %125, align 8, !tbaa !123
   br label %.thread151
 
 141:                                              ; preds = %138
   %.not135 = icmp eq i32 %.0118177, 0
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %143 = load i32, ptr %142, align 4, !tbaa !120
+  %143 = load i32, ptr %142, align 4, !tbaa !122
   %.not136 = icmp eq i32 %143, 0
   br i1 %.not135, label %146, label %144
 
@@ -6157,7 +6157,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br label %.thread151
 
 152:                                              ; preds = %146
-  store i64 0, ptr %125, align 8, !tbaa !121
+  store i64 0, ptr %125, align 8, !tbaa !123
   br label %.thread151
 
 .thread151:                                       ; preds = %.critedge, %.critedge139, %101, %66, %115, %.critedge142, %110, %73, %38, %147, %140, %152, %144, %145, %137, %131
@@ -6188,7 +6188,7 @@ define dso_local void @xrangeGenericCommand(ptr noundef %0, i32 noundef %1) loca
   store i64 -1, ptr %5, align 8, !tbaa !58
   %.not = icmp eq i32 %1, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
   %. = select i1 %.not, i64 16, i64 24
   %.69 = select i1 %.not, i64 24, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.
@@ -6278,7 +6278,7 @@ streamDecrID.exit.thread.sink.split:              ; preds = %39, %41
 
 streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.thread.sink.split, %30
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load i32, ptr %44, align 8, !tbaa !157
+  %45 = load i32, ptr %44, align 8, !tbaa !159
   %46 = icmp sgt i32 %45, 4
   br i1 %46, label %.lr.ph, label %.critedge
 
@@ -6289,7 +6289,7 @@ streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.t
 48:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %49 = phi i32 [ %45, %.lr.ph ], [ %71, %70 ]
-  %50 = load ptr, ptr %47, align 8, !tbaa !159
+  %50 = load ptr, ptr %47, align 8, !tbaa !161
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !109
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -6319,23 +6319,23 @@ streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.t
   br label %70
 
 68:                                               ; preds = %48
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %69) #17
   br label %.loopexit
 
 70:                                               ; preds = %67, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %71 = load i32, ptr %44, align 8, !tbaa !157
+  %71 = load i32, ptr %44, align 8, !tbaa !159
   %72 = trunc nuw i64 %indvars.iv.next to i32
   %.not51 = icmp sgt i32 %71, %72
-  br i1 %.not51, label %48, label %.critedge, !llvm.loop !166
+  br i1 %.not51, label %48, label %.critedge, !llvm.loop !168
 
 .critedge:                                        ; preds = %70, %streamDecrID.exit.thread
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %74 = load ptr, ptr %73, align 8, !tbaa !159
+  %74 = load ptr, ptr %73, align 8, !tbaa !161
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !109
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !167
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !169
   %78 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %77) #17
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.loopexit, label %80
@@ -6400,10 +6400,10 @@ define dso_local void @xrevrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlenCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !159
+  %3 = load ptr, ptr %2, align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !109
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !170
   %7 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %6) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -6444,7 +6444,7 @@ define dso_local void @xreadCommand(ptr noundef %0) local_unnamed_addr #0 {
   store i64 0, ptr %6, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !159
+  %14 = load ptr, ptr %13, align 8, !tbaa !161
   %15 = load ptr, ptr %14, align 8, !tbaa !109
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !18
@@ -6493,7 +6493,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   %40 = icmp eq i64 %.0.i, 10
   %41 = zext i1 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %43 = load i32, ptr %42, align 8, !tbaa !157
+  %43 = load i32, ptr %42, align 8, !tbaa !159
   %44 = icmp sgt i32 %43, 1
   br i1 %44, label %.lr.ph, label %.thread344.thread
 
@@ -6505,7 +6505,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   %.0269446 = phi i32 [ %108, %.thread329 ], [ 1, %sdslen.exit ]
   %46 = xor i32 %.0269446, -1
   %47 = add i32 %45, %46
-  %48 = load ptr, ptr %13, align 8, !tbaa !159
+  %48 = load ptr, ptr %13, align 8, !tbaa !161
   %49 = sext i32 %.0269446 to i64
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !109
@@ -6557,9 +6557,9 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
 77:                                               ; preds = %73
   %78 = select i1 %40, ptr @.str.30, ptr @.str.31
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %80 = load ptr, ptr %79, align 8, !tbaa !169
+  %80 = load ptr, ptr %79, align 8, !tbaa !171
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 216
-  %82 = load ptr, ptr %81, align 8, !tbaa !170
+  %82 = load ptr, ptr %81, align 8, !tbaa !172
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef %82, ptr noundef nonnull %78) #17
   br label %.thread357
 
@@ -6599,7 +6599,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   br label %.thread357
 
 100:                                              ; preds = %96
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %101) #17
   br label %.thread357
 
@@ -6618,9 +6618,9 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   %.2267339 = phi ptr [ %.0265447, %102 ], [ %.0265447, %98 ], [ %95, %89 ], [ %.0265447, %66 ], [ %.0265447, %69 ]
   %.1270338 = phi i32 [ %103, %102 ], [ %.0269446, %98 ], [ %92, %89 ], [ %61, %66 ], [ %61, %69 ]
   %108 = add nsw i32 %.1270338, 1
-  %109 = load i32, ptr %42, align 8, !tbaa !157
+  %109 = load i32, ptr %42, align 8, !tbaa !159
   %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph, label %.thread344.thread, !llvm.loop !176
+  br i1 %110, label %.lr.ph, label %.thread344.thread, !llvm.loop !178
 
 .thread344:                                       ; preds = %73
   %111 = ashr exact i32 %75, 1
@@ -6628,7 +6628,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   br i1 %112, label %.thread344.thread, label %114
 
 .thread344.thread:                                ; preds = %.thread329, %sdslen.exit, %.thread344
-  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %113) #17
   br label %.thread357
 
@@ -6664,7 +6664,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
 128:                                              ; preds = %124, %123
   %.0252 = phi ptr [ %127, %124 ], [ null, %123 ]
   %129 = add i32 %74, %111
-  %130 = load i32, ptr %42, align 8, !tbaa !157
+  %130 = load i32, ptr %42, align 8, !tbaa !159
   %131 = icmp slt i32 %129, %130
   br i1 %131, label %.lr.ph453, label %.preheader404
 
@@ -6704,11 +6704,11 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   %indvars.iv = phi i64 [ %134, %.lr.ph453 ], [ %indvars.iv.next, %.thread375 ]
   %151 = trunc nsw i64 %indvars.iv to i32
   %152 = sub i32 %151, %129
-  %153 = load ptr, ptr %13, align 8, !tbaa !159
+  %153 = load ptr, ptr %13, align 8, !tbaa !161
   %154 = sub nsw i64 %indvars.iv, %135
   %155 = getelementptr inbounds ptr, ptr %153, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !109
-  %157 = load ptr, ptr %132, align 8, !tbaa !134
+  %157 = load ptr, ptr %132, align 8, !tbaa !136
   %158 = call ptr @lookupKeyRead(ptr noundef %157, ptr noundef %156) #17
   %159 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef %158, i32 noundef 6) #17
   %.not288 = icmp eq i32 %159, 0
@@ -6795,11 +6795,11 @@ streamLookupCG.exit.thread:                       ; preds = %163, %161, %streamL
 198:                                              ; preds = %streamLookupCG.exit
   %199 = sext i32 %152 to i64
   %200 = getelementptr inbounds ptr, ptr %.0252, i64 %199
-  store ptr %193, ptr %200, align 8, !tbaa !177
+  store ptr %193, ptr %200, align 8, !tbaa !179
   br label %sub_0
 
 sub_0:                                            ; preds = %198, %160
-  %201 = load ptr, ptr %13, align 8, !tbaa !159
+  %201 = load ptr, ptr %13, align 8, !tbaa !161
   %202 = getelementptr inbounds ptr, ptr %201, i64 %indvars.iv
   %203 = load ptr, ptr %202, align 8, !tbaa !109
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
@@ -6927,10 +6927,10 @@ sub_0:                                            ; preds = %198, %160
 
 .thread375:                                       ; preds = %.tail396.thread, %240, %242, %213, %219, %253, %245
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %259 = load i32, ptr %42, align 8, !tbaa !157
+  %259 = load i32, ptr %42, align 8, !tbaa !159
   %260 = sext i32 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next, %260
-  br i1 %261, label %150, label %.preheader404, !llvm.loop !179
+  br i1 %261, label %150, label %.preheader404, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %406
   %.not293 = icmp eq i64 %.1263, 0
@@ -6940,8 +6940,8 @@ sub_0:                                            ; preds = %198, %160
   %indvars.iv500 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next501, %406 ]
   %.0258455 = phi ptr [ null, %.lr.ph457 ], [ %.1259, %406 ]
   %.0262454 = phi i64 [ 0, %.lr.ph457 ], [ %.1263, %406 ]
-  %263 = load ptr, ptr %137, align 8, !tbaa !134
-  %264 = load ptr, ptr %13, align 8, !tbaa !159
+  %263 = load ptr, ptr %137, align 8, !tbaa !136
+  %264 = load ptr, ptr %13, align 8, !tbaa !161
   %265 = add nsw i64 %indvars.iv500, %149
   %266 = getelementptr inbounds ptr, ptr %264, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !109
@@ -6954,11 +6954,11 @@ sub_0:                                            ; preds = %198, %160
   %272 = load ptr, ptr %271, align 8, !tbaa !18
   %273 = getelementptr inbounds nuw %struct.streamID, ptr %.0251, i64 %indvars.iv500
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
-  %274 = load ptr, ptr %13, align 8, !tbaa !159
+  %274 = load ptr, ptr %13, align 8, !tbaa !161
   %275 = getelementptr inbounds ptr, ptr %274, i64 %265
   %276 = load ptr, ptr %275, align 8, !tbaa !109
-  store ptr %276, ptr %8, align 8, !tbaa !151
-  store ptr %.0253448, ptr %138, align 8, !tbaa !153
+  store ptr %276, ptr %8, align 8, !tbaa !153
+  store ptr %.0253448, ptr %138, align 8, !tbaa !155
   br i1 %.not297, label %355, label %277
 
 277:                                              ; preds = %270
@@ -6981,7 +6981,7 @@ sub_0:                                            ; preds = %198, %160
 285:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
   %286 = getelementptr inbounds nuw ptr, ptr %.0252, i64 %indvars.iv500
-  %287 = load ptr, ptr %286, align 8, !tbaa !177
+  %287 = load ptr, ptr %286, align 8, !tbaa !179
   call void @streamLastValidID(ptr noundef nonnull %272, ptr noundef nonnull %9)
   %288 = load i64, ptr %9, align 8, !tbaa !23
   %289 = load i64, ptr %287, align 8, !tbaa !23
@@ -7012,7 +7012,7 @@ streamCompareID.exit:                             ; preds = %293, %291, %298
   %.0247 = phi i32 [ %.1248, %streamCompareID.exit ], [ 0, %282 ], [ 1, %279 ], [ 1, %277 ]
   %300 = phi i32 [ %spec.select307, %streamCompareID.exit ], [ %spec.select307, %282 ], [ %148, %279 ], [ %148, %277 ]
   %301 = getelementptr inbounds nuw ptr, ptr %.0252, i64 %indvars.iv500
-  %302 = load ptr, ptr %301, align 8, !tbaa !177
+  %302 = load ptr, ptr %301, align 8, !tbaa !179
   %303 = load ptr, ptr %140, align 8, !tbaa !18
   %304 = icmp eq ptr %302, null
   br i1 %304, label %streamLookupConsumer.exit.thread, label %305
@@ -7071,19 +7071,19 @@ streamLookupConsumer.exit:                        ; preds = %305, %312, %315, %3
   br i1 %332, label %streamLookupConsumer.exit.streamLookupConsumer.exit.thread_crit_edge, label %353
 
 streamLookupConsumer.exit.streamLookupConsumer.exit.thread_crit_edge: ; preds = %streamLookupConsumer.exit
-  %.pre509 = load ptr, ptr %301, align 8, !tbaa !177
+  %.pre509 = load ptr, ptr %301, align 8, !tbaa !179
   %.pre510 = load ptr, ptr %140, align 8, !tbaa !18
   br label %streamLookupConsumer.exit.thread
 
 streamLookupConsumer.exit.thread:                 ; preds = %streamLookupConsumer.exit.streamLookupConsumer.exit.thread_crit_edge, %299
   %333 = phi ptr [ %.pre510, %streamLookupConsumer.exit.streamLookupConsumer.exit.thread_crit_edge ], [ %303, %299 ]
   %334 = phi ptr [ %.pre509, %streamLookupConsumer.exit.streamLookupConsumer.exit.thread_crit_edge ], [ null, %299 ]
-  %335 = load ptr, ptr %13, align 8, !tbaa !159
+  %335 = load ptr, ptr %13, align 8, !tbaa !161
   %336 = getelementptr inbounds ptr, ptr %335, i64 %265
   %337 = load ptr, ptr %336, align 8, !tbaa !109
-  %338 = load ptr, ptr %137, align 8, !tbaa !134
+  %338 = load ptr, ptr %137, align 8, !tbaa !136
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 56
-  %340 = load i32, ptr %339, align 8, !tbaa !144
+  %340 = load i32, ptr %339, align 8, !tbaa !146
   %341 = call ptr @streamCreateConsumer(ptr noundef %334, ptr noundef %333, ptr noundef %337, i32 noundef %340, i32 noundef 0)
   br i1 %.not302, label %353, label %342
 
@@ -7091,18 +7091,18 @@ streamLookupConsumer.exit.thread:                 ; preds = %streamLookupConsume
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %344 = load ptr, ptr %343, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #17
-  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !146
+  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8, !tbaa !148
   store ptr %345, ptr %2, align 16, !tbaa !109
-  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 728), align 8, !tbaa !149
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 728), align 8, !tbaa !151
   store ptr %346, ptr %141, align 8, !tbaa !109
   store ptr %276, ptr %142, align 16, !tbaa !109
   store ptr %.0253448, ptr %143, align 8, !tbaa !109
   %347 = call ptr @sdsdup(ptr noundef %344) #17
   %348 = call ptr @createObject(i32 noundef 0, ptr noundef %347) #17
   store ptr %348, ptr %144, align 16, !tbaa !109
-  %349 = load ptr, ptr %137, align 8, !tbaa !134
+  %349 = load ptr, ptr %137, align 8, !tbaa !136
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 56
-  %351 = load i32, ptr %350, align 8, !tbaa !144
+  %351 = load i32, ptr %350, align 8, !tbaa !146
   call void @alsoPropagate(i32 noundef %351, ptr noundef nonnull %2, i32 noundef 5, i32 noundef 3) #17
   %352 = load ptr, ptr %144, align 16, !tbaa !109
   call void @decrRefCount(ptr noundef %352) #17
@@ -7191,7 +7191,7 @@ streamCompareID.exit318:                          ; preds = %364, %358, %362
   br label %streamIncrID.exit
 
 streamIncrID.exit:                                ; preds = %382, %383, %385
-  %387 = load i32, ptr %147, align 4, !tbaa !180
+  %387 = load i32, ptr %147, align 4, !tbaa !182
   %388 = icmp eq i32 %387, 2
   br i1 %388, label %389, label %390
 
@@ -7200,7 +7200,7 @@ streamIncrID.exit:                                ; preds = %382, %383, %385
   br label %390
 
 390:                                              ; preds = %389, %streamIncrID.exit
-  %391 = load ptr, ptr %13, align 8, !tbaa !159
+  %391 = load ptr, ptr %13, align 8, !tbaa !161
   %392 = getelementptr inbounds ptr, ptr %391, i64 %265
   %393 = load ptr, ptr %392, align 8, !tbaa !109
   call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %393) #17
@@ -7211,7 +7211,7 @@ streamIncrID.exit:                                ; preds = %382, %383, %385
 
 395:                                              ; preds = %390
   %396 = getelementptr inbounds nuw ptr, ptr %.0252, i64 %indvars.iv500
-  %397 = load ptr, ptr %396, align 8, !tbaa !177
+  %397 = load ptr, ptr %396, align 8, !tbaa !179
   br label %398
 
 398:                                              ; preds = %390, %395
@@ -7222,9 +7222,9 @@ streamIncrID.exit:                                ; preds = %382, %383, %385
   br i1 %.not306, label %405, label %402
 
 402:                                              ; preds = %398
-  %403 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %403 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %404 = add nsw i64 %403, 1
-  store i64 %404, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %404, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %405
 
 405:                                              ; preds = %402, %398
@@ -7243,11 +7243,11 @@ streamIncrID.exit:                                ; preds = %382, %383, %385
   %.1259 = phi ptr [ %.2260, %.thread387 ], [ %.0258455, %262 ]
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next501, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %262, !llvm.loop !181
+  br i1 %exitcond.not, label %._crit_edge, label %262, !llvm.loop !183
 
 407:                                              ; preds = %._crit_edge
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %409 = load i32, ptr %408, align 4, !tbaa !180
+  %409 = load i32, ptr %408, align 4, !tbaa !182
   %410 = icmp eq i32 %409, 2
   br i1 %410, label %411, label %412
 
@@ -7266,7 +7266,7 @@ streamIncrID.exit:                                ; preds = %382, %383, %385
 
 414:                                              ; preds = %._crit_edge.thread
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %416 = load i64, ptr %415, align 8, !tbaa !182
+  %416 = load i64, ptr %415, align 8, !tbaa !184
   %417 = and i64 %416, 2199023255552
   %.not295 = icmp eq i64 %417, 0
   br i1 %.not295, label %.preheader, label %418
@@ -7288,7 +7288,7 @@ sub_0401.lr.ph:                                   ; preds = %.preheader
 
 ._crit_edge461:                                   ; preds = %._crit_edge461.loopexit, %.preheader
   %419 = phi i64 [ %.pre511, %._crit_edge461.loopexit ], [ %413, %.preheader ]
-  %420 = load ptr, ptr %13, align 8, !tbaa !159
+  %420 = load ptr, ptr %13, align 8, !tbaa !161
   %421 = sext i32 %74 to i64
   %422 = getelementptr inbounds ptr, ptr %420, i64 %421
   call void @blockForKeys(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %422, i32 noundef %111, i64 noundef %419, i32 noundef %41) #17
@@ -7298,7 +7298,7 @@ sub_0401:                                         ; preds = %sub_0401.lr.ph, %.t
   %indvars.iv503 = phi i64 [ 0, %sub_0401.lr.ph ], [ %indvars.iv.next504, %.tail400.thread ]
   %423 = trunc nuw nsw i64 %indvars.iv503 to i32
   %424 = add i32 %129, %423
-  %425 = load ptr, ptr %13, align 8, !tbaa !159
+  %425 = load ptr, ptr %13, align 8, !tbaa !161
   %426 = sext i32 %424 to i64
   %427 = getelementptr inbounds ptr, ptr %425, i64 %426
   %428 = load ptr, ptr %427, align 8, !tbaa !109
@@ -7366,7 +7366,7 @@ createObjectFromStreamID.exit:                    ; preds = %435, %442, %443, %4
 .tail400.thread:                                  ; preds = %sub_0401, %createObjectFromStreamID.exit, %.tail400
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next504, %wide.trip.count506
-  br i1 %exitcond507.not, label %._crit_edge461.loopexit, label %sub_0401, !llvm.loop !183
+  br i1 %exitcond507.not, label %._crit_edge461.loopexit, label %sub_0401, !llvm.loop !185
 
 456:                                              ; preds = %._crit_edge.thread
   call void @addReplyNullArray(ptr noundef nonnull %0) #17
@@ -7601,9 +7601,9 @@ sdslen.exit:                                      ; preds = %7, %16, %19, %23, %
   br i1 %.not20, label %44, label %47
 
 44:                                               ; preds = %36
-  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %46 = add nsw i64 %45, 1
-  store i64 %46, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %46, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %47
 
 47:                                               ; preds = %44, %36
@@ -7698,7 +7698,7 @@ define dso_local void @streamDelConsumer(ptr noundef readonly captures(none) %0,
   call void @zfree(ptr noundef %13) #17
   %18 = call i32 @raxNext(ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !184
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %12, %2
   call void @raxStop(ptr noundef nonnull %3) #17
@@ -7767,7 +7767,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
   %6 = alloca %struct.streamID, align 8
   %7 = alloca %struct.streamID, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !109
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -7775,7 +7775,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store i64 -1, ptr %4, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !157
+  %15 = load i32, ptr %14, align 8, !tbaa !159
   %16 = icmp sgt i32 %15, 3
   br i1 %16, label %17, label %.thread181
 
@@ -7794,7 +7794,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
   %21 = phi i32 [ %45, %44 ], [ %15, %.lr.ph ]
   %.1132212.us = phi i32 [ %.2133.us, %44 ], [ 0, %.lr.ph ]
   %.0134211.us = phi i32 [ %.1135.us, %44 ], [ 5, %.lr.ph ]
-  %22 = load ptr, ptr %8, align 8, !tbaa !159
+  %22 = load ptr, ptr %8, align 8, !tbaa !161
   %23 = sext i32 %.0134211.us to i64
   %24 = getelementptr inbounds ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !109
@@ -7829,7 +7829,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %38
   %41 = add nsw i32 %.0134211.us, 2
-  %.pre = load i32, ptr %14, align 8, !tbaa !157
+  %.pre = load i32, ptr %14, align 8, !tbaa !159
   br label %44
 
 42:                                               ; preds = %.lr.ph.split.us
@@ -7841,7 +7841,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.1135.us = phi i32 [ %41, %40 ], [ %43, %42 ]
   %.2133.us = phi i32 [ %.1132212.us, %40 ], [ 1, %42 ]
   %46 = icmp slt i32 %.1135.us, %45
-  br i1 %46, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !185
+  br i1 %46, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !187
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not143, label %.critedge, label %.split.us
@@ -7849,7 +7849,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %.lr.ph.split, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 5, %.lr.ph.split ]
   %47 = phi i32 [ %65, %64 ], [ %15, %.lr.ph.split ]
-  %48 = load ptr, ptr %8, align 8, !tbaa !159
+  %48 = load ptr, ptr %8, align 8, !tbaa !161
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -7882,10 +7882,10 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 64:                                               ; preds = %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %65 = load i32, ptr %14, align 8, !tbaa !157
+  %65 = load i32, ptr %14, align 8, !tbaa !159
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.critedge, label %._crit_edge, !llvm.loop !185
+  br i1 %67, label %.critedge, label %._crit_edge, !llvm.loop !188
 
 .split.us:                                        ; preds = %54, %.critedge, %.critedge.us, %30, %.lr.ph.split
   call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #17
@@ -7898,8 +7898,8 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %64, %._crit_edge.loopexit, %17
   %.1132.lcssa = phi i1 [ false, %17 ], [ %68, %._crit_edge.loopexit ], [ false, %64 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !134
-  %71 = load ptr, ptr %8, align 8, !tbaa !159
+  %70 = load ptr, ptr %69, align 8, !tbaa !136
+  %71 = load ptr, ptr %8, align 8, !tbaa !161
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !109
   %74 = call ptr @lookupKeyWrite(ptr noundef %70, ptr noundef %73) #17
@@ -7918,12 +7918,12 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 80:                                               ; preds = %77, %._crit_edge
   %.2 = phi ptr [ %79, %77 ], [ null, %._crit_edge ]
-  %81 = load ptr, ptr %8, align 8, !tbaa !159
+  %81 = load ptr, ptr %8, align 8, !tbaa !161
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !109
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !18
-  %86 = load i32, ptr %14, align 8, !tbaa !157
+  %86 = load i32, ptr %14, align 8, !tbaa !159
   %87 = icmp slt i32 %86, 4
   %or.cond7 = select i1 %87, i1 true, i1 %.1132.lcssa
   br i1 %or.cond7, label %.thread181, label %88
@@ -8009,7 +8009,7 @@ streamLookupCG.exit.thread:                       ; preds = %90, %streamLookupCG
   br i1 %.not151, label %125, label %thread-pre-split
 
 125:                                              ; preds = %123, %121, %streamLookupCG.exit.thread
-  %126 = load ptr, ptr %8, align 8, !tbaa !159
+  %126 = load ptr, ptr %8, align 8, !tbaa !161
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !109
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -8019,7 +8019,7 @@ streamLookupCG.exit.thread:                       ; preds = %90, %streamLookupCG
 
 thread-pre-split:                                 ; preds = %123, %streamLookupCG.exit
   %.0127.ph = phi ptr [ %118, %streamLookupCG.exit ], [ null, %123 ]
-  %.pr = load i32, ptr %14, align 8, !tbaa !157
+  %.pr = load i32, ptr %14, align 8, !tbaa !159
   br label %.thread181
 
 .thread181:                                       ; preds = %1, %thread-pre-split, %80
@@ -8053,7 +8053,7 @@ thread-pre-split:                                 ; preds = %123, %streamLookupC
 
 sub_0:                                            ; preds = %137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
-  %140 = load ptr, ptr %8, align 8, !tbaa !159
+  %140 = load ptr, ptr %8, align 8, !tbaa !161
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8, !tbaa !109
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
@@ -8101,15 +8101,15 @@ sub_0:                                            ; preds = %137
 156:                                              ; preds = %154
   %157 = call ptr @createStreamObject() #17
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !134
-  %160 = load ptr, ptr %8, align 8, !tbaa !159
+  %159 = load ptr, ptr %158, align 8, !tbaa !136
+  %160 = load ptr, ptr %8, align 8, !tbaa !161
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !109
   %163 = call ptr @dbAdd(ptr noundef %159, ptr noundef %162, ptr noundef %157) #17
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !18
-  %166 = load ptr, ptr %158, align 8, !tbaa !134
-  %167 = load ptr, ptr %8, align 8, !tbaa !159
+  %166 = load ptr, ptr %158, align 8, !tbaa !136
+  %167 = load ptr, ptr %8, align 8, !tbaa !161
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !109
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %166, ptr noundef %169) #17
@@ -8189,18 +8189,18 @@ sdslen.exit:                                      ; preds = %170, %175, %178, %1
   store i64 %193, ptr %208, align 8, !tbaa !37
   %209 = load ptr, ptr %194, align 8, !tbaa !13
   %210 = call i32 @raxInsert(ptr noundef %209, ptr noundef nonnull %.0125187, i64 noundef %.0.i171, ptr noundef nonnull %203, ptr noundef null) #17
-  %211 = load ptr, ptr @shared, align 8, !tbaa !186
+  %211 = load ptr, ptr @shared, align 8, !tbaa !189
   call void @addReply(ptr noundef nonnull %0, ptr noundef %211) #17
-  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %213 = add nsw i64 %212, 1
-  store i64 %213, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %214 = load ptr, ptr %8, align 8, !tbaa !159
+  store i64 %213, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
+  %214 = load ptr, ptr %8, align 8, !tbaa !161
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8, !tbaa !109
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %218 = load ptr, ptr %217, align 8, !tbaa !134
+  %218 = load ptr, ptr %217, align 8, !tbaa !136
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 56
-  %220 = load i32, ptr %219, align 8, !tbaa !144
+  %220 = load i32, ptr %219, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.71, ptr noundef %216, i32 noundef %220) #17
   br label %222
 
@@ -8225,7 +8225,7 @@ sdslen.exit:                                      ; preds = %170, %175, %178, %1
 
 sub_0204:                                         ; preds = %225, %225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
-  %226 = load ptr, ptr %8, align 8, !tbaa !159
+  %226 = load ptr, ptr %8, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !tbaa !109
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
@@ -8255,18 +8255,18 @@ sub_0204:                                         ; preds = %225, %225
   %238 = load i64, ptr %4, align 8, !tbaa !58
   %239 = getelementptr inbounds nuw i8, ptr %.0127, i64 16
   store i64 %238, ptr %239, align 8, !tbaa !37
-  %240 = load ptr, ptr @shared, align 8, !tbaa !186
+  %240 = load ptr, ptr @shared, align 8, !tbaa !189
   call void @addReply(ptr noundef nonnull %0, ptr noundef %240) #17
-  %241 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %241 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %242 = add nsw i64 %241, 1
-  store i64 %242, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %243 = load ptr, ptr %8, align 8, !tbaa !159
+  store i64 %242, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
+  %243 = load ptr, ptr %8, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = load ptr, ptr %244, align 8, !tbaa !109
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %247 = load ptr, ptr %246, align 8, !tbaa !134
+  %247 = load ptr, ptr %246, align 8, !tbaa !136
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 56
-  %249 = load i32, ptr %248, align 8, !tbaa !144
+  %249 = load i32, ptr %248, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.73, ptr noundef %245, i32 noundef %249) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   br label %.thread
@@ -8339,28 +8339,28 @@ sdslen.exit174:                                   ; preds = %255, %262, %265, %2
   %284 = load ptr, ptr %283, align 8, !tbaa !17
   call void @raxFreeWithCallback(ptr noundef %284, ptr noundef nonnull @streamFreeConsumerGeneric) #17
   call void @zfree(ptr noundef nonnull %.0127) #17
-  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !187
+  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !190
   call void @addReply(ptr noundef nonnull %0, ptr noundef %285) #17
-  %286 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %286 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %287 = add nsw i64 %286, 1
-  store i64 %287, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %288 = load ptr, ptr %8, align 8, !tbaa !159
+  store i64 %287, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
+  %288 = load ptr, ptr %8, align 8, !tbaa !161
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %290 = load ptr, ptr %289, align 8, !tbaa !109
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %292 = load ptr, ptr %291, align 8, !tbaa !134
+  %292 = load ptr, ptr %291, align 8, !tbaa !136
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 56
-  %294 = load i32, ptr %293, align 8, !tbaa !144
+  %294 = load i32, ptr %293, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.75, ptr noundef %290, i32 noundef %294) #17
-  %295 = load ptr, ptr %291, align 8, !tbaa !134
-  %296 = load ptr, ptr %8, align 8, !tbaa !159
+  %295 = load ptr, ptr %291, align 8, !tbaa !136
+  %296 = load ptr, ptr %8, align 8, !tbaa !161
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %298 = load ptr, ptr %297, align 8, !tbaa !109
   call void @signalKeyAsReady(ptr noundef %295, ptr noundef %298, i32 noundef 6) #17
   br label %.thread
 
 299:                                              ; preds = %254
-  %300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
+  %300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !170
   call void @addReply(ptr noundef nonnull %0, ptr noundef %300) #17
   br label %.thread
 
@@ -8372,7 +8372,7 @@ sdslen.exit174:                                   ; preds = %255, %262, %265, %2
   br i1 %or.cond201, label %304, label %318
 
 304:                                              ; preds = %301
-  %305 = load ptr, ptr %8, align 8, !tbaa !159
+  %305 = load ptr, ptr %8, align 8, !tbaa !161
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 32
   %307 = load ptr, ptr %306, align 8, !tbaa !109
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
@@ -8380,9 +8380,9 @@ sdslen.exit174:                                   ; preds = %255, %262, %265, %2
   %310 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %311 = load ptr, ptr %310, align 8, !tbaa !109
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %313 = load ptr, ptr %312, align 8, !tbaa !134
+  %313 = load ptr, ptr %312, align 8, !tbaa !136
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 56
-  %315 = load i32, ptr %314, align 8, !tbaa !144
+  %315 = load i32, ptr %314, align 8, !tbaa !146
   %316 = call ptr @streamCreateConsumer(ptr noundef %.0127, ptr noundef %309, ptr noundef %311, i32 noundef %315, i32 noundef 0)
   %.not164 = icmp ne ptr %316, null
   %317 = zext i1 %.not164 to i64
@@ -8396,7 +8396,7 @@ sdslen.exit174:                                   ; preds = %255, %262, %265, %2
   br i1 %or.cond202, label %320, label %367
 
 320:                                              ; preds = %318
-  %321 = load ptr, ptr %8, align 8, !tbaa !159
+  %321 = load ptr, ptr %8, align 8, !tbaa !161
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %323 = load ptr, ptr %322, align 8, !tbaa !109
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
@@ -8462,16 +8462,16 @@ streamLookupConsumer.exit:                        ; preds = %327, %334, %337, %3
   %356 = load ptr, ptr %355, align 8, !tbaa !46
   %357 = call i64 @raxSize(ptr noundef %356) #17
   call void @streamDelConsumer(ptr noundef nonnull %.0127, ptr noundef nonnull %353)
-  %358 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %358 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %359 = add nsw i64 %358, 1
-  store i64 %359, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %360 = load ptr, ptr %8, align 8, !tbaa !159
+  store i64 %359, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
+  %360 = load ptr, ptr %8, align 8, !tbaa !161
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load ptr, ptr %361, align 8, !tbaa !109
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %364 = load ptr, ptr %363, align 8, !tbaa !134
+  %364 = load ptr, ptr %363, align 8, !tbaa !136
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 56
-  %366 = load i32, ptr %365, align 8, !tbaa !144
+  %366 = load i32, ptr %365, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.76, ptr noundef %362, i32 noundef %366) #17
   br label %streamLookupConsumer.exit.thread
 
@@ -8513,7 +8513,7 @@ define dso_local void @xsetidCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store i64 -1, ptr %4, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !159
+  %7 = load ptr, ptr %6, align 8, !tbaa !161
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !109
   %10 = call range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %0, ptr noundef readonly %9, ptr noundef nonnull %2, i64 noundef 0, i32 noundef 1, ptr noundef null)
@@ -8522,7 +8522,7 @@ define dso_local void @xsetidCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load i32, ptr %11, align 8, !tbaa !157
+  %12 = load i32, ptr %11, align 8, !tbaa !159
   %13 = icmp sgt i32 %12, 3
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -8538,7 +8538,7 @@ define dso_local void @xsetidCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %streamCompareID.exit.thread ]
   %20 = phi i32 [ %12, %.lr.ph ], [ %56, %streamCompareID.exit.thread ]
   %21 = add nuw nsw i64 %indvars.iv, 1
-  %22 = load ptr, ptr %6, align 8, !tbaa !159
+  %22 = load ptr, ptr %6, align 8, !tbaa !161
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !109
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -8596,17 +8596,17 @@ streamCompareID.exit.thread67:                    ; preds = %49
   br label %.thread
 
 53:                                               ; preds = %39
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #17
   br label %.thread
 
 streamCompareID.exit.thread:                      ; preds = %49, %46, %35
   %55 = phi i64 [ %47, %49 ], [ %47, %46 ], [ %19, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %56 = load i32, ptr %11, align 8, !tbaa !157
+  %56 = load i32, ptr %11, align 8, !tbaa !159
   %57 = trunc nuw i64 %indvars.iv.next to i32
   %58 = icmp sgt i32 %56, %57
-  br i1 %58, label %18, label %._crit_edge.loopexit, !llvm.loop !188
+  br i1 %58, label %18, label %._crit_edge.loopexit, !llvm.loop !191
 
 ._crit_edge.loopexit:                             ; preds = %streamCompareID.exit.thread
   %59 = icmp eq i64 %55, 0
@@ -8614,10 +8614,10 @@ streamCompareID.exit.thread:                      ; preds = %49, %46, %35
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.not.i = phi i1 [ %59, %._crit_edge.loopexit ], [ true, %.preheader ]
-  %60 = load ptr, ptr %6, align 8, !tbaa !159
+  %60 = load ptr, ptr %6, align 8, !tbaa !161
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !109
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 208), align 8, !tbaa !189
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 208), align 8, !tbaa !192
   %64 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63) #17
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread, label %66
@@ -8719,18 +8719,18 @@ streamIDEqZero.exit.thread:                       ; preds = %106
   br label %109
 
 109:                                              ; preds = %106, %streamIDEqZero.exit.thread
-  %110 = load ptr, ptr @shared, align 8, !tbaa !186
+  %110 = load ptr, ptr @shared, align 8, !tbaa !189
   call void @addReply(ptr noundef nonnull %0, ptr noundef %110) #17
-  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %112 = add nsw i64 %111, 1
-  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %113 = load ptr, ptr %6, align 8, !tbaa !159
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
+  %113 = load ptr, ptr %6, align 8, !tbaa !161
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !109
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %117 = load ptr, ptr %116, align 8, !tbaa !134
+  %117 = load ptr, ptr %116, align 8, !tbaa !136
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %119 = load i32, ptr %118, align 8, !tbaa !144
+  %119 = load i32, ptr %118, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.84, ptr noundef %115, i32 noundef %119) #17
   br label %.thread
 
@@ -8756,9 +8756,9 @@ define dso_local void @xackCommand(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !134
+  %7 = load ptr, ptr %6, align 8, !tbaa !136
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !109
   %12 = tail call ptr @lookupKeyRead(ptr noundef %7, ptr noundef %11) #17
@@ -8773,7 +8773,7 @@ define dso_local void @xackCommand(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !18
-  %18 = load ptr, ptr %8, align 8, !tbaa !159
+  %18 = load ptr, ptr %8, align 8, !tbaa !161
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -8835,14 +8835,14 @@ streamLookupCG.exit:                              ; preds = %26, %31, %34, %38, 
   br i1 %51, label %streamLookupCG.exit.thread, label %53
 
 streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLookupCG.exit
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !170
   call void @addReply(ptr noundef nonnull %0, ptr noundef %52) #17
   br label %104
 
 53:                                               ; preds = %streamLookupCG.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %55 = load i32, ptr %54, align 8, !tbaa !157
+  %55 = load i32, ptr %54, align 8, !tbaa !159
   %56 = icmp sgt i32 %55, 11
   br i1 %56, label %57, label %62
 
@@ -8851,7 +8851,7 @@ streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLook
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 4
   %61 = call noalias ptr @zmalloc(i64 noundef %60) #16
-  %.pre = load i32, ptr %54, align 8, !tbaa !157
+  %.pre = load i32, ptr %54, align 8, !tbaa !159
   br label %62
 
 62:                                               ; preds = %57, %53
@@ -8863,10 +8863,10 @@ streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLook
 
 65:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load i32, ptr %54, align 8, !tbaa !157
+  %66 = load i32, ptr %54, align 8, !tbaa !159
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.preheader, !llvm.loop !190
+  br i1 %68, label %.lr.ph, label %.preheader, !llvm.loop !193
 
 .preheader:                                       ; preds = %65
   %69 = icmp sgt i32 %66, 3
@@ -8879,7 +8879,7 @@ streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLook
 
 .lr.ph:                                           ; preds = %62, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 3, %62 ]
-  %71 = load ptr, ptr %8, align 8, !tbaa !159
+  %71 = load ptr, ptr %8, align 8, !tbaa !161
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !109
   %gep = getelementptr %struct.streamID, ptr %invariant.gep, i64 %indvars.iv
@@ -8926,9 +8926,9 @@ streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLook
   %94 = call i32 @raxRemove(ptr noundef %93, ptr noundef nonnull %4, i64 noundef 16, ptr noundef null) #17
   call void @zfree(ptr noundef %87) #17
   %95 = add nsw i32 %.03753, 1
-  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %97 = add nsw i64 %96, 1
-  store i64 %97, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %97, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %98
 
 98:                                               ; preds = %86, %76
@@ -8936,10 +8936,10 @@ streamLookupCG.exit.thread:                       ; preds = %15, %1, %streamLook
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %99 = load i32, ptr %54, align 8, !tbaa !157
+  %99 = load i32, ptr %54, align 8, !tbaa !159
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next58, %100
-  br i1 %101, label %76, label %._crit_edge.loopexit, !llvm.loop !191
+  br i1 %101, label %76, label %._crit_edge.loopexit, !llvm.loop !194
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
   %.not45 = icmp eq ptr %.040, %3
@@ -8972,10 +8972,10 @@ define dso_local void @xpendingCommand(ptr noundef %0) local_unnamed_addr #0 {
   %12 = alloca [16 x i8], align 16
   %13 = alloca %struct.raxIterator, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !157
+  %15 = load i32, ptr %14, align 8, !tbaa !159
   %16 = icmp eq i32 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !159
+  %18 = load ptr, ptr %17, align 8, !tbaa !161
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -8998,7 +8998,7 @@ define dso_local void @xpendingCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %26) #17
   br label %.thread146
 
@@ -9019,16 +9019,16 @@ define dso_local void @xpendingCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %37, label %.thread146, label %38
 
 38:                                               ; preds = %33
-  %39 = load i32, ptr %14, align 8, !tbaa !157
+  %39 = load i32, ptr %14, align 8, !tbaa !159
   %40 = icmp slt i32 %39, 8
   br i1 %40, label %41, label %._crit_edge160
 
 ._crit_edge160:                                   ; preds = %38
-  %.pre = load ptr, ptr %17, align 8, !tbaa !159
+  %.pre = load ptr, ptr %17, align 8, !tbaa !161
   br label %43
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %42) #17
   br label %.thread146
 
@@ -9053,7 +9053,7 @@ define dso_local void @xpendingCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %54, %51
-  %56 = load ptr, ptr %17, align 8, !tbaa !159
+  %56 = load ptr, ptr %17, align 8, !tbaa !161
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %45
   %58 = load ptr, ptr %57, align 8, !tbaa !109
   %59 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull %4, ptr noundef nonnull %8, i64 noundef 0)
@@ -9095,7 +9095,7 @@ streamIncrID.exit.thread.sink.split:              ; preds = %69, %71
   br label %streamIncrID.exit.thread
 
 streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.thread.sink.split, %60
-  %74 = load ptr, ptr %17, align 8, !tbaa !159
+  %74 = load ptr, ptr %17, align 8, !tbaa !161
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %45
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !109
@@ -9139,9 +9139,9 @@ streamDecrID.exit.thread.sink.split:              ; preds = %88, %90
 
 streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.thread.sink.split, %79
   %93 = add nuw nsw i32 %.097, 3
-  %94 = load i32, ptr %14, align 8, !tbaa !157
+  %94 = load i32, ptr %14, align 8, !tbaa !159
   %95 = icmp slt i32 %93, %94
-  %.pre161 = load ptr, ptr %17, align 8, !tbaa !159
+  %.pre161 = load ptr, ptr %17, align 8, !tbaa !161
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %streamDecrID.exit.thread
@@ -9154,7 +9154,7 @@ streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.t
   %101 = phi ptr [ %18, %1 ], [ %.pre161, %96 ], [ %.pre161, %streamDecrID.exit.thread ]
   %.0 = phi ptr [ null, %1 ], [ %99, %96 ], [ null, %streamDecrID.exit.thread ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !134
+  %103 = load ptr, ptr %102, align 8, !tbaa !136
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !109
   %106 = call ptr @lookupKeyRead(ptr noundef %103, ptr noundef %105) #17
@@ -9378,7 +9378,7 @@ addReplyStreamID.exit131:                         ; preds = %addReplyStreamID.ex
   %210 = load ptr, ptr %209, align 8, !tbaa !46
   %211 = call i64 @raxSize(ptr noundef %210) #17
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %219, label %213, !llvm.loop !192
+  br i1 %212, label %219, label %213, !llvm.loop !195
 
 213:                                              ; preds = %207
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #17
@@ -9472,7 +9472,7 @@ streamLookupConsumer.exit:                        ; preds = %222, %231, %234, %2
   %.not118 = icmp eq ptr %.0102, null
   %..0102 = select i1 %.not118, ptr %142, ptr %.0102
   %.in = getelementptr inbounds nuw i8, ptr %..0102, i64 24
-  %253 = load ptr, ptr %.in, align 8, !tbaa !193
+  %253 = load ptr, ptr %.in, align 8, !tbaa !196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %13) #17
@@ -9682,9 +9682,9 @@ define dso_local void @xclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   %13 = alloca [16 x i8], align 16
   %14 = alloca ptr, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !134
+  %16 = load ptr, ptr %15, align 8, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !159
+  %18 = load ptr, ptr %17, align 8, !tbaa !161
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !109
   %21 = tail call ptr @lookupKeyRead(ptr noundef %16, ptr noundef %20) #17
@@ -9697,7 +9697,7 @@ define dso_local void @xclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.streamLookupCG.exit.thread_crit_edge, label %22
 
 .streamLookupCG.exit.thread_crit_edge:            ; preds = %1
-  %.pre266 = load ptr, ptr %17, align 8, !tbaa !159
+  %.pre266 = load ptr, ptr %17, align 8, !tbaa !161
   br label %streamLookupCG.exit.thread
 
 22:                                               ; preds = %1
@@ -9708,7 +9708,7 @@ define dso_local void @xclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !18
-  %27 = load ptr, ptr %17, align 8, !tbaa !159
+  %27 = load ptr, ptr %17, align 8, !tbaa !161
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !109
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -9767,7 +9767,7 @@ streamLookupCG.exit:                              ; preds = %35, %40, %43, %47, 
   %59 = load ptr, ptr %6, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   %60 = icmp eq ptr %59, null
-  %.pre267 = load ptr, ptr %17, align 8, !tbaa !159
+  %.pre267 = load ptr, ptr %17, align 8, !tbaa !161
   br i1 %60, label %streamLookupCG.exit.thread, label %70
 
 streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exit.thread_crit_edge, %24, %streamLookupCG.exit
@@ -9802,7 +9802,7 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
 78:                                               ; preds = %77, %74
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #17
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %80 = load i32, ptr %79, align 8, !tbaa !157
+  %80 = load i32, ptr %79, align 8, !tbaa !159
   %81 = icmp sgt i32 %80, 13
   br i1 %81, label %82, label %87
 
@@ -9811,7 +9811,7 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
   %84 = zext nneg i32 %83 to i64
   %85 = shl nuw nsw i64 %84, 4
   %86 = call noalias ptr @zmalloc(i64 noundef %85) #16
-  %.pre = load i32, ptr %79, align 8, !tbaa !157
+  %.pre = load i32, ptr %79, align 8, !tbaa !159
   br label %87
 
 87:                                               ; preds = %82, %78
@@ -9823,7 +9823,7 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
 
 .lr.ph:                                           ; preds = %87, %94
   %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 5, %87 ]
-  %90 = load ptr, ptr %17, align 8, !tbaa !159
+  %90 = load ptr, ptr %17, align 8, !tbaa !161
   %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !109
   %gep = getelementptr %struct.streamID, ptr %invariant.gep, i64 %indvars.iv
@@ -9833,10 +9833,10 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
 
 94:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = load i32, ptr %79, align 8, !tbaa !157
+  %95 = load i32, ptr %79, align 8, !tbaa !159
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !194
+  br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !197
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %94
   %.0169.lcssa.ph.in = phi i64 [ %indvars.iv.next, %94 ], [ %indvars.iv, %.lr.ph ]
@@ -9848,7 +9848,7 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
   %98 = call i64 @commandTimeSnapshot() #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %99 = load i32, ptr %79, align 8, !tbaa !157
+  %99 = load i32, ptr %79, align 8, !tbaa !159
   %100 = icmp slt i32 %.0169.lcssa, %99
   br i1 %100, label %.lr.ph243, label %._crit_edge244.thread
 
@@ -9862,7 +9862,7 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
   %.0161240 = phi i32 [ %.1162, %149 ], [ 0, %._crit_edge ]
   %.1170239 = phi i32 [ %150, %149 ], [ %.0169.lcssa, %._crit_edge ]
   %.neg = add nsw i32 %.1170239, 1
-  %103 = load ptr, ptr %17, align 8, !tbaa !159
+  %103 = load ptr, ptr %17, align 8, !tbaa !161
   %104 = sext i32 %.1170239 to i64
   %105 = getelementptr inbounds ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !109
@@ -9949,9 +9949,9 @@ streamLookupCG.exit.thread:                       ; preds = %.streamLookupCG.exi
   %.1162 = phi i32 [ %.0161240, %121 ], [ %.0161240, %127 ], [ %.0161240, %135 ], [ %.0161240, %143 ], [ %.0161240, %.lr.ph243 ], [ 1, %110 ]
   %.1158 = phi i32 [ %.0157241, %121 ], [ %.0157241, %127 ], [ %.0157241, %135 ], [ %.0157241, %143 ], [ 1, %.lr.ph243 ], [ %.0157241, %110 ]
   %150 = add nsw i32 %.2171, 1
-  %151 = load i32, ptr %79, align 8, !tbaa !157
+  %151 = load i32, ptr %79, align 8, !tbaa !159
   %152 = icmp slt i32 %150, %151
-  br i1 %152, label %.lr.ph243, label %._crit_edge244, !llvm.loop !195
+  br i1 %152, label %.lr.ph243, label %._crit_edge244, !llvm.loop !198
 
 ._crit_edge244:                                   ; preds = %149
   %.pre265 = load i64, ptr %11, align 8, !tbaa !23
@@ -10002,7 +10002,7 @@ streamCompareID.exit:                             ; preds = %161, %157, %167
   br label %172
 
 172:                                              ; preds = %.sink.split, %169
-  %173 = load ptr, ptr %17, align 8, !tbaa !159
+  %173 = load ptr, ptr %17, align 8, !tbaa !161
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !109
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -10060,16 +10060,16 @@ streamLookupConsumer.exit:                        ; preds = %172, %184, %187, %1
   br i1 %204, label %205, label %217
 
 205:                                              ; preds = %streamLookupConsumer.exit
-  %206 = load ptr, ptr %17, align 8, !tbaa !159
+  %206 = load ptr, ptr %17, align 8, !tbaa !161
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %208 = load ptr, ptr %207, align 8, !tbaa !109
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8, !tbaa !18
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !109
-  %213 = load ptr, ptr %15, align 8, !tbaa !134
+  %213 = load ptr, ptr %15, align 8, !tbaa !136
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 56
-  %215 = load i32, ptr %214, align 8, !tbaa !144
+  %215 = load i32, ptr %214, align 8, !tbaa !146
   %216 = call ptr @streamCreateConsumer(ptr noundef nonnull %59, ptr noundef %210, ptr noundef %212, i32 noundef %215, i32 noundef 0)
   br label %217
 
@@ -10137,7 +10137,7 @@ streamLookupConsumer.exit:                        ; preds = %172, %184, %187, %1
   %240 = load i64, ptr %220, align 8, !tbaa !22
   %241 = load i64, ptr %223, align 8, !tbaa !22
   %or.cond.not7.i = icmp eq i64 %240, %241
-  br i1 %or.cond.not7.i, label %260, label %streamCompareID.exit.thread.i, !prof !126
+  br i1 %or.cond.not7.i, label %260, label %streamCompareID.exit.thread.i, !prof !128
 
 streamCompareID.exit.thread.i:                    ; preds = %239, %236
   call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1329) #17
@@ -10152,7 +10152,7 @@ streamCompareID.exit.thread.i:                    ; preds = %239, %236
   br i1 %.not191, label %335, label %243
 
 243:                                              ; preds = %242
-  %244 = load ptr, ptr %17, align 8, !tbaa !159
+  %244 = load ptr, ptr %17, align 8, !tbaa !161
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !109
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 16
@@ -10160,9 +10160,9 @@ streamCompareID.exit.thread.i:                    ; preds = %239, %236
   %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv261
   %250 = load ptr, ptr %249, align 8, !tbaa !109
   call void @streamPropagateXCLAIM(ptr noundef nonnull %0, ptr noundef %246, ptr noundef nonnull %59, ptr noundef %248, ptr noundef %250, ptr noundef nonnull %233)
-  %251 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %251 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %252 = add nsw i64 %251, 1
-  store i64 %252, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %252, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %253 = load ptr, ptr %221, align 8, !tbaa !14
   %254 = call i32 @raxRemove(ptr noundef %253, ptr noundef nonnull %13, i64 noundef 16, ptr noundef null) #17
   %255 = getelementptr inbounds nuw i8, ptr %233, i64 16
@@ -10320,7 +10320,7 @@ addReplyStreamID.exit:                            ; preds = %300, %306, %307, %3
   %324 = add i64 %.0156251, 1
   %325 = call i64 @commandTimeSnapshot() #17
   store i64 %325, ptr %225, align 8, !tbaa !52
-  %326 = load ptr, ptr %17, align 8, !tbaa !159
+  %326 = load ptr, ptr %17, align 8, !tbaa !161
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load ptr, ptr %327, align 8, !tbaa !109
   %329 = getelementptr inbounds nuw i8, ptr %326, i64 16
@@ -10328,9 +10328,9 @@ addReplyStreamID.exit:                            ; preds = %300, %306, %307, %3
   %331 = getelementptr inbounds nuw ptr, ptr %326, i64 %indvars.iv261
   %332 = load ptr, ptr %331, align 8, !tbaa !109
   call void @streamPropagateXCLAIM(ptr noundef nonnull %0, ptr noundef %328, ptr noundef nonnull %59, ptr noundef %330, ptr noundef %332, ptr noundef nonnull %.0154226)
-  %333 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %333 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %334 = add nsw i64 %333, 1
-  store i64 %334, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %334, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %335
 
 335:                                              ; preds = %268, %323, %242, %243, %275
@@ -10341,18 +10341,18 @@ addReplyStreamID.exit:                            ; preds = %300, %306, %307, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge255, label %226, !llvm.loop !196
+  br i1 %exitcond.not, label %._crit_edge255, label %226, !llvm.loop !199
 
 336:                                              ; preds = %._crit_edge255
-  %337 = load ptr, ptr %17, align 8, !tbaa !159
+  %337 = load ptr, ptr %17, align 8, !tbaa !161
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !109
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %341 = load ptr, ptr %340, align 8, !tbaa !109
   call void @streamPropagateGroupID(ptr noundef nonnull %0, ptr noundef %339, ptr noundef nonnull %59, ptr noundef %341)
-  %342 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %342 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %343 = add nsw i64 %342, 1
-  store i64 %343, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %343, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %344
 
 344:                                              ; preds = %336, %._crit_edge255
@@ -10394,9 +10394,9 @@ define dso_local void @xautoclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   %11 = alloca %struct.streamID, align 8
   %12 = alloca %struct.streamID, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !134
+  %14 = load ptr, ptr %13, align 8, !tbaa !136
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %16 = load ptr, ptr %15, align 8, !tbaa !159
+  %16 = load ptr, ptr %15, align 8, !tbaa !161
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !109
   %19 = tail call ptr @lookupKeyRead(ptr noundef %14, ptr noundef %18) #17
@@ -10405,7 +10405,7 @@ define dso_local void @xautoclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   store i64 100, ptr %6, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  %20 = load ptr, ptr %15, align 8, !tbaa !159
+  %20 = load ptr, ptr %15, align 8, !tbaa !161
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !109
   %23 = call i32 @getLongLongFromObjectOrReply(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %5, ptr noundef nonnull @.str.98) #17
@@ -10422,7 +10422,7 @@ define dso_local void @xautoclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = load ptr, ptr %15, align 8, !tbaa !159
+  %29 = load ptr, ptr %15, align 8, !tbaa !161
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !109
   %32 = call i32 @streamParseIntervalIDOrReply(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 0)
@@ -10465,7 +10465,7 @@ streamIncrID.exit.thread.sink.split:              ; preds = %42, %44
 
 streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.thread.sink.split, %33
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %48 = load i32, ptr %47, align 8, !tbaa !157
+  %48 = load i32, ptr %47, align 8, !tbaa !159
   %49 = icmp sgt i32 %48, 6
   br i1 %49, label %.lr.ph, label %._crit_edge
 
@@ -10474,7 +10474,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   %.0116178 = phi i32 [ %.2, %69 ], [ 0, %streamIncrID.exit.thread ]
   %.0120177 = phi i32 [ %.pre-phi, %69 ], [ 6, %streamIncrID.exit.thread ]
   %.neg = add nsw i32 %.0120177, 1
-  %51 = load ptr, ptr %15, align 8, !tbaa !159
+  %51 = load ptr, ptr %15, align 8, !tbaa !161
   %52 = sext i32 %.0120177 to i64
   %53 = getelementptr inbounds ptr, ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !109
@@ -10495,7 +10495,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br i1 %.not152, label %._crit_edge195, label %.thread
 
 ._crit_edge195:                                   ; preds = %60
-  %.pre = load i32, ptr %47, align 8, !tbaa !157
+  %.pre = load i32, ptr %47, align 8, !tbaa !159
   %.pre196 = add nsw i32 %.0120177, 2
   br label %69
 
@@ -10505,7 +10505,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br i1 %.not151, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !164
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !166
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %68) #17
   br label %.thread
 
@@ -10514,7 +10514,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   %70 = phi i32 [ %.pre, %._crit_edge195 ], [ %50, %65 ]
   %.2 = phi i32 [ %.0116178, %._crit_edge195 ], [ 1, %65 ]
   %71 = icmp slt i32 %.pre-phi, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !197
+  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !200
 
 ._crit_edge.loopexit:                             ; preds = %69
   %72 = icmp eq i32 %.2, 0
@@ -10533,7 +10533,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !18
-  %78 = load ptr, ptr %15, align 8, !tbaa !159
+  %78 = load ptr, ptr %15, align 8, !tbaa !161
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !109
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -10543,7 +10543,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br i1 %84, label %.thread166, label %94
 
 .thread166:                                       ; preds = %._crit_edge, %75
-  %85 = load ptr, ptr %15, align 8, !tbaa !159
+  %85 = load ptr, ptr %15, align 8, !tbaa !161
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !109
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -10567,7 +10567,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br label %.thread
 
 99:                                               ; preds = %94
-  %100 = load ptr, ptr %15, align 8, !tbaa !159
+  %100 = load ptr, ptr %15, align 8, !tbaa !161
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !109
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -10577,16 +10577,16 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   br i1 %106, label %107, label %119
 
 107:                                              ; preds = %99
-  %108 = load ptr, ptr %15, align 8, !tbaa !159
+  %108 = load ptr, ptr %15, align 8, !tbaa !161
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !18
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !109
-  %115 = load ptr, ptr %13, align 8, !tbaa !134
+  %115 = load ptr, ptr %13, align 8, !tbaa !136
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %117 = load i32, ptr %116, align 8, !tbaa !144
+  %117 = load i32, ptr %116, align 8, !tbaa !146
   %118 = call ptr @streamCreateConsumer(ptr noundef nonnull %83, ptr noundef %112, ptr noundef %114, i32 noundef %117, i32 noundef 0)
   br label %119
 
@@ -10671,7 +10671,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   %159 = load i64, ptr %139, align 8, !tbaa !22
   %160 = load i64, ptr %141, align 8, !tbaa !22
   %or.cond.not7.i = icmp eq i64 %159, %160
-  br i1 %or.cond.not7.i, label %206, label %streamCompareID.exit.thread.i, !prof !126
+  br i1 %or.cond.not7.i, label %206, label %streamCompareID.exit.thread.i, !prof !128
 
 streamCompareID.exit.thread.i:                    ; preds = %158, %155
   call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1329) #17
@@ -10724,16 +10724,16 @@ createObjectFromStreamID.exit:                    ; preds = %161, %167, %168, %1
   %177 = load i64, ptr %139, align 8, !tbaa !22
   %178 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %163, ptr noundef nonnull @.str.15, i64 noundef %176, i64 noundef %177) #17
   %179 = call ptr @createObject(i32 noundef 0, ptr noundef %178) #17
-  %180 = load ptr, ptr %15, align 8, !tbaa !159
+  %180 = load ptr, ptr %15, align 8, !tbaa !161
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8, !tbaa !109
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !109
   call void @streamPropagateXCLAIM(ptr noundef nonnull %0, ptr noundef %182, ptr noundef nonnull %83, ptr noundef %184, ptr noundef %179, ptr noundef %149)
   call void @decrRefCount(ptr noundef %179) #17
-  %185 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %185 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %186 = add nsw i64 %185, 1
-  store i64 %186, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %186, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %187 = load ptr, ptr %129, align 8, !tbaa !14
   %188 = load ptr, ptr %138, align 8, !tbaa !32
   %189 = load i64, ptr %142, align 8, !tbaa !36
@@ -10920,16 +10920,16 @@ createObjectFromStreamID.exit156:                 ; preds = %256, %266, %267, %2
   %276 = load i64, ptr %139, align 8, !tbaa !22
   %277 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %262, ptr noundef nonnull @.str.15, i64 noundef %275, i64 noundef %276) #17
   %278 = call ptr @createObject(i32 noundef 0, ptr noundef %277) #17
-  %279 = load ptr, ptr %15, align 8, !tbaa !159
+  %279 = load ptr, ptr %15, align 8, !tbaa !161
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !109
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !109
   call void @streamPropagateXCLAIM(ptr noundef nonnull %0, ptr noundef %281, ptr noundef nonnull %83, ptr noundef %283, ptr noundef %278, ptr noundef nonnull %149)
   call void @decrRefCount(ptr noundef %278) #17
-  %284 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %284 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %285 = add nsw i64 %284, 1
-  store i64 %285, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %285, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %286
 
 286:                                              ; preds = %208, %createObjectFromStreamID.exit156, %createObjectFromStreamID.exit
@@ -11035,7 +11035,7 @@ addReplyStreamID.exit160:                         ; preds = %.lr.ph191, %307, %3
   call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %319) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !198
+  br i1 %exitcond.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !201
 
 .thread:                                          ; preds = %60, %67, %.thread166, %73, %._crit_edge192, %98, %28, %1, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
@@ -11059,10 +11059,10 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [8 x %struct.streamID], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !109
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !170
   %13 = tail call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %11, ptr noundef %12) #17
   %14 = icmp eq ptr %13, null
   br i1 %14, label %111, label %15
@@ -11077,7 +11077,7 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = load i32, ptr %20, align 8, !tbaa !157
+  %21 = load i32, ptr %20, align 8, !tbaa !159
   %22 = icmp sgt i32 %21, 10
   br i1 %22, label %23, label %28
 
@@ -11086,7 +11086,7 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 4
   %27 = tail call noalias ptr @zmalloc(i64 noundef %26) #16
-  %.pre = load i32, ptr %20, align 8, !tbaa !157
+  %.pre = load i32, ptr %20, align 8, !tbaa !159
   br label %28
 
 28:                                               ; preds = %23, %17
@@ -11098,10 +11098,10 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr %20, align 8, !tbaa !157
+  %32 = load i32, ptr %20, align 8, !tbaa !159
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %.preheader, !llvm.loop !199
+  br i1 %34, label %.lr.ph, label %.preheader, !llvm.loop !202
 
 .preheader:                                       ; preds = %31
   %35 = icmp sgt i32 %32, 2
@@ -11117,7 +11117,7 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %28, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 2, %28 ]
-  %41 = load ptr, ptr %8, align 8, !tbaa !159
+  %41 = load ptr, ptr %8, align 8, !tbaa !161
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !109
   %gep = getelementptr %struct.streamID, ptr %invariant.gep, i64 %indvars.iv
@@ -11204,10 +11204,10 @@ streamCompareID.exit64:                           ; preds = %64, %62, %69
   %.151 = phi i32 [ %70, %streamCompareID.exit64 ], [ %.05074, %streamDeleteItem.exit.thread ]
   %.1 = phi i32 [ %59, %streamCompareID.exit64 ], [ %.04975, %streamDeleteItem.exit.thread ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %72 = load i32, ptr %20, align 8, !tbaa !157
+  %72 = load i32, ptr %20, align 8, !tbaa !159
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next81, %73
-  br i1 %74, label %46, label %._crit_edge, !llvm.loop !200
+  br i1 %74, label %46, label %._crit_edge, !llvm.loop !203
 
 75:                                               ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -11258,22 +11258,22 @@ streamGetEdgeID.exit:                             ; preds = %82, %93
 
 94:                                               ; preds = %81, %streamGetEdgeID.exit, %79
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !134
-  %97 = load ptr, ptr %8, align 8, !tbaa !159
+  %96 = load ptr, ptr %95, align 8, !tbaa !136
+  %97 = load ptr, ptr %8, align 8, !tbaa !161
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !109
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %99) #17
-  %100 = load ptr, ptr %8, align 8, !tbaa !159
+  %100 = load ptr, ptr %8, align 8, !tbaa !161
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !109
-  %103 = load ptr, ptr %95, align 8, !tbaa !134
+  %103 = load ptr, ptr %95, align 8, !tbaa !136
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
-  %105 = load i32, ptr %104, align 8, !tbaa !144
+  %105 = load i32, ptr %104, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.101, ptr noundef %102, i32 noundef %105) #17
   %106 = sext i32 %.151 to i64
-  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %108 = add nsw i64 %107, %106
-  store i64 %108, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %108, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.preheader, %28, %94
@@ -11307,10 +11307,10 @@ define dso_local void @xtrimCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !159
+  %7 = load ptr, ptr %6, align 8, !tbaa !161
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !109
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !170
   %11 = call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %9, ptr noundef %10) #17
   %12 = icmp eq ptr %11, null
   br i1 %12, label %45, label %13
@@ -11328,40 +11328,40 @@ define dso_local void @xtrimCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %44, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8, !tbaa !159
+  %20 = load ptr, ptr %6, align 8, !tbaa !161
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !109
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !134
+  %24 = load ptr, ptr %23, align 8, !tbaa !136
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %26 = load i32, ptr %25, align 8, !tbaa !144
+  %26 = load i32, ptr %25, align 8, !tbaa !146
   call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.24, ptr noundef %22, i32 noundef %26) #17
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !120
+  %28 = load i32, ptr %27, align 4, !tbaa !122
   %.not20 = icmp eq i32 %28, 0
   br i1 %.not20, label %37, label %29
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %31 = load i32, ptr %30, align 8, !tbaa !125
+  %31 = load i32, ptr %30, align 8, !tbaa !127
   %32 = add nsw i32 %31, -1
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !156
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 752), align 8, !tbaa !158
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef %32, ptr noundef %33) #17
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %35 = load i32, ptr %34, align 4, !tbaa !122
-  %36 = load i32, ptr %30, align 8, !tbaa !125
+  %35 = load i32, ptr %34, align 4, !tbaa !124
+  %36 = load i32, ptr %30, align 8, !tbaa !127
   call void @streamRewriteTrimArgument(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %35, i32 noundef %36)
   br label %37
 
 37:                                               ; preds = %29, %19
-  %38 = load ptr, ptr %23, align 8, !tbaa !134
-  %39 = load ptr, ptr %6, align 8, !tbaa !159
+  %38 = load ptr, ptr %23, align 8, !tbaa !136
+  %39 = load ptr, ptr %6, align 8, !tbaa !161
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !109
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %41) #17
-  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   %43 = add nsw i64 %42, %18
-  store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !165
   br label %44
 
 44:                                               ; preds = %37, %15
@@ -11385,10 +11385,10 @@ define dso_local void @xinfoReplyWithStreamInfo(ptr noundef %0, ptr noundef %1) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 10, ptr %3, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !159
+  %11 = load ptr, ptr %10, align 8, !tbaa !161
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = load i32, ptr %13, align 8, !tbaa !157
+  %14 = load i32, ptr %13, align 8, !tbaa !159
   %15 = add nsw i32 %14, -3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %44, label %17
@@ -11888,7 +11888,7 @@ sdslen.exit:                                      ; preds = %207, %214, %217, %2
   %235 = add nuw nsw i64 %.0131164, 1
   %236 = call i32 @raxNext(ptr noundef nonnull %7) #17
   %.not144 = icmp eq i32 %236, 0
-  br i1 %.not144, label %.critedge, label %.lr.ph, !llvm.loop !201
+  br i1 %.not144, label %.critedge, label %.lr.ph, !llvm.loop !204
 
 .critedge:                                        ; preds = %.lr.ph, %sdslen.exit, %173
   %.0131.lcssa = phi i64 [ 0, %173 ], [ %235, %sdslen.exit ], [ %.0131164, %.lr.ph ]
@@ -12043,7 +12043,7 @@ addReplyStreamID.exit159:                         ; preds = %281, %291, %292, %2
   %304 = add nuw nsw i64 %.0130168, 1
   %305 = call i32 @raxNext(ptr noundef nonnull %9) #17
   %.not147 = icmp eq i32 %305, 0
-  br i1 %.not147, label %.critedge3, label %.lr.ph169, !llvm.loop !202
+  br i1 %.not147, label %.critedge3, label %.lr.ph169, !llvm.loop !205
 
 .critedge3:                                       ; preds = %.lr.ph169, %addReplyStreamID.exit159, %sdslen.exit155
   %.0130.lcssa = phi i64 [ 0, %sdslen.exit155 ], [ %304, %addReplyStreamID.exit159 ], [ %.0130168, %.lr.ph169 ]
@@ -12052,7 +12052,7 @@ addReplyStreamID.exit159:                         ; preds = %281, %291, %292, %2
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %9) #17
   %306 = call i32 @raxNext(ptr noundef nonnull %8) #17
   %.not146 = icmp eq i32 %306, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph174, !llvm.loop !203
+  br i1 %.not146, label %._crit_edge, label %.lr.ph174, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %.critedge3, %.critedge
   call void @raxStop(ptr noundef nonnull %8) #17
@@ -12060,7 +12060,7 @@ addReplyStreamID.exit159:                         ; preds = %281, %291, %292, %2
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %7) #17
   %307 = call i32 @raxNext(ptr noundef nonnull %6) #17
   %.not142 = icmp eq i32 %307, 0
-  br i1 %.not142, label %._crit_edge178, label %147, !llvm.loop !204
+  br i1 %.not142, label %._crit_edge178, label %147, !llvm.loop !207
 
 ._crit_edge178:                                   ; preds = %._crit_edge, %134
   call void @raxStop(ptr noundef nonnull %6) #17
@@ -12083,7 +12083,7 @@ define dso_local void @xinfoCommand(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca %struct.raxIterator, align 8
   %5 = alloca %struct.raxIterator, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !159
+  %7 = load ptr, ptr %6, align 8, !tbaa !161
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !109
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -12102,7 +12102,7 @@ define dso_local void @xinfoCommand(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !109
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 208), align 8, !tbaa !189
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 208), align 8, !tbaa !192
   %18 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %169, label %20
@@ -12121,12 +12121,12 @@ define dso_local void @xinfoCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %28 = load i32, ptr %27, align 8, !tbaa !157
+  %28 = load i32, ptr %27, align 8, !tbaa !159
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %30, label %112
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %6, align 8, !tbaa !159
+  %31 = load ptr, ptr %6, align 8, !tbaa !161
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !109
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -12188,7 +12188,7 @@ streamLookupCG.exit:                              ; preds = %39, %44, %47, %51, 
   br i1 %.not83, label %streamLookupCG.exit.streamLookupCG.exit.thread_crit_edge, label %67
 
 streamLookupCG.exit.streamLookupCG.exit.thread_crit_edge: ; preds = %streamLookupCG.exit
-  %.pre = load ptr, ptr %6, align 8, !tbaa !159
+  %.pre = load ptr, ptr %6, align 8, !tbaa !161
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre96 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !109
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %.pre96, i64 8
@@ -12288,7 +12288,7 @@ sdslen.exit:                                      ; preds = %76, %90, %93, %97, 
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %81) #17
   %111 = call i32 @raxNext(ptr noundef nonnull %4) #17
   %.not81 = icmp eq i32 %111, 0
-  br i1 %.not81, label %._crit_edge95, label %76, !llvm.loop !205
+  br i1 %.not81, label %._crit_edge95, label %76, !llvm.loop !208
 
 ._crit_edge95:                                    ; preds = %sdslen.exit, %67
   call void @raxStop(ptr noundef nonnull %4) #17
@@ -12302,7 +12302,7 @@ sdslen.exit:                                      ; preds = %76, %90, %93, %97, 
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %116 = load i32, ptr %115, align 8, !tbaa !157
+  %116 = load i32, ptr %115, align 8, !tbaa !159
   %117 = icmp eq i32 %116, 3
   br i1 %117, label %118, label %165
 
@@ -12413,7 +12413,7 @@ addReplyStreamID.exit:                            ; preds = %131, %146, %147, %1
   call void @streamReplyWithCGLag(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %132)
   %164 = call i32 @raxNext(ptr noundef nonnull %5) #17
   %.not85 = icmp eq i32 %164, 0
-  br i1 %.not85, label %._crit_edge, label %131, !llvm.loop !206
+  br i1 %.not85, label %._crit_edge, label %131, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %163, %123
   call void @raxStop(ptr noundef nonnull %5) #17
@@ -12561,7 +12561,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %37
 47:                                               ; preds = %.lr.ph
   %48 = add nuw nsw i64 %.088154, 1
   %exitcond.not = icmp eq i64 %48, %.0.i127137
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !207
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !210
 
 .lr.ph:                                           ; preds = %.preheader148, %47
   %.088154 = phi i64 [ %48, %47 ], [ 0, %.preheader148 ]
@@ -12660,7 +12660,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %37
 89:                                               ; preds = %.lr.ph157
   %90 = add nuw nsw i64 %.070156, 1
   %exitcond172.not = icmp eq i64 %90, %84
-  br i1 %exitcond172.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !208
+  br i1 %exitcond172.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !211
 
 .lr.ph157:                                        ; preds = %.preheader, %89
   %.070156 = phi i64 [ %90, %89 ], [ 0, %.preheader ]
@@ -12684,7 +12684,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %37
 95:                                               ; preds = %.lr.ph163
   %96 = add nuw nsw i64 %.069161, 1
   %exitcond173.not = icmp eq i64 %96, %.082
-  br i1 %exitcond173.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !209
+  br i1 %exitcond173.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !212
 
 .lr.ph163:                                        ; preds = %94, %95
   %.069161 = phi i64 [ %96, %95 ], [ 0, %94 ]
@@ -12707,7 +12707,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %37
   %103 = load ptr, ptr %11, align 8, !tbaa !115
   %104 = call i32 @lpValidateNext(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %1) #17
   %.not121.not = icmp eq i32 %104, 0
-  br i1 %.not121.not, label %.thread, label %60, !llvm.loop !210
+  br i1 %.not121.not, label %.thread, label %60, !llvm.loop !213
 
 105:                                              ; preds = %60
   %106 = load ptr, ptr %11, align 8, !tbaa !115
@@ -12882,86 +12882,86 @@ attributes #20 = { nounwind willreturn memory(none) }
 !114 = distinct !{!114, !34}
 !115 = !{!29, !29, i64 0}
 !116 = distinct !{!116, !34}
-!117 = distinct !{!117, !34}
-!118 = !{!119, !16, i64 48}
-!119 = !{!"", !12, i64 0, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !16, i64 40, !16, i64 48, !12, i64 56}
-!120 = !{!119, !20, i64 36}
-!121 = !{!119, !16, i64 40}
-!122 = !{!119, !20, i64 28}
-!123 = distinct !{!123, !34}
-!124 = distinct !{!124, !34}
-!125 = !{!119, !20, i64 32}
-!126 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
-!127 = !{!128, !110, i64 544}
-!128 = !{!"sharedObjectsStruct", !110, i64 0, !110, i64 8, !110, i64 16, !110, i64 24, !110, i64 32, !110, i64 40, !110, i64 48, !110, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !110, i64 192, !110, i64 200, !110, i64 208, !110, i64 216, !110, i64 224, !110, i64 232, !110, i64 240, !110, i64 248, !110, i64 256, !110, i64 264, !110, i64 272, !110, i64 280, !110, i64 288, !110, i64 296, !110, i64 304, !110, i64 312, !110, i64 320, !110, i64 328, !110, i64 336, !110, i64 344, !110, i64 352, !110, i64 360, !110, i64 368, !110, i64 376, !110, i64 384, !110, i64 392, !110, i64 400, !110, i64 408, !110, i64 416, !110, i64 424, !110, i64 432, !110, i64 440, !110, i64 448, !110, i64 456, !110, i64 464, !110, i64 472, !110, i64 480, !110, i64 488, !110, i64 496, !110, i64 504, !110, i64 512, !110, i64 520, !110, i64 528, !110, i64 536, !110, i64 544, !110, i64 552, !110, i64 560, !110, i64 568, !110, i64 576, !110, i64 584, !110, i64 592, !110, i64 600, !110, i64 608, !110, i64 616, !110, i64 624, !110, i64 632, !110, i64 640, !110, i64 648, !110, i64 656, !110, i64 664, !110, i64 672, !110, i64 680, !110, i64 688, !110, i64 696, !110, i64 704, !110, i64 712, !110, i64 720, !110, i64 728, !110, i64 736, !110, i64 744, !110, i64 752, !110, i64 760, !110, i64 768, !110, i64 776, !110, i64 784, !110, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !29, i64 81904, !29, i64 81912}
-!129 = !{!128, !110, i64 632}
-!130 = !{!128, !110, i64 656}
-!131 = !{!128, !110, i64 664}
-!132 = !{!128, !110, i64 672}
-!133 = !{!128, !110, i64 688}
-!134 = !{!135, !64, i64 32}
-!135 = !{!"client", !11, i64 0, !11, i64 8, !80, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !20, i64 28, !64, i64 32, !110, i64 40, !110, i64 48, !110, i64 56, !29, i64 64, !11, i64 72, !11, i64 80, !20, i64 88, !136, i64 96, !20, i64 104, !20, i64 108, !136, i64 112, !11, i64 120, !137, i64 128, !137, i64 136, !137, i64 144, !137, i64 152, !8, i64 160, !20, i64 168, !20, i64 172, !11, i64 176, !67, i64 184, !16, i64 192, !67, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !20, i64 232, !138, i64 240, !11, i64 248, !11, i64 256, !20, i64 264, !20, i64 268, !20, i64 272, !20, i64 276, !11, i64 280, !11, i64 288, !29, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !16, i64 360, !9, i64 368, !20, i64 412, !29, i64 416, !20, i64 424, !20, i64 428, !11, i64 432, !139, i64 440, !141, i64 480, !16, i64 552, !67, i64 560, !65, i64 568, !65, i64 576, !65, i64 584, !29, i64 592, !29, i64 600, !142, i64 608, !142, i64 616, !142, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !11, i64 672, !7, i64 680, !11, i64 688, !20, i64 696, !142, i64 704, !8, i64 712, !142, i64 720, !11, i64 728, !143, i64 736, !11, i64 760, !16, i64 768, !20, i64 776, !11, i64 784, !29, i64 792}
-!136 = !{!"p2 _ZTS11redisObject", !8, i64 0}
-!137 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
-!138 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
-!139 = !{!"multiState", !140, i64 0, !20, i64 8, !20, i64 12, !20, i64 16, !11, i64 24, !20, i64 32}
-!140 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
-!141 = !{!"blockingState", !20, i64 0, !16, i64 8, !20, i64 16, !65, i64 24, !20, i64 32, !20, i64 36, !16, i64 40, !8, i64 48, !8, i64 56, !11, i64 64}
-!142 = !{!"p1 _ZTS8listNode", !8, i64 0}
-!143 = !{!"listNode", !142, i64 0, !142, i64 8, !8, i64 16}
-!144 = !{!145, !20, i64 56}
-!145 = !{!"redisDb", !81, i64 0, !81, i64 8, !8, i64 16, !65, i64 24, !65, i64 32, !65, i64 40, !65, i64 48, !20, i64 56, !16, i64 64, !11, i64 72, !67, i64 80}
-!146 = !{!128, !110, i64 536}
-!147 = !{!128, !110, i64 704}
-!148 = !{!128, !110, i64 680}
-!149 = !{!128, !110, i64 728}
-!150 = distinct !{!150, !34}
-!151 = !{!152, !110, i64 0}
-!152 = !{!"streamPropInfo", !110, i64 0, !110, i64 8}
-!153 = !{!152, !110, i64 8}
-!154 = distinct !{!154, !34}
-!155 = distinct !{!155, !34}
-!156 = !{!128, !110, i64 752}
-!157 = !{!135, !20, i64 88}
-!158 = !{!119, !20, i64 16}
-!159 = !{!135, !136, i64 96}
-!160 = !{!119, !20, i64 24}
-!161 = !{!119, !20, i64 20}
-!162 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!163 = !{!62, !16, i64 6720}
-!164 = !{!128, !110, i64 216}
-!165 = distinct !{!165, !34}
-!166 = distinct !{!166, !34}
-!167 = !{!128, !110, i64 192}
-!168 = !{!128, !110, i64 24}
-!169 = !{!135, !137, i64 128}
-!170 = !{!171, !29, i64 216}
-!171 = !{!"redisCommand", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24, !20, i64 32, !29, i64 40, !29, i64 48, !20, i64 56, !8, i64 64, !20, i64 72, !63, i64 80, !20, i64 88, !8, i64 96, !20, i64 104, !11, i64 112, !11, i64 120, !8, i64 128, !20, i64 136, !8, i64 144, !20, i64 152, !137, i64 160, !172, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !20, i64 208, !29, i64 216, !173, i64 224, !174, i64 232, !65, i64 288, !137, i64 296, !175, i64 304}
-!172 = !{!"p1 _ZTS15redisCommandArg", !8, i64 0}
-!173 = !{!"p1 _ZTS13hdr_histogram", !8, i64 0}
-!174 = !{!"", !29, i64 0, !11, i64 8, !20, i64 16, !9, i64 24, !20, i64 40, !9, i64 44}
-!175 = !{!"p1 _ZTS18RedisModuleCommand", !8, i64 0}
-!176 = distinct !{!176, !34}
-!177 = !{!178, !178, i64 0}
-!178 = !{!"p1 _ZTS8streamCG", !8, i64 0}
-!179 = distinct !{!179, !34}
-!180 = !{!135, !20, i64 28}
+!117 = distinct !{!117, !34, !118}
+!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = distinct !{!119, !34}
+!120 = !{!121, !16, i64 48}
+!121 = !{!"", !12, i64 0, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !16, i64 40, !16, i64 48, !12, i64 56}
+!122 = !{!121, !20, i64 36}
+!123 = !{!121, !16, i64 40}
+!124 = !{!121, !20, i64 28}
+!125 = distinct !{!125, !34}
+!126 = distinct !{!126, !34}
+!127 = !{!121, !20, i64 32}
+!128 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
+!129 = !{!130, !110, i64 544}
+!130 = !{!"sharedObjectsStruct", !110, i64 0, !110, i64 8, !110, i64 16, !110, i64 24, !110, i64 32, !110, i64 40, !110, i64 48, !110, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !110, i64 192, !110, i64 200, !110, i64 208, !110, i64 216, !110, i64 224, !110, i64 232, !110, i64 240, !110, i64 248, !110, i64 256, !110, i64 264, !110, i64 272, !110, i64 280, !110, i64 288, !110, i64 296, !110, i64 304, !110, i64 312, !110, i64 320, !110, i64 328, !110, i64 336, !110, i64 344, !110, i64 352, !110, i64 360, !110, i64 368, !110, i64 376, !110, i64 384, !110, i64 392, !110, i64 400, !110, i64 408, !110, i64 416, !110, i64 424, !110, i64 432, !110, i64 440, !110, i64 448, !110, i64 456, !110, i64 464, !110, i64 472, !110, i64 480, !110, i64 488, !110, i64 496, !110, i64 504, !110, i64 512, !110, i64 520, !110, i64 528, !110, i64 536, !110, i64 544, !110, i64 552, !110, i64 560, !110, i64 568, !110, i64 576, !110, i64 584, !110, i64 592, !110, i64 600, !110, i64 608, !110, i64 616, !110, i64 624, !110, i64 632, !110, i64 640, !110, i64 648, !110, i64 656, !110, i64 664, !110, i64 672, !110, i64 680, !110, i64 688, !110, i64 696, !110, i64 704, !110, i64 712, !110, i64 720, !110, i64 728, !110, i64 736, !110, i64 744, !110, i64 752, !110, i64 760, !110, i64 768, !110, i64 776, !110, i64 784, !110, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !29, i64 81904, !29, i64 81912}
+!131 = !{!130, !110, i64 632}
+!132 = !{!130, !110, i64 656}
+!133 = !{!130, !110, i64 664}
+!134 = !{!130, !110, i64 672}
+!135 = !{!130, !110, i64 688}
+!136 = !{!137, !64, i64 32}
+!137 = !{!"client", !11, i64 0, !11, i64 8, !80, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !20, i64 28, !64, i64 32, !110, i64 40, !110, i64 48, !110, i64 56, !29, i64 64, !11, i64 72, !11, i64 80, !20, i64 88, !138, i64 96, !20, i64 104, !20, i64 108, !138, i64 112, !11, i64 120, !139, i64 128, !139, i64 136, !139, i64 144, !139, i64 152, !8, i64 160, !20, i64 168, !20, i64 172, !11, i64 176, !67, i64 184, !16, i64 192, !67, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !20, i64 232, !140, i64 240, !11, i64 248, !11, i64 256, !20, i64 264, !20, i64 268, !20, i64 272, !20, i64 276, !11, i64 280, !11, i64 288, !29, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !16, i64 360, !9, i64 368, !20, i64 412, !29, i64 416, !20, i64 424, !20, i64 428, !11, i64 432, !141, i64 440, !143, i64 480, !16, i64 552, !67, i64 560, !65, i64 568, !65, i64 576, !65, i64 584, !29, i64 592, !29, i64 600, !144, i64 608, !144, i64 616, !144, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !11, i64 672, !7, i64 680, !11, i64 688, !20, i64 696, !144, i64 704, !8, i64 712, !144, i64 720, !11, i64 728, !145, i64 736, !11, i64 760, !16, i64 768, !20, i64 776, !11, i64 784, !29, i64 792}
+!138 = !{!"p2 _ZTS11redisObject", !8, i64 0}
+!139 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
+!140 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
+!141 = !{!"multiState", !142, i64 0, !20, i64 8, !20, i64 12, !20, i64 16, !11, i64 24, !20, i64 32}
+!142 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
+!143 = !{!"blockingState", !20, i64 0, !16, i64 8, !20, i64 16, !65, i64 24, !20, i64 32, !20, i64 36, !16, i64 40, !8, i64 48, !8, i64 56, !11, i64 64}
+!144 = !{!"p1 _ZTS8listNode", !8, i64 0}
+!145 = !{!"listNode", !144, i64 0, !144, i64 8, !8, i64 16}
+!146 = !{!147, !20, i64 56}
+!147 = !{!"redisDb", !81, i64 0, !81, i64 8, !8, i64 16, !65, i64 24, !65, i64 32, !65, i64 40, !65, i64 48, !20, i64 56, !16, i64 64, !11, i64 72, !67, i64 80}
+!148 = !{!130, !110, i64 536}
+!149 = !{!130, !110, i64 704}
+!150 = !{!130, !110, i64 680}
+!151 = !{!130, !110, i64 728}
+!152 = distinct !{!152, !34}
+!153 = !{!154, !110, i64 0}
+!154 = !{!"streamPropInfo", !110, i64 0, !110, i64 8}
+!155 = !{!154, !110, i64 8}
+!156 = distinct !{!156, !34}
+!157 = distinct !{!157, !34}
+!158 = !{!130, !110, i64 752}
+!159 = !{!137, !20, i64 88}
+!160 = !{!121, !20, i64 16}
+!161 = !{!137, !138, i64 96}
+!162 = !{!121, !20, i64 24}
+!163 = !{!121, !20, i64 20}
+!164 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
+!165 = !{!62, !16, i64 6720}
+!166 = !{!130, !110, i64 216}
+!167 = distinct !{!167, !34}
+!168 = distinct !{!168, !34}
+!169 = !{!130, !110, i64 192}
+!170 = !{!130, !110, i64 24}
+!171 = !{!137, !139, i64 128}
+!172 = !{!173, !29, i64 216}
+!173 = !{!"redisCommand", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24, !20, i64 32, !29, i64 40, !29, i64 48, !20, i64 56, !8, i64 64, !20, i64 72, !63, i64 80, !20, i64 88, !8, i64 96, !20, i64 104, !11, i64 112, !11, i64 120, !8, i64 128, !20, i64 136, !8, i64 144, !20, i64 152, !139, i64 160, !174, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !20, i64 208, !29, i64 216, !175, i64 224, !176, i64 232, !65, i64 288, !139, i64 296, !177, i64 304}
+!174 = !{!"p1 _ZTS15redisCommandArg", !8, i64 0}
+!175 = !{!"p1 _ZTS13hdr_histogram", !8, i64 0}
+!176 = !{!"", !29, i64 0, !11, i64 8, !20, i64 16, !9, i64 24, !20, i64 40, !9, i64 44}
+!177 = !{!"p1 _ZTS18RedisModuleCommand", !8, i64 0}
+!178 = distinct !{!178, !34}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTS8streamCG", !8, i64 0}
 !181 = distinct !{!181, !34}
-!182 = !{!135, !11, i64 8}
+!182 = !{!137, !20, i64 28}
 !183 = distinct !{!183, !34}
-!184 = distinct !{!184, !34}
+!184 = !{!137, !11, i64 8}
 !185 = distinct !{!185, !34}
-!186 = !{!128, !110, i64 0}
-!187 = !{!128, !110, i64 32}
+!186 = distinct !{!186, !34}
+!187 = distinct !{!187, !34, !118}
 !188 = distinct !{!188, !34}
-!189 = !{!128, !110, i64 208}
-!190 = distinct !{!190, !34}
+!189 = !{!130, !110, i64 0}
+!190 = !{!130, !110, i64 32}
 !191 = distinct !{!191, !34}
-!192 = distinct !{!192, !34}
-!193 = !{!7, !7, i64 0}
+!192 = !{!130, !110, i64 208}
+!193 = distinct !{!193, !34}
 !194 = distinct !{!194, !34}
 !195 = distinct !{!195, !34}
-!196 = distinct !{!196, !34}
+!196 = !{!7, !7, i64 0}
 !197 = distinct !{!197, !34}
 !198 = distinct !{!198, !34}
 !199 = distinct !{!199, !34}
@@ -12976,3 +12976,6 @@ attributes #20 = { nounwind willreturn memory(none) }
 !208 = distinct !{!208, !34}
 !209 = distinct !{!209, !34}
 !210 = distinct !{!210, !34}
+!211 = distinct !{!211, !34}
+!212 = distinct !{!212, !34}
+!213 = distinct !{!213, !34}

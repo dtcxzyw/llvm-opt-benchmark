@@ -1197,7 +1197,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   %76 = add i32 %71, %.6259438
   %77 = add nuw nsw i32 %.0287437, 1
   %exitcond537.not = icmp eq i32 %77, %61
-  br i1 %exitcond537.not, label %.loopexit, label %.lr.ph439.split, !llvm.loop !10
+  br i1 %exitcond537.not, label %.loopexit, label %.lr.ph439.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %.lr.ph439.split, %.lr.ph439.split.us
   %.us-phi = phi i32 [ %63, %.lr.ph439.split.us ], [ %71, %.lr.ph439.split ]
@@ -1625,7 +1625,7 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   %300 = add i32 %295, %296
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond540.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond540.not, label %._crit_edge, label %.lr.ph448, !llvm.loop !11
+  br i1 %exitcond540.not, label %._crit_edge, label %.lr.ph448, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph448, %281
   %.2266.lcssa = phi i32 [ %286, %281 ], [ %300, %.lr.ph448 ]
@@ -1651,7 +1651,7 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   %.4268.us = add i32 %307, %.3267451.us
   %308 = add nuw nsw i32 %.0252452.us, 1
   %exitcond542.not = icmp eq i32 %308, %305
-  br i1 %exitcond542.not, label %._crit_edge455, label %.lr.ph454.split.us, !llvm.loop !12
+  br i1 %exitcond542.not, label %._crit_edge455, label %.lr.ph454.split.us, !llvm.loop !14
 
 .lr.ph454.split.us458:                            ; preds = %.lr.ph454, %.lr.ph454.split.us458
   %.0252452.us459 = phi i32 [ %311, %.lr.ph454.split.us458 ], [ 0, %.lr.ph454 ]
@@ -1661,7 +1661,7 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   %.4268.us462 = add i32 %310, %.3267451.us460
   %311 = add nuw nsw i32 %.0252452.us459, 1
   %exitcond541.not = icmp eq i32 %311, %305
-  br i1 %exitcond541.not, label %._crit_edge455, label %.lr.ph454.split.us458, !llvm.loop !12
+  br i1 %exitcond541.not, label %._crit_edge455, label %.lr.ph454.split.us458, !llvm.loop !15
 
 .lr.ph454.split:                                  ; preds = %.lr.ph454
   %312 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %304)
@@ -2498,7 +2498,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %.pr = load ptr, ptr %128, align 8
   %.not160 = icmp eq ptr %.pr, null
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %.not160, label %129, label %.preheader, !llvm.loop !13
+  br i1 %.not160, label %129, label %.preheader, !llvm.loop !16
 
 129:                                              ; preds = %.preheader
   %130 = icmp ugt i32 %.0138168, 2147483646
@@ -2607,7 +2607,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %199 = getelementptr i8, ptr %.0142170, i64 8
   %200 = add nuw nsw i32 %.0172, 1
   %exitcond.not = icmp eq i32 %200, %smax
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !17
 
 201:                                              ; preds = %118
   store i32 0, ptr %6, align 4
@@ -3433,8 +3433,11 @@ attributes #19 = { nounwind willreturn memory(read) }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!14 = distinct !{!14, !9, !11}
+!15 = distinct !{!15, !9, !11}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

@@ -4050,7 +4050,7 @@ x_val.exit42.us.i:                                ; preds = %172, %167
   %208 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.next78.i
   %209 = load ptr, ptr %208, align 8, !tbaa !30
   %.not28.us.i = icmp eq ptr %209, null
-  br i1 %.not28.us.i, label %x_cutval.exit, label %.lr.ph58.split.us.i, !llvm.loop !141
+  br i1 %.not28.us.i, label %x_cutval.exit, label %.lr.ph58.split.us.i, !llvm.loop !142
 
 .lr.ph.split.i:                                   ; preds = %252, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %252 ]
@@ -4136,7 +4136,7 @@ x_val.exit.i:                                     ; preds = %228, %223
   %254 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.next.i
   %255 = load ptr, ptr %254, align 8, !tbaa !30
   %.not.i = icmp eq ptr %255, null
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !140
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !143
 
 .lr.ph58.split.i:                                 ; preds = %298, %.lr.ph58.split.preheader.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph58.split.preheader.i ], [ %indvars.iv.next75.i, %298 ]
@@ -4222,7 +4222,7 @@ x_val.exit42.i:                                   ; preds = %274, %269
   %300 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.next75.i
   %301 = load ptr, ptr %300, align 8, !tbaa !30
   %.not28.i = icmp eq ptr %301, null
-  br i1 %.not28.i, label %x_cutval.exit, label %.lr.ph58.split.i, !llvm.loop !141
+  br i1 %.not28.i, label %x_cutval.exit, label %.lr.ph58.split.i, !llvm.loop !144
 
 x_cutval.exit:                                    ; preds = %298, %206, %.preheader.i.thread, %.preheader.i, %.preheader.thread.i
   %.146.lcssa.i = phi i32 [ %.045.lcssa.i, %.preheader.i ], [ 0, %.preheader.thread.i ], [ 0, %.preheader.i.thread ], [ %207, %206 ], [ %299, %298 ]
@@ -4340,7 +4340,7 @@ define internal fastcc void @dfs_enter_outedge(ptr noundef readonly captures(non
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.next
   %66 = load ptr, ptr %65, align 8, !tbaa !30
   %.not = icmp eq ptr %66, null
-  br i1 %.not, label %.preheader, label %17, !llvm.loop !142
+  br i1 %.not, label %.preheader, label %17, !llvm.loop !145
 
 .lr.ph51:                                         ; preds = %.preheader, %84
   %67 = phi i32 [ %85, %84 ], [ %14, %.preheader ]
@@ -4380,7 +4380,7 @@ define internal fastcc void @dfs_enter_outedge(ptr noundef readonly captures(non
   %91 = icmp ne ptr %90, null
   %92 = icmp sgt i32 %85, 0
   %93 = select i1 %91, i1 %92, i1 false
-  br i1 %93, label %.lr.ph51, label %._crit_edge, !llvm.loop !143
+  br i1 %93, label %.lr.ph51, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   ret void
@@ -4487,7 +4487,7 @@ define internal fastcc void @dfs_enter_inedge(ptr noundef readonly captures(none
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.next
   %66 = load ptr, ptr %65, align 8, !tbaa !30
   %.not = icmp eq ptr %66, null
-  br i1 %.not, label %.preheader, label %17, !llvm.loop !144
+  br i1 %.not, label %.preheader, label %17, !llvm.loop !147
 
 .lr.ph51:                                         ; preds = %.preheader, %84
   %67 = phi i32 [ %85, %84 ], [ %14, %.preheader ]
@@ -4527,7 +4527,7 @@ define internal fastcc void @dfs_enter_inedge(ptr noundef readonly captures(none
   %91 = icmp ne ptr %90, null
   %92 = icmp sgt i32 %85, 0
   %93 = select i1 %91, i1 %92, i1 false
-  br i1 %93, label %.lr.ph51, label %._crit_edge, !llvm.loop !145
+  br i1 %93, label %.lr.ph51, label %._crit_edge, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   ret void
@@ -4584,7 +4584,7 @@ define internal fastcc void @rerank(ptr noundef readonly captures(none) %0, i32 
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !30
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !146
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !149
 
 .lr.ph29:                                         ; preds = %.preheader, %43
   %32 = phi ptr [ %44, %43 ], [ %11, %.preheader ]
@@ -4615,7 +4615,7 @@ define internal fastcc void @rerank(ptr noundef readonly captures(none) %0, i32 
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next32
   %48 = load ptr, ptr %47, align 8, !tbaa !30
   %.not21 = icmp eq ptr %48, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph29, !llvm.loop !147
+  br i1 %.not21, label %._crit_edge, label %.lr.ph29, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   ret void
@@ -4689,7 +4689,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @dfs_range(ptr no
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8, !tbaa !30
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !148
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !151
 
 .lr.ph48:                                         ; preds = %.preheader, %51
   %41 = phi ptr [ %52, %51 ], [ %21, %.preheader ]
@@ -4720,7 +4720,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @dfs_range(ptr no
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next54
   %56 = load ptr, ptr %55, align 8, !tbaa !30
   %.not38 = icmp eq ptr %56, null
-  br i1 %.not38, label %._crit_edge, label %.lr.ph48, !llvm.loop !149
+  br i1 %.not38, label %._crit_edge, label %.lr.ph48, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %.2.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %.3, %51 ]
@@ -4959,9 +4959,9 @@ attributes #27 = { cold noreturn nounwind }
 !137 = distinct !{!137, !32}
 !138 = distinct !{!138, !32}
 !139 = distinct !{!139, !32}
-!140 = distinct !{!140, !32}
-!141 = distinct !{!141, !32}
-!142 = distinct !{!142, !32}
+!140 = distinct !{!140, !32, !141}
+!141 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!142 = distinct !{!142, !32, !141}
 !143 = distinct !{!143, !32}
 !144 = distinct !{!144, !32}
 !145 = distinct !{!145, !32}
@@ -4969,3 +4969,6 @@ attributes #27 = { cold noreturn nounwind }
 !147 = distinct !{!147, !32}
 !148 = distinct !{!148, !32}
 !149 = distinct !{!149, !32}
+!150 = distinct !{!150, !32}
+!151 = distinct !{!151, !32}
+!152 = distinct !{!152, !32}

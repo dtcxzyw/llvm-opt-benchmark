@@ -118,7 +118,7 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
-  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #3, !srcloc !13
+  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #3, !srcloc !14
   %7 = xor i64 %6, -1
   %8 = icmp eq ptr %3, null
   %spec.select = select i1 %8, ptr %1, ptr %3
@@ -144,7 +144,7 @@ define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(no
   store i64 %16, ptr %15, align 1
   %17 = add i64 %10, 8
   %.not = icmp ugt i64 %17, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph34:                                         ; preds = %.preheader, %.lr.ph34
   %.133 = phi i64 [ %29, %.lr.ph34 ], [ %.027.lcssa, %.preheader ]
@@ -162,7 +162,7 @@ define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(no
   store i8 %27, ptr %28, align 1, !tbaa !3
   %29 = add nuw i64 %.133, 1
   %exitcond.not = icmp eq i64 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.preheader
   ret void
@@ -179,108 +179,96 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef captures(none) %0, ptr 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.not11 = icmp eq i64 %5, 0
-  br i1 %.not11, label %.preheader.i.us, label %.preheader.i.us.us
+  br label %.preheader.i.us
 
-.preheader.i.us.us:                               ; preds = %.lr.ph.split.us, %mbedtls_ct_memcpy_if.exit.loopexit.us.us
-  %.010.us.us = phi i64 [ %26, %mbedtls_ct_memcpy_if.exit.loopexit.us.us ], [ %3, %.lr.ph.split.us ]
-  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010.us.us) #3, !srcloc !13
-  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !13
+.preheader.i.us:                                  ; preds = %mbedtls_ct_memcpy_if.exit.us, %.lr.ph.split.us
+  %.010.us = phi i64 [ %3, %.lr.ph.split.us ], [ %26, %mbedtls_ct_memcpy_if.exit.us ]
+  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010.us) #3, !srcloc !14
+  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !14
   %9 = xor i64 %8, %7
-  %10 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #3, !srcloc !16
+  %10 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #3, !srcloc !17
   %11 = xor i64 %10, -1
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.us.us
-  %13 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %11) #3, !srcloc !13
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.us
+  %13 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %11) #3, !srcloc !14
   %14 = xor i64 %13, -1
-  br label %.lr.ph34.i.us.us
+  br i1 %.not11, label %mbedtls_ct_memcpy_if.exit.us, label %.lr.ph34.i.us
 
-.lr.ph34.i.us.us:                                 ; preds = %.preheader.i.us.us, %.lr.ph34.i.us.us
-  %.133.i.us.us = phi i64 [ %25, %.lr.ph34.i.us.us ], [ 0, %.preheader.i.us.us ]
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.133.i.us.us
+.lr.ph34.i.us:                                    ; preds = %.preheader.i.us, %.lr.ph34.i.us
+  %.133.i.us = phi i64 [ %25, %.lr.ph34.i.us ], [ 0, %.preheader.i.us ]
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.133.i.us
   %16 = load i8, ptr %15, align 1, !tbaa !3
   %17 = zext i8 %16 to i64
   %18 = and i64 %17, %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.133.i.us.us
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.133.i.us
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = zext i8 %20 to i64
   %22 = and i64 %21, %14
   %23 = or i64 %22, %18
   %24 = trunc nuw i64 %23 to i8
   store i8 %24, ptr %19, align 1, !tbaa !3
-  %25 = add nuw nsw i64 %.133.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %25, %5
-  br i1 %exitcond.not.i.us.us, label %mbedtls_ct_memcpy_if.exit.loopexit.us.us, label %.lr.ph34.i.us.us, !llvm.loop !15
+  %25 = add nuw nsw i64 %.133.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %25, %5
+  br i1 %exitcond.not.i.us, label %mbedtls_ct_memcpy_if.exit.us, label %.lr.ph34.i.us, !llvm.loop !16
 
-mbedtls_ct_memcpy_if.exit.loopexit.us.us:         ; preds = %.lr.ph34.i.us.us
-  %26 = add i64 %.010.us.us, 1
-  %.not.us.us = icmp ugt i64 %26, %4
-  br i1 %.not.us.us, label %._crit_edge, label %.preheader.i.us.us, !llvm.loop !17
-
-.preheader.i.us:                                  ; preds = %.lr.ph.split.us, %.preheader.i.us
-  %.010.us = phi i64 [ %33, %.preheader.i.us ], [ %3, %.lr.ph.split.us ]
-  %27 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010.us) #3, !srcloc !13
-  %28 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !13
-  %29 = xor i64 %28, %27
-  %30 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %29) #3, !srcloc !16
-  %31 = xor i64 %30, -1
-  %32 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #3, !srcloc !13
-  %33 = add i64 %.010.us, 1
-  %.not.us = icmp ugt i64 %33, %4
-  br i1 %.not.us, label %._crit_edge, label %.preheader.i.us, !llvm.loop !17
+mbedtls_ct_memcpy_if.exit.us:                     ; preds = %.lr.ph34.i.us, %.preheader.i.us
+  %26 = add i64 %.010.us, 1
+  %.not.us = icmp ugt i64 %26, %4
+  br i1 %.not.us, label %._crit_edge, label %.preheader.i.us, !llvm.loop !18
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %mbedtls_ct_memcpy_if.exit
-  %.010 = phi i64 [ %61, %mbedtls_ct_memcpy_if.exit ], [ %3, %.lr.ph ]
-  %34 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010) #3, !srcloc !13
-  %35 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !13
-  %36 = xor i64 %35, %34
-  %37 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %36) #3, !srcloc !16
-  %38 = xor i64 %37, -1
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
-  %40 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %38) #3, !srcloc !13
-  %41 = xor i64 %40, -1
+  %.010 = phi i64 [ %54, %mbedtls_ct_memcpy_if.exit ], [ %3, %.lr.ph ]
+  %27 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010) #3, !srcloc !14
+  %28 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !14
+  %29 = xor i64 %28, %27
+  %30 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %29) #3, !srcloc !17
+  %31 = xor i64 %30, -1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
+  %33 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #3, !srcloc !14
+  %34 = xor i64 %33, -1
   br label %.lr.ph.i
 
 .preheader.i.loopexit:                            ; preds = %.lr.ph.i
-  %42 = icmp ult i64 %43, %5
-  br i1 %42, label %.lr.ph34.i, label %mbedtls_ct_memcpy_if.exit
+  %35 = icmp ult i64 %36, %5
+  br i1 %35, label %.lr.ph34.i, label %mbedtls_ct_memcpy_if.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %43 = phi i64 [ %49, %.lr.ph.i ], [ 8, %.lr.ph.i.preheader ]
-  %.02732.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %.02732.i
-  %.0.copyload.i.i = load i64, ptr %44, align 1
-  %45 = and i64 %.0.copyload.i.i, %38
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.02732.i
-  %.0.copyload.i30.i = load i64, ptr %46, align 1
-  %47 = and i64 %.0.copyload.i30.i, %41
-  %48 = or i64 %47, %45
-  store i64 %48, ptr %46, align 1
-  %49 = add i64 %43, 8
-  %.not.i = icmp ugt i64 %49, %5
-  br i1 %.not.i, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !14
+  %36 = phi i64 [ %42, %.lr.ph.i ], [ 8, %.lr.ph.i.preheader ]
+  %.02732.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 %.02732.i
+  %.0.copyload.i.i = load i64, ptr %37, align 1
+  %38 = and i64 %.0.copyload.i.i, %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.02732.i
+  %.0.copyload.i30.i = load i64, ptr %39, align 1
+  %40 = and i64 %.0.copyload.i30.i, %34
+  %41 = or i64 %40, %38
+  store i64 %41, ptr %39, align 1
+  %42 = add i64 %36, 8
+  %.not.i = icmp ugt i64 %42, %5
+  br i1 %.not.i, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph34.i:                                       ; preds = %.preheader.i.loopexit, %.lr.ph34.i
-  %.133.i = phi i64 [ %60, %.lr.ph34.i ], [ %43, %.preheader.i.loopexit ]
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 %.133.i
-  %51 = load i8, ptr %50, align 1, !tbaa !3
-  %52 = zext i8 %51 to i64
-  %53 = and i64 %52, %38
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.133.i
-  %55 = load i8, ptr %54, align 1, !tbaa !3
-  %56 = zext i8 %55 to i64
-  %57 = and i64 %56, %41
-  %58 = or i64 %57, %53
-  %59 = trunc nuw i64 %58 to i8
-  store i8 %59, ptr %54, align 1, !tbaa !3
-  %60 = add nuw i64 %.133.i, 1
-  %exitcond.not.i = icmp eq i64 %60, %5
-  br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if.exit, label %.lr.ph34.i, !llvm.loop !15
+  %.133.i = phi i64 [ %53, %.lr.ph34.i ], [ %36, %.preheader.i.loopexit ]
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 %.133.i
+  %44 = load i8, ptr %43, align 1, !tbaa !3
+  %45 = zext i8 %44 to i64
+  %46 = and i64 %45, %31
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.133.i
+  %48 = load i8, ptr %47, align 1, !tbaa !3
+  %49 = zext i8 %48 to i64
+  %50 = and i64 %49, %34
+  %51 = or i64 %50, %46
+  %52 = trunc nuw i64 %51 to i8
+  store i8 %52, ptr %47, align 1, !tbaa !3
+  %53 = add nuw i64 %.133.i, 1
+  %exitcond.not.i = icmp eq i64 %53, %5
+  br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if.exit, label %.lr.ph34.i, !llvm.loop !16
 
 mbedtls_ct_memcpy_if.exit:                        ; preds = %.lr.ph34.i, %.preheader.i.loopexit
-  %61 = add i64 %.010, 1
-  %.not = icmp ugt i64 %61, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !17
+  %54 = add i64 %.010, 1
+  %.not = icmp ugt i64 %54, %4
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %mbedtls_ct_memcpy_if.exit, %mbedtls_ct_memcpy_if.exit.loopexit.us.us, %.preheader.i.us, %6
+._crit_edge:                                      ; preds = %mbedtls_ct_memcpy_if.exit, %mbedtls_ct_memcpy_if.exit.us, %6
   ret void
 }
 
@@ -309,7 +297,7 @@ define hidden void @mbedtls_ct_zeroize_if(i64 noundef %0, ptr noundef captures(n
   store i32 %10, ptr %9, align 1
   %11 = add i64 %8, 4
   %.not = icmp ugt i64 %11, %2
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 12:                                               ; preds = %.lr.ph21, %12
   %.120 = phi i64 [ %.0.lcssa, %.lr.ph21 ], [ %16, %12 ]
@@ -319,7 +307,7 @@ define hidden void @mbedtls_ct_zeroize_if(i64 noundef %0, ptr noundef captures(n
   store i8 %15, ptr %13, align 1, !tbaa !3
   %16 = add nuw i64 %.120, 1
   %exitcond.not = icmp eq i64 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   ret void
@@ -344,11 +332,13 @@ attributes #3 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = !{i64 848210, i64 848260, i64 848332, i64 848404, i64 848476}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i64 841911}
-!14 = distinct !{!14, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{i64 841911}
 !15 = distinct !{!15, !7}
-!16 = !{i64 844789, i64 844839, i64 844911, i64 844983, i64 845055}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i64 844789, i64 844839, i64 844911, i64 844983, i64 845055}
+!18 = distinct !{!18, !7, !13}
 !19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

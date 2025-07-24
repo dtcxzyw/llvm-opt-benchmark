@@ -3048,7 +3048,7 @@ inCone.exit191.thread:                            ; preds = %inCone.exit.thread,
 
 110:                                              ; preds = %inCone.exit191.thread, %108
   %exitcond.not = icmp eq i32 %13, %79
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %110, %.lr.ph.split.us, %56
   ret void
@@ -3198,14 +3198,14 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %2, ptr %39, align 4, !tbaa !104
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %41 = load double, ptr %40, align 8, !tbaa !152
+  %41 = load double, ptr %40, align 8, !tbaa !154
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %43 = load double, ptr %42, align 8, !tbaa !152
+  %43 = load double, ptr %42, align 8, !tbaa !154
   %44 = fsub double %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %46 = load double, ptr %45, align 8, !tbaa !153
+  %46 = load double, ptr %45, align 8, !tbaa !155
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %48 = load double, ptr %47, align 8, !tbaa !153
+  %48 = load double, ptr %47, align 8, !tbaa !155
   %49 = fsub double %46, %48
   %50 = fmul double %49, %49
   %51 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %50)
@@ -3552,10 +3552,10 @@ define internal fastcc void @finishEdge(ptr noundef %0, ptr %1, i64 %2, i32 noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %12 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %12, %6
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !154
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !156
 
 .loopexit:                                        ; preds = %8, %.preheader, %4
-  %13 = load i8, ptr @Verbose, align 1, !tbaa !155
+  %13 = load i8, ptr @Verbose, align 1, !tbaa !157
   %14 = icmp ugt i8 %13, 1
   br i1 %14, label %15, label %32
 
@@ -3813,8 +3813,10 @@ attributes #23 = { nounwind allocsize(1) }
 !148 = distinct !{!148, !25}
 !149 = distinct !{!149, !25}
 !150 = distinct !{!150, !25}
-!151 = distinct !{!151, !25}
-!152 = !{!21, !23, i64 16}
-!153 = !{!21, !23, i64 24}
-!154 = distinct !{!154, !25}
-!155 = !{!6, !6, i64 0}
+!151 = distinct !{!151, !25, !152}
+!152 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!153 = distinct !{!153, !25}
+!154 = !{!21, !23, i64 16}
+!155 = !{!21, !23, i64 24}
+!156 = distinct !{!156, !25}
+!157 = !{!6, !6, i64 0}

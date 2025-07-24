@@ -1299,7 +1299,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %186 = phi ptr [ %208, %.loopexit17.us43 ], [ %182, %.split.split.split.us ]
   %187 = add nuw nsw i32 %181, 1
   %188 = icmp slt i32 %187, %32
-  br i1 %188, label %.split.split.split.us, label %.loopexit20, !llvm.loop !41
+  br i1 %188, label %.split.split.split.us, label %.loopexit20, !llvm.loop !43
 
 .preheader.us44:                                  ; preds = %.preheader.us44.preheader, %194
   %189 = phi i32 [ %210, %194 ], [ %.pre, %.preheader.us44.preheader ]
@@ -1441,7 +1441,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
   %66 = and i8 %64, -9
   %67 = or disjoint i8 %66, %65
   store i8 %67, ptr %63, align 4
-  %68 = tail call i32 @snd_hdac_stream_setup_periods(ptr noundef %0), !range !42
+  %68 = tail call i32 @snd_hdac_stream_setup_periods(ptr noundef %0), !range !44
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %71, label %70
 
@@ -1504,7 +1504,7 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr noundef readonly cap
   %33 = phi i8 [ %12, %28 ], [ 1, %29 ], [ %12, %.preheader ]
   %34 = load ptr, ptr %11, align 8
   %35 = icmp eq ptr %34, %8
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %31, %2
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1569,7 +1569,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !27
   %10 = add nsw i32 %6, -1
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread, label %.split8.us, !llvm.loop !44
+  br i1 %11, label %.thread, label %.split8.us, !llvm.loop !46
 
 .split.us.us:                                     ; preds = %.split8.us, %29
   %12 = phi ptr [ %31, %29 ], [ %7, %.split8.us ]
@@ -1597,7 +1597,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   %30 = phi i32 [ %13, %.split.us.us ], [ %28, %20 ]
   %31 = load ptr, ptr %12, align 8
   %32 = icmp eq ptr %31, %5
-  br i1 %32, label %.split5.us.us, label %.split.us.us, !llvm.loop !45
+  br i1 %32, label %.split5.us.us, label %.split.us.us, !llvm.loop !47
 
 .split5.us.us:                                    ; preds = %29
   %33 = icmp eq i32 %30, 0
@@ -1642,7 +1642,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   %56 = phi i32 [ %54, %53 ], [ %39, %47 ], [ %39, %.split.split.us ]
   %57 = load ptr, ptr %38, align 8
   %58 = icmp eq ptr %57, %5
-  br i1 %58, label %.split5, label %.split.split.us, !llvm.loop !45
+  br i1 %58, label %.split5, label %.split.split.us, !llvm.loop !48
 
 .split.split:                                     ; preds = %.split, %74
   %59 = phi ptr [ %76, %74 ], [ %35, %.split ]
@@ -1669,7 +1669,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   %75 = phi i32 [ %60, %.split.split ], [ %spec.select, %67 ]
   %76 = load ptr, ptr %59, align 8
   %77 = icmp eq ptr %76, %5
-  br i1 %77, label %.split5, label %.split.split, !llvm.loop !45
+  br i1 %77, label %.split5, label %.split.split, !llvm.loop !49
 
 .split5:                                          ; preds = %74, %55
   %.us-phi7 = phi i32 [ %56, %55 ], [ %75, %74 ]
@@ -1680,7 +1680,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !27
   %80 = add nsw i32 %34, -1
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread, label %.split8, !llvm.loop !44
+  br i1 %81, label %.thread, label %.split8, !llvm.loop !50
 
 .thread:                                          ; preds = %.split5, %79, %.split8, %.split8.us, %9, %.split5.us.us
   ret void
@@ -1846,7 +1846,7 @@ define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr noundef r
   %27 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26) #10, !srcloc !6
   %28 = and i32 %27, %6
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %24, %18, %1
   %.pre-phi = phi i32 [ %23, %18 ], [ 0, %1 ], [ 0, %24 ]
@@ -2008,9 +2008,14 @@ attributes #11 = { cold nounwind }
 !38 = !{i64 2156049431, i64 2156049242, i64 2156049292, i64 2156049338, i64 2156049366}
 !39 = !{i64 2156049737, i64 2156049548, i64 2156049598, i64 2156049644, i64 2156049672}
 !40 = distinct !{!40, !8, !9}
-!41 = distinct !{!41, !8, !9}
-!42 = !{i32 -22, i32 1}
-!43 = distinct !{!43, !8, !9}
-!44 = distinct !{!44, !8, !9}
+!41 = distinct !{!41, !8, !9, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !8, !9, !42}
+!44 = !{i32 -22, i32 1}
 !45 = distinct !{!45, !8, !9}
-!46 = distinct !{!46, !9}
+!46 = distinct !{!46, !8, !9, !42}
+!47 = distinct !{!47, !8, !9, !42}
+!48 = distinct !{!48, !8, !9, !42}
+!49 = distinct !{!49, !8, !9}
+!50 = distinct !{!50, !8, !9}
+!51 = distinct !{!51, !9}

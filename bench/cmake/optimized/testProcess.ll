@@ -98,7 +98,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
 21:                                               ; preds = %13
   %22 = load ptr, ptr @stderr, align 8, !tbaa !4
   %23 = tail call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %22) #14
-  br label %114
+  br label %115
 
 24:                                               ; preds = %runChild2.exit
   %25 = icmp sgt i32 %.01926, 1
@@ -160,212 +160,210 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br i1 %.not80106.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  br i1 %.not81.i, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
+  br i1 %.not81.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i
-  br i1 %.not76.i, label %.lr.ph.split.us.i.us, label %.lr.ph.split.us.i
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %43
+  br i1 %.not76.i, label %43, label %41
 
-.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i.us
-  %41 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null) #13
-  %.not80.us.i.us = icmp eq i32 %41, 0
-  br i1 %.not80.us.i.us, label %.loopexit.i, label %.lr.ph.split.us.i.us, !llvm.loop !17
-
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
+41:                                               ; preds = %.lr.ph.split.us.i
   %42 = call i32 @usleep(i32 noundef 100000) #13
-  %43 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #13
-  %.not80.us.i = icmp eq i32 %43, 0
+  br label %43
+
+43:                                               ; preds = %41, %.lr.ph.split.us.i
+  %44 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #13
+  %.not80.us.i = icmp eq i32 %44, 0
   br i1 %.not80.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !17
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %67
-  %44 = phi i32 [ %68, %67 ], [ %40, %.lr.ph.i ]
-  %.1107.i = phi i32 [ %.296.i, %67 ], [ %8, %.lr.ph.i ]
-  %45 = icmp ne i32 %.1107.i, 0
-  %46 = icmp eq i32 %44, 255
-  %or.cond3.i = and i1 %46, %45
-  br i1 %or.cond3.i, label %47, label %56
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %68
+  %45 = phi i32 [ %69, %68 ], [ %40, %.lr.ph.i ]
+  %.1107.i = phi i32 [ %.296.i, %68 ], [ %8, %.lr.ph.i ]
+  %46 = icmp ne i32 %.1107.i, 0
+  %47 = icmp eq i32 %45, 255
+  %or.cond3.i = and i1 %47, %46
+  br i1 %or.cond3.i, label %48, label %57
 
-47:                                               ; preds = %.lr.ph.split.i
-  %48 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %49 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %48)
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %51 = call i32 @fflush(ptr noundef %50)
-  %52 = add nsw i32 %.1107.i, 1
-  %53 = icmp sgt i32 %.1107.i, 18
-  br i1 %53, label %.thread.i, label %64
+48:                                               ; preds = %.lr.ph.split.i
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %50 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %49)
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %52 = call i32 @fflush(ptr noundef %51)
+  %53 = add nsw i32 %.1107.i, 1
+  %54 = icmp sgt i32 %.1107.i, 18
+  br i1 %54, label %.thread.i, label %65
 
-.thread.i:                                        ; preds = %47
-  %54 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.11, i32 noundef 20) #13
+.thread.i:                                        ; preds = %48
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.11, i32 noundef 20) #13
   call void @cmsysProcess_Kill(ptr noundef nonnull %17) #13
+  br label %66
+
+57:                                               ; preds = %.lr.ph.split.i
+  %58 = load ptr, ptr %14, align 8, !tbaa !11
+  %59 = load i32, ptr %15, align 4, !tbaa !13
+  %60 = sext i32 %59 to i64
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %62 = call i64 @fwrite(ptr noundef %58, i64 noundef 1, i64 noundef %60, ptr noundef %61)
+  %63 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %64 = call i32 @fflush(ptr noundef %63)
   br label %65
 
-56:                                               ; preds = %.lr.ph.split.i
-  %57 = load ptr, ptr %14, align 8, !tbaa !11
-  %58 = load i32, ptr %15, align 4, !tbaa !13
-  %59 = sext i32 %58 to i64
-  %60 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %61 = call i64 @fwrite(ptr noundef %57, i64 noundef 1, i64 noundef %59, ptr noundef %60)
-  %62 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %63 = call i32 @fflush(ptr noundef %62)
-  br label %64
-
-64:                                               ; preds = %56, %47
-  %.2.i = phi i32 [ %52, %47 ], [ %.1107.i, %56 ]
+65:                                               ; preds = %57, %48
+  %.2.i = phi i32 [ %53, %48 ], [ %.1107.i, %57 ]
   %.not82.i = icmp eq i32 %.2.i, 0
-  br i1 %.not82.i, label %67, label %65
+  br i1 %.not82.i, label %68, label %66
 
-65:                                               ; preds = %64, %.thread.i
-  %.295.i = phi i32 [ %52, %.thread.i ], [ %.2.i, %64 ]
-  %66 = call i32 @usleep(i32 noundef 100000) #13
-  br label %67
+66:                                               ; preds = %65, %.thread.i
+  %.295.i = phi i32 [ %53, %.thread.i ], [ %.2.i, %65 ]
+  %67 = call i32 @usleep(i32 noundef 100000) #13
+  br label %68
 
-67:                                               ; preds = %65, %64
-  %.296.i = phi i32 [ %.295.i, %65 ], [ 0, %64 ]
-  %68 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #13
-  %.not80.i = icmp eq i32 %68, 0
-  br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !17
+68:                                               ; preds = %66, %65
+  %.296.i = phi i32 [ %.295.i, %66 ], [ 0, %65 ]
+  %69 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #13
+  %.not80.i = icmp eq i32 %69, 0
+  br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !19
 
-.loopexit.i:                                      ; preds = %67, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.preheader.i, %39
-  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ 0, %.lr.ph.split.us.i.us ], [ %8, %.lr.ph.split.us.i ], [ %.296.i, %67 ]
-  br i1 %.not79.i, label %70, label %69
-
-69:                                               ; preds = %.loopexit.i
-  call void @cmsysProcess_Disown(ptr noundef nonnull %17) #13
-  br label %72
+.loopexit.i:                                      ; preds = %68, %43, %.preheader.i, %39
+  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ %8, %43 ], [ %.296.i, %68 ]
+  br i1 %.not79.i, label %71, label %70
 
 70:                                               ; preds = %.loopexit.i
-  %71 = call i32 @cmsysProcess_WaitForExit(ptr noundef nonnull %17, ptr noundef null) #13
-  br label %72
+  call void @cmsysProcess_Disown(ptr noundef nonnull %17) #13
+  br label %73
 
-72:                                               ; preds = %70, %69
-  %73 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
-  switch i32 %73, label %.thread97.i [
-    i32 0, label %74
-    i32 3, label %75
-    i32 5, label %76
-    i32 4, label %77
-    i32 6, label %81
-    i32 2, label %82
-    i32 7, label %86
-    i32 1, label %87
+71:                                               ; preds = %.loopexit.i
+  %72 = call i32 @cmsysProcess_WaitForExit(ptr noundef nonnull %17, ptr noundef null) #13
+  br label %73
+
+73:                                               ; preds = %71, %70
+  %74 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
+  switch i32 %74, label %.thread97.i [
+    i32 0, label %75
+    i32 3, label %76
+    i32 5, label %77
+    i32 4, label %78
+    i32 6, label %82
+    i32 2, label %83
+    i32 7, label %87
+    i32 1, label %88
   ]
 
-74:                                               ; preds = %72
+75:                                               ; preds = %73
   %puts88.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %.thread97.i
 
-75:                                               ; preds = %72
+76:                                               ; preds = %73
   %puts87.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   br label %.thread97.i
 
-76:                                               ; preds = %72
+77:                                               ; preds = %73
   %puts86.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %.thread97.i
 
-77:                                               ; preds = %72
-  %78 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
-  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %78)
-  %80 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
-  %.not85.i = icmp eq i32 %2, %80
-  br i1 %.not85.i, label %90, label %.thread102.i
+78:                                               ; preds = %73
+  %79 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
+  %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %79)
+  %81 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
+  %.not85.i = icmp eq i32 %2, %81
+  br i1 %.not85.i, label %91, label %.thread102.i
 
-81:                                               ; preds = %72
+82:                                               ; preds = %73
   %puts84.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.thread97.i
 
-82:                                               ; preds = %72
-  %83 = call ptr @cmsysProcess_GetExceptionString(ptr noundef nonnull %17) #13
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83)
-  %85 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
-  %.not83.i = icmp eq i32 %2, %85
-  br i1 %.not83.i, label %90, label %.thread102.i
+83:                                               ; preds = %73
+  %84 = call ptr @cmsysProcess_GetExceptionString(ptr noundef nonnull %17) #13
+  %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %84)
+  %86 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
+  %.not83.i = icmp eq i32 %2, %86
+  br i1 %.not83.i, label %91, label %.thread102.i
 
-86:                                               ; preds = %72
+87:                                               ; preds = %73
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread97.i
 
-87:                                               ; preds = %72
-  %88 = call ptr @cmsysProcess_GetErrorString(ptr noundef nonnull %17) #13
-  %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %88)
+88:                                               ; preds = %73
+  %89 = call ptr @cmsysProcess_GetErrorString(ptr noundef nonnull %17) #13
+  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %89)
   br label %.thread97.i
 
-90:                                               ; preds = %82, %77
-  %91 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
-  %.065.in.not.i = icmp eq i32 %3, %91
+91:                                               ; preds = %83, %78
+  %92 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
+  %.065.in.not.i = icmp eq i32 %3, %92
   br i1 %.065.in.not.i, label %.thread97.i, label %.thread102.i
 
-.thread102.i:                                     ; preds = %90, %82, %77
-  %92 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
-  %.not90.i = icmp eq i32 %2, %92
-  br i1 %.not90.i, label %97, label %93
+.thread102.i:                                     ; preds = %91, %83, %78
+  %93 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
+  %.not90.i = icmp eq i32 %2, %93
+  br i1 %.not90.i, label %98, label %94
 
-93:                                               ; preds = %.thread102.i
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %95 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.20, i32 noundef %2, i32 noundef %95) #15
-  br label %97
+94:                                               ; preds = %.thread102.i
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %96 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #13
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.20, i32 noundef %2, i32 noundef %96) #15
+  br label %98
 
-97:                                               ; preds = %93, %.thread102.i
-  %98 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
-  %.not91.i = icmp eq i32 %3, %98
-  br i1 %.not91.i, label %.thread97.i, label %99
+98:                                               ; preds = %94, %.thread102.i
+  %99 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
+  %.not91.i = icmp eq i32 %3, %99
+  br i1 %.not91.i, label %.thread97.i, label %100
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %101 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.21, i32 noundef %3, i32 noundef %101) #15
+100:                                              ; preds = %98
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %102 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #13
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.21, i32 noundef %3, i32 noundef %102) #15
   br label %.thread97.i
 
-.thread97.i:                                      ; preds = %99, %97, %90, %87, %86, %81, %76, %75, %74, %72
-  %.not22 = phi i1 [ false, %97 ], [ false, %99 ], [ true, %90 ], [ true, %72 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %81 ], [ true, %86 ], [ true, %87 ]
-  %103 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
-  %.not92.i = icmp eq i32 %103, %1
-  br i1 %.not92.i, label %104, label %.thread
+.thread97.i:                                      ; preds = %100, %98, %91, %88, %87, %82, %77, %76, %75, %73
+  %.not22 = phi i1 [ false, %98 ], [ false, %100 ], [ true, %91 ], [ true, %73 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ true, %82 ], [ true, %87 ], [ true, %88 ]
+  %104 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
+  %.not92.i = icmp eq i32 %104, %1
+  br i1 %.not92.i, label %105, label %.thread
 
-104:                                              ; preds = %.thread97.i
-  %105 = icmp ne i32 %.0.i, 0
-  %106 = icmp slt i32 %.0.i, 5
-  %or.cond5.i = and i1 %105, %106
+105:                                              ; preds = %.thread97.i
+  %106 = icmp ne i32 %.0.i, 0
+  %107 = icmp slt i32 %.0.i, 5
+  %or.cond5.i = and i1 %106, %107
   br i1 %or.cond5.i, label %runChild2.exit.thread, label %runChild2.exit
 
 .thread:                                          ; preds = %.thread97.i
-  %107 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %108 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %108) #15
-  %110 = icmp ne i32 %.0.i, 0
-  %111 = icmp slt i32 %.0.i, 5
-  %or.cond5.i34 = and i1 %110, %111
-  br i1 %or.cond5.i34, label %runChild2.exit.thread, label %runChild2.exit.thread36
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %109 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %109) #15
+  %111 = icmp ne i32 %.0.i, 0
+  %112 = icmp slt i32 %.0.i, 5
+  %or.cond5.i32 = and i1 %111, %112
+  br i1 %or.cond5.i32, label %runChild2.exit.thread, label %runChild2.exit.thread34
 
-runChild2.exit.thread36:                          ; preds = %.thread
+runChild2.exit.thread34:                          ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
   br label %runChild2.exit..loopexit_crit_edge
 
-runChild2.exit.thread:                            ; preds = %104, %.thread
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.23, i32 noundef %.0.i, i32 noundef 5) #15
+runChild2.exit.thread:                            ; preds = %105, %.thread
+  %113 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.23, i32 noundef %.0.i, i32 noundef 5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
   br label %.loopexit
 
-runChild2.exit:                                   ; preds = %104
+runChild2.exit:                                   ; preds = %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
   br i1 %.not22, label %24, label %runChild2.exit..loopexit_crit_edge, !llvm.loop !9
 
-runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %runChild2.exit.thread36
+runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %runChild2.exit.thread34
   br label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %.preheader, %runChild2.exit..loopexit_crit_edge, %runChild2.exit.thread
   %.1 = phi i32 [ 1, %runChild2.exit.thread ], [ 1, %runChild2.exit..loopexit_crit_edge ], [ 1, %.preheader ], [ 0, %24 ]
   call void @cmsysProcess_Delete(ptr noundef nonnull %17) #13
-  br label %114
+  br label %115
 
-114:                                              ; preds = %.loopexit, %21
+115:                                              ; preds = %.loopexit, %21
   %.0 = phi i32 [ %.1, %.loopexit ], [ 1, %21 ]
   ret i32 %.0
 }
@@ -468,9 +466,9 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
 
 36:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8193, ptr nonnull %4) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 46, i64 8192, i1 false), !tbaa !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 46, i64 8192, i1 false), !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8192
-  store i8 10, ptr %37, align 16, !tbaa !18
+  store i8 10, ptr %37, align 16, !tbaa !20
   br label %38
 
 38:                                               ; preds = %38, %36
@@ -507,7 +505,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #13
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %52, i8 0, i64 144, i1 false)
-  store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !18
+  store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !20
   %53 = call i32 @sigemptyset(ptr noundef nonnull %52) #13
   %54 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #13
   %55 = icmp slt i32 %54, 0
@@ -1053,5 +1051,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !14 = !{!"int", !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !7, i64 0}
-!17 = distinct !{!17, !10}
-!18 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !10, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !10}
+!20 = !{!7, !7, i64 0}

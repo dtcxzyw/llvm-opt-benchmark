@@ -608,7 +608,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %192 = phi ptr [ %172, %171 ], [ %.pre57, %165 ], [ %158, %157 ]
   %193 = getelementptr i8, ptr %145, i64 4
   %.not = icmp eq ptr %192, null
-  br i1 %.not, label %.thread, label %.split, !llvm.loop !11
+  br i1 %.not, label %.thread, label %.split, !llvm.loop !13
 
 .thread:                                          ; preds = %191, %139, %.split33.us, %.split33.us, %.split33.us, %184, %186, %53, %84, %95
   %194 = phi i32 [ %2, %95 ], [ %2, %53 ], [ %87, %84 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
@@ -688,4 +688,6 @@ attributes #4 = { nounwind }
 !8 = distinct !{!8, !6, !7}
 !9 = !{!"auto-init"}
 !10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!11 = distinct !{!11, !6, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !6, !7}

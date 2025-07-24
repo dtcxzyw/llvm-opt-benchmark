@@ -1598,7 +1598,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %.lr.ph.split, %64
   %67 = getelementptr i8, ptr %66, i64 140
   %.val = load i32, ptr %67, align 4, !tbaa !35
   %68 = icmp slt i32 %65, %.val
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !104
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %Bar_ProgressUpdate.exit, %Bar_ProgressUpdate.exit.us, %Abc_Clock.exit29
   call void @Bar_ProgressStop(ptr noundef %54) #17
@@ -1624,7 +1624,7 @@ Abc_Clock.exit31:                                 ; preds = %._crit_edge, %73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   %80 = add i64 %.0.i30, %.0.i26.neg
   %81 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  store i64 %80, ptr %81, align 8, !tbaa !105
+  store i64 %80, ptr %81, align 8, !tbaa !107
   call void @Cgt_ManStop(ptr noundef nonnull %34) #17
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #17
   ret ptr %70
@@ -1702,7 +1702,7 @@ Vec_PtrFree.exit.i:                               ; preds = %26, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = sext i32 %.val8.i to i64
   %29 = icmp slt i64 %indvars.iv.next.i, %28
-  br i1 %29, label %20, label %.critedge.i, !llvm.loop !106
+  br i1 %29, label %20, label %.critedge.i, !llvm.loop !108
 
 .critedge.i:                                      ; preds = %27, %16
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1794,7 +1794,7 @@ Vec_PtrFree.exit.i:                               ; preds = %34, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = sext i32 %.val8.i to i64
   %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %28, label %.critedge.i, !llvm.loop !106
+  br i1 %37, label %28, label %.critedge.i, !llvm.loop !108
 
 .critedge.i:                                      ; preds = %35, %24
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1981,6 +1981,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !101 = distinct !{!101, !102, !"vprintf: argument 0"}
 !102 = distinct !{!102, !"vprintf"}
 !103 = !{!16, !25, i64 144}
-!104 = distinct !{!104, !34}
-!105 = !{!16, !25, i64 208}
+!104 = distinct !{!104, !34, !105}
+!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !106 = distinct !{!106, !34}
+!107 = !{!16, !25, i64 208}
+!108 = distinct !{!108, !34}

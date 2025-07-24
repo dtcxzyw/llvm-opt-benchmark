@@ -295,7 +295,7 @@ substitution_cost.exit.us:                        ; preds = %64, %62, %57
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %74, i64 %.092149.us)
   %75 = add nuw nsw i64 %.091150.us, 1
   %exitcond163.not = icmp eq i64 %75, %.297
-  br i1 %exitcond163.not, label %._crit_edge.us, label %57, !llvm.loop !24
+  br i1 %exitcond163.not, label %._crit_edge.us, label %57, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %substitution_cost.exit.us
   %.not.us = icmp ugt i64 %spec.select.us, %4
@@ -309,7 +309,7 @@ substitution_cost.exit.us:                        ; preds = %64, %62, %57
   %77 = add i64 %.0105144, 2
   %78 = add nuw nsw i64 %.0104145, 1
   %exitcond.not = icmp eq i64 %78, %.297
-  br i1 %exitcond.not, label %.lr.ph151.us.preheader, label %.lr.ph146, !llvm.loop !25
+  br i1 %exitcond.not, label %.lr.ph151.us.preheader, label %.lr.ph146, !llvm.loop !26
 
 .loopexit:                                        ; preds = %55, %._crit_edge.us, %6, %47, %38, %32
   %.0 = phi i64 [ %34, %32 ], [ %39, %38 ], [ %48, %47 ], [ 0, %6 ], [ %74, %55 ], [ %49, %._crit_edge.us ]
@@ -410,6 +410,7 @@ attributes #5 = { nounwind }
 !20 = !{!7, !7, i64 0}
 !21 = distinct !{!21, !19}
 !22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
+!23 = distinct !{!23, !19, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}

@@ -343,7 +343,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   store float %43, ptr %44, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph69, !llvm.loop !13
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph69, !llvm.loop !14
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %58
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %58 ], [ 0, %.lr.ph67 ]
@@ -374,7 +374,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   store float %storemerge, ptr %46, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph67.split, !llvm.loop !12
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph67.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %58, %41, %.lr.ph69, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit, %.preheader, %20
   ret void
@@ -399,5 +399,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!12 = distinct !{!12, !6, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

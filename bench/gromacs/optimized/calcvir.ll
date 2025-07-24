@@ -90,7 +90,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 32:                                               ; preds = %33
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 3
-  br i1 %exitcond62.not.i, label %22, label %.preheader38.us.i, !llvm.loop !19
+  br i1 %exitcond62.not.i, label %22, label %.preheader38.us.i, !llvm.loop !20
 
 33:                                               ; preds = %.preheader38.us.i, %33
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %33 ]
@@ -102,7 +102,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
   store float %38, ptr %36, align 4, !tbaa !15
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 3
-  br i1 %exitcond58.not.i, label %32, label %33, !llvm.loop !20
+  br i1 %exitcond58.not.i, label %32, label %33, !llvm.loop !21
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %25
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %25 ], [ 0, %.preheader.us.i.preheader ]
@@ -129,12 +129,12 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 42:                                               ; preds = %43
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count74.i
-  br i1 %exitcond54.not.i, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader, label %.preheader39.i, !llvm.loop !18
+  br i1 %exitcond54.not.i, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader, label %.preheader39.i, !llvm.loop !22
 
 43:                                               ; preds = %44
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next48.i, 3
-  br i1 %exitcond50.not.i, label %42, label %.preheader38.i, !llvm.loop !19
+  br i1 %exitcond50.not.i, label %42, label %.preheader38.i, !llvm.loop !20
 
 44:                                               ; preds = %44, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %44 ]
@@ -146,7 +146,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
   store float %49, ptr %47, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %43, label %44, !llvm.loop !20
+  br i1 %exitcond.not.i, label %43, label %44, !llvm.loop !21
 
 50:                                               ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit
   call void @llvm.lifetime.start.p0(i64 13824, ptr nonnull %14) #3
@@ -237,7 +237,7 @@ _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader: ; preds = %42, %.loopexit
   %99 = fadd float %63, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !23
 
 100:                                              ; preds = %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
@@ -275,7 +275,7 @@ _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit:      ; preds = %_ZL14calc_x_times_f
   store float %124, ptr %120, align 4, !tbaa !15
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %100, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit, !llvm.loop !22
+  br i1 %exitcond43.not, label %100, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -333,7 +333,7 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
   %36 = getelementptr inbounds [3 x float], ptr %34, i64 %35
   %37 = load ptr, ptr %5, align 8, !tbaa !8
   %38 = getelementptr inbounds [3 x float], ptr %37, i64 %35
-  %39 = load i8, ptr %6, align 1, !tbaa !11, !range !23, !noundef !24
+  %39 = load i8, ptr %6, align 1, !tbaa !11, !range !25, !noundef !26
   %40 = load ptr, ptr %7, align 8, !tbaa !8
   %41 = icmp eq i64 %indvars.iv, 0
   %42 = mul nsw i64 %indvars.iv, 3
@@ -389,7 +389,7 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 58:                                               ; preds = %59
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 3
-  br i1 %exitcond62.not.i, label %47, label %.preheader38.us.i, !llvm.loop !19
+  br i1 %exitcond62.not.i, label %47, label %.preheader38.us.i, !llvm.loop !20
 
 59:                                               ; preds = %.preheader38.us.i, %59
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %59 ]
@@ -402,7 +402,7 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
   store float %65, ptr %63, align 4, !tbaa !15
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 3
-  br i1 %exitcond58.not.i, label %58, label %59, !llvm.loop !20
+  br i1 %exitcond58.not.i, label %58, label %59, !llvm.loop !21
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %50
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %50 ], [ 0, %.preheader.us.i.preheader ]
@@ -426,12 +426,12 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 69:                                               ; preds = %70
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count74.i
-  br i1 %exitcond54.not.i, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit, label %.preheader39.i, !llvm.loop !18
+  br i1 %exitcond54.not.i, label %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit, label %.preheader39.i, !llvm.loop !22
 
 70:                                               ; preds = %71
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next48.i, 3
-  br i1 %exitcond50.not.i, label %69, label %.preheader38.i, !llvm.loop !19
+  br i1 %exitcond50.not.i, label %69, label %.preheader38.i, !llvm.loop !20
 
 71:                                               ; preds = %71, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %71 ]
@@ -444,7 +444,7 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
   store float %77, ptr %75, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %70, label %71, !llvm.loop !20
+  br i1 %exitcond.not.i, label %70, label %71, !llvm.loop !21
 
 _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit:      ; preds = %69, %.loopexit.us.i, %.lr.ph
   %exitcond.not = icmp eq i32 %24, %30
@@ -480,7 +480,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #3
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare !callback !25 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare !callback !27 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
 
 declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #4
 
@@ -535,12 +535,14 @@ attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !6, i64 0}
 !17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!18 = distinct !{!18, !14, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
 !22 = distinct !{!22, !14}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = !{!26}
-!26 = !{i64 2, i64 -1, i64 -1, i1 true}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{!28}
+!28 = !{i64 2, i64 -1, i64 -1, i1 true}

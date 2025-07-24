@@ -187,7 +187,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %.1.lcssa = phi ptr [ %.091195, %87 ], [ %.2, %319 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
-  br i1 %exitcond264.not, label %.loopexit111, label %87, !llvm.loop !28
+  br i1 %exitcond264.not, label %.loopexit111, label %87, !llvm.loop !29
 
 87:                                               ; preds = %.lr.ph197, %.loopexit116
   %indvars.iv260 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next261, %.loopexit116 ]
@@ -206,9 +206,9 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %.1190 = phi ptr [ %.091195, %.lr.ph192 ], [ %.2, %319 ]
   %91 = load ptr, ptr %12, align 8, !tbaa !10
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv260
-  %93 = load ptr, ptr %92, align 8, !tbaa !29
+  %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv255
-  %95 = load ptr, ptr %94, align 8, !tbaa !29
+  %95 = load ptr, ptr %94, align 8, !tbaa !30
   %96 = call noalias dereferenceable_or_null(800) ptr @calloc(i64 noundef 100, i64 noundef 8) #18
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %gv_calloc.exit.i
@@ -679,7 +679,7 @@ gv_recalloc.exit244.i:                            ; preds = %289, %287, %266
 .critedge235.split.us359.i:                       ; preds = %297
   %298 = add nuw i64 %.0162356.us.i, 1
   %exitcond389.not.i = icmp eq i64 %298, %.3191.i
-  br i1 %exitcond389.not.i, label %splines_intersect.exit, label %.preheader.us.i, !llvm.loop !31
+  br i1 %exitcond389.not.i, label %splines_intersect.exit, label %.preheader.us.i, !llvm.loop !32
 
 299:                                              ; preds = %297
   %.idx227.us360.i = shl i64 %.0.us357.i, 4
@@ -692,7 +692,7 @@ gv_recalloc.exit244.i:                            ; preds = %289, %287, %266
   %305 = call double @llvm.fabs.f64(double %303)
   %unswitched.select.us.i = select i1 %304, double %305, double %303
   %306 = fcmp ogt double %unswitched.select.us.i, %16
-  br i1 %306, label %.critedge, label %297, !llvm.loop !32
+  br i1 %306, label %.critedge, label %297, !llvm.loop !33
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %.critedge235.split.us.i
   %.0162356.i = phi i64 [ %316, %.critedge235.split.us.i ], [ 0, %.preheader.lr.ph.i ]
@@ -714,12 +714,12 @@ gv_recalloc.exit244.i:                            ; preds = %289, %287, %266
   %313 = getelementptr inbounds nuw i8, ptr %.2173.i, i64 %.idx228.us.i
   %314 = call double @intersection_angle(ptr noundef %307, ptr noundef %308, ptr noundef %311, ptr noundef %313) #15
   %315 = fcmp ogt double %314, %16
-  br i1 %315, label %.critedge, label %309, !llvm.loop !32
+  br i1 %315, label %.critedge, label %309, !llvm.loop !34
 
 .critedge235.split.us.i:                          ; preds = %309
   %316 = add nuw i64 %.0162356.i, 1
   %exitcond387.not.i = icmp eq i64 %316, %.3191.i
-  br i1 %exitcond387.not.i, label %splines_intersect.exit, label %.preheader.i, !llvm.loop !31
+  br i1 %exitcond387.not.i, label %splines_intersect.exit, label %.preheader.i, !llvm.loop !35
 
 splines_intersect.exit:                           ; preds = %.critedge235.split.us.i, %.critedge235.split.us359.i, %.critedge4.thread.i
   call void @free(ptr noundef %.2177.i) #15
@@ -737,13 +737,13 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   %.2 = phi ptr [ %318, %.critedge ], [ %.1190, %splines_intersect.exit ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count263
-  br i1 %exitcond259.not, label %.loopexit116, label %90, !llvm.loop !33
+  br i1 %exitcond259.not, label %.loopexit116, label %90, !llvm.loop !36
 
 .loopexit:                                        ; preds = %349, %.lr.ph206.split
   %.5.lcssa = phi ptr [ %.4205, %.lr.ph206.split ], [ %.6.us, %349 ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count287
-  br i1 %exitcond276.not, label %.loopexit111, label %.lr.ph206.split, !llvm.loop !27
+  br i1 %exitcond276.not, label %.loopexit111, label %.lr.ph206.split, !llvm.loop !37
 
 .lr.ph206.split:                                  ; preds = %.lr.ph206, %.loopexit
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.loopexit ], [ 0, %.lr.ph206 ]
@@ -795,7 +795,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   %.6.us = phi ptr [ %348, %346 ], [ %.5200.us, %330 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count287
-  br i1 %exitcond271.not, label %.loopexit, label %330, !llvm.loop !26
+  br i1 %exitcond271.not, label %.loopexit, label %330, !llvm.loop !38
 
 .loopexit111:                                     ; preds = %.loopexit116, %.loopexit, %.loopexit.us, %83, %.preheader110
   %.3 = phi ptr [ %46, %.preheader110 ], [ %46, %83 ], [ %.5.lcssa.us, %.loopexit.us ], [ %.5.lcssa, %.loopexit ], [ %.1.lcssa, %.loopexit116 ]
@@ -819,7 +819,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
 
 356:                                              ; preds = %354
   %357 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %358 = load i32, ptr %350, align 8, !tbaa !34
+  %358 = load i32, ptr %350, align 8, !tbaa !39
   %359 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %360 = load i32, ptr %359, align 8, !tbaa !20
   %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.2, i32 noundef %358, i32 noundef %360) #17
@@ -851,13 +851,13 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   %indvars.iv289 = phi i64 [ %indvars.iv.next290, %.lr.ph216 ], [ 0, %.preheader ]
   %371 = load ptr, ptr %12, align 8, !tbaa !10
   %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv289
-  %373 = load ptr, ptr %372, align 8, !tbaa !29
+  %373 = load ptr, ptr %372, align 8, !tbaa !30
   call void @free(ptr noundef %373) #15
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %374 = load i32, ptr %11, align 4, !tbaa !8
   %375 = sext i32 %374 to i64
   %376 = icmp slt i64 %indvars.iv.next290, %375
-  br i1 %376, label %.lr.ph216, label %._crit_edge217.loopexit, !llvm.loop !35
+  br i1 %376, label %.lr.ph216, label %._crit_edge217.loopexit, !llvm.loop !40
 
 ._crit_edge217.loopexit:                          ; preds = %.lr.ph216
   %.pre = load ptr, ptr %12, align 8, !tbaa !10
@@ -1001,12 +1001,17 @@ attributes #22 = { cold noreturn nounwind }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"double", !6, i64 0}
 !26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 omnipotent char", !5, i64 0}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
+!27 = distinct !{!27, !22, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !22}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 omnipotent char", !5, i64 0}
+!32 = distinct !{!32, !22, !28}
 !33 = distinct !{!33, !22}
-!34 = !{!15, !9, i64 0}
+!34 = distinct !{!34, !22, !28}
 !35 = distinct !{!35, !22}
+!36 = distinct !{!36, !22}
+!37 = distinct !{!37, !22}
+!38 = distinct !{!38, !22, !28}
+!39 = !{!15, !9, i64 0}
+!40 = distinct !{!40, !22}

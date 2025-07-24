@@ -351,7 +351,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
   %126 = add nsw i32 %125, %116
   %127 = add nsw i32 %126, 3
   %128 = icmp slt i32 %127, %.0
-  br i1 %128, label %.lr.ph, label %nextYRange.exit.thread, !llvm.loop !8
+  br i1 %128, label %.lr.ph, label %nextYRange.exit.thread, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer263.loopexit
   %129 = phi i32 [ %100, %.lr.ph.lr.ph ], [ %127, %.outer263.loopexit ]
@@ -414,7 +414,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
   %147 = load i32, ptr %146, align 4
   store i32 %147, ptr %64, align 4
   %.not222 = icmp sgt i32 %147, %61
-  br i1 %.not222, label %148, label %139, !llvm.loop !9
+  br i1 %.not222, label %148, label %139, !llvm.loop !10
 
 148:                                              ; preds = %142
   %149 = trunc nsw i64 %indvars.iv.next to i32
@@ -498,7 +498,7 @@ fill.exit:                                        ; preds = %153, %fill.exit.loo
 fill.exit234:                                     ; preds = %.preheader.us.i230, %169, %fill.exit
   %186 = load i32, ptr %64, align 4
   %.not224 = icmp slt i32 %186, %65
-  br i1 %.not224, label %.outer, label %nextXBand.exit.thread, !llvm.loop !9
+  br i1 %.not224, label %.outer, label %nextXBand.exit.thread, !llvm.loop !10
 
 nextXBand.exit.thread.loopexit:                   ; preds = %139
   %187 = trunc nsw i64 %indvars.iv to i32
@@ -563,7 +563,7 @@ fill.exit241:                                     ; preds = %fill.exit241.loopex
   %211 = add nsw i32 %210, %.2252260
   %212 = add nsw i32 %211, 3
   %213 = icmp slt i32 %212, %.0
-  br i1 %213, label %115, label %nextYRange.exit.thread, !llvm.loop !8
+  br i1 %213, label %115, label %nextYRange.exit.thread, !llvm.loop !9
 
 nextYRange.exit.thread:                           ; preds = %.outer263.loopexit, %131, %209, %.preheader
   %.0199.ph.lcssa = phi i32 [ %28, %.preheader ], [ %.0199.ph299, %209 ], [ %.0199.ph299, %131 ], [ %124, %.outer263.loopexit ]
@@ -627,7 +627,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

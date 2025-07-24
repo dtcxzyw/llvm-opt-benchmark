@@ -293,4 +293,5 @@ attributes #12 = { cold noreturn nounwind }
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
+!23 = distinct !{!23, !21, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}

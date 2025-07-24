@@ -312,12 +312,12 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr noalias noundef readonl
   store i32 %31, ptr %29, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %14
   %32 = getelementptr inbounds i32, ptr %.01016.us, i64 %12
   %33 = icmp samesign ugt i32 %.in, 1
-  br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !28
+  br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !29
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
@@ -355,7 +355,7 @@ define hidden void @VP8LBundleColorMap_C(ptr noalias noundef readonly captures(n
   %13 = icmp eq i32 %12, 0
   %spec.select = select i1 %13, i32 -16777216, i32 %.02429
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv34
-  %15 = load i8, ptr %14, align 1, !tbaa !29
+  %15 = load i8, ptr %14, align 1, !tbaa !30
   %16 = zext i8 %15 to i32
   %17 = shl nsw i32 %12, %8
   %18 = add nuw nsw i32 %17, 8
@@ -367,12 +367,12 @@ define hidden void @VP8LBundleColorMap_C(ptr noalias noundef readonly captures(n
   store i32 %20, ptr %23, align 4, !tbaa !9
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !30
+  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %25 = load i8, ptr %24, align 1, !tbaa !29
+  %25 = load i8, ptr %24, align 1, !tbaa !30
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
   %28 = or disjoint i32 %27, -16777216
@@ -380,7 +380,7 @@ define hidden void @VP8LBundleColorMap_C(ptr noalias noundef readonly captures(n
   store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader, %7
   ret void
@@ -389,47 +389,47 @@ define hidden void @VP8LBundleColorMap_C(ptr noalias noundef readonly captures(n
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3240
-  %5 = load i32, ptr %4, align 8, !tbaa !32
+  %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = icmp sgt i32 %5, 0
   %7 = shl nuw i32 1, %5
   %8 = add nuw nsw i32 %7, 280
   %9 = select i1 %6, i32 %8, i32 280
   %.not = icmp eq ptr %1, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  %11 = load i8, ptr %10, align 8, !tbaa !29
+  %11 = load i8, ptr %10, align 8, !tbaa !30
   %.not110 = icmp eq i8 %11, 0
   br i1 %.not, label %116, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 3280
-  %14 = load i8, ptr %13, align 8, !tbaa !29
+  %14 = load i8, ptr %13, align 8, !tbaa !30
   %.not121 = icmp eq i8 %14, 0
   br i1 %.not110, label %25, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %0, align 8, !tbaa !35
+  %16 = load ptr, ptr %0, align 8, !tbaa !36
   br i1 %.not121, label %21, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
-  %19 = load ptr, ptr %1, align 8, !tbaa !35
-  %20 = load ptr, ptr %2, align 8, !tbaa !35
+  %19 = load ptr, ptr %1, align 8, !tbaa !36
+  %20 = load ptr, ptr %2, align 8, !tbaa !36
   tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #12
   br label %34
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8, !tbaa !35
+  %22 = load ptr, ptr %2, align 8, !tbaa !36
   %23 = sext i32 %9 to i64
   %24 = shl nsw i64 %23, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(1) %16, i64 %24, i1 false)
   br label %34
 
 25:                                               ; preds = %12
-  %26 = load ptr, ptr %2, align 8, !tbaa !35
+  %26 = load ptr, ptr %2, align 8, !tbaa !36
   br i1 %.not121, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr %1, align 8, !tbaa !35
+  %28 = load ptr, ptr %1, align 8, !tbaa !36
   %29 = sext i32 %9 to i64
   %30 = shl nsw i64 %29, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, ptr noundef nonnull align 4 dereferenceable(1) %28, i64 %30, i1 false)
@@ -443,10 +443,10 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 34:                                               ; preds = %21, %17, %31, %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3281
-  %36 = load i8, ptr %35, align 1, !tbaa !29
+  %36 = load i8, ptr %35, align 1, !tbaa !30
   %.not123 = icmp eq i8 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 3281
-  %38 = load i8, ptr %37, align 1, !tbaa !29
+  %38 = load i8, ptr %37, align 1, !tbaa !30
   %.not124 = icmp eq i8 %38, 0
   br i1 %.not123, label %47, label %39
 
@@ -481,10 +481,10 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 52:                                               ; preds = %45, %41, %51, %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 3282
-  %54 = load i8, ptr %53, align 2, !tbaa !29
+  %54 = load i8, ptr %53, align 2, !tbaa !30
   %.not126 = icmp eq i8 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 3282
-  %56 = load i8, ptr %55, align 2, !tbaa !29
+  %56 = load i8, ptr %55, align 2, !tbaa !30
   %.not127 = icmp eq i8 %56, 0
   br i1 %.not126, label %65, label %57
 
@@ -519,10 +519,10 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 70:                                               ; preds = %63, %59, %69, %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 3283
-  %72 = load i8, ptr %71, align 1, !tbaa !29
+  %72 = load i8, ptr %71, align 1, !tbaa !30
   %.not129 = icmp eq i8 %72, 0
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 3283
-  %74 = load i8, ptr %73, align 1, !tbaa !29
+  %74 = load i8, ptr %73, align 1, !tbaa !30
   %.not130 = icmp eq i8 %74, 0
   br i1 %.not129, label %83, label %75
 
@@ -557,10 +557,10 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 88:                                               ; preds = %81, %77, %87, %85
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 3284
-  %90 = load i8, ptr %89, align 4, !tbaa !29
+  %90 = load i8, ptr %89, align 4, !tbaa !30
   %.not132 = icmp eq i8 %90, 0
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 3284
-  %92 = load i8, ptr %91, align 4, !tbaa !29
+  %92 = load i8, ptr %91, align 4, !tbaa !30
   %.not133 = icmp eq i8 %92, 0
   br i1 %.not132, label %101, label %93
 
@@ -601,34 +601,34 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 109:                                              ; preds = %106, %109
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %109 ]
   %110 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %111 = load i8, ptr %110, align 1, !tbaa !29
+  %111 = load i8, ptr %110, align 1, !tbaa !30
   %112 = getelementptr inbounds nuw [5 x i8], ptr %107, i64 0, i64 %indvars.iv
-  %113 = load i8, ptr %112, align 1, !tbaa !29
+  %113 = load i8, ptr %112, align 1, !tbaa !30
   %114 = or i8 %113, %111
   %115 = getelementptr inbounds nuw [5 x i8], ptr %108, i64 0, i64 %indvars.iv
-  store i8 %114, ptr %115, align 1, !tbaa !29
+  store i8 %114, ptr %115, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !37
 
 116:                                              ; preds = %3
   br i1 %.not110, label %128, label %117
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 3280
-  %119 = load i8, ptr %118, align 8, !tbaa !29
+  %119 = load i8, ptr %118, align 8, !tbaa !30
   %.not111 = icmp eq i8 %119, 0
-  %120 = load ptr, ptr %0, align 8, !tbaa !35
+  %120 = load ptr, ptr %0, align 8, !tbaa !36
   br i1 %.not111, label %124, label %121
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
-  %123 = load ptr, ptr %2, align 8, !tbaa !35
+  %123 = load ptr, ptr %2, align 8, !tbaa !36
   tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #12
   br label %128
 
 124:                                              ; preds = %117
-  %125 = load ptr, ptr %2, align 8, !tbaa !35
+  %125 = load ptr, ptr %2, align 8, !tbaa !36
   %126 = sext i32 %9 to i64
   %127 = shl nsw i64 %126, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %125, ptr noundef nonnull align 4 dereferenceable(1) %120, i64 %127, i1 false)
@@ -636,13 +636,13 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 128:                                              ; preds = %116, %124, %121
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 3281
-  %130 = load i8, ptr %129, align 1, !tbaa !29
+  %130 = load i8, ptr %129, align 1, !tbaa !30
   %.not112 = icmp eq i8 %130, 0
   br i1 %.not112, label %140, label %131
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 3281
-  %133 = load i8, ptr %132, align 1, !tbaa !29
+  %133 = load i8, ptr %132, align 1, !tbaa !30
   %.not113 = icmp eq i8 %133, 0
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not113, label %138, label %135
@@ -660,13 +660,13 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 140:                                              ; preds = %128, %138, %135
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 3282
-  %142 = load i8, ptr %141, align 2, !tbaa !29
+  %142 = load i8, ptr %141, align 2, !tbaa !30
   %.not114 = icmp eq i8 %142, 0
   br i1 %.not114, label %152, label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 3282
-  %145 = load i8, ptr %144, align 2, !tbaa !29
+  %145 = load i8, ptr %144, align 2, !tbaa !30
   %.not115 = icmp eq i8 %145, 0
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %.not115, label %150, label %147
@@ -684,13 +684,13 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 152:                                              ; preds = %140, %150, %147
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 3283
-  %154 = load i8, ptr %153, align 1, !tbaa !29
+  %154 = load i8, ptr %153, align 1, !tbaa !30
   %.not116 = icmp eq i8 %154, 0
   br i1 %.not116, label %164, label %155
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 3283
-  %157 = load i8, ptr %156, align 1, !tbaa !29
+  %157 = load i8, ptr %156, align 1, !tbaa !30
   %.not117 = icmp eq i8 %157, 0
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br i1 %.not117, label %162, label %159
@@ -708,13 +708,13 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 164:                                              ; preds = %152, %162, %159
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 3284
-  %166 = load i8, ptr %165, align 4, !tbaa !29
+  %166 = load i8, ptr %165, align 4, !tbaa !30
   %.not118 = icmp eq i8 %166, 0
   br i1 %.not118, label %176, label %167
 
 167:                                              ; preds = %164
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 3284
-  %169 = load i8, ptr %168, align 4, !tbaa !29
+  %169 = load i8, ptr %168, align 4, !tbaa !30
   %.not119 = icmp eq i8 %169, 0
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   br i1 %.not119, label %174, label %171
@@ -737,14 +737,14 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 178:                                              ; preds = %176, %178
   %indvars.iv140 = phi i64 [ 0, %176 ], [ %indvars.iv.next141, %178 ]
   %179 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv140
-  %180 = load i8, ptr %179, align 1, !tbaa !29
+  %180 = load i8, ptr %179, align 1, !tbaa !30
   %181 = getelementptr inbounds nuw [5 x i8], ptr %177, i64 0, i64 %indvars.iv140
-  %182 = load i8, ptr %181, align 1, !tbaa !29
+  %182 = load i8, ptr %181, align 1, !tbaa !30
   %183 = or i8 %182, %180
-  store i8 %183, ptr %181, align 1, !tbaa !29
+  store i8 %183, ptr %181, align 1, !tbaa !30
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 5
-  br i1 %exitcond143.not, label %.loopexit, label %178, !llvm.loop !37
+  br i1 %exitcond143.not, label %.loopexit, label %178, !llvm.loop !38
 
 .loopexit:                                        ; preds = %109, %178
   ret void
@@ -969,7 +969,7 @@ define internal i32 @ExtraCost_C(ptr noundef readonly captures(none) %0, i32 nou
   %18 = add i32 %17, %.013
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ %7, %2 ], [ %18, %.lr.ph ]
@@ -1020,7 +1020,7 @@ define internal i32 @ExtraCostCombined_C(ptr noalias noundef readonly captures(n
   %33 = add i32 %32, %.01920
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.019.lcssa = phi i32 [ %14, %3 ], [ %33, %.lr.ph ]
@@ -1114,7 +1114,7 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
   %.1 = phi i64 [ %31, %VP8LFastSLog2.exit35 ], [ %44, %VP8LFastSLog2.exit36 ], [ %.02741, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %46, label %3, !llvm.loop !40
+  br i1 %exitcond.not, label %46, label %3, !llvm.loop !41
 
 46:                                               ; preds = %45
   %47 = icmp ult i32 %.131, 256
@@ -1198,7 +1198,7 @@ VP8LFastSLog2.exit:                               ; preds = %9, %13
   %.1 = phi i32 [ %7, %VP8LFastSLog2.exit ], [ %.01218, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %18
   %19 = icmp ult i32 %.1, 256
@@ -1257,8 +1257,8 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
   br i1 %.not, label %56, label %20
 
 20:                                               ; preds = %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = sub nsw i32 %21, %.02729
   %.not.i = icmp eq i32 %.02630, 0
@@ -1267,22 +1267,22 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
 23:                                               ; preds = %20
   %24 = mul i32 %22, %.02630
   %25 = add i32 %17, %24
-  store i32 %25, ptr %9, align 8, !tbaa !10, !alias.scope !42, !noalias !47
+  store i32 %25, ptr %9, align 8, !tbaa !10, !alias.scope !43, !noalias !48
   %26 = add nsw i32 %16, %22
-  store i32 %26, ptr %10, align 4, !tbaa !11, !alias.scope !42, !noalias !47
-  store i32 %.02729, ptr %6, align 4, !tbaa !3, !alias.scope !42, !noalias !47
+  store i32 %26, ptr %10, align 4, !tbaa !11, !alias.scope !43, !noalias !48
+  store i32 %.02729, ptr %6, align 4, !tbaa !3, !alias.scope !43, !noalias !48
   %27 = icmp ult i32 %.02630, 256
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %23
   %29 = zext nneg i32 %.02630 to i64
   %30 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %29
-  %31 = load i64, ptr %30, align 8, !tbaa !12, !noalias !50
+  %31 = load i64, ptr %30, align 8, !tbaa !12, !noalias !51
   br label %VP8LFastSLog2.exit.i
 
 32:                                               ; preds = %23
-  %33 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !50
-  %34 = tail call i64 %33(i32 noundef %.02630) #12, !noalias !50
+  %33 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !51
+  %34 = tail call i64 %33(i32 noundef %.02630) #12, !noalias !51
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %32, %28
@@ -1290,12 +1290,12 @@ VP8LFastSLog2.exit.i:                             ; preds = %32, %28
   %36 = sext i32 %22 to i64
   %37 = mul i64 %35, %36
   %38 = add i64 %15, %37
-  store i64 %38, ptr %2, align 8, !tbaa !18, !alias.scope !42, !noalias !47
+  store i64 %38, ptr %2, align 8, !tbaa !18, !alias.scope !43, !noalias !48
   %39 = icmp ult i32 %14, %.02630
   br i1 %39, label %40, label %GetEntropyUnrefinedHelper.exit
 
 40:                                               ; preds = %VP8LFastSLog2.exit.i
-  store i32 %.02630, ptr %11, align 8, !tbaa !15, !alias.scope !42, !noalias !47
+  store i32 %.02630, ptr %11, align 8, !tbaa !15, !alias.scope !43, !noalias !48
   br label %GetEntropyUnrefinedHelper.exit
 
 GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.exit.i, %40
@@ -1308,14 +1308,14 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %47 = icmp ne i32 %.02630, 0
   %48 = zext i1 %47 to i64
   %49 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  %50 = load i32, ptr %49, align 4, !tbaa !9, !alias.scope !46, !noalias !52
   %51 = add nsw i32 %50, %46
-  store i32 %51, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  store i32 %51, ptr %49, align 4, !tbaa !9, !alias.scope !46, !noalias !52
   %52 = zext i1 %45 to i64
   %53 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %12, i64 0, i64 %48, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  %54 = load i32, ptr %53, align 4, !tbaa !9, !alias.scope !46, !noalias !52
   %55 = add nsw i32 %54, %22
-  store i32 %55, ptr %53, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  store i32 %55, ptr %53, align 4, !tbaa !9, !alias.scope !46, !noalias !52
   br label %56
 
 56:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %13
@@ -1327,7 +1327,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %.1 = phi i32 [ %.02630, %13 ], [ %19, %GetEntropyUnrefinedHelper.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %56, %4
   %61 = phi i32 [ 0, %4 ], [ %57, %56 ]
@@ -1337,8 +1337,8 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %.027.lcssa = phi i32 [ 0, %4 ], [ %.128, %56 ]
   %.026.lcssa = phi i32 [ %5, %4 ], [ %.1, %56 ]
   %.0.lcssa = phi i32 [ 1, %4 ], [ %1, %56 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %65 = sub nsw i32 %.0.lcssa, %.027.lcssa
   %.not.i19 = icmp eq i32 %.026.lcssa, 0
   br i1 %.not.i19, label %GetEntropyUnrefinedHelper.exit21, label %66
@@ -1347,23 +1347,23 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %67 = mul i32 %65, %.026.lcssa
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = add i32 %64, %67
-  store i32 %69, ptr %68, align 8, !tbaa !10, !alias.scope !53, !noalias !58
+  store i32 %69, ptr %68, align 8, !tbaa !10, !alias.scope !54, !noalias !59
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %71 = add nsw i32 %63, %65
-  store i32 %71, ptr %70, align 4, !tbaa !11, !alias.scope !53, !noalias !58
-  store i32 %.027.lcssa, ptr %6, align 4, !tbaa !3, !alias.scope !53, !noalias !58
+  store i32 %71, ptr %70, align 4, !tbaa !11, !alias.scope !54, !noalias !59
+  store i32 %.027.lcssa, ptr %6, align 4, !tbaa !3, !alias.scope !54, !noalias !59
   %72 = icmp ult i32 %.026.lcssa, 256
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %66
   %74 = zext nneg i32 %.026.lcssa to i64
   %75 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %74
-  %76 = load i64, ptr %75, align 8, !tbaa !12, !noalias !61
+  %76 = load i64, ptr %75, align 8, !tbaa !12, !noalias !62
   br label %VP8LFastSLog2.exit.i20
 
 77:                                               ; preds = %66
-  %78 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !61
-  %79 = tail call i64 %78(i32 noundef %.026.lcssa) #12, !noalias !61
+  %78 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !62
+  %79 = tail call i64 %78(i32 noundef %.026.lcssa) #12, !noalias !62
   br label %VP8LFastSLog2.exit.i20
 
 VP8LFastSLog2.exit.i20:                           ; preds = %77, %73
@@ -1376,7 +1376,7 @@ VP8LFastSLog2.exit.i20:                           ; preds = %77, %73
 
 85:                                               ; preds = %VP8LFastSLog2.exit.i20
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.026.lcssa, ptr %86, align 8, !tbaa !15, !alias.scope !53, !noalias !58
+  store i32 %.026.lcssa, ptr %86, align 8, !tbaa !15, !alias.scope !54, !noalias !59
   br label %GetEntropyUnrefinedHelper.exit21
 
 GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i20, %85
@@ -1387,15 +1387,15 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
   %91 = icmp ne i32 %.026.lcssa, 0
   %92 = zext i1 %91 to i64
   %93 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %94 = load i32, ptr %93, align 4, !tbaa !9, !alias.scope !57, !noalias !63
   %95 = add nsw i32 %94, %90
-  store i32 %95, ptr %93, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  store i32 %95, ptr %93, align 4, !tbaa !9, !alias.scope !57, !noalias !63
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %97 = zext i1 %89 to i64
   %98 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %96, i64 0, i64 %92, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %99 = load i32, ptr %98, align 4, !tbaa !9, !alias.scope !57, !noalias !63
   %100 = add nsw i32 %99, %65
-  store i32 %100, ptr %98, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  store i32 %100, ptr %98, align 4, !tbaa !9, !alias.scope !57, !noalias !63
   %101 = icmp ult i32 %88, 256
   br i1 %101, label %102, label %106
 
@@ -1455,8 +1455,8 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
   br i1 %.not, label %62, label %26
 
 26:                                               ; preds = %16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = sub nsw i32 %27, %.03032
   %.not.i = icmp eq i32 %.02933, 0
@@ -1465,22 +1465,22 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
 29:                                               ; preds = %26
   %30 = mul i32 %28, %.02933
   %31 = add i32 %20, %30
-  store i32 %31, ptr %12, align 8, !tbaa !10, !alias.scope !63, !noalias !68
+  store i32 %31, ptr %12, align 8, !tbaa !10, !alias.scope !64, !noalias !69
   %32 = add nsw i32 %19, %28
-  store i32 %32, ptr %13, align 4, !tbaa !11, !alias.scope !63, !noalias !68
-  store i32 %.03032, ptr %9, align 4, !tbaa !3, !alias.scope !63, !noalias !68
+  store i32 %32, ptr %13, align 4, !tbaa !11, !alias.scope !64, !noalias !69
+  store i32 %.03032, ptr %9, align 4, !tbaa !3, !alias.scope !64, !noalias !69
   %33 = icmp ult i32 %.02933, 256
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %29
   %35 = zext nneg i32 %.02933 to i64
   %36 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !71
+  %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !72
   br label %VP8LFastSLog2.exit.i
 
 38:                                               ; preds = %29
-  %39 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !71
-  %40 = tail call i64 %39(i32 noundef %.02933) #12, !noalias !71
+  %39 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !72
+  %40 = tail call i64 %39(i32 noundef %.02933) #12, !noalias !72
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %38, %34
@@ -1488,12 +1488,12 @@ VP8LFastSLog2.exit.i:                             ; preds = %38, %34
   %42 = sext i32 %28 to i64
   %43 = mul i64 %41, %42
   %44 = add i64 %18, %43
-  store i64 %44, ptr %3, align 8, !tbaa !18, !alias.scope !63, !noalias !68
+  store i64 %44, ptr %3, align 8, !tbaa !18, !alias.scope !64, !noalias !69
   %45 = icmp ult i32 %17, %.02933
   br i1 %45, label %46, label %GetEntropyUnrefinedHelper.exit
 
 46:                                               ; preds = %VP8LFastSLog2.exit.i
-  store i32 %.02933, ptr %14, align 8, !tbaa !15, !alias.scope !63, !noalias !68
+  store i32 %.02933, ptr %14, align 8, !tbaa !15, !alias.scope !64, !noalias !69
   br label %GetEntropyUnrefinedHelper.exit
 
 GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.exit.i, %46
@@ -1506,14 +1506,14 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %53 = icmp ne i32 %.02933, 0
   %54 = zext i1 %53 to i64
   %55 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  %56 = load i32, ptr %55, align 4, !tbaa !9, !alias.scope !67, !noalias !73
   %57 = add nsw i32 %56, %52
-  store i32 %57, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  store i32 %57, ptr %55, align 4, !tbaa !9, !alias.scope !67, !noalias !73
   %58 = zext i1 %51 to i64
   %59 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %15, i64 0, i64 %54, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  %60 = load i32, ptr %59, align 4, !tbaa !9, !alias.scope !67, !noalias !73
   %61 = add nsw i32 %60, %28
-  store i32 %61, ptr %59, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  store i32 %61, ptr %59, align 4, !tbaa !9, !alias.scope !67, !noalias !73
   br label %62
 
 62:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %16
@@ -1525,7 +1525,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %.1 = phi i32 [ %.02933, %16 ], [ %25, %GetEntropyUnrefinedHelper.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %62, %5
   %67 = phi i32 [ 0, %5 ], [ %63, %62 ]
@@ -1535,8 +1535,8 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %62 ]
   %.029.lcssa = phi i32 [ %8, %5 ], [ %.1, %62 ]
   %.0.lcssa = phi i32 [ 1, %5 ], [ %2, %62 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %71 = sub nsw i32 %.0.lcssa, %.030.lcssa
   %.not.i22 = icmp eq i32 %.029.lcssa, 0
   br i1 %.not.i22, label %GetEntropyUnrefinedHelper.exit24, label %72
@@ -1545,23 +1545,23 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %73 = mul i32 %71, %.029.lcssa
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %75 = add i32 %70, %73
-  store i32 %75, ptr %74, align 8, !tbaa !10, !alias.scope !74, !noalias !79
+  store i32 %75, ptr %74, align 8, !tbaa !10, !alias.scope !75, !noalias !80
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %77 = add nsw i32 %69, %71
-  store i32 %77, ptr %76, align 4, !tbaa !11, !alias.scope !74, !noalias !79
-  store i32 %.030.lcssa, ptr %9, align 4, !tbaa !3, !alias.scope !74, !noalias !79
+  store i32 %77, ptr %76, align 4, !tbaa !11, !alias.scope !75, !noalias !80
+  store i32 %.030.lcssa, ptr %9, align 4, !tbaa !3, !alias.scope !75, !noalias !80
   %78 = icmp ult i32 %.029.lcssa, 256
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %72
   %80 = zext nneg i32 %.029.lcssa to i64
   %81 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %80
-  %82 = load i64, ptr %81, align 8, !tbaa !12, !noalias !82
+  %82 = load i64, ptr %81, align 8, !tbaa !12, !noalias !83
   br label %VP8LFastSLog2.exit.i23
 
 83:                                               ; preds = %72
-  %84 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !82
-  %85 = tail call i64 %84(i32 noundef %.029.lcssa) #12, !noalias !82
+  %84 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !83
+  %85 = tail call i64 %84(i32 noundef %.029.lcssa) #12, !noalias !83
   br label %VP8LFastSLog2.exit.i23
 
 VP8LFastSLog2.exit.i23:                           ; preds = %83, %79
@@ -1574,7 +1574,7 @@ VP8LFastSLog2.exit.i23:                           ; preds = %83, %79
 
 91:                                               ; preds = %VP8LFastSLog2.exit.i23
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.029.lcssa, ptr %92, align 8, !tbaa !15, !alias.scope !74, !noalias !79
+  store i32 %.029.lcssa, ptr %92, align 8, !tbaa !15, !alias.scope !75, !noalias !80
   br label %GetEntropyUnrefinedHelper.exit24
 
 GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i23, %91
@@ -1585,15 +1585,15 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
   %97 = icmp ne i32 %.029.lcssa, 0
   %98 = zext i1 %97 to i64
   %99 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %100 = load i32, ptr %99, align 4, !tbaa !9, !alias.scope !78, !noalias !84
   %101 = add nsw i32 %100, %96
-  store i32 %101, ptr %99, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  store i32 %101, ptr %99, align 4, !tbaa !9, !alias.scope !78, !noalias !84
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = zext i1 %95 to i64
   %104 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %102, i64 0, i64 %98, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %105 = load i32, ptr %104, align 4, !tbaa !9, !alias.scope !78, !noalias !84
   %106 = add nsw i32 %105, %71
-  store i32 %106, ptr %104, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  store i32 %106, ptr %104, align 4, !tbaa !9, !alias.scope !78, !noalias !84
   %107 = icmp ult i32 %94, 256
   br i1 %107, label %108, label %112
 
@@ -1635,7 +1635,7 @@ define internal void @AddVector_C(ptr noalias noundef readonly captures(none) %0
   store i32 %10, ptr %11, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1660,7 +1660,7 @@ define internal void @AddVectorEq_C(ptr noalias noundef readonly captures(none) 
   store i32 %9, ptr %7, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1687,7 +1687,7 @@ define internal i32 @VectorMismatch_C(ptr noundef readonly captures(none) %0, pt
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !87
 
 .critedge.loopexit.split.loop.exit11:             ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1719,7 +1719,7 @@ define internal void @PredictorSub0_C(ptr noundef readonly captures(none) %0, pt
   store i32 %11, ptr %12, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1753,7 +1753,7 @@ define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, pt
   store i32 %18, ptr %19, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1788,7 +1788,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1823,7 +1823,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1858,7 +1858,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1893,7 +1893,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1928,7 +1928,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1963,7 +1963,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1998,7 +1998,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2033,7 +2033,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2068,7 +2068,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2103,7 +2103,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2138,7 +2138,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2173,7 +2173,7 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2261,65 +2261,65 @@ attributes #12 = { nounwind }
 !23 = !{!21, !6, i64 2}
 !24 = distinct !{!24, !17}
 !25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
+!26 = distinct !{!26, !17, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !17}
-!29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !17}
+!29 = distinct !{!29, !17, !27}
+!30 = !{!6, !6, i64 0}
 !31 = distinct !{!31, !17}
-!32 = !{!33, !8, i64 3240}
-!33 = !{!"", !34, i64 0, !6, i64 8, !6, i64 1032, !6, i64 2056, !6, i64 3080, !8, i64 3240, !8, i64 3244, !5, i64 3248, !5, i64 3256, !5, i64 3264, !5, i64 3272, !6, i64 3280}
-!34 = !{!"p1 int", !14, i64 0}
-!35 = !{!33, !34, i64 0}
-!36 = distinct !{!36, !17}
+!32 = distinct !{!32, !17}
+!33 = !{!34, !8, i64 3240}
+!34 = !{!"", !35, i64 0, !6, i64 8, !6, i64 1032, !6, i64 2056, !6, i64 3080, !8, i64 3240, !8, i64 3244, !5, i64 3248, !5, i64 3256, !5, i64 3264, !5, i64 3272, !6, i64 3280}
+!35 = !{!"p1 int", !14, i64 0}
+!36 = !{!34, !35, i64 0}
 !37 = distinct !{!37, !17}
 !38 = distinct !{!38, !17}
 !39 = distinct !{!39, !17}
 !40 = distinct !{!40, !17}
 !41 = distinct !{!41, !17}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"GetEntropyUnrefinedHelper: argument 2"}
-!44 = distinct !{!44, !"GetEntropyUnrefinedHelper"}
-!45 = !{!46}
-!46 = distinct !{!46, !44, !"GetEntropyUnrefinedHelper: argument 3"}
-!47 = !{!48, !49, !46}
-!48 = distinct !{!48, !44, !"GetEntropyUnrefinedHelper: argument 0"}
-!49 = distinct !{!49, !44, !"GetEntropyUnrefinedHelper: argument 1"}
-!50 = !{!48, !49, !43, !46}
-!51 = !{!48, !49, !43}
-!52 = distinct !{!52, !17}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"GetEntropyUnrefinedHelper: argument 2"}
-!55 = distinct !{!55, !"GetEntropyUnrefinedHelper"}
-!56 = !{!57}
-!57 = distinct !{!57, !55, !"GetEntropyUnrefinedHelper: argument 3"}
-!58 = !{!59, !60, !57}
-!59 = distinct !{!59, !55, !"GetEntropyUnrefinedHelper: argument 0"}
-!60 = distinct !{!60, !55, !"GetEntropyUnrefinedHelper: argument 1"}
-!61 = !{!59, !60, !54, !57}
-!62 = !{!59, !60, !54}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"GetEntropyUnrefinedHelper: argument 2"}
-!65 = distinct !{!65, !"GetEntropyUnrefinedHelper"}
-!66 = !{!67}
-!67 = distinct !{!67, !65, !"GetEntropyUnrefinedHelper: argument 3"}
-!68 = !{!69, !70, !67}
-!69 = distinct !{!69, !65, !"GetEntropyUnrefinedHelper: argument 0"}
-!70 = distinct !{!70, !65, !"GetEntropyUnrefinedHelper: argument 1"}
-!71 = !{!69, !70, !64, !67}
-!72 = !{!69, !70, !64}
-!73 = distinct !{!73, !17}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"GetEntropyUnrefinedHelper: argument 2"}
-!76 = distinct !{!76, !"GetEntropyUnrefinedHelper"}
-!77 = !{!78}
-!78 = distinct !{!78, !76, !"GetEntropyUnrefinedHelper: argument 3"}
-!79 = !{!80, !81, !78}
-!80 = distinct !{!80, !76, !"GetEntropyUnrefinedHelper: argument 0"}
-!81 = distinct !{!81, !76, !"GetEntropyUnrefinedHelper: argument 1"}
-!82 = !{!80, !81, !75, !78}
-!83 = !{!80, !81, !75}
-!84 = distinct !{!84, !17}
+!42 = distinct !{!42, !17}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"GetEntropyUnrefinedHelper: argument 2"}
+!45 = distinct !{!45, !"GetEntropyUnrefinedHelper"}
+!46 = !{!47}
+!47 = distinct !{!47, !45, !"GetEntropyUnrefinedHelper: argument 3"}
+!48 = !{!49, !50, !47}
+!49 = distinct !{!49, !45, !"GetEntropyUnrefinedHelper: argument 0"}
+!50 = distinct !{!50, !45, !"GetEntropyUnrefinedHelper: argument 1"}
+!51 = !{!49, !50, !44, !47}
+!52 = !{!49, !50, !44}
+!53 = distinct !{!53, !17}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"GetEntropyUnrefinedHelper: argument 2"}
+!56 = distinct !{!56, !"GetEntropyUnrefinedHelper"}
+!57 = !{!58}
+!58 = distinct !{!58, !56, !"GetEntropyUnrefinedHelper: argument 3"}
+!59 = !{!60, !61, !58}
+!60 = distinct !{!60, !56, !"GetEntropyUnrefinedHelper: argument 0"}
+!61 = distinct !{!61, !56, !"GetEntropyUnrefinedHelper: argument 1"}
+!62 = !{!60, !61, !55, !58}
+!63 = !{!60, !61, !55}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"GetEntropyUnrefinedHelper: argument 2"}
+!66 = distinct !{!66, !"GetEntropyUnrefinedHelper"}
+!67 = !{!68}
+!68 = distinct !{!68, !66, !"GetEntropyUnrefinedHelper: argument 3"}
+!69 = !{!70, !71, !68}
+!70 = distinct !{!70, !66, !"GetEntropyUnrefinedHelper: argument 0"}
+!71 = distinct !{!71, !66, !"GetEntropyUnrefinedHelper: argument 1"}
+!72 = !{!70, !71, !65, !68}
+!73 = !{!70, !71, !65}
+!74 = distinct !{!74, !17}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"GetEntropyUnrefinedHelper: argument 2"}
+!77 = distinct !{!77, !"GetEntropyUnrefinedHelper"}
+!78 = !{!79}
+!79 = distinct !{!79, !77, !"GetEntropyUnrefinedHelper: argument 3"}
+!80 = !{!81, !82, !79}
+!81 = distinct !{!81, !77, !"GetEntropyUnrefinedHelper: argument 0"}
+!82 = distinct !{!82, !77, !"GetEntropyUnrefinedHelper: argument 1"}
+!83 = !{!81, !82, !76, !79}
+!84 = !{!81, !82, !76}
 !85 = distinct !{!85, !17}
 !86 = distinct !{!86, !17}
 !87 = distinct !{!87, !17}
@@ -2336,3 +2336,4 @@ attributes #12 = { nounwind }
 !98 = distinct !{!98, !17}
 !99 = distinct !{!99, !17}
 !100 = distinct !{!100, !17}
+!101 = distinct !{!101, !17}

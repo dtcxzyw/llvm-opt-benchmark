@@ -643,12 +643,12 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
   store i8 %30, ptr %gep65, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.us42, label %26, !llvm.loop !7
+  br i1 %exitcond57.not, label %._crit_edge.us42, label %26, !llvm.loop !8
 
 ._crit_edge.us42:                                 ; preds = %26
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !8
+  br i1 %exitcond63.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !9
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us42
   ret void
@@ -808,12 +808,12 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   store i8 %80, ptr %gep65.i, align 1
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
-  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %76, !llvm.loop !7
+  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %76, !llvm.loop !8
 
 ._crit_edge.us42.i:                               ; preds = %76
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count50.i
-  br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !8
+  br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !9
 
 av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %10)
@@ -847,6 +847,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !7}

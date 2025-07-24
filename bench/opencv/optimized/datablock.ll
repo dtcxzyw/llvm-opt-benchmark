@@ -716,13 +716,13 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %_ZNKSt7__cxx1112bas
   store i8 %230, ptr %238, align 1, !tbaa !48
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count302
-  br i1 %exitcond303.not, label %._crit_edge236.us, label %223, !llvm.loop !51
+  br i1 %exitcond303.not, label %._crit_edge236.us, label %223, !llvm.loop !52
 
 ._crit_edge236.us:                                ; preds = %223
   %239 = trunc nsw i64 %indvars.iv.next297 to i32
   %240 = add nsw i32 %.067239.us, 1
   %241 = icmp slt i32 %240, %217
-  br i1 %241, label %.preheader.us, label %._crit_edge240, !llvm.loop !52
+  br i1 %241, label %.preheader.us, label %._crit_edge240, !llvm.loop !53
 
 242:                                              ; preds = %.lr.ph230, %242
   %indvars.iv286 = phi i64 [ %203, %.lr.ph230 ], [ %indvars.iv.next287, %242 ]
@@ -743,7 +743,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %_ZNKSt7__cxx1112bas
   store i8 %247, ptr %254, align 1, !tbaa !48
   %indvars.iv.next285 = add nsw i64 %indvars.iv284, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count292
-  br i1 %exitcond293.not, label %._crit_edge231.loopexit, label %242, !llvm.loop !53
+  br i1 %exitcond293.not, label %._crit_edge231.loopexit, label %242, !llvm.loop !54
 
 ._crit_edge240:                                   ; preds = %._crit_edge236.us, %.preheader.lr.ph, %._crit_edge231
   %.3.lcssa = phi i32 [ %.2.lcssa, %._crit_edge231 ], [ %.2.lcssa, %.preheader.lr.ph ], [ %239, %._crit_edge236.us ]
@@ -864,7 +864,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thr
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i: ; preds = %297, %292, %.lr.ph.i.i.i.i
   %301 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i154 = icmp eq ptr %301, %41
-  br i1 %.not.i.i.i.i154, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317, label %.lr.ph.i.i.i.i, !llvm.loop !54
+  br i1 %.not.i.i.i.i154, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317, label %.lr.ph.i.i.i.i, !llvm.loop !55
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i, %290
   call void @_ZdlPv(ptr noundef nonnull %39) #17
@@ -1013,7 +1013,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockE
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i: ; preds = %11, %6, %.lr.ph.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !54
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !55
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !22
@@ -1124,7 +1124,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !55
+  %3 = load i32, ptr %2, align 4, !tbaa !56
   ret i32 %3
 }
 
@@ -1300,9 +1300,10 @@ attributes #17 = { builtin nounwind }
 !47 = !{!43, !45, i64 8}
 !48 = !{!6, !6, i64 0}
 !49 = distinct !{!49, !31}
-!50 = distinct !{!50, !31}
-!51 = distinct !{!51, !31}
+!50 = distinct !{!50, !31, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !52 = distinct !{!52, !31}
-!53 = distinct !{!53, !31}
+!53 = distinct !{!53, !31, !51}
 !54 = distinct !{!54, !31}
-!55 = !{!42, !5, i64 12}
+!55 = distinct !{!55, !31}
+!56 = !{!42, !5, i64 12}

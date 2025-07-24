@@ -75,10 +75,10 @@ compare_addr.exit.us35:                           ; preds = %.lr.ph.split.us32
 compare_addr.exit.thread.us37:                    ; preds = %compare_addr.exit.us35, %.lr.ph.split.us32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit29, label %.lr.ph.split.us32, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit29, label %.lr.ph.split.us32, !llvm.loop !22
 
 .loopexit29:                                      ; preds = %compare_addr.exit.thread.us37, %compare_addr.exit.thread.us, %.lr.ph, %2
-  %20 = load i32, ptr %1, align 8, !tbaa !21
+  %20 = load i32, ptr %1, align 8, !tbaa !23
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %.loopexit, label %.preheader
 
@@ -88,7 +88,7 @@ compare_addr.exit.thread.us37:                    ; preds = %compare_addr.exit.u
 
 .lr.ph39:                                         ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = load i16, ptr %0, align 8, !tbaa !12
   %.fr52 = freeze i16 %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -123,7 +123,7 @@ compare_addr.exit20.us:                           ; preds = %.lr.ph39.split.us
 compare_addr.exit20.thread.us:                    ; preds = %compare_addr.exit20.us, %.lr.ph39.split.us
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph39.split.us, !llvm.loop !23
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph39.split.us, !llvm.loop !25
 
 .lr.ph39.split.us42:                              ; preds = %.lr.ph39.split.us42.preheader, %compare_addr.exit20.thread.us47
   %indvars.iv66 = phi i64 [ 0, %.lr.ph39.split.us42.preheader ], [ %indvars.iv.next67, %compare_addr.exit20.thread.us47 ]
@@ -141,7 +141,7 @@ compare_addr.exit20.us45:                         ; preds = %.lr.ph39.split.us42
 compare_addr.exit20.thread.us47:                  ; preds = %compare_addr.exit20.us45, %.lr.ph39.split.us42
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph39.split.us42, !llvm.loop !23
+  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph39.split.us42, !llvm.loop !26
 
 .loopexit:                                        ; preds = %compare_addr.exit.us35, %compare_addr.exit.us, %compare_addr.exit20.us45, %compare_addr.exit20.thread.us47, %compare_addr.exit20.us, %compare_addr.exit20.thread.us, %.lr.ph39, %.preheader, %.loopexit29
   %.014 = phi i32 [ 0, %.loopexit29 ], [ 1, %.preheader ], [ 1, %.lr.ph39 ], [ 0, %compare_addr.exit20.us ], [ 1, %compare_addr.exit20.thread.us ], [ 0, %compare_addr.exit20.us45 ], [ 1, %compare_addr.exit20.thread.us47 ], [ 1, %compare_addr.exit.us ], [ 1, %compare_addr.exit.us35 ]
@@ -163,7 +163,7 @@ define ptr @ff_ip_resolve_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  store ptr null, ptr %8, align 8, !tbaa !24
+  store ptr null, ptr %8, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   %11 = icmp sgt i32 %2, 0
   br i1 %11, label %12, label %14
@@ -178,7 +178,7 @@ define ptr @ff_ip_resolve_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %14
-  %16 = load i8, ptr %1, align 1, !tbaa !26
+  %16 = load i8, ptr %1, align 1, !tbaa !29
   switch i8 %16, label %17 [
     i8 0, label %18
     i8 63, label %18
@@ -190,16 +190,16 @@ define ptr @ff_ip_resolve_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 18:                                               ; preds = %15, %15, %17, %14
   %.015 = phi ptr [ %1, %17 ], [ null, %15 ], [ null, %14 ], [ null, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %3, ptr %19, align 8, !tbaa !27
+  store i32 %3, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %4, ptr %20, align 4, !tbaa !31
-  store i32 %5, ptr %7, align 8, !tbaa !32
+  store i32 %4, ptr %20, align 4, !tbaa !34
+  store i32 %5, ptr %7, align 8, !tbaa !35
   %21 = call i32 @getaddrinfo(ptr noundef %.015, ptr noundef nonnull %.0, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %.not22 = icmp eq i32 %21, 0
   br i1 %.not22, label %25, label %22
 
 22:                                               ; preds = %18
-  store ptr null, ptr %8, align 8, !tbaa !24
+  store ptr null, ptr %8, align 8, !tbaa !27
   %.not23 = icmp eq ptr %.015, null
   %23 = select i1 %.not23, ptr @.str.3, ptr %.015
   %24 = call ptr @gai_strerror(i32 noundef %21) #9
@@ -207,7 +207,7 @@ define ptr @ff_ip_resolve_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br label %25
 
 25:                                               ; preds = %22, %18
-  %26 = load ptr, ptr %8, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
@@ -235,7 +235,7 @@ define range(i32 -22, 1) i32 @ff_ip_parse_sources(ptr noundef %0, ptr noundef %1
   br i1 %6, label %7, label %ip_parse_sources_and_blocks.exit
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %2, align 8, !tbaa !21
+  %8 = load i32, ptr %2, align 8, !tbaa !23
   %.not15.i = icmp eq i32 %8, 0
   br i1 %.not15.i, label %ip_parse_sources_and_blocks.exit, label %9
 
@@ -263,7 +263,7 @@ define range(i32 -22, 1) i32 @ff_ip_parse_blocks(ptr noundef %0, ptr noundef %1,
   br i1 %7, label %8, label %ip_parse_sources_and_blocks.exit
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %2, align 8, !tbaa !21
+  %9 = load i32, ptr %2, align 8, !tbaa !23
   %.not15.i = icmp eq i32 %9, 0
   br i1 %.not15.i, label %ip_parse_sources_and_blocks.exit, label %10
 
@@ -287,7 +287,7 @@ define void @ff_ip_reset_filters(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @av_freep(ptr noundef nonnull %2) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @av_freep(ptr noundef nonnull %3) #9
-  store i32 0, ptr %0, align 8, !tbaa !21
+  store i32 0, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4, !tbaa !4
   ret void
@@ -302,28 +302,28 @@ define internal fastcc range(i32 -22, 1) i32 @ip_parse_addr_list(ptr noundef %0,
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.sockaddr_storage, align 8
-  store ptr %1, ptr %7, align 8, !tbaa !33
+  store ptr %1, ptr %7, align 8, !tbaa !36
   %.not23 = icmp eq ptr %1, null
   br i1 %.not23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %12 = load i8, ptr %1, align 1, !tbaa !26
+  %12 = load i8, ptr %1, align 1, !tbaa !29
   %.not1626 = icmp eq i8 %12, 0
   br i1 %.not1626, label %.critedge, label %.lr.ph27
 
 thread-pre-split:                                 ; preds = %35, %32
   %.pr = phi ptr [ %36, %35 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  %13 = load i8, ptr %.pr, align 1, !tbaa !26
+  %13 = load i8, ptr %.pr, align 1, !tbaa !29
   %.not16 = icmp eq i8 %13, 0
   br i1 %.not16, label %.critedge, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %.lr.ph, %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   %14 = call ptr @av_get_token(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #9
-  store ptr %14, ptr %8, align 8, !tbaa !33
+  store ptr %14, ptr %8, align 8, !tbaa !36
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %.thread, label %15
 
@@ -331,8 +331,8 @@ thread-pre-split:                                 ; preds = %35, %32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !24
-  %16 = load i8, ptr %14, align 1, !tbaa !26
+  store ptr null, ptr %6, align 8, !tbaa !27
+  %16 = load i8, ptr %14, align 1, !tbaa !29
   switch i8 %16, label %17 [
     i8 0, label %18
     i8 63, label %18
@@ -343,15 +343,15 @@ thread-pre-split:                                 ; preds = %35, %32
 
 18:                                               ; preds = %17, %15, %15
   %.015.i = phi ptr [ %14, %17 ], [ null, %15 ], [ null, %15 ]
-  store i32 2, ptr %10, align 8, !tbaa !27
-  store i32 0, ptr %11, align 4, !tbaa !31
-  store i32 0, ptr %5, align 8, !tbaa !32
+  store i32 2, ptr %10, align 8, !tbaa !30
+  store i32 0, ptr %11, align 4, !tbaa !34
+  store i32 0, ptr %5, align 8, !tbaa !35
   %19 = call i32 @getaddrinfo(ptr noundef %.015.i, ptr noundef nonnull @.str, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %.not22.i = icmp eq i32 %19, 0
   br i1 %.not22.i, label %ff_ip_resolve_host.exit, label %20
 
 20:                                               ; preds = %18
-  store ptr null, ptr %6, align 8, !tbaa !24
+  store ptr null, ptr %6, align 8, !tbaa !27
   %.not23.i = icmp eq ptr %.015.i, null
   %21 = select i1 %.not23.i, ptr @.str.3, ptr %.015.i
   %22 = call ptr @gai_strerror(i32 noundef %19) #9
@@ -359,7 +359,7 @@ thread-pre-split:                                 ; preds = %35, %32
   br label %ff_ip_resolve_host.exit
 
 ff_ip_resolve_host.exit:                          ; preds = %18, %20
-  %23 = load ptr, ptr %6, align 8, !tbaa !24
+  %23 = load ptr, ptr %6, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #9
   call void @av_freep(ptr noundef nonnull %8) #9
@@ -370,27 +370,27 @@ ff_ip_resolve_host.exit:                          ; preds = %18, %20
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !35
+  %28 = load i32, ptr %27, align 8, !tbaa !38
   %29 = zext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 2 %26, i64 %29, i1 false)
   call void @freeaddrinfo(ptr noundef nonnull %23) #9
   %30 = call ptr @av_dynarray2_add(ptr noundef %2, ptr noundef %3, i64 noundef 128, ptr noundef nonnull %9) #9
-  %31 = load ptr, ptr %2, align 8, !tbaa !36
+  %31 = load ptr, ptr %2, align 8, !tbaa !39
   %.not19.not = icmp eq ptr %31, null
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #9
   br i1 %.not19.not, label %.thread, label %32
 
 32:                                               ; preds = %24
-  %33 = load ptr, ptr %7, align 8, !tbaa !33
-  %34 = load i8, ptr %33, align 1, !tbaa !26
+  %33 = load ptr, ptr %7, align 8, !tbaa !36
+  %34 = load i8, ptr %33, align 1, !tbaa !29
   %.not20 = icmp eq i8 %34, 0
   br i1 %.not20, label %thread-pre-split, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store ptr %36, ptr %7, align 8, !tbaa !33
+  store ptr %36, ptr %7, align 8, !tbaa !36
   br label %thread-pre-split
 
 .thread:                                          ; preds = %24, %.lr.ph27, %ff_ip_resolve_host.exit
@@ -448,21 +448,24 @@ attributes #9 = { nounwind }
 !16 = !{!17, !6, i64 4}
 !17 = !{!"sockaddr_in", !14, i64 0, !14, i64 2, !18, i64 4, !7, i64 8}
 !18 = !{!"in_addr", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!5, !6, i64 0}
-!22 = !{!5, !9, i64 8}
-!23 = distinct !{!23, !20}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS8addrinfo", !10, i64 0}
-!26 = !{!7, !7, i64 0}
-!27 = !{!28, !6, i64 8}
-!28 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !29, i64 24, !30, i64 32, !25, i64 40}
-!29 = !{!"p1 _ZTS8sockaddr", !10, i64 0}
-!30 = !{!"p1 omnipotent char", !10, i64 0}
-!31 = !{!28, !6, i64 4}
-!32 = !{!28, !6, i64 0}
-!33 = !{!30, !30, i64 0}
-!34 = !{!28, !29, i64 24}
-!35 = !{!28, !6, i64 16}
-!36 = !{!9, !9, i64 0}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !20, !21}
+!23 = !{!5, !6, i64 0}
+!24 = !{!5, !9, i64 8}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8addrinfo", !10, i64 0}
+!29 = !{!7, !7, i64 0}
+!30 = !{!31, !6, i64 8}
+!31 = !{!"addrinfo", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !32, i64 24, !33, i64 32, !28, i64 40}
+!32 = !{!"p1 _ZTS8sockaddr", !10, i64 0}
+!33 = !{!"p1 omnipotent char", !10, i64 0}
+!34 = !{!31, !6, i64 4}
+!35 = !{!31, !6, i64 0}
+!36 = !{!33, !33, i64 0}
+!37 = !{!31, !32, i64 24}
+!38 = !{!31, !6, i64 16}
+!39 = !{!9, !9, i64 0}

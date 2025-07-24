@@ -3236,7 +3236,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load i64, ptr %97, align 8, !tbaa !107
   %99 = icmp ult i64 %95, %98
-  br i1 %99, label %.lr.ph.split, label %.loopexit, !llvm.loop !111
+  br i1 %99, label %.lr.ph.split, label %.loopexit, !llvm.loop !113
 
 100:                                              ; preds = %42
   %101 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4, !tbaa !4
@@ -3246,7 +3246,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !112
+  %105 = load ptr, ptr %104, align 8, !tbaa !114
   %106 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %105)
   %107 = extractvalue { i64, i64 } %106, 0
   %108 = add i64 %107, 1
@@ -3265,11 +3265,11 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !116
+  %119 = load ptr, ptr %118, align 8, !tbaa !118
   %120 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %119)
   %121 = extractvalue { i64, i64 } %120, 0
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %123 = load ptr, ptr %122, align 8, !tbaa !118
+  %123 = load ptr, ptr %122, align 8, !tbaa !120
   %124 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %123)
   %125 = extractvalue { i64, i64 } %124, 0
   %126 = add i64 %125, %121
@@ -3300,7 +3300,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 .preheader:                                       ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %145 = load i64, ptr %144, align 8, !tbaa !119
+  %145 = load i64, ptr %144, align 8, !tbaa !121
   %.not189 = icmp eq i64 %145, 0
   br i1 %.not189, label %.loopexit, label %.lr.ph179
 
@@ -3311,10 +3311,10 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 147:                                              ; preds = %.lr.ph179, %161
   %.068178 = phi i64 [ 0, %.lr.ph179 ], [ %178, %161 ]
   %.sroa.0149.4177 = phi i64 [ 10, %.lr.ph179 ], [ %177, %161 ]
-  %148 = load ptr, ptr %146, align 8, !tbaa !123
+  %148 = load ptr, ptr %146, align 8, !tbaa !125
   %149 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %148, i64 %.068178
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !124
+  %151 = load ptr, ptr %150, align 8, !tbaa !126
   %.not92 = icmp eq ptr %151, null
   br i1 %.not92, label %161, label %152
 
@@ -3332,7 +3332,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 161:                                              ; preds = %152, %147
   %.sroa.0149.5 = phi i64 [ %.sroa.0149.4177, %147 ], [ %160, %152 ]
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %163 = load ptr, ptr %162, align 8, !tbaa !127
+  %163 = load ptr, ptr %162, align 8, !tbaa !129
   %164 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %163)
   %165 = extractvalue { i64, i64 } %164, 0
   %166 = add i64 %165, %.sroa.0149.5
@@ -3348,9 +3348,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %176 = sub i64 %173, %175
   %177 = or i64 %176, %174
   %178 = add nuw i64 %.068178, 1
-  %179 = load i64, ptr %144, align 8, !tbaa !119
+  %179 = load i64, ptr %144, align 8, !tbaa !121
   %180 = icmp ult i64 %178, %179
-  br i1 %180, label %147, label %.loopexit, !llvm.loop !128
+  br i1 %180, label %147, label %.loopexit, !llvm.loop !130
 
 181:                                              ; preds = %141
   %182 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4, !tbaa !4
@@ -3388,7 +3388,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %200 = load ptr, ptr %199, align 8, !tbaa !129
+  %200 = load ptr, ptr %199, align 8, !tbaa !131
   %201 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %200)
   %202 = extractvalue { i64, i64 } %201, 0
   store i64 %202, ptr %6, align 8
@@ -3397,7 +3397,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   store i64 %204, ptr %203, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %206 = load ptr, ptr %205, align 8, !tbaa !131
+  %206 = load ptr, ptr %205, align 8, !tbaa !133
   %207 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %206)
   %208 = extractvalue { i64, i64 } %207, 0
   store i64 %208, ptr %7, align 8
@@ -3419,7 +3419,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %219 = load ptr, ptr %218, align 8, !tbaa !132
+  %219 = load ptr, ptr %218, align 8, !tbaa !134
   %220 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %219)
   %221 = extractvalue { i64, i64 } %220, 0
   %222 = extractvalue { i64, i64 } %220, 1
@@ -3433,11 +3433,11 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 226:                                              ; preds = %223
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %228 = load ptr, ptr %227, align 8, !tbaa !135
+  %228 = load ptr, ptr %227, align 8, !tbaa !137
   %229 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %228)
   %230 = extractvalue { i64, i64 } %229, 0
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %232 = load ptr, ptr %231, align 8, !tbaa !137
+  %232 = load ptr, ptr %231, align 8, !tbaa !139
   %233 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %232)
   %234 = extractvalue { i64, i64 } %233, 0
   %235 = add i64 %234, %230
@@ -3447,7 +3447,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %239 = sub i64 %236, %238
   %240 = or i64 %239, %237
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %242 = load ptr, ptr %241, align 8, !tbaa !138
+  %242 = load ptr, ptr %241, align 8, !tbaa !140
   %243 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %242)
   %244 = extractvalue { i64, i64 } %243, 0
   %245 = add i64 %240, %244
@@ -3472,9 +3472,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %262 = load ptr, ptr %261, align 8, !tbaa !139
+  %262 = load ptr, ptr %261, align 8, !tbaa !141
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %264 = load i64, ptr %263, align 8, !tbaa !140
+  %264 = load i64, ptr %263, align 8, !tbaa !142
   %.idx = shl nuw nsw i64 %264, 3
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx
   %.not91181 = icmp eq i64 %264, 0
@@ -3565,7 +3565,7 @@ _ZNK4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16Item
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !141
+  %4 = load i64, ptr %3, align 8, !tbaa !143
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %_ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %6
 
@@ -3578,13 +3578,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExpr
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !145
+  %13 = load i64, ptr %12, align 8, !tbaa !147
   %14 = add i64 %13, -1
   %15 = ptrtoint ptr %8 to i64
   %16 = lshr i64 %15, 4
   %17 = lshr i64 %15, 9
   %18 = xor i64 %16, %17
-  %19 = load ptr, ptr %0, align 8, !tbaa !146
+  %19 = load ptr, ptr %0, align 8, !tbaa !148
   br label %20
 
 20:                                               ; preds = %26, %11
@@ -3604,7 +3604,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExpr
   %27 = add i64 %.02028.i, 1
   %28 = add i64 %27, %.02129.i
   %.not.i = icmp ugt i64 %27, %14
-  br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %20, !llvm.loop !147
+  br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %20, !llvm.loop !149
 
 _ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit: ; preds = %20, %24, %26, %2, %6
   %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
@@ -3670,7 +3670,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_8AstLoca
   store i64 0, ptr %11, align 8, !tbaa !13
   %12 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, %spec.select
-  br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !148
+  br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !150
 
 _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit.loopexit: ; preds = %.lr.ph.i.i
   %.pre = load i64, ptr %2, align 8, !tbaa !29
@@ -3680,7 +3680,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
   %13 = phi i64 [ %3, %1 ], [ %.pre, %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit.loopexit ]
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %9, %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit.loopexit ]
   %.not = icmp eq i64 %13, 0
-  %.pre36 = load ptr, ptr %0, align 8, !tbaa !149
+  %.pre36 = load ptr, ptr %0, align 8, !tbaa !151
   br i1 %.not, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit
@@ -3688,7 +3688,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
   br label %16
 
 ._crit_edge31:                                    ; preds = %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EEC2ERS6_m.exit
-  store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !149
+  store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !151
   store i64 %spec.select, ptr %2, align 8, !tbaa !13
   %.not.i11 = icmp eq ptr %.pre36, null
   br i1 %.not.i11, label %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %15
@@ -3751,16 +3751,16 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %38, ptr %39, align 8, !tbaa !150
+  store i64 %38, ptr %39, align 8, !tbaa !152
   br label %40
 
 40:                                               ; preds = %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERS6_.exit, %16
   %41 = add nuw i64 %.029, 1
   %exitcond.not = icmp eq i64 %41, %13
-  br i1 %exitcond.not, label %._crit_edge31.thread, label %16, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge31.thread, label %16, !llvm.loop !153
 
 ._crit_edge31.thread:                             ; preds = %40
-  store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !149
+  store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !151
   store i64 %spec.select, ptr %2, align 8, !tbaa !13
   br label %15
 }
@@ -3912,44 +3912,46 @@ attributes #14 = { allocsize(0) }
 !108 = !{!"_ZTSN4Luau11AstExprCallE", !79, i64 0, !47, i64 32, !66, i64 40, !35, i64 56, !45, i64 60}
 !109 = !{!108, !47, i64 32}
 !110 = !{!108, !67, i64 40}
-!111 = distinct !{!111, !16}
-!112 = !{!113, !47, i64 32}
-!113 = !{!"_ZTSN4Luau16AstExprIndexNameE", !79, i64 0, !47, i64 32, !114, i64 40, !45, i64 48, !46, i64 64, !6, i64 72}
-!114 = !{!"_ZTSN4Luau7AstNameE", !115, i64 0}
-!115 = !{!"p1 omnipotent char", !12, i64 0}
-!116 = !{!117, !47, i64 32}
-!117 = !{!"_ZTSN4Luau16AstExprIndexExprE", !79, i64 0, !47, i64 32, !47, i64 40}
-!118 = !{!117, !47, i64 40}
-!119 = !{!120, !14, i64 40}
-!120 = !{!"_ZTSN4Luau12AstExprTableE", !79, i64 0, !121, i64 32}
-!121 = !{!"_ZTSN4Luau8AstArrayINS_12AstExprTable4ItemEEE", !122, i64 0, !14, i64 8}
-!122 = !{!"p1 _ZTSN4Luau12AstExprTable4ItemE", !12, i64 0}
-!123 = !{!120, !122, i64 32}
-!124 = !{!125, !47, i64 8}
-!125 = !{!"_ZTSN4Luau12AstExprTable4ItemE", !126, i64 0, !47, i64 8, !47, i64 16}
-!126 = !{!"_ZTSN4Luau12AstExprTable4Item4KindE", !6, i64 0}
-!127 = !{!125, !47, i64 16}
-!128 = distinct !{!128, !16}
-!129 = !{!130, !47, i64 32}
-!130 = !{!"_ZTSN4Luau13AstExprBinaryE", !79, i64 0, !101, i64 28, !47, i64 32, !47, i64 40}
-!131 = !{!130, !47, i64 40}
-!132 = !{!133, !47, i64 32}
-!133 = !{!"_ZTSN4Luau20AstExprTypeAssertionE", !79, i64 0, !47, i64 32, !134, i64 40}
-!134 = !{!"p1 _ZTSN4Luau7AstTypeE", !12, i64 0}
-!135 = !{!136, !47, i64 32}
-!136 = !{!"_ZTSN4Luau13AstExprIfElseE", !79, i64 0, !47, i64 32, !35, i64 40, !47, i64 48, !35, i64 56, !47, i64 64}
-!137 = !{!136, !47, i64 48}
-!138 = !{!136, !47, i64 64}
-!139 = !{!66, !67, i64 0}
-!140 = !{!66, !14, i64 8}
-!141 = !{!142, !14, i64 16}
-!142 = !{!"_ZTSN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EEE", !143, i64 0, !14, i64 8, !14, i64 16, !105, i64 24, !24, i64 32, !144, i64 33}
-!143 = !{!"p1 _ZTSSt4pairIPN4Luau11AstExprCallEiE", !12, i64 0}
-!144 = !{!"_ZTSSt8equal_toIPN4Luau11AstExprCallEE"}
-!145 = !{!142, !14, i64 8}
-!146 = !{!142, !143, i64 0}
-!147 = distinct !{!147, !16}
-!148 = distinct !{!148, !16}
-!149 = !{!22, !22, i64 0}
-!150 = !{!33, !14, i64 8}
-!151 = distinct !{!151, !16}
+!111 = distinct !{!111, !16, !112}
+!112 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!113 = distinct !{!113, !16}
+!114 = !{!115, !47, i64 32}
+!115 = !{!"_ZTSN4Luau16AstExprIndexNameE", !79, i64 0, !47, i64 32, !116, i64 40, !45, i64 48, !46, i64 64, !6, i64 72}
+!116 = !{!"_ZTSN4Luau7AstNameE", !117, i64 0}
+!117 = !{!"p1 omnipotent char", !12, i64 0}
+!118 = !{!119, !47, i64 32}
+!119 = !{!"_ZTSN4Luau16AstExprIndexExprE", !79, i64 0, !47, i64 32, !47, i64 40}
+!120 = !{!119, !47, i64 40}
+!121 = !{!122, !14, i64 40}
+!122 = !{!"_ZTSN4Luau12AstExprTableE", !79, i64 0, !123, i64 32}
+!123 = !{!"_ZTSN4Luau8AstArrayINS_12AstExprTable4ItemEEE", !124, i64 0, !14, i64 8}
+!124 = !{!"p1 _ZTSN4Luau12AstExprTable4ItemE", !12, i64 0}
+!125 = !{!122, !124, i64 32}
+!126 = !{!127, !47, i64 8}
+!127 = !{!"_ZTSN4Luau12AstExprTable4ItemE", !128, i64 0, !47, i64 8, !47, i64 16}
+!128 = !{!"_ZTSN4Luau12AstExprTable4Item4KindE", !6, i64 0}
+!129 = !{!127, !47, i64 16}
+!130 = distinct !{!130, !16}
+!131 = !{!132, !47, i64 32}
+!132 = !{!"_ZTSN4Luau13AstExprBinaryE", !79, i64 0, !101, i64 28, !47, i64 32, !47, i64 40}
+!133 = !{!132, !47, i64 40}
+!134 = !{!135, !47, i64 32}
+!135 = !{!"_ZTSN4Luau20AstExprTypeAssertionE", !79, i64 0, !47, i64 32, !136, i64 40}
+!136 = !{!"p1 _ZTSN4Luau7AstTypeE", !12, i64 0}
+!137 = !{!138, !47, i64 32}
+!138 = !{!"_ZTSN4Luau13AstExprIfElseE", !79, i64 0, !47, i64 32, !35, i64 40, !47, i64 48, !35, i64 56, !47, i64 64}
+!139 = !{!138, !47, i64 48}
+!140 = !{!138, !47, i64 64}
+!141 = !{!66, !67, i64 0}
+!142 = !{!66, !14, i64 8}
+!143 = !{!144, !14, i64 16}
+!144 = !{!"_ZTSN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EEE", !145, i64 0, !14, i64 8, !14, i64 16, !105, i64 24, !24, i64 32, !146, i64 33}
+!145 = !{!"p1 _ZTSSt4pairIPN4Luau11AstExprCallEiE", !12, i64 0}
+!146 = !{!"_ZTSSt8equal_toIPN4Luau11AstExprCallEE"}
+!147 = !{!144, !14, i64 8}
+!148 = !{!144, !145, i64 0}
+!149 = distinct !{!149, !16}
+!150 = distinct !{!150, !16}
+!151 = !{!22, !22, i64 0}
+!152 = !{!33, !14, i64 8}
+!153 = distinct !{!153, !16}

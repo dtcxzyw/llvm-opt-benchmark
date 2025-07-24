@@ -11305,7 +11305,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   %.pn = zext i16 %80 to i32
   %.1103 = add i32 %81, %.pn
   %122 = icmp ult i32 %.1103, %13
-  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
+  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %121, %76
   %.097.lcssa = phi i32 [ %.198.us, %76 ], [ %.198, %121 ]
@@ -11528,4 +11528,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!27 = distinct !{!27, !7, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !7}

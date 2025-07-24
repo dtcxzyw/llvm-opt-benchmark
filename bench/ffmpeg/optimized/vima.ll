@@ -296,7 +296,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond113.not, label %.split.us, label %.lr.ph.us, !llvm.loop !41
 
 .split.us:                                        ; preds = %._crit_edge.us, %.preheader
-  store i32 1, ptr %2, align 4, !tbaa !42
+  store i32 1, ptr %2, align 4, !tbaa !43
   %194 = load i32, ptr %7, align 8, !tbaa !27
   br label %195
 
@@ -340,7 +340,7 @@ define internal void @predict_table_init() #3 {
   %9 = ashr i32 %.025, 1
   %10 = lshr i32 %.01624, 1
   %.not = icmp samesign ult i32 %.01624, 2
-  br i1 %.not, label %11, label %6, !llvm.loop !43
+  br i1 %.not, label %11, label %6, !llvm.loop !44
 
 11:                                               ; preds = %6
   %12 = trunc i32 %spec.select to i16
@@ -349,12 +349,12 @@ define internal void @predict_table_init() #3 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 64
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %14, label %2, !llvm.loop !44
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !45
 
 14:                                               ; preds = %11
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next30, 64
-  br i1 %exitcond37.not, label %1, label %.preheader, !llvm.loop !45
+  br i1 %exitcond37.not, label %1, label %.preheader, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -432,8 +432,9 @@ attributes #6 = { nounwind }
 !38 = !{!14, !14, i64 0}
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = !{!10, !10, i64 0}
-!43 = distinct !{!43, !40}
+!41 = distinct !{!41, !40, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!10, !10, i64 0}
 !44 = distinct !{!44, !40}
 !45 = distinct !{!45, !40}
+!46 = distinct !{!46, !40}

@@ -1002,7 +1002,7 @@ define internal void @BeforeShmemExit_Files(i32 %0, i64 %1) #0 {
   %24 = tail call fastcc i32 @FreeDesc(ptr noundef %23)
   %25 = load i32, ptr @numAllocatedDescs, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph24.i, label %CleanupTempFiles.exit, !llvm.loop !9
+  br i1 %26, label %.lr.ph24.i, label %CleanupTempFiles.exit, !llvm.loop !10
 
 CleanupTempFiles.exit:                            ; preds = %.lr.ph24.i, %._crit_edge.i
   ret void
@@ -1085,7 +1085,7 @@ select.unfold.us.i:                               ; preds = %17, %15
   store i32 %13, ptr %28, align 4
   %spec.select.us.i = call i32 @llvm.smax.i32(i32 %.035.us.i, i32 %13)
   %exitcond24.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count23
-  br i1 %exitcond24.not, label %.lr.ph.preheader.i, label %.split.us.i
+  br i1 %exitcond24.not, label %.lr.ph.preheader.i, label %.split.us.i, !llvm.loop !11
 
 .split.i:                                         ; preds = %select.unfold.i, %.split.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold.i ], [ 0, %.split.preheader.i ]
@@ -1163,7 +1163,7 @@ select.unfold.i:                                  ; preds = %39, %37
   %50 = call i32 @close(i32 noundef %49) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !12
 
 count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.preheader.i
   %.us-phi53.i32 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.us-phi53.i33, %.lr.ph.i ]
@@ -1302,7 +1302,7 @@ ReleaseLruFile.exit.i.i:                          ; preds = %5, %ReleaseLruFile.
   %.not.i.i = icmp sge i32 %18, %19
   %20 = icmp sgt i32 %14, 0
   %or.cond.i.i = and i1 %20, %.not.i.i
-  br i1 %or.cond.i.i, label %ReleaseLruFile.exit.i.i, label %ReserveExternalFD.exit, !llvm.loop !11
+  br i1 %or.cond.i.i, label %ReleaseLruFile.exit.i.i, label %ReserveExternalFD.exit, !llvm.loop !13
 
 ReserveExternalFD.exit:                           ; preds = %ReleaseLruFile.exit.i.i, %5
   %21 = phi i32 [ %1, %5 ], [ %17, %ReleaseLruFile.exit.i.i ]
@@ -1346,7 +1346,7 @@ ReleaseLruFile.exit.i:                            ; preds = %0, %ReleaseLruFile.
   %.not.i = icmp sge i32 %15, %16
   %17 = icmp sgt i32 %11, 0
   %or.cond.i = and i1 %17, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !13
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %0
   %18 = phi i32 [ %4, %0 ], [ %14, %ReleaseLruFile.exit.i ]
@@ -1442,7 +1442,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr noundef readonly captures(none) %
   store i32 -1, ptr %30, align 8
   %39 = zext i32 %37 to i64
   %40 = icmp ugt i64 %spec.store.select.i, %39
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %25
   %41 = getelementptr %struct.vfd, ptr %19, i64 %spec.store.select.i
@@ -1487,7 +1487,7 @@ ReleaseLruFile.exit.i:                            ; preds = %AllocateVfd.exit, %
   %.not.i = icmp sge i32 %65, %66
   %67 = icmp sgt i32 %61, 0
   %or.cond.i = and i1 %67, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !13
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %AllocateVfd.exit
   %68 = or i32 %1, 524288
@@ -1664,7 +1664,7 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #25
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not20 = icmp eq i32 %9, 0
-  br i1 %.not20, label %sub_0, label %10, !prof !13
+  br i1 %.not20, label %sub_0, label %10, !prof !15
 
 10:                                               ; preds = %.lr.ph
   call void @ProcessInterrupts() #25
@@ -1680,7 +1680,7 @@ sub_0:                                            ; preds = %10, %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %25, label %sub_124, !llvm.loop !14
+  br i1 %15, label %25, label %sub_124, !llvm.loop !16
 
 sub_124:                                          ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1692,7 +1692,7 @@ sub_124:                                          ; preds = %.tail
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %25, label %.tail22.thread, !llvm.loop !14
+  br i1 %20, label %25, label %.tail22.thread, !llvm.loop !16
 
 .tail22.thread:                                   ; preds = %sub_0, %sub_124, %.tail22
   %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %11) #25
@@ -1703,7 +1703,7 @@ sub_124:                                          ; preds = %.tail
   ]
 
 23:                                               ; preds = %.tail22.thread
-  call void %1(ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3) #25, !callees !15
+  call void %1(ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3) #25, !callees !17
   br label %25
 
 24:                                               ; preds = %.tail22.thread
@@ -1747,7 +1747,7 @@ sub_124:                                          ; preds = %.tail
 42:                                               ; preds = %38, %34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %43 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %43, label %34, label %._crit_edge.i, !llvm.loop !16
+  br i1 %43, label %34, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %42, %28
   %44 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -1767,7 +1767,7 @@ FreeDir.exit:                                     ; preds = %38
   br label %49
 
 49:                                               ; preds = %FreeDir.exit, %FreeDir.exit.thread21
-  call void %1(ptr noundef %0, i1 noundef zeroext true, i32 noundef %3) #25, !callees !15
+  call void %1(ptr noundef %0, i1 noundef zeroext true, i32 noundef %3) #25, !callees !17
   br label %FreeDir.exit.thread
 
 FreeDir.exit.thread:                              ; preds = %._crit_edge, %49
@@ -2401,7 +2401,7 @@ ReleaseLruFile.exit.i.i:                          ; preds = %7, %ReleaseLruFile.
   %.not.i.i = icmp sge i32 %22, %23
   %24 = icmp sgt i32 %18, 0
   %or.cond.i.i = and i1 %24, %.not.i.i
-  br i1 %or.cond.i.i, label %ReleaseLruFile.exit.i.i, label %ReleaseLruFiles.exit.i, !llvm.loop !11
+  br i1 %or.cond.i.i, label %ReleaseLruFile.exit.i.i, label %ReleaseLruFiles.exit.i, !llvm.loop !13
 
 ReleaseLruFiles.exit.i:                           ; preds = %ReleaseLruFile.exit.i.i, %7
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2534,7 +2534,7 @@ pg_preadv.exit.us:                                ; preds = %8, %21
   %22 = tail call ptr @__errno_location() #26
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %pg_preadv.exit.us, label %.loopexit
+  br i1 %24, label %pg_preadv.exit.us, label %.loopexit, !llvm.loop !19
 
 pg_preadv.exit:                                   ; preds = %8, %30
   %25 = load ptr, ptr @my_wait_event_info, align 8
@@ -2601,7 +2601,7 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   %24 = add i64 %23, %.03544
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 25:                                               ; preds = %._crit_edge
   %26 = load i64, ptr @temporary_files_size, align 8
@@ -2642,7 +2642,7 @@ pg_pwritev.exit.us:                               ; preds = %37, %47
   %48 = tail call ptr @__errno_location() #26
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 4
-  br i1 %50, label %pg_pwritev.exit.us, label %.loopexit
+  br i1 %50, label %pg_pwritev.exit.us, label %.loopexit, !llvm.loop !21
 
 pg_pwritev.exit:                                  ; preds = %37, %69
   %51 = load ptr, ptr @my_wait_event_info, align 8
@@ -3004,7 +3004,7 @@ ReleaseLruFile.exit.i:                            ; preds = %9, %ReleaseLruFile.
   %.not.i = icmp sge i32 %24, %25
   %26 = icmp sgt i32 %20, 0
   %or.cond.i = and i1 %26, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !13
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %9
   %27 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %1)
@@ -3168,7 +3168,7 @@ ReleaseLruFile.exit.i:                            ; preds = %10, %ReleaseLruFile
   %.not.i = icmp sge i32 %25, %26
   %27 = icmp sgt i32 %21, 0
   %or.cond.i = and i1 %27, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !13
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %10
   %28 = tail call i32 @BasicOpenFilePerm(ptr noundef %0, i32 noundef %1, i32 noundef %2)
@@ -3235,7 +3235,7 @@ ReleaseLruFile.exit.i:                            ; preds = %9, %ReleaseLruFile.
   %.not.i = icmp sge i32 %24, %25
   %26 = icmp sgt i32 %20, 0
   %or.cond.i = and i1 %26, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit.preheader, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit.preheader, !llvm.loop !13
 
 ReleaseLruFiles.exit.preheader:                   ; preds = %ReleaseLruFile.exit.i, %9
   br label %ReleaseLruFiles.exit
@@ -3345,7 +3345,7 @@ define dso_local i32 @FreeFile(ptr noundef captures(address) %0) local_unnamed_a
 16:                                               ; preds = %7, %11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %17 = icmp sgt i64 %indvars.iv, 0
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !18
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %16, %1
   %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -3461,7 +3461,7 @@ ReleaseLruFile.exit.i:                            ; preds = %8, %ReleaseLruFile.
   %.not.i = icmp sge i32 %23, %24
   %25 = icmp sgt i32 %19, 0
   %or.cond.i = and i1 %25, %.not.i
-  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !11
+  br i1 %or.cond.i, label %ReleaseLruFile.exit.i, label %ReleaseLruFiles.exit, !llvm.loop !13
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %8
   %26 = tail call ptr @opendir(ptr noundef %0)
@@ -3615,7 +3615,7 @@ define dso_local i32 @FreeDir(ptr noundef captures(address) %0) local_unnamed_ad
 18:                                               ; preds = %9, %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = icmp sgt i64 %indvars.iv, 0
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !16
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %18, %3
   %20 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -3670,7 +3670,7 @@ define dso_local i32 @ClosePipeStream(ptr noundef captures(address) %0) local_un
 16:                                               ; preds = %7, %11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %17 = icmp sgt i64 %indvars.iv, 0
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !19
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %16, %1
   %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -3725,7 +3725,7 @@ define dso_local void @closeAllVfds() local_unnamed_addr #0 {
   %13 = add i32 %.05, 1
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i64 %11, %14
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %10, %0
   ret void
@@ -3829,7 +3829,7 @@ define dso_local range(i32 0, -2147483648) i32 @GetTempTablespaces(ptr noundef w
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %6, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %invariant.smin, %6 ]
@@ -3865,7 +3865,7 @@ define dso_local void @AtEOSubXact_Files(i1 noundef zeroext %0, i32 noundef %1, 
 10:                                               ; preds = %9, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
   %11 = phi i32 [ %22, %21 ], [ %4, %.lr.ph ]
@@ -3891,7 +3891,7 @@ define dso_local void @AtEOSubXact_Files(i1 noundef zeroext %0, i32 noundef %1, 
   %.1 = phi i32 [ %19, %18 ], [ %.08, %.lr.ph.split ]
   %24 = add i32 %.1, 1
   %25 = icmp ult i32 %24, %22
-  br i1 %25, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
+  br i1 %25, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %21, %10, %3
   ret void
@@ -3956,7 +3956,7 @@ define dso_local void @AtEOXact_Files(i1 noundef zeroext %0) local_unnamed_addr 
   %26 = add i32 %.022.i, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %24, %27
-  br i1 %28, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %28, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %23, %.preheader.i
   store i1 false, ptr @have_xact_temporary_files, align 1
@@ -3989,7 +3989,7 @@ define dso_local void @AtEOXact_Files(i1 noundef zeroext %0) local_unnamed_addr 
   %40 = tail call fastcc i32 @FreeDesc(ptr noundef %39)
   %41 = load i32, ptr @numAllocatedDescs, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph24.i, label %CleanupTempFiles.exit, !llvm.loop !9
+  br i1 %42, label %.lr.ph24.i, label %CleanupTempFiles.exit, !llvm.loop !10
 
 CleanupTempFiles.exit:                            ; preds = %.lr.ph24.i, %36
   store ptr null, ptr @tempTableSpaces, align 8
@@ -4037,7 +4037,7 @@ sub_18:                                           ; preds = %.tail
 .backedge:                                        ; preds = %.tail, %.tail6, %.tail6.thread
   %16 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.18, i32 noundef 15)
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !29
 
 .tail6.thread:                                    ; preds = %sub_0, %sub_18, %.tail6
   %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1060, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.18, ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.16) #25
@@ -4081,7 +4081,7 @@ sub_18:                                           ; preds = %.tail
 35:                                               ; preds = %30, %26
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %36 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %36, label %26, label %._crit_edge.i, !llvm.loop !16
+  br i1 %36, label %26, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %35, %20
   %37 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -4162,7 +4162,7 @@ sub_122:                                          ; preds = %.tail
 .backedge:                                        ; preds = %.backedge.sink.split, %43, %36, %33, %41, %38, %.tail, %.tail20, %31
   %26 = call ptr @ReadDirExtended(ptr noundef %5, ptr noundef %0, i32 noundef 15)
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !30
 
 .tail20.thread:                                   ; preds = %sub_0, %sub_122, %.tail20
   %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %14) #25
@@ -4237,7 +4237,7 @@ sub_122:                                          ; preds = %.tail
 60:                                               ; preds = %55, %51
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %61 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %61, label %51, label %._crit_edge.i, !llvm.loop !16
+  br i1 %61, label %51, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %60, %45
   %62 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -4307,7 +4307,7 @@ define internal fastcc void @RemovePgTempRelationFiles(ptr noundef %0) unnamed_a
   %27 = and i16 %26, 2048
   %.not42.i = icmp eq i16 %27, 0
   %28 = add i32 %.037.i, 1
-  br i1 %.not42.i, label %29, label %20, !llvm.loop !25
+  br i1 %.not42.i, label %29, label %20, !llvm.loop !31
 
 29:                                               ; preds = %20
   %30 = icmp ne i32 %.037.i, 1
@@ -4326,7 +4326,7 @@ define internal fastcc void @RemovePgTempRelationFiles(ptr noundef %0) unnamed_a
   %37 = and i16 %36, 2048
   %.not44.i = icmp eq i16 %37, 0
   %38 = add i32 %.138.i, 1
-  br i1 %.not44.i, label %39, label %.preheader, !llvm.loop !26
+  br i1 %.not44.i, label %39, label %.preheader, !llvm.loop !32
 
 39:                                               ; preds = %.preheader
   %40 = icmp eq i32 %28, %.138.i
@@ -4372,7 +4372,7 @@ define internal fastcc void @RemovePgTempRelationFiles(ptr noundef %0) unnamed_a
   %61 = and i16 %60, 2048
   %.not45.i = icmp eq i16 %61, 0
   %62 = add i32 %.0.i14, 1
-  br i1 %.not45.i, label %63, label %53, !llvm.loop !27
+  br i1 %.not45.i, label %63, label %53, !llvm.loop !33
 
 63:                                               ; preds = %53
   %64 = icmp sgt i32 %.0.i14, 1
@@ -4417,7 +4417,7 @@ looks_like_temp_rel_name.exit:                    ; preds = %49, %63
   store i32 0, ptr %81, align 4
   %82 = call ptr @readdir(ptr noundef nonnull %12) #25
   %.not.i11 = icmp eq ptr %82, null
-  br i1 %.not.i11, label %83, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i11, label %83, label %.lr.ph.i, !llvm.loop !34
 
 83:                                               ; preds = %80
   %84 = load i32, ptr %81, align 4
@@ -4468,7 +4468,7 @@ looks_like_temp_rel_name.exit:                    ; preds = %49, %63
 104:                                              ; preds = %99, %95
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %105 = icmp sgt i64 %indvars.iv.i.i, 0
-  br i1 %105, label %95, label %._crit_edge.i.i, !llvm.loop !16
+  br i1 %105, label %95, label %._crit_edge.i.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %104, %._crit_edge.i.thread
   %106 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -4490,7 +4490,7 @@ RemovePgTempRelationFilesInDbspace.exit:          ; preds = %75, %77, %._crit_ed
 .backedge:                                        ; preds = %RemovePgTempRelationFilesInDbspace.exit, %.lr.ph
   %111 = call ptr @ReadDirExtended(ptr noundef %4, ptr noundef %0, i32 noundef 15)
   %.not = icmp eq ptr %111, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.backedge, %1
   %112 = icmp eq ptr %4, null
@@ -4527,7 +4527,7 @@ RemovePgTempRelationFilesInDbspace.exit:          ; preds = %75, %77, %._crit_ed
 128:                                              ; preds = %123, %119
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %129 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %129, label %119, label %._crit_edge.i9, !llvm.loop !16
+  br i1 %129, label %119, label %._crit_edge.i9, !llvm.loop !18
 
 ._crit_edge.i9:                                   ; preds = %128, %113
   %130 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -4577,7 +4577,7 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   %12 = and i16 %11, 2048
   %.not42 = icmp eq i16 %12, 0
   %13 = add i32 %.037, 1
-  br i1 %.not42, label %14, label %5, !llvm.loop !25
+  br i1 %.not42, label %14, label %5, !llvm.loop !31
 
 14:                                               ; preds = %5
   %15 = icmp ne i32 %.037, 1
@@ -4596,7 +4596,7 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   %22 = and i16 %21, 2048
   %.not44 = icmp eq i16 %22, 0
   %23 = add i32 %.138, 1
-  br i1 %.not44, label %24, label %.preheader60, !llvm.loop !26
+  br i1 %.not44, label %24, label %.preheader60, !llvm.loop !32
 
 24:                                               ; preds = %.preheader60
   %25 = icmp eq i32 %13, %.138
@@ -4642,7 +4642,7 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   %46 = and i16 %45, 2048
   %.not45 = icmp eq i16 %46, 0
   %47 = add i32 %.0, 1
-  br i1 %.not45, label %48, label %38, !llvm.loop !27
+  br i1 %.not45, label %48, label %38, !llvm.loop !33
 
 48:                                               ; preds = %38
   %49 = icmp sgt i32 %.0, 1
@@ -4721,7 +4721,7 @@ sub_0:                                            ; preds = %21, %36
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %sub_110, !llvm.loop !30
+  br i1 %29, label %36, label %sub_110, !llvm.loop !36
 
 sub_110:                                          ; preds = %.tail
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 20
@@ -4733,7 +4733,7 @@ sub_110:                                          ; preds = %.tail
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 21
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %36, label %.tail8.thread, !llvm.loop !30
+  br i1 %34, label %36, label %.tail8.thread, !llvm.loop !36
 
 .tail8.thread:                                    ; preds = %sub_0, %sub_110, %.tail8
   %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, ptr noundef nonnull %25) #25
@@ -4781,7 +4781,7 @@ sub_110:                                          ; preds = %.tail
 54:                                               ; preds = %49, %45
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %55 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %55, label %45, label %._crit_edge.i, !llvm.loop !16
+  br i1 %55, label %45, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %54, %39
   %56 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
@@ -5318,26 +5318,32 @@ attributes #30 = { nounwind willreturn memory(read) }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!11 = distinct !{!11, !9}
 !12 = distinct !{!12, !7}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{ptr @datadir_fsync_fname, ptr @pre_sync_fname, ptr @unlink_if_exists_fname}
+!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!17 = !{ptr @datadir_fsync_fname, ptr @pre_sync_fname, ptr @unlink_if_exists_fname}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = distinct !{!19, !9}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !9}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!26 = distinct !{!26, !7, !9}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}

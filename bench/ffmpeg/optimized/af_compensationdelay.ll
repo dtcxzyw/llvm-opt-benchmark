@@ -192,7 +192,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %.045.lcssa, ptr %64, align 8, !tbaa !54
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %66 = load i32, ptr %65, align 8, !tbaa !60
+  %66 = load i32, ptr %65, align 8, !tbaa !61
   %.not49 = icmp eq i32 %66, 0
   br i1 %.not49, label %70, label %67
 
@@ -257,7 +257,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %.0 = phi i32 [ 1, %1 ], [ %39, %37 ]
   %38 = icmp ult i32 %.0, %36
   %39 = shl i32 %.0, 1
-  br i1 %38, label %37, label %40, !llvm.loop !61
+  br i1 %38, label %37, label %40, !llvm.loop !62
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -362,6 +362,7 @@ attributes #5 = { nounwind }
 !56 = !{!25, !25, i64 0}
 !57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58}
-!60 = !{!5, !15, i64 128}
-!61 = distinct !{!61, !58}
+!59 = distinct !{!59, !58, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = !{!5, !15, i64 128}
+!62 = distinct !{!62, !58}

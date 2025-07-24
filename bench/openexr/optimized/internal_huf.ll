@@ -1704,7 +1704,7 @@ fasthuf_read_bits.exit181.i:                      ; preds = %fasthuf_read_bits.e
   store i64 %232, ptr %233, align 8, !tbaa !7
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
   %exitcond105.not.i.i = icmp eq i64 %indvars.iv.next103.i.i, 59
-  br i1 %exitcond105.not.i.i, label %.preheader.i.i, label %225, !llvm.loop !77
+  br i1 %exitcond105.not.i.i, label %.preheader.i.i, label %225, !llvm.loop !78
 
 .lr.ph.i182.i:                                    ; preds = %.critedge84.i.i, %.lr.ph.preheader.i.i
   %.07394.i.i = phi i64 [ %254, %.critedge84.i.i ], [ 0, %.lr.ph.preheader.i.i ]
@@ -1741,7 +1741,7 @@ fasthuf_read_bits.exit181.i:                      ; preds = %fasthuf_read_bits.e
 250:                                              ; preds = %237
   %indvars.iv.next107.i.i = add nuw nsw i64 %indvars.iv106.i.i, 1
   %exitcond109.not.i.i = icmp eq i64 %indvars.iv106.i.i, %.pre
-  br i1 %exitcond109.not.i.i, label %.critedge84.i.i, label %237, !llvm.loop !78
+  br i1 %exitcond109.not.i.i, label %.critedge84.i.i, label %237, !llvm.loop !79
 
 251:                                              ; preds = %240
   %252 = getelementptr inbounds nuw [65537 x i32], ptr %219, i64 0, i64 %247
@@ -1752,7 +1752,7 @@ fasthuf_read_bits.exit181.i:                      ; preds = %fasthuf_read_bits.e
 .critedge84.i.i:                                  ; preds = %250, %251
   %254 = add nuw nsw i64 %.07394.i.i, 1
   %exitcond110.i.i = icmp eq i64 %254, 4096
-  br i1 %exitcond110.i.i, label %.critedge86.preheader.i.i.preheader, label %.lr.ph.i182.i, !llvm.loop !76
+  br i1 %exitcond110.i.i, label %.critedge86.preheader.i.i.preheader, label %.lr.ph.i182.i, !llvm.loop !80
 
 .critedge86.preheader.i.i.preheader:              ; preds = %.critedge84.i.i, %.critedge84.loopexit.us.i.i
   br label %.critedge86.preheader.i.i
@@ -1768,12 +1768,12 @@ fasthuf_read_bits.exit181.i:                      ; preds = %fasthuf_read_bits.e
 .critedge86.i.i:                                  ; preds = %.critedge86.preheader.i.i
   %259 = add nsw i32 %.06995.i.i, -1
   %260 = icmp samesign ugt i32 %.06995.i.i, 1
-  br i1 %260, label %.critedge86.preheader.i.i, label %264, !llvm.loop !79
+  br i1 %260, label %.critedge86.preheader.i.i, label %264, !llvm.loop !81
 
 fasthuf_initialize.exit.thread.sink.split:        ; preds = %249, %178, %121, %109, %87, %48
   %.str.2.sink = phi ptr [ @.str, %48 ], [ @.str, %87 ], [ @.str.1, %109 ], [ @.str.2, %121 ], [ @.str.3, %178 ], [ @.str.4, %249 ]
   %261 = getelementptr inbounds nuw i8, ptr %.063, i64 72
-  %262 = load ptr, ptr %261, align 8, !tbaa !80
+  %262 = load ptr, ptr %261, align 8, !tbaa !82
   %263 = tail call i32 (ptr, i32, ptr, ...) %262(ptr noundef nonnull %.063, i32 noundef 23, ptr noundef nonnull %.str.2.sink) #10
   br label %fasthuf_initialize.exit.thread
 
@@ -1787,7 +1787,7 @@ fasthuf_initialize.exit.thread:                   ; preds = %fasthuf_initialize.
 264:                                              ; preds = %.critedge86.i.i, %.critedge86.preheader.i.i
   %265 = phi i64 [ %208, %.critedge86.i.i ], [ %257, %.critedge86.preheader.i.i ]
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 283592
-  store i64 %265, ptr %266, align 8, !tbaa !92
+  store i64 %265, ptr %266, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %10) #10
@@ -1894,7 +1894,7 @@ getBits.exit50.i:                                 ; preds = %._crit_edge.loopexi
   %319 = getelementptr inbounds nuw i64, ptr %5, i64 %318
   store i64 0, ptr %319, align 8, !tbaa !7
   %.not44.i = icmp eq i64 %316, 0
-  br i1 %.not44.i, label %.loopexit87.i, label %.preheader.i, !llvm.loop !93
+  br i1 %.not44.i, label %.loopexit87.i, label %.preheader.i, !llvm.loop !95
 
 320:                                              ; preds = %getBits.exit.i
   %321 = icmp samesign ugt i64 %294, 58
@@ -1919,7 +1919,7 @@ getBits.exit50.i:                                 ; preds = %._crit_edge.loopexi
   %329 = getelementptr inbounds nuw i64, ptr %5, i64 %328
   store i64 0, ptr %329, align 8, !tbaa !7
   %.not42.i = icmp eq i64 %326, 0
-  br i1 %.not42.i, label %.loopexit87.i, label %.lr.ph.i81, !llvm.loop !94
+  br i1 %.not42.i, label %.loopexit87.i, label %.lr.ph.i81, !llvm.loop !96
 
 .loopexit87.i:                                    ; preds = %.lr.ph.i81, %.preheader.i, %..loopexit87.i_crit_edge
   %.pre-phi128 = phi i32 [ %.pre127, %..loopexit87.i_crit_edge ], [ %317, %.preheader.i ], [ %327, %.lr.ph.i81 ]
@@ -1927,7 +1927,7 @@ getBits.exit50.i:                                 ; preds = %._crit_edge.loopexi
   %.164.i = phi i64 [ %.265.i, %..loopexit87.i_crit_edge ], [ %.366.i, %.preheader.i ], [ %.265.i, %.lr.ph.i81 ]
   %.162.i = phi i32 [ %291, %..loopexit87.i_crit_edge ], [ %309, %.preheader.i ], [ %291, %.lr.ph.i81 ]
   %.not.i = icmp ugt i32 %.pre-phi128, %23
-  br i1 %.not.i, label %._crit_edge85.i, label %280, !llvm.loop !95
+  br i1 %.not.i, label %._crit_edge85.i, label %280, !llvm.loop !97
 
 ._crit_edge85.i:                                  ; preds = %.loopexit87.i, %274
   %.067.lcssa.i = phi ptr [ %29, %274 ], [ %.168.i, %.loopexit87.i ]
@@ -2012,7 +2012,7 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
 
 359:                                              ; preds = %358
   %360 = getelementptr inbounds nuw i8, ptr %.063, i64 96
-  %361 = load ptr, ptr %360, align 8, !tbaa !96
+  %361 = load ptr, ptr %360, align 8, !tbaa !98
   br label %362
 
 362:                                              ; preds = %359, %358
@@ -2024,19 +2024,19 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
   %indvars.iv.i84 = phi i64 [ 0, %362 ], [ %indvars.iv.next.i85, %367 ]
   %.idx = shl nuw nsw i64 %indvars.iv.i84, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %365 = load ptr, ptr %gep, align 8, !tbaa !97
+  %365 = load ptr, ptr %gep, align 8, !tbaa !99
   %.not12.i = icmp eq ptr %365, null
   br i1 %.not12.i, label %367, label %366
 
 366:                                              ; preds = %364
   tail call void %363(ptr noundef nonnull %365) #10
-  store ptr null, ptr %gep, align 8, !tbaa !97
+  store ptr null, ptr %gep, align 8, !tbaa !99
   br label %367
 
 367:                                              ; preds = %366, %364
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 16384
-  br i1 %exitcond.not.i86, label %.thread, label %364, !llvm.loop !99
+  br i1 %exitcond.not.i86, label %.thread, label %364, !llvm.loop !101
 
 .thread:                                          ; preds = %367, %hufUnpackEncTable.exit, %fasthuf_initialize.exit.thread, %272, %264, %28, %20, %19, %18
   %.0 = phi i32 [ %., %18 ], [ 3, %19 ], [ 23, %20 ], [ 1, %28 ], [ 1, %264 ], [ 23, %fasthuf_initialize.exit.thread ], [ %273, %272 ], [ 23, %hufUnpackEncTable.exit ], [ %.4, %367 ]
@@ -2047,7 +2047,7 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
 define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, i64 noundef range(i64 0, 4294967296) %3, ptr noalias noundef captures(none) %4, i64 noundef %5) unnamed_addr #3 {
   %7 = add nsw i64 %3, -128
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 283592
-  %9 = load i64, ptr %8, align 8, !tbaa !92
+  %9 = load i64, ptr %8, align 8, !tbaa !94
   %10 = load i32, ptr %1, align 8, !tbaa !60
   %.not322 = icmp eq i64 %5, 0
   br i1 %.not322, label %._crit_edge321, label %.lr.ph320
@@ -2126,7 +2126,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   br i1 %44, label %45, label %49, !prof !25
 
 45:                                               ; preds = %43
-  %.val.i = load i64, ptr %.6185, align 1, !noalias !100
+  %.val.i = load i64, ptr %.6185, align 1, !noalias !102
   %46 = tail call i64 @llvm.bswap.i64(i64 %.val.i)
   %47 = getelementptr inbounds nuw i8, ptr %.6185, i64 8
   %48 = add i64 %.6247, -64
@@ -2141,7 +2141,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %52 = phi ptr [ %58, %.lr.ph.i ], [ %.6185, %49 ]
   %.049.i = phi i64 [ %59, %.lr.ph.i ], [ 56, %49 ]
   %53 = phi i64 [ %60, %.lr.ph.i ], [ %.6247, %49 ]
-  %54 = load i8, ptr %52, align 1, !tbaa !26, !noalias !100
+  %54 = load i8, ptr %52, align 1, !tbaa !26, !noalias !102
   %55 = zext i8 %54 to i64
   %56 = shl i64 %55, %.049.i
   %57 = or i64 %56, %51
@@ -2149,7 +2149,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %59 = add i64 %.049.i, -8
   %60 = add i64 %53, -8
   %61 = icmp ugt i64 %60, 7
-  br i1 %61, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !106
+  br i1 %61, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %scevgep.i = getelementptr i8, ptr %.6185, i64 1
@@ -2167,7 +2167,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   br i1 %.not45.i, label %.sink.split.i, label %65
 
 65:                                               ; preds = %64
-  %66 = load i8, ptr %.7, align 1, !tbaa !26, !noalias !100
+  %66 = load i8, ptr %.7, align 1, !tbaa !26, !noalias !102
   %67 = zext i8 %66 to i64
   %68 = shl i64 %67, %.0.lcssa.i
   %69 = or i64 %68, %.7211
@@ -2179,7 +2179,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %.9213 = phi i64 [ %.7211, %64 ], [ %69, %65 ], [ %46, %45 ]
   %.9 = phi ptr [ %.7, %64 ], [ %70, %65 ], [ %47, %45 ]
   %71 = icmp slt i32 %.1.i, 64
-  br i1 %71, label %.preheader278, label %FastHufDecoder_refill.exit, !llvm.loop !107
+  br i1 %71, label %.preheader278, label %FastHufDecoder_refill.exit, !llvm.loop !109
 
 FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37, %29
   %.2243 = phi i64 [ %.0241312, %29 ], [ %.6247, %37 ], [ %.8249, %.sink.split.i ]
@@ -2196,14 +2196,14 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   %74 = load i64, ptr %73, align 8, !tbaa !7
   %75 = icmp ugt i64 %74, %.2227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %75, label %72, label %76, !llvm.loop !108
+  br i1 %75, label %72, label %76, !llvm.loop !110
 
 76:                                               ; preds = %72
   %77 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = load i8, ptr %18, align 1, !tbaa !64
   %79 = zext i8 %78 to i64
   %80 = icmp samesign ugt i64 %indvars.iv, %79
-  br i1 %80, label %81, label %86, !prof !109
+  br i1 %80, label %81, label %86, !prof !111
 
 81:                                               ; preds = %76
   %.not118 = icmp eq ptr %0, null
@@ -2211,7 +2211,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %84 = load ptr, ptr %83, align 8, !tbaa !80
+  %84 = load ptr, ptr %83, align 8, !tbaa !82
   %85 = tail call i32 (ptr, i32, ptr, ...) %84(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.5) #10
   br label %FastHufDecoder_refill.exit154.thread
 
@@ -2233,7 +2233,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %99 = load ptr, ptr %98, align 8, !tbaa !80
+  %99 = load ptr, ptr %98, align 8, !tbaa !82
   %100 = tail call i32 (ptr, i32, ptr, ...) %99(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.5) #10
   br label %FastHufDecoder_refill.exit154.thread
 
@@ -2296,7 +2296,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   br i1 %123, label %124, label %128, !prof !25
 
 124:                                              ; preds = %122
-  %.val.i136 = load i64, ptr %.11, align 1, !noalias !110
+  %.val.i136 = load i64, ptr %.11, align 1, !noalias !112
   %125 = tail call i64 @llvm.bswap.i64(i64 %.val.i136)
   %126 = getelementptr inbounds nuw i8, ptr %.11, i64 8
   %127 = add i64 %.10251, -64
@@ -2311,7 +2311,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   %131 = phi ptr [ %137, %.lr.ph.i130 ], [ %.11, %128 ]
   %.049.i132 = phi i64 [ %138, %.lr.ph.i130 ], [ 56, %128 ]
   %132 = phi i64 [ %139, %.lr.ph.i130 ], [ %.10251, %128 ]
-  %133 = load i8, ptr %131, align 1, !tbaa !26, !noalias !110
+  %133 = load i8, ptr %131, align 1, !tbaa !26, !noalias !112
   %134 = zext i8 %133 to i64
   %135 = shl i64 %134, %.049.i132
   %136 = or i64 %135, %130
@@ -2319,7 +2319,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   %138 = add i64 %.049.i132, -8
   %139 = add i64 %132, -8
   %140 = icmp ugt i64 %139, 7
-  br i1 %140, label %.lr.ph.i130, label %._crit_edge.i133, !llvm.loop !106
+  br i1 %140, label %.lr.ph.i130, label %._crit_edge.i133, !llvm.loop !108
 
 ._crit_edge.i133:                                 ; preds = %.lr.ph.i130
   %scevgep.i134 = getelementptr i8, ptr %.11, i64 1
@@ -2337,7 +2337,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   br i1 %.not45.i127, label %.sink.split.i128, label %144
 
 144:                                              ; preds = %143
-  %145 = load i8, ptr %.12, align 1, !tbaa !26, !noalias !110
+  %145 = load i8, ptr %.12, align 1, !tbaa !26, !noalias !112
   %146 = zext i8 %145 to i64
   %147 = shl i64 %146, %.0.lcssa.i126
   %148 = or i64 %147, %.12216
@@ -2349,7 +2349,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   %.14218 = phi i64 [ %.12216, %143 ], [ %148, %144 ], [ %125, %124 ]
   %.14 = phi ptr [ %.12, %143 ], [ %149, %144 ], [ %126, %124 ]
   %150 = icmp slt i32 %.1.i124, 64
-  br i1 %150, label %.preheader277, label %FastHufDecoder_refill.exit138, !llvm.loop !107
+  br i1 %150, label %.preheader277, label %FastHufDecoder_refill.exit138, !llvm.loop !109
 
 FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %116, %108
   %.4245 = phi i64 [ %.1242, %108 ], [ %.10251, %116 ], [ %.12253, %.sink.split.i128 ]
@@ -2360,7 +2360,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   %.491 = phi i32 [ %106, %108 ], [ 64, %116 ], [ 64, %.sink.split.i128 ]
   %151 = lshr i64 %.4229, 56
   %152 = icmp eq i64 %.083318, 0
-  br i1 %152, label %153, label %158, !prof !109
+  br i1 %152, label %153, label %158, !prof !111
 
 153:                                              ; preds = %FastHufDecoder_refill.exit138
   %.not121 = icmp eq ptr %0, null
@@ -2368,14 +2368,14 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %156 = load ptr, ptr %155, align 8, !tbaa !80
+  %156 = load ptr, ptr %155, align 8, !tbaa !82
   %157 = tail call i32 (ptr, i32, ptr, ...) %156(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.6) #10
   br label %FastHufDecoder_refill.exit154.thread
 
 158:                                              ; preds = %FastHufDecoder_refill.exit138
   %159 = add i64 %151, %.083318
   %160 = icmp ugt i64 %159, %5
-  br i1 %160, label %161, label %166, !prof !109
+  br i1 %160, label %161, label %166, !prof !111
 
 161:                                              ; preds = %158
   %.not120 = icmp eq ptr %0, null
@@ -2383,13 +2383,13 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
 
 162:                                              ; preds = %161
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %164 = load ptr, ptr %163, align 8, !tbaa !80
+  %164 = load ptr, ptr %163, align 8, !tbaa !82
   %165 = tail call i32 (ptr, i32, ptr, ...) %164(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.7) #10
   br label %FastHufDecoder_refill.exit154.thread
 
 166:                                              ; preds = %158
   %167 = icmp ult i64 %.4229, 72057594037927936
-  br i1 %167, label %170, label %.lr.ph, !prof !109
+  br i1 %167, label %170, label %.lr.ph, !prof !111
 
 .lr.ph:                                           ; preds = %166
   %168 = getelementptr i16, ptr %4, i64 %.083318
@@ -2403,7 +2403,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
 
 171:                                              ; preds = %170
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %173 = load ptr, ptr %172, align 8, !tbaa !80
+  %173 = load ptr, ptr %172, align 8, !tbaa !82
   %174 = tail call i32 (ptr, i32, ptr, ...) %173(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.8) #10
   br label %FastHufDecoder_refill.exit154.thread
 
@@ -2413,7 +2413,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   store i16 %.pre, ptr %176, align 2, !tbaa !3
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next353, %151
-  br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %175
   %177 = shl i64 %.4229, 8
@@ -2473,7 +2473,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   br i1 %198, label %199, label %203, !prof !25
 
 199:                                              ; preds = %197
-  %.val.i152 = load i64, ptr %.16, align 1, !noalias !117
+  %.val.i152 = load i64, ptr %.16, align 1, !noalias !119
   %200 = tail call i64 @llvm.bswap.i64(i64 %.val.i152)
   %201 = getelementptr inbounds nuw i8, ptr %.16, i64 8
   %202 = add i64 %.14255, -64
@@ -2488,7 +2488,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   %206 = phi ptr [ %212, %.lr.ph.i146 ], [ %.16, %203 ]
   %.049.i148 = phi i64 [ %213, %.lr.ph.i146 ], [ 56, %203 ]
   %207 = phi i64 [ %214, %.lr.ph.i146 ], [ %.14255, %203 ]
-  %208 = load i8, ptr %206, align 1, !tbaa !26, !noalias !117
+  %208 = load i8, ptr %206, align 1, !tbaa !26, !noalias !119
   %209 = zext i8 %208 to i64
   %210 = shl i64 %209, %.049.i148
   %211 = or i64 %210, %205
@@ -2496,7 +2496,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   %213 = add i64 %.049.i148, -8
   %214 = add i64 %207, -8
   %215 = icmp ugt i64 %214, 7
-  br i1 %215, label %.lr.ph.i146, label %._crit_edge.i149, !llvm.loop !106
+  br i1 %215, label %.lr.ph.i146, label %._crit_edge.i149, !llvm.loop !108
 
 ._crit_edge.i149:                                 ; preds = %.lr.ph.i146
   %scevgep.i150 = getelementptr i8, ptr %.16, i64 1
@@ -2514,7 +2514,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   br i1 %.not45.i143, label %.sink.split.i144, label %219
 
 219:                                              ; preds = %218
-  %220 = load i8, ptr %.17, align 1, !tbaa !26, !noalias !117
+  %220 = load i8, ptr %.17, align 1, !tbaa !26, !noalias !119
   %221 = zext i8 %220 to i64
   %222 = shl i64 %221, %.0.lcssa.i142
   %223 = or i64 %222, %.17221
@@ -2526,7 +2526,7 @@ FastHufDecoder_refill.exit138:                    ; preds = %.sink.split.i128, %
   %.19223 = phi i64 [ %.17221, %218 ], [ %223, %219 ], [ %200, %199 ]
   %.19 = phi ptr [ %.17, %218 ], [ %224, %219 ], [ %201, %199 ]
   %225 = icmp slt i32 %.1.i140, 64
-  br i1 %225, label %.preheader, label %FastHufDecoder_refill.exit154, !llvm.loop !107
+  br i1 %225, label %.preheader, label %FastHufDecoder_refill.exit154, !llvm.loop !109
 
 FastHufDecoder_refill.exit154:                    ; preds = %.sink.split.i144, %191, %183
   %.3244 = phi i64 [ %.5246, %183 ], [ %.14255, %191 ], [ %.16257, %.sink.split.i144 ]
@@ -2536,7 +2536,7 @@ FastHufDecoder_refill.exit154:                    ; preds = %.sink.split.i144, %
   %.3 = phi ptr [ %.5, %183 ], [ %.16, %191 ], [ %.19, %.sink.split.i144 ]
   %.390 = phi i32 [ %.693, %183 ], [ 64, %191 ], [ 64, %.sink.split.i144 ]
   %226 = icmp ult i64 %.386, %5
-  br i1 %226, label %22, label %._crit_edge321, !llvm.loop !123
+  br i1 %226, label %22, label %._crit_edge321, !llvm.loop !125
 
 ._crit_edge321:                                   ; preds = %FastHufDecoder_refill.exit154, %6
   %.0241.lcssa = phi i64 [ %7, %6 ], [ %.3244, %FastHufDecoder_refill.exit154 ]
@@ -2549,7 +2549,7 @@ FastHufDecoder_refill.exit154:                    ; preds = %.sink.split.i144, %
 
 228:                                              ; preds = %227
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %230 = load ptr, ptr %229, align 8, !tbaa !80
+  %230 = load ptr, ptr %229, align 8, !tbaa !82
   %231 = trunc i64 %.0241.lcssa to i32
   %232 = tail call i32 (ptr, i32, ptr, ...) %230(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.9, i32 noundef %231) #10
   br label %FastHufDecoder_refill.exit154.thread
@@ -2566,9 +2566,9 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !124
+  %8 = load ptr, ptr %7, align 8, !tbaa !126
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !96
+  %10 = load ptr, ptr %9, align 8, !tbaa !98
   br label %.thread
 
 .thread:                                          ; preds = %5, %6
@@ -2604,17 +2604,17 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %17, %26
   %28 = getelementptr inbounds nuw %struct._HufDec, ptr %4, i64 %27
-  %29 = load i32, ptr %28, align 8, !tbaa !125
+  %29 = load i32, ptr %28, align 8, !tbaa !127
   %.not80 = icmp eq i32 %29, 0
   br i1 %.not80, label %30, label %.thread84
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !126
+  %32 = load i32, ptr %31, align 4, !tbaa !128
   %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4, !tbaa !126
+  store i32 %33, ptr %31, align 4, !tbaa !128
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !97
+  %35 = load ptr, ptr %34, align 8, !tbaa !99
   %.not81 = icmp eq ptr %35, null
   br i1 %.not81, label %48, label %36
 
@@ -2622,12 +2622,12 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   %37 = zext i32 %33 to i64
   %38 = shl nuw nsw i64 %37, 2
   %39 = tail call ptr %11(i64 noundef %38) #10
-  store ptr %39, ptr %34, align 8, !tbaa !97
+  store ptr %39, ptr %34, align 8, !tbaa !99
   %.not82 = icmp eq ptr %39, null
   br i1 %.not82, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %36
-  %40 = load i32, ptr %31, align 4, !tbaa !126
+  %40 = load i32, ptr %31, align 4, !tbaa !128
   %.not111 = icmp eq i32 %40, 1
   br i1 %.not111, label %.loopexit, label %.lr.ph
 
@@ -2638,20 +2638,20 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   %43 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   store i32 %42, ptr %43, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr %31, align 4, !tbaa !126
+  %44 = load i32, ptr %31, align 4, !tbaa !128
   %45 = add i32 %44, -1
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !127
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %36
   tail call void %12(ptr noundef nonnull %35) #10
-  %.pr = load ptr, ptr %34, align 8, !tbaa !97
+  %.pr = load ptr, ptr %34, align 8, !tbaa !99
   br label %50
 
 48:                                               ; preds = %30
   %49 = tail call ptr %11(i64 noundef 4) #10
-  store ptr %49, ptr %34, align 8, !tbaa !97
+  store ptr %49, ptr %34, align 8, !tbaa !99
   br label %50
 
 50:                                               ; preds = %48, %.loopexit
@@ -2660,7 +2660,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   br i1 %.not83, label %.thread84, label %52
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr %31, align 4, !tbaa !126
+  %53 = load i32, ptr %31, align 4, !tbaa !128
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i32, ptr %51, i64 %55
@@ -2684,29 +2684,29 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
 66:                                               ; preds = %59, %71
   %.0100 = phi i64 [ %64, %59 ], [ %73, %71 ]
   %.06199 = phi ptr [ %63, %59 ], [ %74, %71 ]
-  %67 = load i32, ptr %.06199, align 8, !tbaa !125
+  %67 = load i32, ptr %.06199, align 8, !tbaa !127
   %.not78 = icmp eq i32 %67, 0
   br i1 %.not78, label %68, label %.thread84
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %.06199, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !97
+  %70 = load ptr, ptr %69, align 8, !tbaa !99
   %.not79 = icmp eq ptr %70, null
   br i1 %.not79, label %71, label %.thread84
 
 71:                                               ; preds = %68
-  store i32 %19, ptr %.06199, align 8, !tbaa !125
+  store i32 %19, ptr %.06199, align 8, !tbaa !127
   %72 = getelementptr inbounds nuw i8, ptr %.06199, i64 4
-  store i32 %65, ptr %72, align 4, !tbaa !126
+  store i32 %65, ptr %72, align 4, !tbaa !128
   %73 = add nsw i64 %.0100, -1
   %74 = getelementptr inbounds nuw i8, ptr %.06199, i64 16
   %.not77 = icmp eq i64 %73, 0
-  br i1 %.not77, label %.loopexit97, label %66, !llvm.loop !128
+  br i1 %.not77, label %.loopexit97, label %66, !llvm.loop !130
 
 .loopexit97:                                      ; preds = %71, %52, %58
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
-  br i1 %exitcond.not, label %.thread84, label %.lr.ph104, !llvm.loop !129
+  br i1 %exitcond.not, label %.thread84, label %.lr.ph104, !llvm.loop !131
 
 .thread84:                                        ; preds = %.loopexit97, %.lr.ph104, %24, %50, %68, %66, %.thread
   %.5 = phi i32 [ 0, %.thread ], [ 23, %66 ], [ 23, %68 ], [ 0, %.loopexit97 ], [ 23, %.lr.ph104 ], [ 23, %24 ], [ 1, %50 ]
@@ -2728,7 +2728,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %.1169.lcssa = phi ptr [ %.0168394, %.lr.ph397 ], [ %.2170, %.loopexit331 ]
   %.1153.lcssa = phi ptr [ %14, %.lr.ph397 ], [ %.2154, %.loopexit331 ]
   %12 = icmp ult ptr %.1153.lcssa, %11
-  br i1 %12, label %.lr.ph397, label %._crit_edge398, !llvm.loop !130
+  br i1 %12, label %.lr.ph397, label %._crit_edge398, !llvm.loop !132
 
 .lr.ph397:                                        ; preds = %7, %.loopexit332
   %.0152395 = phi ptr [ %.1153.lcssa, %.loopexit332 ], [ %2, %7 ]
@@ -2754,7 +2754,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %22 = lshr i64 %.1187383, %21
   %23 = and i64 %22, 16383
   %24 = getelementptr inbounds nuw %struct._HufDec, ptr %1, i64 %23
-  %25 = load i32, ptr %24, align 8, !tbaa !125
+  %25 = load i32, ptr %24, align 8, !tbaa !127
   %.not255 = icmp eq i32 %25, 0
   br i1 %.not255, label %63, label %26
 
@@ -2765,7 +2765,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
 28:                                               ; preds = %26
   %29 = sub nsw i32 %.1207382, %25
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !126
+  %31 = load i32, ptr %30, align 4, !tbaa !128
   %32 = icmp eq i32 %31, %4
   br i1 %32, label %33, label %58
 
@@ -2816,7 +2816,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %57 = getelementptr inbounds nuw i8, ptr %.4172356, i64 2
   store i16 %55, ptr %.4172356, align 2, !tbaa !3
   %.not261 = icmp eq i8 %56, 0
-  br i1 %.not261, label %.loopexit331, label %.lr.ph, !llvm.loop !131
+  br i1 %.not261, label %.loopexit331, label %.lr.ph, !llvm.loop !133
 
 58:                                               ; preds = %28
   %59 = icmp ult ptr %.1169384, %8
@@ -2830,13 +2830,13 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
 
 63:                                               ; preds = %.lr.ph387
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !97
+  %65 = load ptr, ptr %64, align 8, !tbaa !99
   %.not256 = icmp eq ptr %65, null
   br i1 %.not256, label %.thread314, label %.preheader
 
 .preheader:                                       ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !126
+  %67 = load i32, ptr %66, align 4, !tbaa !128
   %.not418 = icmp eq i32 %67, 0
   br i1 %.not418, label %.loopexit329, label %.lr.ph370.preheader
 
@@ -2874,7 +2874,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %84 = icmp slt i32 %83, %74
   %85 = icmp ult ptr %79, %11
   %86 = select i1 %84, i1 %85, i1 false
-  br i1 %86, label %.lr.ph360, label %._crit_edge, !llvm.loop !132
+  br i1 %86, label %.lr.ph360, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %.lr.ph360, %.lr.ph370
   %.9215.lcssa = phi i32 [ %.7213367, %.lr.ph370 ], [ %83, %.lr.ph360 ]
@@ -2947,7 +2947,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %123 = getelementptr inbounds nuw i8, ptr %.10178378, i64 2
   store i16 %121, ptr %.10178378, align 2, !tbaa !3
   %.not259 = icmp eq i8 %122, 0
-  br i1 %.not259, label %.loopexit329, label %.lr.ph380, !llvm.loop !133
+  br i1 %.not259, label %.loopexit329, label %.lr.ph380, !llvm.loop !135
 
 124:                                              ; preds = %96
   %125 = icmp ult ptr %.1169384, %8
@@ -2962,7 +2962,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
 129:                                              ; preds = %87, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread314, label %.lr.ph370, !llvm.loop !134
+  br i1 %exitcond.not, label %.thread314, label %.lr.ph370, !llvm.loop !136
 
 .loopexit329:                                     ; preds = %.lr.ph380, %.preheader, %120, %126
   %.0232343 = phi i32 [ %97, %126 ], [ %97, %120 ], [ 0, %.preheader ], [ %97, %.lr.ph380 ]
@@ -2979,7 +2979,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %.2170 = phi ptr [ %62, %60 ], [ %.8176, %.loopexit329 ], [ %.1169384, %54 ], [ %57, %.lr.ph ]
   %.2154 = phi ptr [ %.1153385, %60 ], [ %.8160, %.loopexit329 ], [ %.3155, %54 ], [ %.3155, %.lr.ph ]
   %131 = icmp sgt i32 %.2208, 13
-  br i1 %131, label %.lr.ph387, label %.loopexit332, !llvm.loop !135
+  br i1 %131, label %.lr.ph387, label %.loopexit332, !llvm.loop !137
 
 ._crit_edge398:                                   ; preds = %.loopexit332, %7
   %.0206.lcssa = phi i32 [ 0, %7 ], [ %.1207.lcssa, %.loopexit332 ]
@@ -3007,7 +3007,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %140 = shl i64 %.14200410, %139
   %141 = and i64 %140, 16383
   %142 = getelementptr inbounds nuw %struct._HufDec, ptr %1, i64 %141
-  %143 = load i32, ptr %142, align 8, !tbaa !125
+  %143 = load i32, ptr %142, align 8, !tbaa !127
   %.not252 = icmp eq i32 %143, 0
   %144 = icmp sgt i32 %143, %.14220409
   %or.cond = or i1 %.not252, %144
@@ -3016,7 +3016,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
 145:                                              ; preds = %.lr.ph414
   %146 = sub nsw i32 %.14220409, %143
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %148 = load i32, ptr %147, align 4, !tbaa !126
+  %148 = load i32, ptr %147, align 4, !tbaa !128
   %149 = icmp eq i32 %148, %4
   br i1 %149, label %150, label %175
 
@@ -3067,7 +3067,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %174 = getelementptr inbounds nuw i8, ptr %.16184404, i64 2
   store i16 %172, ptr %.16184404, align 2, !tbaa !3
   %.not254 = icmp eq i8 %173, 0
-  br i1 %.not254, label %.loopexit, label %.lr.ph407, !llvm.loop !136
+  br i1 %.not254, label %.loopexit, label %.lr.ph407, !llvm.loop !138
 
 175:                                              ; preds = %145
   %176 = icmp ult ptr %.13181411, %8
@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %.14182 = phi ptr [ %179, %177 ], [ %.13181411, %171 ], [ %174, %.lr.ph407 ]
   %.15167 = phi ptr [ %.14166412, %177 ], [ %.16, %171 ], [ %.16, %.lr.ph407 ]
   %180 = icmp sgt i32 %.15221, 0
-  br i1 %180, label %.lr.ph414, label %._crit_edge415, !llvm.loop !137
+  br i1 %180, label %.lr.ph414, label %._crit_edge415, !llvm.loop !139
 
 ._crit_edge415:                                   ; preds = %.loopexit, %._crit_edge398
   %.13181.lcssa = phi ptr [ %.0168.lcssa, %._crit_edge398 ], [ %.14182, %.loopexit ]
@@ -3207,59 +3207,59 @@ attributes #10 = { nounwind }
 !73 = distinct !{!73, !10}
 !74 = distinct !{!74, !10}
 !75 = distinct !{!75, !10}
-!76 = distinct !{!76, !10}
-!77 = distinct !{!77, !10}
+!76 = distinct !{!76, !10, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !78 = distinct !{!78, !10}
 !79 = distinct !{!79, !10}
-!80 = !{!81, !14, i64 72}
-!81 = !{!"_priv_exr_context_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !82, i64 8, !82, i64 24, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !18, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !84, i64 124, !14, i64 128, !14, i64 136, !14, i64 144, !8, i64 152, !14, i64 160, !14, i64 168, !8, i64 176, !18, i64 184, !18, i64 188, !18, i64 192, !18, i64 196, !85, i64 200, !90, i64 464, !91, i64 472, !86, i64 480, !5, i64 504, !5, i64 544, !5, i64 545, !5, i64 546, !18, i64 548}
-!82 = !{!"", !18, i64 0, !18, i64 4, !83, i64 8}
-!83 = !{!"p1 omnipotent char", !14, i64 0}
-!84 = !{!"float", !5, i64 0}
-!85 = !{!"_priv_exr_part_t", !18, i64 0, !18, i64 4, !86, i64 8, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !88, i64 144, !88, i64 160, !18, i64 176, !18, i64 180, !18, i64 184, !84, i64 188, !18, i64 192, !18, i64 196, !59, i64 200, !59, i64 208, !59, i64 216, !59, i64 224, !8, i64 232, !4, i64 240, !4, i64 242, !18, i64 244, !8, i64 248, !5, i64 256}
-!86 = !{!"exr_attribute_list", !18, i64 0, !18, i64 4, !87, i64 8, !87, i64 16}
-!87 = !{!"any p2 pointer", !14, i64 0}
-!88 = !{!"", !89, i64 0, !89, i64 8}
-!89 = !{!"", !18, i64 0, !18, i64 4}
-!90 = !{!"p1 _ZTS16_priv_exr_part_t", !14, i64 0}
-!91 = !{!"p2 _ZTS16_priv_exr_part_t", !87, i64 0}
-!92 = !{!61, !8, i64 283592}
-!93 = distinct !{!93, !10}
-!94 = distinct !{!94, !10}
+!80 = distinct !{!80, !10}
+!81 = distinct !{!81, !10}
+!82 = !{!83, !14, i64 72}
+!83 = !{!"_priv_exr_context_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !84, i64 8, !84, i64 24, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !18, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !86, i64 124, !14, i64 128, !14, i64 136, !14, i64 144, !8, i64 152, !14, i64 160, !14, i64 168, !8, i64 176, !18, i64 184, !18, i64 188, !18, i64 192, !18, i64 196, !87, i64 200, !92, i64 464, !93, i64 472, !88, i64 480, !5, i64 504, !5, i64 544, !5, i64 545, !5, i64 546, !18, i64 548}
+!84 = !{!"", !18, i64 0, !18, i64 4, !85, i64 8}
+!85 = !{!"p1 omnipotent char", !14, i64 0}
+!86 = !{!"float", !5, i64 0}
+!87 = !{!"_priv_exr_part_t", !18, i64 0, !18, i64 4, !88, i64 8, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !90, i64 144, !90, i64 160, !18, i64 176, !18, i64 180, !18, i64 184, !86, i64 188, !18, i64 192, !18, i64 196, !59, i64 200, !59, i64 208, !59, i64 216, !59, i64 224, !8, i64 232, !4, i64 240, !4, i64 242, !18, i64 244, !8, i64 248, !5, i64 256}
+!88 = !{!"exr_attribute_list", !18, i64 0, !18, i64 4, !89, i64 8, !89, i64 16}
+!89 = !{!"any p2 pointer", !14, i64 0}
+!90 = !{!"", !91, i64 0, !91, i64 8}
+!91 = !{!"", !18, i64 0, !18, i64 4}
+!92 = !{!"p1 _ZTS16_priv_exr_part_t", !14, i64 0}
+!93 = !{!"p2 _ZTS16_priv_exr_part_t", !89, i64 0}
+!94 = !{!61, !8, i64 283592}
 !95 = distinct !{!95, !10}
-!96 = !{!81, !14, i64 96}
-!97 = !{!98, !59, i64 8}
-!98 = !{!"_HufDec", !18, i64 0, !18, i64 4, !59, i64 8}
-!99 = distinct !{!99, !10}
-!100 = !{!101, !103, !104, !105}
-!101 = distinct !{!101, !102, !"FastHufDecoder_refill: argument 0"}
-!102 = distinct !{!102, !"FastHufDecoder_refill"}
-!103 = distinct !{!103, !102, !"FastHufDecoder_refill: argument 1"}
-!104 = distinct !{!104, !102, !"FastHufDecoder_refill: argument 2"}
-!105 = distinct !{!105, !102, !"FastHufDecoder_refill: argument 3"}
-!106 = distinct !{!106, !10}
-!107 = distinct !{!107, !10}
+!96 = distinct !{!96, !10}
+!97 = distinct !{!97, !10}
+!98 = !{!83, !14, i64 96}
+!99 = !{!100, !59, i64 8}
+!100 = !{!"_HufDec", !18, i64 0, !18, i64 4, !59, i64 8}
+!101 = distinct !{!101, !10}
+!102 = !{!103, !105, !106, !107}
+!103 = distinct !{!103, !104, !"FastHufDecoder_refill: argument 0"}
+!104 = distinct !{!104, !"FastHufDecoder_refill"}
+!105 = distinct !{!105, !104, !"FastHufDecoder_refill: argument 1"}
+!106 = distinct !{!106, !104, !"FastHufDecoder_refill: argument 2"}
+!107 = distinct !{!107, !104, !"FastHufDecoder_refill: argument 3"}
 !108 = distinct !{!108, !10}
-!109 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!110 = !{!111, !113, !114, !115}
-!111 = distinct !{!111, !112, !"FastHufDecoder_refill: argument 0"}
-!112 = distinct !{!112, !"FastHufDecoder_refill"}
-!113 = distinct !{!113, !112, !"FastHufDecoder_refill: argument 1"}
-!114 = distinct !{!114, !112, !"FastHufDecoder_refill: argument 2"}
-!115 = distinct !{!115, !112, !"FastHufDecoder_refill: argument 3"}
-!116 = distinct !{!116, !10}
-!117 = !{!118, !120, !121, !122}
-!118 = distinct !{!118, !119, !"FastHufDecoder_refill: argument 0"}
-!119 = distinct !{!119, !"FastHufDecoder_refill"}
-!120 = distinct !{!120, !119, !"FastHufDecoder_refill: argument 1"}
-!121 = distinct !{!121, !119, !"FastHufDecoder_refill: argument 2"}
-!122 = distinct !{!122, !119, !"FastHufDecoder_refill: argument 3"}
-!123 = distinct !{!123, !10}
-!124 = !{!81, !14, i64 88}
-!125 = !{!98, !18, i64 0}
-!126 = !{!98, !18, i64 4}
-!127 = distinct !{!127, !10}
-!128 = distinct !{!128, !10}
+!109 = distinct !{!109, !10}
+!110 = distinct !{!110, !10}
+!111 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!112 = !{!113, !115, !116, !117}
+!113 = distinct !{!113, !114, !"FastHufDecoder_refill: argument 0"}
+!114 = distinct !{!114, !"FastHufDecoder_refill"}
+!115 = distinct !{!115, !114, !"FastHufDecoder_refill: argument 1"}
+!116 = distinct !{!116, !114, !"FastHufDecoder_refill: argument 2"}
+!117 = distinct !{!117, !114, !"FastHufDecoder_refill: argument 3"}
+!118 = distinct !{!118, !10}
+!119 = !{!120, !122, !123, !124}
+!120 = distinct !{!120, !121, !"FastHufDecoder_refill: argument 0"}
+!121 = distinct !{!121, !"FastHufDecoder_refill"}
+!122 = distinct !{!122, !121, !"FastHufDecoder_refill: argument 1"}
+!123 = distinct !{!123, !121, !"FastHufDecoder_refill: argument 2"}
+!124 = distinct !{!124, !121, !"FastHufDecoder_refill: argument 3"}
+!125 = distinct !{!125, !10}
+!126 = !{!83, !14, i64 88}
+!127 = !{!100, !18, i64 0}
+!128 = !{!100, !18, i64 4}
 !129 = distinct !{!129, !10}
 !130 = distinct !{!130, !10}
 !131 = distinct !{!131, !10}
@@ -3269,3 +3269,5 @@ attributes #10 = { nounwind }
 !135 = distinct !{!135, !10}
 !136 = distinct !{!136, !10}
 !137 = distinct !{!137, !10}
+!138 = distinct !{!138, !10}
+!139 = distinct !{!139, !10}

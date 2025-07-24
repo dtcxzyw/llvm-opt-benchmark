@@ -327,8 +327,8 @@ define noundef zeroext i1 @_Z7IsAlphai(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
-  %.not72 = icmp eq i64 %1, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq i64 %1, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.not = icmp eq ptr %2, null
@@ -336,173 +336,173 @@ define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 no
   %.not55 = icmp eq ptr %3, null
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not55, label %.thread, label %.lr.ph.split.us.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %30
+  %7 = phi i64 [ %32, %30 ], [ 0, %.lr.ph ]
+  %.04157.us = phi i32 [ %.142.us, %30 ], [ 0, %.lr.ph ]
+  %.04356.us = phi i32 [ %31, %30 ], [ 0, %.lr.ph ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !3
+  %10 = zext i8 %9 to i32
+  %11 = lshr i32 %10, 4
+  %12 = and i32 %10, 15
+  %13 = icmp ugt i8 %9, -97
+  %14 = add nuw nsw i32 %11, 87
+  %15 = or disjoint i32 %11, 48
+  %16 = select i1 %13, i32 %14, i32 %15
+  %17 = icmp samesign ugt i32 %12, 9
+  %18 = add nuw nsw i32 %12, 87
+  %19 = or disjoint i32 %12, 48
+  %20 = select i1 %17, i32 %18, i32 %19
+  br i1 %.not55, label %30, label %21
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %29
-  %7 = phi i64 [ %31, %29 ], [ 0, %.lr.ph.split.us ]
-  %.04157.us = phi i32 [ %.142.us, %29 ], [ 0, %.lr.ph.split.us ]
-  %.04356.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph.split.us ]
-  %8 = zext i32 %.04157.us to i64
-  %9 = icmp ugt i64 %6, %8
-  br i1 %9, label %10, label %29
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = zext i32 %.04157.us to i64
+  %23 = icmp ugt i64 %6, %22
+  br i1 %23, label %24, label %30
 
-10:                                               ; preds = %.lr.ph.split.us.split
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %7
-  %12 = load i8, ptr %11, align 1, !tbaa !3
-  %13 = zext i8 %12 to i32
-  %14 = and i32 %13, 15
-  %15 = icmp samesign ugt i32 %14, 9
-  %16 = add nuw nsw i32 %14, 87
-  %17 = or disjoint i32 %14, 48
-  %18 = select i1 %15, i32 %16, i32 %17
-  %19 = icmp ugt i8 %12, -97
-  %20 = lshr i32 %13, 4
-  %21 = add nuw nsw i32 %20, 87
-  %22 = or disjoint i32 %20, 48
-  %23 = select i1 %19, i32 %21, i32 %22
-  %24 = add i32 %.04157.us, 1
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %8
-  store i32 %23, ptr %25, align 4, !tbaa !8
-  %26 = add i32 %.04157.us, 2
-  %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %27
-  store i32 %18, ptr %28, align 4, !tbaa !8
-  br label %29
+24:                                               ; preds = %21
+  %25 = add i32 %.04157.us, 1
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %22
+  store i32 %16, ptr %26, align 4, !tbaa !8
+  %27 = add i32 %.04157.us, 2
+  %28 = zext i32 %25 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %28
+  store i32 %20, ptr %29, align 4, !tbaa !8
+  br label %30
 
-29:                                               ; preds = %10, %.lr.ph.split.us.split
-  %.142.us = phi i32 [ %26, %10 ], [ %.04157.us, %.lr.ph.split.us.split ]
-  %30 = add i32 %.04356.us, 1
-  %31 = zext i32 %30 to i64
-  %32 = icmp ugt i64 %1, %31
-  br i1 %32, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !14
+30:                                               ; preds = %24, %21, %.lr.ph.split.us
+  %.142.us = phi i32 [ %27, %24 ], [ %.04157.us, %21 ], [ %.04157.us, %.lr.ph.split.us ]
+  %31 = add i32 %.04356.us, 1
+  %32 = zext i32 %31 to i64
+  %33 = icmp ugt i64 %1, %32
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not55, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %57
-  %33 = phi i64 [ %59, %57 ], [ 0, %.lr.ph.split ]
-  %.058.us61 = phi i32 [ %.1.us64, %57 ], [ 0, %.lr.ph.split ]
-  %.04356.us63 = phi i32 [ %58, %57 ], [ 0, %.lr.ph.split ]
-  %34 = zext i32 %.058.us61 to i64
-  %35 = icmp ugt i64 %6, %34
-  br i1 %35, label %36, label %57
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %58
+  %34 = phi i64 [ %60, %58 ], [ 0, %.lr.ph.split ]
+  %.058.us61 = phi i32 [ %.1.us64, %58 ], [ 0, %.lr.ph.split ]
+  %.04356.us63 = phi i32 [ %59, %58 ], [ 0, %.lr.ph.split ]
+  %35 = zext i32 %.058.us61 to i64
+  %36 = icmp ugt i64 %6, %35
+  br i1 %36, label %37, label %58
 
-36:                                               ; preds = %.lr.ph.split.split.us
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %38 = load i8, ptr %37, align 1, !tbaa !3
-  %39 = zext i8 %38 to i32
-  %40 = and i32 %39, 15
-  %41 = icmp samesign ugt i32 %40, 9
-  %42 = add nuw nsw i32 %40, 87
-  %43 = or disjoint i32 %40, 48
-  %44 = select i1 %41, i32 %42, i32 %43
-  %45 = icmp ugt i8 %38, -97
-  %46 = lshr i32 %39, 4
-  %47 = add nuw nsw i32 %46, 87
-  %48 = or disjoint i32 %46, 48
-  %49 = select i1 %45, i32 %47, i32 %48
-  %50 = trunc nuw nsw i32 %49 to i8
-  %51 = add i32 %.058.us61, 1
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %34
-  store i8 %50, ptr %52, align 1, !tbaa !3
-  %53 = trunc nuw nsw i32 %44 to i8
-  %54 = add i32 %.058.us61, 2
-  %55 = zext i32 %51 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %55
-  store i8 %53, ptr %56, align 1, !tbaa !3
-  br label %57
+37:                                               ; preds = %.lr.ph.split.split.us
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %34
+  %39 = load i8, ptr %38, align 1, !tbaa !3
+  %40 = zext i8 %39 to i32
+  %41 = and i32 %40, 15
+  %42 = icmp samesign ugt i32 %41, 9
+  %43 = add nuw nsw i32 %41, 87
+  %44 = or disjoint i32 %41, 48
+  %45 = select i1 %42, i32 %43, i32 %44
+  %46 = icmp ugt i8 %39, -97
+  %47 = lshr i32 %40, 4
+  %48 = add nuw nsw i32 %47, 87
+  %49 = or disjoint i32 %47, 48
+  %50 = select i1 %46, i32 %48, i32 %49
+  %51 = trunc nuw nsw i32 %50 to i8
+  %52 = add i32 %.058.us61, 1
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %35
+  store i8 %51, ptr %53, align 1, !tbaa !3
+  %54 = trunc nuw nsw i32 %45 to i8
+  %55 = add i32 %.058.us61, 2
+  %56 = zext i32 %52 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
+  store i8 %54, ptr %57, align 1, !tbaa !3
+  br label %58
 
-57:                                               ; preds = %36, %.lr.ph.split.split.us
-  %.1.us64 = phi i32 [ %54, %36 ], [ %.058.us61, %.lr.ph.split.split.us ]
-  %58 = add i32 %.04356.us63, 1
-  %59 = zext i32 %58 to i64
-  %60 = icmp ugt i64 %1, %59
-  br i1 %60, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !14
+58:                                               ; preds = %37, %.lr.ph.split.split.us
+  %.1.us64 = phi i32 [ %55, %37 ], [ %.058.us61, %.lr.ph.split.split.us ]
+  %59 = add i32 %.04356.us63, 1
+  %60 = zext i32 %59 to i64
+  %61 = icmp ugt i64 %1, %60
+  br i1 %61, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %96, %57, %29, %5
-  %.041.lcssa = phi i32 [ 0, %5 ], [ %.142.us, %29 ], [ 0, %57 ], [ %.142, %96 ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %29 ], [ %.1.us64, %57 ], [ %.1, %96 ]
-  %61 = icmp ne ptr %2, null
-  %62 = icmp ne i64 %4, 0
-  %or.cond = and i1 %61, %62
-  br i1 %or.cond, label %100, label %103
+._crit_edge:                                      ; preds = %97, %58, %30, %5
+  %.041.lcssa = phi i32 [ 0, %5 ], [ %.142.us, %30 ], [ 0, %58 ], [ %.142, %97 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %30 ], [ %.1.us64, %58 ], [ %.1, %97 ]
+  %62 = icmp ne ptr %2, null
+  %63 = icmp ne i64 %4, 0
+  %or.cond = and i1 %62, %63
+  br i1 %or.cond, label %101, label %104
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %96
-  %63 = phi i64 [ %98, %96 ], [ 0, %.lr.ph.split ]
-  %.058 = phi i32 [ %.1, %96 ], [ 0, %.lr.ph.split ]
-  %.04157 = phi i32 [ %.142, %96 ], [ 0, %.lr.ph.split ]
-  %.04356 = phi i32 [ %97, %96 ], [ 0, %.lr.ph.split ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = zext i8 %65 to i32
-  %67 = lshr i32 %66, 4
-  %68 = and i32 %66, 15
-  %69 = icmp ugt i8 %65, -97
-  %70 = add nuw nsw i32 %67, 87
-  %71 = or disjoint i32 %67, 48
-  %72 = select i1 %69, i32 %70, i32 %71
-  %73 = icmp samesign ugt i32 %68, 9
-  %74 = add nuw nsw i32 %68, 87
-  %75 = or disjoint i32 %68, 48
-  %76 = select i1 %73, i32 %74, i32 %75
-  %77 = zext i32 %.058 to i64
-  %78 = icmp ugt i64 %6, %77
-  br i1 %78, label %79, label %87
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %97
+  %64 = phi i64 [ %99, %97 ], [ 0, %.lr.ph.split ]
+  %.058 = phi i32 [ %.1, %97 ], [ 0, %.lr.ph.split ]
+  %.04157 = phi i32 [ %.142, %97 ], [ 0, %.lr.ph.split ]
+  %.04356 = phi i32 [ %98, %97 ], [ 0, %.lr.ph.split ]
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !3
+  %67 = zext i8 %66 to i32
+  %68 = lshr i32 %67, 4
+  %69 = and i32 %67, 15
+  %70 = icmp ugt i8 %66, -97
+  %71 = add nuw nsw i32 %68, 87
+  %72 = or disjoint i32 %68, 48
+  %73 = select i1 %70, i32 %71, i32 %72
+  %74 = icmp samesign ugt i32 %69, 9
+  %75 = add nuw nsw i32 %69, 87
+  %76 = or disjoint i32 %69, 48
+  %77 = select i1 %74, i32 %75, i32 %76
+  %78 = zext i32 %.058 to i64
+  %79 = icmp ugt i64 %6, %78
+  br i1 %79, label %80, label %88
 
-79:                                               ; preds = %.lr.ph.split.split
-  %80 = trunc nuw nsw i32 %72 to i8
-  %81 = add i32 %.058, 1
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 %77
-  store i8 %80, ptr %82, align 1, !tbaa !3
-  %83 = trunc nuw nsw i32 %76 to i8
-  %84 = add i32 %.058, 2
-  %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 %85
-  store i8 %83, ptr %86, align 1, !tbaa !3
-  br label %87
+80:                                               ; preds = %.lr.ph.split.split
+  %81 = trunc nuw nsw i32 %73 to i8
+  %82 = add i32 %.058, 1
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 %78
+  store i8 %81, ptr %83, align 1, !tbaa !3
+  %84 = trunc nuw nsw i32 %77 to i8
+  %85 = add i32 %.058, 2
+  %86 = zext i32 %82 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 %86
+  store i8 %84, ptr %87, align 1, !tbaa !3
+  br label %88
 
-87:                                               ; preds = %79, %.lr.ph.split.split
-  %.1 = phi i32 [ %84, %79 ], [ %.058, %.lr.ph.split.split ]
-  %88 = zext i32 %.04157 to i64
-  %89 = icmp ugt i64 %6, %88
-  br i1 %89, label %90, label %96
+88:                                               ; preds = %80, %.lr.ph.split.split
+  %.1 = phi i32 [ %85, %80 ], [ %.058, %.lr.ph.split.split ]
+  %89 = zext i32 %.04157 to i64
+  %90 = icmp ugt i64 %6, %89
+  br i1 %90, label %91, label %97
 
-90:                                               ; preds = %87
-  %91 = add i32 %.04157, 1
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %88
-  store i32 %72, ptr %92, align 4, !tbaa !8
-  %93 = add i32 %.04157, 2
-  %94 = zext i32 %91 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %3, i64 %94
-  store i32 %76, ptr %95, align 4, !tbaa !8
-  br label %96
+91:                                               ; preds = %88
+  %92 = add i32 %.04157, 1
+  %93 = getelementptr inbounds nuw i32, ptr %3, i64 %89
+  store i32 %73, ptr %93, align 4, !tbaa !8
+  %94 = add i32 %.04157, 2
+  %95 = zext i32 %92 to i64
+  %96 = getelementptr inbounds nuw i32, ptr %3, i64 %95
+  store i32 %77, ptr %96, align 4, !tbaa !8
+  br label %97
 
-96:                                               ; preds = %90, %87
-  %.142 = phi i32 [ %93, %90 ], [ %.04157, %87 ]
-  %97 = add i32 %.04356, 1
-  %98 = zext i32 %97 to i64
-  %99 = icmp ugt i64 %1, %98
-  br i1 %99, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !14
+97:                                               ; preds = %91, %88
+  %.142 = phi i32 [ %94, %91 ], [ %.04157, %88 ]
+  %98 = add i32 %.04356, 1
+  %99 = zext i32 %98 to i64
+  %100 = icmp ugt i64 %1, %99
+  br i1 %100, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !17
 
-100:                                              ; preds = %._crit_edge
-  %101 = zext i32 %.0.lcssa to i64
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 %101
-  store i8 0, ptr %102, align 1, !tbaa !3
-  br label %103
+101:                                              ; preds = %._crit_edge
+  %102 = zext i32 %.0.lcssa to i64
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 %102
+  store i8 0, ptr %103, align 1, !tbaa !3
+  br label %104
 
-103:                                              ; preds = %100, %._crit_edge
-  %104 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %104, %62
-  br i1 %or.cond3, label %105, label %.thread
+104:                                              ; preds = %101, %._crit_edge
+  %105 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %105, %63
+  br i1 %or.cond3, label %106, label %109
 
-105:                                              ; preds = %103
-  %106 = zext i32 %.041.lcssa to i64
-  %107 = getelementptr inbounds nuw i32, ptr %3, i64 %106
-  store i32 0, ptr %107, align 4, !tbaa !8
-  br label %.thread
+106:                                              ; preds = %104
+  %107 = zext i32 %.041.lcssa to i64
+  %108 = getelementptr inbounds nuw i32, ptr %3, i64 %107
+  store i32 0, ptr %108, align 4, !tbaa !8
+  br label %109
 
-.thread:                                          ; preds = %.lr.ph.split.us, %105, %103
+109:                                              ; preds = %106, %104
   ret void
 }
 
@@ -517,7 +517,7 @@ define noundef i32 @_Z9GetDigitsj(i32 noundef %0) local_unnamed_addr #0 {
   %3 = udiv i32 %.045, 10
   %4 = add i32 %.06, 1
   %5 = icmp ugt i32 %.045, 99
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %4, %.lr.ph ]
@@ -534,7 +534,7 @@ define noundef zeroext i1 @_Z8LowAsciiPKc(ptr noundef readonly captures(none) %0
   %4 = load i8, ptr %3, align 1, !tbaa !3
   %or.cond = icmp slt i8 %4, 1
   %5 = add i64 %.06, 1
-  br i1 %or.cond, label %6, label %2, !llvm.loop !16
+  br i1 %or.cond, label %6, label %2, !llvm.loop !19
 
 6:                                                ; preds = %2
   %.not = icmp eq i8 %4, 0
@@ -552,7 +552,7 @@ define noundef zeroext i1 @_Z8LowAsciiPKw(ptr noundef readonly captures(none) %0
   %5 = add i32 %4, -128
   %or.cond = icmp ult i32 %5, -127
   %6 = add i64 %.06, 1
-  br i1 %or.cond, label %7, label %2, !llvm.loop !17
+  br i1 %or.cond, label %7, label %2, !llvm.loop !20
 
 7:                                                ; preds = %2
   %.not = icmp eq i32 %4, 0
@@ -601,7 +601,7 @@ define void @_Z8wcsncpyzPwPKwm(ptr noundef writeonly captures(none) %0, ptr noun
   store i32 %6, ptr %.0613, align 4, !tbaa !8
   %10 = add i64 %5, -1
   %.not10 = icmp eq i64 %10, 0
-  br i1 %.not10, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not10, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph, %7, %.preheader
   %.06.lcssa = phi ptr [ %0, %.preheader ], [ %9, %7 ], [ %.0613, %.lr.ph ]
@@ -680,7 +680,7 @@ define void @_Z8wcsncatzPwPKwm(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %10, ptr %.0613.i, align 4, !tbaa !8
   %14 = add i64 %9, -1
   %.not10.i = icmp eq i64 %14, 0
-  br i1 %.not10.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not10.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %11, %.lr.ph.i, %.preheader.i
   %.06.lcssa.i = phi ptr [ %6, %.preheader.i ], [ %.0613.i, %.lr.ph.i ], [ %13, %11 ]
@@ -717,7 +717,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   store i8 %13, ptr %14, align 1, !tbaa !3
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
-  br i1 %.not27, label %16, label %8, !llvm.loop !19
+  br i1 %.not27, label %16, label %8, !llvm.loop !22
 
 16:                                               ; preds = %8, %9
   %.122 = phi i64 [ %7, %8 ], [ %10, %9 ]
@@ -750,7 +750,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   store i8 %25, ptr %26, align 1, !tbaa !3
   %27 = add nuw i64 %.028, 1
   %exitcond30.not = icmp eq i64 %27, %.2
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -779,7 +779,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   store i32 %13, ptr %14, align 4, !tbaa !8
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
-  br i1 %.not27, label %16, label %8, !llvm.loop !21
+  br i1 %.not27, label %16, label %8, !llvm.loop !24
 
 16:                                               ; preds = %8, %9
   %.122 = phi i64 [ %7, %8 ], [ %10, %9 ]
@@ -812,7 +812,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   store i32 %25, ptr %26, align 4, !tbaa !8
   %27 = add nuw i64 %.028, 1
   %exitcond30.not = icmp eq i64 %27, %.2
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -821,7 +821,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   %5 = alloca [30 x i32], align 16
   %6 = tail call ptr @localeconv() #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = icmp eq i8 %9, 0
   %narrow = select i1 %10, i8 32, i8 %9
@@ -849,7 +849,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   store i32 %18, ptr %19, align 4, !tbaa !8
   %20 = udiv i64 %.1.i, 10
   %.not27.i = icmp samesign ult i64 %.1.i, 10
-  br i1 %.not27.i, label %21, label %13, !llvm.loop !21
+  br i1 %.not27.i, label %21, label %13, !llvm.loop !24
 
 21:                                               ; preds = %14, %13
   %.122.i = phi i64 [ %12, %13 ], [ %15, %14 ]
@@ -876,7 +876,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   store i32 %29, ptr %30, align 4, !tbaa !8
   %31 = add nuw nsw i64 %.028.i, 1
   %exitcond30.not.i = icmp eq i64 %31, %.2.i
-  br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %.lr.ph.i, !llvm.loop !25
 
 _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   %32 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.i
@@ -930,7 +930,7 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   %61 = zext i32 %60 to i64
   %62 = icmp ugt i64 %2, %61
   %63 = and i1 %59, %62
-  br i1 %63, label %41, label %._crit_edge.loopexit, !llvm.loop !27
+  br i1 %63, label %41, label %._crit_edge.loopexit, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %51
   %64 = zext i32 %53 to i64
@@ -949,7 +949,7 @@ declare ptr @localeconv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_Z7GetWidePKc(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load i32, ptr @_ZZ7GetWidePKcE6StrNum, align 4, !tbaa !28
+  %2 = load i32, ptr @_ZZ7GetWidePKcE6StrNum, align 4, !tbaa !31
   %3 = add i32 %2, 1
   %4 = icmp ugt i32 %3, 3
   %spec.store.select = select i1 %4, i32 0, i32 %3
@@ -978,44 +978,44 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
 .lr.ph:                                           ; preds = %4
   %.not40.not = icmp eq ptr %1, null
   %6 = add i64 %2, -1
-  br i1 %.not40.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %.not40.not, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %14
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %14
   %7 = phi i32 [ %16, %14 ], [ %5, %.lr.ph ]
-  %.049.us.us = phi i1 [ %.1.us.us, %14 ], [ false, %.lr.ph ]
-  %.13247.us.us = phi ptr [ %15, %14 ], [ %.031, %.lr.ph ]
-  br i1 %.049.us.us, label %.critedge2.us.us, label %8
+  %.049.us = phi i1 [ %.1.us, %14 ], [ false, %.lr.ph ]
+  %.13247.us = phi ptr [ %15, %14 ], [ %.031, %.lr.ph ]
+  br i1 %.049.us, label %.critedge2.us, label %8
 
-8:                                                ; preds = %.lr.ph.split.us.split.us
+8:                                                ; preds = %.lr.ph.split.us
   switch i32 %7, label %14 [
     i32 32, label %.critedge
     i32 9, label %.critedge
     i32 34, label %10
   ]
 
-.critedge2.us.us:                                 ; preds = %.lr.ph.split.us.split.us
+.critedge2.us:                                    ; preds = %.lr.ph.split.us
   %9 = icmp eq i32 %7, 34
   br i1 %9, label %10, label %14
 
-10:                                               ; preds = %.critedge2.us.us, %8
-  %11 = getelementptr inbounds nuw i8, ptr %.13247.us.us, i64 4
+10:                                               ; preds = %.critedge2.us, %8
+  %11 = getelementptr inbounds nuw i8, ptr %.13247.us, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = icmp ne i32 %12, 34
-  %spec.select = select i1 %13, ptr %.13247.us.us, ptr %11
-  %spec.select89 = xor i1 %.049.us.us, %13
+  %spec.select = select i1 %13, ptr %.13247.us, ptr %11
+  %spec.select92 = xor i1 %.049.us, %13
   br label %14
 
-14:                                               ; preds = %10, %8, %.critedge2.us.us
-  %.233.us.us = phi ptr [ %.13247.us.us, %.critedge2.us.us ], [ %.13247.us.us, %8 ], [ %spec.select, %10 ]
-  %.1.us.us = phi i1 [ true, %.critedge2.us.us ], [ false, %8 ], [ %spec.select89, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.233.us.us, i64 4
+14:                                               ; preds = %10, %8, %.critedge2.us
+  %.233.us = phi ptr [ %.13247.us, %.critedge2.us ], [ %.13247.us, %8 ], [ %spec.select, %10 ]
+  %.1.us = phi i1 [ true, %.critedge2.us ], [ false, %8 ], [ %spec.select92, %10 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.233.us, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !8
-  %.not.us.us = icmp eq i32 %16, 0
-  br i1 %.not.us.us, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !30
+  %.not.us = icmp eq i32 %16, 0
+  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !33
 
 17:                                               ; preds = %4, %4
   %18 = getelementptr inbounds nuw i8, ptr %.031, i64 4
-  br label %4, !llvm.loop !31
+  br label %4, !llvm.loop !34
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %38
   %19 = phi i32 [ %40, %38 ], [ %5, %.lr.ph ]
@@ -1072,10 +1072,10 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
   %39 = getelementptr inbounds nuw i8, ptr %.233, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !30
+  br i1 %.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !35
 
 .critedge:                                        ; preds = %38, %20, %20, %14, %8, %8
-  %.132.lcssa = phi ptr [ %.13247.us.us, %8 ], [ %.13247.us.us, %8 ], [ %15, %14 ], [ %.13247, %20 ], [ %.13247, %20 ], [ %39, %38 ]
+  %.132.lcssa = phi ptr [ %.13247.us, %8 ], [ %.13247.us, %8 ], [ %15, %14 ], [ %.13247, %20 ], [ %.13247, %20 ], [ %39, %38 ]
   %.028.lcssa = phi i64 [ 0, %8 ], [ 0, %8 ], [ 0, %14 ], [ %.02848, %20 ], [ %.02848, %20 ], [ %.2, %38 ]
   %.not39 = icmp eq ptr %1, null
   br i1 %.not39, label %.loopexit, label %41
@@ -1129,21 +1129,25 @@ attributes #15 = { nounwind }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !15}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"_ZTS5lconv", !25, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !25, i64 40, !25, i64 48, !25, i64 56, !25, i64 64, !25, i64 72, !4, i64 80, !4, i64 81, !4, i64 82, !4, i64 83, !4, i64 84, !4, i64 85, !4, i64 86, !4, i64 87, !4, i64 88, !4, i64 89, !4, i64 90, !4, i64 91, !4, i64 92, !4, i64 93}
-!25 = !{!"p1 omnipotent char", !26, i64 0}
-!26 = !{!"any pointer", !4, i64 0}
-!27 = distinct !{!27, !7}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"int", !4, i64 0}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"_ZTS5lconv", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !28, i64 48, !28, i64 56, !28, i64 64, !28, i64 72, !4, i64 80, !4, i64 81, !4, i64 82, !4, i64 83, !4, i64 84, !4, i64 85, !4, i64 86, !4, i64 87, !4, i64 88, !4, i64 89, !4, i64 90, !4, i64 91, !4, i64 92, !4, i64 93}
+!28 = !{!"p1 omnipotent char", !29, i64 0}
+!29 = !{!"any pointer", !4, i64 0}
 !30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"int", !4, i64 0}
+!33 = distinct !{!33, !7, !15}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}

@@ -95440,24 +95440,24 @@ entry:
   %add11.i.i.i = add nsw i64 %add.i.i.i, %sub.ptr.div.i.i.i
   %iter.sroa.0.0.copyload = load ptr, ptr %first, align 8
   %iter.sroa.0.0.copyload.fr = freeze ptr %iter.sroa.0.0.copyload
-  %tobool.not.i.i.not = icmp eq ptr %iter.sroa.0.0.copyload.fr, null
+  %tobool6.not.i.i = icmp eq ptr %iter.sroa.0.0.copyload.fr, null
   %mEnd20.i.i = getelementptr inbounds nuw i8, ptr %last, i64 8
   %mpBegin3.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %mpCurrentArrayPtr5.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 24
   %mpEnd4.i.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
-  br i1 %tobool.not.i.i.not, label %entry.split.us.split.us, label %for.cond
+  br i1 %tobool6.not.i.i, label %lor.lhs.false.i.i.us, label %for.cond
 
-entry.split.us.split.us:                          ; preds = %entry
+lor.lhs.false.i.i.us:                             ; preds = %entry
   %iter.sroa.4.0.first.sroa_idx = getelementptr inbounds nuw i8, ptr %first, i64 8
   %iter.sroa.4.0.copyload = load i32, ptr %iter.sroa.4.0.first.sroa_idx, align 8
   %3 = load ptr, ptr %last, align 8
-  %tobool2.not.i.i.us.us68 = icmp eq ptr %3, null
+  %tobool2.not.i.i.us = icmp eq ptr %3, null
   %4 = load i32, ptr %mEnd20.i.i, align 8
-  %cmp21.i.i.us.us69 = icmp eq i32 %iter.sroa.4.0.copyload, %4
-  %or.cond.not.us.us70 = select i1 %tobool2.not.i.i.us.us68, i1 %cmp21.i.i.us.us69, i1 false
-  br i1 %or.cond.not.us.us70, label %for.end, label %for.body.us.us
+  %cmp21.i.i.us = icmp eq i32 %iter.sroa.4.0.copyload, %4
+  %or.cond.not.us = select i1 %tobool2.not.i.i.us, i1 %cmp21.i.i.us, i1 false
+  br i1 %or.cond.not.us, label %for.end, label %for.body.us
 
-for.body.us.us:                                   ; preds = %entry.split.us.split.us
+for.body.us:                                      ; preds = %lor.lhs.false.i.i.us
   call void @_ZN5eastl5dequeIiNS_9allocatorELj1EE7emplaceIJRKiEEENS_13DequeIteratorIiPiRiLj1EEENS6_IiPS4_S5_Lj1EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %position, ptr noundef nonnull align 4 dereferenceable(4) null)
   unreachable
 
@@ -95514,7 +95514,7 @@ _ZNK5eastl13DequeIteratorIiPiRiLj1EEplEl.exit:    ; preds = %if.then.i.i, %if.el
   store i32 %inc.i, ptr %iter.sroa.0.0.copyload.fr, align 4
   br label %for.cond, !llvm.loop !4905
 
-for.end:                                          ; preds = %lor.lhs.false.i.i, %land.lhs.true3.i.i, %entry.split.us.split.us
+for.end:                                          ; preds = %lor.lhs.false.i.i, %land.lhs.true3.i.i, %lor.lhs.false.i.i.us
   %14 = load ptr, ptr %mItBegin.i, align 8, !noalias !4906
   %15 = load ptr, ptr %mpBegin3.i.i, align 8, !noalias !4906
   %16 = load ptr, ptr %mpEnd4.i.i, align 8, !noalias !4906
@@ -106594,29 +106594,29 @@ entry:
   %8 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i = add nsw i64 %8, 1
   store i64 %inc6.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %tobool.not.i.i.not = icmp eq ptr %.fr, null
+  %tobool6.not.i.i = icmp eq ptr %.fr, null
   %mEnd19.i.i = getelementptr inbounds nuw i8, ptr %last, i64 8
   %mpBegin3.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %mpCurrentArrayPtr5.i.i25 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 24
   %mpEnd4.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
-  br i1 %tobool.not.i.i.not, label %entry.split.us.split.us, label %for.cond
+  br i1 %tobool6.not.i.i, label %lor.lhs.false.i.i.us, label %for.cond
 
-entry.split.us.split.us:                          ; preds = %entry
+lor.lhs.false.i.i.us:                             ; preds = %entry
   %9 = load ptr, ptr %last, align 8
-  %tobool2.not.i.i.us.us82 = icmp eq ptr %9, null
+  %tobool2.not.i.i.us = icmp eq ptr %9, null
   %10 = load i32, ptr %mEnd19.i.i, align 8
-  %cmp.i15.i.i.us.us83 = icmp eq i32 %4, %10
-  %or.cond.not.us.us84 = select i1 %tobool2.not.i.i.us.us82, i1 %cmp.i15.i.i.us.us83, i1 false
-  br i1 %or.cond.not.us.us84, label %for.cond.cleanup, label %for.body.us.us
+  %cmp.i15.i.i.us = icmp eq i32 %4, %10
+  %or.cond.not.us = select i1 %tobool2.not.i.i.us, i1 %cmp.i15.i.i.us, i1 false
+  br i1 %or.cond.not.us, label %for.cond.cleanup, label %for.body.us
 
-for.body.us.us:                                   ; preds = %entry.split.us.split.us
+for.body.us:                                      ; preds = %lor.lhs.false.i.i.us
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE7emplaceIJRKS1_EEENS_13DequeIteratorIS1_PS1_RS1_Lj1EEENS7_IS1_PS5_S6_Lj1EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %position, ptr noundef nonnull align 8 dereferenceable(20) null)
-          to label %invoke.cont8.us.us unwind label %lpad.split.us.split.us
+          to label %invoke.cont8.us unwind label %lpad.split.us
 
-invoke.cont8.us.us:                               ; preds = %for.body.us.us
+invoke.cont8.us:                                  ; preds = %for.body.us
   unreachable
 
-lpad.split.us.split.us:                           ; preds = %for.body.us.us
+lpad.split.us:                                    ; preds = %for.body.us
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -106636,7 +106636,7 @@ lor.lhs.false.i.i:                                ; preds = %for.cond
   %cmp.old.i.i = icmp eq ptr %.fr, %12
   br i1 %cmp.old.i.i, label %for.cond.cleanup, label %for.body
 
-for.cond.cleanup:                                 ; preds = %lor.lhs.false.i.i, %land.lhs.true3.i.i, %entry.split.us.split.us
+for.cond.cleanup:                                 ; preds = %lor.lhs.false.i.i, %land.lhs.true3.i.i, %lor.lhs.false.i.i.us
   %cmp.not.i.i = icmp eq i32 %5, 32623592
   br i1 %cmp.not.i.i, label %_ZN13InputIteratorI10TestObjectED2Ev.exit, label %if.then.i.i
 
@@ -106695,8 +106695,8 @@ lpad.split.split:                                 ; preds = %for.body
           cleanup
   br label %lpad
 
-lpad:                                             ; preds = %lpad.split.split, %lpad.split.us.split.us
-  %.us-phi = phi { ptr, i32 } [ %11, %lpad.split.us.split.us ], [ %23, %lpad.split.split ]
+lpad:                                             ; preds = %lpad.split.split, %lpad.split.us
+  %.us-phi = phi { ptr, i32 } [ %11, %lpad.split.us ], [ %23, %lpad.split.split ]
   %cmp.not.i.i17 = icmp eq i32 %5, 32623592
   br i1 %cmp.not.i.i17, label %_ZN13InputIteratorI10TestObjectED2Ev.exit22, label %if.then.i.i18
 

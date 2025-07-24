@@ -82,7 +82,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit21.thread47.us: ; preds = %.lr.ph.split
   %33 = load ptr, ptr %32, align 16, !tbaa !3
   %34 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %33) #5
   %.not.us = icmp eq ptr %34, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit21.thread47
   %35 = phi ptr [ %59, %_ZNK4llvm9StringRef11starts_withES0_.exit21.thread47 ], [ %9, %.lr.ph ]
@@ -487,7 +487,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.preheader
 _ZN4llvmeqENS_9StringRefES0_.exit.thread48:       ; preds = %.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit
   %133 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.01150) #5
   %.not13 = icmp eq ptr %133, null
-  br i1 %.not13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.preheader, !llvm.loop !27
+  br i1 %.not13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.preheader, !llvm.loop !29
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread48, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread, %1
   %.0 = phi i1 [ false, %1 ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
@@ -574,7 +574,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl13ha
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sroa.0.0.copyload.i.i.i.i, 1
@@ -609,18 +609,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl13ha
 20:                                               ; preds = %17
   %21 = inttoptr i64 %19 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !39
-  %24 = load ptr, ptr %21, align 8, !tbaa !43
+  %23 = load i32, ptr %22, align 8, !tbaa !41
+  %24 = load ptr, ptr %21, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !44
+  %26 = load i32, ptr %25, align 4, !tbaa !46
   %.not12.i.i.i.i = icmp eq i32 %23, %26
   br i1 %.not12.i.i.i.i, label %_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE17getMostRecentDeclEv.exit, label %27
 
 27:                                               ; preds = %20
-  store i32 %26, ptr %22, align 8, !tbaa !39
-  %28 = load ptr, ptr %24, align 8, !tbaa !47
-  %29 = getelementptr i8, ptr %28, i64 144, !nosanitize !49
-  %30 = load ptr, ptr %29, align 8, !nosanitize !49
+  store i32 %26, ptr %22, align 8, !tbaa !41
+  %28 = load ptr, ptr %24, align 8, !tbaa !49
+  %29 = getelementptr i8, ptr %28, i64 144, !nosanitize !51
+  %30 = load ptr, ptr %29, align 8, !nosanitize !51
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %5) #5
   br label %_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE17getMostRecentDeclEv.exit
 
@@ -672,7 +672,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   %18 = load i8, ptr %17, align 1, !tbaa !26
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !50
+  %21 = load i16, ptr %20, align 2, !tbaa !52
   %22 = and i16 %21, 96
   %.not70 = icmp eq i16 %22, 0
   br i1 %.not70, label %.loopexit, label %23
@@ -684,7 +684,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
 
 .lr.ph.backedge:                                  ; preds = %23, %30, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread57, %_ZNK4llvm9StringRef11starts_withES0_.exit42
   %.131.idx76.be = phi i64 [ %.131.add, %23 ], [ %.131.add64, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %.131.add64, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread57 ], [ %.232.add, %30 ]
-  br label %.lr.ph, !llvm.loop !52
+  br label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %15
   %.131.add64 = add nuw nsw i64 %.131.idx76, 1
@@ -724,7 +724,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %31 = load i8, ptr %.4.ptr, align 1, !tbaa !26
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !50
+  %34 = load i16, ptr %33, align 2, !tbaa !52
   %35 = and i16 %34, 64
   %.not72 = icmp eq i16 %35, 0
   br i1 %.not72, label %.thread60, label %.lr.ph.backedge
@@ -785,28 +785,30 @@ attributes #5 = { nounwind }
 !25 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !19, i64 0}
 !26 = !{!7, !7, i64 0}
 !27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !38, i64 8}
-!30 = !{!"_ZTSN5clang12RedeclarableINS_17ObjCInterfaceDeclEEE", !31, i64 0, !38, i64 8}
-!31 = !{!"_ZTSN5clang12RedeclarableINS_17ObjCInterfaceDeclEE8DeclLinkE", !32, i64 0}
-!32 = !{!"_ZTSN4llvm12PointerUnionIJNS0_IJPN5clang4DeclEPKvEEENS1_25LazyGenerationalUpdatePtrIPKS2_S3_XadL_ZNS1_17ExternalASTSource19CompleteRedeclChainES9_EEEEEEE", !33, i64 0}
-!33 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi0EJS8_SD_EEE", !34, i64 0}
-!34 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi1EJSD_EEE", !35, i64 0}
-!35 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi2EJEEE", !36, i64 0}
-!36 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJNS_12PointerUnionIJPN5clang4DeclEPKvEEENS5_25LazyGenerationalUpdatePtrIPKS6_S7_XadL_ZNS5_17ExternalASTSource19CompleteRedeclChainESD_EEEEEEENS_18PointerIntPairInfoIS1_Lj1ESG_EEEE", !37, i64 0}
-!37 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !7, i64 0}
-!38 = !{!"p1 _ZTSN5clang17ObjCInterfaceDeclE", !6, i64 0}
-!39 = !{!40, !22, i64 8}
-!40 = !{!"_ZTSN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE8LazyDataE", !41, i64 0, !22, i64 8, !42, i64 16}
-!41 = !{!"p1 _ZTSN5clang17ExternalASTSourceE", !6, i64 0}
-!42 = !{!"p1 _ZTSN5clang4DeclE", !6, i64 0}
-!43 = !{!40, !41, i64 0}
-!44 = !{!45, !22, i64 12}
-!45 = !{!"_ZTSN5clang17ExternalASTSourceE", !46, i64 8, !22, i64 12}
-!46 = !{!"_ZTSN4llvm14RefCountedBaseIN5clang17ExternalASTSourceEEE", !22, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"vtable pointer", !8, i64 0}
-!49 = !{}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"short", !7, i64 0}
-!52 = distinct !{!52, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!32, !40, i64 8}
+!32 = !{!"_ZTSN5clang12RedeclarableINS_17ObjCInterfaceDeclEEE", !33, i64 0, !40, i64 8}
+!33 = !{!"_ZTSN5clang12RedeclarableINS_17ObjCInterfaceDeclEE8DeclLinkE", !34, i64 0}
+!34 = !{!"_ZTSN4llvm12PointerUnionIJNS0_IJPN5clang4DeclEPKvEEENS1_25LazyGenerationalUpdatePtrIPKS2_S3_XadL_ZNS1_17ExternalASTSource19CompleteRedeclChainES9_EEEEEEE", !35, i64 0}
+!35 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi0EJS8_SD_EEE", !36, i64 0}
+!36 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi1EJSD_EEE", !37, i64 0}
+!37 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi2EJEEE", !38, i64 0}
+!38 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJNS_12PointerUnionIJPN5clang4DeclEPKvEEENS5_25LazyGenerationalUpdatePtrIPKS6_S7_XadL_ZNS5_17ExternalASTSource19CompleteRedeclChainESD_EEEEEEENS_18PointerIntPairInfoIS1_Lj1ESG_EEEE", !39, i64 0}
+!39 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !7, i64 0}
+!40 = !{!"p1 _ZTSN5clang17ObjCInterfaceDeclE", !6, i64 0}
+!41 = !{!42, !22, i64 8}
+!42 = !{!"_ZTSN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE8LazyDataE", !43, i64 0, !22, i64 8, !44, i64 16}
+!43 = !{!"p1 _ZTSN5clang17ExternalASTSourceE", !6, i64 0}
+!44 = !{!"p1 _ZTSN5clang4DeclE", !6, i64 0}
+!45 = !{!42, !43, i64 0}
+!46 = !{!47, !22, i64 12}
+!47 = !{!"_ZTSN5clang17ExternalASTSourceE", !48, i64 8, !22, i64 12}
+!48 = !{!"_ZTSN4llvm14RefCountedBaseIN5clang17ExternalASTSourceEEE", !22, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"vtable pointer", !8, i64 0}
+!51 = !{}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"short", !7, i64 0}
+!54 = distinct !{!54, !30}

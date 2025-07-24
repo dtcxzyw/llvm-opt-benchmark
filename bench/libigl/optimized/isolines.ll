@@ -286,4 +286,5 @@ attributes #10 = { nounwind allocsize(0) }
 !39 = distinct !{!39, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_E4typeEKSH_EERKS5_RKNS_10MatrixBaseISH_EE"}
 !40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
+!42 = distinct !{!42, !41, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}

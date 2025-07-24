@@ -1790,7 +1790,7 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread
+  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread, !llvm.loop !4
 
 20:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
@@ -2223,3 +2223,5 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}

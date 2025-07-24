@@ -465,7 +465,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) 
   %64 = add nuw nsw i64 %47, 1
   %65 = and i64 %64, 127
   %66 = icmp samesign ugt i64 %65, 63
-  br i1 %66, label %.thread, label %.preheader.split, !prof !17, !llvm.loop !18
+  br i1 %66, label %.thread, label %.preheader.split, !prof !17, !llvm.loop !20
 
 .thread:                                          ; preds = %46, %63, %.preheader.split, %31, %14, %.preheader.split.us, %35
   tail call void @_raw_spin_unlock(ptr noundef nonnull @cpuidle_driver_lock) #6
@@ -529,4 +529,6 @@ attributes #7 = { nounwind memory(read) }
 !15 = !{i64 2154406845}
 !16 = !{i64 601695}
 !17 = !{!"branch_weights", i32 1, i32 1999}
-!18 = distinct !{!18, !7, !8}
+!18 = distinct !{!18, !7, !8, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !8}

@@ -3761,7 +3761,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %.135.us = phi i32 [ %.03456.us, %.preheader.us ], [ %67, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %68
   %69 = load ptr, ptr %1, align 8, !tbaa !14
@@ -4126,5 +4126,6 @@ attributes #15 = { noreturn }
 !41 = distinct !{!41, !30}
 !42 = distinct !{!42, !30}
 !43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
-!45 = distinct !{!45, !30}
+!44 = distinct !{!44, !30, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !30}

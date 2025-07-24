@@ -3572,7 +3572,7 @@ define hidden void @dissect_ieee802154_gtsinfo(ptr noundef %0, ptr readnone capt
   store i32 %76, ptr %3, align 4
   %77 = add nuw nsw i32 %.16878, 1
   %exitcond80.not = icmp eq i32 %77, %.pre-phi
-  br i1 %exitcond80.not, label %.loopexit, label %.split, !llvm.loop !11
+  br i1 %exitcond80.not, label %.loopexit, label %.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split, %.split.us, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
@@ -3619,7 +3619,7 @@ define hidden void @dissect_ieee802154_pendaddr(ptr noundef %0, ptr readnone cap
   store i32 %29, ptr %3, align 4
   %30 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %30, %11
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 .lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %31 = phi i32 [ %35, %.lr.ph30 ], [ %21, %.preheader ]
@@ -3631,7 +3631,7 @@ define hidden void @dissect_ieee802154_pendaddr(ptr noundef %0, ptr readnone cap
   store i32 %35, ptr %3, align 4
   %36 = add nuw nsw i32 %.129, 1
   %exitcond32.not = icmp eq i32 %36, %14
-  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !13
+  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %.preheader
   ret void
@@ -3883,7 +3883,7 @@ dissect_ie_vendor.exit:                           ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.0..0..0..0.52 = load volatile i32, ptr %7, align 4
   %116 = icmp sgt i32 %.0..0..0..0.52, 0
-  br i1 %116, label %28, label %.loopexit, !llvm.loop !14
+  br i1 %116, label %28, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %115, %112
   %.0..0..0..0.70 = load volatile i32, ptr %6, align 4
@@ -5000,7 +5000,7 @@ define internal fastcc i32 @dissect_ieee802154_payload_ie(ptr noundef %0, ptr no
   %.0..0..0..0.48 = load volatile i32, ptr %5, align 4
   %93 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.48)
   %94 = icmp sgt i32 %93, 1
-  br i1 %94, label %20, label %95, !llvm.loop !15
+  br i1 %94, label %20, label %95, !llvm.loop !17
 
 95:                                               ; preds = %88, %92
   %.0..0..0..0.49 = load volatile i32, ptr %5, align 4
@@ -6210,7 +6210,7 @@ define hidden noundef zeroext i1 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, pt
   %51 = icmp samesign ult i64 %indvars.iv, 15
   %52 = icmp samesign ugt i32 %.04965, 1
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !16
+  br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph70.preheader, %.preheader63
   %.049.lcssa89 = phi i32 [ %.049.lcssa90, %.lr.ph70.preheader ], [ %50, %.preheader63 ]
@@ -6240,7 +6240,7 @@ define hidden noundef zeroext i1 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, pt
 
 62:                                               ; preds = %59
   %63 = zext nneg i32 %.150 to i64
-  %64 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %.152, i64 noundef range(i64 1, 2147483648) %63, i64 noundef 16) #19, !alias.scope !17
+  %64 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %.152, i64 noundef range(i64 1, 2147483648) %63, i64 noundef 16) #19, !alias.scope !19
   %65 = getelementptr i8, ptr %9, i64 %63
   %66 = sub nuw nsw i64 16, %63
   call void @llvm.memset.p0.i64(ptr noundef align 1 %65, i8 noundef 0, i64 noundef range(i64 -2147483631, 17) %66, i1 noundef false) #19
@@ -6252,7 +6252,7 @@ define hidden noundef zeroext i1 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, pt
   %70 = load ptr, ptr %8, align 8
   %71 = call i32 @gcry_cipher_encrypt(ptr noundef %70, ptr noundef %6, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16)
   %.not61 = icmp eq i32 %71, 0
-  br i1 %.not61, label %.preheader62, label %72, !llvm.loop !21
+  br i1 %.not61, label %.preheader62, label %72, !llvm.loop !23
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %8, align 8
@@ -6274,7 +6274,7 @@ define hidden noundef zeroext i1 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, pt
 
 78:                                               ; preds = %75
   %79 = zext nneg i32 %.047 to i64
-  %80 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %.048, i64 noundef range(i64 1, 2147483648) %79, i64 noundef 16) #19, !alias.scope !22
+  %80 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %.048, i64 noundef range(i64 1, 2147483648) %79, i64 noundef 16) #19, !alias.scope !24
   %81 = getelementptr i8, ptr %9, i64 %79
   %82 = sub nuw nsw i64 16, %79
   call void @llvm.memset.p0.i64(ptr noundef align 1 %81, i8 noundef 0, i64 noundef range(i64 -2147483631, 17) %82, i1 noundef false) #19
@@ -6286,7 +6286,7 @@ define hidden noundef zeroext i1 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, pt
   %86 = load ptr, ptr %8, align 8
   %87 = call i32 @gcry_cipher_encrypt(ptr noundef %86, ptr noundef %6, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16)
   %.not60 = icmp eq i32 %87, 0
-  br i1 %.not60, label %.preheader, label %88, !llvm.loop !26
+  br i1 %.not60, label %.preheader, label %88, !llvm.loop !28
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %8, align 8
@@ -6767,12 +6767,12 @@ define internal void @key_uat_hash_type_set_cb(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !27
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !29
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -6807,12 +6807,12 @@ define internal void @key_uat_hash_type_tostr_cb(ptr noundef readonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !30
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !28
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !30
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -6955,7 +6955,7 @@ define internal void @proto_init_ieee802154() #0 {
   %58 = load ptr, ptr @static_addrs, align 8
   %59 = icmp ne ptr %58, null
   %60 = select i1 %57, i1 %59, i1 false
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -7344,7 +7344,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = zext i32 %44 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %4, label %._crit_edge, !llvm.loop !30
+  br i1 %47, label %4, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %43, %0
   ret void
@@ -8017,7 +8017,7 @@ dissect_ieee802154_tap_sun_phy.exit.i:            ; preds = %279, %dissect_ieee8
   %297 = and i32 %296, 131068
   %298 = add i32 %297, %74
   %299 = call zeroext i1 @tvb_bytes_exist(ptr noundef %47, i32 noundef %298, i32 noundef 4)
-  br i1 %299, label %52, label %._crit_edge.i, !llvm.loop !31
+  br i1 %299, label %52, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %295
   %.pre.i = load i64, ptr %16, align 8
@@ -8562,7 +8562,7 @@ define internal i32 @dissect_pie_mlme(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0..0..0..0.26 = load volatile i32, ptr %5, align 4
   %72 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.26)
   %73 = icmp sgt i32 %72, 1
-  br i1 %73, label %20, label %._crit_edge, !llvm.loop !32
+  br i1 %73, label %20, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %69, %4
   %.0..0..0..0.31 = load volatile i32, ptr %5, align 4
@@ -9028,7 +9028,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %138 = add nuw nsw i32 %.2213265, 4
   %139 = add nuw nsw i32 %.0207266, 1
   %exitcond.not = icmp eq i32 %139, %128
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph267, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph267, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph267, %123
   %.2213.lcssa = phi i32 [ 11, %123 ], [ %138, %.lr.ph267 ]
@@ -9056,7 +9056,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %155 = add i32 %.1215271, -4
   %156 = add i32 %.3272, 4
   %.not234 = icmp eq i32 %155, 0
-  br i1 %.not234, label %.thread237, label %.lr.ph274, !llvm.loop !34
+  br i1 %.not234, label %.thread237, label %.lr.ph274, !llvm.loop !36
 
 .thread251:                                       ; preds = %114, %108, %121
   %.0214247257 = phi i32 [ %56, %121 ], [ %102, %108 ], [ %102, %114 ]
@@ -9083,7 +9083,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %170 = add i32 %.2216263, -4
   %171 = add i32 %.4264, 4
   %.not233 = icmp eq i32 %170, 0
-  br i1 %.not233, label %.thread237, label %.lr.ph, !llvm.loop !35
+  br i1 %.not233, label %.thread237, label %.lr.ph, !llvm.loop !37
 
 .thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %82, %85, %119, %103, %103, %103, %103, %103, %103, %103, %103, %114, %104, %111, %105, %117, %91, %89, %80, %68, %67, %61, %59, %47, %45, %94, %11, %4
   %.0210 = phi i32 [ %8, %4 ], [ %8, %11 ], [ 9, %82 ], [ %8, %85 ], [ 7, %119 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ 7, %45 ], [ 7, %94 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
@@ -9178,13 +9178,13 @@ define internal i32 @dissect_802154_tsch_slotframe_link(ptr noundef %0, ptr read
   %42 = add i8 %.04752, -1
   %43 = add i32 %.153, 5
   %.not50 = icmp eq i8 %42, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph58
   %.1.lcssa = phi i32 [ %28, %.lr.ph58 ], [ %43, %.lr.ph ]
   %44 = add i8 %.056, 1
   %.not = icmp ugt i8 %44, %8
-  br i1 %.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !37
+  br i1 %.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !39
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %4
   %.046.lcssa = phi i32 [ 3, %4 ], [ %.1.lcssa, %._crit_edge ]
@@ -9245,7 +9245,7 @@ define internal range(i32 3, 30) i32 @dissect_802154_tsch_timeslot(ptr noundef %
   %37 = add nuw nsw i32 %.134, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %38, label %33, !llvm.loop !38
+  br i1 %exitcond.not, label %38, label %33, !llvm.loop !40
 
 38:                                               ; preds = %33
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 23)
@@ -10769,23 +10769,23 @@ attributes #23 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!11 = distinct !{!11, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = distinct !{!21, !9}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
-!24 = distinct !{!24, !"memcpy.inline"}
-!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !9}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
+!26 = distinct !{!26, !"memcpy.inline"}
+!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
 !28 = distinct !{!28, !9}
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
@@ -10797,3 +10797,5 @@ attributes #23 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !9}
 !37 = distinct !{!37, !9}
 !38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}

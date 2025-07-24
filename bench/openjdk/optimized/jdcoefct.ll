@@ -889,7 +889,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   %97 = add i32 %96, %.07488.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us.loopexit, label %92, !llvm.loop !23
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us.loopexit, label %92, !llvm.loop !24
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92
   %98 = load i32, ptr %57, align 4
@@ -907,12 +907,12 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next120, %102
-  br i1 %103, label %39, label %._crit_edge, !llvm.loop !24
+  br i1 %103, label %39, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit84, %.preheader
   %104 = add i32 %.073102, 1
   %.not = icmp ugt i32 %104, %7
-  br i1 %.not, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !25
+  br i1 %.not, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !26
 
 ._crit_edge105.loopexit:                          ; preds = %._crit_edge
   %.pre124 = load i32, ptr %13, align 8
@@ -923,7 +923,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   store i32 0, ptr %16, align 8
   %106 = add nsw i32 %.078106, 1
   %107 = icmp slt i32 %106, %105
-  br i1 %107, label %24, label %._crit_edge109.loopexit, !llvm.loop !26
+  br i1 %107, label %24, label %._crit_edge109.loopexit, !llvm.loop !27
 
 ._crit_edge109.loopexit:                          ; preds = %._crit_edge105
   %.pre125 = load i32, ptr %8, align 4
@@ -1041,7 +1041,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %33 = load ptr, ptr %19, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0) #5
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.loopexit346, label %15, !llvm.loop !27
+  br i1 %35, label %.loopexit346, label %15, !llvm.loop !28
 
 .critedge:                                        ; preds = %15, %24, %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1477,14 +1477,14 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %296 = add i32 %295, %.0265347
   %297 = add i32 %.0250351, 1
   %.not311 = icmp ugt i32 %297, %162
-  br i1 %.not311, label %298, label %163, !llvm.loop !28
+  br i1 %.not311, label %298, label %163, !llvm.loop !29
 
 298:                                              ; preds = %291
   %299 = sext i32 %295 to i64
   %300 = getelementptr inbounds ptr, ptr %.0266358, i64 %299
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !30
 
 .loopexit:                                        ; preds = %298, %90, %50
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
@@ -1492,7 +1492,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %302 = load i32, ptr %36, align 8
   %303 = sext i32 %302 to i64
   %304 = icmp slt i64 %indvars.iv.next367, %303
-  br i1 %304, label %50, label %._crit_edge, !llvm.loop !30
+  br i1 %304, label %50, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit, %.critedge
   %305 = load i32, ptr %14, align 8
@@ -1546,8 +1546,8 @@ attributes #5 = { nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7, !14}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!22 = distinct !{!22, !7, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
@@ -1555,3 +1555,4 @@ attributes #5 = { nounwind }
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}

@@ -1223,20 +1223,20 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 ._crit_edge.i:                                    ; preds = %6, %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !126
-  %.fr.i = freeze i32 %11
-  %12 = and i32 %.fr.i, -3
+  %.fr = freeze i32 %11
+  %12 = and i32 %.fr, -3
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 0, i32 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !128
-  %.fr111.i = freeze i32 %16
-  %.not59.i = icmp eq i32 %.fr111.i, 2
+  %.fr.i = freeze i32 %16
+  %.not59.i = icmp eq i32 %.fr.i, 2
   %17 = select i1 %.not59.i, i32 0, i32 2
-  %18 = or disjoint i32 %14, %17
+  %18 = or disjoint i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !127
-  %.fr112.i = freeze i32 %20
-  %21 = icmp ne i32 %.fr112.i, 2
+  %.fr45 = freeze i32 %20
+  %21 = icmp ne i32 %.fr45, 2
   %22 = zext i1 %21 to i32
   %23 = or disjoint i32 %18, %22
   %24 = icmp eq i32 %23, 0
@@ -1244,480 +1244,308 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   br i1 %brmerge.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge.i
-  %.not66.i = icmp eq i32 %.fr112.i, 2
-  br i1 %.not59.i, label %.preheader.lr.ph.split.us.i, label %.preheader.preheader.i
+  %.not66.i = icmp eq i32 %.fr45, 2
+  %wide.trip.count97.i = zext nneg i32 %3 to i64
+  br i1 %.not59.i, label %.preheader.us.i, label %.preheader.i.preheader
 
-.preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
-  %wide.trip.count124.i = zext nneg i32 %3 to i64
-  br i1 %.not66.i, label %.preheader.preheader.i.split.us, label %.preheader.preheader.i.split
+.preheader.i.preheader:                           ; preds = %.preheader.lr.ph.i
+  br i1 %.not66.i, label %.preheader.i.us, label %.preheader.i.preheader.split
 
-.preheader.preheader.i.split.us:                  ; preds = %.preheader.preheader.i
-  switch i32 %.fr.i, label %.preheader.i.us [
-    i32 2, label %.preheader.i.us.us.preheader
-    i32 0, label %.preheader.i.us.us.preheader
-  ]
-
-.preheader.i.us.us.preheader:                     ; preds = %.preheader.preheader.i.split.us, %.preheader.preheader.i.split.us
-  br label %.preheader.i.us.us
-
-.preheader.i.us.us:                               ; preds = %.preheader.i.us.us.preheader, %.split.i.split.us.us.split.us.us
-  %indvars.iv121.i.us.us = phi i64 [ %indvars.iv.next122.i.us.us, %.split.i.split.us.us.split.us.us ], [ 0, %.preheader.i.us.us.preheader ]
-  %.080.i.us.us = phi i32 [ %.2.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ 0, %.preheader.i.us.us.preheader ]
-  %.04478.i.us.us = phi i32 [ %.246.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ -1, %.preheader.i.us.us.preheader ]
-  %25 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us.us
+.preheader.i.us:                                  ; preds = %.preheader.i.preheader, %.split.i.split.us.us
+  %indvars.iv85.i.us = phi i64 [ %indvars.iv.next86.i.us, %.split.i.split.us.us ], [ 0, %.preheader.i.preheader ]
+  %.076.i.us = phi i32 [ %.2.i.us.us, %.split.i.split.us.us ], [ 0, %.preheader.i.preheader ]
+  %.04474.i.us = phi i32 [ %.246.i.us.us, %.split.i.split.us.us ], [ -1, %.preheader.i.preheader ]
+  %25 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv85.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !26
   br label %27
 
-27:                                               ; preds = %38, %.preheader.i.us.us
-  %indvars.iv117.i.us.us.us.us = phi i64 [ 0, %.preheader.i.us.us ], [ %indvars.iv.next118.i.us.us.us.us, %38 ]
-  %.172.i.us.us.us.us = phi i32 [ %.080.i.us.us, %.preheader.i.us.us ], [ %.2.i.us.us.us.us, %38 ]
-  %.14571.i.us.us.us.us = phi i32 [ %.04478.i.us.us, %.preheader.i.us.us ], [ %.246.i.us.us.us.us, %38 ]
-  %28 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv117.i.us.us.us.us
+27:                                               ; preds = %44, %.preheader.i.us
+  %indvars.iv81.i.us.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next82.i.us.us, %44 ]
+  %.172.i.us.us = phi i32 [ %.076.i.us, %.preheader.i.us ], [ %.2.i.us.us, %44 ]
+  %.14571.i.us.us = phi i32 [ %.04474.i.us, %.preheader.i.us ], [ %.246.i.us.us, %44 ]
+  %28 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i.us.us
   %29 = load i32, ptr %28, align 4, !tbaa !123
-  %.not60.i.us.us.us.us = icmp eq i32 %29, %26
-  br i1 %.not60.i.us.us.us.us, label %30, label %38
+  %.not60.i.us.us = icmp eq i32 %29, %26
+  br i1 %.not60.i.us.us, label %30, label %44
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !128
-  %.not65.i.us.us.us.us = icmp eq i32 %.fr111.i, %32
-  %33 = select i1 %.not65.i.us.us.us.us, i32 0, i32 2
-  %34 = icmp samesign ult i32 %33, %23
-  br i1 %34, label %35, label %38
-
-35:                                               ; preds = %30
-  %36 = icmp eq i32 %.14571.i.us.us.us.us, -1
-  %37 = icmp slt i32 %33, %.14571.i.us.us.us.us
-  %or.cond.i.us.us.us.us = or i1 %36, %37
-  %spec.select.i.us.us.us.us = select i1 %or.cond.i.us.us.us.us, i32 %33, i32 %.14571.i.us.us.us.us
-  %spec.select67.i.us.us.us.us = select i1 %or.cond.i.us.us.us.us, i32 %26, i32 %.172.i.us.us.us.us
-  br label %38
-
-38:                                               ; preds = %35, %30, %27
-  %.246.i.us.us.us.us = phi i32 [ %.14571.i.us.us.us.us, %27 ], [ %.14571.i.us.us.us.us, %30 ], [ %spec.select.i.us.us.us.us, %35 ]
-  %.2.i.us.us.us.us = phi i32 [ %.172.i.us.us.us.us, %27 ], [ %.172.i.us.us.us.us, %30 ], [ %spec.select67.i.us.us.us.us, %35 ]
-  %indvars.iv.next118.i.us.us.us.us = add nuw nsw i64 %indvars.iv117.i.us.us.us.us, 1
-  %exitcond120.not.i.us.us.us.us = icmp eq i64 %indvars.iv.next118.i.us.us.us.us, 12
-  br i1 %exitcond120.not.i.us.us.us.us, label %.split.i.split.us.us.split.us.us, label %27, !llvm.loop !142
-
-.split.i.split.us.us.split.us.us:                 ; preds = %38
-  %indvars.iv.next122.i.us.us = add nuw nsw i64 %indvars.iv121.i.us.us, 1
-  %exitcond125.not.i.us.us = icmp eq i64 %indvars.iv.next122.i.us.us, %wide.trip.count124.i
-  br i1 %exitcond125.not.i.us.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us.us, !llvm.loop !143
-
-.preheader.i.us:                                  ; preds = %.preheader.preheader.i.split.us, %.split.i.split.us.us.split
-  %indvars.iv121.i.us = phi i64 [ %indvars.iv.next122.i.us, %.split.i.split.us.us.split ], [ 0, %.preheader.preheader.i.split.us ]
-  %.080.i.us = phi i32 [ %.2.i.us.us, %.split.i.split.us.us.split ], [ 0, %.preheader.preheader.i.split.us ]
-  %.04478.i.us = phi i32 [ %.246.i.us.us, %.split.i.split.us.us.split ], [ -1, %.preheader.preheader.i.split.us ]
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us
-  %40 = load i32, ptr %39, align 4, !tbaa !26
-  br label %41
-
-41:                                               ; preds = %56, %.preheader.i.us
-  %indvars.iv117.i.us.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next118.i.us.us, %56 ]
-  %.172.i.us.us = phi i32 [ %.080.i.us, %.preheader.i.us ], [ %.2.i.us.us, %56 ]
-  %.14571.i.us.us = phi i32 [ %.04478.i.us, %.preheader.i.us ], [ %.246.i.us.us, %56 ]
-  %42 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv117.i.us.us
-  %43 = load i32, ptr %42, align 4, !tbaa !123
-  %.not60.i.us.us = icmp eq i32 %43, %40
-  br i1 %.not60.i.us.us, label %44, label %56
-
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !126
-  %.not63.i.us.us = icmp eq i32 %.fr.i, %46
-  %47 = select i1 %.not63.i.us.us, i32 0, i32 4
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !128
-  %.not65.i.us.us = icmp eq i32 %.fr111.i, %49
-  %50 = select i1 %.not65.i.us.us, i32 0, i32 2
-  %51 = or disjoint i32 %50, %47
-  %52 = icmp samesign ult i32 %51, %23
-  br i1 %52, label %53, label %56
-
-53:                                               ; preds = %44
-  %54 = icmp eq i32 %.14571.i.us.us, -1
-  %55 = icmp slt i32 %51, %.14571.i.us.us
-  %or.cond.i.us.us = or i1 %54, %55
-  %spec.select.i.us.us = select i1 %or.cond.i.us.us, i32 %51, i32 %.14571.i.us.us
-  %spec.select67.i.us.us = select i1 %or.cond.i.us.us, i32 %40, i32 %.172.i.us.us
-  br label %56
-
-56:                                               ; preds = %53, %44, %41
-  %.246.i.us.us = phi i32 [ %.14571.i.us.us, %41 ], [ %.14571.i.us.us, %44 ], [ %spec.select.i.us.us, %53 ]
-  %.2.i.us.us = phi i32 [ %.172.i.us.us, %41 ], [ %.172.i.us.us, %44 ], [ %spec.select67.i.us.us, %53 ]
-  %indvars.iv.next118.i.us.us = add nuw nsw i64 %indvars.iv117.i.us.us, 1
-  %exitcond120.not.i.us.us = icmp eq i64 %indvars.iv.next118.i.us.us, 12
-  br i1 %exitcond120.not.i.us.us, label %.split.i.split.us.us.split, label %41, !llvm.loop !142
-
-.split.i.split.us.us.split:                       ; preds = %56
-  %indvars.iv.next122.i.us = add nuw nsw i64 %indvars.iv121.i.us, 1
-  %exitcond125.not.i.us = icmp eq i64 %indvars.iv.next122.i.us, %wide.trip.count124.i
-  br i1 %exitcond125.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us, !llvm.loop !143
-
-.preheader.preheader.i.split:                     ; preds = %.preheader.preheader.i
-  switch i32 %.fr.i, label %.preheader.i [
-    i32 2, label %.preheader.i.us40.preheader
-    i32 0, label %.preheader.i.us40.preheader
+  switch i32 %.fr, label %31 [
+    i32 2, label %35
+    i32 0, label %35
   ]
 
-.preheader.i.us40.preheader:                      ; preds = %.preheader.preheader.i.split, %.preheader.preheader.i.split
-  br label %.preheader.i.us40
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !126
+  %.not63.i.us.us = icmp eq i32 %.fr, %33
+  %34 = select i1 %.not63.i.us.us, i32 0, i32 4
+  br label %35
 
-.preheader.i.us40:                                ; preds = %.preheader.i.us40.preheader, %.split.i.split.split.us.us
-  %indvars.iv121.i.us41 = phi i64 [ %indvars.iv.next122.i.us44, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us40.preheader ]
-  %.080.i.us42 = phi i32 [ %.2.i.us32.us, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us40.preheader ]
-  %.04478.i.us43 = phi i32 [ %.246.i.us31.us, %.split.i.split.split.us.us ], [ -1, %.preheader.i.us40.preheader ]
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us41
-  %58 = load i32, ptr %57, align 4, !tbaa !26
-  br label %59
+35:                                               ; preds = %31, %30, %30
+  %.047.i.us.us = phi i32 [ %34, %31 ], [ 0, %30 ], [ 0, %30 ]
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %37 = load i32, ptr %36, align 4, !tbaa !128
+  %.not65.i.us.us = icmp eq i32 %.fr.i, %37
+  %38 = select i1 %.not65.i.us.us, i32 0, i32 2
+  %39 = or disjoint i32 %38, %.047.i.us.us
+  %40 = icmp samesign ult i32 %39, %23
+  br i1 %40, label %41, label %44
 
-59:                                               ; preds = %75, %.preheader.i.us40
-  %indvars.iv117.i.us22.us = phi i64 [ 0, %.preheader.i.us40 ], [ %indvars.iv.next118.i.us33.us, %75 ]
-  %.172.i.us23.us = phi i32 [ %.080.i.us42, %.preheader.i.us40 ], [ %.2.i.us32.us, %75 ]
-  %.14571.i.us24.us = phi i32 [ %.04478.i.us43, %.preheader.i.us40 ], [ %.246.i.us31.us, %75 ]
-  %60 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv117.i.us22.us
-  %61 = load i32, ptr %60, align 4, !tbaa !123
-  %.not60.i.us25.us = icmp eq i32 %61, %58
-  br i1 %.not60.i.us25.us, label %62, label %75
+41:                                               ; preds = %35
+  %42 = icmp eq i32 %.14571.i.us.us, -1
+  %43 = icmp slt i32 %39, %.14571.i.us.us
+  %or.cond.i.us.us = or i1 %42, %43
+  %spec.select.i.us.us = select i1 %or.cond.i.us.us, i32 %39, i32 %.14571.i.us.us
+  %spec.select67.i.us.us = select i1 %or.cond.i.us.us, i32 %26, i32 %.172.i.us.us
+  br label %44
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !128
-  %.not65.i.us27.us = icmp eq i32 %.fr111.i, %64
-  %65 = select i1 %.not65.i.us27.us, i32 0, i32 2
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !127
-  %68 = icmp ne i32 %.fr112.i, %67
-  %69 = zext i1 %68 to i32
-  %70 = or disjoint i32 %65, %69
-  %71 = icmp samesign ult i32 %70, %23
-  br i1 %71, label %72, label %75
+44:                                               ; preds = %41, %35, %27
+  %.246.i.us.us = phi i32 [ %.14571.i.us.us, %27 ], [ %.14571.i.us.us, %35 ], [ %spec.select.i.us.us, %41 ]
+  %.2.i.us.us = phi i32 [ %.172.i.us.us, %27 ], [ %.172.i.us.us, %35 ], [ %spec.select67.i.us.us, %41 ]
+  %indvars.iv.next82.i.us.us = add nuw nsw i64 %indvars.iv81.i.us.us, 1
+  %exitcond84.not.i.us.us = icmp eq i64 %indvars.iv.next82.i.us.us, 12
+  br i1 %exitcond84.not.i.us.us, label %.split.i.split.us.us, label %27, !llvm.loop !142
 
-72:                                               ; preds = %62
-  %73 = icmp eq i32 %.14571.i.us24.us, -1
-  %74 = icmp slt i32 %70, %.14571.i.us24.us
-  %or.cond.i.us28.us = or i1 %73, %74
-  %spec.select.i.us29.us = select i1 %or.cond.i.us28.us, i32 %70, i32 %.14571.i.us24.us
-  %spec.select67.i.us30.us = select i1 %or.cond.i.us28.us, i32 %58, i32 %.172.i.us23.us
-  br label %75
+.split.i.split.us.us:                             ; preds = %44
+  %indvars.iv.next86.i.us = add nuw nsw i64 %indvars.iv85.i.us, 1
+  %exitcond89.not.i.us = icmp eq i64 %indvars.iv.next86.i.us, %wide.trip.count97.i
+  br i1 %exitcond89.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us, !llvm.loop !144
 
-75:                                               ; preds = %72, %62, %59
-  %.246.i.us31.us = phi i32 [ %.14571.i.us24.us, %59 ], [ %.14571.i.us24.us, %62 ], [ %spec.select.i.us29.us, %72 ]
-  %.2.i.us32.us = phi i32 [ %.172.i.us23.us, %59 ], [ %.172.i.us23.us, %62 ], [ %spec.select67.i.us30.us, %72 ]
-  %indvars.iv.next118.i.us33.us = add nuw nsw i64 %indvars.iv117.i.us22.us, 1
-  %exitcond120.not.i.us34.us = icmp eq i64 %indvars.iv.next118.i.us33.us, 12
-  br i1 %exitcond120.not.i.us34.us, label %.split.i.split.split.us.us, label %59, !llvm.loop !142
-
-.split.i.split.split.us.us:                       ; preds = %75
-  %indvars.iv.next122.i.us44 = add nuw nsw i64 %indvars.iv121.i.us41, 1
-  %exitcond125.not.i.us45 = icmp eq i64 %indvars.iv.next122.i.us44, %wide.trip.count124.i
-  br i1 %exitcond125.not.i.us45, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us40, !llvm.loop !143
-
-.preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
-  br i1 %.not66.i, label %.preheader.lr.ph.split.us.split.us.i, label %.preheader.us.preheader.i
-
-.preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
-  %wide.trip.count133.i = zext nneg i32 %3 to i64
-  switch i32 %.fr.i, label %.preheader.us.i [
-    i32 2, label %.preheader.us.i.us.preheader
-    i32 0, label %.preheader.us.i.us.preheader
+.preheader.i.preheader.split:                     ; preds = %.preheader.i.preheader
+  switch i32 %.fr, label %.preheader.i [
+    i32 2, label %.preheader.i.us38.preheader
+    i32 0, label %.preheader.i.us38.preheader
   ]
 
-.preheader.us.i.us.preheader:                     ; preds = %.preheader.us.preheader.i, %.preheader.us.preheader.i
-  br label %.preheader.us.i.us
+.preheader.i.us38.preheader:                      ; preds = %.preheader.i.preheader.split, %.preheader.i.preheader.split
+  br label %.preheader.i.us38
 
-.preheader.us.i.us:                               ; preds = %.preheader.us.i.us.preheader, %.split.us.split.us92.i.split.us.us
-  %indvars.iv130.i.us = phi i64 [ %indvars.iv.next131.i.us, %.split.us.split.us92.i.split.us.us ], [ 0, %.preheader.us.i.us.preheader ]
-  %.080.us.i.us = phi i32 [ %.2.us.us91.i.us.us, %.split.us.split.us92.i.split.us.us ], [ 0, %.preheader.us.i.us.preheader ]
-  %.04478.us.i.us = phi i32 [ %.246.us.us90.i.us.us, %.split.us.split.us92.i.split.us.us ], [ -1, %.preheader.us.i.us.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv130.i.us
-  %77 = load i32, ptr %76, align 4, !tbaa !26
-  br label %78
+.preheader.i.us38:                                ; preds = %.preheader.i.us38.preheader, %.split.i.split.split.us.us
+  %indvars.iv85.i.us39 = phi i64 [ %indvars.iv.next86.i.us42, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us38.preheader ]
+  %.076.i.us40 = phi i32 [ %.2.i.us30.us, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us38.preheader ]
+  %.04474.i.us41 = phi i32 [ %.246.i.us29.us, %.split.i.split.split.us.us ], [ -1, %.preheader.i.us38.preheader ]
+  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv85.i.us39
+  %46 = load i32, ptr %45, align 4, !tbaa !26
+  br label %47
 
-78:                                               ; preds = %90, %.preheader.us.i.us
-  %indvars.iv126.i.us.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next127.i.us.us, %90 ]
-  %.172.us.us82.i.us.us = phi i32 [ %.080.us.i.us, %.preheader.us.i.us ], [ %.2.us.us91.i.us.us, %90 ]
-  %.14571.us.us83.i.us.us = phi i32 [ %.04478.us.i.us, %.preheader.us.i.us ], [ %.246.us.us90.i.us.us, %90 ]
-  %79 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv126.i.us.us
-  %80 = load i32, ptr %79, align 4, !tbaa !123
-  %.not60.us.us85.i.us.us = icmp eq i32 %80, %77
-  br i1 %.not60.us.us85.i.us.us, label %81, label %90
+47:                                               ; preds = %63, %.preheader.i.us38
+  %indvars.iv81.i.us20.us = phi i64 [ 0, %.preheader.i.us38 ], [ %indvars.iv.next82.i.us31.us, %63 ]
+  %.172.i.us21.us = phi i32 [ %.076.i.us40, %.preheader.i.us38 ], [ %.2.i.us30.us, %63 ]
+  %.14571.i.us22.us = phi i32 [ %.04474.i.us41, %.preheader.i.us38 ], [ %.246.i.us29.us, %63 ]
+  %48 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i.us20.us
+  %49 = load i32, ptr %48, align 4, !tbaa !123
+  %.not60.i.us23.us = icmp eq i32 %49, %46
+  br i1 %.not60.i.us23.us, label %50, label %63
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !127
-  %84 = icmp ne i32 %.fr112.i, %83
-  %85 = zext i1 %84 to i32
-  %86 = icmp samesign ugt i32 %23, %85
-  br i1 %86, label %87, label %90
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !128
+  %.not65.i.us25.us = icmp eq i32 %.fr.i, %52
+  %53 = select i1 %.not65.i.us25.us, i32 0, i32 2
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %55 = load i32, ptr %54, align 4, !tbaa !127
+  %56 = icmp ne i32 %.fr45, %55
+  %57 = zext i1 %56 to i32
+  %58 = or disjoint i32 %53, %57
+  %59 = icmp samesign ult i32 %58, %23
+  br i1 %59, label %60, label %63
 
-87:                                               ; preds = %81
-  %88 = icmp eq i32 %.14571.us.us83.i.us.us, -1
-  %89 = icmp sgt i32 %.14571.us.us83.i.us.us, %85
-  %or.cond.us.us87.i.us.us = or i1 %88, %89
-  %spec.select.us.us88.i.us.us = select i1 %or.cond.us.us87.i.us.us, i32 %85, i32 %.14571.us.us83.i.us.us
-  %spec.select67.us.us89.i.us.us = select i1 %or.cond.us.us87.i.us.us, i32 %77, i32 %.172.us.us82.i.us.us
-  br label %90
+60:                                               ; preds = %50
+  %61 = icmp eq i32 %.14571.i.us22.us, -1
+  %62 = icmp slt i32 %58, %.14571.i.us22.us
+  %or.cond.i.us26.us = or i1 %61, %62
+  %spec.select.i.us27.us = select i1 %or.cond.i.us26.us, i32 %58, i32 %.14571.i.us22.us
+  %spec.select67.i.us28.us = select i1 %or.cond.i.us26.us, i32 %46, i32 %.172.i.us21.us
+  br label %63
 
-90:                                               ; preds = %87, %81, %78
-  %.246.us.us90.i.us.us = phi i32 [ %.14571.us.us83.i.us.us, %78 ], [ %.14571.us.us83.i.us.us, %81 ], [ %spec.select.us.us88.i.us.us, %87 ]
-  %.2.us.us91.i.us.us = phi i32 [ %.172.us.us82.i.us.us, %78 ], [ %.172.us.us82.i.us.us, %81 ], [ %spec.select67.us.us89.i.us.us, %87 ]
-  %indvars.iv.next127.i.us.us = add nuw nsw i64 %indvars.iv126.i.us.us, 1
-  %exitcond129.not.i.us.us = icmp eq i64 %indvars.iv.next127.i.us.us, 12
-  br i1 %exitcond129.not.i.us.us, label %.split.us.split.us92.i.split.us.us, label %78, !llvm.loop !142
+63:                                               ; preds = %60, %50, %47
+  %.246.i.us29.us = phi i32 [ %.14571.i.us22.us, %47 ], [ %.14571.i.us22.us, %50 ], [ %spec.select.i.us27.us, %60 ]
+  %.2.i.us30.us = phi i32 [ %.172.i.us21.us, %47 ], [ %.172.i.us21.us, %50 ], [ %spec.select67.i.us28.us, %60 ]
+  %indvars.iv.next82.i.us31.us = add nuw nsw i64 %indvars.iv81.i.us20.us, 1
+  %exitcond84.not.i.us32.us = icmp eq i64 %indvars.iv.next82.i.us31.us, 12
+  br i1 %exitcond84.not.i.us32.us, label %.split.i.split.split.us.us, label %47, !llvm.loop !145
 
-.split.us.split.us92.i.split.us.us:               ; preds = %90
-  %indvars.iv.next131.i.us = add nuw nsw i64 %indvars.iv130.i.us, 1
-  %exitcond134.not.i.us = icmp eq i64 %indvars.iv.next131.i.us, %wide.trip.count133.i
-  br i1 %exitcond134.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i.us, !llvm.loop !143
+.split.i.split.split.us.us:                       ; preds = %63
+  %indvars.iv.next86.i.us42 = add nuw nsw i64 %indvars.iv85.i.us39, 1
+  %exitcond89.not.i.us43 = icmp eq i64 %indvars.iv.next86.i.us42, %wide.trip.count97.i
+  br i1 %exitcond89.not.i.us43, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us38, !llvm.loop !146
 
-.preheader.lr.ph.split.us.split.us.i:             ; preds = %.preheader.lr.ph.split.us.i
-  switch i32 %.fr.i, label %.preheader.us.us.preheader.i [
-    i32 2, label %.preheader.lr.ph.split.us.split.us.split.us.i
-    i32 0, label %.preheader.lr.ph.split.us.split.us.split.us.i
+.preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %.split.us.us.i
+  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %.split.us.us.i ], [ 0, %.preheader.lr.ph.i ]
+  %.076.us.i = phi i32 [ %.2.us.us.i, %.split.us.us.i ], [ 0, %.preheader.lr.ph.i ]
+  %.04474.us.i = phi i32 [ %.246.us.us.i, %.split.us.us.i ], [ -1, %.preheader.lr.ph.i ]
+  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv94.i
+  %65 = load i32, ptr %64, align 4, !tbaa !26
+  br label %66
+
+66:                                               ; preds = %86, %.preheader.us.i
+  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %86 ], [ 0, %.preheader.us.i ]
+  %.172.us.us.i = phi i32 [ %.2.us.us.i, %86 ], [ %.076.us.i, %.preheader.us.i ]
+  %.14571.us.us.i = phi i32 [ %.246.us.us.i, %86 ], [ %.04474.us.i, %.preheader.us.i ]
+  %67 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv90.i
+  %68 = load i32, ptr %67, align 4, !tbaa !123
+  %.not60.us.us.i = icmp eq i32 %68, %65
+  br i1 %.not60.us.us.i, label %69, label %86
+
+69:                                               ; preds = %66
+  switch i32 %.fr, label %70 [
+    i32 2, label %74
+    i32 0, label %74
   ]
 
-.preheader.us.us.preheader.i:                     ; preds = %.preheader.lr.ph.split.us.split.us.i
-  %wide.trip.count151.i = zext nneg i32 %3 to i64
-  br label %.preheader.us.us.i
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %72 = load i32, ptr %71, align 4, !tbaa !126
+  %.not63.us.us.i = icmp eq i32 %.fr, %72
+  %73 = select i1 %.not63.us.us.i, i32 0, i32 4
+  br label %74
 
-.preheader.lr.ph.split.us.split.us.split.us.i:    ; preds = %.preheader.lr.ph.split.us.split.us.i, %.preheader.lr.ph.split.us.split.us.i
-  %wide.trip.count142.i = zext nneg i32 %3 to i64
-  br label %.preheader.us.us.us.i
+74:                                               ; preds = %70, %69, %69
+  %.047.us.us.i = phi i32 [ %73, %70 ], [ 0, %69 ], [ 0, %69 ]
+  br i1 %.not66.i, label %81, label %75
 
-.preheader.us.us.us.i:                            ; preds = %.split.us.split.us.split.us.us.us.us.i, %.preheader.lr.ph.split.us.split.us.split.us.i
-  %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.split.us.i ]
-  %.080.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.split.us.i ]
-  %.04478.us.us.us.i = phi i32 [ %.246.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ -1, %.preheader.lr.ph.split.us.split.us.split.us.i ]
-  %91 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv139.i
-  %92 = load i32, ptr %91, align 4, !tbaa !26
-  br label %93
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %77 = load i32, ptr %76, align 4, !tbaa !127
+  %78 = icmp ne i32 %.fr45, %77
+  %79 = zext i1 %78 to i32
+  %80 = or disjoint i32 %.047.us.us.i, %79
+  br label %81
 
-93:                                               ; preds = %93, %.preheader.us.us.us.i
-  %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %93 ], [ 0, %.preheader.us.us.us.i ]
-  %.172.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.i, %93 ], [ %.080.us.us.us.i, %.preheader.us.us.us.i ]
-  %.14571.us.us.us.us.us.us.i = phi i32 [ %.246.us.us.us.us.us.us.i, %93 ], [ %.04478.us.us.us.i, %.preheader.us.us.us.i ]
-  %94 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv135.i
-  %95 = load i32, ptr %94, align 4, !tbaa !123
-  %.not60.us.us.us.us.us.us.i = icmp eq i32 %95, %92
-  %96 = icmp eq i32 %.14571.us.us.us.us.us.us.i, -1
-  %97 = select i1 %.not60.us.us.us.us.us.us.i, i1 %96, i1 false
-  %.246.us.us.us.us.us.us.i = select i1 %97, i32 0, i32 %.14571.us.us.us.us.us.us.i
-  %.2.us.us.us.us.us.us.i = select i1 %97, i32 %92, i32 %.172.us.us.us.us.us.us.i
-  %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
-  %exitcond138.not.i = icmp eq i64 %indvars.iv.next136.i, 12
-  br i1 %exitcond138.not.i, label %.split.us.split.us.split.us.us.us.us.i, label %93, !llvm.loop !142
+81:                                               ; preds = %75, %74
+  %.249.us.us.i = phi i32 [ %80, %75 ], [ %.047.us.us.i, %74 ]
+  %82 = icmp slt i32 %.249.us.us.i, %23
+  br i1 %82, label %83, label %86
 
-.split.us.split.us.split.us.us.us.us.i:           ; preds = %93
-  %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
-  %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count142.i
-  br i1 %exitcond143.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.us.us.i, !llvm.loop !143
+83:                                               ; preds = %81
+  %84 = icmp eq i32 %.14571.us.us.i, -1
+  %85 = icmp slt i32 %.249.us.us.i, %.14571.us.us.i
+  %or.cond.us.us.i = or i1 %84, %85
+  %spec.select.us.us.i = select i1 %or.cond.us.us.i, i32 %.249.us.us.i, i32 %.14571.us.us.i
+  %spec.select67.us.us.i = select i1 %or.cond.us.us.i, i32 %65, i32 %.172.us.us.i
+  br label %86
 
-.preheader.us.us.i:                               ; preds = %.split.us.split.us.split.us105.us.i, %.preheader.us.us.preheader.i
-  %indvars.iv148.i = phi i64 [ 0, %.preheader.us.us.preheader.i ], [ %indvars.iv.next149.i, %.split.us.split.us.split.us105.us.i ]
-  %.080.us.us.i = phi i32 [ 0, %.preheader.us.us.preheader.i ], [ %.2.us.us.us104.us.i, %.split.us.split.us.split.us105.us.i ]
-  %.04478.us.us.i = phi i32 [ -1, %.preheader.us.us.preheader.i ], [ %.246.us.us.us103.us.i, %.split.us.split.us.split.us105.us.i ]
-  %98 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv148.i
-  %99 = load i32, ptr %98, align 4, !tbaa !26
-  br label %100
+86:                                               ; preds = %83, %81, %66
+  %.246.us.us.i = phi i32 [ %.14571.us.us.i, %66 ], [ %.14571.us.us.i, %81 ], [ %spec.select.us.us.i, %83 ]
+  %.2.us.us.i = phi i32 [ %.172.us.us.i, %66 ], [ %.172.us.us.i, %81 ], [ %spec.select67.us.us.i, %83 ]
+  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
+  %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 12
+  br i1 %exitcond93.not.i, label %.split.us.us.i, label %66, !llvm.loop !147
 
-100:                                              ; preds = %111, %.preheader.us.us.i
-  %indvars.iv144.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next145.i, %111 ]
-  %.172.us.us.us96.us.i = phi i32 [ %.080.us.us.i, %.preheader.us.us.i ], [ %.2.us.us.us104.us.i, %111 ]
-  %.14571.us.us.us97.us.i = phi i32 [ %.04478.us.us.i, %.preheader.us.us.i ], [ %.246.us.us.us103.us.i, %111 ]
-  %101 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv144.i
-  %102 = load i32, ptr %101, align 4, !tbaa !123
-  %.not60.us.us.us99.us.i = icmp eq i32 %102, %99
-  br i1 %.not60.us.us.us99.us.i, label %103, label %111
+.split.us.us.i:                                   ; preds = %86
+  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
+  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
+  br i1 %exitcond98.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i, !llvm.loop !148
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %105 = load i32, ptr %104, align 4, !tbaa !126
-  %.not63.us.us.us.us.i = icmp eq i32 %.fr.i, %105
-  %106 = select i1 %.not63.us.us.us.us.i, i32 0, i32 4
-  %107 = icmp samesign ult i32 %106, %23
-  br i1 %107, label %108, label %111
+.preheader.i:                                     ; preds = %.preheader.i.preheader.split, %.split.i.split.split
+  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
+  %.076.i = phi i32 [ %.2.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
+  %.04474.i = phi i32 [ %.246.i, %.split.i.split.split ], [ -1, %.preheader.i.preheader.split ]
+  %87 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv85.i
+  %88 = load i32, ptr %87, align 4, !tbaa !26
+  br label %89
 
-108:                                              ; preds = %103
-  %109 = icmp eq i32 %.14571.us.us.us97.us.i, -1
-  %110 = icmp slt i32 %106, %.14571.us.us.us97.us.i
-  %or.cond.us.us.us100.us.i = or i1 %109, %110
-  %spec.select.us.us.us101.us.i = select i1 %or.cond.us.us.us100.us.i, i32 %106, i32 %.14571.us.us.us97.us.i
-  %spec.select67.us.us.us102.us.i = select i1 %or.cond.us.us.us100.us.i, i32 %99, i32 %.172.us.us.us96.us.i
-  br label %111
+89:                                               ; preds = %109, %.preheader.i
+  %indvars.iv81.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next82.i, %109 ]
+  %.172.i = phi i32 [ %.076.i, %.preheader.i ], [ %.2.i, %109 ]
+  %.14571.i = phi i32 [ %.04474.i, %.preheader.i ], [ %.246.i, %109 ]
+  %90 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i
+  %91 = load i32, ptr %90, align 4, !tbaa !123
+  %.not60.i = icmp eq i32 %91, %88
+  br i1 %.not60.i, label %92, label %109
 
-111:                                              ; preds = %108, %103, %100
-  %.246.us.us.us103.us.i = phi i32 [ %.14571.us.us.us97.us.i, %100 ], [ %.14571.us.us.us97.us.i, %103 ], [ %spec.select.us.us.us101.us.i, %108 ]
-  %.2.us.us.us104.us.i = phi i32 [ %.172.us.us.us96.us.i, %100 ], [ %.172.us.us.us96.us.i, %103 ], [ %spec.select67.us.us.us102.us.i, %108 ]
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, 12
-  br i1 %exitcond147.not.i, label %.split.us.split.us.split.us105.us.i, label %100, !llvm.loop !142
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %94 = load i32, ptr %93, align 4, !tbaa !126
+  %.not63.i = icmp eq i32 %.fr, %94
+  %95 = select i1 %.not63.i, i32 0, i32 4
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %97 = load i32, ptr %96, align 4, !tbaa !128
+  %.not65.i = icmp eq i32 %.fr.i, %97
+  %98 = select i1 %.not65.i, i32 0, i32 2
+  %99 = or disjoint i32 %98, %95
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !127
+  %102 = icmp ne i32 %.fr45, %101
+  %103 = zext i1 %102 to i32
+  %104 = or disjoint i32 %99, %103
+  %105 = icmp samesign ult i32 %104, %23
+  br i1 %105, label %106, label %109
 
-.split.us.split.us.split.us105.us.i:              ; preds = %111
-  %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
-  %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i
-  br i1 %exitcond152.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.us.i, !llvm.loop !143
+106:                                              ; preds = %92
+  %107 = icmp eq i32 %.14571.i, -1
+  %108 = icmp slt i32 %104, %.14571.i
+  %or.cond.i = or i1 %107, %108
+  %spec.select.i = select i1 %or.cond.i, i32 %104, i32 %.14571.i
+  %spec.select67.i = select i1 %or.cond.i, i32 %88, i32 %.172.i
+  br label %109
 
-.preheader.us.i:                                  ; preds = %.preheader.us.preheader.i, %.split.us.split.us92.i.split
-  %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.preheader.i ]
-  %.080.us.i = phi i32 [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.preheader.i ]
-  %.04478.us.i = phi i32 [ %.246.us.us90.i, %.split.us.split.us92.i.split ], [ -1, %.preheader.us.preheader.i ]
-  %112 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv130.i
-  %113 = load i32, ptr %112, align 4, !tbaa !26
-  br label %114
+109:                                              ; preds = %106, %92, %89
+  %.246.i = phi i32 [ %.14571.i, %89 ], [ %.14571.i, %92 ], [ %spec.select.i, %106 ]
+  %.2.i = phi i32 [ %.172.i, %89 ], [ %.172.i, %92 ], [ %spec.select67.i, %106 ]
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 12
+  br i1 %exitcond84.not.i, label %.split.i.split.split, label %89, !llvm.loop !149
 
-114:                                              ; preds = %130, %.preheader.us.i
-  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %130 ]
-  %.172.us.us82.i = phi i32 [ %.080.us.i, %.preheader.us.i ], [ %.2.us.us91.i, %130 ]
-  %.14571.us.us83.i = phi i32 [ %.04478.us.i, %.preheader.us.i ], [ %.246.us.us90.i, %130 ]
-  %115 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv126.i
-  %116 = load i32, ptr %115, align 4, !tbaa !123
-  %.not60.us.us85.i = icmp eq i32 %116, %113
-  br i1 %.not60.us.us85.i, label %117, label %130
+.split.i.split.split:                             ; preds = %109
+  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
+  %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count97.i
+  br i1 %exitcond89.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i, !llvm.loop !150
 
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 12
-  %119 = load i32, ptr %118, align 4, !tbaa !126
-  %.not63.us.us86.i = icmp eq i32 %.fr.i, %119
-  %120 = select i1 %.not63.us.us86.i, i32 0, i32 4
-  %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %122 = load i32, ptr %121, align 4, !tbaa !127
-  %123 = icmp ne i32 %.fr112.i, %122
-  %124 = zext i1 %123 to i32
-  %125 = or disjoint i32 %120, %124
-  %126 = icmp samesign ult i32 %125, %23
-  br i1 %126, label %127, label %130
-
-127:                                              ; preds = %117
-  %128 = icmp eq i32 %.14571.us.us83.i, -1
-  %129 = icmp slt i32 %125, %.14571.us.us83.i
-  %or.cond.us.us87.i = or i1 %128, %129
-  %spec.select.us.us88.i = select i1 %or.cond.us.us87.i, i32 %125, i32 %.14571.us.us83.i
-  %spec.select67.us.us89.i = select i1 %or.cond.us.us87.i, i32 %113, i32 %.172.us.us82.i
-  br label %130
-
-130:                                              ; preds = %127, %117, %114
-  %.246.us.us90.i = phi i32 [ %.14571.us.us83.i, %114 ], [ %.14571.us.us83.i, %117 ], [ %spec.select.us.us88.i, %127 ]
-  %.2.us.us91.i = phi i32 [ %.172.us.us82.i, %114 ], [ %.172.us.us82.i, %117 ], [ %spec.select67.us.us89.i, %127 ]
-  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
-  %exitcond129.not.i = icmp eq i64 %indvars.iv.next127.i, 12
-  br i1 %exitcond129.not.i, label %.split.us.split.us92.i.split, label %114, !llvm.loop !142
-
-.split.us.split.us92.i.split:                     ; preds = %130
-  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
-  %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count133.i
-  br i1 %exitcond134.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i, !llvm.loop !143
-
-.preheader.i:                                     ; preds = %.preheader.preheader.i.split, %.split.i.split.split
-  %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %.split.i.split.split ], [ 0, %.preheader.preheader.i.split ]
-  %.080.i = phi i32 [ %.2.i, %.split.i.split.split ], [ 0, %.preheader.preheader.i.split ]
-  %.04478.i = phi i32 [ %.246.i, %.split.i.split.split ], [ -1, %.preheader.preheader.i.split ]
-  %131 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i
-  %132 = load i32, ptr %131, align 4, !tbaa !26
-  br label %133
-
-133:                                              ; preds = %153, %.preheader.i
-  %indvars.iv117.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next118.i, %153 ]
-  %.172.i = phi i32 [ %.080.i, %.preheader.i ], [ %.2.i, %153 ]
-  %.14571.i = phi i32 [ %.04478.i, %.preheader.i ], [ %.246.i, %153 ]
-  %134 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv117.i
-  %135 = load i32, ptr %134, align 4, !tbaa !123
-  %.not60.i = icmp eq i32 %135, %132
-  br i1 %.not60.i, label %136, label %153
-
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 12
-  %138 = load i32, ptr %137, align 4, !tbaa !126
-  %.not63.i = icmp eq i32 %.fr.i, %138
-  %139 = select i1 %.not63.i, i32 0, i32 4
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %141 = load i32, ptr %140, align 4, !tbaa !128
-  %.not65.i = icmp eq i32 %.fr111.i, %141
-  %142 = select i1 %.not65.i, i32 0, i32 2
-  %143 = or disjoint i32 %142, %139
-  %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !127
-  %146 = icmp ne i32 %.fr112.i, %145
-  %147 = zext i1 %146 to i32
-  %148 = or disjoint i32 %143, %147
-  %149 = icmp samesign ult i32 %148, %23
-  br i1 %149, label %150, label %153
-
-150:                                              ; preds = %136
-  %151 = icmp eq i32 %.14571.i, -1
-  %152 = icmp slt i32 %148, %.14571.i
-  %or.cond.i = or i1 %151, %152
-  %spec.select.i = select i1 %or.cond.i, i32 %148, i32 %.14571.i
-  %spec.select67.i = select i1 %or.cond.i, i32 %132, i32 %.172.i
-  br label %153
-
-153:                                              ; preds = %150, %136, %133
-  %.246.i = phi i32 [ %.14571.i, %133 ], [ %.14571.i, %136 ], [ %spec.select.i, %150 ]
-  %.2.i = phi i32 [ %.172.i, %133 ], [ %.172.i, %136 ], [ %spec.select67.i, %150 ]
-  %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
-  %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 12
-  br i1 %exitcond120.not.i, label %.split.i.split.split, label %133, !llvm.loop !142
-
-.split.i.split.split:                             ; preds = %153
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
-  %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %wide.trip.count124.i
-  br i1 %exitcond125.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i, !llvm.loop !143
-
-vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i.split.split.us.us, %.split.i.split.split, %.split.i.split.us.us.split.us.us, %.split.i.split.us.us.split, %.split.us.split.us92.i.split.us.us, %.split.us.split.us92.i.split, %.split.us.split.us.split.us.us.us.us.i, %.split.us.split.us.split.us105.us.i, %._crit_edge.i
-  %.0.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.us.us.us104.us.i, %.split.us.split.us.split.us105.us.i ], [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ %.2.us.us91.i.us.us, %.split.us.split.us92.i.split.us.us ], [ %.2.i.us.us, %.split.i.split.us.us.split ], [ %.2.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ %.2.i, %.split.i.split.split ], [ %.2.i.us32.us, %.split.i.split.split.us.us ], [ 13, %.lr.ph.i ]
+vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i.split.split.us.us, %.split.i.split.split, %.split.i.split.us.us, %.split.us.us.i, %._crit_edge.i
+  %.0.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.us.us.i, %.split.us.us.i ], [ %.2.i.us.us, %.split.i.split.us.us ], [ %.2.i, %.split.i.split.split ], [ %.2.i.us30.us, %.split.i.split.split.us.us ], [ 13, %.lr.ph.i ]
   store i32 %.0.lcssa.sink.i, ptr %1, align 4, !tbaa !123
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %155 = load i32, ptr %154, align 4, !tbaa !144
-  br label %157
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %111 = load i32, ptr %110, align 4, !tbaa !151
+  br label %113
 
-156:                                              ; preds = %157
+112:                                              ; preds = %113
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 7
-  br i1 %exitcond.not.i15, label %vaapi_vpp_fill_chroma_sample_location.exit, label %157, !llvm.loop !145
+  br i1 %exitcond.not.i15, label %vaapi_vpp_fill_chroma_sample_location.exit, label %113, !llvm.loop !152
 
-157:                                              ; preds = %156, %vaapi_vpp_fill_colour_standard.exit
-  %indvars.iv.i13 = phi i64 [ 0, %vaapi_vpp_fill_colour_standard.exit ], [ %indvars.iv.next.i14, %156 ]
-  %158 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13
-  %159 = load i32, ptr %158, align 8, !tbaa !146
-  %160 = icmp eq i32 %155, %159
-  br i1 %160, label %161, label %156
+113:                                              ; preds = %112, %vaapi_vpp_fill_colour_standard.exit
+  %indvars.iv.i13 = phi i64 [ 0, %vaapi_vpp_fill_colour_standard.exit ], [ %indvars.iv.next.i14, %112 ]
+  %114 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13
+  %115 = load i32, ptr %114, align 8, !tbaa !153
+  %116 = icmp eq i32 %111, %115
+  br i1 %116, label %117, label %112
 
-161:                                              ; preds = %157
-  %162 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13, i32 1
-  %163 = load i8, ptr %162, align 4, !tbaa !148
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13, i32 1
+  %119 = load i8, ptr %118, align 4, !tbaa !155
   br label %vaapi_vpp_fill_chroma_sample_location.exit
 
-vaapi_vpp_fill_chroma_sample_location.exit:       ; preds = %156, %161
-  %.sink.i = phi i8 [ %163, %161 ], [ 0, %156 ]
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sink.i, ptr %164, align 4, !tbaa !135
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %166 = load i32, ptr %165, align 4, !tbaa !149
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %switch.selectcmp.i = icmp eq i32 %166, 2
+vaapi_vpp_fill_chroma_sample_location.exit:       ; preds = %112, %117
+  %.sink.i = phi i8 [ %119, %117 ], [ 0, %112 ]
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 %.sink.i, ptr %120, align 4, !tbaa !135
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %122 = load i32, ptr %121, align 4, !tbaa !156
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %switch.selectcmp.i = icmp eq i32 %122, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i8 2, i8 0
-  %switch.selectcmp4.i = icmp eq i32 %166, 1
+  %switch.selectcmp4.i = icmp eq i32 %122, 1
   %switch.select5.i = select i1 %switch.selectcmp4.i, i8 1, i8 %switch.select.i
-  store i8 %switch.select5.i, ptr %167, align 1, !tbaa !136
-  %168 = tail call ptr @av_color_range_name(i32 noundef %166) #7
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %170 = load i32, ptr %169, align 4, !tbaa !126
-  %171 = tail call ptr @av_color_space_name(i32 noundef %170) #7
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %173 = load i32, ptr %172, align 4, !tbaa !127
-  %174 = tail call ptr @av_color_primaries_name(i32 noundef %173) #7
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %176 = load i32, ptr %175, align 4, !tbaa !128
-  %177 = tail call ptr @av_color_transfer_name(i32 noundef %176) #7
-  %178 = load i32, ptr %154, align 4, !tbaa !144
-  %179 = tail call ptr @av_chroma_location_name(i32 noundef %178) #7
-  %180 = load i32, ptr %1, align 4, !tbaa !123
-  %181 = load i8, ptr %164, align 4, !tbaa !135
-  %182 = zext i8 %181 to i32
-  %183 = load i8, ptr %167, align 1, !tbaa !136
-  %184 = zext i8 %183 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.26, ptr noundef %168, ptr noundef %171, ptr noundef %174, ptr noundef %177, ptr noundef %179, i32 noundef %180, i32 noundef %182, i32 noundef %184) #7
+  store i8 %switch.select5.i, ptr %123, align 1, !tbaa !136
+  %124 = tail call ptr @av_color_range_name(i32 noundef %122) #7
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %126 = load i32, ptr %125, align 4, !tbaa !126
+  %127 = tail call ptr @av_color_space_name(i32 noundef %126) #7
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %129 = load i32, ptr %128, align 4, !tbaa !127
+  %130 = tail call ptr @av_color_primaries_name(i32 noundef %129) #7
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %132 = load i32, ptr %131, align 4, !tbaa !128
+  %133 = tail call ptr @av_color_transfer_name(i32 noundef %132) #7
+  %134 = load i32, ptr %110, align 4, !tbaa !151
+  %135 = tail call ptr @av_chroma_location_name(i32 noundef %134) #7
+  %136 = load i32, ptr %1, align 4, !tbaa !123
+  %137 = load i8, ptr %120, align 4, !tbaa !135
+  %138 = zext i8 %137 to i32
+  %139 = load i8, ptr %123, align 1, !tbaa !136
+  %140 = zext i8 %139 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.26, ptr noundef %124, ptr noundef %127, ptr noundef %130, ptr noundef %133, ptr noundef %135, i32 noundef %136, i32 noundef %138, i32 noundef %140) #7
   ret void
 }
 
@@ -1890,11 +1718,18 @@ attributes #8 = { noreturn nounwind }
 !139 = distinct !{!139, !31}
 !140 = !{!21, !15, i64 24}
 !141 = distinct !{!141, !31}
-!142 = distinct !{!142, !31}
-!143 = distinct !{!143, !31}
-!144 = !{!124, !15, i64 24}
-!145 = distinct !{!145, !31}
-!146 = !{!147, !15, i64 0}
-!147 = !{!"", !15, i64 0, !8, i64 4}
-!148 = !{!147, !8, i64 4}
-!149 = !{!124, !15, i64 20}
+!142 = distinct !{!142, !31, !143}
+!143 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!144 = distinct !{!144, !31, !143}
+!145 = distinct !{!145, !31, !143}
+!146 = distinct !{!146, !31, !143}
+!147 = distinct !{!147, !31, !143}
+!148 = distinct !{!148, !31, !143}
+!149 = distinct !{!149, !31}
+!150 = distinct !{!150, !31}
+!151 = !{!124, !15, i64 24}
+!152 = distinct !{!152, !31}
+!153 = !{!154, !15, i64 0}
+!154 = !{!"", !15, i64 0, !8, i64 4}
+!155 = !{!154, !8, i64 4}
+!156 = !{!124, !15, i64 20}

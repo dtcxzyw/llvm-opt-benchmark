@@ -149,7 +149,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %73 = call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph.us, label %.critedge.us, !llvm.loop !36
+  br i1 %75, label %.lr.ph.us, label %.critedge.us, !llvm.loop !37
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %.050 = phi i32 [ %79, %.critedge ], [ 0, %.critedge.preheader ]
@@ -173,7 +173,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %85 = fcmp ogt double %81, %84
   %86 = icmp samesign ult i32 %.050, 99
   %87 = select i1 %85, i1 %86, i1 false
-  br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !35
+  br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !38
 
 .split60.us:                                      ; preds = %.critedge, %.critedge.us
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull %20)
@@ -245,7 +245,7 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
   store double %24, ptr %25, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !39
 }
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -300,6 +300,8 @@ attributes #8 = { nounwind }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"p1 omnipotent char", !6, i64 0}
 !34 = !{!15, !11, i64 0}
-!35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
+!35 = distinct !{!35, !19, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}

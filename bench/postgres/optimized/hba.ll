@@ -4766,7 +4766,7 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
   %exitcond.i.i.us.i = icmp ne i64 %indvars.iv.next.i.i.us.i, 16
   %or.cond.not.i.i.us.i = select i1 %.not.i.i.us.i, i1 %exitcond.i.i.us.i, i1 false
-  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !16
+  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !17
 
 ipv6eq.exit.i.us.i:                               ; preds = %89
   br i1 %.not.i.i.us.i, label %check_hostname.exit.i, label %94
@@ -4775,7 +4775,7 @@ ipv6eq.exit.i.us.i:                               ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %.03448.i.us58.i, i64 40
   %.034.i.us59.i = load ptr, ptr %95, align 8
   %.not42.not.i.us60.i = icmp eq ptr %.034.i.us59.i, null
-  br i1 %.not42.not.i.us60.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us57.i, !llvm.loop !15
+  br i1 %.not42.not.i.us60.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us57.i, !llvm.loop !18
 
 96:                                               ; preds = %70
   store i32 -2, ptr %15, align 8
@@ -5246,5 +5246,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !12 = !{i8 0, i8 2}
 !13 = !{}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !16}

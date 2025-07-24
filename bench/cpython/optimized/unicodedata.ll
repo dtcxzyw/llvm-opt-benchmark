@@ -2273,7 +2273,7 @@ PyUnicode_READ.exit.thread.us84.i.i:              ; preds = %.lr.ph.i.i, %106
 106:                                              ; preds = %105, %99
   %.335.us90.i.i = phi i32 [ %.03255.us83.i.i, %99 ], [ 1, %105 ]
   %exitcond.not.i.i = icmp eq i64 %79, %.val42.i.i
-  br i1 %exitcond.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us84.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us84.i.i, !llvm.loop !51
 
 PyUnicode_READ.exit.i.i:                          ; preds = %.lr.ph.i.i, %134
   %.02957.i.i = phi i64 [ %107, %134 ], [ 0, %.lr.ph.i.i ]
@@ -2327,7 +2327,7 @@ _getrecord_ex.exit.i.i:                           ; preds = %PyUnicode_READ.exit
 134:                                              ; preds = %133, %127
   %.335.i.i = phi i32 [ %.03255.i.i, %127 ], [ 1, %133 ]
   %exitcond104.not.i.i = icmp eq i64 %107, %.val42.i.i
-  br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !49
+  br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !52
 
 is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
   %.0.i.i = phi i32 [ %.335.i.i, %134 ], [ %.335.us74.i.i, %78 ], [ %.335.us90.i.i, %106 ]
@@ -2340,7 +2340,7 @@ is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
 is_normalized_quickcheck.exit.thread29.i:         ; preds = %is_normalized_quickcheck.exit.i, %PyObject_TypeCheck.exit.i.i
   %135 = select i1 %.023.i, ptr @nfc_nfkc, ptr @nfd_nfkd
   %136 = zext i1 %.022.i to i32
-  %137 = tail call ptr %135(ptr noundef %0, ptr noundef %14, i32 noundef %136) #9, !callees !50
+  %137 = tail call ptr %135(ptr noundef %0, ptr noundef %14, i32 noundef %136) #9, !callees !53
   %138 = icmp eq ptr %137, null
   br i1 %138, label %unicodedata_UCD_is_normalized_impl.exit, label %139
 
@@ -2545,7 +2545,7 @@ _getrecord_ex.exit.us.i.i:                        ; preds = %PyUnicode_READ.exit
 
 74:                                               ; preds = %70
   %exitcond105.not.i.i = icmp eq i64 %42, %.val42.i.i
-  br i1 %exitcond105.not.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !49
+  br i1 %exitcond105.not.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %74, %_PyUnicode_DATA.exit.i.i, %PyObject_TypeCheck.exit.thread.i.i
   %75 = load i32, ptr %14, align 8, !tbaa !24
@@ -2666,7 +2666,7 @@ _getrecord_ex.exit.us.i47.i:                      ; preds = %PyUnicode_READ.exit
 
 126:                                              ; preds = %123
   %exitcond105.not.i52.i = icmp eq i64 %95, %.val42.i40.i
-  br i1 %exitcond105.not.i52.i, label %.loopexit119.i, label %.lr.ph.split.us.i42.i, !llvm.loop !49
+  br i1 %exitcond105.not.i52.i, label %.loopexit119.i, label %.lr.ph.split.us.i42.i, !llvm.loop !54
 
 .loopexit119.i:                                   ; preds = %126, %_PyUnicode_DATA.exit.i38.i, %PyObject_TypeCheck.exit.thread.i33.i
   %127 = load i32, ptr %14, align 8, !tbaa !24
@@ -2788,7 +2788,7 @@ _getrecord_ex.exit.us.i76.i:                      ; preds = %PyUnicode_READ.exit
 
 179:                                              ; preds = %175
   %exitcond105.not.i81.i = icmp eq i64 %147, %.val42.i69.i
-  br i1 %exitcond105.not.i81.i, label %.loopexit120.i, label %.lr.ph.split.us.i71.i, !llvm.loop !49
+  br i1 %exitcond105.not.i81.i, label %.loopexit120.i, label %.lr.ph.split.us.i71.i, !llvm.loop !54
 
 .loopexit120.i:                                   ; preds = %179, %_PyUnicode_DATA.exit.i67.i, %PyObject_TypeCheck.exit.thread.i62.i
   %180 = load i32, ptr %14, align 8, !tbaa !24
@@ -2910,7 +2910,7 @@ _getrecord_ex.exit.us.i105.i:                     ; preds = %PyUnicode_READ.exit
 
 232:                                              ; preds = %228
   %exitcond105.not.i110.i = icmp eq i64 %200, %.val42.i98.i
-  br i1 %exitcond105.not.i110.i, label %.loopexit121.i, label %.lr.ph.split.us.i100.i, !llvm.loop !49
+  br i1 %exitcond105.not.i110.i, label %.loopexit121.i, label %.lr.ph.split.us.i100.i, !llvm.loop !54
 
 .loopexit121.i:                                   ; preds = %232, %_PyUnicode_DATA.exit.i96.i, %PyObject_TypeCheck.exit.thread.i91.i
   %233 = load i32, ptr %14, align 8, !tbaa !24
@@ -3267,7 +3267,7 @@ _dawg_node_descendant_count.exit.i:               ; preds = %127
   %147 = getelementptr i8, ptr %2, i64 %146
   store i8 %144, ptr %147, align 1, !tbaa !24
   %exitcond.not.i = icmp eq i32 %145, %140
-  br i1 %exitcond.not.i, label %.loopexit.i.outer, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %.loopexit.i.outer, label %.lr.ph.i, !llvm.loop !55
 
 148:                                              ; preds = %_dawg_node_descendant_count.exit.i
   %.not.i67 = icmp eq i32 %116, 0
@@ -3327,7 +3327,7 @@ define internal fastcc range(i32 0, 2) i32 @_getcode(ptr noundef readonly captur
   %.183 = phi i32 [ %.082, %8 ], [ %spec.select87, %13 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %find_syllable.exit, label %8, !llvm.loop !52
+  br i1 %exitcond.not.i, label %find_syllable.exit, label %8, !llvm.loop !56
 
 find_syllable.exit:                               ; preds = %18
   %19 = icmp eq i32 %.185, -1
@@ -3362,7 +3362,7 @@ find_syllable.exit:                               ; preds = %18
   %.181 = phi i32 [ %.080, %22 ], [ %spec.select90, %27 ]
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 21
-  br i1 %exitcond.not.i57, label %find_syllable.exit59, label %22, !llvm.loop !52
+  br i1 %exitcond.not.i57, label %find_syllable.exit59, label %22, !llvm.loop !56
 
 find_syllable.exit59:                             ; preds = %32
   %33 = icmp eq i32 %.4, -1
@@ -3397,7 +3397,7 @@ find_syllable.exit59:                             ; preds = %32
   %.179 = phi i32 [ %.078, %36 ], [ %spec.select93, %41 ]
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 28
-  br i1 %exitcond.not.i63, label %find_syllable.exit65, label %36, !llvm.loop !52
+  br i1 %exitcond.not.i63, label %find_syllable.exit65, label %36, !llvm.loop !56
 
 find_syllable.exit65:                             ; preds = %46
   %47 = icmp ne i32 %.183, -1
@@ -3471,7 +3471,7 @@ find_syllable.exit65:                             ; preds = %46
   %83 = getelementptr i8, ptr %.043114, i64 1
   %84 = add i32 %71, -1
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %82
   %85 = add i32 %.142, -13312
@@ -3619,7 +3619,7 @@ _dawg_decode_varint_unsigned.exit.i.i:            ; preds = %108
 146:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_dawg_match_edge.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_dawg_match_edge.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !58
 
 _dawg_match_edge.exit.i:                          ; preds = %.lr.ph.i.i
   %.not17.i.not.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -3658,7 +3658,7 @@ _dawg_match_edge.exit.thread.i:                   ; preds = %.preheader.i.i, %14
   %160 = and i32 %104, 1
   %spec.select.i = add i32 %.136.i, %160
   %161 = icmp ult i32 %159, %1
-  br i1 %161, label %.preheader158.i, label %.preheader.i, !llvm.loop !55
+  br i1 %161, label %.preheader158.i, label %.preheader.i, !llvm.loop !59
 
 162:                                              ; preds = %162, %.preheader.i
   %.014.i.i59.i = phi i32 [ %170, %162 ], [ %.040.lcssa.i, %.preheader.i ]
@@ -3790,7 +3790,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %13
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
@@ -3965,7 +3965,7 @@ PyUnicode_READ.exit161.thread:                    ; preds = %PyUnicode_READ.exit
   %.1.be = phi i64 [ %.2, %PyUnicode_READ.exit161.thread ], [ %128, %find_nfc_index.exit.thread ]
   %.1125.be = add i64 %.1125235, 1
   %108 = icmp slt i64 %.1.be, %.val
-  br i1 %108, label %.preheader, label %.outer._crit_edge, !llvm.loop !57
+  br i1 %108, label %.preheader, label %.outer._crit_edge, !llvm.loop !61
 
 PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit157.thread, %54, %PyUnicode_READ.exit157, %PyUnicode_READ.exit155, %51, %PyUnicode_READ.exit
   %or.cond.not27.i = icmp ugt i32 %.0.i153, 59
@@ -3975,17 +3975,17 @@ PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit
   %110 = add i32 %.01828.i, 1
   %111 = zext i32 %110 to i64
   %112 = getelementptr %struct.reindex, ptr @nfc_first, i64 %111
-  %113 = load i32, ptr %112, align 8, !tbaa !58
+  %113 = load i32, ptr %112, align 8, !tbaa !62
   %114 = add i32 %113, -1
   %or.cond.not.i = icmp ult i32 %114, %.0.i153
-  br i1 %or.cond.not.i, label %.lr.ph.i, label %find_nfc_index.exit.thread, !llvm.loop !60
+  br i1 %or.cond.not.i, label %.lr.ph.i, label %find_nfc_index.exit.thread, !llvm.loop !64
 
 .lr.ph.i:                                         ; preds = %PyUnicode_READ.exit155.thread, %109
   %115 = phi i32 [ %113, %109 ], [ 60, %PyUnicode_READ.exit155.thread ]
   %116 = phi ptr [ %112, %109 ], [ @nfc_first, %PyUnicode_READ.exit155.thread ]
   %.01828.i = phi i32 [ %110, %109 ], [ 0, %PyUnicode_READ.exit155.thread ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %118 = load i16, ptr %117, align 4, !tbaa !61
+  %118 = load i16, ptr %117, align 4, !tbaa !65
   %119 = sext i16 %118 to i32
   %120 = add i32 %115, %119
   %.not21.i = icmp ugt i32 %.0.i153, %120
@@ -3994,7 +3994,7 @@ PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit
 find_nfc_index.exit:                              ; preds = %.lr.ph.i
   %121 = sub i32 %.0.i153, %115
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 6
-  %123 = load i16, ptr %122, align 2, !tbaa !62
+  %123 = load i16, ptr %122, align 2, !tbaa !66
   %124 = sext i16 %123 to i32
   %125 = add i32 %121, %124
   %126 = icmp eq i32 %125, -1
@@ -4100,7 +4100,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
 
 173:                                              ; preds = %171
   %.not147 = icmp samesign ult i32 %.0122240, %170
-  br i1 %.not147, label %174, label %231, !llvm.loop !63
+  br i1 %.not147, label %174, label %231, !llvm.loop !67
 
 174:                                              ; preds = %173, %_getrecord_ex.exit
   %or.cond.not27.i171 = icmp ugt i32 %.0.i168195, 767
@@ -4110,17 +4110,17 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
   %176 = add i32 %.01828.i174, 1
   %177 = zext i32 %176 to i64
   %178 = getelementptr %struct.reindex, ptr @nfc_last, i64 %177
-  %179 = load i32, ptr %178, align 8, !tbaa !58
+  %179 = load i32, ptr %178, align 8, !tbaa !62
   %180 = add i32 %179, -1
   %or.cond.not.i176 = icmp ult i32 %180, %.0.i168195
-  br i1 %or.cond.not.i176, label %.lr.ph.i173, label %find_nfc_index.exit177.thread, !llvm.loop !60
+  br i1 %or.cond.not.i176, label %.lr.ph.i173, label %find_nfc_index.exit177.thread, !llvm.loop !64
 
 .lr.ph.i173:                                      ; preds = %174, %175
   %181 = phi i32 [ %179, %175 ], [ 768, %174 ]
   %182 = phi ptr [ %178, %175 ], [ @nfc_last, %174 ]
   %.01828.i174 = phi i32 [ %176, %175 ], [ 0, %174 ]
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  %184 = load i16, ptr %183, align 4, !tbaa !61
+  %184 = load i16, ptr %183, align 4, !tbaa !65
   %185 = sext i16 %184 to i32
   %186 = add i32 %181, %185
   %.not21.i175 = icmp ugt i32 %.0.i168195, %186
@@ -4129,7 +4129,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
 find_nfc_index.exit177:                           ; preds = %.lr.ph.i173
   %187 = sub i32 %.0.i168195, %181
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 6
-  %189 = load i16, ptr %188, align 2, !tbaa !62
+  %189 = load i16, ptr %188, align 2, !tbaa !66
   %190 = sext i16 %189 to i32
   %191 = add i32 %187, %190
   %192 = icmp eq i32 %191, -1
@@ -4137,7 +4137,7 @@ find_nfc_index.exit177:                           ; preds = %.lr.ph.i173
 
 find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %find_nfc_index.exit177
   %193 = icmp eq i8 %169, 0
-  br i1 %193, label %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge, label %231, !llvm.loop !63
+  br i1 %193, label %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge, label %231, !llvm.loop !67
 
 194:                                              ; preds = %find_nfc_index.exit177
   %195 = mul i32 %.0127239, 72
@@ -4169,17 +4169,17 @@ find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %f
   %214 = add i32 %.01828.i181, 1
   %215 = zext i32 %214 to i64
   %216 = getelementptr %struct.reindex, ptr @nfc_first, i64 %215
-  %217 = load i32, ptr %216, align 8, !tbaa !58
+  %217 = load i32, ptr %216, align 8, !tbaa !62
   %218 = add i32 %217, -1
   %or.cond.not.i183 = icmp ult i32 %218, %207
-  br i1 %or.cond.not.i183, label %.lr.ph.i180, label %.thread201, !llvm.loop !60
+  br i1 %or.cond.not.i183, label %.lr.ph.i180, label %.thread201, !llvm.loop !64
 
 .lr.ph.i180:                                      ; preds = %209, %213
   %219 = phi i32 [ %217, %213 ], [ 60, %209 ]
   %220 = phi ptr [ %216, %213 ], [ @nfc_first, %209 ]
   %.01828.i181 = phi i32 [ %214, %213 ], [ 0, %209 ]
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %222 = load i16, ptr %221, align 4, !tbaa !61
+  %222 = load i16, ptr %221, align 4, !tbaa !65
   %223 = sext i16 %222 to i32
   %224 = add i32 %219, %223
   %.not21.i182 = icmp ugt i32 %207, %224
@@ -4188,7 +4188,7 @@ find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %f
 find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   %225 = sub i32 %207, %219
   %226 = getelementptr inbounds nuw i8, ptr %220, i64 6
-  %227 = load i16, ptr %226, align 2, !tbaa !62
+  %227 = load i16, ptr %226, align 2, !tbaa !66
   %228 = sext i16 %227 to i32
   %229 = add i32 %225, %228
   %.fr = freeze i32 %229
@@ -4204,7 +4204,7 @@ find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   br i1 %exitcond289.not, label %.thread201, label %.lr.ph243
 
 find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_nfc_index.exit177.thread
-  br label %.thread201, !llvm.loop !63
+  br label %.thread201, !llvm.loop !67
 
 .thread201:                                       ; preds = %231, %171, %209, %find_nfc_index.exit184, %213, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge
   %.3 = phi i32 [ %.2120241, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %210, %213 ], [ %.4, %231 ], [ %.2120241, %171 ], [ %210, %209 ], [ %210, %find_nfc_index.exit184 ]
@@ -4215,7 +4215,7 @@ find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_
   %.1.ph253.be = phi i64 [ %130, %.thread201 ], [ %37, %31 ]
   %.1119.ph252.be = phi i32 [ %.3, %.thread201 ], [ %33, %31 ]
   %.1125.ph251.be = phi i64 [ %232, %.thread201 ], [ %.1125235, %31 ]
-  br label %.preheader.lr.ph, !llvm.loop !57
+  br label %.preheader.lr.ph, !llvm.loop !61
 
 .outer._crit_edge:                                ; preds = %31, %.backedge, %.thread201.thread, %.preheader213
   %.1125.lcssa = phi i64 [ 0, %.preheader213 ], [ %144, %.thread201.thread ], [ %.1125.be, %.backedge ], [ %.1125235, %31 ]
@@ -4308,7 +4308,7 @@ _PyUnicode_DATA.exit:                             ; preds = %19, %21
 
 .loopexit284:                                     ; preds = %.loopexit283
   %exitcond.not = icmp eq i64 %29, %.val183
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !68
 
 28:                                               ; preds = %.lr.ph304, %.loopexit284
   %.0120303 = phi ptr [ %13, %.lr.ph304 ], [ %.2122, %.loopexit284 ]
@@ -4419,7 +4419,7 @@ PyObject_TypeCheck.exit:                          ; preds = %72
   br i1 %.not281, label %74, label %PyObject_TypeCheck.exit.thread
 
 74:                                               ; preds = %PyObject_TypeCheck.exit
-  %75 = load ptr, ptr %25, align 8, !tbaa !65
+  %75 = load ptr, ptr %25, align 8, !tbaa !69
   %76 = tail call i32 %75(i32 noundef %45) #9
   %.not175 = icmp eq i32 %76, 0
   br i1 %.not175, label %PyObject_TypeCheck.exit.thread, label %77
@@ -4497,7 +4497,7 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   %114 = getelementptr i32, ptr %.2122, i64 %.1128297
   store i32 %45, ptr %114, align 4, !tbaa !26
   %115 = add nsw i64 %.3143, -1
-  br label %.loopexit283, !llvm.loop !66
+  br label %.loopexit283, !llvm.loop !70
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %111, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -4513,7 +4513,7 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   %123 = getelementptr [20 x i32], ptr %4, i64 0, i64 %122
   store i32 %120, ptr %123, align 4, !tbaa !26
   %124 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %124, label %.loopexit283, label %.lr.ph, !llvm.loop !67
+  br i1 %124, label %.loopexit283, label %.lr.ph, !llvm.loop !71
 
 .loopexit283:                                     ; preds = %.lr.ph, %77, %54, %66, %112
   %.2150 = phi i32 [ %42, %112 ], [ %.1149294, %77 ], [ %42, %66 ], [ %42, %54 ], [ %121, %.lr.ph ]
@@ -4799,7 +4799,7 @@ _getrecord_ex.exit216:                            ; preds = %PyUnicode_READ.exit
   %.1147 = phi i8 [ %256, %_getrecord_ex.exit216 ], [ %183, %_getrecord_ex.exit203 ]
   %258 = add nuw nsw i64 %.1126309, 1
   %259 = icmp slt i64 %258, %.val182
-  br i1 %259, label %.lr.ph311, label %.loopexit, !llvm.loop !68
+  br i1 %259, label %.lr.ph311, label %.loopexit, !llvm.loop !72
 
 .loopexit.sink.split:                             ; preds = %11, %3, %.thread233
   %260 = tail call ptr @PyErr_NoMemory() #9
@@ -4861,11 +4861,11 @@ define internal range(i32 -1, 1) i32 @unicodedata_exec(ptr noundef %0) #0 {
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr @.str.172, ptr %20, align 8, !tbaa !69
+  store ptr @.str.172, ptr %20, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @get_change_3_2_0, ptr %21, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr @normalization_3_2_0, ptr %22, align 8, !tbaa !65
+  store ptr @normalization_3_2_0, ptr %22, align 8, !tbaa !69
   tail call void @PyObject_GC_Track(ptr noundef nonnull %17) #9
   br label %new_previous_version.exit
 
@@ -4899,9 +4899,9 @@ Py_DECREF.exit:                                   ; preds = %new_previous_versio
   br label %unicodedata_create_capi.exit
 
 35:                                               ; preds = %30
-  store ptr @capi_getucname, ptr %31, align 8, !tbaa !70
+  store ptr @capi_getucname, ptr %31, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr @capi_getcode, ptr %36, align 8, !tbaa !72
+  store ptr @capi_getcode, ptr %36, align 8, !tbaa !76
   %37 = tail call ptr @PyCapsule_New(ptr noundef nonnull %31, ptr noundef nonnull @.str.181, ptr noundef nonnull @unicodedata_destroy_capi) #9
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %unicodedata_create_capi.exit
@@ -5150,27 +5150,31 @@ attributes #10 = { nounwind willreturn memory(read) }
 !46 = !{!47, !19, i64 0}
 !47 = !{!"NamedSequence", !19, i64 0, !6, i64 4}
 !48 = !{!34, !6, i64 5}
-!49 = distinct !{!49, !44}
-!50 = !{ptr @nfc_nfkc, ptr @nfd_nfkd}
-!51 = distinct !{!51, !44}
+!49 = distinct !{!49, !44, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !44, !50}
 !52 = distinct !{!52, !44}
-!53 = distinct !{!53, !44}
-!54 = distinct !{!54, !44}
+!53 = !{ptr @nfc_nfkc, ptr @nfd_nfkd}
+!54 = distinct !{!54, !44, !50}
 !55 = distinct !{!55, !44}
 !56 = distinct !{!56, !44}
 !57 = distinct !{!57, !44}
-!58 = !{!59, !19, i64 0}
-!59 = !{!"reindex", !19, i64 0, !20, i64 4, !20, i64 6}
+!58 = distinct !{!58, !44}
+!59 = distinct !{!59, !44}
 !60 = distinct !{!60, !44}
-!61 = !{!59, !20, i64 4}
-!62 = !{!59, !20, i64 6}
-!63 = distinct !{!63, !44}
+!61 = distinct !{!61, !44}
+!62 = !{!63, !19, i64 0}
+!63 = !{!"reindex", !19, i64 0, !20, i64 4, !20, i64 6}
 !64 = distinct !{!64, !44}
-!65 = !{!28, !5, i64 32}
-!66 = distinct !{!66, !44}
+!65 = !{!63, !20, i64 4}
+!66 = !{!63, !20, i64 6}
 !67 = distinct !{!67, !44}
 !68 = distinct !{!68, !44}
-!69 = !{!28, !15, i64 16}
-!70 = !{!71, !5, i64 0}
-!71 = !{!"", !5, i64 0, !5, i64 8}
-!72 = !{!71, !5, i64 8}
+!69 = !{!28, !5, i64 32}
+!70 = distinct !{!70, !44}
+!71 = distinct !{!71, !44}
+!72 = distinct !{!72, !44}
+!73 = !{!28, !15, i64 16}
+!74 = !{!75, !5, i64 0}
+!75 = !{!"", !5, i64 0, !5, i64 8}
+!76 = !{!75, !5, i64 8}

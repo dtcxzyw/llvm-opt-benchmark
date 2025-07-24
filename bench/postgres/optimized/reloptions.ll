@@ -1092,7 +1092,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
 54:                                               ; preds = %51, %46, %40, %35
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge.split.us.us, label %35, !llvm.loop !6
+  br i1 %exitcond167.not, label %._crit_edge.split.us.us, label %35, !llvm.loop !7
 
 .lr.ph138.split:                                  ; preds = %.lr.ph138, %.loopexit.split
   %55 = phi i32 [ %91, %.loopexit.split ], [ %14, %.lr.ph138 ]
@@ -1153,7 +1153,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
 88:                                               ; preds = %74, %80, %85, %66, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %66, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.split, label %66, !llvm.loop !8
 
 ._crit_edge.split:                                ; preds = %88, %.lr.ph138.split
   %89 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1167,7 +1167,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next161, %92
-  br i1 %93, label %.lr.ph138.split, label %._crit_edge139, !llvm.loop !4
+  br i1 %93, label %.lr.ph138.split, label %._crit_edge139, !llvm.loop !9
 
 ._crit_edge139:                                   ; preds = %.loopexit.split, %.loopexit.split.us.us, %11
   %.1.lcssa = phi ptr [ null, %11 ], [ %.2.us, %.loopexit.split.us.us ], [ %.2, %.loopexit.split ]
@@ -1205,7 +1205,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
 .thread124.us:                                    ; preds = %100
   %106 = add nuw nsw i32 %.sroa.6.0146.us, 1
   %.not97.us = icmp slt i32 %106, %96
-  br i1 %.not97.us, label %100, label %._crit_edge, !llvm.loop !7
+  br i1 %.not97.us, label %100, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.thread124, %.thread124.us, %94
   %.3.lcssa = phi ptr [ %.082, %94 ], [ %.082, %.thread124.us ], [ %.6, %.thread124 ]
@@ -1245,7 +1245,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
   %120 = getelementptr inbounds ptr, ptr %3, i64 %119
   %121 = load ptr, ptr %120, align 8
   %.not101 = icmp eq ptr %121, null
-  br i1 %.not101, label %.critedge, label %.lr.ph142, !llvm.loop !8
+  br i1 %.not101, label %.critedge, label %.lr.ph142, !llvm.loop !11
 
 .lr.ph142:                                        ; preds = %.preheader, %117
   %122 = phi ptr [ %121, %117 ], [ %116, %.preheader ]
@@ -1338,7 +1338,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
   %168 = load i32, ptr %95, align 4
   %169 = sext i32 %168 to i64
   %.not97 = icmp slt i64 %indvars.iv.next172, %169
-  br i1 %.not97, label %.lr.ph148.split, label %._crit_edge, !llvm.loop !7
+  br i1 %.not97, label %.lr.ph148.split, label %._crit_edge, !llvm.loop !12
 
 170:                                              ; preds = %._crit_edge
   %171 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1418,7 +1418,7 @@ define dso_local ptr @untransformRelOptions(i64 noundef %0) local_unnamed_addr #
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %18, %4, %1
   %.015 = phi ptr [ null, %1 ], [ null, %4 ], [ %20, %18 ]
@@ -1460,7 +1460,7 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = zext nneg i32 %9 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 526
-  %19 = load i8, ptr %18, align 2, !range !10, !noundef !11
+  %19 = load i8, ptr %18, align 2, !range !14, !noundef !15
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 524
   %22 = load i16, ptr %21, align 4
@@ -1678,7 +1678,7 @@ define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroex
   %18 = getelementptr inbounds ptr, ptr %9, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %20 = icmp sgt i32 %spec.select.i, 0
@@ -1719,7 +1719,7 @@ define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroex
   %39 = getelementptr inbounds ptr, ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8
   %.not31.i = icmp eq ptr %40, null
-  br i1 %.not31.i, label %.loopexit.i, label %.lr.ph42.i, !llvm.loop !13
+  br i1 %.not31.i, label %.loopexit.i, label %.lr.ph42.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %36, %21, %._crit_edge.i, %8
   %.026.lcssa44.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ %spec.select.i, %21 ], [ 0, %8 ], [ %spec.select.i, %36 ]
@@ -1758,7 +1758,7 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
   %52 = load ptr, ptr %51, align 8
   %.not.i17 = icmp eq ptr %52, null
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %54 = load i8, ptr %53, align 8, !range !10, !noundef !11
+  %54 = load i8, ptr %53, align 8, !range !14, !noundef !15
   %55 = trunc nuw i8 %54 to i1
   br i1 %.not.i17, label %70, label %56
 
@@ -1772,7 +1772,7 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %62 = load i8, ptr %61, align 4, !range !10, !noundef !11
+  %62 = load i8, ptr %61, align 4, !range !14, !noundef !15
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %67, label %64
 
@@ -1815,7 +1815,7 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
   %.1.i16 = phi i64 [ %.2.i, %82 ], [ %.022.i, %.lr.ph.i15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %allocateReloptStruct.exit, label %.lr.ph.i15, !llvm.loop !14
+  br i1 %exitcond.not.i, label %allocateReloptStruct.exit, label %.lr.ph.i15, !llvm.loop !18
 
 allocateReloptStruct.exit:                        ; preds = %83, %43
   %.0.lcssa.i = phi i64 [ %3, %43 ], [ %.1.i16, %83 ]
@@ -1855,7 +1855,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 13:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !19
 
 14:                                               ; preds = %.preheader.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %13 ]
@@ -1882,13 +1882,13 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %28 = load i8, ptr %27, align 8, !range !10, !noundef !11
+  %28 = load i8, ptr %27, align 8, !range !14, !noundef !15
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %32 = load i8, ptr %31, align 4, !range !10, !noundef !11
+  %32 = load i8, ptr %31, align 4, !range !14, !noundef !15
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.thread.us, label %34
 
@@ -1954,7 +1954,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 62:                                               ; preds = %19
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %64 = load i8, ptr %63, align 8, !range !10, !noundef !11
+  %64 = load i8, ptr %63, align 8, !range !14, !noundef !15
   %65 = trunc nuw i8 %64 to i1
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1965,7 +1965,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 69:                                               ; preds = %19
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %71 = load i8, ptr %70, align 8, !range !10, !noundef !11
+  %71 = load i8, ptr %70, align 8, !range !14, !noundef !15
   %72 = trunc nuw i8 %71 to i1
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1976,7 +1976,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 76:                                               ; preds = %19
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %78 = load i8, ptr %77, align 8, !range !10, !noundef !11
+  %78 = load i8, ptr %77, align 8, !range !14, !noundef !15
   %79 = trunc nuw i8 %78 to i1
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1987,12 +1987,12 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 83:                                               ; preds = %19
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %85 = load i8, ptr %84, align 8, !range !10, !noundef !11
+  %85 = load i8, ptr %84, align 8, !range !14, !noundef !15
   %86 = trunc nuw i8 %85 to i1
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.in90.in.us = select i1 %86, ptr %87, ptr %88
-  %.in90.us = load i8, ptr %.in90.in.us, align 8, !range !10, !noundef !11
+  %.in90.us = load i8, ptr %.in90.in.us, align 8, !range !14, !noundef !15
   store i8 %.in90.us, ptr %23, align 1
   br label %.thread98.us
 
@@ -2000,7 +2000,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   %.1101.us = phi i32 [ %.081110.us, %._crit_edge.us ], [ %.081110.us, %51 ], [ %50, %48 ], [ %61, %54 ], [ %.081110.us, %.thread96.us ], [ %.081110.us, %62 ], [ %.081110.us, %69 ], [ %.081110.us, %76 ], [ %.081110.us, %83 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge112, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond133.not, label %._crit_edge112, label %.preheader.us, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %13
   br i1 %4, label %.split.us.loopexit, label %.thread98.us
@@ -2146,7 +2146,7 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %38
   %49 = load ptr, ptr %48, align 8
   %.not.i59 = icmp eq ptr %49, null
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %51 = load i8, ptr %50, align 8, !range !10, !noundef !11
+  %51 = load i8, ptr %50, align 8, !range !14, !noundef !15
   %52 = trunc nuw i8 %51 to i1
   br i1 %.not.i59, label %67, label %53
 
@@ -2160,7 +2160,7 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %38
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 36
-  %59 = load i8, ptr %58, align 4, !range !10, !noundef !11
+  %59 = load i8, ptr %58, align 4, !range !14, !noundef !15
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %64, label %61
 
@@ -2203,7 +2203,7 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %38
   %.1.i = phi i64 [ %.2.i, %79 ], [ %.022.i, %.lr.ph.i56 ]
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %allocateReloptStruct.exit, label %.lr.ph.i56, !llvm.loop !14
+  br i1 %exitcond.not.i, label %allocateReloptStruct.exit, label %.lr.ph.i56, !llvm.loop !18
 
 allocateReloptStruct.exit:                        ; preds = %80, %parseLocalRelOptions.exit
   %.0.lcssa.i = phi i64 [ %40, %parseLocalRelOptions.exit ], [ %.1.i, %80 ]
@@ -2353,12 +2353,12 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   %31 = getelementptr inbounds ptr, ptr %10, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not22 = icmp eq ptr %32, null
-  br i1 %.not22, label %._crit_edge, label %16, !llvm.loop !17
+  br i1 %.not22, label %._crit_edge, label %16, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph32, %5, %1
   %.016 = phi i32 [ 8, %1 ], [ 0, %5 ], [ 0, %.lr.ph32 ], [ %.2, %._crit_edge ]
@@ -2384,7 +2384,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %5 = getelementptr inbounds [9 x %struct.relopt_bool], ptr @boolRelOpts, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.preheader92, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.preheader92, label %.lr.ph, !llvm.loop !23
 
 .preheader91:                                     ; preds = %.lr.ph99, %.preheader92
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader92 ], [ %8, %.lr.ph99 ]
@@ -2401,7 +2401,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %11 = getelementptr inbounds [24 x %struct.relopt_int], ptr @intRelOpts, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 16
   %.not75 = icmp eq ptr %12, null
-  br i1 %.not75, label %.preheader91, label %.lr.ph99, !llvm.loop !20
+  br i1 %.not75, label %.preheader91, label %.lr.ph99, !llvm.loop !24
 
 .preheader90:                                     ; preds = %.lr.ph104, %.preheader91
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader91 ], [ %14, %.lr.ph104 ]
@@ -2418,7 +2418,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %17 = getelementptr inbounds [11 x %struct.relopt_real], ptr @realRelOpts, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not76 = icmp eq ptr %18, null
-  br i1 %.not76, label %.preheader90, label %.lr.ph104, !llvm.loop !21
+  br i1 %.not76, label %.preheader90, label %.lr.ph104, !llvm.loop !25
 
 .preheader89:                                     ; preds = %.lr.ph109, %.preheader90
   %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader90 ], [ %20, %.lr.ph109 ]
@@ -2435,7 +2435,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %23 = getelementptr inbounds [4 x %struct.relopt_enum], ptr @enumRelOpts, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not77 = icmp eq ptr %24, null
-  br i1 %.not77, label %.preheader89, label %.lr.ph109, !llvm.loop !22
+  br i1 %.not77, label %.preheader89, label %.lr.ph109, !llvm.loop !26
 
 .lr.ph114:                                        ; preds = %.preheader89, %.lr.ph114
   %.4113 = phi i32 [ %25, %.lr.ph114 ], [ %.3.lcssa, %.preheader89 ]
@@ -2446,7 +2446,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %28 = getelementptr inbounds [1 x %struct.relopt_string], ptr @stringRelOpts, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 16
   %.not78 = icmp eq ptr %29, null
-  br i1 %.not78, label %._crit_edge, label %.lr.ph114, !llvm.loop !23
+  br i1 %.not78, label %._crit_edge, label %.lr.ph114, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph114, %.preheader89
   %.4.lcssa = phi i32 [ %.3.lcssa, %.preheader89 ], [ %25, %.lr.ph114 ]
@@ -2496,7 +2496,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %53 = getelementptr inbounds [9 x %struct.relopt_bool], ptr @boolRelOpts, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not80 = icmp eq ptr %54, null
-  br i1 %.not80, label %.preheader88, label %.lr.ph120, !llvm.loop !24
+  br i1 %.not80, label %.preheader88, label %.lr.ph120, !llvm.loop !28
 
 .preheader87:                                     ; preds = %.lr.ph125, %.preheader88
   %.6.lcssa = phi i32 [ %.5.lcssa, %.preheader88 ], [ %65, %.lr.ph125 ]
@@ -2525,7 +2525,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %68 = getelementptr inbounds [24 x %struct.relopt_int], ptr @intRelOpts, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 16
   %.not81 = icmp eq ptr %69, null
-  br i1 %.not81, label %.preheader87, label %.lr.ph125, !llvm.loop !25
+  br i1 %.not81, label %.preheader87, label %.lr.ph125, !llvm.loop !29
 
 .preheader86:                                     ; preds = %.lr.ph130, %.preheader87
   %.7.lcssa = phi i32 [ %.6.lcssa, %.preheader87 ], [ %80, %.lr.ph130 ]
@@ -2554,7 +2554,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %83 = getelementptr inbounds [11 x %struct.relopt_real], ptr @realRelOpts, i64 0, i64 %82
   %84 = load ptr, ptr %83, align 8
   %.not82 = icmp eq ptr %84, null
-  br i1 %.not82, label %.preheader86, label %.lr.ph130, !llvm.loop !26
+  br i1 %.not82, label %.preheader86, label %.lr.ph130, !llvm.loop !30
 
 .preheader85:                                     ; preds = %.lr.ph135, %.preheader86
   %.8.lcssa = phi i32 [ %.7.lcssa, %.preheader86 ], [ %95, %.lr.ph135 ]
@@ -2583,7 +2583,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %98 = getelementptr inbounds [4 x %struct.relopt_enum], ptr @enumRelOpts, i64 0, i64 %97
   %99 = load ptr, ptr %98, align 8
   %.not83 = icmp eq ptr %99, null
-  br i1 %.not83, label %.preheader85, label %.lr.ph135, !llvm.loop !27
+  br i1 %.not83, label %.preheader85, label %.lr.ph135, !llvm.loop !31
 
 .preheader:                                       ; preds = %.lr.ph140, %.preheader85
   %.9.lcssa = phi i32 [ %.8.lcssa, %.preheader85 ], [ %112, %.lr.ph140 ]
@@ -2617,7 +2617,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %115 = getelementptr inbounds [1 x %struct.relopt_string], ptr @stringRelOpts, i64 0, i64 %114
   %116 = load ptr, ptr %115, align 16
   %.not84 = icmp eq ptr %116, null
-  br i1 %.not84, label %.preheader, label %.lr.ph140, !llvm.loop !28
+  br i1 %.not84, label %.preheader, label %.lr.ph140, !llvm.loop !32
 
 117:                                              ; preds = %.lr.ph144, %117
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %117 ]
@@ -2630,7 +2630,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %122 = add i32 %.10143, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge145, label %117, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge145, label %117, !llvm.loop !33
 
 ._crit_edge145:                                   ; preds = %117, %.preheader
   %.10.lcssa = phi i32 [ %.9.lcssa, %.preheader ], [ %122, %117 ]
@@ -2693,7 +2693,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %21 = load i32, ptr %6, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next163, %22
-  br i1 %23, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
+  br i1 %23, label %.lr.ph.us, label %._crit_edge, !llvm.loop !34
 
 24:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
@@ -2720,12 +2720,12 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
 39:                                               ; preds = %35, %30, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %parse_one_reloption.exit.us, label %24, !llvm.loop !31
+  br i1 %exitcond.not, label %parse_one_reloption.exit.us, label %24, !llvm.loop !35
 
 40:                                               ; preds = %35
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %43 = load i8, ptr %42, align 8, !range !10, !noundef !11
+  %43 = load i8, ptr %42, align 8, !range !14, !noundef !15
   %44 = trunc nuw i8 %43 to i1
   %or.cond.i.us = and i1 %1, %44
   br i1 %or.cond.i.us, label %.split.us, label %45
@@ -2793,7 +2793,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %75 = getelementptr inbounds nuw i8, ptr %.091122.i.us, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not99.not.i.us = icmp eq ptr %76, null
-  br i1 %.not99.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !32
+  br i1 %.not99.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !36
 
 77:                                               ; preds = %.lr.ph.i.us
   %78 = getelementptr inbounds nuw i8, ptr %.091122.i.us, i64 8
@@ -3076,23 +3076,23 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5, !6}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!14 = !{i8 0, i8 2}
+!15 = !{}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!20 = distinct !{!20, !5, !6}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -3105,3 +3105,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}

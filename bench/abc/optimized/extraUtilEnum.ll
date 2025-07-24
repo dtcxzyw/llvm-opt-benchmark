@@ -1763,12 +1763,12 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %lftr.wideiv185 = trunc i64 %indvars.iv.next145.i to i32
   %exitcond186 = icmp eq i32 %223, %lftr.wideiv185
-  br i1 %exitcond186, label %.loopexit.i, label %.lr.ph129.split.i, !llvm.loop !55
+  br i1 %exitcond186, label %.loopexit.i, label %.lr.ph129.split.i, !llvm.loop !57
 
 Abc_EnumerateFilter.exit:                         ; preds = %.loopexit.i, %.preheader.i
-  %300 = load i64, ptr %17, align 8, !tbaa !56
+  %300 = load i64, ptr %17, align 8, !tbaa !58
   %301 = add i64 %300, 1
-  store i64 %301, ptr %17, align 8, !tbaa !56
+  store i64 %301, ptr %17, align 8, !tbaa !58
   store i32 %105, ptr %106, align 4, !tbaa !3
   %302 = load i32, ptr %174, align 4, !tbaa !3
   %303 = add nsw i32 %302, 1
@@ -1834,14 +1834,14 @@ Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %238, 
   %339 = phi i32 [ %211, %210 ], [ %176, %186 ], [ %176, %179 ], [ %338, %Abc_EnumDerefNode.exit ], [ %211, %268 ], [ %211, %276 ], [ %211, %282 ], [ %211, %288 ], [ %211, %294 ], [ %211, %262 ], [ %211, %256 ], [ %211, %251 ], [ %211, %245 ], [ %211, %238 ], [ %211, %.lr.ph.i155 ]
   %340 = add i32 %.0139172, 1
   %exitcond187.not = icmp eq i32 %340, %74
-  br i1 %exitcond187.not, label %.loopexit, label %175, !llvm.loop !57
+  br i1 %exitcond187.not, label %.loopexit, label %175, !llvm.loop !59
 
 .loopexit:                                        ; preds = %Abc_EnumerateFilter.exit.thread, %165, %162, %142, %147, %130
   %341 = phi i32 [ %129, %165 ], [ %129, %162 ], [ %129, %142 ], [ %129, %147 ], [ %129, %130 ], [ %339, %Abc_EnumerateFilter.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv189 = trunc i64 %indvars.iv.next to i32
   %exitcond190.not = icmp eq i32 %lftr.wideiv189, %127
-  br i1 %exitcond190.not, label %._crit_edge.loopexit, label %128, !llvm.loop !58
+  br i1 %exitcond190.not, label %._crit_edge.loopexit, label %128, !llvm.loop !60
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre199 = load i32, ptr %113, align 4, !tbaa !3
@@ -1861,7 +1861,7 @@ Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %238, 
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %lftr.wideiv195 = trunc i64 %indvars.iv.next192 to i32
   %exitcond196.not = icmp eq i32 %90, %lftr.wideiv195
-  br i1 %exitcond196.not, label %._crit_edge180, label %107, !llvm.loop !59
+  br i1 %exitcond196.not, label %._crit_edge180, label %107, !llvm.loop !61
 
 ._crit_edge180:                                   ; preds = %346, %.thread158
   %348 = phi i32 [ %19, %.thread158 ], [ %347, %346 ]
@@ -1930,7 +1930,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %28 = load i64, ptr %27, align 8, !tbaa !52
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 616
-  %31 = load i64, ptr %30, align 8, !tbaa !56
+  %31 = load i64, ptr %30, align 8, !tbaa !58
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 624
   %34 = load i64, ptr %33, align 8, !tbaa !49
@@ -1991,7 +1991,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #18
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !60
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !62
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #18
@@ -1999,7 +1999,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !60, !noalias !62
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !62, !noalias !64
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #18
   br label %17
 
@@ -2122,13 +2122,15 @@ attributes #22 = { nounwind willreturn memory(read) }
 !52 = !{!44, !29, i64 608}
 !53 = distinct !{!53, !12}
 !54 = distinct !{!54, !12}
-!55 = distinct !{!55, !12}
-!56 = !{!44, !29, i64 616}
+!55 = distinct !{!55, !12, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !57 = distinct !{!57, !12}
-!58 = distinct !{!58, !12}
+!58 = !{!44, !29, i64 616}
 !59 = distinct !{!59, !12}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"vprintf: argument 0"}
-!64 = distinct !{!64, !"vprintf"}
+!60 = distinct !{!60, !12}
+!61 = distinct !{!61, !12}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"vprintf: argument 0"}
+!66 = distinct !{!66, !"vprintf"}

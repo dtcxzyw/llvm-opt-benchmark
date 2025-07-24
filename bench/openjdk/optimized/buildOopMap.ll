@@ -1062,7 +1062,7 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %105, %92
   store i32 %150, ptr %151, align 4
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next249.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader199.i, label %.lr.ph206.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.preheader199.i, label %.lr.ph206.i, !llvm.loop !22
 
 ._crit_edge211.i:                                 ; preds = %._crit_edge.loopexit.i.us, %.preheader199.i, %.lr.ph233.i
   %152 = getelementptr inbounds nuw i8, ptr %118, i64 40
@@ -1260,7 +1260,7 @@ _ZNK5Block8get_nodeEj.exit.i:                     ; preds = %162, %158
   %275 = load i32, ptr %207, align 8
   %276 = zext i32 %275 to i64
   %277 = icmp samesign ult i64 %indvars.iv.next260.i, %276
-  br i1 %277, label %211, label %._crit_edge214.i, !llvm.loop !22
+  br i1 %277, label %211, label %._crit_edge214.i, !llvm.loop !23
 
 ._crit_edge214.i:                                 ; preds = %274, %.thread.i
   %278 = load ptr, ptr %166, align 8
@@ -1300,7 +1300,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   store i32 %293, ptr %294, align 4
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
   %exitcond266.not.i = icmp eq i64 %indvars.iv.next263.i, %wide.trip.count.i
-  br i1 %exitcond266.not.i, label %._crit_edge217.i, label %.lr.ph216.i, !llvm.loop !23
+  br i1 %exitcond266.not.i, label %._crit_edge217.i, label %.lr.ph216.i, !llvm.loop !24
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i
   %295 = call noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull %166, ptr noundef %.0.i.i181.i, i1 noundef zeroext true) #11
@@ -1309,7 +1309,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
 296:                                              ; preds = %._crit_edge217.i, %._crit_edge214.i
   %indvars.iv.next268.i = add nsw i64 %indvars.iv267.i, -1
   %297 = icmp sgt i64 %indvars.iv267.i, 0
-  br i1 %297, label %158, label %._crit_edge222.i, !llvm.loop !24
+  br i1 %297, label %158, label %._crit_edge222.i, !llvm.loop !25
 
 ._crit_edge222.i:                                 ; preds = %296, %._crit_edge211.i
   %298 = getelementptr inbounds nuw i8, ptr %118, i64 76
@@ -1322,7 +1322,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
 303:                                              ; preds = %.lr.ph225.i
   %indvars.iv.next271.i = add nuw nsw i64 %indvars.iv270.i, 1
   %exitcond274.not.i = icmp eq i64 %indvars.iv.next271.i, %wide.trip.count.i
-  br i1 %exitcond274.not.i, label %.critedge.i, label %.lr.ph225.i, !llvm.loop !25
+  br i1 %exitcond274.not.i, label %.critedge.i, label %.lr.ph225.i, !llvm.loop !26
 
 .lr.ph225.i:                                      ; preds = %._crit_edge222.i, %303
   %indvars.iv270.i = phi i64 [ %indvars.iv.next271.i, %303 ], [ 0, %._crit_edge222.i ]
@@ -1354,7 +1354,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   store i32 %317, ptr %318, align 4
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
   %exitcond279.not.i = icmp eq i64 %indvars.iv.next276.i, %wide.trip.count.i
-  br i1 %exitcond279.not.i, label %.preheader.i, label %.lr.ph227.i, !llvm.loop !26
+  br i1 %exitcond279.not.i, label %.preheader.i, label %.lr.ph227.i, !llvm.loop !27
 
 .lr.ph230.i:                                      ; preds = %.preheader.i, %_ZN10Block_List4pushEP5Block.exit186.i
   %indvars.iv280.i = phi i64 [ %indvars.iv.next281.i, %_ZN10Block_List4pushEP5Block.exit186.i ], [ 1, %.preheader.i ]
@@ -1395,12 +1395,12 @@ _ZN10Block_List4pushEP5Block.exit186.i:           ; preds = %333, %.lr.ph230.i
   %341 = load i32, ptr %340, align 8
   %342 = sext i32 %341 to i64
   %343 = icmp slt i64 %indvars.iv.next281.i, %342
-  br i1 %343, label %.lr.ph230.i, label %.critedge.i, !llvm.loop !27
+  br i1 %343, label %.lr.ph230.i, label %.critedge.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %303, %_ZN10Block_List4pushEP5Block.exit186.i, %.preheader.i, %._crit_edge222.i
   %344 = load i32, ptr %32, align 8
   %.not.i = icmp eq i32 %344, 0
-  br i1 %.not.i, label %.preheader201.i, label %.lr.ph233.i, !llvm.loop !28
+  br i1 %.not.i, label %.preheader201.i, label %.lr.ph233.i, !llvm.loop !29
 
 .lr.ph239.i:                                      ; preds = %.preheader201.i, %_ZNK5Block8get_nodeEj.exit188._crit_edge.thread.i
   %.pre295.pre297.i = phi i32 [ %.pre295.pre301.i, %_ZNK5Block8get_nodeEj.exit188._crit_edge.thread.i ], [ %114, %.preheader201.i ]
@@ -1461,7 +1461,7 @@ _ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_
   %375 = load i32, ptr %348, align 8
   %376 = zext i32 %375 to i64
   %377 = icmp samesign ult i64 %indvars.iv.next284.i, %376
-  br i1 %377, label %_ZNK5Block8get_nodeEj.exit187.i, label %_ZNK5Block8get_nodeEj.exit188._crit_edge.i, !llvm.loop !29
+  br i1 %377, label %_ZNK5Block8get_nodeEj.exit187.i, label %_ZNK5Block8get_nodeEj.exit188._crit_edge.i, !llvm.loop !30
 
 _ZNK5Block8get_nodeEj.exit188._crit_edge.i:       ; preds = %374, %_ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_crit_edge.i
   %.pre294.i = phi i32 [ %.pre294.pre.i, %_ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_crit_edge.i ], [ %375, %374 ]
@@ -1476,7 +1476,7 @@ _ZNK5Block8get_nodeEj.exit188._crit_edge.thread.i: ; preds = %_ZNK5Block8get_nod
   %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 1
   %379 = zext i32 %.pre295.pre301.i to i64
   %380 = icmp samesign ult i64 %indvars.iv.next287.i, %379
-  br i1 %380, label %.lr.ph239.i, label %._crit_edge240.loopexit.i, !llvm.loop !30
+  br i1 %380, label %.lr.ph239.i, label %._crit_edge240.loopexit.i, !llvm.loop !31
 
 ._crit_edge240.loopexit.i:                        ; preds = %_ZNK5Block8get_nodeEj.exit188._crit_edge.thread.i, %_ZNK5Block8get_nodeEj.exit188._crit_edge.i
   %.pre295.pre302.i = phi i32 [ %.pre295.pre301.i, %_ZNK5Block8get_nodeEj.exit188._crit_edge.thread.i ], [ %.pre295.pre.pre.i, %_ZNK5Block8get_nodeEj.exit188._crit_edge.i ]
@@ -1519,7 +1519,7 @@ _ZN10Block_List4pushEP5Block.exit190.i:           ; preds = %390, %.lr.ph245.i
   %394 = load i32, ptr %41, align 8
   %395 = zext i32 %394 to i64
   %396 = icmp samesign ult i64 %indvars.iv.next291.i, %395
-  br i1 %396, label %.lr.ph245.i, label %.loopexit.i, !llvm.loop !31
+  br i1 %396, label %.lr.ph245.i, label %.loopexit.i, !llvm.loop !32
 
 _ZL11do_livenessP13PhaseRegAllocP8PhaseCFGP10Block_ListiP5ArenaP4Dict.exit: ; preds = %._crit_edge240.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -1686,10 +1686,10 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %474, %481
   %485 = load i32, ptr %471, align 8
   %486 = zext i32 %485 to i64
   %487 = icmp samesign ult i64 %indvars.iv.next, %486
-  br i1 %487, label %474, label %.preheader118, !llvm.loop !32
+  br i1 %487, label %474, label %.preheader118, !llvm.loop !33
 
 ..loopexit_crit_edge:                             ; preds = %_ZN10Block_List4pushEP5Block.exit111
-  br label %.loopexit, !llvm.loop !33
+  br label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.loopexit117
   %.promoted = load i32, ptr %32, align 8
@@ -1719,7 +1719,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %474, %481
 
 .backedge:                                        ; preds = %492, %500
   %.not = icmp eq i32 %494, 0
-  br i1 %.not, label %.outer._crit_edge, label %492, !llvm.loop !33
+  br i1 %.not, label %.outer._crit_edge, label %492, !llvm.loop !34
 
 500:                                              ; preds = %492
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 76
@@ -1799,7 +1799,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %474, %481
 544:                                              ; preds = %536
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit117, label %536, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit117, label %536, !llvm.loop !35
 
 ._crit_edge134:                                   ; preds = %536
   %545 = trunc nuw i64 %indvars.iv164 to i32
@@ -1810,7 +1810,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %474, %481
   %.279 = phi ptr [ %526, %._crit_edge134 ], [ %.077139, %519 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.thread, label %519, !llvm.loop !35
+  br i1 %exitcond171.not, label %.thread, label %519, !llvm.loop !36
 
 .thread:                                          ; preds = %547, %.preheader116
   %.077.lcssa = phi ptr [ inttoptr (i64 3735928559 to ptr), %.preheader116 ], [ %.279, %547 ]
@@ -1917,11 +1917,11 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
   %595 = getelementptr inbounds nuw i8, ptr %497, i64 72
   %596 = load i32, ptr %595, align 8
   %.not152 = icmp eq i32 %596, 0
-  br i1 %.not152, label %.loopexit, label %.lr.ph145, !llvm.loop !33
+  br i1 %.not152, label %.loopexit, label %.lr.ph145, !llvm.loop !34
 
 .lr.ph145:                                        ; preds = %.loopexit117
   %597 = getelementptr inbounds nuw i8, ptr %497, i64 64
-  br label %598, !llvm.loop !33
+  br label %598, !llvm.loop !34
 
 598:                                              ; preds = %.lr.ph145, %_ZN10Block_List4pushEP5Block.exit111
   %indvars.iv172 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next173, %_ZN10Block_List4pushEP5Block.exit111 ]
@@ -1948,7 +1948,7 @@ _ZN10Block_List4pushEP5Block.exit111:             ; preds = %598, %605
   %609 = load i32, ptr %595, align 8
   %610 = zext i32 %609 to i64
   %611 = icmp samesign ult i64 %indvars.iv.next173, %610
-  br i1 %611, label %598, label %..loopexit_crit_edge, !llvm.loop !36
+  br i1 %611, label %598, label %..loopexit_crit_edge, !llvm.loop !37
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.backedge, %.preheader118
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #11
@@ -2035,8 +2035,8 @@ attributes #12 = { noreturn nounwind }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!20 = distinct !{!20, !7, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
@@ -2052,3 +2052,4 @@ attributes #12 = { noreturn nounwind }
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

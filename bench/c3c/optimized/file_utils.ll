@@ -1147,7 +1147,7 @@ file_has_suffix_in_list.exit.thread.us58:         ; preds = %.lr.ph.split.split.
 .backedge.us61:                                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us, %file_has_suffix_in_list.exit.thread.us58
   %97 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not51.us62 = icmp eq ptr %97, null
-  br i1 %.not51.us62, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
+  br i1 %.not51.us62, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !19
 
 98:                                               ; preds = %5
   %99 = tail call ptr @__errno_location() #19
@@ -1168,7 +1168,7 @@ file_has_suffix_in_list.exit.thread.us58:         ; preds = %.lr.ph.split.split.
 .backedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %107, %111, %113, %file_has_suffix_in_list.exit.thread
   %104 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not51 = icmp eq ptr %104, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !17
+  br i1 %.not51, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
   %105 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %103) #17
@@ -1232,7 +1232,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly c
   %6 = call ptr @str_cat(ptr noundef %.01017, ptr noundef nonnull %3) #17
   %7 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1023, ptr noundef nonnull %4)
   %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader15
   %.010.lcssa = phi ptr [ @.str.36, %.preheader15 ], [ %6, %.lr.ph ]
@@ -1252,7 +1252,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly c
 
 10:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !22
 
 12:                                               ; preds = %.preheader
   %13 = call ptr @str_trim(ptr noundef nonnull %.1) #17
@@ -1318,6 +1318,9 @@ attributes #19 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!17 = distinct !{!17, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !8, !18}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

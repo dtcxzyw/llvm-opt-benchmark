@@ -63,14 +63,14 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %.critedge.loopexit
 
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %9 = trunc nuw i64 %indvars.iv to i32
@@ -84,9 +84,9 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 11:                                               ; preds = %.critedge
   %12 = zext i32 %.057.lcssa to i64
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
-  store i32 0, ptr %13, align 4, !tbaa !11
+  store i32 0, ptr %13, align 4, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %15 = load i8, ptr %14, align 1, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !8
   %16 = icmp ugt i8 %15, 32
   br i1 %16, label %.loopexit, label %.preheader72
 
@@ -104,9 +104,9 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %18 = shl nuw i32 1, %17
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %19 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv.next106
-  store i32 %18, ptr %19, align 4, !tbaa !11
+  store i32 %18, ptr %19, align 4, !tbaa !12
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !13
+  br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph79, %.preheader72
   %20 = add i32 %.057.lcssa, 1
@@ -120,7 +120,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %26
   %indvars.iv110 = phi i64 [ %22, %.lr.ph82.preheader ], [ %indvars.iv.next111, %26 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv110
-  %24 = load i8, ptr %23, align 1, !tbaa !7
+  %24 = load i8, ptr %23, align 1, !tbaa !8
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.critedge2
 
@@ -128,7 +128,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next111 to i32
   %exitcond113.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph82, !llvm.loop !14
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph82, !llvm.loop !15
 
 .critedge2:                                       ; preds = %.lr.ph82
   %27 = trunc nuw i64 %indvars.iv110 to i32
@@ -143,7 +143,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %.193 = phi i32 [ %50, %49 ], [ %20, %.critedge2 ]
   %30 = zext i32 %.193 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !7
+  %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = zext i8 %32 to i32
   %34 = icmp ugt i8 %32, 32
   br i1 %34, label %.loopexit, label %35
@@ -156,18 +156,18 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %.26187 = phi i32 [ %41, %40 ], [ %33, %35 ]
   %37 = zext i32 %.26187 to i64
   %38 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %39 = load i32, ptr %38, align 4, !tbaa !12
   %.not65 = icmp eq i32 %39, 0
   br i1 %.not65, label %40, label %42
 
 40:                                               ; preds = %.preheader68
   %41 = add nsw i32 %.26187, -1
   %cond = icmp eq i32 %41, 0
-  br i1 %cond, label %.loopexit, label %.preheader68, !llvm.loop !15
+  br i1 %cond, label %.loopexit, label %.preheader68, !llvm.loop !16
 
 42:                                               ; preds = %.preheader68
   %43 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %37
-  store i32 0, ptr %43, align 4, !tbaa !11
+  store i32 0, ptr %43, align 4, !tbaa !12
   %.not67.not88 = icmp ult i32 %.26187, %33
   br i1 %.not67.not88, label %.lr.ph91, label %._crit_edge92
 
@@ -178,20 +178,20 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %45 = shl nuw i32 1, %44
   %46 = add i32 %45, %39
   %47 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv.next117
-  store i32 %46, ptr %47, align 4, !tbaa !11
+  store i32 %46, ptr %47, align 4, !tbaa !12
   %lftr.wideiv119 = trunc i64 %indvars.iv.next117 to i32
   %exitcond120.not = icmp eq i32 %lftr.wideiv119, %33
-  br i1 %exitcond120.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !16
+  br i1 %exitcond120.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !17
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %42
   %48 = getelementptr inbounds nuw i32, ptr %1, i64 %30
-  store i32 %39, ptr %48, align 4, !tbaa !11
+  store i32 %39, ptr %48, align 4, !tbaa !12
   br label %49
 
 49:                                               ; preds = %35, %._crit_edge92
   %50 = add nuw i32 %.193, 1
   %exitcond121.not = icmp eq i32 %50, %2
-  br i1 %exitcond121.not, label %.preheader.preheader, label %.lr.ph94, !llvm.loop !17
+  br i1 %exitcond121.not, label %.preheader.preheader, label %.lr.ph94, !llvm.loop !18
 
 .preheader.preheader:                             ; preds = %49, %.critedge2.thread128
   br label %.preheader
@@ -199,12 +199,12 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 51:                                               ; preds = %.preheader
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 33
-  br i1 %exitcond125.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond125.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.preheader, %51
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %51 ], [ 1, %.preheader.preheader ]
   %52 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv122
-  %53 = load i32, ptr %52, align 4, !tbaa !11
+  %53 = load i32, ptr %52, align 4, !tbaa !12
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %51, label %.loopexit
 
@@ -220,9 +220,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 -1094995529, 1) i32 @ff_vorbis_ready_floor1_list(ptr noundef %0, ptr noundef captures(none) initializes((2, 4), (10, 12)) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 0, ptr %4, align 2, !tbaa !19
+  store i16 0, ptr %4, align 2, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i16 1, ptr %5, align 2, !tbaa !19
+  store i16 1, ptr %5, align 2, !tbaa !20
   %6 = icmp sgt i32 %2, 2
   br i1 %6, label %.lr.ph73.preheader, label %.critedge.preheader
 
@@ -244,17 +244,17 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_ready_floor1_list(ptr noundef %0
   %indvars.iv81 = phi i64 [ 2, %.lr.ph73.preheader ], [ %indvars.iv.next82, %._crit_edge ]
   %9 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %indvars.iv81
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i16 0, ptr %10, align 2, !tbaa !22
+  store i16 0, ptr %10, align 2, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  store i16 1, ptr %11, align 2, !tbaa !23
+  store i16 1, ptr %11, align 2, !tbaa !24
   %12 = trunc i64 %indvars.iv81 to i16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i16 %12, ptr %13, align 2, !tbaa !19
+  store i16 %12, ptr %13, align 2, !tbaa !20
   %14 = icmp samesign ugt i64 %indvars.iv81, 2
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph73
-  %15 = load i16, ptr %9, align 2, !tbaa !24
+  %15 = load i16, ptr %9, align 2, !tbaa !25
   br label %16
 
 16:                                               ; preds = %.lr.ph, %36
@@ -262,32 +262,32 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_ready_floor1_list(ptr noundef %0
   %18 = phi i16 [ 1, %.lr.ph ], [ %38, %36 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %19 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %indvars.iv
-  %20 = load i16, ptr %19, align 2, !tbaa !24
+  %20 = load i16, ptr %19, align 2, !tbaa !25
   %21 = icmp ult i16 %20, %15
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %16
   %23 = zext i16 %17 to i64
   %24 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !24
+  %25 = load i16, ptr %24, align 2, !tbaa !25
   %26 = icmp ugt i16 %20, %25
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %22
   %28 = trunc i64 %indvars.iv to i16
-  store i16 %28, ptr %10, align 2, !tbaa !22
+  store i16 %28, ptr %10, align 2, !tbaa !23
   br label %36
 
 29:                                               ; preds = %16
   %30 = zext i16 %18 to i64
   %31 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !24
+  %32 = load i16, ptr %31, align 2, !tbaa !25
   %33 = icmp ult i16 %20, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %29
   %35 = trunc i64 %indvars.iv to i16
-  store i16 %35, ptr %11, align 2, !tbaa !23
+  store i16 %35, ptr %11, align 2, !tbaa !24
   br label %36
 
 36:                                               ; preds = %29, %34, %22, %27
@@ -295,31 +295,31 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_ready_floor1_list(ptr noundef %0
   %38 = phi i16 [ %18, %29 ], [ %35, %34 ], [ %18, %22 ], [ %18, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv81
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %36, %.lr.ph73
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.critedge.preheader, label %.lr.ph73, !llvm.loop !26
+  br i1 %exitcond85.not, label %.critedge.preheader, label %.lr.ph73, !llvm.loop !27
 
 .critedge.loopexit:                               ; preds = %59
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph77, !llvm.loop !27
+  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph77, !llvm.loop !28
 
 .lr.ph77:                                         ; preds = %.critedge.loopexit, %.lr.ph79.preheader
   %indvars.iv92 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next93, %.critedge.loopexit ]
   %indvars.iv86 = phi i64 [ 1, %.lr.ph79.preheader ], [ %indvars.iv.next87, %.critedge.loopexit ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %39 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %indvars.iv92
-  %40 = load i16, ptr %39, align 2, !tbaa !24
+  %40 = load i16, ptr %39, align 2, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 2
   br label %42
 
 42:                                               ; preds = %.lr.ph77, %59
   %indvars.iv88 = phi i64 [ %indvars.iv86, %.lr.ph77 ], [ %indvars.iv.next89, %59 ]
   %43 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %indvars.iv88
-  %44 = load i16, ptr %43, align 2, !tbaa !24
+  %44 = load i16, ptr %43, align 2, !tbaa !25
   %45 = icmp eq i16 %40, %44
   br i1 %45, label %46, label %47
 
@@ -328,27 +328,27 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_ready_floor1_list(ptr noundef %0
   br label %.loopexit
 
 47:                                               ; preds = %42
-  %48 = load i16, ptr %41, align 2, !tbaa !19
+  %48 = load i16, ptr %41, align 2, !tbaa !20
   %49 = zext i16 %48 to i64
   %50 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !24
+  %51 = load i16, ptr %50, align 2, !tbaa !25
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %53 = load i16, ptr %52, align 2, !tbaa !19
+  %53 = load i16, ptr %52, align 2, !tbaa !20
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %1, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !24
+  %56 = load i16, ptr %55, align 2, !tbaa !25
   %57 = icmp ugt i16 %51, %56
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %47
-  store i16 %53, ptr %41, align 2, !tbaa !19
-  store i16 %48, ptr %52, align 2, !tbaa !19
+  store i16 %53, ptr %41, align 2, !tbaa !20
+  store i16 %48, ptr %52, align 2, !tbaa !20
   br label %59
 
 59:                                               ; preds = %47, %58
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
-  br i1 %exitcond91.not, label %.critedge.loopexit, label %42, !llvm.loop !28
+  br i1 %exitcond91.not, label %.critedge.loopexit, label %42, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %.critedge.preheader, %46
   %.2 = phi i32 [ -1094995529, %46 ], [ 0, %.critedge.preheader ], [ 0, %.critedge.loopexit ]
@@ -359,7 +359,7 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_vorbis_floor1_render_list(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #2 {
-  %8 = load i16, ptr %2, align 2, !tbaa !29
+  %8 = load i16, ptr %2, align 2, !tbaa !30
   %9 = zext i16 %8 to i32
   %10 = mul nsw i32 %4, %9
   %11 = icmp sgt i32 %1, 1
@@ -374,19 +374,19 @@ define void @ff_vorbis_floor1_render_list(ptr noundef readonly captures(none) %0
   %.03545 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %28 ]
   %.03644 = phi i32 [ %10, %.lr.ph.preheader ], [ %.238, %28 ]
   %12 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %indvars.iv, i32 1
-  %13 = load i16, ptr %12, align 2, !tbaa !19
+  %13 = load i16, ptr %12, align 2, !tbaa !20
   %14 = zext i16 %13 to i64
   %15 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !11
+  %16 = load i32, ptr %15, align 4, !tbaa !12
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %28, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %14
-  %19 = load i16, ptr %18, align 2, !tbaa !24
+  %19 = load i16, ptr %18, align 2, !tbaa !25
   %20 = zext i16 %19 to i32
   %21 = getelementptr inbounds nuw i16, ptr %2, i64 %14
-  %22 = load i16, ptr %21, align 2, !tbaa !29
+  %22 = load i16, ptr %21, align 2, !tbaa !30
   %23 = zext i16 %22 to i32
   %24 = mul nsw i32 %4, %23
   %25 = icmp slt i32 %.03545, %6
@@ -404,7 +404,7 @@ define void @ff_vorbis_floor1_render_list(ptr noundef readonly captures(none) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not42, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %28, %7
   %.137 = phi i32 [ %10, %7 ], [ %.238, %28 ]
@@ -435,10 +435,10 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.0.i = select i1 %.not.i, i64 %12, i64 %11
   %13 = and i64 %.0.i, 255
   %14 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %13
-  %15 = load float, ptr %14, align 4, !tbaa !31
+  %15 = load float, ptr %14, align 4, !tbaa !32
   %16 = zext nneg i32 %0 to i64
   %17 = getelementptr inbounds nuw float, ptr %4, i64 %16
-  store float %15, ptr %17, align 4, !tbaa !31
+  store float %15, ptr %17, align 4, !tbaa !32
   %18 = shl nuw nsw i32 %9, 1
   %.not = icmp sgt i32 %18, %7
   br i1 %.not, label %57, label %19
@@ -478,10 +478,10 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.0.i40.i = select i1 %.not.i38.i, i64 %34, i64 %33
   %35 = and i64 %.0.i40.i, 255
   %36 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %35
-  %37 = load float, ptr %36, align 4, !tbaa !31
+  %37 = load float, ptr %36, align 4, !tbaa !32
   %38 = add nsw i64 %.02742.i, 2
   %39 = getelementptr inbounds float, ptr %23, i64 %27
-  store float %37, ptr %39, align 4, !tbaa !31
+  store float %37, ptr %39, align 4, !tbaa !32
   br label %40
 
 40:                                               ; preds = %30, %._crit_edge46.i
@@ -495,11 +495,11 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.0.i37.i = select i1 %.not.i35.i, i64 %.pre-phi.i, i64 %41
   %42 = and i64 %.0.i37.i, 255
   %43 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %42
-  %44 = load float, ptr %43, align 4, !tbaa !31
+  %44 = load float, ptr %43, align 4, !tbaa !32
   %45 = getelementptr inbounds float, ptr %23, i64 %.128.i
-  store float %44, ptr %45, align 4, !tbaa !31
+  store float %44, ptr %45, align 4, !tbaa !32
   %46 = icmp slt i64 %.128.i, -1
-  br i1 %46, label %26, label %._crit_edge.i, !llvm.loop !33
+  br i1 %46, label %26, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %40, %19
   %.029.lcssa.i = phi i32 [ %1, %19 ], [ %.130.i, %40 ]
@@ -520,8 +520,8 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.0.i.i = select i1 %.not.i.i, i64 %53, i64 %52
   %54 = and i64 %.0.i.i, 255
   %55 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %54
-  %56 = load float, ptr %55, align 4, !tbaa !31
-  store float %56, ptr %23, align 4, !tbaa !31
+  %56 = load float, ptr %55, align 4, !tbaa !32
+  store float %56, ptr %23, align 4, !tbaa !32
   br label %render_line_unrolled.exit
 
 57:                                               ; preds = %5
@@ -556,12 +556,12 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.0.i53 = select i1 %.not.i51, i64 %71, i64 %70
   %72 = and i64 %.0.i53, 255
   %73 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %72
-  %74 = load float, ptr %73, align 4, !tbaa !31
+  %74 = load float, ptr %73, align 4, !tbaa !32
   %75 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  store float %74, ptr %75, align 4, !tbaa !31
+  store float %74, ptr %75, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %render_line_unrolled.exit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %render_line_unrolled.exit, label %.lr.ph, !llvm.loop !35
 
 render_line_unrolled.exit:                        ; preds = %.lr.ph, %57, %48, %._crit_edge.i
   ret void
@@ -594,32 +594,33 @@ attributes #8 = { nounwind }
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !5}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !8, i64 0}
-!13 = distinct !{!13, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !5}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !9, i64 0}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{!20, !21, i64 2}
-!20 = !{!"vorbis_floor1_entry", !21, i64 0, !21, i64 2, !21, i64 4, !21, i64 6}
-!21 = !{!"short", !8, i64 0}
-!22 = !{!20, !21, i64 4}
-!23 = !{!20, !21, i64 6}
-!24 = !{!20, !21, i64 0}
-!25 = distinct !{!25, !5}
+!19 = distinct !{!19, !5}
+!20 = !{!21, !22, i64 2}
+!21 = !{!"vorbis_floor1_entry", !22, i64 0, !22, i64 2, !22, i64 4, !22, i64 6}
+!22 = !{!"short", !9, i64 0}
+!23 = !{!21, !22, i64 4}
+!24 = !{!21, !22, i64 6}
+!25 = !{!21, !22, i64 0}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = !{!21, !21, i64 0}
-!30 = distinct !{!30, !5}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"float", !8, i64 0}
-!33 = distinct !{!33, !5}
+!29 = distinct !{!29, !5}
+!30 = !{!22, !22, i64 0}
+!31 = distinct !{!31, !5}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"float", !9, i64 0}
 !34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}

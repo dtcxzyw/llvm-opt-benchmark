@@ -1999,7 +1999,7 @@ _ZSt13__adjust_heapIPPN22small_object_allocator5chunkElS2_N9__gnu_cxx5__ops15_It
   store ptr %44, ptr %68, align 8, !tbaa !3
   %.not = icmp eq i64 %.014, 0
   %69 = add nsw i64 %.014, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !85
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !87
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPN22small_object_allocator5chunkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIS1_EEEEvT_T0_SB_T1_T2_.exit.us, %_ZSt13__adjust_heapIPPN22small_object_allocator5chunkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIS1_EEEEvT_T0_SB_T1_T2_.exit, %3
   ret void
@@ -2067,7 +2067,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPclN9__gnu_cxx5__ops15_
   %32 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
   store ptr %31, ptr %32, align 8, !tbaa !67
   %33 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !86
+  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !88
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %13
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %13 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -2111,14 +2111,14 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPclN9__gnu_cxx5__ops15_
   %50 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %47, ptr %50, align 8, !tbaa !67
   %.not10.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
-  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
+  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !89
 
 _ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %49, %.lr.ph.i.i.i.i.i, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %45 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %49 ]
   %51 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %15, ptr %51, align 8, !tbaa !67
   %52 = icmp sgt i64 %18, 8
-  br i1 %52, label %13, label %_ZSt14__partial_sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_T0_.exit, !llvm.loop !88
+  br i1 %52, label %13, label %_ZSt14__partial_sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_T0_.exit, !llvm.loop !90
 
 53:                                               ; preds = %10
   %54 = add nsw i64 %.01724, -1
@@ -2195,14 +2195,14 @@ _ZSt22__move_median_to_firstIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEE
   %82 = load ptr, ptr %.1.i.i, align 8, !tbaa !67
   %83 = icmp ult ptr %82, %80
   %84 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %83, label %81, label %.preheader.i.i, !llvm.loop !89
+  br i1 %83, label %81, label %.preheader.i.i, !llvm.loop !91
 
 .preheader.i.i:                                   ; preds = %81, %.preheader.i.i
   %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %81 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %85 = load ptr, ptr %.114.i.i, align 8, !tbaa !67
   %86 = icmp ult ptr %80, %85
-  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !90
+  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !92
 
 87:                                               ; preds = %.preheader.i.i
   %88 = icmp ult ptr %.1.i.i, %.114.i.i
@@ -2211,14 +2211,14 @@ _ZSt22__move_median_to_firstIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEE
 89:                                               ; preds = %87
   store ptr %85, ptr %.1.i.i, align 8, !tbaa !67
   store ptr %82, ptr %.114.i.i, align 8, !tbaa !67
-  br label %_ZSt22__move_median_to_firstIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !91
+  br label %_ZSt22__move_median_to_firstIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !93
 
 _ZSt27__unguarded_partition_pivotIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEET_S8_S8_T0_.exit: ; preds = %87
   tail call void @_ZSt16__introsort_loopIPPclN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %54)
   %90 = ptrtoint ptr %.1.i.i to i64
   %91 = sub i64 %90, %5
   %92 = icmp sgt i64 %91, 128
-  br i1 %92, label %10, label %_ZSt14__partial_sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_T0_.exit, !llvm.loop !92
+  br i1 %92, label %10, label %_ZSt14__partial_sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_T0_.exit, !llvm.loop !94
 
 _ZSt14__partial_sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEET_S8_S8_T0_.exit, %_ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i, %3
   ret void
@@ -2273,7 +2273,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPcN9__gnu_cxx5__ops15_Iter_c
   %32 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
   store ptr %31, ptr %32, align 8, !tbaa !67
   %33 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %33, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !86
+  br i1 %33, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !88
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %34 = icmp sgt i64 %spec.select.i.us, %.014.us
@@ -2292,7 +2292,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPcN9__gnu_cxx5__ops15_Iter_c
   %39 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
   store ptr %36, ptr %39, align 8, !tbaa !67
   %40 = icmp sgt i64 %.018.i.i.us, %.014.us
-  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !87
+  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !89
 
 _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %38, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %38 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
@@ -2300,7 +2300,7 @@ _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0
   store ptr %21, ptr %41, align 8, !tbaa !67
   %.not.us = icmp eq i64 %.014.us, 0
   %42 = add nsw i64 %.014.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !93
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !95
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit
   %.014 = phi i64 [ %69, %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -2325,7 +2325,7 @@ _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0
   %55 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
   store ptr %54, ptr %55, align 8, !tbaa !67
   %56 = icmp slt i64 %spec.select.i, %13
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !86
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !88
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.014, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -2355,7 +2355,7 @@ _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0
   %66 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
   store ptr %63, ptr %66, align 8, !tbaa !67
   %67 = icmp sgt i64 %.018.i.i, %.014
-  br i1 %67, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !87
+  br i1 %67, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !89
 
 _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit: ; preds = %.lr.ph.i.i, %65, %60
   %.013.lcssa.i.i = phi i64 [ %.128.i, %60 ], [ %.018.i.i, %65 ], [ %.01317.i.i, %.lr.ph.i.i ]
@@ -2363,7 +2363,7 @@ _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0
   store ptr %44, ptr %68, align 8, !tbaa !67
   %.not = icmp eq i64 %.014, 0
   %69 = add nsw i64 %.014, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !93
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !96
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit.us, %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_T0_S9_T1_T2_.exit, %3
   ret void
@@ -2416,7 +2416,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !94
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !97
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #24
@@ -2633,8 +2633,8 @@ attributes #26 = { builtin allocsize(0) }
 !82 = distinct !{!82, !12}
 !83 = distinct !{!83, !12}
 !84 = distinct !{!84, !12}
-!85 = distinct !{!85, !12}
-!86 = distinct !{!86, !12}
+!85 = distinct !{!85, !12, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !87 = distinct !{!87, !12}
 !88 = distinct !{!88, !12}
 !89 = distinct !{!89, !12}
@@ -2642,4 +2642,7 @@ attributes #26 = { builtin allocsize(0) }
 !91 = distinct !{!91, !12}
 !92 = distinct !{!92, !12}
 !93 = distinct !{!93, !12}
-!94 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!94 = distinct !{!94, !12}
+!95 = distinct !{!95, !12, !86}
+!96 = distinct !{!96, !12}
+!97 = !{!"branch_weights", !"expected", i32 1, i32 2000}

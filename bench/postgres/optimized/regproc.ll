@@ -904,7 +904,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef %36) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %35, %30, %23
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 41) #9
@@ -1000,7 +1000,7 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeo
   store ptr %32, ptr %2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %27, %11
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
@@ -2992,5 +2992,7 @@ attributes #10 = { cold nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!12 = distinct !{!12, !5, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

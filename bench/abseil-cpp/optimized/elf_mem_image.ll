@@ -721,7 +721,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %25 = load i32, ptr %5, align 8
   %26 = icmp ne i32 %25, %8
   %.not3.i.not.not.us = select i1 %24, i1 true, i1 %26
-  br i1 %.not3.i.not.not.us, label %.lr.ph.split.us, label %.critedge
+  br i1 %.not3.i.not.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !72
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
   %27 = load ptr, ptr %13, align 8, !tbaa !70
@@ -838,7 +838,7 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVersymEj.exit: ; preds = %11
   unreachable
 
 28:                                               ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEj.exit
-  %29 = load i32, ptr %21, align 8, !tbaa !72
+  %29 = load i32, ptr %21, align 8, !tbaa !74
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !33
@@ -859,13 +859,13 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit: ; preds = %28
   br i1 %39, label %.thread.thread, label %41
 
 .thread.thread:                                   ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit
-  store ptr %36, ptr %0, align 8, !tbaa !73
+  store ptr %36, ptr %0, align 8, !tbaa !75
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.13, ptr %40, align 8, !tbaa !74
+  store ptr @.str.13, ptr %40, align 8, !tbaa !76
   br label %79
 
 41:                                               ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit
-  %42 = load i16, ptr %24, align 2, !tbaa !75
+  %42 = load i16, ptr %24, align 2, !tbaa !77
   %43 = and i16 %42, 32767
   %44 = zext nneg i16 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -918,7 +918,7 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %.lr.ph.i
 
 66:                                               ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit
   %67 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 6
-  %68 = load i16, ptr %67, align 2, !tbaa !76
+  %68 = load i16, ptr %67, align 2, !tbaa !78
   %69 = add i16 %68, -3
   %spec.select = icmp ult i16 %69, -2
   br i1 %spec.select, label %70, label %71, !prof !4
@@ -929,7 +929,7 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %.lr.ph.i
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 20
-  %73 = load i32, ptr %72, align 4, !tbaa !77
+  %73 = load i32, ptr %72, align 4, !tbaa !79
   %74 = zext i32 %73 to i64
   %.not.i37 = icmp ugt i64 %32, %74
   br i1 %.not.i37, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit, label %75, !prof !39
@@ -944,9 +944,9 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit: ; preds = %71
 
 .thread:                                          ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit
   %.028 = phi ptr [ %76, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit ], [ @.str.13, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit ]
-  store ptr %36, ptr %0, align 8, !tbaa !73
+  store ptr %36, ptr %0, align 8, !tbaa !75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.028, ptr %77, align 8, !tbaa !74
+  store ptr %.028, ptr %77, align 8, !tbaa !76
   %78 = add i16 %38, 256
   %or.cond.i = icmp ult i16 %78, 257
   br i1 %or.cond.i, label %79, label %83
@@ -977,9 +977,9 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit: ; preds = %71
 _ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit: ; preds = %79, %89
   %.0.i = phi ptr [ %82, %79 ], [ %91, %89 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i, ptr %92, align 8, !tbaa !79
+  store ptr %.0.i, ptr %92, align 8, !tbaa !81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %21, ptr %93, align 8, !tbaa !80
+  store ptr %21, ptr %93, align 8, !tbaa !82
   br label %94
 
 94:                                               ; preds = %10, %_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit, %17
@@ -1077,12 +1077,14 @@ attributes #12 = { nounwind willreturn memory(read) }
 !69 = distinct !{!69, !"_ZNK4absl18debugging_internal11ElfMemImage3endEv"}
 !70 = !{!49, !7, i64 16}
 !71 = !{!41, !13, i64 16}
-!72 = !{!41, !12, i64 0}
-!73 = !{!48, !11, i64 0}
-!74 = !{!48, !11, i64 8}
-!75 = !{!18, !18, i64 0}
-!76 = !{!44, !18, i64 6}
-!77 = !{!78, !12, i64 0}
-!78 = !{!"_ZTS13Elf64_Verdaux", !12, i64 0, !12, i64 4}
-!79 = !{!48, !7, i64 16}
-!80 = !{!48, !7, i64 24}
+!72 = distinct !{!72, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = !{!41, !12, i64 0}
+!75 = !{!48, !11, i64 0}
+!76 = !{!48, !11, i64 8}
+!77 = !{!18, !18, i64 0}
+!78 = !{!44, !18, i64 6}
+!79 = !{!80, !12, i64 0}
+!80 = !{!"_ZTS13Elf64_Verdaux", !12, i64 0, !12, i64 4}
+!81 = !{!48, !7, i64 16}
+!82 = !{!48, !7, i64 24}

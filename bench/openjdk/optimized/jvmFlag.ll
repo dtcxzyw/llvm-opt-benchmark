@@ -3786,7 +3786,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31
 41:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %34, %31, %40
   %42 = add nuw i64 %.03655, 1
   %exitcond66.not = icmp eq i64 %42, %6
-  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split, !llvm.loop !14
+  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %24, %41, %._crit_edge.thread
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %8) #13
@@ -3827,7 +3827,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit43.thread:        ; preds = %50, %47
 57:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, %50, %47, %56
   %58 = add nuw i64 %.059, 1
   %exitcond67.not = icmp eq i64 %58, %6
-  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph60, !llvm.loop !15
+  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph60, !llvm.loop !17
 
 .loopexit:                                        ; preds = %57, %.preheader, %._crit_edge58
   ret void
@@ -3983,5 +3983,7 @@ attributes #14 = { noreturn nounwind }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

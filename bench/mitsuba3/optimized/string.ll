@@ -5559,7 +5559,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
 _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread: ; preds = %.lr.ph.split
   %113 = add nuw i64 %.01659, 1
   %exitcond.not = icmp eq i64 %113, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !66
 
 .loopexit.loopexit:                               ; preds = %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
   %.promoted.i.pre = load i16, ptr %6, align 8
@@ -5583,7 +5583,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
   %121 = add i16 %114, -1
   store i16 %121, ptr %6, align 8
   %.not.i34 = icmp eq i16 %121, 0
-  br i1 %.not.i34, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %.lr.ph.i33, !llvm.loop !65
+  br i1 %.not.i34, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %.lr.ph.i33, !llvm.loop !67
 
 _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %.critedge.i.i.us, %66, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, %120, %.lr.ph.i33, %.loopexit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
   %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %.loopexit ], [ true, %.lr.ph.i33 ], [ true, %120 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.critedge.i.i.us ], [ false, %.lr.ph.split ]
@@ -5625,7 +5625,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail9FormatArg10formatImplIPK
 19:                                               ; preds = %.lr.ph.i.i
   %20 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i, label %_ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i, label %.lr.ph.i.i, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %_ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i, label %.lr.ph.i.i, !llvm.loop !68
 
 _ZN10tinyformat6detail15formatTruncatedERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKci.exit.i: ; preds = %19, %.lr.ph.i.i, %15
   %.0.lcssa.i.i = phi i64 [ 0, %15 ], [ %16, %19 ], [ %.07.i.i, %.lr.ph.i.i ]
@@ -5677,7 +5677,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %17 = icmp eq i8 %16, 45
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = zext i1 %17 to i8
-  store i8 %19, ptr %18, align 8, !alias.scope !67
+  store i8 %19, ptr %18, align 8, !alias.scope !69
   br i1 %17, label %20, label %27
 
 20:                                               ; preds = %12
@@ -5984,8 +5984,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %.1512 = phi i64 [ %146, %.critedge8 ], [ %.0511, %147 ], [ %.0511, %134 ]
   %.8 = phi ptr [ %.7.lcssa.ph, %.critedge8 ], [ %.3, %147 ], [ %.3, %134 ]
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.8, ptr %150, align 8, !alias.scope !67
-  store i8 1, ptr %14, align 1, !alias.scope !67
+  store ptr %.8, ptr %150, align 8, !alias.scope !69
+  store i8 1, ptr %14, align 1, !alias.scope !69
   %151 = icmp sgt i64 %.0507, 19
   br i1 %151, label %.preheader, label %190
 
@@ -6011,7 +6011,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br i1 %157, label %158, label %190
 
 158:                                              ; preds = %.critedge10
-  store i8 1, ptr %15, align 2, !alias.scope !67
+  store i8 1, ptr %15, align 2, !alias.scope !69
   %159 = getelementptr inbounds i8, ptr %.0, i64 %111
   %.not742 = icmp eq i64 %111, 0
   br i1 %.not742, label %._crit_edge.thread, label %.lr.ph732
@@ -6077,9 +6077,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %191 = phi i1 [ true, %170 ], [ true, %._crit_edge739 ], [ false, %.critedge10 ], [ false, %149 ]
   %.2513 = phi i64 [ %173, %170 ], [ %187, %._crit_edge739 ], [ %.1512, %.critedge10 ], [ %.1512, %149 ]
   %.5504 = phi i64 [ %164, %170 ], [ %.7506.lcssa, %._crit_edge739 ], [ %.2501, %.critedge10 ], [ %.2501, %149 ]
-  store i64 %.2513, ptr %7, align 8, !alias.scope !67
+  store i64 %.2513, ptr %7, align 8, !alias.scope !69
   %192 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.5504, ptr %192, align 8, !alias.scope !67
+  store i64 %.5504, ptr %192, align 8, !alias.scope !69
   %193 = add i64 %.2513, -23
   %or.cond644 = icmp ult i64 %193, -45
   %194 = icmp ugt i64 %.5504, 9007199254740992
@@ -6585,7 +6585,7 @@ _ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit: ; preds = %.lr.ph.i
   %.059.be = phi ptr [ %.old, %36 ], [ %35, %32 ]
   %37 = load i8, ptr %.059.be, align 1
   %38 = icmp eq i8 %37, 41
-  br i1 %38, label %.lr.ph._crit_edge, label %.lr.ph75, !llvm.loop !70
+  br i1 %38, label %.lr.ph._crit_edge, label %.lr.ph75, !llvm.loop !72
 
 .lr.ph.i43:                                       ; preds = %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit, %.lr.ph.i43
   %.011.i44 = phi i64 [ %45, %.lr.ph.i43 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit ]
@@ -7402,10 +7402,12 @@ attributes #25 = { builtin allocsize(0) }
 !61 = distinct !{!61, !5, !62}
 !62 = !{!"llvm.loop.unswitch.partial.disable"}
 !63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
+!64 = distinct !{!64, !5, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !66 = distinct !{!66, !5}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN10fast_float19parse_number_stringEPKcS1_NS_13parse_optionsE: argument 0"}
-!69 = distinct !{!69, !"_ZN10fast_float19parse_number_stringEPKcS1_NS_13parse_optionsE"}
-!70 = distinct !{!70, !5}
+!67 = distinct !{!67, !5}
+!68 = distinct !{!68, !5}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN10fast_float19parse_number_stringEPKcS1_NS_13parse_optionsE: argument 0"}
+!71 = distinct !{!71, !"_ZN10fast_float19parse_number_stringEPKcS1_NS_13parse_optionsE"}
+!72 = distinct !{!72, !5}

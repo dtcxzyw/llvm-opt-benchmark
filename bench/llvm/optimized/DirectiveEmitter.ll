@@ -26180,7 +26180,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
   store ptr %46, ptr %72, align 8, !tbaa !15
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !693
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !695
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit, %3
   ret void
@@ -26202,15 +26202,15 @@ define internal void @_GLOBAL__sub_I_DirectiveEmitter.cpp() #17 section ".text.s
   %1 = alloca %"class.llvm::StringRef", align 8
   %2 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store ptr @.str.7, ptr %2, align 8, !tbaa !694
+  store ptr @.str.7, ptr %2, align 8, !tbaa !696
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 57, ptr %3, align 8, !tbaa !695
+  store i64 57, ptr %3, align 8, !tbaa !697
   tail call void @_ZN4llvm8TableGen7Emitter3OptC1ENS_9StringRefENS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEES3_b(ptr noundef nonnull align 1 dereferenceable(1) @_ZL1X, ptr nonnull @.str.6, i64 18, ptr nonnull @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEE11callback_fnIS6_EEvlS3_S5_, i64 ptrtoint (ptr @_ZL18emitDirectivesDeclRKN4llvm12RecordKeeperERNS_11raw_ostreamE to i64), ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %2, i1 noundef zeroext false) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  store ptr @.str.10, ptr %1, align 8, !tbaa !694
+  store ptr @.str.10, ptr %1, align 8, !tbaa !696
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 46, ptr %4, align 8, !tbaa !695
+  store i64 46, ptr %4, align 8, !tbaa !697
   tail call void @_ZN4llvm8TableGen7Emitter3OptC1ENS_9StringRefENS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEES3_b(ptr noundef nonnull align 1 dereferenceable(1) @_ZL1Y, ptr nonnull @.str.9, i64 18, ptr nonnull @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEE11callback_fnIS6_EEvlS3_S5_, i64 ptrtoint (ptr @_ZL18emitDirectivesImplRKN4llvm12RecordKeeperERNS_11raw_ostreamE to i64), ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %1, i1 noundef zeroext false) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   ret void
@@ -26963,6 +26963,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !690 = distinct !{!690, !37}
 !691 = distinct !{!691, !37}
 !692 = distinct !{!692, !37}
-!693 = distinct !{!693, !37}
-!694 = !{!290, !75, i64 0}
-!695 = !{!290, !35, i64 8}
+!693 = distinct !{!693, !37, !694}
+!694 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!695 = distinct !{!695, !37}
+!696 = !{!290, !75, i64 0}
+!697 = !{!290, !35, i64 8}

@@ -815,7 +815,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %122 = getelementptr i8, ptr %.0137194, i64 32
   %123 = load i8, ptr %122, align 8, !tbaa !51
   %.not = icmp eq i8 %123, 0
-  br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !60
+  br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !62
 
 .split.us:                                        ; preds = %118, %.lr.ph.split, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
   %.us-phi = phi ptr [ %.0137194.us, %PyUnicode_READ.exit163.us ], [ %.0137194.us, %.lr.ph.split.us ], [ %.0137194, %.lr.ph.split ], [ %.0137194, %118 ]
@@ -829,7 +829,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 
 124:                                              ; preds = %.split.us
   %125 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !61
+  %126 = load i8, ptr %125, align 1, !tbaa !63
   switch i8 %126, label %.thread184 [
     i8 0, label %127
     i8 1, label %192
@@ -867,7 +867,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %144 = load i8, ptr %143, align 2, !tbaa !62
+  %144 = load i8, ptr %143, align 2, !tbaa !64
   %145 = icmp eq i8 %144, 1
   br i1 %145, label %146, label %160
 
@@ -954,7 +954,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 
 194:                                              ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %196 = load i8, ptr %195, align 2, !tbaa !62
+  %196 = load i8, ptr %195, align 2, !tbaa !64
   %197 = icmp eq i8 %196, 1
   br i1 %197, label %198, label %202
 
@@ -1026,7 +1026,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 230:                                              ; preds = %218, %223, %139, %164, %178, %148
   %.5143 = phi i64 [ %159, %148 ], [ %175, %164 ], [ %191, %178 ], [ %.4142, %139 ], [ %.6, %218 ], [ %229, %223 ]
   %231 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %232 = load i8, ptr %231, align 2, !tbaa !62
+  %232 = load i8, ptr %231, align 2, !tbaa !64
   %233 = icmp eq i8 %232, 1
   br i1 %233, label %234, label %239
 
@@ -1182,13 +1182,13 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
   %28 = add nsw i64 %.0142167, -1
   %29 = add i8 %17, -64
   %or.cond5 = icmp ult i8 %29, 27
-  br i1 %or.cond5, label %30, label %307, !llvm.loop !63
+  br i1 %or.cond5, label %30, label %307, !llvm.loop !65
 
 30:                                               ; preds = %25
   %31 = load i8, ptr %7, align 1, !tbaa !36
   %32 = and i8 %31, -3
   store i8 %32, ptr %7, align 1, !tbaa !36
-  br label %307, !llvm.loop !63
+  br label %307, !llvm.loop !65
 
 33:                                               ; preds = %15
   switch i8 %17, label %215 [
@@ -1229,7 +1229,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %8, align 8, !tbaa !47
-  %46 = load i32, ptr %45, align 8, !tbaa !64
+  %46 = load i32, ptr %45, align 8, !tbaa !66
   %47 = and i32 %46, 4
   %.not66.i = icmp eq i32 %47, 0
   br i1 %.not66.i, label %57, label %48
@@ -1253,7 +1253,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %.1.i = phi i64 [ %.05487.i, %48 ], [ %.05487.i, %44 ], [ %spec.select.i, %52 ]
   %58 = add nsw i64 %.1.i, 1
   %59 = icmp slt i64 %.1.i, 15
-  br i1 %59, label %switch.lookup, label %.thread159, !llvm.loop !65
+  br i1 %59, label %switch.lookup, label %.thread159, !llvm.loop !67
 
 60:                                               ; preds = %40
   %61 = add nsw i64 %.05487.i, 1
@@ -1282,7 +1282,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %8, align 8, !tbaa !47
-  %70 = load i32, ptr %69, align 8, !tbaa !64
+  %70 = load i32, ptr %69, align 8, !tbaa !66
   %71 = and i32 %70, 2
   %.not69.i = icmp ne i32 %71, 0
   %72 = icmp eq i8 %38, 46
@@ -1309,7 +1309,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 81:                                               ; preds = %60
   %82 = load ptr, ptr %8, align 8, !tbaa !47
-  %83 = load i32, ptr %82, align 8, !tbaa !64
+  %83 = load i32, ptr %82, align 8, !tbaa !66
   %84 = and i32 %83, 4
   %.not67.i = icmp eq i32 %84, 0
   br i1 %.not67.i, label %.thread159, label %85
@@ -1352,7 +1352,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %103 = icmp eq i8 %102, %.05681.i
   %or.cond75.i = or i1 %.not71.i, %103
   %104 = getelementptr i8, ptr %.0.i, i64 32
-  br i1 %or.cond75.i, label %105, label %101, !llvm.loop !66
+  br i1 %or.cond75.i, label %105, label %101, !llvm.loop !68
 
 105:                                              ; preds = %101
   br i1 %.not71.i, label %.thread159, label %iso2022processesc.exit.thread150
@@ -1374,7 +1374,7 @@ iso2022processesc.exit:                           ; preds = %60
 
 110:                                              ; preds = %switch.hole_check, %36
   %111 = load ptr, ptr %8, align 8, !tbaa !47
-  %112 = load i32, ptr %111, align 8, !tbaa !64
+  %112 = load i32, ptr %111, align 8, !tbaa !66
   %113 = and i32 %112, 2
   %.not121 = icmp ne i32 %113, 0
   %114 = icmp eq i8 %38, 78
@@ -1519,7 +1519,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
 
 189:                                              ; preds = %33
   %190 = load ptr, ptr %8, align 8, !tbaa !47
-  %191 = load i32, ptr %190, align 8, !tbaa !64
+  %191 = load i32, ptr %190, align 8, !tbaa !66
   %192 = and i32 %191, 1
   %.not120 = icmp eq i32 %192, 0
   br i1 %.not120, label %193, label %222
@@ -1535,7 +1535,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
 
 198:                                              ; preds = %33
   %199 = load ptr, ptr %8, align 8, !tbaa !47
-  %200 = load i32, ptr %199, align 8, !tbaa !64
+  %200 = load i32, ptr %199, align 8, !tbaa !66
   %201 = and i32 %200, 1
   %.not119 = icmp eq i32 %201, 0
   br i1 %.not119, label %202, label %222
@@ -1611,25 +1611,25 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %238 = load i8, ptr %.0108, align 8, !tbaa !51
   %.not126 = icmp eq i8 %238, %.0107
   %239 = getelementptr i8, ptr %.0108, i64 32
-  br i1 %.not126, label %.loopexit, label %237, !llvm.loop !67
+  br i1 %.not126, label %.loopexit, label %237, !llvm.loop !69
 
 .loopexit:                                        ; preds = %237, %230
   %.3106 = phi ptr [ %.0103168, %230 ], [ %.0108, %237 ]
   %240 = getelementptr inbounds nuw i8, ptr %.3106, i64 2
-  %241 = load i8, ptr %240, align 2, !tbaa !62
+  %241 = load i8, ptr %240, align 2, !tbaa !64
   %242 = zext i8 %241 to i64
   %243 = icmp slt i64 %.0142167, %242
   br i1 %243, label %.thread159, label %244
 
 244:                                              ; preds = %.loopexit
   %245 = getelementptr inbounds nuw i8, ptr %.3106, i64 16
-  %246 = load ptr, ptr %245, align 8, !tbaa !68
+  %246 = load ptr, ptr %245, align 8, !tbaa !70
   %247 = tail call i32 %246(ptr noundef %1, ptr noundef nonnull %16) #15
   %248 = icmp eq i32 %247, 65535
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %244
-  %250 = load i8, ptr %240, align 2, !tbaa !62
+  %250 = load i8, ptr %240, align 2, !tbaa !64
   %251 = zext i8 %250 to i64
   br label %.thread159
 
@@ -1655,13 +1655,13 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %263 = lshr i32 %247, 16
   %264 = and i32 %247, 65535
   %265 = tail call i32 @llvm.umax.i32(i32 %263, i32 %264)
-  %266 = load i32, ptr %10, align 4, !tbaa !69
+  %266 = load i32, ptr %10, align 4, !tbaa !71
   %.not127 = icmp ugt i32 %265, %266
   br i1 %.not127, label %272, label %267
 
 267:                                              ; preds = %262
-  %268 = load i64, ptr %11, align 8, !tbaa !71
-  %269 = load i64, ptr %12, align 8, !tbaa !72
+  %268 = load i64, ptr %11, align 8, !tbaa !73
+  %269 = load i64, ptr %12, align 8, !tbaa !74
   %270 = sub i64 %268, %269
   %271 = icmp sgt i64 %270, 1
   br i1 %271, label %.thread, label %272
@@ -1672,13 +1672,13 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %274, label %.thread159, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %272
-  %.pre = load i64, ptr %12, align 8, !tbaa !72
+  %.pre = load i64, ptr %12, align 8, !tbaa !74
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %267
   %275 = phi i64 [ %.pre, %..thread_crit_edge ], [ %269, %267 ]
-  %276 = load i32, ptr %13, align 8, !tbaa !73
-  %277 = load ptr, ptr %14, align 8, !tbaa !74
+  %276 = load i32, ptr %13, align 8, !tbaa !75
+  %277 = load ptr, ptr %14, align 8, !tbaa !76
   switch i32 %276, label %284 [
     i32 1, label %278
     i32 2, label %281
@@ -1688,8 +1688,8 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %279 = trunc i32 %263 to i8
   %280 = getelementptr i8, ptr %277, i64 %275
   store i8 %279, ptr %280, align 1, !tbaa !36
-  %.pre237 = load ptr, ptr %14, align 8, !tbaa !74
-  %.pre238 = load i64, ptr %12, align 8, !tbaa !72
+  %.pre237 = load ptr, ptr %14, align 8, !tbaa !76
+  %.pre238 = load i64, ptr %12, align 8, !tbaa !74
   br label %PyUnicode_WRITE.exit
 
 281:                                              ; preds = %.thread
@@ -1706,7 +1706,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
 PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %286 = phi i64 [ %.pre238, %278 ], [ %275, %281 ], [ %275, %284 ]
   %287 = phi ptr [ %.pre237, %278 ], [ %277, %281 ], [ %277, %284 ]
-  %288 = load i32, ptr %13, align 8, !tbaa !73
+  %288 = load i32, ptr %13, align 8, !tbaa !75
   %289 = add i64 %286, 1
   switch i32 %288, label %296 [
     i32 1, label %290
@@ -1717,7 +1717,7 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %291 = trunc i32 %247 to i8
   %292 = getelementptr i8, ptr %287, i64 %289
   store i8 %291, ptr %292, align 1, !tbaa !36
-  %.pre239 = load i64, ptr %12, align 8, !tbaa !72
+  %.pre239 = load i64, ptr %12, align 8, !tbaa !74
   br label %298
 
 293:                                              ; preds = %PyUnicode_WRITE.exit
@@ -1734,11 +1734,11 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
 298:                                              ; preds = %296, %293, %290
   %299 = phi i64 [ %286, %296 ], [ %286, %293 ], [ %.pre239, %290 ]
   %300 = add i64 %299, 2
-  store i64 %300, ptr %12, align 8, !tbaa !72
+  store i64 %300, ptr %12, align 8, !tbaa !74
   br label %301
 
 301:                                              ; preds = %298, %254, %259
-  %302 = load i8, ptr %240, align 2, !tbaa !62
+  %302 = load i8, ptr %240, align 2, !tbaa !64
   %303 = load ptr, ptr %2, align 8, !tbaa !39
   %304 = zext i8 %302 to i64
   %305 = getelementptr i8, ptr %303, i64 %304
@@ -1805,11 +1805,11 @@ define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly ca
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !77
   %7 = load i8, ptr %1, align 1, !tbaa !36
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
@@ -1818,14 +1818,14 @@ define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly ca
   %13 = load i8, ptr %12, align 1, !tbaa !36
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !79
+  %16 = load i8, ptr %15, align 8, !tbaa !81
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !80
+  %20 = load i8, ptr %19, align 1, !tbaa !82
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
@@ -1853,25 +1853,25 @@ define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !81
+  %10 = load ptr, ptr %9, align 8, !tbaa !83
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
+  %14 = load ptr, ptr %13, align 8, !tbaa !84
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !84
+  %18 = load i8, ptr %17, align 8, !tbaa !86
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %29, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !85
+  %22 = load i8, ptr %21, align 1, !tbaa !87
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %29, label %24
@@ -1920,7 +1920,7 @@ define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr nound
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !86
+  %18 = load ptr, ptr %17, align 8, !tbaa !88
   store ptr %18, ptr %2, align 8, !tbaa !40
   br label %19
 
@@ -1930,7 +1930,7 @@ define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !87
+  %22 = load ptr, ptr %21, align 8, !tbaa !89
   store ptr %22, ptr %3, align 8, !tbaa !40
   br label %23
 
@@ -2028,10 +2028,10 @@ define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !88
+  %13 = load ptr, ptr %12, align 8, !tbaa !90
   %14 = zext i8 %3 to i64
   %15 = getelementptr %struct.dbcs_index, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !78
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %31, label %17
 
@@ -2040,14 +2040,14 @@ define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly c
   %19 = load i8, ptr %18, align 1, !tbaa !36
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !79
+  %22 = load i8, ptr %21, align 8, !tbaa !81
   %23 = zext i8 %22 to i64
   %.not20 = icmp ult i8 %19, %22
   br i1 %.not20, label %31, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %26 = load i8, ptr %25, align 1, !tbaa !80
+  %26 = load i8, ptr %25, align 1, !tbaa !82
   %.not21 = icmp ugt i8 %19, %26
   br i1 %.not21, label %31, label %27
 
@@ -2079,25 +2079,25 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = lshr i32 %4, 8
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr %struct.unim_index, ptr %12, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !82
+  %16 = load ptr, ptr %15, align 8, !tbaa !84
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %31, label %17
 
 17:                                               ; preds = %8
   %18 = and i32 %4, 255
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load i8, ptr %19, align 8, !tbaa !84
+  %20 = load i8, ptr %19, align 8, !tbaa !86
   %21 = zext i8 %20 to i32
   %.not22 = icmp samesign ult i32 %18, %21
   br i1 %.not22, label %31, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %24 = load i8, ptr %23, align 1, !tbaa !85
+  %24 = load i8, ptr %23, align 1, !tbaa !87
   %25 = zext i8 %24 to i32
   %.not23 = icmp samesign ugt i32 %18, %25
   br i1 %.not23, label %31, label %26
@@ -2200,11 +2200,11 @@ define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !92
   %7 = load i8, ptr %1, align 1, !tbaa !36
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
@@ -2213,14 +2213,14 @@ define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly c
   %13 = load i8, ptr %12, align 1, !tbaa !36
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !79
+  %16 = load i8, ptr %15, align 8, !tbaa !81
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !80
+  %20 = load i8, ptr %19, align 1, !tbaa !82
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
@@ -2248,25 +2248,25 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !89
+  %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
+  %14 = load ptr, ptr %13, align 8, !tbaa !84
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !84
+  %18 = load i8, ptr %17, align 8, !tbaa !86
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %30, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !85
+  %22 = load i8, ptr %21, align 1, !tbaa !87
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %30, label %24
@@ -2312,11 +2312,11 @@ define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly cap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !91
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = load i8, ptr %1, align 1, !tbaa !36
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
@@ -2325,14 +2325,14 @@ define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly cap
   %13 = load i8, ptr %12, align 1, !tbaa !36
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !79
+  %16 = load i8, ptr %15, align 8, !tbaa !81
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !80
+  %20 = load i8, ptr %19, align 1, !tbaa !82
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
@@ -2360,25 +2360,25 @@ define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr noundef re
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %10 = load ptr, ptr %9, align 8, !tbaa !92
+  %10 = load ptr, ptr %9, align 8, !tbaa !94
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
+  %14 = load ptr, ptr %13, align 8, !tbaa !84
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !84
+  %18 = load i8, ptr %17, align 8, !tbaa !86
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %29, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !85
+  %22 = load i8, ptr %21, align 1, !tbaa !87
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %29, label %24
@@ -2487,10 +2487,10 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !88
+  %13 = load ptr, ptr %12, align 8, !tbaa !90
   %14 = zext i8 %3 to i64
   %15 = getelementptr %struct.dbcs_index, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !78
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %32, label %17
 
@@ -2499,14 +2499,14 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   %19 = load i8, ptr %18, align 1, !tbaa !36
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !79
+  %22 = load i8, ptr %21, align 8, !tbaa !81
   %23 = zext i8 %22 to i64
   %.not68 = icmp ult i8 %19, %22
   br i1 %.not68, label %32, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %26 = load i8, ptr %25, align 1, !tbaa !80
+  %26 = load i8, ptr %25, align 1, !tbaa !82
   %.not69 = icmp ugt i8 %19, %26
   br i1 %.not69, label %32, label %27
 
@@ -2520,9 +2520,9 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
 
 32:                                               ; preds = %27, %24, %17, %9
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %34 = load ptr, ptr %33, align 8, !tbaa !93
+  %34 = load ptr, ptr %33, align 8, !tbaa !95
   %35 = getelementptr %struct.dbcs_index, ptr %34, i64 %14
-  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  %36 = load ptr, ptr %35, align 8, !tbaa !78
   %.not71 = icmp eq ptr %36, null
   br i1 %.not71, label %52, label %37
 
@@ -2531,14 +2531,14 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   %39 = load i8, ptr %38, align 1, !tbaa !36
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !79
+  %42 = load i8, ptr %41, align 8, !tbaa !81
   %43 = zext i8 %42 to i64
   %.not72 = icmp ult i8 %39, %42
   br i1 %.not72, label %52, label %44
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %46 = load i8, ptr %45, align 1, !tbaa !80
+  %46 = load i8, ptr %45, align 1, !tbaa !82
   %.not73 = icmp ugt i8 %39, %46
   br i1 %.not73, label %52, label %47
 
@@ -2552,9 +2552,9 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
 
 52:                                               ; preds = %47, %44, %37, %32
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !94
+  %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = getelementptr %struct.dbcs_index, ptr %54, i64 %14
-  %56 = load ptr, ptr %55, align 8, !tbaa !76
+  %56 = load ptr, ptr %55, align 8, !tbaa !78
   %.not75 = icmp eq ptr %56, null
   br i1 %.not75, label %74, label %57
 
@@ -2563,14 +2563,14 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   %59 = load i8, ptr %58, align 1, !tbaa !36
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %62 = load i8, ptr %61, align 8, !tbaa !79
+  %62 = load i8, ptr %61, align 8, !tbaa !81
   %63 = zext i8 %62 to i64
   %.not76 = icmp ult i8 %59, %62
   br i1 %.not76, label %74, label %64
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 9
-  %66 = load i8, ptr %65, align 1, !tbaa !80
+  %66 = load i8, ptr %65, align 1, !tbaa !82
   %.not77 = icmp ugt i8 %59, %66
   br i1 %.not77, label %74, label %67
 
@@ -2587,9 +2587,9 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   br label %92
 
 74:                                               ; preds = %67, %64, %57, %52
-  %75 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !95
+  %75 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !97
   %76 = getelementptr %struct.widedbcs_index, ptr %75, i64 %14
-  %77 = load ptr, ptr %76, align 8, !tbaa !97
+  %77 = load ptr, ptr %76, align 8, !tbaa !99
   %.not79 = icmp eq ptr %77, null
   br i1 %.not79, label %92, label %78
 
@@ -2598,14 +2598,14 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   %80 = load i8, ptr %79, align 1, !tbaa !36
   %81 = zext i8 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %83 = load i8, ptr %82, align 8, !tbaa !100
+  %83 = load i8, ptr %82, align 8, !tbaa !102
   %84 = zext i8 %83 to i64
   %.not80 = icmp ult i8 %80, %83
   br i1 %.not80, label %92, label %85
 
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 9
-  %87 = load i8, ptr %86, align 1, !tbaa !101
+  %87 = load i8, ptr %86, align 1, !tbaa !103
   %.not81 = icmp ugt i8 %80, %87
   br i1 %.not81, label %92, label %88
 
@@ -2661,11 +2661,11 @@ define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef re
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !102
+  %6 = load ptr, ptr %5, align 8, !tbaa !104
   %7 = load i8, ptr %1, align 1, !tbaa !36
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
@@ -2674,14 +2674,14 @@ define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef re
   %13 = load i8, ptr %12, align 1, !tbaa !36
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !79
+  %16 = load i8, ptr %15, align 8, !tbaa !81
   %17 = zext i8 %16 to i64
   %.not37 = icmp ult i8 %13, %16
   br i1 %.not37, label %26, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !80
+  %20 = load i8, ptr %19, align 1, !tbaa !82
   %.not38 = icmp ugt i8 %13, %20
   br i1 %.not38, label %26, label %21
 
@@ -2695,9 +2695,9 @@ define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef re
 
 26:                                               ; preds = %21, %18, %11, %2
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %28 = load ptr, ptr %27, align 8, !tbaa !103
+  %28 = load ptr, ptr %27, align 8, !tbaa !105
   %29 = getelementptr %struct.dbcs_index, ptr %28, i64 %8
-  %30 = load ptr, ptr %29, align 8, !tbaa !76
+  %30 = load ptr, ptr %29, align 8, !tbaa !78
   %.not40 = icmp eq ptr %30, null
   br i1 %.not40, label %48, label %31
 
@@ -2706,14 +2706,14 @@ define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef re
   %33 = load i8, ptr %32, align 1, !tbaa !36
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !79
+  %36 = load i8, ptr %35, align 8, !tbaa !81
   %37 = zext i8 %36 to i64
   %.not41 = icmp ult i8 %33, %36
   br i1 %.not41, label %48, label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !80
+  %40 = load i8, ptr %39, align 1, !tbaa !82
   %.not42 = icmp ugt i8 %33, %40
   br i1 %.not42, label %48, label %41
 
@@ -2756,7 +2756,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 
 .find_pairencmap.exit.thread_crit_edge:           ; preds = %4
   %.pre = load i32, ptr %1, align 4, !tbaa !57
-  %.pre112 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !104
+  %.pre112 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !106
   %.pre113 = shl i32 %.pre, 16
   br label %find_pairencmap.exit.thread
 
@@ -2780,26 +2780,26 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !106
+  %18 = load ptr, ptr %17, align 8, !tbaa !108
   %19 = lshr i32 %7, 8
   %20 = and i32 %19, 255
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr %struct.unim_index, ptr %18, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !82
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
   %.not91 = icmp eq ptr %23, null
   br i1 %.not91, label %38, label %24
 
 24:                                               ; preds = %14
   %25 = and i32 %7, 255
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load i8, ptr %26, align 8, !tbaa !84
+  %27 = load i8, ptr %26, align 8, !tbaa !86
   %28 = zext i8 %27 to i32
   %.not92 = icmp samesign ult i32 %25, %28
   br i1 %.not92, label %38, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 9
-  %31 = load i8, ptr %30, align 1, !tbaa !85
+  %31 = load i8, ptr %30, align 1, !tbaa !87
   %32 = zext i8 %31 to i32
   %.not93 = icmp samesign ugt i32 %25, %32
   br i1 %.not93, label %38, label %33
@@ -2839,25 +2839,25 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !107
+  %45 = load ptr, ptr %44, align 8, !tbaa !109
   %46 = lshr i32 %7, 8
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr %struct.unim_index, ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !82
+  %49 = load ptr, ptr %48, align 8, !tbaa !84
   %.not82 = icmp eq ptr %49, null
   br i1 %.not82, label %64, label %50
 
 50:                                               ; preds = %.critedge
   %51 = and i32 %7, 255
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !84
+  %53 = load i8, ptr %52, align 8, !tbaa !86
   %54 = zext i8 %53 to i32
   %.not83 = icmp samesign ult i32 %51, %54
   br i1 %.not83, label %64, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  %57 = load i8, ptr %56, align 1, !tbaa !85
+  %57 = load i8, ptr %56, align 1, !tbaa !87
   %58 = zext i8 %57 to i32
   %.not84 = icmp samesign ugt i32 %51, %58
   br i1 %.not84, label %64, label %59
@@ -2874,23 +2874,23 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 
 64:                                               ; preds = %59, %55, %50, %.critedge
   %65 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !89
+  %66 = load ptr, ptr %65, align 8, !tbaa !91
   %67 = getelementptr %struct.unim_index, ptr %66, i64 %47
-  %68 = load ptr, ptr %67, align 8, !tbaa !82
+  %68 = load ptr, ptr %67, align 8, !tbaa !84
   %.not86 = icmp eq ptr %68, null
   br i1 %.not86, label %130, label %69
 
 69:                                               ; preds = %64
   %70 = and i32 %7, 255
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !84
+  %72 = load i8, ptr %71, align 8, !tbaa !86
   %73 = zext i8 %72 to i32
   %.not87 = icmp samesign ult i32 %70, %73
   br i1 %.not87, label %130, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !85
+  %76 = load i8, ptr %75, align 1, !tbaa !87
   %77 = zext i8 %76 to i32
   %.not88 = icmp samesign ugt i32 %70, %77
   br i1 %.not88, label %130, label %78
@@ -2911,7 +2911,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %85 = load i32, ptr %1, align 4, !tbaa !57
   %86 = getelementptr i8, ptr %1, i64 4
   %87 = load i32, ptr %86, align 4, !tbaa !57
-  %88 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !104
+  %88 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !106
   %89 = shl i32 %85, 16
   %90 = and i32 %87, 65535
   %91 = or disjoint i32 %90, %89
@@ -2923,7 +2923,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %.02833.i = phi i32 [ 23, %84 ], [ %102, %100 ]
   %93 = sext i32 %.02833.i to i64
   %94 = getelementptr %struct.pair_encodemap, ptr %88, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !108
+  %95 = load i32, ptr %94, align 4, !tbaa !110
   %96 = icmp ult i32 %91, %95
   br i1 %96, label %97, label %98
 
@@ -2943,19 +2943,19 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %101 = add i32 %.1.i, %.127.i
   %102 = ashr i32 %101, 1
   %.not.i = icmp eq i32 %.127.i, %.1.i
-  br i1 %.not.i, label %103, label %92, !llvm.loop !110
+  br i1 %.not.i, label %103, label %92, !llvm.loop !112
 
 103:                                              ; preds = %100, %98, %97
   %.028.lcssa.i = phi i32 [ %.02535.i, %97 ], [ %.02833.i, %98 ], [ %102, %100 ]
   %104 = sext i32 %.028.lcssa.i to i64
   %105 = getelementptr %struct.pair_encodemap, ptr %88, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !108
+  %106 = load i32, ptr %105, align 4, !tbaa !110
   %107 = icmp eq i32 %91, %106
   br i1 %107, label %find_pairencmap.exit, label %find_pairencmap.exit.thread
 
 find_pairencmap.exit:                             ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %109 = load i16, ptr %108, align 4, !tbaa !111
+  %109 = load i16, ptr %108, align 4, !tbaa !113
   %.not = icmp eq i16 %109, -3
   br i1 %.not, label %find_pairencmap.exit.thread, label %130
 
@@ -2971,7 +2971,7 @@ find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.ex
   %.02833.i98 = phi i32 [ 23, %find_pairencmap.exit.thread ], [ %121, %119 ]
   %112 = sext i32 %.02833.i98 to i64
   %113 = getelementptr %struct.pair_encodemap, ptr %110, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !108
+  %114 = load i32, ptr %113, align 4, !tbaa !110
   %115 = icmp ult i32 %.pre-phi, %114
   br i1 %115, label %116, label %117
 
@@ -2991,19 +2991,19 @@ find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.ex
   %120 = add i32 %.1.i102, %.127.i101
   %121 = ashr i32 %120, 1
   %.not.i103 = icmp eq i32 %.127.i101, %.1.i102
-  br i1 %.not.i103, label %122, label %111, !llvm.loop !110
+  br i1 %.not.i103, label %122, label %111, !llvm.loop !112
 
 122:                                              ; preds = %119, %117, %116
   %.028.lcssa.i104 = phi i32 [ %.02535.i96, %116 ], [ %.02833.i98, %117 ], [ %121, %119 ]
   %123 = sext i32 %.028.lcssa.i104 to i64
   %124 = getelementptr %struct.pair_encodemap, ptr %110, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !108
+  %125 = load i32, ptr %124, align 4, !tbaa !110
   %126 = icmp eq i32 %.pre-phi, %125
   br i1 %126, label %find_pairencmap.exit107, label %find_pairencmap.exit107.thread
 
 find_pairencmap.exit107:                          ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %128 = load i16, ptr %127, align 4, !tbaa !111
+  %128 = load i16, ptr %127, align 4, !tbaa !113
   %.fr = freeze i16 %128
   %129 = icmp eq i16 %.fr, -3
   br i1 %129, label %find_pairencmap.exit107.thread, label %130
@@ -3071,10 +3071,10 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !88
+  %29 = load ptr, ptr %28, align 8, !tbaa !90
   %30 = zext i8 %3 to i64
   %31 = getelementptr %struct.dbcs_index, ptr %29, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %32 = load ptr, ptr %31, align 8, !tbaa !78
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %48, label %33
 
@@ -3083,14 +3083,14 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   %35 = load i8, ptr %34, align 1, !tbaa !36
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %38 = load i8, ptr %37, align 8, !tbaa !79
+  %38 = load i8, ptr %37, align 8, !tbaa !81
   %39 = zext i8 %38 to i64
   %.not88 = icmp ult i8 %35, %38
   br i1 %.not88, label %48, label %40
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  %42 = load i8, ptr %41, align 1, !tbaa !80
+  %42 = load i8, ptr %41, align 1, !tbaa !82
   %.not89 = icmp ugt i8 %35, %42
   br i1 %.not89, label %48, label %43
 
@@ -3104,9 +3104,9 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
 
 48:                                               ; preds = %43, %40, %33, %.thread117
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %50 = load ptr, ptr %49, align 8, !tbaa !93
+  %50 = load ptr, ptr %49, align 8, !tbaa !95
   %51 = getelementptr %struct.dbcs_index, ptr %50, i64 %30
-  %52 = load ptr, ptr %51, align 8, !tbaa !76
+  %52 = load ptr, ptr %51, align 8, !tbaa !78
   %.not91 = icmp eq ptr %52, null
   br i1 %.not91, label %68, label %53
 
@@ -3115,14 +3115,14 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   %55 = load i8, ptr %54, align 1, !tbaa !36
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %58 = load i8, ptr %57, align 8, !tbaa !79
+  %58 = load i8, ptr %57, align 8, !tbaa !81
   %59 = zext i8 %58 to i64
   %.not92 = icmp ult i8 %55, %58
   br i1 %.not92, label %68, label %60
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 9
-  %62 = load i8, ptr %61, align 1, !tbaa !80
+  %62 = load i8, ptr %61, align 1, !tbaa !82
   %.not93 = icmp ugt i8 %55, %62
   br i1 %.not93, label %68, label %63
 
@@ -3136,9 +3136,9 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
 
 68:                                               ; preds = %63, %60, %53, %48
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %70 = load ptr, ptr %69, align 8, !tbaa !94
+  %70 = load ptr, ptr %69, align 8, !tbaa !96
   %71 = getelementptr %struct.dbcs_index, ptr %70, i64 %30
-  %72 = load ptr, ptr %71, align 8, !tbaa !76
+  %72 = load ptr, ptr %71, align 8, !tbaa !78
   %.not95 = icmp eq ptr %72, null
   br i1 %.not95, label %90, label %73
 
@@ -3147,14 +3147,14 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   %75 = load i8, ptr %74, align 1, !tbaa !36
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %78 = load i8, ptr %77, align 8, !tbaa !79
+  %78 = load i8, ptr %77, align 8, !tbaa !81
   %79 = zext i8 %78 to i64
   %.not96 = icmp ult i8 %75, %78
   br i1 %.not96, label %90, label %80
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 9
-  %82 = load i8, ptr %81, align 1, !tbaa !80
+  %82 = load i8, ptr %81, align 1, !tbaa !82
   %.not97 = icmp ugt i8 %75, %82
   br i1 %.not97, label %90, label %83
 
@@ -3171,9 +3171,9 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   br label %108
 
 90:                                               ; preds = %83, %80, %73, %68
-  %91 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !95
+  %91 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !97
   %92 = getelementptr %struct.widedbcs_index, ptr %91, i64 %30
-  %93 = load ptr, ptr %92, align 8, !tbaa !97
+  %93 = load ptr, ptr %92, align 8, !tbaa !99
   %.not99 = icmp eq ptr %93, null
   br i1 %.not99, label %108, label %94
 
@@ -3182,14 +3182,14 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   %96 = load i8, ptr %95, align 1, !tbaa !36
   %97 = zext i8 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %99 = load i8, ptr %98, align 8, !tbaa !100
+  %99 = load i8, ptr %98, align 8, !tbaa !102
   %100 = zext i8 %99 to i64
   %.not100 = icmp ult i8 %96, %99
   br i1 %.not100, label %108, label %101
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 9
-  %103 = load i8, ptr %102, align 1, !tbaa !101
+  %103 = load i8, ptr %102, align 1, !tbaa !103
   %.not101 = icmp ugt i8 %96, %103
   br i1 %.not101, label %108, label %104
 
@@ -3246,10 +3246,10 @@ define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !102
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   %8 = zext i8 %3 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
@@ -3258,14 +3258,14 @@ define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef re
   %13 = load i8, ptr %12, align 1, !tbaa !36
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !79
+  %16 = load i8, ptr %15, align 8, !tbaa !81
   %17 = zext i8 %16 to i64
   %.not39 = icmp ult i8 %13, %16
   br i1 %.not39, label %26, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !80
+  %20 = load i8, ptr %19, align 1, !tbaa !82
   %.not40 = icmp ugt i8 %13, %20
   br i1 %.not40, label %26, label %21
 
@@ -3279,9 +3279,9 @@ define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef re
 
 26:                                               ; preds = %21, %18, %11, %2
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %28 = load ptr, ptr %27, align 8, !tbaa !103
+  %28 = load ptr, ptr %27, align 8, !tbaa !105
   %29 = getelementptr %struct.dbcs_index, ptr %28, i64 %8
-  %30 = load ptr, ptr %29, align 8, !tbaa !76
+  %30 = load ptr, ptr %29, align 8, !tbaa !78
   %.not42 = icmp eq ptr %30, null
   br i1 %.not42, label %48, label %31
 
@@ -3290,14 +3290,14 @@ define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef re
   %33 = load i8, ptr %32, align 1, !tbaa !36
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !79
+  %36 = load i8, ptr %35, align 8, !tbaa !81
   %37 = zext i8 %36 to i64
   %.not43 = icmp ult i8 %33, %36
   br i1 %.not43, label %48, label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !80
+  %40 = load i8, ptr %39, align 1, !tbaa !82
   %.not44 = icmp ugt i8 %33, %40
   br i1 %.not44, label %48, label %41
 
@@ -3438,55 +3438,57 @@ attributes #16 = { nounwind willreturn memory(read) }
 !57 = !{!5, !5, i64 0}
 !58 = distinct !{!58, !30}
 !59 = !{!52, !9, i64 24}
-!60 = distinct !{!60, !30}
-!61 = !{!52, !6, i64 1}
-!62 = !{!52, !6, i64 2}
-!63 = distinct !{!63, !30}
-!64 = !{!49, !5, i64 0}
+!60 = distinct !{!60, !30, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !30}
+!63 = !{!52, !6, i64 1}
+!64 = !{!52, !6, i64 2}
 !65 = distinct !{!65, !30}
-!66 = distinct !{!66, !30}
+!66 = !{!49, !5, i64 0}
 !67 = distinct !{!67, !30}
-!68 = !{!52, !9, i64 16}
-!69 = !{!70, !5, i64 20}
-!70 = !{!"", !25, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !20, i64 24, !20, i64 32, !20, i64 40, !5, i64 48, !6, i64 52, !6, i64 53}
-!71 = !{!70, !20, i64 24}
-!72 = !{!70, !20, i64 32}
-!73 = !{!70, !5, i64 16}
-!74 = !{!70, !9, i64 8}
-!75 = !{!4, !12, i64 32}
-!76 = !{!77, !78, i64 0}
-!77 = !{!"dbcs_index", !78, i64 0, !6, i64 8, !6, i64 9}
-!78 = !{!"p1 short", !9, i64 0}
-!79 = !{!77, !6, i64 8}
-!80 = !{!77, !6, i64 9}
-!81 = !{!4, !11, i64 24}
-!82 = !{!83, !78, i64 0}
-!83 = !{!"unim_index", !78, i64 0, !6, i64 8, !6, i64 9}
-!84 = !{!83, !6, i64 8}
-!85 = !{!83, !6, i64 9}
-!86 = !{!46, !11, i64 8}
-!87 = !{!46, !12, i64 16}
-!88 = !{!4, !12, i64 48}
-!89 = !{!4, !11, i64 40}
-!90 = !{!4, !12, i64 56}
-!91 = !{!4, !12, i64 120}
-!92 = !{!4, !11, i64 112}
-!93 = !{!4, !12, i64 72}
-!94 = !{!4, !12, i64 96}
-!95 = !{!96, !96, i64 0}
-!96 = !{!"p1 _ZTS14widedbcs_index", !9, i64 0}
-!97 = !{!98, !99, i64 0}
-!98 = !{!"widedbcs_index", !99, i64 0, !6, i64 8, !6, i64 9}
-!99 = !{!"p1 int", !9, i64 0}
-!100 = !{!98, !6, i64 8}
-!101 = !{!98, !6, i64 9}
-!102 = !{!4, !12, i64 80}
-!103 = !{!4, !12, i64 104}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"p1 _ZTS14pair_encodemap", !9, i64 0}
-!106 = !{!4, !11, i64 88}
-!107 = !{!4, !11, i64 64}
-!108 = !{!109, !5, i64 0}
-!109 = !{!"pair_encodemap", !5, i64 0, !26, i64 4}
-!110 = distinct !{!110, !30}
-!111 = !{!109, !26, i64 4}
+!68 = distinct !{!68, !30}
+!69 = distinct !{!69, !30}
+!70 = !{!52, !9, i64 16}
+!71 = !{!72, !5, i64 20}
+!72 = !{!"", !25, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !20, i64 24, !20, i64 32, !20, i64 40, !5, i64 48, !6, i64 52, !6, i64 53}
+!73 = !{!72, !20, i64 24}
+!74 = !{!72, !20, i64 32}
+!75 = !{!72, !5, i64 16}
+!76 = !{!72, !9, i64 8}
+!77 = !{!4, !12, i64 32}
+!78 = !{!79, !80, i64 0}
+!79 = !{!"dbcs_index", !80, i64 0, !6, i64 8, !6, i64 9}
+!80 = !{!"p1 short", !9, i64 0}
+!81 = !{!79, !6, i64 8}
+!82 = !{!79, !6, i64 9}
+!83 = !{!4, !11, i64 24}
+!84 = !{!85, !80, i64 0}
+!85 = !{!"unim_index", !80, i64 0, !6, i64 8, !6, i64 9}
+!86 = !{!85, !6, i64 8}
+!87 = !{!85, !6, i64 9}
+!88 = !{!46, !11, i64 8}
+!89 = !{!46, !12, i64 16}
+!90 = !{!4, !12, i64 48}
+!91 = !{!4, !11, i64 40}
+!92 = !{!4, !12, i64 56}
+!93 = !{!4, !12, i64 120}
+!94 = !{!4, !11, i64 112}
+!95 = !{!4, !12, i64 72}
+!96 = !{!4, !12, i64 96}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS14widedbcs_index", !9, i64 0}
+!99 = !{!100, !101, i64 0}
+!100 = !{!"widedbcs_index", !101, i64 0, !6, i64 8, !6, i64 9}
+!101 = !{!"p1 int", !9, i64 0}
+!102 = !{!100, !6, i64 8}
+!103 = !{!100, !6, i64 9}
+!104 = !{!4, !12, i64 80}
+!105 = !{!4, !12, i64 104}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTS14pair_encodemap", !9, i64 0}
+!108 = !{!4, !11, i64 88}
+!109 = !{!4, !11, i64 64}
+!110 = !{!111, !5, i64 0}
+!111 = !{!"pair_encodemap", !5, i64 0, !26, i64 4}
+!112 = distinct !{!112, !30}
+!113 = !{!111, !26, i64 4}

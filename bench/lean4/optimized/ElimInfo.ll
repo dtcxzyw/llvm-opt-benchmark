@@ -11904,7 +11904,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Meta_addImpli
 12:                                               ; preds = %25, %26, %lean_array_uget.exit.thread.us, %lean_dec.exit.us
   %13 = add i64 %.01536.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 lean_array_uget.exit.thread.us:                   ; preds = %.lr.ph.split.us
   %14 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %9) #5
@@ -22251,7 +22251,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at___private_Lean_Meta_Tactic_ElimInfo_0__Lean_Meta_reprCustomEliminators____x40_Lean_Meta_Tactic_ElimInfo___hyg_2408____spec__3___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -66077,3 +66077,6 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"short", !7, i64 0}
 !19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}

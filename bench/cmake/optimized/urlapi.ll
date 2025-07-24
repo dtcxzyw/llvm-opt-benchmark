@@ -2225,7 +2225,7 @@ define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address
   %250 = getelementptr inbounds nuw i8, ptr %.0227405, i64 1
   %251 = load i8, ptr %250, align 1, !tbaa !4
   %.not301 = icmp eq i8 %251, 0
-  br i1 %.not301, label %.thread351, label %.lr.ph406.split, !llvm.loop !37
+  br i1 %.not301, label %.thread351, label %.lr.ph406.split, !llvm.loop !39
 
 252:                                              ; preds = %188
   %253 = call i32 @Curl_dyn_add(ptr noundef nonnull %8, ptr noundef nonnull %2) #10
@@ -2316,7 +2316,7 @@ switch.early.test394:                             ; preds = %264
 275:                                              ; preds = %258, %268, %switch.early.test, %switch.early.test394, %271
   %.sink = phi i64 [ 3, %271 ], [ 1, %switch.early.test394 ], [ 1, %switch.early.test ], [ 1, %268 ], [ 1, %258 ]
   %276 = getelementptr inbounds nuw i8, ptr %.0225, i64 %.sink
-  br label %258, !llvm.loop !38
+  br label %258, !llvm.loop !40
 
 .thread351:                                       ; preds = %258, %216, %249, %.preheader
   %277 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
@@ -2709,7 +2709,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %101 = icmp samesign ult i32 %.0186.i, 4
   %102 = select i1 %100, i1 %101, i1 false
   %103 = add nuw nsw i32 %.0186.i, 1
-  br i1 %102, label %.preheader, label %104, !llvm.loop !39
+  br i1 %102, label %.preheader, label %104, !llvm.loop !41
 
 104:                                              ; preds = %.preheader
   %105 = call ptr @Curl_get_scheme_handler(ptr noundef nonnull %4) #10
@@ -3117,7 +3117,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %293 = load ptr, ptr %292, align 8, !tbaa !32
   call void %291(ptr noundef %293) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !tbaa.struct !42
   br label %294
 
 294:                                              ; preds = %parseurl.exit, %262
@@ -3204,7 +3204,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
   %35 = getelementptr inbounds nuw i8, ptr %.169103, i64 3
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = icmp eq i8 %36, 46
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !42
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %29, %33, %.lr.ph, %16, %21
   %.169.lcssa = phi ptr [ %spec.select, %21 ], [ %1, %16 ], [ %.169103, %.lr.ph ], [ %35, %33 ], [ %.169103, %29 ]
@@ -3225,7 +3225,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
   %40 = add nsw i32 %.in, -1
   store i8 0, ptr %38, align 1, !tbaa !4
   %.not96 = icmp eq i32 %40, 0
-  br i1 %.not96, label %.loopexit, label %.lr.ph113, !llvm.loop !43
+  br i1 %.not96, label %.loopexit, label %.lr.ph113, !llvm.loop !45
 
 41:                                               ; preds = %.lr.ph113
   store i8 0, ptr %19, align 1, !tbaa !4
@@ -3423,7 +3423,7 @@ sub_0:                                            ; preds = %11
   store i8 %24, ptr %29, align 1, !tbaa !4
   %30 = load i8, ptr %28, align 1, !tbaa !4
   %.not58 = icmp eq i8 %30, 0
-  br i1 %.not58, label %.thread66, label %.lr.ph, !llvm.loop !44
+  br i1 %.not58, label %.thread66, label %.lr.ph, !llvm.loop !46
 
 .critedge:                                        ; preds = %.lr.ph
   %.not59 = icmp ne i64 %indvars.iv, 0
@@ -3774,7 +3774,7 @@ sub_2139:                                         ; preds = %sub_1138
   %89 = getelementptr inbounds i8, ptr %.365, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %91 = icmp eq i8 %90, 47
-  br i1 %91, label %92, label %86, !llvm.loop !45
+  br i1 %91, label %92, label %86, !llvm.loop !47
 
 92:                                               ; preds = %88, %86
   %.466 = phi ptr [ %89, %88 ], [ %.365, %86 ]
@@ -3803,7 +3803,7 @@ sub_2139:                                         ; preds = %sub_1138
   %100 = getelementptr inbounds i8, ptr %.5, i64 -1
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %102 = icmp eq i8 %101, 47
-  br i1 %102, label %103, label %97, !llvm.loop !46
+  br i1 %102, label %103, label %97, !llvm.loop !48
 
 103:                                              ; preds = %99, %97
   %.6 = phi ptr [ %100, %99 ], [ %.5, %97 ]
@@ -3834,7 +3834,7 @@ sub_2139:                                         ; preds = %sub_1138
   %.163 = phi ptr [ %108, %.critedge ], [ %.062, %60 ], [ %.466, %92 ], [ %.062, %15 ], [ %.062, %26 ]
   %.1 = phi ptr [ %107, %.critedge ], [ %61, %60 ], [ %85, %92 ], [ %16, %15 ], [ %27, %26 ]
   %110 = icmp ult ptr %.1, %4
-  br i1 %110, label %11, label %.thread97, !llvm.loop !47
+  br i1 %110, label %11, label %.thread97, !llvm.loop !49
 
 .thread97:                                        ; preds = %.thread, %80, %103, %50
   store ptr %9, ptr %2, align 8, !tbaa !17
@@ -3904,14 +3904,16 @@ attributes #12 = { nounwind willreturn memory(none) }
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
+!37 = distinct !{!37, !8, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !39 = distinct !{!39, !8}
-!40 = !{i64 0, i64 8, !17, i64 8, i64 8, !17, i64 16, i64 8, !17, i64 24, i64 8, !17, i64 32, i64 8, !17, i64 40, i64 8, !17, i64 48, i64 8, !17, i64 56, i64 8, !17, i64 64, i64 8, !17, i64 72, i64 8, !17, i64 80, i64 2, !41, i64 82, i64 1, !4}
-!41 = !{!13, !13, i64 0}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
+!40 = distinct !{!40, !8}
+!41 = distinct !{!41, !8}
+!42 = !{i64 0, i64 8, !17, i64 8, i64 8, !17, i64 16, i64 8, !17, i64 24, i64 8, !17, i64 32, i64 8, !17, i64 40, i64 8, !17, i64 48, i64 8, !17, i64 56, i64 8, !17, i64 64, i64 8, !17, i64 72, i64 8, !17, i64 80, i64 2, !43, i64 82, i64 1, !4}
+!43 = !{!13, !13, i64 0}
 !44 = distinct !{!44, !8}
 !45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
 !47 = distinct !{!47, !8}
+!48 = distinct !{!48, !8}
+!49 = distinct !{!49, !8}

@@ -1490,7 +1490,7 @@ define internal void @mpage_read_end_io(ptr noundef %0) #0 align 16 {
   call fastcc void @bio_next_folio(ptr noundef nonnull %2, ptr noundef %0)
   %95 = load ptr, ptr %2, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.loopexit, label %.split, !llvm.loop !47
+  br i1 %96, label %.loopexit, label %.split, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.split, %.split.us, %12, %82
   tail call void @bio_put(ptr noundef %0) #7
@@ -1861,7 +1861,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   call fastcc void @bio_next_folio(ptr noundef nonnull %2, ptr noundef %0)
   %90 = load ptr, ptr %2, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.loopexit, label %.split.us, !llvm.loop !48
+  br i1 %91, label %.loopexit, label %.split.us, !llvm.loop !50
 
 .split.split.us:                                  ; preds = %88, %103
   %92 = phi ptr [ %105, %103 ], [ %49, %88 ]
@@ -1888,7 +1888,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   call fastcc void @bio_next_folio(ptr noundef nonnull %2, ptr noundef %0)
   %105 = load ptr, ptr %2, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.loopexit, label %.split.split.us, !llvm.loop !48
+  br i1 %106, label %.loopexit, label %.split.split.us, !llvm.loop !51
 
 .split.split:                                     ; preds = %88, %118
   %107 = phi ptr [ %120, %118 ], [ %49, %88 ]
@@ -1915,7 +1915,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   call fastcc void @bio_next_folio(ptr noundef nonnull %2, ptr noundef %0)
   %120 = load ptr, ptr %2, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.loopexit, label %.split.split, !llvm.loop !48
+  br i1 %121, label %.loopexit, label %.split.split, !llvm.loop !52
 
 .loopexit:                                        ; preds = %103, %.split.us, %118, %12, %82
   tail call void @bio_put(ptr noundef %0) #7
@@ -1990,5 +1990,9 @@ attributes #7 = { nounwind }
 !44 = !{i64 2155198550, i64 2155198579, i64 2155198625, i64 2155198683, i64 2155198737, i64 2155198791, i64 2155198846, i64 2155198877, i64 2155199185, i64 2155199191, i64 2155199238, i64 2155199261, i64 2155199287}
 !45 = !{i64 2155199739, i64 2155199550, i64 2155199600, i64 2155199646, i64 2155199674}
 !46 = !{i64 1073719, i64 1073763, i64 2148558446, i64 2148558467, i64 2148558493, i64 2148558526, i64 2148558560, i64 2148558584}
-!47 = distinct !{!47, !9, !10}
-!48 = distinct !{!48, !9, !10}
+!47 = distinct !{!47, !9, !10, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !9, !10}
+!50 = distinct !{!50, !9, !10, !48}
+!51 = distinct !{!51, !9, !10, !48}
+!52 = distinct !{!52, !9, !10}

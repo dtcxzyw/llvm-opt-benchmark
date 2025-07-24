@@ -3636,7 +3636,7 @@ define linkonce_odr hidden void @_ZN20GlobalValueNumbering10kill_fieldEP7ciField
 
 .loopexit.i.us:                                   ; preds = %.critedge.i.us.us, %.lr.ph34.i.split.us
   %17 = icmp sgt i64 %indvars.iv.i.us, 1
-  br i1 %17, label %.lr.ph34.i.split.us, label %_ZN8ValueMap10kill_fieldEP7ciFieldb.exit, !llvm.loop !17
+  br i1 %17, label %.lr.ph34.i.split.us, label %_ZN8ValueMap10kill_fieldEP7ciFieldb.exit, !llvm.loop !34
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph34.i.split.us, %.critedge.i.us.us
   %.02431.i.us.us = phi ptr [ %.024.i.us.us, %.critedge.i.us.us ], [ %.02428.i.us, %.lr.ph34.i.split.us ]
@@ -3715,7 +3715,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i.us.us: ; preds = %33, %30
   %61 = getelementptr inbounds nuw i8, ptr %.02431.i.us.us, i64 24
   %.024.i.us.us = load ptr, ptr %61, align 8
   %.not.i.us.us = icmp eq ptr %.024.i.us.us, null
-  br i1 %.not.i.us.us, label %.loopexit.i.us, label %.lr.ph.i.us.us, !llvm.loop !18
+  br i1 %.not.i.us.us, label %.loopexit.i.us, label %.lr.ph.i.us.us, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %.critedge.i, %.lr.ph34.i.split
   %62 = icmp sgt i64 %indvars.iv.i, 1
@@ -4011,7 +4011,7 @@ define linkonce_odr hidden void @_ZN18ShortLoopOptimizer10kill_fieldEP7ciFieldb(
 
 .loopexit.i.us:                                   ; preds = %.critedge.i.us.us, %.lr.ph34.i.split.us
   %19 = icmp sgt i64 %indvars.iv.i.us, 1
-  br i1 %19, label %.lr.ph34.i.split.us, label %_ZN8ValueMap10kill_fieldEP7ciFieldb.exit, !llvm.loop !17
+  br i1 %19, label %.lr.ph34.i.split.us, label %_ZN8ValueMap10kill_fieldEP7ciFieldb.exit, !llvm.loop !37
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph34.i.split.us, %.critedge.i.us.us
   %.02431.i.us.us = phi ptr [ %.024.i.us.us, %.critedge.i.us.us ], [ %.02428.i.us, %.lr.ph34.i.split.us ]
@@ -4090,7 +4090,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i.us.us: ; preds = %35, %32
   %63 = getelementptr inbounds nuw i8, ptr %.02431.i.us.us, i64 24
   %.024.i.us.us = load ptr, ptr %63, align 8
   %.not.i.us.us = icmp eq ptr %.024.i.us.us, null
-  br i1 %.not.i.us.us, label %.loopexit.i.us, label %.lr.ph.i.us.us, !llvm.loop !18
+  br i1 %.not.i.us.us, label %.loopexit.i.us, label %.lr.ph.i.us.us, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %.critedge.i, %.lr.ph34.i.split
   %64 = icmp sgt i64 %indvars.iv.i, 1
@@ -4406,7 +4406,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !39
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4422,7 +4422,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !40
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4501,5 +4501,10 @@ attributes #7 = { nounwind }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!34 = distinct !{!34, !7, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !7, !35}
+!37 = distinct !{!37, !7, !35}
+!38 = distinct !{!38, !7, !35}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}

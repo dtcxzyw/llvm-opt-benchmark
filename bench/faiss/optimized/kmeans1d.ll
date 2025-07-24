@@ -2945,7 +2945,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5_
   store float %45, ptr %70, align 4, !tbaa !54
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !105
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !107
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -2968,7 +2968,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !108
   %10 = getelementptr i8, ptr %9, i64 24
   %.val9.i.i.i = load ptr, ptr %10, align 8
   %.val8.i.i.i = load ptr, ptr %9, align 8
@@ -2993,9 +2993,9 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
 27:                                               ; preds = %3
   %28 = add nsw i64 %.val4, -1
   %.sroa.speculated.i.i.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %.val3)
-  %29 = load ptr, ptr %.val, align 8, !tbaa !108
+  %29 = load ptr, ptr %.val, align 8, !tbaa !110
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !109
+  %31 = load ptr, ptr %30, align 8, !tbaa !111
   %32 = load i64, ptr %31, align 8, !tbaa !9
   %33 = add nsw i64 %32, -1
   %.val10.i.i.i = load ptr, ptr %29, align 8, !tbaa !84
@@ -3010,7 +3010,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
 
 40:                                               ; preds = %27
   %41 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !106
+  %42 = load ptr, ptr %41, align 8, !tbaa !108
   %43 = getelementptr i8, ptr %42, i64 24
   %.val7.i.i.i = load ptr, ptr %43, align 8
   %.val.i.i.i = load ptr, ptr %42, align 8
@@ -3066,7 +3066,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmea
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !110
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !112
   store ptr %7, ptr %0, align 8, !tbaa !57
   br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
@@ -3227,9 +3227,11 @@ attributes #23 = { noreturn nounwind }
 !102 = distinct !{!102, !31}
 !103 = distinct !{!103, !31}
 !104 = distinct !{!104, !31}
-!105 = distinct !{!105, !31}
-!106 = !{!107, !91, i64 8}
-!107 = !{!"_ZTSZN5faiss8kmeans1dEPKfmmPfE3$_0", !89, i64 0, !91, i64 8, !5, i64 16}
-!108 = !{!107, !89, i64 0}
-!109 = !{!107, !5, i64 16}
-!110 = !{i64 0, i64 8, !88, i64 8, i64 8, !90, i64 16, i64 8, !4}
+!105 = distinct !{!105, !31, !106}
+!106 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!107 = distinct !{!107, !31}
+!108 = !{!109, !91, i64 8}
+!109 = !{!"_ZTSZN5faiss8kmeans1dEPKfmmPfE3$_0", !89, i64 0, !91, i64 8, !5, i64 16}
+!110 = !{!109, !89, i64 0}
+!111 = !{!109, !5, i64 16}
+!112 = !{i64 0, i64 8, !88, i64 8, i64 8, !90, i64 16, i64 8, !4}

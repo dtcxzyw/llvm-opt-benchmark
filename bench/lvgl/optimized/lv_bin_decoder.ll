@@ -1251,7 +1251,7 @@ bit_extend.exit.us:                               ; preds = %.lr.ph.i.us, %.lr.p
   %86 = add nuw i32 %.0548, 1
   %.057 = getelementptr inbounds i8, ptr %.0579, i64 -1
   %87 = icmp ult i32 %86, %22
-  br i1 %87, label %.lr.ph.split, label %.loopexit, !llvm.loop !64
+  br i1 %87, label %.lr.ph.split, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph.split, %bit_extend.exit.us, %50
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1390,4 +1390,6 @@ attributes #4 = { nounwind }
 !61 = !{!25, !19, i64 56}
 !62 = !{!25, !5, i64 8}
 !63 = distinct !{!63, !60}
-!64 = distinct !{!64, !60}
+!64 = distinct !{!64, !60, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !60}

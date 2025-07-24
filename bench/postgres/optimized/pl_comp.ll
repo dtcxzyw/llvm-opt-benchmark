@@ -3791,7 +3791,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
   %.140 = phi i32 [ %29, %28 ], [ %.03947, %.lr.ph.split ], [ %.03947, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %36
   %indvars.iv61 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next62, %36 ]
@@ -3827,7 +3827,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
 36:                                               ; preds = %.sink.split, %.lr.ph50
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !16
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !18
 
 .loopexit:                                        ; preds = %30, %16, %36, %.preheader45, %.preheader
   ret void
@@ -4078,7 +4078,7 @@ list_length.exit:                                 ; preds = %4
   %126 = getelementptr inbounds nuw i8, ptr %130, i64 20
   %.056 = load i32, ptr %126, align 4
   %127 = icmp slt i32 %.056, 0
-  br i1 %127, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %127, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %115, %125
   %.05689 = phi i32 [ %.056, %125 ], [ %.05688, %115 ]
@@ -4209,6 +4209,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!15 = distinct !{!15, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

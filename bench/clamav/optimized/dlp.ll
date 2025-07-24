@@ -127,7 +127,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
   %47 = load i32, ptr %46, align 8, !tbaa !15
   %48 = add i32 %47, -1
   %or.cond.not.us.i = icmp ult i32 %48, %40
-  br i1 %or.cond.not.us.i, label %.lr.ph.split.us.i, label %.thread.sink.split
+  br i1 %or.cond.not.us.i, label %.lr.ph.split.us.i, label %.thread.sink.split, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %56
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %.lr.ph.i ]
@@ -139,7 +139,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 
 52:                                               ; preds = %.lr.ph.split.i
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  %54 = load i8, ptr %53, align 2, !tbaa !16
+  %54 = load i8, ptr %53, align 2, !tbaa !18
   %55 = icmp eq i8 %54, 1
   br i1 %55, label %get_iin.exit, label %56
 
@@ -154,14 +154,14 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(addres
 get_iin.exit:                                     ; preds = %52, %.lr.ph.split.us.i
   %.us-phi.i = phi ptr [ %42, %.lr.ph.split.us.i ], [ %49, %52 ]
   %60 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  %61 = load ptr, ptr %60, align 8, !tbaa !19
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %61) #10
   %62 = icmp samesign ult i64 %32, %spec.select
   br i1 %62, label %.lr.ph114, label %.critedge.thread
 
 .lr.ph114:                                        ; preds = %get_iin.exit
   %63 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 9
-  %64 = load i8, ptr %63, align 1, !tbaa !18
+  %64 = load i8, ptr %63, align 1, !tbaa !20
   %65 = zext i8 %64 to i64
   br label %66
 
@@ -209,7 +209,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 
 .critedge:                                        ; preds = %77, %78, %66
   %85 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
-  %86 = load i8, ptr %85, align 8, !tbaa !19
+  %86 = load i8, ptr %85, align 8, !tbaa !21
   %87 = zext i8 %86 to i64
   %88 = icmp ult i64 %.265112, %87
   br i1 %88, label %.thread, label %93
@@ -217,7 +217,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 .critedge.thread:                                 ; preds = %83, %get_iin.exit
   %.265.lcssa = phi i64 [ 6, %get_iin.exit ], [ %.366, %83 ]
   %89 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
-  %90 = load i8, ptr %89, align 8, !tbaa !19
+  %90 = load i8, ptr %89, align 8, !tbaa !21
   %91 = zext i8 %90 to i64
   %92 = icmp samesign ult i64 %.265.lcssa, %91
   br i1 %92, label %.thread, label %.thread91
@@ -401,7 +401,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
 28:                                               ; preds = %24, %17, %.lr.ph.split.us.i
   %29 = getelementptr inbounds nuw i8, ptr %.02532.us.i, i64 1
   %30 = icmp ult ptr %29, %6
-  br i1 %30, label %.lr.ph.split.us.i, label %contains_cc.exit
+  br i1 %30, label %.lr.ph.split.us.i, label %contains_cc.exit, !llvm.loop !22
 
 contains_cc.exit:                                 ; preds = %24, %28, %3
   %.024.i = phi i32 [ 0, %3 ], [ 0, %28 ], [ 1, %24 ]
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(addre
   br label %56
 
 40:                                               ; preds = %37, %33
-  %41 = load i32, ptr %4, align 4, !tbaa !20
+  %41 = load i32, ptr %4, align 4, !tbaa !23
   %42 = icmp eq i32 %41, 666
   %43 = add i32 %41, -773
   %44 = icmp ult i32 %43, -772
@@ -817,7 +817,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
 27:                                               ; preds = %23, %16, %.lr.ph.split.us.i
   %28 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %29 = icmp ult ptr %28, %5
-  br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.i4
+  br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.i4, !llvm.loop !24
 
 .lr.ph.i4:                                        ; preds = %27, %23
   %.023.i = phi i32 [ 1, %23 ], [ 0, %27 ]
@@ -858,7 +858,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
 49:                                               ; preds = %45, %38, %.lr.ph.split.us.i6
   %50 = getelementptr inbounds nuw i8, ptr %.02432.us.i7, i64 1
   %51 = icmp ult ptr %50, %5
-  br i1 %51, label %.lr.ph.split.us.i6, label %contains_ssn.exit12.loopexit
+  br i1 %51, label %.lr.ph.split.us.i6, label %contains_ssn.exit12.loopexit, !llvm.loop !24
 
 contains_ssn.exit12.loopexit:                     ; preds = %49, %45
   %.023.i10.ph = phi i32 [ 1, %45 ], [ 0, %49 ]
@@ -919,7 +919,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
 27:                                               ; preds = %23, %16, %.lr.ph.split.us.i
   %28 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %29 = icmp ult ptr %28, %5
-  br i1 %29, label %.lr.ph.split.us.i, label %contains_ssn.exit
+  br i1 %29, label %.lr.ph.split.us.i, label %contains_ssn.exit, !llvm.loop !24
 
 contains_ssn.exit:                                ; preds = %23, %27, %2
   %.023.i = phi i32 [ 0, %2 ], [ 0, %27 ], [ 1, %23 ]
@@ -975,7 +975,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
 27:                                               ; preds = %23, %16, %.lr.ph.split.us.i
   %28 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %29 = icmp ult ptr %28, %5
-  br i1 %29, label %.lr.ph.split.us.i, label %contains_ssn.exit
+  br i1 %29, label %.lr.ph.split.us.i, label %contains_ssn.exit, !llvm.loop !24
 
 contains_ssn.exit:                                ; preds = %23, %27, %2
   %.023.i = phi i32 [ 0, %2 ], [ 0, %27 ], [ 1, %23 ]
@@ -1278,8 +1278,12 @@ attributes #11 = { nounwind willreturn memory(none) }
 !13 = !{!"int", !6, i64 0}
 !14 = !{!"p1 omnipotent char", !5, i64 0}
 !15 = !{!12, !13, i64 0}
-!16 = !{!12, !6, i64 10}
-!17 = !{!12, !14, i64 16}
-!18 = !{!12, !6, i64 9}
-!19 = !{!12, !6, i64 8}
-!20 = !{!13, !13, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!12, !6, i64 10}
+!19 = !{!12, !14, i64 16}
+!20 = !{!12, !6, i64 9}
+!21 = !{!12, !6, i64 8}
+!22 = distinct !{!22, !17}
+!23 = !{!13, !13, i64 0}
+!24 = distinct !{!24, !17}

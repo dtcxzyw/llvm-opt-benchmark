@@ -276,12 +276,12 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 .backedge.us58:                                   ; preds = %21, %25
   %.039.us59 = load ptr, ptr %.03953.us55, align 8, !tbaa !17
   %.not41.us60 = icmp eq ptr %.039.us59, null
-  br i1 %.not41.us60, label %.critedge, label %21, !llvm.loop !27
+  br i1 %.not41.us60, label %.critedge, label %21, !llvm.loop !29
 
 .critedge48.loopexit:                             ; preds = %34
   %.039 = load ptr, ptr %.03953, align 8, !tbaa !17
   %.not41 = icmp eq ptr %.039, null
-  br i1 %.not41, label %.critedge, label %.preheader, !llvm.loop !27
+  br i1 %.not41, label %.critedge, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge48.loopexit
   %.03953 = phi ptr [ %.039, %.critedge48.loopexit ], [ %.03951, %.lr.ph ]
@@ -291,7 +291,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 31:                                               ; preds = %34
   %32 = add nsw i32 %.03650, -1
   %33 = icmp sgt i32 %.03650, 0
-  br i1 %33, label %34, label %.thread, !llvm.loop !28
+  br i1 %33, label %34, label %.thread, !llvm.loop !31
 
 34:                                               ; preds = %.preheader, %31
   %.03650 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
@@ -329,7 +329,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 .thread:                                          ; preds = %25, %16, %31, %46
   %.0 = load ptr, ptr %.063, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.thread, %2
   ret ptr %3
@@ -376,7 +376,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
 .backedge.us:                                     ; preds = %11
   %.025.us = load ptr, ptr %.02542.us, align 8, !tbaa !17
   %.not29.us = icmp eq ptr %.025.us, null
-  br i1 %.not29.us, label %.critedge, label %11, !llvm.loop !30
+  br i1 %.not29.us, label %.critedge, label %11, !llvm.loop !33
 
 .lr.ph.split.us44:                                ; preds = %.lr.ph
   %15 = load i32, ptr %9, align 8, !tbaa !14
@@ -399,12 +399,12 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
 .backedge.us48:                                   ; preds = %16, %20
   %.025.us49 = load ptr, ptr %.02542.us45, align 8, !tbaa !17
   %.not29.us50 = icmp eq ptr %.025.us49, null
-  br i1 %.not29.us50, label %.critedge, label %16, !llvm.loop !30
+  br i1 %.not29.us50, label %.critedge, label %16, !llvm.loop !34
 
 .critedge36.loopexit:                             ; preds = %29
   %.025 = load ptr, ptr %.02542, align 8, !tbaa !17
   %.not29 = icmp eq ptr %.025, null
-  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !30
+  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !35
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge36.loopexit
   %.02542 = phi ptr [ %.025, %.critedge36.loopexit ], [ %.02540, %.lr.ph ]
@@ -414,7 +414,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
 26:                                               ; preds = %29
   %27 = add nsw i32 %.039, -1
   %28 = icmp sgt i32 %.039, 0
-  br i1 %28, label %29, label %.thread, !llvm.loop !31
+  br i1 %28, label %29, label %.thread, !llvm.loop !36
 
 29:                                               ; preds = %.preheader, %26
   %.039 = phi i32 [ %7, %.preheader ], [ %27, %26 ]
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
 .thread:                                          ; preds = %20, %11, %26
   %.026 = load ptr, ptr %.02653, align 8, !tbaa !17
   %.not = icmp eq ptr %.026, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !37
 
 .critedge:                                        ; preds = %.thread, %.backedge.us48, %.backedge.us, %.critedge36.loopexit, %2, %.lr.ph54
   %.027 = phi i32 [ 0, %.lr.ph54 ], [ 1, %2 ], [ 0, %.critedge36.loopexit ], [ 0, %.backedge.us ], [ 0, %.backedge.us48 ], [ 1, %.thread ]
@@ -474,9 +474,14 @@ attributes #4 = { nounwind }
 !24 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
 !25 = !{!8, !5, i64 16}
 !26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
+!27 = distinct !{!27, !16, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !16, !28}
 !30 = distinct !{!30, !16}
 !31 = distinct !{!31, !16}
 !32 = distinct !{!32, !16}
+!33 = distinct !{!33, !16, !28}
+!34 = distinct !{!34, !16, !28}
+!35 = distinct !{!35, !16}
+!36 = distinct !{!36, !16}
+!37 = distinct !{!37, !16}

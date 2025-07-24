@@ -21331,43 +21331,43 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %.not47 = icmp eq ptr %3, null
   %21 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %9)
-  %.not44.us73 = icmp eq ptr %21, null
-  br i1 %.not47, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  %.not44.us83 = icmp eq ptr %21, null
+  br i1 %.not47, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %.not44.us73, label %.loopexit, label %.lr.ph77
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  br i1 %.not44.us83, label %.thread, label %.lr.ph87
 
-.lr.ph77:                                         ; preds = %.lr.ph.split.us.split, %43
-  %22 = phi ptr [ %47, %43 ], [ %21, %.lr.ph.split.us.split ]
-  %.03451.us76 = phi i32 [ %41, %43 ], [ -1, %.lr.ph.split.us.split ]
-  %.03152.us75 = phi i1 [ false, %43 ], [ true, %.lr.ph.split.us.split ]
-  %.053.us74 = phi ptr [ %.1.us, %43 ], [ null, %.lr.ph.split.us.split ]
+.lr.ph87:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %22 = phi ptr [ %46, %.lr.ph.split.us ], [ %21, %.lr.ph.split.us.preheader ]
+  %.03451.us86 = phi i32 [ %41, %.lr.ph.split.us ], [ -1, %.lr.ph.split.us.preheader ]
+  %.03152.us85 = phi i1 [ false, %.lr.ph.split.us ], [ true, %.lr.ph.split.us.preheader ]
+  %.053.us84 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
-  %.not45.us = icmp ult i32 %24, %.03451.us76
+  %.not45.us = icmp ult i32 %24, %.03451.us86
   br i1 %.not45.us, label %25, label %.thread
 
-25:                                               ; preds = %.lr.ph77
+25:                                               ; preds = %.lr.ph87
   %26 = load i32, ptr %22, align 8
   %27 = add i32 %26, %24
-  br i1 %.03152.us75, label %29, label %28
+  br i1 %.03152.us85, label %29, label %28
 
 28:                                               ; preds = %25
-  %.not46.us = icmp eq i32 %27, %.03451.us76
+  %.not46.us = icmp eq i32 %27, %.03451.us86
   br i1 %.not46.us, label %33, label %.thread
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %20, align 8
   %31 = zext i32 %27 to i64
   %32 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %31) #15
-  %.pre85 = load i32, ptr %23, align 4
-  %.pre86 = load i32, ptr %22, align 8
+  %.pre76 = load i32, ptr %23, align 4
+  %.pre77 = load i32, ptr %22, align 8
   br label %33
 
 33:                                               ; preds = %29, %28
-  %34 = phi i32 [ %26, %28 ], [ %.pre86, %29 ]
-  %35 = phi i32 [ %24, %28 ], [ %.pre85, %29 ]
-  %.1.us = phi ptr [ %.053.us74, %28 ], [ %32, %29 ]
+  %34 = phi i32 [ %26, %28 ], [ %.pre77, %29 ]
+  %35 = phi i32 [ %24, %28 ], [ %.pre76, %29 ]
+  %.1.us = phi ptr [ %.053.us84, %28 ], [ %32, %29 ]
   %36 = zext i32 %35 to i64
   %37 = getelementptr i8, ptr %.1.us, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -21376,79 +21376,79 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %37, ptr noundef align 1 %39, i64 noundef range(i64 0, 4294967296) %40, i1 noundef false) #14
   %41 = load i32, ptr %23, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %43
+  br i1 %42, label %.loopexit, label %.lr.ph.split.us
 
-43:                                               ; preds = %33
-  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = add i32 %45, -1
-  %47 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %46)
-  %.not44.us = icmp eq ptr %47, null
-  br i1 %.not44.us, label %.thread, label %.lr.ph77
+.lr.ph.split.us:                                  ; preds = %33
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, -1
+  %46 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %45)
+  %.not44.us = icmp eq ptr %46, null
+  br i1 %.not44.us, label %.thread, label %.lr.ph87
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %.not44.us73, label %.thread.thread88, label %.lr.ph71
+  br i1 %.not44.us83, label %.thread.thread, label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %.lr.ph.split.split, %69
-  %48 = phi ptr [ %73, %69 ], [ %21, %.lr.ph.split.split ]
-  %.0345170 = phi i32 [ %67, %69 ], [ -1, %.lr.ph.split.split ]
-  %.0315269 = phi i1 [ false, %69 ], [ true, %.lr.ph.split.split ]
-  %.05368 = phi ptr [ %.1, %69 ], [ null, %.lr.ph.split.split ]
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %50 = load i32, ptr %49, align 4
-  %.not45 = icmp ult i32 %50, %.0345170
-  br i1 %.not45, label %51, label %.thread
+.lr.ph71:                                         ; preds = %.lr.ph.split.split, %68
+  %47 = phi ptr [ %72, %68 ], [ %21, %.lr.ph.split.split ]
+  %.0345170 = phi i32 [ %66, %68 ], [ -1, %.lr.ph.split.split ]
+  %.0315269 = phi i1 [ false, %68 ], [ true, %.lr.ph.split.split ]
+  %.05368 = phi ptr [ %.1, %68 ], [ null, %.lr.ph.split.split ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4
+  %.not45 = icmp ult i32 %49, %.0345170
+  br i1 %.not45, label %50, label %.thread
 
-51:                                               ; preds = %.lr.ph71
-  %52 = load i32, ptr %48, align 8
-  %53 = add i32 %52, %50
-  br i1 %.0315269, label %54, label %58
+50:                                               ; preds = %.lr.ph71
+  %51 = load i32, ptr %47, align 8
+  %52 = add i32 %51, %49
+  br i1 %.0315269, label %53, label %57
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %20, align 8
-  %56 = zext i32 %53 to i64
-  %57 = call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef %56) #15
-  store i32 %53, ptr %3, align 4
-  %.pre = load i32, ptr %49, align 4
-  %.pre81 = load i32, ptr %48, align 8
-  br label %59
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %20, align 8
+  %55 = zext i32 %52 to i64
+  %56 = call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef %55) #15
+  store i32 %52, ptr %3, align 4
+  %.pre = load i32, ptr %48, align 4
+  %.pre75 = load i32, ptr %47, align 8
+  br label %58
 
-58:                                               ; preds = %51
-  %.not46 = icmp eq i32 %53, %.0345170
-  br i1 %.not46, label %59, label %.thread
+57:                                               ; preds = %50
+  %.not46 = icmp eq i32 %52, %.0345170
+  br i1 %.not46, label %58, label %.thread
 
-59:                                               ; preds = %54, %58
-  %60 = phi i32 [ %52, %58 ], [ %.pre81, %54 ]
-  %61 = phi i32 [ %50, %58 ], [ %.pre, %54 ]
-  %.1 = phi ptr [ %.05368, %58 ], [ %57, %54 ]
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr i8, ptr %.1, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = zext i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %65, i64 noundef range(i64 0, 4294967296) %66, i1 noundef false) #14
-  %67 = load i32, ptr %49, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.loopexit, label %69
+58:                                               ; preds = %53, %57
+  %59 = phi i32 [ %51, %57 ], [ %.pre75, %53 ]
+  %60 = phi i32 [ %49, %57 ], [ %.pre, %53 ]
+  %.1 = phi ptr [ %.05368, %57 ], [ %56, %53 ]
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr i8, ptr %.1, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = zext i32 %59 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %62, ptr noundef align 1 %64, i64 noundef range(i64 0, 4294967296) %65, i1 noundef false) #14
+  %66 = load i32, ptr %48, align 4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.loopexit, label %68
 
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %71 = load i32, ptr %70, align 8
-  %72 = add i32 %71, -1
-  %73 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %72)
-  %.not44 = icmp eq ptr %73, null
+68:                                               ; preds = %58
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, -1
+  %72 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %71)
+  %.not44 = icmp eq ptr %72, null
   br i1 %.not44, label %.thread, label %.lr.ph71
 
-.thread:                                          ; preds = %58, %69, %.lr.ph71, %28, %43, %.lr.ph77, %7, %4
+.thread:                                          ; preds = %57, %68, %.lr.ph71, %.lr.ph87, %.lr.ph.split.us, %28, %.lr.ph.split.us.preheader, %7, %4
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %.loopexit, label %.thread.thread88
+  br i1 %.not48, label %.loopexit, label %.thread.thread
 
-.thread.thread88:                                 ; preds = %.lr.ph.split.split, %.thread
+.thread.thread:                                   ; preds = %.lr.ph.split.split, %.thread
   store i32 0, ptr %3, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %33, %.lr.ph.split.us.split, %.thread, %.thread.thread88
-  %.033 = phi ptr [ null, %.thread.thread88 ], [ null, %.thread ], [ null, %.lr.ph.split.us.split ], [ %.1.us, %33 ], [ %.1, %59 ]
+.loopexit:                                        ; preds = %58, %33, %.thread, %.thread.thread
+  %.033 = phi ptr [ null, %.thread.thread ], [ null, %.thread ], [ %.1.us, %33 ], [ %.1, %58 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
   ret ptr %.033
 }

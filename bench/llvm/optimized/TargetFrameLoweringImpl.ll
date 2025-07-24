@@ -642,7 +642,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
   %162 = getelementptr inbounds nuw i16, ptr %.0, i64 %161
   %163 = load i16, ptr %162, align 2, !tbaa !214
   %.not31 = icmp eq i16 %163, 0
-  br i1 %.not31, label %.loopexit, label %.lr.ph.split, !llvm.loop !216
+  br i1 %.not31, label %.loopexit, label %.lr.ph.split, !llvm.loop !219
 
 .loopexit:                                        ; preds = %159, %131, %123, %118, %106, %102, %103
   ret void
@@ -933,7 +933,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK4llvm19TargetFrameLowering30getFram
 define linkonce_odr hidden { i64, i64 } @_ZNK4llvm19TargetFrameLowering30getNonLocalFrameIndexReferenceERKNS_15MachineFunctionEi(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.llvm::Register", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !tbaa !218
+  store i32 0, ptr %4, align 4, !tbaa !220
   %5 = load ptr, ptr %0, align 8, !tbaa !139
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %7 = load ptr, ptr %6, align 8
@@ -1245,7 +1245,9 @@ attributes #11 = { nounwind }
 !213 = !{!4, !12, i64 32}
 !214 = !{!211, !211, i64 0}
 !215 = !{!4, !58, i64 553}
-!216 = distinct !{!216, !217}
+!216 = distinct !{!216, !217, !218}
 !217 = !{!"llvm.loop.mustprogress"}
-!218 = !{!219, !25, i64 0}
-!219 = !{!"_ZTSN4llvm8RegisterE", !25, i64 0}
+!218 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!219 = distinct !{!219, !217}
+!220 = !{!221, !25, i64 0}
+!221 = !{!"_ZTSN4llvm8RegisterE", !25, i64 0}

@@ -729,7 +729,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   %71 = add nuw nsw i64 %53, 1
   %72 = and i64 %71, 127
   %73 = icmp samesign ugt i64 %72, 63
-  br i1 %73, label %.thread, label %.split, !prof !11, !llvm.loop !22
+  br i1 %73, label %.thread, label %.split, !prof !11, !llvm.loop !24
 
 .thread:                                          ; preds = %52, %56, %.split, %.split.us, %31, %35
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -769,7 +769,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   %98 = add nuw nsw i64 %88, 1
   %99 = and i64 %98, 127
   %100 = icmp samesign ugt i64 %99, 63
-  br i1 %100, label %.thread7, label %81, !prof !11, !llvm.loop !23
+  br i1 %100, label %.thread7, label %81, !prof !11, !llvm.loop !25
 
 .thread7:                                         ; preds = %81, %91, %87, %1
   %101 = phi i32 [ -22, %1 ], [ 0, %87 ], [ 0, %91 ], [ 0, %81 ]
@@ -802,7 +802,7 @@ define dso_local void @cpufreq_dbs_governor_stop(ptr noundef readonly captures(n
   %16 = add nuw nsw i64 %12, 1
   %17 = and i64 %16, 127
   %18 = icmp samesign ugt i64 %17, 63
-  br i1 %18, label %.thread, label %5, !prof !11, !llvm.loop !24
+  br i1 %18, label %.thread, label %5, !prof !11, !llvm.loop !26
 
 .thread:                                          ; preds = %5, %15, %11
   tail call void @synchronize_rcu() #9
@@ -871,7 +871,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @dbs_irq_work(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !25
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !27
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = load ptr, ptr @system_wq, align 8
   %5 = tail call zeroext i1 @queue_work_on(i32 noundef %2, ptr noundef %4, ptr noundef %3) #9
@@ -896,7 +896,7 @@ define internal void @dbs_work_handler(ptr noundef %0) #0 align 16 {
   tail call void @mutex_unlock(ptr noundef %6) #9
   %13 = getelementptr i8, ptr %0, i64 -40
   store volatile i32 0, ptr %13, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !28
   %14 = getelementptr i8, ptr %0, i64 65
   store i8 0, ptr %14, align 1
   ret void
@@ -924,12 +924,12 @@ define internal void @dbs_update_util_handler(ptr noundef readonly captures(none
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 161
-  %10 = load i8, ptr %9, align 1, !range !27, !noundef !28
+  %10 = load i8, ptr %9, align 1, !range !29, !noundef !30
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread1
 
 12:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !31
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = load volatile i64, ptr %13, align 8
   %15 = sub i64 %1, %14
@@ -940,7 +940,7 @@ define internal void @dbs_update_util_handler(ptr noundef readonly captures(none
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %21 = load i8, ptr %20, align 8, !range !27, !noundef !28
+  %21 = load i8, ptr %20, align 8, !range !29, !noundef !30
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %40, label %23
 
@@ -948,12 +948,12 @@ define internal void @dbs_update_util_handler(ptr noundef readonly captures(none
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load volatile i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %.thread1, label %.lr.ph, !prof !30
+  br i1 %26, label %.thread1, label %.lr.ph, !prof !32
 
 .lr.ph:                                           ; preds = %23, %33
   %27 = phi i32 [ %34, %33 ], [ %25, %23 ]
   %28 = add i32 %27, 1
-  %29 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 %28, ptr nonnull elementtype(i32) %24, i32 %27) #9, !srcloc !31
+  %29 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 %28, ptr nonnull elementtype(i32) %24, i32 %27) #9, !srcloc !33
   %30 = extractvalue { i8, i32 } %29, 0
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
@@ -963,7 +963,7 @@ define internal void @dbs_update_util_handler(ptr noundef readonly captures(none
 33:                                               ; preds = %.lr.ph
   %34 = extractvalue { i8, i32 } %29, 1
   %35 = icmp eq i32 %34, 1
-  br i1 %35, label %.thread1, label %.lr.ph, !prof !32, !llvm.loop !33
+  br i1 %35, label %.thread1, label %.lr.ph, !prof !34, !llvm.loop !35
 
 36:                                               ; preds = %.lr.ph
   %37 = load volatile i64, ptr %13, align 8
@@ -1048,15 +1048,17 @@ attributes #13 = { nounwind memory(none) }
 !19 = !{i64 2154619443, i64 2154619254, i64 2154619304, i64 2154619350, i64 2154619378}
 !20 = distinct !{!20, !7, !8}
 !21 = !{i64 2148016938, i64 2148016966, i64 2148016972, i64 2148016988, i64 2148017004, i64 2148017031, i64 2148017364, i64 2148016664, i64 2148017370, i64 2148017418, i64 2148017482, i64 2148017546, i64 2148017603, i64 2148016745, i64 2148016770, i64 2148017810, i64 2148017940, i64 2148017871, i64 2148017954, i64 2148016862}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!22 = distinct !{!22, !7, !8, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !7, !8}
-!25 = !{i64 2154602663}
-!26 = !{i64 2154598784}
-!27 = !{i8 0, i8 2}
-!28 = !{}
-!29 = !{i64 2154604768}
-!30 = !{!"branch_weights", i32 1, i32 127}
-!31 = !{i64 2148394343, i64 2148394382, i64 2148394403, i64 2148394440, i64 2148394463, i64 2148394472, i64 2148394770}
-!32 = !{!"branch_weights", i32 127, i32 255873}
-!33 = distinct !{!33, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{i64 2154602663}
+!28 = !{i64 2154598784}
+!29 = !{i8 0, i8 2}
+!30 = !{}
+!31 = !{i64 2154604768}
+!32 = !{!"branch_weights", i32 1, i32 127}
+!33 = !{i64 2148394343, i64 2148394382, i64 2148394403, i64 2148394440, i64 2148394463, i64 2148394472, i64 2148394770}
+!34 = !{!"branch_weights", i32 127, i32 255873}
+!35 = distinct !{!35, !7, !8}

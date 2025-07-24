@@ -377,7 +377,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   %75 = load i16, ptr @gpus_len, align 2
   %76 = zext i16 %75 to i64
   %77 = icmp samesign ult i64 %indvars.iv.next.i42, %76
-  br i1 %77, label %.lr.ph.split.i, label %._crit_edge.i43, !llvm.loop !13
+  br i1 %77, label %.lr.ph.split.i, label %._crit_edge.i43, !llvm.loop !15
 
 ._crit_edge.i43:                                  ; preds = %.lr.ph.split.i, %69, %55
   %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -471,7 +471,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull align 8 dereferenceable(56) %125, i64 56, i1 false)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %_get_node_energy.exit, label %123, !llvm.loop !14
+  br i1 %exitcond65.not, label %_get_node_energy.exit, label %123, !llvm.loop !16
 
 126:                                              ; preds = %6
   %127 = tail call zeroext i1 @slurm_running_in_slurmd() #11
@@ -509,7 +509,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 8 dereferenceable(56) %139, i64 56, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_get_node_energy.exit, label %137, !llvm.loop !15
+  br i1 %exitcond.not, label %_get_node_energy.exit, label %137, !llvm.loop !17
 
 140:                                              ; preds = %6
   %141 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data, i32 noundef %0) #11
@@ -707,7 +707,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %96 = load i16, ptr %3, align 2
   %97 = zext i16 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %95, %.preheader
   %99 = load ptr, ptr %2, align 8
@@ -865,7 +865,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %27 = load i16, ptr @gpus_len, align 2
   %28 = zext i16 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.023.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %.lr.ph ]
@@ -887,7 +887,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %35 = load i16, ptr @gpus_len, align 2
   %36 = zext i16 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next52, %36
-  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !18
+  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !20
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge
   %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -942,7 +942,7 @@ _running_profile.exit:                            ; preds = %0, %10
   store i64 %57, ptr %58, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %59, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %59, label %54, !llvm.loop !21
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 5
@@ -971,7 +971,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %72 = load i16, ptr @gpus_len, align 2
   %73 = zext i16 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next58, %73
-  br i1 %74, label %.lr.ph45, label %.loopexit.loopexit, !llvm.loop !20
+  br i1 %74, label %.lr.ph45, label %.loopexit.loopexit, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %70
   %.pre60 = load i32, ptr @dataset_id, align 4
@@ -1329,7 +1329,7 @@ _update_energy.exit.i:                            ; preds = %82, %76
   %88 = load i16, ptr @gpus_len, align 2
   %89 = zext i16 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next.i, %89
-  br i1 %90, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !21
+  br i1 %90, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %87
   %91 = icmp ne i16 %88, 0
@@ -1371,7 +1371,7 @@ _update_energy.exit.i:                            ; preds = %82, %76
   %110 = load i16, ptr @gpus_len, align 2
   %111 = zext i16 %110 to i64
   %112 = icmp samesign ult i64 %indvars.iv.next24.i, %111
-  br i1 %112, label %.lr.ph19.i, label %_thread_update_node_energy.exit, !llvm.loop !22
+  br i1 %112, label %.lr.ph19.i, label %_thread_update_node_energy.exit, !llvm.loop !24
 
 _thread_update_node_energy.exit:                  ; preds = %109, %._crit_edge.i
   %.b30 = load i1, ptr @flag_energy_accounting_shutdown, align 1
@@ -1395,7 +1395,7 @@ _thread_update_node_energy.exit:                  ; preds = %109, %._crit_edge.i
 
 120:                                              ; preds = %117, %113, %113
   %.b2127.pr = load i1, ptr @flag_energy_accounting_shutdown, align 1
-  br i1 %.b2127.pr, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.b2127.pr, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_thread_update_node_energy.exit, %120, %.preheader
   %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
@@ -1575,8 +1575,8 @@ attributes #13 = { noreturn nounwind }
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = !{i8 0, i8 2}
 !12 = !{}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!13 = distinct !{!13, !9, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !9, !10}
@@ -1586,3 +1586,5 @@ attributes #13 = { noreturn nounwind }
 !21 = distinct !{!21, !9, !10}
 !22 = distinct !{!22, !9, !10}
 !23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

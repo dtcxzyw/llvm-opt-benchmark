@@ -1002,7 +1002,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %.2.i.i = trunc nuw i64 %.2.in.i.i to i32
   %indvars.iv.next229.i.i = add nuw nsw i64 %indvars.iv228.i.i, 1
   %exitcond233.not.i.i = icmp eq i64 %indvars.iv.next229.i.i, %wide.trip.count232.i.i
-  br i1 %exitcond233.not.i.i, label %.preheader171.i.i, label %451, !llvm.loop !85
+  br i1 %exitcond233.not.i.i, label %.preheader171.i.i, label %451, !llvm.loop !86
 
 .preheader.i165.i:                                ; preds = %..loopexit_crit_edge.us.i.i, %.preheader171.i.i
   %.not213.i.i = icmp eq i32 %.0.lcssa.i164.i, 0
@@ -1061,7 +1061,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 511:                                              ; preds = %509, %503
   %indvars.iv.next241.i.i = add nuw nsw i64 %indvars.iv240.i.i, 1
   %exitcond245.not.i.i = icmp eq i64 %indvars.iv.next241.i.i, %wide.trip.count244.i.i
-  br i1 %exitcond245.not.i.i, label %loop_unroll.exit, label %484, !llvm.loop !86
+  br i1 %exitcond245.not.i.i, label %loop_unroll.exit, label %484, !llvm.loop !87
 
 loop_unroll.exit:                                 ; preds = %511, %.preheader170.lr.ph.i.i, %.preheader.i165.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #4
@@ -1115,19 +1115,19 @@ define internal fastcc void @loop_undo(ptr noundef initializes((10, 12), (44, 48
   %.02829 = phi i64 [ 0, %4 ], [ %39, %38 ]
   %33 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %28, i64 0, i64 %.02829
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
-  %35 = load i16, ptr %34, align 2, !tbaa !87
+  %35 = load i16, ptr %34, align 2, !tbaa !88
   %36 = zext i16 %35 to i32
   %.not = icmp ugt i32 %1, %36
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %32
-  store i16 0, ptr %33, align 4, !tbaa !89
+  store i16 0, ptr %33, align 4, !tbaa !90
   br label %38
 
 38:                                               ; preds = %37, %32
   %39 = add nuw nsw i64 %.02829, 1
   %exitcond.not = icmp eq i64 %39, 16
-  br i1 %exitcond.not, label %.preheader, label %32, !llvm.loop !90
+  br i1 %exitcond.not, label %.preheader, label %32, !llvm.loop !91
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %40 ]
@@ -1140,7 +1140,7 @@ define internal fastcc void @loop_undo(ptr noundef initializes((10, 12), (44, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %46 = icmp ugt i32 %indvars, 32768
-  br i1 %46, label %40, label %._crit_edge, !llvm.loop !91
+  br i1 %46, label %40, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   ret void
@@ -1260,11 +1260,12 @@ attributes #5 = { noreturn nounwind }
 !81 = distinct !{!81, !72}
 !82 = !{!5, !12, i64 176}
 !83 = !{!5, !12, i64 172}
-!84 = distinct !{!84, !72}
-!85 = distinct !{!85, !72}
+!84 = distinct !{!84, !72, !85}
+!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !86 = distinct !{!86, !72}
-!87 = !{!88, !11, i64 2}
-!88 = !{!"BPropEntry", !11, i64 0, !11, i64 2, !12, i64 4}
-!89 = !{!88, !11, i64 0}
-!90 = distinct !{!90, !72}
+!87 = distinct !{!87, !72}
+!88 = !{!89, !11, i64 2}
+!89 = !{!"BPropEntry", !11, i64 0, !11, i64 2, !12, i64 4}
+!90 = !{!89, !11, i64 0}
 !91 = distinct !{!91, !72}
+!92 = distinct !{!92, !72}

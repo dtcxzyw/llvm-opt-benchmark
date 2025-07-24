@@ -1829,7 +1829,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %88 = select i1 %.not.us.us, ptr null, ptr %87
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge.us, label %63, !llvm.loop !112
+  br i1 %exitcond78.not, label %._crit_edge.us, label %63, !llvm.loop !115
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret void
@@ -2015,4 +2015,6 @@ attributes #10 = { cold }
 !110 = distinct !{!110, !58}
 !111 = !{!66, !10, i64 40}
 !112 = distinct !{!112, !58}
-!113 = distinct !{!113, !58}
+!113 = distinct !{!113, !58, !114}
+!114 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!115 = distinct !{!115, !58, !114}

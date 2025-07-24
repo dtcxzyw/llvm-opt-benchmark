@@ -1190,207 +1190,243 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rpc_cred(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
-  %5 = alloca %struct.nstime_t, align 8
-  %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2)
-  %7 = add i32 %2, 4
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7)
-  %9 = and i32 %8, 3
-  %.not.i = icmp eq i32 %9, 0
-  %10 = sub nuw nsw i32 4, %9
-  %11 = select i1 %.not.i, i32 0, i32 %10
-  %12 = add i32 %11, %8
-  %13 = icmp ult i32 %12, %8
-  br i1 %13, label %14, label %rpc_roundup.exit
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.nstime_t, align 8
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2)
+  %8 = add i32 %2, 4
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8)
+  %10 = and i32 %9, 3
+  %.not.i = icmp eq i32 %10, 0
+  %11 = sub nuw nsw i32 4, %10
+  %12 = select i1 %.not.i, i32 0, i32 %11
+  %13 = add i32 %12, %9
+  %14 = icmp ult i32 %13, %9
+  br i1 %14, label %15, label %rpc_roundup.exit
 
-14:                                               ; preds = %4
+15:                                               ; preds = %4
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 rpc_roundup.exit:                                 ; preds = %4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %dissect_rpc_authdes_cred.exit, label %15
+  br i1 %.not, label %dissect_rpc_authdes_cred.exit, label %16
 
-15:                                               ; preds = %rpc_roundup.exit
-  %16 = add i32 %12, 8
-  %17 = load i32, ptr @ett_rpc_cred, align 4
-  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %16, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.262)
-  %19 = load i32, ptr @hf_rpc_auth_flavor, align 4
-  %20 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef %6)
-  %21 = load i32, ptr @hf_rpc_auth_length, align 4
-  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %21, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %12)
-  switch i32 %6, label %135 [
-    i32 1, label %23
-    i32 3, label %25
-    i32 5, label %44
-    i32 6, label %59
-    i32 390039, label %79
-    i32 390040, label %95
-    i32 300001, label %125
+16:                                               ; preds = %rpc_roundup.exit
+  %17 = add i32 %13, 8
+  %18 = load i32, ptr @ett_rpc_cred, align 4
+  %19 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.262)
+  %20 = load i32, ptr @hf_rpc_auth_flavor, align 4
+  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef %7)
+  %22 = load i32, ptr @hf_rpc_auth_length, align 4
+  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %13)
+  switch i32 %7, label %146 [
+    i32 1, label %24
+    i32 3, label %26
+    i32 5, label %45
+    i32 6, label %60
+    i32 390039, label %80
+    i32 390040, label %96
+    i32 300001, label %136
   ]
 
-23:                                               ; preds = %15
-  %24 = add i32 %2, 8
-  tail call fastcc void @dissect_rpc_authunix_cred(ptr noundef %0, ptr noundef %18, i32 noundef %24)
+24:                                               ; preds = %16
+  %25 = add i32 %2, 8
+  tail call fastcc void @dissect_rpc_authunix_cred(ptr noundef %0, ptr noundef %19, i32 noundef %25)
   br label %dissect_rpc_authdes_cred.exit
 
-25:                                               ; preds = %15
-  %26 = add i32 %2, 8
-  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %26)
-  %28 = load i32, ptr @hf_rpc_authdes_namekind, align 4
-  %29 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef %27)
-  %30 = add i32 %2, 12
-  switch i32 %27, label %dissect_rpc_authdes_cred.exit [
-    i32 0, label %31
-    i32 1, label %40
+26:                                               ; preds = %16
+  %27 = add i32 %2, 8
+  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %27)
+  %29 = load i32, ptr @hf_rpc_authdes_namekind, align 4
+  %30 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef %28)
+  %31 = add i32 %2, 12
+  switch i32 %28, label %dissect_rpc_authdes_cred.exit [
+    i32 0, label %32
+    i32 1, label %41
   ]
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr @hf_rpc_authdes_netname, align 4
-  %33 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %30, ptr noundef %18, ptr noundef null, i32 noundef %32, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
-  %34 = load i32, ptr @hf_rpc_authdes_convkey, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 8, i32 noundef 0)
-  %36 = add i32 %33, 8
-  %37 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %36)
-  %38 = load i32, ptr @hf_rpc_authdes_window, align 4
-  %39 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %38, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef %37)
+32:                                               ; preds = %26
+  %33 = load i32, ptr @hf_rpc_authdes_netname, align 4
+  %34 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %31, ptr noundef %19, ptr noundef null, i32 noundef %33, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
+  %35 = load i32, ptr @hf_rpc_authdes_convkey, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 8, i32 noundef 0)
+  %37 = add i32 %34, 8
+  %38 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %37)
+  %39 = load i32, ptr @hf_rpc_authdes_window, align 4
+  %40 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %39, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef %38)
   br label %dissect_rpc_authdes_cred.exit
 
-40:                                               ; preds = %25
-  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30)
-  %42 = load i32, ptr @hf_rpc_authdes_nickname, align 4
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %42, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef %41)
+41:                                               ; preds = %26
+  %42 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %31)
+  %43 = load i32, ptr @hf_rpc_authdes_nickname, align 4
+  %44 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %43, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %42)
   br label %dissect_rpc_authdes_cred.exit
 
-44:                                               ; preds = %15
-  %45 = add i32 %2, 8
-  %46 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 8, i32 noundef 0)
-  %48 = add i32 %2, 16
-  %49 = load i32, ptr @hf_rpc_auth_pid, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0)
-  %51 = add i32 %2, 20
-  %52 = load i32, ptr @hf_rpc_auth_uid, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0)
-  %54 = add i32 %2, 24
-  %55 = load i32, ptr @hf_rpc_auth_gid, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0)
-  %57 = add i32 %2, 28
-  %58 = tail call fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef %18, i32 noundef %57)
+45:                                               ; preds = %16
+  %46 = add i32 %2, 8
+  %47 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 8, i32 noundef 0)
+  %49 = add i32 %2, 16
+  %50 = load i32, ptr @hf_rpc_auth_pid, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0)
+  %52 = add i32 %2, 20
+  %53 = load i32, ptr @hf_rpc_auth_uid, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef 0)
+  %55 = add i32 %2, 24
+  %56 = load i32, ptr @hf_rpc_auth_gid, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0)
+  %58 = add i32 %2, 28
+  %59 = tail call fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef %19, i32 noundef %58)
   br label %dissect_rpc_authdes_cred.exit
 
-59:                                               ; preds = %15
-  %60 = add i32 %2, 8
-  %61 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %60)
-  %62 = load i32, ptr @hf_rpc_authgss_v, align 4
-  %63 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %62, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef %61)
-  %64 = add i32 %2, 12
-  %65 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %64)
-  %66 = load i32, ptr @hf_rpc_authgss_proc, align 4
-  %67 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef %65)
-  %68 = add i32 %2, 16
-  %69 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %68)
-  %70 = load i32, ptr @hf_rpc_authgss_seq, align 4
-  %71 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %70, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %69)
-  %72 = add i32 %2, 20
-  %73 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %72)
-  %74 = load i32, ptr @hf_rpc_authgss_svc, align 4
-  %75 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %74, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef %73)
-  %76 = add i32 %2, 24
-  %77 = icmp eq i32 %65, 3
-  %78 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %18, ptr noundef %0, i32 noundef %76, ptr noundef readonly %3, i1 noundef zeroext false, i1 noundef zeroext %77)
+60:                                               ; preds = %16
+  %61 = add i32 %2, 8
+  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %61)
+  %63 = load i32, ptr @hf_rpc_authgss_v, align 4
+  %64 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %63, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %62)
+  %65 = add i32 %2, 12
+  %66 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %65)
+  %67 = load i32, ptr @hf_rpc_authgss_proc, align 4
+  %68 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %67, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %66)
+  %69 = add i32 %2, 16
+  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %69)
+  %71 = load i32, ptr @hf_rpc_authgss_seq, align 4
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %71, ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef %70)
+  %73 = add i32 %2, 20
+  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %73)
+  %75 = load i32, ptr @hf_rpc_authgss_svc, align 4
+  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %75, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef %74)
+  %77 = add i32 %2, 24
+  %78 = icmp eq i32 %66, 3
+  %79 = tail call fastcc range(i32 0, 268435453) i32 @dissect_rpc_authgss_context(ptr noundef %19, ptr noundef %0, i32 noundef %77, ptr noundef readonly %3, i1 noundef zeroext false, i1 noundef zeroext %78)
   br label %dissect_rpc_authdes_cred.exit
 
-79:                                               ; preds = %15
-  %80 = add i32 %2, 8
-  %81 = load i32, ptr @hf_rpc_auth_pid, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef 0)
-  %83 = add i32 %2, 12
-  %84 = load i32, ptr @hf_rpc_auth_uid, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef 0)
-  %86 = add i32 %2, 16
-  %87 = load i32, ptr @hf_rpc_auth_gid, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %87, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef 0)
-  %89 = add i32 %2, 20
-  %90 = tail call fastcc i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef %18, i32 noundef %89)
-  %91 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %90)
-  %92 = add i32 %90, 4
-  %93 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef %91, i32 noundef 0)
+80:                                               ; preds = %16
+  %81 = add i32 %2, 8
+  %82 = load i32, ptr @hf_rpc_auth_pid, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef 0)
+  %84 = add i32 %2, 12
+  %85 = load i32, ptr @hf_rpc_auth_uid, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef 0)
+  %87 = add i32 %2, 16
+  %88 = load i32, ptr @hf_rpc_auth_gid, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0)
+  %90 = add i32 %2, 20
+  %91 = tail call fastcc i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef %19, i32 noundef %90)
+  %92 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %91)
+  %93 = add i32 %91, 4
+  %94 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef %92, i32 noundef 0)
   br label %dissect_rpc_authdes_cred.exit
 
-95:                                               ; preds = %15
-  %96 = add i32 %2, 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
-  %97 = load i32, ptr @hf_rpc_auth_pid, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef 0)
-  %99 = add i32 %2, 12
-  %100 = load i32, ptr @hf_rpc_auth_uid, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef 0)
-  %102 = add i32 %2, 16
-  %103 = load i32, ptr @hf_rpc_auth_gid, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef 0)
-  %105 = add i32 %2, 20
-  %106 = load i32, ptr @hf_rpc_auth_flags, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef 0)
-  %108 = add i32 %2, 24
-  %109 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %108)
-  %110 = zext i32 %109 to i64
-  store i64 %110, ptr %5, align 8
-  %111 = add i32 %2, 28
-  %112 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %111)
-  %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %113, ptr %114, align 8
-  %.not.i51 = icmp eq ptr %18, null
+96:                                               ; preds = %16
+  %97 = add i32 %2, 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  %98 = load i32, ptr @hf_rpc_auth_pid, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef 0)
+  %100 = add i32 %2, 12
+  %101 = load i32, ptr @hf_rpc_auth_uid, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0)
+  %103 = add i32 %2, 16
+  %104 = load i32, ptr @hf_rpc_auth_gid, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef 0)
+  %106 = add i32 %2, 20
+  %107 = load i32, ptr @hf_rpc_auth_flags, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef 0)
+  %109 = add i32 %2, 24
+  %110 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %109)
+  %111 = zext i32 %110 to i64
+  store i64 %111, ptr %6, align 8
+  %112 = add i32 %2, 28
+  %113 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %112)
+  %114 = trunc i64 %113 to i32
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %114, ptr %115, align 8
+  %.not.i51 = icmp eq ptr %19, null
   br i1 %.not.i51, label %.split.i, label %.split34.i
 
-.split.i:                                         ; preds = %95
-  %115 = add i32 %2, 36
-  %116 = tail call fastcc i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef null, i32 noundef %115)
+.split.i:                                         ; preds = %96
+  %116 = add i32 %2, 36
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  store ptr null, ptr %5, align 8
+  %117 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %116)
+  %118 = shl i32 %117, 2
+  %119 = add i32 %118, 4
+  %120 = load i32, ptr @ett_rpc_gids, align 4
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef null, ptr noundef %0, i32 noundef %116, i32 noundef %119, i32 noundef %120, ptr noundef nonnull %5, ptr noundef nonnull @.str.263, i32 noundef %117)
+  %.fr.i.i = freeze ptr %121
+  %.039.i.i = add i32 %2, 40
+  %.not47.i.i = icmp eq i32 %117, 0
+  br i1 %.not47.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.split.i
+  %.not.i.i = icmp eq ptr %.fr.i.i, null
+  br label %.lr.ph.split.us.i.i
+
+.lr.ph.split.us.i.i:                              ; preds = %126, %.lr.ph.i.i
+  %.041.us.i.i = phi i32 [ %.0.us.i.i, %126 ], [ %.039.i.i, %.lr.ph.i.i ]
+  %.03640.us.i.i = phi i32 [ %127, %126 ], [ 0, %.lr.ph.i.i ]
+  %122 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.041.us.i.i)
+  br i1 %.not.i.i, label %126, label %123
+
+123:                                              ; preds = %.lr.ph.split.us.i.i
+  %124 = load i32, ptr @hf_rpc_auth_gid, align 4
+  %125 = call ptr @proto_tree_add_uint(ptr noundef nonnull %.fr.i.i, i32 noundef %124, ptr noundef %0, i32 noundef %.041.us.i.i, i32 noundef 4, i32 noundef %122)
+  br label %126
+
+126:                                              ; preds = %123, %.lr.ph.split.us.i.i
+  %127 = add nuw i32 %.03640.us.i.i, 1
+  %.0.us.i.i = add i32 %.041.us.i.i, 4
+  %exitcond.not.i.i = icmp eq i32 %127, %117
+  br i1 %exitcond.not.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !12
+
+dissect_rpc_authunix_groups.exit.i:               ; preds = %126, %.split.i
+  %.0.lcssa63.i.i = phi i32 [ %.039.i.i, %.split.i ], [ %.0.us.i.i, %126 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %dissect_rpc_authglusterfs_v3_cred.exit
 
-.split34.i:                                       ; preds = %95
-  %117 = load i32, ptr @hf_rpc_auth_ctime, align 4
-  %118 = call ptr @proto_tree_add_time(ptr noundef nonnull %18, i32 noundef %117, ptr noundef %0, i32 noundef %108, i32 noundef 12, ptr noundef nonnull %5)
-  %119 = add i32 %2, 36
-  %120 = call fastcc i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %119)
+.split34.i:                                       ; preds = %96
+  %128 = load i32, ptr @hf_rpc_auth_ctime, align 4
+  %129 = call ptr @proto_tree_add_time(ptr noundef nonnull %19, i32 noundef %128, ptr noundef %0, i32 noundef %109, i32 noundef 12, ptr noundef nonnull %6)
+  %130 = add i32 %2, 36
+  %131 = call fastcc i32 @dissect_rpc_authunix_groups(ptr noundef %0, ptr noundef nonnull %19, i32 noundef %130)
   br label %dissect_rpc_authglusterfs_v3_cred.exit
 
-dissect_rpc_authglusterfs_v3_cred.exit:           ; preds = %.split.i, %.split34.i
-  %phi.call.i = phi i32 [ %116, %.split.i ], [ %120, %.split34.i ]
-  %121 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %phi.call.i)
-  %122 = add i32 %phi.call.i, 4
-  %123 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
-  %124 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef %121, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+dissect_rpc_authglusterfs_v3_cred.exit:           ; preds = %dissect_rpc_authunix_groups.exit.i, %.split34.i
+  %phi.call.i = phi i32 [ %.0.lcssa63.i.i, %dissect_rpc_authunix_groups.exit.i ], [ %131, %.split34.i ]
+  %132 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %phi.call.i)
+  %133 = add i32 %phi.call.i, 4
+  %134 = load i32, ptr @hf_rpc_auth_lk_owner, align 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef %132, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   br label %dissect_rpc_authdes_cred.exit
 
-125:                                              ; preds = %15
-  %126 = add i32 %2, 8
-  %127 = load i32, ptr @hf_rpc_authgssapi_v, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %127, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef 0)
-  %129 = add i32 %2, 12
-  %130 = load i32, ptr @hf_rpc_authgssapi_msg, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %130, ptr noundef %0, i32 noundef %129, i32 noundef 4, i32 noundef 0)
-  %132 = add i32 %2, 16
-  %133 = load i32, ptr @hf_rpc_authgssapi_handle, align 4
-  %134 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %132, ptr noundef %18, ptr noundef null, i32 noundef %133, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
+136:                                              ; preds = %16
+  %137 = add i32 %2, 8
+  %138 = load i32, ptr @hf_rpc_authgssapi_v, align 4
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef 0)
+  %140 = add i32 %2, 12
+  %141 = load i32, ptr @hf_rpc_authgssapi_msg, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0)
+  %143 = add i32 %2, 16
+  %144 = load i32, ptr @hf_rpc_authgssapi_handle, align 4
+  %145 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %143, ptr noundef %19, ptr noundef null, i32 noundef %144, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   br label %dissect_rpc_authdes_cred.exit
 
-135:                                              ; preds = %15
-  %.not50 = icmp eq i32 %12, 0
-  br i1 %.not50, label %dissect_rpc_authdes_cred.exit, label %136
+146:                                              ; preds = %16
+  %.not50 = icmp eq i32 %13, 0
+  br i1 %.not50, label %dissect_rpc_authdes_cred.exit, label %147
 
-136:                                              ; preds = %135
-  %137 = load i32, ptr @hf_rpc_opaque_data, align 4
-  %138 = add i32 %2, 8
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %137, ptr noundef %0, i32 noundef %138, i32 noundef %12, i32 noundef 0)
+147:                                              ; preds = %146
+  %148 = load i32, ptr @hf_rpc_opaque_data, align 4
+  %149 = add i32 %2, 8
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %148, ptr noundef %0, i32 noundef %149, i32 noundef %13, i32 noundef 0)
   br label %dissect_rpc_authdes_cred.exit
 
-dissect_rpc_authdes_cred.exit:                    ; preds = %40, %31, %25, %23, %44, %59, %79, %dissect_rpc_authglusterfs_v3_cred.exit, %125, %136, %135, %rpc_roundup.exit
-  %140 = add i32 %2, 8
-  %141 = add i32 %140, %12
-  ret i32 %141
+dissect_rpc_authdes_cred.exit:                    ; preds = %41, %32, %26, %24, %45, %60, %80, %dissect_rpc_authglusterfs_v3_cred.exit, %136, %147, %146, %rpc_roundup.exit
+  %151 = add i32 %2, 8
+  %152 = add i32 %151, %13
+  ret i32 %152
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1928,7 +1964,7 @@ define internal range(i32 0, 2) i32 @rpc_prog_stat_packet(ptr noundef readonly c
   %29 = add nuw i32 %.06376, 1
   %30 = load i32, ptr %13, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !12
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %28, %.._crit_edge_crit_edge
   %32 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %19, %28 ]
@@ -2069,7 +2105,7 @@ define internal void @rpc_prog_stat_reset(ptr noundef %0) #0 {
   %12 = add nuw i32 %.026, 1
   %13 = load i32, ptr %2, align 4
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2407,7 +2443,7 @@ rpc_prog_hf.exit:                                 ; preds = %5, %14
   %36 = add nuw nsw i32 %.021, 1
   %37 = load i32, ptr %30, align 8
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rpc_prog_hf.exit
   ret void
@@ -2636,51 +2672,45 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
 .lr.ph.thread:                                    ; preds = %3
   %12 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.264)
-  %.03957 = add i32 %2, 4
-  %.not61 = icmp eq ptr %.fr, null
-  br i1 %.not61, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
+  %.03953 = add i32 %2, 4
+  %.not57 = icmp eq ptr %.fr, null
+  br i1 %.not57, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
 
 13:                                               ; preds = %3
   %.039 = add i32 %2, 4
-  %.not49 = icmp eq i32 %5, 0
-  br i1 %.not49, label %._crit_edge.thread, label %.lr.ph
+  %.not47 = icmp eq i32 %5, 0
+  br i1 %.not47, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %.not = icmp eq ptr %.fr, null
   br i1 %10, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %18
+  %.041.us = phi i32 [ %.0.us, %18 ], [ %.039, %.lr.ph ]
+  %.03640.us = phi i32 [ %19, %18 ], [ 0, %.lr.ph ]
+  %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.041.us)
+  br i1 %.not, label %18, label %15
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %.041.us.us = phi i32 [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.039, %.lr.ph.split.us ]
-  %.03640.us.us = phi i32 [ %15, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.041.us.us)
-  %15 = add nuw i32 %.03640.us.us, 1
-  %.0.us.us = add i32 %.041.us.us, 4
-  %exitcond54.not = icmp eq i32 %15, %5
-  br i1 %exitcond54.not, label %._crit_edge.thread, label %.lr.ph.split.us.split.us, !llvm.loop !15
+15:                                               ; preds = %.lr.ph.split.us
+  %16 = load i32, ptr @hf_rpc_auth_gid, align 4
+  %17 = call ptr @proto_tree_add_uint(ptr noundef nonnull %.fr, i32 noundef %16, ptr noundef %0, i32 noundef %.041.us, i32 noundef 4, i32 noundef %14)
+  br label %18
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %.041.us = phi i32 [ %.0.us, %.lr.ph.split.us.split ], [ %.039, %.lr.ph.split.us ]
-  %.03640.us = phi i32 [ %19, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.041.us)
-  %17 = load i32, ptr @hf_rpc_auth_gid, align 4
-  %18 = call ptr @proto_tree_add_uint(ptr noundef nonnull %.fr, i32 noundef %17, ptr noundef %0, i32 noundef %.041.us, i32 noundef 4, i32 noundef %16)
+18:                                               ; preds = %15, %.lr.ph.split.us
   %19 = add nuw i32 %.03640.us, 1
   %.0.us = add i32 %.041.us, 4
   %exitcond.not = icmp eq i32 %19, %5
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split.us.split, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.thread, %.lr.ph.split
-  %.041.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03957, %.lr.ph.thread ]
+  %.041.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03953, %.lr.ph.thread ]
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.thread, %.lr.ph.split
-  %.041.us42.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03957, %.lr.ph.thread ]
+  %.041.us42.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03953, %.lr.ph.thread ]
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %31
@@ -2716,8 +2746,8 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
 31:                                               ; preds = %29, %24, %22
   %32 = add nuw i32 %.03640.us43, 1
   %.0.us44 = add i32 %.041.us42, 4
-  %exitcond56.not = icmp eq i32 %32, %5
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !15
+  %exitcond52.not = icmp eq i32 %32, %5
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %46
   %.041 = phi i32 [ %.0, %46 ], [ %.041.ph, %.lr.ph.split.split.preheader ]
@@ -2754,11 +2784,11 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
 46:                                               ; preds = %42, %44, %40
   %47 = add nuw i32 %.03640, 1
   %.0 = add i32 %.041, 4
-  %exitcond55.not = icmp eq i32 %47, %5
-  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !15
+  %exitcond51.not = icmp eq i32 %47, %5
+  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %46, %31
-  %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ]
+._crit_edge:                                      ; preds = %18, %46, %31
+  %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ], [ %.0.us, %18 ]
   br i1 %or.cond, label %48, label %._crit_edge.thread
 
 48:                                               ; preds = %._crit_edge
@@ -2766,10 +2796,10 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.268)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %13, %48, %._crit_edge
-  %.0.lcssa67 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
+._crit_edge.thread:                               ; preds = %13, %48, %._crit_edge
+  %.0.lcssa63 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  ret i32 %.0.lcssa67
+  ret i32 %.0.lcssa63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4670,7 +4700,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   %34 = getelementptr i8, ptr %.03039.i.i, i64 -1
   %35 = add nsw i32 %.040.i.i, -1
   %36 = icmp samesign ugt i32 %.040.i.i, 1
-  br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !16
+  br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %33
   %37 = icmp eq ptr %scevgep45.i.i, null
@@ -4730,7 +4760,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %77, %76 ], [ %32, %.loopexit.thread.i.i ]
   %78 = sub i32 %22, %.029.be.i.i
   %79 = icmp sgt i32 %78, 16
-  br i1 %79, label %28, label %.thread, !llvm.loop !17
+  br i1 %79, label %28, label %.thread, !llvm.loop !20
 
 find_rpc_over_tcp_reply_start.exit.i:             ; preds = %59
   %80 = add i32 %.03950, -12
@@ -4785,7 +4815,7 @@ find_and_dissect_rpc_fragment.exit:               ; preds = %86, %12
   %106 = add i32 %.0, %.03950
   %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %106)
   %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %.thread, label %12, !llvm.loop !18
+  br i1 %.not, label %.thread, label %12, !llvm.loop !21
 
 .thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %91, %105, %.preheader.i.i, %24, %19, %83, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
   %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %91 ], [ true, %105 ], [ %.03851, %.preheader.i.i ], [ %.03851, %24 ], [ %.03851, %19 ], [ %.03851, %83 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
@@ -5405,10 +5435,13 @@ attributes #22 = { nounwind returns_twice }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
 !11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!12 = distinct !{!12, !9, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!17 = distinct !{!17, !9, !13}
 !18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

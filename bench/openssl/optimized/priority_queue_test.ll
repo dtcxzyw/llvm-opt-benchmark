@@ -357,7 +357,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   store i64 %20, ptr %21, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %15
   %22 = shl nsw i64 %13, 3
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 38:                                               ; preds = %.lr.ph85
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !20
+  br i1 %exitcond107.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !22
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %38
   %indvars.iv103 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next104, %38 ]
@@ -469,7 +469,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 
 66:                                               ; preds = %65, %.lr.ph87
   %67 = icmp samesign ugt i32 %.in, 1
-  br i1 %67, label %.lr.ph87, label %._crit_edge88, !llvm.loop !21
+  br i1 %67, label %.lr.ph87, label %._crit_edge88, !llvm.loop !23
 
 ._crit_edge88:                                    ; preds = %66, %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @test_size_t_priority_queue_int.sorted, ptr nonnull align 16 @test_size_t_priority_queue_int.values, i64 %22, i1 false)
@@ -485,7 +485,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %71 = tail call ptr @ossl_pqueue_peek(ptr noundef %26) #9
   %.not73 = icmp eq ptr %71, null
-  br i1 %.not73, label %._crit_edge93, label %.lr.ph92, !llvm.loop !22
+  br i1 %.not73, label %._crit_edge93, label %.lr.ph92, !llvm.loop !24
 
 .lr.ph92:                                         ; preds = %68, %70
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %70 ], [ 0, %68 ]
@@ -669,7 +669,9 @@ attributes #9 = { nounwind }
 !16 = !{!"p1 omnipotent char", !17, i64 0}
 !17 = !{!"any pointer", !6, i64 0}
 !18 = !{!10, !10, i64 0}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
+!19 = distinct !{!19, !12, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = distinct !{!21, !12}
 !22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}

@@ -1745,7 +1745,7 @@ expert_dlt_buffer_too_short.exit58.i.i.i:         ; preds = %609, %608
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %619, i32 noundef 25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, i32 noundef %622)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %616
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %612
   %623 = icmp ne ptr %614, null
@@ -1792,7 +1792,7 @@ dissect_dlt_verbose_parameter.exit.i:             ; preds = %dissect_dlt_verbose
   %637 = icmp ugt i32 %.0.i.i, 4
   %638 = icmp samesign ult i32 %636, %306
   %639 = select i1 %637, i1 %638, i1 false
-  br i1 %639, label %308, label %dissect_dlt_verbose_payload.exit, !llvm.loop !12
+  br i1 %639, label %308, label %dissect_dlt_verbose_payload.exit, !llvm.loop !13
 
 dissect_dlt_verbose_payload.exit:                 ; preds = %dissect_dlt_verbose_parameter.exit.i, %305
   %.013.lcssa.i = phi i32 [ %.3, %305 ], [ %635, %dissect_dlt_verbose_parameter.exit.i ]
@@ -1961,6 +1961,7 @@ attributes #7 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

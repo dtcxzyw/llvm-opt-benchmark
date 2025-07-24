@@ -320,60 +320,60 @@ define dso_local i32 @thinplate_match(ptr noundef readnone captures(none) %0, i3
   br i1 %.not421, label %.lr.ph523, label %._crit_edge557
 
 .lr.ph523:                                        ; preds = %142
-  br i1 %109, label %.lr.ph523.split.us.split.us, label %.lr.ph523.split
+  br i1 %109, label %.lr.ph523.split.us, label %.lr.ph523.split
 
-.lr.ph523.split.us.split.us:                      ; preds = %.lr.ph523, %148
+.lr.ph523.split.us:                               ; preds = %.lr.ph523, %148
   %indvars.iv655 = phi i64 [ %indvars.iv.next656, %148 ], [ 0, %.lr.ph523 ]
-  %.0386519.us.us = phi i32 [ %.1387.us.us, %148 ], [ 0, %.lr.ph523 ]
-  %.0388518.us.us = phi double [ %.1389.us.us, %148 ], [ 0.000000e+00, %.lr.ph523 ]
+  %.0386519.us = phi i32 [ %.1387.us, %148 ], [ 0, %.lr.ph523 ]
+  %.0388518.us = phi double [ %.1389.us, %148 ], [ 0.000000e+00, %.lr.ph523 ]
   %145 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv655
   %146 = load double, ptr %145, align 8, !tbaa !7
   %147 = fcmp reassoc nsz arcp contract afn ogt double %146, 0.000000e+00
-  br i1 %147, label %.preheader447.us.us.us.preheader, label %148
+  br i1 %147, label %.preheader447.us.us.preheader, label %148
 
-.preheader447.us.us.us.preheader:                 ; preds = %.lr.ph523.split.us.split.us
+.preheader447.us.us.preheader:                    ; preds = %.lr.ph523.split.us
   %invariant.gep753 = getelementptr double, ptr %19, i64 %indvars.iv655
-  br label %.preheader447.us.us.us
+  br label %.preheader447.us.us
 
-148:                                              ; preds = %._crit_edge516.split.us.us.us, %.lr.ph523.split.us.split.us
-  %.0383.us.us = phi nsz double [ %162, %._crit_edge516.split.us.us.us ], [ 0.000000e+00, %.lr.ph523.split.us.split.us ]
-  %149 = fcmp reassoc nsz arcp contract afn ogt double %.0383.us.us, %.0388518.us.us
-  %.1389.us.us = select nsz i1 %149, double %.0383.us.us, double %.0388518.us.us
+148:                                              ; preds = %._crit_edge516.split.us.us, %.lr.ph523.split.us
+  %.0383.us = phi nsz double [ %162, %._crit_edge516.split.us.us ], [ 0.000000e+00, %.lr.ph523.split.us ]
+  %149 = fcmp reassoc nsz arcp contract afn ogt double %.0383.us, %.0388518.us
+  %.1389.us = select nsz i1 %149, double %.0383.us, double %.0388518.us
   %150 = trunc nuw nsw i64 %indvars.iv655 to i32
-  %.1387.us.us = select i1 %149, i32 %150, i32 %.0386519.us.us
+  %.1387.us = select i1 %149, i32 %150, i32 %.0386519.us
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count690
-  br i1 %exitcond659.not, label %._crit_edge524, label %.lr.ph523.split.us.split.us
+  br i1 %exitcond659.not, label %._crit_edge524, label %.lr.ph523.split.us, !llvm.loop !14
 
-.preheader447.us.us.us:                           ; preds = %.preheader447.us.us.us.preheader, %._crit_edge513.us.us.us
-  %indvars.iv650 = phi i64 [ 0, %.preheader447.us.us.us.preheader ], [ %indvars.iv.next651, %._crit_edge513.us.us.us ]
-  %.1384514.us.us.us = phi double [ 0.000000e+00, %.preheader447.us.us.us.preheader ], [ %161, %._crit_edge513.us.us.us ]
+.preheader447.us.us:                              ; preds = %.preheader447.us.us.preheader, %._crit_edge513.us.us
+  %indvars.iv650 = phi i64 [ 0, %.preheader447.us.us.preheader ], [ %indvars.iv.next651, %._crit_edge513.us.us ]
+  %.1384514.us.us = phi double [ 0.000000e+00, %.preheader447.us.us.preheader ], [ %161, %._crit_edge513.us.us ]
   %151 = mul nuw nsw i64 %indvars.iv650, %103
   %152 = getelementptr inbounds nuw double, ptr %107, i64 %151
   br label %153
 
-153:                                              ; preds = %153, %.preheader447.us.us.us
-  %indvars.iv644 = phi i64 [ %indvars.iv.next645, %153 ], [ 0, %.preheader447.us.us.us ]
-  %.0381510.us.us.us = phi double [ %159, %153 ], [ 0.000000e+00, %.preheader447.us.us.us ]
+153:                                              ; preds = %153, %.preheader447.us.us
+  %indvars.iv644 = phi i64 [ %indvars.iv.next645, %153 ], [ 0, %.preheader447.us.us ]
+  %.0381510.us.us = phi double [ %159, %153 ], [ 0.000000e+00, %.preheader447.us.us ]
   %154 = mul nsw i64 %indvars.iv644, %16
   %gep754 = getelementptr double, ptr %invariant.gep753, i64 %154
   %155 = load double, ptr %gep754, align 8, !tbaa !7
   %156 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv644
   %157 = load double, ptr %156, align 8, !tbaa !7
   %158 = fmul reassoc nsz arcp contract afn double %157, %155
-  %159 = fadd reassoc nsz arcp contract afn double %158, %.0381510.us.us.us
+  %159 = fadd reassoc nsz arcp contract afn double %158, %.0381510.us.us
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
   %exitcond649.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count690
-  br i1 %exitcond649.not, label %._crit_edge513.us.us.us, label %153
+  br i1 %exitcond649.not, label %._crit_edge513.us.us, label %153
 
-._crit_edge513.us.us.us:                          ; preds = %153
+._crit_edge513.us.us:                             ; preds = %153
   %160 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %159)
-  %161 = fadd reassoc nsz arcp contract afn double %160, %.1384514.us.us.us
+  %161 = fadd reassoc nsz arcp contract afn double %160, %.1384514.us.us
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
   %exitcond654.not = icmp eq i64 %indvars.iv.next651, %wide.trip.count653
-  br i1 %exitcond654.not, label %._crit_edge516.split.us.us.us, label %.preheader447.us.us.us
+  br i1 %exitcond654.not, label %._crit_edge516.split.us.us, label %.preheader447.us.us, !llvm.loop !16
 
-._crit_edge516.split.us.us.us:                    ; preds = %._crit_edge513.us.us.us
+._crit_edge516.split.us.us:                       ; preds = %._crit_edge513.us.us
   %162 = fmul reassoc nsz arcp contract afn double %161, %146
   br label %148
 
@@ -395,9 +395,9 @@ define dso_local i32 @thinplate_match(ptr noundef readnone captures(none) %0, i3
   br i1 %exitcond643.not, label %._crit_edge524, label %.lr.ph523.split
 
 ._crit_edge524:                                   ; preds = %.lr.ph523.split, %148
-  %.0386.lcssa = phi i32 [ %.1387.us.us, %148 ], [ %.1387, %.lr.ph523.split ]
+  %.0386.lcssa = phi i32 [ %.1387.us, %148 ], [ %.1387, %.lr.ph523.split ]
   %169 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv687
-  store i32 %.0386.lcssa, ptr %169, align 4, !tbaa !14
+  store i32 %.0386.lcssa, ptr %169, align 4, !tbaa !17
   %170 = icmp slt i32 %.0386.lcssa, %2
   %171 = zext i1 %170 to i32
   %spec.select = add nuw nsw i32 %.0394553, %171
@@ -434,7 +434,7 @@ define dso_local i32 @thinplate_match(ptr noundef readnone captures(none) %0, i3
 .preheader.us:                                    ; preds = %.preheader448, %._crit_edge533.us
   %indvars.iv665 = phi i64 [ %indvars.iv.next666, %._crit_edge533.us ], [ 0, %.preheader448 ]
   %185 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv665
-  %186 = load i32, ptr %185, align 4, !tbaa !14
+  %186 = load i32, ptr %185, align 4, !tbaa !17
   %187 = sext i32 %186 to i64
   %invariant.gep755 = getelementptr double, ptr %19, i64 %187
   %invariant.gep757 = getelementptr double, ptr %128, i64 %indvars.iv665
@@ -455,7 +455,7 @@ define dso_local i32 @thinplate_match(ptr noundef readnone captures(none) %0, i3
 ._crit_edge533.us:                                ; preds = %188
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %.not422.us.not = icmp slt i64 %indvars.iv665, %183
-  br i1 %.not422.us.not, label %.preheader.us, label %._crit_edge536
+  br i1 %.not422.us.not, label %.preheader.us, label %._crit_edge536, !llvm.loop !19
 
 ._crit_edge536:                                   ; preds = %._crit_edge533.us, %.preheader448
   %192 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv682
@@ -1439,7 +1439,7 @@ dsvd.exit.i:                                      ; preds = %.critedge.i.i, %576
   store double %588, ptr %589, align 8, !tbaa !7
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond129.not.i = icmp eq i64 %indvars.iv.next125.i, %wide.trip.count991.i.i
-  br i1 %exitcond129.not.i, label %.lr.ph92.i, label %.lr.ph84.us.i
+  br i1 %exitcond129.not.i, label %.lr.ph92.i, label %.lr.ph84.us.i, !llvm.loop !20
 
 .lr.ph92.i:                                       ; preds = %._crit_edge.us.i, %.lr.ph92.i
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.lr.ph92.i ], [ 0, %._crit_edge.us.i ]
@@ -1517,7 +1517,7 @@ dsvd.exit.i:                                      ; preds = %.critedge.i.i, %576
   %indvars.iv673 = phi i64 [ 0, %.lr.ph543 ], [ %indvars.iv.next674, %614 ]
   %615 = phi double [ %608, %.lr.ph543 ], [ %624, %614 ]
   %616 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv673
-  %617 = load i32, ptr %616, align 4, !tbaa !14
+  %617 = load i32, ptr %616, align 4, !tbaa !17
   %618 = sext i32 %617 to i64
   %619 = getelementptr double, ptr %612, i64 %618
   %620 = load double, ptr %619, align 8, !tbaa !7
@@ -1572,7 +1572,7 @@ compute_error.exit:                               ; preds = %.lr.ph.i428
   br label %646
 
 646:                                              ; preds = %645, %644
-  %647 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %647 = load ptr, ptr @stderr, align 8, !tbaa !21
   %648 = add nsw i32 %174, 1
   %649 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %647, ptr noundef nonnull @.str.1, i32 noundef %648, i32 noundef %129, double noundef %638, double noundef %640) #15
   br label %650
@@ -1584,7 +1584,7 @@ compute_error.exit:                               ; preds = %.lr.ph.i428
   br i1 %or.cond, label %655, label %652
 
 652:                                              ; preds = %650
-  %653 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %653 = load ptr, ptr @stderr, align 8, !tbaa !21
   %654 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 17, i64 1, ptr %653) #16
   br label %655
 
@@ -1697,7 +1697,12 @@ attributes #16 = { cold }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 double", !13, i64 0}
 !13 = !{!"any pointer", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !15}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !9, i64 0}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}

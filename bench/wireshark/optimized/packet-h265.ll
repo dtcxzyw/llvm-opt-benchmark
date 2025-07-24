@@ -2322,7 +2322,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %341, %347
   %storemerge.us.reass.i = add i32 %storemerge4344.us.i, %465
   %472 = add i32 %.045.us.i, 1
   %.not42.us.i = icmp ugt i32 %472, %463
-  br i1 %.not42.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !20
+  br i1 %.not42.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !22
 
 .preheader.split.i:                               ; preds = %.preheader.i237, %.preheader.split.i
   %.045.i = phi i32 [ %475, %.preheader.split.i ], [ 0, %.preheader.i237 ]
@@ -2332,13 +2332,13 @@ dissect_h265_vui_parameters.exit:                 ; preds = %341, %347
   %storemerge.reass.i = add i32 %storemerge4344.i, %464
   %475 = add i32 %.045.i, 1
   %.not42.i = icmp ugt i32 %475, %463
-  br i1 %.not42.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !20
+  br i1 %.not42.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !23
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
   %.us-phi.i = phi i32 [ %storemerge.us.reass.i, %.preheader.split.us.i ], [ %storemerge.reass.i, %.preheader.split.i ]
   %476 = add nuw nsw i32 %.04050.i, 1
   %exitcond.not = icmp eq i32 %476, 3
-  br i1 %exitcond.not, label %dissect_h265_sps_scc_extension.exit, label %.preheader.i237, !llvm.loop !21
+  br i1 %exitcond.not, label %dissect_h265_sps_scc_extension.exit, label %.preheader.i237, !llvm.loop !24
 
 dissect_h265_sps_scc_extension.exit:              ; preds = %.split.us.i, %.preheader.split.us.i.us, %440, %451
   %477 = phi i32 [ %460, %451 ], [ %450, %440 ], [ %storemerge.us.reass.i.us, %.preheader.split.us.i.us ], [ %.us-phi.i, %.split.us.i ]
@@ -2386,7 +2386,7 @@ more_rbsp_data.exit.thread:                       ; preds = %.preheader, %more_r
   %495 = load i32, ptr @hf_h265_sps_extension_data_flag, align 4
   %496 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %495, ptr noundef %1, i32 noundef %485, i32 noundef 1, i32 noundef 0)
   %497 = add i32 %485, 1
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader, !llvm.loop !25
 
 .thread273:                                       ; preds = %more_rbsp_data.exit, %368, %dissect_h265_sps_scc_extension.exit, %484
   %498 = phi i32 [ %373, %368 ], [ %483, %dissect_h265_sps_scc_extension.exit ], [ %.promoted292305, %484 ], [ %485, %more_rbsp_data.exit ]
@@ -2529,7 +2529,7 @@ define internal fastcc void @dissect_h265_pic_parameter_set_rbsp(ptr noundef %0,
   %89 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %88, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 0)
   %90 = add nuw i32 %.0164224, 1
   %exitcond.not = icmp eq i32 %90, %80
-  br i1 %exitcond.not, label %.preheader220, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader220, label %.lr.ph, !llvm.loop !26
 
 .lr.ph226:                                        ; preds = %.preheader220, %.lr.ph226
   %.1225 = phi i32 [ %93, %.lr.ph226 ], [ 0, %.preheader220 ]
@@ -2537,7 +2537,7 @@ define internal fastcc void @dissect_h265_pic_parameter_set_rbsp(ptr noundef %0,
   %92 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %91, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 0)
   %93 = add nuw i32 %.1225, 1
   %exitcond232.not = icmp eq i32 %93, %82
-  br i1 %exitcond232.not, label %.loopexit, label %.lr.ph226, !llvm.loop !24
+  br i1 %exitcond232.not, label %.loopexit, label %.lr.ph226, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph226, %.preheader220, %78
   %94 = load i32, ptr @hf_h265_loop_filter_across_tiles_enabled_flag, align 4
@@ -2680,7 +2680,7 @@ define internal fastcc void @dissect_h265_pic_parameter_set_rbsp(ptr noundef %0,
   %189 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %188, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %5, i32 noundef 2)
   %190 = add i32 %.03841.i, 1
   %.not40.i = icmp ugt i32 %190, %184
-  br i1 %.not40.i, label %dissect_h265_pps_range_extension.exit, label %185, !llvm.loop !25
+  br i1 %.not40.i, label %dissect_h265_pps_range_extension.exit, label %185, !llvm.loop !28
 
 dissect_h265_pps_range_extension.exit:            ; preds = %185, %171
   %191 = load i32, ptr @hf_h265_log2_sao_offset_scale_luma, align 4
@@ -2811,7 +2811,7 @@ dissect_h265_pps_range_extension.exit:            ; preds = %185, %171
   %264 = ashr i32 %.2.us.reass.i, 3
   %265 = add nuw i32 %.07479.us.i, 1
   %exitcond88.not.i = icmp eq i32 %265, %243
-  br i1 %exitcond88.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !26
+  br i1 %exitcond88.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !29
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %.07479.i = phi i32 [ %271, %.preheader.split.i ], [ 0, %.preheader.i ]
@@ -2823,13 +2823,13 @@ dissect_h265_pps_range_extension.exit:            ; preds = %185, %171
   %270 = ashr i32 %.2.reass.i, 3
   %271 = add nuw i32 %.07479.i, 1
   %exitcond.not.i = icmp eq i32 %271, %243
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !30
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
   %.us-phi.i = phi i32 [ %264, %.preheader.split.us.i ], [ %270, %.preheader.split.i ]
   %272 = add nuw nsw i32 %.07384.i, 1
   %exitcond89.not.i = icmp eq i32 %272, %257
-  br i1 %exitcond89.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond89.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %.split.us.i, %240
   %273 = phi i32 [ %.pre.i, %240 ], [ %.us-phi.i, %.split.us.i ]
@@ -2876,7 +2876,7 @@ more_rbsp_data.exit.thread:                       ; preds = %.preheader, %more_r
   %286 = load i32, ptr @hf_h265_pps_extension_data_flag, align 4
   %287 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %286, ptr noundef %1, i32 noundef %276, i32 noundef 1, i32 noundef 0)
   %288 = add i32 %276, 1
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader, !llvm.loop !32
 
 .thread209:                                       ; preds = %more_rbsp_data.exit, %128, %dissect_h265_pps_scc_extension.exit, %275
   %289 = phi i32 [ %142, %128 ], [ %.1.i, %dissect_h265_pps_scc_extension.exit ], [ %.promoted234, %275 ], [ %276, %more_rbsp_data.exit ]
@@ -3112,7 +3112,7 @@ more_rbsp_data.exit.i:                            ; preds = %more_rbsp_data.exit
   %84 = add i32 %.0421.i.i, 255
   %85 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %49, i32 noundef %83, i32 noundef 8)
   %86 = icmp eq i8 %85, -1
-  br i1 %86, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !29
+  br i1 %86, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !33
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %more_rbsp_data.exit.i
   %.042.lcssa.i.i = phi i32 [ 0, %more_rbsp_data.exit.i ], [ %84, %.lr.ph.i.i ]
@@ -3137,7 +3137,7 @@ more_rbsp_data.exit.i:                            ; preds = %more_rbsp_data.exit
   %99 = add i32 %.0414.i.i, 255
   %100 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %49, i32 noundef %98, i32 noundef 8)
   %101 = icmp eq i8 %100, -1
-  br i1 %101, label %.lr.ph7.i.i, label %dissect_h265_sei_message.exit.i, !llvm.loop !30
+  br i1 %101, label %.lr.ph7.i.i, label %dissect_h265_sei_message.exit.i, !llvm.loop !34
 
 dissect_h265_sei_message.exit.i:                  ; preds = %.lr.ph7.i.i, %._crit_edge.i.i
   %.041.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %99, %.lr.ph7.i.i ]
@@ -3175,7 +3175,7 @@ dissect_h265_sei_message.exit.i:                  ; preds = %.lr.ph7.i.i, %._cri
   br i1 %.not.i, label %123, label %more_rbsp_data.exit.i.backedge
 
 more_rbsp_data.exit.i.backedge:                   ; preds = %122, %dissect_h265_sei_message.exit.i
-  br label %more_rbsp_data.exit.i, !llvm.loop !31
+  br label %more_rbsp_data.exit.i, !llvm.loop !35
 
 123:                                              ; preds = %122
   %124 = load i32, ptr @hf_h265_rbsp_stop_bit, align 4
@@ -3265,7 +3265,7 @@ define internal i32 @dissect_h265_bytestream(ptr noundef %0, ptr noundef %1, ptr
 29:                                               ; preds = %.lr.ph54
   %30 = tail call i32 @tvb_find_uint16(ptr noundef %0, i32 noundef %25, i32 noundef -1, i16 noundef zeroext 0)
   %.not45 = icmp eq i32 %30, -1
-  br i1 %.not45, label %.loopexit, label %.lr.ph54, !llvm.loop !32
+  br i1 %.not45, label %.loopexit, label %.lr.ph54, !llvm.loop !36
 
 .loopexit:                                        ; preds = %29, %.lr.ph57, %27
   %.0 = phi i32 [ %28, %27 ], [ %23, %.lr.ph57 ], [ %23, %29 ]
@@ -3274,7 +3274,7 @@ define internal i32 @dissect_h265_bytestream(ptr noundef %0, ptr noundef %1, ptr
   %33 = add i32 %.0, %22
   %34 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %33)
   %.not42 = icmp eq i32 %34, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph57, !llvm.loop !33
+  br i1 %.not42, label %._crit_edge, label %.lr.ph57, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %15
   %35 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -3376,43 +3376,43 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %35 = add i32 %21, 36
   %36 = load i32, ptr %5, align 4
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %38 = load i8, ptr %37, align 4, !range !34
+  %38 = load i8, ptr %37, align 4, !range !38
   %39 = trunc nuw i8 %38 to i1
   %40 = and i32 %36, -2
   %41 = icmp eq i32 %40, 4
   %or.cond4 = select i1 %41, i1 true, i1 %39
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %43 = load i8, ptr %42, align 1, !range !34
+  %43 = load i8, ptr %42, align 1, !range !38
   %44 = trunc nuw i8 %43 to i1
   %or.cond7 = select i1 %or.cond4, i1 true, i1 %44
   %45 = icmp eq i32 %36, 6
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %45
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %47 = load i8, ptr %46, align 2, !range !34
+  %47 = load i8, ptr %46, align 2, !range !38
   %48 = trunc nuw i8 %47 to i1
   %or.cond12 = select i1 %or.cond9, i1 true, i1 %48
   %49 = icmp eq i32 %36, 7
   %or.cond14 = select i1 %or.cond12, i1 true, i1 %49
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  %51 = load i8, ptr %50, align 1, !range !34
+  %51 = load i8, ptr %50, align 1, !range !38
   %52 = trunc nuw i8 %51 to i1
   %or.cond17 = select i1 %or.cond14, i1 true, i1 %52
   %53 = icmp eq i32 %36, 8
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %53
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %55 = load i8, ptr %54, align 8, !range !34
+  %55 = load i8, ptr %54, align 8, !range !38
   %56 = trunc nuw i8 %55 to i1
   %or.cond22 = select i1 %or.cond19, i1 true, i1 %56
   %57 = icmp eq i32 %36, 9
   %or.cond24 = select i1 %or.cond22, i1 true, i1 %57
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %59 = load i8, ptr %58, align 1, !range !34
+  %59 = load i8, ptr %58, align 1, !range !38
   %60 = trunc nuw i8 %59 to i1
   %or.cond27 = select i1 %or.cond24, i1 true, i1 %60
   %61 = icmp eq i32 %36, 10
   %or.cond29 = select i1 %or.cond27, i1 true, i1 %61
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %63 = load i8, ptr %62, align 2, !range !34
+  %63 = load i8, ptr %62, align 2, !range !38
   %64 = trunc nuw i8 %63 to i1
   %or.cond32 = select i1 %or.cond29, i1 true, i1 %64
   br i1 %or.cond32, label %72, label %113
@@ -3428,7 +3428,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   store i8 %71, ptr %70, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %22, label %65, !llvm.loop !35
+  br i1 %exitcond.not, label %22, label %65, !llvm.loop !39
 
 72:                                               ; preds = %22
   %73 = load i32, ptr @hf_h265_general_max_12bit_constraint_flag, align 4
@@ -3485,7 +3485,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 113:                                              ; preds = %22
   %114 = icmp eq i32 %36, 2
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %116 = load i8, ptr %115, align 2, !range !34
+  %116 = load i8, ptr %115, align 2, !range !38
   %117 = trunc nuw i8 %116 to i1
   %or.cond48 = select i1 %114, i1 true, i1 %117
   br i1 %or.cond48, label %118, label %127
@@ -3514,15 +3514,15 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %133 = icmp eq i32 %131, 9
   %or.cond52 = or i1 %133, %or.cond50
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %135 = load i8, ptr %134, align 1, !range !34
+  %135 = load i8, ptr %134, align 1, !range !38
   %136 = trunc nuw i8 %135 to i1
   %or.cond55 = select i1 %or.cond52, i1 true, i1 %136
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %138 = load i8, ptr %137, align 2, !range !34
+  %138 = load i8, ptr %137, align 2, !range !38
   %139 = trunc nuw i8 %138 to i1
   %or.cond58 = select i1 %or.cond55, i1 true, i1 %139
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %141 = load i8, ptr %140, align 1, !range !34
+  %141 = load i8, ptr %140, align 1, !range !38
   %142 = trunc nuw i8 %141 to i1
   %or.cond61 = select i1 %or.cond58, i1 true, i1 %142
   %or.cond64 = select i1 %or.cond61, i1 true, i1 %39
@@ -3536,7 +3536,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %146 = load i32, ptr @hf_h265_general_level_idc, align 4
   %147 = ashr exact i32 %145, 3
   %148 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %146, ptr noundef %1, i32 noundef %147, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %149 = load i8, ptr %7, align 1, !range !34, !noundef !36
+  %149 = load i8, ptr %7, align 1, !range !38, !noundef !40
   %150 = trunc nuw i8 %149 to i1
   %h265_level_main_tier_bitrate_values.sink = select i1 %150, ptr @h265_level_high_tier_bitrate_values, ptr @h265_level_main_tier_bitrate_values
   %151 = load i32, ptr %6, align 4
@@ -3573,7 +3573,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %166 = add i32 %.13, 2
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count
-  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 .lr.ph7:                                          ; preds = %._crit_edge, %.lr.ph7
   %.03556 = phi i32 [ %170, %.lr.ph7 ], [ %3, %._crit_edge ]
@@ -3583,7 +3583,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %169 = add i32 %.35, 2
   %170 = add nuw nsw i32 %.03556, 1
   %exitcond24.not = icmp eq i32 %170, 8
-  br i1 %exitcond24.not, label %.lr.ph13.preheader, label %.lr.ph7, !llvm.loop !38
+  br i1 %exitcond24.not, label %.lr.ph13.preheader, label %.lr.ph7, !llvm.loop !42
 
 .lr.ph13.preheader:                               ; preds = %.lr.ph7, %._crit_edge
   %.2.ph = phi i32 [ %166, %._crit_edge ], [ %169, %.lr.ph7 ]
@@ -3594,7 +3594,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %indvars.iv29 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next30, %343 ]
   %.410 = phi i32 [ %.2.ph, %.lr.ph13.preheader ], [ %.7, %343 ]
   %171 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv29
-  %172 = load i8, ptr %171, align 1, !range !34, !noundef !36
+  %172 = load i8, ptr %171, align 1, !range !38, !noundef !40
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %334
 
@@ -3640,12 +3640,12 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   store i8 %207, ptr %206, align 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 32
-  br i1 %exitcond28.not, label %185, label %203, !llvm.loop !39
+  br i1 %exitcond28.not, label %185, label %203, !llvm.loop !43
 
 208:                                              ; preds = %185
   %209 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
   %210 = getelementptr i8, ptr %209, i64 4
-  %211 = load i8, ptr %210, align 4, !range !34, !noundef !36
+  %211 = load i8, ptr %210, align 4, !range !38, !noundef !40
   %212 = trunc nuw i8 %211 to i1
   %213 = icmp eq i8 %183, 5
   %or.cond = or i1 %213, %212
@@ -3653,7 +3653,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 214:                                              ; preds = %208
   %215 = getelementptr i8, ptr %209, i64 5
-  %216 = load i8, ptr %215, align 1, !range !34, !noundef !36
+  %216 = load i8, ptr %215, align 1, !range !38, !noundef !40
   %217 = trunc nuw i8 %216 to i1
   %218 = icmp eq i8 %183, 6
   %or.cond364 = or i1 %218, %217
@@ -3661,7 +3661,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 219:                                              ; preds = %214
   %220 = getelementptr i8, ptr %209, i64 6
-  %221 = load i8, ptr %220, align 2, !range !34, !noundef !36
+  %221 = load i8, ptr %220, align 2, !range !38, !noundef !40
   %222 = trunc nuw i8 %221 to i1
   %223 = icmp eq i8 %183, 7
   %or.cond365 = or i1 %223, %222
@@ -3669,7 +3669,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 224:                                              ; preds = %219
   %225 = getelementptr i8, ptr %209, i64 7
-  %226 = load i8, ptr %225, align 1, !range !34, !noundef !36
+  %226 = load i8, ptr %225, align 1, !range !38, !noundef !40
   %227 = trunc nuw i8 %226 to i1
   %228 = icmp eq i8 %183, 8
   %or.cond366 = or i1 %228, %227
@@ -3677,7 +3677,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 229:                                              ; preds = %224
   %230 = getelementptr i8, ptr %209, i64 8
-  %231 = load i8, ptr %230, align 8, !range !34, !noundef !36
+  %231 = load i8, ptr %230, align 8, !range !38, !noundef !40
   %232 = trunc nuw i8 %231 to i1
   %233 = icmp eq i8 %183, 9
   %or.cond367 = or i1 %233, %232
@@ -3685,7 +3685,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 234:                                              ; preds = %229
   %235 = getelementptr i8, ptr %209, i64 9
-  %236 = load i8, ptr %235, align 1, !range !34, !noundef !36
+  %236 = load i8, ptr %235, align 1, !range !38, !noundef !40
   %237 = trunc nuw i8 %236 to i1
   %238 = icmp eq i8 %183, 10
   %or.cond368 = or i1 %238, %237
@@ -3693,7 +3693,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 239:                                              ; preds = %234
   %240 = getelementptr i8, ptr %209, i64 10
-  %241 = load i8, ptr %240, align 2, !range !34, !noundef !36
+  %241 = load i8, ptr %240, align 2, !range !38, !noundef !40
   %242 = trunc nuw i8 %241 to i1
   br i1 %242, label %243, label %286
 
@@ -3730,7 +3730,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 272:                                              ; preds = %243
   %273 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29, i64 5
-  %274 = load i8, ptr %273, align 1, !range !34, !noundef !36
+  %274 = load i8, ptr %273, align 1, !range !38, !noundef !40
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %282
 
@@ -3754,7 +3754,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 288:                                              ; preds = %286
   %289 = getelementptr i8, ptr %209, i64 2
-  %290 = load i8, ptr %289, align 2, !range !34, !noundef !36
+  %290 = load i8, ptr %289, align 2, !range !38, !noundef !40
   %291 = trunc nuw i8 %290 to i1
   br i1 %291, label %292, label %301
 
@@ -3783,37 +3783,37 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 306:                                              ; preds = %switch.hole_check, %304
   %307 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
   %308 = getelementptr i8, ptr %307, i64 1
-  %309 = load i8, ptr %308, align 1, !range !34, !noundef !36
+  %309 = load i8, ptr %308, align 1, !range !38, !noundef !40
   %310 = trunc nuw i8 %309 to i1
   br i1 %310, label %.sink.split, label %311
 
 311:                                              ; preds = %306
   %312 = getelementptr i8, ptr %307, i64 2
-  %313 = load i8, ptr %312, align 2, !range !34, !noundef !36
+  %313 = load i8, ptr %312, align 2, !range !38, !noundef !40
   %314 = trunc nuw i8 %313 to i1
   br i1 %314, label %.sink.split, label %315
 
 315:                                              ; preds = %311
   %316 = getelementptr i8, ptr %307, i64 3
-  %317 = load i8, ptr %316, align 1, !range !34, !noundef !36
+  %317 = load i8, ptr %316, align 1, !range !38, !noundef !40
   %318 = trunc nuw i8 %317 to i1
   br i1 %318, label %.sink.split, label %319
 
 319:                                              ; preds = %315
   %320 = getelementptr i8, ptr %307, i64 4
-  %321 = load i8, ptr %320, align 4, !range !34, !noundef !36
+  %321 = load i8, ptr %320, align 4, !range !38, !noundef !40
   %322 = trunc nuw i8 %321 to i1
   br i1 %322, label %.sink.split, label %323
 
 323:                                              ; preds = %319
   %324 = getelementptr i8, ptr %307, i64 5
-  %325 = load i8, ptr %324, align 1, !range !34, !noundef !36
+  %325 = load i8, ptr %324, align 1, !range !38, !noundef !40
   %326 = trunc nuw i8 %325 to i1
   br i1 %326, label %.sink.split, label %327
 
 327:                                              ; preds = %323
   %328 = getelementptr i8, ptr %307, i64 9
-  %329 = load i8, ptr %328, align 1, !range !34, !noundef !36
+  %329 = load i8, ptr %328, align 1, !range !38, !noundef !40
   %330 = trunc nuw i8 %329 to i1
   %spec.select = select i1 %330, ptr @hf_h265_sub_layer_inbld_flag, ptr @hf_h265_sub_layer_reserved_zero_bit
   br label %.sink.split
@@ -3834,7 +3834,7 @@ switch.hole_check:                                ; preds = %304
 334:                                              ; preds = %.sink.split, %.lr.ph13
   %.5 = phi i32 [ %.410, %.lr.ph13 ], [ %333, %.sink.split ]
   %335 = getelementptr [32 x i8], ptr %10, i64 0, i64 %indvars.iv29
-  %336 = load i8, ptr %335, align 1, !range !34, !noundef !36
+  %336 = load i8, ptr %335, align 1, !range !38, !noundef !40
   %337 = trunc nuw i8 %336 to i1
   br i1 %337, label %338, label %343
 
@@ -3849,7 +3849,7 @@ switch.hole_check:                                ; preds = %304
   %.7 = phi i32 [ %342, %338 ], [ %.5, %334 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !40
+  br i1 %exitcond33.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !44
 
 ._crit_edge14:                                    ; preds = %343, %130
   %.4.lcssa = phi i32 [ %156, %130 ], [ %.7, %343 ]
@@ -3934,7 +3934,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %35 = tail call i64 @g_strlcat(ptr noundef %28, ptr noundef nonnull @.str.666, i64 noundef 256)
   %36 = add nuw nsw i32 %.0243317, 1
   %exitcond.not = icmp eq i32 %36, %29
-  br i1 %exitcond.not, label %.preheader316, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %.preheader316, label %.lr.ph, !llvm.loop !45
 
 37:                                               ; preds = %50, %.preheader316
   %indvars.iv340 = phi i32 [ 0, %.preheader316 ], [ %indvars.iv.next341, %50 ]
@@ -3974,7 +3974,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %51 = tail call i64 @g_strlcat(ptr noundef %28, ptr noundef nonnull @.str.668, i64 noundef 256)
   %indvars.iv.next = add i32 %indvars.iv, 2
   %indvars.iv.next341 = add i32 %indvars.iv340, 1
-  br label %37, !llvm.loop !42
+  br label %37, !llvm.loop !46
 
 52:                                               ; preds = %45
   %53 = tail call i64 @g_strlcat(ptr noundef %28, ptr noundef nonnull @.str.667, i64 noundef 256)
@@ -4002,7 +4002,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %62 = add i32 %.2245330, 1
   %63 = and i32 %62, 7
   %.not278 = icmp eq i32 %63, 0
-  br i1 %.not278, label %._crit_edge333, label %.lr.ph332, !llvm.loop !43
+  br i1 %.not278, label %._crit_edge333, label %.lr.ph332, !llvm.loop !47
 
 ._crit_edge333:                                   ; preds = %60, %55
   br i1 %.not303, label %213, label %64
@@ -4236,7 +4236,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %166 = lshr i32 %.1253321, 1
   %167 = add nuw nsw i32 %.0242323, 1
   %exitcond342.not = icmp eq i32 %167, %indvars.iv340
-  br i1 %exitcond342.not, label %.preheader, label %.lr.ph324, !llvm.loop !44
+  br i1 %exitcond342.not, label %.preheader, label %.lr.ph324, !llvm.loop !48
 
 .lr.ph328:                                        ; preds = %.preheader, %171
   %.4327 = phi i32 [ %173, %171 ], [ %.3.lcssa, %.preheader ]
@@ -4253,7 +4253,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %173 = add i32 %.4327, 1
   %174 = and i32 %173, 7
   %.not269 = icmp eq i32 %174, 0
-  br i1 %.not269, label %._crit_edge, label %.lr.ph328, !llvm.loop !45
+  br i1 %.not269, label %._crit_edge, label %.lr.ph328, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %171, %.preheader
   br i1 %.not303, label %212, label %175
@@ -4454,7 +4454,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 
 ._crit_edge:                                      ; preds = %66
   %.phi.trans.insert = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !34
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !38
   %72 = trunc nuw i8 %.pre to i1
   br i1 %72, label %90, label %81
 
@@ -4487,7 +4487,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %91 = load i32, ptr @hf_h265_elemental_duration_in_tc_minus1, align 4
   %92 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %91, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
   %.phi.trans.insert79 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
-  %.pre80 = load i8, ptr %.phi.trans.insert79, align 1, !range !34
+  %.pre80 = load i8, ptr %.phi.trans.insert79, align 1, !range !38
   %93 = trunc nuw i8 %.pre80 to i1
   br i1 %93, label %98, label %94
 
@@ -4523,7 +4523,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 110:                                              ; preds = %104, %105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %111, label %66, !llvm.loop !46
+  br i1 %exitcond.not, label %111, label %66, !llvm.loop !50
 
 111:                                              ; preds = %110
   %112 = load i32, ptr %7, align 4
@@ -4605,7 +4605,7 @@ define internal fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %
   store i32 %19, ptr %7, align 4
   %20 = add nuw i32 %.017.us, 1
   %exitcond19.not = icmp eq i32 %20, %4
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.017 = phi i32 [ %29, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -4620,7 +4620,7 @@ define internal fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %
   store i32 %28, ptr %7, align 4
   %29 = add nuw i32 %.017, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   ret void
@@ -4678,17 +4678,17 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %27 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
   %28 = add nuw nsw i32 %.03033, 1
   %exitcond.not = icmp eq i32 %28, %8
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !53
 
 .loopexit:                                        ; preds = %25, %18
   %29 = add nuw nsw i32 %.02934, %11
   %30 = icmp samesign ult i32 %29, 6
-  br i1 %30, label %12, label %31, !llvm.loop !49
+  br i1 %30, label %12, label %31, !llvm.loop !54
 
 31:                                               ; preds = %.loopexit
   %32 = add nuw nsw i32 %.035, 1
   %exitcond36.not = icmp eq i32 %32, 4
-  br i1 %exitcond36.not, label %33, label %.preheader, !llvm.loop !50
+  br i1 %exitcond36.not, label %33, label %.preheader, !llvm.loop !55
 
 33:                                               ; preds = %31
   %34 = load i32, ptr %5, align 4
@@ -4755,7 +4755,7 @@ define internal fastcc void @dissect_h265_slice_segment_layer_rbsp(ptr noundef %
   br label %.critedge.i
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr @dependent_slice_segments_enabled_flag, align 1, !range !34, !noundef !36
+  %30 = load i8, ptr @dependent_slice_segments_enabled_flag, align 1, !range !38, !noundef !40
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %.critedge29.i
 
@@ -4855,27 +4855,27 @@ attributes #11 = { noreturn }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!20 = distinct !{!20, !7, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7, !21}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!29 = distinct !{!29, !7, !21}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = !{i8 0, i8 2}
+!34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
-!36 = !{}
+!36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
+!38 = !{i8 0, i8 2}
 !39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
+!40 = !{}
 !41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
@@ -4886,3 +4886,8 @@ attributes #11 = { noreturn }
 !48 = distinct !{!48, !7}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7, !21}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}

@@ -991,7 +991,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next.i71, %103
-  br i1 %104, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !17
+  br i1 %104, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %52
   %105 = phi ptr [ %67, %52 ], [ %95, %.lr.ph.split.us.i ], [ %101, %.lr.ph.split.i ]
@@ -1242,7 +1242,7 @@ fetch_att.exit.i:                                 ; preds = %194, %188, %185, %1
   %234 = load i16, ptr %233, align 8
   %235 = zext i16 %234 to i32
   %236 = icmp samesign ult i32 %232, %235
-  br i1 %236, label %.lr.ph87.i, label %.loopexit.loopexit.i, !llvm.loop !18
+  br i1 %236, label %.lr.ph87.i, label %.loopexit.loopexit.i, !llvm.loop !20
 
 .loopexit.loopexit.i:                             ; preds = %230
   %.pre108.i = load ptr, ptr %66, align 8
@@ -1257,7 +1257,7 @@ fetch_att.exit.i:                                 ; preds = %194, %188, %185, %1
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next106.i, %239
-  br i1 %240, label %146, label %brin_deconstruct_tuple.exit, !llvm.loop !19
+  br i1 %240, label %146, label %brin_deconstruct_tuple.exit, !llvm.loop !21
 
 brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtuple_disk_tupdesc.exit.i
   %241 = phi ptr [ %140, %brtuple_disk_tupdesc.exit.i ], [ %237, %.loopexit.i ]
@@ -1328,7 +1328,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %282 = load i16, ptr %281, align 8
   %283 = zext i16 %282 to i64
   %284 = icmp samesign ult i64 %indvars.iv.next, %283
-  br i1 %284, label %263, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %284, label %263, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %263
   %.pre100 = load ptr, ptr %242, align 8
@@ -1361,7 +1361,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %297 = sext i32 %295 to i64
   %298 = icmp slt i64 %indvars.iv.next98, %297
-  br i1 %298, label %250, label %._crit_edge85, !llvm.loop !21
+  br i1 %298, label %250, label %._crit_edge85, !llvm.loop !23
 
 ._crit_edge85:                                    ; preds = %294, %brin_deconstruct_tuple.exit
   store ptr %244, ptr @CurrentMemoryContext, align 8
@@ -1422,8 +1422,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

@@ -6052,133 +6052,95 @@ _ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.preheader: ; preds = %.lr.ph
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %34 = load i32, ptr %20, align 4, !tbaa !72
   %35 = icmp eq i32 %34, 1
-  br i1 %35, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader, label %.lr.ph.split.us.split
+  %wide.trip.count30 = zext nneg i32 %15 to i64
+  br label %36
 
-_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader: ; preds = %.lr.ph.split.us
-  %wide.trip.count52 = zext nneg i32 %15 to i64
-  br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us
+36:                                               ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us, %.lr.ph.split.us
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us ]
+  %.022.us = phi i32 [ %.1.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us ]
+  %.01820.us = phi i32 [ %.119.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us ]
+  br i1 %35, label %54, label %37
 
-_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us:   ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us
-  %indvars.iv49 = phi i64 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader ], [ %indvars.iv.next50, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us ]
-  %.022.us.us = phi i32 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader ], [ %.1.us.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us ]
-  %.01820.us.us = phi i32 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us.preheader ], [ %.119.us.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us ]
-  %36 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %23, i64 %indvars.iv49
-  %37 = load double, ptr %36, align 8, !tbaa !77
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load double, ptr %38, align 8, !tbaa !79
-  %40 = fmul double %29, %39
-  %41 = call double @llvm.fmuladd.f64(double %27, double %37, double %40)
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %43 = load double, ptr %42, align 8, !tbaa !80
-  %44 = call double @llvm.fmuladd.f64(double %31, double %43, double %41)
-  %45 = fadd double %44, %33
-  %46 = fcmp ule double %45, 0.000000e+00
-  %47 = zext i1 %46 to i32
-  %.119.us.us = add nuw nsw i32 %.01820.us.us, %47
-  %not..us.us = xor i1 %46, true
-  %48 = zext i1 %not..us.us to i32
-  %.1.us.us = add nuw nsw i32 %.022.us.us, %48
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %._crit_edge, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us, !llvm.loop !314
+37:                                               ; preds = %36
+  %38 = load i32, ptr %21, align 4, !tbaa !72
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %50, label %40
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  %49 = load i32, ptr %21, align 4, !tbaa !72
-  %50 = icmp eq i32 %49, 1
+40:                                               ; preds = %37
+  %41 = trunc nuw nsw i64 %indvars.iv27 to i32
+  %42 = sdiv i32 %41, %12
+  %43 = mul nsw i32 %42, %12
+  %.recomposed = srem i32 %41, %12
+  %44 = load i64, ptr %25, align 8, !tbaa !73
+  %45 = sext i32 %42 to i64
+  %46 = mul i64 %44, %45
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 %46
+  %48 = sext i32 %.recomposed to i64
+  %49 = getelementptr inbounds %"class.cv::Point3_", ptr %47, i64 %48
+  br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us
+
+50:                                               ; preds = %37
   %51 = load i64, ptr %25, align 8, !tbaa !73
-  br i1 %50, label %.lr.ph.split.us.split.split.us, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us
-
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split
-  %wide.trip.count47 = zext nneg i32 %15 to i64
-  br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30
-
-_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30: ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30, %.lr.ph.split.us.split.split.us
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30 ], [ 0, %.lr.ph.split.us.split.split.us ]
-  %.022.us.us27 = phi i32 [ %.1.us.us34, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30 ], [ 0, %.lr.ph.split.us.split.split.us ]
-  %.01820.us.us29 = phi i32 [ %.119.us.us32, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30 ], [ 0, %.lr.ph.split.us.split.split.us ]
-  %52 = mul i64 %51, %indvars.iv44
+  %52 = mul i64 %51, %indvars.iv27
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 %52
-  %54 = load double, ptr %53, align 8, !tbaa !77
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load double, ptr %55, align 8, !tbaa !79
-  %57 = fmul double %29, %56
-  %58 = call double @llvm.fmuladd.f64(double %27, double %54, double %57)
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %60 = load double, ptr %59, align 8, !tbaa !80
-  %61 = call double @llvm.fmuladd.f64(double %31, double %60, double %58)
-  %62 = fadd double %61, %33
-  %63 = fcmp ule double %62, 0.000000e+00
-  %64 = zext i1 %63 to i32
-  %.119.us.us32 = add nuw nsw i32 %.01820.us.us29, %64
-  %not..us.us33 = xor i1 %63, true
-  %65 = zext i1 %not..us.us33 to i32
-  %.1.us.us34 = add nuw nsw i32 %.022.us.us27, %65
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30, !llvm.loop !314
+  br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us
 
-_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us:      ; preds = %.lr.ph.split.us.split, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us
-  %.022.us = phi i32 [ %.1.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %.01721.us = phi i32 [ %85, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %.01820.us = phi i32 [ %.119.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %66 = sdiv i32 %.01721.us, %12
-  %67 = mul nsw i32 %66, %12
-  %.recomposed = srem i32 %.01721.us, %12
-  %68 = sext i32 %66 to i64
-  %69 = mul i64 %51, %68
-  %70 = getelementptr inbounds nuw i8, ptr %23, i64 %69
-  %71 = sext i32 %.recomposed to i64
-  %72 = getelementptr inbounds %"class.cv::Point3_", ptr %70, i64 %71
-  %73 = load double, ptr %72, align 8, !tbaa !77
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %75 = load double, ptr %74, align 8, !tbaa !79
-  %76 = fmul double %29, %75
-  %77 = call double @llvm.fmuladd.f64(double %27, double %73, double %76)
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %79 = load double, ptr %78, align 8, !tbaa !80
-  %80 = call double @llvm.fmuladd.f64(double %31, double %79, double %77)
-  %81 = fadd double %80, %33
-  %82 = fcmp ule double %81, 0.000000e+00
-  %83 = zext i1 %82 to i32
-  %.119.us = add nuw nsw i32 %.01820.us, %83
-  %not..us = xor i1 %82, true
-  %84 = zext i1 %not..us to i32
-  %.1.us = add nuw nsw i32 %.022.us, %84
-  %85 = add nuw nsw i32 %.01721.us, 1
-  %exitcond43.not = icmp eq i32 %85, %15
-  br i1 %exitcond43.not, label %._crit_edge, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us, !llvm.loop !314
+54:                                               ; preds = %36
+  %55 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %23, i64 %indvars.iv27
+  br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us
 
-._crit_edge:                                      ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us, %_ZNK2cv11_InputArray6getMatEi.exit
-  %.018.lcssa = phi i32 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %.119.us.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us ], [ %.119.us.us32, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30 ], [ %.119.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ %.119, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
-  %.0.lcssa = phi i32 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %.1.us.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us ], [ %.1.us.us34, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us.us30 ], [ %.1.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ %.1, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
-  %86 = icmp samesign uge i32 %.0.lcssa, %.018.lcssa
+_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us:      ; preds = %54, %50, %40
+  %.0.i.us = phi ptr [ %55, %54 ], [ %53, %50 ], [ %49, %40 ]
+  %56 = load double, ptr %.0.i.us, align 8, !tbaa !77
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 8
+  %58 = load double, ptr %57, align 8, !tbaa !79
+  %59 = fmul double %29, %58
+  %60 = call double @llvm.fmuladd.f64(double %27, double %56, double %59)
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 16
+  %62 = load double, ptr %61, align 8, !tbaa !80
+  %63 = call double @llvm.fmuladd.f64(double %31, double %62, double %60)
+  %64 = fadd double %63, %33
+  %65 = fcmp ule double %64, 0.000000e+00
+  %66 = zext i1 %65 to i32
+  %.119.us = add nuw nsw i32 %.01820.us, %66
+  %not..us = xor i1 %65, true
+  %67 = zext i1 %not..us to i32
+  %.1.us = add nuw nsw i32 %.022.us, %67
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %._crit_edge, label %36, !llvm.loop !314
+
+._crit_edge:                                      ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us, %_ZNK2cv11_InputArray6getMatEi.exit
+  %.018.lcssa = phi i32 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %.119.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ %.119, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
+  %.0.lcssa = phi i32 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %.1.us, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.us ], [ %.1, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
+  %68 = icmp samesign uge i32 %.0.lcssa, %.018.lcssa
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #21
-  ret i1 %86
+  ret i1 %68
 
 _ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit:         ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.preheader, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit
   %indvars.iv = phi i64 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.preheader ], [ %indvars.iv.next, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
   %.022 = phi i32 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.preheader ], [ %.1, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
   %.01820 = phi i32 [ 0, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit.preheader ], [ %.119, %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit ]
-  %87 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %23, i64 %indvars.iv
-  %88 = load double, ptr %87, align 8, !tbaa !77
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %90 = load double, ptr %89, align 8, !tbaa !79
-  %91 = fmul double %29, %90
-  %92 = call double @llvm.fmuladd.f64(double %27, double %88, double %91)
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %94 = load double, ptr %93, align 8, !tbaa !80
-  %95 = call double @llvm.fmuladd.f64(double %31, double %94, double %92)
-  %96 = fadd double %95, %33
-  %97 = fcmp ule double %96, 0.000000e+00
-  %98 = zext i1 %97 to i32
-  %.119 = add nuw nsw i32 %.01820, %98
-  %not. = xor i1 %97, true
-  %99 = zext i1 %not. to i32
-  %.1 = add nuw nsw i32 %.022, %99
+  %69 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %23, i64 %indvars.iv
+  %70 = load double, ptr %69, align 8, !tbaa !77
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %72 = load double, ptr %71, align 8, !tbaa !79
+  %73 = fmul double %29, %72
+  %74 = call double @llvm.fmuladd.f64(double %27, double %70, double %73)
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %76 = load double, ptr %75, align 8, !tbaa !80
+  %77 = call double @llvm.fmuladd.f64(double %31, double %76, double %74)
+  %78 = fadd double %77, %33
+  %79 = fcmp ule double %78, 0.000000e+00
+  %80 = zext i1 %79 to i32
+  %.119 = add nuw nsw i32 %.01820, %80
+  %not. = xor i1 %79, true
+  %81 = zext i1 %not. to i32
+  %.1 = add nuw nsw i32 %.022, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit, !llvm.loop !314
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit, !llvm.loop !316
 }
 
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
@@ -6558,4 +6520,6 @@ attributes #23 = { builtin nounwind }
 !311 = !{!312}
 !312 = distinct !{!312, !313, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !313 = distinct !{!313, !"_ZNK2cv11_InputArray6getMatEi"}
-!314 = distinct !{!314, !60}
+!314 = distinct !{!314, !60, !315}
+!315 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!316 = distinct !{!316, !60}

@@ -488,13 +488,13 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %65 = add nuw nsw i32 %.03451.i.i.i, 1
   %66 = getelementptr i8, ptr %.02953.i.i.i, i64 1
   %exitcond64.not.i.i.i = icmp eq i32 %65, 4
-  br i1 %exitcond64.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !11
+  br i1 %exitcond64.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !13
 
 select.unfold.i.i:                                ; preds = %49, %61, %.split55.us.i.i.i
   %.4.i.i = phi i32 [ %.249.i.i, %.split55.us.i.i.i ], [ %64, %61 ], [ %52, %49 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond106.not.i.i = icmp eq i64 %indvars.iv.next.i, %31
-  br i1 %exitcond106.not.i.i, label %._crit_edge.i.i, label %37, !llvm.loop !12
+  br i1 %exitcond106.not.i.i, label %._crit_edge.i.i, label %37, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %select.unfold.i.i
   %67 = add nsw i32 %.13455.i.i, -1
@@ -600,12 +600,12 @@ edge_to_char.exit.us.i.us.i:                      ; preds = %107, %106
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %.0.i.us.i.us.i)
   %indvars.iv.next18.i.us.i = add nuw nsw i64 %indvars.iv17.i.us.i, 1
   %exitcond20.not.i.us.i = icmp eq i64 %indvars.iv.next18.i.us.i, 4
-  br i1 %exitcond20.not.i.us.i, label %.loopexit.us.i, label %.split.us.i.us.i, !llvm.loop !13
+  br i1 %exitcond20.not.i.us.i, label %.loopexit.us.i, label %.split.us.i.us.i, !llvm.loop !15
 
 .loopexit.us.i:                                   ; preds = %edge_to_char.exit.us.i.us.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 9
-  br i1 %exitcond67.not.i, label %xia_ntop.exit, label %74, !llvm.loop !14
+  br i1 %exitcond67.not.i, label %xia_ntop.exit, label %74, !llvm.loop !16
 
 xia_test_addr.exit.split.i:                       ; preds = %72, %.loopexit29.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.loopexit29.i ], [ 0, %72 ]
@@ -697,12 +697,12 @@ edge_to_char.exit.i.i:                            ; preds = %148, %144
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %.0.i.i.i)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, 4
-  br i1 %exitcond.not.i24.i, label %.loopexit29.i, label %.split.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i24.i, label %.loopexit29.i, label %.split.i.i, !llvm.loop !17
 
 .loopexit29.i:                                    ; preds = %edge_to_char.exit.i.i, %.split.i.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, 9
-  br i1 %exitcond.not.i, label %xia_ntop.exit, label %xia_test_addr.exit.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %xia_ntop.exit, label %xia_test_addr.exit.split.i, !llvm.loop !18
 
 xia_ntop.exit:                                    ; preds = %xia_test_addr.exit.split.i, %.loopexit29.i, %74, %.loopexit.us.i
   %149 = call ptr @wmem_strbuf_get_str(ptr noundef %15)
@@ -773,7 +773,11 @@ attributes #5 = { nounwind memory(none) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = !{i64 2150762673}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !12}
+!16 = distinct !{!16, !7, !12}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

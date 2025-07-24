@@ -214,7 +214,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %79 = getelementptr i8, ptr %39, i64 8
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %85, label %.split.us, !llvm.loop !14
+  br i1 %81, label %85, label %.split.us, !llvm.loop !18
 
 .thread10:                                        ; preds = %75, %77
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #4
@@ -235,7 +235,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %.ph18.be = phi i32 [ 24, %.thread11 ], [ %83, %.thread10 ], [ 24, %85 ]
   %.ph19.be = phi ptr [ @cpuid_deps, %.thread11 ], [ %82, %.thread10 ], [ @cpuid_deps, %85 ]
   %.ph20.be = phi i8 [ 0, %.thread11 ], [ 1, %.thread10 ], [ 0, %85 ]
-  br label %.split.us.outer, !llvm.loop !14
+  br label %.split.us.outer, !llvm.loop !18
 
 .split:                                           ; preds = %.split.outer, %100
   %87 = phi i32 [ %102, %100 ], [ %.ph36, %.split.outer ]
@@ -338,3 +338,5 @@ attributes #4 = { nounwind }
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
 !17 = !{i64 2147788739, i64 2147788778, i64 2147788799, i64 2147788836, i64 2147788859, i64 2147788729}
+!18 = distinct !{!18, !15, !16, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}

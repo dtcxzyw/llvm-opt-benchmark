@@ -836,14 +836,14 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr noundef readonly
 16:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SearchOneTag.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SearchOneTag.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 SearchOneTag.exit:                                ; preds = %.lr.ph.i
   %17 = and i64 %indvars.iv.i, 4294967295
   %18 = getelementptr inbounds nuw [100 x i32], ptr %8, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %.not14 = icmp eq i32 %19, 0
-  br i1 %.not14, label %SearchOneTag.exit.thread.loopexit16.split.loop.exit18, label %.lr.ph.preheader.i, !llvm.loop !9
+  br i1 %.not14, label %SearchOneTag.exit.thread.loopexit16.split.loop.exit18, label %.lr.ph.preheader.i, !llvm.loop !11
 
 SearchOneTag.exit.thread.loopexit16.split.loop.exit: ; preds = %.lr.ph.i.us
   %20 = trunc nuw nsw i64 %indvars.iv.i.us to i32
@@ -1165,7 +1165,7 @@ validDeviceClass.exit:                            ; preds = %79, %79, %79, %79, 
 161:                                              ; preds = %162
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %CompatibleTypes.exit, label %162, !llvm.loop !10
+  br i1 %exitcond.not.i, label %CompatibleTypes.exit, label %162, !llvm.loop !12
 
 162:                                              ; preds = %161, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %161 ]
@@ -1189,7 +1189,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %1
   %171 = load i32, ptr %101, align 4
   %172 = zext i32 %171 to i64
   %173 = icmp samesign ult i64 %indvars.iv.next, %172
-  br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %CompatibleTypes.exit.thread
   %174 = add i32 %171, 1
@@ -1204,7 +1204,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %1
   %176 = add nuw i32 %.075102, 1
   %177 = load i32, ptr %4, align 4
   %178 = icmp ult i32 %176, %177
-  br i1 %178, label %110, label %.preheader99, !llvm.loop !12
+  br i1 %178, label %110, label %.preheader99, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %190
   %indvars.iv116 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next117, %190 ]
@@ -1232,12 +1232,12 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %1
 189:                                              ; preds = %180, %181
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count119
-  br i1 %exitcond.not, label %190, label %180, !llvm.loop !13
+  br i1 %exitcond.not, label %190, label %180, !llvm.loop !15
 
 190:                                              ; preds = %189
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond120.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %114, %112, %110, %190, %100, %.preheader99, %validDeviceClass.exit, %1, %186, %97, %81, %76, %13
   %.0 = phi i32 [ 0, %13 ], [ 0, %76 ], [ 0, %97 ], [ 0, %186 ], [ 0, %81 ], [ 0, %1 ], [ 0, %validDeviceClass.exit ], [ 1, %.preheader99 ], [ 1, %100 ], [ 1, %190 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ]
@@ -1377,7 +1377,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
   %spec.select = add i32 %.047, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %83, %.preheader45
   %.0.lcssa = phi i32 [ 0, %.preheader45 ], [ %spec.select, %83 ]
@@ -1434,7 +1434,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %114 = zext i32 %113 to i64
   %115 = icmp samesign ult i64 %indvars.iv.next57, %114
-  br i1 %115, label %95, label %.loopexit, !llvm.loop !16
+  br i1 %115, label %95, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %100, %112, %.preheader, %._crit_edge, %2
   %.040 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 0, %100 ], [ 1, %112 ]
@@ -1626,7 +1626,7 @@ define hidden void @cmsSetProfileVersion(ptr noundef writeonly captures(none) %0
   %11 = icmp ugt i32 %.01718.i, 9
   %12 = icmp samesign ult i64 %indvars.iv.i, 99
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !17
+  br i1 %13, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !19
 
 .lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph22.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -1638,7 +1638,7 @@ define hidden void @cmsSetProfileVersion(ptr noundef writeonly captures(none) %0
   %17 = sext i8 %16 to i32
   %18 = add i32 %14, %17
   %19 = icmp samesign ugt i64 %indvars.iv26.i, 1
-  br i1 %19, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !18
+  br i1 %19, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !20
 
 BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
   %20 = shl i32 %18, 16
@@ -1681,7 +1681,7 @@ define hidden double @cmsGetProfileVersion(ptr noundef readonly captures(none) %
   %9 = lshr i32 %.01718.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = icmp samesign ugt i32 %.01718.i, 15
-  br i1 %10, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !17
+  br i1 %10, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !19
 
 .lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph22.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -1693,7 +1693,7 @@ define hidden double @cmsGetProfileVersion(ptr noundef readonly captures(none) %
   %14 = sext i8 %13 to i32
   %15 = add i32 %11, %14
   %16 = icmp samesign ugt i64 %indvars.iv26.i, 1
-  br i1 %16, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !18
+  br i1 %16, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !20
 
 BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
   %17 = uitofp i32 %15 to double
@@ -1843,7 +1843,7 @@ freeOneTag.exit:                                  ; preds = %31, %37, %41
   %43 = load i32, ptr %22, align 4
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %31, label %._crit_edge, !llvm.loop !19
+  br i1 %45, label %31, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %freeOneTag.exit, %cmsSaveProfileToFile.exit
   %46 = load ptr, ptr %0, align 8
@@ -2276,7 +2276,7 @@ _cmsSearchTag.exit.us.i:                          ; preds = %.lr.ph.i.us.i.us.i
 _cmsSearchTag.exit.thread.us.i:                   ; preds = %43, %_cmsSearchTag.exit.us.i, %.lr.ph.split.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i, label %SetLinks.exit, label %.lr.ph.split.us.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %SetLinks.exit, label %.lr.ph.split.us.i, !llvm.loop !22
 
 SetLinks.exit:                                    ; preds = %_cmsSearchTag.exit.thread.us.i, %30, %.lr.ph.i
   %51 = tail call i32 @_cmsWriteHeader(ptr noundef nonnull %0, i32 noundef %29)
@@ -2344,7 +2344,7 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr noundef captures(none) 
   %13 = lshr i32 %.01718.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = icmp samesign ugt i32 %.01718.i.i, 15
-  br i1 %14, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !17
+  br i1 %14, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !19
 
 .lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph22.i.i
   %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
@@ -2356,7 +2356,7 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr noundef captures(none) 
   %18 = sext i8 %17 to i32
   %19 = add i32 %15, %18
   %20 = icmp samesign ugt i64 %indvars.iv26.i.i, 1
-  br i1 %20, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !18
+  br i1 %20, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !20
 
 BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i
   %21 = uitofp i32 %19 to double
@@ -2547,7 +2547,7 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
   %124 = load i32, ptr %23, align 4
   %125 = zext i32 %124 to i64
   %126 = icmp samesign ult i64 %indvars.iv.next, %125
-  br i1 %126, label %39, label %.loopexit, !llvm.loop !21
+  br i1 %126, label %39, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %54, %62, %66, %71, %74, %83, %107, %118, %123, %cmsGetProfileVersion.exit, %116
   %.0 = phi i32 [ 0, %116 ], [ 1, %cmsGetProfileVersion.exit ], [ 0, %54 ], [ 0, %62 ], [ 0, %66 ], [ 0, %71 ], [ 0, %74 ], [ 0, %83 ], [ 0, %107 ], [ 0, %118 ], [ 1, %123 ]
@@ -2736,14 +2736,14 @@ define hidden ptr @cmsReadTag(ptr noundef captures(none) %0, i32 noundef %1) loc
 23:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %24 = and i64 %indvars.iv.i.i, 4294967295
   %25 = getelementptr inbounds nuw [100 x i32], ptr %19, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %.not14.i = icmp eq i32 %26, 0
-  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
+  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !11
 
 _cmsSearchTag.exit.thread:                        ; preds = %23, %14
   %27 = load ptr, ptr %9, align 8
@@ -2791,7 +2791,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
 48:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %IsTypeSupported.exit.thread, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %IsTypeSupported.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
@@ -2873,7 +2873,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
 89:                                               ; preds = %.lr.ph.i96
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i95
-  br i1 %exitcond.not.i99, label %IsTypeSupported.exit.thread, label %.lr.ph.i96, !llvm.loop !22
+  br i1 %exitcond.not.i99, label %IsTypeSupported.exit.thread, label %.lr.ph.i96, !llvm.loop !24
 
 .lr.ph.i96:                                       ; preds = %89, %.lr.ph.preheader.i93
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i93 ], [ %indvars.iv.next.i98, %89 ]
@@ -3013,14 +3013,14 @@ define hidden i32 @_cmsGetTagTrueType(ptr noundef readonly captures(none) %0, i3
 11:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %12 = and i64 %indvars.iv.i.i, 4294967295
   %13 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not14.i = icmp eq i32 %14, 0
-  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
+  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !11
 
 _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2944
@@ -3240,7 +3240,7 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
   %99 = lshr i32 %.01718.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %100 = icmp samesign ugt i32 %.01718.i.i, 15
-  br i1 %100, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !17
+  br i1 %100, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !19
 
 .lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph22.i.i
   %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
@@ -3252,7 +3252,7 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
   %104 = sext i8 %103 to i32
   %105 = add i32 %101, %104
   %106 = icmp samesign ugt i64 %indvars.iv26.i.i, 1
-  br i1 %106, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !18
+  br i1 %106, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !20
 
 BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i
   %107 = uitofp i32 %105 to double
@@ -3292,7 +3292,7 @@ cmsGetProfileVersion.exit:                        ; preds = %92, %BaseToBase.exi
 120:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %120, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %120 ]
@@ -3409,14 +3409,14 @@ define hidden i32 @cmsReadRawTag(ptr noundef captures(none) %0, i32 noundef %1, 
 23:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_cmsSearchTag.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
 
 SearchOneTag.exit.i:                              ; preds = %.lr.ph.i.i
   %24 = and i64 %indvars.iv.i.i, 4294967295
   %25 = getelementptr inbounds nuw [100 x i32], ptr %19, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %.not14.i = icmp eq i32 %26, 0
-  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !9
+  br i1 %.not14.i, label %_cmsSearchTag.exit, label %.lr.ph.preheader.i.i, !llvm.loop !11
 
 _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2144
@@ -3952,8 +3952,8 @@ attributes #19 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -3966,4 +3966,6 @@ attributes #19 = { nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!22 = distinct !{!22, !7, !9}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

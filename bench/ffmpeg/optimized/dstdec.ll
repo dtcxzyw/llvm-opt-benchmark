@@ -718,7 +718,7 @@ ac_get.exit188.us:                                ; preds = %369, %366
   tail call void @ff_dsd2pcm_translate(ptr noundef nonnull %418, i64 noundef %420, i32 noundef 0, ptr noundef %424, i64 noundef %415, ptr noundef %425, i64 noundef %416) #9
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %._crit_edge217, label %417, !llvm.loop !62
+  br i1 %exitcond234.not, label %._crit_edge217, label %417, !llvm.loop !63
 
 ._crit_edge217:                                   ; preds = %417, %.preheader.lr.ph, %.loopexit
   store i32 1, ptr %2, align 4, !tbaa !50
@@ -933,7 +933,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef cap
   store i32 %61, ptr %62, align 4, !tbaa !50
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next15.i, %wide.trip.count17.i
-  br i1 %exitcond18.not.i, label %read_uncoded_coeff.exit, label %.lr.ph.split.us.i, !llvm.loop !63
+  br i1 %exitcond18.not.i, label %read_uncoded_coeff.exit, label %.lr.ph.split.us.i, !llvm.loop !64
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -955,7 +955,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef cap
   store i32 %75, ptr %76, align 4, !tbaa !50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count17.i
-  br i1 %exitcond.not.i, label %read_uncoded_coeff.exit, label %.lr.ph.split.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %read_uncoded_coeff.exit, label %.lr.ph.split.i, !llvm.loop !65
 
 77:                                               ; preds = %19
   %78 = lshr i32 %spec.select.i76, 3
@@ -998,7 +998,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef cap
   store i32 %104, ptr %105, align 4, !tbaa !50
   %indvars.iv.next15.i88 = add nuw nsw i64 %indvars.iv14.i87, 1
   %exitcond18.not.i89 = icmp eq i64 %indvars.iv.next15.i88, %wide.trip.count17.i81
-  br i1 %exitcond18.not.i89, label %read_uncoded_coeff.exit90, label %.lr.ph.split.us.i86, !llvm.loop !63
+  br i1 %exitcond18.not.i89, label %read_uncoded_coeff.exit90, label %.lr.ph.split.us.i86, !llvm.loop !64
 
 .lr.ph.split.i82:                                 ; preds = %89, %.lr.ph.split.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.split.i82 ], [ 0, %89 ]
@@ -1020,7 +1020,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef cap
   store i32 %118, ptr %119, align 4, !tbaa !50
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count17.i81
-  br i1 %exitcond.not.i85, label %read_uncoded_coeff.exit90, label %.lr.ph.split.i82, !llvm.loop !63
+  br i1 %exitcond.not.i85, label %read_uncoded_coeff.exit90, label %.lr.ph.split.i82, !llvm.loop !65
 
 read_uncoded_coeff.exit90:                        ; preds = %.lr.ph.split.i82, %.lr.ph.split.us.i86
   %120 = load i32, ptr %9, align 8, !tbaa !46
@@ -1066,7 +1066,7 @@ read_uncoded_coeff.exit90:                        ; preds = %.lr.ph.split.i82, %
   %147 = add i32 %146, %.0110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count17.i81
-  br i1 %exitcond.not, label %148, label %137, !llvm.loop !64
+  br i1 %exitcond.not, label %148, label %137, !llvm.loop !66
 
 148:                                              ; preds = %137
   %.val = load i32, ptr %9, align 8, !tbaa !46
@@ -1146,7 +1146,7 @@ read_uncoded_coeff.exit90:                        ; preds = %.lr.ph.split.i82, %
   %195 = icmp sle i32 %194, %149
   %196 = icmp ult i32 %193, 128
   %197 = select i1 %195, i1 %196, i1 false
-  br i1 %197, label %.lr.ph.i92, label %.preheader.i, !llvm.loop !65
+  br i1 %197, label %.lr.ph.i92, label %.preheader.i, !llvm.loop !67
 
 .lr.ph137.i:                                      ; preds = %.preheader.i, %.lr.ph137.i
   %.1136.i = phi i32 [ %201, %.lr.ph137.i ], [ %.0.lcssa.i, %.preheader.i ]
@@ -1159,7 +1159,7 @@ read_uncoded_coeff.exit90:                        ; preds = %.lr.ph.split.i82, %
   %202 = icmp slt i32 %201, %149
   %203 = icmp sgt i32 %198, -1
   %204 = select i1 %202, i1 %203, i1 false
-  br i1 %204, label %.lr.ph137.i, label %._crit_edge.i, !llvm.loop !66
+  br i1 %204, label %.lr.ph137.i, label %._crit_edge.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %.lr.ph137.i, %.preheader.i
   %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i ], [ %200, %.lr.ph137.i ]
@@ -1265,12 +1265,12 @@ get_sr_golomb_dst.exit:                           ; preds = %get_ur_golomb_jpegl
   %251 = load i32, ptr %33, align 4, !tbaa !50
   %252 = zext i32 %251 to i64
   %253 = icmp samesign ult i64 %indvars.iv.next129, %252
-  br i1 %253, label %.preheader, label %read_uncoded_coeff.exit, !llvm.loop !67
+  br i1 %253, label %.preheader, label %read_uncoded_coeff.exit, !llvm.loop !69
 
 read_uncoded_coeff.exit:                          ; preds = %.critedge, %.lr.ph.split.i, %.lr.ph.split.us.i, %read_uncoded_coeff.exit90, %46
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.critedge74, label %19, !llvm.loop !68
+  br i1 %exitcond134.not, label %.critedge74, label %19, !llvm.loop !70
 
 .critedge74:                                      ; preds = %read_uncoded_coeff.exit, %77, %248, %7
   %.4 = phi i32 [ 0, %7 ], [ -1094995529, %248 ], [ 0, %read_uncoded_coeff.exit ], [ -1094995529, %77 ]
@@ -1330,7 +1330,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_filter(ptr noundef w
   store i16 %20, ptr %21, align 2, !tbaa !58
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond = icmp eq i64 %indvars.iv.next57, 256
-  br i1 %exitcond, label %.critedge41, label %.preheader.us, !llvm.loop !69
+  br i1 %exitcond, label %.critedge41, label %.preheader.us, !llvm.loop !71
 
 22:                                               ; preds = %.preheader.us, %22
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %22 ]
@@ -1348,7 +1348,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_filter(ptr noundef w
   %33 = add nsw i64 %.03346.us, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %34, label %22, label %._crit_edge.us, !llvm.loop !70
+  br i1 %34, label %22, label %._crit_edge.us, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %22
   %35 = add i64 %33, 32768
@@ -1358,12 +1358,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_filter(ptr noundef w
 .critedge41:                                      ; preds = %19, %.preheader.preheader
   %indvar.next60 = add nuw nsw i64 %indvar59, 1
   %exitcond65 = icmp eq i64 %indvar.next60, 16
-  br i1 %exitcond65, label %.critedge43, label %10, !llvm.loop !71
+  br i1 %exitcond65, label %.critedge43, label %10, !llvm.loop !73
 
 .critedge43:                                      ; preds = %.critedge41
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond67.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond67.not, label %.critedge, label %.split48, !llvm.loop !72
+  br i1 %exitcond67.not, label %.critedge, label %.split48, !llvm.loop !74
 
 .critedge:                                        ; preds = %.critedge43, %._crit_edge.us, %.split50
   %.6 = phi i32 [ 0, %.split50 ], [ -1094995529, %._crit_edge.us ], [ 0, %.critedge43 ]
@@ -1467,15 +1467,17 @@ attributes #9 = { nounwind }
 !58 = !{!59, !59, i64 0}
 !59 = !{!"short", !8, i64 0}
 !60 = distinct !{!60, !31}
-!61 = distinct !{!61, !31}
-!62 = distinct !{!62, !31}
+!61 = distinct !{!61, !31, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !63 = distinct !{!63, !31}
-!64 = distinct !{!64, !31}
+!64 = distinct !{!64, !31, !62}
 !65 = distinct !{!65, !31}
 !66 = distinct !{!66, !31}
 !67 = distinct !{!67, !31}
 !68 = distinct !{!68, !31}
 !69 = distinct !{!69, !31}
 !70 = distinct !{!70, !31}
-!71 = distinct !{!71, !31}
+!71 = distinct !{!71, !31, !62}
 !72 = distinct !{!72, !31}
+!73 = distinct !{!73, !31}
+!74 = distinct !{!74, !31}

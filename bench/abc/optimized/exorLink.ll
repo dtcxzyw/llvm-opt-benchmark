@@ -242,13 +242,13 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %105 = and i32 %104, %52
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !24
+  %108 = load i8, ptr %107, align 1, !tbaa !25
   %109 = zext i8 %108 to i32
   %110 = getelementptr inbounds nuw [32 x i32], ptr @CubeLiterals, i64 0, i64 %indvars.iv176
   store i32 %109, ptr %110, align 4, !tbaa !3
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %.preheader105, label %102, !llvm.loop !25
+  br i1 %exitcond180.not, label %.preheader105, label %102, !llvm.loop !26
 
 .lr.ph130.preheader:                              ; preds = %._crit_edge122.us, %._crit_edge126.thread
   %wide.trip.count197 = zext nneg i32 %89 to i64
@@ -271,7 +271,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %118 = phi i32 [ %111, %.lr.ph130 ], [ %113, %115 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !26
+  br i1 %exitcond198.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !27
 
 ._crit_edge131:                                   ; preds = %117, %.preheader105
   store i32 0, ptr @LastGroup, align 4, !tbaa !3
@@ -315,7 +315,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !10
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next200, %142
-  br i1 %143, label %137, label %._crit_edge135, !llvm.loop !27
+  br i1 %143, label %137, label %._crit_edge135, !llvm.loop !28
 
 ._crit_edge135:                                   ; preds = %137, %.lr.ph159
   %144 = load i32, ptr @DiffVars, align 16, !tbaa !3
@@ -323,16 +323,16 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   br i1 %145, label %.preheader, label %162
 
 .preheader:                                       ; preds = %._crit_edge135
-  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %147 = icmp sgt i32 %146, 0
   %.pre = load ptr, ptr @pCA, align 8, !tbaa !7
   br i1 %147, label %.lr.ph151, label %._crit_edge152
 
 .lr.ph151:                                        ; preds = %.preheader
   %148 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %149 = load ptr, ptr %148, align 8, !tbaa !29
+  %149 = load ptr, ptr %148, align 8, !tbaa !30
   %150 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %151 = load ptr, ptr %150, align 8, !tbaa !29
+  %151 = load ptr, ptr %150, align 8, !tbaa !30
   br label %152
 
 152:                                              ; preds = %.lr.ph151, %152
@@ -342,14 +342,14 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %155 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv211
   store i32 %154, ptr %155, align 4, !tbaa !3
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next212, %157
-  br i1 %158, label %152, label %._crit_edge152, !llvm.loop !30
+  br i1 %158, label %152, label %._crit_edge152, !llvm.loop !31
 
 ._crit_edge152:                                   ; preds = %152, %.preheader
   %159 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %160 = load i16, ptr %159, align 4, !tbaa !31
+  %160 = load i16, ptr %159, align 4, !tbaa !32
   %161 = sext i16 %160 to i32
   %.pre222 = load i32, ptr @nDiffVarsIn, align 4, !tbaa !3
   br label %.loopexit
@@ -366,45 +366,45 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   ]
 
 .preheader103:                                    ; preds = %162
-  %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph137, label %.loopexit
 
 .lr.ph137:                                        ; preds = %.preheader103
   %169 = load ptr, ptr @pCA, align 8, !tbaa !7
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !29
+  %171 = load ptr, ptr %170, align 8, !tbaa !30
   %172 = load ptr, ptr @pCB, align 8, !tbaa !7
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8, !tbaa !29
+  %174 = load ptr, ptr %173, align 8, !tbaa !30
   %175 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %176 = load ptr, ptr %175, align 8, !tbaa !29
+  %176 = load ptr, ptr %175, align 8, !tbaa !30
   br label %231
 
 .preheader101:                                    ; preds = %162
-  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %178 = icmp sgt i32 %177, 0
   br i1 %178, label %.lr.ph142, label %.loopexit
 
 .lr.ph142:                                        ; preds = %.preheader101
   %179 = load ptr, ptr @pCB, align 8, !tbaa !7
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !29
+  %181 = load ptr, ptr %180, align 8, !tbaa !30
   %182 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %183 = load ptr, ptr %182, align 8, !tbaa !29
+  %183 = load ptr, ptr %182, align 8, !tbaa !30
   br label %211
 
 .preheader100:                                    ; preds = %162
-  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.lr.ph147, label %.loopexit
 
 .lr.ph147:                                        ; preds = %.preheader100
   %186 = load ptr, ptr @pCA, align 8, !tbaa !7
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %188 = load ptr, ptr %187, align 8, !tbaa !29
+  %188 = load ptr, ptr %187, align 8, !tbaa !30
   %189 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %190 = load ptr, ptr %189, align 8, !tbaa !29
+  %190 = load ptr, ptr %189, align 8, !tbaa !30
   br label %191
 
 191:                                              ; preds = %.lr.ph147, %191
@@ -417,20 +417,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %196 = and i32 %194, 65535
   %197 = zext nneg i32 %196 to i64
   %198 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !24
+  %199 = load i8, ptr %198, align 1, !tbaa !25
   %200 = zext i8 %199 to i32
   %201 = ashr i32 %194, 16
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %202
-  %204 = load i8, ptr %203, align 1, !tbaa !24
+  %204 = load i8, ptr %203, align 1, !tbaa !25
   %205 = zext i8 %204 to i32
   %206 = add nuw nsw i32 %205, %200
   %207 = add nuw nsw i32 %206, %192
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %209 = sext i32 %208 to i64
   %210 = icmp slt i64 %indvars.iv.next209, %209
-  br i1 %210, label %191, label %.loopexit, !llvm.loop !32
+  br i1 %210, label %191, label %.loopexit, !llvm.loop !33
 
 211:                                              ; preds = %.lr.ph142, %211
   %indvars.iv205 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next206, %211 ]
@@ -442,20 +442,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %216 = and i32 %214, 65535
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %217
-  %219 = load i8, ptr %218, align 1, !tbaa !24
+  %219 = load i8, ptr %218, align 1, !tbaa !25
   %220 = zext i8 %219 to i32
   %221 = ashr i32 %214, 16
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !24
+  %224 = load i8, ptr %223, align 1, !tbaa !25
   %225 = zext i8 %224 to i32
   %226 = add nuw nsw i32 %225, %220
   %227 = add nuw nsw i32 %226, %212
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %228 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %228 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next206, %229
-  br i1 %230, label %211, label %.loopexit, !llvm.loop !33
+  br i1 %230, label %211, label %.loopexit, !llvm.loop !34
 
 231:                                              ; preds = %.lr.ph137, %231
   %indvars.iv202 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next203, %231 ]
@@ -470,20 +470,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %239 = and i32 %237, 65535
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %240
-  %242 = load i8, ptr %241, align 1, !tbaa !24
+  %242 = load i8, ptr %241, align 1, !tbaa !25
   %243 = zext i8 %242 to i32
   %244 = ashr i32 %237, 16
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %245
-  %247 = load i8, ptr %246, align 1, !tbaa !24
+  %247 = load i8, ptr %246, align 1, !tbaa !25
   %248 = zext i8 %247 to i32
   %249 = add nuw nsw i32 %248, %243
   %250 = add nuw nsw i32 %249, %232
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %252 = sext i32 %251 to i64
   %253 = icmp slt i64 %indvars.iv.next203, %252
-  br i1 %253, label %231, label %.loopexit, !llvm.loop !34
+  br i1 %253, label %231, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %231, %211, %191, %.preheader103, %.preheader101, %.preheader100, %162, %._crit_edge152
   %254 = phi i32 [ 0, %.preheader103 ], [ 0, %.preheader101 ], [ 0, %.preheader100 ], [ 0, %162 ], [ %161, %._crit_edge152 ], [ %207, %191 ], [ %227, %211 ], [ %250, %231 ]
@@ -516,7 +516,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   store i32 %273, ptr %271, align 4, !tbaa !3
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %._crit_edge156, label %259, !llvm.loop !35
+  br i1 %exitcond218.not, label %._crit_edge156, label %259, !llvm.loop !36
 
 ._crit_edge156:                                   ; preds = %259, %.loopexit
   %274 = load i32, ptr @StartingLiterals, align 4, !tbaa !3
@@ -528,7 +528,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   store i16 %278, ptr %279, align 2, !tbaa !20
   %280 = trunc i32 %254 to i16
   %281 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  store i16 %280, ptr %281, align 4, !tbaa !31
+  store i16 %280, ptr %281, align 4, !tbaa !32
   %282 = tail call i32 @ComputeQCostBits(ptr noundef %129) #5
   %283 = trunc i32 %282 to i16
   %284 = load i32, ptr @CubeNum, align 4, !tbaa !3
@@ -536,18 +536,18 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %286 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %285
   %287 = load ptr, ptr %286, align 8, !tbaa !7
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 6
-  store i16 %283, ptr %288, align 2, !tbaa !36
-  %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i16 %283, ptr %288, align 2, !tbaa !37
+  %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   %290 = add nsw i32 %289, 1
-  store i32 %290, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i32 %290, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   %291 = trunc i32 %289 to i8
   %292 = getelementptr inbounds nuw i8, ptr %287, i64 1
-  store i8 %291, ptr %292, align 1, !tbaa !38
+  store i8 %291, ptr %292, align 1, !tbaa !39
   %293 = icmp eq i32 %290, 256
   br i1 %293, label %294, label %295
 
 294:                                              ; preds = %._crit_edge156
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   br label %295
 
 295:                                              ; preds = %294, %._crit_edge156
@@ -557,7 +557,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %297 = load i32, ptr @nCubes, align 4, !tbaa !3
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next220, %298
-  br i1 %299, label %.lr.ph159, label %._crit_edge160, !llvm.loop !39
+  br i1 %299, label %.lr.ph159, label %._crit_edge160, !llvm.loop !40
 
 ._crit_edge160:                                   ; preds = %295, %._crit_edge131
   %300 = load i32, ptr @GroupCostBestNum, align 4, !tbaa !3
@@ -622,7 +622,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %20 = phi i32 [ %9, %8 ], [ %9, %13 ], [ %15, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %19, %5
   store i32 0, ptr @LastGroup, align 4, !tbaa !3
@@ -680,7 +680,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !10
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next90, %51
-  br i1 %52, label %46, label %._crit_edge58, !llvm.loop !41
+  br i1 %52, label %46, label %._crit_edge58, !llvm.loop !42
 
 ._crit_edge58:                                    ; preds = %46, %37
   %53 = load i32, ptr @DiffVars, align 16, !tbaa !3
@@ -688,16 +688,16 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   br i1 %54, label %.preheader, label %71
 
 .preheader:                                       ; preds = %._crit_edge58
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %56 = icmp sgt i32 %55, 0
   %.pre117 = load ptr, ptr @pCA, align 8, !tbaa !7
   br i1 %56, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %.pre117, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
   br label %61
 
 61:                                               ; preds = %.lr.ph73, %61
@@ -707,14 +707,14 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv101
   store i32 %63, ptr %64, align 4, !tbaa !3
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next102, %66
-  br i1 %67, label %61, label %._crit_edge74, !llvm.loop !42
+  br i1 %67, label %61, label %._crit_edge74, !llvm.loop !43
 
 ._crit_edge74:                                    ; preds = %61, %.preheader
   %68 = getelementptr inbounds nuw i8, ptr %.pre117, i64 4
-  %69 = load i16, ptr %68, align 4, !tbaa !31
+  %69 = load i16, ptr %68, align 4, !tbaa !32
   %70 = sext i16 %69 to i32
   %.pre118 = load i32, ptr @nDiffVarsIn, align 4, !tbaa !3
   br label %.loopexit
@@ -733,45 +733,45 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   ]
 
 .preheader52:                                     ; preds = %71
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph60, label %.loopexit
 
 .lr.ph60:                                         ; preds = %.preheader52
   %80 = load ptr, ptr @pCA, align 8, !tbaa !7
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
   %83 = load ptr, ptr @pCB, align 8, !tbaa !7
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !29
+  %85 = load ptr, ptr %84, align 8, !tbaa !30
   %86 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !29
+  %87 = load ptr, ptr %86, align 8, !tbaa !30
   br label %142
 
 .preheader50:                                     ; preds = %71
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %.preheader50
   %90 = load ptr, ptr @pCB, align 8, !tbaa !7
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !29
+  %92 = load ptr, ptr %91, align 8, !tbaa !30
   %93 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !29
+  %94 = load ptr, ptr %93, align 8, !tbaa !30
   br label %122
 
 .preheader49:                                     ; preds = %71
-  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph69, label %.loopexit
 
 .lr.ph69:                                         ; preds = %.preheader49
   %97 = load ptr, ptr @pCA, align 8, !tbaa !7
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !29
+  %99 = load ptr, ptr %98, align 8, !tbaa !30
   %100 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !29
+  %101 = load ptr, ptr %100, align 8, !tbaa !30
   br label %102
 
 102:                                              ; preds = %.lr.ph69, %102
@@ -784,20 +784,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %107 = and i32 %105, 65535
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !24
+  %110 = load i8, ptr %109, align 1, !tbaa !25
   %111 = zext i8 %110 to i32
   %112 = ashr i32 %105, 16
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !24
+  %115 = load i8, ptr %114, align 1, !tbaa !25
   %116 = zext i8 %115 to i32
   %117 = add nuw nsw i32 %116, %111
   %118 = add nuw nsw i32 %117, %103
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next99, %120
-  br i1 %121, label %102, label %.loopexit, !llvm.loop !43
+  br i1 %121, label %102, label %.loopexit, !llvm.loop !44
 
 122:                                              ; preds = %.lr.ph64, %122
   %indvars.iv95 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next96, %122 ]
@@ -809,20 +809,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %127 = and i32 %125, 65535
   %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !24
+  %130 = load i8, ptr %129, align 1, !tbaa !25
   %131 = zext i8 %130 to i32
   %132 = ashr i32 %125, 16
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !24
+  %135 = load i8, ptr %134, align 1, !tbaa !25
   %136 = zext i8 %135 to i32
   %137 = add nuw nsw i32 %136, %131
   %138 = add nuw nsw i32 %137, %123
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next96, %140
-  br i1 %141, label %122, label %.loopexit, !llvm.loop !44
+  br i1 %141, label %122, label %.loopexit, !llvm.loop !45
 
 142:                                              ; preds = %.lr.ph60, %142
   %indvars.iv92 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next93, %142 ]
@@ -837,20 +837,20 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %150 = and i32 %148, 65535
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 1, !tbaa !24
+  %153 = load i8, ptr %152, align 1, !tbaa !25
   %154 = zext i8 %153 to i32
   %155 = ashr i32 %148, 16
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !24
+  %158 = load i8, ptr %157, align 1, !tbaa !25
   %159 = zext i8 %158 to i32
   %160 = add nuw nsw i32 %159, %154
   %161 = add nuw nsw i32 %160, %143
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !28
+  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4, !tbaa !29
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next93, %163
-  br i1 %164, label %142, label %.loopexit, !llvm.loop !45
+  br i1 %164, label %142, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %142, %122, %102, %.preheader52, %.preheader50, %.preheader49, %71, %._crit_edge74
   %165 = phi i32 [ 0, %.preheader52 ], [ 0, %.preheader50 ], [ 0, %.preheader49 ], [ 0, %71 ], [ %70, %._crit_edge74 ], [ %118, %102 ], [ %138, %122 ], [ %161, %142 ]
@@ -885,7 +885,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   store i32 %186, ptr %184, align 4, !tbaa !3
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge78, label %172, !llvm.loop !46
+  br i1 %exitcond108.not, label %._crit_edge78, label %172, !llvm.loop !47
 
 ._crit_edge78:                                    ; preds = %172, %.loopexit
   %187 = load i32, ptr @StartingLiterals, align 4, !tbaa !3
@@ -897,7 +897,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   store i16 %191, ptr %192, align 2, !tbaa !20
   %193 = trunc i32 %165 to i16
   %194 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i16 %193, ptr %194, align 4, !tbaa !31
+  store i16 %193, ptr %194, align 4, !tbaa !32
   %195 = tail call i32 @ComputeQCostBits(ptr noundef %38) #5
   %196 = trunc i32 %195 to i16
   %197 = load i32, ptr @CubeNum, align 4, !tbaa !3
@@ -905,13 +905,13 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %199 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !7
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 6
-  store i16 %196, ptr %201, align 2, !tbaa !36
-  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i16 %196, ptr %201, align 2, !tbaa !37
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   %203 = add nsw i32 %202, 1
-  store i32 %203, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i32 %203, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   %204 = trunc i32 %202 to i8
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 1
-  store i8 %204, ptr %205, align 1, !tbaa !38
+  store i8 %204, ptr %205, align 1, !tbaa !39
   %206 = icmp eq i32 %203, 256
   %.pre = load i32, ptr @nDist, align 4, !tbaa !3
   %.pre113 = load i32, ptr @GroupCostBestNum, align 4, !tbaa !3
@@ -919,7 +919,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %._crit_edge78
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !37
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8, !tbaa !38
   br label %208
 
 208:                                              ; preds = %._crit_edge78, %207, %.lr.ph81
@@ -933,7 +933,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %214 = load i32, ptr @nCubes, align 4, !tbaa !3
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next110, %215
-  br i1 %216, label %.lr.ph81, label %._crit_edge82.loopexit, !llvm.loop !47
+  br i1 %216, label %.lr.ph81, label %._crit_edge82.loopexit, !llvm.loop !48
 
 ._crit_edge82.loopexit:                           ; preds = %208
   %.pre120 = load i32, ptr @nVisitedGroups, align 4, !tbaa !3
@@ -992,7 +992,7 @@ define noundef i32 @ExorLinkCubeIteratorPick(ptr noundef writeonly captures(none
   store ptr %20, ptr %21, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %11
   store i32 %14, ptr @CubeNum, align 4, !tbaa !3
@@ -1020,14 +1020,14 @@ define void @ExorLinkCubeIteratorCleanUp(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph18 ], [ 0, %.preheader ]
   %5 = getelementptr inbounds nuw [32 x ptr], ptr @ELCubes, i64 0, i64 %indvars.iv21
   %6 = load ptr, ptr %5, align 8, !tbaa !7
-  store i8 0, ptr %6, align 8, !tbaa !49
+  store i8 0, ptr %6, align 8, !tbaa !50
   tail call void @AddToFreeCubes(ptr noundef nonnull %6) #5
   store ptr null, ptr %5, align 8, !tbaa !7
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %7 = load i32, ptr @nCubesInGroup, align 4, !tbaa !3
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next22, %8
-  br i1 %9, label %.lr.ph18, label %.loopexit, !llvm.loop !50
+  br i1 %9, label %.lr.ph18, label %.loopexit, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %.preheader14, %21
   %.pre24 = phi i32 [ %.pre25, %21 ], [ %3, %.preheader14 ]
@@ -1039,7 +1039,7 @@ define void @ExorLinkCubeIteratorCleanUp(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %.lr.ph
-  store i8 0, ptr %12, align 8, !tbaa !49
+  store i8 0, ptr %12, align 8, !tbaa !50
   %14 = load i32, ptr @LastGroup, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw [32 x i32], ptr @s_BitMasks, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !3
@@ -1063,7 +1063,7 @@ define void @ExorLinkCubeIteratorCleanUp(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %21, %.lr.ph18, %.preheader14, %.preheader
   store i32 0, ptr @VisitedGroups, align 4, !tbaa !3
@@ -1110,23 +1110,23 @@ attributes #5 = { nounwind }
 !20 = !{!14, !15, i64 2}
 !21 = distinct !{!21, !19}
 !22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !19}
+!23 = distinct !{!23, !19, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{!5, !5, i64 0}
 !26 = distinct !{!26, !19}
 !27 = distinct !{!27, !19}
-!28 = !{!11, !4, i64 12}
-!29 = !{!14, !16, i64 16}
-!30 = distinct !{!30, !19}
-!31 = !{!14, !15, i64 4}
-!32 = distinct !{!32, !19}
+!28 = distinct !{!28, !19}
+!29 = !{!11, !4, i64 12}
+!30 = !{!14, !16, i64 16}
+!31 = distinct !{!31, !19}
+!32 = !{!14, !15, i64 4}
 !33 = distinct !{!33, !19}
 !34 = distinct !{!34, !19}
 !35 = distinct !{!35, !19}
-!36 = !{!14, !15, i64 6}
-!37 = !{!11, !4, i64 48}
-!38 = !{!14, !5, i64 1}
-!39 = distinct !{!39, !19}
+!36 = distinct !{!36, !19}
+!37 = !{!14, !15, i64 6}
+!38 = !{!11, !4, i64 48}
+!39 = !{!14, !5, i64 1}
 !40 = distinct !{!40, !19}
 !41 = distinct !{!41, !19}
 !42 = distinct !{!42, !19}
@@ -1136,6 +1136,7 @@ attributes #5 = { nounwind }
 !46 = distinct !{!46, !19}
 !47 = distinct !{!47, !19}
 !48 = distinct !{!48, !19}
-!49 = !{!14, !5, i64 0}
-!50 = distinct !{!50, !19}
+!49 = distinct !{!49, !19}
+!50 = !{!14, !5, i64 0}
 !51 = distinct !{!51, !19}
+!52 = distinct !{!52, !19}

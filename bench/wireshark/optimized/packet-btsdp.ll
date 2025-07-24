@@ -2006,14 +2006,14 @@ dissect_sdp_service_search_request.exit:          ; preds = %147, %get_type_leng
   %185 = add nuw nsw i32 %.08395.i, 4
   %186 = add i16 %.08494.i, -1
   %.not90.i = icmp eq i16 %186, 0
-  br i1 %.not90.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !6
+  br i1 %.not90.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.thread.i72, %173
   %.086109.i = phi ptr [ %177, %173 ], [ null, %.thread.i72 ], [ null, %.lr.ph.split.us.i ], [ %177, %.lr.ph.split.i ]
   %.083.lcssa.i = phi i32 [ 9, %173 ], [ 9, %.thread.i72 ], [ %180, %.lr.ph.split.us.i ], [ %185, %.lr.ph.split.i ]
   %187 = zext i16 %76 to i32
   call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %187, i1 noundef zeroext false, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %42, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %43, ptr noundef null, ptr noundef nonnull readonly %3)
-  %188 = load i8, ptr %41, align 1, !range !8, !noundef !9
+  %188 = load i8, ptr %41, align 1, !range !10, !noundef !11
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %192
 
@@ -2112,7 +2112,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %147, %get_type_leng
   %235 = add nuw i32 %.08596.i, 1
   %236 = call i32 @wmem_array_get_count(ptr noundef %.086109.i)
   %237 = icmp ult i32 %235, %236
-  br i1 %237, label %223, label %._crit_edge99.i, !llvm.loop !10
+  br i1 %237, label %223, label %._crit_edge99.i, !llvm.loop !12
 
 ._crit_edge99.i:                                  ; preds = %223, %197
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #10
@@ -2126,7 +2126,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %147, %get_type_leng
 
 238:                                              ; preds = %._crit_edge99.i, %192
   %239 = call fastcc i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %62, ptr noundef %1, i32 noundef %.083.lcssa.i)
-  %240 = load i8, ptr %40, align 1, !range !8, !noundef !9
+  %240 = load i8, ptr %40, align 1, !range !10, !noundef !11
   %241 = trunc nuw i8 %240 to i1
   %242 = load ptr, ptr %42, align 8
   %243 = icmp eq ptr %242, null
@@ -2135,7 +2135,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %147, %get_type_leng
 
 244:                                              ; preds = %238
   %245 = call i32 @tvb_reported_length(ptr noundef nonnull %242)
-  %246 = load i8, ptr %41, align 1, !range !8, !noundef !9
+  %246 = load i8, ptr %41, align 1, !range !10, !noundef !11
   %247 = trunc nuw i8 %246 to i1
   %248 = load i32, ptr @hf_partial_record_handle_list, align 4
   %249 = load i32, ptr @hf_reassembled_record_handle_list, align 4
@@ -2173,7 +2173,7 @@ proto_item_set_generated.exit.i:                  ; preds = %258, %255, %244
   %265 = add nuw i32 %.082100.i, 4
   %266 = add nsw i32 %.0101.i, -4
   %267 = icmp samesign ugt i32 %.0101.i, 4
-  br i1 %267, label %.lr.ph102.i, label %dissect_sdp_service_search_response.exit, !llvm.loop !11
+  br i1 %267, label %.lr.ph102.i, label %dissect_sdp_service_search_response.exit, !llvm.loop !13
 
 dissect_sdp_service_search_response.exit:         ; preds = %.lr.ph102.i, %238, %proto_item_set_generated.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #10
@@ -2302,29 +2302,29 @@ get_uuids.exit.i:                                 ; preds = %315
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39)
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %322 = load ptr, ptr %321, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.not.i29.i = icmp eq ptr %320, null
   br i1 %.not.i29.i, label %.critedge.i.i, label %323
 
 323:                                              ; preds = %get_uuids.exit.i
-  %324 = call i32 @wmem_array_get_count(ptr noundef nonnull %320), !noalias !12
+  %324 = call i32 @wmem_array_get_count(ptr noundef nonnull %320), !noalias !14
   %.not25.i.i = icmp eq i32 %324, 0
   br i1 %.not25.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %323, %.lr.ph.i.i.backedge
   %.01419.i.i = phi i32 [ %.01419.i.i.be, %.lr.ph.i.i.backedge ], [ 0, %323 ]
-  %325 = call ptr @wmem_array_index(ptr noundef nonnull %320, i32 noundef %.01419.i.i), !noalias !12
+  %325 = call ptr @wmem_array_index(ptr noundef nonnull %320, i32 noundef %.01419.i.i), !noalias !14
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 2
-  %327 = load i8, ptr %326, align 2, !noalias !12
+  %327 = load i8, ptr %326, align 2, !noalias !14
   switch i8 %327, label %328 [
     i8 16, label %._crit_edge.i.i
     i8 0, label %334
   ]
 
 328:                                              ; preds = %.lr.ph.i.i
-  %329 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !12
-  %330 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %322, ptr noundef %325), !noalias !12
-  %331 = call ptr @dissector_get_string_handle(ptr noundef %329, ptr noundef %330), !noalias !12
+  %329 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !14
+  %330 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %322, ptr noundef %325), !noalias !14
+  %331 = call ptr @dissector_get_string_handle(ptr noundef %329, ptr noundef %330), !noalias !14
   %.not17.i.i = icmp eq ptr %331, null
   %332 = add nuw i32 %.01419.i.i, 1
   %333 = icmp ult i32 %332, %324
@@ -2338,7 +2338,7 @@ get_uuids.exit.i:                                 ; preds = %315
 
 .lr.ph.i.i.backedge:                              ; preds = %334, %328
   %.01419.i.i.be = phi i32 [ %.old.i.i, %334 ], [ %332, %328 ]
-  br label %.lr.ph.i.i, !llvm.loop !15
+  br label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %334, %328, %.lr.ph.i.i
   %.not18.i.i = icmp eq ptr %325, null
@@ -2349,7 +2349,7 @@ get_uuids.exit.i:                                 ; preds = %315
   br label %dissect_sdp_service_attribute_request.exit
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i, %323, %get_uuids.exit.i, %get_uuids.exit.thread.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %39, i8 0, i64 20, i1 false), !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %39, i8 0, i64 20, i1 false), !alias.scope !14
   br label %dissect_sdp_service_attribute_request.exit
 
 dissect_sdp_service_attribute_request.exit:       ; preds = %335, %.critedge.i.i
@@ -2378,7 +2378,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %335, %.critedge.i.i
   %345 = add nuw nsw i32 %344, 7
   %346 = zext i16 %76 to i32
   call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %345, i32 noundef %346, i1 noundef zeroext false, i32 noundef 7, i32 noundef %344, i32 noundef 1, ptr noundef nonnull %26, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null, ptr noundef nonnull %27, ptr noundef nonnull readonly %3)
-  %347 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %347 = load i8, ptr %25, align 1, !range !10, !noundef !11
   %348 = trunc nuw i8 %347 to i1
   br i1 %348, label %.thread52.i, label %349
 
@@ -2493,29 +2493,29 @@ get_uuids.exit.i83:                               ; preds = %391
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29)
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %398 = load ptr, ptr %397, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %.not.i45.i = icmp eq ptr %396, null
   br i1 %.not.i45.i, label %.critedge.i.i79, label %399
 
 399:                                              ; preds = %get_uuids.exit.i83
-  %400 = call i32 @wmem_array_get_count(ptr noundef nonnull %396), !noalias !16
+  %400 = call i32 @wmem_array_get_count(ptr noundef nonnull %396), !noalias !18
   %.not25.i.i84 = icmp eq i32 %400, 0
   br i1 %.not25.i.i84, label %.critedge.i.i79, label %.lr.ph.i.i85
 
 .lr.ph.i.i85:                                     ; preds = %399, %.lr.ph.i.i85.backedge
   %.01419.i.i86 = phi i32 [ %.01419.i.i86.be, %.lr.ph.i.i85.backedge ], [ 0, %399 ]
-  %401 = call ptr @wmem_array_index(ptr noundef nonnull %396, i32 noundef %.01419.i.i86), !noalias !16
+  %401 = call ptr @wmem_array_index(ptr noundef nonnull %396, i32 noundef %.01419.i.i86), !noalias !18
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 2
-  %403 = load i8, ptr %402, align 2, !noalias !16
+  %403 = load i8, ptr %402, align 2, !noalias !18
   switch i8 %403, label %404 [
     i8 16, label %._crit_edge.i.i89
     i8 0, label %410
   ]
 
 404:                                              ; preds = %.lr.ph.i.i85
-  %405 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !16
-  %406 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %398, ptr noundef %401), !noalias !16
-  %407 = call ptr @dissector_get_string_handle(ptr noundef %405, ptr noundef %406), !noalias !16
+  %405 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !18
+  %406 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %398, ptr noundef %401), !noalias !18
+  %407 = call ptr @dissector_get_string_handle(ptr noundef %405, ptr noundef %406), !noalias !18
   %.not17.i.i93 = icmp eq ptr %407, null
   %408 = add nuw i32 %.01419.i.i86, 1
   %409 = icmp ult i32 %408, %400
@@ -2529,7 +2529,7 @@ get_uuids.exit.i83:                               ; preds = %391
 
 .lr.ph.i.i85.backedge:                            ; preds = %410, %404
   %.01419.i.i86.be = phi i32 [ %.old.i.i87, %410 ], [ %408, %404 ]
-  br label %.lr.ph.i.i85, !llvm.loop !15
+  br label %.lr.ph.i.i85, !llvm.loop !17
 
 ._crit_edge.i.i89:                                ; preds = %410, %404, %.lr.ph.i.i85
   %.not18.i.i90 = icmp eq ptr %401, null
@@ -2540,12 +2540,12 @@ get_uuids.exit.i83:                               ; preds = %391
   br label %417
 
 .critedge.i.i79:                                  ; preds = %._crit_edge.i.i89, %399, %get_uuids.exit.i83, %get_uuids.exit.thread.i78
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %29, i8 0, i64 20, i1 false), !alias.scope !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %29, i8 0, i64 20, i1 false), !alias.scope !18
   br label %417
 
 .thread52.i:                                      ; preds = %340
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %28, i8 noundef 0, i64 noundef 20, i1 noundef false) #10
-  %412 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %412 = load i8, ptr %24, align 1, !range !10, !noundef !11
   %413 = trunc nuw i8 %412 to i1
   %414 = load i32, ptr @hf_fragment, align 4
   %415 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %414, ptr noundef %0, i32 noundef 7, i32 noundef %344, i32 noundef 0)
@@ -2556,7 +2556,7 @@ get_uuids.exit.i83:                               ; preds = %391
 417:                                              ; preds = %.critedge.i.i79, %411
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %28, ptr noundef nonnull align 2 dereferenceable(20) %29, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29)
-  %418 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %418 = load i8, ptr %24, align 1, !range !10, !noundef !11
   %419 = trunc nuw i8 %418 to i1
   br i1 %419, label %.thread.i82, label %421
 
@@ -2779,7 +2779,7 @@ get_type_length.exit55.i:                         ; preds = %507, %503, %499, %4
   %515 = sub i32 %.05961.i, %485
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #10
   %516 = icmp sgt i32 %515, 0
-  br i1 %516, label %.lr.ph.i100, label %._crit_edge.i101, !llvm.loop !19
+  br i1 %516, label %.lr.ph.i100, label %._crit_edge.i101, !llvm.loop !21
 
 ._crit_edge.i101:                                 ; preds = %513, %get_type_length.exit.i98
   %517 = phi ptr [ %459, %get_type_length.exit.i98 ], [ %511, %513 ]
@@ -2791,29 +2791,29 @@ get_type_length.exit55.i:                         ; preds = %507, %503, %499, %4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16)
   %521 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %522 = load ptr, ptr %521, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %.not.i.i102 = icmp eq ptr %517, null
   br i1 %.not.i.i102, label %.critedge.i.i110, label %523
 
 523:                                              ; preds = %._crit_edge.i101
-  %524 = call i32 @wmem_array_get_count(ptr noundef nonnull %517), !noalias !20
+  %524 = call i32 @wmem_array_get_count(ptr noundef nonnull %517), !noalias !22
   %.not25.i.i103 = icmp eq i32 %524, 0
   br i1 %.not25.i.i103, label %.critedge.i.i110, label %.lr.ph.i.i104
 
 .lr.ph.i.i104:                                    ; preds = %523, %.lr.ph.i.i104.backedge
   %.01419.i.i105 = phi i32 [ %.01419.i.i105.be, %.lr.ph.i.i104.backedge ], [ 0, %523 ]
-  %525 = call ptr @wmem_array_index(ptr noundef nonnull %517, i32 noundef %.01419.i.i105), !noalias !20
+  %525 = call ptr @wmem_array_index(ptr noundef nonnull %517, i32 noundef %.01419.i.i105), !noalias !22
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 2
-  %527 = load i8, ptr %526, align 2, !noalias !20
+  %527 = load i8, ptr %526, align 2, !noalias !22
   switch i8 %527, label %528 [
     i8 16, label %._crit_edge.i.i108
     i8 0, label %534
   ]
 
 528:                                              ; preds = %.lr.ph.i.i104
-  %529 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !20
-  %530 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %522, ptr noundef %525), !noalias !20
-  %531 = call ptr @dissector_get_string_handle(ptr noundef %529, ptr noundef %530), !noalias !20
+  %529 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !22
+  %530 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %522, ptr noundef %525), !noalias !22
+  %531 = call ptr @dissector_get_string_handle(ptr noundef %529, ptr noundef %530), !noalias !22
   %.not17.i.i113 = icmp eq ptr %531, null
   %532 = add nuw i32 %.01419.i.i105, 1
   %533 = icmp ult i32 %532, %524
@@ -2827,7 +2827,7 @@ get_type_length.exit55.i:                         ; preds = %507, %503, %499, %4
 
 .lr.ph.i.i104.backedge:                           ; preds = %534, %528
   %.01419.i.i105.be = phi i32 [ %.old.i.i106, %534 ], [ %532, %528 ]
-  br label %.lr.ph.i.i104, !llvm.loop !15
+  br label %.lr.ph.i.i104, !llvm.loop !17
 
 ._crit_edge.i.i108:                               ; preds = %534, %528, %.lr.ph.i.i104
   %.not18.i.i109 = icmp eq ptr %525, null
@@ -2838,7 +2838,7 @@ get_type_length.exit55.i:                         ; preds = %507, %503, %499, %4
   br label %dissect_sdp_service_search_attribute_request.exit
 
 .critedge.i.i110:                                 ; preds = %._crit_edge.i.i108, %523, %._crit_edge.i101
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !22
   br label %dissect_sdp_service_search_attribute_request.exit
 
 dissect_sdp_service_search_attribute_request.exit: ; preds = %535, %.critedge.i.i110
@@ -2874,29 +2874,29 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %535, %.critedge.i.
   %548 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %549 = load ptr, ptr %548, align 8
   %550 = load ptr, ptr %9, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %.not.i.i116 = icmp eq ptr %550, null
   br i1 %.not.i.i116, label %.critedge.i.i129, label %551
 
 551:                                              ; preds = %541
-  %552 = call i32 @wmem_array_get_count(ptr noundef nonnull %550), !noalias !23
+  %552 = call i32 @wmem_array_get_count(ptr noundef nonnull %550), !noalias !25
   %.not25.i.i117 = icmp eq i32 %552, 0
   br i1 %.not25.i.i117, label %.critedge.i.i129, label %.lr.ph.i.i118
 
 .lr.ph.i.i118:                                    ; preds = %551, %.lr.ph.i.i118.backedge
   %.01419.i.i119 = phi i32 [ %.01419.i.i119.be, %.lr.ph.i.i118.backedge ], [ 0, %551 ]
-  %553 = call ptr @wmem_array_index(ptr noundef nonnull %550, i32 noundef %.01419.i.i119), !noalias !23
+  %553 = call ptr @wmem_array_index(ptr noundef nonnull %550, i32 noundef %.01419.i.i119), !noalias !25
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 2
-  %555 = load i8, ptr %554, align 2, !noalias !23
+  %555 = load i8, ptr %554, align 2, !noalias !25
   switch i8 %555, label %556 [
     i8 16, label %._crit_edge.i.i122
     i8 0, label %562
   ]
 
 556:                                              ; preds = %.lr.ph.i.i118
-  %557 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !23
-  %558 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %549, ptr noundef %553), !noalias !23
-  %559 = call ptr @dissector_get_string_handle(ptr noundef %557, ptr noundef %558), !noalias !23
+  %557 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !25
+  %558 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %549, ptr noundef %553), !noalias !25
+  %559 = call ptr @dissector_get_string_handle(ptr noundef %557, ptr noundef %558), !noalias !25
   %.not17.i.i132 = icmp eq ptr %559, null
   %560 = add nuw i32 %.01419.i.i119, 1
   %561 = icmp ult i32 %560, %552
@@ -2910,7 +2910,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %535, %.critedge.i.
 
 .lr.ph.i.i118.backedge:                           ; preds = %562, %556
   %.01419.i.i119.be = phi i32 [ %.old.i.i120, %562 ], [ %560, %556 ]
-  br label %.lr.ph.i.i118, !llvm.loop !15
+  br label %.lr.ph.i.i118, !llvm.loop !17
 
 ._crit_edge.i.i122:                               ; preds = %562, %556, %.lr.ph.i.i118
   %.not18.i.i123 = icmp eq ptr %553, null
@@ -2921,16 +2921,16 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %535, %.critedge.i.
   br label %get_specified_uuid.exit.i
 
 .critedge.i.i129:                                 ; preds = %._crit_edge.i.i122, %551, %541
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %10, i8 0, i64 20, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %10, i8 0, i64 20, i1 false), !alias.scope !25
   br label %get_specified_uuid.exit.i
 
 get_specified_uuid.exit.i:                        ; preds = %.critedge.i.i129, %563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %8, ptr noundef nonnull align 2 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
-  %564 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %564 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %565 = trunc nuw i8 %564 to i1
   %.not.i124 = xor i1 %565, true
-  %566 = load i8, ptr %6, align 1, !range !8
+  %566 = load i8, ptr %6, align 1, !range !10
   %567 = trunc nuw i8 %566 to i1
   %or.cond.i = select i1 %.not.i124, i1 true, i1 %567
   br i1 %or.cond.i, label %568, label %.thread.i125
@@ -3582,7 +3582,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph156, %169, %1
   %193 = add i32 %186, %.022.i1644
   %194 = sub i32 %193, %.022.i
   %195 = icmp slt i32 %194, %48
-  br i1 %195, label %.lr.ph156, label %.thread98, !llvm.loop !26
+  br i1 %195, label %.lr.ph156, label %.thread98, !llvm.loop !28
 
 196:                                              ; preds = %get_type_length.exit
   %cond7 = icmp eq i32 %4, 785
@@ -4522,7 +4522,7 @@ get_type_length.exit1671:                         ; preds = %707, %716, %719, %7
   %743 = add i32 %.01491150, 1
   %744 = sub i32 %.01485, %.022.i
   %745 = icmp slt i32 %744, %48
-  br i1 %745, label %572, label %.thread98, !llvm.loop !27
+  br i1 %745, label %572, label %.thread98, !llvm.loop !29
 
 746:                                              ; preds = %570
   %747 = load ptr, ptr %12, align 8
@@ -4771,7 +4771,7 @@ get_type_length.exit1676:                         ; preds = %.lr.ph142, %862, %8
   %886 = add i32 %879, %.022.i1674
   %887 = sub i32 %886, %.022.i
   %888 = icmp slt i32 %887, %48
-  br i1 %888, label %.lr.ph142, label %.thread98, !llvm.loop !28
+  br i1 %888, label %.lr.ph142, label %.thread98, !llvm.loop !30
 
 889:                                              ; preds = %get_type_length.exit
   switch i32 %4, label %1698 [
@@ -6853,7 +6853,7 @@ get_type_length.exit1756:                         ; preds = %get_type_length.exi
   %2038 = add i32 %.11490161, 1
   %2039 = sub i32 %2037, %.022.i
   %2040 = icmp slt i32 %2039, %48
-  br i1 %2040, label %.lr.ph163, label %.thread98, !llvm.loop !29
+  br i1 %2040, label %.lr.ph163, label %.thread98, !llvm.loop !31
 
 2041:                                             ; preds = %1698
   %2042 = load ptr, ptr %12, align 8
@@ -7030,7 +7030,7 @@ get_int_by_size.exit:                             ; preds = %2076, %2077, %2080,
   %2124 = add i32 %2119, %.0189
   %2125 = sub nsw i32 %.01479187, %2119
   %2126 = icmp sgt i32 %2125, 0
-  br i1 %2126, label %.lr.ph190, label %._crit_edge, !llvm.loop !30
+  br i1 %2126, label %.lr.ph190, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %2121, %2118, %2107
   call void @decrement_dissection_depth(ptr noundef %1)
@@ -7389,7 +7389,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   %122 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %123 = load ptr, ptr %122, align 8
   %124 = zext i8 %120 to i64
-  %125 = call ptr @__memcpy_chk(ptr noundef %121, ptr noundef %123, i64 noundef range(i64 0, 4294967296) %124, i64 noundef 19) #10, !alias.scope !31
+  %125 = call ptr @__memcpy_chk(ptr noundef %121, ptr noundef %123, i64 noundef range(i64 0, 4294967296) %124, i64 noundef 19) #10, !alias.scope !33
   store i32 %25, ptr %16, align 4
   store i32 %27, ptr %17, align 4
   store i32 %30, ptr %18, align 4
@@ -7523,7 +7523,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   %201 = load ptr, ptr %200, align 8
   %202 = load i32, ptr %191, align 8
   %203 = zext i32 %202 to i64
-  %204 = call ptr @__memcpy_chk(ptr noundef %195, ptr noundef %201, i64 noundef range(i64 0, 4294967296) %203, i64 noundef %194) #10, !alias.scope !35
+  %204 = call ptr @__memcpy_chk(ptr noundef %195, ptr noundef %201, i64 noundef range(i64 0, 4294967296) %203, i64 noundef %194) #10, !alias.scope !37
   %205 = getelementptr i8, ptr %195, i64 %203
   %206 = zext nneg i32 %6 to i64
   %207 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %205, i32 noundef %5, i64 noundef %206)
@@ -7782,7 +7782,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   %332 = getelementptr inbounds nuw i8, ptr %303, i64 40
   %333 = load ptr, ptr %332, align 8
   %334 = zext i8 %330 to i64
-  %335 = call ptr @__memcpy_chk(ptr noundef %331, ptr noundef %333, i64 noundef range(i64 0, 4294967296) %334, i64 noundef 19) #10, !alias.scope !39
+  %335 = call ptr @__memcpy_chk(ptr noundef %331, ptr noundef %333, i64 noundef range(i64 0, 4294967296) %334, i64 noundef 19) #10, !alias.scope !41
   store i32 %25, ptr %16, align 4
   store i32 %27, ptr %17, align 4
   store i32 %30, ptr %18, align 4
@@ -7851,7 +7851,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   %366 = load ptr, ptr %365, align 8
   %367 = load i32, ptr %356, align 8
   %368 = zext i32 %367 to i64
-  %369 = call ptr @__memcpy_chk(ptr noundef %360, ptr noundef %366, i64 noundef range(i64 0, 4294967296) %368, i64 noundef %359) #10, !alias.scope !43
+  %369 = call ptr @__memcpy_chk(ptr noundef %360, ptr noundef %366, i64 noundef range(i64 0, 4294967296) %368, i64 noundef %359) #10, !alias.scope !45
   %370 = getelementptr i8, ptr %360, i64 %368
   %371 = zext nneg i32 %6 to i64
   %372 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %370, i32 noundef %5, i64 noundef %371)
@@ -7896,7 +7896,7 @@ define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr n
   store i8 %391, ptr %390, align 1
   %392 = getelementptr i8, ptr %390, i64 1
   %393 = zext nneg i32 %.0347 to i64
-  %394 = call ptr @__memcpy_chk(ptr noundef %392, ptr noundef %269, i64 noundef range(i64 0, 4294967296) %393, i64 noundef 19) #10, !alias.scope !47
+  %394 = call ptr @__memcpy_chk(ptr noundef %392, ptr noundef %269, i64 noundef range(i64 0, 4294967296) %393, i64 noundef 19) #10, !alias.scope !49
   store i32 %25, ptr %16, align 4
   store i32 %27, ptr %17, align 4
   store i32 %30, ptr %18, align 4
@@ -8162,7 +8162,7 @@ define internal fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, p
   %38 = add i32 %.149, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv, %35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %.1.lcssa = phi i32 [ %31, %21 ], [ %38, %.lr.ph ]
@@ -9161,7 +9161,7 @@ get_int_by_size.exit198:                          ; preds = %326, %334, %get_typ
   %366 = add i32 %321, %.022.i189
   %367 = sub i32 %366, %.022.i
   %368 = icmp slt i32 %367, %107
-  br i1 %368, label %.lr.ph246, label %._crit_edge247, !llvm.loop !52
+  br i1 %368, label %.lr.ph246, label %._crit_edge247, !llvm.loop !54
 
 ._crit_edge247:                                   ; preds = %365, %get_type_length.exit174, %297
   %.1260 = phi ptr [ %.3, %297 ], [ %.0160250, %get_type_length.exit174 ], [ %.3, %365 ]
@@ -9187,7 +9187,7 @@ get_int_by_size.exit198:                          ; preds = %326, %334, %get_typ
   br label %378
 
 378:                                              ; preds = %374, %373
-  br i1 %371, label %82, label %._crit_edge255, !llvm.loop !53
+  br i1 %371, label %82, label %._crit_edge255, !llvm.loop !55
 
 ._crit_edge255:                                   ; preds = %378, %8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %31) #10
@@ -9338,7 +9338,7 @@ get_type_length.exit:                             ; preds = %5, %15, %18, %19, %
   %.neg = add i32 %.037, %.03336
   %37 = sub i32 %.neg, %36
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %.cont
   %.pre = sub i32 %36, %2
@@ -9853,7 +9853,7 @@ get_type_length.exit22:                           ; preds = %get_type_length.exi
   %56 = add i32 %49, %.022.i20
   %57 = add nuw nsw i32 %.01627, 1
   %exitcond.not = icmp eq i32 %57, %2
-  br i1 %exitcond.not, label %58, label %5, !llvm.loop !55
+  br i1 %exitcond.not, label %58, label %5, !llvm.loop !57
 
 58:                                               ; preds = %55
   ret i32 %.1
@@ -10124,42 +10124,42 @@ get_type_length.exit118:                          ; preds = %101, %104, %107, %1
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %8, i32 noundef 1)
   %119 = add i32 %118, %.022.i116
   %.not103 = icmp sgt i32 %119, %.022.i111
-  br i1 %.not103, label %.loopexit, label %101, !llvm.loop !56
+  br i1 %.not103, label %.loopexit, label %101, !llvm.loop !58
 
 .loopexit:                                        ; preds = %get_type_length.exit118, %get_type_length.exit113
   %120 = add i32 %95, %.022.i111
   %121 = add i32 %.097130, 1
   %122 = sub i32 %120, %2
   %123 = icmp slt i32 %122, %43
-  br i1 %123, label %.lr.ph132, label %._crit_edge, !llvm.loop !57
+  br i1 %123, label %.lr.ph132, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.loopexit, %get_type_length.exit
   %.097.lcssa = phi i32 [ 0, %get_type_length.exit ], [ %121, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19)
   %124 = load ptr, ptr %20, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.critedge.i, label %125
 
 125:                                              ; preds = %._crit_edge
-  %126 = call i32 @wmem_array_get_count(ptr noundef nonnull %22), !noalias !58
+  %126 = call i32 @wmem_array_get_count(ptr noundef nonnull %22), !noalias !60
   %.not25.i = icmp eq i32 %126, 0
   br i1 %.not25.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %125, %.lr.ph.i.backedge
   %.01419.i = phi i32 [ %.01419.i.be, %.lr.ph.i.backedge ], [ 0, %125 ]
-  %127 = call ptr @wmem_array_index(ptr noundef nonnull %22, i32 noundef %.01419.i), !noalias !58
+  %127 = call ptr @wmem_array_index(ptr noundef nonnull %22, i32 noundef %.01419.i), !noalias !60
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
-  %129 = load i8, ptr %128, align 2, !noalias !58
+  %129 = load i8, ptr %128, align 2, !noalias !60
   switch i8 %129, label %130 [
     i8 16, label %._crit_edge.i
     i8 0, label %136
   ]
 
 130:                                              ; preds = %.lr.ph.i
-  %131 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !58
-  %132 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %124, ptr noundef %127), !noalias !58
-  %133 = call ptr @dissector_get_string_handle(ptr noundef %131, ptr noundef %132), !noalias !58
+  %131 = load ptr, ptr @bluetooth_uuid_table, align 8, !noalias !60
+  %132 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %124, ptr noundef %127), !noalias !60
+  %133 = call ptr @dissector_get_string_handle(ptr noundef %131, ptr noundef %132), !noalias !60
   %.not17.i = icmp eq ptr %133, null
   %134 = add nuw i32 %.01419.i, 1
   %135 = icmp ult i32 %134, %126
@@ -10173,7 +10173,7 @@ get_type_length.exit118:                          ; preds = %101, %104, %107, %1
 
 .lr.ph.i.backedge:                                ; preds = %136, %130
   %.01419.i.be = phi i32 [ %.old.i, %136 ], [ %134, %130 ]
-  br label %.lr.ph.i, !llvm.loop !15
+  br label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %136, %130, %.lr.ph.i
   %.not18.i = icmp eq ptr %127, null
@@ -10184,7 +10184,7 @@ get_type_length.exit118:                          ; preds = %101, %104, %107, %1
   br label %get_specified_uuid.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %125, %._crit_edge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !58
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !60
   br label %get_specified_uuid.exit
 
 get_specified_uuid.exit:                          ; preds = %137, %.critedge.i
@@ -10270,7 +10270,7 @@ get_specified_uuid.exit:                          ; preds = %137, %.critedge.i
   %180 = call fastcc i32 @dissect_sdp_service_attribute(ptr noundef %179, ptr noundef %1, i32 noundef %.0133, ptr noundef %3, i16 %.val, i32 noundef %.022.i, ptr noundef %.094, i32 noundef %.097.lcssa, i1 noundef zeroext false)
   %181 = sub i32 %180, %2
   %182 = icmp slt i32 %181, %43
-  br i1 %182, label %.lr.ph135, label %._crit_edge136, !llvm.loop !61
+  br i1 %182, label %.lr.ph135, label %._crit_edge136, !llvm.loop !63
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %178
   %.0.lcssa = phi i32 [ %.022.i, %178 ], [ %180, %.lr.ph135 ]
@@ -10451,7 +10451,7 @@ get_type_length.exit:                             ; preds = %7, %7, %7, %7, %7, 
   %31 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %28, ptr noundef %1, i32 noundef %.02324, ptr noundef %3, ptr noundef %5, ptr noundef %6)
   %32 = sub i32 %31, %2
   %33 = icmp slt i32 %32, %4
-  br i1 %33, label %29, label %._crit_edge, !llvm.loop !62
+  br i1 %33, label %29, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %29, %get_type_length.exit
   %.0.lcssa = phi i32 [ 0, %get_type_length.exit ], [ %30, %29 ]
@@ -10491,60 +10491,62 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"get_specified_uuid: argument 0"}
-!14 = distinct !{!14, !"get_specified_uuid"}
-!15 = distinct !{!15, !7}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"get_specified_uuid: argument 0"}
-!18 = distinct !{!18, !"get_specified_uuid"}
-!19 = distinct !{!19, !7}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"get_specified_uuid: argument 0"}
-!22 = distinct !{!22, !"get_specified_uuid"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"get_specified_uuid: argument 0"}
-!25 = distinct !{!25, !"get_specified_uuid"}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"get_specified_uuid: argument 0"}
+!16 = distinct !{!16, !"get_specified_uuid"}
+!17 = distinct !{!17, !7}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"get_specified_uuid: argument 0"}
+!20 = distinct !{!20, !"get_specified_uuid"}
+!21 = distinct !{!21, !7}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"get_specified_uuid: argument 0"}
+!24 = distinct !{!24, !"get_specified_uuid"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"get_specified_uuid: argument 0"}
+!27 = distinct !{!27, !"get_specified_uuid"}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
-!33 = distinct !{!33, !"memcpy.inline"}
-!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
-!35 = !{!36, !38}
-!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
-!37 = distinct !{!37, !"memcpy.inline"}
-!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
-!41 = distinct !{!41, !"memcpy.inline"}
-!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
-!45 = distinct !{!45, !"memcpy.inline"}
-!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
+!35 = distinct !{!35, !"memcpy.inline"}
+!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
+!39 = distinct !{!39, !"memcpy.inline"}
+!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
+!41 = !{!42, !44}
+!42 = distinct !{!42, !43, !"memcpy.inline: argument 0"}
+!43 = distinct !{!43, !"memcpy.inline"}
+!44 = distinct !{!44, !43, !"memcpy.inline: argument 1"}
+!45 = !{!46, !48}
+!46 = distinct !{!46, !47, !"memcpy.inline: argument 0"}
+!47 = distinct !{!47, !"memcpy.inline"}
+!48 = distinct !{!48, !47, !"memcpy.inline: argument 1"}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"memcpy.inline: argument 0"}
+!51 = distinct !{!51, !"memcpy.inline"}
+!52 = distinct !{!52, !51, !"memcpy.inline: argument 1"}
 !53 = distinct !{!53, !7}
 !54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
 !57 = distinct !{!57, !7}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"get_specified_uuid: argument 0"}
-!60 = distinct !{!60, !"get_specified_uuid"}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"get_specified_uuid: argument 0"}
+!62 = distinct !{!62, !"get_specified_uuid"}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}

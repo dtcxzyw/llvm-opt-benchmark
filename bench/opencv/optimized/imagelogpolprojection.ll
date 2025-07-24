@@ -816,7 +816,7 @@ _ZNSt8valarrayIjE6resizeEmj.exit:                 ; preds = %.lr.ph.i.i.i99.preh
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNSt8valarrayIjE6resizeEmj.exit
   %226 = load ptr, ptr %80, align 8, !tbaa !12
   %227 = shl nuw i64 %225, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %226, i8 0, i64 %227, i1 false), !tbaa !34, !alias.scope !108
+  tail call void @llvm.memset.p0.i64(ptr align 4 %226, i8 0, i64 %227, i1 false), !tbaa !34, !alias.scope !109
   br label %_ZNSt8valarrayIfEaSERKf.exit.i
 
 _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheader.i, %_ZNSt8valarrayIjE6resizeEmj.exit
@@ -830,7 +830,7 @@ _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheade
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !12
   %233 = shl nuw i64 %230, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %232, i8 0, i64 %233, i1 false), !tbaa !34, !alias.scope !111
+  tail call void @llvm.memset.p0.i64(ptr align 4 %232, i8 0, i64 %233, i1 false), !tbaa !34, !alias.scope !112
   br label %_ZNSt8valarrayIfEaSERKf.exit6.i
 
 _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit.i
@@ -843,7 +843,7 @@ _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.prehead
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %237 = load ptr, ptr %236, align 8, !tbaa !12
   %238 = shl nuw i64 %235, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %237, i8 0, i64 %238, i1 false), !tbaa !34, !alias.scope !114
+  tail call void @llvm.memset.p0.i64(ptr align 4 %237, i8 0, i64 %238, i1 false), !tbaa !34, !alias.scope !115
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %_ZNSt8valarrayIfEaSERKf.exit6.i
@@ -856,7 +856,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = 
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %242 = load ptr, ptr %241, align 8, !tbaa !12
   %243 = shl nuw i64 %240, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %242, i8 0, i64 %243, i1 false), !tbaa !34, !alias.scope !117
+  tail call void @llvm.memset.p0.i64(ptr align 4 %242, i8 0, i64 %243, i1 false), !tbaa !34, !alias.scope !118
   br label %_ZN2cv11bioinspired21ImageLogPolProjection15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired21ImageLogPolProjection15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i.preheader.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
@@ -1063,10 +1063,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %101 = uitofp i32 %100 to double
   %102 = fmul double %95, %101
   %103 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv
-  store double %102, ptr %103, align 8, !tbaa !120
+  store double %102, ptr %103, align 8, !tbaa !121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 104:                                              ; preds = %._crit_edge
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %99, i8 0, i64 %98, i1 false)
@@ -1099,10 +1099,10 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %116 = uitofp i32 %115 to double
   %117 = fmul double %107, %116
   %118 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv115
-  store double %117, ptr %118, align 8, !tbaa !120
+  store double %117, ptr %118, align 8, !tbaa !121
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !122
+  br i1 %exitcond119.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !123
 
 119:                                              ; preds = %._crit_edge102
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %112, i8 0, i64 %111, i1 false)
@@ -1133,7 +1133,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
 
 .lr.ph104:                                        ; preds = %.preheader
   %131 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv123
-  %132 = load double, ptr %131, align 8, !tbaa !120
+  %132 = load double, ptr %131, align 8, !tbaa !121
   %133 = load i64, ptr %53, align 8
   %134 = trunc i64 %133 to i32
   %135 = trunc nuw i64 %indvars.iv123 to i32
@@ -1193,13 +1193,13 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %150 = zext i32 %148 to i64
   %151 = icmp samesign ult i64 %indvars.iv.next124, %150
-  br i1 %151, label %.preheader, label %._crit_edge107.loopexit113, !llvm.loop !123
+  br i1 %151, label %.preheader, label %._crit_edge107.loopexit113, !llvm.loop !124
 
 152:                                              ; preds = %.lr.ph104, %194
   %indvars.iv120 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next121, %194 ]
   %153 = tail call double @sinh(double noundef %132) #16, !tbaa !102
   %154 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv120
-  %155 = load double, ptr %154, align 8, !tbaa !120
+  %155 = load double, ptr %154, align 8, !tbaa !121
   %156 = tail call double @cos(double noundef %155) #16, !tbaa !102
   %157 = tail call double @llvm.fmuladd.f64(double %153, double %156, double 1.000000e+00)
   %158 = tail call double @sinh(double noundef %132) #16, !tbaa !102
@@ -1255,7 +1255,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %195 = load i32, ptr %63, align 4, !tbaa !94
   %196 = zext i32 %195 to i64
   %197 = icmp samesign ult i64 %indvars.iv.next121, %196
-  br i1 %197, label %152, label %._crit_edge105.loopexit, !llvm.loop !125
+  br i1 %197, label %152, label %._crit_edge105.loopexit, !llvm.loop !126
 
 _ZNSt8valarrayIjE6resizeEmj.exit:                 ; preds = %.lr.ph.i.i.i70.preheader, %144
   %198 = load i32, ptr %120, align 8, !tbaa !31
@@ -1269,7 +1269,7 @@ _ZNSt8valarrayIjE6resizeEmj.exit:                 ; preds = %.lr.ph.i.i.i70.preh
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNSt8valarrayIjE6resizeEmj.exit
   %202 = load ptr, ptr %82, align 8, !tbaa !12
   %203 = shl nuw i64 %201, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %202, i8 0, i64 %203, i1 false), !tbaa !34, !alias.scope !126
+  tail call void @llvm.memset.p0.i64(ptr align 4 %202, i8 0, i64 %203, i1 false), !tbaa !34, !alias.scope !127
   br label %_ZNSt8valarrayIfEaSERKf.exit.i
 
 _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheader.i, %_ZNSt8valarrayIjE6resizeEmj.exit
@@ -1283,7 +1283,7 @@ _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheade
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !12
   %209 = shl nuw i64 %206, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %208, i8 0, i64 %209, i1 false), !tbaa !34, !alias.scope !129
+  tail call void @llvm.memset.p0.i64(ptr align 4 %208, i8 0, i64 %209, i1 false), !tbaa !34, !alias.scope !130
   br label %_ZNSt8valarrayIfEaSERKf.exit6.i
 
 _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit.i
@@ -1296,7 +1296,7 @@ _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.prehead
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !12
   %214 = shl nuw i64 %211, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %213, i8 0, i64 %214, i1 false), !tbaa !34, !alias.scope !132
+  tail call void @llvm.memset.p0.i64(ptr align 4 %213, i8 0, i64 %214, i1 false), !tbaa !34, !alias.scope !133
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %_ZNSt8valarrayIfEaSERKf.exit6.i
@@ -1309,7 +1309,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = 
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %218 = load ptr, ptr %217, align 8, !tbaa !12
   %219 = shl nuw i64 %216, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %218, i8 0, i64 %219, i1 false), !tbaa !34, !alias.scope !135
+  tail call void @llvm.memset.p0.i64(ptr align 4 %218, i8 0, i64 %219, i1 false), !tbaa !34, !alias.scope !136
   br label %_ZN2cv11bioinspired21ImageLogPolProjection15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired21ImageLogPolProjection15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i.preheader.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
@@ -1376,11 +1376,11 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %11 = load ptr, ptr %10, align 8, !tbaa !138
+  %11 = load ptr, ptr %10, align 8, !tbaa !139
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef %9, ptr noundef nonnull %13, i32 noundef 0)
-  %14 = load ptr, ptr %10, align 8, !tbaa !138
+  %14 = load ptr, ptr %10, align 8, !tbaa !139
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   br i1 %or.cond, label %17, label %100
@@ -1393,39 +1393,39 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull %16, ptr noundef nonnull %21, i32 noundef 0)
   %22 = load ptr, ptr %8, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load i64, ptr %23, align 8, !tbaa !139
+  %24 = load i64, ptr %23, align 8, !tbaa !140
   %25 = and i64 %24, 4294967295
   %26 = getelementptr inbounds nuw float, ptr %22, i64 %25
-  %27 = load ptr, ptr %10, align 8, !tbaa !138
+  %27 = load ptr, ptr %10, align 8, !tbaa !139
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef %26, ptr noundef nonnull %29, i32 noundef 0)
-  %30 = load ptr, ptr %10, align 8, !tbaa !138
+  %30 = load ptr, ptr %10, align 8, !tbaa !139
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = load ptr, ptr %18, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !12
-  %36 = load i64, ptr %23, align 8, !tbaa !139
+  %36 = load i64, ptr %23, align 8, !tbaa !140
   %37 = and i64 %36, 4294967295
   %38 = getelementptr inbounds nuw float, ptr %35, i64 %37
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull %32, ptr noundef nonnull %38, i32 noundef 0)
   %39 = load ptr, ptr %8, align 8, !tbaa !12
-  %40 = load i64, ptr %23, align 8, !tbaa !139
+  %40 = load i64, ptr %23, align 8, !tbaa !140
   %41 = shl i64 %40, 1
   %42 = and i64 %41, 4294967294
   %43 = getelementptr inbounds nuw float, ptr %39, i64 %42
-  %44 = load ptr, ptr %10, align 8, !tbaa !138
+  %44 = load ptr, ptr %10, align 8, !tbaa !139
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !12
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef %43, ptr noundef nonnull %46, i32 noundef 0)
-  %47 = load ptr, ptr %10, align 8, !tbaa !138
+  %47 = load ptr, ptr %10, align 8, !tbaa !139
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   %50 = load ptr, ptr %18, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !12
-  %53 = load i64, ptr %23, align 8, !tbaa !139
+  %53 = load i64, ptr %23, align 8, !tbaa !140
   %54 = shl i64 %53, 1
   %55 = and i64 %54, 4294967294
   %56 = getelementptr inbounds nuw float, ptr %52, i64 %55
@@ -1443,7 +1443,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %63 = load ptr, ptr %62, align 8, !tbaa !12
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %65 = load ptr, ptr %64, align 8, !tbaa !12
-  %66 = load i64, ptr %23, align 8, !tbaa !139
+  %66 = load i64, ptr %23, align 8, !tbaa !140
   %67 = trunc i64 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %69 = load i32, ptr %68, align 4, !tbaa !97
@@ -1484,7 +1484,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %97 = add nuw i32 %.02127, 2
   %98 = getelementptr inbounds nuw i8, ptr %.02226, i64 8
   %99 = icmp ult i32 %97, %58
-  br i1 %99, label %74, label %.loopexit, !llvm.loop !140
+  br i1 %99, label %74, label %.loopexit, !llvm.loop !141
 
 100:                                              ; preds = %3
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull %16, ptr noundef nonnull %16, i32 noundef 0)
@@ -1496,7 +1496,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
 .lr.ph:                                           ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %104 = load ptr, ptr %103, align 8, !tbaa !18
-  %105 = load ptr, ptr %10, align 8, !tbaa !138
+  %105 = load ptr, ptr %10, align 8, !tbaa !139
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !12
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1518,7 +1518,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %119 = add nuw i32 %.025, 2
   %120 = getelementptr inbounds nuw i8, ptr %.02024, i64 8
   %121 = icmp ult i32 %119, %102
-  br i1 %121, label %110, label %.loopexit, !llvm.loop !141
+  br i1 %121, label %110, label %.loopexit, !llvm.loop !142
 
 .loopexit:                                        ; preds = %110, %74, %100, %17
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1686,38 +1686,39 @@ attributes #18 = { noreturn }
 !104 = !{!20, !27, i64 232}
 !105 = distinct !{!105, !106}
 !106 = !{!"llvm.loop.mustprogress"}
-!107 = distinct !{!107, !106}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!110 = distinct !{!110, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!113 = distinct !{!113, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!116 = distinct !{!116, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!119 = distinct !{!119, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!120 = !{!27, !27, i64 0}
-!121 = distinct !{!121, !106}
+!107 = distinct !{!107, !106, !108}
+!108 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!111 = distinct !{!111, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!114 = distinct !{!114, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!117 = distinct !{!117, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!120 = distinct !{!120, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!121 = !{!27, !27, i64 0}
 !122 = distinct !{!122, !106}
-!123 = distinct !{!123, !106, !124}
-!124 = !{!"llvm.loop.unswitch.partial.disable"}
-!125 = distinct !{!125, !106}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!128 = distinct !{!128, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!131 = distinct !{!131, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!134 = distinct !{!134, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!137 = distinct !{!137, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!138 = !{!20, !14, i64 288}
-!139 = !{!22, !8, i64 48}
-!140 = distinct !{!140, !106}
+!123 = distinct !{!123, !106}
+!124 = distinct !{!124, !106, !125}
+!125 = !{!"llvm.loop.unswitch.partial.disable"}
+!126 = distinct !{!126, !106}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!129 = distinct !{!129, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!132 = distinct !{!132, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!135 = distinct !{!135, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!138 = distinct !{!138, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!139 = !{!20, !14, i64 288}
+!140 = !{!22, !8, i64 48}
 !141 = distinct !{!141, !106}
+!142 = distinct !{!142, !106}

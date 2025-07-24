@@ -119,7 +119,7 @@ define noundef i32 @dtrsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %65 = add nsw i64 %.08793.us, -1
   %66 = add nuw nsw i64 %.08594.us, 2
   %67 = icmp sgt i64 %.08793.us, 1
-  br i1 %67, label %37, label %._crit_edge.us, !llvm.loop !9
+  br i1 %67, label %37, label %._crit_edge.us, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %61
   br i1 %.not91, label %32, label %15
@@ -170,7 +170,7 @@ define noundef i32 @dtrsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %82 = add nsw i64 %.083101, 2
   %83 = add nsw i64 %.084100, -1
   %84 = icmp sgt i64 %.084100, 1
-  br i1 %84, label %.lr.ph104.split.split, label %._crit_edge105.loopexit127, !llvm.loop !7
+  br i1 %84, label %.lr.ph104.split.split, label %._crit_edge105.loopexit127, !llvm.loop !11
 
 ._crit_edge105.loopexit:                          ; preds = %32
   %85 = and i64 %1, -2
@@ -219,7 +219,7 @@ define noundef i32 @dtrsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %101 = getelementptr inbounds nuw i8, ptr %.3122, i64 8
   %102 = add nuw nsw i64 %.186124, 1
   %exitcond.not = icmp eq i64 %102, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %99, %._crit_edge105
   ret i32 0
@@ -236,7 +236,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

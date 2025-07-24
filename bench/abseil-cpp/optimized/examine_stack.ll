@@ -156,7 +156,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 45:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %15) #9
@@ -234,7 +234,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #9
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us, %17
   %31 = load ptr, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_122debug_stack_trace_hookE, align 8, !tbaa !4
@@ -251,7 +251,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 35:                                               ; preds = %._crit_edge
   call void %31(ptr noundef %.0, i32 noundef %19, ptr noundef %3, ptr noundef %4)
@@ -305,6 +305,9 @@ attributes #9 = { nounwind }
 !9 = !{!"long long", !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13}

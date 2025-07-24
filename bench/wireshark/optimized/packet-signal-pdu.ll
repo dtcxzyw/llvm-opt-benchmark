@@ -6025,7 +6025,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %181 = zext i8 %.149.us.i.i to i64
   %182 = or i64 %180, %181
   %183 = add nsw i32 %.15767.us.i.i, 1
-  br i1 %175, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.us.i.i, !llvm.loop !33
+  br i1 %175, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.us.i.i, !llvm.loop !34
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %194
   %.05465.i.i = phi i64 [ %.155.i.i, %194 ], [ 0, %.lr.ph.i.i ]
@@ -6051,7 +6051,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %.155.i.i = phi i64 [ %193, %184 ], [ %.05465.i.i, %.lr.ph.split.i.i ]
   %195 = add nsw i32 %.05664.i.i, -1
   %.not.not.i.i = icmp sgt i32 %.05664.i.i, %.083131
-  br i1 %.not.not.i.i, label %.lr.ph.split.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !32
+  br i1 %.not.not.i.i, label %.lr.ph.split.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !35
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.split.i.preheader.i, %.lr.ph69.split.i.i
   %.15767.i310.i = phi i32 [ %202, %.lr.ph69.split.i.i ], [ %.083131, %.lr.ph69.split.i.preheader.i ]
@@ -6128,7 +6128,7 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %194, %.lr.ph.split.
   %.2266.i = phi ptr [ %225, %223 ], [ %.1265312.i, %220 ], [ %.1265312.i, %217 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %217, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit.i, label %217, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %226, %.preheader.i, %205
   %.0264.i = phi ptr [ null, %205 ], [ null, %.preheader.i ], [ %.2266.i, %226 ]
@@ -6547,7 +6547,7 @@ dissect_spdu_payload_signal.exit:                 ; preds = %132, %442
   %454 = add nuw i32 %.0132, 1
   %455 = load i32, ptr %70, align 4
   %456 = icmp ult i32 %454, %455
-  br i1 %456, label %76, label %.critedge, !llvm.loop !35
+  br i1 %456, label %76, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %447
   %457 = add nsw i32 %449, 1
@@ -6720,7 +6720,9 @@ attributes #20 = { noreturn }
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
 !31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
+!32 = distinct !{!32, !9, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !9, !33}
 !35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}

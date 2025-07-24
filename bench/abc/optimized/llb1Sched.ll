@@ -301,7 +301,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %.190.us = phi i32 [ %114, %109 ], [ %.089123.us, %102 ], [ %.089123.us, %98 ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %._crit_edge126.us, label %98, !llvm.loop !32
+  br i1 %exitcond151.not, label %._crit_edge126.us, label %98, !llvm.loop !33
 
 ._crit_edge126.us:                                ; preds = %115
   %116 = icmp sgt i32 %.087129.us, %.192.us
@@ -330,7 +330,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %12
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !34
   %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 7, ptr noundef nonnull @.str.3) #9
   br label %12
 
@@ -342,7 +342,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 14:                                               ; preds = %12
   %15 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !34
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #10
   %18 = trunc i64 %17 to i32
   %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #9
@@ -350,7 +350,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %23
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !33, !noalias !35
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !34, !noalias !36
   %22 = call i32 @vfprintf(ptr noundef %21, ptr noundef %1, ptr noundef nonnull %3) #9
   br label %23
 
@@ -445,7 +445,7 @@ define void @Llb_MtrUseSelectedColumn(ptr noundef readonly captures(none) %0, i3
   %43 = load i32, ptr %3, align 8, !tbaa !20
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %11, label %._crit_edge, !llvm.loop !38
+  br i1 %45, label %11, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %42, %2
   ret void
@@ -497,7 +497,7 @@ define void @Llb_MtrVerifyColumns(ptr noundef readonly captures(none) %0, i32 no
   %spec.select = add nuw nsw i32 %.018, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %20 ]
@@ -517,7 +517,7 @@ define void @Llb_MtrVerifyColumns(ptr noundef readonly captures(none) %0, i32 no
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next25, %33
-  br i1 %34, label %11, label %._crit_edge22, !llvm.loop !40
+  br i1 %34, label %11, label %._crit_edge22, !llvm.loop !41
 
 ._crit_edge22:                                    ; preds = %31, %2
   ret void
@@ -539,7 +539,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #2 {
 
 9:                                                ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %10 = load i32, ptr %0, align 8, !tbaa !41
+  %10 = load i32, ptr %0, align 8, !tbaa !42
   %11 = sext i32 %10 to i64
   %.not = icmp slt i64 %indvars.iv, %11
   br i1 %.not, label %24, label %12
@@ -579,7 +579,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #2 {
   %33 = load i32, ptr %2, align 8, !tbaa !20
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %9, label %._crit_edge, !llvm.loop !42
+  br i1 %35, label %9, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %30, %1
   tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #9
@@ -634,7 +634,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #2 {
   %spec.select.i = add nuw nsw i32 %.018.i, %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %54
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %57, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %57, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %57, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %57 ]
@@ -654,7 +654,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next25.i, %70
-  br i1 %71, label %.lr.ph21.i, label %Llb_MtrVerifyColumns.exit, !llvm.loop !40
+  br i1 %71, label %.lr.ph21.i, label %Llb_MtrVerifyColumns.exit, !llvm.loop !41
 
 Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
   %72 = trunc nuw nsw i64 %indvars.iv46 to i32
@@ -734,7 +734,7 @@ Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
   %109 = load i32, ptr %2, align 8, !tbaa !20
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next.i38, %110
-  br i1 %111, label %77, label %Llb_MtrUseSelectedColumn.exit, !llvm.loop !38
+  br i1 %111, label %77, label %Llb_MtrUseSelectedColumn.exit, !llvm.loop !39
 
 Llb_MtrUseSelectedColumn.exit:                    ; preds = %108, %Llb_MtrVerifyColumns.exit
   %112 = zext i32 %73 to i64
@@ -772,7 +772,7 @@ Llb_MtrSwapColumns.exit:                          ; preds = %Llb_MtrUseSelectedC
   %132 = add nsw i32 %131, -1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next47, %133
-  br i1 %134, label %45, label %._crit_edge44, !llvm.loop !43
+  br i1 %134, label %45, label %._crit_edge44, !llvm.loop !44
 
 ._crit_edge44:                                    ; preds = %Llb_MtrSwapColumns.exit, %._crit_edge
   tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #9
@@ -850,16 +850,17 @@ attributes #10 = { nounwind willreturn memory(read) }
 !28 = !{!"llvm.loop.mustprogress"}
 !29 = distinct !{!29, !28}
 !30 = distinct !{!30, !28}
-!31 = distinct !{!31, !28}
-!32 = distinct !{!32, !28}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"vprintf: argument 0"}
-!37 = distinct !{!37, !"vprintf"}
-!38 = distinct !{!38, !28}
+!31 = distinct !{!31, !28, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !28}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"vprintf: argument 0"}
+!38 = distinct !{!38, !"vprintf"}
 !39 = distinct !{!39, !28}
 !40 = distinct !{!40, !28}
-!41 = !{!4, !5, i64 0}
-!42 = distinct !{!42, !28}
+!41 = distinct !{!41, !28}
+!42 = !{!4, !5, i64 0}
 !43 = distinct !{!43, !28}
+!44 = distinct !{!44, !28}

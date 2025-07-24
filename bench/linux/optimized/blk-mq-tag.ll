@@ -841,12 +841,12 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr noundef readonly
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 132
   %91 = load volatile i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !23
+  br i1 %92, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !24
 
 .lr.ph.us.us.i:                                   ; preds = %89, %99
   %93 = phi i32 [ %100, %99 ], [ %91, %89 ]
   %94 = add i32 %93, 1
-  %95 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 %94, ptr nonnull elementtype(i32) %90, i32 %93) #9, !srcloc !24
+  %95 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 %94, ptr nonnull elementtype(i32) %90, i32 %93) #9, !srcloc !25
   %96 = extractvalue { i8, i32 } %95, 0
   %97 = icmp ult i8 %96, 2
   call void @llvm.assume(i1 %97)
@@ -856,7 +856,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr noundef readonly
 99:                                               ; preds = %.lr.ph.us.us.i
   %100 = extractvalue { i8, i32 } %95, 1
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !25, !llvm.loop !26
+  br i1 %101, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !26, !llvm.loop !27
 
 .thread6.us.us.thread.i:                          ; preds = %99, %89, %85, %.lr.ph11.us.i
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %38, i64 noundef %79) #9
@@ -888,7 +888,7 @@ blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
   %111 = call i64 @_find_next_bit(ptr noundef nonnull %3, i64 noundef %64, i64 noundef %110) #9
   %112 = trunc i64 %111 to i32
   %113 = icmp ugt i32 %52, %112
-  br i1 %113, label %.lr.ph11.us.i, label %.loopexit.us.i, !llvm.loop !27
+  br i1 %113, label %.lr.ph11.us.i, label %.loopexit.us.i, !llvm.loop !28
 
 bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34, %29, %25
   %.3 = phi i32 [ %.1, %25 ], [ %.1, %29 ], [ %.1, %34 ], [ %.5, %.loopexit.us.i ]
@@ -986,12 +986,12 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 132
   %177 = load volatile i32, ptr %176, align 4
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !23
+  br i1 %178, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !24
 
 .lr.ph.us.us.i11:                                 ; preds = %175, %185
   %179 = phi i32 [ %186, %185 ], [ %177, %175 ]
   %180 = add i32 %179, 1
-  %181 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %176, i32 %180, ptr nonnull elementtype(i32) %176, i32 %179) #9, !srcloc !24
+  %181 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %176, i32 %180, ptr nonnull elementtype(i32) %176, i32 %179) #9, !srcloc !25
   %182 = extractvalue { i8, i32 } %181, 0
   %183 = icmp ult i8 %182, 2
   call void @llvm.assume(i1 %183)
@@ -1001,7 +1001,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
 185:                                              ; preds = %.lr.ph.us.us.i11
   %186 = extractvalue { i8, i32 } %181, 1
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !25, !llvm.loop !26
+  br i1 %187, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !26, !llvm.loop !27
 
 .thread6.us.us.thread.i10:                        ; preds = %185, %175, %171, %.lr.ph11.us.i9
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %122, i64 noundef %165) #9
@@ -1033,13 +1033,13 @@ blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
   %197 = call i64 @_find_next_bit(ptr noundef nonnull %2, i64 noundef %148, i64 noundef %196) #9
   %198 = trunc i64 %197 to i32
   %199 = icmp ugt i32 %136, %198
-  br i1 %199, label %.lr.ph11.us.i9, label %.loopexit.us.i8, !llvm.loop !27
+  br i1 %199, label %.lr.ph11.us.i9, label %.loopexit.us.i8, !llvm.loop !28
 
 bt_tags_for_each.exit15:                          ; preds = %.loopexit.us.i8, %118, %bt_tags_for_each.exit, %21, %.thread.split
   %.2 = phi i32 [ %.1, %.thread.split ], [ %.1, %21 ], [ %.3, %bt_tags_for_each.exit ], [ %.3, %118 ], [ %.10, %.loopexit.us.i8 ]
   %200 = add nuw nsw i64 %19, 1
   %201 = icmp eq i64 %200, %15
-  br i1 %201, label %.split.us, label %.thread.splitthread-pre-split, !llvm.loop !28
+  br i1 %201, label %.split.us, label %.thread.splitthread-pre-split, !llvm.loop !29
 
 .split.us:                                        ; preds = %bt_tags_for_each.exit15
   %202 = icmp eq i32 %.2, 0
@@ -1068,7 +1068,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
 
 9:                                                ; preds = %3
   %10 = inttoptr i64 %6 to ptr
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, ptr elementtype(i64) %10) #9, !srcloc !29
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, ptr elementtype(i64) %10) #9, !srcloc !30
   br label %.loopexit5
 
 11:                                               ; preds = %3
@@ -1076,7 +1076,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
   %13 = load ptr, ptr %12, align 8
   %14 = load volatile i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.thread4, label %.lr.ph, !prof !23
+  br i1 %15, label %.thread4, label %.lr.ph, !prof !24
 
 .thread4:                                         ; preds = %22, %11
   tail call void @__rcu_read_unlock() #9
@@ -1085,7 +1085,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
 .lr.ph:                                           ; preds = %11, %22
   %16 = phi i64 [ %23, %22 ], [ %14, %11 ]
   %17 = add i64 %16, 1
-  %18 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, i64 %17, ptr elementtype(i64) %13, i64 %16) #9, !srcloc !30
+  %18 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, i64 %17, ptr elementtype(i64) %13, i64 %16) #9, !srcloc !31
   %19 = extractvalue { i8, i64 } %18, 0
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
@@ -1095,7 +1095,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
 22:                                               ; preds = %.lr.ph
   %23 = extractvalue { i8, i64 } %18, 1
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.thread4, label %.lr.ph, !prof !25, !llvm.loop !31
+  br i1 %24, label %.thread4, label %.lr.ph, !prof !26, !llvm.loop !32
 
 .loopexit5:                                       ; preds = %.lr.ph, %9
   tail call void @__rcu_read_unlock() #9
@@ -1163,7 +1163,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
 61:                                               ; preds = %60, %.preheader
   %62 = call ptr @xa_find_after(ptr noundef nonnull %42, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #9
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %61, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
@@ -1274,12 +1274,12 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 132
   %76 = load volatile i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.thread8, label %.lr.ph, !prof !23
+  br i1 %77, label %.thread8, label %.lr.ph, !prof !24
 
 .lr.ph:                                           ; preds = %74, %84
   %78 = phi i32 [ %85, %84 ], [ %76, %74 ]
   %79 = add i32 %78, 1
-  %80 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, i32 %79, ptr nonnull elementtype(i32) %75, i32 %78) #9, !srcloc !24
+  %80 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, i32 %79, ptr nonnull elementtype(i32) %75, i32 %78) #9, !srcloc !25
   %81 = extractvalue { i8, i32 } %80, 0
   %82 = icmp ult i8 %81, 2
   call void @llvm.assume(i1 %82)
@@ -1289,7 +1289,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
 84:                                               ; preds = %.lr.ph
   %85 = extractvalue { i8, i32 } %80, 1
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.thread8, label %.lr.ph, !prof !25, !llvm.loop !26
+  br i1 %86, label %.thread8, label %.lr.ph, !prof !26, !llvm.loop !27
 
 .thread8:                                         ; preds = %84, %74, %70, %60
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %62, i64 noundef %63) #9
@@ -1329,7 +1329,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
   %101 = call i64 @_find_next_bit(ptr noundef nonnull %7, i64 noundef %39, i64 noundef %100) #9
   %102 = trunc i64 %101 to i32
   %103 = icmp ugt i32 %27, %102
-  br i1 %103, label %.lr.ph11, label %.loopexit, !llvm.loop !27
+  br i1 %103, label %.lr.ph11, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %98, %38, %.lr.ph12
   %104 = add i32 %17, 1
@@ -1339,7 +1339,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %108 = load i32, ptr %2, align 8
   %109 = icmp ult i32 %28, %108
-  br i1 %109, label %.lr.ph12, label %.loopexit10, !llvm.loop !22
+  br i1 %109, label %.lr.ph12, label %.loopexit10, !llvm.loop !35
 
 .loopexit10:                                      ; preds = %.loopexit, %6, %.thread9
   ret void
@@ -1704,12 +1704,12 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 132
   %79 = load volatile i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !23
+  br i1 %80, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !24
 
 .lr.ph.us.us:                                     ; preds = %77, %87
   %81 = phi i32 [ %88, %87 ], [ %79, %77 ]
   %82 = add i32 %81, 1
-  %83 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %78, i32 %82, ptr nonnull elementtype(i32) %78, i32 %81) #9, !srcloc !24
+  %83 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %78, i32 %82, ptr nonnull elementtype(i32) %78, i32 %81) #9, !srcloc !25
   %84 = extractvalue { i8, i32 } %83, 0
   %85 = icmp ult i8 %84, 2
   call void @llvm.assume(i1 %85)
@@ -1719,7 +1719,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
 87:                                               ; preds = %.lr.ph.us.us
   %88 = extractvalue { i8, i32 } %83, 1
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !25, !llvm.loop !26
+  br i1 %89, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !26, !llvm.loop !27
 
 .thread6.us.us.thread:                            ; preds = %87, %73, %65, %77
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %18, i64 noundef %67) #9
@@ -1750,7 +1750,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %99 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %47, i64 noundef %98) #9
   %100 = trunc i64 %99 to i32
   %101 = icmp ugt i32 %35, %100
-  br i1 %101, label %.lr.ph11.us, label %.loopexit.us, !llvm.loop !27
+  br i1 %101, label %.lr.ph11.us, label %.loopexit.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
   %102 = phi i32 [ %158, %.loopexit ], [ %.pre16, %.lr.ph ]
@@ -1833,7 +1833,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %154 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %126, i64 noundef %153) #9
   %155 = trunc i64 %154 to i32
   %156 = icmp ugt i32 %114, %155
-  br i1 %156, label %.lr.ph11, label %.loopexit, !llvm.loop !27
+  br i1 %156, label %.lr.ph11, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.critedge13, %125, %.lr.ph.split
   %157 = add i32 %104, 1
@@ -1843,7 +1843,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %161 = load i32, ptr %1, align 8
   %162 = icmp ult i32 %115, %161
-  br i1 %162, label %.lr.ph.split, label %.loopexit8, !llvm.loop !22
+  br i1 %162, label %.lr.ph.split, label %.loopexit8, !llvm.loop !35
 
 .loopexit8:                                       ; preds = %.loopexit, %.loopexit.us, %10, %.thread7, %5
   ret void
@@ -1923,14 +1923,17 @@ attributes #12 = { nounwind allocsize(3) }
 !19 = !{!"llvm.loop.unroll.disable"}
 !20 = !{!"llvm.loop.unswitch.partial.disable"}
 !21 = !{!"auto-init"}
-!22 = distinct !{!22, !18, !19}
-!23 = !{!"branch_weights", i32 1, i32 127}
-!24 = !{i64 2148847909, i64 2148847948, i64 2148847969, i64 2148848006, i64 2148848029, i64 2148848038, i64 2148848336}
-!25 = !{!"branch_weights", i32 127, i32 255873}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !18, !19, !20}
-!29 = !{i64 2153322508}
-!30 = !{i64 2148878997, i64 2148879036, i64 2148879057, i64 2148879094, i64 2148879117, i64 2148879126, i64 2148879327}
-!31 = distinct !{!31, !18, !19}
+!22 = distinct !{!22, !18, !19, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = !{!"branch_weights", i32 1, i32 127}
+!25 = !{i64 2148847909, i64 2148847948, i64 2148847969, i64 2148848006, i64 2148848029, i64 2148848038, i64 2148848336}
+!26 = !{!"branch_weights", i32 127, i32 255873}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !19, !23}
+!29 = distinct !{!29, !18, !19, !20}
+!30 = !{i64 2153322508}
+!31 = !{i64 2148878997, i64 2148879036, i64 2148879057, i64 2148879094, i64 2148879117, i64 2148879126, i64 2148879327}
 !32 = distinct !{!32, !18, !19}
+!33 = distinct !{!33, !18, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !18, !19}

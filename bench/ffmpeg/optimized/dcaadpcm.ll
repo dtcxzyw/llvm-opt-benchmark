@@ -101,7 +101,7 @@ define range(i32 -1, -2147483648) i32 @ff_dcaadpcm_subband_analysis(ptr noundef 
   store i32 %.0.i, ptr %44, align 4, !tbaa !9
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count84
-  br i1 %exitcond79.not, label %._crit_edge59, label %.lr.ph58.split, !llvm.loop !14
+  br i1 %exitcond79.not, label %._crit_edge59, label %.lr.ph58.split, !llvm.loop !16
 
 ._crit_edge59:                                    ; preds = %.lr.ph58.split, %.lr.ph58.split.us
   %.val = load ptr, ptr %0, align 8, !tbaa !4
@@ -143,20 +143,20 @@ define range(i32 -1, -2147483648) i32 @ff_dcaadpcm_subband_analysis(ptr noundef 
   %57 = add nsw i64 %56, %.012.i.us.us.i
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 1
   %exitcond.not.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.us.i, label %calc_corr.exit.loopexit.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !15
+  br i1 %exitcond.not.i.us.us.i, label %calc_corr.exit.loopexit.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !17
 
 calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %58 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %indvars.iv.i
-  store i64 %57, ptr %58, align 8, !tbaa !16
+  store i64 %57, ptr %58, align 8, !tbaa !18
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next27.i, 5
-  br i1 %exitcond31.not.i, label %.split.us.us.i, label %.lr.ph.preheader.i.us.us.i, !llvm.loop !18
+  br i1 %exitcond31.not.i, label %.split.us.us.i, label %.lr.ph.preheader.i.us.us.i, !llvm.loop !20
 
 .split.us.us.i:                                   ; preds = %calc_corr.exit.loopexit.us.us.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next25.i, 5
-  br i1 %exitcond33.not.i, label %.preheader.i, label %.preheader1.us.i, !llvm.loop !19
+  br i1 %exitcond33.not.i, label %.preheader.i, label %.preheader1.us.i, !llvm.loop !21
 
 .preheader1.i:                                    ; preds = %.preheader1.i.preheader, %.preheader1.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.preheader1.i ], [ 5, %.preheader1.i.preheader ]
@@ -168,46 +168,46 @@ calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
   %scevgep.i = getelementptr i8, ptr %5, i64 %60
   %61 = shl i64 %indvar.i, 3
   %62 = sub nuw nsw i64 40, %61
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %62, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %62, i1 false), !tbaa !18
   %63 = add i64 %59, %indvars.iv20.i
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 5
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader1.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader1.i, !llvm.loop !22
 
 .preheader.i:                                     ; preds = %.preheader1.i, %.split.us.us.i
   %wide.trip.count.i.i97 = phi i64 [ %wide.trip.count.i.i, %.split.us.us.i ], [ %wide.trip.count.i.i98, %.preheader1.i ]
   %64 = phi i1 [ true, %.split.us.us.i ], [ false, %.preheader1.i ]
   %.val95 = phi ptr [ %.val, %.split.us.us.i ], [ %.val96, %.preheader1.i ]
-  %65 = load i64, ptr %5, align 16, !tbaa !16
+  %65 = load i64, ptr %5, align 16, !tbaa !18
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !16
+  %67 = load i64, ptr %66, align 8, !tbaa !18
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %69 = load i64, ptr %68, align 16, !tbaa !16
+  %69 = load i64, ptr %68, align 16, !tbaa !18
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !16
+  %71 = load i64, ptr %70, align 8, !tbaa !18
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %73 = load i64, ptr %72, align 16, !tbaa !16
+  %73 = load i64, ptr %72, align 16, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %75 = load i64, ptr %74, align 8, !tbaa !16
+  %75 = load i64, ptr %74, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %77 = load i64, ptr %76, align 16, !tbaa !16
+  %77 = load i64, ptr %76, align 16, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %79 = load i64, ptr %78, align 8, !tbaa !16
+  %79 = load i64, ptr %78, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %81 = load i64, ptr %80, align 16, !tbaa !16
+  %81 = load i64, ptr %80, align 16, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %83 = load i64, ptr %82, align 8, !tbaa !16
+  %83 = load i64, ptr %82, align 8, !tbaa !18
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %85 = load i64, ptr %84, align 16, !tbaa !16
+  %85 = load i64, ptr %84, align 16, !tbaa !18
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %87 = load i64, ptr %86, align 8, !tbaa !16
+  %87 = load i64, ptr %86, align 8, !tbaa !18
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %89 = load i64, ptr %88, align 16, !tbaa !16
+  %89 = load i64, ptr %88, align 16, !tbaa !18
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %91 = load i64, ptr %90, align 8, !tbaa !16
+  %91 = load i64, ptr %90, align 8, !tbaa !18
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %93 = load i64, ptr %92, align 16, !tbaa !16
+  %93 = load i64, ptr %92, align 16, !tbaa !18
   %factor.op.mul = shl i64 %73, 19
   %factor.op.mul60 = shl i64 %71, 19
   %factor.op.mul61 = shl i64 %67, 19
@@ -220,19 +220,19 @@ calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
   %.02015.i = phi ptr [ %.val95, %.preheader.i ], [ %166, %94 ]
   %.02114.i = phi i32 [ -1, %.preheader.i ], [ %spec.select.i41, %94 ]
   %95 = getelementptr inbounds nuw [4096 x [4 x i16]], ptr @ff_dca_adpcm_vb, i64 0, i64 %indvars.iv34.i
-  %96 = load i16, ptr %95, align 8, !tbaa !20
+  %96 = load i16, ptr %95, align 8, !tbaa !23
   %97 = sext i16 %96 to i64
   %.reass10.i.reass = mul i64 %factor.op.mul61, %97
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  %99 = load i16, ptr %98, align 2, !tbaa !20
+  %99 = load i16, ptr %98, align 2, !tbaa !23
   %100 = sext i16 %99 to i64
   %.reass12.i.reass = mul i64 %factor.op.mul62, %100
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %102 = load i16, ptr %101, align 4, !tbaa !20
+  %102 = load i16, ptr %101, align 4, !tbaa !23
   %103 = sext i16 %102 to i64
   %.reass8.i.reass = mul i64 %factor.op.mul60, %103
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 6
-  %105 = load i16, ptr %104, align 2, !tbaa !20
+  %105 = load i16, ptr %104, align 2, !tbaa !23
   %106 = sext i16 %105 to i64
   %.reass.i.reass = mul i64 %factor.op.mul, %106
   %reass.add = add i64 %.reass12.i.reass, %.reass10.i.reass
@@ -302,7 +302,7 @@ calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
   %166 = getelementptr inbounds nuw i8, ptr %.02015.i, i64 40
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 4096
-  br i1 %exitcond37.not.i, label %find_best_filter.exit, label %94, !llvm.loop !22
+  br i1 %exitcond37.not.i, label %find_best_filter.exit, label %94, !llvm.loop !25
 
 find_best_filter.exit:                            ; preds = %94
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #9
@@ -333,13 +333,13 @@ find_best_filter.exit:                            ; preds = %94
   %177 = load i32, ptr %176, align 4, !tbaa !9
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds nuw i16, ptr %169, i64 %indvars.iv.i.i
-  %180 = load i16, ptr %179, align 2, !tbaa !20
+  %180 = load i16, ptr %179, align 2, !tbaa !23
   %181 = sext i16 %180 to i64
   %182 = mul nsw i64 %181, %178
   %183 = add nsw i64 %182, %.011.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %ff_dcaadpcm_predict.exit.i, label %174, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %ff_dcaadpcm_predict.exit.i, label %174, !llvm.loop !26
 
 ff_dcaadpcm_predict.exit.i:                       ; preds = %174
   %184 = add nsw i64 %183, 4096
@@ -358,7 +358,7 @@ ff_dcaadpcm_predict.exit.i:                       ; preds = %174
   %194 = add nuw nsw i64 %193, %.027.i
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i.i97
-  br i1 %exitcond.not.i44, label %._crit_edge.i, label %170, !llvm.loop !24
+  br i1 %exitcond.not.i44, label %._crit_edge.i, label %170, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %ff_dcaadpcm_predict.exit.i
   %.not.i45 = icmp eq i64 %194, 0
@@ -385,7 +385,7 @@ calc_prediction_gain.exit:                        ; preds = %._crit_edge.i
   store i32 %199, ptr %197, align 4, !tbaa !9
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count.i.i97
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph64, !llvm.loop !25
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph64, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph64, %calc_prediction_gain.exit, %find_best_filter.exit, %.preheader
   %.0 = phi i32 [ %.mux, %find_best_filter.exit ], [ %.mux107, %calc_prediction_gain.exit ], [ %spec.select.i41, %.preheader ], [ %spec.select.i41, %.lr.ph64 ]
@@ -453,13 +453,13 @@ define noundef i32 @ff_dcaadpcm_do_real(i32 noundef %0, i64 %1, i32 noundef %2, 
   %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.i
-  %40 = load i16, ptr %39, align 2, !tbaa !20
+  %40 = load i16, ptr %39, align 2, !tbaa !23
   %41 = sext i16 %40 to i64
   %42 = mul nsw i64 %41, %38
   %43 = add nsw i64 %42, %.011.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ff_dcaadpcm_predict.exit, label %34, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ff_dcaadpcm_predict.exit, label %34, !llvm.loop !26
 
 ff_dcaadpcm_predict.exit:                         ; preds = %34
   %44 = add nsw i64 %43, 4096
@@ -521,7 +521,7 @@ ff_dca_core_dequantize.exit:                      ; preds = %ff_dcaadpcm_predict
   store i32 %83, ptr %49, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %ff_dca_core_dequantize.exit, %10
   %84 = sext i32 %8 to i64
@@ -554,7 +554,7 @@ define range(i32 -12, 1) i32 @ff_dcaadpcm_init(ptr noundef writeonly captures(ad
   %indvars.iv29.i = phi i64 [ 0, %.preheader22.i ], [ %indvars.iv.next30.i, %15 ]
   %.01726.i = phi i64 [ 0, %.preheader22.i ], [ %indvars.iv.next.i, %15 ]
   %4 = getelementptr inbounds nuw [4096 x [4 x i16]], ptr @ff_dca_adpcm_vb, i64 0, i64 %indvars.iv38.i, i64 %indvars.iv29.i
-  %5 = load i16, ptr %4, align 2, !tbaa !20
+  %5 = load i16, ptr %4, align 2, !tbaa !23
   %6 = sext i16 %5 to i32
   %sext.i = shl i64 %.01726.i, 32
   %7 = ashr exact i64 %sext.i, 32
@@ -564,7 +564,7 @@ define range(i32 -12, 1) i32 @ff_dcaadpcm_init(ptr noundef writeonly captures(ad
   %indvars.iv31.i = phi i64 [ %indvars.iv29.i, %.preheader.i ], [ %indvars.iv.next32.i, %8 ]
   %indvars.iv.i = phi i64 [ %7, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = getelementptr inbounds nuw [4096 x [4 x i16]], ptr @ff_dca_adpcm_vb, i64 0, i64 %indvars.iv38.i, i64 %indvars.iv31.i
-  %10 = load i16, ptr %9, align 2, !tbaa !20
+  %10 = load i16, ptr %9, align 2, !tbaa !23
   %11 = sext i16 %10 to i32
   %12 = mul nsw i32 %11, %6
   %.not.i = icmp ne i64 %indvars.iv29.i, %indvars.iv31.i
@@ -575,18 +575,18 @@ define range(i32 -12, 1) i32 @ff_dcaadpcm_init(ptr noundef writeonly captures(ad
   store i32 %spec.select.i, ptr %14, align 4, !tbaa !9
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next32.i, 4
-  br i1 %exitcond.not.i, label %15, label %8, !llvm.loop !27
+  br i1 %exitcond.not.i, label %15, label %8, !llvm.loop !30
 
 15:                                               ; preds = %8
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next30.i, 4
-  br i1 %exitcond37.not.i, label %16, label %.preheader.i, !llvm.loop !28
+  br i1 %exitcond37.not.i, label %16, label %.preheader.i, !llvm.loop !31
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 40
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 4096
-  br i1 %exitcond41.not.i, label %precalc.exit, label %.preheader22.i, !llvm.loop !29
+  br i1 %exitcond41.not.i, label %precalc.exit, label %.preheader22.i, !llvm.loop !32
 
 precalc.exit:                                     ; preds = %16, %2, %1
   %.0 = phi i32 [ -1, %1 ], [ -12, %2 ], [ 0, %16 ]
@@ -658,19 +658,22 @@ attributes #9 = { nounwind }
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !7, i64 0}
+!14 = distinct !{!14, !12, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}
+!20 = distinct !{!20, !12, !15}
+!21 = distinct !{!21, !12, !15}
 !22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !7, i64 0}
 !25 = distinct !{!25, !12}
 !26 = distinct !{!26, !12}
 !27 = distinct !{!27, !12}
 !28 = distinct !{!28, !12}
 !29 = distinct !{!29, !12}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12}
+!32 = distinct !{!32, !12}

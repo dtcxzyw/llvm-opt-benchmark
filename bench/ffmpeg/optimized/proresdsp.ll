@@ -371,7 +371,7 @@ prores_idct_10.exit:                              ; preds = %idctSparseCol_extra
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %231 = getelementptr inbounds i16, ptr %.022.us.i.i, i64 %225
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 8
-  br i1 %exitcond39.not.i.i, label %put_pixels_10.exit, label %.preheader.us.i.i, !llvm.loop !24
+  br i1 %exitcond39.not.i.i, label %put_pixels_10.exit, label %.preheader.us.i.i, !llvm.loop !25
 
 put_pixels_10.exit:                               ; preds = %.split.us.us.i.i
   ret void
@@ -379,40 +379,40 @@ put_pixels_10.exit:                               ; preds = %.split.us.us.i.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   br label %5
 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
-  %7 = load i16, ptr %6, align 2, !tbaa !16, !alias.scope !28, !noalias !25
+  %7 = load i16, ptr %6, align 2, !tbaa !16, !alias.scope !29, !noalias !26
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %9 = load i16, ptr %8, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %9 = load i16, ptr %8, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %10 = mul i16 %9, %7
-  store i16 %10, ptr %8, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %10, ptr %8, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader19.i, label %5, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.preheader19.i, label %5, !llvm.loop !31
 
 .preheader19.i:                                   ; preds = %5, %idctRowCondDC_int16_12bit.exit.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %idctRowCondDC_int16_12bit.exit.i ], [ 0, %5 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv24.i, 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !alias.scope !25, !noalias !28
+  %13 = load i32, ptr %12, align 4, !alias.scope !26, !noalias !29
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !20, !alias.scope !25, !noalias !28
+  %15 = load i32, ptr %14, align 4, !tbaa !20, !alias.scope !26, !noalias !29
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !20, !alias.scope !25, !noalias !28
+  %17 = load i32, ptr %16, align 4, !tbaa !20, !alias.scope !26, !noalias !29
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %19 = load i16, ptr %18, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %20 = sext i16 %19 to i32
   %21 = or i32 %15, %17
   %22 = or i32 %21, %13
   %23 = or i32 %22, %20
   %.not.i.i = icmp eq i32 %23, 0
-  %24 = load i16, ptr %11, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %24 = load i16, ptr %11, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %25 = sext i16 %24 to i32
   br i1 %.not.i.i, label %26, label %31
 
@@ -421,10 +421,10 @@ define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) 
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 65535
   %30 = mul nuw i32 %29, 65537
-  store i32 %30, ptr %11, align 4, !tbaa !20, !alias.scope !25, !noalias !28
-  store i32 %30, ptr %12, align 4, !tbaa !20, !alias.scope !25, !noalias !28
-  store i32 %30, ptr %14, align 4, !tbaa !20, !alias.scope !25, !noalias !28
-  store i32 %30, ptr %16, align 4, !tbaa !20, !alias.scope !25, !noalias !28
+  store i32 %30, ptr %11, align 4, !tbaa !20, !alias.scope !26, !noalias !29
+  store i32 %30, ptr %12, align 4, !tbaa !20, !alias.scope !26, !noalias !29
+  store i32 %30, ptr %14, align 4, !tbaa !20, !alias.scope !26, !noalias !29
+  store i32 %30, ptr %16, align 4, !tbaa !20, !alias.scope !26, !noalias !29
   br label %idctRowCondDC_int16_12bit.exit.i
 
 31:                                               ; preds = %.preheader19.i
@@ -452,7 +452,7 @@ define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) 
   %52 = mul nsw i32 %20, 9041
   %53 = mul nsw i32 %43, -25746
   %54 = add nsw i32 %52, %53
-  %55 = load i64, ptr %14, align 8, !alias.scope !25, !noalias !28
+  %55 = load i64, ptr %14, align 8, !alias.scope !26, !noalias !29
   %.not114.i.i = icmp eq i64 %55, 0
   br i1 %.not114.i.i, label %90, label %56
 
@@ -509,54 +509,54 @@ define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) 
   %91 = add i32 %.0108.i.i, %.0112.i.i
   %92 = lshr i32 %91, 16
   %93 = trunc nuw i32 %92 to i16
-  store i16 %93, ptr %11, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %93, ptr %11, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %94 = sub i32 %.0112.i.i, %.0108.i.i
   %95 = lshr i32 %94, 16
   %96 = trunc nuw i32 %95 to i16
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 14
-  store i16 %96, ptr %97, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %96, ptr %97, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %98 = add i32 %.0107.i.i, %.0111.i.i
   %99 = lshr i32 %98, 16
   %100 = trunc nuw i32 %99 to i16
-  store i16 %100, ptr %18, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %100, ptr %18, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %101 = sub i32 %.0111.i.i, %.0107.i.i
   %102 = lshr i32 %101, 16
   %103 = trunc nuw i32 %102 to i16
-  store i16 %103, ptr %16, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %103, ptr %16, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %104 = add i32 %.0106.i.i, %.0110.i.i
   %105 = lshr i32 %104, 16
   %106 = trunc nuw i32 %105 to i16
-  store i16 %106, ptr %12, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %106, ptr %12, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %107 = sub i32 %.0110.i.i, %.0106.i.i
   %108 = lshr i32 %107, 16
   %109 = trunc nuw i32 %108 to i16
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i16 %109, ptr %110, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %109, ptr %110, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %111 = add i32 %.0105.i.i, %.0109.i.i
   %112 = lshr i32 %111, 16
   %113 = trunc nuw i32 %112 to i16
-  store i16 %113, ptr %42, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %113, ptr %42, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %114 = sub i32 %.0109.i.i, %.0105.i.i
   %115 = lshr i32 %114, 16
   %116 = trunc nuw i32 %115 to i16
-  store i16 %116, ptr %14, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %116, ptr %14, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   br label %idctRowCondDC_int16_12bit.exit.i
 
 idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 8
-  br i1 %exitcond27.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !31
+  br i1 %exitcond27.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !32
 
 .preheader.i:                                     ; preds = %idctRowCondDC_int16_12bit.exit.i, %idctSparseCol_int16_12bit.exit.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %idctSparseCol_int16_12bit.exit.i ], [ 0, %idctRowCondDC_int16_12bit.exit.i ]
   %117 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28.i
-  %118 = load i16, ptr %117, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %118 = load i16, ptr %117, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %119 = add i16 %118, 8192
   %120 = sext i16 %119 to i32
   %121 = mul nsw i32 %120, 32767
   %122 = add nsw i32 %121, 65534
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %124 = load i16, ptr %123, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %124 = load i16, ptr %123, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %125 = sext i16 %124 to i32
   %126 = mul nsw i32 %125, 42813
   %127 = add i32 %122, %126
@@ -567,14 +567,14 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %132 = mul nsw i32 %125, -42813
   %133 = add i32 %122, %132
   %134 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %135 = load i16, ptr %134, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %135 = load i16, ptr %134, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %136 = sext i16 %135 to i32
   %137 = mul nsw i32 %136, 45451
   %138 = mul nsw i32 %136, 38531
   %139 = mul nsw i32 %136, 25746
   %140 = mul nsw i32 %136, 9041
   %141 = getelementptr inbounds nuw i8, ptr %117, i64 48
-  %142 = load i16, ptr %141, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %142 = load i16, ptr %141, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %143 = sext i16 %142 to i32
   %144 = mul nsw i32 %143, 38531
   %145 = add i32 %144, %137
@@ -585,7 +585,7 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %150 = mul nsw i32 %143, -25746
   %151 = add nsw i32 %150, %140
   %152 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  %153 = load i16, ptr %152, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %153 = load i16, ptr %152, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %.not.i17.i = icmp eq i16 %153, 0
   br i1 %.not.i17.i, label %162, label %154
 
@@ -605,7 +605,7 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %.091.i.i = phi i32 [ %160, %154 ], [ %131, %.preheader.i ]
   %.089.i.i = phi i32 [ %161, %154 ], [ %133, %.preheader.i ]
   %163 = getelementptr inbounds nuw i8, ptr %117, i64 80
-  %164 = load i16, ptr %163, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %164 = load i16, ptr %163, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %.not101.i.i = icmp eq i16 %164, 0
   br i1 %.not101.i.i, label %175, label %165
 
@@ -627,7 +627,7 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %.083.i.i = phi i32 [ %172, %165 ], [ %149, %162 ]
   %.0.i.i = phi i32 [ %174, %165 ], [ %151, %162 ]
   %176 = getelementptr inbounds nuw i8, ptr %117, i64 96
-  %177 = load i16, ptr %176, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %177 = load i16, ptr %176, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %.not102.i.i = icmp eq i16 %177, 0
   br i1 %.not102.i.i, label %188, label %178
 
@@ -649,7 +649,7 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %90, %26
   %.192.i.i = phi i32 [ %185, %178 ], [ %.091.i.i, %175 ]
   %.190.i.i = phi i32 [ %187, %178 ], [ %.089.i.i, %175 ]
   %189 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %190 = load i16, ptr %189, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  %190 = load i16, ptr %189, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %.not103.i.i = icmp eq i16 %190, 0
   br i1 %.not103.i.i, label %idctSparseCol_int16_12bit.exit.i, label %191
 
@@ -673,38 +673,38 @@ idctSparseCol_int16_12bit.exit.i:                 ; preds = %191, %188
   %201 = add i32 %.188.i.i, %.196.i.i
   %202 = ashr i32 %201, 17
   %203 = trunc nsw i32 %202 to i16
-  store i16 %203, ptr %117, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %203, ptr %117, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %204 = add i32 %.186.i.i, %.194.i.i
   %205 = ashr i32 %204, 17
   %206 = trunc nsw i32 %205 to i16
-  store i16 %206, ptr %134, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %206, ptr %134, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %207 = add i32 %.184.i.i, %.192.i.i
   %208 = ashr i32 %207, 17
   %209 = trunc nsw i32 %208 to i16
-  store i16 %209, ptr %123, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %209, ptr %123, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %210 = add i32 %.1.i.i, %.190.i.i
   %211 = ashr i32 %210, 17
   %212 = trunc nsw i32 %211 to i16
-  store i16 %212, ptr %141, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %212, ptr %141, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %213 = sub i32 %.190.i.i, %.1.i.i
   %214 = ashr i32 %213, 17
   %215 = trunc nsw i32 %214 to i16
-  store i16 %215, ptr %152, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %215, ptr %152, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %216 = sub i32 %.192.i.i, %.184.i.i
   %217 = ashr i32 %216, 17
   %218 = trunc nsw i32 %217 to i16
-  store i16 %218, ptr %163, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %218, ptr %163, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %219 = sub i32 %.194.i.i, %.186.i.i
   %220 = ashr i32 %219, 17
   %221 = trunc nsw i32 %220 to i16
-  store i16 %221, ptr %176, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %221, ptr %176, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %222 = sub i32 %.196.i.i, %.188.i.i
   %223 = ashr i32 %222, 17
   %224 = trunc nsw i32 %223 to i16
-  store i16 %224, ptr %189, align 2, !tbaa !16, !alias.scope !25, !noalias !28
+  store i16 %224, ptr %189, align 2, !tbaa !16, !alias.scope !26, !noalias !29
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next29.i, 8
-  br i1 %exitcond31.not.i, label %prores_idct_12.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond31.not.i, label %prores_idct_12.exit, label %.preheader.i, !llvm.loop !33
 
 prores_idct_12.exit:                              ; preds = %idctSparseCol_int16_12bit.exit.i
   %225 = ashr i64 %1, 1
@@ -721,7 +721,7 @@ prores_idct_12.exit:                              ; preds = %idctSparseCol_int16
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
   %226 = getelementptr inbounds i16, ptr %.022.i.i, i64 %225
   %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next29.i.i, 8
-  br i1 %exitcond31.not.i.i, label %put_pixels_12.exit, label %.preheader.i.i, !llvm.loop !24
+  br i1 %exitcond31.not.i.i, label %put_pixels_12.exit, label %.preheader.i.i, !llvm.loop !34
 
 227:                                              ; preds = %227, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %227 ]
@@ -733,7 +733,7 @@ prores_idct_12.exit:                              ; preds = %idctSparseCol_int16
   store i16 %230, ptr %231, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %.split.i.i, label %227, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %.split.i.i, label %227, !llvm.loop !35
 
 put_pixels_12.exit:                               ; preds = %.split.i.i
   ret void
@@ -782,13 +782,16 @@ attributes #5 = { nounwind }
 !20 = !{!7, !7, i64 0}
 !21 = distinct !{!21, !19}
 !22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"prores_idct_12: argument 0"}
-!27 = distinct !{!27, !"prores_idct_12"}
-!28 = !{!29}
-!29 = distinct !{!29, !27, !"prores_idct_12: argument 1"}
-!30 = distinct !{!30, !19}
+!23 = distinct !{!23, !19, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !19, !24}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"prores_idct_12: argument 0"}
+!28 = distinct !{!28, !"prores_idct_12"}
+!29 = !{!30}
+!30 = distinct !{!30, !28, !"prores_idct_12: argument 1"}
 !31 = distinct !{!31, !19}
 !32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}

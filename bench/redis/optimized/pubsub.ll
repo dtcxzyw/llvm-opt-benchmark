@@ -2250,7 +2250,7 @@ define dso_local void @channelList(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = add nsw i64 %.232.us.us, 1
   %20 = tail call ptr @kvstoreDictIteratorNext(ptr noundef %13) #9
   %.not26.us.us = icmp eq ptr %20, null
-  br i1 %.not26.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !105
+  br i1 %.not26.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !106
 
 ._crit_edge37:                                    ; preds = %75, %15, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %.1.us, %15 ], [ %.1, %75 ]
@@ -2370,7 +2370,7 @@ sdslen.exit30:                                    ; preds = %sdslen.exit, %51, %
   %.3 = phi i64 [ %72, %71 ], [ %.232, %sdslen.exit30 ]
   %74 = tail call ptr @kvstoreDictIteratorNext(ptr noundef %23) #9
   %.not26 = icmp eq ptr %74, null
-  br i1 %.not26, label %._crit_edge.split, label %.lr.ph, !llvm.loop !105
+  br i1 %.not26, label %._crit_edge.split, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge.split:                                ; preds = %73, %22
   %.2.lcssa = phi i64 [ %.034, %22 ], [ %.3, %73 ]
@@ -2381,7 +2381,7 @@ sdslen.exit30:                                    ; preds = %sdslen.exit, %51, %
   %.1 = phi i64 [ %.2.lcssa, %._crit_edge.split ], [ %.034, %.lr.ph36.split ]
   %76 = add nuw i32 %.02333, 1
   %exitcond.not = icmp eq i32 %76, %4
-  br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !108
 }
 
 declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -2479,7 +2479,7 @@ define dso_local void @ssubscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
   %21 = load i32, ptr %5, align 8, !tbaa !95
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %16, label %._crit_edge.loopexit, !llvm.loop !106
+  br i1 %23, label %16, label %._crit_edge.loopexit, !llvm.loop !109
 
 markClientAsPubSub.exit:                          ; preds = %12, %._crit_edge, %9
   ret void
@@ -2514,7 +2514,7 @@ define dso_local void @sunsubscribeCommand(ptr noundef %0) local_unnamed_addr #2
   %14 = load i32, ptr %2, align 8, !tbaa !95
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %9, label %.loopexit, !llvm.loop !107
+  br i1 %16, label %9, label %.loopexit, !llvm.loop !110
 
 .loopexit:                                        ; preds = %9, %.preheader, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -2721,7 +2721,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !101 = !{!44, !12, i64 204}
 !102 = distinct !{!102, !77}
 !103 = distinct !{!103, !77}
-!104 = distinct !{!104, !77}
-!105 = distinct !{!105, !77}
-!106 = distinct !{!106, !77}
+!104 = distinct !{!104, !77, !105}
+!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!106 = distinct !{!106, !77, !105}
 !107 = distinct !{!107, !77}
+!108 = distinct !{!108, !77}
+!109 = distinct !{!109, !77}
+!110 = distinct !{!110, !77}

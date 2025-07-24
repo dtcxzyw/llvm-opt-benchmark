@@ -1755,7 +1755,7 @@ define hidden i32 @cdf_find_stream(ptr noundef readonly captures(none) %0, ptr n
 12:                                               ; preds = %8
   %13 = add i64 %.01330.us, -1
   %.not.us = icmp eq i64 %13, 0
-  br i1 %.not.us, label %.critedge, label %8
+  br i1 %.not.us, label %.critedge, label %8, !llvm.loop !42
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %31
   %.01330 = phi i64 [ %32, %31 ], [ %6, %.lr.ph ]
@@ -1774,9 +1774,9 @@ define hidden i32 @cdf_find_stream(ptr noundef readonly captures(none) %0, ptr n
   %20 = phi i64 [ %28, %25 ], [ %.fr37, %.lr.ph.i ]
   %.0923.i = phi ptr [ %27, %25 ], [ %19, %.lr.ph.i ]
   %.01022.i = phi ptr [ %26, %25 ], [ %1, %.lr.ph.i ]
-  %21 = load i8, ptr %.01022.i, align 1, !tbaa !42
+  %21 = load i8, ptr %.01022.i, align 1, !tbaa !44
   %22 = sext i8 %21 to i32
-  %23 = load i16, ptr %.0923.i, align 2, !tbaa !43
+  %23 = load i16, ptr %.0923.i, align 2, !tbaa !45
   %24 = zext i16 %23 to i32
   %.not1216.i = icmp eq i32 %22, %24
   br i1 %.not1216.i, label %25, label %cdf_namecmp.exit.loopexit15
@@ -1848,7 +1848,7 @@ cdf_check_stream_offset.exit.thread:              ; preds = %10
   br label %cdf_get_property_info_pos.exit.thread
 
 cdf_check_stream_offset.exit:                     ; preds = %10
-  %20 = load i32, ptr %13, align 4, !tbaa !44
+  %20 = load i32, ptr %13, align 4, !tbaa !46
   %21 = icmp ugt i32 %20, 67108863
   br i1 %21, label %22, label %24
 
@@ -1871,13 +1871,13 @@ cdf_check_stream_offset.exit160.thread:           ; preds = %24
 
 cdf_check_stream_offset.exit160:                  ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !46
+  %30 = load i32, ptr %29, align 4, !tbaa !48
   %31 = zext i32 %30 to i64
   %32 = icmp ugt i32 %30, 2796202
   br i1 %32, label %cdf_get_property_info_pos.exit.thread, label %33
 
 33:                                               ; preds = %cdf_check_stream_offset.exit160
-  %34 = load i64, ptr %5, align 8, !tbaa !47
+  %34 = load i64, ptr %5, align 8, !tbaa !49
   %35 = add i64 %34, %31
   %36 = icmp ugt i64 %35, 2796202
   br i1 %36, label %cdf_grow_info.exit.thread, label %37
@@ -1892,17 +1892,17 @@ cdf_check_stream_offset.exit160:                  ; preds = %24
 cdf_grow_info.exit.thread:                        ; preds = %33, %37
   %42 = load ptr, ptr %3, align 8, !tbaa !37
   tail call void @_efree(ptr noundef %42) #21
-  store i64 0, ptr %5, align 8, !tbaa !47
+  store i64 0, ptr %5, align 8, !tbaa !49
   store ptr null, ptr %3, align 8, !tbaa !37
   br label %cdf_get_property_info_pos.exit.thread
 
 43:                                               ; preds = %37
   store ptr %40, ptr %3, align 8, !tbaa !37
-  store i64 %35, ptr %5, align 8, !tbaa !47
-  %44 = load i64, ptr %4, align 8, !tbaa !47
+  store i64 %35, ptr %5, align 8, !tbaa !49
+  %44 = load i64, ptr %4, align 8, !tbaa !49
   %45 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %40, i64 %44
   %46 = add i64 %44, %31
-  store i64 %46, ptr %4, align 8, !tbaa !47
+  store i64 %46, ptr %4, align 8, !tbaa !49
   %47 = load ptr, ptr %0, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %12
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -1974,7 +1974,7 @@ cdf_check_stream_offset.exit.i:                   ; preds = %64
 cdf_get_property_info_pos.exit:                   ; preds = %73
   %.0.copyload.i = load i32, ptr %62, align 1
   %78 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.0124213, i64 %.0126212
-  store i32 %.0.copyload.i, ptr %78, align 8, !tbaa !48
+  store i32 %.0.copyload.i, ptr %78, align 8, !tbaa !50
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %52, %79
   %81 = icmp ult i64 %80, 4
@@ -1983,7 +1983,7 @@ cdf_get_property_info_pos.exit:                   ; preds = %73
 82:                                               ; preds = %cdf_get_property_info_pos.exit
   %.0.copyload.i171 = load i32, ptr %77, align 1
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 %.0.copyload.i171, ptr %83, align 4, !tbaa !50
+  store i32 %.0.copyload.i171, ptr %83, align 4, !tbaa !52
   %84 = and i32 %.0.copyload.i171, 4096
   %.not148 = icmp eq i32 %84, 0
   br i1 %.not148, label %92, label %85
@@ -2042,7 +2042,7 @@ cdf_get_property_info_pos.exit:                   ; preds = %73
 cdf_copy_info.exit:                               ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %103 = load i16, ptr %98, align 1
-  store i16 %103, ptr %102, align 8, !tbaa !42
+  store i16 %103, ptr %102, align 8, !tbaa !44
   br label %cdf_check_stream_offset.exit167
 
 104:                                              ; preds = %95, %95, %95, %95
@@ -2057,7 +2057,7 @@ cdf_copy_info.exit:                               ; preds = %97
 cdf_copy_info.exit183:                            ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %110 = load i32, ptr %105, align 1
-  store i32 %110, ptr %109, align 8, !tbaa !42
+  store i32 %110, ptr %109, align 8, !tbaa !44
   br label %cdf_check_stream_offset.exit167
 
 111:                                              ; preds = %95, %95, %95, %95
@@ -2072,7 +2072,7 @@ cdf_copy_info.exit183:                            ; preds = %104
 cdf_copy_info.exit187:                            ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %117 = load i64, ptr %112, align 1
-  store i64 %117, ptr %116, align 8, !tbaa !42
+  store i64 %117, ptr %116, align 8, !tbaa !44
   br label %cdf_check_stream_offset.exit167
 
 118:                                              ; preds = %95, %95
@@ -2114,10 +2114,10 @@ cdf_copy_info.exit187:                            ; preds = %111
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.1125, i64 %.1127211, i32 2
-  store i32 %.0.copyload.i188, ptr %139, align 8, !tbaa !42
+  store i32 %.0.copyload.i188, ptr %139, align 8, !tbaa !44
   %140 = getelementptr inbounds nuw i8, ptr %77, i64 %130
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr %140, ptr %141, align 8, !tbaa !42
+  store ptr %140, ptr %141, align 8, !tbaa !44
   %142 = and i32 %.0.copyload.i188, 1
   %spec.select = add i32 %142, %.0.copyload.i188
   %143 = lshr i32 %spec.select, 1
@@ -2155,8 +2155,8 @@ cdf_get_property_info_pos.exit.thread:            ; preds = %73, %cdf_check_stre
   %157 = load ptr, ptr %3, align 8, !tbaa !37
   tail call void @_efree(ptr noundef %157) #21
   store ptr null, ptr %3, align 8, !tbaa !37
-  store i64 0, ptr %4, align 8, !tbaa !47
-  store i64 0, ptr %5, align 8, !tbaa !47
+  store i64 0, ptr %4, align 8, !tbaa !49
+  store i64 0, ptr %5, align 8, !tbaa !49
   %158 = tail call ptr @__errno_location() #22
   store i32 22, ptr %158, align 4, !tbaa !21
   br label %.loopexit
@@ -2168,7 +2168,7 @@ cdf_get_property_info_pos.exit.thread:            ; preds = %73, %cdf_check_stre
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cdf_grow_info(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2796203) %2) unnamed_addr #7 {
-  %4 = load i64, ptr %1, align 8, !tbaa !47
+  %4 = load i64, ptr %1, align 8, !tbaa !49
   %5 = add i64 %4, %2
   %6 = icmp ugt i64 %5, 2796202
   br i1 %6, label %13, label %7
@@ -2182,13 +2182,13 @@ define internal fastcc ptr @cdf_grow_info(ptr noundef captures(none) %0, ptr nou
 
 12:                                               ; preds = %7
   store ptr %10, ptr %0, align 8, !tbaa !37
-  store i64 %5, ptr %1, align 8, !tbaa !47
+  store i64 %5, ptr %1, align 8, !tbaa !49
   br label %15
 
 13:                                               ; preds = %7, %3
   %14 = load ptr, ptr %0, align 8, !tbaa !37
   tail call void @_efree(ptr noundef %14) #21
-  store i64 0, ptr %1, align 8, !tbaa !47
+  store i64 0, ptr %1, align 8, !tbaa !49
   store ptr null, ptr %0, align 8, !tbaa !37
   br label %15
 
@@ -2225,27 +2225,27 @@ cdf_check_stream_offset.exit37.thread:            ; preds = %13
   br label %31
 
 cdf_check_stream_offset.exit37:                   ; preds = %13
-  %15 = load i16, ptr %7, align 4, !tbaa !51
-  store i16 %15, ptr %2, align 4, !tbaa !51
+  %15 = load i16, ptr %7, align 4, !tbaa !53
+  store i16 %15, ptr %2, align 4, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %17 = load i16, ptr %16, align 4, !tbaa !54
+  %17 = load i16, ptr %16, align 4, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 %17, ptr %18, align 4, !tbaa !54
+  store i16 %17, ptr %18, align 4, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %20 = load i16, ptr %19, align 2, !tbaa !55
+  %20 = load i16, ptr %19, align 2, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i16 %20, ptr %21, align 2, !tbaa !55
+  store i16 %20, ptr %21, align 2, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !58
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %25 = load i32, ptr %24, align 4, !tbaa !57
+  %25 = load i32, ptr %24, align 4, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !58
+  %27 = load i32, ptr %26, align 4, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %25, ptr %28, align 4, !tbaa !57
-  store i64 0, ptr %4, align 8, !tbaa !47
-  store i64 0, ptr %6, align 8, !tbaa !47
+  store i32 %25, ptr %28, align 4, !tbaa !59
+  store i64 0, ptr %4, align 8, !tbaa !49
+  store i64 0, ptr %6, align 8, !tbaa !49
   store ptr null, ptr %3, align 8, !tbaa !37
   %29 = call i32 @cdf_read_property_info(ptr noundef nonnull %0, ptr poison, i32 noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %30 = icmp eq i32 %29, -1
@@ -2324,7 +2324,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   %30 = load i16, ptr %.1177, align 1
   store i16 %30, ptr %27, align 8
   %31 = getelementptr inbounds nuw %struct.cdf_catalog_entry_t, ptr %25, i64 %.0125176
-  store i16 %30, ptr %31, align 8, !tbaa !60
+  store i16 %30, ptr %31, align 8, !tbaa !62
   %32 = getelementptr inbounds nuw i8, ptr %.1177, i64 8
   %33 = icmp ugt ptr %32, %9
   br i1 %33, label %.thread145.sink.split, label %34
@@ -2336,7 +2336,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   store i32 %37, ptr %36, align 4
   %38 = and i32 %37, 65535
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !62
+  store i32 %38, ptr %39, align 4, !tbaa !64
   %40 = getelementptr inbounds nuw i8, ptr %.1177, i64 16
   %41 = icmp ugt ptr %40, %9
   br i1 %41, label %.thread145.sink.split, label %42
@@ -2347,19 +2347,19 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   store i64 %44, ptr %43, align 8
   %.idx = mul nuw nsw i64 %.0125176, 528
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  store i64 %44, ptr %gep, align 8, !tbaa !63
-  %45 = load i16, ptr %27, align 8, !tbaa !60
+  store i64 %44, ptr %gep, align 8, !tbaa !65
+  %45 = load i16, ptr %27, align 8, !tbaa !62
   %46 = icmp ult i16 %45, 14
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %42
-  store i16 0, ptr %27, align 8, !tbaa !60
+  store i16 0, ptr %27, align 8, !tbaa !62
   br label %63
 
 48:                                               ; preds = %42
   %49 = add i16 %45, -14
   %spec.select = tail call i16 @llvm.umin.i16(i16 %49, i16 255)
-  store i16 %spec.select, ptr %27, align 8, !tbaa !60
+  store i16 %spec.select, ptr %27, align 8, !tbaa !62
   %50 = zext nneg i16 %spec.select to i64
   %51 = getelementptr inbounds nuw i16, ptr %40, i64 %50
   %52 = icmp ugt ptr %51, %9
@@ -2376,9 +2376,9 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
 54:                                               ; preds = %.lr.ph172, %54
   %.0127171 = phi i64 [ 0, %.lr.ph172 ], [ %58, %54 ]
   %55 = getelementptr inbounds nuw i16, ptr %40, i64 %.0127171
-  %56 = load i16, ptr %55, align 2, !tbaa !43
+  %56 = load i16, ptr %55, align 2, !tbaa !45
   %57 = getelementptr inbounds nuw [256 x i16], ptr %53, i64 0, i64 %.0127171
-  store i16 %56, ptr %57, align 2, !tbaa !43
+  store i16 %56, ptr %57, align 2, !tbaa !45
   %58 = add nuw nsw i64 %.0127171, 1
   %59 = icmp samesign ult i64 %58, %50
   br i1 %59, label %54, label %._crit_edge173
@@ -2386,7 +2386,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
 ._crit_edge173:                                   ; preds = %54, %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %61 = getelementptr inbounds nuw [256 x i16], ptr %60, i64 0, i64 %50
-  store i16 0, ptr %61, align 2, !tbaa !43
+  store i16 0, ptr %61, align 2, !tbaa !45
   %62 = add nuw i64 %.0125176, 1
   br label %63
 
@@ -2399,12 +2399,12 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   br i1 %66, label %.lr.ph180.split, label %.thread145
 
 .thread145.sink.split:                            ; preds = %48, %34, %.thread, %.lr.ph180.split
-  store i16 0, ptr %27, align 8, !tbaa !60
+  store i16 0, ptr %27, align 8, !tbaa !62
   br label %.thread145
 
 .thread145:                                       ; preds = %63, %.thread145.sink.split, %24
   %.0128157 = phi i64 [ 0, %24 ], [ %.0128175, %.thread145.sink.split ], [ %.2, %63 ]
-  store i64 %.0128157, ptr %22, align 8, !tbaa !64
+  store i64 %.0128157, ptr %22, align 8, !tbaa !66
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %18, %._crit_edge, %.thread145
@@ -2414,36 +2414,36 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cdf_print_classid(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
-  %4 = load i32, ptr %2, align 4, !tbaa !66
+  %4 = load i32, ptr %2, align 4, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %6 = load i16, ptr %5, align 4, !tbaa !43
+  %6 = load i16, ptr %5, align 4, !tbaa !45
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %9 = load i16, ptr %8, align 2, !tbaa !43
+  %9 = load i16, ptr %8, align 2, !tbaa !45
   %10 = zext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i8, ptr %11, align 4, !tbaa !42
+  %12 = load i8, ptr %11, align 4, !tbaa !44
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %15 = load i8, ptr %14, align 1, !tbaa !42
+  %15 = load i8, ptr %14, align 1, !tbaa !44
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %18 = load i8, ptr %17, align 2, !tbaa !42
+  %18 = load i8, ptr %17, align 2, !tbaa !44
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %21 = load i8, ptr %20, align 1, !tbaa !42
+  %21 = load i8, ptr %20, align 1, !tbaa !44
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %24 = load i8, ptr %23, align 2, !tbaa !42
+  %24 = load i8, ptr %23, align 2, !tbaa !44
   %25 = zext i8 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  %27 = load i8, ptr %26, align 1, !tbaa !42
+  %27 = load i8, ptr %26, align 1, !tbaa !44
   %28 = zext i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %30 = load i8, ptr %29, align 2, !tbaa !42
+  %30 = load i8, ptr %29, align 2, !tbaa !44
   %31 = zext i8 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %33 = load i8, ptr %32, align 1, !tbaa !42
+  %33 = load i8, ptr %32, align 1, !tbaa !44
   %34 = zext i8 %33 to i32
   %35 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %7, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34) #21
   ret i32 %35
@@ -2463,13 +2463,13 @@ define hidden i32 @cdf_print_property_name(ptr noundef %0, i64 noundef %1, i32 n
 6:                                                ; preds = %3, %4
   %.011 = phi i64 [ 0, %3 ], [ %5, %4 ]
   %7 = getelementptr inbounds nuw [20 x %struct.anon.1], ptr @vn, i64 0, i64 %.011
-  %8 = load i32, ptr %7, align 16, !tbaa !67
+  %8 = load i32, ptr %7, align 16, !tbaa !69
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %10, label %4
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !69
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.4, ptr noundef %12) #21
   br label %16
 
@@ -2551,14 +2551,14 @@ define hidden noundef ptr @cdf_u16tos8(ptr noundef returned writeonly captures(r
 .lr.ph:                                           ; preds = %3, %6
   %.011 = phi i64 [ %9, %6 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i16, ptr %2, i64 %.011
-  %5 = load i16, ptr %4, align 2, !tbaa !43
+  %5 = load i16, ptr %4, align 2, !tbaa !45
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = trunc i16 %5 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.011
-  store i8 %7, ptr %8, align 1, !tbaa !42
+  store i8 %7, ptr %8, align 1, !tbaa !44
   %9 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %9, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
@@ -2566,7 +2566,7 @@ define hidden noundef ptr @cdf_u16tos8(ptr noundef returned writeonly captures(r
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %1, %6 ], [ %.011, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.lcssa
-  store i8 0, ptr %10, align 1, !tbaa !42
+  store i8 0, ptr %10, align 1, !tbaa !44
   ret ptr %0
 }
 
@@ -2660,31 +2660,33 @@ attributes #26 = { nounwind allocsize(1) }
 !39 = !{!"", !7, i64 0, !18, i64 64, !7, i64 66, !7, i64 67, !12, i64 68, !12, i64 72, !12, i64 76, !7, i64 80, !12, i64 96, !9, i64 104, !9, i64 112, !12, i64 120, !12, i64 124, !12, i64 128}
 !40 = !{!39, !12, i64 120}
 !41 = !{!39, !12, i64 124}
-!42 = !{!7, !7, i64 0}
-!43 = !{!18, !18, i64 0}
-!44 = !{!45, !12, i64 0}
-!45 = !{!"", !12, i64 0, !12, i64 4}
-!46 = !{!45, !12, i64 4}
-!47 = !{!9, !9, i64 0}
-!48 = !{!49, !12, i64 0}
-!49 = !{!"", !12, i64 0, !12, i64 4, !7, i64 8}
-!50 = !{!49, !12, i64 4}
-!51 = !{!52, !18, i64 0}
-!52 = !{!"", !18, i64 0, !18, i64 2, !18, i64 4, !18, i64 6, !53, i64 8, !12, i64 24}
-!53 = !{!"", !12, i64 0, !7, i64 4, !7, i64 8, !7, i64 10}
-!54 = !{!52, !18, i64 4}
-!55 = !{!52, !18, i64 6}
-!56 = !{i64 0, i64 4, !21, i64 4, i64 4, !42, i64 8, i64 2, !42, i64 10, i64 6, !42}
-!57 = !{!52, !12, i64 24}
-!58 = !{!59, !12, i64 16}
-!59 = !{!"", !53, i64 0, !12, i64 16}
-!60 = !{!61, !18, i64 0}
-!61 = !{!"", !18, i64 0, !12, i64 4, !9, i64 8, !7, i64 16}
-!62 = !{!61, !12, i64 4}
-!63 = !{!61, !9, i64 8}
-!64 = !{!65, !9, i64 0}
-!65 = !{!"", !9, i64 0, !7, i64 8}
-!66 = !{!53, !12, i64 0}
-!67 = !{!68, !12, i64 0}
-!68 = !{!"", !12, i64 0, !13, i64 8}
-!69 = !{!68, !13, i64 8}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = !{!7, !7, i64 0}
+!45 = !{!18, !18, i64 0}
+!46 = !{!47, !12, i64 0}
+!47 = !{!"", !12, i64 0, !12, i64 4}
+!48 = !{!47, !12, i64 4}
+!49 = !{!9, !9, i64 0}
+!50 = !{!51, !12, i64 0}
+!51 = !{!"", !12, i64 0, !12, i64 4, !7, i64 8}
+!52 = !{!51, !12, i64 4}
+!53 = !{!54, !18, i64 0}
+!54 = !{!"", !18, i64 0, !18, i64 2, !18, i64 4, !18, i64 6, !55, i64 8, !12, i64 24}
+!55 = !{!"", !12, i64 0, !7, i64 4, !7, i64 8, !7, i64 10}
+!56 = !{!54, !18, i64 4}
+!57 = !{!54, !18, i64 6}
+!58 = !{i64 0, i64 4, !21, i64 4, i64 4, !44, i64 8, i64 2, !44, i64 10, i64 6, !44}
+!59 = !{!54, !12, i64 24}
+!60 = !{!61, !12, i64 16}
+!61 = !{!"", !55, i64 0, !12, i64 16}
+!62 = !{!63, !18, i64 0}
+!63 = !{!"", !18, i64 0, !12, i64 4, !9, i64 8, !7, i64 16}
+!64 = !{!63, !12, i64 4}
+!65 = !{!63, !9, i64 8}
+!66 = !{!67, !9, i64 0}
+!67 = !{!"", !9, i64 0, !7, i64 8}
+!68 = !{!55, !12, i64 0}
+!69 = !{!70, !12, i64 0}
+!70 = !{!"", !12, i64 0, !13, i64 8}
+!71 = !{!70, !13, i64 8}

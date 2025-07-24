@@ -1418,7 +1418,7 @@ decode_nal_sei_message.exit.thread.us:            ; preds = %bytestream2_get_byt
   %906 = sub i64 %20, %905
   %907 = trunc i64 %906 to i32
   %908 = icmp sgt i32 %907, 0
-  br i1 %908, label %bytestream2_init.exit.split.us, label %.loopexit, !llvm.loop !83
+  br i1 %908, label %bytestream2_init.exit.split.us, label %.loopexit, !llvm.loop !84
 
 bytestream2_init.exit.split:                      ; preds = %bytestream2_init.exit, %decode_nal_sei_message.exit.thread
   %.sroa.0.0 = phi ptr [ %938, %decode_nal_sei_message.exit.thread ], [ %17, %bytestream2_init.exit ]
@@ -1547,7 +1547,7 @@ decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byt
   %961 = sub i64 %20, %.pre-phi
   %962 = trunc i64 %961 to i32
   %963 = icmp sgt i32 %962, 0
-  br i1 %963, label %bytestream2_init.exit.split, label %.loopexit, !llvm.loop !83
+  br i1 %963, label %bytestream2_init.exit.split, label %.loopexit, !llvm.loop !85
 
 decode_nal_sei_message.exit.thread17:             ; preds = %932, %909, %.preheader.i, %871, %get_se_golomb.exit.i.i.i.us, %get_ue_golomb.exit121.i.i.i.us, %get_ue_golomb.exit109.i.i.i.us, %get_ue_golomb.exit.i.i.i.us, %90, %67, %.preheader.i.us, %349, %get_ue_golomb.exit145.i.i.i.us, %get_ue_golomb_long.exit.thread.i.i.i, %get_ue_golomb_long.exit32.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
@@ -1683,5 +1683,7 @@ attributes #7 = { noreturn nounwind }
 !79 = !{!58, !10, i64 0}
 !80 = !{!6, !6, i64 0}
 !81 = !{!57, !8, i64 48}
-!82 = distinct !{!82, !15}
-!83 = distinct !{!83, !15}
+!82 = distinct !{!82, !15, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !15, !83}
+!85 = distinct !{!85, !15}

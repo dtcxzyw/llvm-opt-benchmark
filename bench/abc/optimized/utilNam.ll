@@ -602,7 +602,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   %71 = phi ptr [ %66, %65 ], [ %68, %67 ]
   store ptr %71, ptr %59, align 8, !tbaa !13
   %72 = icmp slt i32 %70, %56
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %69, %50
   %.val51 = phi ptr [ %.pre69, %50 ], [ %71, %69 ]
@@ -818,9 +818,9 @@ define i32 @Abc_NamMemUsed(ptr noundef readonly captures(address_is_null) %0) lo
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !38
+  %10 = load i32, ptr %9, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4, !tbaa !39
+  %12 = load i32, ptr %11, align 4, !tbaa !40
   %13 = add i32 %10, %8
   %14 = add i32 %13, %12
   %15 = shl i32 %14, 2
@@ -843,9 +843,9 @@ define i32 @Abc_NamMemAlloc(ptr noundef readonly captures(address_is_null) %0) l
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !41
+  %11 = load i32, ptr %10, align 8, !tbaa !42
   %12 = add i32 %9, %7
   %13 = add i32 %12, %11
   %14 = shl i32 %13, 2
@@ -905,7 +905,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = icmp ult ptr %27, %1
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .lr.ph42:                                         ; preds = %.preheader, %46
   %29 = phi i8 [ %50, %46 ], [ %5, %.preheader ]
@@ -985,7 +985,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %17 = load i8, ptr %16, align 1, !tbaa !32
   %.not25.us = icmp eq i8 %17, 0
-  br i1 %.not25.us, label %.critedge, label %.lr.ph35
+  br i1 %.not25.us, label %.critedge, label %.lr.ph35, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %20
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next39, %20 ]
@@ -1003,7 +1003,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32
   %24 = lshr i32 %23, 6
   %25 = xor i32 %24, %23
   %.not2324 = icmp eq i64 %indvars.iv.next39, %8
-  br i1 %.not2324, label %.critedge, label %.lr.ph.split, !llvm.loop !43
+  br i1 %.not2324, label %.critedge, label %.lr.ph.split, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph35, %.lr.ph.split, %20, %.lr.ph.split.us, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph.split.us ], [ %25, %20 ], [ %.029, %.lr.ph.split ], [ %15, %.lr.ph35 ]
@@ -1060,7 +1060,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !22
   %.sroa.7.0..sroa_idx = getelementptr i8, ptr %0, i64 24
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !44
+  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = shl nsw i32 %.sroa.4.0.copyload, 1
   %.not.i29 = icmp slt i32 %.sroa.4.0.copyload, 1
@@ -1346,7 +1346,7 @@ Vec_IntPush.exit52:                               ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %139, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !47
 
 .critedge:                                        ; preds = %Vec_IntPush.exit52, %Vec_IntPush.exit36
   %.not.i53 = icmp eq ptr %.sroa.7.0.copyload, null
@@ -1420,7 +1420,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = icmp ult ptr %31, %2
-  br i1 %32, label %.lr.ph.i, label %Abc_NamStrHash.exit, !llvm.loop !42
+  br i1 %32, label %.lr.ph.i, label %Abc_NamStrHash.exit, !llvm.loop !43
 
 .lr.ph42.i:                                       ; preds = %.preheader.i, %50
   %33 = phi i8 [ %54, %50 ], [ %9, %.preheader.i ]
@@ -1548,7 +1548,7 @@ Abc_NamStrcmp.exit.loopexit.us:                   ; preds = %.preheader.i28.us
   %91 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %92 = load i8, ptr %.0.i, align 1, !tbaa !32
   %.not16.i = icmp eq i8 %90, %92
-  br i1 %.not16.i, label %.preheader17.i, label %Abc_NamStrcmp.exit.thread, !llvm.loop !46
+  br i1 %.not16.i, label %.preheader17.i, label %Abc_NamStrcmp.exit.thread, !llvm.loop !48
 
 Abc_NamStrcmp.exit.loopexit33:                    ; preds = %.preheader17.i
   %93 = load i8, ptr %.0.i, align 1, !tbaa !32
@@ -1572,7 +1572,7 @@ Abc_NamStrcmp.exit.thread:                        ; preds = %88, %Abc_NamStrcmp.
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %.val24, i64 %101
   %.not20 = icmp eq ptr %.val24, null
-  br i1 %.not20, label %Abc_NamStrcmp.exit._crit_edge, label %.preheader17.i.preheader, !llvm.loop !36
+  br i1 %.not20, label %Abc_NamStrcmp.exit._crit_edge, label %.preheader17.i.preheader, !llvm.loop !49
 
 Abc_NamStrcmp.exit._crit_edge:                    ; preds = %Abc_NamStrcmp.exit.thread, %97, %Abc_NamStrcmp.exit.loopexit33, %Abc_NamStrcmp.exit.thread.us, %79, %Abc_NamStrcmp.exit.loopexit.us, %Abc_NamStrHash.exit, %59
   %.0.lcssa = phi ptr [ %57, %59 ], [ %57, %Abc_NamStrHash.exit ], [ %77, %Abc_NamStrcmp.exit.thread.us ], [ %.040.us, %Abc_NamStrcmp.exit.loopexit.us ], [ %77, %79 ], [ %95, %Abc_NamStrcmp.exit.thread ], [ %.040, %Abc_NamStrcmp.exit.loopexit33 ], [ %95, %97 ]
@@ -1761,7 +1761,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr noundef captures(none) %0, ptr noundef %1
   %34 = phi ptr [ %29, %28 ], [ %31, %30 ]
   store ptr %34, ptr %22, align 8, !tbaa !13
   %35 = icmp slt i32 %33, %19
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %32, %11
   %.val50 = phi ptr [ %.pre58, %11 ], [ %34, %32 ]
@@ -2113,7 +2113,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9, %8
   store i32 %17, ptr %16, align 4, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !51
 
 18:                                               ; preds = %2
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i27
@@ -2265,7 +2265,7 @@ Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.
   store i32 %79, ptr %80, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %81, label %37, label %.critedge, !llvm.loop !49
+  br i1 %81, label %37, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %Abc_NamStrHashFind.exit, %.lr.ph.i, %Vec_IntStart.exit, %Vec_IntAlloc.exit.i
   ret ptr %5
@@ -2413,7 +2413,7 @@ Abc_NamStrFind.exit:                              ; preds = %Abc_NamStrcmp.exit.
   %67 = add nuw nsw i32 %.013, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !50
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !53
 
 .critedge:                                        ; preds = %Abc_NamStrFind.exit, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %67, %Abc_NamStrFind.exit ]
@@ -2570,7 +2570,7 @@ Abc_NamStrFind.exit.thread:                       ; preds = %Abc_NamStrHash.exit
 Abc_NamStrFind.exit.thread15:                     ; preds = %Abc_NamStrcmp.exit.loopexit.us.i.i, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !54
 
 .critedge:                                        ; preds = %Abc_NamStrFind.exit.thread15, %3, %64, %Abc_NamStrFind.exit.thread
   %.0 = phi ptr [ %69, %64 ], [ null, %Abc_NamStrFind.exit.thread ], [ null, %3 ], [ null, %Abc_NamStrFind.exit.thread15 ]
@@ -2641,19 +2641,22 @@ attributes #24 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !15}
 !34 = distinct !{!34, !15}
 !35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = distinct !{!37, !15}
-!38 = !{!4, !5, i64 20}
-!39 = !{!4, !5, i64 36}
-!40 = !{!4, !5, i64 16}
-!41 = !{!4, !5, i64 32}
-!42 = distinct !{!42, !15}
+!36 = distinct !{!36, !15, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !15}
+!39 = !{!4, !5, i64 20}
+!40 = !{!4, !5, i64 36}
+!41 = !{!4, !5, i64 16}
+!42 = !{!4, !5, i64 32}
 !43 = distinct !{!43, !15}
-!44 = !{!11, !11, i64 0}
+!44 = distinct !{!44, !37}
 !45 = distinct !{!45, !15}
-!46 = distinct !{!46, !15}
+!46 = !{!11, !11, i64 0}
 !47 = distinct !{!47, !15}
 !48 = distinct !{!48, !15}
 !49 = distinct !{!49, !15}
 !50 = distinct !{!50, !15}
 !51 = distinct !{!51, !15}
+!52 = distinct !{!52, !15}
+!53 = distinct !{!53, !15}
+!54 = distinct !{!54, !15}

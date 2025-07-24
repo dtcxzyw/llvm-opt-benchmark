@@ -368,9 +368,9 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.p
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit, %.preheader
-  %32 = load ptr, ptr %0, align 8, !tbaa !74
+  %32 = load ptr, ptr %0, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
   %.not19 = icmp eq ptr %32, %34
   br i1 %.not19, label %._crit_edge23, label %.lr.ph22
 
@@ -392,13 +392,13 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.p
   br i1 %42, label %43, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
 43:                                               ; preds = %.lr.ph.split
-  store float %38, ptr %25, align 4, !tbaa !75
+  store float %38, ptr %25, align 4, !tbaa !76
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
 _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph.split, %43
   %44 = add nuw nsw i64 %.018, 1
   %exitcond26.not = icmp eq i64 %44, %10
-  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !73
+  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !77
 
 ._crit_edge23:                                    ; preds = %_ZNKSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEEclES3_S4_.exit, %._crit_edge
   ret void
@@ -409,7 +409,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph.s
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr %1, ptr %5, align 8
   store ptr %35, ptr %36, align 8
-  store i32 %3, ptr %6, align 4, !tbaa !76
+  store i32 %3, ptr %6, align 4, !tbaa !78
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %47, null
@@ -539,8 +539,10 @@ attributes #17 = { builtin allocsize(0) }
 !70 = !{!"bool", !12, i64 0}
 !71 = !{!"int", !12, i64 0}
 !72 = !{!49, !49, i64 0}
-!73 = distinct !{!73, !20}
-!74 = !{!10, !10, i64 0}
-!75 = !{!44, !49, i64 28}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"_ZTSN3gmx35ReferenceTemperatureChangeAlgorithmE", !12, i64 0}
+!73 = distinct !{!73, !20, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = !{!10, !10, i64 0}
+!76 = !{!44, !49, i64 28}
+!77 = distinct !{!77, !20}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"_ZTSN3gmx35ReferenceTemperatureChangeAlgorithmE", !12, i64 0}

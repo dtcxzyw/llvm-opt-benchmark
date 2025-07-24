@@ -590,7 +590,7 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
 18:                                               ; preds = %17, %14, %.lr.ph.split.us
   %19 = tail call ptr @g_dir_read_name(ptr noundef nonnull %4) #11
   %.not27.us = icmp eq ptr %19, null
-  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !67
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %20 = phi ptr [ %37, %36 ], [ %5, %.lr.ph ]
@@ -681,13 +681,13 @@ define internal fastcc void @_apply_filmroll_gpx(ptr noundef %0) unnamed_addr #0
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %4 = load ptr, ptr %3, align 8, !tbaa !67
+  %4 = load ptr, ptr %3, align 8, !tbaa !69
   %.not17 = icmp eq ptr %4, null
   br i1 %.not17, label %.loopexit, label %5
 
 5:                                                ; preds = %2
   tail call void @g_dir_rewind(ptr noundef nonnull %4) #11
-  %6 = load ptr, ptr %3, align 8, !tbaa !67
+  %6 = load ptr, ptr %3, align 8, !tbaa !69
   %7 = tail call ptr @g_dir_read_name(ptr noundef %6) #11
   %.not1819 = icmp eq ptr %7, null
   br i1 %.not1819, label %.loopexit, label %.lr.ph
@@ -720,7 +720,7 @@ define internal fastcc void @_apply_filmroll_gpx(ptr noundef %0) unnamed_addr #0
   br label %23
 
 23:                                               ; preds = %19, %16
-  %24 = load ptr, ptr %3, align 8, !tbaa !67
+  %24 = load ptr, ptr %3, align 8, !tbaa !69
   %25 = tail call ptr @g_dir_read_name(ptr noundef %24) #11
   %.not18 = icmp eq ptr %25, null
   br i1 %.not18, label %.loopexit, label %9
@@ -873,4 +873,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !64 = !{!31, !15, i64 3128}
 !65 = !{!31, !15, i64 8}
 !66 = !{!31, !39, i64 96}
-!67 = !{!14, !17, i64 560}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = !{!14, !17, i64 560}

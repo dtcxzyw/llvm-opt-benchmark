@@ -1876,7 +1876,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   store i32 %51, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
-  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !11
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i21 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %31, %.split.us.i ], [ %31, %.split.i ]
@@ -2093,7 +2093,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   store i32 %54, ptr %55, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
-  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !11
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i24 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %34, %.split.us.i ], [ %34, %.split.i ]
@@ -2216,7 +2216,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   store i32 %52, ptr %53, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
-  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !11
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i28 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %32, %.split.us.i ], [ %32, %.split.i ]
@@ -3149,7 +3149,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   store i8 0, ptr %40, align 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %exitcond74.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
@@ -3177,7 +3177,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   store i8 %52, ptr %56, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %57 = trunc nuw nsw i64 %indvars.iv70 to i32
@@ -3268,7 +3268,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr nounde
   %16 = load i32, ptr %0, align 8
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.thread, %2
   %19 = tail call ptr @SystemAttributeByName(ptr noundef %1) #15
@@ -3887,7 +3887,7 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captu
   store i32 %32, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit, label %.split.i, !llvm.loop !11
 
 _SPI_convert_params.exit:                         ; preds = %5
   %34 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext %4)
@@ -4363,7 +4363,7 @@ _SPI_begin_call.exit:                             ; preds = %22
   store i32 %56, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
-  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !11
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i20 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %36, %.split.us.i ], [ %36, %.split.i ]
@@ -5432,6 +5432,9 @@ attributes #17 = { noreturn nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !10}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

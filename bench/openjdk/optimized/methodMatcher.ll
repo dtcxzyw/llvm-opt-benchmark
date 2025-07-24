@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   %24 = getelementptr inbounds nuw i8, ptr %.070, i64 1
   %25 = load i8, ptr %24, align 1
   %.not55 = icmp eq i8 %25, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .loopexit.sink.split:                             ; preds = %9, %.thread59, %14, %7
   %.str.7.sink = phi ptr [ @.str.4, %7 ], [ @.str.6, %14 ], [ @.str.7, %.thread59 ], [ @.str.5, %9 ]
@@ -1040,7 +1040,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %38, %28, %3
   %40 = getelementptr inbounds nuw i8, ptr %.08, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not.not = icmp eq ptr %41, null
-  br i1 %.not.not, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %3, !llvm.loop !10
+  br i1 %.not.not, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %3, !llvm.loop !12
 
 _ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread: ; preds = %34, %38, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
   %.not.lcssa = phi i1 [ true, %34 ], [ true, %38 ], [ false, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
@@ -1169,7 +1169,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %39, %29, %4
   %45 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.loopexit, label %4, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZNK13MethodMatcher7matchesERK12methodHandle.exit, %41
   %.07 = phi i1 [ %44, %41 ], [ false, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
@@ -1409,6 +1409,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

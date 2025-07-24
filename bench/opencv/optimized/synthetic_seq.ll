@@ -952,13 +952,13 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %151
   %183 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %182)
   %184 = shufflevector <2 x double> %182, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %185 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %184)
-  store i32 %183, ptr %12, align 4, !tbaa !61
+  store i32 %183, ptr %12, align 4, !tbaa !62
   %186 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %185, ptr %186, align 4, !tbaa !63
+  store i32 %185, ptr %186, align 4, !tbaa !64
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %179, ptr %187, align 4, !tbaa !64
+  store i32 %179, ptr %187, align 4, !tbaa !65
   %188 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %180, ptr %188, align 4, !tbaa !65
+  store i32 %180, ptr %188, align 4, !tbaa !66
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(16) %12)
           to label %189 unwind label %235
 
@@ -1030,7 +1030,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %151
   store double %231, ptr %196, align 8, !tbaa !50
   %232 = call double @sin(double noundef %230) #18, !tbaa !47
   store double %232, ptr %203, align 8, !tbaa !51
-  br label %205, !llvm.loop !66
+  br label %205, !llvm.loop !67
 
 233:                                              ; preds = %240
   %234 = landingpad { ptr, i32 }
@@ -1070,7 +1070,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %151
 
 244:                                              ; preds = %.noexc
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %246 = load ptr, ptr %245, align 8, !tbaa !29, !noalias !67
+  %246 = load ptr, ptr %245, align 8, !tbaa !29, !noalias !68
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %246)
           to label %248 unwind label %274
 
@@ -1098,7 +1098,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %151
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #18
-  store double 2.550000e+02, ptr %16, align 8, !tbaa !70
+  store double 2.550000e+02, ptr %16, align 8, !tbaa !71
   %255 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %255, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17) #18
@@ -1107,13 +1107,13 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %151
   %257 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %256)
   %258 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %259 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %258)
-  store i32 %257, ptr %18, align 4, !tbaa !61
+  store i32 %257, ptr %18, align 4, !tbaa !62
   %260 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %259, ptr %260, align 4, !tbaa !63
+  store i32 %259, ptr %260, align 4, !tbaa !64
   %261 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 %179, ptr %261, align 4, !tbaa !64
+  store i32 %179, ptr %261, align 4, !tbaa !65
   %262 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 %180, ptr %262, align 4, !tbaa !65
+  store i32 %180, ptr %262, align 4, !tbaa !66
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 4 dereferenceable(16) %18)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit73 unwind label %278
 
@@ -1127,16 +1127,16 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit73:             ; preds = %254
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #18
   %265 = load double, ptr %197, align 8, !tbaa !26
-  %.val = load double, ptr %196, align 8, !tbaa !71
-  %.val51 = load double, ptr %203, align 8, !tbaa !72
+  %.val = load double, ptr %196, align 8, !tbaa !72
+  %.val51 = load double, ptr %203, align 8, !tbaa !73
   %266 = fmul double %265, %.val
   %267 = fmul double %265, %.val51
-  %268 = load double, ptr %181, align 8, !tbaa !71
+  %268 = load double, ptr %181, align 8, !tbaa !72
   %269 = fadd double %266, %268
-  store double %269, ptr %181, align 8, !tbaa !71
-  %270 = load double, ptr %201, align 8, !tbaa !72
+  store double %269, ptr %181, align 8, !tbaa !72
+  %270 = load double, ptr %201, align 8, !tbaa !73
   %271 = fadd double %267, %270
-  store double %271, ptr %201, align 8, !tbaa !72
+  store double %271, ptr %201, align 8, !tbaa !73
   %272 = load i32, ptr %76, align 8, !tbaa !27
   %273 = add i32 %272, 1
   store i32 %273, ptr %76, align 8, !tbaa !27
@@ -1212,27 +1212,27 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scal
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6bgsegm32createSyntheticSequenceGeneratorERKNS_11_InputArrayES3_dddd(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %8 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21, !noalias !76
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %8 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21, !noalias !77
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !79, !noalias !76
+  store i32 1, ptr %9, align 8, !tbaa !80, !noalias !77
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 1, ptr %10, align 4, !tbaa !81, !noalias !76
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm26SyntheticSequenceGeneratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !tbaa !3, !noalias !76
+  store i32 1, ptr %10, align 4, !tbaa !82, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm26SyntheticSequenceGeneratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !tbaa !3, !noalias !77
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv6bgsegm26SyntheticSequenceGeneratorC1ERKNS_11_InputArrayES4_dddd(ptr noundef nonnull align 8 dereferenceable(280) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6)
-          to label %_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm26SyntheticSequenceGeneratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !76
+          to label %_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm26SyntheticSequenceGeneratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !77
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm26SyntheticSequenceGeneratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #20, !noalias !76
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #20, !noalias !77
   resume { ptr, i32 } %12
 
 _ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %7
-  store ptr %11, ptr %0, align 8, !tbaa !82, !alias.scope !73
+  store ptr %11, ptr %0, align 8, !tbaa !83, !alias.scope !74
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %13, align 8, !tbaa !87, !alias.scope !73
+  store ptr %8, ptr %13, align 8, !tbaa !88, !alias.scope !74
   ret void
 }
 
@@ -1341,7 +1341,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgse
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1464,33 +1464,34 @@ attributes #21 = { builtin allocsize(0) }
 !57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
 !59 = distinct !{!59, !58}
-!60 = distinct !{!60, !58}
-!61 = !{!62, !11, i64 0}
-!62 = !{!"_ZTSN2cv5Rect_IiEE", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
-!63 = !{!62, !11, i64 4}
-!64 = !{!62, !11, i64 8}
-!65 = !{!62, !11, i64 12}
-!66 = distinct !{!66, !58}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!69 = distinct !{!69, !"_ZNK2cv11_InputArray6getMatEi"}
-!70 = !{!9, !9, i64 0}
-!71 = !{!12, !9, i64 0}
-!72 = !{!12, !9, i64 8}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!75 = distinct !{!75, !"_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_"}
-!76 = !{!77, !74}
-!77 = distinct !{!77, !78, !"_ZSt11make_sharedIN2cv6bgsegm26SyntheticSequenceGeneratorEJRKNS0_11_InputArrayES5_RKdS7_S7_S7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
-!78 = distinct !{!78, !"_ZSt11make_sharedIN2cv6bgsegm26SyntheticSequenceGeneratorEJRKNS0_11_InputArrayES5_RKdS7_S7_S7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
-!79 = !{!80, !11, i64 8}
-!80 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 8, !11, i64 12}
-!81 = !{!80, !11, i64 12}
-!82 = !{!83, !84, i64 0}
-!83 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm26SyntheticSequenceGeneratorELN9__gnu_cxx12_Lock_policyE2EE", !84, i64 0, !85, i64 8}
-!84 = !{!"p1 _ZTSN2cv6bgsegm26SyntheticSequenceGeneratorE", !15, i64 0}
-!85 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !86, i64 0}
-!86 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
-!87 = !{!85, !86, i64 0}
-!88 = !{!89, !14, i64 8}
-!89 = !{!"_ZTSSt9type_info", !14, i64 8}
+!60 = distinct !{!60, !58, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = !{!63, !11, i64 0}
+!63 = !{!"_ZTSN2cv5Rect_IiEE", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
+!64 = !{!63, !11, i64 4}
+!65 = !{!63, !11, i64 8}
+!66 = !{!63, !11, i64 12}
+!67 = distinct !{!67, !58}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!70 = distinct !{!70, !"_ZNK2cv11_InputArray6getMatEi"}
+!71 = !{!9, !9, i64 0}
+!72 = !{!12, !9, i64 0}
+!73 = !{!12, !9, i64 8}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!76 = distinct !{!76, !"_ZN2cvL7makePtrINS_6bgsegm26SyntheticSequenceGeneratorEJNS_11_InputArrayES3_ddddEEENS_3PtrIT_EEDpRKT0_"}
+!77 = !{!78, !75}
+!78 = distinct !{!78, !79, !"_ZSt11make_sharedIN2cv6bgsegm26SyntheticSequenceGeneratorEJRKNS0_11_InputArrayES5_RKdS7_S7_S7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
+!79 = distinct !{!79, !"_ZSt11make_sharedIN2cv6bgsegm26SyntheticSequenceGeneratorEJRKNS0_11_InputArrayES5_RKdS7_S7_S7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
+!80 = !{!81, !11, i64 8}
+!81 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 8, !11, i64 12}
+!82 = !{!81, !11, i64 12}
+!83 = !{!84, !85, i64 0}
+!84 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm26SyntheticSequenceGeneratorELN9__gnu_cxx12_Lock_policyE2EE", !85, i64 0, !86, i64 8}
+!85 = !{!"p1 _ZTSN2cv6bgsegm26SyntheticSequenceGeneratorE", !15, i64 0}
+!86 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !87, i64 0}
+!87 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
+!88 = !{!86, !87, i64 0}
+!89 = !{!90, !14, i64 8}
+!90 = !{!"_ZTSSt9type_info", !14, i64 8}

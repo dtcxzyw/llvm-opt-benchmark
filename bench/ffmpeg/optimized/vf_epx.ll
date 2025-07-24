@@ -440,7 +440,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %113 = getelementptr inbounds nuw i32, ptr %56, i64 %106
   store i32 %.0182.us, ptr %113, align 4, !tbaa !52
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !58
 
 ._crit_edge.us:                                   ; preds = %101
   %114 = icmp slt i64 %indvars.iv227, %46
@@ -448,7 +448,7 @@ define internal noundef i32 @epx3_slice(ptr readnone captures(none) %0, ptr noun
   %.sroa.14.1.us = getelementptr inbounds i32, ptr %.sroa.14.0222.us, i64 %.sroa.14.1.idx.us
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %._crit_edge224, label %.lr.ph.us, !llvm.loop !58
+  br i1 %exitcond231.not, label %._crit_edge224, label %.lr.ph.us, !llvm.loop !59
 
 ._crit_edge224:                                   ; preds = %._crit_edge.us, %.lr.ph223, %.critedge
   ret i32 0
@@ -529,6 +529,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !53 = !{!25, !25, i64 0}
 !54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55}
-!57 = distinct !{!57, !55}
+!56 = distinct !{!56, !55, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !58 = distinct !{!58, !55}
+!59 = distinct !{!59, !55, !57}

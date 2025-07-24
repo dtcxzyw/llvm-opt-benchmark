@@ -906,7 +906,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   %31 = add i32 %.025, 1
   %32 = add i32 %.025, %.027
   %33 = and i32 %32, %10
-  br label %.split, !llvm.loop !74
+  br label %.split, !llvm.loop !76
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread100: ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit, %17, %.split.us, %3, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103
   %.sink = phi ptr [ %27, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103 ], [ null, %3 ], [ %13, %.split.us ], [ %23, %17 ], [ %25, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit ]
@@ -1143,7 +1143,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread53: ; preds = %15, %14, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.thread, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit
   %23 = getelementptr inbounds nuw i8, ptr %.060, i64 32
   %.not = icmp eq ptr %23, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1162,30 +1162,30 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %10 = and i64 %5, -64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !76
+  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !78
   %13 = add i64 %.0.copyload.i.i.i, -8345775121483124050
   %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 27)
   %14 = mul i64 %.0.i.i.i, -5435081209227447693
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !76
+  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !78
   %16 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
   %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 22)
   %17 = mul i64 %.0.i8.i.i, -5435081209227447693
   %18 = xor i64 %14, -599882191873993834
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !76
+  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !78
   %20 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
   %21 = add i64 %20, %17
   %22 = add i64 %18, -49064778989800850
-  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !76
+  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !78
   %23 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !76
+  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !78
   %25 = add i64 %22, %23
   %26 = add i64 %25, %.0.copyload.i15.i.i.i
   %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 43)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !76
+  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !78
   %28 = add i64 %23, %.0.copyload.i.i.i
   %29 = add i64 %28, %.0.copyload.i17.i.i.i
   %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 20)
@@ -1194,10 +1194,10 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %32 = add i64 %29, %.0.copyload.i15.i.i.i
   %33 = add i64 %21, %.0.copyload.i17.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !76
+  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !78
   %35 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !76
+  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !78
   %37 = add i64 %33, %35
   %38 = add i64 %37, %.0.copyload.i15.i13.i.i
   %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 43)
@@ -1280,7 +1280,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %82 = add i64 %79, %.0.copyload.i15.i13.i
   %.0 = getelementptr inbounds nuw i8, ptr %.067, i64 64
   %.not = icmp eq ptr %.0, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.sroa.58.0.lcssa = phi i64 [ %42, %9 ], [ %81, %.lr.ph ]
@@ -1712,9 +1712,11 @@ attributes #18 = { builtin nounwind }
 !71 = !{!"branch_weights", i32 -4291748, i32 4291747}
 !72 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !73 = !{!"branch_weights", i32 4291747, i32 0}
-!74 = distinct !{!74, !27}
-!75 = distinct !{!75, !27}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
-!78 = distinct !{!78, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
-!79 = distinct !{!79, !27}
+!74 = distinct !{!74, !27, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !27}
+!77 = distinct !{!77, !27}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
+!80 = distinct !{!80, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
+!81 = distinct !{!81, !27}

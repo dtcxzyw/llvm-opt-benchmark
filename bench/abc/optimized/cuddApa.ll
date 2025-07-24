@@ -721,7 +721,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   %.not4351 = phi i1 [ false, %36 ], [ %.not4352, %.thread ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph58, !llvm.loop !20
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph58, !llvm.loop !21
 
 .sink.split:                                      ; preds = %42, %.thread, %._crit_edge.thread, %11
   %.sink = phi ptr [ %9, %11 ], [ %14, %._crit_edge.thread ], [ %14, %.thread ], [ %14, %42 ]
@@ -812,7 +812,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   %spec.select = select i1 %.not.us, i32 %.04963.us, i32 %36
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %37 = icmp sgt i64 %indvars.iv, 0
-  br i1 %37, label %.lr.ph.i54.us, label %._crit_edge, !llvm.loop !21
+  br i1 %37, label %.lr.ph.i54.us, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %Cudd_ApaShortDivision.exit.us, %Cudd_ApaCopy.exit.thread, %Cudd_ApaShortDivision.exit.thread.preheader, %Cudd_ApaCopy.exit
   %.049.lcssa = phi i32 [ %7, %Cudd_ApaCopy.exit ], [ %7, %Cudd_ApaShortDivision.exit.thread.preheader ], [ %7, %Cudd_ApaCopy.exit.thread ], [ %spec.select, %Cudd_ApaShortDivision.exit.us ]
@@ -832,7 +832,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next74 to i32
   %exitcond.not = icmp eq i32 %39, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge69, label %44, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge69, label %44, !llvm.loop !23
 
 44:                                               ; preds = %.lr.ph68, %43
   %indvars.iv73 = phi i64 [ %42, %.lr.ph68 ], [ %indvars.iv.next74, %43 ]
@@ -865,14 +865,14 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Cudd_ApaCountMinterm(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
-  store ptr %6, ptr @background, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  store ptr %6, ptr @background, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  store ptr %11, ptr @zero, align 8, !tbaa !41
+  store ptr %11, ptr @zero, align 8, !tbaa !42
   %12 = add nsw i32 %2, 1
   %13 = sdiv i32 %12, 32
   %14 = shl nsw i32 %13, 5
@@ -973,7 +973,7 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
   %60 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
   tail call void @st__free_table(ptr noundef nonnull %41) #19
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !43
+  %62 = load i32, ptr %61, align 4, !tbaa !44
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %90
 
@@ -1029,7 +1029,7 @@ Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.p
   %85 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
   tail call void @st__free_table(ptr noundef nonnull %41) #19
   %86 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !43
+  %87 = load i32, ptr %86, align 4, !tbaa !44
   %88 = icmp eq i32 %87, 1
   br i1 %88, label %89, label %90
 
@@ -1052,12 +1052,12 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #13
 define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #12 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  %7 = load i32, ptr %0, align 8, !tbaa !44
+  %7 = load i32, ptr %0, align 8, !tbaa !45
   %8 = icmp eq i32 %7, 2147483647
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @background, align 8, !tbaa !41
+  %10 = load ptr, ptr @background, align 8, !tbaa !42
   %11 = icmp eq ptr %0, %10
   %12 = load ptr, ptr @zero, align 8
   %13 = icmp eq ptr %0, %12
@@ -1067,7 +1067,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !43
+  %16 = load i32, ptr %15, align 4, !tbaa !44
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %18, label %22
 
@@ -1077,7 +1077,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %6, align 8, !tbaa !45
+  %21 = load ptr, ptr %6, align 8, !tbaa !46
   br label %114
 
 22:                                               ; preds = %18, %14
@@ -1099,7 +1099,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !43
+  %37 = load i32, ptr %36, align 4, !tbaa !44
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %114
 
@@ -1111,13 +1111,13 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %41 = sext i32 %1 to i64
   %42 = shl nsw i64 %41, 2
   %43 = call noalias noundef ptr @malloc(i64 noundef %42) #18
-  store ptr %43, ptr %6, align 8, !tbaa !45
+  store ptr %43, ptr %6, align 8, !tbaa !46
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !43
+  %47 = load i32, ptr %46, align 4, !tbaa !44
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %49, label %50
 
@@ -1127,7 +1127,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 50:                                               ; preds = %49, %45
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !43
+  %52 = load i32, ptr %51, align 4, !tbaa !44
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %114
 
@@ -1226,7 +1226,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   %96 = lshr i32 %95, 1
   store i32 %96, ptr %43, align 4, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %98 = load i32, ptr %97, align 4, !tbaa !43
+  %98 = load i32, ptr %97, align 4, !tbaa !44
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %101
 
@@ -1236,7 +1236,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
 
 101:                                              ; preds = %100, %Cudd_ApaShiftRight.exit
   %102 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %103 = load i32, ptr %102, align 4, !tbaa !43
+  %103 = load i32, ptr %102, align 4, !tbaa !44
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %105, label %106
 
@@ -1245,15 +1245,15 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br label %106
 
 106:                                              ; preds = %105, %101
-  %107 = load i32, ptr %15, align 4, !tbaa !43
+  %107 = load i32, ptr %15, align 4, !tbaa !44
   %108 = icmp ugt i32 %107, 1
-  %.pre86 = load ptr, ptr %6, align 8, !tbaa !45
+  %.pre86 = load ptr, ptr %6, align 8, !tbaa !46
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %106
   %110 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.pre86) #19
   %111 = icmp eq i32 %110, -10000
-  %.pre = load ptr, ptr %6, align 8, !tbaa !45
+  %.pre = load ptr, ptr %6, align 8, !tbaa !46
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %109
@@ -1465,30 +1465,31 @@ attributes #19 = { nounwind }
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!19 = distinct !{!19, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = !{!24, !26, i64 72}
-!24 = !{!"DdManager", !25, i64 0, !26, i64 40, !26, i64 48, !26, i64 56, !26, i64 64, !26, i64 72, !29, i64 80, !29, i64 88, !4, i64 96, !4, i64 100, !30, i64 104, !30, i64 112, !30, i64 120, !4, i64 128, !4, i64 132, !4, i64 136, !4, i64 140, !4, i64 144, !4, i64 148, !31, i64 152, !31, i64 160, !32, i64 168, !4, i64 224, !4, i64 228, !4, i64 232, !4, i64 236, !4, i64 240, !4, i64 244, !4, i64 248, !30, i64 256, !4, i64 264, !4, i64 268, !4, i64 272, !33, i64 280, !28, i64 288, !30, i64 296, !4, i64 304, !34, i64 312, !34, i64 320, !34, i64 328, !34, i64 336, !33, i64 344, !34, i64 352, !33, i64 360, !4, i64 368, !35, i64 376, !35, i64 384, !33, i64 392, !26, i64 400, !36, i64 408, !33, i64 416, !4, i64 424, !4, i64 428, !4, i64 432, !30, i64 440, !4, i64 448, !4, i64 452, !4, i64 456, !4, i64 460, !30, i64 464, !30, i64 472, !4, i64 480, !4, i64 484, !4, i64 488, !4, i64 492, !4, i64 496, !4, i64 500, !4, i64 504, !4, i64 508, !4, i64 512, !37, i64 520, !37, i64 528, !4, i64 536, !4, i64 540, !4, i64 544, !4, i64 548, !4, i64 552, !4, i64 556, !38, i64 560, !36, i64 568, !39, i64 576, !39, i64 584, !39, i64 592, !39, i64 600, !40, i64 608, !40, i64 616, !4, i64 624, !28, i64 632, !28, i64 640, !28, i64 648, !4, i64 656, !28, i64 664, !28, i64 672, !30, i64 680, !30, i64 688, !30, i64 696, !30, i64 704, !30, i64 712, !30, i64 720, !4, i64 728, !26, i64 736, !26, i64 744, !28, i64 752}
-!25 = !{!"DdNode", !4, i64 0, !4, i64 4, !26, i64 8, !5, i64 16, !28, i64 32}
-!26 = !{!"p1 _ZTS6DdNode", !27, i64 0}
-!27 = !{!"any pointer", !5, i64 0}
-!28 = !{!"long", !5, i64 0}
-!29 = !{!"p1 _ZTS7DdCache", !27, i64 0}
-!30 = !{!"double", !5, i64 0}
-!31 = !{!"p1 _ZTS10DdSubtable", !27, i64 0}
-!32 = !{!"DdSubtable", !33, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48}
-!33 = !{!"p2 _ZTS6DdNode", !27, i64 0}
-!34 = !{!"p1 int", !27, i64 0}
-!35 = !{!"p1 long", !27, i64 0}
-!36 = !{!"p1 omnipotent char", !27, i64 0}
-!37 = !{!"p1 _ZTS7MtrNode", !27, i64 0}
-!38 = !{!"p1 _ZTS12DdLocalCache", !27, i64 0}
-!39 = !{!"p1 _ZTS6DdHook", !27, i64 0}
-!40 = !{!"p1 _ZTS8_IO_FILE", !27, i64 0}
-!41 = !{!26, !26, i64 0}
-!42 = !{!24, !26, i64 40}
-!43 = !{!25, !4, i64 4}
-!44 = !{!25, !4, i64 0}
-!45 = !{!34, !34, i64 0}
+!22 = distinct !{!22, !8, !20}
+!23 = distinct !{!23, !8}
+!24 = !{!25, !27, i64 72}
+!25 = !{!"DdManager", !26, i64 0, !27, i64 40, !27, i64 48, !27, i64 56, !27, i64 64, !27, i64 72, !30, i64 80, !30, i64 88, !4, i64 96, !4, i64 100, !31, i64 104, !31, i64 112, !31, i64 120, !4, i64 128, !4, i64 132, !4, i64 136, !4, i64 140, !4, i64 144, !4, i64 148, !32, i64 152, !32, i64 160, !33, i64 168, !4, i64 224, !4, i64 228, !4, i64 232, !4, i64 236, !4, i64 240, !4, i64 244, !4, i64 248, !31, i64 256, !4, i64 264, !4, i64 268, !4, i64 272, !34, i64 280, !29, i64 288, !31, i64 296, !4, i64 304, !35, i64 312, !35, i64 320, !35, i64 328, !35, i64 336, !34, i64 344, !35, i64 352, !34, i64 360, !4, i64 368, !36, i64 376, !36, i64 384, !34, i64 392, !27, i64 400, !37, i64 408, !34, i64 416, !4, i64 424, !4, i64 428, !4, i64 432, !31, i64 440, !4, i64 448, !4, i64 452, !4, i64 456, !4, i64 460, !31, i64 464, !31, i64 472, !4, i64 480, !4, i64 484, !4, i64 488, !4, i64 492, !4, i64 496, !4, i64 500, !4, i64 504, !4, i64 508, !4, i64 512, !38, i64 520, !38, i64 528, !4, i64 536, !4, i64 540, !4, i64 544, !4, i64 548, !4, i64 552, !4, i64 556, !39, i64 560, !37, i64 568, !40, i64 576, !40, i64 584, !40, i64 592, !40, i64 600, !41, i64 608, !41, i64 616, !4, i64 624, !29, i64 632, !29, i64 640, !29, i64 648, !4, i64 656, !29, i64 664, !29, i64 672, !31, i64 680, !31, i64 688, !31, i64 696, !31, i64 704, !31, i64 712, !31, i64 720, !4, i64 728, !27, i64 736, !27, i64 744, !29, i64 752}
+!26 = !{!"DdNode", !4, i64 0, !4, i64 4, !27, i64 8, !5, i64 16, !29, i64 32}
+!27 = !{!"p1 _ZTS6DdNode", !28, i64 0}
+!28 = !{!"any pointer", !5, i64 0}
+!29 = !{!"long", !5, i64 0}
+!30 = !{!"p1 _ZTS7DdCache", !28, i64 0}
+!31 = !{!"double", !5, i64 0}
+!32 = !{!"p1 _ZTS10DdSubtable", !28, i64 0}
+!33 = !{!"DdSubtable", !34, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48}
+!34 = !{!"p2 _ZTS6DdNode", !28, i64 0}
+!35 = !{!"p1 int", !28, i64 0}
+!36 = !{!"p1 long", !28, i64 0}
+!37 = !{!"p1 omnipotent char", !28, i64 0}
+!38 = !{!"p1 _ZTS7MtrNode", !28, i64 0}
+!39 = !{!"p1 _ZTS12DdLocalCache", !28, i64 0}
+!40 = !{!"p1 _ZTS6DdHook", !28, i64 0}
+!41 = !{!"p1 _ZTS8_IO_FILE", !28, i64 0}
+!42 = !{!27, !27, i64 0}
+!43 = !{!25, !27, i64 40}
+!44 = !{!26, !4, i64 4}
+!45 = !{!26, !4, i64 0}
+!46 = !{!35, !35, i64 0}

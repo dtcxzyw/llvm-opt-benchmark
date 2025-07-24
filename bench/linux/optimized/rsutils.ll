@@ -124,7 +124,7 @@ define dso_local void @acpi_rs_move_data(ptr noundef writeonly captures(none) %0
   store i32 %17, ptr %18, align 4
   %19 = add nuw nsw i64 %15, 1
   %20 = icmp eq i64 %19, %8
-  br i1 %20, label %.loopexit, label %.split.us2, !llvm.loop !9
+  br i1 %20, label %.loopexit, label %.split.us2, !llvm.loop !11
 
 .split:                                           ; preds = %7, %.split
   %21 = phi i64 [ %25, %.split ], [ 0, %7 ]
@@ -134,7 +134,7 @@ define dso_local void @acpi_rs_move_data(ptr noundef writeonly captures(none) %0
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %21, 1
   %26 = icmp eq i64 %25, %8
-  br i1 %26, label %.loopexit, label %.split, !llvm.loop !9
+  br i1 %26, label %.loopexit, label %.split, !llvm.loop !12
 
 27:                                               ; preds = %6, %6, %6, %6
   %28 = zext i16 %2 to i64
@@ -246,7 +246,7 @@ define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0
   %34 = getelementptr i8, ptr %19, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %.preheader, !llvm.loop !10
+  br i1 %36, label %37, label %.preheader, !llvm.loop !13
 
 37:                                               ; preds = %.preheader
   %38 = add i16 %30, 2
@@ -316,7 +316,7 @@ declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalia
 define dso_local i32 @acpi_rs_get_prt_method_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !14
   %4 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -347,7 +347,7 @@ declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr
 define dso_local i32 @acpi_rs_get_crs_method_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !14
   %4 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 4, ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -372,7 +372,7 @@ declare dso_local i32 @acpi_rs_create_resource_list(ptr noundef, ptr noundef) lo
 define dso_local i32 @acpi_rs_get_prs_method_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !14
   %4 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 4, ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -394,7 +394,7 @@ define dso_local i32 @acpi_rs_get_prs_method_data(ptr noundef %0, ptr noundef %1
 define dso_local i32 @acpi_rs_get_aei_method_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !14
   %4 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 4, ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -416,7 +416,7 @@ define dso_local i32 @acpi_rs_get_aei_method_data(ptr noundef %0, ptr noundef %1
 define dso_local i32 @acpi_rs_get_method_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !annotation !11
+  store ptr null, ptr %4, align 8, !annotation !14
   %5 = call i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull %4) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %11
@@ -440,13 +440,13 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
   %4 = alloca [2 x ptr], align 16
   %5 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store i64 0, ptr %3, align 8, !annotation !11
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #13, !srcloc !12
+  store i64 0, ptr %3, align 8, !annotation !14
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #13, !srcloc !15
   %7 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   %8 = and i64 %7, 512
@@ -554,7 +554,10 @@ attributes #14 = { nounwind allocsize(2) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
-!12 = !{i64 1819121, i64 1819142}
+!9 = distinct !{!9, !6, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6, !7, !10}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{!"auto-init"}
+!15 = !{i64 1819121, i64 1819142}

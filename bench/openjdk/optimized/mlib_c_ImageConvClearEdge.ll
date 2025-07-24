@@ -131,12 +131,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i8 %39, ptr %61, align 1
   %indvars.iv.next430 = add nsw i64 %indvars.iv429, 1
   %62 = icmp slt i64 %indvars.iv.next430, %31
-  br i1 %62, label %56, label %._crit_edge.us340, !llvm.loop !9
+  br i1 %62, label %56, label %._crit_edge.us340, !llvm.loop !10
 
 ._crit_edge.us340:                                ; preds = %56
   %63 = add nuw nsw i32 %.1255339.us, 1
   %exitcond432.not = icmp eq i32 %63, %spec.select
-  br i1 %exitcond432.not, label %.preheader278, label %.preheader275.us, !llvm.loop !10
+  br i1 %exitcond432.not, label %.preheader278, label %.preheader275.us, !llvm.loop !11
 
 .preheader278:                                    ; preds = %._crit_edge.us340, %.preheader279, %.preheader276.lr.ph
   br i1 %26, label %.preheader274.lr.ph, label %.preheader277
@@ -161,12 +161,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i8 %39, ptr %67, align 1
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
-  br i1 %exitcond437.not, label %._crit_edge.us344, label %65, !llvm.loop !11
+  br i1 %exitcond437.not, label %._crit_edge.us344, label %65, !llvm.loop !12
 
 ._crit_edge.us344:                                ; preds = %65
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond442.not = icmp eq i64 %indvars.iv.next439, %wide.trip.count441
-  br i1 %exitcond442.not, label %.preheader277, label %.preheader274.us, !llvm.loop !12
+  br i1 %exitcond442.not, label %.preheader277, label %.preheader274.us, !llvm.loop !13
 
 .preheader277:                                    ; preds = %._crit_edge.us344, %.preheader278
   br i1 %brmerge465, label %.loopexit, label %.preheader.us.preheader
@@ -192,17 +192,17 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i8 %39, ptr %77, align 1
   %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
   %exitcond447.not = icmp eq i64 %indvars.iv.next444, %wide.trip.count446
-  br i1 %exitcond447.not, label %._crit_edge.us348, label %75, !llvm.loop !13
+  br i1 %exitcond447.not, label %._crit_edge.us348, label %75, !llvm.loop !14
 
 ._crit_edge.us348:                                ; preds = %75
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
-  br i1 %exitcond452.not, label %.loopexit, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond452.not, label %.loopexit, label %.preheader.us, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.us348, %.preheader277, %.preheader274.lr.ph, %33
   %.1252 = shl i32 %.0251350, 1
   %78 = icmp sgt i64 %indvars.iv453, 1
-  br i1 %78, label %33, label %.loopexit280, !llvm.loop !15
+  br i1 %78, label %33, label %.loopexit280, !llvm.loop !16
 
 79:                                               ; preds = %7, %7
   %80 = getelementptr i8, ptr %0, i64 24
@@ -270,12 +270,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i16 %101, ptr %110, align 2
   %indvars.iv.next395 = add nsw i64 %indvars.iv394, 1
   %111 = icmp slt i64 %indvars.iv.next395, %93
-  br i1 %111, label %105, label %._crit_edge.us316, !llvm.loop !16
+  br i1 %111, label %105, label %._crit_edge.us316, !llvm.loop !17
 
 ._crit_edge.us316:                                ; preds = %105
   %112 = add nuw nsw i32 %.0240315.us, 1
   %exitcond397.not = icmp eq i32 %112, %spec.select264
-  br i1 %exitcond397.not, label %.preheader288, label %.preheader284.us, !llvm.loop !17
+  br i1 %exitcond397.not, label %.preheader288, label %.preheader284.us, !llvm.loop !18
 
 .preheader288:                                    ; preds = %._crit_edge.us316, %98
   br i1 %brmerge468, label %.preheader287, label %.preheader283.us.preheader
@@ -302,12 +302,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i16 %101, ptr %123, align 2
   %indvars.iv.next399 = add nsw i64 %indvars.iv398, 1
   %124 = icmp slt i64 %indvars.iv.next399, %93
-  br i1 %124, label %118, label %._crit_edge.us320, !llvm.loop !18
+  br i1 %124, label %118, label %._crit_edge.us320, !llvm.loop !19
 
 ._crit_edge.us320:                                ; preds = %118
   %125 = add nuw nsw i32 %.1241319.us, 1
   %exitcond401.not = icmp eq i32 %125, %spec.select
-  br i1 %exitcond401.not, label %.preheader287, label %.preheader283.us, !llvm.loop !19
+  br i1 %exitcond401.not, label %.preheader287, label %.preheader283.us, !llvm.loop !20
 
 .preheader287:                                    ; preds = %._crit_edge.us320, %.preheader288, %.preheader284.lr.ph
   br i1 %88, label %.preheader282.lr.ph, label %.preheader285
@@ -332,12 +332,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i16 %101, ptr %129, align 2
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
-  br i1 %exitcond406.not, label %._crit_edge.us324, label %127, !llvm.loop !20
+  br i1 %exitcond406.not, label %._crit_edge.us324, label %127, !llvm.loop !21
 
 ._crit_edge.us324:                                ; preds = %127
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
-  br i1 %exitcond411.not, label %.preheader285, label %.preheader282.us, !llvm.loop !21
+  br i1 %exitcond411.not, label %.preheader285, label %.preheader282.us, !llvm.loop !22
 
 .preheader285:                                    ; preds = %._crit_edge.us324, %.preheader287
   br i1 %brmerge471, label %.loopexit286, label %.preheader281.us.preheader
@@ -363,17 +363,17 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i16 %101, ptr %139, align 2
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count415
-  br i1 %exitcond416.not, label %._crit_edge.us328, label %137, !llvm.loop !22
+  br i1 %exitcond416.not, label %._crit_edge.us328, label %137, !llvm.loop !23
 
 ._crit_edge.us328:                                ; preds = %137
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %exitcond421.not = icmp eq i64 %indvars.iv.next418, %wide.trip.count420
-  br i1 %exitcond421.not, label %.loopexit286, label %.preheader281.us, !llvm.loop !23
+  br i1 %exitcond421.not, label %.loopexit286, label %.preheader281.us, !llvm.loop !24
 
 .loopexit286:                                     ; preds = %._crit_edge.us328, %.preheader285, %.preheader282.lr.ph, %95
   %.1238 = shl i32 %.0237330, 1
   %140 = icmp sgt i64 %indvars.iv422, 1
-  br i1 %140, label %95, label %.loopexit280, !llvm.loop !24
+  br i1 %140, label %95, label %.loopexit280, !llvm.loop !25
 
 141:                                              ; preds = %7
   %142 = getelementptr i8, ptr %0, i64 24
@@ -440,12 +440,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %162, ptr %171, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %172 = icmp slt i64 %indvars.iv.next, %155
-  br i1 %172, label %166, label %._crit_edge.us, !llvm.loop !25
+  br i1 %172, label %166, label %._crit_edge.us, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %166
   %173 = add nuw nsw i32 %.0228300.us, 1
   %exitcond.not = icmp eq i32 %173, %spec.select264
-  br i1 %exitcond.not, label %.preheader297, label %.preheader293.us, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader297, label %.preheader293.us, !llvm.loop !27
 
 .preheader297:                                    ; preds = %._crit_edge.us, %160
   br i1 %brmerge474, label %.preheader296, label %.preheader292.us.preheader
@@ -472,12 +472,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %162, ptr %184, align 4
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, 1
   %185 = icmp slt i64 %indvars.iv.next369, %155
-  br i1 %185, label %179, label %._crit_edge.us303, !llvm.loop !27
+  br i1 %185, label %179, label %._crit_edge.us303, !llvm.loop !28
 
 ._crit_edge.us303:                                ; preds = %179
   %186 = add nuw nsw i32 %.1229302.us, 1
   %exitcond371.not = icmp eq i32 %186, %spec.select
-  br i1 %exitcond371.not, label %.preheader296, label %.preheader292.us, !llvm.loop !28
+  br i1 %exitcond371.not, label %.preheader296, label %.preheader292.us, !llvm.loop !29
 
 .preheader296:                                    ; preds = %._crit_edge.us303, %.preheader297, %.preheader293.lr.ph
   br i1 %150, label %.preheader291.lr.ph, label %.preheader294
@@ -502,12 +502,12 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %162, ptr %190, align 4
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count
-  br i1 %exitcond375.not, label %._crit_edge.us306, label %188, !llvm.loop !29
+  br i1 %exitcond375.not, label %._crit_edge.us306, label %188, !llvm.loop !30
 
 ._crit_edge.us306:                                ; preds = %188
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count379
-  br i1 %exitcond380.not, label %.preheader294, label %.preheader291.us, !llvm.loop !30
+  br i1 %exitcond380.not, label %.preheader294, label %.preheader291.us, !llvm.loop !31
 
 .preheader294:                                    ; preds = %._crit_edge.us306, %.preheader296
   br i1 %brmerge477, label %.loopexit295, label %.preheader290.us.preheader
@@ -533,17 +533,17 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %162, ptr %200, align 4
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
-  br i1 %exitcond385.not, label %._crit_edge.us309, label %198, !llvm.loop !31
+  br i1 %exitcond385.not, label %._crit_edge.us309, label %198, !llvm.loop !32
 
 ._crit_edge.us309:                                ; preds = %198
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond390.not = icmp eq i64 %indvars.iv.next387, %wide.trip.count389
-  br i1 %exitcond390.not, label %.loopexit295, label %.preheader290.us, !llvm.loop !32
+  br i1 %exitcond390.not, label %.loopexit295, label %.preheader290.us, !llvm.loop !33
 
 .loopexit295:                                     ; preds = %._crit_edge.us309, %.preheader294, %.preheader291.lr.ph, %157
   %.1 = shl i32 %.0311, 1
   %201 = icmp sgt i64 %indvars.iv391, 1
-  br i1 %201, label %157, label %.loopexit280, !llvm.loop !33
+  br i1 %201, label %157, label %.loopexit280, !llvm.loop !34
 
 .loopexit280:                                     ; preds = %.loopexit295, %.loopexit286, %.loopexit, %141, %79, %18, %7, %16
   %.0234 = phi i32 [ %17, %16 ], [ 1, %7 ], [ 0, %18 ], [ 0, %79 ], [ 0, %141 ], [ 0, %.loopexit ], [ 0, %.loopexit286 ], [ 0, %.loopexit295 ]
@@ -594,29 +594,30 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!11 = distinct !{!11, !7, !9}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!13 = distinct !{!13, !7, !9}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!15 = distinct !{!15, !7, !9}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!18 = distinct !{!18, !7, !9}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!20 = distinct !{!20, !7, !9}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!22 = distinct !{!22, !7, !9}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!24 = distinct !{!24, !7, !9}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!27 = distinct !{!27, !7, !9}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!29 = distinct !{!29, !7, !9}
 !30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
+!31 = distinct !{!31, !7, !9}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!33 = distinct !{!33, !7, !9}
+!34 = distinct !{!34, !7}

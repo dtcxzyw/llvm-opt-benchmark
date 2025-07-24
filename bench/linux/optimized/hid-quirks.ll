@@ -392,7 +392,7 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
 
 22:                                               ; preds = %18, %.split
   %23 = icmp eq ptr %15, @dquirks_list
-  br i1 %23, label %.loopexit, label %.split, !llvm.loop !11
+  br i1 %23, label %.loopexit, label %.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %22, %.split.us, %1
   tail call void @mutex_unlock(ptr noundef nonnull @dquirks_lock) #7
@@ -454,7 +454,7 @@ define dso_local i64 @hid_lookup_quirk(ptr noundef %0) #0 align 16 {
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %26, i64 -24
   %30 = tail call zeroext i1 @hid_match_one_id(ptr noundef %0, ptr noundef %29) #7
-  br i1 %30, label %31, label %24, !llvm.loop !12
+  br i1 %30, label %31, label %24, !llvm.loop !14
 
 31:                                               ; preds = %28
   %32 = icmp eq ptr %29, null
@@ -536,5 +536,7 @@ attributes #9 = { cold nounwind }
 !8 = !{!"auto-init"}
 !9 = distinct !{!9, !6, !7}
 !10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
+!11 = distinct !{!11, !6, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

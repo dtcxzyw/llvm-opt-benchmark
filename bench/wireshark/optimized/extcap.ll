@@ -1314,7 +1314,7 @@ define hidden void @extcap_free_if_configuration(ptr noundef %0, i1 noundef zero
   %14 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %13, %7, %2
   tail call void @g_list_free(ptr noundef %0)
@@ -1729,7 +1729,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not29 = icmp eq ptr %44, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %.1.lcssa = phi ptr [ %33, %34 ], [ %42, %.lr.ph ]
@@ -1773,7 +1773,7 @@ define internal noundef zeroext i1 @cb_reload_preference(ptr noundef readonly by
   %11 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @g_list_free(ptr noundef %6)
@@ -1875,7 +1875,7 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
   %44 = icmp eq ptr %43, null
   %45 = trunc nuw i8 %.2.us to i1
   %.not39.us62 = select i1 %44, i1 true, i1 %45
-  br i1 %.not39.us62, label %._crit_edge.split.us63.loopexit, label %.lr.ph.us, !llvm.loop !29
+  br i1 %.not39.us62, label %._crit_edge.split.us63.loopexit, label %.lr.ph.us, !llvm.loop !31
 
 ._crit_edge.split.us63.loopexit:                  ; preds = %41
   %46 = trunc nuw i8 %.2.us to i1
@@ -1887,7 +1887,7 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   %.not37.us = select i1 %49, i1 true, i1 %.1.lcssa.us
-  br i1 %.not37.us, label %._crit_edge56, label %.lr.ph55.split.us, !llvm.loop !30
+  br i1 %.not37.us, label %._crit_edge56, label %.lr.ph55.split.us, !llvm.loop !32
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %._crit_edge.split.us
   %.03153 = phi ptr [ %58, %._crit_edge.split.us ], [ %4, %.lr.ph55 ]
@@ -1904,7 +1904,7 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   %.not39.us = select i1 %56, i1 true, i1 %.not40.us.not
-  br i1 %.not39.us, label %._crit_edge.split.us, label %.lr.ph, !llvm.loop !29
+  br i1 %.not39.us, label %._crit_edge.split.us, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge.split.us:                             ; preds = %.lr.ph, %.lr.ph55.split
   %.1.lcssa = phi i1 [ false, %.lr.ph55.split ], [ %.not40.us.not, %.lr.ph ]
@@ -1912,7 +1912,7 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   %.not37 = select i1 %59, i1 true, i1 %.1.lcssa
-  br i1 %.not37, label %._crit_edge56, label %.lr.ph55.split, !llvm.loop !30
+  br i1 %.not37, label %._crit_edge56, label %.lr.ph55.split, !llvm.loop !34
 
 ._crit_edge56:                                    ; preds = %._crit_edge.split.us, %._crit_edge.split.us63, %2
   %.lcssa = phi i1 [ false, %2 ], [ %.1.lcssa.us, %._crit_edge.split.us63 ], [ %.1.lcssa, %._crit_edge.split.us ]
@@ -2062,7 +2062,7 @@ define internal noundef zeroext i1 @cb_verify_filter(ptr noundef readonly byval(
 15:                                               ; preds = %10
   %16 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, %6
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !35
 
 .loopexit:                                        ; preds = %15, %13
   %17 = tail call noalias ptr @g_strdup(ptr noundef %5)
@@ -2100,7 +2100,7 @@ define hidden noundef zeroext i1 @extcap_has_toolbar(ptr noundef %0) local_unnam
   %10 = getelementptr inbounds nuw i8, ptr %.01318, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.sink.split, label %.lr.ph, !llvm.loop !32
+  br i1 %.not.not, label %.sink.split, label %.lr.ph, !llvm.loop !36
 
 .sink.split:                                      ; preds = %.critedge, %.lr.ph, %3
   %.0.ph = phi i1 [ false, %3 ], [ %.not14.not, %.lr.ph ], [ %.not14.not, %.critedge ]
@@ -2481,7 +2481,7 @@ define internal fastcc ptr @extcap_get_extcap_paths_from_dir(ptr noundef %0, ptr
   %.2 = phi ptr [ %11, %10 ], [ %.117, %12 ]
   %14 = tail call ptr @g_dir_read_name(ptr noundef nonnull %3)
   %.not13 = icmp eq ptr %14, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.1.lcssa = phi ptr [ %0, %.preheader ], [ %.2, %13 ]
@@ -2570,7 +2570,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr noundef c
   %14 = getelementptr inbounds nuw i8, ptr %.06472, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not68 = icmp eq ptr %15, null
-  br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
   tail call void @g_list_free_full(ptr noundef %7, ptr noundef nonnull @extcap_free_interface)
@@ -2642,7 +2642,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr noundef c
   %48 = getelementptr inbounds nuw i8, ptr %.06675, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not69 = icmp eq ptr %49, null
-  br i1 %.not69, label %._crit_edge79, label %25, !llvm.loop !35
+  br i1 %.not69, label %._crit_edge79, label %25, !llvm.loop !39
 
 50:                                               ; preds = %._crit_edge.thread, %._crit_edge79, %3
   ret void
@@ -2804,13 +2804,17 @@ attributes #12 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
+!26 = distinct !{!26, !9, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !9}
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
 !31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
+!32 = distinct !{!32, !9, !27}
+!33 = distinct !{!33, !9, !27}
 !34 = distinct !{!34, !9}
 !35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}

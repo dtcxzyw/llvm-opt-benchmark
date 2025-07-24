@@ -474,7 +474,7 @@ HIDAPI_DriverLuna_HandleBluetoothStatePacket.exit: ; preds = %.lr.ph.split, %225
   %249 = load ptr, ptr %13, align 8
   %250 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %249, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
   %251 = icmp sgt i32 %250, 0
-  br i1 %251, label %.lr.ph.split, label %._crit_edge, !llvm.loop !3
+  br i1 %251, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverLuna_HandleBluetoothStatePacket.exit, %.backedge.us, %8
   %.lcssa = phi i32 [ %15, %8 ], [ %41, %.backedge.us ], [ %250, %HIDAPI_DriverLuna_HandleBluetoothStatePacket.exit ]
@@ -669,5 +669,7 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !4}

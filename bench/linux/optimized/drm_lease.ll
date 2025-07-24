@@ -259,7 +259,7 @@ define dso_local i32 @drm_lease_filter_crtcs(ptr noundef %0, i32 noundef %1) loc
   %60 = phi i32 [ %57, %.critedge ], [ %39, %42 ]
   %61 = load ptr, ptr %37, align 8
   %62 = icmp eq ptr %61, %16
-  br i1 %62, label %.loopexit, label %.preheader.splitthread-pre-split, !llvm.loop !10
+  br i1 %62, label %.loopexit, label %.preheader.splitthread-pre-split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %58, %.critedge.us, %12
   %63 = phi i32 [ 0, %12 ], [ %31, %.critedge.us ], [ %59, %58 ]
@@ -301,12 +301,12 @@ define dso_local void @drm_lease_destroy(ptr noundef %0) local_unnamed_addr #1 a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
-  br i1 %15, label %17, label %16, !prof !12
+  br i1 %15, label %17, label %16, !prof !13
 
 16:                                               ; preds = %9
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #9, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 277, i32 2305, i64 12) #9, !srcloc !14
-  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_end\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #9, !srcloc !15
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #9, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 277, i32 2305, i64 12) #9, !srcloc !15
+  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_end\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #9, !srcloc !16
   br label %17
 
 17:                                               ; preds = %16, %9
@@ -403,7 +403,7 @@ define dso_local void @drm_lease_revoke(ptr noundef %0) local_unnamed_addr #1 al
 define internal fastcc void @_drm_lease_revoke(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  store i32 0, ptr %2, align 4, !annotation !16
+  store i32 0, ptr %2, align 4, !annotation !17
   br label %3
 
 3:                                                ; preds = %39, %1
@@ -438,7 +438,7 @@ define internal fastcc void @_drm_lease_revoke(ptr noundef %0) unnamed_addr #1 a
   store i32 %22, ptr %2, align 4
   %23 = call ptr @idr_get_next(ptr noundef nonnull %15, ptr noundef nonnull %2) #9
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit, label %.preheader3, !llvm.loop !17
+  br i1 %24, label %.loopexit, label %.preheader3, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader3, %11
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -458,7 +458,7 @@ define internal fastcc void @_drm_lease_revoke(ptr noundef %0) unnamed_addr #1 a
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 -80
   %36 = icmp eq ptr %28, %35
-  br i1 %36, label %.preheader, label %37, !llvm.loop !18
+  br i1 %36, label %.preheader, label %37, !llvm.loop !19
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -468,7 +468,7 @@ define internal fastcc void @_drm_lease_revoke(ptr noundef %0) unnamed_addr #1 a
 39:                                               ; preds = %37, %.loopexit
   %40 = phi ptr [ %.pre, %37 ], [ %26, %.loopexit ]
   %41 = getelementptr i8, ptr %40, i64 -80
-  br label %3, !llvm.loop !19
+  br label %3, !llvm.loop !20
 
 42:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
@@ -521,7 +521,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   br label %349
 
 32:                                               ; preds = %20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !17
   %33 = tail call ptr @drm_file_get_master(ptr noundef %2) #9
   store ptr %33, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
@@ -571,10 +571,10 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 
 60:                                               ; preds = %50
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %62 = load volatile i8, ptr %61, align 2, !range !20, !noundef !21
+  %62 = load volatile i8, ptr %61, align 2, !range !21, !noundef !22
   %63 = icmp ne i8 %62, 0
   %64 = icmp slt i32 %46, 0
-  br i1 %64, label %.thread34, label %65, !prof !22
+  br i1 %64, label %.thread34, label %65, !prof !23
 
 65:                                               ; preds = %60
   %66 = shl nuw nsw i64 %51, 3
@@ -585,7 +585,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 69:                                               ; preds = %78
   %70 = add nuw nsw i64 %72, 1
   %71 = icmp eq i64 %70, %51
-  br i1 %71, label %.preheader, label %.preheader39, !llvm.loop !23
+  br i1 %71, label %.preheader, label %.preheader39, !llvm.loop !24
 
 .preheader39:                                     ; preds = %65, %69
   %72 = phi i64 [ %70, %69 ], [ 0, %65 ]
@@ -632,7 +632,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   %104 = select i1 %103, i32 %94, i32 %84
   %105 = add nuw nsw i64 %83, 1
   %106 = icmp eq i64 %105, %51
-  br i1 %106, label %107, label %.preheader, !llvm.loop !24
+  br i1 %106, label %107, label %.preheader, !llvm.loop !25
 
 107:                                              ; preds = %.preheader
   %108 = icmp eq i32 %95, -1
@@ -750,7 +750,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 173:                                              ; preds = %140, %162, %158
   %174 = add nuw nsw i64 %124, 1
   %175 = icmp eq i64 %174, %51
-  br i1 %175, label %.loopexit38, label %123, !llvm.loop !25
+  br i1 %175, label %.loopexit38, label %123, !llvm.loop !26
 
 .loopexit38:                                      ; preds = %.preheader39, %173, %138, %156, %171, %121, %82
   %176 = phi i32 [ -22, %82 ], [ -22, %121 ], [ %133, %138 ], [ %151, %156 ], [ %166, %171 ], [ 0, %173 ], [ -2, %.preheader39 ]
@@ -770,7 +770,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 183:                                              ; preds = %182, %177
   %184 = add nuw nsw i64 %178, 1
   %185 = icmp eq i64 %184, %51
-  br i1 %185, label %186, label %177, !llvm.loop !26
+  br i1 %185, label %186, label %177, !llvm.loop !27
 
 .thread34:                                        ; preds = %65, %60
   tail call void @kfree(ptr noundef %55) #9
@@ -825,9 +825,9 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !annotation !16
+  store ptr null, ptr %4, align 8, !annotation !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4, !annotation !16
+  store i32 0, ptr %5, align 4, !annotation !17
   %212 = icmp eq ptr %211, null
   br i1 %212, label %216, label %213
 
@@ -904,7 +904,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   %252 = getelementptr i8, ptr %245, i64 32
   %253 = call ptr @idr_find(ptr noundef %252, i64 noundef %242) #9
   %.not = icmp eq ptr %253, null
-  br i1 %.not, label %243, label %.loopexit, !llvm.loop !27
+  br i1 %.not, label %243, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %235, %251, %247
   %.ph = phi i32 [ -16, %247 ], [ -16, %251 ], [ -2, %235 ]
@@ -927,7 +927,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   store i32 %261, ptr %5, align 4
   %262 = call ptr @idr_get_next(ptr noundef nonnull %6, ptr noundef nonnull %5) #9
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %.loopexit37.preheader, label %235, !llvm.loop !28
+  br i1 %263, label %.loopexit37.preheader, label %235, !llvm.loop !29
 
 .loopexit37.preheader:                            ; preds = %.critedge, %228
   br label %.loopexit37
@@ -1194,7 +1194,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   %53 = sext i32 %39 to i64
   %54 = getelementptr i32, ptr %7, i64 %53
   %55 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %56 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %54, i32 %52, i64 4, i64 %55) #9, !srcloc !29
+  %56 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %54, i32 %52, i64 4, i64 %55) #9, !srcloc !30
   %57 = extractvalue { ptr, i64 } %56, 0
   %58 = extractvalue { ptr, i64 } %56, 1
   %59 = ptrtoint ptr %57 to i64
@@ -1211,7 +1211,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   %65 = phi i32 [ %39, %43 ], [ %63, %62 ]
   %66 = load ptr, ptr %38, align 8
   %67 = icmp eq ptr %66, %33
-  br i1 %67, label %.loopexit, label %.split.us, !llvm.loop !30
+  br i1 %67, label %.loopexit, label %.split.us, !llvm.loop !31
 
 .split:                                           ; preds = %36, %95
   %68 = phi ptr [ %97, %95 ], [ %34, %36 ]
@@ -1240,7 +1240,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   %84 = sext i32 %69 to i64
   %85 = getelementptr i32, ptr %7, i64 %84
   %86 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %87 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %85, i32 %83, i64 4, i64 %86) #9, !srcloc !29
+  %87 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %85, i32 %83, i64 4, i64 %86) #9, !srcloc !30
   %88 = extractvalue { ptr, i64 } %87, 0
   %89 = extractvalue { ptr, i64 } %87, 1
   %90 = ptrtoint ptr %88 to i64
@@ -1257,7 +1257,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   %96 = phi i32 [ %69, %73 ], [ %94, %93 ]
   %97 = load ptr, ptr %68, align 8
   %98 = icmp eq ptr %97, %33
-  br i1 %98, label %.loopexit, label %.split, !llvm.loop !30
+  br i1 %98, label %.loopexit, label %.split, !llvm.loop !32
 
 .loopexit:                                        ; preds = %79, %95, %64, %49, %28
   %99 = phi i32 [ 0, %28 ], [ %39, %49 ], [ %65, %64 ], [ %69, %79 ], [ %96, %95 ]
@@ -1379,7 +1379,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   %54 = sext i32 %49 to i64
   %55 = getelementptr i32, ptr %8, i64 %54
   %56 = call i64 @llvm.read_register.i64(metadata !0)
-  %57 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %55, i32 %53, i64 4, i64 %56) #9, !srcloc !31
+  %57 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %55, i32 %53, i64 4, i64 %56) #9, !srcloc !33
   %58 = extractvalue { ptr, i64 } %57, 0
   %59 = extractvalue { ptr, i64 } %57, 1
   %60 = ptrtoint ptr %58 to i64
@@ -1395,7 +1395,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   store i32 %66, ptr %5, align 4
   %67 = call ptr @idr_get_next(ptr noundef nonnull %44, ptr noundef nonnull %5) #9
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.loopexit, label %.split.us, !llvm.loop !32
+  br i1 %68, label %.loopexit, label %.split.us, !llvm.loop !34
 
 .split:                                           ; preds = %47, %84
   %69 = phi i32 [ %85, %84 ], [ 0, %47 ]
@@ -1410,7 +1410,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   %75 = sext i32 %69 to i64
   %76 = getelementptr i32, ptr %8, i64 %75
   %77 = call i64 @llvm.read_register.i64(metadata !0)
-  %78 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %76, i32 %74, i64 4, i64 %77) #9, !srcloc !31
+  %78 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %76, i32 %74, i64 4, i64 %77) #9, !srcloc !33
   %79 = extractvalue { ptr, i64 } %78, 0
   %80 = extractvalue { ptr, i64 } %78, 1
   %81 = ptrtoint ptr %79 to i64
@@ -1426,7 +1426,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   store i32 %87, ptr %5, align 4
   %88 = call ptr @idr_get_next(ptr noundef nonnull %44, ptr noundef nonnull %5) #9
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %.split, !llvm.loop !32
+  br i1 %89, label %.loopexit, label %.split, !llvm.loop !35
 
 .split7.us:                                       ; preds = %71, %51
   %.us-phi = phi i32 [ %49, %51 ], [ %69, %71 ]
@@ -1590,27 +1590,30 @@ attributes #10 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{i64 2155684985, i64 2155684794, i64 2155684846, i64 2155684892, i64 2155684920}
-!14 = !{i64 2155685059, i64 2155685088, i64 2155685134, i64 2155685192, i64 2155685246, i64 2155685300, i64 2155685355, i64 2155685386, i64 2155685694, i64 2155685700, i64 2155685747, i64 2155685770, i64 2155685796}
-!15 = !{i64 2155686256, i64 2155686067, i64 2155686117, i64 2155686163, i64 2155686191}
-!16 = !{!"auto-init"}
-!17 = distinct !{!17, !7, !8}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2155684985, i64 2155684794, i64 2155684846, i64 2155684892, i64 2155684920}
+!15 = !{i64 2155685059, i64 2155685088, i64 2155685134, i64 2155685192, i64 2155685246, i64 2155685300, i64 2155685355, i64 2155685386, i64 2155685694, i64 2155685700, i64 2155685747, i64 2155685770, i64 2155685796}
+!16 = !{i64 2155686256, i64 2155686067, i64 2155686117, i64 2155686163, i64 2155686191}
+!17 = !{!"auto-init"}
 !18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !8}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{!"branch_weights", i32 1, i32 2000}
-!23 = distinct !{!23, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{!"branch_weights", i32 1, i32 2000}
 !24 = distinct !{!24, !7, !8}
 !25 = distinct !{!25, !7, !8}
 !26 = distinct !{!26, !7, !8}
 !27 = distinct !{!27, !7, !8}
 !28 = distinct !{!28, !7, !8}
-!29 = !{i64 2155706676}
-!30 = distinct !{!30, !7, !8}
-!31 = !{i64 2155708808}
+!29 = distinct !{!29, !7, !8}
+!30 = !{i64 2155706676}
+!31 = distinct !{!31, !7, !8, !10}
 !32 = distinct !{!32, !7, !8}
+!33 = !{i64 2155708808}
+!34 = distinct !{!34, !7, !8, !10}
+!35 = distinct !{!35, !7, !8}

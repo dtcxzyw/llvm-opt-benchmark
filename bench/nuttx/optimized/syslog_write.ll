@@ -86,11 +86,11 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %34 = tail call i32 %30(ptr noundef nonnull %21, i32 noundef %33) #2
   %35 = add nuw i64 %.153.us.i, 1
   %exitcond69.not.i = icmp eq i64 %35, %1
-  br i1 %exitcond69.not.i, label %..loopexit40.split.us_crit_edge.i, label %.preheader.us.i, !llvm.loop !9
+  br i1 %exitcond69.not.i, label %..loopexit40.split.us_crit_edge.i, label %.preheader.us.i, !llvm.loop !10
 
 ..loopexit40.split.us_crit_edge.i:                ; preds = %.preheader.us.i, %26
   %split63.i = phi i64 [ %27, %26 ], [ %1, %.preheader.us.i ]
-  br label %syslog_default_write.exit, !llvm.loop !10
+  br label %syslog_default_write.exit, !llvm.loop !11
 
 .split.i:                                         ; preds = %20
   br i1 %22, label %syslog_default_write.exit, label %.lr.ph58.i
@@ -100,22 +100,22 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not39.i = icmp eq ptr %38, null
-  br i1 %.not39.i, label %syslog_default_write.exit, label %39, !llvm.loop !10
+  br i1 %.not39.i, label %syslog_default_write.exit, label %39, !llvm.loop !12
 
 39:                                               ; preds = %.lr.ph58.i
   %40 = tail call i64 %38(ptr noundef nonnull %21, ptr noundef %0, i64 noundef 0) #2
-  br label %syslog_default_write.exit, !llvm.loop !10
+  br label %syslog_default_write.exit, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %.preheader43.split.i
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not38.i = icmp eq ptr %43, null
-  br i1 %.not38.i, label %syslog_default_write.exit, label %44, !llvm.loop !8
+  br i1 %.not38.i, label %syslog_default_write.exit, label %44, !llvm.loop !13
 
 44:                                               ; preds = %.lr.ph.i
   %45 = tail call i64 %43(ptr noundef nonnull %6, ptr noundef %0, i64 noundef 0) #2
-  br label %syslog_default_write.exit, !llvm.loop !8
+  br label %syslog_default_write.exit, !llvm.loop !13
 
 syslog_default_write.exit:                        ; preds = %.preheader43.split.us.i, %..loopexit44.split.us_crit_edge.i, %.preheader43.split.i, %.split.us.i, %..loopexit40.split.us_crit_edge.i, %.split.i, %.lr.ph58.i, %39, %.lr.ph.i, %44
   %.3.i = phi i64 [ %split63.i, %..loopexit40.split.us_crit_edge.i ], [ 0, %.split.us.i ], [ 0, %.split.i ], [ %40, %39 ], [ 0, %.lr.ph58.i ], [ %split50.i, %..loopexit44.split.us_crit_edge.i ], [ 0, %.preheader43.split.us.i ], [ 0, %.preheader43.split.i ], [ %45, %44 ], [ 0, %.lr.ph.i ]
@@ -138,6 +138,9 @@ attributes #2 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !9}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

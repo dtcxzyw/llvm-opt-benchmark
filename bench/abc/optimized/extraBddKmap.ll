@@ -250,11 +250,11 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 .lr.ph448.split:                                  ; preds = %.lr.ph448.split.preheader, %.lr.ph448.split
   %indvars.iv523 = phi i64 [ 0, %.lr.ph448.split.preheader ], [ %indvars.iv.next524, %.lr.ph448.split ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv523
-  %100 = load ptr, ptr %gep, align 8, !tbaa !39
+  %100 = load ptr, ptr %gep, align 8, !tbaa !40
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %100) #5
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
-  br i1 %exitcond527.not, label %._crit_edge449, label %.lr.ph448.split, !llvm.loop !38
+  br i1 %exitcond527.not, label %._crit_edge449, label %.lr.ph448.split, !llvm.loop !41
 
 ._crit_edge449:                                   ; preds = %.lr.ph448.split, %.loopexit
   %102 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %0)
@@ -283,16 +283,16 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %fputc408.us = tail call i32 @fputc(i32 %107, ptr %0)
   %108 = add nuw nsw i32 %.1320450.us, 1
   %exitcond534.not = icmp eq i32 %108, %91
-  br i1 %exitcond534.not, label %.preheader425.lr.ph, label %.lr.ph452.split.us, !llvm.loop !40
+  br i1 %exitcond534.not, label %.preheader425.lr.ph, label %.lr.ph452.split.us, !llvm.loop !42
 
 .lr.ph452.split:                                  ; preds = %.lr.ph452.split.preheader, %.lr.ph452.split
   %indvars.iv529 = phi i64 [ 0, %.lr.ph452.split.preheader ], [ %indvars.iv.next530, %.lr.ph452.split ]
   %109 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv529
-  %110 = load ptr, ptr %109, align 8, !tbaa !39
+  %110 = load ptr, ptr %109, align 8, !tbaa !40
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %110) #5
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
-  br i1 %exitcond533.not, label %.preheader425.lr.ph, label %.lr.ph452.split, !llvm.loop !40
+  br i1 %exitcond533.not, label %.preheader425.lr.ph, label %.lr.ph452.split, !llvm.loop !43
 
 ._crit_edge453:                                   ; preds = %._crit_edge449.thread, %._crit_edge449
   %fputc340 = tail call i32 @fputc(i32 10, ptr %0)
@@ -329,7 +329,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %118 = add nuw nsw i32 %.0301454, 1
   %fputc407 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond535.not = icmp eq i32 %.0301454, %114
-  br i1 %exitcond535.not, label %.preheader424, label %.lr.ph455, !llvm.loop !41
+  br i1 %exitcond535.not, label %.preheader424, label %.lr.ph455, !llvm.loop !44
 
 119:                                              ; preds = %.lr.ph457, %119
   %.0304456 = phi i32 [ 0, %.lr.ph457 ], [ %124, %119 ]
@@ -341,20 +341,20 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %123 = tail call i64 @fwrite(ptr nonnull %.str.15..str.14, i64 4, i64 1, ptr %0)
   %124 = add nuw nsw i32 %.0304456, 1
   %exitcond537.not = icmp eq i32 %124, %smax536
-  br i1 %exitcond537.not, label %._crit_edge458, label %119, !llvm.loop !42
+  br i1 %exitcond537.not, label %._crit_edge458, label %119, !llvm.loop !45
 
 ._crit_edge458:                                   ; preds = %119, %.preheader424
   %fputc405 = tail call i32 @fputc(i32 10, ptr %0)
   %125 = add nuw nsw i32 %.1459, 1
   %exitcond538.not = icmp eq i32 %125, %91
-  br i1 %exitcond538.not, label %.preheader423, label %.preheader425, !llvm.loop !43
+  br i1 %exitcond538.not, label %.preheader423, label %.preheader425, !llvm.loop !46
 
 .lr.ph462:                                        ; preds = %.preheader423, %.lr.ph462
   %.1302461 = phi i32 [ %126, %.lr.ph462 ], [ 0, %.preheader423 ]
   %126 = add nuw nsw i32 %.1302461, 1
   %fputc404 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond539.not = icmp eq i32 %.1302461, %90
-  br i1 %exitcond539.not, label %._crit_edge463, label %.lr.ph462, !llvm.loop !44
+  br i1 %exitcond539.not, label %._crit_edge463, label %.lr.ph462, !llvm.loop !47
 
 ._crit_edge463:                                   ; preds = %.lr.ph462, %.preheader423
   %fputc342 = tail call i32 @fputc(i32 43, ptr %0)
@@ -381,7 +381,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 130:                                              ; preds = %129, %128
   %131 = add nuw nsw i32 %.1308464, 1
   %exitcond541.not = icmp eq i32 %131, %smax540
-  br i1 %exitcond541.not, label %._crit_edge467, label %128, !llvm.loop !45
+  br i1 %exitcond541.not, label %._crit_edge467, label %128, !llvm.loop !48
 
 ._crit_edge467:                                   ; preds = %130, %._crit_edge463
   %fputc343 = tail call i32 @fputc(i32 43, ptr %0)
@@ -422,7 +422,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %fputc396 = tail call i32 @fputc(i32 %., ptr %0)
   %144 = add nuw nsw i32 %.1305468, 1
   %exitcond542.not = icmp eq i32 %144, %90
-  br i1 %exitcond542.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !46
+  br i1 %exitcond542.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !49
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader422
   %fputc357 = tail call i32 @fputc(i32 32, ptr %0)
@@ -488,7 +488,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 165:                                              ; preds = %164, %163
   %166 = add nuw nsw i32 %.0318471, 1
   %exitcond544.not = icmp eq i32 %166, %smax543
-  br i1 %exitcond544.not, label %._crit_edge474, label %.lr.ph473, !llvm.loop !47
+  br i1 %exitcond544.not, label %._crit_edge474, label %.lr.ph473, !llvm.loop !50
 
 ._crit_edge474:                                   ; preds = %165, %._crit_edge470
   %fputc359 = tail call i32 @fputc(i32 124, ptr %0)
@@ -505,7 +505,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %167 = add nuw nsw i32 %.2303476, 1
   %fputc383 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond545.not = icmp eq i32 %.2303476, %90
-  br i1 %exitcond545.not, label %._crit_edge478, label %.lr.ph477, !llvm.loop !48
+  br i1 %exitcond545.not, label %._crit_edge478, label %.lr.ph477, !llvm.loop !51
 
 ._crit_edge478:                                   ; preds = %.lr.ph477, %.preheader421
   %168 = and i32 %.3317487, 1
@@ -531,7 +531,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 171:                                              ; preds = %170, %.lr.ph481
   %172 = add nuw nsw i32 %.2309479, 1
   %exitcond547.not = icmp eq i32 %172, %smax543
-  br i1 %exitcond547.not, label %._crit_edge482, label %.lr.ph481, !llvm.loop !49
+  br i1 %exitcond547.not, label %._crit_edge482, label %.lr.ph481, !llvm.loop !52
 
 173:                                              ; preds = %._crit_edge478
   br i1 %.not497, label %._crit_edge482, label %.lr.ph485
@@ -551,7 +551,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 175:                                              ; preds = %174, %.lr.ph485
   %176 = add nuw nsw i32 %.3310483, 1
   %exitcond549.not = icmp eq i32 %176, %smax543
-  br i1 %exitcond549.not, label %._crit_edge482, label %.lr.ph485, !llvm.loop !50
+  br i1 %exitcond549.not, label %._crit_edge482, label %.lr.ph485, !llvm.loop !53
 
 ._crit_edge482:                                   ; preds = %171, %175, %173, %169
   %fputc365 = tail call i32 @fputc(i32 43, ptr %0)
@@ -561,14 +561,14 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 177:                                              ; preds = %._crit_edge482, %._crit_edge474
   %178 = add nuw nsw i32 %.3317487, 1
   %exitcond551.not = icmp eq i32 %178, %92
-  br i1 %exitcond551.not, label %.preheader, label %.preheader422, !llvm.loop !51
+  br i1 %exitcond551.not, label %.preheader, label %.preheader422, !llvm.loop !54
 
 .lr.ph490:                                        ; preds = %.lr.ph490.preheader, %.lr.ph490
   %.3489 = phi i32 [ %179, %.lr.ph490 ], [ 0, %.lr.ph490.preheader ]
   %179 = add nuw nsw i32 %.3489, 1
   %fputc356 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond552.not = icmp eq i32 %.3489, %90
-  br i1 %exitcond552.not, label %._crit_edge491, label %.lr.ph490, !llvm.loop !52
+  br i1 %exitcond552.not, label %._crit_edge491, label %.lr.ph490, !llvm.loop !55
 
 ._crit_edge491:                                   ; preds = %.lr.ph490, %.preheader
   %fputc346 = tail call i32 @fputc(i32 43, ptr %0)
@@ -594,7 +594,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 183:                                              ; preds = %182, %181
   %184 = add nuw nsw i32 %.4311492, 1
   %exitcond554.not = icmp eq i32 %184, %smax553
-  br i1 %exitcond554.not, label %._crit_edge495, label %181, !llvm.loop !53
+  br i1 %exitcond554.not, label %._crit_edge495, label %181, !llvm.loop !56
 
 ._crit_edge495:                                   ; preds = %183, %._crit_edge491
   %fputc347 = tail call i32 @fputc(i32 43, ptr %0)
@@ -686,7 +686,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc310 = tail call i32 @fputc(i32 %35, ptr %0)
   %36 = add nuw nsw i32 %.0226323, 1
   %exitcond.not = icmp eq i32 %36, %4
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %34, %29
   %37 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %0)
@@ -699,7 +699,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc309 = tail call i32 @fputc(i32 %39, ptr %0)
   %40 = add nuw nsw i32 %.1227324, 1
   %exitcond377.not = icmp eq i32 %40, %5
-  br i1 %exitcond377.not, label %.preheader322.lr.ph, label %.lr.ph326, !llvm.loop !55
+  br i1 %exitcond377.not, label %.preheader322.lr.ph, label %.lr.ph326, !llvm.loop !58
 
 ._crit_edge327:                                   ; preds = %._crit_edge
   %fputc241 = tail call i32 @fputc(i32 10, ptr %0)
@@ -736,7 +736,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %46 = add nuw i32 %.0215328, 1
   %fputc308 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond378.not = icmp eq i32 %.0215328, %smax
-  br i1 %exitcond378.not, label %.preheader321, label %.lr.ph329, !llvm.loop !56
+  br i1 %exitcond378.not, label %.preheader321, label %.lr.ph329, !llvm.loop !59
 
 47:                                               ; preds = %.lr.ph331, %47
   %.0217330 = phi i32 [ 0, %.lr.ph331 ], [ %52, %47 ]
@@ -748,20 +748,20 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %51 = tail call i64 @fwrite(ptr nonnull %.str.15..str.14, i64 4, i64 1, ptr %0)
   %52 = add nuw nsw i32 %.0217330, 1
   %exitcond380.not = icmp eq i32 %52, %smax379
-  br i1 %exitcond380.not, label %._crit_edge332, label %47, !llvm.loop !57
+  br i1 %exitcond380.not, label %._crit_edge332, label %47, !llvm.loop !60
 
 ._crit_edge332:                                   ; preds = %47, %.preheader321
   %fputc306 = tail call i32 @fputc(i32 10, ptr %0)
   %53 = add nuw nsw i32 %.0333, 1
   %exitcond381.not = icmp eq i32 %53, %5
-  br i1 %exitcond381.not, label %.preheader320, label %.preheader322, !llvm.loop !58
+  br i1 %exitcond381.not, label %.preheader320, label %.preheader322, !llvm.loop !61
 
 .lr.ph336:                                        ; preds = %.preheader320, %.lr.ph336
   %.1216335 = phi i32 [ %54, %.lr.ph336 ], [ 0, %.preheader320 ]
   %54 = add nuw i32 %.1216335, 1
   %fputc305 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond382.not = icmp eq i32 %.1216335, %4
-  br i1 %exitcond382.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !59
+  br i1 %exitcond382.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !62
 
 ._crit_edge337:                                   ; preds = %.lr.ph336, %.preheader320
   %fputc243 = tail call i32 @fputc(i32 43, ptr %0)
@@ -788,7 +788,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 58:                                               ; preds = %57, %56
   %59 = add nuw nsw i32 %.0220338, 1
   %exitcond384.not = icmp eq i32 %59, %smax383
-  br i1 %exitcond384.not, label %._crit_edge341, label %56, !llvm.loop !60
+  br i1 %exitcond384.not, label %._crit_edge341, label %56, !llvm.loop !63
 
 ._crit_edge341:                                   ; preds = %58, %._crit_edge337
   %fputc244 = tail call i32 @fputc(i32 43, ptr %0)
@@ -826,7 +826,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc297 = tail call i32 @fputc(i32 %., ptr %0)
   %68 = add nuw nsw i32 %.1218342, 1
   %exitcond385.not = icmp eq i32 %68, %4
-  br i1 %exitcond385.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !61
+  br i1 %exitcond385.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !64
 
 ._crit_edge344:                                   ; preds = %.lr.ph343, %.preheader319
   %fputc258 = tail call i32 @fputc(i32 32, ptr %0)
@@ -892,7 +892,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 89:                                               ; preds = %88, %87
   %90 = add nuw nsw i32 %.0225345, 1
   %exitcond387.not = icmp eq i32 %90, %smax386
-  br i1 %exitcond387.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !62
+  br i1 %exitcond387.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !65
 
 ._crit_edge348:                                   ; preds = %89, %._crit_edge344
   %fputc260 = tail call i32 @fputc(i32 124, ptr %0)
@@ -909,7 +909,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %91 = add nuw i32 %.2350, 1
   %fputc284 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond388.not = icmp eq i32 %.2350, %4
-  br i1 %exitcond388.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !63
+  br i1 %exitcond388.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !66
 
 ._crit_edge352:                                   ; preds = %.lr.ph351, %.preheader318
   %92 = and i32 %.0224361, 1
@@ -935,7 +935,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 95:                                               ; preds = %94, %.lr.ph355
   %96 = add nuw nsw i32 %.1221353, 1
   %exitcond390.not = icmp eq i32 %96, %smax386
-  br i1 %exitcond390.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !64
+  br i1 %exitcond390.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !67
 
 97:                                               ; preds = %._crit_edge352
   br i1 %.not371, label %._crit_edge356, label %.lr.ph359
@@ -955,7 +955,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 99:                                               ; preds = %98, %.lr.ph359
   %100 = add nuw nsw i32 %.2222357, 1
   %exitcond392.not = icmp eq i32 %100, %smax386
-  br i1 %exitcond392.not, label %._crit_edge356, label %.lr.ph359, !llvm.loop !65
+  br i1 %exitcond392.not, label %._crit_edge356, label %.lr.ph359, !llvm.loop !68
 
 ._crit_edge356:                                   ; preds = %95, %99, %97, %93
   %fputc266 = tail call i32 @fputc(i32 43, ptr %0)
@@ -965,14 +965,14 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 101:                                              ; preds = %._crit_edge356, %._crit_edge348
   %102 = add nuw nsw i32 %.0224361, 1
   %exitcond394.not = icmp eq i32 %102, %smax393
-  br i1 %exitcond394.not, label %.preheader, label %.preheader319, !llvm.loop !66
+  br i1 %exitcond394.not, label %.preheader, label %.preheader319, !llvm.loop !69
 
 .lr.ph364:                                        ; preds = %.lr.ph364.preheader, %.lr.ph364
   %.3363 = phi i32 [ %103, %.lr.ph364 ], [ 0, %.lr.ph364.preheader ]
   %103 = add nuw i32 %.3363, 1
   %fputc257 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond395.not = icmp eq i32 %.3363, %4
-  br i1 %exitcond395.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !67
+  br i1 %exitcond395.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !70
 
 ._crit_edge365:                                   ; preds = %.lr.ph364, %.preheader
   %fputc247 = tail call i32 @fputc(i32 43, ptr %0)
@@ -998,7 +998,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 107:                                              ; preds = %106, %105
   %108 = add nuw nsw i32 %.3223366, 1
   %exitcond397.not = icmp eq i32 %108, %smax396
-  br i1 %exitcond397.not, label %._crit_edge369, label %105, !llvm.loop !68
+  br i1 %exitcond397.not, label %._crit_edge369, label %105, !llvm.loop !71
 
 ._crit_edge369:                                   ; preds = %107, %._crit_edge365
   %fputc248 = tail call i32 @fputc(i32 43, ptr %0)
@@ -1068,11 +1068,11 @@ attributes #5 = { nounwind }
 !35 = !{!7, !7, i64 0}
 !36 = distinct !{!36, !26}
 !37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = !{!19, !19, i64 0}
-!40 = distinct !{!40, !26}
+!38 = distinct !{!38, !26, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = !{!19, !19, i64 0}
 !41 = distinct !{!41, !26}
-!42 = distinct !{!42, !26}
+!42 = distinct !{!42, !26, !39}
 !43 = distinct !{!43, !26}
 !44 = distinct !{!44, !26}
 !45 = distinct !{!45, !26}
@@ -1099,3 +1099,6 @@ attributes #5 = { nounwind }
 !66 = distinct !{!66, !26}
 !67 = distinct !{!67, !26}
 !68 = distinct !{!68, !26}
+!69 = distinct !{!69, !26}
+!70 = distinct !{!70, !26}
+!71 = distinct !{!71, !26}

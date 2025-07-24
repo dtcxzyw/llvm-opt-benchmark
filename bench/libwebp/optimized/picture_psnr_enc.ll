@@ -94,11 +94,11 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %.076 = phi ptr [ null, %25 ], [ %30, %31 ], [ %30, %._crit_edge.us ]
   %.074 = phi ptr [ %2, %25 ], [ %33, %31 ], [ %33, %._crit_edge.us ]
   %.069 = phi ptr [ %0, %25 ], [ %30, %31 ], [ %30, %._crit_edge.us ]
-  %47 = tail call double %14(ptr noundef nonnull %.069, i32 noundef %4, ptr noundef %.074, i32 noundef %4, i32 noundef %4, i32 noundef %5) #6, !callees !9
+  %47 = tail call double %14(ptr noundef nonnull %.069, i32 noundef %4, ptr noundef %.074, i32 noundef %4, i32 noundef %4, i32 noundef %5) #6, !callees !10
   %48 = fptrunc double %47 to float
-  store float %48, ptr %8, align 4, !tbaa !10
+  store float %48, ptr %8, align 4, !tbaa !11
   tail call void @WebPSafeFree(ptr noundef %.076) #6
-  %49 = load float, ptr %8, align 4, !tbaa !10
+  %49 = load float, ptr %8, align 4, !tbaa !11
   br i1 %12, label %50, label %63
 
 50:                                               ; preds = %.loopexit
@@ -114,7 +114,7 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
 
 59:                                               ; preds = %50
   %60 = fsub double 1.000000e+00, %57
-  %61 = tail call double @log10(double noundef %60) #6, !tbaa !12
+  %61 = tail call double @log10(double noundef %60) #6, !tbaa !13
   %62 = fmul double %61, -1.000000e+01
   br label %GetLogSSIM.exit
 
@@ -132,14 +132,14 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %71 = fmul double %66, 2.550000e+02
   %72 = fmul double %71, 2.550000e+02
   %73 = fdiv double %70, %72
-  %74 = tail call double @log(double noundef %73) #6, !tbaa !12
+  %74 = tail call double @log(double noundef %73) #6, !tbaa !13
   %75 = fmul double %74, 0xC0115F2CEBF15542
   br label %GetLogSSIM.exit
 
 GetLogSSIM.exit:                                  ; preds = %69, %63, %59, %50
   %.in = phi double [ %62, %59 ], [ 9.900000e+01, %50 ], [ %75, %69 ], [ 9.900000e+01, %63 ]
   %76 = fptrunc double %.in to float
-  store float %76, ptr %9, align 4, !tbaa !10
+  store float %76, ptr %9, align 4, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %26, %10, %17, %21, %GetLogSSIM.exit
@@ -165,7 +165,7 @@ define internal double @AccumulateSSE(ptr noundef %0, i32 noundef %1, ptr nounde
   %.01116 = phi i32 [ 0, %.lr.ph ], [ %17, %10 ]
   %.01215 = phi ptr [ %0, %.lr.ph ], [ %15, %10 ]
   %.01314 = phi ptr [ %2, %.lr.ph ], [ %16, %10 ]
-  %11 = load ptr, ptr @VP8AccumulateSSE, align 8, !tbaa !14
+  %11 = load ptr, ptr @VP8AccumulateSSE, align 8, !tbaa !15
   %12 = tail call i32 %11(ptr noundef %.01215, ptr noundef %.01314, i32 noundef %4) #6
   %13 = uitofp i32 %12 to double
   %14 = fadd double %.017, %13
@@ -173,7 +173,7 @@ define internal double @AccumulateSSE(ptr noundef %0, i32 noundef %1, ptr nounde
   %16 = getelementptr inbounds i8, ptr %.01314, i64 %9
   %17 = add nuw nsw i32 %.01116, 1
   %exitcond.not = icmp eq i32 %17, %5
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %10, %6
   %.0.lcssa = phi double [ 0.000000e+00, %6 ], [ %14, %10 ]
@@ -201,17 +201,17 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 13:                                               ; preds = %.preheader96.us, %13
   %.098.us = phi i32 [ 0, %.preheader96.us ], [ %17, %13 ]
   %.18397.us = phi double [ %.08299.us, %.preheader96.us ], [ %16, %13 ]
-  %14 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
+  %14 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !15
   %15 = tail call double %14(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.098.us, i32 noundef %.079100.us, i32 noundef %4, i32 noundef %5) #6
   %16 = fadd double %.18397.us, %15
   %17 = add nuw nsw i32 %.098.us, 1
   %exitcond.not = icmp eq i32 %17, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %13
   %18 = add nuw nsw i32 %.079100.us, 1
   %exitcond143.not = icmp eq i32 %18, %9
-  br i1 %exitcond143.not, label %.preheader95, label %.preheader96.us, !llvm.loop !18
+  br i1 %exitcond143.not, label %.preheader95, label %.preheader96.us, !llvm.loop !19
 
 .preheader95:                                     ; preds = %._crit_edge.us, %.preheader96.lr.ph, %6
   %.082.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.preheader96.lr.ph ], [ %16, %._crit_edge.us ]
@@ -245,17 +245,17 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 23:                                               ; preds = %.preheader.us, %23
   %.4123.us = phi i32 [ 0, %.preheader.us ], [ %27, %23 ]
   %.7122.us = phi double [ %.6127.us, %.preheader.us ], [ %26, %23 ]
-  %24 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
+  %24 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !15
   %25 = tail call double %24(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.4123.us, i32 noundef %.281128.us, i32 noundef %4, i32 noundef %5) #6
   %26 = fadd double %.7122.us, %25
   %27 = add nuw nsw i32 %.4123.us, 1
   %exitcond149.not = icmp eq i32 %27, %4
-  br i1 %exitcond149.not, label %._crit_edge125.us, label %23, !llvm.loop !19
+  br i1 %exitcond149.not, label %._crit_edge125.us, label %23, !llvm.loop !20
 
 ._crit_edge125.us:                                ; preds = %23
   %28 = add i32 %.281128.us, 1
   %exitcond150.not = icmp eq i32 %28, %5
-  br i1 %exitcond150.not, label %._crit_edge129, label %.preheader.us, !llvm.loop !20
+  br i1 %exitcond150.not, label %._crit_edge129, label %.preheader.us, !llvm.loop !21
 
 .preheader93:                                     ; preds = %.lr.ph, %.preheader94
   %.385.lcssa = phi double [ %.284118, %.preheader94 ], [ %36, %.lr.ph ]
@@ -275,12 +275,12 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.preheader94, %.lr.ph
   %.1105 = phi i32 [ %37, %.lr.ph ], [ 0, %.preheader94 ]
   %.385104 = phi double [ %36, %.lr.ph ], [ %.284118, %.preheader94 ]
-  %34 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
+  %34 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !15
   %35 = tail call double %34(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.1105, i32 noundef %.180119, i32 noundef %4, i32 noundef %5) #6
   %36 = fadd double %.385104, %35
   %37 = add nuw nsw i32 %.1105, 1
   %exitcond144.not = icmp eq i32 %37, %7
-  br i1 %exitcond144.not, label %.preheader93, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond144.not, label %.preheader93, label %.lr.ph, !llvm.loop !22
 
 .preheader92:                                     ; preds = %39, %.preheader93
   %.486.lcssa = phi double [ %.385.lcssa, %.preheader93 ], [ %47, %39 ]
@@ -294,7 +294,7 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %40
   %.reass113 = add i32 %invariant.op112, %40
-  %41 = load ptr, ptr @VP8SSIMGet, align 8, !tbaa !14
+  %41 = load ptr, ptr @VP8SSIMGet, align 8, !tbaa !15
   %42 = sext i32 %.reass to i64
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
   %44 = sext i32 %.reass113 to i64
@@ -303,23 +303,23 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %47 = fadd double %.486107, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond146.not, label %.preheader92, label %39, !llvm.loop !22
+  br i1 %exitcond146.not, label %.preheader92, label %39, !llvm.loop !23
 
 .lr.ph116:                                        ; preds = %.preheader92, %.lr.ph116
   %.3115 = phi i32 [ %51, %.lr.ph116 ], [ %.2.lcssa, %.preheader92 ]
   %.5114 = phi double [ %50, %.lr.ph116 ], [ %.486.lcssa, %.preheader92 ]
-  %48 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
+  %48 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !15
   %49 = tail call double %48(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.3115, i32 noundef %.180119, i32 noundef %4, i32 noundef %5) #6
   %50 = fadd double %.5114, %49
   %51 = add i32 %.3115, 1
   %exitcond147.not = icmp eq i32 %51, %4
-  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph116, !llvm.loop !23
+  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph116, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph116, %.preheader92
   %.5.lcssa = phi double [ %.486.lcssa, %.preheader92 ], [ %50, %.lr.ph116 ]
   %52 = add i32 %.180119, 1
   %exitcond148.not = icmp eq i32 %52, %10
-  br i1 %exitcond148.not, label %.preheader91, label %.preheader94, !llvm.loop !24
+  br i1 %exitcond148.not, label %.preheader91, label %.preheader94, !llvm.loop !25
 
 ._crit_edge129:                                   ; preds = %._crit_edge125.us, %.preheader91
   %.6.lcssa = phi double [ %.284.lcssa, %.preheader91 ], [ %26, %._crit_edge125.us ]
@@ -366,13 +366,13 @@ define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i
   %21 = fadd double %.160.us74, 6.502500e+04
   %22 = add nuw nsw i32 %.061.us73, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us76, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us76, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us76, %._crit_edge58.us.us
   %.us-phi66.us = phi double [ %34, %._crit_edge58.us.us ], [ %21, %.lr.ph.split.us76 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge71, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond94.not, label %._crit_edge71, label %.lr.ph.us, !llvm.loop !27
 
 .lr.ph57.us.us:                                   ; preds = %.lr.ph57.us.us.preheader, %._crit_edge58.us.us
   %indvars.iv86 = phi i64 [ 0, %.lr.ph57.us.us.preheader ], [ %indvars.iv.next87, %._crit_edge58.us.us ]
@@ -400,7 +400,7 @@ define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i
   %34 = fadd double %.160.us.us, %.us-phi.us.us
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond89.not, label %._crit_edge.us, label %.lr.ph57.us.us, !llvm.loop !25
+  br i1 %exitcond89.not, label %._crit_edge.us, label %.lr.ph57.us.us, !llvm.loop !28
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %._crit_edge.us.us.us
   %indvars.iv83 = phi i64 [ %13, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us.us.us ]
@@ -421,12 +421,12 @@ define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i
   %.2.us.us.us = select i1 %43, double %42, double %.14852.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %44, label %37, label %._crit_edge.us.us.us, !llvm.loop !27
+  br i1 %44, label %37, label %._crit_edge.us.us.us, !llvm.loop !29
 
 ._crit_edge.us.us.us:                             ; preds = %37
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %45 = icmp slt i64 %indvars.iv.next84, %20
-  br i1 %45, label %.lr.ph.us.us.us, label %._crit_edge58.us.us, !llvm.loop !28
+  br i1 %45, label %.lr.ph.us.us.us, label %._crit_edge58.us.us, !llvm.loop !30
 
 ._crit_edge71:                                    ; preds = %._crit_edge.us, %6
   %.044.lcssa = phi double [ 0.000000e+00, %6 ], [ %.us-phi66.us, %._crit_edge.us ]
@@ -456,17 +456,17 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !29
+  %12 = load i32, ptr %11, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !29
+  %14 = load i32, ptr %13, align 8, !tbaa !31
   %.not = icmp eq i32 %12, %14
   br i1 %.not, label %15, label %91
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !34
+  %17 = load i32, ptr %16, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !34
+  %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = icmp ne i32 %17, %19
   %21 = icmp eq ptr %3, null
   %or.cond3 = or i1 %21, %20
@@ -484,8 +484,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %.not52, label %91, label %26
 
 26:                                               ; preds = %24
-  %27 = load i32, ptr %11, align 8, !tbaa !29
-  %28 = load i32, ptr %16, align 4, !tbaa !34
+  %27 = load i32, ptr %11, align 8, !tbaa !31
+  %28 = load i32, ptr %16, align 4, !tbaa !36
   %29 = call i32 @WebPPictureView(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef %27, i32 noundef %28, ptr noundef nonnull %5) #6
   %.not53 = icmp eq i32 %29, 0
   br i1 %.not53, label %90, label %30
@@ -496,7 +496,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %.not54, label %90, label %32
 
 32:                                               ; preds = %30
-  %33 = load i32, ptr %5, align 8, !tbaa !35
+  %33 = load i32, ptr %5, align 8, !tbaa !37
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -506,7 +506,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %.not55, label %90, label %37
 
 37:                                               ; preds = %35, %32
-  %38 = load i32, ptr %6, align 8, !tbaa !35
+  %38 = load i32, ptr %6, align 8, !tbaa !37
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 
@@ -529,15 +529,15 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %.04568 = phi double [ 0.000000e+00, %42 ], [ %66, %63 ]
   %.04667 = phi double [ 0.000000e+00, %42 ], [ %67, %63 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  %50 = load i32, ptr %43, align 8, !tbaa !36
+  %50 = load i32, ptr %43, align 8, !tbaa !38
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
-  %53 = load i32, ptr %44, align 8, !tbaa !36
+  %53 = load i32, ptr %44, align 8, !tbaa !38
   %54 = sext i32 %53 to i64
   %55 = shl nsw i64 %54, 2
-  %56 = load ptr, ptr %45, align 8, !tbaa !37
+  %56 = load ptr, ptr %45, align 8, !tbaa !39
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
-  %58 = load ptr, ptr %46, align 8, !tbaa !37
+  %58 = load ptr, ptr %46, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %61 = call i32 @WebPPlaneDistortion(ptr noundef %57, i64 noundef %52, ptr noundef %59, i64 noundef %55, i32 noundef %27, i32 noundef %28, i64 noundef 4, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %60)
@@ -549,14 +549,14 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br label %90
 
 63:                                               ; preds = %49
-  %64 = load float, ptr %7, align 4, !tbaa !10
+  %64 = load float, ptr %7, align 4, !tbaa !11
   %65 = fpext float %64 to double
   %66 = fadd double %.04568, %65
   %67 = fadd double %.04667, %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %68, label %49, !llvm.loop !38
+  br i1 %exitcond.not, label %68, label %49, !llvm.loop !40
 
 68:                                               ; preds = %63
   %69 = icmp eq i32 %2, 1
@@ -571,7 +571,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 
 75:                                               ; preds = %70
   %76 = fsub double 1.000000e+00, %73
-  %77 = call double @log10(double noundef %76) #6, !tbaa !12
+  %77 = call double @log10(double noundef %76) #6, !tbaa !13
   %78 = fmul double %77, -1.000000e+01
   br label %GetLogSSIM.exit
 
@@ -585,7 +585,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %83 = fmul double %67, 2.550000e+02
   %84 = fmul double %83, 2.550000e+02
   %85 = fdiv double %66, %84
-  %86 = call double @log(double noundef %85) #6, !tbaa !12
+  %86 = call double @log(double noundef %85) #6, !tbaa !13
   %87 = fmul double %86, 0xC0115F2CEBF15542
   br label %GetLogSSIM.exit
 
@@ -593,7 +593,7 @@ GetLogSSIM.exit:                                  ; preds = %82, %79, %75, %70
   %.in = phi double [ %78, %75 ], [ 9.900000e+01, %70 ], [ %87, %82 ], [ 9.900000e+01, %79 ]
   %88 = fptrunc double %.in to float
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float %88, ptr %89, align 4, !tbaa !10
+  store float %88, ptr %89, align 4, !tbaa !11
   br label %90
 
 90:                                               ; preds = %62, %40, %35, %30, %26, %GetLogSSIM.exit
@@ -647,34 +647,36 @@ attributes #6 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{ptr @AccumulateLSIM, ptr @AccumulateSSE, ptr @AccumulateSSIM}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"float", !4, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
-!16 = distinct !{!16, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{ptr @AccumulateLSIM, ptr @AccumulateSSE, ptr @AccumulateSSIM}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"float", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = distinct !{!19, !7, !9}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!21 = distinct !{!21, !7, !9}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = !{!30, !13, i64 8}
-!30 = !{!"WebPPicture", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !31, i64 16, !31, i64 24, !31, i64 32, !13, i64 40, !13, i64 44, !31, i64 48, !13, i64 56, !4, i64 60, !32, i64 72, !13, i64 80, !4, i64 84, !15, i64 96, !15, i64 104, !13, i64 112, !31, i64 120, !33, i64 128, !13, i64 136, !15, i64 144, !15, i64 152, !4, i64 160, !31, i64 176, !31, i64 184, !4, i64 192, !15, i64 224, !15, i64 232, !4, i64 240}
-!31 = !{!"p1 omnipotent char", !15, i64 0}
-!32 = !{!"p1 int", !15, i64 0}
-!33 = !{!"p1 _ZTS12WebPAuxStats", !15, i64 0}
-!34 = !{!30, !13, i64 12}
-!35 = !{!30, !13, i64 0}
-!36 = !{!30, !13, i64 80}
-!37 = !{!30, !32, i64 72}
-!38 = distinct !{!38, !7}
+!27 = distinct !{!27, !7, !9}
+!28 = distinct !{!28, !7, !9}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7, !9}
+!31 = !{!32, !14, i64 8}
+!32 = !{!"WebPPicture", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !33, i64 16, !33, i64 24, !33, i64 32, !14, i64 40, !14, i64 44, !33, i64 48, !14, i64 56, !4, i64 60, !34, i64 72, !14, i64 80, !4, i64 84, !16, i64 96, !16, i64 104, !14, i64 112, !33, i64 120, !35, i64 128, !14, i64 136, !16, i64 144, !16, i64 152, !4, i64 160, !33, i64 176, !33, i64 184, !4, i64 192, !16, i64 224, !16, i64 232, !4, i64 240}
+!33 = !{!"p1 omnipotent char", !16, i64 0}
+!34 = !{!"p1 int", !16, i64 0}
+!35 = !{!"p1 _ZTS12WebPAuxStats", !16, i64 0}
+!36 = !{!32, !14, i64 12}
+!37 = !{!32, !14, i64 0}
+!38 = !{!32, !14, i64 80}
+!39 = !{!32, !34, i64 72}
+!40 = distinct !{!40, !7}

@@ -7168,12 +7168,12 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %305 = load i8, ptr %272, align 8
   %306 = zext i8 %305 to i64
   %307 = icmp samesign ult i64 %304, %306
-  br i1 %307, label %302, label %.loopexit15, !llvm.loop !188
+  br i1 %307, label %302, label %.loopexit15, !llvm.loop !190
 
 .loopexit15:                                      ; preds = %302, %.split.us, %287, %273
   %308 = load ptr, ptr %274, align 8
   %309 = icmp eq ptr %308, %268
-  br i1 %309, label %.loopexit16, label %273, !llvm.loop !189
+  br i1 %309, label %.loopexit16, label %273, !llvm.loop !191
 
 .loopexit16:                                      ; preds = %.loopexit15, %256
   %310 = load ptr, ptr %77, align 8
@@ -7193,7 +7193,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %319, label %331, label %320, !prof !13
 
 320:                                              ; preds = %314
-  tail call void asm sideeffect "1132: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1132b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1132) #14, !srcloc !190
+  tail call void asm sideeffect "1132: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1132b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1132) #14, !srcloc !192
   %321 = load ptr, ptr %313, align 8
   %322 = tail call ptr @dev_driver_string(ptr noundef %321) #14
   %323 = load ptr, ptr %313, align 8
@@ -7209,10 +7209,10 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 329:                                              ; preds = %327, %320
   %330 = phi ptr [ %328, %327 ], [ %325, %320 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %322, ptr noundef %330, ptr noundef nonnull @.str.35) #14
-  tail call void asm sideeffect "1133: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1133b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1133) #14, !srcloc !191
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3743, i32 2313, i64 12) #14, !srcloc !192
-  tail call void asm sideeffect "1134: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1134b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1134) #14, !srcloc !193
-  tail call void asm sideeffect "1135: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1135b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1135) #14, !srcloc !194
+  tail call void asm sideeffect "1133: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1133b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1133) #14, !srcloc !193
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3743, i32 2313, i64 12) #14, !srcloc !194
+  tail call void asm sideeffect "1134: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1134b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1134) #14, !srcloc !195
+  tail call void asm sideeffect "1135: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1135b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1135) #14, !srcloc !196
   br label %331
 
 331:                                              ; preds = %329, %314
@@ -7223,7 +7223,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(34) %334, ptr noundef nonnull align 4 dereferenceable(34) %333, i64 34, i1 false)
   %335 = load ptr, ptr %315, align 8
   %336 = icmp eq ptr %335, %77
-  br i1 %336, label %.loopexit, label %314, !llvm.loop !195
+  br i1 %336, label %.loopexit, label %314, !llvm.loop !197
 
 .loopexit:                                        ; preds = %331, %.loopexit16
   tail call fastcc void @g4x_program_watermarks(ptr noundef %0)
@@ -7285,7 +7285,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
 36:                                               ; preds = %32, %25
   %37 = add nuw nsw i64 %26, 1
   %38 = icmp eq i64 %37, 8
-  br i1 %38, label %39, label %25, !llvm.loop !196
+  br i1 %38, label %39, label %25, !llvm.loop !198
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %2, align 8
@@ -7478,7 +7478,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
   %36 = phi i32 [ %33, %32 ], [ %12, %.preheader ]
   %37 = load ptr, ptr %11, align 8
   %38 = icmp eq ptr %37, %7
-  br i1 %38, label %39, label %.preheader, !llvm.loop !197
+  br i1 %38, label %39, label %.preheader, !llvm.loop !199
 
 39:                                               ; preds = %34
   %40 = icmp eq i32 %36, 1
@@ -7534,7 +7534,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
 68:                                               ; preds = %66, %62
   %69 = load ptr, ptr %48, align 8
   %70 = icmp eq ptr %69, %7
-  br i1 %70, label %.loopexit, label %47, !llvm.loop !198
+  br i1 %70, label %.loopexit, label %47, !llvm.loop !200
 
 .loopexit:                                        ; preds = %68, %42
   %71 = phi i8 [ %43, %42 ], [ %57, %68 ]
@@ -7574,7 +7574,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
           to label %114 [label %94], !srcloc !6
 
 94:                                               ; preds = %91
-  %95 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !199
+  %95 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !201
   %96 = zext i32 %95 to i64
   %97 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %96) #14, !srcloc !8
   %98 = icmp ult i8 %97, 2
@@ -7584,7 +7584,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
 
 100:                                              ; preds = %94
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !9
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !200
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !202
   %101 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_g4x_wm, i64 72), align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %107, label %103
@@ -7596,7 +7596,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
   br label %107
 
 107:                                              ; preds = %103, %100
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !201
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !203
   %108 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !12
   %109 = icmp ult i8 %108, 2
   call void @llvm.assume(i1 %109)
@@ -7605,14 +7605,14 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
 
 111:                                              ; preds = %107
   %112 = call i64 @llvm.read_register.i64(metadata !0)
-  %113 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %112) #14, !srcloc !202
+  %113 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %112) #14, !srcloc !204
   call void @llvm.write_register.i64(metadata !0, i64 %113)
   br label %114
 
 114:                                              ; preds = %111, %107, %94, %91, %84
   %115 = add nuw nsw i64 %85, 1
   %116 = icmp eq i64 %115, 4
-  br i1 %116, label %117, label %84, !llvm.loop !203
+  br i1 %116, label %117, label %84, !llvm.loop !205
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -7878,7 +7878,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %91 = phi ptr [ %69, %82 ], [ %70, %88 ], [ %69, %.preheader ], [ %69, %74 ]
   %92 = load ptr, ptr %68, align 8
   %93 = icmp eq ptr %92, %65
-  br i1 %93, label %94, label %.preheader, !llvm.loop !204
+  br i1 %93, label %94, label %.preheader, !llvm.loop !206
 
 94:                                               ; preds = %90
   %95 = icmp eq ptr %91, null
@@ -8157,7 +8157,7 @@ define internal void @i965_update_wm(ptr noundef %0) #0 align 16 {
   %28 = phi ptr [ %6, %19 ], [ %7, %25 ], [ %6, %.preheader ], [ %6, %11 ]
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %29, %2
-  br i1 %30, label %31, label %.preheader, !llvm.loop !204
+  br i1 %30, label %31, label %.preheader, !llvm.loop !206
 
 31:                                               ; preds = %27
   %32 = icmp eq ptr %28, null
@@ -8445,7 +8445,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
 54:                                               ; preds = %46, %.preheader15
   %55 = load ptr, ptr %42, align 8
   %56 = icmp eq ptr %55, %39
-  br i1 %56, label %.loopexit16, label %.preheader15, !llvm.loop !205
+  br i1 %56, label %.loopexit16, label %.preheader15, !llvm.loop !207
 
 .loopexit16:                                      ; preds = %54, %50, %37
   %57 = phi ptr [ %53, %50 ], [ null, %37 ], [ null, %54 ]
@@ -8610,7 +8610,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
 175:                                              ; preds = %167, %.preheader14
   %176 = load ptr, ptr %163, align 8
   %177 = icmp eq ptr %176, %39
-  br i1 %177, label %.loopexit, label %.preheader14, !llvm.loop !205
+  br i1 %177, label %.loopexit, label %.preheader14, !llvm.loop !207
 
 .loopexit:                                        ; preds = %175, %171, %159
   %178 = phi ptr [ %174, %171 ], [ null, %159 ], [ null, %175 ]
@@ -8751,7 +8751,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
   %281 = phi ptr [ %259, %272 ], [ %260, %278 ], [ %259, %.preheader ], [ %259, %264 ]
   %282 = load ptr, ptr %258, align 8
   %283 = icmp eq ptr %282, %255
-  br i1 %283, label %284, label %.preheader, !llvm.loop !204
+  br i1 %283, label %284, label %.preheader, !llvm.loop !206
 
 284:                                              ; preds = %280
   %285 = load i32, ptr %1, align 4
@@ -9002,7 +9002,7 @@ define internal void @i845_update_wm(ptr noundef %0) #0 align 16 {
   %28 = phi ptr [ %6, %19 ], [ %7, %25 ], [ %6, %.preheader ], [ %6, %11 ]
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %29, %2
-  br i1 %30, label %31, label %.preheader, !llvm.loop !204
+  br i1 %30, label %31, label %.preheader, !llvm.loop !206
 
 31:                                               ; preds = %27
   %32 = icmp eq ptr %28, null
@@ -9304,21 +9304,23 @@ attributes #16 = { nounwind memory(none) }
 !185 = distinct !{!185, !30, !31}
 !186 = distinct !{!186, !30, !31}
 !187 = distinct !{!187, !30, !31}
-!188 = distinct !{!188, !30, !31}
-!189 = distinct !{!189, !30, !31}
-!190 = !{i64 2164013140, i64 2164012944, i64 2164012996, i64 2164013042, i64 2164013070}
-!191 = !{i64 2164013706, i64 2164013510, i64 2164013562, i64 2164013608, i64 2164013636}
-!192 = !{i64 2164013783, i64 2164013812, i64 2164013858, i64 2164013916, i64 2164013970, i64 2164014024, i64 2164014079, i64 2164014110, i64 2164014418, i64 2164014424, i64 2164014471, i64 2164014494, i64 2164014520}
-!193 = !{i64 2164014997, i64 2164014803, i64 2164014853, i64 2164014899, i64 2164014927}
-!194 = !{i64 2164015311, i64 2164015117, i64 2164015167, i64 2164015213, i64 2164015241}
-!195 = distinct !{!195, !30, !31}
-!196 = distinct !{!196, !30, !31}
+!188 = distinct !{!188, !30, !31, !189}
+!189 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!190 = distinct !{!190, !30, !31}
+!191 = distinct !{!191, !30, !31}
+!192 = !{i64 2164013140, i64 2164012944, i64 2164012996, i64 2164013042, i64 2164013070}
+!193 = !{i64 2164013706, i64 2164013510, i64 2164013562, i64 2164013608, i64 2164013636}
+!194 = !{i64 2164013783, i64 2164013812, i64 2164013858, i64 2164013916, i64 2164013970, i64 2164014024, i64 2164014079, i64 2164014110, i64 2164014418, i64 2164014424, i64 2164014471, i64 2164014494, i64 2164014520}
+!195 = !{i64 2164014997, i64 2164014803, i64 2164014853, i64 2164014899, i64 2164014927}
+!196 = !{i64 2164015311, i64 2164015117, i64 2164015167, i64 2164015213, i64 2164015241}
 !197 = distinct !{!197, !30, !31}
 !198 = distinct !{!198, !30, !31}
-!199 = !{i64 2161095204}
-!200 = !{i64 2161098086}
-!201 = !{i64 2161103950}
-!202 = !{i64 2161104109}
-!203 = distinct !{!203, !30, !31}
-!204 = distinct !{!204, !30, !31}
+!199 = distinct !{!199, !30, !31}
+!200 = distinct !{!200, !30, !31}
+!201 = !{i64 2161095204}
+!202 = !{i64 2161098086}
+!203 = !{i64 2161103950}
+!204 = !{i64 2161104109}
 !205 = distinct !{!205, !30, !31}
+!206 = distinct !{!206, !30, !31}
+!207 = distinct !{!207, !30, !31}

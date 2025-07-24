@@ -1173,7 +1173,7 @@ TransactionIdSetStatusBit.exit33:                 ; preds = %.lr.ph.split, %131,
   %145 = phi ptr [ %111, %.lr.ph.split ], [ %137, %131 ], [ %.pre, %144 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
-  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !17
 
 TransactionIdSetStatusBit.exit:                   ; preds = %110, %99, %.split24, %79, %68, %60, %.split, %6
   %146 = icmp sgt i32 %1, 0
@@ -1240,7 +1240,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %179 = phi ptr [ %.pre67, %170 ], [ %151, %.lr.ph39.split.us ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !16
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !18
 
 .lr.ph39.split:                                   ; preds = %.lr.ph39, %TransactionIdSetStatusBit.exit36
   %180 = phi ptr [ %218, %TransactionIdSetStatusBit.exit36 ], [ %.pre68, %.lr.ph39 ]
@@ -1297,7 +1297,7 @@ TransactionIdSetStatusBit.exit36:                 ; preds = %.lr.ph39.split, %20
   %218 = phi ptr [ %180, %.lr.ph39.split ], [ %210, %200 ], [ %.pre65, %217 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !16
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit36, %TransactionIdSetStatusBit.exit36.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
   %.pre-phi73 = phi i64 [ %.pre72, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %147, %TransactionIdSetStatusBit.exit36.us ], [ %147, %TransactionIdSetStatusBit.exit36 ]
@@ -1371,5 +1371,8 @@ attributes #10 = { cold nounwind }
 !12 = distinct !{!12, !5}
 !13 = !{i64 2150825149}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !16}
+!19 = distinct !{!19, !5}

@@ -911,7 +911,7 @@ define ptr @Gia_ManSeqStructSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %37 = getelementptr i8, ptr %36, i64 16
   %.val.us = load i32, ptr %37, align 8, !tbaa !42
   %38 = icmp eq i32 %.val.us, 0
-  br i1 %38, label %.loopexit, label %.lr.ph43
+  br i1 %38, label %.loopexit, label %.lr.ph43, !llvm.loop !52
 
 .preheader.split:                                 ; preds = %.preheader
   %39 = tail call i32 @Gia_ManSeqMarkUsed(ptr noundef %.031)
@@ -1021,3 +1021,5 @@ attributes #10 = { nounwind allocsize(0) }
 !49 = distinct !{!49, !34}
 !50 = distinct !{!50, !34}
 !51 = distinct !{!51, !34}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}

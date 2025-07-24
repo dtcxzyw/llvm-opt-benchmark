@@ -8518,7 +8518,7 @@ cf_add_encapsulation_type.exit.i:                 ; preds = %322, %._crit_edge.i
   call void @wtap_rec_reset(ptr noundef nonnull %8)
   %328 = load ptr, ptr %179, align 8
   %329 = call zeroext i1 @wtap_read(ptr noundef %328, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br i1 %329, label %.lr.ph.split.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !58
+  br i1 %329, label %.lr.ph.split.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !60
 
 progress_is_slow.exit.thread103._crit_edge.i:     ; preds = %327, %progress_is_slow.exit.thread103.i, %301, %progress_is_slow.exit.thread103.us.i, %cf_callback_invoke.exit.i
   %.1.i = phi ptr [ null, %cf_callback_invoke.exit.i ], [ %.2.us.i, %progress_is_slow.exit.thread103.us.i ], [ %.2.us.i, %301 ], [ null, %progress_is_slow.exit.thread103.i ], [ null, %327 ]
@@ -8624,7 +8624,7 @@ cf_callback_invoke.exit143:                       ; preds = %.lr.ph.i146, %.lr.p
   %365 = add i32 %.0109184, 1
   %366 = load i32, ptr %356, align 8
   %.not120 = icmp ugt i32 %365, %366
-  br i1 %.not120, label %._crit_edge, label %359, !llvm.loop !59
+  br i1 %.not120, label %._crit_edge, label %359, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %359, %353
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -9386,5 +9386,7 @@ attributes #28 = { nounwind willreturn memory(none) }
 !55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
 !57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
+!58 = distinct !{!58, !7, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}

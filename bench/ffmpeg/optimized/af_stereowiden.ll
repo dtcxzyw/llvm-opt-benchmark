@@ -170,7 +170,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %71 = getelementptr inbounds nuw i8, ptr %.05056, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %spec.select61, i64 8
   %exitcond.not = icmp eq i32 %69, %28
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %61, %.lr.ph.split.us ], [ %72, %.lr.ph.split ]
@@ -201,9 +201,9 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load float, ptr %6, align 8, !tbaa !54
+  %7 = load float, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i32, ptr %8, align 8, !tbaa !55
+  %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = sitofp i32 %9 to float
   %11 = fmul nsz float %7, %10
   %12 = fdiv nsz float %11, 1.000000e+03
@@ -323,7 +323,9 @@ attributes #5 = { nounwind }
 !49 = !{!5, !15, i64 128}
 !50 = !{!36, !38, i64 32}
 !51 = !{!37, !37, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!36, !37, i64 8}
-!55 = !{!23, !15, i64 64}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !53}
+!56 = !{!36, !37, i64 8}
+!57 = !{!23, !15, i64 64}

@@ -280,165 +280,127 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not36, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %30
-  %.02644.us.us = phi ptr [ %32, %30 ], [ %2, %.lr.ph.split.us ]
-  %.02743.us.us = phi i32 [ %33, %30 ], [ %3, %.lr.ph.split.us ]
-  %.02942.us.us = phi i32 [ %.130.us.us, %30 ], [ %6, %.lr.ph.split.us ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
+  %.02644.us = phi ptr [ %34, %32 ], [ %2, %.lr.ph ]
+  %.02743.us = phi i32 [ %35, %32 ], [ %3, %.lr.ph ]
+  %.02942.us = phi i32 [ %.130.us, %32 ], [ %6, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8, !tbaa !10
-  %15 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef %.02644.us.us, i32 noundef %.02743.us.us, i32 noundef %.02942.us.us)
-  %16 = icmp eq i32 %.02942.us.us, 0
-  %.not35.us.us = icmp eq i32 %15, 0
+  %15 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef %.02644.us, i32 noundef %.02743.us, i32 noundef %.02942.us)
+  %16 = icmp eq i32 %.02942.us, 0
+  %.not35.us = icmp eq i32 %15, 0
   br i1 %16, label %25, label %17
 
-17:                                               ; preds = %.lr.ph.split.us.split.us
-  br i1 %.not35.us.us, label %30, label %18
+17:                                               ; preds = %.lr.ph.split.us
+  br i1 %.not35.us, label %32, label %18
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %9, align 8, !tbaa !17
   %20 = load ptr, ptr %19, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %1, ptr %.02644.us.us, i32 %15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %1, ptr %.02644.us, i32 %15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %23 = load i32, ptr %7, align 4, !tbaa !3
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %30, label %.thread
+  br i1 %24, label %32, label %.thread
 
-25:                                               ; preds = %.lr.ph.split.us.split.us
-  br i1 %.not35.us.us, label %30, label %26
+25:                                               ; preds = %.lr.ph.split.us
+  br i1 %.not35.us, label %32, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %4, align 8, !tbaa !8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.02644.us.us, i32 noundef %15)
-  br label %30
+  br i1 %.not36, label %28, label %27
 
-30:                                               ; preds = %26, %25, %18, %17
-  %.130.us.us = phi i32 [ 2, %26 ], [ 2, %25 ], [ 0, %18 ], [ 0, %17 ]
-  %31 = sext i32 %15 to i64
-  %32 = getelementptr inbounds i8, ptr %.02644.us.us, i64 %31
-  %33 = sub nsw i32 %.02743.us.us, %15
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph.split.us.split.us, label %.thread
+27:                                               ; preds = %26
+  tail call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %15)
+  br label %28
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %51
-  %.02644.us = phi ptr [ %53, %51 ], [ %2, %.lr.ph.split.us ]
-  %.02743.us = phi i32 [ %54, %51 ], [ %3, %.lr.ph.split.us ]
-  %.02942.us = phi i32 [ %.130.us, %51 ], [ %6, %.lr.ph.split.us ]
-  %35 = load ptr, ptr %11, align 8, !tbaa !10
-  %36 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %35, ptr noundef %.02644.us, i32 noundef %.02743.us, i32 noundef %.02942.us)
-  %37 = icmp eq i32 %.02942.us, 0
-  %.not35.us = icmp eq i32 %36, 0
-  br i1 %37, label %46, label %38
+28:                                               ; preds = %27, %26
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.02644.us, i32 noundef %15)
+  br label %32
 
-38:                                               ; preds = %.lr.ph.split.us.split
-  br i1 %.not35.us, label %51, label %39
-
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %9, align 8, !tbaa !17
-  %41 = load ptr, ptr %40, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40, i32 noundef %1, ptr %.02644.us, i32 %36, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %44 = load i32, ptr %7, align 4, !tbaa !3
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %51, label %.thread
-
-46:                                               ; preds = %.lr.ph.split.us.split
-  br i1 %.not35.us, label %51, label %47
-
-47:                                               ; preds = %46
-  tail call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %36)
-  %48 = load ptr, ptr %4, align 8, !tbaa !8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.02644.us, i32 noundef %36)
-  br label %51
-
-51:                                               ; preds = %47, %46, %39, %38
-  %.130.us = phi i32 [ 2, %47 ], [ 2, %46 ], [ 0, %39 ], [ 0, %38 ]
-  %52 = sext i32 %36 to i64
-  %53 = getelementptr inbounds i8, ptr %.02644.us, i64 %52
-  %54 = sub nsw i32 %.02743.us, %36
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph.split.us.split, label %.thread
+32:                                               ; preds = %28, %25, %18, %17
+  %.130.us = phi i32 [ 2, %28 ], [ 2, %25 ], [ 0, %18 ], [ 0, %17 ]
+  %33 = sext i32 %15 to i64
+  %34 = getelementptr inbounds i8, ptr %.02644.us, i64 %33
+  %35 = sub nsw i32 %.02743.us, %15
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.lr.ph.split.us, label %.thread, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not36, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %67
-  %.02644.us46 = phi ptr [ %69, %67 ], [ %2, %.lr.ph.split ]
-  %.02743.us47 = phi i32 [ %70, %67 ], [ %3, %.lr.ph.split ]
-  %.02942.us48 = phi i32 [ %.130.us51, %67 ], [ %6, %.lr.ph.split ]
-  %56 = load ptr, ptr %11, align 8, !tbaa !10
-  %57 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %56, ptr noundef %.02644.us46, i32 noundef %.02743.us47, i32 noundef %.02942.us48)
-  %58 = icmp eq i32 %.02942.us48, 0
-  br i1 %58, label %67, label %59
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %48
+  %.02644.us46 = phi ptr [ %50, %48 ], [ %2, %.lr.ph.split ]
+  %.02743.us47 = phi i32 [ %51, %48 ], [ %3, %.lr.ph.split ]
+  %.02942.us48 = phi i32 [ %.130.us51, %48 ], [ %6, %.lr.ph.split ]
+  %37 = load ptr, ptr %11, align 8, !tbaa !10
+  %38 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %37, ptr noundef %.02644.us46, i32 noundef %.02743.us47, i32 noundef %.02942.us48)
+  %39 = icmp eq i32 %.02942.us48, 0
+  br i1 %39, label %48, label %40
 
-59:                                               ; preds = %.lr.ph.split.split.us
-  %.not.us49 = icmp eq i32 %57, 0
-  br i1 %.not.us49, label %67, label %60
+40:                                               ; preds = %.lr.ph.split.split.us
+  %.not.us49 = icmp eq i32 %38, 0
+  br i1 %.not.us49, label %48, label %41
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %9, align 8, !tbaa !17
-  %62 = load ptr, ptr %61, align 8, !tbaa !8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %1, ptr %.02644.us46, i32 %57, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %65 = load i32, ptr %7, align 4, !tbaa !3
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %67, label %.thread
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %9, align 8, !tbaa !17
+  %43 = load ptr, ptr %42, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef %1, ptr %.02644.us46, i32 %38, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %46 = load i32, ptr %7, align 4, !tbaa !3
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %48, label %.thread
 
-67:                                               ; preds = %.lr.ph.split.split.us, %60, %59
-  %.130.us51 = phi i32 [ 0, %60 ], [ 0, %59 ], [ 2, %.lr.ph.split.split.us ]
-  %68 = sext i32 %57 to i64
-  %69 = getelementptr inbounds i8, ptr %.02644.us46, i64 %68
-  %70 = sub nsw i32 %.02743.us47, %57
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph.split.split.us, label %.thread
+48:                                               ; preds = %.lr.ph.split.split.us, %41, %40
+  %.130.us51 = phi i32 [ 0, %41 ], [ 0, %40 ], [ 2, %.lr.ph.split.split.us ]
+  %49 = sext i32 %38 to i64
+  %50 = getelementptr inbounds i8, ptr %.02644.us46, i64 %49
+  %51 = sub nsw i32 %.02743.us47, %38
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !22
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %85
-  %.02644 = phi ptr [ %87, %85 ], [ %2, %.lr.ph.split ]
-  %.02743 = phi i32 [ %88, %85 ], [ %3, %.lr.ph.split ]
-  %.02942 = phi i32 [ %.130, %85 ], [ %6, %.lr.ph.split ]
-  %72 = load ptr, ptr %11, align 8, !tbaa !10
-  %73 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %72, ptr noundef %.02644, i32 noundef %.02743, i32 noundef %.02942)
-  %74 = icmp eq i32 %.02942, 0
-  %.not35 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %77
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %66
+  %.02644 = phi ptr [ %68, %66 ], [ %2, %.lr.ph.split ]
+  %.02743 = phi i32 [ %69, %66 ], [ %3, %.lr.ph.split ]
+  %.02942 = phi i32 [ %.130, %66 ], [ %6, %.lr.ph.split ]
+  %53 = load ptr, ptr %11, align 8, !tbaa !10
+  %54 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %53, ptr noundef %.02644, i32 noundef %.02743, i32 noundef %.02942)
+  %55 = icmp eq i32 %.02942, 0
+  %.not35 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %58
 
-75:                                               ; preds = %.lr.ph.split.split
-  br i1 %.not35, label %85, label %76
+56:                                               ; preds = %.lr.ph.split.split
+  br i1 %.not35, label %66, label %57
 
-76:                                               ; preds = %75
-  tail call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %73)
-  br label %85
+57:                                               ; preds = %56
+  tail call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %54)
+  br label %66
 
-77:                                               ; preds = %.lr.ph.split.split
-  br i1 %.not35, label %85, label %78
+58:                                               ; preds = %.lr.ph.split.split
+  br i1 %.not35, label %66, label %59
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr %9, align 8, !tbaa !17
-  %80 = load ptr, ptr %79, align 8, !tbaa !8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(8) %79, i32 noundef %1, ptr %.02644, i32 %73, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %83 = load i32, ptr %7, align 4, !tbaa !3
-  %84 = icmp slt i32 %83, 1
-  br i1 %84, label %85, label %.thread
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %9, align 8, !tbaa !17
+  %61 = load ptr, ptr %60, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef %1, ptr %.02644, i32 %54, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %64 = load i32, ptr %7, align 4, !tbaa !3
+  %65 = icmp slt i32 %64, 1
+  br i1 %65, label %66, label %.thread
 
-85:                                               ; preds = %76, %75, %78, %77
-  %.130 = phi i32 [ 2, %76 ], [ 2, %75 ], [ 0, %78 ], [ 0, %77 ]
-  %86 = sext i32 %73 to i64
-  %87 = getelementptr inbounds i8, ptr %.02644, i64 %86
-  %88 = sub nsw i32 %.02743, %73
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.lr.ph.split.split, label %.thread
+66:                                               ; preds = %57, %56, %59, %58
+  %.130 = phi i32 [ 2, %57 ], [ 2, %56 ], [ 0, %59 ], [ 0, %58 ]
+  %67 = sext i32 %54 to i64
+  %68 = getelementptr inbounds i8, ptr %.02644, i64 %67
+  %69 = sub nsw i32 %.02743, %54
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph.split.split, label %.thread
 
-.thread:                                          ; preds = %85, %78, %67, %60, %51, %39, %30, %18, %8
+.thread:                                          ; preds = %66, %59, %48, %41, %32, %18, %8
   ret void
 }
 
@@ -933,7 +895,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %54 = load i32, ptr %13, align 4
   %55 = select i1 %51, i32 %54, i32 %53
   %.not30.not = icmp slt i32 %34, %55
-  br i1 %.not30.not, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread, !llvm.loop !20
+  br i1 %.not30.not, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread, !llvm.loop !23
 
 .thread:                                          ; preds = %44, %49, %11, %3, %.critedge, %.preheader
   %.0 = phi i8 [ 0, %.critedge ], [ 1, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ 1, %49 ], [ 0, %44 ]
@@ -982,7 +944,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719FilteredNormalizer216isNo
   %24 = getelementptr inbounds i8, ptr %.02233, i64 %23
   %25 = sub nsw i32 %.02034, %12
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %10, label %.thread, !llvm.loop !21
+  br i1 %26, label %10, label %.thread, !llvm.loop !24
 
 .thread:                                          ; preds = %22, %14, %.preheader, %4
   %.016 = phi i8 [ 0, %4 ], [ 1, %.preheader ], [ 1, %22 ], [ 0, %14 ]
@@ -1051,7 +1013,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %32 = sub nsw i32 %25, %.0.i
   %33 = call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %31, i32 noundef %32, i32 noundef %.035)
   %34 = add nsw i32 %33, %.0.i
-  br i1 %19, label %18, label %35, !llvm.loop !22
+  br i1 %19, label %18, label %35, !llvm.loop !25
 
 35:                                               ; preds = %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit
   %36 = load ptr, ptr %17, align 8, !tbaa !17
@@ -1073,7 +1035,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %or.cond.not = and i1 %45, %44
   %46 = icmp eq i32 %41, 2
   %spec.select = select i1 %46, i32 2, i32 %.029.ph
-  br i1 %or.cond.not, label %.outer, label %.loopexit, !llvm.loop !22
+  br i1 %or.cond.not, label %.outer, label %.loopexit, !llvm.loop !25
 
 47:                                               ; preds = %35
   %48 = landingpad { ptr, i32 }
@@ -1183,7 +1145,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %55 = load i32, ptr %13, align 4
   %56 = select i1 %52, i32 %55, i32 %54
   %.not38 = icmp slt i32 %34, %56
-  br i1 %.not38, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread54, !llvm.loop !23
+  br i1 %.not38, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread54, !llvm.loop !26
 
 .thread54:                                        ; preds = %43, %50, %11, %3, %.preheader
   %.0 = phi i32 [ %19, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ %44, %43 ], [ %56, %50 ]
@@ -1284,9 +1246,9 @@ define noundef ptr @unorm2_openFiltered_77(ptr noundef %0, ptr noundef %1, ptr n
 12:                                               ; preds = %9
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN6icu_7719FilteredNormalizer2E, i64 16), ptr %10, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %13, align 8, !tbaa !24
+  store ptr %0, ptr %13, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %1, ptr %14, align 8, !tbaa !25
+  store ptr %1, ptr %14, align 8, !tbaa !28
   br label %16
 
 15:                                               ; preds = %9
@@ -1347,9 +1309,12 @@ attributes #6 = { nounwind }
 !17 = !{!11, !14, i64 8}
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
 !23 = distinct !{!23, !19}
-!24 = !{!14, !14, i64 0}
-!25 = !{!16, !16, i64 0}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = !{!14, !14, i64 0}
+!28 = !{!16, !16, i64 0}

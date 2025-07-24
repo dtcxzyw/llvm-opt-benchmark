@@ -1815,18 +1815,18 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i: ; preds 
   store float %75, ptr %76, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split.us, label %.lr.ph.i.i.i.i.i.preheader, !llvm.loop !110
+  br i1 %exitcond.not, label %.split.us, label %.lr.ph.i.i.i.i.i.preheader, !llvm.loop !112
 
 default.unreachable:                              ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i.us
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre = load ptr, ptr %35, align 8, !tbaa !111
+  %.pre = load ptr, ptr %35, align 8, !tbaa !113
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.split.us
   %77 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %36, %.split.us ]
-  %78 = load ptr, ptr %0, align 8, !tbaa !111
+  %78 = load ptr, ptr %0, align 8, !tbaa !113
   %.not4856 = icmp eq ptr %78, %77
   br i1 %.not4856, label %._crit_edge60, label %.lr.ph59
 
@@ -1895,7 +1895,7 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %84, 
   %105 = sub i64 %103, %104
   %106 = sdiv exact i64 %105, 96
   %107 = icmp ult i64 %100, %106
-  br i1 %107, label %.lr.ph, label %.loopexit, !llvm.loop !112
+  br i1 %107, label %.lr.ph, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %80, %_ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit
   %108 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.040.054) #20
@@ -1971,7 +1971,7 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %84, 
   %.1.i = phi float [ %131, %133 ], [ %.03726.i, %129 ], [ %.03726.i, %.lr.ph27.i ]
   %135 = add nuw nsw i64 %.03925.i, 1
   %exitcond.not.i = icmp eq i64 %135, %118
-  br i1 %exitcond.not.i, label %.lr.ph31.i, label %.lr.ph27.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %.lr.ph31.i, label %.lr.ph27.i, !llvm.loop !115
 
 .lr.ph31.i:                                       ; preds = %134, %143
   %.04030.i = phi i64 [ %144, %143 ], [ 0, %134 ]
@@ -1990,7 +1990,7 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %84, 
 143:                                              ; preds = %139, %.lr.ph31.i
   %144 = add nuw nsw i64 %.04030.i, 1
   %exitcond37.not.i = icmp eq i64 %144, %118
-  br i1 %exitcond37.not.i, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit, label %.lr.ph31.i, !llvm.loop !114
+  br i1 %exitcond37.not.i, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit, label %.lr.ph31.i, !llvm.loop !116
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %145 = fcmp ogt double %148, 0.000000e+00
@@ -2059,7 +2059,7 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %.015 = phi i64 [ %25, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %2, i64 %.015
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %13, align 4, !tbaa !115
+  store i32 1, ptr %13, align 4, !tbaa !117
   %14 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %6, i64 %.015
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !36
@@ -2070,12 +2070,12 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %21 = sub i64 %19, %20
   %22 = lshr exact i64 %21, 2
   %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %12, align 8, !tbaa !123
+  store i32 %23, ptr %12, align 8, !tbaa !125
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %16, ptr %24, align 8, !tbaa !124
+  store ptr %16, ptr %24, align 8, !tbaa !126
   %25 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %25, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 }
 
 ; Function Attrs: uwtable
@@ -2084,7 +2084,7 @@ define internal void @_GLOBAL__sub_I_biaswriter.cpp() #15 section ".text.startup
   %2 = alloca %"struct.std::less", align 1
   %3 = alloca %"class.std::allocator.0", align 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(72) @constinit, i64 72, i1 false), !tbaa.struct !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(72) @constinit, i64 72, i1 false), !tbaa.struct !128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
   call void @_ZNSt3mapIN3gmx18AwhOutputEntryTypeENS0_13NormalizationESt4lessIS1_ESaISt4pairIKS1_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, ptr nonnull %1, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -2249,21 +2249,23 @@ attributes #25 = { noreturn }
 !107 = !{!105, !76, i64 40}
 !108 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !109 = distinct !{!109, !21}
-!110 = distinct !{!110, !21}
-!111 = !{!79, !79, i64 0}
+!110 = distinct !{!110, !21, !111}
+!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !112 = distinct !{!112, !21}
-!113 = distinct !{!113, !21}
+!113 = !{!79, !79, i64 0}
 !114 = distinct !{!114, !21}
-!115 = !{!116, !117, i64 4}
-!116 = !{!"_ZTS13t_enxsubblock", !43, i64 0, !117, i64 4, !34, i64 8, !57, i64 16, !118, i64 24, !119, i64 32, !120, i64 40, !121, i64 48, !43, i64 56, !43, i64 60, !43, i64 64, !43, i64 68, !43, i64 72, !43, i64 76}
-!117 = !{!"_ZTS11XdrDataType", !8, i64 0}
-!118 = !{!"p1 int", !11, i64 0}
-!119 = !{!"p1 long", !11, i64 0}
-!120 = !{!"p1 omnipotent char", !11, i64 0}
-!121 = !{!"p2 omnipotent char", !122, i64 0}
-!122 = !{!"any p2 pointer", !11, i64 0}
-!123 = !{!116, !43, i64 0}
-!124 = !{!116, !34, i64 8}
-!125 = distinct !{!125, !21}
-!126 = !{i64 0, i64 72, !127}
-!127 = !{!8, !8, i64 0}
+!115 = distinct !{!115, !21}
+!116 = distinct !{!116, !21}
+!117 = !{!118, !119, i64 4}
+!118 = !{!"_ZTS13t_enxsubblock", !43, i64 0, !119, i64 4, !34, i64 8, !57, i64 16, !120, i64 24, !121, i64 32, !122, i64 40, !123, i64 48, !43, i64 56, !43, i64 60, !43, i64 64, !43, i64 68, !43, i64 72, !43, i64 76}
+!119 = !{!"_ZTS11XdrDataType", !8, i64 0}
+!120 = !{!"p1 int", !11, i64 0}
+!121 = !{!"p1 long", !11, i64 0}
+!122 = !{!"p1 omnipotent char", !11, i64 0}
+!123 = !{!"p2 omnipotent char", !124, i64 0}
+!124 = !{!"any p2 pointer", !11, i64 0}
+!125 = !{!118, !43, i64 0}
+!126 = !{!118, !34, i64 8}
+!127 = distinct !{!127, !21}
+!128 = !{i64 0, i64 72, !129}
+!129 = !{!8, !8, i64 0}

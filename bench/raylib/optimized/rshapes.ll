@@ -2291,7 +2291,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
 ._crit_edge.us409:                                ; preds = %124
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next421, 4
-  br i1 %exitcond423.not, label %.split411.us, label %.lr.ph.us408
+  br i1 %exitcond423.not, label %.split411.us, label %.lr.ph.us408, !llvm.loop !3
 
 .split411.us:                                     ; preds = %._crit_edge.us409, %115
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0230.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
@@ -2472,7 +2472,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
 ._crit_edge.us:                                   ; preds = %270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond415.not, label %.preheader.preheader, label %.lr.ph.us
+  br i1 %exitcond415.not, label %.preheader.preheader, label %.lr.ph.us, !llvm.loop !5
 
 283:                                              ; preds = %.preheader
   tail call void @rlEnd() #16
@@ -3118,7 +3118,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %66, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.split137.us, label %.split.us
+  br i1 %exitcond.not, label %.split137.us, label %.split.us, !llvm.loop !6
 
 .split137.us:                                     ; preds = %.split.us, %110
   %.us-phi = phi float [ %111, %110 ], [ %57, %.split.us ]
@@ -4723,3 +4723,7 @@ attributes #16 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

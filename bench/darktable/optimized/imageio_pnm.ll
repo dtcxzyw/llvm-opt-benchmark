@@ -265,7 +265,7 @@ define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captu
   %33 = load i32, ptr %10, align 16, !tbaa !27
   %34 = sext i32 %33 to i64
   %35 = icmp ult i64 %32, %34
-  br i1 %35, label %.lr.ph48.split.us, label %._crit_edge49
+  br i1 %35, label %.lr.ph48.split.us, label %._crit_edge49, !llvm.loop !35
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48, %.preheader
   %.03447 = phi i64 [ %37, %.preheader ], [ 0, %.lr.ph48 ]
@@ -412,7 +412,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   %.05875 = phi i64 [ %61, %.lr.ph ], [ 0, %.preheader73 ]
   %.16174 = phi ptr [ %60, %.lr.ph ], [ %.0607688, %.preheader73 ]
   %53 = getelementptr inbounds nuw i16, ptr %40, i64 %.05875
-  %54 = load i16, ptr %53, align 2, !tbaa !35
+  %54 = load i16, ptr %53, align 2, !tbaa !37
   %rev = call i16 @llvm.bswap.i16(i16 %54)
   %55 = uitofp i16 %rev to float
   %56 = fmul reassoc nsz arcp contract afn float %55, %43
@@ -585,7 +585,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   %indvars.iv = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next, %60 ]
   %.26380 = phi ptr [ %.16282, %.preheader78 ], [ %65, %60 ]
   %61 = getelementptr i16, ptr %52, i64 %indvars.iv
-  %62 = load i16, ptr %61, align 2, !tbaa !35
+  %62 = load i16, ptr %61, align 2, !tbaa !37
   %rev = call i16 @llvm.bswap.i16(i16 %62)
   %63 = uitofp i16 %rev to float
   %64 = fmul reassoc nsz arcp contract afn float %63, %46
@@ -685,4 +685,6 @@ attributes #15 = { nounwind allocsize(0,1) }
 !32 = !{!12, !10, i64 1420}
 !33 = !{!12, !10, i64 1472}
 !34 = !{!13, !13, i64 0}
-!35 = !{!17, !17, i64 0}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!17, !17, i64 0}

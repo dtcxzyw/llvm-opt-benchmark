@@ -144,7 +144,7 @@ define void @lv_draw_sw_rgb565_swap(ptr noundef captures(none) %0, i32 noundef %
   %60 = getelementptr inbounds nuw i8, ptr %.04346, i64 32
   %61 = add nsw i32 %.047, -8
   %62 = icmp ugt i32 %61, 7
-  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !12
+  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !13
 
 .lr.ph52:                                         ; preds = %.preheader, %.lr.ph52
   %.151 = phi i32 [ %70, %.lr.ph52 ], [ %.0.lcssa, %.preheader ]
@@ -159,7 +159,7 @@ define void @lv_draw_sw_rgb565_swap(ptr noundef captures(none) %0, i32 noundef %
   %69 = getelementptr inbounds nuw i8, ptr %.14450, i64 4
   %70 = add nsw i32 %.151, -1
   %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader
   %71 = and i32 %1, 1
@@ -170,9 +170,9 @@ define void @lv_draw_sw_rgb565_swap(ptr noundef captures(none) %0, i32 noundef %
   %73 = add nsw i32 %1, -1
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds nuw i16, ptr %0, i64 %74
-  %76 = load i16, ptr %75, align 2, !tbaa !14
+  %76 = load i16, ptr %75, align 2, !tbaa !15
   %rev = tail call i16 @llvm.bswap.i16(i16 %76)
-  store i16 %rev, ptr %75, align 2, !tbaa !14
+  store i16 %rev, ptr %75, align 2, !tbaa !15
   br label %77
 
 77:                                               ; preds = %72, %._crit_edge
@@ -205,7 +205,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
   %15 = icmp ne i64 %14, 0
   %16 = icmp ne i32 %12, 0
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.027.lcssa = phi ptr [ %0, %.preheader ], [ %11, %.lr.ph ]
@@ -226,7 +226,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
   store i32 %22, ptr %20, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !18
 
 ._crit_edge40:                                    ; preds = %.lr.ph39
   %23 = getelementptr inbounds nuw i32, ptr %.027.lcssa, i64 %wide.trip.count
@@ -251,7 +251,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
   store i8 %28, ptr %26, align 1, !tbaa !5
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph43, !llvm.loop !18
+  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph43, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph43, %25, %2
   ret void
@@ -297,33 +297,31 @@ define void @lv_draw_sw_i1_convert_to_vtiled(ptr noundef readonly captures(addre
   tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef %18) #4
   %.not58 = icmp eq i32 %3, 0
   %.not59 = icmp eq i32 %2, 0
-  %or.cond66 = or i1 %.not58, %.not59
-  br i1 %or.cond66, label %._crit_edge54, label %.preheader48.lr.ph.split.us
+  %or.cond65 = or i1 %.not58, %.not59
+  br i1 %or.cond65, label %._crit_edge54, label %.preheader48.us
 
-.preheader48.lr.ph.split.us:                      ; preds = %17
-  br i1 %6, label %.preheader48.us.us, label %.preheader48.us
+.preheader48.us:                                  ; preds = %17, %._crit_edge.us
+  %.052.us = phi i32 [ %42, %._crit_edge.us ], [ 0, %17 ]
+  %19 = mul i32 %.052.us, %2
+  %20 = and i32 %.052.us, 7
+  %21 = xor i32 %20, 7
+  br i1 %6, label %.lr.ph.split.us.us, label %.lr.ph.split.us57
 
-.preheader48.us.us:                               ; preds = %.preheader48.lr.ph.split.us, %._crit_edge.split.us.us.us
-  %.052.us.us = phi i32 [ %42, %._crit_edge.split.us.us.us ], [ 0, %.preheader48.lr.ph.split.us ]
-  %19 = mul i32 %.052.us.us, %2
-  %20 = and i32 %.052.us.us, 7
-  br label %21
-
-21:                                               ; preds = %21, %.preheader48.us.us
-  %.03751.us.us.us = phi i32 [ 0, %.preheader48.us.us ], [ %41, %21 ]
-  %22 = add i32 %.03751.us.us.us, %19
-  %23 = mul i32 %.03751.us.us.us, %3
-  %24 = add i32 %23, %.052.us.us
+.lr.ph.split.us57:                                ; preds = %.preheader48.us, %.lr.ph.split.us57
+  %.03751.us55 = phi i32 [ %41, %.lr.ph.split.us57 ], [ 0, %.preheader48.us ]
+  %22 = add i32 %.03751.us55, %19
+  %23 = mul i32 %.03751.us55, %3
+  %24 = add i32 %23, %.052.us
   %25 = lshr i32 %22, 3
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !5
   %29 = zext i8 %28 to i32
-  %30 = and i32 %.03751.us.us.us, 7
+  %30 = and i32 %.03751.us55, 7
   %31 = xor i32 %30, 7
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 1
-  %34 = shl nuw nsw i32 %33, %20
+  %34 = shl nuw nsw i32 %33, %21
   %35 = lshr i32 %24, 3
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
@@ -331,54 +329,42 @@ define void @lv_draw_sw_i1_convert_to_vtiled(ptr noundef readonly captures(addre
   %39 = trunc nuw i32 %34 to i8
   %40 = or i8 %38, %39
   store i8 %40, ptr %37, align 1, !tbaa !5
-  %41 = add nuw i32 %.03751.us.us.us, 1
-  %exitcond63.not = icmp eq i32 %41, %2
-  br i1 %exitcond63.not, label %._crit_edge.split.us.us.us, label %21, !llvm.loop !19
+  %41 = add nuw i32 %.03751.us55, 1
+  %exitcond.not = icmp eq i32 %41, %2
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us57, !llvm.loop !20
 
-._crit_edge.split.us.us.us:                       ; preds = %21
-  %42 = add nuw i32 %.052.us.us, 1
-  %exitcond64.not = icmp eq i32 %42, %3
-  br i1 %exitcond64.not, label %._crit_edge54, label %.preheader48.us.us, !llvm.loop !20
+._crit_edge.us:                                   ; preds = %.lr.ph.split.us57, %.lr.ph.split.us.us
+  %42 = add nuw i32 %.052.us, 1
+  %exitcond63.not = icmp eq i32 %42, %3
+  br i1 %exitcond63.not, label %._crit_edge54, label %.preheader48.us, !llvm.loop !21
 
-.preheader48.us:                                  ; preds = %.preheader48.lr.ph.split.us, %._crit_edge.split.us56
-  %.052.us = phi i32 [ %67, %._crit_edge.split.us56 ], [ 0, %.preheader48.lr.ph.split.us ]
-  %43 = mul i32 %.052.us, %2
-  %44 = and i32 %.052.us, 7
-  %45 = xor i32 %44, 7
-  br label %46
+.lr.ph.split.us.us:                               ; preds = %.preheader48.us, %.lr.ph.split.us.us
+  %.03751.us.us = phi i32 [ %62, %.lr.ph.split.us.us ], [ 0, %.preheader48.us ]
+  %43 = add i32 %.03751.us.us, %19
+  %44 = mul i32 %.03751.us.us, %3
+  %45 = add i32 %44, %.052.us
+  %46 = lshr i32 %43, 3
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !5
+  %50 = zext i8 %49 to i32
+  %51 = and i32 %.03751.us.us, 7
+  %52 = xor i32 %51, 7
+  %53 = lshr i32 %50, %52
+  %54 = and i32 %53, 1
+  %55 = shl nuw nsw i32 %54, %20
+  %56 = lshr i32 %45, 3
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !5
+  %60 = trunc nuw i32 %55 to i8
+  %61 = or i8 %59, %60
+  store i8 %61, ptr %58, align 1, !tbaa !5
+  %62 = add nuw i32 %.03751.us.us, 1
+  %exitcond62.not = icmp eq i32 %62, %2
+  br i1 %exitcond62.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !22
 
-46:                                               ; preds = %.preheader48.us, %46
-  %.03751.us55 = phi i32 [ 0, %.preheader48.us ], [ %66, %46 ]
-  %47 = add i32 %.03751.us55, %43
-  %48 = mul i32 %.03751.us55, %3
-  %49 = add i32 %48, %.052.us
-  %50 = lshr i32 %47, 3
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !5
-  %54 = zext i8 %53 to i32
-  %55 = and i32 %.03751.us55, 7
-  %56 = xor i32 %55, 7
-  %57 = lshr i32 %54, %56
-  %58 = and i32 %57, 1
-  %59 = shl nuw nsw i32 %58, %45
-  %60 = lshr i32 %49, 3
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !5
-  %64 = trunc nuw i32 %59 to i8
-  %65 = or i8 %63, %64
-  store i8 %65, ptr %62, align 1, !tbaa !5
-  %66 = add nuw i32 %.03751.us55, 1
-  %exitcond.not = icmp eq i32 %66, %2
-  br i1 %exitcond.not, label %._crit_edge.split.us56, label %46, !llvm.loop !19
-
-._crit_edge.split.us56:                           ; preds = %46
-  %67 = add nuw i32 %.052.us, 1
-  %exitcond62.not = icmp eq i32 %67, %3
-  br i1 %exitcond62.not, label %._crit_edge54, label %.preheader48.us, !llvm.loop !20
-
-._crit_edge54:                                    ; preds = %._crit_edge.split.us56, %._crit_edge.split.us.us.us, %17
+._crit_edge54:                                    ; preds = %._crit_edge.us, %17
   ret void
 }
 
@@ -432,12 +418,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !23
 
 ._crit_edge.us.i:                                 ; preds = %19
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next27.i, %14
-  br i1 %exitcond35.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i, !llvm.loop !22
+  br i1 %exitcond35.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 22:                                               ; preds = %9
   %23 = icmp sgt i32 %2, 0
@@ -466,18 +452,18 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv30.i = phi i64 [ %indvars.iv28.i81, %.lr.ph.us.i80 ], [ %indvars.iv.next31.i, %33 ]
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.us.i80 ], [ %indvars.iv.next.i85, %33 ]
   %34 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv30.i
-  %35 = load i16, ptr %34, align 2, !tbaa !14
+  %35 = load i16, ptr %34, align 2, !tbaa !15
   %gep.i84 = getelementptr i16, ptr %invariant.gep.i82, i64 %indvars.iv.i83
-  store i16 %35, ptr %gep.i84, align 2, !tbaa !14
+  store i16 %35, ptr %gep.i84, align 2, !tbaa !15
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, %27
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i79
-  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %33, !llvm.loop !23
+  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %33, !llvm.loop !25
 
 ._crit_edge.us.i87:                               ; preds = %33
   %indvars.iv.next29.i88 = add nuw nsw i64 %indvars.iv28.i81, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next29.i88, %28
-  br i1 %exitcond37.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i80, !llvm.loop !24
+  br i1 %exitcond37.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i80, !llvm.loop !26
 
 36:                                               ; preds = %9
   %37 = icmp sgt i32 %2, 0
@@ -520,12 +506,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %54, ptr %55, align 1, !tbaa !5
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i91
-  br i1 %exitcond.not.i96, label %._crit_edge.us.i97, label %46, !llvm.loop !25
+  br i1 %exitcond.not.i96, label %._crit_edge.us.i97, label %46, !llvm.loop !27
 
 ._crit_edge.us.i97:                               ; preds = %46
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i98 = icmp eq i64 %indvars.iv.next32.i, %40
-  br i1 %exitcond35.not.i98, label %rotate90_l8.exit, label %.preheader.us.i, !llvm.loop !26
+  br i1 %exitcond35.not.i98, label %rotate90_l8.exit, label %.preheader.us.i, !llvm.loop !28
 
 56:                                               ; preds = %9, %9
   %57 = icmp sgt i32 %2, 0
@@ -560,12 +546,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv.next31.i109 = add nsw i64 %indvars.iv30.i106, %61
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i102
-  br i1 %exitcond.not.i111, label %._crit_edge.us.i112, label %67, !llvm.loop !27
+  br i1 %exitcond.not.i111, label %._crit_edge.us.i112, label %67, !llvm.loop !29
 
 ._crit_edge.us.i112:                              ; preds = %67
   %indvars.iv.next29.i113 = add nuw nsw i64 %indvars.iv28.i104, 1
   %exitcond37.not.i114 = icmp eq i64 %indvars.iv.next29.i113, %62
-  br i1 %exitcond37.not.i114, label %rotate90_l8.exit, label %.lr.ph.us.i103, !llvm.loop !28
+  br i1 %exitcond37.not.i114, label %rotate90_l8.exit, label %.lr.ph.us.i103, !llvm.loop !30
 
 70:                                               ; preds = %8
   switch i32 %7, label %rotate90_l8.exit [
@@ -611,12 +597,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %82, ptr %87, align 1, !tbaa !5
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i117
-  br i1 %exitcond.not.i123, label %._crit_edge.us.i124, label %81, !llvm.loop !29
+  br i1 %exitcond.not.i123, label %._crit_edge.us.i124, label %81, !llvm.loop !31
 
 ._crit_edge.us.i124:                              ; preds = %81
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i118, !llvm.loop !30
+  br i1 %exitcond31.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i118, !llvm.loop !32
 
 88:                                               ; preds = %70
   %89 = ashr i32 %5, 1
@@ -646,21 +632,21 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 100:                                              ; preds = %100, %.lr.ph.us.i128
   %indvars.iv.i130 = phi i64 [ 0, %.lr.ph.us.i128 ], [ %indvars.iv.next.i132, %100 ]
   %gep.i131 = getelementptr i16, ptr %invariant.gep.i129, i64 %indvars.iv.i130
-  %101 = load i16, ptr %gep.i131, align 2, !tbaa !14
+  %101 = load i16, ptr %gep.i131, align 2, !tbaa !15
   %102 = trunc i64 %indvars.iv.i130 to i32
   %103 = xor i32 %102, -1
   %104 = add i32 %99, %103
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i16, ptr %1, i64 %105
-  store i16 %101, ptr %106, align 2, !tbaa !14
+  store i16 %101, ptr %106, align 2, !tbaa !15
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i127
-  br i1 %exitcond.not.i133, label %._crit_edge.us.i134, label %100, !llvm.loop !31
+  br i1 %exitcond.not.i133, label %._crit_edge.us.i134, label %100, !llvm.loop !33
 
 ._crit_edge.us.i134:                              ; preds = %100
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i128, !llvm.loop !32
+  br i1 %exitcond33.not.i, label %rotate90_l8.exit, label %.lr.ph.us.i128, !llvm.loop !34
 
 107:                                              ; preds = %70
   %108 = icmp sgt i32 %3, 0
@@ -705,12 +691,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %128, ptr %129, align 1, !tbaa !5
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i141, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %110
-  br i1 %exitcond.not.i144, label %._crit_edge.us.i145, label %118, !llvm.loop !33
+  br i1 %exitcond.not.i144, label %._crit_edge.us.i145, label %118, !llvm.loop !35
 
 ._crit_edge.us.i145:                              ; preds = %118
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i146 = icmp eq i64 %indvars.iv.next34.i, %112
-  br i1 %exitcond37.not.i146, label %rotate90_l8.exit, label %.preheader.us.i139, !llvm.loop !34
+  br i1 %exitcond37.not.i146, label %rotate90_l8.exit, label %.preheader.us.i139, !llvm.loop !36
 
 130:                                              ; preds = %70, %70
   %131 = ashr i32 %5, 2
@@ -749,12 +735,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   store i32 %143, ptr %148, align 4, !tbaa !8
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i154, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i150
-  br i1 %exitcond.not.i157, label %._crit_edge.us.i158, label %142, !llvm.loop !35
+  br i1 %exitcond.not.i157, label %._crit_edge.us.i158, label %142, !llvm.loop !37
 
 ._crit_edge.us.i158:                              ; preds = %142
   %indvars.iv.next30.i159 = add nuw nsw i64 %indvars.iv29.i152, 1
   %exitcond33.not.i160 = icmp eq i64 %indvars.iv.next30.i159, %wide.trip.count32.i149
-  br i1 %exitcond33.not.i160, label %rotate90_l8.exit, label %.lr.ph.us.i151, !llvm.loop !36
+  br i1 %exitcond33.not.i160, label %rotate90_l8.exit, label %.lr.ph.us.i151, !llvm.loop !38
 
 149:                                              ; preds = %8
   switch i32 %7, label %rotate90_l8.exit [
@@ -798,12 +784,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv.next29.i169 = add nsw i64 %indvars.iv28.i167, %153
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, %wide.trip.count.i164
-  br i1 %exitcond.not.i171, label %._crit_edge.us.i172, label %156, !llvm.loop !37
+  br i1 %exitcond.not.i171, label %._crit_edge.us.i172, label %156, !llvm.loop !39
 
 ._crit_edge.us.i172:                              ; preds = %156
   %indvars.iv.next27.i173 = add nuw nsw i64 %indvars.iv26.i166, 1
   %exitcond35.not.i174 = icmp eq i64 %indvars.iv.next27.i173, %wide.trip.count34.i163
-  br i1 %exitcond35.not.i174, label %rotate90_l8.exit, label %.lr.ph.us.i165, !llvm.loop !38
+  br i1 %exitcond35.not.i174, label %rotate90_l8.exit, label %.lr.ph.us.i165, !llvm.loop !40
 
 164:                                              ; preds = %149
   %165 = ashr i32 %5, 1
@@ -830,22 +816,22 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv30.i181 = phi i64 [ %indvars.iv28.i180, %.lr.ph.us.i179 ], [ %indvars.iv.next31.i183, %172 ]
   %indvars.iv.i182 = phi i64 [ 0, %.lr.ph.us.i179 ], [ %indvars.iv.next.i184, %172 ]
   %173 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv30.i181
-  %174 = load i16, ptr %173, align 2, !tbaa !14
+  %174 = load i16, ptr %173, align 2, !tbaa !15
   %175 = trunc i64 %indvars.iv.i182 to i32
   %176 = xor i32 %175, -1
   %177 = add i32 %171, %176
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i16, ptr %1, i64 %178
-  store i16 %174, ptr %179, align 2, !tbaa !14
+  store i16 %174, ptr %179, align 2, !tbaa !15
   %indvars.iv.next31.i183 = add nsw i64 %indvars.iv30.i181, %169
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i182, 1
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, %wide.trip.count.i178
-  br i1 %exitcond.not.i185, label %._crit_edge.us.i186, label %172, !llvm.loop !39
+  br i1 %exitcond.not.i185, label %._crit_edge.us.i186, label %172, !llvm.loop !41
 
 ._crit_edge.us.i186:                              ; preds = %172
   %indvars.iv.next29.i187 = add nuw nsw i64 %indvars.iv28.i180, 1
   %exitcond37.not.i188 = icmp eq i64 %indvars.iv.next29.i187, %wide.trip.count36.i177
-  br i1 %exitcond37.not.i188, label %rotate90_l8.exit, label %.lr.ph.us.i179, !llvm.loop !40
+  br i1 %exitcond37.not.i188, label %rotate90_l8.exit, label %.lr.ph.us.i179, !llvm.loop !42
 
 180:                                              ; preds = %149
   %181 = icmp sgt i32 %2, 0
@@ -888,12 +874,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %198, ptr %199, align 1, !tbaa !5
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i197, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %184
-  br i1 %exitcond.not.i201, label %._crit_edge.us.i202, label %188, !llvm.loop !41
+  br i1 %exitcond.not.i201, label %._crit_edge.us.i202, label %188, !llvm.loop !43
 
 ._crit_edge.us.i202:                              ; preds = %188
   %indvars.iv.next32.i203 = add nuw nsw i64 %indvars.iv31.i194, 1
   %exitcond35.not.i204 = icmp eq i64 %indvars.iv.next32.i203, %wide.trip.count34.i191
-  br i1 %exitcond35.not.i204, label %rotate90_l8.exit, label %.preheader.us.i193, !llvm.loop !42
+  br i1 %exitcond35.not.i204, label %rotate90_l8.exit, label %.preheader.us.i193, !llvm.loop !44
 
 200:                                              ; preds = %149, %149
   %201 = ashr i32 %5, 2
@@ -930,12 +916,12 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv.next31.i214 = add nsw i64 %indvars.iv30.i212, %205
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i213, 1
   %exitcond.not.i216 = icmp eq i64 %indvars.iv.next.i215, %wide.trip.count.i208
-  br i1 %exitcond.not.i216, label %._crit_edge.us.i217, label %208, !llvm.loop !43
+  br i1 %exitcond.not.i216, label %._crit_edge.us.i217, label %208, !llvm.loop !45
 
 ._crit_edge.us.i217:                              ; preds = %208
   %indvars.iv.next29.i218 = add nuw nsw i64 %indvars.iv28.i210, 1
   %exitcond37.not.i219 = icmp eq i64 %indvars.iv.next29.i218, %wide.trip.count36.i207
-  br i1 %exitcond37.not.i219, label %rotate90_l8.exit, label %.lr.ph.us.i209, !llvm.loop !44
+  br i1 %exitcond37.not.i219, label %rotate90_l8.exit, label %.lr.ph.us.i209, !llvm.loop !46
 
 rotate90_l8.exit:                                 ; preds = %._crit_edge.us.i217, %._crit_edge.us.i202, %._crit_edge.us.i186, %._crit_edge.us.i172, %._crit_edge.us.i158, %._crit_edge.us.i145, %._crit_edge.us.i134, %._crit_edge.us.i124, %._crit_edge.us.i112, %._crit_edge.us.i97, %._crit_edge.us.i87, %._crit_edge.us.i, %200, %180, %164, %150, %130, %107, %88, %71, %56, %36, %22, %10, %8, %149, %70, %9
   ret void
@@ -963,37 +949,39 @@ attributes #4 = { nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
+!11 = distinct !{!11, !4, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !13 = distinct !{!13, !4}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !6, i64 0}
-!16 = distinct !{!16, !4}
+!14 = distinct !{!14, !4}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !6, i64 0}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
+!21 = distinct !{!21, !4, !12}
+!22 = distinct !{!22, !4, !12}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
+!24 = distinct !{!24, !4, !12}
 !25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
+!26 = distinct !{!26, !4, !12}
 !27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
+!28 = distinct !{!28, !4, !12}
 !29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
+!30 = distinct !{!30, !4, !12}
 !31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
+!32 = distinct !{!32, !4, !12}
 !33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
+!34 = distinct !{!34, !4, !12}
 !35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
+!36 = distinct !{!36, !4, !12}
 !37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
+!38 = distinct !{!38, !4, !12}
 !39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4}
+!40 = distinct !{!40, !4, !12}
 !41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4}
+!42 = distinct !{!42, !4, !12}
 !43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4}
+!44 = distinct !{!44, !4, !12}
+!45 = distinct !{!45, !4}
+!46 = distinct !{!46, !4, !12}

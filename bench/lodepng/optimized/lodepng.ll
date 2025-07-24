@@ -5422,7 +5422,7 @@ _Z24lodepng_chunk_next_constPKhS0_.exit.us:       ; preds = %81, %._crit_edge.i.
   %84 = sub i64 %4, %83
   %85 = icmp slt i64 %84, 12
   %or.cond.us = or i1 %.not.us, %85
-  br i1 %or.cond.us, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge, label %13, !llvm.loop !171
+  br i1 %or.cond.us, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge, label %13, !llvm.loop !172
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge: ; preds = %_Z24lodepng_chunk_next_constPKhS0_.exit.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us, %.lr.ph, %3
   %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.01022.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us ], [ null, %_Z24lodepng_chunk_next_constPKhS0_.exit.us ]
@@ -5437,7 +5437,7 @@ define noundef range(i32 0, 123) i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr nound
 4:                                                ; preds = %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %.not.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit, label %.critedge.i, !llvm.loop !172
+  br i1 %.not.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit, label %.critedge.i, !llvm.loop !173
 
 .critedge.i:                                      ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
@@ -5501,7 +5501,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit:       ; preds = %4
   %41 = add i32 %.01631, 1
   %42 = zext i32 %41 to i64
   %.not23 = icmp eq i64 %28, %42
-  br i1 %.not23, label %_ZL29lodepng_chunk_type_name_validPKh.exit.thread, label %36, !llvm.loop !173
+  br i1 %.not23, label %_ZL29lodepng_chunk_type_name_validPKh.exit.thread, label %36, !llvm.loop !174
 
 _ZL29lodepng_chunk_type_name_validPKh.exit.thread: ; preds = %.critedge.i, %36, %31, %10, %_ZL29lodepng_chunk_type_name_validPKh.exit
   %.0 = phi i32 [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit ], [ 77, %10 ], [ 83, %31 ], [ 0, %36 ], [ 121, %.critedge.i ]
@@ -5553,14 +5553,14 @@ define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_createPPhPmmPKcPKh(ptr no
   %31 = getelementptr inbounds i8, ptr %20, i64 -9
   store i8 %30, ptr %31, align 1, !tbaa !18
   %32 = getelementptr inbounds i8, ptr %20, i64 -8
-  %33 = load i32, ptr %3, align 1, !tbaa !18, !alias.scope !174
-  store i32 %33, ptr %32, align 1, !tbaa !18, !alias.scope !174
+  %33 = load i32, ptr %3, align 1, !tbaa !18, !alias.scope !175
+  store i32 %33, ptr %32, align 1, !tbaa !18, !alias.scope !175
   %.not.i9.i = icmp eq i64 %2, 0
   br i1 %.not.i9.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.thread.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %20, i64 -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr readonly align 1 %4, i64 %2, i1 false), !tbaa !18, !alias.scope !178
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr readonly align 1 %4, i64 %2, i1 false), !tbaa !18, !alias.scope !179
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %.thread.i.i.i.i
@@ -5580,9 +5580,9 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %5, %9, %14, %_ZL14l
 define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store i32 6, ptr %0, align 8, !tbaa !182
+  store i32 6, ptr %0, align 8, !tbaa !183
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 8, ptr %3, align 4, !tbaa !185
+  store i32 8, ptr %3, align 4, !tbaa !186
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void
@@ -5591,7 +5591,7 @@ define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr noundef writeonl
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z26lodepng_color_mode_cleanupP16LodePNGColorMode(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %4
 
@@ -5607,7 +5607,7 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -5623,7 +5623,7 @@ define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr noundef captures(n
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 84) i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr noundef captures(none) initializes((0, 8), (16, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !186
+  %4 = load ptr, ptr %3, align 8, !tbaa !187
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %5
 
@@ -5633,18 +5633,18 @@ define noundef range(i32 0, 84) i32 @_Z23lodepng_color_mode_copyP16LodePNGColorM
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %2, %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 40, i1 false), !tbaa !18, !alias.scope !187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 40, i1 false), !tbaa !18, !alias.scope !188
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !186
+  %7 = load ptr, ptr %6, align 8, !tbaa !187
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %8
 
 8:                                                ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
   %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %9, ptr %3, align 8, !tbaa !186
+  store ptr %9, ptr %3, align 8, !tbaa !187
   %.not10 = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !191
+  %11 = load i64, ptr %10, align 8, !tbaa !192
   br i1 %.not10, label %12, label %13
 
 12:                                               ; preds = %8
@@ -5658,8 +5658,8 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %2, %5
   br i1 %.not.i, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %13
-  %15 = load ptr, ptr %6, align 8, !tbaa !186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr readonly align 1 %15, i64 %14, i1 false), !tbaa !18, !alias.scope !192
+  %15 = load ptr, ptr %6, align 8, !tbaa !187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr readonly align 1 %15, i64 %14, i1 false), !tbaa !18, !alias.scope !193
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %12, %.lr.ph.preheader.i, %13, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
@@ -5674,55 +5674,55 @@ define void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr dead_on_unwind n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store i32 %1, ptr %0, align 8, !tbaa !182
-  store i32 %2, ptr %5, align 4, !tbaa !185
+  store i32 %1, ptr %0, align 8, !tbaa !183
+  store i32 %2, ptr %5, align 4, !tbaa !186
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef range(i32 0, 109) i32 @_Z19lodepng_palette_addP16LodePNGColorModehhhh(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !186
+  %7 = load ptr, ptr %6, align 8, !tbaa !187
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %24
 
 8:                                                ; preds = %5
   %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %9, ptr %6, align 8, !tbaa !186
+  store ptr %9, ptr %6, align 8, !tbaa !187
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %.critedge.i
   %.014.i = phi i64 [ %23, %.critedge.i ], [ 0, %8 ]
-  %11 = load ptr, ptr %6, align 8, !tbaa !186
+  %11 = load ptr, ptr %6, align 8, !tbaa !187
   %12 = shl i64 %.014.i, 2
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !18
-  %14 = load ptr, ptr %6, align 8, !tbaa !186
+  %14 = load ptr, ptr %6, align 8, !tbaa !187
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 0, ptr %16, align 1, !tbaa !18
-  %17 = load ptr, ptr %6, align 8, !tbaa !186
+  %17 = load ptr, ptr %6, align 8, !tbaa !187
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 0, ptr %19, align 1, !tbaa !18
-  %20 = load ptr, ptr %6, align 8, !tbaa !186
+  %20 = load ptr, ptr %6, align 8, !tbaa !187
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3
   store i8 -1, ptr %22, align 1, !tbaa !18
   %23 = add nuw nsw i64 %.014.i, 1
   %.not13.i = icmp eq i64 %23, 256
-  br i1 %.not13.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, label %.critedge.i, !llvm.loop !196
+  br i1 %.not13.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, label %.critedge.i, !llvm.loop !197
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit: ; preds = %.critedge.i
-  %.pr = load ptr, ptr %6, align 8, !tbaa !186
+  %.pr = load ptr, ptr %6, align 8, !tbaa !187
   %.not18 = icmp eq ptr %.pr, null
   br i1 %.not18, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %24
 
 24:                                               ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, %5
   %25 = phi ptr [ %.pr, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit ], [ %7, %5 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !191
+  %27 = load i64, ptr %26, align 8, !tbaa !192
   %28 = icmp ugt i64 %27, 255
   br i1 %28, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %29
 
@@ -5730,27 +5730,27 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit: ; preds = %.crite
   %30 = shl nuw nsw i64 %27, 2
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
   store i8 %1, ptr %31, align 1, !tbaa !18
-  %32 = load ptr, ptr %6, align 8, !tbaa !186
-  %33 = load i64, ptr %26, align 8, !tbaa !191
+  %32 = load ptr, ptr %6, align 8, !tbaa !187
+  %33 = load i64, ptr %26, align 8, !tbaa !192
   %34 = shl i64 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %2, ptr %36, align 1, !tbaa !18
-  %37 = load ptr, ptr %6, align 8, !tbaa !186
-  %38 = load i64, ptr %26, align 8, !tbaa !191
+  %37 = load ptr, ptr %6, align 8, !tbaa !187
+  %38 = load i64, ptr %26, align 8, !tbaa !192
   %39 = shl i64 %38, 2
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store i8 %3, ptr %41, align 1, !tbaa !18
-  %42 = load ptr, ptr %6, align 8, !tbaa !186
-  %43 = load i64, ptr %26, align 8, !tbaa !191
+  %42 = load ptr, ptr %6, align 8, !tbaa !187
+  %43 = load i64, ptr %26, align 8, !tbaa !192
   %44 = shl i64 %43, 2
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
   store i8 %4, ptr %46, align 1, !tbaa !18
-  %47 = load i64, ptr %26, align 8, !tbaa !191
+  %47 = load i64, ptr %26, align 8, !tbaa !192
   %48 = add i64 %47, 1
-  store i64 %48, ptr %26, align 8, !tbaa !191
+  store i64 %48, ptr %26, align 8, !tbaa !192
   br label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = %8, %24, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, %29
@@ -5760,9 +5760,9 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z15lodepng_get_bppPK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !185
+  %4 = load i32, ptr %3, align 4, !tbaa !186
   %5 = icmp ult i32 %2, 7
   br i1 %5, label %switch.lookup, label %_ZL19lodepng_get_bpp_lct16LodePNGColorTypej.exit
 
@@ -5780,7 +5780,7 @@ _ZL19lodepng_get_bpp_lct16LodePNGColorTypej.exit: ; preds = %1, %switch.lookup
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 5) i32 @_Z20lodepng_get_channelsPK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   %3 = icmp ult i32 %2, 7
   br i1 %3, label %switch.lookup, label %_ZL19getNumColorChannels16LodePNGColorType.exit
 
@@ -5797,7 +5797,7 @@ _ZL19getNumColorChannels16LodePNGColorType.exit:  ; preds = %1, %switch.lookup
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_Z25lodepng_is_greyscale_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   %3 = and i32 %2, -5
   %narrow = icmp eq i32 %3, 0
   %4 = zext i1 %narrow to i32
@@ -5806,7 +5806,7 @@ define noundef range(i32 0, 2) i32 @_Z25lodepng_is_greyscale_typePK16LodePNGColo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_Z21lodepng_is_alpha_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   %3 = lshr i32 %2, 2
   %.lobit = and i32 %3, 1
   ret i32 %.lobit
@@ -5814,7 +5814,7 @@ define noundef range(i32 0, 2) i32 @_Z21lodepng_is_alpha_typePK16LodePNGColorMod
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_Z23lodepng_is_palette_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   %3 = icmp eq i32 %2, 3
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -5823,20 +5823,20 @@ define noundef range(i32 0, 2) i32 @_Z23lodepng_is_palette_typePK16LodePNGColorM
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 2) i32 @_Z25lodepng_has_palette_alphaPK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !191
+  %3 = load i64, ptr %2, align 8, !tbaa !192
   %.not7 = icmp eq i64 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !186
+  %5 = load ptr, ptr %4, align 8, !tbaa !187
   %invariant.gep = getelementptr i8, ptr %5, i64 3
   br label %8
 
 6:                                                ; preds = %8
   %7 = add nuw i64 %.08, 1
   %.not = icmp eq i64 %7, %3
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !197
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !198
 
 8:                                                ; preds = %.lr.ph, %6
   %.08 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
@@ -5854,32 +5854,32 @@ define noundef range(i32 0, 2) i32 @_Z25lodepng_has_palette_alphaPK16LodePNGColo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 2) i32 @_Z22lodepng_can_have_alphaPK16LodePNGColorMode(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !198
+  %3 = load i32, ptr %2, align 8, !tbaa !199
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %_Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 8, !tbaa !182
+  %5 = load i32, ptr %0, align 8, !tbaa !183
   %6 = and i32 %5, 4
   %.not3 = icmp eq i32 %6, 0
   br i1 %.not3, label %7, label %_Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !191
+  %9 = load i64, ptr %8, align 8, !tbaa !192
   %.not7.i = icmp eq i64 %9, 0
   br i1 %.not7.i, label %_Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !186
+  %11 = load ptr, ptr %10, align 8, !tbaa !187
   %invariant.gep.i = getelementptr i8, ptr %11, i64 3
   br label %14
 
 12:                                               ; preds = %14
   %13 = add nuw i64 %.08.i, 1
   %.not.i = icmp eq i64 %13, %9
-  br i1 %.not.i, label %_Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit, label %14, !llvm.loop !197
+  br i1 %.not.i, label %_Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit, label %14, !llvm.loop !198
 
 14:                                               ; preds = %12, %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %12 ]
@@ -5896,9 +5896,9 @@ _Z25lodepng_has_palette_alphaPK16LodePNGColorMode.exit: ; preds = %14, %12, %7, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
-  %4 = load i32, ptr %2, align 8, !tbaa !182
+  %4 = load i32, ptr %2, align 8, !tbaa !183
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !185
+  %6 = load i32, ptr %5, align 4, !tbaa !186
   %7 = icmp ult i32 %4, 7
   br i1 %7, label %switch.lookup, label %_ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit
 
@@ -5935,15 +5935,15 @@ define noundef range(i32 0, 84) i32 @_Z16lodepng_add_textP11LodePNGInfoPKcS2_(pt
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !199
+  %6 = load ptr, ptr %5, align 8, !tbaa !200
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !203
+  %8 = load i64, ptr %7, align 8, !tbaa !204
   %9 = shl i64 %8, 3
   %10 = add i64 %9, 8
   %11 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %10) #32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !204
-  %14 = load i64, ptr %7, align 8, !tbaa !203
+  %13 = load ptr, ptr %12, align 8, !tbaa !205
+  %14 = load i64, ptr %7, align 8, !tbaa !204
   %15 = shl i64 %14, 3
   %16 = add i64 %15, 8
   %17 = tail call noalias noundef ptr @realloc(ptr noundef %13, i64 noundef %16) #32
@@ -5955,19 +5955,19 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sized
   br i1 %.not30, label %.thread, label %19
 
 .thread32:                                        ; preds = %4
-  store ptr %11, ptr %5, align 8, !tbaa !199
+  store ptr %11, ptr %5, align 8, !tbaa !200
   %.not3033 = icmp eq ptr %17, null
   br i1 %.not3033, label %.thread, label %20
 
 19:                                               ; preds = %18
-  store ptr %17, ptr %12, align 8, !tbaa !204
+  store ptr %17, ptr %12, align 8, !tbaa !205
   br label %.thread
 
 20:                                               ; preds = %.thread32
-  store ptr %17, ptr %12, align 8, !tbaa !204
-  %21 = load i64, ptr %7, align 8, !tbaa !203
+  store ptr %17, ptr %12, align 8, !tbaa !205
+  %21 = load i64, ptr %7, align 8, !tbaa !204
   %22 = add i64 %21, 1
-  store i64 %22, ptr %7, align 8, !tbaa !203
+  store i64 %22, ptr %7, align 8, !tbaa !204
   %strlen.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1)
   %23 = add i64 %strlen.i.i, 1
   %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #30
@@ -5979,7 +5979,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sized
   br i1 %.not.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !205
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !206
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %.lr.ph.preheader.i.i.i, %25
@@ -5988,7 +5988,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %.lr.ph.preheader.i.
   br label %_ZL12alloc_stringPKc.exit
 
 _ZL12alloc_stringPKc.exit:                        ; preds = %20, %_ZL14lodepng_memcpyPvPKvm.exit.i.i
-  %27 = load ptr, ptr %5, align 8, !tbaa !199
+  %27 = load ptr, ptr %5, align 8, !tbaa !200
   %28 = getelementptr ptr, ptr %27, i64 %22
   %29 = getelementptr i8, ptr %28, i64 -8
   store ptr %24, ptr %29, align 8, !tbaa !7
@@ -6002,7 +6002,7 @@ _ZL12alloc_stringPKc.exit:                        ; preds = %20, %_ZL14lodepng_m
   br i1 %.not.i.i28, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %2, i64 %3, i1 false), !tbaa !18, !alias.scope !209
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %2, i64 %3, i1 false), !tbaa !18, !alias.scope !210
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %32
@@ -6029,7 +6029,7 @@ _ZL18alloc_string_sizedPKcm.exit:                 ; preds = %_ZL12alloc_stringPK
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i64, ptr %2, align 8, !tbaa !203
+  %3 = load i64, ptr %2, align 8, !tbaa !204
   %.not8.i = icmp eq i64 %3, 0
   br i1 %.not8.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %.lr.ph.i
 
@@ -6040,27 +6040,27 @@ define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr noundef readonly captures(
 
 6:                                                ; preds = %6, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %6 ]
-  %7 = load ptr, ptr %4, align 8, !tbaa !199
+  %7 = load ptr, ptr %4, align 8, !tbaa !200
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.09.i
   %9 = load ptr, ptr %8, align 8, !tbaa !7
   tail call void @free(ptr noundef %9) #31
   store ptr null, ptr %8, align 8, !tbaa !7
-  %10 = load ptr, ptr %5, align 8, !tbaa !204
+  %10 = load ptr, ptr %5, align 8, !tbaa !205
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.09.i
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   tail call void @free(ptr noundef %12) #31
   store ptr null, ptr %11, align 8, !tbaa !7
   %13 = add i64 %.09.i, 1
-  %14 = load i64, ptr %2, align 8, !tbaa !203
+  %14 = load i64, ptr %2, align 8, !tbaa !204
   %.not.i = icmp eq i64 %13, %14
-  br i1 %.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %6, !llvm.loop !213
+  br i1 %.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %6, !llvm.loop !214
 
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %6, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !199
+  %16 = load ptr, ptr %15, align 8, !tbaa !200
   tail call void @free(ptr noundef %16) #31
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !204
+  %18 = load ptr, ptr %17, align 8, !tbaa !205
   tail call void @free(ptr noundef %18) #31
   ret void
 }
@@ -6074,7 +6074,7 @@ define void @_Z19lodepng_clear_itextP11LodePNGInfo(ptr noundef readonly captures
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i64, ptr %2, align 8, !tbaa !214
+  %3 = load i64, ptr %2, align 8, !tbaa !215
   %.not14 = icmp eq i64 %3, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -6087,43 +6087,43 @@ define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef
 
 8:                                                ; preds = %.lr.ph, %8
   %.015 = phi i64 [ 0, %.lr.ph ], [ %21, %8 ]
-  %9 = load ptr, ptr %4, align 8, !tbaa !215
+  %9 = load ptr, ptr %4, align 8, !tbaa !216
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.015
   %11 = load ptr, ptr %10, align 8, !tbaa !7
   tail call void @free(ptr noundef %11) #31
   store ptr null, ptr %10, align 8, !tbaa !7
-  %12 = load ptr, ptr %5, align 8, !tbaa !216
+  %12 = load ptr, ptr %5, align 8, !tbaa !217
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.015
   %14 = load ptr, ptr %13, align 8, !tbaa !7
   tail call void @free(ptr noundef %14) #31
   store ptr null, ptr %13, align 8, !tbaa !7
-  %15 = load ptr, ptr %6, align 8, !tbaa !217
+  %15 = load ptr, ptr %6, align 8, !tbaa !218
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.015
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   tail call void @free(ptr noundef %17) #31
   store ptr null, ptr %16, align 8, !tbaa !7
-  %18 = load ptr, ptr %7, align 8, !tbaa !218
+  %18 = load ptr, ptr %7, align 8, !tbaa !219
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.015
   %20 = load ptr, ptr %19, align 8, !tbaa !7
   tail call void @free(ptr noundef %20) #31
   store ptr null, ptr %19, align 8, !tbaa !7
   %21 = add i64 %.015, 1
-  %22 = load i64, ptr %2, align 8, !tbaa !214
+  %22 = load i64, ptr %2, align 8, !tbaa !215
   %.not = icmp eq i64 %21, %22
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !219
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %8, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load ptr, ptr %23, align 8, !tbaa !215
+  %24 = load ptr, ptr %23, align 8, !tbaa !216
   tail call void @free(ptr noundef %24) #31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !216
+  %26 = load ptr, ptr %25, align 8, !tbaa !217
   tail call void @free(ptr noundef %26) #31
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !217
+  %28 = load ptr, ptr %27, align 8, !tbaa !218
   tail call void @free(ptr noundef %28) #31
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %30 = load ptr, ptr %29, align 8, !tbaa !218
+  %30 = load ptr, ptr %29, align 8, !tbaa !219
   tail call void @free(ptr noundef %30) #31
   ret void
 }
@@ -6138,27 +6138,27 @@ define noundef range(i32 0, 84) i32 @_Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) unnamed_addr #12 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load ptr, ptr %7, align 8, !tbaa !215
+  %8 = load ptr, ptr %7, align 8, !tbaa !216
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load i64, ptr %9, align 8, !tbaa !214
+  %10 = load i64, ptr %9, align 8, !tbaa !215
   %11 = shl i64 %10, 3
   %12 = add i64 %11, 8
   %13 = tail call noalias noundef ptr @realloc(ptr noundef %8, i64 noundef %12) #32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !216
-  %16 = load i64, ptr %9, align 8, !tbaa !214
+  %15 = load ptr, ptr %14, align 8, !tbaa !217
+  %16 = load i64, ptr %9, align 8, !tbaa !215
   %17 = shl i64 %16, 3
   %18 = add i64 %17, 8
   %19 = tail call noalias noundef ptr @realloc(ptr noundef %15, i64 noundef %18) #32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %21 = load ptr, ptr %20, align 8, !tbaa !217
-  %22 = load i64, ptr %9, align 8, !tbaa !214
+  %21 = load ptr, ptr %20, align 8, !tbaa !218
+  %22 = load i64, ptr %9, align 8, !tbaa !215
   %23 = shl i64 %22, 3
   %24 = add i64 %23, 8
   %25 = tail call noalias noundef ptr @realloc(ptr noundef %21, i64 noundef %24) #32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %27 = load ptr, ptr %26, align 8, !tbaa !218
-  %28 = load i64, ptr %9, align 8, !tbaa !214
+  %27 = load ptr, ptr %26, align 8, !tbaa !219
+  %28 = load i64, ptr %9, align 8, !tbaa !215
   %29 = shl i64 %28, 3
   %30 = add i64 %29, 8
   %31 = tail call noalias noundef ptr @realloc(ptr noundef %27, i64 noundef %30) #32
@@ -6166,7 +6166,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %6
-  store ptr %13, ptr %7, align 8, !tbaa !215
+  store ptr %13, ptr %7, align 8, !tbaa !216
   br label %34
 
 34:                                               ; preds = %33, %6
@@ -6174,7 +6174,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
-  store ptr %19, ptr %14, align 8, !tbaa !216
+  store ptr %19, ptr %14, align 8, !tbaa !217
   br label %37
 
 37:                                               ; preds = %36, %34
@@ -6182,7 +6182,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
-  store ptr %25, ptr %20, align 8, !tbaa !217
+  store ptr %25, ptr %20, align 8, !tbaa !218
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -6190,15 +6190,15 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   br i1 %.not, label %.thread, label %41
 
 41:                                               ; preds = %40
-  store ptr %31, ptr %26, align 8, !tbaa !218
+  store ptr %31, ptr %26, align 8, !tbaa !219
   %or.cond = and i1 %32, %35
   %or.cond3 = and i1 %or.cond, %38
   br i1 %or.cond3, label %42, label %.thread
 
 42:                                               ; preds = %41
-  %43 = load i64, ptr %9, align 8, !tbaa !214
+  %43 = load i64, ptr %9, align 8, !tbaa !215
   %44 = add i64 %43, 1
-  store i64 %44, ptr %9, align 8, !tbaa !214
+  store i64 %44, ptr %9, align 8, !tbaa !215
   %strlen.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1)
   %45 = add i64 %strlen.i.i, 1
   %46 = tail call noalias noundef ptr @malloc(i64 noundef %45) #30
@@ -6210,7 +6210,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   br i1 %.not.i.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !220
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !221
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %.lr.ph.preheader.i.i.i, %47
@@ -6219,7 +6219,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %.lr.ph.preheader.i.
   br label %_ZL12alloc_stringPKc.exit
 
 _ZL12alloc_stringPKc.exit:                        ; preds = %42, %_ZL14lodepng_memcpyPvPKvm.exit.i.i
-  %49 = load ptr, ptr %7, align 8, !tbaa !215
+  %49 = load ptr, ptr %7, align 8, !tbaa !216
   %50 = getelementptr ptr, ptr %49, i64 %44
   %51 = getelementptr i8, ptr %50, i64 -8
   store ptr %46, ptr %51, align 8, !tbaa !7
@@ -6234,7 +6234,7 @@ _ZL12alloc_stringPKc.exit:                        ; preds = %42, %_ZL14lodepng_m
   br i1 %.not.i.i.i49, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i51, label %.lr.ph.preheader.i.i.i50
 
 .lr.ph.preheader.i.i.i50:                         ; preds = %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %2, i64 %strlen.i.i47, i1 false), !tbaa !18, !alias.scope !224
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %2, i64 %strlen.i.i47, i1 false), !tbaa !18, !alias.scope !225
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i51
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i51:             ; preds = %.lr.ph.preheader.i.i.i50, %54
@@ -6243,7 +6243,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i51:             ; preds = %.lr.ph.preheader.i.
   br label %_ZL12alloc_stringPKc.exit52
 
 _ZL12alloc_stringPKc.exit52:                      ; preds = %_ZL12alloc_stringPKc.exit, %_ZL14lodepng_memcpyPvPKvm.exit.i.i51
-  %56 = load ptr, ptr %14, align 8, !tbaa !216
+  %56 = load ptr, ptr %14, align 8, !tbaa !217
   %57 = getelementptr ptr, ptr %56, i64 %44
   %58 = getelementptr i8, ptr %57, i64 -8
   store ptr %53, ptr %58, align 8, !tbaa !7
@@ -6258,7 +6258,7 @@ _ZL12alloc_stringPKc.exit52:                      ; preds = %_ZL12alloc_stringPK
   br i1 %.not.i.i.i55, label %_ZL14lodepng_memcpyPvPKvm.exit.i.i57, label %.lr.ph.preheader.i.i.i56
 
 .lr.ph.preheader.i.i.i56:                         ; preds = %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull readonly align 1 %3, i64 %strlen.i.i53, i1 false), !tbaa !18, !alias.scope !228
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull readonly align 1 %3, i64 %strlen.i.i53, i1 false), !tbaa !18, !alias.scope !229
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i.i57
 
 _ZL14lodepng_memcpyPvPKvm.exit.i.i57:             ; preds = %.lr.ph.preheader.i.i.i56, %61
@@ -6267,7 +6267,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i57:             ; preds = %.lr.ph.preheader.i.
   br label %_ZL12alloc_stringPKc.exit58
 
 _ZL12alloc_stringPKc.exit58:                      ; preds = %_ZL12alloc_stringPKc.exit52, %_ZL14lodepng_memcpyPvPKvm.exit.i.i57
-  %63 = load ptr, ptr %20, align 8, !tbaa !217
+  %63 = load ptr, ptr %20, align 8, !tbaa !218
   %64 = getelementptr ptr, ptr %63, i64 %44
   %65 = getelementptr i8, ptr %64, i64 -8
   store ptr %60, ptr %65, align 8, !tbaa !7
@@ -6281,7 +6281,7 @@ _ZL12alloc_stringPKc.exit58:                      ; preds = %_ZL12alloc_stringPK
   br i1 %.not.i.i59, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr readonly align 1 %4, i64 %5, i1 false), !tbaa !18, !alias.scope !232
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr readonly align 1 %4, i64 %5, i1 false), !tbaa !18, !alias.scope !233
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %68
@@ -6303,7 +6303,7 @@ _ZL18alloc_string_sizedPKcm.exit:                 ; preds = %_ZL12alloc_stringPK
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %6 = load i32, ptr %5, align 4, !tbaa !236
+  %6 = load i32, ptr %5, align 4, !tbaa !237
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
 
@@ -6313,12 +6313,12 @@ define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(p
   tail call void @free(ptr noundef %9) #31
   store ptr null, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %11 = load ptr, ptr %10, align 8, !tbaa !237
+  %11 = load ptr, ptr %10, align 8, !tbaa !238
   tail call void @free(ptr noundef %11) #31
-  store ptr null, ptr %10, align 8, !tbaa !237
+  store ptr null, ptr %10, align 8, !tbaa !238
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 0, ptr %12, align 8, !tbaa !238
-  store i32 0, ptr %5, align 4, !tbaa !236
+  store i32 0, ptr %12, align 8, !tbaa !239
+  store i32 0, ptr %5, align 4, !tbaa !237
   br label %13
 
 13:                                               ; preds = %7, %4
@@ -6334,7 +6334,7 @@ define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(p
 
 _ZL12alloc_stringPKc.exit.thread:                 ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr null, ptr %18, align 8, !tbaa !239
+  store ptr null, ptr %18, align 8, !tbaa !240
   br label %28
 
 19:                                               ; preds = %15
@@ -6342,18 +6342,18 @@ _ZL12alloc_stringPKc.exit.thread:                 ; preds = %15
   br i1 %.not.i.i.i, label %20, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %strlen.i.i, i1 false), !tbaa !18, !alias.scope !241
   br label %20
 
 20:                                               ; preds = %.lr.ph.preheader.i.i.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %strlen.i.i
   store i8 0, ptr %21, align 1, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %17, ptr %22, align 8, !tbaa !239
+  store ptr %17, ptr %22, align 8, !tbaa !240
   %23 = zext i32 %3 to i64
   %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #30
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %24, ptr %25, align 8, !tbaa !237
+  store ptr %24, ptr %25, align 8, !tbaa !238
   %.not19 = icmp eq ptr %24, null
   br i1 %.not19, label %26, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -6362,10 +6362,10 @@ _ZL12alloc_stringPKc.exit.thread:                 ; preds = %15
   br label %28
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr readonly align 1 %2, i64 %23, i1 false), !tbaa !18, !alias.scope !244
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr readonly align 1 %2, i64 %23, i1 false), !tbaa !18, !alias.scope !245
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %3, ptr %27, align 8, !tbaa !238
-  store i32 1, ptr %5, align 4, !tbaa !236
+  store i32 %3, ptr %27, align 8, !tbaa !239
+  store i32 1, ptr %5, align 4, !tbaa !237
   br label %28
 
 28:                                               ; preds = %_ZL12alloc_stringPKc.exit.thread, %13, %_ZL14lodepng_memcpyPvPKvm.exit, %26
@@ -6380,37 +6380,37 @@ define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr noundef captures(none) init
   tail call void @free(ptr noundef %3) #31
   store ptr null, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %5 = load ptr, ptr %4, align 8, !tbaa !237
+  %5 = load ptr, ptr %4, align 8, !tbaa !238
   tail call void @free(ptr noundef %5) #31
-  store ptr null, ptr %4, align 8, !tbaa !237
+  store ptr null, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 0, ptr %6, align 8, !tbaa !238
+  store i32 0, ptr %6, align 8, !tbaa !239
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 0, ptr %7, align 4, !tbaa !236
+  store i32 0, ptr %7, align 4, !tbaa !237
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 84) i32 @_Z16lodepng_set_exifP11LodePNGInfoPKhj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load i32, ptr %4, align 8, !tbaa !248
+  %5 = load i32, ptr %4, align 8, !tbaa !249
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = load ptr, ptr %7, align 8, !tbaa !249
+  %8 = load ptr, ptr %7, align 8, !tbaa !250
   tail call void @free(ptr noundef %8) #31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %9, align 8, !tbaa !250
-  store i32 0, ptr %4, align 8, !tbaa !248
+  store i32 0, ptr %9, align 8, !tbaa !251
+  store i32 0, ptr %4, align 8, !tbaa !249
   br label %10
 
 10:                                               ; preds = %6, %3
   %11 = zext i32 %2 to i64
   %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %12, ptr %13, align 8, !tbaa !249
+  store ptr %12, ptr %13, align 8, !tbaa !250
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %16, label %14
 
@@ -6419,13 +6419,13 @@ define noundef range(i32 0, 84) i32 @_Z16lodepng_set_exifP11LodePNGInfoPKhj(ptr 
   br i1 %.not.i, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %11, i1 false), !tbaa !18, !alias.scope !251
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %11, i1 false), !tbaa !18, !alias.scope !252
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %14, %.lr.ph.preheader.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %2, ptr %15, align 8, !tbaa !250
-  store i32 1, ptr %4, align 8, !tbaa !248
+  store i32 %2, ptr %15, align 8, !tbaa !251
+  store i32 1, ptr %4, align 8, !tbaa !249
   br label %16
 
 16:                                               ; preds = %10, %_ZL14lodepng_memcpyPvPKvm.exit
@@ -6436,13 +6436,13 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %14, %.lr.ph.prehead
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z18lodepng_clear_exifP11LodePNGInfo(ptr noundef captures(none) initializes((136, 140), (152, 156)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %3 = load ptr, ptr %2, align 8, !tbaa !249
+  %3 = load ptr, ptr %2, align 8, !tbaa !250
   tail call void @free(ptr noundef %3) #31
-  store ptr null, ptr %2, align 8, !tbaa !249
+  store ptr null, ptr %2, align 8, !tbaa !250
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %4, align 8, !tbaa !250
+  store i32 0, ptr %4, align 8, !tbaa !251
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %5, align 8, !tbaa !248
+  store i32 0, ptr %5, align 8, !tbaa !249
   ret void
 }
 
@@ -6451,25 +6451,25 @@ define void @_Z17lodepng_info_initP11LodePNGInfo(ptr noundef writeonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i32 6, ptr %2, align 8, !tbaa !182
+  store i32 6, ptr %2, align 8, !tbaa !183
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 8, ptr %4, align 4, !tbaa !185
+  store i32 8, ptr %4, align 4, !tbaa !186
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %6, align 8, !tbaa !255
-  store i32 0, ptr %0, align 8, !tbaa !256
+  store i32 0, ptr %6, align 8, !tbaa !256
+  store i32 0, ptr %0, align 8, !tbaa !257
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %7, align 4, !tbaa !257
+  store i32 0, ptr %7, align 4, !tbaa !258
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %9, align 8, !tbaa !258
+  store i32 0, ptr %9, align 8, !tbaa !259
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 0, ptr %10, align 8, !tbaa !259
+  store i32 0, ptr %10, align 8, !tbaa !260
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i32 0, ptr %11, align 8, !tbaa !260
+  store i32 0, ptr %11, align 8, !tbaa !261
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  store i32 0, ptr %12, align 4, !tbaa !261
+  store i32 0, ptr %12, align 4, !tbaa !262
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6485,7 +6485,7 @@ define void @_Z17lodepng_info_initP11LodePNGInfo(ptr noundef writeonly captures(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef captures(none) initializes((32, 40)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %4
 
@@ -6496,7 +6496,7 @@ define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef captures(none) i
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load i64, ptr %5, align 8, !tbaa !203
+  %6 = load i64, ptr %5, align 8, !tbaa !204
   %.not8.i = icmp eq i64 %6, 0
   br i1 %.not8.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %.lr.ph.i
 
@@ -6507,27 +6507,27 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
 
 9:                                                ; preds = %9, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %9 ]
-  %10 = load ptr, ptr %7, align 8, !tbaa !199
+  %10 = load ptr, ptr %7, align 8, !tbaa !200
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.09.i
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   tail call void @free(ptr noundef %12) #31
   store ptr null, ptr %11, align 8, !tbaa !7
-  %13 = load ptr, ptr %8, align 8, !tbaa !204
+  %13 = load ptr, ptr %8, align 8, !tbaa !205
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   tail call void @free(ptr noundef %15) #31
   store ptr null, ptr %14, align 8, !tbaa !7
   %16 = add i64 %.09.i, 1
-  %17 = load i64, ptr %5, align 8, !tbaa !203
+  %17 = load i64, ptr %5, align 8, !tbaa !204
   %.not.i = icmp eq i64 %16, %17
-  br i1 %.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %9, !llvm.loop !213
+  br i1 %.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %9, !llvm.loop !214
 
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !199
+  %19 = load ptr, ptr %18, align 8, !tbaa !200
   tail call void @free(ptr noundef %19) #31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = load ptr, ptr %20, align 8, !tbaa !204
+  %21 = load ptr, ptr %20, align 8, !tbaa !205
   tail call void @free(ptr noundef %21) #31
   tail call fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef nonnull %0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -6535,21 +6535,21 @@ _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_col
   tail call void @free(ptr noundef %23) #31
   store ptr null, ptr %22, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %25 = load ptr, ptr %24, align 8, !tbaa !237
+  %25 = load ptr, ptr %24, align 8, !tbaa !238
   tail call void @free(ptr noundef %25) #31
-  store ptr null, ptr %24, align 8, !tbaa !237
+  store ptr null, ptr %24, align 8, !tbaa !238
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 0, ptr %26, align 8, !tbaa !238
+  store i32 0, ptr %26, align 8, !tbaa !239
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 0, ptr %27, align 4, !tbaa !236
+  store i32 0, ptr %27, align 4, !tbaa !237
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %29 = load ptr, ptr %28, align 8, !tbaa !249
+  %29 = load ptr, ptr %28, align 8, !tbaa !250
   tail call void @free(ptr noundef %29) #31
-  store ptr null, ptr %28, align 8, !tbaa !249
+  store ptr null, ptr %28, align 8, !tbaa !250
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %30, align 8, !tbaa !250
+  store i32 0, ptr %30, align 8, !tbaa !251
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %31, align 8, !tbaa !248
+  store i32 0, ptr %31, align 8, !tbaa !249
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 376
   br label %33
 
@@ -6560,7 +6560,7 @@ _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_col
   tail call void @free(ptr noundef %35) #31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i6 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i6, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit, label %33, !llvm.loop !262
+  br i1 %.not.i6, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit, label %33, !llvm.loop !263
 
 _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit: ; preds = %33
   ret void
@@ -6570,28 +6570,28 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit: ; preds = %33
 define noundef range(i32 0, 101) i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i:
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef %0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %0, ptr noundef nonnull readonly align 1 dereferenceable(424) %1, i64 424, i1 false), !tbaa !18, !alias.scope !263
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %0, ptr noundef nonnull readonly align 1 dereferenceable(424) %1, i64 424, i1 false), !tbaa !18, !alias.scope !264
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i32 6, ptr %2, align 8, !tbaa !182
+  store i32 6, ptr %2, align 8, !tbaa !183
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 8, ptr %4, align 4, !tbaa !185
+  store i32 8, ptr %4, align 4, !tbaa !186
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef nonnull readonly align 1 dereferenceable(40) %6, i64 40, i1 false), !tbaa !18, !alias.scope !267
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef nonnull readonly align 1 dereferenceable(40) %6, i64 40, i1 false), !tbaa !18, !alias.scope !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !186
+  %8 = load ptr, ptr %7, align 8, !tbaa !187
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %9
 
 9:                                                ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
   %10 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %10, ptr %5, align 8, !tbaa !186
+  store ptr %10, ptr %5, align 8, !tbaa !187
   %.not10.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !191
+  %12 = load i64, ptr %11, align 8, !tbaa !192
   br i1 %.not10.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %13
 
 13:                                               ; preds = %9
@@ -6600,8 +6600,8 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i:
   br i1 %.not.i.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %13
-  %15 = load ptr, ptr %7, align 8, !tbaa !186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr readonly align 1 %15, i64 %14, i1 false), !tbaa !18, !alias.scope !271
+  %15 = load ptr, ptr %7, align 8, !tbaa !187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr readonly align 1 %15, i64 %14, i1 false), !tbaa !18, !alias.scope !272
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %9
@@ -6613,7 +6613,7 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %19 = load i64, ptr %18, align 8, !tbaa !203
+  %19 = load i64, ptr %18, align 8, !tbaa !204
   %.not18.i = icmp eq i64 %19, 0
   br i1 %.not18.i, label %.loopexit102, label %.lr.ph.i
 
@@ -6623,16 +6623,16 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
 
 21:                                               ; preds = %24
   %22 = add i64 %.01519.i, 1
-  %23 = load i64, ptr %18, align 8, !tbaa !203
+  %23 = load i64, ptr %18, align 8, !tbaa !204
   %.not.i69 = icmp eq i64 %22, %23
-  br i1 %.not.i69, label %.loopexit102, label %24, !llvm.loop !275
+  br i1 %.not.i69, label %.loopexit102, label %24, !llvm.loop !276
 
 24:                                               ; preds = %21, %.lr.ph.i
   %.01519.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %21 ]
-  %25 = load ptr, ptr %17, align 8, !tbaa !199
+  %25 = load ptr, ptr %17, align 8, !tbaa !200
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01519.i
   %27 = load ptr, ptr %26, align 8, !tbaa !7
-  %28 = load ptr, ptr %20, align 8, !tbaa !204
+  %28 = load ptr, ptr %20, align 8, !tbaa !205
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.01519.i
   %30 = load ptr, ptr %29, align 8, !tbaa !7
   %strlen.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30)
@@ -6645,7 +6645,7 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false)
-  %35 = load i64, ptr %34, align 8, !tbaa !214
+  %35 = load i64, ptr %34, align 8, !tbaa !215
   %.not24.i = icmp eq i64 %35, 0
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i70
 
@@ -6657,22 +6657,22 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
 
 39:                                               ; preds = %42
   %40 = add i64 %.02125.i, 1
-  %41 = load i64, ptr %34, align 8, !tbaa !214
+  %41 = load i64, ptr %34, align 8, !tbaa !215
   %.not.i73 = icmp eq i64 %40, %41
-  br i1 %.not.i73, label %.loopexit, label %42, !llvm.loop !276
+  br i1 %.not.i73, label %.loopexit, label %42, !llvm.loop !277
 
 42:                                               ; preds = %39, %.lr.ph.i70
   %.02125.i = phi i64 [ 0, %.lr.ph.i70 ], [ %40, %39 ]
-  %43 = load ptr, ptr %33, align 8, !tbaa !215
+  %43 = load ptr, ptr %33, align 8, !tbaa !216
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.02125.i
   %45 = load ptr, ptr %44, align 8, !tbaa !7
-  %46 = load ptr, ptr %36, align 8, !tbaa !216
+  %46 = load ptr, ptr %36, align 8, !tbaa !217
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.02125.i
   %48 = load ptr, ptr %47, align 8, !tbaa !7
-  %49 = load ptr, ptr %37, align 8, !tbaa !217
+  %49 = load ptr, ptr %37, align 8, !tbaa !218
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.02125.i
   %51 = load ptr, ptr %50, align 8, !tbaa !7
-  %52 = load ptr, ptr %38, align 8, !tbaa !218
+  %52 = load ptr, ptr %38, align 8, !tbaa !219
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.02125.i
   %54 = load ptr, ptr %53, align 8, !tbaa !7
   %strlen.i.i.i71 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54)
@@ -6682,40 +6682,40 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
 
 .loopexit:                                        ; preds = %39, %.loopexit102
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %57 = load i32, ptr %56, align 4, !tbaa !236
+  %57 = load i32, ptr %56, align 4, !tbaa !237
   %.not54 = icmp eq i32 %57, 0
   br i1 %.not54, label %67, label %58
 
 58:                                               ; preds = %.loopexit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 0, ptr %59, align 4, !tbaa !236
+  store i32 0, ptr %59, align 4, !tbaa !237
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %61 = load ptr, ptr %60, align 8, !tbaa !239
+  %61 = load ptr, ptr %60, align 8, !tbaa !240
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %63 = load ptr, ptr %62, align 8, !tbaa !237
+  %63 = load ptr, ptr %62, align 8, !tbaa !238
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %65 = load i32, ptr %64, align 8, !tbaa !238
+  %65 = load i32, ptr %64, align 8, !tbaa !239
   %66 = tail call noundef i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %63, i32 noundef %65)
   %.not55.not = icmp eq i32 %66, 0
   br i1 %.not55.not, label %67, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit
 
 67:                                               ; preds = %58, %.loopexit
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %69 = load i32, ptr %68, align 8, !tbaa !248
+  %69 = load i32, ptr %68, align 8, !tbaa !249
   %.not56 = icmp eq i32 %69, 0
   br i1 %.not56, label %81, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %71, align 8, !tbaa !248
+  store i32 0, ptr %71, align 8, !tbaa !249
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %73 = load ptr, ptr %72, align 8, !tbaa !249
+  %73 = load ptr, ptr %72, align 8, !tbaa !250
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %75 = load i32, ptr %74, align 8, !tbaa !250
+  %75 = load i32, ptr %74, align 8, !tbaa !251
   %76 = zext i32 %75 to i64
   %77 = tail call noalias noundef ptr @malloc(i64 noundef %76) #30
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %77, ptr %78, align 8, !tbaa !249
+  store ptr %77, ptr %78, align 8, !tbaa !250
   %.not12.i = icmp eq ptr %77, null
   br i1 %.not12.i, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit, label %79
 
@@ -6724,13 +6724,13 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
   br i1 %.not.i.i75, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread, label %.lr.ph.preheader.i.i76
 
 .lr.ph.preheader.i.i76:                           ; preds = %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %73, i64 %76, i1 false), !tbaa !18, !alias.scope !277
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %73, i64 %76, i1 false), !tbaa !18, !alias.scope !278
   br label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread
 
 _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread: ; preds = %79, %.lr.ph.preheader.i.i76
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %75, ptr %80, align 8, !tbaa !250
-  store i32 1, ptr %71, align 8, !tbaa !248
+  store i32 %75, ptr %80, align 8, !tbaa !251
+  store i32 1, ptr %71, align 8, !tbaa !249
   br label %81
 
 81:                                               ; preds = %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread, %67
@@ -6745,7 +6745,7 @@ _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread: ; preds = %79, %.lr.ph.prehe
   tail call void @free(ptr noundef %85) #31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i78 = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %.not.i.i78, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader.i, label %83, !llvm.loop !262
+  br i1 %.not.i.i78, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader.i, label %83, !llvm.loop !263
 
 _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader.i: ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 400
@@ -6785,12 +6785,12 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader.i: ; preds = %83
   %102 = add nuw i64 %.02631.i, 1
   %103 = load i64, ptr %90, align 8, !tbaa !3
   %104 = icmp ult i64 %102, %103
-  br i1 %104, label %96, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i, !llvm.loop !281
+  br i1 %104, label %96, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i, !llvm.loop !282
 
 _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i: ; preds = %96, %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.i81 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not.i81, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit, label %89, !llvm.loop !282
+  br i1 %.not.i81, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit, label %89, !llvm.loop !283
 
 _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit:      ; preds = %24, %42, %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i, %89, %70, %58, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
   %.1 = phi i32 [ %66, %58 ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ 83, %70 ], [ 83, %89 ], [ 0, %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i ], [ %55, %42 ], [ %31, %24 ]
@@ -6812,34 +6812,34 @@ define noundef range(i32 0, 108) i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorMo
   %16 = zext i32 %4 to i64
   %17 = zext i32 %5 to i64
   %18 = mul nuw i64 %17, %16
-  %19 = load i32, ptr %3, align 8, !tbaa !182
+  %19 = load i32, ptr %3, align 8, !tbaa !183
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !186
+  %23 = load ptr, ptr %22, align 8, !tbaa !187
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %24
 
 24:                                               ; preds = %21, %6
-  %25 = load i32, ptr %2, align 8, !tbaa !182
+  %25 = load i32, ptr %2, align 8, !tbaa !183
   %.not.i = icmp eq i32 %25, %19
   br i1 %.not.i, label %26, label %.loopexit123
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !185
+  %28 = load i32, ptr %27, align 4, !tbaa !186
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !185
+  %30 = load i32, ptr %29, align 4, !tbaa !186
   %.not24.i = icmp eq i32 %28, %30
   br i1 %.not24.i, label %31, label %.loopexit123
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !198
+  %33 = load i32, ptr %32, align 8, !tbaa !199
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !198
+  %35 = load i32, ptr %34, align 8, !tbaa !199
   %.not25.i = icmp eq i32 %33, %35
   br i1 %.not25.i, label %36, label %.loopexit123
 
@@ -6849,33 +6849,33 @@ define noundef range(i32 0, 108) i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorMo
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %39 = load i32, ptr %38, align 4, !tbaa !283
+  %39 = load i32, ptr %38, align 4, !tbaa !284
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %41 = load i32, ptr %40, align 4, !tbaa !283
+  %41 = load i32, ptr %40, align 4, !tbaa !284
   %.not27.i = icmp eq i32 %39, %41
   br i1 %.not27.i, label %42, label %.loopexit123
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %44 = load i32, ptr %43, align 8, !tbaa !284
+  %44 = load i32, ptr %43, align 8, !tbaa !285
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !284
+  %46 = load i32, ptr %45, align 8, !tbaa !285
   %.not28.i = icmp eq i32 %44, %46
   br i1 %.not28.i, label %47, label %.loopexit123
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !285
+  %49 = load i32, ptr %48, align 4, !tbaa !286
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %51 = load i32, ptr %50, align 4, !tbaa !285
+  %51 = load i32, ptr %50, align 4, !tbaa !286
   %.not29.i = icmp eq i32 %49, %51
   br i1 %.not29.i, label %52, label %.loopexit123
 
 52:                                               ; preds = %47, %36
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !191
+  %54 = load i64, ptr %53, align 8, !tbaa !192
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !191
+  %56 = load i64, ptr %55, align 8, !tbaa !192
   %.not30.i = icmp eq i64 %54, %56
   br i1 %.not30.i, label %.preheader.i, label %.loopexit123
 
@@ -6886,15 +6886,15 @@ define noundef range(i32 0, 108) i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorMo
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !186
+  %59 = load ptr, ptr %58, align 8, !tbaa !187
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !186
+  %61 = load ptr, ptr %60, align 8, !tbaa !187
   br label %64
 
 62:                                               ; preds = %64
   %63 = add nuw i64 %.034.i, 1
   %.not31.i = icmp eq i64 %63, %57
-  br i1 %.not31.i, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit, label %64, !llvm.loop !286
+  br i1 %.not31.i, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit, label %64, !llvm.loop !287
 
 64:                                               ; preds = %62, %.lr.ph.i
   %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %62 ]
@@ -6930,7 +6930,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   br i1 %.not.i100, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %1, i64 %79, i1 false), !tbaa !18, !alias.scope !287
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %1, i64 %79, i1 false), !tbaa !18, !alias.scope !288
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 .loopexit123:                                     ; preds = %64, %24, %26, %31, %37, %42, %47, %52
@@ -6939,9 +6939,9 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
 
 81:                                               ; preds = %.loopexit123
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !191
+  %83 = load i64, ptr %82, align 8, !tbaa !192
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !185
+  %85 = load i32, ptr %84, align 4, !tbaa !186
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw i64 1, %86
   %88 = icmp eq i64 %83, 0
@@ -6949,23 +6949,23 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
 
 .thread137:                                       ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !186
+  %90 = load ptr, ptr %89, align 8, !tbaa !187
   %spec.select140 = tail call i64 @llvm.umin.i64(i64 %83, i64 %87)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !291
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !292
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 -1, ptr %91, align 8, !tbaa !294
+  store i32 -1, ptr %91, align 8, !tbaa !295
   br label %.lr.ph.preheader
 
 92:                                               ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %94 = load i64, ptr %93, align 8, !tbaa !191
+  %94 = load i64, ptr %93, align 8, !tbaa !192
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !186
+  %96 = load ptr, ptr %95, align 8, !tbaa !187
   br i1 %20, label %97, label %103
 
 97:                                               ; preds = %92
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !185
+  %99 = load i32, ptr %98, align 4, !tbaa !186
   %100 = icmp eq i32 %99, %85
   br i1 %100, label %101, label %103
 
@@ -6975,14 +6975,14 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   br i1 %.not.i101, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.preheader.i102
 
 .lr.ph.preheader.i102:                            ; preds = %101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %1, i64 %102, i1 false), !tbaa !18, !alias.scope !296
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %1, i64 %102, i1 false), !tbaa !18, !alias.scope !297
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 103:                                              ; preds = %92, %97
   %spec.select = tail call i64 @llvm.umin.i64(i64 %94, i64 %87)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !291
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !292
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 -1, ptr %104, align 8, !tbaa !294
+  store i32 -1, ptr %104, align 8, !tbaa !295
   %.not94125 = icmp eq i64 %94, 0
   br i1 %.not94125, label %.thread, label %.lr.ph.preheader
 
@@ -7028,42 +7028,42 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   %133 = or disjoint i32 %132, %128
   %134 = zext nneg i32 %133 to i64
   %135 = getelementptr inbounds nuw [16 x ptr], ptr %.02533.i, i64 0, i64 %134
-  %136 = load ptr, ptr %135, align 8, !tbaa !300
+  %136 = load ptr, ptr %135, align 8, !tbaa !301
   %.not.i104 = icmp eq ptr %136, null
   br i1 %.not.i104, label %137, label %141
 
 137:                                              ; preds = %119
   %138 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
-  store ptr %138, ptr %135, align 8, !tbaa !300
+  store ptr %138, ptr %135, align 8, !tbaa !301
   %.not28.i105 = icmp eq ptr %138, null
   br i1 %.not28.i105, label %.loopexit, label %139
 
 139:                                              ; preds = %137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %138, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !302
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %138, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !303
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 128
-  store i32 -1, ptr %140, align 8, !tbaa !294
-  %.pre.i = load ptr, ptr %135, align 8, !tbaa !300
+  store i32 -1, ptr %140, align 8, !tbaa !295
+  %.pre.i = load ptr, ptr %135, align 8, !tbaa !301
   br label %141
 
 141:                                              ; preds = %139, %119
   %142 = phi ptr [ %136, %119 ], [ %.pre.i, %139 ]
   %143 = add nuw nsw i32 %.02434.i, 1
   %exitcond.not.i = icmp eq i32 %143, 8
-  br i1 %exitcond.not.i, label %144, label %119, !llvm.loop !305
+  br i1 %exitcond.not.i, label %144, label %119, !llvm.loop !306
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 128
-  store i32 %114, ptr %145, align 8, !tbaa !294
+  store i32 %114, ptr %145, align 8, !tbaa !295
   %146 = add i64 %.080126, 1
   %.not94 = icmp eq i64 %146, %spec.select143
-  br i1 %.not94, label %.thread, label %.lr.ph, !llvm.loop !306
+  br i1 %.not94, label %.thread, label %.lr.ph, !llvm.loop !307
 
 .thread:                                          ; preds = %144, %103, %.loopexit123
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %148 = load i32, ptr %147, align 4, !tbaa !185
+  %148 = load i32, ptr %147, align 4, !tbaa !186
   %149 = icmp eq i32 %148, 16
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %151 = load i32, ptr %150, align 4, !tbaa !185
+  %151 = load i32, ptr %150, align 4, !tbaa !186
   %152 = icmp eq i32 %151, 16
   %or.cond = select i1 %149, i1 %152, i1 false
   br i1 %or.cond, label %.preheader, label %.thread._crit_edge
@@ -7087,7 +7087,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   %154 = load i16, ptr %9, align 2, !tbaa !88
   %155 = load i16, ptr %10, align 2, !tbaa !88
   %156 = load i16, ptr %11, align 2, !tbaa !88
-  %.val = load i32, ptr %2, align 8, !tbaa !182
+  %.val = load i32, ptr %2, align 8, !tbaa !183
   switch i32 %.val, label %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit [
     i32 0, label %157
     i32 2, label %164
@@ -7188,7 +7188,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #31
   %215 = add nuw i64 %.181132, 1
   %.not99 = icmp eq i64 %215, %18
-  br i1 %.not99, label %.loopexit, label %.lr.ph133, !llvm.loop !307
+  br i1 %.not99, label %.loopexit, label %.lr.ph133, !llvm.loop !308
 
 .thread._crit_edge:                               ; preds = %.thread
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -7228,7 +7228,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
   %223 = load i8, ptr %13, align 1, !tbaa !18
   %224 = load i8, ptr %14, align 1, !tbaa !18
   %225 = load i8, ptr %15, align 1, !tbaa !18
-  %226 = load i32, ptr %2, align 8, !tbaa !182
+  %226 = load i32, ptr %2, align 8, !tbaa !183
   switch i32 %226, label %373 [
     i32 0, label %227
     i32 2, label %265
@@ -7238,7 +7238,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
   ]
 
 227:                                              ; preds = %.lr.ph129
-  %228 = load i32, ptr %216, align 4, !tbaa !185
+  %228 = load i32, ptr %216, align 4, !tbaa !186
   switch i32 %228, label %235 [
     i32 8, label %229
     i32 16, label %231
@@ -7297,7 +7297,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
   br label %373
 
 265:                                              ; preds = %.lr.ph129
-  %266 = load i32, ptr %216, align 4, !tbaa !185
+  %266 = load i32, ptr %216, align 4, !tbaa !186
   %267 = icmp eq i32 %266, 8
   br i1 %267, label %268, label %273
 
@@ -7337,7 +7337,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
 286:                                              ; preds = %288
   %287 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %287, 8
-  br i1 %exitcond.not.i.i, label %_ZL14color_tree_getP9ColorTreehhhh.exit.i, label %288, !llvm.loop !308
+  br i1 %exitcond.not.i.i, label %_ZL14color_tree_getP9ColorTreehhhh.exit.i, label %288, !llvm.loop !309
 
 288:                                              ; preds = %286, %281
   %.01824.i.i = phi i32 [ 0, %281 ], [ %287, %286 ]
@@ -7358,18 +7358,18 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph133, %157, 
   %302 = or disjoint i32 %301, %297
   %303 = zext nneg i32 %302 to i64
   %304 = getelementptr inbounds nuw [16 x ptr], ptr %.01923.i.i, i64 0, i64 %303
-  %305 = load ptr, ptr %304, align 8, !tbaa !300
+  %305 = load ptr, ptr %304, align 8, !tbaa !301
   %.not.not.i.i = icmp eq ptr %305, null
   br i1 %.not.not.i.i, label %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, label %286
 
 _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %286
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 128
-  %307 = load i32, ptr %306, align 8, !tbaa !294
+  %307 = load i32, ptr %306, align 8, !tbaa !295
   %308 = icmp slt i32 %307, 0
   br i1 %308, label %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, label %309
 
 309:                                              ; preds = %_ZL14color_tree_getP9ColorTreehhhh.exit.i
-  %310 = load i32, ptr %216, align 4, !tbaa !185
+  %310 = load i32, ptr %216, align 4, !tbaa !186
   %311 = icmp eq i32 %310, 8
   br i1 %311, label %312, label %315
 
@@ -7416,7 +7416,7 @@ _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %286
   br label %373
 
 342:                                              ; preds = %.lr.ph129
-  %343 = load i32, ptr %216, align 4, !tbaa !185
+  %343 = load i32, ptr %216, align 4, !tbaa !186
   switch i32 %343, label %373 [
     i32 8, label %344
     i32 16, label %348
@@ -7443,7 +7443,7 @@ _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %286
   br label %373
 
 354:                                              ; preds = %.lr.ph129
-  %355 = load i32, ptr %216, align 4, !tbaa !185
+  %355 = load i32, ptr %216, align 4, !tbaa !186
   %356 = icmp eq i32 %355, 8
   br i1 %356, label %357, label %363
 
@@ -7482,7 +7482,7 @@ _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %286
 373:                                              ; preds = %257, %251, %.lr.ph129, %344, %348, %342, %229, %231, %273, %268, %357, %363, %312, %328, %334
   %374 = add nuw i64 %.2128, 1
   %.not97 = icmp eq i64 %374, %18
-  br i1 %.not97, label %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, label %.lr.ph129, !llvm.loop !309
+  br i1 %.not97, label %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, label %.lr.ph129, !llvm.loop !310
 
 _ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit: ; preds = %373, %_ZL14color_tree_getP9ColorTreehhhh.exit.i, %288, %221
   %.6 = phi i32 [ 0, %221 ], [ 82, %288 ], [ 0, %373 ], [ 82, %_ZL14color_tree_getP9ColorTreehhhh.exit.i ]
@@ -7494,7 +7494,7 @@ _ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit: ; preds = %373, %_
 
 .loopexit:                                        ; preds = %137, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit, %.preheader, %220, %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, %219
   %.4 = phi i32 [ 0, %219 ], [ 0, %220 ], [ %.6, %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit ], [ 0, %.preheader ], [ 0, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit ], [ 83, %137 ]
-  %375 = load i32, ptr %2, align 8, !tbaa !182
+  %375 = load i32, ptr %2, align 8, !tbaa !183
   %376 = icmp eq i32 %375, 3
   br i1 %376, label %377, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -7510,24 +7510,24 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %101, %.lr.ph.prehea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 {
-  %3 = load i32, ptr %0, align 8, !tbaa !182
-  %4 = load i32, ptr %1, align 8, !tbaa !182
+  %3 = load i32, ptr %0, align 8, !tbaa !183
+  %4 = load i32, ptr %1, align 8, !tbaa !183
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !185
+  %7 = load i32, ptr %6, align 4, !tbaa !186
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !185
+  %9 = load i32, ptr %8, align 4, !tbaa !186
   %.not24 = icmp eq i32 %7, %9
   br i1 %.not24, label %10, label %.loopexit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !198
+  %12 = load i32, ptr %11, align 8, !tbaa !199
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !198
+  %14 = load i32, ptr %13, align 8, !tbaa !199
   %.not25 = icmp eq i32 %12, %14
   br i1 %.not25, label %15, label %.loopexit
 
@@ -7537,33 +7537,33 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equa
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4, !tbaa !283
+  %18 = load i32, ptr %17, align 4, !tbaa !284
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !283
+  %20 = load i32, ptr %19, align 4, !tbaa !284
   %.not27 = icmp eq i32 %18, %20
   br i1 %.not27, label %21, label %.loopexit
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load i32, ptr %22, align 8, !tbaa !284
+  %23 = load i32, ptr %22, align 8, !tbaa !285
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load i32, ptr %24, align 8, !tbaa !284
+  %25 = load i32, ptr %24, align 8, !tbaa !285
   %.not28 = icmp eq i32 %23, %25
   br i1 %.not28, label %26, label %.loopexit
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !285
+  %28 = load i32, ptr %27, align 4, !tbaa !286
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %30 = load i32, ptr %29, align 4, !tbaa !285
+  %30 = load i32, ptr %29, align 4, !tbaa !286
   %.not29 = icmp eq i32 %28, %30
   br i1 %.not29, label %31, label %.loopexit
 
 31:                                               ; preds = %26, %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !191
+  %33 = load i64, ptr %32, align 8, !tbaa !192
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !191
+  %35 = load i64, ptr %34, align 8, !tbaa !192
   %.not30 = icmp eq i64 %33, %35
   br i1 %.not30, label %.preheader, label %.loopexit
 
@@ -7574,15 +7574,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equa
 
 .lr.ph:                                           ; preds = %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !186
+  %38 = load ptr, ptr %37, align 8, !tbaa !187
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !186
+  %40 = load ptr, ptr %39, align 8, !tbaa !187
   br label %43
 
 41:                                               ; preds = %43
   %42 = add nuw i64 %.034, 1
   %.not31 = icmp eq i64 %42, %36
-  br i1 %.not31, label %.loopexit, label %43, !llvm.loop !286
+  br i1 %.not31, label %.loopexit, label %43, !llvm.loop !287
 
 43:                                               ; preds = %.lr.ph, %41
   %.034 = phi i64 [ 0, %.lr.ph ], [ %42, %41 ]
@@ -7600,7 +7600,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #15 {
-  %8 = load i32, ptr %6, align 8, !tbaa !182
+  %8 = load i32, ptr %6, align 8, !tbaa !183
   switch i32 %8, label %143 [
     i32 0, label %9
     i32 2, label %32
@@ -7622,7 +7622,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   store i16 %18, ptr %1, align 2, !tbaa !88
   store i16 %18, ptr %0, align 2, !tbaa !88
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !198
+  %20 = load i32, ptr %19, align 8, !tbaa !199
   %.not83 = icmp eq i32 %20, 0
   br i1 %.not83, label %31, label %21
 
@@ -7634,7 +7634,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %29 = load i32, ptr %28, align 4, !tbaa !283
+  %29 = load i32, ptr %28, align 4, !tbaa !284
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %.sink.split, label %31
 
@@ -7671,7 +7671,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   %57 = or disjoint i16 %53, %56
   store i16 %57, ptr %2, align 2, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %59 = load i32, ptr %58, align 8, !tbaa !198
+  %59 = load i32, ptr %58, align 8, !tbaa !199
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %90, label %60
 
@@ -7683,7 +7683,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %63, %65
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %68 = load i32, ptr %67, align 4, !tbaa !283
+  %68 = load i32, ptr %67, align 4, !tbaa !284
   %69 = icmp eq i32 %66, %68
   br i1 %69, label %70, label %90
 
@@ -7695,7 +7695,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   %75 = zext i8 %74 to i32
   %76 = or disjoint i32 %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %78 = load i32, ptr %77, align 8, !tbaa !284
+  %78 = load i32, ptr %77, align 8, !tbaa !285
   %79 = icmp eq i32 %76, %78
   br i1 %79, label %80, label %90
 
@@ -7707,7 +7707,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   %85 = zext i8 %84 to i32
   %86 = or disjoint i32 %83, %85
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %88 = load i32, ptr %87, align 4, !tbaa !285
+  %88 = load i32, ptr %87, align 4, !tbaa !286
   %89 = icmp eq i32 %86, %88
   br i1 %89, label %.sink.split, label %90
 
@@ -7787,7 +7787,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(ptr noalias noundef %0, i64 noundef range(i64 0, -8589934590) %1, ptr noalias noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #16 {
-  %5 = load i32, ptr %3, align 8, !tbaa !182
+  %5 = load i32, ptr %3, align 8, !tbaa !183
   switch i32 %5, label %_ZL14lodepng_memcpyPvPKvm.exit [
     i32 0, label %6
     i32 2, label %90
@@ -7798,7 +7798,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !185
+  %8 = load i32, ptr %7, align 4, !tbaa !186
   switch i32 %8, label %54 [
     i32 8, label %.preheader
     i32 16, label %.preheader237
@@ -7810,7 +7810,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
 
 .lr.ph292:                                        ; preds = %.preheader237
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !198
+  %10 = load i32, ptr %9, align 8, !tbaa !199
   %.not217 = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %33
@@ -7834,11 +7834,11 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %17 = add nuw i64 %.0189294, 1
   %18 = getelementptr inbounds nuw i8, ptr %.0295, i64 4
   %.not218 = icmp eq i64 %17, %1
-  br i1 %.not218, label %._crit_edge297.thread, label %.lr.ph296, !llvm.loop !310
+  br i1 %.not218, label %._crit_edge297.thread, label %.lr.ph296, !llvm.loop !311
 
 ._crit_edge297.thread:                            ; preds = %.lr.ph296
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !198
+  %20 = load i32, ptr %19, align 8, !tbaa !199
   %.not219326 = icmp eq i32 %20, 0
   br i1 %.not219326, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph303
 
@@ -7853,7 +7853,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %.1190300 = phi i64 [ 0, %.lr.ph303 ], [ %31, %30 ]
   %24 = load i8, ptr %.1301, align 1, !tbaa !18
   %25 = zext i8 %24 to i32
-  %26 = load i32, ptr %22, align 4, !tbaa !283
+  %26 = load i32, ptr %22, align 4, !tbaa !284
   %27 = icmp eq i32 %26, %25
   br i1 %27, label %28, label %30
 
@@ -7866,7 +7866,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %31 = add nuw i64 %.1190300, 1
   %32 = getelementptr inbounds nuw i8, ptr %.1301, i64 4
   %.not221 = icmp eq i64 %31, %1
-  br i1 %.not221, label %_ZL14lodepng_memcpyPvPKvm.exit, label %23, !llvm.loop !311
+  br i1 %.not221, label %_ZL14lodepng_memcpyPvPKvm.exit, label %23, !llvm.loop !312
 
 33:                                               ; preds = %.lr.ph292, %49
   %.2291 = phi ptr [ %0, %.lr.ph292 ], [ %53, %49 ]
@@ -7888,7 +7888,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %43 = load i8, ptr %42, align 1, !tbaa !18
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
-  %46 = load i32, ptr %11, align 4, !tbaa !283
+  %46 = load i32, ptr %11, align 4, !tbaa !284
   %47 = icmp ne i32 %45, %46
   %48 = sext i1 %47 to i8
   br label %49
@@ -7900,7 +7900,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %52 = add nuw i64 %.2191290, 1
   %53 = getelementptr inbounds nuw i8, ptr %.2291, i64 4
   %.not216 = icmp eq i64 %52, %1
-  br i1 %.not216, label %_ZL14lodepng_memcpyPvPKvm.exit, label %33, !llvm.loop !312
+  br i1 %.not216, label %_ZL14lodepng_memcpyPvPKvm.exit, label %33, !llvm.loop !313
 
 54:                                               ; preds = %6
   %notmask = shl nsw i32 -1, %8
@@ -7912,7 +7912,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %56 = zext i32 %8 to i64
   %.not.i = icmp eq i32 %8, 0
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !198
+  %58 = load i32, ptr %57, align 8, !tbaa !199
   %.not215 = icmp eq i32 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %60
@@ -7941,7 +7941,7 @@ define internal fastcc void @_ZL19getPixelColorsRGBA8PhmPKhPK16LodePNGColorMode(
   %73 = or disjoint i32 %62, %72
   %74 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %74, %56
-  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit, label %.lr.ph.i, !llvm.loop !313
+  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit, label %.lr.ph.i, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit: ; preds = %.lr.ph.i
   %75 = add i64 %.0234305, %56
@@ -7961,7 +7961,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   br i1 %.not215, label %85, label %81
 
 81:                                               ; preds = %_ZL26readBitsFromReversedStreamPmPKhm.exit
-  %82 = load i32, ptr %59, align 4, !tbaa !283
+  %82 = load i32, ptr %59, align 4, !tbaa !284
   %83 = icmp ne i32 %.07.lcssa.i, %82
   %84 = sext i1 %83 to i8
   br label %85
@@ -7973,11 +7973,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %88 = add nuw i64 %.3192306, 1
   %89 = getelementptr inbounds nuw i8, ptr %.3307, i64 4
   %.not214 = icmp eq i64 %88, %1
-  br i1 %.not214, label %_ZL14lodepng_memcpyPvPKvm.exit, label %60, !llvm.loop !314
+  br i1 %.not214, label %_ZL14lodepng_memcpyPvPKvm.exit, label %60, !llvm.loop !315
 
 90:                                               ; preds = %4
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !185
+  %92 = load i32, ptr %91, align 4, !tbaa !186
   %93 = icmp eq i32 %92, 8
   %.not211280 = icmp eq i64 %1, 0
   br i1 %93, label %.preheader240, label %.preheader241
@@ -7987,7 +7987,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
 
 .lr.ph279:                                        ; preds = %.preheader241
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load i32, ptr %94, align 8, !tbaa !198
+  %95 = load i32, ptr %94, align 8, !tbaa !199
   %.not210 = icmp eq i32 %95, 0
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -8002,17 +8002,17 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %.4193281 = phi i64 [ %102, %.lr.ph283 ], [ 0, %.preheader240 ]
   %99 = mul i64 %.4193281, 3
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.4282, ptr noundef nonnull readonly align 1 dereferenceable(3) %100, i64 3, i1 false), !tbaa !18, !alias.scope !315
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.4282, ptr noundef nonnull readonly align 1 dereferenceable(3) %100, i64 3, i1 false), !tbaa !18, !alias.scope !316
   %101 = getelementptr inbounds nuw i8, ptr %.4282, i64 3
   store i8 -1, ptr %101, align 1, !tbaa !18
   %102 = add nuw i64 %.4193281, 1
   %103 = getelementptr inbounds nuw i8, ptr %.4282, i64 4
   %.not211 = icmp eq i64 %102, %1
-  br i1 %.not211, label %._crit_edge.thread, label %.lr.ph283, !llvm.loop !319
+  br i1 %.not211, label %._crit_edge.thread, label %.lr.ph283, !llvm.loop !320
 
 ._crit_edge.thread:                               ; preds = %.lr.ph283
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !198
+  %105 = load i32, ptr %104, align 8, !tbaa !199
   %.not212331 = icmp eq i32 %105, 0
   br i1 %.not212331, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph288
 
@@ -8029,7 +8029,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %.5194285 = phi i64 [ 0, %.lr.ph288 ], [ %130, %129 ]
   %111 = load i8, ptr %.5286, align 1, !tbaa !18
   %112 = zext i8 %111 to i32
-  %113 = load i32, ptr %107, align 4, !tbaa !283
+  %113 = load i32, ptr %107, align 4, !tbaa !284
   %114 = icmp eq i32 %113, %112
   br i1 %114, label %115, label %129
 
@@ -8037,7 +8037,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %116 = getelementptr inbounds nuw i8, ptr %.5286, i64 1
   %117 = load i8, ptr %116, align 1, !tbaa !18
   %118 = zext i8 %117 to i32
-  %119 = load i32, ptr %108, align 8, !tbaa !284
+  %119 = load i32, ptr %108, align 8, !tbaa !285
   %120 = icmp eq i32 %119, %118
   br i1 %120, label %121, label %129
 
@@ -8045,7 +8045,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %122 = getelementptr inbounds nuw i8, ptr %.5286, i64 2
   %123 = load i8, ptr %122, align 1, !tbaa !18
   %124 = zext i8 %123 to i32
-  %125 = load i32, ptr %109, align 4, !tbaa !285
+  %125 = load i32, ptr %109, align 4, !tbaa !286
   %126 = icmp eq i32 %125, %124
   br i1 %126, label %127, label %129
 
@@ -8058,7 +8058,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %130 = add nuw i64 %.5194285, 1
   %131 = getelementptr inbounds nuw i8, ptr %.5286, i64 4
   %.not213 = icmp eq i64 %130, %1
-  br i1 %.not213, label %_ZL14lodepng_memcpyPvPKvm.exit, label %110, !llvm.loop !320
+  br i1 %.not213, label %_ZL14lodepng_memcpyPvPKvm.exit, label %110, !llvm.loop !321
 
 132:                                              ; preds = %.lr.ph279, %170
   %.6278 = phi ptr [ %0, %.lr.ph279 ], [ %174, %170 ]
@@ -8084,7 +8084,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %146 = load i8, ptr %145, align 1, !tbaa !18
   %147 = zext i8 %146 to i32
   %148 = or disjoint i32 %144, %147
-  %149 = load i32, ptr %96, align 4, !tbaa !283
+  %149 = load i32, ptr %96, align 4, !tbaa !284
   %150 = icmp eq i32 %148, %149
   br i1 %150, label %151, label %170
 
@@ -8095,7 +8095,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %155 = load i8, ptr %154, align 1, !tbaa !18
   %156 = zext i8 %155 to i32
   %157 = or disjoint i32 %153, %156
-  %158 = load i32, ptr %97, align 8, !tbaa !284
+  %158 = load i32, ptr %97, align 8, !tbaa !285
   %159 = icmp eq i32 %157, %158
   br i1 %159, label %160, label %170
 
@@ -8106,7 +8106,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %164 = load i8, ptr %163, align 1, !tbaa !18
   %165 = zext i8 %164 to i32
   %166 = or disjoint i32 %162, %165
-  %167 = load i32, ptr %98, align 4, !tbaa !285
+  %167 = load i32, ptr %98, align 4, !tbaa !286
   %168 = icmp ne i32 %166, %167
   %169 = sext i1 %168 to i8
   br label %170
@@ -8118,11 +8118,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %173 = add nuw i64 %.6195277, 1
   %174 = getelementptr inbounds nuw i8, ptr %.6278, i64 4
   %.not209 = icmp eq i64 %173, %1
-  br i1 %.not209, label %_ZL14lodepng_memcpyPvPKvm.exit, label %132, !llvm.loop !321
+  br i1 %.not209, label %_ZL14lodepng_memcpyPvPKvm.exit, label %132, !llvm.loop !322
 
 175:                                              ; preds = %4
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %177 = load i32, ptr %176, align 4, !tbaa !185
+  %177 = load i32, ptr %176, align 4, !tbaa !186
   %178 = icmp eq i32 %177, 8
   %.not208272 = icmp eq i64 %1, 0
   br i1 %178, label %.preheader243, label %.preheader245
@@ -8134,25 +8134,25 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %179 = zext i32 %177 to i64
   %.not.i222 = icmp eq i32 %177, 0
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %181 = load ptr, ptr %180, align 8, !tbaa !186
+  %181 = load ptr, ptr %180, align 8, !tbaa !187
   br i1 %.not.i222, label %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us, label %.lr.ph.i223.preheader
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit229.us: ; preds = %.lr.ph271, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us
   %.8270.us = phi ptr [ %184, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us ], [ %0, %.lr.ph271 ]
   %.8197269.us = phi i64 [ %183, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us ], [ 0, %.lr.ph271 ]
-  %182 = load i32, ptr %181, align 1, !tbaa !18, !alias.scope !322
-  store i32 %182, ptr %.8270.us, align 1, !tbaa !18, !alias.scope !322
+  %182 = load i32, ptr %181, align 1, !tbaa !18, !alias.scope !323
+  store i32 %182, ptr %.8270.us, align 1, !tbaa !18, !alias.scope !323
   %183 = add nuw i64 %.8197269.us, 1
   %184 = getelementptr inbounds nuw i8, ptr %.8270.us, i64 4
   %.not207.us = icmp eq i64 %183, %1
-  br i1 %.not207.us, label %_ZL14lodepng_memcpyPvPKvm.exit, label %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us, !llvm.loop !326
+  br i1 %.not207.us, label %_ZL14lodepng_memcpyPvPKvm.exit, label %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us, !llvm.loop !327
 
 .preheader243:                                    ; preds = %175
   br i1 %.not208272, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %.preheader243
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %186 = load ptr, ptr %185, align 8, !tbaa !186
+  %186 = load ptr, ptr %185, align 8, !tbaa !187
   br label %187
 
 187:                                              ; preds = %.lr.ph275, %187
@@ -8163,12 +8163,12 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.us: ; preds = %.lr.ph271, %_ZL26re
   %190 = zext i8 %189 to i64
   %191 = shl nuw nsw i64 %190, 2
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 %191
-  %193 = load i32, ptr %192, align 1, !tbaa !18, !alias.scope !327
-  store i32 %193, ptr %.7274, align 1, !tbaa !18, !alias.scope !327
+  %193 = load i32, ptr %192, align 1, !tbaa !18, !alias.scope !328
+  store i32 %193, ptr %.7274, align 1, !tbaa !18, !alias.scope !328
   %194 = add nuw i64 %.7196273, 1
   %195 = getelementptr inbounds nuw i8, ptr %.7274, i64 4
   %.not208 = icmp eq i64 %194, %1
-  br i1 %.not208, label %_ZL14lodepng_memcpyPvPKvm.exit, label %187, !llvm.loop !331
+  br i1 %.not208, label %_ZL14lodepng_memcpyPvPKvm.exit, label %187, !llvm.loop !332
 
 .lr.ph.i223.preheader:                            ; preds = %.lr.ph271, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit
   %.8270 = phi ptr [ %216, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit ], [ %0, %.lr.ph271 ]
@@ -8194,23 +8194,23 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.us: ; preds = %.lr.ph271, %_ZL26re
   %208 = or disjoint i32 %197, %207
   %209 = add nuw nsw i64 %.09.i225, 1
   %exitcond.not.i227 = icmp eq i64 %209, %179
-  br i1 %exitcond.not.i227, label %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit, label %.lr.ph.i223, !llvm.loop !313
+  br i1 %exitcond.not.i227, label %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit, label %.lr.ph.i223, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit: ; preds = %.lr.ph.i223
   %210 = add i64 %.0232268, %179
   %211 = shl i32 %208, 2
   %212 = zext i32 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %181, i64 %212
-  %214 = load i32, ptr %213, align 1, !tbaa !18, !alias.scope !322
-  store i32 %214, ptr %.8270, align 1, !tbaa !18, !alias.scope !322
+  %214 = load i32, ptr %213, align 1, !tbaa !18, !alias.scope !323
+  store i32 %214, ptr %.8270, align 1, !tbaa !18, !alias.scope !323
   %215 = add nuw i64 %.8197269, 1
   %216 = getelementptr inbounds nuw i8, ptr %.8270, i64 4
   %.not207 = icmp eq i64 %215, %1
-  br i1 %.not207, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.i223.preheader, !llvm.loop !326
+  br i1 %.not207, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.i223.preheader, !llvm.loop !333
 
 217:                                              ; preds = %4
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %219 = load i32, ptr %218, align 4, !tbaa !185
+  %219 = load i32, ptr %218, align 4, !tbaa !186
   %220 = icmp eq i32 %219, 8
   %.not206263 = icmp eq i64 %1, 0
   br i1 %220, label %.preheader247, label %.preheader249
@@ -8239,7 +8239,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit: ; preds = %.lr.ph.i223
   %229 = add nuw i64 %.9198264, 1
   %230 = getelementptr inbounds nuw i8, ptr %.9265, i64 4
   %.not206 = icmp eq i64 %229, %1
-  br i1 %.not206, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph266, !llvm.loop !332
+  br i1 %.not206, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph266, !llvm.loop !334
 
 .lr.ph262:                                        ; preds = %.preheader249, %.lr.ph262
   %.10261 = phi ptr [ %240, %.lr.ph262 ], [ %0, %.preheader249 ]
@@ -8259,11 +8259,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit: ; preds = %.lr.ph.i223
   %239 = add nuw i64 %.10199260, 1
   %240 = getelementptr inbounds nuw i8, ptr %.10261, i64 4
   %.not205 = icmp eq i64 %239, %1
-  br i1 %.not205, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph262, !llvm.loop !333
+  br i1 %.not205, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph262, !llvm.loop !335
 
 241:                                              ; preds = %4
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %243 = load i32, ptr %242, align 4, !tbaa !185
+  %243 = load i32, ptr %242, align 4, !tbaa !186
   %244 = icmp eq i32 %243, 8
   br i1 %244, label %245, label %.preheader251
 
@@ -8277,7 +8277,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit: ; preds = %.lr.ph.i223
   br i1 %.not.i230, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %245
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %2, i64 %246, i1 false), !tbaa !18, !alias.scope !334
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %2, i64 %246, i1 false), !tbaa !18, !alias.scope !336
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 .lr.ph:                                           ; preds = %.preheader251, %.lr.ph
@@ -8302,7 +8302,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit: ; preds = %.lr.ph.i223
   %259 = add nuw i64 %.11200257, 1
   %260 = getelementptr inbounds nuw i8, ptr %.11258, i64 4
   %.not = icmp eq i64 %259, %1
-  br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph, !llvm.loop !338
+  br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph, !llvm.loop !340
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.lr.ph, %.lr.ph262, %.lr.ph266, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us, %187, %170, %129, %49, %30, %85, %.preheader240, %.preheader, %._crit_edge.thread, %._crit_edge297.thread, %.preheader251, %.preheader249, %.preheader247, %.preheader245, %.preheader243, %.preheader241, %.preheader237, %54, %.lr.ph.preheader.i, %245, %4
   ret void
@@ -8310,7 +8310,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.lr.ph, %.lr.ph262,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(ptr noalias noundef writeonly captures(none) %0, i64 noundef range(i64 0, -8589934590) %1, ptr noalias noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #17 {
-  %5 = load i32, ptr %3, align 8, !tbaa !182
+  %5 = load i32, ptr %3, align 8, !tbaa !183
   switch i32 %5, label %_ZL14lodepng_memcpyPvPKvm.exit [
     i32 0, label %6
     i32 2, label %48
@@ -8321,7 +8321,7 @@ define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(p
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !185
+  %8 = load i32, ptr %7, align 4, !tbaa !186
   switch i32 %8, label %22 [
     i32 8, label %.preheader
     i32 16, label %.preheader151
@@ -8348,7 +8348,7 @@ define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(p
   %13 = add nuw i64 %.0112203, 1
   %14 = getelementptr inbounds nuw i8, ptr %.0204, i64 3
   %.not132 = icmp eq i64 %13, %1
-  br i1 %.not132, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph205, !llvm.loop !339
+  br i1 %.not132, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph205, !llvm.loop !341
 
 .lr.ph201:                                        ; preds = %.preheader151, %.lr.ph201
   %.1200 = phi ptr [ %21, %.lr.ph201 ], [ %0, %.preheader151 ]
@@ -8364,7 +8364,7 @@ define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(p
   %20 = add nuw i64 %.1113199, 1
   %21 = getelementptr inbounds nuw i8, ptr %.1200, i64 3
   %.not131 = icmp eq i64 %20, %1
-  br i1 %.not131, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph201, !llvm.loop !340
+  br i1 %.not131, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph201, !llvm.loop !342
 
 22:                                               ; preds = %6
   %notmask = shl nsw i32 -1, %8
@@ -8401,7 +8401,7 @@ define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(p
   %38 = or disjoint i32 %27, %37
   %39 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %39, %24
-  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit, label %.lr.ph.i, !llvm.loop !313
+  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit, label %.lr.ph.i, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit.loopexit: ; preds = %.lr.ph.i
   %40 = add i64 %.0148207, %24
@@ -8421,11 +8421,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %46 = add nuw i64 %.2114208, 1
   %47 = getelementptr inbounds nuw i8, ptr %.2209, i64 3
   %.not130 = icmp eq i64 %46, %1
-  br i1 %.not130, label %_ZL14lodepng_memcpyPvPKvm.exit, label %25, !llvm.loop !341
+  br i1 %.not130, label %_ZL14lodepng_memcpyPvPKvm.exit, label %25, !llvm.loop !343
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !185
+  %50 = load i32, ptr %49, align 4, !tbaa !186
   %51 = icmp eq i32 %50, 8
   %.not.i133 = icmp eq i64 %1, 0
   br i1 %51, label %52, label %.preheader153
@@ -8438,7 +8438,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
 
 .lr.ph.preheader.i:                               ; preds = %52
   %53 = mul i64 %1, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %2, i64 %53, i1 false), !tbaa !18, !alias.scope !342
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %2, i64 %53, i1 false), !tbaa !18, !alias.scope !344
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 .lr.ph197:                                        ; preds = %.preheader153, %.lr.ph197
@@ -8459,11 +8459,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %63 = add nuw i64 %.3115195, 1
   %64 = getelementptr inbounds nuw i8, ptr %.3196, i64 3
   %.not129 = icmp eq i64 %63, %1
-  br i1 %.not129, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph197, !llvm.loop !346
+  br i1 %.not129, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph197, !llvm.loop !348
 
 65:                                               ; preds = %4
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !185
+  %67 = load i32, ptr %66, align 4, !tbaa !186
   %68 = icmp eq i32 %67, 8
   %.not128190 = icmp eq i64 %1, 0
   br i1 %68, label %.preheader155, label %.preheader157
@@ -8475,24 +8475,24 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   %69 = zext i32 %67 to i64
   %.not.i135 = icmp eq i32 %67, 0
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !186
+  %71 = load ptr, ptr %70, align 8, !tbaa !187
   br i1 %.not.i135, label %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us, label %.lr.ph.i136.preheader
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit142.us: ; preds = %.lr.ph189, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us
   %.5188.us = phi ptr [ %73, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us ], [ %0, %.lr.ph189 ]
   %.5117187.us = phi i64 [ %72, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us ], [ 0, %.lr.ph189 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5188.us, ptr noundef nonnull readonly align 1 dereferenceable(3) %71, i64 3, i1 false), !tbaa !18, !alias.scope !347
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5188.us, ptr noundef nonnull readonly align 1 dereferenceable(3) %71, i64 3, i1 false), !tbaa !18, !alias.scope !349
   %72 = add nuw i64 %.5117187.us, 1
   %73 = getelementptr inbounds nuw i8, ptr %.5188.us, i64 3
   %.not127.us = icmp eq i64 %72, %1
-  br i1 %.not127.us, label %_ZL14lodepng_memcpyPvPKvm.exit, label %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us, !llvm.loop !351
+  br i1 %.not127.us, label %_ZL14lodepng_memcpyPvPKvm.exit, label %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us, !llvm.loop !353
 
 .preheader155:                                    ; preds = %65
   br i1 %.not128190, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %.preheader155
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !186
+  %75 = load ptr, ptr %74, align 8, !tbaa !187
   br label %76
 
 76:                                               ; preds = %.lr.ph193, %76
@@ -8503,11 +8503,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.us: ; preds = %.lr.ph189, %_ZL26re
   %79 = zext i8 %78 to i64
   %80 = shl nuw nsw i64 %79, 2
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.4192, ptr noundef nonnull readonly align 1 dereferenceable(3) %81, i64 3, i1 false), !tbaa !18, !alias.scope !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.4192, ptr noundef nonnull readonly align 1 dereferenceable(3) %81, i64 3, i1 false), !tbaa !18, !alias.scope !354
   %82 = add nuw i64 %.4116191, 1
   %83 = getelementptr inbounds nuw i8, ptr %.4192, i64 3
   %.not128 = icmp eq i64 %82, %1
-  br i1 %.not128, label %_ZL14lodepng_memcpyPvPKvm.exit, label %76, !llvm.loop !356
+  br i1 %.not128, label %_ZL14lodepng_memcpyPvPKvm.exit, label %76, !llvm.loop !358
 
 .lr.ph.i136.preheader:                            ; preds = %.lr.ph189, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit
   %.5188 = phi ptr [ %103, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit ], [ %0, %.lr.ph189 ]
@@ -8533,22 +8533,22 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.us: ; preds = %.lr.ph189, %_ZL26re
   %96 = or disjoint i32 %85, %95
   %97 = add nuw nsw i64 %.09.i138, 1
   %exitcond.not.i140 = icmp eq i64 %97, %69
-  br i1 %exitcond.not.i140, label %_ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit, label %.lr.ph.i136, !llvm.loop !313
+  br i1 %exitcond.not.i140, label %_ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit, label %.lr.ph.i136, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit: ; preds = %.lr.ph.i136
   %98 = add i64 %.0146186, %69
   %99 = shl i32 %96, 2
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %71, i64 %100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5188, ptr noundef nonnull readonly align 1 dereferenceable(3) %101, i64 3, i1 false), !tbaa !18, !alias.scope !347
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5188, ptr noundef nonnull readonly align 1 dereferenceable(3) %101, i64 3, i1 false), !tbaa !18, !alias.scope !349
   %102 = add nuw i64 %.5117187, 1
   %103 = getelementptr inbounds nuw i8, ptr %.5188, i64 3
   %.not127 = icmp eq i64 %102, %1
-  br i1 %.not127, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.i136.preheader, !llvm.loop !351
+  br i1 %.not127, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph.i136.preheader, !llvm.loop !359
 
 104:                                              ; preds = %4
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %106 = load i32, ptr %105, align 4, !tbaa !185
+  %106 = load i32, ptr %105, align 4, !tbaa !186
   %107 = icmp eq i32 %106, 8
   %.not126181 = icmp eq i64 %1, 0
   br i1 %107, label %.preheader159, label %.preheader161
@@ -8573,7 +8573,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit: ; preds = %.lr.ph.i136
   %113 = add nuw i64 %.6118182, 1
   %114 = getelementptr inbounds nuw i8, ptr %.6183, i64 3
   %.not126 = icmp eq i64 %113, %1
-  br i1 %.not126, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph184, !llvm.loop !357
+  br i1 %.not126, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph184, !llvm.loop !360
 
 .lr.ph180:                                        ; preds = %.preheader161, %.lr.ph180
   %.7179 = phi ptr [ %121, %.lr.ph180 ], [ %0, %.preheader161 ]
@@ -8589,11 +8589,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit: ; preds = %.lr.ph.i136
   %120 = add nuw i64 %.7119178, 1
   %121 = getelementptr inbounds nuw i8, ptr %.7179, i64 3
   %.not125 = icmp eq i64 %120, %1
-  br i1 %.not125, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph180, !llvm.loop !358
+  br i1 %.not125, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph180, !llvm.loop !361
 
 122:                                              ; preds = %4
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %124 = load i32, ptr %123, align 4, !tbaa !185
+  %124 = load i32, ptr %123, align 4, !tbaa !186
   %125 = icmp eq i32 %124, 8
   %.not124173 = icmp eq i64 %1, 0
   br i1 %125, label %.preheader163, label %.preheader165
@@ -8609,11 +8609,11 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit: ; preds = %.lr.ph.i136
   %.8120174 = phi i64 [ %128, %.lr.ph176 ], [ 0, %.preheader163 ]
   %126 = shl i64 %.8120174, 2
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 %126
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.8175, ptr noundef nonnull readonly align 1 dereferenceable(3) %127, i64 3, i1 false), !tbaa !18, !alias.scope !359
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.8175, ptr noundef nonnull readonly align 1 dereferenceable(3) %127, i64 3, i1 false), !tbaa !18, !alias.scope !362
   %128 = add nuw i64 %.8120174, 1
   %129 = getelementptr inbounds nuw i8, ptr %.8175, i64 3
   %.not124 = icmp eq i64 %128, %1
-  br i1 %.not124, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph176, !llvm.loop !363
+  br i1 %.not124, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph176, !llvm.loop !366
 
 .lr.ph:                                           ; preds = %.preheader165, %.lr.ph
   %.9172 = phi ptr [ %140, %.lr.ph ], [ %0, %.preheader165 ]
@@ -8633,7 +8633,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit: ; preds = %.lr.ph.i136
   %139 = add nuw i64 %.9121171, 1
   %140 = getelementptr inbounds nuw i8, ptr %.9172, i64 3
   %.not = icmp eq i64 %139, %1
-  br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph, !llvm.loop !364
+  br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %.lr.ph, !llvm.loop !367
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.lr.ph, %.lr.ph176, %.lr.ph180, %.lr.ph184, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.loopexit, %_ZL26readBitsFromReversedStreamPmPKhm.exit142.us, %76, %.lr.ph197, %.lr.ph201, %.lr.ph205, %_ZL26readBitsFromReversedStreamPmPKhm.exit, %.preheader165, %.preheader163, %.preheader161, %.preheader159, %.preheader157, %.preheader155, %.preheader153, %.preheader151, %.preheader, %22, %.lr.ph.preheader.i, %52, %4
   ret void
@@ -8641,7 +8641,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.lr.ph, %.lr.ph176,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #16 {
-  %8 = load i32, ptr %6, align 8, !tbaa !182
+  %8 = load i32, ptr %6, align 8, !tbaa !183
   switch i32 %8, label %229 [
     i32 0, label %9
     i32 2, label %69
@@ -8652,7 +8652,7 @@ define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColor
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !185
+  %11 = load i32, ptr %10, align 4, !tbaa !186
   switch i32 %11, label %41 [
     i32 8, label %12
     i32 16, label %23
@@ -8665,14 +8665,14 @@ define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColor
   store i8 %14, ptr %1, align 1, !tbaa !18
   store i8 %14, ptr %0, align 1, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !198
+  %16 = load i32, ptr %15, align 8, !tbaa !199
   %.not156 = icmp eq i32 %16, 0
   br i1 %.not156, label %22, label %17
 
 17:                                               ; preds = %12
   %18 = zext i8 %14 to i32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !283
+  %20 = load i32, ptr %19, align 4, !tbaa !284
   %21 = icmp eq i32 %20, %18
   br i1 %21, label %.sink.split, label %22
 
@@ -8687,7 +8687,7 @@ define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColor
   store i8 %26, ptr %1, align 1, !tbaa !18
   store i8 %26, ptr %0, align 1, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %28 = load i32, ptr %27, align 8, !tbaa !198
+  %28 = load i32, ptr %27, align 8, !tbaa !199
   %.not155 = icmp eq i32 %28, 0
   br i1 %.not155, label %40, label %29
 
@@ -8700,7 +8700,7 @@ define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColor
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !283
+  %38 = load i32, ptr %37, align 4, !tbaa !284
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %.sink.split, label %40
 
@@ -8736,7 +8736,7 @@ define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColor
   %57 = or disjoint i32 %46, %56
   %58 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %58, %43
-  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit, label %.lr.ph.i, !llvm.loop !313
+  br i1 %exitcond.not.i, label %_ZL26readBitsFromReversedStreamPmPKhm.exit, label %.lr.ph.i, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %.07.lcssa.i = phi i32 [ 0, %41 ], [ %57, %.lr.ph.i ]
@@ -8747,13 +8747,13 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   store i8 %61, ptr %1, align 1, !tbaa !18
   store i8 %61, ptr %0, align 1, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !198
+  %63 = load i32, ptr %62, align 8, !tbaa !199
   %.not154 = icmp eq i32 %63, 0
   br i1 %.not154, label %68, label %64
 
 64:                                               ; preds = %_ZL26readBitsFromReversedStreamPmPKhm.exit
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %66 = load i32, ptr %65, align 4, !tbaa !283
+  %66 = load i32, ptr %65, align 4, !tbaa !284
   %67 = icmp eq i32 %.07.lcssa.i, %66
   br i1 %67, label %.sink.split, label %68
 
@@ -8762,7 +8762,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
 
 69:                                               ; preds = %7
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !185
+  %71 = load i32, ptr %70, align 4, !tbaa !186
   %72 = icmp eq i32 %71, 8
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %72, label %74, label %101
@@ -8778,7 +8778,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %80 = getelementptr i8, ptr %76, i64 2
   %81 = load i8, ptr %80, align 1, !tbaa !18
   store i8 %81, ptr %2, align 1, !tbaa !18
-  %82 = load i32, ptr %73, align 8, !tbaa !198
+  %82 = load i32, ptr %73, align 8, !tbaa !199
   %.not153 = icmp eq i32 %82, 0
   br i1 %.not153, label %100, label %83
 
@@ -8786,7 +8786,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %84 = load i8, ptr %0, align 1, !tbaa !18
   %85 = zext i8 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %87 = load i32, ptr %86, align 4, !tbaa !283
+  %87 = load i32, ptr %86, align 4, !tbaa !284
   %88 = icmp eq i32 %87, %85
   br i1 %88, label %89, label %100
 
@@ -8794,14 +8794,14 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %90 = load i8, ptr %1, align 1, !tbaa !18
   %91 = zext i8 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %93 = load i32, ptr %92, align 8, !tbaa !284
+  %93 = load i32, ptr %92, align 8, !tbaa !285
   %94 = icmp eq i32 %93, %91
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %89
   %96 = zext i8 %81 to i32
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %98 = load i32, ptr %97, align 4, !tbaa !285
+  %98 = load i32, ptr %97, align 4, !tbaa !286
   %99 = icmp eq i32 %98, %96
   br i1 %99, label %.sink.split, label %100
 
@@ -8819,7 +8819,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %107 = getelementptr i8, ptr %103, i64 4
   %108 = load i8, ptr %107, align 1, !tbaa !18
   store i8 %108, ptr %2, align 1, !tbaa !18
-  %109 = load i32, ptr %73, align 8, !tbaa !198
+  %109 = load i32, ptr %73, align 8, !tbaa !199
   %.not = icmp eq i32 %109, 0
   br i1 %.not, label %142, label %110
 
@@ -8832,7 +8832,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %116 = zext i8 %115 to i32
   %117 = or disjoint i32 %113, %116
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %119 = load i32, ptr %118, align 4, !tbaa !283
+  %119 = load i32, ptr %118, align 4, !tbaa !284
   %120 = icmp eq i32 %117, %119
   br i1 %120, label %121, label %142
 
@@ -8845,7 +8845,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %127 = zext i8 %126 to i32
   %128 = or disjoint i32 %124, %127
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %130 = load i32, ptr %129, align 8, !tbaa !284
+  %130 = load i32, ptr %129, align 8, !tbaa !285
   %131 = icmp eq i32 %128, %130
   br i1 %131, label %132, label %142
 
@@ -8857,7 +8857,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %137 = zext i8 %136 to i32
   %138 = or disjoint i32 %134, %137
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %140 = load i32, ptr %139, align 4, !tbaa !285
+  %140 = load i32, ptr %139, align 4, !tbaa !286
   %141 = icmp eq i32 %138, %140
   br i1 %141, label %.sink.split, label %142
 
@@ -8866,7 +8866,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
 
 143:                                              ; preds = %7
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !185
+  %145 = load i32, ptr %144, align 4, !tbaa !186
   %146 = icmp eq i32 %145, 8
   br i1 %146, label %147, label %151
 
@@ -8903,30 +8903,30 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %.lr.ph.i, %41
   %166 = or disjoint i32 %155, %165
   %167 = add nuw nsw i64 %.09.i160, 1
   %exitcond.not.i162 = icmp eq i64 %167, %152
-  br i1 %exitcond.not.i162, label %_ZL26readBitsFromReversedStreamPmPKhm.exit164, label %.lr.ph.i158, !llvm.loop !313
+  br i1 %exitcond.not.i162, label %_ZL26readBitsFromReversedStreamPmPKhm.exit164, label %.lr.ph.i158, !llvm.loop !314
 
 _ZL26readBitsFromReversedStreamPmPKhm.exit164:    ; preds = %.lr.ph.i158, %151, %147
   %.0 = phi i32 [ %150, %147 ], [ 0, %151 ], [ %166, %.lr.ph.i158 ]
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !186
+  %169 = load ptr, ptr %168, align 8, !tbaa !187
   %170 = shl i32 %.0, 2
   %171 = zext i32 %170 to i64
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !18
   store i8 %173, ptr %0, align 1, !tbaa !18
-  %174 = load ptr, ptr %168, align 8, !tbaa !186
+  %174 = load ptr, ptr %168, align 8, !tbaa !187
   %175 = or disjoint i32 %170, 1
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !18
   store i8 %178, ptr %1, align 1, !tbaa !18
-  %179 = load ptr, ptr %168, align 8, !tbaa !186
+  %179 = load ptr, ptr %168, align 8, !tbaa !187
   %180 = or disjoint i32 %170, 2
   %181 = zext i32 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !18
   store i8 %183, ptr %2, align 1, !tbaa !18
-  %184 = load ptr, ptr %168, align 8, !tbaa !186
+  %184 = load ptr, ptr %168, align 8, !tbaa !187
   %185 = or disjoint i32 %170, 3
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 %186
@@ -8935,7 +8935,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit164:    ; preds = %.lr.ph.i158, %151, 
 
 189:                                              ; preds = %7
   %190 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %191 = load i32, ptr %190, align 4, !tbaa !185
+  %191 = load i32, ptr %190, align 4, !tbaa !186
   %192 = icmp eq i32 %191, 8
   br i1 %192, label %193, label %199
 
@@ -8963,7 +8963,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit164:    ; preds = %.lr.ph.i158, %151, 
 
 205:                                              ; preds = %7
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !185
+  %207 = load i32, ptr %206, align 4, !tbaa !186
   %208 = icmp eq i32 %207, 8
   br i1 %208, label %209, label %219
 
@@ -9013,20 +9013,20 @@ define internal fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef nonn
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %3 = getelementptr inbounds nuw [16 x ptr], ptr %0, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !300
+  %4 = load ptr, ptr %3, align 8, !tbaa !301
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %7, label %5
 
 5:                                                ; preds = %2
   tail call fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef %4)
-  %6 = load ptr, ptr %3, align 8, !tbaa !300
+  %6 = load ptr, ptr %3, align 8, !tbaa !301
   tail call void @free(ptr noundef %6) #31
   br label %7
 
 7:                                                ; preds = %2, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not, label %8, label %2, !llvm.loop !365
+  br i1 %.not, label %8, label %2, !llvm.loop !368
 
 8:                                                ; preds = %7
   ret void
@@ -9035,14 +9035,14 @@ define internal fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #16 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !185
+  %10 = load i32, ptr %9, align 4, !tbaa !186
   %notmask = shl nsw i32 -1, %10
   %11 = xor i32 %notmask, -1
   %12 = udiv i32 65535, %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !185
+  %14 = load i32, ptr %13, align 4, !tbaa !186
   %15 = sub i32 16, %14
-  %16 = load i32, ptr %7, align 8, !tbaa !182
+  %16 = load i32, ptr %7, align 8, !tbaa !183
   switch i32 %16, label %.loopexit [
     i32 0, label %17
     i32 4, label %17
@@ -9064,13 +9064,13 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
 23:                                               ; preds = %8
   %24 = zext i32 %3 to i64
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !191
+  %26 = load i64, ptr %25, align 8, !tbaa !192
   %.not = icmp ugt i64 %26, %24
   br i1 %.not, label %27, label %.loopexit
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !186
+  %29 = load ptr, ptr %28, align 8, !tbaa !187
   %30 = shl i32 %3, 2
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
@@ -9095,7 +9095,7 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
   %.066 = phi i32 [ %18, %17 ], [ %22, %19 ], [ %47, %27 ]
   %.065 = phi i32 [ %18, %17 ], [ %21, %19 ], [ %41, %27 ]
   %.064 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %35, %27 ]
-  %49 = load i32, ptr %6, align 8, !tbaa !182
+  %49 = load i32, ptr %6, align 8, !tbaa !183
   switch i32 %49, label %.loopexit [
     i32 0, label %50
     i32 4, label %50
@@ -9138,13 +9138,13 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
 
 .preheader:                                       ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !191
+  %66 = load i64, ptr %65, align 8, !tbaa !192
   %.not77 = icmp eq i64 %66, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !186
+  %68 = load ptr, ptr %67, align 8, !tbaa !187
   br label %69
 
 69:                                               ; preds = %.lr.ph, %90
@@ -9183,7 +9183,7 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
   %91 = add i32 %.06276, 1
   %92 = zext i32 %91 to i64
   %93 = icmp ugt i64 %66, %92
-  br i1 %93, label %69, label %.loopexit, !llvm.loop !366
+  br i1 %93, label %69, label %.loopexit, !llvm.loop !369
 
 .loopexit:                                        ; preds = %90, %.preheader, %50, %52, %48, %62, %59, %56, %.critedge, %8, %23
   %.0 = phi i32 [ 82, %23 ], [ 31, %8 ], [ 82, %62 ], [ 82, %59 ], [ 82, %56 ], [ 0, %.critedge ], [ 31, %48 ], [ 0, %52 ], [ 0, %50 ], [ 82, %.preheader ], [ 82, %90 ]
@@ -9193,18 +9193,18 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z24lodepng_color_stats_initP17LodePNGColorStats(ptr noundef writeonly captures(none) initializes((0, 14), (16, 24), (1048, 1052), (1056, 1072)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 8, !tbaa !367
+  store i32 0, ptr %2, align 8, !tbaa !370
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %3, align 4, !tbaa !369
+  store i32 0, ptr %3, align 4, !tbaa !372
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %0, i8 0, i64 14, i1 false)
-  store i32 1, ptr %4, align 8, !tbaa !370
+  store i32 1, ptr %4, align 8, !tbaa !373
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store i64 0, ptr %5, align 8, !tbaa !371
+  store i64 0, ptr %5, align 8, !tbaa !374
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store i32 1, ptr %6, align 8, !tbaa !372
+  store i32 1, ptr %6, align 8, !tbaa !375
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1068
-  store i32 1, ptr %7, align 4, !tbaa !373
+  store i32 1, ptr %7, align 4, !tbaa !376
   ret void
 }
 
@@ -9227,11 +9227,11 @@ define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGCo
   %19 = zext i32 %2 to i64
   %20 = zext i32 %3 to i64
   %21 = mul nuw i64 %20, %19
-  %22 = load i32, ptr %4, align 8, !tbaa !182
+  %22 = load i32, ptr %4, align 8, !tbaa !183
   %23 = and i32 %22, -5
   %narrow.i = icmp eq i32 %23, 0
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !198
+  %25 = load i32, ptr %24, align 8, !tbaa !199
   %.not.i = icmp eq i32 %25, 0
   %26 = and i32 %22, 4
   %.not3.i = icmp eq i32 %26, 0
@@ -9240,20 +9240,20 @@ define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGCo
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !191
+  %29 = load i64, ptr %28, align 8, !tbaa !192
   %.not7.i.i = icmp eq i64 %29, 0
   br i1 %.not7.i.i, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !186
+  %31 = load ptr, ptr %30, align 8, !tbaa !187
   %invariant.gep.i.i = getelementptr i8, ptr %31, i64 3
   br label %34
 
 32:                                               ; preds = %34
   %33 = add nuw i64 %.08.i.i, 1
   %.not.i.i = icmp eq i64 %33, %29
-  br i1 %.not.i.i, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, label %34, !llvm.loop !197
+  br i1 %.not.i.i, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, label %34, !llvm.loop !198
 
 34:                                               ; preds = %32, %.lr.ph.i.i
   %.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %33, %32 ]
@@ -9266,7 +9266,7 @@ define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGCo
 _Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit: ; preds = %32, %34, %5, %27
   %37 = phi i32 [ 0, %5 ], [ 1, %27 ], [ 1, %32 ], [ 0, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !185
+  %39 = load i32, ptr %38, align 4, !tbaa !186
   %40 = icmp ult i32 %22, 7
   br i1 %40, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
 
@@ -9280,13 +9280,13 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %_Z22lodepng_can_hav
   %.0.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit ]
   %42 = mul i32 %.0.i.i.i, %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %44 = load i32, ptr %43, align 8, !tbaa !370
+  %44 = load i32, ptr %43, align 8, !tbaa !373
   %45 = icmp eq i32 %44, 1
   %46 = icmp eq i32 %42, 1
   %47 = and i1 %45, %46
   %48 = icmp ult i32 %42, 9
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %50 = load i32, ptr %49, align 4, !tbaa !369
+  %50 = load i32, ptr %49, align 4, !tbaa !372
   br i1 %48, label %51, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
 
 51:                                               ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
@@ -9298,20 +9298,20 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %_Z22lodepng_can_hav
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit, %51
   %.0237 = phi i32 [ %spec.select, %51 ], [ 257, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %55 = load i64, ptr %54, align 8, !tbaa !371
+  %55 = load i64, ptr %54, align 8, !tbaa !374
   %56 = add i64 %55, %21
-  store i64 %56, ptr %54, align 8, !tbaa !371
+  store i64 %56, ptr %54, align 8, !tbaa !374
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %58 = load i32, ptr %57, align 8, !tbaa !372
+  %58 = load i32, ptr %57, align 8, !tbaa !375
   %.not = icmp eq i32 %58, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !374
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !377
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 -1, ptr %59, align 8, !tbaa !294
+  store i32 -1, ptr %59, align 8, !tbaa !295
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !367
+  %61 = load i32, ptr %60, align 8, !tbaa !370
   %.not255 = icmp eq i32 %61, 0
   %.0219 = select i1 %.not255, i32 %37, i32 1
-  %62 = load i32, ptr %0, align 8, !tbaa !377
+  %62 = load i32, ptr %0, align 8, !tbaa !380
   %.not256 = icmp ne i32 %62, 0
   %narrow = select i1 %.not256, i1 true, i1 %narrow.i
   %.0205 = zext i1 %narrow to i32
@@ -9372,35 +9372,35 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %97 = or disjoint i32 %96, %92
   %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds nuw [16 x ptr], ptr %.02533.i, i64 0, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !300
+  %100 = load ptr, ptr %99, align 8, !tbaa !301
   %.not.i310 = icmp eq ptr %100, null
   br i1 %.not.i310, label %101, label %105
 
 101:                                              ; preds = %83
   %102 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
-  store ptr %102, ptr %99, align 8, !tbaa !300
+  store ptr %102, ptr %99, align 8, !tbaa !301
   %.not28.i = icmp eq ptr %102, null
   br i1 %.not28.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %103
 
 103:                                              ; preds = %101
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %102, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !378
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %102, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !381
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 128
-  store i32 -1, ptr %104, align 8, !tbaa !294
-  %.pre.i = load ptr, ptr %99, align 8, !tbaa !300
+  store i32 -1, ptr %104, align 8, !tbaa !295
+  %.pre.i = load ptr, ptr %99, align 8, !tbaa !301
   br label %105
 
 105:                                              ; preds = %103, %83
   %106 = phi ptr [ %100, %83 ], [ %.pre.i, %103 ]
   %107 = add nuw nsw i32 %.02434.i, 1
   %exitcond.not.i = icmp eq i32 %107, 8
-  br i1 %exitcond.not.i, label %108, label %83, !llvm.loop !305
+  br i1 %exitcond.not.i, label %108, label %83, !llvm.loop !306
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 128
-  store i32 %78, ptr %109, align 8, !tbaa !294
+  store i32 %78, ptr %109, align 8, !tbaa !295
   %110 = add nuw nsw i64 %.0198362, 1
   %exitcond.not = icmp eq i64 %110, %66
-  br i1 %exitcond.not, label %.loopexit359, label %68, !llvm.loop !381
+  br i1 %exitcond.not, label %.loopexit359, label %68, !llvm.loop !384
 
 .loopexit359:                                     ; preds = %108, %.preheader358, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
   %.not261 = icmp eq i32 %39, 16
@@ -9421,7 +9421,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 112:                                              ; preds = %128
   %113 = add nuw i64 %.1364, 1
   %.not262 = icmp eq i64 %113, %21
-  br i1 %.not262, label %.thread327, label %.lr.ph365, !llvm.loop !382
+  br i1 %.not262, label %.thread327, label %.lr.ph365, !llvm.loop !385
 
 .thread327:                                       ; preds = %112, %111
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #31
@@ -9465,7 +9465,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   br i1 %.not266, label %112, label %133
 
 133:                                              ; preds = %128, %123, %118, %.lr.ph365
-  store i32 16, ptr %43, align 8, !tbaa !370
+  store i32 16, ptr %43, align 8, !tbaa !373
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #31
@@ -9504,7 +9504,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   br i1 %or.cond, label %146, label %145
 
 145:                                              ; preds = %141
-  store i32 1, ptr %0, align 8, !tbaa !377
+  store i32 1, ptr %0, align 8, !tbaa !380
   br label %146
 
 146:                                              ; preds = %141, %145, %138
@@ -9515,19 +9515,19 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 
 148:                                              ; preds = %146
   %149 = load i16, ptr %11, align 2, !tbaa !88
-  %150 = load i16, ptr %134, align 8, !tbaa !383
+  %150 = load i16, ptr %134, align 8, !tbaa !386
   %151 = icmp eq i16 %149, %150
   br i1 %151, label %152, label %160
 
 152:                                              ; preds = %148
   %153 = load i16, ptr %12, align 2, !tbaa !88
-  %154 = load i16, ptr %135, align 2, !tbaa !384
+  %154 = load i16, ptr %135, align 2, !tbaa !387
   %155 = icmp eq i16 %153, %154
   br i1 %155, label %156, label %160
 
 156:                                              ; preds = %152
   %157 = load i16, ptr %13, align 2, !tbaa !88
-  %158 = load i16, ptr %136, align 4, !tbaa !385
+  %158 = load i16, ptr %136, align 4, !tbaa !388
   %159 = icmp eq i16 %157, %158
   br label %160
 
@@ -9540,7 +9540,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   ]
 
 163:                                              ; preds = %160
-  %164 = load i32, ptr %137, align 4, !tbaa !386
+  %164 = load i32, ptr %137, align 4, !tbaa !389
   %165 = icmp eq i32 %164, 0
   %or.cond3 = select i1 %165, i1 true, i1 %161
   br i1 %or.cond3, label %166, label %.sink.split
@@ -9551,23 +9551,23 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   br i1 %brmerge.not, label %168, label %.thread333
 
 168:                                              ; preds = %166
-  store i32 1, ptr %137, align 4, !tbaa !386
-  store i16 %149, ptr %134, align 8, !tbaa !383
+  store i32 1, ptr %137, align 4, !tbaa !389
+  store i16 %149, ptr %134, align 8, !tbaa !386
   %169 = load i16, ptr %12, align 2, !tbaa !88
-  store i16 %169, ptr %135, align 2, !tbaa !384
+  store i16 %169, ptr %135, align 2, !tbaa !387
   %170 = load i16, ptr %13, align 2, !tbaa !88
-  store i16 %170, ptr %136, align 4, !tbaa !385
+  store i16 %170, ptr %136, align 4, !tbaa !388
   br label %.thread333
 
 171:                                              ; preds = %160
-  %172 = load i32, ptr %137, align 4, !tbaa !386
+  %172 = load i32, ptr %137, align 4, !tbaa !389
   %173 = icmp ne i32 %172, 0
   %or.cond5 = select i1 %173, i1 %161, i1 false
   br i1 %or.cond5, label %.sink.split, label %.thread333
 
 .sink.split:                                      ; preds = %171, %163, %160
-  store i32 1, ptr %60, align 8, !tbaa !367
-  store i32 0, ptr %137, align 4, !tbaa !386
+  store i32 1, ptr %60, align 8, !tbaa !370
+  store i32 0, ptr %137, align 4, !tbaa !389
   br label %174
 
 174:                                              ; preds = %.sink.split, %146
@@ -9581,11 +9581,11 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %.2221338 = phi i32 [ 1, %174 ], [ 0, %171 ], [ 0, %168 ], [ 0, %166 ]
   %179 = add i64 %.2368, 1
   %.not286 = icmp eq i64 %179, %21
-  br i1 %.not286, label %180, label %138, !llvm.loop !387
+  br i1 %.not286, label %180, label %138, !llvm.loop !390
 
 180:                                              ; preds = %174, %.thread333
   %181 = phi i32 [ %175, %174 ], [ %177, %.thread333 ]
-  %182 = load i32, ptr %137, align 4, !tbaa !386
+  %182 = load i32, ptr %137, align 4, !tbaa !389
   %.not295 = icmp ne i32 %182, 0
   %.not296 = icmp eq i32 %181, 0
   %or.cond393 = select i1 %.not295, i1 %.not296, i1 false
@@ -9600,31 +9600,31 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 
 184:                                              ; preds = %.preheader356
   %185 = load i16, ptr %11, align 2, !tbaa !88
-  %186 = load i16, ptr %134, align 8, !tbaa !383
+  %186 = load i16, ptr %134, align 8, !tbaa !386
   %187 = icmp eq i16 %185, %186
   br i1 %187, label %188, label %197
 
 188:                                              ; preds = %184
   %189 = load i16, ptr %12, align 2, !tbaa !88
-  %190 = load i16, ptr %135, align 2, !tbaa !384
+  %190 = load i16, ptr %135, align 2, !tbaa !387
   %191 = icmp eq i16 %189, %190
   br i1 %191, label %192, label %197
 
 192:                                              ; preds = %188
   %193 = load i16, ptr %13, align 2, !tbaa !88
-  %194 = load i16, ptr %136, align 4, !tbaa !385
+  %194 = load i16, ptr %136, align 4, !tbaa !388
   %195 = icmp eq i16 %193, %194
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %192
-  store i32 1, ptr %60, align 8, !tbaa !367
-  store i32 0, ptr %137, align 4, !tbaa !386
+  store i32 1, ptr %60, align 8, !tbaa !370
+  store i32 0, ptr %137, align 4, !tbaa !389
   br label %197
 
 197:                                              ; preds = %.preheader356, %184, %188, %192, %196
   %198 = add i64 %.3369, 1
   %.not297 = icmp eq i64 %198, %21
-  br i1 %.not297, label %.loopexit357, label %.preheader356, !llvm.loop !388
+  br i1 %.not297, label %.loopexit357, label %.preheader356, !llvm.loop !391
 
 .loopexit357:                                     ; preds = %197, %180
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #31
@@ -9684,7 +9684,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 
 216:                                              ; preds = %204
   %.not270 = icmp eq i32 %.3243371, 0
-  %.pr.pre = load i32, ptr %43, align 8, !tbaa !370
+  %.pr.pre = load i32, ptr %43, align 8, !tbaa !373
   %217 = icmp ult i32 %.pr.pre, 8
   %or.cond394 = select i1 %.not270, i1 %217, i1 false
   br i1 %or.cond394, label %218, label %thread-pre-split
@@ -9711,7 +9711,7 @@ _ZL20getValueRequiredBitsh.exit:                  ; preds = %218, %220, %223
   br i1 %227, label %228, label %thread-pre-split
 
 228:                                              ; preds = %_ZL20getValueRequiredBitsh.exit
-  store i32 %.0.i, ptr %43, align 8, !tbaa !370
+  store i32 %.0.i, ptr %43, align 8, !tbaa !373
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZL20getValueRequiredBitsh.exit, %216, %228
@@ -9728,12 +9728,12 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   br i1 %or.cond308, label %236, label %233
 
 233:                                              ; preds = %232
-  store i32 1, ptr %0, align 8, !tbaa !377
+  store i32 1, ptr %0, align 8, !tbaa !380
   %234 = icmp ult i32 %229, 8
   br i1 %234, label %235, label %236
 
 235:                                              ; preds = %233
-  store i32 8, ptr %43, align 8, !tbaa !370
+  store i32 8, ptr %43, align 8, !tbaa !373
   br label %236
 
 236:                                              ; preds = %232, %233, %235, %thread-pre-split
@@ -9744,19 +9744,19 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   br i1 %.not274, label %239, label %.thread341
 
 239:                                              ; preds = %236
-  %240 = load i16, ptr %199, align 8, !tbaa !383
+  %240 = load i16, ptr %199, align 8, !tbaa !386
   %241 = zext i8 %208 to i16
   %242 = icmp eq i16 %240, %241
   br i1 %242, label %243, label %251
 
 243:                                              ; preds = %239
-  %244 = load i16, ptr %200, align 2, !tbaa !384
+  %244 = load i16, ptr %200, align 2, !tbaa !387
   %245 = zext i8 %210 to i16
   %246 = icmp eq i16 %244, %245
   br i1 %246, label %247, label %251
 
 247:                                              ; preds = %243
-  %248 = load i16, ptr %201, align 4, !tbaa !385
+  %248 = load i16, ptr %201, align 4, !tbaa !388
   %249 = zext i8 %212 to i16
   %250 = icmp eq i16 %248, %249
   br label %251
@@ -9769,19 +9769,19 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   ]
 
 253:                                              ; preds = %251
-  %254 = load i32, ptr %202, align 4, !tbaa !386
+  %254 = load i32, ptr %202, align 4, !tbaa !389
   %255 = icmp eq i32 %254, 0
   %or.cond13 = select i1 %255, i1 true, i1 %252
   br i1 %or.cond13, label %259, label %256
 
 256:                                              ; preds = %251, %253
-  store i32 1, ptr %60, align 8, !tbaa !367
-  store i32 0, ptr %202, align 4, !tbaa !386
+  store i32 1, ptr %60, align 8, !tbaa !370
+  store i32 0, ptr %202, align 4, !tbaa !389
   %257 = icmp ult i32 %237, 8
   br i1 %257, label %258, label %.thread341
 
 258:                                              ; preds = %256
-  store i32 8, ptr %43, align 8, !tbaa !370
+  store i32 8, ptr %43, align 8, !tbaa !373
   br label %.thread341
 
 259:                                              ; preds = %253
@@ -9792,28 +9792,28 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   br i1 %255, label %261, label %.thread341
 
 261:                                              ; preds = %260
-  store i32 1, ptr %202, align 4, !tbaa !386
-  store i16 %241, ptr %199, align 8, !tbaa !383
+  store i32 1, ptr %202, align 4, !tbaa !389
+  store i16 %241, ptr %199, align 8, !tbaa !386
   %262 = zext i8 %210 to i16
-  store i16 %262, ptr %200, align 2, !tbaa !384
+  store i16 %262, ptr %200, align 2, !tbaa !387
   %263 = zext i8 %212 to i16
-  store i16 %263, ptr %201, align 4, !tbaa !385
+  store i16 %263, ptr %201, align 4, !tbaa !388
   br label %.thread341
 
 264:                                              ; preds = %251
-  %265 = load i32, ptr %202, align 4, !tbaa !386
+  %265 = load i32, ptr %202, align 4, !tbaa !389
   %266 = icmp ne i32 %265, 0
   %or.cond15 = select i1 %266, i1 %252, i1 false
   br i1 %or.cond15, label %267, label %.thread341
 
 267:                                              ; preds = %264
-  store i32 1, ptr %60, align 8, !tbaa !367
-  store i32 0, ptr %202, align 4, !tbaa !386
+  store i32 1, ptr %60, align 8, !tbaa !370
+  store i32 0, ptr %202, align 4, !tbaa !389
   %268 = icmp ult i32 %237, 8
   br i1 %268, label %269, label %.thread341
 
 269:                                              ; preds = %267
-  store i32 8, ptr %43, align 8, !tbaa !370
+  store i32 8, ptr %43, align 8, !tbaa !373
   br label %.thread341
 
 .thread341:                                       ; preds = %259, %260, %258, %256, %264, %269, %267, %261, %236
@@ -9834,7 +9834,7 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
 278:                                              ; preds = %280
   %279 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %279, 8
-  br i1 %exitcond.not.i.i, label %_ZL14color_tree_hasP9ColorTreehhhh.exit, label %280, !llvm.loop !308
+  br i1 %exitcond.not.i.i, label %_ZL14color_tree_hasP9ColorTreehhhh.exit, label %280, !llvm.loop !309
 
 280:                                              ; preds = %278, %273
   %.01824.i.i = phi i32 [ 0, %273 ], [ %279, %278 ]
@@ -9855,13 +9855,13 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   %294 = or disjoint i32 %293, %289
   %295 = zext nneg i32 %294 to i64
   %296 = getelementptr inbounds nuw [16 x ptr], ptr %.01923.i.i, i64 0, i64 %295
-  %297 = load ptr, ptr %296, align 8, !tbaa !300
+  %297 = load ptr, ptr %296, align 8, !tbaa !301
   %.not.not.i.i = icmp eq ptr %297, null
   br i1 %.not.not.i.i, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader, label %278
 
 _ZL14color_tree_hasP9ColorTreehhhh.exit:          ; preds = %278
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 128
-  %299 = load i32, ptr %298, align 8, !tbaa !294
+  %299 = load i32, ptr %298, align 8, !tbaa !295
   %300 = icmp slt i32 %299, 0
   br i1 %300, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader, label %.thread346
 
@@ -9887,32 +9887,32 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   %314 = or disjoint i32 %313, %309
   %315 = zext nneg i32 %314 to i64
   %316 = getelementptr inbounds nuw [16 x ptr], ptr %.02533.i312, i64 0, i64 %315
-  %317 = load ptr, ptr %316, align 8, !tbaa !300
+  %317 = load ptr, ptr %316, align 8, !tbaa !301
   %.not.i313 = icmp eq ptr %317, null
   br i1 %.not.i313, label %318, label %322
 
 318:                                              ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
   %319 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
-  store ptr %319, ptr %316, align 8, !tbaa !300
+  store ptr %319, ptr %316, align 8, !tbaa !301
   %.not28.i316 = icmp eq ptr %319, null
   br i1 %.not28.i316, label %_ZL14color_tree_addP9ColorTreehhhhj.exit318, label %320
 
 320:                                              ; preds = %318
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %319, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !389
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %319, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !392
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 128
-  store i32 -1, ptr %321, align 8, !tbaa !294
-  %.pre.i317 = load ptr, ptr %316, align 8, !tbaa !300
+  store i32 -1, ptr %321, align 8, !tbaa !295
+  %.pre.i317 = load ptr, ptr %316, align 8, !tbaa !301
   br label %322
 
 322:                                              ; preds = %320, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
   %323 = phi ptr [ %317, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread ], [ %.pre.i317, %320 ]
   %324 = add nuw nsw i32 %.02434.i311, 1
   %exitcond.not.i314 = icmp eq i32 %324, 8
-  br i1 %exitcond.not.i314, label %325, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread, !llvm.loop !305
+  br i1 %exitcond.not.i314, label %325, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread, !llvm.loop !306
 
 325:                                              ; preds = %322
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 128
-  store i32 %206, ptr %326, align 8, !tbaa !294
+  store i32 %206, ptr %326, align 8, !tbaa !295
   %327 = icmp ult i32 %206, 256
   br i1 %327, label %328, label %335
 
@@ -9931,7 +9931,7 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
 
 335:                                              ; preds = %328, %325
   %336 = add i32 %206, 1
-  store i32 %336, ptr %64, align 4, !tbaa !369
+  store i32 %336, ptr %64, align 4, !tbaa !372
   %337 = icmp uge i32 %336, %.0237
   %338 = zext i1 %337 to i32
   br label %339
@@ -9959,12 +9959,12 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   %.4209 = phi i32 [ %.5210, %339 ], [ %.3208378, %204 ], [ %.5210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
   %345 = add nuw i64 %.4379, 1
   %.not268 = icmp eq i64 %345, %21
-  br i1 %.not268, label %._crit_edge, label %204, !llvm.loop !392
+  br i1 %.not268, label %._crit_edge, label %204, !llvm.loop !395
 
 ._crit_edge:                                      ; preds = %.thread346, %339, %.thread
   %346 = phi i32 [ %61, %.thread ], [ %342, %.thread346 ], [ %270, %339 ]
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %348 = load i32, ptr %347, align 4, !tbaa !386
+  %348 = load i32, ptr %347, align 4, !tbaa !389
   %.not282 = icmp eq i32 %348, 0
   %.not283 = icmp ne i32 %346, 0
   %or.cond385 = or i1 %.not283, %.not268370
@@ -9986,54 +9986,54 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
 
 354:                                              ; preds = %352
   %355 = load i8, ptr %15, align 1, !tbaa !18
-  %356 = load i16, ptr %349, align 8, !tbaa !383
+  %356 = load i16, ptr %349, align 8, !tbaa !386
   %357 = zext i8 %355 to i16
   %358 = icmp eq i16 %356, %357
   br i1 %358, label %359, label %373
 
 359:                                              ; preds = %354
   %360 = load i8, ptr %16, align 1, !tbaa !18
-  %361 = load i16, ptr %350, align 2, !tbaa !384
+  %361 = load i16, ptr %350, align 2, !tbaa !387
   %362 = zext i8 %360 to i16
   %363 = icmp eq i16 %361, %362
   br i1 %363, label %364, label %373
 
 364:                                              ; preds = %359
   %365 = load i8, ptr %17, align 1, !tbaa !18
-  %366 = load i16, ptr %351, align 4, !tbaa !385
+  %366 = load i16, ptr %351, align 4, !tbaa !388
   %367 = zext i8 %365 to i16
   %368 = icmp eq i16 %366, %367
   br i1 %368, label %369, label %373
 
 369:                                              ; preds = %364
-  store i32 1, ptr %60, align 8, !tbaa !367
-  store i32 0, ptr %347, align 4, !tbaa !386
-  %370 = load i32, ptr %43, align 8, !tbaa !370
+  store i32 1, ptr %60, align 8, !tbaa !370
+  store i32 0, ptr %347, align 4, !tbaa !389
+  %370 = load i32, ptr %43, align 8, !tbaa !373
   %371 = icmp ult i32 %370, 8
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %369
-  store i32 8, ptr %43, align 8, !tbaa !370
+  store i32 8, ptr %43, align 8, !tbaa !373
   br label %373
 
 373:                                              ; preds = %352, %354, %359, %364, %372, %369
   %374 = add nuw i64 %.5383, 1
   %.not284 = icmp eq i64 %374, %21
-  br i1 %.not284, label %.loopexit, label %352, !llvm.loop !393
+  br i1 %.not284, label %.loopexit, label %352, !llvm.loop !396
 
 .loopexit:                                        ; preds = %373, %._crit_edge
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %376 = load i16, ptr %375, align 8, !tbaa !383
+  %376 = load i16, ptr %375, align 8, !tbaa !386
   %377 = mul i16 %376, 257
-  store i16 %377, ptr %375, align 8, !tbaa !383
+  store i16 %377, ptr %375, align 8, !tbaa !386
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %379 = load i16, ptr %378, align 2, !tbaa !384
+  %379 = load i16, ptr %378, align 2, !tbaa !387
   %380 = mul i16 %379, 257
-  store i16 %380, ptr %378, align 2, !tbaa !384
+  store i16 %380, ptr %378, align 2, !tbaa !387
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %382 = load i16, ptr %381, align 4, !tbaa !385
+  %382 = load i16, ptr %381, align 4, !tbaa !388
   %383 = mul i16 %382, 257
-  store i16 %383, ptr %381, align 4, !tbaa !385
+  store i16 %383, ptr %381, align 4, !tbaa !388
   br label %_ZL14color_tree_addP9ColorTreehhhhj.exit318
 
 _ZL14color_tree_addP9ColorTreehhhhj.exit318:      ; preds = %318, %.loopexit
@@ -10061,7 +10061,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 48, ptr %10, align 8, !tbaa !394
+  store i32 48, ptr %10, align 8, !tbaa !397
   br label %.critedge
 
 11:                                               ; preds = %5
@@ -10070,7 +10070,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 27, ptr %14, align 8, !tbaa !394
+  store i32 27, ptr %14, align 8, !tbaa !397
   br label %.critedge
 
 15:                                               ; preds = %11
@@ -10078,25 +10078,25 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 6, ptr %16, align 8, !tbaa !182
+  store i32 6, ptr %16, align 8, !tbaa !183
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 228
-  store i32 8, ptr %18, align 4, !tbaa !185
+  store i32 8, ptr %18, align 4, !tbaa !186
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  store i32 0, ptr %20, align 8, !tbaa !255
-  store i32 0, ptr %6, align 8, !tbaa !256
+  store i32 0, ptr %20, align 8, !tbaa !256
+  store i32 0, ptr %6, align 8, !tbaa !257
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 212
-  store i32 0, ptr %21, align 4, !tbaa !257
+  store i32 0, ptr %21, align 4, !tbaa !258
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  store i32 0, ptr %23, align 8, !tbaa !258
+  store i32 0, ptr %23, align 8, !tbaa !259
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  store i32 0, ptr %24, align 8, !tbaa !259
+  store i32 0, ptr %24, align 8, !tbaa !260
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  store i32 0, ptr %25, align 8, !tbaa !260
+  store i32 0, ptr %25, align 8, !tbaa !261
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 452
-  store i32 0, ptr %26, align 4, !tbaa !261
+  store i32 0, ptr %26, align 4, !tbaa !262
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 460
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 484
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 352
@@ -10154,7 +10154,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 53:                                               ; preds = %50, %47, %44, %41, %38, %35, %32, %15
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 28, ptr %54, align 8, !tbaa !394
+  store i32 28, ptr %54, align 8, !tbaa !397
   br label %.critedge
 
 55:                                               ; preds = %50
@@ -10181,7 +10181,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 74:                                               ; preds = %55
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 94, ptr %75, align 8, !tbaa !394
+  store i32 94, ptr %75, align 8, !tbaa !397
   br label %.critedge
 
 76:                                               ; preds = %55
@@ -10191,7 +10191,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 29, ptr %79, align 8, !tbaa !394
+  store i32 29, ptr %79, align 8, !tbaa !397
   br label %.critedge
 
 80:                                               ; preds = %76
@@ -10250,23 +10250,23 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %122 = load i8, ptr %121, align 1, !tbaa !18
   %123 = zext i8 %122 to i32
-  store i32 %123, ptr %18, align 4, !tbaa !399
+  store i32 %123, ptr %18, align 4, !tbaa !402
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %125 = load i8, ptr %124, align 1, !tbaa !18
   %126 = zext i8 %125 to i32
-  store i32 %126, ptr %16, align 8, !tbaa !400
+  store i32 %126, ptr %16, align 8, !tbaa !403
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %128 = load i8, ptr %127, align 1, !tbaa !18
   %129 = zext i8 %128 to i32
-  store i32 %129, ptr %6, align 8, !tbaa !256
+  store i32 %129, ptr %6, align 8, !tbaa !257
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 27
   %131 = load i8, ptr %130, align 1, !tbaa !18
   %132 = zext i8 %131 to i32
-  store i32 %132, ptr %21, align 4, !tbaa !257
+  store i32 %132, ptr %21, align 4, !tbaa !258
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %134 = load i8, ptr %133, align 1, !tbaa !18
   %135 = zext i8 %134 to i32
-  store i32 %135, ptr %20, align 8, !tbaa !255
+  store i32 %135, ptr %20, align 8, !tbaa !256
   %136 = icmp eq i32 %98, 0
   %137 = icmp eq i32 %116, 0
   %or.cond3 = or i1 %136, %137
@@ -10274,13 +10274,13 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
 
 138:                                              ; preds = %120
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 93, ptr %139, align 8, !tbaa !394
+  store i32 93, ptr %139, align 8, !tbaa !397
   br label %.critedge
 
 140:                                              ; preds = %120
   %141 = tail call fastcc noundef i32 @_ZL18checkColorValidity16LodePNGColorTypej(i32 noundef %126, i32 noundef %123)
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  store i32 %141, ptr %142, align 8, !tbaa !394
+  store i32 %141, ptr %142, align 8, !tbaa !397
   %.not81 = icmp eq i32 %141, 0
   br i1 %.not81, label %143, label %.critedge
 
@@ -10289,7 +10289,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   br i1 %.not82, label %145, label %144
 
 144:                                              ; preds = %143
-  store i32 32, ptr %142, align 8, !tbaa !394
+  store i32 32, ptr %142, align 8, !tbaa !397
   br label %.critedge
 
 145:                                              ; preds = %143
@@ -10297,7 +10297,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   br i1 %.not83, label %147, label %146
 
 146:                                              ; preds = %145
-  store i32 33, ptr %142, align 8, !tbaa !394
+  store i32 33, ptr %142, align 8, !tbaa !397
   br label %.critedge
 
 147:                                              ; preds = %145
@@ -10305,12 +10305,12 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %147
-  store i32 34, ptr %142, align 8, !tbaa !394
+  store i32 34, ptr %142, align 8, !tbaa !397
   br label %.critedge
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %152 = load i32, ptr %151, align 8, !tbaa !401
+  %152 = load i32, ptr %151, align 8, !tbaa !404
   %.not84 = icmp eq i32 %152, 0
   br i1 %.not84, label %153, label %.critedge
 
@@ -10339,7 +10339,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   br i1 %.not85, label %.critedge, label %174
 
 174:                                              ; preds = %153
-  store i32 57, ptr %142, align 8, !tbaa !394
+  store i32 57, ptr %142, align 8, !tbaa !397
   br label %.critedge
 
 .critedge:                                        ; preds = %150, %153, %174, %140, %149, %146, %144, %138, %78, %74, %53, %13, %9
@@ -10495,7 +10495,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
 
 60:                                               ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit112
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %62 = load i32, ptr %61, align 8, !tbaa !182
+  %62 = load i32, ptr %61, align 8, !tbaa !183
   switch i32 %62, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread [
     i32 3, label %63
     i32 0, label %77
@@ -10505,7 +10505,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
 63:                                               ; preds = %60
   %64 = zext nneg i32 %25 to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %66 = load i64, ptr %65, align 8, !tbaa !191
+  %66 = load i64, ptr %65, align 8, !tbaa !192
   %67 = icmp ult i64 %66, %64
   br i1 %67, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread, label %.preheader.i
 
@@ -10521,7 +10521,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph.i ]
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv
   %71 = load i8, ptr %70, align 1, !tbaa !18
-  %72 = load ptr, ptr %68, align 8, !tbaa !186
+  %72 = load ptr, ptr %68, align 8, !tbaa !187
   %73 = shl i64 %indvars.iv, 2
   %74 = and i64 %73, 4294967292
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
@@ -10529,7 +10529,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
   store i8 %71, ptr %76, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not35.i = icmp eq i64 %indvars.iv.next, %64
-  br i1 %.not35.i, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137, label %69, !llvm.loop !402
+  br i1 %.not35.i, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137, label %69, !llvm.loop !405
 
 77:                                               ; preds = %60
   %.not34.i = icmp eq i32 %25, 2
@@ -10537,7 +10537,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 1, ptr %79, align 8, !tbaa !198
+  store i32 1, ptr %79, align 8, !tbaa !199
   %80 = load i8, ptr %28, align 1, !tbaa !18
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 8
@@ -10546,9 +10546,9 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
   %85 = zext i8 %84 to i32
   %86 = or disjoint i32 %82, %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i32 %86, ptr %87, align 4, !tbaa !285
+  store i32 %86, ptr %87, align 4, !tbaa !286
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 %86, ptr %88, align 8, !tbaa !284
+  store i32 %86, ptr %88, align 8, !tbaa !285
   br label %.loopexit.sink.split.i
 
 89:                                               ; preds = %60
@@ -10557,7 +10557,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 1, ptr %91, align 8, !tbaa !198
+  store i32 1, ptr %91, align 8, !tbaa !199
   %92 = load i8, ptr %28, align 1, !tbaa !18
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 8
@@ -10566,7 +10566,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
   %97 = zext i8 %96 to i32
   %98 = or disjoint i32 %94, %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 %98, ptr %99, align 4, !tbaa !283
+  store i32 %98, ptr %99, align 4, !tbaa !284
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %101 = load i8, ptr %100, align 1, !tbaa !18
   %102 = zext i8 %101 to i32
@@ -10576,7 +10576,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit112:      ; preds = %54
   %106 = zext i8 %105 to i32
   %107 = or disjoint i32 %103, %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 %107, ptr %108, align 8, !tbaa !284
+  store i32 %107, ptr %108, align 8, !tbaa !285
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %110 = load i8, ptr %109, align 1, !tbaa !18
   %111 = zext i8 %110 to i32
@@ -10684,7 +10684,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 1, ptr %165, align 8, !tbaa !259
+  store i32 1, ptr %165, align 8, !tbaa !260
   %166 = load i8, ptr %28, align 1, !tbaa !18
   %167 = zext i8 %166 to i32
   %168 = shl nuw i32 %167, 24
@@ -10703,7 +10703,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
   %181 = zext i8 %180 to i32
   %182 = or disjoint i32 %178, %181
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %182, ptr %183, align 4, !tbaa !403
+  store i32 %182, ptr %183, align 4, !tbaa !406
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137
 
 184:                                              ; preds = %161
@@ -10728,11 +10728,11 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 1, ptr %194, align 4, !tbaa !261
+  store i32 1, ptr %194, align 4, !tbaa !262
   %195 = load i8, ptr %28, align 1, !tbaa !18
   %196 = zext i8 %195 to i32
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i32 %196, ptr %197, align 8, !tbaa !404
+  store i32 %196, ptr %197, align 8, !tbaa !407
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137
 
 198:                                              ; preds = %190
@@ -10757,26 +10757,26 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
 
 207:                                              ; preds = %206
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 1, ptr %208, align 4, !tbaa !405
+  store i32 1, ptr %208, align 4, !tbaa !408
   %209 = load i8, ptr %28, align 1, !tbaa !18
   %210 = zext i8 %209 to i32
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i32 %210, ptr %211, align 8, !tbaa !406
+  store i32 %210, ptr %211, align 8, !tbaa !409
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %213 = load i8, ptr %212, align 1, !tbaa !18
   %214 = zext i8 %213 to i32
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  store i32 %214, ptr %215, align 4, !tbaa !407
+  store i32 %214, ptr %215, align 4, !tbaa !410
   %216 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %217 = load i8, ptr %216, align 1, !tbaa !18
   %218 = zext i8 %217 to i32
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store i32 %218, ptr %219, align 8, !tbaa !408
+  store i32 %218, ptr %219, align 8, !tbaa !411
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %221 = load i8, ptr %220, align 1, !tbaa !18
   %222 = zext i8 %221 to i32
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  store i32 %222, ptr %223, align 4, !tbaa !409
+  store i32 %222, ptr %223, align 4, !tbaa !412
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137
 
 224:                                              ; preds = %204
@@ -10830,7 +10830,7 @@ _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit:  ; preds = %133, %145, %157, %1
 
 _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread137: ; preds = %69, %207, %193, %164, %.loopexit.sink.split.i, %.preheader.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %249 = load i32, ptr %248, align 8, !tbaa !401
+  %249 = load i32, ptr %248, align 8, !tbaa !404
   %.not107 = icmp eq i32 %249, 0
   br i1 %.not107, label %250, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread
 
@@ -10851,20 +10851,20 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_PLTEP16LodeP
   %4 = udiv i32 %.lhs.trunc, 3
   %.zext = zext nneg i32 %4 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.zext, ptr %5, align 8, !tbaa !191
+  store i64 %.zext, ptr %5, align 8, !tbaa !192
   %6 = add nsw i64 %2, -771
   %or.cond = icmp ult i64 %6, -768
   br i1 %or.cond, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !186
+  %9 = load ptr, ptr %8, align 8, !tbaa !187
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %.critedge.i.preheader
 
 10:                                               ; preds = %7
   %11 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %11, ptr %8, align 8, !tbaa !186
+  store ptr %11, ptr %8, align 8, !tbaa !187
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %.critedge.i.preheader
 
@@ -10873,30 +10873,30 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_PLTEP16LodeP
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
   %.014.i = phi i64 [ %25, %.critedge.i ], [ 0, %.critedge.i.preheader ]
-  %13 = load ptr, ptr %8, align 8, !tbaa !186
+  %13 = load ptr, ptr %8, align 8, !tbaa !187
   %14 = shl i64 %.014.i, 2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !18
-  %16 = load ptr, ptr %8, align 8, !tbaa !186
+  %16 = load ptr, ptr %8, align 8, !tbaa !187
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 0, ptr %18, align 1, !tbaa !18
-  %19 = load ptr, ptr %8, align 8, !tbaa !186
+  %19 = load ptr, ptr %8, align 8, !tbaa !187
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 0, ptr %21, align 1, !tbaa !18
-  %22 = load ptr, ptr %8, align 8, !tbaa !186
+  %22 = load ptr, ptr %8, align 8, !tbaa !187
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3
   store i8 -1, ptr %24, align 1, !tbaa !18
   %25 = add nuw nsw i64 %.014.i, 1
   %.not13.i = icmp eq i64 %25, 256
-  br i1 %.not13.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, label %.critedge.i, !llvm.loop !196
+  br i1 %.not13.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, label %.critedge.i, !llvm.loop !197
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit: ; preds = %.critedge.i
-  %.pr = load ptr, ptr %8, align 8, !tbaa !186
+  %.pr = load ptr, ptr %8, align 8, !tbaa !187
   %.not = icmp eq ptr %.pr, null
-  %.pre34 = load i64, ptr %5, align 8, !tbaa !191
+  %.pre34 = load i64, ptr %5, align 8, !tbaa !192
   br i1 %.not, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %28
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, %10
@@ -10905,7 +10905,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
   br i1 %.not28, label %.loopexit, label %27
 
 27:                                               ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread
-  store i64 0, ptr %5, align 8, !tbaa !191
+  store i64 0, ptr %5, align 8, !tbaa !192
   br label %.loopexit
 
 28:                                               ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit
@@ -10919,7 +10919,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
   %30 = zext i32 %.02532 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !18
-  %33 = load ptr, ptr %8, align 8, !tbaa !186
+  %33 = load ptr, ptr %8, align 8, !tbaa !187
   %34 = shl i32 %.033, 2
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
@@ -10928,7 +10928,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
   %38 = zext i32 %29 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !18
-  %41 = load ptr, ptr %8, align 8, !tbaa !186
+  %41 = load ptr, ptr %8, align 8, !tbaa !187
   %42 = or disjoint i32 %34, 1
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
@@ -10937,21 +10937,21 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
   %46 = zext i32 %37 to i64
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !18
-  %49 = load ptr, ptr %8, align 8, !tbaa !186
+  %49 = load ptr, ptr %8, align 8, !tbaa !187
   %50 = or disjoint i32 %34, 2
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
   store i8 %48, ptr %52, align 1, !tbaa !18
-  %53 = load ptr, ptr %8, align 8, !tbaa !186
+  %53 = load ptr, ptr %8, align 8, !tbaa !187
   %54 = or disjoint i32 %34, 3
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
   store i8 -1, ptr %56, align 1, !tbaa !18
   %57 = add i32 %.033, 1
   %58 = zext i32 %57 to i64
-  %59 = load i64, ptr %5, align 8, !tbaa !191
+  %59 = load i64, ptr %5, align 8, !tbaa !192
   %.not29 = icmp eq i64 %59, %58
-  br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !410
+  br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !413
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, %28, %3, %27
   %.026 = phi i32 [ 83, %27 ], [ 38, %3 ], [ 0, %28 ], [ 0, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread ], [ 0, %.lr.ph ]
@@ -10961,7 +10961,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11LodePNGInfoPKhm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 2147483648) %2) unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !400
+  %5 = load i32, ptr %4, align 8, !tbaa !403
   switch i32 %5, label %59 [
     i32 3, label %6
     i32 0, label %18
@@ -10978,19 +10978,19 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
   %8 = load i8, ptr %1, align 1, !tbaa !18
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !411
+  %11 = load i64, ptr %10, align 8, !tbaa !414
   %.not34 = icmp ugt i64 %11, %9
   br i1 %.not34, label %12, label %59
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %13, align 8, !tbaa !412
+  store i32 1, ptr %13, align 8, !tbaa !415
   %14 = load i8, ptr %1, align 1, !tbaa !18
   %15 = zext i8 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %15, ptr %16, align 4, !tbaa !413
+  store i32 %15, ptr %16, align 4, !tbaa !416
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %15, ptr %17, align 8, !tbaa !414
+  store i32 %15, ptr %17, align 8, !tbaa !417
   br label %.sink.split
 
 18:                                               ; preds = %3, %3
@@ -10999,7 +10999,7 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %20, align 8, !tbaa !412
+  store i32 1, ptr %20, align 8, !tbaa !415
   %21 = load i8, ptr %1, align 1, !tbaa !18
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 8
@@ -11008,9 +11008,9 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %27, ptr %28, align 4, !tbaa !413
+  store i32 %27, ptr %28, align 4, !tbaa !416
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %27, ptr %29, align 8, !tbaa !414
+  store i32 %27, ptr %29, align 8, !tbaa !417
   br label %.sink.split
 
 30:                                               ; preds = %3, %3
@@ -11019,7 +11019,7 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %32, align 8, !tbaa !412
+  store i32 1, ptr %32, align 8, !tbaa !415
   %33 = load i8, ptr %1, align 1, !tbaa !18
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
@@ -11028,7 +11028,7 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %39, ptr %40, align 4, !tbaa !415
+  store i32 %39, ptr %40, align 4, !tbaa !418
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !18
   %43 = zext i8 %42 to i32
@@ -11038,7 +11038,7 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %48, ptr %49, align 8, !tbaa !414
+  store i32 %48, ptr %49, align 8, !tbaa !417
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i8, ptr %50, align 1, !tbaa !18
   %52 = zext i8 %51 to i32
@@ -11082,7 +11082,7 @@ define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodeP
   %9 = add nuw nsw i32 %.03449, 1
   %10 = zext nneg i32 %9 to i64
   %11 = icmp samesign ult i32 %9, %4
-  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !416
+  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !419
 
 .critedge:                                        ; preds = %.lr.ph, %8
   %.034.lcssa = phi i32 [ %.03449, %.lr.ph ], [ %9, %8 ]
@@ -11099,7 +11099,7 @@ define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodeP
   br i1 %.not44, label %.critedge.thread, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !417
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !420
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.lcssa
   store i8 0, ptr %17, align 1, !tbaa !18
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %15)
@@ -11114,7 +11114,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %13
 
 .lr.ph.preheader.i47:                             ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %22, i64 %18, i1 false), !tbaa !18, !alias.scope !421
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %22, i64 %18, i1 false), !tbaa !18, !alias.scope !424
   br label %_ZL14lodepng_memcpyPvPKvm.exit48
 
 _ZL14lodepng_memcpyPvPKvm.exit48:                 ; preds = %21, %.lr.ph.preheader.i47
@@ -11140,7 +11140,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNG
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !425
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !428
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   store ptr null, ptr %7, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #31
@@ -11164,7 +11164,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNG
   %14 = add nuw nsw i32 %.03663, 1
   %15 = zext nneg i32 %14 to i64
   %16 = icmp samesign ult i32 %14, %9
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !427
+  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !430
 
 .critedge:                                        ; preds = %.lr.ph, %13, %4
   %.036.lcssa = phi i32 [ 0, %4 ], [ %14, %13 ], [ %.03663, %.lr.ph ]
@@ -11187,7 +11187,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNG
   br i1 %.not45, label %53, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr readonly align 1 %2, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !428
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr readonly align 1 %2, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !431
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.lcssa
   store i8 0, ptr %25, align 1, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %23
@@ -11199,13 +11199,13 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
   %29 = trunc nuw nsw i64 %3 to i32
   %30 = sub nsw i32 %29, %17
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %32 = load i64, ptr %31, align 8, !tbaa !432
+  %32 = load i64, ptr %31, align 8, !tbaa !435
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !66
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %35 = zext i32 %30 to i64
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !433
+  %37 = load ptr, ptr %36, align 8, !tbaa !436
   %.not.i49 = icmp eq ptr %37, null
   br i1 %.not.i49, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, label %38
 
@@ -11268,7 +11268,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNG
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !425
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !428
   %8 = icmp samesign ult i64 %3, 5
   br i1 %8, label %87, label %.preheader126.preheader
 
@@ -11288,7 +11288,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNG
   %14 = add nuw nsw i32 %.091127, 1
   %15 = zext nneg i32 %14 to i64
   %16 = icmp samesign ult i32 %14, %9
-  br i1 %16, label %.preheader126, label %.critedge, !llvm.loop !434
+  br i1 %16, label %.preheader126, label %.critedge, !llvm.loop !437
 
 .critedge:                                        ; preds = %13, %.preheader126
   %.091.lcssa = phi i32 [ %14, %13 ], [ %.091127, %.preheader126 ]
@@ -11311,7 +11311,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNG
   br i1 %.not110, label %87, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %2, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !435
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %2, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !438
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.lcssa
   store i8 0, ptr %25, align 1, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %23
@@ -11336,7 +11336,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
   %36 = add nuw nsw i32 %.094128, 1
   %37 = zext nneg i32 %36 to i64
   %38 = icmp samesign ugt i64 %3, %37
-  br i1 %38, label %.lr.ph, label %.critedge3, !llvm.loop !439
+  br i1 %38, label %.lr.ph, label %.critedge3, !llvm.loop !442
 
 .critedge3:                                       ; preds = %.lr.ph, %34
   %.192.lcssa.ph = phi i32 [ %.192129, %.lr.ph ], [ %35, %34 ]
@@ -11353,7 +11353,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
 
 .lr.ph.preheader.i120:                            ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %44, i64 %43, i1 false), !tbaa !18, !alias.scope !440
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %44, i64 %43, i1 false), !tbaa !18, !alias.scope !443
   br label %_ZL14lodepng_memcpyPvPKvm.exit121
 
 _ZL14lodepng_memcpyPvPKvm.exit121:                ; preds = %42, %.lr.ph.preheader.i120
@@ -11378,7 +11378,7 @@ _ZL14lodepng_memcpyPvPKvm.exit121:                ; preds = %42, %.lr.ph.prehead
   %54 = add nuw nsw i32 %.195132, 1
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ugt i64 %3, %55
-  br i1 %56, label %.lr.ph134, label %.critedge5, !llvm.loop !444
+  br i1 %56, label %.lr.ph134, label %.critedge5, !llvm.loop !447
 
 .critedge5:                                       ; preds = %.lr.ph134, %52, %_ZL14lodepng_memcpyPvPKvm.exit121
   %.293.lcssa = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit121 ], [ %53, %52 ], [ %.293133, %.lr.ph134 ]
@@ -11395,7 +11395,7 @@ _ZL14lodepng_memcpyPvPKvm.exit121:                ; preds = %42, %.lr.ph.prehead
 
 .lr.ph.preheader.i123:                            ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr readonly align 1 %62, i64 %61, i1 false), !tbaa !18, !alias.scope !445
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr readonly align 1 %62, i64 %61, i1 false), !tbaa !18, !alias.scope !448
   br label %_ZL14lodepng_memcpyPvPKvm.exit124
 
 _ZL14lodepng_memcpyPvPKvm.exit124:                ; preds = %60, %.lr.ph.preheader.i123
@@ -11412,7 +11412,7 @@ _ZL14lodepng_memcpyPvPKvm.exit124:                ; preds = %60, %.lr.ph.prehead
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   store i64 0, ptr %7, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %68 = load i64, ptr %67, align 8, !tbaa !432
+  %68 = load i64, ptr %67, align 8, !tbaa !435
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %68, ptr %69, align 8, !tbaa !66
   %70 = zext i32 %64 to i64
@@ -11467,7 +11467,7 @@ define internal fastcc noundef range(i32 0, 74) i32 @_ZL14readChunk_tIMEP11LodeP
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 1, ptr %5, align 4, !tbaa !449
+  store i32 1, ptr %5, align 4, !tbaa !452
   %6 = load i8, ptr %1, align 1, !tbaa !18
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 8
@@ -11476,32 +11476,32 @@ define internal fastcc noundef range(i32 0, 74) i32 @_ZL14readChunk_tIMEP11LodeP
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %12, ptr %13, align 8, !tbaa !450
+  store i32 %12, ptr %13, align 8, !tbaa !453
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %16, ptr %17, align 4, !tbaa !451
+  store i32 %16, ptr %17, align 4, !tbaa !454
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %19 = load i8, ptr %18, align 1, !tbaa !18
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %20, ptr %21, align 8, !tbaa !452
+  store i32 %20, ptr %21, align 8, !tbaa !455
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i8, ptr %22, align 1, !tbaa !18
   %24 = zext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %24, ptr %25, align 4, !tbaa !453
+  store i32 %24, ptr %25, align 4, !tbaa !456
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %27 = load i8, ptr %26, align 1, !tbaa !18
   %28 = zext i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %28, ptr %29, align 8, !tbaa !454
+  store i32 %28, ptr %29, align 8, !tbaa !457
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %31 = load i8, ptr %30, align 1, !tbaa !18
   %32 = zext i8 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i32 %32, ptr %33, align 4, !tbaa !455
+  store i32 %32, ptr %33, align 4, !tbaa !458
   br label %34
 
 34:                                               ; preds = %3, %4
@@ -11516,7 +11516,7 @@ define internal fastcc noundef range(i32 0, 75) i32 @_ZL14readChunk_pHYsP11LodeP
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 1, ptr %5, align 8, !tbaa !258
+  store i32 1, ptr %5, align 8, !tbaa !259
   %6 = load i8, ptr %1, align 1, !tbaa !18
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
@@ -11535,65 +11535,6 @@ define internal fastcc noundef range(i32 0, 75) i32 @_ZL14readChunk_pHYsP11LodeP
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i32 %22, ptr %23, align 4, !tbaa !456
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %25 = load i8, ptr %24, align 1, !tbaa !18
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw i32 %26, 24
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %29 = load i8, ptr %28, align 1, !tbaa !18
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 16
-  %32 = or disjoint i32 %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %34 = load i8, ptr %33, align 1, !tbaa !18
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %32, %36
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %39 = load i8, ptr %38, align 1, !tbaa !18
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %37, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %41, ptr %42, align 8, !tbaa !457
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i8, ptr %43, align 1, !tbaa !18
-  %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 %45, ptr %46, align 4, !tbaa !458
-  br label %47
-
-47:                                               ; preds = %3, %4
-  %.0 = phi i32 [ 0, %4 ], [ 74, %3 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 2147483648) %2) unnamed_addr #15 {
-  %.not = icmp eq i64 %2, 32
-  br i1 %.not, label %4, label %157
-
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i32 1, ptr %5, align 8, !tbaa !260
-  %6 = load i8, ptr %1, align 1, !tbaa !18
-  %7 = zext i8 %6 to i32
-  %8 = shl nuw i32 %7, 24
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !18
-  %11 = zext i8 %10 to i32
-  %12 = shl nuw nsw i32 %11, 16
-  %13 = or disjoint i32 %12, %8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %15 = load i8, ptr %14, align 1, !tbaa !18
-  %16 = zext i8 %15 to i32
-  %17 = shl nuw nsw i32 %16, 8
-  %18 = or disjoint i32 %13, %17
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %20 = load i8, ptr %19, align 1, !tbaa !18
-  %21 = zext i8 %20 to i32
-  %22 = or disjoint i32 %18, %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %22, ptr %23, align 4, !tbaa !459
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i8, ptr %24, align 1, !tbaa !18
@@ -11613,8 +11554,67 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %39 = load i8, ptr %38, align 1, !tbaa !18
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %41, ptr %42, align 8, !tbaa !460
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load i8, ptr %43, align 1, !tbaa !18
+  %45 = zext i8 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  store i32 %45, ptr %46, align 4, !tbaa !461
+  br label %47
+
+47:                                               ; preds = %3, %4
+  %.0 = phi i32 [ 0, %4 ], [ 74, %3 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 2147483648) %2) unnamed_addr #15 {
+  %.not = icmp eq i64 %2, 32
+  br i1 %.not, label %4, label %157
+
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i32 1, ptr %5, align 8, !tbaa !261
+  %6 = load i8, ptr %1, align 1, !tbaa !18
+  %7 = zext i8 %6 to i32
+  %8 = shl nuw i32 %7, 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %10 = load i8, ptr %9, align 1, !tbaa !18
+  %11 = zext i8 %10 to i32
+  %12 = shl nuw nsw i32 %11, 16
+  %13 = or disjoint i32 %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !18
+  %16 = zext i8 %15 to i32
+  %17 = shl nuw nsw i32 %16, 8
+  %18 = or disjoint i32 %13, %17
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %20 = load i8, ptr %19, align 1, !tbaa !18
+  %21 = zext i8 %20 to i32
+  %22 = or disjoint i32 %18, %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  store i32 %22, ptr %23, align 4, !tbaa !462
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %25 = load i8, ptr %24, align 1, !tbaa !18
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw i32 %26, 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  %30 = zext i8 %29 to i32
+  %31 = shl nuw nsw i32 %30, 16
+  %32 = or disjoint i32 %31, %27
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %34 = load i8, ptr %33, align 1, !tbaa !18
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw nsw i32 %35, 8
+  %37 = or disjoint i32 %32, %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %39 = load i8, ptr %38, align 1, !tbaa !18
+  %40 = zext i8 %39 to i32
+  %41 = or disjoint i32 %37, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i32 %41, ptr %42, align 8, !tbaa !463
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i8, ptr %43, align 1, !tbaa !18
   %45 = zext i8 %44 to i32
@@ -11634,7 +11634,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  store i32 %60, ptr %61, align 4, !tbaa !461
+  store i32 %60, ptr %61, align 4, !tbaa !464
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %63 = load i8, ptr %62, align 1, !tbaa !18
   %64 = zext i8 %63 to i32
@@ -11654,7 +11654,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %79, ptr %80, align 8, !tbaa !462
+  store i32 %79, ptr %80, align 8, !tbaa !465
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load i8, ptr %81, align 1, !tbaa !18
   %83 = zext i8 %82 to i32
@@ -11674,7 +11674,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %97 = zext i8 %96 to i32
   %98 = or disjoint i32 %94, %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 %98, ptr %99, align 4, !tbaa !463
+  store i32 %98, ptr %99, align 4, !tbaa !466
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %101 = load i8, ptr %100, align 1, !tbaa !18
   %102 = zext i8 %101 to i32
@@ -11694,7 +11694,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %116 = zext i8 %115 to i32
   %117 = or disjoint i32 %113, %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %117, ptr %118, align 8, !tbaa !464
+  store i32 %117, ptr %118, align 8, !tbaa !467
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %120 = load i8, ptr %119, align 1, !tbaa !18
   %121 = zext i8 %120 to i32
@@ -11714,7 +11714,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %135 = zext i8 %134 to i32
   %136 = or disjoint i32 %132, %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 %136, ptr %137, align 4, !tbaa !465
+  store i32 %136, ptr %137, align 4, !tbaa !468
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %139 = load i8, ptr %138, align 1, !tbaa !18
   %140 = zext i8 %139 to i32
@@ -11734,7 +11734,7 @@ define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodeP
   %154 = zext i8 %153 to i32
   %155 = or disjoint i32 %151, %154
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %155, ptr %156, align 8, !tbaa !466
+  store i32 %155, ptr %156, align 8, !tbaa !469
   br label %157
 
 157:                                              ; preds = %3, %4
@@ -11750,9 +11750,9 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
   store i64 0, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !425
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !428
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %9 = load i32, ptr %8, align 4, !tbaa !236
+  %9 = load i32, ptr %8, align 4, !tbaa !237
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
@@ -11762,15 +11762,15 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   tail call void @free(ptr noundef %12) #31
   store ptr null, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %14 = load ptr, ptr %13, align 8, !tbaa !237
+  %14 = load ptr, ptr %13, align 8, !tbaa !238
   tail call void @free(ptr noundef %14) #31
-  store ptr null, ptr %13, align 8, !tbaa !237
+  store ptr null, ptr %13, align 8, !tbaa !238
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 0, ptr %15, align 8, !tbaa !238
+  store i32 0, ptr %15, align 8, !tbaa !239
   br label %16
 
 16:                                               ; preds = %10, %4
-  store i32 1, ptr %8, align 4, !tbaa !236
+  store i32 1, ptr %8, align 4, !tbaa !237
   %.not81 = icmp eq i64 %3, 0
   br i1 %.not81, label %.critedge, label %.lr.ph.preheader
 
@@ -11790,7 +11790,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   %22 = add nuw nsw i32 %.04373, 1
   %23 = zext nneg i32 %22 to i64
   %24 = icmp samesign ult i32 %22, %17
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !467
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !470
 
 .critedge:                                        ; preds = %.lr.ph, %21, %16
   %.043.lcssa = phi i32 [ 0, %16 ], [ %22, %21 ], [ %.04373, %.lr.ph ]
@@ -11810,7 +11810,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   %31 = zext nneg i32 %30 to i64
   %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %32, ptr %33, align 8, !tbaa !239
+  store ptr %32, ptr %33, align 8, !tbaa !240
   %.not54 = icmp eq ptr %32, null
   br i1 %.not54, label %75, label %.lr.ph80.preheader
 
@@ -11824,12 +11824,12 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   %indvars.iv = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next, %.lr.ph80 ]
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !18
-  %38 = load ptr, ptr %33, align 8, !tbaa !239
+  %38 = load ptr, ptr %33, align 8, !tbaa !240
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
   store i8 %37, ptr %39, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not55 = icmp eq i64 %indvars.iv.next, %35
-  br i1 %.not55, label %._crit_edge, label %.lr.ph80, !llvm.loop !468
+  br i1 %.not55, label %._crit_edge, label %.lr.ph80, !llvm.loop !471
 
 ._crit_edge:                                      ; preds = %.lr.ph80
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 %31
@@ -11841,14 +11841,14 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
   %43 = trunc nuw nsw i64 %3 to i32
   %44 = sub nsw i32 %43, %25
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %46 = load i64, ptr %45, align 8, !tbaa !469
+  %46 = load i64, ptr %45, align 8, !tbaa !472
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !66
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 %26
   %50 = zext i32 %44 to i64
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !433
+  %52 = load ptr, ptr %51, align 8, !tbaa !436
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, label %53
 
@@ -11868,13 +11868,13 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread65: ; pre
   %spec.select63 = select i1 %58, i32 113, i32 110
   %59 = trunc i64 %57 to i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %59, ptr %60, align 8, !tbaa !238
+  store i32 %59, ptr %60, align 8, !tbaa !239
   br label %75
 
 _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31
   %61 = load ptr, ptr %48, align 8, !tbaa !7
-  store ptr %61, ptr %5, align 8, !tbaa !53, !alias.scope !470
+  store ptr %61, ptr %5, align 8, !tbaa !53, !alias.scope !473
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %63 = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef %5, ptr noundef nonnull %49, i64 noundef %50, ptr noundef nonnull %7)
@@ -11889,7 +11889,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %42
   %.ph = phi i64 [ %55, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread65 ], [ %65, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   %66 = trunc i64 %.ph to i32
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %66, ptr %67, align 8, !tbaa !238
+  store i32 %66, ptr %67, align 8, !tbaa !239
   %68 = icmp eq i32 %66, 0
   %69 = select i1 %68, i32 100, i32 0
   br label %75
@@ -11900,7 +11900,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %42
   %spec.select = select i1 %72, i32 113, i32 %63
   %73 = trunc i64 %65 to i32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %73, ptr %74, align 8, !tbaa !238
+  store i32 %73, ptr %74, align 8, !tbaa !239
   br label %75
 
 75:                                               ; preds = %70, %.thread71, %.thread, %._crit_edge, %29, %27, %.critedge
@@ -11917,7 +11917,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 1, ptr %5, align 8, !tbaa !473
+  store i32 1, ptr %5, align 8, !tbaa !476
   %6 = load i8, ptr %1, align 1, !tbaa !18
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 8
@@ -11926,7 +11926,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 %12, ptr %13, align 4, !tbaa !474
+  store i32 %12, ptr %13, align 4, !tbaa !477
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = zext i8 %15 to i32
@@ -11936,7 +11936,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i32 %21, ptr %22, align 8, !tbaa !475
+  store i32 %21, ptr %22, align 8, !tbaa !478
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1, !tbaa !18
   %25 = zext i8 %24 to i32
@@ -11946,7 +11946,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 %30, ptr %31, align 4, !tbaa !476
+  store i32 %30, ptr %31, align 4, !tbaa !479
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %33 = load i8, ptr %32, align 1, !tbaa !18
   %34 = zext i8 %33 to i32
@@ -11956,7 +11956,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %39, ptr %40, align 8, !tbaa !477
+  store i32 %39, ptr %40, align 8, !tbaa !480
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i8, ptr %41, align 1, !tbaa !18
   %43 = zext i8 %42 to i32
@@ -11966,7 +11966,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 %48, ptr %49, align 4, !tbaa !478
+  store i32 %48, ptr %49, align 4, !tbaa !481
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %51 = load i8, ptr %50, align 1, !tbaa !18
   %52 = zext i8 %51 to i32
@@ -11976,7 +11976,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 %57, ptr %58, align 8, !tbaa !479
+  store i32 %57, ptr %58, align 8, !tbaa !482
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %60 = load i8, ptr %59, align 1, !tbaa !18
   %61 = zext i8 %60 to i32
@@ -11986,7 +11986,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %62, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store i32 %66, ptr %67, align 4, !tbaa !480
+  store i32 %66, ptr %67, align 4, !tbaa !483
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %69 = load i8, ptr %68, align 1, !tbaa !18
   %70 = zext i8 %69 to i32
@@ -11996,7 +11996,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i32 %75, ptr %76, align 8, !tbaa !481
+  store i32 %75, ptr %76, align 8, !tbaa !484
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load i8, ptr %77, align 1, !tbaa !18
   %79 = zext i8 %78 to i32
@@ -12016,7 +12016,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %93 = zext i8 %92 to i32
   %94 = or disjoint i32 %90, %93
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  store i32 %94, ptr %95, align 4, !tbaa !482
+  store i32 %94, ptr %95, align 4, !tbaa !485
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %97 = load i8, ptr %96, align 1, !tbaa !18
   %98 = zext i8 %97 to i32
@@ -12036,7 +12036,7 @@ define internal fastcc noundef range(i32 0, 120) i32 @_ZL14readChunk_mDCvP11Lode
   %112 = zext i8 %111 to i32
   %113 = or disjoint i32 %109, %112
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store i32 %113, ptr %114, align 8, !tbaa !483
+  store i32 %113, ptr %114, align 8, !tbaa !486
   br label %115
 
 115:                                              ; preds = %3, %4
@@ -12051,7 +12051,7 @@ define internal fastcc noundef range(i32 0, 121) i32 @_ZL14readChunk_cLLiP11Lode
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  store i32 1, ptr %5, align 4, !tbaa !484
+  store i32 1, ptr %5, align 4, !tbaa !487
   %6 = load i8, ptr %1, align 1, !tbaa !18
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
@@ -12070,7 +12070,7 @@ define internal fastcc noundef range(i32 0, 121) i32 @_ZL14readChunk_cLLiP11Lode
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 %22, ptr %23, align 8, !tbaa !485
+  store i32 %22, ptr %23, align 8, !tbaa !488
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i8, ptr %24, align 1, !tbaa !18
   %26 = zext i8 %25 to i32
@@ -12090,7 +12090,7 @@ define internal fastcc noundef range(i32 0, 121) i32 @_ZL14readChunk_cLLiP11Lode
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %41, ptr %42, align 4, !tbaa !486
+  store i32 %41, ptr %42, align 4, !tbaa !489
   br label %43
 
 43:                                               ; preds = %3, %4
@@ -12102,23 +12102,23 @@ define internal fastcc noundef range(i32 0, 121) i32 @_ZL14readChunk_cLLiP11Lode
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_eXIfP11LodePNGInfoPKhm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 2147483648) %2) unnamed_addr #12 {
   %4 = trunc nuw nsw i64 %2 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %6 = load i32, ptr %5, align 8, !tbaa !248
+  %6 = load i32, ptr %5, align 8, !tbaa !249
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !249
+  %9 = load ptr, ptr %8, align 8, !tbaa !250
   tail call void @free(ptr noundef %9) #31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %10, align 8, !tbaa !250
-  store i32 0, ptr %5, align 8, !tbaa !248
+  store i32 0, ptr %10, align 8, !tbaa !251
+  store i32 0, ptr %5, align 8, !tbaa !249
   br label %11
 
 11:                                               ; preds = %7, %3
   %12 = tail call noalias noundef ptr @malloc(i64 noundef %2) #30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %12, ptr %13, align 8, !tbaa !249
+  store ptr %12, ptr %13, align 8, !tbaa !250
   %.not12.i = icmp eq ptr %12, null
   br i1 %.not12.i, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit, label %14
 
@@ -12127,13 +12127,13 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_eXIfP11LodeP
   br i1 %.not.i.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %2, i1 false), !tbaa !18, !alias.scope !487
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %2, i1 false), !tbaa !18, !alias.scope !490
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %4, ptr %15, align 8, !tbaa !250
-  store i32 1, ptr %5, align 8, !tbaa !248
+  store i32 %4, ptr %15, align 8, !tbaa !251
+  store i32 1, ptr %5, align 8, !tbaa !249
   br label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit
 
 _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit:      ; preds = %11, %_ZL14lodepng_memcpyPvPKvm.exit.i
@@ -12144,13 +12144,13 @@ _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit:      ; preds = %11, %_ZL14lodepng_m
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 2147483648) %2) unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !400
+  %5 = load i32, ptr %4, align 8, !tbaa !403
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !399
+  %9 = load i32, ptr %8, align 4, !tbaa !402
   switch i32 %5, label %115 [
     i32 0, label %10
     i32 2, label %.thread
@@ -12172,15 +12172,15 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 1, ptr %17, align 8, !tbaa !491
+  store i32 1, ptr %17, align 8, !tbaa !494
   %18 = load i8, ptr %1, align 1, !tbaa !18
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 %19, ptr %20, align 4, !tbaa !492
+  store i32 %19, ptr %20, align 4, !tbaa !495
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i32 %19, ptr %21, align 8, !tbaa !493
+  store i32 %19, ptr %21, align 8, !tbaa !496
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %19, ptr %22, align 4, !tbaa !494
+  store i32 %19, ptr %22, align 4, !tbaa !497
   br label %115
 
 .thread:                                          ; preds = %3, %7
@@ -12218,19 +12218,19 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 1, ptr %43, align 8, !tbaa !491
+  store i32 1, ptr %43, align 8, !tbaa !494
   %44 = load i8, ptr %1, align 1, !tbaa !18
   %45 = zext i8 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %45, ptr %46, align 4, !tbaa !494
+  store i32 %45, ptr %46, align 4, !tbaa !497
   %47 = load i8, ptr %29, align 1, !tbaa !18
   %48 = zext i8 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i32 %48, ptr %49, align 8, !tbaa !493
+  store i32 %48, ptr %49, align 8, !tbaa !496
   %50 = load i8, ptr %34, align 1, !tbaa !18
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 %51, ptr %52, align 4, !tbaa !492
+  store i32 %51, ptr %52, align 4, !tbaa !495
   br label %115
 
 53:                                               ; preds = %7
@@ -12258,19 +12258,19 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 1, ptr %67, align 8, !tbaa !491
+  store i32 1, ptr %67, align 8, !tbaa !494
   %68 = load i8, ptr %1, align 1, !tbaa !18
   %69 = zext i8 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 %69, ptr %70, align 4, !tbaa !492
+  store i32 %69, ptr %70, align 4, !tbaa !495
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i32 %69, ptr %71, align 8, !tbaa !493
+  store i32 %69, ptr %71, align 8, !tbaa !496
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %69, ptr %72, align 4, !tbaa !494
+  store i32 %69, ptr %72, align 4, !tbaa !497
   %73 = load i8, ptr %59, align 1, !tbaa !18
   %74 = zext i8 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i32 %74, ptr %75, align 8, !tbaa !495
+  store i32 %74, ptr %75, align 8, !tbaa !498
   br label %115
 
 76:                                               ; preds = %7
@@ -12316,23 +12316,23 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 1, ptr %102, align 8, !tbaa !491
+  store i32 1, ptr %102, align 8, !tbaa !494
   %103 = load i8, ptr %1, align 1, !tbaa !18
   %104 = zext i8 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %104, ptr %105, align 4, !tbaa !494
+  store i32 %104, ptr %105, align 4, !tbaa !497
   %106 = load i8, ptr %82, align 1, !tbaa !18
   %107 = zext i8 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i32 %107, ptr %108, align 8, !tbaa !493
+  store i32 %107, ptr %108, align 8, !tbaa !496
   %109 = load i8, ptr %87, align 1, !tbaa !18
   %110 = zext i8 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 %110, ptr %111, align 4, !tbaa !492
+  store i32 %110, ptr %111, align 4, !tbaa !495
   %112 = load i8, ptr %92, align 1, !tbaa !18
   %113 = zext i8 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i32 %113, ptr %114, align 8, !tbaa !495
+  store i32 %113, ptr %114, align 8, !tbaa !498
   br label %115
 
 115:                                              ; preds = %16, %66, %101, %42, %7, %95, %77, %81, %86, %91, %76, %62, %54, %58, %53, %37, %24, %28, %33, %.thread, %11, %10
@@ -12362,7 +12362,7 @@ define noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr noundef ca
   store i32 0, ptr %1, align 4, !tbaa !10
   %18 = tail call noundef i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i64 noundef %5)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 632
-  store i32 %18, ptr %19, align 8, !tbaa !394
+  store i32 %18, ptr %19, align 8, !tbaa !397
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %20, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread
 
@@ -12372,9 +12372,9 @@ define noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr noundef ca
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %.val.i = load i32, ptr %24, align 8, !tbaa !182
+  %.val.i = load i32, ptr %24, align 8, !tbaa !183
   %26 = getelementptr i8, ptr %3, i64 228
-  %.val347.i = load i32, ptr %26, align 4, !tbaa !185
+  %.val347.i = load i32, ptr %26, align 4, !tbaa !186
   %27 = icmp ult i32 %.val.i, 7
   br i1 %27, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i.i
 
@@ -12387,9 +12387,9 @@ switch.lookup:                                    ; preds = %20
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit.i.i: ; preds = %20, %switch.lookup
   %.0.i.i.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %20 ]
   %29 = mul i32 %.0.i.i.i.i.i, %.val347.i
-  %30 = load i32, ptr %25, align 8, !tbaa !182
+  %30 = load i32, ptr %25, align 8, !tbaa !183
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 172
-  %32 = load i32, ptr %31, align 4, !tbaa !185
+  %32 = load i32, ptr %31, align 4, !tbaa !186
   %33 = icmp ult i32 %30, 7
   br i1 %33, label %switch.lookup149, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit17.i.i
 
@@ -12510,7 +12510,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %45
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %99 = load i32, ptr %98, align 8, !tbaa !496
+  %99 = load i32, ptr %98, align 8, !tbaa !499
   %.not334.i = icmp eq i32 %99, 0
   br i1 %.not334.i, label %.thread.i.sink.split, label %.critedge.i
 
@@ -12526,7 +12526,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %45
 
 108:                                              ; preds = %100
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %110 = load i32, ptr %109, align 8, !tbaa !496
+  %110 = load i32, ptr %109, align 8, !tbaa !499
   %.not333.i = icmp eq i32 %110, 0
   br i1 %.not333.i, label %.thread.i.sink.split, label %.critedge.i
 
@@ -12593,7 +12593,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.i:       ; preds = %134
 
 .lr.ph.preheader.i.i:                             ; preds = %143
   %144 = getelementptr inbounds nuw i8, ptr %60, i64 %.0257477.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull readonly align 1 %128, i64 %123, i1 false), !tbaa !18, !alias.scope !497
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull readonly align 1 %128, i64 %123, i1 false), !tbaa !18, !alias.scope !500
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 145:                                              ; preds = %131
@@ -12628,7 +12628,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit72:       ; preds = %153
 
 159:                                              ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit72
   %160 = tail call fastcc noundef i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr noundef nonnull %24, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %160, ptr %19, align 8, !tbaa !394
+  store i32 %160, ptr %19, align 8, !tbaa !397
   %.not329.i = icmp eq i32 %160, 0
   br i1 %.not329.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12651,7 +12651,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   br i1 %.not99, label %169, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread
 
 169:                                              ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit68
-  %170 = load i32, ptr %24, align 8, !tbaa !182
+  %170 = load i32, ptr %24, align 8, !tbaa !183
   switch i32 %170, label %.thread.i.sink.split [
     i32 3, label %171
     i32 0, label %181
@@ -12659,7 +12659,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   ]
 
 171:                                              ; preds = %169
-  %172 = load i64, ptr %85, align 8, !tbaa !191
+  %172 = load i64, ptr %85, align 8, !tbaa !192
   %173 = icmp ult i64 %172, %123
   br i1 %173, label %.thread.i.sink.split, label %.preheader.i63
 
@@ -12671,7 +12671,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i64 ], [ 0, %.preheader.i63 ]
   %174 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv
   %175 = load i8, ptr %174, align 1, !tbaa !18
-  %176 = load ptr, ptr %90, align 8, !tbaa !186
+  %176 = load ptr, ptr %90, align 8, !tbaa !187
   %177 = shl i64 %indvars.iv, 2
   %178 = and i64 %177, 4294967292
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 %178
@@ -12679,14 +12679,14 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   store i8 %175, ptr %180, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not35.i = icmp eq i64 %indvars.iv.next, %123
-  br i1 %.not35.i, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit, label %.lr.ph.i64, !llvm.loop !402
+  br i1 %.not35.i, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit, label %.lr.ph.i64, !llvm.loop !405
 
 181:                                              ; preds = %169
   %.not34.i62 = icmp eq i32 %122, 2
   br i1 %.not34.i62, label %182, label %.thread.i.sink.split
 
 182:                                              ; preds = %181
-  store i32 1, ptr %86, align 8, !tbaa !198
+  store i32 1, ptr %86, align 8, !tbaa !199
   %183 = load i8, ptr %128, align 1, !tbaa !18
   %184 = zext i8 %183 to i32
   %185 = shl nuw nsw i32 %184, 8
@@ -12694,8 +12694,8 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   %187 = load i8, ptr %186, align 1, !tbaa !18
   %188 = zext i8 %187 to i32
   %189 = or disjoint i32 %185, %188
-  store i32 %189, ptr %89, align 4, !tbaa !285
-  store i32 %189, ptr %88, align 8, !tbaa !284
+  store i32 %189, ptr %89, align 4, !tbaa !286
+  store i32 %189, ptr %88, align 8, !tbaa !285
   br label %.loopexit.sink.split.i
 
 190:                                              ; preds = %169
@@ -12703,7 +12703,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   br i1 %.not.i60, label %191, label %.thread.i.sink.split
 
 191:                                              ; preds = %190
-  store i32 1, ptr %86, align 8, !tbaa !198
+  store i32 1, ptr %86, align 8, !tbaa !199
   %192 = load i8, ptr %128, align 1, !tbaa !18
   %193 = zext i8 %192 to i32
   %194 = shl nuw nsw i32 %193, 8
@@ -12711,7 +12711,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   %196 = load i8, ptr %195, align 1, !tbaa !18
   %197 = zext i8 %196 to i32
   %198 = or disjoint i32 %194, %197
-  store i32 %198, ptr %87, align 4, !tbaa !283
+  store i32 %198, ptr %87, align 4, !tbaa !284
   %199 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 10
   %200 = load i8, ptr %199, align 1, !tbaa !18
   %201 = zext i8 %200 to i32
@@ -12720,7 +12720,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   %204 = load i8, ptr %203, align 1, !tbaa !18
   %205 = zext i8 %204 to i32
   %206 = or disjoint i32 %202, %205
-  store i32 %206, ptr %88, align 8, !tbaa !284
+  store i32 %206, ptr %88, align 8, !tbaa !285
   %207 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 12
   %208 = load i8, ptr %207, align 1, !tbaa !18
   %209 = zext i8 %208 to i32
@@ -12739,7 +12739,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit68:       ; preds = %163
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
 
 _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit:  ; preds = %.lr.ph.i64, %.preheader.i63, %.loopexit.sink.split.i
-  store i32 0, ptr %19, align 8, !tbaa !394
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 216:                                              ; preds = %127
@@ -12761,7 +12761,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   br i1 %.not100, label %224, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread
 
 224:                                              ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit
-  %225 = load i32, ptr %24, align 8, !tbaa !400
+  %225 = load i32, ptr %24, align 8, !tbaa !403
   switch i32 %225, label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit [
     i32 3, label %226
     i32 0, label %234
@@ -12777,16 +12777,16 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
 227:                                              ; preds = %226
   %228 = load i8, ptr %128, align 1, !tbaa !18
   %229 = zext i8 %228 to i64
-  %230 = load i64, ptr %85, align 8, !tbaa !411
+  %230 = load i64, ptr %85, align 8, !tbaa !414
   %.not34.i = icmp ugt i64 %230, %229
   br i1 %.not34.i, label %231, label %.thread.i.sink.split
 
 231:                                              ; preds = %227
-  store i32 1, ptr %81, align 8, !tbaa !412
+  store i32 1, ptr %81, align 8, !tbaa !415
   %232 = load i8, ptr %128, align 1, !tbaa !18
   %233 = zext i8 %232 to i32
-  store i32 %233, ptr %84, align 4, !tbaa !413
-  store i32 %233, ptr %83, align 8, !tbaa !414
+  store i32 %233, ptr %84, align 4, !tbaa !416
+  store i32 %233, ptr %83, align 8, !tbaa !417
   br label %.sink.split.i
 
 234:                                              ; preds = %224, %224
@@ -12794,7 +12794,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   br i1 %.not32.i57, label %235, label %.thread.i.sink.split
 
 235:                                              ; preds = %234
-  store i32 1, ptr %81, align 8, !tbaa !412
+  store i32 1, ptr %81, align 8, !tbaa !415
   %236 = load i8, ptr %128, align 1, !tbaa !18
   %237 = zext i8 %236 to i32
   %238 = shl nuw nsw i32 %237, 8
@@ -12802,8 +12802,8 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   %240 = load i8, ptr %239, align 1, !tbaa !18
   %241 = zext i8 %240 to i32
   %242 = or disjoint i32 %238, %241
-  store i32 %242, ptr %84, align 4, !tbaa !413
-  store i32 %242, ptr %83, align 8, !tbaa !414
+  store i32 %242, ptr %84, align 4, !tbaa !416
+  store i32 %242, ptr %83, align 8, !tbaa !417
   br label %.sink.split.i
 
 243:                                              ; preds = %224, %224
@@ -12811,7 +12811,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   br i1 %.not.i55, label %244, label %.thread.i.sink.split
 
 244:                                              ; preds = %243
-  store i32 1, ptr %81, align 8, !tbaa !412
+  store i32 1, ptr %81, align 8, !tbaa !415
   %245 = load i8, ptr %128, align 1, !tbaa !18
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 8
@@ -12819,7 +12819,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   %249 = load i8, ptr %248, align 1, !tbaa !18
   %250 = zext i8 %249 to i32
   %251 = or disjoint i32 %247, %250
-  store i32 %251, ptr %82, align 4, !tbaa !415
+  store i32 %251, ptr %82, align 4, !tbaa !418
   %252 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 10
   %253 = load i8, ptr %252, align 1, !tbaa !18
   %254 = zext i8 %253 to i32
@@ -12828,7 +12828,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   %257 = load i8, ptr %256, align 1, !tbaa !18
   %258 = zext i8 %257 to i32
   %259 = or disjoint i32 %255, %258
-  store i32 %259, ptr %83, align 8, !tbaa !414
+  store i32 %259, ptr %83, align 8, !tbaa !417
   %260 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 12
   %261 = load i8, ptr %260, align 1, !tbaa !18
   %262 = zext i8 %261 to i32
@@ -12847,7 +12847,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %218
   br label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit
 
 _ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit:       ; preds = %224, %.sink.split.i
-  store i32 0, ptr %19, align 8, !tbaa !394
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit68, %163, %161, %_Z25lodepng_chunk_type_equalsPKhPKc.exit72, %153, %151, %145, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.i, %134, %131, %127, %216, %218, %_Z25lodepng_chunk_type_equalsPKhPKc.exit
@@ -12856,13 +12856,13 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
   br i1 %.not290.i, label %274, label %270
 
 270:                                              ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread
-  %271 = load i32, ptr %64, align 8, !tbaa !501
+  %271 = load i32, ptr %64, align 8, !tbaa !504
   %.not325.i = icmp eq i32 %271, 0
   br i1 %.not325.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %272
 
 272:                                              ; preds = %270
   %273 = tail call fastcc noundef i32 @_ZL14readChunk_tEXtP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %273, ptr %19, align 8, !tbaa !394
+  store i32 %273, ptr %19, align 8, !tbaa !397
   %.not326.i = icmp eq i32 %273, 0
   br i1 %.not326.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12872,13 +12872,13 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
   br i1 %.not291.i, label %280, label %276
 
 276:                                              ; preds = %274
-  %277 = load i32, ptr %64, align 8, !tbaa !501
+  %277 = load i32, ptr %64, align 8, !tbaa !504
   %.not323.i = icmp eq i32 %277, 0
   br i1 %.not323.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %278
 
 278:                                              ; preds = %276
   %279 = tail call fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %23, ptr noundef nonnull %3, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %279, ptr %19, align 8, !tbaa !394
+  store i32 %279, ptr %19, align 8, !tbaa !397
   %.not324.i = icmp eq i32 %279, 0
   br i1 %.not324.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12888,13 +12888,13 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
   br i1 %.not292.i, label %286, label %282
 
 282:                                              ; preds = %280
-  %283 = load i32, ptr %64, align 8, !tbaa !501
+  %283 = load i32, ptr %64, align 8, !tbaa !504
   %.not321.i = icmp eq i32 %283, 0
   br i1 %.not321.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %284
 
 284:                                              ; preds = %282
   %285 = tail call fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %23, ptr noundef nonnull %3, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %285, ptr %19, align 8, !tbaa !394
+  store i32 %285, ptr %19, align 8, !tbaa !397
   %.not322.i = icmp eq i32 %285, 0
   br i1 %.not322.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12905,7 +12905,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
 
 288:                                              ; preds = %286
   %289 = tail call fastcc noundef i32 @_ZL14readChunk_tIMEP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %289, ptr %19, align 8, !tbaa !394
+  store i32 %289, ptr %19, align 8, !tbaa !397
   %.not320.i = icmp eq i32 %289, 0
   br i1 %.not320.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12916,7 +12916,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
 
 292:                                              ; preds = %290
   %293 = tail call fastcc noundef i32 @_ZL14readChunk_pHYsP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %293, ptr %19, align 8, !tbaa !394
+  store i32 %293, ptr %19, align 8, !tbaa !397
   %.not319.i = icmp eq i32 %293, 0
   br i1 %.not319.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12930,7 +12930,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread:  ; preds = %_Z25lodepng_chunk_t
   br i1 %.not.i354.i, label %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, label %.thread.i.sink.split
 
 _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %296
-  store i32 1, ptr %65, align 8, !tbaa !259
+  store i32 1, ptr %65, align 8, !tbaa !260
   %297 = load i8, ptr %128, align 1, !tbaa !18
   %298 = zext i8 %297 to i32
   %299 = shl nuw i32 %298, 24
@@ -12948,8 +12948,8 @@ _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %296
   %311 = load i8, ptr %310, align 1, !tbaa !18
   %312 = zext i8 %311 to i32
   %313 = or disjoint i32 %309, %312
-  store i32 %313, ptr %66, align 4, !tbaa !403
-  store i32 0, ptr %19, align 8, !tbaa !394
+  store i32 %313, ptr %66, align 4, !tbaa !406
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 314:                                              ; preds = %294
@@ -12959,7 +12959,7 @@ _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %296
 
 316:                                              ; preds = %314
   %317 = tail call fastcc noundef i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %317, ptr %19, align 8, !tbaa !394
+  store i32 %317, ptr %19, align 8, !tbaa !397
   %.not317.i = icmp eq i32 %317, 0
   br i1 %.not317.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -12973,11 +12973,11 @@ _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %296
   br i1 %.not.i356.i, label %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, label %.thread.i.sink.split
 
 _ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i: ; preds = %320
-  store i32 1, ptr %67, align 4, !tbaa !261
+  store i32 1, ptr %67, align 4, !tbaa !262
   %321 = load i8, ptr %128, align 1, !tbaa !18
   %322 = zext i8 %321 to i32
-  store i32 %322, ptr %68, align 8, !tbaa !404
-  store i32 0, ptr %19, align 8, !tbaa !394
+  store i32 %322, ptr %68, align 8, !tbaa !407
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 323:                                              ; preds = %318
@@ -12987,7 +12987,7 @@ _ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i: ; preds = %320
 
 325:                                              ; preds = %323
   %326 = tail call fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %23, ptr noundef %3, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %326, ptr %19, align 8, !tbaa !394
+  store i32 %326, ptr %19, align 8, !tbaa !397
   %.not315.i = icmp eq i32 %326, 0
   br i1 %.not315.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -13001,23 +13001,23 @@ _ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i: ; preds = %320
   br i1 %.not.i358.i, label %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i, label %.thread.i.sink.split
 
 _ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i: ; preds = %329
-  store i32 1, ptr %69, align 4, !tbaa !405
+  store i32 1, ptr %69, align 4, !tbaa !408
   %330 = load i8, ptr %128, align 1, !tbaa !18
   %331 = zext i8 %330 to i32
-  store i32 %331, ptr %70, align 8, !tbaa !406
+  store i32 %331, ptr %70, align 8, !tbaa !409
   %332 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 9
   %333 = load i8, ptr %332, align 1, !tbaa !18
   %334 = zext i8 %333 to i32
-  store i32 %334, ptr %71, align 4, !tbaa !407
+  store i32 %334, ptr %71, align 4, !tbaa !410
   %335 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 10
   %336 = load i8, ptr %335, align 1, !tbaa !18
   %337 = zext i8 %336 to i32
-  store i32 %337, ptr %72, align 8, !tbaa !408
+  store i32 %337, ptr %72, align 8, !tbaa !411
   %338 = getelementptr inbounds nuw i8, ptr %.0254478.i, i64 11
   %339 = load i8, ptr %338, align 1, !tbaa !18
   %340 = zext i8 %339 to i32
-  store i32 %340, ptr %73, align 4, !tbaa !409
-  store i32 0, ptr %19, align 8, !tbaa !394
+  store i32 %340, ptr %73, align 4, !tbaa !412
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i
 
 341:                                              ; preds = %327
@@ -13027,7 +13027,7 @@ _ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i: ; preds = %329
 
 343:                                              ; preds = %341
   %344 = tail call fastcc noundef i32 @_ZL14readChunk_mDCvP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %344, ptr %19, align 8, !tbaa !394
+  store i32 %344, ptr %19, align 8, !tbaa !397
   %.not313.i = icmp eq i32 %344, 0
   br i1 %.not313.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -13038,7 +13038,7 @@ _ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i: ; preds = %329
 
 347:                                              ; preds = %345
   %348 = tail call fastcc noundef i32 @_ZL14readChunk_cLLiP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %348, ptr %19, align 8, !tbaa !394
+  store i32 %348, ptr %19, align 8, !tbaa !397
   %.not312.i = icmp eq i32 %348, 0
   br i1 %.not312.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -13049,7 +13049,7 @@ _ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i: ; preds = %329
 
 351:                                              ; preds = %349
   %352 = tail call fastcc noundef i32 @_ZL14readChunk_eXIfP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %352, ptr %19, align 8, !tbaa !394
+  store i32 %352, ptr %19, align 8, !tbaa !397
   %.not311.i = icmp eq i32 %352, 0
   br i1 %.not311.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
@@ -13060,14 +13060,14 @@ _ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i: ; preds = %329
 
 355:                                              ; preds = %353
   %356 = tail call fastcc noundef i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr noundef nonnull %23, ptr noundef nonnull %128, i64 noundef %123)
-  store i32 %356, ptr %19, align 8, !tbaa !394
+  store i32 %356, ptr %19, align 8, !tbaa !397
   %.not310.i = icmp eq i32 %356, 0
   br i1 %.not310.i, label %_ZL14lodepng_memcpyPvPKvm.exit.thread.i, label %.thread.i
 
 357:                                              ; preds = %.critedge.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i360.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %.not.i360.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit.i, label %.critedge.i.i, !llvm.loop !172
+  br i1 %.not.i360.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit.i, label %.critedge.i.i, !llvm.loop !173
 
 .critedge.i.i:                                    ; preds = %353, %357
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %357 ], [ 0, %353 ]
@@ -13086,7 +13086,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %357
   br i1 %.not305.i, label %363, label %.thread.i.sink.split
 
 363:                                              ; preds = %_ZL29lodepng_chunk_type_name_validPKh.exit.i
-  %364 = load i32, ptr %74, align 4, !tbaa !502
+  %364 = load i32, ptr %74, align 4, !tbaa !505
   %.not306.i = icmp eq i32 %364, 0
   %365 = and i8 %130, 32
   %.not307.i = icmp eq i8 %365, 0
@@ -13094,7 +13094,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %357
   br i1 %or.cond.i, label %.thread.i.sink.split, label %366
 
 366:                                              ; preds = %363
-  %367 = load i32, ptr %75, align 4, !tbaa !503
+  %367 = load i32, ptr %75, align 4, !tbaa !506
   %.not308.i = icmp eq i32 %367, 0
   br i1 %.not308.i, label %.thread406.i, label %368
 
@@ -13104,7 +13104,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %357
   %371 = getelementptr inbounds nuw [3 x ptr], ptr %76, i64 0, i64 %370
   %372 = getelementptr inbounds nuw [3 x i64], ptr %77, i64 0, i64 %370
   %373 = tail call noundef i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr noundef nonnull %371, ptr noundef nonnull %372, ptr noundef nonnull %.0254478.i)
-  store i32 %373, ptr %19, align 8, !tbaa !394
+  store i32 %373, ptr %19, align 8, !tbaa !397
   %.not309.i = icmp eq i32 %373, 0
   br i1 %.not309.i, label %.thread406.i, label %.thread.i
 
@@ -13113,7 +13113,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.thread.i:          ; preds = %_ZL14readChunk_bKGD
   %.4.i = phi i64 [ %.0257477.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ %.0257477.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %.0257477.i, %272 ], [ %.0257477.i, %270 ], [ %.0257477.i, %278 ], [ %.0257477.i, %276 ], [ %.0257477.i, %284 ], [ %.0257477.i, %282 ], [ %.0257477.i, %288 ], [ %.0257477.i, %292 ], [ %.0257477.i, %316 ], [ %.0257477.i, %325 ], [ %.0257477.i, %343 ], [ %.0257477.i, %347 ], [ %.0257477.i, %351 ], [ %.0257477.i, %355 ], [ %.0257477.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ %.0257477.i, %159 ], [ %.0257477.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257477.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257477.i, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ %141, %143 ], [ %141, %.lr.ph.preheader.i.i ]
   %.not332.i = phi i1 [ true, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ true, %272 ], [ true, %270 ], [ true, %278 ], [ true, %276 ], [ true, %284 ], [ true, %282 ], [ true, %288 ], [ true, %292 ], [ true, %316 ], [ true, %325 ], [ true, %343 ], [ true, %347 ], [ true, %351 ], [ true, %355 ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ true, %159 ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ true, %143 ], [ true, %.lr.ph.preheader.i.i ]
   %.2.i = phi i8 [ 0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ 0, %272 ], [ 0, %270 ], [ 0, %278 ], [ 0, %276 ], [ 0, %284 ], [ 0, %282 ], [ 0, %288 ], [ 0, %292 ], [ 0, %316 ], [ 0, %325 ], [ 0, %343 ], [ 0, %347 ], [ 0, %351 ], [ 0, %355 ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ 0, %159 ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %143 ], [ 0, %.lr.ph.preheader.i.i ]
-  %374 = load i32, ptr %78, align 8, !tbaa !401
+  %374 = load i32, ptr %78, align 8, !tbaa !404
   %.not459.i = icmp eq i32 %374, 0
   br i1 %.not459.i, label %375, label %377
 
@@ -13207,20 +13207,20 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %._crit_edge.i.i, %4
 
 .critedge.i:                                      ; preds = %_ZL14lodepng_memcpyPvPKvm.exit.i, %108, %97
   %.0257475.i = phi i64 [ %.0257477.i, %108 ], [ %.0257477.i, %97 ], [ %.2259.i, %_ZL14lodepng_memcpyPvPKvm.exit.i ]
-  %419 = load i32, ptr %24, align 8, !tbaa !504
+  %419 = load i32, ptr %24, align 8, !tbaa !507
   %420 = icmp eq i32 %419, 3
   br i1 %420, label %421, label %.thread430.i
 
 421:                                              ; preds = %.critedge.i
-  %422 = load ptr, ptr %90, align 8, !tbaa !505
+  %422 = load ptr, ptr %90, align 8, !tbaa !508
   %.not336.i = icmp eq ptr %422, null
   br i1 %.not336.i, label %.thread.i.sink.split, label %.thread430.i
 
 .thread430.i:                                     ; preds = %421, %.critedge.i
   %423 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %424 = load i32, ptr %423, align 8, !tbaa !506
+  %424 = load i32, ptr %423, align 8, !tbaa !509
   %425 = icmp eq i32 %424, 0
-  %426 = load i32, ptr %26, align 4, !tbaa !185
+  %426 = load i32, ptr %26, align 4, !tbaa !186
   %427 = icmp ult i32 %419, 7
   br i1 %425, label %428, label %446
 
@@ -13403,7 +13403,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit364._crit_edge.i: ; preds = %469, %_
 564:                                              ; preds = %549, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i
   %.1261.i = phi i64 [ %445, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i ], [ %563, %549 ]
   %565 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %566 = load ptr, ptr %565, align 8, !tbaa !433
+  %566 = load ptr, ptr %565, align 8, !tbaa !436
   %.not.i365.i = icmp eq ptr %566, null
   br i1 %.not.i365.i, label %572, label %567
 
@@ -13460,20 +13460,20 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
 .thread427.i:                                     ; preds = %576, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i
   %.pre503.i = phi i64 [ %.pre503.pre.i, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %579, %576 ]
   %.0.i367.i = phi i32 [ 0, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %577, %576 ]
-  store i32 %.0.i367.i, ptr %19, align 8, !tbaa !394
+  store i32 %.0.i367.i, ptr %19, align 8, !tbaa !397
   %580 = icmp eq i64 %.pre503.i, %.1261.i
   %.not338.i = icmp ne i32 %.0.i367.i, 0
   %or.cond346.i = select i1 %.not338.i, i1 true, i1 %580
   br i1 %or.cond346.i, label %581, label %.thread434.i
 
 .thread434.i:                                     ; preds = %.thread427.i
-  store i32 91, ptr %19, align 8, !tbaa !394
+  store i32 91, ptr %19, align 8, !tbaa !397
   call void @free(ptr noundef nonnull %60) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 .thread.i.sink.split:                             ; preds = %111, %140, %296, %320, %329, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %363, %375, %243, %234, %227, %226, %169, %190, %181, %171, %.critedge.i.i, %97, %108, %421, %.thread427.thread520.i
   %.0.i56.ph.sink = phi i32 [ %.0.i367.ph.i, %.thread427.thread520.i ], [ 30, %97 ], [ 63, %108 ], [ 106, %421 ], [ 121, %.critedge.i.i ], [ 42, %169 ], [ 41, %190 ], [ 30, %181 ], [ 39, %171 ], [ 45, %243 ], [ 44, %234 ], [ 103, %227 ], [ 43, %226 ], [ 57, %375 ], [ 69, %363 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 117, %329 ], [ 98, %320 ], [ 96, %296 ], [ 95, %140 ], [ 64, %111 ]
-  store i32 %.0.i56.ph.sink, ptr %19, align 8, !tbaa !394
+  store i32 %.0.i56.ph.sink, ptr %19, align 8, !tbaa !397
   br label %.thread.i
 
 .thread.i:                                        ; preds = %368, %355, %351, %347, %343, %325, %316, %292, %288, %284, %278, %272, %159, %.thread.i.sink.split
@@ -13488,8 +13488,8 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
 582:                                              ; preds = %581
   %583 = load i32, ptr %1, align 4, !tbaa !10
   %584 = load i32, ptr %2, align 4, !tbaa !10
-  %585 = load i32, ptr %24, align 8, !tbaa !182
-  %586 = load i32, ptr %26, align 4, !tbaa !185
+  %585 = load i32, ptr %24, align 8, !tbaa !183
+  %586 = load i32, ptr %26, align 4, !tbaa !186
   %587 = icmp ult i32 %585, 7
   br i1 %587, label %switch.lookup164, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i
 
@@ -13519,7 +13519,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i: ; preds = %582, %switch.l
   br i1 %.not341.i, label %602, label %603
 
 602:                                              ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i
-  store i32 83, ptr %19, align 8, !tbaa !394
+  store i32 83, ptr %19, align 8, !tbaa !397
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 603:                                              ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i
@@ -13527,7 +13527,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i: ; preds = %582, %switch.l
   br i1 %.not.i369.i, label %_ZL14lodepng_memsetPvim.exit.i, label %.lr.ph.preheader.i370.i
 
 .lr.ph.preheader.i370.i:                          ; preds = %603
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %601, i8 0, i64 %600, i1 false), !tbaa !18, !alias.scope !507
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %601, i8 0, i64 %600, i1 false), !tbaa !18, !alias.scope !510
   br label %_ZL14lodepng_memsetPvim.exit.i
 
 _ZL14lodepng_memsetPvim.exit.i:                   ; preds = %.lr.ph.preheader.i370.i, %603
@@ -13548,7 +13548,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i: ; preds = %_ZL14lodepng_mem
   br i1 %608, label %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i, label %609
 
 609:                                              ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i
-  %610 = load i32, ptr %423, align 8, !tbaa !255
+  %610 = load i32, ptr %423, align 8, !tbaa !256
   %611 = icmp eq i32 %610, 0
   br i1 %611, label %612, label %655
 
@@ -13622,13 +13622,13 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i: ; preds = %_ZL14lodepng_mem
 _ZL22setBitOfReversedStreamPmPhh.exit.us.i.i.i:   ; preds = %644, %639
   %650 = add nuw i64 %.119.us.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %650, %623
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %624, !llvm.loop !510
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %624, !llvm.loop !513
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i.i.i
   %651 = add nuw i64 %.01622.us.i.i.i, %622
   %652 = add nuw i32 %.024.us.i.i.i, 1
   %exitcond29.not.i.i.i = icmp eq i32 %652, %584
-  br i1 %exitcond29.not.i.i.i, label %_ZL17removePaddingBitsPhPKhmmj.exit.i.i, label %.preheader.us.i.i.i, !llvm.loop !511
+  br i1 %exitcond29.not.i.i.i, label %_ZL17removePaddingBitsPhPKhmmj.exit.i.i, label %.preheader.us.i.i.i, !llvm.loop !514
 
 653:                                              ; preds = %614, %612
   %654 = call fastcc noundef i32 @_ZL8unfilterPhPKhjjj(ptr noundef nonnull %601, ptr noundef %604, i32 noundef %583, i32 noundef %584, i32 noundef %607)
@@ -13677,7 +13677,7 @@ _ZL22setBitOfReversedStreamPmPhh.exit.us.i.i.i:   ; preds = %644, %639
 678:                                              ; preds = %677, %656
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i78.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 7
-  br i1 %.not.i78.i.i, label %679, label %656, !llvm.loop !512
+  br i1 %.not.i78.i.i, label %679, label %656, !llvm.loop !515
 
 679:                                              ; preds = %678
   store i64 0, ptr %14, align 16, !tbaa !3
@@ -13733,7 +13733,7 @@ _ZL22setBitOfReversedStreamPmPhh.exit.us.i.i.i:   ; preds = %644, %639
   %710 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next66.i.i.i
   store i64 %709, ptr %710, align 8, !tbaa !3
   %.not59.i.i.i = icmp eq i64 %indvars.iv.next66.i.i.i, 7
-  br i1 %.not59.i.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.preheader.i.i, label %680, !llvm.loop !513
+  br i1 %.not59.i.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.preheader.i.i, label %680, !llvm.loop !516
 
 _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.preheader.i.i: ; preds = %._crit_edge.i.i.i
   %711 = icmp ult i32 %607, 8
@@ -13826,18 +13826,18 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.preheader.i.i: ; preds = %._crit_ed
 _ZL22setBitOfReversedStreamPmPhh.exit.us.i88.i.i: ; preds = %755, %750
   %761 = add nuw i64 %.119.us.i86.i.i, 1
   %exitcond.not.i89.i.i = icmp eq i64 %761, %734
-  br i1 %exitcond.not.i89.i.i, label %._crit_edge.us.i90.i.i, label %735, !llvm.loop !510
+  br i1 %exitcond.not.i89.i.i, label %._crit_edge.us.i90.i.i, label %735, !llvm.loop !513
 
 ._crit_edge.us.i90.i.i:                           ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i88.i.i
   %762 = add nuw i64 %.01622.us.i85.i.i, %733
   %763 = add nuw i32 %.024.us.i83.i.i, 1
   %exitcond29.not.i91.i.i = icmp eq i32 %763, %722
-  br i1 %exitcond29.not.i91.i.i, label %_ZL17removePaddingBitsPhPKhmmj.exit92.i.i, label %.preheader.us.i82.i.i, !llvm.loop !511
+  br i1 %exitcond29.not.i91.i.i, label %_ZL17removePaddingBitsPhPKhmmj.exit92.i.i, label %.preheader.us.i82.i.i, !llvm.loop !514
 
 _ZL17removePaddingBitsPhPKhmmj.exit92.i.i:        ; preds = %._crit_edge.us.i90.i.i, %725, %724
   %indvars.iv.next.i376.i = add nuw nsw i64 %indvars.iv.i374.i, 1
   %.not.i377.i = icmp eq i64 %indvars.iv.next.i376.i, 7
-  br i1 %.not.i377.i, label %764, label %712, !llvm.loop !514
+  br i1 %.not.i377.i, label %764, label %712, !llvm.loop !517
 
 764:                                              ; preds = %_ZL17removePaddingBitsPhPKhmmj.exit92.i.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #31
@@ -13879,7 +13879,7 @@ _ZL17removePaddingBitsPhPKhmmj.exit92.i.i:        ; preds = %._crit_edge.us.i90.
 787:                                              ; preds = %786, %765
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not.i.i.i378.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 7
-  br i1 %.not.i.i.i378.i, label %788, label %765, !llvm.loop !512
+  br i1 %.not.i.i.i378.i, label %788, label %765, !llvm.loop !515
 
 788:                                              ; preds = %787
   store i64 0, ptr %9, align 16, !tbaa !3
@@ -13902,216 +13902,216 @@ _ZL17removePaddingBitsPhPKhmmj.exit92.i.i:        ; preds = %._crit_edge.us.i90.
   %798 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.next66.i.i.i.i
   store i64 %797, ptr %798, align 8, !tbaa !3
   %.not59.i.i.i.i = icmp eq i64 %indvars.iv.next66.i.i.i.i, 7
-  br i1 %.not59.i.i.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !513
+  br i1 %.not59.i.i.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !516
 
 _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i
   %799 = icmp ugt i32 %607, 7
-  br i1 %799, label %.preheader80.split.us.preheader.i.i.i, label %.preheader82.i.i.i
+  br i1 %799, label %.preheader80.i.i.i, label %.preheader82.i.i.i
 
 .preheader82.i.i.i:                               ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i
   %800 = mul i32 %607, %583
   %801 = zext i32 %800 to i64
   %802 = zext nneg i32 %607 to i64
-  br label %843
+  br label %844
 
-.preheader80.split.us.preheader.i.i.i:            ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i
+.preheader80.i.i.i:                               ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i.i.i
   %803 = lshr i32 %607, 3
   %804 = zext nneg i32 %803 to i64
-  br label %.preheader80.split.us.i.i.i
+  br label %805
 
-.preheader80.split.us.i.i.i:                      ; preds = %._crit_edge.us105.i.i.i, %.preheader80.split.us.preheader.i.i.i
-  %indvars.iv145.i.i.i = phi i64 [ 0, %.preheader80.split.us.preheader.i.i.i ], [ %indvars.iv.next146.i.i.i, %._crit_edge.us105.i.i.i ]
-  %805 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv145.i.i.i
-  %806 = load i32, ptr %805, align 4, !tbaa !10
-  %.not109.i.i.i = icmp eq i32 %806, 0
-  br i1 %.not109.i.i.i, label %._crit_edge.us105.i.i.i, label %.preheader.lr.ph.us.i.i.i
+805:                                              ; preds = %._crit_edge.i100.i.i, %.preheader80.i.i.i
+  %indvars.iv139.i.i.i = phi i64 [ 0, %.preheader80.i.i.i ], [ %indvars.iv.next140.i.i.i, %._crit_edge.i100.i.i ]
+  %806 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv139.i.i.i
+  %807 = load i32, ptr %806, align 4, !tbaa !10
+  %.not104.i.i.i = icmp eq i32 %807, 0
+  br i1 %.not104.i.i.i, label %._crit_edge.i100.i.i, label %.preheader.lr.ph.i.i.i
 
-._crit_edge.us105.i.i.i:                          ; preds = %._crit_edge94.split.us.us.us.us.i.i.i, %.preheader.lr.ph.us.i.i.i, %.preheader80.split.us.i.i.i
-  %indvars.iv.next146.i.i.i = add nuw nsw i64 %indvars.iv145.i.i.i, 1
-  %.not75.us.i.i.i = icmp eq i64 %indvars.iv.next146.i.i.i, 7
-  br i1 %.not75.us.i.i.i, label %.loopexit.i.i, label %.preheader80.split.us.i.i.i, !llvm.loop !515
+.preheader.lr.ph.i.i.i:                           ; preds = %805
+  %808 = getelementptr inbounds nuw [7 x i32], ptr %7, i64 0, i64 %indvars.iv139.i.i.i
+  %809 = load i32, ptr %808, align 4, !tbaa !10
+  %.not105.i.i.i = icmp eq i32 %809, 0
+  br i1 %.not105.i.i.i, label %._crit_edge.i100.i.i, label %.preheader.lr.ph.split.us.i.i.i
 
-.preheader.lr.ph.us.i.i.i:                        ; preds = %.preheader80.split.us.i.i.i
-  %807 = getelementptr inbounds nuw [7 x i32], ptr %7, i64 0, i64 %indvars.iv145.i.i.i
-  %808 = load i32, ptr %807, align 4, !tbaa !10
-  %.not110.i.i.i = icmp eq i32 %808, 0
-  br i1 %.not110.i.i.i, label %._crit_edge.us105.i.i.i, label %.preheader.lr.ph.split.us.us.i.i.i
+.preheader.lr.ph.split.us.i.i.i:                  ; preds = %.preheader.lr.ph.i.i.i
+  %810 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv139.i.i.i
+  %811 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv139.i.i.i
+  %812 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv139.i.i.i
+  %813 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv139.i.i.i
+  %814 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv139.i.i.i
+  %815 = load i64, ptr %814, align 8, !tbaa !3
+  %816 = load i32, ptr %813, align 4, !tbaa !10
+  %817 = zext i32 %816 to i64
+  %818 = load i32, ptr %812, align 4, !tbaa !10
+  %819 = zext i32 %818 to i64
+  %820 = load i32, ptr %811, align 4, !tbaa !10
+  %821 = zext i32 %820 to i64
+  %822 = load i32, ptr %810, align 4, !tbaa !10
+  %823 = zext i32 %822 to i64
+  %824 = getelementptr i8, ptr %604, i64 %815
+  %wide.trip.count137.i.i.i = zext i32 %807 to i64
+  %wide.trip.count132.i.i.i = zext i32 %809 to i64
+  br label %.lr.ph.us.us.preheader.i.i.i
 
-.preheader.lr.ph.split.us.us.i.i.i:               ; preds = %.preheader.lr.ph.us.i.i.i
-  %809 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv145.i.i.i
-  %810 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv145.i.i.i
-  %811 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv145.i.i.i
-  %812 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv145.i.i.i
-  %813 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv145.i.i.i
-  %814 = load i64, ptr %813, align 8, !tbaa !3
-  %815 = load i32, ptr %812, align 4, !tbaa !10
-  %816 = zext i32 %815 to i64
-  %817 = load i32, ptr %811, align 4, !tbaa !10
-  %818 = zext i32 %817 to i64
-  %819 = load i32, ptr %810, align 4, !tbaa !10
-  %820 = zext i32 %819 to i64
-  %821 = load i32, ptr %809, align 4, !tbaa !10
-  %822 = zext i32 %821 to i64
-  %823 = getelementptr i8, ptr %604, i64 %814
-  %wide.trip.count143.i.i.i = zext i32 %806 to i64
-  %wide.trip.count138.i.i.i = zext i32 %808 to i64
-  br label %.preheader.us.us.us.i.i.i
+.lr.ph.us.us.preheader.i.i.i:                     ; preds = %._crit_edge94.us.i.i.i, %.preheader.lr.ph.split.us.i.i.i
+  %indvars.iv134.i.i.i = phi i64 [ %indvars.iv.next135.i.i.i, %._crit_edge94.us.i.i.i ], [ 0, %.preheader.lr.ph.split.us.i.i.i ]
+  %825 = trunc nuw i64 %indvars.iv134.i.i.i to i32
+  %826 = mul i32 %809, %825
+  %827 = mul nuw i64 %indvars.iv134.i.i.i, %819
+  %828 = add nuw i64 %827, %817
+  %829 = mul i64 %828, %591
+  %830 = add i64 %829, %821
+  br label %.lr.ph.us.us.i.i.i
 
-.preheader.us.us.us.i.i.i:                        ; preds = %._crit_edge94.split.us.us.us.us.i.i.i, %.preheader.lr.ph.split.us.us.i.i.i
-  %indvars.iv140.i.i.i = phi i64 [ %indvars.iv.next141.i.i.i, %._crit_edge94.split.us.us.us.us.i.i.i ], [ 0, %.preheader.lr.ph.split.us.us.i.i.i ]
-  %824 = trunc nuw i64 %indvars.iv140.i.i.i to i32
-  %825 = mul i32 %808, %824
-  %826 = mul nuw i64 %indvars.iv140.i.i.i, %818
-  %827 = add nuw i64 %826, %816
-  %828 = mul i64 %827, %591
-  %829 = add i64 %828, %820
-  br label %.lr.ph.us.us.us.us.i.i.i
+._crit_edge94.us.i.i.i:                           ; preds = %._crit_edge.us95.us.i.i.i
+  %indvars.iv.next135.i.i.i = add nuw nsw i64 %indvars.iv134.i.i.i, 1
+  %exitcond138.not.i.i.i = icmp eq i64 %indvars.iv.next135.i.i.i, %wide.trip.count137.i.i.i
+  br i1 %exitcond138.not.i.i.i, label %._crit_edge.i100.i.i, label %.lr.ph.us.us.preheader.i.i.i, !llvm.loop !518
 
-.lr.ph.us.us.us.us.i.i.i:                         ; preds = %._crit_edge.us95.us.us.us.i.i.i, %.preheader.us.us.us.i.i.i
-  %indvars.iv135.i.i.i = phi i64 [ %indvars.iv.next136.i.i.i, %._crit_edge.us95.us.us.us.i.i.i ], [ 0, %.preheader.us.us.us.i.i.i ]
-  %830 = trunc nuw i64 %indvars.iv135.i.i.i to i32
-  %831 = add i32 %825, %830
-  %832 = zext i32 %831 to i64
-  %833 = mul nuw nsw i64 %832, %804
-  %834 = mul nuw i64 %indvars.iv135.i.i.i, %822
-  %835 = add i64 %829, %834
-  %836 = mul i64 %835, %804
-  %837 = getelementptr i8, ptr %823, i64 %833
-  %838 = getelementptr i8, ptr %601, i64 %836
-  br label %839
+.lr.ph.us.us.i.i.i:                               ; preds = %._crit_edge.us95.us.i.i.i, %.lr.ph.us.us.preheader.i.i.i
+  %indvars.iv129.i.i.i = phi i64 [ 0, %.lr.ph.us.us.preheader.i.i.i ], [ %indvars.iv.next130.i.i.i, %._crit_edge.us95.us.i.i.i ]
+  %831 = trunc nuw i64 %indvars.iv129.i.i.i to i32
+  %832 = add i32 %826, %831
+  %833 = zext i32 %832 to i64
+  %834 = mul nuw nsw i64 %833, %804
+  %835 = mul nuw i64 %indvars.iv129.i.i.i, %823
+  %836 = add i64 %830, %835
+  %837 = mul i64 %836, %804
+  %838 = getelementptr i8, ptr %824, i64 %834
+  %839 = getelementptr i8, ptr %601, i64 %837
+  br label %840
 
-839:                                              ; preds = %839, %.lr.ph.us.us.us.us.i.i.i
-  %indvars.iv130.i.i.i = phi i64 [ %indvars.iv.next131.i.i.i, %839 ], [ 0, %.lr.ph.us.us.us.us.i.i.i ]
-  %840 = getelementptr i8, ptr %837, i64 %indvars.iv130.i.i.i
-  %841 = load i8, ptr %840, align 1, !tbaa !18
-  %842 = getelementptr i8, ptr %838, i64 %indvars.iv130.i.i.i
-  store i8 %841, ptr %842, align 1, !tbaa !18
-  %indvars.iv.next131.i.i.i = add nuw nsw i64 %indvars.iv130.i.i.i, 1
-  %exitcond134.not.i.i.i = icmp eq i64 %indvars.iv.next131.i.i.i, %804
-  br i1 %exitcond134.not.i.i.i, label %._crit_edge.us95.us.us.us.i.i.i, label %839, !llvm.loop !516
+840:                                              ; preds = %840, %.lr.ph.us.us.i.i.i
+  %indvars.iv124.i.i.i = phi i64 [ %indvars.iv.next125.i.i.i, %840 ], [ 0, %.lr.ph.us.us.i.i.i ]
+  %841 = getelementptr i8, ptr %838, i64 %indvars.iv124.i.i.i
+  %842 = load i8, ptr %841, align 1, !tbaa !18
+  %843 = getelementptr i8, ptr %839, i64 %indvars.iv124.i.i.i
+  store i8 %842, ptr %843, align 1, !tbaa !18
+  %indvars.iv.next125.i.i.i = add nuw nsw i64 %indvars.iv124.i.i.i, 1
+  %exitcond128.not.i.i.i = icmp eq i64 %indvars.iv.next125.i.i.i, %804
+  br i1 %exitcond128.not.i.i.i, label %._crit_edge.us95.us.i.i.i, label %840, !llvm.loop !519
 
-._crit_edge.us95.us.us.us.i.i.i:                  ; preds = %839
-  %indvars.iv.next136.i.i.i = add nuw nsw i64 %indvars.iv135.i.i.i, 1
-  %exitcond139.not.i.i.i = icmp eq i64 %indvars.iv.next136.i.i.i, %wide.trip.count138.i.i.i
-  br i1 %exitcond139.not.i.i.i, label %._crit_edge94.split.us.us.us.us.i.i.i, label %.lr.ph.us.us.us.us.i.i.i, !llvm.loop !517
+._crit_edge.us95.us.i.i.i:                        ; preds = %840
+  %indvars.iv.next130.i.i.i = add nuw nsw i64 %indvars.iv129.i.i.i, 1
+  %exitcond133.not.i.i.i = icmp eq i64 %indvars.iv.next130.i.i.i, %wide.trip.count132.i.i.i
+  br i1 %exitcond133.not.i.i.i, label %._crit_edge94.us.i.i.i, label %.lr.ph.us.us.i.i.i, !llvm.loop !520
 
-._crit_edge94.split.us.us.us.us.i.i.i:            ; preds = %._crit_edge.us95.us.us.us.i.i.i
-  %indvars.iv.next141.i.i.i = add nuw nsw i64 %indvars.iv140.i.i.i, 1
-  %exitcond144.not.i.i.i = icmp eq i64 %indvars.iv.next141.i.i.i, %wide.trip.count143.i.i.i
-  br i1 %exitcond144.not.i.i.i, label %._crit_edge.us105.i.i.i, label %.preheader.us.us.us.i.i.i, !llvm.loop !518
+._crit_edge.i100.i.i:                             ; preds = %._crit_edge94.us.i.i.i, %.preheader.lr.ph.i.i.i, %805
+  %indvars.iv.next140.i.i.i = add nuw nsw i64 %indvars.iv139.i.i.i, 1
+  %.not75.i.i.i = icmp eq i64 %indvars.iv.next140.i.i.i, 7
+  br i1 %.not75.i.i.i, label %.loopexit.i.i, label %805, !llvm.loop !521
 
-843:                                              ; preds = %._crit_edge89.i.i.i, %.preheader82.i.i.i
-  %indvars.iv123.i.i.i = phi i64 [ 0, %.preheader82.i.i.i ], [ %indvars.iv.next124.i.i.i, %._crit_edge89.i.i.i ]
-  %844 = getelementptr inbounds nuw [7 x i32], ptr %7, i64 0, i64 %indvars.iv123.i.i.i
-  %845 = load i32, ptr %844, align 4, !tbaa !10
-  %846 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv123.i.i.i
-  %847 = load i32, ptr %846, align 4, !tbaa !10
-  %.not106.i.i.i = icmp eq i32 %847, 0
-  %.not107.i.i.i = icmp eq i32 %845, 0
-  %or.cond.i93.i.i = select i1 %.not106.i.i.i, i1 true, i1 %.not107.i.i.i
+844:                                              ; preds = %._crit_edge89.i.i.i, %.preheader82.i.i.i
+  %indvars.iv117.i.i.i = phi i64 [ 0, %.preheader82.i.i.i ], [ %indvars.iv.next118.i.i.i, %._crit_edge89.i.i.i ]
+  %845 = getelementptr inbounds nuw [7 x i32], ptr %7, i64 0, i64 %indvars.iv117.i.i.i
+  %846 = load i32, ptr %845, align 4, !tbaa !10
+  %847 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv117.i.i.i
+  %848 = load i32, ptr %847, align 4, !tbaa !10
+  %.not101.i.i.i = icmp eq i32 %848, 0
+  %.not102.i.i.i = icmp eq i32 %846, 0
+  %or.cond.i93.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not102.i.i.i
   br i1 %or.cond.i93.i.i, label %._crit_edge89.i.i.i, label %.preheader81.lr.ph.split.us.i.i.i
 
-.preheader81.lr.ph.split.us.i.i.i:                ; preds = %843
-  %848 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv123.i.i.i
-  %849 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv123.i.i.i
-  %850 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv123.i.i.i
-  %851 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv123.i.i.i
-  %852 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv123.i.i.i
-  %853 = load i64, ptr %852, align 8, !tbaa !3
-  %854 = shl i64 %853, 3
-  %855 = load i32, ptr %851, align 4, !tbaa !10
-  %856 = zext i32 %855 to i64
-  %857 = load i32, ptr %850, align 4, !tbaa !10
-  %858 = zext i32 %857 to i64
-  %859 = load i32, ptr %849, align 4, !tbaa !10
-  %860 = zext i32 %859 to i64
-  %861 = load i32, ptr %848, align 4, !tbaa !10
-  %862 = zext i32 %861 to i64
-  %wide.trip.count121.i.i.i = zext i32 %847 to i64
-  %wide.trip.count.i.i.i = zext i32 %845 to i64
+.preheader81.lr.ph.split.us.i.i.i:                ; preds = %844
+  %849 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv117.i.i.i
+  %850 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv117.i.i.i
+  %851 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv117.i.i.i
+  %852 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv117.i.i.i
+  %853 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv117.i.i.i
+  %854 = load i64, ptr %853, align 8, !tbaa !3
+  %855 = shl i64 %854, 3
+  %856 = load i32, ptr %852, align 4, !tbaa !10
+  %857 = zext i32 %856 to i64
+  %858 = load i32, ptr %851, align 4, !tbaa !10
+  %859 = zext i32 %858 to i64
+  %860 = load i32, ptr %850, align 4, !tbaa !10
+  %861 = zext i32 %860 to i64
+  %862 = load i32, ptr %849, align 4, !tbaa !10
+  %863 = zext i32 %862 to i64
+  %wide.trip.count115.i.i.i = zext i32 %848 to i64
+  %wide.trip.count.i.i.i = zext i32 %846 to i64
   br label %.preheader81.us.i.i.i
 
 .preheader81.us.i.i.i:                            ; preds = %._crit_edge.us.i98.i.i, %.preheader81.lr.ph.split.us.i.i.i
-  %indvars.iv118.i.i.i = phi i64 [ %indvars.iv.next119.i.i.i, %._crit_edge.us.i98.i.i ], [ 0, %.preheader81.lr.ph.split.us.i.i.i ]
-  %863 = trunc nuw i64 %indvars.iv118.i.i.i to i32
-  %864 = mul i32 %845, %863
-  %865 = mul nuw i64 %indvars.iv118.i.i.i, %858
-  %866 = add nuw i64 %865, %856
-  %867 = mul i64 %866, %801
-  br label %868
+  %indvars.iv112.i.i.i = phi i64 [ %indvars.iv.next113.i.i.i, %._crit_edge.us.i98.i.i ], [ 0, %.preheader81.lr.ph.split.us.i.i.i ]
+  %864 = trunc nuw i64 %indvars.iv112.i.i.i to i32
+  %865 = mul i32 %846, %864
+  %866 = mul nuw i64 %indvars.iv112.i.i.i, %859
+  %867 = add nuw i64 %866, %857
+  %868 = mul i64 %867, %801
+  br label %869
 
-868:                                              ; preds = %876, %.preheader81.us.i.i.i
-  %indvars.iv.i94.i.i = phi i64 [ 0, %.preheader81.us.i.i.i ], [ %indvars.iv.next.i97.i.i, %876 ]
-  %869 = trunc nuw i64 %indvars.iv.i94.i.i to i32
-  %reass.add.us.i.i.i = add i32 %864, %869
+869:                                              ; preds = %877, %.preheader81.us.i.i.i
+  %indvars.iv.i94.i.i = phi i64 [ 0, %.preheader81.us.i.i.i ], [ %indvars.iv.next.i97.i.i, %877 ]
+  %870 = trunc nuw i64 %indvars.iv.i94.i.i to i32
+  %reass.add.us.i.i.i = add i32 %865, %870
   %reass.mul.us.i.i.i = mul i32 %reass.add.us.i.i.i, %607
-  %870 = zext i32 %reass.mul.us.i.i.i to i64
-  %871 = add i64 %854, %870
-  %872 = mul nuw i64 %indvars.iv.i94.i.i, %862
-  %873 = add nuw i64 %872, %860
-  %874 = mul i64 %873, %802
-  %875 = add i64 %874, %867
-  br label %877
+  %871 = zext i32 %reass.mul.us.i.i.i to i64
+  %872 = add i64 %855, %871
+  %873 = mul nuw i64 %indvars.iv.i94.i.i, %863
+  %874 = add nuw i64 %873, %861
+  %875 = mul i64 %874, %802
+  %876 = add i64 %875, %868
+  br label %878
 
-876:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i
+877:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i
   %indvars.iv.next.i97.i.i = add nuw nsw i64 %indvars.iv.i94.i.i, 1
-  %exitcond117.not.i.i.i = icmp eq i64 %indvars.iv.next.i97.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond117.not.i.i.i, label %._crit_edge.us.i98.i.i, label %868, !llvm.loop !519
+  %exitcond111.not.i.i.i = icmp eq i64 %indvars.iv.next.i97.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond111.not.i.i.i, label %._crit_edge.us.i98.i.i, label %869, !llvm.loop !522
 
-877:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i, %868
-  %.06786.us.i.i.i = phi i32 [ 0, %868 ], [ %904, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
-  %.07885.us.i.i.i = phi i64 [ %871, %868 ], [ %884, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
-  %.07984.us.i.i.i = phi i64 [ %875, %868 ], [ %903, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
-  %878 = lshr i64 %.07885.us.i.i.i, 3
-  %879 = getelementptr inbounds nuw i8, ptr %604, i64 %878
-  %880 = load i8, ptr %879, align 1, !tbaa !18
-  %881 = trunc i64 %.07885.us.i.i.i to i8
-  %882 = and i8 %881, 7
-  %883 = xor i8 %882, 7
-  %884 = add i64 %.07885.us.i.i.i, 1
-  %885 = shl nuw i8 1, %883
-  %886 = and i8 %885, %880
-  %887 = icmp eq i8 %886, 0
-  %888 = trunc i64 %.07984.us.i.i.i to i8
-  %889 = and i8 %888, 7
-  %890 = xor i8 %889, 7
-  %891 = shl nuw i8 1, %890
-  br i1 %887, label %897, label %892
+878:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i, %869
+  %.06786.us.i.i.i = phi i32 [ 0, %869 ], [ %905, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
+  %.07885.us.i.i.i = phi i64 [ %872, %869 ], [ %885, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
+  %.07984.us.i.i.i = phi i64 [ %876, %869 ], [ %904, %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i ]
+  %879 = lshr i64 %.07885.us.i.i.i, 3
+  %880 = getelementptr inbounds nuw i8, ptr %604, i64 %879
+  %881 = load i8, ptr %880, align 1, !tbaa !18
+  %882 = trunc i64 %.07885.us.i.i.i to i8
+  %883 = and i8 %882, 7
+  %884 = xor i8 %883, 7
+  %885 = add i64 %.07885.us.i.i.i, 1
+  %886 = shl nuw i8 1, %884
+  %887 = and i8 %886, %881
+  %888 = icmp eq i8 %887, 0
+  %889 = trunc i64 %.07984.us.i.i.i to i8
+  %890 = and i8 %889, 7
+  %891 = xor i8 %890, 7
+  %892 = shl nuw i8 1, %891
+  br i1 %888, label %898, label %893
 
-892:                                              ; preds = %877
-  %893 = lshr i64 %.07984.us.i.i.i, 3
-  %894 = getelementptr inbounds nuw i8, ptr %601, i64 %893
-  %895 = load i8, ptr %894, align 1, !tbaa !18
-  %896 = or i8 %895, %891
-  store i8 %896, ptr %894, align 1, !tbaa !18
+893:                                              ; preds = %878
+  %894 = lshr i64 %.07984.us.i.i.i, 3
+  %895 = getelementptr inbounds nuw i8, ptr %601, i64 %894
+  %896 = load i8, ptr %895, align 1, !tbaa !18
+  %897 = or i8 %896, %892
+  store i8 %897, ptr %895, align 1, !tbaa !18
   br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i
 
-897:                                              ; preds = %877
-  %898 = xor i8 %891, -1
-  %899 = lshr i64 %.07984.us.i.i.i, 3
-  %900 = getelementptr inbounds nuw i8, ptr %601, i64 %899
-  %901 = load i8, ptr %900, align 1, !tbaa !18
-  %902 = and i8 %901, %898
-  store i8 %902, ptr %900, align 1, !tbaa !18
+898:                                              ; preds = %878
+  %899 = xor i8 %892, -1
+  %900 = lshr i64 %.07984.us.i.i.i, 3
+  %901 = getelementptr inbounds nuw i8, ptr %601, i64 %900
+  %902 = load i8, ptr %901, align 1, !tbaa !18
+  %903 = and i8 %902, %899
+  store i8 %903, ptr %901, align 1, !tbaa !18
   br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i
 
-_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i: ; preds = %897, %892
-  %903 = add i64 %.07984.us.i.i.i, 1
-  %904 = add nuw nsw i32 %.06786.us.i.i.i, 1
-  %exitcond.not.i96.i.i = icmp eq i32 %904, %607
-  br i1 %exitcond.not.i96.i.i, label %876, label %877, !llvm.loop !520
+_ZL22setBitOfReversedStreamPmPhh.exit.us.i95.i.i: ; preds = %898, %893
+  %904 = add i64 %.07984.us.i.i.i, 1
+  %905 = add nuw nsw i32 %.06786.us.i.i.i, 1
+  %exitcond.not.i96.i.i = icmp eq i32 %905, %607
+  br i1 %exitcond.not.i96.i.i, label %877, label %878, !llvm.loop !523
 
-._crit_edge.us.i98.i.i:                           ; preds = %876
-  %indvars.iv.next119.i.i.i = add nuw nsw i64 %indvars.iv118.i.i.i, 1
-  %exitcond122.not.i.i.i = icmp eq i64 %indvars.iv.next119.i.i.i, %wide.trip.count121.i.i.i
-  br i1 %exitcond122.not.i.i.i, label %._crit_edge89.i.i.i, label %.preheader81.us.i.i.i, !llvm.loop !521
+._crit_edge.us.i98.i.i:                           ; preds = %877
+  %indvars.iv.next113.i.i.i = add nuw nsw i64 %indvars.iv112.i.i.i, 1
+  %exitcond116.not.i.i.i = icmp eq i64 %indvars.iv.next113.i.i.i, %wide.trip.count115.i.i.i
+  br i1 %exitcond116.not.i.i.i, label %._crit_edge89.i.i.i, label %.preheader81.us.i.i.i, !llvm.loop !524
 
-._crit_edge89.i.i.i:                              ; preds = %._crit_edge.us.i98.i.i, %843
-  %indvars.iv.next124.i.i.i = add nuw nsw i64 %indvars.iv123.i.i.i, 1
-  %.not.i99.i.i = icmp eq i64 %indvars.iv.next124.i.i.i, 7
-  br i1 %.not.i99.i.i, label %.loopexit.i.i, label %843, !llvm.loop !522
+._crit_edge89.i.i.i:                              ; preds = %._crit_edge.us.i98.i.i, %844
+  %indvars.iv.next118.i.i.i = add nuw nsw i64 %indvars.iv117.i.i.i, 1
+  %.not.i99.i.i = icmp eq i64 %indvars.iv.next118.i.i.i, 7
+  br i1 %.not.i99.i.i, label %.loopexit.i.i, label %844, !llvm.loop !525
 
-.loopexit.i.i:                                    ; preds = %._crit_edge89.i.i.i, %._crit_edge.us105.i.i.i
+.loopexit.i.i:                                    ; preds = %._crit_edge89.i.i.i, %._crit_edge.i100.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #31
@@ -14127,12 +14127,12 @@ _ZL17removePaddingBitsPhPKhmmj.exit.i.i:          ; preds = %._crit_edge.us.i.i.
 
 _ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i: ; preds = %_ZL17removePaddingBitsPhPKhmmj.exit.i.i, %.thread.i.i, %653, %618, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i
   %.0.i375.i = phi i32 [ 0, %_ZL17removePaddingBitsPhPKhmmj.exit.i.i ], [ %619, %618 ], [ %654, %653 ], [ 31, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i ], [ %723, %.thread.i.i ]
-  store i32 %.0.i375.i, ptr %19, align 8, !tbaa !394
+  store i32 %.0.i375.i, ptr %19, align 8, !tbaa !397
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split: ; preds = %59, %45, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
   %.sink = phi i32 [ 92, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i ], [ 92, %45 ], [ 83, %59 ]
-  store i32 %.sink, ptr %19, align 8, !tbaa !394
+  store i32 %.sink, ptr %19, align 8, !tbaa !397
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread: ; preds = %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, %6
@@ -14142,197 +14142,197 @@ _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread: ; preds = %_ZL13decod
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %.thread434.i, %.thread.i, %581, %602, %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
-  %905 = load ptr, ptr %16, align 8, !tbaa !7
-  call void @free(ptr noundef %905) #31
-  %.pr = load i32, ptr %19, align 8, !tbaa !394
+  %906 = load ptr, ptr %16, align 8, !tbaa !7
+  call void @free(ptr noundef %906) #31
+  %.pr = load i32, ptr %19, align 8, !tbaa !397
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #31
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %906, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
+  br i1 %.not, label %907, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-906:                                              ; preds = %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
-  %907 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %908 = load i32, ptr %907, align 4, !tbaa !523
-  %.not44 = icmp eq i32 %908, 0
-  br i1 %.not44, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86, label %909
+907:                                              ; preds = %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
+  %908 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %909 = load i32, ptr %908, align 4, !tbaa !526
+  %.not44 = icmp eq i32 %909, 0
+  br i1 %.not44, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86, label %910
 
-909:                                              ; preds = %906
-  %910 = load i32, ptr %25, align 8, !tbaa !182
-  %911 = load i32, ptr %24, align 8, !tbaa !182
-  %.not.i49 = icmp eq i32 %910, %911
-  br i1 %.not.i49, label %912, label %.loopexit
+910:                                              ; preds = %907
+  %911 = load i32, ptr %25, align 8, !tbaa !183
+  %912 = load i32, ptr %24, align 8, !tbaa !183
+  %.not.i49 = icmp eq i32 %911, %912
+  br i1 %.not.i49, label %913, label %.loopexit
 
-912:                                              ; preds = %909
-  %913 = load i32, ptr %31, align 4, !tbaa !185
-  %914 = load i32, ptr %26, align 4, !tbaa !185
-  %.not24.i = icmp eq i32 %913, %914
-  br i1 %.not24.i, label %915, label %.loopexit
+913:                                              ; preds = %910
+  %914 = load i32, ptr %31, align 4, !tbaa !186
+  %915 = load i32, ptr %26, align 4, !tbaa !186
+  %.not24.i = icmp eq i32 %914, %915
+  br i1 %.not24.i, label %916, label %.loopexit
 
-915:                                              ; preds = %912
-  %916 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %917 = load i32, ptr %916, align 8, !tbaa !198
-  %918 = load i32, ptr %86, align 8, !tbaa !198
-  %.not25.i = icmp eq i32 %917, %918
-  br i1 %.not25.i, label %919, label %.loopexit
+916:                                              ; preds = %913
+  %917 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %918 = load i32, ptr %917, align 8, !tbaa !199
+  %919 = load i32, ptr %86, align 8, !tbaa !199
+  %.not25.i = icmp eq i32 %918, %919
+  br i1 %.not25.i, label %920, label %.loopexit
 
-919:                                              ; preds = %915
-  %.not26.i = icmp eq i32 %917, 0
-  br i1 %.not26.i, label %932, label %920
+920:                                              ; preds = %916
+  %.not26.i = icmp eq i32 %918, 0
+  br i1 %.not26.i, label %933, label %921
 
-920:                                              ; preds = %919
-  %921 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  %922 = load i32, ptr %921, align 4, !tbaa !283
-  %923 = load i32, ptr %87, align 4, !tbaa !283
-  %.not27.i = icmp eq i32 %922, %923
-  br i1 %.not27.i, label %924, label %.loopexit
+921:                                              ; preds = %920
+  %922 = getelementptr inbounds nuw i8, ptr %3, i64 196
+  %923 = load i32, ptr %922, align 4, !tbaa !284
+  %924 = load i32, ptr %87, align 4, !tbaa !284
+  %.not27.i = icmp eq i32 %923, %924
+  br i1 %.not27.i, label %925, label %.loopexit
 
-924:                                              ; preds = %920
-  %925 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %926 = load i32, ptr %925, align 8, !tbaa !284
-  %927 = load i32, ptr %88, align 8, !tbaa !284
-  %.not28.i = icmp eq i32 %926, %927
-  br i1 %.not28.i, label %928, label %.loopexit
+925:                                              ; preds = %921
+  %926 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %927 = load i32, ptr %926, align 8, !tbaa !285
+  %928 = load i32, ptr %88, align 8, !tbaa !285
+  %.not28.i = icmp eq i32 %927, %928
+  br i1 %.not28.i, label %929, label %.loopexit
 
-928:                                              ; preds = %924
-  %929 = getelementptr inbounds nuw i8, ptr %3, i64 204
-  %930 = load i32, ptr %929, align 4, !tbaa !285
-  %931 = load i32, ptr %89, align 4, !tbaa !285
-  %.not29.i = icmp eq i32 %930, %931
-  br i1 %.not29.i, label %932, label %.loopexit
+929:                                              ; preds = %925
+  %930 = getelementptr inbounds nuw i8, ptr %3, i64 204
+  %931 = load i32, ptr %930, align 4, !tbaa !286
+  %932 = load i32, ptr %89, align 4, !tbaa !286
+  %.not29.i = icmp eq i32 %931, %932
+  br i1 %.not29.i, label %933, label %.loopexit
 
-932:                                              ; preds = %928, %919
-  %933 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %934 = load i64, ptr %933, align 8, !tbaa !191
-  %935 = load i64, ptr %85, align 8, !tbaa !191
-  %.not30.i = icmp eq i64 %934, %935
+933:                                              ; preds = %929, %920
+  %934 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %935 = load i64, ptr %934, align 8, !tbaa !192
+  %936 = load i64, ptr %85, align 8, !tbaa !192
+  %.not30.i = icmp eq i64 %935, %936
   br i1 %.not30.i, label %.preheader.i, label %.loopexit
 
-.preheader.i:                                     ; preds = %932
-  %936 = shl i64 %934, 2
-  %.not3133.i = icmp eq i64 %936, 0
+.preheader.i:                                     ; preds = %933
+  %937 = shl i64 %935, 2
+  %.not3133.i = icmp eq i64 %937, 0
   br i1 %.not3133.i, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %937 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %938 = load ptr, ptr %937, align 8, !tbaa !186
-  %939 = load ptr, ptr %90, align 8, !tbaa !186
-  br label %942
+  %938 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %939 = load ptr, ptr %938, align 8, !tbaa !187
+  %940 = load ptr, ptr %90, align 8, !tbaa !187
+  br label %943
 
-940:                                              ; preds = %942
-  %941 = add nuw i64 %.034.i, 1
-  %.not31.i = icmp eq i64 %941, %936
-  br i1 %.not31.i, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87, label %942, !llvm.loop !286
+941:                                              ; preds = %943
+  %942 = add nuw i64 %.034.i, 1
+  %.not31.i = icmp eq i64 %942, %937
+  br i1 %.not31.i, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87, label %943, !llvm.loop !287
 
-942:                                              ; preds = %940, %.lr.ph.i
-  %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %941, %940 ]
-  %943 = getelementptr inbounds nuw i8, ptr %938, i64 %.034.i
-  %944 = load i8, ptr %943, align 1, !tbaa !18
-  %945 = getelementptr inbounds nuw i8, ptr %939, i64 %.034.i
-  %946 = load i8, ptr %945, align 1, !tbaa !18
-  %.not32.i = icmp eq i8 %944, %946
-  br i1 %.not32.i, label %940, label %.loopexit
+943:                                              ; preds = %941, %.lr.ph.i
+  %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %942, %941 ]
+  %944 = getelementptr inbounds nuw i8, ptr %939, i64 %.034.i
+  %945 = load i8, ptr %944, align 1, !tbaa !18
+  %946 = getelementptr inbounds nuw i8, ptr %940, i64 %.034.i
+  %947 = load i8, ptr %946, align 1, !tbaa !18
+  %.not32.i = icmp eq i8 %945, %947
+  br i1 %.not32.i, label %941, label %.loopexit
 
-_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86: ; preds = %906
-  %947 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %948 = load ptr, ptr %947, align 8, !tbaa !186
-  %.not.i.i.i50 = icmp eq ptr %948, null
-  br i1 %.not.i.i.i50, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %949
+_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86: ; preds = %907
+  %948 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %949 = load ptr, ptr %948, align 8, !tbaa !187
+  %.not.i.i.i50 = icmp eq ptr %949, null
+  br i1 %.not.i.i.i50, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %950
 
-949:                                              ; preds = %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
-  call void @free(ptr noundef nonnull %948) #31
+950:                                              ; preds = %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
+  call void @free(ptr noundef nonnull %949) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
-_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %949, %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %25, ptr noundef nonnull readonly align 1 dereferenceable(40) %24, i64 40, i1 false), !tbaa !18, !alias.scope !524
-  %950 = load ptr, ptr %90, align 8, !tbaa !186
-  %.not.i51 = icmp eq ptr %950, null
-  br i1 %.not.i51, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %951
+_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %950, %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %25, ptr noundef nonnull readonly align 1 dereferenceable(40) %24, i64 40, i1 false), !tbaa !18, !alias.scope !527
+  %951 = load ptr, ptr %90, align 8, !tbaa !187
+  %.not.i51 = icmp eq ptr %951, null
+  br i1 %.not.i51, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %952
 
-951:                                              ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %952 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %952, ptr %947, align 8, !tbaa !186
-  %.not10.i = icmp eq ptr %952, null
-  %953 = load i64, ptr %85, align 8, !tbaa !191
-  br i1 %.not10.i, label %954, label %955
+952:                                              ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
+  %953 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
+  store ptr %953, ptr %948, align 8, !tbaa !187
+  %.not10.i = icmp eq ptr %953, null
+  %954 = load i64, ptr %85, align 8, !tbaa !192
+  br i1 %.not10.i, label %955, label %956
 
-954:                                              ; preds = %951
-  %.not11.i = icmp eq i64 %953, 0
+955:                                              ; preds = %952
+  %.not11.i = icmp eq i64 %954, 0
   br i1 %.not11.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
-955:                                              ; preds = %951
-  %956 = shl i64 %953, 2
-  %.not.i.i = icmp eq i64 %956, 0
+956:                                              ; preds = %952
+  %957 = shl i64 %954, 2
+  %.not.i.i = icmp eq i64 %957, 0
   br i1 %.not.i.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %.lr.ph.preheader.i.i52
 
-.lr.ph.preheader.i.i52:                           ; preds = %955
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %952, ptr nonnull readonly align 1 %950, i64 %956, i1 false), !tbaa !18, !alias.scope !528
+.lr.ph.preheader.i.i52:                           ; preds = %956
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %953, ptr nonnull readonly align 1 %951, i64 %957, i1 false), !tbaa !18, !alias.scope !531
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread
 
-_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %955, %.lr.ph.preheader.i.i52, %954
-  store i32 0, ptr %19, align 8, !tbaa !394
+_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %956, %.lr.ph.preheader.i.i52, %955
+  store i32 0, ptr %19, align 8, !tbaa !397
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %954
-  store i32 83, ptr %19, align 8, !tbaa !394
+_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %955
+  store i32 83, ptr %19, align 8, !tbaa !397
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-.loopexit:                                        ; preds = %942, %909, %912, %915, %920, %924, %928, %932
-  %957 = load ptr, ptr %0, align 8, !tbaa !7
-  switch i32 %910, label %958 [
-    i32 2, label %961
-    i32 6, label %961
+.loopexit:                                        ; preds = %943, %910, %913, %916, %921, %925, %929, %933
+  %958 = load ptr, ptr %0, align 8, !tbaa !7
+  switch i32 %911, label %959 [
+    i32 2, label %962
+    i32 6, label %962
   ]
 
-958:                                              ; preds = %.loopexit
-  %959 = load i32, ptr %31, align 4, !tbaa !532
-  %960 = icmp eq i32 %959, 8
-  br i1 %960, label %961, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
+959:                                              ; preds = %.loopexit
+  %960 = load i32, ptr %31, align 4, !tbaa !535
+  %961 = icmp eq i32 %960, 8
+  br i1 %961, label %962, label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-961:                                              ; preds = %.loopexit, %.loopexit, %958
-  %962 = load i32, ptr %1, align 4, !tbaa !10
-  %963 = load i32, ptr %2, align 4, !tbaa !10
-  %964 = load i32, ptr %31, align 4, !tbaa !185
-  %965 = icmp ult i32 %910, 7
-  br i1 %965, label %switch.lookup170, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
+962:                                              ; preds = %.loopexit, %.loopexit, %959
+  %963 = load i32, ptr %1, align 4, !tbaa !10
+  %964 = load i32, ptr %2, align 4, !tbaa !10
+  %965 = load i32, ptr %31, align 4, !tbaa !186
+  %966 = icmp ult i32 %911, 7
+  br i1 %966, label %switch.lookup170, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
 
-switch.lookup170:                                 ; preds = %961
-  %966 = zext nneg i32 %910 to i64
-  %switch.gep171 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings, i64 0, i64 %966
+switch.lookup170:                                 ; preds = %962
+  %967 = zext nneg i32 %911 to i64
+  %switch.gep171 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings, i64 0, i64 %967
   %switch.load172 = load i32, ptr %switch.gep171, align 4
   br label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
 
-_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %961, %switch.lookup170
-  %.0.i.i.i.i54 = phi i32 [ %switch.load172, %switch.lookup170 ], [ 0, %961 ]
-  %967 = mul i32 %.0.i.i.i.i54, %964
-  %968 = zext i32 %967 to i64
-  %969 = zext i32 %962 to i64
+_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %962, %switch.lookup170
+  %.0.i.i.i.i54 = phi i32 [ %switch.load172, %switch.lookup170 ], [ 0, %962 ]
+  %968 = mul i32 %.0.i.i.i.i54, %965
+  %969 = zext i32 %968 to i64
   %970 = zext i32 %963 to i64
-  %971 = mul nuw i64 %970, %969
-  %972 = lshr i64 %971, 3
-  %973 = mul i64 %972, %968
-  %974 = and i64 %971, 7
-  %975 = mul nuw nsw i64 %974, %968
-  %976 = add nuw nsw i64 %975, 7
-  %977 = lshr i64 %976, 3
-  %978 = add i64 %977, %973
-  %979 = call noalias noundef ptr @malloc(i64 noundef %978) #30
-  store ptr %979, ptr %0, align 8, !tbaa !7
-  %.not46 = icmp eq ptr %979, null
-  br i1 %.not46, label %.thread90, label %980
+  %971 = zext i32 %964 to i64
+  %972 = mul nuw i64 %971, %970
+  %973 = lshr i64 %972, 3
+  %974 = mul i64 %973, %969
+  %975 = and i64 %972, 7
+  %976 = mul nuw nsw i64 %975, %969
+  %977 = add nuw nsw i64 %976, 7
+  %978 = lshr i64 %977, 3
+  %979 = add i64 %978, %974
+  %980 = call noalias noundef ptr @malloc(i64 noundef %979) #30
+  store ptr %980, ptr %0, align 8, !tbaa !7
+  %.not46 = icmp eq ptr %980, null
+  br i1 %.not46, label %.thread90, label %981
 
-980:                                              ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
-  %981 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef nonnull %979, ptr noundef %957, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef %962, i32 noundef %963)
+981:                                              ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
+  %982 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef nonnull %980, ptr noundef %958, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef %963, i32 noundef %964)
   br label %.thread90
 
-.thread90:                                        ; preds = %980, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
-  %storemerge = phi i32 [ %981, %980 ], [ 83, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ]
-  store i32 %storemerge, ptr %19, align 8, !tbaa !394
-  call void @free(ptr noundef %957) #31
-  %.pre130 = load i32, ptr %19, align 8, !tbaa !394
+.thread90:                                        ; preds = %981, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
+  %storemerge = phi i32 [ %982, %981 ], [ 83, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ]
+  store i32 %storemerge, ptr %19, align 8, !tbaa !397
+  call void @free(ptr noundef %958) #31
+  %.pre130 = load i32, ptr %19, align 8, !tbaa !397
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87: ; preds = %940, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, %.thread90, %.preheader.i, %958, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
-  %.039 = phi i32 [ %.pr, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %.ph, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread ], [ 56, %958 ], [ 0, %.preheader.i ], [ %.pre130, %.thread90 ], [ 0, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread ], [ 0, %940 ]
+_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87: ; preds = %941, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, %.thread90, %.preheader.i, %959, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
+  %.039 = phi i32 [ %.pr, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %.ph, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread ], [ 56, %959 ], [ 0, %.preheader.i ], [ %.pre130, %.thread90 ], [ 0, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread ], [ 0, %941 ]
   ret i32 %.039
 }
 
@@ -14341,13 +14341,13 @@ define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr
   %8 = alloca %struct.LodePNGState, align 8
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %8) #31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store i32 1, ptr %9, align 4, !tbaa !533
+  store i32 1, ptr %9, align 4, !tbaa !536
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i64 16777216, ptr %12, align 8, !tbaa !432
+  store i64 16777216, ptr %12, align 8, !tbaa !435
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i64 16777216, ptr %13, align 8, !tbaa !469
+  store i64 16777216, ptr %13, align 8, !tbaa !472
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i32 2, ptr %14, align 8, !tbaa !110
@@ -14364,15 +14364,15 @@ define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 132
-  store i32 1, ptr %21, align 4, !tbaa !534
+  store i32 1, ptr %21, align 4, !tbaa !537
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 5, ptr %22, align 8, !tbaa !535
+  store i32 5, ptr %22, align 8, !tbaa !538
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 1, ptr %23, align 8, !tbaa !536
+  store i32 1, ptr %23, align 8, !tbaa !539
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store i32 1, ptr %25, align 8, !tbaa !537
+  store i32 1, ptr %25, align 8, !tbaa !540
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -14383,25 +14383,25 @@ define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store i32 6, ptr %31, align 8, !tbaa !182
+  store i32 6, ptr %31, align 8, !tbaa !183
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 228
-  store i32 8, ptr %33, align 4, !tbaa !185
+  store i32 8, ptr %33, align 4, !tbaa !186
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  store i32 0, ptr %35, align 8, !tbaa !255
-  store i32 0, ptr %30, align 8, !tbaa !256
+  store i32 0, ptr %35, align 8, !tbaa !256
+  store i32 0, ptr %30, align 8, !tbaa !257
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 212
-  store i32 0, ptr %36, align 4, !tbaa !257
+  store i32 0, ptr %36, align 4, !tbaa !258
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store i32 0, ptr %38, align 8, !tbaa !258
+  store i32 0, ptr %38, align 8, !tbaa !259
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  store i32 0, ptr %39, align 8, !tbaa !259
+  store i32 0, ptr %39, align 8, !tbaa !260
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 416
-  store i32 0, ptr %40, align 8, !tbaa !260
+  store i32 0, ptr %40, align 8, !tbaa !261
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 452
-  store i32 0, ptr %41, align 4, !tbaa !261
+  store i32 0, ptr %41, align 4, !tbaa !262
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 460
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 484
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 352
@@ -14412,13 +14412,13 @@ define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %43, i8 0, i64 96, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 632
-  store i32 1, ptr %46, align 8, !tbaa !394
-  store i32 %5, ptr %26, align 8, !tbaa !538
-  store i32 %6, ptr %28, align 4, !tbaa !532
-  store i32 0, ptr %10, align 8, !tbaa !501
-  store i32 0, ptr %11, align 4, !tbaa !503
+  store i32 1, ptr %46, align 8, !tbaa !397
+  store i32 %5, ptr %26, align 8, !tbaa !541
+  store i32 %6, ptr %28, align 4, !tbaa !535
+  store i32 0, ptr %10, align 8, !tbaa !504
+  store i32 0, ptr %11, align 4, !tbaa !506
   %47 = call noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %3, i64 noundef %4)
-  %48 = load ptr, ptr %29, align 8, !tbaa !186
+  %48 = load ptr, ptr %29, align 8, !tbaa !187
   %.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %49
 
@@ -14436,15 +14436,15 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %7, %49
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z18lodepng_state_initP12LodePNGState(ptr noundef writeonly captures(none) initializes((0, 140), (144, 164), (168, 220), (224, 348), (352, 368), (392, 396), (408, 412), (416, 420), (452, 456), (460, 480), (484, 580), (584, 636)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %2, align 4, !tbaa !533
+  store i32 1, ptr %2, align 4, !tbaa !536
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %3, align 8, !tbaa !539
+  store i32 1, ptr %3, align 8, !tbaa !542
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %4, align 4, !tbaa !540
+  store i32 0, ptr %4, align 4, !tbaa !543
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 16777216, ptr %5, align 8, !tbaa !432
+  store i64 16777216, ptr %5, align 8, !tbaa !435
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 16777216, ptr %6, align 8, !tbaa !469
+  store i64 16777216, ptr %6, align 8, !tbaa !472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 2, ptr %7, align 8, !tbaa !110
@@ -14461,46 +14461,46 @@ define void @_Z18lodepng_state_initP12LodePNGState(ptr noundef writeonly capture
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 1, ptr %14, align 4, !tbaa !534
+  store i32 1, ptr %14, align 4, !tbaa !537
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 5, ptr %15, align 8, !tbaa !535
+  store i32 5, ptr %15, align 8, !tbaa !538
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 1, ptr %16, align 8, !tbaa !536
+  store i32 1, ptr %16, align 8, !tbaa !539
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 1, ptr %18, align 8, !tbaa !537
+  store i32 1, ptr %18, align 8, !tbaa !540
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store i32 6, ptr %19, align 8, !tbaa !182
+  store i32 6, ptr %19, align 8, !tbaa !183
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 8, ptr %21, align 4, !tbaa !185
+  store i32 8, ptr %21, align 4, !tbaa !186
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store i32 6, ptr %24, align 8, !tbaa !182
+  store i32 6, ptr %24, align 8, !tbaa !183
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 8, ptr %26, align 4, !tbaa !185
+  store i32 8, ptr %26, align 4, !tbaa !186
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %28, align 8, !tbaa !255
-  store i32 0, ptr %23, align 8, !tbaa !256
+  store i32 0, ptr %28, align 8, !tbaa !256
+  store i32 0, ptr %23, align 8, !tbaa !257
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 0, ptr %29, align 4, !tbaa !257
+  store i32 0, ptr %29, align 4, !tbaa !258
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 0, ptr %31, align 8, !tbaa !258
+  store i32 0, ptr %31, align 8, !tbaa !259
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %32, align 8, !tbaa !259
+  store i32 0, ptr %32, align 8, !tbaa !260
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 0, ptr %33, align 8, !tbaa !260
+  store i32 0, ptr %33, align 8, !tbaa !261
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 0, ptr %34, align 4, !tbaa !261
+  store i32 0, ptr %34, align 4, !tbaa !262
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -14511,14 +14511,14 @@ define void @_Z18lodepng_state_initP12LodePNGState(ptr noundef writeonly capture
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %36, i8 0, i64 96, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 1, ptr %39, align 8, !tbaa !394
+  store i32 1, ptr %39, align 8, !tbaa !397
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z21lodepng_state_cleanupP12LodePNGState(ptr noundef captures(none) initializes((184, 192), (240, 248)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %4
 
@@ -14632,15 +14632,15 @@ _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %4, %8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z29lodepng_decoder_settings_initP22LodePNGDecoderSettings(ptr noundef writeonly captures(none) initializes((0, 80)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %2, align 4, !tbaa !533
+  store i32 1, ptr %2, align 4, !tbaa !536
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %3, align 8, !tbaa !539
+  store i32 1, ptr %3, align 8, !tbaa !542
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %4, align 4, !tbaa !540
+  store i32 0, ptr %4, align 4, !tbaa !543
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 16777216, ptr %5, align 8, !tbaa !432
+  store i64 16777216, ptr %5, align 8, !tbaa !435
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 16777216, ptr %6, align 8, !tbaa !469
+  store i64 16777216, ptr %6, align 8, !tbaa !472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   ret void
 }
@@ -14661,22 +14661,22 @@ define void @_Z29lodepng_encoder_settings_initP22LodePNGEncoderSettings(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %8, align 4, !tbaa !534
+  store i32 1, ptr %8, align 4, !tbaa !537
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 5, ptr %9, align 8, !tbaa !535
+  store i32 5, ptr %9, align 8, !tbaa !538
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 1, ptr %10, align 8, !tbaa !536
+  store i32 1, ptr %10, align 8, !tbaa !539
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store i32 1, ptr %12, align 8, !tbaa !537
+  store i32 1, ptr %12, align 8, !tbaa !540
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef captures(none) initializes((184, 192), (240, 248)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load ptr, ptr %3, align 8, !tbaa !186
+  %4 = load ptr, ptr %3, align 8, !tbaa !187
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %5
 
@@ -14688,35 +14688,35 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %5, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %6)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull align 8 dereferenceable(640) %1, i64 640, i1 false), !tbaa.struct !541
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull align 8 dereferenceable(640) %1, i64 640, i1 false), !tbaa.struct !544
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  store i32 6, ptr %7, align 8, !tbaa !182
+  store i32 6, ptr %7, align 8, !tbaa !183
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 8, ptr %9, align 4, !tbaa !185
+  store i32 8, ptr %9, align 4, !tbaa !186
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store i32 6, ptr %10, align 8, !tbaa !182
+  store i32 6, ptr %10, align 8, !tbaa !183
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 8, ptr %12, align 4, !tbaa !185
+  store i32 8, ptr %12, align 4, !tbaa !186
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %14, align 8, !tbaa !255
-  store i32 0, ptr %6, align 8, !tbaa !256
+  store i32 0, ptr %14, align 8, !tbaa !256
+  store i32 0, ptr %6, align 8, !tbaa !257
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 0, ptr %15, align 4, !tbaa !257
+  store i32 0, ptr %15, align 4, !tbaa !258
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 0, ptr %17, align 8, !tbaa !258
+  store i32 0, ptr %17, align 8, !tbaa !259
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %18, align 8, !tbaa !259
+  store i32 0, ptr %18, align 8, !tbaa !260
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 0, ptr %19, align 8, !tbaa !260
+  store i32 0, ptr %19, align 8, !tbaa !261
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 0, ptr %20, align 4, !tbaa !261
+  store i32 0, ptr %20, align 4, !tbaa !262
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -14728,18 +14728,18 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %5, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %22, i8 0, i64 96, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %7, ptr noundef nonnull readonly align 1 dereferenceable(40) %25, i64 40, i1 false), !tbaa !18, !alias.scope !545
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %7, ptr noundef nonnull readonly align 1 dereferenceable(40) %25, i64 40, i1 false), !tbaa !18, !alias.scope !548
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %27 = load ptr, ptr %26, align 8, !tbaa !186
+  %27 = load ptr, ptr %26, align 8, !tbaa !187
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %select.unfold, label %28
 
 28:                                               ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
   %29 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %29, ptr %3, align 8, !tbaa !186
+  store ptr %29, ptr %3, align 8, !tbaa !187
   %.not10.i = icmp eq ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %31 = load i64, ptr %30, align 8, !tbaa !191
+  %31 = load i64, ptr %30, align 8, !tbaa !192
   br i1 %.not10.i, label %32, label %33
 
 32:                                               ; preds = %28
@@ -14752,21 +14752,21 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %5, %2
   br i1 %.not.i.i, label %select.unfold, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %33
-  %35 = load ptr, ptr %26, align 8, !tbaa !186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr readonly align 1 %35, i64 %34, i1 false), !tbaa !18, !alias.scope !549
+  %35 = load ptr, ptr %26, align 8, !tbaa !187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr readonly align 1 %35, i64 %34, i1 false), !tbaa !18, !alias.scope !552
   br label %select.unfold
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 83, ptr %36, align 8, !tbaa !394
+  store i32 83, ptr %36, align 8, !tbaa !397
   br label %40
 
 select.unfold:                                    ; preds = %32, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %33, %.lr.ph.preheader.i.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 0, ptr %37, align 8, !tbaa !394
+  store i32 0, ptr %37, align 8, !tbaa !397
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %39 = tail call noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef nonnull %6, ptr noundef nonnull %38)
-  store i32 %39, ptr %37, align 8, !tbaa !394
+  store i32 %39, ptr %37, align 8, !tbaa !397
   br label %40
 
 40:                                               ; preds = %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, %select.unfold
@@ -14800,25 +14800,25 @@ define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writ
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  store i32 6, ptr %18, align 8, !tbaa !182
+  store i32 6, ptr %18, align 8, !tbaa !183
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 8, ptr %20, align 4, !tbaa !185
+  store i32 8, ptr %20, align 4, !tbaa !186
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %22, align 8, !tbaa !255
-  store i32 0, ptr %10, align 8, !tbaa !256
+  store i32 0, ptr %22, align 8, !tbaa !256
+  store i32 0, ptr %10, align 8, !tbaa !257
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %23, align 4, !tbaa !257
+  store i32 0, ptr %23, align 4, !tbaa !258
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i32 0, ptr %25, align 8, !tbaa !258
+  store i32 0, ptr %25, align 8, !tbaa !259
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 200
-  store i32 0, ptr %26, align 8, !tbaa !259
+  store i32 0, ptr %26, align 8, !tbaa !260
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 208
-  store i32 0, ptr %27, align 8, !tbaa !260
+  store i32 0, ptr %27, align 8, !tbaa !261
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 244
-  store i32 0, ptr %28, align 4, !tbaa !261
+  store i32 0, ptr %28, align 4, !tbaa !262
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 252
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 276
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 144
@@ -14830,60 +14830,60 @@ define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writ
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %30, i8 0, i64 96, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store i32 6, ptr %11, align 8, !tbaa !182
+  store i32 6, ptr %11, align 8, !tbaa !183
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 8, ptr %34, align 4, !tbaa !185
+  store i32 8, ptr %34, align 4, !tbaa !186
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8, !tbaa !7
   store i64 0, ptr %1, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  store i32 0, ptr %36, align 8, !tbaa !394
+  store i32 0, ptr %36, align 8, !tbaa !397
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %38 = load i32, ptr %37, align 8, !tbaa !400
+  %38 = load i32, ptr %37, align 8, !tbaa !403
   %39 = icmp eq i32 %38, 3
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %6
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %42 = load i32, ptr %41, align 8, !tbaa !553
+  %42 = load i32, ptr %41, align 8, !tbaa !556
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %40, %6
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %45 = load i64, ptr %44, align 8, !tbaa !411
+  %45 = load i64, ptr %44, align 8, !tbaa !414
   %46 = add i64 %45, -257
   %or.cond388 = icmp ult i64 %46, -256
   br i1 %or.cond388, label %47, label %48
 
 47:                                               ; preds = %43
-  store i32 68, ptr %36, align 8, !tbaa !394
+  store i32 68, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 48:                                               ; preds = %43, %40
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %50 = load i32, ptr %49, align 8, !tbaa !554
+  %50 = load i32, ptr %49, align 8, !tbaa !557
   %51 = icmp ugt i32 %50, 2
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  store i32 61, ptr %36, align 8, !tbaa !394
+  store i32 61, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %55 = load i32, ptr %54, align 8, !tbaa !255
+  %55 = load i32, ptr %54, align 8, !tbaa !256
   %56 = icmp ugt i32 %55, 1
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  store i32 71, ptr %36, align 8, !tbaa !394
+  store i32 71, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 228
-  %60 = load i32, ptr %59, align 4, !tbaa !399
+  %60 = load i32, ptr %59, align 4, !tbaa !402
   switch i32 %38, label %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread [
     i32 0, label %61
     i32 2, label %62
@@ -14929,14 +14929,14 @@ define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writ
 
 _ZL18checkColorValidity16LodePNGColorTypej.exit.thread: ; preds = %61, %64, %58, %62, %65, %67
   %.0.i.ph = phi i32 [ 37, %67 ], [ 37, %65 ], [ 37, %62 ], [ 31, %58 ], [ 37, %64 ], [ 37, %61 ]
-  store i32 %.0.i.ph, ptr %36, align 8, !tbaa !394
+  store i32 %.0.i.ph, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 select.unfold:                                    ; preds = %67, %65, %62, %61, %61, %61, %61, %61, %64, %64, %64, %64
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %70 = load i32, ptr %69, align 8, !tbaa !538
+  %70 = load i32, ptr %69, align 8, !tbaa !541
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 172
-  %72 = load i32, ptr %71, align 4, !tbaa !532
+  %72 = load i32, ptr %71, align 4, !tbaa !535
   switch i32 %70, label %_ZL18checkColorValidity16LodePNGColorTypej.exit415.thread [
     i32 0, label %73
     i32 2, label %74
@@ -14982,41 +14982,41 @@ select.unfold:                                    ; preds = %67, %65, %62, %61, 
 
 _ZL18checkColorValidity16LodePNGColorTypej.exit415.thread: ; preds = %73, %76, %select.unfold, %74, %77, %79
   %.0.i410.ph = phi i32 [ 37, %79 ], [ 37, %77 ], [ 37, %74 ], [ 31, %select.unfold ], [ 37, %76 ], [ 37, %73 ]
-  store i32 %.0.i410.ph, ptr %36, align 8, !tbaa !394
+  store i32 %.0.i410.ph, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 select.unfold429:                                 ; preds = %79, %77, %74, %73, %73, %73, %73, %73, %76, %76, %76, %76
   %81 = call noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef nonnull %10, ptr noundef nonnull %17)
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %83 = load i32, ptr %82, align 8, !tbaa !555
+  %83 = load i32, ptr %82, align 8, !tbaa !558
   %.not316 = icmp eq i32 %83, 0
   br i1 %.not316, label %216, label %84
 
 84:                                               ; preds = %select.unfold429
   call void @llvm.lifetime.start.p0(i64 1072, ptr nonnull %12) #31
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %85, align 8, !tbaa !367
+  store i32 0, ptr %85, align 8, !tbaa !370
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 0, ptr %86, align 4, !tbaa !369
+  store i32 0, ptr %86, align 4, !tbaa !372
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 1048
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %12, i8 0, i64 14, i1 false)
-  store i32 1, ptr %87, align 8, !tbaa !370
+  store i32 1, ptr %87, align 8, !tbaa !373
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 1056
-  store i64 0, ptr %88, align 8, !tbaa !371
+  store i64 0, ptr %88, align 8, !tbaa !374
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 1064
-  store i32 1, ptr %89, align 8, !tbaa !372
+  store i32 1, ptr %89, align 8, !tbaa !375
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 1068
-  store i32 1, ptr %90, align 4, !tbaa !373
+  store i32 1, ptr %90, align 4, !tbaa !376
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 460
-  %92 = load i32, ptr %91, align 4, !tbaa !236
+  %92 = load i32, ptr %91, align 4, !tbaa !237
   %.not317 = icmp eq i32 %92, 0
   br i1 %.not317, label %_ZL15isRGBICCProfilePKhj.exit.thread, label %93
 
 93:                                               ; preds = %84
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 472
-  %95 = load ptr, ptr %94, align 8, !tbaa !237
+  %95 = load ptr, ptr %94, align 8, !tbaa !238
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  %97 = load i32, ptr %96, align 8, !tbaa !238
+  %97 = load i32, ptr %96, align 8, !tbaa !239
   %98 = icmp ult i32 %97, 20
   br i1 %98, label %_ZL15isRGBICCProfilePKhj.exit.thread, label %99
 
@@ -15045,7 +15045,7 @@ _ZL16isGrayICCProfilePKhj.exit:                   ; preds = %107
   br i1 %.not480, label %113, label %114
 
 113:                                              ; preds = %_ZL16isGrayICCProfilePKhj.exit
-  store i32 0, ptr %89, align 8, !tbaa !372
+  store i32 0, ptr %89, align 8, !tbaa !375
   br label %114
 
 114:                                              ; preds = %99, %103, %107, %113, %_ZL16isGrayICCProfilePKhj.exit
@@ -15073,18 +15073,18 @@ _ZL15isRGBICCProfilePKhj.exit:                    ; preds = %122
   br i1 %.not481, label %128, label %_ZL15isRGBICCProfilePKhj.exit.thread
 
 128:                                              ; preds = %_ZL15isRGBICCProfilePKhj.exit
-  store i32 0, ptr %90, align 4, !tbaa !373
+  store i32 0, ptr %90, align 4, !tbaa !376
   br label %_ZL15isRGBICCProfilePKhj.exit.thread
 
 _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %122, %84, %128, %_ZL15isRGBICCProfilePKhj.exit
   %129 = call noundef i32 @_Z27lodepng_compute_color_statsP17LodePNGColorStatsPKhjjPK16LodePNGColorMode(ptr noundef nonnull %12, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %69)
-  store i32 %129, ptr %36, align 8, !tbaa !394
+  store i32 %129, ptr %36, align 8, !tbaa !397
   %.not321 = icmp eq i32 %129, 0
   br i1 %.not321, label %130, label %.thread449
 
 130:                                              ; preds = %_ZL15isRGBICCProfilePKhj.exit.thread
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %132 = load i32, ptr %131, align 8, !tbaa !412
+  %132 = load i32, ptr %131, align 8, !tbaa !415
   %.not322 = icmp eq i32 %132, 0
   br i1 %.not322, label %147, label %133
 
@@ -15099,20 +15099,20 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
   %134 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, i8 0, i64 32, i1 false)
-  store i32 2, ptr %16, align 8, !tbaa !182, !alias.scope !556
-  store i32 16, ptr %134, align 4, !tbaa !185, !alias.scope !556
+  store i32 2, ptr %16, align 8, !tbaa !183, !alias.scope !559
+  store i32 16, ptr %134, align 4, !tbaa !186, !alias.scope !559
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %137 = load i32, ptr %136, align 4, !tbaa !415
+  %137 = load i32, ptr %136, align 4, !tbaa !418
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %139 = load i32, ptr %138, align 8, !tbaa !414
+  %139 = load i32, ptr %138, align 8, !tbaa !417
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 276
-  %141 = load i32, ptr %140, align 4, !tbaa !413
+  %141 = load i32, ptr %140, align 4, !tbaa !416
   %142 = call noundef i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %137, i32 noundef %139, i32 noundef %141, ptr noundef nonnull %16, ptr noundef nonnull %37)
   %143 = load i32, ptr %13, align 4, !tbaa !10
   %144 = load i32, ptr %14, align 4, !tbaa !10
   %145 = load i32, ptr %15, align 4, !tbaa !10
   %146 = call fastcc noundef i32 @_ZL23lodepng_color_stats_addP17LodePNGColorStatsjjjj(ptr noundef %12, i32 noundef %143, i32 noundef %144, i32 noundef %145)
-  store i32 %146, ptr %36, align 8, !tbaa !394
+  store i32 %146, ptr %36, align 8, !tbaa !397
   %.not323 = icmp eq i32 %146, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
@@ -15122,26 +15122,26 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
 
 147:                                              ; preds = %133, %130
   %148 = call fastcc noundef i32 @_ZL17auto_choose_colorP16LodePNGColorModePKS_PK17LodePNGColorStats(ptr noundef %11, ptr noundef nonnull %69, ptr noundef %12)
-  store i32 %148, ptr %36, align 8, !tbaa !394
+  store i32 %148, ptr %36, align 8, !tbaa !397
   %.not324 = icmp eq i32 %148, 0
   br i1 %.not324, label %149, label %.thread449
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  %151 = load i32, ptr %150, align 8, !tbaa !491
+  %151 = load i32, ptr %150, align 8, !tbaa !494
   %.not325 = icmp eq i32 %151, 0
   br i1 %.not325, label %190, label %.thread439
 
 .thread439:                                       ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 564
-  %153 = load i32, ptr %152, align 4, !tbaa !494
+  %153 = load i32, ptr %152, align 4, !tbaa !497
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  %155 = load i32, ptr %154, align 8, !tbaa !493
+  %155 = load i32, ptr %154, align 8, !tbaa !496
   %.389 = tail call i32 @llvm.umax.i32(i32 %153, i32 %155)
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 572
-  %157 = load i32, ptr %156, align 4, !tbaa !492
+  %157 = load i32, ptr %156, align 4, !tbaa !495
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  %159 = load i32, ptr %158, align 8, !tbaa !495
+  %159 = load i32, ptr %158, align 8, !tbaa !498
   %.389. = tail call i32 @llvm.umax.i32(i32 %.389, i32 %157)
   %spec.select475 = tail call i32 @llvm.umax.i32(i32 %.389., i32 %159)
   %.not326 = icmp eq i32 %155, 0
@@ -15163,7 +15163,7 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
 
 165:                                              ; preds = %163, %161, %.thread439
   %166 = phi i1 [ false, %.thread439 ], [ false, %161 ], [ %spec.select478, %163 ]
-  %167 = load i32, ptr %18, align 8, !tbaa !400
+  %167 = load i32, ptr %18, align 8, !tbaa !403
   %168 = icmp eq i32 %167, 3
   %169 = load i32, ptr %11, align 8
   %170 = icmp eq i32 %169, 3
@@ -15205,7 +15205,7 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
   br i1 %or.cond31, label %187, label %190
 
 187:                                              ; preds = %184
-  %188 = load i32, ptr %34, align 4, !tbaa !185
+  %188 = load i32, ptr %34, align 4, !tbaa !186
   %189 = icmp eq i32 %153, %188
   %spec.select395 = select i1 %189, i32 1, i32 %.4
   br label %190
@@ -15213,18 +15213,18 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
 190:                                              ; preds = %187, %184, %149
   %.0286 = phi i32 [ 1, %149 ], [ %.4, %184 ], [ %spec.select395, %187 ]
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %192 = load i32, ptr %191, align 8, !tbaa !553
+  %192 = load i32, ptr %191, align 8, !tbaa !556
   %.not329 = icmp eq i32 %192, 0
   br i1 %.not329, label %199, label %193
 
 193:                                              ; preds = %190
-  %194 = load i32, ptr %18, align 8, !tbaa !400
+  %194 = load i32, ptr %18, align 8, !tbaa !403
   %195 = and i32 %194, -5
   %or.cond35.not = icmp eq i32 %195, 0
   br i1 %or.cond35.not, label %199, label %196
 
 196:                                              ; preds = %193
-  %197 = load i32, ptr %11, align 8, !tbaa !182
+  %197 = load i32, ptr %11, align 8, !tbaa !183
   %198 = and i32 %197, -5
   %or.cond38 = icmp eq i32 %198, 0
   %.not330 = icmp eq i32 %.0286, 0
@@ -15237,7 +15237,7 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
 
 200:                                              ; preds = %196, %199
   %201 = call noundef i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr noundef nonnull %18, ptr noundef nonnull %11)
-  %202 = load i32, ptr %131, align 8, !tbaa !412
+  %202 = load i32, ptr %131, align 8, !tbaa !415
   %.not331 = icmp eq i32 %202, 0
   br i1 %.not331, label %.thread445, label %203
 
@@ -15246,17 +15246,17 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
   %205 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %208 = load i32, ptr %207, align 4, !tbaa !415
+  %208 = load i32, ptr %207, align 4, !tbaa !418
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %210 = load i32, ptr %209, align 8, !tbaa !414
+  %210 = load i32, ptr %209, align 8, !tbaa !417
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 276
-  %212 = load i32, ptr %211, align 4, !tbaa !413
+  %212 = load i32, ptr %211, align 4, !tbaa !416
   %213 = call noundef i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef nonnull %204, ptr noundef nonnull %205, ptr noundef nonnull %206, i32 noundef %208, i32 noundef %210, i32 noundef %212, ptr noundef nonnull %18, ptr noundef nonnull %37)
   %.not332 = icmp eq i32 %213, 0
   br i1 %.not332, label %.thread445, label %214
 
 214:                                              ; preds = %203
-  store i32 104, ptr %36, align 8, !tbaa !394
+  store i32 104, ptr %36, align 8, !tbaa !397
   br label %.thread449
 
 .thread445:                                       ; preds = %200, %203, %199, %196
@@ -15273,15 +15273,15 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %93, %114, %118, %12
 
 216:                                              ; preds = %.thread445, %select.unfold429
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 460
-  %218 = load i32, ptr %217, align 4, !tbaa !236
+  %218 = load i32, ptr %217, align 4, !tbaa !237
   %.not333 = icmp eq i32 %218, 0
   br i1 %.not333, label %264, label %219
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 472
-  %221 = load ptr, ptr %220, align 8, !tbaa !237
+  %221 = load ptr, ptr %220, align 8, !tbaa !238
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  %223 = load i32, ptr %222, align 8, !tbaa !238
+  %223 = load i32, ptr %222, align 8, !tbaa !239
   %224 = icmp ult i32 %223, 20
   br i1 %224, label %_ZL15isRGBICCProfilePKhj.exit421, label %225
 
@@ -15339,11 +15339,11 @@ _ZL15isRGBICCProfilePKhj.exit421:                 ; preds = %225, %236, %232, %2
   br i1 %or.cond40.not, label %255, label %256
 
 255:                                              ; preds = %_ZL15isRGBICCProfilePKhj.exit421
-  store i32 100, ptr %36, align 8, !tbaa !394
+  store i32 100, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 256:                                              ; preds = %_ZL15isRGBICCProfilePKhj.exit421
-  %257 = load i32, ptr %18, align 8, !tbaa !400
+  %257 = load i32, ptr %18, align 8, !tbaa !403
   %258 = and i32 %257, -5
   %259 = icmp eq i32 %258, 0
   %260 = zext i1 %259 to i32
@@ -15351,10 +15351,10 @@ _ZL15isRGBICCProfilePKhj.exit421:                 ; preds = %225, %236, %232, %2
   br i1 %.not334, label %264, label %261
 
 261:                                              ; preds = %256
-  %262 = load i32, ptr %82, align 8, !tbaa !555
+  %262 = load i32, ptr %82, align 8, !tbaa !558
   %.not335 = icmp eq i32 %262, 0
   %263 = select i1 %.not335, i32 101, i32 102
-  store i32 %263, ptr %36, align 8, !tbaa !394
+  store i32 %263, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 264:                                              ; preds = %256, %216
@@ -15366,8 +15366,8 @@ _ZL15isRGBICCProfilePKhj.exit421:                 ; preds = %225, %236, %232, %2
   %267 = zext i32 %3 to i64
   %268 = zext i32 %4 to i64
   %269 = mul nuw i64 %268, %267
-  %270 = load i32, ptr %18, align 8, !tbaa !182
-  %271 = load i32, ptr %20, align 4, !tbaa !185
+  %270 = load i32, ptr %18, align 8, !tbaa !183
+  %271 = load i32, ptr %20, align 4, !tbaa !186
   %272 = icmp ult i32 %270, 7
   br i1 %272, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
 
@@ -15391,17 +15391,17 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   br i1 %or.cond42, label %.thread459, label %282
 
 .thread459:                                       ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
-  store i32 83, ptr %36, align 8, !tbaa !394
+  store i32 83, ptr %36, align 8, !tbaa !397
   br label %.thread462.thread
 
 282:                                              ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
-  %.pr = load i32, ptr %36, align 8, !tbaa !394
+  %.pr = load i32, ptr %36, align 8, !tbaa !397
   %.not337 = icmp eq i32 %.pr, 0
   br i1 %.not337, label %283, label %.thread462.thread
 
 283:                                              ; preds = %282
   %284 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %279, ptr noundef %2, ptr noundef nonnull %18, ptr noundef nonnull %69, i32 noundef %3, i32 noundef %4)
-  store i32 %284, ptr %36, align 8, !tbaa !394
+  store i32 %284, ptr %36, align 8, !tbaa !397
   %.not338 = icmp eq i32 %284, 0
   br i1 %.not338, label %.thread462, label %.thread465
 
@@ -15415,29 +15415,29 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
 
 .thread462:                                       ; preds = %283
   %285 = call fastcc noundef i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef %7, ptr noundef %8, ptr noundef %279, i32 noundef %3, i32 noundef %4, ptr noundef %10, ptr noundef nonnull %49)
-  store i32 %285, ptr %36, align 8, !tbaa !394
+  store i32 %285, ptr %36, align 8, !tbaa !397
   %286 = icmp eq i32 %285, 0
   tail call void @free(ptr noundef %279) #31
   br i1 %286, label %289, label %.thread456
 
 287:                                              ; preds = %264
   %288 = call fastcc noundef i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef %7, ptr noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %10, ptr noundef nonnull %49)
-  store i32 %288, ptr %36, align 8, !tbaa !394
+  store i32 %288, ptr %36, align 8, !tbaa !397
   %.not340 = icmp eq i32 %288, 0
   br i1 %.not340, label %289, label %.thread456
 
 289:                                              ; preds = %.thread462, %287
   %290 = call fastcc noundef i32 @_ZL14writeSignatureP8ucvector(ptr noundef %9)
-  store i32 %290, ptr %36, align 8, !tbaa !394
+  store i32 %290, ptr %36, align 8, !tbaa !397
   %.not341 = icmp eq i32 %290, 0
   br i1 %.not341, label %291, label %.thread456
 
 291:                                              ; preds = %289
-  %292 = load i32, ptr %18, align 8, !tbaa !400
-  %293 = load i32, ptr %20, align 4, !tbaa !399
-  %294 = load i32, ptr %22, align 8, !tbaa !255
+  %292 = load i32, ptr %18, align 8, !tbaa !403
+  %293 = load i32, ptr %20, align 4, !tbaa !402
+  %294 = load i32, ptr %22, align 8, !tbaa !256
   %295 = call fastcc noundef i32 @_ZL13addChunk_IHDRP8ucvectorjj16LodePNGColorTypejj(ptr noundef %9, i32 noundef %3, i32 noundef %4, i32 noundef %292, i32 noundef %293, i32 noundef %294)
-  store i32 %295, ptr %36, align 8, !tbaa !394
+  store i32 %295, ptr %36, align 8, !tbaa !397
   %.not342 = icmp eq i32 %295, 0
   br i1 %.not342, label %296, label %.thread456
 
@@ -15450,172 +15450,172 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   %299 = getelementptr inbounds nuw i8, ptr %10, i64 400
   %300 = load i64, ptr %299, align 8, !tbaa !3
   %301 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef %9, ptr noundef %297, i64 noundef %300)
-  store i32 %301, ptr %36, align 8, !tbaa !394
+  store i32 %301, ptr %36, align 8, !tbaa !397
   %.not344 = icmp eq i32 %301, 0
   br i1 %.not344, label %302, label %.thread456
 
 302:                                              ; preds = %298, %296
-  %303 = load i32, ptr %30, align 4, !tbaa !405
+  %303 = load i32, ptr %30, align 4, !tbaa !408
   %.not345 = icmp eq i32 %303, 0
   br i1 %.not345, label %306, label %304
 
 304:                                              ; preds = %302
   %305 = call fastcc noundef i32 @_ZL13addChunk_cICPP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %305, ptr %36, align 8, !tbaa !394
+  store i32 %305, ptr %36, align 8, !tbaa !397
   %.not346 = icmp eq i32 %305, 0
   br i1 %.not346, label %306, label %.thread456
 
 306:                                              ; preds = %304, %302
   %307 = getelementptr inbounds nuw i8, ptr %10, i64 296
-  %308 = load i32, ptr %307, align 8, !tbaa !473
+  %308 = load i32, ptr %307, align 8, !tbaa !476
   %.not347 = icmp eq i32 %308, 0
   br i1 %.not347, label %311, label %309
 
 309:                                              ; preds = %306
   %310 = call fastcc noundef i32 @_ZL13addChunk_mDCvP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %310, ptr %36, align 8, !tbaa !394
+  store i32 %310, ptr %36, align 8, !tbaa !397
   %.not348 = icmp eq i32 %310, 0
   br i1 %.not348, label %311, label %.thread456
 
 311:                                              ; preds = %309, %306
   %312 = getelementptr inbounds nuw i8, ptr %10, i64 340
-  %313 = load i32, ptr %312, align 4, !tbaa !484
+  %313 = load i32, ptr %312, align 4, !tbaa !487
   %.not349 = icmp eq i32 %313, 0
   br i1 %.not349, label %316, label %314
 
 314:                                              ; preds = %311
   %315 = call fastcc noundef i32 @_ZL13addChunk_cLLiP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %315, ptr %36, align 8, !tbaa !394
+  store i32 %315, ptr %36, align 8, !tbaa !397
   %.not350 = icmp eq i32 %315, 0
   br i1 %.not350, label %316, label %.thread456
 
 316:                                              ; preds = %314, %311
-  %317 = load i32, ptr %29, align 4, !tbaa !236
+  %317 = load i32, ptr %29, align 4, !tbaa !237
   %.not351 = icmp eq i32 %317, 0
   br i1 %.not351, label %320, label %318
 
 318:                                              ; preds = %316
   %319 = call fastcc noundef i32 @_ZL13addChunk_iCCPP8ucvectorPK11LodePNGInfoP23LodePNGCompressSettings(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %49)
-  store i32 %319, ptr %36, align 8, !tbaa !394
+  store i32 %319, ptr %36, align 8, !tbaa !397
   %.not352 = icmp eq i32 %319, 0
   br i1 %.not352, label %320, label %.thread456
 
 320:                                              ; preds = %318, %316
-  %321 = load i32, ptr %28, align 4, !tbaa !261
+  %321 = load i32, ptr %28, align 4, !tbaa !262
   %.not353 = icmp eq i32 %321, 0
   br i1 %.not353, label %325, label %322
 
 322:                                              ; preds = %320
   %323 = getelementptr inbounds nuw i8, ptr %10, i64 248
-  %.val = load i32, ptr %323, align 8, !tbaa !404
+  %.val = load i32, ptr %323, align 8, !tbaa !407
   %324 = call fastcc noundef i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr noundef %9, i32 %.val)
-  store i32 %324, ptr %36, align 8, !tbaa !394
+  store i32 %324, ptr %36, align 8, !tbaa !397
   %.not354 = icmp eq i32 %324, 0
   br i1 %.not354, label %325, label %.thread456
 
 325:                                              ; preds = %322, %320
-  %326 = load i32, ptr %26, align 8, !tbaa !259
+  %326 = load i32, ptr %26, align 8, !tbaa !260
   %.not355 = icmp eq i32 %326, 0
   br i1 %.not355, label %329, label %327
 
 327:                                              ; preds = %325
   %328 = call fastcc noundef i32 @_ZL13addChunk_gAMAP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %328, ptr %36, align 8, !tbaa !394
+  store i32 %328, ptr %36, align 8, !tbaa !397
   %.not356 = icmp eq i32 %328, 0
   br i1 %.not356, label %329, label %.thread456
 
 329:                                              ; preds = %327, %325
-  %330 = load i32, ptr %27, align 8, !tbaa !260
+  %330 = load i32, ptr %27, align 8, !tbaa !261
   %.not357 = icmp eq i32 %330, 0
   br i1 %.not357, label %333, label %331
 
 331:                                              ; preds = %329
   %332 = call fastcc noundef i32 @_ZL13addChunk_cHRMP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %332, ptr %36, align 8, !tbaa !394
+  store i32 %332, ptr %36, align 8, !tbaa !397
   %.not358 = icmp eq i32 %332, 0
   br i1 %.not358, label %333, label %.thread456
 
 333:                                              ; preds = %331, %329
   %334 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  %335 = load i32, ptr %334, align 8, !tbaa !491
+  %335 = load i32, ptr %334, align 8, !tbaa !494
   %.not359 = icmp eq i32 %335, 0
   br i1 %.not359, label %338, label %336
 
 336:                                              ; preds = %333
   %337 = call fastcc noundef i32 @_ZL13addChunk_sBITP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %337, ptr %36, align 8, !tbaa !394
+  store i32 %337, ptr %36, align 8, !tbaa !397
   %.not360 = icmp eq i32 %337, 0
   br i1 %.not360, label %338, label %.thread456
 
 338:                                              ; preds = %336, %333
   %339 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %340 = load i32, ptr %339, align 8, !tbaa !248
+  %340 = load i32, ptr %339, align 8, !tbaa !249
   %.not361 = icmp eq i32 %340, 0
   br i1 %.not361, label %344, label %341
 
 341:                                              ; preds = %338
-  %.val406 = load ptr, ptr %31, align 8, !tbaa !249
+  %.val406 = load ptr, ptr %31, align 8, !tbaa !250
   %342 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  %.val407 = load i32, ptr %342, align 8, !tbaa !250
+  %.val407 = load i32, ptr %342, align 8, !tbaa !251
   %343 = call fastcc noundef i32 @_ZL13addChunk_eXIfP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr %.val406, i32 %.val407)
-  store i32 %343, ptr %36, align 8, !tbaa !394
+  store i32 %343, ptr %36, align 8, !tbaa !397
   %.not362 = icmp eq i32 %343, 0
   br i1 %.not362, label %344, label %.thread456
 
 344:                                              ; preds = %341, %338
-  %345 = load i32, ptr %18, align 8, !tbaa !400
+  %345 = load i32, ptr %18, align 8, !tbaa !403
   %346 = icmp eq i32 %345, 3
   br i1 %346, label %347, label %349
 
 347:                                              ; preds = %344
   %348 = call fastcc noundef i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr noundef %9, ptr noundef %18)
-  store i32 %348, ptr %36, align 8, !tbaa !394
+  store i32 %348, ptr %36, align 8, !tbaa !397
   %.not363 = icmp eq i32 %348, 0
   br i1 %.not363, label %349, label %.thread456
 
 349:                                              ; preds = %347, %344
   %350 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %351 = load i32, ptr %350, align 8, !tbaa !553
+  %351 = load i32, ptr %350, align 8, !tbaa !556
   %.not364 = icmp eq i32 %351, 0
   br i1 %.not364, label %357, label %352
 
 352:                                              ; preds = %349
-  %353 = load i32, ptr %18, align 8, !tbaa !400
+  %353 = load i32, ptr %18, align 8, !tbaa !403
   %354 = and i32 %353, -5
   %or.cond46 = icmp eq i32 %354, 2
   br i1 %or.cond46, label %355, label %357
 
 355:                                              ; preds = %352
   %356 = call fastcc noundef i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr noundef %9, ptr noundef %18)
-  store i32 %356, ptr %36, align 8, !tbaa !394
+  store i32 %356, ptr %36, align 8, !tbaa !397
   %.not365 = icmp eq i32 %356, 0
   br i1 %.not365, label %357, label %.thread456
 
 357:                                              ; preds = %355, %352, %349
   %358 = call fastcc noundef i32 @_ZL13addChunk_tRNSP8ucvectorPK16LodePNGColorMode(ptr noundef %9, ptr noundef %18)
-  store i32 %358, ptr %36, align 8, !tbaa !394
+  store i32 %358, ptr %36, align 8, !tbaa !397
   %.not366 = icmp eq i32 %358, 0
   br i1 %.not366, label %359, label %.thread456
 
 359:                                              ; preds = %357
-  %360 = load i32, ptr %24, align 8, !tbaa !412
+  %360 = load i32, ptr %24, align 8, !tbaa !415
   %.not367 = icmp eq i32 %360, 0
   br i1 %.not367, label %363, label %361
 
 361:                                              ; preds = %359
   %362 = call fastcc noundef i32 @_ZL13addChunk_bKGDP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %362, ptr %36, align 8, !tbaa !394
+  store i32 %362, ptr %36, align 8, !tbaa !397
   %.not368 = icmp eq i32 %362, 0
   br i1 %.not368, label %363, label %.thread456
 
 363:                                              ; preds = %361, %359
-  %364 = load i32, ptr %25, align 8, !tbaa !258
+  %364 = load i32, ptr %25, align 8, !tbaa !259
   %.not369 = icmp eq i32 %364, 0
   br i1 %.not369, label %367, label %365
 
 365:                                              ; preds = %363
   %366 = call fastcc noundef i32 @_ZL13addChunk_pHYsP8ucvectorPK11LodePNGInfo(ptr noundef %9, ptr noundef %10)
-  store i32 %366, ptr %36, align 8, !tbaa !394
+  store i32 %366, ptr %36, align 8, !tbaa !397
   %.not370 = icmp eq i32 %366, 0
   br i1 %.not370, label %367, label %.thread456
 
@@ -15629,7 +15629,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   %371 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %372 = load i64, ptr %371, align 8, !tbaa !3
   %373 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef %9, ptr noundef %369, i64 noundef %372)
-  store i32 %373, ptr %36, align 8, !tbaa !394
+  store i32 %373, ptr %36, align 8, !tbaa !397
   %.not372 = icmp eq i32 %373, 0
   br i1 %.not372, label %374, label %.thread456
 
@@ -15637,26 +15637,26 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   %375 = load ptr, ptr %7, align 8, !tbaa !7
   %376 = load i64, ptr %8, align 8, !tbaa !3
   %377 = call fastcc noundef i32 @_ZL13addChunk_IDATP8ucvectorPKhmP23LodePNGCompressSettings(ptr noundef %9, ptr noundef %375, i64 noundef %376, ptr noundef nonnull %49)
-  store i32 %377, ptr %36, align 8, !tbaa !394
+  store i32 %377, ptr %36, align 8, !tbaa !397
   %.not373 = icmp eq i32 %377, 0
   br i1 %.not373, label %378, label %.thread456
 
 378:                                              ; preds = %374
   %379 = getelementptr inbounds nuw i8, ptr %10, i64 156
-  %380 = load i32, ptr %379, align 4, !tbaa !449
+  %380 = load i32, ptr %379, align 4, !tbaa !452
   %.not374 = icmp eq i32 %380, 0
   br i1 %.not374, label %384, label %381
 
 381:                                              ; preds = %378
   %382 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %383 = call fastcc noundef i32 @_ZL13addChunk_tIMEP8ucvectorPK11LodePNGTime(ptr noundef %9, ptr noundef %382)
-  store i32 %383, ptr %36, align 8, !tbaa !394
+  store i32 %383, ptr %36, align 8, !tbaa !397
   %.not375 = icmp eq i32 %383, 0
   br i1 %.not375, label %384, label %.thread456
 
 384:                                              ; preds = %381, %378
   %385 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %386 = load i64, ptr %385, align 8, !tbaa !203
+  %386 = load i64, ptr %385, align 8, !tbaa !204
   %.not376487 = icmp eq i64 %386, 0
   br i1 %.not376487, label %._crit_edge.thread, label %.lr.ph
 
@@ -15668,7 +15668,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
 
 390:                                              ; preds = %.lr.ph, %408
   %.0283488 = phi i64 [ 0, %.lr.ph ], [ %409, %408 ]
-  %391 = load ptr, ptr %387, align 8, !tbaa !199
+  %391 = load ptr, ptr %387, align 8, !tbaa !200
   %392 = getelementptr inbounds nuw ptr, ptr %391, i64 %.0283488
   %393 = load ptr, ptr %392, align 8, !tbaa !7
   %strlen.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %393)
@@ -15676,7 +15676,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   br i1 %394, label %395, label %396
 
 395:                                              ; preds = %390
-  store i32 66, ptr %36, align 8, !tbaa !394
+  store i32 66, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 396:                                              ; preds = %390
@@ -15684,44 +15684,44 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   br i1 %397, label %398, label %399
 
 398:                                              ; preds = %396
-  store i32 67, ptr %36, align 8, !tbaa !394
+  store i32 67, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 399:                                              ; preds = %396
-  %400 = load i32, ptr %388, align 8, !tbaa !559
+  %400 = load i32, ptr %388, align 8, !tbaa !562
   %.not385 = icmp eq i32 %400, 0
-  %401 = load ptr, ptr %389, align 8, !tbaa !204
+  %401 = load ptr, ptr %389, align 8, !tbaa !205
   %402 = getelementptr inbounds nuw ptr, ptr %401, i64 %.0283488
   %403 = load ptr, ptr %402, align 8, !tbaa !7
   br i1 %.not385, label %406, label %404
 
 404:                                              ; preds = %399
   %405 = call fastcc noundef i32 @_ZL13addChunk_zTXtP8ucvectorPKcS2_P23LodePNGCompressSettings(ptr noundef %9, ptr noundef nonnull %393, ptr noundef %403, ptr noundef nonnull %49)
-  store i32 %405, ptr %36, align 8, !tbaa !394
+  store i32 %405, ptr %36, align 8, !tbaa !397
   %.not387 = icmp eq i32 %405, 0
   br i1 %.not387, label %408, label %.thread456
 
 406:                                              ; preds = %399
   %407 = call fastcc noundef i32 @_ZL13addChunk_tEXtP8ucvectorPKcS2_(ptr noundef %9, ptr noundef nonnull %393, ptr noundef %403)
-  store i32 %407, ptr %36, align 8, !tbaa !394
+  store i32 %407, ptr %36, align 8, !tbaa !397
   %.not386 = icmp eq i32 %407, 0
   br i1 %.not386, label %408, label %.thread456
 
 408:                                              ; preds = %404, %406
   %409 = add i64 %.0283488, 1
-  %410 = load i64, ptr %385, align 8, !tbaa !203
+  %410 = load i64, ptr %385, align 8, !tbaa !204
   %.not376 = icmp eq i64 %409, %410
-  br i1 %.not376, label %._crit_edge, label %390, !llvm.loop !560
+  br i1 %.not376, label %._crit_edge, label %390, !llvm.loop !563
 
 ._crit_edge:                                      ; preds = %408
   %411 = getelementptr inbounds nuw i8, ptr %5, i64 156
-  %412 = load i32, ptr %411, align 4, !tbaa !561
+  %412 = load i32, ptr %411, align 4, !tbaa !564
   %.not377 = icmp eq i32 %412, 0
   br i1 %.not377, label %.critedge, label %.preheader
 
 ._crit_edge.thread:                               ; preds = %384
   %413 = getelementptr inbounds nuw i8, ptr %5, i64 156
-  %414 = load i32, ptr %413, align 4, !tbaa !561
+  %414 = load i32, ptr %413, align 4, !tbaa !564
   %.not377503 = icmp eq i32 %414, 0
   br i1 %.not377503, label %.critedge, label %._crit_edge492
 
@@ -15731,7 +15731,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
 
 .lr.ph491:                                        ; preds = %.preheader
   %415 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %416 = load ptr, ptr %415, align 8, !tbaa !199
+  %416 = load ptr, ptr %415, align 8, !tbaa !200
   br label %417
 
 417:                                              ; preds = %.lr.ph491, %450
@@ -15787,18 +15787,18 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
 450:                                              ; preds = %417, %422, %426, %430, %434, %438, %442, %446
   %451 = add nuw i64 %.1284490, 1
   %.not378 = icmp eq i64 %.1284490, %.0283488
-  br i1 %.not378, label %._crit_edge492, label %417, !llvm.loop !562
+  br i1 %.not378, label %._crit_edge492, label %417, !llvm.loop !565
 
 ._crit_edge492:                                   ; preds = %450, %._crit_edge.thread, %.preheader
   %452 = load ptr, ptr @LODEPNG_VERSION_STRING, align 8, !tbaa !7
   %453 = call fastcc noundef i32 @_ZL13addChunk_tEXtP8ucvectorPKcS2_(ptr noundef %9, ptr noundef nonnull @.str.21, ptr noundef %452)
-  store i32 %453, ptr %36, align 8, !tbaa !394
+  store i32 %453, ptr %36, align 8, !tbaa !397
   %.not379 = icmp eq i32 %453, 0
   br i1 %.not379, label %.critedge, label %.thread456
 
 .critedge:                                        ; preds = %446, %._crit_edge.thread, %._crit_edge492, %._crit_edge
   %454 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %455 = load i64, ptr %454, align 8, !tbaa !214
+  %455 = load i64, ptr %454, align 8, !tbaa !215
   %.not380493 = icmp eq i64 %455, 0
   br i1 %.not380493, label %._crit_edge496, label %.lr.ph495
 
@@ -15812,13 +15812,13 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
 
 461:                                              ; preds = %473
   %462 = add i64 %.2285494, 1
-  %463 = load i64, ptr %454, align 8, !tbaa !214
+  %463 = load i64, ptr %454, align 8, !tbaa !215
   %.not380 = icmp eq i64 %462, %463
-  br i1 %.not380, label %._crit_edge496, label %464, !llvm.loop !563
+  br i1 %.not380, label %._crit_edge496, label %464, !llvm.loop !566
 
 464:                                              ; preds = %.lr.ph495, %461
   %.2285494 = phi i64 [ 0, %.lr.ph495 ], [ %462, %461 ]
-  %465 = load ptr, ptr %456, align 8, !tbaa !215
+  %465 = load ptr, ptr %456, align 8, !tbaa !216
   %466 = getelementptr inbounds nuw ptr, ptr %465, i64 %.2285494
   %467 = load ptr, ptr %466, align 8, !tbaa !7
   %strlen.i423 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %467)
@@ -15826,7 +15826,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   br i1 %468, label %469, label %470
 
 469:                                              ; preds = %464
-  store i32 66, ptr %36, align 8, !tbaa !394
+  store i32 66, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 470:                                              ; preds = %464
@@ -15834,22 +15834,22 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   br i1 %471, label %472, label %473
 
 472:                                              ; preds = %470
-  store i32 67, ptr %36, align 8, !tbaa !394
+  store i32 67, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 473:                                              ; preds = %470
-  %474 = load i32, ptr %457, align 8, !tbaa !559
-  %475 = load ptr, ptr %458, align 8, !tbaa !216
+  %474 = load i32, ptr %457, align 8, !tbaa !562
+  %475 = load ptr, ptr %458, align 8, !tbaa !217
   %476 = getelementptr inbounds nuw ptr, ptr %475, i64 %.2285494
   %477 = load ptr, ptr %476, align 8, !tbaa !7
-  %478 = load ptr, ptr %459, align 8, !tbaa !217
+  %478 = load ptr, ptr %459, align 8, !tbaa !218
   %479 = getelementptr inbounds nuw ptr, ptr %478, i64 %.2285494
   %480 = load ptr, ptr %479, align 8, !tbaa !7
-  %481 = load ptr, ptr %460, align 8, !tbaa !218
+  %481 = load ptr, ptr %460, align 8, !tbaa !219
   %482 = getelementptr inbounds nuw ptr, ptr %481, i64 %.2285494
   %483 = load ptr, ptr %482, align 8, !tbaa !7
   %484 = call fastcc noundef i32 @_ZL13addChunk_iTXtP8ucvectorjPKcS2_S2_S2_P23LodePNGCompressSettings(ptr noundef %9, i32 noundef %474, ptr noundef nonnull %467, ptr noundef %477, ptr noundef %480, ptr noundef %483, ptr noundef nonnull %49)
-  store i32 %484, ptr %36, align 8, !tbaa !394
+  store i32 %484, ptr %36, align 8, !tbaa !397
   %.not384 = icmp eq i32 %484, 0
   br i1 %.not384, label %461, label %.thread456
 
@@ -15863,20 +15863,20 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %266, %switch.lookup
   %488 = getelementptr inbounds nuw i8, ptr %10, i64 416
   %489 = load i64, ptr %488, align 8, !tbaa !3
   %490 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef %9, ptr noundef %486, i64 noundef %489)
-  store i32 %490, ptr %36, align 8, !tbaa !394
+  store i32 %490, ptr %36, align 8, !tbaa !397
   %.not382 = icmp eq i32 %490, 0
   br i1 %.not382, label %491, label %.thread456
 
 491:                                              ; preds = %487, %._crit_edge496
   %492 = call fastcc noundef i32 @_ZL13addChunk_IENDP8ucvector(ptr noundef %9)
-  store i32 %492, ptr %36, align 8, !tbaa !394
+  store i32 %492, ptr %36, align 8, !tbaa !397
   br label %.thread456
 
 .thread456:                                       ; preds = %404, %406, %473, %.thread462.thread, %215, %255, %261, %.thread465, %.thread449, %_ZL18checkColorValidity16LodePNGColorTypej.exit415.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread, %._crit_edge492, %395, %398, %469, %472, %289, %291, %298, %304, %309, %314, %318, %322, %327, %331, %336, %341, %347, %355, %357, %361, %365, %370, %374, %381, %487, %491, %.thread462, %287, %57, %52, %47
   call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %10)
   %493 = load ptr, ptr %7, align 8, !tbaa !7
   tail call void @free(ptr noundef %493) #31
-  %494 = load ptr, ptr %35, align 8, !tbaa !186
+  %494 = load ptr, ptr %35, align 8, !tbaa !187
   %.not.i.i = icmp eq ptr %494, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %495
 
@@ -15890,7 +15890,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %.thread456, %
   store ptr %497, ptr %0, align 8, !tbaa !7
   %498 = load i64, ptr %496, align 8, !tbaa !58
   store i64 %498, ptr %1, align 8, !tbaa !3
-  %499 = load i32, ptr %36, align 8, !tbaa !394
+  %499 = load i32, ptr %36, align 8, !tbaa !397
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #31
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %10) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #31
@@ -15935,8 +15935,8 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
   store i8 -1, ptr %23, align 1, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 -1, ptr %24, align 1, !tbaa !18
-  store i32 16, ptr %7, align 4, !tbaa !185
-  store i32 6, ptr %5, align 8, !tbaa !182
+  store i32 16, ptr %7, align 4, !tbaa !186
+  store i32 6, ptr %5, align 8, !tbaa !183
   %25 = call noundef i32 @_Z27lodepng_compute_color_statsP17LodePNGColorStatsPKhjjPK16LodePNGColorMode(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
@@ -15946,31 +15946,31 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16LodePNGColorModePKS_PK17LodePNGColorStats(ptr noundef nonnull captures(none) initializes((24, 28)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1056
-  %5 = load i64, ptr %4, align 8, !tbaa !371
+  %5 = load i64, ptr %4, align 8, !tbaa !374
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !367
+  %7 = load i32, ptr %6, align 8, !tbaa !370
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !386
+  %9 = load i32, ptr %8, align 4, !tbaa !389
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1048
-  %11 = load i32, ptr %10, align 8, !tbaa !370
+  %11 = load i32, ptr %10, align 8, !tbaa !373
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %12, align 8, !tbaa !198
+  store i32 0, ptr %12, align 8, !tbaa !199
   %13 = icmp eq i32 %9, 0
   %14 = icmp ugt i64 %5, 16
   %or.cond.not = select i1 %13, i1 true, i1 %14
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %11, i32 8)
   %.082 = select i1 %or.cond.not, i32 %11, i32 %spec.store.select
-  %15 = load i32, ptr %2, align 8, !tbaa !377
+  %15 = load i32, ptr %2, align 8, !tbaa !380
   %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1068
-  %17 = load i32, ptr %16, align 4, !tbaa !373
+  %17 = load i32, ptr %16, align 4, !tbaa !376
   %.not91 = icmp ne i32 %17, 0
   %narrow = select i1 %.not91, i1 %.not, i1 false
   %18 = icmp ugt i32 %.082, 7
   %or.cond4.not = select i1 %narrow, i1 true, i1 %18
   %spec.store.select10 = select i1 %or.cond4.not, i32 %.082, i32 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !369
+  %20 = load i32, ptr %19, align 4, !tbaa !372
   %21 = zext i32 %20 to i64
   %22 = icmp ult i32 %20, 3
   %23 = icmp ult i32 %20, 5
@@ -15989,7 +15989,7 @@ define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16L
   %.not94 = icmp ule i32 %spec.store.select10, %27
   %or.cond101.not.not = select i1 %or.cond9.not, i1 %.not94, i1 false
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1064
-  %36 = load i32, ptr %35, align 8, !tbaa !372
+  %36 = load i32, ptr %35, align 8, !tbaa !375
   %.not95 = icmp eq i32 %36, 0
   %.not122 = select i1 %.not95, i1 true, i1 %or.cond101.not.not
   %.not121 = select i1 %.not122, i1 true, i1 %32
@@ -16000,7 +16000,7 @@ define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16L
 37:                                               ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !186
+  %40 = load ptr, ptr %39, align 8, !tbaa !187
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %41
 
@@ -16010,7 +16010,7 @@ define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16L
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %37, %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %42 = load i32, ptr %19, align 4, !tbaa !369
+  %42 = load i32, ptr %19, align 4, !tbaa !372
   %.not98124 = icmp eq i32 %42, 0
   br i1 %.not98124, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %.lr.ph
 
@@ -16030,45 +16030,45 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %37, %41
   %52 = load i8, ptr %51, align 1, !tbaa !18
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 3
   %54 = load i8, ptr %53, align 1, !tbaa !18
-  %55 = load ptr, ptr %39, align 8, !tbaa !186
+  %55 = load ptr, ptr %39, align 8, !tbaa !187
   %.not.i102 = icmp eq ptr %55, null
   br i1 %.not.i102, label %56, label %72
 
 56:                                               ; preds = %44
   %57 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %57, ptr %39, align 8, !tbaa !186
+  store ptr %57, ptr %39, align 8, !tbaa !187
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %56, %.critedge.i.i
   %.014.i.i = phi i64 [ %71, %.critedge.i.i ], [ 0, %56 ]
-  %59 = load ptr, ptr %39, align 8, !tbaa !186
+  %59 = load ptr, ptr %39, align 8, !tbaa !187
   %60 = shl i64 %.014.i.i, 2
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
   store i8 0, ptr %61, align 1, !tbaa !18
-  %62 = load ptr, ptr %39, align 8, !tbaa !186
+  %62 = load ptr, ptr %39, align 8, !tbaa !187
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 0, ptr %64, align 1, !tbaa !18
-  %65 = load ptr, ptr %39, align 8, !tbaa !186
+  %65 = load ptr, ptr %39, align 8, !tbaa !187
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %60
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   store i8 0, ptr %67, align 1, !tbaa !18
-  %68 = load ptr, ptr %39, align 8, !tbaa !186
+  %68 = load ptr, ptr %39, align 8, !tbaa !187
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %60
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 3
   store i8 -1, ptr %70, align 1, !tbaa !18
   %71 = add nuw nsw i64 %.014.i.i, 1
   %.not13.i.i = icmp eq i64 %71, 256
-  br i1 %.not13.i.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i, label %.critedge.i.i, !llvm.loop !196
+  br i1 %.not13.i.i, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i, label %.critedge.i.i, !llvm.loop !197
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i: ; preds = %.critedge.i.i
-  %.pr.i = load ptr, ptr %39, align 8, !tbaa !186
+  %.pr.i = load ptr, ptr %39, align 8, !tbaa !187
   %.not18.i = icmp eq ptr %.pr.i, null
   br i1 %.not18.i, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i._crit_edge
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i._crit_edge: ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i
-  %.pre = load i64, ptr %43, align 8, !tbaa !191
+  %.pre = load i64, ptr %43, align 8, !tbaa !192
   br label %72
 
 72:                                               ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i._crit_edge, %44
@@ -16081,58 +16081,58 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i._crit_edge: ; pr
   %77 = shl nuw nsw i64 %73, 2
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 %77
   store i8 %48, ptr %78, align 1, !tbaa !18
-  %79 = load ptr, ptr %39, align 8, !tbaa !186
-  %80 = load i64, ptr %43, align 8, !tbaa !191
+  %79 = load ptr, ptr %39, align 8, !tbaa !187
+  %80 = load i64, ptr %43, align 8, !tbaa !192
   %81 = shl i64 %80, 2
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store i8 %50, ptr %83, align 1, !tbaa !18
-  %84 = load ptr, ptr %39, align 8, !tbaa !186
-  %85 = load i64, ptr %43, align 8, !tbaa !191
+  %84 = load ptr, ptr %39, align 8, !tbaa !187
+  %85 = load i64, ptr %43, align 8, !tbaa !192
   %86 = shl i64 %85, 2
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i8 %52, ptr %88, align 1, !tbaa !18
-  %89 = load ptr, ptr %39, align 8, !tbaa !186
-  %90 = load i64, ptr %43, align 8, !tbaa !191
+  %89 = load ptr, ptr %39, align 8, !tbaa !187
+  %90 = load i64, ptr %43, align 8, !tbaa !192
   %91 = shl i64 %90, 2
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 3
   store i8 %54, ptr %93, align 1, !tbaa !18
-  %94 = load i64, ptr %43, align 8, !tbaa !191
+  %94 = load i64, ptr %43, align 8, !tbaa !192
   %95 = add i64 %94, 1
-  store i64 %95, ptr %43, align 8, !tbaa !191
+  store i64 %95, ptr %43, align 8, !tbaa !192
   %96 = add i64 %.081125, 1
-  %97 = load i32, ptr %19, align 4, !tbaa !369
+  %97 = load i32, ptr %19, align 4, !tbaa !372
   %98 = zext i32 %97 to i64
   %.not98 = icmp eq i64 %96, %98
-  br i1 %.not98, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %44, !llvm.loop !564
+  br i1 %.not98, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %44, !llvm.loop !567
 
 _Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread: ; preds = %76, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i, %72, %56, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
   %.1 = phi i32 [ 0, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit ], [ 83, %56 ], [ 108, %72 ], [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i ], [ 0, %76 ]
-  store i32 3, ptr %0, align 8, !tbaa !182
+  store i32 3, ptr %0, align 8, !tbaa !183
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %99, align 4, !tbaa !185
-  %100 = load i32, ptr %1, align 8, !tbaa !182
+  store i32 %27, ptr %99, align 4, !tbaa !186
+  %100 = load i32, ptr %1, align 8, !tbaa !183
   %101 = icmp eq i32 %100, 3
   br i1 %101, label %102, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
 102:                                              ; preds = %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %104 = load i64, ptr %103, align 8, !tbaa !191
+  %104 = load i64, ptr %103, align 8, !tbaa !192
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %106 = load i64, ptr %105, align 8, !tbaa !191
+  %106 = load i64, ptr %105, align 8, !tbaa !192
   %.not100 = icmp ult i64 %104, %106
   br i1 %.not100, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %107
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %109 = load i32, ptr %108, align 4, !tbaa !185
+  %109 = load i32, ptr %108, align 4, !tbaa !186
   %110 = icmp eq i32 %109, %27
   br i1 %110, label %111, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
 111:                                              ; preds = %107
-  %112 = load ptr, ptr %39, align 8, !tbaa !186
+  %112 = load ptr, ptr %39, align 8, !tbaa !187
   %.not.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %113
 
@@ -16142,36 +16142,36 @@ _Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread: ; preds = %76, %_ZL3
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %113, %111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 40, i1 false), !tbaa !18, !alias.scope !565
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 40, i1 false), !tbaa !18, !alias.scope !568
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !186
+  %115 = load ptr, ptr %114, align 8, !tbaa !187
   %.not.i103 = icmp eq ptr %115, null
   br i1 %.not.i103, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %116
 
 116:                                              ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
   %117 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
-  store ptr %117, ptr %39, align 8, !tbaa !186
+  store ptr %117, ptr %39, align 8, !tbaa !187
   %.not10.i = icmp eq ptr %117, null
   br i1 %.not10.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %118
 
 118:                                              ; preds = %116
-  %119 = load i64, ptr %103, align 8, !tbaa !191
+  %119 = load i64, ptr %103, align 8, !tbaa !192
   %120 = shl i64 %119, 2
   %.not.i.i104 = icmp eq i64 %120, 0
   br i1 %.not.i.i104, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %118
-  %121 = load ptr, ptr %114, align 8, !tbaa !186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr readonly align 1 %121, i64 %120, i1 false), !tbaa !18, !alias.scope !569
+  %121 = load ptr, ptr %114, align 8, !tbaa !187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr readonly align 1 %121, i64 %120, i1 false), !tbaa !18, !alias.scope !572
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
 122:                                              ; preds = %3
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %spec.store.select10, ptr %123, align 4, !tbaa !185
+  store i32 %spec.store.select10, ptr %123, align 4, !tbaa !186
   %124 = select i1 %narrow, i32 4, i32 6
   %125 = select i1 %narrow, i32 0, i32 2
   %126 = select i1 %34, i32 %125, i32 %124
-  store i32 %126, ptr %0, align 8, !tbaa !182
+  store i32 %126, ptr %0, align 8, !tbaa !183
   %.not97123 = icmp ne i32 %9, 0
   %.not97.not = select i1 %.not97123, i1 %14, i1 false
   br i1 %.not97.not, label %127, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
@@ -16180,24 +16180,24 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %113, %111
   %notmask = shl nsw i32 -1, %spec.store.select10
   %128 = xor i32 %notmask, -1
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %130 = load i16, ptr %129, align 8, !tbaa !383
+  %130 = load i16, ptr %129, align 8, !tbaa !386
   %131 = zext i16 %130 to i32
   %132 = and i32 %131, %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %132, ptr %133, align 4, !tbaa !283
+  store i32 %132, ptr %133, align 4, !tbaa !284
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %135 = load i16, ptr %134, align 2, !tbaa !384
+  %135 = load i16, ptr %134, align 2, !tbaa !387
   %136 = zext i16 %135 to i32
   %137 = and i32 %136, %128
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %137, ptr %138, align 8, !tbaa !284
+  store i32 %137, ptr %138, align 8, !tbaa !285
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %140 = load i16, ptr %139, align 4, !tbaa !385
+  %140 = load i16, ptr %139, align 4, !tbaa !388
   %141 = zext i16 %140 to i32
   %142 = and i32 %141, %128
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %142, ptr %143, align 4, !tbaa !285
-  store i32 1, ptr %12, align 8, !tbaa !198
+  store i32 %142, ptr %143, align 4, !tbaa !286
+  store i32 1, ptr %12, align 8, !tbaa !199
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %116, %.lr.ph.preheader.i.i, %118, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, %102, %107, %122, %127
@@ -16216,9 +16216,9 @@ define internal fastcc noundef range(i32 0, 89) i32 @_ZL19preProcessScanlinesPPh
   %14 = alloca [8 x i64], align 16
   %15 = alloca [8 x i64], align 16
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !182
+  %17 = load i32, ptr %16, align 8, !tbaa !183
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !185
+  %19 = load i32, ptr %18, align 4, !tbaa !186
   %20 = icmp ult i32 %17, 7
   br i1 %20, label %switch.lookup, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
 
@@ -16233,7 +16233,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
   %22 = mul i32 %.0.i.i.i, %19
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !255
+  %25 = load i32, ptr %24, align 8, !tbaa !256
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %46
 
@@ -16250,8 +16250,8 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
   store ptr %35, ptr %0, align 8, !tbaa !7
   %.not101 = icmp ne ptr %35, null
   %.not102 = icmp eq i64 %34, 0
-  %or.cond125 = or i1 %.not102, %.not101
-  br i1 %or.cond125, label %.thread, label %267
+  %or.cond127 = or i1 %.not102, %.not101
+  br i1 %or.cond127, label %.thread, label %269
 
 .thread:                                          ; preds = %27
   %36 = icmp ult i32 %22, 8
@@ -16275,11 +16275,11 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
 43:                                               ; preds = %41, %39
   %.2 = phi i32 [ 83, %39 ], [ %42, %41 ]
   tail call void @free(ptr noundef %40) #31
-  br label %267
+  br label %269
 
 44:                                               ; preds = %37, %.thread
   %45 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %35, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %17, i32 %19, ptr noundef %6)
-  br label %267
+  br label %269
 
 46:                                               ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #31
@@ -16323,7 +16323,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
 69:                                               ; preds = %68, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %.not.i, label %70, label %47, !llvm.loop !512
+  br i1 %.not.i, label %70, label %47, !llvm.loop !515
 
 70:                                               ; preds = %69
   store i64 0, ptr %15, align 16, !tbaa !3
@@ -16379,7 +16379,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
   %101 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next66.i
   store i64 %100, ptr %101, align 8, !tbaa !3
   %.not59.i = icmp eq i64 %indvars.iv.next66.i, 7
-  br i1 %.not59.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit, label %71, !llvm.loop !513
+  br i1 %.not59.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit, label %71, !llvm.loop !516
 
 _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %._crit_edge.i
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -16393,9 +16393,9 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %._crit_edge.i
   %107 = tail call noalias noundef ptr @malloc(i64 noundef %106) #30
   %108 = icmp ne ptr %107, null
   %109 = icmp eq i64 %106, 0
-  %or.cond.not129 = or i1 %109, %108
-  %.not126 = and i1 %.not, %or.cond.not129
-  br i1 %.not126, label %110, label %.loopexit
+  %or.cond.not131 = or i1 %109, %108
+  %.not128 = and i1 %.not, %or.cond.not131
+  br i1 %.not128, label %110, label %.loopexit
 
 110:                                              ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #31
@@ -16437,7 +16437,7 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %._crit_edge.i
 133:                                              ; preds = %132, %111
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %.not.i.i, label %134, label %111, !llvm.loop !512
+  br i1 %.not.i.i, label %134, label %111, !llvm.loop !515
 
 134:                                              ; preds = %133
   store i64 0, ptr %10, align 16, !tbaa !3
@@ -16460,285 +16460,276 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %._crit_edge.i
   %144 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.next66.i.i
   store i64 %143, ptr %144, align 8, !tbaa !3
   %.not59.i.i = icmp eq i64 %indvars.iv.next66.i.i, 7
-  br i1 %.not59.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i, label %._crit_edge.i.i, !llvm.loop !513
+  br i1 %.not59.i.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i, label %._crit_edge.i.i, !llvm.loop !516
 
 _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i:   ; preds = %._crit_edge.i.i
   %145 = icmp ugt i32 %22, 7
-  br i1 %145, label %.preheader82.split.us.preheader.i, label %.preheader84.i
+  br i1 %145, label %.preheader82.i, label %.preheader84.i
 
 .preheader84.i:                                   ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i
-  %.not118.i = icmp eq i32 %22, 0
-  br i1 %.not118.i, label %_ZL15Adam7_interlacePhPKhjjj.exit.thread, label %.preheader84.split.us.i
+  %.not110.i = icmp eq i32 %22, 0
+  br label %179
 
-_ZL15Adam7_interlacePhPKhjjj.exit.thread:         ; preds = %.preheader84.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #31
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #31
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #31
-  br label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader
+.preheader82.i:                                   ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i
+  %146 = lshr i32 %22, 3
+  %147 = zext nneg i32 %146 to i64
+  br label %148
 
-.preheader84.split.us.i:                          ; preds = %.preheader84.i, %._crit_edge.us.i
-  %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %._crit_edge.us.i ], [ 0, %.preheader84.i ]
-  %146 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv136.i
-  %147 = load i32, ptr %146, align 4, !tbaa !10
-  %148 = getelementptr inbounds nuw [7 x i32], ptr %9, i64 0, i64 %indvars.iv136.i
-  %149 = load i32, ptr %148, align 4, !tbaa !10
-  %.not121.i = icmp eq i32 %149, 0
-  %.not122.i = icmp eq i32 %147, 0
-  %or.cond.i = select i1 %.not121.i, i1 true, i1 %.not122.i
-  br i1 %or.cond.i, label %._crit_edge.us.i, label %.preheader83.lr.ph.split.us.us.i
+148:                                              ; preds = %._crit_edge104.i, %.preheader82.i
+  %indvars.iv140.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next141.i, %._crit_edge104.i ]
+  %149 = getelementptr inbounds nuw [7 x i32], ptr %9, i64 0, i64 %indvars.iv140.i
+  %150 = load i32, ptr %149, align 4, !tbaa !10
+  %.not114.i = icmp eq i32 %150, 0
+  br i1 %.not114.i, label %._crit_edge104.i, label %.preheader.lr.ph.i
 
-._crit_edge.us.i:                                 ; preds = %._crit_edge91.split.us.us.us.us.i, %.preheader84.split.us.i
-  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
-  %.not.us.i = icmp eq i64 %indvars.iv.next137.i, 7
-  br i1 %.not.us.i, label %_ZL15Adam7_interlacePhPKhjjj.exit, label %.preheader84.split.us.i, !llvm.loop !573
+.preheader.lr.ph.i:                               ; preds = %148
+  %151 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv140.i
+  %152 = load i32, ptr %151, align 4, !tbaa !10
+  %.not115.i = icmp eq i32 %152, 0
+  br i1 %.not115.i, label %._crit_edge104.i, label %.preheader.lr.ph.split.us.i
 
-.preheader83.lr.ph.split.us.us.i:                 ; preds = %.preheader84.split.us.i
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %indvars.iv136.i
-  %151 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv136.i
-  %152 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv136.i
-  %153 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv136.i
-  %154 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv136.i
-  %155 = load i32, ptr %154, align 4, !tbaa !10
-  %156 = load i32, ptr %153, align 4, !tbaa !10
-  %157 = load i32, ptr %152, align 4, !tbaa !10
-  %158 = load i32, ptr %151, align 4, !tbaa !10
-  %159 = load i64, ptr %150, align 8, !tbaa !3
-  %160 = shl i64 %159, 3
-  %wide.trip.count.i = zext i32 %147 to i64
-  br label %.preheader83.us.us.us.i
+.preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
+  %153 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %indvars.iv140.i
+  %154 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv140.i
+  %155 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv140.i
+  %156 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv140.i
+  %157 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv140.i
+  %158 = load i32, ptr %157, align 4, !tbaa !10
+  %159 = load i32, ptr %156, align 4, !tbaa !10
+  %160 = load i32, ptr %155, align 4, !tbaa !10
+  %161 = load i32, ptr %154, align 4, !tbaa !10
+  %162 = load i64, ptr %153, align 8, !tbaa !3
+  %wide.trip.count137.i = zext i32 %152 to i64
+  %scevgep = getelementptr i8, ptr %107, i64 %162
+  %163 = mul i32 %3, %158
+  %164 = add i32 %160, %163
+  %165 = zext i32 %164 to i64
+  %166 = mul i32 %3, %159
+  %167 = zext i32 %166 to i64
+  %168 = zext i32 %161 to i64
+  %wide.trip.count = zext i32 %150 to i64
+  br label %.lr.ph.us.us108.preheader.i
 
-.preheader83.us.us.us.i:                          ; preds = %._crit_edge91.split.us.us.us.us.i, %.preheader83.lr.ph.split.us.us.i
-  %.06892.us.us.us.i = phi i32 [ 0, %.preheader83.lr.ph.split.us.us.i ], [ %198, %._crit_edge91.split.us.us.us.us.i ]
-  %161 = mul i32 %.06892.us.us.us.i, %156
-  %162 = add i32 %161, %155
-  %163 = mul i32 %162, %3
-  %invariant.op.us.us.us.i = add i32 %163, %157
-  %164 = mul i32 %.06892.us.us.us.i, %147
-  br label %.lr.ph.us.us.us.us.i
+.lr.ph.us.us108.preheader.i:                      ; preds = %._crit_edge102.us.i, %.preheader.lr.ph.split.us.i
+  %indvar = phi i64 [ %indvar.next, %._crit_edge102.us.i ], [ 0, %.preheader.lr.ph.split.us.i ]
+  %169 = mul nuw i64 %indvar, %wide.trip.count137.i
+  %170 = mul nuw i64 %indvar, %167
+  %171 = add i64 %170, %165
+  br label %.lr.ph.us.us108.i
 
-.lr.ph.us.us.us.us.i:                             ; preds = %._crit_edge.us.us.us.us.i, %.preheader83.us.us.us.i
-  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %._crit_edge.us.us.us.us.i ], [ 0, %.preheader83.us.us.us.i ]
-  %165 = trunc nuw i64 %indvars.iv.i117 to i32
-  %166 = mul i32 %158, %165
-  %reass.add.reass.us.us.us.us.i = add i32 %invariant.op.us.us.us.i, %166
-  %reass.mul.us.us.us.us.i = mul i32 %reass.add.reass.us.us.us.us.i, %22
-  %167 = zext i32 %reass.mul.us.us.us.us.i to i64
-  %reass.add80.us.us.us.us.i = add i32 %164, %165
-  %reass.mul81.us.us.us.us.i = mul i32 %reass.add80.us.us.us.us.i, %22
-  %168 = zext i32 %reass.mul81.us.us.us.us.i to i64
-  %169 = add i64 %160, %168
-  br label %170
-
-170:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i, %.lr.ph.us.us.us.us.i
-  %.06788.us.us.us.us.i = phi i32 [ 0, %.lr.ph.us.us.us.us.i ], [ %197, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i ]
-  %.07887.us.us.us.us.i = phi i64 [ %167, %.lr.ph.us.us.us.us.i ], [ %177, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i ]
-  %.07986.us.us.us.us.i = phi i64 [ %169, %.lr.ph.us.us.us.us.i ], [ %196, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i ]
-  %171 = lshr i64 %.07887.us.us.us.us.i, 3
-  %172 = getelementptr inbounds nuw i8, ptr %2, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !18
-  %174 = trunc i64 %.07887.us.us.us.us.i to i8
-  %175 = and i8 %174, 7
-  %176 = xor i8 %175, 7
-  %177 = add nuw nsw i64 %.07887.us.us.us.us.i, 1
-  %178 = shl nuw i8 1, %176
-  %179 = and i8 %178, %173
-  %180 = icmp eq i8 %179, 0
-  %181 = trunc i64 %.07986.us.us.us.us.i to i8
-  %182 = and i8 %181, 7
-  %183 = xor i8 %182, 7
-  %184 = shl nuw i8 1, %183
-  br i1 %180, label %190, label %185
-
-185:                                              ; preds = %170
-  %186 = lshr i64 %.07986.us.us.us.us.i, 3
-  %187 = getelementptr inbounds nuw i8, ptr %107, i64 %186
-  %188 = load i8, ptr %187, align 1, !tbaa !18
-  %189 = or i8 %188, %184
-  store i8 %189, ptr %187, align 1, !tbaa !18
-  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i
-
-190:                                              ; preds = %170
-  %191 = xor i8 %184, -1
-  %192 = lshr i64 %.07986.us.us.us.us.i, 3
-  %193 = getelementptr inbounds nuw i8, ptr %107, i64 %192
-  %194 = load i8, ptr %193, align 1, !tbaa !18
-  %195 = and i8 %194, %191
-  store i8 %195, ptr %193, align 1, !tbaa !18
-  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i
-
-_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i: ; preds = %190, %185
-  %196 = add i64 %.07986.us.us.us.us.i, 1
-  %197 = add nuw nsw i32 %.06788.us.us.us.us.i, 1
-  %exitcond.not.i = icmp eq i32 %197, %22
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.us.us.i, label %170, !llvm.loop !574
-
-._crit_edge.us.us.us.us.i:                        ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.us.us.i
-  %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
-  %exitcond134.not.i = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i
-  br i1 %exitcond134.not.i, label %._crit_edge91.split.us.us.us.us.i, label %.lr.ph.us.us.us.us.i, !llvm.loop !575
-
-._crit_edge91.split.us.us.us.us.i:                ; preds = %._crit_edge.us.us.us.us.i
-  %198 = add nuw i32 %.06892.us.us.us.i, 1
-  %exitcond135.not.i = icmp eq i32 %198, %149
-  br i1 %exitcond135.not.i, label %._crit_edge.us.i, label %.preheader83.us.us.us.i, !llvm.loop !576
-
-.preheader82.split.us.preheader.i:                ; preds = %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit.i
-  %199 = lshr i32 %22, 3
-  %200 = zext nneg i32 %199 to i64
-  br label %.preheader82.split.us.i
-
-.preheader82.split.us.i:                          ; preds = %._crit_edge108.us.i, %.preheader82.split.us.preheader.i
-  %indvars.iv155.i = phi i64 [ 0, %.preheader82.split.us.preheader.i ], [ %indvars.iv.next156.i, %._crit_edge108.us.i ]
-  %201 = getelementptr inbounds nuw [7 x i32], ptr %9, i64 0, i64 %indvars.iv155.i
-  %202 = load i32, ptr %201, align 4, !tbaa !10
-  %.not124.i = icmp eq i32 %202, 0
-  br i1 %.not124.i, label %._crit_edge108.us.i, label %.preheader.lr.ph.us.i
-
-._crit_edge108.us.i:                              ; preds = %._crit_edge106.split.us.us.us.us.i, %.preheader.lr.ph.us.i, %.preheader82.split.us.i
-  %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
-  %.not75.us.i = icmp eq i64 %indvars.iv.next156.i, 7
-  br i1 %.not75.us.i, label %_ZL15Adam7_interlacePhPKhjjj.exit, label %.preheader82.split.us.i, !llvm.loop !577
-
-.preheader.lr.ph.us.i:                            ; preds = %.preheader82.split.us.i
-  %203 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv155.i
-  %204 = load i32, ptr %203, align 4, !tbaa !10
-  %.not125.i = icmp eq i32 %204, 0
-  br i1 %.not125.i, label %._crit_edge108.us.i, label %.preheader.lr.ph.split.us.us.i
-
-.preheader.lr.ph.split.us.us.i:                   ; preds = %.preheader.lr.ph.us.i
-  %205 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %indvars.iv155.i
-  %206 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv155.i
-  %207 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv155.i
-  %208 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv155.i
-  %209 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv155.i
-  %210 = load i32, ptr %209, align 4, !tbaa !10
-  %211 = load i32, ptr %208, align 4, !tbaa !10
-  %212 = load i32, ptr %207, align 4, !tbaa !10
-  %213 = load i32, ptr %206, align 4, !tbaa !10
-  %214 = load i64, ptr %205, align 8, !tbaa !3
-  %wide.trip.count152.i = zext i32 %204 to i64
-  %scevgep = getelementptr i8, ptr %107, i64 %214
-  %215 = mul i32 %3, %210
-  %216 = add i32 %212, %215
-  %217 = zext i32 %216 to i64
-  %218 = mul i32 %3, %211
-  %219 = zext i32 %218 to i64
-  %220 = zext i32 %213 to i64
-  %wide.trip.count = zext i32 %202 to i64
-  br label %.preheader.us.us.us.i
-
-.preheader.us.us.us.i:                            ; preds = %._crit_edge106.split.us.us.us.us.i, %.preheader.lr.ph.split.us.us.i
-  %indvar = phi i64 [ %indvar.next, %._crit_edge106.split.us.us.us.us.i ], [ 0, %.preheader.lr.ph.split.us.us.i ]
-  %221 = mul nuw i64 %indvar, %wide.trip.count152.i
-  %222 = mul nuw i64 %indvar, %219
-  %223 = add i64 %222, %217
-  br label %.lr.ph.us.us.us.us117.i
-
-.lr.ph.us.us.us.us117.i:                          ; preds = %.lr.ph.us.us.us.us117.i, %.preheader.us.us.us.i
-  %indvars.iv149.i = phi i64 [ %indvars.iv.next150.i, %.lr.ph.us.us.us.us117.i ], [ 0, %.preheader.us.us.us.i ]
-  %224 = add nuw i64 %221, %indvars.iv149.i
-  %225 = and i64 %224, 4294967295
-  %226 = mul nuw nsw i64 %225, %200
-  %scevgep135 = getelementptr i8, ptr %scevgep, i64 %226
-  %227 = mul nuw i64 %indvars.iv149.i, %220
-  %228 = add i64 %223, %227
-  %229 = and i64 %228, 4294967295
-  %230 = mul nuw nsw i64 %229, %200
-  %scevgep136 = getelementptr nuw i8, ptr %2, i64 %230
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep135, ptr align 1 %scevgep136, i64 %200, i1 false), !tbaa !18
-  %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
-  %exitcond153.not.i = icmp eq i64 %indvars.iv.next150.i, %wide.trip.count152.i
-  br i1 %exitcond153.not.i, label %._crit_edge106.split.us.us.us.us.i, label %.lr.ph.us.us.us.us117.i, !llvm.loop !578
-
-._crit_edge106.split.us.us.us.us.i:               ; preds = %.lr.ph.us.us.us.us117.i
+._crit_edge102.us.i:                              ; preds = %.lr.ph.us.us108.i
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge108.us.i, label %.preheader.us.us.us.i, !llvm.loop !579
+  br i1 %exitcond, label %._crit_edge104.i, label %.lr.ph.us.us108.preheader.i, !llvm.loop !576
 
-_ZL15Adam7_interlacePhPKhjjj.exit:                ; preds = %._crit_edge.us.i, %._crit_edge108.us.i
+.lr.ph.us.us108.i:                                ; preds = %.lr.ph.us.us108.i, %.lr.ph.us.us108.preheader.i
+  %indvars.iv134.i = phi i64 [ 0, %.lr.ph.us.us108.preheader.i ], [ %indvars.iv.next135.i, %.lr.ph.us.us108.i ]
+  %172 = add nuw i64 %169, %indvars.iv134.i
+  %173 = and i64 %172, 4294967295
+  %174 = mul nuw nsw i64 %173, %147
+  %scevgep137 = getelementptr i8, ptr %scevgep, i64 %174
+  %175 = mul nuw i64 %indvars.iv134.i, %168
+  %176 = add i64 %171, %175
+  %177 = and i64 %176, 4294967295
+  %178 = mul nuw nsw i64 %177, %147
+  %scevgep138 = getelementptr nuw i8, ptr %2, i64 %178
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep137, ptr align 1 %scevgep138, i64 %147, i1 false), !tbaa !18
+  %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
+  %exitcond138.not.i = icmp eq i64 %indvars.iv.next135.i, %wide.trip.count137.i
+  br i1 %exitcond138.not.i, label %._crit_edge102.us.i, label %.lr.ph.us.us108.i, !llvm.loop !577
+
+._crit_edge104.i:                                 ; preds = %._crit_edge102.us.i, %.preheader.lr.ph.i, %148
+  %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
+  %.not75.i = icmp eq i64 %indvars.iv.next141.i, 7
+  br i1 %.not75.i, label %_ZL15Adam7_interlacePhPKhjjj.exit, label %148, !llvm.loop !578
+
+179:                                              ; preds = %._crit_edge.i119, %.preheader84.i
+  %indvars.iv124.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next125.i, %._crit_edge.i119 ]
+  %180 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv124.i
+  %181 = load i32, ptr %180, align 4, !tbaa !10
+  %182 = getelementptr inbounds nuw [7 x i32], ptr %9, i64 0, i64 %indvars.iv124.i
+  %183 = load i32, ptr %182, align 4, !tbaa !10
+  %.not111.i = icmp eq i32 %183, 0
+  %.not112.i = icmp eq i32 %181, 0
+  %or.cond.i = select i1 %.not111.i, i1 true, i1 %.not112.i
+  br i1 %or.cond.i, label %._crit_edge.i119, label %.preheader83.lr.ph.split.us.i
+
+.preheader83.lr.ph.split.us.i:                    ; preds = %179
+  %184 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %indvars.iv124.i
+  %185 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DX, i64 0, i64 %indvars.iv124.i
+  %186 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IX, i64 0, i64 %indvars.iv124.i
+  %187 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_DY, i64 0, i64 %indvars.iv124.i
+  %188 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8ADAM7_IY, i64 0, i64 %indvars.iv124.i
+  %189 = load i32, ptr %188, align 4, !tbaa !10
+  %190 = load i32, ptr %187, align 4, !tbaa !10
+  %191 = load i32, ptr %186, align 4, !tbaa !10
+  %192 = load i32, ptr %185, align 4, !tbaa !10
+  %193 = load i64, ptr %184, align 8, !tbaa !3
+  %194 = shl i64 %193, 3
+  %wide.trip.count.i = zext i32 %181 to i64
+  br label %.preheader83.us.i
+
+.preheader83.us.i:                                ; preds = %._crit_edge91.us.i, %.preheader83.lr.ph.split.us.i
+  %.06892.us.i = phi i32 [ 0, %.preheader83.lr.ph.split.us.i ], [ %199, %._crit_edge91.us.i ]
+  %195 = mul i32 %.06892.us.i, %190
+  %196 = add i32 %195, %189
+  %197 = mul i32 %196, %3
+  %invariant.op.us.i = add i32 %197, %191
+  %198 = mul i32 %.06892.us.i, %181
+  br i1 %.not110.i, label %._crit_edge91.us.i, label %.lr.ph.us.us.i
+
+._crit_edge91.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader83.us.i
+  %199 = add nuw i32 %.06892.us.i, 1
+  %exitcond123.not.i = icmp eq i32 %199, %183
+  br i1 %exitcond123.not.i, label %._crit_edge.i119, label %.preheader83.us.i, !llvm.loop !579
+
+.lr.ph.us.us.i:                                   ; preds = %.preheader83.us.i, %._crit_edge.us.us.i
+  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %._crit_edge.us.us.i ], [ 0, %.preheader83.us.i ]
+  %200 = trunc nuw i64 %indvars.iv.i117 to i32
+  %201 = mul i32 %192, %200
+  %reass.add.reass.us.us.i = add i32 %invariant.op.us.i, %201
+  %reass.mul.us.us.i = mul i32 %reass.add.reass.us.us.i, %22
+  %202 = zext i32 %reass.mul.us.us.i to i64
+  %reass.add80.us.us.i = add i32 %198, %200
+  %reass.mul81.us.us.i = mul i32 %reass.add80.us.us.i, %22
+  %203 = zext i32 %reass.mul81.us.us.i to i64
+  %204 = add i64 %194, %203
+  br label %205
+
+205:                                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i, %.lr.ph.us.us.i
+  %.06788.us.us.i = phi i32 [ 0, %.lr.ph.us.us.i ], [ %232, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i ]
+  %.07887.us.us.i = phi i64 [ %202, %.lr.ph.us.us.i ], [ %212, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i ]
+  %.07986.us.us.i = phi i64 [ %204, %.lr.ph.us.us.i ], [ %231, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i ]
+  %206 = lshr i64 %.07887.us.us.i, 3
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 %206
+  %208 = load i8, ptr %207, align 1, !tbaa !18
+  %209 = trunc i64 %.07887.us.us.i to i8
+  %210 = and i8 %209, 7
+  %211 = xor i8 %210, 7
+  %212 = add nuw nsw i64 %.07887.us.us.i, 1
+  %213 = shl nuw i8 1, %211
+  %214 = and i8 %213, %208
+  %215 = icmp eq i8 %214, 0
+  %216 = trunc i64 %.07986.us.us.i to i8
+  %217 = and i8 %216, 7
+  %218 = xor i8 %217, 7
+  %219 = shl nuw i8 1, %218
+  br i1 %215, label %225, label %220
+
+220:                                              ; preds = %205
+  %221 = lshr i64 %.07986.us.us.i, 3
+  %222 = getelementptr inbounds nuw i8, ptr %107, i64 %221
+  %223 = load i8, ptr %222, align 1, !tbaa !18
+  %224 = or i8 %223, %219
+  store i8 %224, ptr %222, align 1, !tbaa !18
+  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i
+
+225:                                              ; preds = %205
+  %226 = xor i8 %219, -1
+  %227 = lshr i64 %.07986.us.us.i, 3
+  %228 = getelementptr inbounds nuw i8, ptr %107, i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !18
+  %230 = and i8 %229, %226
+  store i8 %230, ptr %228, align 1, !tbaa !18
+  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i
+
+_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i:    ; preds = %225, %220
+  %231 = add i64 %.07986.us.us.i, 1
+  %232 = add nuw nsw i32 %.06788.us.us.i, 1
+  %exitcond.not.i = icmp eq i32 %232, %22
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %205, !llvm.loop !580
+
+._crit_edge.us.us.i:                              ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us.i
+  %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
+  %exitcond122.not.i = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i
+  br i1 %exitcond122.not.i, label %._crit_edge91.us.i, label %.lr.ph.us.us.i, !llvm.loop !581
+
+._crit_edge.i119:                                 ; preds = %._crit_edge91.us.i, %179
+  %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
+  %.not.i120 = icmp eq i64 %indvars.iv.next125.i, 7
+  br i1 %.not.i120, label %_ZL15Adam7_interlacePhPKhjjj.exit, label %179, !llvm.loop !582
+
+_ZL15Adam7_interlacePhPKhjjj.exit:                ; preds = %._crit_edge.i119, %._crit_edge104.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #31
-  %231 = icmp ult i32 %22, 8
-  br i1 %231, label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader, label %_ZL15Adam7_interlacePhPKhjjj.exit.split
+  %233 = icmp ult i32 %22, 8
+  br i1 %233, label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, label %_ZL15Adam7_interlacePhPKhjjj.exit.split
 
-_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader: ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.thread, %_ZL15Adam7_interlacePhPKhjjj.exit
-  br label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us
+_ZL15Adam7_interlacePhPKhjjj.exit.split.us:       ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit, %239
+  %234 = phi i64 [ %236, %239 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %239 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit ]
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %235 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %indvars.iv.next142
+  %236 = load i64, ptr %235, align 8, !tbaa !3
+  %237 = sub i64 %236, %234
+  %238 = tail call noalias noundef ptr @malloc(i64 noundef %237) #30
+  %.not99.us = icmp eq ptr %238, null
+  br i1 %.not99.us, label %.loopexit, label %.thread123.us
 
-_ZL15Adam7_interlacePhPKhjjj.exit.split.us:       ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader, %237
-  %232 = phi i64 [ %234, %237 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader ]
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %237 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us.preheader ]
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %233 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %indvars.iv.next140
-  %234 = load i64, ptr %233, align 8, !tbaa !3
-  %235 = sub i64 %234, %232
-  %236 = tail call noalias noundef ptr @malloc(i64 noundef %235) #30
-  %.not99.us = icmp eq ptr %236, null
-  br i1 %.not99.us, label %.loopexit, label %.thread121.us
+239:                                              ; preds = %.thread123.us
+  %.not98.us = icmp eq i64 %indvars.iv.next142, 7
+  br i1 %.not98.us, label %.loopexit, label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, !llvm.loop !583
 
-237:                                              ; preds = %.thread121.us
-  %.not98.us = icmp eq i64 %indvars.iv.next140, 7
-  br i1 %.not98.us, label %.loopexit, label %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, !llvm.loop !580
+.thread123.us:                                    ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split.us
+  %240 = getelementptr inbounds nuw [8 x i64], ptr %15, i64 0, i64 %indvars.iv141
+  %241 = load i64, ptr %240, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw i8, ptr %107, i64 %241
+  %243 = getelementptr inbounds nuw [7 x i32], ptr %11, i64 0, i64 %indvars.iv141
+  %244 = load i32, ptr %243, align 4, !tbaa !10
+  %245 = zext i32 %244 to i64
+  %246 = mul nuw nsw i64 %245, %23
+  %247 = add nuw nsw i64 %246, 7
+  %248 = and i64 %247, 68719476728
+  %249 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv141
+  %250 = load i32, ptr %249, align 4, !tbaa !10
+  tail call fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr noundef nonnull %238, ptr noundef %242, i64 noundef %248, i64 noundef %246, i32 noundef %250)
+  %251 = load ptr, ptr %0, align 8, !tbaa !7
+  %252 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %indvars.iv141
+  %253 = load i64, ptr %252, align 8, !tbaa !3
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 %253
+  %.val113.us = load i32, ptr %16, align 8, !tbaa !183
+  %.val114.us = load i32, ptr %18, align 4, !tbaa !186
+  %255 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %254, ptr noundef nonnull %238, i32 noundef %244, i32 noundef %250, i32 %.val113.us, i32 %.val114.us, ptr noundef %6)
+  tail call void @free(ptr noundef nonnull %238) #31
+  %.not100.us = icmp eq i32 %255, 0
+  br i1 %.not100.us, label %239, label %.loopexit
 
-.thread121.us:                                    ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split.us
-  %238 = getelementptr inbounds nuw [8 x i64], ptr %15, i64 0, i64 %indvars.iv139
-  %239 = load i64, ptr %238, align 8, !tbaa !3
-  %240 = getelementptr inbounds nuw i8, ptr %107, i64 %239
-  %241 = getelementptr inbounds nuw [7 x i32], ptr %11, i64 0, i64 %indvars.iv139
-  %242 = load i32, ptr %241, align 4, !tbaa !10
-  %243 = zext i32 %242 to i64
-  %244 = mul nuw nsw i64 %243, %23
-  %245 = add nuw nsw i64 %244, 7
-  %246 = and i64 %245, 68719476728
-  %247 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv139
-  %248 = load i32, ptr %247, align 4, !tbaa !10
-  tail call fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr noundef nonnull %236, ptr noundef %240, i64 noundef %246, i64 noundef %244, i32 noundef %248)
-  %249 = load ptr, ptr %0, align 8, !tbaa !7
-  %250 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %indvars.iv139
-  %251 = load i64, ptr %250, align 8, !tbaa !3
-  %252 = getelementptr inbounds nuw i8, ptr %249, i64 %251
-  %.val113.us = load i32, ptr %16, align 8, !tbaa !182
-  %.val114.us = load i32, ptr %18, align 4, !tbaa !185
-  %253 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %252, ptr noundef nonnull %236, i32 noundef %242, i32 noundef %248, i32 %.val113.us, i32 %.val114.us, ptr noundef %6)
-  tail call void @free(ptr noundef nonnull %236) #31
-  %.not100.us = icmp eq i32 %253, 0
-  br i1 %.not100.us, label %237, label %.loopexit
-
-254:                                              ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split
+256:                                              ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not98 = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not98, label %.loopexit, label %_ZL15Adam7_interlacePhPKhjjj.exit.split, !llvm.loop !580
+  br i1 %.not98, label %.loopexit, label %_ZL15Adam7_interlacePhPKhjjj.exit.split, !llvm.loop !584
 
-_ZL15Adam7_interlacePhPKhjjj.exit.split:          ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit, %254
-  %indvars.iv = phi i64 [ %indvars.iv.next, %254 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit ]
-  %255 = load ptr, ptr %0, align 8, !tbaa !7
-  %256 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %indvars.iv
-  %257 = load i64, ptr %256, align 8, !tbaa !3
-  %258 = getelementptr inbounds nuw i8, ptr %255, i64 %257
-  %259 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %indvars.iv
-  %260 = load i64, ptr %259, align 8, !tbaa !3
-  %261 = getelementptr inbounds nuw i8, ptr %107, i64 %260
-  %262 = getelementptr inbounds nuw [7 x i32], ptr %11, i64 0, i64 %indvars.iv
-  %263 = load i32, ptr %262, align 4, !tbaa !10
-  %264 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv
+_ZL15Adam7_interlacePhPKhjjj.exit.split:          ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit, %256
+  %indvars.iv = phi i64 [ %indvars.iv.next, %256 ], [ 0, %_ZL15Adam7_interlacePhPKhjjj.exit ]
+  %257 = load ptr, ptr %0, align 8, !tbaa !7
+  %258 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %259 = load i64, ptr %258, align 8, !tbaa !3
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 %259
+  %261 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %262 = load i64, ptr %261, align 8, !tbaa !3
+  %263 = getelementptr inbounds nuw i8, ptr %107, i64 %262
+  %264 = getelementptr inbounds nuw [7 x i32], ptr %11, i64 0, i64 %indvars.iv
   %265 = load i32, ptr %264, align 4, !tbaa !10
-  %.val115 = load i32, ptr %16, align 8, !tbaa !182
-  %.val116 = load i32, ptr %18, align 4, !tbaa !185
-  %266 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %258, ptr noundef %261, i32 noundef %263, i32 noundef %265, i32 %.val115, i32 %.val116, ptr noundef %6)
-  %.not100 = icmp eq i32 %266, 0
-  br i1 %.not100, label %254, label %.loopexit
+  %266 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %.val115 = load i32, ptr %16, align 8, !tbaa !183
+  %.val116 = load i32, ptr %18, align 4, !tbaa !186
+  %268 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %260, ptr noundef %263, i32 noundef %265, i32 noundef %267, i32 %.val115, i32 %.val116, ptr noundef %6)
+  %.not100 = icmp eq i32 %268, 0
+  br i1 %.not100, label %256, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split, %254, %.thread121.us, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, %237, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
-  %.6 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ 83, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us ], [ 0, %237 ], [ %253, %.thread121.us ], [ 0, %254 ], [ %266, %_ZL15Adam7_interlacePhPKhjjj.exit.split ]
+.loopexit:                                        ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split, %256, %.thread123.us, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, %239, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
+  %.6 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ 83, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us ], [ 0, %239 ], [ %255, %.thread123.us ], [ 0, %256 ], [ %268, %_ZL15Adam7_interlacePhPKhjjj.exit.split ]
   tail call void @free(ptr noundef %107) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %12) #31
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #31
-  br label %267
+  br label %269
 
-267:                                              ; preds = %27, %44, %43, %.loopexit
+269:                                              ; preds = %27, %44, %43, %.loopexit
   %.3 = phi i32 [ %.2, %43 ], [ %45, %44 ], [ %.6, %.loopexit ], [ 83, %27 ]
   ret i32 %.3
 }
@@ -16770,7 +16761,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14writeSignatureP8ucvect
 12:                                               ; preds = %.thread.i.i, %1
   %13 = phi ptr [ %11, %.thread.i.i ], [ %.pre, %1 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %3
-  store i64 727905341920923785, ptr %14, align 1, !tbaa !18, !alias.scope !581
+  store i64 727905341920923785, ptr %14, align 1, !tbaa !18, !alias.scope !585
   br label %_ZL15ucvector_resizeP8ucvectorm.exit
 
 _ZL15ucvector_resizeP8ucvectorm.exit:             ; preds = %8, %12
@@ -16822,7 +16813,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IHDRP8ucvecto
   %26 = getelementptr inbounds i8, ptr %22, i64 -22
   store i8 13, ptr %26, align 1, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 1380206665, ptr %27, align 1, !tbaa !18, !alias.scope !585
+  store i32 1380206665, ptr %27, align 1, !tbaa !18, !alias.scope !589
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = lshr i32 %1, 24
   %30 = trunc nuw i32 %29 to i8
@@ -16896,7 +16887,7 @@ define internal fastcc noundef range(i32 0, 123) i32 @_ZL16addUnknownChunksP8ucv
 11:                                               ; preds = %.critedge.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %.not.i.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit.i, label %.critedge.i.i, !llvm.loop !172
+  br i1 %.not.i.i, label %_ZL29lodepng_chunk_type_name_validPKh.exit.i, label %.critedge.i.i, !llvm.loop !173
 
 .critedge.i.i:                                    ; preds = %11, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %11 ]
@@ -16960,7 +16951,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %11
   %48 = add i32 %.01631.i, 1
   %49 = zext i32 %48 to i64
   %.not23.i = icmp eq i64 %35, %49
-  br i1 %.not23.i, label %50, label %43, !llvm.loop !173
+  br i1 %.not23.i, label %50, label %43, !llvm.loop !174
 
 50:                                               ; preds = %43
   store i64 %37, ptr %6, align 8, !tbaa !59
@@ -17040,7 +17031,7 @@ _Z18lodepng_chunk_nextPhS_.exit:                  ; preds = %50, %78, %._crit_ed
   %93 = ptrtoint ptr %.0.i19 to i64
   %94 = sub i64 %93, %4
   %95 = icmp ult i64 %94, %2
-  br i1 %95, label %9, label %_Z20lodepng_chunk_appendPPhPmPKh.exit.thread, !llvm.loop !589
+  br i1 %95, label %9, label %_Z20lodepng_chunk_appendPPhPmPKh.exit.thread, !llvm.loop !593
 
 _Z20lodepng_chunk_appendPPhPmPKh.exit.thread:     ; preds = %_Z18lodepng_chunk_nextPhS_.exit, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %17, %38, %.critedge.i.i, %3
   %.2 = phi i32 [ 0, %3 ], [ 121, %.critedge.i.i ], [ 0, %_Z18lodepng_chunk_nextPhS_.exit ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 77, %17 ], [ 83, %38 ]
@@ -17050,25 +17041,25 @@ _Z20lodepng_chunk_appendPPhPmPKh.exit.thread:     ; preds = %_Z18lodepng_chunk_n
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 117) i32 @_ZL13addChunk_cICPP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %4 = load i32, ptr %3, align 8, !tbaa !406
+  %4 = load i32, ptr %3, align 8, !tbaa !409
   %5 = icmp ugt i32 %4, 255
   br i1 %5, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %8 = load i32, ptr %7, align 4, !tbaa !407
+  %8 = load i32, ptr %7, align 4, !tbaa !410
   %9 = icmp ugt i32 %8, 255
   br i1 %9, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %12 = load i32, ptr %11, align 8, !tbaa !408
+  %12 = load i32, ptr %11, align 8, !tbaa !411
   %13 = icmp ugt i32 %12, 255
   br i1 %13, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  %16 = load i32, ptr %15, align 4, !tbaa !409
+  %16 = load i32, ptr %15, align 4, !tbaa !412
   %17 = icmp ugt i32 %16, 255
   br i1 %17, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %18
 
@@ -17115,20 +17106,20 @@ define internal fastcc noundef range(i32 0, 117) i32 @_ZL13addChunk_cICPP8ucvect
   %38 = getelementptr inbounds i8, ptr %34, i64 -13
   store i8 4, ptr %38, align 1, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 1346586979, ptr %39, align 1, !tbaa !18, !alias.scope !590
-  %40 = load i32, ptr %3, align 8, !tbaa !406
+  store i32 1346586979, ptr %39, align 1, !tbaa !18, !alias.scope !594
+  %40 = load i32, ptr %3, align 8, !tbaa !409
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i8 %41, ptr %42, align 1, !tbaa !18
-  %43 = load i32, ptr %7, align 4, !tbaa !407
+  %43 = load i32, ptr %7, align 4, !tbaa !410
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
   store i8 %44, ptr %45, align 1, !tbaa !18
-  %46 = load i32, ptr %11, align 8, !tbaa !408
+  %46 = load i32, ptr %11, align 8, !tbaa !411
   %47 = trunc i32 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 10
   store i8 %47, ptr %48, align 1, !tbaa !18
-  %49 = load i32, ptr %15, align 4, !tbaa !409
+  %49 = load i32, ptr %15, align 4, !tbaa !412
   %50 = trunc i32 %49 to i8
   %51 = getelementptr inbounds nuw i8, ptr %35, i64 11
   store i8 %50, ptr %51, align 1, !tbaa !18
@@ -17145,49 +17136,49 @@ define internal fastcc noundef range(i32 0, 119) i32 @_ZL13addChunk_mDCvP8ucvect
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #31
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %5 = load i32, ptr %4, align 4, !tbaa !474
+  %5 = load i32, ptr %4, align 4, !tbaa !477
   %6 = icmp ugt i32 %5, 65535
   br i1 %6, label %121, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %9 = load i32, ptr %8, align 8, !tbaa !475
+  %9 = load i32, ptr %8, align 8, !tbaa !478
   %10 = icmp ugt i32 %9, 65535
   br i1 %10, label %121, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %13 = load i32, ptr %12, align 4, !tbaa !476
+  %13 = load i32, ptr %12, align 4, !tbaa !479
   %14 = icmp ugt i32 %13, 65535
   br i1 %14, label %121, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %17 = load i32, ptr %16, align 8, !tbaa !477
+  %17 = load i32, ptr %16, align 8, !tbaa !480
   %18 = icmp ugt i32 %17, 65535
   br i1 %18, label %121, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 316
-  %21 = load i32, ptr %20, align 4, !tbaa !478
+  %21 = load i32, ptr %20, align 4, !tbaa !481
   %22 = icmp ugt i32 %21, 65535
   br i1 %22, label %121, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %25 = load i32, ptr %24, align 8, !tbaa !479
+  %25 = load i32, ptr %24, align 8, !tbaa !482
   %26 = icmp ugt i32 %25, 65535
   br i1 %26, label %121, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 324
-  %29 = load i32, ptr %28, align 4, !tbaa !480
+  %29 = load i32, ptr %28, align 4, !tbaa !483
   %30 = icmp ugt i32 %29, 65535
   br i1 %30, label %121, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %33 = load i32, ptr %32, align 8, !tbaa !481
+  %33 = load i32, ptr %32, align 8, !tbaa !484
   %34 = icmp ugt i32 %33, 65535
   br i1 %34, label %121, label %35
 
@@ -17197,82 +17188,82 @@ define internal fastcc noundef range(i32 0, 119) i32 @_ZL13addChunk_mDCvP8ucvect
   br i1 %.not, label %37, label %121
 
 37:                                               ; preds = %35
-  %38 = load i32, ptr %4, align 4, !tbaa !474
+  %38 = load i32, ptr %4, align 4, !tbaa !477
   %39 = lshr i32 %38, 8
   %40 = trunc i32 %39 to i8
   %41 = load ptr, ptr %3, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 %40, ptr %42, align 1, !tbaa !18
-  %43 = load i32, ptr %4, align 4, !tbaa !474
+  %43 = load i32, ptr %4, align 4, !tbaa !477
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 9
   store i8 %44, ptr %45, align 1, !tbaa !18
-  %46 = load i32, ptr %8, align 8, !tbaa !475
+  %46 = load i32, ptr %8, align 8, !tbaa !478
   %47 = lshr i32 %46, 8
   %48 = trunc i32 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i8 %48, ptr %49, align 1, !tbaa !18
-  %50 = load i32, ptr %8, align 8, !tbaa !475
+  %50 = load i32, ptr %8, align 8, !tbaa !478
   %51 = trunc i32 %50 to i8
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 11
   store i8 %51, ptr %52, align 1, !tbaa !18
-  %53 = load i32, ptr %12, align 4, !tbaa !476
+  %53 = load i32, ptr %12, align 4, !tbaa !479
   %54 = lshr i32 %53, 8
   %55 = trunc i32 %54 to i8
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i8 %55, ptr %56, align 1, !tbaa !18
-  %57 = load i32, ptr %12, align 4, !tbaa !476
+  %57 = load i32, ptr %12, align 4, !tbaa !479
   %58 = trunc i32 %57 to i8
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 13
   store i8 %58, ptr %59, align 1, !tbaa !18
-  %60 = load i32, ptr %16, align 8, !tbaa !477
+  %60 = load i32, ptr %16, align 8, !tbaa !480
   %61 = lshr i32 %60, 8
   %62 = trunc i32 %61 to i8
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 14
   store i8 %62, ptr %63, align 1, !tbaa !18
-  %64 = load i32, ptr %16, align 8, !tbaa !477
+  %64 = load i32, ptr %16, align 8, !tbaa !480
   %65 = trunc i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %41, i64 15
   store i8 %65, ptr %66, align 1, !tbaa !18
-  %67 = load i32, ptr %20, align 4, !tbaa !478
+  %67 = load i32, ptr %20, align 4, !tbaa !481
   %68 = lshr i32 %67, 8
   %69 = trunc i32 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i8 %69, ptr %70, align 1, !tbaa !18
-  %71 = load i32, ptr %20, align 4, !tbaa !478
+  %71 = load i32, ptr %20, align 4, !tbaa !481
   %72 = trunc i32 %71 to i8
   %73 = getelementptr inbounds nuw i8, ptr %41, i64 17
   store i8 %72, ptr %73, align 1, !tbaa !18
-  %74 = load i32, ptr %24, align 8, !tbaa !479
+  %74 = load i32, ptr %24, align 8, !tbaa !482
   %75 = lshr i32 %74, 8
   %76 = trunc i32 %75 to i8
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 18
   store i8 %76, ptr %77, align 1, !tbaa !18
-  %78 = load i32, ptr %24, align 8, !tbaa !479
+  %78 = load i32, ptr %24, align 8, !tbaa !482
   %79 = trunc i32 %78 to i8
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 19
   store i8 %79, ptr %80, align 1, !tbaa !18
-  %81 = load i32, ptr %28, align 4, !tbaa !480
+  %81 = load i32, ptr %28, align 4, !tbaa !483
   %82 = lshr i32 %81, 8
   %83 = trunc i32 %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 %83, ptr %84, align 1, !tbaa !18
-  %85 = load i32, ptr %28, align 4, !tbaa !480
+  %85 = load i32, ptr %28, align 4, !tbaa !483
   %86 = trunc i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %41, i64 21
   store i8 %86, ptr %87, align 1, !tbaa !18
-  %88 = load i32, ptr %32, align 8, !tbaa !481
+  %88 = load i32, ptr %32, align 8, !tbaa !484
   %89 = lshr i32 %88, 8
   %90 = trunc i32 %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %41, i64 22
   store i8 %90, ptr %91, align 1, !tbaa !18
-  %92 = load i32, ptr %32, align 8, !tbaa !481
+  %92 = load i32, ptr %32, align 8, !tbaa !484
   %93 = trunc i32 %92 to i8
   %94 = getelementptr inbounds nuw i8, ptr %41, i64 23
   store i8 %93, ptr %94, align 1, !tbaa !18
   %95 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  %97 = load i32, ptr %96, align 4, !tbaa !482
+  %97 = load i32, ptr %96, align 4, !tbaa !485
   %98 = lshr i32 %97, 24
   %99 = trunc nuw i32 %98 to i8
   store i8 %99, ptr %95, align 1, !tbaa !18
@@ -17289,7 +17280,7 @@ define internal fastcc noundef range(i32 0, 119) i32 @_ZL13addChunk_mDCvP8ucvect
   store i8 %106, ptr %107, align 1, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %110 = load i32, ptr %109, align 8, !tbaa !483
+  %110 = load i32, ptr %109, align 8, !tbaa !486
   %111 = lshr i32 %110, 24
   %112 = trunc nuw i32 %111 to i8
   store i8 %112, ptr %108, align 1, !tbaa !18
@@ -17357,10 +17348,10 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cLLiP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -17
   store i8 8, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1766607971, ptr %23, align 1, !tbaa !18, !alias.scope !594
+  store i32 1766607971, ptr %23, align 1, !tbaa !18, !alias.scope !598
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %26 = load i32, ptr %25, align 8, !tbaa !485
+  %26 = load i32, ptr %25, align 8, !tbaa !488
   %27 = lshr i32 %26, 24
   %28 = trunc nuw i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !18
@@ -17377,7 +17368,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cLLiP8ucvecto
   store i8 %35, ptr %36, align 1, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %39 = load i32, ptr %38, align 4, !tbaa !486
+  %39 = load i32, ptr %38, align 4, !tbaa !489
   %40 = lshr i32 %39, 24
   %41 = trunc nuw i32 %40 to i8
   store i8 %41, ptr %37, align 1, !tbaa !18
@@ -17409,7 +17400,7 @@ define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iCCPP8ucvect
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   store i64 0, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %7 = load ptr, ptr %6, align 8, !tbaa !239
+  %7 = load ptr, ptr %6, align 8, !tbaa !240
   %strlen.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7)
   %8 = add i64 %strlen.i, -80
   %or.cond = icmp ult i64 %8, -79
@@ -17417,12 +17408,12 @@ define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iCCPP8ucvect
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %11 = load ptr, ptr %10, align 8, !tbaa !237
+  %11 = load ptr, ptr %10, align 8, !tbaa !238
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %13 = load i32, ptr %12, align 8, !tbaa !238
+  %13 = load i32, ptr %12, align 8, !tbaa !239
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !598
+  %16 = load ptr, ptr %15, align 8, !tbaa !602
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %17
 
@@ -17492,10 +17483,10 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %29
   %51 = getelementptr inbounds i8, ptr %40, i64 -9
   store i8 %50, ptr %51, align 1, !tbaa !18
   %52 = getelementptr inbounds i8, ptr %40, i64 -8
-  store i32 1346585449, ptr %52, align 1, !tbaa !18, !alias.scope !599
+  store i32 1346585449, ptr %52, align 1, !tbaa !18, !alias.scope !603
   %53 = getelementptr inbounds i8, ptr %40, i64 -4
-  %54 = load ptr, ptr %6, align 8, !tbaa !239
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr readonly align 1 %54, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !603
+  %54 = load ptr, ptr %6, align 8, !tbaa !240
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr readonly align 1 %54, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !607
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 %strlen.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 0, ptr %56, align 1, !tbaa !18
@@ -17509,7 +17500,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %29
   %59 = load ptr, ptr %4, align 8, !tbaa !7
   %60 = getelementptr inbounds i8, ptr %40, i64 -2
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %strlen.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr readonly align 1 %59, i64 %58, i1 false), !tbaa !18, !alias.scope !607
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr readonly align 1 %59, i64 %58, i1 false), !tbaa !18, !alias.scope !611
   br label %_ZL14lodepng_memcpyPvPKvm.exit27
 
 _ZL14lodepng_memcpyPvPKvm.exit27:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %.lr.ph.preheader.i26
@@ -17574,9 +17565,9 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -10
   store i8 1, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds i8, ptr %18, i64 -9
-  store i32 1111970419, ptr %23, align 1, !tbaa !18, !alias.scope !611
+  store i32 1111970419, ptr %23, align 1, !tbaa !18, !alias.scope !615
   %24 = getelementptr inbounds i8, ptr %18, i64 -5
-  store i8 %2, ptr %24, align 1, !tbaa !18, !alias.scope !615
+  store i8 %2, ptr %24, align 1, !tbaa !18, !alias.scope !619
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit
 
@@ -17629,10 +17620,10 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_gAMAP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -13
   store i8 4, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1095582055, ptr %23, align 1, !tbaa !18, !alias.scope !619
+  store i32 1095582055, ptr %23, align 1, !tbaa !18, !alias.scope !623
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %26 = load i32, ptr %25, align 4, !tbaa !403
+  %26 = load i32, ptr %25, align 4, !tbaa !406
   %27 = lshr i32 %26, 24
   %28 = trunc nuw i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !18
@@ -17699,10 +17690,10 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -41
   store i8 32, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1297238115, ptr %23, align 1, !tbaa !18, !alias.scope !623
+  store i32 1297238115, ptr %23, align 1, !tbaa !18, !alias.scope !627
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %26 = load i32, ptr %25, align 4, !tbaa !459
+  %26 = load i32, ptr %25, align 4, !tbaa !462
   %27 = lshr i32 %26, 24
   %28 = trunc nuw i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !18
@@ -17719,7 +17710,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %35, ptr %36, align 1, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %39 = load i32, ptr %38, align 8, !tbaa !460
+  %39 = load i32, ptr %38, align 8, !tbaa !463
   %40 = lshr i32 %39, 24
   %41 = trunc nuw i32 %40 to i8
   store i8 %41, ptr %37, align 1, !tbaa !18
@@ -17736,7 +17727,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %48, ptr %49, align 1, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 220
-  %52 = load i32, ptr %51, align 4, !tbaa !461
+  %52 = load i32, ptr %51, align 4, !tbaa !464
   %53 = lshr i32 %52, 24
   %54 = trunc nuw i32 %53 to i8
   store i8 %54, ptr %50, align 1, !tbaa !18
@@ -17753,7 +17744,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %61, ptr %62, align 1, !tbaa !18
   %63 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %65 = load i32, ptr %64, align 8, !tbaa !462
+  %65 = load i32, ptr %64, align 8, !tbaa !465
   %66 = lshr i32 %65, 24
   %67 = trunc nuw i32 %66 to i8
   store i8 %67, ptr %63, align 1, !tbaa !18
@@ -17770,7 +17761,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %74, ptr %75, align 1, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 228
-  %78 = load i32, ptr %77, align 4, !tbaa !463
+  %78 = load i32, ptr %77, align 4, !tbaa !466
   %79 = lshr i32 %78, 24
   %80 = trunc nuw i32 %79 to i8
   store i8 %80, ptr %76, align 1, !tbaa !18
@@ -17787,7 +17778,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %87, ptr %88, align 1, !tbaa !18
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %91 = load i32, ptr %90, align 8, !tbaa !464
+  %91 = load i32, ptr %90, align 8, !tbaa !467
   %92 = lshr i32 %91, 24
   %93 = trunc nuw i32 %92 to i8
   store i8 %93, ptr %89, align 1, !tbaa !18
@@ -17804,7 +17795,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %100, ptr %101, align 1, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  %104 = load i32, ptr %103, align 4, !tbaa !465
+  %104 = load i32, ptr %103, align 4, !tbaa !468
   %105 = lshr i32 %104, 24
   %106 = trunc nuw i32 %105 to i8
   store i8 %106, ptr %102, align 1, !tbaa !18
@@ -17821,7 +17812,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   store i8 %113, ptr %114, align 1, !tbaa !18
   %115 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %117 = load i32, ptr %116, align 8, !tbaa !466
+  %117 = load i32, ptr %116, align 8, !tbaa !469
   %118 = lshr i32 %117, 24
   %119 = trunc nuw i32 %118 to i8
   store i8 %119, ptr %115, align 1, !tbaa !18
@@ -17847,13 +17838,13 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !400
+  %4 = load i32, ptr %3, align 8, !tbaa !403
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !399
+  %8 = load i32, ptr %7, align 4, !tbaa !402
   %9 = freeze i32 %8
   switch i32 %4, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread [
     i32 0, label %10
@@ -17864,7 +17855,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %12 = load i32, ptr %11, align 4, !tbaa !494
+  %12 = load i32, ptr %11, align 4, !tbaa !497
   %13 = add i32 %12, -1
   %or.cond.not = icmp ult i32 %13, %9
   br i1 %or.cond.not, label %14, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
@@ -17912,8 +17903,8 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   %34 = getelementptr inbounds i8, ptr %30, i64 -10
   store i8 1, ptr %34, align 1, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 1414087283, ptr %35, align 1, !tbaa !18, !alias.scope !627
-  %36 = load i32, ptr %11, align 4, !tbaa !494
+  store i32 1414087283, ptr %35, align 1, !tbaa !18, !alias.scope !631
+  %36 = load i32, ptr %11, align 4, !tbaa !497
   %37 = trunc i32 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 %37, ptr %38, align 1, !tbaa !18
@@ -17922,19 +17913,19 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 .thread:                                          ; preds = %2, %6
   %39 = phi i32 [ %9, %6 ], [ 8, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %41 = load i32, ptr %40, align 4, !tbaa !494
+  %41 = load i32, ptr %40, align 4, !tbaa !497
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %43
 
 43:                                               ; preds = %.thread
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %45 = load i32, ptr %44, align 8, !tbaa !493
+  %45 = load i32, ptr %44, align 8, !tbaa !496
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 364
-  %49 = load i32, ptr %48, align 4, !tbaa !492
+  %49 = load i32, ptr %48, align 4, !tbaa !495
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %51
 
@@ -17989,16 +17980,16 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   %75 = getelementptr inbounds i8, ptr %71, i64 -12
   store i8 3, ptr %75, align 1, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 1414087283, ptr %76, align 1, !tbaa !18, !alias.scope !631
-  %77 = load i32, ptr %40, align 4, !tbaa !494
+  store i32 1414087283, ptr %76, align 1, !tbaa !18, !alias.scope !635
+  %77 = load i32, ptr %40, align 4, !tbaa !497
   %78 = trunc i32 %77 to i8
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 %78, ptr %79, align 1, !tbaa !18
-  %80 = load i32, ptr %44, align 8, !tbaa !493
+  %80 = load i32, ptr %44, align 8, !tbaa !496
   %81 = trunc i32 %80 to i8
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 9
   store i8 %81, ptr %82, align 1, !tbaa !18
-  %83 = load i32, ptr %48, align 4, !tbaa !492
+  %83 = load i32, ptr %48, align 4, !tbaa !495
   %84 = trunc i32 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 10
   store i8 %84, ptr %85, align 1, !tbaa !18
@@ -18006,13 +17997,13 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 
 86:                                               ; preds = %6
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %88 = load i32, ptr %87, align 4, !tbaa !494
+  %88 = load i32, ptr %87, align 4, !tbaa !497
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %92 = load i32, ptr %91, align 8, !tbaa !495
+  %92 = load i32, ptr %91, align 8, !tbaa !498
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %94
 
@@ -18065,12 +18056,12 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   %117 = getelementptr inbounds i8, ptr %113, i64 -11
   store i8 2, ptr %117, align 1, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  store i32 1414087283, ptr %118, align 1, !tbaa !18, !alias.scope !635
-  %119 = load i32, ptr %87, align 4, !tbaa !494
+  store i32 1414087283, ptr %118, align 1, !tbaa !18, !alias.scope !639
+  %119 = load i32, ptr %87, align 4, !tbaa !497
   %120 = trunc i32 %119 to i8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i8 %120, ptr %121, align 1, !tbaa !18
-  %122 = load i32, ptr %91, align 8, !tbaa !495
+  %122 = load i32, ptr %91, align 8, !tbaa !498
   %123 = trunc i32 %122 to i8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 9
   store i8 %123, ptr %124, align 1, !tbaa !18
@@ -18078,25 +18069,25 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 
 125:                                              ; preds = %6
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %127 = load i32, ptr %126, align 4, !tbaa !494
+  %127 = load i32, ptr %126, align 4, !tbaa !497
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %129
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %131 = load i32, ptr %130, align 8, !tbaa !493
+  %131 = load i32, ptr %130, align 8, !tbaa !496
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %133
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 364
-  %135 = load i32, ptr %134, align 4, !tbaa !492
+  %135 = load i32, ptr %134, align 4, !tbaa !495
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %139 = load i32, ptr %138, align 8, !tbaa !495
+  %139 = load i32, ptr %138, align 8, !tbaa !498
   %140 = icmp ugt i32 %127, %9
   %141 = icmp ugt i32 %131, %9
   %142 = or i1 %140, %141
@@ -18150,20 +18141,20 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   %167 = getelementptr inbounds i8, ptr %163, i64 -13
   store i8 4, ptr %167, align 1, !tbaa !18
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store i32 1414087283, ptr %168, align 1, !tbaa !18, !alias.scope !639
-  %169 = load i32, ptr %126, align 4, !tbaa !494
+  store i32 1414087283, ptr %168, align 1, !tbaa !18, !alias.scope !643
+  %169 = load i32, ptr %126, align 4, !tbaa !497
   %170 = trunc i32 %169 to i8
   %171 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i8 %170, ptr %171, align 1, !tbaa !18
-  %172 = load i32, ptr %130, align 8, !tbaa !493
+  %172 = load i32, ptr %130, align 8, !tbaa !496
   %173 = trunc i32 %172 to i8
   %174 = getelementptr inbounds nuw i8, ptr %164, i64 9
   store i8 %173, ptr %174, align 1, !tbaa !18
-  %175 = load i32, ptr %134, align 4, !tbaa !492
+  %175 = load i32, ptr %134, align 4, !tbaa !495
   %176 = trunc i32 %175 to i8
   %177 = getelementptr inbounds nuw i8, ptr %164, i64 10
   store i8 %176, ptr %177, align 1, !tbaa !18
-  %178 = load i32, ptr %138, align 8, !tbaa !495
+  %178 = load i32, ptr %138, align 8, !tbaa !498
   %179 = trunc i32 %178 to i8
   %180 = getelementptr inbounds nuw i8, ptr %164, i64 11
   store i8 %179, ptr %180, align 1, !tbaa !18
@@ -18234,13 +18225,13 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_eXIfP8ucvecto
   %32 = getelementptr inbounds i8, ptr %21, i64 -9
   store i8 %31, ptr %32, align 1, !tbaa !18
   %33 = getelementptr inbounds i8, ptr %21, i64 -8
-  store i32 1716082789, ptr %33, align 1, !tbaa !18, !alias.scope !643
+  store i32 1716082789, ptr %33, align 1, !tbaa !18, !alias.scope !647
   %.not.i9.i = icmp eq i32 %.152.val, 0
   br i1 %.not.i9.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %17
   %34 = getelementptr inbounds i8, ptr %21, i64 -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr readonly align 1 %.144.val, i64 %2, i1 false), !tbaa !18, !alias.scope !647
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr readonly align 1 %.144.val, i64 %2, i1 false), !tbaa !18, !alias.scope !651
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %17
@@ -18255,7 +18246,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %1, %6, %13, %_ZL14l
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !191
+  %4 = load i64, ptr %3, align 8, !tbaa !192
   %5 = add i64 %4, -257
   %or.cond = icmp ult i64 %5, -256
   br i1 %or.cond, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %6
@@ -18310,8 +18301,8 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   %32 = getelementptr inbounds i8, ptr %25, i64 -9
   store i8 %31, ptr %32, align 1, !tbaa !18
   %33 = getelementptr inbounds i8, ptr %25, i64 -8
-  store i32 1163152464, ptr %33, align 1, !tbaa !18, !alias.scope !651
-  %34 = load i64, ptr %3, align 8, !tbaa !191
+  store i32 1163152464, ptr %33, align 1, !tbaa !18, !alias.scope !655
+  %34 = load i64, ptr %3, align 8, !tbaa !192
   %.not2332 = icmp eq i64 %34, 0
   br i1 %.not2332, label %._crit_edge, label %.lr.ph
 
@@ -18322,19 +18313,19 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
 36:                                               ; preds = %.lr.ph, %36
   %.02034 = phi i64 [ 8, %.lr.ph ], [ %51, %36 ]
   %.02133 = phi i64 [ 0, %.lr.ph ], [ %53, %36 ]
-  %37 = load ptr, ptr %35, align 8, !tbaa !186
+  %37 = load ptr, ptr %35, align 8, !tbaa !187
   %38 = shl i64 %.02133, 2
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 %.02034
   store i8 %40, ptr %41, align 1, !tbaa !18
-  %42 = load ptr, ptr %35, align 8, !tbaa !186
+  %42 = load ptr, ptr %35, align 8, !tbaa !187
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %38
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !18
   %46 = getelementptr i8, ptr %41, i64 1
   store i8 %45, ptr %46, align 1, !tbaa !18
-  %47 = load ptr, ptr %35, align 8, !tbaa !186
+  %47 = load ptr, ptr %35, align 8, !tbaa !187
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %38
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !18
@@ -18342,9 +18333,9 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   %52 = getelementptr i8, ptr %41, i64 2
   store i8 %50, ptr %52, align 1, !tbaa !18
   %53 = add i64 %.02133, 1
-  %54 = load i64, ptr %3, align 8, !tbaa !191
+  %54 = load i64, ptr %3, align 8, !tbaa !192
   %.not23 = icmp eq i64 %53, %54
-  br i1 %.not23, label %._crit_edge, label %36, !llvm.loop !655
+  br i1 %.not23, label %._crit_edge, label %36, !llvm.loop !659
 
 ._crit_edge:                                      ; preds = %36, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %26)
@@ -18357,7 +18348,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %18, %11, %6, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvectorPK16LodePNGColorMode(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load i32, ptr %1, align 8, !tbaa !182
+  %3 = load i32, ptr %1, align 8, !tbaa !183
   switch i32 %3, label %.thread105 [
     i32 3, label %4
     i32 0, label %52
@@ -18366,13 +18357,13 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvecto
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !191
+  %6 = load i64, ptr %5, align 8, !tbaa !192
   %.not56108 = icmp eq i64 %6, 0
   br i1 %.not56108, label %.thread105, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !186
+  %8 = load ptr, ptr %7, align 8, !tbaa !187
   %invariant.gep = getelementptr i8, ptr %8, i64 -1
   br label %9
 
@@ -18387,7 +18378,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvecto
 12:                                               ; preds = %9
   %13 = add i64 %.044110, -1
   %.not56 = icmp eq i64 %13, 0
-  br i1 %.not56, label %.thread105, label %9, !llvm.loop !656
+  br i1 %.not56, label %.thread105, label %9, !llvm.loop !660
 
 ._crit_edge:                                      ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18442,14 +18433,14 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
   %42 = getelementptr inbounds i8, ptr %31, i64 -9
   store i8 %41, ptr %42, align 1, !tbaa !18
   %43 = getelementptr inbounds i8, ptr %31, i64 -8
-  store i32 1397641844, ptr %43, align 1, !tbaa !18, !alias.scope !657
+  store i32 1397641844, ptr %43, align 1, !tbaa !18, !alias.scope !661
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %invariant.gep113 = getelementptr i8, ptr %31, i64 -4
   br label %45
 
 45:                                               ; preds = %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit, %45
   %.145115 = phi i64 [ 0, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit ], [ %51, %45 ]
-  %46 = load ptr, ptr %44, align 8, !tbaa !186
+  %46 = load ptr, ptr %44, align 8, !tbaa !187
   %47 = shl i64 %.145115, 2
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 3
@@ -18458,11 +18449,11 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
   store i8 %50, ptr %gep114, align 1, !tbaa !18
   %51 = add i64 %.145115, 1
   %.not60 = icmp eq i64 %51, %.044110
-  br i1 %.not60, label %.thread101, label %45, !llvm.loop !661
+  br i1 %.not60, label %.thread101, label %45, !llvm.loop !665
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = load i32, ptr %53, align 8, !tbaa !198
+  %54 = load i32, ptr %53, align 8, !tbaa !199
   %.not54 = icmp eq i32 %54, 0
   br i1 %.not54, label %.thread105, label %55
 
@@ -18509,14 +18500,14 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
   %75 = getelementptr inbounds i8, ptr %71, i64 -11
   store i8 2, ptr %75, align 1, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 1397641844, ptr %76, align 1, !tbaa !18, !alias.scope !662
+  store i32 1397641844, ptr %76, align 1, !tbaa !18, !alias.scope !666
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %78 = load i32, ptr %77, align 4, !tbaa !283
+  %78 = load i32, ptr %77, align 4, !tbaa !284
   %79 = lshr i32 %78, 8
   %80 = trunc i32 %79 to i8
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 %80, ptr %81, align 1, !tbaa !18
-  %82 = load i32, ptr %77, align 4, !tbaa !283
+  %82 = load i32, ptr %77, align 4, !tbaa !284
   %83 = trunc i32 %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 9
   store i8 %83, ptr %84, align 1, !tbaa !18
@@ -18524,7 +18515,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
 
 85:                                               ; preds = %2
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %87 = load i32, ptr %86, align 8, !tbaa !198
+  %87 = load i32, ptr %86, align 8, !tbaa !199
   %.not = icmp eq i32 %87, 0
   br i1 %.not, label %.thread105, label %88
 
@@ -18571,34 +18562,34 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
   %108 = getelementptr inbounds i8, ptr %104, i64 -15
   store i8 6, ptr %108, align 1, !tbaa !18
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 1397641844, ptr %109, align 1, !tbaa !18, !alias.scope !666
+  store i32 1397641844, ptr %109, align 1, !tbaa !18, !alias.scope !670
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %111 = load i32, ptr %110, align 4, !tbaa !283
+  %111 = load i32, ptr %110, align 4, !tbaa !284
   %112 = lshr i32 %111, 8
   %113 = trunc i32 %112 to i8
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i8 %113, ptr %114, align 1, !tbaa !18
-  %115 = load i32, ptr %110, align 4, !tbaa !283
+  %115 = load i32, ptr %110, align 4, !tbaa !284
   %116 = trunc i32 %115 to i8
   %117 = getelementptr inbounds nuw i8, ptr %105, i64 9
   store i8 %116, ptr %117, align 1, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %119 = load i32, ptr %118, align 8, !tbaa !284
+  %119 = load i32, ptr %118, align 8, !tbaa !285
   %120 = lshr i32 %119, 8
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %105, i64 10
   store i8 %121, ptr %122, align 1, !tbaa !18
-  %123 = load i32, ptr %118, align 8, !tbaa !284
+  %123 = load i32, ptr %118, align 8, !tbaa !285
   %124 = trunc i32 %123 to i8
   %125 = getelementptr inbounds nuw i8, ptr %105, i64 11
   store i8 %124, ptr %125, align 1, !tbaa !18
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %127 = load i32, ptr %126, align 4, !tbaa !285
+  %127 = load i32, ptr %126, align 4, !tbaa !286
   %128 = lshr i32 %127, 8
   %129 = trunc i32 %128 to i8
   %130 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i8 %129, ptr %130, align 1, !tbaa !18
-  %131 = load i32, ptr %126, align 4, !tbaa !285
+  %131 = load i32, ptr %126, align 4, !tbaa !286
   %132 = trunc i32 %131 to i8
   %133 = getelementptr inbounds nuw i8, ptr %105, i64 13
   store i8 %132, ptr %133, align 1, !tbaa !18
@@ -18617,7 +18608,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !400
+  %4 = load i32, ptr %3, align 8, !tbaa !403
   switch i32 %4, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread [
     i32 0, label %5
     i32 4, label %5
@@ -18669,14 +18660,14 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
   %25 = getelementptr inbounds i8, ptr %21, i64 -11
   store i8 2, ptr %25, align 1, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 1145523042, ptr %26, align 1, !tbaa !18, !alias.scope !670
+  store i32 1145523042, ptr %26, align 1, !tbaa !18, !alias.scope !674
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %28 = load i32, ptr %27, align 4, !tbaa !415
+  %28 = load i32, ptr %27, align 4, !tbaa !418
   %29 = lshr i32 %28, 8
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 %30, ptr %31, align 1, !tbaa !18
-  %32 = load i32, ptr %27, align 4, !tbaa !415
+  %32 = load i32, ptr %27, align 4, !tbaa !418
   %33 = trunc i32 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 9
   store i8 %33, ptr %34, align 1, !tbaa !18
@@ -18725,34 +18716,34 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
   %55 = getelementptr inbounds i8, ptr %51, i64 -15
   store i8 6, ptr %55, align 1, !tbaa !18
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 1145523042, ptr %56, align 1, !tbaa !18, !alias.scope !674
+  store i32 1145523042, ptr %56, align 1, !tbaa !18, !alias.scope !678
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %58 = load i32, ptr %57, align 4, !tbaa !415
+  %58 = load i32, ptr %57, align 4, !tbaa !418
   %59 = lshr i32 %58, 8
   %60 = trunc i32 %59 to i8
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 %60, ptr %61, align 1, !tbaa !18
-  %62 = load i32, ptr %57, align 4, !tbaa !415
+  %62 = load i32, ptr %57, align 4, !tbaa !418
   %63 = trunc i32 %62 to i8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 9
   store i8 %63, ptr %64, align 1, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %66 = load i32, ptr %65, align 8, !tbaa !414
+  %66 = load i32, ptr %65, align 8, !tbaa !417
   %67 = lshr i32 %66, 8
   %68 = trunc i32 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 10
   store i8 %68, ptr %69, align 1, !tbaa !18
-  %70 = load i32, ptr %65, align 8, !tbaa !414
+  %70 = load i32, ptr %65, align 8, !tbaa !417
   %71 = trunc i32 %70 to i8
   %72 = getelementptr inbounds nuw i8, ptr %52, i64 11
   store i8 %71, ptr %72, align 1, !tbaa !18
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %74 = load i32, ptr %73, align 4, !tbaa !413
+  %74 = load i32, ptr %73, align 4, !tbaa !416
   %75 = lshr i32 %74, 8
   %76 = trunc i32 %75 to i8
   %77 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i8 %76, ptr %77, align 1, !tbaa !18
-  %78 = load i32, ptr %73, align 4, !tbaa !413
+  %78 = load i32, ptr %73, align 4, !tbaa !416
   %79 = trunc i32 %78 to i8
   %80 = getelementptr inbounds nuw i8, ptr %52, i64 13
   store i8 %79, ptr %80, align 1, !tbaa !18
@@ -18801,9 +18792,9 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
   %101 = getelementptr inbounds i8, ptr %97, i64 -10
   store i8 1, ptr %101, align 1, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  store i32 1145523042, ptr %102, align 1, !tbaa !18, !alias.scope !678
+  store i32 1145523042, ptr %102, align 1, !tbaa !18, !alias.scope !682
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %104 = load i32, ptr %103, align 4, !tbaa !415
+  %104 = load i32, ptr %103, align 4, !tbaa !418
   %105 = trunc i32 %104 to i8
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 %105, ptr %106, align 1, !tbaa !18
@@ -18863,10 +18854,10 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -18
   store i8 9, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1935231088, ptr %23, align 1, !tbaa !18, !alias.scope !682
+  store i32 1935231088, ptr %23, align 1, !tbaa !18, !alias.scope !686
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %26 = load i32, ptr %25, align 4, !tbaa !456
+  %26 = load i32, ptr %25, align 4, !tbaa !459
   %27 = lshr i32 %26, 24
   %28 = trunc nuw i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !18
@@ -18883,7 +18874,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvecto
   store i8 %35, ptr %36, align 1, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %39 = load i32, ptr %38, align 8, !tbaa !457
+  %39 = load i32, ptr %38, align 8, !tbaa !460
   %40 = lshr i32 %39, 24
   %41 = trunc nuw i32 %40 to i8
   store i8 %41, ptr %37, align 1, !tbaa !18
@@ -18899,7 +18890,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvecto
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 15
   store i8 %48, ptr %49, align 1, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %51 = load i32, ptr %50, align 4, !tbaa !458
+  %51 = load i32, ptr %50, align 4, !tbaa !461
   %52 = trunc i32 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 %52, ptr %53, align 1, !tbaa !18
@@ -18920,7 +18911,7 @@ define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_IDATP8ucvect
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
   store i64 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !598
+  %8 = load ptr, ptr %7, align 8, !tbaa !602
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %9
 
@@ -18985,15 +18976,15 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %22, %.thread.i.i.i.
   %34 = getelementptr inbounds i8, ptr %30, i64 -2147483656
   store i8 -1, ptr %34, align 1, !tbaa !18
   %35 = getelementptr inbounds i8, ptr %30, i64 -2147483655
-  store i32 1413563465, ptr %35, align 1, !tbaa !18, !alias.scope !686
+  store i32 1413563465, ptr %35, align 1, !tbaa !18, !alias.scope !690
   %36 = getelementptr inbounds i8, ptr %30, i64 -2147483651
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2147483647) %36, ptr noundef nonnull readonly align 1 dereferenceable(2147483647) %17, i64 2147483647, i1 false), !tbaa !18, !alias.scope !690
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2147483647) %36, ptr noundef nonnull readonly align 1 dereferenceable(2147483647) %17, i64 2147483647, i1 false), !tbaa !18, !alias.scope !694
   call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %31)
   %37 = add i64 %.0112344, 2147483647
   %38 = load i64, ptr %6, align 8, !tbaa !3
   %39 = sub i64 %38, %37
   %40 = icmp ugt i64 %39, 2147483647
-  br i1 %40, label %.lr.ph45, label %._crit_edge, !llvm.loop !694
+  br i1 %40, label %.lr.ph45, label %._crit_edge, !llvm.loop !698
 
 ._crit_edge:                                      ; preds = %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, %.lr.ph
   %.01123.lcssa = phi i64 [ 0, %.lr.ph ], [ %37, %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit ]
@@ -19051,13 +19042,13 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %22, %.thread.i.i.i.
   %70 = getelementptr inbounds i8, ptr %59, i64 -9
   store i8 %69, ptr %70, align 1, !tbaa !18
   %71 = getelementptr inbounds i8, ptr %59, i64 -8
-  store i32 1413563465, ptr %71, align 1, !tbaa !18, !alias.scope !695
+  store i32 1413563465, ptr %71, align 1, !tbaa !18, !alias.scope !699
   %.not.i9.i = icmp eq i64 %.lcssa41, %.01123.lcssa
   br i1 %.not.i9.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %55
   %72 = getelementptr inbounds i8, ptr %59, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr readonly align 1 %42, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !699
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr readonly align 1 %42, i64 %.lcssa, i1 false), !tbaa !18, !alias.scope !703
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.i, %55
@@ -19117,38 +19108,38 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tIMEP8ucvecto
   %22 = getelementptr inbounds i8, ptr %18, i64 -16
   store i8 7, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1162692980, ptr %23, align 1, !tbaa !18, !alias.scope !703
-  %24 = load i32, ptr %1, align 4, !tbaa !707
+  store i32 1162692980, ptr %23, align 1, !tbaa !18, !alias.scope !707
+  %24 = load i32, ptr %1, align 4, !tbaa !711
   %25 = lshr i32 %24, 8
   %26 = trunc i32 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 %26, ptr %27, align 1, !tbaa !18
-  %28 = load i32, ptr %1, align 4, !tbaa !707
+  %28 = load i32, ptr %1, align 4, !tbaa !711
   %29 = trunc i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 9
   store i8 %29, ptr %30, align 1, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !708
+  %32 = load i32, ptr %31, align 4, !tbaa !712
   %33 = trunc i32 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 10
   store i8 %33, ptr %34, align 1, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !709
+  %36 = load i32, ptr %35, align 4, !tbaa !713
   %37 = trunc i32 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 11
   store i8 %37, ptr %38, align 1, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !710
+  %40 = load i32, ptr %39, align 4, !tbaa !714
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 %41, ptr %42, align 1, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load i32, ptr %43, align 4, !tbaa !711
+  %44 = load i32, ptr %43, align 4, !tbaa !715
   %45 = trunc i32 %44 to i8
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 13
   store i8 %45, ptr %46, align 1, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %48 = load i32, ptr %47, align 4, !tbaa !712
+  %48 = load i32, ptr %47, align 4, !tbaa !716
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 14
   store i8 %49, ptr %50, align 1, !tbaa !18
@@ -19176,7 +19167,7 @@ define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_zTXtP8ucvect
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !598
+  %10 = load ptr, ptr %9, align 8, !tbaa !602
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %11
 
@@ -19246,9 +19237,9 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %23
   %45 = getelementptr inbounds i8, ptr %34, i64 -9
   store i8 %44, ptr %45, align 1, !tbaa !18
   %46 = getelementptr inbounds i8, ptr %34, i64 -8
-  store i32 1951945850, ptr %46, align 1, !tbaa !18, !alias.scope !713
+  store i32 1951945850, ptr %46, align 1, !tbaa !18, !alias.scope !717
   %47 = getelementptr inbounds i8, ptr %34, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %1, i64 %strlen.i23, i1 false), !tbaa !18, !alias.scope !717
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %1, i64 %strlen.i23, i1 false), !tbaa !18, !alias.scope !721
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 %strlen.i23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i8 0, ptr %49, align 1, !tbaa !18
@@ -19262,7 +19253,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %23
   %52 = load ptr, ptr %5, align 8, !tbaa !7
   %53 = getelementptr inbounds i8, ptr %34, i64 -2
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %strlen.i23
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr readonly align 1 %52, i64 %51, i1 false), !tbaa !18, !alias.scope !721
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr readonly align 1 %52, i64 %51, i1 false), !tbaa !18, !alias.scope !725
   br label %_ZL14lodepng_memcpyPvPKvm.exit29
 
 _ZL14lodepng_memcpyPvPKvm.exit29:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %.lr.ph.preheader.i28
@@ -19345,9 +19336,9 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %14
   %36 = getelementptr inbounds i8, ptr %25, i64 -9
   store i8 %35, ptr %36, align 1, !tbaa !18
   %37 = getelementptr inbounds i8, ptr %25, i64 -8
-  store i32 1951942004, ptr %37, align 1, !tbaa !18, !alias.scope !725
+  store i32 1951942004, ptr %37, align 1, !tbaa !18, !alias.scope !729
   %38 = getelementptr inbounds i8, ptr %25, i64 -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %1, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !729
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %1, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !733
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 %strlen.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 0, ptr %40, align 1, !tbaa !18
@@ -19357,7 +19348,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %14
 .lr.ph.preheader.i23:                             ; preds = %_ZL14lodepng_memcpyPvPKvm.exit
   %41 = getelementptr inbounds i8, ptr %25, i64 -3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %strlen.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %2, i64 %strlen.i20, i1 false), !tbaa !18, !alias.scope !733
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %2, i64 %strlen.i20, i1 false), !tbaa !18, !alias.scope !737
   br label %_ZL14lodepng_memcpyPvPKvm.exit24
 
 _ZL14lodepng_memcpyPvPKvm.exit24:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %.lr.ph.preheader.i23
@@ -19391,7 +19382,7 @@ define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iTXtP8ucvect
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !598
+  %14 = load ptr, ptr %13, align 8, !tbaa !602
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %15
 
@@ -19464,9 +19455,9 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %30
   %52 = getelementptr inbounds i8, ptr %41, i64 -9
   store i8 %51, ptr %52, align 1, !tbaa !18
   %53 = getelementptr inbounds i8, ptr %41, i64 -8
-  store i32 1951945833, ptr %53, align 1, !tbaa !18, !alias.scope !737
+  store i32 1951945833, ptr %53, align 1, !tbaa !18, !alias.scope !741
   %54 = getelementptr inbounds i8, ptr %41, i64 -4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %2, i64 %strlen.i51, i1 false), !tbaa !18, !alias.scope !741
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %2, i64 %strlen.i51, i1 false), !tbaa !18, !alias.scope !745
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 %strlen.i51
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 0, ptr %56, align 1, !tbaa !18
@@ -19481,7 +19472,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.thread.i.i.i, %30
 
 .lr.ph.preheader.i58:                             ; preds = %_ZL14lodepng_memcpyPvPKvm.exit
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %3, i64 %strlen.i52, i1 false), !tbaa !18, !alias.scope !745
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %3, i64 %strlen.i52, i1 false), !tbaa !18, !alias.scope !749
   br label %_ZL14lodepng_memcpyPvPKvm.exit59
 
 _ZL14lodepng_memcpyPvPKvm.exit59:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit, %.lr.ph.preheader.i58
@@ -19494,7 +19485,7 @@ _ZL14lodepng_memcpyPvPKvm.exit59:                 ; preds = %_ZL14lodepng_memcpy
 
 .lr.ph.preheader.i61:                             ; preds = %_ZL14lodepng_memcpyPvPKvm.exit59
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 %63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %4, i64 %strlen.i53, i1 false), !tbaa !18, !alias.scope !749
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %4, i64 %strlen.i53, i1 false), !tbaa !18, !alias.scope !753
   br label %_ZL14lodepng_memcpyPvPKvm.exit62
 
 _ZL14lodepng_memcpyPvPKvm.exit62:                 ; preds = %_ZL14lodepng_memcpyPvPKvm.exit59, %.lr.ph.preheader.i61
@@ -19512,7 +19503,7 @@ _ZL14lodepng_memcpyPvPKvm.exit62:                 ; preds = %_ZL14lodepng_memcpy
 .lr.ph.preheader.i64:                             ; preds = %69
   %71 = load ptr, ptr %8, align 8, !tbaa !7
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr readonly align 1 %71, i64 %70, i1 false), !tbaa !18, !alias.scope !753
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr readonly align 1 %71, i64 %70, i1 false), !tbaa !18, !alias.scope !757
   br label %_ZL14lodepng_memcpyPvPKvm.exit65
 
 73:                                               ; preds = %_ZL14lodepng_memcpyPvPKvm.exit62
@@ -19521,7 +19512,7 @@ _ZL14lodepng_memcpyPvPKvm.exit62:                 ; preds = %_ZL14lodepng_memcpy
 
 .lr.ph.preheader.i67:                             ; preds = %73
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %5, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !757
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %5, i64 %strlen.i, i1 false), !tbaa !18, !alias.scope !761
   br label %_ZL14lodepng_memcpyPvPKvm.exit65
 
 _ZL14lodepng_memcpyPvPKvm.exit65:                 ; preds = %.lr.ph.preheader.i67, %73, %.lr.ph.preheader.i64, %69
@@ -19581,7 +19572,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IENDP8ucvecto
   %20 = getelementptr inbounds i8, ptr %16, i64 -9
   store i8 0, ptr %20, align 1, !tbaa !18
   %21 = getelementptr inbounds i8, ptr %16, i64 -8
-  store i32 1145980233, ptr %21, align 1, !tbaa !18, !alias.scope !761
+  store i32 1145980233, ptr %21, align 1, !tbaa !18, !alias.scope !765
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %17)
   br label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit
 
@@ -19595,15 +19586,15 @@ define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr n
   %8 = alloca %struct.LodePNGState, align 8
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %8) #31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store i32 1, ptr %9, align 4, !tbaa !533
+  store i32 1, ptr %9, align 4, !tbaa !536
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 1, ptr %10, align 8, !tbaa !539
+  store i32 1, ptr %10, align 8, !tbaa !542
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  store i32 0, ptr %11, align 4, !tbaa !540
+  store i32 0, ptr %11, align 4, !tbaa !543
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i64 16777216, ptr %12, align 8, !tbaa !432
+  store i64 16777216, ptr %12, align 8, !tbaa !435
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i64 16777216, ptr %13, align 8, !tbaa !469
+  store i64 16777216, ptr %13, align 8, !tbaa !472
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i32 2, ptr %14, align 8, !tbaa !110
@@ -19620,15 +19611,15 @@ define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr n
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 132
-  store i32 1, ptr %21, align 4, !tbaa !534
+  store i32 1, ptr %21, align 4, !tbaa !537
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 5, ptr %22, align 8, !tbaa !535
+  store i32 5, ptr %22, align 8, !tbaa !538
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 1, ptr %23, align 8, !tbaa !536
+  store i32 1, ptr %23, align 8, !tbaa !539
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store i32 1, ptr %25, align 8, !tbaa !537
+  store i32 1, ptr %25, align 8, !tbaa !540
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -19643,19 +19634,19 @@ define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr n
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  store i32 0, ptr %35, align 8, !tbaa !255
-  store i32 0, ptr %30, align 8, !tbaa !256
+  store i32 0, ptr %35, align 8, !tbaa !256
+  store i32 0, ptr %30, align 8, !tbaa !257
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 212
-  store i32 0, ptr %36, align 4, !tbaa !257
+  store i32 0, ptr %36, align 4, !tbaa !258
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store i32 0, ptr %38, align 8, !tbaa !258
+  store i32 0, ptr %38, align 8, !tbaa !259
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  store i32 0, ptr %39, align 8, !tbaa !259
+  store i32 0, ptr %39, align 8, !tbaa !260
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 416
-  store i32 0, ptr %40, align 8, !tbaa !260
+  store i32 0, ptr %40, align 8, !tbaa !261
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 452
-  store i32 0, ptr %41, align 4, !tbaa !261
+  store i32 0, ptr %41, align 4, !tbaa !262
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 460
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 484
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 352
@@ -19666,14 +19657,14 @@ define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %43, i8 0, i64 96, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 632
-  store i32 1, ptr %46, align 8, !tbaa !394
-  store i32 %5, ptr %26, align 8, !tbaa !538
-  store i32 %6, ptr %28, align 4, !tbaa !532
-  store i32 %5, ptr %31, align 8, !tbaa !504
-  store i32 %6, ptr %33, align 4, !tbaa !765
+  store i32 1, ptr %46, align 8, !tbaa !397
+  store i32 %5, ptr %26, align 8, !tbaa !541
+  store i32 %6, ptr %28, align 4, !tbaa !535
+  store i32 %5, ptr %31, align 8, !tbaa !507
+  store i32 %6, ptr %33, align 4, !tbaa !769
   %47 = call noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %8)
-  %48 = load i32, ptr %46, align 8, !tbaa !394
-  %49 = load ptr, ptr %29, align 8, !tbaa !186
+  %48 = load i32, ptr %46, align 8, !tbaa !397
+  %49 = load ptr, ptr %29, align 8, !tbaa !187
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %50
 
@@ -19808,7 +19799,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 79) i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !766
+  %3 = load ptr, ptr %1, align 8, !tbaa !770
   %4 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %29, label %5
@@ -19836,15 +19827,15 @@ define noundef range(i32 0, 79) i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKN
   br i1 %14, label %_ZN7lodepngL10load_file_ERSt6vectorIhSaIhEEP8_IO_FILE.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %0, align 8, !tbaa !769
+  %16 = load ptr, ptr %0, align 8, !tbaa !773
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !771
+  %18 = load ptr, ptr %17, align 8, !tbaa !775
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %16 to i64
   %21 = sub i64 %19, %20
   %22 = tail call i64 @fread(ptr noundef nonnull %16, i64 noundef 1, i64 noundef %21, ptr noundef nonnull %4)
-  %23 = load ptr, ptr %17, align 8, !tbaa !771
-  %24 = load ptr, ptr %0, align 8, !tbaa !769
+  %23 = load ptr, ptr %17, align 8, !tbaa !775
+  %24 = load ptr, ptr %0, align 8, !tbaa !773
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
@@ -19867,7 +19858,7 @@ define noundef range(i32 0, 80) i32 @_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERK
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !7
-  %6 = load ptr, ptr %1, align 8, !tbaa !766
+  %6 = load ptr, ptr %1, align 8, !tbaa !770
   %7 = tail call noalias ptr @fopen(ptr noundef readonly %6, ptr noundef nonnull @.str.2)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_Z17lodepng_save_filePKhmPKc.exit, label %8
@@ -19897,7 +19888,7 @@ define noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEEPKhmRK25LodePNGDec
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   store i64 0, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !433
+  %9 = load ptr, ptr %8, align 8, !tbaa !436
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %18, label %10
 
@@ -19966,7 +19957,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %_ZL
 define internal fastcc noundef i32 @_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #5 {
   %7 = alloca %struct.ucvector, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !433
+  %9 = load ptr, ptr %8, align 8, !tbaa !436
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %18, label %10
 
@@ -19991,11 +19982,11 @@ define internal fastcc noundef i32 @_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #31
   %19 = load ptr, ptr %0, align 8, !tbaa !7
   %20 = load i64, ptr %1, align 8, !tbaa !3
-  store ptr %19, ptr %7, align 8, !tbaa !53, !alias.scope !772
+  store ptr %19, ptr %7, align 8, !tbaa !53, !alias.scope !776
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !58, !alias.scope !772
+  store i64 %20, ptr %21, align 8, !tbaa !58, !alias.scope !776
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %20, ptr %22, align 8, !tbaa !59, !alias.scope !772
+  store i64 %20, ptr %22, align 8, !tbaa !59, !alias.scope !776
   %.not26 = icmp eq i64 %2, 0
   br i1 %.not26, label %31, label %23
 
@@ -20058,7 +20049,7 @@ define noundef range(i32 0, 112) i32 @_ZN7lodepng8compressERSt6vectorIhSaIhEEPKh
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
   store i64 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !598
+  %8 = load ptr, ptr %7, align 8, !tbaa !602
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %12, label %9
 
@@ -20116,7 +20107,7 @@ define noundef range(i32 0, 112) i32 @_ZN7lodepng8compressERSt6vectorIhSaIhEERKS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   store i64 0, ptr %5, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !598
+  %14 = load ptr, ptr %13, align 8, !tbaa !602
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %18, label %15
 
@@ -20160,15 +20151,15 @@ _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7lodepng5StateC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((0, 140), (144, 164), (168, 220), (224, 348), (352, 368), (392, 396), (408, 412), (416, 420), (452, 456), (460, 480), (484, 580), (584, 636)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %2, align 4, !tbaa !533
+  store i32 1, ptr %2, align 4, !tbaa !536
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %3, align 8, !tbaa !539
+  store i32 1, ptr %3, align 8, !tbaa !542
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %4, align 4, !tbaa !540
+  store i32 0, ptr %4, align 4, !tbaa !543
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 16777216, ptr %5, align 8, !tbaa !432
+  store i64 16777216, ptr %5, align 8, !tbaa !435
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 16777216, ptr %6, align 8, !tbaa !469
+  store i64 16777216, ptr %6, align 8, !tbaa !472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 2, ptr %7, align 8, !tbaa !110
@@ -20185,46 +20176,46 @@ define void @_ZN7lodepng5StateC2Ev(ptr noundef nonnull writeonly align 8 capture
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 1, ptr %14, align 4, !tbaa !534
+  store i32 1, ptr %14, align 4, !tbaa !537
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 5, ptr %15, align 8, !tbaa !535
+  store i32 5, ptr %15, align 8, !tbaa !538
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 1, ptr %16, align 8, !tbaa !536
+  store i32 1, ptr %16, align 8, !tbaa !539
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 1, ptr %18, align 8, !tbaa !537
+  store i32 1, ptr %18, align 8, !tbaa !540
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store i32 6, ptr %19, align 8, !tbaa !182
+  store i32 6, ptr %19, align 8, !tbaa !183
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 8, ptr %21, align 4, !tbaa !185
+  store i32 8, ptr %21, align 4, !tbaa !186
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store i32 6, ptr %24, align 8, !tbaa !182
+  store i32 6, ptr %24, align 8, !tbaa !183
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 8, ptr %26, align 4, !tbaa !185
+  store i32 8, ptr %26, align 4, !tbaa !186
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %28, align 8, !tbaa !255
-  store i32 0, ptr %23, align 8, !tbaa !256
+  store i32 0, ptr %28, align 8, !tbaa !256
+  store i32 0, ptr %23, align 8, !tbaa !257
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 0, ptr %29, align 4, !tbaa !257
+  store i32 0, ptr %29, align 4, !tbaa !258
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 0, ptr %31, align 8, !tbaa !258
+  store i32 0, ptr %31, align 8, !tbaa !259
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %32, align 8, !tbaa !259
+  store i32 0, ptr %32, align 8, !tbaa !260
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 0, ptr %33, align 8, !tbaa !260
+  store i32 0, ptr %33, align 8, !tbaa !261
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 0, ptr %34, align 4, !tbaa !261
+  store i32 0, ptr %34, align 4, !tbaa !262
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -20235,22 +20226,22 @@ define void @_ZN7lodepng5StateC2Ev(ptr noundef nonnull writeonly align 8 capture
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %36, i8 0, i64 96, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 1, ptr %39, align 8, !tbaa !394
+  store i32 1, ptr %39, align 8, !tbaa !397
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7lodepng5StateC2ERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((0, 140), (144, 164), (168, 220), (224, 348), (352, 368), (392, 396), (408, 412), (416, 420), (452, 456), (460, 480), (484, 580), (584, 636)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %3, align 4, !tbaa !533
+  store i32 1, ptr %3, align 4, !tbaa !536
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %4, align 8, !tbaa !539
+  store i32 1, ptr %4, align 8, !tbaa !542
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %5, align 4, !tbaa !540
+  store i32 0, ptr %5, align 4, !tbaa !543
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 16777216, ptr %6, align 8, !tbaa !432
+  store i64 16777216, ptr %6, align 8, !tbaa !435
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 16777216, ptr %7, align 8, !tbaa !469
+  store i64 16777216, ptr %7, align 8, !tbaa !472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 2, ptr %8, align 8, !tbaa !110
@@ -20267,46 +20258,46 @@ define void @_ZN7lodepng5StateC2ERKS0_(ptr noundef nonnull align 8 captures(none
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 1, ptr %15, align 4, !tbaa !534
+  store i32 1, ptr %15, align 4, !tbaa !537
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 5, ptr %16, align 8, !tbaa !535
+  store i32 5, ptr %16, align 8, !tbaa !538
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 1, ptr %17, align 8, !tbaa !536
+  store i32 1, ptr %17, align 8, !tbaa !539
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  store i32 1, ptr %19, align 8, !tbaa !537
+  store i32 1, ptr %19, align 8, !tbaa !540
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  store i32 6, ptr %20, align 8, !tbaa !182
+  store i32 6, ptr %20, align 8, !tbaa !183
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 8, ptr %22, align 4, !tbaa !185
+  store i32 8, ptr %22, align 4, !tbaa !186
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  store i32 6, ptr %25, align 8, !tbaa !182
+  store i32 6, ptr %25, align 8, !tbaa !183
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 8, ptr %27, align 4, !tbaa !185
+  store i32 8, ptr %27, align 4, !tbaa !186
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %29, align 8, !tbaa !255
-  store i32 0, ptr %24, align 8, !tbaa !256
+  store i32 0, ptr %29, align 8, !tbaa !256
+  store i32 0, ptr %24, align 8, !tbaa !257
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 0, ptr %30, align 4, !tbaa !257
+  store i32 0, ptr %30, align 4, !tbaa !258
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 0, ptr %32, align 8, !tbaa !258
+  store i32 0, ptr %32, align 8, !tbaa !259
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %33, align 8, !tbaa !259
+  store i32 0, ptr %33, align 8, !tbaa !260
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 0, ptr %34, align 8, !tbaa !260
+  store i32 0, ptr %34, align 8, !tbaa !261
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 0, ptr %35, align 4, !tbaa !261
+  store i32 0, ptr %35, align 4, !tbaa !262
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -20317,7 +20308,7 @@ define void @_ZN7lodepng5StateC2ERKS0_(ptr noundef nonnull align 8 captures(none
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %36, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %37, i8 0, i64 96, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 1, ptr %40, align 8, !tbaa !394
+  store i32 1, ptr %40, align 8, !tbaa !397
   tail call void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef nonnull %0, ptr noundef nonnull %1)
   ret void
 }
@@ -20325,7 +20316,7 @@ define void @_ZN7lodepng5StateC2ERKS0_(ptr noundef nonnull align 8 captures(none
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7lodepng5StateD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((184, 192), (240, 248)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %5, label %4
 
@@ -20364,9 +20355,9 @@ define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_PKhm16LodePNGColor
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %9) #31
   call void @_ZN7lodepng5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(640) %9)
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store i32 %5, ptr %15, align 8, !tbaa !538
+  store i32 %5, ptr %15, align 8, !tbaa !541
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 172
-  store i32 %6, ptr %16, align 4, !tbaa !532
+  store i32 %6, ptr %16, align 4, !tbaa !535
   %17 = load i32, ptr %1, align 4, !tbaa !10
   %18 = load i32, ptr %2, align 4, !tbaa !10
   %19 = icmp ult i32 %5, 7
@@ -20452,9 +20443,9 @@ define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateEPKhm(pt
   %13 = load i32, ptr %1, align 4, !tbaa !10
   %14 = load i32, ptr %2, align 4, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %16 = load i32, ptr %15, align 8, !tbaa !182
+  %16 = load i32, ptr %15, align 8, !tbaa !183
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 172
-  %18 = load i32, ptr %17, align 4, !tbaa !185
+  %18 = load i32, ptr %17, align 4, !tbaa !186
   %19 = icmp ult i32 %16, 7
   br i1 %19, label %switch.lookup, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
 
@@ -20526,13 +20517,13 @@ define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKNSt7__cxx1112bas
 10:                                               ; preds = %19, %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %7, align 8, !tbaa !769
+  %12 = load ptr, ptr %7, align 8, !tbaa !773
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !775
+  %15 = load ptr, ptr %14, align 8, !tbaa !779
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
@@ -20558,13 +20549,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %10, %13
 
 _ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej.exit: ; preds = %19, %9
   %.0 = phi i32 [ %8, %9 ], [ %28, %19 ]
-  %29 = load ptr, ptr %7, align 8, !tbaa !769
+  %29 = load ptr, ptr %7, align 8, !tbaa !773
   %.not.i.i.i13 = icmp eq ptr %29, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIhSaIhEED2Ev.exit14, label %30
 
 30:                                               ; preds = %_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej.exit
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !775
+  %32 = load ptr, ptr %31, align 8, !tbaa !779
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
@@ -20635,8 +20626,8 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %6, %switch.l
   %21 = lshr i64 %20, 3
   %22 = add i64 %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !771
-  %25 = load ptr, ptr %1, align 8, !tbaa !769
+  %24 = load ptr, ptr %23, align 8, !tbaa !775
+  %25 = load ptr, ptr %1, align 8, !tbaa !773
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
@@ -20713,9 +20704,9 @@ define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jjRNS_5StateE(ptr 
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %9 = load i32, ptr %8, align 8, !tbaa !182
+  %9 = load i32, ptr %8, align 8, !tbaa !183
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 172
-  %11 = load i32, ptr %10, align 4, !tbaa !185
+  %11 = load i32, ptr %10, align 4, !tbaa !186
   %12 = icmp ult i32 %9, 7
   br i1 %12, label %switch.lookup, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
 
@@ -20740,8 +20731,8 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %5, %switch.looku
   %24 = lshr i64 %23, 3
   %25 = add i64 %24, %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !771
-  %28 = load ptr, ptr %1, align 8, !tbaa !769
+  %27 = load ptr, ptr %26, align 8, !tbaa !775
+  %28 = load ptr, ptr %1, align 8, !tbaa !773
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -20819,7 +20810,7 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
   %17 = load ptr, ptr %9, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !7
-  %20 = load ptr, ptr %0, align 8, !tbaa !766
+  %20 = load ptr, ptr %0, align 8, !tbaa !770
   %21 = call noalias ptr @fopen(ptr noundef readonly %20, ptr noundef nonnull @.str.2)
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %22
@@ -20837,13 +20828,13 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
 29:                                               ; preds = %12, %6
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %9, align 8, !tbaa !769
+  %31 = load ptr, ptr %9, align 8, !tbaa !773
   %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !775
+  %34 = load ptr, ptr %33, align 8, !tbaa !779
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
@@ -20856,13 +20847,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %29, %32
 
 _ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %22, %16, %15
   %.0 = phi i32 [ %10, %15 ], [ 0, %22 ], [ 79, %16 ]
-  %38 = load ptr, ptr %9, align 8, !tbaa !769
+  %38 = load ptr, ptr %9, align 8, !tbaa !773
   %.not.i.i.i11 = icmp eq ptr %38, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIhSaIhEED2Ev.exit12, label %39
 
 39:                                               ; preds = %_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !775
+  %41 = load ptr, ptr %40, align 8, !tbaa !779
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
   %44 = sub i64 %42, %43
@@ -20900,8 +20891,8 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %6, %switch.l
   %19 = lshr i64 %18, 3
   %20 = add i64 %19, %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !771
-  %23 = load ptr, ptr %1, align 8, !tbaa !769
+  %22 = load ptr, ptr %21, align 8, !tbaa !775
+  %23 = load ptr, ptr %1, align 8, !tbaa !773
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -20953,7 +20944,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL27HuffmanTree_makeFromLe
   %12 = add i32 %.019, 1
   %13 = zext i32 %12 to i64
   %.not18 = icmp eq i64 %2, %13
-  br i1 %.not18, label %14, label %.preheader, !llvm.loop !776
+  br i1 %.not18, label %14, label %.preheader, !llvm.loop !780
 
 14:                                               ; preds = %.preheader
   %15 = trunc nuw nsw i64 %2 to i32
@@ -21031,7 +21022,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
   store i32 %25, ptr %23, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not56 = icmp eq i64 %indvars.iv.next, %4
-  br i1 %.not56, label %.preheader64, label %19, !llvm.loop !777
+  br i1 %.not56, label %.preheader64, label %19, !llvm.loop !781
 
 .preheader:                                       ; preds = %.lr.ph76, %.preheader64
   br i1 %.not5671, label %._crit_edge, label %.lr.ph79
@@ -21052,7 +21043,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
   store i32 %31, ptr %32, align 4, !tbaa !10
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond, label %.preheader, label %.lr.ph76, !llvm.loop !778
+  br i1 %exitcond, label %.preheader, label %.lr.ph76, !llvm.loop !782
 
 33:                                               ; preds = %.lr.ph79, %45
   %indvars.iv90 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next91, %45 ]
@@ -21079,7 +21070,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
 45:                                               ; preds = %33, %36
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.not58 = icmp eq i64 %indvars.iv.next91, %4
-  br i1 %.not58, label %._crit_edge, label %33, !llvm.loop !779
+  br i1 %.not58, label %._crit_edge, label %33, !llvm.loop !783
 
 ._crit_edge:                                      ; preds = %45, %.preheader
   tail call void @free(ptr noundef %12) #31
@@ -21120,7 +21111,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
   %63 = or i32 %62, %.012.i.i
   %64 = add nuw nsw i32 %.0911.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %64, 9
-  br i1 %exitcond.not.i.i, label %_ZL11reverseBitsjj.exit.i, label %58, !llvm.loop !780
+  br i1 %exitcond.not.i.i, label %_ZL11reverseBitsjj.exit.i, label %58, !llvm.loop !784
 
 _ZL11reverseBitsjj.exit.i:                        ; preds = %58
   %65 = zext i32 %63 to i64
@@ -21133,7 +21124,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %58
 68:                                               ; preds = %_ZL11reverseBitsjj.exit.i, %49
   %69 = add nuw nsw i64 %.0126178.i, 1
   %exitcond.not.i = icmp eq i64 %69, %4
-  br i1 %exitcond.not.i, label %.preheader173.i.preheader, label %49, !llvm.loop !781
+  br i1 %exitcond.not.i, label %.preheader173.i.preheader, label %49, !llvm.loop !785
 
 .preheader173.i.preheader:                        ; preds = %68, %46
   br label %.preheader173.i
@@ -21151,7 +21142,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %58
   %.1139.i = add i64 %76, %.0138179.i
   %77 = add nuw nsw i64 %.1127180.i, 1
   %exitcond207.not.i = icmp eq i64 %77, 512
-  br i1 %exitcond207.not.i, label %78, label %.preheader173.i, !llvm.loop !782
+  br i1 %exitcond207.not.i, label %78, label %.preheader173.i, !llvm.loop !786
 
 78:                                               ; preds = %.preheader173.i
   %79 = tail call noalias noundef ptr @malloc(i64 noundef %.1139.i) #30
@@ -21177,7 +21168,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %58
   store i8 16, ptr %85, align 1, !tbaa !18
   %86 = add nuw i64 %.2128181.i, 1
   %exitcond208.not.i = icmp eq i64 %86, %.1139.i
-  br i1 %exitcond208.not.i, label %.preheader171.i.preheader, label %.lr.ph182.i, !llvm.loop !783
+  br i1 %exitcond208.not.i, label %.preheader171.i.preheader, label %.lr.ph182.i, !llvm.loop !787
 
 .preheader171.i.preheader:                        ; preds = %.lr.ph182.i, %.preheader172.i
   br label %.preheader171.i
@@ -21209,7 +21200,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %58
   %.1137.i = phi i64 [ %100, %90 ], [ %.0136183.i, %.preheader171.i ]
   %102 = add nuw nsw i64 %.3129184.i, 1
   %exitcond209.not.i = icmp eq i64 %102, 512
-  br i1 %exitcond209.not.i, label %103, label %.preheader171.i, !llvm.loop !784
+  br i1 %exitcond209.not.i, label %103, label %.preheader171.i, !llvm.loop !788
 
 103:                                              ; preds = %101
   tail call void @free(ptr noundef nonnull %calloc.i) #31
@@ -21247,7 +21238,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %58
   %121 = or i32 %120, %.012.i159.i
   %122 = add nuw i32 %.0911.i160.i, 1
   %exitcond.not.i161.i = icmp eq i32 %122, %109
-  br i1 %exitcond.not.i161.i, label %_ZL11reverseBitsjj.exit162.i, label %115, !llvm.loop !780
+  br i1 %exitcond.not.i161.i, label %_ZL11reverseBitsjj.exit162.i, label %115, !llvm.loop !784
 
 _ZL11reverseBitsjj.exit162.i:                     ; preds = %115
   %123 = add i64 %.0134187.i, 1
@@ -21279,7 +21270,7 @@ _ZL11reverseBitsjj.exit162.i:                     ; preds = %115
   %139 = add nuw nsw i32 %.0144186.i, 1
   %.0144.highbits.i = lshr i32 %139, %126
   %.not155.i = icmp eq i32 %.0144.highbits.i, 0
-  br i1 %.not155.i, label %129, label %.critedge158.i, !llvm.loop !785
+  br i1 %.not155.i, label %129, label %.critedge158.i, !llvm.loop !789
 
 140:                                              ; preds = %_ZL11reverseBitsjj.exit162.i
   %141 = and i32 %121, 511
@@ -21318,7 +21309,7 @@ _ZL11reverseBitsjj.exit162.i:                     ; preds = %115
   %165 = add i32 %.0133185.i, 1
   %.0133.highbits.i = lshr i32 %165, %152
   %166 = icmp eq i32 %.0133.highbits.i, 0
-  br i1 %166, label %156, label %.critedge158.i, !llvm.loop !786
+  br i1 %166, label %156, label %.critedge158.i, !llvm.loop !790
 
 .critedge158.i:                                   ; preds = %156, %136, %106
   %.1135.i = phi i64 [ %.0134187.i, %106 ], [ %123, %136 ], [ %123, %156 ]
@@ -21326,7 +21317,7 @@ _ZL11reverseBitsjj.exit162.i:                     ; preds = %115
   %168 = load i32, ptr %2, align 4, !tbaa !75
   %169 = zext i32 %168 to i64
   %170 = icmp samesign ult i64 %167, %169
-  br i1 %170, label %106, label %._crit_edge.i, !llvm.loop !787
+  br i1 %170, label %106, label %._crit_edge.i, !llvm.loop !791
 
 ._crit_edge.i:                                    ; preds = %.critedge158.i
   %171 = icmp ult i64 %.1135.i, 2
@@ -21362,12 +21353,12 @@ _ZL11reverseBitsjj.exit162.i:                     ; preds = %115
 182:                                              ; preds = %177, %.lr.ph196.i
   %183 = add nuw i64 %.5131195.i, 1
   %exitcond211.not.i = icmp eq i64 %183, %.1139.i
-  br i1 %exitcond211.not.i, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %.lr.ph196.i, !llvm.loop !788
+  br i1 %exitcond211.not.i, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %.lr.ph196.i, !llvm.loop !792
 
 184:                                              ; preds = %186
   %185 = add nuw i64 %.6132190.i, 1
   %exitcond210.not.i = icmp eq i64 %185, %.1139.i
-  br i1 %exitcond210.not.i, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %186, !llvm.loop !789
+  br i1 %exitcond210.not.i, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %186, !llvm.loop !793
 
 186:                                              ; preds = %184, %.lr.ph191.i
   %.6132190.i = phi i64 [ 0, %.lr.ph191.i ], [ %185, %184 ]
@@ -21621,7 +21612,7 @@ define internal fastcc noundef range(i32 0, 91) i32 @_ZL10encodeLZ77P8uivectorP4
   %56 = xor i32 %55, %.235.i
   %57 = add nuw i64 %.02536.i, 1
   %.not32.i = icmp eq i64 %57, %48
-  br i1 %.not32.i, label %_ZL7getHashPKhmm.exit, label %50, !llvm.loop !790
+  br i1 %.not32.i, label %_ZL7getHashPKhmm.exit, label %50, !llvm.loop !794
 
 _ZL7getHashPKhmm.exit:                            ; preds = %50, %34
   %.027.i = phi i32 [ %47, %34 ], [ %56, %50 ]
@@ -21651,7 +21642,7 @@ _ZL7getHashPKhmm.exit:                            ; preds = %50, %34
 69:                                               ; preds = %.lr.ph.i241
   %70 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 1
   %.not.i242 = icmp eq ptr %70, %spec.select.i
-  br i1 %.not.i242, label %_ZL10countZerosPKhmm.exit, label %.lr.ph.i241, !llvm.loop !791
+  br i1 %.not.i242, label %_ZL10countZerosPKhmm.exit, label %.lr.ph.i241, !llvm.loop !795
 
 _ZL10countZerosPKhmm.exit:                        ; preds = %.lr.ph.i241, %69, %62
   %.014.lcssa.i = phi ptr [ %63, %62 ], [ %.01418.i, %.lr.ph.i241 ], [ %spec.select.i, %69 ]
@@ -21787,7 +21778,7 @@ _ZL15updateHashChainP4Hashmjt.exit:               ; preds = %95, %103
   %141 = getelementptr inbounds nuw i8, ptr %.1183297, i64 1
   %142 = getelementptr inbounds nuw i8, ptr %.1185296, i64 1
   %.not229 = icmp eq ptr %142, %110
-  br i1 %.not229, label %.critedge, label %.lr.ph, !llvm.loop !792
+  br i1 %.not229, label %.critedge, label %.lr.ph, !llvm.loop !796
 
 .critedge:                                        ; preds = %.lr.ph, %140, %136
   %.1185.lcssa = phi ptr [ %110, %136 ], [ %110, %140 ], [ %.1185296, %.lr.ph ]
@@ -21836,7 +21827,7 @@ _ZL15updateHashChainP4Hashmjt.exit:               ; preds = %95, %103
   %.1.in = phi i16 [ %157, %154 ], [ %150, %162 ]
   %167 = add i32 %117, 1
   %exitcond.not = icmp eq i32 %117, %12
-  br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !793
+  br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !797
 
 ._crit_edge:                                      ; preds = %166, %116, %147, %148, %154, %162, %_ZL15updateHashChainP4Hashmjt.exit
   %.1202 = phi i32 [ 0, %_ZL15updateHashChainP4Hashmjt.exit ], [ %.2203, %162 ], [ %.2203, %154 ], [ %.2203, %148 ], [ %122, %147 ], [ %.0201301, %116 ], [ %.2203, %166 ]
@@ -22002,7 +21993,7 @@ _ZL18uivector_push_backP8uivectorj.exit251:       ; preds = %224, %236
   %.117.i.i = select i1 %.not19.i.i, i64 %.01621.i.i, i64 %243
   %.1.i.i = select i1 %.not19.i.i, i64 %244, i64 %.022.i.i
   %.not.i.i = icmp ugt i64 %.1.i.i, %.117.i.i
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !794
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !798
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not18.i.i = icmp ult i64 %.1.i.i, 29
@@ -22038,7 +22029,7 @@ _ZL15searchCodeIndexPKjmm.exit.i:                 ; preds = %249, %245
   %.117.i25.i = select i1 %.not19.i24.i, i64 %.01621.i23.i, i64 %258
   %.1.i26.i = select i1 %.not19.i24.i, i64 %259, i64 %.022.i22.i
   %.not.i27.i = icmp ugt i64 %.1.i26.i, %.117.i25.i
-  br i1 %.not.i27.i, label %._crit_edge.i28.i, label %.lr.ph.i21.i, !llvm.loop !794
+  br i1 %.not.i27.i, label %._crit_edge.i28.i, label %.lr.ph.i21.i, !llvm.loop !798
 
 ._crit_edge.i28.i:                                ; preds = %.lr.ph.i21.i
   %.not18.i29.i = icmp ult i64 %.1.i26.i, 30
@@ -22151,7 +22142,7 @@ _ZL15searchCodeIndexPKjmm.exit31.i:               ; preds = %264, %260
   %322 = xor i32 %321, %.235.i258
   %323 = add nuw i64 %.02536.i257, 1
   %.not32.i260 = icmp eq i64 %323, %314
-  br i1 %.not32.i260, label %_ZL7getHashPKhmm.exit263, label %316, !llvm.loop !790
+  br i1 %.not32.i260, label %_ZL7getHashPKhmm.exit263, label %316, !llvm.loop !794
 
 _ZL7getHashPKhmm.exit263:                         ; preds = %316, %299
   %.027.i262 = phi i32 [ %312, %299 ], [ %322, %316 ]
@@ -22181,7 +22172,7 @@ _ZL7getHashPKhmm.exit263.thread:                  ; preds = %313, %_ZL7getHashPK
 334:                                              ; preds = %.lr.ph.i266
   %335 = getelementptr inbounds nuw i8, ptr %.01418.i267, i64 1
   %.not.i269 = icmp eq ptr %335, %spec.select.i264
-  br i1 %.not.i269, label %_ZL10countZerosPKhmm.exit270, label %.lr.ph.i266, !llvm.loop !791
+  br i1 %.not.i269, label %_ZL10countZerosPKhmm.exit270, label %.lr.ph.i266, !llvm.loop !795
 
 _ZL10countZerosPKhmm.exit270:                     ; preds = %.lr.ph.i266, %334, %327
   %.014.lcssa.i268 = phi ptr [ %328, %327 ], [ %.01418.i267, %.lr.ph.i266 ], [ %spec.select.i264, %334 ]
@@ -22250,7 +22241,7 @@ _ZL15updateHashChainP4Hashmjt.exit273:            ; preds = %360, %366
   store i32 %361, ptr %364, align 4, !tbaa !10
   %370 = add nuw i32 %.0210323, 1
   %exitcond350.not = icmp eq i32 %370, %.3200
-  br i1 %exitcond350.not, label %.loopexit, label %294, !llvm.loop !795
+  br i1 %exitcond350.not, label %.loopexit, label %294, !llvm.loop !799
 
 .loopexit.sink.split:                             ; preds = %_ZL18uivector_push_backP8uivectorj.exit247, %_ZL18uivector_push_backP8uivectorj.exit251
   %.sink354 = phi ptr [ %238, %_ZL18uivector_push_backP8uivectorj.exit251 ], [ %218, %_ZL18uivector_push_backP8uivectorj.exit247 ]
@@ -22268,7 +22259,7 @@ _ZL15updateHashChainP4Hashmjt.exit273:            ; preds = %360, %366
   %.2 = phi i64 [ %.0188335, %171 ], [ %.1189, %.loopexit.sink.split ], [ %295, %_ZL15updateHashChainP4Hashmjt.exit273 ]
   %372 = add i64 %.2, 1
   %373 = icmp ult i64 %372, %4
-  br i1 %373, label %30, label %.thread283, !llvm.loop !796
+  br i1 %373, label %30, label %.thread283, !llvm.loop !800
 
 .thread283:                                       ; preds = %.loopexit, %175, %.thread, %188, %212, %232, %18, %15, %9
   %.0186 = phi i32 [ 60, %9 ], [ 90, %15 ], [ 0, %18 ], [ 0, %.loopexit ], [ 81, %175 ], [ 86, %.thread ], [ 83, %188 ], [ 83, %212 ], [ 83, %232 ]
@@ -22497,7 +22488,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit45: ; preds = %103, %114, %66
   %136 = add i64 %.1, 1
   %137 = load i64, ptr %5, align 8, !tbaa !144
   %.not = icmp eq i64 %136, %137
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !797
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !801
 
 ._crit_edge:                                      ; preds = %135, %4
   ret void
@@ -22689,8 +22680,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL18lodepng_chunk_initPPhP
   store i8 %33, ptr %34, align 1, !tbaa !18
   %35 = load ptr, ptr %0, align 8, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %3, align 1, !tbaa !18, !alias.scope !798
-  store i32 %37, ptr %36, align 1, !tbaa !18, !alias.scope !798
+  %37 = load i32, ptr %3, align 1, !tbaa !18, !alias.scope !802
+  store i32 %37, ptr %36, align 1, !tbaa !18, !alias.scope !802
   br label %_ZL15ucvector_resizeP8ucvectorm.exit
 
 _ZL15ucvector_resizeP8ucvectorm.exit:             ; preds = %15, %8, %4, %19
@@ -22770,7 +22761,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %42, ptr %43, align 1, !tbaa !18
   %44 = add nuw nsw i64 %.0555873.i, 1
   %.not640.i = icmp eq i64 %44, %18
-  br i1 %.not640.i, label %.loopexit, label %.lr.ph874.i, !llvm.loop !802
+  br i1 %.not640.i, label %.loopexit, label %.lr.ph874.i, !llvm.loop !806
 
 .preheader713.i:                                  ; preds = %.lr.ph867.i, %.preheader715.i
   br i1 %.not626824.i, label %.loopexit, label %.lr.ph871.i
@@ -22783,7 +22774,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %46, ptr %47, align 1, !tbaa !18
   %48 = add nuw nsw i64 %.1866.i, 1
   %.not638.i = icmp eq i64 %48, %8
-  br i1 %.not638.i, label %.preheader713.i, label %.lr.ph867.i, !llvm.loop !803
+  br i1 %.not638.i, label %.preheader713.i, label %.lr.ph867.i, !llvm.loop !807
 
 .lr.ph871.i:                                      ; preds = %.preheader713.i, %.lr.ph871.i
   %.2870.i = phi i64 [ %55, %.lr.ph871.i ], [ %8, %.preheader713.i ]
@@ -22798,7 +22789,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %55 = add i64 %.2870.i, 1
   %56 = add nuw i64 %.0557869.i, 1
   %.not639.i = icmp eq i64 %55, %18
-  br i1 %.not639.i, label %.loopexit, label %.lr.ph871.i, !llvm.loop !804
+  br i1 %.not639.i, label %.loopexit, label %.lr.ph871.i, !llvm.loop !808
 
 57:                                               ; preds = %34
   %.not635.i = icmp eq ptr %.03088, null
@@ -22821,7 +22812,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %62, ptr %63, align 1, !tbaa !18
   %64 = add nuw nsw i64 %.3860.i, 1
   %.not637.i = icmp eq i64 %64, %18
-  br i1 %.not637.i, label %.loopexit, label %.lr.ph861.i, !llvm.loop !805
+  br i1 %.not637.i, label %.loopexit, label %.lr.ph861.i, !llvm.loop !809
 
 .lr.ph864.i:                                      ; preds = %.preheader716.i, %.lr.ph864.i
   %.4863.i = phi i64 [ %68, %.lr.ph864.i ], [ 0, %.preheader716.i ]
@@ -22831,7 +22822,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %66, ptr %67, align 1, !tbaa !18
   %68 = add nuw nsw i64 %.4863.i, 1
   %.not636.i = icmp eq i64 %68, %18
-  br i1 %.not636.i, label %.loopexit, label %.lr.ph864.i, !llvm.loop !806
+  br i1 %.not636.i, label %.loopexit, label %.lr.ph864.i, !llvm.loop !810
 
 69:                                               ; preds = %34
   %.not630.i = icmp eq ptr %.03088, null
@@ -22855,7 +22846,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %75, ptr %76, align 1, !tbaa !18
   %77 = add nuw nsw i64 %.5829.i, 1
   %.not633.i = icmp eq i64 %77, %8
-  br i1 %.not633.i, label %._crit_edge.i, label %.lr.ph830.i, !llvm.loop !807
+  br i1 %.not633.i, label %._crit_edge.i, label %.lr.ph830.i, !llvm.loop !811
 
 ._crit_edge.i:                                    ; preds = %.lr.ph830.i
   br i1 %25, label %.preheader724.i, label %137
@@ -22929,7 +22920,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %134 = add nuw nsw i64 %.0559842.i, 4
   %135 = add nuw nsw i64 %.6843.i, 7
   %136 = icmp samesign ult i64 %135, %18
-  br i1 %136, label %.lr.ph844.i, label %.loopexit725.i, !llvm.loop !808
+  br i1 %136, label %.lr.ph844.i, label %.loopexit725.i, !llvm.loop !812
 
 137:                                              ; preds = %._crit_edge.i
   br i1 %26, label %.preheader726.i, label %183
@@ -22988,7 +22979,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %180 = add nuw nsw i64 %.2561837.i, 3
   %181 = add nuw nsw i64 %.8838.i, 5
   %182 = icmp samesign ult i64 %181, %18
-  br i1 %182, label %.lr.ph839.i, label %.loopexit725.i, !llvm.loop !809
+  br i1 %182, label %.lr.ph839.i, label %.loopexit725.i, !llvm.loop !813
 
 183:                                              ; preds = %137
   br i1 %or.cond.i, label %.lr.ph834.i, label %.loopexit725.i
@@ -23029,7 +23020,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %212 = add nuw nsw i64 %.3562832.i, 2
   %213 = add nuw nsw i64 %.9833.i, 3
   %214 = icmp samesign ult i64 %213, %18
-  br i1 %214, label %.lr.ph834.i, label %.loopexit725.i, !llvm.loop !810
+  br i1 %214, label %.lr.ph834.i, label %.loopexit725.i, !llvm.loop !814
 
 .loopexit725.i:                                   ; preds = %.lr.ph834.i, %.lr.ph839.i, %.lr.ph844.i, %183, %.preheader726.i, %.preheader724.i, %.preheader730.i
   %.1560.i = phi i64 [ 0, %183 ], [ 0, %.preheader724.i ], [ 0, %.preheader726.i ], [ 0, %.preheader730.i ], [ %134, %.lr.ph844.i ], [ %180, %.lr.ph839.i ], [ %212, %.lr.ph834.i ]
@@ -23057,7 +23048,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %228 = add i64 %.10849.i, 1
   %229 = add i64 %.4563848.i, 1
   %.not634.i = icmp eq i64 %228, %18
-  br i1 %.not634.i, label %.loopexit, label %.lr.ph851.i, !llvm.loop !811
+  br i1 %.not634.i, label %.loopexit, label %.lr.ph851.i, !llvm.loop !815
 
 .preheader720.i:                                  ; preds = %.lr.ph854.i, %.preheader722.i
   br i1 %.not626824.i, label %.loopexit, label %.lr.ph858.i
@@ -23070,7 +23061,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %231, ptr %232, align 1, !tbaa !18
   %233 = add nuw nsw i64 %.11853.i, 1
   %.not631.i = icmp eq i64 %233, %8
-  br i1 %.not631.i, label %.preheader720.i, label %.lr.ph854.i, !llvm.loop !812
+  br i1 %.not631.i, label %.preheader720.i, label %.lr.ph854.i, !llvm.loop !816
 
 .lr.ph858.i:                                      ; preds = %.preheader720.i, %.lr.ph858.i
   %.12857.i = phi i64 [ %241, %.lr.ph858.i ], [ %8, %.preheader720.i ]
@@ -23086,7 +23077,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %241 = add i64 %.12857.i, 1
   %242 = add nuw i64 %.0565856.i, 1
   %.not632.i = icmp eq i64 %241, %18
-  br i1 %.not632.i, label %.loopexit, label %.lr.ph858.i, !llvm.loop !813
+  br i1 %.not632.i, label %.loopexit, label %.lr.ph858.i, !llvm.loop !817
 
 243:                                              ; preds = %34
   %.not.i = icmp eq ptr %.03088, null
@@ -23336,7 +23327,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %412 = add nuw nsw i64 %.13811.i, 8
   %413 = or disjoint i64 %412, 7
   %414 = icmp samesign ult i64 %413, %18
-  br i1 %414, label %.lr.ph812.i, label %.loopexit736.i, !llvm.loop !814
+  br i1 %414, label %.lr.ph812.i, label %.loopexit736.i, !llvm.loop !818
 
 .lr.ph793.i:                                      ; preds = %.preheader739.i, %.lr.ph793.i
   %.15792.i = phi i64 [ %540, %.lr.ph793.i ], [ 0, %.preheader739.i ]
@@ -23498,7 +23489,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %540 = add nuw nsw i64 %.15792.i, 6
   %541 = add nuw nsw i64 %.15792.i, 11
   %542 = icmp samesign ult i64 %541, %18
-  br i1 %542, label %.lr.ph793.i, label %.loopexit736.i, !llvm.loop !815
+  br i1 %542, label %.lr.ph793.i, label %.loopexit736.i, !llvm.loop !819
 
 .lr.ph778.i:                                      ; preds = %.preheader741.i, %.lr.ph778.i
   %.16777.i = phi i64 [ %626, %.lr.ph778.i ], [ 0, %.preheader741.i ]
@@ -23608,7 +23599,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %626 = add nuw nsw i64 %.16777.i, 4
   %627 = or disjoint i64 %626, 3
   %628 = icmp samesign ult i64 %627, %18
-  br i1 %628, label %.lr.ph778.i, label %.loopexit736.i, !llvm.loop !816
+  br i1 %628, label %.lr.ph778.i, label %.loopexit736.i, !llvm.loop !820
 
 .lr.ph767.i:                                      ; preds = %.preheader743.i, %.lr.ph767.i
   %.17766.i = phi i64 [ %691, %.lr.ph767.i ], [ 0, %.preheader743.i ]
@@ -23692,7 +23683,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %691 = add nuw nsw i64 %.17766.i, 3
   %692 = add nuw nsw i64 %.17766.i, 5
   %693 = icmp samesign ult i64 %692, %18
-  br i1 %693, label %.lr.ph767.i, label %.loopexit736.i, !llvm.loop !817
+  br i1 %693, label %.lr.ph767.i, label %.loopexit736.i, !llvm.loop !821
 
 .lr.ph758.i:                                      ; preds = %.preheader745.i, %.lr.ph758.i
   %.18757.i = phi i64 [ %735, %.lr.ph758.i ], [ 0, %.preheader745.i ]
@@ -23750,7 +23741,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %735 = add nuw nsw i64 %.18757.i, 2
   %736 = or disjoint i64 %735, 1
   %737 = icmp samesign ult i64 %736, %18
-  br i1 %737, label %.lr.ph758.i, label %.loopexit736.i, !llvm.loop !818
+  br i1 %737, label %.lr.ph758.i, label %.loopexit736.i, !llvm.loop !822
 
 .lr.ph.i:                                         ; preds = %.preheader747.i, %.lr.ph.i
   %.0552752.i = phi i8 [ %756, %.lr.ph.i ], [ 0, %.preheader747.i ]
@@ -23781,7 +23772,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %756, ptr %757, align 1, !tbaa !18
   %758 = add nuw nsw i64 %.19750.i, 1
   %.not628.i = icmp eq i64 %758, %18
-  br i1 %.not628.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !819
+  br i1 %.not628.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !823
 
 .lr.ph816.i:                                      ; preds = %244, %.lr.ph816.i
   %.20815.i = phi i64 [ %765, %.lr.ph816.i ], [ 0, %244 ]
@@ -23794,7 +23785,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %763, ptr %764, align 1, !tbaa !18
   %765 = add nuw nsw i64 %.20815.i, 1
   %.not627.i = icmp eq i64 %765, %8
-  br i1 %.not627.i, label %.loopexit736.i, label %.lr.ph816.i, !llvm.loop !820
+  br i1 %.not627.i, label %.loopexit736.i, label %.lr.ph816.i, !llvm.loop !824
 
 .loopexit736.i:                                   ; preds = %.lr.ph758.i, %.lr.ph767.i, %.lr.ph778.i, %.lr.ph793.i, %.lr.ph812.i, %.lr.ph816.i, %.preheader737.i, %.preheader739.i, %.preheader741.i, %.preheader743.i, %.preheader745.i, %.preheader747.i, %244
   %.14.i = phi i64 [ 0, %.preheader737.i ], [ 0, %.preheader739.i ], [ 0, %.preheader741.i ], [ 0, %.preheader743.i ], [ 0, %.preheader745.i ], [ 0, %.preheader747.i ], [ 0, %244 ], [ %8, %.lr.ph816.i ], [ %412, %.lr.ph812.i ], [ %540, %.lr.ph793.i ], [ %626, %.lr.ph778.i ], [ %691, %.lr.ph767.i ], [ %735, %.lr.ph758.i ]
@@ -23833,7 +23824,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %789, ptr %790, align 1, !tbaa !18
   %791 = add i64 %.21819.i, 1
   %.not629.i = icmp eq i64 %791, %18
-  br i1 %.not629.i, label %.loopexit, label %.lr.ph820.i, !llvm.loop !821
+  br i1 %.not629.i, label %.loopexit, label %.lr.ph820.i, !llvm.loop !825
 
 .preheader731.i:                                  ; preds = %.lr.ph823.i, %.preheader733.i
   br i1 %.not626824.i, label %.loopexit, label %.lr.ph827.i
@@ -23846,7 +23837,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   store i8 %793, ptr %794, align 1, !tbaa !18
   %795 = add nuw nsw i64 %.22822.i, 1
   %.not625.i = icmp eq i64 %795, %8
-  br i1 %.not625.i, label %.preheader731.i, label %.lr.ph823.i, !llvm.loop !822
+  br i1 %.not625.i, label %.preheader731.i, label %.lr.ph823.i, !llvm.loop !826
 
 .lr.ph827.i:                                      ; preds = %.preheader731.i, %.lr.ph827.i
   %.0826.i = phi i64 [ %803, %.lr.ph827.i ], [ 0, %.preheader731.i ]
@@ -23861,12 +23852,12 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %802 = add i64 %.23825.i, 1
   %803 = add nuw i64 %.0826.i, 1
   %.not626.i = icmp eq i64 %802, %18
-  br i1 %.not626.i, label %.loopexit, label %.lr.ph827.i, !llvm.loop !823
+  br i1 %.not626.i, label %.loopexit, label %.lr.ph827.i, !llvm.loop !827
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph820.i, %.lr.ph827.i, %.lr.ph851.i, %.lr.ph858.i, %.lr.ph861.i, %.lr.ph864.i, %.lr.ph871.i, %.lr.ph874.i, %.preheader.i, %.preheader713.i, %.preheader716.i, %.preheader718.i, %.preheader720.i, %.loopexit725.i, %.preheader731.i, %.loopexit736.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL16unfilterScanlinePhPKhS1_mhm.exit, label %34, !llvm.loop !824
+  br i1 %exitcond.not, label %_ZL16unfilterScanlinePhPKhS1_mhm.exit, label %34, !llvm.loop !828
 
 _ZL16unfilterScanlinePhPKhS1_mhm.exit:            ; preds = %.loopexit, %34, %5
   %.2 = phi i32 [ 0, %5 ], [ 36, %34 ], [ 0, %.loopexit ]
@@ -23882,170 +23873,116 @@ define internal fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr noundef captures(no
 .preheader24.lr.ph:                               ; preds = %5
   %.not44 = icmp eq i64 %3, 0
   %.not1529 = icmp eq i64 %2, %3
-  br i1 %.not44, label %.preheader24.lr.ph.split, label %.preheader24.lr.ph.split.us
+  br i1 %.not44, label %.preheader24.lr.ph.split, label %.preheader24.us
 
-.preheader24.lr.ph.split.us:                      ; preds = %.preheader24.lr.ph
-  br i1 %.not1529, label %.preheader24.us.us, label %.preheader24.us
+.preheader24.us:                                  ; preds = %.preheader24.lr.ph, %._crit_edge.us
+  %.037.us = phi i32 [ %19, %._crit_edge.us ], [ 0, %.preheader24.lr.ph ]
+  %.02036.us = phi i64 [ %47, %._crit_edge.us ], [ 0, %.preheader24.lr.ph ]
+  %.02235.us = phi i64 [ %.2.lcssa.us, %._crit_edge.us ], [ 0, %.preheader24.lr.ph ]
+  %7 = add i64 %3, %.02235.us
+  br label %20
 
-.preheader24.us.us:                               ; preds = %.preheader24.lr.ph.split.us, %..preheader_crit_edge.us.us
-  %.037.us.us = phi i32 [ %36, %..preheader_crit_edge.us.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  %.02036.us.us = phi i64 [ %35, %..preheader_crit_edge.us.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  %.02235.us.us = phi i64 [ %7, %..preheader_crit_edge.us.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  %7 = add i64 %2, %.02235.us.us
-  br label %8
+.lr.ph32.us:                                      ; preds = %..preheader_crit_edge.us, %.lr.ph32.us
+  %.131.us = phi i64 [ %18, %.lr.ph32.us ], [ 0, %..preheader_crit_edge.us ]
+  %.230.us = phi i64 [ %17, %.lr.ph32.us ], [ %7, %..preheader_crit_edge.us ]
+  %8 = trunc i64 %.230.us to i8
+  %9 = and i8 %8, 7
+  %10 = xor i8 %9, 7
+  %11 = shl nuw i8 1, %10
+  %12 = xor i8 %11, -1
+  %13 = lshr i64 %.230.us, 3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !18
+  %16 = and i8 %15, %12
+  store i8 %16, ptr %14, align 1, !tbaa !18
+  %17 = add i64 %.230.us, 1
+  %18 = add nuw i64 %.131.us, 1
+  %.not15.us = icmp eq i64 %18, %6
+  br i1 %.not15.us, label %._crit_edge.us, label %.lr.ph32.us, !llvm.loop !829
 
-8:                                                ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us, %.preheader24.us.us
-  %.12126.us.us = phi i64 [ %.02036.us.us, %.preheader24.us.us ], [ %15, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us ]
-  %.12325.us.us = phi i64 [ %.02235.us.us, %.preheader24.us.us ], [ %34, %_ZL22setBitOfReversedStreamPmPhh.exit.us.us ]
-  %9 = lshr i64 %.12126.us.us, 3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !18
-  %12 = trunc i64 %.12126.us.us to i8
-  %13 = and i8 %12, 7
-  %14 = xor i8 %13, 7
-  %15 = add i64 %.12126.us.us, 1
-  %16 = shl nuw i8 1, %14
-  %17 = and i8 %11, %16
-  %18 = icmp eq i8 %17, 0
-  %19 = trunc i64 %.12325.us.us to i8
-  %20 = and i8 %19, 7
-  %21 = xor i8 %20, 7
-  %22 = shl nuw i8 1, %21
-  br i1 %18, label %28, label %23
+._crit_edge.us:                                   ; preds = %.lr.ph32.us, %..preheader_crit_edge.us
+  %.2.lcssa.us = phi i64 [ %7, %..preheader_crit_edge.us ], [ %17, %.lr.ph32.us ]
+  %19 = add nuw i32 %.037.us, 1
+  %.not.us = icmp eq i32 %19, %4
+  br i1 %.not.us, label %._crit_edge38, label %.preheader24.us, !llvm.loop !830
 
-23:                                               ; preds = %8
-  %24 = lshr i64 %.12325.us.us, 3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !18
-  %27 = or i8 %26, %22
-  store i8 %27, ptr %25, align 1, !tbaa !18
-  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us
+20:                                               ; preds = %.preheader24.us, %_ZL22setBitOfReversedStreamPmPhh.exit.us
+  %.12126.us = phi i64 [ %.02036.us, %.preheader24.us ], [ %27, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
+  %.12325.us = phi i64 [ %.02235.us, %.preheader24.us ], [ %46, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
+  %21 = lshr i64 %.12126.us, 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !18
+  %24 = trunc i64 %.12126.us to i8
+  %25 = and i8 %24, 7
+  %26 = xor i8 %25, 7
+  %27 = add i64 %.12126.us, 1
+  %28 = shl nuw i8 1, %26
+  %29 = and i8 %23, %28
+  %30 = icmp eq i8 %29, 0
+  %31 = trunc i64 %.12325.us to i8
+  %32 = and i8 %31, 7
+  %33 = xor i8 %32, 7
+  %34 = shl nuw i8 1, %33
+  br i1 %30, label %40, label %35
 
-28:                                               ; preds = %8
-  %29 = xor i8 %22, -1
-  %30 = lshr i64 %.12325.us.us, 3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !18
-  %33 = and i8 %32, %29
-  store i8 %33, ptr %31, align 1, !tbaa !18
-  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us.us
+35:                                               ; preds = %20
+  %36 = lshr i64 %.12325.us, 3
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !18
+  %39 = or i8 %38, %34
+  store i8 %39, ptr %37, align 1, !tbaa !18
+  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us
 
-_ZL22setBitOfReversedStreamPmPhh.exit.us.us:      ; preds = %28, %23
-  %34 = add i64 %.12325.us.us, 1
-  %exitcond53.not = icmp eq i64 %34, %7
-  br i1 %exitcond53.not, label %..preheader_crit_edge.us.us, label %8, !llvm.loop !825
-
-..preheader_crit_edge.us.us:                      ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us.us
-  %35 = add i64 %2, %.02036.us.us
-  %36 = add nuw i32 %.037.us.us, 1
-  %.not.us.us = icmp eq i32 %36, %4
-  br i1 %.not.us.us, label %._crit_edge38, label %.preheader24.us.us, !llvm.loop !826
-
-.preheader24.us:                                  ; preds = %.preheader24.lr.ph.split.us, %._crit_edge.us
-  %.037.us = phi i32 [ %77, %._crit_edge.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  %.02036.us = phi i64 [ %76, %._crit_edge.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  %.02235.us = phi i64 [ %46, %._crit_edge.us ], [ 0, %.preheader24.lr.ph.split.us ]
-  br label %48
-
-..preheader_crit_edge.us:                         ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us, %..preheader_crit_edge.us
-  %.131.us = phi i64 [ %47, %..preheader_crit_edge.us ], [ 0, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
-  %.230.us = phi i64 [ %46, %..preheader_crit_edge.us ], [ %74, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
-  %37 = trunc i64 %.230.us to i8
-  %38 = and i8 %37, 7
-  %39 = xor i8 %38, 7
-  %40 = shl nuw i8 1, %39
-  %41 = xor i8 %40, -1
-  %42 = lshr i64 %.230.us, 3
+40:                                               ; preds = %20
+  %41 = xor i8 %34, -1
+  %42 = lshr i64 %.12325.us, 3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !18
   %45 = and i8 %44, %41
   store i8 %45, ptr %43, align 1, !tbaa !18
-  %46 = add i64 %.230.us, 1
-  %47 = add nuw i64 %.131.us, 1
-  %.not15.us = icmp eq i64 %47, %6
-  br i1 %.not15.us, label %._crit_edge.us, label %..preheader_crit_edge.us, !llvm.loop !827
-
-48:                                               ; preds = %.preheader24.us, %_ZL22setBitOfReversedStreamPmPhh.exit.us
-  %.01427.us = phi i64 [ 0, %.preheader24.us ], [ %75, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
-  %.12126.us = phi i64 [ %.02036.us, %.preheader24.us ], [ %55, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
-  %.12325.us = phi i64 [ %.02235.us, %.preheader24.us ], [ %74, %_ZL22setBitOfReversedStreamPmPhh.exit.us ]
-  %49 = lshr i64 %.12126.us, 3
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !18
-  %52 = trunc i64 %.12126.us to i8
-  %53 = and i8 %52, 7
-  %54 = xor i8 %53, 7
-  %55 = add i64 %.12126.us, 1
-  %56 = shl nuw i8 1, %54
-  %57 = and i8 %51, %56
-  %58 = icmp eq i8 %57, 0
-  %59 = trunc i64 %.12325.us to i8
-  %60 = and i8 %59, 7
-  %61 = xor i8 %60, 7
-  %62 = shl nuw i8 1, %61
-  br i1 %58, label %68, label %63
-
-63:                                               ; preds = %48
-  %64 = lshr i64 %.12325.us, 3
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !18
-  %67 = or i8 %66, %62
-  store i8 %67, ptr %65, align 1, !tbaa !18
   br label %_ZL22setBitOfReversedStreamPmPhh.exit.us
 
-68:                                               ; preds = %48
-  %69 = xor i8 %62, -1
-  %70 = lshr i64 %.12325.us, 3
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !18
-  %73 = and i8 %72, %69
-  store i8 %73, ptr %71, align 1, !tbaa !18
-  br label %_ZL22setBitOfReversedStreamPmPhh.exit.us
+_ZL22setBitOfReversedStreamPmPhh.exit.us:         ; preds = %40, %35
+  %46 = add i64 %.12325.us, 1
+  %exitcond.not = icmp eq i64 %46, %7
+  br i1 %exitcond.not, label %..preheader_crit_edge.us, label %20, !llvm.loop !831
 
-_ZL22setBitOfReversedStreamPmPhh.exit.us:         ; preds = %68, %63
-  %74 = add i64 %.12325.us, 1
-  %75 = add nuw i64 %.01427.us, 1
-  %exitcond.not = icmp eq i64 %75, %3
-  br i1 %exitcond.not, label %..preheader_crit_edge.us, label %48, !llvm.loop !825
-
-._crit_edge.us:                                   ; preds = %..preheader_crit_edge.us
-  %76 = add i64 %3, %.02036.us
-  %77 = add nuw i32 %.037.us, 1
-  %.not.us = icmp eq i32 %77, %4
-  br i1 %.not.us, label %._crit_edge38, label %.preheader24.us, !llvm.loop !826
+..preheader_crit_edge.us:                         ; preds = %_ZL22setBitOfReversedStreamPmPhh.exit.us
+  %47 = add i64 %3, %.02036.us
+  br i1 %.not1529, label %._crit_edge.us, label %.lr.ph32.us
 
 .preheader24.lr.ph.split:                         ; preds = %.preheader24.lr.ph
   br i1 %.not1529, label %._crit_edge38, label %.preheader24
 
 .preheader24:                                     ; preds = %.preheader24.lr.ph.split, %._crit_edge
-  %.037 = phi i32 [ %90, %._crit_edge ], [ 0, %.preheader24.lr.ph.split ]
-  %.02235 = phi i64 [ %88, %._crit_edge ], [ 0, %.preheader24.lr.ph.split ]
-  br label %78
+  %.037 = phi i32 [ %60, %._crit_edge ], [ 0, %.preheader24.lr.ph.split ]
+  %.02235 = phi i64 [ %58, %._crit_edge ], [ 0, %.preheader24.lr.ph.split ]
+  br label %48
 
-78:                                               ; preds = %.preheader24, %78
-  %.131 = phi i64 [ 0, %.preheader24 ], [ %89, %78 ]
-  %.230 = phi i64 [ %.02235, %.preheader24 ], [ %88, %78 ]
-  %79 = trunc i64 %.230 to i8
-  %80 = and i8 %79, 7
-  %81 = xor i8 %80, 7
-  %82 = shl nuw i8 1, %81
-  %83 = xor i8 %82, -1
-  %84 = lshr i64 %.230, 3
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !18
-  %87 = and i8 %86, %83
-  store i8 %87, ptr %85, align 1, !tbaa !18
-  %88 = add i64 %.230, 1
-  %89 = add nuw i64 %.131, 1
-  %.not15 = icmp eq i64 %89, %6
-  br i1 %.not15, label %._crit_edge, label %78, !llvm.loop !827
+48:                                               ; preds = %.preheader24, %48
+  %.131 = phi i64 [ 0, %.preheader24 ], [ %59, %48 ]
+  %.230 = phi i64 [ %.02235, %.preheader24 ], [ %58, %48 ]
+  %49 = trunc i64 %.230 to i8
+  %50 = and i8 %49, 7
+  %51 = xor i8 %50, 7
+  %52 = shl nuw i8 1, %51
+  %53 = xor i8 %52, -1
+  %54 = lshr i64 %.230, 3
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %57 = and i8 %56, %53
+  store i8 %57, ptr %55, align 1, !tbaa !18
+  %58 = add i64 %.230, 1
+  %59 = add nuw i64 %.131, 1
+  %.not15 = icmp eq i64 %59, %6
+  br i1 %.not15, label %._crit_edge, label %48, !llvm.loop !829
 
-._crit_edge:                                      ; preds = %78
-  %90 = add nuw i32 %.037, 1
-  %.not = icmp eq i32 %90, %4
-  br i1 %.not, label %._crit_edge38, label %.preheader24, !llvm.loop !826
+._crit_edge:                                      ; preds = %48
+  %60 = add nuw i32 %.037, 1
+  %.not = icmp eq i32 %60, %4
+  br i1 %.not, label %._crit_edge38, label %.preheader24, !llvm.loop !832
 
-._crit_edge38:                                    ; preds = %._crit_edge.us, %..preheader_crit_edge.us.us, %._crit_edge, %.preheader24.lr.ph.split, %5
+._crit_edge38:                                    ; preds = %._crit_edge.us, %._crit_edge, %.preheader24.lr.ph.split, %5
   ret void
 }
 
@@ -24085,9 +24022,9 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %28 = lshr i32 %27, 3
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %31 = load i32, ptr %30, align 8, !tbaa !535
+  %31 = load i32, ptr %30, align 8, !tbaa !538
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %33 = load i32, ptr %32, align 4, !tbaa !534
+  %33 = load i32, ptr %32, align 4, !tbaa !537
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %37, label %34
 
@@ -24131,7 +24068,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   tail call fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef %46, ptr noundef %47, ptr noundef %.022889, i64 noundef %25, i64 noundef %29, i8 noundef zeroext %41)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %.not304 = icmp eq i64 %indvars.iv.next138, %42
-  br i1 %.not304, label %.loopexit, label %.lr.ph90, !llvm.loop !828
+  br i1 %.not304, label %.loopexit, label %.lr.ph90, !llvm.loop !833
 
 48:                                               ; preds = %40
   switch i32 %31, label %.loopexit [
@@ -24164,7 +24101,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %spec.select = select i1 %.not303, i32 83, i32 %.125263
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.not295 = icmp eq i64 %indvars.iv.next127, 5
-  br i1 %.not295, label %55, label %52, !llvm.loop !829
+  br i1 %.not295, label %55, label %52, !llvm.loop !834
 
 55:                                               ; preds = %52
   %.not296 = icmp ne i32 %spec.select, 0
@@ -24214,7 +24151,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %69 = add i32 %.023170, 1
   %70 = zext i32 %69 to i64
   %.not301 = icmp eq i64 %25, %70
-  br i1 %.not301, label %.loopexit8, label %.lr.ph71, !llvm.loop !830
+  br i1 %.not301, label %.loopexit8, label %.lr.ph71, !llvm.loop !835
 
 .lr.ph67:                                         ; preds = %.preheader9, %.lr.ph67
   %71 = phi i64 [ %81, %.lr.ph67 ], [ 0, %.preheader9 ]
@@ -24231,7 +24168,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %80 = add i32 %.123266, 1
   %81 = zext i32 %80 to i64
   %.not300 = icmp eq i64 %25, %81
-  br i1 %.not300, label %.loopexit8, label %.lr.ph67, !llvm.loop !831
+  br i1 %.not300, label %.loopexit8, label %.lr.ph67, !llvm.loop !836
 
 .loopexit8:                                       ; preds = %.lr.ph67, %.lr.ph71, %.preheader9, %.preheader
   %.1259 = phi i64 [ 0, %.preheader ], [ 0, %.preheader9 ], [ %68, %.lr.ph71 ], [ %79, %.lr.ph67 ]
@@ -24241,7 +24178,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %.2263 = select i1 %or.cond305, i8 %62, i8 %.126275
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %.not298 = icmp eq i64 %indvars.iv.next130, 5
-  br i1 %.not298, label %83, label %59, !llvm.loop !832
+  br i1 %.not298, label %83, label %59, !llvm.loop !837
 
 83:                                               ; preds = %.loopexit8
   %84 = mul i64 %26, %indvars.iv132
@@ -24266,12 +24203,12 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %95 = add i32 %.223377, 1
   %96 = zext i32 %95 to i64
   %.not299 = icmp eq i64 %25, %96
-  br i1 %.not299, label %._crit_edge80, label %90, !llvm.loop !833
+  br i1 %.not299, label %._crit_edge80, label %90, !llvm.loop !838
 
 ._crit_edge80:                                    ; preds = %90, %83
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %.not297 = icmp eq i64 %indvars.iv.next133, %56
-  br i1 %.not297, label %.loopexit13.preheader, label %.preheader11, !llvm.loop !834
+  br i1 %.not297, label %.loopexit13.preheader, label %.preheader11, !llvm.loop !839
 
 .loopexit13.preheader:                            ; preds = %._crit_edge80, %55
   br label %.loopexit13
@@ -24283,7 +24220,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   tail call void @free(ptr noundef %98) #31
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %.not302 = icmp eq i64 %indvars.iv.next135, 5
-  br i1 %.not302, label %99, label %.loopexit13, !llvm.loop !835
+  br i1 %.not302, label %99, label %.loopexit13, !llvm.loop !840
 
 99:                                               ; preds = %.loopexit13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #31
@@ -24304,7 +24241,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %spec.select306 = select i1 %.not294, i32 83, i32 %.325439
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.not286 = icmp eq i64 %indvars.iv.next112, 5
-  br i1 %.not286, label %104, label %101, !llvm.loop !836
+  br i1 %.not286, label %104, label %101, !llvm.loop !841
 
 104:                                              ; preds = %101
   %.not287 = icmp ne i32 %spec.select306, 0
@@ -24335,7 +24272,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %111 = trunc nuw nsw i64 %indvars.iv117 to i32
   %112 = trunc i64 %indvars.iv117 to i8
   tail call fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef %110, ptr noundef %107, ptr noundef %.223060, i64 noundef %25, i64 noundef %29, i8 noundef zeroext %112)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false), !tbaa !18, !alias.scope !837
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false), !tbaa !18, !alias.scope !842
   br i1 %.not29141, label %._crit_edge45, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %108, %.lr.ph44
@@ -24351,7 +24288,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %120 = add i32 %.323442, 1
   %121 = zext i32 %120 to i64
   %.not291 = icmp eq i64 %25, %121
-  br i1 %.not291, label %._crit_edge45, label %.lr.ph44, !llvm.loop !840
+  br i1 %.not291, label %._crit_edge45, label %.lr.ph44, !llvm.loop !845
 
 ._crit_edge45:                                    ; preds = %.lr.ph44, %108
   %122 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %indvars.iv117
@@ -24404,7 +24341,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %148 = add i64 %.0.i, %.024146
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.not292 = icmp eq i64 %indvars.iv.next115, 256
-  br i1 %.not292, label %149, label %125, !llvm.loop !841
+  br i1 %.not292, label %149, label %125, !llvm.loop !846
 
 149:                                              ; preds = %_ZL6ilog2im.exit
   %150 = icmp eq i64 %indvars.iv117, 0
@@ -24414,7 +24351,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %.2244 = select i1 %or.cond307, i32 %111, i32 %.124350
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %.not289 = icmp eq i64 %indvars.iv.next118, 5
-  br i1 %.not289, label %152, label %108, !llvm.loop !842
+  br i1 %.not289, label %152, label %108, !llvm.loop !847
 
 152:                                              ; preds = %149
   %153 = trunc i32 %.2244 to i8
@@ -24440,12 +24377,12 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %165 = add i32 %.552, 1
   %166 = zext i32 %165 to i64
   %.not290 = icmp eq i64 %25, %166
-  br i1 %.not290, label %._crit_edge55, label %160, !llvm.loop !843
+  br i1 %.not290, label %._crit_edge55, label %160, !llvm.loop !848
 
 ._crit_edge55:                                    ; preds = %160, %152
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %.not288 = icmp eq i64 %indvars.iv.next121, %105
-  br i1 %.not288, label %.loopexit16.preheader, label %.preheader14, !llvm.loop !844
+  br i1 %.not288, label %.loopexit16.preheader, label %.preheader14, !llvm.loop !849
 
 .loopexit16.preheader:                            ; preds = %._crit_edge55, %104
   br label %.loopexit16
@@ -24457,7 +24394,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   tail call void @free(ptr noundef %168) #31
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %.not293 = icmp eq i64 %indvars.iv.next124, 5
-  br i1 %.not293, label %169, label %.loopexit16, !llvm.loop !845
+  br i1 %.not293, label %169, label %.loopexit16, !llvm.loop !850
 
 169:                                              ; preds = %.loopexit16
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #31
@@ -24469,7 +24406,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %.337 = phi ptr [ null, %.lr.ph38 ], [ %178, %170 ]
   %171 = mul i64 %26, %indvars.iv108
   %172 = mul i64 %25, %indvars.iv108
-  %173 = load ptr, ptr %49, align 8, !tbaa !846
+  %173 = load ptr, ptr %49, align 8, !tbaa !851
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv108
   %175 = load i8, ptr %174, align 1, !tbaa !18
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 %171
@@ -24479,14 +24416,14 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   tail call fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef %177, ptr noundef %178, ptr noundef %.337, i64 noundef %25, i64 noundef %29, i8 noundef zeroext %175)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.not285 = icmp eq i64 %indvars.iv.next109, %50
-  br i1 %.not285, label %.loopexit, label %170, !llvm.loop !847
+  br i1 %.not285, label %.loopexit, label %170, !llvm.loop !852
 
 179:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #31
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull readonly align 1 dereferenceable(48) %4, i64 48, i1 false), !tbaa !18, !alias.scope !848
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull readonly align 1 dereferenceable(48) %4, i64 48, i1 false), !tbaa !18, !alias.scope !853
   store i32 1, ptr %12, align 8, !tbaa !110
   %180 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
@@ -24502,7 +24439,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %spec.select308 = select i1 %.not284, i32 83, i32 %.525622
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not278 = icmp eq i64 %indvars.iv.next, 5
-  br i1 %.not278, label %184, label %181, !llvm.loop !852
+  br i1 %.not278, label %184, label %181, !llvm.loop !857
 
 184:                                              ; preds = %181
   %.not279 = icmp ne i32 %spec.select308, 0
@@ -24537,7 +24474,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %194 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv99
   store i64 0, ptr %194, align 8, !tbaa !3
   store ptr null, ptr %11, align 8, !tbaa !7
-  %195 = load ptr, ptr %180, align 8, !tbaa !598
+  %195 = load ptr, ptr %180, align 8, !tbaa !602
   %.not.i = icmp eq ptr %195, null
   br i1 %.not.i, label %198, label %196
 
@@ -24560,7 +24497,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %19
   %.2 = select i1 %or.cond144, i32 %192, i32 %.126
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %.not281 = icmp eq i64 %indvars.iv.next100, 5
-  br i1 %.not281, label %203, label %189, !llvm.loop !853
+  br i1 %.not281, label %203, label %189, !llvm.loop !858
 
 203:                                              ; preds = %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
   %204 = trunc i32 %.2 to i8
@@ -24586,12 +24523,12 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %19
   %216 = add i32 %.628, 1
   %217 = zext i32 %216 to i64
   %.not282 = icmp eq i64 %25, %217
-  br i1 %.not282, label %._crit_edge, label %211, !llvm.loop !854
+  br i1 %.not282, label %._crit_edge, label %211, !llvm.loop !859
 
 ._crit_edge:                                      ; preds = %211, %203
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.not280 = icmp eq i64 %indvars.iv.next103, %186
-  br i1 %.not280, label %.loopexit21.preheader, label %.preheader19, !llvm.loop !855
+  br i1 %.not280, label %.loopexit21.preheader, label %.preheader19, !llvm.loop !860
 
 .loopexit21.preheader:                            ; preds = %._crit_edge, %184
   br label %.loopexit21
@@ -24603,7 +24540,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %19
   call void @free(ptr noundef %219) #31
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not283 = icmp eq i64 %indvars.iv.next106, 5
-  br i1 %.not283, label %220, label %.loopexit21, !llvm.loop !856
+  br i1 %.not283, label %220, label %.loopexit21, !llvm.loop !861
 
 220:                                              ; preds = %.loopexit21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #31
@@ -24643,7 +24580,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %8, ptr %9, align 1, !tbaa !18
   %10 = add nuw i64 %.0195, 1
   %.not144 = icmp eq i64 %10, %3
-  br i1 %.not144, label %.loopexit, label %.lr.ph196, !llvm.loop !857
+  br i1 %.not144, label %.loopexit, label %.lr.ph196, !llvm.loop !862
 
 .preheader145:                                    ; preds = %.lr.ph191, %.preheader147
   %11 = icmp ult i64 %4, %3
@@ -24657,7 +24594,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %13, ptr %14, align 1, !tbaa !18
   %15 = add nuw nsw i64 %.1190, 1
   %.not143 = icmp eq i64 %15, %4
-  br i1 %.not143, label %.preheader145, label %.lr.ph191, !llvm.loop !858
+  br i1 %.not143, label %.preheader145, label %.lr.ph191, !llvm.loop !863
 
 .lr.ph193:                                        ; preds = %.preheader145, %.lr.ph193
   %.2192 = phi i64 [ %23, %.lr.ph193 ], [ %4, %.preheader145 ]
@@ -24671,7 +24608,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %21, ptr %22, align 1, !tbaa !18
   %23 = add nuw i64 %.2192, 1
   %exitcond208.not = icmp eq i64 %23, %3
-  br i1 %exitcond208.not, label %.loopexit, label %.lr.ph193, !llvm.loop !859
+  br i1 %exitcond208.not, label %.loopexit, label %.lr.ph193, !llvm.loop !864
 
 24:                                               ; preds = %6
   %.not140 = icmp eq ptr %2, null
@@ -24695,7 +24632,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %29, ptr %30, align 1, !tbaa !18
   %31 = add nuw i64 %.3184, 1
   %.not142 = icmp eq i64 %31, %3
-  br i1 %.not142, label %.loopexit, label %.lr.ph185, !llvm.loop !860
+  br i1 %.not142, label %.loopexit, label %.lr.ph185, !llvm.loop !865
 
 .lr.ph188:                                        ; preds = %.preheader148, %.lr.ph188
   %.4187 = phi i64 [ %35, %.lr.ph188 ], [ 0, %.preheader148 ]
@@ -24705,7 +24642,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %33, ptr %34, align 1, !tbaa !18
   %35 = add nuw i64 %.4187, 1
   %.not141 = icmp eq i64 %35, %3
-  br i1 %.not141, label %.loopexit, label %.lr.ph188, !llvm.loop !861
+  br i1 %.not141, label %.loopexit, label %.lr.ph188, !llvm.loop !866
 
 36:                                               ; preds = %6
   %.not137 = icmp eq ptr %2, null
@@ -24734,7 +24671,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %43, ptr %44, align 1, !tbaa !18
   %45 = add nuw nsw i64 %.5174, 1
   %.not139 = icmp eq i64 %45, %4
-  br i1 %.not139, label %.preheader155, label %.lr.ph175, !llvm.loop !862
+  br i1 %.not139, label %.preheader155, label %.lr.ph175, !llvm.loop !867
 
 .lr.ph177:                                        ; preds = %.preheader155, %.lr.ph177
   %.6176 = phi i64 [ %60, %.lr.ph177 ], [ %4, %.preheader155 ]
@@ -24755,7 +24692,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %58, ptr %59, align 1, !tbaa !18
   %60 = add nuw i64 %.6176, 1
   %exitcond206.not = icmp eq i64 %60, %3
-  br i1 %exitcond206.not, label %.loopexit, label %.lr.ph177, !llvm.loop !863
+  br i1 %exitcond206.not, label %.loopexit, label %.lr.ph177, !llvm.loop !868
 
 .preheader152:                                    ; preds = %.lr.ph180, %.preheader154
   %61 = icmp ult i64 %4, %3
@@ -24769,7 +24706,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %63, ptr %64, align 1, !tbaa !18
   %65 = add nuw nsw i64 %.7179, 1
   %.not138 = icmp eq i64 %65, %4
-  br i1 %.not138, label %.preheader152, label %.lr.ph180, !llvm.loop !864
+  br i1 %.not138, label %.preheader152, label %.lr.ph180, !llvm.loop !869
 
 .lr.ph182:                                        ; preds = %.preheader152, %.lr.ph182
   %.8181 = phi i64 [ %74, %.lr.ph182 ], [ %4, %.preheader152 ]
@@ -24784,7 +24721,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %72, ptr %73, align 1, !tbaa !18
   %74 = add nuw i64 %.8181, 1
   %exitcond207.not = icmp eq i64 %74, %3
-  br i1 %exitcond207.not, label %.loopexit, label %.lr.ph182, !llvm.loop !865
+  br i1 %exitcond207.not, label %.loopexit, label %.lr.ph182, !llvm.loop !870
 
 75:                                               ; preds = %6
   %.not = icmp eq ptr %2, null
@@ -24812,7 +24749,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %81, ptr %82, align 1, !tbaa !18
   %83 = add nuw nsw i64 %.9165, 1
   %.not136 = icmp eq i64 %83, %4
-  br i1 %.not136, label %.preheader161, label %.lr.ph, !llvm.loop !866
+  br i1 %.not136, label %.preheader161, label %.lr.ph, !llvm.loop !871
 
 .lr.ph167:                                        ; preds = %.preheader161, %.lr.ph167
   %.10166 = phi i64 [ %109, %.lr.ph167 ], [ %4, %.preheader161 ]
@@ -24846,7 +24783,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %107, ptr %108, align 1, !tbaa !18
   %109 = add nuw i64 %.10166, 1
   %exitcond.not = icmp eq i64 %109, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph167, !llvm.loop !867
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph167, !llvm.loop !872
 
 .preheader158:                                    ; preds = %.lr.ph170, %.preheader160
   %110 = icmp ult i64 %4, %3
@@ -24860,7 +24797,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %112, ptr %113, align 1, !tbaa !18
   %114 = add nuw nsw i64 %.11169, 1
   %.not135 = icmp eq i64 %114, %4
-  br i1 %.not135, label %.preheader158, label %.lr.ph170, !llvm.loop !868
+  br i1 %.not135, label %.preheader158, label %.lr.ph170, !llvm.loop !873
 
 .lr.ph172:                                        ; preds = %.preheader158, %.lr.ph172
   %.12171 = phi i64 [ %122, %.lr.ph172 ], [ %4, %.preheader158 ]
@@ -24874,7 +24811,7 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
   store i8 %120, ptr %121, align 1, !tbaa !18
   %122 = add nuw i64 %.12171, 1
   %exitcond205.not = icmp eq i64 %122, %3
-  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph172, !llvm.loop !869
+  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph172, !llvm.loop !874
 
 .loopexit:                                        ; preds = %.lr.ph167, %.lr.ph172, %.lr.ph177, %.lr.ph182, %.lr.ph185, %.lr.ph188, %.lr.ph193, %.lr.ph196, %.preheader161, %.preheader158, %.preheader155, %.preheader152, %.preheader150, %.preheader148, %.preheader145, %.preheader, %6
   ret void
@@ -24883,8 +24820,8 @@ define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !771
-  %5 = load ptr, ptr %0, align 8, !tbaa !769
+  %4 = load ptr, ptr %3, align 8, !tbaa !775
+  %5 = load ptr, ptr %0, align 8, !tbaa !773
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -24894,7 +24831,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !775
+  %13 = load ptr, ptr %12, align 8, !tbaa !779
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
@@ -24919,7 +24856,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
   %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
-  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !771
+  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !775
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
@@ -24964,11 +24901,11 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
-  store ptr %30, ptr %0, align 8, !tbaa !769
+  store ptr %30, ptr %0, align 8, !tbaa !773
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %1
-  store ptr %39, ptr %3, align 8, !tbaa !771
+  store ptr %39, ptr %3, align 8, !tbaa !775
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %40, ptr %12, align 8, !tbaa !775
+  store ptr %40, ptr %12, align 8, !tbaa !779
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
@@ -24981,7 +24918,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br i1 %.not.i4, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit, label %45
 
 45:                                               ; preds = %43
-  store ptr %44, ptr %3, align 8, !tbaa !771
+  store ptr %44, ptr %3, align 8, !tbaa !775
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, %41
@@ -25013,9 +24950,9 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !775
+  %10 = load ptr, ptr %9, align 8, !tbaa !779
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !771
+  %12 = load ptr, ptr %11, align 8, !tbaa !775
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -25032,9 +24969,9 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %20 = sub i64 0, %8
   %21 = getelementptr inbounds i8, ptr %12, i64 %20
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %21, i64 %8, i1 false)
-  %22 = load ptr, ptr %11, align 8, !tbaa !771
+  %22 = load ptr, ptr %11, align 8, !tbaa !775
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %8
-  store ptr %23, ptr %11, align 8, !tbaa !771
+  store ptr %23, ptr %11, align 8, !tbaa !775
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit, label %24
 
@@ -25059,26 +24996,26 @@ _ZSt7advanceIPhmEvRT_T0_.exit:                    ; preds = %16
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %6, %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %29, i64 %32, i1 false)
-  %.pre = load ptr, ptr %11, align 8, !tbaa !771
+  %.pre = load ptr, ptr %11, align 8, !tbaa !775
   br label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPhmEvRT_T0_.exit, %30
   %33 = phi ptr [ %12, %_ZSt7advanceIPhmEvRT_T0_.exit ], [ %.pre, %30 ]
   %34 = sub nuw i64 %8, %18
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  store ptr %35, ptr %11, align 8, !tbaa !771
+  store ptr %35, ptr %11, align 8, !tbaa !775
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %12, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57, label %36
 
 36:                                               ; preds = %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %35, ptr align 1 %1, i64 %18, i1 false)
-  %.pre76 = load ptr, ptr %11, align 8, !tbaa !771
+  %.pre76 = load ptr, ptr %11, align 8, !tbaa !775
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57: ; preds = %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit, %36
   %37 = phi ptr [ %35, %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit ], [ %.pre76, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %18
-  store ptr %38, ptr %11, align 8, !tbaa !771
+  store ptr %38, ptr %11, align 8, !tbaa !775
   %.not.i.i.i.i.i58 = icmp eq ptr %12, %1
   br i1 %.not.i.i.i.i.i58, label %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit59, label %39
 
@@ -25087,7 +25024,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57: ; preds = %_ZSt2
   br label %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit59
 
 40:                                               ; preds = %5
-  %41 = load ptr, ptr %0, align 8, !tbaa !769
+  %41 = load ptr, ptr %0, align 8, !tbaa !773
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %14, %42
   %44 = sub i64 9223372036854775807, %43
@@ -25145,10 +25082,10 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %62, %64
-  store ptr %53, ptr %0, align 8, !tbaa !769
-  store ptr %63, ptr %11, align 8, !tbaa !771
+  store ptr %53, ptr %0, align 8, !tbaa !773
+  store ptr %63, ptr %11, align 8, !tbaa !775
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 %50
-  store ptr %66, ptr %9, align 8, !tbaa !775
+  store ptr %66, ptr %9, align 8, !tbaa !779
   br label %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit59
 
 _ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit59: ; preds = %39, %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit, %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit, %4
@@ -25400,142 +25337,142 @@ attributes #35 = { builtin allocsize(0) }
 !167 = distinct !{!167, !17}
 !168 = distinct !{!168, !17}
 !169 = distinct !{!169, !17}
-!170 = distinct !{!170, !17}
-!171 = distinct !{!171, !17}
-!172 = distinct !{!172, !17}
+!170 = distinct !{!170, !17, !171}
+!171 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!172 = distinct !{!172, !17, !171}
 !173 = distinct !{!173, !17}
-!174 = !{!175, !177}
-!175 = distinct !{!175, !176, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!176 = distinct !{!176, !"_ZL14lodepng_memcpyPvPKvm"}
-!177 = distinct !{!177, !176, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!178 = !{!179, !181}
-!179 = distinct !{!179, !180, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!180 = distinct !{!180, !"_ZL14lodepng_memcpyPvPKvm"}
-!181 = distinct !{!181, !180, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!182 = !{!183, !184, i64 0}
-!183 = !{!"_ZTS16LodePNGColorMode", !184, i64 0, !11, i64 4, !8, i64 8, !4, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36}
-!184 = !{!"_ZTS16LodePNGColorType", !5, i64 0}
-!185 = !{!183, !11, i64 4}
-!186 = !{!183, !8, i64 8}
-!187 = !{!188, !190}
-!188 = distinct !{!188, !189, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!189 = distinct !{!189, !"_ZL14lodepng_memcpyPvPKvm"}
-!190 = distinct !{!190, !189, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!191 = !{!183, !4, i64 16}
-!192 = !{!193, !195}
-!193 = distinct !{!193, !194, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!194 = distinct !{!194, !"_ZL14lodepng_memcpyPvPKvm"}
-!195 = distinct !{!195, !194, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!196 = distinct !{!196, !17}
+!174 = distinct !{!174, !17}
+!175 = !{!176, !178}
+!176 = distinct !{!176, !177, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!177 = distinct !{!177, !"_ZL14lodepng_memcpyPvPKvm"}
+!178 = distinct !{!178, !177, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!179 = !{!180, !182}
+!180 = distinct !{!180, !181, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!181 = distinct !{!181, !"_ZL14lodepng_memcpyPvPKvm"}
+!182 = distinct !{!182, !181, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!183 = !{!184, !185, i64 0}
+!184 = !{!"_ZTS16LodePNGColorMode", !185, i64 0, !11, i64 4, !8, i64 8, !4, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36}
+!185 = !{!"_ZTS16LodePNGColorType", !5, i64 0}
+!186 = !{!184, !11, i64 4}
+!187 = !{!184, !8, i64 8}
+!188 = !{!189, !191}
+!189 = distinct !{!189, !190, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!190 = distinct !{!190, !"_ZL14lodepng_memcpyPvPKvm"}
+!191 = distinct !{!191, !190, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!192 = !{!184, !4, i64 16}
+!193 = !{!194, !196}
+!194 = distinct !{!194, !195, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!195 = distinct !{!195, !"_ZL14lodepng_memcpyPvPKvm"}
+!196 = distinct !{!196, !195, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !197 = distinct !{!197, !17}
-!198 = !{!183, !11, i64 24}
-!199 = !{!200, !201, i64 80}
-!200 = !{!"_ZTS11LodePNGInfo", !11, i64 0, !11, i64 4, !11, i64 8, !183, i64 16, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !4, i64 72, !201, i64 80, !201, i64 88, !4, i64 96, !201, i64 104, !201, i64 112, !201, i64 120, !201, i64 128, !11, i64 136, !8, i64 144, !11, i64 152, !11, i64 156, !202, i64 160, !11, i64 184, !11, i64 188, !11, i64 192, !11, i64 196, !11, i64 200, !11, i64 204, !11, i64 208, !11, i64 212, !11, i64 216, !11, i64 220, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !8, i64 256, !8, i64 264, !11, i64 272, !11, i64 276, !11, i64 280, !11, i64 284, !11, i64 288, !11, i64 292, !11, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !11, i64 312, !11, i64 316, !11, i64 320, !11, i64 324, !11, i64 328, !11, i64 332, !11, i64 336, !11, i64 340, !11, i64 344, !11, i64 348, !11, i64 352, !11, i64 356, !11, i64 360, !11, i64 364, !11, i64 368, !5, i64 376, !5, i64 400}
-!201 = !{!"p2 omnipotent char", !32, i64 0}
-!202 = !{!"_ZTS11LodePNGTime", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
-!203 = !{!200, !4, i64 72}
-!204 = !{!200, !201, i64 88}
-!205 = !{!206, !208}
-!206 = distinct !{!206, !207, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!207 = distinct !{!207, !"_ZL14lodepng_memcpyPvPKvm"}
-!208 = distinct !{!208, !207, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!209 = !{!210, !212}
-!210 = distinct !{!210, !211, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!211 = distinct !{!211, !"_ZL14lodepng_memcpyPvPKvm"}
-!212 = distinct !{!212, !211, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!213 = distinct !{!213, !17}
-!214 = !{!200, !4, i64 96}
-!215 = !{!200, !201, i64 104}
-!216 = !{!200, !201, i64 112}
-!217 = !{!200, !201, i64 120}
-!218 = !{!200, !201, i64 128}
-!219 = distinct !{!219, !17}
-!220 = !{!221, !223}
-!221 = distinct !{!221, !222, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!222 = distinct !{!222, !"_ZL14lodepng_memcpyPvPKvm"}
-!223 = distinct !{!223, !222, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!224 = !{!225, !227}
-!225 = distinct !{!225, !226, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!226 = distinct !{!226, !"_ZL14lodepng_memcpyPvPKvm"}
-!227 = distinct !{!227, !226, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!228 = !{!229, !231}
-!229 = distinct !{!229, !230, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!230 = distinct !{!230, !"_ZL14lodepng_memcpyPvPKvm"}
-!231 = distinct !{!231, !230, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!232 = !{!233, !235}
-!233 = distinct !{!233, !234, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!234 = distinct !{!234, !"_ZL14lodepng_memcpyPvPKvm"}
-!235 = distinct !{!235, !234, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!236 = !{!200, !11, i64 252}
-!237 = !{!200, !8, i64 264}
-!238 = !{!200, !11, i64 272}
-!239 = !{!200, !8, i64 256}
-!240 = !{!241, !243}
-!241 = distinct !{!241, !242, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!242 = distinct !{!242, !"_ZL14lodepng_memcpyPvPKvm"}
-!243 = distinct !{!243, !242, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!244 = !{!245, !247}
-!245 = distinct !{!245, !246, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!246 = distinct !{!246, !"_ZL14lodepng_memcpyPvPKvm"}
-!247 = distinct !{!247, !246, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!248 = !{!200, !11, i64 136}
-!249 = !{!200, !8, i64 144}
-!250 = !{!200, !11, i64 152}
-!251 = !{!252, !254}
-!252 = distinct !{!252, !253, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!253 = distinct !{!253, !"_ZL14lodepng_memcpyPvPKvm"}
-!254 = distinct !{!254, !253, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!255 = !{!200, !11, i64 8}
-!256 = !{!200, !11, i64 0}
-!257 = !{!200, !11, i64 4}
-!258 = !{!200, !11, i64 184}
-!259 = !{!200, !11, i64 200}
-!260 = !{!200, !11, i64 208}
-!261 = !{!200, !11, i64 244}
-!262 = distinct !{!262, !17}
-!263 = !{!264, !266}
-!264 = distinct !{!264, !265, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!265 = distinct !{!265, !"_ZL14lodepng_memcpyPvPKvm"}
-!266 = distinct !{!266, !265, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!267 = !{!268, !270}
-!268 = distinct !{!268, !269, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!269 = distinct !{!269, !"_ZL14lodepng_memcpyPvPKvm"}
-!270 = distinct !{!270, !269, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!271 = !{!272, !274}
-!272 = distinct !{!272, !273, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!273 = distinct !{!273, !"_ZL14lodepng_memcpyPvPKvm"}
-!274 = distinct !{!274, !273, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!275 = distinct !{!275, !17}
+!198 = distinct !{!198, !17}
+!199 = !{!184, !11, i64 24}
+!200 = !{!201, !202, i64 80}
+!201 = !{!"_ZTS11LodePNGInfo", !11, i64 0, !11, i64 4, !11, i64 8, !184, i64 16, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !4, i64 72, !202, i64 80, !202, i64 88, !4, i64 96, !202, i64 104, !202, i64 112, !202, i64 120, !202, i64 128, !11, i64 136, !8, i64 144, !11, i64 152, !11, i64 156, !203, i64 160, !11, i64 184, !11, i64 188, !11, i64 192, !11, i64 196, !11, i64 200, !11, i64 204, !11, i64 208, !11, i64 212, !11, i64 216, !11, i64 220, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !8, i64 256, !8, i64 264, !11, i64 272, !11, i64 276, !11, i64 280, !11, i64 284, !11, i64 288, !11, i64 292, !11, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !11, i64 312, !11, i64 316, !11, i64 320, !11, i64 324, !11, i64 328, !11, i64 332, !11, i64 336, !11, i64 340, !11, i64 344, !11, i64 348, !11, i64 352, !11, i64 356, !11, i64 360, !11, i64 364, !11, i64 368, !5, i64 376, !5, i64 400}
+!202 = !{!"p2 omnipotent char", !32, i64 0}
+!203 = !{!"_ZTS11LodePNGTime", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
+!204 = !{!201, !4, i64 72}
+!205 = !{!201, !202, i64 88}
+!206 = !{!207, !209}
+!207 = distinct !{!207, !208, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!208 = distinct !{!208, !"_ZL14lodepng_memcpyPvPKvm"}
+!209 = distinct !{!209, !208, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!210 = !{!211, !213}
+!211 = distinct !{!211, !212, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!212 = distinct !{!212, !"_ZL14lodepng_memcpyPvPKvm"}
+!213 = distinct !{!213, !212, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!214 = distinct !{!214, !17}
+!215 = !{!201, !4, i64 96}
+!216 = !{!201, !202, i64 104}
+!217 = !{!201, !202, i64 112}
+!218 = !{!201, !202, i64 120}
+!219 = !{!201, !202, i64 128}
+!220 = distinct !{!220, !17}
+!221 = !{!222, !224}
+!222 = distinct !{!222, !223, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!223 = distinct !{!223, !"_ZL14lodepng_memcpyPvPKvm"}
+!224 = distinct !{!224, !223, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!225 = !{!226, !228}
+!226 = distinct !{!226, !227, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!227 = distinct !{!227, !"_ZL14lodepng_memcpyPvPKvm"}
+!228 = distinct !{!228, !227, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!229 = !{!230, !232}
+!230 = distinct !{!230, !231, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!231 = distinct !{!231, !"_ZL14lodepng_memcpyPvPKvm"}
+!232 = distinct !{!232, !231, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!233 = !{!234, !236}
+!234 = distinct !{!234, !235, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!235 = distinct !{!235, !"_ZL14lodepng_memcpyPvPKvm"}
+!236 = distinct !{!236, !235, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!237 = !{!201, !11, i64 252}
+!238 = !{!201, !8, i64 264}
+!239 = !{!201, !11, i64 272}
+!240 = !{!201, !8, i64 256}
+!241 = !{!242, !244}
+!242 = distinct !{!242, !243, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!243 = distinct !{!243, !"_ZL14lodepng_memcpyPvPKvm"}
+!244 = distinct !{!244, !243, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!245 = !{!246, !248}
+!246 = distinct !{!246, !247, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!247 = distinct !{!247, !"_ZL14lodepng_memcpyPvPKvm"}
+!248 = distinct !{!248, !247, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!249 = !{!201, !11, i64 136}
+!250 = !{!201, !8, i64 144}
+!251 = !{!201, !11, i64 152}
+!252 = !{!253, !255}
+!253 = distinct !{!253, !254, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!254 = distinct !{!254, !"_ZL14lodepng_memcpyPvPKvm"}
+!255 = distinct !{!255, !254, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!256 = !{!201, !11, i64 8}
+!257 = !{!201, !11, i64 0}
+!258 = !{!201, !11, i64 4}
+!259 = !{!201, !11, i64 184}
+!260 = !{!201, !11, i64 200}
+!261 = !{!201, !11, i64 208}
+!262 = !{!201, !11, i64 244}
+!263 = distinct !{!263, !17}
+!264 = !{!265, !267}
+!265 = distinct !{!265, !266, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!266 = distinct !{!266, !"_ZL14lodepng_memcpyPvPKvm"}
+!267 = distinct !{!267, !266, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!268 = !{!269, !271}
+!269 = distinct !{!269, !270, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!270 = distinct !{!270, !"_ZL14lodepng_memcpyPvPKvm"}
+!271 = distinct !{!271, !270, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!272 = !{!273, !275}
+!273 = distinct !{!273, !274, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!274 = distinct !{!274, !"_ZL14lodepng_memcpyPvPKvm"}
+!275 = distinct !{!275, !274, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !276 = distinct !{!276, !17}
-!277 = !{!278, !280}
-!278 = distinct !{!278, !279, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!279 = distinct !{!279, !"_ZL14lodepng_memcpyPvPKvm"}
-!280 = distinct !{!280, !279, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!281 = distinct !{!281, !17}
+!277 = distinct !{!277, !17}
+!278 = !{!279, !281}
+!279 = distinct !{!279, !280, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!280 = distinct !{!280, !"_ZL14lodepng_memcpyPvPKvm"}
+!281 = distinct !{!281, !280, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !282 = distinct !{!282, !17}
-!283 = !{!183, !11, i64 28}
-!284 = !{!183, !11, i64 32}
-!285 = !{!183, !11, i64 36}
-!286 = distinct !{!286, !17}
-!287 = !{!288, !290}
-!288 = distinct !{!288, !289, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!289 = distinct !{!289, !"_ZL14lodepng_memcpyPvPKvm"}
-!290 = distinct !{!290, !289, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!291 = !{!292}
-!292 = distinct !{!292, !293, !"_ZL14lodepng_memsetPvim: argument 0"}
-!293 = distinct !{!293, !"_ZL14lodepng_memsetPvim"}
-!294 = !{!295, !11, i64 128}
-!295 = !{!"_ZTS9ColorTree", !5, i64 0, !11, i64 128}
-!296 = !{!297, !299}
-!297 = distinct !{!297, !298, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!298 = distinct !{!298, !"_ZL14lodepng_memcpyPvPKvm"}
-!299 = distinct !{!299, !298, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!300 = !{!301, !301, i64 0}
-!301 = !{!"p1 _ZTS9ColorTree", !9, i64 0}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZL14lodepng_memsetPvim: argument 0"}
-!304 = distinct !{!304, !"_ZL14lodepng_memsetPvim"}
-!305 = distinct !{!305, !17}
+!283 = distinct !{!283, !17}
+!284 = !{!184, !11, i64 28}
+!285 = !{!184, !11, i64 32}
+!286 = !{!184, !11, i64 36}
+!287 = distinct !{!287, !17}
+!288 = !{!289, !291}
+!289 = distinct !{!289, !290, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!290 = distinct !{!290, !"_ZL14lodepng_memcpyPvPKvm"}
+!291 = distinct !{!291, !290, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"_ZL14lodepng_memsetPvim: argument 0"}
+!294 = distinct !{!294, !"_ZL14lodepng_memsetPvim"}
+!295 = !{!296, !11, i64 128}
+!296 = !{!"_ZTS9ColorTree", !5, i64 0, !11, i64 128}
+!297 = !{!298, !300}
+!298 = distinct !{!298, !299, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!299 = distinct !{!299, !"_ZL14lodepng_memcpyPvPKvm"}
+!300 = distinct !{!300, !299, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!301 = !{!302, !302, i64 0}
+!302 = !{!"p1 _ZTS9ColorTree", !9, i64 0}
+!303 = !{!304}
+!304 = distinct !{!304, !305, !"_ZL14lodepng_memsetPvim: argument 0"}
+!305 = distinct !{!305, !"_ZL14lodepng_memsetPvim"}
 !306 = distinct !{!306, !17}
 !307 = distinct !{!307, !17}
 !308 = distinct !{!308, !17}
@@ -25545,294 +25482,294 @@ attributes #35 = { builtin allocsize(0) }
 !312 = distinct !{!312, !17}
 !313 = distinct !{!313, !17}
 !314 = distinct !{!314, !17}
-!315 = !{!316, !318}
-!316 = distinct !{!316, !317, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!317 = distinct !{!317, !"_ZL14lodepng_memcpyPvPKvm"}
-!318 = distinct !{!318, !317, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!319 = distinct !{!319, !17}
+!315 = distinct !{!315, !17}
+!316 = !{!317, !319}
+!317 = distinct !{!317, !318, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!318 = distinct !{!318, !"_ZL14lodepng_memcpyPvPKvm"}
+!319 = distinct !{!319, !318, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !320 = distinct !{!320, !17}
 !321 = distinct !{!321, !17}
-!322 = !{!323, !325}
-!323 = distinct !{!323, !324, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!324 = distinct !{!324, !"_ZL14lodepng_memcpyPvPKvm"}
-!325 = distinct !{!325, !324, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!326 = distinct !{!326, !17}
-!327 = !{!328, !330}
-!328 = distinct !{!328, !329, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!329 = distinct !{!329, !"_ZL14lodepng_memcpyPvPKvm"}
-!330 = distinct !{!330, !329, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!331 = distinct !{!331, !17}
+!322 = distinct !{!322, !17}
+!323 = !{!324, !326}
+!324 = distinct !{!324, !325, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!325 = distinct !{!325, !"_ZL14lodepng_memcpyPvPKvm"}
+!326 = distinct !{!326, !325, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!327 = distinct !{!327, !17, !171}
+!328 = !{!329, !331}
+!329 = distinct !{!329, !330, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!330 = distinct !{!330, !"_ZL14lodepng_memcpyPvPKvm"}
+!331 = distinct !{!331, !330, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !332 = distinct !{!332, !17}
 !333 = distinct !{!333, !17}
-!334 = !{!335, !337}
-!335 = distinct !{!335, !336, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!336 = distinct !{!336, !"_ZL14lodepng_memcpyPvPKvm"}
-!337 = distinct !{!337, !336, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!338 = distinct !{!338, !17}
-!339 = distinct !{!339, !17}
+!334 = distinct !{!334, !17}
+!335 = distinct !{!335, !17}
+!336 = !{!337, !339}
+!337 = distinct !{!337, !338, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!338 = distinct !{!338, !"_ZL14lodepng_memcpyPvPKvm"}
+!339 = distinct !{!339, !338, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !340 = distinct !{!340, !17}
 !341 = distinct !{!341, !17}
-!342 = !{!343, !345}
-!343 = distinct !{!343, !344, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!344 = distinct !{!344, !"_ZL14lodepng_memcpyPvPKvm"}
-!345 = distinct !{!345, !344, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!346 = distinct !{!346, !17}
-!347 = !{!348, !350}
-!348 = distinct !{!348, !349, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!349 = distinct !{!349, !"_ZL14lodepng_memcpyPvPKvm"}
-!350 = distinct !{!350, !349, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!351 = distinct !{!351, !17}
-!352 = !{!353, !355}
-!353 = distinct !{!353, !354, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!354 = distinct !{!354, !"_ZL14lodepng_memcpyPvPKvm"}
-!355 = distinct !{!355, !354, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!356 = distinct !{!356, !17}
-!357 = distinct !{!357, !17}
+!342 = distinct !{!342, !17}
+!343 = distinct !{!343, !17}
+!344 = !{!345, !347}
+!345 = distinct !{!345, !346, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!346 = distinct !{!346, !"_ZL14lodepng_memcpyPvPKvm"}
+!347 = distinct !{!347, !346, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!348 = distinct !{!348, !17}
+!349 = !{!350, !352}
+!350 = distinct !{!350, !351, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!351 = distinct !{!351, !"_ZL14lodepng_memcpyPvPKvm"}
+!352 = distinct !{!352, !351, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!353 = distinct !{!353, !17, !171}
+!354 = !{!355, !357}
+!355 = distinct !{!355, !356, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!356 = distinct !{!356, !"_ZL14lodepng_memcpyPvPKvm"}
+!357 = distinct !{!357, !356, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !358 = distinct !{!358, !17}
-!359 = !{!360, !362}
-!360 = distinct !{!360, !361, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!361 = distinct !{!361, !"_ZL14lodepng_memcpyPvPKvm"}
-!362 = distinct !{!362, !361, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!363 = distinct !{!363, !17}
-!364 = distinct !{!364, !17}
-!365 = distinct !{!365, !17}
+!359 = distinct !{!359, !17}
+!360 = distinct !{!360, !17}
+!361 = distinct !{!361, !17}
+!362 = !{!363, !365}
+!363 = distinct !{!363, !364, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!364 = distinct !{!364, !"_ZL14lodepng_memcpyPvPKvm"}
+!365 = distinct !{!365, !364, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !366 = distinct !{!366, !17}
-!367 = !{!368, !11, i64 16}
-!368 = !{!"_ZTS17LodePNGColorStats", !11, i64 0, !11, i64 4, !89, i64 8, !89, i64 10, !89, i64 12, !11, i64 16, !11, i64 20, !5, i64 24, !11, i64 1048, !4, i64 1056, !11, i64 1064, !11, i64 1068}
-!369 = !{!368, !11, i64 20}
-!370 = !{!368, !11, i64 1048}
-!371 = !{!368, !4, i64 1056}
-!372 = !{!368, !11, i64 1064}
-!373 = !{!368, !11, i64 1068}
-!374 = !{!375}
-!375 = distinct !{!375, !376, !"_ZL14lodepng_memsetPvim: argument 0"}
-!376 = distinct !{!376, !"_ZL14lodepng_memsetPvim"}
-!377 = !{!368, !11, i64 0}
-!378 = !{!379}
-!379 = distinct !{!379, !380, !"_ZL14lodepng_memsetPvim: argument 0"}
-!380 = distinct !{!380, !"_ZL14lodepng_memsetPvim"}
-!381 = distinct !{!381, !17}
-!382 = distinct !{!382, !17}
-!383 = !{!368, !89, i64 8}
-!384 = !{!368, !89, i64 10}
-!385 = !{!368, !89, i64 12}
-!386 = !{!368, !11, i64 4}
-!387 = distinct !{!387, !17}
-!388 = distinct !{!388, !17}
-!389 = !{!390}
-!390 = distinct !{!390, !391, !"_ZL14lodepng_memsetPvim: argument 0"}
-!391 = distinct !{!391, !"_ZL14lodepng_memsetPvim"}
-!392 = distinct !{!392, !17}
-!393 = distinct !{!393, !17}
-!394 = !{!395, !11, i64 632}
-!395 = !{!"_ZTS12LodePNGState", !396, i64 0, !397, i64 80, !183, i64 168, !200, i64 208, !11, i64 632}
-!396 = !{!"_ZTS22LodePNGDecoderSettings", !61, i64 0, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !4, i64 64, !4, i64 72}
-!397 = !{!"_ZTS22LodePNGEncoderSettings", !111, i64 0, !11, i64 48, !11, i64 52, !398, i64 56, !8, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
-!398 = !{!"_ZTS21LodePNGFilterStrategy", !5, i64 0}
-!399 = !{!200, !11, i64 20}
-!400 = !{!200, !184, i64 16}
-!401 = !{!395, !11, i64 40}
-!402 = distinct !{!402, !17}
-!403 = !{!200, !11, i64 204}
-!404 = !{!200, !11, i64 248}
-!405 = !{!200, !11, i64 276}
-!406 = !{!200, !11, i64 280}
-!407 = !{!200, !11, i64 284}
-!408 = !{!200, !11, i64 288}
-!409 = !{!200, !11, i64 292}
-!410 = distinct !{!410, !17}
-!411 = !{!200, !4, i64 32}
-!412 = !{!200, !11, i64 56}
-!413 = !{!200, !11, i64 68}
-!414 = !{!200, !11, i64 64}
-!415 = !{!200, !11, i64 60}
-!416 = distinct !{!416, !17}
-!417 = !{!418, !420}
-!418 = distinct !{!418, !419, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!419 = distinct !{!419, !"_ZL14lodepng_memcpyPvPKvm"}
-!420 = distinct !{!420, !419, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!421 = !{!422, !424}
-!422 = distinct !{!422, !423, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!423 = distinct !{!423, !"_ZL14lodepng_memcpyPvPKvm"}
-!424 = distinct !{!424, !423, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!425 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !3, i64 16, i64 8, !426, i64 24, i64 8, !426, i64 32, i64 8, !426}
-!426 = !{!9, !9, i64 0}
-!427 = distinct !{!427, !17}
-!428 = !{!429, !431}
-!429 = distinct !{!429, !430, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!430 = distinct !{!430, !"_ZL14lodepng_memcpyPvPKvm"}
-!431 = distinct !{!431, !430, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!432 = !{!396, !4, i64 64}
-!433 = !{!61, !9, i64 16}
-!434 = distinct !{!434, !17}
-!435 = !{!436, !438}
-!436 = distinct !{!436, !437, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!437 = distinct !{!437, !"_ZL14lodepng_memcpyPvPKvm"}
-!438 = distinct !{!438, !437, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!439 = distinct !{!439, !17}
-!440 = !{!441, !443}
-!441 = distinct !{!441, !442, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!442 = distinct !{!442, !"_ZL14lodepng_memcpyPvPKvm"}
-!443 = distinct !{!443, !442, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!444 = distinct !{!444, !17}
-!445 = !{!446, !448}
-!446 = distinct !{!446, !447, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!447 = distinct !{!447, !"_ZL14lodepng_memcpyPvPKvm"}
-!448 = distinct !{!448, !447, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!449 = !{!200, !11, i64 156}
-!450 = !{!200, !11, i64 160}
-!451 = !{!200, !11, i64 164}
-!452 = !{!200, !11, i64 168}
-!453 = !{!200, !11, i64 172}
-!454 = !{!200, !11, i64 176}
-!455 = !{!200, !11, i64 180}
-!456 = !{!200, !11, i64 188}
-!457 = !{!200, !11, i64 192}
-!458 = !{!200, !11, i64 196}
-!459 = !{!200, !11, i64 212}
-!460 = !{!200, !11, i64 216}
-!461 = !{!200, !11, i64 220}
-!462 = !{!200, !11, i64 224}
-!463 = !{!200, !11, i64 228}
-!464 = !{!200, !11, i64 232}
-!465 = !{!200, !11, i64 236}
-!466 = !{!200, !11, i64 240}
-!467 = distinct !{!467, !17}
-!468 = distinct !{!468, !17}
-!469 = !{!396, !4, i64 72}
-!470 = !{!471}
-!471 = distinct !{!471, !472, !"_ZL13ucvector_initPhm: argument 0"}
-!472 = distinct !{!472, !"_ZL13ucvector_initPhm"}
-!473 = !{!200, !11, i64 296}
-!474 = !{!200, !11, i64 300}
-!475 = !{!200, !11, i64 304}
-!476 = !{!200, !11, i64 308}
-!477 = !{!200, !11, i64 312}
-!478 = !{!200, !11, i64 316}
-!479 = !{!200, !11, i64 320}
-!480 = !{!200, !11, i64 324}
-!481 = !{!200, !11, i64 328}
-!482 = !{!200, !11, i64 332}
-!483 = !{!200, !11, i64 336}
-!484 = !{!200, !11, i64 340}
-!485 = !{!200, !11, i64 344}
-!486 = !{!200, !11, i64 348}
-!487 = !{!488, !490}
-!488 = distinct !{!488, !489, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!489 = distinct !{!489, !"_ZL14lodepng_memcpyPvPKvm"}
-!490 = distinct !{!490, !489, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!491 = !{!200, !11, i64 352}
-!492 = !{!200, !11, i64 364}
-!493 = !{!200, !11, i64 360}
-!494 = !{!200, !11, i64 356}
-!495 = !{!200, !11, i64 368}
-!496 = !{!395, !11, i64 48}
-!497 = !{!498, !500}
-!498 = distinct !{!498, !499, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!499 = distinct !{!499, !"_ZL14lodepng_memcpyPvPKvm"}
-!500 = distinct !{!500, !499, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!501 = !{!395, !11, i64 56}
-!502 = !{!395, !11, i64 44}
-!503 = !{!395, !11, i64 60}
-!504 = !{!395, !184, i64 224}
-!505 = !{!395, !8, i64 232}
-!506 = !{!395, !11, i64 216}
-!507 = !{!508}
-!508 = distinct !{!508, !509, !"_ZL14lodepng_memsetPvim: argument 0"}
-!509 = distinct !{!509, !"_ZL14lodepng_memsetPvim"}
-!510 = distinct !{!510, !17}
-!511 = distinct !{!511, !17}
-!512 = distinct !{!512, !17}
+!367 = distinct !{!367, !17}
+!368 = distinct !{!368, !17}
+!369 = distinct !{!369, !17}
+!370 = !{!371, !11, i64 16}
+!371 = !{!"_ZTS17LodePNGColorStats", !11, i64 0, !11, i64 4, !89, i64 8, !89, i64 10, !89, i64 12, !11, i64 16, !11, i64 20, !5, i64 24, !11, i64 1048, !4, i64 1056, !11, i64 1064, !11, i64 1068}
+!372 = !{!371, !11, i64 20}
+!373 = !{!371, !11, i64 1048}
+!374 = !{!371, !4, i64 1056}
+!375 = !{!371, !11, i64 1064}
+!376 = !{!371, !11, i64 1068}
+!377 = !{!378}
+!378 = distinct !{!378, !379, !"_ZL14lodepng_memsetPvim: argument 0"}
+!379 = distinct !{!379, !"_ZL14lodepng_memsetPvim"}
+!380 = !{!371, !11, i64 0}
+!381 = !{!382}
+!382 = distinct !{!382, !383, !"_ZL14lodepng_memsetPvim: argument 0"}
+!383 = distinct !{!383, !"_ZL14lodepng_memsetPvim"}
+!384 = distinct !{!384, !17}
+!385 = distinct !{!385, !17}
+!386 = !{!371, !89, i64 8}
+!387 = !{!371, !89, i64 10}
+!388 = !{!371, !89, i64 12}
+!389 = !{!371, !11, i64 4}
+!390 = distinct !{!390, !17}
+!391 = distinct !{!391, !17}
+!392 = !{!393}
+!393 = distinct !{!393, !394, !"_ZL14lodepng_memsetPvim: argument 0"}
+!394 = distinct !{!394, !"_ZL14lodepng_memsetPvim"}
+!395 = distinct !{!395, !17}
+!396 = distinct !{!396, !17}
+!397 = !{!398, !11, i64 632}
+!398 = !{!"_ZTS12LodePNGState", !399, i64 0, !400, i64 80, !184, i64 168, !201, i64 208, !11, i64 632}
+!399 = !{!"_ZTS22LodePNGDecoderSettings", !61, i64 0, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !4, i64 64, !4, i64 72}
+!400 = !{!"_ZTS22LodePNGEncoderSettings", !111, i64 0, !11, i64 48, !11, i64 52, !401, i64 56, !8, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
+!401 = !{!"_ZTS21LodePNGFilterStrategy", !5, i64 0}
+!402 = !{!201, !11, i64 20}
+!403 = !{!201, !185, i64 16}
+!404 = !{!398, !11, i64 40}
+!405 = distinct !{!405, !17}
+!406 = !{!201, !11, i64 204}
+!407 = !{!201, !11, i64 248}
+!408 = !{!201, !11, i64 276}
+!409 = !{!201, !11, i64 280}
+!410 = !{!201, !11, i64 284}
+!411 = !{!201, !11, i64 288}
+!412 = !{!201, !11, i64 292}
+!413 = distinct !{!413, !17}
+!414 = !{!201, !4, i64 32}
+!415 = !{!201, !11, i64 56}
+!416 = !{!201, !11, i64 68}
+!417 = !{!201, !11, i64 64}
+!418 = !{!201, !11, i64 60}
+!419 = distinct !{!419, !17}
+!420 = !{!421, !423}
+!421 = distinct !{!421, !422, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!422 = distinct !{!422, !"_ZL14lodepng_memcpyPvPKvm"}
+!423 = distinct !{!423, !422, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!424 = !{!425, !427}
+!425 = distinct !{!425, !426, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!426 = distinct !{!426, !"_ZL14lodepng_memcpyPvPKvm"}
+!427 = distinct !{!427, !426, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!428 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !3, i64 16, i64 8, !429, i64 24, i64 8, !429, i64 32, i64 8, !429}
+!429 = !{!9, !9, i64 0}
+!430 = distinct !{!430, !17}
+!431 = !{!432, !434}
+!432 = distinct !{!432, !433, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!433 = distinct !{!433, !"_ZL14lodepng_memcpyPvPKvm"}
+!434 = distinct !{!434, !433, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!435 = !{!399, !4, i64 64}
+!436 = !{!61, !9, i64 16}
+!437 = distinct !{!437, !17}
+!438 = !{!439, !441}
+!439 = distinct !{!439, !440, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!440 = distinct !{!440, !"_ZL14lodepng_memcpyPvPKvm"}
+!441 = distinct !{!441, !440, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!442 = distinct !{!442, !17}
+!443 = !{!444, !446}
+!444 = distinct !{!444, !445, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!445 = distinct !{!445, !"_ZL14lodepng_memcpyPvPKvm"}
+!446 = distinct !{!446, !445, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!447 = distinct !{!447, !17}
+!448 = !{!449, !451}
+!449 = distinct !{!449, !450, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!450 = distinct !{!450, !"_ZL14lodepng_memcpyPvPKvm"}
+!451 = distinct !{!451, !450, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!452 = !{!201, !11, i64 156}
+!453 = !{!201, !11, i64 160}
+!454 = !{!201, !11, i64 164}
+!455 = !{!201, !11, i64 168}
+!456 = !{!201, !11, i64 172}
+!457 = !{!201, !11, i64 176}
+!458 = !{!201, !11, i64 180}
+!459 = !{!201, !11, i64 188}
+!460 = !{!201, !11, i64 192}
+!461 = !{!201, !11, i64 196}
+!462 = !{!201, !11, i64 212}
+!463 = !{!201, !11, i64 216}
+!464 = !{!201, !11, i64 220}
+!465 = !{!201, !11, i64 224}
+!466 = !{!201, !11, i64 228}
+!467 = !{!201, !11, i64 232}
+!468 = !{!201, !11, i64 236}
+!469 = !{!201, !11, i64 240}
+!470 = distinct !{!470, !17}
+!471 = distinct !{!471, !17}
+!472 = !{!399, !4, i64 72}
+!473 = !{!474}
+!474 = distinct !{!474, !475, !"_ZL13ucvector_initPhm: argument 0"}
+!475 = distinct !{!475, !"_ZL13ucvector_initPhm"}
+!476 = !{!201, !11, i64 296}
+!477 = !{!201, !11, i64 300}
+!478 = !{!201, !11, i64 304}
+!479 = !{!201, !11, i64 308}
+!480 = !{!201, !11, i64 312}
+!481 = !{!201, !11, i64 316}
+!482 = !{!201, !11, i64 320}
+!483 = !{!201, !11, i64 324}
+!484 = !{!201, !11, i64 328}
+!485 = !{!201, !11, i64 332}
+!486 = !{!201, !11, i64 336}
+!487 = !{!201, !11, i64 340}
+!488 = !{!201, !11, i64 344}
+!489 = !{!201, !11, i64 348}
+!490 = !{!491, !493}
+!491 = distinct !{!491, !492, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!492 = distinct !{!492, !"_ZL14lodepng_memcpyPvPKvm"}
+!493 = distinct !{!493, !492, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!494 = !{!201, !11, i64 352}
+!495 = !{!201, !11, i64 364}
+!496 = !{!201, !11, i64 360}
+!497 = !{!201, !11, i64 356}
+!498 = !{!201, !11, i64 368}
+!499 = !{!398, !11, i64 48}
+!500 = !{!501, !503}
+!501 = distinct !{!501, !502, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!502 = distinct !{!502, !"_ZL14lodepng_memcpyPvPKvm"}
+!503 = distinct !{!503, !502, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!504 = !{!398, !11, i64 56}
+!505 = !{!398, !11, i64 44}
+!506 = !{!398, !11, i64 60}
+!507 = !{!398, !185, i64 224}
+!508 = !{!398, !8, i64 232}
+!509 = !{!398, !11, i64 216}
+!510 = !{!511}
+!511 = distinct !{!511, !512, !"_ZL14lodepng_memsetPvim: argument 0"}
+!512 = distinct !{!512, !"_ZL14lodepng_memsetPvim"}
 !513 = distinct !{!513, !17}
-!514 = distinct !{!514, !17}
+!514 = distinct !{!514, !17, !171}
 !515 = distinct !{!515, !17}
 !516 = distinct !{!516, !17}
 !517 = distinct !{!517, !17}
-!518 = distinct !{!518, !17}
+!518 = distinct !{!518, !17, !171}
 !519 = distinct !{!519, !17}
-!520 = distinct !{!520, !17}
+!520 = distinct !{!520, !17, !171}
 !521 = distinct !{!521, !17}
 !522 = distinct !{!522, !17}
-!523 = !{!395, !11, i64 52}
-!524 = !{!525, !527}
-!525 = distinct !{!525, !526, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!526 = distinct !{!526, !"_ZL14lodepng_memcpyPvPKvm"}
-!527 = distinct !{!527, !526, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!528 = !{!529, !531}
-!529 = distinct !{!529, !530, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!530 = distinct !{!530, !"_ZL14lodepng_memcpyPvPKvm"}
-!531 = distinct !{!531, !530, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!532 = !{!395, !11, i64 172}
-!533 = !{!396, !11, i64 52}
-!534 = !{!397, !11, i64 52}
-!535 = !{!397, !398, i64 56}
-!536 = !{!397, !11, i64 48}
-!537 = !{!397, !11, i64 80}
-!538 = !{!395, !184, i64 168}
-!539 = !{!396, !11, i64 56}
-!540 = !{!396, !11, i64 60}
-!541 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !3, i64 16, i64 8, !426, i64 24, i64 8, !426, i64 32, i64 8, !426, i64 40, i64 4, !10, i64 44, i64 4, !10, i64 48, i64 4, !10, i64 52, i64 4, !10, i64 56, i64 4, !10, i64 60, i64 4, !10, i64 64, i64 8, !3, i64 72, i64 8, !3, i64 80, i64 4, !10, i64 84, i64 4, !10, i64 88, i64 4, !10, i64 92, i64 4, !10, i64 96, i64 4, !10, i64 100, i64 4, !10, i64 104, i64 8, !426, i64 112, i64 8, !426, i64 120, i64 8, !426, i64 128, i64 4, !10, i64 132, i64 4, !10, i64 136, i64 4, !542, i64 144, i64 8, !7, i64 152, i64 4, !10, i64 156, i64 4, !10, i64 160, i64 4, !10, i64 168, i64 4, !543, i64 172, i64 4, !10, i64 176, i64 8, !7, i64 184, i64 8, !3, i64 192, i64 4, !10, i64 196, i64 4, !10, i64 200, i64 4, !10, i64 204, i64 4, !10, i64 208, i64 4, !10, i64 212, i64 4, !10, i64 216, i64 4, !10, i64 224, i64 4, !543, i64 228, i64 4, !10, i64 232, i64 8, !7, i64 240, i64 8, !3, i64 248, i64 4, !10, i64 252, i64 4, !10, i64 256, i64 4, !10, i64 260, i64 4, !10, i64 264, i64 4, !10, i64 268, i64 4, !10, i64 272, i64 4, !10, i64 276, i64 4, !10, i64 280, i64 8, !3, i64 288, i64 8, !544, i64 296, i64 8, !544, i64 304, i64 8, !3, i64 312, i64 8, !544, i64 320, i64 8, !544, i64 328, i64 8, !544, i64 336, i64 8, !544, i64 344, i64 4, !10, i64 352, i64 8, !7, i64 360, i64 4, !10, i64 364, i64 4, !10, i64 368, i64 4, !10, i64 372, i64 4, !10, i64 376, i64 4, !10, i64 380, i64 4, !10, i64 384, i64 4, !10, i64 388, i64 4, !10, i64 392, i64 4, !10, i64 396, i64 4, !10, i64 400, i64 4, !10, i64 404, i64 4, !10, i64 408, i64 4, !10, i64 412, i64 4, !10, i64 416, i64 4, !10, i64 420, i64 4, !10, i64 424, i64 4, !10, i64 428, i64 4, !10, i64 432, i64 4, !10, i64 436, i64 4, !10, i64 440, i64 4, !10, i64 444, i64 4, !10, i64 448, i64 4, !10, i64 452, i64 4, !10, i64 456, i64 4, !10, i64 460, i64 4, !10, i64 464, i64 8, !7, i64 472, i64 8, !7, i64 480, i64 4, !10, i64 484, i64 4, !10, i64 488, i64 4, !10, i64 492, i64 4, !10, i64 496, i64 4, !10, i64 500, i64 4, !10, i64 504, i64 4, !10, i64 508, i64 4, !10, i64 512, i64 4, !10, i64 516, i64 4, !10, i64 520, i64 4, !10, i64 524, i64 4, !10, i64 528, i64 4, !10, i64 532, i64 4, !10, i64 536, i64 4, !10, i64 540, i64 4, !10, i64 544, i64 4, !10, i64 548, i64 4, !10, i64 552, i64 4, !10, i64 556, i64 4, !10, i64 560, i64 4, !10, i64 564, i64 4, !10, i64 568, i64 4, !10, i64 572, i64 4, !10, i64 576, i64 4, !10, i64 584, i64 24, !18, i64 608, i64 24, !18, i64 632, i64 4, !10}
-!542 = !{!398, !398, i64 0}
-!543 = !{!184, !184, i64 0}
-!544 = !{!201, !201, i64 0}
-!545 = !{!546, !548}
-!546 = distinct !{!546, !547, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!547 = distinct !{!547, !"_ZL14lodepng_memcpyPvPKvm"}
-!548 = distinct !{!548, !547, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!549 = !{!550, !552}
-!550 = distinct !{!550, !551, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!551 = distinct !{!551, !"_ZL14lodepng_memcpyPvPKvm"}
-!552 = distinct !{!552, !551, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!553 = !{!395, !11, i64 152}
-!554 = !{!395, !11, i64 80}
-!555 = !{!395, !11, i64 128}
-!556 = !{!557}
-!557 = distinct !{!557, !558, !"_Z23lodepng_color_mode_make16LodePNGColorTypej: argument 0"}
-!558 = distinct !{!558, !"_Z23lodepng_color_mode_make16LodePNGColorTypej"}
-!559 = !{!395, !11, i64 160}
-!560 = distinct !{!560, !17}
-!561 = !{!395, !11, i64 156}
-!562 = distinct !{!562, !17}
+!523 = distinct !{!523, !17}
+!524 = distinct !{!524, !17, !171}
+!525 = distinct !{!525, !17}
+!526 = !{!398, !11, i64 52}
+!527 = !{!528, !530}
+!528 = distinct !{!528, !529, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!529 = distinct !{!529, !"_ZL14lodepng_memcpyPvPKvm"}
+!530 = distinct !{!530, !529, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!531 = !{!532, !534}
+!532 = distinct !{!532, !533, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!533 = distinct !{!533, !"_ZL14lodepng_memcpyPvPKvm"}
+!534 = distinct !{!534, !533, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!535 = !{!398, !11, i64 172}
+!536 = !{!399, !11, i64 52}
+!537 = !{!400, !11, i64 52}
+!538 = !{!400, !401, i64 56}
+!539 = !{!400, !11, i64 48}
+!540 = !{!400, !11, i64 80}
+!541 = !{!398, !185, i64 168}
+!542 = !{!399, !11, i64 56}
+!543 = !{!399, !11, i64 60}
+!544 = !{i64 0, i64 4, !10, i64 4, i64 4, !10, i64 8, i64 8, !3, i64 16, i64 8, !429, i64 24, i64 8, !429, i64 32, i64 8, !429, i64 40, i64 4, !10, i64 44, i64 4, !10, i64 48, i64 4, !10, i64 52, i64 4, !10, i64 56, i64 4, !10, i64 60, i64 4, !10, i64 64, i64 8, !3, i64 72, i64 8, !3, i64 80, i64 4, !10, i64 84, i64 4, !10, i64 88, i64 4, !10, i64 92, i64 4, !10, i64 96, i64 4, !10, i64 100, i64 4, !10, i64 104, i64 8, !429, i64 112, i64 8, !429, i64 120, i64 8, !429, i64 128, i64 4, !10, i64 132, i64 4, !10, i64 136, i64 4, !545, i64 144, i64 8, !7, i64 152, i64 4, !10, i64 156, i64 4, !10, i64 160, i64 4, !10, i64 168, i64 4, !546, i64 172, i64 4, !10, i64 176, i64 8, !7, i64 184, i64 8, !3, i64 192, i64 4, !10, i64 196, i64 4, !10, i64 200, i64 4, !10, i64 204, i64 4, !10, i64 208, i64 4, !10, i64 212, i64 4, !10, i64 216, i64 4, !10, i64 224, i64 4, !546, i64 228, i64 4, !10, i64 232, i64 8, !7, i64 240, i64 8, !3, i64 248, i64 4, !10, i64 252, i64 4, !10, i64 256, i64 4, !10, i64 260, i64 4, !10, i64 264, i64 4, !10, i64 268, i64 4, !10, i64 272, i64 4, !10, i64 276, i64 4, !10, i64 280, i64 8, !3, i64 288, i64 8, !547, i64 296, i64 8, !547, i64 304, i64 8, !3, i64 312, i64 8, !547, i64 320, i64 8, !547, i64 328, i64 8, !547, i64 336, i64 8, !547, i64 344, i64 4, !10, i64 352, i64 8, !7, i64 360, i64 4, !10, i64 364, i64 4, !10, i64 368, i64 4, !10, i64 372, i64 4, !10, i64 376, i64 4, !10, i64 380, i64 4, !10, i64 384, i64 4, !10, i64 388, i64 4, !10, i64 392, i64 4, !10, i64 396, i64 4, !10, i64 400, i64 4, !10, i64 404, i64 4, !10, i64 408, i64 4, !10, i64 412, i64 4, !10, i64 416, i64 4, !10, i64 420, i64 4, !10, i64 424, i64 4, !10, i64 428, i64 4, !10, i64 432, i64 4, !10, i64 436, i64 4, !10, i64 440, i64 4, !10, i64 444, i64 4, !10, i64 448, i64 4, !10, i64 452, i64 4, !10, i64 456, i64 4, !10, i64 460, i64 4, !10, i64 464, i64 8, !7, i64 472, i64 8, !7, i64 480, i64 4, !10, i64 484, i64 4, !10, i64 488, i64 4, !10, i64 492, i64 4, !10, i64 496, i64 4, !10, i64 500, i64 4, !10, i64 504, i64 4, !10, i64 508, i64 4, !10, i64 512, i64 4, !10, i64 516, i64 4, !10, i64 520, i64 4, !10, i64 524, i64 4, !10, i64 528, i64 4, !10, i64 532, i64 4, !10, i64 536, i64 4, !10, i64 540, i64 4, !10, i64 544, i64 4, !10, i64 548, i64 4, !10, i64 552, i64 4, !10, i64 556, i64 4, !10, i64 560, i64 4, !10, i64 564, i64 4, !10, i64 568, i64 4, !10, i64 572, i64 4, !10, i64 576, i64 4, !10, i64 584, i64 24, !18, i64 608, i64 24, !18, i64 632, i64 4, !10}
+!545 = !{!401, !401, i64 0}
+!546 = !{!185, !185, i64 0}
+!547 = !{!202, !202, i64 0}
+!548 = !{!549, !551}
+!549 = distinct !{!549, !550, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!550 = distinct !{!550, !"_ZL14lodepng_memcpyPvPKvm"}
+!551 = distinct !{!551, !550, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!552 = !{!553, !555}
+!553 = distinct !{!553, !554, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!554 = distinct !{!554, !"_ZL14lodepng_memcpyPvPKvm"}
+!555 = distinct !{!555, !554, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!556 = !{!398, !11, i64 152}
+!557 = !{!398, !11, i64 80}
+!558 = !{!398, !11, i64 128}
+!559 = !{!560}
+!560 = distinct !{!560, !561, !"_Z23lodepng_color_mode_make16LodePNGColorTypej: argument 0"}
+!561 = distinct !{!561, !"_Z23lodepng_color_mode_make16LodePNGColorTypej"}
+!562 = !{!398, !11, i64 160}
 !563 = distinct !{!563, !17}
-!564 = distinct !{!564, !17}
-!565 = !{!566, !568}
-!566 = distinct !{!566, !567, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!567 = distinct !{!567, !"_ZL14lodepng_memcpyPvPKvm"}
-!568 = distinct !{!568, !567, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!569 = !{!570, !572}
-!570 = distinct !{!570, !571, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!571 = distinct !{!571, !"_ZL14lodepng_memcpyPvPKvm"}
-!572 = distinct !{!572, !571, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!573 = distinct !{!573, !17}
-!574 = distinct !{!574, !17}
-!575 = distinct !{!575, !17}
-!576 = distinct !{!576, !17}
-!577 = distinct !{!577, !17}
+!564 = !{!398, !11, i64 156}
+!565 = distinct !{!565, !17}
+!566 = distinct !{!566, !17}
+!567 = distinct !{!567, !17}
+!568 = !{!569, !571}
+!569 = distinct !{!569, !570, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!570 = distinct !{!570, !"_ZL14lodepng_memcpyPvPKvm"}
+!571 = distinct !{!571, !570, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!572 = !{!573, !575}
+!573 = distinct !{!573, !574, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!574 = distinct !{!574, !"_ZL14lodepng_memcpyPvPKvm"}
+!575 = distinct !{!575, !574, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!576 = distinct !{!576, !17, !171}
+!577 = distinct !{!577, !17, !171}
 !578 = distinct !{!578, !17}
-!579 = distinct !{!579, !17}
+!579 = distinct !{!579, !17, !171}
 !580 = distinct !{!580, !17}
-!581 = !{!582, !584}
-!582 = distinct !{!582, !583, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!583 = distinct !{!583, !"_ZL14lodepng_memcpyPvPKvm"}
-!584 = distinct !{!584, !583, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!581 = distinct !{!581, !17, !171}
+!582 = distinct !{!582, !17}
+!583 = distinct !{!583, !17, !171}
+!584 = distinct !{!584, !17}
 !585 = !{!586, !588}
 !586 = distinct !{!586, !587, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !587 = distinct !{!587, !"_ZL14lodepng_memcpyPvPKvm"}
 !588 = distinct !{!588, !587, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!589 = distinct !{!589, !17}
-!590 = !{!591, !593}
-!591 = distinct !{!591, !592, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!592 = distinct !{!592, !"_ZL14lodepng_memcpyPvPKvm"}
-!593 = distinct !{!593, !592, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!589 = !{!590, !592}
+!590 = distinct !{!590, !591, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!591 = distinct !{!591, !"_ZL14lodepng_memcpyPvPKvm"}
+!592 = distinct !{!592, !591, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!593 = distinct !{!593, !17}
 !594 = !{!595, !597}
 !595 = distinct !{!595, !596, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !596 = distinct !{!596, !"_ZL14lodepng_memcpyPvPKvm"}
 !597 = distinct !{!597, !596, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!598 = !{!111, !9, i64 24}
-!599 = !{!600, !602}
-!600 = distinct !{!600, !601, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!601 = distinct !{!601, !"_ZL14lodepng_memcpyPvPKvm"}
-!602 = distinct !{!602, !601, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!598 = !{!599, !601}
+!599 = distinct !{!599, !600, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!600 = distinct !{!600, !"_ZL14lodepng_memcpyPvPKvm"}
+!601 = distinct !{!601, !600, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!602 = !{!111, !9, i64 24}
 !603 = !{!604, !606}
 !604 = distinct !{!604, !605, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !605 = distinct !{!605, !"_ZL14lodepng_memcpyPvPKvm"}
@@ -25885,17 +25822,17 @@ attributes #35 = { builtin allocsize(0) }
 !652 = distinct !{!652, !653, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !653 = distinct !{!653, !"_ZL14lodepng_memcpyPvPKvm"}
 !654 = distinct !{!654, !653, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!655 = distinct !{!655, !17}
-!656 = distinct !{!656, !17}
-!657 = !{!658, !660}
-!658 = distinct !{!658, !659, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!659 = distinct !{!659, !"_ZL14lodepng_memcpyPvPKvm"}
-!660 = distinct !{!660, !659, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!661 = distinct !{!661, !17}
-!662 = !{!663, !665}
-!663 = distinct !{!663, !664, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!664 = distinct !{!664, !"_ZL14lodepng_memcpyPvPKvm"}
-!665 = distinct !{!665, !664, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!655 = !{!656, !658}
+!656 = distinct !{!656, !657, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!657 = distinct !{!657, !"_ZL14lodepng_memcpyPvPKvm"}
+!658 = distinct !{!658, !657, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!659 = distinct !{!659, !17}
+!660 = distinct !{!660, !17}
+!661 = !{!662, !664}
+!662 = distinct !{!662, !663, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!663 = distinct !{!663, !"_ZL14lodepng_memcpyPvPKvm"}
+!664 = distinct !{!664, !663, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!665 = distinct !{!665, !17}
 !666 = !{!667, !669}
 !667 = distinct !{!667, !668, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !668 = distinct !{!668, !"_ZL14lodepng_memcpyPvPKvm"}
@@ -25924,11 +25861,11 @@ attributes #35 = { builtin allocsize(0) }
 !691 = distinct !{!691, !692, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !692 = distinct !{!692, !"_ZL14lodepng_memcpyPvPKvm"}
 !693 = distinct !{!693, !692, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!694 = distinct !{!694, !17}
-!695 = !{!696, !698}
-!696 = distinct !{!696, !697, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!697 = distinct !{!697, !"_ZL14lodepng_memcpyPvPKvm"}
-!698 = distinct !{!698, !697, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!694 = !{!695, !697}
+!695 = distinct !{!695, !696, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!696 = distinct !{!696, !"_ZL14lodepng_memcpyPvPKvm"}
+!697 = distinct !{!697, !696, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!698 = distinct !{!698, !17}
 !699 = !{!700, !702}
 !700 = distinct !{!700, !701, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !701 = distinct !{!701, !"_ZL14lodepng_memcpyPvPKvm"}
@@ -25937,16 +25874,16 @@ attributes #35 = { builtin allocsize(0) }
 !704 = distinct !{!704, !705, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !705 = distinct !{!705, !"_ZL14lodepng_memcpyPvPKvm"}
 !706 = distinct !{!706, !705, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!707 = !{!202, !11, i64 0}
-!708 = !{!202, !11, i64 4}
-!709 = !{!202, !11, i64 8}
-!710 = !{!202, !11, i64 12}
-!711 = !{!202, !11, i64 16}
-!712 = !{!202, !11, i64 20}
-!713 = !{!714, !716}
-!714 = distinct !{!714, !715, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!715 = distinct !{!715, !"_ZL14lodepng_memcpyPvPKvm"}
-!716 = distinct !{!716, !715, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!707 = !{!708, !710}
+!708 = distinct !{!708, !709, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!709 = distinct !{!709, !"_ZL14lodepng_memcpyPvPKvm"}
+!710 = distinct !{!710, !709, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!711 = !{!203, !11, i64 0}
+!712 = !{!203, !11, i64 4}
+!713 = !{!203, !11, i64 8}
+!714 = !{!203, !11, i64 12}
+!715 = !{!203, !11, i64 16}
+!716 = !{!203, !11, i64 20}
 !717 = !{!718, !720}
 !718 = distinct !{!718, !719, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !719 = distinct !{!719, !"_ZL14lodepng_memcpyPvPKvm"}
@@ -25995,21 +25932,21 @@ attributes #35 = { builtin allocsize(0) }
 !762 = distinct !{!762, !763, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
 !763 = distinct !{!763, !"_ZL14lodepng_memcpyPvPKvm"}
 !764 = distinct !{!764, !763, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!765 = !{!395, !11, i64 228}
-!766 = !{!767, !8, i64 0}
-!767 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !768, i64 0, !4, i64 8, !5, i64 16}
-!768 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
-!769 = !{!770, !8, i64 0}
-!770 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
-!771 = !{!770, !8, i64 8}
-!772 = !{!773}
-!773 = distinct !{!773, !774, !"_ZL13ucvector_initPhm: argument 0"}
-!774 = distinct !{!774, !"_ZL13ucvector_initPhm"}
-!775 = !{!770, !8, i64 16}
-!776 = distinct !{!776, !17}
-!777 = distinct !{!777, !17}
-!778 = distinct !{!778, !17}
-!779 = distinct !{!779, !17}
+!765 = !{!766, !768}
+!766 = distinct !{!766, !767, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!767 = distinct !{!767, !"_ZL14lodepng_memcpyPvPKvm"}
+!768 = distinct !{!768, !767, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!769 = !{!398, !11, i64 228}
+!770 = !{!771, !8, i64 0}
+!771 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !772, i64 0, !4, i64 8, !5, i64 16}
+!772 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
+!773 = !{!774, !8, i64 0}
+!774 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
+!775 = !{!774, !8, i64 8}
+!776 = !{!777}
+!777 = distinct !{!777, !778, !"_ZL13ucvector_initPhm: argument 0"}
+!778 = distinct !{!778, !"_ZL13ucvector_initPhm"}
+!779 = !{!774, !8, i64 16}
 !780 = distinct !{!780, !17}
 !781 = distinct !{!781, !17}
 !782 = distinct !{!782, !17}
@@ -26028,14 +25965,14 @@ attributes #35 = { builtin allocsize(0) }
 !795 = distinct !{!795, !17}
 !796 = distinct !{!796, !17}
 !797 = distinct !{!797, !17}
-!798 = !{!799, !801}
-!799 = distinct !{!799, !800, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!800 = distinct !{!800, !"_ZL14lodepng_memcpyPvPKvm"}
-!801 = distinct !{!801, !800, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
-!802 = distinct !{!802, !17}
-!803 = distinct !{!803, !17}
-!804 = distinct !{!804, !17}
-!805 = distinct !{!805, !17}
+!798 = distinct !{!798, !17}
+!799 = distinct !{!799, !17}
+!800 = distinct !{!800, !17}
+!801 = distinct !{!801, !17}
+!802 = !{!803, !805}
+!803 = distinct !{!803, !804, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!804 = distinct !{!804, !"_ZL14lodepng_memcpyPvPKvm"}
+!805 = distinct !{!805, !804, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !806 = distinct !{!806, !17}
 !807 = distinct !{!807, !17}
 !808 = distinct !{!808, !17}
@@ -26060,33 +25997,33 @@ attributes #35 = { builtin allocsize(0) }
 !827 = distinct !{!827, !17}
 !828 = distinct !{!828, !17}
 !829 = distinct !{!829, !17}
-!830 = distinct !{!830, !17}
+!830 = distinct !{!830, !17, !171}
 !831 = distinct !{!831, !17}
 !832 = distinct !{!832, !17}
 !833 = distinct !{!833, !17}
 !834 = distinct !{!834, !17}
 !835 = distinct !{!835, !17}
 !836 = distinct !{!836, !17}
-!837 = !{!838}
-!838 = distinct !{!838, !839, !"_ZL14lodepng_memsetPvim: argument 0"}
-!839 = distinct !{!839, !"_ZL14lodepng_memsetPvim"}
+!837 = distinct !{!837, !17}
+!838 = distinct !{!838, !17}
+!839 = distinct !{!839, !17}
 !840 = distinct !{!840, !17}
 !841 = distinct !{!841, !17}
-!842 = distinct !{!842, !17}
-!843 = distinct !{!843, !17}
-!844 = distinct !{!844, !17}
+!842 = !{!843}
+!843 = distinct !{!843, !844, !"_ZL14lodepng_memsetPvim: argument 0"}
+!844 = distinct !{!844, !"_ZL14lodepng_memsetPvim"}
 !845 = distinct !{!845, !17}
-!846 = !{!397, !8, i64 64}
+!846 = distinct !{!846, !17}
 !847 = distinct !{!847, !17}
-!848 = !{!849, !851}
-!849 = distinct !{!849, !850, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
-!850 = distinct !{!850, !"_ZL14lodepng_memcpyPvPKvm"}
-!851 = distinct !{!851, !850, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
+!848 = distinct !{!848, !17}
+!849 = distinct !{!849, !17}
+!850 = distinct !{!850, !17}
+!851 = !{!400, !8, i64 64}
 !852 = distinct !{!852, !17}
-!853 = distinct !{!853, !17}
-!854 = distinct !{!854, !17}
-!855 = distinct !{!855, !17}
-!856 = distinct !{!856, !17}
+!853 = !{!854, !856}
+!854 = distinct !{!854, !855, !"_ZL14lodepng_memcpyPvPKvm: argument 0"}
+!855 = distinct !{!855, !"_ZL14lodepng_memcpyPvPKvm"}
+!856 = distinct !{!856, !855, !"_ZL14lodepng_memcpyPvPKvm: argument 1"}
 !857 = distinct !{!857, !17}
 !858 = distinct !{!858, !17}
 !859 = distinct !{!859, !17}
@@ -26100,3 +26037,8 @@ attributes #35 = { builtin allocsize(0) }
 !867 = distinct !{!867, !17}
 !868 = distinct !{!868, !17}
 !869 = distinct !{!869, !17}
+!870 = distinct !{!870, !17}
+!871 = distinct !{!871, !17}
+!872 = distinct !{!872, !17}
+!873 = distinct !{!873, !17}
+!874 = distinct !{!874, !17}

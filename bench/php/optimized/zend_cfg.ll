@@ -2121,7 +2121,7 @@ define dso_local void @zend_cfg_compute_dominators_tree(ptr noundef readnone cap
 .lr.ph174.us.backedge:                            ; preds = %._crit_edge.us.thread, %._crit_edge175.us
   %indvars.iv195.be = phi i64 [ %indvars.iv.next196, %._crit_edge.us.thread ], [ 1, %._crit_edge175.us ]
   %.0126172.us.be = phi i32 [ %.1127.us, %._crit_edge.us.thread ], [ 0, %._crit_edge175.us ]
-  br label %.lr.ph174.us
+  br label %.lr.ph174.us, !llvm.loop !99
 
 .preheader147.us:                                 ; preds = %.lr.ph.us, %.preheader149.us
   %.1122.lcssa.us = phi i32 [ %.0121164.us, %.preheader149.us ], [ %51, %.lr.ph.us ]
@@ -2196,34 +2196,34 @@ define dso_local void @zend_cfg_compute_dominators_tree(ptr noundef readnone cap
 80:                                               ; preds = %76
   %81 = zext nneg i32 %78 to i64
   %82 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %81, i32 10
-  %83 = load i32, ptr %82, align 4, !tbaa !99
+  %83 = load i32, ptr %82, align 4, !tbaa !101
   %84 = zext i32 %83 to i64
   %or.cond = icmp samesign ult i64 %indvars.iv200, %84
   br i1 %or.cond, label %85, label %.preheader146
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  store i32 %83, ptr %86, align 8, !tbaa !100
+  store i32 %83, ptr %86, align 8, !tbaa !102
   %87 = zext nneg i32 %78 to i64
   %88 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %87, i32 10
   %89 = trunc nuw nsw i64 %indvars.iv200 to i32
-  store i32 %89, ptr %88, align 4, !tbaa !99
+  store i32 %89, ptr %88, align 4, !tbaa !101
   br label %96
 
 .preheader146:                                    ; preds = %80, %.preheader146
   %.0120 = phi i32 [ %92, %.preheader146 ], [ %83, %80 ]
   %90 = zext nneg i32 %.0120 to i64
   %91 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %90, i32 11
-  %92 = load i32, ptr %91, align 8, !tbaa !100
+  %92 = load i32, ptr %91, align 8, !tbaa !102
   %93 = zext i32 %92 to i64
   %or.cond144 = icmp samesign ugt i64 %indvars.iv200, %93
   br i1 %or.cond144, label %.preheader146, label %.critedge
 
 .critedge:                                        ; preds = %.preheader146
   %94 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %indvars.iv200, i32 11
-  store i32 %92, ptr %94, align 8, !tbaa !100
+  store i32 %92, ptr %94, align 8, !tbaa !102
   %95 = trunc nuw nsw i64 %indvars.iv200 to i32
-  store i32 %95, ptr %91, align 8, !tbaa !100
+  store i32 %95, ptr %91, align 8, !tbaa !102
   br label %96
 
 96:                                               ; preds = %76, %.critedge, %85, %.lr.ph
@@ -2398,14 +2398,14 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
   call void @llvm.memset.p0.i64(ptr align 4 %32, i8 -1, i64 %37, i1 false)
   %38 = icmp sgt i32 %22, 0
   tail call void @llvm.assume(i1 %38)
-  %39 = load i64, ptr %24, align 8, !tbaa !101
+  %39 = load i64, ptr %24, align 8, !tbaa !103
   %40 = and i64 %39, 1
   %.not.i.not = icmp eq i64 %40, 0
   br i1 %.not.i.not, label %.preheader242.lr.ph, label %._crit_edge266
 
 .preheader242.lr.ph:                              ; preds = %31
   %41 = or disjoint i64 %39, 1
-  store i64 %41, ptr %24, align 8, !tbaa !101
+  store i64 %41, ptr %24, align 8, !tbaa !103
   store i32 0, ptr %23, align 4, !tbaa !34
   %invariant.gep = getelementptr i8, ptr %23, i64 -4
   br label %.preheader242
@@ -2460,7 +2460,7 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
   %61 = zext nneg i32 %.0161255 to i64
   %62 = lshr i64 %61, 6
   %63 = getelementptr inbounds nuw i64, ptr %24, i64 %62
-  %64 = load i64, ptr %63, align 8, !tbaa !101
+  %64 = load i64, ptr %63, align 8, !tbaa !103
   %65 = and i64 %61, 63
   %66 = shl nuw i64 1, %65
   %67 = and i64 %64, %66
@@ -2475,9 +2475,9 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
   %71 = lshr i32 %.0161255.lcssa.sink371, 6
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds nuw i64, ptr %24, i64 %72
-  %74 = load i64, ptr %73, align 8, !tbaa !101
+  %74 = load i64, ptr %73, align 8, !tbaa !103
   %75 = or i64 %74, %70
-  store i64 %75, ptr %73, align 8, !tbaa !101
+  store i64 %75, ptr %73, align 8, !tbaa !103
   %76 = icmp slt i64 %indvars.iv314, %.pre-phi
   tail call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv314
@@ -2509,7 +2509,7 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
   %91 = zext nneg i32 %83 to i64
   %92 = lshr i64 %91, 6
   %93 = getelementptr inbounds nuw i64, ptr %24, i64 %92
-  %94 = load i64, ptr %93, align 8, !tbaa !101
+  %94 = load i64, ptr %93, align 8, !tbaa !103
   %95 = and i64 %91, 63
   %96 = shl nuw i64 1, %95
   %97 = and i64 %94, %96
@@ -2692,7 +2692,7 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %145
   %167 = zext nneg i32 %143 to i64
   %168 = lshr i64 %167, 6
   %169 = getelementptr inbounds nuw i64, ptr %24, i64 %168
-  %170 = load i64, ptr %169, align 8, !tbaa !101
+  %170 = load i64, ptr %169, align 8, !tbaa !103
   %171 = and i64 %167, 63
   %172 = shl nuw i64 1, %171
   %173 = and i64 %170, %172
@@ -2706,9 +2706,9 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %145
   %178 = lshr i32 %143, 6
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr inbounds nuw i64, ptr %24, i64 %179
-  %181 = load i64, ptr %180, align 8, !tbaa !101
+  %181 = load i64, ptr %180, align 8, !tbaa !103
   %182 = or i64 %181, %177
-  store i64 %182, ptr %180, align 8, !tbaa !101
+  store i64 %182, ptr %180, align 8, !tbaa !103
   %183 = icmp slt i32 %.sroa.19.6282, %22
   tail call void @llvm.assume(i1 %183)
   %184 = add nsw i32 %.sroa.19.6282, 1
@@ -2759,7 +2759,7 @@ zend_worklist_push.exit193:                       ; preds = %174, %164, %197, %1
   %209 = sext i32 %.4 to i64
   %210 = getelementptr inbounds %struct._zend_basic_block, ptr %4, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 36
-  %212 = load i32, ptr %211, align 4, !tbaa !102
+  %212 = load i32, ptr %211, align 4, !tbaa !104
   %213 = icmp sgt i32 %212, -1
   br i1 %213, label %208, label %214
 
@@ -2777,7 +2777,7 @@ zend_worklist_push.exit193:                       ; preds = %174, %164, %197, %1
   br i1 %or.cond, label %.backedge, label %221
 
 221:                                              ; preds = %216
-  store i32 %125, ptr %215, align 4, !tbaa !102
+  store i32 %125, ptr %215, align 4, !tbaa !104
   %222 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %223 = load i32, ptr %222, align 8, !tbaa !92
   %224 = icmp sgt i32 %223, 0
@@ -2803,7 +2803,7 @@ zend_worklist_push.exit193:                       ; preds = %174, %164, %197, %1
   %234 = zext nneg i32 %231 to i64
   %235 = lshr i64 %234, 6
   %236 = getelementptr inbounds nuw i64, ptr %24, i64 %235
-  %237 = load i64, ptr %236, align 8, !tbaa !101
+  %237 = load i64, ptr %236, align 8, !tbaa !103
   %238 = and i64 %234, 63
   %239 = shl nuw i64 1, %238
   %240 = and i64 %237, %239
@@ -2817,9 +2817,9 @@ zend_worklist_push.exit193:                       ; preds = %174, %164, %197, %1
   %245 = lshr i32 %231, 6
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr inbounds nuw i64, ptr %24, i64 %246
-  %248 = load i64, ptr %247, align 8, !tbaa !101
+  %248 = load i64, ptr %247, align 8, !tbaa !103
   %249 = or i64 %248, %244
-  store i64 %249, ptr %247, align 8, !tbaa !101
+  store i64 %249, ptr %247, align 8, !tbaa !103
   %250 = icmp slt i32 %.sroa.19.10288, %22
   tail call void @llvm.assume(i1 %250)
   %251 = add nsw i32 %.sroa.19.10288, 1
@@ -2917,7 +2917,7 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
   %32 = lshr i64 %27, 12
   %33 = and i64 %32, 33554431
   %34 = getelementptr inbounds nuw i64, ptr %24, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !101
+  %35 = load i64, ptr %34, align 8, !tbaa !103
   %36 = and i64 %28, 63
   %37 = shl nuw i64 1, %36
   %38 = and i64 %37, %35
@@ -2927,9 +2927,9 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
 .lr.ph105:                                        ; preds = %20
   %39 = and i64 %32, 67108863
   %40 = getelementptr inbounds nuw i64, ptr %24, i64 %39
-  %41 = load i64, ptr %40, align 8, !tbaa !101
+  %41 = load i64, ptr %40, align 8, !tbaa !103
   %42 = or i64 %41, %37
-  store i64 %42, ptr %40, align 8, !tbaa !101
+  store i64 %42, ptr %40, align 8, !tbaa !103
   %43 = icmp sgt i32 %22, 0
   tail call void @llvm.assume(i1 %43)
   store i32 %29, ptr %23, align 4, !tbaa !34
@@ -3115,7 +3115,7 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
   %137 = lshr i64 %132, 12
   %138 = and i64 %137, 33554431
   %139 = getelementptr inbounds nuw i64, ptr %24, i64 %138
-  %140 = load i64, ptr %139, align 8, !tbaa !101
+  %140 = load i64, ptr %139, align 8, !tbaa !103
   %141 = and i64 %133, 63
   %142 = shl nuw i64 1, %141
   %143 = and i64 %140, %142
@@ -3125,9 +3125,9 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
 144:                                              ; preds = %130
   %145 = and i64 %137, 67108863
   %146 = getelementptr inbounds nuw i64, ptr %24, i64 %145
-  %147 = load i64, ptr %146, align 8, !tbaa !101
+  %147 = load i64, ptr %146, align 8, !tbaa !103
   %148 = or i64 %147, %142
-  store i64 %148, ptr %146, align 8, !tbaa !101
+  store i64 %148, ptr %146, align 8, !tbaa !103
   %149 = icmp slt i32 %.sroa.10.2101, %22
   tail call void @llvm.assume(i1 %149)
   %150 = add nsw i32 %.sroa.10.2101, 1
@@ -3286,7 +3286,9 @@ attributes #12 = { nounwind allocsize(0) }
 !96 = !{!14, !6, i64 28}
 !97 = !{!14, !6, i64 40}
 !98 = !{!14, !6, i64 32}
-!99 = !{!14, !6, i64 44}
-!100 = !{!14, !6, i64 48}
-!101 = !{!66, !66, i64 0}
-!102 = !{!14, !6, i64 36}
+!99 = distinct !{!99, !100}
+!100 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!101 = !{!14, !6, i64 44}
+!102 = !{!14, !6, i64 48}
+!103 = !{!66, !66, i64 0}
+!104 = !{!14, !6, i64 36}

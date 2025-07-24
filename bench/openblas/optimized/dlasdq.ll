@@ -194,7 +194,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %108 = fmul double %106, %107
   store double %108, ptr %103, align 8, !tbaa !7
   %.not259.not = icmp samesign ult i64 %indvars.iv, %82
-  br i1 %.not259.not, label %.lr.ph.split, label %._crit_edge.loopexit304, !llvm.loop !9
+  br i1 %.not259.not, label %.lr.ph.split, label %._crit_edge.loopexit304, !llvm.loop !12
 
 ._crit_edge.loopexit304:                          ; preds = %.lr.ph.split
   %.pre = load i32, ptr %2, align 4, !tbaa !3
@@ -279,7 +279,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %151 = getelementptr inbounds double, ptr %33, i64 %150
   store double %139, ptr %151, align 8, !tbaa !7
   %.not260.us.not = icmp samesign ult i64 %indvars.iv312, %135
-  br i1 %.not260.us.not, label %.lr.ph285.split.us, label %._crit_edge286, !llvm.loop !11
+  br i1 %.not260.us.not, label %.lr.ph285.split.us, label %._crit_edge286, !llvm.loop !13
 
 .lr.ph285.split:                                  ; preds = %.lr.ph285, %.lr.ph285.split
   %indvars.iv309 = phi i64 [ %indvars.iv.next310, %.lr.ph285.split ], [ 1, %.lr.ph285 ]
@@ -299,7 +299,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %161 = fmul double %159, %160
   store double %161, ptr %156, align 8, !tbaa !7
   %.not260.not = icmp samesign ult i64 %indvars.iv309, %135
-  br i1 %.not260.not, label %.lr.ph285.split, label %._crit_edge286, !llvm.loop !11
+  br i1 %.not260.not, label %.lr.ph285.split, label %._crit_edge286, !llvm.loop !14
 
 ._crit_edge286:                                   ; preds = %.lr.ph285.split.us, %.lr.ph285.split, %.thread274
   %162 = icmp eq i32 %.0245277, 1
@@ -420,7 +420,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next318 to i32
   %exitcond.not = icmp eq i32 %212, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge294, label %.lr.ph293, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge294, label %.lr.ph293, !llvm.loop !15
 
 ._crit_edge294:                                   ; preds = %.lr.ph293, %.lr.ph301
   %.0248.lcssa = phi i32 [ %211, %.lr.ph301 ], [ %.1249, %.lr.ph293 ]
@@ -476,7 +476,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 241:                                              ; preds = %._crit_edge294, %237, %234
   %.not263.not = icmp samesign ult i64 %indvars.iv320, %206
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  br i1 %.not263.not, label %.lr.ph301, label %.loopexit, !llvm.loop !13
+  br i1 %.not263.not, label %.lr.ph301, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %241, %201, %72, %.thread271
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #4
@@ -525,8 +525,11 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

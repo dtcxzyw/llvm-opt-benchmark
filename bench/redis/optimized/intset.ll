@@ -132,7 +132,7 @@ _intsetGetEncoded.exit.i:                         ; preds = %.lr.ph.i, %_intsetS
 
 _intsetSet.exit.i:                                ; preds = %46, %43, %40
   %.not.i = icmp eq i64 %indvars.iv.next42.i, 0
-  br i1 %.not.i, label %._crit_edge.i, label %_intsetGetEncoded.exit.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %_intsetGetEncoded.exit.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %_intsetSet.exit.i, %_intsetSet.exit.us33.i, %13
   br i1 %16, label %48, label %58
@@ -415,7 +415,7 @@ _intsetGet.exit59.us:                             ; preds = %.lr.ph, %42
   %.139.us = phi i32 [ %41, %40 ], [ %.03861.us, %38 ]
   %.137.us = phi i32 [ %.03662.us, %40 ], [ %39, %38 ]
   %.not.us = icmp slt i32 %.137.us, %.139.us
-  br i1 %.not.us, label %._crit_edge, label %_intsetGet.exit59.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %_intsetGet.exit59.us, !llvm.loop !18
 
 _intsetGet.exit59.us77:                           ; preds = %.lr.ph, %55
   %.03662.us75 = phi i32 [ %.137.us80, %55 ], [ %6, %.lr.ph ]
@@ -445,7 +445,7 @@ _intsetGet.exit59.us77:                           ; preds = %.lr.ph, %55
   %.139.us79 = phi i32 [ %54, %53 ], [ %.03861.us76, %51 ]
   %.137.us80 = phi i32 [ %.03662.us75, %53 ], [ %52, %51 ]
   %.not.us81 = icmp slt i32 %.137.us80, %.139.us79
-  br i1 %.not.us81, label %._crit_edge, label %_intsetGet.exit59.us77, !llvm.loop !16
+  br i1 %.not.us81, label %._crit_edge, label %_intsetGet.exit59.us77, !llvm.loop !19
 
 56:                                               ; preds = %_intsetGet.exit54
   %.not47 = icmp eq ptr %2, null
@@ -479,7 +479,7 @@ _intsetGet.exit59:                                ; preds = %.lr.ph, %69
   %.139 = phi i32 [ %64, %63 ], [ %.03861, %67 ]
   %.137 = phi i32 [ %.03662, %63 ], [ %68, %67 ]
   %.not = icmp slt i32 %.137, %.139
-  br i1 %.not, label %._crit_edge, label %_intsetGet.exit59, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %_intsetGet.exit59, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %55, %49, %42, %36, %69, %65, %.preheader
   %.038.lcssa = phi i32 [ 0, %.preheader ], [ %.03861, %65 ], [ %.139, %69 ], [ %.03861.us, %36 ], [ %.139.us, %42 ], [ %.03861.us76, %49 ], [ %.139.us79, %55 ]
@@ -624,7 +624,7 @@ define dso_local i64 @intsetRandom(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !5
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %5, !prof !17
+  br i1 %.not, label %4, label %5, !prof !21
 
 4:                                                ; preds = %1
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 264) #14
@@ -881,13 +881,13 @@ _intsetGet.exit41.us:                             ; preds = %.lr.ph69
   %.0.copyload3.i.i39.us = load i64, ptr %27, align 8
   %.not35.us = icmp sgt i64 %.0.copyload3.i.i39.us, %.0.copyload3.i.i39.us68
   %28 = add i32 %29, 1
-  br i1 %.not35.us, label %.lr.ph69, label %._crit_edge, !llvm.loop !18
+  br i1 %.not35.us, label %.lr.ph69, label %._crit_edge, !llvm.loop !22
 
 .lr.ph69:                                         ; preds = %.lr.ph.split.us, %_intsetGet.exit41.us
   %29 = phi i32 [ %28, %_intsetGet.exit41.us ], [ 2, %.lr.ph.split.us ]
   %.0.copyload3.i.i39.us68 = phi i64 [ %.0.copyload3.i.i39.us, %_intsetGet.exit41.us ], [ %.0.copyload3.i.i39.us66, %.lr.ph.split.us ]
   %exitcond79.not = icmp eq i32 %29, %11
-  br i1 %exitcond79.not, label %._crit_edge, label %_intsetGet.exit41.us, !llvm.loop !18
+  br i1 %exitcond79.not, label %._crit_edge, label %_intsetGet.exit41.us, !llvm.loop !22
 
 .lr.ph.split.us48:                                ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -903,13 +903,13 @@ _intsetGet.exit41.us55:                           ; preds = %.lr.ph73
   %34 = sext i32 %.0.copyload1.i.i37.us to i64
   %.not35.us57 = icmp slt i64 %37, %34
   %35 = add i32 %36, 1
-  br i1 %.not35.us57, label %.lr.ph73, label %._crit_edge, !llvm.loop !18
+  br i1 %.not35.us57, label %.lr.ph73, label %._crit_edge, !llvm.loop !23
 
 .lr.ph73:                                         ; preds = %.lr.ph.split.us48, %_intsetGet.exit41.us55
   %36 = phi i32 [ %35, %_intsetGet.exit41.us55 ], [ 2, %.lr.ph.split.us48 ]
   %37 = phi i64 [ %34, %_intsetGet.exit41.us55 ], [ %31, %.lr.ph.split.us48 ]
   %exitcond.not = icmp eq i32 %36, %11
-  br i1 %exitcond.not, label %._crit_edge, label %_intsetGet.exit41.us55, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %_intsetGet.exit41.us55, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -922,7 +922,7 @@ _intsetGet.exit41.us55:                           ; preds = %.lr.ph73
   %40 = phi i32 [ %45, %_intsetGet.exit41 ], [ 2, %.lr.ph.split ]
   %41 = phi i64 [ %44, %_intsetGet.exit41 ], [ %39, %.lr.ph.split ]
   %exitcond80.not = icmp eq i32 %40, %11
-  br i1 %exitcond80.not, label %._crit_edge, label %_intsetGet.exit41, !llvm.loop !18
+  br i1 %exitcond80.not, label %._crit_edge, label %_intsetGet.exit41, !llvm.loop !24
 
 _intsetGet.exit41:                                ; preds = %.lr.ph64
   %42 = sext i32 %40 to i64
@@ -931,7 +931,7 @@ _intsetGet.exit41:                                ; preds = %.lr.ph64
   %44 = sext i16 %.0.copyload.i.i40 to i64
   %.not35 = icmp slt i64 %41, %44
   %45 = add i32 %40, 1
-  br i1 %.not35, label %.lr.ph64, label %._crit_edge, !llvm.loop !18
+  br i1 %.not35, label %.lr.ph64, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph73, %_intsetGet.exit41.us55, %.lr.ph69, %_intsetGet.exit41.us, %.lr.ph64, %_intsetGet.exit41, %_intsetGet.exit, %.lr.ph.split.us48, %.lr.ph.split, %.lr.ph.split.us, %5, %16, %9, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %9 ], [ 1, %16 ], [ 1, %_intsetGet.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us48 ], [ 0, %.lr.ph.split ], [ 1, %.lr.ph64 ], [ 0, %_intsetGet.exit41 ], [ 1, %.lr.ph69 ], [ 0, %_intsetGet.exit41.us ], [ 1, %.lr.ph73 ], [ 0, %_intsetGet.exit41.us55 ]
@@ -978,8 +978,14 @@ attributes #16 = { noreturn nounwind }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = distinct !{!22, !15, !16}
+!23 = distinct !{!23, !15, !16}
+!24 = distinct !{!24, !15}

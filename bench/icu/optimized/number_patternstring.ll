@@ -5649,7 +5649,7 @@ define void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuil
 93:                                               ; preds = %89, %91
   %94 = add nuw nsw i32 %.05974.us77, 1
   %exitcond.not = icmp eq i32 %94, %50
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !137
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %6, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -5687,7 +5687,7 @@ define void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuil
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %109 = add nuw nsw i32 %.05974.us82, 1
   %exitcond92.not = icmp eq i32 %109, %50
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !135
+  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %93, %106, %126, %76, %44
   ret void
@@ -5732,7 +5732,7 @@ define void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuil
 126:                                              ; preds = %121, %124
   %127 = add nuw nsw i32 %.05974, 1
   %exitcond93.not = icmp eq i32 %127, %50
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !135
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !139
 }
 
 declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #9
@@ -6036,4 +6036,8 @@ attributes #19 = { noreturn nounwind }
 !132 = distinct !{!132, !64}
 !133 = distinct !{!133, !64}
 !134 = distinct !{!134, !64}
-!135 = distinct !{!135, !64}
+!135 = distinct !{!135, !64, !136}
+!136 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!137 = distinct !{!137, !64, !136}
+!138 = distinct !{!138, !64, !136}
+!139 = distinct !{!139, !64}

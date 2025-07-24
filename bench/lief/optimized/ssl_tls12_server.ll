@@ -4186,7 +4186,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   %112 = getelementptr inbounds nuw i8, ptr %.03253.i, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !180
   %.not36.i = icmp eq ptr %113, null
-  br i1 %.not36.i, label %.loopexit, label %.preheader.split.i, !llvm.loop !181
+  br i1 %.not36.i, label %.loopexit, label %.preheader.split.i, !llvm.loop !183
 
 .loopexit.i:                                      ; preds = %107, %.lr.ph.i.us.i
   %.03252.i = phi ptr [ %.03253.us.i, %.lr.ph.i.us.i ], [ %.03253.i, %107 ]
@@ -4442,7 +4442,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %18, %3
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %41 = load ptr, ptr %40, align 8, !tbaa !182
+  %41 = load ptr, ptr %40, align 8, !tbaa !184
   %42 = tail call i32 %6(ptr noundef %41, ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %33) #12
   %.not36.not = icmp eq i32 %42, 0
   br i1 %.not36.not, label %.critedge38, label %.critedge
@@ -4615,29 +4615,29 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %mbedtls_ssl_own_cer
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !61
   call void @mbedtls_ssl_write_version(ptr noundef nonnull %5, i32 noundef %65, i32 noundef %69) #12
-  %70 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i) #12, !srcloc !183
+  %70 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i) #12, !srcloc !185
   %71 = load i64, ptr %8, align 8, !tbaa !100
-  %72 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %71) #12, !srcloc !184
-  %73 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 48) #12, !srcloc !184
+  %72 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %71) #12, !srcloc !186
+  %73 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 48) #12, !srcloc !186
   %74 = xor i64 %73, %72
-  %75 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #12, !srcloc !183
+  %75 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #12, !srcloc !185
   %76 = load i8, ptr %7, align 16, !tbaa !38
   %77 = zext i8 %76 to i64
   %78 = load i8, ptr %5, align 1, !tbaa !38
   %79 = zext i8 %78 to i64
-  %80 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %77) #12, !srcloc !184
-  %81 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %79) #12, !srcloc !184
+  %80 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %77) #12, !srcloc !186
+  %81 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %79) #12, !srcloc !186
   %82 = xor i64 %81, %80
-  %83 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %82) #12, !srcloc !183
+  %83 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %82) #12, !srcloc !185
   %84 = load i8, ptr %13, align 1, !tbaa !38
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %87 = load i8, ptr %86, align 1, !tbaa !38
   %88 = zext i8 %87 to i64
-  %89 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %85) #12, !srcloc !184
-  %90 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %88) #12, !srcloc !184
+  %89 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %85) #12, !srcloc !186
+  %90 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %88) #12, !srcloc !186
   %91 = xor i64 %90, %89
-  %92 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %91) #12, !srcloc !183
+  %92 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %91) #12, !srcloc !185
   %93 = load ptr, ptr %0, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8, !tbaa !92
@@ -4653,7 +4653,7 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %mbedtls_ssl_own_cer
   %102 = or i64 %101, %92
   %103 = load ptr, ptr %9, align 8, !tbaa !45
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 3264
-  store i64 48, ptr %104, align 8, !tbaa !185
+  store i64 48, ptr %104, align 8, !tbaa !187
   call void @mbedtls_ct_memcpy_if(i64 noundef %102, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 48) #12
   br label %105
 
@@ -4882,8 +4882,10 @@ attributes #13 = { nounwind allocsize(0,1) }
 !178 = !{!"p1 _ZTS17mbedtls_ecp_point", !6, i64 0}
 !179 = distinct !{!179, !69}
 !180 = !{!114, !20, i64 16}
-!181 = distinct !{!181, !69}
-!182 = !{!17, !6, i64 136}
-!183 = !{i64 2875456, i64 2875506, i64 2875578, i64 2875650, i64 2875722}
-!184 = !{i64 2872578}
-!185 = !{!47, !14, i64 3264}
+!181 = distinct !{!181, !69, !182}
+!182 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!183 = distinct !{!183, !69}
+!184 = !{!17, !6, i64 136}
+!185 = !{i64 2875456, i64 2875506, i64 2875578, i64 2875650, i64 2875722}
+!186 = !{i64 2872578}
+!187 = !{!47, !14, i64 3264}

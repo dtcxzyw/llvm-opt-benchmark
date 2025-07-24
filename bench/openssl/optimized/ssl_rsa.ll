@@ -1192,7 +1192,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %79 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 89, i64 noundef 0, ptr noundef %78) #6
   %80 = and i64 %79, 4294967295
   %.not75.us = icmp eq i64 %80, 0
-  br i1 %.not75.us, label %.split100.us, label %.preheader.split.us
+  br i1 %.not75.us, label %.split100.us, label %.preheader.split.us, !llvm.loop !104
 
 .preheader.split:                                 ; preds = %.thread104, %87
   %81 = load ptr, ptr %30, align 8, !tbaa !82
@@ -1292,13 +1292,13 @@ common.ret59:                                     ; preds = %42, %11, %106, %41,
   ret i32 %common.ret59.op
 
 15:                                               ; preds = %11
-  store i8 0, ptr %13, align 1, !tbaa !104
+  store i8 0, ptr %13, align 1, !tbaa !106
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 0, ptr %16, align 1, !tbaa !104
+  store i8 0, ptr %16, align 1, !tbaa !106
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i8 1, ptr %17, align 1, !tbaa !104
+  store i8 1, ptr %17, align 1, !tbaa !106
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  store i8 -48, ptr %18, align 1, !tbaa !104
+  store i8 -48, ptr %18, align 1, !tbaa !106
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %20 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %13, i64 noundef %12)
@@ -1319,11 +1319,11 @@ PACKET_buf_init.exit.preheader.split.us.i:        ; preds = %21, %PACKET_buf_ini
 
 23:                                               ; preds = %PACKET_buf_init.exit.preheader.split.us.i
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 6
-  %25 = load i8, ptr %24, align 1, !tbaa !104
+  %25 = load i8, ptr %24, align 1, !tbaa !106
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 8
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 7
-  %29 = load i8, ptr %28, align 1, !tbaa !104
+  %29 = load i8, ptr %28, align 1, !tbaa !106
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
   %32 = add i64 %.sroa.9.063.us.i, -8
@@ -1335,7 +1335,7 @@ PACKET_buf_init.exit.us.i:                        ; preds = %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
   %36 = sub nuw i64 %32, %31
   %.not23.us.i = icmp eq i64 %36, 0
-  br i1 %.not23.us.i, label %serverinfo_process_buffer.exit, label %PACKET_buf_init.exit.preheader.split.us.i
+  br i1 %.not23.us.i, label %serverinfo_process_buffer.exit, label %PACKET_buf_init.exit.preheader.split.us.i, !llvm.loop !107
 
 .loopexit:                                        ; preds = %23, %PACKET_buf_init.exit.preheader.split.us.i, %21
   tail call void @ERR_new() #6
@@ -1358,7 +1358,7 @@ serverinfo_process_buffer.exit:                   ; preds = %PACKET_buf_init.exi
 
 42:                                               ; preds = %serverinfo_process_buffer.exit
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !105
+  %44 = load ptr, ptr %43, align 8, !tbaa !108
   %45 = tail call ptr @CRYPTO_realloc(ptr noundef %44, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 832) #6
   %46 = icmp eq ptr %45, null
   br i1 %46, label %common.ret59, label %47
@@ -1367,13 +1367,13 @@ serverinfo_process_buffer.exit:                   ; preds = %PACKET_buf_init.exi
   %48 = load ptr, ptr %37, align 8, !tbaa !100
   %49 = load ptr, ptr %48, align 8, !tbaa !79
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %45, ptr %50, align 8, !tbaa !105
+  store ptr %45, ptr %50, align 8, !tbaa !108
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %2, i64 %3, i1 false)
   %51 = load ptr, ptr %37, align 8, !tbaa !100
   %52 = load ptr, ptr %51, align 8, !tbaa !79
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i64 %3, ptr %53, align 8, !tbaa !106
-  br label %PACKET_buf_init.exit.preheader.split.i, !llvm.loop !107
+  store i64 %3, ptr %53, align 8, !tbaa !109
+  br label %PACKET_buf_init.exit.preheader.split.i, !llvm.loop !110
 
 PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_init.exit.i
   %.sroa.9.063.i = phi i64 [ %99, %PACKET_buf_init.exit.i ], [ %3, %47 ]
@@ -1382,21 +1382,21 @@ PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_ini
   br i1 %54, label %106, label %55
 
 55:                                               ; preds = %PACKET_buf_init.exit.preheader.split.i
-  %56 = load i8, ptr %.sroa.035.062.i, align 1, !tbaa !104
+  %56 = load i8, ptr %.sroa.035.062.i, align 1, !tbaa !106
   %57 = zext i8 %56 to i64
   %58 = shl nuw nsw i64 %57, 24
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 1
-  %60 = load i8, ptr %59, align 1, !tbaa !104
+  %60 = load i8, ptr %59, align 1, !tbaa !106
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 16
   %63 = or disjoint i64 %62, %58
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 2
-  %65 = load i8, ptr %64, align 1, !tbaa !104
+  %65 = load i8, ptr %64, align 1, !tbaa !106
   %66 = zext i8 %65 to i64
   %67 = shl nuw nsw i64 %66, 8
   %68 = or disjoint i64 %63, %67
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 3
-  %70 = load i8, ptr %69, align 1, !tbaa !104
+  %70 = load i8, ptr %69, align 1, !tbaa !106
   %71 = zext i8 %70 to i64
   %72 = or disjoint i64 %68, %71
   %73 = and i64 %.sroa.9.063.i, -2
@@ -1405,11 +1405,11 @@ PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_ini
 
 75:                                               ; preds = %55
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 4
-  %77 = load i8, ptr %76, align 1, !tbaa !104
+  %77 = load i8, ptr %76, align 1, !tbaa !106
   %78 = zext i8 %77 to i32
   %79 = shl nuw nsw i32 %78, 8
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 5
-  %81 = load i8, ptr %80, align 1, !tbaa !104
+  %81 = load i8, ptr %80, align 1, !tbaa !106
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %79, %82
   %84 = icmp eq i64 %73, 6
@@ -1417,11 +1417,11 @@ PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_ini
 
 85:                                               ; preds = %75
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 6
-  %87 = load i8, ptr %86, align 1, !tbaa !104
+  %87 = load i8, ptr %86, align 1, !tbaa !106
   %88 = zext i8 %87 to i64
   %89 = shl nuw nsw i64 %88, 8
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 7
-  %91 = load i8, ptr %90, align 1, !tbaa !104
+  %91 = load i8, ptr %90, align 1, !tbaa !106
   %92 = zext i8 %91 to i64
   %93 = or disjoint i64 %89, %92
   %94 = add i64 %.sroa.9.063.i, -8
@@ -1587,11 +1587,11 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
 41:                                               ; preds = %38
   %42 = load ptr, ptr %3, align 8, !tbaa !99
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %44 = load i8, ptr %43, align 1, !tbaa !104
+  %44 = load i8, ptr %43, align 1, !tbaa !106
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 8
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 3
-  %48 = load i8, ptr %47, align 1, !tbaa !104
+  %48 = load i8, ptr %47, align 1, !tbaa !106
   %49 = zext i8 %48 to i64
   %50 = or disjoint i64 %46, %49
   %51 = add nsw i64 %39, -4
@@ -1616,11 +1616,11 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
 57:                                               ; preds = %54
   %58 = load ptr, ptr %3, align 8, !tbaa !99
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
-  %60 = load i8, ptr %59, align 1, !tbaa !104
+  %60 = load i8, ptr %59, align 1, !tbaa !106
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 8
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 7
-  %64 = load i8, ptr %63, align 1, !tbaa !104
+  %64 = load i8, ptr %63, align 1, !tbaa !106
   %65 = zext i8 %64 to i64
   %66 = or disjoint i64 %62, %65
   %67 = add nsw i64 %55, -8
@@ -1647,13 +1647,13 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
   br i1 %30, label %76, label %80
 
 76:                                               ; preds = %72
-  store i8 0, ptr %75, align 1, !tbaa !104
+  store i8 0, ptr %75, align 1, !tbaa !106
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store i8 0, ptr %77, align 1, !tbaa !104
+  store i8 0, ptr %77, align 1, !tbaa !106
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  store i8 1, ptr %78, align 1, !tbaa !104
+  store i8 1, ptr %78, align 1, !tbaa !106
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 3
-  store i8 -48, ptr %79, align 1, !tbaa !104
+  store i8 -48, ptr %79, align 1, !tbaa !106
   br label %80
 
 80:                                               ; preds = %76, %72
@@ -1743,7 +1743,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 2176
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %.in = select i1 %.not75, ptr %20, ptr %19
-  %21 = load ptr, ptr %.in, align 8, !tbaa !109
+  %21 = load ptr, ptr %.in, align 8, !tbaa !112
   %22 = tail call i32 @ssl_security_cert(ptr noundef %.0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1) #6
   %.not76 = icmp eq i32 %22, 1
   br i1 %.not76, label %.preheader, label %25
@@ -1763,7 +1763,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %27 = add nuw nsw i32 %.06390, 1
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #6
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !110
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %.06390 = phi i32 [ %27, %26 ], [ 0, %.preheader ]
@@ -1872,7 +1872,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !111
+  %68 = load ptr, ptr %67, align 8, !tbaa !114
   %.not86 = icmp eq ptr %68, null
   br i1 %.not86, label %70, label %69
 
@@ -1903,12 +1903,12 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   %77 = load ptr, ptr %76, align 8, !tbaa !72
   %78 = load i64, ptr %7, align 8, !tbaa !71
   %79 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %77, i64 %78, i32 2
-  %80 = load ptr, ptr %79, align 8, !tbaa !111
+  %80 = load ptr, ptr %79, align 8, !tbaa !114
   call void @OSSL_STACK_OF_X509_free(ptr noundef %80) #6
   %81 = load ptr, ptr %76, align 8, !tbaa !72
   %82 = load i64, ptr %7, align 8, !tbaa !71
   %83 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82, i32 2
-  store ptr %.061, ptr %83, align 8, !tbaa !111
+  store ptr %.061, ptr %83, align 8, !tbaa !114
   %84 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !78
   call void @X509_free(ptr noundef %85) #6
@@ -2002,7 +2002,7 @@ define internal range(i32 -1, 2) i32 @serverinfo_srv_add_cb(ptr noundef %0, i32 
   br i1 %17, label %.thread.i, label %.thread22.i
 
 .thread.i:                                        ; preds = %15, %13, %6
-  store i32 80, ptr %4, align 4, !tbaa !112
+  store i32 80, ptr %4, align 4, !tbaa !115
   br label %serverinfoex_srv_add_cb.exit
 
 .thread22.i:                                      ; preds = %15, %10
@@ -2035,11 +2035,11 @@ PACKET_buf_init.exit.i.i:                         ; preds = %20, %47
 
 25:                                               ; preds = %PACKET_buf_init.exit.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 4
-  %27 = load i8, ptr %26, align 1, !tbaa !104
+  %27 = load i8, ptr %26, align 1, !tbaa !106
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 8
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 5
-  %31 = load i8, ptr %30, align 1, !tbaa !104
+  %31 = load i8, ptr %30, align 1, !tbaa !106
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
   %34 = and i64 %.sroa.9.0.i.i, -2
@@ -2048,11 +2048,11 @@ PACKET_buf_init.exit.i.i:                         ; preds = %20, %47
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 6
-  %38 = load i8, ptr %37, align 1, !tbaa !104
+  %38 = load i8, ptr %37, align 1, !tbaa !106
   %39 = zext i8 %38 to i64
   %40 = shl nuw nsw i64 %39, 8
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 7
-  %42 = load i8, ptr %41, align 1, !tbaa !104
+  %42 = load i8, ptr %41, align 1, !tbaa !106
   %43 = zext i8 %42 to i64
   %44 = or disjoint i64 %40, %43
   %45 = add i64 %.sroa.9.0.i.i, -8
@@ -2067,7 +2067,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %20, %47
   br i1 %51, label %52, label %PACKET_buf_init.exit.i.i
 
 serverinfo_find_extension.exit.thread.i:          ; preds = %36, %25, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %20
-  store i32 80, ptr %4, align 4, !tbaa !112
+  store i32 80, ptr %4, align 4, !tbaa !115
   br label %serverinfoex_srv_add_cb.exit
 
 52:                                               ; preds = %47
@@ -2088,7 +2088,7 @@ define internal range(i32 0, 2) i32 @serverinfo_srv_parse_cb(ptr readnone captur
   br i1 %.not.i, label %serverinfoex_srv_parse_cb.exit, label %7
 
 7:                                                ; preds = %6
-  store i32 50, ptr %4, align 4, !tbaa !112
+  store i32 50, ptr %4, align 4, !tbaa !115
   br label %serverinfoex_srv_parse_cb.exit
 
 serverinfoex_srv_parse_cb.exit:                   ; preds = %6, %7
@@ -2125,7 +2125,7 @@ define internal range(i32 -1, 2) i32 @serverinfoex_srv_add_cb(ptr noundef %0, i3
   br i1 %20, label %.thread, label %.thread22
 
 .thread:                                          ; preds = %16, %9, %18
-  store i32 80, ptr %7, align 4, !tbaa !112
+  store i32 80, ptr %7, align 4, !tbaa !115
   br label %serverinfo_find_extension.exit
 
 .thread22:                                        ; preds = %13, %18
@@ -2165,11 +2165,11 @@ PACKET_buf_init.exit.i:                           ; preds = %27, %54
 
 32:                                               ; preds = %PACKET_buf_init.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 4
-  %34 = load i8, ptr %33, align 1, !tbaa !104
+  %34 = load i8, ptr %33, align 1, !tbaa !106
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 5
-  %38 = load i8, ptr %37, align 1, !tbaa !104
+  %38 = load i8, ptr %37, align 1, !tbaa !106
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = and i64 %.sroa.9.0.i, -2
@@ -2178,11 +2178,11 @@ PACKET_buf_init.exit.i:                           ; preds = %27, %54
 
 43:                                               ; preds = %32
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 6
-  %45 = load i8, ptr %44, align 1, !tbaa !104
+  %45 = load i8, ptr %44, align 1, !tbaa !106
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 8
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 7
-  %49 = load i8, ptr %48, align 1, !tbaa !104
+  %49 = load i8, ptr %48, align 1, !tbaa !106
   %50 = zext i8 %49 to i64
   %51 = or disjoint i64 %47, %50
   %52 = add i64 %.sroa.9.0.i, -8
@@ -2197,7 +2197,7 @@ PACKET_buf_init.exit.i:                           ; preds = %27, %54
   br i1 %58, label %59, label %PACKET_buf_init.exit.i
 
 serverinfo_find_extension.exit.thread:            ; preds = %43, %32, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %27
-  store i32 80, ptr %7, align 4, !tbaa !112
+  store i32 80, ptr %7, align 4, !tbaa !115
   br label %serverinfo_find_extension.exit
 
 59:                                               ; preds = %54
@@ -2218,7 +2218,7 @@ define internal range(i32 0, 2) i32 @serverinfoex_srv_parse_cb(ptr readnone capt
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %9
-  store i32 50, ptr %7, align 4, !tbaa !112
+  store i32 50, ptr %7, align 4, !tbaa !115
   br label %11
 
 11:                                               ; preds = %9, %10
@@ -2357,12 +2357,15 @@ attributes #7 = { nounwind willreturn memory(read) }
 !101 = !{!83, !9, i64 184}
 !102 = !{!83, !9, i64 192}
 !103 = !{!9, !9, i64 0}
-!104 = !{!6, !6, i64 0}
-!105 = !{!77, !30, i64 24}
-!106 = !{!77, !20, i64 32}
-!107 = distinct !{!107, !108}
-!108 = !{!"llvm.loop.mustprogress"}
-!109 = !{!49, !49, i64 0}
-!110 = distinct !{!110, !108}
-!111 = !{!77, !45, i64 16}
-!112 = !{!5, !5, i64 0}
+!104 = distinct !{!104, !105}
+!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!106 = !{!6, !6, i64 0}
+!107 = distinct !{!107, !105}
+!108 = !{!77, !30, i64 24}
+!109 = !{!77, !20, i64 32}
+!110 = distinct !{!110, !111}
+!111 = !{!"llvm.loop.mustprogress"}
+!112 = !{!49, !49, i64 0}
+!113 = distinct !{!113, !111}
+!114 = !{!77, !45, i64 16}
+!115 = !{!5, !5, i64 0}

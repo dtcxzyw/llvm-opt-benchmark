@@ -326,7 +326,7 @@ invoke.cont21.us:                                 ; preds = %if.end.i.us
 while.cond15thread-pre-split.us:                  ; preds = %invoke.cont21.us
   %.pr.us = load i32, ptr %avail_in, align 8
   %cmp.not.us = icmp eq i32 %.pr.us, 0
-  br i1 %cmp.not.us, label %for.inc.loopexit, label %while.body18.us
+  br i1 %cmp.not.us, label %for.inc.loopexit, label %while.body18.us, !llvm.loop !7
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %if.end.i.us, %if.then.i.us
   %lpad.loopexit49.us = landingpad { ptr, i32 }
@@ -587,7 +587,7 @@ invoke.cont44:                                    ; preds = %if.end.i28
   store i32 %call.i39, ptr %status_34, align 8
   %40 = load i32, ptr %avail_out.i10, align 8
   %cmp49 = icmp eq i32 %40, 0
-  br i1 %cmp49, label %do.body41, label %do.end50, !llvm.loop !7
+  br i1 %cmp49, label %do.body41, label %do.end50, !llvm.loop !9
 
 do.end50:                                         ; preds = %invoke.cont44
   %cmp52.not = icmp eq i32 %call.i39, 0
@@ -803,4 +803,6 @@ attributes #14 = { builtin nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}

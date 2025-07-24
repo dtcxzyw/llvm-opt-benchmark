@@ -413,7 +413,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
   store float 0xC3ABC16D60000000, ptr %14, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph21, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph21, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph21.split.us, %57, %4
   ret void
@@ -492,7 +492,7 @@ _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %31
 57:                                               ; preds = %55, %_ZNK9btVector36maxDotEPKS_lRf.exit
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph21.split, !llvm.loop !31
+  br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph21.split, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -569,29 +569,29 @@ define dso_local void @_ZN17btConvexHullShape18optimizeConvexHullEv(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %6, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i8 1, ptr %7, align 8, !tbaa !33
+  store i8 1, ptr %7, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr null, ptr %8, align 8, !tbaa !37
+  store ptr null, ptr %8, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %9, align 4, !tbaa !38
+  store i32 0, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %10, align 8, !tbaa !39
+  store i32 0, ptr %10, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i8 1, ptr %11, align 8, !tbaa !40
+  store i8 1, ptr %11, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr null, ptr %12, align 8, !tbaa !44
+  store ptr null, ptr %12, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 0, ptr %13, align 4, !tbaa !45
+  store i32 0, ptr %13, align 4, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 0, ptr %14, align 8, !tbaa !46
+  store i32 0, ptr %14, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i8 1, ptr %15, align 8, !tbaa !33
+  store i8 1, ptr %15, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr null, ptr %16, align 8, !tbaa !37
+  store ptr null, ptr %16, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  store i32 0, ptr %17, align 4, !tbaa !38
+  store i32 0, ptr %17, align 4, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i32 0, ptr %18, align 8, !tbaa !39
+  store i32 0, ptr %18, align 8, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -736,7 +736,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i14: ; preds = %67, %
   store i32 %74, ptr %21, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !48
 
 75:                                               ; preds = %67, %54
   %76 = landingpad { ptr, i32 }
@@ -753,7 +753,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i14: ; preds = %67, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btConvexHullComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i8, ptr %4, align 8, !range !24
@@ -774,13 +774,13 @@ define linkonce_odr dso_local void @_ZN20btConvexHullComputerD2Ev(ptr noundef no
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i8 1, ptr %4, align 8, !tbaa !33
-  store ptr null, ptr %2, align 8, !tbaa !37
-  store i32 0, ptr %11, align 4, !tbaa !38
+  store i8 1, ptr %4, align 8, !tbaa !34
+  store ptr null, ptr %2, align 8, !tbaa !38
+  store i32 0, ptr %11, align 4, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 0, ptr %12, align 8, !tbaa !39
+  store i32 0, ptr %12, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %14 = load ptr, ptr %13, align 8, !tbaa !45
   %.not.i.i.i1 = icmp ne ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i8, ptr %15, align 8, !range !24
@@ -801,13 +801,13 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
 
 _ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 1, ptr %15, align 8, !tbaa !40
-  store ptr null, ptr %13, align 8, !tbaa !44
-  store i32 0, ptr %22, align 4, !tbaa !45
+  store i8 1, ptr %15, align 8, !tbaa !41
+  store ptr null, ptr %13, align 8, !tbaa !45
+  store i32 0, ptr %22, align 4, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %23, align 8, !tbaa !46
+  store i32 0, ptr %23, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !37
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   %.not.i.i.i3 = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i8, ptr %26, align 8, !range !24
@@ -828,11 +828,11 @@ _ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEED2Ev.exit: ; preds = %_Z
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit5:           ; preds = %_ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEED2Ev.exit, %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 1, ptr %26, align 8, !tbaa !33
-  store ptr null, ptr %24, align 8, !tbaa !37
-  store i32 0, ptr %33, align 4, !tbaa !38
+  store i8 1, ptr %26, align 8, !tbaa !34
+  store ptr null, ptr %24, align 8, !tbaa !38
+  store i32 0, ptr %33, align 4, !tbaa !39
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %34, align 8, !tbaa !39
+  store i32 0, ptr %34, align 8, !tbaa !40
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %.not.i.i.i6 = icmp ne ptr %36, null
@@ -990,7 +990,7 @@ define dso_local noundef ptr @_ZNK17btConvexHullShape9serializeEPvP12btSerialize
   store float %9, ptr %10, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !48
+  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !49
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1005,19 +1005,19 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !25
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4
-  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !48
+  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !49
 
 _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load float, ptr %17, align 8, !tbaa !49
+  %18 = load float, ptr %17, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !53
+  store float %18, ptr %19, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !58
+  store i32 0, ptr %20, align 4, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %22, ptr %23, align 8, !tbaa !59
+  store i32 %22, ptr %23, align 8, !tbaa !60
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.critedge, label %24
 
@@ -1029,9 +1029,9 @@ _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %26)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %30, ptr %31, align 8, !tbaa !63
+  store ptr %30, ptr %31, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr null, ptr %32, align 8, !tbaa !64
+  store ptr null, ptr %32, align 8, !tbaa !65
   %33 = load ptr, ptr %2, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -1042,7 +1042,7 @@ _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
 
 .lr.ph:                                           ; preds = %24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !65
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %43
 
@@ -1067,13 +1067,13 @@ _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
   store float %47, ptr %48, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %45, !llvm.loop !67
+  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %45, !llvm.loop !68
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = getelementptr inbounds nuw i8, ptr %.02325, i64 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !69
 
 .critedge:                                        ; preds = %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1204,7 +1204,7 @@ define dso_local void @_ZNK17btConvexHullShape7projectERK11btTransformRK9btVecto
 82:                                               ; preds = %81, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %31, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %31, !llvm.loop !70
 
 83:                                               ; preds = %._crit_edge
   store float %28, ptr %3, align 4, !tbaa !25
@@ -1328,14 +1328,14 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK16btCollisionSha
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21btConvexInternalShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %1, ptr %3, align 8, !tbaa !49
+  store float %1, ptr %3, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK21btConvexInternalShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load float, ptr %2, align 8, !tbaa !49
+  %3 = load float, ptr %2, align 8, !tbaa !50
   ret float %3
 }
 
@@ -1440,44 +1440,45 @@ attributes #19 = { noreturn nounwind }
 !26 = !{!"float", !11, i64 0}
 !27 = distinct !{!27, !23}
 !28 = distinct !{!28, !23}
-!29 = distinct !{!29, !23}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23, !32}
-!32 = !{!"llvm.loop.unswitch.partial.disable"}
-!33 = !{!34, !14, i64 24}
-!34 = !{!"_ZTS20btAlignedObjectArrayIiE", !35, i64 0, !10, i64 4, !10, i64 8, !36, i64 16, !14, i64 24}
-!35 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
-!36 = !{!"p1 int", !13, i64 0}
-!37 = !{!34, !36, i64 16}
-!38 = !{!34, !10, i64 4}
-!39 = !{!34, !10, i64 8}
-!40 = !{!41, !14, i64 24}
-!41 = !{!"_ZTS20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE", !42, i64 0, !10, i64 4, !10, i64 8, !43, i64 16, !14, i64 24}
-!42 = !{!"_ZTS18btAlignedAllocatorIN20btConvexHullComputer4EdgeELj16EE"}
-!43 = !{!"p1 _ZTSN20btConvexHullComputer4EdgeE", !13, i64 0}
-!44 = !{!41, !43, i64 16}
-!45 = !{!41, !10, i64 4}
-!46 = !{!41, !10, i64 8}
-!47 = distinct !{!47, !23}
+!29 = distinct !{!29, !23, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23, !33}
+!33 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = !{!35, !14, i64 24}
+!35 = !{!"_ZTS20btAlignedObjectArrayIiE", !36, i64 0, !10, i64 4, !10, i64 8, !37, i64 16, !14, i64 24}
+!36 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
+!37 = !{!"p1 int", !13, i64 0}
+!38 = !{!35, !37, i64 16}
+!39 = !{!35, !10, i64 4}
+!40 = !{!35, !10, i64 8}
+!41 = !{!42, !14, i64 24}
+!42 = !{!"_ZTS20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE", !43, i64 0, !10, i64 4, !10, i64 8, !44, i64 16, !14, i64 24}
+!43 = !{!"_ZTS18btAlignedAllocatorIN20btConvexHullComputer4EdgeELj16EE"}
+!44 = !{!"p1 _ZTSN20btConvexHullComputer4EdgeE", !13, i64 0}
+!45 = !{!42, !44, i64 16}
+!46 = !{!42, !10, i64 4}
+!47 = !{!42, !10, i64 8}
 !48 = distinct !{!48, !23}
-!49 = !{!50, !26, i64 64}
-!50 = !{!"_ZTS21btConvexInternalShape", !51, i64 0, !52, i64 32, !52, i64 48, !26, i64 64, !26, i64 68}
-!51 = !{!"_ZTS13btConvexShape", !19, i64 0}
-!52 = !{!"_ZTS9btVector3", !11, i64 0}
-!53 = !{!54, !26, i64 48}
-!54 = !{!"_ZTS25btConvexInternalShapeData", !55, i64 0, !57, i64 16, !57, i64 32, !26, i64 48, !10, i64 52}
-!55 = !{!"_ZTS20btCollisionShapeData", !56, i64 0, !10, i64 8, !11, i64 12}
-!56 = !{!"p1 omnipotent char", !13, i64 0}
-!57 = !{!"_ZTS18btVector3FloatData", !11, i64 0}
-!58 = !{!54, !10, i64 52}
-!59 = !{!60, !10, i64 72}
-!60 = !{!"_ZTS21btConvexHullShapeData", !54, i64 0, !61, i64 56, !62, i64 64, !10, i64 72, !11, i64 76}
-!61 = !{!"p1 _ZTS18btVector3FloatData", !13, i64 0}
-!62 = !{!"p1 _ZTS19btVector3DoubleData", !13, i64 0}
-!63 = !{!60, !61, i64 56}
-!64 = !{!60, !62, i64 64}
-!65 = !{!66, !13, i64 8}
-!66 = !{!"_ZTS7btChunk", !10, i64 0, !10, i64 4, !13, i64 8, !10, i64 16, !10, i64 20}
-!67 = distinct !{!67, !23}
+!49 = distinct !{!49, !23}
+!50 = !{!51, !26, i64 64}
+!51 = !{!"_ZTS21btConvexInternalShape", !52, i64 0, !53, i64 32, !53, i64 48, !26, i64 64, !26, i64 68}
+!52 = !{!"_ZTS13btConvexShape", !19, i64 0}
+!53 = !{!"_ZTS9btVector3", !11, i64 0}
+!54 = !{!55, !26, i64 48}
+!55 = !{!"_ZTS25btConvexInternalShapeData", !56, i64 0, !58, i64 16, !58, i64 32, !26, i64 48, !10, i64 52}
+!56 = !{!"_ZTS20btCollisionShapeData", !57, i64 0, !10, i64 8, !11, i64 12}
+!57 = !{!"p1 omnipotent char", !13, i64 0}
+!58 = !{!"_ZTS18btVector3FloatData", !11, i64 0}
+!59 = !{!55, !10, i64 52}
+!60 = !{!61, !10, i64 72}
+!61 = !{!"_ZTS21btConvexHullShapeData", !55, i64 0, !62, i64 56, !63, i64 64, !10, i64 72, !11, i64 76}
+!62 = !{!"p1 _ZTS18btVector3FloatData", !13, i64 0}
+!63 = !{!"p1 _ZTS19btVector3DoubleData", !13, i64 0}
+!64 = !{!61, !62, i64 56}
+!65 = !{!61, !63, i64 64}
+!66 = !{!67, !13, i64 8}
+!67 = !{!"_ZTS7btChunk", !10, i64 0, !10, i64 4, !13, i64 8, !10, i64 16, !10, i64 20}
 !68 = distinct !{!68, !23}
 !69 = distinct !{!69, !23}
+!70 = distinct !{!70, !23}

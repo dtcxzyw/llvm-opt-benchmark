@@ -10292,7 +10292,7 @@ default.unreachable84:                            ; preds = %.split77.us
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %7, i32 0) #8
   %49 = add nuw nsw i32 %.07475.us79, 1
   %exitcond.not = icmp eq i32 %49, 8
-  br i1 %exitcond.not, label %.split77.us, label %.split.split.us78, !llvm.loop !6
+  br i1 %exitcond.not, label %.split77.us, label %.split.split.us78, !llvm.loop !9
 
 .split.split:                                     ; preds = %switch.lookup, %.split.split
   %.07475 = phi i32 [ %51, %.split.split ], [ 0, %switch.lookup ]
@@ -10309,7 +10309,7 @@ default.unreachable84:                            ; preds = %.split77.us
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %8, i32 0) #8
   %51 = add nuw nsw i32 %.07475, 1
   %exitcond83.not = icmp eq i32 %51, 8
-  br i1 %exitcond83.not, label %.split77.us, label %.split.split, !llvm.loop !6
+  br i1 %exitcond83.not, label %.split77.us, label %.split.split, !llvm.loop !10
 
 .split77.us:                                      ; preds = %.split.split.us78, %.split.split.us, %.split.split
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 7, i32 noundef %switch.load) #8
@@ -10545,5 +10545,8 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7}

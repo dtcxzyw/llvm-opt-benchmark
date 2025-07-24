@@ -176,9 +176,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022JP7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022JP5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !9
+  %4 = load ptr, ptr %1, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !15
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -307,9 +307,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022KR7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022KR5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !9
+  %4 = load ptr, ptr %1, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !15
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -415,9 +415,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022CN7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022CN5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !9
+  %4 = load ptr, ptr %1, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !15
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -565,11 +565,12 @@ attributes #12 = { noreturn nounwind }
 !5 = !{!"Simple C++ TBAA"}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !11, i64 0}
-!10 = !{!"_ZTSN6icu_779InputTextE", !11, i64 0, !13, i64 8, !14, i64 16, !4, i64 24, !11, i64 32, !11, i64 40, !13, i64 48}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!"p1 short", !12, i64 0}
-!15 = !{!10, !13, i64 8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_ZTSN6icu_779InputTextE", !12, i64 0, !14, i64 8, !15, i64 16, !4, i64 24, !12, i64 32, !12, i64 40, !14, i64 48}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !4, i64 0}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!"p1 short", !13, i64 0}
+!16 = !{!11, !14, i64 8}

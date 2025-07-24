@@ -3855,7 +3855,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
 90:                                               ; preds = %86
   %91 = call fastcc i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3)
   %.not53 = icmp eq i32 %91, 0
-  br i1 %.not53, label %.split, label %.split64.us, !llvm.loop !147
+  br i1 %.not53, label %.split, label %.split64.us, !llvm.loop !149
 
 .split64.us:                                      ; preds = %90, %52
   %92 = load i32, ptr %3, align 4, !tbaa !40
@@ -3910,7 +3910,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
   %16 = load ptr, ptr %5, align 8, !tbaa !15
   %17 = tail call i32 @nghttp2_session_send(ptr noundef %16) #7
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %9, label %.critedge, !llvm.loop !148
+  br i1 %.not, label %9, label %.critedge, !llvm.loop !150
 
 .critedge:                                        ; preds = %9, %15, %12
   %.0.lcssa = phi i32 [ 0, %9 ], [ %17, %15 ], [ 0, %12 ]
@@ -4227,7 +4227,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 19:                                               ; preds = %17
   %20 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  br i1 %20, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !149
+  br i1 %20, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !151
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %21 = load ptr, ptr %7, align 8, !tbaa !15
@@ -4335,7 +4335,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 74:                                               ; preds = %60, %63, %67, %72
   %75 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  br i1 %75, label %.lr.ph.split, label %.loopexit, !llvm.loop !149
+  br i1 %75, label %.lr.ph.split, label %.loopexit, !llvm.loop !152
 
 .loopexit:                                        ; preds = %74, %17, %19, %3, %59, %54, %50, %.split59.us, %.split.us
   %.0 = phi i32 [ -1, %.split.us ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %59 ], [ 0, %3 ], [ 0, %19 ], [ 0, %17 ], [ 0, %74 ]
@@ -4606,6 +4606,9 @@ attributes #7 = { nounwind }
 !144 = !{!16, !24, i64 144}
 !145 = !{!24, !24, i64 0}
 !146 = !{!126, !24, i64 128}
-!147 = distinct !{!147, !131}
-!148 = distinct !{!148, !131}
+!147 = distinct !{!147, !131, !148}
+!148 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !149 = distinct !{!149, !131}
+!150 = distinct !{!150, !131}
+!151 = distinct !{!151, !131, !148}
+!152 = distinct !{!152, !131}

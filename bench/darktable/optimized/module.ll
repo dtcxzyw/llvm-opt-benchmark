@@ -67,7 +67,7 @@ define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef r
   %.1.us = phi ptr [ %.028.ph43.us, %24 ], [ %26, %25 ]
   %27 = call ptr @g_dir_read_name(ptr noundef nonnull %8) #7
   %.not3340.us = icmp eq ptr %27, null
-  br i1 %.not3340.us, label %.outer._crit_edge, label %.lr.ph.us
+  br i1 %.not3340.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !6
 
 .backedge.us:                                     ; preds = %14, %11
   %28 = call ptr @g_dir_read_name(ptr noundef nonnull %8) #7
@@ -206,3 +206,5 @@ attributes #9 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}

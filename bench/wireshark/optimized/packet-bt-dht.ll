@@ -1271,7 +1271,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   store i32 %70, ptr %7, align 4
   %71 = add i32 %.123, 26
   %.not = icmp ult i32 %70, 26
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
   %.lcssa = phi i32 [ %.pr, %21 ], [ %48, %.lr.ph.split.us ], [ %70, %.lr.ph.split ]
@@ -1378,4 +1378,6 @@ attributes #7 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}

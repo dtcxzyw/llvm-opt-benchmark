@@ -6207,7 +6207,7 @@ Abc_Clock.exit23.us:                              ; preds = %40, %36
   store i32 %49, ptr %32, align 8, !tbaa !135
   %50 = call i32 @Gia_ManBmcPerformInt(ptr noundef %0, ptr noundef nonnull %1)
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.loopexit, label %.lr.ph
+  br i1 %51, label %.loopexit, label %.lr.ph, !llvm.loop !152
 
 52:                                               ; preds = %.thread, %20
   %53 = call i32 @Gia_ManBmcPerformInt(ptr noundef %0, ptr noundef nonnull %1)
@@ -6303,7 +6303,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !152
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !154
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -6311,7 +6311,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !152, !noalias !153
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !154, !noalias !155
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -6347,7 +6347,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !156
+  %5 = load i32, ptr %4, align 4, !tbaa !158
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %47
 
@@ -6364,7 +6364,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %14 = load i32, ptr %13, align 4, !tbaa !157
+  %14 = load i32, ptr %13, align 4, !tbaa !159
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
@@ -6391,7 +6391,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 26:                                               ; preds = %24, %22
   %27 = phi ptr [ %23, %22 ], [ %25, %24 ]
   store ptr %27, ptr %18, align 8, !tbaa !32
-  %28 = load i32, ptr %4, align 4, !tbaa !156
+  %28 = load i32, ptr %4, align 4, !tbaa !158
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %27, i64 %29
   %31 = sub nsw i32 %9, %28
@@ -6399,7 +6399,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %33 = mul nsw i64 %32, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !158
+  %35 = load ptr, ptr %34, align 8, !tbaa !160
   %.not34 = icmp eq ptr %35, null
   br i1 %.not34, label %46, label %36
 
@@ -6407,8 +6407,8 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
   %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #21
-  store ptr %39, ptr %34, align 8, !tbaa !158
-  %40 = load i32, ptr %4, align 4, !tbaa !156
+  store ptr %39, ptr %34, align 8, !tbaa !160
+  %40 = load i32, ptr %4, align 4, !tbaa !158
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %39, i64 %41
   %43 = sub nsw i32 %9, %40
@@ -6418,7 +6418,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br label %46
 
 46:                                               ; preds = %36, %26
-  store i32 %9, ptr %4, align 4, !tbaa !156
+  store i32 %9, ptr %4, align 4, !tbaa !158
   br label %47
 
 47:                                               ; preds = %46, %1
@@ -6713,10 +6713,12 @@ attributes #24 = { cold noreturn nounwind }
 !149 = !{!112, !9, i64 20}
 !150 = distinct !{!150, !40}
 !151 = distinct !{!151, !40}
-!152 = !{!133, !133, i64 0}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"vprintf: argument 0"}
-!155 = distinct !{!155, !"vprintf"}
-!156 = !{!4, !9, i64 28}
-!157 = !{!4, !9, i64 796}
-!158 = !{!4, !11, i64 40}
+!152 = distinct !{!152, !153}
+!153 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!154 = !{!133, !133, i64 0}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"vprintf: argument 0"}
+!157 = distinct !{!157, !"vprintf"}
+!158 = !{!4, !9, i64 28}
+!159 = !{!4, !9, i64 796}
+!160 = !{!4, !11, i64 40}

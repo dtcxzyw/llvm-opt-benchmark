@@ -909,7 +909,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
   %167 = add nuw i64 %.060.i80, 1
   %168 = load i64, ptr %9, align 8
   %169 = icmp ult i64 %167, %168
-  br i1 %169, label %.lr.ph82.split, label %184, !llvm.loop !10
+  br i1 %169, label %.lr.ph82.split, label %184, !llvm.loop !12
 
 .lr.ph82.split:                                   ; preds = %159, %166
   %.060.i80 = phi i64 [ %167, %166 ], [ 0, %159 ]
@@ -1048,7 +1048,7 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
 225:                                              ; preds = %229
   %226 = add nuw nsw i64 %.064.i79.us, 1
   %exitcond.not = icmp eq i64 %226, 2147483647
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 227:                                              ; preds = %.lr.ph.split.us
   %228 = tail call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %194, ptr noundef %3)
@@ -1062,7 +1062,7 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   %232 = add nuw i64 %.064.i79, 1
   %233 = load i64, ptr %8, align 8
   %234 = icmp ult i64 %232, %233
-  br i1 %234, label %.lr.ph.split, label %251, !llvm.loop !11
+  br i1 %234, label %.lr.ph.split, label %251, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %222, %231
   %.064.i79 = phi i64 [ %232, %231 ], [ 0, %222 ]
@@ -1836,5 +1836,8 @@ attributes #9 = { noreturn }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9, !11}
+!14 = distinct !{!14, !9}

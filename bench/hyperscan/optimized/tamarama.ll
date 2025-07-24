@@ -1565,7 +1565,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   store i32 %63, ptr %27, align 8
   %64 = load i32, ptr %28, align 4
   %65 = icmp ult i32 %63, %64
-  br i1 %65, label %.lr.ph.split.us, label %.loopexit
+  br i1 %65, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
   %66 = phi i32 [ %101, %99 ], [ %29, %.lr.ph ]
@@ -1619,16 +1619,16 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 
 .thread40:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %71, %.lr.ph.split ]
-  %93 = load i32, ptr %33, align 4, !alias.scope !14
+  %93 = load i32, ptr %33, align 4, !alias.scope !16
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %94
-  store i32 1, ptr %95, align 8, !alias.scope !14
+  store i32 1, ptr %95, align 8, !alias.scope !16
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 %.us-phi, ptr %96, align 8, !alias.scope !14
+  store i64 %.us-phi, ptr %96, align 8, !alias.scope !16
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i64 0, ptr %97, align 8, !alias.scope !14
+  store i64 0, ptr %97, align 8, !alias.scope !16
   %98 = add i32 %93, 1
-  store i32 %98, ptr %33, align 4, !alias.scope !14
+  store i32 %98, ptr %33, align 4, !alias.scope !16
   br label %.loopexit
 
 99:                                               ; preds = %.thread, %86
@@ -1671,6 +1671,8 @@ attributes #7 = { nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"pushQueueSom: argument 0"}
 !13 = distinct !{!13, !"pushQueueSom"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"pushQueueNoMerge: argument 0"}
-!16 = distinct !{!16, !"pushQueueNoMerge"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"pushQueueNoMerge: argument 0"}
+!18 = distinct !{!18, !"pushQueueNoMerge"}

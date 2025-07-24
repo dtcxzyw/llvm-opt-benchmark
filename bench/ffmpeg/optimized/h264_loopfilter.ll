@@ -9862,7 +9862,7 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1324, %1295, %filte
 1394:                                             ; preds = %.split, %1392
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond460.not = icmp eq i64 %indvars.iv.next458, 4
-  br i1 %exitcond460.not, label %thread-pre-split, label %.split, !llvm.loop !113
+  br i1 %exitcond460.not, label %thread-pre-split, label %.split, !llvm.loop !115
 
 thread-pre-split:                                 ; preds = %1394, %1382, %1358
   %.pr = load i16, ptr %41, align 8, !tbaa !92
@@ -10308,7 +10308,7 @@ filter_mb_edgev.exit:                             ; preds = %1619, %1596, %filte
   store i16 %.sink507, ptr %1683, align 2, !tbaa !92
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next471, 4
-  br i1 %exitcond474.not, label %.split438.us, label %.split436.us, !llvm.loop !114
+  br i1 %exitcond474.not, label %.split438.us, label %.split436.us, !llvm.loop !116
 
 .split436:                                        ; preds = %.split436.preheader, %1694
   %indvars.iv465 = phi i64 [ 0, %.split436.preheader ], [ %indvars.iv.next466, %1694 ]
@@ -10331,7 +10331,7 @@ filter_mb_edgev.exit:                             ; preds = %1619, %1596, %filte
 1694:                                             ; preds = %.split436, %1692
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next466, 4
-  br i1 %exitcond469.not, label %.split438.us, label %.split436, !llvm.loop !114
+  br i1 %exitcond469.not, label %.split438.us, label %.split436, !llvm.loop !117
 
 .split438.us:                                     ; preds = %1694, %1682
   %1695 = load i16, ptr %42, align 8, !tbaa !92
@@ -10605,7 +10605,7 @@ filter_mb_edgev.exit377:                          ; preds = %1859, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #5
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %exitcond479.not = icmp eq i64 %indvars.iv.next476, %wide.trip.count
-  br i1 %exitcond479.not, label %filter_mb_dir.exit, label %1654, !llvm.loop !115
+  br i1 %exitcond479.not, label %filter_mb_dir.exit, label %1654, !llvm.loop !118
 
 filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exit377, %1623
   %1890 = load ptr, ptr %77, align 8, !tbaa !68
@@ -10785,7 +10785,7 @@ filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exi
   store i16 %2005, ptr %2006, align 2, !tbaa !92
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %exitcond483.not = icmp eq i64 %indvars.iv.next481, 4
-  br i1 %exitcond483.not, label %.loopexit, label %1998, !llvm.loop !116
+  br i1 %exitcond483.not, label %.loopexit, label %1998, !llvm.loop !119
 
 .loopexit:                                        ; preds = %1998, %1993, %1969
   %2007 = load ptr, ptr %1926, align 8, !tbaa !86
@@ -11053,7 +11053,7 @@ filter_mb_edgeh.exit:                             ; preds = %2168, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #5
   %2199 = load i32, ptr %68, align 4, !tbaa !101
   %2200 = add nsw i32 %2199, %.0454.i442
-  br i1 %1962, label %1961, label %.loopexit431, !llvm.loop !117
+  br i1 %1962, label %1961, label %.loopexit431, !llvm.loop !120
 
 2201:                                             ; preds = %1917, %1912
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #5
@@ -11138,7 +11138,7 @@ filter_mb_edgeh.exit:                             ; preds = %2168, %filter_mb_ed
 2235:                                             ; preds = %.sink.split, %2230
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next488, 4
-  br i1 %exitcond490.not, label %thread-pre-split426.loopexit, label %2222, !llvm.loop !113
+  br i1 %exitcond490.not, label %thread-pre-split426.loopexit, label %2222, !llvm.loop !115
 
 thread-pre-split426.loopexit:                     ; preds = %2235
   %.pr427.pre = load i16, ptr %39, align 8, !tbaa !92
@@ -11602,7 +11602,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2460, %2437, %filte
   store i16 %.sink509, ptr %2536, align 2, !tbaa !92
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, 4
-  br i1 %exitcond500.not, label %.split449.us, label %.split447.us, !llvm.loop !114
+  br i1 %exitcond500.not, label %.split449.us, label %.split447.us, !llvm.loop !121
 
 .split447:                                        ; preds = %.split447.preheader, %2547
   %indvars.iv491 = phi i64 [ 0, %.split447.preheader ], [ %indvars.iv.next492, %2547 ]
@@ -11625,7 +11625,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2460, %2437, %filte
 2547:                                             ; preds = %.split447, %2545
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, 4
-  br i1 %exitcond495.not, label %.split449.us, label %.split447, !llvm.loop !114
+  br i1 %exitcond495.not, label %.split449.us, label %.split447, !llvm.loop !117
 
 .split449.us:                                     ; preds = %2547, %2535
   %2548 = load i16, ptr %40, align 8, !tbaa !92
@@ -12032,7 +12032,7 @@ filter_mb_edgech.exit418:                         ; preds = %2805, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #5
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond506.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count505
-  br i1 %exitcond506.not, label %filter_mb_dir.exit372, label %2505, !llvm.loop !115
+  br i1 %exitcond506.not, label %filter_mb_dir.exit372, label %2505, !llvm.loop !118
 
 filter_mb_dir.exit372:                            ; preds = %filter_mb_edgech.exit418, %.loopexit431
   ret void
@@ -12312,8 +12312,12 @@ attributes #5 = { nounwind }
 !110 = !{!5, !7, i64 136}
 !111 = !{!5, !7, i64 160}
 !112 = !{!5, !7, i64 184}
-!113 = distinct !{!113, !108}
-!114 = distinct !{!114, !108}
+!113 = distinct !{!113, !108, !114}
+!114 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !115 = distinct !{!115, !108}
-!116 = distinct !{!116, !108}
+!116 = distinct !{!116, !108, !114}
 !117 = distinct !{!117, !108}
+!118 = distinct !{!118, !108}
+!119 = distinct !{!119, !108}
+!120 = distinct !{!120, !108}
+!121 = distinct !{!121, !108, !114}

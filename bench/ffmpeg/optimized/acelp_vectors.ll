@@ -383,12 +383,12 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
   store float 0.000000e+00, ptr %20, align 4, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %21 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %21, label %.preheader.split.us16, label %.loopexit.us, !llvm.loop !27
+  br i1 %21, label %.preheader.split.us16, label %.loopexit.us, !llvm.loop !28
 
 .loopexit.us:                                     ; preds = %.preheader.split.us16, %.preheader.split.us.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !29
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
   %22 = getelementptr inbounds float, ptr %0, i64 %19
@@ -401,7 +401,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ff_acelp_vectors_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #5 {
-  store ptr @ff_weighted_vector_sumf, ptr %0, align 8, !tbaa !29
+  store ptr @ff_weighted_vector_sumf, ptr %0, align 8, !tbaa !30
   ret void
 }
 
@@ -452,9 +452,10 @@ attributes #8 = { noreturn nounwind }
 !23 = !{!12, !13, i64 88}
 !24 = !{!12, !14, i64 92}
 !25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
+!26 = distinct !{!26, !10, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !28 = distinct !{!28, !10}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"ACELPVContext", !31, i64 0}
-!31 = !{!"any pointer", !5, i64 0}
+!29 = distinct !{!29, !10, !27}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"ACELPVContext", !32, i64 0}
+!32 = !{!"any pointer", !5, i64 0}

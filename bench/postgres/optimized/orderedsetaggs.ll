@@ -1225,7 +1225,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
 60:                                               ; preds = %53, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %60, %37, %5
   tail call void @pg_qsort(ptr noundef %8, i64 noundef %6, i64 noundef 32, ptr noundef nonnull @pct_info_cmp) #10
@@ -1336,7 +1336,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   %61 = getelementptr inbounds nuw %struct.pct_info, ptr %49, i64 %indvars.iv.next
   %62 = load i64, ptr %61, align 8
   %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %._crit_edge, label %.lr.ph2, !llvm.loop !13
+  br i1 %63, label %._crit_edge, label %.lr.ph2, !llvm.loop !15
 
 .lr.ph2:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -1351,10 +1351,10 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   %69 = load i32, ptr %8, align 4
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !13
+  br i1 %71, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !15
 
 .._crit_edge_crit_edge:                           ; preds = %.lr.ph2
-  br label %._crit_edge, !llvm.loop !13
+  br label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge, %.lr.ph.preheader
   %72 = phi i32 [ %69, %.._crit_edge_crit_edge ], [ %57, %.lr.ph.preheader ], [ %69, %.lr.ph ]
@@ -1493,7 +1493,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   %138 = load i32, ptr %8, align 4
   %139 = trunc nuw i64 %indvars.iv.next91 to i32
   %140 = icmp sgt i32 %138, %139
-  br i1 %140, label %87, label %.loopexit, !llvm.loop !14
+  br i1 %140, label %87, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %134, %45, %82, %._crit_edge
   %141 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1609,7 +1609,7 @@ define dso_local i64 @mode_final(ptr noundef captures(none) %0) local_unnamed_ad
 45:                                               ; preds = %42
   %46 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %42, label %48, !llvm.loop !15
+  br i1 %47, label %42, label %48, !llvm.loop !17
 
 48:                                               ; preds = %45
   %49 = icmp eq i64 %.049.ph, 0
@@ -1693,14 +1693,14 @@ define dso_local i64 @mode_final(ptr noundef captures(none) %0) local_unnamed_ad
   %.1 = phi i64 [ %52, %50 ], [ %.043.ph, %70 ], [ %.043.ph, %69 ], [ %79, %77 ], [ %.043.ph, %67 ]
   %80 = load volatile i32, ptr @InterruptPending, align 4
   %.not60 = icmp eq i32 %80, 0
-  br i1 %.not60, label %.outer.backedge, label %81, !prof !16
+  br i1 %.not60, label %.outer.backedge, label %81, !prof !18
 
 81:                                               ; preds = %.thread
   call void @ProcessInterrupts() #10
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %81, %.thread
-  br label %.outer, !llvm.loop !15
+  br label %.outer, !llvm.loop !17
 
 82:                                               ; preds = %42
   %83 = or i8 %.046.ph, %30
@@ -1818,7 +1818,7 @@ define internal fastcc i64 @hypothetical_rank_common(ptr noundef readonly captur
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv
   store i8 %43, ptr %45, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %37
   %46 = zext nneg i32 %23 to i64
@@ -1881,7 +1881,7 @@ slot_getattr.exit:                                ; preds = %64, %slot_getsomeat
   %76 = add i64 %.04554, 1
   %77 = load volatile i32, ptr @InterruptPending, align 4
   %.not48 = icmp eq i32 %77, 0
-  br i1 %.not48, label %79, label %78, !prof !16
+  br i1 %.not48, label %79, label %78, !prof !18
 
 78:                                               ; preds = %75
   tail call void @ProcessInterrupts() #10
@@ -2067,7 +2067,7 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr noundef readonly capture
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv
   store i8 %78, ptr %80, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %72
   %81 = zext nneg i32 %34 to i64
@@ -2169,7 +2169,7 @@ ExecQualAndReset.exit.thread.us:                  ; preds = %121
   %130 = add i64 %.080119.us, 1
   %131 = load volatile i32, ptr @InterruptPending, align 4
   %.not100.us = icmp eq i32 %131, 0
-  br i1 %.not100.us, label %133, label %132, !prof !16
+  br i1 %.not100.us, label %133, label %132, !prof !18
 
 132:                                              ; preds = %128
   call void @ProcessInterrupts() #10
@@ -2178,7 +2178,7 @@ ExecQualAndReset.exit.thread.us:                  ; preds = %121
 133:                                              ; preds = %132, %128
   %134 = load ptr, ptr %89, align 8
   %135 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %134, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %.083118.us, ptr noundef nonnull %3) #10
-  br i1 %135, label %.lr.ph121.split.us, label %.thread
+  br i1 %135, label %.lr.ph121.split.us, label %.thread, !llvm.loop !21
 
 .lr.ph121.split:                                  ; preds = %.lr.ph121, %167
   %.080119 = phi i64 [ %164, %167 ], [ 1, %.lr.ph121 ]
@@ -2251,7 +2251,7 @@ ExecQualAndReset.exit:                            ; preds = %151
   %164 = add i64 %.080119, 1
   %165 = load volatile i32, ptr @InterruptPending, align 4
   %.not100 = icmp eq i32 %165, 0
-  br i1 %.not100, label %167, label %166, !prof !16
+  br i1 %.not100, label %167, label %166, !prof !18
 
 166:                                              ; preds = %162
   call void @ProcessInterrupts() #10
@@ -2343,7 +2343,7 @@ define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly ca
   %26 = getelementptr i8, ptr %gep, i64 %.idx16
   %27 = load i32, ptr %26, align 4
   %.not15 = icmp eq i32 %25, %27
-  br i1 %.not15, label %18, label %28, !llvm.loop !19
+  br i1 %.not15, label %18, label %28, !llvm.loop !22
 
 28:                                               ; preds = %19
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2521,11 +2521,14 @@ attributes #11 = { cold nounwind }
 !9 = !{ptr @float8_lerp, ptr @interval_lerp}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !7}

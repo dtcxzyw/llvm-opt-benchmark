@@ -999,7 +999,7 @@ _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from
   %60 = sub i32 %.0.i.i.i.i.i.i.i.i.i.i1, %.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   store i32 %53, ptr %6, align 4, !tbaa !61
   %.not.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i1, %51
-  br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !75
+  br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !77
 
 _ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %48, %.split18.us.i.i.i.i.i.i.i.i.i.i
   %61 = phi i8 [ %39, %.split18.us.i.i.i.i.i.i.i.i.i.i ], [ %59, %48 ]
@@ -1049,7 +1049,7 @@ _ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit: ; preds = %_ZNK5boost
 _ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEppEv.exit: ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit, %81
   %.sink.i.i.i = phi i32 [ %82, %81 ], [ 0, %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit ]
   store i32 %.sink.i.i.i, ptr %7, align 8, !tbaa !63
-  br label %10, !llvm.loop !76
+  br label %10, !llvm.loop !78
 
 83:                                               ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit
   %84 = load ptr, ptr %3, align 8, !tbaa !70
@@ -1158,5 +1158,7 @@ attributes #19 = { nounwind willreturn memory(read) }
 !72 = !{!16, !16, i64 0}
 !73 = !{i8 0, i8 2}
 !74 = !{}
-!75 = distinct !{!75, !44}
-!76 = distinct !{!76, !44}
+!75 = distinct !{!75, !44, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !44}
+!78 = distinct !{!78, !44}

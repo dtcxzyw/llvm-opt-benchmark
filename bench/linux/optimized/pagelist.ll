@@ -3620,7 +3620,7 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
   %93 = add nuw i32 %50, 1
   %94 = load i32, ptr %3, align 4
   %95 = icmp ult i32 %93, %94
-  br i1 %95, label %.split, label %.loopexit, !llvm.loop !92
+  br i1 %95, label %.split, label %.loopexit, !llvm.loop !93
 
 .loopexit:                                        ; preds = %92, %47, %.split5.us, %2
   ret void
@@ -4070,14 +4070,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 352
   %117 = load volatile ptr, ptr %116, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !94
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
   %118 = icmp eq ptr %117, null
   br i1 %118, label %141, label %119
 
 119:                                              ; preds = %108
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %121 = load volatile ptr, ptr %120, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !96
   %122 = icmp eq ptr %121, %120
   br i1 %122, label %123, label %.critedge
 
@@ -4090,7 +4090,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %128 = load volatile ptr, ptr %127, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !96
   %129 = icmp eq ptr %128, %127
   br i1 %129, label %130, label %.critedge
 
@@ -4276,9 +4276,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   br i1 %239, label %252, label %249, !prof !13
 
 249:                                              ; preds = %248
-  tail call void asm sideeffect "2000: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2000) #11, !srcloc !96
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1304, i32 2307, i64 12) #11, !srcloc !97
-  tail call void asm sideeffect "2001: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2001) #11, !srcloc !98
+  tail call void asm sideeffect "2000: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2000) #11, !srcloc !97
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1304, i32 2307, i64 12) #11, !srcloc !98
+  tail call void asm sideeffect "2001: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2001) #11, !srcloc !99
   tail call void @nfs_page_group_unlock(ptr noundef %1)
   tail call fastcc void @nfs_pageio_cleanup_request(ptr noundef %0, ptr noundef %31)
   %250 = load i32, ptr %18, align 8
@@ -4397,7 +4397,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 .backedge:                                        ; preds = %311, %309, %241
   %.be = phi ptr [ %1, %241 ], [ %253, %309 ], [ %314, %311 ]
   %.be31 = phi i32 [ %245, %241 ], [ %254, %309 ], [ %237, %311 ]
-  br label %30, !llvm.loop !99
+  br label %30, !llvm.loop !100
 
 316:                                              ; preds = %240
   %317 = load ptr, ptr %26, align 8
@@ -4815,12 +4815,13 @@ attributes #13 = { nounwind allocsize(0) }
 !88 = distinct !{!88, !21, !22}
 !89 = distinct !{!89, !22}
 !90 = distinct !{!90, !21, !22}
-!91 = distinct !{!91, !21, !22}
-!92 = distinct !{!92, !21, !22, !93}
-!93 = !{!"llvm.loop.unswitch.partial.disable"}
-!94 = !{i64 2158632477}
-!95 = !{i64 2149624511}
-!96 = !{i64 2163649175, i64 2163648979, i64 2163649031, i64 2163649077, i64 2163649105}
-!97 = !{i64 2163649252, i64 2163649281, i64 2163649327, i64 2163649385, i64 2163649439, i64 2163649493, i64 2163649548, i64 2163649579, i64 2163649887, i64 2163649893, i64 2163649940, i64 2163649963, i64 2163649989}
-!98 = !{i64 2163650445, i64 2163650251, i64 2163650301, i64 2163650347, i64 2163650375}
-!99 = distinct !{!99, !22}
+!91 = distinct !{!91, !21, !22, !92}
+!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!93 = distinct !{!93, !21, !22, !94}
+!94 = !{!"llvm.loop.unswitch.partial.disable"}
+!95 = !{i64 2158632477}
+!96 = !{i64 2149624511}
+!97 = !{i64 2163649175, i64 2163648979, i64 2163649031, i64 2163649077, i64 2163649105}
+!98 = !{i64 2163649252, i64 2163649281, i64 2163649327, i64 2163649385, i64 2163649439, i64 2163649493, i64 2163649548, i64 2163649579, i64 2163649887, i64 2163649893, i64 2163649940, i64 2163649963, i64 2163649989}
+!99 = !{i64 2163650445, i64 2163650251, i64 2163650301, i64 2163650347, i64 2163650375}
+!100 = distinct !{!100, !22}

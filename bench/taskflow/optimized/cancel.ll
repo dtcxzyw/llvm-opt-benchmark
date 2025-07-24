@@ -18392,7 +18392,7 @@ _ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i: ; preds = %_ZNSt13__
   %16 = and i32 %15, 2147483647
   %17 = icmp ne i32 %16, 1
   %or.cond.not.us.i.i = and i1 %14, %17
-  br i1 %or.cond.not.us.i.i, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+  br i1 %or.cond.not.us.i.i, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, !llvm.loop !748
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18431,7 +18431,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit8:  ; preds = %24, %27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt14__basic_futureIvE6_ResetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !748
+  %2 = load ptr, ptr %0, align 8, !tbaa !750
   store ptr null, ptr %2, align 8, !tbaa !111
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -18552,21 +18552,21 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESa
   %2 = alloca %"struct.std::_Deque_iterator", align 8
   %3 = alloca %"struct.std::_Deque_iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !349, !noalias !750
+  %5 = load ptr, ptr %4, align 8, !tbaa !349, !noalias !752
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !350, !noalias !750
+  %7 = load ptr, ptr %6, align 8, !tbaa !350, !noalias !752
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !351, !noalias !750
+  %9 = load ptr, ptr %8, align 8, !tbaa !351, !noalias !752
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !345, !noalias !750
+  %11 = load ptr, ptr %10, align 8, !tbaa !345, !noalias !752
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !349, !noalias !753
+  %13 = load ptr, ptr %12, align 8, !tbaa !349, !noalias !755
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !350, !noalias !753
+  %15 = load ptr, ptr %14, align 8, !tbaa !350, !noalias !755
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !351, !noalias !753
+  %17 = load ptr, ptr %16, align 8, !tbaa !351, !noalias !755
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %19 = load ptr, ptr %18, align 8, !tbaa !345, !noalias !753
+  %19 = load ptr, ptr %18, align 8, !tbaa !345, !noalias !755
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %5, ptr %2, align 8, !tbaa !349
@@ -18712,13 +18712,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %30
 _ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i: ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %18, %.lr.ph.i.i.i
   %.05.i.i.i.add = add nuw nsw i64 %.05.i.i.i.idx, 16
   %.not.i.i.i = icmp eq i64 %.05.i.i.i.add, 512
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !756
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !758
 
 _ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i
   %.0 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %34 = load ptr, ptr %6, align 8, !tbaa !345
   %35 = icmp ult ptr %.0, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !757
+  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !759
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18780,7 +18780,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i10: ; preds = %
 _ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i12: ; preds = %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i10, %46, %.lr.ph.i.i.i6
   %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 16
   %.not.i.i.i13 = icmp eq ptr %62, %38
-  br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit14, label %.lr.ph.i.i.i6, !llvm.loop !756
+  br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit14, label %.lr.ph.i.i.i6, !llvm.loop !758
 
 _ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit14: ; preds = %_ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i12, %36
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -18843,7 +18843,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20: ; preds = %
 _ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i22: ; preds = %88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20, %73, %.lr.ph.i.i.i16
   %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 16
   %.not.i.i.i23 = icmp eq ptr %89, %65
-  br i1 %.not.i.i.i23, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i16, !llvm.loop !756
+  br i1 %.not.i.i.i23, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i16, !llvm.loop !758
 
 90:                                               ; preds = %._crit_edge
   %91 = load ptr, ptr %2, align 8, !tbaa !349
@@ -18904,7 +18904,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i30: ; preds = %
 _ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i32: ; preds = %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i30, %99, %.lr.ph.i.i.i26
   %115 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 16
   %.not.i.i.i33 = icmp eq ptr %115, %91
-  br i1 %.not.i.i.i33, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i26, !llvm.loop !756
+  br i1 %.not.i.i.i33, label %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i26, !llvm.loop !758
 
 _ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit24: ; preds = %_ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i22, %_ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i32, %90, %_ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit14
   ret void
@@ -18918,9 +18918,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_
 define internal void @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E9_M_invokeERKSt9_Any_data"(ptr nonnull readnone align 8 captures(none) %0) #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #32
-  store i64 1, ptr %2, align 8, !tbaa !758
+  store i64 1, ptr %2, align 8, !tbaa !760
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %3, align 8, !tbaa !760
+  store i64 0, ptr %3, align 8, !tbaa !762
   br label %4
 
 4:                                                ; preds = %7, %1
@@ -18932,7 +18932,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E9_M_invokeERKSt9
   %8 = tail call ptr @__errno_location() #37
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %4, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !761
+  br i1 %10, label %4, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !763
 
 "_ZSt10__invoke_rIvRZ4mainE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit": ; preds = %4, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #32
@@ -19781,17 +19781,19 @@ attributes #41 = { cold }
 !745 = distinct !{!745, !746, !"_ZSt11make_sharedINSt13__future_base13_State_baseV2EJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
 !746 = distinct !{!746, !"_ZSt11make_sharedINSt13__future_base13_State_baseV2EJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
 !747 = !{!418, !348, i64 72}
-!748 = !{!749, !110, i64 0}
-!749 = !{!"_ZTSNSt14__basic_futureIvE6_ResetE", !110, i64 0}
-!750 = !{!751}
-!751 = distinct !{!751, !752, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE5beginEv: argument 0"}
-!752 = distinct !{!752, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE5beginEv"}
-!753 = !{!754}
-!754 = distinct !{!754, !755, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE3endEv: argument 0"}
-!755 = distinct !{!755, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE3endEv"}
-!756 = distinct !{!756, !101}
-!757 = distinct !{!757, !101}
-!758 = !{!759, !24, i64 0}
-!759 = !{!"_ZTS8timespec", !24, i64 0, !24, i64 8}
-!760 = !{!759, !24, i64 8}
-!761 = distinct !{!761, !101}
+!748 = distinct !{!748, !749}
+!749 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!750 = !{!751, !110, i64 0}
+!751 = !{!"_ZTSNSt14__basic_futureIvE6_ResetE", !110, i64 0}
+!752 = !{!753}
+!753 = distinct !{!753, !754, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE5beginEv: argument 0"}
+!754 = distinct !{!754, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE5beginEv"}
+!755 = !{!756}
+!756 = distinct !{!756, !757, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE3endEv: argument 0"}
+!757 = distinct !{!757, !"_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESaIS3_EE3endEv"}
+!758 = distinct !{!758, !101}
+!759 = distinct !{!759, !101}
+!760 = !{!761, !24, i64 0}
+!761 = !{!"_ZTS8timespec", !24, i64 0, !24, i64 8}
+!762 = !{!761, !24, i64 8}
+!763 = distinct !{!763, !101}

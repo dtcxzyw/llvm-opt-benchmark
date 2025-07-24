@@ -821,7 +821,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 29:                                               ; preds = %27
   %30 = load i64, ptr %11, align 8, !tbaa !69
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.split37.us, label %.split.us
+  br i1 %31, label %.split37.us, label %.split.us, !llvm.loop !70
 
 .split:                                           ; preds = %3, %44
   %32 = load i64, ptr %5, align 8, !tbaa !53
@@ -1013,3 +1013,5 @@ attributes #17 = { nounwind willreturn memory(none) }
 !67 = !{!12, !12, i64 0}
 !68 = !{!16, !12, i64 8}
 !69 = !{!16, !6, i64 16}
+!70 = distinct !{!70, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}

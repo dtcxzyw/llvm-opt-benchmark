@@ -136,7 +136,7 @@ define void @lv_sdl_mouse_handler(ptr noundef readonly captures(none) %0) local_
 18:                                               ; preds = %15, %.lr.ph.split
   %19 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.06469) #2
   %cond = icmp eq ptr %19, null
-  br i1 %cond, label %.loopexit, label %.lr.ph.split, !llvm.loop !21
+  br i1 %cond, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
 
 .split.us:                                        ; preds = %15, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.06469.us, %.lr.ph.split.us ], [ %.06469, %15 ]
@@ -340,5 +340,7 @@ attributes #2 = { nounwind }
 !18 = !{}
 !19 = !{!10, !12, i64 20}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !22}

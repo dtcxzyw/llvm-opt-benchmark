@@ -4460,7 +4460,7 @@ strbuf_setlen.exit:                               ; preds = %69, %71
   store i64 %75, ptr %5, align 8, !tbaa !99
   %76 = load i64, ptr %35, align 8, !tbaa !69
   %77 = icmp ult i64 %75, %76
-  br i1 %77, label %.split, label %._crit_edge, !llvm.loop !132
+  br i1 %77, label %.split, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %strbuf_setlen.exit, %59, %render_diff_header.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
@@ -4741,7 +4741,7 @@ _.exit:                                           ; preds = %normalize_marker.ex
 normalize_marker.exit.thread:                     ; preds = %82, %82, %84
   %99 = add nuw i64 %.0117192, 1
   %100 = icmp ult i64 %99, %62
-  br i1 %100, label %66, label %._crit_edge, !llvm.loop !133
+  br i1 %100, label %66, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %normalize_marker.exit.thread, %60
   %.0123.lcssa = phi i64 [ %50, %60 ], [ %.0.i, %normalize_marker.exit.thread ]
@@ -4842,7 +4842,7 @@ _.exit146:                                        ; preds = %110, %112
   store i64 %154, ptr %23, align 8, !tbaa !95
   %155 = add nuw i64 %32, 1
   %156 = icmp ult i64 %155, %141
-  br i1 %156, label %30, label %._crit_edge199, !llvm.loop !134
+  br i1 %156, label %30, label %._crit_edge199, !llvm.loop !136
 
 ._crit_edge199:                                   ; preds = %140, %44, %38, %35, %14
   %.0118.lcssa = phi i64 [ %6, %14 ], [ %.0118196, %35 ], [ %.0118196, %38 ], [ %.0118196, %44 ], [ %32, %140 ]
@@ -5044,6 +5044,8 @@ attributes #19 = { noreturn nounwind }
 !129 = !{!63, !14, i64 56}
 !130 = !{!62, !14, i64 64}
 !131 = !{!62, !14, i64 80}
-!132 = distinct !{!132, !53}
-!133 = distinct !{!133, !53}
+!132 = distinct !{!132, !53, !133}
+!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !134 = distinct !{!134, !53}
+!135 = distinct !{!135, !53}
+!136 = distinct !{!136, !53}

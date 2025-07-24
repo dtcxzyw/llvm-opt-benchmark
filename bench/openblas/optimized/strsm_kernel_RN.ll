@@ -106,21 +106,21 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %45 = getelementptr inbounds nuw i8, ptr %.144.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.split47.us.i, label %42, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.split47.us.i, label %42, !llvm.loop !11
 
 .split47.us.i:                                    ; preds = %42, %._crit_edge.us.i
   %.us-phi.i = phi ptr [ %41, %._crit_edge.us.i ], [ %45, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %.03748.i, i64 16
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 4
-  br i1 %exitcond67.not.i, label %solve.exit, label %24, !llvm.loop !10
+  br i1 %exitcond67.not.i, label %solve.exit, label %24, !llvm.loop !12
 
 solve.exit:                                       ; preds = %.split47.us.i
   %47 = getelementptr inbounds i8, ptr %.1130, i64 %.idx152
   %48 = getelementptr inbounds nuw i8, ptr %.1126, i64 64
   %49 = add nsw i64 %.0120, -1
   %50 = icmp sgt i64 %.0120, 1
-  br i1 %50, label %19, label %.loopexit246, !llvm.loop !11
+  br i1 %50, label %19, label %.loopexit246, !llvm.loop !13
 
 .loopexit246:                                     ; preds = %solve.exit, %16
   %.0129 = phi ptr [ %4, %16 ], [ %47, %solve.exit ]
@@ -211,14 +211,14 @@ solve.exit:                                       ; preds = %.split47.us.i
   %82 = getelementptr inbounds nuw i8, ptr %.144.i167, i64 4
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, %.1121258
-  br i1 %exitcond.not.i170, label %.split47.us.i171, label %79, !llvm.loop !9
+  br i1 %exitcond.not.i170, label %.split47.us.i171, label %79, !llvm.loop !11
 
 .split47.us.i171:                                 ; preds = %79, %._crit_edge.us.i181
   %.us-phi.i172 = phi ptr [ %78, %._crit_edge.us.i181 ], [ %82, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %.03748.i162, i64 16
   %indvars.iv.next55.i173 = add nuw nsw i64 %indvars.iv54.i160, 1
   %exitcond67.not.i174 = icmp eq i64 %indvars.iv.next65.i163, 4
-  br i1 %exitcond67.not.i174, label %solve.exit184, label %61, !llvm.loop !10
+  br i1 %exitcond67.not.i174, label %solve.exit184, label %61, !llvm.loop !12
 
 solve.exit184:                                    ; preds = %.split47.us.i171
   %84 = mul nsw i64 %.1121258, %2
@@ -231,7 +231,7 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   %.3128 = phi ptr [ %86, %solve.exit184 ], [ %.2127257, %53 ]
   %88 = lshr i64 %.1121258, 1
   %.not154 = icmp samesign ult i64 %.1121258, 2
-  br i1 %.not154, label %.loopexit244, label %53, !llvm.loop !12
+  br i1 %.not154, label %.loopexit244, label %53, !llvm.loop !14
 
 .loopexit244:                                     ; preds = %87, %.loopexit246
   %89 = add nsw i64 %.0122261, 4
@@ -239,7 +239,7 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   %91 = getelementptr inbounds i8, ptr %.0139259, i64 %.idx156
   %92 = add nsw i64 %.0119262, -1
   %93 = icmp sgt i64 %.0119262, 1
-  br i1 %93, label %16, label %._crit_edge, !llvm.loop !13
+  br i1 %93, label %16, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit244, %9
   %.0139.lcssa = phi ptr [ %6, %9 ], [ %91, %.loopexit244 ]
@@ -348,21 +348,21 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   %130 = getelementptr inbounds nuw i8, ptr %.144.i193, i64 4
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, 16
-  br i1 %exitcond.not.i196, label %.split47.us.i197, label %127, !llvm.loop !9
+  br i1 %exitcond.not.i196, label %.split47.us.i197, label %127, !llvm.loop !11
 
 .split47.us.i197:                                 ; preds = %127, %._crit_edge.us.i207
   %.us-phi.i198 = phi ptr [ %126, %._crit_edge.us.i207 ], [ %130, %127 ]
   %131 = getelementptr inbounds nuw float, ptr %.03748.i188, i64 %.1279
   %indvars.iv.next55.i199 = add nuw nsw i64 %indvars.iv54.i186, 1
   %exitcond67.not.i200 = icmp eq i64 %indvars.iv.next65.i189, %.1279
-  br i1 %exitcond67.not.i200, label %solve.exit210, label %109, !llvm.loop !10
+  br i1 %exitcond67.not.i200, label %solve.exit210, label %109, !llvm.loop !12
 
 solve.exit210:                                    ; preds = %.split47.us.i197
   %132 = getelementptr inbounds i8, ptr %.4133265, i64 %.idx149
   %133 = getelementptr inbounds nuw i8, ptr %.4266, i64 64
   %134 = add nsw i64 %.2267, -1
   %135 = icmp sgt i64 %.2267, 1
-  br i1 %135, label %104, label %._crit_edge270, !llvm.loop !14
+  br i1 %135, label %104, label %._crit_edge270, !llvm.loop !16
 
 ._crit_edge270:                                   ; preds = %solve.exit210, %100
   %.4133.lcssa = phi ptr [ %4, %100 ], [ %132, %solve.exit210 ]
@@ -453,14 +453,14 @@ solve.exit210:                                    ; preds = %.split47.us.i197
   %168 = getelementptr inbounds nuw i8, ptr %.144.i219, i64 4
   %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i218, 1
   %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, %.3275
-  br i1 %exitcond.not.i222, label %.split47.us.i223, label %165, !llvm.loop !9
+  br i1 %exitcond.not.i222, label %.split47.us.i223, label %165, !llvm.loop !11
 
 .split47.us.i223:                                 ; preds = %165, %._crit_edge.us.i233
   %.us-phi.i224 = phi ptr [ %164, %._crit_edge.us.i233 ], [ %168, %165 ]
   %169 = getelementptr inbounds nuw float, ptr %.03748.i214, i64 %.1279
   %indvars.iv.next55.i225 = add nuw nsw i64 %indvars.iv54.i212, 1
   %exitcond67.not.i226 = icmp eq i64 %indvars.iv.next65.i215, %.1279
-  br i1 %exitcond67.not.i226, label %solve.exit236, label %147, !llvm.loop !10
+  br i1 %exitcond67.not.i226, label %solve.exit236, label %147, !llvm.loop !12
 
 solve.exit236:                                    ; preds = %.split47.us.i223
   %170 = mul nsw i64 %.3275, %2
@@ -473,7 +473,7 @@ solve.exit236:                                    ; preds = %.split47.us.i223
   %.6 = phi ptr [ %172, %solve.exit236 ], [ %.5274, %139 ]
   %174 = lshr i64 %.3275, 1
   %.not147 = icmp samesign ult i64 %.3275, 2
-  br i1 %.not147, label %.loopexit, label %139, !llvm.loop !15
+  br i1 %.not147, label %.loopexit, label %139, !llvm.loop !17
 
 .loopexit:                                        ; preds = %173, %._crit_edge270
   %175 = mul nsw i64 %.1279, %2
@@ -489,7 +489,7 @@ solve.exit236:                                    ; preds = %.split47.us.i223
   %.2124 = phi i64 [ %179, %.loopexit ], [ %.1123278, %98 ]
   %181 = lshr i64 %.1279, 1
   %.not144 = icmp samesign ult i64 %.1279, 2
-  br i1 %.not144, label %.loopexit240, label %98, !llvm.loop !16
+  br i1 %.not144, label %.loopexit240, label %98, !llvm.loop !18
 
 .loopexit240:                                     ; preds = %180, %._crit_edge
   ret i32 0
@@ -516,11 +516,13 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

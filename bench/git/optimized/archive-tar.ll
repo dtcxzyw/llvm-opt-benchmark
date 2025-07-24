@@ -1410,7 +1410,7 @@ define internal i32 @write_tar_filter_archive(ptr noundef readonly captures(none
   ]
 
 .lr.ph.split.us.i.backedge:                       ; preds = %27, %27
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.us.i, !llvm.loop !80
 
 .split.us.i:                                      ; preds = %27
   %28 = call fastcc ptr @_(ptr noundef nonnull @.str.36)
@@ -1440,7 +1440,7 @@ tgz_deflate.exit:                                 ; preds = %23
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %40 = load i16, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 -1, ptr %41, align 8, !tbaa !80
+  store i32 -1, ptr %41, align 8, !tbaa !82
   %42 = or i16 %40, 48
   store i16 %42, ptr %39, align 8
   %43 = call i32 @start_command(ptr noundef nonnull %5) #11
@@ -1455,7 +1455,7 @@ tgz_deflate.exit:                                 ; preds = %23
 
 48:                                               ; preds = %35
   %49 = call i32 @close(i32 noundef 1) #11
-  %50 = load i32, ptr %41, align 8, !tbaa !80
+  %50 = load i32, ptr %41, align 8, !tbaa !82
   %51 = call i32 @dup2(i32 noundef %50, i32 noundef 1) #11
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %55
@@ -1466,7 +1466,7 @@ tgz_deflate.exit:                                 ; preds = %23
   unreachable
 
 55:                                               ; preds = %48
-  %56 = load i32, ptr %41, align 8, !tbaa !80
+  %56 = load i32, ptr %41, align 8, !tbaa !82
   %57 = call i32 @close(i32 noundef %56) #11
   %58 = call i32 @write_tar_archive(ptr nonnull poison, ptr noundef nonnull %1)
   %59 = call i32 @close(i32 noundef 1) #11
@@ -1511,8 +1511,8 @@ declare i32 @xstrncmpz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @tgz_write_block(ptr noundef %0) #0 {
 .lr.ph.i:
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 144), align 8, !tbaa !84
-  store i64 10240, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8, !tbaa !85
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 144), align 8, !tbaa !86
+  store i64 10240, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8, !tbaa !87
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %11, %.lr.ph.i
@@ -1544,7 +1544,7 @@ define internal void @tgz_write_block(ptr noundef %0) #0 {
   unreachable
 
 11:                                               ; preds = %9, %9
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8, !tbaa !85
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8, !tbaa !87
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %tgz_deflate.exit, label %.lr.ph.split.i
 
@@ -1690,9 +1690,11 @@ attributes #13 = { nounwind willreturn memory(read) }
 !77 = !{!"z_stream_s", !17, i64 0, !10, i64 8, !21, i64 16, !17, i64 24, !10, i64 32, !21, i64 40, !17, i64 48, !78, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !10, i64 88, !21, i64 96, !21, i64 104}
 !78 = !{!"p1 _ZTS14internal_state", !6, i64 0}
 !79 = !{!76, !21, i64 120}
-!80 = !{!81, !10, i64 80}
-!81 = !{!"child_process", !82, i64 0, !82, i64 24, !10, i64 48, !10, i64 52, !21, i64 56, !17, i64 64, !17, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !17, i64 96, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 105, !10, i64 105, !6, i64 112}
-!82 = !{!"strvec", !83, i64 0, !21, i64 8, !21, i64 16}
-!83 = !{!"p2 omnipotent char", !6, i64 0}
-!84 = !{!76, !17, i64 144}
-!85 = !{!76, !21, i64 112}
+!80 = distinct !{!80, !81}
+!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!82 = !{!83, !10, i64 80}
+!83 = !{!"child_process", !84, i64 0, !84, i64 24, !10, i64 48, !10, i64 52, !21, i64 56, !17, i64 64, !17, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !17, i64 96, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 104, !10, i64 105, !10, i64 105, !6, i64 112}
+!84 = !{!"strvec", !85, i64 0, !21, i64 8, !21, i64 16}
+!85 = !{!"p2 omnipotent char", !6, i64 0}
+!86 = !{!76, !17, i64 144}
+!87 = !{!76, !21, i64 112}

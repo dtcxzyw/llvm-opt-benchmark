@@ -427,7 +427,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.i:       ; preds = %_ZNK5ZXing11Pattern
   store i32 %35, ptr %36, align 4, !tbaa !3, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i, !llvm.loop !30
 
 _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit: ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.split.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i
   %37 = select i1 %10, i32 8, i32 1
@@ -439,11 +439,11 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %39, ptr %40, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i32 %37, ptr %6, align 4, !tbaa !29
+  store i32 %37, ptr %6, align 4, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !3
-  store i32 %43, ptr %41, align 4, !tbaa !31
+  store i32 %43, ptr %41, align 4, !tbaa !33
   br label %52
 
 44:                                               ; preds = %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, %44
@@ -458,7 +458,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   store i32 %48, ptr %49, align 4, !tbaa !3
   %50 = add nsw i32 %48, %.03137
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %38, label %44, !llvm.loop !32
+  br i1 %exitcond.not, label %38, label %44, !llvm.loop !34
 
 51:                                               ; preds = %52
   br i1 %10, label %59, label %.critedge
@@ -475,7 +475,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   store i32 %58, ptr %54, align 4, !tbaa !3
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 8
-  br i1 %exitcond49.not, label %51, label %52, !llvm.loop !33
+  br i1 %exitcond49.not, label %51, label %52, !llvm.loop !35
 
 59:                                               ; preds = %51
   %60 = load i32, ptr %6, align 4, !tbaa !3
@@ -499,7 +499,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   store i32 %70, ptr %68, align 4, !tbaa !3
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
   %71 = icmp samesign ult i64 %indvars.iv53, 6
-  br i1 %71, label %63, label %.loopexit, !llvm.loop !34
+  br i1 %71, label %63, label %.loopexit, !llvm.loop !36
 
 .critedge:                                        ; preds = %51
   %72 = load i32, ptr %41, align 4, !tbaa !3
@@ -523,7 +523,7 @@ _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   store i32 %82, ptr %80, align 4, !tbaa !3
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 2
   %83 = icmp samesign ult i64 %indvars.iv50, 6
-  br i1 %83, label %75, label %.loopexit, !llvm.loop !35
+  br i1 %83, label %75, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %75, %63, %59, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -536,15 +536,15 @@ define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_o
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.val = load i32, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %.val14 = load i32, ptr %5, align 4, !tbaa !36
+  %.val14 = load i32, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !36
+  %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = sub nsw i32 %7, %.val14
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 4, !tbaa !39
+  %11 = load i32, ptr %10, align 4, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !40
+  %13 = load i32, ptr %12, align 4, !tbaa !42
   %14 = sub nsw i32 %11, %13
   %15 = icmp sgt i32 %9, %14
   br i1 %15, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
@@ -559,7 +559,7 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
   %20 = add nsw i32 %7, %.val14
   %21 = sdiv i32 %20, 2
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = load i32, ptr %22, align 4, !tbaa !39
+  %23 = load i32, ptr %22, align 4, !tbaa !41
   %.sroa.213.0.insert.ext.i = zext i32 %21 to i64
   %.sroa.213.0.insert.shift.i = shl nuw i64 %.sroa.213.0.insert.ext.i, 32
   %.sroa.012.0.insert.ext.i = zext i32 %13 to i64
@@ -570,7 +570,7 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
 
 _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread: ; preds = %3, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %25 = load i32, ptr %24, align 4, !tbaa !39
+  %25 = load i32, ptr %24, align 4, !tbaa !41
   %.sroa.220.0.insert.ext = zext i32 %7 to i64
   %.sroa.220.0.insert.shift = shl nuw i64 %.sroa.220.0.insert.ext, 32
   %.sroa.019.0.insert.ext = zext i32 %13 to i64
@@ -607,15 +607,15 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar17EstimateLineCountERKNS1_4PairES4_(pt
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = load i32, ptr %3, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.val4 = load i32, ptr %7, align 4, !tbaa !36
+  %.val4 = load i32, ptr %7, align 4, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !36
+  %9 = load i32, ptr %8, align 4, !tbaa !38
   %10 = sub nsw i32 %9, %.val4
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 4, !tbaa !39
+  %13 = load i32, ptr %12, align 4, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !40
+  %15 = load i32, ptr %14, align 4, !tbaa !42
   %16 = sub nsw i32 %13, %15
   %17 = icmp sgt i32 %11, %16
   br i1 %17, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit, label %18
@@ -689,16 +689,18 @@ attributes #7 = { nounwind }
 !25 = !{!26, !26, i64 0}
 !26 = !{!"short", !5, i64 0}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = !{!30, !4, i64 0}
-!30 = !{!"_ZTSN5ZXing4OneD7DataBar7OddEvenIiEE", !4, i64 0, !4, i64 4}
-!31 = !{!30, !4, i64 4}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
+!28 = distinct !{!28, !8, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !8}
+!31 = !{!32, !4, i64 0}
+!32 = !{!"_ZTSN5ZXing4OneD7DataBar7OddEvenIiEE", !4, i64 0, !4, i64 4}
+!33 = !{!32, !4, i64 4}
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
-!36 = !{!37, !4, i64 28}
-!37 = !{!"_ZTSN5ZXing4OneD7DataBar4PairE", !38, i64 0, !38, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32}
-!38 = !{!"_ZTSN5ZXing4OneD7DataBar9CharacterE", !4, i64 0, !4, i64 4}
-!39 = !{!37, !4, i64 24}
-!40 = !{!37, !4, i64 20}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}
+!38 = !{!39, !4, i64 28}
+!39 = !{!"_ZTSN5ZXing4OneD7DataBar4PairE", !40, i64 0, !40, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32}
+!40 = !{!"_ZTSN5ZXing4OneD7DataBar9CharacterE", !4, i64 0, !4, i64 4}
+!41 = !{!39, !4, i64 24}
+!42 = !{!39, !4, i64 20}

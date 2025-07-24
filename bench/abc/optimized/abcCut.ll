@@ -1079,7 +1079,7 @@ define void @Abc_NtkCutsOracle(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %.val = load i32, ptr %23, align 4, !tbaa !24
   %63 = sext i32 %.val to i64
   %64 = icmp slt i64 %indvars.iv.next58, %63
-  br i1 %64, label %.lr.ph54.split, label %.critedge2, !llvm.loop !71
+  br i1 %64, label %.lr.ph54.split, label %.critedge2, !llvm.loop !73
 
 .critedge2:                                       ; preds = %62, %41, %.critedge
   %65 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1297,7 +1297,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %tailrecurse, %._cri
   %47 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !41
   %49 = getelementptr inbounds nuw i8, ptr %.val15, i64 216
-  %50 = load i32, ptr %49, align 8, !tbaa !72
+  %50 = load i32, ptr %49, align 8, !tbaa !74
   %.not = icmp eq i32 %48, %50
   br i1 %.not, label %118, label %51
 
@@ -1534,7 +1534,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not18, label %38, label %60
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %16, align 8, !tbaa !73
+  %39 = load ptr, ptr %16, align 8, !tbaa !75
   %.not.i24 = icmp eq ptr %39, null
   br i1 %.not.i24, label %40, label %Abc_NtkIncrementTravId.exit
 
@@ -1571,9 +1571,9 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i.i, %Vec_In
   br label %Abc_NtkIncrementTravId.exit
 
 Abc_NtkIncrementTravId.exit:                      ; preds = %38, %Vec_IntFill.exit.i
-  %52 = load i32, ptr %19, align 8, !tbaa !72
+  %52 = load i32, ptr %19, align 8, !tbaa !74
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %19, align 8, !tbaa !72
+  store i32 %53, ptr %19, align 8, !tbaa !74
   %54 = tail call i32 @Abc_NtkSubDagSize_rec(ptr noundef nonnull %24, ptr noundef nonnull %5)
   %55 = icmp sgt i32 %54, 15
   br i1 %55, label %56, label %60
@@ -1592,7 +1592,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %38, %Vec_IntFill.ex
   %.val = load i32, ptr %62, align 4, !tbaa !24
   %63 = sext i32 %.val to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %20, label %.critedge, !llvm.loop !74
+  br i1 %64, label %20, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %60, %Vec_IntStart.exit
   ret ptr %5
@@ -1726,7 +1726,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !68 = distinct !{!68, !69, !"vprintf: argument 0"}
 !69 = distinct !{!69, !"vprintf"}
 !70 = distinct !{!70, !33}
-!71 = distinct !{!71, !33}
-!72 = !{!4, !5, i64 216}
-!73 = !{!4, !16, i64 232}
-!74 = distinct !{!74, !33}
+!71 = distinct !{!71, !33, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !33}
+!74 = !{!4, !5, i64 216}
+!75 = !{!4, !16, i64 232}
+!76 = distinct !{!76, !33}

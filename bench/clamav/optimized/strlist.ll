@@ -509,7 +509,7 @@ _ZN10StringList12SavePositionEv.exit.split.split: ; preds = %_ZN10StringList12Sa
   store i64 %39, ptr %15, align 8, !tbaa !11
   %40 = tail call noundef i32 @_Z8wcsicompPKwS0_(ptr noundef nonnull %1, ptr noundef nonnull %36)
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %_ZN10StringList9GetStringEPPw.exit.loopexit15, label %_ZN10StringList12SavePositionEv.exit.split.split, !llvm.loop !19
+  br i1 %.not, label %_ZN10StringList9GetStringEPPw.exit.loopexit15, label %_ZN10StringList12SavePositionEv.exit.split.split, !llvm.loop !22
 
 _ZN10StringList9GetStringEPPw.exit.loopexit15:    ; preds = %34, %_ZN10StringList12SavePositionEv.exit.split.split
   %.pre = load i64, ptr %4, align 8, !tbaa !3
@@ -597,5 +597,7 @@ attributes #16 = { nounwind allocsize(1) }
 !16 = !{!5, !10, i64 24}
 !17 = !{!6, !6, i64 0}
 !18 = !{!10, !10, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !20}

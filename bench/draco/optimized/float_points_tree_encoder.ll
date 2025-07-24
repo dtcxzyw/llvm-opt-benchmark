@@ -11038,13 +11038,13 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   store i32 %71, ptr %52, align 4, !tbaa !33
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.052, i64 12
   %.not49 = icmp eq ptr %72, %2
-  br i1 %.not49, label %._crit_edge, label %65, !llvm.loop !332
+  br i1 %.not49, label %._crit_edge, label %65, !llvm.loop !333
 
 73:                                               ; preds = %.lr.ph56.split, %._crit_edge
   %74 = add nuw i32 %.03653, 1
   %75 = load i32, ptr %26, align 8, !tbaa !299
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph56.split, label %.preheader50, !llvm.loop !331
+  br i1 %76, label %.lr.ph56.split, label %.preheader50, !llvm.loop !334
 
 ._crit_edge61:                                    ; preds = %86, %23, %.preheader50
   %.3.lcssa = phi i32 [ 0, %.preheader50 ], [ 0, %23 ], [ %.4, %86 ]
@@ -11075,7 +11075,7 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   %.1 = phi i32 [ %.03358, %78 ], [ %spec.select48, %81 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge61, label %78, !llvm.loop !333
+  br i1 %exitcond.not, label %._crit_edge61, label %78, !llvm.loop !335
 
 .loopexit:                                        ; preds = %15, %.preheader, %._crit_edge61
   %.2 = phi i32 [ %.3.lcssa, %._crit_edge61 ], [ 0, %.preheader ], [ %spec.select, %15 ]
@@ -11156,7 +11156,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingSta
   store ptr %14, ptr %.011.i, align 8, !tbaa !316
   %15 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %16 = icmp ult ptr %15, %13
-  br i1 %16, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9__gnu_cxx17__normal_iteratorIPNS0_7VectorDIjLi3EEESt6vectorIS7_SaIS7_EEEEEESaISD_EE15_M_create_nodesEPPSD_SH_.exit, !llvm.loop !334
+  br i1 %16, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9__gnu_cxx17__normal_iteratorIPNS0_7VectorDIjLi3EEESt6vectorIS7_SaIS7_EEEEEESaISD_EE15_M_create_nodesEPPSD_SH_.exit, !llvm.loop !336
 
 17:                                               ; preds = %.lr.ph.i
   %18 = landingpad { ptr, i32 }
@@ -11234,7 +11234,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingSta
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 512
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %50, ptr %51, align 8, !tbaa !318
-  store ptr %41, ptr %39, align 8, !tbaa !335
+  store ptr %41, ptr %39, align 8, !tbaa !337
   %52 = and i64 %1, 15
   %53 = getelementptr inbounds nuw %"struct.draco::DynamicIntegerPointsKdTreeEncoder<6>::EncodingStatus", ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !304
@@ -11897,8 +11897,10 @@ attributes #23 = { noreturn }
 !328 = distinct !{!328, !55}
 !329 = !{!305, !25, i64 8}
 !330 = distinct !{!330, !55}
-!331 = distinct !{!331, !55}
-!332 = distinct !{!332, !55}
+!331 = distinct !{!331, !55, !332}
+!332 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !333 = distinct !{!333, !55}
 !334 = distinct !{!334, !55}
-!335 = !{!305, !308, i64 16}
+!335 = distinct !{!335, !55}
+!336 = distinct !{!336, !55}
+!337 = !{!305, !308, i64 16}

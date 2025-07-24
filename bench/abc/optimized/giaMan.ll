@@ -7016,7 +7016,7 @@ Vec_BitStart.exit:                                ; preds = %2, %11
 96:                                               ; preds = %.lr.ph.split.split, %84, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count64
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !187
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !189
 
 .critedge:                                        ; preds = %96, %53, %.lr.ph, %Vec_BitStart.exit
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7067,7 +7067,7 @@ Vec_BitStart.exit:                                ; preds = %2, %11
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %121 = sext i32 %.val41 to i64
   %122 = icmp slt i64 %indvars.iv.next67, %121
-  br i1 %122, label %.lr.ph57.split, label %.critedge2, !llvm.loop !188
+  br i1 %122, label %.lr.ph57.split, label %.critedge2, !llvm.loop !190
 
 .critedge2:                                       ; preds = %120, %.lr.ph57, %.critedge
   %123 = load i32, ptr %15, align 4, !tbaa !98
@@ -7121,7 +7121,7 @@ define range(i32 0, 2) i32 @Gia_ManNameIsLegalInVerilog(ptr noundef readonly cap
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !181
   %.not23 = icmp eq i8 %19, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !189
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !191
 
 .loopexit:                                        ; preds = %16, %17, %8, %6, %1
   %.015 = phi i32 [ 1, %1 ], [ 0, %6 ], [ 1, %8 ], [ 0, %16 ], [ 1, %17 ]
@@ -7182,7 +7182,7 @@ define noundef nonnull ptr @Gia_ObjGetDumpName(ptr noundef readonly captures(add
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !181
   %.not23.i = icmp eq i8 %27, 0
-  br i1 %.not23.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !189
+  br i1 %.not23.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !191
 
 .loopexit:                                        ; preds = %25, %5, %16
   %strcpy = tail call ptr @strcpy(ptr nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr nonnull dereferenceable(1) %9)
@@ -7216,7 +7216,7 @@ define void @Gia_ManWriteNames(ptr noundef captures(none) %0, i8 noundef signext
   %11 = udiv i32 %.0812.i, 10
   %12 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %.09.i = phi i32 [ %2, %8 ], [ %12, %.lr.ph.i ]
@@ -7254,7 +7254,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull %26, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %28 = add nuw nsw i32 %.02339.us, 1
   %exitcond53.not = icmp eq i32 %28, %2
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !191
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !193
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -7303,7 +7303,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %.1.us49 = phi i32 [ %.237.us47, %45 ], [ %.040.us41, %.lr.ph.split.split.us ]
   %49 = add nuw nsw i32 %.02339.us42, 1
   %exitcond52.not = icmp eq i32 %49, %2
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !191
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !194
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %71
   %.040 = phi i32 [ %.1, %71 ], [ %4, %.lr.ph.split ]
@@ -7351,7 +7351,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %.1 = phi i32 [ %.237, %68 ], [ %.040, %.lr.ph.split.split ]
   %72 = add nuw nsw i32 %.02339, 1
   %exitcond.not = icmp eq i32 %72, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !191
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %71, %48, %25, %Abc_Base10Log.exit
   ret void
@@ -7406,7 +7406,7 @@ define void @Gia_ManDumpInterfaceAssign(ptr noundef readonly captures(none) %0, 
   %6 = udiv i32 %.0812.i, 10
   %7 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %.09.i = phi i32 [ %.val161, %2 ], [ %7, %.lr.ph.i ]
@@ -7430,7 +7430,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %14 = udiv i32 %.0812.i202, 10
   %15 = add nuw nsw i32 %.013.i201, 1
   %.not.i203 = icmp ult i32 %.0812.i202, 10
-  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !190
+  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !192
 
 Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_Base10Log.exit
   %.09.i204 = phi i32 [ %11, %Abc_Base10Log.exit ], [ %15, %.lr.ph.i200 ]
@@ -7452,7 +7452,7 @@ Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_B
   %21 = udiv i32 %.0812.i209, 10
   %22 = add nuw nsw i32 %.013.i208, 1
   %.not.i210 = icmp ult i32 %.0812.i209, 10
-  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !190
+  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !192
 
 Abc_Base10Log.exit212:                            ; preds = %.lr.ph.i207, %Abc_Base10Log.exit205
   %.09.i211 = phi i32 [ %18, %Abc_Base10Log.exit205 ], [ %22, %.lr.ph.i207 ]
@@ -7529,7 +7529,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %36, %27
   %59 = udiv i32 %.0812.i.i, 10
   %60 = add nuw nsw i32 %.013.i.i, 1
   %.not.i.i = icmp ult i32 %.0812.i.i, 10
-  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !190
+  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !192
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_ManDumpModuleName.exit
   %.09.i.i = phi i32 [ %54, %Gia_ManDumpModuleName.exit ], [ %60, %.lr.ph.i.i ]
@@ -7558,7 +7558,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %70, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %72 = add nuw nsw i32 %.02339.us.i, 1
   %exitcond53.not.i = icmp eq i32 %72, %54
-  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !191
+  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !193
 
 Gia_ManWriteNames.exit:                           ; preds = %69, %Abc_Base10Log.exit.i
   %73 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %23)
@@ -7583,7 +7583,7 @@ Gia_ManWriteNames.exit:                           ; preds = %69, %Abc_Base10Log.
   %81 = udiv i32 %.0812.i.i218, 10
   %82 = add nuw nsw i32 %.013.i.i217, 1
   %.not.i.i219 = icmp ult i32 %.0812.i.i218, 10
-  br i1 %.not.i.i219, label %Abc_Base10Log.exit.i220, label %.lr.ph.i.i216, !llvm.loop !190
+  br i1 %.not.i.i219, label %Abc_Base10Log.exit.i220, label %.lr.ph.i.i216, !llvm.loop !192
 
 Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia_ManWriteNames.exit
   %.09.i.i221 = phi i32 [ %76, %Gia_ManWriteNames.exit ], [ %82, %.lr.ph.i.i216 ]
@@ -7612,7 +7612,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %92, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %94 = add nuw nsw i32 %.02339.us.i225, 1
   %exitcond53.not.i228 = icmp eq i32 %94, %76
-  br i1 %exitcond53.not.i228, label %Gia_ManWriteNames.exit230, label %.lr.ph.split.us.i223, !llvm.loop !191
+  br i1 %exitcond53.not.i228, label %Gia_ManWriteNames.exit230, label %.lr.ph.split.us.i223, !llvm.loop !193
 
 Gia_ManWriteNames.exit230:                        ; preds = %91, %Abc_Base10Log.exit.i220
   %95 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %23)
@@ -7634,7 +7634,7 @@ Gia_ManWriteNames.exit230:                        ; preds = %91, %Abc_Base10Log.
   %101 = udiv i32 %.0812.i.i234, 10
   %102 = add nuw nsw i32 %.013.i.i233, 1
   %.not.i.i235 = icmp ult i32 %.0812.i.i234, 10
-  br i1 %.not.i.i235, label %Abc_Base10Log.exit.i236, label %.lr.ph.i.i232, !llvm.loop !190
+  br i1 %.not.i.i235, label %Abc_Base10Log.exit.i236, label %.lr.ph.i.i232, !llvm.loop !192
 
 Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia_ManWriteNames.exit230
   %.09.i.i237 = phi i32 [ %.val164.val, %Gia_ManWriteNames.exit230 ], [ %102, %.lr.ph.i.i232 ]
@@ -7665,7 +7665,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %114, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %116 = add nuw nsw i32 %.02339.us.i241, 1
   %exitcond53.not.i244 = icmp eq i32 %116, %.val164.val
-  br i1 %exitcond53.not.i244, label %Gia_ManWriteNames.exit246, label %.lr.ph.split.us.i239, !llvm.loop !191
+  br i1 %exitcond53.not.i244, label %Gia_ManWriteNames.exit246, label %.lr.ph.split.us.i239, !llvm.loop !193
 
 Gia_ManWriteNames.exit246:                        ; preds = %113, %Abc_Base10Log.exit.i236
   %117 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 7, i64 1, ptr %23)
@@ -7691,7 +7691,7 @@ Gia_ManWriteNames.exit246:                        ; preds = %113, %Abc_Base10Log
   %125 = udiv i32 %.0812.i.i250, 10
   %126 = add nuw nsw i32 %.013.i.i249, 1
   %.not.i.i251 = icmp ult i32 %.0812.i.i250, 10
-  br i1 %.not.i.i251, label %Abc_Base10Log.exit.i252, label %.lr.ph.i.i248, !llvm.loop !190
+  br i1 %.not.i.i251, label %Abc_Base10Log.exit.i252, label %.lr.ph.i.i248, !llvm.loop !192
 
 Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia_ManWriteNames.exit246
   %.09.i.i253 = phi i32 [ %.val165.val, %Gia_ManWriteNames.exit246 ], [ %126, %.lr.ph.i.i248 ]
@@ -7722,7 +7722,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %138, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %140 = add nuw nsw i32 %.02339.us.i257, 1
   %exitcond53.not.i260 = icmp eq i32 %140, %.val165.val
-  br i1 %exitcond53.not.i260, label %Gia_ManWriteNames.exit262, label %.lr.ph.split.us.i255, !llvm.loop !191
+  br i1 %exitcond53.not.i260, label %Gia_ManWriteNames.exit262, label %.lr.ph.split.us.i255, !llvm.loop !193
 
 Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log.exit.i252
   %141 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 5, i64 1, ptr %23)
@@ -7832,7 +7832,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val163 = load i32, ptr %203, align 4, !tbaa !30
   %204 = sext i32 %.val163 to i64
   %205 = icmp slt i64 %indvars.iv.next, %204
-  br i1 %205, label %.lr.ph, label %.critedge, !llvm.loop !192
+  br i1 %205, label %.lr.ph, label %.critedge, !llvm.loop !196
 
 .critedge:                                        ; preds = %.lr.ph, %201, %155
   %fputc148 = tail call i32 @fputc(i32 10, ptr %23)
@@ -7901,7 +7901,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %245 = load i32, ptr %3, align 8, !tbaa !29
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next293, %246
-  br i1 %247, label %.lr.ph279, label %.critedge2, !llvm.loop !193
+  br i1 %247, label %.lr.ph279, label %.critedge2, !llvm.loop !197
 
 .critedge2:                                       ; preds = %.lr.ph279, %244, %.critedge
   %fputc150 = tail call i32 @fputc(i32 10, ptr %23)
@@ -7968,7 +7968,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val162 = load i32, ptr %286, align 4, !tbaa !30
   %287 = sext i32 %.val162 to i64
   %288 = icmp slt i64 %indvars.iv.next296, %287
-  br i1 %288, label %.lr.ph283, label %.critedge4, !llvm.loop !194
+  br i1 %288, label %.lr.ph283, label %.critedge4, !llvm.loop !198
 
 .critedge4:                                       ; preds = %.lr.ph283, %284, %.critedge2
   %289 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %23)
@@ -8014,7 +8014,7 @@ define void @Gia_ManDumpInterface(ptr noundef readonly captures(none) %0, ptr no
   %6 = udiv i32 %.0812.i, 10
   %7 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %.09.i = phi i32 [ %.val161, %2 ], [ %7, %.lr.ph.i ]
@@ -8038,7 +8038,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %14 = udiv i32 %.0812.i202, 10
   %15 = add nuw nsw i32 %.013.i201, 1
   %.not.i203 = icmp ult i32 %.0812.i202, 10
-  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !190
+  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !192
 
 Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_Base10Log.exit
   %.09.i204 = phi i32 [ %11, %Abc_Base10Log.exit ], [ %15, %.lr.ph.i200 ]
@@ -8060,7 +8060,7 @@ Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_B
   %21 = udiv i32 %.0812.i209, 10
   %22 = add nuw nsw i32 %.013.i208, 1
   %.not.i210 = icmp ult i32 %.0812.i209, 10
-  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !190
+  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !192
 
 Abc_Base10Log.exit212:                            ; preds = %.lr.ph.i207, %Abc_Base10Log.exit205
   %.09.i211 = phi i32 [ %18, %Abc_Base10Log.exit205 ], [ %22, %.lr.ph.i207 ]
@@ -8137,7 +8137,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %36, %27
   %59 = udiv i32 %.0812.i.i, 10
   %60 = add nuw nsw i32 %.013.i.i, 1
   %.not.i.i = icmp ult i32 %.0812.i.i, 10
-  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !190
+  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !192
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_ManDumpModuleName.exit
   %.09.i.i = phi i32 [ %54, %Gia_ManDumpModuleName.exit ], [ %60, %.lr.ph.i.i ]
@@ -8166,7 +8166,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %70, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %72 = add nuw nsw i32 %.02339.us.i, 1
   %exitcond53.not.i = icmp eq i32 %72, %54
-  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !191
+  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !193
 
 Gia_ManWriteNames.exit:                           ; preds = %69, %Abc_Base10Log.exit.i
   %73 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %23)
@@ -8191,7 +8191,7 @@ Gia_ManWriteNames.exit:                           ; preds = %69, %Abc_Base10Log.
   %81 = udiv i32 %.0812.i.i218, 10
   %82 = add nuw nsw i32 %.013.i.i217, 1
   %.not.i.i219 = icmp ult i32 %.0812.i.i218, 10
-  br i1 %.not.i.i219, label %Abc_Base10Log.exit.i220, label %.lr.ph.i.i216, !llvm.loop !190
+  br i1 %.not.i.i219, label %Abc_Base10Log.exit.i220, label %.lr.ph.i.i216, !llvm.loop !192
 
 Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia_ManWriteNames.exit
   %.09.i.i221 = phi i32 [ %76, %Gia_ManWriteNames.exit ], [ %82, %.lr.ph.i.i216 ]
@@ -8220,7 +8220,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %92, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %94 = add nuw nsw i32 %.02339.us.i225, 1
   %exitcond53.not.i228 = icmp eq i32 %94, %76
-  br i1 %exitcond53.not.i228, label %Gia_ManWriteNames.exit230, label %.lr.ph.split.us.i223, !llvm.loop !191
+  br i1 %exitcond53.not.i228, label %Gia_ManWriteNames.exit230, label %.lr.ph.split.us.i223, !llvm.loop !193
 
 Gia_ManWriteNames.exit230:                        ; preds = %91, %Abc_Base10Log.exit.i220
   %95 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %23)
@@ -8242,7 +8242,7 @@ Gia_ManWriteNames.exit230:                        ; preds = %91, %Abc_Base10Log.
   %101 = udiv i32 %.0812.i.i234, 10
   %102 = add nuw nsw i32 %.013.i.i233, 1
   %.not.i.i235 = icmp ult i32 %.0812.i.i234, 10
-  br i1 %.not.i.i235, label %Abc_Base10Log.exit.i236, label %.lr.ph.i.i232, !llvm.loop !190
+  br i1 %.not.i.i235, label %Abc_Base10Log.exit.i236, label %.lr.ph.i.i232, !llvm.loop !192
 
 Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia_ManWriteNames.exit230
   %.09.i.i237 = phi i32 [ %.val164.val, %Gia_ManWriteNames.exit230 ], [ %102, %.lr.ph.i.i232 ]
@@ -8273,7 +8273,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %114, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %116 = add nuw nsw i32 %.02339.us.i241, 1
   %exitcond53.not.i244 = icmp eq i32 %116, %.val164.val
-  br i1 %exitcond53.not.i244, label %Gia_ManWriteNames.exit246, label %.lr.ph.split.us.i239, !llvm.loop !191
+  br i1 %exitcond53.not.i244, label %Gia_ManWriteNames.exit246, label %.lr.ph.split.us.i239, !llvm.loop !193
 
 Gia_ManWriteNames.exit246:                        ; preds = %113, %Abc_Base10Log.exit.i236
   %117 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 7, i64 1, ptr %23)
@@ -8299,7 +8299,7 @@ Gia_ManWriteNames.exit246:                        ; preds = %113, %Abc_Base10Log
   %125 = udiv i32 %.0812.i.i250, 10
   %126 = add nuw nsw i32 %.013.i.i249, 1
   %.not.i.i251 = icmp ult i32 %.0812.i.i250, 10
-  br i1 %.not.i.i251, label %Abc_Base10Log.exit.i252, label %.lr.ph.i.i248, !llvm.loop !190
+  br i1 %.not.i.i251, label %Abc_Base10Log.exit.i252, label %.lr.ph.i.i248, !llvm.loop !192
 
 Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia_ManWriteNames.exit246
   %.09.i.i253 = phi i32 [ %.val165.val, %Gia_ManWriteNames.exit246 ], [ %126, %.lr.ph.i.i248 ]
@@ -8330,7 +8330,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %138, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %140 = add nuw nsw i32 %.02339.us.i257, 1
   %exitcond53.not.i260 = icmp eq i32 %140, %.val165.val
-  br i1 %exitcond53.not.i260, label %Gia_ManWriteNames.exit262, label %.lr.ph.split.us.i255, !llvm.loop !191
+  br i1 %exitcond53.not.i260, label %Gia_ManWriteNames.exit262, label %.lr.ph.split.us.i255, !llvm.loop !193
 
 Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log.exit.i252
   %141 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 5, i64 1, ptr %23)
@@ -8440,7 +8440,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val163 = load i32, ptr %203, align 4, !tbaa !30
   %204 = sext i32 %.val163 to i64
   %205 = icmp slt i64 %indvars.iv.next, %204
-  br i1 %205, label %.lr.ph, label %.critedge, !llvm.loop !195
+  br i1 %205, label %.lr.ph, label %.critedge, !llvm.loop !199
 
 .critedge:                                        ; preds = %.lr.ph, %201, %155
   %fputc148 = tail call i32 @fputc(i32 10, ptr %23)
@@ -8509,7 +8509,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %245 = load i32, ptr %3, align 8, !tbaa !29
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next293, %246
-  br i1 %247, label %.lr.ph279, label %.critedge2, !llvm.loop !196
+  br i1 %247, label %.lr.ph279, label %.critedge2, !llvm.loop !200
 
 .critedge2:                                       ; preds = %.lr.ph279, %244, %.critedge
   %fputc150 = tail call i32 @fputc(i32 10, ptr %23)
@@ -8576,7 +8576,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val162 = load i32, ptr %286, align 4, !tbaa !30
   %287 = sext i32 %.val162 to i64
   %288 = icmp slt i64 %indvars.iv.next296, %287
-  br i1 %288, label %.lr.ph283, label %.critedge4, !llvm.loop !197
+  br i1 %288, label %.lr.ph283, label %.critedge4, !llvm.loop !201
 
 .critedge4:                                       ; preds = %.lr.ph283, %284, %.critedge2
   %289 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %23)
@@ -8622,7 +8622,7 @@ define void @Gia_ManDumpVerilogNoInterAssign(ptr noundef captures(none) %0, ptr 
   %9 = udiv i32 %.0812.i, 10
   %10 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %5
   %.09.i = phi i32 [ %.val259, %5 ], [ %10, %.lr.ph.i ]
@@ -8646,7 +8646,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %5
   %17 = udiv i32 %.0812.i333, 10
   %18 = add nuw nsw i32 %.013.i332, 1
   %.not.i334 = icmp ult i32 %.0812.i333, 10
-  br i1 %.not.i334, label %Abc_Base10Log.exit336, label %.lr.ph.i331, !llvm.loop !190
+  br i1 %.not.i334, label %Abc_Base10Log.exit336, label %.lr.ph.i331, !llvm.loop !192
 
 Abc_Base10Log.exit336:                            ; preds = %.lr.ph.i331, %Abc_Base10Log.exit
   %.09.i335 = phi i32 [ %14, %Abc_Base10Log.exit ], [ %18, %.lr.ph.i331 ]
@@ -8668,7 +8668,7 @@ Abc_Base10Log.exit336:                            ; preds = %.lr.ph.i331, %Abc_B
   %24 = udiv i32 %.0812.i340, 10
   %25 = add nuw nsw i32 %.013.i339, 1
   %.not.i341 = icmp ult i32 %.0812.i340, 10
-  br i1 %.not.i341, label %Abc_Base10Log.exit343, label %.lr.ph.i338, !llvm.loop !190
+  br i1 %.not.i341, label %Abc_Base10Log.exit343, label %.lr.ph.i338, !llvm.loop !192
 
 Abc_Base10Log.exit343:                            ; preds = %.lr.ph.i338, %Abc_Base10Log.exit336
   %.09.i342 = phi i32 [ %21, %Abc_Base10Log.exit336 ], [ %25, %.lr.ph.i338 ]
@@ -8748,7 +8748,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %42, %33
   %60 = udiv i32 %.0812.i.i, 10
   %61 = add nuw nsw i32 %.013.i.i, 1
   %.not.i.i = icmp ult i32 %.0812.i.i, 10
-  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !190
+  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !192
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   %.09.i.i = phi i32 [ %56, %57 ], [ %61, %.lr.ph.i.i ]
@@ -8777,7 +8777,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %71, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %73 = add nuw nsw i32 %.02339.us.i, 1
   %exitcond53.not.i = icmp eq i32 %73, %56
-  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !191
+  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !193
 
 Gia_ManWriteNames.exit:                           ; preds = %70, %Abc_Base10Log.exit.i
   %74 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 6, i64 1, ptr %26)
@@ -8799,7 +8799,7 @@ Gia_ManWriteNames.exit:                           ; preds = %70, %Abc_Base10Log.
   %79 = udiv i32 %.0812.i.i349, 10
   %80 = add nuw nsw i32 %.013.i.i348, 1
   %.not.i.i350 = icmp ult i32 %.0812.i.i349, 10
-  br i1 %.not.i.i350, label %Abc_Base10Log.exit.i351, label %.lr.ph.i.i347, !llvm.loop !190
+  br i1 %.not.i.i350, label %Abc_Base10Log.exit.i351, label %.lr.ph.i.i347, !llvm.loop !192
 
 Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia_ManWriteNames.exit
   %.09.i.i352 = phi i32 [ %76, %Gia_ManWriteNames.exit ], [ %80, %.lr.ph.i.i347 ]
@@ -8828,7 +8828,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %90, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %92 = add nuw nsw i32 %.02339.us.i356, 1
   %exitcond53.not.i359 = icmp eq i32 %92, %76
-  br i1 %exitcond53.not.i359, label %Gia_ManWriteNames.exit361, label %.lr.ph.split.us.i354, !llvm.loop !191
+  br i1 %exitcond53.not.i359, label %Gia_ManWriteNames.exit361, label %.lr.ph.split.us.i354, !llvm.loop !193
 
 Gia_ManWriteNames.exit361:                        ; preds = %89, %Abc_Base10Log.exit.i351
   %93 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 7, i64 1, ptr %26)
@@ -8851,7 +8851,7 @@ Gia_ManWriteNames.exit361:                        ; preds = %89, %Abc_Base10Log.
   %99 = udiv i32 %.0812.i.i365, 10
   %100 = add nuw nsw i32 %.013.i.i364, 1
   %.not.i.i366 = icmp ult i32 %.0812.i.i365, 10
-  br i1 %.not.i.i366, label %Abc_Base10Log.exit.i367, label %.lr.ph.i.i363, !llvm.loop !190
+  br i1 %.not.i.i366, label %Abc_Base10Log.exit.i367, label %.lr.ph.i.i363, !llvm.loop !192
 
 Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia_ManWriteNames.exit361
   %.09.i.i368 = phi i32 [ %96, %Gia_ManWriteNames.exit361 ], [ %100, %.lr.ph.i.i363 ]
@@ -8880,7 +8880,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %110, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %112 = add nuw nsw i32 %.02339.us.i372, 1
   %exitcond53.not.i375 = icmp eq i32 %112, %96
-  br i1 %exitcond53.not.i375, label %Gia_ManWriteNames.exit377, label %.lr.ph.split.us.i370, !llvm.loop !191
+  br i1 %exitcond53.not.i375, label %Gia_ManWriteNames.exit377, label %.lr.ph.split.us.i370, !llvm.loop !193
 
 Gia_ManWriteNames.exit377:                        ; preds = %109, %Abc_Base10Log.exit.i367
   %113 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -8903,7 +8903,7 @@ Gia_ManWriteNames.exit377:                        ; preds = %109, %Abc_Base10Log
   %119 = udiv i32 %.0812.i.i381, 10
   %120 = add nuw nsw i32 %.013.i.i380, 1
   %.not.i.i382 = icmp ult i32 %.0812.i.i381, 10
-  br i1 %.not.i.i382, label %Abc_Base10Log.exit.i383, label %.lr.ph.i.i379, !llvm.loop !190
+  br i1 %.not.i.i382, label %Abc_Base10Log.exit.i383, label %.lr.ph.i.i379, !llvm.loop !192
 
 Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia_ManWriteNames.exit377
   %.09.i.i384 = phi i32 [ %116, %Gia_ManWriteNames.exit377 ], [ %120, %.lr.ph.i.i379 ]
@@ -8932,7 +8932,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %130, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %132 = add nuw nsw i32 %.02339.us.i388, 1
   %exitcond53.not.i391 = icmp eq i32 %132, %116
-  br i1 %exitcond53.not.i391, label %Gia_ManWriteNames.exit393, label %.lr.ph.split.us.i386, !llvm.loop !191
+  br i1 %exitcond53.not.i391, label %Gia_ManWriteNames.exit393, label %.lr.ph.split.us.i386, !llvm.loop !193
 
 Gia_ManWriteNames.exit393:                        ; preds = %129, %Abc_Base10Log.exit.i383
   %133 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -8957,7 +8957,7 @@ Gia_ManWriteNames.exit393:                        ; preds = %129, %Abc_Base10Log
   %141 = udiv i32 %.0812.i.i397, 10
   %142 = add nuw nsw i32 %.013.i.i396, 1
   %.not.i.i398 = icmp ult i32 %.0812.i.i397, 10
-  br i1 %.not.i.i398, label %Abc_Base10Log.exit.i399, label %.lr.ph.i.i395, !llvm.loop !190
+  br i1 %.not.i.i398, label %Abc_Base10Log.exit.i399, label %.lr.ph.i.i395, !llvm.loop !192
 
 Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia_ManWriteNames.exit393
   %.09.i.i400 = phi i32 [ %136, %Gia_ManWriteNames.exit393 ], [ %142, %.lr.ph.i.i395 ]
@@ -8986,7 +8986,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %152, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %154 = add nuw nsw i32 %.02339.us.i404, 1
   %exitcond53.not.i407 = icmp eq i32 %154, %136
-  br i1 %exitcond53.not.i407, label %Gia_ManWriteNames.exit409, label %.lr.ph.split.us.i402, !llvm.loop !191
+  br i1 %exitcond53.not.i407, label %Gia_ManWriteNames.exit409, label %.lr.ph.split.us.i402, !llvm.loop !193
 
 Gia_ManWriteNames.exit409:                        ; preds = %151, %Abc_Base10Log.exit.i399
   %155 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9011,7 +9011,7 @@ Gia_ManWriteNames.exit409:                        ; preds = %151, %Abc_Base10Log
   %163 = udiv i32 %.0812.i.i413, 10
   %164 = add nuw nsw i32 %.013.i.i412, 1
   %.not.i.i414 = icmp ult i32 %.0812.i.i413, 10
-  br i1 %.not.i.i414, label %Abc_Base10Log.exit.i415, label %.lr.ph.i.i411, !llvm.loop !190
+  br i1 %.not.i.i414, label %Abc_Base10Log.exit.i415, label %.lr.ph.i.i411, !llvm.loop !192
 
 Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia_ManWriteNames.exit409
   %.09.i.i416 = phi i32 [ %158, %Gia_ManWriteNames.exit409 ], [ %164, %.lr.ph.i.i411 ]
@@ -9040,7 +9040,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %174, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %176 = add nuw nsw i32 %.02339.us.i420, 1
   %exitcond53.not.i423 = icmp eq i32 %176, %158
-  br i1 %exitcond53.not.i423, label %Gia_ManWriteNames.exit425, label %.lr.ph.split.us.i418, !llvm.loop !191
+  br i1 %exitcond53.not.i423, label %Gia_ManWriteNames.exit425, label %.lr.ph.split.us.i418, !llvm.loop !193
 
 Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log.exit.i415
   %177 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9071,7 +9071,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %.val273.val = load i32, ptr %188, align 4, !tbaa !30
   %189 = sub nsw i32 %.val273.val, %.val272
   %190 = icmp slt i32 %187, %189
-  br i1 %190, label %.lr.ph, label %.critedge, !llvm.loop !198
+  br i1 %190, label %.lr.ph, label %.critedge, !llvm.loop !202
 
 .critedge:                                        ; preds = %.lr.ph, %181, %Gia_ManWriteNames.exit425
   %fputc = tail call i32 @fputc(i32 10, ptr %26)
@@ -9101,7 +9101,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %.val302.val = load i32, ptr %200, align 4, !tbaa !30
   %201 = sub nsw i32 %.val302.val, %.val301
   %202 = icmp slt i32 %199, %201
-  br i1 %202, label %.lr.ph519, label %.critedge3, !llvm.loop !199
+  br i1 %202, label %.lr.ph519, label %.critedge3, !llvm.loop !203
 
 .critedge3:                                       ; preds = %.lr.ph519, %193, %.critedge
   %fputc237 = tail call i32 @fputc(i32 10, ptr %26)
@@ -9123,7 +9123,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %208 = udiv i32 %.0812.i.i429, 10
   %209 = add nuw nsw i32 %.013.i.i428, 1
   %.not.i.i430 = icmp ult i32 %.0812.i.i429, 10
-  br i1 %.not.i.i430, label %Abc_Base10Log.exit.i431, label %.lr.ph.i.i427, !llvm.loop !190
+  br i1 %.not.i.i430, label %Abc_Base10Log.exit.i431, label %.lr.ph.i.i427, !llvm.loop !192
 
 Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   %.09.i.i432 = phi i32 [ %56, %203 ], [ %209, %.lr.ph.i.i427 ]
@@ -9152,7 +9152,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %219, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %221 = add nuw nsw i32 %.02339.us.i436, 1
   %exitcond53.not.i439 = icmp eq i32 %221, %56
-  br i1 %exitcond53.not.i439, label %Gia_ManWriteNames.exit441, label %.lr.ph.split.us.i434, !llvm.loop !191
+  br i1 %exitcond53.not.i439, label %Gia_ManWriteNames.exit441, label %.lr.ph.split.us.i434, !llvm.loop !193
 
 Gia_ManWriteNames.exit441:                        ; preds = %218, %Abc_Base10Log.exit.i431
   %222 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 6, i64 1, ptr %26)
@@ -9176,7 +9176,7 @@ Gia_ManWriteNames.exit441:                        ; preds = %218, %Abc_Base10Log
   %229 = udiv i32 %.0812.i.i445, 10
   %230 = add nuw nsw i32 %.013.i.i444, 1
   %.not.i.i446 = icmp ult i32 %.0812.i.i445, 10
-  br i1 %.not.i.i446, label %Abc_Base10Log.exit.i447, label %.lr.ph.i.i443, !llvm.loop !190
+  br i1 %.not.i.i446, label %Abc_Base10Log.exit.i447, label %.lr.ph.i.i443, !llvm.loop !192
 
 Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia_ManWriteNames.exit441
   %.09.i.i448 = phi i32 [ %224, %Gia_ManWriteNames.exit441 ], [ %230, %.lr.ph.i.i443 ]
@@ -9205,7 +9205,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %240, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %242 = add nuw nsw i32 %.02339.us.i452, 1
   %exitcond53.not.i455 = icmp eq i32 %242, %224
-  br i1 %exitcond53.not.i455, label %Gia_ManWriteNames.exit457, label %.lr.ph.split.us.i450, !llvm.loop !191
+  br i1 %exitcond53.not.i455, label %Gia_ManWriteNames.exit457, label %.lr.ph.split.us.i450, !llvm.loop !193
 
 Gia_ManWriteNames.exit457:                        ; preds = %239, %Abc_Base10Log.exit.i447
   %243 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 7, i64 1, ptr %26)
@@ -9229,7 +9229,7 @@ Gia_ManWriteNames.exit457:                        ; preds = %239, %Abc_Base10Log
   %250 = udiv i32 %.0812.i.i461, 10
   %251 = add nuw nsw i32 %.013.i.i460, 1
   %.not.i.i462 = icmp ult i32 %.0812.i.i461, 10
-  br i1 %.not.i.i462, label %Abc_Base10Log.exit.i463, label %.lr.ph.i.i459, !llvm.loop !190
+  br i1 %.not.i.i462, label %Abc_Base10Log.exit.i463, label %.lr.ph.i.i459, !llvm.loop !192
 
 Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia_ManWriteNames.exit457
   %.09.i.i464 = phi i32 [ %246, %Gia_ManWriteNames.exit457 ], [ %251, %.lr.ph.i.i459 ]
@@ -9258,7 +9258,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %261, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %263 = add nuw nsw i32 %.02339.us.i468, 1
   %exitcond53.not.i471 = icmp eq i32 %263, %246
-  br i1 %exitcond53.not.i471, label %Gia_ManWriteNames.exit473, label %.lr.ph.split.us.i466, !llvm.loop !191
+  br i1 %exitcond53.not.i471, label %Gia_ManWriteNames.exit473, label %.lr.ph.split.us.i466, !llvm.loop !193
 
 Gia_ManWriteNames.exit473:                        ; preds = %260, %Abc_Base10Log.exit.i463
   %264 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9282,7 +9282,7 @@ Gia_ManWriteNames.exit473:                        ; preds = %260, %Abc_Base10Log
   %271 = udiv i32 %.0812.i.i477, 10
   %272 = add nuw nsw i32 %.013.i.i476, 1
   %.not.i.i478 = icmp ult i32 %.0812.i.i477, 10
-  br i1 %.not.i.i478, label %Abc_Base10Log.exit.i479, label %.lr.ph.i.i475, !llvm.loop !190
+  br i1 %.not.i.i478, label %Abc_Base10Log.exit.i479, label %.lr.ph.i.i475, !llvm.loop !192
 
 Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia_ManWriteNames.exit473
   %.09.i.i480 = phi i32 [ %267, %Gia_ManWriteNames.exit473 ], [ %272, %.lr.ph.i.i475 ]
@@ -9311,7 +9311,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %282, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %284 = add nuw nsw i32 %.02339.us.i484, 1
   %exitcond53.not.i487 = icmp eq i32 %284, %267
-  br i1 %exitcond53.not.i487, label %Gia_ManWriteNames.exit489, label %.lr.ph.split.us.i482, !llvm.loop !191
+  br i1 %exitcond53.not.i487, label %Gia_ManWriteNames.exit489, label %.lr.ph.split.us.i482, !llvm.loop !193
 
 Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log.exit.i479
   %285 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9370,7 +9370,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %309 = add nuw nsw i32 %.2522, 1
   %.val264 = load i32, ptr %303, align 4, !tbaa !30
   %310 = icmp slt i32 %309, %.val264
-  br i1 %310, label %.lr.ph524, label %.critedge5, !llvm.loop !200
+  br i1 %310, label %.lr.ph524, label %.critedge5, !llvm.loop !204
 
 .critedge5:                                       ; preds = %.lr.ph524, %301
   %311 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9395,7 +9395,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val262 = load i32, ptr %303, align 4, !tbaa !30
   %321 = sext i32 %.val262 to i64
   %322 = icmp slt i64 %indvars.iv.next, %321
-  br i1 %322, label %314, label %.critedge7, !llvm.loop !201
+  br i1 %322, label %314, label %.critedge7, !llvm.loop !205
 
 .critedge7:                                       ; preds = %314, %.critedge5
   %fputc241 = tail call i32 @fputc(i32 10, ptr %26)
@@ -9483,7 +9483,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %371 = sub nsw i32 %.val267.val, %.val266
   %372 = sext i32 %371 to i64
   %373 = icmp slt i64 %indvars.iv.next561, %372
-  br i1 %373, label %328, label %.critedge9, !llvm.loop !202
+  br i1 %373, label %328, label %.critedge9, !llvm.loop !206
 
 .critedge9:                                       ; preds = %328, %369, %323
   %fputc243 = tail call i32 @fputc(i32 10, ptr %26)
@@ -9528,7 +9528,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 386:                                              ; preds = %387
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge257, label %387, !llvm.loop !203
+  br i1 %exitcond.not, label %.critedge257, label %387, !llvm.loop !207
 
 387:                                              ; preds = %.lr.ph536, %386
   %indvars.iv563 = phi i64 [ 0, %.lr.ph536 ], [ %indvars.iv.next564, %386 ]
@@ -9591,7 +9591,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %423 = load i32, ptr %6, align 8, !tbaa !29
   %424 = sext i32 %423 to i64
   %425 = icmp slt i64 %indvars.iv.next567, %424
-  br i1 %425, label %378, label %.critedge11, !llvm.loop !204
+  br i1 %425, label %378, label %.critedge11, !llvm.loop !208
 
 .critedge11:                                      ; preds = %378, %422, %.critedge9
   %fputc245 = tail call i32 @fputc(i32 10, ptr %26)
@@ -9665,7 +9665,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %464 = sub nsw i32 %.val296.val, %.val295
   %465 = sext i32 %464 to i64
   %466 = icmp slt i64 %indvars.iv.next570, %465
-  br i1 %466, label %429, label %.critedge15, !llvm.loop !205
+  br i1 %466, label %429, label %.critedge15, !llvm.loop !209
 
 .critedge15:                                      ; preds = %429, %462, %.critedge11
   %467 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %26)
@@ -9712,7 +9712,7 @@ define void @Gia_ManDumpVerilogNoInter(ptr noundef captures(none) %0, ptr nounde
   %9 = udiv i32 %.0812.i, 10
   %10 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %5
   %.09.i = phi i32 [ %.val259, %5 ], [ %10, %.lr.ph.i ]
@@ -9736,7 +9736,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %5
   %17 = udiv i32 %.0812.i333, 10
   %18 = add nuw nsw i32 %.013.i332, 1
   %.not.i334 = icmp ult i32 %.0812.i333, 10
-  br i1 %.not.i334, label %Abc_Base10Log.exit336, label %.lr.ph.i331, !llvm.loop !190
+  br i1 %.not.i334, label %Abc_Base10Log.exit336, label %.lr.ph.i331, !llvm.loop !192
 
 Abc_Base10Log.exit336:                            ; preds = %.lr.ph.i331, %Abc_Base10Log.exit
   %.09.i335 = phi i32 [ %14, %Abc_Base10Log.exit ], [ %18, %.lr.ph.i331 ]
@@ -9758,7 +9758,7 @@ Abc_Base10Log.exit336:                            ; preds = %.lr.ph.i331, %Abc_B
   %24 = udiv i32 %.0812.i340, 10
   %25 = add nuw nsw i32 %.013.i339, 1
   %.not.i341 = icmp ult i32 %.0812.i340, 10
-  br i1 %.not.i341, label %Abc_Base10Log.exit343, label %.lr.ph.i338, !llvm.loop !190
+  br i1 %.not.i341, label %Abc_Base10Log.exit343, label %.lr.ph.i338, !llvm.loop !192
 
 Abc_Base10Log.exit343:                            ; preds = %.lr.ph.i338, %Abc_Base10Log.exit336
   %.09.i342 = phi i32 [ %21, %Abc_Base10Log.exit336 ], [ %25, %.lr.ph.i338 ]
@@ -9838,7 +9838,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %42, %33
   %60 = udiv i32 %.0812.i.i, 10
   %61 = add nuw nsw i32 %.013.i.i, 1
   %.not.i.i = icmp ult i32 %.0812.i.i, 10
-  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !190
+  br i1 %.not.i.i, label %Abc_Base10Log.exit.i, label %.lr.ph.i.i, !llvm.loop !192
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   %.09.i.i = phi i32 [ %56, %57 ], [ %61, %.lr.ph.i.i ]
@@ -9867,7 +9867,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %71, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %73 = add nuw nsw i32 %.02339.us.i, 1
   %exitcond53.not.i = icmp eq i32 %73, %56
-  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !191
+  br i1 %exitcond53.not.i, label %Gia_ManWriteNames.exit, label %.lr.ph.split.us.i, !llvm.loop !193
 
 Gia_ManWriteNames.exit:                           ; preds = %70, %Abc_Base10Log.exit.i
   %74 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 6, i64 1, ptr %26)
@@ -9889,7 +9889,7 @@ Gia_ManWriteNames.exit:                           ; preds = %70, %Abc_Base10Log.
   %79 = udiv i32 %.0812.i.i349, 10
   %80 = add nuw nsw i32 %.013.i.i348, 1
   %.not.i.i350 = icmp ult i32 %.0812.i.i349, 10
-  br i1 %.not.i.i350, label %Abc_Base10Log.exit.i351, label %.lr.ph.i.i347, !llvm.loop !190
+  br i1 %.not.i.i350, label %Abc_Base10Log.exit.i351, label %.lr.ph.i.i347, !llvm.loop !192
 
 Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia_ManWriteNames.exit
   %.09.i.i352 = phi i32 [ %76, %Gia_ManWriteNames.exit ], [ %80, %.lr.ph.i.i347 ]
@@ -9918,7 +9918,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %90, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %92 = add nuw nsw i32 %.02339.us.i356, 1
   %exitcond53.not.i359 = icmp eq i32 %92, %76
-  br i1 %exitcond53.not.i359, label %Gia_ManWriteNames.exit361, label %.lr.ph.split.us.i354, !llvm.loop !191
+  br i1 %exitcond53.not.i359, label %Gia_ManWriteNames.exit361, label %.lr.ph.split.us.i354, !llvm.loop !193
 
 Gia_ManWriteNames.exit361:                        ; preds = %89, %Abc_Base10Log.exit.i351
   %93 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 7, i64 1, ptr %26)
@@ -9941,7 +9941,7 @@ Gia_ManWriteNames.exit361:                        ; preds = %89, %Abc_Base10Log.
   %99 = udiv i32 %.0812.i.i365, 10
   %100 = add nuw nsw i32 %.013.i.i364, 1
   %.not.i.i366 = icmp ult i32 %.0812.i.i365, 10
-  br i1 %.not.i.i366, label %Abc_Base10Log.exit.i367, label %.lr.ph.i.i363, !llvm.loop !190
+  br i1 %.not.i.i366, label %Abc_Base10Log.exit.i367, label %.lr.ph.i.i363, !llvm.loop !192
 
 Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia_ManWriteNames.exit361
   %.09.i.i368 = phi i32 [ %96, %Gia_ManWriteNames.exit361 ], [ %100, %.lr.ph.i.i363 ]
@@ -9970,7 +9970,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %110, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %112 = add nuw nsw i32 %.02339.us.i372, 1
   %exitcond53.not.i375 = icmp eq i32 %112, %96
-  br i1 %exitcond53.not.i375, label %Gia_ManWriteNames.exit377, label %.lr.ph.split.us.i370, !llvm.loop !191
+  br i1 %exitcond53.not.i375, label %Gia_ManWriteNames.exit377, label %.lr.ph.split.us.i370, !llvm.loop !193
 
 Gia_ManWriteNames.exit377:                        ; preds = %109, %Abc_Base10Log.exit.i367
   %113 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -9993,7 +9993,7 @@ Gia_ManWriteNames.exit377:                        ; preds = %109, %Abc_Base10Log
   %119 = udiv i32 %.0812.i.i381, 10
   %120 = add nuw nsw i32 %.013.i.i380, 1
   %.not.i.i382 = icmp ult i32 %.0812.i.i381, 10
-  br i1 %.not.i.i382, label %Abc_Base10Log.exit.i383, label %.lr.ph.i.i379, !llvm.loop !190
+  br i1 %.not.i.i382, label %Abc_Base10Log.exit.i383, label %.lr.ph.i.i379, !llvm.loop !192
 
 Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia_ManWriteNames.exit377
   %.09.i.i384 = phi i32 [ %116, %Gia_ManWriteNames.exit377 ], [ %120, %.lr.ph.i.i379 ]
@@ -10022,7 +10022,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %130, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %132 = add nuw nsw i32 %.02339.us.i388, 1
   %exitcond53.not.i391 = icmp eq i32 %132, %116
-  br i1 %exitcond53.not.i391, label %Gia_ManWriteNames.exit393, label %.lr.ph.split.us.i386, !llvm.loop !191
+  br i1 %exitcond53.not.i391, label %Gia_ManWriteNames.exit393, label %.lr.ph.split.us.i386, !llvm.loop !193
 
 Gia_ManWriteNames.exit393:                        ; preds = %129, %Abc_Base10Log.exit.i383
   %133 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10047,7 +10047,7 @@ Gia_ManWriteNames.exit393:                        ; preds = %129, %Abc_Base10Log
   %141 = udiv i32 %.0812.i.i397, 10
   %142 = add nuw nsw i32 %.013.i.i396, 1
   %.not.i.i398 = icmp ult i32 %.0812.i.i397, 10
-  br i1 %.not.i.i398, label %Abc_Base10Log.exit.i399, label %.lr.ph.i.i395, !llvm.loop !190
+  br i1 %.not.i.i398, label %Abc_Base10Log.exit.i399, label %.lr.ph.i.i395, !llvm.loop !192
 
 Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia_ManWriteNames.exit393
   %.09.i.i400 = phi i32 [ %136, %Gia_ManWriteNames.exit393 ], [ %142, %.lr.ph.i.i395 ]
@@ -10076,7 +10076,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %152, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %154 = add nuw nsw i32 %.02339.us.i404, 1
   %exitcond53.not.i407 = icmp eq i32 %154, %136
-  br i1 %exitcond53.not.i407, label %Gia_ManWriteNames.exit409, label %.lr.ph.split.us.i402, !llvm.loop !191
+  br i1 %exitcond53.not.i407, label %Gia_ManWriteNames.exit409, label %.lr.ph.split.us.i402, !llvm.loop !193
 
 Gia_ManWriteNames.exit409:                        ; preds = %151, %Abc_Base10Log.exit.i399
   %155 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10101,7 +10101,7 @@ Gia_ManWriteNames.exit409:                        ; preds = %151, %Abc_Base10Log
   %163 = udiv i32 %.0812.i.i413, 10
   %164 = add nuw nsw i32 %.013.i.i412, 1
   %.not.i.i414 = icmp ult i32 %.0812.i.i413, 10
-  br i1 %.not.i.i414, label %Abc_Base10Log.exit.i415, label %.lr.ph.i.i411, !llvm.loop !190
+  br i1 %.not.i.i414, label %Abc_Base10Log.exit.i415, label %.lr.ph.i.i411, !llvm.loop !192
 
 Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia_ManWriteNames.exit409
   %.09.i.i416 = phi i32 [ %158, %Gia_ManWriteNames.exit409 ], [ %164, %.lr.ph.i.i411 ]
@@ -10130,7 +10130,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %174, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %176 = add nuw nsw i32 %.02339.us.i420, 1
   %exitcond53.not.i423 = icmp eq i32 %176, %158
-  br i1 %exitcond53.not.i423, label %Gia_ManWriteNames.exit425, label %.lr.ph.split.us.i418, !llvm.loop !191
+  br i1 %exitcond53.not.i423, label %Gia_ManWriteNames.exit425, label %.lr.ph.split.us.i418, !llvm.loop !193
 
 Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log.exit.i415
   %177 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10161,7 +10161,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %.val273.val = load i32, ptr %188, align 4, !tbaa !30
   %189 = sub nsw i32 %.val273.val, %.val272
   %190 = icmp slt i32 %187, %189
-  br i1 %190, label %.lr.ph, label %.critedge, !llvm.loop !206
+  br i1 %190, label %.lr.ph, label %.critedge, !llvm.loop !210
 
 .critedge:                                        ; preds = %.lr.ph, %181, %Gia_ManWriteNames.exit425
   %fputc = tail call i32 @fputc(i32 10, ptr %26)
@@ -10191,7 +10191,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %.val302.val = load i32, ptr %200, align 4, !tbaa !30
   %201 = sub nsw i32 %.val302.val, %.val301
   %202 = icmp slt i32 %199, %201
-  br i1 %202, label %.lr.ph519, label %.critedge3, !llvm.loop !207
+  br i1 %202, label %.lr.ph519, label %.critedge3, !llvm.loop !211
 
 .critedge3:                                       ; preds = %.lr.ph519, %193, %.critedge
   %fputc237 = tail call i32 @fputc(i32 10, ptr %26)
@@ -10213,7 +10213,7 @@ Gia_ManWriteNames.exit425:                        ; preds = %173, %Abc_Base10Log
   %208 = udiv i32 %.0812.i.i429, 10
   %209 = add nuw nsw i32 %.013.i.i428, 1
   %.not.i.i430 = icmp ult i32 %.0812.i.i429, 10
-  br i1 %.not.i.i430, label %Abc_Base10Log.exit.i431, label %.lr.ph.i.i427, !llvm.loop !190
+  br i1 %.not.i.i430, label %Abc_Base10Log.exit.i431, label %.lr.ph.i.i427, !llvm.loop !192
 
 Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   %.09.i.i432 = phi i32 [ %56, %203 ], [ %209, %.lr.ph.i.i427 ]
@@ -10242,7 +10242,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %219, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %221 = add nuw nsw i32 %.02339.us.i436, 1
   %exitcond53.not.i439 = icmp eq i32 %221, %56
-  br i1 %exitcond53.not.i439, label %Gia_ManWriteNames.exit441, label %.lr.ph.split.us.i434, !llvm.loop !191
+  br i1 %exitcond53.not.i439, label %Gia_ManWriteNames.exit441, label %.lr.ph.split.us.i434, !llvm.loop !193
 
 Gia_ManWriteNames.exit441:                        ; preds = %218, %Abc_Base10Log.exit.i431
   %222 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 6, i64 1, ptr %26)
@@ -10266,7 +10266,7 @@ Gia_ManWriteNames.exit441:                        ; preds = %218, %Abc_Base10Log
   %229 = udiv i32 %.0812.i.i445, 10
   %230 = add nuw nsw i32 %.013.i.i444, 1
   %.not.i.i446 = icmp ult i32 %.0812.i.i445, 10
-  br i1 %.not.i.i446, label %Abc_Base10Log.exit.i447, label %.lr.ph.i.i443, !llvm.loop !190
+  br i1 %.not.i.i446, label %Abc_Base10Log.exit.i447, label %.lr.ph.i.i443, !llvm.loop !192
 
 Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia_ManWriteNames.exit441
   %.09.i.i448 = phi i32 [ %224, %Gia_ManWriteNames.exit441 ], [ %230, %.lr.ph.i.i443 ]
@@ -10295,7 +10295,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %240, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %242 = add nuw nsw i32 %.02339.us.i452, 1
   %exitcond53.not.i455 = icmp eq i32 %242, %224
-  br i1 %exitcond53.not.i455, label %Gia_ManWriteNames.exit457, label %.lr.ph.split.us.i450, !llvm.loop !191
+  br i1 %exitcond53.not.i455, label %Gia_ManWriteNames.exit457, label %.lr.ph.split.us.i450, !llvm.loop !193
 
 Gia_ManWriteNames.exit457:                        ; preds = %239, %Abc_Base10Log.exit.i447
   %243 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 7, i64 1, ptr %26)
@@ -10319,7 +10319,7 @@ Gia_ManWriteNames.exit457:                        ; preds = %239, %Abc_Base10Log
   %250 = udiv i32 %.0812.i.i461, 10
   %251 = add nuw nsw i32 %.013.i.i460, 1
   %.not.i.i462 = icmp ult i32 %.0812.i.i461, 10
-  br i1 %.not.i.i462, label %Abc_Base10Log.exit.i463, label %.lr.ph.i.i459, !llvm.loop !190
+  br i1 %.not.i.i462, label %Abc_Base10Log.exit.i463, label %.lr.ph.i.i459, !llvm.loop !192
 
 Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia_ManWriteNames.exit457
   %.09.i.i464 = phi i32 [ %246, %Gia_ManWriteNames.exit457 ], [ %251, %.lr.ph.i.i459 ]
@@ -10348,7 +10348,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %261, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %263 = add nuw nsw i32 %.02339.us.i468, 1
   %exitcond53.not.i471 = icmp eq i32 %263, %246
-  br i1 %exitcond53.not.i471, label %Gia_ManWriteNames.exit473, label %.lr.ph.split.us.i466, !llvm.loop !191
+  br i1 %exitcond53.not.i471, label %Gia_ManWriteNames.exit473, label %.lr.ph.split.us.i466, !llvm.loop !193
 
 Gia_ManWriteNames.exit473:                        ; preds = %260, %Abc_Base10Log.exit.i463
   %264 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10372,7 +10372,7 @@ Gia_ManWriteNames.exit473:                        ; preds = %260, %Abc_Base10Log
   %271 = udiv i32 %.0812.i.i477, 10
   %272 = add nuw nsw i32 %.013.i.i476, 1
   %.not.i.i478 = icmp ult i32 %.0812.i.i477, 10
-  br i1 %.not.i.i478, label %Abc_Base10Log.exit.i479, label %.lr.ph.i.i475, !llvm.loop !190
+  br i1 %.not.i.i478, label %Abc_Base10Log.exit.i479, label %.lr.ph.i.i475, !llvm.loop !192
 
 Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia_ManWriteNames.exit473
   %.09.i.i480 = phi i32 [ %267, %Gia_ManWriteNames.exit473 ], [ %272, %.lr.ph.i.i475 ]
@@ -10401,7 +10401,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %282, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
   %284 = add nuw nsw i32 %.02339.us.i484, 1
   %exitcond53.not.i487 = icmp eq i32 %284, %267
-  br i1 %exitcond53.not.i487, label %Gia_ManWriteNames.exit489, label %.lr.ph.split.us.i482, !llvm.loop !191
+  br i1 %exitcond53.not.i487, label %Gia_ManWriteNames.exit489, label %.lr.ph.split.us.i482, !llvm.loop !193
 
 Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log.exit.i479
   %285 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10460,7 +10460,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %309 = add nuw nsw i32 %.2522, 1
   %.val264 = load i32, ptr %303, align 4, !tbaa !30
   %310 = icmp slt i32 %309, %.val264
-  br i1 %310, label %.lr.ph524, label %.critedge5, !llvm.loop !208
+  br i1 %310, label %.lr.ph524, label %.critedge5, !llvm.loop !212
 
 .critedge5:                                       ; preds = %.lr.ph524, %301
   %311 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 3, i64 1, ptr %26)
@@ -10485,7 +10485,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val262 = load i32, ptr %303, align 4, !tbaa !30
   %321 = sext i32 %.val262 to i64
   %322 = icmp slt i64 %indvars.iv.next, %321
-  br i1 %322, label %314, label %.critedge7, !llvm.loop !209
+  br i1 %322, label %314, label %.critedge7, !llvm.loop !213
 
 .critedge7:                                       ; preds = %314, %.critedge5
   %fputc241 = tail call i32 @fputc(i32 10, ptr %26)
@@ -10573,7 +10573,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %371 = sub nsw i32 %.val267.val, %.val266
   %372 = sext i32 %371 to i64
   %373 = icmp slt i64 %indvars.iv.next561, %372
-  br i1 %373, label %328, label %.critedge9, !llvm.loop !210
+  br i1 %373, label %328, label %.critedge9, !llvm.loop !214
 
 .critedge9:                                       ; preds = %328, %369, %323
   %fputc243 = tail call i32 @fputc(i32 10, ptr %26)
@@ -10618,7 +10618,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 386:                                              ; preds = %387
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge257, label %387, !llvm.loop !211
+  br i1 %exitcond.not, label %.critedge257, label %387, !llvm.loop !215
 
 387:                                              ; preds = %.lr.ph536, %386
   %indvars.iv563 = phi i64 [ 0, %.lr.ph536 ], [ %indvars.iv.next564, %386 ]
@@ -10681,7 +10681,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %423 = load i32, ptr %6, align 8, !tbaa !29
   %424 = sext i32 %423 to i64
   %425 = icmp slt i64 %indvars.iv.next567, %424
-  br i1 %425, label %378, label %.critedge11, !llvm.loop !212
+  br i1 %425, label %378, label %.critedge11, !llvm.loop !216
 
 .critedge11:                                      ; preds = %378, %422, %.critedge9
   %fputc245 = tail call i32 @fputc(i32 10, ptr %26)
@@ -10755,7 +10755,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %464 = sub nsw i32 %.val296.val, %.val295
   %465 = sext i32 %464 to i64
   %466 = icmp slt i64 %indvars.iv.next570, %465
-  br i1 %466, label %429, label %.critedge15, !llvm.loop !213
+  br i1 %466, label %429, label %.critedge15, !llvm.loop !217
 
 .critedge15:                                      ; preds = %429, %462, %.critedge11
   %467 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %26)
@@ -10839,7 +10839,7 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr readonly captures(none
   %30 = add nuw nsw i32 %29, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !214
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !218
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %31 = add nsw i32 %5, -1
@@ -10903,7 +10903,7 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr readonly captures(none
   %79 = add nuw nsw i32 %78, %76
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
-  br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !215
+  br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !219
 
 .loopexit:                                        ; preds = %.lr.ph7, %.preheader, %._crit_edge
   %.1 = phi i32 [ %57, %._crit_edge ], [ 0, %.preheader ], [ %79, %.lr.ph7 ]
@@ -10927,7 +10927,7 @@ define void @Gia_ManPrintOneName(ptr noundef captures(none) %0, ptr noundef read
   %fputc = tail call i32 @fputc(i32 %7, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !216
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -10948,7 +10948,7 @@ define i32 @Gia_ManCountSymbs(ptr noundef readonly captures(none) %0) local_unna
 
 5:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %2, !llvm.loop !217
+  br label %2, !llvm.loop !221
 
 6:                                                ; preds = %2, %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -10992,7 +10992,7 @@ define noalias noundef ptr @Gia_ManCountSymbsAll(ptr noundef readonly captures(n
 
 7:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %4, !llvm.loop !217
+  br label %4, !llvm.loop !221
 
 Gia_ManCountSymbs.exit:                           ; preds = %4, %4
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -11056,7 +11056,7 @@ Vec_IntPush.exit35:                               ; preds = %.Vec_IntGrow.exit10
 
 29:                                               ; preds = %26
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
-  br label %26, !llvm.loop !217
+  br label %26, !llvm.loop !221
 
 Gia_ManCountSymbs.exit38:                         ; preds = %26, %26
   %30 = trunc nuw nsw i64 %indvars.iv.i36 to i32
@@ -11184,7 +11184,7 @@ Vec_IntPush.exit52:                               ; preds = %Vec_IntPush.exit52.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = sext i32 %.val26 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !218
+  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !222
 
 .critedge:                                        ; preds = %81, %Vec_IntPush.exit35
   ret ptr %11
@@ -11259,14 +11259,14 @@ define void @Gia_ManDumpIoList(ptr noundef readonly captures(none) %0, ptr nound
   %fputc.i.us = tail call i32 @fputc(i32 %27, ptr %1)
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %Gia_ManPrintOneName.exit.us, label %.lr.ph.i.us, !llvm.loop !216
+  br i1 %exitcond.not.i.us, label %Gia_ManPrintOneName.exit.us, label %.lr.ph.i.us, !llvm.loop !220
 
 Gia_ManPrintOneName.exit.us:                      ; preds = %.lr.ph.i.us, %20
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2
   %28 = trunc i64 %indvars.iv.next45 to i32
   %29 = or disjoint i32 %28, 1
   %30 = icmp slt i32 %29, %.val35
-  br i1 %30, label %.lr.ph.split.us, label %.critedge.thread, !llvm.loop !219
+  br i1 %30, label %.lr.ph.split.us, label %.critedge.thread, !llvm.loop !223
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Gia_ManPrintOneName.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Gia_ManPrintOneName.exit ]
@@ -11307,13 +11307,13 @@ Gia_ManPrintOneName.exit.us:                      ; preds = %.lr.ph.i.us, %20
   %fputc.i = tail call i32 @fputc(i32 %45, ptr %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !216
+  br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !220
 
 Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %46 = or disjoint i64 %indvars.iv.next, 1
   %47 = icmp samesign ult i64 %46, %16
-  br i1 %47, label %.lr.ph.split, label %.critedge.thread, !llvm.loop !219
+  br i1 %47, label %.lr.ph.split, label %.critedge.thread, !llvm.loop !224
 
 .critedge:                                        ; preds = %10
   %.not.i = icmp eq ptr %.val39, null
@@ -11445,13 +11445,13 @@ Gia_ManReadRangeNum.exit60:                       ; preds = %Gia_ManReadRangeNum
   %fputc.i = tail call i32 @fputc(i32 %64, ptr %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !216
+  br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !220
 
 Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %60
   %65 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %1)
   %66 = or disjoint i64 %indvars.iv.next, 1
   %67 = icmp samesign ult i64 %66, %25
-  br i1 %67, label %26, label %.critedge.thread, !llvm.loop !220
+  br i1 %67, label %26, label %.critedge.thread, !llvm.loop !225
 
 .critedge:                                        ; preds = %17
   %.not.i = icmp eq ptr %.val56, null
@@ -11529,7 +11529,7 @@ define void @Gia_ManDumpVerilogNand(ptr noundef readonly captures(none) %0, ptr 
   %10 = udiv i32 %.0812.i, 10
   %11 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !190
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !192
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %.09.i = phi i32 [ %.val157, %2 ], [ %11, %.lr.ph.i ]
@@ -11546,7 +11546,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %14 = udiv i32 %.0812.i202, 10
   %15 = add nuw nsw i32 %.013.i201, 1
   %.not.i203 = icmp ult i32 %.0812.i202, 10
-  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !190
+  br i1 %.not.i203, label %Abc_Base10Log.exit205, label %.lr.ph.i200, !llvm.loop !192
 
 Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_Base10Log.exit
   %.09.i204 = phi i32 [ %6, %Abc_Base10Log.exit ], [ %15, %.lr.ph.i200 ]
@@ -11568,7 +11568,7 @@ Abc_Base10Log.exit205:                            ; preds = %.lr.ph.i200, %Abc_B
   %21 = udiv i32 %.0812.i209, 10
   %22 = add nuw nsw i32 %.013.i208, 1
   %.not.i210 = icmp ult i32 %.0812.i209, 10
-  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !190
+  br i1 %.not.i210, label %Abc_Base10Log.exit212, label %.lr.ph.i207, !llvm.loop !192
 
 Abc_Base10Log.exit212:                            ; preds = %.lr.ph.i207, %Abc_Base10Log.exit205
   %.09.i211 = phi i32 [ %18, %Abc_Base10Log.exit205 ], [ %22, %.lr.ph.i207 ]
@@ -11655,7 +11655,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %34, %27
   %.val165.val = load i32, ptr %62, align 4, !tbaa !30
   %63 = sub nsw i32 %.val165.val, %.val164
   %64 = icmp slt i32 %61, %63
-  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !221
+  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !226
 
 .critedge:                                        ; preds = %.lr.ph, %58, %53
   %65 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 3, i64 1, ptr %23)
@@ -11690,7 +11690,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %34, %27
   %.val187.val = load i32, ptr %77, align 4, !tbaa !30
   %78 = sub nsw i32 %.val187.val, %.val186
   %79 = icmp slt i32 %76, %78
-  br i1 %79, label %.lr.ph234, label %.critedge2, !llvm.loop !222
+  br i1 %79, label %.lr.ph234, label %.critedge2, !llvm.loop !227
 
 .critedge2:                                       ; preds = %.lr.ph234, %68, %.critedge
   %80 = tail call i64 @fwrite(ptr nonnull @.str.154, i64 5, i64 1, ptr %23)
@@ -11726,7 +11726,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %34, %27
   %.val163.val = load i32, ptr %93, align 4, !tbaa !30
   %94 = sub nsw i32 %.val163.val, %.val162
   %95 = icmp slt i32 %92, %94
-  br i1 %95, label %.lr.ph240, label %.critedge4, !llvm.loop !223
+  br i1 %95, label %.lr.ph240, label %.critedge4, !llvm.loop !228
 
 .critedge4:                                       ; preds = %.lr.ph240, %84, %.critedge2
   %96 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %23)
@@ -11762,7 +11762,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %34, %27
   %.val183.val = load i32, ptr %109, align 4, !tbaa !30
   %110 = sub nsw i32 %.val183.val, %.val182
   %111 = icmp slt i32 %108, %110
-  br i1 %111, label %.lr.ph246, label %.critedge6, !llvm.loop !224
+  br i1 %111, label %.lr.ph246, label %.critedge6, !llvm.loop !229
 
 .critedge6:                                       ; preds = %.lr.ph246, %100, %.critedge4
   %112 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %23)
@@ -11813,7 +11813,7 @@ Gia_ManDumpModuleName.exit:                       ; preds = %34, %27
   %131 = sub nsw i32 %.val159.val, %.val158
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %.lr.ph252, label %.critedge8, !llvm.loop !225
+  br i1 %133, label %.lr.ph252, label %.critedge8, !llvm.loop !230
 
 .critedge8:                                       ; preds = %.lr.ph252, %126, %113
   %fputc149 = tail call i32 @fputc(i32 10, ptr %23)
@@ -11927,7 +11927,7 @@ Gia_ManDumpNandLit.exit218:                       ; preds = %173, %175, %178, %1
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next268, %187
-  br i1 %188, label %.lr.ph255, label %.critedge10, !llvm.loop !226
+  br i1 %188, label %.lr.ph255, label %.critedge10, !llvm.loop !231
 
 .critedge10:                                      ; preds = %.lr.ph255, %185, %.critedge8
   %fputc151 = tail call i32 @fputc(i32 10, ptr %23)
@@ -12027,7 +12027,7 @@ Gia_ManDumpNandLit.exit221:                       ; preds = %222, %224, %227, %2
   %235 = sub nsw i32 %.val179.val, %.val178
   %236 = sext i32 %235 to i64
   %237 = icmp slt i64 %indvars.iv.next271, %236
-  br i1 %237, label %192, label %.critedge12, !llvm.loop !227
+  br i1 %237, label %192, label %.critedge12, !llvm.loop !232
 
 .critedge12:                                      ; preds = %192, %Gia_ManDumpNandLit.exit221, %.critedge10
   %238 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %23)
@@ -12062,7 +12062,7 @@ define void @Gia_FreeMany(ptr noundef captures(none) %0, i32 noundef %1) local_u
 Gia_ManStopP.exit:                                ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %Gia_ManStopP.exit, %2
   ret void
@@ -12083,7 +12083,7 @@ define void @Gia_GenSandwich(ptr noundef readonly captures(none) %0, i32 noundef
 6:                                                ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !229
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !234
 
 .preheader:                                       ; preds = %6, %3
   %7 = add nsw i32 %1, -1
@@ -12119,7 +12119,7 @@ define void @Gia_GenSandwich(ptr noundef readonly captures(none) %0, i32 noundef
 Gia_ManStopP.exit.i:                              ; preds = %17, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !228
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !233
 
 18:                                               ; preds = %.lr.ph
   %19 = tail call i32 @fclose(ptr noundef nonnull %10)
@@ -12150,7 +12150,7 @@ Gia_ManStopP.exit.i:                              ; preds = %17, %.lr.ph.i
 Gia_ManStopP.exit.i100:                           ; preds = %29, %.lr.ph.i98
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count
-  br i1 %exitcond.not.i102, label %.critedge, label %.lr.ph.i98, !llvm.loop !228
+  br i1 %exitcond.not.i102, label %.critedge, label %.lr.ph.i98, !llvm.loop !233
 
 30:                                               ; preds = %.preheader, %31
   %indvars.iv174 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next175, %31 ]
@@ -12178,7 +12178,7 @@ Gia_ManStopP.exit.i100:                           ; preds = %29, %.lr.ph.i98
   %.val89.val = load i32, ptr %42, align 4, !tbaa !30
   %43 = sub nsw i32 %.val89.val, %.val88
   %44 = icmp slt i32 %37, %43
-  br i1 %44, label %45, label %30, !llvm.loop !230
+  br i1 %44, label %45, label %30, !llvm.loop !235
 
 45:                                               ; preds = %31
   %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv174
@@ -12207,7 +12207,7 @@ Gia_ManStopP.exit.i100:                           ; preds = %29, %.lr.ph.i98
 Gia_ManStopP.exit.i108:                           ; preds = %54, %.lr.ph.i106
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i105
-  br i1 %exitcond.not.i110, label %.critedge, label %.lr.ph.i106, !llvm.loop !228
+  br i1 %exitcond.not.i110, label %.critedge, label %.lr.ph.i106, !llvm.loop !233
 
 55:                                               ; preds = %30
   %56 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.23)
@@ -12237,7 +12237,7 @@ Gia_ManStopP.exit.i108:                           ; preds = %54, %.lr.ph.i106
 Gia_ManStopP.exit.i116:                           ; preds = %63, %.lr.ph.i114
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i113
-  br i1 %exitcond.not.i118, label %.critedge, label %.lr.ph.i114, !llvm.loop !228
+  br i1 %exitcond.not.i118, label %.critedge, label %.lr.ph.i114, !llvm.loop !233
 
 64:                                               ; preds = %55
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %56)
@@ -12257,7 +12257,7 @@ Gia_ManStopP.exit.i116:                           ; preds = %63, %.lr.ph.i114
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.166, ptr noundef %69) #30
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !231
+  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !236
 
 ._crit_edge:                                      ; preds = %.lr.ph154, %64
   %fputc83 = tail call i32 @fputc(i32 10, ptr nonnull %56)
@@ -12355,13 +12355,13 @@ Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph160
   %fputc84 = tail call i32 @fputc(i32 32, ptr nonnull %56)
   %122 = add i32 %.076155, 1
   %exitcond184.not = icmp eq i32 %122, 24
-  br i1 %exitcond184.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !232
+  br i1 %exitcond184.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !237
 
 ._crit_edge157:                                   ; preds = %.lr.ph156, %Gia_ManDumpModuleName.exit
   %123 = trunc nuw nsw i64 %indvars.iv185 to i32
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.173, i32 noundef %indvars, i32 noundef %123, i32 noundef %indvars) #30
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !233
+  br i1 %exitcond189.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !238
 
 ._crit_edge161:                                   ; preds = %._crit_edge157
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.174, i32 noundef %1) #30
@@ -12487,7 +12487,7 @@ Vec_PtrFreeFree.exit135:                          ; preds = %Vec_PtrFreeFree.exi
   %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %168)
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count194
-  br i1 %exitcond195.not, label %.lr.ph.preheader.i136, label %.lr.ph164, !llvm.loop !234
+  br i1 %exitcond195.not, label %.lr.ph.preheader.i136, label %.lr.ph164, !llvm.loop !239
 
 .lr.ph.preheader.i136:                            ; preds = %Vec_PtrFreeFree.exit135
   %wide.trip.count.i137 = zext nneg i32 %1 to i64
@@ -12508,7 +12508,7 @@ Vec_PtrFreeFree.exit135:                          ; preds = %Vec_PtrFreeFree.exi
 Gia_ManStopP.exit.i140:                           ; preds = %173, %.lr.ph.i138
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i137
-  br i1 %exitcond.not.i142, label %Gia_FreeMany.exit143, label %.lr.ph.i138, !llvm.loop !228
+  br i1 %exitcond.not.i142, label %Gia_FreeMany.exit143, label %.lr.ph.i138, !llvm.loop !233
 
 Gia_FreeMany.exit143.critedge:                    ; preds = %._crit_edge
   %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.174, i32 noundef %1) #30
@@ -12535,7 +12535,7 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
   %.val42 = load ptr, ptr %4, align 8, !tbaa !28
   %.val42.fr = freeze ptr %.val42
   %5 = getelementptr inbounds nuw i8, ptr %.val42.fr, i64 8
-  store i32 0, ptr %5, align 4, !tbaa !235
+  store i32 0, ptr %5, align 4, !tbaa !240
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr i8, ptr %7, i64 4
@@ -12567,10 +12567,10 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !98
   %20 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42.fr, i64 %17, i32 1
-  store i32 %19, ptr %20, align 4, !tbaa !235
+  store i32 %19, ptr %20, align 4, !tbaa !240
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !237
+  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !242
 
 .lr.ph49:                                         ; preds = %.critedge.preheader, %.critedge
   %21 = phi i32 [ %46, %.critedge ], [ %13, %.critedge.preheader ]
@@ -12592,7 +12592,7 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
 27:                                               ; preds = %23
   %28 = sub nsw i64 0, %25
   %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %22, i64 %28, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !235
+  %30 = load i32, ptr %29, align 4, !tbaa !240
   %31 = trunc i64 %.val41 to i32
   %32 = lshr i32 %31, 29
   %33 = and i32 %32, 1
@@ -12601,14 +12601,14 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
   %36 = and i64 %35, 536870911
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %22, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 4, !tbaa !235
+  %39 = load i32, ptr %38, align 4, !tbaa !240
   %40 = lshr i64 %.val41, 61
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 1
   %43 = xor i32 %39, %42
   %44 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %34, i32 noundef %43) #30
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %44, ptr %45, align 4, !tbaa !235
+  store i32 %44, ptr %45, align 4, !tbaa !240
   %.pre = load i32, ptr %12, align 8, !tbaa !29
   br label %.critedge
 
@@ -12617,7 +12617,7 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next57, %47
-  br i1 %48, label %.lr.ph49, label %.critedge2, !llvm.loop !238
+  br i1 %48, label %.lr.ph49, label %.critedge2, !llvm.loop !243
 
 .critedge2:                                       ; preds = %.lr.ph49, %.critedge, %.critedge.preheader
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -12651,7 +12651,7 @@ define void @Gia_GenPutOnTopOne(ptr noundef %0, ptr noundef readonly captures(no
   %63 = and i64 %62, 536870911
   %64 = sub nsw i64 0, %63
   %65 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %61, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 4, !tbaa !235
+  %66 = load i32, ptr %65, align 4, !tbaa !240
   %67 = trunc i64 %62 to i32
   %68 = lshr i32 %67, 29
   %69 = and i32 %68, 1
@@ -12724,7 +12724,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %100, align 4, !tbaa !30
   %101 = sext i32 %.val to i64
   %102 = icmp slt i64 %indvars.iv.next60, %101
-  br i1 %102, label %54, label %.critedge4, !llvm.loop !239
+  br i1 %102, label %54, label %.critedge4, !llvm.loop !244
 
 .critedge4:                                       ; preds = %54, %Vec_IntPush.exit, %.critedge2
   ret void
@@ -12773,7 +12773,7 @@ define ptr @Gia_GenPutOnTop(ptr noundef readonly captures(none) %0, i32 noundef 
 Gia_ManStopP.exit.i:                              ; preds = %14, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not.i, label %Gia_FreeMany.exit.thread, label %.lr.ph.i, !llvm.loop !228
+  br i1 %exitcond.not.i, label %Gia_FreeMany.exit.thread, label %.lr.ph.i, !llvm.loop !233
 
 15:                                               ; preds = %.lr.ph
   %16 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -12804,7 +12804,7 @@ Gia_ManStopP.exit.i:                              ; preds = %14, %.lr.ph.i
 Gia_ManStopP.exit.i77:                            ; preds = %26, %.lr.ph.i75
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count
-  br i1 %exitcond.not.i79, label %Gia_FreeMany.exit.thread, label %.lr.ph.i75, !llvm.loop !228
+  br i1 %exitcond.not.i79, label %Gia_FreeMany.exit.thread, label %.lr.ph.i75, !llvm.loop !233
 
 27:                                               ; preds = %15
   %28 = getelementptr i8, ptr %18, i64 24
@@ -12812,7 +12812,7 @@ Gia_ManStopP.exit.i77:                            ; preds = %26, %.lr.ph.i75
   %29 = add nsw i32 %.val, %.056120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !240
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !245
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre = load ptr, ptr %3, align 16, !tbaa !69
@@ -12924,7 +12924,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %73 = getelementptr i8, ptr %.val70, i64 4
   %.val70.val = load i32, ptr %73, align 4, !tbaa !30
   %74 = icmp slt i32 %72, %.val70.val
-  br i1 %74, label %.lr.ph124, label %.preheader114, !llvm.loop !241
+  br i1 %74, label %.lr.ph124, label %.preheader114, !llvm.loop !246
 
 .preheader.loopexit:                              ; preds = %._crit_edge135
   %.pre159.pre = load ptr, ptr %43, align 8, !tbaa !32
@@ -13123,7 +13123,7 @@ Vec_IntPush.exit87:                               ; preds = %.Vec_IntGrow.exit10
   %166 = getelementptr i8, ptr %.val69, i64 4
   %.val69.val = load i32, ptr %166, align 4, !tbaa !30
   %167 = icmp slt i32 %.val67, %.val69.val
-  br i1 %167, label %.lr.ph129, label %.preheader113, !llvm.loop !242
+  br i1 %167, label %.lr.ph129, label %.preheader113, !llvm.loop !247
 
 168:                                              ; preds = %.lr.ph134, %Gia_ManAppendCo.exit
   %.val66133 = phi i32 [ %.val66130, %.lr.ph134 ], [ %.val66, %Gia_ManAppendCo.exit ]
@@ -13252,13 +13252,13 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %240 = getelementptr i8, ptr %.val68, i64 4
   %.val68.val = load i32, ptr %240, align 4, !tbaa !30
   %241 = icmp sgt i32 %.val66, %.val68.val
-  br i1 %241, label %168, label %._crit_edge135, !llvm.loop !243
+  br i1 %241, label %168, label %._crit_edge135, !llvm.loop !248
 
 ._crit_edge135:                                   ; preds = %Gia_ManAppendCo.exit, %.preheader113
   tail call void @Gia_GenPutOnTopOne(ptr noundef nonnull %31, ptr noundef nonnull %81, ptr noundef nonnull %35)
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.preheader.loopexit, label %79, !llvm.loop !244
+  br i1 %exitcond150.not, label %.preheader.loopexit, label %79, !llvm.loop !249
 
 242:                                              ; preds = %.lr.ph140, %Gia_ManAppendCo.exit108
   %indvars.iv151 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next152, %Gia_ManAppendCo.exit108 ]
@@ -13383,7 +13383,7 @@ Gia_ManAppendCo.exit108:                          ; preds = %Vec_IntPush.exit.i1
   %.val65 = load i32, ptr %37, align 4, !tbaa !30
   %312 = sext i32 %.val65 to i64
   %313 = icmp slt i64 %indvars.iv.next152, %312
-  br i1 %313, label %242, label %.critedge.thread, !llvm.loop !245
+  br i1 %313, label %242, label %.critedge.thread, !llvm.loop !250
 
 .critedge:                                        ; preds = %.preheader
   %.not.i109 = icmp eq ptr %.pre159, null
@@ -13564,7 +13564,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %14 = load i32, ptr %13, align 4, !tbaa !246
+  %14 = load i32, ptr %13, align 4, !tbaa !251
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
@@ -13962,14 +13962,14 @@ attributes #34 = { cold noreturn nounwind }
 !184 = distinct !{!184, !41}
 !185 = !{!48, !9, i64 0}
 !186 = !{!48, !9, i64 4}
-!187 = distinct !{!187, !41}
-!188 = distinct !{!188, !41}
+!187 = distinct !{!187, !41, !188}
+!188 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !189 = distinct !{!189, !41}
 !190 = distinct !{!190, !41}
 !191 = distinct !{!191, !41}
 !192 = distinct !{!192, !41}
-!193 = distinct !{!193, !41}
-!194 = distinct !{!194, !41}
+!193 = distinct !{!193, !41, !188}
+!194 = distinct !{!194, !41, !188}
 !195 = distinct !{!195, !41}
 !196 = distinct !{!196, !41}
 !197 = distinct !{!197, !41}
@@ -13998,7 +13998,7 @@ attributes #34 = { cold noreturn nounwind }
 !220 = distinct !{!220, !41}
 !221 = distinct !{!221, !41}
 !222 = distinct !{!222, !41}
-!223 = distinct !{!223, !41}
+!223 = distinct !{!223, !41, !188}
 !224 = distinct !{!224, !41}
 !225 = distinct !{!225, !41}
 !226 = distinct !{!226, !41}
@@ -14010,15 +14010,20 @@ attributes #34 = { cold noreturn nounwind }
 !232 = distinct !{!232, !41}
 !233 = distinct !{!233, !41}
 !234 = distinct !{!234, !41}
-!235 = !{!236, !9, i64 8}
-!236 = !{!"Gia_Obj_t_", !9, i64 0, !9, i64 3, !9, i64 3, !9, i64 3, !9, i64 4, !9, i64 7, !9, i64 7, !9, i64 7, !9, i64 8}
+!235 = distinct !{!235, !41}
+!236 = distinct !{!236, !41}
 !237 = distinct !{!237, !41}
 !238 = distinct !{!238, !41}
 !239 = distinct !{!239, !41}
-!240 = distinct !{!240, !41}
-!241 = distinct !{!241, !41}
+!240 = !{!241, !9, i64 8}
+!241 = !{!"Gia_Obj_t_", !9, i64 0, !9, i64 3, !9, i64 3, !9, i64 3, !9, i64 4, !9, i64 7, !9, i64 7, !9, i64 7, !9, i64 8}
 !242 = distinct !{!242, !41}
 !243 = distinct !{!243, !41}
 !244 = distinct !{!244, !41}
 !245 = distinct !{!245, !41}
-!246 = !{!4, !9, i64 796}
+!246 = distinct !{!246, !41}
+!247 = distinct !{!247, !41}
+!248 = distinct !{!248, !41}
+!249 = distinct !{!249, !41}
+!250 = distinct !{!250, !41}
+!251 = !{!4, !9, i64 796}

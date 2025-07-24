@@ -574,7 +574,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
 286:                                              ; preds = %283, %280, %get_bits_long.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %287 = icmp samesign ult i64 %indvars.iv.next, %240
-  br i1 %287, label %get_bits_long.exit, label %._crit_edge, !llvm.loop !67
+  br i1 %287, label %get_bits_long.exit, label %._crit_edge, !llvm.loop !68
 
 288:                                              ; preds = %._crit_edge, %get_code.exit186
   %289 = phi i32 [ %.pre271, %._crit_edge ], [ %105, %get_code.exit186 ]
@@ -582,7 +582,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %290 = sext i32 %289 to i64
   %291 = icmp slt i64 %indvars.iv.next259, %290
-  br i1 %291, label %.lr.ph222, label %.thread191.loopexit, !llvm.loop !69
+  br i1 %291, label %.lr.ph222, label %.thread191.loopexit, !llvm.loop !70
 
 .thread194:                                       ; preds = %111, %255
   %.0156220253 = trunc i64 %indvars.iv258 to i32
@@ -606,7 +606,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %294 = phi i32 [ %289, %.thread191.loopexit ], [ %101, %99 ], [ %106, %292 ]
   store i32 0, ptr %95, align 4, !tbaa !59
   %295 = icmp sgt i32 %.val177, %.val176
-  br i1 %295, label %99, label %.loopexit, !llvm.loop !70
+  br i1 %295, label %99, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.thread191, %..loopexit_crit_edge, %.thread194
   %296 = phi i32 [ %.pre276, %..loopexit_crit_edge ], [ %105, %.thread194 ], [ %293, %.thread191 ]
@@ -650,7 +650,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %314 = load i32, ptr %298, align 4, !tbaa !29
   %315 = sext i32 %314 to i64
   %316 = icmp slt i64 %indvars.iv.next262, %315
-  br i1 %316, label %304, label %._crit_edge231, !llvm.loop !71
+  br i1 %316, label %304, label %._crit_edge231, !llvm.loop !72
 
 ._crit_edge236:                                   ; preds = %320, %.loopexit, %._crit_edge231
   %.0153.lcssa278 = phi i32 [ %313, %._crit_edge231 ], [ %297, %.loopexit ], [ %313, %320 ]
@@ -664,9 +664,9 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
 320:                                              ; preds = %.lr.ph235, %320
   %indvars.iv264 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next265, %320 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  %321 = load ptr, ptr %302, align 8, !tbaa !72
+  %321 = load ptr, ptr %302, align 8, !tbaa !73
   %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv264
-  %323 = load ptr, ptr %322, align 8, !tbaa !73
+  %323 = load ptr, ptr %322, align 8, !tbaa !74
   store ptr %323, ptr %6, align 8, !tbaa !60
   %.idx = mul nuw nsw i64 %indvars.iv264, 96
   %324 = getelementptr i8, ptr %303, i64 %.idx
@@ -677,7 +677,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %327 = load i32, ptr %298, align 4, !tbaa !29
   %328 = sext i32 %327 to i64
   %329 = icmp slt i64 %indvars.iv.next265, %328
-  br i1 %329, label %320, label %._crit_edge236, !llvm.loop !74
+  br i1 %329, label %320, label %._crit_edge236, !llvm.loop !75
 
 330:                                              ; preds = %._crit_edge236
   %331 = load i32, ptr %9, align 8, !tbaa !42
@@ -838,12 +838,13 @@ attributes #7 = { nounwind }
 !63 = !{!33, !10, i64 4}
 !64 = !{!65, !65, i64 0}
 !65 = !{!"short", !8, i64 0}
-!66 = distinct !{!66, !31}
-!67 = distinct !{!67, !31, !68}
-!68 = !{!"llvm.loop.unswitch.partial.disable"}
-!69 = distinct !{!69, !31}
+!66 = distinct !{!66, !31, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !31, !69}
+!69 = !{!"llvm.loop.unswitch.partial.disable"}
 !70 = distinct !{!70, !31}
 !71 = distinct !{!71, !31}
-!72 = !{!49, !50, i64 96}
-!73 = !{!14, !14, i64 0}
-!74 = distinct !{!74, !31}
+!72 = distinct !{!72, !31}
+!73 = !{!49, !50, i64 96}
+!74 = !{!14, !14, i64 0}
+!75 = distinct !{!75, !31}

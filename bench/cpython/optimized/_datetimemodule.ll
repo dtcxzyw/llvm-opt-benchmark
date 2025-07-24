@@ -15858,7 +15858,7 @@ _PyUnicode_DATA.exit.split.us36.i:                ; preds = %_PyUnicode_DATA.exi
 38:                                               ; preds = %43
   %39 = add nuw nsw i64 %.02335.i, 1
   %exitcond47.not.i = icmp eq i64 %39, 3
-  br i1 %exitcond47.not.i, label %.thread.thread.i, label %_PyUnicode_DATA.exit.split.i, !llvm.loop !93
+  br i1 %exitcond47.not.i, label %.thread.thread.i, label %_PyUnicode_DATA.exit.split.i, !llvm.loop !95
 
 _PyUnicode_DATA.exit.split.i:                     ; preds = %_PyUnicode_DATA.exit.i, %38
   %.02335.i = phi i64 [ %39, %38 ], [ 0, %_PyUnicode_DATA.exit.i ]
@@ -15994,7 +15994,7 @@ _sanitize_isoformat_str.exit:                     ; preds = %55, %50, %.thread.t
 102:                                              ; preds = %.lr.ph.i
   %103 = add nuw i64 %.023.i, 1
   %exitcond.not.i67 = icmp eq i64 %103, %69
-  br i1 %exitcond.not.i67, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !94
+  br i1 %exitcond.not.i67, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !96
 
 ._crit_edge.i:                                    ; preds = %102, %.lr.ph.i
   %.0.lcssa.i = phi i64 [ %69, %102 ], [ %.023.i, %.lr.ph.i ]
@@ -16886,7 +16886,7 @@ define internal ptr @datetime_isoformat(ptr noundef %0, ptr noundef %1, ptr noun
 39:                                               ; preds = %.preheader
   %40 = add nuw nsw i64 %.137, 1
   %exitcond.not = icmp eq i64 %40, 5
-  br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !95
+  br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !97
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
@@ -18422,9 +18422,9 @@ define internal fastcc ptr @local_timezone_from_timestamp(i64 noundef %0) unname
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !96
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !97
+  %8 = load i64, ptr %7, align 8, !tbaa !99
   %9 = trunc i64 %8 to i32
   %or.cond9.i.i = icmp ugt i32 %9, 86399
   br i1 %or.cond9.i.i, label %normalize_d_s_us.exit.i, label %check_delta_day_range.exit.i
@@ -19399,8 +19399,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !90 = !{!76, !17, i64 8}
 !91 = !{!76, !17, i64 4}
 !92 = !{!76, !17, i64 0}
-!93 = distinct !{!93, !29}
-!94 = distinct !{!94, !29}
+!93 = distinct !{!93, !29, !94}
+!94 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !95 = distinct !{!95, !29}
-!96 = !{!76, !22, i64 48}
-!97 = !{!76, !21, i64 40}
+!96 = distinct !{!96, !29}
+!97 = distinct !{!97, !29}
+!98 = !{!76, !22, i64 48}
+!99 = !{!76, !21, i64 40}

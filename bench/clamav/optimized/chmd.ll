@@ -2168,7 +2168,7 @@ read_encint.exit140.us:                           ; preds = %112, %109
   %.12.ph.us = phi ptr [ %.10.us, %.critedge2.us ], [ %141, %140 ]
   %143 = add i32 %108, -1
   %.not123.us = icmp eq i32 %108, 0
-  br i1 %.not123.us, label %._crit_edge, label %.preheader35.us
+  br i1 %.not123.us, label %._crit_edge, label %.preheader35.us, !llvm.loop !90
 
 .preheader35:                                     ; preds = %.preheader35.lr.ph, %.critedge4.loopexit33
   %144 = phi ptr [ %164, %.critedge4.loopexit33 ], [ null, %.preheader35.lr.ph ]
@@ -2462,10 +2462,10 @@ define internal fastcc i32 @compare(ptr noundef readonly captures(address) %0, p
 
 tolower.exit.sink.split:                          ; preds = %132
   %133 = tail call ptr @__ctype_tolower_loc() #14
-  %134 = load ptr, ptr %133, align 8, !tbaa !90
+  %134 = load ptr, ptr %133, align 8, !tbaa !92
   %135 = zext nneg i32 %.0116 to i64
   %136 = getelementptr inbounds nuw i32, ptr %134, i64 %135
-  %137 = load i32, ptr %136, align 4, !tbaa !92
+  %137 = load i32, ptr %136, align 4, !tbaa !94
   br label %tolower.exit
 
 tolower.exit:                                     ; preds = %132, %tolower.exit.sink.split
@@ -2475,10 +2475,10 @@ tolower.exit:                                     ; preds = %132, %tolower.exit.
 
 tolower.exit134.sink.split:                       ; preds = %tolower.exit
   %138 = tail call ptr @__ctype_tolower_loc() #14
-  %139 = load ptr, ptr %138, align 8, !tbaa !90
+  %139 = load ptr, ptr %138, align 8, !tbaa !92
   %140 = zext nneg i32 %.0118 to i64
   %141 = getelementptr inbounds nuw i32, ptr %139, i64 %140
-  %142 = load i32, ptr %141, align 4, !tbaa !92
+  %142 = load i32, ptr %141, align 4, !tbaa !94
   br label %tolower.exit134
 
 tolower.exit134:                                  ; preds = %tolower.exit134.sink.split, %tolower.exit
@@ -2546,12 +2546,12 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
-  %12 = load ptr, ptr %11, align 8, !tbaa !93
+  %12 = load ptr, ptr %11, align 8, !tbaa !95
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %33
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %10, align 8, !tbaa !94
+  %14 = load ptr, ptr %10, align 8, !tbaa !96
   %15 = call i32 @chmd_fast_find(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull @.str.9, ptr noundef nonnull %4, i32 noundef 40)
   %16 = icmp eq i32 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2564,20 +2564,20 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = call ptr %22(ptr noundef %8, i64 noundef 40) #12
-  store ptr %23, ptr %11, align 8, !tbaa !93
+  store ptr %23, ptr %11, align 8, !tbaa !95
   %.not18.i = icmp eq ptr %23, null
   br i1 %.not18.i, label %31, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !95
-  %25 = load ptr, ptr %11, align 8, !tbaa !93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !97
+  %25 = load ptr, ptr %11, align 8, !tbaa !95
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr @.str.9, ptr %26, align 8, !tbaa !84
-  %27 = load ptr, ptr %10, align 8, !tbaa !94
+  %27 = load ptr, ptr %10, align 8, !tbaa !96
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   store ptr %29, ptr %25, align 8, !tbaa !32
-  %30 = load ptr, ptr %11, align 8, !tbaa !93
+  %30 = load ptr, ptr %11, align 8, !tbaa !95
   store ptr %30, ptr %28, align 8, !tbaa !36
   %.pre = load ptr, ptr %7, align 8, !tbaa !19
   br label %33
@@ -2594,12 +2594,12 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
-  %36 = load ptr, ptr %35, align 8, !tbaa !93
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
   %.not.i102 = icmp eq ptr %36, null
   br i1 %.not.i102, label %37, label %57
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %10, align 8, !tbaa !94
+  %38 = load ptr, ptr %10, align 8, !tbaa !96
   %39 = call i32 @chmd_fast_find(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, i32 noundef 40)
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2612,20 +2612,20 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !3
   %47 = call ptr %46(ptr noundef %34, i64 noundef 40) #12
-  store ptr %47, ptr %35, align 8, !tbaa !93
+  store ptr %47, ptr %35, align 8, !tbaa !95
   %.not18.i105 = icmp eq ptr %47, null
   br i1 %.not18.i105, label %55, label %48
 
 48:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !95
-  %49 = load ptr, ptr %35, align 8, !tbaa !93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !97
+  %49 = load ptr, ptr %35, align 8, !tbaa !95
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr @.str.10, ptr %50, align 8, !tbaa !84
-  %51 = load ptr, ptr %10, align 8, !tbaa !94
+  %51 = load ptr, ptr %10, align 8, !tbaa !96
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !36
   store ptr %53, ptr %49, align 8, !tbaa !32
-  %54 = load ptr, ptr %35, align 8, !tbaa !93
+  %54 = load ptr, ptr %35, align 8, !tbaa !95
   store ptr %54, ptr %52, align 8, !tbaa !36
   br label %57
 
@@ -2885,7 +2885,7 @@ read_sys_file.exit:                               ; preds = %97
   %191 = load ptr, ptr %190, align 8, !tbaa !48
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %193 = load i64, ptr %192, align 8, !tbaa !58
-  %194 = load ptr, ptr %11, align 8, !tbaa !97
+  %194 = load ptr, ptr %11, align 8, !tbaa !99
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i64, ptr %195, align 8, !tbaa !59
   %197 = add nsw i64 %196, %193
@@ -2933,12 +2933,12 @@ define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
-  %10 = load ptr, ptr %9, align 8, !tbaa !93
+  %10 = load ptr, ptr %9, align 8, !tbaa !95
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %29
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %1, align 8, !tbaa !94
+  %12 = load ptr, ptr %1, align 8, !tbaa !96
   %13 = call i32 @chmd_fast_find(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull %6, i32 noundef 40)
   %14 = icmp eq i32 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2951,20 +2951,20 @@ define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = call ptr %20(ptr noundef %8, i64 noundef 40) #12
-  store ptr %21, ptr %9, align 8, !tbaa !93
+  store ptr %21, ptr %9, align 8, !tbaa !95
   %.not18.i = icmp eq ptr %21, null
   br i1 %.not18.i, label %find_sys_file.exit, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !95
-  %23 = load ptr, ptr %9, align 8, !tbaa !93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !97
+  %23 = load ptr, ptr %9, align 8, !tbaa !95
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr @.str.12, ptr %24, align 8, !tbaa !84
-  %25 = load ptr, ptr %1, align 8, !tbaa !94
+  %25 = load ptr, ptr %1, align 8, !tbaa !96
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   store ptr %27, ptr %23, align 8, !tbaa !32
-  %28 = load ptr, ptr %9, align 8, !tbaa !93
+  %28 = load ptr, ptr %9, align 8, !tbaa !95
   store ptr %28, ptr %26, align 8, !tbaa !36
   br label %29
 
@@ -3096,7 +3096,7 @@ read_sys_file.exit:                               ; preds = %69
   %107 = mul i32 %100, %2
   %108 = add i32 %106, %107
   %109 = zext i32 %108 to i64
-  %110 = load ptr, ptr %9, align 8, !tbaa !98
+  %110 = load ptr, ptr %9, align 8, !tbaa !100
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load i64, ptr %111, align 8, !tbaa !55
   %113 = zext i32 %100 to i64
@@ -3145,12 +3145,12 @@ define internal fastcc i32 @read_spaninfo(ptr noundef nonnull captures(address_i
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
-  %8 = load ptr, ptr %7, align 8, !tbaa !93
+  %8 = load ptr, ptr %7, align 8, !tbaa !95
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %27
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %1, align 8, !tbaa !94
+  %10 = load ptr, ptr %1, align 8, !tbaa !96
   %11 = call i32 @chmd_fast_find(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef nonnull %4, i32 noundef 40)
   %12 = icmp eq i32 %11, 0
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3163,20 +3163,20 @@ define internal fastcc i32 @read_spaninfo(ptr noundef nonnull captures(address_i
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = call ptr %18(ptr noundef %6, i64 noundef 40) #12
-  store ptr %19, ptr %7, align 8, !tbaa !93
+  store ptr %19, ptr %7, align 8, !tbaa !95
   %.not18.i = icmp eq ptr %19, null
   br i1 %.not18.i, label %find_sys_file.exit, label %20
 
 20:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !95
-  %21 = load ptr, ptr %7, align 8, !tbaa !93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !97
+  %21 = load ptr, ptr %7, align 8, !tbaa !95
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @.str.11, ptr %22, align 8, !tbaa !84
-  %23 = load ptr, ptr %1, align 8, !tbaa !94
+  %23 = load ptr, ptr %1, align 8, !tbaa !96
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !36
   store ptr %25, ptr %21, align 8, !tbaa !32
-  %26 = load ptr, ptr %7, align 8, !tbaa !93
+  %26 = load ptr, ptr %7, align 8, !tbaa !95
   store ptr %26, ptr %24, align 8, !tbaa !36
   br label %27
 
@@ -3411,12 +3411,14 @@ attributes #14 = { nounwind willreturn memory(none) }
 !87 = !{!23, !26, i64 96}
 !88 = !{!23, !26, i64 112}
 !89 = !{!23, !26, i64 104}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 int", !5, i64 0}
-!92 = !{!13, !13, i64 0}
-!93 = !{!26, !26, i64 0}
-!94 = !{!30, !29, i64 0}
-!95 = !{i64 0, i64 8, !93, i64 8, i64 8, !96, i64 16, i64 8, !81, i64 24, i64 8, !81, i64 32, i64 8, !46}
-!96 = !{!34, !34, i64 0}
-!97 = !{!30, !26, i64 16}
-!98 = !{!30, !26, i64 32}
+!90 = distinct !{!90, !91}
+!91 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 int", !5, i64 0}
+!94 = !{!13, !13, i64 0}
+!95 = !{!26, !26, i64 0}
+!96 = !{!30, !29, i64 0}
+!97 = !{i64 0, i64 8, !95, i64 8, i64 8, !98, i64 16, i64 8, !81, i64 24, i64 8, !81, i64 32, i64 8, !46}
+!98 = !{!34, !34, i64 0}
+!99 = !{!30, !26, i64 16}
+!100 = !{!30, !26, i64 32}

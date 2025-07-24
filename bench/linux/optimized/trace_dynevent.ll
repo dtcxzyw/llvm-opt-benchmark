@@ -327,7 +327,7 @@ define dso_local i32 @dyn_event_release(ptr noundef %0, ptr noundef readnone cap
 76:                                               ; preds = %70, %64, %.split
   %77 = phi i32 [ %59, %.split ], [ 0, %70 ], [ %59, %64 ]
   %78 = icmp eq ptr %60, @dyn_event_list
-  br i1 %78, label %.loopexit, label %.split, !llvm.loop !21
+  br i1 %78, label %.loopexit, label %.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %70, %76, %55, %49, %31
   %79 = phi i32 [ -2, %31 ], [ %53, %49 ], [ %56, %55 ], [ %74, %70 ], [ %77, %76 ]
@@ -407,7 +407,7 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(addre
 12:                                               ; preds = %.split.us
   %13 = load ptr, ptr %6, align 8
   %14 = icmp eq ptr %13, @dyn_event_list
-  br i1 %14, label %.split8.us, label %.split.us, !llvm.loop !22
+  br i1 %14, label %.split8.us, label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %4, %23
   %15 = phi ptr [ %24, %23 ], [ %2, %4 ]
@@ -425,7 +425,7 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(addre
 23:                                               ; preds = %19, %.split
   %24 = load ptr, ptr %15, align 8
   %25 = icmp eq ptr %24, @dyn_event_list
-  br i1 %25, label %.split8.us, label %.split, !llvm.loop !22
+  br i1 %25, label %.split8.us, label %.split, !llvm.loop !25
 
 .split8.us:                                       ; preds = %23, %12
   %.pr = load ptr, ptr @dyn_event_list, align 8
@@ -448,7 +448,7 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(addre
 
 36:                                               ; preds = %.split9.us
   %37 = icmp eq ptr %29, @dyn_event_list
-  br i1 %37, label %.thread, label %.split9.us, !llvm.loop !23
+  br i1 %37, label %.thread, label %.split9.us, !llvm.loop !26
 
 .split9:                                          ; preds = %27, %48
   %38 = phi ptr [ %39, %48 ], [ %.pr, %27 ]
@@ -467,7 +467,7 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(addre
 
 48:                                               ; preds = %43, %.split9
   %49 = icmp eq ptr %39, @dyn_event_list
-  br i1 %49, label %.thread, label %.split9, !llvm.loop !23
+  br i1 %49, label %.thread, label %.split9, !llvm.loop !27
 
 .thread:                                          ; preds = %19, %.split.us, %43, %48, %36, %.split9.us, %1, %.split8.us
   %50 = phi i32 [ 0, %.split8.us ], [ 0, %1 ], [ %34, %.split9.us ], [ 0, %36 ], [ %46, %43 ], [ 0, %48 ], [ -16, %.split.us ], [ -16, %19 ]
@@ -700,7 +700,7 @@ define internal i32 @dyn_event_open(ptr readnone captures(none) %0, ptr noundef 
 24:                                               ; preds = %.preheader7
   %25 = load ptr, ptr %18, align 8
   %26 = icmp eq ptr %25, @dyn_event_list
-  br i1 %26, label %27, label %.preheader7, !llvm.loop !22
+  br i1 %26, label %27, label %.preheader7, !llvm.loop !25
 
 27:                                               ; preds = %24
   %.pr = load ptr, ptr @dyn_event_list, align 8
@@ -720,7 +720,7 @@ define internal i32 @dyn_event_open(ptr readnone captures(none) %0, ptr noundef 
 
 37:                                               ; preds = %.preheader
   %38 = icmp eq ptr %30, @dyn_event_list
-  br i1 %38, label %.thread, label %.preheader, !llvm.loop !23
+  br i1 %38, label %.thread, label %.preheader, !llvm.loop !27
 
 .thread:                                          ; preds = %.preheader7, %37, %.preheader, %15, %27
   %39 = phi i32 [ 0, %27 ], [ 0, %15 ], [ %35, %.preheader ], [ 0, %37 ], [ -16, %.preheader7 ]
@@ -765,7 +765,7 @@ define internal i32 @create_dyn_event(ptr noundef %0) #0 align 16 {
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr %11, align 8
   %10 = icmp eq ptr %9, @dyn_event_ops_list
-  br i1 %10, label %16, label %.preheader, !llvm.loop !24
+  br i1 %10, label %16, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %5, %8
   %11 = phi ptr [ %9, %8 ], [ %6, %5 ]
@@ -773,7 +773,7 @@ define internal i32 @create_dyn_event(ptr noundef %0) #0 align 16 {
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0) #9
   %15 = icmp eq i32 %14, -125
-  br i1 %15, label %8, label %.thread, !llvm.loop !24
+  br i1 %15, label %8, label %.thread, !llvm.loop !28
 
 .thread:                                          ; preds = %.preheader, %5
   %.ph = phi i32 [ -19, %5 ], [ %14, %.preheader ]
@@ -852,7 +852,11 @@ attributes #10 = { cold nounwind }
 !18 = !{i64 2156027115, i64 2156026926, i64 2156026976, i64 2156027022, i64 2156027050}
 !19 = !{i64 2149053536, i64 2149053575, i64 2149053596, i64 2149053633, i64 2149053656, i64 2149053526}
 !20 = !{!"auto-init"}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
+!21 = distinct !{!21, !11, !12, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
+!24 = distinct !{!24, !11, !12, !22}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12, !22}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}

@@ -179,7 +179,7 @@ _is_fd_skipped.exit.thread.us.i:                  ; preds = %.lr.ph.i, %_is_fd_s
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %31 = load i64, ptr %3, align 8
   %32 = icmp ugt i64 %31, %indvars.iv.next9.i
-  br i1 %32, label %_is_fd_skipped.exit.thread.us.i, label %_slow_closeall.exit, !llvm.loop !11
+  br i1 %32, label %_is_fd_skipped.exit.thread.us.i, label %_slow_closeall.exit, !llvm.loop !12
 
 .preheader.i.preheader.i:                         ; preds = %.lr.ph.i, %40
   %33 = phi i64 [ %41, %40 ], [ %26, %.lr.ph.i ]
@@ -195,7 +195,7 @@ _is_fd_skipped.exit.thread.us.i:                  ; preds = %.lr.ph.i, %_is_fd_s
   %38 = icmp ne i32 %36, %34
   %or.cond.not.i.i = and i1 %38, %37
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %or.cond.not.i.i, label %.preheader.i.i, label %_is_fd_skipped.exit.i, !llvm.loop !12
+  br i1 %or.cond.not.i.i, label %.preheader.i.i, label %_is_fd_skipped.exit.i, !llvm.loop !13
 
 _is_fd_skipped.exit.i:                            ; preds = %.preheader.i.i
   br i1 %37, label %40, label %_is_fd_skipped.exit.thread.i
@@ -209,7 +209,7 @@ _is_fd_skipped.exit.thread.i:                     ; preds = %_is_fd_skipped.exit
   %41 = phi i64 [ %33, %_is_fd_skipped.exit.i ], [ %.pre12.i, %_is_fd_skipped.exit.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = icmp ugt i64 %41, %indvars.iv.next.i
-  br i1 %42, label %.preheader.i.preheader.i, label %_slow_closeall.exit, !llvm.loop !11
+  br i1 %42, label %.preheader.i.preheader.i, label %_slow_closeall.exit, !llvm.loop !14
 
 _slow_closeall.exit:                              ; preds = %40, %_is_fd_skipped.exit.thread.us.i, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
@@ -237,7 +237,7 @@ _slow_closeall.exit:                              ; preds = %40, %_is_fd_skipped
   %53 = icmp ne i32 %51, %49
   %or.cond.not.i = and i1 %53, %52
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
-  br i1 %or.cond.not.i, label %.preheader.i, label %_is_fd_skipped.exit, !llvm.loop !12
+  br i1 %or.cond.not.i, label %.preheader.i, label %_is_fd_skipped.exit, !llvm.loop !13
 
 _is_fd_skipped.exit:                              ; preds = %.preheader.i
   br i1 %52, label %55, label %_is_fd_skipped.exit.thread
@@ -249,7 +249,7 @@ _is_fd_skipped.exit.thread:                       ; preds = %_is_fd_skipped.exit
 55:                                               ; preds = %46, %_is_fd_skipped.exit, %_is_fd_skipped.exit.thread, %.lr.ph.split
   %56 = tail call ptr @readdir(ptr noundef nonnull %4) #10
   %.not13 = icmp eq ptr %56, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  br i1 %.not13, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %55, %14, %.preheader
   %57 = tail call i32 @closedir(ptr noundef nonnull %4)
@@ -689,7 +689,7 @@ define dso_local range(i32 -1, 1) i32 @wait_fd_readable(i32 noundef %0, i32 noun
   %25 = mul nsw i32 %24, 1000
   %26 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %25) #10
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 28:                                               ; preds = %._crit_edge, %19, %14
   %.08 = phi i32 [ -1, %14 ], [ -1, %19 ], [ %., %._crit_edge ]
@@ -729,7 +729,7 @@ define dso_local noundef zeroext i1 @fd_is_writable(i32 noundef %0) local_unname
 10:                                               ; preds = %8, %8
   %11 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 0) #10
   %12 = icmp eq i32 %11, -1
-  br i1 %12, label %8, label %._crit_edge, !llvm.loop !14
+  br i1 %12, label %8, label %._crit_edge, !llvm.loop !17
 
 13:                                               ; preds = %8
   %14 = call i32 @get_log_level() #10
@@ -800,7 +800,7 @@ define dso_local i32 @fsync_and_close(i32 noundef %0, ptr noundef %1) local_unna
 15:                                               ; preds = %10, %13
   %16 = add nuw nsw i32 %.024, 1
   %17 = icmp samesign ult i32 %.024, 3
-  br i1 %17, label %8, label %.thread, !llvm.loop !15
+  br i1 %17, label %8, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %8, %15
   %18 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
@@ -827,7 +827,7 @@ define dso_local i32 @fsync_and_close(i32 noundef %0, ptr noundef %1) local_unna
 27:                                               ; preds = %22, %25
   %28 = add nuw nsw i32 %.125, 1
   %29 = icmp samesign ult i32 %.125, 3
-  br i1 %29, label %20, label %.thread28, !llvm.loop !16
+  br i1 %29, label %20, label %.thread28, !llvm.loop !19
 
 .thread28:                                        ; preds = %20, %27
   %spec.select = phi i32 [ %21, %27 ], [ %9, %20 ]
@@ -1114,7 +1114,7 @@ _mkdir.exit.thread:                               ; preds = %10, %.lr.ph, %_mkdi
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %20 = tail call ptr @xstrchr(ptr noundef nonnull %19, i32 noundef 47) #10
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_mkdir.exit.thread, %3
   br i1 %2, label %21, label %_mkdir.exit14
@@ -1180,7 +1180,7 @@ sub_0:                                            ; preds = %.preheader, %52
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %52, label %sub_136, !llvm.loop !18
+  br i1 %12, label %52, label %sub_136, !llvm.loop !21
 
 sub_136:                                          ; preds = %.tail
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -1192,7 +1192,7 @@ sub_136:                                          ; preds = %.tail
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %52, label %.tail34.thread, !llvm.loop !18
+  br i1 %17, label %52, label %.tail34.thread, !llvm.loop !21
 
 .tail34.thread:                                   ; preds = %sub_0, %sub_136, %.tail34
   %18 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 0) #10
@@ -1202,11 +1202,11 @@ sub_136:                                          ; preds = %.tail
 19:                                               ; preds = %.tail34.thread
   %20 = tail call i32 @get_log_level() #10
   %21 = icmp sgt i32 %20, 4
-  br i1 %21, label %22, label %52, !llvm.loop !18
+  br i1 %21, label %22, label %52, !llvm.loop !21
 
 22:                                               ; preds = %19
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
-  br label %52, !llvm.loop !18
+  br label %52, !llvm.loop !21
 
 23:                                               ; preds = %.tail34.thread
   %24 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512) #10
@@ -1216,11 +1216,11 @@ sub_136:                                          ; preds = %.tail
 25:                                               ; preds = %23
   %26 = tail call i32 @get_log_level() #10
   %27 = icmp sgt i32 %26, 4
-  br i1 %27, label %28, label %52, !llvm.loop !18
+  br i1 %27, label %28, label %52, !llvm.loop !21
 
 28:                                               ; preds = %25
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
-  br label %52, !llvm.loop !18
+  br label %52, !llvm.loop !21
 
 29:                                               ; preds = %23
   %30 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 196608) #10
@@ -1238,7 +1238,7 @@ sub_136:                                          ; preds = %.tail
 
 36:                                               ; preds = %35, %34
   %37 = add nsw i32 %.02539, 1
-  br label %52, !llvm.loop !18
+  br label %52, !llvm.loop !21
 
 38:                                               ; preds = %29
   br i1 %33, label %39, label %40
@@ -1912,14 +1912,17 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
 !18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

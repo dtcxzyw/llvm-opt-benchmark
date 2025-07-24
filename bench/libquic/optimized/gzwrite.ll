@@ -438,7 +438,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 69:                                               ; preds = %64
   %70 = load i32, ptr %13, align 8, !tbaa !30
   %.not52.us63 = icmp eq i32 %65, %70
-  br i1 %.not52.us63, label %.split58.us, label %.preheader.split.split.us, !llvm.loop !34
+  br i1 %.not52.us63, label %.split58.us, label %.preheader.split.split.us, !llvm.loop !36
 
 71:                                               ; preds = %10
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -459,7 +459,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 
 83:                                               ; preds = %81, %71
   %84 = tail call ptr @__errno_location() #16
-  %85 = load i32, ptr %84, align 4, !tbaa !35
+  %85 = load i32, ptr %84, align 4, !tbaa !37
   %86 = tail call ptr @strerror(i32 noundef %85) #14
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef %86) #14
   br label %125
@@ -502,7 +502,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 
 .split.us:                                        ; preds = %98, %27, %52
   %104 = tail call ptr @__errno_location() #16
-  %105 = load i32, ptr %104, align 4, !tbaa !35
+  %105 = load i32, ptr %104, align 4, !tbaa !37
   %106 = tail call ptr @strerror(i32 noundef %105) #14
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef %106) #14
   br label %125
@@ -542,7 +542,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 120:                                              ; preds = %116
   %121 = load i32, ptr %13, align 8, !tbaa !30
   %.not52 = icmp eq i32 %117, %121
-  br i1 %.not52, label %.split58.us, label %.preheader.split.split, !llvm.loop !34
+  br i1 %.not52, label %.split58.us, label %.preheader.split.split, !llvm.loop !38
 
 .split58.us:                                      ; preds = %120, %44, %69
   %122 = icmp eq i32 %1, 4
@@ -686,7 +686,7 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
   %63 = trunc i32 %1 to i8
   %64 = and i64 %59, 4294967295
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 %64
-  store i8 %63, ptr %65, align 1, !tbaa !36
+  store i8 %63, ptr %65, align 1, !tbaa !39
   %66 = load i32, ptr %46, align 8, !tbaa !18
   %67 = add i32 %66, 1
   store i32 %67, ptr %46, align 8, !tbaa !18
@@ -699,7 +699,7 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
 
 72:                                               ; preds = %52, %gz_zero.exit
   %73 = trunc i32 %1 to i8
-  store i8 %73, ptr %3, align 1, !tbaa !36
+  store i8 %73, ptr %3, align 1, !tbaa !39
   %74 = call i32 @MOZ_Z_gzwrite(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1)
   %.not32 = icmp eq i32 %74, 1
   %75 = and i32 %1, 255
@@ -839,7 +839,7 @@ gz_zero.exit:                                     ; preds = %33, %30, %19
   %58 = add nsw i32 %55, -1
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
-  store i8 0, ptr %60, align 1, !tbaa !36
+  store i8 0, ptr %60, align 1, !tbaa !39
   %61 = load ptr, ptr %56, align 8, !tbaa !21
   %62 = sext i32 %55 to i64
   %63 = tail call i32 @vsnprintf(ptr noundef %61, i64 noundef %62, ptr noundef %1, ptr noundef %2) #14
@@ -851,7 +851,7 @@ gz_zero.exit:                                     ; preds = %33, %30, %19
 65:                                               ; preds = %54
   %66 = load ptr, ptr %56, align 8, !tbaa !21
   %67 = getelementptr inbounds i8, ptr %66, i64 %59
-  %68 = load i8, ptr %67, align 1, !tbaa !36
+  %68 = load i8, ptr %67, align 1, !tbaa !39
   %.not38 = icmp eq i8 %68, 0
   br i1 %.not38, label %69, label %gz_zero.exit.thread
 
@@ -1244,7 +1244,7 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
 59:                                               ; preds = %56, %45
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %61 = load ptr, ptr %60, align 8, !tbaa !40
   tail call void @free(ptr noundef %61) #14
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !33
@@ -1348,7 +1348,10 @@ attributes #17 = { nounwind willreturn memory(read) }
 !31 = !{!12, !9, i64 24}
 !32 = !{!4, !9, i64 8}
 !33 = !{!4, !6, i64 28}
-!34 = distinct !{!34, !20}
-!35 = !{!6, !6, i64 0}
-!36 = !{!7, !7, i64 0}
-!37 = !{!4, !9, i64 32}
+!34 = distinct !{!34, !20, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !20, !35}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !20}
+!39 = !{!7, !7, i64 0}
+!40 = !{!4, !9, i64 32}

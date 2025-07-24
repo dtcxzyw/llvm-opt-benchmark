@@ -319,7 +319,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %104, label %.split.us, label %.thread26, !llvm.loop !12
 
 .thread24:                                        ; preds = %.split
-  br i1 %110, label %.split, label %.thread26, !llvm.loop !12
+  br i1 %110, label %.split, label %.thread26, !llvm.loop !14
 
 .split:                                           ; preds = %.loopexit38, %.thread24
   %110 = phi i1 [ false, %.thread24 ], [ true, %.loopexit38 ]
@@ -356,7 +356,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %130 = getelementptr i8, ptr %64, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp eq i8 %131, %116
-  br i1 %132, label %.loopexit36.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %132, label %.loopexit36.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit36.loopexit:                             ; preds = %128
   %133 = add i64 %126, 2
@@ -401,7 +401,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %153, label %157, label %154
 
 154:                                              ; preds = %151
-  %155 = load i8, ptr @loose, align 1, !range !14, !noundef !15
+  %155 = load i8, ptr @loose, align 1, !range !16, !noundef !17
   %156 = icmp eq i8 %155, 0
   br i1 %156, label %177, label %157
 
@@ -458,7 +458,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 185:                                              ; preds = %188
   %186 = add nuw nsw i64 %189, 1
   %187 = icmp eq i64 %186, %184
-  br i1 %187, label %193, label %188, !llvm.loop !16
+  br i1 %187, label %193, label %188, !llvm.loop !18
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
@@ -649,7 +649,7 @@ define internal i32 @try_rfc959(ptr noundef readonly captures(none) %0, i64 noun
   %36 = icmp ugt i64 %1, %35
   %37 = icmp ult i32 %32, 6
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.preheader, label %.thread, !llvm.loop !17
+  br i1 %38, label %.preheader, label %.thread, !llvm.loop !19
 
 39:                                               ; preds = %26
   %40 = load i32, ptr %6, align 16
@@ -792,7 +792,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   %65 = icmp ugt i64 %34, %64
   %66 = icmp ult i32 %61, 4
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %36, label %.thread, !llvm.loop !17
+  br i1 %67, label %36, label %.thread, !llvm.loop !19
 
 68:                                               ; preds = %55
   %69 = load i32, ptr %7, align 16
@@ -878,7 +878,7 @@ select.unfold11:                                  ; preds = %84, %.thread
   %122 = add i32 %105, 1
   %123 = sext i32 %122 to i64
   %124 = icmp ugt i64 %1, %123
-  br i1 %124, label %.preheader, label %.thread12, !llvm.loop !18
+  br i1 %124, label %.preheader, label %.thread12, !llvm.loop !20
 
 .thread12:                                        ; preds = %118, %115, %84, %112, %110, %98, %select.unfold11, %27, %24, %17, %9, %5
   %125 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %9 ], [ 0, %27 ], [ 0, %24 ], [ 0, %select.unfold11 ], [ %114, %112 ], [ 0, %110 ], [ 0, %98 ], [ 0, %84 ], [ 0, %115 ], [ 0, %118 ]
@@ -905,7 +905,7 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
   %16 = add i32 %9, 1
   %17 = sext i32 %16 to i64
   %18 = icmp ugt i64 %1, %17
-  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %15, %.preheader, %5
   %19 = phi i32 [ 0, %5 ], [ %9, %.preheader ], [ %16, %15 ]
@@ -965,7 +965,7 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
   %54 = icmp ugt i64 %26, %53
   %55 = icmp ult i32 %50, 6
   %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %27, label %.thread, !llvm.loop !17
+  br i1 %56, label %27, label %.thread, !llvm.loop !19
 
 57:                                               ; preds = %46
   %58 = load i32, ptr %6, align 16
@@ -1067,7 +1067,7 @@ define internal i32 @try_epsv_response(ptr noundef readonly captures(none) %0, i
   %44 = add i32 %27, 1
   %45 = sext i32 %44 to i64
   %46 = icmp ugt i64 %1, %45
-  br i1 %46, label %24, label %.loopexit, !llvm.loop !18
+  br i1 %46, label %24, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %40, %37, %34, %32, %18, %14, %7, %5
   %47 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %14 ], [ 0, %7 ], [ %36, %34 ], [ 0, %32 ], [ 0, %37 ], [ 0, %40 ]
@@ -1120,11 +1120,13 @@ attributes #12 = { cold nounwind }
 !9 = !{!"branch_weights", i32 2000, i32 1}
 !10 = !{!"branch_weights", i32 1, i32 2000}
 !11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
+!12 = distinct !{!12, !6, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{i8 0, i8 2}
+!17 = !{}
 !18 = distinct !{!18, !6, !7}
 !19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}

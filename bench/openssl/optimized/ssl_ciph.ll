@@ -3748,7 +3748,7 @@ switch.early.test:                                ; preds = %25
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %25
   %30 = getelementptr inbounds nuw i8, ptr %.3213, i64 1
   %31 = add nuw nsw i32 %.0198, 1
-  br label %25, !llvm.loop !162
+  br label %25, !llvm.loop !164
 
 32:                                               ; preds = %switch.early.test
   %33 = icmp eq i32 %.0198, 0
@@ -3775,7 +3775,7 @@ switch.early.test:                                ; preds = %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %39 = phi ptr [ %36, %.lr.ph ], [ %60, %58 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !163
+  %41 = load ptr, ptr %40, align 8, !tbaa !165
   %42 = tail call i32 @strncmp(ptr noundef %.2212, ptr noundef %41, i64 noundef %37) #14
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %48
@@ -3788,7 +3788,7 @@ switch.early.test:                                ; preds = %25
 
 48:                                               ; preds = %44, %38
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !164
+  %50 = load ptr, ptr %49, align 8, !tbaa !166
   %.not255 = icmp eq ptr %50, null
   br i1 %.not255, label %58, label %51
 
@@ -3808,7 +3808,7 @@ switch.early.test:                                ; preds = %25
   %59 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
   %60 = load ptr, ptr %59, align 8, !tbaa !151
   %.not = icmp eq ptr %60, null
-  br i1 %.not, label %.critedge284, label %38, !llvm.loop !165
+  br i1 %.not, label %.critedge284, label %38, !llvm.loop !167
 
 61:                                               ; preds = %44, %54
   %62 = getelementptr inbounds nuw i8, ptr %39, i64 28
@@ -3952,7 +3952,7 @@ switch.early.test:                                ; preds = %25
 .thread306:                                       ; preds = %114
   %118 = zext nneg i8 %116 to i32
   %119 = add nsw i32 %118, -48
-  store i32 %119, ptr %6, align 8, !tbaa !166
+  store i32 %119, ptr %6, align 8, !tbaa !168
   br label %123
 
 120:                                              ; preds = %108
@@ -3988,7 +3988,7 @@ switch.early.test:                                ; preds = %25
 
 .critedge287:                                     ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  br label %125, !llvm.loop !167
+  br label %125, !llvm.loop !169
 
 .critedge284.thread309:                           ; preds = %107
   tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %.3, i32 noundef %.2232, i32 noundef %.2229, i32 noundef %.2226, i32 noundef %.2223, i32 noundef %.2216, i32 noundef %.3220, i32 noundef %.0205409412, i32 noundef -1, ptr noundef %1, ptr noundef %2)
@@ -4008,7 +4008,7 @@ switch.early.test:                                ; preds = %25
 
 .critedge290:                                     ; preds = %128
   %130 = getelementptr inbounds nuw i8, ptr %.8, i64 1
-  br label %128, !llvm.loop !168
+  br label %128, !llvm.loop !170
 
 .critedge30:                                      ; preds = %125, %125, %125, %125, %125, %128, %128, %128, %128, %128, %.critedge284.thread309
   %131 = phi i8 [ %.pr344, %.critedge284.thread309 ], [ %129, %128 ], [ %129, %128 ], [ %129, %128 ], [ %129, %128 ], [ %129, %128 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ]
@@ -4314,7 +4314,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   %.024 = phi ptr [ @.str.25, %75 ], [ @.str.53, %68 ], [ @.str.54, %69 ], [ @.str.55, %70 ], [ @.str.56, %71 ], [ @.str.57, %72 ], [ @.str.58, %73 ], [ @.str.59, %74 ], [ @.str.52, %67 ]
   %77 = zext nneg i32 %.022 to i64
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !163
+  %79 = load ptr, ptr %78, align 8, !tbaa !165
   %80 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.021, i64 noundef %77, ptr noundef nonnull @.str.15, ptr noundef %79, ptr noundef %21, ptr noundef nonnull %.023, ptr noundef nonnull %.026, ptr noundef nonnull %.025, ptr noundef nonnull %.024) #13
   br label %81
 
@@ -4354,7 +4354,7 @@ define ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_null) %
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !163
+  %4 = load ptr, ptr %3, align 8, !tbaa !165
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -4369,7 +4369,7 @@ define ptr @SSL_CIPHER_standard_name(ptr noundef readonly captures(address_is_nu
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !164
+  %4 = load ptr, ptr %3, align 8, !tbaa !166
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -4389,7 +4389,7 @@ define ptr @OPENSSL_cipher_name(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !163
+  %7 = load ptr, ptr %6, align 8, !tbaa !165
   br label %SSL_CIPHER_get_name.exit
 
 SSL_CIPHER_get_name.exit:                         ; preds = %5, %3, %1
@@ -4410,7 +4410,7 @@ define i32 @SSL_CIPHER_get_bits(ptr noundef readonly captures(address_is_null) %
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load i32, ptr %5, align 8, !tbaa !169
+  %6 = load i32, ptr %5, align 8, !tbaa !171
   store i32 %6, ptr %1, align 4, !tbaa !60
   br label %7
 
@@ -4568,7 +4568,7 @@ declare ptr @COMP_get_name(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @SSL_COMP_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !170
+  %3 = load ptr, ptr %2, align 8, !tbaa !172
   ret ptr %3
 }
 
@@ -4581,9 +4581,9 @@ define i32 @SSL_COMP_get_id(ptr noundef readonly captures(none) %0) local_unname
 ; Function Attrs: nounwind uwtable
 define ptr @ssl_get_cipher_by_char(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !171
+  %5 = load ptr, ptr %4, align 8, !tbaa !173
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %7 = load ptr, ptr %6, align 8, !tbaa !172
+  %7 = load ptr, ptr %6, align 8, !tbaa !174
   %8 = tail call ptr %7(ptr noundef %1) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -4608,9 +4608,9 @@ define ptr @ssl_get_cipher_by_char(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define ptr @SSL_CIPHER_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !173
+  %4 = load ptr, ptr %3, align 8, !tbaa !175
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %6 = load ptr, ptr %5, align 8, !tbaa !172
+  %6 = load ptr, ptr %5, align 8, !tbaa !174
   %7 = tail call ptr %6(ptr noundef %1) #13
   ret ptr %7
 }
@@ -4757,7 +4757,7 @@ define range(i32 -1, 14) i32 @ssl_get_md_idx(i32 noundef %0) local_unnamed_addr 
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !174
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !176
 
 .split.loop.exit9:                                ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5197,16 +5197,18 @@ attributes #14 = { nounwind willreturn memory(read) }
 !159 = distinct !{!159, !51}
 !160 = distinct !{!160, !51}
 !161 = distinct !{!161, !51}
-!162 = distinct !{!162, !51}
-!163 = !{!62, !31, i64 8}
-!164 = !{!62, !31, i64 16}
-!165 = distinct !{!165, !51}
-!166 = !{!129, !15, i64 152}
+!162 = distinct !{!162, !51, !163}
+!163 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!164 = distinct !{!164, !51}
+!165 = !{!62, !31, i64 8}
+!166 = !{!62, !31, i64 16}
 !167 = distinct !{!167, !51}
-!168 = distinct !{!168, !51}
-!169 = !{!62, !15, i64 72}
-!170 = !{!76, !31, i64 8}
-!171 = !{!81, !9, i64 24}
-!172 = !{!132, !6, i64 168}
-!173 = !{!82, !9, i64 24}
-!174 = distinct !{!174, !51}
+!168 = !{!129, !15, i64 152}
+!169 = distinct !{!169, !51}
+!170 = distinct !{!170, !51}
+!171 = !{!62, !15, i64 72}
+!172 = !{!76, !31, i64 8}
+!173 = !{!81, !9, i64 24}
+!174 = !{!132, !6, i64 168}
+!175 = !{!82, !9, i64 24}
+!176 = distinct !{!176, !51}

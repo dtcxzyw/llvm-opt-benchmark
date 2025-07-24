@@ -452,7 +452,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(200) @__const.parse_credential_file.entry, i64 200, i1 false)
   %8 = tail call ptr @git_fopen(ptr noundef %0, ptr noundef nonnull @.str.11) #13
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %48, label %.preheader
+  br i1 %.not, label %36, label %.preheader
 
 .preheader:                                       ; preds = %5
   %9 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
@@ -467,137 +467,111 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not27, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
-
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %23
-  %.030.us.us = phi i32 [ %.2.us.us, %23 ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
+  %.030.us = phi i32 [ %.2.us, %22 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8, !tbaa !36
   %14 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %13, i32 noundef 1) #13
   %15 = icmp eq i32 %14, 0
   %16 = load ptr, ptr %11, align 8
   %17 = icmp ne ptr %16, null
-  %or.cond.us.us = select i1 %15, i1 %17, i1 false
+  %or.cond.us = select i1 %15, i1 %17, i1 false
   %18 = load ptr, ptr %12, align 8
   %19 = icmp ne ptr %18, null
-  %or.cond5.us.us = select i1 %or.cond.us.us, i1 %19, i1 false
-  br i1 %or.cond5.us.us, label %20, label %22
+  %or.cond5.us = select i1 %or.cond.us, i1 %19, i1 false
+  br i1 %or.cond5.us, label %20, label %22
 
-20:                                               ; preds = %.lr.ph.split.us.split.us
+20:                                               ; preds = %.lr.ph.split.us
   %21 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
-  %.not25.us.us = icmp eq i32 %21, 0
-  br i1 %.not25.us.us, label %22, label %23
+  %.not25.us = icmp eq i32 %21, 0
+  %brmerge = or i1 %.not25.us, %.not27
+  %.030.us.mux = select i1 %.not25.us, i32 %.030.us, i32 1
+  br i1 %brmerge, label %22, label %.split.us
 
-22:                                               ; preds = %20, %.lr.ph.split.us.split.us
-  br label %23
-
-23:                                               ; preds = %20, %22
-  %.2.us.us = phi i32 [ %.030.us.us, %22 ], [ 1, %20 ]
-  %24 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
-  %.not24.us.us = icmp eq i32 %24, -1
-  br i1 %.not24.us.us, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !39
-
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %34
-  %25 = load ptr, ptr %10, align 8, !tbaa !36
-  %26 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %25, i32 noundef 1) #13
-  %27 = icmp eq i32 %26, 0
-  %28 = load ptr, ptr %11, align 8
-  %29 = icmp ne ptr %28, null
-  %or.cond.us = select i1 %27, i1 %29, i1 false
-  %30 = load ptr, ptr %12, align 8
-  %31 = icmp ne ptr %30, null
-  %or.cond5.us = select i1 %or.cond.us, i1 %31, i1 false
-  br i1 %or.cond5.us, label %32, label %34
-
-32:                                               ; preds = %.lr.ph.split.us.split
-  %33 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
-  %.not25.us = icmp eq i32 %33, 0
-  br i1 %.not25.us, label %34, label %.split.us
-
-34:                                               ; preds = %32, %.lr.ph.split.us.split
-  %35 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
-  %.not24.us = icmp eq i32 %35, -1
-  br i1 %.not24.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !39
+22:                                               ; preds = %20, %.lr.ph.split.us
+  %.2.us = phi i32 [ %.030.us.mux, %20 ], [ %.030.us, %.lr.ph.split.us ]
+  %23 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %.not24.us = icmp eq i32 %23, -1
+  br i1 %.not24.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not27, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %46
-  %.030.us31 = phi i32 [ %.2.us35, %46 ], [ 0, %.lr.ph.split ]
-  %36 = load ptr, ptr %10, align 8, !tbaa !36
-  %37 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %36, i32 noundef 1) #13
-  %38 = icmp eq i32 %37, 0
-  %39 = load ptr, ptr %11, align 8
-  %40 = icmp ne ptr %39, null
-  %or.cond.us32 = select i1 %38, i1 %40, i1 false
-  %41 = load ptr, ptr %12, align 8
-  %42 = icmp ne ptr %41, null
-  %or.cond5.us33 = select i1 %or.cond.us32, i1 %42, i1 false
-  br i1 %or.cond5.us33, label %43, label %45
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %34
+  %.030.us31 = phi i32 [ %.2.us35, %34 ], [ 0, %.lr.ph.split ]
+  %24 = load ptr, ptr %10, align 8, !tbaa !36
+  %25 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %24, i32 noundef 1) #13
+  %26 = icmp eq i32 %25, 0
+  %27 = load ptr, ptr %11, align 8
+  %28 = icmp ne ptr %27, null
+  %or.cond.us32 = select i1 %26, i1 %28, i1 false
+  %29 = load ptr, ptr %12, align 8
+  %30 = icmp ne ptr %29, null
+  %or.cond5.us33 = select i1 %or.cond.us32, i1 %30, i1 false
+  br i1 %or.cond5.us33, label %31, label %33
 
-43:                                               ; preds = %.lr.ph.split.split.us
-  %44 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
-  %.not25.us34 = icmp eq i32 %44, 0
-  br i1 %.not25.us34, label %45, label %46
+31:                                               ; preds = %.lr.ph.split.split.us
+  %32 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
+  %.not25.us34 = icmp eq i32 %32, 0
+  br i1 %.not25.us34, label %33, label %34
 
-45:                                               ; preds = %43, %.lr.ph.split.split.us
-  call void %3(ptr noundef nonnull %6) #13, !callees !41
-  br label %46
+33:                                               ; preds = %31, %.lr.ph.split.split.us
+  call void %3(ptr noundef nonnull %6) #13, !callees !42
+  br label %34
 
-46:                                               ; preds = %43, %45
-  %.2.us35 = phi i32 [ %.030.us31, %45 ], [ 1, %43 ]
-  %47 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
-  %.not24.us36 = icmp eq i32 %47, -1
-  br i1 %.not24.us36, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !39
+34:                                               ; preds = %31, %33
+  %.2.us35 = phi i32 [ %.030.us31, %33 ], [ 1, %31 ]
+  %35 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %.not24.us36 = icmp eq i32 %35, -1
+  br i1 %.not24.us36, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !43
 
-48:                                               ; preds = %5
-  %49 = tail call ptr @__errno_location() #16
-  %50 = load i32, ptr %49, align 4, !tbaa !42
-  switch i32 %50, label %51 [
-    i32 2, label %64
-    i32 13, label %64
+36:                                               ; preds = %5
+  %37 = tail call ptr @__errno_location() #16
+  %38 = load i32, ptr %37, align 4, !tbaa !44
+  switch i32 %38, label %39 [
+    i32 2, label %52
+    i32 13, label %52
   ]
 
-51:                                               ; preds = %48
+39:                                               ; preds = %36
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.12, ptr noundef %0) #14
   unreachable
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %61
-  %52 = load ptr, ptr %10, align 8, !tbaa !36
-  %53 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %52, i32 noundef 1) #13
-  %54 = icmp eq i32 %53, 0
-  %55 = load ptr, ptr %11, align 8
-  %56 = icmp ne ptr %55, null
-  %or.cond = select i1 %54, i1 %56, i1 false
-  %57 = load ptr, ptr %12, align 8
-  %58 = icmp ne ptr %57, null
-  %or.cond5 = select i1 %or.cond, i1 %58, i1 false
-  br i1 %or.cond5, label %59, label %61
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %49
+  %40 = load ptr, ptr %10, align 8, !tbaa !36
+  %41 = call i32 @credential_from_url_gently(ptr noundef nonnull %7, ptr noundef %40, i32 noundef 1) #13
+  %42 = icmp eq i32 %41, 0
+  %43 = load ptr, ptr %11, align 8
+  %44 = icmp ne ptr %43, null
+  %or.cond = select i1 %42, i1 %44, i1 false
+  %45 = load ptr, ptr %12, align 8
+  %46 = icmp ne ptr %45, null
+  %or.cond5 = select i1 %or.cond, i1 %46, i1 false
+  br i1 %or.cond5, label %47, label %49
 
-59:                                               ; preds = %.lr.ph.split.split
-  %60 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
-  %.not25 = icmp eq i32 %60, 0
-  br i1 %.not25, label %61, label %.split.us
+47:                                               ; preds = %.lr.ph.split.split
+  %48 = call i32 @credential_match(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %4) #13
+  %.not25 = icmp eq i32 %48, 0
+  br i1 %.not25, label %49, label %.split.us
 
-.split.us:                                        ; preds = %59, %32
-  call void %2(ptr noundef nonnull %7) #13, !callees !43
+.split.us:                                        ; preds = %47, %20
+  call void %2(ptr noundef nonnull %7) #13, !callees !45
   br label %.loopexit
 
-61:                                               ; preds = %59, %.lr.ph.split.split
-  call void %3(ptr noundef nonnull %6) #13, !callees !41
-  %62 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
-  %.not24 = icmp eq i32 %62, -1
-  br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !39
+49:                                               ; preds = %47, %.lr.ph.split.split
+  call void %3(ptr noundef nonnull %6) #13, !callees !42
+  %50 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %.not24 = icmp eq i32 %50, -1
+  br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !46
 
-.loopexit:                                        ; preds = %61, %46, %34, %23, %.preheader, %.split.us
-  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us.us, %23 ], [ 0, %34 ], [ %.2.us35, %46 ], [ 0, %61 ]
+.loopexit:                                        ; preds = %49, %34, %22, %.preheader, %.split.us
+  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us, %22 ], [ %.2.us35, %34 ], [ 0, %49 ]
   call void @credential_clear(ptr noundef nonnull %7) #13
   call void @strbuf_release(ptr noundef nonnull %6) #13
-  %63 = call i32 @fclose(ptr noundef nonnull %8)
-  br label %64
+  %51 = call i32 @fclose(ptr noundef nonnull %8)
+  br label %52
 
-64:                                               ; preds = %48, %48, %.loopexit
-  %.018 = phi i32 [ %.1, %.loopexit ], [ 0, %48 ], [ 0, %48 ]
+52:                                               ; preds = %36, %36, %.loopexit
+  %.018 = phi i32 [ %.1, %.loopexit ], [ 0, %36 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   ret i32 %.018
@@ -643,10 +617,10 @@ declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) lo
 define internal fastcc void @rewrite_credential_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  store i32 1000, ptr %5, align 4, !tbaa !42
-  %6 = load ptr, ptr @the_repository, align 8, !tbaa !44
+  store i32 1000, ptr %5, align 4, !tbaa !44
+  %6 = load ptr, ptr @the_repository, align 8, !tbaa !47
   %7 = call i32 @repo_config_get_int(ptr noundef %6, ptr noundef nonnull @.str.15, ptr noundef nonnull %5) #13
-  %8 = load i32, ptr %5, align 4, !tbaa !42
+  %8 = load i32, ptr %5, align 4, !tbaa !44
   %9 = sext i32 %8 to i64
   %10 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @credential_lock, ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -2147483648, 2147483648) %9, i32 noundef 438) #13
   %11 = icmp slt i32 %10, 0
@@ -654,7 +628,7 @@ define internal fastcc void @rewrite_credential_file(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %4
   %13 = call fastcc ptr @_()
-  %14 = load i32, ptr %5, align 4, !tbaa !42
+  %14 = load i32, ptr %5, align 4, !tbaa !44
   call void (ptr, ...) @die_errno(ptr noundef %13, i32 noundef %14) #14
   unreachable
 
@@ -694,7 +668,7 @@ print_line.exit:                                  ; preds = %strbuf_avail.exit.i
   %26 = load i64, ptr %23, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !37
-  %28 = load ptr, ptr @credential_lock, align 8, !tbaa !46
+  %28 = load ptr, ptr @credential_lock, align 8, !tbaa !49
   %29 = call i32 @get_tempfile_fd(ptr noundef %28) #13
   %30 = load ptr, ptr %21, align 8, !tbaa !36
   %31 = load i64, ptr %23, align 8, !tbaa !35
@@ -718,7 +692,7 @@ print_line.exit:                                  ; preds = %strbuf_avail.exit.i
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #11 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !42
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -764,7 +738,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %11 = load i64, ptr %8, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !37
-  %13 = load ptr, ptr @credential_lock, align 8, !tbaa !46
+  %13 = load ptr, ptr @credential_lock, align 8, !tbaa !49
   %14 = tail call i32 @get_tempfile_fd(ptr noundef %13) #13
   %15 = load ptr, ptr %6, align 8, !tbaa !36
   %16 = load i64, ptr %8, align 8, !tbaa !35
@@ -921,13 +895,16 @@ attributes #16 = { nounwind willreturn memory(none) }
 !36 = !{!34, !5, i64 16}
 !37 = !{!7, !7, i64 0}
 !38 = !{!26, !5, i64 168}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{ptr @print_line}
-!42 = !{!11, !11, i64 0}
-!43 = !{ptr @print_entry}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS10repository", !6, i64 0}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"lock_file", !48, i64 0}
-!48 = !{!"p1 _ZTS8tempfile", !6, i64 0}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{ptr @print_line}
+!43 = distinct !{!43, !40, !41}
+!44 = !{!11, !11, i64 0}
+!45 = !{ptr @print_entry}
+!46 = distinct !{!46, !40}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS10repository", !6, i64 0}
+!49 = !{!50, !51, i64 0}
+!50 = !{!"lock_file", !51, i64 0}
+!51 = !{!"p1 _ZTS8tempfile", !6, i64 0}

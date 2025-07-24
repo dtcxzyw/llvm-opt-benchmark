@@ -1022,17 +1022,17 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   %80 = mul nsw i32 %29, %.1
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %28, i64 %81
-  %83 = load double, ptr %82, align 8, !tbaa !66
+  %83 = load double, ptr %82, align 8, !tbaa !67
   %84 = fptrunc double %83 to float
   %85 = load float, ptr %24, align 4, !tbaa !27
   %86 = fmul float %85, %84
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %88 = load double, ptr %87, align 8, !tbaa !66
+  %88 = load double, ptr %87, align 8, !tbaa !67
   %89 = fptrunc double %88 to float
   %90 = load float, ptr %30, align 4, !tbaa !27
   %91 = fmul float %90, %89
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %93 = load double, ptr %92, align 8, !tbaa !66
+  %93 = load double, ptr %92, align 8, !tbaa !67
   %94 = fptrunc double %93 to float
   %95 = load float, ptr %31, align 4, !tbaa !27
   %96 = fmul float %95, %94
@@ -1046,7 +1046,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !61
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split43.us, label %.split, !llvm.loop !64
+  br i1 %.not, label %.split43.us, label %.split, !llvm.loop !69
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1152,7 +1152,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   store float 0.000000e+00, ptr %.sroa.639.0..sroa_idx.us, align 4, !tbaa !61
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, -1
   %.not49 = icmp eq i64 %indvars.iv46, 0
-  br i1 %.not49, label %.split43.us, label %.split.us, !llvm.loop !68
+  br i1 %.not49, label %.split43.us, label %.split.us, !llvm.loop !70
 
 .split43.us:                                      ; preds = %79, %43
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1208,17 +1208,17 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   %80 = mul nsw i32 %29, %.1
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %28, i64 %81
-  %83 = load double, ptr %82, align 8, !tbaa !66
+  %83 = load double, ptr %82, align 8, !tbaa !67
   %84 = fptrunc double %83 to float
   %85 = load float, ptr %24, align 4, !tbaa !27
   %86 = fmul float %85, %84
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %88 = load double, ptr %87, align 8, !tbaa !66
+  %88 = load double, ptr %87, align 8, !tbaa !67
   %89 = fptrunc double %88 to float
   %90 = load float, ptr %30, align 4, !tbaa !27
   %91 = fmul float %90, %89
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %93 = load double, ptr %92, align 8, !tbaa !66
+  %93 = load double, ptr %92, align 8, !tbaa !67
   %94 = fptrunc double %93 to float
   %95 = load float, ptr %31, align 4, !tbaa !27
   %96 = fmul float %95, %94
@@ -1232,7 +1232,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !61
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split43.us, label %.split, !llvm.loop !68
+  br i1 %.not, label %.split43.us, label %.split, !llvm.loop !71
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1336,7 +1336,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   store float 0.000000e+00, ptr %.sroa.638.0..sroa_idx.us, align 4, !tbaa !61
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
   %.not63 = icmp eq i64 %indvars.iv58, 0
-  br i1 %.not63, label %.split41.us, label %.split.us, !llvm.loop !69
+  br i1 %.not63, label %.split41.us, label %.split.us, !llvm.loop !72
 
 .split:                                           ; preds = %3
   switch i32 %27, label %.split.split [
@@ -1352,17 +1352,17 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %66 = mul nsw i32 %31, %65
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %30, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !66
+  %69 = load double, ptr %68, align 8, !tbaa !67
   %70 = fptrunc double %69 to float
   %71 = load float, ptr %26, align 4, !tbaa !27
   %72 = fmul float %71, %70
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %74 = load double, ptr %73, align 8, !tbaa !66
+  %74 = load double, ptr %73, align 8, !tbaa !67
   %75 = fptrunc double %74 to float
   %76 = load float, ptr %32, align 4, !tbaa !27
   %77 = fmul float %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %79 = load double, ptr %78, align 8, !tbaa !66
+  %79 = load double, ptr %78, align 8, !tbaa !67
   %80 = fptrunc double %79 to float
   %81 = load float, ptr %33, align 4, !tbaa !27
   %82 = fmul float %81, %80
@@ -1376,7 +1376,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !61
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, -1
   %.not61 = icmp eq i64 %indvars.iv52, 0
-  br i1 %.not61, label %.split41.us, label %.split.split.us, !llvm.loop !69
+  br i1 %.not61, label %.split41.us, label %.split.split.us, !llvm.loop !73
 
 .split.split.us43:                                ; preds = %.split, %.split.split.us43
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split.split.us43 ], [ 2, %.split ]
@@ -1385,17 +1385,17 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %86 = mul nsw i32 %31, %85
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %30, i64 %87
-  %89 = load double, ptr %88, align 8, !tbaa !66
+  %89 = load double, ptr %88, align 8, !tbaa !67
   %90 = fptrunc double %89 to float
   %91 = load float, ptr %26, align 4, !tbaa !27
   %92 = fmul float %91, %90
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %94 = load double, ptr %93, align 8, !tbaa !66
+  %94 = load double, ptr %93, align 8, !tbaa !67
   %95 = fptrunc double %94 to float
   %96 = load float, ptr %32, align 4, !tbaa !27
   %97 = fmul float %96, %95
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %99 = load double, ptr %98, align 8, !tbaa !66
+  %99 = load double, ptr %98, align 8, !tbaa !67
   %100 = fptrunc double %99 to float
   %101 = load float, ptr %33, align 4, !tbaa !27
   %102 = fmul float %101, %100
@@ -1409,7 +1409,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx.us47, align 4, !tbaa !61
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split41.us, label %.split.split.us43, !llvm.loop !69
+  br i1 %.not, label %.split41.us, label %.split.split.us43, !llvm.loop !74
 
 .split41.us:                                      ; preds = %.split.split.us43, %.split.split.us, %.split.split, %46
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1441,17 +1441,17 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %116 = mul nsw i32 %31, %115
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i8, ptr %30, i64 %117
-  %119 = load double, ptr %118, align 8, !tbaa !66
+  %119 = load double, ptr %118, align 8, !tbaa !67
   %120 = fptrunc double %119 to float
   %121 = load float, ptr %26, align 4, !tbaa !27
   %122 = fmul float %121, %120
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %124 = load double, ptr %123, align 8, !tbaa !66
+  %124 = load double, ptr %123, align 8, !tbaa !67
   %125 = fptrunc double %124 to float
   %126 = load float, ptr %32, align 4, !tbaa !27
   %127 = fmul float %126, %125
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %129 = load double, ptr %128, align 8, !tbaa !66
+  %129 = load double, ptr %128, align 8, !tbaa !67
   %130 = fptrunc double %129 to float
   %131 = load float, ptr %33, align 4, !tbaa !27
   %132 = fmul float %131, %130
@@ -1465,7 +1465,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !61
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %.not62 = icmp eq i64 %indvars.iv55, 0
-  br i1 %.not62, label %.split41.us, label %.split.split, !llvm.loop !69
+  br i1 %.not62, label %.split41.us, label %.split.split, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1553,9 +1553,15 @@ attributes #14 = { builtin nounwind }
 !61 = !{!13, !13, i64 0}
 !62 = !{!63, !63, i64 0}
 !63 = !{!"short", !13, i64 0}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"double", !13, i64 0}
-!68 = distinct !{!68, !65}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"double", !13, i64 0}
 !69 = distinct !{!69, !65}
+!70 = distinct !{!70, !65, !66}
+!71 = distinct !{!71, !65}
+!72 = distinct !{!72, !65, !66}
+!73 = distinct !{!73, !65, !66}
+!74 = distinct !{!74, !65, !66}
+!75 = distinct !{!75, !65}

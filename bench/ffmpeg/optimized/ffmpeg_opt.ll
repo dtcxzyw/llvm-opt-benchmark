@@ -3700,59 +3700,53 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   %18 = and i32 %.fr52, 1024
   %.not39 = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %.03643, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !177
-  %21 = icmp eq i32 %20, 2
   br i1 %.not39, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %21, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %27 ], [ 0, %.lr.ph ]
+  %20 = load ptr, ptr %13, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %20, i64 %indvars.iv59
+  tail call void @av_freep(ptr noundef %21) #15
+  %22 = load i32, ptr %19, align 8, !tbaa !177
+  %23 = icmp eq i32 %22, 2
+  br i1 %23, label %24, label %27
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %22 = load ptr, ptr %13, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %22, i64 %indvars.iv63
-  tail call void @av_freep(ptr noundef %23) #15
-  %24 = load ptr, ptr %13, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %24, i64 %indvars.iv63, i32 2
-  tail call void @av_freep(ptr noundef nonnull %25) #15
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %26 = load i32, ptr %15, align 8, !tbaa !4
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next64, %27
-  br i1 %28, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !178
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = load ptr, ptr %13, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %25, i64 %indvars.iv59, i32 2
+  tail call void @av_freep(ptr noundef nonnull %26) #15
+  br label %27
 
-.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.preheader
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph.split.us.split.preheader ], [ 0, %.lr.ph.split.us ]
-  %29 = load ptr, ptr %13, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %29, i64 %indvars.iv60
-  tail call void @av_freep(ptr noundef %30) #15
-  %.pre72 = load i32, ptr %15, align 8, !tbaa !4
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %31 = sext i32 %.pre72 to i64
-  %32 = icmp slt i64 %indvars.iv.next61, %31
-  br i1 %32, label %.lr.ph.split.us.split.preheader, label %._crit_edge, !llvm.loop !179
+27:                                               ; preds = %24, %.lr.ph.split.us
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %28 = load i32, ptr %15, align 8, !tbaa !4
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next60, %29
+  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !178
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %21, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+  %31 = load i32, ptr %19, align 8, !tbaa !177
+  %32 = icmp eq i32 %31, 2
+  br i1 %32, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %33 = load ptr, ptr %13, align 8, !tbaa !13
-  %34 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %33, i64 %indvars.iv57
+  %34 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %33, i64 %indvars.iv56
   tail call void @av_freep(ptr noundef %34) #15
   %35 = load ptr, ptr %13, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %35, i64 %indvars.iv57, i32 1
+  %36 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %35, i64 %indvars.iv56, i32 1
   tail call void @stream_specifier_uninit(ptr noundef nonnull %36) #15
   %37 = load ptr, ptr %13, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %37, i64 %indvars.iv57, i32 2
+  %38 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %37, i64 %indvars.iv56, i32 2
   tail call void @av_freep(ptr noundef nonnull %38) #15
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %39 = load i32, ptr %15, align 8, !tbaa !4
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next58, %40
-  br i1 %41, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !178
+  %41 = icmp slt i64 %indvars.iv.next57, %40
+  br i1 %41, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !180
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.preheader, %.lr.ph.split.split.us, %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split.us, %.preheader40
+._crit_edge:                                      ; preds = %.lr.ph.split.split.preheader, %.lr.ph.split.split.us, %27, %.preheader40
   tail call void @av_freep(ptr noundef nonnull %13) #15
   store i32 0, ptr %15, align 8, !tbaa !4
   br label %53
@@ -3785,7 +3779,7 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   %54 = getelementptr inbounds nuw i8, ptr %.03643, i64 48
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %.preheader, label %6, !llvm.loop !182
+  br i1 %.not, label %.preheader, label %6, !llvm.loop !183
 
 ._crit_edge47:                                    ; preds = %61, %.preheader
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -3800,15 +3794,15 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   br label %69
 
 61:                                               ; preds = %.lr.ph46, %61
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next67, %61 ]
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next63, %61 ]
   %62 = load ptr, ptr %5, align 8, !tbaa !136
-  %63 = getelementptr inbounds nuw %struct.StreamMap, ptr %62, i64 %indvars.iv66, i32 3
+  %63 = getelementptr inbounds nuw %struct.StreamMap, ptr %62, i64 %indvars.iv62, i32 3
   tail call void @av_freep(ptr noundef nonnull %63) #15
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %64 = load i32, ptr %2, align 8, !tbaa !135
   %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next67, %65
-  br i1 %66, label %61, label %._crit_edge47, !llvm.loop !183
+  %66 = icmp slt i64 %indvars.iv.next63, %65
+  br i1 %66, label %61, label %._crit_edge47, !llvm.loop !184
 
 ._crit_edge51:                                    ; preds = %69, %._crit_edge47
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -3818,15 +3812,15 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   ret void
 
 69:                                               ; preds = %.lr.ph50, %69
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next70, %69 ]
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next66, %69 ]
   %70 = load ptr, ptr %60, align 8, !tbaa !167
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv69
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv65
   tail call void @av_freep(ptr noundef %71) #15
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %72 = load i32, ptr %57, align 8, !tbaa !166
   %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next70, %73
-  br i1 %74, label %69, label %._crit_edge51, !llvm.loop !184
+  %74 = icmp slt i64 %indvars.iv.next66, %73
+  br i1 %74, label %69, label %._crit_edge51, !llvm.loop !185
 }
 
 declare void @stream_specifier_uninit(ptr noundef) local_unnamed_addr #1
@@ -4137,10 +4131,11 @@ attributes #20 = { nounwind willreturn memory(none) }
 !175 = !{!176, !176, i64 0}
 !176 = !{!"p1 _ZTS8HWDevice", !7, i64 0}
 !177 = !{!26, !10, i64 8}
-!178 = distinct !{!178, !21}
-!179 = distinct !{!179, !21, !180}
-!180 = !{!"llvm.loop.unswitch.partial.disable"}
-!181 = distinct !{!181, !21, !180}
-!182 = distinct !{!182, !21}
+!178 = distinct !{!178, !21, !179}
+!179 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!180 = distinct !{!180, !21, !179}
+!181 = distinct !{!181, !21, !182}
+!182 = !{!"llvm.loop.unswitch.partial.disable"}
 !183 = distinct !{!183, !21}
 !184 = distinct !{!184, !21}
+!185 = distinct !{!185, !21}

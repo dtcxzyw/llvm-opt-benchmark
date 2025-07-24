@@ -331,7 +331,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
 ._crit_edge433.us:                                ; preds = %122
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count490
-  br i1 %exitcond491.not, label %.lr.ph438, label %.lr.ph432.us
+  br i1 %exitcond491.not, label %.lr.ph438, label %.lr.ph432.us, !llvm.loop !22
 
 136:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
@@ -430,7 +430,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
 ..loopexit425_crit_edge.us:                       ; preds = %167
   %indvars.iv.next503 = add nsw i64 %indvars.iv502, -1
   %185 = icmp sgt i64 %indvars.iv502, 0
-  br i1 %185, label %.lr.ph443.us, label %._crit_edge447
+  br i1 %185, label %.lr.ph443.us, label %._crit_edge447, !llvm.loop !24
 
 186:                                              ; preds = %.lr.ph438, %195
   %indvars.iv492 = phi i64 [ 0, %.lr.ph438 ], [ %indvars.iv.next493, %195 ]
@@ -558,7 +558,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
 ._crit_edge459.us:                                ; preds = %218
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %.lr.ph464, label %.lr.ph458.us
+  br i1 %exitcond524.not, label %.lr.ph464, label %.lr.ph458.us, !llvm.loop !25
 
 232:                                              ; preds = %.lr.ph452, %241
   %indvars.iv510 = phi i64 [ 0, %.lr.ph452 ], [ %indvars.iv.next511, %241 ]
@@ -662,7 +662,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
 ..loopexit_crit_edge.us:                          ; preds = %265
   %indvars.iv.next536 = add nsw i64 %indvars.iv535, -1
   %283 = icmp sgt i64 %indvars.iv535, 0
-  br i1 %283, label %.lr.ph469.us, label %._crit_edge473
+  br i1 %283, label %.lr.ph469.us, label %._crit_edge473, !llvm.loop !26
 
 284:                                              ; preds = %.lr.ph464, %293
   %indvars.iv525 = phi i64 [ 0, %.lr.ph464 ], [ %indvars.iv.next526, %293 ]
@@ -819,10 +819,10 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %91, i64 16, i1 false), !tbaa !21, !alias.scope !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %91, i64 16, i1 false), !tbaa !21, !alias.scope !27
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %93, i64 16, i1 false), !tbaa !21, !alias.scope !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %93, i64 16, i1 false), !tbaa !21, !alias.scope !31
   %.not398 = icmp eq i32 %21, 0
   br i1 %.not398, label %.preheader364, label %.lr.ph379
 
@@ -908,7 +908,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
 
 124:                                              ; preds = %136
   %125 = getelementptr inbounds nuw float, ptr %89, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull readonly align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !21, !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull readonly align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !21, !alias.scope !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
   %126 = add nuw i64 %.0270369, 1
   %exitcond403.not = icmp eq i64 %126, %25
@@ -1540,7 +1540,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %51
   store float %123, ptr %gep, align 4, !tbaa !21
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond286.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond286.not.i.us, label %._crit_edge.us.i, label %.preheader267.us.preheader.i.us
+  br i1 %exitcond286.not.i.us, label %._crit_edge.us.i, label %.preheader267.us.preheader.i.us, !llvm.loop !39
 
 .preheader269.us.i.split:                         ; preds = %.preheader269.us.i, %.loopexit268.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit268.us.i ], [ 0, %.preheader269.us.i ]
@@ -1842,7 +1842,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %51
 ._crit_edge.us.i:                                 ; preds = %.loopexit268.us.i.loopexit.us, %.loopexit268.us.i
   %indvars.iv.next288.i = add nuw nsw i64 %indvars.iv287.i, 1
   %exitcond291.not.i = icmp eq i64 %indvars.iv.next288.i, %wide.trip.count290.i
-  br i1 %exitcond291.not.i, label %_fast_9x9_kernel_1.exit, label %.preheader269.us.i
+  br i1 %exitcond291.not.i, label %_fast_9x9_kernel_1.exit, label %.preheader269.us.i, !llvm.loop !40
 
 _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %_calc_9x9_gauss_coeffs.exit.i, %.preheader269.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %15) #16
@@ -2396,7 +2396,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %398
 ._crit_edge.us.i62:                               ; preds = %.loopexit352.us.i
   %indvars.iv.next385.i = add nuw nsw i64 %indvars.iv384.i, 1
   %exitcond388.not.i = icmp eq i64 %indvars.iv.next385.i, %wide.trip.count387.i
-  br i1 %exitcond388.not.i, label %_fast_9x9_kernel_2.exit, label %.preheader355.us.i
+  br i1 %exitcond388.not.i, label %_fast_9x9_kernel_2.exit, label %.preheader355.us.i, !llvm.loop !41
 
 _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62, %_calc_9x9_gauss_coeffs.exit.i59, %.preheader355.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %13) #16
@@ -2943,7 +2943,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %801
 ._crit_edge.us.i111:                              ; preds = %874
   %indvars.iv.next394.i = add nuw nsw i64 %indvars.iv393.i, 1
   %exitcond397.not.i = icmp eq i64 %indvars.iv.next394.i, %wide.trip.count396.i
-  br i1 %exitcond397.not.i, label %_fast_9x9_kernel_4.exit, label %.preheader355.us.i99
+  br i1 %exitcond397.not.i, label %_fast_9x9_kernel_4.exit, label %.preheader355.us.i99, !llvm.loop !42
 
 _fast_9x9_kernel_4.exit:                          ; preds = %._crit_edge.us.i111, %_calc_9x9_gauss_coeffs.exit.i91, %.preheader355.lr.ph.i92
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %10) #16
@@ -3022,15 +3022,24 @@ attributes #16 = { nounwind }
 !19 = !{!7, !12, i64 24}
 !20 = !{!7, !12, i64 32}
 !21 = !{!11, !11, i64 0}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"copy_pixel: argument 0"}
-!24 = distinct !{!24, !"copy_pixel"}
-!25 = distinct !{!25, !24, !"copy_pixel: argument 1"}
-!26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"copy_pixel: argument 0"}
-!28 = distinct !{!28, !"copy_pixel"}
-!29 = distinct !{!29, !28, !"copy_pixel: argument 1"}
-!30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"copy_pixel: argument 0"}
-!32 = distinct !{!32, !"copy_pixel"}
-!33 = distinct !{!33, !32, !"copy_pixel: argument 1"}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"copy_pixel: argument 0"}
+!29 = distinct !{!29, !"copy_pixel"}
+!30 = distinct !{!30, !29, !"copy_pixel: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"copy_pixel: argument 0"}
+!33 = distinct !{!33, !"copy_pixel"}
+!34 = distinct !{!34, !33, !"copy_pixel: argument 1"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"copy_pixel: argument 0"}
+!37 = distinct !{!37, !"copy_pixel"}
+!38 = distinct !{!38, !37, !"copy_pixel: argument 1"}
+!39 = distinct !{!39, !23}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}
+!42 = distinct !{!42, !23}

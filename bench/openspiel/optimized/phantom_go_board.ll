@@ -6122,23 +6122,23 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
 .lr.ph.i.i.i:                                     ; preds = %48, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i ], [ %21, %48 ]
   %.0911.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i ], [ %7, %48 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %49 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !40, !noalias !37
-  store ptr %49, ptr %.012.i.i.i, align 8, !alias.scope !37, !noalias !40
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %49 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !41, !noalias !38
+  store ptr %49, ptr %.012.i.i.i, align 8, !alias.scope !38, !noalias !41
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %52 = load ptr, ptr %51, align 8, !alias.scope !40, !noalias !37
-  store ptr %52, ptr %50, align 8, !alias.scope !37, !noalias !40
+  %52 = load ptr, ptr %51, align 8, !alias.scope !41, !noalias !38
+  store ptr %52, ptr %50, align 8, !alias.scope !38, !noalias !41
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %55 = load ptr, ptr %54, align 8, !alias.scope !40, !noalias !37
-  store ptr %55, ptr %53, align 8, !alias.scope !37, !noalias !40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
+  %55 = load ptr, ptr %54, align 8, !alias.scope !41, !noalias !38
+  store ptr %55, ptr %53, align 8, !alias.scope !38, !noalias !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i26 = icmp eq ptr %56, %1
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !42
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %48
   %.0.lcssa.i.i.i = phi ptr [ %21, %48 ], [ %57, %.lr.ph.i.i.i ]
@@ -6149,23 +6149,23 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_rel
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i28
   %.012.i.i.i29 = phi ptr [ %67, %.lr.ph.i.i.i28 ], [ %58, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i30 = phi ptr [ %66, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %59 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !46, !noalias !43
-  store ptr %59, ptr %.012.i.i.i29, align 8, !alias.scope !43, !noalias !46
+  call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %59 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !47, !noalias !44
+  store ptr %59, ptr %.012.i.i.i29, align 8, !alias.scope !44, !noalias !47
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %62 = load ptr, ptr %61, align 8, !alias.scope !46, !noalias !43
-  store ptr %62, ptr %60, align 8, !alias.scope !43, !noalias !46
+  %62 = load ptr, ptr %61, align 8, !alias.scope !47, !noalias !44
+  store ptr %62, ptr %60, align 8, !alias.scope !44, !noalias !47
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
-  %65 = load ptr, ptr %64, align 8, !alias.scope !46, !noalias !43
-  store ptr %65, ptr %63, align 8, !alias.scope !43, !noalias !46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i30, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
+  %65 = load ptr, ptr %64, align 8, !alias.scope !47, !noalias !44
+  store ptr %65, ptr %63, align 8, !alias.scope !44, !noalias !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i30, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 24
   %.not.i.i.i31 = icmp eq ptr %66, %6
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !42
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !43
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33: ; preds = %.lr.ph.i.i.i28, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i32 = phi ptr [ %58, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %67, %.lr.ph.i.i.i28 ]
@@ -6256,7 +6256,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   %22 = xor i64 %19, %21
   store i64 %22, ptr %8, align 8
   %exitcond.not.i = icmp eq i64 %10, 156
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !48
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !49
 
 .preheader.preheader.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -6284,7 +6284,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   %38 = xor i64 %35, %37
   store i64 %38, ptr %24, align 8
   %exitcond23.not.i = icmp eq i64 %26, 311
-  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !49
+  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !50
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2488
@@ -6511,17 +6511,18 @@ attributes #31 = { noreturn nounwind }
 !33 = distinct !{!33, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE3endEv"}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!42 = distinct !{!42, !6}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!48 = distinct !{!48, !6}
+!36 = distinct !{!36, !6, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!43 = distinct !{!43, !6}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}

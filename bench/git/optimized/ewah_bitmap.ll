@@ -230,7 +230,7 @@ buffer_push_rlw.exit59:                           ; preds = %.lr.ph.split, %st_m
   store i64 %96, ptr %93, align 8, !tbaa !12
   %97 = add i64 %.077, -4294967295
   %98 = icmp ugt i64 %97, 4294967294
-  br i1 %98, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  br i1 %98, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %buffer_push_rlw.exit59, %buffer_push_rlw.exit59.us, %buffer_push_rlw.exit._crit_edge
   %.1.lcssa = phi i64 [ %.037, %buffer_push_rlw.exit._crit_edge ], [ %71, %buffer_push_rlw.exit59.us ], [ %94, %buffer_push_rlw.exit59 ]
@@ -374,7 +374,7 @@ buffer_grow.exit:                                 ; preds = %9, %st_mult.exit.i
   store i64 %40, ptr %43, align 8, !tbaa !12
   %44 = add nuw nsw i64 %.034, 1
   %exitcond.not = icmp eq i64 %44, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 45:                                               ; preds = %buffer_grow.exit
   %46 = load i64, ptr %6, align 8, !tbaa !13
@@ -819,7 +819,7 @@ define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %0, ptr
   %.130.lcssa = phi i64 [ %.13042, %.loopexit37 ], [ %.130, %18 ]
   %6 = load i64, ptr %4, align 8, !tbaa !13
   %7 = icmp ult i64 %.130.lcssa, %6
-  br i1 %7, label %.lr.ph51, label %._crit_edge, !llvm.loop !19
+  br i1 %7, label %.lr.ph51, label %._crit_edge, !llvm.loop !21
 
 .lr.ph51:                                         ; preds = %3, %.loopexit
   %.02850 = phi i64 [ %.3.lcssa, %.loopexit ], [ 0, %3 ]
@@ -844,7 +844,7 @@ define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %0, ptr
   %14 = add nuw nsw i64 %.03138, 1
   %15 = add i64 %.139, 1
   %exitcond.not = icmp eq i64 %14, %12
-  br i1 %exitcond.not, label %.loopexit37.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit37.loopexit, label %.lr.ph, !llvm.loop !22
 
 16:                                               ; preds = %.lr.ph51
   %17 = add i64 %12, %.02850
@@ -873,7 +873,7 @@ define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %0, ptr
   %.val36 = load i64, ptr %9, align 8, !tbaa !12
   %20 = lshr i64 %.val36, 33
   %21 = icmp samesign ult i64 %19, %20
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !23
 
 22:                                               ; preds = %.preheader, %29
   %.041 = phi i64 [ 0, %.preheader ], [ %30, %29 ]
@@ -894,7 +894,7 @@ define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %0, ptr
   %30 = add nuw nsw i64 %.041, 1
   %31 = add i64 %.440, 1
   %exitcond57.not = icmp eq i64 %30, 64
-  br i1 %exitcond57.not, label %18, label %22, !llvm.loop !22
+  br i1 %exitcond57.not, label %18, label %22, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -949,37 +949,37 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !23
+  %4 = load i64, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !26
+  %6 = load i64, ptr %5, align 8, !tbaa !28
   %.not = icmp ult i64 %4, %6
   br i1 %.not, label %7, label %read_new_rlw.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !27
+  %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %11 = load i64, ptr %10, align 8, !tbaa !30
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %7
   %14 = add nuw i64 %9, 1
-  store i64 %14, ptr %8, align 8, !tbaa !27
+  store i64 %14, ptr %8, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load i32, ptr %15, align 8, !tbaa !29
+  %16 = load i32, ptr %15, align 8, !tbaa !31
   %.not20 = icmp ne i32 %16, 0
   %17 = sext i1 %.not20 to i64
   br label %26
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load i64, ptr %19, align 8, !tbaa !30
+  %20 = load i64, ptr %19, align 8, !tbaa !32
   %21 = add i64 %20, 1
-  store i64 %21, ptr %19, align 8, !tbaa !30
+  store i64 %21, ptr %19, align 8, !tbaa !32
   %22 = add nuw i64 %4, 1
-  store i64 %22, ptr %3, align 8, !tbaa !23
-  %23 = load ptr, ptr %1, align 8, !tbaa !31
+  store i64 %22, ptr %3, align 8, !tbaa !25
+  %23 = load ptr, ptr %1, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !12
   br label %26
@@ -987,39 +987,39 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
 26:                                               ; preds = %18, %13
   %storemerge = phi i64 [ %25, %18 ], [ %17, %13 ]
   store i64 %storemerge, ptr %0, align 8, !tbaa !12
-  %27 = load i64, ptr %8, align 8, !tbaa !27
-  %28 = load i64, ptr %10, align 8, !tbaa !28
+  %27 = load i64, ptr %8, align 8, !tbaa !29
+  %28 = load i64, ptr %10, align 8, !tbaa !30
   %29 = icmp eq i64 %27, %28
   br i1 %29, label %30, label %read_new_rlw.exit
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !30
+  %32 = load i64, ptr %31, align 8, !tbaa !32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %34 = load i64, ptr %33, align 8, !tbaa !32
+  %34 = load i64, ptr %33, align 8, !tbaa !34
   %35 = icmp eq i64 %32, %34
   br i1 %35, label %36, label %read_new_rlw.exit
 
 36:                                               ; preds = %30
-  %37 = load i64, ptr %3, align 8, !tbaa !23
+  %37 = load i64, ptr %3, align 8, !tbaa !25
   %38 = add i64 %37, 1
-  store i64 %38, ptr %3, align 8, !tbaa !23
-  %39 = load i64, ptr %5, align 8, !tbaa !26
+  store i64 %38, ptr %3, align 8, !tbaa !25
+  %39 = load i64, ptr %5, align 8, !tbaa !28
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %41, label %read_new_rlw.exit
 
 41:                                               ; preds = %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %42 = load ptr, ptr %1, align 8, !tbaa !31
+  %42 = load ptr, ptr %1, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %44 = getelementptr inbounds nuw i64, ptr %42, i64 %38
   %.val1823.i = load i64, ptr %44, align 8, !tbaa !12
   %45 = lshr i64 %.val1823.i, 1
   %46 = and i64 %45, 4294967295
-  store i64 %46, ptr %10, align 8, !tbaa !28
+  store i64 %46, ptr %10, align 8, !tbaa !30
   %.val1924.i = load i64, ptr %44, align 8, !tbaa !12
   %47 = lshr i64 %.val1924.i, 33
-  store i64 %47, ptr %33, align 8, !tbaa !32
+  store i64 %47, ptr %33, align 8, !tbaa !34
   %.val25.i = load i64, ptr %44, align 8, !tbaa !12
   %48 = trunc i64 %.val25.i to i32
   %49 = and i32 %48, 1
@@ -1040,15 +1040,15 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
 .lr.ph:                                           ; preds = %.lr.ph.i, %52
   %53 = phi i64 [ %54, %52 ], [ %38, %.lr.ph.i ]
   %54 = add nuw i64 %53, 1
-  store i64 %54, ptr %3, align 8, !tbaa !23
+  store i64 %54, ptr %3, align 8, !tbaa !25
   %55 = getelementptr inbounds nuw i64, ptr %42, i64 %54
   %.val18.i = load i64, ptr %55, align 8, !tbaa !12
   %56 = lshr i64 %.val18.i, 1
   %57 = and i64 %56, 4294967295
-  store i64 %57, ptr %10, align 8, !tbaa !28
+  store i64 %57, ptr %10, align 8, !tbaa !30
   %.val19.i = load i64, ptr %55, align 8, !tbaa !12
   %58 = lshr i64 %.val19.i, 33
-  store i64 %58, ptr %33, align 8, !tbaa !32
+  store i64 %58, ptr %33, align 8, !tbaa !34
   %.not.i = icmp eq i64 %57, 0
   %.not17.i = icmp ult i64 %.val19.i, 8589934592
   %or.cond.i = select i1 %.not.i, i1 %.not17.i, i1 false
@@ -1063,8 +1063,8 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.i
   %.lcssa = phi i32 [ %49, %.lr.ph.i ], [ %61, %._crit_edge.loopexit ]
-  store i32 %.lcssa, ptr %43, align 8, !tbaa !29
-  store i64 %39, ptr %3, align 8, !tbaa !23
+  store i32 %.lcssa, ptr %43, align 8, !tbaa !31
+  store i64 %39, ptr %3, align 8, !tbaa !25
   br label %read_new_rlw.exit
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph
@@ -1076,7 +1076,7 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %41
   %.lcssa.i = phi i32 [ %49, %41 ], [ %64, %.loopexit.i.loopexit ]
-  store i32 %.lcssa.i, ptr %43, align 8, !tbaa !29
+  store i32 %.lcssa.i, ptr %43, align 8, !tbaa !31
   br label %read_new_rlw.exit
 
 read_new_rlw.exit:                                ; preds = %.loopexit.i, %._crit_edge, %26, %30, %36, %2
@@ -1087,11 +1087,11 @@ read_new_rlw.exit:                                ; preds = %.loopexit.i, %._cri
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) initializes((0, 60)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %1, align 8, !tbaa !14
-  store ptr %3, ptr %0, align 8, !tbaa !31
+  store ptr %3, ptr %0, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %5, ptr %6, align 8, !tbaa !26
+  store i64 %5, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1106,10 +1106,10 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
   %.val1823.i = load i64, ptr %3, align 8, !tbaa !12
   %13 = lshr i64 %.val1823.i, 1
   %14 = and i64 %13, 4294967295
-  store i64 %14, ptr %9, align 8, !tbaa !28
+  store i64 %14, ptr %9, align 8, !tbaa !30
   %.val1924.i = load i64, ptr %3, align 8, !tbaa !12
   %15 = lshr i64 %.val1924.i, 33
-  store i64 %15, ptr %8, align 8, !tbaa !32
+  store i64 %15, ptr %8, align 8, !tbaa !34
   %.val25.i = load i64, ptr %3, align 8, !tbaa !12
   %16 = trunc i64 %.val25.i to i32
   %17 = and i32 %16, 1
@@ -1130,15 +1130,15 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
 .lr.ph:                                           ; preds = %.lr.ph.i, %19
   %20 = phi i64 [ %21, %19 ], [ 0, %.lr.ph.i ]
   %21 = add nuw i64 %20, 1
-  store i64 %21, ptr %7, align 8, !tbaa !23
+  store i64 %21, ptr %7, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i64, ptr %3, i64 %21
   %.val18.i = load i64, ptr %22, align 8, !tbaa !12
   %23 = lshr i64 %.val18.i, 1
   %24 = and i64 %23, 4294967295
-  store i64 %24, ptr %9, align 8, !tbaa !28
+  store i64 %24, ptr %9, align 8, !tbaa !30
   %.val19.i = load i64, ptr %22, align 8, !tbaa !12
   %25 = lshr i64 %.val19.i, 33
-  store i64 %25, ptr %8, align 8, !tbaa !32
+  store i64 %25, ptr %8, align 8, !tbaa !34
   %.not.i = icmp eq i64 %24, 0
   %.not17.i = icmp ult i64 %.val19.i, 8589934592
   %or.cond.i = select i1 %.not.i, i1 %.not17.i, i1 false
@@ -1153,8 +1153,8 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.i
   %.lcssa = phi i32 [ %17, %.lr.ph.i ], [ %28, %._crit_edge.loopexit ]
-  store i32 %.lcssa, ptr %10, align 8, !tbaa !29
-  store i64 %5, ptr %7, align 8, !tbaa !23
+  store i32 %.lcssa, ptr %10, align 8, !tbaa !31
+  store i64 %5, ptr %7, align 8, !tbaa !25
   br label %read_new_rlw.exit
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph
@@ -1166,7 +1166,7 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %11
   %.lcssa.i = phi i32 [ %17, %11 ], [ %31, %.loopexit.i.loopexit ]
-  store i32 %.lcssa.i, ptr %10, align 8, !tbaa !29
+  store i32 %.lcssa.i, ptr %10, align 8, !tbaa !31
   br label %read_new_rlw.exit
 
 read_new_rlw.exit:                                ; preds = %.loopexit.i, %._crit_edge, %2
@@ -1183,8 +1183,8 @@ define dso_local void @ewah_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @rlwit_init(ptr noundef nonnull %5, ptr noundef %1) #12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %.val75 = load i32, ptr %6, align 8, !tbaa !33
-  %.val4376 = load i32, ptr %7, align 4, !tbaa !36
+  %.val75 = load i32, ptr %6, align 8, !tbaa !35
+  %.val4376 = load i32, ptr %7, align 4, !tbaa !38
   %8 = sub i32 0, %.val75
   %.not77 = icmp eq i32 %.val4376, %8
   br i1 %.not77, label %.critedge, label %.lr.ph79
@@ -1203,8 +1203,8 @@ define dso_local void @ewah_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 17:                                               ; preds = %.lr.ph79, %144
   %.val4390 = phi i32 [ %.val4376, %.lr.ph79 ], [ %.val43, %144 ]
   %.val87 = phi i32 [ %.val75, %.lr.ph79 ], [ %.val, %144 ]
-  %.val44 = load i32, ptr %9, align 8, !tbaa !33
-  %.val45 = load i32, ptr %10, align 4, !tbaa !36
+  %.val44 = load i32, ptr %9, align 8, !tbaa !35
+  %.val45 = load i32, ptr %10, align 4, !tbaa !38
   %18 = sub i32 0, %.val44
   %.not39 = icmp eq i32 %.val45, %18
   br i1 %.not39, label %.critedge, label %.preheader73
@@ -1223,14 +1223,14 @@ define dso_local void @ewah_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.42 = select i1 %24, ptr %4, ptr %5
   %.027.sroa.gep..027.sroa.gep28.sroa.sel72.v.sroa.sel.v.sroa.sel.v = select i1 %24, ptr %5, ptr %4
   %.027.sroa.gep..027.sroa.gep28.sroa.sel72.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel72.v.sroa.sel.v.sroa.sel.v, i64 52
-  %25 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel72.v.sroa.sel.v.sroa.sel, align 4, !tbaa !37
+  %25 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel72.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
   %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel = select i1 %24, ptr %10, ptr %7
-  %28 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !36
+  %28 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !38
   %29 = sext i32 %28 to i64
   %30 = call i64 @rlwit_discharge(ptr noundef nonnull %.42, ptr noundef %2, i64 noundef %29, i32 noundef %27) #12
-  %31 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !36
+  %31 = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
   %33 = icmp eq i64 %30, %32
   br i1 %33, label %ewah_add_empty_words.exit, label %34
@@ -1242,23 +1242,23 @@ define dso_local void @ewah_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %38 = add i64 %37, %36
   store i64 %38, ptr %11, align 8, !tbaa !4
   %39 = call fastcc i64 @add_empty_words(ptr noundef %2, i32 noundef %27, i64 noundef %35)
-  %.pre = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !36
+  %.pre = load i32, ptr %.027.sroa.gep..027.sroa.gep28.sroa.sel69.v.sroa.sel, align 4, !tbaa !38
   %.pre92 = sext i32 %.pre to i64
   br label %ewah_add_empty_words.exit
 
 ewah_add_empty_words.exit:                        ; preds = %.lr.ph, %34
   %.pre-phi = phi i64 [ %32, %.lr.ph ], [ %.pre92, %34 ]
   call void @rlwit_discard_first_words(ptr noundef nonnull %., i64 noundef %.pre-phi) #12
-  %40 = load i32, ptr %7, align 4, !tbaa !36
+  %40 = load i32, ptr %7, align 4, !tbaa !38
   %41 = icmp sgt i32 %40, 0
   %42 = load i32, ptr %10, align 4
   %43 = icmp sgt i32 %42, 0
   %44 = select i1 %41, i1 true, i1 %43
-  br i1 %44, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %44, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %ewah_add_empty_words.exit
-  %.pre84 = load i32, ptr %6, align 8, !tbaa !33
-  %.pre85 = load i32, ptr %9, align 8, !tbaa !33
+  %.pre84 = load i32, ptr %6, align 8, !tbaa !35
+  %.pre85 = load i32, ptr %9, align 8, !tbaa !35
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader73
@@ -1272,13 +1272,13 @@ ewah_add_empty_words.exit:                        ; preds = %.lr.ph, %34
 
 .preheader:                                       ; preds = %._crit_edge, %ewah_add.exit
   %.074 = phi i64 [ %142, %ewah_add.exit ], [ 0, %._crit_edge ]
-  %48 = load ptr, ptr %4, align 8, !tbaa !39
-  %49 = load i64, ptr %12, align 8, !tbaa !40
+  %48 = load ptr, ptr %4, align 8, !tbaa !41
+  %49 = load i64, ptr %12, align 8, !tbaa !42
   %50 = getelementptr i64, ptr %48, i64 %49
   %51 = getelementptr i64, ptr %50, i64 %.074
   %52 = load i64, ptr %51, align 8, !tbaa !12
-  %53 = load ptr, ptr %5, align 8, !tbaa !39
-  %54 = load i64, ptr %13, align 8, !tbaa !40
+  %53 = load ptr, ptr %5, align 8, !tbaa !41
+  %54 = load i64, ptr %13, align 8, !tbaa !42
   %55 = getelementptr i64, ptr %53, i64 %54
   %56 = getelementptr i64, ptr %55, i64 %.074
   %57 = load i64, ptr %56, align 8, !tbaa !12
@@ -1458,13 +1458,13 @@ buffer_push_rlw.exit.i:                           ; preds = %st_mult.exit.i.i.i.
 ewah_add.exit:                                    ; preds = %buffer_push_rlw.exit.i, %111, %buffer_push_rlw.exit.i52, %73, %140
   %142 = add nuw i64 %.074, 1
   %exitcond.not = icmp eq i64 %142, %47
-  br i1 %exitcond.not, label %143, label %.preheader, !llvm.loop !41
+  br i1 %exitcond.not, label %143, label %.preheader, !llvm.loop !43
 
 143:                                              ; preds = %ewah_add.exit
   call void @rlwit_discard_first_words(ptr noundef nonnull %4, i64 noundef %47) #12
   call void @rlwit_discard_first_words(ptr noundef nonnull %5, i64 noundef %47) #12
-  %.val.pre = load i32, ptr %6, align 8, !tbaa !33
-  %.val43.pre = load i32, ptr %7, align 4, !tbaa !36
+  %.val.pre = load i32, ptr %6, align 8, !tbaa !35
+  %.val43.pre = load i32, ptr %7, align 4, !tbaa !38
   br label %144
 
 144:                                              ; preds = %143, %._crit_edge
@@ -1472,7 +1472,7 @@ ewah_add.exit:                                    ; preds = %buffer_push_rlw.exi
   %.val = phi i32 [ %.val.pre, %143 ], [ %.val86, %._crit_edge ]
   %145 = sub i32 0, %.val
   %.not = icmp eq i32 %.val43, %145
-  br i1 %.not, label %.critedge, label %17, !llvm.loop !42
+  br i1 %.not, label %.critedge, label %17, !llvm.loop !44
 
 .critedge:                                        ; preds = %144, %17, %3
   %.sink = phi ptr [ %5, %3 ], [ %4, %17 ], [ %5, %144 ]
@@ -1505,7 +1505,7 @@ define dso_local ptr @ewah_pool_new() local_unnamed_addr #0 {
   %3 = add i64 %1, -1
   store i64 %3, ptr @bitmap_pool_size, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   br label %13
 
 6:                                                ; preds = %0
@@ -1568,7 +1568,7 @@ ewah_free.exit:                                   ; preds = %6, %7, %8
   %15 = add i64 %3, 1
   store i64 %15, ptr @bitmap_pool_size, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %3
-  store ptr %0, ptr %16, align 8, !tbaa !43
+  store ptr %0, ptr %16, align 8, !tbaa !45
   br label %17
 
 17:                                               ; preds = %1, %10, %ewah_free.exit
@@ -1597,11 +1597,11 @@ define dso_local i32 @ewah_checksum(ptr noundef readonly captures(none) %0) loca
   %9 = add i64 %.012, -1
   %10 = mul i32 %.0711, 31
   %11 = getelementptr inbounds nuw i8, ptr %.0810, i64 1
-  %12 = load i8, ptr %.0810, align 1, !tbaa !45
+  %12 = load i8, ptr %.0810, align 1, !tbaa !47
   %13 = zext i8 %12 to i32
   %14 = add i32 %10, %13
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.07.lcssa = phi i32 [ %4, %1 ], [ %14, %.lr.ph ]
@@ -1657,34 +1657,36 @@ attributes #12 = { nounwind }
 !13 = !{!5, !10, i64 8}
 !14 = !{!5, !6, i64 0}
 !15 = !{!5, !10, i64 16}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !17}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
 !22 = distinct !{!22, !17}
-!23 = !{!24, !10, i64 16}
-!24 = !{!"ewah_iterator", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !25, i64 56}
-!25 = !{!"int", !8, i64 0}
-!26 = !{!24, !10, i64 8}
-!27 = !{!24, !10, i64 24}
-!28 = !{!24, !10, i64 40}
-!29 = !{!24, !25, i64 56}
-!30 = !{!24, !10, i64 32}
-!31 = !{!24, !6, i64 0}
-!32 = !{!24, !10, i64 48}
-!33 = !{!34, !25, i64 40}
-!34 = !{!"rlw_iterator", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !35, i64 32}
-!35 = !{!"", !6, i64 0, !25, i64 8, !25, i64 12, !25, i64 16, !25, i64 20}
-!36 = !{!34, !25, i64 44}
-!37 = !{!34, !25, i64 52}
-!38 = distinct !{!38, !17}
-!39 = !{!34, !6, i64 0}
-!40 = !{!34, !10, i64 24}
-!41 = distinct !{!41, !17}
-!42 = distinct !{!42, !17}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS11ewah_bitmap", !7, i64 0}
-!45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = !{!26, !10, i64 16}
+!26 = !{!"ewah_iterator", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !27, i64 56}
+!27 = !{!"int", !8, i64 0}
+!28 = !{!26, !10, i64 8}
+!29 = !{!26, !10, i64 24}
+!30 = !{!26, !10, i64 40}
+!31 = !{!26, !27, i64 56}
+!32 = !{!26, !10, i64 32}
+!33 = !{!26, !6, i64 0}
+!34 = !{!26, !10, i64 48}
+!35 = !{!36, !27, i64 40}
+!36 = !{!"rlw_iterator", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !37, i64 32}
+!37 = !{!"", !6, i64 0, !27, i64 8, !27, i64 12, !27, i64 16, !27, i64 20}
+!38 = !{!36, !27, i64 44}
+!39 = !{!36, !27, i64 52}
+!40 = distinct !{!40, !17}
+!41 = !{!36, !6, i64 0}
+!42 = !{!36, !10, i64 24}
+!43 = distinct !{!43, !17}
+!44 = distinct !{!44, !17}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS11ewah_bitmap", !7, i64 0}
+!47 = !{!8, !8, i64 0}
+!48 = distinct !{!48, !17}

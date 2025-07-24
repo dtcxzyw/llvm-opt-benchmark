@@ -2104,7 +2104,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
   store i16 %32, ptr %28, align 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us
+  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !5
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
@@ -2121,7 +2121,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
   store i32 %42, ptr %38, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12
+  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !7
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
@@ -2135,7 +2135,7 @@ compressSomValue.exit.us16:                       ; preds = %compressSomValue.ex
   store i64 %49, ptr %48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16
+  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !8
 
 compSomSpace.exit:                                ; preds = %compressSomValue.exit.us16, %compressSomValue.exit.us12, %compressSomValue.exit.us, %.lr.ph, %3
   ret i8 0
@@ -2182,7 +2182,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
-  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us
+  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split.us7:                                 ; preds = %.lr.ph, %.lr.ph.split.us7
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph.split.us7 ], [ 0, %.lr.ph ]
@@ -2199,7 +2199,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
-  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7
+  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !10
 
 .lr.ph.split.us12:                                ; preds = %.lr.ph, %.lr.ph.split.us12
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us12 ], [ 0, %.lr.ph ]
@@ -2215,7 +2215,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !11
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
@@ -2288,7 +2288,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
   store i16 %32, ptr %28, align 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us
+  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !12
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
@@ -2305,7 +2305,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
   store i32 %42, ptr %38, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12
+  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !13
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
@@ -2319,7 +2319,7 @@ compressSomValue.exit.us16:                       ; preds = %compressSomValue.ex
   store i64 %49, ptr %48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16
+  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !14
 
 compSomSpace.exit:                                ; preds = %compressSomValue.exit.us16, %compressSomValue.exit.us12, %compressSomValue.exit.us, %.lr.ph, %3
   ret i8 0
@@ -2366,7 +2366,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
-  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us
+  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split.us7:                                 ; preds = %.lr.ph, %.lr.ph.split.us7
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph.split.us7 ], [ 0, %.lr.ph ]
@@ -2383,7 +2383,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
-  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7
+  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !16
 
 .lr.ph.split.us12:                                ; preds = %.lr.ph, %.lr.ph.split.us12
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us12 ], [ 0, %.lr.ph ]
@@ -2399,7 +2399,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !17
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
@@ -2567,7 +2567,7 @@ run_prog.exit.us165:                              ; preds = %61, %43
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i16
   %.not162.i.us = icmp ugt i16 %30, %94
-  br i1 %.not162.i.us, label %.outer.us154, label %goughExec8_i.exit.sink.split.sink.split
+  br i1 %.not162.i.us, label %.outer.us154, label %goughExec8_i.exit.sink.split.sink.split, !llvm.loop !18
 
 .outer.us154:                                     ; preds = %.loopexit, %run_prog.exit.us165
   %.2130.i.us167 = phi ptr [ %45, %run_prog.exit.us165 ], [ %.0128.i, %.loopexit ]
@@ -4170,3 +4170,17 @@ attributes #14 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

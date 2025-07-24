@@ -321,7 +321,7 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
   %126 = getelementptr inbounds i32, ptr %.074, i64 %13
   %127 = getelementptr inbounds i32, ptr %.05969, i64 %9
   %exitcond.not = icmp eq i32 %125, %1
-  br i1 %exitcond.not, label %.split76.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split76.us, label %.split, !llvm.loop !23
 
 .split76.us:                                      ; preds = %124, %..loopexit_crit_edge.us
   ret void
@@ -356,4 +356,6 @@ attributes #4 = { nounwind }
 !18 = !{!5, !5, i64 0}
 !19 = distinct !{!19, !16}
 !20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
+!21 = distinct !{!21, !16, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !16}

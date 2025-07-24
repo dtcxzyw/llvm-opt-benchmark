@@ -472,7 +472,7 @@ for.inc.us.us.i:                                  ; preds = %if.end23.us.us.i, %
   %changed.3.us.us.i = phi i1 [ %changed.217.us.us.i, %lor.lhs.false14.us.us.i ], [ %changed.217.us.us.i, %switch.early.test.us.us.i ], [ true, %if.end23.us.us.i ], [ %changed.217.us.us.i, %lor.lhs.false.us.us.i ], [ %changed.217.us.us.i, %for.body10.us.us.i ], [ %changed.217.us.us.i, %lor.lhs.false16.us.us.i ], [ %changed.217.us.us.i, %switch.early.test.us.us.i ]
   %inc.us.us.i = add nuw nsw i32 %i.016.us.us.i, 1
   %exitcond25.not.i = icmp eq i32 %inc.us.us.i, %call8.us.i
-  br i1 %exitcond25.not.i, label %for.inc34.us.i, label %for.body10.us.us.i, !llvm.loop !11
+  br i1 %exitcond25.not.i, label %for.inc34.us.i, label %for.body10.us.us.i, !llvm.loop !12
 
 for.body.i:                                       ; preds = %for.inc34.i, %for.body.preheader.i
   %it.sroa.0.021.i = phi ptr [ %it.sroa.0.0.i, %for.inc34.i ], [ %it.sroa.0.0183439.i, %for.body.preheader.i ]
@@ -538,13 +538,13 @@ for.inc.i:                                        ; preds = %if.end31.i, %land.l
   %changed.3.i = phi i1 [ %changed.217.i, %lor.lhs.false14.i ], [ %changed.217.i, %switch.early.test.i ], [ %changed.217.i, %land.lhs.true27.i ], [ true, %if.end31.i ], [ %changed.217.i, %lor.lhs.false.i24 ], [ %changed.217.i, %for.body10.i ], [ %changed.217.i, %lor.lhs.false16.i ], [ %changed.217.i, %switch.early.test.i ]
   %inc.i = add nuw nsw i32 %i.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call8.i
-  br i1 %exitcond.not.i, label %for.inc34.i, label %for.body10.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %for.inc34.i, label %for.body10.i, !llvm.loop !13
 
 for.inc34.i:                                      ; preds = %for.inc.i, %if.end.i22, %for.body.i
   %changed.1.i = phi i1 [ %changed.020.i, %for.body.i ], [ %changed.020.i, %if.end.i22 ], [ %changed.3.i, %for.inc.i ]
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.021.i, align 8
   %cmp.i.not.i23 = icmp eq ptr %it.sroa.0.0.i, %InstList.i3340.i
-  br i1 %cmp.i.not.i23, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i23, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.i, !llvm.loop !14
 
 _ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %for.inc34.i, %for.inc34.us.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i
   %changed.0.lcssa.i = phi i1 [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i ], [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i ], [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread ], [ %changed.1.us.i, %for.inc34.us.i ], [ %changed.1.i, %for.inc34.i ]
@@ -590,7 +590,7 @@ land.lhs.true.i.i34:                              ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i34, %for.body.i.i
   %inc.i.i = add nuw nsw i32 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call1.i.i
-  br i1 %exitcond.not.i.i, label %if.then12.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %if.then12.i, label %for.body.i.i, !llvm.loop !15
 
 if.then12.i:                                      ; preds = %for.inc.i.i, %if.end.i.i
   call void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.011.i, ptr noundef nonnull %75) #5
@@ -599,7 +599,7 @@ if.then12.i:                                      ; preds = %for.inc.i.i, %if.en
 if.end15.i:                                       ; preds = %land.lhs.true.i.i34, %if.then12.i, %while.body.i.i.i.preheader.i
   %changed.1.i30 = phi i1 [ true, %if.then12.i ], [ %changed.012.i, %while.body.i.i.i.preheader.i ], [ %changed.012.i, %land.lhs.true.i.i34 ]
   %cmp.i.not.i31 = icmp eq ptr %77, %InstList.i7.i
-  br i1 %cmp.i.not.i31, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %while.body.i.i.i.preheader.i, !llvm.loop !13
+  br i1 %cmp.i.not.i31, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %while.body.i.i.i.preheader.i, !llvm.loop !16
 
 _ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %if.end15.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, %if.end.i26
   %retval.0.i32 = phi i1 [ false, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ], [ false, %if.end.i26 ], [ %changed.1.i30, %if.end15.i ]
@@ -685,7 +685,7 @@ _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_del
 if.end13.i.i.i.i38:                               ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 16
   %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
+  br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !17
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i: ; preds = %if.end13.i.i.i.i38
   %.pre.i.i.i = load ptr, ptr %DomTreeNodes.i.i, align 8
@@ -727,14 +727,14 @@ declare void @_ZN6hermes12LoopAnalysisC1EPNS_8FunctionERKNS_13DominanceInfoE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes16createCodeMotionEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes10CodeMotionESt14default_deleteIS1_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #7, !noalias !15
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #7, !noalias !18
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !15
+  store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !18
   %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !15
+  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !18
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store i64 10, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !15
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes10CodeMotionE, i64 16), ptr %call.i, align 8, !noalias !15
+  store i64 10, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes10CodeMotionE, i64 16), ptr %call.i, align 8, !noalias !18
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -806,11 +806,14 @@ attributes #7 = { builtin nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5, !11}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN6hermes10CodeMotionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!17 = distinct !{!17, !"_ZSt11make_uniqueIN6hermes10CodeMotionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN6hermes10CodeMotionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt11make_uniqueIN6hermes10CodeMotionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

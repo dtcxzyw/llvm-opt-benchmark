@@ -204,7 +204,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %.promoted.us = load ptr, ptr %2, align 8
   %36 = load i8, ptr %.promoted.us, align 1
   %.not35.us = icmp eq i8 %36, 0
-  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.us
+  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %67
   %37 = phi i8 [ %69, %67 ], [ %9, %.lr.ph.lr.ph ]
@@ -259,7 +259,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %54
-  %63 = load i8, ptr %11, align 4, !range !9, !noundef !10
+  %63 = load i8, ptr %11, align 4, !range !11, !noundef !12
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %67
 
@@ -345,7 +345,7 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
   %scevgep17 = getelementptr i8, ptr %scevgep, i64 %strlen
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16, %1
   %.013.lcssa = phi ptr [ %10, %1 ], [ %scevgep17, %16 ]
@@ -692,6 +692,8 @@ attributes #15 = { cold nounwind }
 !6 = distinct !{!6, !"pq_writeint32"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !8}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !8}

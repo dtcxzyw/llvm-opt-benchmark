@@ -1033,7 +1033,7 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   store i32 %31, ptr %32, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !73
 
 33:                                               ; preds = %.lr.ph, %.lr.ph
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 392, ptr noundef %15)
@@ -1323,9 +1323,9 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !72
+  store i32 0, ptr %5, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !74
+  store i32 0, ptr %10, align 4, !tbaa !76
   %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1353,7 +1353,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !75
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -1586,8 +1586,10 @@ attributes #23 = { builtin nounwind }
 !68 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
 !69 = distinct !{!69, !32}
 !70 = !{!64, !65, i64 16}
-!71 = distinct !{!71, !32}
-!72 = !{!73, !9, i64 8}
-!73 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 8, !9, i64 12}
-!74 = !{!73, !9, i64 12}
-!75 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!71 = distinct !{!71, !32, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !32, !72}
+!74 = !{!75, !9, i64 8}
+!75 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 8, !9, i64 12}
+!76 = !{!75, !9, i64 12}
+!77 = !{!"branch_weights", !"expected", i32 1, i32 2000}

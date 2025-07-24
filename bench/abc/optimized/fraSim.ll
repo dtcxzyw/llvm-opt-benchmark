@@ -1914,10 +1914,10 @@ define void @Fra_SmlSimulateOne(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !110
+  %7 = load i64, ptr %3, align 8, !tbaa !111
   %.neg86 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !112
+  %9 = load i64, ptr %8, align 8, !tbaa !113
   %.neg = sdiv i64 %9, -1000
   %.neg87 = add i64 %.neg, %.neg86
   br label %Abc_Clock.exit
@@ -1942,7 +1942,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %17 = phi ptr [ %.pre, %.preheader90.lr.ph ], [ %23, %.critedge6 ]
   %.053111 = phi i32 [ 0, %.preheader90.lr.ph ], [ %.pre-phi, %.critedge6 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !113
+  %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = getelementptr i8, ptr %19, i64 4
   %.val5895 = load i32, ptr %20, align 4, !tbaa !46
   %21 = icmp sgt i32 %.val5895, 0
@@ -1996,12 +1996,12 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %44 = phi ptr [ %.pre123, %42 ], [ %31, %37 ], [ %31, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !113
+  %46 = load ptr, ptr %45, align 8, !tbaa !114
   %47 = getelementptr i8, ptr %46, i64 4
   %.val58 = load i32, ptr %47, align 4, !tbaa !46
   %48 = sext i32 %.val58 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %.critedge.preheader, !llvm.loop !114
+  br i1 %49, label %.lr.ph, label %.critedge.preheader, !llvm.loop !115
 
 50:                                               ; preds = %.lr.ph100, %Fra_SmlNodeCopyFanin.exit
   %51 = phi i32 [ %.pre124, %.lr.ph100 ], [ %96, %Fra_SmlNodeCopyFanin.exit ]
@@ -2083,7 +2083,7 @@ Fra_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedg
   %97 = sub nsw i32 %.val63, %.val56
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next118, %98
-  br i1 %99, label %50, label %.critedge2, !llvm.loop !115
+  br i1 %99, label %50, label %.critedge2, !llvm.loop !116
 
 .critedge2:                                       ; preds = %Fra_SmlNodeCopyFanin.exit, %.critedge.preheader
   %.val106127 = phi i32 [ %.val5698, %.critedge.preheader ], [ %.val56, %Fra_SmlNodeCopyFanin.exit ]
@@ -2211,7 +2211,7 @@ Fra_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.crite
   %.val57 = load i32, ptr %105, align 4, !tbaa !46
   %163 = sext i32 %.val57 to i64
   %164 = icmp slt i64 %indvars.iv.next121, %163
-  br i1 %164, label %116, label %.critedge4.preheader.loopexit, !llvm.loop !116
+  br i1 %164, label %116, label %.critedge4.preheader.loopexit, !llvm.loop !117
 
 165:                                              ; preds = %.lr.ph110, %Fra_SmlNodeTransferNext.exit
   %.val129 = phi i32 [ %.val106, %.lr.ph110 ], [ %.val, %Fra_SmlNodeTransferNext.exit ]
@@ -2269,13 +2269,13 @@ Fra_SmlNodeTransferNext.exit:                     ; preds = %Fra_SmlNodeTransfer
   %200 = phi i32 [ %197, %Fra_SmlNodeTransferNext.exit.loopexit ], [ %166, %165 ]
   %201 = add nuw nsw i32 %.3108, 1
   %202 = icmp slt i32 %201, %.val
-  br i1 %202, label %165, label %.critedge6, !llvm.loop !117
+  br i1 %202, label %165, label %.critedge6, !llvm.loop !118
 
 .critedge6:                                       ; preds = %Fra_SmlNodeTransferNext.exit, %.critedge4.preheader..critedge6_crit_edge
   %.pre-phi = phi i32 [ %.pre131, %.critedge4.preheader..critedge6_crit_edge ], [ %115, %Fra_SmlNodeTransferNext.exit ]
   %203 = load i32, ptr %10, align 4, !tbaa !90
   %204 = icmp slt i32 %.pre-phi, %203
-  br i1 %204, label %.preheader90, label %.critedge2._crit_edge, !llvm.loop !118
+  br i1 %204, label %.preheader90, label %.critedge2._crit_edge, !llvm.loop !119
 
 .critedge2._crit_edge:                            ; preds = %.critedge6, %.critedge2, %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
@@ -2284,10 +2284,10 @@ Fra_SmlNodeTransferNext.exit:                     ; preds = %Fra_SmlNodeTransfer
   br i1 %206, label %Abc_Clock.exit85, label %207
 
 207:                                              ; preds = %.critedge2._crit_edge
-  %208 = load i64, ptr %2, align 8, !tbaa !110
+  %208 = load i64, ptr %2, align 8, !tbaa !111
   %209 = mul nsw i64 %208, 1000000
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %211 = load i64, ptr %210, align 8, !tbaa !112
+  %211 = load i64, ptr %210, align 8, !tbaa !113
   %212 = sdiv i64 %211, 1000
   %213 = add nsw i64 %212, %209
   br label %Abc_Clock.exit85
@@ -2297,14 +2297,14 @@ Abc_Clock.exit85:                                 ; preds = %.critedge2._crit_ed
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
   %214 = add i64 %.0.i84, %.0.i.neg
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %216 = load i32, ptr %215, align 4, !tbaa !119
+  %216 = load i32, ptr %215, align 4, !tbaa !120
   %217 = trunc i64 %214 to i32
   %218 = add i32 %216, %217
-  store i32 %218, ptr %215, align 4, !tbaa !119
+  store i32 %218, ptr %215, align 4, !tbaa !120
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %220 = load i32, ptr %219, align 8, !tbaa !120
+  %220 = load i32, ptr %219, align 8, !tbaa !121
   %221 = add nsw i32 %220, 1
-  store i32 %221, ptr %219, align 8, !tbaa !120
+  store i32 %221, ptr %219, align 8, !tbaa !121
   ret void
 }
 
@@ -2319,9 +2319,9 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #6 {
   tail call void @Fra_SmlAssignDist1(ptr noundef %5, ptr noundef %7)
   %8 = load ptr, ptr %4, align 8, !tbaa !6
   tail call void @Fra_SmlSimulateOne(ptr noundef %8)
-  %9 = load ptr, ptr %0, align 8, !tbaa !121
+  %9 = load ptr, ptr %0, align 8, !tbaa !122
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = load i32, ptr %10, align 8, !tbaa !122
+  %11 = load i32, ptr %10, align 8, !tbaa !123
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %Fra_SmlCheckOutput.exit.thread, label %12
 
@@ -2400,10 +2400,10 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %12, %
   br i1 %45, label %Abc_Clock.exit, label %46
 
 46:                                               ; preds = %Fra_SmlCheckOutput.exit.thread
-  %47 = load i64, ptr %3, align 8, !tbaa !110
+  %47 = load i64, ptr %3, align 8, !tbaa !111
   %.neg29 = mul i64 %47, -1000000
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !112
+  %49 = load i64, ptr %48, align 8, !tbaa !113
   %.neg = sdiv i64 %49, -1000
   %.neg30 = add i64 %.neg, %.neg29
   br label %Abc_Clock.exit
@@ -2412,14 +2412,14 @@ Abc_Clock.exit:                                   ; preds = %Fra_SmlCheckOutput.
   %.0.i.neg = phi i64 [ %.neg30, %46 ], [ 1, %Fra_SmlCheckOutput.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load ptr, ptr %50, align 8, !tbaa !124
+  %51 = load ptr, ptr %50, align 8, !tbaa !125
   %52 = call i32 @Fra_ClassesRefine(ptr noundef %51) #22
-  %53 = load ptr, ptr %50, align 8, !tbaa !124
+  %53 = load ptr, ptr %50, align 8, !tbaa !125
   %54 = call i32 @Fra_ClassesRefine1(ptr noundef %53, i32 noundef 1, ptr noundef null) #22
   %55 = add nsw i32 %54, %52
-  %56 = load ptr, ptr %50, align 8, !tbaa !124
+  %56 = load ptr, ptr %50, align 8, !tbaa !125
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  %58 = load ptr, ptr %57, align 8, !tbaa !125
+  %58 = load ptr, ptr %57, align 8, !tbaa !126
   %.not23 = icmp eq ptr %58, null
   br i1 %.not23, label %62, label %59
 
@@ -2431,7 +2431,7 @@ Abc_Clock.exit:                                   ; preds = %Fra_SmlCheckOutput.
 62:                                               ; preds = %59, %Abc_Clock.exit
   %.0 = phi i32 [ %61, %59 ], [ %55, %Abc_Clock.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %64 = load ptr, ptr %63, align 8, !tbaa !127
+  %64 = load ptr, ptr %63, align 8, !tbaa !128
   %.not24 = icmp eq ptr %64, null
   br i1 %.not24, label %68, label %65
 
@@ -2448,10 +2448,10 @@ Abc_Clock.exit:                                   ; preds = %Fra_SmlCheckOutput.
   br i1 %70, label %Abc_Clock.exit26, label %71
 
 71:                                               ; preds = %68
-  %72 = load i64, ptr %2, align 8, !tbaa !110
+  %72 = load i64, ptr %2, align 8, !tbaa !111
   %73 = mul nsw i64 %72, 1000000
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !112
+  %75 = load i64, ptr %74, align 8, !tbaa !113
   %76 = sdiv i64 %75, 1000
   %77 = add nsw i64 %76, %73
   br label %Abc_Clock.exit26
@@ -2461,12 +2461,12 @@ Abc_Clock.exit26:                                 ; preds = %68, %71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
   %78 = add i64 %.0.i25, %.0.i.neg
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %80 = load i64, ptr %79, align 8, !tbaa !128
+  %80 = load i64, ptr %79, align 8, !tbaa !129
   %81 = add nsw i64 %78, %80
-  store i64 %81, ptr %79, align 8, !tbaa !128
-  %82 = load ptr, ptr %0, align 8, !tbaa !121
+  store i64 %81, ptr %79, align 8, !tbaa !129
+  %82 = load ptr, ptr %0, align 8, !tbaa !122
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 80
-  %84 = load i32, ptr %83, align 8, !tbaa !129
+  %84 = load i32, ptr %83, align 8, !tbaa !130
   %85 = icmp eq i32 %84, 0
   %86 = icmp slt i32 %.1, 1
   %or.cond = select i1 %85, i1 %86, i1 false
@@ -2504,9 +2504,9 @@ define void @Fra_SmlSimulate(ptr noundef captures(none) %0, i32 noundef %1) loca
   tail call void @Fra_SmlInitialize(ptr noundef %10, i32 noundef %1)
   %11 = load ptr, ptr %9, align 8, !tbaa !6
   tail call void @Fra_SmlSimulateOne(ptr noundef %11)
-  %12 = load ptr, ptr %0, align 8, !tbaa !121
+  %12 = load ptr, ptr %0, align 8, !tbaa !122
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load i32, ptr %13, align 8, !tbaa !122
+  %14 = load i32, ptr %13, align 8, !tbaa !123
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %Fra_SmlCheckOutput.exit.thread, label %15
 
@@ -2580,9 +2580,9 @@ Fra_SmlCheckOutput.exit:                          ; preds = %.lr.ph.i.i
 
 Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !124
+  %48 = load ptr, ptr %47, align 8, !tbaa !125
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %50 = load i32, ptr %49, align 8, !tbaa !130
+  %50 = load i32, ptr %49, align 8, !tbaa !131
   tail call void @Fra_ClassesPrepare(ptr noundef %48, i32 noundef %50, i32 noundef 0) #22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !36
@@ -2596,9 +2596,9 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
   tail call void @Fra_SmlAssignDist1(ptr noundef %57, ptr noundef %58)
   %59 = load ptr, ptr %9, align 8, !tbaa !6
   tail call void @Fra_SmlSimulateOne(ptr noundef %59)
-  %60 = load ptr, ptr %0, align 8, !tbaa !121
+  %60 = load ptr, ptr %0, align 8, !tbaa !122
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %62 = load i32, ptr %61, align 8, !tbaa !122
+  %62 = load i32, ptr %61, align 8, !tbaa !123
   %.not60 = icmp eq i32 %62, 0
   br i1 %.not60, label %Fra_SmlCheckOutput.exit86.thread, label %63
 
@@ -2677,10 +2677,10 @@ Fra_SmlCheckOutput.exit86.thread:                 ; preds = %.loopexit.i75, %63,
   br i1 %96, label %Abc_Clock.exit, label %97
 
 97:                                               ; preds = %Fra_SmlCheckOutput.exit86.thread
-  %98 = load i64, ptr %8, align 8, !tbaa !110
+  %98 = load i64, ptr %8, align 8, !tbaa !111
   %.neg149 = mul i64 %98, -1000000
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %100 = load i64, ptr %99, align 8, !tbaa !112
+  %100 = load i64, ptr %99, align 8, !tbaa !113
   %.neg = sdiv i64 %100, -1000
   %.neg150 = add i64 %.neg, %.neg149
   br label %Abc_Clock.exit
@@ -2688,9 +2688,9 @@ Fra_SmlCheckOutput.exit86.thread:                 ; preds = %.loopexit.i75, %63,
 Abc_Clock.exit:                                   ; preds = %Fra_SmlCheckOutput.exit86.thread, %97
   %.0.i.neg = phi i64 [ %.neg150, %97 ], [ 1, %Fra_SmlCheckOutput.exit86.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #22
-  %101 = load ptr, ptr %47, align 8, !tbaa !124
+  %101 = load ptr, ptr %47, align 8, !tbaa !125
   %102 = call i32 @Fra_ClassesRefine(ptr noundef %101) #22
-  %103 = load ptr, ptr %47, align 8, !tbaa !124
+  %103 = load ptr, ptr %47, align 8, !tbaa !125
   %104 = call i32 @Fra_ClassesRefine1(ptr noundef %103, i32 noundef 1, ptr noundef null) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
   %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
@@ -2698,10 +2698,10 @@ Abc_Clock.exit:                                   ; preds = %Fra_SmlCheckOutput.
   br i1 %106, label %Abc_Clock.exit88, label %107
 
 107:                                              ; preds = %Abc_Clock.exit
-  %108 = load i64, ptr %7, align 8, !tbaa !110
+  %108 = load i64, ptr %7, align 8, !tbaa !111
   %109 = mul nsw i64 %108, 1000000
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %111 = load i64, ptr %110, align 8, !tbaa !112
+  %111 = load i64, ptr %110, align 8, !tbaa !113
   %112 = sdiv i64 %111, 1000
   %113 = add nsw i64 %112, %109
   br label %Abc_Clock.exit88
@@ -2711,9 +2711,9 @@ Abc_Clock.exit88:                                 ; preds = %Abc_Clock.exit, %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
   %114 = add i64 %.0.i87, %.0.i.neg
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %116 = load i64, ptr %115, align 8, !tbaa !128
+  %116 = load i64, ptr %115, align 8, !tbaa !129
   %117 = add nsw i64 %114, %116
-  store i64 %117, ptr %115, align 8, !tbaa !128
+  store i64 %117, ptr %115, align 8, !tbaa !129
   %118 = load ptr, ptr %51, align 8, !tbaa !36
   %119 = load i32, ptr %53, align 8, !tbaa !37
   %120 = sext i32 %119 to i64
@@ -2772,9 +2772,9 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
   call void @Fra_SmlAssignDist1(ptr noundef %148, ptr noundef %147)
   %149 = load ptr, ptr %9, align 8, !tbaa !6
   call void @Fra_SmlSimulateOne(ptr noundef %149)
-  %150 = load ptr, ptr %0, align 8, !tbaa !121
+  %150 = load ptr, ptr %0, align 8, !tbaa !122
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 48
-  %152 = load i32, ptr %151, align 8, !tbaa !122
+  %152 = load i32, ptr %151, align 8, !tbaa !123
   %.not62 = icmp eq i32 %152, 0
   br i1 %.not62, label %Fra_SmlCheckOutput.exit111.thread, label %153
 
@@ -2853,10 +2853,10 @@ Fra_SmlCheckOutput.exit111.thread:                ; preds = %.loopexit.i100, %15
   br i1 %186, label %Abc_Clock.exit113, label %187
 
 187:                                              ; preds = %Fra_SmlCheckOutput.exit111.thread
-  %188 = load i64, ptr %6, align 8, !tbaa !110
+  %188 = load i64, ptr %6, align 8, !tbaa !111
   %.neg152 = mul i64 %188, -1000000
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %190 = load i64, ptr %189, align 8, !tbaa !112
+  %190 = load i64, ptr %189, align 8, !tbaa !113
   %.neg151 = sdiv i64 %190, -1000
   %.neg153 = add i64 %.neg151, %.neg152
   br label %Abc_Clock.exit113
@@ -2864,9 +2864,9 @@ Fra_SmlCheckOutput.exit111.thread:                ; preds = %.loopexit.i100, %15
 Abc_Clock.exit113:                                ; preds = %Fra_SmlCheckOutput.exit111.thread, %187
   %.0.i112.neg = phi i64 [ %.neg153, %187 ], [ 1, %Fra_SmlCheckOutput.exit111.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
-  %191 = load ptr, ptr %47, align 8, !tbaa !124
+  %191 = load ptr, ptr %47, align 8, !tbaa !125
   %192 = call i32 @Fra_ClassesRefine(ptr noundef %191) #22
-  %193 = load ptr, ptr %47, align 8, !tbaa !124
+  %193 = load ptr, ptr %47, align 8, !tbaa !125
   %194 = call i32 @Fra_ClassesRefine1(ptr noundef %193, i32 noundef 1, ptr noundef null) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   %195 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
@@ -2874,10 +2874,10 @@ Abc_Clock.exit113:                                ; preds = %Fra_SmlCheckOutput.
   br i1 %196, label %Abc_Clock.exit115, label %197
 
 197:                                              ; preds = %Abc_Clock.exit113
-  %198 = load i64, ptr %5, align 8, !tbaa !110
+  %198 = load i64, ptr %5, align 8, !tbaa !111
   %199 = mul nsw i64 %198, 1000000
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %201 = load i64, ptr %200, align 8, !tbaa !112
+  %201 = load i64, ptr %200, align 8, !tbaa !113
   %202 = sdiv i64 %201, 1000
   %203 = add nsw i64 %202, %199
   br label %Abc_Clock.exit115
@@ -2886,9 +2886,9 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   %.0.i114 = phi i64 [ %203, %197 ], [ -1, %Abc_Clock.exit113 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
   %204 = add i64 %.0.i114, %.0.i112.neg
-  %205 = load i64, ptr %115, align 8, !tbaa !128
+  %205 = load i64, ptr %115, align 8, !tbaa !129
   %206 = add nsw i64 %204, %205
-  store i64 %206, ptr %115, align 8, !tbaa !128
+  store i64 %206, ptr %115, align 8, !tbaa !129
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %209 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2899,14 +2899,14 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   call void @Fra_SmlInitialize(ptr noundef %211, i32 noundef %1)
   %212 = load ptr, ptr %9, align 8, !tbaa !6
   call void @Fra_SmlSimulateOne(ptr noundef %212)
-  %213 = load ptr, ptr %47, align 8, !tbaa !124
+  %213 = load ptr, ptr %47, align 8, !tbaa !125
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %215 = load ptr, ptr %214, align 8, !tbaa !131
+  %215 = load ptr, ptr %214, align 8, !tbaa !132
   %216 = getelementptr i8, ptr %215, i64 4
   %.val = load i32, ptr %216, align 4, !tbaa !46
-  %217 = load ptr, ptr %0, align 8, !tbaa !121
+  %217 = load ptr, ptr %0, align 8, !tbaa !122
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  %219 = load i32, ptr %218, align 8, !tbaa !122
+  %219 = load i32, ptr %218, align 8, !tbaa !123
   %.not64 = icmp eq i32 %219, 0
   br i1 %.not64, label %Fra_SmlCheckOutput.exit136.thread, label %220
 
@@ -2984,9 +2984,9 @@ Fra_SmlCheckOutput.exit136.thread:                ; preds = %.loopexit.i125, %22
   br i1 %252, label %Abc_Clock.exit138, label %253
 
 253:                                              ; preds = %Fra_SmlCheckOutput.exit136.thread
-  %254 = load i64, ptr %4, align 8, !tbaa !110
+  %254 = load i64, ptr %4, align 8, !tbaa !111
   %.neg155 = mul i64 %254, -1000000
-  %255 = load i64, ptr %208, align 8, !tbaa !112
+  %255 = load i64, ptr %208, align 8, !tbaa !113
   %.neg154 = sdiv i64 %255, -1000
   %.neg156 = add i64 %.neg154, %.neg155
   br label %Abc_Clock.exit138
@@ -2994,9 +2994,9 @@ Fra_SmlCheckOutput.exit136.thread:                ; preds = %.loopexit.i125, %22
 Abc_Clock.exit138:                                ; preds = %Fra_SmlCheckOutput.exit136.thread, %253
   %.0.i137.neg = phi i64 [ %.neg156, %253 ], [ 1, %Fra_SmlCheckOutput.exit136.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  %256 = load ptr, ptr %47, align 8, !tbaa !124
+  %256 = load ptr, ptr %47, align 8, !tbaa !125
   %257 = call i32 @Fra_ClassesRefine(ptr noundef %256) #22
-  %258 = load ptr, ptr %47, align 8, !tbaa !124
+  %258 = load ptr, ptr %47, align 8, !tbaa !125
   %259 = call i32 @Fra_ClassesRefine1(ptr noundef %258, i32 noundef 1, ptr noundef null) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
   %260 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
@@ -3004,9 +3004,9 @@ Abc_Clock.exit138:                                ; preds = %Fra_SmlCheckOutput.
   br i1 %261, label %Abc_Clock.exit140, label %262
 
 262:                                              ; preds = %Abc_Clock.exit138
-  %263 = load i64, ptr %3, align 8, !tbaa !110
+  %263 = load i64, ptr %3, align 8, !tbaa !111
   %264 = mul nsw i64 %263, 1000000
-  %265 = load i64, ptr %209, align 8, !tbaa !112
+  %265 = load i64, ptr %209, align 8, !tbaa !113
   %266 = sdiv i64 %265, 1000
   %267 = add nsw i64 %266, %264
   br label %Abc_Clock.exit140
@@ -3015,18 +3015,18 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit138, 
   %.0.i139 = phi i64 [ %267, %262 ], [ -1, %Abc_Clock.exit138 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
   %268 = add i64 %.0.i139, %.0.i137.neg
-  %269 = load i64, ptr %115, align 8, !tbaa !128
+  %269 = load i64, ptr %115, align 8, !tbaa !129
   %270 = add nsw i64 %268, %269
-  store i64 %270, ptr %115, align 8, !tbaa !128
+  store i64 %270, ptr %115, align 8, !tbaa !129
   %271 = add nsw i32 %259, %257
   %272 = sitofp i32 %271 to double
   %273 = sitofp i32 %.val to double
   %274 = fdiv double %272, %273
-  %275 = load ptr, ptr %0, align 8, !tbaa !121
+  %275 = load ptr, ptr %0, align 8, !tbaa !122
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  %277 = load double, ptr %276, align 8, !tbaa !132
+  %277 = load double, ptr %276, align 8, !tbaa !133
   %278 = fcmp ogt double %274, %277
-  br i1 %278, label %210, label %.loopexit, !llvm.loop !133
+  br i1 %278, label %210, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %Abc_Clock.exit140, %Fra_SmlCheckOutput.exit136, %Fra_SmlCheckOutput.exit111, %Fra_SmlCheckOutput.exit86, %Fra_SmlCheckOutput.exit
   ret void
@@ -3037,7 +3037,7 @@ declare void @Fra_ClassesPrepare(ptr noundef, i32 noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @Fra_SmlStart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %5, align 8, !tbaa !113
+  %.val = load ptr, ptr %5, align 8, !tbaa !114
   %6 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %6, align 4, !tbaa !46
   %7 = sext i32 %.val.val to i64
@@ -3053,7 +3053,7 @@ define noalias noundef ptr @Fra_SmlStart(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %16, i1 false)
   store ptr %0, ptr %15, align 8, !tbaa !85
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 %1, ptr %17, align 8, !tbaa !134
+  store i32 %1, ptr %17, align 8, !tbaa !135
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %8, ptr %18, align 4, !tbaa !90
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3086,7 +3086,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Fra_SmlSimulateComb(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %4, align 8, !tbaa !113
+  %.val.i = load ptr, ptr %4, align 8, !tbaa !114
   %5 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %5, align 4, !tbaa !46
   %6 = sext i32 %.val.val.i to i64
@@ -3099,7 +3099,7 @@ define noalias noundef ptr @Fra_SmlSimulateComb(ptr noundef %0, i32 noundef %1, 
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %12, i1 false)
   store ptr %0, ptr %11, align 8, !tbaa !85
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 0, ptr %13, align 8, !tbaa !134
+  store i32 0, ptr %13, align 8, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %14, align 4, !tbaa !90
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -3224,7 +3224,7 @@ Fra_SmlInitialize.exit:                           ; preds = %Fra_SmlAssignRandom
 Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.lr.ph.i.us.i, %45, %.lr.ph.i
   %.08.i = phi i32 [ 0, %45 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i.us.i ], [ 0, %.loopexit.us.i ]
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store i32 %.08.i, ptr %69, align 4, !tbaa !135
+  store i32 %.08.i, ptr %69, align 4, !tbaa !136
   br label %70
 
 70:                                               ; preds = %Fra_SmlCheckNonConstOutputs.exit, %Fra_SmlInitialize.exit
@@ -3244,11 +3244,11 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
 6:                                                ; preds = %1
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %8, align 4, !tbaa !136
-  store i32 1000, ptr %7, align 8, !tbaa !138
+  store i32 0, ptr %8, align 4, !tbaa !137
+  store i32 1000, ptr %7, align 8, !tbaa !139
   %9 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #21
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !139
+  store ptr %9, ptr %10, align 8, !tbaa !140
   %11 = tail call i32 @fgetc(ptr noundef nonnull %2)
   %.not28 = icmp eq i32 %11, -1
   br i1 %.not28, label %.loopexit, label %.lr.ph
@@ -3262,13 +3262,13 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
 14:                                               ; preds = %.lr.ph
   %15 = trunc nuw nsw i32 %12 to i8
   %16 = add nsw i8 %15, -48
-  %17 = load i32, ptr %8, align 4, !tbaa !136
-  %18 = load i32, ptr %7, align 8, !tbaa !138
+  %17 = load i32, ptr %8, align 4, !tbaa !137
+  %18 = load i32, ptr %7, align 8, !tbaa !139
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %.Vec_StrGrow.exit10_crit_edge.i
 
 .Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %14
-  %.pre.i = load ptr, ptr %10, align 8, !tbaa !139
+  %.pre.i = load ptr, ptr %10, align 8, !tbaa !140
   br label %Vec_StrPush.exit
 
 20:                                               ; preds = %14
@@ -3276,7 +3276,7 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %10, align 8, !tbaa !139
+  %23 = load ptr, ptr %10, align 8, !tbaa !140
   %.not9.i.i = icmp eq ptr %23, null
   br i1 %.not9.i.i, label %26, label %24
 
@@ -3290,13 +3290,13 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
 
 Vec_StrGrow.exit.i:                               ; preds = %26, %24
   %28 = phi ptr [ %25, %24 ], [ %27, %26 ]
-  store ptr %28, ptr %10, align 8, !tbaa !139
-  store i32 16, ptr %7, align 8, !tbaa !138
+  store ptr %28, ptr %10, align 8, !tbaa !140
+  store i32 16, ptr %7, align 8, !tbaa !139
   br label %Vec_StrPush.exit
 
 29:                                               ; preds = %20
   %30 = shl nuw nsw i32 %17, 1
-  %31 = load ptr, ptr %10, align 8, !tbaa !139
+  %31 = load ptr, ptr %10, align 8, !tbaa !140
   %.not9.i9.i = icmp eq ptr %31, null
   %32 = zext nneg i32 %30 to i64
   br i1 %.not9.i9.i, label %35, label %33
@@ -3311,14 +3311,14 @@ Vec_StrGrow.exit.i:                               ; preds = %26, %24
 
 37:                                               ; preds = %35, %33
   %38 = phi ptr [ %34, %33 ], [ %36, %35 ]
-  store ptr %38, ptr %10, align 8, !tbaa !139
-  store i32 %30, ptr %7, align 8, !tbaa !138
+  store ptr %38, ptr %10, align 8, !tbaa !140
+  store i32 %30, ptr %7, align 8, !tbaa !139
   br label %Vec_StrPush.exit
 
 Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10_crit_edge.i, %Vec_StrGrow.exit.i, %37
   %39 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %38, %37 ], [ %28, %Vec_StrGrow.exit.i ]
   %40 = add nsw i32 %17, 1
-  store i32 %40, ptr %8, align 4, !tbaa !136
+  store i32 %40, ptr %8, align 4, !tbaa !137
   %41 = sext i32 %17 to i64
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
   store i8 %16, ptr %42, align 1, !tbaa !3
@@ -3336,7 +3336,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %sext = shl i32 %12, 24
   %45 = ashr exact i32 %sext, 24
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %0, i32 noundef %45)
-  %47 = load ptr, ptr %10, align 8, !tbaa !139
+  %47 = load ptr, ptr %10, align 8, !tbaa !140
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %Vec_StrFreeP.exit, label %.thread.i
 
@@ -3351,7 +3351,7 @@ Vec_StrFreeP.exit:                                ; preds = %44, %.thread.i
 48:                                               ; preds = %43, %43, %43, %43, %Vec_StrPush.exit
   %49 = tail call i32 @fgetc(ptr noundef nonnull %2)
   %.not = icmp eq i32 %49, -1
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !140
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !141
 
 .loopexit:                                        ; preds = %48, %6, %Vec_StrFreeP.exit
   %.026 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %7, %6 ], [ %7, %48 ]
@@ -3375,7 +3375,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val38 = load i32, ptr %3, align 4, !tbaa !136
+  %.val38 = load i32, ptr %3, align 4, !tbaa !137
   %4 = load ptr, ptr %0, align 8, !tbaa !85
   %5 = getelementptr i8, ptr %4, i64 136
   %.val35 = load i32, ptr %5, align 8, !tbaa !28
@@ -3400,7 +3400,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   br i1 %16, label %.lr.ph50.split.us, label %.lr.ph50.split
 
 .lr.ph50.split.us:                                ; preds = %.lr.ph50
-  %.val39.us = load ptr, ptr %18, align 8, !tbaa !139
+  %.val39.us = load ptr, ptr %18, align 8, !tbaa !140
   %19 = icmp slt i32 %6, %9
   br label %20
 
@@ -3422,7 +3422,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %.val36.us = load i32, ptr %12, align 4, !tbaa !46
   %30 = sext i32 %.val36.us to i64
   %31 = icmp slt i64 %indvars.iv.next85, %30
-  br i1 %31, label %20, label %.critedge, !llvm.loop !141
+  br i1 %31, label %20, label %.critedge, !llvm.loop !142
 
 .lr.ph46.us:                                      ; preds = %..preheader_crit_edge.us, %45
   %.245.us = phi i32 [ %46, %45 ], [ %6, %..preheader_crit_edge.us ]
@@ -3449,7 +3449,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 45:                                               ; preds = %37, %.lr.ph46.us
   %46 = add nuw nsw i32 %.245.us, 1
   %exitcond83.not = icmp eq i32 %46, %9
-  br i1 %exitcond83.not, label %._crit_edge.us, label %.lr.ph46.us, !llvm.loop !142
+  br i1 %exitcond83.not, label %._crit_edge.us, label %.lr.ph46.us, !llvm.loop !143
 
 47:                                               ; preds = %.preheader41.us, %61
   %.143.us = phi i32 [ 0, %.preheader41.us ], [ %62, %61 ]
@@ -3476,7 +3476,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 61:                                               ; preds = %53, %47
   %62 = add nuw nsw i32 %.143.us, 1
   %exitcond82.not = icmp eq i32 %62, %6
-  br i1 %exitcond82.not, label %..preheader_crit_edge.us, label %47, !llvm.loop !143
+  br i1 %exitcond82.not, label %..preheader_crit_edge.us, label %47, !llvm.loop !144
 
 .lr.ph.us:                                        ; preds = %20, %.lr.ph.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph.us ], [ 0, %20 ]
@@ -3486,7 +3486,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %64 = load i32, ptr %7, align 4, !tbaa !25
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next80, %65
-  br i1 %66, label %.lr.ph.us, label %.preheader41.us, !llvm.loop !144
+  br i1 %66, label %.lr.ph.us, label %.preheader41.us, !llvm.loop !145
 
 .preheader41.us:                                  ; preds = %.lr.ph.us, %20
   %67 = trunc nuw nsw i64 %indvars.iv84 to i32
@@ -3500,7 +3500,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   br i1 %68, label %.lr.ph50.split.split.us, label %.critedge
 
 .lr.ph50.split.split.us:                          ; preds = %.lr.ph50.split
-  %.val40.us61 = load ptr, ptr %18, align 8, !tbaa !139
+  %.val40.us61 = load ptr, ptr %18, align 8, !tbaa !140
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   br label %69
 
@@ -3542,7 +3542,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 93:                                               ; preds = %85, %79
   %94 = add nuw nsw i32 %.245.us53, 1
   %exitcond.not = icmp eq i32 %94, %smax
-  br i1 %exitcond.not, label %._crit_edge.us62, label %79, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge.us62, label %79, !llvm.loop !143
 
 .lr.ph.us58:                                      ; preds = %69, %.lr.ph.us58
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph.us58 ], [ 0, %69 ]
@@ -3552,7 +3552,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %96 = load i32, ptr %7, align 4, !tbaa !25
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next74, %97
-  br i1 %98, label %.lr.ph.us58, label %.preheader41.us57, !llvm.loop !144
+  br i1 %98, label %.lr.ph.us58, label %.preheader41.us57, !llvm.loop !145
 
 .preheader41.us57:                                ; preds = %.lr.ph.us58, %69
   %99 = trunc nuw nsw i64 %indvars.iv76 to i32
@@ -3563,7 +3563,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %.val36.us52 = load i32, ptr %12, align 4, !tbaa !46
   %100 = sext i32 %.val36.us52 to i64
   %101 = icmp slt i64 %indvars.iv.next77, %100
-  br i1 %101, label %69, label %.critedge, !llvm.loop !141
+  br i1 %101, label %69, label %.critedge, !llvm.loop !146
 
 .critedge:                                        ; preds = %._crit_edge.us62, %._crit_edge.us, %.lr.ph50.split, %2
   ret void
@@ -3621,7 +3621,7 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
   %.val24 = load i32, ptr %31, align 4, !tbaa !46
   %32 = sext i32 %.val24 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %14, label %.critedge, !llvm.loop !145
+  br i1 %33, label %14, label %.critedge, !llvm.loop !147
 
 .critedge:                                        ; preds = %14, %.preheader
   %putchar = tail call i32 @putchar(i32 32)
@@ -3665,13 +3665,13 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
   %.val = load i32, ptr %59, align 4, !tbaa !46
   %60 = sext i32 %.val to i64
   %61 = icmp slt i64 %indvars.iv.next37, %60
-  br i1 %61, label %42, label %.critedge2, !llvm.loop !146
+  br i1 %61, label %42, label %.critedge2, !llvm.loop !148
 
 .critedge2:                                       ; preds = %42, %.critedge
   %putchar23 = tail call i32 @putchar(i32 10)
   %62 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %62, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !147
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.critedge2, %2
   ret void
@@ -3685,7 +3685,7 @@ define noalias noundef ptr @Fra_SmlSimulateCombGiven(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %5, i64 4
-  %.val33 = load i32, ptr %8, align 4, !tbaa !136
+  %.val33 = load i32, ptr %8, align 4, !tbaa !137
   %9 = getelementptr i8, ptr %0, i64 136
   %.val29 = load i32, ptr %9, align 8, !tbaa !28
   %10 = srem i32 %.val33, %.val29
@@ -3696,7 +3696,7 @@ define noalias noundef ptr @Fra_SmlSimulateCombGiven(ptr noundef %0, ptr noundef
 12:                                               ; preds = %7
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %1, i32 noundef %.val33, i32 noundef %.val29)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !139
+  %15 = load ptr, ptr %14, align 8, !tbaa !140
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %16
 
@@ -3715,7 +3715,7 @@ Vec_StrFree.exit:                                 ; preds = %12, %16
   %21 = zext i1 %20 to i32
   %22 = add nsw i32 %18, %21
   %23 = getelementptr i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %23, align 8, !tbaa !113
+  %.val.i = load ptr, ptr %23, align 8, !tbaa !114
   %24 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %24, align 4, !tbaa !46
   %25 = sext i32 %.val.val.i to i64
@@ -3728,7 +3728,7 @@ Vec_StrFree.exit:                                 ; preds = %12, %16
   tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %31, i1 false)
   store ptr %0, ptr %30, align 8, !tbaa !85
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 0, ptr %32, align 8, !tbaa !134
+  store i32 0, ptr %32, align 8, !tbaa !135
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 1, ptr %33, align 4, !tbaa !90
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -3739,7 +3739,7 @@ Vec_StrFree.exit:                                 ; preds = %12, %16
   store i32 0, ptr %36, align 8, !tbaa !27
   tail call void @Fra_SmlInitializeGiven(ptr noundef nonnull %30, ptr noundef nonnull %5)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !139
+  %38 = load ptr, ptr %37, align 8, !tbaa !140
   %.not.i34 = icmp eq ptr %38, null
   br i1 %.not.i34, label %Vec_StrFree.exit35, label %39
 
@@ -3811,7 +3811,7 @@ Vec_StrFree.exit35:                               ; preds = %17, %39
 Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.lr.ph.i.us.i, %40, %.lr.ph.i
   %.08.i = phi i32 [ 0, %40 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i.us.i ], [ 0, %.loopexit.us.i ]
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  store i32 %.08.i, ptr %64, align 4, !tbaa !135
+  store i32 %.08.i, ptr %64, align 4, !tbaa !136
   br label %65
 
 65:                                               ; preds = %Fra_SmlCheckNonConstOutputs.exit, %Vec_StrFree.exit35
@@ -3830,7 +3830,7 @@ Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.l
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Fra_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = getelementptr i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %6, align 8, !tbaa !113
+  %.val.i = load ptr, ptr %6, align 8, !tbaa !114
   %7 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %7, align 4, !tbaa !46
   %8 = sext i32 %.val.val.i to i64
@@ -3846,7 +3846,7 @@ define noalias noundef ptr @Fra_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i
   tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %17, i1 false)
   store ptr %0, ptr %16, align 8, !tbaa !85
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 %1, ptr %18, align 8, !tbaa !134
+  store i32 %1, ptr %18, align 8, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %9, ptr %19, align 4, !tbaa !90
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3920,7 +3920,7 @@ define noalias noundef ptr @Fra_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i
 Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.lr.ph.i.us.i, %25, %.lr.ph.i
   %.08.i = phi i32 [ 0, %25 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i.us.i ], [ 0, %.loopexit.us.i ]
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  store i32 %.08.i, ptr %49, align 4, !tbaa !135
+  store i32 %.08.i, ptr %49, align 4, !tbaa !136
   br label %50
 
 50:                                               ; preds = %Fra_SmlCheckNonConstOutputs.exit, %5
@@ -3984,7 +3984,7 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr noundef readonly captures(none)
 .loopexit.us:                                     ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !148
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !150
 
 .lr.ph122.preheader:                              ; preds = %.lr.ph.i.us
   %28 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4016,7 +4016,7 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr noundef readonly captures(none)
 41:                                               ; preds = %38
   %42 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i95 = icmp eq i32 %42, 32
-  br i1 %exitcond.not.i95, label %Aig_WordFindFirstBit.exit, label %38, !llvm.loop !149
+  br i1 %exitcond.not.i95, label %Aig_WordFindFirstBit.exit, label %38, !llvm.loop !151
 
 Aig_WordFindFirstBit.exit:                        ; preds = %38, %41
   %.06.i = phi i32 [ %.07.i, %38 ], [ -1, %41 ]
@@ -4027,7 +4027,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %indvars.iv.next144 = add nsw i64 %indvars.iv143, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next144 to i32
   %exitcond146.not = icmp eq i32 %12, %lftr.wideiv
-  br i1 %exitcond146.not, label %.critedge, label %.lr.ph122, !llvm.loop !150
+  br i1 %exitcond146.not, label %.critedge, label %.lr.ph122, !llvm.loop !152
 
 .critedge:                                        ; preds = %.loopexit.us, %Fra_SmlNodeIsZero.exit, %.lr.ph, %1, %Aig_WordFindFirstBit.exit
   %.074106 = phi i32 [ %28, %Aig_WordFindFirstBit.exit ], [ 0, %1 ], [ %5, %.lr.ph ], [ %28, %Fra_SmlNodeIsZero.exit ], [ %17, %.loopexit.us ]
@@ -4038,9 +4038,9 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %45 = sub nsw i32 %.val83, %.val88
   %46 = add i32 %.073, 1
   %47 = tail call ptr @Abc_CexAlloc(i32 noundef %.val88, i32 noundef %45, i32 noundef %46) #22
-  store i32 %.074106, ptr %47, align 4, !tbaa !151
+  store i32 %.074106, ptr %47, align 4, !tbaa !153
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 %.073, ptr %48, align 4, !tbaa !153
+  store i32 %.073, ptr %48, align 4, !tbaa !155
   %49 = load ptr, ptr %0, align 8, !tbaa !85
   %50 = getelementptr i8, ptr %49, i64 136
   %.val82 = load i32, ptr %50, align 8, !tbaa !28
@@ -4120,7 +4120,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
   %95 = sext i32 %.val89 to i64
   %96 = icmp slt i64 %indvars.iv.next148, %95
-  br i1 %96, label %75, label %.critedge2.preheader, !llvm.loop !154
+  br i1 %96, label %75, label %.critedge2.preheader, !llvm.loop !156
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge4
   %.val84164 = phi i32 [ %.val84128.pre, %.preheader.lr.ph ], [ %.val84165, %.critedge4 ]
@@ -4160,8 +4160,8 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   br i1 %.not80, label %130, label %116
 
 116:                                              ; preds = %99
-  %117 = load i32, ptr %73, align 4, !tbaa !155
-  %118 = load i32, ptr %74, align 4, !tbaa !156
+  %117 = load i32, ptr %73, align 4, !tbaa !157
+  %118 = load i32, ptr %74, align 4, !tbaa !158
   %119 = mul nsw i32 %118, %.171132
   %120 = trunc nuw nsw i64 %indvars.iv150 to i32
   %121 = add i32 %117, %120
@@ -4185,7 +4185,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %131 = sub nsw i32 %.val, %.val84
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next151, %132
-  br i1 %133, label %99, label %.critedge4, !llvm.loop !157
+  br i1 %133, label %99, label %.critedge4, !llvm.loop !159
 
 .critedge4:                                       ; preds = %130, %.preheader
   %.val84165 = phi i32 [ %.val84164, %.preheader ], [ %.val84, %130 ]
@@ -4194,7 +4194,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %.val127156 = phi i32 [ %.val127, %.preheader ], [ %.val, %130 ]
   %134 = add nuw i32 %.171132, 1
   %exitcond153.not = icmp eq i32 %.171132, %.073
-  br i1 %exitcond153.not, label %.critedge2._crit_edge, label %.preheader, !llvm.loop !158
+  br i1 %exitcond153.not, label %.critedge2._crit_edge, label %.preheader, !llvm.loop !160
 
 .critedge2._crit_edge:                            ; preds = %.critedge4, %.critedge2.preheader
   %135 = tail call i32 @Saig_ManVerifyCex(ptr noundef nonnull %49, ptr noundef nonnull %47) #22
@@ -4263,16 +4263,16 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
 28:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !159
+  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !161
 
 .critedge:                                        ; preds = %28, %3, %24
   %.039 = phi i32 [ %26, %24 ], [ -1, %3 ], [ -1, %28 ]
   %.0 = phi i32 [ %27, %24 ], [ -1, %3 ], [ -1, %28 ]
   %29 = add nsw i32 %.0, 1
   %30 = tail call ptr @Abc_CexAlloc(i32 noundef %.val48, i32 noundef %6, i32 noundef %29) #22
-  store i32 %.039, ptr %30, align 4, !tbaa !151
+  store i32 %.039, ptr %30, align 4, !tbaa !153
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 %.0, ptr %31, align 4, !tbaa !153
+  store i32 %.0, ptr %31, align 4, !tbaa !155
   %.val54 = load i32, ptr %9, align 8, !tbaa !28
   %32 = icmp sgt i32 %.val54, 0
   br i1 %32, label %.lr.ph56, label %._crit_edge
@@ -4281,7 +4281,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %.pre63.pre = load i32, ptr %34, align 4, !tbaa !155
+  %.pre63.pre = load i32, ptr %34, align 4, !tbaa !157
   br label %39
 
 36:                                               ; preds = %51
@@ -4289,7 +4289,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %.val = load i32, ptr %9, align 8, !tbaa !28
   %37 = sext i32 %.val to i64
   %38 = icmp slt i64 %indvars.iv.next61, %37
-  br i1 %38, label %39, label %._crit_edge, !llvm.loop !160
+  br i1 %38, label %39, label %._crit_edge, !llvm.loop !162
 
 39:                                               ; preds = %.lr.ph56, %36
   %.pre63 = phi i32 [ %.pre63.pre, %.lr.ph56 ], [ %.pre6364, %36 ]
@@ -4310,13 +4310,13 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %50 = or i32 %45, %49
   store i32 %50, ptr %48, align 4, !tbaa !28
-  %.pre = load i32, ptr %34, align 4, !tbaa !155
+  %.pre = load i32, ptr %34, align 4, !tbaa !157
   br label %51
 
 51:                                               ; preds = %42, %39
   %.pre6364 = phi i32 [ %.pre, %42 ], [ %.pre63, %39 ]
   %52 = add nsw i32 %.pre6364, %indvars62
-  %53 = load i32, ptr %35, align 4, !tbaa !161
+  %53 = load i32, ptr %35, align 4, !tbaa !163
   %54 = add nsw i32 %53, -1
   %55 = icmp eq i32 %52, %54
   br i1 %55, label %._crit_edge, label %36
@@ -4491,56 +4491,58 @@ attributes #22 = { nounwind }
 !106 = distinct !{!106, !30}
 !107 = distinct !{!107, !30}
 !108 = distinct !{!108, !30}
-!109 = distinct !{!109, !30}
-!110 = !{!111, !20, i64 0}
-!111 = !{!"timespec", !20, i64 0, !20, i64 8}
-!112 = !{!111, !20, i64 8}
-!113 = !{!40, !19, i64 32}
-!114 = distinct !{!114, !30}
+!109 = distinct !{!109, !30, !110}
+!110 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!111 = !{!112, !20, i64 0}
+!112 = !{!"timespec", !20, i64 0, !20, i64 8}
+!113 = !{!112, !20, i64 8}
+!114 = !{!40, !19, i64 32}
 !115 = distinct !{!115, !30}
 !116 = distinct !{!116, !30}
 !117 = distinct !{!117, !30}
 !118 = distinct !{!118, !30}
-!119 = !{!26, !11, i64 36}
-!120 = !{!26, !11, i64 32}
-!121 = !{!7, !8, i64 0}
-!122 = !{!123, !11, i64 48}
-!123 = !{!"Fra_Par_t_", !11, i64 0, !61, i64 8, !11, i64 16, !11, i64 20, !61, i64 24, !61, i64 32, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !11, i64 112}
-!124 = !{!7, !13, i64 48}
-!125 = !{!126, !17, i64 80}
-!126 = !{!"Fra_Cla_t_", !10, i64 0, !12, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !12, i64 40, !12, i64 48, !19, i64 56, !19, i64 64, !11, i64 72, !11, i64 76, !17, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
-!127 = !{!7, !17, i64 96}
-!128 = !{!7, !20, i64 312}
-!129 = !{!123, !11, i64 80}
-!130 = !{!123, !11, i64 96}
-!131 = !{!126, !19, i64 16}
-!132 = !{!123, !61, i64 8}
-!133 = distinct !{!133, !30}
-!134 = !{!26, !11, i64 8}
-!135 = !{!26, !11, i64 28}
-!136 = !{!137, !11, i64 4}
-!137 = !{!"Vec_Str_t_", !11, i64 0, !11, i64 4, !41, i64 8}
-!138 = !{!137, !11, i64 0}
-!139 = !{!137, !41, i64 8}
-!140 = distinct !{!140, !30}
+!119 = distinct !{!119, !30}
+!120 = !{!26, !11, i64 36}
+!121 = !{!26, !11, i64 32}
+!122 = !{!7, !8, i64 0}
+!123 = !{!124, !11, i64 48}
+!124 = !{!"Fra_Par_t_", !11, i64 0, !61, i64 8, !11, i64 16, !11, i64 20, !61, i64 24, !61, i64 32, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !11, i64 112}
+!125 = !{!7, !13, i64 48}
+!126 = !{!127, !17, i64 80}
+!127 = !{!"Fra_Cla_t_", !10, i64 0, !12, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !12, i64 40, !12, i64 48, !19, i64 56, !19, i64 64, !11, i64 72, !11, i64 76, !17, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
+!128 = !{!7, !17, i64 96}
+!129 = !{!7, !20, i64 312}
+!130 = !{!124, !11, i64 80}
+!131 = !{!124, !11, i64 96}
+!132 = !{!127, !19, i64 16}
+!133 = !{!124, !61, i64 8}
+!134 = distinct !{!134, !30}
+!135 = !{!26, !11, i64 8}
+!136 = !{!26, !11, i64 28}
+!137 = !{!138, !11, i64 4}
+!138 = !{!"Vec_Str_t_", !11, i64 0, !11, i64 4, !41, i64 8}
+!139 = !{!138, !11, i64 0}
+!140 = !{!138, !41, i64 8}
 !141 = distinct !{!141, !30}
-!142 = distinct !{!142, !30}
+!142 = distinct !{!142, !30, !110}
 !143 = distinct !{!143, !30}
 !144 = distinct !{!144, !30}
 !145 = distinct !{!145, !30}
-!146 = distinct !{!146, !30}
+!146 = distinct !{!146, !30, !110}
 !147 = distinct !{!147, !30}
 !148 = distinct !{!148, !30}
 !149 = distinct !{!149, !30}
-!150 = distinct !{!150, !30}
-!151 = !{!152, !11, i64 0}
-!152 = !{!"Abc_Cex_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !4, i64 20}
-!153 = !{!152, !11, i64 4}
-!154 = distinct !{!154, !30}
-!155 = !{!152, !11, i64 8}
-!156 = !{!152, !11, i64 12}
-!157 = distinct !{!157, !30}
-!158 = distinct !{!158, !30}
+!150 = distinct !{!150, !30, !110}
+!151 = distinct !{!151, !30}
+!152 = distinct !{!152, !30}
+!153 = !{!154, !11, i64 0}
+!154 = !{!"Abc_Cex_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !4, i64 20}
+!155 = !{!154, !11, i64 4}
+!156 = distinct !{!156, !30}
+!157 = !{!154, !11, i64 8}
+!158 = !{!154, !11, i64 12}
 !159 = distinct !{!159, !30}
 !160 = distinct !{!160, !30}
-!161 = !{!152, !11, i64 16}
+!161 = distinct !{!161, !30}
+!162 = distinct !{!162, !30}
+!163 = !{!154, !11, i64 16}

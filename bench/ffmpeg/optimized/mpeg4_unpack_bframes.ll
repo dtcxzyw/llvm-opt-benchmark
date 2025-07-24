@@ -95,7 +95,7 @@ scan_buffer.exit:                                 ; preds = %.loopexit.us.i
 37:                                               ; preds = %scan_buffer.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.1) #3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !26
+  %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !14
   %42 = zext nneg i32 %.1 to i64
@@ -111,16 +111,16 @@ scan_buffer.exit:                                 ; preds = %.loopexit.us.i
 define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = tail call i32 @ff_bsf_get_packet_ref(ptr noundef %0, ptr noundef %1) #3
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %89, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !31
+  %12 = load i32, ptr %11, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
@@ -199,7 +199,7 @@ define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1)
   %.163 = phi i32 [ %.062, %.lr.ph40.split.split.i ], [ %.062, %28 ], [ %.062, %.preheader.i ], [ 2, %40 ], [ %38, %37 ], [ %.062, %33 ]
   %.1 = phi i32 [ %.061, %.lr.ph40.split.split.i ], [ %.061, %28 ], [ %.061, %.preheader.i ], [ %44, %40 ], [ %.061, %37 ], [ %.061, %33 ]
   %45 = icmp ult ptr %17, %14
-  br i1 %45, label %.lr.ph40.split.split.i, label %scan_buffer.exit, !llvm.loop !25
+  br i1 %45, label %.lr.ph40.split.split.i, label %scan_buffer.exit, !llvm.loop !33
 
 scan_buffer.exit:                                 ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
@@ -208,7 +208,7 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   br i1 %46, label %47, label %62
 
 47:                                               ; preds = %scan_buffer.exit
-  %48 = load ptr, ptr %5, align 8, !tbaa !32
+  %48 = load ptr, ptr %5, align 8, !tbaa !34
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %50, label %49
 
@@ -218,23 +218,23 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   br label %50
 
 50:                                               ; preds = %49, %47
-  %51 = load ptr, ptr %1, align 8, !tbaa !34
+  %51 = load ptr, ptr %1, align 8, !tbaa !36
   %52 = call ptr @av_buffer_ref(ptr noundef %51) #3
-  store ptr %52, ptr %5, align 8, !tbaa !32
+  store ptr %52, ptr %5, align 8, !tbaa !34
   %.not50 = icmp eq ptr %52, null
   br i1 %.not50, label %.thread93, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %9, align 8, !tbaa !28
+  %54 = load ptr, ptr %9, align 8, !tbaa !29
   %55 = zext nneg i32 %.1 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %56, ptr %57, align 8, !tbaa !35
-  %58 = load i32, ptr %11, align 8, !tbaa !31
+  store ptr %56, ptr %57, align 8, !tbaa !37
+  %58 = load i32, ptr %11, align 8, !tbaa !32
   %59 = sub nsw i32 %58, %.1
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i64 %60, ptr %61, align 8, !tbaa !38
+  store i64 %60, ptr %61, align 8, !tbaa !40
   br label %62
 
 62:                                               ; preds = %53, %scan_buffer.exit
@@ -252,28 +252,28 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   ]
 
 65:                                               ; preds = %64
-  %66 = load ptr, ptr %5, align 8, !tbaa !32
+  %66 = load ptr, ptr %5, align 8, !tbaa !34
   %.not51 = icmp eq ptr %66, null
   br i1 %.not51, label %.thread87, label %67
 
 67:                                               ; preds = %65
-  %68 = load ptr, ptr %1, align 8, !tbaa !34
-  %69 = load ptr, ptr %9, align 8, !tbaa !28
+  %68 = load ptr, ptr %1, align 8, !tbaa !36
+  %69 = load ptr, ptr %9, align 8, !tbaa !29
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %69, ptr %70, align 8, !tbaa !35
-  %71 = load i32, ptr %11, align 8, !tbaa !31
+  store ptr %69, ptr %70, align 8, !tbaa !37
+  %71 = load i32, ptr %11, align 8, !tbaa !32
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i64 %72, ptr %73, align 8, !tbaa !38
-  store ptr %66, ptr %1, align 8, !tbaa !34
+  store i64 %72, ptr %73, align 8, !tbaa !40
+  store ptr %66, ptr %1, align 8, !tbaa !36
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !35
-  store ptr %75, ptr %9, align 8, !tbaa !28
+  %75 = load ptr, ptr %74, align 8, !tbaa !37
+  store ptr %75, ptr %9, align 8, !tbaa !29
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !38
+  %77 = load i64, ptr %76, align 8, !tbaa !40
   %78 = trunc i64 %77 to i32
-  store i32 %78, ptr %11, align 8, !tbaa !31
-  store ptr %68, ptr %5, align 8, !tbaa !32
+  store i32 %78, ptr %11, align 8, !tbaa !32
+  store ptr %68, ptr %5, align 8, !tbaa !34
   %79 = icmp ult i32 %71, 20
   br i1 %79, label %80, label %89
 
@@ -283,7 +283,7 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   br label %89
 
 81:                                               ; preds = %64, %.thread80.thread
-  store i32 %.1, ptr %11, align 8, !tbaa !31
+  store i32 %.1, ptr %11, align 8, !tbaa !32
   br label %89
 
 .thread87:                                        ; preds = %64, %65
@@ -297,7 +297,7 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
 
 .thread96:                                        ; preds = %83
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.6) #3
-  %86 = load ptr, ptr %9, align 8, !tbaa !28
+  %86 = load ptr, ptr %9, align 8, !tbaa !29
   %87 = zext nneg i32 %.166 to i64
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
   store i8 0, ptr %88, align 1, !tbaa !22
@@ -316,7 +316,7 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
 ; Function Attrs: nounwind uwtable
 define internal void @mpeg4_unpack_bframes_close_flush(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   tail call void @av_buffer_unref(ptr noundef %3) #3
   ret void
 }
@@ -373,17 +373,19 @@ attributes #3 = { nounwind }
 !22 = !{!8, !8, i64 0}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!5, !11, i64 32}
-!27 = !{!5, !7, i64 16}
-!28 = !{!29, !16, i64 24}
-!29 = !{!"AVPacket", !30, i64 0, !18, i64 8, !18, i64 16, !16, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !17, i64 48, !13, i64 56, !18, i64 64, !18, i64 72, !7, i64 80, !30, i64 88, !12, i64 96}
-!30 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!31 = !{!29, !13, i64 32}
-!32 = !{!33, !30, i64 0}
-!33 = !{!"UnpackBFramesBSFContext", !30, i64 0}
-!34 = !{!29, !30, i64 0}
-!35 = !{!36, !16, i64 8}
-!36 = !{!"AVBufferRef", !37, i64 0, !16, i64 8, !18, i64 16}
-!37 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!38 = !{!36, !18, i64 16}
+!25 = distinct !{!25, !24, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{!5, !11, i64 32}
+!28 = !{!5, !7, i64 16}
+!29 = !{!30, !16, i64 24}
+!30 = !{!"AVPacket", !31, i64 0, !18, i64 8, !18, i64 16, !16, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !17, i64 48, !13, i64 56, !18, i64 64, !18, i64 72, !7, i64 80, !31, i64 88, !12, i64 96}
+!31 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!32 = !{!30, !13, i64 32}
+!33 = distinct !{!33, !24}
+!34 = !{!35, !31, i64 0}
+!35 = !{!"UnpackBFramesBSFContext", !31, i64 0}
+!36 = !{!30, !31, i64 0}
+!37 = !{!38, !16, i64 8}
+!38 = !{!"AVBufferRef", !39, i64 0, !16, i64 8, !18, i64 16}
+!39 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!40 = !{!38, !18, i64 16}

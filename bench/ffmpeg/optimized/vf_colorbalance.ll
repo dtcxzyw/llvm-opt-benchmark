@@ -1393,7 +1393,7 @@ preservel.exit:                                   ; preds = %186, %189
   %273 = mul nsw i32 %272, %22
   %274 = sext i32 %273 to i64
   %275 = icmp slt i64 %indvars.iv.next, %274
-  br i1 %275, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %275, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %271
   %.pre131 = load i32, ptr %17, align 8, !tbaa !58
@@ -1410,7 +1410,7 @@ preservel.exit:                                   ; preds = %186, %189
   %282 = getelementptr inbounds i8, ptr %.085127, i64 %281
   %283 = add nsw i32 %.086126, 1
   %exitcond.not = icmp eq i32 %283, %16
-  br i1 %exitcond.not, label %._crit_edge129, label %.preheader, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge129, label %.preheader, !llvm.loop !80
 
 ._crit_edge129:                                   ; preds = %._crit_edge, %4
   ret i32 0
@@ -1786,14 +1786,14 @@ preservel.exit.us:                                ; preds = %200, %197
 285:                                              ; preds = %280, %258
   %indvars.iv.next = add nsw i64 %indvars.iv, %83
   %286 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %286, label %89, label %._crit_edge.us, !llvm.loop !80
+  br i1 %286, label %89, label %._crit_edge.us, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %285
   %287 = getelementptr inbounds i16, ptr %.0134.us, i64 %52
   %288 = getelementptr inbounds i16, ptr %.089133.us, i64 %54
   %289 = add nsw i32 %.090132.us, 1
   %exitcond.not = icmp eq i32 %289, %16
-  br i1 %exitcond.not, label %._crit_edge135, label %.preheader.us, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge135, label %.preheader.us, !llvm.loop !82
 
 ._crit_edge135:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1906,8 +1906,9 @@ attributes #8 = { nounwind willreturn memory(read) }
 !74 = !{!75, !75, i64 0}
 !75 = !{!"short", !7, i64 0}
 !76 = distinct !{!76, !71}
-!77 = distinct !{!77, !71}
-!78 = distinct !{!78, !71}
+!77 = distinct !{!77, !71, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !79 = distinct !{!79, !71}
 !80 = distinct !{!80, !71}
 !81 = distinct !{!81, !71}
+!82 = distinct !{!82, !71, !78}

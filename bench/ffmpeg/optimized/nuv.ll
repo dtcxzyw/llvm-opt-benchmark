@@ -346,7 +346,7 @@ get_quant.exit:                                   ; preds = %33
   %121 = load ptr, ptr %78, align 16, !tbaa !33
   %122 = call i32 @av_lzo1x_decode(ptr noundef %121, ptr noundef nonnull %5, ptr noundef nonnull %117, ptr noundef nonnull %6) #6
   %.not161.us = icmp eq i32 %122, 0
-  br i1 %.not161.us, label %.thread174.us, label %.split.us
+  br i1 %.not161.us, label %.thread174.us, label %.split.us, !llvm.loop !53
 
 .preheader.split:                                 ; preds = %.preheader
   %123 = load i32, ptr %79, align 8, !tbaa !38
@@ -451,7 +451,7 @@ get_quant.exit:                                   ; preds = %33
   %.3136278 = phi ptr [ %.3136279, %.thread190 ], [ %.3136281, %161 ]
   %.3141275 = phi i32 [ %.3141276, %.thread190 ], [ %.3141280, %161 ]
   %162 = load ptr, ptr %12, align 16, !tbaa !27
-  %163 = load ptr, ptr %162, align 8, !tbaa !53
+  %163 = load ptr, ptr %162, align 8, !tbaa !55
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %165 = load i32, ptr %164, align 4, !tbaa !47
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 64
@@ -461,7 +461,7 @@ get_quant.exit:                                   ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 1 %163, i8 0, i64 %169, i1 false)
   %170 = load ptr, ptr %12, align 16, !tbaa !27
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !53
+  %172 = load ptr, ptr %171, align 8, !tbaa !55
   %173 = load i32, ptr %164, align 4, !tbaa !47
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 68
   %175 = load i32, ptr %174, align 4, !tbaa !42
@@ -471,7 +471,7 @@ get_quant.exit:                                   ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 1 %172, i8 -128, i64 %178, i1 false)
   %179 = load ptr, ptr %12, align 16, !tbaa !27
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !53
+  %181 = load ptr, ptr %180, align 8, !tbaa !55
   %182 = load i32, ptr %164, align 4, !tbaa !47
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 72
   %184 = load i32, ptr %183, align 8, !tbaa !42
@@ -487,13 +487,13 @@ get_quant.exit:                                   ; preds = %33
   %189 = select i1 %.0143173, i32 1, i32 2
   %190 = load ptr, ptr %12, align 16, !tbaa !27
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 120
-  store i32 %189, ptr %191, align 8, !tbaa !54
+  store i32 %189, ptr %191, align 8, !tbaa !56
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 276
-  %193 = load i32, ptr %192, align 4, !tbaa !59
+  %193 = load i32, ptr %192, align 4, !tbaa !61
   %194 = and i32 %193, -3
   %masksel = select i1 %.0143173, i32 2, i32 0
   %.sink = or disjoint i32 %194, %masksel
-  store i32 %.sink, ptr %192, align 4, !tbaa !59
+  store i32 %.sink, ptr %192, align 4, !tbaa !61
   switch i8 %44, label %242 [
     i8 51, label %195
     i8 48, label %195
@@ -539,7 +539,7 @@ get_quant.exit:                                   ; preds = %33
   br i1 %217, label %.thread178, label %242
 
 218:                                              ; preds = %188
-  %219 = load ptr, ptr %190, align 8, !tbaa !53
+  %219 = load ptr, ptr %190, align 8, !tbaa !55
   %220 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %221 = load i32, ptr %220, align 16, !tbaa !35
   %222 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -549,7 +549,7 @@ get_quant.exit:                                   ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 1 %219, i8 0, i64 %225, i1 false)
   %226 = load ptr, ptr %12, align 16, !tbaa !27
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !53
+  %228 = load ptr, ptr %227, align 8, !tbaa !55
   %229 = load i32, ptr %220, align 16, !tbaa !35
   %230 = load i32, ptr %222, align 4, !tbaa !36
   %231 = mul nsw i32 %230, %229
@@ -558,7 +558,7 @@ get_quant.exit:                                   ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 1 %228, i8 -128, i64 %233, i1 false)
   %234 = load ptr, ptr %12, align 16, !tbaa !27
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !53
+  %236 = load ptr, ptr %235, align 8, !tbaa !55
   %237 = load i32, ptr %220, align 16, !tbaa !35
   %238 = load i32, ptr %222, align 4, !tbaa !36
   %239 = mul nsw i32 %238, %237
@@ -637,7 +637,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @codec_reinit(ptr noundef %
   store i32 %.zext15.i, ptr %26, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %get_quant_quality.exit, label %16, !llvm.loop !60
+  br i1 %exitcond.not.i, label %get_quant_quality.exit, label %16, !llvm.loop !62
 
 get_quant_quality.exit:                           ; preds = %16, %4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -737,10 +737,10 @@ define internal fastcc void @copy_frame(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %8 = load i32, ptr %7, align 4, !tbaa !61
+  %8 = load i32, ptr %7, align 4, !tbaa !63
   %9 = call i32 @av_image_fill_arrays(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %1, i32 noundef %8, i32 noundef %2, i32 noundef %3, i32 noundef 1) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load i32, ptr %7, align 4, !tbaa !61
+  %11 = load i32, ptr %7, align 4, !tbaa !63
   call void @av_image_copy(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %11, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
@@ -828,12 +828,14 @@ attributes #6 = { nounwind }
 !50 = !{!49, !10, i64 32}
 !51 = !{!5, !13, i64 824}
 !52 = !{!28, !10, i64 24}
-!53 = !{!14, !14, i64 0}
-!54 = !{!55, !10, i64 120}
-!55 = !{!"AVFrame", !8, i64 0, !8, i64 64, !56, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !57, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !58, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!56 = !{!"p2 omnipotent char", !26, i64 0}
-!57 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!58 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!59 = !{!55, !10, i64 276}
-!60 = distinct !{!60, !44}
-!61 = !{!55, !10, i64 116}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = !{!14, !14, i64 0}
+!56 = !{!57, !10, i64 120}
+!57 = !{!"AVFrame", !8, i64 0, !8, i64 64, !58, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !59, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !60, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!58 = !{!"p2 omnipotent char", !26, i64 0}
+!59 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!61 = !{!57, !10, i64 276}
+!62 = distinct !{!62, !44}
+!63 = !{!57, !10, i64 116}

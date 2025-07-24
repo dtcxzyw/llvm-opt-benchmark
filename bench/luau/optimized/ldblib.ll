@@ -273,7 +273,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %.084, i64 1
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %.not63 = icmp eq i8 %92, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not63, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 93:                                               ; preds = %22, %._crit_edge
   %.051 = phi i32 [ %.050.lcssa, %._crit_edge ], [ 0, %22 ]
@@ -346,7 +346,7 @@ sub_0.lr.ph:                                      ; preds = %20
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %73
   %.02336 = phi i32 [ %14, %sub_0.lr.ph ], [ %74, %73 ]
-  %29 = load ptr, ptr %22, align 8, !tbaa !22
+  %29 = load ptr, ptr %22, align 8, !tbaa !24
   %30 = load i8, ptr %29, align 1
   %.not37 = icmp eq i8 %30, 67
   br i1 %.not37, label %.tail, label %.tail.thread
@@ -358,7 +358,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %73
   br i1 %33, label %73, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %34 = load ptr, ptr %23, align 8, !tbaa !23
+  %34 = load ptr, ptr %23, align 8, !tbaa !25
   %.not27 = icmp eq ptr %34, null
   br i1 %.not27, label %38, label %35
 
@@ -378,8 +378,8 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %73
   br label %46
 
 42:                                               ; preds = %46
-  %43 = load ptr, ptr %2, align 8, !tbaa !24
-  %44 = load ptr, ptr %27, align 8, !tbaa !28
+  %43 = load ptr, ptr %2, align 8, !tbaa !26
+  %44 = load ptr, ptr %27, align 8, !tbaa !30
   %45 = icmp ult ptr %43, %44
   br i1 %45, label %54, label %52
 
@@ -393,17 +393,17 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %73
   store i8 %49, ptr %50, align 1, !tbaa !4
   %51 = udiv i32 %.034, 10
   %.not28 = icmp ult i32 %.034, 10
-  br i1 %.not28, label %42, label %46, !llvm.loop !29
+  br i1 %.not28, label %42, label %46, !llvm.loop !31
 
 52:                                               ; preds = %42
   %53 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !24
+  %.pre = load ptr, ptr %2, align 8, !tbaa !26
   br label %54
 
 54:                                               ; preds = %52, %42
   %55 = phi ptr [ %.pre, %52 ], [ %43, %42 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store ptr %56, ptr %2, align 8, !tbaa !24
+  store ptr %56, ptr %2, align 8, !tbaa !26
   store i8 58, ptr %55, align 1, !tbaa !4
   %57 = ptrtoint ptr %50 to i64
   %58 = sub i64 %28, %57
@@ -424,20 +424,20 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %73
   br label %64
 
 64:                                               ; preds = %61, %59
-  %65 = load ptr, ptr %2, align 8, !tbaa !24
-  %66 = load ptr, ptr %27, align 8, !tbaa !28
+  %65 = load ptr, ptr %2, align 8, !tbaa !26
+  %66 = load ptr, ptr %27, align 8, !tbaa !30
   %67 = icmp ult ptr %65, %66
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %64
   %69 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
-  %.pre38 = load ptr, ptr %2, align 8, !tbaa !24
+  %.pre38 = load ptr, ptr %2, align 8, !tbaa !26
   br label %70
 
 70:                                               ; preds = %68, %64
   %71 = phi ptr [ %.pre38, %68 ], [ %65, %64 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  store ptr %72, ptr %2, align 8, !tbaa !24
+  store ptr %72, ptr %2, align 8, !tbaa !26
   store i8 10, ptr %71, align 1, !tbaa !4
   br label %73
 
@@ -445,7 +445,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %73
   %74 = add nuw nsw i32 %.02336, 1
   %75 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %.0.i, i32 noundef %74, ptr noundef nonnull @.str.9, ptr noundef nonnull %3)
   %.not26 = icmp eq i32 %75, 0
-  br i1 %.not26, label %._crit_edge, label %sub_0, !llvm.loop !30
+  br i1 %.not26, label %._crit_edge, label %sub_0, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -535,14 +535,16 @@ attributes #8 = { nounwind willreturn memory(read) }
 !17 = !{!12, !13, i64 0}
 !18 = !{!12, !15, i64 36}
 !19 = !{!12, !13, i64 24}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!12, !13, i64 8}
-!23 = !{!12, !13, i64 16}
-!24 = !{!25, !13, i64 0}
-!25 = !{!"_ZTS11luaL_Strbuf", !13, i64 0, !13, i64 8, !26, i64 16, !27, i64 24, !5, i64 32}
-!26 = !{!"p1 _ZTS9lua_State", !14, i64 0}
-!27 = !{!"p1 _ZTS7TString", !14, i64 0}
-!28 = !{!25, !13, i64 8}
-!29 = distinct !{!29, !21}
-!30 = distinct !{!30, !21}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !21}
+!24 = !{!12, !13, i64 8}
+!25 = !{!12, !13, i64 16}
+!26 = !{!27, !13, i64 0}
+!27 = !{!"_ZTS11luaL_Strbuf", !13, i64 0, !13, i64 8, !28, i64 16, !29, i64 24, !5, i64 32}
+!28 = !{!"p1 _ZTS9lua_State", !14, i64 0}
+!29 = !{!"p1 _ZTS7TString", !14, i64 0}
+!30 = !{!27, !13, i64 8}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}

@@ -1375,7 +1375,7 @@ define void @lv_roller_get_selected_str(ptr noundef %0, ptr noundef writeonly ca
   %39 = add i32 %.144, 1
   %40 = zext i32 %39 to i64
   %41 = icmp ugt i64 %7, %40
-  br i1 %41, label %.lr.ph46.split, label %.critedge2.loopexit54, !llvm.loop !62
+  br i1 %41, label %.lr.ph46.split, label %.critedge2.loopexit54, !llvm.loop !64
 
 .critedge2.loopexit54:                            ; preds = %37, %.lr.ph46.split
   %.0.lcssa.ph55.in = phi i64 [ %indvars.iv, %.lr.ph46.split ], [ %indvars.iv.next, %37 ]
@@ -1477,7 +1477,7 @@ define internal fastcc void @transform_vect_recursive(ptr noundef %0, ptr nounde
   %17 = lshr i32 %16, 8
   %18 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.02025) #6
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %19 = sext i16 %7 to i32
@@ -1569,7 +1569,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %5) #6
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %15, ptr %38, align 8, !tbaa !64
+  store ptr %15, ptr %38, align 8, !tbaa !66
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %13, i32 noundef 262144, ptr noundef nonnull %5) #6
   call void @lv_draw_rect(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
@@ -1636,11 +1636,11 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   %74 = call ptr @lv_label_get_text(ptr noundef %67) #6
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !67
+  %76 = load ptr, ptr %75, align 8, !tbaa !69
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %78 = load i32, ptr %77, align 8, !tbaa !68
+  %78 = load i32, ptr %77, align 8, !tbaa !70
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 92
-  %80 = load i32, ptr %79, align 4, !tbaa !69
+  %80 = load i32, ptr %79, align 4, !tbaa !71
   %81 = call i32 @lv_obj_get_width(ptr noundef nonnull %13) #6
   call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef %74, ptr noundef %76, i32 noundef %78, i32 noundef %80, i32 noundef %81, i32 noundef 1) #6
   %82 = call i32 @lv_obj_get_height(ptr noundef nonnull %13) #6
@@ -1648,7 +1648,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %85 = load i32, ptr %84, align 4, !tbaa !24
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %87 = load i32, ptr %86, align 8, !tbaa !70
+  %87 = load i32, ptr %86, align 8, !tbaa !72
   %88 = sdiv i32 %87, 2
   %89 = sdiv i32 %82, 2
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1657,7 +1657,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %93 = add i32 %89, %91
   %94 = sub i32 %92, %93
   %95 = call i32 @lv_obj_get_height(ptr noundef %67) #6
-  %96 = load i32, ptr %86, align 8, !tbaa !70
+  %96 = load i32, ptr %86, align 8, !tbaa !72
   %97 = sub nsw i32 %95, %96
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %102
@@ -1669,9 +1669,9 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 102:                                              ; preds = %99, %73
   %.0 = phi i32 [ %101, %99 ], [ %94, %73 ]
-  %103 = load ptr, ptr %75, align 8, !tbaa !67
+  %103 = load ptr, ptr %75, align 8, !tbaa !69
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !70
+  %105 = load i32, ptr %104, align 8, !tbaa !72
   %106 = load i32, ptr %51, align 4, !tbaa !24
   %107 = add nsw i32 %106, %89
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1798,7 +1798,7 @@ declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @scroll_anim_completed_cb(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !72
+  %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %2) #6
   tail call fastcc void @inf_normalize(ptr noundef %3)
   ret void
@@ -1902,15 +1902,17 @@ attributes #6 = { nounwind }
 !59 = distinct !{!59, !20}
 !60 = distinct !{!60, !20}
 !61 = distinct !{!61, !20}
-!62 = distinct !{!62, !20}
-!63 = distinct !{!63, !20}
-!64 = !{!65, !46, i64 24}
-!65 = !{!"", !45, i64 0, !14, i64 48, !8, i64 52, !49, i64 53, !66, i64 56, !7, i64 72, !7, i64 80, !49, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !49, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !49, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !49, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
-!66 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
-!67 = !{!44, !48, i64 64}
-!68 = !{!44, !14, i64 96}
-!69 = !{!44, !14, i64 92}
-!70 = !{!71, !14, i64 24}
-!71 = !{!"_lv_font_t", !7, i64 0, !7, i64 8, !7, i64 16, !14, i64 24, !14, i64 28, !8, i64 32, !8, i64 32, !8, i64 33, !8, i64 34, !7, i64 40, !48, i64 48, !7, i64 56}
-!72 = !{!73, !7, i64 0}
-!73 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
+!62 = distinct !{!62, !20, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !20}
+!65 = distinct !{!65, !20}
+!66 = !{!67, !46, i64 24}
+!67 = !{!"", !45, i64 0, !14, i64 48, !8, i64 52, !49, i64 53, !68, i64 56, !7, i64 72, !7, i64 80, !49, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !49, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !49, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !49, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
+!68 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!69 = !{!44, !48, i64 64}
+!70 = !{!44, !14, i64 96}
+!71 = !{!44, !14, i64 92}
+!72 = !{!73, !14, i64 24}
+!73 = !{!"_lv_font_t", !7, i64 0, !7, i64 8, !7, i64 16, !14, i64 24, !14, i64 28, !8, i64 32, !8, i64 32, !8, i64 33, !8, i64 34, !7, i64 40, !48, i64 48, !7, i64 56}
+!74 = !{!75, !7, i64 0}
+!75 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}

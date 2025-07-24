@@ -1081,7 +1081,7 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   %44 = add i32 %spec.select.i31.i, %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %spec.store.select1.i
-  br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !83
 
 _ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.thread.i, %_ZL13days_in_monthmm.exit.i
   %.01845.i = phi i64 [ %., %_ZL13days_in_monthmm.exit.i ], [ %.26, %_ZL13days_in_monthmm.exit.thread.i ], [ %., %_ZL13days_in_monthmm.exit32.us.i ], [ %.26, %_ZL13days_in_monthmm.exit32.i ]
@@ -1113,7 +1113,7 @@ _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_le
   %54 = phi double [ 3.660000e+02, %.lr.ph ], [ %53, %_ZL12is_leap_yearl.exit.i ]
   %55 = fadd double %.019, %54
   %56 = icmp samesign ugt i64 %.014.in18, 1860
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !82
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %_ZL12days_in_yearl.exit, %_ZL17daynumber_in_yearmmm.exit
   %.0.lcssa = phi double [ %47, %_ZL17daynumber_in_yearmmm.exit ], [ %55, %_ZL12days_in_yearl.exit ]
@@ -1150,7 +1150,7 @@ _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_le
   %9 = add i32 %8, %.054
   %10 = add i32 %.02253, 1
   %.not = icmp ugt i32 %9, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %_ZL12days_in_yearl.exit, %1
   %.022.lcssa = phi i32 [ 1858, %1 ], [ %.02253, %_ZL12days_in_yearl.exit ]
@@ -1196,7 +1196,7 @@ _ZL13days_in_monthmm.exit42.us:                   ; preds = %_ZL12days_in_yearl.
   %spec.select.i34.us = add i32 %27, %21
   %30 = add i32 %spec.select.i34.us, %29
   %.not24.us = icmp ugt i32 %30, %3
-  br i1 %.not24.us, label %.split.us, label %_ZL13days_in_monthmm.exit42.us, !llvm.loop !84
+  br i1 %.not24.us, label %.split.us, label %_ZL13days_in_monthmm.exit42.us, !llvm.loop !86
 
 _ZL12days_in_yearl.exit30.split:                  ; preds = %._crit_edge
   %31 = add i32 %.0.lcssa, -366
@@ -1225,7 +1225,7 @@ _ZL13days_in_monthmm.exit42:                      ; preds = %_ZL12days_in_yearl.
   %spec.select.i3444 = add i32 %41, %35
   %44 = add i32 %spec.select.i3444, %43
   %.not2445 = icmp ugt i32 %44, %3
-  br i1 %.not2445, label %.split.us, label %_ZL13days_in_monthmm.exit42, !llvm.loop !84
+  br i1 %.not2445, label %.split.us, label %_ZL13days_in_monthmm.exit42, !llvm.loop !87
 
 .split.us:                                        ; preds = %_ZL13days_in_monthmm.exit42, %_ZL13days_in_monthmm.exit42.us, %_ZL12days_in_yearl.exit30.split, %_ZL12days_in_yearl.exit30.split.us
   %.us-phi = phi i32 [ 1, %_ZL12days_in_yearl.exit30.split.us ], [ 1, %_ZL12days_in_yearl.exit30.split ], [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %36, %_ZL13days_in_monthmm.exit42 ]
@@ -1360,7 +1360,10 @@ attributes #13 = { nounwind }
 !78 = !{!13, !13, i64 0}
 !79 = distinct !{!79, !59}
 !80 = distinct !{!80, !59}
-!81 = distinct !{!81, !59}
-!82 = distinct !{!82, !59}
+!81 = distinct !{!81, !59, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !83 = distinct !{!83, !59}
 !84 = distinct !{!84, !59}
+!85 = distinct !{!85, !59}
+!86 = distinct !{!86, !59, !82}
+!87 = distinct !{!87, !59}

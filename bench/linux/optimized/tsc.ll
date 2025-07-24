@@ -1963,7 +1963,7 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
 38:                                               ; preds = %.thread9.split
   %39 = add nuw nsw i32 %41, 1
   %40 = icmp eq i32 %39, 5
-  br i1 %40, label %.split25.us, label %.thread9.split, !llvm.loop !64
+  br i1 %40, label %.split25.us, label %.thread9.split, !llvm.loop !66
 
 .thread9.split:                                   ; preds = %.thread9, %38
   %41 = phi i32 [ %39, %38 ], [ 0, %.thread9 ]
@@ -2032,12 +2032,12 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
 86:                                               ; preds = %77
   %87 = add nuw nsw i32 %66, 1
   %88 = icmp eq i32 %87, 5
-  br i1 %88, label %.thread, label %.split.us, !llvm.loop !64
+  br i1 %88, label %.thread, label %.split.us, !llvm.loop !67
 
 89:                                               ; preds = %.split
   %90 = add nuw nsw i32 %92, 1
   %91 = icmp eq i32 %90, 5
-  br i1 %91, label %.thread, label %.split, !llvm.loop !64
+  br i1 %91, label %.thread, label %.split, !llvm.loop !66
 
 .split:                                           ; preds = %58, %89
   %92 = phi i32 [ %90, %89 ], [ 0, %58 ]
@@ -2201,7 +2201,7 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
   %192 = add nuw nsw i64 %178, 1
   %193 = and i64 %192, 127
   %194 = icmp samesign ugt i64 %193, 63
-  br i1 %194, label %.thread10, label %171, !prof !41, !llvm.loop !65
+  br i1 %194, label %.thread10, label %171, !prof !41, !llvm.loop !68
 
 .thread10:                                        ; preds = %171, %191, %177, %.thread, %162, %.split21.us
   %195 = load i1, ptr @tsc_unstable, align 4
@@ -2304,12 +2304,12 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
 38:                                               ; preds = %29
   %39 = add nuw nsw i32 %18, 1
   %40 = icmp eq i32 %39, 5
-  br i1 %40, label %.split26.us, label %.split.us, !llvm.loop !64
+  br i1 %40, label %.split26.us, label %.split.us, !llvm.loop !69
 
 41:                                               ; preds = %.split
   %42 = add nuw nsw i32 %44, 1
   %43 = icmp eq i32 %42, 5
-  br i1 %43, label %.split26.us, label %.split, !llvm.loop !64
+  br i1 %43, label %.split26.us, label %.split, !llvm.loop !66
 
 .split:                                           ; preds = %5, %41
   %44 = phi i32 [ %42, %41 ], [ 0, %5 ]
@@ -2385,7 +2385,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
   %93 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 97) #20, !srcloc !33
   %94 = and i8 %93, 32
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %.preheader, label %96, !llvm.loop !66
+  br i1 %95, label %.preheader, label %96, !llvm.loop !70
 
 96:                                               ; preds = %.preheader
   %97 = mul nsw i64 %89, 10
@@ -2417,7 +2417,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
 115:                                              ; preds = %133
   %116 = add nuw nsw i32 %119, 1
   %117 = icmp eq i32 %116, 5
-  br i1 %117, label %142, label %118, !llvm.loop !64
+  br i1 %117, label %142, label %118, !llvm.loop !66
 
 118:                                              ; preds = %115, %108
   %119 = phi i32 [ 0, %108 ], [ %116, %115 ]
@@ -2532,7 +2532,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
   %.ph12 = phi i64 [ %7, %151 ], [ %7, %148 ], [ %177, %183 ]
   %194 = add nuw nsw i32 %10, 1
   %195 = icmp eq i32 %194, 3
-  br i1 %195, label %196, label %5, !llvm.loop !67
+  br i1 %195, label %196, label %5, !llvm.loop !71
 
 196:                                              ; preds = %193
   %197 = icmp eq i64 %149, -1
@@ -2604,13 +2604,13 @@ declare dso_local zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef zeroext)
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @cyc2ns_init_boot_cpu() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cyc2ns) #22, !srcloc !68
+  %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cyc2ns) #22, !srcloc !72
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr @tsc_khz, align 4
   %5 = zext i32 %4 to i64
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !69
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !73
   %7 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
@@ -2731,9 +2731,13 @@ attributes #24 = { cold }
 !61 = !{i64 2150674753}
 !62 = !{i64 2150674861}
 !63 = !{i64 2149273567, i64 2149273600, i64 2149273606, i64 2149273622, i64 2149273641, i64 2149273672, i64 2149274624, i64 2149273198, i64 2149274630, i64 2149274678, i64 2149274742, i64 2149274806, i64 2149274863, i64 2149275070, i64 2149275118, i64 2149275182, i64 2149275246, i64 2149275303, i64 2149273316, i64 2149273341, i64 2149275510, i64 2149275639, i64 2149275571, i64 2149275653, i64 2149275667, i64 2149275789, i64 2149275728, i64 2149275803, i64 2149273475}
-!64 = distinct !{!64, !13, !14}
-!65 = distinct !{!65, !13, !14}
+!64 = distinct !{!64, !13, !14, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !66 = distinct !{!66, !13, !14}
-!67 = distinct !{!67, !13, !14}
-!68 = !{i64 2155280039}
-!69 = !{i64 2155283066}
+!67 = distinct !{!67, !13, !14, !65}
+!68 = distinct !{!68, !13, !14}
+!69 = distinct !{!69, !13, !14, !65}
+!70 = distinct !{!70, !13, !14}
+!71 = distinct !{!71, !13, !14}
+!72 = !{i64 2155280039}
+!73 = !{i64 2155283066}

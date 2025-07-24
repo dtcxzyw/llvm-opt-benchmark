@@ -45,7 +45,7 @@ define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %0, i32 
 
 18:                                               ; preds = %.lr.ph.split
   %19 = getelementptr inbounds nuw i8, ptr %.023, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !16
+  %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = icmp eq i32 %1, %20
   %22 = icmp eq i32 %20, 2
   %or.cond = or i1 %21, %22
@@ -58,14 +58,14 @@ define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not, label %.loopexit, label %23
 
 23:                                               ; preds = %.split.us
-  store i64 %.us-phi, ptr %3, align 8, !tbaa !17
+  store i64 %.us-phi, ptr %3, align 8, !tbaa !18
   br label %.loopexit
 
 24:                                               ; preds = %18, %.lr.ph.split
   %25 = add nuw i64 %.01522, 1
   %26 = getelementptr inbounds nuw i8, ptr %.023, i64 56
   %exitcond.not = icmp eq i64 %25, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %12, %4, %.split.us, %23
   %.016 = phi ptr [ %.us-phi24, %23 ], [ %.us-phi24, %.split.us ], [ null, %4 ], [ null, %12 ], [ null, %24 ]
@@ -93,11 +93,11 @@ define void @custom_ext_init(ptr noundef readonly captures(none) %0) local_unnam
   %.07 = phi ptr [ %7, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.056 = phi i64 [ %6, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 12
-  store i32 0, ptr %5, align 4, !tbaa !18
+  store i32 0, ptr %5, align 4, !tbaa !20
   %6 = add nuw i64 %.056, 1
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 56
   %exitcond.not = icmp eq i64 %6, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -107,9 +107,9 @@ define void @custom_ext_init(ptr noundef readonly captures(none) %0) local_unnam
 define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  store i32 0, ptr %8, align 4, !tbaa !20
+  store i32 0, ptr %8, align 4, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = and i32 %1, 384
   %.not = icmp eq i32 %12, 0
@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %15 = load i32, ptr %14, align 8, !tbaa !81
+  %15 = load i32, ptr %14, align 8, !tbaa !83
   %.not29 = icmp ne i32 %15, 0
   %16 = zext i1 %.not29 to i32
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 136
@@ -163,7 +163,7 @@ define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32
 
 32:                                               ; preds = %.lr.ph.split.i
   %33 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !16
+  %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp eq i32 %34, %16
   %36 = icmp eq i32 %34, 2
   %or.cond.i = or i1 %35, %36
@@ -173,12 +173,12 @@ define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32
   %38 = add nuw i64 %.01522.i, 1
   %39 = getelementptr inbounds nuw i8, ptr %.023.i, i64 56
   %exitcond.not.i = icmp eq i64 %38, %18
-  br i1 %exitcond.not.i, label %custom_ext_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %custom_ext_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !19
 
 custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.us.i
   %.016.i = phi ptr [ %.023.us.i, %.lr.ph.split.us.i ], [ %.023.i, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !82
+  %41 = load i32, ptr %40, align 8, !tbaa !84
   %42 = tail call i32 @extension_is_relevant(ptr noundef %0, i32 noundef %41, i32 noundef %1) #9
   %.not31 = icmp eq i32 %42, 0
   br i1 %.not31, label %custom_ext_find.exit.thread, label %43
@@ -190,7 +190,7 @@ custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.u
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.016.i, i64 12
-  %47 = load i32, ptr %46, align 4, !tbaa !18
+  %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = and i32 %47, 2
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %51
@@ -208,22 +208,22 @@ custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.u
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %.016.i, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !18
+  %55 = load i32, ptr %54, align 4, !tbaa !20
   %56 = or i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !18
+  store i32 %56, ptr %54, align 4, !tbaa !20
   br label %57
 
 57:                                               ; preds = %53, %51
   %58 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !83
+  %59 = load ptr, ptr %58, align 8, !tbaa !85
   %60 = icmp eq ptr %59, null
   br i1 %60, label %custom_ext_find.exit.thread, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %63 = load ptr, ptr %62, align 8, !tbaa !84
+  %63 = load ptr, ptr %62, align 8, !tbaa !86
   %64 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !85
+  %65 = load ptr, ptr %64, align 8, !tbaa !87
   %66 = call i32 %59(ptr noundef %63, i32 noundef %2, i32 noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %8, ptr noundef %65) #9
   %67 = icmp slt i32 %66, 1
   br i1 %67, label %68, label %custom_ext_find.exit.thread
@@ -231,7 +231,7 @@ custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.u
 68:                                               ; preds = %61
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @__func__.custom_ext_parse) #9
-  %69 = load i32, ptr %8, align 4, !tbaa !20
+  %69 = load i32, ptr %8, align 4, !tbaa !22
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef %69, i32 noundef 110, ptr noundef null) #9
   br label %custom_ext_find.exit.thread
 
@@ -255,7 +255,7 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   %13 = and i32 %1, 32768
@@ -276,13 +276,13 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 20:                                               ; preds = %.lr.ph, %.thread88
   %.06193 = phi i64 [ 0, %.lr.ph ], [ %103, %.thread88 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  store ptr null, ptr %8, align 8, !tbaa !86
+  store ptr null, ptr %8, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  store i64 0, ptr %9, align 8, !tbaa !17
+  store i64 0, ptr %9, align 8, !tbaa !18
   %21 = load ptr, ptr %12, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %21, i64 %.06193
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !82
+  %24 = load i32, ptr %23, align 8, !tbaa !84
   %25 = call i32 @should_add_extension(ptr noundef %0, i32 noundef %24, i32 noundef %1, i32 noundef %5) #9
   %.not68 = icmp eq i32 %25, 0
   br i1 %.not68, label %.thread88, label %26
@@ -292,14 +292,14 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %29 = load i32, ptr %28, align 4, !tbaa !20
   %30 = and i32 %29, 1
   %.not70 = icmp eq i32 %30, 0
   br i1 %.not70, label %.thread88, label %31
 
 31:                                               ; preds = %27, %26
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !87
+  %33 = load ptr, ptr %32, align 8, !tbaa !89
   %34 = icmp eq ptr %33, null
   br i1 %18, label %35, label %36
 
@@ -310,11 +310,11 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %34, label %48, label %.thread
 
 .thread:                                          ; preds = %35, %36
-  %37 = load ptr, ptr %19, align 8, !tbaa !84
+  %37 = load ptr, ptr %19, align 8, !tbaa !86
   %38 = load i16, ptr %22, align 8, !tbaa !10
   %39 = zext i16 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !88
+  %41 = load ptr, ptr %40, align 8, !tbaa !90
   %42 = call i32 %33(ptr noundef %37, i32 noundef %39, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7, ptr noundef %41) #9
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %47
@@ -325,7 +325,7 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 45:                                               ; preds = %44
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 218, ptr noundef nonnull @__func__.custom_ext_add) #9
-  %46 = load i32, ptr %7, align 4, !tbaa !20
+  %46 = load i32, ptr %7, align 4, !tbaa !22
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef %46, i32 noundef 234, ptr noundef null) #9
   br label %.thread85
 
@@ -346,12 +346,12 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not73, label %61, label %54
 
 54:                                               ; preds = %52
-  %55 = load i64, ptr %9, align 8, !tbaa !17
+  %55 = load i64, ptr %9, align 8, !tbaa !18
   %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr %8, align 8, !tbaa !86
+  %57 = load ptr, ptr %8, align 8, !tbaa !88
   %58 = call i32 @WPACKET_memcpy(ptr noundef %2, ptr noundef %57, i64 noundef %55) #9
   %.not75 = icmp eq i32 %58, 0
   br i1 %.not75, label %61, label %59
@@ -363,17 +363,17 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 61:                                               ; preds = %59, %56, %52, %48
   %62 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !89
+  %63 = load ptr, ptr %62, align 8, !tbaa !91
   %.not77 = icmp eq ptr %63, null
   br i1 %.not77, label %71, label %64
 
 64:                                               ; preds = %61
-  %65 = load ptr, ptr %19, align 8, !tbaa !84
+  %65 = load ptr, ptr %19, align 8, !tbaa !86
   %66 = load i16, ptr %22, align 8, !tbaa !10
   %67 = zext i16 %66 to i32
-  %68 = load ptr, ptr %8, align 8, !tbaa !86
+  %68 = load ptr, ptr %8, align 8, !tbaa !88
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !88
+  %70 = load ptr, ptr %69, align 8, !tbaa !90
   call void %63(ptr noundef %65, i32 noundef %67, i32 noundef %1, ptr noundef %68, ptr noundef %70) #9
   br label %71
 
@@ -391,24 +391,24 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !18
+  %76 = load i32, ptr %75, align 4, !tbaa !20
   %77 = and i32 %76, 2
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %91, label %79, !prof !90
+  br i1 %78, label %91, label %79, !prof !92
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !89
+  %81 = load ptr, ptr %80, align 8, !tbaa !91
   %.not79 = icmp eq ptr %81, null
   br i1 %.not79, label %89, label %82
 
 82:                                               ; preds = %79
-  %83 = load ptr, ptr %19, align 8, !tbaa !84
+  %83 = load ptr, ptr %19, align 8, !tbaa !86
   %84 = load i16, ptr %22, align 8, !tbaa !10
   %85 = zext i16 %84 to i32
-  %86 = load ptr, ptr %8, align 8, !tbaa !86
+  %86 = load ptr, ptr %8, align 8, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %88 = load ptr, ptr %87, align 8, !tbaa !88
+  %88 = load ptr, ptr %87, align 8, !tbaa !90
   call void %81(ptr noundef %83, i32 noundef %85, i32 noundef %1, ptr noundef %86, ptr noundef %88) #9
   br label %89
 
@@ -423,22 +423,22 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 91:                                               ; preds = %74
   %92 = or disjoint i32 %76, 2
-  store i32 %92, ptr %75, align 4, !tbaa !18
+  store i32 %92, ptr %75, align 4, !tbaa !20
   br label %93
 
 93:                                               ; preds = %91, %73
   %94 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !89
+  %95 = load ptr, ptr %94, align 8, !tbaa !91
   %.not80 = icmp eq ptr %95, null
   br i1 %.not80, label %.thread88, label %96
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %19, align 8, !tbaa !84
+  %97 = load ptr, ptr %19, align 8, !tbaa !86
   %98 = load i16, ptr %22, align 8, !tbaa !10
   %99 = zext i16 %98 to i32
-  %100 = load ptr, ptr %8, align 8, !tbaa !86
+  %100 = load ptr, ptr %8, align 8, !tbaa !88
   %101 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !88
+  %102 = load ptr, ptr %101, align 8, !tbaa !90
   call void %95(ptr noundef %97, i32 noundef %99, i32 noundef %1, ptr noundef %100, ptr noundef %102) #9
   br label %.thread88
 
@@ -453,7 +453,7 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   %103 = add nuw i64 %.06193, 1
   %104 = load i64, ptr %14, align 8, !tbaa !3
   %105 = icmp ult i64 %103, %104
-  br i1 %105, label %20, label %.loopexit, !llvm.loop !91
+  br i1 %105, label %20, label %.loopexit, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.thread88, %6, %.thread85
   %.4 = phi i32 [ 0, %.thread85 ], [ 1, %6 ], [ 1, %.thread88 ]
@@ -493,7 +493,7 @@ define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %
   %.018 = phi i64 [ 0, %.lr.ph.split ], [ %31, %custom_ext_find.exit.thread ]
   %.01017 = phi ptr [ %3, %.lr.ph.split ], [ %32, %custom_ext_find.exit.thread ]
   %9 = getelementptr inbounds nuw i8, ptr %.01017, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !16
+  %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i16, ptr %.01017, align 8, !tbaa !10
   %12 = icmp eq i32 %10, 2
   br i1 %12, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -520,7 +520,7 @@ define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %
 
 20:                                               ; preds = %.lr.ph.split.i
   %21 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %22 = load i32, ptr %21, align 4, !tbaa !17
   %23 = icmp eq i32 %10, %22
   %24 = icmp eq i32 %22, 2
   %or.cond.i = or i1 %23, %24
@@ -530,21 +530,21 @@ define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %
   %26 = add nuw i64 %.01522.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.023.i, i64 56
   %exitcond.not.i = icmp eq i64 %26, %7
-  br i1 %exitcond.not.i, label %custom_ext_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %custom_ext_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !19
 
 custom_ext_find.exit:                             ; preds = %20, %.lr.ph.split.us.i
   %.016.i = phi ptr [ %.023.us.i, %.lr.ph.split.us.i ], [ %.023.i, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %.01017, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %29 = load i32, ptr %28, align 4, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %.016.i, i64 12
-  store i32 %29, ptr %30, align 4, !tbaa !18
+  store i32 %29, ptr %30, align 4, !tbaa !20
   br label %custom_ext_find.exit.thread
 
 custom_ext_find.exit.thread:                      ; preds = %25, %15, %custom_ext_find.exit
   %31 = add nuw i64 %.018, 1
   %32 = getelementptr inbounds nuw i8, ptr %.01017, i64 56
   %exitcond.not = icmp eq i64 %31, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %custom_ext_find.exit.thread, %.lr.ph, %2
   ret i32 1
@@ -586,7 +586,7 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %15 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %13, i64 %.02635
   %16 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %14, i64 %.02635
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %18 = load ptr, ptr %17, align 8, !tbaa !89
   %.not30 = icmp eq ptr %18, @custom_ext_add_old_cb_wrap
   br i1 %.not30, label %19, label %.loopexit
 
@@ -596,16 +596,16 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %22 = load ptr, ptr %21, align 8, !tbaa !90
   %23 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %22, i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 315) #9
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %23, ptr %24, align 8, !tbaa !88
+  store ptr %23, ptr %24, align 8, !tbaa !90
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !85
+  %26 = load ptr, ptr %25, align 8, !tbaa !87
   %27 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %26, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 317) #9
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr %27, ptr %28, align 8, !tbaa !85
-  %29 = load ptr, ptr %24, align 8, !tbaa !88
+  store ptr %27, ptr %28, align 8, !tbaa !87
+  %29 = load ptr, ptr %24, align 8, !tbaa !90
   %30 = icmp eq ptr %29, null
   %31 = icmp eq ptr %27, null
   %or.cond = select i1 %30, i1 true, i1 %31
@@ -618,16 +618,16 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %.2 = phi i32 [ %.3, %20 ], [ %.134, %.lr.ph ]
   %33 = add nuw i64 %.02635, 1
   %34 = icmp ult i64 %33, %32
-  br i1 %34, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !93
+  br i1 %34, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !95
 
 .thread38:                                        ; preds = %19
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %35, align 8, !tbaa !88
+  store ptr null, ptr %35, align 8, !tbaa !90
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr null, ptr %36, align 8, !tbaa !85
+  store ptr null, ptr %36, align 8, !tbaa !87
   %37 = add nuw i64 %.02635, 1
   %38 = icmp ult i64 %37, %.ph
-  br i1 %38, label %.lr.ph, label %._crit_edge.thread41, !llvm.loop !93
+  br i1 %38, label %.lr.ph, label %._crit_edge.thread41, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.loopexit
   %39 = icmp eq i32 %.2, 0
@@ -644,16 +644,16 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %.012.i = phi ptr [ %53, %50 ], [ %40, %._crit_edge.thread41 ]
   %.01011.i = phi i64 [ %52, %50 ], [ 0, %._crit_edge.thread41 ]
   %43 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !87
+  %44 = load ptr, ptr %43, align 8, !tbaa !89
   %.not.i = icmp eq ptr %44, @custom_ext_add_old_cb_wrap
   br i1 %.not.i, label %45, label %50
 
 45:                                               ; preds = %.lr.ph.i
   %46 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !88
+  %47 = load ptr, ptr %46, align 8, !tbaa !90
   tail call void @CRYPTO_free(ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 342) #9
   %48 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !85
+  %49 = load ptr, ptr %48, align 8, !tbaa !87
   tail call void @CRYPTO_free(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef 343) #9
   %.pre.i = load i64, ptr %12, align 8, !tbaa !3
   br label %50
@@ -663,7 +663,7 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %52 = add nuw i64 %.01011.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.012.i, i64 56
   %54 = icmp ult i64 %52, %51
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !94
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !96
 
 ._crit_edge.loopexit.i:                           ; preds = %50
   %.pre14.i = load ptr, ptr %0, align 8, !tbaa !9
@@ -685,12 +685,12 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #3 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !95
+  %11 = load ptr, ptr %10, align 8, !tbaa !97
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %8, align 8, !tbaa !97
+  %14 = load ptr, ptr %8, align 8, !tbaa !99
   %15 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef %14) #9
   br label %16
 
@@ -712,16 +712,16 @@ define void @custom_exts_free(ptr noundef captures(none) %0) local_unnamed_addr 
   %.012 = phi ptr [ %16, %13 ], [ %2, %1 ]
   %.01011 = phi i64 [ %15, %13 ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !87
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
   %.not = icmp eq ptr %7, @custom_ext_add_old_cb_wrap
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !88
+  %10 = load ptr, ptr %9, align 8, !tbaa !90
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 342) #9
   %11 = getelementptr inbounds nuw i8, ptr %.012, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !85
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 343) #9
   %.pre = load i64, ptr %3, align 8, !tbaa !3
   br label %13
@@ -731,7 +731,7 @@ define void @custom_exts_free(ptr noundef captures(none) %0) local_unnamed_addr 
   %15 = add nuw i64 %.01011, 1
   %16 = getelementptr inbounds nuw i8, ptr %.012, i64 56
   %17 = icmp ult i64 %15, %14
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !94
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre14 = load ptr, ptr %0, align 8, !tbaa !9
@@ -749,7 +749,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %.not27.i = icmp eq i64 %6, 0
@@ -770,7 +770,7 @@ define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly c
 
 12:                                               ; preds = %.lr.ph.split.i
   %13 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !16
+  %14 = load i32, ptr %13, align 4, !tbaa !17
   %15 = and i32 %14, -3
   %or.cond.i = icmp eq i32 %15, 0
   br i1 %or.cond.i, label %custom_ext_find.exit, label %16
@@ -779,7 +779,7 @@ define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly c
   %17 = add nuw i64 %.01522.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %.023.i, i64 56
   %exitcond.not.i = icmp eq i64 %17, %6
-  br i1 %exitcond.not.i, label %custom_ext_find.exit, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %custom_ext_find.exit, label %.lr.ph.split.i, !llvm.loop !19
 
 custom_ext_find.exit:                             ; preds = %12, %16, %2
   %.016.i = phi i32 [ 0, %2 ], [ 1, %12 ], [ 0, %16 ]
@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr n
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %17 = load ptr, ptr %16, align 8, !tbaa !98
+  %17 = load ptr, ptr %16, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   br label %19
 
@@ -864,7 +864,7 @@ define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr n
 
 45:                                               ; preds = %.lr.ph.split.i
   %46 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !16
+  %47 = load i32, ptr %46, align 4, !tbaa !17
   %48 = icmp eq i32 %2, %47
   %49 = icmp eq i32 %47, 2
   %or.cond.i = or i1 %48, %49
@@ -874,7 +874,7 @@ define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr n
   %51 = add nuw i64 %.01522.i, 1
   %52 = getelementptr inbounds nuw i8, ptr %.023.i, i64 56
   %exitcond.not.i = icmp eq i64 %51, %34
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !19
 
 .loopexit:                                        ; preds = %50, %39, %32
   %53 = mul i64 %34, 56
@@ -889,21 +889,21 @@ define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr n
   %59 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %55, i64 %58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %2, ptr %60, align 4, !tbaa !16
+  store i32 %2, ptr %60, align 4, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %4, ptr %61, align 8, !tbaa !82
+  store i32 %4, ptr %61, align 8, !tbaa !84
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store ptr %8, ptr %62, align 8, !tbaa !83
+  store ptr %8, ptr %62, align 8, !tbaa !85
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %5, ptr %63, align 8, !tbaa !87
+  store ptr %5, ptr %63, align 8, !tbaa !89
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr %6, ptr %64, align 8, !tbaa !89
+  store ptr %6, ptr %64, align 8, !tbaa !91
   %65 = trunc nuw i32 %3 to i16
   store i16 %65, ptr %59, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %7, ptr %66, align 8, !tbaa !88
+  store ptr %7, ptr %66, align 8, !tbaa !90
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  store ptr %9, ptr %67, align 8, !tbaa !85
+  store ptr %9, ptr %67, align 8, !tbaa !87
   %68 = load i64, ptr %33, align 8, !tbaa !3
   %69 = add i64 %68, 1
   store i64 %69, ptr %33, align 8, !tbaa !3
@@ -971,14 +971,14 @@ define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %0, i32 no
   br i1 %or.cond.i, label %.sink.split.i, label %12
 
 12:                                               ; preds = %7
-  store ptr %4, ptr %8, align 8, !tbaa !97
+  store ptr %4, ptr %8, align 8, !tbaa !99
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %2, ptr %13, align 8, !tbaa !95
+  store ptr %2, ptr %13, align 8, !tbaa !97
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %3, ptr %14, align 8, !tbaa !113
-  store ptr %6, ptr %9, align 8, !tbaa !114
+  store ptr %3, ptr %14, align 8, !tbaa !115
+  store ptr %6, ptr %9, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %5, ptr %15, align 8, !tbaa !116
+  store ptr %5, ptr %15, align 8, !tbaa !118
   %16 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr noundef null, i32 noundef 0, i32 noundef %1, i32 noundef 464, ptr noundef nonnull @custom_ext_add_old_cb_wrap, ptr noundef nonnull @custom_ext_free_old_cb_wrap, ptr noundef nonnull %8, ptr noundef nonnull @custom_ext_parse_old_cb_wrap, ptr noundef nonnull %9)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %.sink.split.i, label %add_old_custom_ext.exit
@@ -1005,14 +1005,14 @@ define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %0, i32 no
   br i1 %or.cond.i, label %.sink.split.i, label %12
 
 12:                                               ; preds = %7
-  store ptr %4, ptr %8, align 8, !tbaa !97
+  store ptr %4, ptr %8, align 8, !tbaa !99
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %2, ptr %13, align 8, !tbaa !95
+  store ptr %2, ptr %13, align 8, !tbaa !97
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %3, ptr %14, align 8, !tbaa !113
-  store ptr %6, ptr %9, align 8, !tbaa !114
+  store ptr %3, ptr %14, align 8, !tbaa !115
+  store ptr %6, ptr %9, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %5, ptr %15, align 8, !tbaa !116
+  store ptr %5, ptr %15, align 8, !tbaa !118
   %16 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr noundef null, i32 noundef 1, i32 noundef %1, i32 noundef 464, ptr noundef nonnull @custom_ext_add_old_cb_wrap, ptr noundef nonnull @custom_ext_free_old_cb_wrap, ptr noundef nonnull %8, ptr noundef nonnull @custom_ext_parse_old_cb_wrap, ptr noundef nonnull %9)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %.sink.split.i, label %add_old_custom_ext.exit
@@ -1040,12 +1040,12 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal void @custom_ext_free_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !113
+  %7 = load ptr, ptr %6, align 8, !tbaa !115
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %4, align 8, !tbaa !97
+  %10 = load ptr, ptr %4, align 8, !tbaa !99
   tail call void %7(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %10) #9
   br label %11
 
@@ -1056,12 +1056,12 @@ define internal void @custom_ext_free_old_cb_wrap(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #3 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !116
+  %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %8, align 8, !tbaa !114
+  %14 = load ptr, ptr %8, align 8, !tbaa !116
   %15 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %7, ptr noundef %14) #9
   br label %16
 
@@ -1097,106 +1097,108 @@ attributes #9 = { nounwind }
 !11 = !{!"", !12, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48}
 !12 = !{!"short", !6, i64 0}
 !13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!11, !13, i64 4}
-!17 = !{!8, !8, i64 0}
-!18 = !{!11, !13, i64 12}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!11, !13, i64 4}
+!18 = !{!8, !8, i64 0}
 !19 = distinct !{!19, !15}
-!20 = !{!13, !13, i64 0}
-!21 = !{!22, !60, i64 2176}
-!22 = !{!"ssl_connection_st", !23, i64 0, !30, i64 64, !13, i64 72, !31, i64 80, !31, i64 88, !31, i64 96, !13, i64 104, !5, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 132, !32, i64 136, !32, i64 144, !33, i64 152, !13, i64 240, !34, i64 248, !5, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !35, i64 288, !5, i64 336, !36, i64 344, !37, i64 352, !51, i64 1264, !5, i64 1272, !5, i64 1280, !13, i64 1288, !52, i64 1296, !53, i64 1304, !59, i64 1368, !59, i64 1376, !59, i64 1384, !59, i64 1392, !13, i64 1400, !6, i64 1404, !6, i64 1468, !6, i64 1532, !6, i64 1596, !6, i64 1660, !6, i64 1724, !6, i64 1788, !6, i64 1852, !6, i64 1916, !6, i64 1980, !6, i64 2044, !6, i64 2108, !60, i64 2176, !6, i64 2184, !8, i64 2248, !13, i64 2256, !8, i64 2264, !6, i64 2272, !61, i64 2304, !61, i64 2312, !42, i64 2320, !8, i64 2328, !5, i64 2336, !6, i64 2344, !8, i64 2376, !13, i64 2384, !5, i64 2392, !5, i64 2400, !13, i64 2408, !13, i64 2412, !5, i64 2416, !5, i64 2424, !5, i64 2432, !5, i64 2440, !56, i64 2448, !8, i64 2456, !43, i64 2464, !43, i64 2472, !8, i64 2480, !13, i64 2488, !13, i64 2492, !13, i64 2496, !8, i64 2504, !13, i64 2512, !13, i64 2516, !8, i64 2520, !8, i64 2528, !8, i64 2536, !62, i64 2544, !5, i64 2904, !13, i64 2912, !5, i64 2920, !5, i64 2928, !68, i64 2936, !13, i64 2944, !24, i64 2952, !69, i64 2960, !70, i64 2968, !13, i64 2976, !13, i64 2980, !13, i64 2984, !13, i64 2988, !42, i64 2992, !8, i64 3000, !13, i64 3008, !38, i64 3016, !71, i64 3024, !5, i64 3152, !73, i64 3160, !5, i64 5400, !5, i64 5408, !78, i64 5416, !79, i64 5424, !8, i64 5432, !13, i64 5440, !13, i64 5444, !13, i64 5448, !8, i64 5456, !8, i64 5464, !8, i64 5472, !5, i64 5480, !5, i64 5488, !5, i64 5496, !5, i64 5504, !80, i64 5512, !8, i64 5520, !42, i64 5528, !8, i64 5536, !42, i64 5544, !8, i64 5552}
-!23 = !{!"ssl_st", !13, i64 0, !24, i64 8, !25, i64 16, !25, i64 24, !26, i64 32, !5, i64 40, !27, i64 48}
-!24 = !{!"p1 _ZTS10ssl_ctx_st", !5, i64 0}
-!25 = !{!"p1 _ZTS13ssl_method_st", !5, i64 0}
-!26 = !{!"", !6, i64 0}
-!27 = !{!"crypto_ex_data_st", !28, i64 0, !29, i64 8}
-!28 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!29 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
-!30 = !{!"p1 _ZTS6ssl_st", !5, i64 0}
-!31 = !{!"p1 _ZTS6bio_st", !5, i64 0}
-!32 = !{!"", !8, i64 0}
-!33 = !{!"ossl_statem_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !13, i64 80}
-!34 = !{!"p1 _ZTS10buf_mem_st", !5, i64 0}
-!35 = !{!"ossl_quic_tls_callbacks_st", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
-!36 = !{!"p1 _ZTS11quic_tls_st", !5, i64 0}
-!37 = !{!"", !8, i64 0, !6, i64 8, !6, i64 40, !31, i64 72, !38, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !6, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !39, i64 128, !6, i64 704, !8, i64 768, !6, i64 776, !8, i64 840, !13, i64 848, !13, i64 852, !42, i64 856, !8, i64 864, !42, i64 872, !8, i64 880, !13, i64 888, !6, i64 892, !6, i64 893, !12, i64 894, !41, i64 896, !12, i64 904}
-!38 = !{!"p1 _ZTS13evp_md_ctx_st", !5, i64 0}
-!39 = !{!"", !6, i64 0, !8, i64 128, !6, i64 136, !8, i64 264, !8, i64 272, !13, i64 280, !40, i64 288, !41, i64 296, !6, i64 304, !6, i64 336, !8, i64 344, !13, i64 352, !42, i64 360, !8, i64 368, !43, i64 376, !8, i64 384, !42, i64 392, !44, i64 400, !45, i64 408, !13, i64 416, !8, i64 424, !46, i64 432, !13, i64 440, !42, i64 448, !8, i64 456, !42, i64 464, !8, i64 472, !42, i64 480, !8, i64 488, !47, i64 496, !48, i64 504, !49, i64 512, !49, i64 520, !8, i64 528, !8, i64 536, !47, i64 544, !50, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572}
-!40 = !{!"p1 _ZTS13ssl_cipher_st", !5, i64 0}
-!41 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
-!42 = !{!"p1 omnipotent char", !5, i64 0}
-!43 = !{!"p1 _ZTS18stack_st_X509_NAME", !5, i64 0}
-!44 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
-!45 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
-!46 = !{!"p1 _ZTS11ssl_comp_st", !5, i64 0}
-!47 = !{!"p1 _ZTS16sigalg_lookup_st", !5, i64 0}
-!48 = !{!"p1 _ZTS12cert_pkey_st", !5, i64 0}
-!49 = !{!"p1 short", !5, i64 0}
-!50 = !{!"p1 int", !5, i64 0}
-!51 = !{!"p1 _ZTS14dtls1_state_st", !5, i64 0}
-!52 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !5, i64 0}
-!53 = !{!"ssl_dane_st", !54, i64 0, !55, i64 8, !56, i64 16, !57, i64 24, !58, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !8, i64 56}
-!54 = !{!"p1 _ZTS11dane_ctx_st", !5, i64 0}
-!55 = !{!"p1 _ZTS23stack_st_danetls_record", !5, i64 0}
-!56 = !{!"p1 _ZTS13stack_st_X509", !5, i64 0}
-!57 = !{!"p1 _ZTS17danetls_record_st", !5, i64 0}
-!58 = !{!"p1 _ZTS7x509_st", !5, i64 0}
-!59 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !5, i64 0}
-!60 = !{!"p1 _ZTS7cert_st", !5, i64 0}
-!61 = !{!"p1 _ZTS14ssl_session_st", !5, i64 0}
-!62 = !{!"", !6, i64 0, !5, i64 32, !5, i64 40, !42, i64 48, !13, i64 56, !42, i64 64, !12, i64 72, !13, i64 76, !63, i64 80, !13, i64 112, !13, i64 116, !8, i64 120, !42, i64 128, !8, i64 136, !42, i64 144, !8, i64 152, !49, i64 160, !8, i64 168, !49, i64 176, !8, i64 184, !49, i64 192, !8, i64 200, !66, i64 208, !67, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !42, i64 256, !8, i64 264, !42, i64 272, !8, i64 280, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !42, i64 304, !8, i64 312, !13, i64 320, !6, i64 324, !13, i64 328, !6, i64 332, !13, i64 348, !6, i64 352, !6, i64 353, !6, i64 354, !6, i64 355}
-!63 = !{!"", !64, i64 0, !65, i64 8, !42, i64 16, !8, i64 24}
-!64 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !5, i64 0}
-!65 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
-!66 = !{!"p1 long", !5, i64 0}
-!67 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !5, i64 0}
-!68 = !{!"p1 _ZTS12stack_st_SCT", !5, i64 0}
-!69 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !5, i64 0}
-!70 = !{!"p1 _ZTS26srtp_protection_profile_st", !5, i64 0}
-!71 = !{!"srp_ctx_st", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !42, i64 32, !72, i64 40, !72, i64 48, !72, i64 56, !72, i64 64, !72, i64 72, !72, i64 80, !72, i64 88, !72, i64 96, !42, i64 104, !13, i64 112, !8, i64 120}
-!72 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
-!73 = !{!"record_layer_st", !74, i64 0, !75, i64 8, !5, i64 16, !75, i64 24, !75, i64 32, !76, i64 40, !76, i64 48, !31, i64 56, !8, i64 64, !13, i64 72, !8, i64 80, !6, i64 88, !8, i64 96, !8, i64 104, !6, i64 112, !42, i64 120, !13, i64 128, !77, i64 136, !5, i64 144, !5, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !6, i64 192}
-!74 = !{!"p1 _ZTS17ssl_connection_st", !5, i64 0}
-!75 = !{!"p1 _ZTS21ossl_record_method_st", !5, i64 0}
-!76 = !{!"p1 _ZTS20ossl_record_layer_st", !5, i64 0}
-!77 = !{!"p1 _ZTS20dtls_record_layer_st", !5, i64 0}
-!78 = !{!"p1 _ZTS12async_job_st", !5, i64 0}
-!79 = !{!"p1 _ZTS17async_wait_ctx_st", !5, i64 0}
-!80 = !{!"p2 _ZTS16sigalg_lookup_st", !5, i64 0}
-!81 = !{!22, !13, i64 120}
-!82 = !{!11, !13, i64 8}
-!83 = !{!11, !5, i64 40}
-!84 = !{!22, !30, i64 64}
-!85 = !{!11, !5, i64 48}
-!86 = !{!42, !42, i64 0}
-!87 = !{!11, !5, i64 16}
-!88 = !{!11, !5, i64 32}
-!89 = !{!11, !5, i64 24}
-!90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!91 = distinct !{!91, !15}
-!92 = distinct !{!92, !15}
+!20 = !{!11, !13, i64 12}
+!21 = distinct !{!21, !15}
+!22 = !{!13, !13, i64 0}
+!23 = !{!24, !62, i64 2176}
+!24 = !{!"ssl_connection_st", !25, i64 0, !32, i64 64, !13, i64 72, !33, i64 80, !33, i64 88, !33, i64 96, !13, i64 104, !5, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 132, !34, i64 136, !34, i64 144, !35, i64 152, !13, i64 240, !36, i64 248, !5, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !37, i64 288, !5, i64 336, !38, i64 344, !39, i64 352, !53, i64 1264, !5, i64 1272, !5, i64 1280, !13, i64 1288, !54, i64 1296, !55, i64 1304, !61, i64 1368, !61, i64 1376, !61, i64 1384, !61, i64 1392, !13, i64 1400, !6, i64 1404, !6, i64 1468, !6, i64 1532, !6, i64 1596, !6, i64 1660, !6, i64 1724, !6, i64 1788, !6, i64 1852, !6, i64 1916, !6, i64 1980, !6, i64 2044, !6, i64 2108, !62, i64 2176, !6, i64 2184, !8, i64 2248, !13, i64 2256, !8, i64 2264, !6, i64 2272, !63, i64 2304, !63, i64 2312, !44, i64 2320, !8, i64 2328, !5, i64 2336, !6, i64 2344, !8, i64 2376, !13, i64 2384, !5, i64 2392, !5, i64 2400, !13, i64 2408, !13, i64 2412, !5, i64 2416, !5, i64 2424, !5, i64 2432, !5, i64 2440, !58, i64 2448, !8, i64 2456, !45, i64 2464, !45, i64 2472, !8, i64 2480, !13, i64 2488, !13, i64 2492, !13, i64 2496, !8, i64 2504, !13, i64 2512, !13, i64 2516, !8, i64 2520, !8, i64 2528, !8, i64 2536, !64, i64 2544, !5, i64 2904, !13, i64 2912, !5, i64 2920, !5, i64 2928, !70, i64 2936, !13, i64 2944, !26, i64 2952, !71, i64 2960, !72, i64 2968, !13, i64 2976, !13, i64 2980, !13, i64 2984, !13, i64 2988, !44, i64 2992, !8, i64 3000, !13, i64 3008, !40, i64 3016, !73, i64 3024, !5, i64 3152, !75, i64 3160, !5, i64 5400, !5, i64 5408, !80, i64 5416, !81, i64 5424, !8, i64 5432, !13, i64 5440, !13, i64 5444, !13, i64 5448, !8, i64 5456, !8, i64 5464, !8, i64 5472, !5, i64 5480, !5, i64 5488, !5, i64 5496, !5, i64 5504, !82, i64 5512, !8, i64 5520, !44, i64 5528, !8, i64 5536, !44, i64 5544, !8, i64 5552}
+!25 = !{!"ssl_st", !13, i64 0, !26, i64 8, !27, i64 16, !27, i64 24, !28, i64 32, !5, i64 40, !29, i64 48}
+!26 = !{!"p1 _ZTS10ssl_ctx_st", !5, i64 0}
+!27 = !{!"p1 _ZTS13ssl_method_st", !5, i64 0}
+!28 = !{!"", !6, i64 0}
+!29 = !{!"crypto_ex_data_st", !30, i64 0, !31, i64 8}
+!30 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!31 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!32 = !{!"p1 _ZTS6ssl_st", !5, i64 0}
+!33 = !{!"p1 _ZTS6bio_st", !5, i64 0}
+!34 = !{!"", !8, i64 0}
+!35 = !{!"ossl_statem_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !13, i64 80}
+!36 = !{!"p1 _ZTS10buf_mem_st", !5, i64 0}
+!37 = !{!"ossl_quic_tls_callbacks_st", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!38 = !{!"p1 _ZTS11quic_tls_st", !5, i64 0}
+!39 = !{!"", !8, i64 0, !6, i64 8, !6, i64 40, !33, i64 72, !40, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !6, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !41, i64 128, !6, i64 704, !8, i64 768, !6, i64 776, !8, i64 840, !13, i64 848, !13, i64 852, !44, i64 856, !8, i64 864, !44, i64 872, !8, i64 880, !13, i64 888, !6, i64 892, !6, i64 893, !12, i64 894, !43, i64 896, !12, i64 904}
+!40 = !{!"p1 _ZTS13evp_md_ctx_st", !5, i64 0}
+!41 = !{!"", !6, i64 0, !8, i64 128, !6, i64 136, !8, i64 264, !8, i64 272, !13, i64 280, !42, i64 288, !43, i64 296, !6, i64 304, !6, i64 336, !8, i64 344, !13, i64 352, !44, i64 360, !8, i64 368, !45, i64 376, !8, i64 384, !44, i64 392, !46, i64 400, !47, i64 408, !13, i64 416, !8, i64 424, !48, i64 432, !13, i64 440, !44, i64 448, !8, i64 456, !44, i64 464, !8, i64 472, !44, i64 480, !8, i64 488, !49, i64 496, !50, i64 504, !51, i64 512, !51, i64 520, !8, i64 528, !8, i64 536, !49, i64 544, !52, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572}
+!42 = !{!"p1 _ZTS13ssl_cipher_st", !5, i64 0}
+!43 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
+!44 = !{!"p1 omnipotent char", !5, i64 0}
+!45 = !{!"p1 _ZTS18stack_st_X509_NAME", !5, i64 0}
+!46 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
+!47 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
+!48 = !{!"p1 _ZTS11ssl_comp_st", !5, i64 0}
+!49 = !{!"p1 _ZTS16sigalg_lookup_st", !5, i64 0}
+!50 = !{!"p1 _ZTS12cert_pkey_st", !5, i64 0}
+!51 = !{!"p1 short", !5, i64 0}
+!52 = !{!"p1 int", !5, i64 0}
+!53 = !{!"p1 _ZTS14dtls1_state_st", !5, i64 0}
+!54 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !5, i64 0}
+!55 = !{!"ssl_dane_st", !56, i64 0, !57, i64 8, !58, i64 16, !59, i64 24, !60, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !8, i64 56}
+!56 = !{!"p1 _ZTS11dane_ctx_st", !5, i64 0}
+!57 = !{!"p1 _ZTS23stack_st_danetls_record", !5, i64 0}
+!58 = !{!"p1 _ZTS13stack_st_X509", !5, i64 0}
+!59 = !{!"p1 _ZTS17danetls_record_st", !5, i64 0}
+!60 = !{!"p1 _ZTS7x509_st", !5, i64 0}
+!61 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !5, i64 0}
+!62 = !{!"p1 _ZTS7cert_st", !5, i64 0}
+!63 = !{!"p1 _ZTS14ssl_session_st", !5, i64 0}
+!64 = !{!"", !6, i64 0, !5, i64 32, !5, i64 40, !44, i64 48, !13, i64 56, !44, i64 64, !12, i64 72, !13, i64 76, !65, i64 80, !13, i64 112, !13, i64 116, !8, i64 120, !44, i64 128, !8, i64 136, !44, i64 144, !8, i64 152, !51, i64 160, !8, i64 168, !51, i64 176, !8, i64 184, !51, i64 192, !8, i64 200, !68, i64 208, !69, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !44, i64 256, !8, i64 264, !44, i64 272, !8, i64 280, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !44, i64 304, !8, i64 312, !13, i64 320, !6, i64 324, !13, i64 328, !6, i64 332, !13, i64 348, !6, i64 352, !6, i64 353, !6, i64 354, !6, i64 355}
+!65 = !{!"", !66, i64 0, !67, i64 8, !44, i64 16, !8, i64 24}
+!66 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !5, i64 0}
+!67 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
+!68 = !{!"p1 long", !5, i64 0}
+!69 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !5, i64 0}
+!70 = !{!"p1 _ZTS12stack_st_SCT", !5, i64 0}
+!71 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !5, i64 0}
+!72 = !{!"p1 _ZTS26srtp_protection_profile_st", !5, i64 0}
+!73 = !{!"srp_ctx_st", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !44, i64 32, !74, i64 40, !74, i64 48, !74, i64 56, !74, i64 64, !74, i64 72, !74, i64 80, !74, i64 88, !74, i64 96, !44, i64 104, !13, i64 112, !8, i64 120}
+!74 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
+!75 = !{!"record_layer_st", !76, i64 0, !77, i64 8, !5, i64 16, !77, i64 24, !77, i64 32, !78, i64 40, !78, i64 48, !33, i64 56, !8, i64 64, !13, i64 72, !8, i64 80, !6, i64 88, !8, i64 96, !8, i64 104, !6, i64 112, !44, i64 120, !13, i64 128, !79, i64 136, !5, i64 144, !5, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !6, i64 192}
+!76 = !{!"p1 _ZTS17ssl_connection_st", !5, i64 0}
+!77 = !{!"p1 _ZTS21ossl_record_method_st", !5, i64 0}
+!78 = !{!"p1 _ZTS20ossl_record_layer_st", !5, i64 0}
+!79 = !{!"p1 _ZTS20dtls_record_layer_st", !5, i64 0}
+!80 = !{!"p1 _ZTS12async_job_st", !5, i64 0}
+!81 = !{!"p1 _ZTS17async_wait_ctx_st", !5, i64 0}
+!82 = !{!"p2 _ZTS16sigalg_lookup_st", !5, i64 0}
+!83 = !{!24, !13, i64 120}
+!84 = !{!11, !13, i64 8}
+!85 = !{!11, !5, i64 40}
+!86 = !{!24, !32, i64 64}
+!87 = !{!11, !5, i64 48}
+!88 = !{!44, !44, i64 0}
+!89 = !{!11, !5, i64 16}
+!90 = !{!11, !5, i64 32}
+!91 = !{!11, !5, i64 24}
+!92 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !93 = distinct !{!93, !15}
 !94 = distinct !{!94, !15}
-!95 = !{!96, !5, i64 8}
-!96 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
-!97 = !{!96, !5, i64 0}
-!98 = !{!99, !60, i64 344}
-!99 = !{!"ssl_ctx_st", !28, i64 0, !25, i64 8, !59, i64 16, !59, i64 24, !59, i64 32, !100, i64 40, !101, i64 48, !8, i64 56, !61, i64 64, !61, i64 72, !13, i64 80, !32, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !102, i64 120, !26, i64 164, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !27, i64 240, !45, i64 256, !45, i64 264, !56, i64 272, !103, i64 280, !5, i64 288, !43, i64 296, !43, i64 304, !8, i64 312, !13, i64 320, !13, i64 324, !13, i64 328, !8, i64 336, !60, i64 344, !5, i64 352, !13, i64 360, !5, i64 368, !5, i64 376, !13, i64 384, !8, i64 392, !6, i64 400, !5, i64 432, !5, i64 440, !52, i64 448, !13, i64 456, !104, i64 464, !5, i64 472, !5, i64 480, !8, i64 488, !8, i64 496, !8, i64 504, !8, i64 512, !105, i64 520, !5, i64 528, !5, i64 536, !5, i64 544, !5, i64 552, !106, i64 560, !5, i64 816, !5, i64 824, !5, i64 832, !5, i64 840, !71, i64 848, !108, i64 976, !69, i64 1008, !5, i64 1016, !5, i64 1024, !5, i64 1032, !13, i64 1040, !13, i64 1044, !5, i64 1048, !5, i64 1056, !8, i64 1064, !8, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !8, i64 1104, !5, i64 1112, !5, i64 1120, !13, i64 1128, !5, i64 1136, !5, i64 1144, !42, i64 1152, !6, i64 1160, !6, i64 1216, !6, i64 1408, !6, i64 1520, !8, i64 1632, !47, i64 1640, !49, i64 1648, !110, i64 1656, !8, i64 1664, !8, i64 1672, !111, i64 1680, !8, i64 1688, !8, i64 1696, !13, i64 1704, !13, i64 1708, !13, i64 1712, !13, i64 1716, !42, i64 1720, !8, i64 1728, !42, i64 1736, !8, i64 1744, !8, i64 1752, !112, i64 1760, !42, i64 1768}
-!100 = !{!"p1 _ZTS13x509_store_st", !5, i64 0}
-!101 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !5, i64 0}
-!102 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
-!103 = !{!"p1 _ZTS17stack_st_SSL_COMP", !5, i64 0}
-!104 = !{!"p1 _ZTS14ctlog_store_st", !5, i64 0}
-!105 = !{!"p1 _ZTS9engine_st", !5, i64 0}
-!106 = !{!"", !5, i64 0, !5, i64 8, !6, i64 16, !107, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !13, i64 72, !6, i64 76, !8, i64 80, !42, i64 88, !8, i64 96, !49, i64 104, !8, i64 112, !49, i64 120, !8, i64 128, !66, i64 136, !49, i64 144, !8, i64 152, !5, i64 160, !5, i64 168, !42, i64 176, !8, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !6, i64 224}
-!107 = !{!"p1 _ZTS21ssl_ctx_ext_secure_st", !5, i64 0}
-!108 = !{!"dane_ctx_st", !109, i64 0, !42, i64 8, !6, i64 16, !8, i64 24}
-!109 = !{!"p2 _ZTS9evp_md_st", !5, i64 0}
-!110 = !{!"p1 _ZTS17tls_group_info_st", !5, i64 0}
-!111 = !{!"p1 _ZTS18tls_sigalg_info_st", !5, i64 0}
-!112 = !{!"p1 _ZTS18ssl_token_store_st", !5, i64 0}
-!113 = !{!96, !5, i64 16}
-!114 = !{!115, !5, i64 0}
-!115 = !{!"", !5, i64 0, !5, i64 8}
-!116 = !{!115, !5, i64 8}
+!95 = distinct !{!95, !15}
+!96 = distinct !{!96, !15}
+!97 = !{!98, !5, i64 8}
+!98 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
+!99 = !{!98, !5, i64 0}
+!100 = !{!101, !62, i64 344}
+!101 = !{!"ssl_ctx_st", !30, i64 0, !27, i64 8, !61, i64 16, !61, i64 24, !61, i64 32, !102, i64 40, !103, i64 48, !8, i64 56, !63, i64 64, !63, i64 72, !13, i64 80, !34, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !104, i64 120, !28, i64 164, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !29, i64 240, !47, i64 256, !47, i64 264, !58, i64 272, !105, i64 280, !5, i64 288, !45, i64 296, !45, i64 304, !8, i64 312, !13, i64 320, !13, i64 324, !13, i64 328, !8, i64 336, !62, i64 344, !5, i64 352, !13, i64 360, !5, i64 368, !5, i64 376, !13, i64 384, !8, i64 392, !6, i64 400, !5, i64 432, !5, i64 440, !54, i64 448, !13, i64 456, !106, i64 464, !5, i64 472, !5, i64 480, !8, i64 488, !8, i64 496, !8, i64 504, !8, i64 512, !107, i64 520, !5, i64 528, !5, i64 536, !5, i64 544, !5, i64 552, !108, i64 560, !5, i64 816, !5, i64 824, !5, i64 832, !5, i64 840, !73, i64 848, !110, i64 976, !71, i64 1008, !5, i64 1016, !5, i64 1024, !5, i64 1032, !13, i64 1040, !13, i64 1044, !5, i64 1048, !5, i64 1056, !8, i64 1064, !8, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !8, i64 1104, !5, i64 1112, !5, i64 1120, !13, i64 1128, !5, i64 1136, !5, i64 1144, !44, i64 1152, !6, i64 1160, !6, i64 1216, !6, i64 1408, !6, i64 1520, !8, i64 1632, !49, i64 1640, !51, i64 1648, !112, i64 1656, !8, i64 1664, !8, i64 1672, !113, i64 1680, !8, i64 1688, !8, i64 1696, !13, i64 1704, !13, i64 1708, !13, i64 1712, !13, i64 1716, !44, i64 1720, !8, i64 1728, !44, i64 1736, !8, i64 1744, !8, i64 1752, !114, i64 1760, !44, i64 1768}
+!102 = !{!"p1 _ZTS13x509_store_st", !5, i64 0}
+!103 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !5, i64 0}
+!104 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!105 = !{!"p1 _ZTS17stack_st_SSL_COMP", !5, i64 0}
+!106 = !{!"p1 _ZTS14ctlog_store_st", !5, i64 0}
+!107 = !{!"p1 _ZTS9engine_st", !5, i64 0}
+!108 = !{!"", !5, i64 0, !5, i64 8, !6, i64 16, !109, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !13, i64 72, !6, i64 76, !8, i64 80, !44, i64 88, !8, i64 96, !51, i64 104, !8, i64 112, !51, i64 120, !8, i64 128, !68, i64 136, !51, i64 144, !8, i64 152, !5, i64 160, !5, i64 168, !44, i64 176, !8, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !6, i64 224}
+!109 = !{!"p1 _ZTS21ssl_ctx_ext_secure_st", !5, i64 0}
+!110 = !{!"dane_ctx_st", !111, i64 0, !44, i64 8, !6, i64 16, !8, i64 24}
+!111 = !{!"p2 _ZTS9evp_md_st", !5, i64 0}
+!112 = !{!"p1 _ZTS17tls_group_info_st", !5, i64 0}
+!113 = !{!"p1 _ZTS18tls_sigalg_info_st", !5, i64 0}
+!114 = !{!"p1 _ZTS18ssl_token_store_st", !5, i64 0}
+!115 = !{!98, !5, i64 16}
+!116 = !{!117, !5, i64 0}
+!117 = !{!"", !5, i64 0, !5, i64 8}
+!118 = !{!117, !5, i64 8}

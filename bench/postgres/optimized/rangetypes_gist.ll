@@ -2088,7 +2088,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   %33 = add i16 %.05662, 1
   %.not = icmp ugt i16 %33, %9
-  br i1 %.not, label %.lr.ph67, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not, label %.lr.ph67, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %4
   tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
@@ -2171,7 +2171,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   store i16 %.sink, ptr %71, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge68.loopexit, label %42, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge68.loopexit, label %42, !llvm.loop !21
 
 ._crit_edge68.loopexit:                           ; preds = %69
   %72 = ptrtoint ptr %.2 to i64
@@ -2269,7 +2269,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
   %43 = add i16 %.03336, 1
   %44 = zext i16 %43 to i32
   %.not = icmp ugt i16 %43, %14
-  br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !20
+  br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %40
   %45 = ptrtoint ptr %.2 to i64
@@ -2453,6 +2453,8 @@ attributes #11 = { cold nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

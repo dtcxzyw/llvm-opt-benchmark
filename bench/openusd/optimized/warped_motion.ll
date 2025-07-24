@@ -604,7 +604,7 @@ clip_pixel_highbd.exit209.us.us:                  ; preds = %235, %233, %231
 ._crit_edge.us244:                                ; preds = %._crit_edge235.us
   %254 = add nsw i32 %.0238.us, 8
   %255 = icmp slt i32 %254, %40
-  br i1 %255, label %.preheader217.us, label %._crit_edge239, !llvm.loop !12
+  br i1 %255, label %.preheader217.us, label %._crit_edge239, !llvm.loop !13
 
 ._crit_edge239:                                   ; preds = %._crit_edge.us244, %.preheader217.lr.ph, %34
   ret void
@@ -699,12 +699,12 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr noundef readonly captures(non
   %39 = add nsw i64 %.118.us, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond30.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !15
 
 ._crit_edge22:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   %.017.lcssa = phi i64 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %39, %._crit_edge.us ]
@@ -821,7 +821,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
 ._crit_edge211.us:                                ; preds = %._crit_edge.us.us, %.lr.ph210.us, %.preheader.us
   %100 = add nsw i32 %.0170213.us, 8
   %101 = icmp slt i32 %100, %38
-  br i1 %101, label %73, label %._crit_edge.us220, !llvm.loop !15
+  br i1 %101, label %73, label %._crit_edge.us220, !llvm.loop !16
 
 102:                                              ; preds = %115, %73
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %115 ], [ -7, %73 ]
@@ -842,7 +842,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
 115:                                              ; preds = %123
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 8
-  br i1 %exitcond235.not, label %.preheader.us, label %102, !llvm.loop !16
+  br i1 %exitcond235.not, label %.preheader.us, label %102, !llvm.loop !17
 
 116:                                              ; preds = %123, %102
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %123 ], [ -4, %102 ]
@@ -864,7 +864,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %128 = add nsw i32 %.0177199.us, %45
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next229, 4
-  br i1 %exitcond231.not, label %115, label %116, !llvm.loop !17
+  br i1 %exitcond231.not, label %115, label %116, !llvm.loop !18
 
 129:                                              ; preds = %129, %116
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %116 ]
@@ -886,7 +886,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %144 = add nsw i32 %143, %.0179196.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %123, label %129, !llvm.loop !18
+  br i1 %exitcond.not, label %123, label %129, !llvm.loop !19
 
 .preheader.us:                                    ; preds = %115
   %145 = and i32 %91, 65532
@@ -1014,7 +1014,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %221 = add nsw i32 %.0175205.us.us, %49
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
   %222 = icmp slt i64 %indvars.iv.next241, %152
-  br i1 %222, label %159, label %._crit_edge.us.us, !llvm.loop !19
+  br i1 %222, label %159, label %._crit_edge.us.us, !llvm.loop !20
 
 223:                                              ; preds = %223, %159
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %223 ], [ 0, %159 ]
@@ -1033,17 +1033,17 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %235 = add nsw i32 %234, %.0172201.us.us
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 8
-  br i1 %exitcond239.not, label %167, label %223, !llvm.loop !20
+  br i1 %exitcond239.not, label %167, label %223, !llvm.loop !21
 
 ._crit_edge.us.us:                                ; preds = %220
   %indvars.iv.next244 = add nsw i64 %indvars.iv243, 1
   %236 = icmp slt i64 %indvars.iv.next244, %72
-  br i1 %236, label %.lr.ph.us.us, label %._crit_edge211.us, !llvm.loop !21
+  br i1 %236, label %.lr.ph.us.us, label %._crit_edge211.us, !llvm.loop !22
 
 ._crit_edge.us220:                                ; preds = %._crit_edge211.us
   %237 = add nsw i32 %.0214.us, 8
   %238 = icmp slt i32 %237, %35
-  br i1 %238, label %.preheader195.us, label %._crit_edge215, !llvm.loop !22
+  br i1 %238, label %.preheader195.us, label %._crit_edge215, !llvm.loop !23
 
 ._crit_edge215:                                   ; preds = %._crit_edge.us220, %.preheader195.lr.ph, %29
   ret void
@@ -1121,12 +1121,12 @@ define hidden i64 @av1_calc_frame_error_c(ptr noundef readonly captures(none) %0
   %23 = add nsw i64 %.117.us, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %13
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
-  br i1 %exitcond29.not, label %._crit_edge21, label %.preheader.us, !llvm.loop !24
+  br i1 %exitcond29.not, label %._crit_edge21, label %.preheader.us, !llvm.loop !25
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %6
   %.016.lcssa = phi i64 [ 0, %6 ], [ %23, %._crit_edge.us ]
@@ -1200,12 +1200,12 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %47 = add nsw i64 %.118.us.i, %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %25, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %25, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %25
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %av1_calc_highbd_frame_error.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond30.not.i, label %av1_calc_highbd_frame_error.exit, label %.preheader.us.i, !llvm.loop !15
 
 48:                                               ; preds = %8
   %49 = icmp sgt i32 %6, 0
@@ -1246,12 +1246,12 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %65 = add nsw i64 %.117.us.i, %64
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i15
-  br i1 %exitcond.not.i21, label %._crit_edge.us.i22, label %55, !llvm.loop !23
+  br i1 %exitcond.not.i21, label %._crit_edge.us.i22, label %55, !llvm.loop !24
 
 ._crit_edge.us.i22:                               ; preds = %55
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count28.i
-  br i1 %exitcond29.not.i, label %av1_calc_highbd_frame_error.exit, label %.preheader.us.i16, !llvm.loop !24
+  br i1 %exitcond29.not.i, label %av1_calc_highbd_frame_error.exit, label %.preheader.us.i16, !llvm.loop !25
 
 av1_calc_highbd_frame_error.exit:                 ; preds = %._crit_edge.us.i, %._crit_edge.us.i22, %48, %.preheader.lr.ph.i, %9
   %.0 = phi i64 [ 0, %9 ], [ 0, %.preheader.lr.ph.i ], [ 0, %48 ], [ %65, %._crit_edge.us.i22 ], [ %47, %._crit_edge.us.i ]
@@ -1313,7 +1313,7 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %.us-phi.us.i = phi i64 [ %.051.us.i, %.preheader.us.i ], [ %.2.us.us.i, %71 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 32
   %37 = icmp samesign ult i64 %indvars.iv.next64.i, %26
-  br i1 %37, label %.preheader.us.i, label %highbd_segmented_frame_error.exit, !llvm.loop !25
+  br i1 %37, label %.preheader.us.i, label %highbd_segmented_frame_error.exit, !llvm.loop !26
 
 .lr.ph.split.us.us.i:                             ; preds = %71, %.lr.ph.split.us.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us.us.preheader.i ], [ %indvars.iv.next.i, %71 ]
@@ -1376,12 +1376,12 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %69 = add nsw i64 %.118.us.i.us.us.i, %68
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 1
   %exitcond.not.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.i, %wide.trip.count.i.us.us.i
-  br i1 %exitcond.not.i.us.us.i, label %._crit_edge.us.i.us.us.i, label %47, !llvm.loop !13
+  br i1 %exitcond.not.i.us.us.i, label %._crit_edge.us.i.us.us.i, label %47, !llvm.loop !14
 
 ._crit_edge.us.i.us.us.i:                         ; preds = %47
   %indvars.iv.next27.i.us.us.i = add nuw nsw i64 %indvars.iv26.i.us.us.i, 1
   %exitcond30.not.i.us.us.i = icmp eq i64 %indvars.iv.next27.i.us.us.i, %wide.trip.count29.i.us.i
-  br i1 %exitcond30.not.i.us.us.i, label %av1_calc_highbd_frame_error.exit.us.us.i, label %.preheader.us.i.us.us.i, !llvm.loop !14
+  br i1 %exitcond30.not.i.us.us.i, label %av1_calc_highbd_frame_error.exit.us.us.i, label %.preheader.us.i.us.us.i, !llvm.loop !15
 
 av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us.us.i, %.preheader.lr.ph.i.us.us.i
   %.017.lcssa.i.us.us.i = phi i64 [ 0, %.preheader.lr.ph.i.us.us.i ], [ %69, %._crit_edge.us.i.us.us.i ]
@@ -1392,7 +1392,7 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
   %.2.us.us.i = phi i64 [ %70, %av1_calc_highbd_frame_error.exit.us.us.i ], [ %.147.us.us.i, %.lr.ph.split.us.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
   %72 = icmp samesign ult i64 %indvars.iv.next.i, %25
-  br i1 %72, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !26
+  br i1 %72, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !27
 
 73:                                               ; preds = %10
   %74 = icmp sgt i32 %6, 0
@@ -1480,12 +1480,12 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
   %110 = add nsw i64 %.117.us.i.us.i, %109
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.us.i.us.i, label %100, !llvm.loop !23
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.us.i.us.i, label %100, !llvm.loop !24
 
 ._crit_edge.us.i.us.i:                            ; preds = %100
   %indvars.iv.next26.i.us.i = add nuw nsw i64 %indvars.iv25.i.us.i, 1
   %exitcond29.not.i.us.i = icmp eq i64 %indvars.iv.next26.i.us.i, %wide.trip.count28.i.us.i
-  br i1 %exitcond29.not.i.us.i, label %av1_calc_frame_error_c.exit.us55.i, label %.preheader.us.i.us.i, !llvm.loop !24
+  br i1 %exitcond29.not.i.us.i, label %av1_calc_frame_error_c.exit.us55.i, label %.preheader.us.i.us.i, !llvm.loop !25
 
 av1_calc_frame_error_c.exit.us55.i:               ; preds = %._crit_edge.us.i.us.i, %92
   %.016.lcssa.i.us.i = phi i64 [ 0, %92 ], [ %110, %._crit_edge.us.i.us.i ]
@@ -1496,13 +1496,13 @@ av1_calc_frame_error_c.exit.us55.i:               ; preds = %._crit_edge.us.i.us
   %.2.us.i = phi i64 [ %111, %av1_calc_frame_error_c.exit.us55.i ], [ %.146.us.i, %.lr.ph.split.us57.i ]
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 32
   %113 = icmp samesign ult i64 %indvars.iv.next.i28, %78
-  br i1 %113, label %.lr.ph.split.us57.i, label %._crit_edge.us.i23, !llvm.loop !27
+  br i1 %113, label %.lr.ph.split.us57.i, label %._crit_edge.us.i23, !llvm.loop !28
 
 ._crit_edge.us.i23:                               ; preds = %112, %.preheader.us.i21
   %.us-phi.us.i24 = phi i64 [ %.050.us.i, %.preheader.us.i21 ], [ %.2.us.i, %112 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 32
   %114 = icmp samesign ult i64 %indvars.iv.next63.i, %79
-  br i1 %114, label %.preheader.us.i21, label %highbd_segmented_frame_error.exit, !llvm.loop !28
+  br i1 %114, label %.preheader.us.i21, label %highbd_segmented_frame_error.exit, !llvm.loop !29
 
 highbd_segmented_frame_error.exit:                ; preds = %._crit_edge.us.i, %._crit_edge.us.i23, %.preheader.lr.ph.i19, %73, %.preheader.lr.ph.i, %11
   %.0 = phi i64 [ 0, %11 ], [ 0, %.preheader.lr.ph.i ], [ 0, %73 ], [ 0, %.preheader.lr.ph.i19 ], [ %.us-phi.us.i24, %._crit_edge.us.i23 ], [ %.us-phi.us.i, %._crit_edge.us.i ]
@@ -1704,7 +1704,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
   %.sroa.079.1.i = phi i32 [ %52, %48 ], [ %.sroa.079.0161.i, %44 ], [ %.sroa.079.0161.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %26, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %26, !llvm.loop !30
 
 ._crit_edge.loopexit.i:                           ; preds = %94
   %95 = sext i32 %.sroa.079.1.i to i64
@@ -1986,22 +1986,23 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!11 = distinct !{!11, !5, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5, !12}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!15 = distinct !{!15, !5, !12}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!22 = distinct !{!22, !5, !12}
+!23 = distinct !{!23, !5, !12}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
+!25 = distinct !{!25, !5, !12}
+!26 = distinct !{!26, !5, !12}
+!27 = distinct !{!27, !5, !12}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
+!29 = distinct !{!29, !5, !12}
+!30 = distinct !{!30, !5}

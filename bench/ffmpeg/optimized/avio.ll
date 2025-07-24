@@ -1312,7 +1312,7 @@ define i32 @ffurl_write2(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 {
   %38 = zext nneg i32 %36 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = sub nsw i32 %2, %36
-  br i1 %37, label %.outer.split.us.i, label %retry_transfer_wrapper.exit, !llvm.loop !24
+  br i1 %37, label %.outer.split.us.i, label %retry_transfer_wrapper.exit, !llvm.loop !79
 
 41:                                               ; preds = %ff_check_interrupt.exit.thread.us.us.i, %.outer.split.us.i
   %42 = load ptr, ptr %12, align 8, !tbaa !19
@@ -1331,7 +1331,7 @@ ff_check_interrupt.exit.thread.us.us.i:           ; preds = %ff_check_interrupt.
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %48 = tail call i32 %47(ptr noundef nonnull %0, ptr noundef %18, i32 noundef %17) #12
   %49 = icmp eq i32 %48, -4
-  br i1 %49, label %41, label %.split.us.us.i, !llvm.loop !24
+  br i1 %49, label %41, label %.split.us.us.i, !llvm.loop !81
 
 .split.us.us.i:                                   ; preds = %ff_check_interrupt.exit.thread.us.us.i
   %50 = load i32, ptr %4, align 8, !tbaa !15
@@ -1391,7 +1391,7 @@ define i32 @ffurl_get_short_seek(ptr noundef %0) #3 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !79
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %10, label %8
 
@@ -1638,30 +1638,30 @@ define i32 @avio_close(ptr noundef %0) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @av_freep(ptr noundef nonnull %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !80
+  %9 = load i32, ptr %8, align 8, !tbaa !83
   %.not11 = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %11 = load i32, ptr %10, align 8, !tbaa !81
+  %11 = load i32, ptr %10, align 8, !tbaa !84
   br i1 %.not11, label %17, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %14 = load i64, ptr %13, align 8, !tbaa !82
+  %14 = load i64, ptr %13, align 8, !tbaa !85
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %16 = load i32, ptr %15, align 4, !tbaa !83
+  %16 = load i32, ptr %15, align 4, !tbaa !86
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.15, i64 noundef %14, i32 noundef %11, i32 noundef %16) #12
   br label %20
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %19 = load i64, ptr %18, align 8, !tbaa !84
+  %19 = load i64, ptr %18, align 8, !tbaa !87
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.16, i64 noundef %19, i32 noundef %11) #12
   br label %20
 
 20:                                               ; preds = %17, %12
   tail call void @av_opt_free(ptr noundef nonnull %0) #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %22 = load i32, ptr %21, align 4, !tbaa !85
+  %22 = load i32, ptr %21, align 4, !tbaa !88
   call void @avio_context_free(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %6, ptr %2, align 8, !tbaa !41
@@ -1709,7 +1709,7 @@ define i32 @avio_check(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %12 = load ptr, ptr %11, align 8, !tbaa !86
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
 
@@ -1774,7 +1774,7 @@ define i32 @ffurl_move(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 176
-  %25 = load ptr, ptr %24, align 8, !tbaa !87
+  %25 = load ptr, ptr %24, align 8, !tbaa !90
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %28, label %26
 
@@ -1815,7 +1815,7 @@ define i32 @ffurl_delete(ptr noundef %0) local_unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  %11 = load ptr, ptr %10, align 8, !tbaa !88
+  %11 = load ptr, ptr %10, align 8, !tbaa !91
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
 
@@ -1866,19 +1866,19 @@ define range(i32 -2147483648, 1) i32 @avio_open_dir(ptr noundef writeonly captur
   %13 = getelementptr inbounds nuw i8, ptr %.pre26, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %16 = load ptr, ptr %15, align 8, !tbaa !89
+  %16 = load ptr, ptr %15, align 8, !tbaa !92
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %.thread, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  %19 = load ptr, ptr %18, align 8, !tbaa !90
+  %19 = load ptr, ptr %18, align 8, !tbaa !93
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %.thread, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  %22 = load ptr, ptr %21, align 8, !tbaa !91
+  %22 = load ptr, ptr %21, align 8, !tbaa !94
   %.not21 = icmp eq ptr %22, null
   br i1 %.not21, label %.thread, label %23
 
@@ -1902,7 +1902,7 @@ define range(i32 -2147483648, 1) i32 @avio_open_dir(ptr noundef writeonly captur
 ._crit_edge:                                      ; preds = %27
   %.pre = load ptr, ptr %13, align 8, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 144
-  %.pre25 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !89
+  %.pre25 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !92
   br label %32
 
 32:                                               ; preds = %._crit_edge, %23, %24
@@ -1914,15 +1914,15 @@ define range(i32 -2147483648, 1) i32 @avio_open_dir(ptr noundef writeonly captur
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.pre26, i64 44
   store i32 1, ptr %37, align 4, !tbaa !38
-  store ptr %.pre26, ptr %8, align 8, !tbaa !92
-  store ptr %8, ptr %0, align 8, !tbaa !94
+  store ptr %.pre26, ptr %8, align 8, !tbaa !95
+  store ptr %8, ptr %0, align 8, !tbaa !97
   br label %40
 
 .thread:                                          ; preds = %12, %17, %20, %7, %32, %27, %9
   %38 = phi ptr [ %.pre26, %9 ], [ %.pre26, %27 ], [ %.pre26, %32 ], [ null, %7 ], [ %.pre26, %20 ], [ %.pre26, %17 ], [ %.pre26, %12 ]
   %.0 = phi i32 [ %10, %9 ], [ %30, %27 ], [ %34, %32 ], [ -12, %7 ], [ -38, %20 ], [ -38, %17 ], [ -38, %12 ]
   tail call void @av_free(ptr noundef %8) #12
-  store ptr null, ptr %0, align 8, !tbaa !94
+  store ptr null, ptr %0, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %38, ptr %4, align 8, !tbaa !41
   %39 = call i32 @ffurl_closep(ptr noundef nonnull %4)
@@ -1945,7 +1945,7 @@ define i32 @avio_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr
   br i1 %.not, label %avio_free_directory_entry.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !92
+  %4 = load ptr, ptr %0, align 8, !tbaa !95
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %avio_free_directory_entry.exit, label %5
 
@@ -1953,7 +1953,7 @@ define i32 @avio_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = tail call i32 %9(ptr noundef nonnull %4, ptr noundef %1) #12
   %11 = icmp sgt i32 %10, -1
   %.not.i = icmp eq ptr %1, null
@@ -1961,12 +1961,12 @@ define i32 @avio_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr
   br i1 %or.cond, label %avio_free_directory_entry.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %1, align 8, !tbaa !96
+  %13 = load ptr, ptr %1, align 8, !tbaa !99
   %.not5.i = icmp eq ptr %13, null
   br i1 %.not5.i, label %avio_free_directory_entry.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %13, align 8, !tbaa !98
+  %15 = load ptr, ptr %13, align 8, !tbaa !101
   tail call void @av_free(ptr noundef %15) #12
   tail call void @av_freep(ptr noundef nonnull %1) #12
   br label %avio_free_directory_entry.exit
@@ -1982,12 +1982,12 @@ define void @avio_free_directory_entry(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !96
+  %3 = load ptr, ptr %0, align 8, !tbaa !99
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %3, align 8, !tbaa !98
+  %5 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void @av_free(ptr noundef %5) #12
   tail call void @av_freep(ptr noundef nonnull %0) #12
   br label %6
@@ -2008,12 +2008,12 @@ define range(i32 -22, 1) i32 @avio_close_dir(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !94
+  %5 = load ptr, ptr %0, align 8, !tbaa !97
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %15, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %5, align 8, !tbaa !92
+  %7 = load ptr, ptr %5, align 8, !tbaa !95
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %15, label %8
 
@@ -2021,14 +2021,14 @@ define range(i32 -22, 1) i32 @avio_close_dir(ptr noundef %0) local_unnamed_addr 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  %12 = load ptr, ptr %11, align 8, !tbaa !91
+  %12 = load ptr, ptr %11, align 8, !tbaa !94
   %13 = tail call i32 %12(ptr noundef nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %7, ptr %2, align 8, !tbaa !41
   %14 = call i32 @ffurl_closep(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @av_freep(ptr noundef nonnull %0) #12
-  store ptr null, ptr %0, align 8, !tbaa !94
+  store ptr null, ptr %0, align 8, !tbaa !97
   br label %15
 
 15:                                               ; preds = %4, %6, %8
@@ -2100,7 +2100,7 @@ define i32 @ffurl_get_file_handle(ptr noundef %0) local_unnamed_addr #3 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !100
+  %7 = load ptr, ptr %6, align 8, !tbaa !103
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %10, label %8
 
@@ -2126,30 +2126,30 @@ define i32 @ffurl_get_multi_file_handle(ptr noundef %0, ptr noundef %1, ptr noun
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !101
+  %9 = load ptr, ptr %8, align 8, !tbaa !104
   %.not18 = icmp eq ptr %9, null
   br i1 %.not18, label %10, label %21
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !100
+  %12 = load ptr, ptr %11, align 8, !tbaa !103
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %23, label %13
 
 13:                                               ; preds = %10
   %14 = tail call noalias ptr @av_malloc(i64 noundef 4) #12
-  store ptr %14, ptr %1, align 8, !tbaa !102
+  store ptr %14, ptr %1, align 8, !tbaa !105
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %23, label %15
 
 15:                                               ; preds = %13
-  store i32 1, ptr %2, align 4, !tbaa !104
+  store i32 1, ptr %2, align 4, !tbaa !107
   %16 = load ptr, ptr %5, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !103
   %19 = tail call i32 %18(ptr noundef nonnull %0) #12
-  %20 = load ptr, ptr %1, align 8, !tbaa !102
-  store i32 %19, ptr %20, align 4, !tbaa !104
+  %20 = load ptr, ptr %1, align 8, !tbaa !105
+  store i32 %19, ptr %20, align 4, !tbaa !107
   br label %23
 
 21:                                               ; preds = %7
@@ -2174,7 +2174,7 @@ define i32 @ffurl_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %8 = load ptr, ptr %7, align 8, !tbaa !105
+  %8 = load ptr, ptr %7, align 8, !tbaa !108
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %11, label %9
 
@@ -2415,30 +2415,33 @@ attributes #14 = { noreturn nounwind }
 !76 = !{!17, !17, i64 0}
 !77 = distinct !{!77, !25}
 !78 = !{!23, !7, i64 64}
-!79 = !{!23, !7, i64 104}
-!80 = !{!5, !11, i64 88}
-!81 = !{!60, !11, i64 256}
-!82 = !{!60, !12, i64 248}
-!83 = !{!60, !11, i64 260}
-!84 = !{!60, !12, i64 240}
-!85 = !{!5, !11, i64 84}
-!86 = !{!23, !7, i64 136}
-!87 = !{!23, !7, i64 176}
-!88 = !{!23, !7, i64 168}
-!89 = !{!23, !7, i64 144}
-!90 = !{!23, !7, i64 152}
-!91 = !{!23, !7, i64 160}
-!92 = !{!93, !42, i64 0}
-!93 = !{!"AVIODirContext", !42, i64 0}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"p1 _ZTS14AVIODirContext", !7, i64 0}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p1 _ZTS12AVIODirEntry", !7, i64 0}
-!98 = !{!99, !10, i64 0}
-!99 = !{!"AVIODirEntry", !10, i64 0, !11, i64 8, !11, i64 12, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
-!100 = !{!23, !7, i64 88}
-!101 = !{!23, !7, i64 96}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 int", !7, i64 0}
-!104 = !{!11, !11, i64 0}
-!105 = !{!23, !7, i64 112}
+!79 = distinct !{!79, !25, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !25, !80}
+!82 = !{!23, !7, i64 104}
+!83 = !{!5, !11, i64 88}
+!84 = !{!60, !11, i64 256}
+!85 = !{!60, !12, i64 248}
+!86 = !{!60, !11, i64 260}
+!87 = !{!60, !12, i64 240}
+!88 = !{!5, !11, i64 84}
+!89 = !{!23, !7, i64 136}
+!90 = !{!23, !7, i64 176}
+!91 = !{!23, !7, i64 168}
+!92 = !{!23, !7, i64 144}
+!93 = !{!23, !7, i64 152}
+!94 = !{!23, !7, i64 160}
+!95 = !{!96, !42, i64 0}
+!96 = !{!"AVIODirContext", !42, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS14AVIODirContext", !7, i64 0}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS12AVIODirEntry", !7, i64 0}
+!101 = !{!102, !10, i64 0}
+!102 = !{!"AVIODirEntry", !10, i64 0, !11, i64 8, !11, i64 12, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
+!103 = !{!23, !7, i64 88}
+!104 = !{!23, !7, i64 96}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 int", !7, i64 0}
+!107 = !{!11, !11, i64 0}
+!108 = !{!23, !7, i64 112}

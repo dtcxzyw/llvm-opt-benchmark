@@ -468,7 +468,7 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   %43 = getelementptr inbounds nuw i64, ptr %.05052.us, i64 %indvars.iv.lver.orig
   %44 = load i64, ptr %43, align 8, !tbaa !65
   %45 = getelementptr inbounds nuw i8, ptr %.04854.us, i64 %indvars.iv.lver.orig
-  %46 = load i8, ptr %45, align 1, !tbaa !68
+  %46 = load i8, ptr %45, align 1, !tbaa !69
   %47 = zext i8 %46 to i64
   %48 = add i64 %44, %47
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
@@ -476,14 +476,14 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   store i64 %48, ptr %49, align 8, !tbaa !65
   %50 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.lver.orig
   %51 = load i64, ptr %50, align 8, !tbaa !65
-  %52 = load i8, ptr %45, align 1, !tbaa !68
+  %52 = load i8, ptr %45, align 1, !tbaa !69
   %53 = zext i8 %52 to i64
   %54 = mul nuw nsw i64 %53, %53
   %55 = add i64 %54, %51
   %56 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next.lver.orig
   store i64 %55, ptr %56, align 8, !tbaa !65
   %exitcond.not.lver.orig = icmp eq i64 %indvars.iv.next.lver.orig, %wide.trip.count
-  br i1 %exitcond.not.lver.orig, label %._crit_edge.us, label %.ph.lver.orig, !llvm.loop !69
+  br i1 %exitcond.not.lver.orig, label %._crit_edge.us, label %.ph.lver.orig, !llvm.loop !70
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i64, ptr %.05052.us, align 8
@@ -495,20 +495,20 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   %store_forwarded = phi i64 [ %load_initial, %.ph ], [ %61, %57 ]
   %indvars.iv = phi i64 [ 0, %.ph ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i8, ptr %.04854.us, i64 %indvars.iv
-  %59 = load i8, ptr %58, align 1, !tbaa !68
+  %59 = load i8, ptr %58, align 1, !tbaa !69
   %60 = zext i8 %59 to i64
   %61 = add i64 %store_forwarded, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = getelementptr inbounds nuw i64, ptr %.05052.us, i64 %indvars.iv.next
   store i64 %61, ptr %62, align 8, !tbaa !65
-  %63 = load i8, ptr %58, align 1, !tbaa !68
+  %63 = load i8, ptr %58, align 1, !tbaa !69
   %64 = zext i8 %63 to i64
   %65 = mul nuw nsw i64 %64, %64
   %66 = add i64 %65, %store_forwarded63
   %67 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next
   store i64 %66, ptr %67, align 8, !tbaa !65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %57, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %57, %.ph.lver.orig
   %68 = getelementptr inbounds i64, ptr %.05052.us, i64 %22
@@ -517,7 +517,7 @@ define internal noundef i32 @pre_calculate_row_byte(ptr noundef readonly capture
   %71 = add nsw i32 %.055.us, 1
   %exitcond59.not = icmp eq i32 %71, %15
   %indvar.next = add i64 %indvar, 1
-  br i1 %exitcond59.not, label %._crit_edge56, label %.lver.check, !llvm.loop !70
+  br i1 %exitcond59.not, label %._crit_edge56, label %.lver.check, !llvm.loop !71
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -557,7 +557,7 @@ define internal noundef i32 @filter_slice_byte(ptr noundef readonly captures(non
 
 .lr.ph120:                                        ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !71
+  %33 = load i32, ptr %32, align 8, !tbaa !72
   %34 = icmp sgt i32 %7, 0
   %35 = sext i32 %33 to i64
   br i1 %34, label %.lr.ph.us.preheader, label %._crit_edge121
@@ -642,7 +642,7 @@ define internal noundef i32 @filter_slice_byte(ptr noundef readonly captures(non
   %95 = udiv i64 %94, %87
   %96 = mul i64 %88, %35
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %97 = load i8, ptr %gep, align 1, !tbaa !68
+  %97 = load i8, ptr %gep, align 1, !tbaa !69
   %98 = zext i8 %97 to i64
   %99 = mul i64 %95, %98
   %100 = add i64 %99, %96
@@ -650,15 +650,15 @@ define internal noundef i32 @filter_slice_byte(ptr noundef readonly captures(non
   %102 = udiv i64 %100, %101
   %103 = trunc i64 %102 to i8
   %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %indvars.iv
-  store i8 %103, ptr %gep130, align 1, !tbaa !68
+  store i8 %103, ptr %gep130, align 1, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !73
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge121, label %.lr.ph.us, !llvm.loop !73
+  br i1 %exitcond128.not, label %._crit_edge121, label %.lr.ph.us, !llvm.loop !74
 
 ._crit_edge121:                                   ; preds = %._crit_edge.us, %.lr.ph120, %4
   ret i32 0
@@ -732,7 +732,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %44 = getelementptr inbounds nuw i64, ptr %.05052.us, i64 %indvars.iv.lver.orig
   %45 = load i64, ptr %44, align 8, !tbaa !65
   %46 = getelementptr inbounds nuw i16, ptr %.04854.us, i64 %indvars.iv.lver.orig
-  %47 = load i16, ptr %46, align 2, !tbaa !74
+  %47 = load i16, ptr %46, align 2, !tbaa !75
   %48 = zext i16 %47 to i64
   %49 = add i64 %45, %48
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
@@ -745,7 +745,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %55 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next.lver.orig
   store i64 %54, ptr %55, align 8, !tbaa !65
   %exitcond.not.lver.orig = icmp eq i64 %indvars.iv.next.lver.orig, %wide.trip.count
-  br i1 %exitcond.not.lver.orig, label %._crit_edge.us, label %.ph.lver.orig, !llvm.loop !76
+  br i1 %exitcond.not.lver.orig, label %._crit_edge.us, label %.ph.lver.orig, !llvm.loop !77
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i64, ptr %.05052.us, align 8
@@ -757,7 +757,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %store_forwarded = phi i64 [ %load_initial, %.ph ], [ %60, %56 ]
   %indvars.iv = phi i64 [ 0, %.ph ], [ %indvars.iv.next, %56 ]
   %57 = getelementptr inbounds nuw i16, ptr %.04854.us, i64 %indvars.iv
-  %58 = load i16, ptr %57, align 2, !tbaa !74
+  %58 = load i16, ptr %57, align 2, !tbaa !75
   %59 = zext i16 %58 to i64
   %60 = add i64 %store_forwarded, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -768,7 +768,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %64 = getelementptr inbounds nuw i64, ptr %.04953.us, i64 %indvars.iv.next
   store i64 %63, ptr %64, align 8, !tbaa !65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %56, %.ph.lver.orig
   %65 = getelementptr inbounds i64, ptr %.05052.us, i64 %22
@@ -777,7 +777,7 @@ define internal noundef i32 @pre_calculate_row_word(ptr noundef readonly capture
   %68 = add nsw i32 %.055.us, 1
   %exitcond59.not = icmp eq i32 %68, %12
   %indvar.next = add i64 %indvar, 1
-  br i1 %exitcond59.not, label %._crit_edge56, label %.lver.check, !llvm.loop !77
+  br i1 %exitcond59.not, label %._crit_edge56, label %.lver.check, !llvm.loop !78
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -819,7 +819,7 @@ define internal noundef i32 @filter_slice_word(ptr noundef readonly captures(non
 
 .lr.ph120:                                        ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !71
+  %35 = load i32, ptr %34, align 8, !tbaa !72
   %36 = icmp sgt i32 %7, 0
   %37 = sext i32 %35 to i64
   br i1 %36, label %.lr.ph.us.preheader, label %._crit_edge121
@@ -904,7 +904,7 @@ define internal noundef i32 @filter_slice_word(ptr noundef readonly captures(non
   %97 = udiv i64 %96, %89
   %98 = mul i64 %90, %37
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %99 = load i16, ptr %gep, align 2, !tbaa !74
+  %99 = load i16, ptr %gep, align 2, !tbaa !75
   %100 = zext i16 %99 to i64
   %101 = mul i64 %97, %100
   %102 = add i64 %101, %98
@@ -912,15 +912,15 @@ define internal noundef i32 @filter_slice_word(ptr noundef readonly captures(non
   %104 = udiv i64 %102, %103
   %105 = trunc i64 %104 to i16
   %gep130 = getelementptr i16, ptr %invariant.gep129, i64 %indvars.iv
-  store i16 %105, ptr %gep130, align 2, !tbaa !74
+  store i16 %105, ptr %gep130, align 2, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %54
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge121, label %.lr.ph.us, !llvm.loop !79
+  br i1 %exitcond128.not, label %._crit_edge121, label %.lr.ph.us, !llvm.loop !80
 
 ._crit_edge121:                                   ; preds = %._crit_edge.us, %.lr.ph120, %4
   ret i32 0
@@ -1017,16 +1017,17 @@ attributes #8 = { nounwind willreturn memory(read) }
 !64 = !{!37, !38, i64 72}
 !65 = !{!60, !60, i64 0}
 !66 = distinct !{!66, !54}
-!67 = distinct !{!67, !54}
-!68 = !{!8, !8, i64 0}
-!69 = distinct !{!69, !54}
+!67 = distinct !{!67, !54, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = !{!8, !8, i64 0}
 !70 = distinct !{!70, !54}
-!71 = !{!37, !15, i64 16}
-!72 = distinct !{!72, !54}
+!71 = distinct !{!71, !54, !68}
+!72 = !{!37, !15, i64 16}
 !73 = distinct !{!73, !54}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"short", !8, i64 0}
-!76 = distinct !{!76, !54}
+!74 = distinct !{!74, !54, !68}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"short", !8, i64 0}
 !77 = distinct !{!77, !54}
-!78 = distinct !{!78, !54}
+!78 = distinct !{!78, !54, !68}
 !79 = distinct !{!79, !54}
+!80 = distinct !{!80, !54, !68}

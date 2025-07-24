@@ -1226,7 +1226,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = add i32 %.05696.us, -1
   %.not70.us = icmp eq i32 %96, 0
-  br i1 %.not70.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not70.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !124
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not73 = icmp eq ptr %.05785, null
@@ -1272,7 +1272,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = add i32 %.05696.us99, -1
   %.not70.us106 = icmp eq i32 %115, 0
-  br i1 %.not70.us106, label %._crit_edge.thread, label %.lr.ph.split.split.us
+  br i1 %.not70.us106, label %._crit_edge.thread, label %.lr.ph.split.split.us, !llvm.loop !126
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %147
   %.05497 = phi ptr [ %149, %147 ], [ %75, %.lr.ph.split ]
@@ -1311,7 +1311,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 132:                                              ; preds = %125
   %133 = sext i32 %.05993 to i64
   %134 = getelementptr inbounds %struct._zend_arg_info, ptr %.05785, i64 %133, i32 1, i32 1
-  %135 = load i32, ptr %134, align 8, !tbaa !124
+  %135 = load i32, ptr %134, align 8, !tbaa !127
   %136 = lshr i32 %135, 27
   %137 = trunc nuw nsw i32 %136 to i8
   br label %.thread87
@@ -1419,7 +1419,7 @@ phpdbg_restore_frame.exit:                        ; preds = %9, %16, %11, %6
   %28 = tail call ptr @phpdbg_compile_stackframe(ptr noundef %25)
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !127
+  %31 = load i32, ptr %30, align 8, !tbaa !130
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !43
   %34 = trunc i64 %33 to i32
@@ -1644,7 +1644,10 @@ attributes #14 = { nounwind returns_twice }
 !121 = !{!22, !22, i64 0}
 !122 = !{}
 !123 = !{!87, !19, i64 16}
-!124 = !{!125, !17, i64 16}
-!125 = !{!"_zend_arg_info", !18, i64 0, !126, i64 8, !18, i64 24}
-!126 = !{!"", !7, i64 0, !17, i64 8}
-!127 = !{!86, !17, i64 8}
+!124 = distinct !{!124, !125}
+!125 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!126 = distinct !{!126, !125}
+!127 = !{!128, !17, i64 16}
+!128 = !{!"_zend_arg_info", !18, i64 0, !129, i64 8, !18, i64 24}
+!129 = !{!"", !7, i64 0, !17, i64 8}
+!130 = !{!86, !17, i64 8}

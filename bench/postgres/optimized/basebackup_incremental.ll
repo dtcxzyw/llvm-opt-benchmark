@@ -692,7 +692,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1161.us288 = phi i32 [ %57, %56 ], [ %.0160265.us278, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.us, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.us, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %95
   %indvars.iv370 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next371, %95 ]
@@ -788,7 +788,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1161 = phi i32 [ %92, %91 ], [ %.0160265, %89 ]
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond374.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count373
-  br i1 %exitcond374.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond374.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.sink.split:                           ; preds = %60, %44
   %.lcssa435.sink = phi ptr [ %34, %44 ], [ %50, %60 ]
@@ -936,7 +936,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 192:                                              ; preds = %172, %154
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
-  br i1 %exitcond384.not, label %._crit_edge308, label %102, !llvm.loop !13
+  br i1 %exitcond384.not, label %._crit_edge308, label %102, !llvm.loop !15
 
 ._crit_edge308:                                   ; preds = %192, %._crit_edge.thread
   %.0160.lcssa409 = phi i32 [ 0, %._crit_edge.thread ], [ %.0160.lcssa, %192 ]
@@ -1127,7 +1127,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   call void @BlockRefTableMarkBlockModified(ptr noundef %277, ptr noundef nonnull %5, i32 noundef %278, i32 noundef %280) #13
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %281, label %276, !llvm.loop !14
+  br i1 %exitcond391.not, label %281, label %276, !llvm.loop !16
 
 281:                                              ; preds = %276
   %282 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %268, ptr noundef nonnull %8, i32 noundef 512) #13
@@ -1412,7 +1412,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   store i32 %108, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %104
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %103
   store i32 %97, ptr %8, align 4
@@ -1577,9 +1577,11 @@ attributes #16 = { cold nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.partial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !11}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
 !15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

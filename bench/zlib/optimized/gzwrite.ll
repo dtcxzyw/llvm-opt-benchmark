@@ -897,7 +897,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   store ptr %78, ptr %47, align 8, !tbaa !35
   %79 = load ptr, ptr %46, align 8, !tbaa !34
   %80 = icmp ugt ptr %79, %78
-  br i1 %80, label %.lr.ph77.us, label %._crit_edge.us, !llvm.loop !41
+  br i1 %80, label %.lr.ph77.us, label %._crit_edge.us, !llvm.loop !42
 
 .split:                                           ; preds = %43, %116
   %81 = phi i32 [ %117, %116 ], [ %.pre90, %43 ]
@@ -942,7 +942,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   store ptr %104, ptr %47, align 8, !tbaa !35
   %105 = load ptr, ptr %46, align 8, !tbaa !34
   %106 = icmp ugt ptr %105, %104
-  br i1 %106, label %.lr.ph77, label %._crit_edge.loopexit, !llvm.loop !41
+  br i1 %106, label %.lr.ph77, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %101
   %.pre89 = load i32, ptr %44, align 8, !tbaa !33
@@ -974,7 +974,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 116:                                              ; preds = %112
   %117 = load i32, ptr %44, align 8, !tbaa !33
   %.not70 = icmp eq i32 %113, %117
-  br i1 %.not70, label %.split81.us, label %.split, !llvm.loop !40
+  br i1 %.not70, label %.split81.us, label %.split, !llvm.loop !43
 
 .split81.us:                                      ; preds = %116, %63
   %118 = icmp eq i32 %1, 4
@@ -1376,7 +1376,7 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
 59:                                               ; preds = %56, %45
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !42
+  %61 = load ptr, ptr %60, align 8, !tbaa !44
   tail call void @free(ptr noundef %61) #14
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !36
@@ -1495,6 +1495,8 @@ attributes #17 = { nounwind willreturn memory(none) }
 !37 = !{!6, !6, i64 0}
 !38 = distinct !{!38, !20}
 !39 = !{!4, !6, i64 96}
-!40 = distinct !{!40, !20}
-!41 = distinct !{!41, !20}
-!42 = !{!4, !9, i64 32}
+!40 = distinct !{!40, !20, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !20}
+!43 = distinct !{!43, !20}
+!44 = !{!4, !9, i64 32}

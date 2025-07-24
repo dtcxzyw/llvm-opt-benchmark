@@ -4174,7 +4174,7 @@ define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr noundef nonnu
   store ptr %17, ptr %19, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %.0.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !60
-  br label %.split.us
+  br label %.split.us, !llvm.loop !140
 
 .split:                                           ; preds = %3, %34
   %.021 = phi ptr [ %35, %34 ], [ %4, %3 ]
@@ -4286,7 +4286,7 @@ define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %
   %16 = getelementptr inbounds nuw i8, ptr %.03542, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %.not = icmp eq ptr %17, %1
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !140
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !142
 
 .lr.ph49:                                         ; preds = %.critedge, %31
   %.048 = phi ptr [ %43, %31 ], [ %0, %.critedge ]
@@ -4339,7 +4339,7 @@ define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %
   %42 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !60
   %.not37 = icmp eq ptr %43, %1
-  br i1 %.not37, label %.critedge2.loopexit, label %.lr.ph49, !llvm.loop !141
+  br i1 %.not37, label %.critedge2.loopexit, label %.lr.ph49, !llvm.loop !143
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -4406,7 +4406,7 @@ is_hash.exit:                                     ; preds = %.lr.ph
   %.0.be = phi ptr [ %21, %17 ], [ %36, %is_hash.exit13.thread ]
   %22 = load i32, ptr %.0.be, align 16, !tbaa !58
   %.not = icmp eq i32 %22, 6
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !142
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !144
 
 is_hash.exit.thread:                              ; preds = %.lr.ph, %14, %is_hash.exit
   %23 = load i8, ptr %3, align 8, !tbaa !98, !range !93, !noundef !94
@@ -4611,6 +4611,8 @@ attributes #18 = { nounwind willreturn memory(none) }
 !137 = distinct !{!137, !20}
 !138 = !{!64, !14, i64 0}
 !139 = !{!39, !30, i64 16}
-!140 = distinct !{!140, !20}
-!141 = distinct !{!141, !20}
+!140 = distinct !{!140, !141}
+!141 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !142 = distinct !{!142, !20}
+!143 = distinct !{!143, !20}
+!144 = distinct !{!144, !20}

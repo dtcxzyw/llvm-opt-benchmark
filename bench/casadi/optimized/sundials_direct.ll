@@ -490,7 +490,7 @@ define void @SetToZero(ptr noundef readonly captures(none) %0) local_unnamed_add
   tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %30, i1 false), !tbaa !27
   %35 = add nuw nsw i64 %.12529, 1
   %exitcond.not = icmp eq i64 %35, %22
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph34.us, %.lr.ph31, %.lr.ph37, %15, %.preheader, %1
   ret void
@@ -533,14 +533,14 @@ define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %17 = add nuw nsw i64 %.03556, 1
   %18 = load i64, ptr %7, align 8, !tbaa !17
   %19 = icmp slt i64 %17, %18
-  br i1 %19, label %.lr.ph57, label %._crit_edge58, !llvm.loop !33
+  br i1 %19, label %.lr.ph57, label %._crit_edge58, !llvm.loop !34
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
   %putchar46 = tail call i32 @putchar(i32 10)
   %20 = add nuw nsw i64 %.059, 1
   %21 = load i64, ptr %4, align 8, !tbaa !16
   %22 = icmp slt i64 %20, %21
-  br i1 %22, label %.preheader, label %.sink.split, !llvm.loop !34
+  br i1 %22, label %.preheader, label %.sink.split, !llvm.loop !35
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -579,7 +579,7 @@ define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.3)
   %42 = add nuw nsw i64 %.13648, 1
   %exitcond.not = icmp eq i64 %42, %35
-  br i1 %exitcond.not, label %.preheader47, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader47, label %.lr.ph, !llvm.loop !36
 
 .lr.ph51:                                         ; preds = %.preheader47, %.lr.ph51
   %.250 = phi i64 [ %51, %.lr.ph51 ], [ %spec.select, %.preheader47 ]
@@ -593,14 +593,14 @@ define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %49)
   %51 = add nuw nsw i64 %.250, 1
   %.not42.not = icmp slt i64 %.250, %39
-  br i1 %.not42.not, label %.lr.ph51, label %._crit_edge, !llvm.loop !36
+  br i1 %.not42.not, label %.lr.ph51, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %.preheader47
   %putchar43 = tail call i32 @putchar(i32 10)
   %52 = add nuw nsw i64 %.152, 1
   %53 = load i64, ptr %26, align 8, !tbaa !17
   %54 = icmp slt i64 %52, %53
-  br i1 %54, label %32, label %.sink.split, !llvm.loop !37
+  br i1 %54, label %32, label %.sink.split, !llvm.loop !38
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge58, %23, %3
   %putchar41 = tail call i32 @putchar(i32 10)
@@ -673,10 +673,11 @@ attributes #13 = { nounwind }
 !28 = !{!"double", !6, i64 0}
 !29 = distinct !{!29, !15}
 !30 = distinct !{!30, !15}
-!31 = distinct !{!31, !15}
-!32 = distinct !{!32, !15}
+!31 = distinct !{!31, !15, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !33 = distinct !{!33, !15}
 !34 = distinct !{!34, !15}
 !35 = distinct !{!35, !15}
 !36 = distinct !{!36, !15}
 !37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}

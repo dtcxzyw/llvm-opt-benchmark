@@ -2210,7 +2210,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %379 = add nuw i32 %363, 1
   %380 = getelementptr i8, ptr %361, i64 40
   %381 = icmp eq i32 %379, %340
-  br i1 %381, label %.loopexit46, label %.split, !llvm.loop !31
+  br i1 %381, label %.loopexit46, label %.split, !llvm.loop !33
 
 .loopexit46:                                      ; preds = %.split, %.split.us, %339
   %382 = load volatile i32, ptr %323, align 4
@@ -2223,8 +2223,8 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %387, label %389, label %388, !prof !11
 
 388:                                              ; preds = %.loopexit46
-  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !32
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #12, !srcloc !33
+  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !34
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #12, !srcloc !35
   unreachable
 
 389:                                              ; preds = %.loopexit46
@@ -2232,7 +2232,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #12
   %390 = load ptr, ptr %4, align 8
   %391 = icmp eq ptr %390, null
-  br i1 %391, label %.loopexit47, label %324, !llvm.loop !34
+  br i1 %391, label %.loopexit47, label %324, !llvm.loop !36
 
 .loopexit47:                                      ; preds = %389, %310, %306
   %392 = load ptr, ptr %6, align 8
@@ -2260,7 +2260,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store ptr null, ptr %403, align 8
   %406 = load ptr, ptr %20, align 8
   call void @dm_rh_delay(ptr noundef %406, ptr noundef nonnull %403) #12
-  br i1 %405, label %.loopexit132, label %.preheader131, !llvm.loop !35
+  br i1 %405, label %.loopexit132, label %.preheader131, !llvm.loop !37
 
 407:                                              ; preds = %458, %396
   %408 = phi ptr [ %394, %396 ], [ %459, %458 ]
@@ -2350,7 +2350,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 458:                                              ; preds = %455, %419
   %459 = load ptr, ptr %5, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %.loopexit45, label %407, !llvm.loop !36
+  br i1 %460, label %.loopexit45, label %407, !llvm.loop !38
 
 .loopexit45:                                      ; preds = %458, %.loopexit132, %.loopexit51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
@@ -2397,11 +2397,11 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 483:                                              ; preds = %.preheader
   %484 = getelementptr i8, ptr %479, i64 40
   %485 = icmp ult ptr %484, %477
-  br i1 %485, label %.preheader, label %.thread42, !llvm.loop !37
+  br i1 %485, label %.preheader, label %.thread42, !llvm.loop !39
 
 486:                                              ; preds = %.preheader
   %487 = icmp eq ptr %479, null
-  br i1 %487, label %.thread42, label %488, !prof !38
+  br i1 %487, label %.thread42, label %488, !prof !40
 
 488:                                              ; preds = %486
   %489 = load i64, ptr %22, align 8
@@ -2434,7 +2434,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br label %501
 
 501:                                              ; preds = %500, %499, %.thread42
-  br i1 %469, label %.loopexit, label %466, !llvm.loop !39
+  br i1 %469, label %.loopexit, label %466, !llvm.loop !41
 
 .loopexit:                                        ; preds = %501, %.loopexit45
   ret void
@@ -2446,7 +2446,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @delayed_wake_fn(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #12, !srcloc !40
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #12, !srcloc !42
   %3 = getelementptr i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -32
@@ -2523,7 +2523,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr noundef
   store i32 %38, ptr %3, align 4
   %39 = add nuw i32 %25, 1
   %40 = icmp eq i32 %39, %17
-  br i1 %40, label %.loopexit3, label %23, !llvm.loop !41
+  br i1 %40, label %.loopexit3, label %23, !llvm.loop !43
 
 .loopexit3:                                       ; preds = %33, %19
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2607,7 +2607,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   %25 = getelementptr i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %26 = icmp samesign ult i64 %24, %16
-  br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !42
+  br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !44
 
 .loopexit3:                                       ; preds = %.preheader2, %1
   store i64 -1, ptr %2, align 8
@@ -2623,7 +2623,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
 
 .preheader:                                       ; preds = %30, %39
   %33 = phi i64 [ %40, %39 ], [ 0, %30 ]
-  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #12, !srcloc !43
+  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #12, !srcloc !45
   %35 = icmp ult i8 %34, 2
   call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
@@ -2639,7 +2639,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   %41 = load i32, ptr %13, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %40, %42
-  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !44
+  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %39, %30, %.loopexit3
   %44 = phi i32 [ 0, %.loopexit3 ], [ -5, %30 ], [ -5, %39 ]
@@ -2661,10 +2661,10 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #12, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #12, !srcloc !47
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #12, !srcloc !46
+  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #12, !srcloc !48
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
@@ -2720,7 +2720,7 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
 45:                                               ; preds = %.preheader
   %46 = getelementptr i8, ptr %41, i64 40
   %47 = icmp ult ptr %46, %39
-  br i1 %47, label %.preheader, label %.thread, !llvm.loop !37
+  br i1 %47, label %.preheader, label %.thread, !llvm.loop !39
 
 48:                                               ; preds = %.preheader
   %49 = icmp eq ptr %41, null
@@ -2815,7 +2815,7 @@ define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %
 27:                                               ; preds = %24, %17
   %28 = load ptr, ptr %1, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %12, !llvm.loop !47
+  br i1 %29, label %.loopexit, label %12, !llvm.loop !49
 
 .loopexit:                                        ; preds = %27, %2
   ret void
@@ -2969,7 +2969,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
 
 39:                                               ; preds = %32
   %40 = sext i32 %34 to i64
-  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #12, !srcloc !43
+  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #12, !srcloc !45
   %42 = icmp ult i8 %41, 2
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
@@ -2990,7 +2990,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   %50 = phi i32 [ %34, %32 ], [ %47, %46 ]
   %51 = add nuw i32 %35, 1
   %52 = icmp ult i32 %51, %49
-  br i1 %52, label %32, label %.loopexit.loopexit, !llvm.loop !48
+  br i1 %52, label %32, label %.loopexit.loopexit, !llvm.loop !50
 
 .loopexit.loopexit:                               ; preds = %48
   %.pre1 = load i64, ptr %4, align 8
@@ -3157,7 +3157,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @delayed_wake(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #12, !srcloc !46
+  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #12, !srcloc !48
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
@@ -3236,7 +3236,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
 
 21:                                               ; preds = %28, %17
   %22 = phi i64 [ 0, %17 ], [ %29, %28 ]
-  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #12, !srcloc !43
+  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #12, !srcloc !45
   %24 = icmp ult i8 %23, 2
   call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
@@ -3252,7 +3252,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   %30 = load i32, ptr %14, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %29, %31
-  br i1 %32, label %21, label %.loopexit, !llvm.loop !49
+  br i1 %32, label %21, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %28, %13
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3426,22 +3426,24 @@ attributes #14 = { nounwind allocsize(0) }
 !28 = distinct !{!28, !7, !8}
 !29 = distinct !{!29, !7, !8}
 !30 = !{!"branch_weights", i32 -2147483648, i32 0}
-!31 = distinct !{!31, !7, !8}
-!32 = !{i64 2156258152, i64 2156257961, i64 2156258013, i64 2156258059, i64 2156258087}
-!33 = !{i64 2156258226, i64 2156258255, i64 2156258301, i64 2156258359, i64 2156258413, i64 2156258467, i64 2156258522, i64 2156258553}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
+!31 = distinct !{!31, !7, !8, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !7, !8}
+!34 = !{i64 2156258152, i64 2156257961, i64 2156258013, i64 2156258059, i64 2156258087}
+!35 = !{i64 2156258226, i64 2156258255, i64 2156258301, i64 2156258359, i64 2156258413, i64 2156258467, i64 2156258522, i64 2156258553}
 !36 = distinct !{!36, !7, !8}
 !37 = distinct !{!37, !7, !8}
-!38 = !{!"branch_weights", i32 0, i32 -2147483648}
+!38 = distinct !{!38, !7, !8}
 !39 = distinct !{!39, !7, !8}
-!40 = !{i64 2148479580, i64 2148479619, i64 2148479640, i64 2148479677, i64 2148479700, i64 2148479570}
+!40 = !{!"branch_weights", i32 0, i32 -2147483648}
 !41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = !{i64 2148491904, i64 2148491978}
+!42 = !{i64 2148479580, i64 2148479619, i64 2148479640, i64 2148479677, i64 2148479700, i64 2148479570}
+!43 = distinct !{!43, !7, !8}
 !44 = distinct !{!44, !7, !8}
-!45 = !{i64 2148960670, i64 2148960709, i64 2148960730, i64 2148960767, i64 2148960790, i64 2148960660}
-!46 = !{i64 2148484743, i64 2148484782, i64 2148484803, i64 2148484840, i64 2148484863, i64 2148484872, i64 2148484975}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
+!45 = !{i64 2148491904, i64 2148491978}
+!46 = distinct !{!46, !7, !8}
+!47 = !{i64 2148960670, i64 2148960709, i64 2148960730, i64 2148960767, i64 2148960790, i64 2148960660}
+!48 = !{i64 2148484743, i64 2148484782, i64 2148484803, i64 2148484840, i64 2148484863, i64 2148484872, i64 2148484975}
 !49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}

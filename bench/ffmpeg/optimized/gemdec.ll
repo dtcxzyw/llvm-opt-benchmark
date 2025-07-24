@@ -777,7 +777,7 @@ bytestream2_get_be16.exit415:                     ; preds = %202, %206
   %.16 = phi i32 [ %343, %.preheader552 ], [ 0, %344 ]
   %352 = add nuw nsw i32 %.0580, 1
   %exitcond637.not = icmp eq i32 %.0580, %337
-  br i1 %exitcond637.not, label %.thread534, label %.preheader552, !llvm.loop !57
+  br i1 %exitcond637.not, label %.thread534, label %.preheader552, !llvm.loop !58
 
 .thread534:                                       ; preds = %351, %302, %284, %._crit_edge, %.split578.us, %339
   %.1316 = phi ptr [ %331, %.split578.us ], [ %340, %339 ], [ %.3318, %._crit_edge ], [ %259, %284 ], [ %259, %302 ], [ %334, %351 ]
@@ -817,7 +817,7 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   %10 = sdiv i32 %9, 8
   %11 = and i32 %9, 7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !58
+  %13 = load i32, ptr %12, align 4, !tbaa !59
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
@@ -841,7 +841,7 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   %24 = add nsw i32 %23, %54
   %25 = load i32, ptr %15, align 4, !tbaa !48
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %.preheader39.us, label %.critedge.loopexit, !llvm.loop !59
+  br i1 %26, label %.preheader39.us, label %.critedge.loopexit, !llvm.loop !60
 
 27:                                               ; preds = %.preheader.us, %31
   %.041.us = phi i32 [ 7, %.preheader.us ], [ %50, %31 ]
@@ -853,7 +853,7 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
 .critedge2.us:                                    ; preds = %31, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !61
 
 31:                                               ; preds = %27
   %32 = load i8, ptr %51, align 1, !tbaa !16
@@ -877,7 +877,7 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   store i8 %49, ptr %46, align 1, !tbaa !16
   %50 = add nsw i32 %.041.us, -1
   %.not56 = icmp eq i32 %.041.us, 0
-  br i1 %.not56, label %.critedge2.us, label %27, !llvm.loop !61
+  br i1 %.not56, label %.critedge2.us, label %27, !llvm.loop !62
 
 .preheader.us:                                    ; preds = %.preheader39.us, %.critedge2.us
   %indvars.iv = phi i64 [ 0, %.preheader39.us ], [ %indvars.iv.next, %.critedge2.us ]
@@ -893,9 +893,9 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
 
 ._crit_edge.us:                                   ; preds = %.critedge2.us
   %54 = add nuw nsw i32 %.03743.us50, 1
-  %55 = load i32, ptr %12, align 4, !tbaa !58
+  %55 = load i32, ptr %12, align 4, !tbaa !59
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %22, label %.critedge.loopexit, !llvm.loop !59
+  br i1 %56, label %22, label %.critedge.loopexit, !llvm.loop !60
 
 .critedge.loopexit:                               ; preds = %._crit_edge.us, %22
   %.pre = load i32, ptr %8, align 4, !tbaa !49
@@ -914,7 +914,7 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   %60 = load i32, ptr %4, align 4, !tbaa !52
   %61 = add nsw i32 %60, %.lcssa
   store i32 %61, ptr %4, align 4, !tbaa !52
-  store i32 1, ptr %12, align 4, !tbaa !58
+  store i32 1, ptr %12, align 4, !tbaa !59
   br label %62
 
 62:                                               ; preds = %59, %.critedge
@@ -936,7 +936,7 @@ declare void @abort() local_unnamed_addr #6
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i32 %1, i32 %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #5 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !58
+  %9 = load i32, ptr %8, align 4, !tbaa !59
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %.critedge
 
@@ -954,17 +954,17 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   %19 = add nsw i32 %18, %33
   %20 = load i32, ptr %11, align 4, !tbaa !48
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %.lr.ph21, label %.critedge, !llvm.loop !62
+  br i1 %21, label %.lr.ph21, label %.critedge, !llvm.loop !63
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph21
-  br label %.critedge, !llvm.loop !62
+  br label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %17, %.lr.ph, %..critedge.loopexit_crit_edge, %7
   %.lcssa = phi i32 [ %9, %7 ], [ %34, %..critedge.loopexit_crit_edge ], [ %9, %.lr.ph ], [ %34, %17 ]
   %22 = load i32, ptr %4, align 4, !tbaa !52
   %23 = add nsw i32 %22, %.lcssa
   store i32 %23, ptr %4, align 4, !tbaa !52
-  store i32 1, ptr %8, align 4, !tbaa !58
+  store i32 1, ptr %8, align 4, !tbaa !59
   ret void
 
 .lr.ph21:                                         ; preds = %.lr.ph, %17
@@ -980,9 +980,9 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   %32 = sext i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %5, i64 %32, i1 false)
   %33 = add nuw nsw i32 %.01720, 1
-  %34 = load i32, ptr %8, align 4, !tbaa !58
+  %34 = load i32, ptr %8, align 4, !tbaa !59
   %35 = icmp slt i32 %33, %34
-  br i1 %35, label %17, label %..critedge.loopexit_crit_edge, !llvm.loop !62
+  br i1 %35, label %17, label %..critedge.loopexit_crit_edge, !llvm.loop !63
 }
 
 declare i32 @av_reallocp_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -1071,10 +1071,11 @@ attributes #10 = { noreturn nounwind }
 !53 = distinct !{!53, !43}
 !54 = distinct !{!54, !43}
 !55 = distinct !{!55, !43}
-!56 = distinct !{!56, !43}
-!57 = distinct !{!57, !43}
-!58 = !{!50, !12, i64 12}
-!59 = distinct !{!59, !43}
-!60 = distinct !{!60, !43}
+!56 = distinct !{!56, !43, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !43}
+!59 = !{!50, !12, i64 12}
+!60 = distinct !{!60, !43, !57}
 !61 = distinct !{!61, !43}
 !62 = distinct !{!62, !43}
+!63 = distinct !{!63, !43}

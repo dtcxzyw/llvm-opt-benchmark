@@ -572,7 +572,7 @@ dissect_icep_request.exit:                        ; preds = %41, %54
   %98 = add i32 %92, %.03640.i
   %99 = add nuw i32 %.041.i, 1
   %exitcond.not.i = icmp eq i32 %99, %62
-  br i1 %exitcond.not.i, label %dissect_icep_batch_request.exit, label %.split.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %dissect_icep_batch_request.exit, label %.split.i, !llvm.loop !9
 
 dissect_icep_batch_request.exit:                  ; preds = %90, %97, %79, %83, %58, %65, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
@@ -942,7 +942,7 @@ dissect_ice_context.exit.thread:                  ; preds = %.preheader.i, %125
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   %140 = add nuw i32 %.05362.i, 1
   %exitcond.not.i = icmp eq i32 %140, %.054.i
-  br i1 %exitcond.not.i, label %dissect_ice_context.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %dissect_ice_context.exit, label %.preheader.i, !llvm.loop !10
 
 dissect_ice_context.exit:                         ; preds = %139
   %141 = icmp eq i32 %134, -1
@@ -1182,6 +1182,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

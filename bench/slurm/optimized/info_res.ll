@@ -182,7 +182,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %43 = load i32, ptr %24, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph.split, label %.loopexit64, !llvm.loop !8
+  br i1 %45, label %.lr.ph.split, label %.loopexit64, !llvm.loop !12
 
 .loopexit64.loopexit:                             ; preds = %.thread.us
   %46 = trunc nuw nsw i64 %indvars.iv.next79 to i32
@@ -234,7 +234,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %62, ptr noundef nonnull align 8 dereferenceable(160) %64, i64 160, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit90, label %61, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit90, label %61, !llvm.loop !13
 
 .loopexit90:                                      ; preds = %61, %49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
@@ -305,7 +305,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %89 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next87
   %90 = load ptr, ptr %89, align 8
   %.not53 = icmp eq ptr %90, null
-  br i1 %.not53, label %.loopexit, label %.lr.ph73, !llvm.loop !12
+  br i1 %.not53, label %.loopexit, label %.lr.ph73, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph73, %.preheader, %85
   %91 = load ptr, ptr @mime_type, align 8
@@ -399,8 +399,10 @@ attributes #8 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

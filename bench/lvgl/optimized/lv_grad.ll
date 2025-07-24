@@ -42,81 +42,68 @@ define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) 
   %.not31 = icmp eq ptr %3, null
   br i1 %.not31, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %11
-  br i1 %.not30, label %.split.us.split.us, label %.split.us.split
+.split.us:                                        ; preds = %11, %19
+  %13 = phi i1 [ false, %19 ], [ true, %11 ]
+  %indvars.iv45 = phi i64 [ 1, %19 ], [ 0, %11 ]
+  %14 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv45
+  %15 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %14, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false), !tbaa.struct !8
+  br i1 %.not30, label %19, label %16
 
-.split.us.split.us:                               ; preds = %.split.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) %1, i64 3, i1 false), !tbaa.struct !8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 -1, ptr %13, align 1, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 0, ptr %14, align 1, !tbaa !13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %15, ptr noundef nonnull align 1 dereferenceable(3) %16, i64 3, i1 false), !tbaa.struct !8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 -1, ptr %17, align 1, !tbaa !10
-  br label %.split37.us.sink.split
+16:                                               ; preds = %.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45
+  %18 = load i8, ptr %17, align 1, !tbaa !9
+  br label %19
 
-.split.us.split:                                  ; preds = %.split.us, %.split.us.split
-  %18 = phi i1 [ false, %.split.us.split ], [ true, %.split.us ]
-  %indvars.iv46 = phi i64 [ 1, %.split.us.split ], [ 0, %.split.us ]
-  %19 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv46
-  %20 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) %20, i64 3, i1 false), !tbaa.struct !8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46
-  %22 = load i8, ptr %21, align 1, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 3
-  store i8 %22, ptr %23, align 1, !tbaa !10
-  %24 = trunc nuw nsw i64 %indvars.iv46 to i8
-  %25 = sub nsw i8 0, %24
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i8 %25, ptr %26, align 1, !tbaa !13
-  br i1 %18, label %.split.us.split, label %.split37.us, !llvm.loop !14
+19:                                               ; preds = %16, %.split.us
+  %20 = phi i8 [ %18, %16 ], [ -1, %.split.us ]
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  store i8 %20, ptr %21, align 1, !tbaa !10
+  %22 = trunc nuw nsw i64 %indvars.iv45 to i8
+  %23 = sub nsw i8 0, %22
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i8 %23, ptr %24, align 1, !tbaa !13
+  br i1 %13, label %.split.us, label %.split37.us, !llvm.loop !14
 
 .split:                                           ; preds = %11
   br i1 %.not30, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) %1, i64 3, i1 false), !tbaa.struct !8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 -1, ptr %27, align 1, !tbaa !10
-  %28 = load i8, ptr %3, align 1, !tbaa !9
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %28, ptr %29, align 1, !tbaa !13
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %30, ptr noundef nonnull align 1 dereferenceable(3) %31, i64 3, i1 false), !tbaa.struct !8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 -1, ptr %32, align 1, !tbaa !10
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !9
-  br label %.split37.us.sink.split
-
-.split37.us.sink.split:                           ; preds = %.split.us.split.us, %.split.split.us
-  %.sink = phi i8 [ %34, %.split.split.us ], [ -1, %.split.us.split.us ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %.sink, ptr %35, align 1, !tbaa !13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 -1, ptr %25, align 1, !tbaa !10
+  %26 = load i8, ptr %3, align 1, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %26, ptr %27, align 1, !tbaa !13
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %28, ptr noundef nonnull align 1 dereferenceable(3) %29, i64 3, i1 false), !tbaa.struct !8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 -1, ptr %30, align 1, !tbaa !10
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %32, ptr %33, align 1, !tbaa !13
   br label %.split37.us
 
-.split37.us:                                      ; preds = %.split.split, %.split.us.split, %.split37.us.sink.split
+.split37.us:                                      ; preds = %.split.split, %19, %.split.split.us
   ret void
 
 .split.split:                                     ; preds = %.split, %.split.split
-  %36 = phi i1 [ false, %.split.split ], [ true, %.split ]
+  %34 = phi i1 [ false, %.split.split ], [ true, %.split ]
   %indvars.iv = phi i64 [ 1, %.split.split ], [ 0, %.split ]
-  %37 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) %38, i64 3, i1 false), !tbaa.struct !8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %40 = load i8, ptr %39, align 1, !tbaa !9
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 3
-  store i8 %40, ptr %41, align 1, !tbaa !10
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %43 = load i8, ptr %42, align 1, !tbaa !9
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i8 %43, ptr %44, align 1, !tbaa !13
-  br i1 %36, label %.split.split, label %.split37.us, !llvm.loop !14
+  %35 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %35, ptr noundef nonnull align 1 dereferenceable(3) %36, i64 3, i1 false), !tbaa.struct !8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %38 = load i8, ptr %37, align 1, !tbaa !9
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 3
+  store i8 %38, ptr %39, align 1, !tbaa !10
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %41 = load i8, ptr %40, align 1, !tbaa !9
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i8 %41, ptr %42, align 1, !tbaa !13
+  br i1 %34, label %.split.split, label %.split37.us, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -175,5 +162,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !11 = !{!"", !12, i64 0, !5, i64 3, !5, i64 4}
 !12 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
 !13 = !{!11, !5, i64 4}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !15}

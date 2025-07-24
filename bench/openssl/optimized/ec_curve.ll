@@ -717,7 +717,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 113:                                              ; preds = %.preheader.split, %91, %98, %106, %109, %111
   %114 = add nuw nsw i64 %.26995, 1
   %exitcond103.not = icmp eq i64 %114, 82
-  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split, !llvm.loop !40
+  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader91, %76, %113, %111, %74, %72, %28, %35, %37, %43, %2
   %.065 = phi i32 [ -1, %2 ], [ -1, %43 ], [ -1, %37 ], [ -1, %35 ], [ -1, %28 ], [ %.sroa.0.0.copyload.us, %72 ], [ 0, %74 ], [ %.sroa.0.0.copyload, %111 ], [ 0, %113 ], [ -1, %76 ], [ -1, %.preheader91 ]
@@ -868,4 +868,6 @@ attributes #7 = { nounwind }
 !37 = distinct !{!37, !4}
 !38 = !{!7, !7, i64 0}
 !39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !4}
+!40 = distinct !{!40, !4, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !4}

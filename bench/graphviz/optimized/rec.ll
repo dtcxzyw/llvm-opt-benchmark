@@ -461,12 +461,12 @@ define void @aginit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 
   %19 = tail call ptr @agbindrec(ptr noundef nonnull %.03342, ptr noundef %2, i32 noundef %6, i32 noundef %4)
   %20 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.03342) #11
   %.not37 = icmp eq ptr %20, null
-  br i1 %.not37, label %.loopexit39, label %.lr.ph, !llvm.loop !23
+  br i1 %.not37, label %.loopexit39, label %.lr.ph, !llvm.loop !24
 
 .loopexit39:                                      ; preds = %.lr.ph, %.lr.ph45.split
   %21 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.044) #11
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.loopexit, label %.lr.ph45.split, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %.lr.ph45.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.loopexit39, %.lr.ph45.split.us, %.lr.ph48, %13, %10, %5, %7
   ret void
@@ -514,7 +514,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %9 = tail call i32 @agdelrec(ptr noundef nonnull %.01725.us, ptr noundef %2)
   %10 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725.us) #11
   %.not.us = icmp eq ptr %10, null
-  br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us, !llvm.loop !24
+  br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us, !llvm.loop !26
 
 .lr.ph26.split:                                   ; preds = %.lr.ph26, %.loopexit
   %.01725 = phi ptr [ %56, %.loopexit ], [ %7, %.lr.ph26 ]
@@ -620,12 +620,12 @@ objdelrec.exit.i:                                 ; preds = %50, %47, %45
 agdelrec.exit:                                    ; preds = %15, %20, %objdelrec.exit.i
   %55 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.022) #11
   %.not18 = icmp eq ptr %55, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %agdelrec.exit, %.lr.ph26.split
   %56 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725) #11
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %.loopexit19, label %.lr.ph26.split, !llvm.loop !24
+  br i1 %.not, label %.loopexit19, label %.lr.ph26.split, !llvm.loop !28
 
 .loopexit19:                                      ; preds = %.loopexit, %.lr.ph26.split.us, %6, %3, %4
   ret void
@@ -654,7 +654,7 @@ define void @agrecclose(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %.0) #11
   %9 = load ptr, ptr %3, align 8, !tbaa !3
   %.not11 = icmp eq ptr %6, %9
-  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %1
   store ptr null, ptr %3, align 8, !tbaa !3
@@ -717,8 +717,11 @@ attributes #15 = { cold noreturn nounwind }
 !19 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
+!22 = distinct !{!22, !17, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !24 = distinct !{!24, !17}
 !25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
+!26 = distinct !{!26, !17, !23}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}

@@ -1614,7 +1614,7 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
 103:                                              ; preds = %.sink.split, %.lr.ph.split
   %104 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.065) #7
   %.not = icmp eq ptr %104, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !129
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %103, %41, %3
   ret void
@@ -1633,7 +1633,7 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
 
 .preheader:                                       ; preds = %4
   %.025.in31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %.025.in31, align 8, !tbaa !130
+  %8 = load ptr, ptr %.025.in31, align 8, !tbaa !132
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.preheader.split.us, label %.preheader.split
 
@@ -1642,10 +1642,10 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = getelementptr inbounds nuw i8, ptr %.0.us, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !126
   %.old1.not.us = icmp eq ptr %11, null
-  br i1 %.old1.not.us, label %.loopexit, label %.preheader.split.us
+  br i1 %.old1.not.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !133
 
 .preheader.splitthread-pre-split:                 ; preds = %._crit_edge
-  %.02532.pr = load ptr, ptr %.025.in31, align 8, !tbaa !130
+  %.02532.pr = load ptr, ptr %.025.in31, align 8, !tbaa !132
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.splitthread-pre-split
@@ -1795,15 +1795,15 @@ doRep.exit:                                       ; preds = %.doRep.exit_crit_ed
   %96 = phi double [ %15, %14 ], [ %.pre38, %doRep.exit ]
   %97 = phi ptr [ %16, %14 ], [ %60, %doRep.exit ]
   %.025.in = getelementptr inbounds nuw i8, ptr %.02534, i64 8
-  %.025 = load ptr, ptr %.025.in, align 8, !tbaa !130
+  %.025 = load ptr, ptr %.025.in, align 8, !tbaa !132
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !131
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %95, %.preheader.split
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !126
   %.old1.not = icmp eq ptr %99, null
-  br i1 %.old1.not, label %.loopexit, label %.preheader.splitthread-pre-split, !llvm.loop !132
+  br i1 %.old1.not, label %.loopexit, label %.preheader.splitthread-pre-split, !llvm.loop !135
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.split.us, %4
   ret void
@@ -1957,8 +1957,11 @@ attributes #7 = { nounwind }
 !126 = !{!125, !121, i64 8}
 !127 = distinct !{!127, !79}
 !128 = distinct !{!128, !79}
-!129 = distinct !{!129, !79}
-!130 = !{!121, !121, i64 0}
+!129 = distinct !{!129, !79, !130}
+!130 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !131 = distinct !{!131, !79}
-!132 = distinct !{!132, !133}
-!133 = !{!"llvm.loop.unswitch.partial.disable"}
+!132 = !{!121, !121, i64 0}
+!133 = distinct !{!133, !130}
+!134 = distinct !{!134, !79}
+!135 = distinct !{!135, !136}
+!136 = !{!"llvm.loop.unswitch.partial.disable"}

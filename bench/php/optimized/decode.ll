@@ -5159,9 +5159,12 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %71 = icmp ult i32 %invariant.op119, 1024
   br i1 %71, label %.split111.us.loopexit, label %.lr.ph227
 
-.lr.ph227:                                        ; preds = %.lr.ph122.preheader, %81
-  %72 = phi ptr [ %88, %81 ], [ %65, %.lr.ph122.preheader ]
-  %73 = phi i64 [ %87, %81 ], [ %57, %.lr.ph122.preheader ]
+.lr.ph122:                                        ; preds = %81
+  br label %.lr.ph227, !llvm.loop !40
+
+.lr.ph227:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
+  %72 = phi ptr [ %88, %.lr.ph122 ], [ %65, %.lr.ph122.preheader ]
+  %73 = phi i64 [ %87, %.lr.ph122 ], [ %57, %.lr.ph122.preheader ]
   store ptr %72, ptr %2, align 8, !tbaa !4
   store i32 0, ptr %58, align 4, !tbaa !27
   %74 = load ptr, ptr %60, align 8, !tbaa !19
@@ -5189,7 +5192,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   store ptr %89, ptr %2, align 8, !tbaa !4
   %90 = load i32, ptr %58, align 4, !tbaa !27
   %.not92.us = icmp eq i32 %90, 0
-  br i1 %.not92.us, label %..split.us_crit_edge, label %.lr.ph227
+  br i1 %.not92.us, label %..split.us_crit_edge, label %.lr.ph122, !llvm.loop !40
 
 ..split.us_crit_edge:                             ; preds = %81
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 1
@@ -9118,3 +9121,5 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !37 = !{!35, !15, i64 12}
 !38 = !{!35, !7, i64 0}
 !39 = !{!35, !14, i64 8}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}

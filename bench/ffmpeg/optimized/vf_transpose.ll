@@ -363,7 +363,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 94:                                               ; preds = %.preheader.us, %94
   %indvars.iv153 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next154, %94 ]
-  %95 = load ptr, ptr %47, align 8, !tbaa !66
+  %95 = load ptr, ptr %47, align 8, !tbaa !67
   %96 = mul nsw i64 %indvars.iv153, %69
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %96
   %97 = mul nsw i64 %indvars.iv153, %73
@@ -371,7 +371,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   tail call void %95(ptr noundef %gep.us, i64 noundef %69, ptr noundef %98, i64 noundef %70) #9
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 8
   %99 = icmp samesign ult i64 %indvars.iv.next154, %74
-  br i1 %99, label %94, label %._crit_edge.us, !llvm.loop !67
+  br i1 %99, label %94, label %._crit_edge.us, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %94
   %100 = trunc nsw i64 %indvars.iv.next154 to i32
@@ -411,7 +411,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   tail call void %112(ptr noundef %114, i64 noundef %69, ptr noundef %117, i64 noundef %70, i32 noundef %38, i32 noundef %119) #9
   %indvars.iv.next = add nsw i64 %indvars.iv, 8
   %120 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %120, label %.preheader.us140, label %._crit_edge138.loopexit147, !llvm.loop !65
+  br i1 %120, label %.preheader.us140, label %._crit_edge138.loopexit147, !llvm.loop !69
 
 ._crit_edge138.loopexit:                          ; preds = %92
   %121 = trunc nsw i64 %indvars.iv.next157 to i32
@@ -447,7 +447,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %138 = load i32, ptr %10, align 8, !tbaa !55
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next160, %139
-  br i1 %140, label %23, label %._crit_edge, !llvm.loop !68
+  br i1 %140, label %23, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %137, %4
   ret i32 0
@@ -460,17 +460,17 @@ declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_props_output(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !69
+  %2 = load ptr, ptr %0, align 8, !tbaa !71
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !71
+  %9 = load i32, ptr %8, align 4, !tbaa !73
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %12 = load i32, ptr %11, align 4, !tbaa !71
+  %12 = load i32, ptr %11, align 4, !tbaa !73
   %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %15 = load i32, ptr %14, align 8, !tbaa !62
@@ -528,14 +528,14 @@ define internal noundef i32 @config_props_output(ptr noundef captures(none) %0) 
   %44 = zext i8 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %44, ptr %45, align 4, !tbaa !57
-  %46 = load i32, ptr %8, align 4, !tbaa !71
+  %46 = load i32, ptr %8, align 4, !tbaa !73
   %47 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %46) #9
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %47, ptr %48, align 8, !tbaa !55
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %50 = load i8, ptr %49, align 8, !tbaa !72
+  %50 = load i8, ptr %49, align 8, !tbaa !74
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %52 = load i8, ptr %51, align 8, !tbaa !72
+  %52 = load i8, ptr %51, align 8, !tbaa !74
   %53 = icmp eq i8 %50, %52
   br i1 %53, label %55, label %54
 
@@ -554,7 +554,7 @@ define internal noundef i32 @config_props_output(ptr noundef captures(none) %0) 
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %59, ptr %60, align 4, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %62 = load i32, ptr %61, align 8, !tbaa !73
+  %62 = load i32, ptr %61, align 8, !tbaa !75
   %.not73 = icmp eq i32 %62, 0
   %63 = load i64, ptr %61, align 8
   br i1 %.not73, label %66, label %64
@@ -606,13 +606,13 @@ switch.lookup:                                    ; preds = %79
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %switch.load, ptr %86, align 8, !tbaa !63
-  store ptr %switch.load78, ptr %83, align 8, !tbaa !66
+  store ptr %switch.load78, ptr %83, align 8, !tbaa !67
   br label %87
 
 87:                                               ; preds = %79, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %69, label %79, !llvm.loop !74
+  br i1 %exitcond.not, label %69, label %79, !llvm.loop !76
 
 88:                                               ; preds = %69, %35
   ret i32 0
@@ -653,19 +653,19 @@ define internal void @transpose_block_8_c(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %10 = mul nsw i64 %1, %indvars.iv
   %11 = getelementptr inbounds i8, ptr %.01418.us, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !75
+  %12 = load i8, ptr %11, align 1, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %.01517.us, i64 %indvars.iv
-  store i8 %12, ptr %13, align 1, !tbaa !75
+  store i8 %12, ptr %13, align 1, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %9
   %14 = add nuw nsw i32 %.019.us, 1
   %15 = getelementptr inbounds i8, ptr %.01517.us, i64 %3
   %16 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 1
   %exitcond23.not = icmp eq i32 %14, %5
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !77
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -685,19 +685,19 @@ define internal void @transpose_8x8_8_c(ptr noundef readonly captures(none) %0, 
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
   %6 = mul nsw i64 %indvars.iv.i, %1
   %7 = getelementptr inbounds i8, ptr %.01418.us.i, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !75
+  %8 = load i8, ptr %7, align 1, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  store i8 %8, ptr %9, align 1, !tbaa !75
+  store i8 %8, ptr %9, align 1, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !76
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !78
 
 ._crit_edge.us.i:                                 ; preds = %5
   %10 = add nuw nsw i32 %.019.us.i, 1
   %11 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %3
   %12 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 1
   %exitcond23.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond23.not.i, label %transpose_block_8_c.exit, label %.preheader.us.i, !llvm.loop !77
+  br i1 %exitcond23.not.i, label %transpose_block_8_c.exit, label %.preheader.us.i, !llvm.loop !79
 
 transpose_block_8_c.exit:                         ; preds = %._crit_edge.us.i
   ret void
@@ -724,20 +724,20 @@ define internal void @transpose_block_16_c(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %10 = mul nsw i64 %1, %indvars.iv
   %11 = getelementptr inbounds i8, ptr %.01418.us, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !78
+  %12 = load i16, ptr %11, align 2, !tbaa !80
   %13 = shl nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us, i64 %13
-  store i16 %12, ptr %14, align 2, !tbaa !78
+  store i16 %12, ptr %14, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %9
   %15 = add nuw nsw i32 %.019.us, 1
   %16 = getelementptr inbounds i8, ptr %.01517.us, i64 %3
   %17 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 2
   %exitcond23.not = icmp eq i32 %15, %5
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !81
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !83
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -757,20 +757,20 @@ define internal void @transpose_8x8_16_c(ptr noundef readonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
   %6 = mul nsw i64 %indvars.iv.i, %1
   %7 = getelementptr inbounds i8, ptr %.01418.us.i, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !78
+  %8 = load i16, ptr %7, align 2, !tbaa !80
   %9 = shl nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %9
-  store i16 %8, ptr %10, align 2, !tbaa !78
+  store i16 %8, ptr %10, align 2, !tbaa !80
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !80
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !82
 
 ._crit_edge.us.i:                                 ; preds = %5
   %11 = add nuw nsw i32 %.019.us.i, 1
   %12 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %3
   %13 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 2
   %exitcond23.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond23.not.i, label %transpose_block_16_c.exit, label %.preheader.us.i, !llvm.loop !81
+  br i1 %exitcond23.not.i, label %transpose_block_16_c.exit, label %.preheader.us.i, !llvm.loop !83
 
 transpose_block_16_c.exit:                        ; preds = %._crit_edge.us.i
   ret void
@@ -799,27 +799,27 @@ define internal void @transpose_block_24_c(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %11 = mul nsw i64 %1, %indvars.iv
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %11
-  %12 = load i8, ptr %gep.us, align 1, !tbaa !75
+  %12 = load i8, ptr %gep.us, align 1, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %gep.us, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !75
+  %14 = load i8, ptr %13, align 1, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %gep.us, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !75
+  %16 = load i8, ptr %15, align 1, !tbaa !77
   %17 = mul nuw nsw i64 %indvars.iv, 3
   %18 = getelementptr inbounds nuw i8, ptr %.032.us, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store i8 %16, ptr %19, align 1, !tbaa !75
+  store i8 %16, ptr %19, align 1, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store i8 %14, ptr %20, align 1, !tbaa !75
-  store i8 %12, ptr %18, align 1, !tbaa !75
+  store i8 %14, ptr %20, align 1, !tbaa !77
+  store i8 %12, ptr %18, align 1, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %10
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %3
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !83
+  br i1 %exitcond40.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !85
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -840,27 +840,27 @@ define internal void @transpose_8x8_24_c(ptr noundef readonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %6 ]
   %7 = mul nsw i64 %indvars.iv.i, %1
   %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %7
-  %8 = load i8, ptr %gep.us.i, align 1, !tbaa !75
+  %8 = load i8, ptr %gep.us.i, align 1, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %gep.us.i, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !75
+  %10 = load i8, ptr %9, align 1, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %gep.us.i, i64 2
-  %12 = load i8, ptr %11, align 1, !tbaa !75
+  %12 = load i8, ptr %11, align 1, !tbaa !77
   %13 = mul nuw nsw i64 %indvars.iv.i, 3
   %14 = getelementptr inbounds nuw i8, ptr %.032.us.i, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i8 %12, ptr %15, align 1, !tbaa !75
+  store i8 %12, ptr %15, align 1, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store i8 %10, ptr %16, align 1, !tbaa !75
-  store i8 %8, ptr %14, align 1, !tbaa !75
+  store i8 %10, ptr %16, align 1, !tbaa !77
+  store i8 %8, ptr %14, align 1, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !82
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !84
 
 ._crit_edge.us.i:                                 ; preds = %6
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %17 = getelementptr inbounds i8, ptr %.032.us.i, i64 %3
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, 8
-  br i1 %exitcond40.not.i, label %transpose_block_24_c.exit, label %.preheader.us.i, !llvm.loop !83
+  br i1 %exitcond40.not.i, label %transpose_block_24_c.exit, label %.preheader.us.i, !llvm.loop !85
 
 transpose_block_24_c.exit:                        ; preds = %._crit_edge.us.i
   ret void
@@ -893,14 +893,14 @@ define internal void @transpose_block_32_c(ptr noundef readonly captures(none) %
   store i32 %12, ptr %14, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %9
   %15 = add nuw nsw i32 %.019.us, 1
   %16 = getelementptr inbounds i8, ptr %.01517.us, i64 %3
   %17 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 4
   %exitcond23.not = icmp eq i32 %15, %5
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !85
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !87
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -926,14 +926,14 @@ define internal void @transpose_8x8_32_c(ptr noundef readonly captures(none) %0,
   store i32 %8, ptr %10, align 4, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !84
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !86
 
 ._crit_edge.us.i:                                 ; preds = %5
   %11 = add nuw nsw i32 %.019.us.i, 1
   %12 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %3
   %13 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 4
   %exitcond23.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond23.not.i, label %transpose_block_32_c.exit, label %.preheader.us.i, !llvm.loop !85
+  br i1 %exitcond23.not.i, label %transpose_block_32_c.exit, label %.preheader.us.i, !llvm.loop !87
 
 transpose_block_32_c.exit:                        ; preds = %._crit_edge.us.i
   ret void
@@ -960,40 +960,40 @@ define internal void @transpose_block_48_c(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %10 = mul nsw i64 %1, %indvars.iv
   %11 = getelementptr inbounds i8, ptr %.051.us, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !75
+  %12 = load i8, ptr %11, align 1, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !75
+  %14 = load i8, ptr %13, align 1, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !75
+  %16 = load i8, ptr %15, align 1, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  %18 = load i8, ptr %17, align 1, !tbaa !75
+  %18 = load i8, ptr %17, align 1, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %20 = load i8, ptr %19, align 1, !tbaa !75
+  %20 = load i8, ptr %19, align 1, !tbaa !77
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  %22 = load i8, ptr %21, align 1, !tbaa !75
+  %22 = load i8, ptr %21, align 1, !tbaa !77
   %23 = mul nuw nsw i64 %indvars.iv, 6
   %24 = getelementptr inbounds nuw i8, ptr %.04550.us, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 5
-  store i8 %22, ptr %25, align 1, !tbaa !75
+  store i8 %22, ptr %25, align 1, !tbaa !77
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i8 %20, ptr %26, align 1, !tbaa !75
+  store i8 %20, ptr %26, align 1, !tbaa !77
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 3
-  store i8 %18, ptr %27, align 1, !tbaa !75
+  store i8 %18, ptr %27, align 1, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  store i8 %16, ptr %28, align 1, !tbaa !75
+  store i8 %16, ptr %28, align 1, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store i8 %14, ptr %29, align 1, !tbaa !75
-  store i8 %12, ptr %24, align 1, !tbaa !75
+  store i8 %14, ptr %29, align 1, !tbaa !77
+  store i8 %12, ptr %24, align 1, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %9
   %30 = add nuw nsw i32 %.04649.us, 1
   %31 = getelementptr inbounds i8, ptr %.04550.us, i64 %3
   %32 = getelementptr inbounds nuw i8, ptr %.051.us, i64 6
   %exitcond55.not = icmp eq i32 %30, %5
-  br i1 %exitcond55.not, label %._crit_edge52, label %.preheader.us, !llvm.loop !87
+  br i1 %exitcond55.not, label %._crit_edge52, label %.preheader.us, !llvm.loop !89
 
 ._crit_edge52:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -1013,40 +1013,40 @@ define internal void @transpose_8x8_48_c(ptr noundef readonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
   %6 = mul nsw i64 %indvars.iv.i, %1
   %7 = getelementptr inbounds i8, ptr %.051.us.i, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !75
+  %8 = load i8, ptr %7, align 1, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !75
+  %10 = load i8, ptr %9, align 1, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %12 = load i8, ptr %11, align 1, !tbaa !75
+  %12 = load i8, ptr %11, align 1, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !75
+  %14 = load i8, ptr %13, align 1, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %16 = load i8, ptr %15, align 1, !tbaa !75
+  %16 = load i8, ptr %15, align 1, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %18 = load i8, ptr %17, align 1, !tbaa !75
+  %18 = load i8, ptr %17, align 1, !tbaa !77
   %19 = mul nuw nsw i64 %indvars.iv.i, 6
   %20 = getelementptr inbounds nuw i8, ptr %.04550.us.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 5
-  store i8 %18, ptr %21, align 1, !tbaa !75
+  store i8 %18, ptr %21, align 1, !tbaa !77
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i8 %16, ptr %22, align 1, !tbaa !75
+  store i8 %16, ptr %22, align 1, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 3
-  store i8 %14, ptr %23, align 1, !tbaa !75
+  store i8 %14, ptr %23, align 1, !tbaa !77
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  store i8 %12, ptr %24, align 1, !tbaa !75
+  store i8 %12, ptr %24, align 1, !tbaa !77
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store i8 %10, ptr %25, align 1, !tbaa !75
-  store i8 %8, ptr %20, align 1, !tbaa !75
+  store i8 %10, ptr %25, align 1, !tbaa !77
+  store i8 %8, ptr %20, align 1, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !86
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %5
   %26 = add nuw nsw i32 %.04649.us.i, 1
   %27 = getelementptr inbounds i8, ptr %.04550.us.i, i64 %3
   %28 = getelementptr inbounds nuw i8, ptr %.051.us.i, i64 6
   %exitcond55.not.i = icmp eq i32 %26, 8
-  br i1 %exitcond55.not.i, label %transpose_block_48_c.exit, label %.preheader.us.i, !llvm.loop !87
+  br i1 %exitcond55.not.i, label %transpose_block_48_c.exit, label %.preheader.us.i, !llvm.loop !89
 
 transpose_block_48_c.exit:                        ; preds = %._crit_edge.us.i
   ret void
@@ -1073,20 +1073,20 @@ define internal void @transpose_block_64_c(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %10 = mul nsw i64 %1, %indvars.iv
   %11 = getelementptr inbounds i8, ptr %.01418.us, i64 %10
-  %12 = load i64, ptr %11, align 8, !tbaa !88
+  %12 = load i64, ptr %11, align 8, !tbaa !90
   %13 = shl nsw i64 %indvars.iv, 3
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us, i64 %13
-  store i64 %12, ptr %14, align 8, !tbaa !88
+  store i64 %12, ptr %14, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %9
   %15 = add nuw nsw i32 %.019.us, 1
   %16 = getelementptr inbounds i8, ptr %.01517.us, i64 %3
   %17 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 8
   %exitcond23.not = icmp eq i32 %15, %5
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !90
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !92
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -1106,20 +1106,20 @@ define internal void @transpose_8x8_64_c(ptr noundef readonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
   %6 = mul nsw i64 %indvars.iv.i, %1
   %7 = getelementptr inbounds i8, ptr %.01418.us.i, i64 %6
-  %8 = load i64, ptr %7, align 8, !tbaa !88
+  %8 = load i64, ptr %7, align 8, !tbaa !90
   %9 = shl nsw i64 %indvars.iv.i, 3
   %10 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %9
-  store i64 %8, ptr %10, align 8, !tbaa !88
+  store i64 %8, ptr %10, align 8, !tbaa !90
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !91
 
 ._crit_edge.us.i:                                 ; preds = %5
   %11 = add nuw nsw i32 %.019.us.i, 1
   %12 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %3
   %13 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 8
   %exitcond23.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond23.not.i, label %transpose_block_64_c.exit, label %.preheader.us.i, !llvm.loop !90
+  br i1 %exitcond23.not.i, label %transpose_block_64_c.exit, label %.preheader.us.i, !llvm.loop !92
 
 transpose_block_64_c.exit:                        ; preds = %._crit_edge.us.i
   ret void
@@ -1218,29 +1218,31 @@ attributes #12 = { nounwind willreturn memory(none) }
 !62 = !{!38, !21, i64 40}
 !63 = !{!64, !6, i64 8}
 !64 = !{!"TransVtable", !6, i64 0, !6, i64 8}
-!65 = distinct !{!65, !16}
-!66 = !{!64, !6, i64 0}
-!67 = distinct !{!67, !16}
+!65 = distinct !{!65, !16, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = !{!64, !6, i64 0}
 !68 = distinct !{!68, !16}
-!69 = !{!18, !19, i64 0}
-!70 = !{!29, !32, i64 32}
-!71 = !{!18, !21, i64 36}
-!72 = !{!10, !7, i64 8}
-!73 = !{!18, !21, i64 48}
-!74 = distinct !{!74, !16}
-!75 = !{!7, !7, i64 0}
+!69 = distinct !{!69, !16, !66}
+!70 = distinct !{!70, !16}
+!71 = !{!18, !19, i64 0}
+!72 = !{!29, !32, i64 32}
+!73 = !{!18, !21, i64 36}
+!74 = !{!10, !7, i64 8}
+!75 = !{!18, !21, i64 48}
 !76 = distinct !{!76, !16}
-!77 = distinct !{!77, !16}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"short", !7, i64 0}
-!80 = distinct !{!80, !16}
-!81 = distinct !{!81, !16}
+!77 = !{!7, !7, i64 0}
+!78 = distinct !{!78, !16}
+!79 = distinct !{!79, !16, !66}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"short", !7, i64 0}
 !82 = distinct !{!82, !16}
-!83 = distinct !{!83, !16}
+!83 = distinct !{!83, !16, !66}
 !84 = distinct !{!84, !16}
-!85 = distinct !{!85, !16}
+!85 = distinct !{!85, !16, !66}
 !86 = distinct !{!86, !16}
-!87 = distinct !{!87, !16}
-!88 = !{!12, !12, i64 0}
-!89 = distinct !{!89, !16}
-!90 = distinct !{!90, !16}
+!87 = distinct !{!87, !16, !66}
+!88 = distinct !{!88, !16}
+!89 = distinct !{!89, !16, !66}
+!90 = !{!12, !12, i64 0}
+!91 = distinct !{!91, !16}
+!92 = distinct !{!92, !16, !66}

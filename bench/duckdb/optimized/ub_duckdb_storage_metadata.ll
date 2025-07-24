@@ -9153,7 +9153,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5_
   store i64 %45, ptr %70, align 8, !tbaa !50
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !263
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !265
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -9211,26 +9211,26 @@ _ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %20, %_ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !269
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !271
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !148, !alias.scope !267, !noalias !264
-  store ptr %33, ptr %31, align 8, !tbaa !148, !alias.scope !264, !noalias !267
+  %33 = load ptr, ptr %32, align 8, !tbaa !148, !alias.scope !269, !noalias !266
+  store ptr %33, ptr %31, align 8, !tbaa !148, !alias.scope !266, !noalias !269
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !151, !alias.scope !267, !noalias !264
-  store ptr %36, ptr %34, align 8, !tbaa !151, !alias.scope !264, !noalias !267
+  %36 = load ptr, ptr %35, align 8, !tbaa !151, !alias.scope !269, !noalias !266
+  store ptr %36, ptr %34, align 8, !tbaa !151, !alias.scope !266, !noalias !269
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !152, !alias.scope !267, !noalias !264
-  store ptr %39, ptr %37, align 8, !tbaa !152, !alias.scope !264, !noalias !267
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !267, !noalias !264
+  %39 = load ptr, ptr %38, align 8, !tbaa !152, !alias.scope !269, !noalias !266
+  store ptr %39, ptr %37, align 8, !tbaa !152, !alias.scope !266, !noalias !269
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !269, !noalias !266
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !270
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !272
 
 _ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE12_M_check_lenEmPKc.exit ], [ %41, %.lr.ph.i.i.i.i ]
@@ -9241,26 +9241,26 @@ _ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %53, %.lr.ph.i.i.i.i17 ], [ %42, %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %52, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i19, i64 16, i1 false), !alias.scope !276
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i19, i64 16, i1 false), !alias.scope !278
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !148, !alias.scope !274, !noalias !271
-  store ptr %45, ptr %43, align 8, !tbaa !148, !alias.scope !271, !noalias !274
+  %45 = load ptr, ptr %44, align 8, !tbaa !148, !alias.scope !276, !noalias !273
+  store ptr %45, ptr %43, align 8, !tbaa !148, !alias.scope !273, !noalias !276
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !151, !alias.scope !274, !noalias !271
-  store ptr %48, ptr %46, align 8, !tbaa !151, !alias.scope !271, !noalias !274
+  %48 = load ptr, ptr %47, align 8, !tbaa !151, !alias.scope !276, !noalias !273
+  store ptr %48, ptr %46, align 8, !tbaa !151, !alias.scope !273, !noalias !276
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !152, !alias.scope !274, !noalias !271
-  store ptr %51, ptr %49, align 8, !tbaa !152, !alias.scope !271, !noalias !274
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !274, !noalias !271
+  %51 = load ptr, ptr %50, align 8, !tbaa !152, !alias.scope !276, !noalias !273
+  store ptr %51, ptr %49, align 8, !tbaa !152, !alias.scope !273, !noalias !276
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !276, !noalias !273
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 40
   %.not.i.i.i.i20 = icmp eq ptr %52, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !270
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !272
 
 _ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %42, %_ZNSt6vectorIN6duckdb17MetadataBlockInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %53, %.lr.ph.i.i.i.i17 ]
@@ -9350,7 +9350,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 _ZN6duckdb17MetadataBlockInfoD2Ev.exit12.i.i.i:   ; preds = %36, %27
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %37 = add nsw i64 %.010.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_RT0_.exit.i.i", label %27, !llvm.loop !277
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_RT0_.exit.i.i", label %27, !llvm.loop !279
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_RT0_.exit.i.i": ; preds = %_ZN6duckdb17MetadataBlockInfoD2Ev.exit12.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -9397,7 +9397,7 @@ _ZN6duckdb17MetadataBlockInfoD2Ev.exit12.i.i.i:   ; preds = %36, %27
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_RT0_.exit.i11.i": ; preds = %56, %41
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %57 = icmp sgt i64 %53, 40
-  br i1 %57, label %41, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !278
+  br i1 %57, label %41, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !280
 
 58:                                               ; preds = %17
   %59 = add nsw i64 %.025, -1
@@ -9576,14 +9576,14 @@ _ZN6duckdb17MetadataBlockInfoD2Ev.exit12.i.i.i:   ; preds = %36, %27
   %.val.i.i15.i = load i64, ptr %.sroa.012.1.i.i, align 8, !tbaa !153
   %127 = icmp slt i64 %.val.i.i15.i, %.val1.i.i14.i
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 40
-  br i1 %127, label %126, label %.preheader.i.i, !llvm.loop !279
+  br i1 %127, label %126, label %.preheader.i.i, !llvm.loop !281
 
 .preheader.i.i:                                   ; preds = %126, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %126 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -40
   %.val1.i9.i.i = load i64, ptr %.sroa.0.1.i.i, align 8, !tbaa !153
   %129 = icmp slt i64 %.val1.i.i14.i, %.val1.i9.i.i
-  br i1 %129, label %.preheader.i.i, label %130, !llvm.loop !280
+  br i1 %129, label %.preheader.i.i, label %130, !llvm.loop !282
 
 130:                                              ; preds = %.preheader.i.i
   %131 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
@@ -9614,14 +9614,14 @@ _ZN6duckdb17MetadataBlockInfoD2Ev.exit12.i.i.i:   ; preds = %36, %27
   store ptr %136, ptr %141, align 8, !tbaa !151
   store ptr %138, ptr %143, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13.i)
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !281
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !283
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %130
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge24, i64 noundef %59)
   %145 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %146 = sub i64 %145, %6
   %147 = icmp sgt i64 %146, 640
-  br i1 %147, label %17, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !282
+  br i1 %147, label %17, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !284
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_SE_RT0_.exit.i11.i", %3
   ret void
@@ -9671,7 +9671,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 _ZN6duckdb17MetadataBlockInfoaSEOS0_.exit:        ; preds = %.lr.ph, %26
   %27 = icmp slt i64 %spec.select, %6
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !283
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !285
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit ]
@@ -9762,7 +9762,7 @@ _ZN6duckdb17MetadataBlockInfoaSEOS0_.exit26:      ; preds = %49, %34, %30, %._cr
 
 _ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i:      ; preds = %71, %59
   %72 = icmp sgt i64 %.0911.i, %1
-  br i1 %72, label %.lr.ph.i, label %.critedge.i, !llvm.loop !284
+  br i1 %72, label %.lr.ph.i, label %.critedge.i, !llvm.loop !286
 
 .critedge.i:                                      ; preds = %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i, %.lr.ph.i, %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit26
   %.0.lcssa.i = phi i64 [ %.1, %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit26 ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i ]
@@ -9865,7 +9865,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 _ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i.i.i
   %35 = add nsw i64 %.010.i.i.i.i.i, -1
   %36 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %36, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !285
+  br i1 %36, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !287
 
 .loopexit:                                        ; preds = %_ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i.i.i.i.i, %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
@@ -9953,7 +9953,7 @@ _ZN6duckdb17MetadataBlockInfoaSEOS0_.exit.i:      ; preds = %54, %.lr.ph.i
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_T0_.exit": ; preds = %58, %._crit_edge.i, %._crit_edge.thread.i, %_ZN6duckdb17MetadataBlockInfoD2Ev.exit
   %.sroa.012.0 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 40
   %.not = icmp eq ptr %.sroa.012.0, %1
-  br i1 %.not, label %.loopexit21, label %8, !llvm.loop !286
+  br i1 %.not, label %.loopexit21, label %8, !llvm.loop !288
 
 .loopexit21:                                      ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_T0_.exit", %.preheader, %2
   ret void
@@ -10049,7 +10049,7 @@ _ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_
   %46 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %46, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !287
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !289
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %47, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -10089,7 +10089,7 @@ _ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_
   %61 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 16
   %.not.i.i.i.i.i35 = icmp eq ptr %61, %5
-  br i1 %.not.i.i.i.i.i35, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !287
+  br i1 %.not.i.i.i.i.i35, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !289
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit37: ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i34, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
   %.0.lcssa.i.i.i.i.i36 = phi ptr [ %48, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_11BlockHandleELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %62, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_11BlockHandleELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i34 ]
@@ -10544,22 +10544,22 @@ attributes #26 = { noreturn nounwind }
 !260 = distinct !{!260, !26}
 !261 = distinct !{!261, !26}
 !262 = distinct !{!262, !26}
-!263 = distinct !{!263, !26}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!266 = distinct !{!266, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!267 = !{!268}
-!268 = distinct !{!268, !266, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!269 = !{!265, !268}
-!270 = distinct !{!270, !26}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!273 = distinct !{!273, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!274 = !{!275}
-!275 = distinct !{!275, !273, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!276 = !{!272, !275}
-!277 = distinct !{!277, !26}
-!278 = distinct !{!278, !26}
+!263 = distinct !{!263, !26, !264}
+!264 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!265 = distinct !{!265, !26}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!268 = distinct !{!268, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!269 = !{!270}
+!270 = distinct !{!270, !268, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!271 = !{!267, !270}
+!272 = distinct !{!272, !26}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!275 = distinct !{!275, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!276 = !{!277}
+!277 = distinct !{!277, !275, !"_ZSt19__relocate_object_aIN6duckdb17MetadataBlockInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!278 = !{!274, !277}
 !279 = distinct !{!279, !26}
 !280 = distinct !{!280, !26}
 !281 = distinct !{!281, !26}
@@ -10569,3 +10569,5 @@ attributes #26 = { noreturn nounwind }
 !285 = distinct !{!285, !26}
 !286 = distinct !{!286, !26}
 !287 = distinct !{!287, !26}
+!288 = distinct !{!288, !26}
+!289 = distinct !{!289, !26}

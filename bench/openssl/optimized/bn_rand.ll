@@ -597,7 +597,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   %58 = add i8 %57, 1
   store i8 %58, ptr %10, align 1, !tbaa !3
   %59 = icmp ult i32 %56, %15
-  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !17
+  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %51
   %60 = call ptr @BN_bin2bn(ptr noundef nonnull %19, i32 noundef %15, ptr noundef %0) #5
@@ -634,7 +634,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #5
   %69 = add nuw nsw i32 %.04870, 1
   %exitcond.not = icmp eq i32 %69, 64
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !16
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !19
 
 .split.us:                                        ; preds = %68, %34
   call void @ERR_new() #5
@@ -734,5 +734,7 @@ attributes #5 = { nounwind }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!16 = distinct !{!16, !7, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

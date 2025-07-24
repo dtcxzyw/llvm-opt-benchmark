@@ -303,7 +303,7 @@ define range(i32 -6, -3) i32 @dt_gui_hist_dialog_new(ptr noundef initializes((8,
 ._crit_edge.us.i.i:                               ; preds = %142
   %143 = add nuw i32 %.038.us.i.i, 1
   %exitcond43.not.i.i = icmp eq i32 %143, %105
-  br i1 %exitcond43.not.i.i, label %dt_draw_paint_to_pixbuf.exit, label %.preheader.us.i.i
+  br i1 %exitcond43.not.i.i, label %dt_draw_paint_to_pixbuf.exit, label %.preheader.us.i.i, !llvm.loop !60
 
 dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i, %3
   %144 = sext i32 %105 to i64
@@ -394,7 +394,7 @@ dt_draw_paint_to_pixbuf.exit:                     ; preds = %._crit_edge.us.i.i,
 ._crit_edge.us.i.i111:                            ; preds = %194
   %195 = add nuw i32 %.038.us.i.i106, 1
   %exitcond43.not.i.i112 = icmp eq i32 %195, %157
-  br i1 %exitcond43.not.i.i112, label %dt_draw_paint_to_pixbuf.exit113, label %.preheader.us.i.i105
+  br i1 %exitcond43.not.i.i112, label %dt_draw_paint_to_pixbuf.exit113, label %.preheader.us.i.i105, !llvm.loop !60
 
 dt_draw_paint_to_pixbuf.exit113:                  ; preds = %._crit_edge.us.i.i111, %dt_draw_paint_to_pixbuf.exit
   %196 = sext i32 %157 to i64
@@ -485,7 +485,7 @@ dt_draw_paint_to_pixbuf.exit113:                  ; preds = %._crit_edge.us.i.i1
 ._crit_edge.us.i.i123:                            ; preds = %246
   %247 = add nuw i32 %.038.us.i.i118, 1
   %exitcond43.not.i.i124 = icmp eq i32 %247, %209
-  br i1 %exitcond43.not.i.i124, label %dt_draw_paint_to_pixbuf.exit125, label %.preheader.us.i.i117
+  br i1 %exitcond43.not.i.i124, label %dt_draw_paint_to_pixbuf.exit125, label %.preheader.us.i.i117, !llvm.loop !60
 
 dt_draw_paint_to_pixbuf.exit125:                  ; preds = %._crit_edge.us.i.i123, %dt_draw_paint_to_pixbuf.exit113
   %248 = sext i32 %209 to i64
@@ -511,9 +511,9 @@ dt_draw_paint_to_pixbuf.exit125:                  ; preds = %._crit_edge.us.i.i1
 
 257:                                              ; preds = %255, %285
   %.094126 = phi ptr [ %254, %255 ], [ %287, %285 ]
-  %258 = load ptr, ptr %.094126, align 8, !tbaa !60
+  %258 = load ptr, ptr %.094126, align 8, !tbaa !62
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %260 = load ptr, ptr %259, align 8, !tbaa !62
+  %260 = load ptr, ptr %259, align 8, !tbaa !64
   %261 = call i32 @dt_iop_get_module_flags(ptr noundef %260) #10
   %262 = and i32 %261, 32
   %.not99 = icmp eq i32 %262, 0
@@ -524,17 +524,17 @@ dt_draw_paint_to_pixbuf.exit125:                  ; preds = %._crit_edge.us.i.i1
   %265 = call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %264) #10
   call void @gtk_list_store_append(ptr noundef %265, ptr noundef nonnull %7) #10
   %266 = call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %264) #10
-  %.pre = load i32, ptr %258, align 8, !tbaa !64
+  %.pre = load i32, ptr %258, align 8, !tbaa !66
   br i1 %.not, label %267, label %_gui_is_set.exit
 
 267:                                              ; preds = %263
-  %268 = load ptr, ptr %0, align 8, !tbaa !65
+  %268 = load ptr, ptr %0, align 8, !tbaa !67
   %.not.i = icmp eq ptr %268, null
   br i1 %.not.i, label %_gui_is_set.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %267, %272
   %.01320.i = phi ptr [ %274, %272 ], [ %268, %267 ]
-  %269 = load ptr, ptr %.01320.i, align 8, !tbaa !60
+  %269 = load ptr, ptr %.01320.i, align 8, !tbaa !62
   %.not17.i = icmp ne ptr %269, null
   %270 = ptrtoint ptr %269 to i64
   %271 = trunc i64 %270 to i32
@@ -544,7 +544,7 @@ dt_draw_paint_to_pixbuf.exit125:                  ; preds = %._crit_edge.us.i.i1
 
 272:                                              ; preds = %.preheader.i
   %273 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 8
-  %274 = load ptr, ptr %273, align 8, !tbaa !66
+  %274 = load ptr, ptr %273, align 8, !tbaa !68
   %.not16.not.i = icmp eq ptr %274, null
   br i1 %.not16.not.i, label %275, label %.preheader.i
 
@@ -555,13 +555,13 @@ dt_draw_paint_to_pixbuf.exit125:                  ; preds = %._crit_edge.us.i.i1
 _gui_is_set.exit:                                 ; preds = %275, %267, %263
   %276 = phi i32 [ 0, %263 ], [ 1, %267 ], [ %spec.select.i, %275 ]
   %277 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %278 = load i32, ptr %277, align 8, !tbaa !67
+  %278 = load i32, ptr %277, align 8, !tbaa !69
   %.not100 = icmp eq i32 %278, 0
   %279 = select i1 %.not100, ptr %201, ptr %149
   %280 = getelementptr inbounds nuw i8, ptr %258, i64 16
-  %281 = load ptr, ptr %280, align 8, !tbaa !68
+  %281 = load ptr, ptr %280, align 8, !tbaa !70
   %282 = getelementptr inbounds nuw i8, ptr %258, i64 28
-  %283 = load i32, ptr %282, align 4, !tbaa !69
+  %283 = load i32, ptr %282, align 4, !tbaa !71
   %.not101 = icmp eq i32 %283, 0
   %284 = select i1 %.not101, ptr null, ptr %253
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %266, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %276, i32 noundef 2, i32 noundef 0, i32 noundef 1, ptr noundef %279, i32 noundef 3, ptr noundef %281, i32 noundef 4, ptr noundef %284, i32 noundef 5, i32 noundef %.pre, i32 noundef -1) #10
@@ -569,13 +569,13 @@ _gui_is_set.exit:                                 ; preds = %275, %267, %263
 
 285:                                              ; preds = %_gui_is_set.exit, %257
   %286 = getelementptr inbounds nuw i8, ptr %.094126, i64 8
-  %287 = load ptr, ptr %286, align 8, !tbaa !66
+  %287 = load ptr, ptr %286, align 8, !tbaa !68
   %.not97 = icmp eq ptr %287, null
   br i1 %.not97, label %256, label %257
 
 288:                                              ; preds = %256
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %290 = load i32, ptr %289, align 8, !tbaa !70
+  %290 = load i32, ptr %289, align 8, !tbaa !72
   %.not98 = icmp eq i32 %290, 0
   br i1 %.not98, label %301, label %291
 
@@ -589,7 +589,7 @@ _gui_is_set.exit:                                 ; preds = %275, %267, %263
   call void @gtk_list_store_append(ptr noundef %297, ptr noundef nonnull %7) #10
   %298 = call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %296) #10
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %300 = load i32, ptr %299, align 8, !tbaa !70
+  %300 = load i32, ptr %299, align 8, !tbaa !72
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %298, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %300, i32 noundef 1, ptr noundef %149, i32 noundef 3, ptr noundef %295, i32 noundef 5, i32 noundef -1, i32 noundef -1) #10
   call void @g_free(ptr noundef %295) #10
   br label %301
@@ -705,13 +705,13 @@ define internal void @_gui_hist_item_toggled(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   %16 = call i32 @gtk_tree_model_get_iter(ptr noundef %14, ptr noundef nonnull %4, ptr noundef %15) #10
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %14, ptr noundef nonnull %4, i32 noundef %9, ptr noundef nonnull %5, i32 noundef -1) #10
-  %17 = load i32, ptr %5, align 4, !tbaa !71
+  %17 = load i32, ptr %5, align 4, !tbaa !73
   %18 = icmp ne i32 %17, 1
   %19 = zext i1 %18 to i32
-  store i32 %19, ptr %5, align 4, !tbaa !71
+  store i32 %19, ptr %5, align 4, !tbaa !73
   %20 = tail call i64 @gtk_list_store_get_type() #9
   %21 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %20) #10
-  %22 = load i32, ptr %5, align 4, !tbaa !71
+  %22 = load i32, ptr %5, align 4, !tbaa !73
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %21, ptr noundef nonnull %4, i32 noundef %9, i32 noundef %22, i32 noundef -1) #10
   call void @gtk_tree_path_free(ptr noundef %15) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
@@ -815,13 +815,13 @@ define internal void @_gui_hist_copy_response(ptr readnone captures(none) %0, i3
 .preheader.i:                                     ; preds = %15, %32
   %.1.i = phi ptr [ %.2.i, %32 ], [ null, %15 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
-  store i32 0, ptr %8, align 4, !tbaa !71
+  store i32 0, ptr %8, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
-  store i32 0, ptr %9, align 4, !tbaa !71
+  store i32 0, ptr %9, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  store i32 0, ptr %10, align 4, !tbaa !71
+  store i32 0, ptr %10, align 4, !tbaa !73
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %19, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull %10, i32 noundef -1) #10
-  %21 = load i32, ptr %8, align 4, !tbaa !71
+  %21 = load i32, ptr %8, align 4, !tbaa !73
   %22 = icmp ne i32 %21, 0
   %23 = load i32, ptr %10, align 4
   %24 = icmp sgt i32 %23, -1
@@ -829,7 +829,7 @@ define internal void @_gui_hist_copy_response(ptr readnone captures(none) %0, i3
   br i1 %or.cond.i, label %25, label %32
 
 25:                                               ; preds = %.preheader.i
-  %26 = load i32, ptr %9, align 4, !tbaa !71
+  %26 = load i32, ptr %9, align 4, !tbaa !73
   %.not8.i = icmp eq i32 %26, 0
   %27 = sub nsw i32 0, %23
   %28 = select i1 %.not8.i, i32 %23, i32 %27
@@ -851,22 +851,22 @@ _gui_hist_get_active_items.exit:                  ; preds = %32, %15
   %.0.i = phi ptr [ null, %15 ], [ %.2.i, %32 ]
   %34 = call ptr @g_list_reverse(ptr noundef %.0.i) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
-  store ptr %34, ptr %2, align 8, !tbaa !65
+  store ptr %34, ptr %2, align 8, !tbaa !67
   %.val8 = load ptr, ptr %16, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %.val8, i64 noundef %17) #10
   %36 = call ptr @gtk_tree_view_get_model(ptr noundef %35) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  store i32 0, ptr %5, align 4, !tbaa !71
+  store i32 0, ptr %5, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !tbaa !71
+  store i32 0, ptr %6, align 4, !tbaa !73
   %37 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %36, ptr noundef nonnull %4) #10
   br label %38
 
 38:                                               ; preds = %38, %_gui_hist_get_active_items.exit
   %.0.i9 = phi i32 [ 0, %_gui_hist_get_active_items.exit ], [ %spec.select.i, %38 ]
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %36, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 5, ptr noundef nonnull %6, i32 noundef -1) #10
-  %39 = load i32, ptr %5, align 4, !tbaa !71
+  %39 = load i32, ptr %5, align 4, !tbaa !73
   %40 = icmp ne i32 %39, 0
   %41 = load i32, ptr %6, align 4
   %42 = icmp eq i32 %41, -1
@@ -881,7 +881,7 @@ _gui_hist_is_copy_module_order_set.exit:          ; preds = %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %spec.select.i, ptr %44, align 8, !tbaa !70
+  store i32 %spec.select.i, ptr %44, align 8, !tbaa !72
   br label %45
 
 45:                                               ; preds = %_gui_hist_is_copy_module_order_set.exit, %13, %11, %3
@@ -896,11 +896,11 @@ declare void @gtk_widget_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @dt_gui_hist_dialog_init(ptr noundef writeonly captures(none) initializes((0, 8), (16, 20), (24, 28)) %0) local_unnamed_addr #5 {
-  store ptr null, ptr %0, align 8, !tbaa !65
+  store ptr null, ptr %0, align 8, !tbaa !67
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 8, !tbaa !72
+  store i32 0, ptr %2, align 8, !tbaa !74
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %3, align 8, !tbaa !70
+  store i32 0, ptr %3, align 8, !tbaa !72
   ret void
 }
 
@@ -1047,16 +1047,18 @@ attributes #11 = { nounwind allocsize(0) }
 !57 = !{!"p1 _ZTS12_GtkTreeView", !13, i64 0}
 !58 = !{ptr @dtgtk_cairo_paint_showmask, ptr @dtgtk_cairo_paint_switch, ptr @dtgtk_cairo_paint_switch_inactive}
 !59 = !{!10, !10, i64 0}
-!60 = !{!61, !13, i64 0}
-!61 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
-!62 = !{!63, !38, i64 8}
-!63 = !{!"dt_history_item_t", !9, i64 0, !38, i64 8, !38, i64 16, !9, i64 24, !9, i64 28}
-!64 = !{!63, !9, i64 0}
-!65 = !{!56, !12, i64 0}
-!66 = !{!61, !12, i64 8}
-!67 = !{!63, !9, i64 24}
-!68 = !{!63, !38, i64 16}
-!69 = !{!63, !9, i64 28}
-!70 = !{!56, !9, i64 24}
-!71 = !{!9, !9, i64 0}
-!72 = !{!56, !9, i64 16}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = !{!63, !13, i64 0}
+!63 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
+!64 = !{!65, !38, i64 8}
+!65 = !{!"dt_history_item_t", !9, i64 0, !38, i64 8, !38, i64 16, !9, i64 24, !9, i64 28}
+!66 = !{!65, !9, i64 0}
+!67 = !{!56, !12, i64 0}
+!68 = !{!63, !12, i64 8}
+!69 = !{!65, !9, i64 24}
+!70 = !{!65, !38, i64 16}
+!71 = !{!65, !9, i64 28}
+!72 = !{!56, !9, i64 24}
+!73 = !{!9, !9, i64 0}
+!74 = !{!56, !9, i64 16}

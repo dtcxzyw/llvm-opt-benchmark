@@ -4192,7 +4192,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %5) #13
   %113 = add nuw i64 %.02768, 1
   %exitcond.not = icmp eq i64 %113, %2
-  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !79
+  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !81
 
 _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit: ; preds = %.lr.ph.split, %55, %66, %.critedge.i.i.us
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %5) #13
@@ -4216,7 +4216,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.
   %121 = add i16 %114, -1
   store i16 %121, ptr %6, align 8, !tbaa !61
   %.not.i51 = icmp eq i16 %121, 0
-  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !80
+  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !82
 
 .critedge32:                                      ; preds = %120, %.lr.ph.i50, %28, %.critedge34, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit
   %.6 = phi i1 [ false, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %28 ], [ true, %.lr.ph.i50 ], [ true, %120 ]
@@ -4369,7 +4369,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %.3389488 = phi ptr [ %51, %.lr.phthread-pre-split ], [ %.0, %.lr.ph.preheader ]
   %51 = getelementptr inbounds nuw i8, ptr %.3389488, i64 1
   %.not334 = icmp eq ptr %51, %1
-  br i1 %.not334, label %.critedge.thread, label %.lr.phthread-pre-split, !llvm.loop !81
+  br i1 %.not334, label %.critedge.thread, label %.lr.phthread-pre-split, !llvm.loop !83
 
 .lr.ph._crit_edge:                                ; preds = %.lr.phthread-pre-split, %.lr.ph.preheader
   %.lcssa486 = phi i8 [ %18, %.lr.ph.preheader ], [ %.pr, %.lr.phthread-pre-split ]
@@ -4404,7 +4404,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %60 = tail call noundef zeroext i1 %_ZN5boost8charconv6detail15is_integer_charEc._ZN5boost8charconv6detail11is_hex_charEc(i8 noundef signext %59) #13, !callees !22
   %61 = icmp samesign ult i64 %.0283391492, 18
   %or.cond26 = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond26, label %.lr.ph, label %.critedge3, !llvm.loop !82
+  br i1 %or.cond26, label %.lr.ph, label %.critedge3, !llvm.loop !84
 
 .lr.ph:                                           ; preds = %55, %.lr.ph394
   %.0283391492 = phi i64 [ %65, %.lr.ph394 ], [ 0, %55 ]
@@ -4415,7 +4415,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %64 = getelementptr inbounds nuw i8, ptr %.4393491, i64 1
   %65 = add nuw nsw i64 %.0283391492, 1
   %.not336 = icmp eq ptr %64, %1
-  br i1 %.not336, label %._crit_edge, label %.lr.ph394, !llvm.loop !82
+  br i1 %.not336, label %._crit_edge, label %.lr.ph394, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %66 = icmp eq i32 %5, 1
@@ -4463,7 +4463,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %80 = getelementptr inbounds nuw i8, ptr %.6399, i64 1
   %81 = add nsw i64 %.1296398, -1
   %.not337 = icmp eq ptr %80, %1
-  br i1 %.not337, label %.critedge5.thread, label %.lr.ph400, !llvm.loop !83
+  br i1 %.not337, label %.critedge5.thread, label %.lr.ph400, !llvm.loop !85
 
 .critedge5:                                       ; preds = %.lr.ph400, %75
   %.0295 = phi i64 [ 0, %75 ], [ %.1296398, %.lr.ph400 ]
@@ -4487,7 +4487,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %88 = getelementptr inbounds nuw i8, ptr %.7403, i64 1
   %89 = add nuw nsw i64 %.1284402, 1
   %.not338 = icmp eq ptr %88, %1
-  br i1 %.not338, label %.critedge7, label %.lr.ph404, !llvm.loop !84
+  br i1 %.not338, label %.critedge7, label %.lr.ph404, !llvm.loop !86
 
 .critedge7:                                       ; preds = %85, %.lr.ph404, %.critedge5, %.critedge3
   %.2297 = phi i64 [ 0, %.critedge3 ], [ %.0295, %.critedge5 ], [ %.0295, %.lr.ph404 ], [ %.0295, %85 ]
@@ -4663,7 +4663,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
 153:                                              ; preds = %.lr.ph422
   %154 = getelementptr inbounds nuw i8, ptr %.12421, i64 1
   %.not342 = icmp eq ptr %154, %1
-  br i1 %.not342, label %.critedge16, label %.lr.ph422, !llvm.loop !85
+  br i1 %.not342, label %.critedge16, label %.lr.ph422, !llvm.loop !87
 
 .critedge16:                                      ; preds = %.lr.ph422, %153, %.critedge362
   %.12.lcssa = phi ptr [ %.11, %.critedge362 ], [ %scevgep446, %153 ], [ %.12421, %.lr.ph422 ]
@@ -4686,7 +4686,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %161 = getelementptr inbounds nuw i8, ptr %.13428, i64 1
   %162 = add nuw nsw i64 %.5288427, 1
   %.not373 = icmp eq ptr %161, %1
-  br i1 %.not373, label %.critedge18.thread.thread, label %.lr.ph429, !llvm.loop !86
+  br i1 %.not373, label %.critedge18.thread.thread, label %.lr.ph429, !llvm.loop !88
 
 .critedge18:                                      ; preds = %.lr.ph429
   switch i64 %.5288427, label %.critedge18.thread.thread [
@@ -4987,7 +4987,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   %35 = add nuw nsw i64 %.0119.i.i, 1
   %.180.i.i = getelementptr inbounds nuw i8, ptr %.180120.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %35, %invariant.smin.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !89
 
 ._crit_edge.i.i:                                  ; preds = %32, %.lr.ph.i.i, %.preheader.i.i
   %.170.lcssa.i.i = phi i64 [ %21, %.preheader.i.i ], [ %.170118.i.i, %.lr.ph.i.i ], [ %34, %32 ]
@@ -5030,7 +5030,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   %50 = getelementptr inbounds nuw i8, ptr %.483127.i.i, i64 1
   %51 = add nuw nsw i64 %.1130.i.i, 1
   %52 = icmp slt i64 %51, %17
-  br i1 %52, label %.lr.ph132.i.i, label %._crit_edge133.i.i, !llvm.loop !88
+  br i1 %52, label %.lr.ph132.i.i, label %._crit_edge133.i.i, !llvm.loop !90
 
 ._crit_edge133.i.i:                               ; preds = %49, %.lr.ph132.i.i
   %.483.lcssa.i.i = phi ptr [ %.483127.i.i, %.lr.ph132.i.i ], [ %50, %49 ]
@@ -5260,7 +5260,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_i
   %40 = add nuw nsw i64 %.0134, 1
   %.290 = getelementptr inbounds nuw i8, ptr %.290135, i64 1
   %exitcond.not = icmp eq i64 %40, %invariant.smin
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph, %.preheader
   %.177.lcssa = phi i64 [ %26, %.preheader ], [ %.177133, %.lr.ph ], [ %39, %37 ]
@@ -5303,7 +5303,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_i
   %55 = getelementptr inbounds nuw i8, ptr %.593142, i64 1
   %56 = add nuw nsw i64 %.1145, 1
   %57 = icmp slt i64 %56, %21
-  br i1 %57, label %.lr.ph147, label %._crit_edge148, !llvm.loop !90
+  br i1 %57, label %.lr.ph147, label %._crit_edge148, !llvm.loop !92
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %54
   %.593.lcssa = phi ptr [ %.593142, %.lr.ph147 ], [ %55, %54 ]
@@ -5395,7 +5395,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   %44 = trunc i128 %41 to i64
   %45 = and i64 %43, 511
   %46 = icmp eq i64 %45, 511
-  br i1 %46, label %47, label %60, !prof !91
+  br i1 %46, label %47, label %60, !prof !93
 
 47:                                               ; preds = %30
   %48 = xor i64 %44, -1
@@ -5429,7 +5429,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   %66 = and i64 %63, 3
   %67 = icmp eq i64 %66, 1
   %or.cond92 = select i1 %or.cond88, i1 %67, i1 false
-  br i1 %or.cond92, label %87, label %.critedge, !prof !92
+  br i1 %or.cond92, label %87, label %.critedge, !prof !94
 
 .critedge:                                        ; preds = %60
   %68 = xor i64 %61, 1
@@ -5442,8 +5442,8 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   %74 = sub nsw i64 %36, %spec.select89
   %75 = icmp eq i64 %36, %spec.select89
   %76 = icmp ugt i64 %74, 2046
-  %77 = select i1 %75, i1 true, i1 %76, !prof !91
-  br i1 %77, label %87, label %78, !prof !91
+  %77 = select i1 %75, i1 true, i1 %76, !prof !93
+  br i1 %77, label %87, label %78, !prof !93
 
 78:                                               ; preds = %.critedge
   %79 = lshr i64 %71, 1
@@ -5493,7 +5493,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %3, 32
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i8
@@ -5502,11 +5502,11 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 25
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %8, i8 0, i64 27, i1 false)
-  %14 = load i8, ptr %0, align 1, !tbaa !19, !noalias !93
+  %14 = load i8, ptr %0, align 1, !tbaa !19, !noalias !95
   %15 = icmp eq i8 %14, 45
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = zext i1 %15 to i8
-  store i8 %17, ptr %16, align 8, !tbaa !34, !alias.scope !93
+  store i8 %17, ptr %16, align 8, !tbaa !34, !alias.scope !95
   br i1 %15, label %18, label %25
 
 18:                                               ; preds = %10
@@ -5515,7 +5515,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br i1 %20, label %156, label %21
 
 21:                                               ; preds = %18
-  %22 = load i8, ptr %19, align 1, !tbaa !19, !noalias !93
+  %22 = load i8, ptr %19, align 1, !tbaa !19, !noalias !95
   %23 = add i8 %22, -48
   %24 = icmp ult i8 %23, 10
   %.not.i = icmp eq i8 %22, %.sroa.2.0.extract.trunc.i
@@ -5538,7 +5538,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 27:                                               ; preds = %25, %31
   %.1.i215 = phi ptr [ %.0.i, %25 ], [ %36, %31 ]
   %.0126.i214 = phi i64 [ 0, %25 ], [ %35, %31 ]
-  %28 = load i8, ptr %.1.i215, align 1, !tbaa !19, !noalias !93
+  %28 = load i8, ptr %.1.i215, align 1, !tbaa !19, !noalias !95
   %29 = add i8 %28, -48
   %30 = icmp ult i8 %29, 10
   br i1 %30, label %31, label %37
@@ -5617,7 +5617,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 .lr.ph225:                                        ; preds = %.lr.ph225.preheader, %71
   %.4.i224 = phi ptr [ %72, %71 ], [ %.3.i.lcssa, %.lr.ph225.preheader ]
   %.3129.i223 = phi i64 [ %75, %71 ], [ %.2128.i.lcssa, %.lr.ph225.preheader ]
-  %68 = load i8, ptr %.4.i224, align 1, !tbaa !19, !noalias !93
+  %68 = load i8, ptr %.4.i224, align 1, !tbaa !19, !noalias !95
   %69 = add i8 %68, -48
   %70 = icmp ult i8 %69, 10
   br i1 %70, label %71, label %.critedge4.i.loopexit
@@ -5669,7 +5669,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br i1 %or.cond.i, label %119, label %88
 
 88:                                               ; preds = %86
-  %89 = load i8, ptr %.2.i, align 1, !tbaa !19, !noalias !93
+  %89 = load i8, ptr %.2.i, align 1, !tbaa !19, !noalias !95
   switch i8 %89, label %119 [
     i8 101, label %90
     i8 69, label %90
@@ -5681,7 +5681,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br i1 %.not166.i, label %.critedge171.i, label %92
 
 92:                                               ; preds = %90
-  %93 = load i8, ptr %91, align 1, !tbaa !19, !noalias !93
+  %93 = load i8, ptr %91, align 1, !tbaa !19, !noalias !95
   %94 = icmp eq i8 %93, 45
   br i1 %94, label %95, label %97
 
@@ -5703,7 +5703,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br i1 %100, label %117, label %101
 
 101:                                              ; preds = %.critedge171.i
-  %102 = load i8, ptr %.5.i, align 1, !tbaa !19, !noalias !93
+  %102 = load i8, ptr %.5.i, align 1, !tbaa !19, !noalias !95
   %103 = add i8 %102, -48
   %104 = icmp ult i8 %103, 10
   br i1 %104, label %.lr.ph234.preheader, label %117
@@ -5716,7 +5716,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %109
   %.8.i233 = phi ptr [ %114, %109 ], [ %.5.i, %.lr.ph234.preheader ]
   %.2149.i232 = phi i64 [ %.3150.i, %109 ], [ 0, %.lr.ph234.preheader ]
-  %106 = load i8, ptr %.8.i233, align 1, !tbaa !19, !noalias !93
+  %106 = load i8, ptr %.8.i233, align 1, !tbaa !19, !noalias !95
   %107 = add i8 %106, -48
   %108 = icmp ult i8 %107, 10
   br i1 %108, label %109, label %.thread
@@ -5754,15 +5754,15 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %.3143.i = phi i64 [ %.0140.i, %117 ], [ %.0140.i, %119 ], [ %116, %.thread ]
   %.9.i = phi ptr [ %.2.i, %117 ], [ %.2.i, %119 ], [ %.8.i.lcssa.ph, %.thread ]
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.9.i, ptr %122, align 8, !tbaa !42, !alias.scope !93
-  store i8 1, ptr %12, align 1, !tbaa !43, !alias.scope !93
+  store ptr %.9.i, ptr %122, align 8, !tbaa !42, !alias.scope !95
+  store i8 1, ptr %12, align 1, !tbaa !43, !alias.scope !95
   %123 = icmp sgt i64 %.0136.i, 19
   br i1 %123, label %.preheader, label %160
 
 .preheader:                                       ; preds = %121, %.critedge10.i
   %.0135.i241 = phi ptr [ %128, %.critedge10.i ], [ %.0.i, %121 ]
   %.1137.i240 = phi i64 [ %spec.select175.i, %.critedge10.i ], [ %.0136.i, %121 ]
-  %124 = load i8, ptr %.0135.i241, align 1, !tbaa !19, !noalias !93
+  %124 = load i8, ptr %.0135.i241, align 1, !tbaa !19, !noalias !95
   %125 = icmp eq i8 %124, 48
   %126 = icmp eq i8 %124, %.sroa.2.0.extract.trunc.i
   %or.cond174.i = select i1 %125, i1 true, i1 %126
@@ -5781,7 +5781,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br i1 %129, label %130, label %160
 
 130:                                              ; preds = %.critedge8.i
-  store i8 1, ptr %13, align 2, !tbaa !45, !alias.scope !93
+  store i8 1, ptr %13, align 2, !tbaa !45, !alias.scope !95
   %131 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %83
   %.not254 = icmp samesign eq i64 %83, 0
   br i1 %.not254, label %._crit_edge.thread, label %.lr.ph244
@@ -5849,9 +5849,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %161 = phi i1 [ false, %121 ], [ true, %153 ], [ false, %.critedge8.i ]
   %.4144.i = phi i64 [ %.3143.i, %121 ], [ %.6146.i, %153 ], [ %.3143.i, %.critedge8.i ]
   %.4130.i = phi i64 [ %.1127.i, %121 ], [ %.7133.i, %153 ], [ %.1127.i, %.critedge8.i ]
-  store i64 %.4144.i, ptr %8, align 8, !tbaa !48, !alias.scope !93
+  store i64 %.4144.i, ptr %8, align 8, !tbaa !48, !alias.scope !95
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.4130.i, ptr %162, align 8, !tbaa !49, !alias.scope !93
+  store i64 %.4130.i, ptr %162, align 8, !tbaa !49, !alias.scope !95
   %163 = add i64 %.4144.i, -23
   %164 = icmp ult i64 %163, -45
   %or.cond299 = or i1 %164, %161
@@ -6385,7 +6385,7 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit: 
   %.059.be = phi ptr [ %.old, %36 ], [ %35, %32 ]
   %37 = load i8, ptr %.059.be, align 1, !tbaa !19
   %38 = icmp eq i8 %37, 41
-  br i1 %38, label %.lr.ph._crit_edge, label %.lr.ph75, !llvm.loop !96
+  br i1 %38, label %.lr.ph._crit_edge, label %.lr.ph75, !llvm.loop !98
 
 .lr.ph.i43:                                       ; preds = %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit, %.lr.ph.i43
   %.011.i44 = phi i64 [ %45, %.lr.ph.i43 ], [ 0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit ]
@@ -7107,7 +7107,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   %36 = add nuw nsw i64 %.0128.i.i, 1
   %.180.i.i = getelementptr inbounds nuw i8, ptr %.180129.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %36, %invariant.smin.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !97
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !99
 
 ._crit_edge.i.i:                                  ; preds = %33, %.lr.ph.i.i, %.preheader.i.i
   %.170.lcssa.i.i = phi i128 [ %21, %.preheader.i.i ], [ %.170127.i.i, %.lr.ph.i.i ], [ %35, %33 ]
@@ -7150,7 +7150,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   %51 = getelementptr inbounds nuw i8, ptr %.483136.i.i, i64 1
   %52 = add nuw nsw i64 %.1139.i.i, 1
   %53 = icmp slt i64 %52, %17
-  br i1 %53, label %.lr.ph141.i.i, label %._crit_edge142.i.i, !llvm.loop !98
+  br i1 %53, label %.lr.ph141.i.i, label %._crit_edge142.i.i, !llvm.loop !100
 
 ._crit_edge142.i.i:                               ; preds = %50, %.lr.ph141.i.i
   %.483.lcssa.i.i = phi ptr [ %.483136.i.i, %.lr.ph141.i.i ], [ %51, %50 ]
@@ -7464,8 +7464,8 @@ attributes #15 = { nounwind allocsize(0) }
 !76 = distinct !{!76, !21}
 !77 = distinct !{!77, !21}
 !78 = distinct !{!78, !21}
-!79 = distinct !{!79, !21}
-!80 = distinct !{!80, !21}
+!79 = distinct !{!79, !21, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !81 = distinct !{!81, !21}
 !82 = distinct !{!82, !21}
 !83 = distinct !{!83, !21}
@@ -7476,11 +7476,13 @@ attributes #15 = { nounwind allocsize(0) }
 !88 = distinct !{!88, !21}
 !89 = distinct !{!89, !21}
 !90 = distinct !{!90, !21}
-!91 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!92 = !{!"branch_weights", i32 1, i32 4001}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN5boost8charconv6detail10fast_float19parse_number_stringIcEENS2_22parsed_number_string_tIT_EEPKS5_S8_NS2_15parse_options_tIS5_EE: argument 0"}
-!95 = distinct !{!95, !"_ZN5boost8charconv6detail10fast_float19parse_number_stringIcEENS2_22parsed_number_string_tIT_EEPKS5_S8_NS2_15parse_options_tIS5_EE"}
-!96 = distinct !{!96, !21}
-!97 = distinct !{!97, !21}
+!91 = distinct !{!91, !21}
+!92 = distinct !{!92, !21}
+!93 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!94 = !{!"branch_weights", i32 1, i32 4001}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN5boost8charconv6detail10fast_float19parse_number_stringIcEENS2_22parsed_number_string_tIT_EEPKS5_S8_NS2_15parse_options_tIS5_EE: argument 0"}
+!97 = distinct !{!97, !"_ZN5boost8charconv6detail10fast_float19parse_number_stringIcEENS2_22parsed_number_string_tIT_EEPKS5_S8_NS2_15parse_options_tIS5_EE"}
 !98 = distinct !{!98, !21}
+!99 = distinct !{!99, !21}
+!100 = distinct !{!100, !21}

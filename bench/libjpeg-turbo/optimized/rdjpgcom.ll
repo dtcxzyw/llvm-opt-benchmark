@@ -395,7 +395,7 @@ read_1_byte.exit.i13.us:                          ; preds = %36, %41
 41:                                               ; preds = %read_1_byte.exit.i13.us
   %42 = add i32 %.06.i.us, -1
   %.not.i14.us = icmp eq i32 %42, 0
-  br i1 %.not.i14.us, label %process_SOFn.exit.us, label %read_1_byte.exit.i13.us, !llvm.loop !24
+  br i1 %.not.i14.us, label %process_SOFn.exit.us, label %read_1_byte.exit.i13.us, !llvm.loop !25
 
 43:                                               ; preds = %next_marker.exit.us
   tail call fastcc void @skip_variable()
@@ -435,7 +435,7 @@ read_1_byte.exit.i:                               ; preds = %read_1_byte.exit.i.
 read_1_byte.exit.i.backedge:                      ; preds = %52, %process_SOFn.exit
   %.05.i.be = phi i32 [ %55, %52 ], [ %168, %process_SOFn.exit ]
   %.0.i.be = phi i32 [ %53, %52 ], [ 0, %process_SOFn.exit ]
-  br label %read_1_byte.exit.i, !llvm.loop !23
+  br label %read_1_byte.exit.i, !llvm.loop !26
 
 .split.us:                                        ; preds = %52, %12
   %57 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -622,7 +622,7 @@ switch.lookup:                                    ; preds = %read_1_byte.exit11.
 136:                                              ; preds = %read_1_byte.exit13.i
   %137 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %137, %120
-  br i1 %exitcond.not.i, label %process_SOFn.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %process_SOFn.exit, label %.lr.ph.i, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %.preheader.i12, %136
   %.015.i = phi i32 [ %137, %136 ], [ 0, %.preheader.i12 ]
@@ -734,7 +734,7 @@ define internal fastcc void @skip_variable() unnamed_addr #6 {
 8:                                                ; preds = %read_1_byte.exit
   %9 = add i32 %.06, -1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %read_1_byte.exit, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %read_1_byte.exit, !llvm.loop !25
 
 read_1_byte.exit:                                 ; preds = %6, %8
   %.06 = phi i32 [ %9, %8 ], [ %7, %6 ]
@@ -825,7 +825,7 @@ define internal fastcc void @process_COM(i32 noundef range(i32 0, 2) %0) unnamed
 29:                                               ; preds = %27, %24, %16, %15, %14, %12
   %30 = add i32 %.01423.us, -1
   %.not.us = icmp eq i32 %30, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %read_1_byte.exit
   %.01423 = phi i32 [ %38, %read_1_byte.exit ], [ %9, %.lr.ph ]
@@ -845,7 +845,7 @@ read_1_byte.exit:                                 ; preds = %.lr.ph.split
   %37 = tail call i32 @putc(i32 noundef %32, ptr noundef %36)
   %38 = add i32 %.01423, -1
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %read_1_byte.exit, %29, %8
   %putchar = tail call i32 @putchar(i32 10)
@@ -946,7 +946,10 @@ attributes #14 = { nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !25 = distinct !{!25, !19}
 !26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19, !24}
+!29 = distinct !{!29, !19}

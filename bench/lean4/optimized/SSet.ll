@@ -4187,7 +4187,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SSet_fold___spec__2___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -8397,7 +8397,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SSet_toList___spec__2___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -10934,3 +10934,6 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !18}

@@ -989,7 +989,7 @@ tree_add_auth_node.exit44.thread52.i:             ; preds = %tree_add_auth_node.
   %396 = add nuw i64 %.144.i, 1
   %397 = call i64 @sk_num(ptr noundef %3) #8
   %398 = icmp ult i64 %396, %397
-  br i1 %398, label %.lr.ph45.split.i, label %.loopexit, !llvm.loop !79
+  br i1 %398, label %.lr.ph45.split.i, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %390, %395, %359, %364, %371, %._crit_edge59.i, %.preheader.i35
   br i1 %336, label %399, label %400
@@ -1161,4 +1161,6 @@ attributes #9 = { nounwind allocsize(0) }
 !76 = distinct !{!76, !25}
 !77 = distinct !{!77, !25}
 !78 = distinct !{!78, !25}
-!79 = distinct !{!79, !25}
+!79 = distinct !{!79, !25, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !25}

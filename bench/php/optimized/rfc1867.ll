@@ -2143,7 +2143,7 @@ substring_conf.exit:                              ; preds = %.lr.ph.split.i, %37
   store i8 %58, ptr %.05766.us.i34, align 1, !tbaa !32
   %67 = add nsw i32 %.1.us.i35, 1
   %68 = icmp slt i32 %67, %51
-  br i1 %68, label %.lr.ph.split.us.i32, label %substring_conf.exit37
+  br i1 %68, label %.lr.ph.split.us.i32, label %substring_conf.exit37, !llvm.loop !110
 
 substring_conf.exit37:                            ; preds = %.lr.ph.split.us.i32, %66, %.critedge2
   %.057.lcssa.i30 = phi ptr [ %54, %.critedge2 ], [ %.158.us.i36, %66 ], [ %.05766.us.i34, %.lr.ph.split.us.i32 ]
@@ -2417,7 +2417,7 @@ fill_buffer.exit:                                 ; preds = %30, %.lr.ph.i, %13,
   %59 = sext i32 %.reass.i to i64
   %60 = tail call ptr @memchr(ptr noundef nonnull %58, i32 noundef %45, i64 noundef %59) #22
   %.not.us.i = icmp eq ptr %60, null
-  br i1 %.not.us.i, label %php_ap_memstr.exit50.thread, label %49
+  br i1 %.not.us.i, label %php_ap_memstr.exit50.thread, label %49, !llvm.loop !112
 
 php_ap_memstr.exit:                               ; preds = %49
   %61 = sub i64 %51, %48
@@ -3002,3 +3002,6 @@ attributes #26 = { nounwind allocsize(0) }
 !107 = !{!108, !11, i64 0}
 !108 = !{!"_multipart_event_end", !11, i64 0}
 !109 = !{!50, !10, i64 32}
+!110 = distinct !{!110, !111}
+!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!112 = distinct !{!112, !111}

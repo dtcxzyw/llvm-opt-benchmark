@@ -712,7 +712,7 @@ define internal i32 @dissect_usb_com_descriptor(ptr noundef %0, ptr noundef %1, 
   call void @wmem_tree_insert32_array(ptr noundef %112, ptr noundef nonnull %9, ptr noundef nonnull %.0)
   %113 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %111)
   %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
+  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %101
   %.0104.lcssa = phi i32 [ 4, %101 ], [ %106, %.lr.ph.split.us ], [ %111, %.lr.ph.split ]
@@ -1773,5 +1773,7 @@ attributes #14 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

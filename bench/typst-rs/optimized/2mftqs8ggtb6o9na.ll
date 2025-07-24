@@ -2883,23 +2883,23 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias noundef 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = icmp eq i64 %4, 0
-  br i1 %15, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
+  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
-  %.cast.us.us = ptrtoint ptr %10 to i64
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %.val8.us.pre = load i64, ptr %11, align 8
+  %.val10.us.pre = load i64, ptr %12, align 8
+  %.cast.us = ptrtoint ptr %10 to i64
   %16 = icmp eq ptr %10, null
-  %.val8.us.us = load i64, ptr %11, align 8, !noundef !26
-  %.val10.us.us = load i64, ptr %12, align 8, !noundef !26
-  %spec.select.us.us = select i1 %16, i8 4, i8 0
-  %17 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.cast.us.us, ptr noalias noundef nonnull align 1 %3, i64 noundef 0, i8 noundef %spec.select.us.us)
-  %.val.us.us = load i64, ptr %11, align 8, !noundef !26
-  %.val9.us.us = load i64, ptr %12, align 8, !noundef !26
-  %18 = sub i64 %.val9.us.us, %.val10.us.us
+  %spec.select.us = select i1 %16, i8 4, i8 0
+  %17 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.cast.us, ptr noalias noundef nonnull align 1 %3, i64 noundef 0, i8 noundef %spec.select.us)
+  %.val.us = load i64, ptr %11, align 8, !noundef !26
+  %.val9.us = load i64, ptr %12, align 8, !noundef !26
+  %18 = sub i64 %.val9.us, %.val10.us.pre
   %19 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !26
   %20 = add i64 %18, %19
   %21 = load i64, ptr %14, align 8, !alias.scope !425, !noundef !26
-  %.0.sroa.speculated.i.i.us.us = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
-  store i64 %.0.sroa.speculated.i.i.us.us, ptr %13, align 8, !alias.scope !425
+  %.0.sroa.speculated.i.i.us = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
+  store i64 %.0.sroa.speculated.i.i.us, ptr %13, align 8, !alias.scope !425
   %22 = and i64 %17, 4294967295
   %23 = icmp eq i64 %22, 2
   br i1 %23, label %.split20.us, label %.split.us
@@ -2943,7 +2943,7 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias noundef 
     i8 2, label %.split20.us
   ]
 
-.split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split.us
+.split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %36 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.b6d981bbdd211541ce803f2c721ad95e.30, i64 noundef 22)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
@@ -2968,9 +2968,9 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias noundef 
   %or.cond3 = or i1 %26, %44
   br i1 %or.cond3, label %.split20.us, label %.backedge
 
-.split20.us:                                      ; preds = %43, %38, %35, %.lr.ph.split.us.split.us
-  %.us-phi = phi i64 [ %.val8.us.us, %.lr.ph.split.us.split.us ], [ %.val8, %35 ], [ %.val8, %38 ], [ %.val8, %43 ]
-  %.us-phi21 = phi i64 [ %.val.us.us, %.lr.ph.split.us.split.us ], [ %.val, %35 ], [ %.val, %38 ], [ %.val, %43 ]
+.split20.us:                                      ; preds = %43, %38, %35, %.lr.ph.split.us
+  %.us-phi = phi i64 [ %.val8.us.pre, %.lr.ph.split.us ], [ %.val8, %35 ], [ %.val8, %38 ], [ %.val8, %43 ]
+  %.us-phi21 = phi i64 [ %.val.us, %.lr.ph.split.us ], [ %.val, %35 ], [ %.val, %38 ], [ %.val, %43 ]
   %45 = sub i64 %.us-phi21, %.us-phi
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %46, align 8

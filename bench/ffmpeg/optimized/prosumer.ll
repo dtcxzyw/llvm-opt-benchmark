@@ -760,7 +760,7 @@ vertical_predict.exit100:                         ; preds = %._crit_edge.us.i98,
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph118.split
   %270 = phi i32 [ %273, %.lr.ph118.split ], [ %334, %.lr.ph ]
   %271 = icmp samesign ugt i32 %.083.in116, 1
-  br i1 %271, label %.lr.ph118.split, label %._crit_edge, !llvm.loop !64
+  br i1 %271, label %.lr.ph118.split, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph118, %259
   store i32 1, ptr %2, align 4, !tbaa !39
@@ -856,7 +856,7 @@ vertical_predict.exit100:                         ; preds = %._crit_edge.us.i98,
   %333 = add nuw nsw i32 %.0114, 8
   %334 = load i32, ptr %267, align 8, !tbaa !27
   %335 = icmp slt i32 %333, %334
-  br i1 %335, label %.lr.ph, label %.loopexit, !llvm.loop !66
+  br i1 %335, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
 decompress.exit:                                  ; preds = %._crit_edge.i, %vertical_predict.exit100, %.loopexit103, %4, %._crit_edge
   %.084 = phi i32 [ %272, %._crit_edge ], [ -1094995529, %4 ], [ -1094995529, %.loopexit103 ], [ %257, %vertical_predict.exit100 ], [ -1094995529, %._crit_edge.i ]
@@ -965,7 +965,8 @@ attributes #7 = { noreturn nounwind }
 !60 = distinct !{!60, !41}
 !61 = !{!5, !10, i64 804}
 !62 = distinct !{!62, !41}
-!63 = distinct !{!63, !41}
-!64 = distinct !{!64, !41, !65}
-!65 = !{!"llvm.loop.unswitch.partial.disable"}
-!66 = distinct !{!66, !41}
+!63 = distinct !{!63, !41, !64}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !41, !66}
+!66 = !{!"llvm.loop.unswitch.partial.disable"}
+!67 = distinct !{!67, !41}

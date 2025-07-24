@@ -4852,7 +4852,7 @@ select.unfold.us.i.i:                             ; preds = %1250, %1248, %1245,
   %1253 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i.i, i64 8
   %1254 = load ptr, ptr %1253, align 8
   %.not15.us.i.i = icmp eq ptr %1254, @ActiveChildList
-  br i1 %.not15.us.i.i, label %SignalChildren.exit.i84, label %.lr.ph.split.us.i.i, !llvm.loop !15
+  br i1 %.not15.us.i.i, label %SignalChildren.exit.i84, label %.lr.ph.split.us.i.i, !llvm.loop !17
 
 SignalChildren.exit.i84:                          ; preds = %select.unfold.us.i.i, %signal_child.exit323
   %1255 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
@@ -5061,7 +5061,7 @@ process_pm_pmsignal.exit:                         ; preds = %1276, %1273, %1271,
 1348:                                             ; preds = %.preheader.i.i
   %1349 = load i32, ptr %1332, align 4
   %1350 = icmp eq i32 %1349, 4
-  br i1 %1350, label %.preheader.i.i, label %report_fork_failure_to_client.exit.i, !llvm.loop !17
+  br i1 %1350, label %.preheader.i.i, label %report_fork_failure_to_client.exit.i, !llvm.loop !19
 
 report_fork_failure_to_client.exit.i:             ; preds = %1348, %.preheader.i.i, %1338
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %17) #18
@@ -5113,7 +5113,7 @@ BackendStartup.exit:                              ; preds = %1317, %1319, %repor
 1368:                                             ; preds = %process_pm_pmsignal.exit, %1367
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 1369:                                             ; preds = %LaunchMissingBackgroundProcesses.exit
   store i1 false, ptr @avlauncher_needs_signal, align 1
@@ -5321,7 +5321,7 @@ define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed
   %25 = load i32, ptr @NumListenSockets, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
 
 28:                                               ; preds = %._crit_edge, %11
   store i32 0, ptr @NumListenSockets, align 4
@@ -5388,7 +5388,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not9.not = icmp eq ptr %9, @ActiveChildList
-  br i1 %.not9.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not9.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %select.unfold, %1, %6
   %.not911 = phi i1 [ true, %6 ], [ false, %1 ], [ false, %select.unfold ]
@@ -5571,7 +5571,7 @@ thread-pre-split:                                 ; preds = %8
   %28 = or i32 %27, %.sroa.0.05.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %btmask_add_n.exit, label %24, !llvm.loop !21
+  br i1 %exitcond.not.i, label %btmask_add_n.exit, label %24, !llvm.loop !23
 
 btmask_add_n.exit:                                ; preds = %24
   store i32 15, ptr %2, align 4
@@ -5592,7 +5592,7 @@ btmask_add_n.exit:                                ; preds = %24
   %36 = or i32 %35, %.sroa.0.05.i38
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 4
-  br i1 %exitcond.not.i40, label %btmask_add_n.exit41, label %32, !llvm.loop !21
+  br i1 %exitcond.not.i40, label %btmask_add_n.exit41, label %32, !llvm.loop !23
 
 btmask_add_n.exit41:                              ; preds = %32
   store i32 12, ptr %3, align 4
@@ -5609,7 +5609,7 @@ btmask_add_n.exit41:                              ; preds = %32
   %42 = or i32 %41, %.sroa.0.05.i43
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 2
-  br i1 %exitcond.not.i45, label %btmask_add_n.exit46, label %38, !llvm.loop !21
+  br i1 %exitcond.not.i45, label %btmask_add_n.exit46, label %38, !llvm.loop !23
 
 btmask_add_n.exit46:                              ; preds = %38
   %.b3032 = load i1, ptr @FatalError, align 1
@@ -5635,7 +5635,7 @@ btmask_add_n.exit46:                              ; preds = %38
   %52 = or i32 %51, %.sroa.0.05.i48
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 3
-  br i1 %exitcond.not.i50, label %btmask_add_n.exit51, label %48, !llvm.loop !21
+  br i1 %exitcond.not.i50, label %btmask_add_n.exit51, label %48, !llvm.loop !23
 
 btmask_add_n.exit51:                              ; preds = %48, %btmask_add_n.exit46
   %.sroa.020.0 = phi i32 [ %42, %btmask_add_n.exit46 ], [ %52, %48 ]
@@ -5695,7 +5695,7 @@ select.unfold.us.i:                               ; preds = %74, %70
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not15.us.i = icmp eq ptr %76, @ActiveChildList
-  br i1 %.not15.us.i, label %SignalChildren.exit, label %.lr.ph.split.us.i, !llvm.loop !15
+  br i1 %.not15.us.i, label %SignalChildren.exit, label %.lr.ph.split.us.i, !llvm.loop !17
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %select.unfold.i
   %.sroa.0.020.i = phi ptr [ %84, %select.unfold.i ], [ %55, %.lr.ph.i ]
@@ -5856,7 +5856,7 @@ SignalChildren.exit76:                            ; preds = %select.unfold.i72, 
   %132 = and i32 %.sroa.04.07.i, %131
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 3
-  br i1 %exitcond.not.i83, label %btmask_all_except_n.exit, label %127, !llvm.loop !22
+  br i1 %exitcond.not.i83, label %btmask_all_except_n.exit, label %127, !llvm.loop !24
 
 btmask_all_except_n.exit:                         ; preds = %127
   %133 = tail call fastcc i32 @CountChildren(i32 %132)
@@ -6142,7 +6142,7 @@ select.unfold.us:                                 ; preds = %28, %17
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.us, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not16.us = icmp eq ptr %31, @ActiveChildList
-  br i1 %.not16.us, label %select.unfold._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not16.us, label %select.unfold._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %.sroa.0.021 = phi ptr [ %47, %select.unfold ], [ %2, %.lr.ph ]
@@ -6176,7 +6176,7 @@ select.unfold:                                    ; preds = %.lr.ph.split, %44
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not16 = icmp eq ptr %47, @ActiveChildList
-  br i1 %.not16, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not16, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.us, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %select.unfold.us ], [ %.1, %select.unfold ]
@@ -6459,10 +6459,13 @@ attributes #23 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!17 = distinct !{!17, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5, !18}
+!26 = distinct !{!26, !5}

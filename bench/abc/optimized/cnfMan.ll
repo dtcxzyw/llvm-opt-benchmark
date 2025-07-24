@@ -902,7 +902,7 @@ define void @Cnf_DataPrint(ptr noundef readonly captures(none) %0, i32 noundef %
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %23, i32 noundef %25) #16
   %27 = getelementptr inbounds nuw i8, ptr %.01922.us.us, i64 4
   %28 = icmp ult ptr %27, %16
-  br i1 %28, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !68
+  br i1 %28, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !69
 
 .lr.ph25.split:                                   ; preds = %.lr.ph25, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph25 ]
@@ -925,14 +925,14 @@ define void @Cnf_DataPrint(ptr noundef readonly captures(none) %0, i32 noundef %
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #16
   %40 = getelementptr inbounds nuw i8, ptr %.01922, i64 4
   %41 = icmp ult ptr %40, %33
-  br i1 %41, label %.lr.ph, label %._crit_edge.split, !llvm.loop !68
+  br i1 %41, label %.lr.ph, label %._crit_edge.split, !llvm.loop !70
 
 ._crit_edge.split:                                ; preds = %.lr.ph, %.lr.ph25.split
   %fputc20 = tail call i32 @fputc(i32 10, ptr %3)
   %42 = load i32, ptr %6, align 8, !tbaa !49
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph25.split, label %._crit_edge26, !llvm.loop !67
+  br i1 %44, label %.lr.ph25.split, label %._crit_edge26, !llvm.loop !71
 
 ._crit_edge26:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2
   %fputc = tail call i32 @fputc(i32 10, ptr %3)
@@ -986,7 +986,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
   %.val56 = load i32, ptr %18, align 4, !tbaa !20
   %27 = sext i32 %.val56 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %22, label %.critedge, !llvm.loop !69
+  br i1 %28, label %22, label %.critedge, !llvm.loop !72
 
 .critedge:                                        ; preds = %22, %16
   %29 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #16
@@ -1020,7 +1020,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
   %.val = load i32, ptr %33, align 4, !tbaa !20
   %42 = sext i32 %.val to i64
   %43 = icmp slt i64 %indvars.iv.next74, %42
-  br i1 %43, label %37, label %.critedge2, !llvm.loop !70
+  br i1 %43, label %37, label %.critedge2, !llvm.loop !73
 
 .critedge2:                                       ; preds = %37, %31
   %44 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #16
@@ -1052,7 +1052,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
   %56 = load i32, ptr %13, align 8, !tbaa !49
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next80, %57
-  br i1 %58, label %.lr.ph69.split.us, label %._crit_edge70, !llvm.loop !71
+  br i1 %58, label %.lr.ph69.split.us, label %._crit_edge70, !llvm.loop !74
 
 .lr.ph66.us:                                      ; preds = %.lr.ph69.split.us, %.lr.ph66.us
   %.04865.us.us = phi ptr [ %66, %.lr.ph66.us ], [ %51, %.lr.ph69.split.us ]
@@ -1066,7 +1066,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
   %65 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %64) #16
   %66 = getelementptr inbounds nuw i8, ptr %.04865.us.us, i64 4
   %67 = icmp ult ptr %66, %53
-  br i1 %67, label %.lr.ph66.us, label %._crit_edge.split.us.us, !llvm.loop !72
+  br i1 %67, label %.lr.ph66.us, label %._crit_edge.split.us.us, !llvm.loop !75
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %._crit_edge.split
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge.split ], [ 0, %.lr.ph69 ]
@@ -1090,14 +1090,14 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
   %79 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %78) #16
   %80 = getelementptr inbounds nuw i8, ptr %.04865, i64 4
   %81 = icmp ult ptr %80, %72
-  br i1 %81, label %.lr.ph66, label %._crit_edge.split, !llvm.loop !72
+  br i1 %81, label %.lr.ph66, label %._crit_edge.split, !llvm.loop !76
 
 ._crit_edge.split:                                ; preds = %.lr.ph66, %.lr.ph69.split
   %82 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #16
   %83 = load i32, ptr %13, align 8, !tbaa !49
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next77, %84
-  br i1 %85, label %.lr.ph69.split, label %._crit_edge70, !llvm.loop !71
+  br i1 %85, label %.lr.ph69.split, label %._crit_edge70, !llvm.loop !77
 
 ._crit_edge70:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %45
   %86 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #16
@@ -1158,7 +1158,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %.val74 = load i32, ptr %19, align 4, !tbaa !20
   %28 = sext i32 %.val74 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %23, label %.critedge, !llvm.loop !73
+  br i1 %29, label %23, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %23, %17
   %30 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #16
@@ -1192,7 +1192,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %.val73 = load i32, ptr %34, align 4, !tbaa !20
   %43 = sext i32 %.val73 to i64
   %44 = icmp slt i64 %indvars.iv.next96, %43
-  br i1 %44, label %38, label %.critedge2, !llvm.loop !74
+  br i1 %44, label %38, label %.critedge2, !llvm.loop !79
 
 .critedge2:                                       ; preds = %38, %32
   %45 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #16
@@ -1226,7 +1226,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %.val = load i32, ptr %49, align 4, !tbaa !20
   %58 = sext i32 %.val to i64
   %59 = icmp slt i64 %indvars.iv.next99, %58
-  br i1 %59, label %53, label %.critedge4, !llvm.loop !75
+  br i1 %59, label %53, label %.critedge4, !llvm.loop !80
 
 .critedge4:                                       ; preds = %53, %47
   %60 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #16
@@ -1258,7 +1258,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %72 = load i32, ptr %14, align 8, !tbaa !49
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next105, %73
-  br i1 %74, label %.lr.ph91.split.us, label %._crit_edge92, !llvm.loop !76
+  br i1 %74, label %.lr.ph91.split.us, label %._crit_edge92, !llvm.loop !81
 
 .lr.ph88.us:                                      ; preds = %.lr.ph91.split.us, %.lr.ph88.us
   %.06287.us.us = phi ptr [ %82, %.lr.ph88.us ], [ %67, %.lr.ph91.split.us ]
@@ -1272,7 +1272,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %81 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %80) #16
   %82 = getelementptr inbounds nuw i8, ptr %.06287.us.us, i64 4
   %83 = icmp ult ptr %82, %69
-  br i1 %83, label %.lr.ph88.us, label %._crit_edge.split.us.us, !llvm.loop !77
+  br i1 %83, label %.lr.ph88.us, label %._crit_edge.split.us.us, !llvm.loop !82
 
 .lr.ph91.split:                                   ; preds = %.lr.ph91, %._crit_edge.split
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %._crit_edge.split ], [ 0, %.lr.ph91 ]
@@ -1296,14 +1296,14 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
   %95 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %94) #16
   %96 = getelementptr inbounds nuw i8, ptr %.06287, i64 4
   %97 = icmp ult ptr %96, %88
-  br i1 %97, label %.lr.ph88, label %._crit_edge.split, !llvm.loop !77
+  br i1 %97, label %.lr.ph88, label %._crit_edge.split, !llvm.loop !83
 
 ._crit_edge.split:                                ; preds = %.lr.ph88, %.lr.ph91.split
   %98 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #16
   %99 = load i32, ptr %14, align 8, !tbaa !49
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next102, %100
-  br i1 %101, label %.lr.ph91.split, label %._crit_edge92, !llvm.loop !76
+  br i1 %101, label %.lr.ph91.split, label %._crit_edge92, !llvm.loop !84
 
 ._crit_edge92:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %61
   %102 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4) #16
@@ -1383,7 +1383,7 @@ sub_1:                                            ; preds = %sub_0
   %.val64 = load i32, ptr %27, align 4, !tbaa !20
   %36 = sext i32 %.val64 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %31, label %.critedge, !llvm.loop !78
+  br i1 %37, label %31, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %31, %25
   %38 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %15)
@@ -1417,7 +1417,7 @@ sub_1:                                            ; preds = %sub_0
   %.val = load i32, ptr %42, align 4, !tbaa !20
   %51 = sext i32 %.val to i64
   %52 = icmp slt i64 %indvars.iv.next84, %51
-  br i1 %52, label %46, label %.critedge2, !llvm.loop !79
+  br i1 %52, label %46, label %.critedge2, !llvm.loop !86
 
 .critedge2:                                       ; preds = %46, %40
   %53 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %15)
@@ -1449,7 +1449,7 @@ sub_1:                                            ; preds = %sub_0
   %65 = load i32, ptr %22, align 8, !tbaa !49
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next90, %66
-  br i1 %67, label %.lr.ph77.split.us, label %._crit_edge78, !llvm.loop !80
+  br i1 %67, label %.lr.ph77.split.us, label %._crit_edge78, !llvm.loop !87
 
 .lr.ph74.us:                                      ; preds = %.lr.ph77.split.us, %.lr.ph74.us
   %.05573.us.us = phi ptr [ %75, %.lr.ph74.us ], [ %60, %.lr.ph77.split.us ]
@@ -1463,7 +1463,7 @@ sub_1:                                            ; preds = %sub_0
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %73) #16
   %75 = getelementptr inbounds nuw i8, ptr %.05573.us.us, i64 4
   %76 = icmp ult ptr %75, %62
-  br i1 %76, label %.lr.ph74.us, label %._crit_edge.split.us.us, !llvm.loop !81
+  br i1 %76, label %.lr.ph74.us, label %._crit_edge.split.us.us, !llvm.loop !88
 
 .lr.ph77.split:                                   ; preds = %.lr.ph77, %._crit_edge.split
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.split ], [ 0, %.lr.ph77 ]
@@ -1487,14 +1487,14 @@ sub_1:                                            ; preds = %sub_0
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %87) #16
   %89 = getelementptr inbounds nuw i8, ptr %.05573, i64 4
   %90 = icmp ult ptr %89, %81
-  br i1 %90, label %.lr.ph74, label %._crit_edge.split, !llvm.loop !81
+  br i1 %90, label %.lr.ph74, label %._crit_edge.split, !llvm.loop !89
 
 ._crit_edge.split:                                ; preds = %.lr.ph74, %.lr.ph77.split
   %91 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %15)
   %92 = load i32, ptr %22, align 8, !tbaa !49
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next87, %93
-  br i1 %94, label %.lr.ph77.split, label %._crit_edge78, !llvm.loop !80
+  br i1 %94, label %.lr.ph77.split, label %._crit_edge78, !llvm.loop !90
 
 ._crit_edge78:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %54
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %15)
@@ -1583,7 +1583,7 @@ sub_1:                                            ; preds = %sub_0
   %.val83 = load i32, ptr %28, align 4, !tbaa !20
   %37 = sext i32 %.val83 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %32, label %.critedge, !llvm.loop !82
+  br i1 %38, label %32, label %.critedge, !llvm.loop !91
 
 .critedge:                                        ; preds = %32, %26
   %39 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %16)
@@ -1617,7 +1617,7 @@ sub_1:                                            ; preds = %sub_0
   %.val82 = load i32, ptr %43, align 4, !tbaa !20
   %52 = sext i32 %.val82 to i64
   %53 = icmp slt i64 %indvars.iv.next107, %52
-  br i1 %53, label %47, label %.critedge2, !llvm.loop !83
+  br i1 %53, label %47, label %.critedge2, !llvm.loop !92
 
 .critedge2:                                       ; preds = %47, %41
   %54 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %16)
@@ -1651,7 +1651,7 @@ sub_1:                                            ; preds = %sub_0
   %.val = load i32, ptr %58, align 4, !tbaa !20
   %67 = sext i32 %.val to i64
   %68 = icmp slt i64 %indvars.iv.next110, %67
-  br i1 %68, label %62, label %.critedge4, !llvm.loop !84
+  br i1 %68, label %62, label %.critedge4, !llvm.loop !93
 
 .critedge4:                                       ; preds = %62, %56
   %69 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %16)
@@ -1683,7 +1683,7 @@ sub_1:                                            ; preds = %sub_0
   %81 = load i32, ptr %23, align 8, !tbaa !49
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next116, %82
-  br i1 %83, label %.lr.ph100.split.us, label %._crit_edge101, !llvm.loop !85
+  br i1 %83, label %.lr.ph100.split.us, label %._crit_edge101, !llvm.loop !94
 
 .lr.ph97.us:                                      ; preds = %.lr.ph100.split.us, %.lr.ph97.us
   %.07096.us.us = phi ptr [ %91, %.lr.ph97.us ], [ %76, %.lr.ph100.split.us ]
@@ -1697,7 +1697,7 @@ sub_1:                                            ; preds = %sub_0
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %89) #16
   %91 = getelementptr inbounds nuw i8, ptr %.07096.us.us, i64 4
   %92 = icmp ult ptr %91, %78
-  br i1 %92, label %.lr.ph97.us, label %._crit_edge.split.us.us, !llvm.loop !86
+  br i1 %92, label %.lr.ph97.us, label %._crit_edge.split.us.us, !llvm.loop !95
 
 .lr.ph100.split:                                  ; preds = %.lr.ph100, %._crit_edge.split
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %._crit_edge.split ], [ 0, %.lr.ph100 ]
@@ -1721,14 +1721,14 @@ sub_1:                                            ; preds = %sub_0
   %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %103) #16
   %105 = getelementptr inbounds nuw i8, ptr %.07096, i64 4
   %106 = icmp ult ptr %105, %97
-  br i1 %106, label %.lr.ph97, label %._crit_edge.split, !llvm.loop !86
+  br i1 %106, label %.lr.ph97, label %._crit_edge.split, !llvm.loop !96
 
 ._crit_edge.split:                                ; preds = %.lr.ph97, %.lr.ph100.split
   %107 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %16)
   %108 = load i32, ptr %23, align 8, !tbaa !49
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next113, %109
-  br i1 %110, label %.lr.ph100.split, label %._crit_edge101, !llvm.loop !85
+  br i1 %110, label %.lr.ph100.split, label %._crit_edge101, !llvm.loop !97
 
 ._crit_edge101:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %70
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %16)
@@ -1767,7 +1767,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %19, ptr noundef %21) #16
   %.not96 = icmp eq i32 %22, 0
-  br i1 %.not96, label %23, label %12, !llvm.loop !87
+  br i1 %.not96, label %23, label %12, !llvm.loop !98
 
 23:                                               ; preds = %16
   tail call void @sat_solver_delete(ptr noundef %0) #16
@@ -1793,7 +1793,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %.086120 = phi i32 [ 1, %26 ], [ %107, %106 ]
   %35 = load ptr, ptr %1, align 8, !tbaa !47
   %36 = getelementptr i8, ptr %35, i64 104
-  %.val100114 = load i32, ptr %36, align 8, !tbaa !88
+  %.val100114 = load i32, ptr %36, align 8, !tbaa !99
   %37 = icmp sgt i32 %.val100114, 0
   br i1 %37, label %.lr.ph, label %.critedge.preheader
 
@@ -1808,9 +1808,9 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %43 = add nuw nsw i32 %.183116, 1
   %44 = load ptr, ptr %1, align 8, !tbaa !47
   %45 = getelementptr i8, ptr %44, i64 104
-  %.val100 = load i32, ptr %45, align 8, !tbaa !88
+  %.val100 = load i32, ptr %45, align 8, !tbaa !99
   %46 = icmp slt i32 %43, %.val100
-  br i1 %46, label %49, label %.critedge.preheader, !llvm.loop !89
+  br i1 %46, label %49, label %.critedge.preheader, !llvm.loop !100
 
 .critedge.preheader:                              ; preds = %42, %.preheader105
   %47 = load i32, ptr %34, align 4, !tbaa !50
@@ -1822,7 +1822,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %50 = phi ptr [ %35, %.lr.ph ], [ %44, %42 ]
   %.183116 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !90
+  %52 = load ptr, ptr %51, align 8, !tbaa !101
   %53 = getelementptr i8, ptr %50, i64 140
   %.val4.i = load i32, ptr %53, align 4, !tbaa !28
   %54 = sub i32 %.183116, %.val100114.pn
@@ -1884,7 +1884,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %93 = load i32, ptr %34, align 4, !tbaa !50
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next134, %94
-  br i1 %95, label %.critedge, label %.preheader.preheader, !llvm.loop !91
+  br i1 %95, label %.critedge, label %.preheader.preheader, !llvm.loop !102
 
 .preheader.preheader:                             ; preds = %.critedge, %.critedge.preheader
   br label %.preheader
@@ -1905,12 +1905,12 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %104 = load ptr, ptr %103, align 8, !tbaa !16
   %105 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %102, ptr noundef %104) #16
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %.loopexit.thread, label %.preheader, !llvm.loop !92
+  br i1 %.not, label %.loopexit.thread, label %.preheader, !llvm.loop !103
 
 106:                                              ; preds = %.preheader
   %107 = add nuw nsw i32 %.086120, 1
   %exitcond.not = icmp eq i32 %107, %2
-  br i1 %exitcond.not, label %108, label %.preheader105, !llvm.loop !93
+  br i1 %exitcond.not, label %108, label %.preheader105, !llvm.loop !104
 
 108:                                              ; preds = %106
   %109 = mul nsw i32 %.086120, %28
@@ -1928,7 +1928,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %115 = load i32, ptr %34, align 4, !tbaa !50
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next140, %116
-  br i1 %117, label %.lr.ph123, label %.loopexit, !llvm.loop !94
+  br i1 %117, label %.lr.ph123, label %.loopexit, !llvm.loop !105
 
 .loopexit.thread:                                 ; preds = %84, %49, %99
   call void @sat_solver_delete(ptr noundef %0) #16
@@ -1949,7 +1949,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %121 = getelementptr i8, ptr %120, i64 136
   %.val = load i32, ptr %121, align 8, !tbaa !28
   %122 = getelementptr i8, ptr %120, i64 104
-  %.val101 = load i32, ptr %122, align 8, !tbaa !88
+  %.val101 = load i32, ptr %122, align 8, !tbaa !99
   %123 = sub nsw i32 %.val, %.val101
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !29
@@ -1973,7 +1973,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %.val98 = load i32, ptr %134, align 4, !tbaa !38
   %135 = sext i32 %.val98 to i64
   %.not95 = icmp slt i64 %indvars.iv.next143, %135
-  br i1 %.not95, label %136, label %.critedge97, !llvm.loop !95
+  br i1 %.not95, label %136, label %.critedge97, !llvm.loop !106
 
 136:                                              ; preds = %.lr.ph127, %130
   %indvars.iv142 = phi i64 [ %129, %.lr.ph127 ], [ %indvars.iv.next143, %130 ]
@@ -2064,7 +2064,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = tail call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %19, ptr noundef %21, i32 noundef 0) #16
   %.not95 = icmp eq i32 %22, 0
-  br i1 %.not95, label %23, label %12, !llvm.loop !96
+  br i1 %.not95, label %23, label %12, !llvm.loop !107
 
 23:                                               ; preds = %16
   tail call void @sat_solver2_delete(ptr noundef %6) #16
@@ -2090,7 +2090,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %.085119 = phi i32 [ 1, %26 ], [ %107, %106 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !47
   %36 = getelementptr i8, ptr %35, i64 104
-  %.val100113 = load i32, ptr %36, align 8, !tbaa !88
+  %.val100113 = load i32, ptr %36, align 8, !tbaa !99
   %37 = icmp sgt i32 %.val100113, 0
   br i1 %37, label %.lr.ph, label %.critedge.preheader
 
@@ -2105,9 +2105,9 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %43 = add nuw nsw i32 %.182115, 1
   %44 = load ptr, ptr %0, align 8, !tbaa !47
   %45 = getelementptr i8, ptr %44, i64 104
-  %.val100 = load i32, ptr %45, align 8, !tbaa !88
+  %.val100 = load i32, ptr %45, align 8, !tbaa !99
   %46 = icmp slt i32 %43, %.val100
-  br i1 %46, label %49, label %.critedge.preheader, !llvm.loop !97
+  br i1 %46, label %49, label %.critedge.preheader, !llvm.loop !108
 
 .critedge.preheader:                              ; preds = %42, %.preheader104
   %47 = load i32, ptr %34, align 4, !tbaa !50
@@ -2119,7 +2119,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %50 = phi ptr [ %35, %.lr.ph ], [ %44, %42 ]
   %.182115 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !90
+  %52 = load ptr, ptr %51, align 8, !tbaa !101
   %53 = getelementptr i8, ptr %50, i64 140
   %.val4.i = load i32, ptr %53, align 4, !tbaa !28
   %54 = sub i32 %.182115, %.val100113.pn
@@ -2181,7 +2181,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %93 = load i32, ptr %34, align 4, !tbaa !50
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next133, %94
-  br i1 %95, label %.critedge, label %.preheader.preheader, !llvm.loop !98
+  br i1 %95, label %.critedge, label %.preheader.preheader, !llvm.loop !109
 
 .preheader.preheader:                             ; preds = %.critedge, %.critedge.preheader
   br label %.preheader
@@ -2202,12 +2202,12 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %104 = load ptr, ptr %103, align 8, !tbaa !16
   %105 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %102, ptr noundef %104, i32 noundef 0) #16
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %.loopexit.thread, label %.preheader, !llvm.loop !99
+  br i1 %.not, label %.loopexit.thread, label %.preheader, !llvm.loop !110
 
 106:                                              ; preds = %.preheader
   %107 = add nuw nsw i32 %.085119, 1
   %exitcond.not = icmp eq i32 %107, %1
-  br i1 %exitcond.not, label %108, label %.preheader104, !llvm.loop !100
+  br i1 %exitcond.not, label %108, label %.preheader104, !llvm.loop !111
 
 108:                                              ; preds = %106
   %109 = mul nsw i32 %.085119, %28
@@ -2225,7 +2225,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %115 = load i32, ptr %34, align 4, !tbaa !50
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next139, %116
-  br i1 %117, label %.lr.ph122, label %.loopexit, !llvm.loop !101
+  br i1 %117, label %.lr.ph122, label %.loopexit, !llvm.loop !112
 
 .loopexit.thread:                                 ; preds = %84, %49, %99
   call void @sat_solver2_delete(ptr noundef %6) #16
@@ -2246,7 +2246,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %121 = getelementptr i8, ptr %120, i64 136
   %.val = load i32, ptr %121, align 8, !tbaa !28
   %122 = getelementptr i8, ptr %120, i64 104
-  %.val99 = load i32, ptr %122, align 8, !tbaa !88
+  %.val99 = load i32, ptr %122, align 8, !tbaa !99
   %123 = sub nsw i32 %.val, %.val99
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !29
@@ -2270,7 +2270,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %.val97 = load i32, ptr %134, align 4, !tbaa !38
   %135 = sext i32 %.val97 to i64
   %.not94 = icmp slt i64 %indvars.iv.next142, %135
-  br i1 %.not94, label %136, label %.critedge96, !llvm.loop !102
+  br i1 %.not94, label %136, label %.critedge96, !llvm.loop !113
 
 136:                                              ; preds = %.lr.ph126, %130
   %indvars.iv141 = phi i64 [ %129, %.lr.ph126 ], [ %indvars.iv.next142, %130 ]
@@ -2334,7 +2334,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr noundef re
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #17
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
   %10 = getelementptr i8, ptr %9, i64 4
   %.val26 = load i32, ptr %10, align 4, !tbaa !38
   %11 = icmp sgt i32 %.val26, 0
@@ -2362,7 +2362,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr noundef re
   store i32 %24, ptr %25, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %26, label %16, label %.critedge, !llvm.loop !103
+  br i1 %26, label %16, label %.critedge, !llvm.loop !114
 
 .critedge:                                        ; preds = %16, %2
   %27 = getelementptr inbounds i32, ptr %7, i64 %5
@@ -2389,7 +2389,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr noundef r
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #17
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
   %10 = getelementptr i8, ptr %9, i64 4
   %.val26 = load i32, ptr %10, align 4, !tbaa !38
   %11 = icmp sgt i32 %.val26, 0
@@ -2417,7 +2417,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr noundef r
   store i32 %24, ptr %25, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %26, label %16, label %.critedge, !llvm.loop !104
+  br i1 %26, label %16, label %.critedge, !llvm.loop !115
 
 .critedge:                                        ; preds = %16, %2
   %27 = getelementptr inbounds i32, ptr %7, i64 %5
@@ -2441,7 +2441,7 @@ define range(i32 0, 2) i32 @Cnf_DataWriteAndClauses(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %4 = load ptr, ptr %1, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
   %7 = getelementptr i8, ptr %6, i64 4
   %.val11 = load i32, ptr %7, align 4, !tbaa !38
   %8 = icmp sgt i32 %.val11, 0
@@ -2456,12 +2456,12 @@ define range(i32 0, 2) i32 @Cnf_DataWriteAndClauses(ptr noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %1, align 8, !tbaa !47
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !90
+  %14 = load ptr, ptr %13, align 8, !tbaa !101
   %15 = getelementptr i8, ptr %14, i64 4
   %.val = load i32, ptr %15, align 4, !tbaa !38
   %16 = sext i32 %.val to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %18, label %.critedge, !llvm.loop !105
+  br i1 %17, label %18, label %.critedge, !llvm.loop !116
 
 18:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -2546,7 +2546,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
 34:                                               ; preds = %28, %20, %17, %.lr.ph.split.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %.critedge.preheader, label %.lr.ph.split.us, !llvm.loop !106
+  br i1 %exitcond45.not, label %.critedge.preheader, label %.lr.ph.split.us, !llvm.loop !117
 
 .critedge.preheader:                              ; preds = %60, %34, %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2591,7 +2591,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
 60:                                               ; preds = %.lr.ph.split, %52, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
-  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !106
+  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !118
 
 61:                                               ; preds = %.lr.ph38, %.critedge
   %62 = phi i32 [ %36, %.lr.ph38 ], [ %71, %.critedge ]
@@ -2616,7 +2616,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next47, %72
-  br i1 %73, label %61, label %.critedge._crit_edge.thread, !llvm.loop !107
+  br i1 %73, label %61, label %.critedge._crit_edge.thread, !llvm.loop !119
 
 .critedge._crit_edge:                             ; preds = %.critedge.preheader
   %.not = icmp eq ptr %6, null
@@ -2787,44 +2787,56 @@ attributes #20 = { nounwind willreturn memory(read) }
 !64 = distinct !{!64, !19}
 !65 = !{!66, !66, i64 0}
 !66 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!67 = distinct !{!67, !19}
-!68 = distinct !{!68, !19}
-!69 = distinct !{!69, !19}
+!67 = distinct !{!67, !19, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !19, !68}
 !70 = distinct !{!70, !19}
 !71 = distinct !{!71, !19}
 !72 = distinct !{!72, !19}
 !73 = distinct !{!73, !19}
-!74 = distinct !{!74, !19}
-!75 = distinct !{!75, !19}
+!74 = distinct !{!74, !19, !68}
+!75 = distinct !{!75, !19, !68}
 !76 = distinct !{!76, !19}
 !77 = distinct !{!77, !19}
 !78 = distinct !{!78, !19}
 !79 = distinct !{!79, !19}
 !80 = distinct !{!80, !19}
-!81 = distinct !{!81, !19}
-!82 = distinct !{!82, !19}
+!81 = distinct !{!81, !19, !68}
+!82 = distinct !{!82, !19, !68}
 !83 = distinct !{!83, !19}
 !84 = distinct !{!84, !19}
 !85 = distinct !{!85, !19}
 !86 = distinct !{!86, !19}
-!87 = distinct !{!87, !19}
-!88 = !{!30, !11, i64 104}
+!87 = distinct !{!87, !19, !68}
+!88 = distinct !{!88, !19, !68}
 !89 = distinct !{!89, !19}
-!90 = !{!30, !31, i64 24}
+!90 = distinct !{!90, !19}
 !91 = distinct !{!91, !19}
 !92 = distinct !{!92, !19}
 !93 = distinct !{!93, !19}
-!94 = distinct !{!94, !19}
-!95 = distinct !{!95, !19}
+!94 = distinct !{!94, !19, !68}
+!95 = distinct !{!95, !19, !68}
 !96 = distinct !{!96, !19}
 !97 = distinct !{!97, !19}
 !98 = distinct !{!98, !19}
-!99 = distinct !{!99, !19}
+!99 = !{!30, !11, i64 104}
 !100 = distinct !{!100, !19}
-!101 = distinct !{!101, !19}
+!101 = !{!30, !31, i64 24}
 !102 = distinct !{!102, !19}
 !103 = distinct !{!103, !19}
 !104 = distinct !{!104, !19}
 !105 = distinct !{!105, !19}
 !106 = distinct !{!106, !19}
 !107 = distinct !{!107, !19}
+!108 = distinct !{!108, !19}
+!109 = distinct !{!109, !19}
+!110 = distinct !{!110, !19}
+!111 = distinct !{!111, !19}
+!112 = distinct !{!112, !19}
+!113 = distinct !{!113, !19}
+!114 = distinct !{!114, !19}
+!115 = distinct !{!115, !19}
+!116 = distinct !{!116, !19}
+!117 = distinct !{!117, !19, !68}
+!118 = distinct !{!118, !19}
+!119 = distinct !{!119, !19}

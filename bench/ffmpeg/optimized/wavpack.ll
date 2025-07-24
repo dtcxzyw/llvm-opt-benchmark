@@ -5201,7 +5201,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
   store i32 %.190, ptr %124, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !157
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %122, %74, %.preheader
   %.089.lcssa = phi i32 [ 0, %.preheader ], [ %.190.us, %74 ], [ %.190, %122 ]
@@ -5445,7 +5445,7 @@ wv_get_value_integer.exit121:                     ; preds = %244, %254
   %.184147 = phi ptr [ %.184.ph, %.thread ], [ %.083, %263 ]
   %271 = load i32, ptr %25, align 8, !tbaa !53
   %272 = icmp slt i32 %270, %271
-  br i1 %272, label %26, label %.critedge, !llvm.loop !158
+  br i1 %272, label %26, label %.critedge, !llvm.loop !160
 
 .critedge.thread:                                 ; preds = %26, %263
   %.186128.ph = phi i32 [ %128, %263 ], [ %.085, %26 ]
@@ -5690,7 +5690,7 @@ define internal fastcc i32 @wv_get_value(ptr noundef captures(none) %0, ptr noun
 77:                                               ; preds = %66
   %78 = add nuw nsw i32 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %78, 33
-  br i1 %exitcond.not.i.i, label %get_unary_0_33.exit.thread, label %66, !llvm.loop !159
+  br i1 %exitcond.not.i.i, label %get_unary_0_33.exit.thread, label %66, !llvm.loop !161
 
 get_unary_0_33.exit:                              ; preds = %66
   %79 = getelementptr i8, ptr %1, i64 20
@@ -5729,7 +5729,7 @@ get_unary_0_33.exit.thread:                       ; preds = %77
 95:                                               ; preds = %.preheader
   %96 = add nuw nsw i32 %.05.i.i188, 1
   %exitcond.not.i.i191 = icmp eq i32 %96, 33
-  br i1 %exitcond.not.i.i191, label %.thread211, label %.preheader, !llvm.loop !159
+  br i1 %exitcond.not.i.i191, label %.thread211, label %.preheader, !llvm.loop !161
 
 get_unary_0_33.exit193:                           ; preds = %.preheader
   %97 = icmp samesign ult i32 %.05.i.i188, 2
@@ -5822,7 +5822,7 @@ get_unary_0_33.exit193:                           ; preds = %.preheader
   store i32 %142, ptr %143, align 4, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %127, !llvm.loop !160
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %127, !llvm.loop !162
 
 ._crit_edge.i:                                    ; preds = %135
   %.not45.i = icmp eq i32 %125, 0
@@ -5925,10 +5925,10 @@ wp_exp2.exit.us.i:                                ; preds = %176, %.lr.ph61.spli
   %.015.i.us.i = phi i32 [ %192, %176 ], [ -2147483648, %.lr.ph61.split.us.i ]
   %.idx.us.i = mul nuw nsw i64 %indvars.iv70.i, 28
   %193 = getelementptr i8, ptr %170, i64 %.idx.us.i
-  store i32 %.015.i.us.i, ptr %193, align 4, !tbaa !161
+  store i32 %.015.i.us.i, ptr %193, align 4, !tbaa !163
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i.pre-phi
-  br i1 %exitcond74.not.i, label %update_error_limit.exit.thread, label %.lr.ph61.split.us.i, !llvm.loop !162
+  br i1 %exitcond74.not.i, label %update_error_limit.exit.thread, label %.lr.ph61.split.us.i, !llvm.loop !164
 
 .lr.ph61.split.i:                                 ; preds = %.lr.ph61.i, %wp_exp2.exit53.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %wp_exp2.exit53.i ], [ 0, %.lr.ph61.i ]
@@ -5972,10 +5972,10 @@ wp_exp2.exit53.i:                                 ; preds = %207, %200, %.lr.ph6
   %.sink.i = phi i32 [ %222, %207 ], [ -2147483648, %200 ], [ 0, %.lr.ph61.split.i ]
   %.idx49.i = mul nuw nsw i64 %indvars.iv65.i, 28
   %223 = getelementptr i8, ptr %170, i64 %.idx49.i
-  store i32 %.sink.i, ptr %223, align 4, !tbaa !161
+  store i32 %.sink.i, ptr %223, align 4, !tbaa !163
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count73.i.pre-phi
-  br i1 %exitcond69.not.i, label %update_error_limit.exit.thread, label %.lr.ph61.split.i, !llvm.loop !162
+  br i1 %exitcond69.not.i, label %update_error_limit.exit.thread, label %.lr.ph61.split.i, !llvm.loop !165
 
 update_error_limit.exit.thread:                   ; preds = %wp_exp2.exit53.i, %wp_exp2.exit.us.i, %168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
@@ -6081,7 +6081,7 @@ update_error_limit.exit:                          ; preds = %127
   %.0129 = phi i32 [ %231, %230 ], [ %246, %241 ], [ %272, %260 ], [ 0, %227 ]
   %.0127 = phi i32 [ %234, %230 ], [ %249, %241 ], [ %266, %260 ], [ %226, %227 ]
   %286 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %287 = load i32, ptr %286, align 4, !tbaa !161
+  %287 = load i32, ptr %286, align 4, !tbaa !163
   %.not158 = icmp eq i32 %287, 0
   br i1 %.not158, label %288, label %365
 
@@ -6253,7 +6253,7 @@ get_tail.exit:                                    ; preds = %288, %get_bits_long
   %.0.in = add i32 %390, 1
   %.0 = lshr i32 %.0.in, 1
   %391 = icmp sgt i32 %.2, %287
-  br i1 %391, label %372, label %.thread214, !llvm.loop !163
+  br i1 %391, label %372, label %.thread214, !llvm.loop !166
 
 .thread214:                                       ; preds = %373, %..thread214_crit_edge, %get_tail.exit
   %392 = phi i32 [ %.val174, %get_tail.exit ], [ %.pre243, %..thread214_crit_edge ], [ %spec.select.i198, %373 ]
@@ -6713,7 +6713,7 @@ define internal fastcc i32 @get_unary_0_33(ptr noundef captures(none) %0) unname
 17:                                               ; preds = %6
   %18 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %18, 33
-  br i1 %exitcond.not.i, label %get_unary.exit, label %6, !llvm.loop !159
+  br i1 %exitcond.not.i, label %get_unary.exit, label %6, !llvm.loop !161
 
 get_unary.exit:                                   ; preds = %6, %17
   %.0.lcssa.i = phi i32 [ 33, %17 ], [ %.05.i, %6 ]
@@ -6922,10 +6922,13 @@ attributes #13 = { cold }
 !154 = distinct !{!154, !67}
 !155 = !{!16, !16, i64 0}
 !156 = distinct !{!156, !67}
-!157 = distinct !{!157, !67}
-!158 = distinct !{!158, !67}
+!157 = distinct !{!157, !67, !158}
+!158 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !159 = distinct !{!159, !67}
 !160 = distinct !{!160, !67}
-!161 = !{!81, !10, i64 16}
+!161 = distinct !{!161, !67}
 !162 = distinct !{!162, !67}
-!163 = distinct !{!163, !67}
+!163 = !{!81, !10, i64 16}
+!164 = distinct !{!164, !67, !158}
+!165 = distinct !{!165, !67}
+!166 = distinct !{!166, !67}

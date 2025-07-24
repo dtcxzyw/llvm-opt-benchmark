@@ -659,7 +659,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %49, %43
   %.not3.i = icmp ult ptr %56, %2
   %.not6 = icmp ult ptr %56, %1
   %or.cond = and i1 %.not3.i, %.not6
-  br i1 %or.cond, label %.preheader.split, label %.loopexit, !llvm.loop !8
+  br i1 %or.cond, label %.preheader.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader.split, %51, %28, %.preheader.split.us
   %57 = phi ptr [ %12, %.preheader.split.us ], [ %12, %28 ], [ %35, %51 ], [ %35, %.preheader.split ]
@@ -717,7 +717,7 @@ define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull
   store ptr %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %31, label %24, !llvm.loop !9
+  br i1 %exitcond.not, label %31, label %24, !llvm.loop !11
 
 31:                                               ; preds = %24
   tail call void @_ZN13RelocIterator10set_limitsEPhS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %2, ptr noundef %3)
@@ -804,7 +804,7 @@ define hidden noundef nonnull ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnul
 6:                                                ; preds = %1
   %7 = load atomic i8, ptr @_ZGVZN13RelocIterator9oop_relocEvE5proto acquire, align 8
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %12, !prof !10
+  br i1 %8, label %9, label %12, !prof !12
 
 9:                                                ; preds = %6
   %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #19
@@ -812,9 +812,9 @@ define hidden noundef nonnull ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnul
   br i1 %.not.i, label %12, label %11
 
 11:                                               ; preds = %9
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !11
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !11
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !11
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !13
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #19
   br label %12
 
@@ -861,7 +861,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %23, %31, %33
 38:                                               ; preds = %1
   %39 = load atomic i8, ptr @_ZGVZN13RelocIterator14metadata_relocEvE5proto acquire, align 8
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %44, !prof !10
+  br i1 %40, label %41, label %44, !prof !12
 
 41:                                               ; preds = %38
   %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #19
@@ -869,9 +869,9 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %23, %31, %33
   br i1 %.not.i19, label %44, label %43
 
 43:                                               ; preds = %41
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 8), align 8, !alias.scope !14
-  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 16), align 8, !alias.scope !14
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !14
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 8), align 8, !alias.scope !16
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 16), align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #19
   br label %44
 
@@ -918,7 +918,7 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %55, %63, %65
 70:                                               ; preds = %1
   %71 = load atomic i8, ptr @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto acquire, align 8
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %76, !prof !10
+  br i1 %72, label %73, label %76, !prof !12
 
 73:                                               ; preds = %70
   %74 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #19
@@ -926,9 +926,9 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %55, %63, %65
   br i1 %.not.i20, label %76, label %75
 
 75:                                               ; preds = %73
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !17
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !17
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !17
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !19
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !19
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #19
   br label %76
 
@@ -1014,7 +1014,7 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %_ZN10Relocation13un
 121:                                              ; preds = %1
   %122 = load atomic i8, ptr @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto acquire, align 8
   %123 = icmp eq i8 %122, 0
-  br i1 %123, label %124, label %127, !prof !10
+  br i1 %123, label %124, label %127, !prof !12
 
 124:                                              ; preds = %121
   %125 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto) #19
@@ -1022,9 +1022,9 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %_ZN10Relocation13un
   br i1 %.not.i21, label %127, label %126
 
 126:                                              ; preds = %124
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !20
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !20
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !20
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !22
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !22
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto) #19
   br label %127
 
@@ -1071,7 +1071,7 @@ _ZN13RelocIterator22opt_virtual_call_relocEv.exit: ; preds = %138, %146, %148
 153:                                              ; preds = %1
   %154 = load atomic i8, ptr @_ZGVZN13RelocIterator17static_call_relocEvE5proto acquire, align 8
   %155 = icmp eq i8 %154, 0
-  br i1 %155, label %156, label %159, !prof !10
+  br i1 %155, label %156, label %159, !prof !12
 
 156:                                              ; preds = %153
   %157 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17static_call_relocEvE5proto) #19
@@ -1079,9 +1079,9 @@ _ZN13RelocIterator22opt_virtual_call_relocEv.exit: ; preds = %138, %146, %148
   br i1 %.not.i22, label %159, label %158
 
 158:                                              ; preds = %156
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !23
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !23
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !23
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !25
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !25
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !25
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_call_relocEvE5proto) #19
   br label %159
 
@@ -1128,7 +1128,7 @@ _ZN13RelocIterator17static_call_relocEv.exit:     ; preds = %170, %178, %180
 185:                                              ; preds = %1
   %186 = load atomic i8, ptr @_ZGVZN13RelocIterator17static_stub_relocEvE5proto acquire, align 8
   %187 = icmp eq i8 %186, 0
-  br i1 %187, label %188, label %191, !prof !10
+  br i1 %187, label %188, label %191, !prof !12
 
 188:                                              ; preds = %185
   %189 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
@@ -1136,9 +1136,9 @@ _ZN13RelocIterator17static_call_relocEv.exit:     ; preds = %170, %178, %180
   br i1 %.not.i23, label %191, label %190
 
 190:                                              ; preds = %188
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !26
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !26
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !26
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !28
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !28
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %191
 
@@ -1190,7 +1190,7 @@ _ZN13RelocIterator17static_stub_relocEv.exit:     ; preds = %204, %212, %214
 222:                                              ; preds = %1
   %223 = load atomic i8, ptr @_ZGVZN13RelocIterator18runtime_call_relocEvE5proto acquire, align 8
   %224 = icmp eq i8 %223, 0
-  br i1 %224, label %225, label %_ZN13RelocIterator18runtime_call_relocEv.exit, !prof !10
+  br i1 %224, label %225, label %_ZN13RelocIterator18runtime_call_relocEv.exit, !prof !12
 
 225:                                              ; preds = %222
   %226 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator18runtime_call_relocEvE5proto) #19
@@ -1198,9 +1198,9 @@ _ZN13RelocIterator17static_stub_relocEv.exit:     ; preds = %204, %212, %214
   br i1 %.not.i24, label %_ZN13RelocIterator18runtime_call_relocEv.exit, label %227
 
 227:                                              ; preds = %225
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 8), align 8, !alias.scope !29
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 16), align 8, !alias.scope !29
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, align 8, !alias.scope !29
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 8), align 8, !alias.scope !31
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 16), align 8, !alias.scope !31
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, align 8, !alias.scope !31
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18runtime_call_relocEvE5proto) #19
   br label %_ZN13RelocIterator18runtime_call_relocEv.exit
 
@@ -1217,7 +1217,7 @@ _ZN13RelocIterator18runtime_call_relocEv.exit:    ; preds = %222, %225, %227
 233:                                              ; preds = %1
   %234 = load atomic i8, ptr @_ZGVZN13RelocIterator23runtime_call_w_cp_relocEvE5proto acquire, align 8
   %235 = icmp eq i8 %234, 0
-  br i1 %235, label %236, label %239, !prof !10
+  br i1 %235, label %236, label %239, !prof !12
 
 236:                                              ; preds = %233
   %237 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator23runtime_call_w_cp_relocEvE5proto) #19
@@ -1225,10 +1225,10 @@ _ZN13RelocIterator18runtime_call_relocEv.exit:    ; preds = %222, %225, %227
   br i1 %.not.i25, label %239, label %238
 
 238:                                              ; preds = %236
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 8), align 8, !alias.scope !32
-  store i32 14, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 16), align 8, !alias.scope !32
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, align 8, !alias.scope !32
-  store i32 -4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 20), align 4, !alias.scope !32
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 8), align 8, !alias.scope !34
+  store i32 14, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 16), align 8, !alias.scope !34
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, align 8, !alias.scope !34
+  store i32 -4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 20), align 4, !alias.scope !34
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator23runtime_call_w_cp_relocEvE5proto) #19
   br label %239
 
@@ -1276,7 +1276,7 @@ _ZN13RelocIterator23runtime_call_w_cp_relocEv.exit: ; preds = %250, %258, %260
 266:                                              ; preds = %1
   %267 = load atomic i8, ptr @_ZGVZN13RelocIterator19external_word_relocEvE5proto acquire, align 8
   %268 = icmp eq i8 %267, 0
-  br i1 %268, label %269, label %272, !prof !10
+  br i1 %268, label %269, label %272, !prof !12
 
 269:                                              ; preds = %266
   %270 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator19external_word_relocEvE5proto) #19
@@ -1284,9 +1284,9 @@ _ZN13RelocIterator23runtime_call_w_cp_relocEv.exit: ; preds = %250, %258, %260
   br i1 %.not.i26, label %272, label %271
 
 271:                                              ; preds = %269
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 8), align 8, !alias.scope !35
-  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 16), align 8, !alias.scope !35
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, align 8, !alias.scope !35
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 8), align 8, !alias.scope !37
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 16), align 8, !alias.scope !37
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, align 8, !alias.scope !37
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19external_word_relocEvE5proto) #19
   br label %272
 
@@ -1334,7 +1334,7 @@ _ZN13RelocIterator19external_word_relocEv.exit:   ; preds = %283, %291, %293
 299:                                              ; preds = %1
   %300 = load atomic i8, ptr @_ZGVZN13RelocIterator19internal_word_relocEvE5proto acquire, align 8
   %301 = icmp eq i8 %300, 0
-  br i1 %301, label %302, label %305, !prof !10
+  br i1 %301, label %302, label %305, !prof !12
 
 302:                                              ; preds = %299
   %303 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator19internal_word_relocEvE5proto) #19
@@ -1342,9 +1342,9 @@ _ZN13RelocIterator19external_word_relocEv.exit:   ; preds = %283, %291, %293
   br i1 %.not.i27, label %305, label %304
 
 304:                                              ; preds = %302
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 8), align 8, !alias.scope !38
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 16), align 8, !alias.scope !38
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, align 8, !alias.scope !38
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 8), align 8, !alias.scope !40
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 16), align 8, !alias.scope !40
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, align 8, !alias.scope !40
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19internal_word_relocEvE5proto) #19
   br label %305
 
@@ -1406,7 +1406,7 @@ _ZN13RelocIterator19internal_word_relocEv.exit:   ; preds = %324, %_ZN10Relocati
 340:                                              ; preds = %1
   %341 = load atomic i8, ptr @_ZGVZN13RelocIterator10poll_relocEvE5proto acquire, align 8
   %342 = icmp eq i8 %341, 0
-  br i1 %342, label %343, label %_ZN13RelocIterator10poll_relocEv.exit, !prof !10
+  br i1 %342, label %343, label %_ZN13RelocIterator10poll_relocEv.exit, !prof !12
 
 343:                                              ; preds = %340
   %344 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator10poll_relocEvE5proto) #19
@@ -1414,9 +1414,9 @@ _ZN13RelocIterator19internal_word_relocEv.exit:   ; preds = %324, %_ZN10Relocati
   br i1 %.not.i28, label %_ZN13RelocIterator10poll_relocEv.exit, label %345
 
 345:                                              ; preds = %343
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 8), align 8, !alias.scope !41
-  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 16), align 8, !alias.scope !41
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr @_ZZN13RelocIterator10poll_relocEvE5proto, align 8, !alias.scope !41
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 8), align 8, !alias.scope !43
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 16), align 8, !alias.scope !43
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr @_ZZN13RelocIterator10poll_relocEvE5proto, align 8, !alias.scope !43
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator10poll_relocEvE5proto) #19
   br label %_ZN13RelocIterator10poll_relocEv.exit
 
@@ -1433,7 +1433,7 @@ _ZN13RelocIterator10poll_relocEv.exit:            ; preds = %340, %343, %345
 351:                                              ; preds = %1
   %352 = load atomic i8, ptr @_ZGVZN13RelocIterator17poll_return_relocEvE5proto acquire, align 8
   %353 = icmp eq i8 %352, 0
-  br i1 %353, label %354, label %_ZN13RelocIterator17poll_return_relocEv.exit, !prof !10
+  br i1 %353, label %354, label %_ZN13RelocIterator17poll_return_relocEv.exit, !prof !12
 
 354:                                              ; preds = %351
   %355 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17poll_return_relocEvE5proto) #19
@@ -1441,9 +1441,9 @@ _ZN13RelocIterator10poll_relocEv.exit:            ; preds = %340, %343, %345
   br i1 %.not.i29, label %_ZN13RelocIterator17poll_return_relocEv.exit, label %356
 
 356:                                              ; preds = %354
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 8), align 8, !alias.scope !44
-  store i32 11, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 16), align 8, !alias.scope !44
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, align 8, !alias.scope !44
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 8), align 8, !alias.scope !46
+  store i32 11, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 16), align 8, !alias.scope !46
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, align 8, !alias.scope !46
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17poll_return_relocEvE5proto) #19
   br label %_ZN13RelocIterator17poll_return_relocEv.exit
 
@@ -1460,7 +1460,7 @@ _ZN13RelocIterator17poll_return_relocEv.exit:     ; preds = %351, %354, %356
 362:                                              ; preds = %1
   %363 = load atomic i8, ptr @_ZGVZN13RelocIterator18section_word_relocEvE5proto acquire, align 8
   %364 = icmp eq i8 %363, 0
-  br i1 %364, label %365, label %368, !prof !10
+  br i1 %364, label %365, label %368, !prof !12
 
 365:                                              ; preds = %362
   %366 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator18section_word_relocEvE5proto) #19
@@ -1468,9 +1468,9 @@ _ZN13RelocIterator17poll_return_relocEv.exit:     ; preds = %351, %354, %356
   br i1 %.not.i30, label %368, label %367
 
 367:                                              ; preds = %365
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 8), align 8, !alias.scope !47
-  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 16), align 8, !alias.scope !47
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, align 8, !alias.scope !47
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 8), align 8, !alias.scope !49
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 16), align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, align 8, !alias.scope !49
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18section_word_relocEvE5proto) #19
   br label %368
 
@@ -1528,7 +1528,7 @@ _ZN13RelocIterator18section_word_relocEv.exit:    ; preds = %379, %387, %389
 404:                                              ; preds = %1
   %405 = load atomic i8, ptr @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto acquire, align 8
   %406 = icmp eq i8 %405, 0
-  br i1 %406, label %407, label %410, !prof !10
+  br i1 %406, label %407, label %410, !prof !12
 
 407:                                              ; preds = %404
   %408 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
@@ -1536,9 +1536,9 @@ _ZN13RelocIterator18section_word_relocEv.exit:    ; preds = %379, %387, %389
   br i1 %.not.i31, label %410, label %409
 
 409:                                              ; preds = %407
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !50
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !50
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !50
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !52
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !52
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !52
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
   br label %410
 
@@ -1590,7 +1590,7 @@ _ZN13RelocIterator21trampoline_stub_relocEv.exit: ; preds = %423, %431, %433
 441:                                              ; preds = %1
   %442 = load atomic i8, ptr @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto acquire, align 8
   %443 = icmp eq i8 %442, 0
-  br i1 %443, label %444, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, !prof !10
+  br i1 %443, label %444, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, !prof !12
 
 444:                                              ; preds = %441
   %445 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #19
@@ -1598,9 +1598,9 @@ _ZN13RelocIterator21trampoline_stub_relocEv.exit: ; preds = %423, %431, %433
   br i1 %.not.i32, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, label %446
 
 446:                                              ; preds = %444
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 8), align 8, !alias.scope !53
-  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 16), align 8, !alias.scope !53
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8, !alias.scope !53
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 8), align 8, !alias.scope !55
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 16), align 8, !alias.scope !55
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8, !alias.scope !55
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #19
   br label %_ZN13RelocIterator19post_call_nop_relocEv.exit
 
@@ -1617,7 +1617,7 @@ _ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %441, %444, %446
 452:                                              ; preds = %1
   %453 = load atomic i8, ptr @_ZGVZN13RelocIterator17entry_guard_relocEvE5proto acquire, align 8
   %454 = icmp eq i8 %453, 0
-  br i1 %454, label %455, label %_ZN13RelocIterator17entry_guard_relocEv.exit, !prof !10
+  br i1 %454, label %455, label %_ZN13RelocIterator17entry_guard_relocEv.exit, !prof !12
 
 455:                                              ; preds = %452
   %456 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17entry_guard_relocEvE5proto) #19
@@ -1625,9 +1625,9 @@ _ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %441, %444, %446
   br i1 %.not.i33, label %_ZN13RelocIterator17entry_guard_relocEv.exit, label %457
 
 457:                                              ; preds = %455
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 8), align 8, !alias.scope !56
-  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 16), align 8, !alias.scope !56
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, align 8, !alias.scope !56
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 8), align 8, !alias.scope !58
+  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 16), align 8, !alias.scope !58
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, align 8, !alias.scope !58
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17entry_guard_relocEvE5proto) #19
   br label %_ZN13RelocIterator17entry_guard_relocEv.exit
 
@@ -1644,7 +1644,7 @@ _ZN13RelocIterator17entry_guard_relocEv.exit:     ; preds = %452, %455, %457
 463:                                              ; preds = %1
   %464 = load atomic i8, ptr @_ZGVZN13RelocIterator13barrier_relocEvE5proto acquire, align 8
   %465 = icmp eq i8 %464, 0
-  br i1 %465, label %466, label %_ZN13RelocIterator13barrier_relocEv.exit, !prof !10
+  br i1 %465, label %466, label %_ZN13RelocIterator13barrier_relocEv.exit, !prof !12
 
 466:                                              ; preds = %463
   %467 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator13barrier_relocEvE5proto) #19
@@ -1652,9 +1652,9 @@ _ZN13RelocIterator17entry_guard_relocEv.exit:     ; preds = %452, %455, %457
   br i1 %.not.i34, label %_ZN13RelocIterator13barrier_relocEv.exit, label %468
 
 468:                                              ; preds = %466
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 8), align 8, !alias.scope !59
-  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 16), align 8, !alias.scope !59
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !59
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 8), align 8, !alias.scope !61
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 16), align 8, !alias.scope !61
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator13barrier_relocEvE5proto) #19
   br label %_ZN13RelocIterator13barrier_relocEv.exit
 
@@ -2092,7 +2092,7 @@ define hidden noundef ptr @_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_(pt
   %7 = getelementptr inbounds nuw i8, ptr %.021, i64 272
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %6, %4
   %9 = load ptr, ptr @g_assert_poison, align 8
@@ -2146,7 +2146,7 @@ define hidden void @_ZN10Relocation17normalize_addressERPhPK11CodeSectionb(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %.021.i, i64 272
   %19 = load ptr, ptr %18, align 8
   %.not.i10 = icmp eq ptr %19, null
-  br i1 %.not.i10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %17, %13
   %20 = load ptr, ptr @g_assert_poison, align 8
@@ -2404,7 +2404,7 @@ define hidden void @_ZN23virtual_call_Relocation12pack_data_toEP11CodeSection(pt
   %21 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 272
   %22 = load ptr, ptr %21, align 8
   %.not.i10.i = icmp eq ptr %22, null
-  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %20, %16
   %23 = load ptr, ptr @g_assert_poison, align 8
@@ -2704,7 +2704,7 @@ define hidden void @_ZN22static_stub_Relocation12pack_data_toEP11CodeSection(ptr
   %21 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 272
   %22 = load ptr, ptr %21, align 8
   %.not.i10.i = icmp eq ptr %22, null
-  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %20, %16
   %23 = load ptr, ptr @g_assert_poison, align 8
@@ -2847,7 +2847,7 @@ define hidden void @_ZN26trampoline_stub_Relocation12pack_data_toEP11CodeSection
   %21 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 272
   %22 = load ptr, ptr %21, align 8
   %.not.i10.i = icmp eq ptr %22, null
-  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %20, %16
   %23 = load ptr, ptr @g_assert_poison, align 8
@@ -3069,7 +3069,7 @@ define hidden void @_ZN24internal_word_Relocation12pack_data_toEP11CodeSection(p
   %19 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 272
   %20 = load ptr, ptr %19, align 8
   %.not.i10.i = icmp eq ptr %20, null
-  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %18, %14
   %21 = load ptr, ptr @g_assert_poison, align 8
@@ -4017,7 +4017,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
 81:                                               ; preds = %78
   %82 = load atomic i8, ptr @_ZGVZN13RelocIterator17static_stub_relocEvE5proto acquire, align 8
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %87, !prof !10
+  br i1 %83, label %84, label %87, !prof !12
 
 84:                                               ; preds = %81
   %85 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
@@ -4025,9 +4025,9 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
   br i1 %.not.i4, label %87, label %86
 
 86:                                               ; preds = %84
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !63
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !63
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !63
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !65
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !65
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !65
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %87
 
@@ -4086,7 +4086,7 @@ _ZN13RelocIterator17static_stub_relocEv.exit._crit_edge: ; preds = %_ZN13RelocIt
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   store ptr %118, ptr %21, align 8
   %119 = icmp eq ptr %118, %116
-  br i1 %119, label %_ZN13RelocIterator4nextEv.exit, label %54, !llvm.loop !66
+  br i1 %119, label %_ZN13RelocIterator4nextEv.exit, label %54, !llvm.loop !68
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %115, %70, %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit, %113
   %.0 = phi ptr [ %114, %113 ], [ null, %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit ], [ null, %70 ], [ null, %115 ]
@@ -4392,7 +4392,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
 81:                                               ; preds = %78
   %82 = load atomic i8, ptr @_ZGVZN13RelocIterator17static_stub_relocEvE5proto acquire, align 8
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %87, !prof !10
+  br i1 %83, label %84, label %87, !prof !12
 
 84:                                               ; preds = %81
   %85 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
@@ -4400,9 +4400,9 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
   br i1 %.not.i4, label %87, label %86
 
 86:                                               ; preds = %84
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !67
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !67
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !67
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !69
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !69
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !69
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %87
 
@@ -4461,7 +4461,7 @@ _ZN13RelocIterator17static_stub_relocEv.exit._crit_edge: ; preds = %_ZN13RelocIt
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   store ptr %118, ptr %21, align 8
   %119 = icmp eq ptr %118, %116
-  br i1 %119, label %_ZN13RelocIterator4nextEv.exit, label %54, !llvm.loop !70
+  br i1 %119, label %_ZN13RelocIterator4nextEv.exit, label %54, !llvm.loop !72
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %115, %70, %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit, %113
   %.0 = phi ptr [ %114, %113 ], [ null, %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit ], [ null, %70 ], [ null, %115 ]
@@ -4668,7 +4668,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %89, %83
 102:                                              ; preds = %99
   %103 = load atomic i8, ptr @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto acquire, align 8
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %105, label %108, !prof !10
+  br i1 %104, label %105, label %108, !prof !12
 
 105:                                              ; preds = %102
   %106 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
@@ -4676,9 +4676,9 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %89, %83
   br i1 %.not.i5, label %108, label %107
 
 107:                                              ; preds = %105
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !71
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !71
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !71
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !73
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !73
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !73
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
   br label %108
 
@@ -4737,7 +4737,7 @@ _ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge: ; preds = %_ZN13Rel
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
   store ptr %139, ptr %18, align 8
   %140 = icmp eq ptr %139, %137
-  br i1 %140, label %_ZN13RelocIterator4nextEv.exit, label %75, !llvm.loop !74
+  br i1 %140, label %_ZN13RelocIterator4nextEv.exit, label %75, !llvm.loop !76
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %136, %91, %_ZN13RelocIterator10set_limitsEPhS0_.exit, %2, %134
   %.0 = phi ptr [ %135, %134 ], [ null, %2 ], [ null, %_ZN13RelocIterator10set_limitsEPhS0_.exit ], [ null, %91 ], [ null, %136 ]
@@ -4832,7 +4832,7 @@ _ZN24internal_word_Relocation6targetEv.exit:      ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %.021.i, i64 272
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %23, %_ZN24internal_word_Relocation6targetEv.exit
   %26 = load ptr, ptr @g_assert_poison, align 8
@@ -5269,70 +5269,72 @@ attributes #20 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!"branch_weights", i32 1, i32 1048575}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
-!13 = distinct !{!13, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_: argument 0"}
-!16 = distinct !{!16, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
-!19 = distinct !{!19, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
-!22 = distinct !{!22, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_: argument 0"}
-!25 = distinct !{!25, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
-!28 = distinct !{!28, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN16RelocationHolder9constructI23runtime_call_RelocationJEEES_DpRKT0_: argument 0"}
-!31 = distinct !{!31, !"_ZN16RelocationHolder9constructI23runtime_call_RelocationJEEES_DpRKT0_"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN16RelocationHolder9constructI28runtime_call_w_cp_RelocationJEEES_DpRKT0_: argument 0"}
-!34 = distinct !{!34, !"_ZN16RelocationHolder9constructI28runtime_call_w_cp_RelocationJEEES_DpRKT0_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN16RelocationHolder9constructI24external_word_RelocationJEEES_DpRKT0_: argument 0"}
-!37 = distinct !{!37, !"_ZN16RelocationHolder9constructI24external_word_RelocationJEEES_DpRKT0_"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN16RelocationHolder9constructI24internal_word_RelocationJEEES_DpRKT0_: argument 0"}
-!40 = distinct !{!40, !"_ZN16RelocationHolder9constructI24internal_word_RelocationJEEES_DpRKT0_"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN16RelocationHolder9constructI15poll_RelocationJEEES_DpRKT0_: argument 0"}
-!43 = distinct !{!43, !"_ZN16RelocationHolder9constructI15poll_RelocationJEEES_DpRKT0_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN16RelocationHolder9constructI22poll_return_RelocationJEEES_DpRKT0_: argument 0"}
-!46 = distinct !{!46, !"_ZN16RelocationHolder9constructI22poll_return_RelocationJEEES_DpRKT0_"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN16RelocationHolder9constructI23section_word_RelocationJEEES_DpRKT0_: argument 0"}
-!49 = distinct !{!49, !"_ZN16RelocationHolder9constructI23section_word_RelocationJEEES_DpRKT0_"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_: argument 0"}
-!52 = distinct !{!52, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN16RelocationHolder9constructI24post_call_nop_RelocationJEEES_DpRKT0_: argument 0"}
-!55 = distinct !{!55, !"_ZN16RelocationHolder9constructI24post_call_nop_RelocationJEEES_DpRKT0_"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN16RelocationHolder9constructI22entry_guard_RelocationJEEES_DpRKT0_: argument 0"}
-!58 = distinct !{!58, !"_ZN16RelocationHolder9constructI22entry_guard_RelocationJEEES_DpRKT0_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!61 = distinct !{!61, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!62 = distinct !{!62, !7}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
-!65 = distinct !{!65, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
-!66 = distinct !{!66, !7}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
-!69 = distinct !{!69, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
-!70 = distinct !{!70, !7}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_: argument 0"}
-!73 = distinct !{!73, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_"}
-!74 = distinct !{!74, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!"branch_weights", i32 1, i32 1048575}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
+!15 = distinct !{!15, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_: argument 0"}
+!18 = distinct !{!18, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
+!21 = distinct !{!21, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
+!24 = distinct !{!24, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_: argument 0"}
+!27 = distinct !{!27, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
+!30 = distinct !{!30, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN16RelocationHolder9constructI23runtime_call_RelocationJEEES_DpRKT0_: argument 0"}
+!33 = distinct !{!33, !"_ZN16RelocationHolder9constructI23runtime_call_RelocationJEEES_DpRKT0_"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN16RelocationHolder9constructI28runtime_call_w_cp_RelocationJEEES_DpRKT0_: argument 0"}
+!36 = distinct !{!36, !"_ZN16RelocationHolder9constructI28runtime_call_w_cp_RelocationJEEES_DpRKT0_"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN16RelocationHolder9constructI24external_word_RelocationJEEES_DpRKT0_: argument 0"}
+!39 = distinct !{!39, !"_ZN16RelocationHolder9constructI24external_word_RelocationJEEES_DpRKT0_"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN16RelocationHolder9constructI24internal_word_RelocationJEEES_DpRKT0_: argument 0"}
+!42 = distinct !{!42, !"_ZN16RelocationHolder9constructI24internal_word_RelocationJEEES_DpRKT0_"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN16RelocationHolder9constructI15poll_RelocationJEEES_DpRKT0_: argument 0"}
+!45 = distinct !{!45, !"_ZN16RelocationHolder9constructI15poll_RelocationJEEES_DpRKT0_"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN16RelocationHolder9constructI22poll_return_RelocationJEEES_DpRKT0_: argument 0"}
+!48 = distinct !{!48, !"_ZN16RelocationHolder9constructI22poll_return_RelocationJEEES_DpRKT0_"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN16RelocationHolder9constructI23section_word_RelocationJEEES_DpRKT0_: argument 0"}
+!51 = distinct !{!51, !"_ZN16RelocationHolder9constructI23section_word_RelocationJEEES_DpRKT0_"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_: argument 0"}
+!54 = distinct !{!54, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN16RelocationHolder9constructI24post_call_nop_RelocationJEEES_DpRKT0_: argument 0"}
+!57 = distinct !{!57, !"_ZN16RelocationHolder9constructI24post_call_nop_RelocationJEEES_DpRKT0_"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN16RelocationHolder9constructI22entry_guard_RelocationJEEES_DpRKT0_: argument 0"}
+!60 = distinct !{!60, !"_ZN16RelocationHolder9constructI22entry_guard_RelocationJEEES_DpRKT0_"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!63 = distinct !{!63, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!64 = distinct !{!64, !7}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
+!67 = distinct !{!67, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
+!68 = distinct !{!68, !7}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_: argument 0"}
+!71 = distinct !{!71, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJEEES_DpRKT0_"}
+!72 = distinct !{!72, !7}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_: argument 0"}
+!75 = distinct !{!75, !"_ZN16RelocationHolder9constructI26trampoline_stub_RelocationJEEES_DpRKT0_"}
+!76 = distinct !{!76, !7}

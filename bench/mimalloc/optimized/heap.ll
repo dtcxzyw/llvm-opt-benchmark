@@ -128,7 +128,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 .critedge.i26.us:                                 ; preds = %mi_heap_page_collect.exit.us.us, %.preheader.i21.split.us
   %50 = add nuw nsw i64 %.02229.i22.us, 1
   %exitcond.i27.us = icmp eq i64 %50, 75
-  br i1 %exitcond.i27.us, label %mi_heap_visit_pages.exit28, label %.preheader.i21.split.us, !llvm.loop !40
+  br i1 %exitcond.i27.us, label %mi_heap_visit_pages.exit28, label %.preheader.i21.split.us, !llvm.loop !41
 
 .lr.ph41.us:                                      ; preds = %.preheader.i21.split.us, %mi_heap_page_collect.exit.us.us
   %.020.i2340.us.us = phi ptr [ %52, %mi_heap_page_collect.exit.us.us ], [ %49, %.preheader.i21.split.us ]
@@ -136,7 +136,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
   %52 = load ptr, ptr %51, align 8, !tbaa !33
   tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2340.us.us, i1 noundef zeroext %6) #11
   %53 = getelementptr i8, ptr %.020.i2340.us.us, i64 24
-  %.val.i.us.us = load i16, ptr %53, align 8, !tbaa !41
+  %.val.i.us.us = load i16, ptr %53, align 8, !tbaa !43
   %54 = icmp eq i16 %.val.i.us.us, 0
   br i1 %54, label %56, label %55
 
@@ -150,7 +150,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
 
 mi_heap_page_collect.exit.us.us:                  ; preds = %56, %55
   %.not.i24.us.us = icmp eq ptr %52, null
-  br i1 %.not.i24.us.us, label %.critedge.i26.us, label %.lr.ph41.us, !llvm.loop !38
+  br i1 %.not.i24.us.us, label %.critedge.i26.us, label %.lr.ph41.us, !llvm.loop !44
 
 .preheader.i21.split:                             ; preds = %.preheader.i21, %.critedge.i26
   %.02229.i22 = phi i64 [ %64, %.critedge.i26 ], [ 0, %.preheader.i21 ]
@@ -165,7 +165,7 @@ mi_heap_page_collect.exit.us.us:                  ; preds = %56, %55
   %60 = load ptr, ptr %59, align 8, !tbaa !33
   tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2340, i1 noundef zeroext %6) #11
   %61 = getelementptr i8, ptr %.020.i2340, i64 24
-  %.val.i = load i16, ptr %61, align 8, !tbaa !41
+  %.val.i = load i16, ptr %61, align 8, !tbaa !43
   %62 = icmp eq i16 %.val.i, 0
   br i1 %62, label %63, label %mi_heap_page_collect.exit
 
@@ -218,7 +218,7 @@ define hidden void @mi_heap_collect(ptr noundef %0, i1 noundef zeroext %1) local
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_collect(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = zext i1 %0 to i32
   tail call fastcc void @mi_heap_collect_ex(ptr noundef %3, i32 noundef %4) #10
   ret void
@@ -228,7 +228,7 @@ define hidden void @mi_collect(i1 noundef zeroext %0) local_unnamed_addr #0 {
 define hidden ptr @mi_heap_get_default() local_unnamed_addr #0 {
   tail call void @mi_thread_init() #11
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %2 = load ptr, ptr %1, align 8, !tbaa !42
+  %2 = load ptr, ptr %1, align 8, !tbaa !45
   ret ptr %2
 }
 
@@ -238,7 +238,7 @@ declare void @mi_thread_init() local_unnamed_addr #1
 define hidden ptr @mi_heap_get_backing() local_unnamed_addr #0 {
   tail call void @mi_thread_init() #11
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %2 = load ptr, ptr %1, align 8, !tbaa !42
+  %2 = load ptr, ptr %1, align 8, !tbaa !45
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -262,11 +262,11 @@ define hidden void @_mi_heap_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %9, align 8, !tbaa !43
+  store i32 %2, ptr %9, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 %6, ptr %10, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  store i8 %4, ptr %11, align 1, !tbaa !44
+  store i8 %4, ptr %11, align 1, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = icmp eq ptr %0, %13
@@ -288,20 +288,20 @@ define hidden void @_mi_heap_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %22 = tail call i64 @_mi_random_next(ptr noundef nonnull %21) #11
   %23 = or i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %23, ptr %24, align 8, !tbaa !45
+  store i64 %23, ptr %24, align 8, !tbaa !48
   %25 = tail call i64 @_mi_random_next(ptr noundef nonnull %21) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %25, ptr %26, align 8, !tbaa !46
+  store i64 %25, ptr %26, align 8, !tbaa !49
   %27 = tail call i64 @_mi_random_next(ptr noundef nonnull %21) #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %27, ptr %28, align 8, !tbaa !46
+  store i64 %27, ptr %28, align 8, !tbaa !49
   tail call void @_mi_heap_guarded_init(ptr noundef nonnull %0) #11
   %29 = load ptr, ptr %0, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !47
+  %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %31, ptr %32, align 8, !tbaa !48
-  store ptr %0, ptr %30, align 8, !tbaa !47
+  store ptr %31, ptr %32, align 8, !tbaa !51
+  store ptr %0, ptr %30, align 8, !tbaa !50
   ret void
 }
 
@@ -324,7 +324,7 @@ declare void @_mi_heap_guarded_init(ptr noundef) local_unnamed_addr #1
 define hidden ptr @mi_heap_new_ex(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @mi_thread_init() #11
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !15
@@ -348,7 +348,7 @@ declare noalias ptr @mi_heap_malloc(ptr noundef, i64 noundef) local_unnamed_addr
 define hidden ptr @mi_heap_new_in_arena(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @mi_thread_init() #11
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !15
@@ -370,7 +370,7 @@ define hidden ptr @mi_heap_new() local_unnamed_addr #0 {
   %1 = tail call i32 @_mi_arena_id_none() #11
   tail call void @mi_thread_init() #11
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !15
@@ -392,7 +392,7 @@ declare i32 @_mi_arena_id_none() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !43
+  %4 = load i32, ptr %3, align 8, !tbaa !46
   %5 = tail call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %1, i32 noundef %4) #11
   ret i1 %5
 }
@@ -404,29 +404,29 @@ declare i64 @_mi_random_next(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  %4 = load i8, ptr %3, align 1, !tbaa !44
+  %4 = load i8, ptr %3, align 1, !tbaa !47
   %5 = icmp eq i8 %4, %1
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.01013 = load ptr, ptr %8, align 8, !tbaa !42
+  %.01013 = load ptr, ptr %8, align 8, !tbaa !45
   %.not14 = icmp eq ptr %.01013, null
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %12
   %.01015 = phi ptr [ %.010, %12 ], [ %.01013, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01015, i64 225
-  %10 = load i8, ptr %9, align 1, !tbaa !44
+  %10 = load i8, ptr %9, align 1, !tbaa !47
   %11 = icmp eq i8 %10, %1
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.01015, i64 216
-  %.010 = load ptr, ptr %13, align 8, !tbaa !42
+  %.010 = load ptr, ptr %13, align 8, !tbaa !45
   %.not = icmp eq ptr %.010, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %6, %2
   %.011 = phi ptr [ %0, %2 ], [ null, %6 ], [ %.01015, %.lr.ph ], [ null, %12 ]
@@ -461,7 +461,7 @@ define hidden void @_mi_heap_destroy_pages(ptr noundef %0) local_unnamed_addr #0
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %.020.i3, i32 noundef 3, i1 noundef zeroext false) #11
   %13 = getelementptr inbounds nuw i8, ptr %.020.i3, i64 24
-  store i16 0, ptr %13, align 8, !tbaa !41
+  store i16 0, ptr %13, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %0, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -482,7 +482,7 @@ mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %1, %3
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %18, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store atomic ptr null, ptr %19 seq_cst, align 8, !tbaa !50
+  store atomic ptr null, ptr %19 seq_cst, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 0, ptr %20, align 8, !tbaa !31
   ret void
@@ -529,7 +529,7 @@ define hidden void @mi_heap_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %.020.i3.i, i32 noundef 3, i1 noundef zeroext false) #11
   %19 = getelementptr inbounds nuw i8, ptr %.020.i3.i, i64 24
-  store i16 0, ptr %19, align 8, !tbaa !41
+  store i16 0, ptr %19, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %0, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -550,7 +550,7 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %9
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %24, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store atomic ptr null, ptr %25 seq_cst, align 8, !tbaa !50
+  store atomic ptr null, ptr %25 seq_cst, align 8, !tbaa !53
   store i64 0, ptr %10, align 8, !tbaa !31
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -560,7 +560,7 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %9
 
 30:                                               ; preds = %_mi_heap_destroy_pages.exit
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %32 = load ptr, ptr %31, align 8, !tbaa !42
+  %32 = load ptr, ptr %31, align 8, !tbaa !45
   %33 = icmp eq ptr %0, %32
   br i1 %33, label %34, label %35
 
@@ -577,12 +577,12 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %9
 38:                                               ; preds = %38, %35
   %.019.i = phi ptr [ null, %35 ], [ %.0.i, %38 ]
   %.0.in.i = phi ptr [ %37, %35 ], [ %42, %38 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !42
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !45
   %39 = icmp ne ptr %.0.i, %0
   %40 = icmp ne ptr %.0.i, null
   %41 = and i1 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 216
-  br i1 %41, label %38, label %43, !llvm.loop !51
+  br i1 %41, label %38, label %43, !llvm.loop !54
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %.0.i, %0
@@ -591,16 +591,16 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %9
 45:                                               ; preds = %43
   %.not.i = icmp eq ptr %.019.i, null
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %47 = load ptr, ptr %46, align 8, !tbaa !48
+  %47 = load ptr, ptr %46, align 8, !tbaa !51
   br i1 %.not.i, label %50, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.019.i, i64 216
-  store ptr %47, ptr %49, align 8, !tbaa !48
+  store ptr %47, ptr %49, align 8, !tbaa !51
   br label %51
 
 50:                                               ; preds = %45
-  store ptr %47, ptr %37, align 8, !tbaa !47
+  store ptr %47, ptr %37, align 8, !tbaa !50
   br label %51
 
 51:                                               ; preds = %50, %48, %43
@@ -629,17 +629,17 @@ define hidden void @mi_heap_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 225
-  %10 = load i8, ptr %9, align 1, !tbaa !44
+  %10 = load i8, ptr %9, align 1, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  %12 = load i8, ptr %11, align 1, !tbaa !44
+  %12 = load i8, ptr %11, align 1, !tbaa !47
   %13 = icmp eq i8 %10, %12
   br i1 %13, label %mi_heaps_are_compatible.exit, label %mi_heaps_are_compatible.exit.thread
 
 mi_heaps_are_compatible.exit:                     ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !43
+  %15 = load i32, ptr %14, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !43
+  %17 = load i32, ptr %16, align 8, !tbaa !46
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %mi_heaps_are_compatible.exit.thread
 
@@ -664,7 +664,7 @@ mi_heaps_are_compatible.exit:                     ; preds = %8
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %26, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store atomic ptr null, ptr %30 seq_cst, align 8, !tbaa !50
+  store atomic ptr null, ptr %30 seq_cst, align 8, !tbaa !53
   store i64 0, ptr %20, align 8, !tbaa !31
   br label %mi_heap_absorb.exit
 
@@ -681,7 +681,7 @@ mi_heaps_are_compatible.exit:                     ; preds = %8
   store i64 %38, ptr %20, align 8, !tbaa !31
   %39 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %39, 75
-  br i1 %exitcond.not.i, label %28, label %31, !llvm.loop !52
+  br i1 %exitcond.not.i, label %28, label %31, !llvm.loop !55
 
 mi_heaps_are_compatible.exit.thread:              ; preds = %8, %mi_heaps_are_compatible.exit, %4
   tail call fastcc void @mi_heap_collect_ex(ptr noundef nonnull %0, i32 noundef 2) #10
@@ -696,7 +696,7 @@ mi_heap_absorb.exit:                              ; preds = %mi_heaps_are_compat
 
 44:                                               ; preds = %mi_heap_absorb.exit
   %45 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %46 = load ptr, ptr %45, align 8, !tbaa !42
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = icmp eq ptr %0, %46
   br i1 %47, label %48, label %49
 
@@ -713,12 +713,12 @@ mi_heap_absorb.exit:                              ; preds = %mi_heaps_are_compat
 52:                                               ; preds = %52, %49
   %.019.i = phi ptr [ null, %49 ], [ %.0.i, %52 ]
   %.0.in.i = phi ptr [ %51, %49 ], [ %56, %52 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !42
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !45
   %53 = icmp ne ptr %.0.i, %0
   %54 = icmp ne ptr %.0.i, null
   %55 = and i1 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 216
-  br i1 %55, label %52, label %57, !llvm.loop !51
+  br i1 %55, label %52, label %57, !llvm.loop !54
 
 57:                                               ; preds = %52
   %58 = icmp eq ptr %.0.i, %0
@@ -727,16 +727,16 @@ mi_heap_absorb.exit:                              ; preds = %mi_heaps_are_compat
 59:                                               ; preds = %57
   %.not.i = icmp eq ptr %.019.i, null
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %61 = load ptr, ptr %60, align 8, !tbaa !48
+  %61 = load ptr, ptr %60, align 8, !tbaa !51
   br i1 %.not.i, label %64, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %.019.i, i64 216
-  store ptr %61, ptr %63, align 8, !tbaa !48
+  store ptr %61, ptr %63, align 8, !tbaa !51
   br label %65
 
 64:                                               ; preds = %59
-  store ptr %61, ptr %51, align 8, !tbaa !47
+  store ptr %61, ptr %51, align 8, !tbaa !50
   br label %65
 
 65:                                               ; preds = %64, %62, %57
@@ -755,14 +755,14 @@ define hidden void @_mi_heap_unsafe_destroy_all(ptr noundef readonly captures(ad
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %30
   %.010 = phi ptr [ %8, %30 ], [ %6, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 224
   %10 = load i8, ptr %9, align 8, !tbaa !28, !range !29, !noundef !30
   %11 = trunc nuw i8 %10 to i1
@@ -795,7 +795,7 @@ define hidden void @_mi_heap_unsafe_destroy_all(ptr noundef readonly captures(ad
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %.020.i3.i, i32 noundef 3, i1 noundef zeroext false) #11
   %23 = getelementptr inbounds nuw i8, ptr %.020.i3.i, i64 24
-  store i16 0, ptr %23, align 8, !tbaa !41
+  store i16 0, ptr %23, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %.010, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -816,13 +816,13 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %13
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %28, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.010, i64 8
-  store atomic ptr null, ptr %29 seq_cst, align 8, !tbaa !50
+  store atomic ptr null, ptr %29 seq_cst, align 8, !tbaa !53
   store i64 0, ptr %14, align 8, !tbaa !31
   br label %30
 
 30:                                               ; preds = %_mi_heap_destroy_pages.exit, %12
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %30, %3, %1
   ret void
@@ -837,7 +837,7 @@ define hidden ptr @mi_heap_set_default(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   tail call void @_mi_heap_set_default_direct(ptr noundef nonnull %0) #11
   br label %7
 
@@ -865,17 +865,17 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %11 = icmp slt i64 %8, 4194304
   %12 = select i1 %11, ptr null, ptr %10
   %13 = ptrtoint ptr %12 to i64
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !45
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !48
   %15 = xor i64 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %17 = load i64, ptr %16, align 16, !tbaa !54
+  %17 = load i64, ptr %16, align 16, !tbaa !57
   %.not.i = icmp eq i64 %15, %17
-  br i1 %.not.i, label %18, label %mi_heap_of_block.exit, !prof !57
+  br i1 %.not.i, label %18, label %mi_heap_of_block.exit, !prof !60
 
 18:                                               ; preds = %6
   %19 = sub i64 %7, %13
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %21 = load i64, ptr %20, align 16, !tbaa !58
+  %21 = load i64, ptr %20, align 16, !tbaa !61
   %22 = lshr i64 %19, %21
   %.idx.i = mul nuw nsw i64 %22, 80
   %23 = getelementptr i8, ptr %12, i64 216
@@ -916,25 +916,25 @@ define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captu
 13:                                               ; preds = %.critedge.i, %.preheader.i
   %.02229.i = phi i64 [ 0, %.preheader.i ], [ %27, %.critedge.i ]
   %14 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %12, i64 0, i64 %.02229.i
-  %.020.i11 = load ptr, ptr %14, align 8, !tbaa !59
+  %.020.i11 = load ptr, ptr %14, align 8, !tbaa !62
   %.not.i12 = icmp eq ptr %.020.i11, null
   br i1 %.not.i12, label %.critedge.i, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.020.i13, i64 64
-  %.020.i = load ptr, ptr %16, align 8, !tbaa !59
+  %.020.i = load ptr, ptr %16, align 8, !tbaa !62
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %13, %15
   %.020.i13 = phi ptr [ %.020.i, %15 ], [ %.020.i11, %13 ]
   %17 = getelementptr i8, ptr %.020.i13, i64 40
-  %.val11.i = load ptr, ptr %17, align 8, !tbaa !60
+  %.val11.i = load ptr, ptr %17, align 8, !tbaa !63
   %18 = getelementptr inbounds nuw i8, ptr %.020.i13, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !61
+  %19 = load i16, ptr %18, align 2, !tbaa !64
   %20 = zext i16 %19 to i64
   %21 = getelementptr i8, ptr %.020.i13, i64 32
-  %.val.i = load i64, ptr %21, align 8, !tbaa !62
+  %.val.i = load i64, ptr %21, align 8, !tbaa !65
   %22 = mul i64 %.val.i, %20
   %23 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 %22
   %24 = icmp uge ptr %1, %.val11.i
@@ -955,7 +955,7 @@ mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %.lr.p
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = icmp eq ptr %3, null
   br i1 %4, label %mi_heap_check_owned.exit, label %5
 
@@ -980,25 +980,25 @@ define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_a
 14:                                               ; preds = %.critedge.i.i, %.preheader.i.i
   %.02229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %28, %.critedge.i.i ]
   %15 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %13, i64 0, i64 %.02229.i.i
-  %.020.i11.i = load ptr, ptr %15, align 8, !tbaa !59
+  %.020.i11.i = load ptr, ptr %15, align 8, !tbaa !62
   %.not.i12.i = icmp eq ptr %.020.i11.i, null
   br i1 %.not.i12.i, label %.critedge.i.i, label %.lr.ph.i
 
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds nuw i8, ptr %.020.i13.i, i64 64
-  %.020.i.i = load ptr, ptr %17, align 8, !tbaa !59
+  %.020.i.i = load ptr, ptr %17, align 8, !tbaa !62
   %.not.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i, !llvm.loop !38
 
 .lr.ph.i:                                         ; preds = %14, %16
   %.020.i13.i = phi ptr [ %.020.i.i, %16 ], [ %.020.i11.i, %14 ]
   %18 = getelementptr i8, ptr %.020.i13.i, i64 40
-  %.val11.i.i = load ptr, ptr %18, align 8, !tbaa !60
+  %.val11.i.i = load ptr, ptr %18, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %.020.i13.i, i64 2
-  %20 = load i16, ptr %19, align 2, !tbaa !61
+  %20 = load i16, ptr %19, align 2, !tbaa !64
   %21 = zext i16 %20 to i64
   %22 = getelementptr i8, ptr %.020.i13.i, i64 32
-  %.val.i.i = load i64, ptr %22, align 8, !tbaa !62
+  %.val.i.i = load i64, ptr %22, align 8, !tbaa !65
   %23 = mul i64 %.val.i.i, %21
   %24 = getelementptr inbounds nuw i8, ptr %.val11.i.i, i64 %23
   %25 = icmp uge ptr %0, %.val11.i.i
@@ -1019,36 +1019,36 @@ mi_heap_check_owned.exit:                         ; preds = %.critedge.i.i, %.lr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_mi_heap_area_init(ptr noundef writeonly captures(none) initializes((0, 52)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 32
-  %.val = load i64, ptr %3, align 8, !tbaa !62
+  %.val = load i64, ptr %3, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i16, ptr %4, align 4, !tbaa !63
+  %5 = load i16, ptr %4, align 4, !tbaa !66
   %6 = zext i16 %5 to i64
   %7 = mul i64 %.val, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !64
+  store i64 %7, ptr %8, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i16, ptr %9, align 2, !tbaa !61
+  %10 = load i16, ptr %9, align 2, !tbaa !64
   %11 = zext i16 %10 to i64
   %12 = mul i64 %.val, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %12, ptr %13, align 8, !tbaa !66
+  store i64 %12, ptr %13, align 8, !tbaa !69
   %14 = getelementptr i8, ptr %1, i64 40
-  %.val17 = load ptr, ptr %14, align 8, !tbaa !60
-  store ptr %.val17, ptr %0, align 8, !tbaa !67
+  %.val17 = load ptr, ptr %14, align 8, !tbaa !63
+  store ptr %.val17, ptr %0, align 8, !tbaa !70
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i16, ptr %15, align 8, !tbaa !41
+  %16 = load i16, ptr %15, align 8, !tbaa !43
   %17 = zext i16 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %17, ptr %18, align 8, !tbaa !68
+  store i64 %17, ptr %18, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.val, ptr %19, align 8, !tbaa !69
+  store i64 %.val, ptr %19, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.val, ptr %20, align 8, !tbaa !70
+  store i64 %.val, ptr %20, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %22 = load i8, ptr %21, align 1, !tbaa !71
+  %22 = load i8, ptr %21, align 1, !tbaa !74
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %23, ptr %24, align 8, !tbaa !72
+  store i32 %23, ptr %24, align 8, !tbaa !75
   ret void
 }
 
@@ -1064,7 +1064,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
 9:                                                ; preds = %4
   tail call void @_mi_page_free_collect(ptr noundef nonnull %1, i1 noundef zeroext true) #11
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i16, ptr %10, align 8, !tbaa !41
+  %11 = load i16, ptr %10, align 8, !tbaa !43
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %99, label %13
 
@@ -1081,9 +1081,9 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %22 = load atomic i64, ptr %21 monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr i8, ptr %1, i64 32
-  %.val = load i64, ptr %24, align 8, !tbaa !62
+  %.val = load i64, ptr %24, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !61
+  %26 = load i16, ptr %25, align 2, !tbaa !64
   %27 = icmp eq i16 %26, 1
   br i1 %27, label %28, label %32
 
@@ -1094,7 +1094,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br label %.critedge
 
 32:                                               ; preds = %13
-  %33 = load i16, ptr %10, align 8, !tbaa !41
+  %33 = load i16, ptr %10, align 8, !tbaa !43
   %34 = icmp eq i16 %33, %26
   br i1 %34, label %.preheader, label %41
 
@@ -1111,10 +1111,10 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
 36:                                               ; preds = %.lr.ph141
   %37 = getelementptr inbounds nuw i8, ptr %.0102140, i64 %.val
   %38 = add nuw nsw i64 %.0103139, 1
-  %39 = load i16, ptr %25, align 2, !tbaa !61
+  %39 = load i16, ptr %25, align 2, !tbaa !64
   %40 = zext i16 %39 to i64
   %.not113.not = icmp samesign ult i64 %38, %40
-  br i1 %.not113.not, label %.lr.ph141, label %.critedge, !llvm.loop !73
+  br i1 %.not113.not, label %.lr.ph141, label %.critedge, !llvm.loop !76
 
 41:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #12
@@ -1132,7 +1132,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %49 = shl nsw i64 -1, %48
   %50 = add nsw i64 %44, -1
   %51 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %50
-  store i64 %49, ptr %51, align 8, !tbaa !46
+  store i64 %49, ptr %51, align 8, !tbaa !49
   br label %52
 
 52:                                               ; preds = %47, %41
@@ -1145,7 +1145,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %59 = udiv i64 %58, %.val
   %60 = add nuw i64 %59, 1
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !74
+  %62 = load ptr, ptr %61, align 8, !tbaa !77
   %.not110129 = icmp eq ptr %62, null
   br i1 %.not110129, label %.preheader123, label %.lr.ph
 
@@ -1173,19 +1173,19 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %73 = and i64 %71, 63
   %74 = shl nuw i64 1, %73
   %75 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %72
-  %76 = load i64, ptr %75, align 8, !tbaa !46
+  %76 = load i64, ptr %75, align 8, !tbaa !49
   %77 = or i64 %76, %74
-  store i64 %77, ptr %75, align 8, !tbaa !46
-  %.0104.val = load i64, ptr %.0104130, align 8, !tbaa !75
+  store i64 %77, ptr %75, align 8, !tbaa !49
+  %.0104.val = load i64, ptr %.0104130, align 8, !tbaa !78
   %78 = inttoptr i64 %.0104.val to ptr
   %.not110 = icmp eq i64 %.0104.val, 0
-  br i1 %.not110, label %.preheader123, label %65, !llvm.loop !77
+  br i1 %.not110, label %.preheader123, label %65, !llvm.loop !80
 
 79:                                               ; preds = %.lr.ph137, %.critedge115
   %.092135 = phi i64 [ 0, %.lr.ph137 ], [ %98, %.critedge115 ]
   %.093134 = phi ptr [ %20, %.lr.ph137 ], [ %.396, %.critedge115 ]
   %80 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %.092135
-  %81 = load i64, ptr %80, align 8, !tbaa !46
+  %81 = load i64, ptr %80, align 8, !tbaa !49
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %.preheader121, label %87
 
@@ -1199,7 +1199,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %85 = getelementptr inbounds nuw i8, ptr %.194131, i64 %.val
   %86 = add nuw nsw i64 %.091132, 1
   %exitcond = icmp eq i64 %86, 64
-  br i1 %exitcond, label %.critedge115, label %.preheader121, !llvm.loop !78
+  br i1 %exitcond, label %.critedge115, label %.preheader121, !llvm.loop !81
 
 87:                                               ; preds = %79
   %88 = xor i64 %81, -1
@@ -1217,7 +1217,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %94 = call zeroext i1 %2(ptr noundef %23, ptr noundef nonnull %0, ptr noundef %93, i64 noundef %.val, ptr noundef %3) #11
   %95 = add i64 %.089, -1
   %96 = and i64 %95, %.089
-  br i1 %94, label %89, label %.critedge117, !llvm.loop !79
+  br i1 %94, label %89, label %.critedge117, !llvm.loop !82
 
 .thread:                                          ; preds = %89
   %97 = getelementptr inbounds nuw i8, ptr %.093134, i64 %64
@@ -1227,7 +1227,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   %.396 = phi ptr [ %97, %.thread ], [ %85, %84 ]
   %98 = add nuw nsw i64 %.092135, 1
   %exitcond147.not = icmp eq i64 %98, %44
-  br i1 %exitcond147.not, label %.critedge117, label %79, !llvm.loop !80
+  br i1 %exitcond147.not, label %.critedge117, label %79, !llvm.loop !83
 
 .critedge117:                                     ; preds = %.critedge115, %90, %.preheader121, %.preheader123
   %.not112128 = phi i1 [ true, %.preheader123 ], [ false, %.preheader121 ], [ false, %90 ], [ true, %.critedge115 ]
@@ -1284,51 +1284,51 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
 .critedge.i.i.us:                                 ; preds = %.backedge.i.us.us, %.preheader.i.i.split.us
   %21 = add nuw nsw i64 %.02229.i.i.us, 1
   %exitcond.i.i.us = icmp eq i64 %21, 75
-  br i1 %exitcond.i.i.us, label %mi_heap_visit_areas.exit, label %.preheader.i.i.split.us, !llvm.loop !40
+  br i1 %exitcond.i.i.us, label %mi_heap_visit_areas.exit, label %.preheader.i.i.split.us, !llvm.loop !84
 
 .lr.ph.i.us.us:                                   ; preds = %.preheader.i.i.split.us, %.backedge.i.us.us
   %.020.i4.i.us.us = phi ptr [ %23, %.backedge.i.us.us ], [ %20, %.preheader.i.i.split.us ]
   %22 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
-  store ptr %.020.i4.i.us.us, ptr %12, align 8, !tbaa !81
+  store ptr %.020.i4.i.us.us, ptr %12, align 8, !tbaa !85
   %24 = getelementptr i8, ptr %.020.i4.i.us.us, i64 32
-  %.val.i.i.i.us.us = load i64, ptr %24, align 8, !tbaa !62
+  %.val.i.i.i.us.us = load i64, ptr %24, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 4
-  %26 = load i16, ptr %25, align 4, !tbaa !63
+  %26 = load i16, ptr %25, align 4, !tbaa !66
   %27 = zext i16 %26 to i64
   %28 = mul i64 %.val.i.i.i.us.us, %27
-  store i64 %28, ptr %13, align 8, !tbaa !64
+  store i64 %28, ptr %13, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 2
-  %30 = load i16, ptr %29, align 2, !tbaa !61
+  %30 = load i16, ptr %29, align 2, !tbaa !64
   %31 = zext i16 %30 to i64
   %32 = mul i64 %.val.i.i.i.us.us, %31
-  store i64 %32, ptr %14, align 8, !tbaa !66
+  store i64 %32, ptr %14, align 8, !tbaa !69
   %33 = getelementptr i8, ptr %.020.i4.i.us.us, i64 40
-  %.val17.i.i.i.us.us = load ptr, ptr %33, align 8, !tbaa !60
-  store ptr %.val17.i.i.i.us.us, ptr %5, align 8, !tbaa !67
+  %.val17.i.i.i.us.us = load ptr, ptr %33, align 8, !tbaa !63
+  store ptr %.val17.i.i.i.us.us, ptr %5, align 8, !tbaa !70
   %34 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 24
-  %35 = load i16, ptr %34, align 8, !tbaa !41
+  %35 = load i16, ptr %34, align 8, !tbaa !43
   %36 = zext i16 %35 to i64
-  store i64 %36, ptr %15, align 8, !tbaa !68
-  store i64 %.val.i.i.i.us.us, ptr %16, align 8, !tbaa !69
-  store i64 %.val.i.i.i.us.us, ptr %17, align 8, !tbaa !70
+  store i64 %36, ptr %15, align 8, !tbaa !71
+  store i64 %.val.i.i.i.us.us, ptr %16, align 8, !tbaa !72
+  store i64 %.val.i.i.i.us.us, ptr %17, align 8, !tbaa !73
   %37 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 27
-  %38 = load i8, ptr %37, align 1, !tbaa !71
+  %38 = load i8, ptr %37, align 1, !tbaa !74
   %39 = zext i8 %38 to i32
-  store i32 %39, ptr %18, align 8, !tbaa !72
+  store i32 %39, ptr %18, align 8, !tbaa !75
   %40 = call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef null, i64 noundef %.val.i.i.i.us.us, ptr noundef %3) #11
   br i1 %40, label %41, label %mi_heap_area_visitor.exit.thread.i
 
 41:                                               ; preds = %.lr.ph.i.us.us
-  %42 = load ptr, ptr %12, align 8, !tbaa !81
+  %42 = load ptr, ptr %12, align 8, !tbaa !85
   %43 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %5, ptr noundef %42, ptr noundef %2, ptr noundef %3) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
   br i1 %43, label %.backedge.i.us.us, label %mi_heap_visit_areas.exit
 
 .backedge.i.us.us:                                ; preds = %41
   %.not.i.i.us.us = icmp eq ptr %23, null
-  br i1 %.not.i.i.us.us, label %.critedge.i.i.us, label %.lr.ph.i.us.us, !llvm.loop !38
+  br i1 %.not.i.i.us.us, label %.critedge.i.i.us, label %.lr.ph.i.us.us, !llvm.loop !87
 
 .preheader.i.i.split:                             ; preds = %.preheader.i.i, %.critedge.i.i
   %.02229.i.i = phi i64 [ %65, %.critedge.i.i ], [ 0, %.preheader.i.i ]
@@ -1342,32 +1342,32 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   %46 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 64
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
-  store ptr %.020.i4.i, ptr %12, align 8, !tbaa !81
+  store ptr %.020.i4.i, ptr %12, align 8, !tbaa !85
   %48 = getelementptr i8, ptr %.020.i4.i, i64 32
-  %.val.i.i.i = load i64, ptr %48, align 8, !tbaa !62
+  %.val.i.i.i = load i64, ptr %48, align 8, !tbaa !65
   %49 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 4
-  %50 = load i16, ptr %49, align 4, !tbaa !63
+  %50 = load i16, ptr %49, align 4, !tbaa !66
   %51 = zext i16 %50 to i64
   %52 = mul i64 %.val.i.i.i, %51
-  store i64 %52, ptr %13, align 8, !tbaa !64
+  store i64 %52, ptr %13, align 8, !tbaa !67
   %53 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 2
-  %54 = load i16, ptr %53, align 2, !tbaa !61
+  %54 = load i16, ptr %53, align 2, !tbaa !64
   %55 = zext i16 %54 to i64
   %56 = mul i64 %.val.i.i.i, %55
-  store i64 %56, ptr %14, align 8, !tbaa !66
+  store i64 %56, ptr %14, align 8, !tbaa !69
   %57 = getelementptr i8, ptr %.020.i4.i, i64 40
-  %.val17.i.i.i = load ptr, ptr %57, align 8, !tbaa !60
-  store ptr %.val17.i.i.i, ptr %5, align 8, !tbaa !67
+  %.val17.i.i.i = load ptr, ptr %57, align 8, !tbaa !63
+  store ptr %.val17.i.i.i, ptr %5, align 8, !tbaa !70
   %58 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 24
-  %59 = load i16, ptr %58, align 8, !tbaa !41
+  %59 = load i16, ptr %58, align 8, !tbaa !43
   %60 = zext i16 %59 to i64
-  store i64 %60, ptr %15, align 8, !tbaa !68
-  store i64 %.val.i.i.i, ptr %16, align 8, !tbaa !69
-  store i64 %.val.i.i.i, ptr %17, align 8, !tbaa !70
+  store i64 %60, ptr %15, align 8, !tbaa !71
+  store i64 %.val.i.i.i, ptr %16, align 8, !tbaa !72
+  store i64 %.val.i.i.i, ptr %17, align 8, !tbaa !73
   %61 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 27
-  %62 = load i8, ptr %61, align 1, !tbaa !71
+  %62 = load i8, ptr %61, align 1, !tbaa !74
   %63 = zext i8 %62 to i32
-  store i32 %63, ptr %18, align 8, !tbaa !72
+  store i32 %63, ptr %18, align 8, !tbaa !75
   %64 = call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef null, i64 noundef %.val.i.i.i, ptr noundef %3) #11
   br i1 %64, label %mi_heap_area_visitor.exit.i, label %mi_heap_area_visitor.exit.thread.i
 
@@ -1492,45 +1492,50 @@ attributes #12 = { nounwind }
 !38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
 !40 = distinct !{!40, !39}
-!41 = !{!34, !35, i64 24}
-!42 = !{!13, !13, i64 0}
-!43 = !{!4, !10, i64 24}
-!44 = !{!4, !7, i64 225}
-!45 = !{!4, !9, i64 32}
-!46 = !{!9, !9, i64 0}
-!47 = !{!16, !13, i64 24}
-!48 = !{!4, !13, i64 216}
-!49 = distinct !{!49, !39}
-!50 = !{!4, !7, i64 8}
-!51 = distinct !{!51, !39}
+!41 = distinct !{!41, !39, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!34, !35, i64 24}
+!44 = distinct !{!44, !39, !42}
+!45 = !{!13, !13, i64 0}
+!46 = !{!4, !10, i64 24}
+!47 = !{!4, !7, i64 225}
+!48 = !{!4, !9, i64 32}
+!49 = !{!9, !9, i64 0}
+!50 = !{!16, !13, i64 24}
+!51 = !{!4, !13, i64 216}
 !52 = distinct !{!52, !39}
-!53 = distinct !{!53, !39}
-!54 = !{!55, !9, i64 112}
-!55 = !{!"mi_segment_s", !56, i64 0, !12, i64 24, !12, i64 25, !9, i64 32, !23, i64 40, !20, i64 48, !20, i64 56, !12, i64 64, !12, i64 65, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !20, i64 120, !20, i64 128, !7, i64 136, !9, i64 144, !10, i64 152, !7, i64 160}
-!56 = !{!"mi_memid_s", !7, i64 0, !12, i64 16, !12, i64 17, !12, i64 18, !10, i64 20}
-!57 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!58 = !{!55, !9, i64 144}
-!59 = !{!22, !22, i64 0}
-!60 = !{!34, !37, i64 40}
-!61 = !{!34, !35, i64 2}
-!62 = !{!34, !9, i64 32}
-!63 = !{!34, !35, i64 4}
-!64 = !{!65, !9, i64 8}
-!65 = !{!"mi_heap_area_s", !6, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !10, i64 48}
-!66 = !{!65, !9, i64 16}
-!67 = !{!65, !6, i64 0}
-!68 = !{!65, !9, i64 24}
-!69 = !{!65, !9, i64 32}
-!70 = !{!65, !9, i64 40}
-!71 = !{!34, !7, i64 27}
-!72 = !{!65, !10, i64 48}
-!73 = distinct !{!73, !39}
-!74 = !{!34, !36, i64 8}
-!75 = !{!76, !9, i64 0}
-!76 = !{!"mi_block_s", !9, i64 0}
-!77 = distinct !{!77, !39}
-!78 = distinct !{!78, !39}
-!79 = distinct !{!79, !39}
+!53 = !{!4, !7, i64 8}
+!54 = distinct !{!54, !39}
+!55 = distinct !{!55, !39}
+!56 = distinct !{!56, !39}
+!57 = !{!58, !9, i64 112}
+!58 = !{!"mi_segment_s", !59, i64 0, !12, i64 24, !12, i64 25, !9, i64 32, !23, i64 40, !20, i64 48, !20, i64 56, !12, i64 64, !12, i64 65, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !20, i64 120, !20, i64 128, !7, i64 136, !9, i64 144, !10, i64 152, !7, i64 160}
+!59 = !{!"mi_memid_s", !7, i64 0, !12, i64 16, !12, i64 17, !12, i64 18, !10, i64 20}
+!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!61 = !{!58, !9, i64 144}
+!62 = !{!22, !22, i64 0}
+!63 = !{!34, !37, i64 40}
+!64 = !{!34, !35, i64 2}
+!65 = !{!34, !9, i64 32}
+!66 = !{!34, !35, i64 4}
+!67 = !{!68, !9, i64 8}
+!68 = !{!"mi_heap_area_s", !6, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !10, i64 48}
+!69 = !{!68, !9, i64 16}
+!70 = !{!68, !6, i64 0}
+!71 = !{!68, !9, i64 24}
+!72 = !{!68, !9, i64 32}
+!73 = !{!68, !9, i64 40}
+!74 = !{!34, !7, i64 27}
+!75 = !{!68, !10, i64 48}
+!76 = distinct !{!76, !39}
+!77 = !{!34, !36, i64 8}
+!78 = !{!79, !9, i64 0}
+!79 = !{!"mi_block_s", !9, i64 0}
 !80 = distinct !{!80, !39}
-!81 = !{!82, !22, i64 56}
-!82 = !{!"mi_heap_area_ex_s", !65, i64 0, !22, i64 56}
+!81 = distinct !{!81, !39}
+!82 = distinct !{!82, !39}
+!83 = distinct !{!83, !39}
+!84 = distinct !{!84, !39, !42}
+!85 = !{!86, !22, i64 56}
+!86 = !{!"mi_heap_area_ex_s", !68, i64 0, !22, i64 56}
+!87 = distinct !{!87, !39, !42}

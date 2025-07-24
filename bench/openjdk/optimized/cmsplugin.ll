@@ -195,7 +195,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_cmsReadUInt16Number.exit, %_cmsReadUInt16Number.exit14.us, %.lr.ph.split.us, %3, %_cmsReadUInt16Number.exit.thread
   %.08 = phi i32 [ 0, %_cmsReadUInt16Number.exit.thread ], [ 1, %3 ], [ 0, %.lr.ph.split.us ], [ 1, %_cmsReadUInt16Number.exit14.us ], [ 1, %_cmsReadUInt16Number.exit ]
@@ -434,7 +434,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noun
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -798,7 +798,7 @@ define hidden i32 @_cmsIOPrintf(ptr noundef %0, ptr noundef readonly captures(no
 
 9:                                                ; preds = %.preheader, %8
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !11
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -838,7 +838,7 @@ define hidden ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef %1) local_unname
 
 7:                                                ; preds = %6
   %8 = icmp eq ptr %0, %.0.i
-  br i1 %8, label %_cmsGetContext.exit, label %6, !llvm.loop !10
+  br i1 %8, label %_cmsGetContext.exit, label %6, !llvm.loop !12
 
 _cmsGetContext.exit:                              ; preds = %6, %7
   %.08.ph.i = phi ptr [ %.0.i, %7 ], [ @globalContext, %6 ]
@@ -890,7 +890,7 @@ define hidden ptr @_cmsGetContext(ptr noundef readnone captures(address) %0) loc
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %0, %.0
-  br i1 %7, label %.sink.split, label %5, !llvm.loop !10
+  br i1 %7, label %.sink.split, label %5, !llvm.loop !12
 
 .sink.split:                                      ; preds = %5, %6
   %.08.ph = phi ptr [ %.0, %6 ], [ @globalContext, %5 ]
@@ -1025,7 +1025,7 @@ define hidden range(i32 0, 2) i32 @cmsPluginTHR(ptr noundef %0, ptr noundef %1) 
   %39 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %38, %2, %37, %9, %4
   %.035 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %37 ], [ 1, %2 ], [ 0, %13 ], [ 0, %15 ], [ 0, %17 ], [ 0, %19 ], [ 0, %21 ], [ 0, %23 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 1, %38 ]
@@ -1105,7 +1105,7 @@ define hidden ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef %1) loc
 
 11:                                               ; preds = %10
   %12 = icmp eq ptr %0, %.0.i
-  br i1 %12, label %.sink.split.i, label %10, !llvm.loop !10
+  br i1 %12, label %.sink.split.i, label %10, !llvm.loop !12
 
 .sink.split.i:                                    ; preds = %11, %10
   %.08.ph.i = phi ptr [ %.0.i, %11 ], [ @globalContext, %10 ]
@@ -1161,7 +1161,7 @@ define hidden ptr @cmsCreateContext(ptr noundef %0, ptr noundef %1) local_unname
   %17 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_cmsFindMemoryPlugin.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %_cmsFindMemoryPlugin.exit, label %.lr.ph.i, !llvm.loop !14
 
 _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
   %.0.lcssa.i = phi ptr [ null, %2 ], [ %.010.i, %12 ], [ null, %16 ]
@@ -1227,7 +1227,7 @@ _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
 45:                                               ; preds = %.preheader.i
   %46 = load ptr, ptr %.0.i, align 8
   %47 = icmp eq ptr %46, %22
-  br i1 %47, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !13
+  br i1 %47, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !15
 
 .loopexit.sink.split.i:                           ; preds = %45, %41
   %.0.lcssa26.sink.i = phi ptr [ @_cmsContextPoolHead, %41 ], [ %.0.i, %45 ]
@@ -1294,7 +1294,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 63:                                               ; preds = %.preheader.i38
   %64 = load ptr, ptr %.0.i39, align 8
   %65 = icmp eq ptr %64, %22
-  br i1 %65, label %.loopexit.sink.split.i41, label %.preheader.i38, !llvm.loop !13
+  br i1 %65, label %.loopexit.sink.split.i41, label %.preheader.i38, !llvm.loop !15
 
 .loopexit.sink.split.i41:                         ; preds = %63, %59
   %.0.lcssa26.sink.i42 = phi ptr [ @_cmsContextPoolHead, %59 ], [ %.0.i39, %63 ]
@@ -1375,7 +1375,7 @@ define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
 22:                                               ; preds = %.preheader
   %23 = load ptr, ptr %.0, align 8
   %24 = icmp eq ptr %23, %0
-  br i1 %24, label %.loopexit.sink.split, label %.preheader, !llvm.loop !13
+  br i1 %24, label %.loopexit.sink.split, label %.preheader, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %22, %18
   %.0.lcssa26.sink = phi ptr [ @_cmsContextPoolHead, %18 ], [ %.0, %22 ]
@@ -1441,7 +1441,7 @@ define hidden ptr @cmsDupContext(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 9:                                                ; preds = %8
   %10 = icmp eq ptr %0, %.0.i
-  br i1 %10, label %.sink.split.i, label %8, !llvm.loop !10
+  br i1 %10, label %.sink.split.i, label %8, !llvm.loop !12
 
 .sink.split.i:                                    ; preds = %9, %8
   %.08.ph.i = phi ptr [ %.0.i, %9 ], [ @globalContext, %8 ]
@@ -1516,7 +1516,7 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
 41:                                               ; preds = %.preheader.i
   %42 = load ptr, ptr %.0.i58, align 8
   %43 = icmp eq ptr %42, %17
-  br i1 %43, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !13
+  br i1 %43, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !15
 
 .loopexit.sink.split.i:                           ; preds = %41, %37
   %.0.lcssa26.sink.i = phi ptr [ @_cmsContextPoolHead, %37 ], [ %.0.i58, %41 ]
@@ -1552,7 +1552,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 48:                                               ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !16
 
 49:                                               ; preds = %46, %48
   %indvars.iv = phi i64 [ 1, %46 ], [ %indvars.iv.next, %48 ]
@@ -1594,7 +1594,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 64:                                               ; preds = %.preheader.i60
   %65 = load ptr, ptr %.0.i61, align 8
   %66 = icmp eq ptr %65, %17
-  br i1 %66, label %.loopexit.sink.split.i63, label %.preheader.i60, !llvm.loop !13
+  br i1 %66, label %.loopexit.sink.split.i63, label %.preheader.i60, !llvm.loop !15
 
 .loopexit.sink.split.i63:                         ; preds = %64, %60
   %.0.lcssa26.sink.i64 = phi ptr [ @_cmsContextPoolHead, %60 ], [ %.0.i61, %64 ]
@@ -1634,7 +1634,7 @@ define hidden ptr @cmsGetContextUserData(ptr noundef readnone captures(address) 
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %0, %.0.i.i
-  br i1 %7, label %.sink.split.i.i, label %5, !llvm.loop !10
+  br i1 %7, label %.sink.split.i.i, label %5, !llvm.loop !12
 
 .sink.split.i.i:                                  ; preds = %6, %5
   %.08.ph.i.i = phi ptr [ %.0.i.i, %6 ], [ @globalContext, %5 ]
@@ -1717,12 +1717,14 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

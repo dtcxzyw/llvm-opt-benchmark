@@ -1484,7 +1484,7 @@ define dso_local ptr @deconstruct_jointree(ptr noundef initializes((88, 104), (6
   %105 = load i32, ptr %90, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next307.i.i, %106
-  br i1 %107, label %.lr.ph251.split.us.i.i, label %._crit_edge.i.i
+  br i1 %107, label %.lr.ph251.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %212, %104, %.lr.ph.i62.i, %77
   %108 = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -2626,7 +2626,7 @@ list_length.exit274:                              ; preds = %61, %62
   %179 = icmp eq i32 %173, %178
   %180 = icmp eq ptr %177, null
   %or.cond.i = select i1 %179, i1 true, i1 %180
-  br i1 %or.cond.i, label %185, label %181, !llvm.loop !18
+  br i1 %or.cond.i, label %185, label %181, !llvm.loop !20
 
 181:                                              ; preds = %172
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 152
@@ -2807,7 +2807,7 @@ mark_rels_nulled_by_join.exit:                    ; preds = %185, %156, %117
   %310 = icmp eq i32 %304, %309
   %311 = icmp eq ptr %308, null
   %or.cond.i276 = select i1 %310, i1 true, i1 %311
-  br i1 %or.cond.i276, label %316, label %312, !llvm.loop !18
+  br i1 %or.cond.i276, label %316, label %312, !llvm.loop !20
 
 312:                                              ; preds = %303
   %313 = getelementptr inbounds nuw i8, ptr %308, i64 152
@@ -2843,7 +2843,7 @@ mark_rels_nulled_by_join.exit277:                 ; preds = %316, %237
   %332 = icmp eq i32 %326, %331
   %333 = icmp eq ptr %330, null
   %or.cond.i279 = select i1 %332, i1 true, i1 %333
-  br i1 %or.cond.i279, label %338, label %334, !llvm.loop !18
+  br i1 %or.cond.i279, label %338, label %334, !llvm.loop !20
 
 334:                                              ; preds = %325
   %335 = getelementptr inbounds nuw i8, ptr %330, i64 152
@@ -3866,7 +3866,7 @@ add_vars_to_attr_needed.exit:                     ; preds = %.critedge.i, %50, %
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next49, %97
-  br i1 %98, label %7, label %._crit_edge, !llvm.loop !19
+  br i1 %98, label %7, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.thread, %1
   ret void
@@ -4051,7 +4051,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit
   %92 = getelementptr inbounds nuw i8, ptr %.0103151, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not130 = icmp eq ptr %93, null
-  br i1 %.not130, label %.critedge133, label %.lr.ph, !llvm.loop !20
+  br i1 %.not130, label %.critedge133, label %.lr.ph, !llvm.loop !22
 
 .lr.ph155:                                        ; preds = %.preheader, %95
   %.0154 = phi ptr [ %97, %95 ], [ %89, %.preheader ]
@@ -4065,7 +4065,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit
   %96 = getelementptr inbounds nuw i8, ptr %.0154, i64 8
   %97 = load ptr, ptr %96, align 8
   %.not131 = icmp eq ptr %97, null
-  br i1 %.not131, label %.critedge133, label %.lr.ph155, !llvm.loop !21
+  br i1 %.not131, label %.critedge133, label %.lr.ph155, !llvm.loop !23
 
 98:                                               ; preds = %.lr.ph155
   %99 = load i32, ptr %17, align 8
@@ -4168,7 +4168,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit
   %155 = load i32, ptr %36, align 4
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next178, %156
-  br i1 %157, label %48, label %._crit_edge163, !llvm.loop !22
+  br i1 %157, label %48, label %._crit_edge163, !llvm.loop !24
 
 ._crit_edge163:                                   ; preds = %154, %.preheader147
   %.lcssa = phi i32 [ %37, %.preheader147 ], [ %155, %154 ]
@@ -4257,7 +4257,7 @@ define internal fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr nounde
   %34 = getelementptr inbounds nuw i8, ptr %.090.i, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i1 @bms_is_subset(ptr noundef %31, ptr noundef %35) #7
-  br i1 %36, label %37, label %.preheader.i, !llvm.loop !23
+  br i1 %36, label %37, label %.preheader.i, !llvm.loop !25
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %.090.i, i64 80
@@ -4676,9 +4676,11 @@ attributes #8 = { cold nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

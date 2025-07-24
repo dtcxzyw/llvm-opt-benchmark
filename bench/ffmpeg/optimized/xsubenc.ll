@@ -484,7 +484,7 @@ align_put_bits.exit.us:                           ; preds = %34, %32
   %64 = load i8, ptr %63, align 1, !tbaa !46
   %65 = and i8 %64, 3
   %66 = icmp eq i8 %65, %57
-  br i1 %66, label %60, label %.critedge.us.split.loop.exit, !llvm.loop !57
+  br i1 %66, label %60, label %.critedge.us.split.loop.exit, !llvm.loop !58
 
 .critedge.us.split.loop.exit:                     ; preds = %62
   %67 = trunc nsw i64 %indvars.iv.next to i32
@@ -502,7 +502,7 @@ align_put_bits.exit.us:                           ; preds = %34, %32
   tail call fastcc void @put_xsub_rle(ptr noundef %0, i32 noundef %.037.us, i32 noundef %58)
   %73 = add nsw i32 %.037.us, %.04051.us
   %74 = icmp slt i32 %73, %3
-  br i1 %74, label %40, label %._crit_edge.us, !llvm.loop !58
+  br i1 %74, label %40, label %._crit_edge.us, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %.critedge.us
   %or.cond46.us = or i1 %.not45, %70
@@ -555,7 +555,7 @@ align_put_bits.exit:                              ; preds = %78, %95
   store i32 %.0.i.i.i, ptr %10, align 4, !tbaa !54
   %97 = add nuw nsw i32 %.03853, 1
   %exitcond.not = icmp eq i32 %97, %4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !60
 
 .loopexit:                                        ; preds = %align_put_bits.exit, %align_put_bits.exit.us, %40, %5
   %.041 = phi i32 [ 0, %5 ], [ -1397118274, %40 ], [ 0, %align_put_bits.exit.us ], [ 0, %align_put_bits.exit ]
@@ -756,7 +756,7 @@ define internal fastcc void @flush_put_bits(ptr noundef nonnull captures(none) %
   %22 = add nsw i32 %21, 8
   store i32 %22, ptr %2, align 4, !tbaa !54
   %23 = icmp slt i32 %21, 24
-  br i1 %23, label %9, label %._crit_edge, !llvm.loop !59
+  br i1 %23, label %9, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %14, %1
   store i32 32, ptr %2, align 4, !tbaa !54
@@ -848,7 +848,9 @@ attributes #9 = { noreturn nounwind }
 !53 = !{!51, !14, i64 16}
 !54 = !{!51, !10, i64 4}
 !55 = !{!51, !10, i64 0}
-!56 = distinct !{!56, !43}
-!57 = distinct !{!57, !43}
+!56 = distinct !{!56, !43, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !58 = distinct !{!58, !43}
 !59 = distinct !{!59, !43}
+!60 = distinct !{!60, !43}
+!61 = distinct !{!61, !43}

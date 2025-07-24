@@ -288,7 +288,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %.0392536.us = phi i32 [ %180, %.preheader483.us ], [ 0, %.preheader483.lr.ph ]
   %180 = add nsw i32 %.0392536.us, %.0.i
   %181 = icmp slt i32 %180, %128
-  br i1 %181, label %.preheader483.us, label %._crit_edge537
+  br i1 %181, label %.preheader483.us, label %._crit_edge537, !llvm.loop !30
 
 .preheader483:                                    ; preds = %.preheader483.preheader, %._crit_edge535
   %182 = phi i32 [ %128, %.preheader483.preheader ], [ %187, %._crit_edge535 ]
@@ -321,7 +321,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %indvars = trunc i64 %indvars.iv.next577 to i32
   %190 = icmp sgt i32 %187, %indvars
   %indvars.iv.next = add i32 %indvars.iv, %.0.i
-  br i1 %190, label %.preheader483, label %._crit_edge537, !llvm.loop !30
+  br i1 %190, label %.preheader483, label %._crit_edge537, !llvm.loop !32
 
 191:                                              ; preds = %.lr.ph534, %.loopexit479
   %192 = phi i32 [ %182, %.lr.ph534 ], [ %204, %.loopexit479 ]
@@ -356,7 +356,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %205 = phi i32 [ %.pre601, %.preheader482.loopexit ], [ %193, %191 ]
   %206 = phi i32 [ %.pre601, %.preheader482.loopexit ], [ %195, %191 ]
   %207 = phi i32 [ %.pre, %.preheader482.loopexit ], [ %194, %191 ]
-  %208 = load ptr, ptr %158, align 8, !tbaa !32
+  %208 = load ptr, ptr %158, align 8, !tbaa !34
   %209 = add i32 %indvars599, %159
   %210 = add i32 %199, %119
   %211 = sext i32 %209 to i64
@@ -448,7 +448,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 ._crit_edge517.us:                                ; preds = %236
   %indvars.iv.next590 = add nsw i64 %indvars.iv589, 1
   %255 = icmp slt i64 %indvars.iv.next590, %230
-  br i1 %255, label %.preheader471.lr.ph.us, label %.loopexit479
+  br i1 %255, label %.preheader471.lr.ph.us, label %.loopexit479, !llvm.loop !35
 
 .preheader478:                                    ; preds = %226
   br i1 %200, label %.lr.ph528, label %.loopexit479
@@ -499,7 +499,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 ._crit_edge526.us:                                ; preds = %263
   %indvars.iv.next597 = add nsw i64 %indvars.iv596, 1
   %271 = icmp slt i64 %indvars.iv.next597, %259
-  br i1 %271, label %.preheader.lr.ph.us, label %.loopexit479
+  br i1 %271, label %.preheader.lr.ph.us, label %.loopexit479, !llvm.loop !36
 
 272:                                              ; preds = %.preheader482, %._crit_edge511
   %indvars.iv581 = phi i64 [ 0, %.preheader482 ], [ %indvars.iv.next582, %._crit_edge511 ]
@@ -709,7 +709,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   %390 = getelementptr inbounds nuw float, ptr %0, i64 %389
   %391 = mul i64 %217, %indvars.iv579
   %392 = getelementptr inbounds nuw float, ptr %1, i64 %391
-  %393 = load float, ptr %162, align 4, !tbaa !33
+  %393 = load float, ptr %162, align 4, !tbaa !37
   %394 = load float, ptr %31, align 8, !tbaa !16
   %395 = fcmp reassoc nsz arcp contract afn olt float %394, 0.000000e+00
   br i1 %395, label %.preheader474, label %.preheader476
@@ -1157,6 +1157,10 @@ attributes #9 = { nounwind }
 !28 = !{!25, !11, i64 4}
 !29 = !{!19, !11, i64 12}
 !30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.partial.disable"}
-!32 = !{!7, !12, i64 40}
-!33 = !{!7, !8, i64 20}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = !{!7, !12, i64 40}
+!35 = distinct !{!35, !31}
+!36 = distinct !{!36, !31}
+!37 = !{!7, !8, i64 20}

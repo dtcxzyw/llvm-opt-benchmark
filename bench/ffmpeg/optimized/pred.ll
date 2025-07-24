@@ -5683,7 +5683,7 @@ define internal void @pred_dc_9(ptr noundef writeonly captures(none) %0, ptr nou
   store i16 %51, ptr %52, align 2, !tbaa !124
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !163
+  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !164
 
 53:                                               ; preds = %.lr.ph69, %53
   %indvars.iv86 = phi i64 [ 1, %.lr.ph69 ], [ %indvars.iv.next87, %53 ]
@@ -5698,7 +5698,7 @@ define internal void @pred_dc_9(ptr noundef writeonly captures(none) %0, ptr nou
   store i16 %59, ptr %61, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !164
+  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !165
 
 .loopexit:                                        ; preds = %53, %29, %._crit_edge64
   ret void
@@ -5748,7 +5748,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 0
-  br i1 %exitcond98.not, label %.split, label %25, !llvm.loop !165
+  br i1 %exitcond98.not, label %.split, label %25, !llvm.loop !166
 
 .split:                                           ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -5836,7 +5836,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
 
 95:                                               ; preds = %.preheader20, %.preheader19
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 4
-  br i1 %exitcond102.not, label %96, label %33, !llvm.loop !166
+  br i1 %exitcond102.not, label %96, label %33, !llvm.loop !167
 
 96:                                               ; preds = %95
   %97 = icmp eq i32 %5, 26
@@ -5868,7 +5868,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   store i16 %113, ptr %115, align 2, !tbaa !124
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
-  br i1 %exitcond106.not, label %pred_angular_9.exit, label %100, !llvm.loop !167
+  br i1 %exitcond106.not, label %pred_angular_9.exit, label %100, !llvm.loop !168
 
 116:                                              ; preds = %6
   %117 = getelementptr i8, ptr %2, i64 -2
@@ -5897,7 +5897,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   store i16 %129, ptr %130, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %123, !llvm.loop !168
+  br i1 %exitcond.not, label %.loopexit32, label %123, !llvm.loop !169
 
 .loopexit32:                                      ; preds = %123, %116
   %.1210.i = phi ptr [ %117, %116 ], [ %12, %123 ]
@@ -5947,7 +5947,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   store i16 %151, ptr %gep39, align 2, !tbaa !124
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %exitcond83.not, label %.loopexit28, label %139, !llvm.loop !169
+  br i1 %exitcond83.not, label %.loopexit28, label %139, !llvm.loop !170
 
 153:                                              ; preds = %.preheader27, %153
   %indvars.iv84 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next85, %153 ]
@@ -5958,11 +5958,11 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   store i16 %154, ptr %gep44, align 2, !tbaa !124
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 4
-  br i1 %exitcond87.not, label %.loopexit28, label %153, !llvm.loop !170
+  br i1 %exitcond87.not, label %.loopexit28, label %153, !llvm.loop !171
 
 .loopexit28:                                      ; preds = %139, %153
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 4
-  br i1 %exitcond91.not, label %156, label %131, !llvm.loop !171
+  br i1 %exitcond91.not, label %156, label %131, !llvm.loop !172
 
 156:                                              ; preds = %.loopexit28
   %157 = icmp eq i32 %5, 10
@@ -6081,7 +6081,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 0
-  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !165
+  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !166
 
 .loopexit23:                                      ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -6188,11 +6188,11 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %103 = trunc i32 %102 to i16
   %104 = getelementptr i16, ptr %40, i64 %91
   store i16 %103, ptr %104, align 2, !tbaa !124
-  br i1 %49, label %48, label %.loopexit, !llvm.loop !172
+  br i1 %49, label %48, label %.loopexit, !llvm.loop !173
 
 .loopexit:                                        ; preds = %48, %.preheader19
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 8
-  br i1 %exitcond99.not, label %105, label %33, !llvm.loop !166
+  br i1 %exitcond99.not, label %105, label %33, !llvm.loop !167
 
 105:                                              ; preds = %.loopexit
   %106 = icmp eq i32 %5, 26
@@ -6224,7 +6224,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   store i16 %122, ptr %124, align 2, !tbaa !124
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 8
-  br i1 %exitcond103.not, label %pred_angular_9.exit, label %109, !llvm.loop !167
+  br i1 %exitcond103.not, label %pred_angular_9.exit, label %109, !llvm.loop !168
 
 125:                                              ; preds = %6
   %126 = getelementptr i8, ptr %2, i64 -2
@@ -6253,7 +6253,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   store i16 %138, ptr %139, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %132, !llvm.loop !168
+  br i1 %exitcond.not, label %.loopexit32, label %132, !llvm.loop !169
 
 .loopexit32:                                      ; preds = %132, %125
   %.1210.i = phi ptr [ %126, %125 ], [ %12, %132 ]
@@ -6303,7 +6303,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   store i16 %160, ptr %gep39, align 2, !tbaa !124
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 8
-  br i1 %exitcond69.not, label %.loopexit28, label %148, !llvm.loop !169
+  br i1 %exitcond69.not, label %.loopexit28, label %148, !llvm.loop !170
 
 162:                                              ; preds = %.preheader27, %162
   %indvars.iv70 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next71, %162 ]
@@ -6314,11 +6314,11 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   store i16 %163, ptr %gep44, align 2, !tbaa !124
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 8
-  br i1 %exitcond73.not, label %.loopexit28, label %162, !llvm.loop !170
+  br i1 %exitcond73.not, label %.loopexit28, label %162, !llvm.loop !171
 
 .loopexit28:                                      ; preds = %148, %162
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 8
-  br i1 %exitcond77.not, label %165, label %140, !llvm.loop !171
+  br i1 %exitcond77.not, label %165, label %140, !llvm.loop !172
 
 165:                                              ; preds = %.loopexit28
   %166 = icmp eq i32 %5, 10
@@ -6396,7 +6396,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %228 = trunc nuw nsw i32 %227 to i16
   %229 = getelementptr inbounds nuw i16, ptr %0, i64 %217
   store i16 %228, ptr %229, align 2, !tbaa !124
-  br i1 %170, label %169, label %pred_angular_9.exit, !llvm.loop !173
+  br i1 %170, label %169, label %pred_angular_9.exit, !llvm.loop !174
 
 pred_angular_9.exit:                              ; preds = %169, %109, %105, %165
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -6447,7 +6447,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 0
-  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !165
+  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !166
 
 .loopexit23:                                      ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -6549,7 +6549,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %99, ptr %100, align 2, !tbaa !124
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
   %101 = icmp samesign ult i64 %indvars.iv88, 12
-  br i1 %101, label %45, label %.loopexit, !llvm.loop !172
+  br i1 %101, label %45, label %.loopexit, !llvm.loop !173
 
 102:                                              ; preds = %.preheader19, %102
   %indvars.iv93 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next94, %102 ]
@@ -6559,11 +6559,11 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i64 %103, ptr %104, align 1, !tbaa !97
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 4
   %105 = icmp samesign ult i64 %indvars.iv93, 12
-  br i1 %105, label %102, label %.loopexit, !llvm.loop !174
+  br i1 %105, label %102, label %.loopexit, !llvm.loop !175
 
 .loopexit:                                        ; preds = %45, %102
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 16
-  br i1 %exitcond99.not, label %106, label %33, !llvm.loop !166
+  br i1 %exitcond99.not, label %106, label %33, !llvm.loop !167
 
 106:                                              ; preds = %.loopexit
   %107 = icmp eq i32 %5, 26
@@ -6595,7 +6595,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %123, ptr %125, align 2, !tbaa !124
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 16
-  br i1 %exitcond103.not, label %pred_angular_9.exit, label %110, !llvm.loop !167
+  br i1 %exitcond103.not, label %pred_angular_9.exit, label %110, !llvm.loop !168
 
 126:                                              ; preds = %6
   %127 = getelementptr i8, ptr %2, i64 -2
@@ -6624,7 +6624,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %139, ptr %140, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %133, !llvm.loop !168
+  br i1 %exitcond.not, label %.loopexit32, label %133, !llvm.loop !169
 
 .loopexit32:                                      ; preds = %133, %126
   %.1210.i = phi ptr [ %127, %126 ], [ %12, %133 ]
@@ -6674,7 +6674,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %161, ptr %gep39, align 2, !tbaa !124
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 16
-  br i1 %exitcond69.not, label %.loopexit28, label %149, !llvm.loop !169
+  br i1 %exitcond69.not, label %.loopexit28, label %149, !llvm.loop !170
 
 163:                                              ; preds = %.preheader27, %163
   %indvars.iv70 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next71, %163 ]
@@ -6685,11 +6685,11 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %164, ptr %gep44, align 2, !tbaa !124
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 16
-  br i1 %exitcond73.not, label %.loopexit28, label %163, !llvm.loop !170
+  br i1 %exitcond73.not, label %.loopexit28, label %163, !llvm.loop !171
 
 .loopexit28:                                      ; preds = %149, %163
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 16
-  br i1 %exitcond77.not, label %166, label %141, !llvm.loop !171
+  br i1 %exitcond77.not, label %166, label %141, !llvm.loop !172
 
 166:                                              ; preds = %.loopexit28
   %167 = icmp eq i32 %5, 10
@@ -6768,7 +6768,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   store i16 %228, ptr %229, align 2, !tbaa !124
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 4
   %230 = icmp samesign ult i64 %indvars.iv78, 12
-  br i1 %230, label %170, label %pred_angular_9.exit, !llvm.loop !173
+  br i1 %230, label %170, label %pred_angular_9.exit, !llvm.loop !174
 
 pred_angular_9.exit:                              ; preds = %170, %110, %106, %166
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -6819,7 +6819,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv67 = trunc i64 %indvars.iv.next64 to i32
   %exitcond68.not = icmp eq i32 %22, %lftr.wideiv67
-  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !165
+  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !166
 
 .loopexit8:                                       ; preds = %23, %15
   %.0209.i = phi ptr [ %16, %15 ], [ %12, %23 ]
@@ -6921,7 +6921,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   store i16 %97, ptr %98, align 2, !tbaa !124
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 4
   %99 = icmp samesign ult i64 %indvars.iv69, 28
-  br i1 %99, label %43, label %.loopexit, !llvm.loop !172
+  br i1 %99, label %43, label %.loopexit, !llvm.loop !173
 
 100:                                              ; preds = %.preheader, %100
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %100 ]
@@ -6931,11 +6931,11 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   store i64 %101, ptr %102, align 1, !tbaa !97
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %103 = icmp samesign ult i64 %indvars.iv74, 28
-  br i1 %103, label %100, label %.loopexit, !llvm.loop !174
+  br i1 %103, label %100, label %.loopexit, !llvm.loop !175
 
 .loopexit:                                        ; preds = %43, %100
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 32
-  br i1 %exitcond80.not, label %pred_angular_9.exit, label %31, !llvm.loop !166
+  br i1 %exitcond80.not, label %pred_angular_9.exit, label %31, !llvm.loop !167
 
 104:                                              ; preds = %6
   %105 = getelementptr i8, ptr %2, i64 -2
@@ -6967,7 +6967,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %111, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !168
+  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !169
 
 .loopexit16:                                      ; preds = %112, %104
   %.1210.i = phi ptr [ %105, %104 ], [ %12, %112 ]
@@ -7017,7 +7017,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   store i16 %140, ptr %gep23, align 2, !tbaa !124
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 32
-  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !169
+  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !170
 
 142:                                              ; preds = %.preheader10, %142
   %indvars.iv52 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next53, %142 ]
@@ -7028,11 +7028,11 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   store i16 %143, ptr %gep28, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !170
+  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !171
 
 .loopexit11:                                      ; preds = %128, %142
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 32
-  br i1 %exitcond59.not, label %pred_angular_9.exit, label %120, !llvm.loop !171
+  br i1 %exitcond59.not, label %pred_angular_9.exit, label %120, !llvm.loop !172
 
 pred_angular_9.exit:                              ; preds = %.loopexit11, %.loopexit
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -7230,7 +7230,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %155 = or i32 %.2780.i44, %154
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %156 = icmp samesign ult i64 %indvars.iv.next, %143
-  br i1 %156, label %147, label %._crit_edge.loopexit, !llvm.loop !175
+  br i1 %156, label %147, label %._crit_edge.loopexit, !llvm.loop !176
 
 ._crit_edge.loopexit:                             ; preds = %147
   %157 = icmp ne i32 %155, 0
@@ -7275,7 +7275,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %181 = or i32 %.2783.i46, %180
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 2
   %182 = icmp samesign ult i64 %indvars.iv.next137, %169
-  br i1 %182, label %173, label %.loopexit43, !llvm.loop !176
+  br i1 %182, label %173, label %.loopexit43, !llvm.loop !177
 
 .loopexit43:                                      ; preds = %173, %159, %._crit_edge
   %.1782.i = phi i32 [ %87, %._crit_edge ], [ 0, %159 ], [ %181, %173 ]
@@ -7334,7 +7334,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %219 = or i32 %.2790.i51, %218
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 2
   %220 = icmp samesign ult i64 %indvars.iv.next140, %210
-  br i1 %220, label %211, label %.loopexit42, !llvm.loop !177
+  br i1 %220, label %211, label %.loopexit42, !llvm.loop !178
 
 .loopexit42:                                      ; preds = %211, %200, %198
   %.1789.i = phi i32 [ %91, %198 ], [ 0, %200 ], [ %219, %211 ]
@@ -7371,7 +7371,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %240 = or i32 %.2794.i56, %239
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %241 = icmp samesign ult i64 %indvars.iv.next143, %231
-  br i1 %241, label %232, label %._crit_edge60.loopexit, !llvm.loop !178
+  br i1 %241, label %232, label %._crit_edge60.loopexit, !llvm.loop !179
 
 ._crit_edge60.loopexit:                           ; preds = %232
   %242 = icmp ne i32 %240, 0
@@ -7445,7 +7445,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i64 %268, ptr %275, align 2, !tbaa !97
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 4
   %276 = icmp samesign ult i64 %indvars.iv.next146, %273
-  br i1 %276, label %274, label %.loopexit41, !llvm.loop !179
+  br i1 %276, label %274, label %.loopexit41, !llvm.loop !180
 
 .loopexit41:                                      ; preds = %274, %256, %255
   %277 = icmp ne i32 %.0781.i, 0
@@ -7464,7 +7464,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i16 %280, ptr %281, align 2, !tbaa !124
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next149, 4
-  br i1 %exitcond.not, label %.loopexit40, label %278, !llvm.loop !180
+  br i1 %exitcond.not, label %.loopexit40, label %278, !llvm.loop !181
 
 .loopexit40:                                      ; preds = %278, %.loopexit41
   br i1 %.0778.i, label %.preheader38, label %.loopexit37
@@ -7490,7 +7490,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i16 %286, ptr %287, align 2, !tbaa !124
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !181
+  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !182
 
 ._crit_edge70:                                    ; preds = %.lr.ph69
   %288 = icmp samesign ult i32 %113, 4
@@ -7517,7 +7517,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   store i64 %289, ptr %296, align 2, !tbaa !97
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 4
   %297 = icmp samesign ult i64 %indvars.iv.next156, %294
-  br i1 %297, label %295, label %.loopexit37, !llvm.loop !182
+  br i1 %297, label %295, label %.loopexit37, !llvm.loop !183
 
 .loopexit37:                                      ; preds = %295, %._crit_edge70, %.loopexit40
   br i1 %124, label %298, label %.loopexit27
@@ -7602,7 +7602,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %338 = getelementptr inbounds %struct.MvField, ptr %331, i64 %337, i32 2
   %339 = load i8, ptr %338, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %339, 0
-  br i1 %.not850.i, label %.critedge.i, label %328, !llvm.loop !183
+  br i1 %.not850.i, label %.critedge.i, label %328, !llvm.loop !184
 
 .critedge.i:                                      ; preds = %330, %..critedge.i_crit_edge
   %.pre-phi227 = phi i64 [ %.pre226, %..critedge.i_crit_edge ], [ %337, %330 ]
@@ -7642,7 +7642,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
 357:                                              ; preds = %349
   %358 = add nuw nsw i32 %.1799.i82, 1
   %exitcond162.not = icmp eq i32 %358, %.0796.i
-  br i1 %exitcond162.not, label %.critedge25.i, label %349, !llvm.loop !184
+  br i1 %exitcond162.not, label %.critedge25.i, label %349, !llvm.loop !185
 
 .critedge25.i:                                    ; preds = %357, %349
   %.1799.i.lcssa = phi i32 [ %.0796.i, %357 ], [ %.1799.i82, %349 ]
@@ -7680,7 +7680,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
 
 378:                                              ; preds = %374, %364
   %.not = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not, label %._crit_edge89, label %364, !llvm.loop !185
+  br i1 %.not, label %._crit_edge89, label %364, !llvm.loop !186
 
 ._crit_edge89:                                    ; preds = %378, %.critedge25.i
   %379 = load i16, ptr %7, align 16, !tbaa !124
@@ -7701,7 +7701,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
 388:                                              ; preds = %380
   %389 = add nuw nsw i32 %.2800.i74, 1
   %exitcond158.not = icmp eq i32 %389, %.0796.i
-  br i1 %exitcond158.not, label %.lr.ph80, label %380, !llvm.loop !186
+  br i1 %exitcond158.not, label %.lr.ph80, label %380, !llvm.loop !187
 
 .critedge27.i:                                    ; preds = %380
   %.not847.i = icmp eq i32 %.2800.i74, 0
@@ -7747,7 +7747,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
 
 412:                                              ; preds = %408, %398
   %413 = icmp samesign ugt i64 %indvars.iv159, 1
-  br i1 %413, label %398, label %._crit_edge81, !llvm.loop !187
+  br i1 %413, label %398, label %._crit_edge81, !llvm.loop !188
 
 ._crit_edge81:                                    ; preds = %412
   %414 = load i16, ptr %69, align 2, !tbaa !124
@@ -7808,7 +7808,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %441, %438 ], [ %.0764.i92, %436 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 4
   %443 = icmp samesign ult i64 %indvars.iv.next167, %423
-  br i1 %443, label %425, label %._crit_edge96, !llvm.loop !188
+  br i1 %443, label %425, label %._crit_edge96, !llvm.loop !189
 
 ._crit_edge96:                                    ; preds = %442, %417
   br i1 %277, label %446, label %.thread.split
@@ -7898,7 +7898,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %483, %480 ], [ %.2766.i105, %479 ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, -4
   %485 = icmp sgt i64 %indvars.iv175, 3
-  br i1 %485, label %466, label %._crit_edge109, !llvm.loop !189
+  br i1 %485, label %466, label %._crit_edge109, !llvm.loop !190
 
 ._crit_edge109:                                   ; preds = %484, %.._crit_edge109_crit_edge
   %.pre-phi232 = phi i32 [ %.pre231, %.._crit_edge109_crit_edge ], [ %465, %484 ]
@@ -7987,7 +7987,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %533, %530 ], [ %.4768.i99, %529 ]
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, -4
   %535 = icmp sgt i64 %indvars.iv169, 3
-  br i1 %535, label %516, label %.loopexit29, !llvm.loop !190
+  br i1 %535, label %516, label %.loopexit29, !llvm.loop !191
 
 .loopexit29:                                      ; preds = %534, %.lr.ph104.preheader, %506, %.preheader28, %496, %._crit_edge109
   %536 = load i16, ptr %6, align 16, !tbaa !124
@@ -8043,7 +8043,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %561, %558 ], [ %.6770.i112, %556 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %563 = icmp samesign ult i64 %indvars.iv.next179, %543
-  br i1 %563, label %546, label %.loopexit27, !llvm.loop !191
+  br i1 %563, label %546, label %.loopexit27, !llvm.loop !192
 
 .loopexit27:                                      ; preds = %562, %537, %.loopexit29, %.loopexit37
   br i1 %.0778.i, label %587, label %564
@@ -8391,7 +8391,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i50, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !175
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !176
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -8436,7 +8436,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i52, %184
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %186 = icmp samesign ult i64 %indvars.iv.next143, %173
-  br i1 %186, label %177, label %.loopexit49, !llvm.loop !176
+  br i1 %186, label %177, label %.loopexit49, !llvm.loop !177
 
 .loopexit49:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -8495,7 +8495,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i57, %222
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %224 = icmp samesign ult i64 %indvars.iv.next146, %214
-  br i1 %224, label %215, label %.loopexit48, !llvm.loop !177
+  br i1 %224, label %215, label %.loopexit48, !llvm.loop !178
 
 .loopexit48:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -8532,7 +8532,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i62, %243
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %245 = icmp samesign ult i64 %indvars.iv.next149, %235
-  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !178
+  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !179
 
 ._crit_edge66.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -8604,7 +8604,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %278 = icmp samesign ult i64 %indvars.iv.next152, %275
-  br i1 %278, label %276, label %.loopexit47, !llvm.loop !179
+  br i1 %278, label %276, label %.loopexit47, !llvm.loop !180
 
 .loopexit47:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -8623,7 +8623,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 8
-  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !180
+  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !181
 
 .loopexit46:                                      ; preds = %280, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -8649,7 +8649,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !181
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !182
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %290 = icmp samesign ult i32 %117, 8
@@ -8676,7 +8676,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %299 = icmp samesign ult i64 %indvars.iv.next162, %296
-  br i1 %299, label %297, label %.loopexit43, !llvm.loop !182
+  br i1 %299, label %297, label %.loopexit43, !llvm.loop !183
 
 .loopexit43:                                      ; preds = %297, %._crit_edge76, %.loopexit46
   br i1 %128, label %300, label %.loopexit33
@@ -8761,7 +8761,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !183
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !184
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi260 = phi i64 [ %.pre259, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -8801,7 +8801,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !184
+  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !185
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i88, %351 ]
@@ -8839,7 +8839,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not297 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !185
+  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !186
 
 ._crit_edge95:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -8860,7 +8860,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !186
+  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !187
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -8906,7 +8906,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !187
+  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !188
 
 ._crit_edge87:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -8967,7 +8967,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i98, %438 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %445 = icmp samesign ult i64 %indvars.iv.next173, %425
-  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !188
+  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !189
 
 ._crit_edge102:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit38, label %.thread
@@ -9061,7 +9061,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %485, %482 ], [ %.2766.i111, %481 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %487 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %487, label %468, label %._crit_edge115, !llvm.loop !189
+  br i1 %487, label %468, label %._crit_edge115, !llvm.loop !190
 
 ._crit_edge115:                                   ; preds = %486, %.._crit_edge115_crit_edge
   %.pre-phi265 = phi i32 [ %.pre264, %.._crit_edge115_crit_edge ], [ %467, %486 ]
@@ -9150,7 +9150,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %535, %532 ], [ %.4768.i105, %531 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %537 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %537, label %518, label %.loopexit35, !llvm.loop !190
+  br i1 %537, label %518, label %.loopexit35, !llvm.loop !191
 
 .loopexit35:                                      ; preds = %536, %.lr.ph110.preheader, %508, %.preheader34, %498, %._crit_edge115
   %538 = load i16, ptr %6, align 16, !tbaa !124
@@ -9206,7 +9206,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %563, %560 ], [ %.6770.i118, %558 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %565 = icmp samesign ult i64 %indvars.iv.next191, %545
-  br i1 %565, label %548, label %.loopexit33, !llvm.loop !191
+  br i1 %565, label %548, label %.loopexit33, !llvm.loop !192
 
 .loopexit33:                                      ; preds = %564, %539, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %602, label %566
@@ -9238,7 +9238,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 %574, ptr %576, align 2, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %577 = icmp samesign ult i64 %indvars.iv208, 12
-  br i1 %577, label %575, label %.thread4.thread, !llvm.loop !192
+  br i1 %577, label %575, label %.thread4.thread, !llvm.loop !193
 
 578:                                              ; preds = %570
   br i1 %254, label %579, label %.thread283
@@ -9256,7 +9256,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 %582, ptr %584, align 2, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %585 = icmp samesign ult i64 %indvars.iv205, 12
-  br i1 %585, label %583, label %.thread4.thread.thread, !llvm.loop !193
+  br i1 %585, label %583, label %.thread4.thread.thread, !llvm.loop !194
 
 .thread283:                                       ; preds = %.loopexit33.thread, %578
   br i1 %.0792.i, label %.critedge, label %596
@@ -9280,7 +9280,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 %592, ptr %594, align 2, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %595 = icmp samesign ult i64 %indvars.iv202, 12
-  br i1 %595, label %593, label %.loopexit29, !llvm.loop !194
+  br i1 %595, label %593, label %.loopexit29, !llvm.loop !195
 
 596:                                              ; preds = %.thread283
   store i16 512, ptr %6, align 16, !tbaa !124
@@ -9292,7 +9292,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %598, align 2, !tbaa !97
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 4
   %599 = icmp samesign ult i64 %indvars.iv193, 12
-  br i1 %599, label %597, label %.preheader, !llvm.loop !195
+  br i1 %599, label %597, label %.preheader, !llvm.loop !196
 
 .preheader:                                       ; preds = %597, %.preheader
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.preheader ], [ 0, %597 ]
@@ -9300,7 +9300,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %600, align 2, !tbaa !97
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 4
   %601 = icmp samesign ult i64 %indvars.iv196, 12
-  br i1 %601, label %.preheader, label %.thread11, !llvm.loop !196
+  br i1 %601, label %.preheader, label %.thread11, !llvm.loop !197
 
 602:                                              ; preds = %.loopexit33
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -9430,7 +9430,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i16 %662, ptr %663, align 2, !tbaa !124
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not268 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not268, label %664, label %647, !llvm.loop !197
+  br i1 %.not268, label %664, label %647, !llvm.loop !198
 
 664:                                              ; preds = %647
   %665 = load i16, ptr %70, align 2, !tbaa !124
@@ -9469,7 +9469,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   store i16 %691, ptr %692, align 2, !tbaa !124
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not269 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not269, label %.loopexit, label %676, !llvm.loop !198
+  br i1 %.not269, label %.loopexit, label %676, !llvm.loop !199
 
 .loopexit:                                        ; preds = %676, %629, %624, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %624 ], [ %71, %629 ], [ %73, %676 ]
@@ -9704,7 +9704,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i50, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !175
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !176
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -9749,7 +9749,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i52, %184
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %186 = icmp samesign ult i64 %indvars.iv.next143, %173
-  br i1 %186, label %177, label %.loopexit49, !llvm.loop !176
+  br i1 %186, label %177, label %.loopexit49, !llvm.loop !177
 
 .loopexit49:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -9808,7 +9808,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i57, %222
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %224 = icmp samesign ult i64 %indvars.iv.next146, %214
-  br i1 %224, label %215, label %.loopexit48, !llvm.loop !177
+  br i1 %224, label %215, label %.loopexit48, !llvm.loop !178
 
 .loopexit48:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -9845,7 +9845,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i62, %243
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %245 = icmp samesign ult i64 %indvars.iv.next149, %235
-  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !178
+  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !179
 
 ._crit_edge66.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -9917,7 +9917,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %278 = icmp samesign ult i64 %indvars.iv.next152, %275
-  br i1 %278, label %276, label %.loopexit47, !llvm.loop !179
+  br i1 %278, label %276, label %.loopexit47, !llvm.loop !180
 
 .loopexit47:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -9936,7 +9936,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 16
-  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !180
+  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !181
 
 .loopexit46:                                      ; preds = %280, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -9962,7 +9962,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !181
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !182
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %290 = icmp samesign ult i32 %117, 16
@@ -9989,7 +9989,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %299 = icmp samesign ult i64 %indvars.iv.next162, %296
-  br i1 %299, label %297, label %.loopexit43, !llvm.loop !182
+  br i1 %299, label %297, label %.loopexit43, !llvm.loop !183
 
 .loopexit43:                                      ; preds = %297, %._crit_edge76, %.loopexit46
   br i1 %128, label %300, label %.loopexit33
@@ -10074,7 +10074,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !183
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !184
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi260 = phi i64 [ %.pre259, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -10114,7 +10114,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !184
+  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !185
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i88, %351 ]
@@ -10152,7 +10152,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not297 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !185
+  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !186
 
 ._crit_edge95:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -10173,7 +10173,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !186
+  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !187
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -10219,7 +10219,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !187
+  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !188
 
 ._crit_edge87:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -10280,7 +10280,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i98, %438 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %445 = icmp samesign ult i64 %indvars.iv.next173, %425
-  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !188
+  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !189
 
 ._crit_edge102:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit38, label %.thread
@@ -10296,7 +10296,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %447, ptr %449, align 2, !tbaa !97
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 4
   %450 = icmp samesign ult i64 %indvars.iv175, 12
-  br i1 %450, label %448, label %.loopexit38, !llvm.loop !199
+  br i1 %450, label %448, label %.loopexit38, !llvm.loop !200
 
 .loopexit38:                                      ; preds = %448, %._crit_edge102
   br i1 %.0778.i, label %.loopexit37, label %451
@@ -10315,7 +10315,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %456, ptr %458, align 2, !tbaa !97
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %459 = icmp samesign ult i64 %indvars.iv178, 12
-  br i1 %459, label %457, label %.loopexit37, !llvm.loop !200
+  br i1 %459, label %457, label %.loopexit37, !llvm.loop !201
 
 .loopexit37:                                      ; preds = %457, %.loopexit38
   %460 = icmp ne i32 %2, 0
@@ -10384,7 +10384,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %490, %487 ], [ %.2766.i111, %486 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %492 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %492, label %473, label %._crit_edge115, !llvm.loop !189
+  br i1 %492, label %473, label %._crit_edge115, !llvm.loop !190
 
 ._crit_edge115:                                   ; preds = %491, %.._crit_edge115_crit_edge
   %.pre-phi265 = phi i32 [ %.pre264, %.._crit_edge115_crit_edge ], [ %472, %491 ]
@@ -10473,7 +10473,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %540, %537 ], [ %.4768.i105, %536 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %542 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %542, label %523, label %.loopexit35, !llvm.loop !190
+  br i1 %542, label %523, label %.loopexit35, !llvm.loop !191
 
 .loopexit35:                                      ; preds = %541, %.lr.ph110.preheader, %513, %.preheader34, %503, %._crit_edge115
   %543 = load i16, ptr %6, align 16, !tbaa !124
@@ -10529,7 +10529,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %568, %565 ], [ %.6770.i118, %563 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %570 = icmp samesign ult i64 %indvars.iv.next191, %550
-  br i1 %570, label %553, label %.loopexit33, !llvm.loop !191
+  br i1 %570, label %553, label %.loopexit33, !llvm.loop !192
 
 .loopexit33:                                      ; preds = %569, %544, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %618, label %571
@@ -10554,7 +10554,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %577, ptr %579, align 2, !tbaa !97
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 4
   %580 = icmp samesign ult i64 %indvars.iv211, 12
-  br i1 %580, label %578, label %.thread4, !llvm.loop !201
+  br i1 %580, label %578, label %.thread4, !llvm.loop !202
 
 581:                                              ; preds = %571
   br i1 %248, label %582, label %589
@@ -10571,7 +10571,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %585, ptr %587, align 2, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %588 = icmp samesign ult i64 %indvars.iv208, 28
-  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !192
+  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !193
 
 589:                                              ; preds = %581
   br i1 %254, label %590, label %.thread283
@@ -10589,7 +10589,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %593, ptr %595, align 2, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %596 = icmp samesign ult i64 %indvars.iv205, 28
-  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !193
+  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !194
 
 .thread283:                                       ; preds = %.loopexit33.thread, %589
   br i1 %.0792.i, label %597, label %612
@@ -10607,7 +10607,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %601, ptr %603, align 2, !tbaa !97
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 4
   %604 = icmp samesign ult i64 %indvars.iv199, 12
-  br i1 %604, label %602, label %605, !llvm.loop !202
+  br i1 %604, label %602, label %605, !llvm.loop !203
 
 605:                                              ; preds = %602
   %606 = load i16, ptr %598, align 2, !tbaa !124
@@ -10622,7 +10622,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %608, ptr %610, align 2, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %611 = icmp samesign ult i64 %indvars.iv202, 28
-  br i1 %611, label %609, label %.loopexit29, !llvm.loop !194
+  br i1 %611, label %609, label %.loopexit29, !llvm.loop !195
 
 612:                                              ; preds = %.thread283
   store i16 512, ptr %6, align 16, !tbaa !124
@@ -10634,7 +10634,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %614, align 2, !tbaa !97
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 4
   %615 = icmp samesign ult i64 %indvars.iv193, 28
-  br i1 %615, label %613, label %.preheader, !llvm.loop !195
+  br i1 %615, label %613, label %.preheader, !llvm.loop !196
 
 .preheader:                                       ; preds = %613, %.preheader
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.preheader ], [ 0, %613 ]
@@ -10642,7 +10642,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %616, align 2, !tbaa !97
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 4
   %617 = icmp samesign ult i64 %indvars.iv196, 28
-  br i1 %617, label %.preheader, label %.thread11, !llvm.loop !196
+  br i1 %617, label %.preheader, label %.thread11, !llvm.loop !197
 
 618:                                              ; preds = %.loopexit33
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -10663,7 +10663,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %622, ptr %624, align 2, !tbaa !97
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 4
   %625 = icmp samesign ult i64 %indvars.iv214, 12
-  br i1 %625, label %623, label %.thread4, !llvm.loop !203
+  br i1 %625, label %623, label %.thread4, !llvm.loop !204
 
 .thread4:                                         ; preds = %578, %623, %618
   %.2787.i10 = phi i32 [ %.0785.i, %618 ], [ %.2787.i17, %623 ], [ %.0785.i, %578 ]
@@ -10693,7 +10693,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %631, ptr %633, align 2, !tbaa !97
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 4
   %634 = icmp samesign ult i64 %indvars.iv217, 12
-  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !204
+  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !205
 
 .thread4.thread.thread:                           ; preds = %594, %632, %.thread4.thread
   br i1 %.0792.i, label %.loopexit29, label %635
@@ -10712,7 +10712,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i64 %640, ptr %642, align 2, !tbaa !97
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 4
   %643 = icmp samesign ult i64 %indvars.iv220, 12
-  br i1 %643, label %641, label %.loopexit29, !llvm.loop !205
+  br i1 %643, label %641, label %.loopexit29, !llvm.loop !206
 
 .loopexit29:                                      ; preds = %609, %641, %.thread4.thread.thread
   %644 = load i16, ptr %6, align 16, !tbaa !124
@@ -10780,7 +10780,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i16 %686, ptr %687, align 2, !tbaa !124
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not268 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not268, label %688, label %671, !llvm.loop !197
+  br i1 %.not268, label %688, label %671, !llvm.loop !198
 
 688:                                              ; preds = %671
   %689 = load i16, ptr %70, align 2, !tbaa !124
@@ -10819,7 +10819,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   store i16 %715, ptr %716, align 2, !tbaa !124
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not269 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not269, label %.loopexit, label %700, !llvm.loop !198
+  br i1 %.not269, label %.loopexit, label %700, !llvm.loop !199
 
 .loopexit:                                        ; preds = %700, %653, %648, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %648 ], [ %71, %653 ], [ %73, %700 ]
@@ -11054,7 +11054,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i53, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !175
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !176
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -11099,7 +11099,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i55, %184
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 2
   %186 = icmp samesign ult i64 %indvars.iv.next150, %173
-  br i1 %186, label %177, label %.loopexit52, !llvm.loop !176
+  br i1 %186, label %177, label %.loopexit52, !llvm.loop !177
 
 .loopexit52:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -11158,7 +11158,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i60, %222
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %224 = icmp samesign ult i64 %indvars.iv.next153, %214
-  br i1 %224, label %215, label %.loopexit51, !llvm.loop !177
+  br i1 %224, label %215, label %.loopexit51, !llvm.loop !178
 
 .loopexit51:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -11195,7 +11195,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i65, %243
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %245 = icmp samesign ult i64 %indvars.iv.next156, %235
-  br i1 %245, label %236, label %._crit_edge69.loopexit, !llvm.loop !178
+  br i1 %245, label %236, label %._crit_edge69.loopexit, !llvm.loop !179
 
 ._crit_edge69.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -11267,7 +11267,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 4
   %278 = icmp samesign ult i64 %indvars.iv.next159, %275
-  br i1 %278, label %276, label %.loopexit50, !llvm.loop !179
+  br i1 %278, label %276, label %.loopexit50, !llvm.loop !180
 
 .loopexit50:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -11286,7 +11286,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next162, 32
-  br i1 %exitcond.not, label %.loopexit49, label %280, !llvm.loop !180
+  br i1 %exitcond.not, label %.loopexit49, label %280, !llvm.loop !181
 
 .loopexit49:                                      ; preds = %280, %.loopexit50
   br i1 %.0778.i, label %.preheader47, label %.loopexit46
@@ -11312,7 +11312,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
-  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !181
+  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !182
 
 ._crit_edge79:                                    ; preds = %.lr.ph78
   %290 = icmp samesign ult i32 %117, 32
@@ -11339,7 +11339,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 4
   %299 = icmp samesign ult i64 %indvars.iv.next169, %296
-  br i1 %299, label %297, label %.loopexit46, !llvm.loop !182
+  br i1 %299, label %297, label %.loopexit46, !llvm.loop !183
 
 .loopexit46:                                      ; preds = %297, %._crit_edge79, %.loopexit49
   br i1 %128, label %300, label %.loopexit36
@@ -11424,7 +11424,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !183
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !184
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi278 = phi i64 [ %.pre277, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -11464,7 +11464,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i91, 1
   %exitcond175.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond175.not, label %.critedge25.i, label %351, !llvm.loop !184
+  br i1 %exitcond175.not, label %.critedge25.i, label %351, !llvm.loop !185
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i91, %351 ]
@@ -11502,7 +11502,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not316 = icmp eq i64 %indvars.iv176, 0
-  br i1 %.not316, label %._crit_edge98, label %366, !llvm.loop !185
+  br i1 %.not316, label %._crit_edge98, label %366, !llvm.loop !186
 
 ._crit_edge98:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -11523,7 +11523,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i83, 1
   %exitcond171.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond171.not, label %.lr.ph89, label %382, !llvm.loop !186
+  br i1 %exitcond171.not, label %.lr.ph89, label %382, !llvm.loop !187
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i83, 0
@@ -11569,7 +11569,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv172, 1
-  br i1 %415, label %400, label %._crit_edge90, !llvm.loop !187
+  br i1 %415, label %400, label %._crit_edge90, !llvm.loop !188
 
 ._crit_edge90:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -11630,7 +11630,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i101, %438 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 4
   %445 = icmp samesign ult i64 %indvars.iv.next180, %425
-  br i1 %445, label %427, label %._crit_edge105, !llvm.loop !188
+  br i1 %445, label %427, label %._crit_edge105, !llvm.loop !189
 
 ._crit_edge105:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit41, label %.thread
@@ -11646,7 +11646,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %447, ptr %449, align 2, !tbaa !97
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 4
   %450 = icmp samesign ult i64 %indvars.iv182, 28
-  br i1 %450, label %448, label %.loopexit41, !llvm.loop !199
+  br i1 %450, label %448, label %.loopexit41, !llvm.loop !200
 
 .loopexit41:                                      ; preds = %448, %._crit_edge105
   br i1 %.0778.i, label %.loopexit40, label %451
@@ -11665,7 +11665,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %456, ptr %458, align 2, !tbaa !97
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 4
   %459 = icmp samesign ult i64 %indvars.iv185, 28
-  br i1 %459, label %457, label %.loopexit40, !llvm.loop !200
+  br i1 %459, label %457, label %.loopexit40, !llvm.loop !201
 
 .loopexit40:                                      ; preds = %457, %.loopexit41
   %460 = icmp ne i32 %2, 0
@@ -11734,7 +11734,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %490, %487 ], [ %.2766.i114, %486 ]
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, -4
   %492 = icmp sgt i64 %indvars.iv194, 3
-  br i1 %492, label %473, label %._crit_edge118, !llvm.loop !189
+  br i1 %492, label %473, label %._crit_edge118, !llvm.loop !190
 
 ._crit_edge118:                                   ; preds = %491, %.._crit_edge118_crit_edge
   %.pre-phi283 = phi i32 [ %.pre282, %.._crit_edge118_crit_edge ], [ %472, %491 ]
@@ -11823,7 +11823,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %540, %537 ], [ %.4768.i108, %536 ]
   %indvars.iv.next189 = add nsw i64 %indvars.iv188, -4
   %542 = icmp sgt i64 %indvars.iv188, 3
-  br i1 %542, label %523, label %.loopexit38, !llvm.loop !190
+  br i1 %542, label %523, label %.loopexit38, !llvm.loop !191
 
 .loopexit38:                                      ; preds = %541, %.lr.ph113.preheader, %513, %.preheader37, %503, %._crit_edge118
   %543 = load i16, ptr %6, align 16, !tbaa !124
@@ -11879,7 +11879,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %568, %565 ], [ %.6770.i121, %563 ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 4
   %570 = icmp samesign ult i64 %indvars.iv.next198, %550
-  br i1 %570, label %553, label %.loopexit36, !llvm.loop !191
+  br i1 %570, label %553, label %.loopexit36, !llvm.loop !192
 
 .loopexit36:                                      ; preds = %569, %544, %.loopexit38, %.loopexit46
   br i1 %.0778.i, label %618, label %571
@@ -11904,7 +11904,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %577, ptr %579, align 2, !tbaa !97
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 4
   %580 = icmp samesign ult i64 %indvars.iv218, 28
-  br i1 %580, label %578, label %.thread4, !llvm.loop !201
+  br i1 %580, label %578, label %.thread4, !llvm.loop !202
 
 581:                                              ; preds = %571
   br i1 %248, label %582, label %589
@@ -11921,7 +11921,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %585, ptr %587, align 2, !tbaa !97
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 4
   %588 = icmp samesign ult i64 %indvars.iv215, 60
-  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !192
+  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !193
 
 589:                                              ; preds = %581
   br i1 %254, label %590, label %.thread301
@@ -11939,7 +11939,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %593, ptr %595, align 2, !tbaa !97
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 4
   %596 = icmp samesign ult i64 %indvars.iv212, 60
-  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !193
+  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !194
 
 .thread301:                                       ; preds = %.loopexit36.thread, %589
   br i1 %.0792.i, label %597, label %612
@@ -11957,7 +11957,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %601, ptr %603, align 2, !tbaa !97
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 4
   %604 = icmp samesign ult i64 %indvars.iv206, 28
-  br i1 %604, label %602, label %605, !llvm.loop !202
+  br i1 %604, label %602, label %605, !llvm.loop !203
 
 605:                                              ; preds = %602
   %606 = load i16, ptr %598, align 2, !tbaa !124
@@ -11972,7 +11972,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %608, ptr %610, align 2, !tbaa !97
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 4
   %611 = icmp samesign ult i64 %indvars.iv209, 60
-  br i1 %611, label %609, label %.loopexit31, !llvm.loop !194
+  br i1 %611, label %609, label %.loopexit31, !llvm.loop !195
 
 612:                                              ; preds = %.thread301
   store i16 512, ptr %6, align 16, !tbaa !124
@@ -11984,7 +11984,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %614, align 2, !tbaa !97
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 4
   %615 = icmp samesign ult i64 %indvars.iv200, 60
-  br i1 %615, label %613, label %.preheader35, !llvm.loop !195
+  br i1 %615, label %613, label %.preheader35, !llvm.loop !196
 
 .preheader35:                                     ; preds = %613, %.preheader35
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %.preheader35 ], [ 0, %613 ]
@@ -11992,7 +11992,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 144117387132666368, ptr %616, align 2, !tbaa !97
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 4
   %617 = icmp samesign ult i64 %indvars.iv203, 60
-  br i1 %617, label %.preheader35, label %.thread11, !llvm.loop !196
+  br i1 %617, label %.preheader35, label %.thread11, !llvm.loop !197
 
 618:                                              ; preds = %.loopexit36
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -12013,7 +12013,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %622, ptr %624, align 2, !tbaa !97
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 4
   %625 = icmp samesign ult i64 %indvars.iv221, 28
-  br i1 %625, label %623, label %.thread4, !llvm.loop !203
+  br i1 %625, label %623, label %.thread4, !llvm.loop !204
 
 .thread4:                                         ; preds = %578, %623, %618
   %.2787.i10 = phi i32 [ %.0785.i, %618 ], [ %.2787.i17, %623 ], [ %.0785.i, %578 ]
@@ -12043,7 +12043,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %631, ptr %633, align 2, !tbaa !97
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 4
   %634 = icmp samesign ult i64 %indvars.iv224, 28
-  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !204
+  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !205
 
 .thread4.thread.thread:                           ; preds = %594, %632, %.thread4.thread
   br i1 %.0792.i, label %.loopexit31, label %635
@@ -12062,7 +12062,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i64 %640, ptr %642, align 2, !tbaa !97
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 4
   %643 = icmp samesign ult i64 %indvars.iv227, 28
-  br i1 %643, label %641, label %.loopexit31, !llvm.loop !205
+  br i1 %643, label %641, label %.loopexit31, !llvm.loop !206
 
 .loopexit31:                                      ; preds = %609, %641, %.thread4.thread.thread
   %644 = load i16, ptr %6, align 16, !tbaa !124
@@ -12160,7 +12160,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %705 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv236
   store i16 %704, ptr %705, align 2, !tbaa !124
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 63
-  br i1 %exitcond239.not, label %.preheader, label %697, !llvm.loop !206
+  br i1 %exitcond239.not, label %.preheader, label %697, !llvm.loop !207
 
 .preheader:                                       ; preds = %697, %.preheader
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.preheader ], [ 0, %697 ]
@@ -12179,7 +12179,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %717 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv240
   store i16 %716, ptr %717, align 2, !tbaa !124
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 63
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !207
+  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !208
 
 718:                                              ; preds = %._crit_edge263, %681, %668
   %719 = phi i16 [ %.pre265, %._crit_edge263 ], [ %671, %681 ], [ %671, %668 ]
@@ -12212,7 +12212,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i16 %739, ptr %740, align 2, !tbaa !124
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
   %.not286 = icmp eq i64 %indvars.iv230, 0
-  br i1 %.not286, label %741, label %724, !llvm.loop !197
+  br i1 %.not286, label %741, label %724, !llvm.loop !198
 
 741:                                              ; preds = %724
   %742 = load i16, ptr %70, align 2, !tbaa !124
@@ -12251,7 +12251,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   store i16 %768, ptr %769, align 2, !tbaa !124
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, -1
   %.not287 = icmp eq i64 %indvars.iv233, 0
-  br i1 %.not287, label %.loopexit, label %753, !llvm.loop !198
+  br i1 %.not287, label %.loopexit, label %753, !llvm.loop !199
 
 .loopexit:                                        ; preds = %753, %.preheader, %653, %648, %.loopexit31
   %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %648 ], [ %71, %653 ], [ %73, %.preheader ], [ %73, %753 ]
@@ -12334,11 +12334,11 @@ define internal void @pred_planar_0_10(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !208
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !209
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 4
-  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !209
+  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !210
 
 pred_planar_10.exit:                              ; preds = %37
   ret void
@@ -12389,11 +12389,11 @@ define internal void @pred_planar_1_10(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !208
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !209
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 8
-  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !209
+  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !210
 
 pred_planar_10.exit:                              ; preds = %37
   ret void
@@ -12444,11 +12444,11 @@ define internal void @pred_planar_2_10(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !208
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !209
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 16
-  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !209
+  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !210
 
 pred_planar_10.exit:                              ; preds = %37
   ret void
@@ -12499,11 +12499,11 @@ define internal void @pred_planar_3_10(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !208
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !209
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 32
-  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !209
+  br i1 %exitcond9.not, label %pred_planar_10.exit, label %.preheader, !llvm.loop !210
 
 pred_planar_10.exit:                              ; preds = %37
   ret void
@@ -12533,7 +12533,7 @@ define internal void @pred_dc_10(ptr noundef writeonly captures(none) %0, ptr no
   %15 = add i32 %14, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !210
+  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !211
 
 .preheader57.us.preheader:                        ; preds = %.lr.ph
   %16 = add nsw i32 %4, 1
@@ -12557,12 +12557,12 @@ define internal void @pred_dc_10(ptr noundef writeonly captures(none) %0, ptr no
   store i64 %19, ptr %24, align 1, !tbaa !97
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 4
   %25 = icmp slt i64 %indvars.iv.next73, %20
-  br i1 %25, label %23, label %._crit_edge62.us, !llvm.loop !211
+  br i1 %25, label %23, label %._crit_edge62.us, !llvm.loop !212
 
 ._crit_edge62.us:                                 ; preds = %23
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !212
+  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !213
 
 ._crit_edge64:                                    ; preds = %._crit_edge62.us, %6
   %26 = phi i32 [ -1, %6 ], [ %17, %._crit_edge62.us ]
@@ -12610,7 +12610,7 @@ define internal void @pred_dc_10(ptr noundef writeonly captures(none) %0, ptr no
   store i16 %51, ptr %52, align 2, !tbaa !124
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !213
+  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !214
 
 53:                                               ; preds = %.lr.ph69, %53
   %indvars.iv86 = phi i64 [ 1, %.lr.ph69 ], [ %indvars.iv.next87, %53 ]
@@ -12625,7 +12625,7 @@ define internal void @pred_dc_10(ptr noundef writeonly captures(none) %0, ptr no
   store i16 %59, ptr %61, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !214
+  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !215
 
 .loopexit:                                        ; preds = %53, %29, %._crit_edge64
   ret void
@@ -12675,7 +12675,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 0
-  br i1 %exitcond84.not, label %.split, label %25, !llvm.loop !215
+  br i1 %exitcond84.not, label %.split, label %25, !llvm.loop !216
 
 .split:                                           ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -12763,7 +12763,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
 
 95:                                               ; preds = %.preheader6, %.preheader5
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 4
-  br i1 %exitcond88.not, label %96, label %33, !llvm.loop !216
+  br i1 %exitcond88.not, label %96, label %33, !llvm.loop !217
 
 96:                                               ; preds = %95
   %97 = icmp eq i32 %5, 26
@@ -12795,7 +12795,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   store i16 %113, ptr %115, align 2, !tbaa !124
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 4
-  br i1 %exitcond92.not, label %pred_angular_10.exit, label %100, !llvm.loop !217
+  br i1 %exitcond92.not, label %pred_angular_10.exit, label %100, !llvm.loop !218
 
 116:                                              ; preds = %6
   %117 = getelementptr i8, ptr %2, i64 -2
@@ -12824,7 +12824,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   store i16 %129, ptr %130, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %123, !llvm.loop !218
+  br i1 %exitcond.not, label %.loopexit18, label %123, !llvm.loop !219
 
 .loopexit18:                                      ; preds = %123, %116
   %.1210.i = phi ptr [ %117, %116 ], [ %12, %123 ]
@@ -12874,7 +12874,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   store i16 %151, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %.loopexit14, label %139, !llvm.loop !219
+  br i1 %exitcond69.not, label %.loopexit14, label %139, !llvm.loop !220
 
 153:                                              ; preds = %.preheader13, %153
   %indvars.iv70 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next71, %153 ]
@@ -12885,11 +12885,11 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   store i16 %154, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.loopexit14, label %153, !llvm.loop !220
+  br i1 %exitcond73.not, label %.loopexit14, label %153, !llvm.loop !221
 
 .loopexit14:                                      ; preds = %139, %153
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 4
-  br i1 %exitcond77.not, label %156, label %131, !llvm.loop !221
+  br i1 %exitcond77.not, label %156, label %131, !llvm.loop !222
 
 156:                                              ; preds = %.loopexit14
   %157 = icmp eq i32 %5, 10
@@ -13008,7 +13008,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 0
-  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !215
+  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !216
 
 .loopexit9:                                       ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -13115,11 +13115,11 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %103 = trunc i32 %102 to i16
   %104 = getelementptr i16, ptr %40, i64 %91
   store i16 %103, ptr %104, align 2, !tbaa !124
-  br i1 %49, label %48, label %.loopexit, !llvm.loop !222
+  br i1 %49, label %48, label %.loopexit, !llvm.loop !223
 
 .loopexit:                                        ; preds = %48, %.preheader5
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 8
-  br i1 %exitcond85.not, label %105, label %33, !llvm.loop !216
+  br i1 %exitcond85.not, label %105, label %33, !llvm.loop !217
 
 105:                                              ; preds = %.loopexit
   %106 = icmp eq i32 %5, 26
@@ -13151,7 +13151,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   store i16 %122, ptr %124, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 8
-  br i1 %exitcond89.not, label %pred_angular_10.exit, label %109, !llvm.loop !217
+  br i1 %exitcond89.not, label %pred_angular_10.exit, label %109, !llvm.loop !218
 
 125:                                              ; preds = %6
   %126 = getelementptr i8, ptr %2, i64 -2
@@ -13180,7 +13180,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   store i16 %138, ptr %139, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %132, !llvm.loop !218
+  br i1 %exitcond.not, label %.loopexit18, label %132, !llvm.loop !219
 
 .loopexit18:                                      ; preds = %132, %125
   %.1210.i = phi ptr [ %126, %125 ], [ %12, %132 ]
@@ -13230,7 +13230,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   store i16 %160, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 8
-  br i1 %exitcond55.not, label %.loopexit14, label %148, !llvm.loop !219
+  br i1 %exitcond55.not, label %.loopexit14, label %148, !llvm.loop !220
 
 162:                                              ; preds = %.preheader13, %162
   %indvars.iv56 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next57, %162 ]
@@ -13241,11 +13241,11 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   store i16 %163, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 8
-  br i1 %exitcond59.not, label %.loopexit14, label %162, !llvm.loop !220
+  br i1 %exitcond59.not, label %.loopexit14, label %162, !llvm.loop !221
 
 .loopexit14:                                      ; preds = %148, %162
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 8
-  br i1 %exitcond63.not, label %165, label %140, !llvm.loop !221
+  br i1 %exitcond63.not, label %165, label %140, !llvm.loop !222
 
 165:                                              ; preds = %.loopexit14
   %166 = icmp eq i32 %5, 10
@@ -13323,7 +13323,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %228 = trunc nuw nsw i32 %227 to i16
   %229 = getelementptr inbounds nuw i16, ptr %0, i64 %217
   store i16 %228, ptr %229, align 2, !tbaa !124
-  br i1 %170, label %169, label %pred_angular_10.exit, !llvm.loop !223
+  br i1 %170, label %169, label %pred_angular_10.exit, !llvm.loop !224
 
 pred_angular_10.exit:                             ; preds = %169, %109, %105, %165
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -13374,7 +13374,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 0
-  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !215
+  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !216
 
 .loopexit9:                                       ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -13476,7 +13476,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %99, ptr %100, align 2, !tbaa !124
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %101 = icmp samesign ult i64 %indvars.iv74, 12
-  br i1 %101, label %45, label %.loopexit, !llvm.loop !222
+  br i1 %101, label %45, label %.loopexit, !llvm.loop !223
 
 102:                                              ; preds = %.preheader5, %102
   %indvars.iv79 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next80, %102 ]
@@ -13486,11 +13486,11 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i64 %103, ptr %104, align 1, !tbaa !97
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 4
   %105 = icmp samesign ult i64 %indvars.iv79, 12
-  br i1 %105, label %102, label %.loopexit, !llvm.loop !224
+  br i1 %105, label %102, label %.loopexit, !llvm.loop !225
 
 .loopexit:                                        ; preds = %45, %102
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 16
-  br i1 %exitcond85.not, label %106, label %33, !llvm.loop !216
+  br i1 %exitcond85.not, label %106, label %33, !llvm.loop !217
 
 106:                                              ; preds = %.loopexit
   %107 = icmp eq i32 %5, 26
@@ -13522,7 +13522,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %123, ptr %125, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 16
-  br i1 %exitcond89.not, label %pred_angular_10.exit, label %110, !llvm.loop !217
+  br i1 %exitcond89.not, label %pred_angular_10.exit, label %110, !llvm.loop !218
 
 126:                                              ; preds = %6
   %127 = getelementptr i8, ptr %2, i64 -2
@@ -13551,7 +13551,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %139, ptr %140, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %133, !llvm.loop !218
+  br i1 %exitcond.not, label %.loopexit18, label %133, !llvm.loop !219
 
 .loopexit18:                                      ; preds = %133, %126
   %.1210.i = phi ptr [ %127, %126 ], [ %12, %133 ]
@@ -13601,7 +13601,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %161, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 16
-  br i1 %exitcond55.not, label %.loopexit14, label %149, !llvm.loop !219
+  br i1 %exitcond55.not, label %.loopexit14, label %149, !llvm.loop !220
 
 163:                                              ; preds = %.preheader13, %163
   %indvars.iv56 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next57, %163 ]
@@ -13612,11 +13612,11 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %164, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 16
-  br i1 %exitcond59.not, label %.loopexit14, label %163, !llvm.loop !220
+  br i1 %exitcond59.not, label %.loopexit14, label %163, !llvm.loop !221
 
 .loopexit14:                                      ; preds = %149, %163
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 16
-  br i1 %exitcond63.not, label %166, label %141, !llvm.loop !221
+  br i1 %exitcond63.not, label %166, label %141, !llvm.loop !222
 
 166:                                              ; preds = %.loopexit14
   %167 = icmp eq i32 %5, 10
@@ -13695,7 +13695,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   store i16 %228, ptr %229, align 2, !tbaa !124
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 4
   %230 = icmp samesign ult i64 %indvars.iv64, 12
-  br i1 %230, label %170, label %pred_angular_10.exit, !llvm.loop !223
+  br i1 %230, label %170, label %pred_angular_10.exit, !llvm.loop !224
 
 pred_angular_10.exit:                             ; preds = %170, %110, %106, %166
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -13746,7 +13746,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv67 = trunc i64 %indvars.iv.next64 to i32
   %exitcond68.not = icmp eq i32 %22, %lftr.wideiv67
-  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !215
+  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !216
 
 .loopexit8:                                       ; preds = %23, %15
   %.0209.i = phi ptr [ %16, %15 ], [ %12, %23 ]
@@ -13848,7 +13848,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   store i16 %97, ptr %98, align 2, !tbaa !124
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 4
   %99 = icmp samesign ult i64 %indvars.iv69, 28
-  br i1 %99, label %43, label %.loopexit, !llvm.loop !222
+  br i1 %99, label %43, label %.loopexit, !llvm.loop !223
 
 100:                                              ; preds = %.preheader, %100
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %100 ]
@@ -13858,11 +13858,11 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   store i64 %101, ptr %102, align 1, !tbaa !97
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %103 = icmp samesign ult i64 %indvars.iv74, 28
-  br i1 %103, label %100, label %.loopexit, !llvm.loop !224
+  br i1 %103, label %100, label %.loopexit, !llvm.loop !225
 
 .loopexit:                                        ; preds = %43, %100
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 32
-  br i1 %exitcond80.not, label %pred_angular_10.exit, label %31, !llvm.loop !216
+  br i1 %exitcond80.not, label %pred_angular_10.exit, label %31, !llvm.loop !217
 
 104:                                              ; preds = %6
   %105 = getelementptr i8, ptr %2, i64 -2
@@ -13894,7 +13894,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %111, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !218
+  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !219
 
 .loopexit16:                                      ; preds = %112, %104
   %.1210.i = phi ptr [ %105, %104 ], [ %12, %112 ]
@@ -13944,7 +13944,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   store i16 %140, ptr %gep23, align 2, !tbaa !124
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 32
-  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !219
+  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !220
 
 142:                                              ; preds = %.preheader10, %142
   %indvars.iv52 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next53, %142 ]
@@ -13955,11 +13955,11 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   store i16 %143, ptr %gep28, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !220
+  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !221
 
 .loopexit11:                                      ; preds = %128, %142
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 32
-  br i1 %exitcond59.not, label %pred_angular_10.exit, label %120, !llvm.loop !221
+  br i1 %exitcond59.not, label %pred_angular_10.exit, label %120, !llvm.loop !222
 
 pred_angular_10.exit:                             ; preds = %.loopexit11, %.loopexit
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -14157,7 +14157,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %155 = or i32 %.2780.i44, %154
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %156 = icmp samesign ult i64 %indvars.iv.next, %143
-  br i1 %156, label %147, label %._crit_edge.loopexit, !llvm.loop !225
+  br i1 %156, label %147, label %._crit_edge.loopexit, !llvm.loop !226
 
 ._crit_edge.loopexit:                             ; preds = %147
   %157 = icmp ne i32 %155, 0
@@ -14202,7 +14202,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %181 = or i32 %.2783.i46, %180
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 2
   %182 = icmp samesign ult i64 %indvars.iv.next137, %169
-  br i1 %182, label %173, label %.loopexit43, !llvm.loop !226
+  br i1 %182, label %173, label %.loopexit43, !llvm.loop !227
 
 .loopexit43:                                      ; preds = %173, %159, %._crit_edge
   %.1782.i = phi i32 [ %87, %._crit_edge ], [ 0, %159 ], [ %181, %173 ]
@@ -14261,7 +14261,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %219 = or i32 %.2790.i51, %218
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 2
   %220 = icmp samesign ult i64 %indvars.iv.next140, %210
-  br i1 %220, label %211, label %.loopexit42, !llvm.loop !227
+  br i1 %220, label %211, label %.loopexit42, !llvm.loop !228
 
 .loopexit42:                                      ; preds = %211, %200, %198
   %.1789.i = phi i32 [ %91, %198 ], [ 0, %200 ], [ %219, %211 ]
@@ -14298,7 +14298,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %240 = or i32 %.2794.i56, %239
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %241 = icmp samesign ult i64 %indvars.iv.next143, %231
-  br i1 %241, label %232, label %._crit_edge60.loopexit, !llvm.loop !228
+  br i1 %241, label %232, label %._crit_edge60.loopexit, !llvm.loop !229
 
 ._crit_edge60.loopexit:                           ; preds = %232
   %242 = icmp ne i32 %240, 0
@@ -14372,7 +14372,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i64 %268, ptr %275, align 2, !tbaa !97
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 4
   %276 = icmp samesign ult i64 %indvars.iv.next146, %273
-  br i1 %276, label %274, label %.loopexit41, !llvm.loop !229
+  br i1 %276, label %274, label %.loopexit41, !llvm.loop !230
 
 .loopexit41:                                      ; preds = %274, %256, %255
   %277 = icmp ne i32 %.0781.i, 0
@@ -14391,7 +14391,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i16 %280, ptr %281, align 2, !tbaa !124
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next149, 4
-  br i1 %exitcond.not, label %.loopexit40, label %278, !llvm.loop !230
+  br i1 %exitcond.not, label %.loopexit40, label %278, !llvm.loop !231
 
 .loopexit40:                                      ; preds = %278, %.loopexit41
   br i1 %.0778.i, label %.preheader38, label %.loopexit37
@@ -14417,7 +14417,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i16 %286, ptr %287, align 2, !tbaa !124
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !231
+  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !232
 
 ._crit_edge70:                                    ; preds = %.lr.ph69
   %288 = icmp samesign ult i32 %113, 4
@@ -14444,7 +14444,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   store i64 %289, ptr %296, align 2, !tbaa !97
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 4
   %297 = icmp samesign ult i64 %indvars.iv.next156, %294
-  br i1 %297, label %295, label %.loopexit37, !llvm.loop !232
+  br i1 %297, label %295, label %.loopexit37, !llvm.loop !233
 
 .loopexit37:                                      ; preds = %295, %._crit_edge70, %.loopexit40
   br i1 %124, label %298, label %.loopexit27
@@ -14529,7 +14529,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %338 = getelementptr inbounds %struct.MvField, ptr %331, i64 %337, i32 2
   %339 = load i8, ptr %338, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %339, 0
-  br i1 %.not850.i, label %.critedge.i, label %328, !llvm.loop !233
+  br i1 %.not850.i, label %.critedge.i, label %328, !llvm.loop !234
 
 .critedge.i:                                      ; preds = %330, %..critedge.i_crit_edge
   %.pre-phi227 = phi i64 [ %.pre226, %..critedge.i_crit_edge ], [ %337, %330 ]
@@ -14569,7 +14569,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
 357:                                              ; preds = %349
   %358 = add nuw nsw i32 %.1799.i82, 1
   %exitcond162.not = icmp eq i32 %358, %.0796.i
-  br i1 %exitcond162.not, label %.critedge25.i, label %349, !llvm.loop !234
+  br i1 %exitcond162.not, label %.critedge25.i, label %349, !llvm.loop !235
 
 .critedge25.i:                                    ; preds = %357, %349
   %.1799.i.lcssa = phi i32 [ %.0796.i, %357 ], [ %.1799.i82, %349 ]
@@ -14607,7 +14607,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
 
 378:                                              ; preds = %374, %364
   %.not = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not, label %._crit_edge89, label %364, !llvm.loop !235
+  br i1 %.not, label %._crit_edge89, label %364, !llvm.loop !236
 
 ._crit_edge89:                                    ; preds = %378, %.critedge25.i
   %379 = load i16, ptr %7, align 16, !tbaa !124
@@ -14628,7 +14628,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
 388:                                              ; preds = %380
   %389 = add nuw nsw i32 %.2800.i74, 1
   %exitcond158.not = icmp eq i32 %389, %.0796.i
-  br i1 %exitcond158.not, label %.lr.ph80, label %380, !llvm.loop !236
+  br i1 %exitcond158.not, label %.lr.ph80, label %380, !llvm.loop !237
 
 .critedge27.i:                                    ; preds = %380
   %.not847.i = icmp eq i32 %.2800.i74, 0
@@ -14674,7 +14674,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
 
 412:                                              ; preds = %408, %398
   %413 = icmp samesign ugt i64 %indvars.iv159, 1
-  br i1 %413, label %398, label %._crit_edge81, !llvm.loop !237
+  br i1 %413, label %398, label %._crit_edge81, !llvm.loop !238
 
 ._crit_edge81:                                    ; preds = %412
   %414 = load i16, ptr %69, align 2, !tbaa !124
@@ -14735,7 +14735,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %441, %438 ], [ %.0764.i92, %436 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 4
   %443 = icmp samesign ult i64 %indvars.iv.next167, %423
-  br i1 %443, label %425, label %._crit_edge96, !llvm.loop !238
+  br i1 %443, label %425, label %._crit_edge96, !llvm.loop !239
 
 ._crit_edge96:                                    ; preds = %442, %417
   br i1 %277, label %446, label %.thread.split
@@ -14825,7 +14825,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %483, %480 ], [ %.2766.i105, %479 ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, -4
   %485 = icmp sgt i64 %indvars.iv175, 3
-  br i1 %485, label %466, label %._crit_edge109, !llvm.loop !239
+  br i1 %485, label %466, label %._crit_edge109, !llvm.loop !240
 
 ._crit_edge109:                                   ; preds = %484, %.._crit_edge109_crit_edge
   %.pre-phi232 = phi i32 [ %.pre231, %.._crit_edge109_crit_edge ], [ %465, %484 ]
@@ -14914,7 +14914,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %533, %530 ], [ %.4768.i99, %529 ]
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, -4
   %535 = icmp sgt i64 %indvars.iv169, 3
-  br i1 %535, label %516, label %.loopexit29, !llvm.loop !240
+  br i1 %535, label %516, label %.loopexit29, !llvm.loop !241
 
 .loopexit29:                                      ; preds = %534, %.lr.ph104.preheader, %506, %.preheader28, %496, %._crit_edge109
   %536 = load i16, ptr %6, align 16, !tbaa !124
@@ -14970,7 +14970,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %561, %558 ], [ %.6770.i112, %556 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %563 = icmp samesign ult i64 %indvars.iv.next179, %543
-  br i1 %563, label %546, label %.loopexit27, !llvm.loop !241
+  br i1 %563, label %546, label %.loopexit27, !llvm.loop !242
 
 .loopexit27:                                      ; preds = %562, %537, %.loopexit29, %.loopexit37
   br i1 %.0778.i, label %587, label %564
@@ -15318,7 +15318,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i50, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !225
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !226
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -15363,7 +15363,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i52, %184
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %186 = icmp samesign ult i64 %indvars.iv.next143, %173
-  br i1 %186, label %177, label %.loopexit49, !llvm.loop !226
+  br i1 %186, label %177, label %.loopexit49, !llvm.loop !227
 
 .loopexit49:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -15422,7 +15422,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i57, %222
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %224 = icmp samesign ult i64 %indvars.iv.next146, %214
-  br i1 %224, label %215, label %.loopexit48, !llvm.loop !227
+  br i1 %224, label %215, label %.loopexit48, !llvm.loop !228
 
 .loopexit48:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -15459,7 +15459,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i62, %243
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %245 = icmp samesign ult i64 %indvars.iv.next149, %235
-  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !228
+  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !229
 
 ._crit_edge66.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -15531,7 +15531,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %278 = icmp samesign ult i64 %indvars.iv.next152, %275
-  br i1 %278, label %276, label %.loopexit47, !llvm.loop !229
+  br i1 %278, label %276, label %.loopexit47, !llvm.loop !230
 
 .loopexit47:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -15550,7 +15550,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 8
-  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !230
+  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !231
 
 .loopexit46:                                      ; preds = %280, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -15576,7 +15576,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !231
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !232
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %290 = icmp samesign ult i32 %117, 8
@@ -15603,7 +15603,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %299 = icmp samesign ult i64 %indvars.iv.next162, %296
-  br i1 %299, label %297, label %.loopexit43, !llvm.loop !232
+  br i1 %299, label %297, label %.loopexit43, !llvm.loop !233
 
 .loopexit43:                                      ; preds = %297, %._crit_edge76, %.loopexit46
   br i1 %128, label %300, label %.loopexit33
@@ -15688,7 +15688,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !233
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !234
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi260 = phi i64 [ %.pre259, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -15728,7 +15728,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !234
+  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !235
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i88, %351 ]
@@ -15766,7 +15766,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not297 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !235
+  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !236
 
 ._crit_edge95:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -15787,7 +15787,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !236
+  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !237
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -15833,7 +15833,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !237
+  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !238
 
 ._crit_edge87:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -15894,7 +15894,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i98, %438 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %445 = icmp samesign ult i64 %indvars.iv.next173, %425
-  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !238
+  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !239
 
 ._crit_edge102:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit38, label %.thread
@@ -15988,7 +15988,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %485, %482 ], [ %.2766.i111, %481 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %487 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %487, label %468, label %._crit_edge115, !llvm.loop !239
+  br i1 %487, label %468, label %._crit_edge115, !llvm.loop !240
 
 ._crit_edge115:                                   ; preds = %486, %.._crit_edge115_crit_edge
   %.pre-phi265 = phi i32 [ %.pre264, %.._crit_edge115_crit_edge ], [ %467, %486 ]
@@ -16077,7 +16077,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %535, %532 ], [ %.4768.i105, %531 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %537 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %537, label %518, label %.loopexit35, !llvm.loop !240
+  br i1 %537, label %518, label %.loopexit35, !llvm.loop !241
 
 .loopexit35:                                      ; preds = %536, %.lr.ph110.preheader, %508, %.preheader34, %498, %._crit_edge115
   %538 = load i16, ptr %6, align 16, !tbaa !124
@@ -16133,7 +16133,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %563, %560 ], [ %.6770.i118, %558 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %565 = icmp samesign ult i64 %indvars.iv.next191, %545
-  br i1 %565, label %548, label %.loopexit33, !llvm.loop !241
+  br i1 %565, label %548, label %.loopexit33, !llvm.loop !242
 
 .loopexit33:                                      ; preds = %564, %539, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %602, label %566
@@ -16165,7 +16165,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 %574, ptr %576, align 2, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %577 = icmp samesign ult i64 %indvars.iv208, 12
-  br i1 %577, label %575, label %.thread4.thread, !llvm.loop !242
+  br i1 %577, label %575, label %.thread4.thread, !llvm.loop !243
 
 578:                                              ; preds = %570
   br i1 %254, label %579, label %.thread283
@@ -16183,7 +16183,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 %582, ptr %584, align 2, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %585 = icmp samesign ult i64 %indvars.iv205, 12
-  br i1 %585, label %583, label %.thread4.thread.thread, !llvm.loop !243
+  br i1 %585, label %583, label %.thread4.thread.thread, !llvm.loop !244
 
 .thread283:                                       ; preds = %.loopexit33.thread, %578
   br i1 %.0792.i, label %.critedge, label %596
@@ -16207,7 +16207,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 %592, ptr %594, align 2, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %595 = icmp samesign ult i64 %indvars.iv202, 12
-  br i1 %595, label %593, label %.loopexit29, !llvm.loop !244
+  br i1 %595, label %593, label %.loopexit29, !llvm.loop !245
 
 596:                                              ; preds = %.thread283
   store i16 2048, ptr %6, align 16, !tbaa !124
@@ -16219,7 +16219,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %598, align 2, !tbaa !97
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 4
   %599 = icmp samesign ult i64 %indvars.iv193, 12
-  br i1 %599, label %597, label %.preheader, !llvm.loop !245
+  br i1 %599, label %597, label %.preheader, !llvm.loop !246
 
 .preheader:                                       ; preds = %597, %.preheader
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.preheader ], [ 0, %597 ]
@@ -16227,7 +16227,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %600, align 2, !tbaa !97
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 4
   %601 = icmp samesign ult i64 %indvars.iv196, 12
-  br i1 %601, label %.preheader, label %.thread11, !llvm.loop !246
+  br i1 %601, label %.preheader, label %.thread11, !llvm.loop !247
 
 602:                                              ; preds = %.loopexit33
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -16357,7 +16357,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i16 %662, ptr %663, align 2, !tbaa !124
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not268 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not268, label %664, label %647, !llvm.loop !247
+  br i1 %.not268, label %664, label %647, !llvm.loop !248
 
 664:                                              ; preds = %647
   %665 = load i16, ptr %70, align 2, !tbaa !124
@@ -16396,7 +16396,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   store i16 %691, ptr %692, align 2, !tbaa !124
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not269 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not269, label %.loopexit, label %676, !llvm.loop !248
+  br i1 %.not269, label %.loopexit, label %676, !llvm.loop !249
 
 .loopexit:                                        ; preds = %676, %629, %624, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %624 ], [ %71, %629 ], [ %73, %676 ]
@@ -16631,7 +16631,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i50, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !225
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !226
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -16676,7 +16676,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i52, %184
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %186 = icmp samesign ult i64 %indvars.iv.next143, %173
-  br i1 %186, label %177, label %.loopexit49, !llvm.loop !226
+  br i1 %186, label %177, label %.loopexit49, !llvm.loop !227
 
 .loopexit49:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -16735,7 +16735,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i57, %222
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %224 = icmp samesign ult i64 %indvars.iv.next146, %214
-  br i1 %224, label %215, label %.loopexit48, !llvm.loop !227
+  br i1 %224, label %215, label %.loopexit48, !llvm.loop !228
 
 .loopexit48:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -16772,7 +16772,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i62, %243
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %245 = icmp samesign ult i64 %indvars.iv.next149, %235
-  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !228
+  br i1 %245, label %236, label %._crit_edge66.loopexit, !llvm.loop !229
 
 ._crit_edge66.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -16844,7 +16844,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %278 = icmp samesign ult i64 %indvars.iv.next152, %275
-  br i1 %278, label %276, label %.loopexit47, !llvm.loop !229
+  br i1 %278, label %276, label %.loopexit47, !llvm.loop !230
 
 .loopexit47:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -16863,7 +16863,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 16
-  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !230
+  br i1 %exitcond.not, label %.loopexit46, label %280, !llvm.loop !231
 
 .loopexit46:                                      ; preds = %280, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -16889,7 +16889,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !231
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !232
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %290 = icmp samesign ult i32 %117, 16
@@ -16916,7 +16916,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %299 = icmp samesign ult i64 %indvars.iv.next162, %296
-  br i1 %299, label %297, label %.loopexit43, !llvm.loop !232
+  br i1 %299, label %297, label %.loopexit43, !llvm.loop !233
 
 .loopexit43:                                      ; preds = %297, %._crit_edge76, %.loopexit46
   br i1 %128, label %300, label %.loopexit33
@@ -17001,7 +17001,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !233
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !234
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi260 = phi i64 [ %.pre259, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -17041,7 +17041,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !234
+  br i1 %exitcond168.not, label %.critedge25.i, label %351, !llvm.loop !235
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i88, %351 ]
@@ -17079,7 +17079,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not297 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !235
+  br i1 %.not297, label %._crit_edge95, label %366, !llvm.loop !236
 
 ._crit_edge95:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -17100,7 +17100,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !236
+  br i1 %exitcond164.not, label %.lr.ph86, label %382, !llvm.loop !237
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -17146,7 +17146,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !237
+  br i1 %415, label %400, label %._crit_edge87, !llvm.loop !238
 
 ._crit_edge87:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -17207,7 +17207,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i98, %438 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %445 = icmp samesign ult i64 %indvars.iv.next173, %425
-  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !238
+  br i1 %445, label %427, label %._crit_edge102, !llvm.loop !239
 
 ._crit_edge102:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit38, label %.thread
@@ -17223,7 +17223,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %447, ptr %449, align 2, !tbaa !97
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 4
   %450 = icmp samesign ult i64 %indvars.iv175, 12
-  br i1 %450, label %448, label %.loopexit38, !llvm.loop !249
+  br i1 %450, label %448, label %.loopexit38, !llvm.loop !250
 
 .loopexit38:                                      ; preds = %448, %._crit_edge102
   br i1 %.0778.i, label %.loopexit37, label %451
@@ -17242,7 +17242,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %456, ptr %458, align 2, !tbaa !97
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %459 = icmp samesign ult i64 %indvars.iv178, 12
-  br i1 %459, label %457, label %.loopexit37, !llvm.loop !250
+  br i1 %459, label %457, label %.loopexit37, !llvm.loop !251
 
 .loopexit37:                                      ; preds = %457, %.loopexit38
   %460 = icmp ne i32 %2, 0
@@ -17311,7 +17311,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %490, %487 ], [ %.2766.i111, %486 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %492 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %492, label %473, label %._crit_edge115, !llvm.loop !239
+  br i1 %492, label %473, label %._crit_edge115, !llvm.loop !240
 
 ._crit_edge115:                                   ; preds = %491, %.._crit_edge115_crit_edge
   %.pre-phi265 = phi i32 [ %.pre264, %.._crit_edge115_crit_edge ], [ %472, %491 ]
@@ -17400,7 +17400,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %540, %537 ], [ %.4768.i105, %536 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %542 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %542, label %523, label %.loopexit35, !llvm.loop !240
+  br i1 %542, label %523, label %.loopexit35, !llvm.loop !241
 
 .loopexit35:                                      ; preds = %541, %.lr.ph110.preheader, %513, %.preheader34, %503, %._crit_edge115
   %543 = load i16, ptr %6, align 16, !tbaa !124
@@ -17456,7 +17456,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %568, %565 ], [ %.6770.i118, %563 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %570 = icmp samesign ult i64 %indvars.iv.next191, %550
-  br i1 %570, label %553, label %.loopexit33, !llvm.loop !241
+  br i1 %570, label %553, label %.loopexit33, !llvm.loop !242
 
 .loopexit33:                                      ; preds = %569, %544, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %618, label %571
@@ -17481,7 +17481,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %577, ptr %579, align 2, !tbaa !97
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 4
   %580 = icmp samesign ult i64 %indvars.iv211, 12
-  br i1 %580, label %578, label %.thread4, !llvm.loop !251
+  br i1 %580, label %578, label %.thread4, !llvm.loop !252
 
 581:                                              ; preds = %571
   br i1 %248, label %582, label %589
@@ -17498,7 +17498,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %585, ptr %587, align 2, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %588 = icmp samesign ult i64 %indvars.iv208, 28
-  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !242
+  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !243
 
 589:                                              ; preds = %581
   br i1 %254, label %590, label %.thread283
@@ -17516,7 +17516,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %593, ptr %595, align 2, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %596 = icmp samesign ult i64 %indvars.iv205, 28
-  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !243
+  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !244
 
 .thread283:                                       ; preds = %.loopexit33.thread, %589
   br i1 %.0792.i, label %597, label %612
@@ -17534,7 +17534,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %601, ptr %603, align 2, !tbaa !97
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 4
   %604 = icmp samesign ult i64 %indvars.iv199, 12
-  br i1 %604, label %602, label %605, !llvm.loop !252
+  br i1 %604, label %602, label %605, !llvm.loop !253
 
 605:                                              ; preds = %602
   %606 = load i16, ptr %598, align 2, !tbaa !124
@@ -17549,7 +17549,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %608, ptr %610, align 2, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %611 = icmp samesign ult i64 %indvars.iv202, 28
-  br i1 %611, label %609, label %.loopexit29, !llvm.loop !244
+  br i1 %611, label %609, label %.loopexit29, !llvm.loop !245
 
 612:                                              ; preds = %.thread283
   store i16 2048, ptr %6, align 16, !tbaa !124
@@ -17561,7 +17561,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %614, align 2, !tbaa !97
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 4
   %615 = icmp samesign ult i64 %indvars.iv193, 28
-  br i1 %615, label %613, label %.preheader, !llvm.loop !245
+  br i1 %615, label %613, label %.preheader, !llvm.loop !246
 
 .preheader:                                       ; preds = %613, %.preheader
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.preheader ], [ 0, %613 ]
@@ -17569,7 +17569,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %616, align 2, !tbaa !97
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 4
   %617 = icmp samesign ult i64 %indvars.iv196, 28
-  br i1 %617, label %.preheader, label %.thread11, !llvm.loop !246
+  br i1 %617, label %.preheader, label %.thread11, !llvm.loop !247
 
 618:                                              ; preds = %.loopexit33
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -17590,7 +17590,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %622, ptr %624, align 2, !tbaa !97
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 4
   %625 = icmp samesign ult i64 %indvars.iv214, 12
-  br i1 %625, label %623, label %.thread4, !llvm.loop !253
+  br i1 %625, label %623, label %.thread4, !llvm.loop !254
 
 .thread4:                                         ; preds = %578, %623, %618
   %.2787.i10 = phi i32 [ %.0785.i, %618 ], [ %.2787.i17, %623 ], [ %.0785.i, %578 ]
@@ -17620,7 +17620,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %631, ptr %633, align 2, !tbaa !97
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 4
   %634 = icmp samesign ult i64 %indvars.iv217, 12
-  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !254
+  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !255
 
 .thread4.thread.thread:                           ; preds = %594, %632, %.thread4.thread
   br i1 %.0792.i, label %.loopexit29, label %635
@@ -17639,7 +17639,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i64 %640, ptr %642, align 2, !tbaa !97
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 4
   %643 = icmp samesign ult i64 %indvars.iv220, 12
-  br i1 %643, label %641, label %.loopexit29, !llvm.loop !255
+  br i1 %643, label %641, label %.loopexit29, !llvm.loop !256
 
 .loopexit29:                                      ; preds = %609, %641, %.thread4.thread.thread
   %644 = load i16, ptr %6, align 16, !tbaa !124
@@ -17707,7 +17707,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i16 %686, ptr %687, align 2, !tbaa !124
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not268 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not268, label %688, label %671, !llvm.loop !247
+  br i1 %.not268, label %688, label %671, !llvm.loop !248
 
 688:                                              ; preds = %671
   %689 = load i16, ptr %70, align 2, !tbaa !124
@@ -17746,7 +17746,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   store i16 %715, ptr %716, align 2, !tbaa !124
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not269 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not269, label %.loopexit, label %700, !llvm.loop !248
+  br i1 %.not269, label %.loopexit, label %700, !llvm.loop !249
 
 .loopexit:                                        ; preds = %700, %653, %648, %.loopexit29
   %.0775.i = phi ptr [ %71, %.loopexit29 ], [ %71, %648 ], [ %71, %653 ], [ %73, %700 ]
@@ -17981,7 +17981,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %159 = or i32 %.2780.i53, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %160 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !225
+  br i1 %160, label %151, label %._crit_edge.loopexit, !llvm.loop !226
 
 ._crit_edge.loopexit:                             ; preds = %151
   %161 = icmp ne i32 %159, 0
@@ -18026,7 +18026,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %185 = or i32 %.2783.i55, %184
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 2
   %186 = icmp samesign ult i64 %indvars.iv.next150, %173
-  br i1 %186, label %177, label %.loopexit52, !llvm.loop !226
+  br i1 %186, label %177, label %.loopexit52, !llvm.loop !227
 
 .loopexit52:                                      ; preds = %177, %163, %._crit_edge
   %.1782.i = phi i32 [ %91, %._crit_edge ], [ 0, %163 ], [ %185, %177 ]
@@ -18085,7 +18085,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %223 = or i32 %.2790.i60, %222
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %224 = icmp samesign ult i64 %indvars.iv.next153, %214
-  br i1 %224, label %215, label %.loopexit51, !llvm.loop !227
+  br i1 %224, label %215, label %.loopexit51, !llvm.loop !228
 
 .loopexit51:                                      ; preds = %215, %204, %202
   %.1789.i = phi i32 [ %95, %202 ], [ 0, %204 ], [ %223, %215 ]
@@ -18122,7 +18122,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %244 = or i32 %.2794.i65, %243
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %245 = icmp samesign ult i64 %indvars.iv.next156, %235
-  br i1 %245, label %236, label %._crit_edge69.loopexit, !llvm.loop !228
+  br i1 %245, label %236, label %._crit_edge69.loopexit, !llvm.loop !229
 
 ._crit_edge69.loopexit:                           ; preds = %236
   %246 = icmp ne i32 %244, 0
@@ -18194,7 +18194,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %270, ptr %277, align 2, !tbaa !97
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 4
   %278 = icmp samesign ult i64 %indvars.iv.next159, %275
-  br i1 %278, label %276, label %.loopexit50, !llvm.loop !229
+  br i1 %278, label %276, label %.loopexit50, !llvm.loop !230
 
 .loopexit50:                                      ; preds = %276, %259, %258
   %279 = icmp ne i32 %.0781.i, 0
@@ -18213,7 +18213,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i16 %282, ptr %283, align 2, !tbaa !124
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next162, 32
-  br i1 %exitcond.not, label %.loopexit49, label %280, !llvm.loop !230
+  br i1 %exitcond.not, label %.loopexit49, label %280, !llvm.loop !231
 
 .loopexit49:                                      ; preds = %280, %.loopexit50
   br i1 %.0778.i, label %.preheader47, label %.loopexit46
@@ -18239,7 +18239,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i16 %288, ptr %289, align 2, !tbaa !124
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
-  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !231
+  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !232
 
 ._crit_edge79:                                    ; preds = %.lr.ph78
   %290 = icmp samesign ult i32 %117, 32
@@ -18266,7 +18266,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %291, ptr %298, align 2, !tbaa !97
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 4
   %299 = icmp samesign ult i64 %indvars.iv.next169, %296
-  br i1 %299, label %297, label %.loopexit46, !llvm.loop !232
+  br i1 %299, label %297, label %.loopexit46, !llvm.loop !233
 
 .loopexit46:                                      ; preds = %297, %._crit_edge79, %.loopexit49
   br i1 %128, label %300, label %.loopexit36
@@ -18351,7 +18351,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %340 = getelementptr inbounds %struct.MvField, ptr %333, i64 %339, i32 2
   %341 = load i8, ptr %340, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %341, 0
-  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !233
+  br i1 %.not850.i, label %.critedge.i, label %330, !llvm.loop !234
 
 .critedge.i:                                      ; preds = %332, %..critedge.i_crit_edge
   %.pre-phi278 = phi i64 [ %.pre277, %..critedge.i_crit_edge ], [ %339, %332 ]
@@ -18391,7 +18391,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
 359:                                              ; preds = %351
   %360 = add nuw nsw i32 %.1799.i91, 1
   %exitcond175.not = icmp eq i32 %360, %.0796.i
-  br i1 %exitcond175.not, label %.critedge25.i, label %351, !llvm.loop !234
+  br i1 %exitcond175.not, label %.critedge25.i, label %351, !llvm.loop !235
 
 .critedge25.i:                                    ; preds = %359, %351
   %.1799.i.lcssa = phi i32 [ %.0796.i, %359 ], [ %.1799.i91, %351 ]
@@ -18429,7 +18429,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
 
 380:                                              ; preds = %376, %366
   %.not316 = icmp eq i64 %indvars.iv176, 0
-  br i1 %.not316, label %._crit_edge98, label %366, !llvm.loop !235
+  br i1 %.not316, label %._crit_edge98, label %366, !llvm.loop !236
 
 ._crit_edge98:                                    ; preds = %380, %.critedge25.i
   %381 = load i16, ptr %8, align 16, !tbaa !124
@@ -18450,7 +18450,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
 390:                                              ; preds = %382
   %391 = add nuw nsw i32 %.2800.i83, 1
   %exitcond171.not = icmp eq i32 %391, %.0796.i
-  br i1 %exitcond171.not, label %.lr.ph89, label %382, !llvm.loop !236
+  br i1 %exitcond171.not, label %.lr.ph89, label %382, !llvm.loop !237
 
 .critedge27.i:                                    ; preds = %382
   %.not847.i = icmp eq i32 %.2800.i83, 0
@@ -18496,7 +18496,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
 
 414:                                              ; preds = %410, %400
   %415 = icmp samesign ugt i64 %indvars.iv172, 1
-  br i1 %415, label %400, label %._crit_edge90, !llvm.loop !237
+  br i1 %415, label %400, label %._crit_edge90, !llvm.loop !238
 
 ._crit_edge90:                                    ; preds = %414
   %416 = load i16, ptr %71, align 2, !tbaa !124
@@ -18557,7 +18557,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.1765.i = phi i64 [ %443, %440 ], [ %.0764.i101, %438 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 4
   %445 = icmp samesign ult i64 %indvars.iv.next180, %425
-  br i1 %445, label %427, label %._crit_edge105, !llvm.loop !238
+  br i1 %445, label %427, label %._crit_edge105, !llvm.loop !239
 
 ._crit_edge105:                                   ; preds = %444, %419
   br i1 %279, label %.loopexit41, label %.thread
@@ -18573,7 +18573,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %447, ptr %449, align 2, !tbaa !97
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 4
   %450 = icmp samesign ult i64 %indvars.iv182, 28
-  br i1 %450, label %448, label %.loopexit41, !llvm.loop !249
+  br i1 %450, label %448, label %.loopexit41, !llvm.loop !250
 
 .loopexit41:                                      ; preds = %448, %._crit_edge105
   br i1 %.0778.i, label %.loopexit40, label %451
@@ -18592,7 +18592,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %456, ptr %458, align 2, !tbaa !97
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 4
   %459 = icmp samesign ult i64 %indvars.iv185, 28
-  br i1 %459, label %457, label %.loopexit40, !llvm.loop !250
+  br i1 %459, label %457, label %.loopexit40, !llvm.loop !251
 
 .loopexit40:                                      ; preds = %457, %.loopexit41
   %460 = icmp ne i32 %2, 0
@@ -18661,7 +18661,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.3767.i = phi i64 [ %490, %487 ], [ %.2766.i114, %486 ]
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, -4
   %492 = icmp sgt i64 %indvars.iv194, 3
-  br i1 %492, label %473, label %._crit_edge118, !llvm.loop !239
+  br i1 %492, label %473, label %._crit_edge118, !llvm.loop !240
 
 ._crit_edge118:                                   ; preds = %491, %.._crit_edge118_crit_edge
   %.pre-phi283 = phi i32 [ %.pre282, %.._crit_edge118_crit_edge ], [ %472, %491 ]
@@ -18750,7 +18750,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.5769.i = phi i64 [ %540, %537 ], [ %.4768.i108, %536 ]
   %indvars.iv.next189 = add nsw i64 %indvars.iv188, -4
   %542 = icmp sgt i64 %indvars.iv188, 3
-  br i1 %542, label %523, label %.loopexit38, !llvm.loop !240
+  br i1 %542, label %523, label %.loopexit38, !llvm.loop !241
 
 .loopexit38:                                      ; preds = %541, %.lr.ph113.preheader, %513, %.preheader37, %503, %._crit_edge118
   %543 = load i16, ptr %6, align 16, !tbaa !124
@@ -18806,7 +18806,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.7771.i = phi i64 [ %568, %565 ], [ %.6770.i121, %563 ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 4
   %570 = icmp samesign ult i64 %indvars.iv.next198, %550
-  br i1 %570, label %553, label %.loopexit36, !llvm.loop !241
+  br i1 %570, label %553, label %.loopexit36, !llvm.loop !242
 
 .loopexit36:                                      ; preds = %569, %544, %.loopexit38, %.loopexit46
   br i1 %.0778.i, label %618, label %571
@@ -18831,7 +18831,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %577, ptr %579, align 2, !tbaa !97
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 4
   %580 = icmp samesign ult i64 %indvars.iv218, 28
-  br i1 %580, label %578, label %.thread4, !llvm.loop !251
+  br i1 %580, label %578, label %.thread4, !llvm.loop !252
 
 581:                                              ; preds = %571
   br i1 %248, label %582, label %589
@@ -18848,7 +18848,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %585, ptr %587, align 2, !tbaa !97
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 4
   %588 = icmp samesign ult i64 %indvars.iv215, 60
-  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !242
+  br i1 %588, label %586, label %.thread4.thread, !llvm.loop !243
 
 589:                                              ; preds = %581
   br i1 %254, label %590, label %.thread301
@@ -18866,7 +18866,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %593, ptr %595, align 2, !tbaa !97
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 4
   %596 = icmp samesign ult i64 %indvars.iv212, 60
-  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !243
+  br i1 %596, label %594, label %.thread4.thread.thread, !llvm.loop !244
 
 .thread301:                                       ; preds = %.loopexit36.thread, %589
   br i1 %.0792.i, label %597, label %612
@@ -18884,7 +18884,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %601, ptr %603, align 2, !tbaa !97
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 4
   %604 = icmp samesign ult i64 %indvars.iv206, 28
-  br i1 %604, label %602, label %605, !llvm.loop !252
+  br i1 %604, label %602, label %605, !llvm.loop !253
 
 605:                                              ; preds = %602
   %606 = load i16, ptr %598, align 2, !tbaa !124
@@ -18899,7 +18899,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %608, ptr %610, align 2, !tbaa !97
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 4
   %611 = icmp samesign ult i64 %indvars.iv209, 60
-  br i1 %611, label %609, label %.loopexit31, !llvm.loop !244
+  br i1 %611, label %609, label %.loopexit31, !llvm.loop !245
 
 612:                                              ; preds = %.thread301
   store i16 2048, ptr %6, align 16, !tbaa !124
@@ -18911,7 +18911,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %614, align 2, !tbaa !97
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 4
   %615 = icmp samesign ult i64 %indvars.iv200, 60
-  br i1 %615, label %613, label %.preheader35, !llvm.loop !245
+  br i1 %615, label %613, label %.preheader35, !llvm.loop !246
 
 .preheader35:                                     ; preds = %613, %.preheader35
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %.preheader35 ], [ 0, %613 ]
@@ -18919,7 +18919,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 576469548530665472, ptr %616, align 2, !tbaa !97
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 4
   %617 = icmp samesign ult i64 %indvars.iv203, 60
-  br i1 %617, label %.preheader35, label %.thread11, !llvm.loop !246
+  br i1 %617, label %.preheader35, label %.thread11, !llvm.loop !247
 
 618:                                              ; preds = %.loopexit36
   %.not856.i = icmp eq i32 %.0781.i, 0
@@ -18940,7 +18940,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %622, ptr %624, align 2, !tbaa !97
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 4
   %625 = icmp samesign ult i64 %indvars.iv221, 28
-  br i1 %625, label %623, label %.thread4, !llvm.loop !253
+  br i1 %625, label %623, label %.thread4, !llvm.loop !254
 
 .thread4:                                         ; preds = %578, %623, %618
   %.2787.i10 = phi i32 [ %.0785.i, %618 ], [ %.2787.i17, %623 ], [ %.0785.i, %578 ]
@@ -18970,7 +18970,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %631, ptr %633, align 2, !tbaa !97
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 4
   %634 = icmp samesign ult i64 %indvars.iv224, 28
-  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !254
+  br i1 %634, label %632, label %.thread4.thread.thread, !llvm.loop !255
 
 .thread4.thread.thread:                           ; preds = %594, %632, %.thread4.thread
   br i1 %.0792.i, label %.loopexit31, label %635
@@ -18989,7 +18989,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i64 %640, ptr %642, align 2, !tbaa !97
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 4
   %643 = icmp samesign ult i64 %indvars.iv227, 28
-  br i1 %643, label %641, label %.loopexit31, !llvm.loop !255
+  br i1 %643, label %641, label %.loopexit31, !llvm.loop !256
 
 .loopexit31:                                      ; preds = %609, %641, %.thread4.thread.thread
   %644 = load i16, ptr %6, align 16, !tbaa !124
@@ -19087,7 +19087,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %705 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv236
   store i16 %704, ptr %705, align 2, !tbaa !124
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 63
-  br i1 %exitcond239.not, label %.preheader, label %697, !llvm.loop !256
+  br i1 %exitcond239.not, label %.preheader, label %697, !llvm.loop !257
 
 .preheader:                                       ; preds = %697, %.preheader
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.preheader ], [ 0, %697 ]
@@ -19106,7 +19106,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %717 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv240
   store i16 %716, ptr %717, align 2, !tbaa !124
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 63
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !257
+  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !258
 
 718:                                              ; preds = %._crit_edge263, %681, %668
   %719 = phi i16 [ %.pre265, %._crit_edge263 ], [ %671, %681 ], [ %671, %668 ]
@@ -19139,7 +19139,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i16 %739, ptr %740, align 2, !tbaa !124
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
   %.not286 = icmp eq i64 %indvars.iv230, 0
-  br i1 %.not286, label %741, label %724, !llvm.loop !247
+  br i1 %.not286, label %741, label %724, !llvm.loop !248
 
 741:                                              ; preds = %724
   %742 = load i16, ptr %70, align 2, !tbaa !124
@@ -19178,7 +19178,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   store i16 %768, ptr %769, align 2, !tbaa !124
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, -1
   %.not287 = icmp eq i64 %indvars.iv233, 0
-  br i1 %.not287, label %.loopexit, label %753, !llvm.loop !248
+  br i1 %.not287, label %.loopexit, label %753, !llvm.loop !249
 
 .loopexit:                                        ; preds = %753, %.preheader, %653, %648, %.loopexit31
   %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %648 ], [ %71, %653 ], [ %73, %.preheader ], [ %73, %753 ]
@@ -19261,11 +19261,11 @@ define internal void @pred_planar_0_12(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !258
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !259
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 4
-  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !259
+  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !260
 
 pred_planar_12.exit:                              ; preds = %37
   ret void
@@ -19316,11 +19316,11 @@ define internal void @pred_planar_1_12(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !258
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !259
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 8
-  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !259
+  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !260
 
 pred_planar_12.exit:                              ; preds = %37
   ret void
@@ -19371,11 +19371,11 @@ define internal void @pred_planar_2_12(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !258
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !259
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 16
-  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !259
+  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !260
 
 pred_planar_12.exit:                              ; preds = %37
   ret void
@@ -19426,11 +19426,11 @@ define internal void @pred_planar_3_12(ptr noundef writeonly captures(none) %0, 
   %36 = getelementptr i16, ptr %9, i64 %indvars.iv
   store i16 %35, ptr %36, align 2, !tbaa !124
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !258
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !259
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 32
-  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !259
+  br i1 %exitcond9.not, label %pred_planar_12.exit, label %.preheader, !llvm.loop !260
 
 pred_planar_12.exit:                              ; preds = %37
   ret void
@@ -19460,7 +19460,7 @@ define internal void @pred_dc_12(ptr noundef writeonly captures(none) %0, ptr no
   %15 = add i32 %14, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !260
+  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !261
 
 .preheader57.us.preheader:                        ; preds = %.lr.ph
   %16 = add nsw i32 %4, 1
@@ -19484,12 +19484,12 @@ define internal void @pred_dc_12(ptr noundef writeonly captures(none) %0, ptr no
   store i64 %19, ptr %24, align 1, !tbaa !97
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 4
   %25 = icmp slt i64 %indvars.iv.next73, %20
-  br i1 %25, label %23, label %._crit_edge62.us, !llvm.loop !261
+  br i1 %25, label %23, label %._crit_edge62.us, !llvm.loop !262
 
 ._crit_edge62.us:                                 ; preds = %23
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !262
+  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !263
 
 ._crit_edge64:                                    ; preds = %._crit_edge62.us, %6
   %26 = phi i32 [ -1, %6 ], [ %17, %._crit_edge62.us ]
@@ -19537,7 +19537,7 @@ define internal void @pred_dc_12(ptr noundef writeonly captures(none) %0, ptr no
   store i16 %51, ptr %52, align 2, !tbaa !124
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !263
+  br i1 %exitcond85.not, label %.lr.ph69, label %45, !llvm.loop !264
 
 53:                                               ; preds = %.lr.ph69, %53
   %indvars.iv86 = phi i64 [ 1, %.lr.ph69 ], [ %indvars.iv.next87, %53 ]
@@ -19552,7 +19552,7 @@ define internal void @pred_dc_12(ptr noundef writeonly captures(none) %0, ptr no
   store i16 %59, ptr %61, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !264
+  br i1 %exitcond90.not, label %.loopexit, label %53, !llvm.loop !265
 
 .loopexit:                                        ; preds = %53, %29, %._crit_edge64
   ret void
@@ -19602,7 +19602,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 0
-  br i1 %exitcond84.not, label %.split, label %25, !llvm.loop !265
+  br i1 %exitcond84.not, label %.split, label %25, !llvm.loop !266
 
 .split:                                           ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -19690,7 +19690,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
 
 95:                                               ; preds = %.preheader6, %.preheader5
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 4
-  br i1 %exitcond88.not, label %96, label %33, !llvm.loop !266
+  br i1 %exitcond88.not, label %96, label %33, !llvm.loop !267
 
 96:                                               ; preds = %95
   %97 = icmp eq i32 %5, 26
@@ -19722,7 +19722,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   store i16 %113, ptr %115, align 2, !tbaa !124
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 4
-  br i1 %exitcond92.not, label %pred_angular_12.exit, label %100, !llvm.loop !267
+  br i1 %exitcond92.not, label %pred_angular_12.exit, label %100, !llvm.loop !268
 
 116:                                              ; preds = %6
   %117 = getelementptr i8, ptr %2, i64 -2
@@ -19751,7 +19751,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   store i16 %129, ptr %130, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %123, !llvm.loop !268
+  br i1 %exitcond.not, label %.loopexit18, label %123, !llvm.loop !269
 
 .loopexit18:                                      ; preds = %123, %116
   %.1210.i = phi ptr [ %117, %116 ], [ %12, %123 ]
@@ -19801,7 +19801,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   store i16 %151, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %.loopexit14, label %139, !llvm.loop !269
+  br i1 %exitcond69.not, label %.loopexit14, label %139, !llvm.loop !270
 
 153:                                              ; preds = %.preheader13, %153
   %indvars.iv70 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next71, %153 ]
@@ -19812,11 +19812,11 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   store i16 %154, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.loopexit14, label %153, !llvm.loop !270
+  br i1 %exitcond73.not, label %.loopexit14, label %153, !llvm.loop !271
 
 .loopexit14:                                      ; preds = %139, %153
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 4
-  br i1 %exitcond77.not, label %156, label %131, !llvm.loop !271
+  br i1 %exitcond77.not, label %156, label %131, !llvm.loop !272
 
 156:                                              ; preds = %.loopexit14
   %157 = icmp eq i32 %5, 10
@@ -19935,7 +19935,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 0
-  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !265
+  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !266
 
 .loopexit9:                                       ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -20042,11 +20042,11 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %103 = trunc i32 %102 to i16
   %104 = getelementptr i16, ptr %40, i64 %91
   store i16 %103, ptr %104, align 2, !tbaa !124
-  br i1 %49, label %48, label %.loopexit, !llvm.loop !272
+  br i1 %49, label %48, label %.loopexit, !llvm.loop !273
 
 .loopexit:                                        ; preds = %48, %.preheader5
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 8
-  br i1 %exitcond85.not, label %105, label %33, !llvm.loop !266
+  br i1 %exitcond85.not, label %105, label %33, !llvm.loop !267
 
 105:                                              ; preds = %.loopexit
   %106 = icmp eq i32 %5, 26
@@ -20078,7 +20078,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   store i16 %122, ptr %124, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 8
-  br i1 %exitcond89.not, label %pred_angular_12.exit, label %109, !llvm.loop !267
+  br i1 %exitcond89.not, label %pred_angular_12.exit, label %109, !llvm.loop !268
 
 125:                                              ; preds = %6
   %126 = getelementptr i8, ptr %2, i64 -2
@@ -20107,7 +20107,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   store i16 %138, ptr %139, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %132, !llvm.loop !268
+  br i1 %exitcond.not, label %.loopexit18, label %132, !llvm.loop !269
 
 .loopexit18:                                      ; preds = %132, %125
   %.1210.i = phi ptr [ %126, %125 ], [ %12, %132 ]
@@ -20157,7 +20157,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   store i16 %160, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 8
-  br i1 %exitcond55.not, label %.loopexit14, label %148, !llvm.loop !269
+  br i1 %exitcond55.not, label %.loopexit14, label %148, !llvm.loop !270
 
 162:                                              ; preds = %.preheader13, %162
   %indvars.iv56 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next57, %162 ]
@@ -20168,11 +20168,11 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   store i16 %163, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 8
-  br i1 %exitcond59.not, label %.loopexit14, label %162, !llvm.loop !270
+  br i1 %exitcond59.not, label %.loopexit14, label %162, !llvm.loop !271
 
 .loopexit14:                                      ; preds = %148, %162
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 8
-  br i1 %exitcond63.not, label %165, label %140, !llvm.loop !271
+  br i1 %exitcond63.not, label %165, label %140, !llvm.loop !272
 
 165:                                              ; preds = %.loopexit14
   %166 = icmp eq i32 %5, 10
@@ -20250,7 +20250,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %228 = trunc nuw nsw i32 %227 to i16
   %229 = getelementptr inbounds nuw i16, ptr %0, i64 %217
   store i16 %228, ptr %229, align 2, !tbaa !124
-  br i1 %170, label %169, label %pred_angular_12.exit, !llvm.loop !273
+  br i1 %170, label %169, label %pred_angular_12.exit, !llvm.loop !274
 
 pred_angular_12.exit:                             ; preds = %169, %109, %105, %165
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -20301,7 +20301,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %31, ptr %32, align 2, !tbaa !124
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 0
-  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !265
+  br i1 %exitcond73.not, label %.loopexit9, label %25, !llvm.loop !266
 
 .loopexit9:                                       ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -20403,7 +20403,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %99, ptr %100, align 2, !tbaa !124
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %101 = icmp samesign ult i64 %indvars.iv74, 12
-  br i1 %101, label %45, label %.loopexit, !llvm.loop !272
+  br i1 %101, label %45, label %.loopexit, !llvm.loop !273
 
 102:                                              ; preds = %.preheader5, %102
   %indvars.iv79 = phi i64 [ 0, %.preheader5 ], [ %indvars.iv.next80, %102 ]
@@ -20413,11 +20413,11 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i64 %103, ptr %104, align 1, !tbaa !97
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 4
   %105 = icmp samesign ult i64 %indvars.iv79, 12
-  br i1 %105, label %102, label %.loopexit, !llvm.loop !274
+  br i1 %105, label %102, label %.loopexit, !llvm.loop !275
 
 .loopexit:                                        ; preds = %45, %102
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 16
-  br i1 %exitcond85.not, label %106, label %33, !llvm.loop !266
+  br i1 %exitcond85.not, label %106, label %33, !llvm.loop !267
 
 106:                                              ; preds = %.loopexit
   %107 = icmp eq i32 %5, 26
@@ -20449,7 +20449,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %123, ptr %125, align 2, !tbaa !124
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 16
-  br i1 %exitcond89.not, label %pred_angular_12.exit, label %110, !llvm.loop !267
+  br i1 %exitcond89.not, label %pred_angular_12.exit, label %110, !llvm.loop !268
 
 126:                                              ; preds = %6
   %127 = getelementptr i8, ptr %2, i64 -2
@@ -20478,7 +20478,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %139, ptr %140, align 2, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit18, label %133, !llvm.loop !268
+  br i1 %exitcond.not, label %.loopexit18, label %133, !llvm.loop !269
 
 .loopexit18:                                      ; preds = %133, %126
   %.1210.i = phi ptr [ %127, %126 ], [ %12, %133 ]
@@ -20528,7 +20528,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %161, ptr %gep25, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 16
-  br i1 %exitcond55.not, label %.loopexit14, label %149, !llvm.loop !269
+  br i1 %exitcond55.not, label %.loopexit14, label %149, !llvm.loop !270
 
 163:                                              ; preds = %.preheader13, %163
   %indvars.iv56 = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next57, %163 ]
@@ -20539,11 +20539,11 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %164, ptr %gep30, align 2, !tbaa !124
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 16
-  br i1 %exitcond59.not, label %.loopexit14, label %163, !llvm.loop !270
+  br i1 %exitcond59.not, label %.loopexit14, label %163, !llvm.loop !271
 
 .loopexit14:                                      ; preds = %149, %163
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 16
-  br i1 %exitcond63.not, label %166, label %141, !llvm.loop !271
+  br i1 %exitcond63.not, label %166, label %141, !llvm.loop !272
 
 166:                                              ; preds = %.loopexit14
   %167 = icmp eq i32 %5, 10
@@ -20622,7 +20622,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   store i16 %228, ptr %229, align 2, !tbaa !124
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 4
   %230 = icmp samesign ult i64 %indvars.iv64, 12
-  br i1 %230, label %170, label %pred_angular_12.exit, !llvm.loop !273
+  br i1 %230, label %170, label %pred_angular_12.exit, !llvm.loop !274
 
 pred_angular_12.exit:                             ; preds = %170, %110, %106, %166
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -20673,7 +20673,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv67 = trunc i64 %indvars.iv.next64 to i32
   %exitcond68.not = icmp eq i32 %22, %lftr.wideiv67
-  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !265
+  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !266
 
 .loopexit8:                                       ; preds = %23, %15
   %.0209.i = phi ptr [ %16, %15 ], [ %12, %23 ]
@@ -20775,7 +20775,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   store i16 %97, ptr %98, align 2, !tbaa !124
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 4
   %99 = icmp samesign ult i64 %indvars.iv69, 28
-  br i1 %99, label %43, label %.loopexit, !llvm.loop !272
+  br i1 %99, label %43, label %.loopexit, !llvm.loop !273
 
 100:                                              ; preds = %.preheader, %100
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %100 ]
@@ -20785,11 +20785,11 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   store i64 %101, ptr %102, align 1, !tbaa !97
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %103 = icmp samesign ult i64 %indvars.iv74, 28
-  br i1 %103, label %100, label %.loopexit, !llvm.loop !274
+  br i1 %103, label %100, label %.loopexit, !llvm.loop !275
 
 .loopexit:                                        ; preds = %43, %100
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 32
-  br i1 %exitcond80.not, label %pred_angular_12.exit, label %31, !llvm.loop !266
+  br i1 %exitcond80.not, label %pred_angular_12.exit, label %31, !llvm.loop !267
 
 104:                                              ; preds = %6
   %105 = getelementptr i8, ptr %2, i64 -2
@@ -20821,7 +20821,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %111, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !268
+  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !269
 
 .loopexit16:                                      ; preds = %112, %104
   %.1210.i = phi ptr [ %105, %104 ], [ %12, %112 ]
@@ -20871,7 +20871,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   store i16 %140, ptr %gep23, align 2, !tbaa !124
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 32
-  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !269
+  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !270
 
 142:                                              ; preds = %.preheader10, %142
   %indvars.iv52 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next53, %142 ]
@@ -20882,11 +20882,11 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   store i16 %143, ptr %gep28, align 2, !tbaa !124
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !270
+  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !271
 
 .loopexit11:                                      ; preds = %128, %142
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 32
-  br i1 %exitcond59.not, label %pred_angular_12.exit, label %120, !llvm.loop !271
+  br i1 %exitcond59.not, label %pred_angular_12.exit, label %120, !llvm.loop !272
 
 pred_angular_12.exit:                             ; preds = %.loopexit11, %.loopexit
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
@@ -21083,7 +21083,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %154 = or i32 %.2780.i44, %153
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %155 = icmp samesign ult i64 %indvars.iv.next, %142
-  br i1 %155, label %146, label %._crit_edge.loopexit, !llvm.loop !275
+  br i1 %155, label %146, label %._crit_edge.loopexit, !llvm.loop !276
 
 ._crit_edge.loopexit:                             ; preds = %146
   %156 = icmp ne i32 %154, 0
@@ -21128,7 +21128,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %180 = or i32 %.2783.i46, %179
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 2
   %181 = icmp samesign ult i64 %indvars.iv.next137, %168
-  br i1 %181, label %172, label %.loopexit43, !llvm.loop !276
+  br i1 %181, label %172, label %.loopexit43, !llvm.loop !277
 
 .loopexit43:                                      ; preds = %172, %158, %._crit_edge
   %.1782.i = phi i32 [ %86, %._crit_edge ], [ 0, %158 ], [ %180, %172 ]
@@ -21187,7 +21187,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %218 = or i32 %.2790.i51, %217
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 2
   %219 = icmp samesign ult i64 %indvars.iv.next140, %209
-  br i1 %219, label %210, label %.loopexit42, !llvm.loop !277
+  br i1 %219, label %210, label %.loopexit42, !llvm.loop !278
 
 .loopexit42:                                      ; preds = %210, %199, %197
   %.1789.i = phi i32 [ %90, %197 ], [ 0, %199 ], [ %218, %210 ]
@@ -21224,7 +21224,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %239 = or i32 %.2794.i56, %238
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %240 = icmp samesign ult i64 %indvars.iv.next143, %230
-  br i1 %240, label %231, label %._crit_edge60.loopexit, !llvm.loop !278
+  br i1 %240, label %231, label %._crit_edge60.loopexit, !llvm.loop !279
 
 ._crit_edge60.loopexit:                           ; preds = %231
   %241 = icmp ne i32 %239, 0
@@ -21297,7 +21297,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %267, ptr %274, align 1, !tbaa !97
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 4
   %275 = icmp samesign ult i64 %indvars.iv.next146, %272
-  br i1 %275, label %273, label %.loopexit41, !llvm.loop !279
+  br i1 %275, label %273, label %.loopexit41, !llvm.loop !280
 
 .loopexit41:                                      ; preds = %273, %255, %254
   %276 = icmp ne i32 %.0781.i, 0
@@ -21316,7 +21316,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %279, ptr %280, align 1, !tbaa !97
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next149, 4
-  br i1 %exitcond.not, label %.loopexit40, label %277, !llvm.loop !280
+  br i1 %exitcond.not, label %.loopexit40, label %277, !llvm.loop !281
 
 .loopexit40:                                      ; preds = %277, %.loopexit41
   br i1 %.0778.i, label %.preheader38, label %.loopexit37
@@ -21342,7 +21342,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %285, ptr %286, align 1, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !281
+  br i1 %exitcond154.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !282
 
 ._crit_edge70:                                    ; preds = %.lr.ph69
   %287 = icmp samesign ult i32 %112, 4
@@ -21369,7 +21369,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %288, ptr %295, align 1, !tbaa !97
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 4
   %296 = icmp samesign ult i64 %indvars.iv.next156, %293
-  br i1 %296, label %294, label %.loopexit37, !llvm.loop !282
+  br i1 %296, label %294, label %.loopexit37, !llvm.loop !283
 
 .loopexit37:                                      ; preds = %294, %._crit_edge70, %.loopexit40
   br i1 %123, label %297, label %.loopexit27
@@ -21454,7 +21454,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %337 = getelementptr inbounds %struct.MvField, ptr %330, i64 %336, i32 2
   %338 = load i8, ptr %337, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %338, 0
-  br i1 %.not850.i, label %.critedge.i, label %327, !llvm.loop !283
+  br i1 %.not850.i, label %.critedge.i, label %327, !llvm.loop !284
 
 .critedge.i:                                      ; preds = %329, %..critedge.i_crit_edge
   %.pre-phi230 = phi i64 [ %.pre229, %..critedge.i_crit_edge ], [ %336, %329 ]
@@ -21494,7 +21494,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
 356:                                              ; preds = %348
   %357 = add nuw nsw i32 %.1799.i82, 1
   %exitcond162.not = icmp eq i32 %357, %.0796.i
-  br i1 %exitcond162.not, label %.critedge25.i, label %348, !llvm.loop !284
+  br i1 %exitcond162.not, label %.critedge25.i, label %348, !llvm.loop !285
 
 .critedge25.i:                                    ; preds = %356, %348
   %.1799.i.lcssa = phi i32 [ %.0796.i, %356 ], [ %.1799.i82, %348 ]
@@ -21532,7 +21532,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
 
 377:                                              ; preds = %373, %363
   %.not = icmp eq i64 %indvars.iv163, 0
-  br i1 %.not, label %._crit_edge89, label %363, !llvm.loop !285
+  br i1 %.not, label %._crit_edge89, label %363, !llvm.loop !286
 
 ._crit_edge89:                                    ; preds = %377, %.critedge25.i
   %378 = load i8, ptr %7, align 16, !tbaa !97
@@ -21553,7 +21553,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
 387:                                              ; preds = %379
   %388 = add nuw nsw i32 %.2800.i74, 1
   %exitcond158.not = icmp eq i32 %388, %.0796.i
-  br i1 %exitcond158.not, label %.lr.ph80, label %379, !llvm.loop !286
+  br i1 %exitcond158.not, label %.lr.ph80, label %379, !llvm.loop !287
 
 .critedge27.i:                                    ; preds = %379
   %.not847.i = icmp eq i32 %.2800.i74, 0
@@ -21599,7 +21599,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
 
 408:                                              ; preds = %404, %394
   %409 = icmp samesign ugt i64 %indvars.iv159, 1
-  br i1 %409, label %394, label %._crit_edge81, !llvm.loop !287
+  br i1 %409, label %394, label %._crit_edge81, !llvm.loop !288
 
 ._crit_edge81:                                    ; preds = %408
   %410 = load i8, ptr %68, align 1, !tbaa !97
@@ -21660,7 +21660,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %.1765.i = phi i32 [ %437, %434 ], [ %.0764.i92, %432 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 4
   %439 = icmp samesign ult i64 %indvars.iv.next167, %419
-  br i1 %439, label %421, label %._crit_edge96, !llvm.loop !288
+  br i1 %439, label %421, label %._crit_edge96, !llvm.loop !289
 
 ._crit_edge96:                                    ; preds = %438, %413
   br i1 %276, label %442, label %.thread.split
@@ -21750,7 +21750,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %.3767.i = phi i32 [ %479, %476 ], [ %.2766.i105, %475 ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, -4
   %481 = icmp sgt i64 %indvars.iv175, 3
-  br i1 %481, label %462, label %._crit_edge109, !llvm.loop !289
+  br i1 %481, label %462, label %._crit_edge109, !llvm.loop !290
 
 ._crit_edge109:                                   ; preds = %480, %.._crit_edge109_crit_edge
   %.pre-phi235 = phi i32 [ %.pre234, %.._crit_edge109_crit_edge ], [ %461, %480 ]
@@ -21838,7 +21838,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %.5769.i = phi i32 [ %528, %525 ], [ %.4768.i99, %524 ]
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, -4
   %530 = icmp sgt i64 %indvars.iv169, 3
-  br i1 %530, label %511, label %.loopexit29, !llvm.loop !290
+  br i1 %530, label %511, label %.loopexit29, !llvm.loop !291
 
 .loopexit29:                                      ; preds = %529, %.lr.ph104.preheader, %501, %.preheader28, %492, %._crit_edge109
   %531 = load i8, ptr %6, align 16, !tbaa !97
@@ -21894,7 +21894,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %.7771.i = phi i32 [ %556, %553 ], [ %.6770.i112, %551 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %558 = icmp samesign ult i64 %indvars.iv.next179, %538
-  br i1 %558, label %541, label %.loopexit27, !llvm.loop !291
+  br i1 %558, label %541, label %.loopexit27, !llvm.loop !292
 
 .loopexit27:                                      ; preds = %557, %532, %.loopexit29, %.loopexit37
   br i1 %.0778.i, label %580, label %559
@@ -22237,7 +22237,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %158 = or i32 %.2780.i50, %157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %159 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !275
+  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !276
 
 ._crit_edge.loopexit:                             ; preds = %150
   %160 = icmp ne i32 %158, 0
@@ -22282,7 +22282,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %184 = or i32 %.2783.i52, %183
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %185 = icmp samesign ult i64 %indvars.iv.next143, %172
-  br i1 %185, label %176, label %.loopexit49, !llvm.loop !276
+  br i1 %185, label %176, label %.loopexit49, !llvm.loop !277
 
 .loopexit49:                                      ; preds = %176, %162, %._crit_edge
   %.1782.i = phi i32 [ %90, %._crit_edge ], [ 0, %162 ], [ %184, %176 ]
@@ -22341,7 +22341,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %222 = or i32 %.2790.i57, %221
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %223 = icmp samesign ult i64 %indvars.iv.next146, %213
-  br i1 %223, label %214, label %.loopexit48, !llvm.loop !277
+  br i1 %223, label %214, label %.loopexit48, !llvm.loop !278
 
 .loopexit48:                                      ; preds = %214, %203, %201
   %.1789.i = phi i32 [ %94, %201 ], [ 0, %203 ], [ %222, %214 ]
@@ -22378,7 +22378,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %243 = or i32 %.2794.i62, %242
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %244 = icmp samesign ult i64 %indvars.iv.next149, %234
-  br i1 %244, label %235, label %._crit_edge66.loopexit, !llvm.loop !278
+  br i1 %244, label %235, label %._crit_edge66.loopexit, !llvm.loop !279
 
 ._crit_edge66.loopexit:                           ; preds = %235
   %245 = icmp ne i32 %243, 0
@@ -22451,7 +22451,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %271, ptr %278, align 1, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %279 = icmp samesign ult i64 %indvars.iv.next152, %276
-  br i1 %279, label %277, label %.loopexit47, !llvm.loop !279
+  br i1 %279, label %277, label %.loopexit47, !llvm.loop !280
 
 .loopexit47:                                      ; preds = %277, %259, %258
   %280 = icmp ne i32 %.0781.i, 0
@@ -22470,7 +22470,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %283, ptr %284, align 1, !tbaa !97
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 8
-  br i1 %exitcond.not, label %.loopexit46, label %281, !llvm.loop !280
+  br i1 %exitcond.not, label %.loopexit46, label %281, !llvm.loop !281
 
 .loopexit46:                                      ; preds = %281, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -22496,7 +22496,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %289, ptr %290, align 1, !tbaa !97
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !281
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !282
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %291 = icmp samesign ult i32 %116, 8
@@ -22523,7 +22523,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %292, ptr %299, align 1, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %300 = icmp samesign ult i64 %indvars.iv.next162, %297
-  br i1 %300, label %298, label %.loopexit43, !llvm.loop !282
+  br i1 %300, label %298, label %.loopexit43, !llvm.loop !283
 
 .loopexit43:                                      ; preds = %298, %._crit_edge76, %.loopexit46
   br i1 %127, label %301, label %.loopexit33
@@ -22608,7 +22608,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %341 = getelementptr inbounds %struct.MvField, ptr %334, i64 %340, i32 2
   %342 = load i8, ptr %341, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %342, 0
-  br i1 %.not850.i, label %.critedge.i, label %331, !llvm.loop !283
+  br i1 %.not850.i, label %.critedge.i, label %331, !llvm.loop !284
 
 .critedge.i:                                      ; preds = %333, %..critedge.i_crit_edge
   %.pre-phi265 = phi i64 [ %.pre264, %..critedge.i_crit_edge ], [ %340, %333 ]
@@ -22648,7 +22648,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
 360:                                              ; preds = %352
   %361 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %361, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %352, !llvm.loop !284
+  br i1 %exitcond168.not, label %.critedge25.i, label %352, !llvm.loop !285
 
 .critedge25.i:                                    ; preds = %360, %352
   %.1799.i.lcssa = phi i32 [ %.0796.i, %360 ], [ %.1799.i88, %352 ]
@@ -22686,7 +22686,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
 
 381:                                              ; preds = %377, %367
   %.not302 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not302, label %._crit_edge95, label %367, !llvm.loop !285
+  br i1 %.not302, label %._crit_edge95, label %367, !llvm.loop !286
 
 ._crit_edge95:                                    ; preds = %381, %.critedge25.i
   %382 = load i8, ptr %8, align 16, !tbaa !97
@@ -22707,7 +22707,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
 391:                                              ; preds = %383
   %392 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %392, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %383, !llvm.loop !286
+  br i1 %exitcond164.not, label %.lr.ph86, label %383, !llvm.loop !287
 
 .critedge27.i:                                    ; preds = %383
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -22753,7 +22753,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
 
 412:                                              ; preds = %408, %398
   %413 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %413, label %398, label %._crit_edge87, !llvm.loop !287
+  br i1 %413, label %398, label %._crit_edge87, !llvm.loop !288
 
 ._crit_edge87:                                    ; preds = %412
   %414 = load i8, ptr %70, align 1, !tbaa !97
@@ -22814,7 +22814,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.1765.i = phi i32 [ %441, %438 ], [ %.0764.i98, %436 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %443 = icmp samesign ult i64 %indvars.iv.next173, %423
-  br i1 %443, label %425, label %._crit_edge102, !llvm.loop !288
+  br i1 %443, label %425, label %._crit_edge102, !llvm.loop !289
 
 ._crit_edge102:                                   ; preds = %442, %417
   br i1 %280, label %.loopexit38, label %.thread
@@ -22908,7 +22908,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.3767.i = phi i32 [ %483, %480 ], [ %.2766.i111, %479 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %485 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %485, label %466, label %._crit_edge115, !llvm.loop !289
+  br i1 %485, label %466, label %._crit_edge115, !llvm.loop !290
 
 ._crit_edge115:                                   ; preds = %484, %.._crit_edge115_crit_edge
   %.pre-phi270 = phi i32 [ %.pre269, %.._crit_edge115_crit_edge ], [ %465, %484 ]
@@ -22996,7 +22996,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.5769.i = phi i32 [ %532, %529 ], [ %.4768.i105, %528 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %534 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %534, label %515, label %.loopexit35, !llvm.loop !290
+  br i1 %534, label %515, label %.loopexit35, !llvm.loop !291
 
 .loopexit35:                                      ; preds = %533, %.lr.ph110.preheader, %505, %.preheader34, %496, %._crit_edge115
   %535 = load i8, ptr %6, align 16, !tbaa !97
@@ -23052,7 +23052,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.7771.i = phi i32 [ %560, %557 ], [ %.6770.i118, %555 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %562 = icmp samesign ult i64 %indvars.iv.next191, %542
-  br i1 %562, label %545, label %.loopexit33, !llvm.loop !291
+  br i1 %562, label %545, label %.loopexit33, !llvm.loop !292
 
 .loopexit33:                                      ; preds = %561, %536, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %595, label %563
@@ -23086,7 +23086,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %573, ptr %575, align 1, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %576 = icmp samesign ult i64 %indvars.iv208, 12
-  br i1 %576, label %574, label %.thread4.thread, !llvm.loop !292
+  br i1 %576, label %574, label %.thread4.thread, !llvm.loop !293
 
 577:                                              ; preds = %569
   br i1 %253, label %578, label %.thread288
@@ -23104,7 +23104,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %581, ptr %583, align 1, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %584 = icmp samesign ult i64 %indvars.iv205, 12
-  br i1 %584, label %582, label %.thread4.thread.thread, !llvm.loop !293
+  br i1 %584, label %582, label %.thread4.thread.thread, !llvm.loop !294
 
 .thread288:                                       ; preds = %.loopexit33.thread, %577
   br i1 %.0792.i, label %.critedge, label %.preheader.preheader
@@ -23128,7 +23128,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %591, ptr %593, align 1, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %594 = icmp samesign ult i64 %indvars.iv202, 12
-  br i1 %594, label %592, label %.loopexit29, !llvm.loop !294
+  br i1 %594, label %592, label %.loopexit29, !llvm.loop !295
 
 .preheader.preheader:                             ; preds = %.thread288
   store i8 -128, ptr %6, align 16, !tbaa !97
@@ -23257,7 +23257,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %653, ptr %654, align 1, !tbaa !97
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not273 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not273, label %655, label %638, !llvm.loop !295
+  br i1 %.not273, label %655, label %638, !llvm.loop !296
 
 655:                                              ; preds = %638
   %656 = load i8, ptr %69, align 1, !tbaa !97
@@ -23296,7 +23296,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %682, ptr %683, align 1, !tbaa !97
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not274 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not274, label %.loopexit, label %667, !llvm.loop !296
+  br i1 %.not274, label %.loopexit, label %667, !llvm.loop !297
 
 .loopexit:                                        ; preds = %667, %620, %615, %.loopexit29
   %.0775.i = phi ptr [ %70, %.loopexit29 ], [ %70, %615 ], [ %70, %620 ], [ %72, %667 ]
@@ -23530,7 +23530,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %158 = or i32 %.2780.i50, %157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %159 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !275
+  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !276
 
 ._crit_edge.loopexit:                             ; preds = %150
   %160 = icmp ne i32 %158, 0
@@ -23575,7 +23575,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %184 = or i32 %.2783.i52, %183
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %185 = icmp samesign ult i64 %indvars.iv.next143, %172
-  br i1 %185, label %176, label %.loopexit49, !llvm.loop !276
+  br i1 %185, label %176, label %.loopexit49, !llvm.loop !277
 
 .loopexit49:                                      ; preds = %176, %162, %._crit_edge
   %.1782.i = phi i32 [ %90, %._crit_edge ], [ 0, %162 ], [ %184, %176 ]
@@ -23634,7 +23634,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %222 = or i32 %.2790.i57, %221
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 2
   %223 = icmp samesign ult i64 %indvars.iv.next146, %213
-  br i1 %223, label %214, label %.loopexit48, !llvm.loop !277
+  br i1 %223, label %214, label %.loopexit48, !llvm.loop !278
 
 .loopexit48:                                      ; preds = %214, %203, %201
   %.1789.i = phi i32 [ %94, %201 ], [ 0, %203 ], [ %222, %214 ]
@@ -23671,7 +23671,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %243 = or i32 %.2794.i62, %242
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 2
   %244 = icmp samesign ult i64 %indvars.iv.next149, %234
-  br i1 %244, label %235, label %._crit_edge66.loopexit, !llvm.loop !278
+  br i1 %244, label %235, label %._crit_edge66.loopexit, !llvm.loop !279
 
 ._crit_edge66.loopexit:                           ; preds = %235
   %245 = icmp ne i32 %243, 0
@@ -23742,7 +23742,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %269, ptr %276, align 1, !tbaa !97
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 4
   %277 = icmp samesign ult i64 %indvars.iv.next152, %274
-  br i1 %277, label %275, label %.loopexit47, !llvm.loop !279
+  br i1 %277, label %275, label %.loopexit47, !llvm.loop !280
 
 .loopexit47:                                      ; preds = %275, %258, %257
   %278 = icmp ne i32 %.0781.i, 0
@@ -23761,7 +23761,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %281, ptr %282, align 1, !tbaa !97
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, 16
-  br i1 %exitcond.not, label %.loopexit46, label %279, !llvm.loop !280
+  br i1 %exitcond.not, label %.loopexit46, label %279, !llvm.loop !281
 
 .loopexit46:                                      ; preds = %279, %.loopexit47
   br i1 %.0778.i, label %.preheader44, label %.loopexit43
@@ -23787,7 +23787,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %287, ptr %288, align 1, !tbaa !97
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !281
+  br i1 %exitcond160.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !282
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
   %289 = icmp samesign ult i32 %116, 16
@@ -23814,7 +23814,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %290, ptr %297, align 1, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %298 = icmp samesign ult i64 %indvars.iv.next162, %295
-  br i1 %298, label %296, label %.loopexit43, !llvm.loop !282
+  br i1 %298, label %296, label %.loopexit43, !llvm.loop !283
 
 .loopexit43:                                      ; preds = %296, %._crit_edge76, %.loopexit46
   br i1 %127, label %299, label %.loopexit33
@@ -23899,7 +23899,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %339 = getelementptr inbounds %struct.MvField, ptr %332, i64 %338, i32 2
   %340 = load i8, ptr %339, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %340, 0
-  br i1 %.not850.i, label %.critedge.i, label %329, !llvm.loop !283
+  br i1 %.not850.i, label %.critedge.i, label %329, !llvm.loop !284
 
 .critedge.i:                                      ; preds = %331, %..critedge.i_crit_edge
   %.pre-phi265 = phi i64 [ %.pre264, %..critedge.i_crit_edge ], [ %338, %331 ]
@@ -23939,7 +23939,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
 358:                                              ; preds = %350
   %359 = add nuw nsw i32 %.1799.i88, 1
   %exitcond168.not = icmp eq i32 %359, %.0796.i
-  br i1 %exitcond168.not, label %.critedge25.i, label %350, !llvm.loop !284
+  br i1 %exitcond168.not, label %.critedge25.i, label %350, !llvm.loop !285
 
 .critedge25.i:                                    ; preds = %358, %350
   %.1799.i.lcssa = phi i32 [ %.0796.i, %358 ], [ %.1799.i88, %350 ]
@@ -23977,7 +23977,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
 
 379:                                              ; preds = %375, %365
   %.not302 = icmp eq i64 %indvars.iv169, 0
-  br i1 %.not302, label %._crit_edge95, label %365, !llvm.loop !285
+  br i1 %.not302, label %._crit_edge95, label %365, !llvm.loop !286
 
 ._crit_edge95:                                    ; preds = %379, %.critedge25.i
   %380 = load i8, ptr %8, align 16, !tbaa !97
@@ -23998,7 +23998,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
 389:                                              ; preds = %381
   %390 = add nuw nsw i32 %.2800.i80, 1
   %exitcond164.not = icmp eq i32 %390, %.0796.i
-  br i1 %exitcond164.not, label %.lr.ph86, label %381, !llvm.loop !286
+  br i1 %exitcond164.not, label %.lr.ph86, label %381, !llvm.loop !287
 
 .critedge27.i:                                    ; preds = %381
   %.not847.i = icmp eq i32 %.2800.i80, 0
@@ -24044,7 +24044,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
 
 410:                                              ; preds = %406, %396
   %411 = icmp samesign ugt i64 %indvars.iv165, 1
-  br i1 %411, label %396, label %._crit_edge87, !llvm.loop !287
+  br i1 %411, label %396, label %._crit_edge87, !llvm.loop !288
 
 ._crit_edge87:                                    ; preds = %410
   %412 = load i8, ptr %70, align 1, !tbaa !97
@@ -24105,7 +24105,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.1765.i = phi i32 [ %439, %436 ], [ %.0764.i98, %434 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 4
   %441 = icmp samesign ult i64 %indvars.iv.next173, %421
-  br i1 %441, label %423, label %._crit_edge102, !llvm.loop !288
+  br i1 %441, label %423, label %._crit_edge102, !llvm.loop !289
 
 ._crit_edge102:                                   ; preds = %440, %415
   br i1 %278, label %.loopexit38, label %.thread
@@ -24121,7 +24121,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %443, ptr %445, align 1, !tbaa !97
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 4
   %446 = icmp samesign ult i64 %indvars.iv175, 12
-  br i1 %446, label %444, label %.loopexit38, !llvm.loop !297
+  br i1 %446, label %444, label %.loopexit38, !llvm.loop !298
 
 .loopexit38:                                      ; preds = %444, %._crit_edge102
   br i1 %.0778.i, label %.loopexit37, label %447
@@ -24140,7 +24140,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %452, ptr %454, align 1, !tbaa !97
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 4
   %455 = icmp samesign ult i64 %indvars.iv178, 12
-  br i1 %455, label %453, label %.loopexit37, !llvm.loop !298
+  br i1 %455, label %453, label %.loopexit37, !llvm.loop !299
 
 .loopexit37:                                      ; preds = %453, %.loopexit38
   %456 = icmp ne i32 %2, 0
@@ -24209,7 +24209,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.3767.i = phi i32 [ %486, %483 ], [ %.2766.i111, %482 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, -4
   %488 = icmp sgt i64 %indvars.iv187, 3
-  br i1 %488, label %469, label %._crit_edge115, !llvm.loop !289
+  br i1 %488, label %469, label %._crit_edge115, !llvm.loop !290
 
 ._crit_edge115:                                   ; preds = %487, %.._crit_edge115_crit_edge
   %.pre-phi270 = phi i32 [ %.pre269, %.._crit_edge115_crit_edge ], [ %468, %487 ]
@@ -24297,7 +24297,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.5769.i = phi i32 [ %535, %532 ], [ %.4768.i105, %531 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -4
   %537 = icmp sgt i64 %indvars.iv181, 3
-  br i1 %537, label %518, label %.loopexit35, !llvm.loop !290
+  br i1 %537, label %518, label %.loopexit35, !llvm.loop !291
 
 .loopexit35:                                      ; preds = %536, %.lr.ph110.preheader, %508, %.preheader34, %499, %._crit_edge115
   %538 = load i8, ptr %6, align 16, !tbaa !97
@@ -24353,7 +24353,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.7771.i = phi i32 [ %563, %560 ], [ %.6770.i118, %558 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 4
   %565 = icmp samesign ult i64 %indvars.iv.next191, %545
-  br i1 %565, label %548, label %.loopexit33, !llvm.loop !291
+  br i1 %565, label %548, label %.loopexit33, !llvm.loop !292
 
 .loopexit33:                                      ; preds = %564, %539, %.loopexit35, %.loopexit43
   br i1 %.0778.i, label %607, label %566
@@ -24378,7 +24378,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %572, ptr %574, align 1, !tbaa !97
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 4
   %575 = icmp samesign ult i64 %indvars.iv211, 12
-  br i1 %575, label %573, label %.thread4, !llvm.loop !299
+  br i1 %575, label %573, label %.thread4, !llvm.loop !300
 
 576:                                              ; preds = %566
   br i1 %247, label %577, label %584
@@ -24395,7 +24395,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %580, ptr %582, align 1, !tbaa !97
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 4
   %583 = icmp samesign ult i64 %indvars.iv208, 28
-  br i1 %583, label %581, label %.thread4.thread, !llvm.loop !292
+  br i1 %583, label %581, label %.thread4.thread, !llvm.loop !293
 
 584:                                              ; preds = %576
   br i1 %253, label %585, label %.thread288
@@ -24413,7 +24413,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %588, ptr %590, align 1, !tbaa !97
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
   %591 = icmp samesign ult i64 %indvars.iv205, 28
-  br i1 %591, label %589, label %.thread4.thread.thread, !llvm.loop !293
+  br i1 %591, label %589, label %.thread4.thread.thread, !llvm.loop !294
 
 .thread288:                                       ; preds = %.loopexit33.thread, %584
   br i1 %.0792.i, label %592, label %.preheader.preheader
@@ -24431,7 +24431,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %596, ptr %598, align 1, !tbaa !97
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 4
   %599 = icmp samesign ult i64 %indvars.iv199, 12
-  br i1 %599, label %597, label %600, !llvm.loop !300
+  br i1 %599, label %597, label %600, !llvm.loop !301
 
 600:                                              ; preds = %597
   %601 = load i8, ptr %593, align 1, !tbaa !97
@@ -24446,7 +24446,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %603, ptr %605, align 1, !tbaa !97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   %606 = icmp samesign ult i64 %indvars.iv202, 28
-  br i1 %606, label %604, label %.loopexit29, !llvm.loop !294
+  br i1 %606, label %604, label %.loopexit29, !llvm.loop !295
 
 .preheader.preheader:                             ; preds = %.thread288
   store i8 -128, ptr %6, align 16, !tbaa !97
@@ -24475,7 +24475,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %610, ptr %612, align 1, !tbaa !97
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 4
   %613 = icmp samesign ult i64 %indvars.iv214, 12
-  br i1 %613, label %611, label %.thread4, !llvm.loop !301
+  br i1 %613, label %611, label %.thread4, !llvm.loop !302
 
 .thread4:                                         ; preds = %573, %611, %607
   %.not857.i = icmp eq i32 %.0785.i, 0
@@ -24502,7 +24502,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %619, ptr %621, align 1, !tbaa !97
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 4
   %622 = icmp samesign ult i64 %indvars.iv217, 12
-  br i1 %622, label %620, label %.thread4.thread.thread, !llvm.loop !302
+  br i1 %622, label %620, label %.thread4.thread.thread, !llvm.loop !303
 
 .thread4.thread.thread:                           ; preds = %589, %620, %.thread4.thread
   br i1 %.0792.i, label %.loopexit29, label %623
@@ -24521,7 +24521,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %628, ptr %630, align 1, !tbaa !97
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 4
   %631 = icmp samesign ult i64 %indvars.iv220, 12
-  br i1 %631, label %629, label %.loopexit29, !llvm.loop !303
+  br i1 %631, label %629, label %.loopexit29, !llvm.loop !304
 
 .loopexit29:                                      ; preds = %604, %629, %.thread4.thread.thread
   %632 = load i8, ptr %6, align 16, !tbaa !97
@@ -24589,7 +24589,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %674, ptr %675, align 1, !tbaa !97
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
   %.not273 = icmp eq i64 %indvars.iv223, 0
-  br i1 %.not273, label %676, label %659, !llvm.loop !295
+  br i1 %.not273, label %676, label %659, !llvm.loop !296
 
 676:                                              ; preds = %659
   %677 = load i8, ptr %69, align 1, !tbaa !97
@@ -24628,7 +24628,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %703, ptr %704, align 1, !tbaa !97
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, -1
   %.not274 = icmp eq i64 %indvars.iv226, 0
-  br i1 %.not274, label %.loopexit, label %688, !llvm.loop !296
+  br i1 %.not274, label %.loopexit, label %688, !llvm.loop !297
 
 .loopexit:                                        ; preds = %688, %641, %636, %.loopexit29
   %.0775.i = phi ptr [ %70, %.loopexit29 ], [ %70, %636 ], [ %70, %641 ], [ %72, %688 ]
@@ -24862,7 +24862,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %158 = or i32 %.2780.i53, %157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %159 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !275
+  br i1 %159, label %150, label %._crit_edge.loopexit, !llvm.loop !276
 
 ._crit_edge.loopexit:                             ; preds = %150
   %160 = icmp ne i32 %158, 0
@@ -24907,7 +24907,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %184 = or i32 %.2783.i55, %183
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 2
   %185 = icmp samesign ult i64 %indvars.iv.next150, %172
-  br i1 %185, label %176, label %.loopexit52, !llvm.loop !276
+  br i1 %185, label %176, label %.loopexit52, !llvm.loop !277
 
 .loopexit52:                                      ; preds = %176, %162, %._crit_edge
   %.1782.i = phi i32 [ %90, %._crit_edge ], [ 0, %162 ], [ %184, %176 ]
@@ -24966,7 +24966,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %222 = or i32 %.2790.i60, %221
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %223 = icmp samesign ult i64 %indvars.iv.next153, %213
-  br i1 %223, label %214, label %.loopexit51, !llvm.loop !277
+  br i1 %223, label %214, label %.loopexit51, !llvm.loop !278
 
 .loopexit51:                                      ; preds = %214, %203, %201
   %.1789.i = phi i32 [ %94, %201 ], [ 0, %203 ], [ %222, %214 ]
@@ -25003,7 +25003,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %243 = or i32 %.2794.i65, %242
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %244 = icmp samesign ult i64 %indvars.iv.next156, %234
-  br i1 %244, label %235, label %._crit_edge69.loopexit, !llvm.loop !278
+  br i1 %244, label %235, label %._crit_edge69.loopexit, !llvm.loop !279
 
 ._crit_edge69.loopexit:                           ; preds = %235
   %245 = icmp ne i32 %243, 0
@@ -25074,7 +25074,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %269, ptr %276, align 1, !tbaa !97
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 4
   %277 = icmp samesign ult i64 %indvars.iv.next159, %274
-  br i1 %277, label %275, label %.loopexit50, !llvm.loop !279
+  br i1 %277, label %275, label %.loopexit50, !llvm.loop !280
 
 .loopexit50:                                      ; preds = %275, %258, %257
   %278 = icmp ne i32 %.0781.i, 0
@@ -25093,7 +25093,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %281, ptr %282, align 1, !tbaa !97
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next162, 32
-  br i1 %exitcond.not, label %.loopexit49, label %279, !llvm.loop !280
+  br i1 %exitcond.not, label %.loopexit49, label %279, !llvm.loop !281
 
 .loopexit49:                                      ; preds = %279, %.loopexit50
   br i1 %.0778.i, label %.preheader47, label %.loopexit46
@@ -25119,7 +25119,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %287, ptr %288, align 1, !tbaa !97
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
-  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !281
+  br i1 %exitcond167.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !282
 
 ._crit_edge79:                                    ; preds = %.lr.ph78
   %289 = icmp samesign ult i32 %116, 32
@@ -25146,7 +25146,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %290, ptr %297, align 1, !tbaa !97
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 4
   %298 = icmp samesign ult i64 %indvars.iv.next169, %295
-  br i1 %298, label %296, label %.loopexit46, !llvm.loop !282
+  br i1 %298, label %296, label %.loopexit46, !llvm.loop !283
 
 .loopexit46:                                      ; preds = %296, %._crit_edge79, %.loopexit49
   br i1 %127, label %299, label %.loopexit36
@@ -25231,7 +25231,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %339 = getelementptr inbounds %struct.MvField, ptr %332, i64 %338, i32 2
   %340 = load i8, ptr %339, align 2, !tbaa !117
   %.not850.i = icmp eq i8 %340, 0
-  br i1 %.not850.i, label %.critedge.i, label %329, !llvm.loop !283
+  br i1 %.not850.i, label %.critedge.i, label %329, !llvm.loop !284
 
 .critedge.i:                                      ; preds = %331, %..critedge.i_crit_edge
   %.pre-phi283 = phi i64 [ %.pre282, %..critedge.i_crit_edge ], [ %338, %331 ]
@@ -25271,7 +25271,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
 358:                                              ; preds = %350
   %359 = add nuw nsw i32 %.1799.i91, 1
   %exitcond175.not = icmp eq i32 %359, %.0796.i
-  br i1 %exitcond175.not, label %.critedge25.i, label %350, !llvm.loop !284
+  br i1 %exitcond175.not, label %.critedge25.i, label %350, !llvm.loop !285
 
 .critedge25.i:                                    ; preds = %358, %350
   %.1799.i.lcssa = phi i32 [ %.0796.i, %358 ], [ %.1799.i91, %350 ]
@@ -25309,7 +25309,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
 
 379:                                              ; preds = %375, %365
   %.not321 = icmp eq i64 %indvars.iv176, 0
-  br i1 %.not321, label %._crit_edge98, label %365, !llvm.loop !285
+  br i1 %.not321, label %._crit_edge98, label %365, !llvm.loop !286
 
 ._crit_edge98:                                    ; preds = %379, %.critedge25.i
   %380 = load i8, ptr %8, align 16, !tbaa !97
@@ -25330,7 +25330,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
 389:                                              ; preds = %381
   %390 = add nuw nsw i32 %.2800.i83, 1
   %exitcond171.not = icmp eq i32 %390, %.0796.i
-  br i1 %exitcond171.not, label %.lr.ph89, label %381, !llvm.loop !286
+  br i1 %exitcond171.not, label %.lr.ph89, label %381, !llvm.loop !287
 
 .critedge27.i:                                    ; preds = %381
   %.not847.i = icmp eq i32 %.2800.i83, 0
@@ -25376,7 +25376,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
 
 410:                                              ; preds = %406, %396
   %411 = icmp samesign ugt i64 %indvars.iv172, 1
-  br i1 %411, label %396, label %._crit_edge90, !llvm.loop !287
+  br i1 %411, label %396, label %._crit_edge90, !llvm.loop !288
 
 ._crit_edge90:                                    ; preds = %410
   %412 = load i8, ptr %70, align 1, !tbaa !97
@@ -25437,7 +25437,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.1765.i = phi i32 [ %439, %436 ], [ %.0764.i101, %434 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 4
   %441 = icmp samesign ult i64 %indvars.iv.next180, %421
-  br i1 %441, label %423, label %._crit_edge105, !llvm.loop !288
+  br i1 %441, label %423, label %._crit_edge105, !llvm.loop !289
 
 ._crit_edge105:                                   ; preds = %440, %415
   br i1 %278, label %.loopexit41, label %.thread
@@ -25453,7 +25453,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %443, ptr %445, align 1, !tbaa !97
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 4
   %446 = icmp samesign ult i64 %indvars.iv182, 28
-  br i1 %446, label %444, label %.loopexit41, !llvm.loop !297
+  br i1 %446, label %444, label %.loopexit41, !llvm.loop !298
 
 .loopexit41:                                      ; preds = %444, %._crit_edge105
   br i1 %.0778.i, label %.loopexit40, label %447
@@ -25472,7 +25472,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %452, ptr %454, align 1, !tbaa !97
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 4
   %455 = icmp samesign ult i64 %indvars.iv185, 28
-  br i1 %455, label %453, label %.loopexit40, !llvm.loop !298
+  br i1 %455, label %453, label %.loopexit40, !llvm.loop !299
 
 .loopexit40:                                      ; preds = %453, %.loopexit41
   %456 = icmp ne i32 %2, 0
@@ -25541,7 +25541,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.3767.i = phi i32 [ %486, %483 ], [ %.2766.i114, %482 ]
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, -4
   %488 = icmp sgt i64 %indvars.iv194, 3
-  br i1 %488, label %469, label %._crit_edge118, !llvm.loop !289
+  br i1 %488, label %469, label %._crit_edge118, !llvm.loop !290
 
 ._crit_edge118:                                   ; preds = %487, %.._crit_edge118_crit_edge
   %.pre-phi288 = phi i32 [ %.pre287, %.._crit_edge118_crit_edge ], [ %468, %487 ]
@@ -25629,7 +25629,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.5769.i = phi i32 [ %535, %532 ], [ %.4768.i108, %531 ]
   %indvars.iv.next189 = add nsw i64 %indvars.iv188, -4
   %537 = icmp sgt i64 %indvars.iv188, 3
-  br i1 %537, label %518, label %.loopexit38, !llvm.loop !290
+  br i1 %537, label %518, label %.loopexit38, !llvm.loop !291
 
 .loopexit38:                                      ; preds = %536, %.lr.ph113.preheader, %508, %.preheader37, %499, %._crit_edge118
   %538 = load i8, ptr %6, align 16, !tbaa !97
@@ -25685,7 +25685,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.7771.i = phi i32 [ %563, %560 ], [ %.6770.i121, %558 ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 4
   %565 = icmp samesign ult i64 %indvars.iv.next198, %545
-  br i1 %565, label %548, label %.loopexit36, !llvm.loop !291
+  br i1 %565, label %548, label %.loopexit36, !llvm.loop !292
 
 .loopexit36:                                      ; preds = %564, %539, %.loopexit38, %.loopexit46
   br i1 %.0778.i, label %607, label %566
@@ -25710,7 +25710,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %572, ptr %574, align 1, !tbaa !97
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 4
   %575 = icmp samesign ult i64 %indvars.iv218, 28
-  br i1 %575, label %573, label %.thread4, !llvm.loop !299
+  br i1 %575, label %573, label %.thread4, !llvm.loop !300
 
 576:                                              ; preds = %566
   br i1 %247, label %577, label %584
@@ -25727,7 +25727,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %580, ptr %582, align 1, !tbaa !97
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 4
   %583 = icmp samesign ult i64 %indvars.iv215, 60
-  br i1 %583, label %581, label %.thread4.thread, !llvm.loop !292
+  br i1 %583, label %581, label %.thread4.thread, !llvm.loop !293
 
 584:                                              ; preds = %576
   br i1 %253, label %585, label %.thread306
@@ -25745,7 +25745,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %588, ptr %590, align 1, !tbaa !97
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 4
   %591 = icmp samesign ult i64 %indvars.iv212, 60
-  br i1 %591, label %589, label %.thread4.thread.thread, !llvm.loop !293
+  br i1 %591, label %589, label %.thread4.thread.thread, !llvm.loop !294
 
 .thread306:                                       ; preds = %.loopexit36.thread, %584
   br i1 %.0792.i, label %592, label %.preheader35.preheader
@@ -25763,7 +25763,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %596, ptr %598, align 1, !tbaa !97
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 4
   %599 = icmp samesign ult i64 %indvars.iv206, 28
-  br i1 %599, label %597, label %600, !llvm.loop !300
+  br i1 %599, label %597, label %600, !llvm.loop !301
 
 600:                                              ; preds = %597
   %601 = load i8, ptr %593, align 1, !tbaa !97
@@ -25778,7 +25778,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %603, ptr %605, align 1, !tbaa !97
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 4
   %606 = icmp samesign ult i64 %indvars.iv209, 60
-  br i1 %606, label %604, label %.loopexit31, !llvm.loop !294
+  br i1 %606, label %604, label %.loopexit31, !llvm.loop !295
 
 .preheader35.preheader:                           ; preds = %.thread306
   store i8 -128, ptr %6, align 16, !tbaa !97
@@ -25807,7 +25807,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %610, ptr %612, align 1, !tbaa !97
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 4
   %613 = icmp samesign ult i64 %indvars.iv221, 28
-  br i1 %613, label %611, label %.thread4, !llvm.loop !301
+  br i1 %613, label %611, label %.thread4, !llvm.loop !302
 
 .thread4:                                         ; preds = %573, %611, %607
   %.not857.i = icmp eq i32 %.0785.i, 0
@@ -25834,7 +25834,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %619, ptr %621, align 1, !tbaa !97
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 4
   %622 = icmp samesign ult i64 %indvars.iv224, 28
-  br i1 %622, label %620, label %.thread4.thread.thread, !llvm.loop !302
+  br i1 %622, label %620, label %.thread4.thread.thread, !llvm.loop !303
 
 .thread4.thread.thread:                           ; preds = %589, %620, %.thread4.thread
   br i1 %.0792.i, label %.loopexit31, label %623
@@ -25853,7 +25853,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i32 %628, ptr %630, align 1, !tbaa !97
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 4
   %631 = icmp samesign ult i64 %indvars.iv227, 28
-  br i1 %631, label %629, label %.loopexit31, !llvm.loop !303
+  br i1 %631, label %629, label %.loopexit31, !llvm.loop !304
 
 .loopexit31:                                      ; preds = %604, %629, %.thread4.thread.thread
   %632 = load i8, ptr %6, align 16, !tbaa !97
@@ -25951,7 +25951,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %693 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv236
   store i8 %692, ptr %693, align 1, !tbaa !97
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 63
-  br i1 %exitcond239.not, label %.preheader, label %685, !llvm.loop !304
+  br i1 %exitcond239.not, label %.preheader, label %685, !llvm.loop !305
 
 .preheader:                                       ; preds = %685, %.preheader
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.preheader ], [ 0, %685 ]
@@ -25970,7 +25970,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %705 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv240
   store i8 %704, ptr %705, align 1, !tbaa !97
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 63
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !305
+  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !306
 
 706:                                              ; preds = %._crit_edge268, %669, %656
   %707 = phi i8 [ %.pre270, %._crit_edge268 ], [ %659, %669 ], [ %659, %656 ]
@@ -26003,7 +26003,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %727, ptr %728, align 1, !tbaa !97
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
   %.not291 = icmp eq i64 %indvars.iv230, 0
-  br i1 %.not291, label %729, label %712, !llvm.loop !295
+  br i1 %.not291, label %729, label %712, !llvm.loop !296
 
 729:                                              ; preds = %712
   %730 = load i8, ptr %69, align 1, !tbaa !97
@@ -26042,7 +26042,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   store i8 %756, ptr %757, align 1, !tbaa !97
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, -1
   %.not292 = icmp eq i64 %indvars.iv233, 0
-  br i1 %.not292, label %.loopexit, label %741, !llvm.loop !296
+  br i1 %.not292, label %.loopexit, label %741, !llvm.loop !297
 
 .loopexit:                                        ; preds = %741, %.preheader, %641, %636, %.loopexit31
   %.0775.i = phi ptr [ %70, %.loopexit31 ], [ %70, %636 ], [ %70, %641 ], [ %72, %.preheader ], [ %72, %741 ]
@@ -26125,11 +26125,11 @@ define internal void @pred_planar_0_8(ptr noundef writeonly captures(none) %0, p
   %36 = getelementptr i8, ptr %9, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !97
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !306
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !307
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 4
-  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !307
+  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !308
 
 pred_planar_8.exit:                               ; preds = %37
   ret void
@@ -26180,11 +26180,11 @@ define internal void @pred_planar_1_8(ptr noundef writeonly captures(none) %0, p
   %36 = getelementptr i8, ptr %9, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !97
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !306
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !307
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 8
-  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !307
+  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !308
 
 pred_planar_8.exit:                               ; preds = %37
   ret void
@@ -26235,11 +26235,11 @@ define internal void @pred_planar_2_8(ptr noundef writeonly captures(none) %0, p
   %36 = getelementptr i8, ptr %9, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !97
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !306
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !307
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 16
-  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !307
+  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !308
 
 pred_planar_8.exit:                               ; preds = %37
   ret void
@@ -26290,11 +26290,11 @@ define internal void @pred_planar_3_8(ptr noundef writeonly captures(none) %0, p
   %36 = getelementptr i8, ptr %9, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !97
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !306
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !307
 
 37:                                               ; preds = %13
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 32
-  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !307
+  br i1 %exitcond9.not, label %pred_planar_8.exit, label %.preheader, !llvm.loop !308
 
 pred_planar_8.exit:                               ; preds = %37
   ret void
@@ -26324,7 +26324,7 @@ define internal void @pred_dc_8(ptr noundef writeonly captures(none) %0, ptr nou
   %15 = add i32 %14, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !308
+  br i1 %exitcond.not, label %.preheader57.us.preheader, label %.lr.ph, !llvm.loop !309
 
 .preheader57.us.preheader:                        ; preds = %.lr.ph
   %16 = add nsw i32 %4, 1
@@ -26347,12 +26347,12 @@ define internal void @pred_dc_8(ptr noundef writeonly captures(none) %0, ptr nou
   store i32 %18, ptr %23, align 1, !tbaa !97
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 4
   %24 = icmp slt i64 %indvars.iv.next73, %19
-  br i1 %24, label %22, label %._crit_edge62.us, !llvm.loop !309
+  br i1 %24, label %22, label %._crit_edge62.us, !llvm.loop !310
 
 ._crit_edge62.us:                                 ; preds = %22
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !310
+  br i1 %exitcond80.not, label %._crit_edge64, label %.preheader57.us, !llvm.loop !311
 
 ._crit_edge64:                                    ; preds = %._crit_edge62.us, %6
   %25 = phi i32 [ -1, %6 ], [ %17, %._crit_edge62.us ]
@@ -26400,7 +26400,7 @@ define internal void @pred_dc_8(ptr noundef writeonly captures(none) %0, ptr nou
   store i8 %50, ptr %51, align 1, !tbaa !97
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.lr.ph69, label %44, !llvm.loop !311
+  br i1 %exitcond85.not, label %.lr.ph69, label %44, !llvm.loop !312
 
 52:                                               ; preds = %.lr.ph69, %52
   %indvars.iv86 = phi i64 [ 1, %.lr.ph69 ], [ %indvars.iv.next87, %52 ]
@@ -26415,7 +26415,7 @@ define internal void @pred_dc_8(ptr noundef writeonly captures(none) %0, ptr nou
   store i8 %58, ptr %60, align 1, !tbaa !97
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %52, !llvm.loop !312
+  br i1 %exitcond90.not, label %.loopexit, label %52, !llvm.loop !313
 
 .loopexit:                                        ; preds = %52, %28, %._crit_edge64
   ret void
@@ -26466,7 +26466,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   store i8 %32, ptr %33, align 1, !tbaa !97
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 0
-  br i1 %exitcond97.not, label %.split, label %26, !llvm.loop !313
+  br i1 %exitcond97.not, label %.split, label %26, !llvm.loop !314
 
 .split:                                           ; preds = %26, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %26 ]
@@ -26554,7 +26554,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
 
 96:                                               ; preds = %.preheader20, %.preheader19
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 4
-  br i1 %exitcond101.not, label %97, label %34, !llvm.loop !314
+  br i1 %exitcond101.not, label %97, label %34, !llvm.loop !315
 
 97:                                               ; preds = %96
   %98 = icmp eq i32 %5, 26
@@ -26588,7 +26588,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   store i8 %.0.i6, ptr %115, align 1, !tbaa !97
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 4
-  br i1 %exitcond105.not, label %pred_angular_8.exit, label %101, !llvm.loop !315
+  br i1 %exitcond105.not, label %pred_angular_8.exit, label %101, !llvm.loop !316
 
 116:                                              ; preds = %6
   %117 = getelementptr i8, ptr %2, i64 -1
@@ -26618,7 +26618,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   store i8 %130, ptr %131, align 1, !tbaa !97
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %124, !llvm.loop !316
+  br i1 %exitcond.not, label %.loopexit32, label %124, !llvm.loop !317
 
 .loopexit32:                                      ; preds = %124, %116
   %.1210.i = phi ptr [ %117, %116 ], [ %12, %124 ]
@@ -26668,7 +26668,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   store i8 %152, ptr %gep39, align 1, !tbaa !97
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 4
-  br i1 %exitcond82.not, label %.loopexit28, label %140, !llvm.loop !317
+  br i1 %exitcond82.not, label %.loopexit28, label %140, !llvm.loop !318
 
 154:                                              ; preds = %.preheader27, %154
   %indvars.iv83 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next84, %154 ]
@@ -26679,11 +26679,11 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   store i8 %155, ptr %gep44, align 1, !tbaa !97
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond86.not, label %.loopexit28, label %154, !llvm.loop !318
+  br i1 %exitcond86.not, label %.loopexit28, label %154, !llvm.loop !319
 
 .loopexit28:                                      ; preds = %140, %154
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 4
-  br i1 %exitcond90.not, label %157, label %132, !llvm.loop !319
+  br i1 %exitcond90.not, label %157, label %132, !llvm.loop !320
 
 157:                                              ; preds = %.loopexit28
   %158 = icmp eq i32 %5, 10
@@ -26810,7 +26810,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   store i8 %31, ptr %32, align 1, !tbaa !97
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 0
-  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !313
+  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !314
 
 .loopexit23:                                      ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -26917,11 +26917,11 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %103 = trunc i32 %102 to i8
   %104 = getelementptr i8, ptr %40, i64 %91
   store i8 %103, ptr %104, align 1, !tbaa !97
-  br i1 %49, label %48, label %.loopexit, !llvm.loop !320
+  br i1 %49, label %48, label %.loopexit, !llvm.loop !321
 
 .loopexit:                                        ; preds = %48, %.preheader19
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 8
-  br i1 %exitcond99.not, label %105, label %33, !llvm.loop !314
+  br i1 %exitcond99.not, label %105, label %33, !llvm.loop !315
 
 105:                                              ; preds = %.loopexit
   %106 = icmp eq i32 %5, 26
@@ -26955,7 +26955,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   store i8 %.0.i6, ptr %123, align 1, !tbaa !97
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 8
-  br i1 %exitcond103.not, label %pred_angular_8.exit, label %109, !llvm.loop !315
+  br i1 %exitcond103.not, label %pred_angular_8.exit, label %109, !llvm.loop !316
 
 124:                                              ; preds = %6
   %125 = getelementptr i8, ptr %2, i64 -1
@@ -26984,7 +26984,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   store i8 %137, ptr %138, align 1, !tbaa !97
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %131, !llvm.loop !316
+  br i1 %exitcond.not, label %.loopexit32, label %131, !llvm.loop !317
 
 .loopexit32:                                      ; preds = %131, %124
   %.1210.i = phi ptr [ %125, %124 ], [ %12, %131 ]
@@ -27034,7 +27034,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   store i8 %159, ptr %gep39, align 1, !tbaa !97
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 8
-  br i1 %exitcond69.not, label %.loopexit28, label %147, !llvm.loop !317
+  br i1 %exitcond69.not, label %.loopexit28, label %147, !llvm.loop !318
 
 161:                                              ; preds = %.preheader27, %161
   %indvars.iv70 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next71, %161 ]
@@ -27045,11 +27045,11 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   store i8 %162, ptr %gep44, align 1, !tbaa !97
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 8
-  br i1 %exitcond73.not, label %.loopexit28, label %161, !llvm.loop !318
+  br i1 %exitcond73.not, label %.loopexit28, label %161, !llvm.loop !319
 
 .loopexit28:                                      ; preds = %147, %161
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 8
-  br i1 %exitcond77.not, label %164, label %139, !llvm.loop !319
+  br i1 %exitcond77.not, label %164, label %139, !llvm.loop !320
 
 164:                                              ; preds = %.loopexit28
   %165 = icmp eq i32 %5, 10
@@ -27135,7 +27135,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %.0.i9 = select i1 %.not.i7, i8 %223, i8 %222
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 %213
   store i8 %.0.i9, ptr %224, align 1, !tbaa !97
-  br i1 %169, label %168, label %pred_angular_8.exit, !llvm.loop !321
+  br i1 %169, label %168, label %pred_angular_8.exit, !llvm.loop !322
 
 pred_angular_8.exit:                              ; preds = %168, %109, %105, %164
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
@@ -27186,7 +27186,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %31, ptr %32, align 1, !tbaa !97
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 0
-  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !313
+  br i1 %exitcond87.not, label %.loopexit23, label %25, !llvm.loop !314
 
 .loopexit23:                                      ; preds = %25, %18
   %.0209.i = phi ptr [ %19, %18 ], [ %12, %25 ]
@@ -27288,7 +27288,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %99, ptr %100, align 1, !tbaa !97
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
   %101 = icmp samesign ult i64 %indvars.iv88, 12
-  br i1 %101, label %45, label %.loopexit, !llvm.loop !320
+  br i1 %101, label %45, label %.loopexit, !llvm.loop !321
 
 102:                                              ; preds = %.preheader19, %102
   %indvars.iv93 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next94, %102 ]
@@ -27298,11 +27298,11 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i32 %103, ptr %104, align 1, !tbaa !97
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 4
   %105 = icmp samesign ult i64 %indvars.iv93, 12
-  br i1 %105, label %102, label %.loopexit, !llvm.loop !322
+  br i1 %105, label %102, label %.loopexit, !llvm.loop !323
 
 .loopexit:                                        ; preds = %45, %102
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 16
-  br i1 %exitcond99.not, label %106, label %33, !llvm.loop !314
+  br i1 %exitcond99.not, label %106, label %33, !llvm.loop !315
 
 106:                                              ; preds = %.loopexit
   %107 = icmp eq i32 %5, 26
@@ -27336,7 +27336,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %.0.i6, ptr %124, align 1, !tbaa !97
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 16
-  br i1 %exitcond103.not, label %pred_angular_8.exit, label %110, !llvm.loop !315
+  br i1 %exitcond103.not, label %pred_angular_8.exit, label %110, !llvm.loop !316
 
 125:                                              ; preds = %6
   %126 = getelementptr i8, ptr %2, i64 -1
@@ -27365,7 +27365,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %138, ptr %139, align 1, !tbaa !97
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %exitcond.not, label %.loopexit32, label %132, !llvm.loop !316
+  br i1 %exitcond.not, label %.loopexit32, label %132, !llvm.loop !317
 
 .loopexit32:                                      ; preds = %132, %125
   %.1210.i = phi ptr [ %126, %125 ], [ %12, %132 ]
@@ -27415,7 +27415,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %160, ptr %gep39, align 1, !tbaa !97
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 16
-  br i1 %exitcond69.not, label %.loopexit28, label %148, !llvm.loop !317
+  br i1 %exitcond69.not, label %.loopexit28, label %148, !llvm.loop !318
 
 162:                                              ; preds = %.preheader27, %162
   %indvars.iv70 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next71, %162 ]
@@ -27426,11 +27426,11 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %163, ptr %gep44, align 1, !tbaa !97
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 16
-  br i1 %exitcond73.not, label %.loopexit28, label %162, !llvm.loop !318
+  br i1 %exitcond73.not, label %.loopexit28, label %162, !llvm.loop !319
 
 .loopexit28:                                      ; preds = %148, %162
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 16
-  br i1 %exitcond77.not, label %165, label %140, !llvm.loop !319
+  br i1 %exitcond77.not, label %165, label %140, !llvm.loop !320
 
 165:                                              ; preds = %.loopexit28
   %166 = icmp eq i32 %5, 10
@@ -27517,7 +27517,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   store i8 %.0.i9, ptr %224, align 1, !tbaa !97
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 4
   %225 = icmp samesign ult i64 %indvars.iv78, 12
-  br i1 %225, label %169, label %pred_angular_8.exit, !llvm.loop !321
+  br i1 %225, label %169, label %pred_angular_8.exit, !llvm.loop !322
 
 pred_angular_8.exit:                              ; preds = %169, %110, %106, %165
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
@@ -27568,7 +27568,7 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %lftr.wideiv67 = trunc i64 %indvars.iv.next64 to i32
   %exitcond68.not = icmp eq i32 %22, %lftr.wideiv67
-  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !313
+  br i1 %exitcond68.not, label %.loopexit8, label %23, !llvm.loop !314
 
 .loopexit8:                                       ; preds = %23, %15
   %.0209.i = phi ptr [ %16, %15 ], [ %12, %23 ]
@@ -27670,7 +27670,7 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   store i8 %97, ptr %98, align 1, !tbaa !97
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 4
   %99 = icmp samesign ult i64 %indvars.iv69, 28
-  br i1 %99, label %43, label %.loopexit, !llvm.loop !320
+  br i1 %99, label %43, label %.loopexit, !llvm.loop !321
 
 100:                                              ; preds = %.preheader, %100
   %indvars.iv74 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next75, %100 ]
@@ -27680,11 +27680,11 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   store i32 %101, ptr %102, align 1, !tbaa !97
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 4
   %103 = icmp samesign ult i64 %indvars.iv74, 28
-  br i1 %103, label %100, label %.loopexit, !llvm.loop !322
+  br i1 %103, label %100, label %.loopexit, !llvm.loop !323
 
 .loopexit:                                        ; preds = %43, %100
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 32
-  br i1 %exitcond80.not, label %pred_angular_8.exit, label %31, !llvm.loop !314
+  br i1 %exitcond80.not, label %pred_angular_8.exit, label %31, !llvm.loop !315
 
 104:                                              ; preds = %6
   %105 = getelementptr i8, ptr %2, i64 -1
@@ -27716,7 +27716,7 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %111, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !316
+  br i1 %exitcond.not, label %.loopexit16, label %112, !llvm.loop !317
 
 .loopexit16:                                      ; preds = %112, %104
   %.1210.i = phi ptr [ %105, %104 ], [ %12, %112 ]
@@ -27766,7 +27766,7 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   store i8 %140, ptr %gep23, align 1, !tbaa !97
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 32
-  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !317
+  br i1 %exitcond51.not, label %.loopexit11, label %128, !llvm.loop !318
 
 142:                                              ; preds = %.preheader10, %142
   %indvars.iv52 = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next53, %142 ]
@@ -27777,11 +27777,11 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   store i8 %143, ptr %gep28, align 1, !tbaa !97
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !318
+  br i1 %exitcond55.not, label %.loopexit11, label %142, !llvm.loop !319
 
 .loopexit11:                                      ; preds = %128, %142
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 32
-  br i1 %exitcond59.not, label %pred_angular_8.exit, label %120, !llvm.loop !319
+  br i1 %exitcond59.not, label %pred_angular_8.exit, label %120, !llvm.loop !320
 
 pred_angular_8.exit:                              ; preds = %.loopexit11, %.loopexit
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
@@ -27989,8 +27989,8 @@ attributes #8 = { nounwind }
 !159 = distinct !{!159, !120}
 !160 = distinct !{!160, !120}
 !161 = distinct !{!161, !120}
-!162 = distinct !{!162, !120}
-!163 = distinct !{!163, !120}
+!162 = distinct !{!162, !120, !163}
+!163 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !164 = distinct !{!164, !120}
 !165 = distinct !{!165, !120}
 !166 = distinct !{!166, !120}
@@ -28040,7 +28040,7 @@ attributes #8 = { nounwind }
 !210 = distinct !{!210, !120}
 !211 = distinct !{!211, !120}
 !212 = distinct !{!212, !120}
-!213 = distinct !{!213, !120}
+!213 = distinct !{!213, !120, !163}
 !214 = distinct !{!214, !120}
 !215 = distinct !{!215, !120}
 !216 = distinct !{!216, !120}
@@ -28090,7 +28090,7 @@ attributes #8 = { nounwind }
 !260 = distinct !{!260, !120}
 !261 = distinct !{!261, !120}
 !262 = distinct !{!262, !120}
-!263 = distinct !{!263, !120}
+!263 = distinct !{!263, !120, !163}
 !264 = distinct !{!264, !120}
 !265 = distinct !{!265, !120}
 !266 = distinct !{!266, !120}
@@ -28138,7 +28138,7 @@ attributes #8 = { nounwind }
 !308 = distinct !{!308, !120}
 !309 = distinct !{!309, !120}
 !310 = distinct !{!310, !120}
-!311 = distinct !{!311, !120}
+!311 = distinct !{!311, !120, !163}
 !312 = distinct !{!312, !120}
 !313 = distinct !{!313, !120}
 !314 = distinct !{!314, !120}
@@ -28150,3 +28150,4 @@ attributes #8 = { nounwind }
 !320 = distinct !{!320, !120}
 !321 = distinct !{!321, !120}
 !322 = distinct !{!322, !120}
+!323 = distinct !{!323, !120}

@@ -9257,7 +9257,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %103 = zext i8 %101 to i32
   %104 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %102, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %103)
   %105 = icmp eq i32 %100, 1
-  br i1 %105, label %.loopexit, label %.lr.ph11.split, !llvm.loop !33
+  br i1 %105, label %.loopexit, label %.lr.ph11.split, !llvm.loop !35
 
 .loopexit.loopexit:                               ; preds = %.lr.ph11.split.us, %.lr.ph11.split.us.preheader
   %.lcssa = phi i32 [ %83, %.lr.ph11.split.us.preheader ], [ %93, %.lr.ph11.split.us ]
@@ -9365,4 +9365,6 @@ attributes #7 = { allocsize(1) }
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!33 = distinct !{!33, !7, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !7}

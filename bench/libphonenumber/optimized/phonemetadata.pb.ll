@@ -16069,7 +16069,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -16099,7 +16099,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !140
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !143
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -16216,7 +16216,7 @@ _ZN4i18n12phonenumbers12NumberFormatD2Ev.exit.i:  ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit: ; preds = %.lr.ph, %_ZN4i18n12phonenumbers12NumberFormatD2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !144
 
 44:                                               ; preds = %._crit_edge, %1
   store ptr null, ptr %2, align 8, !tbaa !52
@@ -16426,6 +16426,8 @@ attributes #32 = { builtin allocsize(0) }
 !137 = distinct !{!137, !69}
 !138 = distinct !{!138, !69}
 !139 = distinct !{!139, !69}
-!140 = distinct !{!140, !69}
-!141 = distinct !{!141, !69}
+!140 = distinct !{!140, !69, !141}
+!141 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !142 = distinct !{!142, !69}
+!143 = distinct !{!143, !69}
+!144 = distinct !{!144, !69}

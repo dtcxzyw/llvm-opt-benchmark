@@ -613,7 +613,7 @@ _ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit:    ; preds = %.lr.ph.split, %39, 
   %.0.in = getelementptr inbounds nuw i8, ptr %.07, i64 136
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !10
   %.not = icmp eq ptr %.0, %.136.val
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !82
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !84
 
 .split.us:                                        ; preds = %64, %34
   %.us-phi = phi ptr [ %.07.us, %34 ], [ %.07, %64 ]
@@ -813,7 +813,7 @@ define noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_d
   %25 = ptrtoint ptr %24 to i64
   %26 = cmpxchg ptr %19, i64 %25, i64 0 seq_cst seq_cst, align 8
   %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %27, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
 .lr.ph32.i.i:                                     ; preds = %.lr.ph32.i.i.preheader, %.lr.ph32.i.i
   %.13133.i.i = phi ptr [ %.131.i.i, %.lr.ph32.i.i ], [ %.13133.i.i.ph, %.lr.ph32.i.i.preheader ]
@@ -822,7 +822,7 @@ define noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_d
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   store ptr %.13133.i.i, ptr %28, align 8, !tbaa !10
   %.not27.i.i = icmp eq ptr %29, null
-  br i1 %.not27.i.i, label %.loopexit.i, label %.lr.ph32.i.i, !llvm.loop !84
+  br i1 %.not27.i.i, label %.loopexit.i, label %.lr.ph32.i.i, !llvm.loop !86
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %..loopexit_crit_edge34.i.i
   %30 = phi ptr [ %.pre.i.i, %..loopexit_crit_edge34.i.i ], [ %.pre35.i.i, %.preheader.i.i ]
@@ -895,7 +895,7 @@ _ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_P
   %61 = ptrtoint ptr %60 to i64
   %62 = cmpxchg ptr %56, i64 %61, i64 %58 seq_cst seq_cst, align 8
   %63 = extractvalue { i64, i1 } %62, 1
-  br i1 %63, label %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit, label %59, !llvm.loop !85
+  br i1 %63, label %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit, label %59, !llvm.loop !87
 
 _ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit: ; preds = %59
   fence seq_cst
@@ -921,7 +921,7 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %8 = load i32, ptr %7, align 8, !tbaa !86
+  %8 = load i32, ptr %7, align 8, !tbaa !88
   %9 = sub nsw i32 0, %8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store volatile i32 %9, ptr %4, align 4, !tbaa !75
@@ -951,7 +951,7 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   %20 = ptrtoint ptr %19 to i64
   %21 = cmpxchg ptr %18, i64 %20, i64 0 seq_cst seq_cst, align 8
   %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %23, label %16, !llvm.loop !87
+  br i1 %22, label %23, label %16, !llvm.loop !89
 
 23:                                               ; preds = %16
   %.not40 = icmp eq ptr %19, null
@@ -965,7 +965,7 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   %25 = getelementptr inbounds nuw i8, ptr %.03656, i64 136
   %26 = load ptr, ptr %25, align 8, !tbaa !10
   %.not41 = icmp eq ptr %26, null
-  br i1 %.not41, label %.preheader, label %.preheader51, !llvm.loop !88
+  br i1 %.not41, label %.preheader, label %.preheader51, !llvm.loop !90
 
 .preheader:                                       ; preds = %.preheader51, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
   %.359 = phi i32 [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.160, %.preheader51 ]
@@ -1045,7 +1045,7 @@ _ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i:  ; preds = %65, %62, %57, %52, 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 136
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !10
   %.not.i = icmp eq ptr %.0.i, %.val
-  br i1 %.not.i, label %.loopexit, label %35, !llvm.loop !89
+  br i1 %.not.i, label %.loopexit, label %35, !llvm.loop !91
 
 _ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit: ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
@@ -1186,7 +1186,7 @@ _ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit: ; preds = %._crit_edge.i, %1
 
 _ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i, %88, %81, %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit
   %.not42 = icmp eq ptr %28, null
-  br i1 %.not42, label %.loopexit50, label %.preheader, !llvm.loop !90
+  br i1 %.not42, label %.loopexit50, label %.preheader, !llvm.loop !92
 
 .loopexit50:                                      ; preds = %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit, %23
   %.2 = phi i32 [ %.160, %23 ], [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ]
@@ -1194,14 +1194,14 @@ _ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_
   %123 = load i32, ptr @Nthreads, align 4, !tbaa !75
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %.preheader52, label %.loopexit54, !llvm.loop !91
+  br i1 %125, label %.preheader52, label %.loopexit54, !llvm.loop !93
 
 .loopexit54:                                      ; preds = %.loopexit50, %1
   %.034 = phi i32 [ %8, %1 ], [ %.2, %.loopexit50 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %127 = load i32, ptr %126, align 8, !tbaa !92
+  %127 = load i32, ptr %126, align 8, !tbaa !94
   %128 = add nsw i32 %127, %.034
-  store i32 %128, ptr %126, align 8, !tbaa !92
+  store i32 %128, ptr %126, align 8, !tbaa !94
   ret void
 }
 
@@ -1373,7 +1373,7 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %10, %_ZL12tMPI_Se
 
 _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %12, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
   tail call void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0)
-  br label %10, !llvm.loop !93
+  br label %10, !llvm.loop !95
 
 .loopexit:                                        ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread4
   ret void
@@ -1511,7 +1511,7 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %10, %_Z16t
   %54 = getelementptr inbounds nuw i8, ptr %.01629, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   %.not21 = icmp eq ptr %55, null
-  br i1 %.not21, label %._crit_edge, label %7, !llvm.loop !94
+  br i1 %.not21, label %._crit_edge, label %7, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread, %5
   %.0.lcssa = phi i32 [ 1, %5 ], [ %.1, %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread ]
@@ -1627,16 +1627,18 @@ attributes #11 = { nounwind }
 !79 = !{!"p1 _ZTS11tMPI_Thread", !6, i64 0}
 !80 = !{!"_ZTS12tMPI_Event_t", !17, i64 0, !12, i64 64}
 !81 = !{!"p2 omnipotent char", !68, i64 0}
-!82 = distinct !{!82, !21}
-!83 = distinct !{!83, !21}
+!82 = distinct !{!82, !21, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !84 = distinct !{!84, !21}
 !85 = distinct !{!85, !21}
-!86 = !{!78, !12, i64 224}
+!86 = distinct !{!86, !21}
 !87 = distinct !{!87, !21}
-!88 = distinct !{!88, !21}
+!88 = !{!78, !12, i64 224}
 !89 = distinct !{!89, !21}
 !90 = distinct !{!90, !21}
 !91 = distinct !{!91, !21}
-!92 = !{!78, !12, i64 352}
+!92 = distinct !{!92, !21}
 !93 = distinct !{!93, !21}
-!94 = distinct !{!94, !21}
+!94 = !{!78, !12, i64 352}
+!95 = distinct !{!95, !21}
+!96 = distinct !{!96, !21}

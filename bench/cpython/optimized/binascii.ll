@@ -531,7 +531,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %.3.us.us.i = getelementptr i8, ptr %.249.us.us.i, i64 1
   store i8 %68, ptr %.249.us.us.i, align 1, !tbaa !11
   %69 = icmp samesign ugt i32 %.14348.us.us.i, 11
-  br i1 %69, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !27
+  br i1 %69, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !28
 
 .lr.ph58.split.i:                                 ; preds = %.lr.ph58.i, %._crit_edge.split.i
   %70 = phi i1 [ %88, %._crit_edge.split.i ], [ true, %.lr.ph58.i ]
@@ -569,7 +569,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %.3.i = getelementptr i8, ptr %.249.i, i64 1
   store i8 %spec.select.i, ptr %.249.i, align 1, !tbaa !11
   %85 = icmp samesign ugt i32 %.14348.i, 11
-  br i1 %85, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !27
+  br i1 %85, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !29
 
 ._crit_edge.split.i:                              ; preds = %.lr.ph.i, %76
   %.143.lcssa.i = phi i32 [ %77, %76 ], [ %79, %.lr.ph.i ]
@@ -579,7 +579,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %88 = icmp sgt i64 %86, 0
   %89 = icmp ne i32 %.143.lcssa.i, 0
   %90 = or i1 %88, %89
-  br i1 %90, label %.lr.ph58.split.i, label %._crit_edge59.i, !llvm.loop !26
+  br i1 %90, label %.lr.ph58.split.i, label %._crit_edge59.i, !llvm.loop !30
 
 ._crit_edge59.i:                                  ; preds = %._crit_edge.split.i, %._crit_edge.split.us.us.i, %44
   %.1.lcssa.i = phi ptr [ %.038.i, %44 ], [ %.2.lcssa.us.i, %._crit_edge.split.us.us.i ], [ %.2.lcssa.i, %._crit_edge.split.i ]
@@ -774,7 +774,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.1.us.i = phi i32 [ %74, %73 ], [ %.07335.us.i, %71 ], [ 0, %54 ], [ 0, %58 ], [ 0, %64 ], [ 0, %70 ], [ 0, %53 ], [ %.07335.us.i, %48 ]
   %78 = add nuw i64 %.036.us.i, 1
   %exitcond.not.i = icmp eq i64 %78, %.val33
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !31
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %127
   %.036.i = phi i64 [ %128, %127 ], [ 0, %.lr.ph.split.i.preheader ]
@@ -903,7 +903,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.1.i = phi i32 [ %87, %86 ], [ 0, %123 ], [ 0, %117 ], [ 0, %111 ], [ 0, %110 ], [ 0, %109 ], [ %.07335.i, %82 ]
   %128 = add nuw i64 %.036.i, 1
   %exitcond59.not.i = icmp eq i64 %128, %.val33
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !28
+  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %77, %127
   %.084.lcssa.i = phi ptr [ %.286.i, %127 ], [ %.286.us.i, %77 ]
@@ -1073,7 +1073,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %52 = getelementptr i8, ptr %.12.i, i64 1
   store i8 %51, ptr %.12.i, align 1, !tbaa !11
   %53 = icmp samesign ugt i32 %.1401.i, 11
-  br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
+  br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph9.i
   %.140.lcssa.i = phi i32 [ %44, %.lr.ph9.i ], [ %46, %.lr.ph.i ]
@@ -1081,7 +1081,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %54 = add nsw i64 %.0368.i, -1
   %55 = getelementptr i8, ptr %.0414.i, i64 1
   %56 = icmp sgt i64 %.0368.i, 1
-  br i1 %56, label %.lr.ph9.i, label %._crit_edge10.i, !llvm.loop !30
+  br i1 %56, label %.lr.ph9.i, label %._crit_edge10.i, !llvm.loop !34
 
 ._crit_edge10.i:                                  ; preds = %._crit_edge.i
   switch i32 %.140.lcssa.i, label %._crit_edge10.thread.i [
@@ -1441,11 +1441,11 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %26 = xor i32 %22, %25
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !31
+  %29 = load i16, ptr %28, align 2, !tbaa !35
   %30 = zext i16 %29 to i32
   %31 = xor i32 %21, %30
   %32 = icmp samesign ugt i64 %.03.i, 1
-  br i1 %32, label %.lr.ph.i, label %.sink.split, !llvm.loop !33
+  br i1 %32, label %.lr.ph.i, label %.sink.split, !llvm.loop !37
 
 33:                                               ; preds = %10
   %34 = call ptr @PyErr_Occurred() #5
@@ -1476,11 +1476,11 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %44 = xor i32 %40, %43
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !31
+  %47 = load i16, ptr %46, align 2, !tbaa !35
   %48 = zext i16 %47 to i32
   %49 = xor i32 %39, %48
   %50 = icmp samesign ugt i64 %.03.i19, 1
-  br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !33
+  br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !37
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.lr.ph.i18, %.split, %.split9
   %.sink.shrunk = phi i32 [ 65535, %.split9 ], [ %17, %.split ], [ %49, %.lr.ph.i18 ], [ %31, %.lr.ph.i ]
@@ -1564,7 +1564,7 @@ define internal ptr @binascii_crc32(ptr readnone captures(none) %0, ptr noundef 
   %30 = getelementptr i8, ptr %.0161.i, i64 1073741824
   %31 = add nsw i64 %.0152.i, -1073741824
   %32 = icmp ugt i64 %31, 1073741824
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   %.016.lcssa.i = phi ptr [ %.val, %24 ], [ %30, %.lr.ph.i ]
@@ -1714,7 +1714,7 @@ define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %0, ptr noundef
 45:                                               ; preds = %.lr.ph.i
   %46 = add nsw i64 %.27.i, 1
   %exitcond.not.i = icmp eq i64 %46, %.val33
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %45, %.lr.ph.i, %40
   %.1.i = phi i64 [ %39, %40 ], [ %.27.i, %.lr.ph.i ], [ %.val33, %45 ]
@@ -1824,7 +1824,7 @@ switch.early.test5.i:                             ; preds = %58
   %.186.i = phi i64 [ %50, %49 ], [ %72, %62 ], [ %75, %74 ], [ %80, %79 ], [ %86, %83 ], [ %.08510.i, %.critedge.i ]
   %.3.i = phi i64 [ %52, %49 ], [ %71, %62 ], [ %39, %74 ], [ %82, %79 ], [ %85, %83 ], [ %spec.select.i, %.critedge.i ]
   %88 = icmp slt i64 %.3.i, %.val33
-  br i1 %88, label %34, label %._crit_edge.i, !llvm.loop !36
+  br i1 %88, label %34, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %87, %38, %.preheader6.i
   %.085.lcssa.i = phi i64 [ 0, %.preheader6.i ], [ %.186.i, %87 ], [ %.08510.i, %38 ]
@@ -2414,7 +2414,7 @@ switch.early.test310.i:                           ; preds = %148, %145
   %.6.i = phi i32 [ %179, %.thread4.i ], [ 0, %217 ], [ 0, %219 ], [ %237, %241 ], [ %237, %242 ]
   %.3225.i = phi i64 [ %178, %.thread4.i ], [ %218, %217 ], [ %220, %219 ], [ %.pre-phi.i, %241 ], [ %.pre-phi.i, %242 ]
   %244 = icmp slt i64 %.3225.i, %.val57
-  br i1 %244, label %.preheader.i, label %._crit_edge14.i, !llvm.loop !37
+  br i1 %244, label %.preheader.i, label %._crit_edge14.i, !llvm.loop !41
 
 ._crit_edge14.i:                                  ; preds = %243, %._crit_edge.thread.i
   %245 = phi ptr [ %124, %._crit_edge.thread.i ], [ %122, %243 ]
@@ -2457,9 +2457,9 @@ define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %6, align 8, !tbaa !38
+  %.val = load ptr, ptr %6, align 8, !tbaa !42
   %7 = getelementptr i8, ptr %.val, i64 168
-  %.val16 = load i64, ptr %7, align 8, !tbaa !39
+  %.val16 = load i64, ptr %7, align 8, !tbaa !43
   %8 = and i64 %.val16, 268435456
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %22, label %9
@@ -2494,7 +2494,7 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %17
   %.0.i = phi ptr [ %.0.i.i, %16 ], [ %.val4.i, %17 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !12
   %19 = getelementptr i8, ptr %0, i64 16
-  %.val18 = load i64, ptr %19, align 8, !tbaa !44
+  %.val18 = load i64, ptr %19, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.val18, ptr %20, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2508,9 +2508,9 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %17
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !10
-  %.val15 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val15 = load ptr, ptr %6, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %.val15, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !47
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.15, ptr noundef %27) #5
   br label %29
 
@@ -2606,7 +2606,7 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   store i8 %31, ptr %33, align 1, !tbaa !11
   %34 = add i64 %.0298, 2
   %35 = icmp slt i64 %34, %.16.val
-  br i1 %35, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !48
+  br i1 %35, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !52
 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %27, align 8, !tbaa !3
@@ -2724,26 +2724,30 @@ attributes #6 = { nounwind willreturn memory(read) }
 !23 = !{!"", !24, i64 0, !14, i64 16}
 !24 = !{!"_object", !7, i64 0, !25, i64 8}
 !25 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
+!26 = distinct !{!26, !20, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !20, !27}
 !29 = distinct !{!29, !20}
 !30 = distinct !{!30, !20}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"short", !7, i64 0}
+!31 = distinct !{!31, !20, !27}
+!32 = distinct !{!32, !20}
 !33 = distinct !{!33, !20}
 !34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"short", !7, i64 0}
 !37 = distinct !{!37, !20}
-!38 = !{!24, !25, i64 8}
-!39 = !{!40, !14, i64 168}
-!40 = !{!"_typeobject", !23, i64 0, !16, i64 24, !14, i64 32, !14, i64 40, !6, i64 48, !14, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !16, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !14, i64 208, !6, i64 216, !6, i64 224, !41, i64 232, !42, i64 240, !43, i64 248, !25, i64 256, !5, i64 264, !6, i64 272, !6, i64 280, !14, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !6, i64 360, !5, i64 368, !6, i64 376, !15, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !32, i64 410}
-!41 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
-!42 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
-!43 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
-!44 = !{!45, !14, i64 16}
-!45 = !{!"", !24, i64 0, !14, i64 16, !14, i64 24, !46, i64 32}
-!46 = !{!"", !32, i64 0, !32, i64 2, !32, i64 2, !32, i64 2, !32, i64 2}
-!47 = !{!40, !16, i64 24}
-!48 = distinct !{!48, !20}
+!38 = distinct !{!38, !20}
+!39 = distinct !{!39, !20}
+!40 = distinct !{!40, !20}
+!41 = distinct !{!41, !20}
+!42 = !{!24, !25, i64 8}
+!43 = !{!44, !14, i64 168}
+!44 = !{!"_typeobject", !23, i64 0, !16, i64 24, !14, i64 32, !14, i64 40, !6, i64 48, !14, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !16, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !14, i64 208, !6, i64 216, !6, i64 224, !45, i64 232, !46, i64 240, !47, i64 248, !25, i64 256, !5, i64 264, !6, i64 272, !6, i64 280, !14, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !6, i64 360, !5, i64 368, !6, i64 376, !15, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !36, i64 410}
+!45 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!46 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!47 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!48 = !{!49, !14, i64 16}
+!49 = !{!"", !24, i64 0, !14, i64 16, !14, i64 24, !50, i64 32}
+!50 = !{!"", !36, i64 0, !36, i64 2, !36, i64 2, !36, i64 2, !36, i64 2}
+!51 = !{!44, !16, i64 24}
+!52 = distinct !{!52, !20}

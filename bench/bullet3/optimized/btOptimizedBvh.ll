@@ -873,15 +873,15 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %175, %80
   %176 = mul nsw i32 %64, %.283
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds i8, ptr %63, i64 %177
-  %179 = load double, ptr %178, align 8, !tbaa !74
+  %179 = load double, ptr %178, align 8, !tbaa !75
   %180 = fmul double %179, %93
   %181 = fptrunc double %180 to float
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %183 = load double, ptr %182, align 8, !tbaa !74
+  %183 = load double, ptr %182, align 8, !tbaa !75
   %184 = fmul double %183, %95
   %185 = fptrunc double %184 to float
   %186 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %187 = load double, ptr %186, align 8, !tbaa !74
+  %187 = load double, ptr %186, align 8, !tbaa !75
   %188 = fmul double %187, %97
   %189 = fptrunc double %188 to float
   %190 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %14, i64 0, i64 %indvars.iv156
@@ -894,7 +894,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %175, %80
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !34
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, -1
   %.not165 = icmp eq i64 %indvars.iv156, 0
-  br i1 %.not165, label %_Z8btSetMinIfEvRT_RKS0_.exit.i, label %163, !llvm.loop !73
+  br i1 %.not165, label %_Z8btSetMinIfEvRT_RKS0_.exit.i, label %163, !llvm.loop !77
 
 191:                                              ; preds = %35
   %192 = getelementptr %struct.btQuantizedBvhNode, ptr %36, i64 %indvars.iv162
@@ -931,13 +931,13 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %175, %80
   store i16 %spec.store.select86, ptr %212, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %204, !llvm.loop !76
+  br i1 %exitcond.not, label %.loopexit, label %204, !llvm.loop !78
 
 .loopexit:                                        ; preds = %204, %_Z8btSetMinIfEvRT_RKS0_.exit.i
   %.3 = phi i32 [ %.us-phi, %_Z8btSetMinIfEvRT_RKS0_.exit.i ], [ %.081150, %204 ]
   %.2 = phi i32 [ %.1, %_Z8btSetMinIfEvRT_RKS0_.exit.i ], [ %.078152, %204 ]
   %.not.not = icmp sgt i64 %indvars.iv.next163, %34
-  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !77
+  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.loopexit
   %215 = icmp sgt i32 %.2, -1
@@ -1089,7 +1089,7 @@ define dso_local void @_ZN14btOptimizedBvh12refitPartialEP23btStridingMeshInterf
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %59, label %._crit_edge, !llvm.loop !78
+  br i1 %104, label %59, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %101, %4
   ret void
@@ -1181,7 +1181,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %34 = load float, ptr %33, align 4, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !79
+  %36 = load ptr, ptr %35, align 8, !tbaa !81
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1396,7 +1396,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %26 = load float, ptr %25, align 4, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !80
+  %28 = load ptr, ptr %27, align 8, !tbaa !82
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1643,12 +1643,14 @@ attributes #15 = { builtin nounwind }
 !70 = !{!"p1 omnipotent char", !16, i64 0}
 !71 = !{!72, !72, i64 0}
 !72 = !{!"_ZTS14PHY_ScalarType", !10, i64 0}
-!73 = distinct !{!73, !37}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"double", !10, i64 0}
-!76 = distinct !{!76, !37}
+!73 = distinct !{!73, !37, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"double", !10, i64 0}
 !77 = distinct !{!77, !37}
 !78 = distinct !{!78, !37}
-!79 = !{!27, !25, i64 8}
-!80 = !{!81, !42, i64 8}
-!81 = !{!"_ZTSZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback", !28, i64 0, !42, i64 8}
+!79 = distinct !{!79, !37}
+!80 = distinct !{!80, !37}
+!81 = !{!27, !25, i64 8}
+!82 = !{!83, !42, i64 8}
+!83 = !{!"_ZTSZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback", !28, i64 0, !42, i64 8}

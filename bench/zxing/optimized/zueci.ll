@@ -3348,7 +3348,7 @@ zueci_encode_utf8.exit164:                        ; preds = %81, %80, %77
   %.2134 = getelementptr inbounds nuw i8, ptr %.1133242, i64 %.0129.pn158
   %86 = getelementptr inbounds nuw i8, ptr %.1139241, i64 1
   %87 = icmp ult ptr %86, %11
-  br i1 %87, label %.lr.ph244.split, label %._crit_edge245, !llvm.loop !29
+  br i1 %87, label %.lr.ph244.split, label %._crit_edge245, !llvm.loop !31
 
 ._crit_edge245:                                   ; preds = %zueci_encode_utf8.exit164, %zueci_encode_utf8.exit164.us, %.preheader
   %.1133.lcssa = phi ptr [ %5, %.preheader ], [ %.2134.us, %zueci_encode_utf8.exit164.us ], [ %.2134, %zueci_encode_utf8.exit164 ]
@@ -3449,7 +3449,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 127:                                              ; preds = %.lr.ph215
   %128 = getelementptr inbounds nuw i8, ptr %.5143214, i64 1
   %129 = icmp ult ptr %128, %11
-  br i1 %129, label %.lr.ph215, label %.critedge21, !llvm.loop !30
+  br i1 %129, label %.lr.ph215, label %.critedge21, !llvm.loop !32
 
 .critedge21:                                      ; preds = %127, %.lr.ph215, %.loopexit194.thread, %.loopexit194
   %.4142 = phi ptr [ %.3141.lcssa276.mux, %.loopexit194 ], [ %spec.select, %.loopexit194.thread ], [ %128, %127 ], [ %.5143214, %.lr.ph215 ]
@@ -3532,7 +3532,7 @@ zueci_encode_utf8.exit166:                        ; preds = %158, %146, %135, %1
   %.3 = phi i32 [ 1, %.critedge21 ], [ %.2228, %131 ], [ %.2228, %135 ], [ %.2228, %146 ], [ %.2228, %158 ]
   %.4136 = getelementptr inbounds nuw i8, ptr %.3135226, i64 %.0129.pn
   %175 = icmp ult ptr %.6144, %11
-  br i1 %175, label %.preheader193, label %._crit_edge229, !llvm.loop !31
+  br i1 %175, label %.preheader193, label %._crit_edge229, !llvm.loop !33
 
 ._crit_edge229:                                   ; preds = %zueci_encode_utf8.exit166, %.preheader195
   %.3135.lcssa = phi ptr [ %5, %.preheader195 ], [ %.4136, %zueci_encode_utf8.exit166 ]
@@ -3734,7 +3734,7 @@ zueci_replacement_incr.exit:                      ; preds = %257, %245, %234, %2
   %.pn = sext i32 %.pn.in to i64
   %.8 = getelementptr inbounds i8, ptr %.7232, i64 %.pn
   %274 = icmp ult ptr %.8, %11
-  br i1 %274, label %205, label %._crit_edge238, !llvm.loop !32
+  br i1 %274, label %205, label %._crit_edge238, !llvm.loop !34
 
 ._crit_edge238:                                   ; preds = %zueci_replacement_incr.exit, %199
   %.5137.lcssa = phi ptr [ %5, %199 ], [ %.6, %zueci_replacement_incr.exit ]
@@ -3854,7 +3854,7 @@ switch.early.test148:                             ; preds = %6
   %21 = zext nneg i8 %narrow134 to i32
   %22 = add nuw nsw i32 %.0104175, %21
   %23 = icmp ult ptr %19, %9
-  br i1 %23, label %.lr.ph, label %.loopexit.sink.split, !llvm.loop !33
+  br i1 %23, label %.lr.ph, label %.loopexit.sink.split, !llvm.loop !35
 
 24:                                               ; preds = %16, %14
   %.not129 = icmp eq i32 %3, 0
@@ -3903,7 +3903,7 @@ zueci_encode_utf8.exit:                           ; preds = %30, %28, %24
   %.2106.us = add nuw nsw i32 %.1105204.us, %36
   %37 = getelementptr inbounds nuw i8, ptr %.1115203.us, i64 1
   %38 = icmp ult ptr %37, %9
-  br i1 %38, label %.lr.ph206.split.us, label %.loopexit.sink.split, !llvm.loop !34
+  br i1 %38, label %.lr.ph206.split.us, label %.loopexit.sink.split, !llvm.loop !36
 
 .lr.ph206.split:                                  ; preds = %.lr.ph206, %.lr.ph206.split
   %.0205 = phi i32 [ %.1, %.lr.ph206.split ], [ 0, %.lr.ph206 ]
@@ -3919,7 +3919,7 @@ zueci_encode_utf8.exit:                           ; preds = %30, %28, %24
   %.2106 = add nuw nsw i32 %.0110.pn132, %.1105204
   %41 = getelementptr inbounds nuw i8, ptr %.1115203, i64 1
   %42 = icmp ult ptr %41, %9
-  br i1 %42, label %.lr.ph206.split, label %.loopexit.sink.split, !llvm.loop !34
+  br i1 %42, label %.lr.ph206.split, label %.loopexit.sink.split, !llvm.loop !37
 
 43:                                               ; preds = %zueci_encode_utf8.exit
   switch i32 %0, label %88 [
@@ -4006,7 +4006,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 76:                                               ; preds = %.lr.ph177
   %77 = getelementptr inbounds nuw i8, ptr %.5119176, i64 1
   %78 = icmp ult ptr %77, %9
-  br i1 %78, label %.lr.ph177, label %.critedge19, !llvm.loop !35
+  br i1 %78, label %.lr.ph177, label %.critedge19, !llvm.loop !38
 
 .loopexit153:                                     ; preds = %switch.early.test, %.critedge
   %79 = icmp ugt i32 %62, 127
@@ -4025,7 +4025,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   %.3 = phi i32 [ %.2189, %.loopexit153 ], [ 1, %71 ], [ 1, %76 ], [ 1, %.lr.ph177 ]
   %.4108 = add nsw i32 %.0110.pn, %.3107188
   %87 = icmp ult ptr %.6120, %9
-  br i1 %87, label %.preheader152, label %.loopexit.sink.split, !llvm.loop !36
+  br i1 %87, label %.preheader152, label %.loopexit.sink.split, !llvm.loop !39
 
 88:                                               ; preds = %43
   %89 = zext nneg i32 %0 to i64
@@ -4070,7 +4070,7 @@ zueci_replacement_incr.exit.us:                   ; preds = %.lr.ph198.split.us
   %.pn.us = sext i32 %101 to i64
   %.8.us = getelementptr inbounds i8, ptr %.7193.us, i64 %.pn.us
   %111 = icmp ult ptr %.8.us, %9
-  br i1 %111, label %.lr.ph198.split.us, label %.loopexit.sink.split, !llvm.loop !37
+  br i1 %111, label %.lr.ph198.split.us, label %.loopexit.sink.split, !llvm.loop !40
 
 .lr.ph198.split:                                  ; preds = %.lr.ph198, %zueci_replacement_incr.exit
   %.4196 = phi i32 [ %.5, %zueci_replacement_incr.exit ], [ 0, %.lr.ph198 ]
@@ -4151,7 +4151,7 @@ zueci_replacement_incr.exit:                      ; preds = %.fold.split.i, %131
   %.pn = sext i32 %.pn.in to i64
   %.8 = getelementptr inbounds i8, ptr %.7193, i64 %.pn
   %142 = icmp ult ptr %.8, %9
-  br i1 %142, label %.lr.ph198.split, label %.loopexit.sink.split, !llvm.loop !37
+  br i1 %142, label %.lr.ph198.split, label %.loopexit.sink.split, !llvm.loop !41
 
 .loopexit.sink.split:                             ; preds = %.critedge19, %zueci_replacement_incr.exit, %zueci_replacement_incr.exit.us, %.lr.ph206.split, %35, %.lr.ph, %92, %.preheader155, %.preheader, %17
   %.3107.lcssa.sink = phi i32 [ 0, %17 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %92 ], [ %22, %.lr.ph ], [ %.2106.us, %35 ], [ %.2106, %.lr.ph206.split ], [ %.6.us, %zueci_replacement_incr.exit.us ], [ %.6, %zueci_replacement_incr.exit ], [ %.4108, %.critedge19 ]
@@ -5697,7 +5697,7 @@ switch.early.test:                                ; preds = %8
   %.297 = phi i32 [ %41, %40 ], [ %.095120, %44 ]
   %.294 = phi i32 [ %.092121, %40 ], [ %45, %44 ]
   %.not108 = icmp sgt i32 %.297, %.294
-  br i1 %.not108, label %.critedge, label %.preheader, !llvm.loop !38
+  br i1 %.not108, label %.critedge, label %.preheader, !llvm.loop !42
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw [209 x i16], ptr @zueci_gbk_nonuro_u, i64 0, i64 %35
@@ -5842,7 +5842,7 @@ switch.early.test:                                ; preds = %8
   %.1181 = select i1 %58, i32 %59, i32 %.0180211
   %.1179 = select i1 %58, i32 %.0178212, i32 %54
   %60 = icmp slt i32 %.1181, %.1179
-  br i1 %60, label %.preheader, label %61, !llvm.loop !39
+  br i1 %60, label %.preheader, label %61, !llvm.loop !43
 
 61:                                               ; preds = %.preheader
   %62 = zext nneg i32 %.1181 to i64
@@ -5986,7 +5986,7 @@ switch.early.test:                                ; preds = %8
   %.2175 = phi i32 [ %129, %128 ], [ %.0173209, %132 ]
   %.2172 = phi i32 [ %.0170210, %128 ], [ %133, %132 ]
   %.not192 = icmp sgt i32 %.2175, %.2172
-  br i1 %.not192, label %.critedge, label %.preheader208, !llvm.loop !40
+  br i1 %.not192, label %.critedge, label %.preheader208, !llvm.loop !44
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw [255 x i16], ptr @zueci_gb18030_2_mb_u, i64 0, i64 %123
@@ -6187,15 +6187,19 @@ attributes #8 = { nounwind }
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!29 = distinct !{!29, !7, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
+!36 = distinct !{!36, !7, !30}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
+!40 = distinct !{!40, !7, !30}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}

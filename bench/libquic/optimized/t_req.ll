@@ -310,13 +310,13 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink181) #2
   %132 = add nuw nsw i32 %.0120162, 1
   %exitcond.not = icmp eq i32 %132, %87
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !43
 
 .loopexit:                                        ; preds = %130, %107, %.preheader, %.lr.ph, %114
   %133 = add nuw i64 %.0116164, 1
   %134 = tail call i64 @sk_num(ptr noundef %72) #2
   %135 = icmp ult i64 %133, %134
-  br i1 %135, label %.lr.ph, label %.thread144, !llvm.loop !42
+  br i1 %135, label %.lr.ph, label %.thread144, !llvm.loop !44
 
 .thread144:                                       ; preds = %.loopexit, %.preheader159, %76, %64
   %136 = and i64 %3, 256
@@ -338,7 +338,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %143 = add nuw i64 %.0115165, 1
   %144 = tail call i64 @sk_num(ptr noundef nonnull %138) #2
   %145 = icmp ult i64 %143, %144
-  br i1 %145, label %.lr.ph166, label %.thread151, !llvm.loop !43
+  br i1 %145, label %.lr.ph166, label %.thread151, !llvm.loop !45
 
 .lr.ph166:                                        ; preds = %139, %142
   %.0115165 = phi i64 [ %143, %142 ], [ 0, %139 ]
@@ -384,9 +384,9 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 
 167:                                              ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !44
+  %169 = load ptr, ptr %168, align 8, !tbaa !46
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !45
+  %171 = load ptr, ptr %170, align 8, !tbaa !47
   %172 = tail call i32 @X509_signature_print(ptr noundef %0, ptr noundef %169, ptr noundef %171) #2
   %.not136 = icmp eq i32 %172, 0
   br i1 %.not136, label %.thread, label %173
@@ -499,8 +499,10 @@ attributes #2 = { nounwind }
 !38 = !{!39, !18, i64 8}
 !39 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !18, i64 8, !19, i64 16}
 !40 = !{!39, !14, i64 0}
-!41 = distinct !{!41, !37}
-!42 = distinct !{!42, !37}
+!41 = distinct !{!41, !37, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !43 = distinct !{!43, !37}
-!44 = !{!7, !12, i64 8}
-!45 = !{!7, !13, i64 16}
+!44 = distinct !{!44, !37}
+!45 = distinct !{!45, !37}
+!46 = !{!7, !12, i64 8}
+!47 = !{!7, !13, i64 16}

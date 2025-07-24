@@ -114,7 +114,7 @@ define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr noundef captures(n
   store i32 %46, ptr %47, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %48 = add nsw i32 %spec.select, %23
@@ -163,13 +163,13 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr noundef captures(non
   %.340.us = select i1 %16, i32 %17, i32 %.23951.us
   %.3.us = select i1 %16, i32 %12, i32 %.252.us
   %18 = icmp sgt i64 %indvars.iv, 1
-  br i1 %18, label %13, label %._crit_edge.us, !llvm.loop !8
+  br i1 %18, label %13, label %._crit_edge.us, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %13
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %19 = icmp samesign uge i64 %indvars.iv.next70, %9
   %or.cond67.not = select i1 %.144.us, i1 true, i1 %19
-  br i1 %or.cond67.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !9
+  br i1 %or.cond67.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !10
 
 ._crit_edge58:                                    ; preds = %._crit_edge.us
   %20 = icmp eq i32 %.3.us, -1
@@ -242,7 +242,7 @@ define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr noundef capture
   %.148.us = select i1 %14, i1 true, i1 %.04757.us
   %.3.us = select i1 %14, i32 %indvars, i32 %.259.us
   %16 = icmp sgt i64 %indvars.iv, 1
-  br i1 %16, label %11, label %._crit_edge.us, !llvm.loop !10
+  br i1 %16, label %11, label %._crit_edge.us, !llvm.loop !11
 
 .preheader.us:                                    ; preds = %.split.us
   %17 = and i64 %indvars.iv.next68, 4294967295
@@ -251,7 +251,7 @@ define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr noundef capture
   br label %11
 
 ._crit_edge.us:                                   ; preds = %11
-  br i1 %.148.us, label %.split63.us, label %.split.us, !llvm.loop !11
+  br i1 %.148.us, label %.split63.us, label %.split.us, !llvm.loop !12
 
 .split63.us:                                      ; preds = %.split.us, %._crit_edge.us
   %.us-phi = phi i32 [ %.050.us, %.split.us ], [ %.353.us, %._crit_edge.us ]
@@ -293,7 +293,7 @@ define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr noundef capture
   store i32 %36, ptr %37, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %38 = add nsw i32 %spec.select, %.us-phi
@@ -530,7 +530,7 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
 57:                                               ; preds = %.lr.ph41
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !14
 
 .loopexit:                                        ; preds = %43, %57, %20, %._crit_edge, %54
   %58 = phi i32 [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ %.lcssa, %57 ], [ 0, %43 ]
@@ -636,7 +636,7 @@ define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK
   %.148.us.i = select i1 %62, i1 true, i1 %.04757.us.i
   %.3.us.i = select i1 %62, i32 %indvars.i, i32 %.259.us.i
   %64 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %64, label %59, label %._crit_edge.us.i, !llvm.loop !10
+  br i1 %64, label %59, label %._crit_edge.us.i, !llvm.loop !11
 
 .preheader.us.i:                                  ; preds = %.split.us.i
   %65 = and i64 %indvars.iv.next68.i, 4294967295
@@ -645,7 +645,7 @@ define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK
   br label %59
 
 ._crit_edge.us.i:                                 ; preds = %59
-  br i1 %.148.us.i, label %.split63.us.i, label %.split.us.i, !llvm.loop !11
+  br i1 %.148.us.i, label %.split63.us.i, label %.split.us.i, !llvm.loop !12
 
 .split63.us.i:                                    ; preds = %._crit_edge.us.i, %.split.us.i
   %.us-phi.i = phi i32 [ %.050.us.i, %.split.us.i ], [ %.353.us.i, %._crit_edge.us.i ]
@@ -686,7 +686,7 @@ define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK
   store i32 %83, ptr %84, align 4
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next71.i, %.pre
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %85 = add nsw i32 %spec.select.i, %.us-phi.i
@@ -801,7 +801,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor20optimizePathTopologyEP14dtNavMes
   %.148.us.i = select i1 %53, i1 true, i1 %.04757.us.i
   %.3.us.i = select i1 %53, i32 %indvars.i, i32 %.259.us.i
   %55 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %55, label %50, label %._crit_edge.us.i, !llvm.loop !10
+  br i1 %55, label %50, label %._crit_edge.us.i, !llvm.loop !11
 
 .preheader.us.i:                                  ; preds = %.split.us.i
   %56 = and i64 %indvars.iv.next68.i, 4294967295
@@ -810,7 +810,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor20optimizePathTopologyEP14dtNavMes
   br label %50
 
 ._crit_edge.us.i:                                 ; preds = %50
-  br i1 %.148.us.i, label %.split63.us.i, label %.split.us.i, !llvm.loop !11
+  br i1 %.148.us.i, label %.split63.us.i, label %.split.us.i, !llvm.loop !12
 
 .split63.us.i:                                    ; preds = %._crit_edge.us.i, %.split.us.i
   %.us-phi.i = phi i32 [ %.050.us.i, %.split.us.i ], [ %.353.us.i, %._crit_edge.us.i ]
@@ -851,7 +851,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor20optimizePathTopologyEP14dtNavMes
   store i32 %74, ptr %75, align 4
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next71.i, %.pre
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %76 = add nsw i32 %spec.select.i, %.us-phi.i
@@ -934,7 +934,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS
   %31 = icmp samesign ult i64 %indvars.iv.next, %29
   %32 = icmp ne i32 %.041, %1
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %34 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -968,7 +968,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS
   %44 = load i32, ptr %20, align 8
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next71, %45
-  br i1 %46, label %.lr.ph63, label %._crit_edge64, !llvm.loop !15
+  br i1 %46, label %.lr.ph63, label %._crit_edge64, !llvm.loop !16
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.preheader
   %.lcssa = phi i32 [ %24, %.preheader ], [ %44, %.lr.ph63 ]
@@ -1156,7 +1156,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor12movePositionEPKfP14dtNavMeshQuer
   store i32 %72, ptr %73, align 4
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %64
   %74 = add nsw i32 %spec.select.i, %49
@@ -1274,13 +1274,13 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
   %.340.us.i = select i1 %46, i32 %47, i32 %.23951.us.i
   %.3.us.i = select i1 %46, i32 %42, i32 %.252.us.i
   %48 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %48, label %43, label %._crit_edge.us.i, !llvm.loop !8
+  br i1 %48, label %43, label %._crit_edge.us.i, !llvm.loop !9
 
 ._crit_edge.us.i:                                 ; preds = %43
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %49 = icmp samesign uge i64 %indvars.iv.next70.i, %39
   %or.cond67.not.i = select i1 %.144.us.i, i1 true, i1 %49
-  br i1 %or.cond67.not.i, label %._crit_edge58.i, label %.preheader.us.i, !llvm.loop !9
+  br i1 %or.cond67.not.i, label %._crit_edge58.i, label %.preheader.us.i, !llvm.loop !10
 
 ._crit_edge58.i:                                  ; preds = %._crit_edge.us.i
   %50 = icmp eq i32 %.3.us.i, -1
@@ -1501,7 +1501,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor15trimInvalidPathEjPKfP14dtNavMesh
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = sext i32 %.pre.pre to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %30
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next, %30 ]
@@ -1590,7 +1590,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQ
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %14, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %10, label %._crit_edge, !llvm.loop !17
+  br i1 %or.cond.not, label %10, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %10, %4
   %.lcssa = phi i1 [ true, %4 ], [ %14, %10 ]
@@ -1634,15 +1634,16 @@ attributes #12 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!10 = distinct !{!10, !5, !7}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!12 = distinct !{!12, !5, !7}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

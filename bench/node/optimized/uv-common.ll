@@ -2734,7 +2734,7 @@ sw.epilog.us:                                     ; preds = %for.body.us, %switc
   %call44.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv.us, i32 noundef %conv35.us, i32 noundef %conv43.us, ptr noundef nonnull %type.0.us, ptr noundef nonnull %add.ptr.us)
   %q.0.us = load ptr, ptr %q.013.us, align 8
   %cmp5.not.us = icmp eq ptr %q.0.us, %handle_queue
-  br i1 %cmp5.not.us, label %for.end, label %for.body.us
+  br i1 %cmp5.not.us, label %for.end, label %for.body.us, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %q.013 = phi ptr [ %q.0, %for.inc ], [ %q.011, %for.body.lr.ph ]
@@ -3559,3 +3559,5 @@ attributes #27 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}

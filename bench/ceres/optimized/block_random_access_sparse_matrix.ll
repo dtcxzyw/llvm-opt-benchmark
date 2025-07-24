@@ -1866,7 +1866,7 @@ _ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph149.i.us, 
   store double %163, ptr %161, align 8, !tbaa !137
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
   %164 = icmp slt i64 %indvars.iv.next125, %61
-  br i1 %164, label %.preheader.i.us97, label %.loopexit, !llvm.loop !143
+  br i1 %164, label %.preheader.i.us97, label %.loopexit, !llvm.loop !145
 
 .preheader.i:                                     ; preds = %.lr.ph96.split, %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.loopexit ], [ 0, %.lr.ph96.split ]
@@ -1919,7 +1919,7 @@ _ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %167
   store double %195, ptr %193, align 8, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %196 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %196, label %.preheader.i, label %.loopexit, !llvm.loop !143
+  br i1 %196, label %.preheader.i, label %.loopexit, !llvm.loop !146
 
 .loopexit:                                        ; preds = %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.loopexit, %.preheader.i.us97, %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit.us, %49, %._crit_edge, %._crit_edge91
   ret void
@@ -1963,7 +1963,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %21 = getelementptr inbounds double, ptr %.05680, i64 %12
   %22 = add nuw nsw i32 %.06577, 1
   %exitcond.not = icmp eq i32 %22, %1
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !147
 
 23:                                               ; preds = %._crit_edge, %5
   %24 = and i32 %2, 2
@@ -2011,7 +2011,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %45 = getelementptr inbounds double, ptr %.06281, i64 %29
   %46 = add nuw nsw i32 %.05885, 1
   %exitcond119.not = icmp eq i32 %46, %1
-  br i1 %exitcond119.not, label %._crit_edge88, label %37, !llvm.loop !145
+  br i1 %exitcond119.not, label %._crit_edge88, label %37, !llvm.loop !148
 
 47:                                               ; preds = %23
   %48 = icmp sgt i32 %2, 3
@@ -2096,7 +2096,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %110 = getelementptr inbounds nuw i8, ptr %.0115123.i.us, i64 32
   %111 = add nuw nsw i32 %.0114126.i.us, 4
   %112 = icmp slt i32 %111, %49
-  br i1 %112, label %54, label %.preheader.i.loopexit.us, !llvm.loop !146
+  br i1 %112, label %54, label %.preheader.i.loopexit.us, !llvm.loop !149
 
 .lr.ph139.i.us:                                   ; preds = %.preheader.i.loopexit.us, %.lr.ph139.i.us
   %.0138.i.us = phi i32 [ %127, %.lr.ph139.i.us ], [ %49, %.preheader.i.loopexit.us ]
@@ -2122,7 +2122,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %126 = getelementptr inbounds nuw i8, ptr %.1135.i.us, i64 8
   %127 = add nuw nsw i32 %.0138.i.us, 1
   %128 = icmp slt i32 %127, %1
-  br i1 %128, label %.lr.ph139.i.us, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, !llvm.loop !147
+  br i1 %128, label %.lr.ph139.i.us, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, !llvm.loop !150
 
 _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, %.preheader.i.loopexit.us
   %.sroa.29.1.lcssa.i.us = phi double [ %105, %.preheader.i.loopexit.us ], [ %121, %.lr.ph139.i.us ]
@@ -2146,7 +2146,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   store double %139, ptr %137, align 8, !tbaa !137
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
   %140 = icmp slt i64 %indvars.iv.next125, %52
-  br i1 %140, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !148
+  br i1 %140, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !151
 
 .preheader.i.loopexit.us:                         ; preds = %54
   %141 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv124
@@ -2175,7 +2175,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   store double %153, ptr %151, align 8, !tbaa !137
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 4
   %154 = icmp slt i64 %indvars.iv.next122, %52
-  br i1 %154, label %.preheader.i.us94, label %.loopexit, !llvm.loop !148
+  br i1 %154, label %.preheader.i.us94, label %.loopexit, !llvm.loop !152
 
 .preheader.i:                                     ; preds = %.lr.ph93.split, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit ], [ 0, %.lr.ph93.split ]
@@ -2206,7 +2206,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %170 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 8
   %171 = add nsw i32 %.0138.i, 1
   %172 = icmp slt i32 %171, %1
-  br i1 %172, label %156, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, !llvm.loop !147
+  br i1 %172, label %156, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, !llvm.loop !150
 
 _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %156
   %173 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
@@ -2227,7 +2227,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %156
   store double %184, ptr %182, align 8, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %185 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %185, label %.preheader.i, label %.loopexit, !llvm.loop !148
+  br i1 %185, label %.preheader.i, label %.loopexit, !llvm.loop !153
 
 .loopexit:                                        ; preds = %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, %.preheader.i.us94, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, %47, %._crit_edge, %._crit_edge88
   ret void
@@ -2311,7 +2311,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5ceres8internal29BlockRandomAccessSp
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !149
+  %5 = load i32, ptr %4, align 4, !tbaa !154
   ret i32 %5
 }
 
@@ -2320,7 +2320,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5ceres8internal29BlockRandomAccessSp
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !150
+  %5 = load i32, ptr %4, align 8, !tbaa !155
   ret i32 %5
 }
 
@@ -2500,7 +2500,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal14CompressedListES
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !151
+  %12 = load ptr, ptr %11, align 8, !tbaa !156
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 40
@@ -2521,13 +2521,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal14CompressedListES
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
-  store i32 -1, ptr %21, align 8, !tbaa !152
+  store i32 -1, ptr %21, align 8, !tbaa !157
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 36
-  store i32 -1, ptr %22, align 4, !tbaa !153
+  store i32 -1, ptr %22, align 4, !tbaa !158
   %23 = add i64 %.057.i.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 40
   %.not.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !154
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !159
 
 _ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %24, ptr %4, align 8, !tbaa !65
@@ -2559,13 +2559,13 @@ _ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE12_M_check_lenEmPKc.exit:
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
-  store i32 -1, ptr %35, align 8, !tbaa !152
+  store i32 -1, ptr %35, align 8, !tbaa !157
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 36
-  store i32 -1, ptr %36, align 4, !tbaa !153
+  store i32 -1, ptr %36, align 4, !tbaa !158
   %37 = add i64 %.057.i.i.i32, -1
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !154
+  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !159
 
 _ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
   %.not10.i.i.i = icmp eq ptr %6, %5
@@ -2574,38 +2574,38 @@ _ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0
 .lr.ph.i.i.i37:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i37
   %.012.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i37 ], [ %31, %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  %39 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !158, !noalias !155
-  store i64 %39, ptr %.012.i.i.i, align 8, !alias.scope !155, !noalias !158
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
+  %39 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !163, !noalias !160
+  store i64 %39, ptr %.012.i.i.i, align 8, !alias.scope !160, !noalias !163
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !69, !alias.scope !158, !noalias !155
-  store ptr %42, ptr %40, align 8, !tbaa !69, !alias.scope !155, !noalias !158
+  %42 = load ptr, ptr %41, align 8, !tbaa !69, !alias.scope !163, !noalias !160
+  store ptr %42, ptr %40, align 8, !tbaa !69, !alias.scope !160, !noalias !163
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !77, !alias.scope !158, !noalias !155
-  store ptr %45, ptr %43, align 8, !tbaa !77, !alias.scope !155, !noalias !158
+  %45 = load ptr, ptr %44, align 8, !tbaa !77, !alias.scope !163, !noalias !160
+  store ptr %45, ptr %43, align 8, !tbaa !77, !alias.scope !160, !noalias !163
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !72, !alias.scope !158, !noalias !155
-  store ptr %48, ptr %46, align 8, !tbaa !72, !alias.scope !155, !noalias !158
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !158, !noalias !155
+  %48 = load ptr, ptr %47, align 8, !tbaa !72, !alias.scope !163, !noalias !160
+  store ptr %48, ptr %46, align 8, !tbaa !72, !alias.scope !160, !noalias !163
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !163, !noalias !160
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %51 = load i64, ptr %50, align 8, !alias.scope !158, !noalias !155
-  store i64 %51, ptr %49, align 8, !alias.scope !155, !noalias !158
+  %51 = load i64, ptr %50, align 8, !alias.scope !163, !noalias !160
+  store i64 %51, ptr %49, align 8, !alias.scope !160, !noalias !163
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i38 = icmp eq ptr %52, %5
-  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i37, !llvm.loop !160
+  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i37, !llvm.loop !165
 
 _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i37, %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit35
   %.not.i40 = icmp eq ptr %6, null
   br i1 %.not.i40, label %_ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE13_M_deallocateEPS2_m.exit41, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %55 = load ptr, ptr %11, align 8, !tbaa !151
+  %55 = load ptr, ptr %11, align 8, !tbaa !156
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %57) #30
@@ -2616,7 +2616,7 @@ _ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE13_M_deallocateEPS2
   %58 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %32, i64 %1
   store ptr %58, ptr %4, align 8, !tbaa !65
   %59 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %31, i64 %29
-  store ptr %59, ptr %11, align 8, !tbaa !151
+  store ptr %59, ptr %11, align 8, !tbaa !156
   br label %60
 
 60:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE13_M_deallocateEPS2_m.exit41, %2
@@ -2832,21 +2832,26 @@ attributes #31 = { cold nounwind }
 !140 = distinct !{!140, !16}
 !141 = distinct !{!141, !16}
 !142 = distinct !{!142, !16}
-!143 = distinct !{!143, !16}
-!144 = distinct !{!144, !16}
-!145 = distinct !{!145, !16}
+!143 = distinct !{!143, !16, !144}
+!144 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!145 = distinct !{!145, !16, !144}
 !146 = distinct !{!146, !16}
 !147 = distinct !{!147, !16}
 !148 = distinct !{!148, !16}
-!149 = !{!97, !24, i64 12}
-!150 = !{!97, !24, i64 16}
-!151 = !{!66, !67, i64 16}
-!152 = !{!131, !24, i64 32}
-!153 = !{!131, !24, i64 36}
-!154 = distinct !{!154, !16}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!157 = distinct !{!157, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_"}
-!158 = !{!159}
-!159 = distinct !{!159, !157, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!160 = distinct !{!160, !16}
+!149 = distinct !{!149, !16}
+!150 = distinct !{!150, !16}
+!151 = distinct !{!151, !16, !144}
+!152 = distinct !{!152, !16, !144}
+!153 = distinct !{!153, !16}
+!154 = !{!97, !24, i64 12}
+!155 = !{!97, !24, i64 16}
+!156 = !{!66, !67, i64 16}
+!157 = !{!131, !24, i64 32}
+!158 = !{!131, !24, i64 36}
+!159 = distinct !{!159, !16}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!162 = distinct !{!162, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_"}
+!163 = !{!164}
+!164 = distinct !{!164, !162, !"_ZSt19__relocate_object_aIN5ceres8internal14CompressedListES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!165 = distinct !{!165, !16}

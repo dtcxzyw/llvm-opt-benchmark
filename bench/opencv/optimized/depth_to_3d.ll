@@ -3466,12 +3466,12 @@ _ZN2cv4Mat_IfEaSEOS1_.exit67:                     ; preds = %_ZN2cv4Mat_IfEC2Eii
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = getelementptr inbounds nuw i8, ptr %.03875.us, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !115
+  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !116
 
 ._crit_edge.us:                                   ; preds = %103
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge80, label %.lr.ph.us, !llvm.loop !116
+  br i1 %exitcond88.not, label %._crit_edge80, label %.lr.ph.us, !llvm.loop !117
 
 ._crit_edge80:                                    ; preds = %._crit_edge.us, %.lr.ph79, %_ZN2cv4Mat_IfEaSEOS1_.exit67
   %.040.lcssa = phi i64 [ 0, %_ZN2cv4Mat_IfEaSEOS1_.exit67 ], [ 0, %.lr.ph79 ], [ %.242.us, %._crit_edge.us ]
@@ -3762,12 +3762,12 @@ _ZN2cv4Mat_IfEaSEOS1_.exit67:                     ; preds = %_ZN2cv4Mat_IfEC2Eii
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = getelementptr inbounds nuw i8, ptr %.03876.us, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %105
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !118
+  br i1 %exitcond89.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !119
 
 ._crit_edge81:                                    ; preds = %._crit_edge.us, %.lr.ph80, %_ZN2cv4Mat_IfEaSEOS1_.exit67
   %.040.lcssa = phi i64 [ 0, %_ZN2cv4Mat_IfEaSEOS1_.exit67 ], [ 0, %.lr.ph80 ], [ %.242.us, %._crit_edge.us ]
@@ -4475,8 +4475,9 @@ attributes #18 = { builtin allocsize(0) }
 !111 = !{!17, !8, i64 4}
 !112 = !{!9, !9, i64 0}
 !113 = distinct !{!113, !36}
-!114 = distinct !{!114, !36}
-!115 = distinct !{!115, !36}
+!114 = distinct !{!114, !36, !115}
+!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !116 = distinct !{!116, !36}
-!117 = distinct !{!117, !36}
+!117 = distinct !{!117, !36, !115}
 !118 = distinct !{!118, !36}
+!119 = distinct !{!119, !36, !115}

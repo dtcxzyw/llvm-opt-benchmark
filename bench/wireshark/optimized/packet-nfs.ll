@@ -5166,7 +5166,7 @@ define internal range(i32 0, 2) i32 @nfsstat_packet(ptr noundef readonly capture
   %59 = load i32, ptr %7, align 8
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !15
+  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %58, %39, %.thread, %14, %11, %5
   %.028 = phi i32 [ 0, %5 ], [ 0, %11 ], [ 1, %14 ], [ 1, %.thread ], [ 1, %39 ], [ 1, %58 ]
@@ -5191,7 +5191,7 @@ define internal void @nfsstat_init(ptr readnone captures(none) %0, ptr noundef %
   tail call void @init_srt_table_row(ptr noundef %4, i32 noundef %.01516, ptr noundef %9)
   %10 = add nuw nsw i32 %.01516, 1
   %exitcond.not = icmp eq i32 %10, 76
-  br i1 %exitcond.not, label %5, label %7, !llvm.loop !16
+  br i1 %exitcond.not, label %5, label %7, !llvm.loop !18
 
 11:                                               ; preds = %12
   ret void
@@ -5202,7 +5202,7 @@ define internal void @nfsstat_init(ptr readnone captures(none) %0, ptr noundef %
   tail call void @init_srt_table_row(ptr noundef %6, i32 noundef %.017, ptr noundef %13)
   %14 = add nuw nsw i32 %.017, 1
   %exitcond18.not = icmp eq i32 %14, 16
-  br i1 %exitcond18.not, label %11, label %12, !llvm.loop !17
+  br i1 %exitcond18.not, label %11, label %12, !llvm.loop !19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -6288,7 +6288,7 @@ define internal i32 @nfs_name_snoop_matched_hash(ptr noundef readonly captures(n
   %12 = xor i32 %.010, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi i32 [ %2, %1 ], [ %12, %8 ]
@@ -11257,7 +11257,7 @@ dissect_nfs4_newtime.exit:                        ; preds = %dissect_nfs4_newoff
   %574 = call fastcc noundef i32 @dissect_nfs4_device_errors(ptr noundef %0, i32 noundef %573, ptr noundef %568)
   %575 = add nuw i32 %.074.i, 1
   %exitcond.not.i = icmp eq i32 %575, %557
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %555
   %.172.lcssa.i = phi i32 [ %560, %555 ], [ %574, %.lr.ph.i ]
@@ -11285,7 +11285,7 @@ dissect_nfs4_newtime.exit:                        ; preds = %dissect_nfs4_newoff
   %591 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %590, ptr noundef %2, ptr noundef %585, ptr noundef readonly %4, i1 noundef zeroext false)
   %592 = add nuw i32 %.176.i, 1
   %exitcond82.not.i = icmp eq i32 %592, %576
-  br i1 %exitcond82.not.i, label %dissect_nfs4_layoutreturn.exit, label %.lr.ph78.i, !llvm.loop !20
+  br i1 %exitcond82.not.i, label %dissect_nfs4_layoutreturn.exit, label %.lr.ph78.i, !llvm.loop !22
 
 593:                                              ; preds = %548
   %594 = load i32, ptr @hf_nfs4_lrf_body_content, align 4
@@ -11643,7 +11643,7 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %
   %.2 = phi i32 [ %55, %51 ], [ %67, %60 ], [ %71, %68 ], [ %80, %74 ], [ %97, %94 ], [ %100, %98 ], [ %102, %101 ], [ %106, %108 ], [ %106, %105 ], [ %55, %110 ], [ %113, %111 ], [ %.0.i, %147 ], [ %.0.i, %148 ], [ %161, %149 ], [ %173, %177 ], [ %173, %178 ], [ %181, %186 ], [ %181, %184 ], [ %816, %812 ], [ %188, %190 ], [ %188, %187 ], [ %.0.i961, %259 ], [ %.0.i961, %257 ], [ %262, %260 ], [ %266, %263 ], [ %274, %267 ], [ %276, %275 ], [ %811, %805 ], [ %819, %817 ], [ %284, %286 ], [ %284, %277 ], [ %297, %299 ], [ %297, %288 ], [ %804, %802 ], [ %303, %301 ], [ %306, %304 ], [ %309, %307 ], [ %312, %317 ], [ %312, %315 ], [ %322, %318 ], [ %330, %327 ], [ %55, %331 ], [ %55, %332 ], [ %336, %334 ], [ %340, %337 ], [ %343, %341 ], [ %363, %346 ], [ %368, %364 ], [ %370, %369 ], [ %385, %387 ], [ %385, %371 ], [ %395, %389 ], [ %399, %396 ], [ %407, %400 ], [ %437, %dissect_nfs4_state_protect_a.exit ], [ %451, %438 ], [ %455, %452 ], [ %457, %456 ], [ %493, %460 ], [ %509, %494 ], [ %535, %dissect_nfs4_newtime.exit ], [ %604, %596 ], [ %613, %605 ], [ %625, %614 ], [ %633, %635 ], [ %633, %626 ], [ %661, %660 ], [ %668, %667 ], [ %676, %678 ], [ %676, %669 ], [ %692, %691 ], [ %694, %696 ], [ %694, %693 ], [ %699, %701 ], [ %699, %698 ], [ %710, %712 ], [ %710, %703 ], [ %726, %725 ], [ %739, %738 ], [ %747, %749 ], [ %747, %740 ], [ %782, %dissect_nfs4_app_data_block.exit ], [ %794, %800 ], [ %794, %798 ], [ %546, %536 ], [ %579, %._crit_edge.i ], [ %595, %593 ], [ %591, %.lr.ph78.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !23
 
 ._crit_edge.split.loop.exit1021:                  ; preds = %35
   %820 = trunc nuw nsw i64 %indvars.iv to i32
@@ -11687,7 +11687,7 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %
   %spec.select = call i32 @llvm.umin.i32(i32 %831, i32 %.0886985)
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
   %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
-  br i1 %exitcond1001.not, label %.lr.ph991, label %.lr.ph987, !llvm.loop !22
+  br i1 %exitcond1001.not, label %.lr.ph991, label %.lr.ph987, !llvm.loop !24
 
 832:                                              ; preds = %.lr.ph991, %868
   %indvars.iv1002 = phi i64 [ 0, %.lr.ph991 ], [ %indvars.iv.next1003, %868 ]
@@ -11761,7 +11761,7 @@ proto_item_set_generated.exit:                    ; preds = %854, %851, %847, %8
   %.1889 = phi i32 [ %.0888990, %840 ], [ 0, %865 ], [ 0, %861 ]
   %indvars.iv.next1003 = add nuw nsw i64 %indvars.iv1002, 1
   %exitcond1006.not = icmp eq i64 %indvars.iv.next1003, %wide.trip.count1005
-  br i1 %exitcond1006.not, label %._crit_edge992, label %832, !llvm.loop !23
+  br i1 %exitcond1006.not, label %._crit_edge992, label %832, !llvm.loop !25
 
 ._crit_edge992:                                   ; preds = %868, %23, %._crit_edge
   %.0886.lcssa1019 = phi i32 [ 5, %._crit_edge ], [ 5, %23 ], [ %spec.select, %868 ]
@@ -11963,7 +11963,7 @@ define internal fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %1
   %21 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %20, i32 noundef %.147)
   %22 = add nuw i32 %.04546, 1
   %exitcond.not = icmp eq i32 %22, %18
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 23:                                               ; preds = %.lr.ph50
   %24 = load i32, ptr @hf_nfs4_service, align 4
@@ -11980,7 +11980,7 @@ define internal fastcc i32 @dissect_rpc_secparms4(ptr noundef %0, i32 noundef %1
   %.2 = phi i32 [ %8, %.lr.ph50 ], [ %29, %23 ], [ %19, %9 ], [ %21, %.lr.ph ]
   %30 = add nuw i32 %.04448, 1
   %exitcond53.not = icmp eq i32 %30, %4
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph50, !llvm.loop !25
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph50, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %.0.lcssa = phi i32 [ %5, %3 ], [ %.2, %.loopexit ]
@@ -12011,7 +12011,7 @@ define internal fastcc i32 @dissect_rpc_nfs_impl_id4(ptr noundef %0, i32 noundef
   %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %14, i32 noundef %17, i32 noundef %16)
   %19 = add nuw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %19, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %8, %4 ], [ %18, %.lr.ph ]
@@ -12049,7 +12049,7 @@ define internal fastcc i32 @dissect_rpc_chanattrs4(ptr noundef %0, i32 noundef %
   %25 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %24, i32 noundef %.035)
   %26 = add nuw i32 %.03334, 1
   %exitcond.not = icmp eq i32 %26, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %23, %4 ], [ %25, %.lr.ph ]
@@ -12080,7 +12080,7 @@ define internal fastcc i32 @dissect_nfs4_source_servers(ptr noundef %0, i32 noun
   %16 = add nuw i32 %.017, 1
   %17 = load i32, ptr %4, align 4
   %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.015.lcssa = phi i32 [ %7, %3 ], [ %15, %.lr.ph ]
@@ -12186,7 +12186,7 @@ dissect_nfs4_status.exit:                         ; preds = %.lr.ph, %22, %25
   %33 = add nuw i32 %.02931, 1
   %.0 = add i32 %.0.in32, 28
   %exitcond.not = icmp eq i32 %33, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %dissect_nfs4_status.exit, %3
   %.0.lcssa = phi i32 [ %.030, %3 ], [ %.0, %dissect_nfs4_status.exit ]
@@ -12466,7 +12466,7 @@ define internal i32 @dissect_nfs4_fattr_value(ptr noundef %0, i32 noundef %1, pt
   %62 = tail call fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %.12.i, ptr noundef %4, i32 noundef %.03.i, i32 noundef %47)
   %63 = add i32 %.03.i, 1
   %.not28.i = icmp ugt i32 %63, %54
-  br i1 %.not28.i, label %dissect_nfs4_fattr_acl.exit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not28.i, label %dissect_nfs4_fattr_acl.exit, label %.lr.ph.i, !llvm.loop !32
 
 64:                                               ; preds = %8
   %65 = load i32, ptr @hf_nfs4_fattr_aclsupport, align 4
@@ -12834,7 +12834,7 @@ define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, 
   %spec.select = add i32 %.0226269, %47
   %48 = add nuw i32 %.0224270, 1
   %exitcond.not = icmp eq i32 %48, %9
-  br i1 %exitcond.not, label %.lr.ph291, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.lr.ph291, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %43
   %49 = icmp ne ptr %.0194, null
@@ -12919,7 +12919,7 @@ define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, 
   %87 = add i32 %86, %.2228272
   %88 = add nuw nsw i32 %.0229271, 1
   %exitcond296.not = icmp eq i32 %88, 32
-  br i1 %exitcond296.not, label %89, label %.preheader, !llvm.loop !32
+  br i1 %exitcond296.not, label %89, label %.preheader, !llvm.loop !34
 
 89:                                               ; preds = %.preheader
   %90 = load i32, ptr %84, align 4
@@ -13071,7 +13071,7 @@ proto_item_set_generated.exit:                    ; preds = %98, %105, %101, %89
   %.4 = phi ptr [ %.3, %.thread264 ], [ null, %149 ], [ %.2279, %110 ]
   %152 = add nuw nsw i32 %.1230273, 1
   %exitcond297.not = icmp eq i32 %152, 32
-  br i1 %exitcond297.not, label %153, label %110, !llvm.loop !33
+  br i1 %exitcond297.not, label %153, label %110, !llvm.loop !35
 
 153:                                              ; preds = %151
   %154 = trunc nuw i8 %.6 to i1
@@ -13092,7 +13092,7 @@ proto_item_set_generated.exit:                    ; preds = %98, %105, %101, %89
   %157 = add i32 %.0209283, 4
   %158 = add nuw i32 %.1225280, 1
   %exitcond298.not = icmp eq i32 %158, %9
-  br i1 %exitcond298.not, label %._crit_edge292, label %66, !llvm.loop !34
+  br i1 %exitcond298.not, label %._crit_edge292, label %66, !llvm.loop !36
 
 ._crit_edge292:                                   ; preds = %156, %._crit_edge, %50, %53
   %.0211.lcssa = phi i32 [ %.0208, %53 ], [ %.0208, %50 ], [ %.0208, %._crit_edge ], [ %.1212, %156 ]
@@ -13231,7 +13231,7 @@ define internal fastcc i32 @dissect_nfs4_fs_locations(ptr noundef %0, ptr nounde
   %16 = add nuw i32 %.01011.i, 1
   %17 = load i32, ptr %5, align 4
   %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.lr.ph.i, label %dissect_nfs4_pathname.exit, !llvm.loop !35
+  br i1 %18, label %.lr.ph.i, label %dissect_nfs4_pathname.exit, !llvm.loop !37
 
 dissect_nfs4_pathname.exit:                       ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ %10, %4 ], [ %15, %.lr.ph.i ]
@@ -13255,7 +13255,7 @@ define internal fastcc i32 @dissect_nfs_fs_layout_type(ptr noundef %0, ptr nound
   %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %6, i32 noundef %.0910)
   %8 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %8, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.09.lcssa = phi i32 [ %5, %3 ], [ %7, %.lr.ph ]
@@ -13399,7 +13399,7 @@ define internal fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %1, ptr
   %.1.i = phi ptr [ %.2.i, %45 ], [ %.047.i, %28 ]
   %51 = shl nuw nsw i32 %.03845.i, 1
   %52 = icmp samesign ult i32 %.03845.i, 524289
-  br i1 %52, label %28, label %dissect_nfs4_acemask.exit, !llvm.loop !37
+  br i1 %52, label %28, label %dissect_nfs4_acemask.exit, !llvm.loop !39
 
 dissect_nfs4_acemask.exit:                        ; preds = %50
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.2407)
@@ -13438,7 +13438,7 @@ define internal i32 @dissect_nfs4_fs_location(ptr noundef %0, i32 noundef %1, pt
   %19 = add nuw i32 %.01011.i, 1
   %20 = load i32, ptr %6, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph.i, label %dissect_nfs4_pathname.exit, !llvm.loop !35
+  br i1 %21, label %.lr.ph.i, label %dissect_nfs4_pathname.exit, !llvm.loop !37
 
 dissect_nfs4_pathname.exit:                       ; preds = %.lr.ph.i, %5
   %.0.lcssa.i = phi i32 [ %13, %5 ], [ %18, %.lr.ph.i ]
@@ -13573,7 +13573,7 @@ sub_1:                                            ; preds = %sub_0
   %49 = or i32 %46, %48
   %50 = load i32, ptr %9, align 4
   %51 = or i32 %49, %50
-  %52 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #26, !srcloc !38
+  %52 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #26, !srcloc !40
   store i32 %52, ptr %16, align 4
   store i32 2, ptr %18, align 8
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -14549,7 +14549,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %438 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.1209.i, ptr noundef %2, ptr noundef %437, ptr noundef nonnull @.str.2508, ptr noundef null, ptr noundef readonly %4)
   %439 = add nuw i32 %.0180208.i, 1
   %exitcond232.not.i = icmp eq i32 %439, %432
-  br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph211.i, !llvm.loop !39
+  br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph211.i, !llvm.loop !41
 
 440:                                              ; preds = %.lr.ph216.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
@@ -14600,7 +14600,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %466 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.4193.i, ptr noundef %2, ptr noundef %457, ptr noundef nonnull @.str.2512, ptr noundef null, ptr noundef readonly %4)
   %467 = add nuw i32 %.0184192.i, 1
   %exitcond229.not.i = icmp eq i32 %467, %464
-  br i1 %exitcond229.not.i, label %._crit_edge.i486, label %.lr.ph194.i, !llvm.loop !40
+  br i1 %exitcond229.not.i, label %._crit_edge.i486, label %.lr.ph194.i, !llvm.loop !42
 
 ._crit_edge.i486:                                 ; preds = %.lr.ph194.i, %.lr.ph199.i
   %.4.lcssa.i = phi i32 [ %465, %.lr.ph199.i ], [ %466, %.lr.ph194.i ]
@@ -14613,7 +14613,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   call void @proto_item_set_len(ptr noundef %472, i32 noundef %473)
   %474 = add nuw i32 %.0183196.i, 1
   %exitcond230.not.i = icmp eq i32 %474, %454
-  br i1 %exitcond230.not.i, label %._crit_edge200.i, label %.lr.ph199.i, !llvm.loop !41
+  br i1 %exitcond230.not.i, label %._crit_edge200.i, label %.lr.ph199.i, !llvm.loop !43
 
 ._crit_edge200.i:                                 ; preds = %._crit_edge.i486, %.lr.ph205.i
   %.3.lcssa.i = phi i32 [ %455, %.lr.ph205.i ], [ %471, %._crit_edge.i486 ]
@@ -14622,7 +14622,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   call void @proto_item_set_len(ptr noundef %475, i32 noundef %476)
   %477 = add nuw i32 %.1181202.i, 1
   %exitcond231.not.i = icmp eq i32 %477, %446
-  br i1 %exitcond231.not.i, label %._crit_edge206.i, label %.lr.ph205.i, !llvm.loop !42
+  br i1 %exitcond231.not.i, label %._crit_edge206.i, label %.lr.ph205.i, !llvm.loop !44
 
 ._crit_edge206.i:                                 ; preds = %._crit_edge200.i, %440
   %.2.lcssa.i = phi i32 [ %449, %440 ], [ %.3.lcssa.i, %._crit_edge200.i ]
@@ -14672,7 +14672,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %505 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %494, i32 noundef %504, i32 noundef %503)
   %506 = add nuw i32 %.2182190.i, 1
   %exitcond.not.i = icmp eq i32 %506, %489
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i484, !llvm.loop !43
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i484, !llvm.loop !45
 
 507:                                              ; preds = %.lr.ph216.i
   %508 = load i32, ptr @hf_nfs4_layout, align 4
@@ -14683,7 +14683,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %.7.i = phi i32 [ %.5.i, %486 ], [ %509, %507 ], [ %435, %407 ], [ %492, %487 ], [ %438, %.lr.ph211.i ], [ %505, %.lr.ph.i484 ]
   %510 = add nuw i32 %.0185213.i, 1
   %exitcond233.not.i = icmp eq i32 %510, %394
-  br i1 %exitcond233.not.i, label %dissect_nfsdata_reduced.exit, label %.lr.ph216.i, !llvm.loop !44
+  br i1 %exitcond233.not.i, label %dissect_nfsdata_reduced.exit, label %.lr.ph216.i, !llvm.loop !46
 
 511:                                              ; preds = %80
   %512 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
@@ -14732,7 +14732,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %533 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %61, i32 noundef %532, i32 noundef %.031.i.i)
   %534 = add nuw i32 %.02730.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %534, %530
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %529
   %.0.lcssa.i.i = phi i32 [ %531, %529 ], [ %533, %.lr.ph.i.i ]
@@ -14758,13 +14758,13 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %542 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %541, i32 noundef %540, ptr noundef null)
   %543 = add nuw i32 %.02932.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %543, %537
-  br i1 %exitcond47.not.i.i, label %._crit_edge36.i.i, label %.lr.ph35.i.i, !llvm.loop !46
+  br i1 %exitcond47.not.i.i, label %._crit_edge36.i.i, label %.lr.ph35.i.i, !llvm.loop !48
 
 ._crit_edge36.i.i:                                ; preds = %.lr.ph35.i.i, %.lr.ph41.i.i
   %.2.lcssa.i.i = phi i32 [ %538, %.lr.ph41.i.i ], [ %542, %.lr.ph35.i.i ]
   %544 = add nuw i32 %.12838.i.i, 1
   %exitcond48.not.i.i = icmp eq i32 %544, %535
-  br i1 %exitcond48.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph41.i.i, !llvm.loop !47
+  br i1 %exitcond48.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph41.i.i, !llvm.loop !49
 
 545:                                              ; preds = %524
   %546 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %528)
@@ -14781,7 +14781,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %551 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %61, i32 noundef %550, i32 noundef %549, ptr noundef null)
   %552 = add nuw i32 %.03335.i.i, 1
   %exitcond.not.i22.i = icmp eq i32 %552, %546
-  br i1 %exitcond.not.i22.i, label %._crit_edge.i23.i, label %.lr.ph.i21.i, !llvm.loop !48
+  br i1 %exitcond.not.i22.i, label %._crit_edge.i23.i, label %.lr.ph.i21.i, !llvm.loop !50
 
 ._crit_edge.i23.i:                                ; preds = %.lr.ph.i21.i, %545
   %.0.lcssa.i24.i = phi i32 [ %547, %545 ], [ %551, %.lr.ph.i21.i ]
@@ -14805,7 +14805,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %564 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %61, i32 noundef %563, i32 noundef %562)
   %565 = add nuw i32 %.13437.i.i, 1
   %exitcond45.not.i.i = icmp eq i32 %565, %553
-  br i1 %exitcond45.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph40.i.i, !llvm.loop !49
+  br i1 %exitcond45.not.i.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph40.i.i, !llvm.loop !51
 
 566:                                              ; preds = %524
   %567 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %528)
@@ -14859,7 +14859,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %311, %324, %327
   %593 = call ptr @proto_tree_add_item(ptr noundef %590, i32 noundef %592, ptr noundef %0, i32 noundef %586, i32 noundef 4, i32 noundef 0)
   %594 = add nuw i32 %.01516.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %594, %585
-  br i1 %exitcond.not.i.i.i, label %dissect_nfs4_vol_indices.exit.i.i, label %591, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i, label %dissect_nfs4_vol_indices.exit.i.i, label %591, !llvm.loop !52
 
 dissect_nfs4_vol_indices.exit.i.i:                ; preds = %591, %584
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
@@ -14885,7 +14885,7 @@ dissect_nfs4_vol_indices.exit.i.i:                ; preds = %591, %584
   %606 = call ptr @proto_tree_add_item(ptr noundef %603, i32 noundef %605, ptr noundef %0, i32 noundef %599, i32 noundef 4, i32 noundef 0)
   %607 = add nuw i32 %.01516.i46.i.i, 1
   %exitcond.not.i47.i.i = icmp eq i32 %607, %598
-  br i1 %exitcond.not.i47.i.i, label %dissect_nfs4_vol_indices.exit48.i.i, label %604, !llvm.loop !50
+  br i1 %exitcond.not.i47.i.i, label %dissect_nfs4_vol_indices.exit48.i.i, label %604, !llvm.loop !52
 
 dissect_nfs4_vol_indices.exit48.i.i:              ; preds = %604, %595
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
@@ -14912,7 +14912,7 @@ dissect_nfs4_vol_indices.exit48.i.i:              ; preds = %604, %595
   call void @proto_item_set_len(ptr noundef %571, i32 noundef %622)
   %623 = add nuw i32 %.04450.i.i, 1
   %exitcond.not.i28.i = icmp eq i32 %623, %567
-  br i1 %exitcond.not.i28.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph.i27.i, !llvm.loop !51
+  br i1 %exitcond.not.i28.i, label %dissect_nfs4_deviceaddr.exit, label %.lr.ph.i27.i, !llvm.loop !53
 
 624:                                              ; preds = %524
   %625 = load i32, ptr @hf_nfs4_getdevinfo, align 4
@@ -14943,7 +14943,7 @@ dissect_nfs4_deviceaddr.exit:                     ; preds = %621, %.lr.ph40.i.i,
   %638 = add i32 %.01112.i, 16
   %639 = add nuw i32 %.013.i, 1
   %exitcond.not.i496 = icmp eq i32 %639, %633
-  br i1 %exitcond.not.i496, label %dissect_nfs4_devicelist.exit, label %.lr.ph.i495, !llvm.loop !52
+  br i1 %exitcond.not.i496, label %dissect_nfs4_devicelist.exit, label %.lr.ph.i495, !llvm.loop !54
 
 dissect_nfs4_devicelist.exit:                     ; preds = %.lr.ph.i495, %628
   %.011.lcssa.i = phi i32 [ %635, %628 ], [ %638, %.lr.ph.i495 ]
@@ -15028,7 +15028,7 @@ dissect_nfs4_devicelist.exit:                     ; preds = %.lr.ph.i495, %628
   %694 = add nuw i32 %.016.i, 1
   %695 = load i32, ptr %9, align 4
   %696 = icmp ult i32 %694, %695
-  br i1 %696, label %.lr.ph.i499, label %dissect_nfs4_offload_status_res.exit, !llvm.loop !53
+  br i1 %696, label %.lr.ph.i499, label %dissect_nfs4_offload_status_res.exit, !llvm.loop !55
 
 dissect_nfs4_offload_status_res.exit:             ; preds = %.lr.ph.i499, %679
   %.014.lcssa.i = phi i32 [ %684, %679 ], [ %693, %.lr.ph.i499 ]
@@ -15110,7 +15110,7 @@ dissect_nfs4_offload_status_res.exit:             ; preds = %.lr.ph.i499, %679
   %739 = add nuw i32 %.01011.i, 1
   %740 = load i32, ptr %7, align 4
   %741 = icmp ult i32 %739, %740
-  br i1 %741, label %.lr.ph.i502, label %dissect_nfs4_listxattr_names.exit, !llvm.loop !54
+  br i1 %741, label %.lr.ph.i502, label %dissect_nfs4_listxattr_names.exit, !llvm.loop !56
 
 dissect_nfs4_listxattr_names.exit:                ; preds = %.lr.ph.i502, %728
   %.0.lcssa.i504 = phi i32 [ %733, %728 ], [ %738, %.lr.ph.i502 ]
@@ -15142,7 +15142,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %522, 
   %.1 = phi i32 [ %77, %79 ], [ %77, %80 ], [ %82, %81 ], [ %87, %83 ], [ %90, %88 ], [ %102, %91 ], [ %104, %103 ], [ %106, %105 ], [ %115, %107 ], [ %122, %121 ], [ %77, %119 ], [ %135, %123 ], [ %137, %136 ], [ %.0.i, %dissect_nfs4_open_delegation.exit ], [ %191, %190 ], [ %753, %745 ], [ %77, %744 ], [ %743, %dissect_nfs4_listxattr_names.exit ], [ %77, %727 ], [ %724, %716 ], [ %77, %715 ], [ %714, %712 ], [ %77, %711 ], [ %256, %248 ], [ %277, %259 ], [ %282, %280 ], [ %284, %283 ], [ %290, %286 ], [ %292, %291 ], [ %302, %293 ], [ %310, %303 ], [ %348, %dissect_nfs4_state_protect_r.exit ], [ %360, %349 ], [ %710, %709 ], [ %77, %708 ], [ %707, %703 ], [ %363, %361 ], [ %386, %368 ], [ %389, %387 ], [ %627, %dissect_nfs4_deviceaddr.exit ], [ %641, %dissect_nfs4_devicelist.exit ], [ %657, %642 ], [ %702, %698 ], [ %77, %697 ], [ %664, %659 ], [ %669, %665 ], [ %676, %670 ], [ %.014.lcssa.i, %dissect_nfs4_offload_status_res.exit ], [ %678, %677 ], [ %77, %118 ], [ %77, %285 ], [ %367, %364 ], [ %77, %658 ], [ %200, %199 ], [ %203, %202 ], [ %237, %232 ], [ %239, %238 ], [ %244, %243 ], [ %247, %246 ], [ %397, %390 ], [ %517, %515 ], [ %514, %511 ], [ %523, %522 ], [ %521, %518 ], [ %.7.i, %.loopexit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge.split.loop.exit603:                   ; preds = %.lr.ph
   %756 = trunc nuw nsw i64 %indvars.iv to i32
@@ -15186,7 +15186,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %522, 
   %spec.select = call i32 @llvm.umin.i32(i32 %767, i32 %.0458539)
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
-  br i1 %exitcond569.not, label %.lr.ph545, label %.lr.ph541, !llvm.loop !56
+  br i1 %exitcond569.not, label %.lr.ph545, label %.lr.ph541, !llvm.loop !58
 
 768:                                              ; preds = %.lr.ph545, %808
   %indvars.iv570 = phi i64 [ 0, %.lr.ph545 ], [ %indvars.iv.next571, %808 ]
@@ -15266,7 +15266,7 @@ proto_item_set_generated.exit:                    ; preds = %794, %791, %787, %7
   %.1461 = phi i32 [ %.0460544, %781 ], [ 0, %805 ], [ 0, %801 ]
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %exitcond574.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count573
-  br i1 %exitcond574.not, label %._crit_edge546, label %768, !llvm.loop !57
+  br i1 %exitcond574.not, label %._crit_edge546, label %768, !llvm.loop !59
 
 ._crit_edge546:                                   ; preds = %808, %36, %._crit_edge
   %.0458.lcssa588 = phi i32 [ 5, %._crit_edge ], [ 5, %36 ], [ %spec.select, %808 ]
@@ -15374,7 +15374,7 @@ define internal fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noun
   %16 = add nuw i32 %.026, 1
   %17 = load i32, ptr %4, align 4
   %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.024.lcssa = phi i32 [ %7, %3 ], [ %15, %.lr.ph ]
@@ -15624,13 +15624,13 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   %119 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %114, i32 noundef %118, i32 noundef %117)
   %120 = add nuw i32 %.03031.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %120, %112
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !61
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph36.i.i
   %.1.lcssa.i.i = phi i32 [ %115, %.lr.ph36.i.i ], [ %119, %.lr.ph.i.i ]
   %121 = add nuw i32 %.02933.i.i, 1
   %exitcond40.not.i.i = icmp eq i32 %121, %105
-  br i1 %exitcond40.not.i.i, label %dissect_nfs4_cb_layoutrecall.exit.i, label %.lr.ph36.i.i, !llvm.loop !60
+  br i1 %exitcond40.not.i.i, label %dissect_nfs4_cb_layoutrecall.exit.i, label %.lr.ph36.i.i, !llvm.loop !62
 
 122:                                              ; preds = %50
   %123 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %43, ptr noundef %1, ptr noundef %56, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
@@ -15687,7 +15687,7 @@ dissect_nfs4_cb_layoutrecall.exit.i:              ; preds = %._crit_edge.i.i, %1
   %.2.i = phi i32 [ %43, %50 ], [ %61, %57 ], [ %64, %62 ], [ %92, %89 ], [ %149, %148 ], [ %152, %150 ], [ %129, %122 ], [ %43, %.thread142.i ], [ %81, %75 ], [ %88, %82 ], [ %74, %65 ], [ %108, %93 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %dissect_nfs4_cb_request.exit, label %33, !llvm.loop !61
+  br i1 %exitcond.not.i, label %dissect_nfs4_cb_request.exit, label %33, !llvm.loop !63
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %33
   %153 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -15882,7 +15882,7 @@ dissect_nfs4_status.exit.i:                       ; preds = %73, %70, %62
   %.2.i = phi i32 [ %78, %79 ], [ %78, %80 ], [ %94, %83 ], [ %82, %81 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %dissect_nfs4_cb_resp_op.exit, label %42, !llvm.loop !62
+  br i1 %exitcond.not.i, label %dissect_nfs4_cb_resp_op.exit, label %42, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %42
   %96 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -16001,8 +16001,8 @@ attributes #26 = { nounwind memory(none) }
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
+!15 = distinct !{!15, !13, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !17 = distinct !{!17, !13}
 !18 = distinct !{!18, !13}
 !19 = distinct !{!19, !13}
@@ -16024,9 +16024,9 @@ attributes #26 = { nounwind memory(none) }
 !35 = distinct !{!35, !13}
 !36 = distinct !{!36, !13}
 !37 = distinct !{!37, !13}
-!38 = !{i64 2151414317}
+!38 = distinct !{!38, !13}
 !39 = distinct !{!39, !13}
-!40 = distinct !{!40, !13}
+!40 = !{i64 2151414317}
 !41 = distinct !{!41, !13}
 !42 = distinct !{!42, !13}
 !43 = distinct !{!43, !13}
@@ -16049,3 +16049,5 @@ attributes #26 = { nounwind memory(none) }
 !60 = distinct !{!60, !13}
 !61 = distinct !{!61, !13}
 !62 = distinct !{!62, !13}
+!63 = distinct !{!63, !13}
+!64 = distinct !{!64, !13}

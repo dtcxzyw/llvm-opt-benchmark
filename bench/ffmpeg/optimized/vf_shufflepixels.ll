@@ -970,7 +970,7 @@ define internal noundef i32 @shuffle_horizontal16(ptr noundef readonly captures(
 ._crit_edge52:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %20
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge, label %20, !llvm.loop !92
+  br i1 %exitcond61.not, label %._crit_edge, label %20, !llvm.loop !93
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1034,7 +1034,7 @@ define internal noundef i32 @shuffle_vertical8(ptr noundef readonly captures(non
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next47, %41
-  br i1 %42, label %19, label %._crit_edge44, !llvm.loop !93
+  br i1 %42, label %19, label %._crit_edge44, !llvm.loop !94
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %43 ]
@@ -1054,7 +1054,7 @@ define internal noundef i32 @shuffle_vertical8(ptr noundef readonly captures(non
   %55 = getelementptr inbounds nuw i8, ptr %.03839, i64 %54
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %43, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %43, !llvm.loop !95
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1118,7 +1118,7 @@ define internal noundef i32 @shuffle_vertical16(ptr noundef readonly captures(no
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next47, %41
-  br i1 %42, label %19, label %._crit_edge44, !llvm.loop !95
+  br i1 %42, label %19, label %._crit_edge44, !llvm.loop !96
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %43 ]
@@ -1139,7 +1139,7 @@ define internal noundef i32 @shuffle_vertical16(ptr noundef readonly captures(no
   %56 = getelementptr inbounds nuw i16, ptr %.03839, i64 %55
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %43, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %43, !llvm.loop !97
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1223,7 +1223,7 @@ define internal noundef i32 @shuffle_block8(ptr noundef readonly captures(none) 
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next72, %49
-  br i1 %50, label %19, label %._crit_edge67, !llvm.loop !97
+  br i1 %50, label %19, label %._crit_edge67, !llvm.loop !98
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %27, align 4, !tbaa !48
@@ -1238,7 +1238,7 @@ define internal noundef i32 @shuffle_block8(ptr noundef readonly captures(none) 
   %55 = getelementptr inbounds i32, ptr %.05661, i64 %.pre-phi
   %56 = add nsw i32 %.05562, 1
   %exitcond.not = icmp eq i32 %56, %26
-  br i1 %exitcond.not, label %._crit_edge63.loopexit, label %.preheader, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge63.loopexit, label %.preheader, !llvm.loop !99
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
@@ -1260,7 +1260,7 @@ define internal noundef i32 @shuffle_block8(ptr noundef readonly captures(none) 
   %70 = load i32, ptr %30, align 4, !tbaa !48
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !99
+  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !100
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1350,19 +1350,19 @@ define internal noundef i32 @shuffle_block16(ptr noundef readonly captures(none)
   store i16 %59, ptr %60, align 2, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %48, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge.us, label %48, !llvm.loop !101
 
 ._crit_edge.us:                                   ; preds = %48
   %61 = getelementptr inbounds nuw i16, ptr %.05760.us, i64 %44
   %62 = getelementptr inbounds nuw i32, ptr %.05661.us, i64 %45
   %63 = add nsw i32 %.05562.us, 1
   %exitcond67.not = icmp eq i32 %63, %26
-  br i1 %exitcond67.not, label %._crit_edge63, label %.preheader.us, !llvm.loop !101
+  br i1 %exitcond67.not, label %._crit_edge63, label %.preheader.us, !llvm.loop !102
 
 ._crit_edge63:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %20
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %20, !llvm.loop !102
+  br i1 %exitcond72.not, label %._crit_edge, label %20, !llvm.loop !103
 }
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -1486,15 +1486,16 @@ attributes #11 = { noreturn nounwind }
 !88 = !{!89, !89, i64 0}
 !89 = !{!"short", !8, i64 0}
 !90 = distinct !{!90, !72}
-!91 = distinct !{!91, !72}
-!92 = distinct !{!92, !72}
+!91 = distinct !{!91, !72, !92}
+!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !93 = distinct !{!93, !72}
 !94 = distinct !{!94, !72}
 !95 = distinct !{!95, !72}
 !96 = distinct !{!96, !72}
 !97 = distinct !{!97, !72}
-!98 = distinct !{!98, !72, !79}
-!99 = distinct !{!99, !72}
+!98 = distinct !{!98, !72}
+!99 = distinct !{!99, !72, !79}
 !100 = distinct !{!100, !72}
 !101 = distinct !{!101, !72}
-!102 = distinct !{!102, !72}
+!102 = distinct !{!102, !72, !92}
+!103 = distinct !{!103, !72}
